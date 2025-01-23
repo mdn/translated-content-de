@@ -2,12 +2,12 @@
 title: Temporal.ZonedDateTime.prototype.toPlainDate()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/toPlainDate
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`toPlainDate()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues {{jsxref("Temporal.PlainDate")}} Objekt zurück, das den Datumsanteil dieses Datums-Uhrzeit darstellt.
+Die **`toPlainDate()`**-Methode von Instanzen von {{jsxref("Temporal.ZonedDateTime")}} gibt ein neues {{jsxref("Temporal.PlainDate")}}-Objekt zurück, das den Datumsanteil dieses Datums-Zeit-Werts repräsentiert.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.PlainDate")}} Objekt, das den Datumsanteil dieses Datums-Uhrzeit darstellt.
+Ein neues {{jsxref("Temporal.PlainDate")}}-Objekt, das den Datumsanteil dieses Datums-Zeit-Werts darstellt.
 
 ## Beispiele
 

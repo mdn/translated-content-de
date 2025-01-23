@@ -2,16 +2,16 @@
 title: Temporal.Duration.prototype.minutes
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/minutes
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`minutes`** Zugriffsproperty von {{jsxref("Temporal.Duration")}} Instanzen liefert eine ganze Zahl, die die Anzahl der Minuten in der Dauer darstellt.
+Die Zugriffseigenschaft **`minutes`** von Instanzen von {{jsxref("Temporal.Duration")}} gibt eine ganze Zahl zurück, die die Anzahl der Minuten in der Dauer darstellt.
 
-Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie nicht den Bereich dieses Werts annehmen, aber Sie können das Vorzeichen erkennen, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen. Wenn sie auf eine Einheit über den Minuten ausgeglichen ist, wird der absolute Wert der `minutes` zwischen 0 und 59, einschließlich, liegen.
+Es sei denn, die Dauer ist [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing), Sie können den Bereich dieses Wertes nicht annehmen, aber Sie können das Vorzeichen ermitteln, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen. Wenn sie zu einer Einheit über den Minuten ausgeglichen ist, liegt der absolute Wert der `minutes` zwischen 0 und 59, einschließlich.
 
-Der Set-Zugriff von `minutes` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Zugriffsmechanismus von `minutes` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}}-Methode, um ein neues `Temporal.Duration`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 

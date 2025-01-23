@@ -2,19 +2,19 @@
 title: Temporal.PlainDate.prototype.monthCode
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/monthCode
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`monthCode`** Zugriffs-Eigenschaft von Instanzen von {{jsxref("Temporal.PlainDate")}} gibt einen kalender-spezifischen String zurück, der den Monat dieses Datums darstellt. Dieser ist vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
+Die Zugriffsobjekteigenschaft **`monthCode`** von {{jsxref("Temporal.PlainDate")}} -Instanzen gibt einen kalenderabhängigen Zeichenfolgenwert zurück, der den Monat dieses Datums darstellt. Sie ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
 
-In der Regel ist es `M` plus eine zweistellige Monatsnummer. Für Schaltmonate ist es der Code des vorhergehenden Monats, gefolgt von `L` (auch wenn er konzeptionell ein Derivat des folgenden Monats ist; zum Beispiel hat im hebräischen Kalender Adar I den Code `M05L`, aber Adar II hat den Code `M06`). Wenn der Schaltmonat der erste Monat des Jahres ist, lautet der Code `M00L`.
+Normalerweise ist es `M` plus eine zweistellige Monatsnummer. Für Schaltmonate ist es der Code des vorherigen Monats, gefolgt von `L` (auch wenn es konzeptionell ein Derivat des folgenden Monats ist; zum Beispiel hat im hebräischen Kalender Adar I den Code `M05L`, aber Adar II hat den Code `M06`). Wenn der Schaltmonat der erste Monat des Jahres ist, ist der Code `M00L`.
 
 > [!NOTE]
-> Gehen Sie nicht davon aus, dass `monthCode` ein benutzerfreundlicher String ist; verwenden Sie `toLocaleString()`, um Ihr Datum zu formatieren. Im Allgemeinen sollten Sie den Namen der Monate nicht in einem Array oder Objekt zwischenspeichern. Auch wenn `monthCode` normalerweise dem Namen des Monats innerhalb eines Kalenders entspricht, empfehlen wir, den Namen des Monats immer zu berechnen, z. B. mit `date.toLocaleString("en-US", { calendar: date.calendarId, month: "long" })`.
+> Gehen Sie nicht davon aus, dass `monthCode` eine benutzerfreundliche Zeichenfolge ist; verwenden Sie `toLocaleString()`, um Ihr Datum zu formatieren. Allgemein gesagt, speichern Sie den Namen von Monaten nicht in einem Array oder Objekt zwischen. Auch wenn `monthCode` normalerweise dem Monatsnamen innerhalb eines Kalenders entspricht, empfehlen wir immer, den Monatsnamen zu berechnen, indem Sie zum Beispiel `date.toLocaleString("en-US", { calendar: date.calendarId, month: "long" })` verwenden.
 
-Der Set-Zugriffs-Operator von `monthCode` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainDate/with", "with()")}}, um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Schreibzugriff von `monthCode` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainDate/with", "with()")}}, um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ console.log(date4.monthCode); // "M02L"
 console.log(date4.month); // 3, this month is a leap month, i.e. a duplicate February
 ```
 
-### Ändern von monthCode
+### Änderung von monthCode
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01");
@@ -54,7 +54,7 @@ const newDate = date.add({ months: 3 });
 console.log(newDate.toString()); // 2021-10-01
 ```
 
-Standardmäßig beschränkt `with()` den Tag auf den Bereich der gültigen Werte. Beide der folgenden Beispiele setzen den Monat auf den letzten Monat des Jahres:
+Standardmäßig beschränkt `with()` den Tag auf den Bereich gültiger Werte. Beide der folgenden werden den Monat auf den letzten Monat des Jahres setzen:
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01");
@@ -64,7 +64,7 @@ const lastMonth2 = date.with({ month: Number.MAX_VALUE }); // 2021-12-01
 
 ### Formatierung von Monatsnamen
 
-Machen Sie nicht Folgendes:
+Tun Sie dies nicht:
 
 <!-- prettier-ignore -->
 ```js example-bad
@@ -77,7 +77,7 @@ const date = Temporal.PlainDate.from("2021-07-01");
 console.log(names[date.month - 1]); // July
 ```
 
-Machen Sie auch nicht Folgendes:
+Machen Sie auch dies nicht:
 
 <!-- prettier-ignore -->
 ```js example-bad
@@ -91,7 +91,7 @@ const date = Temporal.PlainDate.from("2021-07-01");
 console.log(names[date.monthCode]); // July
 ```
 
-Tun Sie stattdessen immer Folgendes, was benutzerfreundlicher und weniger fehleranfällig ist und sich leicht auf andere Kalender verallgemeinern lässt:
+Stattdessen tun Sie immer dies, was benutzerfreundlicher und weniger fehleranfällig ist und sich leicht auf andere Kalender verallgemeinern lässt:
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01");

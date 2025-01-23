@@ -2,12 +2,12 @@
 title: Temporal.ZonedDateTime.prototype.add()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/add
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`add()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues `Temporal.ZonedDateTime` Objekt zurück, das dieses Datum-Uhrzeit-Paar um eine gegebene Dauer (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} umgewandelt werden kann) vorwärts verschoben darstellt.
+Die **`add()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das diesen Datums- und Zeitwert um eine bestimmte Dauer (in einer Form, die von {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} umgewandelt werden kann) vorwärts verschoben darstellt.
 
 ## Syntax
 
@@ -19,39 +19,39 @@ add(duration, options)
 ### Parameter
 
 - `duration`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}} Instanz, die eine hinzuzufügende Dauer zu diesem Datum-Uhrzeit-Paar darstellt. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration` Objekt umgewandelt.
+  - : Eine Zeichenkette, ein Objekt oder eine {{jsxref("Temporal.Duration")}} Instanz, die eine Dauer darstellt, die zu diesem Datums- und Zeitwert hinzugefügt werden soll. Sie wird mit demselben Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt umgewandelt.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten spezifiziert, wenn eine Datumskomponente außerhalb des gültigen Bereichs liegt. Mögliche Werte sind:
+      - : Ein String, der das Verhalten angibt, wenn eine Datums-Komponente außerhalb des gültigen Bereichs liegt. Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Datumskomponente wird auf den gültigen Bereich [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
+          - : Die Datums-Komponente wird ["eingeschränkt"](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping) auf den gültigen Bereich.
         - `"reject"`
-          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
+          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datums-Komponente außerhalb des Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.ZonedDateTime` Objekt, das das Datum-Uhrzeit-Paar darstellt, das durch das ursprüngliche `ZonedDateTime` plus der Dauer angegeben ist.
+Ein neues `Temporal.ZonedDateTime`-Objekt, das das durch das Original `ZonedDateTime` und die Dauer spezifizierte Datum und die Zeit darstellt.
 
 ## Beschreibung
 
-Für Informationen darüber, wie [Kalenderdauern](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) hinzugefügt werden, siehe {{jsxref("Temporal/PlainDate/add", "Temporal.PlainDate.prototype.add()")}}.
+Wie [Kalenderdauern](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) hinzugefügt werden, erfahren Sie unter {{jsxref("Temporal/PlainDate/add", "Temporal.PlainDate.prototype.add()")}}.
 
 Addition und Subtraktion werden gemäß den in [RFC 5545 (iCalendar)](https://datatracker.ietf.org/doc/html/rfc5545) definierten Regeln durchgeführt:
 
-- Fügen Sie den Datumsanteil einer Dauer mit Kalenderarithmetik hinzu oder ziehen Sie diesen ab; das heißt, fügen Sie den Datumsanteil zu seinem `PlainDateTime` mithilfe von {{jsxref("Temporal/PlainDateTime/add", "Temporal.PlainDateTime.prototype.add()")}} hinzu, und interpretieren Sie das Ergebnis in derselben Zeitzone. Das Ergebnis passt sich automatisch der Sommerzeit an, indem die Regeln des `timeZone` Feldes dieser Instanz verwendet werden. Zum Beispiel ergibt `2024-11-03T01:00:00-04:00[America/New_York]` plus einem Tag `2024-11-04T01:00:00-05:00[America/New_York]`, als ob der Tag 25 Stunden hätte.
-  - Wenn die Datum-Uhrzeit aufgrund einer Zeitzonenverschiebung [mehrdeutig](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) oder ungültig ist, wird sie mit dem Verhalten `disambiguation: "compatible"` aufgelöst: Der spätere der beiden möglichen Zeitpunkte wird für Zeitübergänge verwendet, und der frühere der beiden möglichen Zeitpunkte wird für Zeitwiederholungen verwendet. Zum Beispiel ergibt `2024-03-09T02:05:00-05:00[America/New_York]` plus einem Tag angeblich `2024-03-10T02:05:00-05:00[America/New_York]`, aber diese Zeit existiert nicht, daher wird die Uhrzeit eine Stunde später, `2024-03-10T03:05:00-04:00[America/New_York]`, zurückgegeben.
-  - Wenn die [Verschiebung mehrdeutig ist](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#offset_ambiguity), wird sie mit dem Verhalten `offset: "prefer"` aufgelöst: Die Verschiebung wird verwendet, wenn sie für die Zeitzone und die lokale Zeit gültig ist, und andernfalls neu berechnet. Zum Beispiel ergibt `2024-11-02T01:00:00-04:00[America/New_York]` plus einem Tag `2024-11-03T01:00:00-04:00[America/New_York]`, während `2024-11-04T01:00:00-05:00[America/New_York]` minus einem Tag `2024-11-03T01:00:00-05:00[America/New_York]` ergibt.
-  - Wenn die Komponenten der resultierenden Datum-Uhrzeit außerhalb der Grenzen liegen, werden sie mit der Option `overflow` aufgelöst. Zum Beispiel ergibt `2024-08-31` plus einem Monat `2024-09-31`, was nicht existiert, daher wird es standardmäßig auf `2024-09-30` beschränkt.
-- Fügen Sie den Zeitanteil einer Dauer unter Verwendung der realen Zeit hinzu oder ziehen Sie davon ab; das heißt, fügen Sie den Zeitanteil zu seinem `Instant` mithilfe von {{jsxref("Temporal/Instant/add", "Temporal.Instant.prototype.add()")}} hinzu, und interpretieren Sie das Ergebnis in derselben Zeitzone. Zum Beispiel ergibt `2024-11-03T01:00:00-04:00[America/New_York]` plus einer Stunde `2024-11-03T01:00:00-05:00[America/New_York]`.
+- Fügen Sie den Datumsanteil einer Dauer mit Kalenderarithmetik hinzu oder ziehen Sie ihn ab; mit anderen Worten: Fügen Sie den Datumsanteil zu seinem `PlainDateTime` mit {{jsxref("Temporal/PlainDateTime/add", "Temporal.PlainDateTime.prototype.add()")}} hinzu, und interpretieren Sie das Ergebnis in derselben Zeitzone. Das Ergebnis wird automatisch unter Verwendung der Regeln des `timeZone`-Felds dieser Instanz an Sommerzeitänderungen angepasst. Zum Beispiel ist `2024-11-03T01:00:00-04:00[America/New_York]` plus ein Tag `2024-11-04T01:00:00-05:00[America/New_York]`, als ob der Tag 25 Stunden hätte.
+  - Wenn das Datum und die Uhrzeit [zweideutig](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) oder aufgrund einer Zeitzonenoffset-Umstellung ungültig sind, wird dies mit dem `disambiguation: "compatible"` Verhalten gelöst: Der spätere der beiden möglichen Augenblicke wird für Zeitsprung-Übergänge verwendet und der frühere der beiden möglichen Augenblicke für Zeitwiederholungs-Übergänge. Zum Beispiel ist `2024-03-09T02:05:00-05:00[America/New_York]` plus ein Tag angeblich `2024-03-10T02:05:00-05:00[America/New_York]`, aber diese Zeit existiert nicht, daher wird die Uhrzeit eine Stunde später, `2024-03-10T03:05:00-04:00[America/New_York]`, zurückgegeben.
+  - Wenn der [Offset mehrdeutig](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#offset_ambiguity) ist, wird er unter Verwendung des `offset: "prefer"` Verhaltens gelöst: Der Offset wird verwendet, wenn er für die Zeitzone und die Ortszeit gültig ist, und andernfalls neu berechnet. Zum Beispiel ist `2024-11-02T01:00:00-04:00[America/New_York]` plus ein Tag `2024-11-03T01:00:00-04:00[America/New_York]`, während `2024-11-04T01:00:00-05:00[America/New_York]` minus ein Tag `2024-11-03T01:00:00-05:00[America/New_York]` ist.
+  - Wenn die Komponenten des resultierenden Datums und der Uhrzeit außerhalb der Grenzen liegen, werden sie unter Verwendung der `overflow`-Option gelöst. Zum Beispiel ist `2024-08-31` plus ein Monat `2024-09-31`, was nicht existiert, also wird es standardmäßig auf `2024-09-30` begrenzt.
+- Fügen Sie die Zeitkomponente einer Dauer unter Verwendung der realen Zeit hinzu oder ziehen Sie sie ab; mit anderen Worten: Fügen Sie die Zeitkomponente zu seinem `Instant` mit {{jsxref("Temporal/Instant/add", "Temporal.Instant.prototype.add()")}} hinzu, und interpretieren Sie das Ergebnis in derselben Zeitzone. Zum Beispiel ist `2024-11-03T01:00:00-04:00[America/New_York]` plus eine Stunde `2024-11-03T01:00:00-05:00[America/New_York]`.
 
-Diese Regeln machen die Arithmetik mit `Temporal.ZonedDateTime` "DST-sicher", was bedeutet, dass die Ergebnisse den Erwartungen sowohl der realen Benutzer als auch der Implementierer anderer normenkonformer Kalenderanwendungen am nächsten kommen. Diese Erwartungen umfassen:
+Diese Regeln machen die Arithmetik mit `Temporal.ZonedDateTime` „DST-sicher“, was bedeutet, dass die Ergebnisse am ehesten den Erwartungen sowohl realer Benutzer als auch von Implementierern anderer normgerechter Kalenderanwendungen entsprechen. Diese Erwartungen beinhalten:
 
-- Das Hinzufügen oder Abziehen von Tagen sollte die Uhrzeit über DST-Übergänge hinweg konsistent halten. Zum Beispiel, wenn Sie einen Termin am Samstag um 13:00 Uhr haben und Sie bitten, ihn um einen Tag später zu verschieben, würden Sie erwarten, dass der verschobene Termin immer noch um 13:00 Uhr ist, auch wenn über Nacht eine DST-Übergang stattfand.
-- Das Hinzufügen oder Abziehen des Zeitanteils einer Dauer sollte DST-Übergänge ignorieren. Zum Beispiel wird ein Freund, den Sie gebeten haben, sich in 2 Stunden zu treffen, verärgert sein, wenn Sie 1 Stunde oder 3 Stunden später erscheinen. Es sollte eine konsistente und relativ unüberraschende Abfolge von Operationen geben.
-- Wenn Ergebnisse an oder nahe einem DST-Übergang liegen, sollten Mehrdeutigkeiten automatisch (ohne Abstürze) und deterministisch behandelt werden.
+- Das Hinzufügen oder Subtrahieren von Tagen sollte die Uhrzeit über DST-Übergänge hinweg konsistent halten. Zum Beispiel, wenn Sie einen Termin am Samstag um 13:00 Uhr haben und Sie darum bitten, ihn um 1 Tag zu verschieben, würden Sie erwarten, dass der verschobene Termin immer noch um 13:00 Uhr ist, selbst wenn es über Nacht eine DST-Umstellung gab.
+- Das Hinzufügen oder Subtrahieren der Zeitkomponente einer Dauer sollte DST-Übergänge ignorieren. Zum Beispiel wird ein Freund, den Sie gebeten haben, sich in 2 Stunden zu treffen, verärgert sein, wenn Sie 1 Stunde oder 3 Stunden später erscheinen. Es sollte eine konsistente und relativ überraschungsfreie Reihenfolge der Operationen geben.
+- Wenn Ergebnisse an oder in der Nähe eines DST-Übergangs liegen, sollten Zweideutigkeiten automatisch (kein Absturz) und deterministisch gehandhabt werden.
 
-Das Hinzufügen einer Dauer ist gleichbedeutend mit der [Subtraktion](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/subtract) deren [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated).
+Das Hinzufügen einer Dauer ist äquivalent zum [Subtrahieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/subtract) ihrer [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated).
 
 ## Beispiele
 
@@ -74,7 +74,7 @@ const end = start.add({
 console.log(end.toString()); // 2023-01-26T17:41:03.008-05:00[America/New_York]
 ```
 
-Für weitere Beispiele, insbesondere wie verschiedene Kalender und die `overflow` Option mit Kalenderdauern interagieren, siehe {{jsxref("Temporal/PlainDate/add", "Temporal.PlainDate.prototype.add()")}}.
+Weitere Beispiele, insbesondere wie verschiedene Kalender und die `overflow`-Option mit Kalenderdauern interagieren, finden Sie unter {{jsxref("Temporal/PlainDate/add", "Temporal.PlainDate.prototype.add()")}}.
 
 ## Spezifikationen
 

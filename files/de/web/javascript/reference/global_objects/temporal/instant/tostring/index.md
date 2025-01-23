@@ -2,12 +2,12 @@
 title: Temporal.Instant.prototype.toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/toString
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`toString()`** Methode von {{jsxref("Temporal.Instant")}} Instanzen gibt eine Zeichenkette zurück, die diesen Zeitpunkt im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) unter Verwendung der angegebenen Zeitzone darstellt.
+Die **`toString()`**-Methode von {{jsxref("Temporal.Instant")}}-Instanzen gibt einen String zurück, der diesen Moment im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) unter Verwendung der angegebenen Zeitzone darstellt.
 
 ## Syntax
 
@@ -19,19 +19,19 @@ toString(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das einige oder alle der folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und überprüft werden):
+  - : Ein Objekt, das einige oder alle der folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
     - `fractionalSecondDigits` {{optional_inline}}
-      - : Entweder eine ganze Zahl von 0 bis 9 oder der String `"auto"`. Der Standardwert ist `"auto"`. Wenn `"auto"`, werden nachfolgende Nullen aus den Sekundenbruchteilen entfernt. Andernfalls enthält der Bruchteil der Sekunde diese Anzahl von Ziffern, mit Nullen aufgefüllt oder bei Bedarf gerundet.
+      - : Entweder eine ganze Zahl von 0 bis 9 oder der String `"auto"`. Der Standardwert ist `"auto"`. Wenn `"auto"`, werden nachfolgende Nullen von den Bruchteilen der Sekunden entfernt. Andernfalls enthält der Bruchteil der Sekundenkomponente so viele Ziffern, wie nötig mit Nullen aufgefüllt oder gerundet werden.
     - `roundingMode` {{optional_inline}}
-      - : Ein String, der angibt, wie die Sekundenbruchteile, die über `fractionalSecondDigits` hinausgehen, gerundet werden sollen. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standardwert ist `"trunc"`.
+      - : Ein String, der angibt, wie die Bruchteile der Sekunden über `fractionalSecondDigits` hinaus gerundet werden sollen. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standardmäßig auf `"trunc"`.
     - `smallestUnit` {{optional_inline}}
-      - : Ein String, der die kleinste Einheit angibt, die in die Ausgabe einbezogen werden soll. Mögliche Werte sind `"minute"`, `"second"`, `"millisecond"`, `"microsecond"`, und `"nanosecond"`, oder deren Pluralformen, die (außer `"minute"`) den `fractionalSecondDigits`-Werten von `0`, `3`, `6`, `9` entsprechen. Wenn angegeben, wird `fractionalSecondDigits` ignoriert.
+      - : Ein String, der die kleinste Einheit festlegt, die in der Ausgabe enthalten sein soll. Mögliche Werte sind `"minute"`, `"second"`, `"millisecond"`, `"microsecond"` und `"nanosecond"`, oder deren Pluralformen, die (außer `"minute"`) äquivalent zu `fractionalSecondDigits`-Werten von `0`, `3`, `6`, `9` sind. Wenn angegeben, wird `fractionalSecondDigits` ignoriert.
     - `timeZone` {{optional_inline}}
-      - : Entweder ein String oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die die zu verwendende Zeitzone darstellt. Wenn eine `Temporal.ZonedDateTime` Instanz, wird deren Zeitzone verwendet. Wenn ein String, kann er einen benannten Zeitzonen-Identifier, einen Offset-Zeitzonen-Identifier oder eine Datum-Zeit-Zeichenkette mit einem Zeitzonen-Identifier oder einem Offset enthalten (siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für weitere Informationen). Der Standardwert ist `"UTC"`.
+      - : Entweder ein String oder eine {{jsxref("Temporal.ZonedDateTime")}}-Instanz, die die zu verwendende Zeitzone repräsentiert. Wenn eine `Temporal.ZonedDateTime`-Instanz, wird deren Zeitzone verwendet. Wenn ein String, kann es sich um eine benannte Zeitzonenkennung, eine Offset-Zeitzonenkennung oder einen Datum-Zeit-String mit einer Zeitzonenkennung oder einem Offset handeln (siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für weitere Informationen). Standard ist `"UTC"`.
 
 ### Rückgabewert
 
-Eine Zeichenkette im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format), die diesen Zeitpunkt unter Verwendung der angegebenen Zeitzone darstellt. Keine Anmerkungen, wie z.B. Zeitzonennamen, sind enthalten.
+Ein String im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format), der diesen Moment unter Verwendung der angegebenen Zeitzone darstellt. Es sind keine Anmerkungen, wie Zeitzonennamen, enthalten.
 
 ### Ausnahmen
 

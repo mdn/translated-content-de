@@ -2,16 +2,16 @@
 title: Temporal.PlainDate.prototype.monthsInYear
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/monthsInYear
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die Zugriffs-Eigenschaft **`monthsInYear`** von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt eine positive ganze Zahl zurück, die die Anzahl der Monate im Jahr dieses Datums darstellt. Sie ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
+Die Zugriffs-Eigenschaft **`monthsInYear`** von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine positive ganze Zahl zurück, die die Anzahl der Monate im Jahr dieses Datums darstellt. Sie ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
 
-Für den ISO 8601-Kalender sind dies immer 12, aber in anderen Kalendersystemen kann dies variieren. Zum Beispiel haben in Kalendern mit Schaltmonaten Schaltjahre einen Monat mehr als normale Jahre.
+Für den ISO 8601-Kalender sind es immer 12 Monate, aber in anderen Kalendersystemen kann diese Zahl variieren. Beispielsweise haben Kalender mit Schaltmonaten in Schaltjahren einen Monat mehr als in gewöhnlichen Jahren.
 
-Der Set-Zugriff von `monthsInYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `monthsInYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
@@ -28,7 +28,7 @@ const date3 = Temporal.PlainDate.from("2023-07-01[u-ca=chinese]");
 console.log(date3.monthsInYear); // 13; 2023 is a Chinese leap year
 ```
 
-### Wechseln zum vorletzten Monat des Jahres
+### Wechsel zum vorletzten Monat des Jahres
 
 Sie können `monthsInYear` verwenden, um zum vorletzten Tag des Monats zu wechseln:
 

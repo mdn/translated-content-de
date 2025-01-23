@@ -2,12 +2,12 @@
 title: Temporal.Duration.prototype.toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/toString
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die Methode **`toString()`** von {{jsxref("Temporal.Duration")}} Instanzen gibt eine Zeichenkette zurück, die diese Dauer im [ISO 8601 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format) darstellt.
+Die **`toString()`** Methode von {{jsxref("Temporal.Duration")}} Instanzen gibt einen String zurück, der diese Dauer im [ISO 8601 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format) darstellt.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ toString(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das einige oder alle der folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
     - `fractionalSecondDigits` {{optional_inline}}
-      - : Entweder eine Ganzzahl von 0 bis 9 oder die Zeichenkette `"auto"`. Der Standardwert ist `"auto"`. Wenn `"auto"`, werden nachfolgende Nullen aus den Bruchteilen der Sekunden entfernt. Andernfalls enthält der Bruchteilsanteil der Sekundenkomponente so viele Ziffern, aufgefüllt mit Nullen oder gerundet, wie nötig.
+      - : Entweder eine ganze Zahl von 0 bis 9 oder der String `"auto"`. Der Standardwert ist `"auto"`. Wenn `"auto"`, werden die nachgestellten Nullen von den Bruchteilen der Sekunden entfernt. Andernfalls enthält der Bruchteil der Sekunde diese Anzahl von Ziffern, die bei Bedarf mit Nullen aufgefüllt oder gerundet werden.
     - `roundingMode` {{optional_inline}}
-      - : Eine Zeichenkette, die angibt, wie die über `fractionalSecondDigits` hinausgehenden Bruchteilssekundenziffern gerundet werden sollen. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standardmäßig `"trunc"`.
+      - : Ein String, der angibt, wie die Bruchteile der Sekunden, die über `fractionalSecondDigits` hinausgehen, gerundet werden sollen. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standardmäßig `"trunc"`.
     - `smallestUnit` {{optional_inline}}
-      - : Eine Zeichenkette, die die kleinste Einheit angibt, die im Ergebnis enthalten sein soll. Mögliche Werte sind `"second"`, `"millisecond"`, `"microsecond"` und `"nanosecond"` oder ihre Pluralformen, die äquivalent zu `fractionalSecondDigits`-Werten von `0`, `3`, `6`, `9` sind. Falls angegeben, wird `fractionalSecondDigits` ignoriert.
+      - : Ein String, der die kleinste Einheit angibt, die in der Ausgabe enthalten sein soll. Mögliche Werte sind `"second"`, `"millisecond"`, `"microsecond"` und `"nanosecond"` oder deren Pluralformen, die den `fractionalSecondDigits`-Werten von `0`, `3`, `6`, `9` entsprechen. Wenn angegeben, wird `fractionalSecondDigits` ignoriert.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die angegebene Dauer im [ISO 8601 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format) darstellt, mit Unterscheidung komponentenspezifischer Formate gemäß den Optionen. Die Null-Dauer wird als `"PT0S"` dargestellt.
+Ein String, der die gegebene Dauer im [ISO 8601 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format) darstellt, mit Subsekundenkomponenten, die gemäß den Optionen formatiert sind. Die Dauer von null wird als `"PT0S"` dargestellt.
 
 ### Ausnahmen
 

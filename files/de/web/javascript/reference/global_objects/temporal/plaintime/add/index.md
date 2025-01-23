@@ -2,12 +2,12 @@
 title: Temporal.PlainTime.prototype.add()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/add
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`add()`**-Methode von {{jsxref("Temporal.PlainTime")}}-Instanzen gibt ein neues `Temporal.PlainTime`-Objekt zurück, das die Zeit darstellt, die um eine angegebene Dauer (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} umwandelbar ist) nach vorne verschoben wurde und bei Bedarf um die Uhr herumgeht.
+Die **`add()`**-Methode von Instanzen von {{jsxref("Temporal.PlainTime")}} gibt ein neues `Temporal.PlainTime`-Objekt zurück, das diese Uhrzeit, verschoben um eine angegebene Dauer (in einer Form konvertierbar durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}}), repräsentiert und bei Bedarf um die Uhr herumschlägt.
 
 ## Syntax
 
@@ -18,13 +18,13 @@ add(duration)
 ### Parameter
 
 - `duration`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine hinzuzufügende Dauer zu dieser Zeit darstellt. Es wird unter Verwendung desselben Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt umgewandelt.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine zu dieser Zeit hinzuzufügende Dauer darstellt. Es wird unter Verwendung des gleichen Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt umgewandelt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainTime`-Objekt, das die durch die ursprüngliche `PlainTime` angegebene Zeit plus die Dauer darstellt. Alle Einheiten über `hours` werden ignoriert, und wenn die Zeit über Mitternacht hinausgeht, wird sie auf den nächsten Tag fortgeführt.
+Ein neues `Temporal.PlainTime`-Objekt, das die durch das ursprüngliche `PlainTime` angegebene Zeit plus die Dauer darstellt. Alle Einheiten über `hours` werden ignoriert, und wenn die Zeit über Mitternacht hinausgeht, schlägt sie zum nächsten Tag um.
 
-Das Hinzufügen einer Dauer ist gleichbedeutend mit dem [Subtrahieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/subtract) ihrer [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated).
+Das Hinzufügen einer Dauer entspricht dem [Subtrahieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/subtract) ihrer [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated).
 
 ## Beispiele
 
@@ -43,9 +43,9 @@ const end3 = start.add(distance);
 console.log(end3.toString()); // 13:58:41
 ```
 
-### Zeitfortführung
+### Zeitumbruch
 
-Wenn die Zeit über Mitternacht hinausgeht, wird sie auf den nächsten Tag fortgeführt:
+Wenn die Zeit über Mitternacht hinausgeht, schlägt sie zum nächsten Tag um:
 
 ```js
 const start = Temporal.PlainTime.from("12:34:56");

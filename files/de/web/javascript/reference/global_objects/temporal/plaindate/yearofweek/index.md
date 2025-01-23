@@ -2,16 +2,16 @@
 title: Temporal.PlainDate.prototype.yearOfWeek
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/yearOfWeek
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die Zugriffseigenschaft **`yearOfWeek`** von Instanzen des {{jsxref("Temporal.PlainDate")}} gibt eine Ganzzahl zurück, die das Jahr darstellt, das mit der {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}} dieses Datums kombiniert werden soll, oder `undefined`, wenn der Kalender kein klar definiertes Wochensystem hat. Es hängt vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) ab.
+Die Zugriffs-Eigenschaft **`yearOfWeek`** von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt eine Ganzzahl zurück, die das Jahr angibt, das mit der {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}} dieses Datums gepaart werden soll, oder `undefined`, wenn der Kalender kein gut definiertes Wochensystem hat. Sie ist vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
 
-Normalerweise ist dies das Jahr des Datums. Für ISO 8601 können jedoch die ersten und letzten Tage des Jahres der letzten Woche des Vorjahres oder der ersten Woche des folgenden Jahres zugeordnet werden, wodurch sich `yearOfWeek` um 1 unterscheidet. Weitere Details finden Sie unter {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}}.
+In der Regel handelt es sich um das Jahr des Datums, aber für ISO 8601 können die ersten und letzten Tage des Jahres der letzten Woche des Vorjahres oder der ersten Woche des nächsten Jahres zugeordnet werden, was dazu führt, dass sich die `yearOfWeek` um 1 unterscheidet. Siehe {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}} für weitere Details.
 
-Der Set-Zugriff von `yearOfWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Setz-Zugriff von `yearOfWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 

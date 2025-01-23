@@ -2,14 +2,14 @@
 title: Temporal.PlainDateTime.prototype.with()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/with
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`with()`** Methode von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt ein neues `Temporal.PlainDateTime` Objekt zurück, das diesen Datum-Zeitpunkt repräsentiert, wobei einige Felder durch neue Werte ersetzt werden. Da alle `Temporal` Objekte so konzipiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die Felder des Datum-Zeitpunkts.
+Die **`with()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das diese Datum-Uhrzeit repräsentiert, wobei einige Felder durch neue Werte ersetzt wurden. Da alle `Temporal`-Objekte so konstruiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die Felder der Datum-Uhrzeit.
 
-Um die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}} Eigenschaft zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/withCalendar", "withCalendar()")}} Methode.
+Um die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/withCalendar", "withCalendar()")}}-Methode.
 
 ## Syntax
 
@@ -21,19 +21,19 @@ with(info, options)
 ### Parameter
 
 - `info`
-  - : Ein Objekt, das mindestens eine der von {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} (außer `calendar`) erkannten Eigenschaften enthält: `day`, `era` und `eraYear`, `hour`, `microsecond`, `millisecond`, `minute`, `month`, `monthCode`, `nanosecond`, `second`, `year`. Nicht angegebene Eigenschaften verwenden die Werte aus dem ursprünglichen Datum-Zeitpunkt. Sie müssen nur eines von `month` oder `monthCode bereitstellen`, und eines von `era` und `eraYear` oder `year`, und der andere wird entsprechend aktualisiert.
+  - : Ein Objekt, das mindestens eine der von {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} erkannten Eigenschaften enthält (außer `calendar`): `day`, `era` und `eraYear`, `hour`, `microsecond`, `millisecond`, `minute`, `month`, `monthCode`, `nanosecond`, `second`, `year`. Nicht spezifizierte Eigenschaften übernehmen die Werte der ursprünglichen Datum-Uhrzeit. Sie müssen nur eines der beiden, `month` oder `monthCode`, und eines von `era` und `eraYear` oder `year` angeben, und das andere wird entsprechend aktualisiert.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des gültigen Bereichs liegt. Mögliche Werte sind:
+      - : Ein String, der das Verhalten spezifiziert, wenn eine Datumskomponente außerhalb des gültigen Bereichs liegt. Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Datumskomponente wird [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping) auf den gültigen Bereich.
+          - : Die Datumskomponente wird auf den gültigen Bereich [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
         - `"reject"`
-          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des gültigen Bereichs liegt.
+          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime` Objekt, bei dem die Felder, die in `info` angegeben und nicht `undefined` sind, durch die entsprechenden Werte ersetzt werden, und die restlichen Felder vom ursprünglichen Datum-Zeitpunkt kopiert werden.
+Ein neues `Temporal.PlainDateTime`-Objekt, bei dem die in `info` angegebenen Felder, die nicht `undefined` sind, durch die entsprechenden Werte ersetzt werden, und die restlichen Felder von der ursprünglichen Datum-Uhrzeit übernommen werden.
 
 ### Ausnahmen
 
@@ -43,9 +43,9 @@ Ein neues `Temporal.PlainDateTime` Objekt, bei dem die Felder, die in `info` ang
     - `options` ist kein Objekt oder `undefined`.
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Die angegebenen Eigenschaften, die dieselbe Komponente angeben, sind inkonsistent.
-    - Die angegebenen nicht-numerischen Eigenschaften sind nicht gültig; zum Beispiel, wenn `monthCode` niemals ein gültiger Monatscode in diesem Kalender ist.
-    - Die angegebenen numerischen Eigenschaften sind außerhalb des gültigen Bereichs, und `options.overflow` ist auf `"reject"` gesetzt.
+    - Die angegebenen Eigenschaften, die dieselbe Komponente spezifizieren, sind inkonsistent.
+    - Die angegebenen nicht-numerischen Eigenschaften sind nicht gültig; zum Beispiel, wenn `monthCode` in diesem Kalender niemals ein gültiger Monatscode ist.
+    - Die angegebenen numerischen Eigenschaften liegen außerhalb des Bereichs, und `options.overflow` ist auf `"reject"` gesetzt.
 
 ## Beispiele
 
@@ -61,7 +61,7 @@ const nextDecade = dt.with({ year: dt.year + 10 });
 console.log(nextDecade.toString()); // "2031-07-01T13:34:56"
 ```
 
-Für weitere Beispiele siehe die Dokumentation zu den einzelnen Eigenschaften, die mit `with()` festgelegt werden können.
+Für weitere Beispiele siehe die Dokumentation der einzelnen Eigenschaften, die mit `with()` gesetzt werden können.
 
 ## Spezifikationen
 

@@ -2,25 +2,25 @@
 title: Temporal.PlainTime.prototype.minute
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/minute
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`minute`** Zugriffseigenschaft von {{jsxref("Temporal.PlainTime")}} Instanzen gibt eine ganze Zahl von 0 bis 59 zurück, die die Minutenkomponente dieser Zeit darstellt.
+Die **`minute`** Accessor-Eigenschaft von {{jsxref("Temporal.PlainTime")}}-Instanzen gibt eine ganze Zahl von 0 bis 59 zurück, die die Minutenkomponente dieser Zeit darstellt.
 
-Der Set-Accessor von `minute` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainTime/with", "with()")}}, um ein neues `Temporal.PlainTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `minute` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainTime/with", "with()")}}-Methode, um ein neues `Temporal.PlainTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
-### Verwendung von minute
+### Minute verwenden
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");
 console.log(time.minute); // 34
 ```
 
-### Ändern von minute
+### Minute ändern
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");

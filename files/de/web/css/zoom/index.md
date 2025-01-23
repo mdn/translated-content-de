@@ -2,7 +2,7 @@
 title: zoom
 slug: Web/CSS/zoom
 l10n:
-  sourceCommit: 5c4720ea41c857d7aa2a5ce601cbdae706e91e5a
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
 {{CSSRef}}
@@ -10,12 +10,12 @@ l10n:
 Die **`zoom`** [CSS](/de/docs/Web/CSS) Eigenschaft kann verwendet werden, um den Vergrößerungsgrad eines Elements zu steuern.
 {{cssxref("transform-function/scale", "transform: scale()")}} kann als Alternative zu dieser Eigenschaft verwendet werden.
 
-Die `zoom` CSS-Eigenschaft skaliert das anvisierte Element, was Auswirkungen auf das Seitenlayout haben kann.
-Beim Skalieren wird das gezoomte Element vom `top` und `center` skaliert, wenn der standardmäßige {{CSSXRef("writing-mode")}} verwendet wird.
+Die `zoom` CSS-Eigenschaft skaliert das betreffende Element, was das Layout der Seite beeinflussen kann.
+Beim Skalieren wird das vergrößerte Element bei der Verwendung des Standard-{{CSSXRef("writing-mode")}} von `top` und `center` skaliert.
 
-Im Gegensatz dazu wird ein Element, das mit {{cssxref("transform-function/scale", "scale()")}} skaliert wird, keine Neuberechnung des Layouts verursachen oder andere Elemente auf der Seite verschieben.
-Wenn die Verwendung von `scale()` dazu führt, dass der Inhalt größer wird als das enthaltende Element, tritt {{CSSXRef("overflow")}} in Kraft.
-Zusätzlich transformieren Elemente, die mit `scale()` angepasst werden, standardmäßig von der `center` aus; dies kann mit der {{CSSXRef("transform-origin")}} CSS-Eigenschaft geändert werden.
+Im Gegensatz dazu führt ein mit {{cssxref("transform-function/scale", "scale()")}} skaliertes Element nicht zu einer Neuberechnung des Layouts oder zur Verschiebung anderer Elemente auf der Seite.
+Falls die Verwendung von `scale()` den Inhalt größer als das Enthaltende Element macht, greift {{CSSXRef("overflow")}}.
+Zusätzlich werden Elemente, die mit `scale()` angepasst werden, standardmäßig vom `center` skaliert; dies kann mit der {{CSSXRef("transform-origin")}} CSS-Eigenschaft geändert werden.
 
 ## Syntax
 
@@ -43,16 +43,16 @@ zoom: unset;
 ### Werte
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Zoomfaktor. `100%` entspricht `normal`. Werte größer als `100%` vergrößern. Werte kleiner als `100%` verkleinern.
+  - : Zoom-Faktor. `100%` entspricht `normal`. Werte größer als `100%` vergrößern. Werte kleiner als `100%` verkleinern.
 - {{cssxref("&lt;number&gt;")}}
-  - : Zoomfaktor. Entspricht dem entsprechenden Prozentsatz (`1.0` = `100%` = `normal`). Werte größer als `1.0` vergrößern. Werte kleiner als `1.0` verkleinern.
+  - : Zoom-Faktor. Entsprechend dem entsprechenden Prozentsatz (`1.0` = `100%` = `normal`). Werte größer als `1.0` vergrößern. Werte kleiner als `1.0` verkleinern.
 
-Zwei nicht-standardisierte Schlüsselwortwerte werden nicht empfohlen. Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität) Daten:
+Zwei nicht-standardisierte Schlüsselwortwerte werden nicht empfohlen. Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität):
 
-- `normal` {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Rendert das Element in seiner normalen Größe; entspricht `zoom: 1`. Verwenden Sie stattdessen den globalen Schlüsselwortwert {{cssxref("unset")}}.
-- `reset` {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Setzt den Wert auf `zoom: 1` zurück und verhindert, dass das Element (de)vergrößert wird, wenn der Benutzer ein nicht auf Pinch basierendes Zoomen anwendet (z.B. durch Drücken der Tastenkombinationen <kbd>Ctrl</kbd> \- <kbd>-</kbd> oder <kbd>Ctrl</kbd> \+ <kbd>+</kbd>) auf das Dokument.
+- `normal`
+  - : Rendert das Element in seiner normalen Größe; entspricht `zoom: 1`. Verwenden Sie stattdessen den globalen {{cssxref("unset")}} Schlüsselwortwert.
+- `reset`
+  - : Setzt den Wert zu `zoom: 1` zurück und verhindert, dass das Element (de)vergrößert wird, wenn der Benutzer nicht auf Pinch basierendes Zoomen (z.B. durch Drücken von <kbd>Ctrl</kbd> \- <kbd>-</kbd> oder <kbd>Ctrl</kbd> \+ <kbd>+</kbd> Tastaturkürzel) auf das Dokument anwendet.
 
 ## Formale Definition
 
@@ -64,9 +64,9 @@ Zwei nicht-standardisierte Schlüsselwortwerte werden nicht empfohlen. Überprü
 
 ## Beispiele
 
-### Vergrößern von Absätzen
+### Umgestaltung von Absätzen
 
-In diesem Beispiel werden die Absatz-Elemente gezoomt, beim Überfahren eines Absatzes wird der `zoom` Wert `unset`.
+In diesem Beispiel werden die Absatz-Elemente gezoomt. Beim Überfahren eines Absatzes ist der `zoom`-Wert `unset`.
 
 #### HTML
 
@@ -106,7 +106,7 @@ p:hover {
 
 {{EmbedLiveSample('resizing_paragraphs')}}
 
-### Vergrößern von Elementen
+### Skalierung von Elementen
 
 In diesem Beispiel werden die `div`-Elemente mit den Werten `normal`, `<percentage>` und `<number>` gezoomt.
 
@@ -146,13 +146,13 @@ div#c {
 
 {{EmbedLiveSample('resizing_elements')}}
 
-### Erstellen einer Zoom-Steuerung
+### Erstellung einer Zoom-Steuerung
 
-In diesem Beispiel wird ein `select`-Feld verwendet, um den Zoom-Level des Elements zu ändern.
+In diesem Beispiel wird ein `select`-Feld verwendet, um das Zoom-Level des Elements zu ändern.
 
 #### HTML
 
-Im ersten HTML-Block wird ein `select`-Feld mit den verschiedenen `zoom` Werten definiert, die verwendet werden sollen.
+Im ersten HTML-Block wird ein `select`-Feld mit den verschiedenen zu verwendenden `zoom`-Werten definiert.
 
 ```html
 <section class="controls">
@@ -169,7 +169,7 @@ Im ersten HTML-Block wird ein `select`-Feld mit den verschiedenen `zoom` Werten 
 </section>
 ```
 
-Im zweiten Block wird eine **nicht unterstützte** Meldung hinzugefügt, die verborgen wird, wenn der Browser `zoom` unterstützt.
+Im zweiten Block wird eine **nicht unterstützte** Nachricht hinzugefügt, die verborgen wird, falls der Browser `zoom` unterstützt.
 
 ```html
 <p class="zoom-notice">CSS zoom is not supported</p>
@@ -197,7 +197,7 @@ Der letzte Block definiert einfach den Inhalt, der gezoomt wird.
 
 #### CSS
 
-Im ersten CSS-Block wird der Startwert für den `--zoom-level` mit [Custom Properties](/de/docs/Web/CSS/--*) festgelegt und dann als Wert für `zoom` im Inhaltsblock verwendet.
+Im ersten CSS-Block setzen wir den Startwert für `--zoom-level` mithilfe von [benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/--*) und verwenden diesen dann als Wert für `zoom` im Inhaltsblock.
 
 ```css
 html {
@@ -221,7 +221,7 @@ html {
 }
 ```
 
-Im letzten CSS-Block wird überprüft, ob der Browser `zoom` unterstützt, und falls ja, wird die **nicht unterstützte** Meldung auf `display: none;` gesetzt.
+Im letzten CSS-Block überprüfen wir, ob der Browser `zoom` unterstützt, und setzen, falls ja, die **nicht unterstützte** Nachricht auf `display: none;`.
 
 ```css
 @supports (zoom: 1) {
@@ -233,7 +233,7 @@ Im letzten CSS-Block wird überprüft, ob der Browser `zoom` unterstützt, und f
 
 #### JavaScript
 
-Dieses JavaScript überwacht eine Änderung im `select`-Feld und setzt den neuen Wert für `--zoom-level` im Inhaltsabschnitt, z.B. `style="--zoom-level: 1.5;"`.
+Dieses JavaScript überwacht eine Änderung im Auswahlfeld und setzt den neuen Wert für `--zoom-level` im Inhalts-`section`, z.B. `style="--zoom-level: 1.5;"`.
 
 ```js
 const zoomControl = document.querySelector("#zoom");
@@ -258,8 +258,8 @@ zoomControl.addEventListener("change", updateZoom);
 
 ## Siehe auch
 
-- [`zoom`-Eintrag im CSS-Almanac von CSS-Tricks](https://css-tricks.com/almanac/properties/z/zoom/)
+- [`zoom`-Eintrag im CSS Alamanach von CSS-Tricks](https://css-tricks.com/almanac/properties/z/zoom/)
 - {{cssxref("transform")}}
 - {{cssxref("scale")}}
 - {{cssxref("unset")}} Schlüsselwort
-- [Legacy `zoom`-Eigenschaft](https://css-tricks.com/almanac/properties/z/zoom/) via CSS-Tricks (2013)
+- [Legacy-`zoom`-Eigenschaft](https://css-tricks.com/almanac/properties/z/zoom/) über CSS-Tricks (2013)

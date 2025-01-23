@@ -2,14 +2,14 @@
 title: Date.prototype.toTemporalInstant()
 slug: Web/JavaScript/Reference/Global_Objects/Date/toTemporalInstant
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
 Die **`toTemporalInstant()`**-Methode von {{jsxref("Date")}}-Instanzen gibt ein neues {{jsxref("Temporal.Instant")}}-Objekt mit dem gleichen {{jsxref("Temporal/Instant/epochMilliseconds", "epochMilliseconds")}}-Wert wie der [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) dieses Datums zurück.
 
-Verwenden Sie diese Methode, um alte `Date`-Werte in die `Temporal`-API zu konvertieren, und konvertieren Sie sie dann bei Bedarf weiter in andere {{jsxref("Temporal")}}-Klassen.
+Verwenden Sie diese Methode, um veraltete `Date`-Werte in die `Temporal`-API zu konvertieren und anschließend bei Bedarf in andere {{jsxref("Temporal")}}-Klassen umzuwandeln.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Instant")}}-Objekt mit dem gleichen {{jsxref("Temporal/Instant/epochMilliseconds", "epochMilliseconds")}}-Wert wie der Zeitstempel dieses Datums. Seine Mikrosekunden- und Nanosekundenkomponenten sind immer `0`.
+Ein neues {{jsxref("Temporal.Instant")}}-Objekt mit dem gleichen {{jsxref("Temporal/Instant/epochMilliseconds", "epochMilliseconds")}}-Wert wie der Zeitstempel dieses Datums. Seine Mikrosekunden- und Nanosekunden-Komponenten sind immer `0`.
 
 ### Ausnahmen
 

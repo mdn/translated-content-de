@@ -2,12 +2,12 @@
 title: Temporal.Instant.prototype.round()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/round
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`round()`** Methode von {{jsxref("Temporal.Instant")}} Instanzen gibt ein neues `Temporal.Instant` Objekt zurück, das diesen Moment auf die angegebene Einheit gerundet darstellt.
+Die **`round()`** Methode von Instanzen des {{jsxref("Temporal.Instant")}} gibt ein neues `Temporal.Instant`-Objekt zurück, das diesen Zeitpunkt auf die angegebene Einheit gerundet darstellt.
 
 ## Syntax
 
@@ -19,19 +19,19 @@ round(options)
 ### Parameter
 
 - `smallestUnit`
-  - : Ein String, der die [`smallestUnit`](#smallestunit_2) Option darstellt. Dies ist eine bequeme Überladung, sodass `round(smallestUnit)` gleichbedeutend mit `round({ smallestUnit })` ist, wobei `smallestUnit` ein String ist.
+  - : Ein String, der die [`smallestUnit`](#smallestunit_2)-Option darstellt. Dies ist eine praktische Überladung, sodass `round(smallestUnit)` gleichbedeutend ist mit `round({ smallestUnit })`, wobei `smallestUnit` ein String ist.
 - `options`
   - : Ein Objekt, das einige oder alle der folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
     - `roundingIncrement` {{optional_inline}}
-      - : Eine Zahl (die auf eine ganze Zahl gekürzt wird), die den Rundungsinkrement in der angegebenen `smallestUnit` darstellt. Standardmäßig ist dies `1`. Der Inkrement und die `smallestUnit` müssen 24 Stunden gleichmäßig teilen; beispielsweise sind 45 Sekunden ein Teiler von 86400 Sekunden, und 100 Minuten sind ein Teiler von 3600 Minuten. Dies ist etwas weniger streng als die `round()` Methode der anderen Klassen, die alle erfordern, dass der Inkrement ein Teiler des Maximalwerts der Einheit ist.
+      - : Eine Zahl (auf eine Ganzzahl gekürzt), die das Rundungsinkrement in der angegebenen `smallestUnit` darstellt. Standardmäßig `1`. Das Inkrement und die `smallestUnit` müssen 24 Stunden gleichmäßig teilen; zum Beispiel ist 45 Sekunden ein Teiler von 86400 Sekunden und 100 Minuten ein Teiler von 3600 Minuten. Dies ist etwas weniger streng als die `round()`-Methode der anderen Klassen, die alle verlangen, dass das Inkrement ein Teiler des Maximalwerts der Einheit ist.
     - `roundingMode` {{optional_inline}}
-      - : Ein String, der angibt, wie der Bruchteil von `smallestUnit` abgerundet werden soll. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standardmäßig ist dies `"halfExpand"`.
+      - : Ein String, der angibt, wie die Bruchteile von `smallestUnit` abgerundet werden sollen. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standardmäßig `"halfExpand"`.
     - `smallestUnit`
-      - : Ein String, der die kleinste Einheit darstellt, die in die Ausgabe einbezogen wird. Der Wert muss eine der folgenden sein: `"hour"`, `"minute"`, `"second"`, `"millisecond"`, `"microsecond"`, `"nanosecond"` oder deren Pluralformen. Für Einheiten größer als `"nanosecond"` werden Bruchteile der `smallestUnit` entsprechend den Einstellungen `roundingIncrement` und `roundingMode` gerundet.
+      - : Ein String, der die kleinste Einheit darstellt, die in die Ausgabe einbezogen werden soll. Der Wert muss einer der folgenden sein: `"hour"`, `"minute"`, `"second"`, `"millisecond"`, `"microsecond"`, `"nanosecond"` oder deren Pluralformen. Für Einheiten größer als `"nanosecond"` werden Bruchteile der `smallestUnit` entsprechend den `roundingIncrement`- und `roundingMode`-Einstellungen gerundet.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Instant")}} Objekt, das diesen Moment auf die angegebene Einheit gerundet darstellt, wobei alle Einheiten kleiner als `smallestUnit` auf null gesetzt werden.
+Ein neues {{jsxref("Temporal.Instant")}}-Objekt, das diesen Zeitpunkt auf die angegebene Einheit gerundet darstellt, wobei alle Einheiten kleiner als `smallestUnit` auf null gesetzt werden.
 
 ### Ausnahmen
 
@@ -40,7 +40,7 @@ Ein neues {{jsxref("Temporal.Instant")}} Objekt, das diesen Moment auf die angeg
 
 ## Beispiele
 
-### Abrunden kleiner Einheiten
+### Rundung kleiner Einheiten
 
 ```js
 const instant = Temporal.Instant.fromEpochMilliseconds(1000);

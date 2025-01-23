@@ -2,12 +2,12 @@
 title: Temporal.ZonedDateTime.from()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/from
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.ZonedDateTime.from()`** erstellt ein neues `Temporal.ZonedDateTime`-Objekt aus einem anderen `Temporal.ZonedDateTime`-Objekt, einem Objekt mit Datums-, Zeit- und Zeitzoneneigenschaften oder einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format)-String.
+Die statische Methode **`Temporal.ZonedDateTime.from()`** erstellt ein neues `Temporal.ZonedDateTime`-Objekt aus einem anderen `Temporal.ZonedDateTime`-Objekt, einem Objekt mit Datum-, Zeit- und Zeitzoneneigenschaften oder einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format) Zeichenkette.
 
 ## Syntax
 
@@ -20,42 +20,42 @@ Temporal.ZonedDateTime.from(info, options)
 
 - `info`
   - : Eines der folgenden:
-    - Eine Instanz von {{jsxref("Temporal.ZonedDateTime")}}, die eine Kopie der Instanz erstellt.
-    - Ein [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format)-String, der ein Datum, optional eine Zeit, optional einen Offset, eine Zeitzonenkennung und optional einen Kalender enthält.
-    - Ein Objekt, das Eigenschaften enthält, die entweder von {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} (`calendar`, `era`, `eraYear`, `year`, `month`, `monthCode`, `day`) oder {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} (`hour`, `minute`, `second`, `millisecond`, `microsecond`, `nanosecond`) akzeptiert werden. Die Informationen sollten explizit ein Jahr (als `year` oder als `era` und `eraYear`), einen Monat (als `month` oder `monthCode`) und einen Tag angeben; andere sind optional und werden auf ihre Standardwerte gesetzt. Die folgenden Eigenschaften sollten ebenfalls angegeben werden:
+    - Eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die eine Kopie dieser Instanz erstellt.
+    - Ein [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format) Zeichenkette, die ein Datum, optional eine Uhrzeit, optional einen Offset, eine Zeitzonenanmerkung und optional einen Kalender enthält.
+    - Ein Objekt, das Eigenschaften enthält, die entweder von {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} (`calendar`, `era`, `eraYear`, `year`, `month`, `monthCode`, `day`) oder {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} (`hour`, `minute`, `second`, `millisecond`, `microsecond`, `nanosecond`) akzeptiert werden. Die Informationen sollten explizit ein Jahr (als `year` oder als `era` und `eraYear`), einen Monat (als `month` oder `monthCode`) und einen Tag angeben; andere sind optional und werden auf ihre Standardwerte gesetzt. Die folgenden Eigenschaften sollten ebenfalls bereitgestellt werden:
       - `timeZone`
-        - : Entweder ein String oder eine {{jsxref("Temporal.ZonedDateTime")}}-Instanz, die die zu verwendende Zeitzone repräsentiert. Wenn eine `Temporal.ZonedDateTime`-Instanz, wird ihre Zeitzone verwendet. Wenn ein String, kann es ein benannter Zeitzonen-Identifier, ein Offset-Zeitzonen-Identifier oder ein Datum-Zeit-String mit einem Zeitzonen-Identifier oder einem Offset sein (siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für mehr Informationen). Die Zeitangaben werden in dieser Zeitzone interpretiert.
+        - : Entweder eine Zeichenkette oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die die zu verwendende Zeitzone repräsentiert. Wenn eine `Temporal.ZonedDateTime`-Instanz, wird deren Zeitzone verwendet. Wenn eine Zeichenkette, kann dies ein benannter Zeitzonenbezeichner, ein Offset-Zeitzonenbezeichner oder eine Datum-Uhrzeit-Zeichenkette sein, die einen Zeitzonenbezeichner oder einen Offset enthält (siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für weitere Informationen). Die Zeiteigenschaften werden in dieser Zeitzone interpretiert.
       - `offset` {{optional_inline}}
-        - : Ein Offset-String, im selben Format wie das [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format) Offset (`±HH:mm:ss.sssssssss`), der den Offset von UTC darstellt. Wenn weggelassen, wird er aus der Zeitzone und dem Datum-Zeit berechnet. `"Z"` ist nicht erlaubt.
+        - : Eine Offset-Zeichenkette im selben Format wie der [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format) Offset (`±HH:mm:ss.sssssssss`), die den Offset von UTC darstellt. Wenn weggelassen, wird er aus der Zeitzone und der Datum-Uhrzeit berechnet. `"Z"` ist nicht erlaubt.
 - `options` {{optional_inline}}
   - : Ein Objekt, das einige oder alle der folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
     - `disambiguation` {{optional_inline}}
-      - : Was zu tun ist, wenn die lokale Datum-Zeit in der gegebenen Zeitzone mehrdeutig ist (es gibt mehr als einen Moment mit dieser lokalen Zeit oder die lokale Zeit existiert nicht). Mögliche Werte sind `"compatible"`, `"earlier"`, `"later"` und `"reject"`. Standardmäßig `"compatible"`. Für mehr Informationen über diese Werte siehe [Mehrdeutigkeit und Lücken von lokaler Zeit zu UTC-Zeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time).
+      - : Was zu tun ist, wenn die lokale Datum-Uhrzeit in der angegebenen Zeitzone mehrdeutig ist (es gibt mehr als einen Zeitpunkt mit einer solchen lokalen Zeit, oder die lokale Zeit existiert nicht). Mögliche Werte sind `"compatible"`, `"earlier"`, `"later"` und `"reject"`. Standardmäßig `"compatible"`. Für weitere Informationen zu diesen Werten siehe [Mehrdeutigkeit und Lücken von lokaler Zeit zu UTC-Zeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time).
     - `offset` {{optional_inline}}
-      - : Was zu tun ist, wenn der Offset in `info` explizit angegeben, aber für die gegebene Zeitzone in der lokalen Zeit ungültig ist. Mögliche Werte sind `"use"`, `"ignore"`, `"reject"` und `"prefer"`. Standardmäßig `"reject"`. Für mehr Informationen über diese Werte siehe [Offset-Mehrdeutigkeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#offset_ambiguity).
+      - : Was zu tun ist, wenn der Offset in `info` explizit angegeben ist, aber der Offset für die gegebene Zeitzone in der gegebenen lokalen Zeit ungültig ist. Mögliche Werte sind `"use"`, `"ignore"`, `"reject"` und `"prefer"`. Standardmäßig `"reject"`. Für weitere Informationen zu diesen Werten siehe [Offset-Mehrdeutigkeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#offset_ambiguity).
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des gültigen Bereichs liegt (bei Verwendung des Objekts `info`). Mögliche Werte sind:
+      - : Eine Zeichenkette, die das Verhalten angibt, wenn eine Datumskomponente außerhalb des Bereichs liegt (bei Verwendung des Objekts `info`). Mögliche Werte sind:
         - `"constrain"` (Standard)
           - : Die Datumskomponente wird auf den gültigen Bereich [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
         - `"reject"`
-          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des gültigen Bereichs liegt.
+          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.ZonedDateTime`-Objekt, das das durch `info` angegebene Datum und die Uhrzeit im angegebenen `calendar` und `timeZone` darstellt.
+Ein neues `Temporal.ZonedDateTime`-Objekt, das das durch `info` spezifizierte Datum und die Zeit im angegebenen `calendar` und `timeZone` darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird in einem der folgenden Fälle ausgelöst:
-    - `info` ist kein Objekt oder String.
+  - : Ausgelöst in einem der folgenden Fälle:
+    - `info` ist kein Objekt oder keine Zeichenkette.
     - `options` ist kein Objekt oder `undefined`.
-    - Die bereitgestellten Eigenschaften reichen nicht aus, um ein Datum eindeutig zu bestimmen. Normalerweise müssen Sie ein `year` (oder `era` und `eraYear`), ein `month` (oder `monthCode`) und einen `day` angeben.
+    - Die bereitgestellten Eigenschaften sind unzureichend, um ein Datum eindeutig zu bestimmen. Normalerweise müssen Sie ein `year` (oder `era` und `eraYear`), ein `month` (oder `monthCode`) und ein `day` bereitstellen.
 - {{jsxref("RangeError")}}
-  - : Wird in einem der folgenden Fälle ausgelöst:
+  - : Ausgelöst in einem der folgenden Fälle:
     - Die bereitgestellten Eigenschaften, die dieselbe Komponente spezifizieren, sind inkonsistent.
-    - Die bereitgestellten nicht-numerischen Eigenschaften sind nicht gültig; z. B. wenn `monthCode` kein gültiger Monatscode in diesem Kalender ist.
-    - Die bereitgestellten numerischen Eigenschaften liegen außerhalb des gültigen Bereichs und `options.overflow` ist auf `"reject"` gesetzt.
+    - Die bereitgestellten nicht-numerischen Eigenschaften sind nicht gültig; zum Beispiel, wenn `monthCode` niemals ein gültiger Monatscode in diesem Kalender ist.
+    - Die bereitgestellten numerischen Eigenschaften sind außerhalb des Bereichs, und `options.overflow` ist auf `"reject"` gesetzt.
 
 ## Beispiele
 
@@ -75,7 +75,7 @@ const zdt = Temporal.ZonedDateTime.from({
 console.log(zdt.toString()); // "2021-07-01T12:34:56-04:00[America/New_York]"
 ```
 
-### Erstellen eines ZonedDateTime aus einem String
+### Erstellen eines ZonedDateTime aus einer Zeichenkette
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(
@@ -90,11 +90,11 @@ const zdt2 = Temporal.ZonedDateTime.from(
 console.log(zdt2.toString()); // "2021-07-01T08:34:56-04:00[America/New_York]"
 ```
 
-### Erstellen eines ZonedDateTime aus einem ISO 8601 / RFC 3339 String
+### Erstellen eines ZonedDateTime aus einer ISO 8601- / RFC 3339-Zeichenkette
 
-Beachten Sie, dass `Temporal.ZonedDateTime.from()` ISO 8601-Strings ablehnt, die keine Zeitzonenkennung enthalten. Dies stellt sicher, dass die Zeitzone immer bekannt ist und verwendet werden kann, um verschiedene Offsets abzuleiten, wenn sich die lokale Zeit ändert.
+Beachten Sie, dass `Temporal.ZonedDateTime.from()` ISO 8601-Zeichenketten verwirft, die keinen Zeitzonenbezeichner enthalten. Dies soll sicherstellen, dass die Zeitzone immer bekannt ist und verwendet werden kann, um unterschiedliche Offsets abzuleiten, während sich die lokale Zeit ändert.
 
-Wenn Sie einen ISO 8601-String parsen möchten, erstellen Sie zuerst ein {{jsxref("Temporal.Instant")}}-Objekt und konvertieren Sie es dann in ein `Temporal.ZonedDateTime`-Objekt. Sie können jede Zeitzone angeben, auch wenn sie nicht dem ursprünglich im String angegebenen Offset entspricht, und die lokale Zeit wird entsprechend angepasst.
+Wenn Sie eine ISO 8601-Zeichenkette analysieren möchten, konstruieren Sie zunächst ein {{jsxref("Temporal.Instant")}}-Objekt und wandeln es dann in ein `Temporal.ZonedDateTime`-Objekt um. Sie können jede Zeitzone angeben, auch wenn sie nicht mit dem ursprünglich in der Zeichenkette angegebenen Offset übereinstimmt, und die lokale Zeit wird entsprechend angepasst.
 
 ```js
 const isoString = "2021-07-01T12:34:56+02:00";
@@ -103,7 +103,7 @@ const zdt = instant.toZonedDateTimeISO("America/New_York");
 console.log(zdt.toString()); // "2021-07-01T06:34:56-04:00[America/New_York]"
 ```
 
-### Mehrdeutigkeit der lokalen Zeit
+### Lokale Zeit-Mehrdeutigkeit
 
 Siehe [Mehrdeutigkeit und Lücken von lokaler Zeit zu UTC-Zeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) für eine Einführung in diese Situation.
 
@@ -144,7 +144,7 @@ Temporal.ZonedDateTime.from(offsetAmbiguous, { offset: "ignore" }).toString();
 // "2019-12-23T12:00:00-03:00[America/Sao_Paulo]"
 ```
 
-Für weitere Beispiele, insbesondere im Hinblick auf verschiedene Kalender und Overflow-Einstellungen, siehe {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} und {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}}.
+Für weitere Beispiele, insbesondere in Bezug auf verschiedene Kalender und Overflow-Einstellungen, siehe {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} und {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}}.
 
 ## Spezifikationen
 

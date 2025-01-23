@@ -2,17 +2,17 @@
 title: Temporal.PlainDate.prototype.era
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/era
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`era`** Zugriffs-Eigenschaft von Instanzen von {{jsxref("Temporal.PlainDate")}} gibt einen kalender-spezifischen Kleinbuchstaben-String zurück, der die Ära dieses Datums darstellt, oder `undefined`, wenn der Kalender keine Ären verwendet (z. B. ISO 8601). `era` und `eraYear` identifizieren zusammen eindeutig ein Jahr in einem Kalender, auf die gleiche Weise wie `year`. Dies ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. Für Gregorianisch ist es entweder `"gregory"` oder `"gregory-inverse"`.
+Die **`era`**-Zugriffseigenschaft von Instanzen des {{jsxref("Temporal.PlainDate")}} gibt einen kalender-spezifischen Kleinbuchstaben-String zurück, der die Ära dieses Datums darstellt, oder `undefined`, wenn der Kalender keine Ären verwendet (z. B. ISO 8601). `era` und `eraYear` identifizieren zusammen ein Jahr in einem Kalender eindeutig, ebenso wie `year`. Es ist kalenderabhängig. Für den Gregorianischen Kalender ist es entweder `"gregory"` oder `"gregory-inverse"`.
 
-Der set accessor von `era` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainDate/with", "with()")}}, um ein neues `Temporal.PlainDate` Objekt mit dem gewünschten neuen Wert zu erstellen. Beim Setzen von Ären kann es sein, dass jeder Code einige Aliase hat; zum Beispiel sind `"ce"` und `"ad"` gleichbedeutend mit `"gregory"`, und `"bce"` und `"bc"` sind gleichbedeutend mit `"gregory-inverse"`.
+Der Set-Zugriff von `era` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainDate/with", "with()")}}-Methode, um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen Wert zu erstellen. Beim Setzen von Ären kann jeder Code einige Aliase haben; zum Beispiel sind `"ce"` und `"ad"` gleichwertig mit `"gregory"`, und `"bce"` und `"bc"` sind gleichwertig mit `"gregory-inverse"`.
 
 > [!NOTE]
-> Dieser String ist nicht zur Anzeige für Benutzer vorgesehen. Verwenden Sie {{jsxref("Temporal/PlainDate/toLocaleString", "toLocaleString()")}} mit den entsprechenden Optionen, um einen lokalisierten String zu erhalten.
+> Dieser String ist nicht für die Anzeige an Benutzer gedacht. Verwenden Sie {{jsxref("Temporal/PlainDate/toLocaleString", "toLocaleString()")}} mit den entsprechenden Optionen, um einen lokalisierten String zu erhalten.
 
 ## Beispiele
 
@@ -34,7 +34,7 @@ console.log(date4.era); // reiwa
 
 ### Ändern von era
 
-Sie können `era` nur für Kalender setzen, die dies unterstützen. Der ISO 8601 Kalender hat zum Beispiel keine Ären. Beachten Sie, dass Sie `era` und `eraYear` zusammen angeben müssen.
+Sie können `era` nur für Kalender festlegen, die diese unterstützen. Beispielsweise hat der ISO 8601-Kalender keine Ären. Beachten Sie, dass Sie `era` und `eraYear` zusammen angeben müssen.
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01[u-ca=gregory]");

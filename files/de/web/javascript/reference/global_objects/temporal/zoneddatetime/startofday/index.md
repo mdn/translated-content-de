@@ -2,14 +2,14 @@
 title: Temporal.ZonedDateTime.prototype.startOfDay()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/startOfDay
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`startOfDay()`** Methode von Instanzen des Objekts {{jsxref("Temporal.ZonedDateTime")}} gibt ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt zurück, das den ersten Moment dieses Datums in der Zeitzone darstellt. Es hat normalerweise eine Uhrzeit von `00:00:00`, kann jedoch unterschiedlich sein, wenn Mitternacht aufgrund von Offset-Änderungen nicht existiert. In diesem Fall wird die erste existierende Uhrzeit zurückgegeben.
+Die **`startOfDay()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt zurück, das den ersten Moment dieses Datums in der Zeitzone darstellt. Es hat normalerweise eine Uhrzeit von `00:00:00`, kann aber abweichen, wenn Mitternacht aufgrund von Offset-Änderungen nicht existiert. In diesem Fall wird der erste existierende Zeitpunkt zurückgegeben.
 
-Es ist gleichbedeutend mit einem Aufruf von {{jsxref("Temporal/ZonedDateTime/withPlainTime", "withPlainTime()")}} ohne Argumente.
+Es ist äquivalent zu einem Aufruf von {{jsxref("Temporal/ZonedDateTime/withPlainTime", "withPlainTime()")}} ohne Argumente.
 
 ## Syntax
 
@@ -23,10 +23,10 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt mit dem Moment `t`, sodass:
+Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt mit dem Zeitpunkt `t`, so dass:
 
-- Das Datum bei `t` sich von dem Datum eine Nanosekunde vor `t` unterscheidet.
-- Das Datum bei `t` dasselbe ist wie das Datum von `this`.
+- Das Datum bei `t` von dem Datum eine Nanosekunde vor `t` abweicht.
+- Das Datum bei `t` mit dem Datum von `this` identisch ist.
 
 ## Beispiele
 

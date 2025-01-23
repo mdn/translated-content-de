@@ -2,18 +2,18 @@
 title: Temporal.ZonedDateTime.prototype.second
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/second
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`second`** Zugriffs-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine ganze Zahl von 0 bis 59 zurück, die die Sekundenkomponente dieser Zeit darstellt.
+Die Zugriffs-Eigenschaft **`second`** von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt eine Ganzzahl von 0 bis 59 zurück, die die Sekundenkomponente dieser Zeit repräsentiert.
 
-Der Set-Zugriff von `second` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode, um ein neues `Temporal.ZonedDateTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Zugriffs-Methoden von `second` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}}-Methode, um ein neues `Temporal.ZonedDateTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainTime/second", "Temporal.PlainTime.prototype.second")}}.
 
-Bei `ZonedDateTime` kann `second` aufgrund von Offset-Änderungen nicht kontinuierlich sein. Obwohl seltener als `hour`- oder `minute`-Änderungen (da Zeitumstellungen normalerweise ganze Stunden betreffen), kann es dennoch vorkommen.
+Für `ZonedDateTime` kann `second` aufgrund von Offset-Änderungen nicht kontinuierlich sein. Obwohl dies viel seltener vorkommt als Änderungen von `hour` oder `minute` (da Zeitumstellungen normalerweise in ganzen Stunden erfolgen), kann es dennoch auftreten.
 
 ## Beispiele
 
@@ -28,7 +28,7 @@ console.log(dt.second); // 56
 
 ### Nicht-kontinuierliche Sekunde
 
-Typischerweise geht `second` immer von 0 bis 59 und dann zurück zu 0, selbst wenn eine Zeitumstellung durchquert wird. Es gibt einen besonderen Fall, bei dem die Sekunde nicht kontinuierlich sein kann: die Standardisierung der stündlichen Zeitzonen. Im frühen 20. Jahrhundert benutzten die meisten Länder ihre eigenen Zeitzonen, die oft keinen ganzen Stundenoffset von UTC hatten. Zum Beispiel hatte Paris früher einen Offset von UTC+0:09:21, der am 11. März 1911 auf UTC+0 geändert wurde.
+In der Regel geht `second` immer von 0 bis 59 und dann zurück zu 0, selbst beim Durchlaufen einer Zeitumstellung. Es gibt einen bemerkenswerten Fall, in dem die Sekunde nicht kontinuierlich sein kann: die Standardisierung der Zeitzonen. Zu Beginn des 20. Jahrhunderts verwendeten die meisten Länder ihre eigenen Zeitzonen, die oft keine volle Stunde vom UTC abwichen. Zum Beispiel hatte Paris früher einen Offset von UTC+0:09:21, der am 11. März 1911 auf UTC+0 geändert wurde.
 
 ```js
 const dt = Temporal.ZonedDateTime.from(
@@ -40,7 +40,7 @@ console.log(dt2.second); // 39
 console.log(dt2.toString()); // 1911-03-10T23:50:39+00:00[Europe/Paris]
 ```
 
-Aus diesem Grund sollten Sie immer {{jsxref("Temporal/ZonedDateTime/add", "add()")}} und {{jsxref("Temporal/ZonedDateTime/subtract", "subtract()")}} bevorzugen, um Daten und Zeiten zu manipulieren, anstatt die `second` Eigenschaft direkt zu ändern.
+Aus diesem Grund sollten Sie immer {{jsxref("Temporal/ZonedDateTime/add", "add()")}} und {{jsxref("Temporal/ZonedDateTime/subtract", "subtract()")}} bevorzugen, um Daten und Zeiten zu manipulieren, anstatt die `second`-Eigenschaft direkt zu ändern.
 
 ## Spezifikationen
 

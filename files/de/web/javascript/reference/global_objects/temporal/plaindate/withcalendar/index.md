@@ -2,14 +2,14 @@
 title: Temporal.PlainDate.prototype.withCalendar()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/withCalendar
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die Methode **`withCalendar()`** von Instanzen des {{jsxref("Temporal.PlainDate")}} gibt ein neues `Temporal.PlainDate`-Objekt zurück, das dieses Datum im neuen Kalender-System interpretiert. Da alle `Temporal`-Objekte so entworfen sind, unveränderlich zu sein, fungiert diese Methode im Wesentlichen als der Setter für die {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}}-Eigenschaft des Datums.
+Die **`withCalendar()`** Methode von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein neues `Temporal.PlainDate` Objekt zurück, das dieses Datum im neuen Kalendersystem interpretiert. Da alle `Temporal` Objekte darauf ausgelegt sind, unveränderlich zu sein, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}} Eigenschaft des Datums.
 
-Um die Datumskomponenteneigenschaften zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDate/with", "with()")}}-Methode.
+Um die Datumsbestandteile zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDate/with", "with()")}} Methode.
 
 ## Syntax
 
@@ -20,18 +20,18 @@ withCalendar(calendar)
 ### Parameter
 
 - `calendar`
-  - : Ein String, der der {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}}-Eigenschaft entspricht.
+  - : Ein Zeichenfolge, die der {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}} Eigenschaft entspricht.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDate`-Objekt, das das Datum darstellt, das durch das ursprüngliche `PlainDate` spezifiziert ist und im neuen Kalender-System interpretiert wird.
+Ein neues `Temporal.PlainDate` Objekt, das das von dem originalen `PlainDate` angegebene Datum im neuen Kalendersystem darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `calendar` kein String ist.
+  - : Wird ausgelöst, wenn `calendar` keine Zeichenfolge ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `calendar` kein gültiger Kalenderidentifikator ist.
+  - : Wird ausgelöst, wenn `calendar` keine gültige Kalenderkennung ist.
 
 ## Beispiele
 

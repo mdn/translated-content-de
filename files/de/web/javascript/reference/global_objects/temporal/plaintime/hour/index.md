@@ -2,14 +2,14 @@
 title: Temporal.PlainTime.prototype.hour
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/hour
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
 Die **`hour`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainTime")}} Instanzen gibt eine ganze Zahl von 0 bis 23 zurück, die die Stundenkomponente dieser Zeit darstellt.
 
-Der set-Zugriff der `hour`-Eigenschaft ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainTime/with", "with()")}}, um ein neues `Temporal.PlainTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Setzugriff von `hour` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainTime/with", "with()")}} Methode, um ein neues `Temporal.PlainTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
@@ -20,7 +20,7 @@ const time = Temporal.PlainTime.from("12:34:56");
 console.log(time.hour); // 12
 ```
 
-### Änderung von hour
+### Ändern der Stunde
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");

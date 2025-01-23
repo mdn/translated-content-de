@@ -2,12 +2,12 @@
 title: Temporal.PlainDate.prototype.toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/toString
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`toString()`**-Methode von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt eine Zeichenkette zurück, die dieses Datum im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format) darstellt.
+Die **`toString()`**-Methode von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt einen String zurück, der dieses Datum im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format) darstellt.
 
 ## Syntax
 
@@ -19,21 +19,21 @@ toString(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Objekt mit der folgenden Eigenschaft:
+  - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `calendarName` {{optional_inline}}
-      - : Ob die Kalenderannotation (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
+      - : Gibt an, ob die Kalenderanmerkung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
         - `"auto"` (Standard)
-          - : Die Kalenderannotation wird einbezogen, wenn der Kalender nicht `"iso8601"` ist.
+          - : Schließt die Kalenderanmerkung ein, wenn der Kalender nicht `"iso8601"` ist.
         - `"always"`
-          - : Die Kalenderannotation wird immer einbezogen.
+          - : Schließt immer die Kalenderanmerkung ein.
         - `"never"`
-          - : Die Kalenderannotation wird nie einbezogen. Dadurch kann die zurückgegebene Zeichenkette nicht auf dieselbe {{jsxref("Temporal.PlainDate")}}-Instanz zurückgeführt werden, obwohl der Datumswert gleich bleibt.
+          - : Schließt die Kalenderanmerkung niemals ein. Dadurch kann der zurückgegebene String nicht auf dieselbe {{jsxref("Temporal.PlainDate")}}-Instanz zurückgeführt werden, obwohl der Datumswert gleich bleibt.
         - `"critical"`
-          - : Die Kalenderannotation wird immer einbezogen, und ein kritisches Flag wird hinzugefügt: `[!u-ca=calendar_id]`. Nützlich, wenn die Zeichenkette an bestimmte Systeme gesendet wird, jedoch nicht für Temporal selbst.
+          - : Schließt immer die Kalenderanmerkung ein und fügt ein kritisches Kennzeichen hinzu: `[!u-ca=calendar_id]`. Nützlich beim Senden des Strings an bestimmte Systeme, aber nicht nützlich für Temporal selbst.
 
 ### Rückgabewert
 
-Eine Zeichenkette im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format), die dieses Datum darstellt. Die Kalenderannotation wird wie angegeben einbezogen.
+Ein String im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format), der dieses Datum darstellt. Die Kalenderanmerkung wird wie angegeben einbezogen.
 
 ### Ausnahmen
 

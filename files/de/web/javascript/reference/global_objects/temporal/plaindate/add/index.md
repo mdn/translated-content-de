@@ -2,12 +2,12 @@
 title: Temporal.PlainDate.prototype.add()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/add
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`add()`** Methode von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein neues `Temporal.PlainDate` Objekt zurück, das dieses Datum um einen angegebenen Zeitraum nach vorne verschoben darstellt (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist).
+Die **`add()`**-Methode von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt ein neues `Temporal.PlainDate`-Objekt zurück, das dieses Datum um eine gegebene Dauer (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist) vorwärts verschoben darstellt.
 
 ## Syntax
 
@@ -19,34 +19,34 @@ add(duration, options)
 ### Parameter
 
 - `duration`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}} Instanz, die eine Dauer darstellt, die zu diesem Datum hinzugefügt werden soll. Sie wird unter Verwendung des gleichen Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration` Objekt umgewandelt.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine hinzuzufügende Dauer zu diesem Datum darstellt. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt umgewandelt.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgende Eigenschaft enthält:
+  - : Ein Objekt das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten spezifiziert, wenn eine Datumskomponente außerhalb des gültigen Bereichs liegt. Mögliche Werte sind:
+      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des gültigen Bereichs liegt. Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Datumskomponente wird auf den gültigen Bereich [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
+          - : Die Datumskomponente wird [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping) auf den gültigen Bereich.
         - `"reject"`
-          - : Es wird ein {{jsxref("RangeError")}} ausgelöst, wenn die Datumskomponente außerhalb des gültigen Bereichs liegt.
+          - : Es wird ein {{jsxref("RangeError")}} ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDate` Objekt, das das durch das ursprüngliche `PlainDate` plus die Dauer spezifizierte Datum darstellt.
+Ein neues `Temporal.PlainDate`-Objekt, das das durch das ursprüngliche `PlainDate` und die Dauer spezifizierte Datum darstellt.
 
 ## Beschreibung
 
-Die `duration` wird wie folgt behandelt:
+Die `duration` wird auf diese Weise behandelt:
 
-- Um die Anzahl der Jahre nach vorne gehen, wobei der `monthCode` und der `day` beibehalten werden. Wenn der `monthCode` im resultierenden Jahr ungültig ist (unmöglich für Gregorianisch und ISO 8601, aber möglich für Kalender mit Schaltmonaten), passen wir dies basierend auf der `overflow`-Option an: Für `constrain` wählen wir einen anderen Monat gemäß den kulturellen Konventionen der Nutzer dieses Kalenders. Zum Beispiel, weil der Schaltmonat oft als Duplikat eines anderen Monats betrachtet wird, wählen wir möglicherweise den Monat, den er dupliziert.
-- Um die Anzahl der Monate nach vorne gehen, dabei das Jahr bei Bedarf anpassen und den `day` beibehalten. Wenn der `day` im resultierenden Monat ungültig ist (z. B. der 30. Februar), passen wir basierend auf der `overflow`-Option an: Für `constrain` wählen wir den nächstliegenden gültigen Tag (z. B. den 28. oder 29. Februar).
-- Alle allgemein unterstützten Kalender verwenden Wochen mit fester Länge, sodass die Anzahl der Wochen einfach in die Anzahl der Tage umgerechnet wird. Wenn die Regel komplexer ist, könnten wir einen ähnlichen Ansatz wie beim Verschieben von Monaten verfolgen.
-- Für alle [nicht-kalendarischen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) Einheiten (Tage, Stunden, Minuten, Sekunden, Millisekunden, Mikrosekunden, Nanosekunden) werden sie in die Anzahl der Tage umgerechnet. Der Bruchteil eines Tages wird ignoriert. Dann bewegen wir uns um diese Anzahl Tage nach vorne, wobei der Monat und das Jahr bei Bedarf angepasst werden.
+- Vorwärts bewegen um die Anzahl der Jahre, wobei der `monthCode` und der `day` gleich bleiben. Wenn der `monthCode` im resultierenden Jahr ungültig ist (unmöglich für Gregorianische und ISO 8601-Kalender, aber möglich für Kalender mit Schaltmonaten), passen wir uns basierend auf die `overflow`-Option an: bei `constrain` wählen wir einen anderen Monat entsprechend den kulturellen Konventionen der Benutzer dieses Kalenders. Beispielsweise, weil der Schaltmonat normalerweise als Duplikat eines anderen Monats angesehen wird, können wir den Monat wählen, den er dupliziert.
+- Vorwärts bewegen um die Anzahl der Monate, wobei das Jahr bei Bedarf angepasst wird, und der `day` gleich bleibt. Wenn der `day` im resultierenden Monat ungültig ist (z.B. der 30. Februar), passen wir uns basierend auf die `overflow`-Option an: bei `constrain` wählen wir den nächstgültigen Tag (z.B. den 28. oder 29. Februar).
+- Alle allgemein unterstützten Kalender verwenden Wochen mit fester Länge, sodass die Anzahl der Wochen einfach in die Anzahl der Tage umgewandelt wird. Wenn die Regel komplexer ist, können wir einen Ansatz ähnlich der Verschiebung von Monaten verfolgen.
+- Für alle [nicht-kalendarischen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) Einheiten (Tage, Stunden, Minuten, Sekunden, Millisekunden, Mikrosekunden, Nanosekunden) werden sie in die Anzahl der Tage umgewandelt. Der Bruchteil eines Tages wird ignoriert. Dann bewegen wir uns um diese Anzahl von Tagen vorwärts, passen den Monat und das Jahr bei Bedarf an.
 
 Das Hinzufügen einer Dauer entspricht dem [Subtrahieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/subtract) ihrer [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated).
 
 ## Beispiele
 
-### Hinzufügen einer Dauer im ISO 8601 Kalender
+### Hinzufügen einer Dauer im ISO 8601-Kalender
 
 ```js
 const start = Temporal.PlainDate.from("2021-01-01");
@@ -72,7 +72,7 @@ console.log(end.toLocaleString("en-US", { calendar: "chinese" })); // 12/18/2020
 
 ### Hinzufügen einer Dauer mit Überlauf
 
-Wenn wir ein paar Monate vorgehen und der entsprechende Tag in diesem Monat ungültig ist, dann passen wir den Tag basierend auf der `overflow`-Option an.
+Wenn wir ein paar Monate verschieben und der entsprechende Tag in diesem Monat ungültig ist, passen wir den Tag basierend auf die `overflow`-Option an.
 
 ```js
 const start = Temporal.PlainDate.from("2021-01-31");
@@ -88,7 +88,7 @@ const end3 = start.add({ days: 31 }).add({ months: 1 });
 console.log(end3.toString()); // 2021-04-03
 ```
 
-Ein Überlauf kann auch beim Monat auftreten, in Kalendern, in denen unterschiedliche Jahre unterschiedliche Anzahlen von Monaten haben (meistens wegen Schaltmonaten).
+Ein Überlauf kann auch für den Monat auftreten, bei Kalendern, in denen unterschiedliche Jahre unterschiedliche Anzahlen von Monaten haben (normalerweise aufgrund von Schaltmonaten).
 
 ```js
 const start = Temporal.PlainDate.from("2023-04-01[u-ca=chinese]");
@@ -103,7 +103,7 @@ const end = start.add({ years: 1 });
 console.log(end.toLocaleString("en-US", { calendar: "chinese" })); // 3/11/2024; same day as above!
 ```
 
-Beachten Sie, dass das Folgende kein Überlauf ist, da der Monat einfach inkrementiert werden kann:
+Beachten Sie, dass das Folgende kein Überlauf ist, weil der Monat einfach inkrementiert werden kann:
 
 ```js
 const start = Temporal.PlainDate.from("2021-01-01");
@@ -111,7 +111,7 @@ const end = start.add({ days: 100 });
 console.log(end.toString()); // 2021-04-11
 ```
 
-Sie können auch einen Fehler auslösen, wenn die Datumskomponente außerhalb des Bereichs liegt:
+Sie können auch einen Fehler werfen, wenn die Datumskomponente außerhalb des Bereichs liegt:
 
 ```js
 const start = Temporal.PlainDate.from("2021-01-31");

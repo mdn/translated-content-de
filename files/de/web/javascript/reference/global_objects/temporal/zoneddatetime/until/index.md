@@ -2,14 +2,14 @@
 title: Temporal.ZonedDateTime.prototype.until()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/until
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`until()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues {{jsxref("Temporal.Duration")}} Objekt zurück, das die Dauer von diesem Datum-Uhrzeit zu einem anderen Datum-Uhrzeit darstellt (in einer Form, die durch {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} konvertierbar ist). Die Dauer ist positiv, wenn das andere Datum-Uhrzeit nach diesem Datum-Uhrzeit liegt, und negativ, wenn es davor liegt.
+Die **`until()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues {{jsxref("Temporal.Duration")}} Objekt zurück, das die Dauer von diesem Datum-Zeit-Punkt zu einem anderen Datum-Zeit-Punkt darstellt (in einer Form, die durch {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} konvertierbar ist). Die Dauer ist positiv, wenn der andere Datum-Zeit-Punkt nach diesem liegt, und negativ, wenn davor.
 
-Diese Methode führt `other - this` aus. Um `this - other` zu berechnen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/since", "since()")}} Methode.
+Diese Methode führt `other - this` aus. Um `this - other` auszuführen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/since", "since()")}} Methode.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ until(other, options)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die ein Datum-Uhrzeit darstellt, von dem dieses Datum-Uhrzeit subtrahiert werden soll. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} in ein `Temporal.ZonedDateTime` Objekt konvertiert. Es muss denselben Kalender wie `this` haben.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die einen Datum-Zeit-Punkt darstellt, von dem dieser Datum-Zeit-Punkt subtrahiert wird. Er wird unter Verwendung des gleichen Algorithmus wie {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} in ein `Temporal.ZonedDateTime` Objekt umgewandelt. Er muss denselben Kalender wie `this` haben.
 - `options` {{optional_inline}}
-  - : Dieselben Optionen wie bei [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/since#options).
+  - : Die gleichen Optionen wie bei [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/since#options).
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Duration")}} Objekt, das die Dauer von diesem Datum-Uhrzeit _bis_ `other` darstellt. Die Dauer ist positiv, wenn `other` nach diesem Datum-Uhrzeit ist, und negativ, wenn es davor ist.
+Ein neues {{jsxref("Temporal.Duration")}} Objekt, das die Dauer von diesem Datum-Zeit-Punkt _bis_ `other` darstellt. Die Dauer ist positiv, wenn `other` nach diesem Datum-Zeit-Punkt liegt, und negativ, wenn davor.
 
 ### Ausnahmen
 

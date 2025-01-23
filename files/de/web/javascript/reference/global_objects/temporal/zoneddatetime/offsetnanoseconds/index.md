@@ -2,14 +2,14 @@
 title: Temporal.ZonedDateTime.prototype.offsetNanoseconds
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/offsetNanoseconds
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`offsetNanoseconds`** Zugriffseigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine ganze Zahl zurück, die den [Offset](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) darstellt, der zur Interpretation des internen Zeitpunkts verwendet wird, als Anzahl der Nanosekunden (positiv oder negativ). Der Wert ist eine sichere ganze Zahl, da er weniger als einen Tag beträgt, was 8.64e15 Nanosekunden entspricht.
+Die **`offsetNanoseconds`** Zugriffs-Eigenschaft von Instanzen des {{jsxref("Temporal.ZonedDateTime")}} gibt eine Ganzzahl zurück, die den [Offset](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) darstellt, der verwendet wird, um den internen Zeitpunkt als Anzahl von Nanosekunden (positiv oder negativ) zu interpretieren. Der Wert ist eine sichere Ganzzahl, da er kleiner als ein Tag ist, was 8,64e15 Nanosekunden entspricht.
 
-Der Set-Accessor von `offsetNanoseconds` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Ändern Sie {{jsxref("Temporal/ZonedDateTime/offset", "offset")}}, um diese Eigenschaft ebenfalls zu ändern.
+Die Set-Zugriffsfunktion von `offsetNanoseconds` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Ändern Sie {{jsxref("Temporal/ZonedDateTime/offset", "offset")}}, um diese Eigenschaft ebenfalls zu ändern.
 
 ## Beispiele
 
@@ -32,7 +32,7 @@ const dt3 = Temporal.ZonedDateTime.from(
 console.log(dt3.offsetNanoseconds); // 561000000000
 ```
 
-Hier ist eine Möglichkeit, ein `ZonedDateTime` zu erhalten, das die gleiche Uhrzeit in UTC darstellt:
+Hier ist eine Möglichkeit, eine `ZonedDateTime` zu erhalten, die die gleiche Uhrzeit in UTC darstellt:
 
 ```js
 const dt = Temporal.ZonedDateTime.from(
@@ -64,6 +64,6 @@ console.log(dtInUTC.toString()); // "2021-07-01T12:00:00+00:00[UTC]"
 
 - {{jsxref("Temporal.ZonedDateTime")}}
 - {{jsxref("Temporal/ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}}
-- {{jsxref("Temporal/ZonedDateTime/withTimeZone", "Temporal.ZonedDateTime.prototype.withTimeZone()")}}
-- {{jsxref("Temporal/ZonedDateTime/offset", "Temporal.ZonedDateTime.prototype.offset")}}
-- {{jsxref("Temporal/ZonedDateTime/timeZoneId", "Temporal.ZonedDateTime.prototype.timeZoneId")}}
+- {{jsxref("Temporal.ZonedDateTime/withTimeZone", "Temporal.ZonedDateTime.prototype.withTimeZone()")}}
+- {{jsxref("Temporal.ZonedDateTime/offset", "Temporal.ZonedDateTime.prototype.offset")}}
+- {{jsxref("Temporal.ZonedDateTime/timeZoneId", "Temporal.ZonedDateTime.prototype.timeZoneId")}}

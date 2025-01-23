@@ -2,16 +2,16 @@
 title: Temporal.Duration.prototype.months
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/months
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`months`** Zugriffs-Property von {{jsxref("Temporal.Duration")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Monate in der Dauer repräsentiert.
+Die **`months`** Zugriffsproperty von {{jsxref("Temporal.Duration")}} Instanzen liefert eine Ganzzahl, die die Anzahl der Monate in der Dauer darstellt.
 
-Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Wertes nicht annehmen, aber Sie können das Vorzeichen durch Überprüfung der [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Property der Dauer kennen. Wenn sie auf eine Einheit über Monaten ausgeglichen ist, hängt der absolute Wertebereich von `months` vom Kalender ab (wie viele Monate in einem Jahr enthalten sind).
+Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Wertes nicht annehmen, aber Sie können das Vorzeichen durch Überprüfung der [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Property der Dauer ermitteln. Wenn sie zu einer Einheit oberhalb von Monaten ausgeglichen ist, hängt der Wertebereich des absoluten Werts von `months` vom Kalender ab (wie viele Monate in einem Jahr sind).
 
-Der set-Accessor von `months` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Zugriff von `months` ist `undefined`. Sie können diese Property nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 

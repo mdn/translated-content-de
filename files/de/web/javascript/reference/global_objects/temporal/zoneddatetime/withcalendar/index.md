@@ -2,14 +2,14 @@
 title: Temporal.ZonedDateTime.prototype.withCalendar()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/withCalendar
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die Methode **`withCalendar()`** von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das dieses Datum-Uhrzeit im neuen Kalendersystem interpretiert. Da alle `Temporal`-Objekte so entworfen sind, dass sie unveränderlich sind, dient diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/ZonedDateTime/calendarId", "calendarId")}}-Eigenschaft des Datum-Uhrzeit-Wertes.
+Die **`withCalendar()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das diesen Datum-Uhrzeit-Wert im neuen Kalendersystem darstellt. Da alle `Temporal`-Objekte darauf ausgelegt sind, unveränderlich zu sein, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/ZonedDateTime/calendarId", "calendarId")}}-Eigenschaft des Datum-Uhrzeit-Werts.
 
-Um die datumsbezogenen Komponenteneigenschaften zu ersetzen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}}-Methode. Um die Zeitzone zu ersetzen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/withTimeZone", "withTimeZone()")}}-Methode.
+Um die Datumskomponenten-Eigenschaften zu ersetzen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}}-Methode. Um die Zeitzone zu ersetzen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/withTimeZone", "withTimeZone()")}}-Methode.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ withCalendar(calendar)
 
 ### Rückgabewert
 
-Ein neues `Temporal.ZonedDateTime`-Objekt, das das Datum-Uhrzeit angibt, das durch den ursprünglichen `ZonedDateTime` spezifiziert wurde, interpretiert im neuen Kalendersystem.
+Ein neues `Temporal.ZonedDateTime`-Objekt, das die durch die ursprüngliche `ZonedDateTime` angegebene Datum-Uhrzeit darstellt, interpretiert im neuen Kalendersystem.
 
 ### Ausnahmen
 
@@ -57,8 +57,8 @@ console.log(newZDT.toLocaleString("en-US", { calendar: "islamic" }));
 ## Siehe auch
 
 - {{jsxref("Temporal.ZonedDateTime")}}
-- {{jsxref("Temporal/ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}}
-- {{jsxref("Temporal/ZonedDateTime/withTimeZone", "Temporal.ZonedDateTime.prototype.withTimeZone()")}}
-- {{jsxref("Temporal/ZonedDateTime/withPlainTime", "Temporal.ZonedDateTime.prototype.withPlainTime()")}}
-- {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}
-- {{jsxref("Temporal/ZonedDateTime/calendarId", "Temporal.ZonedDateTime.prototype.calendarId")}}
+- {{jsxref("Temporal.ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}}
+- {{jsxref("Temporal.ZonedDateTime/withTimeZone", "Temporal.ZonedDateTime.prototype.withTimeZone()")}}
+- {{jsxref("Temporal.ZonedDateTime/withPlainTime", "Temporal.ZonedDateTime.prototype.withPlainTime()")}}
+- {{jsxref("Temporal.ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}
+- {{jsxref("Temporal.ZonedDateTime/calendarId", "Temporal.ZonedDateTime.prototype.calendarId")}}

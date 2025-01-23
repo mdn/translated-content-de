@@ -2,14 +2,14 @@
 title: Temporal.PlainDateTime.prototype.withCalendar()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/withCalendar
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`withCalendar()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das dieses Datum und diese Uhrzeit im neuen Kalendersystem darstellt. Da alle `Temporal`-Objekte unveränderlich gestaltet sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft des Datums und der Uhrzeit.
+Die **`withCalendar()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das dieses Datum und diese Uhrzeit im neuen Kalendersystem darstellt. Da alle `Temporal`-Objekte als unveränderlich konzipiert sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft der Datum-Uhrzeit.
 
-Um die Datums- und Zeitkomponenten zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/with", "with()")}}-Methode.
+Um die datumszeitlichen Komponenteneigenschaften zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/with", "with()")}}-Methode.
 
 ## Syntax
 
@@ -24,14 +24,14 @@ withCalendar(calendar)
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime`-Objekt, das das mit dem ursprünglichen `PlainDateTime` angegebene Datum und die Uhrzeit im neuen Kalendersystem darstellt.
+Ein neues `Temporal.PlainDateTime`-Objekt, das das durch den ursprünglichen `PlainDateTime` angegebene Datum und die Uhrzeit darstellt, interpretiert im neuen Kalendersystem.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `calendar` kein String ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `calendar` keine gültige Kalenderkennung ist.
+  - : Wird ausgelöst, wenn `calendar` kein gültiger Kalenderbezeichner ist.
 
 ## Beispiele
 

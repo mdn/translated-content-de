@@ -3,12 +3,12 @@ title: "Element: nextElementSibling-Eigenschaft"
 short-title: nextElementSibling
 slug: Web/API/Element/nextElementSibling
 l10n:
-  sourceCommit: 8d0cbeacdc1872f7e4d966177151585c58fb879e
+  sourceCommit: 9d9ec232867bda10faf523bf567b2b890c6b985b
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Element.nextElementSibling`** schreibgeschützte Eigenschaft gibt das Element zurück, das dem angegebenen Element in der Kinderelementliste des übergeordneten Elements unmittelbar folgt, oder `null`, wenn das angegebene Element das letzte Element in der Liste ist.
+Die schreibgeschützte Eigenschaft **`Element.nextElementSibling`** gibt das Element zurück, das in der `children`-Liste des übergeordneten Elements direkt auf das angegebene Element folgt, oder `null`, wenn das angegebene Element das letzte Element in der Liste ist.
 
 ## Wert
 
@@ -30,7 +30,7 @@ Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`.
 </script>
 ```
 
-Dieses Beispiel gibt beim Laden folgendes in der Konsole aus:
+Dieses Beispiel gibt beim Laden Folgendes in die Konsole aus:
 
 ```plain
 Siblings of div-01:

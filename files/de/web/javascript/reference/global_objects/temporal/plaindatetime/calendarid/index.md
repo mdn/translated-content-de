@@ -2,16 +2,16 @@
 title: Temporal.PlainDateTime.prototype.calendarId
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/calendarId
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`calendarId`** Zugriffs-Eigenschaft von Instanzen des {{jsxref("Temporal.PlainDateTime")}} gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) darstellt, der zur Interpretation des internen ISO 8601-Datums verwendet wird.
+Die **`calendarId`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) angibt, der zur Interpretation des internen ISO 8601-Datums verwendet wird.
 
-Für eine Liste der allgemein unterstützten Werte siehe {{jsxref("Intl/Locale/getCalendars", "Intl.Locale.prototype.getCalendars()")}}.
+Eine Liste der häufig unterstützen Werte finden Sie unter {{jsxref("Intl/Locale/getCalendars", "Intl.Locale.prototype.getCalendars()")}}.
 
-Der set-Zugriffsmechanismus von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainDateTime/withCalendar", "withCalendar()")}}, um ein neues `Temporal.PlainDateTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der set-Zugriff von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainDateTime/withCalendar", "withCalendar()")}}, um ein neues `Temporal.PlainDateTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 

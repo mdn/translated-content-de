@@ -2,12 +2,12 @@
 title: Temporal.PlainDate.prototype.toJSON()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/toJSON
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode von Instanzen des {{jsxref("Temporal.PlainDate")}} gibt einen String zurück, der dieses Datum im gleichen [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format) darstellt wie ein Aufruf von {{jsxref("Temporal/PlainDate/toString", "toString()")}}. Sie soll implizit von {{jsxref("JSON.stringify()")}} aufgerufen werden.
+Die **`toJSON()`** Methode von {{jsxref("Temporal.PlainDate")}} Instanzen gibt einen String zurück, der dieses Datum im gleichen [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format) darstellt wie bei einem Aufruf von {{jsxref("Temporal/PlainDate/toString", "toString()")}}. Sie soll implizit von {{jsxref("JSON.stringify()")}} aufgerufen werden.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der das gegebene Datum im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format) darstellt, mit eingeschlossener Kalenderannotation, falls diese nicht `"iso8601"` ist.
+Ein String, der das angegebene Datum im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format) darstellt, wobei die Kalenderannotation enthalten ist, wenn sie nicht auf `"iso8601"` gesetzt ist.
 
 ## Beschreibung
 
-Die Methode `toJSON()` wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `Temporal.PlainDate`-Objekt serialisiert wird. Diese Methode soll im Allgemeinen standardmäßig nützlich sein, um `Temporal.PlainDate`-Objekte während der {{Glossary("JSON", "JSON")}}-Serialisierung zu serialisieren, die dann unter Verwendung der {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}}-Funktion als Erwecker von {{jsxref("JSON.parse()")}} deserialisiert werden können.
+Die `toJSON()` Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `Temporal.PlainDate` Objekt in einen String umgewandelt wird. Diese Methode ist im Allgemeinen dazu gedacht, standardmäßig `Temporal.PlainDate` Objekte während der {{Glossary("JSON", "JSON")}} Serialisierung sinnvoll zu serialisieren, welche dann mit der {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} Funktion als "Reviver" von {{jsxref("JSON.parse()")}} deserialisiert werden können.
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ const d2 = Temporal.PlainDate.from(dateStr);
 
 ### JSON-Serialisierung und -Parsing
 
-Dieses Beispiel zeigt, wie `Temporal.PlainDate` ohne zusätzlichen Aufwand als JSON serialisiert und wieder geparst werden kann.
+Dieses Beispiel zeigt, wie `Temporal.PlainDate` ohne zusätzlichen Aufwand als JSON serialisiert werden kann und wie man es zurückparsen kann.
 
 ```js
 const date = Temporal.PlainDate.from({ year: 2021, month: 8, day: 1 });

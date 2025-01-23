@@ -2,12 +2,12 @@
 title: Temporal.ZonedDateTime.prototype.toInstant()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/toInstant
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`toInstant()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues {{jsxref("Temporal.Instant")}} Objekt zurück, das den Moment dieses Datums-Zeitwerts darstellt.
+Die **`toInstant()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues {{jsxref("Temporal.Instant")}} Objekt zurück, das den Zeitpunkt dieses Datums und dieser Uhrzeit darstellt.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Instant")}} Objekt, das den Moment dieses Datums-Zeitwerts darstellt.
+Ein neues {{jsxref("Temporal.Instant")}} Objekt, das den Zeitpunkt dieses Datums und dieser Uhrzeit darstellt.
 
 ## Beispiele
 
-### Verwendung von toInstant()
+### Nutzung von toInstant()
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(

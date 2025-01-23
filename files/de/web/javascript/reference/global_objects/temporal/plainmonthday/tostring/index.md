@@ -2,12 +2,12 @@
 title: Temporal.PlainMonthDay.prototype.toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/toString
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`toString()`**-Methode von {{jsxref("Temporal.PlainMonthDay")}}-Instanzen gibt einen String zurück, der diesen Monat-Tag im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format) darstellt.
+Die **`toString()`** Methode von {{jsxref("Temporal.PlainMonthDay")}} Instanzen gibt einen String zurück, der diesen Monat-Tag im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format) darstellt.
 
 ## Syntax
 
@@ -21,26 +21,26 @@ toString(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `calendarName` {{optional_inline}}
-      - : Gibt an, ob die Kalendernotation (`[u-ca=calendar_id]`) in der Rückgabewert enthalten sein soll. Mögliche Werte sind:
+      - : Ob die Kalenderkennung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
         - `"auto"` (Standard)
-          - : Die Kalendernotation wird einbezogen, wenn der Kalender nicht `"iso8601"` ist. Das Referenzjahr ist enthalten, wenn der Kalender nicht `"iso8601"` ist.
+          - : Die Kalenderkennung wird eingeschlossen, wenn der Kalender nicht `"iso8601"` ist. Das Referenzjahr wird eingeschlossen, wenn der Kalender nicht `"iso8601"` ist.
         - `"always"`
-          - : Die Kalendernotation wird immer einbezogen. Das Referenzjahr ist ebenfalls immer enthalten.
+          - : Die Kalenderkennung wird immer eingeschlossen. Das Referenzjahr wird ebenfalls immer eingeschlossen.
         - `"never"`
-          - : Die Kalendernotation wird nie einbezogen. Dies macht den zurückgegebenen String nicht wiederherstellbar zur gleichen {{jsxref("Temporal.PlainMonthDay")}}-Instanz, obwohl der Wert des Monats-Tags derselbe bleibt. Das Referenzjahr ist enthalten, wenn der Kalender nicht `"iso8601"` ist.
+          - : Die Kalenderkennung wird niemals eingeschlossen. Dadurch kann der zurückgegebene String nicht wieder in dieselbe {{jsxref("Temporal.PlainMonthDay")}} Instanz umgewandelt werden, obwohl der Monat-Tag-Wert unverändert bleibt. Das Referenzjahr wird eingeschlossen, wenn der Kalender nicht `"iso8601"` ist.
         - `"critical"`
-          - : Die Kalendernotation wird immer einbezogen, und es wird ein kritisches Flag hinzugefügt: `[!u-ca=calendar_id]`. Nützlich beim Senden des Strings an bestimmte Systeme, aber nicht nützlich für Temporal selbst. Das Referenzjahr ist ebenfalls immer enthalten.
+          - : Die Kalenderkennung wird immer eingeschlossen, und ein kritischer Hinweis wird hinzugefügt: `[!u-ca=calendar_id]`. Nützlich beim Versenden des Strings an bestimmte Systeme, aber nicht nützlich für Temporal selbst. Das Referenzjahr wird ebenfalls immer eingeschlossen.
 
 ### Rückgabewert
 
-Ein String im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format), der diesen Monat-Tag darstellt. Die Kalendernotation wird gemäß Angabe einbezogen. Das Referenzjahr ist enthalten, wenn eine Kalendernotation enthalten ist oder wenn der Kalender nicht `"iso8601"` ist.
+Ein String im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format), der diesen Monat-Tag darstellt. Die Kalenderkennung wird wie angegeben eingeschlossen. Das Referenzjahr wird eingeschlossen, wenn eine Kalenderkennung enthalten ist oder wenn der Kalender nicht `"iso8601"` ist.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn eine der Optionen ungültig ist.
+  - : Ausgelöst, wenn eine der Optionen ungültig ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `options` kein Objekt oder `undefined` ist.
+  - : Ausgelöst, wenn `options` kein Objekt oder `undefined` ist.
 
 ## Beispiele
 

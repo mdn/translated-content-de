@@ -2,14 +2,14 @@
 title: Temporal.Duration()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/Duration
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Der **`Temporal.Duration()`** Konstruktor erstellt {{jsxref("Temporal.Duration")}}-Objekte.
+Der **`Temporal.Duration()`** Konstruktor erstellt {{jsxref("Temporal.Duration")}} Objekte.
 
-Dieser Konstruktor ermöglicht es Ihnen, Instanzen zu erstellen, indem die zugrunde liegenden Daten direkt bereitgestellt werden. Wie alle anderen `Temporal`-Klassen, sollten `Temporal.Duration`-Objekte üblicherweise mit der statischen Methode {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konstruiert werden, die eine Vielzahl von Eingabetypen verarbeiten kann.
+Dieser Konstruktor ermöglicht es Ihnen, Instanzen zu erstellen, indem Sie direkt die zugrunde liegenden Daten angeben. Wie bei allen anderen `Temporal` Klassen sollten Sie `Temporal.Duration` Objekte normalerweise mit der statischen Methode {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konstruieren, die eine Vielzahl von Eingabetypen verarbeiten kann.
 
 ## Syntax
 
@@ -27,42 +27,42 @@ new Temporal.Duration(years, months, weeks, days, hours, minutes, seconds, milli
 new Temporal.Duration(years, months, weeks, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds)
 ```
 
-> **Hinweis:** `Temporal.Duration()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Temporal.Duration()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `years` {{optional_inline}}
-  - : Anzahl von Jahren oder `undefined` (wird als `0` behandelt).
+  - : Anzahl der Jahre oder `undefined` (was als `0` behandelt wird).
 - `months` {{optional_inline}}
-  - : Anzahl von Monaten oder `undefined` (wird als `0` behandelt).
+  - : Anzahl der Monate oder `undefined` (was als `0` behandelt wird).
 - `weeks` {{optional_inline}}
-  - : Anzahl von Wochen oder `undefined` (wird als `0` behandelt).
+  - : Anzahl der Wochen oder `undefined` (was als `0` behandelt wird).
 - `days` {{optional_inline}}
-  - : Anzahl von Tagen oder `undefined` (wird als `0` behandelt).
+  - : Anzahl der Tage oder `undefined` (was als `0` behandelt wird).
 - `hours` {{optional_inline}}
-  - : Anzahl von Stunden oder `undefined` (wird als `0` behandelt).
+  - : Anzahl der Stunden oder `undefined` (was als `0` behandelt wird).
 - `minutes` {{optional_inline}}
-  - : Anzahl von Minuten oder `undefined` (wird als `0` behandelt).
+  - : Anzahl der Minuten oder `undefined` (was als `0` behandelt wird).
 - `seconds` {{optional_inline}}
-  - : Anzahl von Sekunden oder `undefined` (wird als `0` behandelt).
+  - : Anzahl der Sekunden oder `undefined` (was als `0` behandelt wird).
 - `milliseconds` {{optional_inline}}
-  - : Anzahl von Millisekunden oder `undefined` (wird als `0` behandelt).
+  - : Anzahl der Millisekunden oder `undefined` (was als `0` behandelt wird).
 - `microseconds` {{optional_inline}}
-  - : Anzahl von Mikrosekunden oder `undefined` (wird als `0` behandelt).
+  - : Anzahl der Mikrosekunden oder `undefined` (was als `0` behandelt wird).
 - `nanoseconds` {{optional_inline}}
-  - : Anzahl von Nanosekunden oder `undefined` (wird als `0` behandelt).
+  - : Anzahl der Nanosekunden oder `undefined` (was als `0` behandelt wird).
 
 ### Rückgabewert
 
-Ein neues `Temporal.Duration`-Objekt, möglicherweise [unbalanced](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing), mit den angegebenen Komponenten.
+Ein neues `Temporal.Duration` Objekt, möglicherweise [unbalanciert](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing), mit den angegebenen Komponenten.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Einer der Parameter ist keine ganze Zahl (einschließlich nicht-finiten Werten).
+    - Einer der Parameter ist keine ganze Zahl (einschließlich nicht-finite Werte).
     - Eine [Kalendereinheit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (Jahre, Monate, Wochen) hat einen absoluten Wert ≥ 2<sup>32</sup>.
-    - Der nicht kalenderbezogene Teil der Dauer (Tage und darüber hinaus), ausgedrückt in Sekunden, hat einen absoluten Wert ≥ 2<sup>53</sup>.
+    - Der nicht-kalenderische Teil der Dauer (Tage und darunter), ausgedrückt in Sekunden, hat einen absoluten Wert ≥ 2<sup>53</sup>.
 
 ## Beispiele
 

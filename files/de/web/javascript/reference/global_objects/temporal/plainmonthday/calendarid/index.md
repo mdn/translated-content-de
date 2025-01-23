@@ -2,16 +2,16 @@
 title: Temporal.PlainMonthDay.prototype.calendarId
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/calendarId
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`calendarId`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainMonthDay")}} Instanzen gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) repräsentiert, der zur Interpretation des internen ISO 8601-Datums verwendet wird.
+Die Zugriffs-Property **`calendarId`** von Instanzen von {{jsxref("Temporal.PlainMonthDay")}} gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) repräsentiert, welcher zur Interpretation des internen ISO 8601 Datums verwendet wird.
 
-Eine Liste der häufig unterstützten Werte finden Sie unter {{jsxref("Intl/Locale/getCalendars", "Intl.Locale.prototype.getCalendars()")}}.
+Für eine Liste der häufig unterstützten Werte siehe {{jsxref("Intl/Locale/getCalendars", "Intl.Locale.prototype.getCalendars()")}}.
 
-Der Set-Zugriff von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Es gibt keine offensichtliche Möglichkeit, ein neues `Temporal.PlainMonthDay` Objekt mit einem anderen Kalender zu erstellen, der denselben Tag-Monat darstellt. Daher müssen Sie es zuerst mit {{jsxref("Temporal/PlainMonthDay/toPlainDate", "toPlainDate()")}} in ein {{jsxref("Temporal.PlainDate")}} Objekt umwandeln, den Kalender ändern und es dann zurück konvertieren.
+Der Set-Zugriff von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Es gibt keinen offensichtlichen Weg, ein neues `Temporal.PlainMonthDay`-Objekt mit einem anderen Kalender zu erstellen, der denselben Monat-Tag darstellt. Sie müssen es daher zuerst in ein {{jsxref("Temporal.PlainDate")}}-Objekt umwandeln, den Kalender ändern und dann zurückkonvertieren, indem Sie {{jsxref("Temporal/PlainMonthDay/toPlainDate", "toPlainDate()")}} verwenden.
 
 ## Beispiele
 

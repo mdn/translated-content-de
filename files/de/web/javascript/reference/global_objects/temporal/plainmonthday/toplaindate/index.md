@@ -2,12 +2,12 @@
 title: Temporal.PlainMonthDay.prototype.toPlainDate()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/toPlainDate
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die Methode **`toPlainDate()`** von Instanzen des {{jsxref("Temporal.PlainMonthDay")}} gibt ein neues {{jsxref("Temporal.PlainDate")}}-Objekt zurück, das diesen Monat-Tag und ein angegebenes Jahr im selben Kalendersystem darstellt.
+Die **`toPlainDate()`** Methode von {{jsxref("Temporal.PlainMonthDay")}} Instanzen gibt ein neues {{jsxref("Temporal.PlainDate")}} Objekt zurück, das diesen Monat-Tag und ein angegebenes Jahr im gleichen Kalendersystem darstellt.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ toPlainDate(yearInfo)
 ### Parameter
 
 - `yearInfo`
-  - : Ein Objekt, das die Jahrkomponente des resultierenden `PlainDate` darstellt und die folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
+  - : Ein Objekt, das die Jahreskomponente des resultierenden `PlainDate` darstellt und die folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
     - `era` und `eraYear`
-      - : Ein String und eine Ganzzahl, die den {{jsxref("Temporal/PlainDate/era", "era")}}- und {{jsxref("Temporal/PlainDate/eraYear", "eraYear")}}-Eigenschaften entsprechen. Sie werden nur verwendet, wenn das Kalendersystem Epochen hat. `era` und `eraYear` müssen gleichzeitig angegeben werden. Wenn sie nicht angegeben sind, muss `year` angegeben werden. Wenn alle `era`, `eraYear` und `year` angegeben sind, müssen sie konsistent sein.
+      - : Ein String und eine Ganzzahl, die den {{jsxref("Temporal/PlainDate/era", "era")}} und {{jsxref("Temporal/PlainDate/eraYear", "eraYear")}} Eigenschaften entsprechen. Sie werden nur verwendet, wenn das Kalendersystem Epochen hat. `era` und `eraYear` müssen gleichzeitig angegeben werden. Wenn sie nicht angegeben sind, muss `year` angegeben werden. Wenn alle `era`, `eraYear` und `year` angegeben sind, müssen sie konsistent sein.
     - `year`
-      - : Entspricht der {{jsxref("Temporal/PlainDate/year", "year")}}-Eigenschaft.
+      - : Entspricht der {{jsxref("Temporal/PlainDate/year", "year")}} Eigenschaft.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDate`-Objekt, das das durch diesen Monat-Tag und das Jahr in `yearInfo` spezifizierte Datum darstellt, interpretiert im Kalendersystem dieses Monat-Tags.
+Ein neues `Temporal.PlainDate` Objekt, das das Datum darstellt, das durch diesen Monat-Tag und das Jahr in `yearInfo` angegeben ist, interpretiert im Kalendersystem dieses Monat-Tages.
 
 ### Ausnahmen
 

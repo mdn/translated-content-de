@@ -2,14 +2,14 @@
 title: Temporal.PlainDate.prototype.inLeapYear
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/inLeapYear
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`inLeapYear`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob dieses Datum in einem Schaltjahr liegt. Ein Schaltjahr ist ein Jahr, das mehr Tage hat (aufgrund eines Schalttages oder Schaltmonats) als ein normales Jahr. Es ist abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
+Die **`inLeapYear`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein boolesches Wert zurück, das angibt, ob dieses Datum in einem Schaltjahr liegt. Ein Schaltjahr ist ein Jahr, das aufgrund eines Schalttages oder Schaltmonats mehr Tage hat als ein normales Jahr. Es ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
 
-Für den ISO 8601-Kalender ist ein Schaltjahr ein Jahr, das durch 4 ohne Rest teilbar ist, außer für Jahre, die durch 100 ohne Rest teilbar sind, sofern das Jahr nicht auch durch 400 ohne Rest teilbar ist. Im ISO 8601-Kalender haben Schaltjahre 366 Tage, während normale Jahre 365 Tage haben. Für andere Kalendersysteme unterscheiden sich die Regeln wahrscheinlich, und Schaltjahre können mehr hinzugefügte Tage haben (wie ein Schaltmonat).
+Für den ISO 8601 Kalender ist ein Schaltjahr ein Jahr, das ohne Rest durch 4 teilbar ist, mit Ausnahme von Jahren, die ohne Rest durch 100 teilbar sind, es sei denn, das Jahr ist auch ohne Rest durch 400 teilbar. Für den ISO 8601 Kalender haben Schaltjahre 366 Tage, während normale Jahre 365 Tage haben. Für andere Kalendersysteme unterscheiden sich die Regeln wahrscheinlich, und es können in Schaltjahren mehr Tage hinzugefügt werden (wie z. B. ein Schaltmonat).
 
 Der Set-Zugriff von `inLeapYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 

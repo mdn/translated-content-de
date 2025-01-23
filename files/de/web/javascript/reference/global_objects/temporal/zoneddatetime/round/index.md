@@ -2,12 +2,12 @@
 title: Temporal.ZonedDateTime.prototype.round()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/round
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`round()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das dieses Datum-Uhrzeit darstellt, gerundet auf die angegebene Einheit.
+Die **`round()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das diesen Datum-Zeit-Wert auf die angegebene Einheit gerundet darstellt.
 
 ## Syntax
 
@@ -19,21 +19,21 @@ round(options)
 ### Parameter
 
 - `smallestUnit`
-  - : Ein String, der die [`smallestUnit`](#smallestunit_2)-Option darstellt. Dies ist eine praktische Überladung, sodass `round(smallestUnit)` äquivalent zu `round({ smallestUnit })` ist, wobei `smallestUnit` ein String ist.
+  - : Ein String, der die [`smallestUnit`](#smallestunit_2)-Option darstellt. Dies ist eine Komfortüberladung, sodass `round(smallestUnit)` gleichbedeutend mit `round({ smallestUnit })` ist, wobei `smallestUnit` ein String ist.
 - `options`
   - : Ein Objekt, das einige oder alle der folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
     - `roundingIncrement` {{optional_inline}}
-      - : Eine Zahl (abgeschnitten auf eine Ganzzahl), die das Rundungsinkrement in der angegebenen `smallestUnit` darstellt. Standardmäßig `1`. Für alle Werte von `smallestUnit` außer `"day"` muss das Inkrement ein Teiler des Maximalwerts der Einheit sein; beispielsweise, wenn die Einheit Stunden ist, muss das Inkrement ein Teiler von 24 sein und darf nicht 24 selbst sein, was bedeutet, dass es 1, 2, 3, 4, 6, 8 oder 12 sein kann. Für `"day"` muss das Inkrement 1 sein.
+      - : Eine Zahl (auf eine ganze Zahl gerundet), die den Rundungsinkrement in der angegebenen `smallestUnit` darstellt. Standard ist `1`. Für alle Werte von `smallestUnit` außer `"day"` muss der Inkrement ein Teiler des maximalen Werts der Einheit sein; zum Beispiel, wenn die Einheit Stunden ist, muss der Inkrement ein Teiler von 24 sein und darf nicht 24 selbst sein, was bedeutet, dass er 1, 2, 3, 4, 6, 8 oder 12 sein kann. Für `"day"` muss der Inkrement 1 sein.
     - `roundingMode` {{optional_inline}}
-      - : Ein String, der angibt, wie der Bruchteil der `smallestUnit` abgerundet werden soll. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standardmäßig `"halfExpand"`.
+      - : Ein String, der angibt, wie der Bruchteil der `smallestUnit` gerundet werden soll. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standard ist `"halfExpand"`.
     - `smallestUnit`
-      - : Ein String, der die kleinste Einheit darstellt, die in der Ausgabe enthalten sein soll. Der Wert muss einer der folgenden sein: `"day"`, `"hour"`, `"minute"`, `"second"`, `"millisecond"`, `"microsecond"`, `"nanosecond"` oder deren Pluralformen. Für Einheiten größer als `"nanosecond"` werden Bruchteile der `smallestUnit` entsprechend den `roundingIncrement`- und `roundingMode`-Einstellungen gerundet.
+      - : Ein String, der die kleinste Einheit darstellt, die im Ergebnis enthalten sein soll. Der Wert muss einer der folgenden sein: `"day"`, `"hour"`, `"minute"`, `"second"`, `"millisecond"`, `"microsecond"`, `"nanosecond"` oder deren Pluralformen. Für Einheiten größer als `"nanosecond"` werden Bruchteile der `smallestUnit` gemäß den Einstellungen `roundingIncrement` und `roundingMode` gerundet.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.ZonedDateTime")}}-Objekt, das dieses Datum-Uhrzeit gerundet auf die angegebene Einheit darstellt, wobei alle Einheiten kleiner als `smallestUnit` auf null gesetzt sind.
+Ein neues {{jsxref("Temporal.ZonedDateTime")}}-Objekt, das diesen Datum-Zeit-Wert gerundet auf die angegebene Einheit darstellt, wobei alle Einheiten kleiner als `smallestUnit` auf null gesetzt sind.
 
-Wenn `smallestUnit` `"day"` ist, wird das zurückgegebene Datum-Uhrzeit der [Beginn des Tages](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/startOfDay) dieses Datums oder des nächsten Tages sein, abhängig vom `roundingMode` und der Entfernung zu diesen beiden Zeitpunkten. Andernfalls wird die Rundung zuerst auf dessen `PlainDateTime` durchgeführt (ähnlich wie {{jsxref("Temporal/PlainDateTime/round", "Temporal.PlainDateTime.prototype.round()")}}) und dann in derselben Zeitzone neu interpretiert, mit `disambiguation: "compatible", offset: "prefer"`. Siehe [Uneindeutigkeit und Lücken von lokaler Zeit zu UTC-Zeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) und [Offset-Ungenauigkeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#offset_ambiguity).
+Wenn `smallestUnit` `"day"` ist, wird der zurückgegebene Datum-Zeit-Wert der [Beginn des Tages](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/startOfDay) dieses Datums oder des nächsten Tages sein, abhängig vom `roundingMode` und der Entfernung zu diesen beiden Zeitpunkten. Andernfalls wird das Runden zuerst auf seinem `PlainDateTime` durchgeführt (gleich {{jsxref("Temporal/PlainDateTime/round", "Temporal.PlainDateTime.prototype.round()")}}) und dann in der gleichen Zeitzone neu interpretiert, mit `disambiguation: "compatible", offset: "prefer"`. Siehe [Mehrdeutigkeit und Lücken von lokaler Zeit zu UTC-Zeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) und [Offset-Mehrdeutigkeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#offset_ambiguity).
 
 ### Ausnahmen
 
@@ -42,7 +42,7 @@ Wenn `smallestUnit` `"day"` ist, wird das zurückgegebene Datum-Uhrzeit der [Beg
 
 ## Beispiele
 
-### Abrunden kleiner Einheiten
+### Kleine Einheiten runden
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(
@@ -61,9 +61,9 @@ const nextDay = zdt.round({ smallestUnit: "day", roundingMode: "ceil" });
 console.log(nextDay.toString()); // 2021-07-02T00:00:00-04:00[America/New_York]
 ```
 
-### Mehrdeutigkeit nach dem Rundung
+### Mehrdeutigkeit nach dem Runden
 
-Es ist möglich, dass das gerundete Datum-Uhrzeit in der angegebenen Zeitzone mehrdeutig ist. Die Mehrdeutigkeit wird immer mit `disambiguation: "compatible", offset: "prefer"` gelöst. Hier ein kurzes Beispiel:
+Es ist möglich, dass der gerundete Datum-Zeit-Wert in der angegebenen Zeitzone mehrdeutig ist. Die Mehrdeutigkeit wird immer mit `disambiguation: "compatible", offset: "prefer"` aufgelöst. Hier ist ein schnelles Beispiel:
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(

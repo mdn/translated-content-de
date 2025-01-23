@@ -2,12 +2,12 @@
 title: Temporal.ZonedDateTime.prototype.toJSON()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/toJSON
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt einen String zurück, der diesen Zeitpunkt im gleichen [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format) darstellt wie ein Aufruf von {{jsxref("Temporal/ZonedDateTime/toString", "toString()")}}. Sie soll implizit von {{jsxref("JSON.stringify()")}} aufgerufen werden.
+Die **`toJSON()`** Methode von Instanzen des {{jsxref("Temporal.ZonedDateTime")}} gibt eine Zeichenkette zurück, die dieses Datum-Uhrzeit-Wert im gleichen [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format) darstellt, wie es der Aufruf von {{jsxref("Temporal/ZonedDateTime/toString", "toString()")}} tun würde. Sie soll implizit durch {{jsxref("JSON.stringify()")}} aufgerufen werden.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der den angegebenen Zeitpunkt im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format) darstellt, wobei die Kalenderanmerkung enthalten ist, wenn sie nicht `"iso8601"` ist, und die Offset- und Zeitzonenanmerkung immer enthalten sind.
+Eine Zeichenkette, die das gegebene Datum-Uhrzeit-Wert im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format) darstellt, wobei die Kalenderannotation enthalten ist, wenn sie nicht `"iso8601"` ist, und die Offset- und Zeitzonenannotation immer enthalten sind.
 
 ## Beschreibung
 
-Die Methode `toJSON()` wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `Temporal.ZonedDateTime`-Objekt in einen String umgewandelt wird. Diese Methode ist im Allgemeinen dazu gedacht, `Temporal.ZonedDateTime`-Objekte standardmäßig während der {{Glossary("JSON", "JSON")}}-Serialisierung nützlich zu serialisieren, die dann mit der Funktion {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} als Reviver von {{jsxref("JSON.parse()")}} deserialisiert werden können.
+Die `toJSON()` Methode wird automatisch durch {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `Temporal.ZonedDateTime` Objekt als Zeichenkette umgewandelt wird. Diese Methode ist im Allgemeinen dafür gedacht, standardmäßig `Temporal.ZonedDateTime` Objekte auf nützliche Weise während der {{Glossary("JSON", "JSON")}} Serialisierung zu serialisieren, die dann mit der {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} Funktion als Wiederbeleber von {{jsxref("JSON.parse()")}} deserialisiert werden können.
 
 ## Beispiele
 
@@ -44,7 +44,7 @@ const zdt2 = Temporal.ZonedDateTime.from(zdtStr);
 
 ### JSON-Serialisierung und -Parsing
 
-Dieses Beispiel zeigt, wie `Temporal.ZonedDateTime` ohne zusätzlichen Aufwand als JSON serialisiert werden kann und wie es zurückgeparst wird.
+Dieses Beispiel zeigt, wie `Temporal.ZonedDateTime` ohne zusätzlichen Aufwand als JSON serialisiert werden kann und wie es zurückgeparst werden kann.
 
 ```js
 const zdt = Temporal.ZonedDateTime.from({

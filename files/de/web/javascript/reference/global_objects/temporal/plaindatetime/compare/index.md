@@ -2,12 +2,12 @@
 title: Temporal.PlainDateTime.compare()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/compare
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
 ---
 
-{{JSRef}}
+{{JSRef}}{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.PlainDateTime.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob der erste Datum-Zeit-Objekt vor, gleich oder nach dem zweiten Datum-Zeit-Objekt liegt. Dies entspricht zunächst dem Vergleich ihrer Daten und, falls die Daten gleich sind, dem Vergleich ihrer Zeiten.
+Die **`Temporal.PlainDateTime.compare()`** statische Methode gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob der erste Datum-Uhrzeit-Wert vor, gleich oder nach dem zweiten Datum-Uhrzeit-Wert kommt. Dies entspricht einem Vergleich zuerst ihrer Daten, und dann ihrer Zeiten, wenn die Daten gleich sind.
 
 ## Syntax
 
@@ -18,13 +18,13 @@ Temporal.PlainDateTime.compare(dateTime1, dateTime2)
 ### Parameter
 
 - `dateTime1`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDateTime")}}-Instanz, die das erste zu vergleichende Datum-Zeit-Objekt darstellt. Es wird mithilfe des gleichen Algorithmus wie {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} in ein `Temporal.PlainDateTime`-Objekt umgewandelt.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDateTime")}} Instanz, die das erste zu vergleichende Datum-Uhrzeit darstellt. Es wird unter Verwendung desselben Algorithmus in ein `Temporal.PlainDateTime` Objekt konvertiert wie {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}}.
 - `dateTime2`
-  - : Das zweite zu vergleichende Datum-Zeit-Objekt, das mit dem gleichen Algorithmus wie `dateTime1` in ein `Temporal.PlainDateTime`-Objekt umgewandelt wird.
+  - : Das zweite zu vergleichende Datum-Uhrzeit, konvertiert in ein `Temporal.PlainDateTime` Objekt unter Verwendung desselben Algorithmus wie `dateTime1`.
 
 ### Rückgabewert
 
-Gibt `-1` zurück, wenn `dateTime1` vor `dateTime2` liegt, `0`, wenn sie gleich sind, und `1`, wenn `dateTime2` nach `dateTime1` liegt. Sie werden anhand ihrer zugrunde liegenden Datums- und Zeitwerte verglichen, wobei ihre Kalender ignoriert werden.
+Gibt `-1` zurück, wenn `dateTime1` vor `dateTime2` kommt, `0`, wenn sie gleich sind, und `1`, wenn `dateTime2` danach kommt. Sie werden anhand ihrer zugrunde liegenden Datums- und Zeitwerte verglichen, wobei ihre Kalender ignoriert werden.
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ const dt3 = Temporal.PlainDateTime.from("2021-08-01T00:00:00");
 console.log(Temporal.PlainDateTime.compare(dt1, dt3)); // 1
 ```
 
-### Vergleich von Daten in verschiedenen Kalendern
+### Vergleichen von Daten in verschiedenen Kalendern
 
 ```js
 const dt1 = Temporal.PlainDateTime.from({ year: 2021, month: 8, day: 1 });
@@ -62,9 +62,9 @@ console.log(Temporal.PlainDateTime.compare(dt1, dt2)); // -1
 console.log(Temporal.PlainDateTime.compare(dt1, dt3)); // 1
 ```
 
-### Sortieren eines Arrays von Datum-Zeit-Objekten
+### Sortieren eines Arrays von Datum-Uhrzeiten
 
-Der Zweck dieser `compare()`-Funktion besteht darin, als Vergleichsfunktion zu dienen, die an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben wird.
+Der Zweck dieser `compare()` Funktion besteht darin, als Vergleichsfunktion zu dienen, die an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben wird.
 
 ```js
 const dateTimes = [
