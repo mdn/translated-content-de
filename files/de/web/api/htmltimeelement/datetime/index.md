@@ -3,19 +3,18 @@ title: "HTMLTimeElement: dateTime-Eigenschaft"
 short-title: dateTime
 slug: Web/API/HTMLTimeElement/dateTime
 l10n:
-  sourceCommit: 835c199410845eed61aaf8439cb2e9719e7e9f98
+  sourceCommit: 51caa17b040ab8c591d1c9e38ff9c859935b8fbe
 ---
 
 {{ APIRef("HTML DOM") }}
 
 Die
-**`HTMLTimeElement.dateTime`**
-Eigenschaft ist ein String, der das [`datetime`](/de/docs/Web/HTML/Element/time#datetime) HTML-Attribut widerspiegelt und eine maschinenlesbare Form des Datums- und
-Uhrzeitwerts des Elements enthält.
+**`dateTime`**
+Eigenschaft des [`HTMLTimeElement`](/de/docs/Web/API/HTMLTimeElement) Interfaces ist ein String, der das [`datetime`](/de/docs/Web/HTML/Element/time#datetime) HTML-Attribut widerspiegelt und eine maschinenlesbare Form des Datums und Zeitwertes des Elements enthält.
 
 ## Wert
 
-Ein String. Für gültige String-Formate siehe die [`datetime`](/de/docs/Web/HTML/Element/time#valid_datetime_values) gültigen Werte.
+Ein String. Für gültige String-Formate siehe die [`datetime` gültige Werte](/de/docs/Web/HTML/Element/time#valid_datetime_values).
 
 ## Beispiele
 
@@ -36,4 +35,7 @@ t.dateTime = "6w 5h 34m 5s";
 
 ## Siehe auch
 
-- Das [`HTMLTimeElement`](/de/docs/Web/API/HTMLTimeElement) Interface, zu dem es gehört.
+- [`HTMLTimeElement`](/de/docs/Web/API/HTMLTimeElement)
+- [`HTMLModElement.dateTime`](/de/docs/Web/API/HTMLModElement/dateTime)
+- [Datumsstrings](/de/docs/Web/HTML/Date_and_time_formats#date_strings)
+- [Lokale Datums- und Zeitstrings](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings)
