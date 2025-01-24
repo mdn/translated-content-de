@@ -9,7 +9,7 @@ l10n:
 
 Die **`weeks`** Zugriffs-Eigenschaft von {{jsxref("Temporal.Duration")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Wochen in der Dauer darstellt.
 
-Sofern die Dauer nicht [ausgeglichen](/de-DE/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Wertes nicht annehmen, aber Sie können das Vorzeichen erkennen, indem Sie die [`sign`](/de-DE/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign)-Eigenschaft der Dauer überprüfen. Wenn sie auf eine Einheit über den Wochen ausgeglichen wird, hängt der Bereich des Absolutwertes von `weeks` vom Kalender ab (wie viele Wochen in einem Monat oder Jahr sind).
+Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Wertes nicht annehmen, aber Sie können das Vorzeichen erkennen, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign)-Eigenschaft der Dauer überprüfen. Wenn sie auf eine Einheit über den Wochen ausgeglichen wird, hängt der Bereich des Absolutwertes von `weeks` vom Kalender ab (wie viele Wochen in einem Monat oder Jahr sind).
 
 Der Set-Zugriff von `weeks` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/Duration/with", "with()")}}, um ein neues `Temporal.Duration`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
