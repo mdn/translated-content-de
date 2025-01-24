@@ -2,7 +2,7 @@
 title: layer()
 slug: Web/CSS/@import/layer_function
 l10n:
-  sourceCommit: 5332af37c3d94913bf15b6aed87aaed2693f19d5
+  sourceCommit: c9c86abc12c3bdd3fdb07c73a0d1cf88cdd0e1bc
 ---
 
 {{CSSRef}}
@@ -16,7 +16,7 @@ Die **`layer()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functi
 @import "dark.css" layer(framework.themes.dark);
 ```
 
-Das `framework.themes.dark` ist die Schicht, in die die CSS-Datei importiert wird.
+Die `framework.themes.dark` ist die Schicht, in die die CSS-Datei importiert würde.
 
 ## Formale Syntax
 
@@ -33,4 +33,4 @@ Das `framework.themes.dark` ist die Schicht, in die die CSS-Datei importiert wir
 ## Siehe auch
 
 - {{CSSxRef("@import")}}
-- [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [CSS Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul

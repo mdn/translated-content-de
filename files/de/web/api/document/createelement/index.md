@@ -1,31 +1,30 @@
 ---
-title: "Document: createElement()-Methode"
+title: "Dokument: createElement() Methode"
 short-title: createElement()
 slug: Web/API/Document/createElement
 l10n:
-  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
+  sourceCommit: 168eb0f08b905fb4f45dae79a3e585a3824136bf
 ---
 
 {{APIRef("DOM")}}
 
-In einem [HTML](/de/docs/Web/HTML)-Dokument erstellt die **`document.createElement()`**-Methode das durch _tagName_ angegebene HTML-Element oder ein [`HTMLUnknownElement`](/de/docs/Web/API/HTMLUnknownElement), wenn _tagName_ nicht erkannt wird.
+In einem [HTML](/de/docs/Web/HTML)-Dokument erstellt die **`document.createElement()`** Methode das durch `localName` spezifizierte HTML-Element oder ein [`HTMLUnknownElement`](/de/docs/Web/API/HTMLUnknownElement), wenn `localName` nicht erkannt wird.
 
 ## Syntax
 
 ```js-nolint
-createElement(tagName)
-createElement(tagName, options)
+createElement(localName)
+createElement(localName, options)
 ```
 
 ### Parameter
 
-- `tagName`
-  - : Ein String, der den Typ des zu erstellenden Elements angibt. Der [`nodeName`](/de/docs/Web/API/Node/nodeName) des erstellten Elements wird mit dem Wert von _tagName_ initialisiert. Verwenden Sie keine qualifizierten Namen (wie "html:a") mit dieser Methode. Wenn die Methode auf einem HTML-Dokument aufgerufen wird, wandelt `createElement()` _tagName_ in Kleinbuchstaben um, bevor das Element erstellt wird. In Firefox, Opera und Chrome funktioniert `createElement(null)` wie `createElement("null")`.
+- `localName`
+  - : Ein String, der den Typ des zu erstellenden Elements angibt. Verwenden Sie keine qualifizierten Namen (wie "html:a") mit dieser Methode. Wenn die Methode auf einem HTML-Dokument aufgerufen wird, wandelt `createElement()` `localName` in Kleinbuchstaben um, bevor das Element erstellt wird. In Firefox, Opera und Chrome funktioniert `createElement(null)` wie `createElement("null")`.
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `is`
-      - : Der Tag-Name eines benutzerdefinierten Elements, das zuvor über `customElements.define()` definiert wurde.
-        Weitere Details finden Sie im [Webkomponenten-Beispiel](#webkomponenten-beispiel).
+      - : Der Tag-Name eines benutzerdefinierten Elements, das zuvor über `customElements.define()` definiert wurde. Siehe [Webkomponenten-Beispiel](#webkomponenten-beispiel) für weitere Details.
 
 ### Rückgabewert
 
@@ -83,9 +82,9 @@ function addElement() {
 ### Webkomponenten-Beispiel
 
 > [!NOTE]
-> Überprüfen Sie den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Unterstützung und die [`is`](/de/docs/Web/HTML/Global_attributes/is)-Attributreferenz für Hinweise zur Implementierungsrealität von benutzerdefinierten eingebauten Elementen.
+> Überprüfen Sie den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Unterstützung, und die [`is`](/de/docs/Web/HTML/Global_attributes/is) Attributreferenz für Einschränkungen zur Implementierungsrealität von benutzerdefinierten eingebauten Elementen.
 
-Der folgende Beispielcode stammt aus unserem [expanding-list-web-component](https://github.com/mdn/web-components-examples/tree/main/expanding-list-web-component)-Beispiel ([sehen Sie es auch live](https://mdn.github.io/web-components-examples/expanding-list-web-component/)). In diesem Fall erweitert unser benutzerdefiniertes Element das [`HTMLUListElement`](/de/docs/Web/API/HTMLUListElement), das das {{htmlelement("ul")}}-Element darstellt.
+Das folgende Beispiel-Snippet stammt aus unserem [expanding-list-web-component](https://github.com/mdn/web-components-examples/tree/main/expanding-list-web-component) Beispiel ([siehe es auch live](https://mdn.github.io/web-components-examples/expanding-list-web-component/)). In diesem Fall erweitert unser benutzerdefiniertes Element das [`HTMLUListElement`](/de/docs/Web/API/HTMLUListElement), das das {{htmlelement("ul")}} Element repräsentiert.
 
 ```js
 // Create a class for the element
@@ -103,16 +102,16 @@ class ExpandingList extends HTMLUListElement {
 customElements.define("expanding-list", ExpandingList, { extends: "ul" });
 ```
 
-Wenn wir ein solches Element programmatisch erstellen wollten, würden wir einen Aufruf wie den folgenden verwenden:
+Wenn wir eine Instanz dieses Elements programmatisch erstellen wollten, würden wir einen Aufruf wie folgt verwenden:
 
 ```js
 let expandingList = document.createElement("ul", { is: "expanding-list" });
 ```
 
-Das neue Element erhält ein [`is`](/de/docs/Web/HTML/Global_attributes/is)-Attribut, dessen Wert der Tag-Name des benutzerdefinierten Elements ist.
+Dem neuen Element wird ein [`is`](/de/docs/Web/HTML/Global_attributes/is) Attribut zugewiesen, dessen Wert der Tag-Name des benutzerdefinierten Elements ist.
 
 > [!NOTE]
-> Aus Gründen der Abwärtskompatibilität mit früheren Versionen der [Custom Elements Specification](https://www.w3.org/TR/custom-elements/) erlauben einige Browser, hier einen String anstelle eines Objekts zu übergeben, wobei der Wert des Strings der Tag-Name des benutzerdefinierten Elements ist.
+> Für die Rückwärtskompatibilität mit früheren Versionen der [Custom Elements Spezifikation](https://www.w3.org/TR/custom-elements/) erlauben einige Browser, dass Sie hier einen String anstelle eines Objekts übergeben, wobei der Wert des Strings der Tag-Name des benutzerdefinierten Elements ist.
 
 ## Spezifikationen
 

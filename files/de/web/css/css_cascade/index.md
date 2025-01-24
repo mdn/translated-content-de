@@ -1,20 +1,20 @@
 ---
-title: CSS-Kaskade und Vererbung
+title: CSS-Kaskadierung und Vererbung
 slug: Web/CSS/CSS_cascade
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: c9c86abc12c3bdd3fdb07c73a0d1cf88cdd0e1bc
 ---
 
 {{CSSRef}}
 
-Das Modul **CSS-Kaskade und Vererbung** definiert die Regeln zur Zuweisung von Werten zu Eigenschaften durch Kaskadierung und Vererbung. Dieses Modul spezifiziert die Regeln, um den spezifizierten Wert für alle Eigenschaften auf allen Elementen zu finden.
+Das **CSS-Kaskadierungs- und Vererbungsmodul** definiert die Regeln zur Zuweisung von Werten zu Eigenschaften durch Kaskadierung und Vererbung. Dieses Modul gibt die Regeln an, um den spezifizierten Wert für alle Eigenschaften auf allen Elementen zu ermitteln.
 
-Eines der grundlegenden Designprinzipien von CSS ist die Kaskadierung von Regeln. Sie ermöglicht es mehreren Stylesheets, die Darstellung eines Dokuments zu beeinflussen. CSS-Eigenschafts-Wert-Deklarationen definieren, wie ein Dokument dargestellt wird. Mehrere Deklarationen können unterschiedliche Werte für dieselbe Element- und Eigenschaftskombination festlegen, aber nur ein Wert kann auf eine CSS-Eigenschaft angewendet werden. Das CSS-Kaskadenmodul definiert, wie diese Konflikte gelöst werden.
+Eines der grundlegenden Designprinzipien von CSS ist die Kaskadierung von Regeln. Sie ermöglicht es mehreren Stylesheets, die Präsentation eines Dokuments zu beeinflussen. CSS-Eigenschafts-Wert-Deklarationen definieren, wie ein Dokument gerendert wird. Mehrere Deklarationen können unterschiedliche Werte für dieselbe Element- und Eigenschaftskombination festlegen, aber nur ein Wert kann auf eine CSS-Eigenschaft angewendet werden. Das CSS-Kaskadenmodul definiert, wie diese Konflikte gelöst werden.
 
-Das Gegenteil tritt auch auf. Manchmal gibt es keine Deklarationen, die den Wert einer Eigenschaft definieren. Das CSS-Kaskadenmodul definiert, wie diese fehlenden Werte durch Vererbung oder aus dem Anfangswert der Eigenschaft eingestellt werden sollten.
+Das Gegenteil tritt ebenfalls auf. Manchmal gibt es keine Deklarationen, die den Wert einer Eigenschaft definieren. Das CSS-Kaskadenmodul legt fest, wie diese fehlenden Werte durch Vererbung oder aus dem Anfangswert der Eigenschaft festgelegt werden sollen.
 
 > [!NOTE]
-> Die Regeln zur Ermittlung der spezifizierten Werte im Seitenkontext und seinen Randboxen sind im [CSS-Seitenmodul](/de/docs/Web/CSS/CSS_paged_media) beschrieben.
+> Die Regeln zur Bestimmung der spezifizierten Werte im Seitenkontext und seinen Randboxen sind im [CSS-Seitenmodul](/de/docs/Web/CSS/CSS_paged_media) beschrieben.
 
 ## Referenz
 
@@ -22,7 +22,7 @@ Das Gegenteil tritt auch auf. Manchmal gibt es keine Deklarationen, die den Wert
 
 - {{cssxref("all")}}
 
-### At-Regeln
+### At-Rules
 
 - {{cssxref("@import")}}
 - {{cssxref("@layer")}}
@@ -34,7 +34,7 @@ Das Gegenteil tritt auch auf. Manchmal gibt es keine Deklarationen, die den Wert
 - {{cssxref("revert")}}
 - {{cssxref("revert-layer")}}
 - {{cssxref("unset")}}
-- {{cssxref("important", "!important")}} flag
+- {{cssxref("important", "!important")}} Flagge
 
 ### Schnittstellen
 
@@ -48,20 +48,20 @@ Das Gegenteil tritt auch auf. Manchmal gibt es keine Deklarationen, die den Wert
 - {{cssxref("Specificity")}}
 - [Kaskadenursprung und Wichtigkeit](/de/docs/Web/CSS/Cascade)
 - [Werte](/de/docs/Web/CSS/Value_definition_syntax)
-  - [actual value](/de/docs/Web/CSS/actual_value)
-  - [computed value](/de/docs/Web/CSS/computed_value)
-  - [initial value](/de/docs/Web/CSS/initial_value)
-  - [resolved value](/de/docs/Web/CSS/resolved_value)
-  - [specified value](/de/docs/Web/CSS/specified_value)
-  - [used value](/de/docs/Web/CSS/used_value)
-- [Ursprungsarten](/de/docs/Web/CSS/Cascade#origin_types)
-  - [user-agent origin](/de/docs/Web/CSS/Cascade#user-agent_stylesheets)
-  - [author origin](/de/docs/Web/CSS/Cascade#author_stylesheets)
-  - [user origin](/de/docs/Web/CSS/Cascade#user_stylesheets)
-- [Ebenen deklarieren](/de/docs/Web/CSS/@import#importing_css_rules_into_a_cascade_layer)
-  - [benannte Ebene](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#the_layer_statement_at-rule_for_named_layers)
-  - [anonyme Ebene](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#the_layer_block_at-rule_for_named_and_anonymous_layers)
-- Glossar: {{Glossary("style_origin", "style origin")}}
+  - [tatsächlicher Wert](/de/docs/Web/CSS/actual_value)
+  - [berechneter Wert](/de/docs/Web/CSS/computed_value)
+  - [Anfangswert](/de/docs/Web/CSS/initial_value)
+  - [aufgelöster Wert](/de/docs/Web/CSS/resolved_value)
+  - [spezifizierter Wert](/de/docs/Web/CSS/specified_value)
+  - [verwendeter Wert](/de/docs/Web/CSS/used_value)
+- [Ursprungstypen](/de/docs/Web/CSS/Cascade#origin_types)
+  - [Benutzeragenten-Ursprung](/de/docs/Web/CSS/Cascade#user-agent_stylesheets)
+  - [Autoren-Ursprung](/de/docs/Web/CSS/Cascade#author_stylesheets)
+  - [Benutzer-Ursprung](/de/docs/Web/CSS/Cascade#user_stylesheets)
+- [Schichten deklarieren](/de/docs/Web/CSS/@import#importing_css_rules_into_a_cascade_layer)
+  - [benannte Schicht](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#the_layer_statement_at-rule_for_named_layers)
+  - [anonyme Schicht](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#the_layer_block_at-rule_for_named_and_anonymous_layers)
+- Glossar: {{Glossary("style_origin", "Stil-Ursprung")}}
 
 ## Leitfäden
 
@@ -69,20 +69,20 @@ Das Gegenteil tritt auch auf. Manchmal gibt es keine Deklarationen, die den Wert
 
   - : Leitfaden zum Kaskadenalgorithmus, der definiert, wie Benutzeragenten Eigenschaftswerte aus verschiedenen Quellen kombinieren.
 
-- [Lernen: Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
+- [Lernen: Konflikte verwalten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
 
-  - : Die grundlegendsten Konzepte von CSS — die Kaskade, Spezifität und Vererbung — die kontrollieren, wie CSS auf HTML angewendet wird und wie Konflikte gelöst werden.
+  - : Die grundlegendsten Konzepte von CSS — die Kaskade, Spezifität und Vererbung — die steuern, wie CSS auf HTML angewendet wird und wie Konflikte gelöst werden.
 
 - [Lernen: Kaskadenschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
 
-  - : Einführung in [Kaskadenschichten](/de/docs/Web/CSS/@layer), ein fortgeschritteneres Feature, das auf den grundlegenden Konzepten der [CSS-Kaskade](/de/docs/Web/CSS/Cascade) und [CSS-Spezifität](/de/docs/Web/CSS/Specificity) aufbaut.
+  - : Einführung in [Kaskadenschichten](/de/docs/Web/CSS/@layer), ein fortschrittlicheres Feature, das auf den grundlegenden Konzepten der [CSS-Kaskade](/de/docs/Web/CSS/Cascade) und [CSS-Spezifität](/de/docs/Web/CSS/Specificity) aufbaut.
 
 - [CSS-Vererbung](/de/docs/Web/CSS/Inheritance)
   - : Ein Leitfaden zur CSS-Vererbung.
 
 ## Verwandte Konzepte
 
-- [Elementgebundene Stile](/de/docs/Web/HTML/Global_attributes/style)
+- [An Elementen angefügte Stile](/de/docs/Web/HTML/Global_attributes/style)
 - [Inline-Stile und die Kaskade](/de/docs/Web/CSS/Cascade#inline_styles)
 - [Bedingte Regeln für @imports](/de/docs/Web/CSS/@import#importing_css_rules_conditional_on_media_queries)
 
@@ -92,9 +92,9 @@ Das Gegenteil tritt auch auf. Manchmal gibt es keine Deklarationen, die den Wert
 
 ## Siehe auch
 
-- [CSS-Selektorenmodul](/de/docs/Web/CSS/CSS_selectors)
+- [CSS-Selektormodul](/de/docs/Web/CSS/CSS_selectors)
 - [CSS-Pseudoelemente-Modul](/de/docs/Web/CSS/CSS_pseudo-elements)
-- [CSS-Seitenmedien-Modul](/de/docs/Web/CSS/CSS_paged_media)
-- [CSS-Bedingungsregeln-Modul](/de/docs/Web/CSS/CSS_conditional_rules)
+- [CSS-Paged-Media-Modul](/de/docs/Web/CSS/CSS_paged_media)
+- [CSS-Bedingte-Regeln-Modul](/de/docs/Web/CSS/CSS_conditional_rules)
 - [CSS-Verschachtelungsmodul](/de/docs/Web/CSS/CSS_nesting)
-- [Kurzschreibweisen](/de/docs/Web/CSS/Shorthand_properties)
+- [Kurzschreibweise-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)

@@ -1,23 +1,23 @@
 ---
-title: Style origin
+title: Stilherkunft
 slug: Glossary/Style_origin
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: c9c86abc12c3bdd3fdb07c73a0d1cf88cdd0e1bc
 ---
 
 {{GlossarySidebar}}
 
-In {{Glossary("CSS", "CSS")}} gibt es drei Kategorien von Quellen für Stiländerungen. Diese Kategorien werden als **Style Origins** bezeichnet. Sie sind der **User Agent Origin**, **User Origin** und der **Author Origin**.
+In {{Glossary("CSS", "CSS")}} gibt es drei Kategorien von Quellen für Stiländerungen. Diese Kategorien werden als **Stilherkünfte** bezeichnet. Sie sind die **User-Agent-Herkunft**, **Benutzerherkunft** und die **Autorherkunft**.
 
-- User-agent Origin
-  - : Der User Agent Origin ist die Stilquelle, die aus den Standardstilen besteht, die der Webbrowser des Benutzers verwendet. Wenn keine anderen Stile auf den Inhalt angewendet werden, werden die Stile des User Agent Origin während des Renderns von Elementen verwendet.
-- User Origin
-  - : Der User Origin ist die Stilquelle, die alle CSS-Elemente enthält, die der Benutzer des Webbrowsers hinzugefügt hat. Diese können durch das Hinzufügen von Stilen über ein Entwicklertool oder durch eine Browsererweiterung, die automatisch benutzerdefinierte Stile auf Inhalte anwendet, wie [Stylus](https://add0n.com/stylus.html) oder [Stylish](https://userstyles.org/), stammen.
-- Author Origin
-  - : Der Author Origin ist die Stilquelle, die alle Stile enthält, die Teil des Dokuments sind, entweder eingebettet in das {{Glossary("HTML", "HTML")}} oder geladen aus einer externen Stylesheet-Datei.
+- User-Agent-Herkunft
+  - : Die User-Agent-Herkunft ist die Stilherkunft, die aus den Standardstilen besteht, die vom Webbrowser des Benutzers verwendet werden. Wenn keine anderen Stile auf den Inhalt angewendet werden, werden beim Rendern von Elementen die Stile der User-Agent-Herkunft verwendet.
+- Benutzerherkunft
+  - : Die Benutzerherkunft ist die Stilherkunft, die alle CSS-Deklarationen enthält, die der Benutzer des Webbrowsers hinzugefügt hat. Diese können durch das Hinzufügen von Stilen mit einem Entwicklerwerkzeug oder durch eine Browsererweiterung stammen, die automatisch benutzerdefinierte Stile auf den Inhalt anwendet, wie z.B. [Stylus](https://add0n.com/stylus.html) oder [Stylish](https://userstyles.org/).
+- Autorherkunft
+  - : Die Autorherkunft ist die Stilherkunft, die alle Stile enthält, die Teil des Dokuments sind, sei es eingebettet im {{Glossary("HTML", "HTML")}} oder geladen aus einer externen Stylesheet-Datei.
 
-Die Stilquellen werden verwendet, um festzulegen, bis wohin das Zurückrollen (oder das Zurückverfolgen) des Styles-Cascades geht, das auf ein Element angewendet wurde, wenn Stile entfernt werden, wie zum Beispiel bei der Verwendung der {{cssxref("unset")}} oder {{cssxref("revert")}} Schlüsselwörter.
+Die Stilherkünfte werden verwendet, um zu bestimmen, wo das Zurückrollen (oder Rückverfolgen) der auf ein Element angewendeten Stil-Kaskade beendet wird, wenn Stile entfernt werden, z.B. bei Verwendung der Schlüsselwörter {{cssxref("unset")}} oder {{cssxref("revert")}}.
 
 ## Siehe auch
 
-- [CSS Cascading and Inheritance: Cascading Origins](https://drafts.csswg.org/css-cascade-4/#cascading-origins)
+- [CSS-Kaskadierung und Vererbung: Kaskadenherkünfte](https://drafts.csswg.org/css-cascade-4/#cascading-origins)
