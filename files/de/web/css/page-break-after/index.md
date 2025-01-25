@@ -2,15 +2,15 @@
 title: page-break-after
 slug: Web/CSS/page-break-after
 l10n:
-  sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
+  sourceCommit: cebc05cfe508d5cd8c6a98359a3913cf19a707d3
 ---
 
-{{CSSRef}}
+{{CSSRef}}{{deprecated_header}}
 
 > [!WARNING]
-> Diese Eigenschaft wurde durch die {{cssxref("break-after")}} Eigenschaft ersetzt.
+> Diese Eigenschaft wurde durch die Eigenschaft {{cssxref("break-after")}} ersetzt.
 
-Die **`page-break-after`** [CSS](/de/docs/Web/CSS) Eigenschaft regelt Seitenumbrüche _nach_ dem aktuellen Element.
+Die **`page-break-after`** [CSS](/de/docs/Web/CSS) Eigenschaft passt Seitenumbrüche _nach_ dem aktuellen Element an.
 
 {{EmbedInteractiveExample("pages/css/page-break-after.html")}}
 
@@ -34,30 +34,30 @@ page-break-after: revert-layer;
 page-break-after: unset;
 ```
 
-Diese Eigenschaft gilt für Block-Elemente, die eine Box generieren. Sie wird nicht auf einen leeren {{HTMLElement("div")}} angewendet, der keine Box generiert.
+Diese Eigenschaft gilt für Blockelemente, die ein Kästchen erzeugen. Sie gilt nicht für ein leeres {{HTMLElement("div")}}, das kein Kästchen erzeugen wird.
 
 ### Werte
 
 - `auto`
-  - : Standardwert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
+  - : Anfangswert. Automatische Seitenumbrüche (weder erzwungen noch verhindert).
 - `always`
-  - : Erzwingen Sie immer Seitenumbrüche nach dem Element.
+  - : Erzwingt immer einen Seitenumbruch nach dem Element.
 - `avoid`
-  - : Vermeiden Sie Seitenumbrüche nach dem Element.
+  - : Vermeidet Seitenumbrüche nach dem Element.
 - `left`
-  - : Erzwingen Sie Seitenumbrüche nach dem Element, sodass die nächste Seite als linke Seite formatiert wird. Dies ist die Seite, die auf der linken Seite des Buchrückens platziert wird oder die Rückseite der Seite beim Duplexdruck.
+  - : Erzwingt Seitenumbrüche nach dem Element, sodass die nächste Seite als linke Seite formatiert wird. Es ist die Seite, die auf der linken Seite des Buchrückens oder auf der Rückseite der Seite im Duplexdruck platziert wird.
 - `right`
-  - : Erzwingen Sie Seitenumbrüche nach dem Element, sodass die nächste Seite als rechte Seite formatiert wird. Dies ist die Seite, die auf der rechten Seite des Buchrückens platziert wird oder die Vorderseite der Seite beim Duplexdruck.
+  - : Erzwingt Seitenumbrüche nach dem Element, sodass die nächste Seite als rechte Seite formatiert wird. Es ist die Seite, die auf der rechten Seite des Buchrückens oder auf der Vorderseite der Seite im Duplexdruck platziert wird.
 - `recto`
-  - : Wenn die Seiten von links nach rechts verlaufen, wirkt dies wie `right`. Wenn die Seiten von rechts nach links verlaufen, wirkt dies wie `left`.
+  - : Wenn die Seiten von links nach rechts verlaufen, verhält sich dies wie `right`. Wenn die Seiten von rechts nach links verlaufen, verhält sich dies wie `left`.
 - `verso`
-  - : Wenn die Seiten von links nach rechts verlaufen, wirkt dies wie `left`. Wenn die Seiten von rechts nach links verlaufen, wirkt dies wie `right`.
+  - : Wenn die Seiten von links nach rechts verlaufen, verhält sich dies wie `left`. Wenn die Seiten von rechts nach links verlaufen, verhält sich dies wie `right`.
 
-## Seitenumbruch Aliasse
+## Seitenumbruch-Aliase
 
-Die `page-break-after` Eigenschaft ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-after")}} ersetzt wurde.
+Die Eigenschaft `page-break-after` ist jetzt eine veraltete Eigenschaft und wurde durch {{cssxref("break-after")}} ersetzt.
 
-Aus Kompatibilitätsgründen sollte `page-break-after` von Browsern als Alias für `break-after` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-after` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Aliasse behandelt werden:
+Aus Kompatibilitätsgründen sollte `page-break-after` von Browsern als Alias von `break-after` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-after` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Aliase behandelt werden:
 
 | page-break-after | break-after |
 | ---------------- | ----------- |
