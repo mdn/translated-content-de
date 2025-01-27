@@ -1,14 +1,14 @@
 ---
-title: "CSSStyleDeclaration: Methode getPropertyValue()"
+title: "CSSStyleDeclaration: getPropertyValue() Methode"
 short-title: getPropertyValue()
 slug: Web/API/CSSStyleDeclaration/getPropertyValue
 l10n:
-  sourceCommit: 5af8d52f5dec28f5a5556b1b98765847098a0071
+  sourceCommit: 5d5f7a8f52ad9b21eb4b8f6dd9d0afce23d1bdf6
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **CSSStyleDeclaration.getPropertyValue()** Methodenschnittstelle gibt einen String zurück, der den Wert einer angegebenen CSS-Eigenschaft enthält.
+Die **CSSStyleDeclaration.getPropertyValue()** Methoden-Schnittstelle gibt einen String zurück, der den Wert einer angegebenen CSS-Eigenschaft enthält.
 
 ## Syntax
 
@@ -19,18 +19,18 @@ getPropertyValue(property)
 ### Parameter
 
 - `property`
-  - : Ein String, der den Eigenschaftsnamen (in Bindestrich-Schreibweise) darstellt, der überprüft werden soll.
+  - : Ein String, der den Namen der Eigenschaft (in Bindestrich-Schreibweise) darstellt, die überprüft werden soll.
 
 ### Rückgabewert
 
 Ein String, der den Wert der Eigenschaft enthält. Wenn nicht gesetzt, wird der leere String zurückgegeben.
 
-Der Eigenschaftswert wird dynamisch berechnet, nicht so wie ursprünglich in der Deklaration angegeben. Die Serialisierung erfolgt wie folgt:
+Der Eigenschaftswert wird dynamisch berechnet, nicht das ursprünglich in der Deklaration angegebene. Die Serialisierung erfolgt wie folgt:
 
-- Wenn `property` eine Kurzschreibweise-Eigenschaft ist, dann holen Sie alle Langschreibweise-Eigenschaften, denen sie entspricht. Beachten Sie, dass Kurzschreibweise-Eigenschaften, die im ursprünglichen Stylesheet angegeben wurden, bereits während der Parsezeit erweitert wurden. Wenn mindestens eine dieser Langschreibweise-Eigenschaften nicht deklariert ist oder sich ihre `!important`-Status unterscheiden, dann ist das Ergebnis der leere String. Andernfalls wird ein Eigenschaftswert zurückgegeben, der sich auf die gleiche Liste von Langschreibweise-Eigenschaften erweitert, und dieser Kurzschreibweise-Wert wird so viele Komponenten wie möglich weglassen und in der formalen Definition in der kanonischen Reihenfolge neu anordnen, wenn möglich. Wenn eine der obigen syntaktischen Übersetzungen weniger abwärtskompatibel wäre, führen Sie sie nicht durch.
-- Andernfalls wird die Eigenschaft gemäß ihrem Datentyp serialisiert. Jeder Datentyp hat eine kanonische Darstellung; zum Beispiel verwenden `<color>`-Werte immer `rgb(R, G, B)` oder `rgba(R, G, B, A)`.
+- Wenn `property` eine Kurzschreibweise ist, dann alle Langschreibweisen abrufen, die dazu gehören. Beachten Sie, dass Kurzschreibweisen, die im ursprünglichen Stylesheet angegeben wurden, bereits zur Parse-Zeit expandiert wurden. Wenn mindestens eine dieser Langschreibweisen nicht erklärt ist oder ihre `!important`-Status unterschiedlich sind, wird das Ergebnis der leere String sein. Andernfalls wird ein Eigenschaftswert zurückgegeben, der sich in dieselbe Liste von Langschrift-Eigenschaftswerten erweitert. Dieser Kurzschriftwert wird so viele Komponenten wie möglich weglassen und, wenn möglich, in der kanonischen Reihenfolge der formellen Definition neu angeordnet. Wenn eine der obigen syntaktischen Übersetzungen weniger abwärtskompatibel wäre, führen Sie sie nicht durch.
+- Andernfalls wird die Eigenschaft gemäß ihrem Datentyp serialisiert. Jeder Datentyp hat eine kanonische Darstellung; beispielsweise verwenden `<color>`-Werte immer `rgb(R, G, B)` oder `rgba(R, G, B, A)`.
 
-Im Wesentlichen wird der Eigenschaftswert _kanonisiert_, um sicherzustellen, dass zwei Eigenschaftswerte mit demselben Rendering-Effekt gleich verglichen werden, auch wenn sie unterschiedlich deklariert sind.
+Im Wesentlichen wird der Eigenschaftswert _kanonikalisiert_, um sicherzustellen, dass zwei Eigenschaftswerte mit demselben Rendering-Effekt gleich verglichen werden, selbst wenn sie unterschiedlich deklariert sind.
 
 ## Beispiele
 
@@ -41,7 +41,7 @@ const declaration = document.styleSheets[0].cssRules[0].style;
 const value = declaration.getPropertyValue("margin"); // "1px 2px"
 ```
 
-Der zurückgegebene String kann von dem in der Stil-Spezifikation des Elements angegebenen Wert abweichen. Beispielsweise wird dieser Stil:
+Der zurückgegebene String kann von dem in der Stil-Spezifikation des Elements angegebenen Wert abweichen. Beispielsweise wird dieses Styling:
 
 ```html
 <style>
@@ -55,7 +55,7 @@ Der zurückgegebene String kann von dem in der Stil-Spezifikation des Elements a
 </script>
 ```
 
-Einen Wert `rgb(51, 13, 242);` setzen. Dies ist wichtig beim Vergleich von Stilen durch Strings.
+einen Wert `rgb(51, 13, 242);` setzen. Dies ist wichtig, wenn man Stile durch Strings vergleicht.
 
 ## Spezifikationen
 
