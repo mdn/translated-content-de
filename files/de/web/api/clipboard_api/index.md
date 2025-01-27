@@ -2,84 +2,94 @@
 title: Clipboard API
 slug: Web/API/Clipboard_API
 l10n:
-  sourceCommit: c749deb4ccb647d792deee4807d4852104bedd9d
+  sourceCommit: eaa5b39f80d5fac0e5bf182679dc658b7083d15b
 ---
 
 {{DefaultAPISidebar("Clipboard API")}}
 
-Die **Clipboard-API** ermöglicht es, auf Zwischenablagebefehle (ausschneiden, kopieren und einfügen) zu reagieren sowie asynchron von und in die systemweite Zwischenablage zu lesen und zu schreiben.
+Die **Clipboard-API** bietet die Möglichkeit, auf Zwischenablagebefehle (Ausschneiden, Kopieren und Einfügen) zu reagieren und asynchron Texte in die Systemzwischenablage zu lesen und zu schreiben.
 
 > [!NOTE]
-> Nutzen Sie diese API anstelle der veralteten Methode [`document.execCommand()`](/de/docs/Web/API/Document/execCommand), um auf die Zwischenablage zuzugreifen.
+> Verwenden Sie diese API bevorzugt gegenüber der veralteten Methode [`document.execCommand()`](/de/docs/Web/API/Document/execCommand) für den Zugriff auf die Zwischenablage.
 
 > [!NOTE]
-> Diese API ist _nicht verfügbar_ in [Web Workers](/de/docs/Web/API/Web_Workers_API) (nicht über [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) zugänglich).
+> Diese API ist _nicht verfügbar_ in [Web Workers](/de/docs/Web/API/Web_Workers_API) (nicht zugänglich über [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)).
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Die _System-Zwischenablage_ ist ein Datenpuffer, der dem Betriebssystem gehört, auf dem der Browser läuft, und wird für die kurzfristige Datenspeicherung und/oder den Datentransfer zwischen Dokumenten oder Anwendungen verwendet. Sie wird normalerweise als anonymer, temporärer [Datenpuffer](https://en.wikipedia.org/wiki/Data_buffer) implementiert, der manchmal als _Einfügepuffer_ bezeichnet wird und von den meisten oder allen Programmen innerhalb der Umgebung über definierte Programmierschnittstellen zugänglich ist.
+Die _Systemzwischenspeicher_ ist ein Datenpuffer, der zum Betriebssystem gehört, auf dem der Browser läuft. Er wird zur kurzfristigen Datenspeicherung und/oder zum Datentransfer zwischen Dokumenten oder Anwendungen verwendet.
+Er wird üblicherweise als anonymer, temporärer [Datenpuffer](https://en.wikipedia.org/wiki/Data_buffer) implementiert, manchmal als _Einfüge-Puffer_ bezeichnet, der von den meisten oder allen Programmen innerhalb der Umgebung über definierte Programmierschnittstellen zugänglich ist.
 
-Die Clipboard-API erlaubt es Benutzern, programmatisch Text und andere Arten von Daten in die System-Zwischenablage zu lesen und zu schreiben, sofern der Benutzer die im Abschnitt [Sicherheitsüberlegungen](#sicherheitsüberlegungen) genannten Kriterien erfüllt hat.
+Die Clipboard-API ermöglicht es Benutzern, programmatisch Text und andere Arten von Daten in sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) in die Systemzwischenablage zu lesen und zu schreiben, sofern die Benutzer die im Abschnitt [Sicherheitsaspekte](#sicherheitsaspekte) aufgeführten Kriterien erfüllt haben.
 
-Ereignisse werden als Ergebnis von [`cut`](/de/docs/Web/API/Element/cut_event), [`copy`](/de/docs/Web/API/Element/copy_event) und [`paste`](/de/docs/Web/API/Element/paste_event)-Operationen ausgelöst, die die Zwischenablage verändern. Die Ereignisse haben eine Standardaktion, zum Beispiel kopiert die `copy`-Aktion standardmäßig die aktuelle Auswahl in die System-Zwischenablage. Die Standardaktion kann durch den Ereignishandler überschrieben werden — siehe jedes der Ereignisse für weitere Informationen.
+Ereignisse werden infolge von [`cut`](/de/docs/Web/API/Element/cut_event), [`copy`](/de/docs/Web/API/Element/copy_event) und [`paste`](/de/docs/Web/API/Element/paste_event) Operationen, die die Zwischenablage ändern, ausgelöst.
+Die Ereignisse haben eine Standardaktion, beispielsweise kopiert die `copy`-Aktion standardmäßig die aktuelle Auswahl in die Systemzwischenablage.
+Die Standardaktion kann vom Ereignishandler überschrieben werden – weitere Informationen finden Sie in den jeweiligen Ereignissen.
 
 ## Schnittstellen
 
 - [`Clipboard`](/de/docs/Web/API/Clipboard) {{securecontext_inline}}
-  - : Bietet eine Schnittstelle zum Lesen und Schreiben von Text und Daten in die oder aus der System-Zwischenablage. Die Spezifikation bezeichnet dies als 'Async Clipboard API'.
+  - : Bietet eine Schnittstelle zum Lesen und Schreiben von Text und Daten in die oder aus der Systemzwischenablage.
+    Die Spezifikation bezeichnet dies als die 'Async Clipboard API'.
 - [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent)
-  - : Repräsentiert Ereignisse, die Informationen im Zusammenhang mit der Änderung der Zwischenablage bereitstellen, das heißt [`cut`](/de/docs/Web/API/Element/cut_event), [`copy`](/de/docs/Web/API/Element/copy_event) und [`paste`](/de/docs/Web/API/Element/paste_event) Ereignisse. Die Spezifikation bezeichnet dies als 'Clipboard Event API'.
+  - : Repräsentiert Ereignisse, die Informationen in Bezug auf die Änderung der Zwischenablage bereitstellen, also [`cut`](/de/docs/Web/API/Element/cut_event), [`copy`](/de/docs/Web/API/Element/copy_event) und [`paste`](/de/docs/Web/API/Element/paste_event) Ereignisse.
+    Die Spezifikation bezeichnet dies als die 'Clipboard Event API'.
 - [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) {{securecontext_inline}}
-  - : Repräsentiert ein einzelnes Artikel-Format, das beim Lesen oder Schreiben von Daten verwendet wird.
+  - : Repräsentiert ein einzelnes Datenformat, das beim Lesen oder Schreiben von Daten verwendet wird.
 
 ### Erweiterungen zu anderen Schnittstellen
 
 Die Clipboard-API erweitert die folgenden APIs und fügt die aufgelisteten Funktionen hinzu.
 
 - [`Navigator.clipboard`](/de/docs/Web/API/Navigator/clipboard) {{readonlyinline}} {{securecontext_inline}}
-  - : Gibt ein [`Clipboard`](/de/docs/Web/API/Clipboard)-Objekt zurück, das Lese- und Schreibzugriff auf die System-Zwischenablage bietet.
+  - : Gibt ein [`Clipboard`](/de/docs/Web/API/Clipboard) Objekt zurück, das Lese- und Schreibzugriff auf die Systemzwischenablage bietet.
 - `Element` [`copy`](/de/docs/Web/API/Element/copy_event) Ereignis
-  - : Ein Ereignis, das jedes Mal ausgelöst wird, wenn der Benutzer eine Kopieraktion initiiert.
+  - : Ein Ereignis, das ausgelöst wird, wenn der Benutzer eine Kopieraktion initiiert.
 - `Element` [`cut`](/de/docs/Web/API/Element/cut_event) Ereignis
-  - : Ein Ereignis, das jedes Mal ausgelöst wird, wenn der Benutzer eine Ausschneideaktion initiiert.
+  - : Ein Ereignis, das ausgelöst wird, wenn der Benutzer eine Ausschneideaktion initiiert.
 - `Element` [`paste`](/de/docs/Web/API/Element/paste_event) Ereignis
-  - : Ein Ereignis, das jedes Mal ausgelöst wird, wenn der Benutzer eine Einfügeaktion initiiert.
+  - : Ein Ereignis, das ausgelöst wird, wenn der Benutzer eine Einfügeaktion initiiert.
 
-<!-- Beachten Sie: Ereignis `Window: clipboardchange` ist in der Spezifikation, aber nicht implementiert -->
+<!-- Hinweis: `Window: clipboardchange` Ereignis ist in der Spezifikation, aber nicht implementiert -->
 
-## Sicherheitsüberlegungen
+## Sicherheitsaspekte
 
-Die Clipboard-API ermöglicht es Benutzern, programmatisch Text und andere Arten von Daten in die oder aus der System-Zwischenablage zu lesen und zu schreiben, in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts).
+Die Clipboard-API erlaubt Benutzern, programmatisch Text und andere Datenarten in sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) in die oder aus der Systemzwischenablage zu lesen und zu schreiben.
 
-Die Spezifikation verlangt, dass ein Benutzer kürzlich mit der Seite interagiert hat, um aus der Zwischenablage zu lesen ([transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich). Wenn die Leseoperation durch Benutzerinteraktion mit einem Browser- oder OS-"Einfügetagn" (wie einem Kontextmenü) verursacht wird, erwartet der Browser, dass er den Benutzer um Bestätigung fragt. Zum Schreiben in die Zwischenablage erwartet die Spezifikation, dass der Seite die [Berechtigungs-API](/de/docs/Web/API/Permissions_API) `clipboard-write` erteilt wurde und der Browser möglicherweise auch [transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) erfordert. Browser können zusätzliche Einschränkungen für die Verwendung der Methoden zum Zugriff auf die Zwischenablage festlegen.
+Die Spezifikation erfordert, dass ein Benutzer kürzlich mit der Seite interagiert hat, um von der Zwischenablage zu lesen ([vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich).
+Wenn die Leseoperation durch Benutzerinteraktion mit einem Browser- oder Betriebssystem-"Einfügeelement" (wie ein Kontextmenü) verursacht wird, wird erwartet, dass der Browser den Benutzer um Bestätigung bittet.
+Zum Schreiben in die Zwischenablage erwartet die Spezifikation, dass der Seite die [Berechtigungs-API](/de/docs/Web/API/Permissions_API) `clipboard-write` Berechtigung erteilt wurde, und der Browser kann auch [vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) erfordern.
+Browser können zusätzliche Einschränkungen für die Verwendung der Methoden zum Zugriff auf die Zwischenablage auferlegen.
 
-Browser-Implementierungen haben sich von der Spezifikation entfernt. Die Unterschiede sind im Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) erfasst und der aktuelle Stand wird nachfolgend zusammengefasst:
+Browserimplementierungen haben von der Spezifikation abgewichen.
+Die Unterschiede sind im Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) erfasst, und der aktuelle Stand ist unten zusammengefasst:
 
 Chromium-Browser:
 
-- Für das Lesen ist die Berechtigung `clipboard-read` der [Berechtigungs-API](/de/docs/Web/API/Permissions_API) erforderlich. Transiente Aktivierung ist nicht erforderlich.
-- Schreiben erfordert entweder die Berechtigung `clipboard-read` oder transiente Aktivierung. Wenn die Berechtigung erteilt wird, bleibt sie bestehen und weitere transiente Aktivierung ist nicht erforderlich.
-- Die HTTP-Berechtigungen `clipboard-read` und `clipboard-write` der [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Headers/Permissions-Policy) müssen für {{HTMLElement("iframe")}} Elemente erlaubt sein, die auf die Zwischenablage zugreifen.
-- Kein dauerhaftes Einfüge-Aufforderungsfenster wird angezeigt, wenn eine Leseoperation durch ein Browser- oder OS-"Einfügetagn" verursacht wird.
+- Lesen erfordert die [Berechtigungs-API](/de/docs/Web/API/Permissions_API) `clipboard-read` Berechtigung. Vorübergehende Aktivierung ist nicht erforderlich.
+- Schreiben erfordert entweder die `clipboard-read` Berechtigung oder eine vorübergehende Aktivierung. Wenn die Berechtigung erteilt wird, bleibt sie erhalten, und weitere vorübergehende Aktivierung ist nicht erforderlich.
+- Die HTTP [Berechtigungs-Policy](/de/docs/Web/HTTP/Headers/Permissions-Policy) Berechtigungen `clipboard-read` und `clipboard-write` müssen für {{HTMLElement("iframe")}} Elemente, die auf die Zwischenablage zugreifen, erlaubt sein.
+- Kein persistentes Einfügeaufforderungsfenster wird angezeigt, wenn eine Leseoperation durch ein Browser- oder Betriebssystem-"Einfügeelement" verursacht wird.
 
 Firefox & Safari:
 
-- Lesen und Schreiben erfordern transiente Aktivierung.
-- Die Einfüge-Aufforderung wird unterdrückt, wenn Inhalte der selben Herkunft aus der Zwischenablage gelesen werden, aber nicht bei Inhalten aus anderer Herkunft.
-- Die Berechtigungen `clipboard-read` und `clipboard-write` werden von Firefox oder Safari nicht unterstützt (und es ist nicht geplant, diese zu unterstützen).
+- Lesen und Schreiben erfordern eine vorübergehende Aktivierung.
+- Das Einfügeaufforderungsfenster wird unterdrückt, wenn Inhalte aus derselben Quelle gelesen werden, jedoch nicht für fremde Inhalte.
+- Die `clipboard-read` und `clipboard-write` Berechtigungen werden von Firefox oder Safari nicht unterstützt (und sind nicht geplant, unterstützt zu werden).
 
-Firefox [Weberweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard):
+Firefox [Web-Erweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard):
 
-- Lesen von Text ist nur für Erweiterungen verfügbar, die die Web-Erweiterungsberechtigung [`clipboardRead`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#clipboardread) besitzen. Mit dieser Berechtigung benötigt die Erweiterung keine transiente Aktivierung oder eine Einfüge-Aufforderung.
-- Schreiben von Text ist in einem sicheren Kontext und mit transiente Aktivierung möglich. Mit der Web-Erweiterungsberechtigung [`clipboardWrite`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#clipboardwrite) ist keine transiente Aktivierung erforderlich.
+- Das Lesen von Text ist nur für Erweiterungen mit der Web-Erweiterung [`clipboardRead`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#clipboardread) Berechtigung verfügbar. Mit dieser Berechtigung benötigt die Erweiterung weder eine vorübergehende Aktivierung noch eine Einfügeaufforderung.
+- Schreiben von Text ist im sicheren Kontext und mit vorübergehender Aktivierung verfügbar. Mit der Web-Erweiterung [`clipboardWrite`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#clipboardwrite) Berechtigung ist keine vorübergehende Aktivierung erforderlich.
 
 ## Beispiele
 
 ### Zugriff auf die Zwischenablage
 
-Auf die systemweite Zwischenablage wird über die globale [`Navigator.clipboard`](/de/docs/Web/API/Navigator/clipboard) zugegriffen.
+Auf die Systemzwischenablage wird über das globale [`Navigator.clipboard`](/de/docs/Web/API/Navigator/clipboard) zugegriffen.
 
-Dieses Snippet holt den Text aus der Zwischenablage und fügt ihn dem ersten Element hinzu, das mit der Klasse `editor` gefunden wird. Da [`readText()`](/de/docs/Web/API/Clipboard/readText) (und auch [`read()`](/de/docs/Web/API/Clipboard/read), falls vorhanden) einen leeren String zurückgibt, wenn die Zwischenablage keinen Text enthält, ist dieser Code sicher.
+Dieses Snippet holt den Text aus der Zwischenablage und fügt ihn dem ersten Element hinzu, das mit der Klasse `editor` gefunden wird.
+Da [`readText()`](/de/docs/Web/API/Clipboard/readText) einen leeren String zurückgibt, wenn die Zwischenablage kein Text ist, ist dieser Code sicher.
 
 ```js
 navigator.clipboard
@@ -99,4 +109,4 @@ navigator.clipboard
 
 ## Siehe auch
 
-- [Unterstützung von Bildern für den Async Clipboard-Artikel](https://web.dev/articles/async-clipboard)
+- [Artikel Bildunterstützung für die Async-Zwischenablage](https://web.dev/articles/async-clipboard)

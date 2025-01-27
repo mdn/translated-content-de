@@ -2,12 +2,14 @@
 title: Cross-Origin-Resource-Policy
 slug: Web/HTTP/Headers/Cross-Origin-Resource-Policy
 l10n:
-  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
+  sourceCommit: 47d9ce2619697a821b9da6d49067ed0bf2426854
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-**`Cross-Origin-Resource-Policy`**-{{Glossary("response_header", "Antwort-Header")}} gibt an, dass der Browser keine no-cors-Cross-Origin- oder Cross-Site-Anfragen an die angegebene Ressource zulassen soll.
+Der HTTP **`Cross-Origin-Resource-Policy`** {{Glossary("response_header", "Antwort-Header")}} (CORP) gibt an, dass der Browser [`no-cors`](/de/docs/Web/API/RequestInit#no-cors) Cross-Origin- oder Cross-Site-Anfragen an die angegebene Ressource blockieren sollte.
+
+Er gibt die Richtlinie des Ressourcenbesitzers an, welche Websites/Ursprünge berechtigt sind, diese Ressource zu laden.
 
 <table class="properties">
   <tbody>
@@ -28,17 +30,30 @@ Der HTTP-**`Cross-Origin-Resource-Policy`**-{{Glossary("response_header", "Antwo
 Cross-Origin-Resource-Policy: same-site | same-origin | cross-origin
 ```
 
+### Direktiven
+
+- `same-site`
+
+  - : Ressourcen können nur von derselben Site geladen werden.
+
+- `same-origin`
+
+  - : Ressourcen können nur vom selben Ursprung geladen werden.
+
+- `cross-origin`
+  - : Ressourcen können von jedem anderen Ursprung/Website geladen werden.
+
 ## Beispiele
 
-### Cross-Origin no-cors-Anfragen nicht zulassen
+Für weitere Beispiele siehe https://resourcepolicy.fyi/.
 
-Der `Cross-Origin-Resource-Policy`-Header unten wird dazu führen, dass kompatible Benutzeragenten Cross-Origin no-cors-Anfragen nicht zulassen:
+### Ablehnen von Cross-Origin no-cors Anfragen
+
+Der untenstehende `Cross-Origin-Resource-Policy` Header führt dazu, dass kompatible Benutzeragenten Cross-Origin no-cors Anfragen ablehnen:
 
 ```http
 Cross-Origin-Resource-Policy: same-origin
 ```
-
-Für weitere Beispiele siehe https://resourcepolicy.fyi/.
 
 ## Spezifikationen
 
@@ -50,6 +65,7 @@ Für weitere Beispiele siehe https://resourcepolicy.fyi/.
 
 ## Siehe auch
 
-- [Cross-Origin Resource Policy (CORP) Erklärung](/de/docs/Web/HTTP/Cross-Origin_Resource_Policy)
-- [Erwägen Sie, die Cross-Origin Resource Policy einzusetzen](https://resourcepolicy.fyi/)
+- [Cross-Origin Resource Policy (CORP) Erklärer](/de/docs/Web/HTTP/Cross-Origin_Resource_Policy)
+- [Erwägen Sie die Implementierung der Cross-Origin Resource Policy](https://resourcepolicy.fyi/)
+- {{HTTPHeader("Cross-Origin-Embedder-Policy")}}
 - {{HTTPHeader("Access-Control-Allow-Origin")}}

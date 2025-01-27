@@ -3,15 +3,15 @@ title: "ClipboardItem: supports() statische Methode"
 short-title: supports()
 slug: Web/API/ClipboardItem/supports_static
 l10n:
-  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
+  sourceCommit: eaa5b39f80d5fac0e5bf182679dc658b7083d15b
 ---
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die **`supports()`** statische Methode der [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle gibt `true` zurück, wenn der angegebene {{Glossary("MIME_type", "MIME-Typ")}} von der Zwischenablage unterstützt wird, und `false` andernfalls.
+Die statische Methode **`supports()`** der [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle gibt `true` zurück, wenn der angegebene {{Glossary("MIME_type", "MIME-Typ")}} vom Clipboard unterstützt wird, andernfalls `false`.
 
 Beachten Sie, dass die [Clipboard API](/de/docs/Web/API/Clipboard_API) die Unterstützung für Klartext, HTML und PNG-Dateien vorschreibt.
-Die `supports()`-Methode gibt für diese MIME-Typen immer `true` zurück, sodass ein Test nicht notwendig ist.
+Die `supports()`-Methode gibt für diese MIME-Typen immer `true` zurück, daher ist es unnötig, sie zu testen.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ supports(type)
 
 - `type`
 
-  - : Ein String, der den zu prüfenden {{Glossary("MIME_type", "MIME-Typ")}} angibt.
+  - : Ein String, der den zu testenden {{Glossary("MIME_type", "MIME-Typ")}} angibt.
 
     Diese MIME-Typen werden immer unterstützt:
 
@@ -31,24 +31,24 @@ supports(type)
     - `text/html`
     - `image/png`
 
-    Diese MIME-Typen können unterstützt werden:
+    Diese MIME-Typen werden möglicherweise unterstützt:
 
     - `image/svg+xml`
-    - Custom MIME-Type-Formate, die mit `"web "` beginnen.
-      Der benutzerdefinierte Typ (ohne das Präfix `"web "`) muss die korrekte Formatierung für einen MIME-Typ haben.
+    - Benutzerdefinierte MIME-Typ-Formate, die mit `"web "` beginnen.
+      Der benutzerdefinierte Typ (ohne das Präfix `"web "`) muss das richtige Format für einen MIME-Typ haben.
 
 ### Rückgabewert
 
-`true`, wenn der angegebene {{Glossary("MIME_type", "MIME-Typ")}} von der Zwischenablage unterstützt wird, `false` andernfalls.
+`true`, wenn der angegebene {{Glossary("MIME_type", "MIME-Typ")}} vom Clipboard unterstützt wird, andernfalls `false`.
 
 ## Beispiele
 
 ### Ein Bild in die Zwischenablage schreiben
 
-Das folgende Beispiel ruft ein SVG-Bild in einen Blob ab und schreibt es dann in die Zwischenablage.
+Das folgende Beispiel ruft ein SVG-Bild ab, stellt es als [`Blob`](/de/docs/Web/API/Blob) dar und schreibt es dann in die Zwischenablage.
 
-Wir verwenden `supports()`, um zu überprüfen, ob der `"image/svg+xml"` MIME-Typ von der Zwischenablage unterstützt wird, bevor wir das Bild abrufen und mit [`clipboard.write()`](/de/docs/Web/API/Clipboard/write) schreiben.
-Wir wickeln auch den gesamten Funktionskörper in eine [`try..catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Anweisung ein, um andere Fehler abzufangen, wie z.B. wenn `ClipboardItem` selbst nicht unterstützt wird.
+Wir verwenden `supports()`, um zu überprüfen, ob der MIME-Typ `"image/svg+xml"` vom Clipboard unterstützt wird, bevor wir das Bild abrufen und es mit [`clipboard.write()`](/de/docs/Web/API/Clipboard/write) schreiben.
+Wir umgeben auch den gesamten Funktionskörper mit einer [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Anweisung, um andere Fehler abzufangen, beispielsweise wenn `ClipboardItem` selbst nicht unterstützt wird.
 
 ```js
 async function writeClipImg() {
@@ -83,4 +83,4 @@ async function writeClipImg() {
 ## Siehe auch
 
 - [Clipboard API](/de/docs/Web/API/Clipboard_API)
-- [Unterstützung von Bildern für Artikel zur asynchronen Zwischenablage](https://web.dev/articles/async-clipboard)
+- [Image support for Async Clipboard article](https://web.dev/articles/async-clipboard)

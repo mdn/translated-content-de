@@ -3,16 +3,16 @@ title: "Clipboard: write()-Methode"
 short-title: write()
 slug: Web/API/Clipboard/write
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: eaa5b39f80d5fac0e5bf182679dc658b7083d15b
 ---
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die **`write()`** Methode des [`Clipboard`](/de/docs/Web/API/Clipboard) Interfaces schreibt beliebige Daten in die Zwischenablage, wie z.B. Bilder, und erfüllt das zurückgegebene {{jsxref("Promise")}}, sobald der Vorgang abgeschlossen ist.
-Dies kann verwendet werden, um Ausschneiden- und Kopieren-Funktionen zu implementieren.
+Die **`write()`**-Methode des [`Clipboard`](/de/docs/Web/API/Clipboard)-Interfaces schreibt beliebige [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Daten, wie Bilder und Text, in die Zwischenablage und erfüllt das zurückgegebene {{jsxref("Promise")}} bei Abschluss.
+Dies kann verwendet werden, um Ausschneiden- und Kopieren-Funktionalität zu implementieren.
 
-Die Methode kann theoretisch beliebige Daten schreiben (im Gegensatz zur [`writeText()`](/de/docs/Web/API/Clipboard/writeText), die nur Text schreiben kann).
-Browser unterstützen üblicherweise das Schreiben von Text, HTML und PNG-Bilddaten – siehe [Browser-Kompatibilität](#browser-kompatibilität) für weitere Informationen.
+Die Methode kann theoretisch beliebige Daten schreiben (im Gegensatz zu [`writeText()`](/de/docs/Web/API/Clipboard/writeText), das nur Text schreiben kann).
+Browser unterstützen üblicherweise das Schreiben von Text, HTML und PNG-Bilddaten.
 
 ## Syntax
 
@@ -23,14 +23,14 @@ write(data)
 ### Parameter
 
 - `data`
-  - : Ein Array von [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) Objekten, die die Daten enthalten, die in die Zwischenablage geschrieben werden sollen.
+  - : Ein Array von [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Objekten, das die Daten enthält, die in die Zwischenablage geschrieben werden sollen.
 
 ### Rückgabewert
 
 Ein {{jsxref("Promise")}}, das aufgelöst wird, wenn die Daten in die Zwischenablage geschrieben wurden.
-Beachten Sie, dass, wenn das zugrunde liegende Betriebssystem das Speichern mehrerer nativer Zwischenablage-Elemente in der Systemzwischenablage nicht unterstützt, nur das erste [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) im Array gespeichert wird.
+Beachten Sie, dass, wenn das zugrunde liegende Betriebssystem keine mehreren nativen Zwischenablageelemente im System unterstützt, nur das erste [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) im Array geschrieben wird.
 
-Das Versprechen wird abgelehnt, wenn es der Zwischenablage nicht gelingt, in die Zwischenablage zu schreiben.
+Das Versprechen wird abgelehnt, wenn es nicht möglich ist, in die Zwischenablage zu schreiben.
 
 ### Ausnahmen
 
@@ -39,46 +39,42 @@ Das Versprechen wird abgelehnt, wenn es der Zwischenablage nicht gelingt, in die
 
 ## Sicherheitsüberlegungen
 
-Das Schreiben in die Zwischenablage kann nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) durchgeführt werden.
+Das Schreiben in die Zwischenablage kann nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) erfolgen.
 
-Zusätzliche Sicherheitsanforderungen werden im Abschnitt [Sicherheitsüberlegungen](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Übersichtsthemas behandelt.
+Weitere Sicherheitsanforderungen werden im Abschnitt [Sicherheitsüberlegungen](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Überblicksthemas behandelt.
 
 ## Beispiele
 
 ### Text in die Zwischenablage schreiben
 
-Diese Beispiel-Funktion ersetzt den aktuellen Inhalt der Zwischenablage mit einem angegebenen String, wenn eine Taste gedrückt wird.
-Beachten Sie, dass Sie für diesen speziellen Fall ebenso gut `Clipboard.writeText()` verwenden könnten.
+Diese Beispiel-Funktion ersetzt den aktuellen Inhalt der Zwischenablage mit einem angegebenen String, wenn eine Schaltfläche gedrückt wird.
+Beachten Sie, dass Sie in diesem speziellen Fall genauso gut `Clipboard.writeText()` verwenden könnten.
 
 ```js
 button.addEventListener("click", () => setClipboard("<empty clipboard>"));
 
 async function setClipboard(text) {
   const type = "text/plain";
-  const blob = new Blob([text], { type });
-  const data = [new ClipboardItem({ [type]: blob })];
-  await navigator.clipboard.write(data);
+  const clipboardItemData = {
+    [type]: text,
+  };
+  const clipboardItem = new ClipboardItem(clipboardItemData);
+  await navigator.clipboard.write([clipboardItem]);
 }
 ```
 
-Die `setClipboard()` Methode beginnt mit der Erstellung eines neuen [`Blob`](/de/docs/Web/API/Blob) Objekts.
-Dieses Objekt wird benötigt, um ein [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) Objekt zu konstruieren, das an die Zwischenablage gesendet wird.
-Der [`Blob`](/de/docs/Web/API/Blob) Konstruktor nimmt den Inhalt, den wir kopieren möchten, und seinen Typ entgegen.
-Dieses [`Blob`](/de/docs/Web/API/Blob) Objekt kann aus vielen Quellen abgeleitet werden, z. B. einem [Canvas](/de/docs/Web/API/HTMLCanvasElement).
+Die `setClipboard()`-Funktion gibt einen `"text/plain"` MIME-Typ im `type`-Konstanten an, dann wird ein `clipboardItemData`-Objekt spezifiziert mit einer einzigen Eigenschaft — der Schlüssel ist der MIME-Typ, und der Wert ist der übergebene Text, den wir in die Zwischenablage schreiben möchten. Anschließend konstruieren wir ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Objekt, in das das `clipboardItemData`-Objekt übergeben wird.
 
-Als nächstes erstellen wir ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) Objekt, in das der Blob zum Senden an die Zwischenablage eingefügt wird.
-Der Schlüssel des an den [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) Konstruktor übergebenen Objekts gibt den Inhaltstyp an, der Wert gibt den Inhalt an.
-Dann wird `write()` mit `await` aufgerufen.
-Ein `try..catch` Block könnte verwendet werden, um etwaige Fehler beim Schreiben der Daten abzufangen.
+Schließlich wird `write()` mit `await` aufgerufen, um die Daten in die Zwischenablage zu schreiben.
 
-### Canvas-Inhalte in die Zwischenablage schreiben
+### Canvas-Inhalt in die Zwischenablage schreiben
 
-Dieses Beispiel zeichnet ein blaues Rechteck auf das Canvas.
-Sie können auf das Rechteck klicken, um den Inhalt des Canvas als Bild in die Zwischenablage zu kopieren, und dann ein anderes Element auswählen und den Inhalt aus der Zwischenablage einfügen.
+Dieses Beispiel zeichnet ein blaues Rechteck auf die Leinwand.
+Sie können auf das Rechteck klicken, um den Inhalt der Leinwand als Bild in die Zwischenablage zu kopieren und dann ein anderes Element auszuwählen und den Inhalt aus der Zwischenablage einzufügen.
 
 #### HTML
 
-Das HTML definiert nur unser `<canvas>` Element und das `<div>` Element mit der ID `target`, wo das Canvas-Bild eingefügt wird.
+Das HTML definiert nur unser `<canvas>`-Element und das `<div>`-Element mit der ID `target`, in das das Canvas-Bild eingefügt wird.
 
 ```html
 <canvas id="canvas" width="100" height="100"></canvas>
@@ -109,8 +105,8 @@ function log(text) {
 
 #### JavaScript
 
-Zuerst definieren wir eine `async` Funktion, um ein Canvas in einen Blob zu kopieren.
-Dies fasst die alte Callback-basierte [`HTMLCanvasElement.toBlob()`](/de/docs/Web/API/HTMLCanvasElement/toBlob) Methode in eine intuitivere, auf `Promise` basierende Funktion zusammen.
+Zuerst definieren wir eine `async`-Funktion, um ein Canvas in ein Blob zu kopieren.
+Diese umschließt die alte Callback-Style-Methode [`HTMLCanvasElement.toBlob()`](/de/docs/Web/API/HTMLCanvasElement/toBlob) in die intuitivere `Promise`-basierte Funktion.
 
 ```js
 // Async/await method replacing toBlob() callback
@@ -127,10 +123,10 @@ async function getBlobFromCanvas(canvas) {
 }
 ```
 
-Als nächstes richten wir unser Canvas ein und fügen einen Ereignislistener für das `click` Ereignis hinzu.
+Als nächstes richten wir unser Canvas ein und fügen einen Event-Listener für das `click`-Ereignis hinzu.
 
-Wenn Sie auf das blaue Rechteck klicken, überprüft der Code zuerst, ob die Zwischenablage Daten vom Typ `"image/png"` unterstützt.
-Falls ja, wird das Canvas mit dem angezeigten Rechteck in einen Blob kopiert, und dann wird der Blob zu einem `ClipboardItem` hinzugefügt und in die Zwischenablage geschrieben.
+Wenn Sie auf das blaue Rechteck klicken, prüft der Code zuerst, ob die Zwischenablage Daten vom Typ `"image/png"` unterstützt.
+Falls ja, wird das Canvas, das das Rechteck anzeigt, in ein Blob kopiert und dann das Blob zu einem `ClipboardItem` hinzugefügt und in die Zwischenablage geschrieben.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -162,11 +158,11 @@ async function copyCanvasContentsToClipboard() {
 }
 ```
 
-Beachten Sie, dass die Unterstützung von PNG-Dateien in der Zwischenablage Teil der Spezifikation ist, sodass wir die Überprüfung mit [`ClipboardItem.supports()`](/de/docs/Web/API/ClipboardItem/supports_static) oben eigentlich nicht benötigen (sie gibt immer `true` zurück).
-Die Überprüfung wäre nützlicher in Fällen, in denen wir einen optionalen Dateityp abrufen oder eine Ressource mit unbekanntem Typ vorab auswählen.
+Beachten Sie, dass die Zwischenablageunterstützung für PNG-Dateien ein obligatorischer Teil der Spezifikation ist, sodass wir eigentlich nicht die Überprüfung mit [`ClipboardItem.supports()`](/de/docs/Web/API/ClipboardItem/supports_static) oben benötigen (es gibt immer `true` zurück).
+Die Überprüfung wäre nützlicher in Fällen, in denen wir einen optionalen Dateityp oder eine Ressource abrufen, deren Typ wir im Voraus nicht kennen.
 
-Dann definieren wir einen Ereignislistener für [`paste` Ereignisse](/de/docs/Web/API/Element/paste_event) auf einem Element, wo wir die Zwischenablageinhalte als Bild anzeigen wollen.
-Die [FileReader API](/de/docs/Web/API/FileReader) ermöglicht es uns, den Blob mit der Methode [`readAsDataUrl`](/de/docs/Web/API/FileReader/readAsDataURL) zu lesen und ein `<img>` Element mit den Canvas-Inhalten zu erstellen:
+Wir definieren dann einen Event-Listener für [`paste`-Ereignisse](/de/docs/Web/API/Element/paste_event) auf dem Element, in dem wir die Inhalte der Zwischenablage als Bild anzeigen möchten.
+Die [FileReader-API](/de/docs/Web/API/FileReader) ermöglicht es uns, das Blob mithilfe der [`readAsDataUrl`](/de/docs/Web/API/FileReader/readAsDataURL)-Methode zu lesen und ein `<img>`-Element mit den Canvas-Inhalten zu erstellen:
 
 ```js
 target.addEventListener("paste", (event) => {
@@ -200,8 +196,8 @@ img {
 
 #### Ergebnis
 
-Das Ergebnis wird unten gezeigt.
-Klicken Sie zuerst auf das blaue Quadrat und wählen Sie dann den Text "Paste here" und verwenden Sie die spezifischen Tastenkombinationen Ihres Betriebssystems, um aus der Zwischenablage einzufügen (zum Beispiel `Ctrl+V` unter Windows).
+Das Ergebnis wird unten angezeigt.
+Klicken Sie zuerst auf das blaue Quadrat und wählen Sie dann den Text "Hier einfügen" und verwenden Sie die OS-spezifischen Tastenkombinationen, um aus der Zwischenablage einzufügen (wie `Strg+V` unter Windows).
 
 {{embedlivesample("write_canvas_contents_to_the_clipboard", "", "420", "", "", "", "clipboard-write")}}
 
@@ -215,8 +211,8 @@ Klicken Sie zuerst auf das blaue Quadrat und wählen Sie dann den Text "Paste he
 
 ## Siehe auch
 
-- [Clipboard API](/de/docs/Web/API/Clipboard_API)
-- [Bildunterstützung für Async Clipboard Artikel](https://web.dev/articles/async-clipboard)
+- [Clipboard-API](/de/docs/Web/API/Clipboard_API)
+- [Image support for Async Clipboard article](https://web.dev/articles/async-clipboard)
 - [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText)
 - [`Clipboard.read()`](/de/docs/Web/API/Clipboard/read)
 - [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText)

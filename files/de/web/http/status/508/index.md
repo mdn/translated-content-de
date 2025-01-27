@@ -2,24 +2,20 @@
 title: 508 Loop Detected
 slug: Web/HTTP/Status/508
 l10n:
-  sourceCommit: f584f1b27f9f3b78c95122c560f5135866a87eb0
+  sourceCommit: e626fb706bfef0d496f0a209554f80a2d9313c0c
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`508 Loop Detected`** [Server-Fehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass die gesamte Operation fehlgeschlagen ist, da beim Verarbeiten einer Anfrage mit `Depth: infinity` eine Endlosschleife aufgetreten ist.
+Der HTTP-Statuscode **`508 Loop Detected`** [Serverfehler-Antwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass der gesamte Vorgang fehlgeschlagen ist, da während der Verarbeitung einer Anfrage mit `Depth: infinity` eine Endlosschleife entdeckt wurde.
 
-Der Status kann im Kontext der Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) angegeben werden. Er wurde als Fallback für Fälle eingeführt, in denen WebDAV-Clients {{HTTPStatus("208", "208 Already Reported")}} Antworten nicht unterstützen (wenn Anfragen den `DAV` Header nicht explizit einschließen).
+Der Status kann im Kontext des Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) angegeben werden. Er wurde als Lösung für Fälle eingeführt, in denen WebDAV-Clients {{HTTPStatus("208", "208 Already Reported")}}-Antworten nicht unterstützen (wenn Anfragen nicht explizit einen `DAV`-Header enthalten).
 
 ## Status
 
 ```http
 508 Loop Detected
 ```
-
-## Spezifikationen
-
-{{Specifications}}
 
 ## Beispiele
 
@@ -49,6 +45,10 @@ Content-Length: 72
   "Message": "Please check the resources for cyclic references and try again."
 }
 ```
+
+## Spezifikationen
+
+{{Specifications}}
 
 ## Siehe auch
 
