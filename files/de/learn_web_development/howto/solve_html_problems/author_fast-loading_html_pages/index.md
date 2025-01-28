@@ -1,92 +1,92 @@
 ---
-title: Tipps zur Erstellung von schnell ladenden HTML-Seiten
+title: Tipps zum Erstellen von schnell ladenden HTML-Seiten
 slug: Learn_web_development/Howto/Solve_HTML_problems/Author_fast-loading_HTML_pages
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 41adb01a2f16adcbd9565bd185d2c66697a03018
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Learn_web_development/Howto/Solve_HTML_problems")}}
 
 Diese Tipps basieren auf allgemeinem Wissen und Experimenten.
 
-Eine optimierte Webseite bietet nicht nur eine reaktionsschnellere Seite für Ihre Besucher, sondern reduziert auch die Belastung Ihrer Webserver und Internetverbindung. Dies kann für stark frequentierte Websites oder solche, die aufgrund ungewöhnlicher Umstände wie aktueller Nachrichten einen Anstieg des Traffics erfahren, entscheidend sein.
+Eine optimierte Webseite bietet nicht nur eine reaktionsschnellere Seite für Ihre Besucher, sondern verringert auch die Belastung Ihrer Webserver und Internetverbindungen. Dies kann entscheidend für Websites mit hohem Volumen oder solchen sein, die aufgrund ungewöhnlicher Umstände wie Eilmeldungen einen Besucheranstieg erfahren.
 
-Die Optimierung der Ladeleistung von Seiten ist nicht nur für Inhalte wichtig, die von Narrowband-Dial-up- oder mobilen Geräten angezeigt werden. Es ist ebenso wichtig für Breitbandinhalte und kann sogar für Ihre Besucher mit den schnellsten Verbindungen zu dramatischen Verbesserungen führen.
+Die Optimierung der Ladeleistung einer Seite ist nicht nur für Inhalte, die von Schmalband- oder Mobilgerätbesuchern angesehen werden, entscheidend. Sie ist ebenso wichtig für Breitbandinhalte und kann zu dramatischen Verbesserungen sogar für Ihre Besucher mit den schnellsten Verbindungen führen.
 
 ## Tipps
 
-### Seitengröße reduzieren
+### Reduzieren Sie das Seitengewicht
 
-Die Seitengröße ist mit Abstand der wichtigste Faktor für die Seitenladeleistung.
+Das Seitengewicht ist mit Abstand der wichtigste Faktor für die Ladeleistung einer Seite.
 
-Die Reduzierung der Seitengröße durch die Eliminierung unnötiger Leerzeichen und Kommentare, allgemein bekannt als Minimierung, und durch das Verschieben von Inline-Skripten und CSS in externe Dateien kann die Download-Leistung verbessern, ohne dass wesentliche Änderungen an der Seitenstruktur erforderlich sind.
+Durch die Reduzierung des Seitengewichts durch das Entfernen unnötiger Leerzeichen und Kommentare, gemeinhin als Minimierung bekannt, und indem Sie eingebettete Skripte und CSS in externe Dateien verschieben, kann die Download-Performance verbessert werden, ohne dass große Änderungen in der Seitenstruktur erforderlich sind.
 
-Werkzeuge wie [HTML Tidy](https://www.html-tidy.org/) können führende Leerzeichen und zusätzliche Leerzeilen aus gültigem HTML-Quellcode automatisch entfernen. Andere Werkzeuge können JavaScript "komprimieren", indem sie den Quellcode neu formatieren oder obfuskieren und lange Bezeichner durch kürzere Versionen ersetzen.
+Tools wie [HTML Tidy](https://www.html-tidy.org/) können führende Leerzeichen und zusätzliche leere Zeilen aus validem HTML-Quellcode automatisch entfernen. Andere Tools können JavaScript "komprimieren", indem sie den Quellcode neu formatieren oder den Quellcode verschleiern und lange Bezeichner durch kürzere Versionen ersetzen.
 
-### Anzahl der Dateien minimieren
+### Minimieren Sie die Anzahl der Dateien
 
-Die Reduzierung der Anzahl der in einer Webseite referenzierten Dateien verringert die Anzahl der [HTTP](/de/docs/Web/HTTP)-Verbindungen, die zum Herunterladen einer Seite erforderlich sind, wodurch die Zeit für das Senden dieser Anfragen und Empfang ihrer Antworten reduziert wird.
+Die Reduzierung der Anzahl der in einer Webseite referenzierten Dateien verringert die Anzahl der erforderlichen [HTTP](/de/docs/Web/HTTP)-Verbindungen zum Herunterladen einer Seite und senkt dadurch die Zeit, die für das Senden dieser Anfragen und den Erhalt ihrer Antworten benötigt wird.
 
-Abhängig von den Cache-Einstellungen eines Browsers kann er für jede referenzierte Datei eine Anfrage mit dem [`If-Modified-Since`](/de/docs/Web/HTTP/Headers/If-Modified-Since)-Header senden, um zu fragen, ob die Datei seit dem letzten Herunterladen geändert wurde. Zu viel Zeit, die für die Abfrage der letzten Änderungszeit der referenzierten Dateien aufgebracht wird, kann die anfängliche Anzeige der Webseite verzögern, da der Browser das Änderungsdatum jeder dieser Dateien überprüfen muss, bevor er die Seite rendert.
+Je nach Cache-Einstellungen eines Browsers kann dieser für jede referenzierte Datei eine Anfrage mit dem [`If-Modified-Since`](/de/docs/Web/HTTP/Headers/If-Modified-Since)-Header versenden, um zu fragen, ob die Datei seit dem letzten Download geändert wurde. Zu viel Zeit, die mit der Abfrage der letzten Änderungszeit der referenzierten Dateien verbracht wird, kann die anfängliche Anzeige der Webseite verzögern, da der Browser die Änderungszeit jeder dieser Dateien überprüfen muss, bevor er die Seite rendert.
 
-Wenn Sie Hintergrundbilder häufig in Ihrem CSS verwenden, können Sie die Anzahl der erforderlichen HTTP-Lookups reduzieren, indem Sie die Bilder in einem einzigen Bildsprite kombinieren. Dann wenden Sie einfach dasselbe Bild jedes Mal an, wenn Sie es für einen Hintergrund benötigen, und passen die x/y-Koordinaten entsprechend an. Diese Technik funktioniert am besten bei Elementen mit begrenzten Abmessungen und funktioniert nicht für jede Verwendung eines Hintergrundbildes. Dennoch können weniger HTTP-Anfragen und einzelnes Bild-Caching helfen, die Seitenladezeit zu reduzieren.
+Wenn Sie Hintergrundbilder häufig in Ihrem CSS verwenden, können Sie die Anzahl der erforderlichen HTTP-Abfragen reduzieren, indem Sie die Bilder zu einem Bildsprite kombinieren. Dann wenden Sie lediglich dasselbe Bild jedes Mal an, wenn Sie es für einen Hintergrund benötigen, und passen die x/y-Koordinaten entsprechend an. Diese Technik funktioniert am besten mit Elementen, die begrenzte Abmessungen haben, und funktioniert nicht für jede Nutzung eines Hintergrundbildes. Die Reduzierung der HTTP-Anfragen und das Caching eines einzelnen Bildes können jedoch dazu beitragen, die Ladezeit der Seite zu verkürzen.
 
-### Nutzen Sie ein Content Delivery Network (CDN)
+### Verwenden Sie ein Content Delivery Network (CDN)
 
-Für die Zwecke dieses Artikels ist ein CDN eine Möglichkeit, die physische Distanz zwischen Ihrem Server und Ihrem Besucher zu reduzieren. Da die Entfernung zwischen Ihrem Server-Ursprung und dem Besucher zunimmt, steigen die Ladezeiten. Angenommen, Ihr Website-Server befindet sich in den Vereinigten Staaten und ein Besucher kommt aus Indien; die Seitenladezeit wird für den indischen Besucher viel höher sein als für einen Besucher aus den USA.
+Für die Zwecke dieses Artikels ist ein CDN ein Mittel, um die physische Distanz zwischen Ihrem Server und Ihrem Besucher zu verringern. Mit steigender Entfernung zwischen dem Ursprung Ihres Servers und dem Besucher steigen die Ladezeiten. Angenommen, Ihr Website-Server befindet sich in den Vereinigten Staaten und es hat einen Besucher aus Indien; die Ladezeit der Seite wird für den Besucher aus Indien viel höher sein als für einen Besucher aus den USA.
 
-Ein CDN ist ein geografisch verteiltes Netzwerk von Servern, die zusammenarbeiten, um die Distanz zwischen dem Benutzer und Ihrer Website zu verkürzen. CDNs speichern zwischengespeicherte Versionen Ihrer Website und servieren sie den Besuchern über den Netzwerkknoten, der dem Benutzer am nächsten ist, wodurch [Latenz](/de/docs/Web/Performance/Understanding_latency) reduziert wird.
+Ein CDN ist ein geografisch verteiltes Netzwerk von Servern, die zusammenarbeiten, um die Distanz zwischen dem Benutzer und Ihrer Website zu verringern. CDNs speichern zwischengespeicherte Versionen Ihrer Website und liefern sie den Besuchern über den dem Benutzer am nächsten gelegenen Netzwerk-Knoten, wodurch die [Latenz](/de/docs/Web/Performance/Understanding_latency) verringert wird.
 
 Weiterführende Literatur:
 
 - [Verständnis von CDNs](https://www.imperva.com/Learn_web_development/Extensions/Performance/what-is-cdn-how-it-works/)
 
-### Domain-Lookups reduzieren
+### Reduzieren Sie Domainabfragen
 
-Da jede separate Domain Zeit in einem DNS-Lookup kostet, wächst die Seitenladezeit mit der Anzahl separater Domains, die in CSS-Link(s) und JavaScript- und Bild-src(s) erscheinen.
+Da jede separate Domain Zeit für eine DNS-Abfrage kostet, wächst die Ladezeit der Seite mit der Anzahl der unterschiedlichen Domains, die in CSS-Links und JavaScript- sowie Bildquellen erscheinen.
 
-Dies ist möglicherweise nicht immer praktikabel; dennoch sollten Sie stets darauf achten, nur die minimal notwendige Anzahl verschiedener Domänen in Ihren Seiten zu verwenden.
+Dies ist möglicherweise nicht immer praktikabel; Sie sollten jedoch immer darauf achten, in Ihren Seiten nur die unbedingt erforderliche Anzahl verschiedener Domains zu verwenden.
 
-### Wiederverwendete Inhalte cachen
+### Wiederverwendete Inhalte zwischenspeichern
 
-Stellen Sie sicher, dass alle Inhalte, die zwischengespeichert werden können, mit angemessenen Ablaufzeiten gecacht werden.
+Stellen Sie sicher, dass alle Inhalte, die zwischengespeichert werden können, auch zwischengespeichert werden und dies mit angemessenen Ablaufzeiten.
 
-Achten Sie insbesondere auf den `Last-Modified`-Header. Dieser ermöglicht effizientes Seiten-Caching; durch diesen Header werden dem Benutzeragenten Informationen über die Datei mitgeteilt, die er laden möchte, wie z.B. wann sie zuletzt geändert wurde. Die meisten Webserver fügen statischen Seiten (z.B. `.html`, `.css`) basierend auf dem im Dateisystem gespeicherten letzten Änderungsdatum automatisch den `Last-Modified`-Header hinzu. Bei dynamischen Seiten (z.B. `.php`, `.aspx`) kann dies nicht erfolgen, und der Header wird nicht gesendet.
+Achten Sie insbesondere auf den `Last-Modified`-Header. Er ermöglicht ein effizientes Seitencaching; durch diesen Header werden dem Benutzeragenten Informationen über die Datei, die er laden möchte, übermittelt, wie z.B. wann sie zuletzt geändert wurde. Die meisten Webserver fügen statischen Seiten (z.B. `.html`, `.css`) automatisch den `Last-Modified`-Header basierend auf dem letzten im Dateisystem gespeicherten Änderungsdatum hinzu. Bei dynamischen Seiten (z.B. `.php`, `.aspx`) ist dies natürlich nicht möglich, und der Header wird nicht gesendet.
 
-Für Seiten, die dynamisch generiert werden, lohnt sich daher eine kleine Recherche zu diesem Thema. Es kann zwar etwas aufwändig sein, wird jedoch viele Seitenanfragen auf Seiten sparen, die normalerweise nicht cachefähig wären.
+Daher ist insbesondere für Seiten, die dynamisch generiert werden, eine kleine Recherche zu diesem Thema von Vorteil. Es kann etwas aufwendig sein, spart jedoch viel bei Seitenanfragen, die normalerweise nicht zwischengespeichert werden könnten.
 
 Weitere Informationen:
 
-1. [HTTP Conditional Get für RSS Hackers](https://fishbowl.pastiche.org/2002/10/21/http_conditional_get_for_rss_hackers)
+1. [HTTP Conditional Get for RSS Hackers](https://fishbowl.pastiche.org/2002/10/21/http_conditional_get_for_rss_hackers)
 2. [HTTP 304: Not Modified](https://annevankesteren.nl/2005/05/http-304)
 3. [HTTP ETag auf Wikipedia](https://en.wikipedia.org/wiki/HTTP_ETag)
 4. [Caching in HTTP](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)
 
 ### Komponenten der Seite optimal anordnen
 
-Laden Sie den Seiteninhalt zuerst herunter, zusammen mit allen CSS- oder JavaScript-Dateien, die für die anfängliche Anzeige erforderlich sein könnten, damit der Benutzer während des Ladens der Seite die schnellste offensichtliche Reaktion erhält. Dieser Inhalt ist typischerweise Text und kann daher von der Textkompression beim Transport profitieren, was dem Benutzer eine noch schnellere Reaktion bietet.
+Laden Sie zuerst die Seiteninhalte herunter, zusammen mit allen CSS- oder JavaScript-Dateien, die für die anfängliche Anzeige erforderlich sind, damit der Benutzer die schnellstmögliche Reaktion während des Seitenladens erhält. Dieser Inhalt ist typischerweise Text und kann daher von einer Textkompression während der Übertragung profitieren, was dem Benutzer eine noch schnellere Antwort bietet.
 
-Alle dynamischen Funktionen, die erfordern, dass die Seite vollständig geladen wird, bevor sie verwendet werden können, sollten zunächst deaktiviert und erst nach dem Laden der Seite aktiviert werden. Dadurch wird das JavaScript nach dem Seiteninhalt geladen, was das Gesamterscheinungsbild der Seitenladezeit verbessert.
+Alle dynamischen Funktionen, die erfordern, dass die Seite vollständig geladen ist, bevor sie verwendet werden, sollten zunächst deaktiviert und erst nach dem Laden der Seite aktiviert werden. Dies führt dazu, dass JavaScript nach den Seiteninhalten geladen wird, was das Gesamtbild des Seitenladens verbessert.
 
-### Anzahl der Inline-Skripte reduzieren
+### Reduzieren Sie die Anzahl der eingebetteten Skripte
 
-Inline-Skripte können für das Seitenladen kostspielig sein, da der Parser annehmen muss, dass ein Inline-Skript die Seitenstruktur während des laufenden Parsens ändern könnte. Die Reduzierung des Einsatzes von Inline-Skripten im Allgemeinen und die Reduzierung der Verwendung von `document.write()` zur Ausgabe von Inhalten im Besonderen kann das gesamte Seitenladen verbessern. Verwenden Sie [DOM-APIs zur Manipulation von Seiteninhalten](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting), anstelle von `document.write()`.
+Eingebettete Skripte können beim Laden der Seite teuer sein, da der Parser annehmen muss, dass ein eingebettetes Skript die Seitenstruktur während des Parsens ändern könnte. Die allgemeine Reduzierung der Nutzung eingebetteter Skripte und insbesondere die Reduzierung der Verwendung von `document.write()`, um Inhalte auszugeben, kann das gesamte Seitenladen verbessern. Verwenden Sie [DOM-APIs zur Manipulation von Seiteninhalten](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting) anstelle von `document.write()`.
 
 ### Verwenden Sie moderne CSS und gültiges Markup
 
-Der Einsatz moderner CSS reduziert die Menge an Markup, kann den Bedarf an (Spacer-)Bildern im Hinblick auf das Layout reduzieren und kann sehr oft Bilder mit stilisiertem Text ersetzen, die viel "kosten" mehr als der gleichwertige Text und CSS.
+Der Einsatz moderner CSS-Techniken reduziert die Menge an Markup, kann den Bedarf an (Platzhalter-)Bildern in Bezug auf das Layout verringern und sehr häufig Bilder von stilisiertem Text ersetzen, die "mehr kosten" als der entsprechende Text und CSS.
 
-Die Verwendung von gültigem Markup hat weitere Vorteile. Erstens müssen Browser beim Parsen des HTML keine Fehlerkorrektur durchführen (abgesehen von der philosophischen Frage, ob Formatabweichungen in Benutzereingaben zulässig sein und dann programmgesteuert korrigiert oder normalisiert werden sollten; oder ob stattdessen ein striktes, kein-tolerantes Eingabeformat durchgesetzt werden sollte).
+Die Verwendung von gültigem Markup hat weitere Vorteile. Erstens müssen Browser keine Fehlerkorrektur bei der Analyse des HTML durchführen (abgesehen von der philosophischen Frage, ob Formatabweichungen bei Benutzereingaben zugelassen und dann programmgesteuert "korrigiert" oder normalisiert werden sollen oder ob stattdessen ein striktes, nicht tolerantes Eingabeformat durchgesetzt werden soll).
 
-Validiertes Markup ermöglicht weiterhin die freie Nutzung anderer Werkzeuge, die Ihre Webseiten _vorverarbeiten_ können. Beispielsweise kann [HTML Tidy](https://www.html-tidy.org/) Leerzeichen und optionale Endtags entfernen; es wird jedoch bei einer Seite mit schwerwiegenden Markup-Fehlern nicht ausgeführt.
+Darüber hinaus ermöglicht gültiges Markup die freie Nutzung anderer Tools, die Ihre Webseiten _vorverarbeiten_ können. Beispielsweise kann [HTML Tidy](https://www.html-tidy.org/) Leerzeichen und optionale Endtags entfernen; jedoch wird es die Ausführung auf einer Seite mit schwerwiegenden Markup-Fehlern verweigern.
 
-### Inhalt in Blöcke aufteilen
+### Strukturieren Sie Ihre Inhalte
 
-Layouts mit [Floats](/de/docs/Learn_web_development/Core/CSS_layout/Floats), [Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning), [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) oder [Grids](/de/docs/Learn_web_development/Core/CSS_layout/Grids) verwenden anstelle von Tabellenlayouts als ältere Methode.
+Tabellen für Layouts sind eine veraltete Methode, die nicht mehr verwendet werden sollte. Layouts mit Hilfe von [Floats](/de/docs/Learn_web_development/Core/CSS_layout/Floats), [Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning), [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) oder [Grids](/de/docs/Learn_web_development/Core/CSS_layout/Grids) sollten stattdessen verwendet werden.
 
-Tabellen werden immer noch als gültiges Markup angesehen, sollten jedoch zur Darstellung von Tabellendaten verwendet werden. Um der Browser schneller rendern Ihre Seite, sollten Sie das Verschachteln Ihrer Tabellen vermeiden.
+Tabellen werden weiterhin als gültiges Markup betrachtet, sollten jedoch für die Anzeige tabellarischer Daten verwendet werden. Um dem Browser zu helfen, Ihre Seite schneller zu rendern, sollten Sie das Verschachteln von Tabellen vermeiden.
 
-Verwenden Sie statt tief verschachtelten Tabellen wie:
+Anstatt Tabellen tief zu verschachteln wie in:
 
 ```html
 <table>
@@ -98,7 +98,7 @@ Verwenden Sie statt tief verschachtelten Tabellen wie:
 </table>
 ```
 
-nicht verschachtelte Tabellen oder DIVs wie in
+verwenden Sie nicht verschachtelte Tabellen oder Divs wie in
 
 ```html
 <table>
@@ -112,19 +112,19 @@ nicht verschachtelte Tabellen oder DIVs wie in
 </table>
 ```
 
-Siehe auch: [CSS flexible box layout](https://www.w3.org/TR/css-flexbox-1/) und [CSS grid layout](https://www.w3.org/TR/css-grid-1/) Spezifikationen.
+Siehe auch: [CSS Flexible Box Layout](https://www.w3.org/TR/css-flexbox-1/) und [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/) Spezifikationen.
 
-### SVG-Assets minimieren und komprimieren
+### Minimieren und komprimieren Sie SVG-Elemente
 
-Von den meisten Zeichenanwendungen erstelltes SVG enthält oft unnötige Metadaten, die entfernt werden können. Konfigurieren Sie Ihre Server und wenden Sie gzip-Komprimierung für SVG-Assets an.
+Von den meisten Zeichenanwendungen erzeugte SVGs enthalten oft unnötige Metadaten, die entfernt werden können. Konfigurieren Sie Ihre Server, um Gzip-Komprimierung für SVG-Elemente anzuwenden.
 
-### Bilder minimieren und komprimieren
+### Minimieren und komprimieren Sie Ihre Bilder
 
-Große Bilder verursachen, dass Ihre Seite mehr Zeit zum Laden benötigt. Erwägen Sie, Ihre Bilder vor dem Hinzufügen zu Ihrer Seite zu komprimieren, indem Sie Komprimierungsfunktionen verwenden, die in Bildbearbeitungswerkzeugen wie Photoshop eingebaut sind, oder verwenden Sie ein spezialisiertes Tool wie [Compress JPEG](https://compressjpeg.com/) oder [Tiny PNG](https://tinypng.com/).
+Große Bilder führen dazu, dass Ihre Seite mehr Zeit zum Laden benötigt. Erwägen Sie, Ihre Bilder vor dem Hinzufügen zur Seite zu komprimieren, indem Sie Komprimierungsfunktionen verwenden, die in Bildbearbeitungswerkzeuge wie Photoshop integriert sind, oder indem Sie ein spezialisiertes Tool wie [Compress JPEG](https://compressjpeg.com/) oder [Tiny PNG](https://tinypng.com/) verwenden.
 
-### Größen für Bilder und Tabellen angeben
+### Spezifizieren Sie Größen für Bilder und Tabellen
 
-Wenn der Browser sofort die Höhe und/oder Breite Ihrer Bilder und Tabellen bestimmen kann, wird er in der Lage sein, eine Webseite anzuzeigen, ohne den Inhalt neu zu fließen. Dies beschleunigt nicht nur die Anzeige der Seite, sondern verhindert auch störende Änderungen im Layout einer Seite, wenn das Laden der Seite abgeschlossen ist. Aus diesem Grund sollten `Höhe` und `Breite` für Bilder, wann immer möglich, angegeben werden.
+Wenn der Browser die Höhe und/oder Breite Ihrer Bilder und Tabellen sofort bestimmen kann, kann er eine Webseite anzeigen, ohne den Inhalt erneut aufzufüllen. Dies beschleunigt nicht nur die Anzeige der Seite, sondern verhindert auch störende Änderungen im Layout einer Seite, wenn das Laden der Seite abgeschlossen ist. Aus diesem Grund sollten `height` und `width` für Bilder, wann immer möglich, spezifiziert werden.
 
 Tabellen sollten die CSS-Selektor: Eigenschaftskombination verwenden:
 
@@ -132,37 +132,37 @@ Tabellen sollten die CSS-Selektor: Eigenschaftskombination verwenden:
 table-layout: fixed;
 ```
 
-und sollten die Breiten der Spalten mit den [`<col>`](/de/docs/Web/HTML/Element/col) und den [`<colgroup>`](/de/docs/Web/HTML/Element/colgroup) Elementen angeben.
+und sollten Breiten der Spalten mit den [`<col>`](/de/docs/Web/HTML/Element/col) und den [`<colgroup>`](/de/docs/Web/HTML/Element/colgroup) Elementen spezifizieren.
 
-### Lazy Loading für Bilder verwenden
+### Verwenden Sie Lazy Loading für Bilder
 
-Standardmäßig werden Bilder **gierig** geladen; das heißt, das Bild wird heruntergeladen und gerendert, sobald es im HTML verarbeitet wird. Alle gierig geladenen Bilder werden gerendert, bevor das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis des Fensters gesendet wird. Ein Wechsel zum Lazy Loading von Bildern weist den Browser an, das Laden der Bilder aufzuschieben, bis sie benötigt werden, um das {{Glossary("visual_viewport", "visuelle Viewport")}} zu zeichnen.
+Standardmäßig werden Bilder **eifrig** geladen; das heißt, das Bild wird abgerufen und gerendert, sobald es im HTML verarbeitet wird. Alle eifrig geladenen Bilder werden gerendert, bevor das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis des Fensters gesendet wird. Der Wechsel zum Lazy Loading von Bildern signalisiert dem Browser, die Bilder erst dann zu laden, wenn sie benötigt werden, um das {{Glossary("visual_viewport", "visuelle Ansichtsfenster")}} zu zeichnen.
 
-Um ein Bild für Lazy Loading zu markieren, geben Sie sein [`loading`](/de/docs/Web/HTML/Element/img#loading) Attribut mit einem Wert von `lazy` an. Mit dieser Einstellung wird das Bild nur geladen, wenn es benötigt wird.
+Um ein Bild für Lazy Loading zu markieren, geben Sie das [`loading`](/de/docs/Web/HTML/Element/img#loading)-Attribut mit dem Wert `lazy` an. Mit dieser Einstellung wird das Bild nur dann geladen, wenn es benötigt wird.
 
 ```html
 <img src="./images/footerlogo.jpg" loading="lazy" alt="MDN logo" />
 ```
 
-Beachten Sie, dass Lazy Loaded-Bilder möglicherweise nicht verfügbar sind, wenn das `load`-Ereignis ausgelöst wird. Sie können feststellen, ob ein bestimmtes Bild geladen wird, indem Sie überprüfen, ob der Wert seiner booleschen [`complete`](/de/docs/Web/API/HTMLImageElement/complete) Eigenschaft `true` ist.
+Beachten Sie, dass lazy-geladene Bilder möglicherweise nicht verfügbar sind, wenn das `load`-Ereignis ausgelöst wird. Sie können feststellen, ob ein bestimmtes Bild geladen ist, indem Sie prüfen, ob der Wert seiner booleschen [`complete`](/de/docs/Web/API/HTMLImageElement/complete)-Eigenschaft `true` ist.
 
-### Wählen Sie Ihre Benutzeragenten-Anforderungen klug
+### Wählen Sie Ihre Anforderungen an den Benutzeragenten weise
 
-Um die größten Verbesserungen im Seitendesign zu erzielen, stellen Sie sicher, dass angemessene Benutzeragenten-Anforderungen für Projekte festgelegt sind. Erfordern Sie nicht, dass Ihr Inhalt in allen Browsern pixelgenau erscheint, insbesondere nicht in älteren Browsern.
+Um die größten Verbesserungen im Seitendesign zu erzielen, stellen Sie sicher, dass vernünftige Anforderungen an den Benutzeragenten für Projekte festgelegt werden. Verlangen Sie nicht, dass Ihr Inhalt in allen Browsern pixelgenau aussieht, besonders nicht in älteren Browserversionen.
 
-Idealerweise sollten Ihre grundlegenden Mindestanforderungen auf der Betrachtung moderner Browser basieren, die die relevanten Standards unterstützen. Dazu können aktuelle Versionen von Firefox, Google Chrome, Opera und Safari gehören.
+Idealerweise sollten Ihre grundlegenden Mindestanforderungen auf der Überlegung moderner Browser basieren, die die relevanten Standards unterstützen. Dies kann neuere Versionen von Firefox, Google Chrome, Opera und Safari umfassen.
 
-Beachten Sie jedoch, dass viele der in diesem Artikel aufgeführten Tipps allgemeine Techniken sind, die auf jeden Benutzeragenten angewendet werden können und auf jede Webseite angewendet werden können, unabhängig von den Anforderungen an die Browserunterstützung.
+Beachten Sie jedoch, dass viele der in diesem Artikel aufgeführten Tipps allgemeine Techniken sind, die für jeden Benutzeragenten gelten und auf jede Webseite angewendet werden können, unabhängig von den Anforderungen an den Browser-Support.
 
 ### Verwenden Sie async und defer, wenn möglich
 
-Machen Sie die JavaScript-Skripte so, dass sie mit beiden Attributen [async](/de/docs/Web/HTML/Element/script#attributes) und [defer](/de/docs/Web/HTML/Element/script#attributes) kompatibel sind, und verwenden Sie [async](/de/docs/Web/HTML/Element/script#attributes), wann immer möglich, insbesondere wenn Sie mehrere Skriptelemente haben.
+Gestalten Sie die JavaScript-Skripte so, dass sie sowohl mit dem [async](/de/docs/Web/HTML/Element/script#attributes) als auch dem [defer](/de/docs/Web/HTML/Element/script#attributes) Attribut kompatibel sind, und verwenden Sie [async](/de/docs/Web/HTML/Element/script#attributes) wann immer möglich, insbesondere wenn Sie mehrere Skriptelemente haben.
 
-Damit kann die Seite aufhören zu rendern, während JavaScript noch geladen wird. Andernfalls rendert der Browser nichts, was nach den Skriptelementen liegt, die diese Attribute nicht haben.
+Damit kann die Seitendarstellung gestoppt werden, während JavaScript noch geladen wird. Andernfalls rendert der Browser nichts, was nach den Skriptelementen kommt, die diese Attribute nicht haben.
 
-Hinweis: Obwohl diese Attribute beim ersten Laden einer Seite viel helfen, sollten Sie sie verwenden, aber nicht davon ausgehen, dass sie in allen Browsern funktionieren. Wenn Sie bereits alle Best Practices für JavaScript befolgen, müssen Sie Ihren Code nicht ändern.
+Hinweis: Auch wenn diese Attribute beim ersten Laden einer Seite sehr hilfreich sind, sollten Sie sie verwenden, aber nicht davon ausgehen, dass sie in allen Browsern funktionieren. Wenn Sie bereits alle JavaScript-Best-Practices befolgen, müssen Sie Ihren Code nicht ändern.
 
-## Beispielseitenstruktur
+## Beispielstruktur der Seite
 
 - `{{htmlelement('html')}}`
 
@@ -170,26 +170,26 @@ Hinweis: Obwohl diese Attribute beim ersten Laden einer Seite viel helfen, sollt
 
     - `{{htmlelement('link')}}`
 
-      CSS-Dateien, die für das Erscheinungsbild der Seite erforderlich sind. Minimieren Sie die Anzahl der Dateien für die Leistung, während Sie nicht verwandte CSS in separaten Dateien für die Wartung halten.
+      CSS-Dateien erforderlich für das Erscheinungsbild der Seite. Minimieren Sie die Anzahl der Dateien für die Leistung, während Sie nicht zusammenhängende CSS in separaten Dateien zur Wartung behalten.
 
     - `{{htmlelement('script')}}`
 
-      JavaScript-Dateien für Funktionen, die während des Ladens der Seite benötigt werden, jedoch kein interaktionsbezogenes JavaScript, das nur nach dem Laden der Seite ausgeführt werden kann.
+      JavaScript-Dateien für Funktionen, die **während** des Ladens der Seite erforderlich sind, aber nicht JavaScript, das nur nach dem Laden der Seite ausgeführt werden kann.
 
-      Minimieren Sie die Anzahl der Dateien für die Leistung, während Sie nicht verwandtes JavaScript in separaten Dateien für die Wartung halten.
+      Minimieren Sie die Anzahl der Dateien für die Leistung, während Sie nicht zusammenhängendes JavaScript in separaten Dateien zur Wartung behalten.
 
   - `{{htmlelement('body')}}`
 
-    Inhalt der sichtbaren Seite in kleinen Blöcken (`{{htmlelement('header')}}`/ `{{htmlelement('main')}}/` `{{htmlelement('table')}}`), die angezeigt werden können, ohne auf das vollständige Herunterladen der Seite zu warten.
+    Für den Benutzer sichtbare Seiteninhalte in kleinen Abschnitten (`{{htmlelement('header')}}`/ `{{htmlelement('main')}}/` `{{htmlelement('table')}}`), die angezeigt werden können, ohne auf das vollständige Herunterladen der Seite zu warten.
 
     - `{{htmlelement('script')}}`
 
-      Alle Skripte, die zur Durchführung von Interaktivität verwendet werden. Interaktionsskripte können typischerweise erst ausgeführt werden, nachdem die Seite vollständig geladen und alle erforderlichen Objekte initialisiert wurden. Es besteht keine Notwendigkeit, diese Skripte vor dem Seiteninhalt zu laden. Das bremst nur das anfängliche Erscheinungsbild des Seitenladevorgangs.
+      Alle Skripte, die zur Durchführung von Interaktivität verwendet werden. Interaktionsskripte können in der Regel erst ausgeführt werden, nachdem die Seite vollständig geladen ist und alle notwendigen Objekte initialisiert wurden. Es besteht keine Notwendigkeit, diese Skripte vor den Seiteninhalten zu laden. Das würde nur das anfängliche Erscheinungsbild des Seitenladens verlangsamen.
 
-      Minimieren Sie die Anzahl der Dateien für die Leistung, während Sie nicht verwandtes JavaScript in separaten Dateien für die Wartung halten.
+      Minimieren Sie die Anzahl der Dateien für die Leistung, während Sie nicht zusammenhängendes JavaScript in separaten Dateien zur Wartung behalten.
 
 ## Siehe auch
 
 - Buch: ["Speed Up Your Site" von Andy King](https://www.websiteoptimization.com/)
-- Die ausgezeichnete und sehr vollständige ["Best Practices for Speeding Up Your Website"](https://developer.yahoo.com/performance/rules.html) (Yahoo!)
-- Werkzeuge zur Analyse und Optimierung der Leistung: [Google PageSpeed Tools](https://developers.google.com/speed)
+- [Leistung lernen](https://web.dev/learn/performance) über web.dev (2023)
+- Tools zur Analyse und Optimierung der Leistung: [Google PageSpeed Tools](https://developers.google.com/speed) und [PageSpeed Insights](https://pagespeed.web.dev/)

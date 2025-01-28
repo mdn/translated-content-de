@@ -2,16 +2,14 @@
 title: FileReader
 slug: Web/API/FileReader
 l10n:
-  sourceCommit: 58ad1df59f2ffb9ecab4e27fe1bdf1eb5a55f89b
+  sourceCommit: 0e61c49a5ab5944376f4f2c90ae8df6feae26f11
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`FileReader`**-Interface ermöglicht es Webanwendungen, den Inhalt von Dateien (oder Rohdatenpuffern), die auf dem Computer des Benutzers gespeichert sind, asynchron zu lesen. Dafür werden [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet, um die Datei oder die zu lesenden Daten anzugeben.
+Das **`FileReader`**-Interface ermöglicht es Webanwendungen, den Inhalt von Dateien (oder Rohdatenpuffer) asynchron zu lesen, die auf dem Computer des Benutzers gespeichert sind, indem [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet werden, um die Datei oder Daten zum Lesen anzugeben.
 
-Dateiobjekte können aus einem [`FileList`](/de/docs/Web/API/FileList)-Objekt gewonnen werden, das als Ergebnis einer Benutzerauswahl von Dateien über das {{HTMLElement("input")}}-Element oder aus einem `DataTransfer`-Objekt bei einem Drag-and-Drop-Vorgang zurückgegeben wird.
-
-`FileReader` kann nur auf den Inhalt von Dateien zugreifen, die der Benutzer ausdrücklich ausgewählt hat, entweder über ein HTML-`<input type="file">`-Element oder per Drag-and-Drop. Es kann nicht verwendet werden, um eine Datei über ihren Pfadnamen aus dem Dateisystem des Benutzers zu lesen. Um Dateien im Dateisystem des Clients über den Pfadnamen zu lesen, verwenden Sie die [File System Access API](/de/docs/Web/API/File_System_API). Um serverseitige Dateien zu lesen, verwenden Sie [`fetch()`](/de/docs/Web/API/Window/fetch), mit [CORS](/de/docs/Web/HTTP/CORS)-Berechtigung, wenn Sie plattformübergreifend lesen.
+Dateiobjekte können von einem [`FileList`](/de/docs/Web/API/FileList)-Objekt erhalten werden, das als Ergebnis der Auswahl von Dateien durch den Benutzer mit dem `<input type="file">`-Element oder aus einem [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt bei einem Drag-and-Drop-Vorgang zurückgegeben wird. `FileReader` kann nur auf den Inhalt von Dateien zugreifen, die der Benutzer explizit ausgewählt hat; es kann nicht verwendet werden, um eine Datei über den Pfadnamen vom Dateisystem des Benutzers zu lesen. Zum Lesen von Dateien im Dateisystem des Clients über den Pfadnamen verwenden Sie die [File System Access API](/de/docs/Web/API/File_System_API). Zum Lesen von serverseitigen Dateien verwenden Sie [`fetch()`](/de/docs/Web/API/Window/fetch) mit [CORS](/de/docs/Web/HTTP/CORS)-Berechtigung, wenn Sie über Cross-Origin lesen.
 
 {{InheritanceDiagram}}
 
@@ -25,10 +23,10 @@ Siehe [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Usin
 ## Instanzeigenschaften
 
 - [`FileReader.error`](/de/docs/Web/API/FileReader/error) {{ReadOnlyInline}}
-  - : Ein [`DOMException`](/de/docs/Web/API/DOMException), das den aufgetretenen Fehler beim Lesen der Datei darstellt.
+  - : Ein [`DOMException`](/de/docs/Web/API/DOMException), das den Fehler darstellt, der beim Lesen der Datei aufgetreten ist.
 - [`FileReader.readyState`](/de/docs/Web/API/FileReader/readyState) {{ReadOnlyInline}}
 
-  - : Eine Zahl, die den Zustand des `FileReader` angibt. Dies ist einer der folgenden Werte:
+  - : Eine Zahl, die den Zustand des `FileReader` anzeigt. Dies ist einer der folgenden Werte:
 
     | Name      | Wert | Beschreibung                                 |
     | --------- | ---- | -------------------------------------------- |
@@ -37,29 +35,29 @@ Siehe [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Usin
     | `DONE`    | `2`  | Der gesamte Lesevorgang wurde abgeschlossen. |
 
 - [`FileReader.result`](/de/docs/Web/API/FileReader/result) {{ReadOnlyInline}}
-  - : Der Inhalt der Datei. Diese Eigenschaft ist nur nach Abschluss der Leseoperation gültig und das Datenformat hängt davon ab, welche Methoden zur Initiierung der Leseoperation verwendet wurden.
+  - : Der Inhalt der Datei. Diese Eigenschaft ist nur gültig, nachdem der Lesevorgang abgeschlossen ist, und das Format der Daten hängt davon ab, welche der Methoden verwendet wurde, um den Lesevorgang zu starten.
 
 ## Instanzmethoden
 
 - [`FileReader.abort()`](/de/docs/Web/API/FileReader/abort)
-  - : Bricht die Leseoperation ab. Nach der Rückkehr wird `readyState` auf `DONE` gesetzt.
+  - : Bricht den Lesevorgang ab. Nach der Rückkehr wird der `readyState` `DONE` sein.
 - [`FileReader.readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer)
-  - : Beginnt das Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut ein {{jsxref("ArrayBuffer")}}, das die Daten der Datei darstellt.
+  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut ein {{jsxref("ArrayBuffer")}}, das die Daten der Datei repräsentiert.
 - [`FileReader.readAsBinaryString()`](/de/docs/Web/API/FileReader/readAsBinaryString) {{deprecated_inline}}
-  - : Beginnt das Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut die Roh-Binärdaten der Datei als String.
+  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut die rohen Binärdaten der Datei als String.
 - [`FileReader.readAsDataURL()`](/de/docs/Web/API/FileReader/readAsDataURL)
-  - : Beginnt das Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut eine `data:`-URL, die die Daten der Datei darstellt.
+  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut eine `data:`-URL, die die Daten der Datei repräsentiert.
 - [`FileReader.readAsText()`](/de/docs/Web/API/FileReader/readAsText)
-  - : Beginnt das Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut den Inhalt der Datei als Textstring. Ein optionaler Codierungsname kann angegeben werden.
+  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut den Inhalt der Datei als Textstring. Ein optionaler Codierungsname kann angegeben werden.
 
 ## Ereignisse
 
-Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieses Interfaces zuweisen. Entfernen Sie die Event-Listener mit [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener), sobald `FileReader` nicht mehr verwendet wird, um Speicherverluste zu vermeiden.
+Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisung eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieses Interfaces. Entfernen Sie die Ereignis-Listener mit [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener), sobald `FileReader` nicht mehr verwendet wird, um Speicherlecks zu vermeiden.
 
 - [`abort`](/de/docs/Web/API/FileReader/abort_event)
   - : Wird ausgelöst, wenn ein Lesevorgang abgebrochen wurde, zum Beispiel weil das Programm [`FileReader.abort()`](/de/docs/Web/API/FileReader/abort) aufgerufen hat.
 - [`error`](/de/docs/Web/API/FileReader/error_event)
-  - : Wird ausgelöst, wenn das Lesen aufgrund eines Fehlers fehlgeschlagen ist.
+  - : Wird ausgelöst, wenn der Lesevorgang aufgrund eines Fehlers fehlgeschlagen ist.
 - [`load`](/de/docs/Web/API/FileReader/load_event)
   - : Wird ausgelöst, wenn ein Lesevorgang erfolgreich abgeschlossen wurde.
 - [`loadend`](/de/docs/Web/API/FileReader/loadend_event)
@@ -67,7 +65,69 @@ Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/Even
 - [`loadstart`](/de/docs/Web/API/FileReader/loadstart_event)
   - : Wird ausgelöst, wenn ein Lesevorgang gestartet wurde.
 - [`progress`](/de/docs/Web/API/FileReader/progress_event)
-  - : Wird regelmäßig ausgelöst, während Daten gelesen werden.
+  - : Wird periodisch ausgelöst, während Daten gelesen werden.
+
+## Beispiele
+
+### Verwendung von FileReader
+
+Dieses Beispiel liest und zeigt den Inhalt einer Textdatei direkt im Browser an.
+
+#### HTML
+
+```html
+<h1>File Reader</h1>
+<input type="file" id="file-input" />
+<div id="message"></div>
+<pre id="file-content"></pre>
+```
+
+#### JavaScript
+
+```js
+const fileInput = document.getElementById("file-input");
+const fileContentDisplay = document.getElementById("file-content");
+const messageDisplay = document.getElementById("message");
+
+fileInput.addEventListener("change", handleFileSelection);
+
+function handleFileSelection(event) {
+  const file = event.target.files[0];
+  fileContentDisplay.textContent = ""; // Clear previous file content
+  messageDisplay.textContent = ""; // Clear previous messages
+
+  // Validate file existence and type
+  if (!file) {
+    showMessage("No file selected. Please choose a file.", "error");
+    return;
+  }
+
+  if (!file.type.startsWith("text")) {
+    showMessage("Unsupported file type. Please select a text file.", "error");
+    return;
+  }
+
+  // Read the file
+  const reader = new FileReader();
+  reader.onload = () => {
+    fileContentDisplay.textContent = reader.result;
+  };
+  reader.onerror = () => {
+    showMessage("Error reading the file. Please try again.", "error");
+  };
+  reader.readAsText(file);
+}
+
+// Displays a message to the user
+function showMessage(message, type) {
+  messageDisplay.textContent = message;
+  messageDisplay.style.color = type === "error" ? "red" : "green";
+}
+```
+
+### Ergebnis
+
+{{EmbedLiveSample("Using FileReader", 640, 300)}}
 
 ## Spezifikationen
 
