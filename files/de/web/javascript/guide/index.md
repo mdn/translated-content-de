@@ -2,12 +2,12 @@
 title: JavaScript-Leitfaden
 slug: Web/JavaScript/Guide
 l10n:
-  sourceCommit: c16a0ee78e5142b3bfcdaf57d595add3ce825f13
+  sourceCommit: 8f10db5cabb50ee778f781f96adadc8cff98761a
 ---
 
 {{jsSidebar("JavaScript Guide")}}
 
-Der JavaScript-Leitfaden zeigt Ihnen, wie Sie [JavaScript](/de/docs/Web/JavaScript) verwenden und bietet einen Überblick über die Sprache. Wenn Sie umfassende Informationen zu einem Sprachmerkmal benötigen, werfen Sie einen Blick auf die [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference).
+Der JavaScript-Leitfaden zeigt Ihnen, wie Sie [JavaScript](/de/docs/Web/JavaScript) verwenden, und bietet einen Überblick über die Sprache. Wenn Sie umfassende Informationen zu einem Sprachmerkmal benötigen, sehen Sie sich die [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference) an.
 
 Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
@@ -26,10 +26,10 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
 Überblick: [Grammatik und Typen](/de/docs/Web/JavaScript/Guide/Grammar_and_types)
 
-- [Grundlegende Syntax & Kommentare](/de/docs/Web/JavaScript/Guide/Grammar_and_types#basics)
+- [Grundsyntax & Kommentare](/de/docs/Web/JavaScript/Guide/Grammar_and_types#basics)
 - [Deklarationen](/de/docs/Web/JavaScript/Guide/Grammar_and_types#declarations)
 - [Variablenbereich](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope)
-- [Variable Hoisting](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_hoisting)
+- [Variablen-Hoisting](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_hoisting)
 - [Datenstrukturen und Typen](/de/docs/Web/JavaScript/Guide/Grammar_and_types#data_structures_and_types)
 - [Literale](/de/docs/Web/JavaScript/Guide/Grammar_and_types#literals)
 
@@ -42,9 +42,9 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 - [`try`/`catch`/`throw`](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#exception_handling_statements)
 - [Fehlerobjekte](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#utilizing_error_objects)
 
-## Schleifen und Iteration
+## Schleifen und Iterationen
 
-Überblick: [Schleifen und Iteration](/de/docs/Web/JavaScript/Guide/Loops_and_iteration)
+Überblick: [Schleifen und Iterationen](/de/docs/Web/JavaScript/Guide/Loops_and_iteration)
 
 - [`for`](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#for_statement)
 - [`while`](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#while_statement)
@@ -58,10 +58,9 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
 Überblick: [Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
 
-- [Funktionen definieren](/de/docs/Web/JavaScript/Guide/Functions#defining_functions)
-- [Funktionen aufrufen](/de/docs/Web/JavaScript/Guide/Functions#calling_functions)
-- [Funktionsbereich](/de/docs/Web/JavaScript/Guide/Functions#function_scope)
-- [Closures](/de/docs/Web/JavaScript/Guide/Functions#closures)
+- [Definieren von Funktionen](/de/docs/Web/JavaScript/Guide/Functions#defining_functions)
+- [Aufrufen von Funktionen](/de/docs/Web/JavaScript/Guide/Functions#calling_functions)
+- [Funktionsbereiche und Closures](/de/docs/Web/JavaScript/Guide/Functions#function_scopes_and_closures)
 - [Argumente](/de/docs/Web/JavaScript/Guide/Functions#using_the_arguments_object) & [Parameter](/de/docs/Web/JavaScript/Guide/Functions#function_parameters)
 - [Pfeilfunktionen](/de/docs/Web/JavaScript/Guide/Functions#arrow_functions)
 
@@ -69,34 +68,34 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
 Überblick: [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators)
 
-- [Zuordnung](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators) & [Vergleiche](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#comparison_operators)
+- [Zuweisung](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators) & [Vergleiche](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#comparison_operators)
 - [Arithmetische Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#arithmetic_operators)
 - [Bitweise](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#bitwise_operators) & [logische Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#logical_operators)
-- [Bedingter (ternäres) Operator](</de/docs/Web/JavaScript/Guide/Expressions_and_operators#conditional_(ternary)_operator>)
+- [Bedingter (ternärer) Operator](</de/docs/Web/JavaScript/Guide/Expressions_and_operators#conditional_(ternary)_operator>)
 
 ## Zahlen und Zeichenfolgen
 
 Überblick: [Zahlen und Zeichenfolgen](/de/docs/Web/JavaScript/Guide/Numbers_and_strings)
 
 - [Zahlen](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#numbers)
-- [`Number` Objekt](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#number_object)
-- [`Math` Objekt](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#math_object)
+- [`Number`-Objekt](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#number_object)
+- [`Math`-Objekt](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#math_object)
 - [Zeichenfolgen](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#strings)
-- [`String` Objekt](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#string_object)
-- [Vorlagenliterale](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#template_literals)
+- [`String`-Objekt](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#string_object)
+- [Template-Literale](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#template_literals)
 
-## Daten und Zeiten darstellen
+## Repräsentation von Daten & Zeiten
 
-Überblick: [Daten und Zeiten darstellen](/de/docs/Web/JavaScript/Guide/Representing_dates_times)
+Überblick: [Repräsentation von Daten & Zeiten](/de/docs/Web/JavaScript/Guide/Representing_dates_times)
 
-- [`Date` Objekt](/de/docs/Web/JavaScript/Guide/Representing_dates_times#date_object)
+- [`Date`-Objekt](/de/docs/Web/JavaScript/Guide/Representing_dates_times#date_object)
 
 ## Reguläre Ausdrücke
 
 Überblick: [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)
 
-- [Ein regulärer Ausdruck erstellen](/de/docs/Web/JavaScript/Guide/Regular_expressions#creating_a_regular_expression)
-- [Ein reguläres Ausdrucksmuster schreiben](/de/docs/Web/JavaScript/Guide/Regular_expressions#writing_a_regular_expression_pattern)
+- [Erstellen eines regulären Ausdrucks](/de/docs/Web/JavaScript/Guide/Regular_expressions#creating_a_regular_expression)
+- [Schreiben eines regulären Ausdrucksmusters](/de/docs/Web/JavaScript/Guide/Regular_expressions#writing_a_regular_expression_pattern)
   - [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)
   - [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes)
   - [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences)
@@ -120,17 +119,17 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 Überblick: [Arbeiten mit Objekten](/de/docs/Web/JavaScript/Guide/Working_with_objects)
 
 - [Objekte und Eigenschaften](/de/docs/Web/JavaScript/Guide/Working_with_objects#objects_and_properties)
-- [Objekte erstellen](/de/docs/Web/JavaScript/Guide/Working_with_objects#creating_new_objects)
+- [Erstellen von Objekten](/de/docs/Web/JavaScript/Guide/Working_with_objects#creating_new_objects)
 - [Methoden definieren](/de/docs/Web/JavaScript/Guide/Working_with_objects#defining_methods)
 - [Getter und Setter](/de/docs/Web/JavaScript/Guide/Working_with_objects#defining_getters_and_setters)
 
-## Verwendung von Klassen
+## Klassen verwenden
 
-Überblick: [Verwendung von Klassen](/de/docs/Web/JavaScript/Guide/Using_classes)
+Überblick: [Klassen verwenden](/de/docs/Web/JavaScript/Guide/Using_classes)
 
-- [Eine Klasse deklarieren](/de/docs/Web/JavaScript/Guide/Using_classes#declaring_a_class)
-- [Verschiedene Klassenfunktionen](/de/docs/Web/JavaScript/Guide/Using_classes#constructor)
-- [Extends und Vererbung](/de/docs/Web/JavaScript/Guide/Using_classes#extends_and_inheritance)
+- [Deklarieren einer Klasse](/de/docs/Web/JavaScript/Guide/Using_classes#declaring_a_class)
+- [Verschiedene Klassenmerkmale](/de/docs/Web/JavaScript/Guide/Using_classes#constructor)
+- [Erweitern und Vererbung](/de/docs/Web/JavaScript/Guide/Using_classes#extends_and_inheritance)
 - [Warum Klassen?](/de/docs/Web/JavaScript/Guide/Using_classes#why_classes)
 
 ## Promises
@@ -143,9 +142,9 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 - [Komposition](/de/docs/Web/JavaScript/Guide/Using_promises#composition)
 - [Timing](/de/docs/Web/JavaScript/Guide/Using_promises#timing)
 
-## Typisierte Arrays
+## Getypte Arrays
 
-Überblick: [Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+Überblick: [Getypte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 
 ## Iteratoren und Generatoren
 
@@ -159,7 +158,7 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
 Überblick: [Internationalisierung](/de/docs/Web/JavaScript/Guide/Internationalization)
 
-- [Datums- und Zeitformatierung](/de/docs/Web/JavaScript/Guide/Internationalization#date_and_time_formatting)
+- [Datum- und Zeitformatierung](/de/docs/Web/JavaScript/Guide/Internationalization#date_and_time_formatting)
 - [Zahlenformatierung](/de/docs/Web/JavaScript/Guide/Internationalization#number_formatting)
 - [Sortierung](/de/docs/Web/JavaScript/Guide/Internationalization#collation)
 
@@ -178,9 +177,9 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
 - [Exportieren](/de/docs/Web/JavaScript/Guide/Modules#exporting_module_features)
 - [Importieren](/de/docs/Web/JavaScript/Guide/Modules#importing_features_into_your_script)
-- [Standardexporte](/de/docs/Web/JavaScript/Guide/Modules#default_exports_versus_named_exports)
-- [Merkmale umbenennen](/de/docs/Web/JavaScript/Guide/Modules#renaming_imports_and_exports)
+- [Standardexports](/de/docs/Web/JavaScript/Guide/Modules#default_exports_versus_named_exports)
+- [Umbenennen von Merkmalen](/de/docs/Web/JavaScript/Guide/Modules#renaming_imports_and_exports)
 - [Module aggregieren](/de/docs/Web/JavaScript/Guide/Modules#aggregating_modules)
-- [Dynamisches Modul-Laden](/de/docs/Web/JavaScript/Guide/Modules#dynamic_module_loading)
+- [Dynamisches Laden von Modulen](/de/docs/Web/JavaScript/Guide/Modules#dynamic_module_loading)
 
 {{Next("Web/JavaScript/Guide/Introduction")}}

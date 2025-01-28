@@ -1,18 +1,18 @@
 ---
-title: "Permissions: query() Methode"
+title: "Berechtigungen: `query()`-Methode"
 short-title: query()
 slug: Web/API/Permissions/query
 l10n:
-  sourceCommit: 451d20e51ac4c94f406dd653e8f666c6a3704039
+  sourceCommit: d74e45a592f785d22d8771f37861f795386b03a4
 ---
 
 {{APIRef("Permissions API")}}{{AvailableInWorkers}}
 
-Die **`query()`** Methode des [`Permissions`](/de/docs/Web/API/Permissions) Interface gibt den Status einer Benutzerberechtigung im globalen Scope zurück.
+Die **`query()`**-Methode der [`Permissions`](/de/docs/Web/API/Permissions)-Schnittstelle gibt den Status einer Benutzerberechtigung im globalen Kontext zurück.
 
-Die Namen der Benutzerberechtigungen sind in den jeweiligen Spezifikationen für jede Funktion definiert. Die von verschiedenen Browserversionen unterstützten Berechtigungen sind in den [Kompatibilitätsdaten des `Permissions` Interface](/de/docs/Web/API/Permissions#browser_compatibility) aufgeführt (siehe auch den entsprechenden Quellcode für [Firefox Werte](https://searchfox.org/mozilla-central/source/dom/webidl/Permissions.webidl#10), [Chromium Werte](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/third_party/blink/renderer/modules/permissions/permission_descriptor.idl) und [WebKit Werte](https://github.com/WebKit/WebKit/blob/main/Source/WebCore/Modules/permissions/PermissionName.idl)).
+Die Namen der Benutzerberechtigungen sind in den jeweiligen Spezifikationen für jede Funktion definiert. Die Berechtigungen, die von verschiedenen Browserversionen unterstützt werden, sind in den [Kompatibilitätsdaten der `Permissions`-Schnittstelle](/de/docs/Web/API/Permissions#browser_compatibility) aufgelistet (siehe auch den relevanten Quellcode für [Firefox-Werte](https://searchfox.org/mozilla-central/source/dom/webidl/Permissions.webidl#10), [Chromium-Werte](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/third_party/blink/renderer/modules/permissions/permission_descriptor.idl) und [WebKit-Werte](https://github.com/WebKit/WebKit/blob/main/Source/WebCore/Modules/permissions/PermissionName.idl)).
 
-Die APIs, die durch jede Berechtigung gesteuert werden, sind in [Berechtigungsbewusste APIs](/de/docs/Web/API/Permissions_API#permission-aware_apis) im Überblicksthema der [Permissions API](/de/docs/Web/API/Permissions_API) aufgelistet.
+Die APIs, die jeweils durch Berechtigungen gesteuert werden, sind in [Berechtigungsbewusste APIs](/de/docs/Web/API/Permissions_API#permission-aware_apis) im [Permissions API](/de/docs/Web/API/Permissions_API) Überblicksthema aufgeführt.
 
 ## Syntax
 
@@ -24,42 +24,43 @@ query(permissionDescriptor)
 
 - `permissionDescriptor`
 
-  - : Ein Objekt, das Optionen für die `query`-Operation festlegt. Die verfügbaren Optionen für diesen Deskriptor hängen vom Berechtigungstyp ab.
+  - : Ein Objekt, das Optionen für die `query`-Operation festlegt.
+    Die verfügbaren Optionen für diesen Deskriptor hängen vom Berechtigungstyp ab.
 
-    Alle Berechtigungen haben einen Namen:
+    Jede Berechtigung hat einen Namen:
 
     - `name`
-      - : Ein String, der den Namen der API enthält, deren Berechtigungen Sie abfragen möchten, wie `camera`, `bluetooth`, `microphone`, `geolocation` (sehen Sie sich [`Permissions`](/de/docs/Web/API/Permissions#browser_compatibility) für eine vollständigere Liste an).
-        Das zurückgegebene {{jsxref("Promise")}} wird mit einem {{jsxref("TypeError")}} abgelehnt, wenn der Berechtigungsname vom Browser nicht unterstützt wird.
+      - : Ein String, der den Namen der API enthält, deren Berechtigungen Sie abfragen möchten, wie `camera`, `bluetooth`, `microphone`, `geolocation` (siehe [`Permissions`](/de/docs/Web/API/Permissions#browser_compatibility) für eine vollständigere Liste).
+        Die zurückgegebene {{jsxref("Promise")}} wird mit einem {{jsxref("TypeError")}} abgelehnt, wenn der Berechtigungsname vom Browser nicht unterstützt wird.
 
     Für die `push`-Berechtigungen können Sie auch Folgendes angeben:
 
     - `userVisibleOnly` {{optional_inline}}
-      - : (Nur Push, nicht unterstützt in Firefox — siehe den Abschnitt zur Browser-Unterstützung unten) Gibt an, ob Sie eine Benachrichtigung für jede Nachricht anzeigen oder stille Push-Benachrichtigungen senden möchten.
+      - : (Nur Push, nicht in Firefox unterstützt — siehe den Abschnitt zur Browserunterstützung unten) Gibt an, ob Sie eine Benachrichtigung für jede Nachricht anzeigen möchten oder stille Push-Benachrichtigungen senden können.
         Der Standardwert ist `false`.
 
     Für die `midi`-Berechtigung können Sie auch Folgendes angeben:
 
     - `sysex` {{optional_inline}}
-      - : Gibt an, ob Sie System-exklusive Nachrichten benötigen und/oder empfangen.
+      - : Gibt an, ob Sie System-Exklusivnachrichten benötigen und/oder empfangen.
         Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem [`PermissionStatus`](/de/docs/Web/API/PermissionStatus) Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu einem [`PermissionStatus`](/de/docs/Web/API/PermissionStatus)-Objekt aufgelöst wird.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die `query()` Methode im Browserkontext aufgerufen wird und das damit verbundene Dokument nicht vollständig aktiv ist.
+  - : Wird ausgelöst, wenn die `query()`-Methode im Browsing-Kontext aufgerufen wird und das zugehörige Dokument nicht vollständig aktiv ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das Abrufen der `PermissionDescriptor` Informationen auf irgendeine Weise fehlschlägt oder die Berechtigung nicht existiert oder von der Benutzeragent nicht unterstützt wird.
+  - : Wird ausgelöst, wenn das Abrufen der `PermissionDescriptor`-Informationen auf irgendeine Weise fehlgeschlagen ist oder die Berechtigung nicht existiert oder vom Benutzeragenten nicht unterstützt wird.
 
 ## Beispiele
 
-### Nachrichten basierend auf Geolokalisierungsberechtigung anzeigen
+### Nachrichten basierend auf Standortberechtigung anzeigen
 
-Dieses Beispiel zeigt, wie Sie möglicherweise Nachrichten anzeigen, die sich auf den aktuellen Standort beziehen, wenn die `geolocation`-Berechtigung gewährt wird, und andernfalls den Benutzer auffordern, die Erteilung des Zugriffs auf den Standort zu ermöglichen.
+Dieses Beispiel zeigt, wie Sie möglicherweise Nachrichten in Bezug auf den aktuellen Standort anzeigen, wenn die `geolocation`-Berechtigung erteilt wird. Andernfalls wird der Benutzer aufgefordert, den Zugriff auf den Standort zu gewähren.
 
 ```js
 navigator.permissions.query({ name: "geolocation" }).then((result) => {
@@ -76,7 +77,7 @@ navigator.permissions.query({ name: "geolocation" }).then((result) => {
 
 Dieses Beispiel zeigt das Ergebnis der Abfrage jeder der Berechtigungen.
 
-Der Code verwendet `navigator.permissions.query()`, um jede Berechtigung abzufragen und protokolliert entweder den Berechtigungsstatus oder die Tatsache, dass die Berechtigung im Browser nicht unterstützt wird. Beachten Sie, dass der `query()` Aufruf innerhalb eines `try...catch` Blocks gemacht wird, da das zugehörige `Promise` abgelehnt wird, wenn die Berechtigung nicht unterstützt wird.
+Der Code verwendet `navigator.permissions.query()`, um jede Berechtigung abzufragen und entweder den Berechtigungsstatus zu protokollieren oder die Tatsache, dass die Berechtigung im Browser nicht unterstützt wird. Beachten Sie, dass `query()` innerhalb eines `try...catch`-Blocks aufgerufen wird, da das zugehörige `Promise` abgelehnt wird, wenn die Berechtigung nicht unterstützt wird.
 
 ```html hidden
 <pre id="log"></pre>
@@ -138,7 +139,15 @@ async function processPermissions() {
 // Query a single permission in a try...catch block and return result
 async function getPermission(permission) {
   try {
-    const result = await navigator.permissions.query({ name: permission });
+    let result;
+    if (permission === "top-level-storage-access") {
+      result = await navigator.permissions.query({
+        name: permission,
+        requestedOrigin: window.location.origin,
+      });
+    } else {
+      result = await navigator.permissions.query({ name: permission });
+    }
     return `${permission}: ${result.state}`;
   } catch (error) {
     return `${permission} (not supported)`;
@@ -146,7 +155,7 @@ async function getPermission(permission) {
 }
 ```
 
-Das Protokoll der Codeausführung wird unten gezeigt:
+Das Protokoll des ausgeführten Codes wird unten angezeigt:
 
 {{EmbedLiveSample('Test support for various permissions',"100%", "370px")}}
 

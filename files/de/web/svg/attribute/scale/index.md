@@ -2,14 +2,14 @@
 title: scale
 slug: Web/SVG/Attribute/scale
 l10n:
-  sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
+  sourceCommit: da9455baa888af94b55f453a56b15b5bb8af53e0
 ---
 
 {{SVGRef}}
 
-Das **`scale`**-Attribut definiert den Displacement-Skalierungsfaktor, der auf eine {{SVGElement("feDisplacementMap")}}-Filterprimitive angewendet werden soll. Der Betrag wird im Koordinatensystem angegeben, das durch das {{SVGAttr("primitiveUnits")}}-Attribut am {{SVGElement("filter")}}-Element festgelegt wird.
+Das **`scale`** Attribut definiert den Verschiebungsfaktor, der bei einer {{SVGElement("feDisplacementMap")}} Filterprimitive verwendet wird. Der Wert wird im Koordinatensystem ausgedrückt, das durch das {{SVGAttr("primitiveUnits")}} Attribut auf dem {{SVGElement("filter")}} Element festgelegt wird.
 
-Dieses Attribut kann mit folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feDisplacementMap")}}
 
@@ -42,13 +42,17 @@ svg {
     <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="50" />
   </filter>
 
-  <circle cx="100" cy="100" r="80" style="filter: url(#displacementFilter);""/>
-  <circle cx="100" cy="100" r="80" style="filter: url(#displacementFilter2);
-  transform: translateX(240px);""/>
+  <circle cx="100" cy="100" r="80" style="filter: url(#displacementFilter);" />
+  <circle
+    cx="100"
+    cy="100"
+    r="80"
+    style="filter: url(#displacementFilter2);
+  transform: translateX(240px);" />
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", "480", "200")}}
+{{EmbedLiveSample("Example", "480", "200")}}
 
 ## Anwendungshinweise
 
@@ -71,7 +75,7 @@ svg {
 
 - `<number>`
 
-  - : Dieser Wert definiert den Skalierungsfaktor für das Displacement.
+  - : Dieser Wert definiert den Maßstabsfaktor für die Verschiebung.
 
     Wenn der Wert dieses Attributs `0` ist, hat diese Operation keinen Effekt auf das Quellbild.
 
