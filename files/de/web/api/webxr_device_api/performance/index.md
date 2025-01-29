@@ -1,39 +1,39 @@
 ---
-title: WebXR Performance-Leitfaden
+title: WebXR-Leitfaden zur Leistungsoptimierung
 slug: Web/API/WebXR_Device_API/Performance
 l10n:
-  sourceCommit: 73b724ad82b94d2a4c314924218367cea2740e97
+  sourceCommit: ef472690cc383fc77d7aa53ddec036b5efa3b526
 ---
 
 {{DefaultAPISidebar("WebXR Device API")}}
 
-WebXR-Anwendungen beinhalten mehrere Technologien, die sehr empfindlich auf Leistungsbeschränkungen reagieren können. Daher kann es erforderlich sein, Anpassungen oder Kompromisse vorzunehmen, um die Leistung Ihrer WebXR-Anwendung so zu optimieren, dass sie auf der größtmöglichen Anzahl von Zielgeräten verwendbar ist. In diesem Leitfaden werden wir eine Vielzahl von Vorschlägen und Empfehlungen untersuchen, die Ihnen helfen werden, Ihre WebXR-App so leistungsfähig wie möglich zu machen.
+WebXR-Anwendungen umfassen mehrere Technologien, die sehr empfindlich auf Leistungseinschränkungen reagieren können. Daher kann es erforderlich sein, Anpassungen oder Kompromisse vorzunehmen, um die Leistung Ihrer WebXR-Anwendung zu optimieren und sie auf einer möglichst breiten Auswahl an Zielgeräten nutzbar zu machen. In diesem Leitfaden werden wir eine Vielzahl von Vorschlägen und Empfehlungen untersuchen, die Ihnen helfen, Ihre WebXR-Anwendung so leistungsfähig wie möglich zu gestalten.
 
-## Rendering-Tipps
+## Tipps zum Rendering
 
-Diskutieren Sie allgemeine Dinge wie die Begrenzung der Anzahl der verschiedenen Schleifen während des Renderings, das Vermeiden unnötiger Zeichnungen usw.
+Besprechen Sie allgemeine Punkte wie die Begrenzung der Anzahl verschiedener Schleifen während des Renderings, das Vermeiden unnötiger Zeichnungen usw.
 
-Es kann auch Material aus diesem [Erklärer im Spezifikations-Repo](https://github.com/immersive-web/webxr/blob/master/explainer.md#changing-the-field-of-view-for-inline-sessions) enthalten.
+Es können wahrscheinlich auch Inhalte aus diesem [Erläuterungsdokument im Spec-Repo](https://github.com/immersive-web/webxr/blob/master/explainer.md#changing-the-field-of-view-for-inline-sessions) enthalten sein.
 
 ## Verwaltung der Rendering-Qualität
 
-Dieser Abschnitt wird teilweise aus diesem [Erklärer im Spezifikations-Repo](https://github.com/immersive-web/webxr/blob/master/explainer.md#controlling-rendering-quality) stammen.
+Dieser Abschnitt wird teilweise aus diesem [Erläuterungsdokument im Spec-Repo](https://github.com/immersive-web/webxr/blob/master/explainer.md#controlling-rendering-quality) entnommen.
 
 ## Verwaltung der Bildrate
 
 Inhalte über die Verwaltung der Bildrate.
 
-## Verwaltung der Verwendung von Tiefe
+## Verwaltung der Nutzung von Tiefe
 
-In diesem Abschnitt werden Informationen aus diesem [Erklärer](https://github.com/immersive-web/webxr/blob/master/explainer.md#controlling-depth-precision) und diesem [Erklärer](https://github.com/immersive-web/webxr/blob/master/explainer.md#preventing-the-compositor-from-using-the-depth-buffer) im Spezifikations-Repo kombiniert.
+Dieser Abschnitt kombiniert Informationen aus diesem [Erläuterungsdokument](https://github.com/immersive-web/webxr/blob/master/explainer.md#controlling-depth-precision) und diesem [Dokument](https://github.com/immersive-web/webxr/blob/master/explainer.md#preventing-the-compositor-from-using-the-depth-buffer) im Spec-Repo.
 
-## Optimierung der Speichernutzung
+## Optimierung des Speicherverbrauchs
 
-Wenn Sie Bibliotheken verwenden, die Aufgaben wie Matrizenmathematik durchführen, haben Sie normalerweise eine Reihe von Arbeitsvariablen, durch die verschiedene Vektoren, Matrizen und Quaternionen im Laufe der Zeit wandern. Es ist sinnvoll, dann einen begrenzten Satz dieser Objekte zu haben und deren Inhalt jedes Mal zu ersetzen, wenn Sie sie verwenden müssen. Sie können als ähnlich zu den Registern in einem Mikroprozessor betrachtet werden: ein begrenzter Satz von Speicherplatz für bestimmte Arten von Daten oder Anwendungsfällen.
+Wenn Sie Bibliotheken verwenden, die Aufgaben wie Matrixmathematik durchführen, haben Sie typischerweise eine Reihe von Arbeitsvariablen, durch die verschiedene Vektoren, Matrizen und Quaternionen im Laufe der Zeit gehen. Es macht daher Sinn, eine begrenzte Anzahl dieser Objekte zu haben und deren Inhalte mit den neuen Informationen zu ersetzen, jedes Mal wenn Sie sie verwenden müssen. Sie können als ähnlich den Registern in einem Mikroprozessor betrachtet werden: eine begrenzte Menge von Speicherplätzen für spezifische Datentypen oder Anwendungsfälle.
 
-Obwohl ein einzelner Vektor oder eine Matrix nicht übermäßig viel Speicher beansprucht, wird das Speichermanagement problematisch werden, wenn Sie ständig Speicherobjekte zuweisen und freigeben, da die Anzahl der Vektoren, Matrizen und anderer Strukturen, die zum Erstellen jedes einzelnen Bildes einer 3D-Szene verwendet werden, enorm ist.
+Auch wenn ein einzelner Vektor oder eine Matrix nicht übermäßig viel Speicherplatz beansprucht, führt die schiere Anzahl der Vektoren, Matrizen und anderer Strukturen, die zur Bildung jedes Einzelbilds einer 3D-Szene verwendet werden, dazu, dass Speicherverwaltung schließlich zu einem Problem wird, wenn Sie Speicherobjekte ständig allozieren und freigeben.
 
-Betrachten Sie Folgendes:
+Betrachten Sie das Folgende:
 
 ```js
 function drawScene(gl, view, programInfo, buffers, texture, deltaTime) {
@@ -53,7 +53,7 @@ function drawScene(gl, view, programInfo, buffers, texture, deltaTime) {
 }
 ```
 
-Dies rendert eine Szene. Aber es ist ineffizient, da es als lokale Variablen eine Reihe von Dingen zuweist, darunter mindestens zwei Matrizen, ein Array von Scheitelpunkten und mehr. Das bedeutet, dass bei jedem Frame die JavaScript-Laufzeitumgebung Speicher dafür zuweisen und einrichten muss—möglicherweise die Speicherbereinigung auslösend—und dann wird der Speicher freigegeben, wenn jede Schleifeniteration abgeschlossen ist.
+Dies rendert eine Szene. Aber es ist ineffizient, da es als lokale Variablen eine Reihe von Dingen allokiert, darunter mindestens zwei Matrizen, ein Array von Scheitelpunkten und mehr. Das bedeutet, dass für jeden Frame die JavaScript-Laufzeit Speicher für diese allokieren und einrichten muss – möglicherweise Abfallbeseitigung auslösen – und wenn jede Interaktion der Schleife abgeschlossen ist, wird der Speicher freigegeben.
 
 Eine einfache Änderung kann dies erheblich optimieren:
 
@@ -72,10 +72,10 @@ function drawScene(gl, view, programInfo, buffers, texture, deltaTime) {
 }
 ```
 
-Anstatt nun bei jeder Schleifeniteration Variablen zuzuweisen, verwenden wir globale Konstanten (oder Klassenmitgliedkonstanten). Dies hat mehrere Vorteile:
+Jetzt verwenden wir statt Variablen in jeder Schleifeniteration globale Konstanten (oder Klassenmitgliedskonstanten). Dies bietet mehrere Vorteile:
 
-- Der für jeden Wert oder jede Struktur zugewiesene Speicher muss nicht bei jedem Frame erneut zugewiesen werden. Dies reduziert das Potenzial, die Speicherbereinigung auszulösen, und optimiert die Speichernutzung.
-- Sie können nicht versehentlich die Objekte löschen, die Ihre Vektoren und Matrizen enthalten, da es sich um Konstanten handelt.
-- Sie können jedoch weiterhin den _Inhalt_ jedes dieser Objekte ersetzen, sodass sie wiederverwendbar sind.
+- Der für jeden Wert oder jede Struktur zugeordnete Speicher muss nicht in jedem Frame neu zugeordnet werden. Dies reduziert die Wahrscheinlichkeit, die Müllabfuhr auszulösen, und optimiert den Speicherverbrauch.
+- Sie können die Objekte, die Ihre Vektoren und Matrizen enthalten, nicht versehentlich löschen, da sie Konstanten sind.
+- Sie können jedoch nach wie vor die _Inhalte_ jedes dieser Objekte ersetzen, sodass sie wiederverwendbar sind.
 
-Sie sind nun vor mehreren möglichen Programmierfehlern geschützt, und Ihre gesamte Animation wird flüssiger und leistungsfähiger.
+Sie sind jetzt vor mehreren möglichen Programmierfehlern geschützt, und Ihre gesamte Animation wird ebenfalls flüssiger und leistungsfähiger.
