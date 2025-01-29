@@ -491,7 +491,7 @@
 /de/docs/CSS/Getting_Started	/de/docs/Learn_web_development/Core/Styling_basics
 /de/docs/CSS/Getting_Started/Boxes	/de/docs/Learn_web_development/Core/Styling_basics
 /de/docs/CSS/Getting_Started/Cascading_and_inheritance	/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts
-/de/docs/CSS/Getting_Started/Challenge_solutions	/de/docs/Web/Guide/CSS/Getting_started/Challenge_solutions
+/de/docs/CSS/Getting_Started/Challenge_solutions	/de/docs/Learn_web_development/Core/Challenges
 /de/docs/CSS/Getting_Started/Content	/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Generated_content
 /de/docs/CSS/Getting_Started/How_CSS_works	/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS
 /de/docs/CSS/Getting_Started/JavaScript	/de/docs/Learn_web_development/Core/Scripting/DOM_scripting
@@ -12444,12 +12444,14 @@
 /de/docs/Web/Guide/Audio_and_video_manipulation	/de/docs/Web/Media/Audio_and_video_manipulation
 /de/docs/Web/Guide/CSS/Block_formatting_context	/de/docs/Web/CSS/CSS_display/Block_formatting_context
 /de/docs/Web/Guide/CSS/CSS_Image_Sprites	/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS
+/de/docs/Web/Guide/CSS/CSS_Layout	/de/docs/Web/CSS/Guides
 /de/docs/Web/Guide/CSS/Consistent_list_indentation	/de/docs/Web/CSS/CSS_lists/Consistent_list_indentation
 /de/docs/Web/Guide/CSS/Counters	/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters
 /de/docs/Web/Guide/CSS/Flexible_boxes	/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox
 /de/docs/Web/Guide/CSS/Getting_started	/de/docs/Learn_web_development/Core/Styling_basics
 /de/docs/Web/Guide/CSS/Getting_started/Boxes	/de/docs/Learn_web_development/Core/Styling_basics
 /de/docs/Web/Guide/CSS/Getting_started/Cascading_and_inheritance	/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts
+/de/docs/Web/Guide/CSS/Getting_started/Challenge_solutions	/de/docs/Learn_web_development/Core/Challenges
 /de/docs/Web/Guide/CSS/Getting_started/Content	/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Generated_content
 /de/docs/Web/Guide/CSS/Getting_started/How_CSS_works	/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS
 /de/docs/Web/Guide/CSS/Getting_started/JavaScript	/de/docs/Learn_web_development/Core/Scripting/DOM_scripting

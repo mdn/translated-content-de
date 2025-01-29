@@ -2,14 +2,14 @@
 title: pointsAtZ
 slug: Web/SVG/Attribute/pointsAtZ
 l10n:
-  sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
+  sourceCommit: 0dce6d011cb65871f438c99488309ff6c2cfd7af
 ---
 
 {{SVGRef}}
 
-Das **`pointsAtZ`**-Attribut stellt die y-Position im Koordinatensystem dar, das durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element festgelegt wird, bei der der Lichtpunkt ausgerichtet ist. Dabei wird angenommen, dass in dem ursprünglichen lokalen Koordinatensystem die positive z-Achse auf die Person, die den Inhalt sieht, hinweist und dass eine Einheit entlang der z-Achse einer Einheit in x und y entspricht.
+Das Attribut **`pointsAtZ`** gibt die z-Koordinate im durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element festgelegten Koordinatensystem an, auf die die Lichtquelle zeigt. Dabei wird angenommen, dass in dem anfänglichen lokalen Koordinatensystem die positive z-Achse auf die Person, die den Inhalt betrachtet, zeigt und dass eine Einheit entlang der z-Achse gleich einer Einheit in x und y ist.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feSpotLight")}}
 
@@ -46,9 +46,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", "220", "220")}}
+{{EmbedLiveSample("Example", "220", "220")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
