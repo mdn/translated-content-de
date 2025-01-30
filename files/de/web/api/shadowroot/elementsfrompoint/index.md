@@ -3,14 +3,14 @@ title: "ShadowRoot: elementsFromPoint()-Methode"
 short-title: elementsFromPoint()
 slug: Web/API/ShadowRoot/elementsFromPoint
 l10n:
-  sourceCommit: a359b3bc073e23d88a582c4bf77b88b24705e7f5
+  sourceCommit: 62a6f2dbd99b39212f4c4c12aa2a6d499e447f46
 ---
 
 {{APIRef("DOM")}}{{Non-standard_Header}}
 
-Die **`elementsFromPoint()`**-Methode der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle gibt ein Array aller im Schatten-Root befindlichen Elemente an den angegebenen Koordinaten (relativ zum Viewport) zurück. Die Elemente sind geordnet von dem obersten Element (höchste in der Darstellungs-Z-Reihenfolge) bis zu dem untersten Element.
+Die **`elementsFromPoint()`**-Methode des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt ein Array aller Shadow-Root-Elemente an den angegebenen Koordinaten (relativ zum Viewport) zurück. Die Elemente sind geordnet vom obersten Element (höchste in der Anzeige z-Ordnung) bis zum untersten Element.
 
-Sie funktioniert ähnlich wie die [`ShadowRoot.elementFromPoint`](/de/docs/Web/API/ShadowRoot/elementFromPoint)-Methode. Einige Browser geben nur die im Schatten-Root vorhandenen Elemente an dieser Position zurück. Andere Browser schließen Elemente außerhalb des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein, vom Schatten-DOM-Element in der obersten Ebene bis zum Dokument-Root-Knoten, wie das {{htmlelement("html")}}- oder {{SVGElement("svg")}}-Root-Element. In diesen Browsern funktioniert sie ähnlich wie die [`Document.elementsFromPoint`](/de/docs/Web/API/Document/elementsFromPoint)-Methode, jedoch mit der Fähigkeit, die {{Glossary("Shadow_tree", "Schatten-Grenze")}} zu überschreiten.
+Sie funktioniert ähnlich wie die [`ShadowRoot.elementFromPoint`](/de/docs/Web/API/ShadowRoot/elementFromPoint)-Methode. Einige Browser geben nur die Shadow-Root-Elemente zurück, die an diesem Ort vorhanden sind. Andere Browser enthalten Elemente außerhalb des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM), vom Shadow-DOM-Element in der obersten Schicht bis zum Dokument-Wurzelknoten, wie das {{htmlelement("html")}}- oder das {{SVGElement("svg")}}-Wurzelelement. In diesen Browsern funktioniert sie ähnlich wie die [`Document.elementsFromPoint`](/de/docs/Web/API/Document/elementsFromPoint)-Methode, jedoch mit der Fähigkeit, die {{Glossary("Shadow_tree", "Schatten-Grenze")}} zu überschreiten.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ elementsFromPoint(x, y)
 ### Parameter
 
 - `x`
-  - : Die horizontale Koordinate eines Punktes, relativ zum linken Rand des aktuellen {{Glossary("viewport", "Viewports")}}.
+  - : Die horizontale Koordinate eines Punktes, relativ zur linken Kante des aktuellen {{Glossary("viewport", "Viewports")}}.
 - `y`
-  - : Die vertikale Koordinate eines Punktes, relativ zum oberen Rand des aktuellen Viewports.
+  - : Die vertikale Koordinate eines Punktes, relativ zur oberen Kante des aktuellen Viewports.
 
 ### Rückgabewert
 
@@ -43,7 +43,7 @@ if (msg) {
 }
 ```
 
-Falls `<my-custom-element>` nahe der oberen linken Ecke des Viewports ist und ein einzelnes `<div>` enthält, kann das obige je nach Browser-Implementierung eines der folgenden zurückgeben:
+Wenn `<my-custom-element>` nahe der oberen linken Ecke des Viewports ist und ein einziges `<div>` enthält, kann das oben Genannte je nach Browser-Implementierung eines der folgenden zurückgeben:
 
 ```plain
 div

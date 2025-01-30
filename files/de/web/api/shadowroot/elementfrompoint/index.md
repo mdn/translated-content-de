@@ -1,16 +1,16 @@
 ---
-title: "ShadowRoot: elementFromPoint()-Methode"
+title: "ShadowRoot: elementFromPoint() Methode"
 short-title: elementFromPoint()
 slug: Web/API/ShadowRoot/elementFromPoint
 l10n:
-  sourceCommit: a359b3bc073e23d88a582c4bf77b88b24705e7f5
+  sourceCommit: 62a6f2dbd99b39212f4c4c12aa2a6d499e447f46
 ---
 
 {{APIRef("DOM")}}{{Non-standard_Header}}
 
-Die **`elementFromPoint()`**-Methode, verfügbar auf dem [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekt, gibt das Element auf der obersten Schattenwurzel-Ebene an den angegebenen Koordinaten relativ zum Ansichtsfenster zurück (die Schattenwurzel, die in der Anzeige Z-Ordnung am höchsten liegt und in der Lage ist, Zeigerereignisse zu empfangen). Schattenwurzel-Elemente, bei denen {{cssxref("pointer-events")}} auf `none` gesetzt ist, werden ignoriert.
+Die **`elementFromPoint()`**-Methode, die auf dem [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekt verfügbar ist, gibt das Element zurück, das sich in der obersten Schicht des Shadow-DOM an den angegebenen Koordinaten relativ zum Ansichtsfenster (dem Shadow-DOM-Element auf der höchsten Ebene der Anzeige-Z-Reihenfolge, das Zeigerereignisse empfangen kann) befindet. Shadow-DOM-Elemente, die {{cssxref("pointer-events")}} auf `none` gesetzt haben, werden ignoriert.
 
-Befindet sich der angegebene Punkt außerhalb der Begrenzungen der Schattenwurzel, ist das Ergebnis `undefined`.
+Wenn der angegebene Punkt außerhalb der Grenzen des Shadow-DOM liegt, ist das Ergebnis `undefined`.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ elementFromPoint(x, y)
 ### Parameter
 
 - `x`
-  - : Die horizontale Koordinate eines Punktes, relativ zur linken Kante des aktuellen {{Glossary("viewport", "Ansichtsfensters")}}.
+  - : Die horizontale Koordinate eines Punktes, relativ zum linken Rand des aktuellen {{Glossary("viewport", "Ansichtsfensters")}}.
 - `y`
-  - : Die vertikale Koordinate eines Punktes, relativ zur oberen Kante des aktuellen Ansichtsfensters.
+  - : Die vertikale Koordinate eines Punktes, relativ zum oberen Rand des aktuellen Ansichtsfensters.
 
 ### Rückgabewert
 
-Ein [`Element`](/de/docs/Web/API/Element); das oberste Schattenwurzel-Element, das sich an den angegebenen Koordinaten befindet, falls vorhanden.
+Ein [`Element`](/de/docs/Web/API/Element); das oberste Shadow-DOM-Element, das an den angegebenen Koordinaten gefunden wird, falls vorhanden.
 
 ## Beispiele
 
-In diesem Beispiel, unter der Annahme, dass ein {{htmlelement("template")}} im HTML existiert, definieren wir ein `<my-custom-element>`. Wenn das hinzugefügte benutzerdefinierte Element die obere linke Ecke des Ansichtsfensters berührt oder irgendein Teil davon diese Ecke überlappt, wird das Element, das die oberste Schicht an diesem Punkt im benutzerdefinierten Element ist, einen dünnen, gestrichelten roten Rand haben.
+In diesem Beispiel definieren wir, vorausgesetzt, dass ein {{htmlelement("template")}} im HTML vorhanden ist, ein `<my-custom-element>`. Wenn das hinzugefügte benutzerdefinierte Element die obere linke Ecke des Ansichtsfensters berührt oder ein Teil davon diese Ecke überlappt, erhält das Element, das an diesem Punkt die oberste Schicht in dem benutzerdefinierten Element ist, einen dünnen, gestrichelten roten Rahmen.
 
 ```js
 customElements.define(

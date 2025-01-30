@@ -2,12 +2,12 @@
 title: ":open"
 slug: Web/CSS/:open
 l10n:
-  sourceCommit: 284fb56ed77bac755053d141d898d48d948548b0
+  sourceCommit: 62a6f2dbd99b39212f4c4c12aa2a6d499e447f46
 ---
 
-{{CSSRef}}
+{{CSSRef}}{{SeeCompatTable}}
 
-Die CSS-**`:open`**-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) selektiert Elemente im offenen Zustand. Sie funktioniert nur bei Elementen, die sowohl einen offenen als auch einen geschlossenen Zustand haben. Sie passt auf {{HTMLElement("details")}} und {{HTMLElement("dialog")}}, wenn diese sich im offenen Zustand befinden, und auf {{HTMLElement("select")}} und {{HTMLElement("input")}}, wenn sie in einem Modus sind, bei dem ein Auswahlfenster existiert und dieses angezeigt wird.
+Die **`:open`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) selektiert Elemente im offenen Zustand. Sie funktioniert nur bei Elementen, die sowohl offene als auch geschlossene Zustände haben. Sie passt zu {{HTMLElement("details")}} und {{HTMLElement("dialog")}}, wenn diese im offenen Zustand sind, und passt zu {{HTMLElement("select")}} und {{HTMLElement("input")}}, wenn sie sich in Modi befinden, in denen ein Picker vorhanden ist und der Picker angezeigt wird.
 
 ## Syntax
 
