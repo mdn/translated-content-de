@@ -1,13 +1,11 @@
 ---
-title: name-Funktion
+title: name
 slug: Web/XPath/Functions/name
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die `name`-Funktion gibt einen String zurück, der den QName des ersten Knotens in einem gegebenen `node-set` darstellt.
+Die `name`-Funktion gibt einen String zurück, der den QName des ersten Knotens in einem gegebenen Knoten-Set repräsentiert.
 
 ## Syntax
 
@@ -18,7 +16,7 @@ name( [node-set] )
 ### Parameter
 
 - `node-set` (optional)
-  - : Der QName des ersten Knotens in diesem `node-set` wird zurückgegeben. Wenn dieses Argument weggelassen wird, wird der aktuelle Kontextknoten verwendet.
+  - : Der QName des ersten Knotens in diesem Knoten-Set wird zurückgegeben. Wenn dieses Argument weggelassen wird, wird der aktuelle Kontext-Knoten verwendet.
 
 ### Rückgabewert
 

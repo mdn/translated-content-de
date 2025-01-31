@@ -2,12 +2,10 @@
 title: sum
 slug: Web/XPath/Functions/sum
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `sum` gibt eine Zahl zurück, die die Summe der numerischen Werte jedes Knotens in einem gegebenen Knoten-Set ist.
+Die `sum`-Funktion gibt eine Zahl zurück, die die Summe der numerischen Werte jedes Knotens in einer gegebenen Knoten-Menge ist.
 
 ## Syntax
 
@@ -18,7 +16,7 @@ sum(node-set)
 ### Parameter
 
 - `node-set`
-  - : Das zu bewertende Knoten-Set. Jeder Knoten in diesem Knoten-Set wird bewertet, als ob er der Funktion [number()](/de/docs/Web/XPath/Functions/number) übergeben würde, und eine Summe der resultierenden Zahlen wird zurückgegeben.
+  - : Die zu bewertende Knoten-Menge. Jeder Knoten in dieser Knoten-Menge wird so bewertet, als ob er an die [number()](/de/docs/Web/XPath/Functions/number)-Funktion übergeben worden wäre, und eine Summe der resultierenden Zahlen wird zurückgegeben.
 
 ### Rückgabewert
 
@@ -32,6 +30,6 @@ Keine.
 
 [XPath 1.0 4.3](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-sum)
 
-## Browser-Kompatibilität
+## Gecko-Unterstützung
 
 Unterstützt.

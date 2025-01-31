@@ -2,14 +2,12 @@
 title: loop
 slug: WebAssembly/Reference/Control_flow/loop
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
-
-{{WebAssemblySidebar}}
 
 Die **`loop`**-Anweisung erstellt ein Label, zu dem später mit einem `br` verzweigt werden kann. Die `loop`-Anweisung selbst führt keine Schleife aus; Sie müssen zu ihr verzweigen, um tatsächlich eine Schleife zu erstellen.
 
-Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, dass während ein Verzweigen zu einer `loop` zum Anfang der Schleife springt, ein Verzweigen zu einem `block` zum Ende des Blocks springt, also aus dem Block heraus.
+Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, da beim Verzweigen zu einer `loop` zum Anfang der Schleife gesprungen wird, während beim Verzweigen zu einem `block` zum Ende des Blocks gesprungen wird, also aus dem Block heraus.
 
 {{EmbedInteractiveExample("pages/wat/loop.html", "tabbed-taller")}}
 
@@ -27,6 +25,6 @@ Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, 
 )
 ```
 
-| Anweisung | Binär-Opcode |
-| --------- | ------------ |
-| `loop`    | `0x03`       |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `loop`    | `0x03`         |

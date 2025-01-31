@@ -1,13 +1,11 @@
 ---
-title: Right rotate
+title: Rechtsrotation
 slug: WebAssembly/Reference/Numeric/Right_rotate
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`rotr`** Anweisungen, eine Abkürzung für _rotate-right_, werden verwendet, um eine bitweise Rechtsrotation durchzuführen.
+Die **`rotr`**-Anweisungen, Abkürzung für _rotate-right_, werden verwendet, um eine bitweise Rechtsrotation durchzuführen.
 
 {{EmbedInteractiveExample("pages/wat/rotr.html", "tabbed-taller")}}
 

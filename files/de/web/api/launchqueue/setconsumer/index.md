@@ -3,12 +3,12 @@ title: "LaunchQueue: setConsumer() Methode"
 short-title: setConsumer()
 slug: Web/API/LaunchQueue/setConsumer
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: ab4090ce439d9ea25229a8583a138b2f8fa8a74e
 ---
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die **`setConsumer()`**-Methode der [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Schnittstelle wird verwendet, um den Rückruf zu deklarieren, der die benutzerdefinierte Startnavigation in einer [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) behandelt. Eine solche benutzerdefinierte Navigation wird über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) initiiert, wenn eine PWA mit einem [`launch_handler`](/de/docs/Web/Manifest/launch_handler) `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wurde.
+Die **`setConsumer()`** Methode der [`LaunchQueue`](/de/docs/Web/API/LaunchQueue) Schnittstelle wird verwendet, um den Callback zu deklarieren, der die benutzerdefinierte Navigationsbehandlung beim Start einer [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) behandelt. Solche benutzerdefinierten Navigationsvorgänge werden über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) initiiert, wenn eine PWA mit einem [`launch_handler`](/de/docs/Web/Manifest/Reference/launch_handler) `client_mode` Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wurde.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setConsumer(callback)
 ### Parameter
 
 - `callback`
-  - : Eine Rückruffunktion, die die benutzerdefinierte Navigation für die PWA behandelt. Der Rückruf erhält eine [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objektinstanz als Parameter.
+  - : Eine Callback-Funktion, die die benutzerdefinierte Navigation für die PWA behandelt. Dem Callback wird ein [`LaunchParams`](/de/docs/Web/API/LaunchParams) Objektinstanz als Parameter übergeben.
 
 ### Rückgabewert
 
@@ -55,6 +55,6 @@ if ("launchQueue" in window) {
 
 ## Siehe auch
 
-- [Launch Handler API: Control how your app is launched](https://developer.chrome.com/docs/web-platform/launch-handler/)
+- [Launch Handler API: Kontrolle darüber, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
 - [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)
 - [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App

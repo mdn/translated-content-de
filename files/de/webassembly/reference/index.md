@@ -1,18 +1,15 @@
 ---
 title: WebAssembly-Befehlsreferenz
+short-title: Reference
 slug: WebAssembly/Reference
 l10n:
-  sourceCommit: c29cee3dcb0d0e66093dd0c18aa82e0eab9d6d14
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
+Diese Seite listet Befehlsreferenzen zur Verwendung von [WebAssembly](/de/docs/WebAssembly) im Web auf.
 
-- [Nummerische Befehle](/de/docs/WebAssembly/Reference/Numeric)
-- [Variablenbefehle](/de/docs/WebAssembly/Reference/Variables)
-- [Speicherbefehle](/de/docs/WebAssembly/Reference/Memory)
-- [Kontrollflussbefehle](/de/docs/WebAssembly/Reference/Control_flow)
-<!-- Diese Seiten sind noch nicht geschrieben
-- [Vektor-/SIMD-Befehle](/de/docs/WebAssembly/Reference/Vector)
-- [Referenzbefehle](/de/docs/WebAssembly/Reference/Reference)
-- [Tabellenbefehle](/de/docs/WebAssembly/Reference/Table)
-  -->
+{{SubPagesWithSummaries}}
+
+## Siehe auch
+
+- [WebAssembly](/de/docs/WebAssembly)

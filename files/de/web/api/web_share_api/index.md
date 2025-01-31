@@ -2,47 +2,47 @@
 title: Web Share API
 slug: Web/API/Web_Share_API
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: ab4090ce439d9ea25229a8583a138b2f8fa8a74e
 ---
 
 {{DefaultAPISidebar("Web Share API")}}{{securecontext_header}}
 
-Die **Web Share API** bietet einen Mechanismus zum Teilen von Text, Links, Dateien und anderen Inhalten an ein beliebiges, vom Benutzer ausgewähltes _Share-Ziel_.
+Die **Web Share API** bietet einen Mechanismus zum Teilen von Text, Links, Dateien und anderen Inhalten an ein beliebiges, vom Benutzer ausgewähltes _Ziel für das Teilen_.
 
 > [!NOTE]
 > Diese API ist _nicht verfügbar_ in [Web Workers](/de/docs/Web/API/Web_Workers_API) (nicht über [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) zugänglich).
 
 > [!NOTE]
-> Diese API sollte nicht mit der [Web Share Target API](/de/docs/Web/Manifest/share_target) verwechselt werden, die es einer Website ermöglicht, sich selbst als Share-Ziel anzugeben.
+> Diese API sollte nicht mit der [Web Share Target API](/de/docs/Web/Manifest/Reference/share_target) verwechselt werden, die es einer Website ermöglicht, sich selbst als Ziel für das Teilen zu spezifizieren.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Die **Web Share API** ermöglicht es einer Website, Text, Links, Dateien und andere Inhalte an vom Benutzer ausgewählte Share-Ziele zu teilen, indem die Freigabemechanismen des zugrunde liegenden Betriebssystems genutzt werden.
-Diese Share-Ziele umfassen typischerweise die Systemzwischenablage, E-Mail, Kontakte oder Messaging-Anwendungen sowie Bluetooth- oder Wi-Fi-Kanäle.
+Die **Web Share API** ermöglicht es einer Seite, Text, Links, Dateien und andere Inhalte an vom Benutzer ausgewählte Ziele für das Teilen zu senden, indem die Teilungsmechanismen des zugrunde liegenden Betriebssystems genutzt werden.
+Diese Ziele für das Teilen umfassen typischerweise die System-Zwischenablage, E-Mail, Kontakte oder Messaging-Anwendungen sowie Bluetooth- oder Wi-Fi-Kanäle.
 
-Die API verfügt über lediglich zwei Methoden.
-Die [`navigator.canShare()`](/de/docs/Web/API/Navigator/canShare)-Methode kann verwendet werden, um zunächst zu validieren, ob einige Daten "teilbar" sind, bevor sie zum Versenden an [`navigator.share()`](/de/docs/Web/API/Navigator/share) übergeben werden.
+Die API hat nur zwei Methoden.
+Die Methode [`navigator.canShare()`](/de/docs/Web/API/Navigator/canShare) kann verwendet werden, um zunächst zu überprüfen, ob einige Daten "teilbar" sind, bevor sie an [`navigator.share()`](/de/docs/Web/API/Navigator/share) zum Senden übergeben werden.
 
-Die [`navigator.share()`](/de/docs/Web/API/Navigator/share)-Methode ruft den nativen Freigabemechanismus des zugrunde liegenden Betriebssystems auf und übergibt die angegebenen Daten.
-Sie erfordert eine {{Glossary("transient_activation", "transiente Aktivierung")}} und muss daher durch ein UI-Ereignis wie einen Klick auf einen Button ausgelöst werden.
+Die Methode [`navigator.share()`](/de/docs/Web/API/Navigator/share) ruft den nativen Mechanismus zum Teilen des zugrunde liegenden Betriebssystems auf und übergibt die angegebenen Daten.
+Sie erfordert eine {{Glossary("transient_activation", "transiente Aktivierung")}} und muss daher von einem UI-Ereignis wie einem Button-Klick ausgelöst werden.
 Darüber hinaus muss die Methode gültige Daten angeben, die durch die native Implementierung zum Teilen unterstützt werden.
 
-Die Web Share API wird durch die [web-share](/de/docs/Web/HTTP/Headers/Permissions-Policy/web-share) Permissions Policy gesteuert.
-Wenn die Policy unterstützt wird, aber nicht gewährt wurde, werden beide Methoden anzeigen, dass die Daten nicht teilbar sind.
+Die Web Share API wird durch die [web-share](/de/docs/Web/HTTP/Headers/Permissions-Policy/web-share) Berechtigungsrichtlinie gesteuert.
+Wenn die Richtlinie unterstützt wird, aber keine Erlaubnis erteilt wurde, werden beide Methoden anzeigen, dass die Daten nicht teilbar sind.
 
 ## Schnittstellen
 
 ### Erweiterungen zu anderen Schnittstellen
 
 - [`navigator.canShare()`](/de/docs/Web/API/Navigator/canShare)
-  - : Gibt einen Boolean zurück, der angibt, ob die angegebenen Daten teilbar sind.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob die angegebenen Daten teilbar sind.
 - [`navigator.share()`](/de/docs/Web/API/Navigator/share)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn die übergebenen Daten erfolgreich an ein Share-Ziel gesendet wurden.
-    Diese Methode muss bei einem Klick auf einen Button oder eine andere Benutzeraktivierung aufgerufen werden (erfordert {{Glossary("transient_activation", "transiente Aktivierung")}}).
+  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn die übergebenen Daten erfolgreich an ein Ziel für das Teilen gesendet wurden.
+    Diese Methode muss bei einem Button-Klick oder einer anderen Benutzeraktivierung aufgerufen werden (erfordert {{Glossary("transient_activation", "transiente Aktivierung")}}).
 
 ## Beispiel
 
-Der folgende Code zeigt, wie Sie einen Link mit [`navigator.share()`](/de/docs/Web/API/Navigator/share) teilen können, ausgelöst durch einen Klick auf einen Button.
+Der folgende Code zeigt, wie Sie einen Link mithilfe von [`navigator.share()`](/de/docs/Web/API/Navigator/share) teilen können, ausgelöst durch einen Button-Klick.
 
 ```js
 const shareData = {
@@ -77,4 +77,4 @@ Das obige Beispiel stammt aus unserem [Web share test](https://mdn.github.io/dom
 
 ## Siehe auch
 
-- [Web Share Target API](/de/docs/Web/Manifest/share_target)
+- [Web Share Target API](/de/docs/Web/Manifest/Reference/share_target)

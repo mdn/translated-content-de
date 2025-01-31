@@ -2,12 +2,10 @@
 title: "true"
 slug: Web/XPath/Functions/true
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die `true` Funktion gibt einen booleschen Wert von true zurück.
+Die Funktion `true` gibt einen booleschen Wert von true zurück.
 
 ## Syntax
 
@@ -17,7 +15,7 @@ true()
 
 ### Rückgabewert
 
-Boolescher Wert `true`.
+Boolean `true`.
 
 ## Spezifikationen
 

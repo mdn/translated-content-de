@@ -2,12 +2,10 @@
 title: Drop
 slug: WebAssembly/Reference/Control_flow/Drop
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`drop`**-Anweisung entnimmt einen Wert vom Stapel und verwirft ihn.
+Die **`drop`**-Anweisung entfernt einen Wert vom Stapel und verwirft ihn.
 
 {{EmbedInteractiveExample("pages/wat/drop.html", "tabbed-taller")}}
 

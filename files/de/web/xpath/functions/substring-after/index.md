@@ -2,12 +2,10 @@
 title: substring-after
 slug: Web/XPath/Functions/substring-after
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `substring-after` gibt einen String zurück, der der restliche Teil eines gegebenen Strings nach einem gegebenen Teilstring ist.
+Die Funktion `substring-after` gibt einen String zurück, der der Rest eines gegebenen Strings nach einem gegebenen Teilstring ist.
 
 ## Syntax
 

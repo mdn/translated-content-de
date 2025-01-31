@@ -2,12 +2,10 @@
 title: Absolute
 slug: WebAssembly/Reference/Numeric/Absolute
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`abs`**-Instruktionen, kurz für _absolute_, werden verwendet, um den absoluten Wert einer Zahl zu erhalten. Das bedeutet, sie gibt x zurück, wenn x positiv ist, und die Negation von x, wenn x negativ ist.
+Die **`abs`** Anweisungen, abgekürzt für _absolute_, werden verwendet, um den absoluten Wert einer Zahl zu erhalten. Das heißt, sie gibt x zurück, wenn x positiv ist, und die Negation von x, wenn x negativ ist.
 
 {{EmbedInteractiveExample("pages/wat/abs.html", "tabbed-standard")}}
 
@@ -23,7 +21,7 @@ f32.abs
 ;; the top item on the stack will now be 2
 ```
 
-| Instruktion | Binärer Opcode |
-| ----------- | -------------- |
-| `f32.abs`   | `0x8b`         |
-| `f64.abs`   | `0x99`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `f32.abs` | `0x8b`         |
+| `f64.abs` | `0x99`         |

@@ -2,12 +2,10 @@
 title: function-available
 slug: Web/XPath/Functions/function-available
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `function-available` bestimmt, ob eine gegebene Funktion verfügbar ist, und gibt boolean true oder false zurück.
+Die Funktion `function-available` bestimmt, ob eine gegebene Funktion verfügbar ist, und gibt boolesches `true` oder `false` zurück.
 
 ## Syntax
 
@@ -22,7 +20,7 @@ function-available( name )
 
 ### Rückgabewert
 
-Boolean `true` oder `false`.
+Boolesches `true` oder `false`.
 
 ## Spezifikationen
 

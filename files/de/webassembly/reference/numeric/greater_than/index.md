@@ -1,15 +1,13 @@
 ---
-title: Greater than
+title: Größer als
 slug: WebAssembly/Reference/Numeric/Greater_than
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
+Die **`gt`**-Anweisungen, kurz für _größer als_, überprüfen, ob eine Zahl größer als eine andere Zahl ist. Wenn die erste Zahl größer als die zweite Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
 
-Die **`gt`**-Anweisungen, kurz für _greater than_ (größer als), überprüfen, ob eine Zahl größer als eine andere Zahl ist. Wenn die erste Zahl größer als die zweite Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
-
-Die Ganzzahltypen haben separate Anweisungen für größer als für vorzeichenbehaftete (**`gt_s`**) und vorzeichenlose (**`gt_u`**) Zahlen.
+Die Ganzzahltypen haben separate Größer-als-Anweisungen für vorzeichenbehaftete (**`gt_s`**) und vorzeichenlose (**`gt_u`**) Zahlen.
 
 {{EmbedInteractiveExample("pages/wat/gt.html", "tabbed-taller")}}
 

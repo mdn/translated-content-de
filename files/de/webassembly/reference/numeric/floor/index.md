@@ -2,14 +2,12 @@
 title: Floor
 slug: WebAssembly/Reference/Numeric/Floor
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
+Die **`floor`**-Instruktionen werden verwendet, um den Wert einer Zahl abzurunden auf die nächstkleinere ganze Zahl.
 
-Die **`floor`**-Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, der auf die nächste ganze Zahl abgerundet ist.
-
-**`floor`** unterscheidet sich von **`trunc`**, wenn es auf negative Zahlen angewendet wird. **`floor`** wird in diesen Fällen abrunden, während **`trunc`** aufrunden wird.
+**`floor`** unterscheidet sich von **`trunc`** bei negativen Zahlen, da **`floor`** in diesen Fällen nach unten rundet, während **`trunc`** nach oben rundet.
 
 {{EmbedInteractiveExample("pages/wat/floor.html", "tabbed-standard")}}
 

@@ -2,12 +2,10 @@
 title: end
 slug: WebAssembly/Reference/Control_flow/end
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-**`end`** wird verwendet, um einen `block`, `loop`, `if` oder `else` zu beenden. In den anderen Beispielen haben wir die S-Expressions-Syntax verwendet, die das `end` nicht benötigt, daher werden Sie es in den anderen Beispielen hier nicht finden. Dennoch ist es nützlich, darüber Bescheid zu wissen, da dies das ist, was die Browser in den Entwicklerwerkzeugen anzeigen.
+**`end`** wird verwendet, um einen `Block`, `Loop`, `if` oder `else` zu beenden. In den anderen Beispielen haben wir die S-Expressions-Syntax verwendet, die das `end` nicht erfordert, daher werden Sie es in den anderen Beispielen hier nicht finden. Dennoch ist es nützlich, darüber Bescheid zu wissen, da es das ist, was die Browser in den Entwicklerwerkzeugen anzeigen.
 
 {{EmbedInteractiveExample("pages/wat/end.html", "tabbed-taller")}}
 

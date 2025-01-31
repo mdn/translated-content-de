@@ -2,12 +2,10 @@
 title: nop
 slug: WebAssembly/Reference/Control_flow/nop
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-**`nop`** steht für keine Operation. Es tut buchstäblich nichts.
+**`nop`** steht für "no-operation". Es tut buchstäblich nichts.
 
 {{EmbedInteractiveExample("pages/wat/nop.html", "tabbed-shorter")}}
 

@@ -2,12 +2,10 @@
 title: OR
 slug: WebAssembly/Reference/Numeric/OR
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`or`**-Anweisungen werden für eine bitweise OR-Operation verwendet, ähnlich dem **`|`**-Operator in anderen Sprachen.
+Die **`or`**-Anweisungen werden verwendet, um ein bitweises OR durchzuführen, ähnlich dem **`|`**-Operator in anderen Programmiersprachen.
 
 {{EmbedInteractiveExample("pages/wat/or.html", "tabbed-taller")}}
 

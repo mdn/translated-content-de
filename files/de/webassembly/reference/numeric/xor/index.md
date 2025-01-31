@@ -2,12 +2,10 @@
 title: XOR
 slug: WebAssembly/Reference/Numeric/XOR
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`xor`** Anweisungen werden verwendet, um eine bitweise XOR-Operation durchzuführen, ähnlich dem **`^`** Operator in anderen Sprachen.
+Die **`xor`**-Anweisungen werden zur Durchführung eines bitweisen XOR verwendet, ähnlich dem **`^`**-Operator in anderen Sprachen.
 
 {{EmbedInteractiveExample("pages/wat/xor.html", "tabbed-taller")}}
 

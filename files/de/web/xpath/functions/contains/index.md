@@ -2,12 +2,10 @@
 title: contains
 slug: Web/XPath/Functions/contains
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `contains` bestimmt, ob der erste Argument-String den zweiten Argument-String enthält, und gibt einen booleschen Wert `true` oder `false` zurück.
+Die `contains` Funktion bestimmt, ob der erste Argument-String den zweiten Argument-String enthält, und gibt boolean true oder false zurück.
 
 ## Syntax
 
@@ -20,7 +18,7 @@ contains(haystack, needle)
 - `haystack`
   - : Der zu durchsuchende String
 - `needle`
-  - : Der String, der als Teilstring von `haystack` gesucht wird
+  - : Der String, nach dem als Substring von `haystack` gesucht wird
 
 ### Rückgabewert
 

@@ -1,13 +1,11 @@
 ---
-title: Left shift
+title: Linksschieben
 slug: WebAssembly/Reference/Numeric/Left_shift
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`shl`**-Anweisungen, eine Abkürzung für _shift-left_, werden verwendet, um eine bitweise Linksverschiebung durchzuführen, ähnlich dem **`<<`** Operator in anderen Sprachen.
+Die **`shl`** Anweisungen, kurz für _shift-left_, werden verwendet, um ein bitweises Linksschieben durchzuführen, ähnlich dem **`<<`** Operator in anderen Sprachen.
 
 {{EmbedInteractiveExample("pages/wat/shl.html", "tabbed-taller")}}
 

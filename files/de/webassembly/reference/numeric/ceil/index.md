@@ -2,12 +2,10 @@
 title: Ceil
 slug: WebAssembly/Reference/Numeric/Ceil
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`ceil`**-Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, der auf die nächste ganze Zahl aufgerundet wird.
+Die **`ceil`** Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, die auf die nächste ganze Zahl aufgerundet wird.
 
 {{EmbedInteractiveExample("pages/wat/ceil.html", "tabbed-standard")}}
 

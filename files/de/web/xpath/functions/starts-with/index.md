@@ -2,12 +2,10 @@
 title: starts-with
 slug: Web/XPath/Functions/starts-with
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Der `starts-with`-Funktion überprüft, ob der erste String mit dem zweiten String beginnt und gibt true oder false zurück.
+`starts-with` prüft, ob der erste String mit dem zweiten String beginnt und gibt true oder false zurück.
 
 ## Syntax
 
@@ -18,9 +16,9 @@ starts-with(haystack, needle)
 ### Parameter
 
 - `haystack`
-  - : Der String, in dem gesucht werden soll.
+  - : Der String, in dem gesucht wird.
 - `needle`
-  - : Der String, nach dem gesucht werden soll.
+  - : Der String, nach dem gesucht wird.
 
 ### Rückgabewert
 

@@ -2,16 +2,14 @@
 title: return
 slug: WebAssembly/Reference/Control_flow/return
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
+**`return`** gibt aus einer Funktion zurück.
 
-**`return`** kehrt von einer Funktion zurück.
-
-- Wenn sich keine Werte auf dem Stapel befinden, wird nichts/void zurückgegeben.
-- Wenn sich die gleiche Anzahl von Werten auf dem Stapel befindet, wie im Typ-Signatur der Funktion angegeben ist, werden diese Werte zurückgegeben.
-- Wenn mehr Werte vorhanden sind, als im Rückgabetyp der Funktion angegeben ist, werden die überschüssigen Werte vom Stapel entfernt und verworfen, und die letzten N Werte werden zurückgegeben.
+- Wenn keine Werte mehr auf dem Stapel verbleiben, wird nichts/void zurückgegeben.
+- Wenn dieselbe Anzahl von Werten auf dem Stapel verbleibt, wie im Typsignatur der Funktion angegeben, werden diese Werte zurückgegeben.
+- Wenn es mehr Werte gibt, als die Rückgabetyp der Funktion angibt, dann werden die obersten N Werte zurückgegeben, und die verbleibenden Werte auf dem Stapel werden verworfen.
 
 {{EmbedInteractiveExample("pages/wat/return.html", "tabbed-taller")}}
 

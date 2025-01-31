@@ -2,14 +2,14 @@
 title: math:max()
 slug: Web/EXSLT/math/max
 l10n:
-  sourceCommit: 8ac73df2fbe2c88d8649fcb006dcde098616c723
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
 `math:max()` gibt den maximalen Wert eines Knoten-Sets zurück.
 
-Um den maximalen Wert des Knoten-Sets zu berechnen, wird das Knoten-Set in absteigender Reihenfolge sortiert, als würde es mit [`xsl:sort()`](/de/docs/Web/XSLT/Element/sort) mit einem Datentyp von `number` sortiert. Der maximale Wert ist dann der erste Knoten in der sortierten Liste, umgewandelt in eine Zahl.
+Um den maximalen Wert des Knoten-Sets zu berechnen, wird das Knoten-Set in absteigender Reihenfolge sortiert, wie es mit [`xsl:sort()`](/de/docs/Web/XSLT/Reference/Element/sort) mit einem Datentyp von `number` der Fall wäre. Der maximale Wert ist dann der erste Knoten in der sortierten Liste, der in eine Zahl umgewandelt wird.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ math:max(nodeSet)
 
 ### Rückgabewert
 
-Ein Ergebnisbaumfragment, das den numerischen Wert des Knotens mit dem höchsten Wert als Zeichenfolge darstellt.
+Ein Ergebnisbaumfragment, das den numerischen Wert des Knotens mit dem höchsten Wert als Zeichenkette darstellt.
 
 ## Spezifikationen
 

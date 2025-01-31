@@ -1,153 +1,203 @@
 ---
-title: Richtlinien für die Einreichung und Überprüfung von Pull Requests
+title: Einreichung und Überprüfung von Pull Requests
 slug: MDN/Community/Pull_requests
 l10n:
-  sourceCommit: a966a8b4eade72a13de8a688c13f2d5056321f02
+  sourceCommit: 719645a32546d9e514ac530a5eb66aa4c26d4f51
 ---
 
-{{MDNSidebar}}
+Dieses Dokument beschreibt, wie Mitwirkende Änderungen an MDN Web Docs vornehmen und wie diese Änderungen überprüft und auf der Website veröffentlicht werden.
+Inhaltsänderungen an MDN Web Docs umfassen:
 
-Dieses Dokument beschreibt, wie Mitwirkende Änderungen an den MDN Web Docs vornehmen und wie diese Änderungen überprüft und auf der Website veröffentlicht werden.
-Inhaltsänderungen an den MDN Web Docs umfassen:
+- **Tägliche Verbesserungen** für die Dokumentation von APIs, CSS-Eigenschaften, Plattformaktualisierungen und Inhaltserweiterungen.
+  Dies wird normalerweise von MDN Web Docs-Mitarbeitern durchgeführt, die für Mozilla, Google, Open Web Docs, Samsung arbeiten, aber auch von Freiwilligen aus der Gemeinschaft.
+- **Kleine Korrekturen** und kleine Aktualisierungen der Website zur Behebung von Tippfehlern, grammatikalischen Fehlern und technischen Ungenauigkeiten.
+  Diese Probleme werden normalerweise von den Lesern der MDN Web Docs gefunden.
+- **Fehlerbehebungen von Inhalten**, die normalerweise von Freiwilligen durchgeführt werden, um [Probleme im `mdn/content` Repository](https://github.com/mdn/content/issues) zu schließen.
 
-- **Tagtägliche Verbesserungen** der Dokumentation von APIs, CSS-Eigenschaften, Plattform-Updates und Inhaltsergänzungen. Dies wird normalerweise von Mitarbeitern der MDN Web Docs durchgeführt, die für Mozilla, Google, Open Web Docs, Samsung arbeiten, aber auch von Community-Freiwilligen.
-- **Kleine Korrekturen** und kleinere Updates der Website, um Tippfehler, grammatikalische Probleme und technische Ungenauigkeiten zu beheben. Diese Probleme werden normalerweise von Lesern der MDN Web Docs gefunden.
-- **Behebungen von Inhaltsfehlern**, die normalerweise von Freiwilligen durchgeführt werden, um [Issues im `mdn/content`-Repository](https://github.com/mdn/content/issues) zu schließen.
+Unabhängig davon, wie Inhaltsänderungen durchgeführt werden, werden sie als Pull Requests auf GitHub eingereicht.
+Die Inhaltsänderungen durchlaufen die folgenden Schritte, bevor sie auf MDN Web Docs veröffentlicht werden:
 
-Unabhängig davon, wie Inhaltsänderungen vorgenommen werden, werden sie als Pull Requests auf GitHub eingereicht. Die Inhaltsänderungen durchlaufen die folgenden Phasen, bevor sie auf den MDN Web Docs veröffentlicht werden:
+1. **Einreichen von Änderungen:** Als Autor des Pull Requests reichen Sie Änderungen ein, indem Sie einen Pull Request öffnen.
+   Lesen Sie die Abschnitte [Bevor Sie beginnen](#bevor_sie_beginnen), [Öffnen eines Pull Requests](#öffnen_eines_pull_requests) und [Nachdem Sie einen Pull Request geöffnet haben](#nachdem_sie_einen_pull_request_geöffnet_haben), um mehr über unsere Prozesse zu erfahren.
+2. **Überprüfung der Änderungen:** Ihre Änderungen werden von MDN-Mitgliedern und Freiwilligen überprüft.
+   Weitere Details finden Sie im Abschnitt [Pull-Request-Überprüfungsprozess](#pull-request-überprüfungsprozess).
+3. **Ansicht veröffentlichter Änderungen:** Inhalte, die auf `mdn/content` aktualisiert werden, gehen innerhalb eines Tages nach dem Zusammenführen durch einen einmal alle 24 Stunden durchgeführten Seitenneubau live.
 
-1. **Änderungen einreichen:** Als Autor eines Pull Requests reichen Sie Änderungen ein, indem Sie einen Pull Request öffnen. Weitere Informationen zu unseren Prozessen finden Sie in den Abschnitten [Bevor Sie beginnen](#bevor_sie_beginnen), [Einen Pull Request öffnen](#einen_pull_request_öffnen) und [Nachdem Sie einen Pull Request geöffnet haben](#nachdem_sie_einen_pull_request_geöffnet_haben).
-2. **Änderungen überprüfen:** Ihre Änderungen werden von MDN-Mitgliedern und Freiwilligen überprüft. Weitere Details finden Sie im Abschnitt [Pull Request Überprüfungsprozess](#pull_request_überprüfungsprozess).
-3. **Veröffentlichte Änderungen ansehen:** Inhalte, die in `mdn/content` aktualisiert wurden, werden innerhalb eines Tages nach dem Zusammenführen durch einen Website-Neuaufbau einmal alle 24 Stunden live geschaltet.
-
-## Änderungen einreichen
+## Einreichen von Änderungen
 
 ### Werte und Teilnahme
 
-Wir möchten, dass die MDN Web Docs eine einladende, freundliche Gemeinschaft sind, auf die wir alle stolz sein können. Alle Teilnehmer müssen unserem [Verhaltenskodex](https://github.com/mdn/content/blob/main/CODE_OF_CONDUCT.md) folgen, das bedeutet das Einhalten der [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/). Seien Sie höflich und konstruktiv beim Öffnen von Pull Requests, beim Schreiben von Überprüfungskommentaren und beim Interagieren mit dem Autor eines Pull Requests oder anderen Community-Mitgliedern. Wenn Sie oder jemand anderes Verhalten erlebt haben, das potenziell illegal ist oder Sie sich unsicher, unwillkommen oder unwohl fühlen lässt, ermutigen wir Sie, [dies zu melden](https://www.mozilla.org/en-US/about/governance/policies/participation/reporting/).
+Wir möchten, dass die MDN Web Docs eine einladende, freundliche Gemeinschaft sind, auf die wir alle stolz sein können.
+Alle Teilnehmer müssen unseren [Verhaltenskodex](https://github.com/mdn/content/blob/main/CODE_OF_CONDUCT.md) befolgen, was bedeutet, den [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/) zu folgen.
+Seien Sie höflich und konstruktiv, wenn Sie Pull Requests eröffnen, Review-Kommentare schreiben und mit dem Author des Pull Requests oder anderen Mitgliedern der Gemeinschaft interagieren.
+Wenn Sie oder jemand anderes ein Verhalten erlebt hat, das potenziell illegal ist oder Sie sich unsicher, unwillkommen oder unwohl fühlen lässt, ermutigen wir Sie, es zu [melden](https://www.mozilla.org/en-US/about/governance/policies/participation/reporting/).
 
 ### Bevor Sie beginnen
 
-Bevor Sie mit der Arbeit an den MDN beginnen, gehen Sie bitte die unten aufgeführten Empfehlungen und Richtlinien durch.
+Bevor Sie die Arbeit an MDN beginnen, gehen Sie bitte die unten aufgeführten Empfehlungen und Richtlinien durch.
 
-**Pull Requests müssen ein bestehendes Issue lösen oder teilweise beheben.** Der Grund für diese Einschränkung ist, zu vermeiden, dass Sie an einer Aufgabe arbeiten, an der möglicherweise bereits jemand anderes arbeitet. Suchen Sie in den Issues und Pull Requests im [MDN-Repository](https://github.com/orgs/mdn/repositories), zu dem Sie beitragen möchten, und bestätigen Sie, dass die Arbeit, die Sie beginnen möchten, nicht bereits bearbeitet wird. Wenn Sie zum MDN-Projekt beitragen möchten, befinden Sie sich in einer der folgenden Situationen:
+**Pull Requests müssen ein bestehendes Problem lösen oder teilweise beheben.**
+Der Grund für diese Einschränkung ist, zu vermeiden, dass Sie an einer Aufgabe arbeiten, die möglicherweise bereits von jemand anderem bearbeitet wird.
+Durchsuchen Sie die Probleme und Pull Requests in dem [MDN-Repository](https://github.com/orgs/mdn/repositories), zu dem Sie beitragen möchten, und bestätigen Sie, dass an der Arbeit, die Sie beginnen möchten, nicht bereits gearbeitet wird.
+Wenn Sie einen Beitrag zum MDN-Projekt leisten möchten, befinden Sie sich in einer der folgenden Situationen:
 
-- **Wenn Sie zum Projekt beitragen möchten**, finden Sie Aufgaben unter 'Issues' in einem der [MDN-GitHub-Repositories](https://github.com/orgs/mdn/repositories) (zum Beispiel, [`mdn/content`-Issues](https://github.com/mdn/content/issues)) und in unseren [öffentlichen GitHub-Projektboards](https://github.com/orgs/mdn/projects). Stellen Sie sicher, dass das Issue niemanden zugewiesen ist und niemand bereits einen Pull Request für die Aufgabe geöffnet hat. Issues mit dem Label `good first issue` sind ein guter Startpunkt.
+- **Wenn Sie zum Projekt beitragen möchten**, können Sie Aufgaben unter 'Issues' in einem der [MDN GitHub Repositories](https://github.com/orgs/mdn/repositories) (zum Beispiel, [`mdn/content` issues](https://github.com/mdn/content/issues)) und unseren [öffentlichen GitHub-Projektboards](https://github.com/orgs/mdn/projects) finden.
+  Stellen Sie sicher, dass das Problem niemandem zugewiesen ist und dass noch niemand einen Pull Request für die Aufgabe erstellt hat.
+  Probleme, die mit `good first issue` gekennzeichnet sind, sind ein guter Ausgangspunkt.
 
-- **Wenn Sie ein Problem auf MDN gefunden haben**, sollten Sie zuerst ein Issue eröffnen. **Issues benötigen eine Rückmeldung von den Wartenden, bevor Sie mit der Arbeit beginnen**, damit Sie wissen, dass das durch einen Pull Request adressierte Problem gültig ist und Ihr Pull Request akzeptiert wird. Weitere Informationen zu Issues finden Sie auf unseren [Community-Seiten für GitHub-Issues](https://github.com/mdn/mdn/issues/new?labels=proposal%2Cneeds+triage&template=content-or-feature-suggestion.yml&title=Enter+your+proposal+here).
+- **Wenn Sie ein Problem auf MDN gefunden haben**, sollten Sie zuerst ein Problem eröffnen.
+  **Probleme benötigen eine Antwort von den Betreuern, bevor Sie mit der Arbeit beginnen** damit Sie wissen, dass ein Problem, das ein Pull Request adressiert, gültig ist und Ihr Pull Request akzeptiert wird.
+  Weitere Informationen zu Problemen finden Sie auf unseren [Community-Seiten für GitHub-Probleme](https://github.com/mdn/mdn/issues/new?labels=proposal%2Cneeds+triage&template=content-or-feature-suggestion.yml&title=Enter+your+proposal+here).
 
-- **Wenn Sie neue Inhalte oder ein neues Feature vorschlagen möchten**, reichen Sie einen Vorschlag durch die 'Neuer Inhalts- oder Featurevorschlag'-[GitHub-Issue-Vorlage](https://github.com/mdn/mdn/issues/new/choose) ein.
+- **Wenn Sie neuen Inhalt oder ein neues Feature vorschlagen möchten**, reichen Sie einen Vorschlag über die 'Neue Inhalt- oder Funktionsvorschlags'-[GitHub-Issue-Vorlage](https://github.com/mdn/mdn/issues/new/choose) ein.
 
-Wenn Sie nicht sicher sind, wo Sie anfangen sollen, erreichen Sie uns auf [dem Discord-Server](/discord) und fragen Sie nach Feedback.
+Wenn Sie sich nicht sicher sind, wo Sie beginnen sollen, erreichen Sie uns [auf dem Discord-Server](/discord) und bitten Sie um Feedback.
 
-### Einen Pull Request öffnen
+### Öffnen eines Pull Requests
 
-Wenn Sie bereit sind, einen Pull Request zu öffnen, befolgen Sie folgende Richtlinien:
+Wenn Sie bereit sind, einen Pull Request zu öffnen, befolgen Sie diese Richtlinien:
 
-- **Pull Requests sollten kurz und auf ein Issue fokussiert sein:** Falls möglich, gruppieren Sie zusammengehörige Änderungen in mehrere kleine Pull Requests. Wenn ein Pull Request zu groß wird, kann der Prüfer ihn schließen und Sie bitten, Pull Requests für jede logische Sammlung zusammengehörender Änderungen einzureichen.
-- **Fügen Sie eine Beschreibung der Änderungen hinzu:** Geben Sie so viel Kontext und Begründung für den Pull Request wie möglich an.
-- **Fügen Sie den Link zum gelösten Issue hinzu:** In der Pull Request-Beschreibung, verwenden Sie 'Fixes', wenn das Problem vollständig gelöst wird, oder 'Relates to', wenn es ein verwandtes Problem ist. Weitere Informationen zu Verknüpfungen von Issues in Pull Requests finden Sie in den [GitHub-Dokumenten](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
-- **Fügen Sie 'abhängig von'** mit einem Link zu einer Abhängigkeit hinzu, wenn es Pull Requests gibt, die zuerst zusammengeführt werden müssen (zum Beispiel Codebeispiele in anderen Repositories).
-- **Begleiten Sie Codebeispieländerungen mit Inhaltsänderungen:** Dies ist wichtig, um sicherzustellen, dass aktualisierte Beispiele korrekt bereitgestellt werden. Wenn Sie Inhaltsänderungen vornehmen, die die Anwendung der Beispiele beeinflussen, sollten die zugehörigen Codebeispiele ebenfalls aktualisiert werden.
-- **Fügen Sie einen Reviewer hinzu:** Sie können einen Reviewer hinzufügen, wie ein Teammitglied oder einen Themeninhaber, wenn Sie bereits wissen, wer Ihren Pull Request überprüfen sollte.
-- **Machen Sie keine Änderungen nur an der Grammatik:** Die MDN Web Docs enthalten technische Dokumentation; Sie sollten keine stilistischen Prosa-Änderungen vorschlagen, außer wenn die Grammatik falsch ist.
-- **Fügen Sie nicht unnötigerweise Zeilenumbrüche hinzu oder entfernen sie** auf Seiten, die einem bestimmten Formatierungsstil folgen.
-- **Aktivieren Sie nicht das automatische Zusammenführen.**
+- **Pull Requests sollten kurz und auf ein Thema fokussiert sein:** Gruppieren Sie, wenn möglich, zusammenhängende Änderungssets in mehrere, kleine Pull Requests.
+  Wenn ein Pull Request zu groß wird, kann der Rezensent ihn schließen und Sie darum bitten, Pull Requests für jeden logischen Satz von Änderungen einzureichen, die zusammengehören.
+- **Fügen Sie eine Beschreibung der Änderungen hinzu:** Geben Sie so viel Kontext und Begründung für den Pull Request wie möglich.
+- **Fügen Sie den Link zum Problem hinzu, das Sie schließen:** Geben Sie in der Beschreibung des Pull Requests 'Fixes' an, wenn das Problem vollständig gelöst wird, oder 'Relates to', wenn es sich um ein verwandtes Problem handelt.
+  Weitere Informationen zum Verlinken von Problemen in Pull Requests finden Sie in den [GitHub-Dokumentationen](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
+- **Fügen Sie 'abhängig von'** mit einem Link zu einer Abhängigkeit hinzu, wenn es Pull Requests gibt, die zuerst zusammengeführt werden müssen (z. B. Codebeispiele in anderen Repositories).
+- **Begleiten Sie Codebeispieländerungen mit Inhaltsänderungen:** Dies ist wichtig, damit aktualisierte Beispiele korrekt bereitgestellt werden.
+  Wenn Sie Inhaltsänderungen vornehmen, die beeinflussen, wie Beispiele verwendet werden, sollten auch die zugehörigen Codebeispiele aktualisiert werden.
+- **Fügen Sie einen Gutachter hinzu:** Sie können einen Reviewer hinzufügen, wie z. B. ein Teammitglied oder einen Themenverantwortlichen, wenn Sie bereits wissen, wer Ihren Pull Request überprüfen soll.
+- **Machen Sie keine Veränderungen, die nur die Grammatik betreffen:**
+  MDN Web Docs enthalten technische Dokumentation; Sie sollten keine Vorschläge zur Prosa-Stiländerung machen, es sei denn, die Grammatik ist falsch.
+- **Fügen Sie nicht unnötig Zeilenumbrüche hinzu oder entfernen Sie sie** auf Seiten, die einem bestimmten Formatierungsstil folgen.
 
 ### Nachdem Sie einen Pull Request geöffnet haben
 
-- **Bearbeiten Sie CI-Fehler** aus den automatisierten Tests, die als GitHub-Aktionen ausgeführt werden (siehe `.github/workflows`). Wenn einer oder mehrere dieser Tests fehlschlagen, liegt es in Ihrer Verantwortung, sie zu lösen. Wenn Sie nicht wissen, wie Sie die zugrunde liegenden Probleme lösen sollen, bitten Sie um Hilfe.
-- **Lösen Sie Mergekonflikte** mit dem Hauptbranch; Sie sind dafür verantwortlich, diese zu lösen. Sie können dies tun, indem Sie den `mdn/main`-Branch in Ihren Branch mergen. Weitere Informationen finden Sie in der GitHub-Dokumentation zum [Aktualisieren Ihres Branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch#about-keeping-your-pull-request-in-sync).
-- **Seien Sie reaktionsfähig gegenüber Feedback.** Das bedeutet, dass Sie bereit sein müssen, Änderungen am Pull Request basierend auf der Überprüfung vorzunehmen. Wenn eine Überprüfung stattfindet und die Änderungen nicht vorgenommen werden, kann der Pull Request geschlossen werden.
-- **Haben Sie Geduld während des Überprüfungsprozesses.** Die Organisation MDN erhält ein großes Volumen an Pull Requests und das Team benötigt möglicherweise Zeit, um Ihre Beiträge zu überprüfen.
-- **Öffnen Sie keine geschlossenen Pull Requests wieder.** Wenn Sie einen neuen Pull Request erstellen müssen, kann er auf den geschlossenen verweisen.
+- **Behandeln Sie CI-Fehler** aus den automatisierten Tests, die als GitHub-Aktionen ausgeführt werden (siehe `.github/workflows`).
+  Wenn einer oder mehrere dieser Tests fehlschlagen, liegt es in Ihrer Verantwortung, sie zu lösen.
+  Wenn Sie nicht wissen, wie Sie die zugrunde liegenden Probleme lösen können, fragen Sie nach Hilfe.
+- **Lösen Sie Merge-Konflikte** mit dem Haupt-Branch; Sie sind verantwortlich für deren Lösung.
+  Sie können dies tun, indem Sie den `mdn/main`-Branch in Ihren Branch zusammenführen.
+  Weitere Informationen finden Sie in der GitHub-Dokumentation zum [Auf dem neuesten Stand halten Ihres Branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch#about-keeping-your-pull-request-in-sync).
+- **Seien Sie offen für Feedback.**
+  Das bedeutet, bereit zu sein, Änderungen am Pull Request auf der Grundlage der Rezension vorzunehmen.
+  Wenn eine Rezension stattfindet und die Änderungen nicht vorgenommen werden, kann der Pull Request geschlossen werden.
+- **Seien Sie geduldig während des Überprüfungsprozesses.**
+  Die MDN-Organisation erhält eine große Menge an Pull Requests, und das Team benötigt möglicherweise Zeit, um Ihre Beiträge zu überprüfen.
+- **Öffnen Sie geschlossene Pull Requests nicht erneut.**
+  Wenn Sie einen neuen Pull Request erstellen müssen, kann er auf den geschlossenen Bezug nehmen.
 
-## Pull Request Überprüfungsprozess
+## Pull-Request-Überprüfungsprozess
 
 Reviewer werden automatisch zugewiesen, wenn Sie einen Pull Request basierend auf einer `CODEOWNERS`-Datei öffnen, aber wenn es eine bestimmte Person gibt, von der Sie eine Überprüfung anfordern möchten, können Sie [manuell eine Überprüfung anfordern](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review).
-Wir verwenden auch automatische Beschriftungen auf Pull Requests, um uns bei der Priorisierung zu helfen. Wartende können Pull Requests weiter priorisieren und zusätzliche Labels wie `needs-info` oder `on-hold` hinzufügen, wenn nötig basierend auf dem Kontext.
+Wir verwenden auch eine automatische Kennzeichnung von Pull Requests, um uns bei der Priorisierung zu helfen.
+Betreuer können Pull Requests weiter triagieren und alle zusätzlichen Labels, wie `needs-info` oder `on-hold`, hinzufügen, wenn dies kontextabhängig notwendig ist.
 
-Wenn Sie einen Pull Request überprüfen möchten, aber nicht als Reviewer aufgeführt sind, können Sie sich selbst als Reviewer hinzufügen.
-Es ist höflich, zuerst mit den bestehenden Reviewern abzustimmen, indem Sie in dem Pull Request kommentieren, dass Sie beabsichtigen, eine Überprüfung zu starten.
+Wenn Sie einen Pull Request überprüfen möchten, aber nicht als Gutachter aufgeführt sind, können Sie sich selbst als solchen hinzufügen.
+Es ist höflich, mit den bestehenden Rezensenten zu klären, indem Sie im Pull Request kommentieren, dass Sie beabsichtigen, eine Rezension zu starten.
 
-### Reviewer und Zuweisungen
+### Rezensenten und Zuweisungen
 
-Das MDN Web Docs-Team verwendet Reviewer und Zuweisungen, um den Status von Pull Requests zu verfolgen.
+Das MDN Web Docs-Team verwendet Rezensenten und Zuweisungen, um den Status von Pull Requests zu verfolgen.
 
-- **Reviewer** sind Personen, die die Änderungen im Pull Request bewerten und dem Autor Feedback geben.
-- **Zuweisungen** sind Personen, die dafür verantwortlich sind sicherzustellen, dass der Pull Request nicht blockiert wird.
-  Nicht alle Pull Requests haben Zuweisungen, aber wenn sie es tun, sind sie dafür verantwortlich sicherzustellen, dass der Pull Request voranschreitet.
-  Ein Zuweiser hilft, die Arbeit zu einem Abschluss zu bringen, entweder durch Zusammenführung, Schließung oder indem sie selbst die nicht blockierenden Arbeiten übernehmen.
+- **Rezensenten** sind Personen, die die Änderungen im Pull Request bewerten und dem Autor Feedback geben.
+- **Zuweisungen** sind Personen, die dafür verantwortlich sind, sicherzustellen, dass der Pull Request nicht blockiert wird.
+  Nicht alle Pull Requests haben Zuweisungen, aber wenn sie welche haben, sind sie dafür verantwortlich, sicherzustellen, dass der Pull Request voranschreitet.
+  Ein Zuweisungsberechtigter hilft dabei, die Arbeit zu einem Abschluss zu bringen, entweder durch Zusammenführen, Schließen oder indem er selbst die blockierende Arbeit übernimmt.
 
-Ein Pull Request-Reviewer oder -Zuweiser ist verantwortlich dafür, die Änderungen zusammenzuführen.
+Ein Pull Request-Reviewer oder Zuweisungsberechtigter ist verantwortlich für das Zusammenführen der Änderungen.
 
-Bevor Sie mit einer Überprüfung beginnen, überprüfen Sie die Pull Request-Beschreibung, um sicherzustellen, dass niemand Spezifisches sie überprüfen sollte. Stellen Sie sicher, dass alle kontinuierlichen Integrationsaufgaben (CI) erfolgreich abgeschlossen wurden und dass keine Mergekonflikte vorliegen.
+Bevor Sie mit einer Überprüfung beginnen, überprüfen Sie die Beschreibungen des Pull Requests, um sicherzustellen, dass niemand Bestimmtes es überprüfen sollte.
+Stellen Sie sicher, dass alle kontinuierlichen Integrationsaufgaben (CI) erfolgreich abgeschlossen wurden und dass keine Zusammenführungskonflikte bestehen.
 
-Wenn eine Aufgabe fehlschlägt oder es Mergekonflikte gibt, kommunizieren Sie dies dem Autor; es liegt in seiner Verantwortung, diese zu beheben. Sie können den Autor als **Zuweiser** festlegen, um anzuzeigen, dass ein Pull Request seine Aufmerksamkeit benötigt, bevor eine Überprüfung beginnen kann. Lassen Sie dem Autor die Türe offen, um um Hilfe zu bitten, besonders neuen Mitwirkenden des Projekts.
+Wenn Aufgaben fehlschlagen oder Zusammenführungskonflikte bestehen, kommunizieren Sie dies dem Autor; es liegt in seiner Verantwortung, diese zu beheben.
+Sie können den Autor als **Zuweisungsberechtigten** festlegen, um anzuzeigen, dass ein Pull Request seine Aufmerksamkeit benötigt, bevor eine Überprüfung beginnen kann.
+Lassen Sie dem Autor die Möglichkeit offen, um Hilfe zu bitten, insbesondere neuen Mitwirkenden des Projekts.
 
-### Einen Pull Request überprüfen
+### Überprüfung eines Pull Requests
 
-Wenn es um die Änderungen in einem Pull Request geht, müssen Inhalt und Prosa den [MDN Schreibstil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide) befolgen und Beispielcode muss dem [Code-Stil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide) entsprechen.
+Was die Änderungen in einem Pull Request betrifft, müssen Inhalt und Prosa dem [MDN-Schreibstil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide) entsprechen und Beispielcode muss dem [Code-Stil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide) folgen.
 
 Wenn Sie einen Pull Request überprüfen, sollten Sie:
 
-- **Einen Kommentar** zum Pull Request hinzufügen, um den Autor wissen zu lassen, dass Sie den Pull Request zur Kenntnis genommen haben und die Überprüfung starten werden. Dies ist, um Fälle zu vermeiden, in denen jemand anderes unnötigerweise zur gleichen Zeit mit der Überprüfung des Pull Requests beginnt.
-- **Den Überprüfungsumfang auf die Änderungen im Pull Request beschränken.** Öffnen Sie ein Folge-Issue oder einen Pull Request, um andere Verbesserungen anzusprechen, die nicht durch den Pull Request abgedeckt sind.
-- **Um Hilfe bitten** und das Label `review-help-needed` hinzufügen, wenn Sie technische Unterstützung bei der Überprüfung benötigen.
-- **Schließen Sie Pull Requests mit nicht verwandten Änderungen**, wenn es zu komplex ist oder mehrere nicht zusammenhängende Änderungen enthält. In solchen Fällen bitten Sie den Autor des Pull Requests, seine Änderungen in kleineren Schritten einzureichen.
-- **Fordern Sie eine Lastverteilung an**, wenn Ihr Aufgabenblatt voll ist und Sie nicht die Kapazität für die Überprüfung haben. Markieren Sie das `@core-yari-content`-Team und fragen Sie, ob jemand anderes einspringen kann.
-- **Mergen Sie nicht, solange 'abhängig von'-Pull Requests nicht zuerst zusammengeführt werden.**
-- **Mergen Sie keine Pull Requests, die fehlschlagende Tests haben.** Es ist eine gute [Open Source-Etikette](/de/docs/MDN/Community/Open_source_etiquette), den `main`-Branch stabil zu halten, um Störungen für Mitwirkende, Wartende und für automatisierte Prozesse zu vermeiden. Ein instabiler `main`-Branch blockiert alle anderen Pull Requests und macht es schwierig für andere, Überprüfungen durchzuführen und Beiträge zusammenzuführen. Darüber hinaus erhalten Mitwirkende, die Repositories beobachten, hohe Mengen an Benachrichtigungen und unnötiger Lärm, der durch fehlschlagende Tests verursacht wird, kann frustrierend sein. Wenn Sie nicht wissen, wie Sie die fehlschlagenden Tests beheben können, [bitten Sie um Hilfe](/de/docs/MDN/Community/Communication_channels) oder weisen Sie den Pull Request jemand anderem zu.
+- **Einen Kommentar** zum Pull Request hinzufügen, um den Autor wissen zu lassen, dass Sie den Pull Request zur Kenntnis genommen haben und mit der Überprüfung beginnen werden.
+  Dies ist wichtig, um zu vermeiden, dass jemand anderes die Überprüfung des Pull Requests gleichzeitig unnötigerweise beginnt.
+- **Den Umfang der Überprüfung** nur auf die Änderungen im Pull Request beschränken.
+  Öffnen Sie einen Folge-Issue oder Pull Request, um andere Verbesserungen zu adressieren, die nicht durch den Pull Request abgedeckt werden.
+- **Um Hilfe bitten** und das `review-help-needed` Label hinzufügen, wenn Sie technische Unterstützung bei der Überprüfung benötigen.
+- **Pull Requests mit nicht zugehörigen Änderungen schließen** wenn es zu komplex ist oder mehrere nicht zusammenhängende Änderungen enthält.
+  In solchen Fällen bitten Sie den Pull Request-Autor, seine Änderungen in kleineren Teilen einzureichen.
+- **Lastausgleich anfordern**, wenn Ihr Terminkalender voll ist und Sie keine Kapazitäten für die Überprüfung haben.
+  Taggen Sie das `@core-yari-content`-Team und fragen Sie, ob jemand anderes einspringen kann.
+- **Nicht zusammenführen, es sei denn 'abhängig von'** Pull Requests wurden zuerst zusammengeführt.
+- **Keine Pull Requests zusammenführen, die fehlschlagende Tests haben.**
+  Es ist ein guter [Open Source-Etikette](/de/docs/MDN/Community/Open_source_etiquette), den `main`-Branch stabil zu halten, um Störungen für Mitwirkende, Betreuer und automatisierte Prozesse zu vermeiden.
+  Ein instabiler `main`-Branch blockiert alle anderen Pull Requests und erschwert es anderen, Beiträge zu überprüfen und zusammenzuführen.
+  Darüber hinaus erhalten Mitwirkende, die Repositories beobachten, eine große Menge an Benachrichtigungen, und unnötiger Lärm, verursacht durch fehlschlagende Tests, kann frustrierend sein.
+  Wenn Sie nicht wissen, wie Sie die fehlschlagenden Tests beheben, [fragen Sie nach Hilfe](/de/docs/MDN/Community/Communication_channels) oder weisen Sie den Pull Request jemandem anderen zu.
 
-Wenn ein Pull Request abgesehen von kleinen Tippfehlern oder anderen kleineren Problemen gut aussieht, möchten Sie das Problem möglicherweise direkt beheben. Sie können dies tun, vorausgesetzt der Pull Request [wurde so eingerichtet, dass Änderungen erlaubt sind](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork). Es wird empfohlen, [Kommentare mit Vorschlägen](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request) zu verwenden, um kleinere Probleme zu beheben, da sie gebündelt und in einem Schwung eingebracht werden können.
+Wenn ein Pull Request gut aussieht, abgesehen von kleinen Tippfehlern oder anderen geringfügigen Problemen, können Sie das Problem möglicherweise direkt beheben.
+Sie können dies tun, sofern der Pull Request [so eingerichtet ist, dass Änderungen zugelassen werden](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork).
+Es empfiehlt sich, [Kommentare mit Vorschlägen](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request) zu verwenden, um geringfügige Probleme zu beheben, da sie gebündelt und auf einmal committtet werden können.
 
-Wenn Sie Ihre Überprüfung einreichen, haben Sie drei Optionen, **genehmigen**, **kommentieren**, oder **Änderungen anfordern**. Die folgenden Abschnitte erklären, wann jede Option zu verwenden ist.
+Bei der Einreichung Ihrer Überprüfung haben Sie drei Optionen: **Genehmigen**, **Kommentar**, oder **Änderungen anfordern**.
+Die folgenden Abschnitte erklären, wann jede Option zu verwenden ist.
 
 ### Änderungen anfordern
 
-Verwenden Sie die Option "Änderungen anfordern", wenn das Feedback, das Sie gegeben haben, _durch den Autor bearbeitet und von dem Reviewer erneut überprüft_ werden muss, bevor der Pull Request genehmigt und zusammengeführt werden kann.
+Verwenden Sie die Option "Änderungen anfordern", wenn das von Ihnen bereitgestellte Feedback _behandelt_ werden muss, bevor der Pull Request genehmigt und zusammengemerged werden kann.
 
-#### Kommentieren
+#### Kommentar
 
-Verwenden Sie die Kommentar-Option, wenn Ihr Feedback nicht kritisch ist und keine erneute Überprüfung erfordert wird. Kurz gesagt, Sie vertrauen dem Autor und den anderen Reviewern, gutes Urteilsvermögen zu nutzen.
+Verwenden Sie die Option "Kommentar", wenn Ihr Feedback nicht kritisch ist und keine erneute Überprüfung erfordert.
+Kurz gesagt, Sie vertrauen darauf, dass der Autor und andere Gutachter ein gutes Urteil treffen.
 
 #### Genehmigen
 
-Verwenden Sie die Genehmigungsoption, wenn alles gut aussieht und aus Ihrer Sicht bereit ist, zusammengeführt zu werden. Nachdem Sie Ihre Überprüfung eingereicht haben, können Sie den Pull Request sicher zusammenführen, wenn es keine anderen Reviewer oder ausstehenden Überprüfungskommentare zu bearbeiten gibt.
+Verwenden Sie die Option "Genehmigen", wenn alles gut aussieht und Ihrer Meinung nach bereit ist, um zusammengeführt zu werden.
+Nachdem Sie Ihre Rezension eingereicht haben, können Sie den Pull Request sicher zusammenführen, falls es keine anderen Rezensenten oder zu behandelnde Überprüfungskommentare gibt.
 
-#### Was tun, wenn Sie steckenbleiben
+#### Was tun, wenn Sie feststecken
 
-Wenn Sie eine Änderung des Inhalts nicht verstehen oder der Meinung sind, dass sie zu groß und komplex für Sie ist, keine Panik! Ein guter Anfang wäre, den Pull Request-Autor um Informationen zu bitten, die helfen.
+Wenn Sie eine Inhaltsänderung nicht verstehen oder das Gefühl haben, dass sie zu groß und komplex ist, um damit umzugehen, geraten Sie nicht in Panik!
+Ein guter Ausgangspunkt ist, den Autor des Pull Requests um Informationen zu bitten, die helfen.
 
-Es ist selten, dass Sie ohne Vorwarnung verpflichtet sind, eine große, komplexe Inhaltsänderung zu prüfen. Falls dies jedoch passiert, sollte die Pull Request-Beschreibung auf ein Issue verlinken, das die Hintergrundinformationen erklärt.
+Es ist selten, dass Sie ohne Vorwarnung eine große, komplexe Inhaltsänderung überprüfen müssen.
+Wenn dies jedoch passiert, sollte die Beschreibung des Pull Requests auf ein Problem verlinken, das die Hintergrundinformationen erklärt.
 
-Wenn Sie sich immer noch nicht sicher sind oder denken, dass der Inhalt verdächtig ist, wenden Sie sich an das MDN Web Docs-Team und fragen Sie um Hilfe.
+Wenn Sie sich immer noch nicht sicher sind oder glauben, dass der Inhalt verdächtig ist, wenden Sie sich an das MDN Web Docs-Team und bitten Sie um Hilfe.
 
-### Richtlinien für Bearbeitungszeiten für Autoren und Reviewer
+### Richtlinien für Antwortzeiten für Autoren und Rezensenten
 
-Dieser Abschnitt bietet Einzelheiten zu den erwarteten Bearbeitungszeiten beim Reagieren auf Überprüfungskommentare, wenn Sie Autor eines Pull Requests sind, und beim Überprüfen von Pull Requests, wenn Sie ein Reviewer sind.
+Dieser Abschnitt bietet Details zu den erwarteten Antwortzeiten beim Reagieren auf Überprüfungskommentare, wenn Sie ein Pull Request-Autor sind, und beim Überprüfen von Pull Requests, wenn Sie ein Rezensent sind.
 
-- **Überprüfung:** Der Pull Request-Reviewer sollte in der Lage sein, die Änderungen innerhalb von 2 Wochen oder weniger zu überprüfen. In den 2 Wochen nach Öffnen eines Pull Requests kann der Reviewer:
-  - Einen Kommentar hinterlassen, wann sie mit der Überprüfung des Pull Requests beginnen können
+- **Überprüfung**:
+  Der Pull Request-Reviewer sollte in der Lage sein, die Änderungen in 2 Wochen oder weniger zu überprüfen.
+  In den 2 Wochen nach der Öffnung eines Pull Requests kann der Reviewer:
+  - Einen Kommentar hinterlassen, wann er mit der Überprüfung des Pull Requests beginnen kann
   - Um technische oder Ressourcenhilfe bitten
-- **Forderungen nach Änderungen bearbeiten:** Der Autor des Pull Requests sollte in der Lage sein, auf die Kommentare zu reagieren oder sie innerhalb von 4 Wochen oder weniger zu beheben. Wenn der Pull Request-Autor nicht in der Lage ist, auf die Kommentare zu reagieren oder sie in dieser Zeit zu beheben, kann der Reviewer eine der folgenden Maßnahmen ergreifen:
-  - Die Änderungen übernehmen und den Pull Request zusammenführen
+- **Angeforderte Änderungen ansprechen:**
+  Der Pull Request-Autor sollte in der Lage sein, auf die Kommentare zu antworten oder diese innerhalb von 4 Wochen oder weniger zu beheben.
+  Wenn der Pull Request-Autor innerhalb dieser Zeit nicht auf die Überprüfungskommentare antworten oder diese beheben kann, kann der Reviewer eine der folgenden Maßnahmen ergreifen:
+  - Die Änderungen committen und den Pull Request zusammenführen
   - Den Pull Request schließen
 
-### Externe Reviewer
+### Externe Gutachter
 
-Einige Pull Requests im MDN-Content-Repo beziehen sich auf bestimmte Arbeiten von Browserherstellern oder Organisationen mit festgelegten Autoren und Reviewern. In diesen Fällen wird der Autor den Benutzernamen des Reviewers in einer Zeile am Ende der Pull Request-Beschreibung einfügen, zum Beispiel:
+Einige Pull Requests im MDN-Content-Repo beziehen sich auf spezifische Arbeiten von Browser-Anbietern oder Organisationen mit definierten Autoren und Rezensenten.
+Der Autor wird in diesen Fällen den Benutzernamen des Rezensenten in einer Zeile am Ende der Beschreibung des Pull Requests aufnehmen, beispielsweise:
 
 ```md
 reviewer: @jpmedley
 ```
 
-Wenn Sie eine Überprüfungsanfrage erhalten und Sie von einem anderen Reviewer in der oben beschriebenen Weise überstimmt wurden, überprüfen Sie die Änderungen nicht. Sobald der im Beschreibungstext genannte Reviewer die Änderungen genehmigt hat, werden sie eine Genehmigung anfordern, die von den `CODEOWNERS` benötigt wird.
+Wenn Sie eine Überprüfungsanfrage erhalten und Sie mit einem anderen Rezensenten in der oben beschriebenen Weise überschrieben wurden, überprüfen Sie die Änderungen nicht.
+Sobald der in der Beschreibung genannte Rezensent die Änderungen genehmigt hat, wird er um eine Genehmigung durch den `CODEOWNERS` bitten.
 
 ## Leseliste
 
-Reviewer werden ermutigt, die folgenden Artikel für Hilfe bei häufigen Aufgaben zu lesen:
+Rezensenten werden ermutigt, die folgenden Artikel zu lesen, um Hilfe bei allgemeinen Aufgaben zu erhalten:
 
-- [Die Kunst des Schließens](https://blog.jessfraz.com/post/the-art-of-closing/) erklärt, wie man eine unfertige oder abgelehnte Pull Request schließt
-- [Freundlichkeit und Code Reviews: Verbesserungen der Art und Weise, wie wir Feedback geben](https://product.voxmedia.com/2018/8/21/17549400/kindness-and-code-reviews-improving-the-way-we-give-feedback) gibt nützliche Hinweise, um Feedback zu geben
+- [The Art of Closing](https://blog.jessfraz.com/post/the-art-of-closing/) erklärt, wie man einen unvollendeten oder abgelehnten Pull Request schließt
+- [Kindness and Code Reviews: Improving the Way We Give Feedback](https://product.voxmedia.com/2018/8/21/17549400/kindness-and-code-reviews-improving-the-way-we-give-feedback) gibt nützliche Hinweise zur Feedback-Abgabe
 - [Code Review Guidelines for the Reviewer](https://phauer.com/2018/code-review-guidelines/#code-reviews-guidelines-for-the-reviewer) bietet Beispiele für gutes und schlechtes Feedback
+- [How to do a code review](https://google.github.io/eng-practices/review/reviewer/) auf google.github.io/eng-practices

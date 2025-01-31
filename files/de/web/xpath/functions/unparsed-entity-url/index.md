@@ -2,12 +2,10 @@
 title: unparsed-entity-url
 slug: Web/XPath/Functions/unparsed-entity-url
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `unparsed-entity-url()` gibt die URI der unverarbeiteten Entität mit dem angegebenen Namen zurück. Dies sind nicht-XML-Daten, die in der DTD des Quelldokuments referenziert werden.
+Die Funktion `unparsed-entity-url()` gibt die URI der nicht analysierten Entität mit dem angegebenen Namen zurück. Dies sind nicht-XML-Daten, die im DTD des Quelldokuments referenziert werden.
 
 ## Syntax
 
@@ -17,11 +15,11 @@ string unparsed-entity-url(string)
 
 ### Parameter
 
-Der Name der unverarbeiteten Entität. Wenn das Argument kein String ist, wird es unter Verwendung der Regeln der `string()`-Funktion umgewandelt. Der Name sollte ein XML-Name sein.
+Der Name der nicht analysierten Entität. Wenn das Argument kein String ist, wird es gemäß den Regeln der Funktion string() umgewandelt. Der Name sollte ein XML-Name sein.
 
 ### Rückgabewert
 
-Die URI der aus der DTD abgerufenen unverarbeiteten Entität, falls vorhanden. Andernfalls ein leerer String.
+Die URI der nicht analysierten Entität, die aus dem DTD abgerufen wurde, sofern sie existiert. Andernfalls ein leerer String.
 
 ## Spezifikationen
 

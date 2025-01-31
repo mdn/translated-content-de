@@ -2,12 +2,10 @@
 title: Nearest
 slug: WebAssembly/Reference/Numeric/Nearest
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`nearest`**-Anweisungen werden verwendet, um den Wert einer Zahl, der auf die nächste ganze Zahl gerundet ist, zu erhalten.
+Die **`nearest`** Anweisungen werden verwendet, um den Wert einer Zahl auf die nächste ganze Zahl gerundet zu erhalten.
 
 {{EmbedInteractiveExample("pages/wat/nearest.html", "tabbed-standard")}}
 

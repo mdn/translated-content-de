@@ -2,12 +2,10 @@
 title: Global set
 slug: WebAssembly/Reference/Variables/Global_set
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`global.set`**-Anweisung setzt die Werte einer globalen Variablen.
+Die **`global.set`**-Anweisung legt die Werte einer globalen Variable fest.
 
 {{EmbedInteractiveExample("pages/wat/global_set.html", "tabbed-taller")}}
 
@@ -21,6 +19,6 @@ i32.const 2
 global.set $val
 ```
 
-| Anweisung    | Binäre Opcode |
-| ------------ | ------------- |
-| `global.set` | `0x24`        |
+| Anweisung    | Binärer Opcode |
+| ------------ | -------------- |
+| `global.set` | `0x24`         |

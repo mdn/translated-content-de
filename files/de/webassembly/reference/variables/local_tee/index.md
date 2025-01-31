@@ -2,12 +2,10 @@
 title: Local tee
 slug: WebAssembly/Reference/Variables/Local_tee
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`local.tee`**-Anweisung setzt den Wert einer lokalen Variablen und lädt den Wert auf den Stapel.
+Die **`local.tee`**-Anweisung setzt den Wert einer lokalen Variable und lädt den Wert auf den Stapel.
 
 Die Anweisung ist nach dem T-Stück benannt, das in der Klempnerei verwendet wird.
 

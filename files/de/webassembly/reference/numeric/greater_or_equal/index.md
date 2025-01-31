@@ -1,15 +1,13 @@
 ---
-title: Greater or equal
+title: Größer oder gleich
 slug: WebAssembly/Reference/Numeric/Greater_or_equal
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
+Die **`ge`**-Anweisungen, eine Abkürzung für _größer oder gleich_, überprüfen, ob eine Zahl größer oder gleich einer anderen Zahl ist. Wenn die erste Zahl größer oder gleich der zweiten Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
 
-Die **`ge`**-Anweisungen, kurz für _greater or equal_, prüfen, ob eine Zahl größer oder gleich einer anderen Zahl ist. Wenn die erste Zahl größer oder gleich der zweiten Zahl ist, wird `1` auf den Stack geschoben, andernfalls wird `0` auf den Stack geschoben.
-
-Die ganzzahligen Typen haben separate Anweisungen für größer oder gleich für vorzeichenbehaftete (**`ge_s`**) und vorzeichenlose (**`ge_u`**) Zahlen.
+Die Ganzzahltypen haben separate "größer oder gleich"-Anweisungen für signierte (**`ge_s`**) und unsignierte (**`ge_u`**) Zahlen.
 
 {{EmbedInteractiveExample("pages/wat/ge.html", "tabbed-taller")}}
 

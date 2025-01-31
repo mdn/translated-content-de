@@ -2,38 +2,36 @@
 title: Lernforum
 slug: MDN/Community/Learn_forum
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 719645a32546d9e514ac530a5eb66aa4c26d4f51
 ---
 
-{{MDNSidebar}}
+Unsere [Learn web development](/de/docs/Learn_web_development) Seiten erhalten über eine Million Aufrufe pro Monat und verfügen über ein [aktives Forum](https://discourse.mozilla.org/c/mdn/learn/250), in dem Menschen um Hilfe bitten.
+Wir würden uns über Unterstützung beim Beantworten von Beiträgen freuen und dabei helfen, unsere Lerngemeinschaft zu erweitern.
 
-Unsere [Lernen Webentwicklung](/de/docs/Learn_web_development) Seiten erhalten über eine Million Aufrufe pro Monat und haben ein [aktives Forum](https://discourse.mozilla.org/c/mdn/learn/250), in dem Menschen um Hilfe bitten.
-Wir würden uns über Hilfe beim Beantworten von Beiträgen und beim Wachstum unserer Lerngemeinschaft freuen.
+## Womit wir Hilfe brauchen
 
-## Wobei wir Hilfe benötigen
-
-Wir erhalten eine große Anzahl von Fragen, die auf Themen basieren, die im Abschnitt Lernen Webentwicklung auf MDN erscheinen.
+Wir erhalten eine große Anzahl von Fragen, die um Hilfe zu Themen bitten, die im Abschnitt Webentwicklung auf MDN behandelt werden.
 
 ## Wie Sie profitieren können
 
-- Anderen bei ihren Code-Problemen zu helfen, ist eine großartige Möglichkeit, mehr über Webtechnologien zu lernen — während Sie nach einer Lösung suchen und eine Antwort auf die Frage eines anderen schreiben, gewinnen Sie ein tieferes Verständnis des Themas und verbessern Ihre Fähigkeiten.
-- Wenn Sie sich stärker in die MDN-Community einbringen, lernen Sie Mozilla-Mitarbeiter und andere Community-Mitglieder kennen, was Ihnen ein wertvolles Netzwerk an Kontakten bietet, um bei eigenen Problemen Hilfe zu erhalten und Ihre Sichtbarkeit zu erhöhen.
-- Das Beantworten von Codierungsfragen ist größtenteils eine Belohnung für sich, wird aber auch Ihre Expertise in Webtechnologien demonstrieren und möglicherweise sogar bei Ihrem Kurs oder Jobmöglichkeiten hilfreich sein.
+- Anderen Menschen bei ihren Code-Problemen zu helfen, ist eine großartige Möglichkeit, mehr über Webtechnologien zu lernen — während Sie nach einer Lösung recherchieren und eine Antwort auf die Frage einer Person schreiben, werden Sie ein tieferes Verständnis des Themas erlangen und Ihre Fähigkeiten verbessern.
+- Während Sie sich mehr in der MDN-Community engagieren, lernen Sie Mozilla-Mitarbeiter und andere Community-Mitglieder kennen, was Ihnen ein wertvolles Netzwerk an Kontakten bietet, um bei eigenen Problemen Hilfe zu finden und Ihre Sichtbarkeit zu erhöhen.
+- Das Beantworten von Programmierfragen ist größtenteils eine Belohnung für sich, aber es zeigt auch Ihre Expertise in Webtechnologien und kann Ihnen möglicherweise sogar bei Ihrem Studium oder bei Jobmöglichkeiten helfen.
 
 ## Welche Fähigkeiten Sie benötigen
 
-- Sie sollten mit Webtechnologien wie HTML, CSS und JavaScript vertraut sein. Idealerweise sollten Sie auch gut darin sein, technische Themen zu erklären, und Freude daran haben, Anfängern beim Programmieren zu helfen.
-- Die Sprache des Forums ist Englisch — Sie sollten über ausreichende Kenntnisse der englischen Sprache verfügen, aber sie muss wirklich nicht perfekt sein. Wir haben Besucher aus der ganzen Welt in unseren Foren und möchten, dass sich jeder, der uns besucht, so wohl und einbezogen wie möglich fühlt.
+- Sie sollten über Kenntnisse in Webtechnologien wie HTML, CSS und JavaScript verfügen. Idealerweise sollten Sie auch gut darin sein, technische Themen zu erklären, und Freude daran haben, Anfängern zu helfen, das Programmieren zu lernen.
+- Die Sprache des Forums ist Englisch — Sie sollten eine angemessene Beherrschung der englischen Sprache haben, aber es muss wirklich nicht perfekt sein. Wir haben Besucher aus der ganzen Welt in unseren Foren, und wir möchten, dass sich alle, die uns besuchen, so wohl und inkludiert wie möglich fühlen.
 
-## Wie man helfen kann
+## Wie Sie helfen können
 
-1. Melden Sie sich bei [Mozilla Discourse](https://discourse.mozilla.org/) an, wenn Sie es nicht bereits getan haben.
-2. Schauen Sie sich den Abschnitt [Lernen Webentwicklung](/de/docs/Learn_web_development) an und verschaffen Sie sich ein grundlegendes Verständnis dessen, was dort vorhanden ist.
+1. Melden Sie sich bei [Mozilla Discourse](https://discourse.mozilla.org/) an, falls Sie dies noch nicht getan haben.
+2. Schauen Sie sich den Abschnitt [Learn web development](/de/docs/Learn_web_development) an und machen Sie sich mit den Inhalten vertraut.
 
-Nachdem Sie eingerichtet sind, werfen Sie einen Blick auf das [Lernforum](https://discourse.mozilla.org/c/mdn/learn/250) und sehen Sie nach, ob es Beiträge gibt, die noch keine Antworten haben — das ist der beste Ausgangspunkt.
-Wenn der Beitrag, auf den Sie antworten, eine allgemeine Bitte um Hilfe ist, antworten Sie ihnen und geben Sie so viel Hilfe, wie Sie Zeit haben.
+Nachdem Sie eingerichtet sind, werfen Sie einen Blick ins [Lernforum](https://discourse.mozilla.org/c/mdn/learn/250) und schauen Sie, ob es Beiträge gibt, auf die noch nicht geantwortet wurde — das ist der beste Ort, um anzufangen.
+Wenn der Beitrag, auf den Sie antworten, eine allgemeine Bitte um Hilfe ist, antworten Sie darauf und geben Sie so viel Hilfe, wie Sie Zeit haben.
 
-Wenn Sie bei irgendetwas Hilfe benötigen, fragen Sie in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) nach.
+Wenn Sie bei irgendetwas Hilfe benötigen, fragen Sie in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) nach Unterstützung.
 
 > [!NOTE]
-> Wichtig: Vor allem, seien Sie geduldig, freundlich und nett. Denken Sie daran — die meisten dieser Leute sind Anfänger.
+> Wichtig: Vor allem anderen, seien Sie geduldig, freundlich und nett. Denken Sie daran — die meisten dieser Leute sind Anfänger.

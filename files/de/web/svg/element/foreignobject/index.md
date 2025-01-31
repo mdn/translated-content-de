@@ -2,12 +2,12 @@
 title: <foreignObject>
 slug: Web/SVG/Element/foreignObject
 l10n:
-  sourceCommit: 2e5fc06de139c56873a20ec4bc3bf5600ea3cbef
+  sourceCommit: 78396d3f1a905205d9a00db12f223f82c70be677
 ---
 
 {{SVGRef}}
 
-Das **`<foreignObject>`** [SVG](/de/docs/Web/SVG)-Element umfasst Elemente aus einem anderen XML-Namespace. Im Kontext eines Browsers ist es höchstwahrscheinlich (X)HTML.
+Das **`<foreignObject>`** [SVG](/de/docs/Web/SVG) Element inkludiert Elemente aus einem anderen XML-Namensraum. Im Kontext eines Browsers ist es höchstwahrscheinlich (X)HTML.
 
 ## Beispiel
 
@@ -53,22 +53,26 @@ svg {
 ## Attribute
 
 - {{SVGAttr("height")}}
-  - : Die Höhe des foreignObject.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
+  - : Die Höhe des `foreignObject`.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("width")}}
-  - : Die Breite des foreignObject.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
+  - : Die Breite des `foreignObject`.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("x")}}
-  - : Die x-Koordinate des foreignObject.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die x-Koordinate des `foreignObject`.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("y")}}
-  - : Die y-Koordinate des foreignObject.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die y-Koordinate des `foreignObject`.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
 
 > [!NOTE]
 > Ab SVG2 sind `x`, `y`, `width` und `height` _Geometrie-Eigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.
 
-## Verwendungskontext
+## DOM-Schnittstelle
+
+Dieses Element implementiert die [`SVGForeignObjectElement`](/de/docs/Web/API/SVGForeignObjectElement) Schnittstelle.
+
+## Nutzungskontext
 
 {{svginfo}}
 

@@ -2,14 +2,12 @@
 title: block
 slug: WebAssembly/Reference/Control_flow/block
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
+Die **`block`**-Anweisung erstellt ein Label, aus dem später mit einem `br` heraus verzweigt werden kann.
 
-Die **`block`**-Anweisung erstellt ein Label, aus dem später mit einem `br` gesprungen werden kann.
-
-Die **`loop`**-Anweisung ist das Gegenstück zur `block`-Anweisung, in dem Sinne, dass beim Springen zu einer `loop` zum Anfang der Schleife gesprungen wird, während beim Springen zu einem `block` zum Ende des Blocks gesprungen wird; das heißt, aus dem Block heraus.
+Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, insofern, dass beim Verzweigen zu einem `loop` zum Anfang der Schleife gesprungen wird, während beim Verzweigen zu einem `block` zum Ende des Blocks gesprungen wird; das heißt, heraus aus dem Block.
 
 {{EmbedInteractiveExample("pages/wat/block.html", "tabbed-taller")}}
 

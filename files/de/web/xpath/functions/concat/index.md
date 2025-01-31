@@ -2,12 +2,10 @@
 title: concat
 slug: Web/XPath/Functions/concat
 l10n:
-  sourceCommit: bea339d321513fc6d66d95c8f0305b9387fa57bb
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `concat` verknüpft zwei oder mehr Zeichenfolgen und gibt die resultierende Zeichenfolge zurück.
+Die Funktion `concat` verbindet zwei oder mehr Zeichenfolgen und gibt die resultierende Zeichenfolge zurück.
 
 ## Syntax
 
@@ -22,7 +20,7 @@ concat( string1, string2 [,stringN]* )
 
 ### Rückgabewert
 
-Eine einzelne Zeichenfolge, die die Verkettung aller Zeichenfolgen darstellt, die der Funktion als Argumente übergeben werden.
+Eine einzelne Zeichenfolge, die die Verkettung aller an die Funktion übergebenen Zeichenfolgen darstellt.
 
 ## Spezifikationen
 

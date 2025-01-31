@@ -2,12 +2,10 @@
 title: key
 slug: Web/XPath/Functions/key
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `key` gibt eine Knotenmenge zurück, die die Knoten enthält, die den angegebenen Wert für den angegebenen Schlüssel haben.
+Die `key`-Funktion gibt eine Knotenmenge von Knoten zurück, die den angegebenen Wert für den angegebenen Schlüssel haben.
 
 ## Syntax
 
@@ -18,7 +16,7 @@ key( keyname, value )
 ### Parameter
 
 - `keyname`
-  - : Ein String mit dem Namen des [`xsl:key`](/de/docs/Web/XSLT/Element/key) Elements, das verwendet werden soll.
+  - : Ein String, der den Namen des [`xsl:key`](/de/docs/Web/XSLT/Reference/Element/key)-Elements enthält, das verwendet werden soll.
 - `value`
   - : Die zurückgegebene Knotenmenge wird jeden Knoten enthalten, der diesen Wert für den angegebenen Schlüssel hat.
 
@@ -28,9 +26,9 @@ Eine Knotenmenge.
 
 ## Beschreibung
 
-- Das [`xsl:key`](/de/docs/Web/XSLT/Element/key) Element definiert, welches Attribut auf welchen angegebenen Elementen verwendet wird, um den Schlüssel zuzuordnen.
+- Das [`xsl:key`](/de/docs/Web/XSLT/Reference/Element/key)-Element definiert, welches Attribut auf welchen gegebenen Elementen verwendet wird, um den Schlüssel abzugleichen.
 
-Diese Funktion ist eine XSLT-spezifische Ergänzung zu XPath. Sie ist kein Bestandteil der Core-XPath-Funktionsbibliothek.
+Diese Funktion ist eine XSLT-spezifische Ergänzung zu XPath. Sie ist kein Bestandteil der Kern-XPath-Funktionsbibliothek.
 
 ## Spezifikationen
 

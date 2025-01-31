@@ -1,13 +1,11 @@
 ---
-title: Anzahl der nachgestellten Nullen
+title: Zähle nachfolgende Nullen
 slug: WebAssembly/Reference/Numeric/Count_trailing_zeros
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`ctz`**-Anweisungen, kurz für _count trailing zeros_, werden verwendet, um die Anzahl der Nullen am Ende der binären Darstellung einer Zahl zu zählen.
+Die **`ctz`** Anweisungen, kurz für _count trailing zeros_, werden verwendet, um die Anzahl der Nullen am Ende der binären Darstellung einer Zahl zu zählen.
 
 {{EmbedInteractiveExample("pages/wat/ctz.html", "tabbed-taller")}}
 

@@ -2,12 +2,10 @@
 title: translate
 slug: Web/XPath/Functions/translate
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `translate` wertet einen String und eine Menge von zu übersetzenden Zeichen aus und gibt den übersetzten String zurück.
+Die `translate`-Funktion wertet einen String und eine Menge von Zeichen aus, die übersetzt werden sollen, und gibt den übersetzten String zurück.
 
 ## Syntax
 
@@ -18,11 +16,11 @@ translate(string, abc, XYZ)
 ### Parameter
 
 - `string`
-  - : Der zu bewertende String.
+  - : Der zu evaluierende String.
 - `abc`
-  - : Der Zeichenstring, dessen Zeichen ersetzt werden sollen.
+  - : Der String aus Zeichen, die ersetzt werden sollen.
 - `XYZ`
-  - : Der Zeichenstring, der zur Ersetzung verwendet wird. Das erste Zeichen in `XYZ` ersetzt jedes Vorkommen des ersten Zeichens in `abc`, das im `string` erscheint.
+  - : Der String von Zeichen, die zum Ersetzen verwendet werden. Das erste Zeichen in `XYZ` ersetzt jedes Vorkommen des ersten Zeichens in `abc`, das in `string` erscheint.
 
 ### Rückgabewert
 
@@ -30,9 +28,9 @@ Der übersetzte String.
 
 ## Beschreibung
 
-XPath weist darauf hin, dass die translate-Funktion keine ausreichende Lösung für die Groß-/Kleinschreibungsumwandlung in allen Sprachen darstellt. Eine zukünftige Version von XPath könnte zusätzliche Funktionen zur Groß-/Kleinschreibungsumwandlung bereitstellen.
+XPath weist darauf hin, dass die translate-Funktion keine ausreichende Lösung für die Groß- und Kleinschreibungskonvertierung in allen Sprachen ist. Eine zukünftige Version von XPath könnte zusätzliche Funktionen für die Groß- und Kleinschreibungskonvertierung bereitstellen.
 
-Dies ist jedoch das, was wir derzeit am ehesten als Funktion zur Umwandlung eines Strings in Groß- oder Kleinschreibung haben.
+Dies ist jedoch gegenwärtig die nächstgelegene Funktion, die einen String in Groß- oder Kleinbuchstaben umwandeln kann.
 
 Beispiel
 
@@ -46,7 +44,7 @@ Ausgabe
 THE QUICK BROWN FOX.
 ```
 
-- Wenn `abc` länger als `XYZ` ist, dann werden alle Vorkommen von Zeichen in `abc`, die kein entsprechendes Zeichen in `XYZ` haben, entfernt.
+- Wenn `abc` länger ist als `XYZ`, werden alle Vorkommen von Zeichen in `abc`, die kein entsprechendes Zeichen in `XYZ` haben, entfernt.
 
 Beispiel
 
@@ -60,12 +58,12 @@ Ausgabe
 The quick red fdx.
 ```
 
-- Wenn `XYZ` mehr Zeichen als `abc` enthält, werden die zusätzlichen Zeichen ignoriert.
+- Wenn `XYZ` mehr Zeichen als `abc` enthält, werden die überzähligen Zeichen ignoriert.
 
 ## Spezifikationen
 
 [XPath 1.0 4.2](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-translate)
 
-## Browser-Kompatibilität in Gecko
+## Gecko-Unterstützung
 
 Unterstützt.

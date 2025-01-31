@@ -2,12 +2,10 @@
 title: Left rotate
 slug: WebAssembly/Reference/Numeric/Left_rotate
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`rotl`** Anweisungen, kurz für _rotate-left_, werden verwendet, um eine bitweise Linksrotation durchzuführen.
+Die **`rotl`**-Anweisungen, kurz für _rotate-left_, werden verwendet, um eine bitweise Linksdrehung durchzuführen.
 
 {{EmbedInteractiveExample("pages/wat/rotl.html", "tabbed-taller")}}
 

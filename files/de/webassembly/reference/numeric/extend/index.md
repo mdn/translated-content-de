@@ -2,12 +2,10 @@
 title: Extend
 slug: WebAssembly/Reference/Numeric/Extend
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`extend`**-Anweisungen werden verwendet, um Zahlen des Typs `i32` in den Typ `i64` zu konvertieren (erweitern). Es gibt sowohl signierte als auch unsignierte Versionen dieser Anweisung.
+Die **`extend`**-Anweisungen werden verwendet, um Zahlen vom Typ `i32` in den Typ `i64` umzuwandeln (erweitern). Es gibt signierte und unsignierte Versionen dieser Anweisung.
 
 {{EmbedInteractiveExample("pages/wat/extend.html", "tabbed-taller")}}
 
@@ -23,7 +21,7 @@ i64.extend_i32_s
 ;; the top item on the stack will now be the value 10 of type i64
 ```
 
-| Anweisung          | Binäre Opcode |
-| ------------------ | ------------- |
-| `i64.extend_i32_s` | `0xac`        |
-| `i64.extend_i32_u` | `0xad`        |
+| Anweisung          | Binärer Opcode |
+| ------------------ | -------------- |
+| `i64.extend_i32_s` | `0xac`         |
+| `i64.extend_i32_u` | `0xad`         |

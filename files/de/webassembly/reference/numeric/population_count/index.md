@@ -2,12 +2,10 @@
 title: Population count
 slug: WebAssembly/Reference/Numeric/Population_count
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`popcnt`**-Anweisungen, abgekürzt für _Population Count_, werden verwendet, um die Anzahl der `1`en in der binären Darstellung einer Zahl zu zählen.
+Die **`popcnt`**-Anweisungen, kurz für _Population Count_, werden verwendet, um die Anzahl der `1`en in der binären Darstellung einer Zahl zu zählen.
 
 {{EmbedInteractiveExample("pages/wat/popcnt.html", "tabbed-taller")}}
 

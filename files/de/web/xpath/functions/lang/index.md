@@ -1,13 +1,11 @@
 ---
-title: XPath `lang` Funktion
+title: lang
 slug: Web/XPath/Functions/lang
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die `lang` Funktion ermittelt, ob der Kontextknoten mit der angegebenen Sprache übereinstimmt, und gibt boolean true oder false zurück.
+Die `lang`-Funktion bestimmt, ob der Kontextknoten mit der angegebenen Sprache übereinstimmt und gibt einen booleschen Wert `true` oder `false` zurück.
 
 ## Syntax
 
@@ -18,7 +16,7 @@ lang(string )
 ### Parameter
 
 - `string`
-  - : Der zu vergleichende Sprachcode oder Lokalisierungscode (Sprache und Land).
+  - : Der Sprachcode oder Lokalisierungscode (Sprache und Land), der abgeglichen werden soll.
 
 ### Rückgabewert
 
@@ -26,11 +24,11 @@ lang(string )
 
 ## Beschreibung
 
-- Die Sprache eines Knotens wird durch sein `xml:lang` Attribut bestimmt. Falls der aktuelle Knoten kein `xml:lang` Attribut hat, bestimmt der Wert des `xml:lang` Attributs des nächstgelegenen Vorfahren mit einem `xml:lang` Attribut die Sprache des aktuellen Knotens. Wenn die Sprache nicht bestimmt werden kann (kein Vorfahre hat ein `xml:lang` Attribut), gibt diese Funktion false zurück.
+- Die Sprache eines Knotens wird durch das Attribut `xml:lang` bestimmt. Wenn der aktuelle Knoten kein `xml:lang`-Attribut hat, bestimmt der Wert des `xml:lang`-Attributs des nächsten Vorfahren, der ein `xml:lang`-Attribut besitzt, die Sprache des aktuellen Knotens. Wenn die Sprache nicht bestimmt werden kann (kein Vorfahre hat ein `xml:lang`-Attribut), gibt diese Funktion `false` zurück.
 
-- Wenn der angegebene `string` keinen Ländercode aufweist, wird diese Funktion Knoten dieser Sprache mit beliebigem Ländercode zuordnen. Das Gegenteil ist nicht der Fall.
+- Wenn der angegebene `string` keinen Ländercode spezifiziert, wird diese Funktion Knoten dieser Sprache mit beliebigem Ländercode abgleichen. Das Umgekehrte ist nicht der Fall.
 
-Dieses Fragment von XML:
+Angenommen, dieser XML-Fragment:
 
 ```xml
 <p xml:lang="en">I went up a floor.</p>
@@ -38,7 +36,7 @@ Dieses Fragment von XML:
 <p xml:lang="en-US">I rode the elevator.</p>
 ```
 
-Und dieser Teil einer XSL-Vorlage:
+Und diesen Teil einer XSL-Vorlage:
 
 ```xml
 <xsl:value-of select="count(//p[lang('en')])" />
@@ -47,7 +45,7 @@ Und dieser Teil einer XSL-Vorlage:
 <xsl:value-of select="count(//p[lang('de')])" />
 ```
 
-Die Ausgabe könnte sein:
+Der Ausgabewert könnte sein:
 
 ```plain
 3
@@ -60,6 +58,6 @@ Die Ausgabe könnte sein:
 
 [XPath 1.0 4.3](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-lang)
 
-## Gecko Unterstützung
+## Gecko-Unterstützung
 
 Unterstützt.

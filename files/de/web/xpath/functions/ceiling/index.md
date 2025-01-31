@@ -2,12 +2,10 @@
 title: ceiling
 slug: Web/XPath/Functions/ceiling
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `ceiling` evaluiert eine Dezimalzahl und gibt die kleinste ganze Zahl zurück, die größer oder gleich der Dezimalzahl ist.
+Die Funktion `ceiling` bewertet eine Dezimalzahl und gibt die kleinste ganze Zahl zurück, die größer oder gleich der Dezimalzahl ist.
 
 ## Syntax
 
@@ -18,11 +16,11 @@ ceiling( number )
 ### Parameter
 
 - `number`
-  - : Die zu evaluierende Zahl.
+  - : Die zu bewertende Zahl.
 
 ### Rückgabewert
 
-Die nächstgrößere ganze Zahl größer oder gleich `number`.
+Die nächstgelegene ganze Zahl, die größer oder gleich `number` ist.
 
 Zum Beispiel:
 

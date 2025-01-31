@@ -2,12 +2,10 @@
 title: Promote
 slug: WebAssembly/Reference/Numeric/Promote
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`promote`**-Anweisung wird verwendet, um Zahlen des Typs `f32` in den Typ `f64` zu konvertieren (promote).
+Die **`promote`**-Anweisung wird verwendet, um Zahlen des Typs `f32` in den Typ `f64` zu konvertieren (promoten).
 
 {{EmbedInteractiveExample("pages/wat/promote.html", "tabbed-taller")}}
 

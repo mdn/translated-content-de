@@ -1,30 +1,31 @@
 ---
 title: Web-App-Manifeste
+short-title: Manifest
 slug: Web/Manifest
 l10n:
-  sourceCommit: bd74b053c1e3e395db091669476f0c04189a95c6
+  sourceCommit: ab4090ce439d9ea25229a8583a138b2f8fa8a74e
 ---
 
-{{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}
+{{QuickLinksWithSubpages("/de/docs/Web/Manifest/Reference")}}
 
-Ein **Web-Anwendungsmanifest**, definiert in der [Web Application Manifest](https://w3c.github.io/manifest/)-Spezifikation, ist eine {{Glossary("JSON", "JSON")}}-Textdatei, die Informationen über eine Webanwendung bereitstellt.
+Ein **Web-App-Manifest**, definiert in der [Web Application Manifest](https://w3c.github.io/manifest/)-Spezifikation, ist eine {{Glossary("JSON", "JSON")}}-Textdatei, die Informationen über eine Webanwendung bereitstellt.
 
-Der häufigste Verwendungszweck für ein Web-Anwendungsmanifest besteht darin, dem Browser Informationen bereitzustellen, die zur Installation einer [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) auf einem Gerät benötigt werden, wie z. B. der Name und das Symbol der App.
+Die häufigste Verwendung eines Web-App-Manifests besteht darin, dem Browser die Informationen bereitzustellen, die erforderlich sind, um eine [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) auf einem Gerät zu installieren, wie z.B. den Namen und das Icon der App.
 
-Ein Web-Anwendungsmanifest enthält ein einzelnes JSON-Objekt, bei dem die obersten Schlüssel _Member_ genannt werden.
+Ein Web-App-Manifest enthält ein einzelnes JSON-Objekt, bei dem die Schlüssel auf oberster Ebene als _Mitglieder_ bezeichnet werden.
 
-## Member
+## Mitglieder
 
-Dieser Abschnitt führt die Member auf, die im Manifest erscheinen können.
+Dieser Abschnitt listet die Mitglieder auf, die im Manifest erscheinen können.
 
-In der Spezifikation sind alle Member optional, aber einige Anwendungen erfordern das Vorhandensein bestimmter Member. Zum Beispiel [müssen PWAs bestimmte Manifest-Member bereitstellen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#required_manifest_members).
+Alle Mitglieder sind in der Spezifikation optional, aber einige Anwendungen erfordern, dass bestimmte Mitglieder vorhanden sind. Zum Beispiel [müssen PWAs bestimmte Manifestmitglieder bereitstellen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#required_manifest_members).
 
-{{ListSubpages("/de/docs/Web/Manifest")}}
+{{ListSubpages("/de/docs/Web/Manifest/Reference")}}
 
 > [!NOTE]
-> Die `dir`, `lang` und `iarc_rating_id` Member sind nicht implementiert.
+> Die Mitglieder `dir`, `lang` und `iarc_rating_id` sind nicht implementiert.
 
-## Beispiel für ein Manifest
+## Beispielmanifest
 
 ```json
 {
@@ -57,9 +58,9 @@ Web-App-Manifeste werden in Ihren HTML-Seiten mithilfe eines {{HTMLElement("link
 <link rel="manifest" href="manifest.json" />
 ```
 
-Die Erweiterung `.webmanifest` ist im Abschnitt [Medientyp-Registrierung](https://w3c.github.io/manifest/#media-type-registration) der Spezifikation angegeben (die Antwort der Manifestdatei sollte `Content-Type: application/manifest+json` zurückgeben). Browser unterstützen im Allgemeinen Manifeste mit anderen geeigneten Erweiterungen wie `.json` (`Content-Type: application/json`).
+Die Erweiterung `.webmanifest` ist in dem Abschnitt [Medientypenregistrierung](https://w3c.github.io/manifest/#media-type-registration) der Spezifikation angegeben (die Antwort der Manifestdatei sollte `Content-Type: application/manifest+json` zurückgeben). Browser unterstützen im Allgemeinen Manifeste mit anderen geeigneten Erweiterungen wie `.json` (`Content-Type: application/json`).
 
-Wenn das Manifest Anmeldeinformationen zum Abrufen benötigt, muss das [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)-Attribut auf `use-credentials` gesetzt werden, selbst wenn sich die Manifestdatei im gleichen Ursprung wie die aktuelle Seite befindet.
+Wenn das Manifest Anmeldeinformationen zum Abrufen benötigt, muss das [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)-Attribut auf `use-credentials` gesetzt werden, auch wenn sich die Manifestdatei im gleichen Ursprung wie die aktuelle Seite befindet.
 
 ```html
 <link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials" />
@@ -67,11 +68,11 @@ Wenn das Manifest Anmeldeinformationen zum Abrufen benötigt, muss das [`crossor
 
 ## Startbildschirme
 
-In einigen Browsern und Betriebssystemen wird beim Start einer installierten PWA ein Startbildschirm angezeigt. Dieser Startbildschirm wird automatisch generiert und sein Erscheinungsbild wird durch Member im Web-App-Manifest definiert, insbesondere:
+In einigen Browsern und Betriebssystemen wird ein Startbildschirm angezeigt, wenn eine installierte PWA gestartet wird. Dieser Startbildschirm wird automatisch generiert und sein Erscheinungsbild wird durch Mitglieder im Web-App-Manifest definiert, insbesondere:
 
-- [`name`](/de/docs/Web/Manifest/name)
-- [`background_color`](/de/docs/Web/Manifest/background_color)
-- [`icons`](/de/docs/Web/Manifest/icons)
+- [`name`](/de/docs/Web/Manifest/Reference/name)
+- [`background_color`](/de/docs/Web/Manifest/Reference/background_color)
+- [`icons`](/de/docs/Web/Manifest/Reference/icons)
 
 ## Browser-Kompatibilität
 

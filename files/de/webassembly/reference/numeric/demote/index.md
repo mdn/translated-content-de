@@ -2,12 +2,10 @@
 title: Demote
 slug: WebAssembly/Reference/Numeric/Demote
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`demote`**-Anweisung wird verwendet, um Zahlen des Typs `f64` in den Typ `f32` zu konvertieren (herabzustufen).
+Die **`demote`**-Anweisung wird verwendet, um Zahlen vom Typ `f64` in den Typ `f32` zu konvertieren (herabzustufen).
 
 {{EmbedInteractiveExample("pages/wat/demote.html", "tabbed-taller")}}
 

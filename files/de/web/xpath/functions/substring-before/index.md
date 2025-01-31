@@ -2,12 +2,10 @@
 title: substring-before
 slug: Web/XPath/Functions/substring-before
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `substring-before` gibt einen String zurück, der der Teil eines gegebenen Strings vor einem gegebenen Teilstring ist.
+Die Funktion `substring-before` gibt einen String zurück, der der Teil eines gegebenen Strings vor einem gegebenen Substring ist.
 
 ## Syntax
 
@@ -18,9 +16,9 @@ substring-before( haystack, needle )
 ### Parameter
 
 - `haystack`
-  - : Der zu bewertende String. Ein Teil dieses Strings wird zurückgegeben.
+  - : Der zu evaluierende String. Ein Teil dieses Strings wird zurückgegeben.
 - `needle`
-  - : Der zu suchende Teilstring. Alles vor dem ersten Vorkommen von `needle` in `haystack` wird zurückgegeben.
+  - : Der zu suchende Substring. Alles vor dem ersten Vorkommen von `needle` in `haystack` wird zurückgegeben.
 
 ### Rückgabewert
 
@@ -28,12 +26,12 @@ Ein String.
 
 ### Beispiele
 
-| XPath Beispiel                  | Ausgabe         |
-| ------------------------------- | --------------- |
-| `substring-before('aa-bb','-')` | `aa`            |
-| `substring-before('aa-bb','a')` | `(leerzeichen)` |
-| `substring-before('aa-bb','b')` | `aa-`           |
-| `substring-before('aa-bb','q')` | (leerzeichen)   |
+| XPath-Beispiel                  | Ausgabe           |
+| ------------------------------- | ----------------- |
+| `substring-before('aa-bb','-')` | `aa`              |
+| `substring-before('aa-bb','a')` | `(leerer String)` |
+| `substring-before('aa-bb','b')` | `aa-`             |
+| `substring-before('aa-bb','q')` | (leerer String)   |
 
 ## Spezifikationen
 

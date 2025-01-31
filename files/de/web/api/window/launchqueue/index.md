@@ -1,20 +1,20 @@
 ---
-title: "Window: launchQueue-Eigenschaft"
+title: "Window: launchQueue Eigenschaft"
 short-title: launchQueue
 slug: Web/API/Window/launchQueue
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: ab4090ce439d9ea25229a8583a138b2f8fa8a74e
 ---
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft `launchQueue` der [`Window`](/de/docs/Web/API/Window)-Schnittstelle bietet Zugriff auf die [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Klasse. Diese ermöglicht die Implementierung benutzerdefinierter Start-Navigationshandhabung in einer [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA), wobei der Kontext der Handhabung durch den Wert `client_mode` im Manifestfeld [`launch_handler`](/de/docs/Web/Manifest/launch_handler) angezeigt wird.
+Die schreibgeschützte `launchQueue`-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle bietet Zugriff auf die [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Klasse, die es ermöglicht, eine benutzerdefinierte Startnavigationsbehandlung in einer [progressiven Web-App](/de/docs/Web/Progressive_web_apps) (PWA) zu implementieren. Der Behandlungskontext wird durch den Wert des `client_mode`-Feldes im [`launch_handler`](/de/docs/Web/Manifest/Reference/launch_handler)-Manifest angegeben.
 
-Die Funktionalität der benutzerdefinierten Start-Navigationshandhabung wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das in die Rückruffunktion [`LaunchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) übergeben wird.
+Die benutzerdefinierte Funktionalität zur Startnavigationsbehandlung wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das in die [`LaunchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer)-Callback-Funktion übergeben wird.
 
 ## Wert
 
-Eine Instanz des [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Objekts.
+Eine Instanz eines [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Objekts.
 
 ## Beispiele
 

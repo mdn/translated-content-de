@@ -2,12 +2,10 @@
 title: normalize-space
 slug: Web/XPath/Functions/normalize-space
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `normalize-space` entfernt führende und nachgestellte Leerzeichen aus einem String, ersetzt Sequenzen von Leerzeichenzwischenräumen durch ein einzelnes Leerzeichen und gibt den resultierenden String zurück.
+Die Funktion `normalize-space` entfernt führende und nachfolgende Leerzeichen aus einem String, ersetzt Sequenzen von Leerzeichen durch ein einzelnes Leerzeichen und gibt den resultierenden String zurück.
 
 ## Syntax
 
@@ -18,7 +16,7 @@ normalize-space( [string] )
 ### Parameter
 
 - `string` (optional)
-  - : Der String, der normalisiert werden soll. Wenn dieser weggelassen wird, wird der String verwendet, der dem Kontextknoten entspricht, konvertiert in einen String.
+  - : Der zu normalisierende String. Wenn dieser weggelassen wird, wird der String verwendet, der dem in einen String umgewandelten Kontextknoten entspricht.
 
 ### Rückgabewert
 

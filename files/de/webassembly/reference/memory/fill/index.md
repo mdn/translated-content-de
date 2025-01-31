@@ -1,20 +1,19 @@
 ---
-title: "fill: Wasm Textinstruktion"
+title: "fill: Wasm-Textanweisung"
 short-title: fill
 slug: WebAssembly/Reference/Memory/Fill
 l10n:
-  sourceCommit: 0865cb85617d68725d2e11d4ea8eb48c099c7fb3
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
+Die **`fill`**-[Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein bestimmtes Byte.
 
-Die **`fill`**-[Speicherinstruktion](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein gegebenes Byte.
-
-Die Instruktion gibt keinen Wert zurück. Sie verursacht eine Ausnahme, wenn der angegebene Speicherbereich außerhalb der Grenzen liegt.
+Die Anweisung gibt keinen Wert zurück.
+Sie wirft eine Ausnahme, wenn der angegebene Speicherbereich außerhalb der Grenzen liegt.
 
 ## Syntax
 
-Fill innerhalb des Standardspeichers
+Füllen im Standardspeicher
 
 ```wasm
 ;; Fill region at offset/range in default memory with 255
@@ -27,7 +26,7 @@ memory.fill ;; Fill default memory
 (memory.fill (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-Fill spezifizierter Speicher (wenn Multi-Memory unterstützt wird)
+Füllen angegebenen Speichers (falls Multi-Speicher unterstützt wird)
 
 ```wasm
 ;; Fill specific memory referenced by its index
@@ -46,9 +45,9 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 (memory.fill (memory $memoryName) (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-### Instruktionen und Opcodes
+### Anweisungen und Opcodes
 
-| Instruktion   | Binärer Opcode |
+| Anweisung     | Binärer Opcode |
 | ------------- | -------------- |
 | `memory.fill` | `0xFC 0x0b`    |
 
@@ -59,7 +58,7 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 ## Browser-Kompatibilität
 
 > [!NOTE]
-> Speichernutzung in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) JavaScript-API.
-> Der [multiMemory](#webassembly.multimemory)-Schlüssel zeigt Versionen an, in denen `store` mit einem spezifizierten Speicher verwendet werden kann.
+> Die Speicherunterstützung in Wasm-Modulen entspricht der JavaScript-API [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory).
+> Der Schlüssel [multiMemory](#webassembly.multimemory) gibt die Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.
 
 {{Compat}}

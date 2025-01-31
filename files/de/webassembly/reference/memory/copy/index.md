@@ -1,21 +1,18 @@
 ---
-title: "copy: Wasm Text-Instruktion"
+title: "copy: Wasm-Textanweisung"
 short-title: copy
 slug: WebAssembly/Reference/Memory/Copy
 l10n:
-  sourceCommit: 0865cb85617d68725d2e11d4ea8eb48c099c7fb3
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
+Die **`copy`** [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) kopiert Daten von einem Bereich eines Speichers zu einem anderen.
 
-Die **`copy`** [Speicherinstruktion](/de/docs/WebAssembly/Reference/Memory) kopiert Daten von einem Bereich eines Speichers in einen anderen.
-
-Die Instruktion gibt keinen Wert zurück.
-Wenn entweder der Quell- oder der Zielbereich außerhalb der Grenzen liegt, löst die Instruktion eine Ausnahme aus.
+Die Anweisung gibt keinen Wert zurück. Wenn entweder die Quell- oder Zielbereich außerhalb der Grenzen liegt, löst die Anweisung eine Falle aus.
 
 ## Syntax
 
-Kopie innerhalb des Standardspeichers
+Kopieren innerhalb des Standard-Speichers
 
 ```wasm
 ;; Copy data in default memory from [100, 125] to [50, 75]
@@ -28,7 +25,7 @@ memory.copy  ;; Copy memory
 (memory.copy (i32.const 50) (i32.const 100) (i32.const 25))
 ```
 
-Kopie eines angegebenen Speichers (falls Multi-Memory unterstützt wird)
+Kopieren des angegebenen Speichers (wenn Multi-Speicher unterstützt wird)
 
 ```wasm
 ;; Copy data in specific memory  [100, 125] to [50, 75]
@@ -47,9 +44,9 @@ memory.copy (memory $memoryName) ;; Copy memory with memory named "$memoryName"
 (memory.copy (memory $memoryName) (i32.const 50) (i32.const 100) (i32.const 25))
 ```
 
-### Instruktionen und Opcodes
+### Anweisungen und Opcodes
 
-| Instruktion   | Binäroperation |
+| Anweisung     | Binäroperation |
 | ------------- | -------------- |
 | `memory.copy` | `0xFC 0x0a`    |
 
@@ -60,7 +57,7 @@ memory.copy (memory $memoryName) ;; Copy memory with memory named "$memoryName"
 ## Browser-Kompatibilität
 
 > [!NOTE]
-> Die Unterstützung von Speicher in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) JavaScript-API.
-> Der [multiMemory](#webassembly.multimemory)-Schlüssel gibt Versionen an, in denen `copy` mit einem angegebenen Speicher verwendet werden kann.
+> Die Speicherunterstützung in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) JavaScript-API.
+> Der Schlüssel [multiMemory](#webassembly.multimemory) gibt Versionen an, in denen `copy` mit einem angegebenen Speicher verwendet werden kann.
 
 {{Compat}}

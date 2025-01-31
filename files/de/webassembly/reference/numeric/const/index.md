@@ -2,12 +2,10 @@
 title: Const
 slug: WebAssembly/Reference/Numeric/Const
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`const`** Anweisungen werden verwendet, um Zahlen zu deklarieren.
+Die Anweisung **`const`** wird verwendet, um Zahlen zu deklarieren.
 
 {{EmbedInteractiveExample("pages/wat/const.html", "tabbed-standard")}}
 
@@ -18,9 +16,9 @@ Die **`const`** Anweisungen werden verwendet, um Zahlen zu deklarieren.
 i32.const 5
 ```
 
-| Anweisung   | Binäroperationscode |
-| ----------- | ------------------- |
-| `i32.const` | `0x41`              |
-| `i64.const` | `0x42`              |
-| `f32.const` | `0x43`              |
-| `f64.const` | `0x44`              |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.const` | `0x41`         |
+| `i64.const` | `0x42`         |
+| `f32.const` | `0x43`         |
+| `f64.const` | `0x44`         |

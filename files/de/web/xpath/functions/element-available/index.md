@@ -2,10 +2,8 @@
 title: element-available
 slug: Web/XPath/Functions/element-available
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
-
-{{XsltSidebar}}
 
 Die Funktion `element-available` bestimmt, ob ein Element verfügbar ist und gibt true oder false zurück.
 
@@ -18,11 +16,11 @@ element-available( QName )
 ### Parameter
 
 - `QName`
-  - : Muss zu einem gültigen QName ausgewertet werden. Der QName wird unter Verwendung der im Ausdruck gültigen Namensraumdeklarationen in einen erweiterten Namen umgewandelt.
+  - : Muss zu einem gültigen QName ausgewertet werden. Der QName wird unter Verwendung der im Geltungsbereich der Ausdrucks vorhandenen Namespacedeklarationen in einen Expanded-Name umgewandelt.
 
 ### Rückgabewert
 
-Gibt true zurück, wenn und nur wenn der erweiterte Name der Name einer Anweisung ist. Wenn der erweiterte Name eine Namensraum-URI hat, die mit der XSLT-Namensraum-URI übereinstimmt, bezieht er sich auf ein durch XSLT definiertes Element. Andernfalls bezieht es sich auf ein Erweiterungselement. Wenn der erweiterte Name eine null Namensraum-URI hat, gibt die Funktion element-available false zurück.
+Gibt true zurück, wenn und nur wenn der Expanded-Name der Name einer Anweisung ist. Wenn der Expanded-Name eine Namespace-URI hat, die der XSLT-Namespace-URI entspricht, bezieht sich dies auf ein von XSLT definiertes Element. Andernfalls bezieht es sich auf ein Erweiterungselement. Wenn der Expanded-Name eine null Namespace-URI hat, gibt die Funktion element-available false zurück.
 
 ## Spezifikationen
 

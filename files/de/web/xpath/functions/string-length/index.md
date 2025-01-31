@@ -2,10 +2,8 @@
 title: string-length
 slug: Web/XPath/Functions/string-length
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
-
-{{XsltSidebar}}
 
 Die Funktion `string-length` gibt eine Zahl zurück, die der Anzahl der Zeichen in einem gegebenen String entspricht.
 
@@ -18,11 +16,11 @@ string-length( [string] )
 ### Parameter
 
 - `string` (optional)
-  - : Der zu evaluierende String. Wenn ausgelassen, wird der String verwendet, der dem Kontextknoten entspricht, der in einen String umgewandelt wurde.
+  - : Der zu bewertende String. Wenn weggelassen, wird der String verwendet, der dem in einen String umgewandelten Kontextknoten entspricht.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert, der der Anzahl der Zeichen im String entspricht.
+Ein Integer, der der Anzahl der Zeichen im String entspricht.
 
 ## Spezifikationen
 

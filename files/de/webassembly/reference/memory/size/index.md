@@ -1,23 +1,21 @@
 ---
-title: "size: Wasm Textoperation"
+title: "size: Wasm-Textanweisung"
 short-title: size
 slug: WebAssembly/Reference/Memory/Size
 l10n:
-  sourceCommit: 0865cb85617d68725d2e11d4ea8eb48c099c7fb3
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
+Die **`size`** [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) wird verwendet, um die aktuelle Anzahl der Seiten in einem Speicher zu erhalten.
 
-Die **`size`** [Speicheroperation](/de/docs/WebAssembly/Reference/Memory) wird verwendet, um die aktuelle Anzahl der Seiten in einem Speicher zu ermitteln.
-
-Die Anweisung fügt die Größe (in Seiten) oben auf dem Stapel hinzu.
+Die Anweisung fügt die Größe (in Seiten) oben auf den Stapel hinzu.
 Derzeit ist jede Seite 64KiB groß.
 
 {{EmbedInteractiveExample("pages/wat/size.html", "tabbed-standard")}}
 
 ## Syntax
 
-Größe des Standardspeichers ermitteln
+Größe des Standardspeichers abrufen
 
 ```wasm
 ;; Get the number of pages in the default memory
@@ -25,7 +23,7 @@ memory.size
 ;; The number of pages is now added at top of stack
 ```
 
-Größe eines bestimmten Speichers ermitteln (wenn Multi-Speicher unterstützt wird)
+Größe des angegebenen Speichers abrufen (wenn Multi-Speicher unterstützt wird)
 
 ```wasm
 ;; Size of memory with index 1
@@ -43,10 +41,10 @@ memory.size (memory $memory2)
 
 ## Beispiele
 
-### Größe des Standardspeichers ermitteln
+### Größe des Standardspeichers abrufen
 
 Der erste Speicher, der einem Wasm-Modul hinzugefügt wird, ist der Standardspeicher und hat den Index 0.
-Wir können die Anzahl der Seiten in diesem Speicher durch Aufruf von `memory.size` erhalten.
+Wir können die Anzahl der Seiten in diesem Speicher durch Aufrufen von `memory.size` erhalten.
 
 Der folgende Code zeigt eine WAT-Datei, die dies demonstriert:
 
@@ -72,13 +70,13 @@ Der folgende Code zeigt eine WAT-Datei, die dies demonstriert:
 )
 ```
 
-Oben mussten wir den Speicherindex in der `memory.size`-Anweisung nicht angeben. Wir hätten dies jedoch tun können, indem wir den Speicherindex (0) des Standardspeichers verwenden:
+Oben mussten wir den Speicherindex in der `memory.size`-Anweisung nicht angeben, aber wir hätten dies mit dem Speicherindex (0) des Standardspeichers tun können:
 
 ```wasm
 memory.size (memory 0)
 ```
 
-Der Vollständigkeit halber können wir die kompilierte Version der obigen Datei `size.wasm` mit einem Code verwenden, der dem unten gezeigten ähnlich ist (die Log-Funktion wird in das Modul importiert und vom Modul aufgerufen):
+Der Vollständigkeit halber können wir die kompilierte Version der obigen Datei `size.wasm` mit einem ähnlichen Code wie unten gezeigt verwenden (die Log-Funktion wird in das Modul importiert und vom Modul aufgerufen):
 
 ```js
 start();
@@ -98,13 +96,13 @@ async function start() {
 start();
 ```
 
-### Größe eines bestimmten Speichers ermitteln
+### Größe eines bestimmten Speichers abrufen
 
-Da Speicher in einem Wasm-Modul definiert sind, wird ihnen fortlaufend eine Indexnummer ab Null zugewiesen.
-Sie können die Größe eines bestimmten Speichers ermitteln, indem Sie die `memory`-Anweisung und den gewünschten Index oder Namen (falls vorhanden) nach der `memory.size`-Anweisung angeben.
+Da Speicher in einem Wasm-Modul definiert sind, wird ihnen sequentiell eine Indexnummer ab null zugewiesen.
+Sie können die Größe eines bestimmten Speichers abrufen, indem Sie die `memory`-Anweisung und den gewünschten Index oder Namen (falls vorhanden) nach der `memory.size`-Anweisung angeben.
 Wenn Sie keinen bestimmten Speicher angeben, wird der Standardspeicher mit Index 0 verwendet.
 
-Das untenstehende Modul zeigt, wie Sie direkt auf einen Speicher per Index und Namen verweisen können.
+Das untenstehende Modul zeigt, wie Sie direkt auf einen Speicher durch Index und Name verweisen könnten.
 
 ```wasm
 (module
@@ -133,7 +131,7 @@ Die WAT-Dateien könnten mit demselben JavaScript-Code wie im ersten Beispiel ge
 ## Browser-Kompatibilität
 
 > [!NOTE]
-> Die Speicherunterstützung in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) JavaScript-API.
-> Der [multiMemory](#webassembly.multimemory) Schlüssel gibt die Versionen an, in denen `size` mit einem angegebenen Speicher verwendet werden kann.
+> Speichernutzung in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) JavaScript API.
+> Der [multiMemory](#webassembly.multimemory) Schlüssel zeigt an, in welchen Versionen `size` mit einem angegebenen Speicher verwendet werden kann.
 
 {{Compat}}

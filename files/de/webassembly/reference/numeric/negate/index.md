@@ -2,12 +2,10 @@
 title: Negate
 slug: WebAssembly/Reference/Numeric/Negate
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`neg`**-Anweisungen, kurz für _negieren_, werden verwendet, um eine Zahl zu negieren. Das heißt, eine positive Zahl in eine negative und eine negative Zahl in eine positive Zahl umzuwandeln.
+Die **`neg`** Anweisungen, kurz für _negieren_, werden verwendet, um eine Zahl zu negieren. Das bedeutet, eine positive Zahl in eine negative Zahl und eine negative Zahl in eine positive Zahl umzuwandeln.
 
 {{EmbedInteractiveExample("pages/wat/neg.html", "tabbed-standard")}}
 

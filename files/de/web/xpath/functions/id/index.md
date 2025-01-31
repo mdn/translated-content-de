@@ -2,10 +2,8 @@
 title: id
 slug: Web/XPath/Functions/id
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
-
-{{XsltSidebar}}
 
 Die Funktion `id` findet Knoten, die den angegebenen IDs entsprechen, und gibt eine Knotenmenge zurück, die die identifizierten Knoten enthält.
 
@@ -19,11 +17,11 @@ id( expression )
 
 - `expression`
   - : Wenn `expression` eine Knotenmenge ist, wird der Zeichenfolgenwert jedes Knotens in der Knotenmenge als individuelle ID behandelt. Die zurückgegebene Knotenmenge sind die Knoten, die diesen IDs entsprechen.
-    Wenn `expression` eine Zeichenfolge oder etwas anderes als eine Knotenmenge ist, wird `expression` als durch Leerzeichen getrennte Liste von IDs behandelt. Die zurückgegebene Knotenmenge sind die Knoten, die diesen IDs entsprechen.
+    Wenn `expression` eine Zeichenfolge ist oder etwas anderes als eine Knotenmenge, wird `expression` als durch Leerzeichen getrennte Liste von IDs behandelt. Die zurückgegebene Knotenmenge sind die Knoten, die diesen IDs entsprechen.
 
 ### Rückgabewert
 
-Eine Knotenmenge, die den oder die durch die angegebene ID oder IDs identifizierten Knoten enthält.
+Eine Knotenmenge, die den oder die Knoten enthält, die durch die angegebene ID oder IDs identifiziert wurden.
 
 ## Beschreibung
 

@@ -1,17 +1,17 @@
 ---
-title: Syntax-Abschnitte
+title: Syntaxabschnitte
 slug: MDN/Writing_guidelines/Page_structures/Syntax_sections
 l10n:
-  sourceCommit: 9df96dcad40bf97f66b317ef6b6bbe64444569eb
+  sourceCommit: 719645a32546d9e514ac530a5eb66aa4c26d4f51
 ---
 
-{{MDNSidebar}}
-
-Der Syntaxabschnitt einer MDN-Referenzseite enthält ein Syntaxfeld, das die genaue Syntax definiert, die ein Feature hat (z.B. welche Parameter es akzeptieren kann, welche optional sind). Dieser Artikel erklärt, wie Syntaxfelder für Referenzartikel geschrieben werden.
+Der Syntaxabschnitt einer MDN-Referenzseite enthält eine Syntaxbox, die die genaue Syntax definiert, die ein Feature hat (z. B. welche Parameter es akzeptieren kann, welche optional sind?). Dieser Artikel erklärt, wie man Syntaxboxen für Referenzartikel schreibt.
 
 ## API-Referenzsyntax
 
-Syntaxabschnitte für API-Referenzseiten werden manuell geschrieben und können je nach dokumentiertem Feature leicht variieren. Der Abschnitt beginnt mit einer Überschrift (typischerweise eine Überschrift der Ebene zwei `##`) mit dem Namen "Syntax" und muss am Anfang der Referenzseite enthalten sein (direkt unter dem einleitenden Material). Unter der Überschrift befindet sich ein Codeblock, der die genaue Syntax des Features zeigt, abgetrennt durch einen Codezaun ` ```[Markup-Sprache] ` Klasse.
+Syntaxabschnitte für API-Referenzseiten werden manuell geschrieben und können je nach dokumentierter Funktion möglicherweise leicht variieren.
+Der Abschnitt beginnt mit einer Überschrift (typischerweise eine Überschrift der Stufe zwei `##`) namens "Syntax" und muss oben auf der Referenzseite eingefügt werden (direkt unter dem Einleitungsmaterial).
+Unter der Überschrift befindet sich ein Codeblock, der die genaue Syntax des Features zeigt, gekennzeichnet durch die Codeumrandung ` ```[markup-language] ` Klasse.
 
 Das folgende Beispiel zeigt den Markdown-Code für einen typischen Syntaxabschnitt (für eine JavaScript-Funktion):
 
@@ -26,16 +26,16 @@ slice(start, end)
 ````
 
 > [!NOTE]
-> Die Markup-Sprache in diesem Fall ist `js-nolint`, wobei `js` anzeigt, dass JavaScript-Syntaxhervorhebung verwendet werden sollte.
-> Für JavaScript-Syntaxabschnitte ist `-nolint` ebenfalls erforderlich, weil der Syntaxabschnitt absichtlich nicht "ganz" JavaScript ist und wir nicht wollen, dass ihn der Linter "korrigiert" (Rückgabewerte und Semikolons am Ende der Zeilen werden weggelassen).
+> Die in diesem Fall verwendete Auszeichnungssprache ist `js-nolint`, wobei `js` anzeigt, dass JavaScript-Syntaxhervorhebung verwendet werden soll.
+> Für JavaScript-Syntaxabschnitte ist `-nolint` ebenfalls erforderlich, da der Syntaxabschnitt absichtlich nicht ganz "JavaScript" ist und wir nicht möchten, dass der Linter ihn "korrigiert" (Rückgabewerte und Semikolons am Ende der Zeile weggelassen).
 
 ### Allgemeine Stilregeln
 
-Einige Regeln, die bezüglich der Auszeichnung innerhalb des Syntaxblocks zu beachten sind:
+Einige Regeln, die in Bezug auf die Auszeichnung im Syntaxblock zu befolgen sind:
 
-- Beenden Sie eine Zeile **nicht** mit einem Semikolon `;`. Syntaxabschnitte sind nicht dazu gedacht, ausführbaren Code zu zeigen. Daher macht es keinen Sinn, Semikolons zu zeigen.
-- Verwenden Sie kein `<code>` innerhalb des Syntaxblocks (oder in einem beliebigen Codebeispielblock auf MDN). Nicht nur ist es im Allgemeinen nutzlos, auch unsere Auszeichnung möchte es nicht, und es wird nicht so gerendert, wie Sie es sich wünschen, wenn Sie es einfügen.
-- Geben Sie nur die Funktion und Argumente an. Beispiel einer "korrigierten" Beispiele unten
+- Beenden Sie **nicht** eine Zeile mit Semikolon `;`. Syntaxabschnitte sollen keinen ausführbaren Code zeigen. Es macht also keinen Sinn, Semikolons anzuzeigen.
+- Verwenden Sie **nicht** \<code> innerhalb des Syntaxblocks (oder innerhalb eines beliebigen Codebeispielblocks auf MDN). Es ist nicht nur grundsätzlich nutzlos, sondern unser Markup möchte es nicht und wird nicht so gerendert, wie Sie es möchten, wenn Sie es einbeziehen.
+- Geben Sie nur die Funktion und die Argumente an. Beispiel, das "korrigierte" Beispiele zeigt unten
 
   ```js-nolint
   querySelector(selector)
@@ -49,7 +49,7 @@ Einige Regeln, die bezüglich der Auszeichnung innerhalb des Syntaxblocks zu bea
 
 #### Syntaxblock
 
-Beginnen Sie mit einem Syntaxblock wie diesem (von der [`IntersectionObserver()`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver) Konstruktorseite):
+Beginnen Sie mit einem Syntaxblock wie diesem (von der Seite des [`IntersectionObserver()`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver)-Konstruktors):
 
 ```js-nolint
 new IntersectionObserver(callback, options)
@@ -61,7 +61,7 @@ oder diesem (von [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasSt
 hasStorageAccess()
 ```
 
-Wenn die Methode statisch ist, zum Beispiel [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static), geben Sie auch ihre Schnittstelle an:
+Wenn die Methode statisch ist, zum Beispiel [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static), dann geben Sie auch ihre Schnittstelle an:
 
 ```js-nolint
 URL.createObjectURL(object)
@@ -69,9 +69,9 @@ URL.createObjectURL(object)
 
 ##### Mehrere Zeilen/Optionale Parameter
 
-Methoden, die auf viele verschiedene Arten verwendet werden können, sollten in mehrere Zeilen aufgeschlüsselt werden, die alle möglichen Variationen zeigen.
+Methoden, die auf viele verschiedene Arten verwendet werden können, sollten in mehrere Zeilen erweitert werden, die alle möglichen Variationen zeigen.
 
-Jede Option sollte in einer eigenen Zeile stehen, wobei sowohl pro-Option-Kommentare als auch Zuweisungen weggelassen werden. Zum Beispiel hat {{jsxref("Array.prototype.slice()")}} zwei optionale Parameter und würde wie unten gezeigt dokumentiert werden:
+Jede Option sollte in einer eigenen Zeile stehen, wobei sowohl Kommentare zu den Optionen als auch die Zuweisung weggelassen werden. Zum Beispiel hat {{jsxref("Array.prototype.slice()")}} zwei optionale Parameter und würde wie unten gezeigt dokumentiert werden:
 
 ```js-nolint
 slice()
@@ -87,7 +87,7 @@ drawImage(image, dx, dy, dWidth, dHeight)
 drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
 ```
 
-Ebenso beim {{jsxref("Date")}} Konstruktor:
+Ebenso für den {{jsxref("Date")}}-Konstruktor:
 
 ```js-nolint
 new Date()
@@ -102,19 +102,19 @@ new Date(year, monthIndex, day, hours, minutes, seconds, milliseconds)
 
 ##### Formale Syntax
 
-Formale Syntaxnotation (unter Verwendung von [BNF](https://de.wikipedia.org/wiki/Backus-Naur-Form)) sollte nicht im Syntaxabschnitt verwendet werden – stattdessen verwenden Sie das erweiterte mehrzeilige Format [oben beschrieben](#multiple_linesoptional_parameters).
+Formale Syntaxnotation (unter Verwendung von [BNF](https://de.wikipedia.org/wiki/Backus-Naur-Form)) sollte im Syntaxabschnitt nicht verwendet werden — stattdessen das oben beschriebene erweiterte mehrzeilige Format verwenden.
 
-Während die formale Notation einen prägnanten Mechanismus zur Beschreibung komplexer Syntax bietet, ist sie vielen Entwicklern nicht vertraut und kann mit der gültigen Syntax bestimmter Programmiersprachen _kollidieren_. Beispielsweise bedeutet `[ ]` sowohl einen "optional Parameter" als auch ein JavaScript {{jsxref("Array")}}. Sie können dies in der formalen Syntax für {{jsxref("Array.prototype.slice()")}} unten sehen:
+Während die formale Notation einen prägnanten Mechanismus zum Beschreiben komplexer Syntax bietet, ist sie vielen Entwicklern nicht vertraut und könnte mit gültiger Syntax für bestimmte Programmiersprachen _in Konflikt_ geraten. Zum Beispiel gibt `[ ]` sowohl einen "optionalen Parameter" als auch ein JavaScript {{jsxref("Array")}} an. Sie können dies in der formalen Syntax für {{jsxref("Array.prototype.slice()")}} unten sehen:
 
 ```js-nolint
 arr.slice([begin[, end]])
 ```
 
-Für spezifische Fälle, in denen es als vorteilhaft angesehen wird, kann ein separater **Formale Syntax** Abschnitt unter Verwendung der formalen Benachrichtigung deklariert werden.
+Für spezifische Fälle, in denen es als vorteilhaft angesehen wird, kann ein separater **Formal Syntax**-Abschnitt mit der formalen Benachrichtigung deklariert werden.
 
-##### Knapp gehaltene Syntaxblöcke
+##### Prägnante Syntaxblöcke
 
-Ziel ist es, den Syntaxblock so rein und eindeutig wie möglich als Definition der Syntax des Features zu machen – schließen Sie keine irrelevante Syntax ein. Beispielsweise können Sie diese Syntaxform, die an vielen Stellen auf der Seite verwendet wird, sehen, um Versprechen zu beschreiben:
+Das Ziel ist es, den Syntaxblock so rein und unmissverständlich wie möglich als Definition der Syntax des Features zu machen — keine irrelevante Syntax einschließen. Zum Beispiel sehen Sie möglicherweise diese Syntaxform, die an vielen Stellen der Website verwendet wird, um Promises zu beschreiben:
 
 ```js-nolint
 caches.match(request, options).then(function (response) {
@@ -122,22 +122,22 @@ caches.match(request, options).then(function (response) {
 })
 ```
 
-Aber diese Version ist viel prägnanter und enthält nicht den überflüssigen {{JSxRef("Promise.prototype.then()")}} Methodenaufruf:
+Aber diese Version ist viel prägnanter und enthält nicht den überflüssigen {{JSxRef("Promise.prototype.then()")}}-Methodenaufruf:
 
 ```js-nolint
 match(request, options)
 ```
 
-##### Rückruf-Syntaxblöcke
+##### Rückrufsyntaxblöcke
 
-Für Methoden, die eine Rückruffunktion akzeptieren, zeigen Sie den Rückruf als Parameter und nicht als Pfeilfunktion oder `function` Ausdruck an.
+Für Methoden, die eine Rückruffunktion akzeptieren, zeigen Sie den Rückruf als Parameter und nicht als Pfeilfunktion oder `function`-Ausdruck.
 
 ```js-nolint
 filter(callbackFn)
 filter(callbackFn, thisArg)
 ```
 
-Dann, im Abschnitt "Parameter", listen Sie die Parameter der Rückruffunktion auf und was sie zurückgeben soll.
+Dann listen Sie im Abschnitt "Parameter" die Parameter der Rückruffunktion auf und was erwartet wird, dass sie zurückgibt.
 
 ```md
 - `callbackFn`
@@ -161,16 +161,16 @@ unshift(element1, element2)
 unshift(element1, element2, /* …, */ elementN)
 ```
 
-Bevorzugen Sie, die Nummerierung bei 1 beginnen zu lassen, was es ermöglicht, die Beschreibung wie "`unshift` fügt N Elemente an den Anfang des Arrays hinzu" sowie "das erste Element" (statt "das nullte Element") zu schreiben.
+Bevorzugen Sie die Nummernbeginn ab 1, was es ermöglicht, Beschreibungen wie "`unshift` fügt N Elemente am Anfang des Arrays hinzu" sowie "das erste Element" (statt "das nullte Element") zu schreiben.
 
-Beachten Sie, dass der Fall, keine Restparameter zu übergeben, immer enthalten ist, auch wenn es nicht viel Sinn macht. Dann schreiben Sie im Abschnitt "Parameter" Folgendes:
+Beachten Sie, dass immer der Fall einbezogen wird, ohne Restparameter zu übergeben, selbst wenn es wenig Sinn ergibt. Schreiben Sie dann im Abschnitt "Parameter" dies:
 
 ```md
 - `element1`, …, `elementN`
   - : The elements to add to the front of the array.
 ```
 
-Fügen Sie hier `\{{optional_inline}}` hinzu, wenn das Übergeben von null Restparameter Sinn hat.
+Fügen Sie hier `\{{optional_inline}}` hinzu, wenn es sinnvoll ist, ohne Restparameter zu übergeben.
 
 Ein weiteres Beispiel mit einigen Positionsparametern vor dem Restparameter:
 
@@ -184,101 +184,99 @@ splice(start, deleteCount, item1, item2, /* …, */ itemN)
 
 #### Parameterabschnitt
 
-Fügen Sie als nächstes einen "Parameter"-Unterabschnitt hinzu, der erklärt, was jeder Parameter in einer Beschreibungsliste sein soll. Parameter, die Objekte mit mehreren Mitgliedern sind, können eine verschachtelte Beschreibungsliste enthalten, die ihrerseits eine Erklärung dazu enthält, was jedes Mitglied sein soll. Optionale Parameter sollten mit einem \\{{optional_inline}} Makroaufruf neben ihrem Namen im Beschreibungsterm markiert werden.
-
-Der Name jedes Parameters in der Liste sollte in Markdown-Codezaunnotation `` ` ` `` enthalten sein.
+Als Nächstes schließen Sie einen "Parameter"-Unterabschnitt ein, der erklärt, was jeder Parameter sein sollte, in einer Beschreibungsauflistung. Parameter, die Objekte mit mehreren Mitgliedern sind, können eine verschachtelte Beschreibungsauflistung enthalten, die wiederum eine Erklärung enthält, was jedes Mitglied sein sollte. Optionale Parameter sollten mit einem \\{{optional_inline}}-Makroaufruf neben ihrem Namen im Beschreibungsterm markiert werden.
 
 > [!NOTE]
-> Selbst wenn das Feature keine Parameter benötigt, müssen Sie einen "Parameter"-Abschnitt hinzufügen, mit dem Inhalt "None".
+> Selbst wenn das Feature keine Parameter akzeptiert, müssen Sie einen "Parameter"-Abschnitt einfügen, mit dem Inhalt "Keine".
 
 #### Rückgabewertabschnitt
 
-Fügen Sie als nächstes einen "Rückgabewert"-Unterabschnitt hinzu, der erklärt, was der Rückgabewert des Konstruktors oder der Methode ist. Siehe die obigen Links als Beispiele.
+Als Nächstes fügen Sie einen "Rückgabewert"-Unterabschnitt ein, der erklärt, was der Rückgabewert des Konstruktors oder der Methode ist. Siehe die obigen Links als Beispiele.
 
 Wenn es keinen Rückgabewert gibt, verwenden Sie den folgenden Text:
 
-Keiner (\\{{jsxref("undefined")}}).
+Keine (\\{{jsxref("undefined")}}).
 
-#### Ausnahmenabschnitt
+#### Ausnahmeabschnitt
 
-Fügen Sie schließlich einen "Ausnahmen"-Unterabschnitt hinzu, der erklärt, welche Ausnahmen auftreten können, wenn ein Problem beim Aufrufen des Konstruktors/der Methode auftritt. Dies könnte daran liegen, dass ein Parametername falsch geschrieben wurde oder ihm ein falscher Datentyp-Wert gegeben wurde, weil es ein Problem mit der Umgebung gibt, in der es aufgerufen wird (z.B. wenn versucht wird, ein nur für sichere Kontexte geeignetes Feature in einem nicht sicheren Kontext auszuführen), oder aus einem anderen Grund.
+Abschließend fügen Sie einen "Ausnahmen"-Unterabschnitt ein, der erklärt, welche Ausnahmen geworfen werden können, wenn beim Aufrufen des Konstruktors/der Methode ein Problem auftritt. Dies könnte sein, weil ein Parametername falsch geschrieben wurde oder er einen Wert des falschen Datentyps erhalten hat, weil es ein Problem mit der Umgebung gibt, in der er aufgerufen wird (z. B. der Versuch, ein nur in sicheren Kontexten verfügbares Feature in einem nicht sicheren Kontext auszuführen), oder aus einem anderen Grund.
 
-Zu bestimmen, welche Ausnahmen von einer Methode ausgelöst werden, kann eine gründliche Untersuchung der Spezifikation erfordern. Das Durchsehen der schrittweisen Erklärung in der Spezifikation, wie ein Feature funktioniert, liefert normalerweise eine solide Liste von Ausnahmen und Situationen, die zu deren Auslösung führen.
+Es kann erforderlich sein, sich die Spezifikation genau anzusehen, um festzustellen, welche Ausnahmen von einer Methode geworfen werden. Das Durchlesen der Schritt-für-Schritt-Erklärung der Spezifikation, wie ein Feature funktioniert, bietet in der Regel eine solide Liste von Ausnahmen und die Situationen, die sie verursachen, in denen sie geworfen werden.
 
-Die Namen und Erklärungen der Ausnahmen sollten in einer Beschreibungsliste enthalten sein.
+Die Namen und Erklärungen der Ausnahmen sollten in einer Beschreibungsauflistung enthalten sein.
 
 > [!NOTE]
-> Wenn für das Feature keine Ausnahmen ausgelöst werden können, müssen Sie keinen "Ausnahmen"-Abschnitt einschließen, aber Sie können ihn mit dem Inhalt "None" einschließen, wenn Sie möchten.
+> Wenn keine Ausnahmen bei dem Feature auftreten können, müssen Sie keinen Abschnitt "Ausnahmen" einfügen, aber Sie können, falls gewünscht, ihn mit dem Inhalt "Keine" hinzufügen.
 
 ### Eigenschaften
 
 #### Wertabschnitt
 
-Eigenschaften enthalten keinen Syntaxabschnitt. Stattdessen fügen Sie einen "Wert"-Abschnitt hinzu, der eine Erklärung des Wertebereichs der Eigenschaft enthält. Beschreiben Sie den Datentyp und den Zweck.
+Eigenschaften enthalten keinen Syntaxabschnitt. Stattdessen fügen Sie einen "Wert"-Abschnitt ein, der eine Erklärung des Werts der Eigenschaft enthält. Beschreiben Sie ihren Datentyp und ihren Zweck.
 
-#### Ausnahmenabschnitt
+#### Ausnahmeabschnitt
 
-Wenn beim Zugriff auf die Eigenschaft eine Ausnahme ausgelöst werden kann, fügen Sie einen "Ausnahmen"-Unterabschnitt hinzu, der jede Ausnahme erklärt; dieser sollte genauso eingerichtet sein wie der oben für Methoden und Konstruktoren beschriebene.
+Wenn der Zugriff auf die Eigenschaft eine Ausnahme auslösen kann, fügen Sie einen "Ausnahmen"-Unterabschnitt hinzu, der jede Ausnahme erklärt; dieser sollte genau so eingerichtet werden wie oben für Methoden und Konstruktoren beschrieben.
 
 ## JavaScript-Referenzsyntax
 
-JavaScript-Referenzseiten für eingebaute Objekte folgen den gleichen grundlegenden Regeln wie API-Referenzseiten; z.B. für Methoden und Eigenschaften. Es gibt einige Unterschiede, die Sie möglicherweise beobachten:
+JavaScript-Referenzseiten für eingebaute Objekte folgen denselben grundlegenden Regeln wie API-Referenzseiten; zum Beispiel für Methoden und Eigenschaften. Es gibt einige Unterschiede, die Sie möglicherweise beachten:
 
-- Für eingebaute Objekte mit einem einzelnen Konstruktor wird die Konstruktorsyntax häufig auf der Objekt-Landingpage eingeschlossen. Siehe {{JSxRef("Date")}} zum Beispiel. Sie werden feststellen, dass statische Methoden (die auf dem `Date`-Objekt selbst existieren) unter "Methoden" aufgeführt sind, während Instanzmethoden unter "Date.prototype Methoden" aufgelistet sind.
-- Sie werden auch feststellen, dass bei Methoden, die keine Parameter/Ausnahmen haben, diese Unterabschnitte auf JavaScript-Referenzseiten eher überhaupt nicht enthalten sind. Siehe {{JSxRef("Date.getDate()")}} und {{JSxRef("Date.now()")}} für Beispiele.
+- Für eingebaute Objekte mit einem einzigen Konstruktor wird der Konstruktorsyntax häufig auf der Objektstartseite eingefügt. Siehe {{JSxRef("Date")}} zum Beispiel. Sie werden feststellen, dass statische Methoden (die auf dem `Date`-Objekt selbst existieren) unter "Methods" aufgeführt sind, während Instanzmethoden unter "Date.prototype methods" aufgeführt sind.
+- Sie werden auch feststellen, dass Methoden, die keine Parameter/Ausnahmen haben, auf JavaScript-Referenzseiten häufiger keine Abschnitte enthalten. Siehe {{JSxRef("Date.getDate()")}} und {{JSxRef("Date.now()")}} als Beispiele.
 
 ## CSS-Referenzsyntax
 
 ### Eigenschaften
 
-CSS-Referenzseiten für Eigenschaften enthalten einen "Syntax"-Abschnitt, der früher oben auf der Seite gefunden wurde, aber zunehmend häufig unter einem Abschnitt zu finden ist, der einen Codeblock zeigt, der die typische Verwendung des Features zeigt, plus ein Live-Beispiel, um zu veranschaulichen, was das Feature macht (siehe {{CSSxRef("animation")}} als Beispiel).
+CSS-Eigenschaftsreferenzseiten enthalten einen "Syntax"-Abschnitt, der früher oben auf der Seite zu finden war, aber zunehmend häufiger unter einem Abschnitt zu finden ist, der einen Codeblock zeigt, der typische Nutzung des Features zeigt, plus ein Live-Beispiel, um zu veranschaulichen, was das Feature tut (siehe {{CSSxRef("animation")}} zum Beispiel).
 
 > [!NOTE]
-> Wir tun dies, weil die formale CSS-Syntax komplex ist, von vielen Lesern der MDN nicht genutzt wird und für Anfänger abschreckend sein kann. Echte Syntax und Beispiele sind für die Mehrheit der Menschen nützlicher.
+> Wir machen das, weil die formale CSS-Syntax komplex ist, von vielen der MDN-Leserschaft nicht verwendet wird und für Anfänger abschreckend ist. Echte Syntax und Beispiele sind für die Mehrheit der Menschen nützlicher.
 
-Im Syntaxabschnitt finden Sie folgende Inhalte.
+Im Syntaxabschnitt finden Sie folgenden Inhalt.
 
 #### Optionaler Erklärungstext
 
-Einige CSS-Eigenschaften erklären sich von selbst und benötigen keine zusätzliche Erklärung (zum Beispiel {{CSSxRef("color")}}). Einige hingegen sind komplexer und brauchen Erklärungen zur Syntaxreihenfolge, einschließlich mehrerer Werte usw. (siehe {{CSSxRef("animation")}}). In solchen Fällen können Sie vor den Unterabschnitten zusätzliche Erklärungen einfügen.
+Einige CSS-Eigenschaften sind selbsterklärend und benötigen keine zusätzliche Erklärung (zum Beispiel {{CSSxRef("color")}}). Einige hingegen sind komplexer und benötigen eine Erklärung zur Syntaxreihenfolge, einschließlich mehrerer Werte usw. (siehe {{CSSxRef("animation")}}). In solchen Fällen können Sie vor den Unterabschnitten zusätzliche Erklärungen einfügen.
 
 #### Werteabschnitt
 
-Als nächstes sollten Sie einen "Werte"-Abschnitt einfügen – dieser enthält eine Beschreibungsliste, die die CSS-Wertetypen erklärt, die den Wert der Eigenschaft bilden. Jeder Wertetyp sollte in spitzen Klammern eingefasst und auf die MDN-Referenzseite zu diesem Wertetyp verlinkt werden, wenn eine Seite dafür existiert. Beispielsweise siehe die {{CSSxRef("border")}}-Eigenschaftsreferenz – diese referenziert drei Wertetypen, von denen nur einer verlinkt ist ({{CSSxRef("&lt;color&gt;")}}).
+Anschließend sollten Sie einen "Werte"-Abschnitt einfügen — dieser enthält eine Beschreibungsauflistung, die die CSS-Wertetypen erklärt, die den Wert der Eigenschaft bilden. Jeder Werttyp sollte in Winkelklammern eingeschlossen und auf die MDN-Referenzseite verlinkt werden, die diesen Werttyp behandelt, wenn eine Seite dafür existiert. Siehe zum Beispiel die {{CSSxRef("border")}}-Eigenschaftsreferenz — diese referenziert drei Werttypen, von denen nur einer verlinkt ist ({{CSSxRef("&lt;color&gt;")}}).
 
 #### Formale Syntax
 
-Der letzte Abschnitt, "Formale Syntax", wird automatisch aus den im [MDN data repo](https://github.com/mdn/data) enthaltenen Daten im CSS-Verzeichnis generiert. Sie müssen nur einen `CSSSyntax`-Makroaufruf unter der Überschrift einfügen, und es wird den Rest erledigen.
+Der letzte Abschnitt, "Formale Syntax", wird automatisch aus den Daten im [MDN data repo](https://github.com/mdn/data)'s CSS-Verzeichnis generiert. Sie müssen lediglich einen `CSSSyntax`-Makroaufruf unter dem Titel einfügen, und es wird automatisch erledigt.
 
-Die einzige Komplikation ergibt sich daraus, sicherzustellen, dass die benötigten Daten vorhanden sind. Die [properties.json](https://github.com/mdn/data/blob/main/css/properties.json)-Datei muss einen Eintrag für die dokumentierte Eigenschaft enthalten, und die [types.json](https://github.com/mdn/data/blob/main/css/types.json)-Datei muss einen Eintrag für alle Wertetypen enthalten, die im Wert der Eigenschaft verwendet werden.
+Die einzige Komplikation ergibt sich daraus, sicherzustellen, dass die benötigten Daten vorhanden sind. Die [properties.json](https://github.com/mdn/data/blob/main/css/properties.json)-Datei muss einen Eintrag für die dokumentierte Eigenschaft enthalten, und die [types.json](https://github.com/mdn/data/blob/main/css/types.json)-Datei muss einen Eintrag für alle Werttypen enthalten, die im Wert der Eigenschaft verwendet werden.
 
-Sie müssen dies tun, indem Sie das [MDN data repo](https://github.com/mdn/data) forken, Ihren Fork lokal klonen, die Änderungen in einem neuen Branch vornehmen und dann einen Pull Request gegen das Upstream-Repo einreichen. Sie können [hier mehr Details zur Verwendung von Git finden](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+Sie müssen dies tun, indem Sie das [MDN data repo](https://github.com/mdn/data) forken, Ihren Fork lokal klonen, die Änderungen in einem neuen Branch vornehmen und dann einen Pull-Request gegen das Upstream-Repo einreichen. Sie können [hier weitere Details zur Verwendung von Git finden](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 
 ### Selektoren
 
-Der "Syntax"-Abschnitt von Selektor-Referenzseiten ist viel einfacher als der von Eigenschaftsseiten. Er enthält einen Block, der im "Syntax Box"-Stil gestaltet ist und die grundlegende Syntax des Selektors zeigt, sei es nur ein einfaches Schlüsselwort (z.B. {{CSSxRef(":hover")}}), oder ein komplexerer Funktionswert, der einen Parameter akzeptiert (z.B. {{CSSxRef(":not", ":not()")}}). Manchmal wird der Parameter in einem weiteren Eintrag innerhalb des Syntaxblocks erklärt (siehe {{CSSxRef(":nth-last-of-type", ":nth-last-of-type()")}} als Beispiel).
+Der "Syntax"-Abschnitt der Selektorreferenzseiten ist viel einfacher als der der Eigenschaftsseiten. Er enthält einen Block, der mit dem "Syntax Box"-Stil gestaltet ist und die Grundsyntax des Selektors zeigt, sei es nur ein einfaches Schlüsselwort (z. B. {{CSSxRef(":hover")}}) oder ein komplexerer Funktionswert, der einen Parameter benötigt (z. B. {{CSSxRef(":not", ":not()")}}). Gelegentlich wird der Parameter in einem weiteren Eintrag innerhalb des Syntaxblocks erklärt (siehe {{CSSxRef(":nth-last-of-type", ":nth-last-of-type()")}} als Beispiel).
 
-Dieser Block wird automatisch aus den Daten im [MDN data repo](https://github.com/mdn/data)'s CSS-Verzeichnis generiert. Sie müssen nur einen `CSSSyntax`-Makroaufruf unter der Überschrift einfügen, und es wird den Rest erledigen.
+Dieser Block wird automatisch aus den Daten im [MDN data repo](https://github.com/mdn/data)'s CSS-Verzeichnis generiert. Sie müssen lediglich einen `CSSSyntax`-Makroaufruf unter dem Titel einfügen, und es wird automatisch erledigt.
 
 Die einzige Komplikation ergibt sich daraus, sicherzustellen, dass die benötigten Daten vorhanden sind. Die [selectors.json](https://github.com/mdn/data/blob/main/css/selectors.json)-Datei muss einen Eintrag für den dokumentierten Selektor enthalten.
 
-Sie müssen dies tun, indem Sie das [MDN data repo](https://github.com/mdn/data) forken, Ihren Fork lokal klonen, die Änderungen in einem neuen Branch vornehmen und dann einen Pull Request gegen das Upstream-Repo einreichen. Sie können [hier mehr Details zur Verwendung von Git finden](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+Sie müssen dies tun, indem Sie das [MDN data repo](https://github.com/mdn/data) forken, Ihren Fork lokal klonen, die Änderungen in einem neuen Branch vornehmen und dann einen Pull-Request gegen das Upstream-Repo einreichen. Sie können [hier weitere Details zur Verwendung von Git finden](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 
 ## HTML-Referenzsyntax
 
-HTML-Referenzseiten haben keine "Syntax"-Abschnitte – die Syntax besteht immer nur aus dem Elementnamen, der in spitze Klammern eingeschlossen ist, daher ist es nicht nötig. Das Hauptsächliche, das man über HTML-Elemente wissen muss, ist, welche Attribute sie annehmen und welche Werte sie annehmen können, und dies wird in einem separaten "Attribute"-Abschnitt behandelt. Siehe {{htmlelement("ol")}} und {{htmlelement("video")}} als Beispiele.
+HTML-Referenzseiten haben keine "Syntax"-Abschnitte — die Syntax ist immer nur der Elementname, der von spitzen Klammern umgeben ist, daher ist sie nicht notwendig. Das Wichtigste, was Sie über HTML-Elemente wissen müssen, sind die Attribute, die sie annehmen können, und welche Werte sie haben können, und dies wird in einem separaten "Attribute"-Abschnitt behandelt. Siehe {{htmlelement("ol")}} und {{htmlelement("video")}} für Beispiele.
 
 ## HTTP-Referenzsyntax
 
-Die HTTP-Referenzsyntax wird vollständig manuell erstellt und variiert je nachdem, welcher HTTP-Featuretyp dokumentiert wird.
+Die HTTP-Referenzsyntax wird vollständig manuell erstellt und variiert je nach dokumentiertem HTTP-Feature.
 
-### HTTP-Headers/Content-Security-Policy
+### HTTP-Header/Inhalts-Sicherheitsrichtlinie
 
-Die Syntax von HTTP-Headern (und Content-Security-Policy) wird in zwei separaten Abschnitten auf der Seite dokumentiert – "Syntax" und "Direktiven".
+Die Syntax der HTTP-Header (und der Inhalts-Sicherheitsrichtlinie) wird in zwei separaten Abschnitten auf der Seite dokumentiert — "Syntax" und "Direktiven".
 
 #### Syntaxabschnitt
 
-Der "Syntax"-Abschnitt zeigt, wie die Syntax eines Headers aussieht, unter Verwendung eines Syntaxblocks, der im "Syntax Box"-Stil gestaltet ist, inklusive formaler Syntax, um genau zu zeigen, welche Direktiven im Wert enthalten sein können, in welcher Reihenfolge usw. Zum Beispiel sieht der Syntaxblock des {{HTTPHeader("If-None-Match")}} Headers so aus:
+Der "Syntax"-Abschnitt zeigt, wie die Syntax eines Headers aussehen wird, unter Verwendung eines Syntaxblocks, der mit dem "Syntax Box"-Stil gestaltet ist und eine formale Syntax enthält, um genau zu zeigen, welche Direktiven in den Wert eingeschlossen werden können, in welcher Reihenfolge usw. Zum Beispiel sieht der Syntaxblock des {{HTTPHeader("If-None-Match")}}-Headers so aus:
 
 ```http
 If-None-Match: <etag_value>
@@ -286,15 +284,15 @@ If-None-Match: <etag_value>, <etag_value>, …
 If-None-Match: *
 ```
 
-Einige Header haben separate Anforderungsdirektiven-, Antwortdirektiven- und Erweiterungssyntax. Falls verfügbar, müssen diese in separaten Syntaxblöcken enthalten sein, jeweils unter ihrem eigenen Unterabschnitt. Siehe {{HTTPHeader("Cache-Control")}} als Beispiel.
+Einige Header haben separate Anforderungsdirektiven-, Antwortdirektiven- und Erweiterungssyntax. Wenn verfügbar, müssen diese in separaten Syntaxblöcken enthalten sein, jeder unter seinem eigenen Unterabschnitt. Siehe {{HTTPHeader("Cache-Control")}} als Beispiel.
 
 #### Direktivenabschnitt
 
-Der "Direktiven"-Abschnitt enthält eine Beschreibungsliste mit den Namen und Beschreibungen aller Direktiven, die innerhalb der Syntax erscheinen können.
+Der "Direktive"-Abschnitt enthält eine Beschreibungsauflistung, die die Namen und Beschreibungen aller Direktiven enthält, die in der Syntax erscheinen können.
 
-### HTTP-Anfragemethoden
+### HTTP-Anforderungsmethoden
 
-Die Syntax der Anfragemethode ist sehr einfach und enthält nur einen Syntaxblock, der im "Syntax Box"-Stil gestaltet ist und zeigt, wie die Syntax der Methode strukturiert ist. Die Syntax für die [GET-Methode](/de/docs/Web/HTTP/Methods/GET) sieht so aus:
+Die Syntax der Anforderungsmethoden ist wirklich einfach und enthält nur einen Syntaxblock, der mit dem "Syntax Box"-Stil gestaltet ist und zeigt, wie die Methodensyntax aufgebaut ist. Die Syntax für die [GET-Methode](/de/docs/Web/HTTP/Methods/GET) sieht so aus:
 
 ```http
 GET /index.html
@@ -302,7 +300,7 @@ GET /index.html
 
 ### HTTP-Antwortstatuscodes
 
-Ebenso ist die Syntax für HTTP-Antwortstatuscodes sehr einfach – ein Syntaxblock einschließlich des Codes und Namens. Zum Beispiel:
+Auch die Syntax für HTTP-Antwortstatuscodes ist wirklich einfach — ein Syntaxblock, der den Code und den Namen einschließt. Zum Beispiel:
 
 ```http
 404 Not Found
@@ -312,12 +310,12 @@ Ebenso ist die Syntax für HTTP-Antwortstatuscodes sehr einfach – ein Syntaxbl
 
 ### SVG-Elemente
 
-Syntaxabschnitte für SVG-Elemente existieren nicht – ebenso wie HTML-Element-Syntaxabschnitte. Jede SVG-Element-Referenzseite enthält nur eine Liste der Attribute, die auf das betreffende Element angewendet werden können. Siehe {{SVGElement("feTile")}} als Beispiel.
+SVG-Elementsyntaxabschnitte sind nicht vorhanden — genauso wie HTML-Elementsyntaxabschnitte. Jede SVG-Elementreferenzseite enthält nur eine Liste der Attribute, die für dieses Element gelten können. Siehe {{SVGElement("feTile")}} als Beispiel.
 
 ### SVG-Attribute
 
-SVG-Attribut-Referenzseiten enthalten auch keine Syntaxabschnitte.
+SVG-Attributreferenzseiten enthalten ebenfalls keine Syntaxabschnitte.
 
 ## Siehe auch
 
-- [Markdown in MDN](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#example_code_blocks)
+- [Markdown auf MDN](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#example_code_blocks)

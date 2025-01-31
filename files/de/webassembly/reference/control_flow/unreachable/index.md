@@ -2,12 +2,10 @@
 title: unreachable
 slug: WebAssembly/Reference/Control_flow/unreachable
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-**`unreachable`** wird verwendet, um einen Punkt im Code zu kennzeichnen, der nicht erreichbar sein sollte. `unreachable` ist eine bedingungslose Falle: Wenn ein `unreachable` erreicht und ausgeführt wird, löst die Anweisung eine Falle aus.
+**`unreachable`** wird verwendet, um einen Punkt im Code zu kennzeichnen, der nicht erreichbar sein sollte. `unreachable` ist eine bedingungslose Falle: Falls ein `unreachable` erreicht und ausgeführt wird, löst die Anweisung die Falle aus.
 
 {{EmbedInteractiveExample("pages/wat/unreachable.html", "tabbed-shorter")}}
 

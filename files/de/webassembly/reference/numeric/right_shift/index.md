@@ -1,13 +1,11 @@
 ---
-title: Right shift
+title: Rechtsverschiebung
 slug: WebAssembly/Reference/Numeric/Right_shift
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`shr`**-Anweisungen, kurz für _shift-right_, werden verwendet, um eine bitweise Rechtsverschiebung auszuführen, ähnlich dem **`>>>`**-Operator in anderen Sprachen.
+Die **`shr`**-Anweisungen, kurz für _shift-right_, werden verwendet, um eine bitweise Rechtsverschiebung durchzuführen, ähnlich dem **`>>>`**-Operator in anderen Sprachen.
 
 {{EmbedInteractiveExample("pages/wat/shr.html", "tabbed-taller")}}
 

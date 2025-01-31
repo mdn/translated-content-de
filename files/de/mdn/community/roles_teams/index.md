@@ -1,290 +1,341 @@
 ---
 title: MDN Web Docs Rollen und Teams
+short-title: Rollen und Teams
 slug: MDN/Community/Roles_teams
 l10n:
-  sourceCommit: 4ecbac9e89961a132c1e7f5493ec94f60dcb1ee4
+  sourceCommit: 719645a32546d9e514ac530a5eb66aa4c26d4f51
 ---
 
-{{MDNSidebar}}
+Der Erfolg und das Wachstum des MDN Web Docs Projekts ist zu einem großen Teil unserer Community von Mitwirkenden zu verdanken. Einige Mitwirkende haben einen Teil ihrer Zeit dafür eingesetzt, die täglichen Aufgaben zur Verwaltung von MDN Web Docs zu unterstützen. Änderungen an der Seite, einschließlich Wartungsaufgaben, werden von Mitarbeitern, Auftragnehmern und einem Netzwerk von Partnern vorgenommen, die alle der Gesundheit, dem Wachstum und der Wartung von MDN Web Docs gewidmet sind. Das Projekt stützt sich stark auf [Rollen](#rollen) und [Teams](#teams) in der [MDN-Organisation auf GitHub](https://github.com/mdn), um Änderungen aus diesen unterschiedlichen Gruppen zu verwalten und einzubinden. Eine Liste der aktuellen Mitglieder der Organisation finden Sie unter [github.com/orgs/mdn](https://github.com/orgs/mdn/people).
 
-Der Erfolg und das Wachstum des MDN Web Docs Projekts ist größtenteils unserer Gemeinschaft von Mitwirkenden zu verdanken. Einige Mitwirkende haben sich verpflichtet, einen Teil ihrer Zeit für die täglichen Aufgaben bei der Verwaltung der MDN Web Docs zu verwenden. Änderungen an der Seite, einschließlich Wartungsaufgaben, werden von Angestellten, Auftragnehmern und einem Netzwerk von Partnern durchgeführt, die alle der Gesundheit, dem Wachstum und der Wartung der MDN Web Docs gewidmet sind. Das Projekt stützt sich stark auf [Rollen](#rollen) und [Teams](#teams) in der [MDN-Organisation auf GitHub](https://github.com/mdn), um die Änderungen dieser verschiedenen Gruppen zu verwalten und zu integrieren. Eine Liste der Organisationsmitglieder kann [hier gefunden werden](https://github.com/orgs/mdn/people).
-
-Die Beiträge der Gemeinschaft helfen diesem Open-Source-Projekt erheblich. Mitwirkende können ihre Arbeit an den MDN Web Docs nutzen, um ihre Schreib-, technischen und Kooperationsfähigkeiten sowie die Fähigkeit, mit Menschen aus verschiedenen Hintergründen zu arbeiten, unter Beweis zu stellen. Dieser Abschnitt beschreibt die Rollen, die Sie beim freiwilligen Engagement im MDN Web Docs Projekt übernehmen können.
+Community-Beiträge helfen diesem Open-Source-Projekt immens.
+Mitwirkende können ihre Arbeit an MDN Web Docs nutzen, um ihre Schreib-, technischen und Zusammenarbeit-Kompetenzen zu zeigen sowie die Fähigkeit, mit Menschen aus verschiedenen kulturellen Hintergründen zu arbeiten. Dieser Abschnitt beschreibt die Rollen, die Sie bei der ehrenamtlichen Mitarbeit am MDN Web Docs Projekt übernehmen können.
 
 ## Rollen
 
-Im MDN Web Docs Projekt können Sie die Rolle eines [Mitwirkenden](#mitwirkender), eines [Organisationsmitglieds](#organisationsmitglied), eines [Wartenden](#wartender) oder eines [Eigentümers](#eigentümer) übernehmen. Der Fortschritt von einer Rolle zur nächsten ist ein Schritt-für-Schritt-Weg. Mit zunehmender Verantwortlichkeit können Sie mehr als eine Rolle gleichzeitig ausüben. Rollen wie [eingeladener Experte](#eingeladener_experte) können direkt erlangt werden, wenn Sie in einem bestimmten Bereich Fachkenntnisse nachgewiesen haben.
+Im MDN Web Docs Projekt können Sie die Rolle eines [Mitwirkenden](#mitwirkender), eines [Organisationsmitglieds](#organisation_member), eines [Maintainers](#maintainer) oder eines [Eigentümers](#eigentümer) übernehmen. Der Fortschritt von einer Rolle zur nächsten erfolgt schrittweise.
+Mit dem Fortschritt Ihrer Verantwortung könnten Sie gleichzeitig mehr als eine Rolle ausüben.
+Rollen wie [eingeladener Experte](#eingeladener_experte) können direkt erworben werden, wenn Sie Fachwissen in einem bestimmten Bereich nachgewiesen haben.
 
-Unabhängig von der Rolle, die Sie in diesem Projekt übernehmen, sind Sie immer ein [Mitwirkender](#mitwirkender). Ein **Mitwirkender** ist die Grundrolle und alle anderen Rollen bauen auf ihr auf. So müssen Sie, während Sie in irgendeiner Kapazität an diesem Projekt arbeiten, die Anforderungen der Rolle des Mitwirkenden erfüllen.
+Unabhängig von der Rolle, die Sie in diesem Projekt übernehmen, sind Sie immer ein [Mitwirkender](#mitwirkender).
+Ein **Mitwirkender** ist die Basisrolle und alle anderen Rollen bauen darauf auf.
+Während Sie also in irgendeiner Funktion an diesem Projekt arbeiten, müssen Sie die Anforderungen der Rolle des Mitwirkenden erfüllen.
 
 ### Mitwirkender
 
-Mitwirkende, oder _Teilnehmer der Gemeinschaft_, tragen mit ihrer Zeit, ihren Fähigkeiten, Meinungen und Ideen zum Projekt bei. Mitwirkende arbeiten direkt am Projekt und tragen zur Wertschöpfung bei. Neben dem Schreiben und Testen von Code umfassen die Beiträge das Erstellen und Aktualisieren von Dokumentationen, Recherchetätigkeiten, Fehlerbeseitigungen und die Unterstützung anderer Gemeinschaftsmitglieder.
+Mitwirkende oder _Community-Teilnehmer_ tragen mit ihrer Zeit, ihren Fähigkeiten, Meinungen und Ideen zum Projekt bei.
+Mitwirkende arbeiten direkt am Projekt und fügen diesem einen Mehrwert hinzu.
+Neben dem Schreiben und Testen von Code umfassen Beiträge die Erstellung und Aktualisierung von Dokumentationen, die Durchführung von Recherchen, das Beheben von Fehlern und das Helfen anderer Community-Mitglieder.
 
-Abhängig von der Häufigkeit Ihrer Beiträge können Sie jemand sein, der gelegentlich beiträgt, oder ein aktiver Mitwirkender. Wenn Sie eine große Auswirkung auf das Projekt zeigen, können Sie als [Spotlight-Mitwirkender](#spotlight-mitwirkender) nominiert oder zu einem [Organisationsmitglied](#organisationsmitglied) befördert werden.
+Je nach Häufigkeit Ihrer Beiträge können Sie jemand sein, der gelegentlich beiträgt, oder ein aktiver Mitwirkender.
+Wenn Sie einen großen Einfluss auf das Projekt zeigen, können Sie als [Spotlight-Mitwirkender](#spotlight-mitwirkender) nominiert oder zum [Organisationsmitglied](#organisation_member) befördert werden.
 
-Wenn Sie neu hier sind und Mitwirkender werden möchten, schauen Sie sich unseren [Beitragsleitfaden](https://github.com/mdn/content/blob/main/CONTRIBUTING.md) und die [Repositories in der MDN GitHub Organisation](https://github.com/orgs/mdn/repositories) an.
+Wenn Sie neu hier sind und ein Mitwirkender werden möchten, werfen Sie einen Blick auf unseren [Beitragsleitfaden](https://github.com/mdn/content/blob/main/CONTRIBUTING.md) und die [Repos in der MDN GitHub-Organisation](https://github.com/orgs/mdn/repositories).
 
-Als Mitwirkender können Sie an folgenden Aktivitäten teilnehmen:
+Als Mitwirkender können Sie sich an dem Projekt beteiligen, indem Sie die folgenden Aktivitäten ausführen:
 
-- Teilnahme an Gemeinschaftsdiskussionen auf den [Kommunikationskanälen](/de/docs/MDN/Community/Communication_channels).
-- Mithelfen anderer Mitwirkender mit ihren Pull-Requests und Problemen oder Mentoring neuer Mitwirkender.
-- Einreichen von Fehlerberichten. Schauen Sie sich die [Art der Probleme an, die Sie eröffnen können](https://github.com/mdn/content/issues/new/choose) im `content`-Repository von MDN.
-  Wenn Sie einen Plattformfehler bemerken, können Sie [ein Problem eröffnen](https://github.com/mdn/yari/issues/new/choose) im `yari`-Repository von MDN.
-- Kommentieren von Problemen, um Gespräche in Richtung einer fruchtbaren Lösung zu lenken.
-- Bearbeiten offener Probleme (zum Beispiel im `content`-Repository [content/issues](https://github.com/mdn/content/issues)) durch das Einreichen von [Pull-Requests](/de/docs/MDN/Community/Pull_requests).
-- Teilnahme an Gemeinschaftsveranstaltungen.
-- Unterstützung bei der Förderung des MDN-Projekts.
+- Teilnahme an Community-Diskussionen auf den [Kommunikationskanälen](/de/docs/MDN/Community/Communication_channels).
+- Anderen Mitwirkenden bei ihren Pull Requests und Problemen helfen oder neue Mitwirkende betreuen.
+- Fehlerberichte einreichen. Schauen Sie sich die [Art von Problemen an, die Sie melden können](https://github.com/mdn/content/issues/new/choose) im MDN's [`content`](https://github.com/mdn/content) Repository an.
+  Wenn Sie einen Plattformfehler bemerken, können Sie [ein Problem melden](https://github.com/mdn/yari/issues/new/choose) im MDN's `yari` Repository.
+- Kommentare zu Problemen abgeben, um Gespräche zu einer fruchtbaren Lösung zu führen.
+- Offene Probleme adressieren (zum Beispiel im [`content`](https://github.com/mdn/content/issues) Repository), indem Sie [Pull Requests](/de/docs/MDN/Community/Pull_requests) einreichen.
+- Teilnahme an Community-Veranstaltungen.
+- Helfen, das MDN-Projekt zu fördern.
 
-**Erforderlichkeiten:**
+**Anforderungen:**
 
-Um Mitwirkender zu sein, müssen Sie:
+Um ein Mitwirkender zu sein, müssen Sie:
 
-- [Mozillas Verhaltenskodex](https://www.mozilla.org/en-US/about/governance/policies/participation/) folgen.
-- Beitragsrichtlinien einhalten (sehen Sie sich die `CONTRIBUTING.md`-Datei in jedem Repository an; zum Beispiel sind dies die [Beitragsrichtlinien](https://github.com/mdn/content/blob/main/CONTRIBUTING.md) für das `mdn/content`-Repository).
+- [Mozillas Verhaltenskodex](https://www.mozilla.org/en-US/about/governance/policies/participation/) befolgen
+- Beitragungsrichtlinien einhalten (überprüfen Sie die `CONTRIBUTING.md`-Datei in jedem Repository; zum Beispiel, dies sind die [Beitragsrichtlinien](https://github.com/mdn/content/blob/main/CONTRIBUTING.md) für das `mdn/content` Repository).
 
 **Privilegien:**
 
 Mitwirkende genießen die folgenden Privilegien:
 
-- Einladungen zu Veranstaltungen für Mitwirkende.
-- Berechtigung, ein [Organisationsmitglied](#organisationsmitglied) zu werden.
+- Einladungen zu Mitwirkenden-Veranstaltungen.
+- Berechtigung, ein [Organisationsmitglied](#organisation_member) zu werden.
 
 ### Organisationsmitglied
 
-[Organisationsmitglieder](https://github.com/orgs/mdn/people) sind etablierte [Mitwirkende](#mitwirkender), die regelmäßig am MDN Web Docs Projekt teilnehmen und dazu beitragen. Sie sollen im Interesse des Projekts handeln.
+[Organisationsmitglieder](https://github.com/orgs/mdn/people) sind etablierte [Mitwirkende](#mitwirkender), die regelmäßig am MDN Web Docs Projekt teilnehmen und dazu beitragen.
+Sie sollen im Interesse des Projekts handeln.
 
-**Erforderlichkeiten:**
+**Anforderungen:**
 
-Um ein Organisationsmitglied zu sein, müssen Sie eine oder mehrere der folgenden Anforderungen erfüllen:
+Um Mitglied einer Organisation zu sein, müssen Sie eine oder mehrere der folgenden Anforderungen erfüllen:
 
-- Mindestens zwei Pull-Requests geöffnet und gemergt haben, die zwei oder mehr Probleme lösen.
-- Mindestens zwei Monate zu MDN Web Docs Projekten beigetragen haben.
+- Zwei oder mehr Pull Requests eröffnet haben, die zusammengeführt wurden und zwei oder mehr Probleme gelöst haben.
+- Seit mindestens zwei Monaten zu MDN Web Docs Projekten beigetragen haben.
 - Aktiv zu mindestens einem Projektbereich beigetragen haben.
 
-Die folgenden zwei Anforderungen sind obligatorisch:
+Die folgenden zwei Anforderungen sind zwingend:
 
-- Aktives [Zwei-Faktor-Authentifizierung](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication) für Ihr GitHub-Konto.
-- Aktivierte [signierte Commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
+- Aktivierung der [Zwei-Faktor-Authentifizierung](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication) für Ihr GitHub-Konto.
+- Aktivierung von [signierten Commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
 
 **Privilegien:**
 
-Organisationsmitglieder haben Privilegien auf [Organisationsebene](https://github.com/mdn) auf GitHub.
+Organisationsmitglieder haben auf organiza-tionsebene Privilegien auf GitHub.
 
-### Wartender
+### Maintainer
 
-Wartende sind etablierte [Mitwirkende](#mitwirkender), die für eines oder mehrere Projekte bei MDN verantwortlich sind. Sie sollen an Entscheidungen über die Richtlinien und Prioritäten des Projekts teilnehmen. Sehen Sie den [Prozess](#einen_wartenden_nominieren), um jemanden als Wartenden zu nominieren.
+Maintainer sind etablierte [Mitwirkende](#mitwirkender), die für ein oder mehrere Projekte auf MDN verantwortlich sind.
+Sie sollen an der Entscheidungsfindung über die Richtlinien und Prioritäten des Projekts teilnehmen. Siehe den [Prozess](#nominieren_eines_maintainers) zur Nominierung einer Person als Maintainer.
 
-Als Wartender beteiligen Sie sich an folgenden Aktivitäten:
+Als Maintainer engagieren Sie sich in den folgenden Aktivitäten:
 
 - Bestimmen der Prioritäten für das Projekt, für das Sie verantwortlich sind.
-- Teilnahme an Gemeinschaftstreffen.
-- Mentoring neuer und bestehender Mitwirkender in allen anderen Rollen.
-- Basierend auf dem Fähigkeitenprofil: Vorschläge, Genehmigungen oder Implementierungen in Ihrem Projektbereich:
-  - Verbesserungen am Code und an der Infrastruktur
-  - Verbesserungen des Inhalts
-  - Prozessverbesserungen
+- Teilnahme an Community-Meetings.
+- Betreuung neuer und bestehender Mitwirkender in allen anderen Rollen.
+- Je nach Qualifikation vorschlagen, genehmigen oder umsetzen in Ihrem Projektbereich:
+  - Verbesserungen des Codes und der Infrastruktur
+  - Verbesserungen der Inhalte
+  - Verbesserungen der Prozesse
 
-**Erforderlichkeiten:**
+<!--
+TODO: Mit https://developer.mozilla.org/de/docs/MDN/Community/Roles_teams#volunteer_and_partner_maintainers vergleichen.
+Welche Informationen müssen beibehalten werden? Sollten wir den Begriff 'Partner-Maintainer' verwenden oder reicht 'Maintainer' aus?
+-->
 
-Um berechtigt zu sein, ein Wartender zu werden, müssen Sie eine oder mehrere der folgenden Anforderungen erfüllen:
+**Anforderungen:**
 
-- Erfahrung als [eingeladener Experte](#eingeladener_experte) für mindestens sechs Monate gesammelt haben.
-- Ein breites Wissen über das Projekt in mehreren Bereichen gezeigt haben.
-- Die Fähigkeit demonstriert haben, zum Wohl des Projekts selbstständige Entscheidungen treffen zu können, unabhängig vom Einfluss anderer Mitglieder.
+Um als Maintainer in Frage zu kommen, müssen Sie eine oder mehrere der folgenden Anforderungen erfüllen:
+
+- Mindestens sechs Monate Erfahrung als [eingeladener Experte](#eingeladener_experte) haben.
+- Breites Wissen über das Projekt in mehreren Bereichen nachgewiesen haben.
+- Die Fähigkeit gezeigt haben, für das Wohl des Projekts zu urteilen, unabhängig vom Einfluss anderer Mitglieder.
 - Die Qualität gezeigt haben, andere Mitwirkende zu betreuen.
-- Einwilligung, mindestens 16 Stunden pro Monat an dem Projekt zu arbeiten.
-- An dem Gemeinschaftstreffen teilgenommen haben, das alle zwei Monate stattfindet.
+- Zugestimmt haben, mindestens 16 Stunden pro Monat an dem Projekt zu arbeiten.
+- An dem alle zwei Monate stattfindenden Community-Meeting teilgenommen haben.
 
 > [!NOTE]
-> Wenn Sie denken, dass jemand für diese Rolle geeignet ist, können Sie [einen Wartenden nominieren](#einen_wartenden_nominieren).
+> Wenn Sie glauben, dass jemand für diese Rolle geeignet ist, können Sie [einen Maintainer nominieren](#nominieren_eines_maintainers).
 
 **Privilegien:**
 
-Wartende haben die Berechtigung, Pull-Requests zu genehmigen und zu mergen.
+Maintainer haben die Berechtigung, Pull Requests zu genehmigen und zusammenzuführen.
 
 ### Eigentümer
 
-Eigentümer haben umfassende Berechtigungen, um Benutzer und [GitHub-Teams](https://github.com/orgs/mdn/teams) zu verwalten, den Zugriff auf Repositories in der [MDN-Organisation](https://github.com/mdn) zu verwalten, Repositoriyeinstellungen zu pflegen und in Produktion zu überführen. Eigentümer sind an alle Anforderungen anderer Mitwirkendenrollen gebunden.
+Eigentümer haben umfassende Berechtigungen zur Verwaltung von Benutzern und [GitHub-Teams](https://github.com/orgs/mdn/teams), zur Verwaltung des Zugriffs auf Repositories in der [MDN-Organisation](https://github.com/mdn), zur Verwaltung von Repository-Einstellungen und zur Bereitstellung in der Produktion.
+Eigentümer sind an alle Anforderungen anderer Mitwirkender-Rollen gebunden.
 
 > [!NOTE]
 > Die Rolle eines Eigentümers ist derzeit auf Mozilla-Mitarbeiter beschränkt.
 
-**Erforderlichkeiten:**
+**Anforderungen:**
 
-Zusätzlich zu den Verantwortlichkeiten anderer Mitwirkendenrollen haben Eigentümer folgende Verantwortlichkeiten:
+Zusätzlich zu den Verantwortlichkeiten anderer Mitwirkender-Rollen haben Eigentümer die folgenden Verantwortlichkeiten:
 
-- Einhaltung und Durchsetzung der MDN Teamnormen, einschließlich der [Communityteilnahme-Richtlinien](https://www.mozilla.org/en-US/about/governance/policies/participation/) und [Mozilla-Richtlinien](https://www.mozilla.org/en-US/about/governance/policies/).
-- Befolgung der MDN Organisationsrichtlinien und Vorbildfunktion.
-- Vorschlagen, Dokumentieren und Implementieren neuer Richtlinien durch den [Pull-Request-Prozess](/de/docs/MDN/Community/Pull_requests).
-- Nachverfolgen und Beitragen zu Problemen und Diskussionen innerhalb der MDN-Organisation.
-- Sicherstellen, dass ein Problem oder Pull-Request innerhalb einer Woche Feedback von einem oder mehreren Mitgliedern erhält.
-- [Archivieren](https://docs.github.com/en/repositories/archiving-a-github-repository/archiving-repositories) oder Löschen ungewarteter Repositories.
-- Besprechen von GitHub-Funktionen, Auswählen der zu nutzenden und Dokumentierung der Entscheidungen.
+- Befolgen und Durchsetzen der MDN-Teamnormen, einschließlich der [Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/) und der [Mozilla Policies](https://www.mozilla.org/en-US/about/governance/policies/).
+- Befolgen der MDN-Organisation-Richtlinien und Vorbildfunktion.
+- Vorschlagen, Dokumentieren und Implementieren neuer Richtlinien durch den [Pull Request-Prozess](/de/docs/MDN/Community/Pull_requests).
+- Teilnahme an Diskussionen und bestehenden Problemen in der MDN-Organisation.
+- Sicherstellen, dass ein Problem oder Pull Request innerhalb einer Woche Feedback von einem oder mehreren Mitgliedern erhält.
+- [Archivieren](https://docs.github.com/en/repositories/archiving-a-github-repository/archiving-repositories) oder Löschen nicht gepflegter Repositories.
+- Diskutieren von GitHub-Funktionen, Auswählen der zu verwendenden Funktionen und Dokumentieren der Entscheidungen.
 
 **Privilegien:**
 
 Eigentümer können:
 
-- Organisationseigentümer und -mitglieder bei Bedarf hinzufügen und entfernen.
-- Mitarbeiter für bestimmte Repositories nach Bedarf hinzufügen und entfernen.
-- Repositories nach Bedarf hinzufügen (als neue Projekte oder Übertragungen).
+- Organisationseigentümer und Mitglieder nach Bedarf hinzufügen und entfernen.
+- Mitarbeiter zu spezifischen Repositories nach Bedarf hinzufügen und entfernen.
+- Repositories (als neue Projekte oder Übertragungen) nach Bedarf hinzufügen.
 
 ### Zusammenfassung der Rollen
 
-| Rolle                                               | Erforderlichkeiten                                                                                                                                                                                                                                                                              | Privilegien                                                                                                                             |
-| :-------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
-| [**Mitwirkender**](#mitwirkender)                   | Befolgung des Verhaltenskodexes und der Beitragsrichtlinien                                                                                                                                                                                                                                     | - Einladungen zu Mitwirkendenveranstaltungen<br>- Berechtigung, ein Organisationsmitglied zu werden                                     |
-| [**Organisationsmitglied**](#organisationsmitglied) | - 2FA für GitHub-Konto aktivieren<br>- Signierte Commits aktivieren<br><br>Eine oder mehrere:<br>- Lösung von zwei oder mehr Problemen<br>- Mindestens zwei Monate lang Beiträge leisten<br>- Aktiver Beitrag in einem Projektbereich                                                           | Zugriffsrechte auf Organisationsebene                                                                                                   |
-| [**Wartender**](#wartender)                         | Eine oder mehrere:<br>- Eingeladener Experte für mindestens sechs Monate<br>- Wissen über mehrere Projektbereiche<br>- Im Gesamtinteresse des Projekts handeln<br>- Andere Mitwirkende betreuen<br>- Mindestens 16 Stunden pro Monat am Projekt arbeiten<br>- Teilnahme an Gemeinschaftstreffen | Genehmigung und Merging von Pull-Requests                                                                                               |
-| [**Eigentümer**](#eigentümer)                       | Auf Mozilla-Mitarbeiter beschränkt                                                                                                                                                                                                                                                              | - Verwaltung des Zugriffs verschiedener Rollen auf verschiedene Repositories<br>- Repositories und Projekte hinzufügen oder archivieren |
+| Rolle                                             | Anforderungen                                                                                                                                                                                                                                                                                | Privilegien                                                                                                                             |
+| :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| [**Mitwirkender**](#mitwirkender)                 | Einhalten des Verhaltenskodexes und der Beitragsrichtlinien                                                                                                                                                                                                                                  | - Einladungen zu Mitwirkenden-Veranstaltungen<br>- Berechtigung, Organisationsmitglied zu werden                                        |
+| [**Organisationsmitglied**](#organisation_member) | - 2FA für GitHub-Konto aktivieren<br>- Signierte Commits aktivieren<br><br>Eine oder mehrere der folgenden:<br>- Zwei oder mehr Probleme lösen<br>- Mindestens zwei Monate beitragen<br>- Aktiver Beitrag in einem Projektbereich                                                            | Zugriffsrechte auf Organisationsebene                                                                                                   |
+| [**Maintainer**](#maintainer)                     | Eine oder mehrere der folgenden:<br>- Mindestens sechs Monate eingeladener Experte<br>- Wissen in mehreren Projektbereichen<br>- Handeln zum Wohl des Projekts<br>- Andere Mitwirkende betreuen<br>- Mindestens 16 Stunden im Monat am Projekt arbeiten<br>- Teilnahme an Community-Meetings | Pull Requests genehmigen und zusammenführen                                                                                             |
+| [**Eigentümer**](#eigentümer)                     | Auf Mozilla-Mitarbeiter beschränkt                                                                                                                                                                                                                                                           | - Verwaltung des Zugriffs verschiedener Rollen auf verschiedene Repositories<br>- Repositories und Projekte hinzufügen oder archivieren |
 
-## Besondere Rollen
+## Spezielle Rollen
 
-Einige Mitwirkendenrollen haben differenzierte Verantwortlichkeiten und spezielle Eignungsbedingungen. Dazu zählen [Spotlight-Mitwirkender](#spotlight-mitwirkender), [eingeladener Experte](#eingeladener_experte) und [Gemeinschaftsmanager](#gemeinschaftsmanager).
+Einige Mitwirkenden-Rollen haben differenziertere Verantwortlichkeiten und besondere Berechtigungsvoraussetzungen. Dazu gehören [Spotlight-Mitwirkender](#spotlight-mitwirkender), [eingeladener Experte](#eingeladener_experte) und [Community-Manager](#community-manager).
 
 ### Spotlight-Mitwirkender
 
-Spotlight-Mitwirkende sind Personen, die mit ihren Beiträgen zu den MDN Web Docs über sich hinausgewachsen sind. Ihre Beiträge sind in Form von Pull-Requests zur Verbesserung des Projekts, Unterstützung der Gemeinschaftsmitglieder auf verschiedenen [Kommunikationskanälen](/de/docs/MDN/Community/Communication_channels) oder Lernforen oder Feedback zu GitHub-Problemen und Pull-Requests.
+Spotlight-Mitwirkende sind Personen, die mit ihren Beiträgen zu MDN Web Docs überragende Leistungen erbracht haben.
+Ihre Beiträge erfolgen in Form von Pull Requests zur Verbesserung des Projekts, durch Unterstützung von Community-Mitgliedern auf verschiedenen [Kommunikationskanälen](/de/docs/MDN/Community/Communication_channels) oder Lernforen oder durch Feedback zu GitHub-Problemen und Pull Requests.
 
-Wir präsentieren jeden Monat einen Spotlight-Mitwirkenden auf der [MDN-Website](/en-US/). Sehen Sie sich den [Prozess](#eine_spotlight-mitwirkender_nominieren) an, um jemanden als Spotlight-Mitwirkenden zu nominieren.
+Wir präsentieren jeden Monat einen Spotlight-Mitwirkenden auf der [MDN-Website](/en-US/).
+Sehen Sie sich den [Prozess](#nominieren_eines_spotlight-mitwirkenden) an, um jemanden als Spotlight-Mitwirkenden zu nominieren.
 
 ### Eingeladener Experte
 
-Eingeladene Experten haben eine Erfolgsgeschichte bei MDN für ihre Beiträge, Teilnahme an Diskussionen und Bewertungen oder haben nachweislich Kenntnisse in einem bestimmten Fachbereich. Eingeladene Experten sind verantwortlich für einen spezifischen Themenbereich oder eine Komponente des MDN-Projekts. Sie sind verantwortlich für die Überprüfung und Genehmigung von Pull-Requests in ihrem Themen- oder Projektbereich, Beantwortung technischer Fragen und die allgemeine Gesundheitsförderung ihres speziellen Projekts. Sehen Sie sich den [Prozess](#einen_eingeladenen_experten_nominieren) an, um jemanden als eingeladenen Experten zu nominieren.
+Eingeladene Experten haben sich mit ihren Beiträgen, ihrer Teilnahme an Diskussionen und Überprüfungen auf MDN einen Namen gemacht oder haben nachweislich Kenntnisse in einem bestimmten Fachgebiet.
+Eingeladene Experten sind für einen bestimmten Themenbereich oder eine Komponente des MDN-Projekts verantwortlich.
+Sie sind verantwortlich für die Überprüfung und Genehmigung von Pull Requests in ihrem Themen- oder Projektbereich, die Beantwortung technischer Fragen und die Aufrechterhaltung der allgemeinen Gesundheit ihres speziellen Projekts. Siehe den [Prozess](#nominieren_eines_eingeladenen_experten), um jemanden als eingeladenen Experten zu nominieren.
 
-Zusätzlich zu den Verantwortlichkeiten eines [Organisationsmitglieds](#organisationsmitglied) sind eingeladene Experten verantwortlich für:
+Zusätzlich zu den Verantwortlichkeiten eines [Organisationsmitglieds](#organisation_member) sind eingeladene Experten verantwortlich für:
 
-- Einhaltung des [Überprüfungsleitfadens](https://github.com/mdn/content/blob/main/REVIEWING.md).
-- Überprüfung von Pull-Requests in ihrem Themenbereich.
-- Unterstützung anderer Mitwirkender, Rezensenten zu werden.
+- Einhaltung der [Überprüfungsrichtlinien](https://github.com/mdn/content/blob/main/REVIEWING.md).
+- Überprüfung von Pull Requests in ihrem Themenbereich.
+- Unterstützung anderer Mitwirkender, um Reviewer zu werden.
 
-Eingeladene Experten werden automatisch für die Überprüfung hinzugezogen, wenn Pull-Requests in ihrem Themenbereich geöffnet werden. Wenn es mehr als einen Experten in einem Themenbereich gibt, werden sie mithilfe einer [Lastausgleichsstrategie](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#about-auto-assignment) Pull-Requests zugewiesen.
+Eingeladene Experten werden automatisch zur Überprüfung hinzugezogen, wenn Pull Requests in ihrem Themenbereich geöffnet werden.
+Wenn es mehr als einen Experten in einem Themenbereich gibt, werden sie anhand einer [Lastverteilungstrategie](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#about-auto-assignment) Pull Requests zugewiesen.
 
-**Erforderlichkeiten:**
+**Anforderungen:**
 
-Um als eingeladener Experte in Betracht gezogen zu werden, müssen Sie eine oder mehrere der folgenden Anforderungen erfüllen:
+Um als eingeladener Experte in Frage zu kommen, müssen Sie eine oder mehrere der folgenden Anforderungen erfüllen:
 
-- Nachgewiesene inhaltliche Kenntnisse in einem bestimmten Themenbereich.
+- Tiefes Wissen über einen bestimmten Themenbereich nachgewiesen haben.
 - Verpflichtung, für ihren zugewiesenen Themenbereich verantwortlich zu sein.
-- Unterstützung neuer und gelegentlicher Mitwirkender und geholfen, Pull-Requests upfit for merging zu machen.
-- Teilnahme an dem Gemeinschaftstreffen, das alle zwei Monate stattfindet.
+- Neue und gelegentliche Mitwirkende unterstützt und geholfen haben, Pull Requests zur Zusammenführung vorzubereiten.
+- Teilnahme an dem alle zwei Monate stattfindenden Community-Meeting.
 
 **Privilegien:**
 
-Eingeladene Experten werden zum [eingeladene Experten Team](https://github.com/orgs/mdn/teams/invited-experts-and-co-maintainers) und zum passenden Themen- oder Projektteam hinzugefügt. Eingeladene Experten können:
+Eingeladene Experten werden dem [Team der eingeladenen Experten](https://github.com/orgs/mdn/teams/invited-experts-and-co-maintainers) und dem entsprechenden Themen- oder Projektteam hinzugefügt. Eingeladene Experten können:
 
-- Zugriff auf das benötigte Repository für Commits und Pull-Request-Genehmigungen und -Merges haben.
-- Andere Mitglieder als eingeladene Experten empfehlen und dafür stimmen.
-- An wöchentlichen MDN Web Docs Redaktionstreffen teilnehmen.
+- Zugang zum erforderlichen Repository für Commits und Pull Request Genehmigungen und Zusammenführungen erhalten.
+- Andere Mitglieder als eingeladene Experten empfehlen und wählen.
+- Am wöchentlichen MDN Web Docs Redaktionsanruf teilnehmen.
 
-### Gemeinschaftsmanager
+### Community-Manager
 
-Gemeinschaftsmanager haben in vielerlei Hinsicht eine besondere Rolle. Gemeinschaftsmanager teilen viele der gleichen Verantwortlichkeiten wie ein [Wartender](#wartender). Zusätzlich haben Gemeinschaftsmanager die folgenden Verantwortlichkeiten:
+Community-Manager haben in vielerlei Hinsicht eine besondere Rolle.
+Community-Manager teilen viele der gleichen Verantwortlichkeiten wie ein [Maintainer](#maintainer).
+Darüber hinaus haben Community-Manager die folgenden Verantwortlichkeiten:
 
-- Bearbeitung von Berichten über Verstöße gegen unseren [Verhaltenskodex](https://github.com/mdn/mdn-community/blob/main/CODE_OF_CONDUCT.md), der [Mozillas Communityteilnahme-Richtlinien](https://www.mozilla.org/en-US/about/governance/policies/participation/) entspricht, und Entscheidung über geeignete Maßnahmen.
-- Organisation und Durchführung von Gemeinschaftsveranstaltungen.
-- Organisation von gemeinschaftlichen Projektbesprechungen.
+- Berichte über Verstöße gegen unseren [Verhaltenskodex](https://github.com/mdn/mdn-community/blob/main/CODE_OF_CONDUCT.md) zu bearbeiten, der [Mozillas Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/) ist, und über die geeignete Vorgehensweise zu entscheiden.
+- Organisation und Durchführung von Community-Veranstaltungen.
+- Organisation von projektbezogenen Community-Meetings.
 - Bestimmen von Medienstrategien zur Förderung des MDN-Projekts.
-- Definieren und Implementieren der Benutzererfahrung beim Onboarding von Mitwirkenden.
-- Einweisung neuer Mitwirkender und Nutzer.
-- Sicherstellen der Gesundheitsförderung und des Wohlbefindens des MDN-Projekts und aller Teilnehmer.
-- Identifizierung und Unterstützung bei der Implementierung von Automatisierungen zur Verbesserung der Projektnachhaltigkeit.
-- Pflegen und Sicherstellen einer gesunden Beziehung zu Mitwirkenden und Partnern.
-- Unterstützung bei der Problemanalyse und Pull-Request-Überprüfung, wo geeignet.
+- Definition und Umsetzung der Erfahrung beim Onboarding von Mitwirkenden.
+- Onboarding neuer Mitwirkender und Nutzer.
+- Sicherstellung der Gesundheit und des Wohlbefindens des MDN-Projekts und aller Teilnehmer.
+- Identifizierung und Hilfe bei der Implementierung von Automatisierung zur Verbesserung der Projektnachhaltigkeit.
+- Treffen und Sicherstellen einer gesunden Beziehung zu Mitwirkenden und Partnern.
+- Hilfe bei der Problemerkennung und Bewertung von Pull Requests, wo angemessen.
 - Überwachung aller [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels).
-- Hervorhebung von Mitwirkenden, die außergewöhnliche Arbeit geleistet und/oder Engagement für das MDN-Projekt gezeigt haben.
+- Hervorhebung von Mitwirkenden, die außergewöhnliche Arbeit geleistet haben und/oder Engagement für das MDN-Projekt gezeigt haben.
 
 ## Prozesse
 
-### Einen Wartenden nominieren
+### Nominieren eines Maintainers
 
-Siehe, wer ein [Wartender](#wartender) sein kann.
+Sehen Sie, wer ein [Maintainer](#maintainer) sein kann.
 
-Um jemanden als Wartenden zu nominieren, öffnen Sie ein Problem auf GitHub:
+Um jemanden als Maintainer zu nominieren, öffnen Sie ein Problem auf GitHub:
 
-1. Gehen Sie auf den `Issues` Tab im Repository `mdn/mdn` und klicken Sie auf die Schaltfläche [**New issue**](https://github.com/mdn/mdn/issues/new/choose) rechts.
-2. Unter 'Nominate a maintainer' klicken Sie auf die Schaltfläche **Get started**.
-3. Füllen Sie das Formular mit den Details zu den Beiträgen der Person, die Sie nominieren, und reichen Sie das Formular ein.
+1. Auf der Registerkarte "Issues" im `mdn/mdn` Repository klicken Sie auf die Schaltfläche [**New issue**](https://github.com/mdn/mdn/issues/new/choose) auf der rechten Seite.
+2. Unter "Nominate a maintainer", klicken Sie auf die Schaltfläche **Get started**.
+3. Füllen Sie das Formular mit Informationen über die Beiträge der von Ihnen nominierten Person aus und übermitteln Sie das Formular.
 
-### Eine Spotlight-Mitwirkender nominieren
+<!--
+TODO: Links in diesen Schritten aktualisieren
+TODO: Den Abschnitt nach der Aktualisierung der Links bearbeiten
 
-Siehe, wer ein [Spotlight-Mitwirkender](#spotlight-mitwirkender) sein kann.
+- Der Nominator wird einen Pull Request mit der entsprechenden [Vorlage](https://github.com/mdn/mdn-community/roles/) gegen das [MDN Web Docs Community Repository](https://github.com/mdn/mdn-community/) eröffnen.
+- Der Nominierte wird einen Kommentar zum Pull Request hinzufügen und allen Verantwortlichkeiten zustimmen, ein Maintainer zu werden.
+- Mindestens drei aktuelle Maintainer müssen den Pull Request genehmigen.
+- Sobald der Pull Request genehmigt ist, wird der neue Maintainer dem [Maintainer-Team](https://github.com/orgs/mdn/teams/maintainers) und anderen relevanten Themen- oder Projektteams hinzugefügt.
+-->
 
-Um jemanden als Spotlight-Mitwirkender zu nominieren, öffnen Sie ein Problem auf GitHub:
+### Nominieren eines Spotlight-Mitwirkenden
 
-1. Gehen Sie auf den `Issues` Tab im Repository `mdn/mdn` und klicken Sie auf die Schaltfläche [**New issue**](https://github.com/mdn/mdn/issues/new/choose) rechts.
-2. Unter 'Nominate a spotlight contributor' klicken Sie auf die Schaltfläche **Get started**.
-3. Füllen Sie das Formular mit den Details zu den Beiträgen der Person, die Sie nominieren, und reichen Sie das Formular ein.
+Sehen Sie, wer ein [Spotlight-Mitwirkender](#spotlight-mitwirkender) sein kann.
+
+Um jemanden als Spotlight-Mitwirkenden zu nominieren, öffnen Sie ein Problem auf GitHub:
+
+1. Auf der Registerkarte "Issues" im `mdn/mdn` Repository klicken Sie auf die Schaltfläche [**New issue**](https://github.com/mdn/mdn/issues/new/choose) auf der rechten Seite.
+2. Unter "Nominate a spotlight contributor", klicken Sie auf die Schaltfläche **Get started**.
+3. Füllen Sie das Formular mit Informationen über die Beiträge der von Ihnen nominierten Person aus und übermitteln Sie das Formular.
 
 Das MDN-Team wird sich mit der nominierten Person in Verbindung setzen, um ihre Informationen zu erhalten, die auf der [Website](/en-US/) unter "Contributor Spotlight" veröffentlicht werden sollen.
 
-### Einen eingeladenen Experten nominieren
+### Nominieren eines eingeladenen Experten
 
-Siehe, wer ein [eingeladener Experte](#eingeladener_experte) sein kann.
+Sehen Sie, wer ein [eingeladener Experte](#eingeladener_experte) sein kann.
 
 Um jemanden als eingeladenen Experten zu nominieren, öffnen Sie ein Problem auf GitHub:
 
-1. Gehen Sie auf den `Issues` Tab im Repository `mdn/mdn` und klicken Sie auf die Schaltfläche [**New issue**](https://github.com/mdn/mdn/issues/new/choose) rechts.
-2. Unter 'Nominate an invited expert' klicken Sie auf die Schaltfläche **Get started**.
-3. Füllen Sie das Formular mit den Details zu den Beiträgen der Person, die Sie nominieren, und reichen Sie das Formular ein.
+1. Auf der Registerkarte "Issues" im `mdn/mdn` Repository klicken Sie auf die Schaltfläche [**New issue**](https://github.com/mdn/mdn/issues/new/choose) auf der rechten Seite.
+2. Unter "Nominate an invited expert", klicken Sie auf die Schaltfläche **Get started**.
+3. Füllen Sie das Formular mit Informationen über die Beiträge der von Ihnen nominierten Person aus und übermitteln Sie das Formular.
 
-### Zurücktreten oder Emeriti-Status beantragen
+<!--
+TODO: Diesen PR-Prozess überarbeiten
 
-Das Leben geht weiter und Ihre Verpflichtungslevel als Mitwirkender könnten sich im Laufe der Zeit ändern. Abhängig von Ihrer Situation möchten Sie möglicherweise:
+- Der Nominator wird einen Pull Request mit der entsprechenden [Vorlage](https://github.com/mdn/mdn-community/roles/) gegen das [MDN Web Docs Community Repository](https://github.com/mdn/mdn-community/) eröffnen.
+- Der Nominierte wird einen Kommentar zum Pull Request hinzufügen und allen Verantwortlichkeiten zustimmen, ein eingeladener Experte zu werden.
+- Um akzeptiert zu werden, benötigt der Pull Request drei Genehmigungen. Dies kann eine beliebige Kombination aus eingeladenen Experten oder Maintainern sein.
+- Sobald der Pull Request genehmigt ist, wird der neue Eingeladene Experte dem [invited-experts-Team](https://github.com/orgs/mdn/teams/invited-experts) und dem entsprechenden Themen-Team hinzugefügt.
+-->
+
+### Zurücktreten oder den Emeritus-Status beantragen
+
+Das Leben nimmt manchmal weniger vorhersehbare Wendungen, und Ihre Beteiligungslevels als Mitwirkender könnten sich im Laufe der Zeit ändern. Abhängig von Ihrer Situation möchten Sie möglicherweise:
 
 - Eine Pause vom Projekt einlegen.
-- Auf eine weniger fordernde Rolle zurückgestuft werden.
-- Sich vollständig vom Projekt zurückziehen (Emeriti-Status beantragen).
+- Zu einer weniger anspruchsvollen Rolle herabgestuft werden.
+- Sich vollständig vom Projekt zurückziehen (Emeritus-Status beantragen).
 
-In all diesen Situationen fühlen Sie sich frei, Ihre Situation und aktuelle Verpflichtungsebenen mit dem [MDN-Team](#kontakt_das_mdn-team) zu besprechen.
+In all diesen Situationen, zögern Sie nicht, Ihre Situation und Ihr aktuelles Engagement-Level mit dem [MDN-Team](#kontakt_zum_mdn-team) zu besprechen.
 
-### Inaktive Mitwirkende degradieren oder entfernen
+### Herabstufen oder Entfernen inaktiver Mitwirkender
 
-Ein Mitwirkender kann degradiert oder als Mitwirkender entfernt werden, wenn Verantwortungen und Anforderungen nicht erfüllt werden, einschließlich wiederholter Muster der Inaktivität oder eines Verstoßes gegen den [Verhaltenskodex](https://github.com/mdn/mdn-community/blob/main/CODE_OF_CONDUCT.md).
+Ein Mitwirkender kann herabgestuft oder entfernt werden, wenn Verantwortlichkeiten und Anforderungen nicht erfüllt werden, einschließlich wiederholter Inaktivitätsmuster oder eines Verstoßes gegen den [Verhaltenskodex](https://github.com/mdn/mdn-community/blob/main/CODE_OF_CONDUCT.md).
 
-Die Degradierung oder Entfernung eines Mitwirkenden wird von einem Teilnehmer während eines Wartungsbesprechens vorgeschlagen. Der Teilnehmer liefert unterstützende Informationen für das Gesuch um Degradierung oder Entfernung. Nach der Diskussion stimmen Wartende und Gemeinschaftsmanager über die Angelegenheit ab, um eine Entscheidung zu treffen.
+Die Herabstufung oder Entfernung eines Mitwirkenden wird von einem Teilnehmer während eines Maintainers-Meetings vorgeschlagen.
+Der Teilnehmer liefert unterstützende Informationen für die Herabstufungs- oder Entfernungsanfrage.
+Nach der Diskussion stimmen die Maintainer und Community-Manager über die Angelegenheit ab, um eine Entscheidung zu treffen.
 
-Das Entfernen inaktiver Mitwirkender schützt das Projekt und seine Ergebnisse und schafft auch Gelegenheiten für neue Mitwirkende, einzuspringen.
+Die Entfernung inaktiver Mitwirkender schützt das Projekt und seine Ergebnisse und eröffnet auch anderen Mitwirkenden die Möglichkeit, einzuspringen.
 
 Wir definieren Inaktivität als:
 
-- Keine Beiträge zum Projekt für mindestens sechs Monate.
-- Keine Antwort auf Kommunikation für mindestens drei Monate.
+- Keine Beiträge zum Projekt seit mindestens sechs Monaten.
+- Keine Antwort auf Kommunikation seit mindestens drei Monaten.
 
-Inaktivität schadet dem Projekt; es kann zu unerwarteten Verzögerungen, Mitwirkendenverlust und einem Vertrauensverlust in das Projekt führen. Mitwirkende müssen aktiv sein, um ein Beispiel zu geben und Engagement für das Projekt zu zeigen.
+Inaktivität schadet dem Projekt; sie kann zu unerwarteten Verzögerungen, Mitwirkenden-Verlust und einem Vertrauensverlust in das Projekt führen. Mitwirkende müssen aktiv sein, um ein Beispiel zu setzen und Engagement für das Projekt zu zeigen.
 
-Bitte kommunizieren Sie mit dem Gemeinschaftsteam, um eine Degradierung oder Entfernung zu vermeiden, sollten sich Ihre Zeitverpflichtungen ändern; stattdessen können Sie proaktiv entscheiden, [sich für eine Weile zurückzuziehen oder in den Emeriti-Status zu wechseln](#zurücktreten_oder_emeriti-status_beantragen).
+Bitte kommunizieren Sie mit dem Community-Team, um Herabstufungen oder Entfernungen zu vermeiden, sollten sich Ihre Zeitverpflichtungen ändern; stattdessen können Sie proaktiv wählen, [kurz zurückzutreten oder den Emeritus-Status zu wählen](#zurücktreten_oder_den_emeritus-status_beantragen).
 
 ## Teams
 
-Wir verwalten Teams mithilfe der [GitHub-Teams](https://docs.github.com/en/organizations/organizing-members-into-teams/about-teams) Funktion. Wenn Sie einem Team hinzugefügt werden, bedeutet dies, dass Sie Ihre Absicht kommuniziert haben, enger in das Projekt eingebunden zu sein. Dies bedeutet auch, dass Sie einige zusätzliche Verantwortlichkeiten und Rechte haben, wie unten erklärt:
+Wir verwalten Teams mit der [GitHub-Teams](https://docs.github.com/en/organizations/organizing-members-into-teams/about-teams) Funktion. Wenn Sie zu einem Team hinzugefügt werden, bedeutet das, dass Sie die Absicht geäußert haben, sich enger am Projekt zu beteiligen. Dies bedeutet auch, dass Sie einige zusätzliche Verantwortlichkeiten und Rechte haben, wie unten beschrieben:
 
-- Eine Person in einem Team wird normalerweise zur [CODEOWNERS](https://github.com/mdn/content/blob/main/.github/CODEOWNERS) Datei für ihre jeweiligen Themenbereiche von Interesse hinzugefügt.
+- Eine Person in einem Team wird normalerweise zur [CODEOWNERS](https://github.com/mdn/content/blob/main/.github/CODEOWNERS) Datei für ihren jeweiligen Themenbereich von Interesse hinzugefügt.
 
-- Wenn ein Pull-Request Dateien in Ihrem Verantwortungsbereich berührt, basierend auf der CODEOWNERS Datei, werden Sie anhand von GitHubs [Lastverteilungsalgorithmus](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#routing-algorithms) automatisch als Rezensent zu einem Pull-Request hinzugefügt.
+- Wenn ein Pull Request Dateien in Ihrem Verantwortungsbereich betrifft, basierend auf der CODEOWNERS-Datei, werden Sie automatisch als Reviewer einem Pull Request hinzugefügt mit dem [Lastverteilungsalgorithmus](https://docs.github.com/en/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team#routing-algorithms) von GitHub.
 
-- Mitglieder eines Teams haben eine höherstufige Repository-Berechtigung. Repository-Berechtigungen werden nur auf diejenigen Repositories vergeben, auf die ein Mitglied Zugriff benötigt.
+- Mitglieder eines Teams haben einen höheren Zugriff auf das Repository. Repository-Berechtigungen werden nur zu denjenigen Repositories zugewiesen, auf die ein Mitglied Zugriff benötigt.
 
-Die Teams in der [MDN GitHub Organisation](https://github.com/orgs/mdn/teams) umfassen:
+Die Teams in der [MDN GitHub-Organisation](https://github.com/orgs/mdn/teams) sind:
 
-- `@Core`: Kernteam der MDN Web Docs
-- `@mdn-community-engagement`: Personen, die für das Engagement der Gemeinschaft in unseren Repositories verantwortlich sind
+- `@Core`: Kernteam von MDN Web Docs
+- `@mdn-community-engagement`: Personen, die für das Engagement in der Community in unseren Repositories verantwortlich sind
 - `@mdn-product`: Personen, die für das MDN Plus Produkt verantwortlich sind
-- `@localization-team-leads`: Personen, die unsere einzelnen Lokalisierungsteams leiten
-- `@OWD`: Mitwirkende der Open Web Docs Non-Profit-Organisation
-- `@sre`: Site-Reliability-Ingenieure, die MDN Web Docs unterstützen
-- `@yari-content`: Das Dachteam für alle MDN Web Docs Inhaltsreviewer
+- `@localization-team-leads`: Personen, die unsere einzelnen Lokalisierungsteams anführen
+- `@OWD`: Mitwirkende der Non-Profit-Organisation Open Web Docs
+- `@sre`: Site Reliability Engineers, die MDN Web Docs unterstützen
+- `@yari-content`: Das übergeordnete Team für alle MDN Web Docs-Inhalts-Reviewer
 
-  - Es gibt ein Unterteam für die verschiedenen Themenbereiche — Barrierefreiheit, Add-ons, CSS, HTML, HTTP, JavaScript, SVG, Web API und WebAssembly. Zum Beispiel gibt es `@yari-content-css` und `@yari-content-svg`.
-  - Es gibt auch Unterteams für verschiedene Sprachen — brasilianisches Portugiesisch, Chinesisch, Französisch, Japanisch, Koreanisch, Russisch und Spanisch. Zum Beispiel gibt es `@yari-content-fr` und `@yari-content-ko`.
+  - Es gibt ein Unterteam für die verschiedenen Themenbereiche — Barrierefreiheit, Add-ons, CSS, HTML, HTTP, JavaScript, SVG, Web API und WebAssembly. Beispielsweise gibt es `@yari-content-css` und `@yari-content-svg`.
+  - Es gibt auch Unterteams für verschiedene Sprachen — Brasilianisches Portugiesisch, Chinesisch, Französisch, Japanisch, Koreanisch, Russisch und Spanisch. Beispielsweise gibt es `@yari-content-fr` und `@yari-content-ko`.
 
 Um Mitglied eines Teams zu werden, müssen Sie:
 
-- Sich verpflichten, unsere [Communityteilnahme-Richtlinien](https://www.mozilla.org/en-US/about/governance/policies/participation/) einzuhalten.
-- Sich verpflichten, Mozillas [Commit-Zugriffsanforderungen](https://www.mozilla.org/en-US/about/governance/policies/commit/requirements/) einzuhalten.
+- Zustimmen, unseren [Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/) zu folgen.
+- Zustimmen zu Mozillas [Commit Access Requirements](https://www.mozilla.org/en-US/about/governance/policies/commit/requirements/).
 - [Zwei-Faktor-Authentifizierung](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication) (2FA) auf Ihrem GitHub-Konto einrichten.
 
-## Kontakt das MDN-Team
+<!--
+TODO: Diesen Prozess aktualisieren, da es derzeit keine Issue-Kategorie auf mdn/mdn gibt, um zu beantragen, einem Team hinzugefügt zu werden
 
-Für Anfragen und Feedback kontaktieren Sie bitte mdn-web-docs-community (at) mozilla (.com).
+Wenn Sie Mitglied eines Teams werden möchten, sollten Sie zunächst [ein Problem in diesem Repository melden](https://github.com/mdn/mdn/issues/new/choose).
+
+Nachdem Sie Ihr Problem gemeldet haben, wird jemand aus unserem Team es überprüfen und Ihnen die notwendigen Privilegien geben, falls unsere Anforderungen erfüllt sind.
+-->
+
+## Kontakt zum MDN-Team
+
+Für Anfragen und Feedback, bitte kontaktieren Sie mdn-web-docs-community (at) mozilla (.com).

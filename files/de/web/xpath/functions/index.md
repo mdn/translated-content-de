@@ -2,12 +2,10 @@
 title: Funktionen
 slug: Web/XPath/Functions
 l10n:
-  sourceCommit: b6f343538eac4a803943b4e99b0c0545b372645a
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Im Folgenden finden Sie eine kommentierte Liste der Kernfunktionen von [XPath](/de/docs/Web/XPath) und XSLT-spezifische Erweiterungen zu XPath, einschließlich einer Beschreibung, Syntax, einer Liste von Argumenten, Ergebnistyp und Quelle in der entsprechenden W3C-Empfehlung. Für weitere Informationen zur Verwendung von XPath/XSLT-Funktionen besuchen Sie bitte die Seite [For Further Reading](/de/docs/Web/XSLT/Transforming_XML_with_XSLT).
+Im Folgenden finden Sie eine kommentierte Liste der Kernfunktionen von [XPath](/de/docs/Web/XPath) sowie [XSLT](/de/docs/Web/XSLT)-spezifische Erweiterungen von XPath. Diese beinhalten eine Beschreibung, Syntax, eine Liste der Argumente, den Ergebnistyp und die Quelle in der entsprechenden W3C-Empfehlung. Für weitere Informationen zur Nutzung von XPath/XSLT-Funktionen besuchen Sie bitte die Seite [Für Weiteres Lesen](/de/docs/Web/XSLT/Guides/Transforming_XML_with_XSLT).
 
 - [boolean()](/de/docs/Web/XPath/Functions/boolean)
 - [ceiling()](/de/docs/Web/XPath/Functions/ceiling)

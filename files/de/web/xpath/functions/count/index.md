@@ -2,12 +2,10 @@
 title: count
 slug: Web/XPath/Functions/count
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die `count` Funktion zählt die Anzahl der Knoten in einem Knoten-Set und gibt eine ganze Zahl zurück.
+Die `count`-Funktion zählt die Anzahl der Knoten in einem Knotensatz und gibt eine ganze Zahl zurück.
 
 ## Syntax
 
@@ -18,11 +16,11 @@ count( node-set )
 ### Parameter
 
 - `node-set`
-  - : Das zu zählende Knoten-Set.
+  - : Der zu zählende Knotensatz.
 
 ### Rückgabewert
 
-Eine ganze Zahl, die die Anzahl der Knoten in einem Knoten-Set darstellt.
+Eine ganze Zahl, die die Anzahl der Knoten in einem Knotensatz darstellt.
 
 ## Spezifikationen
 

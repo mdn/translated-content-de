@@ -2,14 +2,12 @@
 title: br
 slug: WebAssembly/Reference/Control_flow/br
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
+Die **`br`**-Anweisung springt zu einer Schleife, einem Block oder einem if.
 
-Die **`br`**-Anweisung verzweigt zu einer Schleife, einem Block oder einer if-Anweisung.
-
-Andere Varianten von `br` sind `br_if` für die Verzweigung basierend auf einer Bedingung und `br_table` für die Verzweigung zu verschiedenen Blöcken basierend auf einem Argument.
+Andere Varianten von `br` sind `br_if` zum Bedingen des Sprungs und `br_table` zum Springen zu verschiedenen Blöcken basierend auf einem Argument.
 
 {{EmbedInteractiveExample("pages/wat/br.html", "tabbed-taller")}}
 

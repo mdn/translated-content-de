@@ -2,12 +2,10 @@
 title: if...else
 slug: WebAssembly/Reference/Control_flow/if...else
 l10n:
-  sourceCommit: 6305ca80b66a54b946d9abba3a0fafe7dce581ac
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`if`**-Anweisung führt eine Anweisung aus, wenn das letzte Element auf dem Stapel wahr (ungleich null) ist. Ist die Bedingung falsch (0), kann eine andere Anweisung ausgeführt werden.
+Die **`if`**-Anweisung führt eine Anweisung aus, wenn das letzte Element im Stapel wahr (ungleich Null) ist. Wenn die Bedingung falsch (0) ist, kann eine andere Anweisung ausgeführt werden.
 
 {{EmbedInteractiveExample("pages/wat/if...else.html", "tabbed-taller")}}
 
@@ -42,7 +40,7 @@ i32.const 0
 (drop)
 ```
 
-| Anweisung | Binärcode |
-| --------- | --------- |
-| `if`      | `0x04`    |
-| `else`    | `0x05`    |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `if`      | `0x04`         |
+| `else`    | `0x05`         |

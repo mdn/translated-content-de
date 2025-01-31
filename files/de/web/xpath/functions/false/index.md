@@ -2,12 +2,10 @@
 title: "false"
 slug: Web/XPath/Functions/false
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `false` gibt den booleschen Wert false zurück.
+Die `false` Funktion gibt einen booleschen Wert `false` zurück.
 
 ## Syntax
 
@@ -17,7 +15,7 @@ false()
 
 ### Rückgabewert
 
-Boolescher `false`.
+Boolescher Wert `false`.
 
 ## Beschreibung
 
@@ -33,6 +31,6 @@ Diese Funktion ist nützlich als Teil eines Vergleichs:
 
 [XPath 1.0 4.3](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-false)
 
-## Browser-Kompatibilität
+## Gecko-Unterstützung
 
 Unterstützt.

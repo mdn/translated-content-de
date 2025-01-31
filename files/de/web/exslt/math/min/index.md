@@ -2,14 +2,14 @@
 title: math:min()
 slug: Web/EXSLT/math/min
 l10n:
-  sourceCommit: 8ac73df2fbe2c88d8649fcb006dcde098616c723
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`math:min()` gibt den Minimalwert eines Node-Sets zurück.
+`math:min()` gibt den kleinsten Wert eines Node-Sets zurück.
 
-Um den Minimalwert des Node-Sets zu berechnen, wird das Node-Set in aufsteigender Reihenfolge sortiert, wie es mit [`xsl:sort()`](/de/docs/Web/XSLT/Element/sort) mit einem Datentyp von `number` erfolgen würde. Der Minimalwert ist dann der erste Knoten in der sortierten Liste, der in eine Zahl umgewandelt wird.
+Um den minimalen Wert des Node-Sets zu berechnen, wird das Node-Set in aufsteigender Reihenfolge sortiert, wie es mit [`xsl:sort()`](/de/docs/Web/XSLT/Reference/Element/sort) und dem Datentyp `number` erfolgen würde. Der minimale Wert ist dann der erste Knoten in der sortierten Liste, in eine Zahl umgewandelt.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ math:min(nodeSet)
 
 ### Rückgabewert
 
-Ein Ergebnisbaumfragment, das den numerischen Wert des Knotens mit dem niedrigsten Wert als Zeichenfolge darstellt.
+Ein Ergebnisbaumfragment, das den numerischen Wert des Knotens mit dem niedrigsten Wert als Zeichenkette darstellt.
 
 ## Spezifikationen
 

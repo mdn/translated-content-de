@@ -2,12 +2,10 @@
 title: Reinterpret
 slug: WebAssembly/Reference/Numeric/Reinterpret
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`reinterpret`**-Anweisungen werden verwendet, um die Bits einer Zahl als einen anderen Typ neu zu interpretieren.
+Die **`reinterpret`** Anweisungen werden verwendet, um die Bits einer Zahl als einen anderen Typ neu zu interpretieren.
 
 {{EmbedInteractiveExample("pages/wat/reinterpret.html", "tabbed-taller")}}
 

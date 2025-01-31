@@ -2,12 +2,10 @@
 title: round
 slug: Web/XPath/Functions/round
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Die Funktion `round` gibt eine Zahl zurück, die die nächstgelegene Ganzzahl zur angegebenen Zahl ist.
+Die `round` Funktion gibt eine Zahl zurück, die die nächstliegende ganze Zahl zu der gegebenen Zahl ist.
 
 ## Syntax
 
@@ -18,15 +16,15 @@ round( decimal )
 ### Parameter
 
 - `decimal`
-  - : Die zu rundende Dezimalzahl.
+  - : Die Dezimalzahl, die gerundet werden soll.
 
 ### Rückgabewert
 
-Die nächstgelegene Ganzzahl, die kleiner, größer oder gleich `decimal` ist.
+Die nächstliegende ganze Zahl, die kleiner, größer oder gleich `decimal` ist.
 
 ## Beschreibung
 
-- \-0,5 wird auf negative Null gerundet. 0,4 wird auf positive Null gerundet.
+- \-0.5 wird zu negativem Null gerundet. 0.4 wird zu positivem Null gerundet.
 
 ## Spezifikationen
 

@@ -1,13 +1,11 @@
 ---
-title: Square root
+title: Quadratwurzel
 slug: WebAssembly/Reference/Numeric/Square_root
 l10n:
-  sourceCommit: c681ed89305afd56d54ba6671673680bea041670
+  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
 ---
 
-{{WebAssemblySidebar}}
-
-Die **`sqrt`**-Anweisungen, abgekürzt für _square root_ (Quadratwurzel), werden verwendet, um die Quadratwurzel einer Zahl zu berechnen.
+Die **`sqrt`**-Anweisungen, kurz für _square root_, werden verwendet, um die Quadratwurzel einer Zahl zu berechnen.
 
 {{EmbedInteractiveExample("pages/wat/sqrt.html", "tabbed-standard")}}
 

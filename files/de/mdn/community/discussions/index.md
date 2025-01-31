@@ -1,19 +1,22 @@
 ---
-title: Community-Discussions
+title: GitHub-Diskussionen
 slug: MDN/Community/Discussions
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 719645a32546d9e514ac530a5eb66aa4c26d4f51
 ---
 
-{{MDNSidebar}}
+In den MDN Web Docs ermutigen wir unsere Community, Diskussionen zu Themen im Zusammenhang mit dem gesamten Projekt zu beginnen und/oder sich daran zu beteiligen. Wir bitten Sie, jede Diskussion auf das jeweilige Thema zu konzentrieren, anstatt mehrere Themen in einer Diskussion abzudecken.
 
-Auf MDN Web Docs ermutigen wir unsere Community, Diskussionen zu Themen rund um das gesamte Projekt zu starten und/oder daran teilzunehmen. Diskussionen sind nach verschiedenen Themenbereichen kategorisiert. Wir bitten Sie, jede Diskussion auf das aktuelle Thema zu fokussieren, anstatt mehrere Themen in einer Diskussion abzudecken.
+> [!NOTE]
+> Melden Sie keine Fehler in `mdn/mdn-community`.
+> Wenn Sie etwas Falsches in den MDN Web Docs sehen, öffnen Sie ein GitHub-Issue im [relevanten MDN-GitHub-Repository](https://github.com/mdn/).
 
-**Hinweis:** `mdn-community/discussions` ist nicht der Ort, um Probleme zu melden. Wenn Sie etwas Falsches auf MDN Web Docs sehen, ist es am besten, ein GitHub-Issue im [relevanten MDN GitHub-Repository](https://github.com/mdn/) zu öffnen. Wenn Sie nicht sicher sind, ob Sie ein Issue eröffnen oder eine Diskussion starten sollen, beachten Sie bitte die folgenden Richtlinien:
+Wenn Sie sich nicht sicher sind, ob Sie ein GitHub-Issue oder eine Diskussion eröffnen sollen, hier eine Erklärung, wofür beide gedacht sind:
 
-- Issues sollten verwendet werden, um einen Fehler oder ein Arbeitselement mit klar definierten und umsetzbaren Aufgaben und Ergebnissen zu melden.
-- Verwenden Sie Diskussionen, wenn ein Issue einen Dialog erfordert, um einen Handlungsablauf zu vereinbaren oder ein umsetzbares Arbeitselement zu definieren.
-- Wenn Ihre Diskussion nicht weiterkommt oder Sie sich über die nächsten Schritte unsicher sind, konsultieren Sie die [Richtlinien für das Verwalten und Lösen von Diskussionen](/de/docs/MDN/Community/Discussions/Managing_and_resolving_discussions) für Ratschläge zum weiteren Vorgehen, einschließlich Erwartungen zu Zeitrahmen.
+- **Issues** dienen dazu, Fehler zu melden oder ein Arbeitselement mit definierten und umsetzbaren Aufgaben und Ergebnissen zu verfolgen.
+- **Diskussionen** dienen dazu, einen Konsens darüber zu erreichen, wie wir arbeiten, und Aufgaben zu definieren.
+
+Wenn Ihre Diskussion nicht vorankommt oder Sie sich über die nächsten Schritte unsicher sind, schauen Sie in die [Richtlinien zur Verwaltung und Lösung von Diskussionen](/de/docs/MDN/Community/Discussions/Managing_and_resolving_discussions) für Ratschläge zum weiteren Vorgehen, einschließlich Erwartungen an Zeitpläne.
 
 Prüfen Sie das Thema jeder Diskussionskategorie unten, damit Sie Ihre Diskussion an der richtigen Stelle beginnen können.
 
@@ -34,7 +37,7 @@ Prüfen Sie das Thema jeder Diskussionskategorie unten, damit Sie Ihre Diskussio
         >
       </td>
       <td>
-        Diese Kategorie ist für das Personal der MDN Web Docs reserviert. Während nichts im Weg steht, dass andere hier posten, bitten wir Sie, eine der anderen verfügbaren Kategorien zu wählen.
+        Diese Kategorie ist für das Personal der MDN Web Docs reserviert. Während es keine Einschränkungen gibt, die andere daran hindern, hier zu posten, bitten wir Sie, eine der anderen verfügbaren Kategorien zu wählen.
       </td>
     </tr>
     <tr>
@@ -63,35 +66,10 @@ Prüfen Sie das Thema jeder Diskussionskategorie unten, damit Sie Ihre Diskussio
       </td>
       <td>
         Diskussionen im Zusammenhang mit dem
-        <a href="https://github.com/mdn/content">Inhalt</a> auf MDN Web Docs.
-        <em>Hinweis:</em> Dies ist nicht der Ort, um um Hilfe beim Codieren zu bitten.
-        Wenn Sie feststecken, ist ein guter Startpunkt unser Bereich
-        <a href="/de/docs/Learn_web_development">Learn Web Development</a>.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        🎨
-        <a
-          href="https://github.com/orgs/mdn/discussions/categories/design-system"
-          >Design-System</a
-        >
-      </td>
-      <td>
-        Diskussionen im Zusammenhang mit Designverbesserungen. Design ist subjektiv, aber wir sind immer offen für Vorschläge aus der Community. Jede Verbesserung, die die Erfahrung der MDN Web Docs für ein breiteres Publikum noch besser machen kann, ist willkommen. Wenn Sie konstruktives Feedback zum Design, der Benutzererfahrung und der Barrierefreiheit der MDN Web Docs haben, würden wir gerne von Ihnen hören.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        👩‍💻
-        <a
-          href="https://github.com/orgs/mdn/discussions/categories/code-examples"
-          >Code-Beispiele</a
-        >
-      </td>
-      <td>
-        Diskussionen im Zusammenhang mit allen Code-Beispielen auf MDN Web Docs. Dazu gehören interaktive Beispiele, Live-Beispiele und statische Code-Beispiele. Für Hilfe bei allgemeinen Codierungsherausforderungen auf MDN Web Docs siehe unsere
-        <a href="/de/docs/MDN/Community/Communication_channels">Kommunikationskanäle</a>.
+        <a href="https://github.com/mdn/content">Inhalt</a> der MDN Web Docs.
+        <em>Hinweis:</em> Dies ist nicht der Ort, um nach Programmierhilfe zu fragen.
+        Wenn Sie feststecken, ist unser
+        <a href="/de/docs/Learn_web_development">Bereich Webentwicklung lernen</a> ein guter Ausgangspunkt.
       </td>
     </tr>
     <tr>
@@ -99,7 +77,7 @@ Prüfen Sie das Thema jeder Diskussionskategorie unten, damit Sie Ihre Diskussio
         🌐
         <a
           href="https://github.com/orgs/mdn/discussions/categories/localization"
-          >Übersetzter Inhalt</a
+          >Lokalisierung</a
         >
       </td>
       <td>
@@ -110,11 +88,11 @@ Prüfen Sie das Thema jeder Diskussionskategorie unten, damit Sie Ihre Diskussio
         Repository, das unsere
         <a href="https://github.com/mdn/translated-content/#locales"
           >unterstützten Sprachen</a
-        > abdeckt. Dies ist auch typischerweise der Ort, an dem
+        > abdeckt. Hier finden auch typischerweise
         <a href="https://github.com/orgs/mdn/discussions/67"
-          >Ankündigungen zur Makro-Abschaffung</a
+          >Ankündigungen zur Einstellung von Makros</a
         >
-        stattfinden.
+        statt.
       </td>
     </tr>
     <tr>
@@ -128,9 +106,9 @@ Prüfen Sie das Thema jeder Diskussionskategorie unten, damit Sie Ihre Diskussio
       <td>
         Diskussionen im Zusammenhang mit dem bestehenden
         <a href="/en-US/plus"
-          >MDN Plus Funktionssatz</a
+          >MDN Plus-Feature-Set</a
         >
-        sowie Funktionsideen. Für Unterstützung bei MDN Plus wie Abonnements, wenden Sie sich bitte an Mozillas
+        sowie Feature-Ideen. Für MDN Plus-Support wie Abonnements, schauen Sie bitte in Mozillas
         <a href="https://support.mozilla.org/en-US/products/mdn-plus"
           >offiziellen Support-Kanal</a
         >.
@@ -146,31 +124,17 @@ Prüfen Sie das Thema jeder Diskussionskategorie unten, damit Sie Ihre Diskussio
       </td>
       <td>
         Diskussionen im Zusammenhang mit der
-        <a href="https://github.com/mdn/yari">Kernplattform</a> der MDN Web Docs.
-        Ihre Vorschläge zur Verbesserung der Architektur und der bestehenden Funktionen, wie Navigation und Suche, sind willkommen. Wenn Sie jedoch glauben, dass Sie einen Fehler im Zusammenhang mit der Plattform gefunden haben,
+        <a href="https://github.com/mdn/yari">Kern</a> MDN Web Docs-Plattform.
+        Ihre Vorschläge zur Verbesserung der Architektur und der bestehenden Funktionen, wie Navigation und Suche, sind willkommen. Wenn Sie jedoch glauben, dass Sie einen Fehler im Zusammenhang mit der Plattform gefunden haben, melden Sie ihn bitte
         <a
           href="https://github.com/mdn/yari/issues/choose?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc"
-          >melden Sie ihn bitte</a
-        >
-        im Yari-Repository. Dies ist auch der Ort für Diskussionen zu bestehenden Tools wie
+          >im Yari-Repository</a
+        >. Dies ist auch der Ort für Diskussionen zu bestehenden Tools, wie
         <a href="https://github.com/mdn/bob">BoB</a>,
-        <a href="https://github.com/mdn/markdown/">Markdown</a>,
-        <a href="https://github.com/mdn/workflows">wiederverwendbare Workflows</a> usw.
+        <a href="https://github.com/mdn/markdown/">markdown</a>,
+        <a href="https://github.com/mdn/workflows">wiederverwendbare Workflows</a>, etc.
         HINWEIS: Diese Kategorie ist nicht für Diskussionen zu MDN Plus-bezogenen Funktionen. Es gibt eine separate Diskussionskategorie für MDN Plus.
       </td>
     </tr>
-    <tr>
-      <td>
-        🤖
-        <a
-          href="https://github.com/orgs/mdn/discussions/categories/polls"
-          >Umfragen</a
-        >
-      </td>
-      <td>
-        Diese Kategorie ist für die Nutzung durch das Personal der MDN Web Docs vorgesehen. Wir werden diese Kategorie nutzen, um Umfragen zu Themen durchzuführen, bei denen wir Ihre Meinung benötigen. Halten Sie also die Augen offen. 👀
-      </td>
-    </tr>
-
   </tbody>
 </table>

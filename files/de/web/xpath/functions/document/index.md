@@ -2,12 +2,10 @@
 title: document
 slug: Web/XPath/Functions/document
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 968a8128c76cdae79e17d74e482a426aec1189d2
 ---
 
-{{XsltSidebar}}
-
-Das `document` sucht eine Knotenmenge in einem externen Dokument oder mehreren externen Dokumenten und gibt die resultierende Knotenmenge zurück.
+Das `document` findet eine Knoten-Menge in einem externen Dokument oder in mehreren externen Dokumenten und gibt die resultierende Knoten-Menge zurück.
 
 ## Syntax
 
@@ -18,22 +16,22 @@ document( URI [,node-set] )
 ### Parameter
 
 - `URI`
-  - : Eine absolute oder relative URI des abzurufenden Dokuments. Die URI kann auch einen Fragmentbezeichner enthalten.
+  - : Eine absolute oder relative URI des abzurufenden Dokuments. Die URI kann auch einen Fragment-Identifikator enthalten.
 - `node-set` (optional)
-  - : Ein Ausdruck, der auf eine Knotenmenge im externen Dokument zeigt, die zurückgegeben werden soll.
+  - : Ein Ausdruck, der auf eine Knoten-Menge im externen Dokument zeigt, die zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Eine Knotenmenge.
+Eine Knoten-Menge.
 
 ## Beschreibung
 
-- Wenn die URI einen Fragmentbezeichner enthält und dieses Fragment im externen Dokument identifiziert werden kann, wird dieses Fragment als Wurzel im Ausdruck des `node-set`-Arguments behandelt. Wenn das `node-set`-Argument weggelassen wird, wird das gesamte Fragment zurückgegeben.
-- Wenn das `URI`-Argument eine Knotenmenge ist und das zweite Argument vorhanden ist, wird jeder Knoten in der Knotenmenge als separate URI ausgewertet, und die zurückgegebene Knotenmenge wird so sein, als ob die `document`-Funktion mehrfach aufgerufen worden wäre (jeder Aufruf mit demselben zweiten Argument, wie es im Funktionsaufruf angegeben ist) und die resultierenden Knotenmengen zu einer einzigen Knotenmenge zusammengeführt worden wären.
-- Es gibt weitere spezifische Bedingungen mit festgelegtem Verhalten. Siehe die XSLT 1.0 Dokumentation für Details.
+- Wenn die URI einen Fragment-Identifikator enthält und dieses Fragment im externen Dokument identifiziert werden kann, wird dieses Fragment als Wurzel im Ausdruck des `node-set`-Arguments behandelt. Wenn das `node-set`-Argument weggelassen wird, wird das gesamte Fragment zurückgegeben.
+- Wenn das `URI`-Argument eine Knoten-Menge ist und das zweite Argument vorhanden ist, wird jeder Knoten in der Knoten-Menge als separate URI ausgewertet, und die zurückgegebene Knoten-Menge wird so, als ob die `document`-Funktion mehrmals aufgerufen worden wäre (jedes Mal mit dem gleichen zweiten Argument, wie es im Funktionsaufruf angegeben ist) und die resultierenden Knoten-Mengen zu einer einzigen Knoten-Menge zusammengefasst worden wären.
+- Es gibt weitere spezifische Bedingungen mit festgelegtem Verhalten. Siehe die XSLT 1.0-Dokumentation für Details.
 - Da die URI relativ zum XSL-Dokument ist, würde `document("")` den Wurzelknoten des aktuellen Dokuments zurückgeben.
 
-Diese Funktion ist eine XSLT-spezifische Erweiterung von XPath. Sie ist nicht Teil der Kernbibliothek der XPath-Funktionen.
+Diese Funktion ist eine XSLT-spezifische Ergänzung zu XPath. Sie ist nicht Teil der grundlegenden XPath-Funktionsbibliothek.
 
 ## Spezifikationen
 
