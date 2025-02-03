@@ -3,25 +3,25 @@ title: "SVGFEDropShadowElement: setStdDeviation() Methode"
 short-title: setStdDeviation()
 slug: Web/API/SVGFEDropShadowElement/setStdDeviation
 l10n:
-  sourceCommit: 7527a11a2b7fc7440aa6d518a9f5b4c061794ff3
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `setStdDeviation()` Methode der [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement) Schnittstelle setzt die Werte für das {{SVGAttr("stdDeviation")}} Attribut.
+Die `setStdDeviation()` Methode des [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement)-Interfaces setzt die Werte für das {{SVGAttr("stdDeviation")}}-Attribut.
 
 ## Syntax
 
 ```js-nolint
-SVGFEDropShadowElement.setStdDeviation(x, y)
+setStdDeviation(x, y)
 ```
 
 ### Parameter
 
 - `x`
-  - : Ein Float, der die X-Komponente des {{SVGAttr("stdDeviation")}} Attributs darstellt.
+  - : Ein Float, der die X-Komponente des {{SVGAttr("stdDeviation")}}-Attributs darstellt.
 - `y`
-  - : Ein Float, der die Y-Komponente des {{SVGAttr("stdDeviation")}} Attributs darstellt.
+  - : Ein Float, der die Y-Komponente des {{SVGAttr("stdDeviation")}}-Attributs darstellt.
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Keiner ({{jsxref('undefined')}}).
 
 ### Verwendung von `setStdDeviation()`
 
-In diesem Beispiel setzen wir die horizontalen und vertikalen Standardabweichungen für eine Weichzeichnungsoperation für einen `<feDropShadow>` Filter-Schattierungseffekt mithilfe der `setStdDeviation()` Methode der `SVGFEDropShadowElement` Schnittstelle.
+In diesem Beispiel setzen wir die horizontalen und vertikalen Standardabweichungen für eine Weichzeichnungsoperation für einen `<feDropShadow>`-Filter-Schatteneffekt mittels der `setStdDeviation()`-Methode des `SVGFEDropShadowElement`-Interfaces.
 
 ```html
 <svg height="200" width="200" viewBox="0 0 200 200">

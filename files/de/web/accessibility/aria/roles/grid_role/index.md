@@ -1,17 +1,17 @@
 ---
-title: "ARIA: grid Rolle"
+title: "ARIA: grid-Rolle"
 slug: Web/Accessibility/ARIA/Roles/grid_role
 l10n:
-  sourceCommit: bea339d321513fc6d66d95c8f0305b9387fa57bb
+  sourceCommit: 59254d29220ae206917c2d6153ce4847d70e3766
 ---
 
 {{AccessibilitySidebar}}
 
-Die `grid` Rolle ist für ein Widget, das eine oder mehrere Zeilen von Zellen enthält. Die Position jeder Zelle ist signifikant und kann mithilfe von Tastatureingaben fokussiert werden.
+Die grid-Rolle ist für ein Widget, das eine oder mehrere Zeilen von Zellen enthält. Die Position jeder Zelle ist bedeutend und kann durch Tastatureingabe fokussiert werden.
 
 ## Beschreibung
 
-Die `grid` Rolle ist ein zusammengesetztes Widget, das eine Sammlung von einer oder mehreren Zeilen mit einer oder mehreren Zellen enthält, wobei einige oder alle Zellen im Gitter mithilfe von Methoden der zweidimensionalen Navigation, wie Richtungspfeiltasten, fokussierbar sind.
+Die `grid`-Rolle ist ein zusammengesetztes Widget, das eine Sammlung von einer oder mehreren Zeilen mit einer oder mehreren Zellen enthält, bei denen einige oder alle Zellen im Raster mithilfe zweidimensionaler Navigationsmethoden, wie Richtungs-Pfeiltasten, fokussierbar sind.
 
 ```html
 <table role="grid" aria-labelledby="id-select-your-seat">
@@ -48,63 +48,63 @@ Die `grid` Rolle ist ein zusammengesetztes Widget, das eine Sammlung von einer o
 </table>
 ```
 
-Ein Gitter-Widget enthält eine oder mehrere Zeilen mit einer oder mehreren Zellen thematisch verwandter interaktiver Inhalte. Während es keine spezifische visuelle Darstellung impliziert, impliziert es eine Beziehung zwischen den Elementen. Die Verwendung fällt in zwei Kategorien: Präsentation tabellarischer Informationen (Datenraster) und Gruppierung anderer Widgets (Layout-Raster). Obwohl sowohl Datenraster als auch Layout-Raster dieselben ARIA-Rollen, Zustände und Eigenschaften verwenden, weisen Unterschiede in ihrem Inhalt und Zweck auf Faktoren hin, die bei der Gestaltung von Tastaturinteraktionen wichtig sind. Weitere Details finden Sie im [ARIA Autorierungspraktiken Leitfaden](https://www.w3.org/WAI/ARIA/apg/patterns/grid/).
+Ein Raster-Widget enthält eine oder mehrere Zeilen mit einer oder mehreren Zellen von thematisch verwandtem interaktivem Inhalt. Während es keine spezifische visuelle Präsentation impliziert, impliziert es eine Beziehung zwischen den Elementen. Die Verwendung fällt in zwei Kategorien: Darstellung tabellarischer Informationen (Datenraster) und Gruppierung anderer Widgets (Layout-Raster). Auch wenn sowohl Datenraster als auch Layout-Raster dieselben ARIA-Rollen, Zustände und Eigenschaften verwenden, führen Unterschiede in ihrem Inhalt und Zweck zu Faktoren, die bei der Gestaltung der Tastaturinteraktion wichtig sind. Weitere Details finden Sie im [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/grid/).
 
-Zellenelemente haben die Rolle [`gridcell`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role), es sei denn, sie sind eine Zeilen- oder Spaltenüberschrift, in diesem Fall sind die Elemente [`rowheader`](/de/docs/Web/Accessibility/ARIA/Roles/rowheader_role) und [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role). Zellenelemente müssen von Elementen mit einer [`row`](/de/docs/Web/Accessibility/ARIA/Roles/row_role) Rolle verwaltet werden. Zeilen können mit der [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role) Rolle gruppiert werden.
+Zellelemente haben die Rolle [`gridcell`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role), es sei denn, sie sind Kopfzeilen einer Zeile oder Spalte, in diesem Fall sind die Elemente [`rowheader`](/de/docs/Web/Accessibility/ARIA/Roles/rowheader_role) und [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role), jeweils. Zellelemente müssen von Elementen mit einer [`row`](/de/docs/Web/Accessibility/ARIA/Roles/row_role)-Rolle gebunden werden. Zeilen können mit der Rolle [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role) gruppiert werden.
 
-Wenn das Gitter als interaktives Widget verwendet wird, müssen [Tastaturinteraktionen](#tastaturinteraktionen) implementiert werden.
+Wenn das Raster als interaktives Widget verwendet wird, müssen [Tastaturinteraktionen](#tastaturinteraktionen) implementiert werden.
 
-### Zugehörige ARIA Rollen, Zustände und Eigenschaften
+### Zugehörige ARIA-Rollen, Zustände und Eigenschaften
 
 #### Rollen
 
 - [treegrid](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) (Unterklasse)
-  - : Wenn ein Gitter Spalten hat, die erweitert oder eingeklappt werden können, kann ein treegrid verwendet werden.
+  - : Wenn ein Raster Spalten hat, die erweitert oder reduziert werden können, kann ein Treegrid verwendet werden.
 - [row](/de/docs/Web/Accessibility/ARIA/Roles/row_role)
-  - : Eine Zeile im Gitter.
+  - : Eine Zeile innerhalb des Rasters.
 - [rowgroup](/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role)
   - : Eine Gruppe, die eine oder mehrere [row](/de/docs/Web/Accessibility/ARIA/Roles/row_role)s enthält.
 
 #### Zustände und Eigenschaften
 
 - [aria-level](/de/docs/Web/Accessibility/ARIA/Attributes/aria-level)
-  - : Gibt die hierarchische Ebene des Gitters innerhalb anderer Strukturen an.
+  - : Gibt die hierarchische Ebene des Rasters innerhalb anderer Strukturen an.
 - [aria-multiselectable](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable)
-  - : Wenn `aria-multiselectable` auf `true` gesetzt ist, können mehrere Elemente im Gitter ausgewählt werden. Der Standardwert ist `false`.
+  - : Wenn `aria-multiselectable` auf `true` gesetzt ist, können mehrere Elemente im Raster ausgewählt werden. Der Standardwert ist `false`.
 - [aria-readonly](/de/docs/Web/Accessibility/ARIA/Attributes/aria-readonly)
-  - : Wenn der Benutzer das Gitter navigieren, aber nicht den Wert oder die Werte des Gitters ändern kann, sollte [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-readonly) auf `true` gesetzt werden. Der Standardwert ist `false`.
+  - : Wenn der Benutzer das Raster navigieren kann, aber den Wert oder die Werte des Rasters nicht ändern kann, sollte [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-readonly) auf `true` gesetzt werden. Der Standardwert ist `false`.
 
 > [!NOTE]
-> Für viele Anwendungsfälle ist ein HTML {{HTMLElement('table')}} Element ausreichend, da es und die verschiedenen Tabellenelemente bereits viele ARIA-Rollen enthalten.
+> Für viele Anwendungsfälle ist ein HTML-{{HTMLElement('table')}}-Element ausreichend, da es und die verschiedenen Tabellenelemente bereits viele ARIA-Rollen beinhalten.
 
 ### Tastaturinteraktionen
 
-Wenn ein Tastaturbenutzer auf ein Gitter stößt, navigiert er durch die Reihen und Spalten mit den Tasten <kbd>links</kbd>, <kbd>rechts</kbd>, <kbd>oben</kbd> und <kbd>unten</kbd>. Um die interaktive Komponente zu aktivieren, verwenden sie die Tasten <kbd>return</kbd> und <kbd>space</kbd>.
+Wenn ein Tastaturnutzer auf ein Raster trifft, navigiert er durch die Zeilen und Spalten mit den Tasten <kbd>links</kbd>, <kbd>rechts</kbd>, <kbd>oben</kbd> und <kbd>unten</kbd>. Um die interaktive Komponente zu aktivieren, verwenden sie die Tasten <kbd>Return</kbd> und <kbd>Leertaste</kbd>.
 
-| Taste                             | Aktion                                                                                                                                                                                                                                                                                                      |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>→</kbd>                      | Verschiebt den Fokus um eine Zelle nach rechts. Optional (Layout-Raster), wenn der Fokus auf der rechten Zelle in der Zeile liegt, kann sich der Fokus zur ersten Zelle in der folgenden Zeile bewegen. Wenn der Fokus auf der letzten Zelle im Gitter ist, bewegt sich der Fokus nicht.                    |
-| <kbd>←</kbd>                      | Verschiebt den Fokus um eine Zelle nach links. Optional (Layout-Raster), wenn der Fokus auf der linken Zelle in der Zeile liegt, kann sich der Fokus zur letzten Zelle in der vorherigen Zeile bewegen. Wenn der Fokus auf der ersten Zelle im Gitter ist, bewegt sich der Fokus nicht.                     |
-| <kbd>↓</kbd>                      | Verschiebt den Fokus um eine Zelle nach unten. Optional (Layout-Raster), wenn der Fokus auf der unteren Zelle in der Spalte liegt, kann sich der Fokus zur oberen Zelle in der folgenden Spalte bewegen. Wenn der Fokus auf der letzten Zelle im Gitter ist, bewegt sich der Fokus nicht.                   |
-| <kbd>↑</kbd>                      | Verschiebt den Fokus um eine Zelle nach oben. Optional (Layout-Raster), wenn der Fokus auf der oberen Zelle in der Spalte liegt, kann sich der Fokus zur unteren Zelle in der vorherigen Spalte bewegen. Wenn der Fokus auf der ersten Zelle im Gitter ist, bewegt sich der Fokus nicht.                    |
-| <kbd>Bild ab</kbd>                | Verschiebt den Fokus eine vom Autor festgelegte Anzahl von Zeilen nach unten, indem typischerweise so gescrollt wird, dass die untere Zeile im derzeit sichtbaren Satz von Zeilen eine der ersten sichtbaren Zeilen wird. Wenn der Fokus in der letzten Zeile des Gitters ist, bewegt sich der Fokus nicht. |
-| <kbd>Bild auf</kbd>               | Verschiebt den Fokus eine vom Autor festgelegte Anzahl von Zeilen nach oben, indem typischerweise so gescrollt wird, dass die obere Zeile im derzeit sichtbaren Satz von Zeilen eine der letzten sichtbaren Zeilen wird. Wenn der Fokus in der ersten Zeile des Gitters ist, bewegt sich der Fokus nicht.   |
-| <kbd>Pos1</kbd>                   | Verschiebt den Fokus zur ersten Zelle in der Zeile, die den Fokus enthält.                                                                                                                                                                                                                                  |
-| <kbd>Ende</kbd>                   | Verschiebt den Fokus zur letzten Zelle in der Zeile, die den Fokus enthält.                                                                                                                                                                                                                                 |
-| <kbd>Strg</kbd> + <kbd>Pos1</kbd> | Verschiebt den Fokus zur ersten Zelle in der ersten Zeile.                                                                                                                                                                                                                                                  |
-| <kbd>Strg</kbd> + <kbd>Ende</kbd> | Verschiebt den Fokus zur letzten Zelle in der letzten Zeile.                                                                                                                                                                                                                                                |
+| Taste                             | Aktion                                                                                                                                                                                                                                                                                              |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>→</kbd>                      | Bewegt den Fokus um eine Zelle nach rechts. Optional (Layout-Raster), wenn der Fokus auf der rechten Zelle in der Zeile ist, kann der Fokus auf die erste Zelle der folgenden Zeile wechseln. Wenn der Fokus auf der letzten Zelle im Raster ist, bewegt sich der Fokus nicht.                      |
+| <kbd>←</kbd>                      | Bewegt den Fokus um eine Zelle nach links. Optional (Layout-Raster), wenn der Fokus auf der linken Zelle in der Zeile ist, kann der Fokus auf die letzte Zelle der vorherigen Zeile wechseln. Wenn der Fokus auf der ersten Zelle im Raster ist, bewegt sich der Fokus nicht.                       |
+| <kbd>↓</kbd>                      | Bewegt den Fokus um eine Zelle nach unten. Optional (Layout-Raster), wenn der Fokus auf der unteren Zelle in der Spalte ist, kann der Fokus auf die obere Zelle in der folgenden Spalte wechseln. Wenn der Fokus auf der letzten Zelle im Raster ist, bewegt sich der Fokus nicht.                  |
+| <kbd>↑</kbd>                      | Bewegt den Fokus um eine Zelle nach oben. Optional (Layout-Raster), wenn der Fokus auf der oberen Zelle in der Spalte ist, kann der Fokus auf die untere Zelle in der vorherigen Spalte wechseln. Wenn der Fokus auf der ersten Zelle im Raster ist, bewegt sich der Fokus nicht.                   |
+| <kbd>Bild ab</kbd>                | Bewegt den Fokus um eine vom Autor bestimmte Anzahl von Zeilen nach unten und scrollt typischerweise so, dass die untere Zeile des aktuell sichtbaren Satzes von Zeilen zu einer der ersten sichtbaren Zeilen wird. Wenn der Fokus in der letzten Zeile im Raster ist, bewegt sich der Fokus nicht. |
+| <kbd>Bild hoch</kbd>              | Bewegt den Fokus um eine vom Autor bestimmte Anzahl von Zeilen nach oben und scrollt typischerweise so, dass die obere Zeile des aktuell sichtbaren Satzes von Zeilen zu einer der letzten sichtbaren Zeilen wird. Wenn der Fokus in der ersten Zeile im Raster ist, bewegt sich der Fokus nicht.   |
+| <kbd>Pos1</kbd>                   | Bewegt den Fokus auf die erste Zelle in der Zeile, die den Fokus enthält.                                                                                                                                                                                                                           |
+| <kbd>Ende</kbd>                   | Bewegt den Fokus auf die letzte Zelle in der Zeile, die den Fokus enthält.                                                                                                                                                                                                                          |
+| <kbd>Strg</kbd> + <kbd>Pos1</kbd> | Bewegt den Fokus auf die erste Zelle in der ersten Zeile.                                                                                                                                                                                                                                           |
+| <kbd>Strg</kbd> + <kbd>Ende</kbd> | Bewegt den Fokus auf die letzte Zelle in der letzten Zeile.                                                                                                                                                                                                                                         |
 
-Wenn Zellen, Zeilen oder Spalten ausgewählt werden können, werden häufig die folgenden Tastenkombinationen verwendet:
+Wenn Zellen, Zeilen oder Spalten ausgewählt werden können, werden üblicherweise folgende Tastenkombinationen verwendet:
 
-| Tastenkombination                          | Aktion                                                                                                                                                                                                                                                                     |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>Strg</kbd> + <kbd>Leertaste</kbd>     | Wählt die Spalte aus, die den Fokus enthält.                                                                                                                                                                                                                               |
-| <kbd>Umschalt</kbd> + <kbd>Leertaste</kbd> | Wählt die Zeile aus, die den Fokus enthält. Wenn das Gitter eine Spalte mit Kontrollkästchen zum Auswählen von Zeilen enthält, kann diese Tastenkombination verwendet werden, um dieses Kästchen zu markieren, selbst wenn der Fokus nicht auf dem Kontrollkästchen liegt. |
-| <kbd>Strg</kbd> + <kbd>A</kbd>             | Wählt alle Zellen aus.                                                                                                                                                                                                                                                     |
-| <kbd>Umschalt</kbd> + <kbd>→</kbd>         | Erweitert die Auswahl um eine Zelle nach rechts.                                                                                                                                                                                                                           |
-| <kbd>Umschalt</kbd> + <kbd>←</kbd>         | Erweitert die Auswahl um eine Zelle nach links.                                                                                                                                                                                                                            |
-| <kbd>Umschalt</kbd> + <kbd>↓</kbd>         | Erweitert die Auswahl um eine Zelle nach unten.                                                                                                                                                                                                                            |
-| <kbd>Umschalt</kbd> + <kbd>↑</kbd>         | Erweitert die Auswahl um eine Zelle nach oben.                                                                                                                                                                                                                             |
+| Tastenkombination                       | Aktion                                                                                                                                                                                                                                                     |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>Strg</kbd> + <kbd>Leertaste</kbd>  | Wählt die Spalte aus, die den Fokus hat.                                                                                                                                                                                                                   |
+| <kbd>Shift</kbd> + <kbd>Leertaste</kbd> | Wählt die Zeile aus, die den Fokus hat. Wenn das Raster eine Spalte mit Kontrollkästchen zum Auswählen von Zeilen enthält, kann diese Tastenkombination verwendet werden, um das Kästchen zu aktivieren, auch wenn der Fokus nicht auf dem Kästchen liegt. |
+| <kbd>Strg</kbd> + <kbd>A</kbd>          | Wählt alle Zellen aus.                                                                                                                                                                                                                                     |
+| <kbd>Shift</kbd> + <kbd>→</kbd>         | Erweitert die Auswahl um eine Zelle nach rechts.                                                                                                                                                                                                           |
+| <kbd>Shift</kbd> + <kbd>←</kbd>         | Erweitert die Auswahl um eine Zelle nach links.                                                                                                                                                                                                            |
+| <kbd>Shift</kbd> + <kbd>↓</kbd>         | Erweitert die Auswahl um eine Zelle nach unten.                                                                                                                                                                                                            |
+| <kbd>Shift</kbd> + <kbd>↑</kbd>         | Erweitert die Auswahl um eine Zelle nach oben.                                                                                                                                                                                                             |
 
 ## Beispiele
 
@@ -244,7 +244,7 @@ trs.forEach((row) => {
   row.querySelectorAll("td").forEach((el) => {
     el.dataset.row = rowIndex;
     el.dataset.col = colIndex;
-    rowIndex++;
+    colIndex++;
   });
   if (colIndex > maxCol) {
     maxCol = colIndex - 1;
@@ -365,7 +365,7 @@ document.querySelector("table").addEventListener("keydown", (event) => {
 
 ## Barrierefreiheitsbedenken
 
-Selbst wenn die Tastaturnutzung ordnungsgemäß implementiert ist, könnten einige Benutzer sich der Notwendigkeit, die Pfeiltasten zu verwenden, nicht bewusst sein. Stellen Sie sicher, dass die Funktionalität und die erforderliche Interaktion am besten durch die Verwendung der `grid` Rolle erreicht werden können.
+Selbst wenn die Tastaturnutzung ordnungsgemäß implementiert ist, könnten einige Benutzer nicht bemerken, dass sie die Pfeiltasten verwenden müssen. Stellen Sie sicher, dass die gewünschte Funktionalität und Interaktion am besten mit der grid-Rolle erreicht werden kann.
 
 ## Spezifikationen
 
@@ -373,14 +373,14 @@ Selbst wenn die Tastaturnutzung ordnungsgemäß implementiert ist, könnten eini
 
 ## Siehe auch
 
-- [ARIA `composite` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/composite_role)
-- [ARIA `table` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
-- [ARIA `treegrid` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role)
-- [ARIA `row` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/row_role)
-- [ARIA `rowgroup` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role)
-- [ARIA: `gridcell` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role)
-- [ARIA: `rowheader` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/rowheader_role)
-- [ARIA: columnheader Rolle](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role)
+- [ARIA `composite`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/composite_role)
+- [ARIA `table`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA `treegrid`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role)
+- [ARIA `row`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/row_role)
+- [ARIA `rowgroup`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role)
+- [ARIA: `gridcell`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role)
+- [ARIA: `rowheader`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/rowheader_role)
+- [ARIA: columnheader-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role)
 - {{HTMLElement('table','HTML <code>&lt;table&gt;</code> Element')}}
 - [`aria-level`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-level)
 - [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable)

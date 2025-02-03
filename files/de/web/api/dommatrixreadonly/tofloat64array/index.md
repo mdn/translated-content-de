@@ -1,28 +1,28 @@
 ---
-title: "DOMMatrixReadOnly: Methode toFloat64Array()"
+title: "DOMMatrixReadOnly: toFloat64Array()-Methode"
 short-title: toFloat64Array()
 slug: Web/API/DOMMatrixReadOnly/toFloat64Array
 l10n:
-  sourceCommit: 6ccc59de7fafb81a9cd90078c3380f931ae0af9a
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("DOM")}}
 
-Die **`toFloat64Array()`**-Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Interfaces gibt ein neues {{jsxref("Float64Array")}} zurück, das alle 16 Elemente (`m11`, `m12`, `m13`, `m14`, `m21`, `m22`, `m23`, `m24`, `m31`, `m32`, `m33`, `m34`, `m41`, `m42`, `m43`, `m44`) enthält, die die Matrix bilden. Die Elemente werden als Gleitkommazahlen mit doppelter Genauigkeit in spaltenweiser (colexographical access, oder "colex") Reihenfolge in das Array gespeichert. (Mit anderen Worten, von oben nach unten in der ersten Spalte, dann die zweite Spalte und so weiter.)
+Die **`toFloat64Array()`**-Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle gibt ein neues {{jsxref("Float64Array")}} zurück, das alle 16 Elemente (`m11`, `m12`, `m13`, `m14`, `m21`, `m22`, `m23`, `m24`, `m31`, `m32`, `m33`, `m34`, `m41`, `m42`, `m43`, `m44`) enthält, die die Matrix bilden. Die Elemente werden als Gleitkommazahlen mit doppelter Genauigkeit im Spalten-major-Format (coleographischer Zugriff, oder "colex") in das Array gespeichert. (Mit anderen Worten, von oben nach unten durch die erste Spalte, dann die zweite Spalte und so weiter.)
 
 ## Syntax
 
 ```js-nolint
-DOMMatrixReadOnly.toFloat64Array()
+toFloat64Array()
 ```
 
 ### Parameter
 
 Keine.
 
-### Rückgabe
+### Rückgabewert
 
-Ein {{jsxref("Float64Array")}}; ein Array mit den 16 Elementwerten der Matrix.
+Ein {{jsxref("Float64Array")}}; ein Array der 16 Elementwerte der Matrix.
 
 ## Beispiele
 

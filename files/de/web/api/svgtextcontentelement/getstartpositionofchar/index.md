@@ -3,17 +3,17 @@ title: "SVGTextContentElement: getStartPositionOfChar() Methode"
 short-title: getStartPositionOfChar()
 slug: Web/API/SVGTextContentElement/getStartPositionOfChar
 l10n:
-  sourceCommit: 84cab3d0973d23ac3f00448784c55fe3f0c948ad
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die Methode `getStartPositionOfChar()` des [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement) Interfaces gibt die Position eines typografischen Zeichens nach der Textlayout-Verarbeitung zurück.
+Die `getStartPositionOfChar()`-Methode des [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Interfaces gibt die Position eines typografischen Zeichens zurück, nachdem das Textlayout durchgeführt wurde.
 
 ## Syntax
 
 ```js-nolint
-SVGTextContentElement.getStartPositionOfChar(index)
+getStartPositionOfChar(index)
 ```
 
 ### Parameter
@@ -23,12 +23,12 @@ SVGTextContentElement.getStartPositionOfChar(index)
 
 ### Rückgabewert
 
-Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint) Objekt; die Position des Zeichens in Benutzerkoordinaten.
+Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt; die Position des Zeichens in den Benutzerkoordinaten.
 
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn kein Zeichen an `index` gefunden wird.
+  - : Wird ausgelöst, wenn kein Zeichen bei `index` gefunden wird.
 
 ## Beispiele
 

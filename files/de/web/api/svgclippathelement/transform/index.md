@@ -1,18 +1,18 @@
 ---
-title: "SVGClipPathElement: transform-Eigenschaft"
+title: "SVGClipPathElement: Transform-Eigenschaft"
 short-title: transform
 slug: Web/API/SVGClipPathElement/transform
 l10n:
-  sourceCommit: b7c9a25bc747b8a4a3dfd91a37ac1b2193414c3a
+  sourceCommit: 0bb352f93d19c62cd07807479975f610f7b02cf4
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`transform`**-Eigenschaft des [`SVGClipPathElement`](/de/docs/Web/API/SVGClipPathElement) Interfaces spiegelt das {{SVGAttr("transform")}}-Attribut eines {{SVGElement("clipPath")}}-Elements wider, das eine Liste von auf das Element angewendeten Transformationen darstellt.
+Die schreibgeschützte **`transform`**-Eigenschaft der [`SVGClipPathElement`](/de/docs/Web/API/SVGClipPathElement)-Schnittstelle spiegelt das {{SVGAttr("transform")}}-Attribut eines {{SVGElement("clipPath")}}-Elements wider, das eine Liste von auf das Element angewendeten Transformationen ist.
 
 ## Wert
 
-Eine [`SVGTransformList`](/de/docs/Web/API/SVGTransformList).
+Ein [`SVGTransformList`](/de/docs/Web/API/SVGTransformList).
 
 ## Beispiele
 

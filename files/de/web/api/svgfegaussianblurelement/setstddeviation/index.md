@@ -1,27 +1,27 @@
 ---
-title: "SVGFEGaussianBlurElement: setStdDeviation()-Methode"
+title: "SVGFEGaussianBlurElement: Methode setStdDeviation()"
 short-title: setStdDeviation()
 slug: Web/API/SVGFEGaussianBlurElement/setStdDeviation
 l10n:
-  sourceCommit: d8f5fcc34fed682a8085ea71a89223d73594ec03
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die Methode `setStdDeviation()` des [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Interfaces setzt die Werte für das Attribut {{SVGAttr("stdDeviation")}}.
+Die `setStdDeviation()`-Methode des [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Interfaces setzt die Werte für das {{SVGAttr("stdDeviation")}}-Attribut.
 
 ## Syntax
 
 ```js-nolint
-SVGFEGaussianBlurElement.setStdDeviation(x, y)
+setStdDeviation(x, y)
 ```
 
 ### Parameter
 
 - `x`
-  - : Ein Float, der die X-Komponente des Attributs {{SVGAttr("stdDeviation")}} darstellt.
+  - : Ein Float, der die X-Komponente des {{SVGAttr("stdDeviation")}}-Attributs darstellt.
 - `y`
-  - : Ein Float, der die Y-Komponente des Attributs {{SVGAttr("stdDeviation")}} darstellt.
+  - : Ein Float, der die Y-Komponente des {{SVGAttr("stdDeviation")}}-Attributs darstellt.
 
 ### Rückgabewert
 

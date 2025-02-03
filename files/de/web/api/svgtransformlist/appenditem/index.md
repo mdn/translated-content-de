@@ -3,7 +3,7 @@ title: "SVGTransformList: appendItem()-Methode"
 short-title: appendItem()
 slug: Web/API/SVGTransformList/appendItem
 l10n:
-  sourceCommit: 81530cefacb86442e219186144610f8a984b5744
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
@@ -12,12 +12,12 @@ Die `appendItem()`-Methode der [`SVGTransformList`](/de/docs/Web/API/SVGTransfor
 
 Das eingefügte Element ist das Element selbst und keine Kopie.
 
-- Wenn `newItem` bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird.
+- Wenn `newItem` bereits in einer Liste ist, wird es vor dem Einfügen in diese Liste aus seiner vorherigen Liste entfernt.
 
 ## Syntax
 
 ```js-nolint
-SVGTransformList.appendItem(newItem)
+appendItem(newItem)
 ```
 
 ### Parameter
@@ -27,7 +27,7 @@ SVGTransformList.appendItem(newItem)
 
 ### Rückgabewert
 
-Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; das hinzugefügte Element aus der Liste.
+Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; das eingefügte Element aus der Liste.
 
 ### Ausnahmen
 

@@ -1,19 +1,19 @@
 ---
-title: "SVGTextContentElement: Methode getComputedTextLength()"
+title: "SVGTextContentElement: getComputedTextLength() Methode"
 short-title: getComputedTextLength()
 slug: Web/API/SVGTextContentElement/getComputedTextLength
 l10n:
-  sourceCommit: 84cab3d0973d23ac3f00448784c55fe3f0c948ad
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die Methode `getComputedTextLength()` der Schnittstelle [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement) gibt die berechnete Länge des Textes innerhalb des Elements an.
+Die `getComputedTextLength()`-Methode der [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Schnittstelle repräsentiert die berechnete Länge des Textes innerhalb des Elements.
 
 ## Syntax
 
 ```js-nolint
-SVGTextContentElement.getComputedTextLength()
+getComputedTextLength()
 ```
 
 ### Parameter
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein Gleitkommawert (`float`).
+Ein Float.
 
 ## Beispiele
 
-### Berechnung der Textlänge
+### Berechnen der Textlänge
 
 ```html
 <svg width="300" height="100">

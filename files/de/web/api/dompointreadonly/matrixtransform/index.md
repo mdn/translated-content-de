@@ -1,30 +1,29 @@
 ---
-title: "DOMPointReadOnly: matrixTransform()"
+title: "DOMPointReadOnly: matrixTransform() Methode"
 short-title: matrixTransform()
 slug: Web/API/DOMPointReadOnly/matrixTransform
 l10n:
-  sourceCommit: 76ca8e9c56e6b86a288c1be3d66aff2435237cf0
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die statische **`matrixTransform()`** Methode des [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) Interfaces wendet eine als Objekt angegebene Matrixtransformation auf das DOMPointReadOnly-Objekt an, erstellt und gibt ein neues `DOMPointReadOnly`-Objekt zurück. Weder die Matrix noch der Punkt werden verändert.
+Die **`matrixTransform()`** Methode der [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) Schnittstelle wendet eine als Objekt angegebene Matrixtransformation auf das `DOMPointReadOnly` Objekt an, erstellt und gibt ein neues `DOMPointReadOnly` Objekt zurück. Weder die Matrix noch der Punkt werden verändert.
 
-Wenn die als Parameter übergebene Matrix 2D ist (das [`DOMMatrix.is_2d`](/de/docs/Web/API/DOMMatrix/is_2d) ist `true`), dann ist dies eine 2D-Transformation, und die `z`-Koordinate des Punktes wird `0` und die `w`-Perspektive des Punktes wird `1` sein. Andernfalls handelt es sich um eine 3D-Transformation.
+Wenn die als Parameter übergebene Matrix 2D ist (die [`is2D`](/de/docs/Web/API/DOMMatrixReadonly/is2D) ist `true`), dann handelt es sich um eine 2D-Transformation und die `z`-Koordinate des Punktes wird `0` und die `w` Perspektive des Punktes wird `1` sein. Andernfalls handelt es sich um eine 3D-Transformation.
 
-Sie können auch einen neuen `DOMPoint` mit einem Punkt und einer Matrix mit der Methode [`DOMMatrixReadOnly.transformPoint()`](/de/docs/Web/API/DOMMatrixReadOnly/transformPoint) erstellen.
+Sie können auch mit der Methode [`DOMMatrixReadOnly.transformPoint()`](/de/docs/Web/API/DOMMatrixReadOnly/transformPoint) einen neuen `DOMPoint` mit einem Punkt und einer Matrix erstellen.
 
 ## Syntax
 
 ```js-nolint
-DOMPointReadOnly.matrixTransform( )
-DOMPointReadOnly.matrixTransform( matrix )
+matrixTransform()
+matrixTransform(matrix)
 ```
 
 ### Parameter
 
 - `matrix`
-
   - : Ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) oder [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) Objekt.
 
 ### Rückgabewert

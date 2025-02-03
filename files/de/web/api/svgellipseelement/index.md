@@ -2,18 +2,18 @@
 title: SVGEllipseElement
 slug: Web/API/SVGEllipseElement
 l10n:
-  sourceCommit: 9141131402c7d36e368e52b850fd8f903a11f585
+  sourceCommit: 0bb352f93d19c62cd07807479975f610f7b02cf4
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGEllipseElement`** Schnittstelle bietet Zugriff auf die Eigenschaften von {{SVGElement("ellipse")}}-Elementen.
+Die **`SVGEllipseElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften von {{SVGElement("ellipse")}}-Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt Methoden von der übergeordneten Schnittstelle [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
+_Erbt Methoden von seiner Elternschnittstelle, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
 - [`SVGEllipseElement.cx`](/de/docs/Web/API/SVGEllipseElement/cx) {{ReadOnlyInline}}
   - : Diese Eigenschaft gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das das {{SVGAttr("cx")}}-Attribut des angegebenen {{SVGElement("ellipse")}}-Elements widerspiegelt.
@@ -26,7 +26,7 @@ _Erbt Methoden von der übergeordneten Schnittstelle [`SVGGeometryElement`](/de/
 
 ## Instanzmethoden
 
-_Erbt Methoden von der übergeordneten Schnittstelle [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
+_Erbt Methoden von seiner Elternschnittstelle, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
 ## Beispiel
 

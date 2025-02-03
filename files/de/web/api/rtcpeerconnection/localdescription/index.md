@@ -3,27 +3,23 @@ title: "RTCPeerConnection: localDescription-Eigenschaft"
 short-title: localDescription
 slug: Web/API/RTCPeerConnection/localDescription
 l10n:
-  sourceCommit: 9f18116c362265a3dfb65185728548ec43cd12f4
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`localDescription`** der Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gibt eine [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) zurück, die die Sitzung für das lokale Ende der Verbindung beschreibt.
-Falls sie noch nicht gesetzt wurde, ist dieser Wert `null`.
+Die schreibgeschützte Eigenschaft **`localDescription`** der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt eine [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) zurück, die die Sitzung für das lokale Ende der Verbindung beschreibt.
+Wenn sie noch nicht gesetzt wurde, ist dies `null`.
 
-## Syntax
+## Wert
 
-```js-nolint
-const sessionDescription = peerConnection.localDescription
-```
-
-Auf einer grundlegenderen Ebene ist der zurückgegebene Wert der Wert von [`RTCPeerConnection.pendingLocalDescription`](/de/docs/Web/API/RTCPeerConnection/pendingLocalDescription), falls diese Eigenschaft nicht `null` ist;
-anderenfalls wird der Wert von [`RTCPeerConnection.currentLocalDescription`](/de/docs/Web/API/RTCPeerConnection/currentLocalDescription) zurückgegeben.
+Auf einer grundsätzlicheren Ebene ist der zurückgegebene Wert der Wert von [`RTCPeerConnection.pendingLocalDescription`](/de/docs/Web/API/RTCPeerConnection/pendingLocalDescription), wenn diese Eigenschaft nicht `null` ist;
+andernfalls wird der Wert von [`RTCPeerConnection.currentLocalDescription`](/de/docs/Web/API/RTCPeerConnection/currentLocalDescription) zurückgegeben.
 Weitere Informationen zu diesem Algorithmus und warum er verwendet wird, finden Sie unter [Ausstehende und aktuelle Beschreibungen](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Konnektivitätsseite.
 
 ## Beispiel
 
-Dieses Beispiel betrachtet die `localDescription` und zeigt eine Warnung an, die die `type`- und `sdp`-Felder des [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekts enthält.
+Dieses Beispiel betrachtet die `localDescription` und zeigt einen Alarm mit den Feldern `type` und `sdp` des [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekts an.
 
 ```js
 const pc = new RTCPeerConnection();

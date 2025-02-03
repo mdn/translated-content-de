@@ -3,18 +3,12 @@ title: "HTMLElement: accessKeyLabel-Eigenschaft"
 short-title: accessKeyLabel
 slug: Web/API/HTMLElement/accessKeyLabel
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.accessKeyLabel`** Schreibgeschützte Eigenschaft gibt eine Zeichenfolge zurück, die den vom Browser zugewiesenen Zugriffsschlüssel des Elements enthält (falls vorhanden); ansonsten gibt sie einen leeren String zurück.
-
-## Syntax
-
-```js-nolint
-label = element.accessKeyLabel
-```
+Die schreibgeschützte **`HTMLElement.accessKeyLabel`**-Eigenschaft gibt einen String zurück, der den vom Browser zugewiesenen Zugriffsschlüssel des Elements enthält (falls vorhanden); andernfalls wird ein leerer String zurückgegeben.
 
 ## Beispiel
 
@@ -53,4 +47,4 @@ btn.onclick = () => {
 ## Siehe auch
 
 - [`HTMLElement.accessKey`](/de/docs/Web/API/HTMLElement/accessKey)
-- Das [accesskey](/de/docs/Web/HTML/Global_attributes/accesskey) globale Attribut.
+- Das globale [accesskey](/de/docs/Web/HTML/Global_attributes/accesskey) Attribut.

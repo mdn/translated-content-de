@@ -1,19 +1,19 @@
 ---
-title: "DOMMatrixReadOnly: toJSON() Methode"
+title: "DOMMatrixReadOnly: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/DOMMatrixReadOnly/toJSON
 l10n:
-  sourceCommit: aef2b0dde53e2b5afa6dedd3e3693a85d2782b3e
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("DOM")}}
 
-Die **`toJSON()`** Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle erstellt und gibt ein {{jsxref("JSON")}}-Objekt zurück. Das JSON-Objekt enthält die 2D-Matrix-Elemente `a` bis `f`, die 16 Elemente der 4X4 3D-Matrix `m[1-4][1-4]`, die boolesche Eigenschaft [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) und die boolesche Eigenschaft [`isIdentity`](/de/docs/Web/API/DOMMatrixReadOnly/isIdentity).
+Die **`toJSON()`**-Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle erstellt und gibt ein {{jsxref("JSON")}}-Objekt zurück. Das JSON-Objekt enthält die 2D-Matrixelemente `a` bis `f`, die 16 Elemente der 4X4 3D-Matrix, `m[1-4][1-4]`, die boolesche Eigenschaft [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) und die boolesche Eigenschaft [`isIdentity`](/de/docs/Web/API/DOMMatrixReadOnly/isIdentity).
 
 ## Syntax
 
 ```js-nolint
-DOMMatrixReadOnly.toJSON()
+toJSON()
 ```
 
 ### Parameter

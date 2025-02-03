@@ -1,16 +1,22 @@
 ---
-title: "HTMLEmbedElement: Methode getSVGDocument()"
-short-title: getSVGDocument
+title: "HTMLEmbedElement: getSVGDocument() Methode"
+short-title: getSVGDocument()
 slug: Web/API/HTMLEmbedElement/getSVGDocument
 l10n:
-  sourceCommit: 64088e3a95e2cc9c8cf44d1338d0be21f1fadfed
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("HTML DOM")}}
 
 Die **`getSVGDocument()`**-Methode des [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement)-Interfaces gibt das [`Document`](/de/docs/Web/API/Document)-Objekt des eingebetteten SVG zurück.
 
-## Wert
+## Syntax
+
+```js-nolint
+getSVGDocument()
+```
+
+### Rückgabewert
 
 Ein [`Document`](/de/docs/Web/API/Document).
 

@@ -3,27 +3,27 @@ title: "SVGTextContentElement: getSubStringLength()-Methode"
 short-title: getSubStringLength()
 slug: Web/API/SVGTextContentElement/getSubStringLength
 l10n:
-  sourceCommit: 84cab3d0973d23ac3f00448784c55fe3f0c948ad
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `getSubStringLength()`-Methode des [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Interfaces repräsentiert die berechnete Länge des formatierten Textfortschrittsabstandes für einen Teilstring von Text innerhalb des Elements.
+Die `getSubStringLength()`-Methode der [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Schnittstelle repräsentiert die berechnete Länge der formatieren Text-Vorschubstrecke für einen Textsubstring innerhalb des Elements.
 
-Beachten Sie, dass diese Methode nur die Breiten der Glyphen im Teilstring und jeglichen zusätzlichen Abstand berücksichtigt, der durch die CSS-Eigenschaften [`letter-spacing`](/de/docs/Web/CSS/letter-spacing) und [`word-spacing`](/de/docs/Web/CSS/word-spacing) eingefügt wird. Visuelle Abstandsänderungen, die durch das [`x`](/de/docs/Web/CSS/x)-Attribut vorgenommen werden, werden ignoriert.
+Beachten Sie, dass diese Methode nur die Breiten der Glyphen im Substring und zusätzlichen Abstand, der durch die CSS-Eigenschaften [`letter-spacing`](/de/docs/Web/CSS/letter-spacing) und [`word-spacing`](/de/docs/Web/CSS/word-spacing) eingefügt wird, berücksichtigt. Visuelle Abstandsänderungen, die durch das [`x`](/de/docs/Web/CSS/x)-Attribut vorgenommen werden, werden ignoriert.
 
 ## Syntax
 
 ```js-nolint
-SVGTextContentElement.getSubStringLength(index, length)
+getSubStringLength(index, length)
 ```
 
 ### Parameter
 
 - `index`
-  - : Ein `integer`; der Startindex des Teilstrings.
+  - : Ein `integer`; der Startindex des Substrings.
 - `length`
-  - : Ein `integer`; die Anzahl der Zeichen, die im Teilstring enthalten sein sollen.
+  - : Ein `integer`; die Anzahl der Zeichen, die im Substring enthalten sein sollen.
 
 ### Rückgabewert
 
@@ -36,7 +36,7 @@ Ein `float`.
 
 ## Beispiele
 
-### Die Länge eines Teilstrings ermitteln
+### Die Länge eines Substrings ermitteln
 
 ```html
 <svg width="300" height="100">

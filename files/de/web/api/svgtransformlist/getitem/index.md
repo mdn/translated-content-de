@@ -1,29 +1,29 @@
 ---
-title: "SVGTransformList: Methode getItem()"
+title: "SVGTransformList: getItem() Methode"
 short-title: getItem()
 slug: Web/API/SVGTransformList/getItem
 l10n:
-  sourceCommit: 81530cefacb86442e219186144610f8a984b5744
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
 Die `getItem()`-Methode der [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Schnittstelle gibt das angegebene Element aus der Liste zurück.
 
-Das zurückgegebene Element ist das Element selbst und keine Kopie. Alle Änderungen, die an dem Element vorgenommen werden, spiegeln sich sofort in der Liste wider.
+Das zurückgegebene Element ist das Element selbst und keine Kopie. Alle Änderungen, die an dem Element vorgenommen werden, sind sofort in der Liste sichtbar.
 
 Das erste Element hat den Index `0`.
 
 ## Syntax
 
 ```js-nolint
-SVGTransformList.getItem(index)
+getItem(index)
 ```
 
 ### Parameter
 
 - `index`
-  - : Ein `integer`; der Index des angegebenen Elements als `unsigned long`.
+  - : Ein `integer`; der Index des angegebenen Elements als unsignierte lange Zahl.
 
 ### Rückgabewert
 
@@ -32,7 +32,7 @@ Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; das angegebene Eleme
 ### Ausnahmen
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+  - : Wird ausgelöst, wenn [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) einem schreibgeschützten Attribut entspricht oder das Objekt selbst schreibgeschützt ist.
 
 ## Beispiele
 

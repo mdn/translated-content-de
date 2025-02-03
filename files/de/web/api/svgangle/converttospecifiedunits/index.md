@@ -3,7 +3,7 @@ title: "SVGAngle: convertToSpecifiedUnits() Methode"
 short-title: convertToSpecifiedUnits()
 slug: Web/API/SVGAngle/convertToSpecifiedUnits
 l10n:
-  sourceCommit: a5de116c99effa3a2bed6ede6e69928c7d2fc43b
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
@@ -18,17 +18,17 @@ Diese Funktion wird:
 ## Syntax
 
 ```js-nolint
-svgAngle.convertToSpecifiedUnits(unitType)
+convertToSpecifiedUnits(unitType)
 ```
 
 ### Parameter
 
 - `unitType`
-  - : Eine Konstante, die den Einheitentyp darstellt, in den der Winkelwert konvertiert werden soll. Dies muss einer der konstanten Werte sein, die für die [`unitType`](/de/docs/Web/API/SVGAngle/unitType)-Eigenschaft definiert sind, mit Ausnahme von `SVG_ANGLETYPE_UNKNOWN`.
-    - `SVGAngle.SVG_ANGLETYPE_DEG`: In Grad konvertieren
-    - `SVGAngle.SVG_ANGLETYPE_RAD`: In Bogenmaß konvertieren
-    - `SVGAngle.SVG_ANGLETYPE_GRAD`: In Gon konvertieren
-    - `SVGAngle.SVG_ANGLETYPE_UNSPECIFIED`: In eine einheitenlose Zahl konvertieren, die als Grad interpretiert wird
+  - : Eine Konstante, die den Einheitentyp darstellt, in den der Winkelwert konvertiert werden soll. Dies muss einer der für die [`unitType`](/de/docs/Web/API/SVGAngle/unitType)-Eigenschaft definierten konstanten Werte sein, mit Ausnahme von `SVG_ANGLETYPE_UNKNOWN`.
+    - `SVGAngle.SVG_ANGLETYPE_DEG`: konvertieren in Grad
+    - `SVGAngle.SVG_ANGLETYPE_RAD`: konvertieren in Radianten
+    - `SVGAngle.SVG_ANGLETYPE_GRAD`: konvertieren in Gon
+    - `SVGAngle.SVG_ANGLETYPE_UNSPECIFIED`: konvertieren in eine einheitenlose Zahl, interpretiert als Grad
 
 ### Rückgabewert
 
@@ -36,7 +36,7 @@ Keiner ({{jsxref('undefined')}}).
 
 ## Beispiele
 
-### Konvertierung eines Winkels in Grad
+### Konvertieren eines Winkels in Grad
 
 ```js
 // Get an SVGAngle object

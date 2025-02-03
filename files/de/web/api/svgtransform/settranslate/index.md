@@ -3,29 +3,29 @@ title: "SVGTransform: setTranslate() Methode"
 short-title: setTranslate()
 slug: Web/API/SVGTransform/setTranslate
 l10n:
-  sourceCommit: 735185aeff568a6de5ecbb585d733c1c67191c48
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `setTranslate()`-Methode der [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Schnittstelle setzt den Transformationstyp auf `SVG_TRANSFORM_TRANSLATE`, mit den Parametern `tx` und `ty`, die die Verschiebungswerte definieren.
+Die `setTranslate()`-Methode der [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Schnittstelle setzt den Transformationstyp auf `SVG_TRANSFORM_TRANSLATE`, wobei die Parameter `tx` und `ty` die Übersetzungsbeträge definieren.
 
 ## Syntax
 
 ```js-nolint
-SVGTransform.setTranslate(tx, ty)
+setTranslate(tx, ty)
 ```
 
 ### Parameter
 
 - `tx`
-  - : Ein Float, der die Verschiebungsmenge entlang der X-Achse definiert.
+  - : Ein Float, der die Übersetzungsmenge entlang der X-Achse definiert.
 - `ty`
-  - : Ein Float, der die Verschiebungsmenge entlang der Y-Achse definiert.
+  - : Ein Float, der die Übersetzungsmenge entlang der Y-Achse definiert.
 
 ### Rückgabewert
 
-Keine ({{jsxref('undefined')}}).
+Keiner ({{jsxref('undefined')}}).
 
 ### Ausnahmen
 
@@ -34,7 +34,7 @@ Keine ({{jsxref('undefined')}}).
 
 ## Beispiele
 
-### Einstellen von Verschiebungswerten
+### Setzen von Übersetzungswerten
 
 ```js
 // Select an SVG element and create a transform object

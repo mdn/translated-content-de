@@ -3,33 +3,33 @@ title: "SVGTextContentElement: getCharNumAtPosition() Methode"
 short-title: getCharNumAtPosition()
 slug: Web/API/SVGTextContentElement/getCharNumAtPosition
 l10n:
-  sourceCommit: 84cab3d0973d23ac3f00448784c55fe3f0c948ad
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `getCharNumAtPosition()`-Methode des [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Interfaces repräsentiert das Zeichen, das dazu führte, dass ein Textglyph an einer bestimmten Position im Koordinatensystem gerendert wurde. Da die Beziehung zwischen Zeichen und Glyphen nicht eins-zu-eins ist, wird nur das erste Zeichen des relevanten typografischen Zeichens zurückgegeben.
+Die `getCharNumAtPosition()`-Methode des [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement) Interfaces repräsentiert das Zeichen, das dazu führte, dass ein Textglyph an einer bestimmten Position im Koordinatensystem gerendert wurde. Da die Beziehung zwischen Zeichen und Glyphen nicht eins zu eins ist, wird nur das erste Zeichen des entsprechenden typografischen Zeichens zurückgegeben.
 
 Wenn an der angegebenen Position kein Zeichen gefunden wird, wird `-1` zurückgegeben.
 
 ## Syntax
 
 ```js-nolint
-SVGTextContentElement.getCharNumAtPosition(point)
+getCharNumAtPosition(point)
 ```
 
 ### Parameter
 
 - `point`
-  - : Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt; die Koordinaten (x, y), an denen die Position des Zeichens im Benutzerkoordinatenraum überprüft werden soll.
+  - : Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt; die Koordinaten (x, y), an denen die Position des Zeichens im Benutzerkoordinatensystem überprüft werden soll.
 
 ### Rückgabewert
 
-Ein langer Wert; der Index des Zeichens, das der Position entspricht.
+Ein long; der Index des Zeichens, das der Position entspricht.
 
 ## Beispiele
 
-### Das Zeichen an einer bestimmten Position finden
+### Finden des Zeichens an einer bestimmten Position
 
 ```html
 <svg width="200" height="100">

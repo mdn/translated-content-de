@@ -3,20 +3,16 @@ title: "NDEFRecord: id-Eigenschaft"
 short-title: id
 slug: Web/API/NDEFRecord/id
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`id`**-Eigenschaft der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Schnittstelle gibt den Datensatzbezeichner zurück, der eine absolute oder relative URL ist und zur Identifizierung des Datensatzes verwendet wird.
+Die **`id`**-Eigenschaft des
+[`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Interfaces gibt den Datensatzbezeichner zurück, der eine
+absolute oder relative URL ist, die verwendet wird, um den Datensatz zu identifizieren.
 
-Dieser Bezeichner wird vom Ersteller des Datensatzes generiert, der allein für die Durchsetzung der Einzigartigkeit des Datensatzbezeichners verantwortlich ist. Web NFC signiert die NFC-Inhalte nicht, daher sollten Datensatzkonsumenten keine Annahmen über die Integrität oder Authentizität des Bezeichners oder eines anderen Teils der Datensätze treffen.
-
-## Syntax
-
-```js-nolint
-NDEFRecord.id
-```
+Dieser Bezeichner wird vom Erzeuger des Datensatzes erstellt, der allein für die Sicherstellung der Eindeutigkeit des Datensatzbezeichners verantwortlich ist. Web NFC signiert den NFC-Inhalt nicht, daher sollte der Datensatzverbraucher keine Annahmen über die Integrität oder Authentizität des Bezeichners oder eines anderen Teils der Datensätze treffen.
 
 ### Wert
 

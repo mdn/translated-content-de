@@ -3,7 +3,7 @@ title: "HTMLQuoteElement: cite-Eigenschaft"
 short-title: cite
 slug: Web/API/HTMLQuoteElement/cite
 l10n:
-  sourceCommit: 4dd8392c92824cf3258715256514599aaf21c04b
+  sourceCommit: 30d512a2224b300bbc5fec3aaa07f4e48f87784e
 ---
 
 {{ApiRef("HTML DOM")}}
@@ -12,7 +12,7 @@ Die **`cite`**-Eigenschaft der [`HTMLQuoteElement`](/de/docs/Web/API/HTMLQuoteEl
 
 ## Wert
 
-Ein String, der eine URL repräsentiert.
+Ein String, der eine URL darstellt.
 
 ## Beispiel
 

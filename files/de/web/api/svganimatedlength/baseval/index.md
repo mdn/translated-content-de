@@ -3,12 +3,12 @@ title: "SVGAnimatedLength: baseVal-Eigenschaft"
 short-title: baseVal
 slug: Web/API/SVGAnimatedLength/baseVal
 l10n:
-  sourceCommit: 0496bb2fcef13172325e1cc25a5fc71410506557
+  sourceCommit: 0bb352f93d19c62cd07807479975f610f7b02cf4
 ---
 
 {{APIRef("SVG")}}
 
-Die **`baseVal`**-Eigenschaft des [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Interfaces enthält den Anfangswert einer SVG-Aufzählung.
+Die **`baseVal`**-Eigenschaft der [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Schnittstelle enthält den Anfangswert einer SVG-Aufzählung.
 
 ## Wert
 
@@ -49,7 +49,7 @@ const baseUnit = unit[circle.r.baseVal.unitType];
 log.textContent = `The 'circle.r.baseVal' is ${baseValue} (in ${baseUnit}).`;
 ```
 
-{{EmbedLiveSample("Beispiele", "280", "260")}}
+{{EmbedLiveSample("Examples", "280", "260")}}
 
 ## Spezifikationen
 

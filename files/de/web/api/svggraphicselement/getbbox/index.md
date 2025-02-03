@@ -1,19 +1,19 @@
 ---
-title: "SVGGraphicsElement: getBBox()-Methode"
+title: "SVGGraphicsElement: getBBox() Methode"
 short-title: getBBox()
 slug: Web/API/SVGGraphicsElement/getBBox
 l10n:
-  sourceCommit: 511b483843fa33373dd26eabc28beee59b995d01
+  sourceCommit: 0bb352f93d19c62cd07807479975f610f7b02cf4
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGGraphicsElement.getBBox()`**-Methode ermöglicht es uns, die Koordinaten des kleinsten Rechtecks zu bestimmen, in das das Objekt passt. Die zurückgegebenen Koordinaten beziehen sich auf den aktuellen SVG-Raum (nach Anwendung aller geometrischen Attribute auf alle im Zielelement enthaltenen Elemente).
+Die **`SVGGraphicsElement.getBBox()`**-Methode ermöglicht es uns, die Koordinaten des kleinsten Rechtecks zu ermitteln, in das das Objekt passt. Die zurückgegebenen Koordinaten beziehen sich auf den aktuellen SVG-Raum (nach der Anwendung aller Geometrie-Attribute auf alle im Zielelement enthaltenen Elemente).
 
-> **Note:** `getBBox()` muss das tatsächliche Begrenzungsrechteck zu dem Zeitpunkt zurückgeben, an dem die Methode aufgerufen wurde, selbst wenn das Element noch nicht gerendert wurde. Es berücksichtigt auch keine Transformationen, die auf das Element oder seine übergeordneten Elemente angewendet wurden.
+> **Hinweis:** `getBBox()` muss das tatsächliche Begrenzungsrechteck zu dem Zeitpunkt zurückgeben, an dem die Methode aufgerufen wurde – auch wenn das Element noch nicht gerendert wurde. Es berücksichtigt zudem keine auf das Element oder seine Eltern angewandten Transformationen.
 
-> **Note:** `getBBox` gibt andere Werte zurück als
-> [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), da letzteres Werte relativ zum Ansichtsfenster zurückgibt.
+> **Hinweis:** `getBBox` gibt andere Werte zurück als
+> [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), da letztere Werte relativ zum Viewport zurückgibt.
 
 ## Syntax
 
@@ -26,20 +26,20 @@ getBBox(options)
 
 - `options` {{experimental_inline}} {{optional_inline}}
 
-  - : Ein Optionsobjekt, das verwendet wird, um zu steuern, welche Teile des Elements im Begrenzungsrechteck enthalten sind. Die verfügbaren Optionen sind:
+  - : Ein Options-Wörterbuch, das verwendet wird, um zu steuern, welche Teile des Elements im Begrenzungsrahmen enthalten sind. Die verfügbaren Optionen sind:
 
     - `fill`
-      - : Ein boolescher Wert, der angibt, dass die Füllung im Begrenzungsrechteck enthalten sein soll. Standard ist `true`.
+      - : Ein boolescher Wert, der angibt, dass die Füllung im Begrenzungsrahmen enthalten sein soll, standardmäßig `true`.
     - `stroke`
-      - : Ein boolescher Wert, der angibt, dass der Strich im Begrenzungsrechteck enthalten sein soll. Standard ist `false`.
+      - : Ein boolescher Wert, der angibt, dass der Strich im Begrenzungsrahmen enthalten sein soll, standardmäßig `false`.
     - `markers`
-      - : Ein boolescher Wert, der angibt, dass die Markierungen im Begrenzungsrechteck enthalten sein sollen. Standard ist `false`.
+      - : Ein boolescher Wert, der angibt, dass die Markierungen im Begrenzungsrahmen enthalten sein sollen, standardmäßig `false`.
     - `clipped`
-      - : Ein boolescher Wert, der angibt, dass das Begrenzungsrechteck zugeschnitten werden soll. Standard ist `false`.
+      - : Ein boolescher Wert, der angibt, dass der Begrenzungsrahmen ausgeschnitten werden soll, standardmäßig `false`.
 
 ### Rückgabewert
 
-Der zurückgegebene Wert ist ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt, das das Begrenzungsrechteck definiert. Dieser Wert ist unabhängig von einem Transformationsattribut, das darauf oder auf die übergeordneten Elemente angewendet wird.
+Der zurückgegebene Wert ist ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt, das den Begrenzungsrahmen definiert. Dieser Wert ist unabhängig von einem darauf angewandten Transformationsattribut oder den Elternelementen.
 
 ## Beispiele
 

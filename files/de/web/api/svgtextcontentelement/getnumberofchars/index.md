@@ -3,17 +3,17 @@ title: "SVGTextContentElement: getNumberOfChars()-Methode"
 short-title: getNumberOfChars()
 slug: Web/API/SVGTextContentElement/getNumberOfChars
 l10n:
-  sourceCommit: 84cab3d0973d23ac3f00448784c55fe3f0c948ad
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `getNumberOfChars()`-Methode der [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Schnittstelle gibt die Gesamtanzahl der adressierbaren Zeichen an, die innerhalb des aktuellen Elements zur Verfügung stehen, unabhängig davon, ob sie gerendert werden.
+Die `getNumberOfChars()`-Methode der [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Schnittstelle repräsentiert die Gesamtanzahl der adressierbaren Zeichen, die für die Darstellung innerhalb des aktuellen Elements zur Verfügung stehen, unabhängig davon, ob sie gerendert werden.
 
 ## Syntax
 
 ```js-nolint
-SVGTextContentElement.getNumberOfChars()
+getNumberOfChars()
 ```
 
 ### Parameter
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein langer Wert.
+Ein langes Integer.
 
 ## Beispiele
 

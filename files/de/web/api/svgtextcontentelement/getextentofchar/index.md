@@ -1,19 +1,19 @@
 ---
-title: "SVGTextContentElement: getExtentOfChar() Methode"
+title: "SVGTextContentElement: Methode getExtentOfChar()"
 short-title: getExtentOfChar()
 slug: Web/API/SVGTextContentElement/getExtentOfChar
 l10n:
-  sourceCommit: 84cab3d0973d23ac3f00448784c55fe3f0c948ad
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `getExtentOfChar()`-Methode der Schnittstelle [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement) stellt die berechnete enge Begrenzungsbox der Glyphenzelle dar, die einem bestimmten typografischen Zeichen entspricht.
+Die `getExtentOfChar()`-Methode der [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Schnittstelle repräsentiert den berechneten engen Begrenzungsrahmen der Glyphe, die einem bestimmten typografischen Zeichen entspricht.
 
 ## Syntax
 
 ```js-nolint
-SVGTextContentElement.getExtentOfChar(index)
+getExtentOfChar(index)
 ```
 
 ### Parameter
@@ -23,16 +23,16 @@ SVGTextContentElement.getExtentOfChar(index)
 
 ### Rückgabewert
 
-Ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt; die enge Begrenzungsbox des angegebenen Zeichens.
+Ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt; der enge Begrenzungsrahmen des angegebenen Zeichens.
 
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn an der Stelle `index` kein Zeichen gefunden wird.
+  - : Wird ausgelöst, wenn kein Zeichen an `index` gefunden wird.
 
 ## Beispiele
 
-### Abrufen des Ausmaßes eines Zeichens
+### Ermitteln des Umfangs eines Zeichens
 
 ```html
 <svg width="300" height="100">

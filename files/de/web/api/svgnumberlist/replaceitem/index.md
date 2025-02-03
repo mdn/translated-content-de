@@ -1,48 +1,38 @@
 ---
-title: "SVGNumberList: replaceItem()-Methode"
+title: "SVGNumberList: replaceItem() Methode"
 short-title: replaceItem()
 slug: Web/API/SVGNumberList/replaceItem
 l10n:
-  sourceCommit: 0f57507c06180622a5a6168b552317c43eeb9d04
+  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
 ---
 
 {{APIRef("SVG")}}
 
-Die `replaceItem()`-Methode des [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Interfaces ersetzt ein bestehendes Element in der Liste durch ein neues Element.
-
-Das eingefügte Element ist das Element selbst und keine Kopie.
-
-- Wenn `newItem` bereits in einer Liste ist, wird es vor dem Einfügen in diese Liste aus seiner vorherigen Liste entfernt.
-
-- Wenn das Element bereits in dieser Liste ist, beachten Sie, dass der `index` des zu ersetzenden Elements vor dem Entfernen des Elements liegt.
+Die **`replaceItem()`**-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle ersetzt ein bestehendes Element in der Liste durch ein neues Element. Wenn das neue Element bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Wenn das Element bereits in dieser Liste ist, beachten Sie, dass der Index des zu ersetzenden Elements vor dem Entfernen des Elements liegt.
 
 ## Syntax
 
 ```js-nolint
-SVGNumberList.replaceItem(newItem, index)
+replaceItem(newItem, index)
 ```
 
 ### Parameter
 
 - `newItem`
-  - : Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Element, das in die Liste eingefügt wird.
+  - : Der [`SVGNumber`](/de/docs/Web/API/SVGNumber), der in die Liste eingefügt werden soll.
 - `index`
-  - : Ein Integer; der Index, an dem das neue Element das bestehende ersetzen soll, als nicht signierter Long-Wert.
+  - : Eine nicht negative ganze Zahl, die den Index des zu löschenden Elements angibt.
 
 ### Rückgabewert
 
-Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objekt; das eingefügte Element aus der Liste.
+Der [`SVGNumber`](/de/docs/Web/API/SVGNumber), der zur Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
-Diese Methode kann einen [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
-
-- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-
+- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
   - : Wird ausgelöst, wenn die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
-
-- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Indexnummer größer oder gleich [`numberOfItems`](/de/docs/Web/API/SVGNumberList/numberOfItems) ist.
+- [`DOMException`](/de/docs/Web/API/DOMException) `IndexSizeError`
+  - : Wird ausgelöst, wenn der Index außerhalb der Grenzen der Liste liegt.
 
 ## Spezifikationen
 
@@ -51,8 +41,3 @@ Diese Methode kann einen [`DOMException`](/de/docs/Web/API/DOMException) der fol
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [`SVGNumber`](/de/docs/Web/API/SVGNumber)
-- [`SVGNumberList.numberOfItems`](/de/docs/Web/API/SVGNumberList/numberOfItems)

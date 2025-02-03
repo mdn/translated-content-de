@@ -1,22 +1,16 @@
 ---
-title: "Navigator: presentation-Eigenschaft"
+title: "Navigator: Präsentationseigenschaft"
 short-title: presentation
 slug: Web/API/Navigator/presentation
 l10n:
-  sourceCommit: b0c8b07682c8d2cecc544f60468f3cf6fc20ac99
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{securecontext_header}}{{APIRef("Presentation API")}}
 
-Die schreibgeschützte Eigenschaft `presentation` von [`Navigator`](/de/docs/Web/API/Navigator) dient als Einstiegspunkt für die [Presentation API](/de/docs/Web/API/Presentation_API) und gibt eine Referenz auf das [`Presentation`](/de/docs/Web/API/Presentation)-Objekt zurück.
+Die schreibgeschützte Eigenschaft `presentation` des [`Navigator`](/de/docs/Web/API/Navigator) dient als Einstiegspunkt für die [Presentation API](/de/docs/Web/API/Presentation_API) und gibt eine Referenz auf das [`Presentation`](/de/docs/Web/API/Presentation)-Objekt zurück.
 
-## Syntax
-
-```js-nolint
-const presentation = navigator.presentation
-```
-
-### Wert
+## Wert
 
 Eine Referenz auf das [`Presentation`](/de/docs/Web/API/Presentation)-Objekt.
 

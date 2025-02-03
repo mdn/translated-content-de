@@ -1,9 +1,9 @@
 ---
-title: "CustomEvent: initCustomEvent() Methode"
+title: "CustomEvent: initCustomEvent()-Methode"
 short-title: initCustomEvent()
 slug: Web/API/CustomEvent/initCustomEvent
 l10n:
-  sourceCommit: 15f0b5552bc9c2ea1f32b0cd5ee840a7d43c887e
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("DOM")}}{{Deprecated_header}}{{AvailableInWorkers}}
@@ -12,18 +12,18 @@ Die **`CustomEvent.initCustomEvent()`**-Methode initialisiert ein [`CustomEvent`
 Wenn das Ereignis bereits ausgelöst wurde, tut diese Methode nichts.
 
 Ereignisse, die auf diese Weise initialisiert werden, müssen mit der Methode [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) erstellt worden sein.
-Diese Methode muss aufgerufen werden, um das Ereignis zu setzen, bevor es mit [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wird.
-Sobald es ausgelöst wurde, tut es nichts mehr.
+Diese Methode muss aufgerufen werden, um das Ereignis festzulegen, bevor es mit [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wird.
+Sobald es ausgelöst wurde, hat sie keine weitere Funktion.
 
-> **Note:** **Verwenden Sie diese Methode nicht mehr, da sie veraltet ist.**
+> **Hinweis:** **Verwenden Sie diese Methode nicht mehr, da sie veraltet ist.**
 >
-> Stattdessen sollten Sie spezifische Ereigniskonstruktoren verwenden, wie [`CustomEvent()`](/de/docs/Web/API/CustomEvent/CustomEvent).
-> Die Seite [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events) gibt weitere Informationen zur Nutzung dieser Möglichkeiten.
+> Anstelle der Nutzung dieser Funktion, verwenden Sie spezifische Ereignis-Konstruktoren, wie [`CustomEvent()`](/de/docs/Web/API/CustomEvent/CustomEvent).
+> Die Seite über das [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events) bietet weitere Informationen, wie diese verwendet werden.
 
 ## Syntax
 
 ```js-nolint
-event.initCustomEvent(type, canBubble, cancelable, detail)
+initCustomEvent(type, canBubble, cancelable, detail)
 ```
 
 ### Parameter
@@ -31,11 +31,11 @@ event.initCustomEvent(type, canBubble, cancelable, detail)
 - `type`
   - : Ein String, der den Namen des Ereignisses enthält.
 - `canBubble`
-  - : Ein boolescher Wert, der angibt, ob das Ereignis im DOM hoch- oder nicht hochblubbert.
+  - : Ein boolescher Wert, der angibt, ob das Ereignis durch das DOM blubbern kann oder nicht.
 - `cancelable`
   - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann.
 - `detail`
-  - : Alle Daten, die dem Handler über die Eigenschaft [`CustomEvent.detail`](/de/docs/Web/API/CustomEvent/detail) zur Verfügung stehen werden.
+  - : Beliebige Daten, die dem Handler über die [`CustomEvent.detail`](/de/docs/Web/API/CustomEvent/detail)-Eigenschaft zur Verfügung stehen.
 
 ## Spezifikationen
 

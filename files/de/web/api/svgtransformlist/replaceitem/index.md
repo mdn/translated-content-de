@@ -3,23 +3,23 @@ title: "SVGTransformList: replaceItem() Methode"
 short-title: replaceItem()
 slug: Web/API/SVGTransformList/replaceItem
 l10n:
-  sourceCommit: 81530cefacb86442e219186144610f8a984b5744
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `replaceItem()`-Methode der Schnittstelle [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) ersetzt ein vorhandenes Element in der Liste durch ein neues Element.
+Die `replaceItem()`-Methode der [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Schnittstelle ersetzt ein bestehendes Element in der Liste mit einem neuen Element.
 
-Das eingefügte Element ist das Element selbst und keine Kopie.
+Das eingefügte Element ist das Element selbst und nicht eine Kopie.
 
 - Wenn `newItem` bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird.
 
-- Wenn das Element bereits in dieser Liste enthalten ist, beachten Sie, dass der `index` des zu ersetzenden Elements vor der Entfernung des Elements ist.
+- Wenn das Element bereits in dieser Liste ist, beachten Sie, dass der `index` des zu ersetzenden Elements vor dem Entfernen des Elements liegt.
 
 ## Syntax
 
 ```js-nolint
-SVGTransformList.replaceItem(newItem, index)
+replaceItem(newItem, index)
 ```
 
 ### Parameter
@@ -27,7 +27,7 @@ SVGTransformList.replaceItem(newItem, index)
 - `newItem`
   - : Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Element, das in die Liste eingefügt wird.
 - `index`
-  - : Ein `integer`; der Index, an dem das neue Element das vorhandene ersetzen soll, als unsigniertes long.
+  - : Ein `integer`; der Index, an dem das neue Element das bestehende ersetzen soll, als unsignierte lange Zahl.
 
 ### Rückgabewert
 
@@ -35,7 +35,7 @@ Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; das eingefügte Elem
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) einer der folgenden Typen auslösen:
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
 

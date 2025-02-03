@@ -1,35 +1,35 @@
 ---
-title: "SVGTransformList: createSVGTransformFromMatrix() Methode"
+title: "SVGTransformList: createSVGTransformFromMatrix()-Methode"
 short-title: createSVGTransformFromMatrix()
 slug: Web/API/SVGTransformList/createSVGTransformFromMatrix
 l10n:
-  sourceCommit: 81530cefacb86442e219186144610f8a984b5744
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die Methode `createSVGTransformFromMatrix()` des [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) Schnittstelle erzeugt ein [`SVGTransform`](/de/docs/Web/API/SVGTransform) Objekt, das zu einer Transformation des Typs `SVG_TRANSFORM_MATRIX` initialisiert wird und dessen Werte die angegebene Matrix sind.
+Die `createSVGTransformFromMatrix()`-Methode der [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Schnittstelle erstellt ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt, das zu einer Transformation des Typs `SVG_TRANSFORM_MATRIX` initialisiert wird und dessen Werte die gegebene Matrix sind.
 
 Die Werte des Parameter-Matrix werden kopiert; die Matrix-Parameter wird nicht als `SVGTransform::matrix` übernommen.
 
 ## Syntax
 
 ```js-nolint
-SVGTransformList.createSVGTransformFromMatrix(matrix)
+createSVGTransformFromMatrix(matrix)
 ```
 
 ### Parameter
 
 - `matrix`
-  - : Ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Objekt; die Transformationsmatrix.
+  - : Ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt; die Transformationsmatrix.
 
 ### Rückgabewert
 
-Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform) Objekt.
+Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt.
 
 ## Beispiele
 
-### Erstellen einer Transformation aus einer Matrix
+### Erstellung einer Transformation aus einer Matrix
 
 ```html
 <svg width="200" height="200">

@@ -1,22 +1,22 @@
 ---
-title: "DOMTokenList: values() Methode"
+title: "DOMTokenList: `values()`-Methode"
 short-title: values()
 slug: Web/API/DOMTokenList/values
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("DOM")}}
 
-Die **`values()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Schnittstelle
+Die **`values()`**-Methode des [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Interfaces
 gibt einen {{jsxref("Iteration_protocols",'iterator')}}
-zurück, der es dem Aufrufer ermöglicht, alle in der `DOMTokenList` enthaltenen Werte zu durchlaufen.
+zurück, der es dem Aufrufer ermöglicht, alle im `DOMTokenList` enthaltenen Werte zu durchlaufen.
 Die einzelnen Werte sind Zeichenketten.
 
 ## Syntax
 
 ```js-nolint
-tokenList.values()
+values()
 ```
 
 ### Parameter
@@ -29,11 +29,10 @@ Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem
-{{htmlelement("span")}}-Element als `DOMTokenList` festgelegt sind, indem wir
-[`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Wir rufen dann einen Iterator ab, der die Werte
-mittels `values()` enthält, und iterieren durch diese Werte mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of) Schleife,
-wobei jeder Wert in die [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>` geschrieben wird.
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf ein
+{{htmlelement("span")}}-Element gesetzt sind, als ein `DOMTokenList` unter Verwendung von
+[`Element.classList`](/de/docs/Web/API/Element/classList). Wir erhalten dann einen Iterator, der die Werte mithilfe von `values()` enthält, und iterieren durch diese Werte mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife,
+wobei jeder einzeln auf den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>` geschrieben wird.
 
 Zuerst das HTML:
 
@@ -41,7 +40,7 @@ Zuerst das HTML:
 <span class="a b c"></span>
 ```
 
-Jetzt das JavaScript:
+Nun das JavaScript:
 
 ```js
 const span = document.querySelector("span");

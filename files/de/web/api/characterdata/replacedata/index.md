@@ -1,28 +1,28 @@
 ---
-title: "CharacterData: Methode replaceData()"
+title: "CharacterData: replaceData()-Methode"
 short-title: replaceData()
 slug: Web/API/CharacterData/replaceData
 l10n:
-  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("DOM")}}
 
-Die **`replaceData()`** Methode des [`CharacterData`](/de/docs/Web/API/CharacterData) Interfaces entfernt eine bestimmte Anzahl von Zeichen des vorhandenen Textes in einem gegebenen `CharacterData`-Knoten und ersetzt diese Zeichen durch den bereitgestellten Text.
+Die **`replaceData()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces entfernt eine bestimmte Anzahl von Zeichen des vorhandenen Texts in einem gegebenen `CharacterData`-Knoten und ersetzt diese Zeichen mit dem bereitgestellten Text.
 
 ## Syntax
 
 ```js-nolint
-characterData.replaceData(offset, count, data)
+replaceData(offset, count, data)
 ```
 
 ### Parameter
 
 - `offset`
-  - : Die Anzahl der Zeichen vom Beginn der Daten, bei denen eingesetzt wird.
-    `0` ist das erste Zeichen des Strings.
+  - : Die Anzahl der Zeichen ab dem Beginn der Daten, an denen eingefügt werden soll.
+    `0` ist das erste Zeichen der Zeichenkette.
 - `count`
-  - : Die Anzahl der Zeichen, die mit den bereitgestellten Daten ersetzt werden sollen.
+  - : Die Anzahl der Zeichen, die durch die bereitgestellten Daten ersetzt werden sollen.
 - `data`
   - : Die einzufügenden Daten.
 

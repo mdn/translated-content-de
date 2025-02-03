@@ -1,40 +1,36 @@
 ---
-title: "SVGNumberList: removeItem() Methode"
+title: "SVGNumberList: `removeItem()`-Methode"
 short-title: removeItem()
 slug: Web/API/SVGNumberList/removeItem
 l10n:
-  sourceCommit: 0f57507c06180622a5a6168b552317c43eeb9d04
+  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
 ---
 
 {{APIRef("SVG")}}
 
-Die `removeItem()`-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle entfernt ein vorhandenes Element aus der Liste.
+Die **`removeItem()`**-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle entfernt ein bestehendes Element an dem angegebenen Index aus der Liste.
 
 ## Syntax
 
 ```js-nolint
-SVGNumberList.removeItem(index)
+removeItem(index)
 ```
 
 ### Parameter
 
 - `index`
-  - : Ein ganzzahliger Wert; der Index des zu entfernenden Elements als `unsigned long`.
+  - : Eine nicht-negative Zahl, die den Index des zu löschenden Elements angibt.
 
 ### Rückgabewert
 
-Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objekt; das entfernte Element aus der Liste.
+Der [`SVGNumber`](/de/docs/Web/API/SVGNumber), der aus der Liste entfernt wurde.
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
-
-- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-
-  - : Wird ausgelöst, wenn [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
-
-- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Indexnummer größer oder gleich [`numberOfItems`](/de/docs/Web/API/SVGNumberList/numberOfItems) ist.
+- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
+  - : Wird ausgelöst, wenn die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+- [`DOMException`](/de/docs/Web/API/DOMException) `IndexSizeError`
+  - : Wird ausgelöst, wenn der Index außerhalb des Bereichs der Liste liegt.
 
 ## Spezifikationen
 
@@ -43,8 +39,3 @@ Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folg
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [`SVGNumber`](/de/docs/Web/API/SVGNumber)
-- [`SVGNumberList.numberOfItems`](/de/docs/Web/API/SVGNumberList/numberOfItems)

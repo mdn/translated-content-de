@@ -3,7 +3,7 @@ title: "console: groupEnd() statische Methode"
 short-title: groupEnd()
 slug: Web/API/console/groupEnd_static
 l10n:
-  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}

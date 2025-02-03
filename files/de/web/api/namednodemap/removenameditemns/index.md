@@ -1,30 +1,30 @@
 ---
-title: "NamedNodeMap: removeNamedItemNS()-Methode"
+title: "NamedNodeMap: removeNamedItemNS() Methode"
 short-title: removeNamedItemNS()
 slug: Web/API/NamedNodeMap/removeNamedItemNS
 l10n:
-  sourceCommit: d95bc516ac619d2cdaa9b2c3c0040bcc1681e76f
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("DOM")}}
 
-Die **`removeNamedItemNS()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle entfernt das [`Attr`](/de/docs/Web/API/Attr), das dem angegebenen Namespace und lokalen Namen entspricht, aus der Map.
+Die **`removeNamedItemNS()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle entfernt das [`Attr`](/de/docs/Web/API/Attr), das dem angegebenen Namensraum und lokalen Namen im Map entspricht.
 
 ## Syntax
 
 ```js-nolint
-removeNamedItem(namespace, localName)
+removeNamedItemNS(namespace, localName)
 ```
 
 ### Parameter
 
 - `namespace`
 
-  - : Der Namespace des Attributs, das aus der Map entfernt werden soll.
-    > **Warning:** `namespace` ist der URI des Namespaces, nicht der Präfix.
+  - : Der Namensraum des Attributs, das aus dem Map entfernt werden soll.
+    > **Warning:** `namespace` ist der URI des Namensraums, nicht das Präfix.
 
 - `localName`
-  - : Der lokale Name des Attributs, das aus der Map entfernt werden soll.
+  - : Der lokale Name des Attributs, das aus dem Map entfernt werden soll.
 
 ### Rückgabewert
 
@@ -33,7 +33,7 @@ Das entfernte [`Attr`](/de/docs/Web/API/Attr).
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn kein Attribut mit dem angegebenen Namespace und lokalen Namen vorhanden ist.
+  - : Wird ausgelöst, wenn kein Attribut mit dem angegebenen Namensraum und lokalen Namen vorhanden ist.
 
 ## Beispiel
 

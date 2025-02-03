@@ -3,36 +3,32 @@ title: "SVGNumberList: getItem()-Methode"
 short-title: getItem()
 slug: Web/API/SVGNumberList/getItem
 l10n:
-  sourceCommit: 0f57507c06180622a5a6168b552317c43eeb9d04
+  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
 ---
 
 {{APIRef("SVG")}}
 
-Die `getItem()`-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle gibt das angegebene Element aus der Liste zurück.
-
-Das zurückgegebene Element ist das Element selbst und keine Kopie. Alle Änderungen, die am Element vorgenommen werden, sind sofort in der Liste sichtbar.
-
-Das erste Element wird mit `0` indiziert.
+Die **`getItem()`**-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle gibt das angegebene Element aus der Liste zurück. Das zurückgegebene Element ist das Element selbst und keine Kopie. Jede Änderung am Element wird sofort in der Liste reflektiert. Das erste Element hat den Index 0.
 
 ## Syntax
 
 ```js-nolint
-SVGNumberList.getItem(index)
+getItem(index)
 ```
 
 ### Parameter
 
 - `index`
-  - : Ein ganzzahliger Wert; der Index des angegebenen Elements als `unsigned long`.
+  - : Eine nicht-negative ganze Zahl, die den Index des abzurufenden Elements angibt.
 
 ### Rückgabewert
 
-Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objekt; das angegebene Element aus der Liste.
+Das [`SVGNumber`](/de/docs/Web/API/SVGNumber) an dem angegebenen Index in der Liste.
 
 ### Ausnahmen
 
-- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+- [`DOMException`](/de/docs/Web/API/DOMException) `IndexSizeError`
+  - : Wird ausgelöst, wenn der Index außerhalb der Grenzen der Liste liegt.
 
 ## Spezifikationen
 
@@ -41,7 +37,3 @@ Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objekt; das angegebene Element aus
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [`SVGNumber`](/de/docs/Web/API/SVGNumber)

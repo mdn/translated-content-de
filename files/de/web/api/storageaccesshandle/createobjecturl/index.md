@@ -1,20 +1,20 @@
 ---
-title: "StorageAccessHandle: createObjectURL()-Eigenschaft"
+title: "StorageAccessHandle: createObjectURL() Methode"
 short-title: createObjectURL()
 slug: Web/API/StorageAccessHandle/createObjectURL
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> See [`createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) to understand usage.
+> Siehe [`createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static), um die Verwendung zu verstehen.
 
 ## Syntax
 
 ```js-nolint
-handle.createObjectURL(object)
+createObjectURL(object)
 ```
 
 ### Parameter
@@ -24,12 +24,12 @@ handle.createObjectURL(object)
 
 ### Rückgabewert
 
-Ein String, der eine unpartitionierte Objekt-URL enthält, die verwendet werden kann, um auf den Inhalt des angegebenen Quell-`object` zuzugreifen.
+Ein String, der eine nicht partitionierte Objekt-URL enthält, die verwendet werden kann, um auf den Inhalt des angegebenen Quell-`object` zu verweisen.
 
 ### Ausnahmen
 
 - `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
-  - : Wird ausgelöst, wenn kein Zugriff gewährt wurde.
+  - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
 Siehe [`createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static)
 
@@ -48,7 +48,7 @@ document.requestStorageAccess({ createObjectURL: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
 
 ## Spezifikationen
 
@@ -61,4 +61,4 @@ document.requestStorageAccess({ createObjectURL: true }).then(
 ## Siehe auch
 
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
-- [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

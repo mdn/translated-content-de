@@ -1,19 +1,19 @@
 ---
-title: "DelegatedInkTrailPresenter: Methode updateInkTrailStartPoint()"
+title: "DelegatedInkTrailPresenter: updateInkTrailStartPoint() Methode"
 short-title: updateInkTrailStartPoint()
 slug: Web/API/DelegatedInkTrailPresenter/updateInkTrailStartPoint
 l10n:
-  sourceCommit: 08e04f121ea7b3a55e6ef47782d2d82fb053ca88
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Die Methode **`updateInkTrailStartPoint()`** der [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Schnittstelle gibt an, welches [`PointerEvent`](/de/docs/Web/API/PointerEvent) als letzter Rendering-Punkt für den aktuellen Frame verwendet wurde. Dies ermöglicht es dem Betriebssystem-Compositor, eine delegierte Ink-Trail-Darstellung vor dem nächsten Zeigerereignis zu rendern.
+Die **`updateInkTrailStartPoint()`** Methode der [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter) Schnittstelle zeigt an, welches [`PointerEvent`](/de/docs/Web/API/PointerEvent) als letzter Rendering-Punkt für den aktuellen Frame verwendet wurde, um dem OS-level Compositor zu ermöglichen, eine delegierte Tintenlinie vor dem nächsten Zeigereignis zu rendern, das versendet wird.
 
 ## Syntax
 
 ```js-nolint
-requestPresenter(event, style)
+updateInkTrailStartPoint(event, style)
 ```
 
 ### Parameter
@@ -21,11 +21,11 @@ requestPresenter(event, style)
 - `event` {{optional_inline}}
   - : Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent).
 - `style`
-  - : Ein Objekt, das den Stil der Spur definiert und die folgenden Eigenschaften enthält:
+  - : Ein Objekt, das den Stil der Linie definiert und die folgenden Eigenschaften enthält:
     - `color`
-      - : Ein {{jsxref("String")}}, der einen gültigen CSS-Farbcode enthält, der die Farbe angibt, die der Presenter beim Rendern der Ink-Spur verwenden wird.
+      - : Ein {{jsxref("String")}}, das einen gültigen CSS-Farbcode enthält und die Farbe angibt, die der Presenter beim Rendern der Tintenlinie verwenden wird.
     - `diameter`
-      - : Eine Zahl, die den Durchmesser angibt, den der Presenter beim Rendern der Ink-Spur verwenden wird.
+      - : Eine Zahl, die den Durchmesser darstellt, den der Presenter beim Rendern der Tintenlinie verwenden wird.
 
 ### Rückgabewert
 
@@ -34,23 +34,23 @@ requestPresenter(event, style)
 ### Ausnahmen
 
 - `Error` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ein Fehler wird ausgelöst und der Vorgang wird abgebrochen, wenn:
-    - die `color`-Eigenschaft keinen gültigen CSS-Farbcode enthält.
-    - die `diameter`-Eigenschaft keine Zahl oder kleiner als 1 ist.
-    - das [`presentationArea`](/de/docs/Web/API/DelegatedInkTrailPresenter/presentationArea)-Element vor oder während des Renderns aus dem Dokument entfernt wird.
+  - : Ein Fehler wird geworfen und der Vorgang abgebrochen, wenn:
+    - die `color` Eigenschaft keinen gültigen CSS-Farbcode enthält.
+    - die `diameter` Eigenschaft keine Zahl ist oder kleiner als 1 ist.
+    - das [`presentationArea`](/de/docs/Web/API/DelegatedInkTrailPresenter/presentationArea) Element vor oder während des Renderns aus dem Dokument entfernt wird.
 
 ## Beispiele
 
-### Zeichnen einer Ink-Spur
+### Zeichnen einer Tintenlinie
 
-In diesem Beispiel zeichnen wir eine Spur auf ein 2D-Canvas. Zu Beginn des Codes rufen wir [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) auf, übergeben das Canvas als Präsentationsbereich, um es zu verwalten, und speichern das zurückgegebene Versprechen in der Variable `presenter`.
+In diesem Beispiel zeichnen wir eine Linie auf eine 2D-Leinwand. Nahe dem Anfang des Codes rufen wir [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) auf, übergeben die Leinwand als Präsentationsbereich zur Bearbeitung und speichern das zurückgegebene Versprechen in der Variable `presenter`.
 
-Später, im `pointermove`-Ereignis-Listener, wird die neue Position des Spurkopfs jedes Mal, wenn das Ereignis ausgelöst wird, auf das Canvas gezeichnet. Zusätzlich wird das [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objekt, das zurückgegeben wird, wenn das `presenter`-Versprechen erfüllt wird, mit seiner `updateInkTrailStartPoint()`-Methode aufgerufen; übergeben werden hierbei:
+Später im `pointermove` Ereignis-Listener wird die neue Position des Linienstücks jedes Mal, wenn das Ereignis ausgelöst wird, auf die Leinwand gezeichnet. Zusätzlich wird das [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter) Objekt, das zurückgegeben wird, wenn das `presenter` Versprechen erfüllt ist, seine `updateInkTrailStartPoint()` Methode aufgerufen; dies wird übergeben:
 
-- Das letzte vertrauenswürdige Zeigerereignis, das den Rendering-Punkt für den aktuellen Frame darstellt.
-- Ein `style`-Objekt mit Farb- und Durchmessereinstellungen.
+- Das letzte vertrauenswürdige Zeigereignis, das den Rendering-Punkt für den aktuellen Frame darstellt.
+- Ein `style` Objekt, das Farb- und Durchmessereinstellungen enthält.
 
-Das Ergebnis ist, dass eine delegierte Ink-Spur vor dem Standard-Browser-Rendering im Namen der App mit dem angegebenen Stil gezeichnet wird, bis das nächste Mal ein `pointermove`-Ereignis empfangen wird.
+Das Ergebnis ist, dass eine delegierte Tintenlinie im Namen der App im angegebenen Stil vor dem Standard-Browser-Rendering gezeichnet wird, bis es das nächste Mal ein `pointermove` Ereignis erhält.
 
 #### HTML
 
@@ -124,4 +124,4 @@ canvas.height = window.innerHeight;
 
 ## Siehe auch
 
-- [Verbesserung des Inking im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)
+- [Verbesserung des Tintenschreibens im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

@@ -3,29 +3,25 @@ title: "CharacterData: substringData()-Methode"
 short-title: substringData()
 slug: Web/API/CharacterData/substringData
 l10n:
-  sourceCommit: 502e8c3f0be95c6f42afe6a72113b029b290b9e8
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("DOM")}}
 
-Die **`substringData()`**-Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
-gibt einen Teil der vorhandenen Daten zurück,
-beginnend am angegebenen Index
-und erstreckt sich über eine bestimmte Anzahl von Zeichen danach.
+Die **`substringData()`**-Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle gibt einen Abschnitt der bestehenden Daten zurück, beginnend bei dem angegebenen Index und sich für eine bestimmte Anzahl von Zeichen danach erstreckend.
 
 ## Syntax
 
 ```js-nolint
-  domString = characterData.substringData(offset, count)
+substringData(offset, count)
 ```
 
 ### Parameter
 
 - `offset`
-  - : Der Index des ersten Zeichens, das im zurückgegebenen Teilstring enthalten ist.
-    `0` ist das erste Zeichen des Strings.
+  - : Der Index des ersten Zeichens, das im zurückgegebenen Teilstring enthalten sein soll. `0` ist das erste Zeichen des Strings.
 - `count`
-  - : Die Anzahl der zurückzugebenden Zeichen.
+  - : Die Anzahl der Zeichen, die zurückgegeben werden sollen.
 
 ### Rückgabewert
 

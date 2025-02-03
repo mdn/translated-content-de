@@ -3,26 +3,20 @@ title: "NDEFRecord: data-Eigenschaft"
 short-title: data
 slug: Web/API/NDEFRecord/data
 l10n:
-  sourceCommit: 1a91b0b63f0cbaca9125bd48d4e5bc8afed2a7a3
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`data`**-Eigenschaft des [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Interfaces gibt ein {{jsxref("DataView")}} zurück, das die Rohbytes der Nutzlast des Records enthält.
-
-## Syntax
-
-```js-nolint
-NDEFRecord.data
-```
+Die **`data`**-Eigenschaft des [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Interfaces gibt eine {{jsxref("DataView")}} zurück, die die rohen Bytes der Nutzlast des Datensatzes enthält.
 
 ### Wert
 
-Ein {{jsxref("DataView")}}, das die kodierten Nutzlastdaten des Records enthält.
+Eine {{jsxref("DataView")}}, die die kodierten Nutzlastdaten des Datensatzes enthält.
 
 ## Beispiele
 
-Das folgende Beispiel durchläuft die Records in einem [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Objekt, das aus [`NDEFReadingEvent.message`](/de/docs/Web/API/NDEFReadingEvent/message) abgerufen wird. Nachdem ein Record basierend auf seinem [`mediaType`](/de/docs/Web/API/NDEFRecord/mediaType) ausgewählt wurde, wird dekodiert, was in der `data`-Eigenschaft gespeichert ist.
+Das folgende Beispiel durchläuft die Datensätze in einem [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Objekt, das aus [`NDEFReadingEvent.message`](/de/docs/Web/API/NDEFReadingEvent/message) abgerufen wird. Nachdem ein Datensatz basierend auf seinem [`mediaType`](/de/docs/Web/API/NDEFRecord/mediaType) ausgewählt wurde, wird das, was in der `data`-Eigenschaft gespeichert ist, dekodiert.
 
 ```js
 const ndef = new NDEFReader();

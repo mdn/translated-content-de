@@ -3,19 +3,19 @@ title: "DOMMatrix: invertSelf() Methode"
 short-title: invertSelf()
 slug: Web/API/DOMMatrix/invertSelf
 l10n:
-  sourceCommit: 473a33d6b219ee671239a5e4a322047bee3c5512
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`invertSelf()`** Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Schnittstelle invertiert die ursprüngliche Matrix. Wenn die Matrix nicht invertiert werden kann, werden alle Komponenten der neuen Matrix auf `NaN` gesetzt und ihre [`is2D`](/de/docs/Web/API/DOMMatrix/is2D)-Eigenschaft auf `false` gesetzt.
+Die **`invertSelf()`** Methode des [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Interfaces invertiert die ursprüngliche Matrix. Wenn die Matrix nicht invertiert werden kann, werden die Komponenten der neuen Matrix alle auf `NaN` gesetzt und ihre [`is2D`](/de/docs/Web/API/DOMMatrixReadonly/is2D) Eigenschaft wird auf `false` gesetzt.
 
-Um eine Matrix zu invertieren, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.inverse()`](/de/docs/Web/API/DOMMatrixReadOnly/inverse)
+Um eine Matrix zu invertieren, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.inverse()`](/de/docs/Web/API/DOMMatrixReadOnly/inverse).
 
 ## Syntax
 
 ```js-nolint
-  DOMMatrix.invertSelf()
+invertSelf()
 ```
 
 ### Rückgabewert

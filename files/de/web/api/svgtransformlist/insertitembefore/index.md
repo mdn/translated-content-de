@@ -1,29 +1,29 @@
 ---
-title: "SVGTransformList: insertItemBefore() Methode"
+title: "SVGTransformList: Methode insertItemBefore()"
 short-title: insertItemBefore()
 slug: Web/API/SVGTransformList/insertItemBefore
 l10n:
-  sourceCommit: 81530cefacb86442e219186144610f8a984b5744
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `insertItemBefore()`-Methode der [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Schnittstelle fügt ein neues Element an der angegebenen Position in die Liste ein.
+Die Methode `insertItemBefore()` der Schnittstelle [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) fügt ein neues Element an der angegebenen Position in die Liste ein.
 
-Das erste Element hat den Index `0`. Das eingefügte Element ist das Element selbst und keine Kopie.
+Das erste Element ist bei `0` indiziert. Das eingefügte Element ist das Element selbst und keine Kopie.
 
-- Wenn `newItem` bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird.
+- Wenn `newItem` bereits in einer Liste enthalten ist, wird es vor dem Einfügen in diese Liste aus seiner vorherigen Liste entfernt.
 
-- Wenn das Element bereits in dieser Liste ist, beachten Sie, dass der `index` des einzufügenden Elements vor dem Entfernen des Elements liegt.
+- Wenn das Element bereits in dieser Liste enthalten ist, beachten Sie, dass der `index` des einzufügenden Elements vor dem Entfernen des Elements gilt.
 
 - Wenn der `index` gleich `0` ist, wird das neue Element an den Anfang der Liste eingefügt.
 
-- Wenn der `index` größer als oder gleich [`numberOfItems`](/de/docs/Web/API/SVGTransformList/numberOfItems) ist, wird das neue Element am Ende der Liste angehängt.
+- Wenn der `index` größer oder gleich [`numberOfItems`](/de/docs/Web/API/SVGTransformList/numberOfItems) ist, wird das neue Element an das Ende der Liste angehängt.
 
 ## Syntax
 
 ```js-nolint
-SVGTransformList.insertItemBefore(newItem, index)
+insertItemBefore(newItem, index)
 ```
 
 ### Parameter
@@ -31,7 +31,7 @@ SVGTransformList.insertItemBefore(newItem, index)
 - `newItem`
   - : Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Element, das in die Liste eingefügt wird.
 - `index`
-  - : Ein `integer`; der Index, an dem das neue Element als unsigned long eingefügt werden soll.
+  - : Ein `integer`; der Index, an dem das neue Element als "unsigned long" eingefügt werden soll.
 
 ### Rückgabewert
 
@@ -40,7 +40,7 @@ Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; das eingefügte Elem
 ### Ausnahmen
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+  - : Wird ausgelöst, wenn [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
 
 ## Beispiele
 

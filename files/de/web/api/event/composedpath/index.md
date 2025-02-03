@@ -1,19 +1,21 @@
 ---
-title: "Event: composedPath()-Methode"
+title: "Event: composedPath() Methode"
 short-title: composedPath()
 slug: Web/API/Event/composedPath
 l10n:
-  sourceCommit: 15f0b5552bc9c2ea1f32b0cd5ee840a7d43c887e
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Shadow DOM")}}{{AvailableInWorkers}}
 
-Die **`composedPath()`**-Methode der [`Event`](/de/docs/Web/API/Event)-Schnittstelle gibt den Pfad des Ereignisses zurück, der ein Array der Objekte ist, auf denen Listener aufgerufen werden. Dies umfasst keine Knoten in Shadow-DOM-Bäumen, wenn die Schattenwurzel mit einem geschlossenen [`ShadowRoot.mode`](/de/docs/Web/API/ShadowRoot/mode) erstellt wurde.
+Die **`composedPath()`** Methode des [`Event`](/de/docs/Web/API/Event)
+Interfaces gibt den Pfad des Ereignisses zurück. Dieser Pfad ist ein Array der Objekte, auf denen Listener
+aufgerufen werden. Dies schließt keine Knoten in Schattenbäumen ein, wenn die Schattenwurzel mit ihrem [`ShadowRoot.mode`](/de/docs/Web/API/ShadowRoot/mode) als geschlossen erstellt wurde.
 
 ## Syntax
 
 ```js-nolint
-const composed = Event.composedPath()
+composedPath()
 ```
 
 ### Parameter
@@ -22,11 +24,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von [`EventTarget`](/de/docs/Web/API/EventTarget)-Objekten, die die Objekte repräsentieren, auf denen ein Ereignis-Listener aufgerufen wird.
+Ein Array von [`EventTarget`](/de/docs/Web/API/EventTarget) Objekten, die die Objekte darstellen, auf denen ein
+Ereignis-Listener aufgerufen wird.
 
 ## Beispiele
 
-Im folgenden Beispiel, das Sie unter [https://mdn.github.io/web-components-examples/composed-composed-path/](https://mdn.github.io/web-components-examples/composed-composed-path/) ausprobieren können, definieren wir zwei triviale benutzerdefinierte Elemente, `<open-shadow>` und `<closed-shadow>`, die beide den Inhalt ihres Textattributs nehmen und ihn als Textinhalt eines `<p>`-Elements in das Shadow-DOM des Elements einfügen. Der einzige Unterschied zwischen den beiden besteht darin, dass ihre Shadow-Roots mit ihren Modi auf `open` und `closed` gesetzt sind.
+Im folgenden Beispiel, das Sie unter [https://mdn.github.io/web-components-examples/composed-composed-path/](https://mdn.github.io/web-components-examples/composed-composed-path/) ausprobieren können, definieren wir zwei einfache benutzerdefinierte
+Elemente, `<open-shadow>` und `<closed-shadow>`. Beide
+nehmen den Inhalt ihres Textattributs und fügen ihn als Textinhalt eines `<p>` Elements in das Schatten-DOM des Elements ein. Der einzige Unterschied
+zwischen den beiden ist, dass ihre Schattenwurzeln mit ihren Modi `open` bzw. `closed` angefügt werden.
 
 ```js
 customElements.define(
@@ -60,14 +66,14 @@ customElements.define(
 );
 ```
 
-Wir fügen dann jeweils eines dieser Elemente in unsere Seite ein:
+Wir fügen dann jeweils eines der Elemente in unsere Seite ein:
 
 ```html
 <open-shadow text="I have an open shadow root"></open-shadow>
 <closed-shadow text="I have a closed shadow root"></closed-shadow>
 ```
 
-Dann fügen wir einen Klick-Ereignislistener auf dem `<html>`-Element hinzu:
+Dann fügen wir einen Klick-Ereignis-Listener auf dem `<html>` Element hinzu:
 
 ```js
 document.querySelector("html").addEventListener("click", (e) => {
@@ -76,19 +82,25 @@ document.querySelector("html").addEventListener("click", (e) => {
 });
 ```
 
-Wenn Sie auf das `<open-shadow>`-Element und dann auf das `<closed-shadow>`-Element klicken, werden Sie zwei Dinge bemerken. Erstens gibt die `composed`-Eigenschaft `true` zurück, da das `click`-Ereignis immer über Schatten-Grenzen hinweg propagieren kann. Zweitens werden Sie einen Unterschied im Wert von `composedPath` für die beiden Elemente bemerken. Der `composedPath` des `<open-shadow>`-Elements ist folgender:
+Wenn Sie auf das `<open-shadow>` Element und dann auf das
+`<closed-shadow>` Element klicken, werden Ihnen zwei Dinge auffallen. Erstens gibt die `composed` Eigenschaft `true` zurück, da das `click`
+Ereignis immer in der Lage ist, über Schatten-Grenzen hinweg zu propagieren. Zweitens werden Sie einen
+Unterschied im Wert von `composedPath` für die beiden Elemente bemerken. Der
+`<open-shadow>` Elementpfad sieht so aus:
 
 ```plain
 Array [ p, ShadowRoot, open-shadow, body, html, HTMLDocument https://mdn.github.io/web-components-examples/composed-composed-path/, Window ]
 ```
 
-Während der `composedPath` des `<closed-shadow>`-Elements folgendermaßen aussieht:
+Wohingegen der `<closed-shadow>` Elementpfad wie folgt aussieht:
 
 ```plain
 Array [ closed-shadow, body, html, HTMLDocument https://mdn.github.io/web-components-examples/composed-composed-path/, Window ]
 ```
 
-Im zweiten Fall propagieren die Ereignislistener nur bis zum `<closed-shadow>`-Element selbst, aber nicht zu den Knoten innerhalb der Schatten-Grenze.
+Im zweiten Fall propagieren sich die Ereignis-Listener nur bis zum
+`<closed-shadow>` Element selbst, aber nicht zu den Knoten innerhalb der
+Schatten-Grenze.
 
 ## Spezifikationen
 

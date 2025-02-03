@@ -3,17 +3,17 @@ title: "DOMMatrixReadOnly: flipY()-Methode"
 short-title: flipY()
 slug: Web/API/DOMMatrixReadOnly/flipY
 l10n:
-  sourceCommit: 87b76f2d22cdbb29eda171b549fa501349ada7df
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`flipY()`**-Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle erstellt eine neue Matrix, die das Ergebnis der ursprünglichen Matrix ist, gespiegelt entlang der y-Achse. Dies ist gleichbedeutend mit der Multiplikation der Matrix durch `DOMMatrix(1, 0, 0, -1, 0, 0)`. Die ursprüngliche Matrix wird nicht verändert.
+Die **`flipY()`**-Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle erstellt eine neue Matrix, die das Ergebnis der ursprünglichen Matrix ist, die um die y-Achse gespiegelt wird. Dies entspricht der Multiplikation der Matrix mit `DOMMatrix(1, 0, 0, -1, 0, 0)`. Die ursprüngliche Matrix wird nicht verändert.
 
 ## Syntax
 
 ```js-nolint
-  DOMMatrixReadOnly.flipY()
+flipY()
 ```
 
 ### Rückgabewert
@@ -24,7 +24,7 @@ Eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix).
 
 ### Spiegeln eines Dreiecks
 
-In diesem Beispiel enthält das SVG zwei identische [Pfad](/de/docs/Web/SVG/Attribute/d)-Elemente in der Form eines Dreiecks; sie sind beide so gezeichnet, dass sie die gleiche Größe und Position haben. Der `viewBox` hat einen negativen y-Wert, der uns Inhalte von beiden Seiten der y-Achse zeigt. Dies ermöglicht es, dass das gespiegelte Dreieck nach der Transformation im Ansichtsbereich bleibt.
+In diesem Beispiel enthält das SVG zwei identische [Pfade](/de/docs/Web/SVG/Attribute/d) in Form eines Dreiecks; sie sind beide so gezeichnet, dass sie die gleiche Größe und Position haben. Die Viewbox hat einen negativen y-Wert, der uns Inhalt von beiden Seiten der y-Achse zeigt. Dies ermöglicht es, dass das gespiegelte Dreieck nach der Transformation im Ansichtsfenster bleibt.
 
 #### HTML
 
@@ -37,7 +37,7 @@ In diesem Beispiel enthält das SVG zwei identische [Pfad](/de/docs/Web/SVG/Attr
 
 #### JavaScript
 
-Das JavaScript erstellt eine [Identitätsmatrix](/de/docs/Web/API/DOMMatrixReadOnly/isIdentity) und verwendet dann die `flipY()`-Methode, um eine neue Matrix zu erstellen, die dann auf das blaue Dreieck angewendet wird, wobei es entlang der y-Achse gespiegelt wird. Das rote Dreieck bleibt unverändert.
+Das JavaScript erstellt eine [Identitätsmatrix](/de/docs/Web/API/DOMMatrixReadOnly/isIdentity), verwendet dann die `flipY()`-Methode, um eine neue Matrix zu erzeugen, die dann auf das blaue Dreieck angewendet wird, um es über die y-Achse zu spiegeln. Das rote Dreieck bleibt unverändert.
 
 ```js
 const flipped = document.getElementById("flipped");

@@ -1,9 +1,9 @@
 ---
-title: "StorageAccessHandle: estimate() Eigenschaft"
+title: "StorageAccessHandle: estimate() Methode"
 short-title: estimate()
 slug: Web/API/StorageAccessHandle/estimate
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Storage Access API")}}
@@ -14,7 +14,7 @@ l10n:
 ## Syntax
 
 ```js-nolint
-handle.estimate()
+estimate()
 ```
 
 ### Parameter
@@ -28,7 +28,7 @@ Ein {{jsxref("Promise")}}, das mit einem nicht partitionierten [`StorageEstimate
 ### Ausnahmen
 
 - `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
-  - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
+  - : Wird ausgelöst, wenn kein Zugriff gewährt wurde.
 
 Siehe [`StorageManager.estimate()`](/de/docs/Web/API/StorageManager/estimate)
 

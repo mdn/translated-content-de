@@ -3,17 +3,17 @@ title: "SVGTransformList: clear() Methode"
 short-title: clear()
 slug: Web/API/SVGTransformList/clear
 l10n:
-  sourceCommit: 81530cefacb86442e219186144610f8a984b5744
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `clear()`-Methode der [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Schnittstelle entfernt alle vorhandenen aktuellen Elemente aus der Liste, sodass eine leere Liste entsteht.
+Die `clear()`-Methode der [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Schnittstelle entfernt alle vorhandenen aktuellen Elemente aus der Liste, so dass eine leere Liste entsteht.
 
 ## Syntax
 
 ```js-nolint
-SVGTransformList.clear()
+clear()
 ```
 
 ### Parameter
@@ -31,7 +31,7 @@ Keiner ({{jsxref('undefined')}}).
 
 ## Beispiele
 
-### Alle Transformationen von einem SVG-Element entfernen
+### Löschen aller Transformationen von einem SVG-Element
 
 ```html
 <svg width="200" height="200" id="mySvg">

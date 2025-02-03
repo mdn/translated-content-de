@@ -3,23 +3,23 @@ title: "SVGTransform: setSkewY()-Methode"
 short-title: setSkewY()
 slug: Web/API/SVGTransform/setSkewY
 l10n:
-  sourceCommit: 735185aeff568a6de5ecbb585d733c1c67191c48
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `setSkewY()`-Methode der [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Schnittstelle setzt den Transformationstyp auf `SVG_TRANSFORM_SKEWY`, wobei der Parameter `angle` die Höhe der Schrägstellung entlang der Y-Achse definiert.
+Die `setSkewY()`-Methode der [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Schnittstelle setzt den Transformationstyp auf `SVG_TRANSFORM_SKEWY`, wobei der Parameter `angle` die Menge der Schrägstellung entlang der Y-Achse definiert.
 
 ## Syntax
 
 ```js-nolint
-SVGTransform.setSkewY(angle)
+setSkewY(angle)
 ```
 
 ### Parameter
 
 - `angle`
-  - : Ein Float-Wert, der die Höhe der Schrägstellung in Grad definiert.
+  - : Ein Float, der die Menge der Schrägstellung in Grad definiert.
 
 ### Rückgabewert
 

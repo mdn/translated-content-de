@@ -1,16 +1,16 @@
 ---
-title: "console: clear() statische Methode"
+title: "console: clear()-statische Methode"
 short-title: clear()
 slug: Web/API/console/clear_static
 l10n:
-  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Console API")}}
 
-Die statische Methode **`console.clear()`** leert die Konsole, wenn möglich.
+Die statische Methode **`console.clear()`** löscht die Konsole, wenn möglich.
 
-Eine grafische Konsole, wie die in Webbrowsern, entfernt alle vorherigen Nachrichten; eine Konsole, die in einem Terminal angezeigt wird, wie die in Node.js, versucht, sie mit einem Escape-Code oder einem System-API zu leeren; andernfalls hat die Methode keine Wirkung (und es gibt keinen Fehler).
+Eine grafische Konsole, wie die in Webbrowsern, entfernt alle vorherigen Nachrichten; eine auf einem Terminal angezeigte Konsole, wie die in Node.js, wird versuchen, sie mit einem Escape-Code oder System-API zu löschen; andernfalls hat die Methode keine Wirkung (und es tritt kein Fehler auf).
 
 ## Syntax
 

@@ -1,20 +1,20 @@
 ---
-title: "StorageAccessHandle: getDirectory() Eigenschaft"
+title: "StorageAccessHandle: Methode getDirectory()"
 short-title: getDirectory()
 slug: Web/API/StorageAccessHandle/getDirectory
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory), um die Verwendung zu verstehen.
+> Siehe [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory), um das Verständnis zur Nutzung zu erlangen.
 
 ## Syntax
 
 ```js-nolint
-handle.getDirectory()
+getDirectory()
 ```
 
 ### Parameter

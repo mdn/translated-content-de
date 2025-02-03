@@ -3,16 +3,16 @@ title: "SVGNumberList: length-Eigenschaft"
 short-title: length
 slug: Web/API/SVGNumberList/length
 l10n:
-  sourceCommit: 0f57507c06180622a5a6168b552317c43eeb9d04
+  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
 ---
 
 {{APIRef("SVG")}}
 
-Die **`length`**-Eigenschaft der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle ist eine schreibgeschützte Eigenschaft und gibt die Anzahl der Elemente in der Liste an.
+Die **`length`**-Eigenschaft der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle gibt die Anzahl der Elemente in der Liste zurück. Sie ist ein Alias von [`numberOfItems`](/de/docs/Web/API/SVGNumberList/numberOfItems), um SVG-Listen mehr [array-ähnlich](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array-like_objects) zu gestalten.
 
 ## Wert
 
-Ein Ganzzahlwert; die Anzahl der [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objekte in der Liste als unsigned long.
+Eine nicht-negative Ganzzahl, die die Anzahl der Elemente in der Liste darstellt.
 
 ## Spezifikationen
 
@@ -21,8 +21,3 @@ Ein Ganzzahlwert; die Anzahl der [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objek
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [`SVGNumber`](/de/docs/Web/API/SVGNumber)
-- [`SVGNumberList.numberOfItems`](/de/docs/Web/API/SVGNumberList/numberOfItems) (Alias-Eigenschaft)

@@ -3,18 +3,18 @@ title: "DOMMatrix: preMultiplySelf() Methode"
 short-title: preMultiplySelf()
 slug: Web/API/DOMMatrix/preMultiplySelf
 l10n:
-  sourceCommit: 5e7036455cd79e30e9953fb29f22c691cb8326e4
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`preMultiplySelf()`** Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Schnittstelle modifiziert die Matrix, indem sie vor-multipliziert wird mit der angegebenen `DOMMatrix`. Dies entspricht dem Punktprodukt `B⋅A`, wobei die Matrix `A` die Quellmatrix ist und `B` die als Eingabe für die Methode angegebene Matrix ist. Wenn keine Matrix als Multiplikator angegeben wird, wird die Matrix mit einer Matrix multipliziert, bei der jedes Element `0` ist, _außer_ der unteren rechten Ecke und dem Element direkt darüber und links daneben: `m33` und `m34`. Diese haben den Standardwert `1`.
+Die **`preMultiplySelf()`** Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Schnittstelle modifiziert die Matrix, indem sie mit der angegebenen `DOMMatrix` vor-multipliziert wird. Dies entspricht dem Punktprodukt `B⋅A`, wobei Matrix `A` die Ursprungsmatrix und `B` die als Eingabe für die Methode angegebene Matrix ist. Wenn keine Matrix als Multiplikator angegeben ist, wird die Matrix mit einer Matrix multipliziert, bei der jedes Element `0` ist, _außer_ die untere rechte Ecke und das direkt darüber und links davon liegende Element: `m33` und `m34`. Diese haben den Standardwert `1`.
 
 ## Syntax
 
 ```js-nolint
-  DOMMatrix.preMultiplySelf()
-  DOMMatrix.preMultiplySelf(otherMatrix)
+preMultiplySelf()
+preMultiplySelf(otherMatrix)
 ```
 
 ### Parameter
@@ -24,7 +24,7 @@ Die **`preMultiplySelf()`** Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix
 
 ### Rückgabewert
 
-Gibt sich selbst zurück; eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix), die auf die Ergebnisse der angewandten Multiplikationen aktualisiert wurde.
+Gibt sich selbst zurück; eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix), die mit den Ergebnissen der angewandten Multiplikationen aktualisiert wurde.
 
 ## Beispiele
 

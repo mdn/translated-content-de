@@ -1,21 +1,21 @@
 ---
-title: "SVGTransformList: initialize()-Methode"
+title: "SVGTransformList: initialize() Methode"
 short-title: initialize()
 slug: Web/API/SVGTransformList/initialize
 l10n:
-  sourceCommit: 81530cefacb86442e219186144610f8a984b5744
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `initialize()`-Methode des [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Interfaces löscht alle aktuellen Elemente von der Liste und initialisiert die Liste neu, um das einzelne Element zu halten, das durch den Parameter angegeben ist.
+Die `initialize()`-Methode der [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Schnittstelle entfernt alle vorhandenen aktuellen Elemente aus der Liste und initialisiert die Liste neu, um das durch den Parameter angegebene einzelne Element zu halten.
 
-Wenn das eingefügte Element bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie.
+Wenn das eingefügte Element bereits in einer Liste enthalten ist, wird es vor dem Einfügen in diese Liste aus seiner vorherigen Liste entfernt. Das eingefügte Element ist das Element selbst und keine Kopie.
 
 ## Syntax
 
 ```js-nolint
-SVGTransformList.initialize(newItem)
+initialize(newItem)
 ```
 
 ### Parameter
@@ -34,7 +34,7 @@ Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; das Element, das in 
 
 ## Beispiele
 
-### Die Transformationsliste mit einer neuen Transformation neu initialisieren
+### Neu-Initialisierung der Transformationsliste mit einer neuen Transformation
 
 ```html
 <svg width="200" height="200" id="mySvg">

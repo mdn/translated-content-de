@@ -1,23 +1,23 @@
 ---
-title: "SVGTransformList: consolidate()-Methode"
+title: "SVGTransformList: consolidate() Methode"
 short-title: consolidate()
 slug: Web/API/SVGTransformList/consolidate
 l10n:
-  sourceCommit: 81530cefacb86442e219186144610f8a984b5744
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `consolidate()`-Methode der [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Schnittstelle konsolidiert die Liste separater [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekte, indem sie die entsprechenden Transformationsmatrizen multipliziert, um eine Liste zu erhalten, die aus einem einzigen `SVGTransform`-Objekt vom Typ `SVG_TRANSFORM_MATRIX` besteht.
+Die `consolidate()`-Methode der [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)-Schnittstelle konsolidiert die Liste der einzelnen [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekte, indem die entsprechenden Transformationsmatrizen multipliziert werden, um eine Liste zu erhalten, die aus einem einzigen `SVGTransform`-Objekt des Typs `SVG_TRANSFORM_MATRIX` besteht.
 
-Der Konsolidierungsvorgang erstellt ein neues `SVGTransform`-Objekt als das erste und einzige Element in der Liste.
+Die Konsolidierungsoperation erstellt ein neues `SVGTransform`-Objekt als das erste und einzige Element in der Liste.
 
-Das zurückgegebene Element ist das Element selbst und keine Kopie. Jegliche Änderungen am Element werden sofort in der Liste reflektiert.
+Das zurückgegebene Element ist das Element selbst und keine Kopie. Alle Änderungen an dem Element werden sofort in der Liste reflektiert.
 
 ## Syntax
 
 ```js-nolint
-SVGTransformList.consolidate()
+consolidate()
 ```
 
 ### Parameter
@@ -26,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein aktives [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; die konsolidierte Transformation.
+Ein Live-[`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; die konsolidierte Transformation.
 
 ### Ausnahmen
 

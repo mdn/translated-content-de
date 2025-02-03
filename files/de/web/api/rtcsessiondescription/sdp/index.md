@@ -3,24 +3,17 @@ title: "RTCSessionDescription: sdp-Eigenschaft"
 short-title: sdp
 slug: Web/API/RTCSessionDescription/sdp
 l10n:
-  sourceCommit: 592f6ec42e54981b6573b58ec0343c9aa8cbbda8
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("WebRTC")}}
 
 Die Eigenschaft **`RTCSessionDescription.sdp`** ist ein schreibgeschützter
-String, der das {{Glossary("SDP", "SDP")}} enthält, welches die Sitzung beschreibt.
+String, der die {{Glossary("SDP", "SDP")}} enthält, die die Sitzung beschreibt.
 
-## Syntax
+## Wert
 
-```js-nolint
-const value = sessionDescription.sdp
-sessionDescription.sdp = value
-```
-
-### Wert
-
-Der Wert ist ein String, der eine SDP-Nachricht wie diese enthält:
+Der Wert ist ein String, der eine SDP-Nachricht enthält, ähnlich dieser:
 
 ```plain
 v=0

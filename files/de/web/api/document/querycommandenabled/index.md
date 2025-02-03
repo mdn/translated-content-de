@@ -1,34 +1,34 @@
 ---
-title: "Document: queryCommandEnabled()-Methode"
+title: "Document: queryCommandEnabled() Methode"
 short-title: queryCommandEnabled()
 slug: Web/API/Document/queryCommandEnabled
 l10n:
-  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{ApiRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die Methode **`Document.queryCommandEnabled()`** gibt an, ob der angegebene Bearbeitungsbefehl vom Browser aktiviert ist oder nicht.
+Die **`Document.queryCommandEnabled()`** Methode gibt an, ob der angegebene Editor-Befehl vom Browser aktiviert ist oder nicht.
 
 ## Syntax
 
 ```js-nolint
-document.queryCommandEnabled(command)
+queryCommandEnabled(command)
 ```
 
 ### Parameter
 
 - `command`
-  - : Der Befehl, für den die Unterstützung bestimmt werden soll.
+  - : Der Befehl, für den die Unterstützung ermittelt werden soll.
 
 ### Rückgabewert
 
-Gibt einen booleschen Wert zurück, der `true` ist, wenn der Befehl aktiviert ist, und `false`, wenn der Befehl nicht aktiviert ist.
+Gibt einen booleschen Wert zurück, der `true` ist, wenn der Befehl aktiviert ist, und `false`, wenn er es nicht ist.
 
-## Anmerkungen
+## Hinweise
 
-- Für die Befehle `"cut"` und `"copy"` gibt die Methode nur dann `true` zurück, wenn sie von einem benutzerinitiierten Thread aufgerufen wird.
-- Der Befehl `"paste"` gibt `false` zurück, nicht nur wenn die Funktion nicht verfügbar ist, sondern auch wenn das Skript, das sie aufruft, nicht über ausreichende Berechtigungen verfügt, um die Aktion auszuführen.
+- Für die Befehle `"cut"` und `"copy"` gibt die Methode nur `true` zurück, wenn sie aus einem vom Benutzer initiierten Thread aufgerufen wird.
+- Der Befehl `"paste"` gibt `false` zurück, nicht nur wenn die Funktion nicht verfügbar ist, sondern auch, wenn das aufrufende Skript nicht die erforderlichen Berechtigungen hat, um die Aktion auszuführen.
 
 ## Beispiel
 
@@ -42,7 +42,7 @@ if (flg) {
 
 ## Spezifikationen
 
-Dieses Feature ist derzeit nicht Teil einer Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Feature ist Teil keiner aktuellen Spezifikation. Es wird nicht mehr als Standard verfolgt.
 
 ## Browser-Kompatibilität
 

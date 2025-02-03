@@ -2,23 +2,23 @@
 title: SVGPreserveAspectRatio
 slug: Web/API/SVGPreserveAspectRatio
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 59fec48b4572624a0b23bc98385dd05029125a76
 ---
 
 {{APIRef("SVG")}}
 
 ## SVG preserveAspectRatio Schnittstelle
 
-Die `SVGPreserveAspectRatio` Schnittstelle entspricht dem {{ SVGAttr("preserveAspectRatio") }} Attribut, das für einige Elemente von SVG verfügbar ist.
+Die `SVGPreserveAspectRatio`-Schnittstelle entspricht dem {{ SVGAttr("preserveAspectRatio") }}-Attribut, das bei einigen SVG-Elementen verfügbar ist.
 
-Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt bezeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
+Ein `SVGPreserveAspectRatio`-Objekt kann als schreibgeschützt gekennzeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
 
-### Schnittstellenübersicht
+### Übersicht über die Schnittstelle
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Ebenfalls implementieren</th>
+      <th scope="row">Implementiert auch</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -62,7 +62,7 @@ Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt bezeichnet werden
       <td>
         <a
           href="https://www.w3.org/TR/SVG/coords.html#InterfaceSVGPreserveAspectRatio"
-          >SVG 1.1 (2. Ausgabe)</a
+          >SVG 1.1 (2. Edition)</a
         >
       </td>
     </tr>
@@ -86,7 +86,8 @@ Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt bezeichnet werden
       </td>
       <td>0</td>
       <td>
-        Die Enumeration wurde auf einen Wert gesetzt, der nicht zu den vordefinierten Typen gehört. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
+        Die Enumeration wurde auf einen Wert gesetzt, der nicht einer der vordefinierten Typen ist.
+        Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert zu diesem Typ zu wechseln.
       </td>
     </tr>
     <tr>
@@ -193,7 +194,8 @@ Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt bezeichnet werden
       <td><code>SVG_MEETORSLICE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Die Enumeration wurde auf einen Wert gesetzt, der nicht zu den vordefinierten Typen gehört. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
+        Die Enumeration wurde auf einen Wert gesetzt, der nicht einer der vordefinierten Typen ist.
+        Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert zu diesem Typ zu wechseln.
       </td>
     </tr>
     <tr>
@@ -227,29 +229,29 @@ Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt bezeichnet werden
   </thead>
   <tbody>
     <tr>
-      <td><code>align</code></td>
+      <td>[`align`](/de/docs/Web/API/SVGPreserveAspectRatio/align)</td>
       <td>unsigned short</td>
       <td>
-        Der Typ des Ausrichtungswertes, wie er durch eine der
-        <code>SVG_PRESERVEASPECTRATIO_*</code> Konstanten auf dieser Schnittstelle angegeben ist.
+        Der Typ des Ausrichtungswertes gemäß einer der
+        <code>SVG_PRESERVEASPECTRATIO_*</code>-Konstanten, die in dieser Schnittstelle definiert sind.
       </td>
     </tr>
     <tr>
-      <td><code>meetOrSlice</code></td>
+      <td>[`meetOrSlice`](/de/docs/Web/API/SVGPreserveAspectRatio/meetOrSlice)</td>
       <td>unsigned short</td>
       <td>
-        Der Typ des Meet-or-Slice-Wertes, wie er durch eine der
-        <code>SVG_MEETORSLICE_*</code> Konstanten auf dieser Schnittstelle angegeben ist.
+        Der Typ des meet-or-slice Wertes gemäß einer der
+        <code>SVG_MEETORSLICE_*</code>-Konstanten, die in dieser Schnittstelle definiert sind.
       </td>
     </tr>
   </tbody>
 </table>
 
-**Ausnahmen bei der Einstellung:** Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn versucht wird, den Wert eines Attributs bei einem schreibgeschützten Objekt zu ändern.
+**Ausnahmen beim Setzen:** Eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn versucht wird, den Wert eines Attributs bei einem schreibgeschützten Objekt zu ändern.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-Die `SVGPreserveAspectRatio` Schnittstelle stellt keine spezifischen Methoden zur Verfügung.
+Die `SVGPreserveAspectRatio`-Schnittstelle bietet keine spezifischen Methoden.
 
 ## Spezifikationen
 

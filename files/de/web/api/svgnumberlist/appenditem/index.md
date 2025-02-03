@@ -1,38 +1,34 @@
 ---
-title: "SVGNumberList: appendItem() Methode"
+title: "SVGNumberList: appendItem()-Methode"
 short-title: appendItem()
 slug: Web/API/SVGNumberList/appendItem
 l10n:
-  sourceCommit: 0f57507c06180622a5a6168b552317c43eeb9d04
+  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
 ---
 
 {{APIRef("SVG")}}
 
-Die `appendItem()`-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle fügt ein neues Element am Ende der Liste ein.
-
-Das eingefügte Element ist das Element selbst und keine Kopie.
-
-- Wenn `newItem` bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird.
+Die **`appendItem()`**-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle fügt ein neues Element am Ende der Liste ein. Wenn das angegebene Element bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie.
 
 ## Syntax
 
 ```js-nolint
-SVGNumberList.appendItem(newItem)
+appendItem(newItem)
 ```
 
 ### Parameter
 
 - `newItem`
-  - : Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Element, das an die Liste angehängt wird.
+  - : Das [`SVGNumber`](/de/docs/Web/API/SVGNumber), das zur Liste hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objekt; das angehängte Element aus der Liste.
+Das [`SVGNumber`](/de/docs/Web/API/SVGNumber), das zur Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
-- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
+  - : Wird ausgelöst, wenn die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
 
 ## Spezifikationen
 
@@ -41,8 +37,3 @@ Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objekt; das angehängte Element au
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [`SVGNumber`](/de/docs/Web/API/SVGNumber)
-- [`SVGNumberList.numberOfItems`](/de/docs/Web/API/SVGNumberList/numberOfItems)

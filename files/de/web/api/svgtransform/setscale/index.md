@@ -3,25 +3,25 @@ title: "SVGTransform: setScale()-Methode"
 short-title: setScale()
 slug: Web/API/SVGTransform/setScale
 l10n:
-  sourceCommit: 735185aeff568a6de5ecbb585d733c1c67191c48
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `setScale()`-Methode des [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Interfaces setzt den Transformationstyp auf `SVG_TRANSFORM_SCALE`, wobei die Parameter `sx` und `sy` die Skalierungsbeträge definieren.
+Die `setScale()`-Methode des [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Interfaces setzt den Transformationstyp auf `SVG_TRANSFORM_SCALE`. Die Parameter `sx` und `sy` definieren die Skalierungsfaktoren.
 
 ## Syntax
 
 ```js-nolint
-SVGTransform.setScale(sx, sy)
+setScale(sx, sy)
 ```
 
 ### Parameter
 
 - `sx`
-  - : Ein Float-Wert, der den Skalierungsbetrag entlang der X-Achse definiert.
+  - : Ein Float, der den Skalierungsfaktor entlang der X-Achse definiert.
 - `sy`
-  - : Ein Float-Wert, der den Skalierungsbetrag entlang der Y-Achse definiert.
+  - : Ein Float, der den Skalierungsfaktor entlang der Y-Achse definiert.
 
 ### Rückgabewert
 
@@ -30,11 +30,11 @@ Keiner ({{jsxref('undefined')}}).
 ### Ausnahmen
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Attribut oder das [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt schreibgeschützt ist.
+  - : Wird geworfen, wenn das Attribut oder das [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt schreibgeschützt ist.
 
 ## Beispiele
 
-### Skalieren eines SVG-Elements
+### Skalierung eines SVG-Elements
 
 ```js
 // Select an SVG element and create a transform object

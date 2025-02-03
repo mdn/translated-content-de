@@ -3,34 +3,32 @@ title: "SVGNumberList: initialize() Methode"
 short-title: initialize()
 slug: Web/API/SVGNumberList/initialize
 l10n:
-  sourceCommit: 0f57507c06180622a5a6168b552317c43eeb9d04
+  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
 ---
 
 {{APIRef("SVG")}}
 
-Die `initialize()`-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle entfernt alle bestehenden aktuellen Elemente aus der Liste und initialisiert die Liste neu, um das einzelne Element zu halten, das durch den Parameter angegeben wird.
-
-Wenn das eingefügte Element bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie.
+Die **`initialize()`**-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle löscht alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das einzelne Element zu halten, das durch den Parameter angegeben wird. Wenn das eingefügte Element bereits in einer Liste vorhanden ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das Element, das in die Liste eingefügt wurde.
 
 ## Syntax
 
 ```js-nolint
-SVGNumberList.initialize(newItem)
+initialize(newItem)
 ```
 
 ### Parameter
 
 - `newItem`
-  - : Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Element, das in die Liste eingefügt wird.
+  - : Der [`SVGNumber`](/de/docs/Web/API/SVGNumber), der der Liste hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objekt; das Element, das in die Liste eingefügt wurde.
+Der [`SVGNumber`](/de/docs/Web/API/SVGNumber), der der Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
-- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
+  - : Wird ausgelöst, wenn die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
 
 ## Spezifikationen
 
@@ -39,7 +37,3 @@ Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber)-Objekt; das Element, das in die Li
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [`SVGNumber`](/de/docs/Web/API/SVGNumber)

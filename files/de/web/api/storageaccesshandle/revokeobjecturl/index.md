@@ -1,20 +1,20 @@
 ---
-title: "StorageAccessHandle: revokeObjectURL()-Eigenschaft"
+title: "StorageAccessHandle: revokeObjectURL() Methode"
 short-title: revokeObjectURL()
 slug: Web/API/StorageAccessHandle/revokeObjectURL
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static), um die Nutzung zu verstehen.
+> Siehe [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) um die Verwendung zu verstehen.
 
 ## Syntax
 
 ```js-nolint
-handle.revokeObjectURL(objectURL)
+revokeObjectURL(objectURL)
 ```
 
 ### Parameter
@@ -24,7 +24,7 @@ handle.revokeObjectURL(objectURL)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 

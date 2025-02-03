@@ -1,25 +1,26 @@
 ---
-title: "DOMRectList: Methode item()"
+title: "DOMRectList: die Methode item()"
 short-title: item()
 slug: Web/API/DOMRectList/item
 l10n:
-  sourceCommit: f8554061e8e76aaa3f08ba1b5f9b939d436f5ded
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Geometry Interfaces")}}
 
-Die Methode [`DOMRectList`](/de/docs/Web/API/DOMRectList) `item()` gibt den [`DOMRect`](/de/docs/Web/API/DOMRect) am angegebenen Index innerhalb der Liste zurück oder `null`, wenn der Index außerhalb des gültigen Bereichs liegt.
+Die [`DOMRectList`](/de/docs/Web/API/DOMRectList)-Methode
+`item()` gibt das [`DOMRect`](/de/docs/Web/API/DOMRect) an dem angegebenen Index in der Liste zurück oder `null`, wenn der Index außerhalb des Bereichs liegt.
 
 ## Syntax
 
 ```js-nolint
-rectList.item(index)
+item(index)
 ```
 
 ### Parameter
 
-- index
-  - : Ein nullbasierter Ganzzahlwert, der die Position des `DOMRect` in der `DOMRectList` angibt, die abgerufen werden soll.
+- `index`
+  - : Ein nullbasierter Ganzzahlwert, der die Position des abzurufenden `DOMRect` in der `DOMRectList` darstellt.
 
 ### Rückgabewert
 

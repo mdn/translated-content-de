@@ -2,16 +2,16 @@
 title: CSS Painting API
 slug: Web/API/CSS_Painting_API
 l10n:
-  sourceCommit: ca6d4f6114d278926e183225a90fd2209802cfe9
+  sourceCommit: 8a4f257358730920c6df40433171ff39b4b1fc21
 ---
 
 {{DefaultAPISidebar("CSS Painting API")}}{{SeeCompatTable}}
 
-Die CSS Painting API — Teil des API-Überangebots [CSS Houdini](/de/docs/Web/API/Houdini_APIs) — ermöglicht es Entwicklern, JavaScript-Funktionen zu schreiben, die direkt in den Hintergrund, die Grenze oder den Inhalt eines Elements zeichnen können.
+Die CSS Painting API — ein Teil der [CSS Houdini](/de/docs/Web/API/Houdini_APIs) APIs — ermöglicht es Entwicklern, JavaScript-Funktionen zu schreiben, die direkt in den Hintergrund, den Rahmen oder den Inhalt eines Elements zeichnen können.
 
 ## Konzepte und Verwendung
 
-Im Wesentlichen enthält die CSS Painting API Funktionen, die es Entwicklern ermöglichen, benutzerdefinierte Werte für {{cssxref('image/paint', 'paint()')}}, eine CSS-Funktion [`<image>`](/de/docs/Web/CSS/image), zu erstellen. Diese Werte können dann auf Eigenschaften wie {{cssxref("background-image")}} angewendet werden, um komplexe benutzerdefinierte Hintergründe auf einem Element zu setzen.
+Im Wesentlichen enthält die CSS Painting API Funktionen, die es Entwicklern ermöglichen, benutzerdefinierte Werte für {{cssxref('image/paint', 'paint()')}}, eine CSS [`<image>`](/de/docs/Web/CSS/image) Funktion, zu erstellen. Diese Werte können dann auf Eigenschaften wie {{cssxref("background-image")}} angewendet werden, um komplexe benutzerdefinierte Hintergründe auf einem Element festzulegen.
 
 Zum Beispiel:
 
@@ -21,30 +21,28 @@ aside {
 }
 ```
 
-Die API definiert einen [`worklet`](/de/docs/Web/API/Worklet), der verwendet werden kann, um programmgesteuert ein Bild zu generieren, das auf berechnete Stiländerungen reagiert. Um mehr darüber zu erfahren, wie dies verwendet wird, konsultieren Sie [Verwendung der CSS Painting API](/de/docs/Web/API/CSS_Painting_API/Guide).
+Die API definiert ein [`worklet`](/de/docs/Web/API/Worklet), das verwendet werden kann, um programmgesteuert ein Bild zu erzeugen, das auf Änderungen im berechneten Stil reagiert. Um mehr darüber zu erfahren, wie dies verwendet wird, konsultieren Sie [Verwenden der CSS Painting API](/de/docs/Web/API/CSS_Painting_API/Guide).
 
 ## Schnittstellen
 
 - [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope)
   - : Der globale Ausführungskontext des Paint Worklets.
 - [`PaintRenderingContext2D`](/de/docs/Web/API/PaintRenderingContext2D)
-  - : Implementiert einen Teil der API [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D). Sie hat ein Ausgabebild, das die Größe des Objekts hat, zu dem sie rendert.
+  - : Implementiert einen Teil der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) API. Es hat ein Ausgabebitmap, das die Größe des Objekts hat, auf das es zeichnet.
 - [`PaintSize`](/de/docs/Web/API/PaintSize)
-  - : Gibt die schreibgeschützten Werte der Breite und Höhe des Ausgabebildes zurück.
+  - : Repräsentiert die Größe des Ausgabebitmaps, das der Autor zeichnen sollte.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt eine Liste von Elementen mit einem Hintergrundbild, das zwischen drei verschiedenen Farben und drei Breiten wechselt.
-In [einem unterstützenden Browser](#browser-kompatibilität) sehen Sie etwas wie das untenstehende Bild.
+Das folgende Beispiel erstellt eine Liste von Elementen mit einem Hintergrundbild, das zwischen drei verschiedenen Farben und drei Breiten rotiert. In [einem unterstützenden Browser](#browser-kompatibilität) sehen Sie etwas wie das Bild unten.
 
-![Die Breite und Farbe des Hintergrundbildes ändern sich basierend auf den benutzerdefinierten Eigenschaften](guide/boxbg.png)
+![Die Breite und Farbe des Hintergrundbildes ändert sich basierend auf den benutzerdefinierten Eigenschaften](guide/boxbg.png)
 
 Um dies zu erreichen, definieren wir zwei benutzerdefinierte CSS-Eigenschaften, `--boxColor` und `--widthSubtractor`.
 
 ### Das Paint Worklet
 
-Das Worklet ist eine externe JavaScript-Datei (in diesem Fall haben wir es `boxbg.js` genannt), das ein Paint [`worklet`](/de/docs/Web/API/Worklet) definiert.
-Mit dem Worklet können wir auf CSS-Eigenschaften (und benutzerdefinierte Eigenschaften) von Elementen zugreifen:
+Das Worklet ist eine externe JavaScript-Datei (in diesem Fall haben wir es `boxbg.js` genannt), die ein Paint-[`worklet`](/de/docs/Web/API/Worklet) definiert. Mit dem Worklet können wir auf die CSS-Eigenschaften (und benutzerdefinierte Eigenschaften) von Elementen zugreifen:
 
 ```js
 registerPaint(
@@ -80,7 +78,7 @@ registerPaint(
 );
 ```
 
-Wir haben die Methode `inputProperties()` in der Klasse `registerPaint()` verwendet, um die Werte von zwei benutzerdefinierten Eigenschaften zu erhalten, die auf einem Element festgelegt wurden, das `boxbg` angewendet hat, und diese dann in unserer Funktion `paint()` verwendet. Die Methode `inputProperties()` kann alle Eigenschaften zurückgeben, die das Element beeinflussen, nicht nur benutzerdefinierte Eigenschaften.
+Wir haben die Methode `inputProperties()` in der `registerPaint()`-Klasse verwendet, um die Werte von zwei benutzerdefinierten Eigenschaften zu erhalten, die auf ein Element angewendet werden, das `boxbg` verwendet, und diese dann in unserer `paint()`-Funktion verwendet. Die Methode `inputProperties()` kann alle Eigenschaften zurückgeben, die das Element beeinflussen, nicht nur benutzerdefinierte Eigenschaften.
 
 ### Verwendung des Paint Worklets
 
@@ -128,8 +126,7 @@ li:nth-of-type(3n + 1) {
 
 #### JavaScript
 
-Das Setup und die Logik des Paint Worklets befinden sich im externen Skript.
-Um das Worklet zu registrieren, müssen wir [`addModule()`](/de/docs/Web/API/Worklet/addModule) aus unserem Hauptskript aufrufen:
+Das Setup und die Logik des Paint Worklets befinden sich im externen Skript. Um das Worklet zu registrieren, müssen wir [`addModule()`](/de/docs/Web/API/Worklet/addModule) von unserem Hauptskript aufrufen:
 
 ```js live-sample___example-boxbg
 CSS.paintWorklet.addModule(
@@ -137,7 +134,7 @@ CSS.paintWorklet.addModule(
 );
 ```
 
-In diesem Beispiel wird das Worklet unter `https://mdn.github.io/` gehostet, aber Ihr Worklet kann eine relative Ressource wie folgt sein:
+In diesem Beispiel wird das Worklet unter `https://mdn.github.io/` gehostet, aber Ihr Worklet könnte eine relative Ressource sein wie folgt:
 
 ```js
 CSS.paintWorklet.addModule("boxbg.js");
@@ -145,7 +142,7 @@ CSS.paintWorklet.addModule("boxbg.js");
 
 #### Ergebnis
 
-Auch wenn Sie nicht mit dem Skript des Worklets spielen können, können Sie die Werte der benutzerdefinierten Eigenschaften in den DevTools ändern, um die Farben und die Breite des Hintergrundbildes zu ändern.
+Obwohl Sie das Skript des Worklets nicht ändern können, können Sie die Werte der benutzerdefinierten Eigenschaften in den DevTools ändern, um die Farben und die Breite des Hintergrundbildes zu ändern.
 
 {{EmbedLiveSample("example-boxbg", "", "300px")}}
 
@@ -159,6 +156,6 @@ Auch wenn Sie nicht mit dem Skript des Worklets spielen können, können Sie die
 
 ## Siehe auch
 
-- [Verwendung der CSS Painting API](/de/docs/Web/API/CSS_Painting_API/Guide)
+- [Verwenden der CSS Painting API](/de/docs/Web/API/CSS_Painting_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)
 - [Houdini APIs](/de/docs/Web/API/Houdini_APIs)

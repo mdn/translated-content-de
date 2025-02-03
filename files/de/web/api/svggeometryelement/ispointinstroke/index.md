@@ -3,12 +3,12 @@ title: "SVGGeometryElement: isPointInStroke()-Methode"
 short-title: isPointInStroke()
 slug: Web/API/SVGGeometryElement/isPointInStroke
 l10n:
-  sourceCommit: 005cc1fd55aadcdcbd9aabbed7d648a275f8f23a
+  sourceCommit: 1e801c9388a8e7ae368f6c3759aabf23eabbb1d7
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGGeometryElement.isPointInStroke()`**-Methode bestimmt, ob ein gegebener Punkt innerhalb der Strichform eines Elements liegt. Normale Hit-Test-Regeln gelten; der Wert der {{cssxref("pointer-events")}}-Eigenschaft auf dem Element bestimmt, ob ein Punkt als innerhalb des Strichs betrachtet wird. Das `point`-Argument wird als Punkt im lokalen Koordinatensystem des Elements interpretiert.
+Die **`isPointInStroke()`**-Methode des [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)-Interfaces bestimmt, ob ein gegebener Punkt innerhalb der Umrissform eines Elements liegt. Das `point`-Argument wird als Punkt im lokalen Koordinatensystem des Elements interpretiert.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ isPointInStroke(point)
 ### Parameter
 
 - `point`
-  - : Ein Objekt, das als Punkt im lokalen Koordinatensystem des Elements interpretiert wird.
+  - : Ein Objekt, das einen Punkt darstellt, der im lokalen Koordinatensystem des Elements interpretiert wird. Es wird mit demselben Algorithmus in ein [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt umgewandelt wie [`DOMPoint.fromPoint()`](/de/docs/Web/API/DOMPoint/fromPoint_static).
 
 ### Rückgabewert
 
-Ein Boolean-Wert, der angibt, ob der gegebene Punkt innerhalb des Strichs liegt oder nicht.
+Ein boolescher Wert, der angibt, ob der gegebene Punkt innerhalb des Umrisses liegt oder nicht.
 
 ## Beispiele
 
@@ -40,8 +40,8 @@ Ein Boolean-Wert, der angibt, ob der gegebene Punkt innerhalb des Strichs liegt 
     cx="50"
     cy="50"
     r="45"
-    fill="white"
-    stroke="black"
+    fill="rgb(0 0 0 / 25%)"
+    stroke="rgb(0 0 0 / 50%)"
     stroke-width="10" />
 </svg>
 ```
@@ -52,20 +52,20 @@ Ein Boolean-Wert, der angibt, ob der gegebene Punkt innerhalb des Strichs liegt 
 const svg = document.getElementsByTagName("svg")[0];
 const circle = document.getElementById("circle");
 const points = [
-  ["10", "10"],
-  ["40", "30"],
-  ["70", "40"],
-  ["15", "75"],
-  ["83", "83"],
+  [10, 10],
+  [40, 30],
+  [70, 40],
+  [15, 75],
+  [83, 83],
 ];
 
 for (const point of points) {
   let isPointInStroke;
 
   try {
-    const pointObj = new DOMPoint(point[0], point[1]);
-    isPointInFill = circle.isPointInStroke(pointObj);
-  } catch (e) {
+    const pointObj = { x: point[0], y: point[1] };
+    isPointInStroke = circle.isPointInStroke(pointObj);
+  } catch {
     // Fallback for browsers that don't support DOMPoint as an argument
     const pointObj = svg.createSVGPoint();
     pointObj.x = point[0];
@@ -79,11 +79,22 @@ for (const point of points) {
     "http://www.w3.org/2000/svg",
     "circle",
   );
-  pointEl.style.cx = point[0];
-  pointEl.style.cy = point[1];
-  pointEl.style.r = 5;
-  pointEl.style.fill = isPointInStroke ? "seagreen" : "rgb(255 0 0 / 50%)";
-  svg.appendChild(pointEl);
+  pointEl.cx.baseVal.value = point[0];
+  pointEl.cy.baseVal.value = point[1];
+  pointEl.r.baseVal.value = 5;
+  const pathEl = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  if (isPointInStroke) {
+    pointEl.setAttribute("fill", "rgb(0 170 0 / 50%)");
+    pointEl.setAttribute("stroke", "rgb(0 170 0)");
+    pathEl.setAttribute("stroke", "rgb(0 170 0)");
+    pathEl.setAttribute("d", `M ${point[0] - 5} ${point[1]} h 10 m -5 -5 v 10`);
+  } else {
+    pointEl.setAttribute("fill", "rgb(170 0 0 / 50%)");
+    pointEl.setAttribute("stroke", "rgb(170 0 0)");
+    pathEl.setAttribute("stroke", "rgb(170 0 0)");
+    pathEl.setAttribute("d", `M ${point[0] - 5} ${point[1]} h 10`);
+  }
+  svg.append(pointEl, pathEl);
 }
 ```
 

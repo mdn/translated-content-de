@@ -1,20 +1,20 @@
 ---
-title: "StorageAccessHandle: BroadcastChannel() Eigenschaft"
+title: "StorageAccessHandle: BroadcastChannel() Methode"
 short-title: BroadcastChannel()
 slug: Web/API/StorageAccessHandle/BroadcastChannel
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadcastChannel) um die Nutzung zu verstehen.
+> Siehe [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadcastChannel), um die Verwendung zu verstehen.
 
 ## Syntax
 
 ```js-nolint
-handle.BroadcastChannel(channelName)
+BroadcastChannel(channelName)
 ```
 
 ### Parameter
@@ -24,7 +24,7 @@ handle.BroadcastChannel(channelName)
 
 ### Rückgabewert
 
-Ein nicht-partitioniertes [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) Objekt.
+Ein nicht partitioniertes [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Objekt.
 
 ### Ausnahmen
 

@@ -1,21 +1,20 @@
 ---
-title: "DOMMatrixReadOnly: `translate()` Methode"
+title: "DOMMatrixReadOnly: translate() Methode"
 short-title: translate()
 slug: Web/API/DOMMatrixReadOnly/translate
 l10n:
-  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die `translate()` Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) Schnittstellen
-erzeugt eine neue Matrix, die das Ergebnis der ursprünglichen Matrix mit einer angewandten Translation ist.
+Die `translate()`-Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle erstellt eine neue Matrix, die das Ergebnis der ursprünglichen Matrix mit einer angewendeten Translation ist.
 
 ## Syntax
 
 ```js-nolint
-DOMMatrix.translate(translateX, translateY)
-DOMMatrix.translate(translateX, translateY, translateZ)
+translate(translateX, translateY)
+translate(translateX, translateY, translateZ)
 ```
 
 ### Parameter
@@ -25,19 +24,19 @@ DOMMatrix.translate(translateX, translateY, translateZ)
 - `translateY`
   - : Eine Zahl, die die Ordinate (y-Koordinate) des Translationsvektors darstellt.
 - `translateZ` {{optional_inline}}
-  - : Eine Zahl, die die z-Komponente des Translationsvektors darstellt. Falls nicht angegeben, ist der Standardwert 0. Wenn dieser Wert ungleich 0 ist, wird die resultierende Matrix 3D sein.
+  - : Eine Zahl, die die z-Komponente des Translationsvektors darstellt. Wenn nicht angegeben,
+    wird standardmäßig 0 verwendet. Wenn dieser Wert ungleich 0 ist, wird die resultierende Matrix
+    dreidimensional.
 
 ### Rückgabewert
 
-Gibt eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück,
-die eine neue Matrix enthält, die das Ergebnis der Matrix ist, die um den angegebenen
-Vektor übersetzt wurde. Die ursprüngliche Matrix wird nicht verändert.
+Gibt eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die eine neue Matrix enthält, die das Ergebnis der Matrix ist, die um den angegebenen Vektor übersetzt wird. Die ursprüngliche Matrix wird nicht verändert.
 
-Wenn eine Translation entlang der z-Achse angewendet wird, ist die resultierende Matrix eine 4x4 3D-Matrix.
+Wenn eine Translation bezüglich der z-Achse angewendet wird, ist die resultierende Matrix eine 4x4 3D-Matrix.
 
 ## Beispiele
 
-Diese SVG enthält zwei Quadrate, eines rot und eines blau, die jeweils am Dokumentursprung positioniert sind:
+Dieses SVG enthält zwei Quadrate, eines rot und eines blau, die jeweils am Dokumentursprung positioniert sind:
 
 ```html
 <svg width="250" height="250" viewBox="0 0 50 50">
@@ -46,9 +45,7 @@ Diese SVG enthält zwei Quadrate, eines rot und eines blau, die jeweils am Dokum
 </svg>
 ```
 
-Das folgende JavaScript erstellt zuerst eine Identitätsmatrix und verwendet dann die
-`translate()` Methode, um eine neue, übersetzte Matrix zu erstellen — die anschließend
-auf das blaue Quadrat als `transform` angewendet wird. Das rote Quadrat bleibt unverändert.
+Das folgende JavaScript erstellt zunächst eine Identitätsmatrix und verwendet dann die `translate()`-Methode, um eine neue, übersetzte Matrix zu erstellen — diese wird dann auf das blaue Quadrat als `transform` angewendet. Das rote Quadrat bleibt unverändert.
 
 ```js
 const matrix = new DOMMatrixReadOnly().translate(25, 25);

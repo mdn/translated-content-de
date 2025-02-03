@@ -1,18 +1,18 @@
 ---
-title: "SVGFEComponentTransferElement: height-Eigenschaft"
+title: "SVGFEComponentTransferElement: height Eigenschaft"
 short-title: height
 slug: Web/API/SVGFEComponentTransferElement/height
 l10n:
-  sourceCommit: 555feb3f59cfdea83d769ce9f38baebc679f0681
+  sourceCommit: f9881dd30bec0793e97782578dbb8b8d859ce9f9
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`height`**-Eigenschaft der [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement)-Schnittstelle beschreibt die vertikale Größe einer SVG-Filterprimitive als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`height`** schreibgeschützte Eigenschaft des [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement) Interfaces beschreibt die vertikale Größe einer SVG-Filterprimitive als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGElement("feComponentTransfer")}}-Element-Attribut {{SVGAttr("height")}} für die Filterprimitive wider. Der `<feComponentTransfer>`-Filter führt eine komponentenweise Farb- und Alphatransparenz-Neuzuordnung durch, die Helligkeits-, Kontrast-, Farbgleichgewichts- und Schwellenwertanpassungen ermöglicht.
+Sie spiegelt das {{SVGElement("feComponentTransfer")}}-Element und dessen {{SVGAttr("height")}}-Filterprimitive-Attribut wider. Das `<feComponentTransfer>`-Filter führt eine komponentenweise Farbund Alphatransparenz-Neuzuordnung durch, wodurch Einstellungen für Helligkeit, Kontrast, Farbbalance und Schwelle ermöglicht werden.
 
-Das Attribut ist ein [`\<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage) relativ zur Höhe des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheit-Koordinaten.
+Das Attribut ist ein [`\<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage), relativ zur Höhe der Filterregion. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheiten des Koordinatensystems.
 
 ## Wert
 

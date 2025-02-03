@@ -1,19 +1,19 @@
 ---
-title: "SVGTextContentElement: getEndPositionOfChar() Methode"
+title: "SVGTextContentElement: getEndPositionOfChar()-Methode"
 short-title: getEndPositionOfChar()
 slug: Web/API/SVGTextContentElement/getEndPositionOfChar
 l10n:
-  sourceCommit: 84cab3d0973d23ac3f00448784c55fe3f0c948ad
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `getEndPositionOfChar()` Methode des [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Interfaces gibt die Endposition eines typografischen Zeichens zurück, nachdem das Text-Layout durchgeführt wurde.
+Die `getEndPositionOfChar()`-Methode der [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Schnittstelle gibt die Endposition eines typografischen Zeichens zurück, nachdem das Textlayout durchgeführt wurde.
 
 ## Syntax
 
 ```js-nolint
-SVGTextContentElement.getEndPositionOfChar(index)
+getEndPositionOfChar(index)
 ```
 
 ### Parameter
@@ -28,11 +28,11 @@ Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt; die Position des Zeichens in
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn an der Position `index` kein Zeichen gefunden wird.
+  - : Wird ausgelöst, wenn kein Zeichen an `index` gefunden wird.
 
 ## Beispiele
 
-### Ermitteln der Endposition eines Zeichens
+### Die Endposition eines Zeichens ermitteln
 
 ```html
 <svg width="300" height="100">

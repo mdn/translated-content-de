@@ -3,22 +3,16 @@ title: "NDEFRecord: recordType-Eigenschaft"
 short-title: recordType
 slug: Web/API/NDEFRecord/recordType
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`recordType`**-Eigenschaft der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Schnittstelle gibt den Typ des Datensatzes zurück.
-
-## Syntax
-
-```js-nolint
-NDEFRecord.recordType
-```
+Die **`recordType`**-Eigenschaft des [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Interfaces gibt den Rekordtyp des Datensatzes zurück.
 
 ### Wert
 
-Ein String, der einer der folgenden sein kann:
+Ein String, der einer der folgenden Werte sein kann:
 
 - `"empty"`
   - : Ein leerer NDEF-Datensatz.
@@ -27,17 +21,17 @@ Ein String, der einer der folgenden sein kann:
 - `"url"`
   - : Ein URI-NDEF-Datensatz.
 - `"smart-poster"`
-  - : Ein "Smart Poster"-NDEF-Datensatz.
+  - : Ein "Smart Poster" NDEF-Datensatz.
 - `"absolute-url"`
   - : Ein absoluter URL-NDEF-Datensatz.
 - `"mime"`
-  - : Ein {{Glossary("MIME_type", "MIME-Typ")}}-NDEF-Datensatz.
+  - : Ein {{Glossary("MIME_type", "MIME-Typ")}} NDEF-Datensatz.
 - `"unknown"`
-  - : Der NDEF-Datensatztyp ist nicht bekannt.
-- lokaler Typname
-  - : Repräsentiert einen lokalen Typnamen, der häufig verwendet wird, um einen NDEF-Datensatz anzugeben, der in einem anderen Datensatz eingebettet ist.
-- externer Typname
-  - : Ein benutzerdefinierter String bestehend aus einem Domainnamen und einem benutzerdefinierten Typnamen, getrennt durch einen Doppelpunkt (":").
+  - : Der NDEF-Datensatztyp ist unbekannt.
+- lokale Typbezeichnung
+  - : Stellt eine lokale Typbezeichnung dar, die häufig verwendet wird, um einen NDEF-Datensatz innerhalb eines anderen Datensatzes anzugeben.
+- externe Typbezeichnung
+  - : Ein benutzerdefinierter String, der aus einem Domainnamen und einer benutzerdefinierten Typbezeichnung besteht, getrennt durch einen Doppelpunkt (":").
 
 ## Spezifikationen
 

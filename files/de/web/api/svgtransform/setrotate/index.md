@@ -1,29 +1,29 @@
 ---
-title: "SVGTransform: setRotate() Methode"
+title: "SVGTransform: setRotate()-Methode"
 short-title: setRotate()
 slug: Web/API/SVGTransform/setRotate
 l10n:
-  sourceCommit: 735185aeff568a6de5ecbb585d733c1c67191c48
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `setRotate()`-Methode der [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Schnittstelle setzt den Transformationstyp auf `SVG_TRANSFORM_ROTATE`, wobei der Parameter `angle` den Rotationswinkel definiert und die Parameter `cx` und `cy` das optionale Zentrum der Rotation definieren.
+Die `setRotate()`-Methode der [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Schnittstelle setzt den Transformationstyp auf `SVG_TRANSFORM_ROTATE`, wobei der Parameter `angle` den Rotationswinkel definiert und die Parameter `cx` und `cy` das optionale Rotationszentrum definieren.
 
 ## Syntax
 
 ```js-nolint
-SVGTransform.setRotate(angle, cx, cy)
+setRotate(angle, cx, cy)
 ```
 
 ### Parameter
 
 - `angle`
-  - : Ein Fließkommawert, der den Rotationswinkel in Grad definiert.
+  - : Ein float, der den Rotationswinkel in Grad definiert.
 - `cx` {{optional_inline}}
-  - : Ein Fließkommawert, der die X-Koordinate des Rotationszentrums definiert. Standardmäßig `0`.
+  - : Ein float, der die X-Koordinate des Rotationszentrums definiert. Standardwert ist `0`.
 - `cy` {{optional_inline}}
-  - : Ein Fließkommawert, der die Y-Koordinate des Rotationszentrums definiert. Standardmäßig `0`.
+  - : Ein float, der die Y-Koordinate des Rotationszentrums definiert. Standardwert ist `0`.
 
 ### Rückgabewert
 

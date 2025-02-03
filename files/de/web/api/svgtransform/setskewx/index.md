@@ -1,25 +1,25 @@
 ---
-title: "SVGTransform: setSkewX()-Methode"
+title: "SVGTransform: setSkewX() Methode"
 short-title: setSkewX()
 slug: Web/API/SVGTransform/setSkewX
 l10n:
-  sourceCommit: 735185aeff568a6de5ecbb585d733c1c67191c48
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `setSkewX()`-Methode der [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Schnittstelle setzt den Transformationstyp auf `SVG_TRANSFORM_SKEWX`, wobei der Parameter `angle` den Grad der Schiefe entlang der X-Achse definiert.
+Die Methode `setSkewX()` des [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Interfaces setzt den Transformations-Typ auf `SVG_TRANSFORM_SKEWX`, wobei der Parameter `angle` die Scherung entlang der X-Achse definiert.
 
 ## Syntax
 
 ```js-nolint
-SVGTransform.setSkewX(angle)
+setSkewX(angle)
 ```
 
 ### Parameter
 
 - `angle`
-  - : Ein Float-Wert, der den Grad der Schiefe in Grad definiert.
+  - : Ein Float, der die Menge der Scherung in Grad definiert.
 
 ### Rückgabewert
 
@@ -32,7 +32,7 @@ Keiner ({{jsxref('undefined')}}).
 
 ## Beispiele
 
-### Schiefe eines SVG-Elements entlang der X-Achse
+### Scherung eines SVG-Elements entlang der X-Achse
 
 ```js
 // Select an SVG element and create a transform object

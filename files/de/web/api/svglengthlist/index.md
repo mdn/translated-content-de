@@ -2,25 +2,25 @@
 title: SVGLengthList
 slug: Web/API/SVGLengthList
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
 ---
 
 {{APIRef("SVG")}}
 
-Die Schnittstelle `SVGLengthList` definiert eine Liste von [`SVGLength`](/de/docs/Web/API/SVGLength) Objekten. Sie wird für die Eigenschaften [`baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLengthList/animVal) von [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) verwendet.
+Die **`SVGLengthList`**-Schnittstelle definiert eine Liste von [`SVGLength`](/de/docs/Web/API/SVGLength)-Objekten. Sie wird für die Eigenschaften [`baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLengthList/animVal) von [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) verwendet.
 
-Ein `SVGLengthList`-Objekt kann als schreibgeschützt definiert werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
+Ein `SVGLengthList`-Objekt kann als schreibgeschützt festgelegt werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
 
 Ein `SVGLengthList`-Objekt ist indizierbar und kann wie ein Array zugegriffen werden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`length`](/de/docs/Web/API/SVGLengthList/length)
   - : Die Anzahl der Elemente in der Liste.
 - [`numberOfItems`](/de/docs/Web/API/SVGLengthList/numberOfItems)
   - : Die Anzahl der Elemente in der Liste.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`appendItem()`](/de/docs/Web/API/SVGLengthList/appendItem)
   - : Fügt ein neues Element am Ende der Liste ein.
@@ -31,7 +31,7 @@ Ein `SVGLengthList`-Objekt ist indizierbar und kann wie ein Array zugegriffen we
 - [`getItem()`](/de/docs/Web/API/SVGLengthList/getItem)
   - : Gibt das angegebene Element aus der Liste zurück.
 - [`insertItemBefore()`](/de/docs/Web/API/SVGLengthList/insertItemBefore)
-  - : Fügt ein neues Element an die angegebene Position in der Liste ein.
+  - : Fügt ein neues Element an der angegebenen Position in die Liste ein.
 - [`removeItem()`](/de/docs/Web/API/SVGLengthList/removeItem)
   - : Entfernt ein vorhandenes Element aus der Liste.
 - [`replaceItem()`](/de/docs/Web/API/SVGLengthList/replaceItem)
@@ -41,7 +41,7 @@ Ein `SVGLengthList`-Objekt ist indizierbar und kann wie ein Array zugegriffen we
 
 ### Verwendung von SVGLengthList
 
-Ein `SVGLengthList`-Objekt kann von einem [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) Objekt abgerufen werden, welches selbst von vielen animierbaren Längenattributen, wie z.B. [`SVGTextPositioningElement.x`](/de/docs/Web/API/SVGTextPositioningElement/x), abgerufen werden kann.
+Ein `SVGLengthList`-Objekt kann von einem [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList)-Objekt abgerufen werden, welches selbst aus vielen animierbaren Längenattributen abrufbar ist, wie z.B. [`SVGTextPositioningElement.x`](/de/docs/Web/API/SVGTextPositioningElement/x).
 
 #### HTML
 

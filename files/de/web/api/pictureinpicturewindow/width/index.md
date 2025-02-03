@@ -3,22 +3,16 @@ title: "PictureInPictureWindow: width-Eigenschaft"
 short-title: width
 slug: Web/API/PictureInPictureWindow/width
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die schreibgeschützte **`width`**-Eigenschaft der [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow)-Schnittstelle gibt die Breite des schwebenden Video-Fensters in Pixeln zurück.
-
-## Syntax
-
-```js-nolint
-pictureInPictureWindow.width
-```
+Die schreibgeschützte **`width`**-Eigenschaft des [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow)-Interfaces gibt die Breite des schwebenden Videofensters in Pixeln zurück.
 
 ### Wert
 
-Ein ganzzahliger Wert, der die Breite des schwebenden Video-Fensters in Pixeln angibt, falls das Picture-in-Picture-Fenster geöffnet ist. Andernfalls wird `0` zurückgegeben.
+Ein ganzzahliger Wert, der die Breite des schwebenden Videofensters in Pixeln angibt, falls das Picture-in-Picture-Fenster geöffnet ist. Andernfalls wird `0` zurückgegeben.
 
 ## Spezifikationen
 

@@ -3,17 +3,17 @@ title: "SVGTextContentElement: getRotationOfChar()-Methode"
 short-title: getRotationOfChar()
 slug: Web/API/SVGTextContentElement/getRotationOfChar
 l10n:
-  sourceCommit: 84cab3d0973d23ac3f00448784c55fe3f0c948ad
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
 
-Die `getRotationOfChar()`-Methode der [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Schnittstelle repräsentiert die Rotation eines typografischen Zeichens.
+Die `getRotationOfChar()`-Methode der Schnittstelle [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement) repräsentiert die Rotation eines typografischen Zeichens.
 
 ## Syntax
 
 ```js-nolint
-SVGTextContentElement.getRotationOfChar(index)
+getRotationOfChar(index)
 ```
 
 ### Parameter
@@ -32,7 +32,7 @@ Ein Float; der Rotationswinkel des Zeichens in Grad.
 
 ## Beispiele
 
-### Ermitteln der Rotation eines Zeichens
+### Abfragen der Rotation eines Zeichens
 
 ```html
 <svg width="200" height="100">

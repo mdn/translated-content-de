@@ -2,14 +2,14 @@
 title: URLSearchParams
 slug: Web/API/URLSearchParams
 l10n:
-  sourceCommit: 6cca2796f0dcfe90e2b6a069b5e10e0d139278a3
+  sourceCommit: bfe3107430ad0646713b57262e02625a2e155fd4
 ---
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Das **`URLSearchParams`** Interface definiert Hilfsmethoden zur Arbeit mit der Abfragezeichenfolge einer URL.
+Das **`URLSearchParams`** Interface definiert Hilfsmethoden, um mit der Abfragezeichenfolge einer URL zu arbeiten.
 
-`URLSearchParams` Objekte sind [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), sodass sie direkt in einer {{jsxref("Statements/for...of", "for...of")}} Struktur verwendet werden können, um über Schlüssel/Wert-Paare in der gleichen Reihenfolge zu iterieren, wie sie in der Abfragezeichenfolge erscheinen. Zum Beispiel sind die folgenden zwei Zeilen gleichwertig:
+`URLSearchParams` Objekte sind [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), sodass sie direkt in einer {{jsxref("Statements/for...of", "for...of")}} Struktur verwendet werden können, um über Schlüssel/Wert-Paare in der gleichen Reihenfolge zu iterieren, wie sie in der Abfragezeichenfolge erscheinen. Zum Beispiel sind die folgenden zwei Zeilen äquivalent:
 
 ```js
 for (const [key, value] of mySearchParams) {
@@ -18,46 +18,46 @@ for (const [key, value] of mySearchParams.entries()) {
 }
 ```
 
-Obwohl `URLSearchParams` funktional ähnlich zu einer {{jsxref("Map")}} ist, kann es beim Iterieren mit bestimmten [Fallstricken](/de/docs/Web/JavaScript/Reference/Iteration_protocols#concurrent_modifications_when_iterating) konfrontiert werden, die `Map` nicht begegnet, aufgrund ihrer Implementierung.
+Obwohl `URLSearchParams` funktional einem {{jsxref("Map")}} ähnelt, kann es beim Iterieren zu einigen [Fallstricken](/de/docs/Web/JavaScript/Reference/Iteration_protocols#concurrent_modifications_when_iterating) kommen, denen `Map` aufgrund seiner Implementierung nicht begegnet.
 
 ## Konstruktor
 
 - [`URLSearchParams()`](/de/docs/Web/API/URLSearchParams/URLSearchParams)
-  - : Gibt eine `URLSearchParams` Objektinstanz zurück.
+  - : Gibt eine Instanz eines `URLSearchParams` Objekts zurück.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`size`](/de/docs/Web/API/URLSearchParams/size) {{ReadOnlyInline}}
-  - : Gibt die Gesamtzahl der Abfrageparameter-Einträge an.
+  - : Gibt die Gesamtzahl der Einträge der Suchparameter an.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - `URLSearchParams[Symbol.iterator]()`
-  - : Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück, der die Iteration über alle Schlüssel/Wert-Paare in diesem Objekt in der gleichen Reihenfolge wie in der Abfragezeichenfolge ermöglicht.
+  - : Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück, der die Iteration über alle in diesem Objekt enthaltenen Schlüssel/Wert-Paare in der Reihenfolge ermöglicht, wie sie in der Abfragezeichenfolge erscheinen.
 - [`URLSearchParams.append()`](/de/docs/Web/API/URLSearchParams/append)
   - : Fügt ein angegebenes Schlüssel/Wert-Paar als neuen Suchparameter hinzu.
 - [`URLSearchParams.delete()`](/de/docs/Web/API/URLSearchParams/delete)
-  - : Löscht Suchparameter, die einem Namen und optional einem Wert entsprechen, aus der Liste aller Suchparameter.
+  - : Löscht Suchparameter, die mit einem Namen und optionalem Wert übereinstimmen, aus der Liste aller Suchparameter.
 - [`URLSearchParams.entries()`](/de/docs/Web/API/URLSearchParams/entries)
-  - : Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück, der die Iteration über alle Schlüssel/Wert-Paare in diesem Objekt in der gleichen Reihenfolge wie in der Abfragezeichenfolge ermöglicht.
+  - : Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück, der die Iteration über alle in diesem Objekt enthaltenen Schlüssel/Wert-Paare in der Reihenfolge ermöglicht, wie sie in der Abfragezeichenfolge erscheinen.
 - [`URLSearchParams.forEach()`](/de/docs/Web/API/URLSearchParams/forEach)
-  - : Ermöglicht die Iteration über alle Werte in diesem Objekt über eine Callback-Funktion.
+  - : Ermöglicht die Iteration über alle in diesem Objekt enthaltenen Werte mittels einer Callback-Funktion.
 - [`URLSearchParams.get()`](/de/docs/Web/API/URLSearchParams/get)
-  - : Gibt den ersten Wert zurück, der dem angegebenen Suchparameter zugeordnet ist.
+  - : Gibt den ersten Wert zurück, der mit dem angegebenen Suchparameter verknüpft ist.
 - [`URLSearchParams.getAll()`](/de/docs/Web/API/URLSearchParams/getAll)
-  - : Gibt alle Werte zurück, die einem gegebenen Suchparameter zugeordnet sind.
+  - : Gibt alle Werte zurück, die mit einem bestimmten Suchparameter verknüpft sind.
 - [`URLSearchParams.has()`](/de/docs/Web/API/URLSearchParams/has)
-  - : Gibt einen booleschen Wert zurück, der anzeigt, ob ein bestimmter Parameter oder ein Parameter-Wert-Paar existiert.
+  - : Gibt einen booleschen Wert zurück, der anzeigt, ob ein bestimmter Parameter oder Parameter-Wert-Paar existiert.
 - [`URLSearchParams.keys()`](/de/docs/Web/API/URLSearchParams/keys)
-  - : Gibt einen {{jsxref("Iteration_protocols", "iterator")}} zurück, der die Iteration über alle Schlüssel der in diesem Objekt enthaltenen Schlüssel/Wert-Paare ermöglicht.
+  - : Gibt einen {{jsxref("Iteration_protocols", "Iterator")}} zurück, der die Iteration über alle Schlüssel der in diesem Objekt enthaltenen Schlüssel/Wert-Paare ermöglicht.
 - [`URLSearchParams.set()`](/de/docs/Web/API/URLSearchParams/set)
-  - : Setzt den Wert, der einem angegebenen Suchparameter zugeordnet ist, auf den gegebenen Wert. Wenn es mehrere Werte gibt, werden die anderen gelöscht.
+  - : Setzt den Wert, der mit einem bestimmten Suchparameter verknüpft ist, auf den angegebenen Wert. Wenn es mehrere Werte gibt, werden die anderen gelöscht.
 - [`URLSearchParams.sort()`](/de/docs/Web/API/URLSearchParams/sort)
-  - : Sortiert alle Schlüssel/Wert-Paare, sofern vorhanden, nach ihren Schlüsseln.
+  - : Sortiert alle Schlüssel/Wert-Paare, falls vorhanden, nach ihren Schlüsseln.
 - [`URLSearchParams.toString()`](/de/docs/Web/API/URLSearchParams/toString)
-  - : Gibt eine Zeichenfolge zurück, die eine Abfragezeichenfolge enthält, die für die Verwendung in einer URL geeignet ist.
+  - : Gibt einen String zurück, der eine für die Verwendung in einer URL geeignete Abfragezeichenfolge enthält.
 - [`URLSearchParams.values()`](/de/docs/Web/API/URLSearchParams/values)
-  - : Gibt einen {{jsxref("Iteration_protocols", "iterator")}} zurück, der die Iteration über alle Werte der in diesem Objekt enthaltenen Schlüssel/Wert-Paare ermöglicht.
+  - : Gibt einen {{jsxref("Iteration_protocols", "Iterator")}} zurück, der die Iteration über alle Werte der in diesem Objekt enthaltenen Schlüssel/Wert-Paare ermöglicht.
 
 ## Beispiele
 
@@ -107,7 +107,7 @@ console.log(searchParams.getAll("foo")); // ["bar", "baz"]
 
 ### Keine URL-Analyse
 
-Der `URLSearchParams` Konstruktor analysiert _keine_ vollständigen URLs. Er wird jedoch ein anfänglich führendes `?` aus einer Zeichenfolge entfernen, wenn es vorhanden ist.
+Der `URLSearchParams` Konstruktor analysiert _nicht_ komplette URLs. Er entfernt jedoch ein anfängliches führendes `?` von einem String, falls vorhanden.
 
 ```js
 const paramsString1 = "http://example.com/search?query=%40";
@@ -128,9 +128,37 @@ const searchParams3 = new URLSearchParams(url.search);
 console.log(searchParams3.has("query")); // true
 ```
 
+### Prozentkodierung
+
+`URLSearchParams` Objekte {{Glossary("Percent-encoding", "prozent-kodieren")}} alles im [`application/x-www-form-urlencoded` Prozent-Kodierungsset](https://url.spec.whatwg.org/#application-x-www-form-urlencoded-percent-encode-set) (das alle Codepunkte außer ASCII-Alphanumerik, `*`, `-`, `.` und `_` enthält) und kodieren U+0020 SPACE als `+`. Allerdings erfolgt die Prozentkodierung nur beim Serialisieren und Deserialisieren des vollständigen URL-Suchparametersyntax. Bei der Interaktion mit einzelnen Schlüsseln und Werten verwenden Sie immer die nicht kodierte Version.
+
+```js
+// Creation from parsing a string: percent-encoding is decoded
+const params = new URLSearchParams("%24%25%26=%28%29%2B");
+// Retrieving all keys/values: only decoded values are returned
+console.log([...params]); // [["$%&", "()+"]]
+// Getting an individual value: use the decoded key and get the decoded value
+console.log(params.get("$%&")); // "()+"
+console.log(params.get("%24%25%26")); // null
+// Setting an individual value: use the unencoded key and value
+params.append("$%&$#@+", "$#&*@#()+");
+// Serializing: percent-encoding is applied
+console.log(params.toString());
+// "%24%25%26=%28%29%2B&%24%25%26%24%23%40%2B=%24%23%26*%40%23%28%29%2B"
+```
+
+Wenn Sie ein Schlüssel/Wert-Paar mit einem prozentkodierten Schlüssel anhängen, wird dieser Schlüssel als nicht kodiert behandelt und erneut kodiert.
+
+```js
+const params = new URLSearchParams();
+
+params.append("%24%26", "value");
+params.toString(); // "%2524%2526=value"
+```
+
 ### Pluszeichen beibehalten
 
-Der `URLSearchParams` Konstruktor interpretiert Pluszeichen (`+`) als Leerzeichen, was Probleme verursachen kann. Im folgenden Beispiel verwenden wir [hexadezimale Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#hexadecimal_escape_sequences), um eine Zeichenfolge zu simulieren, die Binärdaten enthält (bei denen jedes Byte Information trägt), die in den URL-Suchparametern gespeichert werden müssen. Beachten Sie, wie die von `btoa()` erzeugte codierte Zeichenfolge `+` enthält und nicht von `URLSearchParams` beibehalten wird.
+Der `URLSearchParams` Konstruktor interpretiert Pluszeichen (`+`) als Leerzeichen, was zu Problemen führen kann. Im folgenden Beispiel verwenden wir [hexadezimale Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#hexadecimal_escape_sequences), um einen String zu simulieren, der Binärdaten enthält (wo jedes Byte Informationen trägt), die in den URL-Suchparametern gespeichert werden sollen. Beachten Sie, wie der von `btoa()` erzeugte kodierte String `+` enthält und nicht von `URLSearchParams` beibehalten wird.
 
 ```js
 const rawData = "\x13à\x17@\x1F\x80";
@@ -142,22 +170,41 @@ const binQuery = searchParams.get("bin"); // 'E AXQB A', '+' is replaced by spac
 console.log(atob(binQuery) === rawData); // false
 ```
 
-Dies können Sie vermeiden, indem Sie die Daten mit {{jsxref("encodeURIComponent", "encodeURIComponent()")}} kodieren.
+Konstruktion von `URLSearchParams` Objekten mit dynamisch interpolierten Strings ist zu vermeiden. Verwenden Sie stattdessen die `append()` Methode, die, wie oben erwähnt, alle Zeichen so interpretiert, wie sie sind.
 
 ```js
 const rawData = "\x13à\x17@\x1F\x80";
 const base64Data = btoa(rawData); // 'E+AXQB+A'
-const encodedBase64Data = encodeURIComponent(base64Data); // 'E%2BAXQB%2BA'
 
-const searchParams = new URLSearchParams(`bin=${encodedBase64Data}`); // 'bin=E%2BAXQB%2BA'
+const searchParams = new URLSearchParams();
+searchParams.append("bin", base64Data); // 'bin=E%2BAXQB%2BA'
 const binQuery = searchParams.get("bin"); // 'E+AXQB+A'
 
 console.log(atob(binQuery) === rawData); // true
 ```
 
-### Leerwert vs. kein Wert
+### Interaktion mit URL.searchParams
 
-`URLSearchParams` unterscheidet nicht zwischen einem Parameter ohne etwas nach dem `=` und einem Parameter, der überhaupt kein `=` hat.
+Die [`URL.searchParams`](/de/docs/Web/API/URL/searchParams) Eigenschaft gibt die [`search`](/de/docs/Web/API/URL/search) Zeichenfolge der URL als `URLSearchParams` Objekt frei. Wenn Sie dieses `URLSearchParams` aktualisieren, wird die `search` der URL mit ihrer Serialisierung aktualisiert. Allerdings kodiert `URL.search` eine Teilmenge der Zeichen, die `URLSearchParams` kodiert, und kodiert Leerzeichen als `%20` statt als `+`. Dies kann zu überraschenden Interaktionen führen - wenn Sie `searchParams` aktualisieren, selbst mit den gleichen Werten, kann die URL anders serialisiert werden.
+
+```js
+const url = new URL("https://example.com/?a=b ~");
+console.log(url.href); // "https://example.com/?a=b%20~"
+console.log(url.searchParams.toString()); // "a=b+%7E"
+// This should be a no-op, but it changes the URL's query to the
+// serialization of its searchParams
+url.searchParams.sort();
+console.log(url.href); // "https://example.com/?a=b+%7E"
+
+const url2 = new URL("https://example.com?search=1234&param=my%20param");
+console.log(url2.search); // "?search=1234&param=my%20param"
+url2.searchParams.delete("search");
+console.log(url2.search); // "?param=my+param"
+```
+
+### Leerer Wert vs. kein Wert
+
+`URLSearchParams` unterscheidet nicht zwischen einem Parameter mit nichts nach dem `=`, und einem Parameter, der überhaupt kein `=` hat.
 
 ```js
 const emptyVal = new URLSearchParams("foo=&bar=baz");
@@ -179,4 +226,4 @@ console.log(noEquals.toString()); // 'foo=&bar=baz'
 
 - [Polyfill von `URLSearchParams` in `core-js`](https://github.com/zloirock/core-js#url-and-urlsearchparams)
 - Das [`URL`](/de/docs/Web/API/URL) Interface.
-- [Google Developers: Einfache URL-Manipulation mit URLSearchParams](https://developer.chrome.com/blog/urlsearchparams/)
+- [Google Developers: Einfaches URL-Manipulieren mit URLSearchParams](https://developer.chrome.com/blog/urlsearchparams/)

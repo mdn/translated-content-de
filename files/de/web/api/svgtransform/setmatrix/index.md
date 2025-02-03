@@ -3,7 +3,7 @@ title: "SVGTransform: setMatrix()-Methode"
 short-title: setMatrix()
 slug: Web/API/SVGTransform/setMatrix
 l10n:
-  sourceCommit: 735185aeff568a6de5ecbb585d733c1c67191c48
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("SVG")}}
@@ -15,13 +15,13 @@ Beachten Sie, dass die Werte des Parameters `matrix` kopiert werden, was bedeute
 ## Syntax
 
 ```js-nolint
-SVGTransform.setMatrix(matrix)
+setMatrix(matrix)
 ```
 
 ### Parameter
 
 - `matrix`
-  - : Ein live [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt, das die anzuwendende neue Transformationsmatrix definiert.
+  - : Ein laufendes [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt, das die anzuwendende neue Transformationsmatrix definiert.
 
 ### Rückgabewert
 
@@ -34,7 +34,7 @@ Keiner ({{jsxref('undefined')}}).
 
 ## Beispiele
 
-### Setzen einer Transformationsmatrix
+### Einstellen einer Transformationsmatrix
 
 ```js
 // Get an SVG element and create a transform object

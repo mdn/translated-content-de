@@ -3,14 +3,14 @@ title: "console: profileEnd() statische Methode"
 short-title: profileEnd()
 slug: Web/API/console/profileEnd_static
 l10n:
-  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Console API")}}{{Non-standard_header}} {{AvailableInWorkers}}
 
-Die **`console.profileEnd()`** statische Methode stoppt die Aufzeichnung eines Profils, die zuvor mit [`console.profile()`](/de/docs/Web/API/Console/profile_static) gestartet wurde.
+Die statische Methode **`console.profileEnd()`** stoppt die Aufzeichnung eines Profils, das zuvor mit [`console.profile()`](/de/docs/Web/API/Console/profile_static) gestartet wurde.
 
-Sie können optional ein Argument angeben, um dem Profil einen Namen zu geben. Dies ermöglicht es Ihnen, nur dieses Profil zu stoppen, wenn Sie mehrere Profile aufzeichnen.
+Sie können optional ein Argument angeben, um dem Profil einen Namen zu geben. Auf diese Weise können Sie nur dieses Profil stoppen, wenn Sie mehrere Profile aufzeichnen.
 
 - Wenn `console.profileEnd()` ein Profilname übergeben wird und dieser mit dem Namen eines aufgezeichneten Profils übereinstimmt, wird dieses Profil gestoppt.
 - Wenn `console.profileEnd()` ein Profilname übergeben wird und dieser nicht mit dem Namen eines aufgezeichneten Profils übereinstimmt, werden keine Änderungen vorgenommen.
@@ -25,7 +25,7 @@ console.profileEnd(profileName)
 ### Parameter
 
 - `profileName` {{Optional_Inline}}
-  - : Der Name, den Sie dem Profil geben möchten.
+  - : Der Name, der dem Profil gegeben werden soll.
 
 ### Rückgabewert
 

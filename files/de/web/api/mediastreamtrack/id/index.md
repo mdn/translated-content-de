@@ -3,20 +3,14 @@ title: "MediaStreamTrack: id-Eigenschaft"
 short-title: id
 slug: Web/API/MediaStreamTrack/id
 l10n:
-  sourceCommit: ac67e6f05d337e52e39f02a978b8c00bc43d583b
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`id`**-Eigenschaft der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die eine Zeichenkette mit einer eindeutigen Kennung (GUID) für die Spur zurückgibt, welche vom {{Glossary("user_agent", "User-Agent")}} generiert wird.
+Die schreibgeschützte **`id`**-Eigenschaft der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle gibt einen String zurück, der eine eindeutige Kennung (GUID) für die Spur enthält, die vom {{Glossary("user_agent", "User Agent")}} generiert wird.
 
-## Syntax
-
-```js-nolint
-const id = track.id
-```
-
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 

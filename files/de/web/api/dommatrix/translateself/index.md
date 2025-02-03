@@ -3,36 +3,37 @@ title: "DOMMatrix: translateSelf() Methode"
 short-title: translateSelf()
 slug: Web/API/DOMMatrix/translateSelf
 l10n:
-  sourceCommit: 5a4bb8ee0052bc6b0bc768e9d8b33ad9d4d9b359
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die `translateSelf()`-Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Schnittstelle ist eine veränderliche Transformationsmethode, die eine Matrix modifiziert. Sie wendet die angegebenen Vektoren an und gibt die aktualisierte Matrix zurück. Der Standardvektor ist `[0, 0, 0]`.
+Die `translateSelf()`-Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Schnittstelle ist eine veränderbare Transformationsmethode, die eine Matrix modifiziert. Sie wendet die angegebenen Vektoren an und gibt die aktualisierte Matrix zurück. Der Standardvektor ist `[0, 0, 0]`.
 
-Um eine Matrix zu verschieben, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.translate()`](/de/docs/Web/API/DOMMatrixReadOnly/translate)
+Um eine Matrix ohne Mutation zu übersetzen, siehe [`DOMMatrixReadOnly.translate()`](/de/docs/Web/API/DOMMatrixReadOnly/translate).
 
 ## Syntax
 
 ```js-nolint
-DOMMatrix.translateSelf(translateX, translateY)
-DOMMatrix.translateSelf(translateX, translateY, translateZ)
+translateSelf(translateX, translateY)
+translateSelf(translateX, translateY, translateZ)
 ```
 
 ### Parameter
 
 - `translateX`
-  - : Eine Zahl, die die Abszisse (x-Koordinate) des Verschiebungsvektors darstellt.
+  - : Eine Zahl, die die Abszisse (x-Koordinate) des Übersetzungsvektors repräsentiert.
 - `translateY`
-  - : Eine Zahl, die die Ordinate (y-Koordinate) des Verschiebungsvektors darstellt.
+  - : Eine Zahl, die die Ordinate (y-Koordinate) des Übersetzungsvektors repräsentiert.
 - `translateZ` {{optional_inline}}
-  - : Eine Zahl, die die z-Komponente des Verschiebungsvektors darstellt. Falls nicht angegeben,
+  - : Eine Zahl, die die z-Komponente des Übersetzungsvektors repräsentiert. Wenn nicht angegeben,
     ist der Standardwert 0. Wenn dieser Wert ungleich 0 ist, wird die resultierende Matrix
     3D sein.
 
 ### Rückgabewert
 
-Gibt sich selbst zurück; die von dem angegebenen Vektor verschobene [`DOMMatrix`](/de/docs/Web/API/DOMMatrix).
+Gibt sich selbst zurück; die [`DOMMatrix`](/de/docs/Web/API/DOMMatrix), die durch den gegebenen
+Vektor übersetzt wurde.
 
 ## Beispiele
 

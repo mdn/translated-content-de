@@ -3,7 +3,7 @@ title: "WEBGL_multi_draw: multiDrawElementsInstancedWEBGL() Methode"
 short-title: multiDrawElementsInstancedWEBGL()
 slug: Web/API/WEBGL_multi_draw/multiDrawElementsInstancedWEBGL
 l10n:
-  sourceCommit: d7bbae7fe142e55eb1538d863059b966a6ef9ec3
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{APIRef("WebGL")}}
@@ -22,62 +22,61 @@ multiDrawElementsInstancedWEBGL(mode,
     type,
     firstsList, firstsOffset,
     instanceCountsList, instanceCountsOffset,
-    drawCount);
+    drawCount)
 ```
 
 ### Parameter
 
 - `mode`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types),
+    der den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
 
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
-    - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt.
-    - `gl.LINE_LOOP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt und
-      verbindet den letzten Scheitelpunkt zurück zum ersten.
-    - `gl.LINES`: Zeichnet eine Linie zwischen einem Paar von Scheitelpunkten.
+    - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Vertex.
+    - `gl.LINE_LOOP`: Zeichnet eine gerade Linie zum nächsten Vertex und
+      verbindet den letzten Vertex mit dem ersten.
+    - `gl.LINES`: Zeichnet eine Linie zwischen einem Paar von Vertices.
     - [`gl.TRIANGLE_STRIP`](https://en.wikipedia.org/wiki/Triangle_strip)
     - [`gl.TRIANGLE_FAN`](https://en.wikipedia.org/wiki/Triangle_fan)
-    - `gl.TRIANGLES`: Zeichnet ein Dreieck für eine Gruppe von drei Scheitelpunkten.
+    - `gl.TRIANGLES`: Zeichnet ein Dreieck für eine Gruppe von drei Vertices.
 
 - `countsList`
   - : Ein [`Int32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Int32Array)
     oder [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)
-    (von [`GLint`](/de/docs/Web/API/WebGL_API/Types)),
-    das eine Liste von Zahlen der zu rendernden Indizes angibt.
+    (von [`GLint`](/de/docs/Web/API/WebGL_API/Types)), das eine Liste von zu rendernden Indexnummern spezifiziert.
 - `countsOffset`
   - : Ein [`GLUint`](/de/docs/Web/API/WebGL_API/Types),
-    das den Startpunkt im `countsList` Array definiert.
+    der den Startpunkt in das `countsList` Array definiert.
 - type
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ der Werte im Element-Array-Puffer angibt. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der
+    den Typ der Werte im Element-Array-Puffer spezifiziert. Mögliche Werte sind:
 
     - `gl.UNSIGNED_BYTE`
     - `gl.UNSIGNED_SHORT`
-    - Bei Verwendung der [`OES_element_index_uint`](/de/docs/Web/API/OES_element_index_uint)
-      Erweiterung:
+    - Wenn die [`OES_element_index_uint`](/de/docs/Web/API/OES_element_index_uint)
+      Erweiterung verwendet wird:
 
       - `gl.UNSIGNED_INT`
 
 - `offsetsList`
   - : Ein [`Int32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Int32Array)
     oder [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)
-    (von [`GLsizei`](/de/docs/Web/API/WebGL_API/Types)),
-    das eine Liste von Startindizes für die Arrays von Vektorpunkten angibt.
+    (von [`GLsizei`](/de/docs/Web/API/WebGL_API/Types)), das eine Liste von Startindices für die Arrays von Vektorpunkten spezifiziert.
 - `offsetsOffset`
   - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types),
-    das den Startpunkt im `offsetsList` Array definiert.
+    der den Startpunkt in das `offsetsList` Array definiert.
 - `instanceCountsList`
   - : Ein [`Int32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Int32Array)
     oder [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)
-    (von [`GLsizei`](/de/docs/Web/API/WebGL_API/Types)),
-    das eine Liste von Zahlen der Instanzen des zu ausführenden Bereichs der Elemente angibt.
+    (von [`GLsizei`](/de/docs/Web/API/WebGL_API/Types)), das eine Liste von Anzahlen von Instanzen der auszuführenden Elementbereiche spezifiziert.
 - `instanceCountsOffset`
   - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types),
-    das den Startpunkt im `instanceCountsList` Array definiert.
+    der den Startpunkt in das `instanceCountsList` Array definiert.
 - `drawCount`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types),
-    das die Anzahl der Instanzen des zu ausführenden Bereichs der Elemente angibt.
+    der die Anzahl der Instanzen des auszuführenden Elementbereichs spezifiziert.
 
 ### Rückgabewert
 

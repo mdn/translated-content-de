@@ -1,46 +1,41 @@
 ---
-title: "SVGNumberList: insertItemBefore() Methode"
+title: "SVGNumberList: Methode insertItemBefore()"
 short-title: insertItemBefore()
 slug: Web/API/SVGNumberList/insertItemBefore
 l10n:
-  sourceCommit: 0f57507c06180622a5a6168b552317c43eeb9d04
+  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
 ---
 
 {{APIRef("SVG")}}
 
-Die `insertItemBefore()` Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) Schnittstelle fügt ein neues Element an der angegebenen Position in die Liste ein.
+Die **`insertItemBefore()`**-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle fügt ein neues Element an der angegebenen Position in die Liste ein. Das erste Element hat den Index 0. Das eingefügte Element ist das Element selbst und keine Kopie.
 
-Das erste Element hat den Index `0`. Das eingefügte Element ist das Element selbst und keine Kopie.
-
-- Falls `newItem` bereits in einer Liste enthalten ist, wird es vor seiner Einfügung in diese Liste aus seiner vorherigen Liste entfernt.
-
-- Falls das Element bereits in dieser Liste enthalten ist, beachten Sie, dass der `index` des einzufügenden Elements vor der Entfernung des Elements liegt.
-
-- Wenn der `index` gleich `0` ist, wird das neue Element an den Anfang der Liste eingefügt.
-
-- Wenn der `index` größer oder gleich [`numberOfItems`](/de/docs/Web/API/SVGNumberList/numberOfItems) ist, wird das neue Element am Ende der Liste angehängt.
+- Wenn das neue Element bereits in einer Liste enthalten ist, wird es vor dem Einfügen in diese Liste aus seiner vorherigen Liste entfernt.
+- Wenn sich das Element bereits in dieser Liste befindet, beachten Sie, dass der Index des einzufügenden Elements vor dem Entfernen des Elements liegt.
+- Wenn der Index gleich 0 ist, wird das neue Element an den Anfang der Liste eingefügt.
+- Wenn der Index größer oder gleich der [`length`](/de/docs/Web/API/SVGNumberList/length) ist, wird das neue Element am Ende der Liste angehängt.
 
 ## Syntax
 
 ```js-nolint
-SVGNumberList.insertItemBefore(newItem, index)
+insertItemBefore(newItem, index)
 ```
 
 ### Parameter
 
 - `newItem`
-  - : Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber) Element, das in die Liste eingefügt wird.
+  - : Das [`SVGNumber`](/de/docs/Web/API/SVGNumber), das der Liste hinzugefügt werden soll.
 - `index`
-  - : Ein Integer; der Index, an dem das neue Element als unsignierte lange Zahl eingefügt werden soll.
+  - : Eine nicht-negative ganze Zahl, die den Index des Elements angibt, vor dem das neue Element eingefügt werden soll.
 
 ### Rückgabewert
 
-Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber) Objekt; das eingefügte Element aus der Liste.
+Das [`SVGNumber`](/de/docs/Web/API/SVGNumber), das der Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
-- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
+  - : Wird ausgelöst, wenn die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder das Objekt selbst schreibgeschützt ist.
 
 ## Spezifikationen
 
@@ -49,7 +44,3 @@ Ein [`SVGNumber`](/de/docs/Web/API/SVGNumber) Objekt; das eingefügte Element au
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [`SVGNumber`](/de/docs/Web/API/SVGNumber)

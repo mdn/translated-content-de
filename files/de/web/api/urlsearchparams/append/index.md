@@ -1,18 +1,17 @@
 ---
-title: "URLSearchParams: append() Methode"
+title: "URLSearchParams: `append()` Methode"
 short-title: append()
 slug: Web/API/URLSearchParams/append
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: bfe3107430ad0646713b57262e02625a2e155fd4
 ---
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`append()`**-Methode der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
-Schnittstelle fügt ein spezifisches Schlüssel/Wert-Paar als neuen Suchparameter hinzu.
+Die **`append()`**-Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
+Interfaces fügt ein bestimmtes Schlüssel/Wert-Paar als neuen Suchparameter hinzu.
 
-Wie im untenstehenden Beispiel gezeigt, wird der gleiche Schlüssel, wenn er mehrmals angehängt wird,
-mehrmals in der Parameterzeichenfolge für jeden Wert erscheinen.
+Wie im folgenden Beispiel gezeigt, erscheint derselbe Schlüssel in der Parameterzeichenkette mehrfach, wenn er mehrmals hinzugefügt wird, und zwar für jeden Wert.
 
 ## Syntax
 
@@ -33,13 +32,15 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-```js
-let url = new URL("https://example.com?foo=1&bar=2");
-let params = new URLSearchParams(url.search);
+### Hinzufügen desselben Parameters mehrfach
 
-//Add a second foo parameter.
+```js
+const url = new URL("https://example.com?foo=1&bar=2");
+const params = new URLSearchParams(url.search);
+
+// Add a second foo parameter.
 params.append("foo", 4);
-//Query string is now: 'foo=1&bar=2&foo=4'
+// Query string is now: 'foo=1&bar=2&foo=4'
 ```
 
 ## Spezifikationen
@@ -53,4 +54,4 @@ params.append("foo", 4);
 ## Siehe auch
 
 - [`URL`](/de/docs/Web/API/URL)
-- [Google Developers: Easy URL manipulation with URLSearchParams](https://developer.chrome.com/blog/urlsearchparams/)
+- [Google Developers: Einfache URL-Manipulation mit URLSearchParams](https://developer.chrome.com/blog/urlsearchparams/)

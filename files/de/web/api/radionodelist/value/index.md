@@ -3,19 +3,12 @@ title: "RadioNodeList: value-Eigenschaft"
 short-title: value
 slug: Web/API/RadioNodeList/value
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Wenn die zugrunde liegende Elementkollektion Radio-Buttons enthält, repräsentiert die **`RadioNodeList.value`**-Eigenschaft den ausgewählten Radio-Button. Beim Abrufen der `value`-Eigenschaft wird der `value` des momentan ausgewählten (`checked`) Radio-Buttons als Zeichenkette zurückgegeben. Wenn die Sammlung keine Radio-Buttons enthält oder keiner der Radio-Buttons in der Sammlung im `checked`-Zustand ist, wird eine leere Zeichenkette zurückgegeben. Beim Festlegen der `value`-Eigenschaft wird der erste Radio-Button-Input, dessen `value`-Eigenschaft dem neuen Wert entspricht, auf `checked` gesetzt.
-
-## Syntax
-
-```js-nolint
-value = radioNodeList.value
-radioNodeList.value = string
-```
+Wenn die zugrunde liegende Elementesammlung Optionsfelder enthält, repräsentiert die **`RadioNodeList.value`**-Eigenschaft das ausgewählte Optionsfeld. Beim Abrufen der `value`-Eigenschaft wird der `value` des aktuell `checked` Optionsfeldes als Zeichenkette zurückgegeben. Wenn die Sammlung keine Optionsfelder enthält oder keines der Optionsfelder in der Sammlung im `checked`-Zustand ist, wird die leere Zeichenkette zurückgegeben. Beim Setzen der `value`-Eigenschaft wird das erste Optionenfelder-Input-Element, dessen `value`-Eigenschaft dem neuen Wert entspricht, auf `checked` gesetzt.
 
 ## Beispiel
 
@@ -55,4 +48,4 @@ radios.value = "red";
 
 ## Siehe auch
 
-- Die {{HTMLElement("form")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}}-Elemente.
+- Die {{HTMLElement("form")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}} Elemente.
