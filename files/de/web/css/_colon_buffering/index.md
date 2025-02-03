@@ -2,19 +2,19 @@
 title: ":buffering"
 slug: Web/CSS/:buffering
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
 ---
 
 {{CSSRef}}
 
-Der **`:buffering`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das abspielbar ist, wie zum Beispiel {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn das abspielbare Element eine Mediendatei puffert.
+Der **`:buffering`** [CSS](/de/docs/Web/CSS) [Pseudoklasse-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das abspielbar ist, wie etwa ein {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn das abspielbare Element eine Medienressource puffert.
 
-Ein Element wird als puffern betrachtet, wenn dieses Element nicht weiter abspielen kann, weil es versucht, Mediendaten zu laden, aber noch nicht genügend Daten hat, um die Wiedergabe zu starten oder fortzusetzen.
-Für weitere Informationen siehe den [Leitfaden zu Media-Pufferung, Suche und Zeitspannen](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges#seekable).
+Ein Element wird als puffern betrachtet, wenn es nicht weiter abspielen kann, weil es versucht, Mediendaten zu laden, aber noch nicht genug Daten hat, um die Wiedergabe zu beginnen oder fortzusetzen.
+Weitere Informationen finden Sie im [Leitfaden zu Medien-Puffern, Suchen und Zeitbereichen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/buffering_seeking_time_ranges#seekable).
 
 > [!NOTE]
-> Ein Element wird weiterhin als {{cssxref(":playing")}} betrachtet, wenn es "puffert".
-> Wenn `:buffering` auf ein Element zutrifft, wird auch `:playing` auf dieses Element zutreffen.
+> Ein Element wird immer noch als {{cssxref(":playing")}} betrachtet, wenn es "puffert".
+> Wenn `:buffering` auf ein Element zutrifft, wird `:playing` ebenfalls auf dieses Element zutreffen.
 
 ## Syntax
 

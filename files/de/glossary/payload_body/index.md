@@ -1,38 +1,18 @@
 ---
-title: Payload body
+title: Nutzlastkörper
 slug: Glossary/Payload_body
 l10n:
-  sourceCommit: 998a4e6fc713678381e6bc31130e3a0a53158d69
+  sourceCommit: 35fbd848ed51e184b70383fcf96fbe622a33c887
 ---
 
 {{GlossarySidebar}}
 
-Der HTTP-Nachrichten-**Nutzlastkörper** ist der _Informationsteil_ ("Payload") der Daten, die im HTTP-Nachrichtenkörper gesendet werden (falls vorhanden), bevor die [Transfer-Encoding](/de/docs/Web/HTTP/Headers/Transfer-Encoding) angewendet wird. Wenn keine Transfer-Encoding verwendet wird, sind der _Nutzlastkörper_ und der _Nachrichtenkörper_ identisch!
+In HTTP-Nachrichten war der **Nutzlastkörper** oder die **Nutzlast** die Repräsentation einer Ressource, die in einem Nachrichtentext übertragen wurde, abzüglich jeder [Transfercodierung](/de/docs/Web/HTTP/Headers/Transfer-Encoding). Ohne Transfercodierung sind der _Nutzlastkörper_ und der _Nachrichtentext_ identisch. Repräsentationsdaten könnten auch in HTTP-Headern übertragen werden, aber solche Daten würden nicht als "Nutzlast" betrachtet werden.
 
-In diesem Beispiel enthält der Nachrichtenkörper nur den Nutzlastkörper: "Mozilla Developer Network":
+Seit {{RFC("9110")}} ersetzt das Wort **Inhalt** das Wort **Nutzlast**. Siehe {{Glossary("HTTP_Content", "**HTTP-Inhalt**")}}.
 
-```http
-HTTP/1.1 200 OK
-Content-Type: text/plain
+## Siehe auch
 
-Mozilla Developer Network
-```
-
-Im Gegensatz dazu wird in der folgenden Antwort _Transfer-Encoding_ verwendet, um den Nutzlastkörper in Chunks zu kodieren. Der gesendete Nutzlastkörper (Information) ist weiterhin "Mozilla Developer Network", aber der Nachrichtenkörper enthält zusätzliche Daten, um die Chunks zu trennen:
-
-```http
-HTTP/1.1 200 OK
-Content-Type: text/plain
-Transfer-Encoding: chunked
-
-7\r\n
-Mozilla\r\n
-9\r\n
-Developer\r\n
-7\r\n
-Network\r\n
-0\r\n
-\r\n
-```
-
-Weitere Informationen finden Sie in [RFC 7230, Abschnitt 3.3: Message Body](https://datatracker.ietf.org/doc/html/rfc7230#section-3.3) und [RFC 7230, Abschnitt 3.3.1: Transfer-Encoding](https://datatracker.ietf.org/doc/html/rfc7230#section-3.3.1).
+- {{Glossary("Content_header", "Inhalts-Header")}}
+- [RFC 9110, Abschnitt 6.4: Inhalt](https://httpwg.org/specs/rfc9110.html#rfc.section.6.4) (ersetzt [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-3.3) Nutzlast-Semantik)
+  - [Änderungen seit RFC 7231](https://httpwg.org/specs/rfc9110.html#changes.from.rfc.7231)

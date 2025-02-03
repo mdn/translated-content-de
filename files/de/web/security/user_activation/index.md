@@ -1,33 +1,33 @@
 ---
-title: Funktionen, die durch Benutzeraktivierung gesteuert werden
+title: Funktionen, die durch Benutzeraktivierung gesichert sind
 slug: Web/Security/User_activation
 l10n:
-  sourceCommit: 7b9000bfb3bfcfd67161df627d0101a29f1ebbc0
+  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Um sicherzustellen, dass Anwendungen APIs nicht missbrauchen, die bei unerwünschtem Verhalten zu einem schlechten Benutzererlebnis führen können, können einige APIs nur verwendet werden, wenn der Benutzer sich in einem "aktiven Interaktionszustand" befindet. Das bedeutet, dass der Benutzer derzeit mit der Webseite interagiert oder mindestens einmal mit der Seite interagiert hat. Browser beschränken den Zugriff auf sensible APIs wie Popups, Vollbild- oder Vibrations-APIs auf aktive Benutzerinteraktionen, um zu verhindern, dass bösartige Skripte diese Funktionen missbrauchen. Diese Seite listet Webplattform-Funktionen auf, die nur nach einer Benutzeraktivierung verfügbar sind.
+Um sicherzustellen, dass Anwendungen keine APIs missbrauchen können, die ein schlechtes Benutzererlebnis schaffen können, wenn das Verhalten unerwünscht ist, können einige APIs nur verwendet werden, wenn sich der Benutzer in einem "aktiven Interaktions"-Zustand befindet. Das bedeutet, dass der Benutzer derzeit mit der Webseite interagiert oder zumindest einmal mit der Seite interagiert hat. Browser beschränken den Zugriff auf sensible APIs wie Popups, Vollbildmodus oder Vibrations-APIs auf aktive Benutzerinteraktionen, um zu verhindern, dass bösartige Skripte diese Funktionen missbrauchen. Diese Seite listet Webplattformfunktionen auf, die nur nach einer Benutzeraktivierung verfügbar sind.
 
-Eine Benutzeraktivierung deutet entweder darauf hin, dass der Benutzer derzeit mit der Seite interagiert oder seit dem Laden der Seite eine Interaktion abgeschlossen hat. Dies ist typischerweise ein Klick auf einen Button oder eine andere Benutzerinteraktion mit der Benutzeroberfläche.
+Eine Benutzeraktivierung impliziert entweder, dass der Benutzer derzeit mit der Seite interagiert oder seit dem Laden der Seite eine Interaktion abgeschlossen hat. Typischerweise ist dies ein Klick auf einen Button oder eine andere Benutzerinteraktion mit der Benutzeroberfläche.
 
-Genauer gesagt ist ein _Aktivierungsereignis_ ein Ereignis, das:
+Genauer gesagt, ist ein _auslösender Eingabeereignis für die Aktivierung_ ein Ereignis, das:
 
 - das Attribut [`isTrusted`](/de/docs/Web/API/Event/isTrusted) auf `true` gesetzt hat, und
 - ein Ereignis der folgenden Typen ist:
-  - [`keydown`](/de/docs/Web/API/Element/keydown_event) (außer der <kbd>Esc</kbd>-Taste oder einer vom Benutzeragenten reservierten Tastenkombination)
+  - [`keydown`](/de/docs/Web/API/Element/keydown_event) (außer für die <kbd>Esc</kbd>-Taste oder eine vom Benutzeragenten reservierte Tastenkombination)
   - [`mousedown`](/de/docs/Web/API/Element/mousedown_event)
   - [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event) (wenn `pointerType` "mouse" ist)
   - [`pointerup`](/de/docs/Web/API/Element/pointerup_event) (wenn `pointerType` nicht "mouse" ist)
   - [`touchend`](/de/docs/Web/API/Element/touchend_event)
 
-Wenn eine Aktivierung ausgelöst wurde, unterscheidet der Benutzeragent zwischen zwei Arten von Benutzeraktivierungsfensterzuständen: Sticky und Transient.
+Wenn eine Aktivierung ausgelöst wurde, unterscheidet der Benutzeragent zwischen zwei Arten von Benutzeraktivierungsfensterzuständen: sticky und transient.
 
 ## Transiente Aktivierung
 
-{{Glossary("Transient_activation", "Transiente Aktivierung")}} ist ein Fensterzustand, der anzeigt, dass ein Benutzer kürzlich einen Button gedrückt, die Maus bewegt, ein Menü verwendet oder eine andere Benutzerinteraktion durchgeführt hat. Transiente Aktivierung läuft nach einem Timeout ab (sofern sie nicht durch weitere Interaktion erneuert wird) und kann auch von einigen APIs verbraucht werden (wie [`Window.open()`](/de/docs/Web/API/Window/open)).
+{{Glossary("Transient_activation", "Transiente Aktivierung")}} ist ein Fensterzustand, der anzeigt, dass ein Benutzer kürzlich eine Taste gedrückt, die Maus bewegt, ein Menü verwendet oder eine andere Benutzerinteraktion durchgeführt hat. Transiente Aktivierung läuft nach einem Timeout ab (wenn sie nicht durch weitere Interaktion erneuert wird) und kann auch von einigen APIs verbraucht werden (wie [`Window.open()`](/de/docs/Web/API/Window/open)).
 
-APIs, die transiente Aktivierung erfordern (Liste ist nicht vollständig):
+APIs, die transiente Aktivierung erfordern (nicht abschließend):
 
 - [`Clients.openWindow()`](/de/docs/Web/API/Clients/openWindow)
 - [`Clipboard.read()`](/de/docs/Web/API/Clipboard/read)
@@ -67,21 +67,21 @@ APIs, die transiente Aktivierung erfordern (Liste ist nicht vollständig):
 
 ## Sticky Aktivierung
 
-{{Glossary("Sticky_activation", "Sticky Aktivierung")}} ist ein Fensterzustand, der anzeigt, dass ein Benutzer einen Button gedrückt, die Maus bewegt, ein Menü benutzt oder eine andere Benutzerinteraktion durchgeführt hat. Sie wird nicht zurückgesetzt, nachdem sie einmal gesetzt wurde (im Gegensatz zur transienten Aktivierung).
+{{Glossary("Sticky_activation", "Sticky Aktivierung")}} ist ein Fensterzustand, der anzeigt, dass ein Benutzer eine Taste gedrückt, die Maus bewegt, ein Menü verwendet oder eine andere Benutzerinteraktion durchgeführt hat. Sie wird, im Gegensatz zur transienten Aktivierung, nicht zurückgesetzt, nachdem sie initial gesetzt wurde.
 
-APIs, die Sticky Aktivierung erfordern (nicht vollständig):
+APIs, die sticky Aktivierung erfordern (nicht abschließend):
 
-- Ereignis [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)
+- [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) Ereignis
 - [`Navigator.vibrate()`](/de/docs/Web/API/Navigator/vibrate)
 - [`VirtualKeyboard.show()`](/de/docs/Web/API/VirtualKeyboard/show)
-- Autoplay von [Media- und Web-Audio-APIs](/de/docs/Web/Media/Autoplay_guide) (insbesondere für [`AudioContexts`](/de/docs/Web/API/AudioContext)).
+- Autoplay von [Medien- und Web-Audio-APIs](/de/docs/Web/Media/Guides/Autoplay) (insbesondere für [`AudioContexts`](/de/docs/Web/API/AudioContext)).
 
 ## UserActivation API
 
-Um programmgesteuert zu bestimmen, ob ein Fenster entweder Sticky oder Transiente Benutzeraktivierung hat, bietet die [`UserActivation`](/de/docs/Web/API/UserActivation) API zwei Eigenschaften, die über [`navigator.userActivation`](/de/docs/Web/API/Navigator/userActivation) verfügbar sind:
+Um programmatisch festzustellen, ob ein Fenster entweder eine sticky oder transiente Benutzeraktivierung hat, bietet die [`UserActivation`](/de/docs/Web/API/UserActivation) API zwei Eigenschaften, die über [`navigator.userActivation`](/de/docs/Web/API/Navigator/userActivation) abgerufen werden können:
 
-- [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive) gibt an, ob das Fenster eine Sticky Benutzeraktivierung hat.
-- [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive) gibt an, ob das Fenster eine Transiente Benutzeraktivierung hat.
+- [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive) zeigt an, ob das Fenster eine sticky Benutzeraktivierung hat.
+- [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive) zeigt an, ob das Fenster eine transiente Benutzeraktivierung hat.
 
 ## Siehe auch
 

@@ -3,12 +3,12 @@ title: "HTMLMediaElement: preservesPitch-Eigenschaft"
 short-title: preservesPitch
 slug: Web/API/HTMLMediaElement/preservesPitch
 l10n:
-  sourceCommit: c3be131cfd2c33822cb36b21cb4fca78980a6b4e
+  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.preservesPitch`**-Eigenschaft bestimmt, ob der Browser die Tonhöhe des Audios anpassen sollte, um Veränderungen der Wiedergabegeschwindigkeit, die durch das Setzen von [`HTMLMediaElement.playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) vorgenommen wurden, auszugleichen.
+Die **`HTMLMediaElement.preservesPitch`**-Eigenschaft legt fest, ob der Browser die Tonhöhe des Audios anpassen sollte, um Änderungen der Wiedergabegeschwindigkeit, vorgenommen durch das Setzen von [`HTMLMediaElement.playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate), auszugleichen.
 
 ## Wert
 
@@ -16,11 +16,11 @@ Ein boolescher Wert, der standardmäßig auf `true` gesetzt ist.
 
 ## Beispiele
 
-### Setzen der preservesPitch-Eigenschaft
+### Festlegen der preservesPitch-Eigenschaft
 
-In diesem Beispiel haben wir ein {{HTMLElement("audio")}}-Element, ein Bereichssteuerungselement, das die Wiedergabegeschwindigkeit anpasst, und ein Kontrollkästchen, das `preservesPitch` setzt.
+In diesem Beispiel haben wir ein {{HTMLElement("audio")}}-Element, ein Bereichssteuerungselement, das die Wiedergabegeschwindigkeit anpasst, und ein Kontrollkästchen, das `preservesPitch` festlegt.
 
-Versuchen Sie, das Audio abzuspielen, dann die Wiedergabegeschwindigkeit anzupassen und anschließend das Kontrollkästchen zu aktivieren und zu deaktivieren.
+Versuchen Sie, das Audio abzuspielen, dann die Wiedergabegeschwindigkeit anzupassen und das Kontrollkästchen zu aktivieren und zu deaktivieren.
 
 ```html
 <audio
@@ -54,7 +54,7 @@ document.getElementById("pitch").addEventListener("change", (e) => {
 });
 ```
 
-{{EmbedLiveSample("Setting the preservesPitch property")}}
+{{EmbedLiveSample("Festlegen der preservesPitch-Eigenschaft")}}
 
 ## Spezifikationen
 
@@ -67,4 +67,4 @@ document.getElementById("pitch").addEventListener("change", (e) => {
 ## Siehe auch
 
 - [`HTMLMediaElement.playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate)
-- [Web Audio playbackRate erklärt](/de/docs/Web/Media/Audio_and_video_delivery/WebAudio_playbackRate_explained)
+- [Wiedergabegeschwindigkeit im Web Audio erklärt](/de/docs/Web/Media/Guides/Audio_and_video_delivery/WebAudio_playbackRate_explained)

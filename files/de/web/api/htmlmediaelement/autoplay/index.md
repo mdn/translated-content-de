@@ -3,26 +3,26 @@ title: "HTMLMediaElement: autoplay-Eigenschaft"
 short-title: autoplay
 slug: Web/API/HTMLMediaElement/autoplay
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.autoplay`**-Eigenschaft spiegelt das [`autoplay`](/de/docs/Web/HTML/Element/video#autoplay)-HTML-Attribut wider und zeigt an, ob die Wiedergabe automatisch beginnen soll, sobald genügend Medien geladen sind, um dies ohne Unterbrechung zu tun.
+Die **`HTMLMediaElement.autoplay`**-Eigenschaft spiegelt das [`autoplay`](/de/docs/Web/HTML/Element/video#autoplay) HTML-Attribut wider und gibt an, ob die Wiedergabe automatisch beginnen soll, sobald genügend Medieninhalte verfügbar sind, um ununterbrochen abzuspielen.
 
-Ein Medienelement, dessen Quelle ein [`MediaStream`](/de/docs/Web/API/MediaStream) ist und dessen `autoplay`-Eigenschaft `true` ist, beginnt die Wiedergabe, wenn es aktiv wird (das heißt, wenn [`MediaStream.active`](/de/docs/Web/API/MediaStream/active) `true` wird).
+Ein Medienelement, dessen Quelle ein [`MediaStream`](/de/docs/Web/API/MediaStream) ist und dessen `autoplay`-Eigenschaft `true` ist, beginnt mit der Wiedergabe, wenn es aktiv wird (das heißt, wenn [`MediaStream.active`](/de/docs/Web/API/MediaStream/active) `true` wird).
 
 > [!NOTE]
-> Webseiten, die automatisch Audio (oder Videos mit einem Audiotrack) abspielen, können für Benutzer eine unangenehme Erfahrung sein und sollten nach Möglichkeit vermieden werden. Wenn Sie die Autoplay-Funktionalität anbieten müssen, sollten Sie diese als Opt-in bereitstellen (erfordern, dass ein Benutzer sie spezifisch aktiviert). Autoplay kann jedoch nützlich sein, wenn Medien-Elemente erstellt werden, deren Quelle zu einem späteren Zeitpunkt unter Benutzerkontrolle festgelegt wird.
+> Websites, die automatisch Audio (oder Videos mit einer Tonspur) abspielen, können für Benutzer ein unangenehmes Erlebnis darstellen. Daher sollte dies möglichst vermieden werden. Wenn Sie die Autoplay-Funktionalität anbieten müssen, sollten Sie diese optional gestalten (erfordern, dass ein Benutzer sie speziell aktiviert). Autoplay kann jedoch nützlich sein, wenn Medienelemente erstellt werden, deren Quelle zu einem späteren Zeitpunkt, unter Benutzerkontrolle, festgelegt wird.
 
-Für einen viel detaillierteren Blick auf Autoplay, Autoplay-Blockierung und wie Sie reagieren, wenn Autoplay vom Browser des Benutzers blockiert wird, lesen Sie unseren Artikel [Leitfaden zum Autoplay für Media- und Web Audio APIs](/de/docs/Web/Media/Autoplay_guide).
+Für einen viel ausführlicheren Blick auf Autoplay, das Blockieren von Autoplay und darauf, wie man reagiert, wenn Autoplay durch den Browser des Benutzers blockiert wird, lesen Sie unseren Artikel [Autoplay-Leitfaden für Media- und Web Audio APIs](/de/docs/Web/Media/Guides/Autoplay).
 
 ## Wert
 
-Ein Boolean-Wert, der `true` ist, wenn das Medienelement mit der Wiedergabe beginnt, sobald genügend Inhalt geladen ist, um dies ohne Unterbrechung zu ermöglichen.
+Ein boolean-Wert, der `true` ist, wenn das Medienelement die Wiedergabe beginnt, sobald genügend Inhalte geladen wurden, um dies ohne Unterbrechung zu ermöglichen.
 
 > [!NOTE]
-> Einige Browser bieten Benutzern die Möglichkeit, `autoplay` zu überschreiben, um zu verhindern, dass störende Audio- oder Video-Inhalte ohne Erlaubnis oder im Hintergrund abgespielt werden. Verlassen Sie sich nicht darauf, dass `autoplay` die Wiedergabe tatsächlich startet, sondern verwenden Sie stattdessen das [`play`](/de/docs/Web/API/HTMLMediaElement/play_event)-Ereignis.
+> Einige Browser bieten Benutzern die Möglichkeit, `autoplay` zu überschreiben, um zu verhindern, dass störende Audio- oder Videoinhalte ohne Erlaubnis oder im Hintergrund abgespielt werden. Verlassen Sie sich nicht darauf, dass `autoplay` tatsächlich die Wiedergabe startet, sondern verwenden Sie stattdessen das [`play`](/de/docs/Web/API/HTMLMediaElement/play_event)-Ereignis.
 
 ## Beispiele
 
@@ -49,5 +49,5 @@ document.querySelector("#video").autoplay = false;
 
 ## Siehe auch
 
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.autoplay`-Eigenschaft
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die `HTMLMediaElement.autoplay`-Eigenschaft zu definieren
 - {{HTMLElement("audio")}}, {{HTMLElement("video")}}

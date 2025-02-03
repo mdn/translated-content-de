@@ -1,14 +1,14 @@
 ---
-title: "Document: createNSResolver()-Methode"
+title: "Dokumentation: Methode createNSResolver()"
 short-title: createNSResolver()
 slug: Web/API/Document/createNSResolver
 l10n:
-  sourceCommit: 07dc324530b8b08cef7e5bb7b87612a0eb0d8a8c
+  sourceCommit: 32e4a82509d6bbadd84c4cd6149fdd5f344e1204
 ---
 
 {{ ApiRef("DOM") }}{{deprecated_header}}
 
-Die **`createNSResolver()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces wurde verwendet, um ein benutzerdefiniertes `XPathNSResolver`-Objekt zu erstellen. Jetzt gibt sie den Eingabewert unverändert zurück und wird nur aus Kompatibilitätsgründen beibehalten.
+Die **`createNSResolver()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle wurde verwendet, um ein benutzerdefiniertes `XPathNSResolver`-Objekt zu erstellen. Sie gibt nun den Eingabewert unverändert zurück und wird nur aus Kompatibilitätsgründen beibehalten.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ createNSResolver(nodeResolver)
 
 ### Rückgabewert
 
-`nodeResolver` selbst.
+Der `nodeResolver` selbst.
 
 ## Spezifikationen
 
@@ -36,4 +36,4 @@ createNSResolver(nodeResolver)
 ## Siehe auch
 
 - [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate)
-- [Einführung in die Verwendung von XPath in JavaScript](/de/docs/Web/XPath/Introduction_to_using_XPath_in_JavaScript)
+- [Einführung in die Verwendung von XPath in JavaScript](/de/docs/Web/XPath/Guides/Introduction_to_using_XPath_in_JavaScript)

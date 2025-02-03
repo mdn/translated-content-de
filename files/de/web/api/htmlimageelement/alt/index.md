@@ -3,43 +3,48 @@ title: "HTMLImageElement: alt-Eigenschaft"
 short-title: alt
 slug: Web/API/HTMLImageElement/alt
 l10n:
-  sourceCommit: 0f7aca64a81a5e9e97c232968f6acf435f8aafb6
+  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`alt`** liefert alternativen Text, der angezeigt wird, wenn das im {{HTMLElement("img")}}-Element angegebene Bild nicht geladen wird.
+Die [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`alt`** liefert Ersatztext (Alternativtext), der angezeigt wird, wenn das Bild, das durch das {{HTMLElement("img")}}-Element angegeben ist, nicht geladen wird.
 
-Dies kann der Fall sein aufgrund eines Fehlers, weil der Benutzer das Laden von Bildern deaktiviert hat oder weil das Bild noch nicht fertig geladen ist.
+Dies kann aufgrund eines Fehlers der Fall sein, weil der Benutzer das Laden von Bildern deaktiviert hat oder weil das Bild noch nicht geladen ist.
 
-Der vielleicht wichtigste Grund, die `alt`-Eigenschaft zu verwenden, ist die Unterstützung der [Barrierefreiheit](/de/docs/Web/Accessibility), da der `alt`-Text von Screenreadern und anderen unterstützenden Technologien genutzt werden kann, um Menschen mit Behinderungen zu helfen, Ihre Inhalte vollständig zu nutzen.
-Er wird beispielsweise vorgelesen oder an ein Braille-Ausgabegerät gesendet, um blinde oder sehbehinderte Nutzer zu unterstützen.
+Der vielleicht wichtigste Grund für die Verwendung der `alt`-Eigenschaft ist die Unterstützung der [Barrierefreiheit](/de/docs/Web/Accessibility), da der `alt`-Text von Bildschirmlesegeräten und anderen unterstützenden Technologien verwendet werden kann, um Menschen mit Behinderungen die uneingeschränkte Nutzung Ihrer Inhalte zu ermöglichen.
+Er wird vorgelesen oder an ein Braille-Ausgabegerät gesendet, um beispielsweise blinde oder sehbehinderte Nutzer zu unterstützen.
 
-> **Denken Sie daran:** Wenn Sie `alt`-Texte für Ihre Bilder auswählen, stellen Sie sich vor, was Sie sagen würden, wenn Sie die Seite jemandem am Telefon vorlesen, ohne zu erwähnen, dass sich ein Bild auf der Seite befindet.
+> **Stellen Sie sich das so vor:** Wenn Sie `alt`-Texte für Ihre Bilder auswählen, überlegen Sie, was Sie sagen würden, wenn Sie jemandem die Seite am Telefon vorlesen, ohne zu erwähnen, dass auf der Seite ein Bild vorhanden ist.
 
-Der alternative Text wird im Bereich angezeigt, den das Bild einnehmen würde, und sollte das Bild ersetzen können, _ohne die Aussage der Seite zu ändern_.
+Der Alternativtext wird in dem Raum angezeigt, den das Bild einnehmen würde, und sollte in der Lage sein, das Bild _zu ersetzen, ohne die Bedeutung der Seite zu verändern_.
 
 ## Wert
 
-Ein String, der den alternativen Text enthält, der angezeigt wird, wenn das Bild nicht geladen ist oder von unterstützenden Geräten verwendet wird.
+Ein String, der den Alternativtext enthält, der angezeigt wird, wenn das Bild nicht geladen ist oder von unterstützenden Geräten verwendet wird.
 
-Das `alt`-Attribut ist offiziell obligatorisch; es sollte immer angegeben werden. Wenn das Bild keinen Ersatz erfordert (z. B. bei dekorativen Bildern oder unbedeutenden Hinweissymbolen), können Sie einen leeren String (`""`) angeben. Aus Kompatibilitätsgründen akzeptieren Browser im Allgemeinen ein Bild ohne `alt`-Attribut, aber Sie sollten sich angewöhnen, es zu verwenden.
+Das `alt`-Attribut ist offiziell obligatorisch; es sollte immer angegeben sein.
+Wenn das Bild keinen Ersatz erfordert (zum Beispiel bei einem Bild, das dekorativ oder ein unbedeutendes Warnsymbol ist), kann ein leerer String (`""`) angegeben werden.
+Aus Gründen der Kompatibilität akzeptieren Browser im Allgemeinen ein Bild ohne `alt`-Attribut, aber Sie sollten sich angewöhnen, es zu verwenden.
 
 ## Verwendungshinweise
 
-Die grundlegende Richtlinie für das `alt`-Attribut ist, dass der Alternativtext jedes Bildes das Bild ersetzen sollte, _ohne die Aussage der Seite zu verändern_. Sie sollten `alt` niemals für Text verwenden, der als Bildunterschrift oder Titel interpretiert werden könnte. Es gibt separate Attribute und Elemente, die dafür vorgesehen sind.
+Die grundlegende Richtlinie für das `alt`-Attribut ist, dass der Alternativtext jedes Bildes in der Lage sein sollte, das Bild _zu ersetzen, ohne die Bedeutung der Seite zu verändern_. Sie sollten `alt` niemals für Texte verwenden, die als Beschriftung oder Titel verstanden werden könnten.
+Es gibt separate Attribute und Elemente, die für diese Zwecke konzipiert sind.
 
 ## Beispiele
 
-Darüber hinaus gibt es weitere Richtlinien für die angemessene Verwendung von `alt`, die je nach Verwendungszweck des Bildes variieren. Diese sind in den folgenden Beispielen dargestellt.
+Darüber hinaus gibt es zusätzliche Richtlinien für die angemessene Verwendung von `alt`, die je nach Verwendung des Bildes variieren.
+Diese sind in den folgenden Beispielen gezeigt.
 
 ### Dekorative Bilder
 
-Bilder ohne semantische Bedeutung – wie solche, die rein dekorativ sind – oder von begrenztem Informationswert sollten ihr `alt`-Attribut auf den leeren String (`""`) setzen. Dies wird im folgenden Beispiel gezeigt.
+Bilder ohne semantische Bedeutung – wie solche, die rein dekorativ sind – oder von geringem Informationswert sollten ihre `alt`-Attribute auf den leeren String (`""`) gesetzt haben.
+Dies wird im folgenden Beispiel gezeigt.
 
 #### HTML
 
-Im HTML für dieses Beispiel, wie unten gezeigt, beinhaltet das {{HTMLElement("img")}}-Element die `alt`-Eigenschaft, wodurch das Bild keinen alternativen Text haben wird, da es ein dekoratives Detail ist.
+Im HTML für dieses Beispiel, das unten gezeigt wird, enthält das {{HTMLElement("img")}}-Element die `alt`-Eigenschaft, die verhindert, dass das Bild Alternativtext hat, da es sich um ein dekoratives Detail handelt.
 
 ```html
 <div class="container">
@@ -61,7 +66,7 @@ Im HTML für dieses Beispiel, wie unten gezeigt, beinhaltet das {{HTMLElement("i
 
 #### CSS
 
-Das CSS für dieses Beispiel legt die Stile für das Layout fest, wie im unten gezeigten Ergebnis dargestellt.
+Das CSS für dieses Beispiel legt die Stile für das Layout fest, wie unten im Ergebnis gezeigt.
 
 ```css
 body {
@@ -117,9 +122,10 @@ p {
 
 ### Bilder, die als Schaltflächen verwendet werden
 
-Wenn ein Bild als Schaltfläche verwendet wird (indem es als einziges sichtbares Kind eines {{HTMLElement("a")}}-Elements, das einen Hyperlink darstellt, dient), muss das `alt`-Attribut verwendet werden, um den Zweck der Schaltfläche zu vermitteln. Mit anderen Worten, es sollte derselbe Text sein, den Sie in einer textuellen Schaltfläche verwenden würden, um denselben Zweck zu erfüllen.
+Wenn ein Bild als Schaltfläche verwendet wird (indem es als einziges sichtbares Kind eines {{HTMLElement("a")}}-Elements verwendet wird, das einen Hyperlink darstellt), muss das `alt`-Attribut verwendet werden, um den Zweck der Schaltfläche zu vermitteln.
+Mit anderen Worten, es sollte derselbe Text sein, den Sie in einer Text-Schaltfläche verwenden würden, um denselben Zweck zu erfüllen.
 
-Zum Beispiel bietet in dem unten gezeigten HTML-Ausschnitt eine Symbolleiste, die Symbolbilder als Link-Beschriftungen verwendet, `alt`-Attribute für jedes Symbol an, um eine textuelle Beschriftung zu geben, die anstelle des Symbols verwendet werden kann, wenn die Symbole nicht verwendet werden können oder bewusst nicht verwendet werden wollen.
+Zum Beispiel, in dem unten gezeigten HTML-Snippet, stellt eine Symbolleiste, die Bildsymbole als Linkbeschriftungen verwendet, `alt`-Attribute bereit, die jedem Symbol eine Textbezeichnung geben, die verwendet werden kann, wenn die Symbole nicht verwendet werden können oder absichtlich nicht verwendet werden.
 
 ```html
 <li class="toolbar" role="toolbar">
@@ -138,27 +144,34 @@ Zum Beispiel bietet in dem unten gezeigten HTML-Ausschnitt eine Symbolleiste, di
 </li>
 ```
 
-### Bilder mit Diagrammen oder Karten
+### Bilder, die Diagramme oder Karten enthalten
 
-Wenn ein Bild Informationen in Form eines Diagramms, einer Grafik, eines Schaubilds oder einer Karte enthält, sollte der `alt`-Text dieselben Informationen, zumindest in zusammengefasster Form, liefern. Dies gilt unabhängig davon, ob das Bild in einem Rasterformat wie [PNG](/de/docs/Web/Media/Formats/Image_types#png_portable_network_graphics) oder [JPEG](/de/docs/Web/Media/Formats/Image_types#jpeg_joint_photographic_experts_group_image) oder in einem Vektorformat wie [SVG](/de/docs/Web/Media/Formats/Image_types#svg_scalable_vector_graphics) vorliegt.
+Wenn ein Bild Informationen in Form eines Diagramms, Diagramms, einer Grafik oder Karte enthält, sollte der `alt`-Text dieselben Informationen, zumindest in zusammengefasster Form, bereitstellen.
+Das gilt unabhängig davon, ob das Bild im Bitmap-Format wie [PNG](/de/docs/Web/Media/Guides/Formats/Image_types#png_portable_network_graphics) oder [JPEG](/de/docs/Web/Media/Guides/Formats/Image_types#jpeg_joint_photographic_experts_group_image) oder im Vektorformat wie [SVG](/de/docs/Web/Media/Guides/Formats/Image_types#svg_scalable_vector_graphics) vorliegt.
 
-- Für eine Karte könnte der `alt`-Text eine Wegbeschreibung zu dem durch die Karte angezeigten Ort sein, ähnlich wie Sie es mündlich erklären würden.
-- Für ein Diagramm könnte der Text die Elemente im Diagramm und ihre Werte beschreiben.
-- Für ein Schaubild könnte der Text eine Erklärung des im Schaubild dargestellten Konzepts sein.
+- Für eine Karte könnte der `alt`-Text Wegbeschreibungen zu dem auf der Karte angegebenen Ort sein, ähnlich wie Sie es mündlich erklären würden.
+- Für ein Diagramm könnte der Text die Elemente im Diagramm und deren Werte beschreiben.
+- Für ein Diagramm könnte der Text eine Erklärung des im Diagramm dargestellten Konzepts sein.
 
-Denken Sie daran, dass jeder Text, der in Diagrammen und Schaubildern im {{Glossary("SVG", "SVG")}}-Format enthalten ist, von Screenreadern gelesen werden kann. Dies kann die Entscheidungen beeinflussen, die Sie beim Schreiben des `alt`-Texts für das Diagramm treffen.
+Beachten Sie, dass jeder Text, der in Diagrammen und Grafiken im {{Glossary("SVG", "SVG")}}-Format enthalten ist, von Bildschirmlesegeräten gelesen werden kann.
+Dies kann die Entscheidungen beeinflussen, die Sie beim Schreiben des `alt`-Texts für das Diagramm treffen.
 
 ### Symbole oder Logos
 
-Logos (wie Unternehmens- oder Markenlogos) und Informationssymbole sollten den entsprechenden Text in ihren `alt`-Strings verwenden. Das heißt, wenn ein Bild ein Unternehmenslogo ist, sollte der `alt`-Text der Name des Unternehmens sein. Wenn das Bild ein Symbol darstellt, das einen Status oder andere Informationen repräsentiert, sollte der Text der Name dieses Status sein.
+Logos (wie Unternehmens- oder Markenlogos) und Informationssymbole sollten den entsprechenden Text in ihren `alt`-Strings verwenden.
+Das heißt, wenn ein Bild ein Unternehmenslogo ist, sollte der `alt`-Text der Name des Unternehmens sein.
+Wenn das Bild ein Symbol ist, das einen Status oder andere Informationen darstellt, sollte der Text der Name dieses Zustands sein.
 
-Zum Beispiel, wenn ein Bild ein Abzeichen ist, das auf einer Seite angezeigt wird, um darauf hinzuweisen, dass der Inhalt der Seite neu ist und kürzlich aktualisiert wurde, könnte der entsprechende `alt`-Text `"Kürzlich aktualisiert"` oder sogar `"Aktualisiert am 27. August 2019"` sein.
+Zum Beispiel könnte ein Bild, das auf einer Seite gezeigt wird, um anzuzeigen, dass der Inhalt der Seite neu ist und kürzlich aktualisiert wurde, als zugehörigen `alt`-Text `"Kürzlich aktualisiert"` oder sogar `"Aktualisiert am 27. August 2019"` haben.
 
-In diesem Beispiel wird ein Sternbild mit dem Wort "Neu!" verwendet, um darauf hinzuweisen, dass ein Artikel über etwas Neues (und wahrscheinlich auch Aufregendes) handelt. Das `alt`-Attribut wird auf `Neue Seite!` gesetzt, um diesen Text anstelle des Bildes anzuzeigen, falls das Bild nicht verfügbar ist. Es ist auch verfügbar, um von Screenreadern gelesen zu werden.
+In diesem Beispiel wird ein Bild mit einem Ausrufezeichen mit dem Wort "Neu!" verwendet, um anzuzeigen, dass ein Artikel über etwas Neues (und wahrscheinlich auch Spannendes) handelt.
+Das `alt`-Attribut ist auf `Neue Seite!` gesetzt, um diesen Text anstelle des Bildes anzuzeigen, wenn das Bild nicht verfügbar ist.
+Es kann auch von Bildschirmlesegeräten gelesen werden.
 
 #### HTML
 
-Das untenstehende HTML erstellt ein Inhaltsfragment einer Seite, das das beschriebene Symbol verwendet. Beachten Sie die Verwendung des `alt`-Attributs im {{HTMLElement("img")}}, das einen guten Ersatzstring bereitstellt, der im Fall des Nichtladens des Bildes verwendet werden kann.
+Das folgende HTML erstellt einen Inhaltsausschnitt von einer Webseite, die das beschriebene Symbol verwendet.
+Beachten Sie die Verwendung des `alt`-Attributs auf dem {{HTMLElement("img")}}, das eine gute Ersatzzeichenfolge bietet, falls das Bild nicht geladen wird.
 
 ```html
 <div class="container">
@@ -179,7 +192,7 @@ Das untenstehende HTML erstellt ein Inhaltsfragment einer Seite, das das beschri
 
 #### CSS
 
-Das Hauptmerkmal des hier verwendeten CSS ist der Einsatz von {{cssxref("clip-path")}} und {{cssxref("shape-outside")}}, um den Text ansprechend um das Symbol herum zu platzieren.
+Das Hauptmerkmal des hier verwendeten CSS ist die Nutzung von {{cssxref("clip-path")}} und {{cssxref("shape-outside")}}, um den Text auf ansprechende Weise um das Symbol herum zu fließen.
 
 ```css
 .container {
@@ -228,7 +241,8 @@ Das Hauptmerkmal des hier verwendeten CSS ist der Einsatz von {{cssxref("clip-pa
 
 ### Andere Bilder
 
-Bilder, die Objekte oder Szenen zeigen, sollten `alt`-Text haben, der beschreibt, was auf dem Bild zu sehen ist. Ein Foto einer gelben Teekanne könnte buchstäblich sein `alt`-Attribut auf `"Eine gelbe Teekanne"` setzen.
+Bilder, die Objekte oder Szenen zeigen, sollten `alt`-Texte enthalten, die beschreiben, was auf dem Bild zu sehen ist.
+Ein Foto einer gelben Teekanne könnte beispielsweise buchstäblich seinen `alt`-Attributwert auf `"Eine gelbe Teekanne"` setzen.
 
 ## Spezifikationen
 

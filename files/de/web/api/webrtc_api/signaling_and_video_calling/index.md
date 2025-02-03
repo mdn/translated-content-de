@@ -2,37 +2,37 @@
 title: Signalisierung und Videotelefonie
 slug: Web/API/WebRTC_API/Signaling_and_video_calling
 l10n:
-  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
+  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
 ---
 
 {{DefaultAPISidebar("WebRTC")}}
 
-[WebRTC](/de/docs/Web/API/WebRTC_API) ermöglicht den Echtzeit-, Peer-to-Peer-Medienaustausch zwischen zwei Geräten. Eine Verbindung wird durch einen Entdeckungs- und Verhandlungsprozess hergestellt, der als **Signalisierung** bezeichnet wird. Dieses Tutorial wird Sie beim Erstellen eines bidirektionalen Videoanrufs unterstützen.
+[WebRTC](/de/docs/Web/API/WebRTC_API) ermöglicht den Echtzeit-, Peer-to-Peer-Medienaustausch zwischen zwei Geräten. Eine Verbindung wird durch einen Entdeckungs- und Verhandlungsprozess namens **Signalisierung** etabliert. Dieses Tutorial führt Sie durch die Erstellung eines zweiseitigen Videoanrufs.
 
-[WebRTC](/de/docs/Web/API/WebRTC_API) ist eine vollständig Peer-to-Peer-Technologie für den Echtzeitaustausch von Audio, Video und Daten mit einem wesentlichen Punkt. Eine Form der Entdeckung und Aushandlung des Medienformats muss stattfinden, [wie an anderer Stelle beschrieben](/de/docs/Web/API/WebRTC_API/Session_lifetime#establishing_the_connection), damit zwei Geräte in verschiedenen Netzwerken einander lokalisieren können. Dieser Prozess wird **Signalisierung** genannt und beinhaltet, dass sich beide Geräte mit einem dritten, gemeinsam vereinbarten Server verbinden. Durch diesen dritten Server können sich die beiden Geräte finden und Verhandlungsnachrichten austauschen.
+[WebRTC](/de/docs/Web/API/WebRTC_API) ist eine vollständig Peer-to-Peer-Technologie für den Echtzeitaustausch von Audio, Video und Daten, mit einer zentralen Einschränkung. Eine Art von Entdeckungs- und Medienformatverhandlung muss stattfinden, [wie an anderer Stelle besprochen](/de/docs/Web/API/WebRTC_API/Session_lifetime#establishing_the_connection), damit zwei Geräte in verschiedenen Netzwerken einander finden können. Dieser Prozess wird **Signalisierung** genannt und beinhaltet, dass beide Geräte sich mit einem dritten, einvernehmlich vereinbarten Server verbinden. Über diesen dritten Server können die beiden Geräte einander lokalisieren und Verhandlungsnachrichten austauschen.
 
-In diesem Artikel werden wir den [WebSocket-Chat](https://webrtc-from-chat-v1-4.glitch.me/) weiterentwickeln, der erstmals als Teil unserer WebSocket-Dokumentation erstellt wurde (dieser Artikel-Link ist noch nicht online verfügbar), um die Eröffnung eines bidirektionalen Videoanrufs zwischen Benutzern zu unterstützen. Sie können [dieses Beispiel auf Glitch ausprobieren](https://webrtc-from-chat-v1-4.glitch.me/) und auch [das Beispiel remixen](https://glitch.com/edit/#!/remix/webrtc-from-chat-v1-4), um damit zu experimentieren. Sie können auch [das vollständige Projekt](https://github.com/mdn/samples-server/tree/master/s/webrtc-from-chat) auf GitHub ansehen.
+In diesem Artikel werden wir den [WebSocket-Chat](https://webrtc-from-chat-v1-4.glitch.me/) weiter verbessern, der ursprünglich im Rahmen unserer WebSocket-Dokumentation erstellt wurde (dieser Artikel-Link wird noch erstellt; es ist derzeit nicht online), um das Öffnen eines zweiseitigen Videoanrufs zwischen Benutzern zu unterstützen. Sie können [dieses Beispiel auf Glitch ausprobieren](https://webrtc-from-chat-v1-4.glitch.me/) und Sie können [das Beispiel remixen](https://glitch.com/edit/#!/remix/webrtc-from-chat-v1-4), um damit zu experimentieren. Sie können auch [das vollständige Projekt](https://github.com/mdn/samples-server/tree/master/s/webrtc-from-chat) auf GitHub ansehen.
 
 > [!NOTE]
-> Wenn Sie das Beispiel auf Glitch ausprobieren, beachten Sie bitte, dass alle Änderungen am Code sofort alle Verbindungen zurücksetzen. Außerdem gibt es eine kurze Timeout-Periode; die Glitch-Instanz ist nur für schnelle Experimente und Tests gedacht.
+> Wenn Sie das Beispiel auf Glitch ausprobieren, beachten Sie bitte, dass alle Änderungen am Code sofort Verbindungen zurücksetzen. Zudem gibt es eine kurze Zeitüberschreitung; die Glitch-Instanz ist nur für schnelle Experimente und Tests gedacht.
 
 ## Der Signalisierungsserver
 
-Um eine WebRTC-Verbindung zwischen zwei Geräten herzustellen, muss ein **Signalisierungsserver** verwendet werden, um zu klären, wie sie über das Internet verbunden werden. Die Aufgabe eines Signalisierungsservers besteht darin, als Vermittler zu dienen, um zwei Peers zu finden und eine Verbindung herzustellen, während die Offenlegung potenziell privater Informationen so weit wie möglich minimiert wird. Wie erstellen wir diesen Server und wie funktioniert eigentlich der Signalisierungsprozess?
+Um eine WebRTC-Verbindung zwischen zwei Geräten herzustellen, ist die Verwendung eines **Signalisierungsservers** erforderlich, um zu klären, wie sie über das Internet verbunden werden können. Die Aufgabe eines Signalisierungsservers besteht darin, als Zwischenstation zu dienen, um zwei Peers zu finden und eine Verbindung herzustellen und dabei die mögliche Offenlegung privater Informationen so weit wie möglich zu minimieren. Wie erstellen wir diesen Server und wie funktioniert der Signalisierungsprozess tatsächlich?
 
-Zuerst benötigen wir den Signalisierungsserver selbst. WebRTC spezifiziert keinen Transportmechanismus für die Signalisierungsinformationen. Sie können alles verwenden, was Sie möchten, von [WebSocket](/de/docs/Web/API/WebSockets_API) über `fetch()` bis hin zu Brieftauben, um die Signalisierungsinformationen zwischen den beiden Peers auszutauschen.
+Zuerst brauchen wir den Signalisierungsserver selbst. WebRTC legt keinen Transportmechanismus für die Signalisierungsinformation fest. Sie können alles verwenden, von [WebSocket](/de/docs/Web/API/WebSockets_API) über [`fetch()`](/de/docs/Web/API/Window/fetch) bis hin zu Brieftauben, um die Signalisierungsinformationen zwischen den beiden Peers auszutauschen.
 
-Es ist wichtig zu beachten, dass der Server die Inhalte der Signalisierungsdaten nicht verstehen oder interpretieren muss. Obwohl es sich um {{Glossary("SDP", "SDP")}} handelt, ist dies nicht so entscheidend: Der Inhalt der Nachricht, die durch den Signalisierungsserver geht, ist im Grunde eine Blackbox. Wichtig ist, dass wenn das {{Glossary("ICE", "ICE")}}-Subsystem Ihnen anweist, Signalisierungsdaten an den anderen Peer zu senden, Sie dies tun und der andere Peer weiß, wie er diese Informationen empfangen und an sein eigenes ICE-Subsystem weiterleiten kann. Alles, was Sie tun müssen, ist, die Informationen hin und her zu leiten. Der Inhalt spielt für den Signalisierungsserver keine Rolle.
+Es ist wichtig zu beachten, dass der Server den Inhalt der Signalisierungsdaten nicht verstehen oder interpretieren muss. Obwohl es {{Glossary("SDP", "SDP")}} ist, spielt das keine große Rolle: Der Inhalt der Nachricht, die durch den Signalisierungsserver geht, ist effektiv eine Blackbox. Was wichtig ist, ist, dass, wenn das {{Glossary("ICE", "ICE")}}-Subsystem Sie anweist, Signalisierungsdaten an den anderen Peer zu senden, Sie dies tun und der andere Peer diese Informationen empfangen und an sein eigenes ICE-Subsystem liefern kann. Alles, was Sie tun müssen, ist, die Informationen hin und her zu leiten. Der Inhalt ist für den Signalisierungsserver völlig nebensächlich.
 
-### Vorbereitung des Chatservers für die Signalisierung
+### Vorbereitung des Chat-Servers für die Signalisierung
 
-Unser [Chatserver](https://github.com/mdn/samples-server/tree/master/s/websocket-chat) verwendet die [WebSocket API](/de/docs/Web/API/WebSockets_API), um Informationen als {{Glossary("JSON", "JSON")}}-Strings zwischen jedem Client und dem Server zu senden. Der Server unterstützt mehrere Nachrichtentypen, um Aufgaben wie die Registrierung neuer Benutzer, das Setzen von Benutzernamen und das Senden öffentlicher Chat-Nachrichten zu bewältigen.
+Unser [Chat-Server](https://github.com/mdn/samples-server/tree/master/s/websocket-chat) verwendet die [WebSocket-API](/de/docs/Web/API/WebSockets_API), um Informationen als {{Glossary("JSON", "JSON")}}-Strings zwischen jedem Client und dem Server zu senden. Der Server unterstützt mehrere Nachrichtentypen, um Aufgaben zu erledigen, wie z.B. das Registrieren neuer Benutzer, das Festlegen von Benutzernamen und das Senden öffentlicher Chat-Nachrichten.
 
-Um dem Server zu ermöglichen, die Signalisierung und die ICE-Aushandlung zu unterstützen, müssen wir den Code aktualisieren. Wir müssen das Senden von Nachrichten an einen bestimmten Benutzer statt an alle verbundenen Benutzer ermöglichen und sicherstellen, dass nicht erkannte Nachrichtentypen durchgeleitet und zugestellt werden, ohne dass der Server wissen muss, was sie sind. Auf diese Weise können wir Signalisierungsnachrichten über denselben Server senden, ohne einen separaten Server zu benötigen.
+Um den Server zu unterstützen, dass Signalisierungs- und ICE-Verhandlungen unterstützt werden, müssen wir den Code aktualisieren. Wir müssen Nachrichten an einen bestimmten Benutzer senden können, anstatt sie an alle verbundenen Benutzer zu senden, und sicherstellen, dass unerklärliche Nachrichtentypen weitergeleitet und zugestellt werden, ohne dass der Server wissen muss, was sie sind. Auf diese Weise können wir Signalisierungsnachrichten über denselben Server senden, ohne dass ein separater Server erforderlich ist.
 
-Werfen wir einen Blick auf die Änderungen, die wir am Chatserver vornehmen müssen, um die WebRTC-Signalisierung zu unterstützen. Dies ist in der Datei [`chatserver.js`](https://github.com/mdn/samples-server/blob/master/s/webrtc-from-chat/chatserver.js).
+Sehen wir uns die Änderungen an, die wir am Chat-Server vornehmen müssen, um die WebRTC-Signalisierung zu unterstützen. Dies ist in der Datei [`chatserver.js`](https://github.com/mdn/samples-server/blob/master/s/webrtc-from-chat/chatserver.js).
 
-Zuerst kommt die Funktion `sendToOneUser()` hinzu. Wie der Name schon sagt, sendet dies eine stringifizierte JSON-Nachricht an einen bestimmten Benutzernamen.
+Zuerst ist die Hinzufügung der Funktion `sendToOneUser()`. Wie der Name schon sagt, sendet diese eine JSON-Nachricht an einen bestimmten Benutzernamen.
 
 ```js
 function sendToOneUser(target, msgString) {
@@ -40,9 +40,9 @@ function sendToOneUser(target, msgString) {
 }
 ```
 
-Diese Funktion durchläuft die Liste der verbundenen Benutzer, bis sie einen Benutzer mit dem angegebenen Benutzernamen findet, und sendet dann die Nachricht an diesen Benutzer. Der Parameter `msgString` ist ein stringifizierter JSON-Objekt. Wir hätten unsere ursprüngliche Nachrichtenobjekt übergeben können, aber in diesem Beispiel ist es so effizienter. Da die Nachricht bereits stringifiziert wurde, können wir sie ohne weitere Verarbeitung senden. Jeder Eintrag in `connectionArray` ist ein [`WebSocket`](/de/docs/Web/API/WebSocket)-Objekt, sodass wir einfach die Methode [`send()`](/de/docs/Web/API/WebSocket/send) direkt aufrufen können.
+Diese Funktion iteriert über die Liste der verbundenen Benutzer, bis sie einen findet, der mit dem angegebenen Benutzernamen übereinstimmt, und sendet dann die Nachricht an diesen Benutzer. Der Parameter `msgString` ist ein JSON-Objekt. Wir hätten es so platzieren können, dass es unsere ursprüngliche Nachricht erhält, aber in diesem Beispiel ist es so effizienter. Da die Nachricht bereits in einen String umgewandelt wurde, können wir sie ohne weitere Verarbeitung senden. Jeder Eintrag in `connectionArray` ist ein [`WebSocket`](/de/docs/Web/API/WebSocket)-Objekt, sodass wir einfach seine [`send()`](/de/docs/Web/API/WebSocket/send)-Methode direkt aufrufen können.
 
-Unser ursprüngliches Chat-Demo unterstützte das Senden von Nachrichten an einen bestimmten Benutzer nicht. Die nächste Aufgabe besteht darin, den Haupt-WebSocket-Nachrichten-Handler zu aktualisieren, um dies zu unterstützen. Dies beinhaltet eine Änderung am Ende des `"connection"` Nachricht-Handlers:
+Unser ursprüngliches Chat-Demo unterstützte das Senden von Nachrichten an einen bestimmten Benutzer nicht. Die nächste Aufgabe besteht darin, den Haupt-Handler der WebSocket-Nachricht so zu aktualisieren, dass dies unterstützt wird. Dies beinhaltet eine Änderung am Ende des `"connection"`-Nachrichtenhandlers.
 
 ```js
 if (sendToClients) {
@@ -58,100 +58,100 @@ if (sendToClients) {
 }
 ```
 
-Dieser Code überprüft nun die ausstehende Nachricht, um festzustellen, ob sie eine `target`-Eigenschaft hat. Wenn diese Eigenschaft vorhanden ist, gibt sie den Benutzernamen des Clients an, an den die Nachricht gesendet werden soll, und wir rufen `sendToOneUser()` auf, um die Nachricht an diesen zu senden. Andernfalls wird die Nachricht an alle Benutzer übertragen, indem die Verbindungslisten iteriert und die Nachricht an jeden Benutzer gesendet wird.
+Dieser Code schaut nun auf die anstehende Nachricht, um festzustellen, ob sie eine `target`-Eigenschaft hat. Wenn diese Eigenschaft vorhanden ist, gibt sie den Benutzernamen des Clients an, an den die Nachricht gesendet werden soll, und wir rufen `sendToOneUser()` auf, um die Nachricht an ihn zu senden. Ansonsten wird die Nachricht durch Iterieren über die Verbindungsliste an alle Benutzer gesendet und an jeden Benutzer gesendet.
 
-Da der vorhandene Code das Senden von beliebigen Nachrichtentypen ermöglicht, sind keine weiteren Änderungen erforderlich. Unsere Clients können jetzt Nachrichten unbekannter Typen an jeden bestimmten Benutzer senden, sodass sie Signalisierungsnachrichten nach Belieben hin und her senden können.
+Da der vorhandene Code das Senden von beliebigen Nachrichtentypen erlaubt, sind keine weiteren Änderungen erforderlich. Unsere Clients können jetzt Nachrichten unbekannter Typen an einen bestimmten Benutzer senden, sodass sie Signalisierungsnachrichten nach Belieben hin- und hersenden können.
 
-Das ist alles, was wir auf der Serverseite der Gleichung ändern müssen. Lassen Sie uns nun das Signalisierungsprotokoll in Betracht ziehen, das wir implementieren werden.
+Dies ist alles, was wir an der Serverseite ändern müssen. Lassen Sie uns nun das Signalisierungsprotokoll, das wir implementieren werden, betrachten.
 
-### Entwerfen des Signalisierungsprotokolls
+### Entwurf des Signalisierungsprotokolls
 
-Jetzt, da wir einen Mechanismus zum Austauschen von Nachrichten aufgebaut haben, benötigen wir ein Protokoll, das definiert, wie diese Nachrichten aussehen. Dies kann auf verschiedene Arten geschehen; was hier demonstriert wird, ist nur eine mögliche Möglichkeit, Signalisierungsnachrichten zu strukturieren.
+Nachdem wir nun einen Mechanismus zum Austausch von Nachrichten aufgebaut haben, benötigen wir ein Protokoll, das festlegt, wie diese Nachrichten aussehen sollen. Dies kann auf verschiedene Weise geschehen; das hier gezeigte ist nur eine Möglichkeit, Signalisierungsnachrichten zu strukturieren.
 
-Der Server dieses Beispiels verwendet stringifizierte JSON-Objekte, um mit seinen Clients zu kommunizieren. Dies bedeutet, dass unsere Signalisierungsnachrichten im JSON-Format vorliegen, mit Inhalten, die angeben, um welche Art von Nachrichten es sich handelt, sowie alle zusätzlichen Informationen, die zum ordnungsgemäßen Verarbeiten der Nachrichten erforderlich sind.
+Der Server dieses Beispiels verwendet zeichenbasierte JSON-Objekte, um mit seinen Clients zu kommunizieren. Das bedeutet, dass unsere Signalisierungsnachrichten im JSON-Format vorliegen, mit Inhalten, die angeben, welche Art von Nachrichten sie sind und alle zusätzlichen Informationen enthalten, die erforderlich sind, um die Nachrichten richtig zu bearbeiten.
 
-#### Austauschen von Sitzungsbeschreibungen
+#### Austausch von Sitzungsbeschreibungen
 
-Beim Starten des Signalisierungsprozesses wird ein **Angebot** vom Benutzer, der den Anruf initiiert, erstellt. Dieses Angebot enthält eine Sitzungsbeschreibung im {{Glossary("SDP", "SDP")}}-Format und muss an den empfangenden Benutzer übermittelt werden, den wir als **Callee** bezeichnen werden. Der Callee antwortet auf das Angebot mit einer **Antwort**-Nachricht, die ebenfalls eine SDP-Beschreibung enthält. Unser Signalisierungsserver wird WebSocket nutzen, um Angebotsnachrichten mit dem Typ `"video-offer"` zu übertragen, und Antwortnachrichten mit dem Typ `"video-answer"`. Diese Nachrichten haben die folgenden Felder:
+Beim Starten des Signalisierungsprozesses wird ein **Angebot** von dem Benutzer erstellt, der den Anruf initiiert. Dieses Angebot enthält eine Sitzungsbeschreibung im {{Glossary("SDP", "SDP")}}-Format und muss dem empfangenden Benutzer zugestellt werden, den wir als **Angerufenen** bezeichnen. Der Angerufene antwortet dem Angebot mit einer **Antwort**-Nachricht, die ebenfalls eine SDP-Beschreibung enthält. Unser Signalisierungsserver verwendet WebSocket, um Angebotsnachrichten mit dem Typ `"video-offer"` und Antwortnachrichten mit dem Typ `"video-answer"` zu übertragen. Diese Nachrichten haben folgende Felder:
 
 - `type`
   - : Der Nachrichtentyp; entweder `"video-offer"` oder `"video-answer"`.
 - `name`
   - : Der Benutzername des Absenders.
 - `target`
-  - : Der Benutzername der Person, die die Beschreibung erhalten soll (wenn der Anrufer die Nachricht sendet, gibt dies den Callee an, und umgekehrt).
+  - : Der Benutzername der Person, die die Beschreibung empfangen soll (wenn der Anrufer die Nachricht sendet, gibt dies den Angerufenen an und umgekehrt).
 - `sdp`
-  - : Die SDP (Session Description Protocol)-Zeichenfolge, die das lokale Ende der Verbindung aus der Perspektive des Absenders beschreibt (oder das entfernte Ende der Verbindung aus Sicht des Empfängers).
+  - : Der SDP-String (Session Description Protocol), der das lokale Ende der Verbindung aus der Sicht des Absenders beschreibt (oder das entfernte Ende der Verbindung aus Sicht des Empfängers).
 
-An diesem Punkt wissen die beiden Teilnehmer, welche [Codecs](/de/docs/Web/Media/Formats/WebRTC_codecs) und [Codec-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) für diesen Anruf verwendet werden sollen. Sie wissen jedoch noch nicht, wie sie die Mediendaten selbst übertragen sollen. Hier kommt {{Glossary("ICE", "Interactive Connectivity Establishment (ICE)")}} ins Spiel.
+Zu diesem Zeitpunkt wissen die beiden Teilnehmer, welche [Codecs](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) und [Codec-Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter) für diesen Anruf verwendet werden sollen. Sie wissen allerdings noch nicht, wie die Mediendaten selbst übertragen werden können. Hier kommt die {{Glossary("ICE", "Interactive Connectivity Establishment (ICE)")}} ins Spiel.
 
 ### Austausch von ICE-Kandidaten
 
-Zwei Peers müssen ICE-Kandidaten austauschen, um die tatsächliche Verbindung zwischen ihnen auszuhandeln. Jeder ICE-Kandidat beschreibt eine Methode, die der sendende Peer verwenden kann, um zu kommunizieren. Jeder Peer sendet Kandidaten in der Reihenfolge, in der sie entdeckt werden, und sendet weiterhin Kandidaten, bis ihm die Vorschläge ausgehen, selbst wenn Medien bereits gestreamt werden.
+Zwei Peers müssen ICE-Kandidaten austauschen, um die tatsächliche Verbindung zwischen ihnen auszuhandeln. Jeder ICE-Kandidat beschreibt eine Methode, die der sendende Peer verwenden kann, um zu kommunizieren. Jeder Peer sendet Kandidaten in der Reihenfolge, in der sie entdeckt werden, und sendet weiterhin Kandidaten, bis ihm die Vorschläge ausgehen, auch wenn die Medienübertragung bereits begonnen hat.
 
-Ein [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis wird an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um den Prozess des Hinzufügens einer lokalen Beschreibung mit `pc.setLocalDescription(offer)` abzuschließen.
+Ein [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis wird an [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um den Prozess des Hinzufügens einer lokalen Beschreibung mit `pc.setLocalDescription(offer)` abzuschließen.
 
-Sobald sich die beiden Peers auf einen gegenseitig kompatiblen Kandidaten einigen, wird der SDP dieses Kandidaten von jedem Peer verwendet, um eine Verbindung aufzubauen und zu öffnen, durch die dann Medien fließen. Wenn sie sich später auf einen besseren (normalerweise leistungsfähigeren) Kandidaten einigen, kann sich der Stream bei Bedarf ändern.
+Sobald die beiden Peers sich auf einen gegenseitig kompatiblen Kandidaten geeinigt haben, verwenden beide Peers den SDP dieses Kandidaten, um eine Verbindung zu konstruieren und zu öffnen, über die dann Medien fließen. Wenn sie sich später auf einen besseren (in der Regel leistungsstärkeren) Kandidaten einigen, kann der Stream nach Bedarf das Format ändern.
 
-Obwohl derzeit nicht unterstützt, könnte ein Kandidat, der empfangen wird, nachdem Medien bereits fließen, theoretisch auch verwendet werden, um auf eine Verbindung mit geringerer Bandbreite herunterzustufen, wenn erforderlich.
+Obwohl derzeit nicht unterstützt, könnte ein Kandidat, der nach dem Beginn des Medienflusses empfangen wird, theoretisch auch verwendet werden, um gegebenenfalls auf eine Verbindung mit geringerer Bandbreite herunterzuschalten.
 
-Jeder ICE-Kandidat wird an den anderen Peer gesendet, indem eine JSON-Nachricht des Typs `"new-ice-candidate"` über den Signalisierungsserver an den entfernten Peer gesendet wird. Jede Kandidaten-Nachricht enthält folgende Felder:
+Jeder ICE-Kandidat wird an den anderen Peer gesendet, indem eine JSON-Nachricht vom Typ `"new-ice-candidate"` über den Signalisierungsserver an den entfernten Peer gesendet wird. Jede Kandidaten-Nachricht enthält folgende Felder:
 
 - `type`
   - : Der Nachrichtentyp: `"new-ice-candidate"`.
 - `target`
-  - : Der Benutzername der Person, mit der die Verhandlung im Gange ist; der Server leitet die Nachricht nur an diesen Benutzer weiter.
+  - : Der Benutzername der Person, mit der die Verhandlung im Gange ist; der Server wird die Nachricht nur an diesen Benutzer weiterleiten.
 - `candidate`
-  - : Die SDP-Kandidatenzeichenfolge, die die vorgeschlagene Verbindungsmethode beschreibt. Normalerweise müssen Sie sich den Inhalt dieser Zeichenfolge nicht ansehen. Ihr Code muss sie lediglich durch den Signalisierungsserver an den entfernten Peer weiterleiten.
+  - : Der SDP-Kandidat-String, der die vorgeschlagene Verbindungsmethode beschreibt. Im Allgemeinen müssen Sie sich den Inhalt dieses Strings nicht anschauen. Alles, was Ihr Code tun muss, ist, ihn über den Signalisierungsserver zum entfernten Peer zu leiten.
 
-Jede ICE-Nachricht schlägt ein Kommunikationsprotokoll (TCP oder UDP), eine IP-Adresse, eine Portnummer, einen Verbindungstyp (zum Beispiel, ob die angegebene IP der Peer selbst oder ein Relay-Server ist), sowie andere Informationen vor, die zur Verbindung der beiden Computer erforderlich sind. Dies umfasst NAT oder andere Netzwerkanforderungen.
+Jede ICE-Nachricht schlägt ein Kommunikationsprotokoll (TCP oder UDP), eine IP-Adresse, eine Portnummer, einen Verbindungstyp (zum Beispiel, ob die angegebene IP der Peer selbst oder ein Relay-Server ist), zusammen mit anderen Informationen vor, die notwendig sind, um die beiden Computer miteinander zu verbinden. Dies schließt NAT oder andere Netzwerkintransparenz ein.
 
 > [!NOTE]
-> Wichtig zu beachten ist: Der einzige Punkt, für den Ihr Code während der ICE-Verhandlung verantwortlich ist, ist das Akzeptieren ausgehender Kandidaten aus der ICE-Schicht und das Senden über die Signalisierungsverbindung an den anderen Peer, wenn Ihr [`onicecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Handler ausgeführt wird, sowie das Empfangen von ICE-Kandidaten-Nachrichten vom Signalisierungsserver (wenn die Nachricht `"new-ice-candidate"` empfangen wird) und deren Übergabe an Ihre ICE-Schicht durch Aufruf von [`RTCPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate). Das war's.
+> Das Wichtigste ist Folgendes: Das Einzige, was Ihr Code während der ICE-Verhandlung tun muss, ist, ausgehende Kandidaten von der ICE-Schicht zu akzeptieren und sie über die Signalisierungsverbindung an den anderen Peer zu senden, wenn Ihr [`onicecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Handler ausgeführt wird, und ICE-Kandidaten-Nachrichten vom Signalisierungsserver zu empfangen (wenn die `"new-ice-candidate"`-Nachricht empfangen wird) und sie an Ihre ICE-Schicht weiterzuleiten, indem Sie [`RTCPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) aufrufen. Das war's.
 >
-> Der Inhalt der SDP ist für Sie in den meisten Fällen unerheblich. Vermeiden Sie die Versuchung, es komplizierter zu machen, als es ist, bis Sie wirklich wissen, was Sie tun. Auf diesem Weg liegt der Wahnsinn.
+> Der Inhalt der SDP ist für Sie im Wesentlichen in allen Fällen irrelevant. Vermeiden Sie die Versuchung, es komplizierter zu machen, als es ist, bis Sie wirklich wissen, was Sie tun. Das wäre der Weg ins Chaos.
 
-Alles, was Ihr Signalisierungsserver jetzt tun muss, ist, die Nachrichten zu senden, die von ihm verlangt werden. Ihr Workflow kann auch Anforderungen an Login/Authentifizierung stellen, aber solche Details variieren.
+Alles, was Ihr Signalisierungsserver jetzt tun muss, ist die Nachrichten zu senden, die von ihm angefordert werden. Ihr Workflow kann auch Login-/Authentifizierungsfunktionen erfordern, aber solche Details variieren.
 
 > [!NOTE]
-> Das [`onicecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis und das Versprechen von [`createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) sind beide asynchrone Aufrufe, die separat behandelt werden. Stellen Sie sicher, dass Ihre Signalisierung nicht die Reihenfolge ändert! Zum Beispiel muss [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) mit den Ice-Kandidaten des Servers nach der Einstellung der Antwort mit [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufgerufen werden.
+> Das [`onicecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis und das [`createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer)-Versprechen sind beide asynchrone Aufrufe, die getrennt behandelt werden. Stellen Sie sicher, dass sich die Reihenfolge der Signalisierung nicht ändert! Zum Beispiel muss [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) mit den ICE-Kandidaten des Servers nach dem Einstellen der Antwort mit [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufgerufen werden.
 
-### Signalisierungs-Transaktionsfluss
+### Signalisierungsvorgang
 
-Der Signalisierungsprozess umfasst diesen Austausch von Nachrichten zwischen zwei Peers unter Verwendung eines Vermittlers, des Signalisierungsservers. Der genaue Prozess wird natürlich variieren, aber im Allgemeinen gibt es einige kritische Punkte, an denen Signalisierungsnachrichten behandelt werden:
+Der Signalisierungsprozess umfasst diesen Austausch von Nachrichten zwischen zwei Peers über einen Intermediär, den Signalisierungsserver. Der genaue Prozess variiert natürlich, aber im Allgemeinen gibt es ein paar kritische Punkte, an denen Signalisierungsnachrichten bearbeitet werden:
 
-- Jeder Benutzer-Client, der in einem Webbrowser ausgeführt wird
-- Jeder Benutzer-Webbrowser
+- Der in einem Webbrowser laufende Client jedes Benutzers
+- Der Webbrowser jedes Benutzers
 - Der Signalisierungsserver
 - Der Webserver, der den Chat-Dienst hostet
 
-Stellen Sie sich vor, Naomi und Priya führen eine Diskussion unter Verwendung der Chat-Software, und Naomi beschließt, einen Videoanruf zwischen den beiden zu eröffnen. Hier ist die erwartete Abfolge der Ereignisse:
+Stellen Sie sich vor, Naomi und Priya unterhalten sich mit der Chat-Software, und Naomi entscheidet sich, einen Videoanruf zwischen den beiden zu eröffnen. Hier ist die erwartete Abfolge von Ereignissen:
 
 ![Diagramm des Signalisierungsprozesses](webrtc_-_signaling_diagram.svg)
 
-Wir werden dies im Verlauf dieses Artikels genauer betrachten.
+Wir werden dies im Verlauf dieses Artikels detaillierter erläutern.
 
 ### ICE-Kandidaten-Austauschprozess
 
-Wenn die ICE-Schicht jedes Peers beginnt, Kandidaten zu senden, beginnt sie mit einem Austausch unter den verschiedenen Punkten in der Kette, der so aussieht:
+Wenn die ICE-Schicht jedes Peers beginnt, Kandidaten zu senden, beteiligt sie sich an einem Austausch zwischen den verschiedenen Punkten in der Kette, der wie folgt aussieht:
 
 ![Diagramm des ICE-Kandidaten-Austauschprozesses](webrtc_-_ice_candidate_exchange.svg)
 
-Jede Seite sendet Kandidaten an die andere, sobald sie sie von ihrer lokalen ICE-Schicht empfängt; es gibt kein abwechselndes Senden oder Gruppieren von Kandidaten. Sobald die beiden Peers sich auf einen Kandidaten einigen, den sie beide verwenden können, um Medien auszutauschen, beginnen die Medien zu fließen. Jeder Peer sendet weiterhin Kandidaten, bis ihm die Möglichkeiten ausgehen, selbst nachdem die Medien bereits zu fließen begonnen haben. Dies geschieht in der Hoffnung, noch bessere Optionen zu identifizieren als die anfänglich gewählte.
+Jede Seite sendet Kandidaten an die andere, sobald sie sie von ihrer lokalen ICE-Schicht erhält; es gibt kein Abwechseln oder Bündeln von Kandidaten. Sobald die beiden Peers sich auf einen Kandidaten geeinigt haben, den sie beide zur Übertragung von Medien verwenden können, beginnt der Medienfluss. Jeder Peer sendet weiterhin Kandidaten, bis ihm die Möglichkeiten ausgehen, auch nachdem der Medienfluss bereits begonnen hat. Dies geschieht in der Hoffnung, noch bessere Optionen als die anfänglich ausgewählte zu finden.
 
-Wenn sich die Bedingungen ändern (zum Beispiel verschlechtert sich die Netzwerkverbindung), könnte einer oder beide Peers vorschlagen, zu einer Medienauflösung mit niedrigerer Bandbreite oder zu einem alternativen Codec zu wechseln. Das löst einen neuen Austausch von Kandidaten aus, nach dem ein weiterer Medienformat- und/oder Codec-Wechsel stattfinden kann. Im Leitfaden [Codecs, die von WebRTC verwendet werden](/de/docs/Web/Media/Formats/WebRTC_codecs) können Sie mehr über die Codecs erfahren, die WebRTC von Browsern unterstützt werden müssen, welche zusätzlichen Codecs von welchen Browsern unterstützt werden, und wie Sie die besten Codecs auswählen, die Sie verwenden möchten.
+Wenn sich die Bedingungen ändern (zum Beispiel verschlechtert sich die Netzwerkverbindung), könnte einer oder beide Peers vorschlagen, auf eine Verbindung mit geringerer Bandbreite umzuschalten oder auf einen alternativen Codec zu wechseln. Dies löst einen neuen Austausch von Kandidaten aus, wonach möglicherweise ein weiteres Medienformat und/oder ein Codec-Wechsel erfolgt. Im Leitfaden [Codecs, die von WebRTC verwendet werden](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) können Sie mehr über die Codecs erfahren, die WebRTC voraussetzt, dass Browser unterstützen, welche zusätzlichen Codecs von welchen Browsern unterstützt werden, und wie man die besten Codecs auswählt.
 
-Siehe optional {{RFC(8445, "Interactive Connectivity Establishment")}}, [Abschnitt 2.3 ("Negotiating Candidate Pairs and Concluding ICE")](https://datatracker.ietf.org/doc/html/rfc5245#section-2.3), wenn Sie ein tieferes Verständnis dafür erlangen möchten, wie dieser Prozess innerhalb der ICE-Schicht abgeschlossen wird. Sie sollten beachten, dass Kandidaten ausgetauscht werden und Medien zu fließen beginnen, sobald die ICE-Schicht zufrieden ist. Dies wird alles hinter den Kulissen erledigt. Unsere Aufgabe ist es, die Kandidaten hin und her durch den Signalisierungsserver zu senden.
+Optional siehe {{RFC(8445, "Interactive Connectivity Establishment")}}, [Abschnitt 2.3 ("Aushandlung von Kandidatenpaaren und Abschluss der ICE")](https://datatracker.ietf.org/doc/html/rfc5245#section-2.3), wenn Sie ein tieferes Verständnis dafür erlangen möchten, wie dieser Prozess innerhalb der ICE-Schicht abgeschlossen wird. Sie sollten beachten, dass Kandidaten ausgetauscht werden und Medien zu fließen beginnen, sobald die ICE-Schicht zufrieden ist. Dies wird alles im Hintergrund erledigt. Unsere Rolle besteht darin, die Kandidaten hin und her über den Signalisierungsserver zu senden.
 
 ## Die Client-Anwendung
 
-Das Kernstück jedes Signalisierungsprozesses ist seine Nachrichtenverarbeitung. Es ist nicht notwendig, WebSockets für die Signalisierung zu verwenden, aber es ist eine gängige Lösung. Sie sollten natürlich einen Mechanismus zur Übertragung von Signalisierungsinformationen auswählen, der für Ihre Anwendung geeignet ist.
+Das Kernstück eines Signalisierungsprozesses ist das Nachrichten-Handling. Es ist nicht notwendig, WebSockets für die Signalisierung zu verwenden, aber es ist eine verbreitete Lösung. Sie sollten natürlich den Mechanismus zum Austausch von Signalisierungsinformationen wählen, der für Ihre Anwendung geeignet ist.
 
 Aktualisieren wir den Chat-Client, um Videoanrufe zu unterstützen.
 
 ### Aktualisierung des HTML
 
-Das HTML für unseren Client benötigt einen Ort, an dem das Video angezeigt wird. Dazu sind Videoelemente erforderlich, sowie eine Schaltfläche, um den Anruf zu beenden:
+Das HTML für unseren Client benötigt einen Ort, um das Video zu präsentieren. Dies erfordert Video-Elemente und eine Schaltfläche zum Auflegen des Anrufs:
 
 ```html
 <div class="flexChild" id="camera-container">
@@ -163,19 +163,19 @@ Das HTML für unseren Client benötigt einen Ort, an dem das Video angezeigt wir
 </div>
 ```
 
-Die hier definierte Seitenstruktur verwendet {{HTMLElement("div")}}-Elemente, die uns die volle Kontrolle über das Seitenlayout geben, indem sie die Verwendung von CSS ermöglichen. Wir werden auf die Layout-Details in diesem Leitfaden verzichten, aber [schauen Sie sich das CSS](https://github.com/mdn/samples-server/blob/master/s/webrtc-from-chat/chat.css) auf GitHub an, um zu sehen, wie wir es umgesetzt haben. Beachten Sie die beiden {{HTMLElement("video")}}-Elemente, eines für Ihre Selbstansicht, eines für die Verbindung, und das {{HTMLElement("button")}}-Element.
+Die hier definierte Seitenstruktur verwendet {{HTMLElement("div")}}-Elemente, wodurch wir die volle Kontrolle über das Seitendesign haben und die Verwendung von CSS ermöglicht wird. Wir lassen die Layout-Details in diesem Leitfaden aus, aber [sehen Sie sich das CSS](https://github.com/mdn/samples-server/blob/master/s/webrtc-from-chat/chat.css) auf GitHub an, um zu sehen, wie wir es gehandhabt haben. Beachten Sie die zwei {{HTMLElement("video")}}-Elemente, eines für Ihre Selbstansicht, eines für die Verbindung, und das {{HTMLElement("button")}}-Element.
 
-Das `<video>`-Element mit der `id` `received_video` zeigt das von dem verbundenen Benutzer empfangene Video an. Wir spezifizieren das `autoplay`-Attribut, wodurch sichergestellt wird, dass das Video, sobald es ankommt, sofort abgespielt wird. Dies beseitigt die Notwendigkeit, die Wiedergabe explizit in unserem Code zu behandeln. Das `local_video`-`<video>`-Element zeigt eine Vorschau der Kamera des Benutzers; wir spezifizieren das `muted`-Attribut, da wir den lokalen Ton in diesem Vorschaufenster nicht hören müssen.
+Das `<video>`-Element mit der `id` `received_video` wird Video präsentieren, das von dem verbundenen Benutzer empfangen wird. Wir geben das `autoplay`-Attribut an, wodurch das Video sofort abgespielt wird, sobald es zu kommen beginnt. Dadurch entfällt die Notwendigkeit, die Wiedergabe speziell in unserem Code zu handhaben. Das `local_video`-`<video>`-Element präsentiert eine Vorschau der Kamera des Benutzers; wir geben das `muted`-Attribut an, da wir das lokale Audio in diesem Vorschaubildschirm nicht hören müssen.
 
-Schließlich ist die `hangup-button` {{HTMLElement("button")}} definiert und so konfiguriert, dass sie beim Klicken die Funktion `hangUpCall()` ausführt. Diese Funktion schließt den Anruf und sendet eine Benachrichtigung an den Signalisierungsserver, in der der andere Peer gebeten wird, ebenfalls zu schließen.
+Schließlich das `hangup-button`-{{HTMLElement("button")}}, um die Verbindung zu trennen, und es wird so definiert und konfiguriert, dass es standardmäßig deaktiviert ist (wir setzen dies als Standard, wenn keine Verbindung besteht) und die Funktion `hangUpCall()` bei Klick anwendet. Diese Funktion hat die Aufgabe, den Anruf zu beenden, und sendet eine Benachrichtigung an den anderen Peer, dass er sich ebenfalls schließen soll.
 
 ### Der JavaScript-Code
 
-Wir werden diesen Code in funktionale Bereiche unterteilen, um leichter zu beschreiben, wie er funktioniert. Der Hauptteil dieses Codes befindet sich in der Funktion `connect()`: sie öffnet einen [`WebSocket`](/de/docs/Web/API/WebSocket)-Server auf Port 6503 und richtet einen Handler ein, um Nachrichten im JSON-Objektformat zu empfangen. Dieser Code behandelt im Allgemeinen Text-Chat-Nachrichten so wie zuvor.
+Wir teilen diesen Code in Funktionsbereiche auf, um leichter zu beschreiben, wie er funktioniert. Der Hauptteil dieses Codes befindet sich in der Funktion `connect()`: Diese öffnet einen [`WebSocket`](/de/docs/Web/API/WebSocket)-Server auf Port 6503 und erstellt einen Handler, um Nachrichten im JSON-Objekt-Format zu empfangen. Dieser Code behandelt im Allgemeinen Textchat-Nachrichten wie zuvor.
 
 #### Senden von Nachrichten an den Signalisierungsserver
 
-Im gesamten Code rufen wir `sendToServer()` auf, um Nachrichten an den Signalisierungsserver zu senden. Diese Funktion verwendet die [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung, um ihre Arbeit zu erledigen:
+In unserem Code rufen wir `sendToServer()` auf, um Nachrichten an den Signalisierungsserver zu senden. Diese Funktion verwendet die [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung, um ihre Arbeit zu erledigen:
 
 ```js
 function sendToServer(msg) {
@@ -185,11 +185,11 @@ function sendToServer(msg) {
 }
 ```
 
-Das Nachrichtenobjekt, das an diese Funktion übergeben wird, wird mit einem Aufruf von {{jsxref("JSON.stringify()")}} in eine JSON-Zeichenfolge konvertiert, dann rufen wir die [`send()`](/de/docs/Web/API/WebSocket/send)-Funktion der WebSocket-Verbindung auf, um die Nachricht an den Server zu übertragen.
+Das an diese Funktion übergebene Nachrichtenobjekt wird durch Aufruf von {{jsxref("JSON.stringify()")}} in einen JSON-String umgewandelt, dann rufen wir die [`send()`](/de/docs/Web/API/WebSocket/send)-Funktion der WebSocket-Verbindung auf, um die Nachricht an den Server zu übertragen.
 
 #### Benutzeroberfläche zum Starten eines Anrufs
 
-Der Code, der die `"user-list"` Nachricht behandelt, ruft `handleUserListMsg()` auf. Hier richten wir den Handler für jeden verbundenen Benutzer in der Benutzerliste ein, die links neben dem Chat-Panel angezeigt wird. Diese Funktion empfängt ein Nachrichtenobjekt, dessen `users`-Eigenschaft ein Array von Strings ist, das die Benutzernamen jedes verbundenen Benutzers angibt.
+Der Code, der die `"user-list"`-Nachricht behandelt, ruft `handleUserListMsg()` auf. Hier richten wir den Handler für jeden verbundenen Benutzer in der Liste anzuzeigenden Benutzernamen links vom Chatfenster ein. Diese Funktion empfängt ein Nachrichtenobjekt, dessen `users`-Eigenschaft ein Array von Strings ist, das die Benutzernamen aller verbundenen Benutzer angibt.
 
 ```js
 function handleUserListMsg(msg) {
@@ -209,18 +209,18 @@ function handleUserListMsg(msg) {
 }
 ```
 
-Nachdem wir einen Verweis auf das {{HTMLElement("ul")}} erhalten haben, das die Liste der Benutzernamen enthält, in die Variable `listElem`, leeren wir die Liste, indem wir jedes ihrer Kind-Elemente entfernen.
+Nachdem wir eine Referenz auf das {{HTMLElement("ul")}}-Element mit der Namensliste in der Variablen `listElem` abgerufen haben, leeren wir die Liste, indem wir jedes ihrer Kind-Elemente entfernen.
 
 > [!NOTE]
-> Offensichtlich wäre es effizienter, die Liste zu aktualisieren, indem einzelne Benutzer hinzugefügt und entfernt werden, anstatt die gesamte Liste jedes Mal, wenn sie sich ändert, neu zu erstellen, aber dies ist für die Zwecke dieses Beispiels gut genug.
+> Es wäre offensichtlich effizienter, die Liste zu aktualisieren, indem man einzelne Benutzer hinzufügt und entfernt, statt die ganze Liste jedes Mal neu zu erstellen, wenn sie sich ändert, aber das ist für dieses Beispiel gut genug.
 
-Dann iterieren wir über das Array von Benutzernamen mit {{jsxref("Array.forEach", "forEach()")}}. Für jeden Namen erstellen wir ein neues {{HTMLElement("li")}} Element, dann erstellen wir einen neuen Textknoten, der den Benutzernamen enthält, mit [`createTextNode()`](/de/docs/Web/API/Document/createTextNode). Dieser Textknoten wird als Kind des `<li>`-Elements hinzugefügt. Anschließend setzen wir einen Handler für das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis auf dem Listenelement, sodass ein Klick auf einen Benutzernamen unsere `invite()`-Methode aufruft, die wir im nächsten Abschnitt ansehen werden.
+Dann iterieren wir über das Array der Benutzernamen mit {{jsxref("Array.forEach", "forEach()")}}. Für jeden Namen erstellen wir ein neues {{HTMLElement("li")}}-Element, erstellen dann einen neuen Textknoten, der den Benutzernamen enthält, mittels [`createTextNode()`](/de/docs/Web/API/Document/createTextNode). Dieser Textknoten wird als Kind des `<li>`-Elements hinzugefügt. Danach legen wir einen Handler für das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis auf das Listenelement fest. Das Klicken auf einen Benutzernamen ruft unsere `invite()`-Methode auf, die wir im nächsten Abschnitt betrachten werden.
 
-Schließlich fügen wir das neue Element zum `<ul>` hinzu, das alle Benutzernamen enthält.
+Schließlich fügen wir das neue Element dem `<ul>` hinzu, das die Benutzernamen enthält.
 
 #### Starten eines Anrufs
 
-Wenn der Benutzer auf einen Benutzernamen klickt, den er anrufen möchte, wird die `invite()`-Funktion als Ereignis-Handler für dieses [`click`](/de/docs/Web/API/Element/click_event)-Ereignis aufgerufen:
+Wenn der Benutzer auf einen Benutzernamen klickt, den er anrufen möchte, wird die `invite()`-Funktion als Ereignishandler für dieses [`click`](/de/docs/Web/API/Element/click_event)-Ereignis aufgerufen:
 
 ```js
 const mediaConstraints = {
@@ -257,28 +257,28 @@ function invite(evt) {
 }
 ```
 
-Dies beginnt mit einem grundlegenden Prüfpunkt: Ist der Benutzer bereits verbunden? Wenn es bereits eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gibt, kann er offensichtlich keinen Anruf tätigen. Dann wird der Name des Benutzers, der angeklickt wurde, aus der [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft des Ereignisziels abgerufen, und wir überprüfen, ob es sich nicht um denselben Benutzer handelt, der den Anruf starten möchte.
+Dies beginnt mit einem grundlegenden Sanity-Check: Ist der Benutzer bereits verbunden? Wenn es bereits eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gibt, kann er offensichtlich keinen Anruf tätigen. Dann wird der Name des Benutzers, auf den geklickt wurde, durch die [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft des Ereignisziels abgerufen und wir prüfen, ob es nicht der gleiche Benutzer ist, der versucht, den Anruf zu starten.
 
-Dann kopieren wir den Namen des Benutzers, den wir anrufen, in die Variable `targetUsername` und rufen `createPeerConnection()` auf, eine Funktion, die die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellen und eine grundlegende Konfiguration vornehmen wird.
+Dann kopieren wir den Namen des Benutzers, den wir anrufen, in die Variable `targetUsername` und rufen `createPeerConnection()` auf, eine Funktion, die die Grundkonfiguration der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) durchführt.
 
-Sobald die `RTCPeerConnection` erstellt wurde, fordern wir über einen Aufruf von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) Zugriff auf die Kamera und das Mikrofon des Benutzers an, die uns durch die [`MediaDevices.getUserMedia`](/de/docs/Web/API/MediaDevices/getUserMedia)-Eigenschaft zur Verfügung gestellt werden. Wenn dies erfolgreich ist, wird das zurückgegebene Versprechen erfüllt, und unser `then`-Handler wird ausgeführt. Der Handler empfängt als Eingabe ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt, das den Stream mit Audio vom Mikrofon des Benutzers und Video von seiner Webcam darstellt.
+Sobald die `RTCPeerConnection` erstellt wurde, fordern wir den Zugriff auf die Kamera und das Mikrofon des Benutzers an, indem wir [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) aufrufen, die uns über die [`MediaDevices.getUserMedia`](/de/docs/Web/API/MediaDevices/getUserMedia)-Eigenschaft zur Verfügung gestellt wird. Wenn dies erfolgreich ist und das zurückgegebene Versprechen erfüllt, wird unser `then`-Handler ausgeführt. Dieser erhält als Eingang ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt, das den Stream mit Audio von dem Mikrofon des Benutzers und Video von seiner Webcam darstellt.
 
 > [!NOTE]
-> Wir könnten die Menge der zulässigen Media-Eingaben auf ein bestimmtes Gerät oder eine bestimmte Geräteklasse beschränken, indem wir [`navigator.mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) aufrufen, um eine Liste von Geräten zu erhalten, die resultierende Liste nach unseren gewünschten Kriterien filtern und dann die `deviceId`-Werte der gewählten Geräte im `deviceId`-Feld des `mediaConstraints`-Objekts verwenden, das an `getUserMedia()` übergeben wird. In der Praxis ist dies selten notwendig, da die meiste Arbeit bereits für Sie von `getUserMedia()` erledigt wird.
+> Wir könnten die Auswahl der zulässigen Medieneingaben auf ein bestimmtes Gerät oder eine Gerätegruppe beschränken, indem wir [`navigator.mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) aufrufen, um eine Liste von Geräten zu erhalten, die resultierende Liste zu filtern basierend auf unseren gewünschten Kriterien und den `deviceId`-Werten der ausgewählten Geräte im `deviceId`-Feld des `mediaConstraints`-Objekts zu verwenden, das an `getUserMedia()` übergeben wird. In der Praxis ist dies jedoch selten erforderlich, da die meiste Arbeit von `getUserMedia()` für Sie erledigt wird.
 
-Wir heften den eingehenden Stream an das lokale Vorschau-{{HTMLElement("video")}}-Element, indem wir die [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft des Elements festlegen. Da das Element so konfiguriert ist, dass Videos automatisch abgespielt werden, beginnt der Stream, in unserem lokalen Vorschaubereich zu spielen.
+Wir fügen den eingehenden Stream dem lokalen Vorschau-{{HTMLElement("video")}}-Element hinzu, indem wir die [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft des Elements einstellen. Da das Element so konfiguriert ist, dass es eingehendes Video automatisch abspielt, beginnt der Stream in unserem lokalen Vorschaufenster zu spielen.
 
-Wir iterieren dann über die Tracks im Stream und rufen [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) auf, um jeden Track zur `RTCPeerConnection` hinzuzufügen. Auch wenn die Verbindung noch nicht vollständig hergestellt ist, können Sie beginnen, Daten zu senden, wenn Sie es für angemessen halten. Medien, die vor dem Abschluss der ICE-Verhandlung empfangen werden, können verwendet werden, um ICE bei der Entscheidung über den besten Konnektivitätsansatz zu unterstützen, was wiederum den Verhandlungsprozess unterstützt.
+Wir iterieren dann über die Tracks im Stream und rufen [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) auf, um jeden Track zur `RTCPeerConnection` hinzuzufügen. Auch wenn die Verbindung noch nicht vollständig hergestellt ist, können Sie mit dem Senden von Daten beginnen, wenn es Ihnen angemessen erscheint. Medien, die empfangen werden, bevor die ICE-Verhandlung abgeschlossen ist, können zur Unterstützung der ICE bei der Entscheidung über den besten Konnektivitätsansatz verwendet werden, was den Verhandlungsprozess unterstützt.
 
-Beachten Sie, dass Sie für native Apps, wie eine Telefonanwendung, mit dem Senden erst beginnen sollten, nachdem die Verbindung an beiden Enden akzeptiert wurde, um zu vermeiden, dass Video- und/oder Audiodaten versehentlich gesendet werden, wenn der Benutzer nicht darauf vorbereitet ist.
+Beachten Sie, dass bei nativen Anwendungen wie z.B. einer Telefonanwendung das Senden erst beginnen sollte, wenn die Verbindung an beiden Enden akzeptiert wurde, zumindest um versehentliches Senden von Video-/Audiodaten zu vermeiden, wenn der Benutzer nicht darauf vorbereitet ist.
 
-Sobald Medien an die `RTCPeerConnection` angehängt sind, wird ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis an der Verbindung ausgelöst, sodass die ICE-Verhandlung gestartet werden kann.
+Sobald Medien an die `RTCPeerConnection` angeschlossen sind, löst die Verbindung ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis aus, sodass die ICE-Verhandlung gestartet werden kann.
 
-Tritt beim Versuch, den lokalen Mediastream zu erhalten, ein Fehler auf, ruft unsere `catch`-Klausel `handleGetUserMediaError()` auf, die dem Benutzer bei Bedarf eine entsprechende Fehlermeldung anzeigt.
+Wenn ein Fehler beim Versuch, den lokalen Mediastream abzurufen, auftritt, ruft unsere `catch`-Klausel `handleGetUserMediaError()` auf, die einen entsprechenden Fehler dem Benutzer je nach Bedarf anzeigt.
 
-#### Behandeln von `getUserMedia()`-Fehlern
+#### Umgang mit getUserMedia()-Fehlern
 
-Wenn das von `getUserMedia()` zurückgegebene Versprechen in einem Fehler endet, führt unsere `handleGetUserMediaError()`-Funktion aus.
+Wenn das von `getUserMedia()` zurückgegebene Versprechen fehlschlägt, wird unsere `handleGetUserMediaError()`-Funktion ausgeführt.
 
 ```js
 function handleGetUserMediaError(e) {
@@ -302,13 +302,13 @@ function handleGetUserMediaError(e) {
 }
 ```
 
-In allen Fällen wird eine Fehlermeldung angezeigt, außer in einem. In diesem Beispiel ignorieren wir die Ergebnisse `"SecurityError"` und `"PermissionDeniedError"`, und behandeln die Verweigerung der Erlaubnis zur Verwendung der Medienhardware genauso wie das Abbrechen des Anrufs durch den Benutzer.
+Eine Fehlermeldung wird in allen Fällen angezeigt, mit Ausnahme von einem. In diesem Beispiel ignorieren wir `"SecurityError"` und `"PermissionDeniedError"`-Ergebnisse und behandeln die Verweigerung der Erlaubnis zur Nutzung der Medienhardware genauso, als ob der Benutzer den Anruf abbricht.
 
-Unabhängig davon, warum der Versuch, den Stream zu erhalten, fehlgeschlagen ist, rufen wir unsere `closeVideoCall()`-Funktion auf, um die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu schließen und alle bereits vom Versuch verursachten Ressourcen freizugeben. Dieser Code ist darauf ausgelegt, teilweise gestartete Anrufe sicher zu behandeln.
+Unabhängig davon, warum ein Versuch, den Stream zu erhalten, fehlschlägt, rufen wir unsere `closeVideoCall()`-Funktion auf, um die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) herunterzufahren und alle bereits durch den Versuch, den Anruf einzuleiten, zugewiesenen Ressourcen freizugeben. Dieser Code ist dafür ausgelegt, teilweise gestartete Anrufe sicher zu handhaben.
 
-#### Erstellen der Peer-Verbindung
+#### Erstellung der Peer-Verbindung
 
-Die Funktion `createPeerConnection()` wird sowohl vom Anrufer als auch vom Angerufenen verwendet, um ihre [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekte zu erstellen, ihre jeweiligen Enden der WebRTC-Verbindung. Sie wird von `invite()` aufgerufen, wenn der Anrufer versucht, einen Anruf zu starten, und von `handleVideoOfferMsg()` aufgerufen, wenn der Angerufene eine Angebotsnachricht vom Anrufer erhält.
+Die Funktion `createPeerConnection()` wird sowohl vom Anrufer als auch vom Angerufenen verwendet, um ihre jeweiligen [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekte, die Enden der WebRTC-Verbindung, zu konstruieren. Sie wird von `invite()` aufgerufen, wenn der Anrufer versucht, einen Anruf zu starten, und von `handleVideoOfferMsg()`, wenn der Angerufene eine Angebotsnachricht vom Anrufer erhält.
 
 ```js
 function createPeerConnection() {
@@ -333,35 +333,35 @@ function createPeerConnection() {
 }
 ```
 
-Beim Verwenden des [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection)-Konstruktors spezifizieren wir ein Objekt, das Konfigurationsparameter für die Verbindung bereitstellt. Wir verwenden in diesem Beispiel nur eines davon: `iceServers`. Dies ist ein Array von Objekten, die STUN- und/oder TURN-Server für die {{Glossary("ICE", "ICE")}}-Schicht beschreiben, die verwendet werden, um bei dem Versuch, eine Route zwischen dem Anrufer und dem Angerufenen zu verbinden. Diese Server werden verwendet, um die besten Routen und Protokolle zu bestimmen, wenn Peers kommunizieren, auch wenn sie sich hinter einer Firewall oder mit {{Glossary("NAT", "NAT")}} befinden.
+Beim Verwenden des [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection)-Konstruktors geben wir ein Objekt an, das Konfigurationsparameter für die Verbindung bereitstellt. Wir verwenden in diesem Beispiel nur eines dieser Details: `iceServers`. Es handelt sich um ein Array von Objekten, die STUN- und/oder TURN-Server für die {{Glossary("ICE", "ICE")}}-Schicht beschreiben, die verwendet werden, um den besten Weg und die besten Protokolle zu bestimmen, die bei der Kommunikation zwischen den Peers verwendet werden sollen, selbst wenn sich diese hinter einer Firewall befinden oder {{Glossary("NAT", "NAT")}} verwenden.
 
 > [!NOTE]
-> Sie sollten immer STUN/TURN-Server verwenden, die Sie besitzen oder die Sie ausdrücklich verwenden dürfen. Dieses Beispiel verwendet einen bekannten öffentlichen STUN-Server, aber dessen Missbrauch ist unangebracht.
+> Sie sollten immer STUN-/TURN-Server verwenden, die Ihnen gehören oder zu deren Nutzung Sie eine spezifische Erlaubnis haben. Dieses Beispiel verwendet einen bekannten öffentlichen STUN-Server, aber dessen Missbrauch ist schlechter Stil.
 
-Jedes Objekt in `iceServers` enthält mindestens ein `urls`-Feld, das URLs angibt, unter denen der angegebene Server erreichbar ist. Es kann auch `username` und `credential` Werte bereitstellen, um eine Authentifizierung durchzuführen, falls erforderlich.
+Jedes Objekt in `iceServers` enthält mindestens ein `urls`-Feld, das die URLs angibt, bei denen der angegebene Server erreicht werden kann. Es kann auch `username`- und `credential`-Werte bereitstellen, um eine Authentifizierung durchzuführen, falls erforderlich.
 
-Nachdem wir die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt haben, richten wir Handler für die Ereignisse ein, die uns wichtig sind.
+Nachdem die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt wurde, richten wir Handler für die Ereignisse ein, die für uns von Bedeutung sind.
 
-Die ersten drei dieser Ereignishandler sind erforderlich; Sie müssen sie behandeln, um irgendetwas mit gestreamten Medien mit WebRTC zu tun. Die restlichen sind nicht unbedingt erforderlich, können aber nützlich sein, und wir werden sie erkunden. Es gibt einige andere Ereignisse, die wir in diesem Beispiel nicht verwenden. Hier ist eine Zusammenfassung der Ereignishandler, die wir implementieren werden:
+Die ersten drei dieser Ereignishandler sind erforderlich; Sie müssen sie behandeln, um irgendetwas mit gestreamten Medien mit WebRTC zu tun. Der Rest ist nicht unbedingt erforderlich, kann aber nützlich sein, und wir werden sie erkunden. Es gibt noch einige andere Ereignisse, die wir in diesem Beispiel nicht verwenden. Hier ist eine Zusammenfassung der Ereignishandler, die wir implementieren werden:
 
 - [`onicecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)
-  - : Die lokale ICE-Schicht ruft Ihren [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignishandler auf, wenn Sie einen ICE-Kandidaten an den anderen Peer über Ihren Signalisierungsserver übermitteln müssen. Siehe [Senden von ICE-Kandidaten](#senden_von_ice-kandidaten), um weitere Informationen und um den Code für dieses Beispiel zu sehen.
+  - : Die lokale ICE-Schicht ruft Ihren [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignishandler auf, wenn Sie einen ICE-Kandidaten an den anderen Peer über Ihren Signalisierungsserver übertragen müssen. Siehe [Senden von ICE-Kandidaten](#senden_von_ickandidaten) für weitere Informationen und den Code in diesem Beispiel.
 - [`ontrack`](/de/docs/Web/API/RTCPeerConnection/track_event)
-  - : Dieser Handler für das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis wird von der lokalen WebRTC-Schicht aufgerufen, wenn ein Track zur Verbindung hinzugefügt wird. Dies ermöglicht Ihnen, das eingehende Medium einem Element zuzuordnen, um es beispielsweise anzuzeigen. Siehe [Empfangen neuer Streams](#empfangen_neuer_streams) für Details.
+  - : Dieser Handler für das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis wird von der lokalen WebRTC-Schicht aufgerufen, wenn ein Track in die Verbindung aufgenommen wird. Dies ermöglicht es Ihnen, das eingehende Medienmaterial an ein Element anzuschließen, um es anzuzeigen. Einzelheiten finden Sie unter [Empfangen neuer Streams](#empfang_neuer_streams).
 - [`onnegotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)
-  - : Diese Funktion wird aufgerufen, wann immer die WebRTC-Infrastruktur Sie benötigt, um den Sitzungsverhandlungsprozess neu zu starten. Ihre Aufgabe besteht darin, ein Angebot an den Angerufenen zu erstellen und zu senden, um ihn zu bitten, sich mit uns zu verbinden. Siehe [Starten der Verhandlungen](#starten_der_verhandlungen), um zu sehen, wie wir dies handhaben.
+  - : Diese Funktion wird aufgerufen, wenn die WebRTC-Infrastruktur es benötigt, dass Sie den Sitzungsverhandlungsprozess von neuem starten. Ihre Aufgabe ist es, ein Angebot zu erstellen und an den Angerufenen zu senden, um es zu bitten, mit uns zu verbinden. Weitere Informationen finden Sie unter [Starten von Verhandlungen](#starten_von_verhandlungen).
 - [`onremovetrack`](/de/docs/Web/API/RTCPeerConnection/removetrack_event)
-  - : Dieses Gegenstück zu `ontrack` wird aufgerufen, um das [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)-Ereignis zu behandeln; es wird an die `RTCPeerConnection` gesendet, wenn der entfernte Peer einen Track aus den gesendeten Medien entfernt. Siehe [Behandeln der Entfernung von Tracks](#handhabung_der_entfernung_von_tracks).
+  - : Dieses Gegenstück zu `ontrack` wird aufgerufen, sobald ein Track aus den gesendeten Medien entfernt wird. Es behandelt das Ereignis [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event), das an die `RTCPeerConnection` gesendet wird, wenn der ferngesteuerte Peer einen Track entfernt. Siehe [Umgang mit der Entfernung von Tracks](#umgang_mit_der_entfernung_von_tracks).
 - [`oniceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)
-  - : Das [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)-Ereignis wird von der ICE-Schicht gesendet, um Sie über Änderungen im Zustand der ICE-Verbindung zu informieren. Dies kann Ihnen helfen zu wissen, wann die Verbindung fehlgeschlagen oder verloren hat. Wir werden den Code für dieses Beispiel in [ICE-Verbindungszustand](#ice-verbindungszustand) unten ansehen.
+  - : Das [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)-Ereignis wird von der ICE-Schicht gesendet, um Sie über Änderungen im Verbindungszustand der ICE-Verbindung zu informieren. Dies kann Ihnen helfen zu wissen, wann die Verbindung fehlgeschlagen oder verloren gegangen ist. Den Code für dieses Beispiel werden wir in [ICE-Verbindungsstatus](#ice-verbindungsstatus) sehen.
 - [`onicegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)
-  - : Die ICE-Schicht sendet Ihnen das [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)-Ereignis, wenn sich der Zustand des Sammelprozesses von ICE-Kandidaten ändert, vom Starten des Sammlers bis zur Beendigung der Verhandlungen. Siehe [Ice Gathering State](#ice-gathering-zustand) unten.
+  - : Die ICE-Schicht sendet Ihnen das [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)-Ereignis, wenn sich der Zustand des Suchbegriffs des ICE-Agenten ändert (z.B. beginnt, Kandidaten zu sammeln oder die Verhandlung abzuschließen). Siehe [ICE-Suchstatus](#ice-suchstatus).
 - [`onsignalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event)
-  - : Die WebRTC-Infrastruktur sendet Ihnen die [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event)-Nachricht, wenn sich der Zustand des Signalisierungsprozesses ändert (oder wenn sich die Verbindung zum Signalisierungsserver ändert). Siehe [Signalisierungszustand](#ice-signalisierungszustand), um unseren Code zu sehen.
+  - : Die WebRTC-Infrastruktur sendet Ihnen die [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event)-Nachricht, wenn sich der Signalisierungsprozess ändert (oder die Verbindung zum Signalisierungsserver ändert). Siehe [Signalisierungsstatus](#ice-signalisierungsstatus), um unseren Code zu sehen.
 
-#### Starten der Verhandlungen
+#### Starten von Verhandlungen
 
-Sobald der Anrufer seine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt, einen Medienstream erstellt und seine Tracks wie unter [Starten eines Anrufs](#starten_eines_anrufs) zur Verbindung hinzugefügt hat, wird der Browser ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) senden, um anzuzeigen, dass er bereit ist, die Verhandlungen mit dem anderen Peer zu beginnen. Hier ist unser Code zur Behandlung des [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignisses:
+Sobald der Anrufer seine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt hat, einen Medienstrom erstellt und seine Tracks zur Verbindung hinzugefügt hat, wie unter [Starten eines Anrufs](#starten_eines_anrufs) gezeigt, wird der Browser ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) liefern, um anzuzeigen, dass es bereit ist, eine Verhandlung mit dem anderen Peer zu beginnen. Hier ist unser Code zur Behandlung des [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignisses:
 
 ```js
 function handleNegotiationNeededEvent() {
@@ -380,14 +380,14 @@ function handleNegotiationNeededEvent() {
 }
 ```
 
-Um den Verhandlungsprozess zu starten, müssen wir ein SDP-Angebot an den Peer senden, mit dem wir eine Verbindung herstellen möchten. Dieses Angebot enthält eine Liste der unterstützten Konfigurationen für die Verbindung, einschließlich Informationen über den Medienstream, den wir lokal zur Verbindung hinzugefügt haben (das heißt das Video, das wir an das andere Ende des Anrufs senden möchten), und alle von der ICE-Schicht bereits gesammelten ICE-Kandidaten. Wir erstellen dieses Angebot, indem wir [`myPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) aufrufen.
+Um den Verhandlungsprozess zu starten, müssen wir ein SDP-Angebot an den Peer senden, mit dem wir verbinden möchten. Dieses Angebot enthält eine Liste unterstützter Konfigurationen für die Verbindung, einschließlich Informationen über den Medienstrom, den wir lokal zur Verbindung hinzugefügt haben (also das Video, das wir an das andere Ende des Anrufs senden möchten), und alle vom ICE-Schicht bereits gesammelten ICE-Kandidaten. Wir erstellen dieses Angebot, indem wir [`myPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) aufrufen.
 
-Wenn `createOffer()` erfolgreich ist (und das Versprechen erfüllt wird), geben wir die erstellten Angebotsinformationen an [`myPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) weiter, die den Zustands der Verbindung und der Medienkonfiguration für das Ende des Anrufers konfiguriert.
+Wenn `createOffer()` erfolgreich ist (das Versprechen erfüllt), übergeben wir die erstellten Angebotsinformationen an [`myPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription), das den Zustand der Verbindung und der Medienkonfiguration für das Ende des Anrufers der Verbindung konfiguriert.
 
 > [!NOTE]
-> Technisch gesehen ist die von `createOffer()` zurückgegebene Zeichenfolge ein {{RFC(3264)}}-Angebot.
+> Technisch gesehen ist der von `createOffer()` zurückgegebene String ein {{RFC(3264)}}-Angebot.
 
-Wir wissen, dass die Beschreibung gültig ist und festgelegt wurde, wenn das von `setLocalDescription()` zurückgegebene Versprechen erfüllt wird. Zu diesem Zeitpunkt senden wir unser Angebot an den anderen Peer, indem wir eine neue `"video-offer"` Nachricht erstellen, die die lokale Beschreibung enthält (die nun identisch mit dem Angebot ist), und sie dann über unseren Signalisierungsserver an den Angerufenen senden. Das Angebot hat die folgenden Mitglieder:
+Wir wissen, dass die Beschreibung gültig ist und festgelegt wurde, wenn das Versprechen, das von `setLocalDescription()` zurückgegeben wird, erfüllt ist. Dann senden wir unser Angebot an den anderen Peer, indem wir eine neue `"video-offer"`-Nachricht mit der lokalen Beschreibung (jetzt die gleiche wie das Angebot) erstellen und sie über unseren Signalisierungsserver an den Angerufenen senden. Das Angebot hat folgende Mitglieder:
 
 - `type`
   - : Der Nachrichtentyp: `"video-offer"`.
@@ -396,19 +396,19 @@ Wir wissen, dass die Beschreibung gültig ist und festgelegt wurde, wenn das von
 - `target`
   - : Der Name des Benutzers, den wir anrufen möchten.
 - `sdp`
-  - : Die SDP-Zeichenfolge, die das Angebot beschreibt.
+  - : Der SDP-String, der das Angebot beschreibt.
 
-Wenn ein Fehler auftritt, entweder im anfänglichen `createOffer()` oder in einem der nachfolgenden Erfüllungshandler, wird ein Fehler durch Aufruf unserer Funktion `window.reportError()` gemeldet.
+Bei einem Fehler, entweder im initialen `createOffer()` oder in einem der darauf folgenden Erfüllungs-Handler, wird ein Fehler durch den Aufruf unserer `window.reportError()`-Funktion gemeldet.
 
-Sobald der `setLocalDescription()` Erfüllungshandler ausgeführt wurde, beginnt das ICE-Agent, [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignisse an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu senden, eines für jede potenzielle Konfiguration, die es entdeckt. Unser Handler für das `icecandidate`-Ereignis ist dafür verantwortlich, die Kandidaten an den anderen Peer zu übertragen.
+Sobald der Erfüllung-Handler von `setLocalDescription()` ausgeführt wurde, beginnt der ICE-Agent [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignisse an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu senden, eines für jede mögliche Konfiguration, die es entdeckt. Unser Handler für das `icecandidate`-Ereignis ist verantwortlich für die Übermittlung der Kandidaten an den anderen Peer.
 
 #### Sitzungsverhandlung
 
-Jetzt, da wir die Verhandlungen mit dem anderen Peer begonnen und ein Angebot übermittelt haben, schauen wir, was auf der Seite des Angerufenen für eine Weile passiert. Der Angerufene empfängt das Angebot und ruft die Funktion `handleVideoOfferMsg()` auf, um es zu verarbeiten. Lassen Sie uns sehen, wie der Angerufene die `"video-offer"`-Nachricht behandelt.
+Nachdem wir nun die Verhandlung mit dem anderen Peer gestartet und ein Angebot übermittelt haben, wollen wir eine Weile sehen, was auf der Seite des Angerufenen der Verbindung passiert. Der Angerufene erhält das Angebot und ruft die `handleVideoOfferMsg()`-Funktion auf, um es zu verarbeiten. Sehen wir, wie der Angerufene die `"video-offer"`-Nachricht behandelt.
 
-##### Handhabung der Einladung
+##### Umgang mit der Einladung
 
-Wenn das Angebot eintrifft, wird auf der Angerufenen-Seite die Funktion `handleVideoOfferMsg()` mit der empfangenen `"video-offer"`-Nachricht aufgerufen. Diese Funktion muss zwei Dinge tun. Zunächst muss sie ihre eigene [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellen und die Tracks, die den Ton und das Video von ihrem Mikrofon und ihrer Webcam enthalten, zu dieser hinzufügen. Zweitens muss sie das empfangene Angebot verarbeiten, indem sie die eigene Antwort erstellt und sendet.
+Wenn das Angebot eintrifft, wird die `handleVideoOfferMsg()`-Funktion des Angerufenen mit der erhaltenen `"video-offer"`-Nachricht aufgerufen. Diese Funktion muss zwei Dinge tun. Erstens muss sie ihre eigene [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellen und die Tracks, die das Audio und Video von ihrem Mikrofon und ihrer Webcam enthalten, zu dieser hinzufügen. Zweitens muss sie das empfangene Angebot verarbeiten, eine Antwort erstellen und senden.
 
 ```js
 function handleVideoOfferMsg(msg) {
@@ -446,19 +446,19 @@ function handleVideoOfferMsg(msg) {
 }
 ```
 
-Dieser Code ist dem, was wir in der `invite()`-Funktion unter [Starten eines Anrufs](#starten_eines_anrufs) getan haben, sehr ähnlich. Es beginnt mit dem Erstellen und Konfigurieren einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) durch unsere `createPeerConnection()`-Funktion. Dann nimmt es das SDP-Angebot aus der empfangenen `"video-offer"`-Nachricht und verwendet es, um ein neues [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt zu erstellen, das die Sitzungsbeschreibung des Anrufers darstellt.
+Dieser Code ist sehr ähnlich dem, was wir in der `invite()`-Funktion im Abschnitt [Starten eines Anrufs](#starten_eines_anrufs) getan haben. Er beginnt mit der Erstellung und Konfiguration einer [`RTCPeerConnection`](/ru/docs/Web/API/RTCPeerConnection), indem unsere `createPeerConnection()`-Funktion verwendet wird. Dann nimmt sie das SDP-Angebot aus der empfangenen `"video-offer"`-Nachricht und verwendet es, um ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt zu erstellen, das die Sitzungsbeschreibung des Anrufers darstellt.
 
-Diese Sitzungsbeschreibung wird dann an [`myPeerConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) übergeben. Dies stellt das empfangene Angebot als die Beschreibung des entfernten (anrufenden) Endes der Verbindung ein. Wenn dies erfolgreich ist, startet der Erfüllungshandler des Versprechens (im `then()`-Abschnitt) den Prozess des Zugriffs auf die Kamera und das Mikrofon des Angerufenen durch [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), fügt die Tracks zur Verbindung hinzu und so weiter, wie wir bereits in `invite()` gesehen haben.
+Diese Sitzungsbeschreibung wird dann an [`myPeerConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) übergeben. Damit wird das empfangene Angebot als Beschreibung des Remote-Endes (des Anrufers) der Verbindung festgelegt. Wenn dies erfolgreich ist, beginnt der Promise-Erfüllungs-Handler (in der `then()`-Klausel) den Prozess, Zugriff auf die Kamera und das Mikrofon des Angerufenen zu erhalten, indem er [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) aufruft, die Tracks zur Verbindung hinzufügt und so weiter, wie wir zuvor in `invite()` gesehen haben.
 
-Sobald die Antwort mit [`myPeerConnection.createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) erstellt wurde, wird die Beschreibung des lokalen Endes der Verbindung aus der Antwort-SDP durch Aufruf von [`myPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) festgelegt, dann wird die Antwort über den Signalisierungsserver an den Anrufer übermittelt, um ihn über die Antwort zu informieren.
+Sobald die Antwort mit [`myPeerConnection.createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) erstellt wurde, wird die Beschreibung des lokalen Endes der Verbindung durch Aufruf von [`myPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) auf die SDP der Antwort festgelegt, dann wird die Antwort über den Signalisierungsserver an den Anrufer gesendet, um ihnen mitzuteilen, was die Antwort ist.
 
-Alle Fehler werden abgefangen und an `handleGetUserMediaError()` übergeben, wie unter [Behandlung von getUserMedia()-Fehlern](#handling_getusermedia_errors) beschrieben.
+Alle Fehler werden erkannt und an `handleGetUserMediaError()` weitergeleitet, das im Abschnitt [Umgang mit getUserMedia()-Fehlern](#handling_getusermedia_errors) beschrieben wird.
 
 > [!NOTE]
-> Wie im Fall des Anrufers werden auch beim Angerufenen, sobald der `setLocalDescription()`-Erfüllungshandler ausgeführt wurde, vom Browser [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignisse gesendet, die der Angerufene behandeln muss, eines für jeden Kandidaten, der an den entfernten Peer übermittelt werden muss.
+> Wie bei dem Anrufer beginnt der Browser nach dem Ausführen des `setLocalDescription()`-Erfüllungs-Handlers [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignisse auszulösen, die der Angerufene behandeln muss, eines für jeden Kandidaten, der an den Remote-Peer übertragen werden muss.
 
-Schließlich behandelt der Anrufer die erhaltene Antwortnachricht, indem er ein neues [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt erstellt, das die Sitzungsbeschreibung des Angerufenen darstellt, und es an
-[`myPeerConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) übergibt.
+Schließlich behandelt der Anrufer die empfangene Antwortnachricht, indem er ein neues [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt erstellt, das die Sitzungsbeschreibung des Angerufenen darstellt, und übergibt diese an
+[`myPeerConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription).
 
 ```js
 function handleVideoAnswerMsg(msg) {
@@ -467,11 +467,11 @@ function handleVideoAnswerMsg(msg) {
 }
 ```
 
-##### Senden von ICE-Kandidaten
+##### Senden von ICKandidaten
 
-Der ICE-Verhandlungsprozess beinhaltet, dass jeder Peer dem anderen wiederholt Kandidaten sendet, bis ihm die potenziellen Wege ausgehen, auf denen er die Medienanforderungen der `RTCPeerConnection` unterstützen kann. Da ICE nichts über Ihren Signalisierungsserver weiß, behandelt Ihr Code die Übertragung jedes Kandidaten in Ihrem Handler für das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis.
+Der ICE-Verhandlungsprozess beinhaltet, dass jede Seite wiederholt Kandidaten an die andere sendet, bis die möglichen verschiedenen Arten von Konfigurationen aufgebraucht sind, die sie zur Unterstützung der Medienübertragungsbedürfnisse der `RTCPeerConnection` glaubt bieten zu können. Da ICE nicht von Ihrem Signalisierungsserver weiß, behandelt Ihr Code die Übertragung jedes Kandidaten in Ihrem Handler für das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis.
 
-Ihr [`onicecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Handler empfängt ein Ereignis, dessen `candidate`-Eigenschaft die SDP beschreibt, die den Kandidaten beschreibt (oder `null` ist, um anzuzeigen, dass der ICE-Schicht keine weiteren potenziellen Konfigurationen zum Vorschlagen übrig sind). Der Inhalt von `candidate` ist das, was Sie mit Ihrem Signalisierungsserver übertragen müssen. Hier ist die Implementierung unseres Beispiels:
+Ihr [`onicecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event) handler erhält ein Ereignis, dessen `candidate`-Eigenschaft die SDP beschreibt, die den Kandidaten beschreibt (oder `null` ist, um anzuzeigen, dass der ICE-Verhandlung keine möglichen Konfigurationen mehr vorzuschlagen hat). Der Inhalt von `candidate` ist das, was Sie über Ihren Signalisierungsserver übertragen müssen. Hier ist die Implementierung unseres Beispiels:
 
 ```js
 function handleICECandidateEvent(event) {
@@ -485,23 +485,23 @@ function handleICECandidateEvent(event) {
 }
 ```
 
-Dies baut ein Objekt auf, das den Kandidaten enthält, und sendet es dann mit der zuvor unter [Senden von Nachrichten an den Signalisierungsserver](#senden_von_nachrichten_an_den_signalisierungsserver) beschriebenen `sendToServer()`-Funktion an den anderen Peer. Die Eigenschaften der Nachricht sind:
+Diese Konstrukte bilden ein Objekt, das den Kandidaten enthält, und senden es an den anderen Peer unter Verwendung der `sendToServer()`-Funktion, die im Abschnitt [Senden von Nachrichten an den Signalisierungsserver](#senden_von_nachrichten_an_den_signalisierungsserver) beschrieben wird. Die Eigenschaften der Nachricht sind:
 
 - `type`
   - : Der Nachrichtentyp: `"new-ice-candidate"`.
 - `target`
-  - : Der Benutzername, an den der ICE-Kandidat weitergeleitet werden muss. So kann der Signalisierungsserver die Nachricht weiterleiten.
+  - : Der Benutzername, zu dem der ICE-Kandidat geliefert werden muss. Dies ermöglicht es dem Signalisierungsserver, die Nachricht weiterzuleiten.
 - `candidate`
-  - : Die SDP, die den Kandidaten beschreibt, den die ICE-Schicht an den anderen Peer übermitteln möchte.
+  - : Der SDP, der den Kandidaten beschreibt, den die ICE-Schicht an den anderen Peer senden möchte.
 
-Das Format dieser Nachricht (wie es bei allem der Fall ist, was Sie bei der Behandlung der Signalisierung tun) ist vollständig Ihnen überlassen, je nach Ihren Bedürfnissen; Sie können je nach Bedarf zusätzliche Informationen bereitstellen.
+Das Format dieser Nachricht (wie alles, was Sie beim Umgang mit der Signalisierung tun) liegt vollständig in Ihrer Hand, je nach Ihren Bedürfnissen; Sie können andere Informationen nach Bedarf liefern.
 
 > [!NOTE]
-> Es ist wichtig zu beachten, dass das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis **nicht** ausgelöst wird, wenn ICE-Kandidaten vom anderen Ende des Anrufs ankommen. Stattdessen werden sie von Ihrem eigenen Ende des Anrufs gesendet, damit Sie die Aufgabe übernehmen, die Daten über welchen Kanal auch immer Ihrer Wahl zu übertragen. Das kann verwirrend sein, wenn Sie neu bei WebRTC sind.
+> Wichtig ist es, sich bewusst zu machen, dass das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis **nicht** gesendet wird, wenn ICE-Kandidaten vom anderen Ende des Anrufs eintreffen. Stattdessen werden sie von Ihrem eigenen Anrufende gesendet, so dass Sie die Aufgabe der Übermittlung der Daten über den von Ihnen gewählten Kanal übernehmen können. Dies kann verwirrend sein, wenn Sie neu mit WebRTC sind.
 
-##### Empfangen von ICE-Kandidaten
+##### Empfang von ICE Kandidaten
 
-Der Signalisierungsserver liefert jeden ICE-Kandidaten dem Ziel-Peer unter Verwendung einer beliebigen Methode, die er wählt; in unserem Beispiel erfolgt dies als JSON-Objekte mit einer `type`-Eigenschaft, die die Zeichenfolge `"new-ice-candidate"` enthält. Unsere Funktion `handleNewICECandidateMsg()` wird von unserem Hauptwebsocket einkommenden Nachrichten-Code aufgerufen, um diese Nachrichten zu bearbeiten:
+Der Signalisierungsserver liefert jeden ICE-Kandidaten an den Zielpeers auf dem gewählten Weg; in unserem Beispiel sind dies JSON-Objekte, mit einer `type`-Eigenschaft, die den String `"new-ice-candidate"` enthält. Unsere `handleNewICECandidateMsg()`-Funktion wird von unserem Haupt-[WebSocket](/de/docs/Web/API/WebSockets_API)-eingehenden Nachrichten-Code aufgerufen, um diese Nachrichten zu bearbeiten:
 
 ```js
 function handleNewICECandidateMsg(msg) {
@@ -511,19 +511,19 @@ function handleNewICECandidateMsg(msg) {
 }
 ```
 
-Diese Funktion erstellt ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekt, indem sie die empfangene SDP an ihren Konstruktor übergibt, und reicht dann den Kandidaten an die ICE-Schicht durch, indem sie ihn in [`myPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) übergibt. Dies übergibt den frischen ICE-Kandidaten an die lokale ICE-Schicht, und schließlich ist unsere Rolle im Prozess der Behandlung dieses Kandidaten abgeschlossen.
+Diese Funktion erstellt ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekt, indem sie den empfangenen SDP an seinen Konstruktor übergibt, und übergibt dann den Kandidaten an die ICE-Ebene, indem sie ihn an [`myPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) übergibt. Dies liefert den frischen ICE-Kandidaten an die lokale ICE-Schicht und schließlich ist unsere Rolle im Prozess der Behandlung dieses Kandidaten abgeschlossen.
 
-Jeder Peer sendet dem anderen Peer einen Kandidaten für jede mögliche Transportkonfiguration, die er für die Medienübertragung viabel hält. Irgendwann kommen beide Peers überein, dass ein gegebener Kandidat eine gute Wahl ist, und sie öffnen die Verbindung und beginnen, Medien zu teilen. Es ist jedoch wichtig zu beachten, dass die ICE-Verhandlung **nicht** beendet wird, sobald die Medien fließen. Vielmehr können Kandidaten weiterhin ausgetauscht werden, nachdem das Gespräch begonnen hat, entweder im Versuch, eine bessere Verbindungsmethode zu finden, oder weil sie bereits in der Übertragung waren, als die Peers erfolgreich ihre Verbindung herstellten.
+Jeder Peer sendet an den anderen Peer einen Kandidaten für jede mögliche Transportkonfiguration, von der sie glauben, dass sie für die ausgetauschten Medien möglicherweise akzeptabel sein könnte. Irgendwann stimmen die beiden Peers zu, dass ein gegebener Kandidat eine gute Wahl ist, und sie öffnen die Verbindung und beginnen, Medien zu teilen. Wichtig zu beachten ist jedoch, dass die ICE-Verhandlung _nicht_ aufhört, sobald Medien fließen. Stattdessen können Kandidaten auch nach Beginn der Unterhaltung weiterhin ausgetauscht werden, entweder während des Versuchs, eine bessere Verbindungsmethode zu finden, oder weil sie bereits im Transport waren, als die Peers erfolgreich ihre Verbindung hergestellt haben.
 
-Zusätzlich, wenn etwas passiert, das eine Änderung des Streaming-Szenarios verursacht, beginnt die Verhandlung erneut, wobei das [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet wird, und der gesamte Prozess beginnt erneut, wie zuvor beschrieben. Dies kann in einer Vielzahl von Situationen geschehen, einschließlich:
+Darüber hinaus, wenn etwas passiert, das eine Änderung des Streaming-Szenarios verursacht, wird die Verhandlung erneut beginnen, mit dem [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis, das an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet wird, und der gesamte Prozess beginnt erneut, wie bereits beschrieben. Dies kann in einer Vielzahl von Situationen passieren, einschließlich:
 
-- Änderungen im Netzwerkstatus, wie eine Bandbreitenänderung, der Übergang von WLAN zu Mobilfunkkonnektivität oder Ähnliches.
-- Wechsel zwischen der vorderen und der hinteren Kamera auf einem Telefon.
-- Eine Änderung der Stream-Konfiguration, wie ihrer Auflösung oder Bildrate.
+- Änderungen im Netzwerkstatus, wie z.B. eine Bandbreitenänderung, Übergang von WLAN zu mobiler Konnektivität oder Ähnliches.
+- Wechsel zwischen Front- und Rückkamera auf einem Telefon.
+- Eine Änderung der Konfiguration des Streams, wie z.B. seine Auflösung oder Bildwiederholrate.
 
-##### Empfangen neuer Streams
+##### Empfang neuer Streams
 
-Wenn neue Tracks zur `RTCPeerConnection` hinzugefügt werden—entweder durch Aufruf ihrer [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack)-Methode oder aufgrund der Neuverhandlung des Stream-Formats—wird ein [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis an die `RTCPeerConnection` für jeden zur Verbindung hinzugefügten Track gesendet. Die Verwendung von neu hinzugefügten Medien erfordert die Implementierung eines Handlers für das `track`-Ereignis. Ein häufiges Bedürfnis ist es, das eingehende Medium einem geeigneten HTML-Element zuzuordnen. In unserem Beispiel fügen wir den Track-Stream dem {{HTMLElement("video")}}-Element hinzu, das das eingehende Video anzeigt:
+Wenn neue Tracks zur `RTCPeerConnection` hinzugefügt werden—entweder durch Aufruf ihrer [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack)-Methode oder aufgrund einer Neuverhandlung des Stream-Formats—wird ein [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis an die `RTCPeerConnection` für jeden Track gesendet, der zur Verbindung hinzugefügt wird. Die Verwendung neu hinzugefügter Medien erfordert die Implementierung eines Handlers für das `track`-Ereignis. Ein häufiger Bedarf ist es, die eingehenden Medien an ein geeignetes HTML-Element anzuschließen. In unserem Beispiel fügen wir den Stream des Tracks dem {{HTMLElement("video")}}-Element hinzu, das das eingehende Video anzeigt:
 
 ```js
 function handleTrackEvent(event) {
@@ -532,13 +532,13 @@ function handleTrackEvent(event) {
 }
 ```
 
-Der eingehende Stream wird an das `"received_video"`-{{HTMLElement("video")}}-Element angehängt, und das "Hang Up"-{{HTMLElement("button")}}-Element wird aktiviert, sodass der Benutzer den Anruf beenden kann.
+Der eingehende Stream wird dem `"received_video"`-{{HTMLElement("video")}}-Element hinzugefügt, und das "Auflegen"-{{HTMLElement("button")}}-Element so konfiguriert, dass der Benutzer den Anruf auflegen kann.
 
-Sobald dieser Code abgeschlossen ist, wird das von dem anderen Peer gesendete Video schließlich im lokalen Browserfenster angezeigt!
+Nachdem dieser Code abgeschlossen ist, wird das Video, das vom anderen Peer gesendet wird, im lokalen Browser-Fenster angezeigt!
 
-##### Handhabung der Entfernung von Tracks
+##### Umgang mit der Entfernung von Tracks
 
-Ihr Code empfängt ein [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)-Ereignis, wenn der entfernte Peer einen Track durch Aufruf von [`RTCPeerConnection.removeTrack()`](/de/docs/Web/API/RTCPeerConnection/removeTrack) von der Verbindung entfernt. Unser Handler für `"removetrack"` ist:
+Ihr Code erhält ein [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)-Ereignis, wenn der fernempfangende Peer einen Track durch Aufruf von [`RTCPeerConnection.removeTrack()`](/de/docs/Web/API/RTCPeerConnection/removeTrack) aus der Verbindung entfernt. Unser Handler für `"removetrack"` sieht folgendermaßen aus:
 
 ```js
 function handleRemoveTrackEvent(event) {
@@ -551,17 +551,17 @@ function handleRemoveTrackEvent(event) {
 }
 ```
 
-Dieser Code holt den eingehenden Video [`MediaStream`](/de/docs/Web/API/MediaStream) aus der [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft des `"received_video"`-{{HTMLElement("video")}}-Elements, und ruft dann die [`getTracks()`](/de/docs/Web/API/MediaStream/getTracks)-Methode des Streams auf, um ein Array der Tracks des Streams zu erhalten.
+Dieser Code holt den eingehenden Video-`[MediaStream]`(/de/docs/Web/API/MediaStream) aus der [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft des `"received_video"`-{{HTMLElement("video")}}-Elements ab, und ruft dann die Methode [`getTracks()`](/de/docs/Web/API/MediaStream/getTracks) des Streams auf, um ein Array der Tracks im Stream zu erhalten.
 
-Wenn die Länge des Arrays null ist, bedeutet dies, dass es keine Tracks mehr im Stream gibt, beenden wir den Anruf, indem wir `closeVideoCall()` aufrufen. Dies stellt unseren App in den Zustand zurück bereit, in dem sie einen weiteren Anruf starten oder empfangen kann. Siehe [Anruf beenden](#anruf_beenden), um zu erfahren, wie `closeVideoCall()` funktioniert.
+Wenn die Länge des Arrays null ist, was bedeutet, dass keine Tracks mehr im Stream sind, beenden wir den Anruf, indem wir `closeVideoCall()` aufrufen. Dies stellt unser App sauber wieder auf den Zustand zurück, in der sie bereit ist, einen weiteren Anruf zu tätigen oder zu empfangen. Weitere Informationen darüber, wie `closeVideoCall()` funktioniert, finden Sie unter [Beenden der Verbindung](#beenden_der_verbindung).
 
-#### Anruf beenden
+#### Beenden der Verbindung
 
-Es gibt viele Gründe, warum Anrufe beendet werden können. Ein Anruf könnte abgeschlossen sein, wobei eine oder beide Seiten aufgelegt haben. Vielleicht ist ein Netzwerkfehler aufgetreten, oder ein Benutzer hat seinen Browser verlassen oder hatte einen Systemabsturz. In jedem Fall müssen alle guten Dinge ein Ende haben.
+Es gibt viele Gründe, warum Verbindungen enden können. Ein Anruf könnte beendet worden sein und eine oder beide Seiten haben das Gespräch aufgelegt. Vielleicht ist ein Netzwerkfehler aufgetreten, oder ein Benutzer hat ihren Browser verlassen oder es gab einen Systemabsturz. In jedem Fall muss alles Gute zu einem Ende kommen.
 
 ##### Auflegen
 
-Wenn der Benutzer auf die "Hang Up"-Schaltfläche klickt, um den Anruf zu beenden, wird die Funktion `hangUpCall()` aufgerufen:
+Wenn der Benutzer auf die Schaltfläche "Auflegen" klickt, um den Anruf zu beenden, wird die `hangUpCall()`-Funktion aufgerufen:
 
 ```js
 function hangUpCall() {
@@ -574,11 +574,11 @@ function hangUpCall() {
 }
 ```
 
-`hangUpCall()` führt `closeVideoCall()` aus, um die Verbindung zu schließen, zurückzusetzen und Ressourcen freizugeben. Dann wird eine `"hang-up"`-Nachricht erstellt und an das andere Ende des Anrufs gesendet, um dem anderen Peer mitzuteilen, dass er sich ordentlich schließen soll.
+`hangUpCall()` führt `closeVideoCall()` aus, um die Verbindung zu trennen und die Ressourcen freizugeben. Dann erstellt sie eine `"hang-up"`-Nachricht und sendet sie an das andere Ende des Anrufs, um den anderen Peer zu instruieren, sich ebenfalls ordentlich herunterzufahren.
 
-##### Anruf beenden
+##### Beenden der Verbindung
 
-Die Funktion `closeVideoCall()`, die unten gezeigt wird, ist dafür verantwortlich, die Streams zu stoppen, aufzuräumen und das [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt zu entsorgen:
+Die `closeVideoCall()`-Funktion, die unten dargestellt ist, ist verantwortlich für das Stoppen der Streams, das Bereinigen und das Entsorgen des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekts:
 
 ```js
 function closeVideoCall() {
@@ -617,24 +617,24 @@ function closeVideoCall() {
 }
 ```
 
-Nachdem Verweise auf die beiden {{HTMLElement("video")}}-Elemente gezogen wurden, prüfen wir, ob eine WebRTC-Verbindung besteht; wenn ja, fahren wir mit dem Trennen und Schließen des Anrufs fort:
+Nachdem Referenzen auf die zwei {{HTMLElement("video")}}-Elemente erkannt wurden, prüfen wir, ob eine WebRTC-Verbindung besteht; wenn dies der Fall ist, schreiten wir zur Trennung fort und beenden den Anruf:
 
-1. Alle Ereignishandler werden entfernt. Dies verhindert, dass streunende Ereignishandler während des Prozesses des Schließens der Verbindung ausgelöst werden, was möglicherweise Fehler verursachen kann.
-2. Für beide entfernten und lokalen Videostreams iterieren wir über jeden Track und rufen die [`MediaStreamTrack.stop()`](/de/docs/Web/API/MediaStreamTrack/stop)-Methode auf, um jeden zu schließen.
-3. Schließen Sie die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) durch Aufruf von [`myPeerConnection.close()`](/de/docs/Web/API/RTCPeerConnection/close).
-4. Setzen Sie `myPeerConnection` auf `null`, um sicherzustellen, dass unser Code erfährt, dass kein laufender Anruf besteht; dies ist nützlich, wenn der Benutzer auf einen Namen in der Benutzerliste klickt.
+1. Alle Ereignishandler werden entfernt. Dies verhindert, dass streunende Ereignishandler ausgelöst werden, während die Verbindung im Prozess des Schließens ist, was möglicherweise Fehler verursacht.
+2. Für beide Fern- und lokale Video-Streams iterieren wir über jeden Track, indem die Methode [`MediaStreamTrack.stop()`](/de/docs/Web/API/MediaStreamTrack/stop) aufgerufen wird, um jeden Track zu schließen.
+3. Schließen der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) durch Aufruf von [`myPeerConnection.close()`](/de/docs/Web/API/RTCPeerConnection/close).
+4. Setzen `myPeerConnection` auf `null`, um sicherzustellen, dass unser Code erfährt, dass kein laufender Anruf besteht; dies ist nützlich, wenn der Benutzer auf einen Namen in der Benutzerliste klickt.
 
-Dann entfernen wir sowohl für die eingehenden als auch die ausgehenden {{HTMLElement("video")}}-Elemente ihre [`src`](/de/docs/Web/API/HTMLMediaElement/src)- und [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaften mithilfe ar ihrer [`removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)-Methoden. Dies schließt die Dissoziation der Streams von den Videoelementen ab.
+Dann für jedes der eingehenden und ausgehenden {{HTMLElement("video")}}-Elemente entfernen wir ihre [`src`](/de/docs/Web/API/HTMLMediaElement/src)- und [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaften, indem ihre [`removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)-Methoden aufgerufen werden. Dies schließt die Dissoziierung der Streams von den Video-Elementen ab.
 
-Schließlich setzen wir die [`disabled`](/de/docs/Web/API/HTMLButtonElement/disabled)-Eigenschaft auf `true` auf der "Hang Up"-Schaltfläche, was es unanklickbar macht, während kein Anruf stattfindet; dann setzen wir `targetUsername` auf `null`, da wir mit niemandem mehr sprechen. Dies ermöglicht es dem Benutzer, einen anderen Benutzer anzurufen oder einen eingehenden Anruf zu erhalten.
+Schließlich setzen wir die [`disabled`](/de/docs/Web/API/HTMLButtonElement/disabled)-Eigenschaft auf `true` auf dem "Auflegen"-Button, um ihn nicht mehr anklickbar zu machen, während kein Anruf läuft; dann setzen wir `targetUsername` auf `null`, da wir mit niemandem mehr sprechen. Dies ermöglicht es dem Benutzer, einen weiteren Benutzer anzurufen oder einen eingehenden Anruf zu empfangen.
 
-#### Umgang mit Zustandsänderungen
+#### Umgang mit Statusänderungen
 
-Es gibt eine Reihe zusätzlicher Ereignisse, für die Sie Zuhörer setzen können, um Ihren Code über eine Vielzahl von Zustandsänderungen zu informieren. Wir verwenden drei von ihnen: [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event), [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event) und [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event).
+Es gibt eine Reihe weiterer Ereignisse, bei denen Sie Listener einrichten können, die Ihren Code über verschiedene Statusänderungen informieren. Wir verwenden drei davon: [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event), [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event), und [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event).
 
-##### ICE-Verbindungszustand
+##### ICE-Verbindungsstatus
 
-[`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)-Ereignisse werden an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) von der ICE-Schicht gesendet, wenn sich der Verbindungszustand ändert (zum Beispiel wenn der Anruf vom anderen Ende beendet wird).
+[`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)-Ereignisse werden von der ICE-Schicht an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn sich der Verbindungsstatus ändert (z.B. wenn der Anruf vom anderen Ende beendet wird).
 
 ```js
 function handleICEConnectionStateChangeEvent(event) {
@@ -647,14 +647,14 @@ function handleICEConnectionStateChangeEvent(event) {
 }
 ```
 
-Hier wenden wir unsere `closeVideoCall()`-Funktion an, wenn sich der ICE-Verbindungsstatus in `"closed"` oder `"failed"` ändert. Dies hilft uns, unsere Verbindungs-Ende herunterzufahren, damit wir bereit sind, den Anruf erneut zu starten oder anzunehmen.
+Hier wenden wir unsere `closeVideoCall()`-Funktion an, wenn sich der ICE-Verbindungsstatus auf `"closed"` oder `"failed"` ändert. Dies sorgt dafür, dass unser Verbindungsende heruntergefahren wird, so dass wir bereit sind, einen Anruf erneut zu starten oder entgegenzunehmen.
 
 > [!NOTE]
-> Wir beobachten hier nicht den Signalisierungszustand `disconnected`, da er auf vorübergehende Probleme hinweisen kann und möglicherweise nach einiger Zeit in einen `connected`-Zustand zurückkehrt. Wenn wir ihn überwachen würden, würde der Videoanruf bei jedem vorübergehenden Netzwerkproblem beendet werden.
+> Wir beobachten den `disconnected`-Signalisierungsstatus hier nicht, da er vorübergehende Probleme anzeigen kann und nach einiger Zeit wieder in den `connected`-Status wechseln könnte. Das Überwachen würde den Videoanruf bei jedem temporären Netzwerkproblem beenden.
 
-##### ICE-Signalisierungszustand
+##### ICE-Signalisierungsstatus
 
-Ähnlich beobachten wir die [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event)-Ereignisse. Wenn sich der Signalisierungszustand in `closed` ändert, schließen wir den Anruf ebenfalls ab.
+Ähnlich überwachen wir Hinweise auf [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event)-Ereignisse. Wenn sich der Signalisierungsstatus in `closed` ändert, schließen wir ebenfalls das Gespräch.
 
 ```js
 function handleSignalingStateChangeEvent(event) {
@@ -667,11 +667,11 @@ function handleSignalingStateChangeEvent(event) {
 ```
 
 > [!NOTE]
-> Der `closed`-Signalisierungszustand wurde zugunsten des `closed` [`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState) eingestellt. Wir beobachten ihn hier, um ein wenig Rückwärtskompatibilität hinzuzufügen.
+> Der `closed`-Signalisierungsstatus wurde zugunsten des `closed`-[`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState) als veraltet angesehen. Wir beobachten ihn hier, um etwas Rückwärtskompatibilität zu ermöglichen.
 
-##### ICE-Gathering-Zustand
+##### ICE-Suchstatus
 
-[`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)-Ereignisse werden gesendet, um Sie wissen zu lassen, wenn sich der Zustand des ICE-Kandidatensammlungsprozesses ändert. Unser Beispiel verwendet dies für nichts, kann aber nützlich sein, um diese Ereignisse zu beobachten, für Debugging-Zwecke, sowie um zu erkennen, wann die Kandidatensammlung abgeschlossen ist.
+[`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)-Ereignisse werden verwendet, um Ihnen mitzuteilen, wenn der Status des Suchprozesses der ICE-Agenten sich ändert. Unser Beispiel verwendet dies nicht für irgendetwas, aber es kann nützlich sein, diese Ereignisse zu beobachten, um sie für Debugging-Zwecke zu nutzen, sowie um zu erkennen, wenn die Kandidatensammlung abgeschlossen ist.
 
 ```js
 function handleICEGatheringStateChangeEvent(event) {
@@ -682,16 +682,16 @@ function handleICEGatheringStateChangeEvent(event) {
 
 ## Nächste Schritte
 
-Sie können dieses Beispiel [auf Glitch ausprobieren](https://webrtc-from-chat-v1-4.glitch.me/), um es in Aktion zu sehen. Öffnen Sie die Webkonsole auf beiden Geräten und schauen Sie sich die protokollierten Ausgaben an—obwohl Sie sie im oben angezeigten Code nicht sehen, hat der Code auf dem Server (und auf [GitHub](https://github.com/mdn/samples-server/tree/master/s/webrtc-from-chat)) viele Konsolenausgaben, sodass Sie die Signalisierungs- und Verbindungsprozesse bei der Arbeit sehen können.
+Sie können nun [dieses Beispiel auf Glitch ausprobieren](https://webrtc-from-chat-v1-4.glitch.me/), um es in Aktion zu sehen. Öffnen Sie die Web-Konsole auf beiden Geräten und schauen Sie sich die geloggten Ausgaben an—auch wenn Sie es im gezeigten Code nicht sehen, der Code auf dem Server (und auf [GitHub](https://github.com/mdn/samples-server/tree/master/s/webrtc-from-chat)) hat viele Konsolenausgaben, damit Sie die Signalisierungs- und Verbindungsprozesse bei der Arbeit sehen können.
 
-Ein weiterer offensichtlicher Verbesserungspunkt wäre das Hinzufügen einer "Klingeln"-Funktion, damit anstelle des reinen Anfragens der Erlaubnis zur Verwendung von Kamera und Mikrofon zuerst ein "Benutzer X ruft an. Möchten Sie antworten?"-Prompt erscheint.
+Eine weitere offensichtliche Verbesserung wäre das Hinzufügen einer "Klingel"-Funktion, sodass anstatt nur nach der Erlaubnis zu fragen, Kamera und Mikrofon zu verwenden, zuerst ein "Benutzer X ruft an. Möchten Sie antworten?"-Prompt erscheint.
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
 - [Web-Medientechnologien](/de/docs/Web/Media)
-- [Leitfaden zu Medientypen und Formaten im Web](/de/docs/Web/Media/Formats)
-- [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API)
-- [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API)
-- Das [Perfect Negotiation](/de/docs/Web/API/WebRTC_API/Perfect_negotiation) Muster
+- [Leitfaden zu Medientypen und -formaten auf dem Web](/de/docs/Web/Media/Guides/Formats)
+- [Media Capture and Streams-API](/de/docs/Web/API/Media_Capture_and_Streams_API)
+- [Media Capabilities-API](/de/docs/Web/API/Media_Capabilities_API)
+- [MediaStream Recording-API](/de/docs/Web/API/MediaStream_Recording_API)
+- Das [Perfekte Verhandlungs](/de/docs/Web/API/WebRTC_API/Perfect_negotiation) Muster

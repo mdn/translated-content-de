@@ -2,12 +2,12 @@
 title: WebM
 slug: Glossary/WebM
 l10n:
-  sourceCommit: c37495e96f08b19a47b38a43cebb5c3489b9279b
+  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
 ---
 
 {{GlossarySidebar}}
 
-**[WebM](/de/docs/Web/Media/Formats/Containers#webm)** ist ein lizenzfreies und offenes Web-Videoformat, das in allen modernen Browsern nativ unterstützt wird.
+**[WebM](/de/docs/Web/Media/Guides/Formats/Containers#webm)** ist ein lizenzfreies und offenes Webvideo-Format, das von allen modernen Browsern nativ unterstützt wird.
 
 ## Siehe auch
 
