@@ -1,23 +1,22 @@
 ---
-title: "CredentialsContainer: get()-Methode"
+title: "CredentialsContainer: get() Methode"
 short-title: get()
 slug: Web/API/CredentialsContainer/get
 l10n:
-  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
+  sourceCommit: 1e98f1356a5eda11db10cd9b08dc52cce868ebff
 ---
 
 {{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
-Die **`get()`**-Methode des [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem einzelnen {{Glossary("credential", "Credential")}} erfüllt wird, welches dann verwendet werden kann, um einen Benutzer bei einer Website zu authentifizieren.
+Die **`get()`** Methode des [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer) Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem einzelnen {{Glossary("credential", "Credential")}} erfüllt wird, welches dann verwendet werden kann, um einen Benutzer auf einer Website zu authentifizieren.
 
-Die Methode akzeptiert ein einzelnes optionales `options`-Argument, das Folgendes enthalten kann:
+Die Methode akzeptiert ein einzelnes optionales `options` Argument, das Folgendes enthalten kann:
 
-- Eine `mediation`-Eigenschaft, die angibt, wie und ob der Benutzer aufgefordert werden soll, an der Operation teilzunehmen.
-  Dies steuert beispielsweise, ob die Seite einen Benutzer stillschweigend mit einem gespeicherten Anmeldedaten einloggen kann.
-- Eine `signal`-Eigenschaft, die es ermöglicht, die Operation mit einem [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
-- Eine oder mehrere Eigenschaften — `password`, `federated`, `identity`, `otp`, `publicKey` — die die [Arten von Anmeldedaten](/de/docs/Web/API/Credential_Management_API/Credential_types) angeben, die angefordert werden. Wenn gesetzt, beinhalten die Werte dieser Eigenschaften alle Parameter, die der Browser benötigt, um eine passende Anmeldedaten des angeforderten Typs zu finden.
+- Eine `mediation` Eigenschaft, die angibt, wie und ob der Benutzer gebeten werden sollte, an der Operation teilzunehmen. Dies steuert zum Beispiel, ob die Seite einen Benutzer stillschweigend mit einem gespeicherten Credential anmelden kann.
+- Eine `signal` Eigenschaft, die es ermöglicht, die Operation mit einem [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
+- Eine oder mehrere Eigenschaften — `password`, `federated`, `identity`, `otp`, `publicKey` — die die [Arten von Credentials](/de/docs/Web/API/Credential_Management_API/Credential_types) angeben, die angefordert werden. Wenn gesetzt, enthalten die Werte dieser Eigenschaften alle Parameter, die der Browser benötigt, um ein passendes Credential des angeforderten Typs zu finden.
 
-Die API wird immer mit einem einzelnen Anmeldedaten oder `null` erfüllt. Wenn mehrere Anmeldedaten verfügbar sind und Benutzerbeteiligung erlaubt ist, wird der Browser den Benutzer bitten, ein einzelnes Anmeldedaten auszuwählen.
+Die API erfüllt immer mit einem einzigen Credential oder `null`. Wenn mehrere Credentials verfügbar sind und Benutzermediation erlaubt ist, wird der Browser den Benutzer bitten, ein einzelnes Credential auszuwählen.
 
 ## Syntax
 
@@ -36,53 +35,62 @@ get(options)
 
       - : Ein String, der angibt, ob der Benutzer bei jedem Besuch einer Client-App zur Anmeldung aufgefordert wird. Der Wert kann einer der folgenden sein:
 
-        - `"conditional"`: Entdeckte Anmeldedaten werden dem Benutzer in einem nicht-modalen Dialogfeld präsentiert, zusammen mit einem Hinweis auf den Ursprung der Anfrage. In der Praxis bedeutet dies das automatische Ausfüllen verfügbarer Anmeldedaten; siehe [Anmelden mit einem Passkey über Formular-Autofill](https://web.dev/articles/passkey-form-autofill) für weitere Details, wie dies verwendet wird; [`PublicKeyCredential.isConditionalMediationAvailable()`](/de/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable_static) bietet ebenfalls einige nützliche Informationen.
+        - `"conditional"`
 
-        - `"optional"`: Wenn Anmeldedaten für eine gegebene Operation ohne Benutzerbeteiligung übergeben werden können, werden sie es, wodurch eine automatische Reauthentifizierung ohne Benutzerbeteiligung ermöglicht wird. Wenn Benutzerbeteiligung erforderlich ist, wird der Benutzeragent den Benutzer zur Authentifizierung auffordern. Dieser Wert ist für Situationen gedacht, in denen Sie mit angemessener Sicherheit davon ausgehen können, dass ein Benutzer nicht überrascht oder verwirrt sein wird, ein Anmeldedialogfeld zu sehen — zum Beispiel auf einer Seite, die Benutzer nicht automatisch einloggt, wenn ein Benutzer gerade auf eine "Anmelden/Registrieren"-Schaltfläche geklickt hat.
+          - : Entdeckte Credentials werden dem Benutzer in einem nicht-modalen Dialogfeld zusammen mit einem Hinweis auf den Ursprung präsentiert, der nach Credentials fragt. In der Praxis bedeutet dies, verfügbare Credentials automatisch auszufüllen; siehe [Anmeldung mit einem Passkey durch Formular-Autofill](https://web.dev/articles/passkey-form-autofill) für weitere Details zur Verwendung; [`PublicKeyCredential.isConditionalMediationAvailable()`](/de/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable_static) liefert ebenfalls einige nützliche Informationen.
 
-        - `"required"`: Der Benutzer wird immer zur Authentifizierung aufgefordert, auch wenn das Verhindern von stillem Zugriff (siehe [`CredentialsContainer.preventSilentAccess()`](/de/docs/Web/API/CredentialsContainer/preventSilentAccess)) auf `false` gesetzt ist. Dieser Wert ist für Situationen gedacht, in denen Sie eine Benutzer-Authentifizierung erzwingen möchten — zum Beispiel, wenn Sie möchten, dass ein Benutzer sich bei einer sensiblen Operation (wie der Bestätigung einer Kreditkartenzahlung) oder beim Wechseln von Benutzern erneut authentifiziert.
+        - `"optional"`
 
-        - `"silent"`: Der Benutzer wird nicht zur Authentifizierung aufgefordert. Der Benutzeragent wird den Benutzer automatisch erneut authentifizieren und einloggen, wenn möglich. Wenn eine Zustimmung erforderlich ist, wird die Promise mit `null` erfüllt. Dieser Wert ist für Situationen gedacht, in denen Sie einen Benutzer beim Besuch einer Web-App automatisch einloggen möchten, wenn möglich, aber wenn nicht, möchten Sie ihm kein verwirrendes Anmeldedialogfeld präsentieren. Stattdessen möchten Sie warten, bis er explizit auf eine "Anmelden/Registrieren"-Schaltfläche klickt.
+          - : Wenn Credentials für eine gegebene Operation ohne Benutzermediation übergeben werden können, werden sie es, was eine automatische Wiederanmeldung ohne Benutzermediation ermöglicht. Wenn Benutzermediation erforderlich ist, wird der Benutzeragent den Benutzer zur Authentifizierung auffordern. Dieser Wert ist für Situationen gedacht, in denen Sie hinreichendes Vertrauen haben, dass ein Benutzer nicht überrascht oder verwirrt über das Auftauchen eines Anmeldedialogs ist – zum Beispiel auf einer Website, die Benutzer nicht automatisch anmeldet, wenn ein Benutzer gerade einen "Login/Signup"-Button geklickt hat.
+
+        - `"required"`
+
+          - : Der Benutzer wird immer zur Authentifizierung aufgefordert, selbst wenn das stille Zugreifen verhindern (siehe [`CredentialsContainer.preventSilentAccess()`](/de/docs/Web/API/CredentialsContainer/preventSilentAccess)) auf `false` gesetzt ist. Dieser Wert ist für Situationen gedacht, in denen Sie die Benutzer-Authentifizierung erzwingen wollen – zum Beispiel, wenn Sie wollen, dass ein Benutzer bei einer sensiblen Operation (wie der Bestätigung einer Kreditkartenzahlung) erneut authentifiziert wird oder wenn Benutzer gewechselt werden.
+
+        - `"silent"`
+          - : Der Benutzer wird nicht zur Authentifizierung aufgefordert. Der Benutzeragent wird den Benutzer automatisch wieder authentifizieren und anmelden, wenn möglich. Wenn eine Zustimmung erforderlich ist, wird das Promise mit `null` erfüllt. Dieser Wert ist für Situationen gedacht, in denen Sie wollen, dass ein Benutzer beim Besuch einer Web-App automatisch angemeldet wird, wenn möglich, aber wenn nicht, wollen Sie ihm keinen verwirrenden Anmeldedialog anzeigen. Stattdessen wollen Sie darauf warten, dass er explizit auf einen "Login/Signup"-Button klickt.
 
         Der Standardwert ist `"optional"`.
 
         > [!NOTE]
-        > Im Falle einer [föderierten Authentifizierungsanfrage (FedCM API)](/de/docs/Web/API/FedCM_API) kann ein `mediation`-Wert von `optional` oder `silent` zu einem Versuch der [automatischen Reauthentifizierung](/de/docs/Web/API/FedCM_API/RP_sign-in#auto-reauthentication) führen. Ob dies erfolgt ist, wird dem Identitätsanbieter (IdP) über den [`is_auto_selected`](/de/docs/Web/API/FedCM_API/IDP_integration#is_auto_selected)-Parameter, der an den `id_assertion_endpoint` des IdP während der Validierung gesendet wird und der auf den [`IdentityCredential.isAutoSelected`](/de/docs/Web/API/IdentityCredential/isAutoSelected)-Eigenschaft des relying party (RP) kommuniziert. Dies ist nützlich für die Leistungsevaluation, Sicherheitsanforderungen (der IdP möchte möglicherweise automatische Reauthentifizierungsanfragen ablehnen und immer Benutzerbeteiligung verlangen) und allgemeine Benutzererfahrung (ein IdP oder RP möchte möglicherweise unterschiedliche Benutzererfahrungen für automatische und nicht-automatische Anmeldung bieten).
+        > Im Falle einer [federated authentication (FedCM API)](/de/docs/Web/API/FedCM_API) Anfrage kann ein `mediation`-Wert von `optional` oder `silent` zu einem Versuch der [automatischen Wiederanmeldung](/de/docs/Web/API/FedCM_API/RP_sign-in#auto-reauthentication) führen. Ob dies erfolgt ist, wird dem Identitätsanbieter (IdP) über den [`is_auto_selected`](/de/docs/Web/API/FedCM_API/IDP_integration#is_auto_selected) Parameter mitgeteilt, der während der Validierung an den `id_assertion_endpoint` des IdP gesendet wird, sowie der verlassenden Partei (RP) über die [`IdentityCredential.isAutoSelected`](/de/docs/Web/API/IdentityCredential/isAutoSelected) Eigenschaft. Dies ist nützlich für Leistungsevaluierungen, Sicherheitsanforderungen (der IdP könnte wünschen, automatische Wiederanfragen abzulehnen und immer Benutzermediation zu verlangen) sowie für die allgemeine Benutzererfahrung (ein IdP oder RP könnte wünschen, unterschiedliche UX für Auto- und Nicht-Auto-Login-Erfahrungen zu zeigen).
 
     - `signal` {{optional_inline}}
 
-      - : Eine [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objektinstanz, die es ermöglicht, eine laufende `get()`-Operation abzubrechen. Eine abgebrochene Operation kann normal abgeschlossen werden (im Allgemeinen, wenn der Abbruch nach Abschluss der Operation empfangen wurde) oder mit einem `AbortError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt werden.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objektinstanz, die es erlaubt, eine laufende `get()` Operation abzubrechen. Eine abgebrochene Operation kann normal abgeschlossen werden (normalerweise, wenn der Abbruch nach Abschluss der Operation empfangen wurde) oder mit einem `AbortError` [`DOMException`](/de/docs/Web/API/DOMException) abgewiesen werden.
 
     - `password` {{optional_inline}}
-      - : Diese Option fordert den Browser auf, ein gespeichertes [Passwort](/de/docs/Web/API/Credential_Management_API/Credential_types#passwords) als [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekt abzurufen. Es ist ein boolescher Wert.
+
+      - : Diese Option fordert den Browser auf, ein gespeichertes [Passwort](/de/docs/Web/API/Credential_Management_API/Credential_types#passwords) als ein [`PasswordCredential`](/de/docs/Web/API/PasswordCredential) Objekt abzurufen. Es ist ein boolescher Wert.
+
     - `identity` {{optional_inline}}
 
-      - : Diese Option fordert den Browser auf, ein [föderiertes Identitätsanmeldediel](/de/docs/Web/API/Credential_Management_API/Credential_types#federated_identity_credentials) als ein [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Objekt mit Hilfe der [Föderierten Anmeldemanagement API](/de/docs/Web/API/FedCM_API) abzurufen.
+      - : Diese Option fordert den Browser auf, ein [federated identity credential](/de/docs/Web/API/Credential_Management_API/Credential_types#federated_identity_credentials) als ein [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) Objekt unter Verwendung der [Federated Credential Management API](/de/docs/Web/API/FedCM_API) abzurufen.
 
-        Der Wert dieser Option ist ein [`IdentityCredentialRequestOptions`](/de/docs/Web/API/IdentityCredentialRequestOptions)-Objekt, das Details der spezifischen Identitätsanbieter enthält, die die Website verwenden möchte.
+        Der Wert dieser Option ist ein [`IdentityCredentialRequestOptions`](/de/docs/Web/API/IdentityCredentialRequestOptions) Objekt, das Details der spezifischen Identitätsanbieter enthält, die die Website verwenden möchte.
 
     - `federated` {{optional_inline}}
 
-      - : Diese Option fordert den Browser auf, ein [föderiertes Identitätsanmeldedaten](/de/docs/Web/API/Credential_Management_API/Credential_types#federated_identity_credentials) als ein [`FederatedCredential`](/de/docs/Web/API/FederatedCredential)-Objekt abzurufen. Dieses Interface ist nun veraltet, und Entwickler sollten bevorzugt die `identity`-Option verwenden, wenn sie verfügbar ist.
+      - : Diese Option fordert den Browser auf, ein [federated identity credential](/de/docs/Web/API/Credential_Management_API/Credential_types#federated_identity_credentials) als ein [`FederatedCredential`](/de/docs/Web/API/FederatedCredential) Objekt abzurufen. Dieses Interface ist jetzt veraltet, und Entwickler sollten bevorzugt die `identity` Option verwenden, wenn sie verfügbar ist.
 
         Der Wert dieser Option ist ein Objekt mit den folgenden Eigenschaften:
 
         - `protocols`
-          - : Ein Array von Strings, die die Protokolle der angeforderten Anmeldedaten der föderierten Identitätsanbieter darstellen (zum Beispiel `"openidconnect"`).
+          - : Ein Array von Strings, die die Protokolle der angeforderten Credentials der föderierten Identitätsanbieter repräsentieren (zum Beispiel `"openidconnect"`).
         - `providers`
-          - : Ein Array von Strings, das die föderierten Identitätsanbieter der Anmeldedaten repräsentiert (zum Beispiel `"https://www.facebook.com"` oder `"https://accounts.google.com"`).
+          - : Ein Array von Strings, die die Anbieter der föderierten Identitäts-Credentials repräsentieren (zum Beispiel `"https://www.facebook.com"` oder `"https://accounts.google.com"`).
 
     - `otp` {{optional_inline}}
 
-      - : Diese Option fordert den Browser auf, ein [Einmal-Passwort (OTP)](/de/docs/Web/API/Credential_Management_API/Credential_types#one-time_passwords) als ein [`OTPCredential`](/de/docs/Web/API/OTPCredential)-Objekt abzurufen.
+      - : Diese Option fordert den Browser auf, ein [Einmal-Passwort (OTP)](/de/docs/Web/API/Credential_Management_API/Credential_types#one-time_passwords) als ein [`OTPCredential`](/de/docs/Web/API/OTPCredential) Objekt abzurufen.
 
-        Der Wert dieser Option ist ein Array von Strings, das nur den String-Wert `"sms"` enthalten kann.
+        Der Wert dieser Option ist ein Array von Strings, das nur den Stringwert `"sms"` enthalten kann.
 
     - `publicKey` {{optional_inline}}
 
-      - : Diese Option fordert den Browser auf, eine [Web-Authentifizierung-Assertion](/de/docs/Web/API/Credential_Management_API/Credential_types#web_authentication_assertions) als ein [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) abzurufen.
+      - : Diese Option fordert den Browser auf, eine [Behauptung, die mit der Web Authentication API signiert wurde](/de/docs/Web/API/Credential_Management_API/Credential_types#web_authentication_assertions) als ein [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) abzurufen.
 
-        Der Wert dieser Option ist ein [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Objekt.
+        Der Wert dieser Option ist ein [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions) Objekt.
 
 ### Rückgabewert
 
@@ -94,33 +102,38 @@ Ein {{jsxref("Promise")}}, das mit einer der folgenden Unterklassen von [`Creden
 - [`OTPCredential`](/de/docs/Web/API/OTPCredential)
 - [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)
 
-Wenn ein einzelnes Anmeldedaten nicht eindeutig erhalten werden kann, wird die Promise mit `null` aufgelöst.
+Wenn [konditionale Mediation](#mediation) in dem `get()` Aufruf spezifiziert war, wird das Browser-UI-Dialog angezeigt und das Promise bleibt schwebend, bis der Benutzer ein Konto auswählt, mit dem er sich anmelden möchte, aus den verfügbaren Auto-Fill-Vorschlägen:
+
+- Wenn der Benutzer dann eine Geste außerhalb des Browser-UI-Dialogs macht, schließt es sich, ohne das Promise aufzulösen oder abzulehnen und ohne eine Benutzersichtbare Fehlermeldung zu verursachen.
+- Wenn der Benutzer ein Credential auswählt, wird das relevante [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) dem Anrufer zurückgegeben.
+
+Wenn ein einzelnes Credential nicht eindeutig ermittelt werden kann, wird das Promise mit `null` aufgelöst.
 
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Die Anfrage wurde durch einen Aufruf der [`abort()`](/de/docs/Web/API/AbortController/abort)-Methode des mit der `signal`](#signal)-Option dieser Methode verbundenen [`AbortController`](/de/docs/Web/API/AbortController) abgebrochen.
+  - : Die Anfrage wurde durch einen Aufruf der [`abort()`](/de/docs/Web/API/AbortController/abort) Methode des [`AbortController`](/de/docs/Web/API/AbortController), der mit der [`signal`](#signal) Option dieser Methode verbunden ist, abgebrochen.
 
 - `IdentityCredentialError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Bei einer Anfrage nach einem [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) ist die Anfrage an den [ID Assertion Endpoint](/de/docs/Web/API/FedCM_API/IDP_integration#the_id_assertion_endpoint) nicht in der Lage, die Authentifizierung zu validieren, und lehnt mit einer Fehlermeldung ab, die Informationen über den Grund enthält.
+  - : Beim Anfordern eines [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) ist die Anfrage an den [ID Assertion Endpoint](/de/docs/Web/API/FedCM_API/IDP_integration#the_id_assertion_endpoint) nicht fähig, die Authentifizierung zu validieren, und lehnt mit einer Fehlermeldung ab, die Informationen über den Grund enthält.
 
 - `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Bei einer Anfrage nach einem [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) hat der {{Glossary("identity_provider", "Identitätsanbieter")}} (IdP) nicht innerhalb von 60 Sekunden geantwortet, die bereitgestellten Anmeldedaten waren ungültig/nicht gefunden oder der Login-Status des Browsers für den IdP ist auf `"logged-out"` gesetzt (siehe [Aktualisierung des Login-Status mithilfe der Login-Status-API](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) für weitere Informationen zum FedCM-Login-Status). Im letzteren Fall kann es zu einer Verzögerung bei der Ablehnung kommen, um zu vermeiden, dass der IdP-Login-Status an die RP weitergegeben wird.
+  - : Beim Anfordern eines [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) hat der {{Glossary("identity_provider", "Identitätsanbieter")}} (IdP) nicht innerhalb von 60 Sekunden geantwortet, die bereitgestellten Credentials waren nicht gültig/gefunden, oder der Anmeldestatus des Browsers für den IdP ist auf "abgemeldet" gesetzt (siehe [Loginstatus mit der Login Status API aktualisieren](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) für weitere Informationen zum FedCM-Anmeldestatus). Im letzteren Fall kann es eine gewisse Verzögerung bei der Ablehnung geben, um den IdP-Anmeldestatus nicht an die RP weiterzugeben.
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird in einer der folgenden Situationen ausgelöst:
+  - : In einer der folgenden Situationen ausgelöst:
 
-    - Die Nutzung dieser API wurde durch eine der folgenden [Berechtigungsrichtlinien](/de/docs/Web/HTTP/Permissions_Policy) blockiert:
+    - Die Verwendung dieser API wurde durch eine der folgenden [Permissions Policies](/de/docs/Web/HTTP/Permissions_Policy) blockiert:
 
       - {{HTTPHeader("Permissions-Policy/identity-credentials-get","identity-credentials-get")}}
       - {{HTTPHeader("Permissions-Policy/publickey-credentials-get","publickey-credentials-get")}}
       - {{HTTPHeader("Permissions-Policy/otp-credentials","otp-credentials")}}
 
-    - Der aufrufende Ursprung ist ein [undurchsichtiger Ursprung](/de/docs/Web/HTTP/Headers/Origin#null).
+    - Der aufrufende Ursprung ist ein [opaker Ursprung](/de/docs/Web/HTTP/Headers/Origin#null).
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
 
@@ -128,9 +141,9 @@ Wenn ein einzelnes Anmeldedaten nicht eindeutig erhalten werden kann, wird die P
 
 ## Beispiele
 
-### Abrufen eines föderierten Identitätsanmeldedaten
+### Abrufen eines federierten Identitätscredentials
 
-Relying Parties können `get()` mit der `identity`-Option aufrufen, um eine Anfrage zu stellen, damit sich die Benutzer über einen Identitätsanbieter (IdP) mithilfe der Identitätsföderation bei der Relying Party anmelden. Eine typische Anfrage könnte so aussehen:
+Vertrauenswürdige Parteien können `get()` mit der `identity` Option aufrufen, um eine Anfrage zur Anmeldung der Benutzer bei der vertrauenswürdigen Partei über einen Identitätsanbieter (IdP) mittels Identitätsföderation zu stellen. Eine typische Anfrage sieht so aus:
 
 ```js
 async function signIn() {
@@ -148,9 +161,9 @@ async function signIn() {
 }
 ```
 
-Schauen Sie sich den [Föderierten Anmeldungsmanagement (FedCM) API](/de/docs/Web/API/FedCM_API) für weitere Details an, wie dies funktioniert. Dieser Aufruf wird den Anmeldefluss starten, der im [FedCM-Anmeldefluss](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschrieben wird.
+Sehen Sie sich [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) für weitere Details darüber an, wie dies funktioniert. Dieser Aufruf beginnt den Anmeldeablauf, der in [FedCM-Anmeldeablauf](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschrieben ist.
 
-Ein ähnlicher Aufruf, der die `context`- und `loginHint`-Erweiterungen beinhaltet, würde so aussehen:
+Ein ähnlicher Aufruf, der die `context` und `loginHint` Erweiterungen beinhaltet, würde so aussehen:
 
 ```js
 async function signIn() {
@@ -170,7 +183,7 @@ async function signIn() {
 }
 ```
 
-Wenn der IdP nicht in der Lage ist, eine Anfrage an den [ID Assertion Endpoint](/de/docs/Web/API/FedCM_API/IDP_integration#the_id_assertion_endpoint) zu validieren, wird er die Promise ablehnen, die von `CredentialsContainer.get()` zurückgegeben wird:
+Wenn der IdP nicht in der Lage ist, eine Anfrage an den [ID Assertion Endpoint](/de/docs/Web/API/FedCM_API/IDP_integration#the_id_assertion_endpoint) zu validieren, wird er das Promise, das aus `CredentialsContainer.get()` zurückgegeben wird, ablehnen:
 
 ```js
 async function signIn() {
@@ -194,9 +207,9 @@ async function signIn() {
 }
 ```
 
-### Abrufen eines Public-Key-Anmeldedaten
+### Abrufen eines öffentlichen Schlüsselcredentials
 
-Das folgende Snippet zeigt einen typischen `get()`-Aufruf mit der WebAuthn-`publicKey`-Option:
+Der folgende Ausschnitt zeigt einen typischen `get()` Aufruf mit der WebAuthn `publicKey` Option:
 
 ```js
 const publicKey = {
@@ -212,7 +225,7 @@ const publicKey = {
 navigator.credentials.get({ publicKey })
 ```
 
-Ein erfolgreicher `get()`-Aufruf gibt eine Promise zurück, die mit einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objektinstanz aufgelöst wird, das ein zuvor über einen WebAuthn-`create()`](/de/docs/Web/API/CredentialsContainer/create) erstelltes Public-Key-Anmeldedaten darstellt, das nun zur Authentifizierung eines Benutzers verwendet wurde. Seine [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft enthält ein [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse)-Objekt, das Zugriff auf mehrere nützliche Informationen bietet, einschließlich der Authentifikator-Daten, der Signatur und des Benutzer-Handles.
+Ein erfolgreicher `get()` Aufruf gibt ein Promise zurück, das mit einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Objektinstanz aufgelöst wird, das ein über WebAuthn [`create()`](/de/docs/Web/API/CredentialsContainer/create) zuvor erstelltes öffentliches Schlüsselcredential darstellt, das nun verwendet wurde, um einen Benutzer zu authentifizieren. Seine [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response) Eigenschaft enthält ein [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) Objekt, das Zugriff auf mehrere nützliche Informationsstücke bietet, darunter die Authenticator-Daten, Unterschrift und Benutzerkennung.
 
 ```js
 navigator.credentials.get({ publicKey }).then((publicKeyCredential) => {
@@ -232,13 +245,13 @@ navigator.credentials.get({ publicKey }).then((publicKeyCredential) => {
 });
 ```
 
-Ein Teil dieser Daten muss auf dem Server gespeichert werden — beispielsweise die `signature`, um den Beweis zu erbringen, dass der Authentifikator den echten privaten Schlüssel besitzt, der zur Erstellung des Anmeldedaten verwendet wurde, und der `userHandle`, um den Benutzer mit den Anmeldedaten, dem Anmeldeversuch und anderen Daten zu verknüpfen.
+Einige dieser Daten müssen auf dem Server gespeichert werden — zum Beispiel die `signature`, um den Nachweis zu erbringen, dass der Authenticator den echten privaten Schlüssel besitzt, der zur Erstellung des Credentials verwendet wurde, und die `userHandle`, um den Benutzer mit dem Credential, dem Anmeldeversuch und anderen Daten zu verknüpfen.
 
-Siehe [Authentifizierung eines Benutzers](/de/docs/Web/API/Web_Authentication_API#authenticating_a_user) für weitere Informationen darüber, wie der Gesamtprozess funktioniert.
+Siehe [Authentifizieren eines Benutzers](/de/docs/Web/API/Web_Authentication_API#authenticating_a_user) für mehr Informationen darüber, wie der gesamte Ablauf funktioniert.
 
 ### Abrufen eines Einmal-Passworts
 
-Der folgende Code löst den Berechtigungsfluss des Browsers aus, wenn eine SMS-Nachricht eintrifft. Wenn die Berechtigung gewährt wird, dann wird die Promise mit einem `OTPCredential`-Objekt erfüllt. Der enthaltene `code`-Wert wird dann als Wert eines {{htmlelement("input")}}-Formularelements gesetzt, das dann übermittelt wird.
+Der folgende Code löst den Berechtigungsfluss des Browsers aus, wenn eine SMS-Nachricht eintrifft. Wird die Berechtigung erteilt, wird das Promise mit einem `OTPCredential` Objekt aufgelöst. Der darin enthaltene `code` Wert wird dann als Wert eines {{htmlelement("input")}} Formularelements gesetzt, das anschließend übermittelt wird.
 
 ```js
 navigator.credentials
