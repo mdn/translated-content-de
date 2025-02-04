@@ -2,12 +2,12 @@
 title: font-variant
 slug: Web/SVG/Attribute/font-variant
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das **`font-variant`** Attribut gibt an, ob der Text mit Variationen der {{Glossary("glyph", "Glyphen")}} der Schriftart gerendert werden soll.
+Das **`font-variant`** Attribut gibt an, ob der Text unter Verwendung von Variationen der {{Glossary("glyph", "Glyphen")}} der Schriftart gerendert werden soll.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `font-variant` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("font-variant")}}.
@@ -38,7 +38,7 @@ svg {
 
 {{EmbedLiveSample("Example", "250", "30")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -81,7 +81,7 @@ svg {
   </tbody>
 </table>
 
-Eine Beschreibung der Werte finden Sie in der [CSS `font-variant`](/de/docs/Web/CSS/font-variant#values) Eigenschaft.
+Für eine Beschreibung der Werte siehe die [CSS `font-variant`](/de/docs/Web/CSS/font-variant#values) Eigenschaft.
 
 ## Spezifikationen
 
@@ -93,4 +93,4 @@ Eine Beschreibung der Werte finden Sie in der [CSS `font-variant`](/de/docs/Web/
 
 ## Siehe auch
 
-- {{cssxref("font-variant")}}
+- CSS {{cssxref("font-variant")}} Eigenschaft

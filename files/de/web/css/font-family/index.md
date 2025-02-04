@@ -2,22 +2,22 @@
 title: font-family
 slug: Web/CSS/font-family
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{CSSRef}}
 
-Die **`font-family`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert eine priorisierte Liste von einem oder mehreren Schriftfamiliennamen und/oder generischen Familiennamen für das ausgewählte Element.
+Die **`font-family`** [CSS](/de/docs/Web/CSS) Eigenschaft legt eine priorisierte Liste von einem oder mehreren Schriftfamiliennamen und/oder generischen Familiennamen für das ausgewählte Element fest.
 
 {{EmbedInteractiveExample("pages/css/font-family.html")}}
 
-Werte werden durch Kommas getrennt, um Alternativen anzuzeigen. Der Browser wählt die erste Schriftart in der Liste aus, die installiert oder mithilfe eines {{CSSxRef("@font-face")}}-At-Regels heruntergeladen werden kann.
+Werte sind durch Kommas getrennt, um anzuzeigen, dass sie Alternativen sind. Der Browser wählt die erste Schriftart in der Liste, die installiert ist oder die durch eine {{CSSxRef("@font-face")}} Regel heruntergeladen werden kann.
 
-Es ist oft praktisch, die Kurzschreibweiseigenschaft {{CSSxRef("font")}} zu verwenden, um `font-size` und andere schriftbezogene Eigenschaften auf einmal festzulegen.
+Es ist oft praktisch, die Kurzschreibweise {{CSSxRef("font")}} zu verwenden, um `font-size` und andere schriftbezogene Eigenschaften auf einmal festzulegen.
 
-Sie sollten immer mindestens einen generischen Familiennamen in eine `font-family`-Liste aufnehmen, da es keine Garantie dafür gibt, dass eine bestimmte Schriftart verfügbar ist. Dies ermöglicht es dem Browser, bei Bedarf eine akzeptable Ersatzschrift auszuwählen.
+Sie sollten immer mindestens einen generischen Familiennamen in einer `font-family` Liste einschließen, da es keine Garantie gibt, dass eine bestimmte Schriftart verfügbar ist. Dies ermöglicht es dem Browser, bei Bedarf eine akzeptable Ersatzschriftart auszuwählen.
 
-Die `font-family`-Eigenschaft spezifiziert eine Liste von Schriftarten, von höchster Priorität bis zur niedrigsten. Die Schriftauswahl _hört nicht_ bei der ersten Schrift in der Liste auf, die auf dem System des Benutzers vorhanden ist. Vielmehr wird die Schriftauswahl _zeichenweise_ durchgeführt, sodass, wenn eine verfügbare Schriftart kein Glyphe für ein erforderliches Zeichen hat, die folgenden Schriftarten versucht werden. Wenn eine Schriftart nur in einigen [Stilen](/de/docs/Web/CSS/font-style), [Varianten](/de/docs/Web/CSS/font-variant) oder [Größen](/de/docs/Web/CSS/font-size) verfügbar ist, können diese Eigenschaften auch beeinflussen, welche Schriftfamilie gewählt wird.
+Die `font-family` Eigenschaft gibt eine Liste von Schriftarten an, von höchster zu niedrigster Priorität. Die Schriftauswahl _stoppt nicht_ bei der ersten Schriftart in der Liste, die auf dem System des Benutzers vorhanden ist. Vielmehr erfolgt die Schriftauswahl _ein Zeichen nach dem anderen_, sodass, wenn eine verfügbare Schriftart kein Glyphe für ein benötigtes Zeichen hat, die nachfolgenden Schriftarten ausprobiert werden. Wenn eine Schriftart nur in einigen [Stilen](/de/docs/Web/CSS/font-style), [Varianten](/de/docs/Web/CSS/font-variant) oder [Größen](/de/docs/Web/CSS/font-size) verfügbar ist, können diese Eigenschaften auch beeinflussen, welche Schriftfamilie gewählt wird.
 
 ## Syntax
 
@@ -49,7 +49,7 @@ font-family: revert-layer;
 font-family: unset;
 ```
 
-Die `font-family`-Eigenschaft listet eine oder mehrere Schriftfamilien auf, getrennt durch Kommas. Jede Schriftfamilie wird entweder als `<family-name>` oder als `<generic-name>`-Wert angegeben.
+Die `font-family` Eigenschaft listet eine oder mehrere Schriftfamilien auf, getrennt durch Kommas. Jede Schriftfamilie wird entweder als `<family-name>` oder `<generic-name>` Wert angegeben.
 
 Das folgende Beispiel listet zwei Schriftfamilien auf, die erste mit einem `<family-name>` und die zweite mit einem `<generic-name>`:
 
@@ -61,25 +61,25 @@ font-family: "Gill Sans Extrabold", sans-serif;
 
 - `<family-name>`
 
-  - : Der Name einer Schriftfamilie. Dies muss entweder ein einzelner {{cssxref("string")}}-Wert oder eine durch Leerzeichen getrennte Sequenz von {{cssxref("custom-ident")}}-Werten sein. Zeichenfolgenwerte müssen in Anführungszeichen gesetzt werden, können jedoch jedes Unicode-Zeichen enthalten. Benutzerdefinierte Bezeichner sind nicht in Anführungszeichen, aber bestimmte Zeichen müssen maskiert werden.
+  - : Der Name einer Schriftfamilie. Dieser muss entweder ein einzelner {{cssxref("string")}} Wert oder eine durch Leerzeichen getrennte Folge von {{cssxref("custom-ident")}} Werten sein. Zeichenfolgenwerte müssen in Anführungszeichen stehen, dürfen jedoch jedes Unicode-Zeichen enthalten. Benutzerdefinierte Identifikatoren werden nicht in Anführungszeichen gesetzt, aber bestimmte Zeichen müssen entkommen werden.
 
-    Es ist eine gute Praxis, Schriftfamiliennamen, die Leerzeichen, Ziffern oder andere Interpunktionszeichen als Bindestriche enthalten, zu zitieren.
+    Es ist eine gute Praxis, Schriftfamiliennamen, die Leerzeichen, Ziffern oder Satzzeichen außer Bindestrichen enthalten, in Anführungszeichen zu setzen.
 
     Siehe auch [Gültige Familiennamen](#gültige_familiennamen).
 
 - `<generic-name>`
 
-  - : Generische Schriftfamilien sind ein Fallback-Mechanismus, eine Möglichkeit, die Absicht des Stylesheet-Autors zu bewahren, wenn keine der angegebenen Schriften verfügbar sind. Generische Familiennamen sind Schlüsselwörter und dürfen nicht in Anführungszeichen gesetzt werden. Eine generische Schriftfamilie sollte das letzte Element in der Liste der Schriftfamiliennamen sein. Die folgenden Schlüsselwörter sind definiert:
+  - : Generische Schriftfamilien sind ein Rückfallmechanismus, ein Mittel, um einen Teil der Absicht des Stylesheet-Autors zu bewahren, wenn keine der angegebenen Schriftarten verfügbar ist. Generische Familiennamen sind Schlüsselwörter und dürfen nicht in Anführungszeichen gesetzt werden. Eine generische Schriftfamilie sollte das letzte Element in der Liste der Schriftfamiliennamen sein. Die folgenden Schlüsselwörter sind definiert:
 
     - `serif`
 
-      - : Glyphen haben abschließende Striche, aufgeweitete oder sich verjüngende Enden oder haben tatsächlich geschriebene Endungen.
+      - : Glyphen haben abschließende Striche, gebogene oder sich verjüngende Enden oder haben tatsächliche serifenartige Endungen.
 
         Zum Beispiel: Lucida Bright, Lucida Fax, Palatino, Palatino Linotype, Palladio, URW Palladio, serif.
 
     - `sans-serif`
 
-      - : Glyphen haben einfache Endstriche.
+      - : Glyphen haben Strichenden, die schlicht sind.
 
         Zum Beispiel: Open Sans, Fira Sans, Lucida Sans, Lucida Sans Unicode, Trebuchet MS, Liberation Sans, Nimbus Sans L, sans-serif.
 
@@ -91,32 +91,32 @@ font-family: "Gill Sans Extrabold", sans-serif;
 
     - `cursive`
 
-      - : Glyphen in Kursivschriften haben allgemein entweder verbundene Striche oder andere kursive Merkmale über die von kursiven Schrifttypen hinaus. Die Glyphen sind teilweise oder vollständig verbunden und das Ergebnis sieht mehr nach handschriftlichem Schreibzeichen als nach gedruckter Schrift aus.
+      - : Glyphen in kursiven Schriften haben normalerweise entweder verbindende Striche oder andere kursivartige Merkmale über die von Schrägschrift-Typen hinaus. Die Glyphen sind teilweise oder vollständig verbunden, und das Ergebnis sieht mehr nach handgeschriebenem Stift- oder Pinseltext als nach gedrucktem Buchstabenwerk aus.
 
         Zum Beispiel: Brush Script MT, Brush Script Std, Lucida Calligraphy, Lucida Handwriting, Apple Chancery, cursive.
 
     - `fantasy`
 
-      - : Fantasy-Schriften sind in erster Linie dekorative Schriften, die spielerische Darstellungen von Zeichen enthalten.
+      - : Fantasy-Schriften sind hauptsächlich dekorative Schriften, die spielerische Darstellungen von Zeichen enthalten.
 
         Zum Beispiel: Papyrus, Herculanum, Party LET, Curlz MT, Harrington, fantasy.
 
     - `system-ui`
-      - : Glyphen stammen aus der Standardschrift der Benutzeroberfläche auf einer bestimmten Plattform. Da sich die typografischen Traditionen weltweit stark unterscheiden, wird dieses Generikum für Schriften bereitgestellt, die nicht eindeutig in die anderen Generika passen.
+      - : Glyphen stammen von der Standardschriftart für Benutzeroberflächen auf einer bestimmten Plattform. Da sich typografische Traditionen weltweit stark unterscheiden, wird dieses generische für Schriften bereitgestellt, die sich nicht eindeutig in die anderen Generika einordnen lassen.
     - `ui-serif`
-      - : Die Standardschrift mit Serifen der Benutzeroberfläche.
+      - : Die Standardschriftart der Benutzeroberfläche für Serifen.
     - `ui-sans-serif`
-      - : Die Standardschrift ohne Serifen der Benutzeroberfläche.
+      - : Die Standardschriftart der Benutzeroberfläche für serifenlose Schriftarten.
     - `ui-monospace`
-      - : Die standardmäßig feste Breite der Benutzeroberfläche.
+      - : Die Standardschriftart der Benutzeroberfläche für Monospace.
     - `ui-rounded`
-      - : Die Standardschrift der Benutzeroberfläche, die abgerundete Merkmale hat.
+      - : Die Standardschriftart der Benutzeroberfläche mit abgerundeten Merkmalen.
     - `math`
-      - : Dies ist für die besonderen stilistischen Anliegen der Darstellung von Mathematik: Hoch- und Tiefstellungen, Klammern, die mehrere Zeilen überschreiten, verschachtelte Ausdrücke und doppelt gestrichene Glyphen mit unterschiedlichen Bedeutungen.
+      - : Dies ist für die besonderen stilistischen Anforderungen der Darstellung von Mathematik: Hoch- und Tiefstellungen, Klammern, die mehrere Zeilen umfassen, verschachtelte Ausdrücke und doppel-strichige Glyphe mit unterschiedlichen Bedeutungen.
     - `emoji`
-      - : Schriften, die speziell zum Rendern von Emojis entworfen wurden.
+      - : Schriften, die speziell für die Darstellung von Emoji entworfen wurden.
     - `fangsong`
-      - : Ein besonderer Stil chinesischer Zeichen, der zwischen den Serif-Stil Song und Kursiv-Stil Kai Formen liegt. Dieser Stil wird oft für Regierungsdokumente verwendet.
+      - : Ein bestimmter Stil chinesischer Zeichen, der zwischen serifenartigem Song- und kursivem Kai-Stil liegt. Dieser Stil wird häufig für Regierungsdokumente verwendet.
 
 ## Formale Definition
 
@@ -128,7 +128,7 @@ font-family: "Gill Sans Extrabold", sans-serif;
 
 ## Beispiele
 
-### Einige gebräuchliche Schriftfamilien
+### Einige häufige Schriftfamilien
 
 ```css
 .serif {
@@ -204,7 +204,7 @@ font-family: #POUND, sans-serif;
 font-family: Hawaii 5-0, sans-serif;
 ```
 
-Das folgende Beispiel ist technisch gültig, wird aber nicht empfohlen:
+Das folgende Beispiel ist technisch gültig, wird jedoch nicht empfohlen:
 
 ```css
 font-family:
@@ -224,4 +224,5 @@ font-family:
 
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
+- SVG {{SVGAttr("font-family")}} Attribut
 - [Lernen: Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

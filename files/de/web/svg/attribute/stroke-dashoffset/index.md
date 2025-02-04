@@ -2,17 +2,17 @@
 title: stroke-dashoffset
 slug: Web/SVG/Attribute/stroke-dashoffset
 l10n:
-  sourceCommit: 4d2346118b6ef233ce9a2b91b95a0295ebe145e2
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das Attribut **`stroke-dashoffset`** ist ein Präsentationsattribut, das einen Versatz bei der Darstellung des zugehörigen Strichmusters definiert.
+Das Attribut **`stroke-dashoffset`** ist ein Präsentationsattribut, das einen Versatz bei der Darstellung des zugehörigen Strichmusters festlegt.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-dashoffset` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-dashoffset')}} für weitere Informationen.
+> Als Präsentationsattribut kann `stroke-dashoffset` auch als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-dashoffset')}} für mehr Informationen.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -94,7 +94,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -125,7 +125,7 @@ svg {
   </tbody>
 </table>
 
-Der Versatz wird normalerweise in Benutzereinheiten angegeben, die relativ zu {{SVGAttr('pathLength')}} aufgelöst werden. Wenn jedoch ein [\<percentage>](/de/docs/Web/SVG/Content_type#percentage) verwendet wird, wird der Wert als Prozentsatz des aktuellen Ansichtsfensters aufgelöst.
+Der Versatz wird normalerweise in Benutzereinheiten ausgedrückt, die im Verhältnis zur {{SVGAttr('pathLength')}} aufgelöst werden. Wenn jedoch ein [\<percentage>](/de/docs/Web/SVG/Content_type#percentage) verwendet wird, wird der Wert als Prozentsatz des aktuellen Ansichtsfensters aufgelöst.
 
 ## Spezifikationen
 
@@ -134,3 +134,7 @@ Der Versatz wird normalerweise in Benutzereinheiten angegeben, die relativ zu {{
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- CSS {{cssxref("stroke-dashoffset")}} Eigenschaft

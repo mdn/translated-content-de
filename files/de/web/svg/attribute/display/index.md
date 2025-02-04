@@ -2,31 +2,31 @@
 title: display
 slug: Web/SVG/Attribute/display
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das **`display`**-Attribut ermöglicht es Ihnen, die Darstellung von grafischen oder Container-Elementen zu steuern.
+Das **`display`** Attribut ermöglicht es Ihnen, die Darstellung von grafischen oder Containerelementen zu steuern.
 
-Ein Wert von `display="none"` zeigt an, dass das betreffende Element und seine Kinder nicht gerendert werden. Jeder andere Wert als `none` oder `inherit` zeigt an, dass das betreffende Element vom Browser gerendert wird.
+Ein Wert von `display="none"` bedeutet, dass das angegebene Element und seine Kinder nicht dargestellt werden. Jeder Wert außer `none` oder `inherit` bedeutet, dass das angegebene Element vom Browser dargestellt wird.
 
-Wenn `display` auf `none` bei einem Container-Element gesetzt wird, bewirkt dies, dass der Container und alle seine Kinder unsichtbar werden; es wirkt also auf Gruppen von Elementen als Gruppe. Das bedeutet, dass jedes Kind eines Elements mit `display="none"` niemals gerendert wird, selbst wenn das Kind einen anderen Wert für `display` als `none` hat.
+Wenn `display` auf `none` für ein Containerelement gesetzt wird, führt dies dazu, dass der Container und alle seine Kinder unsichtbar werden; es wirkt also auf Gruppen von Elementen als eine Einheit. Das bedeutet, dass ein Kind eines Elements mit `display="none"` niemals gerendert wird, selbst wenn das Kind einen anderen Wert als `none` für `display` hat.
 
-Wenn das `display`-Attribut auf `none` gesetzt ist, wird das betreffende Element nicht Teil des Rendering-Baums. Dies hat Auswirkungen auf die {{SVGElement("tspan")}}- und {{SVGElement("tref")}}-Elemente, die Ereignisverarbeitung, Berechnungen der Begrenzungsrahmen und Berechnungen von Clipping-Pfaden:
+Wenn das `display` Attribut auf `none` gesetzt ist, wird das gegebene Element nicht Teil des Rendering-Baums. Dies hat Auswirkungen auf die {{SVGElement("tspan")}} und {{SVGElement("tref")}} Elemente, die Ereignisverarbeitung, die Berechnung von Begrenzungsrahmen und die Berechnung von Clip-Pfaden:
 
-- Wenn `display` auf einem {{SVGElement("tspan")}}- oder {{SVGElement("tref")}}-Element auf `none` gesetzt ist, wird der Textstring für die Textlayout-Zwecke ignoriert.
-- Bezüglich Ereignissen: Wenn `display` auf `none` gesetzt ist, erhält das Element keine Ereignisse.
-- Die Geometrie eines [Grafikelements](/de/docs/Web/SVG/Element#graphics_elements) mit `display` auf `none` wird nicht in Berechnungen von Begrenzungsrahmen und Clipping-Pfaden eingeschlossen.
+- Wenn `display` auf einem {{SVGElement("tspan")}} oder {{SVGElement("tref")}} Element auf `none` gesetzt ist, wird der Textstring für die Textlayout-Zwecke ignoriert.
+- In Bezug auf Ereignisse erhält das Element, wenn `display` auf `none` gesetzt ist, keine Ereignisse.
+- Die Geometrie eines [Grafik-Elements](/de/docs/Web/SVG/Element#graphics_elements) mit `display` auf `none` wird nicht in die Berechnungen von Begrenzungsrahmen und Clip-Pfaden einbezogen.
 
-Das `display`-Attribut beeinflusst nur das direkte Rendering eines gegebenen Elements, verhindert jedoch nicht, dass Elemente von anderen Elementen referenziert werden. Beispielsweise verhindert das Setzen von `none` auf einem {{SVGElement("path")}}-Element, dass dieses Element direkt auf die Leinwand gerendert wird, aber das {{SVGElement("path")}}-Element kann trotzdem von einem {{SVGElement("textPath")}}-Element referenziert werden; zudem wird seine Geometrie im Text-auf-einem-Pfad-Prozess verwendet, selbst wenn das {{SVGElement("path")}} den `display`-Wert `none` hat.
+Das `display` Attribut beeinflusst nur das direkte Rendering eines gegebenen Elements, verhindert jedoch nicht, dass Elemente von anderen Elementen referenziert werden. Wenn es zum Beispiel auf `none` bei einem {{SVGElement("path")}} Element gesetzt wird, verhindert dies, dass das Element direkt auf die Leinwand gezeichnet wird, jedoch kann das {{SVGElement("path")}} Element immer noch von einem {{SVGElement("textPath")}} Element referenziert werden; zudem wird seine Geometrie in der Text-auf-einem-Pfadverarbeitung genutzt, auch wenn das {{SVGElement("path")}} einen `display` Wert von `none` hat.
 
-Dieses Attribut beeinflusst auch das direkte Rendering auf Offscreen-Leinwänden, wie es bei Masken oder Clipping-Pfaden der Fall ist. Wenn `display="none"` auf ein Kind eines {{SVGElement("mask")}} gesetzt wird, verhindert dies, dass das betreffende Kindelement als Teil der Maske gerendert wird. Ebenso wird das Setzen von `display="none"` auf ein Kind eines {{SVGElement("clipPath")}}-Elements verhindern, dass das betreffende Kindelement zum Clipping-Pfad beiträgt.
+Dieses Attribut beeinflusst auch das direkte Rendering in Offscreen-Canvases, wie es bei Masken oder Clip-Pfaden der Fall ist. Das Setzen von `display="none"` bei einem Kind eines {{SVGElement("mask")}} verhindert, dass das jeweilige Kind als Teil der Maske gerendert wird. Ebenso verhindert das Setzen von `display="none"` bei einem Kind eines {{SVGElement("clipPath")}} Elements, dass das jeweilige Kind zum Clip-Pfad beiträgt.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `display` als CSS-Eigenschaft verwendet werden. Siehe CSS {{cssxref("display")}} für weitere Informationen.
+> Als Präsentationsattribut kann `display` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS {{cssxref("display")}}.
 
-Dieses Attribut kann mit jedem SVG-Element verwendet werden.
+Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
 ## Beispiel
 
@@ -58,7 +58,7 @@ svg {
 
 {{EmbedLiveSample("Example", "240", "120")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -77,7 +77,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte verweisen Sie bitte auf die CSS {{cssxref("display")}} Eigenschaft.
+Für eine Beschreibung der Werte lesen Sie bitte die CSS {{cssxref("display")}} Eigenschaft.
 
 ## Spezifikationen
 
@@ -89,5 +89,5 @@ Für eine Beschreibung der Werte verweisen Sie bitte auf die CSS {{cssxref("disp
 
 ## Siehe auch
 
-- {{SVGAttr("visibility")}}-Attribut
-- {{cssxref("display")}}
+- {{SVGAttr("visibility")}} Attribut
+- CSS {{cssxref("display")}} Eigenschaft

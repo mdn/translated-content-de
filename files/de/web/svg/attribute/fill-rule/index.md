@@ -2,17 +2,17 @@
 title: fill-rule
 slug: Web/SVG/Attribute/fill-rule
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das **`fill-rule`**-Attribut ist ein Präsentationsattribut, das den Algorithmus definiert, der verwendet wird, um den _innen_ liegenden Teil einer Form zu bestimmen.
+Das **`fill-rule`**-Attribut ist ein Präsentationsattribut, das den Algorithmus definiert, der verwendet wird, um den _inneren_ Teil einer Form zu bestimmen.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `fill-rule` als CSS-Eigenschaft verwendet werden.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('path')}}
 - {{SVGElement('polygon')}}
@@ -55,7 +55,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -74,11 +74,11 @@ svg {
   </tbody>
 </table>
 
-Das `fill-rule`-Attribut bietet zwei Optionen, um zu bestimmen, wie das Innere (d. h. der zu füllende Bereich) einer Form ermittelt wird:
+Das `fill-rule`-Attribut bietet zwei Optionen, wie das Innere (d.h., der zu füllende Bereich) einer Form bestimmt wird:
 
 ### nonzero
 
-Der Wert `nonzero` bestimmt die „Innigkeit“ eines Punktes in der Form, indem von diesem Punkt aus ein Strahl in unendliche Richtung gezeichnet und die Stellen untersucht werden, an denen ein Segment der Form den Strahl kreuzt. Beginnend mit einem Zählwert von null, wird eins hinzugefügt, jedes Mal wenn ein Pfadsegment den Strahl von links nach rechts kreuzt und eins abgezogen, jedes Mal wenn ein Pfadsegment den Strahl von rechts nach links kreuzt. Nach dem Zählen der Kreuzungen, wenn das Ergebnis null ist, liegt der Punkt außerhalb des Pfades. Andernfalls liegt er innerhalb.
+Der Wert `nonzero` bestimmt das "Innersein" eines Punktes in der Form, indem ein Strahl von diesem Punkt aus in eine beliebige Richtung bis ins Unendliche gezogen wird und dann die Stellen untersucht werden, an denen ein Segment der Form den Strahl schneidet. Beginnend mit einem Zähler von Null, wird jedes Mal eins addiert, wenn ein Pfadsegment den Strahl von links nach rechts kreuzt, und jedes Mal eins subtrahiert, wenn ein Pfadsegment den Strahl von rechts nach links kreuzt. Nach dem Zählen der Kreuzungen, wenn das Ergebnis null ist, befindet sich der Punkt außerhalb des Pfades. Andernfalls liegt er innerhalb.
 
 #### Beispiel
 
@@ -126,7 +126,7 @@ svg {
 
 ### evenodd
 
-Der Wert `evenodd` bestimmt die „Innigkeit“ eines Punktes in der Form, indem von diesem Punkt aus ein Strahl in unendliche Richtung gezeichnet wird und die Anzahl der Pfadsegmente der gegebenen Form gezählt wird, die der Strahl kreuzt. Ist diese Anzahl ungerade, liegt der Punkt innerhalb; ist sie gerade, liegt der Punkt außerhalb.
+Der Wert `evenodd` bestimmt das "Innersein" eines Punktes in der Form, indem ein Strahl von diesem Punkt in eine beliebige Richtung bis ins Unendliche gezogen wird und die Anzahl der Pfadsegmente gezählt wird, die der Strahl von der gegebenen Form kreuzt. Wenn diese Zahl ungerade ist, liegt der Punkt innen; wenn gerade, liegt er außen.
 
 #### Beispiel
 
@@ -179,3 +179,7 @@ svg {
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- CSS {{cssxref("fill-rule")}} Eigenschaft

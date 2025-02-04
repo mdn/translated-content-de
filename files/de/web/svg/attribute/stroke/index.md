@@ -2,15 +2,15 @@
 title: stroke
 slug: Web/SVG/Attribute/stroke
 l10n:
-  sourceCommit: 01b8471b84e1d157cbddbb3ffaf560a86b082070
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das **`stroke`**-Attribut ist ein Präsentationsattribut, das die Farbe (_oder andere SVG-Farbserver wie Verläufe oder Muster_) definiert, die zum Zeichnen der Kontur der Form verwendet wird.
+Das **`stroke`** Attribut ist ein Präsentationsattribut, das die Farbe (_oder alle SVG-Farbserver wie Verlaufs- oder Musterfüllungen_) definiert, mit der die Kontur der Form gemalt wird.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke` auch als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke')}} für mehr Informationen.
+> Als Präsentationsattribut kann `stroke` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke')}} für mehr Informationen.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -28,7 +28,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## Beispiele
 
-### Einfache Farbe und Verlaufsstrich
+### Grundlegender Farb- und Verlaufskontur
 
 ```css hidden
 html,
@@ -55,15 +55,15 @@ svg {
 </svg>
 ```
 
-Das Ergebnis ist wie folgt:
+Die Ausgabe sieht folgendermaßen aus:
 
 {{EmbedLiveSample("Basic color and gradient stroke", '100%', 200)}}
 
 ### `context-stroke` Beispiel
 
-In diesem Beispiel definieren wir drei Formen unter Verwendung von {{SVGElement('path')}}-Elementen, jedes mit einer unterschiedlichen `stroke`- und [`fill`](/de/docs/Web/SVG/Attribute/fill)-Farbe. Wir definieren auch ein {{SVGElement('circle')}}-Element als Marker über das {{SVGElement('marker')}}-Element. Jede Form hat den Marker über die `marker` CSS-Eigenschaft angewendet.
+In diesem Beispiel definieren wir drei Formen mittels {{SVGElement('path')}}-Elementen, jeweils mit einer unterschiedlichen `stroke`- und [`fill`](/de/docs/Web/SVG/Attribute/fill)-Farbe. Wir definieren auch ein {{SVGElement('circle')}}-Element als Marker über das {{SVGElement('marker')}}-Element. Jede Form hat den Marker über die `marker` CSS-Eigenschaft angewendet.
 
-Das {{SVGElement('circle')}} hat `stroke="context-stroke"` und `fill="context-fill"` festgelegt. Da es im Kontext der Formen als Marker gesetzt wird, bewirken diese Attribute, dass es das `fill` und `stroke` erbt, das auf das {{SVGElement('path')}}-Element in jedem Fall gesetzt ist.
+Das {{SVGElement('circle')}}-Element hat `stroke="context-stroke"` und `fill="context-fill"` gesetzt. Da es als Marker im Kontext der Formen gesetzt wird, bewirken diese Attribute, dass es die `fill`- und `stroke`-Werte von dem {{SVGElement('path')}} Element erbt.
 
 ```html-nolint
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 90">
@@ -87,14 +87,14 @@ Das {{SVGElement('circle')}} hat `stroke="context-stroke"` und `fill="context-fi
 </svg>
 ```
 
-Das Ergebnis ist wie folgt:
+Die Ausgabe sieht folgendermaßen aus:
 
 {{EmbedLiveSample("`context-stroke` example", '100%', 220)}}
 
 > [!NOTE]
-> Elemente können auch `context-stroke` und `context-fill` verwenden, um `stroke` und `fill` Werte zu erben, wenn sie durch {{SVGElement('use')}}-Elemente referenziert werden.
+> Elemente können auch `context-stroke` und `context-fill` verwenden, um `stroke`- und `fill`-Werte zu erben, wenn sie durch {{SVGElement('use')}}-Elemente referenziert werden.
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -126,3 +126,7 @@ Das Ergebnis ist wie folgt:
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- CSS {{cssxref("stroke")}} Eigenschaft

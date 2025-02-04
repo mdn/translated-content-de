@@ -2,19 +2,19 @@
 title: color
 slug: Web/SVG/Attribute/color
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das **`color`** Attribut wird verwendet, um einen potenziellen indirekten Wert, `currentcolor`, für die Attribute {{SVGAttr("fill")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stop-color")}}, {{SVGAttr("flood-color")}} und {{SVGAttr("lighting-color")}} bereitzustellen.
+Das **`color`** Attribut wird verwendet, um einen potenziellen indirekten Wert `currentcolor` für die Attribute {{SVGAttr("fill")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stop-color")}}, {{SVGAttr("flood-color")}} und {{SVGAttr("lighting-color")}} bereitzustellen.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `color` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie unter [CSS color](/de/docs/Web/CSS/color).
+> Als Präsentationsattribut kann `color` als CSS-Eigenschaft verwendet werden. Siehe [CSS color](/de/docs/Web/CSS/color) für weitere Informationen.
 
-Als Präsentationsattribut kann es auf jedes Element angewendet werden, hat jedoch, wie oben erwähnt, keine direkte Wirkung auf SVG-Elemente.
+Als Präsentationsattribut kann es auf jedes Element angewendet werden, aber wie oben erwähnt, hat es keine direkte Wirkung auf SVG-Elemente.
 
-## Verwendungshinweise
+## Anwendungsnotizen
 
 <table class="properties">
   <tbody>
@@ -27,7 +27,7 @@ Als Präsentationsattribut kann es auf jedes Element angewendet werden, hat jedo
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td>Abhängig vom Benutzeragenten</td>
+      <td>Hängt vom User-Agent ab</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -70,3 +70,7 @@ svg {
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- CSS {{cssxref("color")}} Eigenschaft

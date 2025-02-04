@@ -2,17 +2,17 @@
 title: writing-mode
 slug: Web/SVG/Attribute/writing-mode
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das **`writing-mode`** Attribut legt fest, ob die anfängliche Inline-Fortschrittsrichtung für ein {{SVGElement("text")}}-Element von links nach rechts, von rechts nach links oder von oben nach unten verlaufen soll. Das `writing-mode`-Attribut gilt nur für {{SVGElement("text")}}-Elemente; das Attribut wird bei {{SVGElement("tspan")}}, {{SVGElement("tref")}} und {{SVGElement("textPath")}}-Unterelementen ignoriert. (Beachten Sie, dass sich die Inline-Fortschrittsrichtung innerhalb eines {{SVGElement("text")}}-Elements aufgrund des Unicode-Bidirektional-Algorithmus und der Eigenschaften {{SVGAttr("direction")}} und {{SVGAttr("unicode-bidi")}} ändern kann.)
+Das **`writing-mode`** Attribut legt fest, ob die anfängliche Inline-Progressionsrichtung für ein {{SVGElement("text")}} Element von links nach rechts, von rechts nach links oder von oben nach unten verlaufen soll. Das `writing-mode` Attribut gilt nur für {{SVGElement("text")}} Elemente; das Attribut wird für {{SVGElement("tspan")}}, {{SVGElement("tref")}} und {{SVGElement("textPath")}} Unterelemente ignoriert. (Beachten Sie, dass sich die Inline-Progressionsrichtung innerhalb eines {{SVGElement("text")}} Elements aufgrund des Unicode-Bidirektional-Algorithmus und der Eigenschaften {{SVGAttr("direction")}} und {{SVGAttr("unicode-bidi")}} ändern kann.)
 
 > [!NOTE]
 > Als Präsentationsattribut kann `writing-mode` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("writing-mode")}}.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
@@ -58,4 +58,4 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## Siehe auch
 
-- {{cssxref("writing-mode")}}
+- CSS {{cssxref("writing-mode")}} Eigenschaft

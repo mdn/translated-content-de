@@ -2,7 +2,7 @@
 title: r
 slug: Web/SVG/Attribute/r
 l10n:
-  sourceCommit: fceea994be5c930065bb1f2b45bee9ac38de491c
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
@@ -14,7 +14,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("circle")}}
 - {{SVGElement("radialGradient")}}
 
-Prozentangaben beziehen sich auf die normalisierte Diagonale des aktuellen SVG-Viewports, die wie folgt berechnet wird: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>.
+Prozentsätze beziehen sich auf die normierte Diagonale des aktuellen SVG-Ansichtsfensters, die wie folgt berechnet wird: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>.
 
 ## Beispiel
 
@@ -55,7 +55,7 @@ svg {
 
 ## circle
 
-Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und damit dessen Größe. Bei einem Wert kleiner oder gleich null wird der Kreis überhaupt nicht gezeichnet.
+Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und somit seine Größe. Mit einem Wert kleiner oder gleich null wird der Kreis überhaupt nicht gezeichnet.
 
 <table class="properties">
   <tbody>
@@ -93,35 +93,9 @@ Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und damit des
 
 Für {{ SVGElement("radialGradient") }} definiert `r` den Radius des Endkreises für den radialen Verlauf.
 
-Der Verlauf wird so gezeichnet, dass der **100%** Verlaufsstopp auf den Umfang dieses Endkreises abgebildet wird. Ein Wert kleiner oder gleich null führt dazu, dass der Bereich als einheitliche Farbe unter Verwendung der Farbe und Deckkraft des letzten Verlauf-{{ SVGElement("stop") }}-Elements dargestellt wird.
+Der Verlauf wird so gezeichnet, dass der **100%**-Verlaufspunkt dem Umfang dieses Endkreises zugeordnet wird. Ein Wert kleiner oder gleich null führt dazu, dass der Bereich als einheitliche Farbe unter Verwendung der Farbe und Deckkraft des letzten Verlaufs-{{ SVGElement("stop") }} gemalt wird.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Wert</th>
-      <td>
-        <strong
-          ><a href="/de/docs/Web/SVG/Content_type#length"
-            >&#x3C;length></a
-          ></strong
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Standardwert</th>
-      <td><code>50%</code></td>
-    </tr>
-    <tr>
-      <th scope="row">Animierbar</th>
-      <td>Ja</td>
-    </tr>
-  </tbody>
-</table>
-
-## Spezifikationen
-
-{{Specifications}}
-
-## Browser-Kompatibilität
-
-{{Compat}}
+      <th scope="row">Wert</

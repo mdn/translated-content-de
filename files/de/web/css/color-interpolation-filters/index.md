@@ -2,18 +2,18 @@
 title: color-interpolation-filters
 slug: Web/CSS/color-interpolation-filters
 l10n:
-  sourceCommit: 6a01359152716aafd62878599603f6ce76a9a9bf
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{CSSRef}}
 
-Die **`color-interpolation-filters`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt den Farbraum für Bildbearbeitungsoperationen an, die über SVG-Filtereffekte durchgeführt werden. Wenn explizit deklariert, überschreibt der Wert der CSS-Eigenschaft jeden im {{SVGAttr("color-interpolation-filters")}}-Attribut des Elements angegebenen Wert.
+Die **`color-interpolation-filters`** [CSS](/de/docs/Web/CSS)-Eigenschaft spezifiziert den Farbraum für Bildgebungsoperationen, die über SVG-Filtereffekte durchgeführt werden. Wenn explizit deklariert, überschreibt der Wert der CSS-Eigenschaft jeden Wert, der im Attribut {{SVGAttr("color-interpolation-filters")}} des Elements angegeben ist.
 
 > [!NOTE]
-> Die Eigenschaft {{SVGAttr("color-interpolation-filters")}} ist nur für SVG-Filteroperationen relevant. Sie hat _keinen_ Effekt auf Filterprimitiven wie {{SVGElement("feOffset")}}, {{SVGElement("feImage")}}, {{SVGElement("feTile")}}, und {{SVGElement("feFlood")}}, sondern gilt stattdessen für die verschiedenen Filtereffektelemente (z. B. {{SVGElement('feBlend')}}); siehe die SVG-Seite {{SVGAttr('color-interpolation-filters')}} für eine vollständige Liste.
+> Die {{SVGAttr("color-interpolation-filters")}}-Eigenschaft bezieht sich nur auf SVG-Filteroperationen. Sie hat _keine_ Auswirkung auf Filterprimitive wie {{SVGElement("feOffset")}}, {{SVGElement("feImage")}}, {{SVGElement("feTile")}} und {{SVGElement("feFlood")}}, sondern gilt stattdessen für die verschiedenen Filtereffektelemente (z.B. {{SVGElement('feBlend')}}); siehe die SVG-{{SVGAttr('color-interpolation-filters')}}-Seite für eine vollständige Liste.
 
 > [!NOTE]
-> Es ist wichtig zu beachten, dass das SVG-Attribut {{SVGAttr('color-interpolation')}} einen Anfangswert von `sRGB` hat, während `color-interpolation-filters` einen Anfangswert von `linearRGB` hat. Das bedeutet, dass im Standardfall Filtereffekt-Interpolationen in einem anderen Farbraum stattfinden als alle anderen Farbinterpolationen.
+> Es ist wichtig zu beachten, dass das SVG-Attribut {{SVGAttr('color-interpolation')}} einen Anfangswert von `sRGB` hat, während `color-interpolation-filters` einen Anfangswert von `linearRGB` hat. Das bedeutet, dass im Standardfall Filtereffektinterpolationen in einem anderen Farbraum stattfinden als alle anderen Farbinterpolationen.
 
 ## Syntax
 
@@ -33,11 +33,11 @@ color-interpolation-filters: unset;
 ### Werte
 
 - `linearRGB`
-  - : Gibt an, dass die Farbinterpolation im linearen RGB-Farbraum erfolgen soll, wie in der [sRGB-Spezifikation](https://webstore.iec.ch/en/publication/6169) beschrieben. Dies ist der Standardwert der Eigenschaft.
+  - : Gibt an, dass die Farbintepolation im linearisierten RGB-Farbraum erfolgen sollte, wie in der [sRGB-Spezifikation](https://webstore.iec.ch/en/publication/6169) beschrieben. Dies ist der Standardwert der Eigenschaft.
 - `sRGB`
-  - : Gibt an, dass die Farbinterpolation im gammakodierten sRGB-Farbraum erfolgen soll.
+  - : Gibt an, dass die Farbintepolation im gamma-kodierten sRGB-Farbraum erfolgen sollte.
 - `auto`
-  - : Gibt an, dass der Benutzeragent entweder die `sRGB`- oder `linearRGB`-Räume für die Farbinterpolation wählen kann. Diese Option zeigt an, dass der Autor nicht verlangt, dass die Farbinterpolation in einem bestimmten Farbraum erfolgt.
+  - : Gibt an, dass der Benutzeragent entweder die `sRGB`- oder `linearRGB`-Räume für die Farbintepolation wählen kann. Diese Option zeigt an, dass der Autor nicht verlangt, dass die Farbintepolation in einem bestimmten Farbraum erfolgt.
 
 ## Formale Definition
 
@@ -57,6 +57,6 @@ color-interpolation-filters: unset;
 
 ## Siehe auch
 
-- SVG {{SVGAttr("color-interpolation-filters")}} Attribut
-- SVG {{SVGAttr("color-interpolation")}} Attribut
+- {{cssxref("color-interpolation")}}
+- SVG-Attribut {{SVGAttr("color-interpolation-filters")}}
 - [sRGB-Spezifikation](https://webstore.iec.ch/en/publication/6169)

@@ -2,12 +2,12 @@
 title: flood-color
 slug: Web/SVG/Attribute/flood-color
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das Attribut **`flood-color`** gibt an, welche Farbe zur Flutung der aktuellen Filter-Primitive-Subregion verwendet werden soll.
+Das **`flood-color`**-Attribut gibt an, welche Farbe verwendet werden soll, um die aktuelle Filterprimitiv-Unterregion zu überfluten.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `flood-color` als CSS-Eigenschaft verwendet werden.
@@ -48,7 +48,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -57,7 +57,7 @@ svg {
       <td>{{cssxref("color")}}</td>
     </tr>
     <tr>
-      <th scope="row">Anfangswert</th>
+      <th scope="row">Initialwert</th>
       <td><code>black</code></td>
     </tr>
     <tr>
@@ -77,4 +77,5 @@ svg {
 
 ## Siehe auch
 
+- CSS {{cssxref("flood-color")}} Eigenschaft
 - {{SVGAttr("flood-opacity")}}

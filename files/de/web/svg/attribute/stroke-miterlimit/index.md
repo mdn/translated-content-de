@@ -2,15 +2,15 @@
 title: stroke-miterlimit
 slug: Web/SVG/Attribute/stroke-miterlimit
 l10n:
-  sourceCommit: 4d2346118b6ef233ce9a2b91b95a0295ebe145e2
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das **`stroke-miterlimit`**-Attribut ist ein Präsentationsattribut, das eine Grenze für das Verhältnis der Gehrungslänge zur {{ SVGAttr("stroke-width") }} festlegt, die verwendet wird, um eine Gehrungsverbindung zu zeichnen. Wenn das Limit überschritten wird, wird die Verbindung von einer Gehrung in eine Fase umgewandelt.
+Das **`stroke-miterlimit`** Attribut ist ein Präsentationsattribut, das ein Limit für das Verhältnis der Gehrungslänge zur {{ SVGAttr("stroke-width") }} festlegt, die zum Zeichnen einer Gehrungsverbindung verwendet wird. Wird das Limit überschritten, wird die Verbindung von einer Gehrung in eine Fase umgewandelt.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-miterlimit` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-miterlimit')}} für weitere Informationen.
+> Als Präsentationsattribut kann `stroke-miterlimit` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-miterlimit')}} für mehr Informationen.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -86,9 +86,9 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 400)}}
 
-Wenn sich zwei Liniensegmente in einem scharfen Winkel treffen und `miter`-Verbindungen für {{ SVGAttr("stroke-linejoin") }} angegeben wurden, kann es möglich sein, dass die Gehrung weit über die Dicke der pfadzeichnenden Linie hinausreicht. Das `stroke-miterlimit`-Verhältnis wird verwendet, um zu definieren, wann das Limit überschritten wird; in diesem Fall wird die Verbindung von einer Gehrung in eine Fase umgewandelt.
+Wenn zwei Liniensegmente in einem scharfen Winkel aufeinandertreffen und `miter`-Verbindungen für {{ SVGAttr("stroke-linejoin") }} angegeben wurden, kann es passieren, dass die Gehrung weit über die Dicke der Linie, die den Pfad streicht, hinausgeht. Das `stroke-miterlimit`-Verhältnis wird verwendet, um zu definieren, wann das Limit überschritten wird. In diesem Fall wird die Verbindung von einer Gehrung in eine Fase umgewandelt.
 
-Das Verhältnis von Gehrungslänge (Abstand zwischen der äußeren Spitze und der inneren Ecke der Gehrung) zur {{ SVGAttr("stroke-width") }} steht in direktem Zusammenhang mit dem Winkel (theta) zwischen den Segmenten im Benutzerbereich durch die Formel:
+Das Verhältnis der Gehrungslänge (Abstand zwischen der äußeren Spitze und der inneren Ecke der Gehrung) zur {{ SVGAttr("stroke-width") }} steht in direktem Zusammenhang mit dem Winkel (Theta) zwischen den Segmenten im Benutzerraum durch die Formel:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -96,7 +96,7 @@ Das Verhältnis von Gehrungslänge (Abstand zwischen der äußeren Spitze und de
 </math>
 <!-- prettier-ignore-end -->
 
-Zum Beispiel wandelt ein Gehrungslimit von 1.414 Gehrungen für Theta unter 90 Grad in Fasen um, ein Limit von 4.0 wandelt sie für Theta unter etwa 29 Grad um, und ein Limit von 10.0 wandelt sie für Theta unter etwa 11.5 Grad um.
+Zum Beispiel konvertiert ein Gehrungslimit von 1,414 Gehrungen in Fasen für Theta kleiner als 90 Grad, ein Limit von 4,0 konvertiert sie für Theta kleiner als ungefähr 29 Grad, und ein Limit von 10,0 konvertiert sie für Theta kleiner als ungefähr 11,5 Grad.
 
 ## Verwendungskontext
 
@@ -132,3 +132,7 @@ Der Wert von `stroke-miterlimit` muss größer oder gleich 1 sein.
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- CSS {{cssxref("stroke-miterlimit")}} Eigenschaft

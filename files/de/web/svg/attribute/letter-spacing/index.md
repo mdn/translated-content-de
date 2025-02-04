@@ -2,19 +2,19 @@
 title: letter-spacing
 slug: Web/SVG/Attribute/letter-spacing
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
 Das Attribut **`letter-spacing`** steuert den Abstand zwischen Textzeichen.
 
-Wenn der Attributwert eine zahl ohne Einheit ist (wie `128`), verarbeitet der Browser sie als {{cssxref("length")}} im aktuellen Koordinatensystem des Benutzers.
+Wenn der Attributwert eine einheitenlose Zahl ist (wie `128`), verarbeitet der Browser sie als {{cssxref("length")}} im aktuellen Benutzerkoordinatensystem.
 
-Wenn der Attributwert einen Einheitenindikator hat, wie `.25em` oder `1%`, konvertiert der Browser das \<length> in seinen entsprechenden Wert im aktuellen Koordinatensystem des Benutzers.
+Wenn der Attributwert eine Einheitenbezeichnung hat, wie `.25em` oder `1%`, wandelt der Browser die \<length> in den entsprechenden Wert im aktuellen Benutzerkoordinatensystem um.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `letter-spacing` als CSS-Eigenschaft verwendet werden. Siehe die CSS-Eigenschaft {{cssxref("letter-spacing")}} für weitere Informationen.
+> Als Präsentationsattribut kann `letter-spacing` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie bei der CSS {{cssxref("letter-spacing")}}-Eigenschaft.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -42,7 +42,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "30")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -61,7 +61,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte verweisen wir auf die [CSS `letter-spacing`](/de/docs/Web/CSS/letter-spacing#values) Eigenschaft.
+Für eine Beschreibung der Werte siehe die [CSS `letter-spacing`](/de/docs/Web/CSS/letter-spacing#values) Eigenschaft.
 
 ## Spezifikationen
 
@@ -73,4 +73,4 @@ Für eine Beschreibung der Werte verweisen wir auf die [CSS `letter-spacing`](/d
 
 ## Siehe auch
 
-- {{cssxref("letter-spacing")}}
+- CSS {{cssxref("letter-spacing")}}-Eigenschaft

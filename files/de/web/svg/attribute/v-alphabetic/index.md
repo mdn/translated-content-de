@@ -2,18 +2,18 @@
 title: v-alphabetic
 slug: Web/SVG/Attribute/v-alphabetic
 l10n:
-  sourceCommit: 8799df4d0dbc74bdcf0de1e7a24563a46dcb2478
+  sourceCommit: 0a4d5b451cc54599ed2b99cef4fdd39c3fd96a3d
 ---
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`v-alphabetic`** Attribut definiert die Ausrichtungskoordinate für {{Glossary("glyph", "Glyphen")}}, um eine alphabetische Baseline-Ausrichtung zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem relativ zum glyphe-spezifischen {{SVGAttr("vert-origin-x")}} Attribut.
+Das **`v-alphabetic`** Attribut bestimmt die Ausrichtungskoordinate für {{Glossary("glyph", "Glyphen")}}, um eine {{Glossary("/Baseline/Typography", "alphabetische Grundlinie")}}-Ausrichtung zu erreichen. Der Wert ist ein Versatz im Schriftkoordinatensystem relativ zum glyphen-spezifischen {{SVGAttr("vert-origin-x")}} Attribut.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font-face")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>

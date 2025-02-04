@@ -2,12 +2,12 @@
 title: height
 slug: Web/SVG/Attribute/height
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das **`height`**-Attribut definiert die vertikale Länge eines Elements im Benutzerkoordinatensystem.
+Das **`height`** Attribut definiert die vertikale Länge eines Elements im Benutzerkoordinatensystem.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -60,7 +60,7 @@ svg {
 
 ## feBlend
 
-Für {{SVGElement('feBlend')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feBlend')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -84,14 +84,14 @@ Für {{SVGElement('feBlend')}} definiert `height` die vertikale Länge des Rende
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feColorMatrix
 
-Für {{SVGElement('feColorMatrix')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feColorMatrix')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -115,14 +115,14 @@ Für {{SVGElement('feColorMatrix')}} definiert `height` die vertikale Länge des
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feComponentTransfer
 
-Für {{SVGElement('feComponentTransfer')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feComponentTransfer')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -146,14 +146,14 @@ Für {{SVGElement('feComponentTransfer')}} definiert `height` die vertikale Län
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feComposite
 
-Für {{SVGElement('feComposite')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feComposite')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -177,14 +177,14 @@ Für {{SVGElement('feComposite')}} definiert `height` die vertikale Länge des R
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feConvolveMatrix
 
-Für {{SVGElement('feConvolveMatrix')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feConvolveMatrix')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -208,14 +208,14 @@ Für {{SVGElement('feConvolveMatrix')}} definiert `height` die vertikale Länge 
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feDiffuseLighting
 
-Für {{SVGElement('feDiffuseLighting')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feDiffuseLighting')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -239,14 +239,14 @@ Für {{SVGElement('feDiffuseLighting')}} definiert `height` die vertikale Länge
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feDisplacementMap
 
-Für {{SVGElement('feDisplacementMap')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feDisplacementMap')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -270,14 +270,14 @@ Für {{SVGElement('feDisplacementMap')}} definiert `height` die vertikale Länge
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feDropShadow
 
-Für {{SVGElement('feDropShadow')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feDropShadow')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -301,14 +301,14 @@ Für {{SVGElement('feDropShadow')}} definiert `height` die vertikale Länge des 
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feFlood
 
-Für {{SVGElement('feFlood')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feFlood')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -332,14 +332,14 @@ Für {{SVGElement('feFlood')}} definiert `height` die vertikale Länge des Rende
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feGaussianBlur
 
-Für {{SVGElement('feGaussianBlur')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feGaussianBlur')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -363,14 +363,14 @@ Für {{SVGElement('feGaussianBlur')}} definiert `height` die vertikale Länge de
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feImage
 
-Für {{SVGElement('feImage')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feImage')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -394,14 +394,14 @@ Für {{SVGElement('feImage')}} definiert `height` die vertikale Länge des Rende
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feMerge
 
-Für {{SVGElement('feMerge')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feMerge')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -425,14 +425,14 @@ Für {{SVGElement('feMerge')}} definiert `height` die vertikale Länge des Rende
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feMorphology
 
-Für {{SVGElement('feMorphology')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feMorphology')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -456,14 +456,14 @@ Für {{SVGElement('feMorphology')}} definiert `height` die vertikale Länge des 
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feOffset
 
-Für {{SVGElement('feOffset')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feOffset')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -487,14 +487,14 @@ Für {{SVGElement('feOffset')}} definiert `height` die vertikale Länge des Rend
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feSpecularLighting
 
-Für {{SVGElement('feSpecularLighting')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feSpecularLighting')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -518,14 +518,14 @@ Für {{SVGElement('feSpecularLighting')}} definiert `height` die vertikale Läng
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feTile
 
-Für {{SVGElement('feTile')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feTile')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -549,14 +549,14 @@ Für {{SVGElement('feTile')}} definiert `height` die vertikale Länge des Render
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## feTurbulence
 
-Für {{SVGElement('feTurbulence')}} definiert `height` die vertikale Länge des Renderbereichs der Primitiven.
+Für {{SVGElement('feTurbulence')}} definiert `height` die vertikale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -580,7 +580,7 @@ Für {{SVGElement('feTurbulence')}} definiert `height` die vertikale Länge des 
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -611,7 +611,7 @@ Für {{SVGElement('filter')}} definiert `height` die vertikale Länge des Render
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -643,7 +643,7 @@ Für {{SVGElement('foreignObject')}} definiert `height` die vertikale Länge des
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -678,7 +678,7 @@ Für {{SVGElement('image')}} definiert `height` die vertikale Länge des Bildes.
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -688,7 +688,7 @@ Für {{SVGElement('image')}} definiert `height` die vertikale Länge des Bildes.
 
 ## mask
 
-Für {{SVGElement('mask')}} definiert `height` die vertikale Länge seines Wirkungsbereichs. Die genaue Wirkung dieses Attributs wird durch das {{SVGAttr('maskUnits')}}-Attribut beeinflusst.
+Für {{SVGElement('mask')}} definiert `height` die vertikale Länge seines Wirkungsbereichs. Die genaue Wirkung dieses Attributs wird durch das {{SVGAttr('maskUnits')}} Attribut beeinflusst.
 
 <table class="properties">
   <tbody>
@@ -712,14 +712,14 @@ Für {{SVGElement('mask')}} definiert `height` die vertikale Länge seines Wirku
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## pattern
 
-Für {{SVGElement('pattern')}} definiert `height` die vertikale Länge des Kachelmusters. Die genaue Wirkung dieses Attributs wird durch die Attribute {{SVGAttr('patternUnits')}} und {{SVGAttr('patternTransform')}} beeinflusst.
+Für {{SVGElement('pattern')}} definiert `height` die vertikale Länge des Kachelmusters. Die genaue Wirkung dieses Attributs wird durch die {{SVGAttr('patternUnits')}} und {{SVGAttr('patternTransform')}} Attribute beeinflusst.
 
 <table class="properties">
   <tbody>
@@ -737,7 +737,7 @@ Für {{SVGElement('pattern')}} definiert `height` die vertikale Länge des Kache
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -769,7 +769,7 @@ Für {{SVGElement('rect')}} definiert `height` die vertikale Länge des Rechteck
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -779,10 +779,10 @@ Für {{SVGElement('rect')}} definiert `height` die vertikale Länge des Rechteck
 
 ## svg
 
-Für {{SVGElement('svg')}} definiert `height` die vertikale Länge des Renderbereichs des SVG-Ansichtsfensters.
+Für {{SVGElement('svg')}} definiert `height` die vertikale Länge des Renderbereichs des SVG-Viewports.
 
 > [!NOTE]
-> In einem HTML-Dokument, wenn sowohl die Attribute {{SVGAttr('viewBox')}} als auch `height` fehlen, [wird das svg-Element mit einer Höhe von `150px` gerendert](https://svgwg.org/specs/integration/#svg-css-sizing)
+> In einem HTML-Dokument, wenn sowohl das {{SVGAttr('viewBox')}}-Attribut als auch das `height`-Attribut weggelassen werden, [wird das svg-Element mit einer Höhe von `150px` gerendert](https://svgwg.org/specs/integration/#svg-css-sizing)
 
 <table class="properties">
   <tbody>
@@ -807,7 +807,7 @@ Für {{SVGElement('svg')}} definiert `height` die vertikale Länge des Renderber
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -842,12 +842,12 @@ Für {{SVGElement('use')}} definiert `height` die vertikale Länge des referenzi
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
-> **Hinweis:** `height` hat keine Wirkung auf `use`-Elemente, es sei denn, das referenzierte Element hat eine [viewBox](/de/docs/Web/SVG/Attribute/viewBox) - das heißt, sie haben nur eine Auswirkung, wenn `use` sich auf ein `svg`- oder `symbol`-Element bezieht.
+> **Hinweis:** `height` hat keine Auswirkung auf `use`-Elemente, es sei denn, das referenzierte Element hat eine [viewBox](/de/docs/Web/SVG/Attribute/viewBox) - das heißt, sie haben nur eine Wirkung, wenn `use` sich auf ein `svg` oder `symbol` Element bezieht.
 
 > [!NOTE]
 > Ab SVG2 ist `height` eine _Geometrie-Eigenschaft_, was bedeutet, dass dieses Attribut auch als CSS-Eigenschaft für verwendete Elemente verwendet werden kann.
@@ -855,3 +855,7 @@ Für {{SVGElement('use')}} definiert `height` die vertikale Länge des referenzi
 ## Spezifikationen
 
 {{Specifications}}
+
+## Siehe auch
+
+- CSS {{cssxref("height")}} Eigenschaft

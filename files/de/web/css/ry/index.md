@@ -2,15 +2,15 @@
 title: ry
 slug: Web/CSS/ry
 l10n:
-  sourceCommit: c5f403bb08c91ae77ddfe47f937438fb5e6fcae5
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{CSSRef}}
 
-Die **`ry`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den y-Achsen- oder vertikalen Radius eines SVG-{{SVGElement("ellipse")}} und die vertikale Kurve der Ecken eines SVG-{{SVGElement("rect")}}-Rechtecks. Falls vorhanden, überschreibt sie das {{SVGAttr("ry")}}-Attribut der Form.
+Die **`ry`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den y-Achsen- oder vertikalen Radius eines SVG-{{SVGElement("ellipse")}} und die vertikale Rundung der Ecken eines SVG-{{SVGElement("rect")}} Rechtecks. Wenn vorhanden, überschreibt sie das {{SVGAttr("ry")}} Attribut der Form.
 
 > [!NOTE]
-> Die `ry`-Eigenschaft gilt nur für {{SVGElement("ellipse")}} und {{SVGElement("rect")}} Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-Elemente oder HTML-Elemente oder Pseudo-Elemente.
+> Die `ry` Eigenschaft gilt nur für die {{SVGElement("ellipse")}} und {{SVGElement("rect")}} Elemente, die in einem {{SVGElement("svg")}} eingebettet sind. Sie gilt nicht für andere SVG-Elemente oder HTML-Elemente oder Pseudoelemente.
 
 ## Syntax
 
@@ -32,19 +32,19 @@ ry: unset;
 
 ### Werte
 
-Der {{cssxref("length")}}-, {{cssxref("percentage")}}- oder `auto`-Schlüsselwortwert bezeichnet den vertikalen Radius von Ellipsen und den vertikalen Randradius von Rechtecken.
+Der Wert {{cssxref("length")}}, {{cssxref("percentage")}} oder das Schlüsselwort `auto` bezeichnen den vertikalen Radius von Ellipsen und den vertikalen Rahmenradius von Rechtecken.
 
 - {{cssxref("length")}}
 
-  - : Absolute oder relative Längen können in jeder vom CSS {{cssxref("&lt;length&gt;")}}-Datentyp erlaubten Einheit ausgedrückt werden. Negative Werte sind ungültig.
+  - : Absolute oder relative Längen können in allen Einheiten dargestellt werden, die durch den CSS-Datentyp {{cssxref("&lt;length&gt;")}} erlaubt sind. Negative Werte sind ungültig.
 
 - {{cssxref("percentage")}}
 
-  - : Prozentwerte beziehen sich auf die Höhe des aktuellen SVG-Viewports. Der verwendete Wert für ein `<rect>` überschreitet niemals 50 % der Höhe des Rechtecks.
+  - : Prozentwerte beziehen sich auf die Höhe des aktuellen SVG-Viewports. Der verwendete Wert für ein `<rect>` überschreitet niemals 50% der Höhe des Rechtecks.
 
 - `auto`
 
-  - : Wenn auf `auto` gesetzt oder standardmäßig darauf zurückgegriffen wird, entspricht der `ry`-Wert dem absoluten Längenwert, der für {{cssxref("rx")}} verwendet wird. Wenn sowohl `ry` als auch `rx` den berechneten Wert `auto` haben, beträgt der verwendete Wert `0`.
+  - : Wenn `auto` gesetzt ist oder die Standardeinstellung ist, entspricht der `ry` Wert dem absoluten Längenwert, der für {{cssxref("rx")}} verwendet wird. Wenn sowohl `ry` als auch `rx` auf `auto` berechnet wurden, ist der verwendete Wert `0`.
 
 ## Formale Definition
 
@@ -56,13 +56,13 @@ Der {{cssxref("length")}}-, {{cssxref("percentage")}}- oder `auto`-Schlüsselwor
 
 ## Beispiele
 
-### Erstellen abgerundeter Ecken
+### Abgerundete Ecken erstellen
 
-Dieses Beispiel zeigt, wie man Rechtecke mit abgerundeten Ecken erstellt, indem man die `ry`-Eigenschaft auf SVG-`<rect>`-Elemente anwendet.
+Dieses Beispiel demonstriert das Erstellen von Rechtecken mit abgerundeten Ecken durch die Anwendung der `ry` Eigenschaft auf SVG `<rect>` Elemente.
 
 #### HTML
 
-Wir fügen ein SVG-Bild mit vier `<rect>`-Elementen ein; alle Rechtecke sind gleich, außer ihrem {{SVGAttr("x")}}-Attributwert, der sie entlang der x-Achse positioniert.
+Wir fügen ein SVG-Bild mit vier `<rect>` Elementen ein; alle Rechtecke sind gleich außer ihrem {{SVGAttr("x")}} Attributwert, der sie entlang der x-Achse positioniert.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg">
@@ -76,7 +76,7 @@ Wir fügen ein SVG-Bild mit vier `<rect>`-Elementen ein; alle Rechtecke sind gle
 
 #### CSS
 
-Mit CSS setzen wir einen `ry`-Wert auf vier der Rechtecke:
+Mit CSS setzen wir einen `ry` Wert auf vier der Rechtecke:
 
 ```css
 svg {
@@ -106,17 +106,17 @@ rect:nth-of-type(5) {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Erstellen abgerundeter Ecken", "300", "180")}}
+{{EmbedLiveSample("Creating rounded corners", "300", "180")}}
 
-Das erste Rechteck verwendet standardmäßig `auto`; da alle `rx`-Werte in diesem Beispiel ebenfalls standardmäßig auf `auto` gesetzt sind, beträgt der verwendete Wert von `ry` `0`. Die roten und blauen Rechtecke haben abgerundete Ecken von `10px` bzw. `2em`. Da der SVG-Viewport standardmäßig 300px mal 150px beträgt, erzeugt der `5%`-Wert des orangefarbenen Rechtecks einen Radius von `7.5px`. Das grüne Rechteck hat `ry: 80%` gesetzt. Da der Wert von `ry` jedoch nie mehr als `50%` der Höhe des Rechtecks beträgt, ist der Effekt so, als wäre `ry: 50%; rx: 50%` gesetzt.
+Das erste Rechteck hat den Standardwert `auto`; da alle `rx` Werte in diesem Beispiel ebenfalls auf `auto` standardisieren, ist der verwendete Wert von `ry` `0`. Die roten und blauen Rechtecke haben abgerundete Ecken von `10px` bzw. `2em`. Da der SVG-Viewport standardmäßig 300px mal 150px ist, erzeugt der `5%` Wert des orangefarbenen Rechtecks einen Radius von `7.5px`. Das grüne Rechteck hat `ry: 80%` gesetzt. Da der Wert von `ry` jedoch niemals mehr als `50%` der Höhe des Rechtecks ist, wirkt es, als ob `ry: 50%; rx: 50%` gesetzt worden wäre.
 
-### Definition des vertikalen Radius einer Ellipse
+### Den vertikalen Radius einer Ellipse definieren
 
-Dieses grundlegende `<ellipse>`-Beispiel zeigt die CSS-`ry`-Eigenschaft, die gegenüber einem SVG-`ry`-Attribut Vorrang hat, um den vertikalen Radius der Form zu definieren.
+Dieses grundlegende `<ellipse>` Beispiel zeigt, wie die CSS `ry` Eigenschaft vorrangig gegenüber einem SVG `ry` Attribut verwendet wird, um den vertikalen Radius der Form zu definieren.
 
 #### HTML
 
-Wir fügen zwei identische `<ellipse>`-Elemente in ein SVG ein; jedes mit dem `ry`-Attribut auf `20` gesetzt.
+Wir fügen zwei identische `<ellipse>` Elemente in ein SVG ein; jedes hat das `ry` Attribut auf `20` gesetzt.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg">
@@ -127,7 +127,7 @@ Wir fügen zwei identische `<ellipse>`-Elemente in ein SVG ein; jedes mit dem `r
 
 #### CSS
 
-Wir stylen nur die erste Ellipse und lassen ihren Zwilling die Standardbenutzeragentenstile verwenden (wobei {{cssxref("fill")}} standardmäßig schwarz ist). Die geometrische `ry`-Eigenschaft überschreibt den Wert des SVG-{{SVGAttr("ry")}}-Attributs. Wir setzen auch die `fill`- und {{cssxref("stroke")}}-Eigenschaften, um die gestylte Form von ihrem Zwilling zu unterscheiden.
+Wir stylen nur die erste Ellipse und lassen ihren Zwilling die Standardnutzeragentenstile verwenden (mit {{cssxref("fill")}}, die standardmäßig schwarz ist). Die geometrische `ry` Eigenschaft überschreibt den Wert des SVG {{SVGAttr("ry")}} Attributs. Wir setzen auch die `fill` und {{cssxref("stroke")}} Eigenschaften, um die gestylte Form von ihrem Zwilling zu unterscheiden.
 
 ```css
 svg {
@@ -143,13 +143,13 @@ ellipse:first-of-type {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Definition des vertikalen Radius einer Ellipse", "300", "180")}}
+{{EmbedLiveSample("Defining the vertical radius of an ellipse", "300", "180")}}
 
-Der vertikale Radius der gestylten Ellipse beträgt `80px`, wie im CSS-`ry`-Eigenschaftswert definiert. Der vertikale Radius der ungestylten Ellipse beträgt `20px`, wie durch das `ry`-Attribut definiert.
+Der vertikale Radius der gestylten Ellipse beträgt `80px`, wie im CSS `ry` Eigenschaftswert definiert. Der vertikale Radius der ungestylten Ellipse beträgt `20px`, wie durch das `ry` Attribut definiert.
 
-### Prozentwerte für den vertikalen Ellipsenradius
+### Prozentsatzwerte für den vertikalen Radius einer Ellipse
 
-Dieses Beispiel zeigt die Verwendung von Prozentwerten für `ry`.
+Dieses Beispiel zeigt die Nutzung von Prozentsatzwerten für `ry`.
 
 #### HTML
 
@@ -164,7 +164,7 @@ Wir verwenden das gleiche Markup wie im vorherigen Beispiel.
 
 #### CSS
 
-Das CSS ist dem vorherigen Beispiel ähnlich, mit dem einzigen Unterschied, dass der `ry`-Eigenschaftswert in diesem Fall ein Prozentwert ist.
+Das CSS ist ähnlich wie im vorherigen Beispiel, mit dem einzigen Unterschied, dass der `ry` Eigenschaftswert hier ein Prozentwert ist.
 
 ```css
 svg {
@@ -180,9 +180,9 @@ ellipse:first-of-type {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Prozentwerte für den vertikalen Ellipsenradius", "300", "180")}}
+{{EmbedLiveSample("Ellipse vertical radius percentage values", "300", "180")}}
 
-Bei der Verwendung von Prozentwerten für `ry` beziehen sich die Werte auf die Höhe des SVG-Viewports. Hier beträgt die Größe des vertikalen Radius der gestylten Ellipse `30%` der Höhe des aktuellen SVG-Viewports. Da die Höhe standardmäßig `150px` betrug, beträgt der `ry`-Wert `45px`, wodurch die Ellipse `90px` hoch wird.
+Wenn Prozentsatzwerte für `ry` verwendet werden, beziehen sich die Werte auf die Höhe des SVG-Viewports. Hier beträgt die Größe des vertikalen Radius der gestylten Ellipse `30%` der Höhe des aktuellen SVG-Viewports. Da die Höhe standardmäßig `150px` beträgt, ist der `ry` Wert `45px`, wodurch die Ellipse `90px` hoch wird.
 
 ## Spezifikationen
 
@@ -198,6 +198,7 @@ Bei der Verwendung von Prozentwerten für `ry` beziehen sich die Werte auf die H
 - {{cssxref("fill")}}
 - {{cssxref("stroke")}}
 - {{cssxref("paint-order")}}
-- {{cssxref("border-radius")}} Kurzschreibweise
+- Kurzschreibweise für {{cssxref("border-radius")}}
 - {{cssxref("gradient/radial-gradient", "radial-gradient")}}
 - {{cssxref("basic-shape")}} Datentyp
+- SVG {{SVGAttr("ry")}} Attribut

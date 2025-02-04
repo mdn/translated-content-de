@@ -3,59 +3,56 @@ title: "HTMLImageElement: loading-Eigenschaft"
 short-title: loading
 slug: Web/API/HTMLImageElement/loading
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 8bc1b82b5526140a0bd6cfc147b74bf74947a09d
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`loading`** ist ein String, dessen Wert dem {{Glossary("user_agent", "User-Agent")}} einen Hinweis gibt, wie das Laden des Bildes, das sich derzeit außerhalb des visuellen Viewports des Fensters befindet, gehandhabt werden soll.
+Die [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`loading`** ist ein String, dessen Wert einen Hinweis darauf gibt, wie der {{Glossary("user_agent", "User-Agent")}} das Laden des Bildes, das sich derzeit außerhalb des {{Glossary("visual_viewport", "visuellen Viewports")}} des Fensters befindet, behandeln soll.
 
-Dies hilft, das Laden der Inhalte eines Dokuments zu optimieren, indem das Laden des Bildes bis zu dem Zeitpunkt verschoben wird, an dem es voraussichtlich benötigt wird, anstatt es sofort während des anfänglichen Seitenladevorgangs zu laden.
+Dies hilft, das Laden der Inhalte des Dokuments zu optimieren, indem das Laden des Bildes hinausgeschoben wird, bis es wahrscheinlich benötigt wird, anstatt sofort beim initialen Seitenladen.
 
 ## Wert
 
-Ein String, der dem User-Agent einen Hinweis gibt, wie das Laden des Bildes am besten geplant werden kann, um die Leistung der Seite zu optimieren.
+Ein String, der dem User-Agent einen Hinweis gibt, wie das Laden des Bildes am besten geplant werden soll, um die Seitenleistung zu optimieren.
 Die möglichen Werte sind:
 
 - `eager`
-  - : Das Standardverhalten, `eager`, weist den Browser an, das Bild zu laden, sobald das `<img>`-Element verarbeitet wird.
+  - : Das Standardverhalten, `eager` weist den Browser an, das Bild zu laden, sobald das `<img>`-Element verarbeitet wird.
 - `lazy`
-  - : Weist den User-Agent an, das Laden des Bildes solange aufzuschieben, bis der Browser schätzt, dass es bald benötigt wird.
-    Zum Beispiel, wenn der Benutzer durch das Dokument scrollt, wird ein Wert von `lazy` bewirken, dass das Bild nur kurz bevor es im visuellen Viewport des Fensters erscheint, geladen wird.
+  - : Weist den User-Agent an, das Laden des Bildes zurückzustellen, bis der Browser schätzt, dass es bald benötigt wird.
+    Zum Beispiel, wenn der Benutzer durch das Dokument scrollt, bewirkt ein Wert von `lazy`, dass das Bild erst kurz vor seinem Erscheinen im {{Glossary("visual_viewport", "visuellen Viewport")}} geladen wird.
 
-## Verwendungshinweise
-
-> [!NOTE]
-> In Firefox muss das `loading`-Attribut vor dem `src`-Attribut definiert sein, sonst hat es keine Wirkung ([Firefox-Bug 1647077](https://bugzil.la/1647077)).
+## Nutzungshinweise
 
 ### JavaScript muss aktiviert sein
 
 Das Laden wird nur verzögert, wenn JavaScript aktiviert ist.
-Dies ist eine Anti-Tracking-Maßnahme, denn wenn ein User-Agent Lazy-Loading unterstützen würde, während Scripting deaktiviert ist, wäre es dennoch möglich, die ungefähre Scroll-Position eines Benutzers während einer Sitzung zu verfolgen, indem Bilder strategisch im Markup einer Seite platziert werden, sodass ein Server verfolgen kann, wie viele Bilder angefordert werden und wann.
+Dies ist eine Maßnahme gegen Tracking, da es einer Website möglich wäre, die ungefähre Scrollposition eines Benutzers während einer Sitzung zu verfolgen, indem strategisch Bilder im Markup einer Seite platziert werden, sodass ein Server verfolgen kann, wie viele Bilder angefordert werden und wann.
 
-### Zeitpunkt des Ladeereignisses
+### Zeitpunkt des Lade-Events
 
-Das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis wird ausgelöst, wenn das Dokument vollständig verarbeitet wurde.
-Wenn Bilder eifrig geladen werden (was der Standard ist), muss jedes Bild im Dokument abgerufen werden, bevor das `load`-Ereignis ausgelöst werden kann.
+Das [`load`](/de/docs/Web/API/Window/load_event)-Event wird ausgelöst, wenn das Dokument vollständig verarbeitet wurde.
+Wenn Bilder eifrig geladen werden (was der Standard ist), muss jedes Bild im Dokument abgerufen werden, bevor das `load`-Event ausgelöst werden kann.
 
-Durch Angabe des Wertes `lazy` für `loading` verhindern Sie, dass das Bild das `load`-Attribut um die Zeit verzögert, die zum Anfordern, Abrufen und Verarbeiten des Bildes benötigt wird.
+Durch das Festlegen des Wertes `lazy` für `loading` verhindern Sie, dass das Bild das `load`-Attribut um die Zeit verzögert, die benötigt wird, um das Bild anzufordern, abzurufen und zu verarbeiten.
 
-Bilder, deren `loading`-Attribut auf `lazy` gesetzt ist, die sich jedoch innerhalb des visuellen Viewports direkt nach dem anfänglichen Seitenladen befinden, werden geladen, sobald das Layout bekannt ist, aber deren Ladevorgänge verzögern das Auslösen des `load`-Ereignisses nicht.
-Mit anderen Worten laden diese Bilder nicht sofort beim Verarbeiten des `<img>`-Elements, sind jedoch immer noch Teil des anfänglichen Seitenladens.
-Sie beeinflussen einfach nicht den Zeitpunkt des `load`-Ereignisses.
+Bilder, deren `loading`-Attribut auf `lazy` gesetzt ist, die sich jedoch sofort nach dem initialen Laden der Seite im visuellen Viewport befinden, werden geladen, sobald das Layout bekannt ist, aber ihr Laden verzögert nicht die Auslösung des `load`-Events.
+Mit anderen Worten, diese Bilder werden nicht sofort beim Verarbeiten des `<img>`-Elements geladen, sind aber dennoch Teil des initialen Seitenladens.
+Sie beeinflussen lediglich nicht das Timing des `load`-Events.
 
-Das bedeutet, dass wenn `load` ausgelöst wird, es möglich ist, dass alle lazy-geladenen Bilder, die sich im visuellen Viewport befinden, noch nicht sichtbar sind.
+Das bedeutet, dass es möglich ist, wenn `load` ausgelöst wird, dass noch nicht alle lazy-geladenen Bilder, die sich im visuellen Viewport befinden, sichtbar sind.
 
-### Verhindern von Elementverschiebungen während des Lazy-Loadings von Bildern
+### Verhinderung von Elementverschiebungen während des Lazy-Ladens von Bildern
 
-Wenn ein Bild, dessen Laden durch das `loading`-Attribut mit dem Wert `lazy` verzögert wurde, schließlich geladen wird, bestimmt der Browser die endgültige Größe des {{HTMLElement("img")}}-Elements basierend auf dem Stil und der intrinsischen Größe des Bildes und überarbeitet das Dokument nach Bedarf, um die Position der Elemente basierend auf jeder Größenänderung zu aktualisieren, die am Element vorgenommen wird, um das Bild anzupassen.
+Wenn ein Bild, dessen Laden durch das `loading`-Attribut auf `lazy` verzögert wurde, schließlich geladen wird, bestimmt der Browser die endgültige Größe des {{HTMLElement("img")}}-Elements basierend auf dem Stil und der intrinsischen Größe des Bildes und überarbeitet das Dokument nach Bedarf, um die Positionen der Elemente basierend auf jeder Größenänderung anzupassen, die am Element vorgenommen wird, um das Bild anzupassen.
 
-Um diese Überarbeitung zu verhindern, sollten Sie die Größe der Bilddarstellung ausdrücklich mithilfe der Attribute [`width`](/de/docs/Web/HTML/Element/img#width) und [`height`](/de/docs/Web/HTML/Element/img#height) des Bildelements angeben.
-Indem Sie das intrinsische {{Glossary("aspect_ratio", "Seitenverhältnis")}} auf diese Weise festlegen, verhindern Sie, dass sich Elemente während des Ladens des Dokuments verschieben, was im besten Fall irritierend oder abschreckend sein kann und im schlimmsten Fall Benutzer dazu bringen kann, versehentlich das falsche Objekt anzuklicken, abhängig vom genauen Timing der verzögerten Ladevorgänge und Überarbeitungen.
+Um diesen Reflow zu verhindern, sollten Sie die Größe der Bildpräsentation ausdrücklich mit den Attributen [`width`](/de/docs/Web/HTML/Element/img#width) und [`height`](/de/docs/Web/HTML/Element/img#height) des Bildelements angeben.
+Indem Sie auf diese Weise das intrinsische {{Glossary("aspect_ratio", "Seitenverhältnis")}} festlegen, verhindern Sie, dass sich Elemente während des Ladens des Dokuments verschieben, was im besten Fall irritierend oder unattraktiv sein kann und im schlimmsten Fall dazu führen kann, dass Benutzer fälschlicherweise auf etwas klicken, abhängig vom genauen Timing der verzögerten Ladevorgänge und Reflows.
 
 ## Beispiele
 
-Die unten gezeigte Funktion `addImageToList()` fügt eine Fotominiaturansicht zu einer Liste von Elementen hinzu und verwendet Lazy-Loading, um das Laden des Bildes aus dem Netzwerk zu vermeiden, bis es tatsächlich benötigt wird.
+Die unten gezeigte Funktion `addImageToList()` fügt ein Foto-Thumbnail zu einer Liste von Elementen hinzu und verwendet Lazy-Loading, um zu vermeiden, dass das Bild aus dem Netzwerk geladen wird, bis es tatsächlich benötigt wird.
 
 ```js
 function addImageToList(url) {
@@ -87,4 +84,4 @@ function addImageToList(url) {
 
 - Das {{HTMLElement("img")}}-Element
 - [Web-Performance](/de/docs/Learn_web_development/Extensions/Performance) im MDN-Lernbereich
-- [Lazy Loading](/de/docs/Web/Performance/Lazy_loading) im MDN-Webperformance-Leitfaden
+- [Lazy Loading](/de/docs/Web/Performance/Lazy_loading) im MDN-Web-Performance-Leitfaden

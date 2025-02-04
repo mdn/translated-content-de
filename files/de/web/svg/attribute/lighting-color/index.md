@@ -2,12 +2,12 @@
 title: lighting-color
 slug: Web/SVG/Attribute/lighting-color
 l10n:
-  sourceCommit: cd840e78b6027a391fe1f11b745564cf3ebfb8e7
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das Attribut **`lighting-color`** definiert die Farbe der Lichtquelle für Lichtfilter-Primitiven.
+Das **`lighting-color`** Attribut definiert die Farbe der Lichtquelle für Lichtfilter-Primitiven.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -52,7 +52,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", "420", "200")}}
+{{EmbedLiveSample("Example", "420", "200")}}
 
 ## Verwendungshinweise
 
@@ -83,4 +83,5 @@ svg {
 
 ## Siehe auch
 
-- [Beschreibung des Phong-Reflektionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)
+- CSS {{cssxref("lighting-color")}} Eigenschaft
+- [Beschreibung des Phong-Reflection-Modells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)

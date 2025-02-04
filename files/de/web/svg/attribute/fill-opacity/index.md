@@ -2,17 +2,17 @@
 title: fill-opacity
 slug: Web/SVG/Attribute/fill-opacity
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das **`fill-opacity`** Attribut ist ein Präsentationsattribut, das die Opazität des Paint-Servers (_Farbe_, _Verlauf_, _Muster_ usw.) definiert, der auf eine Form angewendet wird.
+Das **`fill-opacity`**-Attribut ist ein Präsentationsattribut, das die Opazität des Farbservers (_Farbe_, _Verlauf_, _Muster_, etc.) definiert, der auf eine Form angewendet wird.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `fill-opacity` als CSS-Eigenschaft verwendet werden.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Dieses Attribut können Sie mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -53,7 +53,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -80,7 +80,7 @@ svg {
 </table>
 
 > [!NOTE]
-> SVG2 führt Prozentwerte für `fill-opacity` ein, jedoch wird dies noch nicht weitgehend unterstützt (_Siehe [Browser-Kompatibilität](#browser-kompatibilität) unten_). Daher ist es empfehlenswert, die Opazität mit einem Wert im Bereich `[0-1]` festzulegen.
+> SVG2 führt Prozentwerte für `fill-opacity` ein, diese werden jedoch noch nicht weitreichend unterstützt (_siehe [Browser-Kompatibilität](#browser-kompatibilität) unten_). Daher ist es am besten, die Opazität mit einem Wert im Bereich `[0-1]` festzulegen.
 
 ## Spezifikationen
 
@@ -92,6 +92,7 @@ svg {
 
 ## Siehe auch
 
+- CSS {{cssxref("fill-opacity")}} Eigenschaft
 - {{SVGAttr("opacity")}}
 - {{SVGAttr("stop-opacity")}}
 - {{SVGAttr("stroke-opacity")}}

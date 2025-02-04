@@ -2,15 +2,15 @@
 title: content-visibility
 slug: Web/CSS/content-visibility
 l10n:
-  sourceCommit: b60bc79c7ad36c56dddf6760d2fd4dbb642d2023
+  sourceCommit: 5c1847fabca3f8f0fa6cd5e6c89b1a5a1de314e6
 ---
 
 {{CSSRef}}
 
-Die **`content-visibility`** [CSS](/de/docs/Web/CSS)-Eigenschaft kontrolliert, ob der Inhalt eines Elements überhaupt gerendert wird. Sie erzwingt zudem eine starke Gruppe von Containments, sodass User Agents große Teile der Layout- und Rendering-Arbeit potenziell auslassen können, bis sie benötigt werden. Dadurch kann der User Agent die Rendering-Arbeit eines Elements (einschließlich Layout und Painting) überspringen, bis sie benötigt wird – was den initialen Seitenaufbau wesentlich beschleunigt.
+Die **`content-visibility`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, ob ein Element seine Inhalte überhaupt rendert, und erzwingt eine starke Reihe von Einschränkungen, die es Benutzeragenten ermöglichen, große Bereiche von Layout- und Rendering-Arbeiten potenziell zu überspringen, bis sie benötigt werden. Sie ermöglicht dem Benutzeragenten, die Rendering-Arbeit eines Elements (einschließlich Layout und Malen) zu überspringen, bis sie benötigt wird – was das anfängliche Laden der Seite erheblich beschleunigt.
 
 > [!NOTE]
-> Das Ereignis [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event) wird bei jedem Element gefeuert, bei dem `content-visibility: auto` eingestellt ist, wenn die Rendering-Arbeit beginnt oder aufhört, übersprungen zu werden. Dies bietet eine bequeme Möglichkeit für den Code einer App, Renderprozesse zu beginnen oder zu stoppen (z.B. das Zeichnen auf einem {{htmlelement("canvas")}}), wenn sie nicht benötigt werden, und so die Rechenleistung zu schonen.
+> Das [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event)-Ereignis wird bei jedem Element mit `content-visibility: auto` ausgelöst, wenn dessen Rendering-Arbeit beginnt oder aufhört, übersprungen zu werden. Dies bietet eine bequeme Möglichkeit für den Code einer App, Renderprozesse zu starten oder zu stoppen (z. B. Zeichnen auf einem {{htmlelement("canvas")}}), wenn sie nicht benötigt werden, und so Rechenleistung zu sparen.
 
 {{EmbedInteractiveExample("pages/css/content-visibility.html")}}
 
@@ -33,29 +33,29 @@ content-visibility: unset;
 ### Werte
 
 - `visible`
-  - : Keine Wirkung. Der Inhalt des Elements wird normal ausgelegt und gerendert.
+  - : Keine Auswirkung. Die Inhalte des Elements werden normal gelayoutet und gerendert.
 - `hidden`
-  - : Das Element [überspringt seinen Inhalt](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents). Der übersprungene Inhalt darf nicht für Benutzer-Agent-Funktionen zugänglich sein, wie z.B. Seitensuche, Tab-Navigation etc., und darf nicht auswählbar oder fokussierbar sein. Dies ähnelt dem Verhalten von `display: none`.
+  - : Das Element [überspringt seine Inhalte](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents). Die übersprungenen Inhalte dürfen für Funktionen des Benutzeragenten wie Suchen auf der Seite, Tab-Navigation usw. nicht zugänglich sein, noch dürfen sie auswählbar oder fokussierbar sein. Dies ist ähnlich wie das Zuordnen der Inhalte mit `display: none`.
 - `auto`
-  - : Das Element aktiviert Layout-Containment, Style-Containment und Paint-Containment. Wenn das Element nicht [benutzerspezifisch relevant](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#relevant_to_the_user) ist, wird auch dessen Inhalt übersprungen. Im Gegensatz zu `hidden` muss der übersprungene Inhalt jedoch normal für Benutzer-Agent-Funktionen zugänglich sein, wie z.B. Seitensuche, Tab-Navigation etc., und muss fokussierbar und auswählbar sein.
+  - : Das Element aktiviert Layout-Kontainment, Stil-Kontainment und Mal-Kontainment. Wenn das Element nicht [relevant für den Benutzer](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#relevant_to_the_user) ist, überspringt es auch seine Inhalte. Im Gegensatz zu `hidden` müssen die übersprungenen Inhalte jedoch für Funktionen des Benutzeragenten wie Suchen auf der Seite, Tab-Navigation usw. normal verfügbar sein und müssen fokussierbar und auswählbar sein wie gewohnt.
 
 ## Beschreibung
 
-### Animation und Transition von content-visibility
+### Animieren und Übergänge von `content-visibility`
 
-[Unterstützende Browser](#browser-kompatibilität) animieren/transitionieren `content-visibility` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete).
+[Unterstützende Browser](#browser-kompatibilität) animieren/transitionieren `content-visibility` mit einer Variante des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete).
 
-Diskrete Animation bedeutet im Allgemeinen, dass die Eigenschaft während der Hälfte der Animation zwischen zwei Werten umschaltet. Bei `content-visibility` schaltet der Browser jedoch zwischen den beiden Werten, um den animierten Inhalt während der gesamten Animationsdauer anzuzeigen. Beispiel:
+Diskrete Animation bedeutet im Allgemeinen, dass die Eigenschaft 50% der Animationszeit zwischen zwei Werten wechselt. Im Fall von `content-visibility` wechselt der Browser jedoch zwischen den beiden Werten, um den animierten Inhalt während der gesamten Animationsdauer anzuzeigen. Zum Beispiel:
 
-- Bei der Animation von `content-visibility` von `hidden` zu `visible` schaltet der Wert bei `0%` der Animationsdauer zu `visible`, sodass es die ganze Zeit sichtbar ist.
-- Bei der Animation von `content-visibility` von `visible` zu `hidden` schaltet der Wert bei `100%` der Animationsdauer zu `hidden`, sodass es die ganze Zeit sichtbar ist.
+- Beim Animieren von `content-visibility` von `hidden` zu `visible` wird der Wert bei `0%` der Animationsdauer auf `visible` gesetzt, sodass er während der gesamten Dauer sichtbar ist.
+- Beim Animieren von `content-visibility` von `visible` zu `hidden` wird der Wert bei `100%` der Animationsdauer auf `hidden` gesetzt, sodass er während der gesamten Dauer sichtbar ist.
 
-Dieses Verhalten ist nützlich, um Ein-/Ausgangsanimationen zu erstellen, bei denen Sie z.B. Inhalte mit `content-visibility: hidden` aus dem DOM entfernen möchten, aber eine sanfte Transition (wie ein Ausblenden) wünschen, anstatt dass dieser sofort verschwindet.
+Dieses Verhalten ist nützlich für das Erstellen von Ein- und Ausstiegsanimationen, bei denen Sie beispielsweise Inhalte mit `content-visibility: hidden` aus dem DOM entfernen möchten, dabei aber einen sanften Übergang (wie z. B. ein Ausblenden) wünschen, statt sie sofort verschwinden zu lassen.
 
-Wenn `content-visibility` mit [CSS-Transitions](/de/docs/Web/CSS/CSS_transitions) animiert wird, muss [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) auf `content-visibility` gesetzt werden. Dies ermöglicht effektiv `content-visibility`-Transitions.
+Beim Animieren von `content-visibility` mit [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions) muss [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) auf `content-visibility` gesetzt werden. Dadurch werden `content-visibility`-Übergänge effektiv aktiviert.
 
 > [!NOTE]
-> Beim Übergang des `content-visibility`-Werts eines Elements müssen Sie keinen Satz von Startwerten für transitionierte Eigenschaften mithilfe eines [`@starting-style`](/de/docs/Web/CSS/@starting-style)-Blocks angeben, wie Sie es beim [Übergang von `display`](/de/docs/Web/CSS/display#animating_display) tun. Dies liegt daran, dass `content-visibility` ein Element nicht wie `display` aus dem DOM verbirgt: Es überspringt einfach das Rendern des Inhalts des Elements.
+> Beim Übergang eines Elements von `content-visibility` müssen Sie keine Anfangswerte für übergehende Eigenschaften mithilfe eines [`@starting-style`](/de/docs/Web/CSS/@starting-style)-Blocks angeben, wie Sie es bei der [Transition von `display`](/de/docs/Web/CSS/display#animating_display) tun. Dies liegt daran, dass `content-visibility` ein Element nicht wie `display` aus dem DOM verbirgt: Es überspringt lediglich das Rendern der Inhalte des Elements.
 
 ## Formale Definition
 
@@ -67,17 +67,17 @@ Wenn `content-visibility` mit [CSS-Transitions](/de/docs/Web/CSS/CSS_transitions
 
 ## Barrierefreiheit
 
-Inhalte außerhalb des Bildschirms innerhalb einer Eigenschaft `content-visibility: auto` bleiben im Dokumentobjektmodell und im Accessibility-Tree. Dies ermöglicht eine Verbesserung der Seitenleistung mit `content-visibility: auto`, ohne die Barrierefreiheit negativ zu beeinflussen.
+Außerhalb des Bildschirms befindliche Inhalte innerhalb einer `content-visibility: auto`-Eigenschaft bleiben im Document Object Model und im Barrierefreiheitsbaum erhalten. Dies ermöglicht eine Verbesserung der Seitenleistung mit `content-visibility: auto`, ohne die Barrierefreiheit negativ zu beeinflussen.
 
-Da Stile für Inhalte außerhalb des Bildschirms nicht gerendert werden, _erscheinen Elemente, die absichtlich mit `display: none` oder `visibility: hidden` versteckt werden, dennoch im Accessibility-Tree_.
-Wenn Sie nicht möchten, dass ein Element im Accessibility-Tree erscheint, verwenden Sie `aria-hidden="true"`.
+Da Stile für außerhalb des Bildschirms befindliche Inhalte nicht gerendert werden, werden absichtlich mit `display: none` oder `visibility: hidden` verborgene Elemente _trotzdem im Barrierefreiheitsbaum erscheinen_.
+Wenn Sie nicht möchten, dass ein Element im Barrierefreiheitsbaum erscheint, verwenden Sie `aria-hidden="true"`.
 
 ## Beispiele
 
-### Verwendung von auto zur Reduzierung der Rendering-Kosten langer Seiten
+### Verwendung von auto, um die Rendering-Kosten langer Seiten zu reduzieren
 
-Das folgende Beispiel zeigt die Verwendung von `content-visibility: auto`, um das Painting und Rendering von Bereichen außerhalb des Bildschirms zu überspringen.
-Wenn sich ein `section` außerhalb des Ansichtsfensters befindet, wird das Painting des Inhalts übersprungen, bis sich der Bereich dem Ansichtsfenster nähert. Dies hilft sowohl bei der Ladezeit als auch bei Interaktionen auf der Seite.
+Das folgende Beispiel zeigt die Verwendung von `content-visibility: auto`, um das Malen und Rendern von Abschnitten außerhalb des Bildschirms zu überspringen.
+Wenn ein `section` außerhalb des Viewports ist, wird das Malen des Inhalts übersprungen, bis der Abschnitt in die Nähe des Viewports kommt. Dies hilft sowohl beim Laden als auch bei Interaktionen auf der Seite.
 
 #### HTML
 
@@ -96,7 +96,7 @@ Wenn sich ein `section` außerhalb des Ansichtsfensters befindet, wird das Paint
 
 #### CSS
 
-Die Eigenschaft `contain-intrinsic-size` fügt jedem `section`-Element eine Standardgröße von 500px in Höhe und Breite hinzu. Nachdem ein Abschnitt gerendert wurde, behält er seine gerenderte intrinsische Größe bei, auch wenn er aus dem Ansichtsfenster herausgescrollt wird.
+Die `contain-intrinsic-size`-Eigenschaft fügt jedem `section`-Element eine Standardgröße von 500px in Höhe und Breite hinzu. Nachdem ein Abschnitt gerendert wurde, behält er seine gerenderte intrinsische Größe bei, selbst wenn er aus dem Viewport herausgescrollt wird.
 
 ```css
 section {
@@ -107,8 +107,8 @@ section {
 
 ### Verwendung von hidden zur Verwaltung der Sichtbarkeit
 
-Das folgende Beispiel zeigt, wie die Sichtbarkeit von Inhalten mit JavaScript verwaltet werden kann.
-Die Verwendung von `content-visibility: hidden;` anstelle von `display: none;` bewahrt den Rendering-Zustand von Inhalten, wenn sie versteckt sind, und sorgt für schnelleres Rendering.
+Das folgende Beispiel zeigt, wie die Inhaltsichtbarkeit mit JavaScript verwaltet werden kann.
+Die Verwendung von `content-visibility: hidden;` anstelle von `display: none;` bewahrt den Rendering-Zustand von Inhalten, wenn sie verborgen sind, und das Rendering erfolgt schneller.
 
 #### HTML
 
@@ -129,9 +129,9 @@ Die Verwendung von `content-visibility: hidden;` anstelle von `display: none;` b
 
 #### CSS
 
-Die Eigenschaft `content-visibility` wird auf Absätzen eingestellt, die direkte Kinder von Elementen mit den Klassen `visible` und `hidden` sind. In unserem Beispiel können wir Inhalte in Absätzen abhängig von der CSS-Klasse der übergeordneten div-Elemente ein- und ausblenden.
+Die `content-visibility`-Eigenschaft wird auf Absätzen gesetzt, die direkte Kinder von Elementen mit den Klassen `visible` und `hidden` sind. In unserem Beispiel können wir Inhalte in Absätzen je nach CSS-Klasse der übergeordneten Div-Elemente anzeigen und ausblenden.
 
-Die Eigenschaft `contain-intrinsic-size` ist enthalten, um die Inhaltsgröße darzustellen. Dies hilft dabei, Layoutverschiebungen zu reduzieren, wenn der Inhalt ausgeblendet wird.
+Die `contain-intrinsic-size`-Eigenschaft ist enthalten, um die Inhaltsgröße darzustellen. Dies hilft, Layout-Verschiebungen zu reduzieren, wenn Inhalte verborgen werden.
 
 ```css
 p {
@@ -166,11 +166,11 @@ document.querySelectorAll("button.toggle").forEach((button) => {
 
 #### Ergebnis
 
-{{EmbedLiveSample('Using hidden to manually manage visibility')}}
+{{ EmbedLiveSample('Using hidden to manually manage visibility') }}
 
-### Animation von content-visibility
+### Animieren von content-visibility
 
-In diesem Beispiel haben wir ein {{htmlelement("div")}}-Element, dessen Inhalt durch Klicken oder Drücken einer Taste zwischen sichtbar und verborgen umgeschaltet werden kann.
+In diesem Beispiel haben wir ein {{htmlelement("div")}}-Element, dessen Inhalt durch Klicken oder Drücken einer Taste zwischen sichtbarer und verborgener Darstellung umgeschaltet werden kann.
 
 #### HTML
 
@@ -190,7 +190,7 @@ In diesem Beispiel haben wir ein {{htmlelement("div")}}-Element, dessen Inhalt d
 
 #### CSS
 
-Im CSS setzen wir initial `content-visibility: hidden;` auf das `<div>`, um dessen Inhalt zu verbergen. Dann richten wir `@keyframe`-Animationen ein und verknüpfen sie mit Klassen, um das `<div>` anzuzeigen und zu verbergen, wobei `content-visibility` und [`color`](/de/docs/Web/CSS/color) animiert werden, sodass ein sanfter Animationseffekt entsteht, wenn der Inhalt angezeigt/versteckt wird.
+Im CSS setzen wir zunächst `content-visibility: hidden;` auf das `<div>`, um dessen Inhalt zu verbergen. Dann richten wir `@keyframe`-Animationen ein und hängen sie an Klassen an, um das `<div>` zu zeigen und zu verbergen, wobei `content-visibility` und [`color`](/de/docs/Web/CSS/color) animiert werden, sodass Sie einen glatten Animationseffekt erhalten, wenn der Inhalt gezeigt/verborgen wird.
 
 ```css
 div {
@@ -242,7 +242,7 @@ div {
 
 #### JavaScript
 
-Schließlich verwenden wir JavaScript, um die `.show`- und `.hide`-Klassen auf das `<div>` anzuwenden, um die Animationen entsprechend anzuwenden, wenn es zwischen sichtbaren und verborgenen Zuständen umgeschaltet wird.
+Schließlich verwenden wir JavaScript, um die `.show`- und `.hide`-Klassen auf das `<div>` anzuwenden und so die Animationen anzuwenden, während es zwischen sichtbaren und verborgenen Zuständen umgeschaltet wird.
 
 ```js
 const divElem = document.querySelector("div");
@@ -252,7 +252,7 @@ htmlElem.addEventListener("click", showHide);
 document.addEventListener("keydown", showHide);
 
 function showHide() {
-  if (divElem.classList[0] === "show") {
+  if (divElem.classList.contains("show")) {
     divElem.classList.remove("show");
     divElem.classList.add("hide");
   } else {
@@ -266,7 +266,7 @@ function showHide() {
 
 Das gerenderte Ergebnis sieht folgendermaßen aus:
 
-{{EmbedLiveSample("Animating content-visibility", "100%", "300")}}
+{{ EmbedLiveSample("Animating content-visibility", "100%", "300") }}
 
 ## Spezifikationen
 

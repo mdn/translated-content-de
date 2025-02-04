@@ -2,12 +2,12 @@
 title: stroke-dasharray
 slug: Web/SVG/Attribute/stroke-dasharray
 l10n:
-  sourceCommit: 4d2346118b6ef233ce9a2b91b95a0295ebe145e2
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das Attribut **`stroke-dasharray`** ist ein Präsentationsattribut, das das Muster von Strichen und Lücken definiert, das zum Zeichnen der Kontur der Form verwendet wird.
+Das Attribut **`stroke-dasharray`** ist ein Präsentationsattribut, das das Muster von Strichen und Lücken definiert, das zur Darstellung der Umrandung der Form verwendet wird.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stroke-dasharray` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-dasharray')}} für mehr Informationen.
@@ -65,7 +65,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -86,9 +86,9 @@ svg {
 
 - \<dasharray>
 
-  - : Eine Liste von durch Komma und/oder Weißraum getrennten [`<length>`](/de/docs/Web/SVG/Content_type#length)s und [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage)s, die die Längen der abwechselnden Striche und Lücken angeben.
+  - : Eine Liste von durch Kommas und/oder Leerzeichen getrennten [`<length>`](/de/docs/Web/SVG/Content_type#length)s und [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage)s, die die Längen der abwechselnden Striche und Lücken spezifizieren.
 
-    Wenn eine ungerade Anzahl von Werten angegeben wird, wird die Liste der Werte wiederholt, um eine gerade Anzahl von Werten zu erhalten. Daher ist `5,3,2` gleichbedeutend mit `5,3,2,5,3,2`.
+    Wenn eine ungerade Anzahl von Werten angegeben wird, wird die Liste der Werte wiederholt, um eine gerade Anzahl von Werten zu erhalten. Somit ist `5,3,2` gleichwertig mit `5,3,2,5,3,2`.
 
 ## Spezifikationen
 
@@ -97,3 +97,7 @@ svg {
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- CSS {{cssxref("stroke-dasharray")}} Eigenschaft

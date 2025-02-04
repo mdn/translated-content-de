@@ -2,7 +2,7 @@
 title: word-spacing
 slug: Web/CSS/word-spacing
 l10n:
-  sourceCommit: 3928d2b1004e2435e063ef4b037e06e1906d62f3
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{CSSRef}}
@@ -34,16 +34,16 @@ word-spacing: unset;
 - `normal`
   - : Der normale Wortzwischenraum, wie er durch die aktuelle Schriftart und/oder den Browser definiert ist.
 - {{cssxref("length")}}
-  - : Gibt zusätzlichen Abstand an, zusätzlich zu dem intrinsischen Wortzwischenraum, der durch die Schriftart definiert ist.
+  - : Gibt zusätzlichen Abstand an, der über den von der Schriftart definierten intrinsischen Wortzwischenraum hinausgeht.
 
 ## Barrierefreiheit
 
-Ein großer positiver oder negativer `word-spacing`-Wert macht die Sätze, auf die das Styling angewendet wird, unlesbar. Bei Texten, die mit einem sehr großen positiven Wert gestylt sind, werden die Wörter so weit auseinander sein, dass es nicht mehr als Satz erscheint. Bei Texten mit einem großen negativen Wert überlappen sich die Wörter so stark, dass der Anfang und das Ende jedes Wortes unkenntlich werden.
+Ein großer positiver oder negativer Wert für `word-spacing` macht die Sätze, auf die die Gestaltung angewendet wird, unlesbar. Bei mit einem sehr großen positiven Wert gestalltetem Text sind die Wörter so weit auseinander, dass es nicht mehr wie ein Satz wirkt. Bei mit einem großen negativen Wert gestyltem Text überlappen sich die Wörter so stark, dass Anfang und Ende jedes Wortes nicht mehr erkennbar sind.
 
-Lesbarer `word-spacing` muss von Fall zu Fall bestimmt werden, da unterschiedliche Schriftarten unterschiedliche Zeichenbreiten haben. Es gibt keinen Wert, der automatisch sicherstellt, dass alle Schriftarten ihre Lesbarkeit behalten.
+Lesbare `word-spacing`-Werte müssen fallweise ermittelt werden, da unterschiedliche Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen einzigen Wert, der sicherstellt, dass alle Schriftfamilien automatisch ihre Lesbarkeit behalten.
 
-- [MDN-Verstehen der WCAG, Erklärung zu Richtlinie 1.4](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.8 | W3C-Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN Verständnis von WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
 ## Beispiele
 
@@ -87,3 +87,4 @@ Lesbarer `word-spacing` muss von Fall zu Fall bestimmt werden, da unterschiedlic
 ## Siehe auch
 
 - {{cssxref("letter-spacing")}}
+- SVG-Attribut {{SVGAttr("word-spacin")}}

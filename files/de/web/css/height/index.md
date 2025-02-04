@@ -2,19 +2,19 @@
 title: height
 slug: Web/CSS/height
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{CSSRef}}
 
-Die **`height`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Höhe eines Elements fest. Standardmäßig definiert die Eigenschaft die Höhe des [Inhaltsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area). Ist allerdings {{cssxref("box-sizing")}} auf `border-box` gesetzt, bestimmt sie stattdessen die Höhe des [Randbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area).
+Die **`height`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Höhe eines Elements. Standardmäßig definiert die Eigenschaft die Höhe des [Inhaltsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area). Wenn jedoch {{cssxref("box-sizing")}} auf `border-box` gesetzt ist, bestimmt sie stattdessen die Höhe des [Randbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area).
 
 {{EmbedInteractiveExample("pages/css/height.html")}}
 
 Die Eigenschaften {{cssxref("min-height")}} und {{cssxref("max-height")}} überschreiben `height`.
 
 > [!NOTE]
-> Als geometrische Eigenschaft gilt `height` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` zu `0` aufgelöst wird und Prozentwerte für `<rect>` relativ zur SVG-Viewport-Höhe sind. Der CSS-`height`-Eigenschafts-Wert überschreibt jeden SVG {{SVGAttr("height")}} Attributwert, der auf dem SVG-Element gesetzt ist.
+> Als geometrische Eigenschaft gilt `height` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` zu `0` aufgelöst wird und Prozentwerte relativ zur SVG-Ansichtshöhe für `<rect>` sind. Der CSS `height`-Eigenschaftswert überschreibt jeden SVG-{{SVGAttr("height")}}-Attributwert, der auf dem SVG-Element festgelegt ist.
 
 ## Syntax
 
@@ -50,9 +50,9 @@ height: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Definiert die Höhe als Distanzwert.
+  - : Definiert die Höhe als einen Entfernungswert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Definiert die Höhe als Prozentsatz der Höhe des [Umgebungsblocks](/de/docs/Web/CSS/Containing_block).
+  - : Definiert die Höhe als Prozentwert der Höhe des [umgebenden Blocks](/de/docs/Web/CSS/Containing_block).
 - `auto`
   - : Der Browser berechnet und wählt eine Höhe für das angegebene Element.
 - `max-content`
@@ -60,22 +60,22 @@ height: unset;
 - `min-content`
   - : Die intrinsische Mindesthöhe.
 - `fit-content`
-  - : Nutzt den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
+  - : Nutzt den verfügbaren Platz, jedoch nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
-  - : Verwendet die fit-content-Formel mit dem verfügbaren Platz, der durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, <length-percentage>))`.
+  - : Verwendet die fit-content-Formel mit dem angegebenen Argument anstelle des verfügbaren Raums, d.h. `min(max-content, max(min-content, <length-percentage>))`.
 - `stretch`
 
-  - : Setzt die Höhe der [Margin Box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) eines Elements auf die Höhe seines [Umgebungsblocks](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block). Es versucht, die Margin Box so zu erweitern, dass sie den verfügbaren Platz im Umgebungsblock ausfüllt, ähnlich wie bei `100%`, jedoch wird die resultierende Größe auf die Margin Box angewendet und nicht auf die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box.
+  - : Setzt die Höhe des [Randbereichs](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Höhe seines [umgebenden Blocks](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block). Es versucht, den Randbereich so zu gestalten, dass er den verfügbaren Raum im umgebenden Block füllt, ähnlich wie `100%`, aber die resultierende Größe auf den Randbereich anwendend, anstatt auf den durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmten Bereich.
 
     > [!NOTE]
-    > Um die von Browsern für den `stretch`-Wert verwendeten Aliase und deren Implementierungsstatus zu überprüfen, sehen Sie sich den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) an.
+    > Um Aliase zu prüfen, die von Browsern für den Wert `stretch` verwendet werden, und dessen Implementierungsstatus, sehen Sie im Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) nach.
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass Elemente mit einer `height`-Einstellung nicht abgeschnitten werden und/oder keinen anderen Inhalt verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
+Stellen Sie sicher, dass Elemente mit einer festgelegten `height` nicht abgeschnitten werden und/oder andere Inhalte verdecken, wenn die Seite zum Vergrößern der Textgröße gezoomt wird.
 
-- [MDN Understanding WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Understanding Success Criterion 1.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Verständnis von WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis von Erfolgskriterium 1.4.4 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 
@@ -87,7 +87,7 @@ Stellen Sie sicher, dass Elemente mit einer `height`-Einstellung nicht abgeschni
 
 ## Beispiele
 
-### Festlegen der Höhe mit Pixeln und Prozentsätzen
+### Höhe mit Pixeln und Prozentsätzen festlegen
 
 #### HTML
 
@@ -147,5 +147,6 @@ div {
 - {{cssxref("anchor-size()")}}
 - {{cssxref("clamp", "clamp()")}}
 - {{cssxref("clamp", "minmax()")}}
-- [Einführung in das grundlegende CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul
+- SVG {{SVGAttr("height")}} Attribut
+- [Einführung in das CSS-Grundlegende Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul

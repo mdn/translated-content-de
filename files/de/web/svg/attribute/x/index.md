@@ -2,20 +2,20 @@
 title: x
 slug: Web/SVG/Attribute/x
 l10n:
-  sourceCommit: c276224e43228e7d45e4894729fdc56a904615f5
+  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
 ---
 
 {{SVGRef}}
 
-Das **`x`**-Attribut definiert eine x-Achsenkoordinate im Benutzerkoordinatensystem.
+Das **`x`** Attribut definiert eine x-Achsen-Koordinate im Benutzerschema-Koordinatensystem.
 
 ## Elemente
 
-Dieses Attribut kann bei den unten beschriebenen SVG-Elementen verwendet werden.
+Sie können dieses Attribut mit den unten beschriebenen SVG-Elementen verwenden.
 
 ### `<feBlend>`
 
-Für {{SVGElement('feBlend')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feBlend')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -48,7 +48,7 @@ Für {{SVGElement('feBlend')}} definiert `x` die minimale x-Koordinate für den 
 
 ### `<feColorMatrix>`
 
-Für {{SVGElement('feColorMatrix')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feColorMatrix')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -81,7 +81,7 @@ Für {{SVGElement('feColorMatrix')}} definiert `x` die minimale x-Koordinate fü
 
 ### `<feComponentTransfer>`
 
-Für {{SVGElement('feComponentTransfer')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feComponentTransfer')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -114,7 +114,7 @@ Für {{SVGElement('feComponentTransfer')}} definiert `x` die minimale x-Koordina
 
 ### `<feComposite>`
 
-Für {{SVGElement('feComposite')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feComposite')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -147,7 +147,7 @@ Für {{SVGElement('feComposite')}} definiert `x` die minimale x-Koordinate für 
 
 ### `<feConvolveMatrix>`
 
-Für {{SVGElement('feConvolveMatrix')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feConvolveMatrix')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -180,7 +180,7 @@ Für {{SVGElement('feConvolveMatrix')}} definiert `x` die minimale x-Koordinate 
 
 ### `<feDiffuseLighting>`
 
-Für {{SVGElement('feDiffuseLighting')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feDiffuseLighting')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -213,7 +213,7 @@ Für {{SVGElement('feDiffuseLighting')}} definiert `x` die minimale x-Koordinate
 
 ### `<feDisplacementMap>`
 
-Für {{SVGElement('feDisplacementMap')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feDisplacementMap')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -246,7 +246,7 @@ Für {{SVGElement('feDisplacementMap')}} definiert `x` die minimale x-Koordinate
 
 ### `<feDropShadow>`
 
-Für {{SVGElement('feDropShadow')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feDropShadow')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -279,7 +279,7 @@ Für {{SVGElement('feDropShadow')}} definiert `x` die minimale x-Koordinate für
 
 ### `<feFlood>`
 
-Für {{SVGElement('feFlood')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feFlood')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -312,7 +312,7 @@ Für {{SVGElement('feFlood')}} definiert `x` die minimale x-Koordinate für den 
 
 ### `<feFuncA>`
 
-Für {{SVGElement('feFuncA')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feFuncA')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -345,7 +345,7 @@ Für {{SVGElement('feFuncA')}} definiert `x` die minimale x-Koordinate für den 
 
 ### `<feFuncB>`
 
-Für {{SVGElement('feFuncB')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feFuncB')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -378,7 +378,7 @@ Für {{SVGElement('feFuncB')}} definiert `x` die minimale x-Koordinate für den 
 
 ### `<feFuncG>`
 
-Für {{SVGElement('feFuncG')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feFuncG')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -411,7 +411,7 @@ Für {{SVGElement('feFuncG')}} definiert `x` die minimale x-Koordinate für den 
 
 ### `<feFuncR>`
 
-Für {{SVGElement('feFuncR')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feFuncR')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -444,7 +444,7 @@ Für {{SVGElement('feFuncR')}} definiert `x` die minimale x-Koordinate für den 
 
 ### `<feGaussianBlur>`
 
-Für {{SVGElement('feGaussianBlur')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feGaussianBlur')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -477,7 +477,7 @@ Für {{SVGElement('feGaussianBlur')}} definiert `x` die minimale x-Koordinate f�
 
 ### `<feImage>`
 
-Für {{SVGElement('feImage')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feImage')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -510,7 +510,7 @@ Für {{SVGElement('feImage')}} definiert `x` die minimale x-Koordinate für den 
 
 ### `<feMerge>`
 
-Für {{SVGElement('feMerge')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feMerge')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -543,7 +543,7 @@ Für {{SVGElement('feMerge')}} definiert `x` die minimale x-Koordinate für den 
 
 ### `<feMergeNode>`
 
-Für {{SVGElement('feMergeNode')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feMergeNode')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -576,7 +576,7 @@ Für {{SVGElement('feMergeNode')}} definiert `x` die minimale x-Koordinate für 
 
 ### `<feMorphology>`
 
-Für {{SVGElement('feMorphology')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feMorphology')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -609,7 +609,7 @@ Für {{SVGElement('feMorphology')}} definiert `x` die minimale x-Koordinate für
 
 ### `<feOffset>`
 
-Für {{SVGElement('feOffset')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feOffset')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -642,7 +642,7 @@ Für {{SVGElement('feOffset')}} definiert `x` die minimale x-Koordinate für den
 
 ### `<fePointLight>`
 
-Für {{SVGElement('fePointLight')}} definiert `x` die x-Position der Lichtquelle im Koordinatensystem, das durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element definiert wird.
+Für {{SVGElement('fePointLight')}} definiert `x` den x-Standort der Lichtquelle im Koordinatensystem, das durch das Attribut {{SVGAttr("primitiveUnits")}} am {{SVGElement("filter")}}-Element definiert wird.
 
 <table class="properties">
   <tbody>
@@ -669,7 +669,7 @@ Für {{SVGElement('fePointLight')}} definiert `x` die x-Position der Lichtquelle
 
 ### `<feSpecularLighting>`
 
-Für {{SVGElement('feSpecularLighting')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feSpecularLighting')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -702,7 +702,7 @@ Für {{SVGElement('feSpecularLighting')}} definiert `x` die minimale x-Koordinat
 
 ### `<feSpotLight>`
 
-Für {{SVGElement('feSpotLight')}} definiert `x` die x-Position der Lichtquelle im Koordinatensystem, das durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element definiert wird.
+Für {{SVGElement('feSpotLight')}} definiert `x` den x-Standort der Lichtquelle im Koordinatensystem, das durch das Attribut {{SVGAttr("primitiveUnits")}} am {{SVGElement("filter")}}-Element definiert wird.
 
 <table class="properties">
   <tbody>
@@ -729,7 +729,7 @@ Für {{SVGElement('feSpotLight')}} definiert `x` die x-Position der Lichtquelle 
 
 ### `<feTile>`
 
-Für {{SVGElement('feTile')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feTile')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -762,7 +762,7 @@ Für {{SVGElement('feTile')}} definiert `x` die minimale x-Koordinate für den R
 
 ### `<feTurbulence>`
 
-Für {{SVGElement('feTurbulence')}} definiert `x` die minimale x-Koordinate für den Rendering-Bereich der Primitive.
+Für {{SVGElement('feTurbulence')}} definiert `x` die minimale x-Koordinate für den Darstellungsbereich des Primitives.
 
 <table class="properties">
   <tbody>
@@ -795,7 +795,7 @@ Für {{SVGElement('feTurbulence')}} definiert `x` die minimale x-Koordinate für
 
 ### `<filter>`
 
-Für {{SVGElement('filter')}} definiert `x` die x-Koordinate der oberen linken Ecke für den Rendering-Bereich des Filters.
+Für {{SVGElement('filter')}} definiert `x` die x-Koordinate der oberen linken Ecke für den Darstellungsbereich des Filters.
 
 <table class="properties">
   <tbody>
@@ -860,14 +860,14 @@ Für {{SVGElement('foreignObject')}} definiert `x` die x-Koordinate der oberen l
 </table>
 
 > [!NOTE]
-> Die x-Achsenkoordinate des `<foreignObject>` kann auch mit der {{cssxref("x")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS gesetzt ist, überschreibt der Wert der `x`-Eigenschaft den Wert des `x`-Attributs.
+> Die x-Achsen-Koordinate des `<foreignObject>` kann auch mit der {{cssxref("x")}} _Geometrie-Eigenschaft_ definiert werden. Wenn im CSS festgelegt, überschreibt der `x`-Eigenschaftswert den `x`-Attributwert.
 
 ### `<glyphRef>`
 
 > [!WARNING]
 > Ab SVG2 ist {{SVGElement('glyphRef')}} veraltet und sollte nicht verwendet werden.
 
-Für {{SVGElement('glyphRef')}} definiert `x` die x-Achsenkoordinate des Glyphs.
+Für {{SVGElement('glyphRef')}} definiert `x` die x-Achsen-Koordinate des Glyphs.
 
 <table class="properties">
   <tbody>
@@ -884,9 +884,9 @@ Für {{SVGElement('glyphRef')}} definiert `x` die x-Achsenkoordinate des Glyphs.
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <code>0</code> für das erste glyphRef und die End-x-Koordinate des
-        vorherigen {{SVGElement('glyphRef')}} für alle darauf folgenden
-        Geschwister-{{SVGElement('glyphRef')}}.
+        <code>0</code> für das erste glyphRef, und die End-x-Koordinate des
+        vorherigen {{SVGElement('glyphRef')}} für alle nachfolgenden
+        Geschwister {{SVGElement('glyphRef')}}.
       </td>
     </tr>
     <tr>
@@ -930,11 +930,11 @@ Für {{SVGElement('image')}} definiert `x` die x-Koordinate der oberen linken Ec
 </table>
 
 > [!NOTE]
-> Die x-Achsenkoordinate des `<image>` kann auch mit der {{cssxref("x")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS gesetzt ist, überschreibt der Wert der `x`-Eigenschaft den Wert des `x`-Attributs.
+> Die x-Achsen-Koordinate des `<image>` kann auch mit der {{cssxref("x")}} _Geometrie-Eigenschaft_ definiert werden. Wenn im CSS festgelegt, überschreibt der `x`-Eigenschaftswert den `x`-Attributwert.
 
 ### `<mask>`
 
-Für {{SVGElement('mask')}} definiert `x` die x-Koordinate der oberen linken Ecke seines Wirkungsbereichs. Die genaue Wirkung dieses Attributs wird durch das Attribut {{SVGAttr('maskUnits')}} beeinflusst.
+Für {{SVGElement('mask')}} definiert `x` die x-Koordinate der oberen linken Ecke seines Wirkungsbereichs. Der genaue Effekt dieses Attributs wird durch das Attribut {{SVGAttr('maskUnits')}} beeinflusst.
 
 <table class="properties">
   <tbody>
@@ -967,7 +967,7 @@ Für {{SVGElement('mask')}} definiert `x` die x-Koordinate der oberen linken Eck
 
 ### `<pattern>`
 
-Für {{SVGElement('pattern')}} definiert `x` die x-Koordinate der oberen linken Ecke des Kachelmusters. Die genaue Wirkung dieses Attributs wird durch die Attribute {{SVGAttr('patternUnits')}} und {{SVGAttr('patternTransform')}} beeinflusst.
+Für {{SVGElement('pattern')}} definiert `x` die x-Koordinate der oberen linken Ecke des Kachelmusters. Der genaue Effekt dieses Attributs wird durch die Attribute {{SVGAttr('patternUnits')}} und {{SVGAttr('patternTransform')}} beeinflusst.
 
 <table class="properties">
   <tbody>
@@ -1026,7 +1026,7 @@ Für {{SVGElement('rect')}} definiert `x` die x-Koordinate der oberen linken Eck
 </table>
 
 > [!NOTE]
-> Die x-Achsenkoordinate des `<rect>` kann auch mit der {{cssxref("x")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS gesetzt ist, überschreibt der Wert der `x`-Eigenschaft den Wert des `x`-Attributs.
+> Die x-Achsen-Koordinate des `<rect>` kann auch mit der {{cssxref("x")}} _Geometrie-Eigenschaft_ definiert werden. Wenn im CSS festgelegt, überschreibt der `x`-Eigenschaftswert den `x`-Attributwert.
 
 ### `<svg>`
 
@@ -1062,13 +1062,13 @@ Für {{SVGElement('svg')}} definiert `x` die x-Koordinate der oberen linken Ecke
 </table>
 
 > [!NOTE]
-> Die x-Achsenkoordinate des `<svg>` kann auch mit der {{cssxref("x")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS gesetzt ist, überschreibt der Wert der `x`-Eigenschaft den Wert des `x`-Attributs.
+> Die x-Achsen-Koordinate des `<svg>` kann auch mit der {{cssxref("x")}} _Geometrie-Eigenschaft_ definiert werden. Wenn im CSS festgelegt, überschreibt der `x`-Eigenschaftswert den `x`-Attributwert.
 
 ### `<text>`
 
-Für {{SVGElement('text')}}, wenn es einen einzelnen Wert enthält, definiert `x` die x-Koordinate, an der die _Inhaltstextposition_ platziert werden muss. Die _Inhaltstextposition_ ist normalerweise ein Punkt auf der Basislinie der ersten Textzeile. Die genaue _Inhaltstextposition_ wird durch andere Eigenschaften wie {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}} beeinflusst.
+Für {{SVGElement('text')}}, wenn es einen einzelnen Wert enthält, definiert `x` die x-Koordinate, an der die _Textposition des Inhalts_ platziert werden muss. Die _Textposition des Inhalts_ ist normalerweise ein Punkt auf der Grundlinie der ersten Textzeile. Die genaue _Textposition des Inhalts_ wird durch andere Eigenschaften beeinflusst, wie {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}}.
 
-Wenn es mehrere Werte enthält, definiert `x` die x-Koordinate jedes einzelnen Glyphs aus dem Text. Gibt es weniger Werte als Glyphen, werden die restlichen Glyphen in einer Linie mit dem letzten positionierten Glyph platziert. Gibt es mehr Werte als Glyphen, werden die zusätzlichen Werte ignoriert.
+Wenn es mehrere Werte enthält, definiert `x` die x-Koordinate jedes einzelnen Glyphe im Text. Wenn es weniger Werte als Glyphen gibt, werden die verbleibenden Glyphen in Übereinstimmung mit dem zuletzt positionierten Glyphen platziert. Wenn es mehr Werte als Glyphen gibt, werden die zusätzlichen Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -1146,9 +1146,9 @@ line {
 > [!WARNING]
 > Ab SVG2 ist {{SVGElement('tref')}} veraltet und sollte nicht verwendet werden.
 
-Für {{SVGElement('tref')}}, wenn es einen einzelnen Wert enthält, definiert `x` die x-Koordinate, an der die _Inhaltstextposition_ platziert werden muss. Die _Inhaltstextposition_ ist normalerweise ein Punkt auf der Basislinie der ersten Textzeile. Die genaue _Inhaltstextposition_ wird durch andere Eigenschaften wie {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}} beeinflusst.
+Für {{SVGElement('tref')}}, wenn es einen einzelnen Wert enthält, definiert `x` die x-Koordinate, an der die _Textposition des Inhalts_ platziert werden muss. Die _Textposition des Inhalts_ ist normalerweise ein Punkt auf der Grundlinie der ersten Textzeile. Die genaue _Textposition des Inhalts_ wird durch andere Eigenschaften beeinflusst, wie {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}}.
 
-Wenn es mehrere Werte enthält, definiert `x` die x-Koordinate jedes einzelnen Glyphs aus dem Text. Gibt es weniger Werte als Glyphen, werden die restlichen Glyphen in einer Linie mit dem letzten positionierten Glyph platziert. Gibt es mehr Werte als Glyphen, werden die zusätzlichen Werte ignoriert.
+Wenn es mehrere Werte enthält, definiert `x` die x-Koordinate jedes einzelnen Glyphe im Text. Wenn es weniger Werte als Glyphen gibt, werden die verbleibenden Glyphen in Übereinstimmung mit dem zuletzt positionierten Glyphen platziert. Wenn es mehr Werte als Glyphen gibt, werden die zusätzlichen Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -1181,9 +1181,9 @@ Wenn es mehrere Werte enthält, definiert `x` die x-Koordinate jedes einzelnen G
 
 ### `<tspan>`
 
-Für {{SVGElement('tspan')}}, wenn es einen einzelnen Wert enthält, definiert `x` die x-Koordinate, an der die _Inhaltstextposition_ platziert werden muss. Die _Inhaltstextposition_ ist normalerweise ein Punkt auf der Basislinie der ersten Textzeile. Die genaue _Inhaltstextposition_ wird durch andere Eigenschaften wie {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}} beeinflusst.
+Für {{SVGElement('tspan')}}, wenn es einen einzelnen Wert enthält, definiert `x` die x-Koordinate, an der die _Textposition des Inhalts_ platziert werden muss. Die _Textposition des Inhalts_ ist normalerweise ein Punkt auf der Grundlinie der ersten Textzeile. Die genaue _Textposition des Inhalts_ wird durch andere Eigenschaften beeinflusst, wie {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}}.
 
-Wenn es mehrere Werte enthält, definiert `x` die x-Koordinate jedes einzelnen Glyphs aus dem Text. Gibt es weniger Werte als Glyphen, werden die restlichen Glyphen in einer Linie mit dem letzten positionierten Glyph platziert. Gibt es mehr Werte als Glyphen, werden die zusätzlichen Werte ignoriert.
+Wenn es mehrere Werte enthält, definiert `x` die x-Koordinate jedes einzelnen Glyphe im Text. Wenn es weniger Werte als Glyphen gibt, werden die verbleibenden Glyphen in Übereinstimmung mit dem zuletzt positionierten Glyphen platziert. Wenn es mehr Werte als Glyphen gibt, werden die zusätzlichen Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -1292,12 +1292,11 @@ Für {{SVGElement('use')}} definiert `x` die x-Koordinate der oberen linken Ecke
 </table>
 
 > [!NOTE]
-> Das Deklarieren eines `<length>`- oder `<percentage>`-Wertes in CSS mit der {{cssxref("x")}} _Geometrie-Eigenschaft_ überschreibt die x-Achsenkoordinate des `<use>`, die vom `x`-Attribut in einigen Browsern festgelegt wird.
-> Dieses Verhalten ist nicht standardmäßig, veraltet und wird wahrscheinlich in zukünftigen Browserversionen entfernt.
+> Das Deklarieren eines `<length>` oder `<percentage>`-Werts in CSS mithilfe der {{cssxref("x")}} _Geometrie-Eigenschaft_ überschreibt die x-Achsen-Koordinate des `<use>`, das durch das `x`-Attribut in einigen Browsern festgelegt wurde. Dieses Verhalten ist nicht standardisiert, veraltet und wird voraussichtlich in zukünftigen Browserversionen entfernt.
 
 ## Beispiele
 
-Dieses Beispiel enthält drei {{SVGElement("rect")}}-Elemente, jedes mit einem kleineren `x`-Wert als der vorherige.
+Dieses Beispiel enthält drei {{SVGElement("rect")}}-Elemente, jedes mit einem kleineren `x`-Wert als der vorherige Wert.
 
 ```css hidden
 html,
@@ -1320,3 +1319,7 @@ svg {
 ## Spezifikationen
 
 {{Specifications}}
+
+## Siehe auch
+
+- CSS {{cssxref("x")}}-Eigenschaft

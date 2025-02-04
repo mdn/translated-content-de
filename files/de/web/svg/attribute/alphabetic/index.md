@@ -2,20 +2,20 @@
 title: alphabetic
 slug: Web/SVG/Attribute/alphabetic
 l10n:
-  sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
+  sourceCommit: 0a4d5b451cc54599ed2b99cef4fdd39c3fd96a3d
 ---
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`alphabetic`** Attribut definiert die untere Grundlinie einer Schriftart. Es hat dieselbe Syntax und Semantik wie der {{cssxref("@font-face/baseline", "baseline")}} Deskriptor innerhalb eines {{cssxref("@font-face")}}.
+Das **`alphabetic`** Attribut definiert die untere Grundlinie einer Schriftart. Es hat die gleiche Syntax und Semantik wie der {{cssxref("@font-face/baseline", "baseline")}} Deskriptor innerhalb eines {{cssxref("@font-face")}}.
 
-Für horizontal ausgerichtete Glyphenlayouts gibt es die Koordinate für die Ausrichtung von Glyphen an, um die alphabetische Basislinienausrichtung zu erreichen. Der Wert ist ein Versatz im Schriftkoordinatensystem.
+Für horizontal ausgerichtete Glyphenlayouts gibt es die Ausrichtungskoordinate für Glyphen an, um eine {{Glossary("/Baseline/Typography", "alphabetische Grundlinie")}} zu erreichen. Der Wert ist ein Offset im Schriftart-Koordinatensystem.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font-face")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
