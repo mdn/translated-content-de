@@ -2,12 +2,12 @@
 title: Temporal.Instant.prototype.subtract()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/subtract
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`subtract()`**-Methode von Instanzen des {{jsxref("Temporal.Instant")}} gibt ein neues `Temporal.Instant`-Objekt zurück, das diesen Moment um eine gegebene Dauer (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist) rückwärts verschoben darstellt.
+Die **`subtract()`**-Methode von {{jsxref("Temporal.Instant")}} Instanzen gibt ein neues `Temporal.Instant`-Objekt zurück, das diesen Moment rückwärts verschoben durch eine gegebene Dauer (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist) darstellt.
 
 Wenn Sie zwei Instanzen subtrahieren und eine Dauer erhalten möchten, verwenden Sie stattdessen {{jsxref("Temporal/Instant/since", "since()")}} oder {{jsxref("Temporal/Instant/until", "until()")}}.
 
@@ -20,26 +20,26 @@ subtract(duration)
 ### Parameter
 
 - `duration`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine Dauer darstellt, die von diesem Moment subtrahiert werden soll. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt konvertiert.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine Dauer darstellt, die von diesem Moment subtrahiert werden soll. Es wird in ein `Temporal.Duration`-Objekt konvertiert, indem derselbe Algorithmus wie bei {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} verwendet wird.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Instant")}}-Objekt, das die Subtraktion von `duration` von diesem Moment darstellt. Wenn `duration` positiv ist, dann ist der zurückgegebene Moment früher als dieser Moment; wenn `duration` negativ ist, dann ist der zurückgegebene Moment später als dieser Moment.
+Ein neues {{jsxref("Temporal.Instant")}}-Objekt, das die Subtraktion von `duration` von diesem Moment repräsentiert. Wenn `duration` positiv ist, dann ist das zurückgegebene Moment früher als dieses; wenn `duration` negativ ist, ist das zurückgegebene Moment später als dieses.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird in einem der folgenden Fälle ausgelöst:
-    - `duration` ist eine [Kalenderdauer](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (sie hat ein von null verschiedenes `years`, `months` oder `weeks`) oder hat ein von null verschiedenes `days`, da Kalenderdauern ohne Kalender und Zeitreferenz mehrdeutig sind.
-    - Der Unterschied von `this` und `duration` überschreitet das maximale oder unterschreitet das minimale darstellbare Moment, das ±10<sup>8</sup> Tage (etwa ±273.972,6 Jahre) beträgt.
+  - : Wird in einem der folgenden Fälle geworfen:
+    - `duration` ist eine [Kalenderdauer](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (sie hat einen ungleichen `years`, `months` oder `weeks`), oder hat einen ungleichen `days`, da Kalenderdauern ohne einen Kalender und Zeitreferenz mehrdeutig sind.
+    - Das Ergebnis liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±10<sup>8</sup> Tage, oder etwa ±273.972,6 Jahre ab der Unix-Epoche beträgt.
 
 ## Beschreibung
 
-Das Subtrahieren einer Dauer ist äquivalent zum [Addieren](Web/JavaScript/Reference/Global_Objects/Temporal/Instant/add) ihrer [Negation](Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated), daher gelten alle gleichen Überlegungen.
+Das Subtrahieren einer Dauer ist gleichbedeutend mit dem [Hinzufügen](Web/JavaScript/Reference/Global_Objects/Temporal/Instant/add) ihrer [Negation](Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated), sodass die gleichen Überlegungen gelten.
 
 ## Beispiele
 
-### Subtrahieren einer Temporal.Duration
+### Subtraktion einer Temporal.Duration
 
 ```js
 const instant = Temporal.Instant.fromEpochMilliseconds(1000);
@@ -48,7 +48,7 @@ const newInstant = instant.subtract(duration);
 console.log(newInstant.epochMilliseconds); // 0
 ```
 
-Für weitere Beispiele siehe {{jsxref("Temporal/Instant/add", "add()")}}.
+Für weitere Beispiele, siehe {{jsxref("Temporal/Instant/add", "add()")}}.
 
 ## Spezifikationen
 

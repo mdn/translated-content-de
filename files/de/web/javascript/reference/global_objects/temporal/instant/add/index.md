@@ -2,12 +2,12 @@
 title: Temporal.Instant.prototype.add()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/add
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`add()`**-Methode von Instanzen des {{jsxref("Temporal.Instant")}} gibt ein neues `Temporal.Instant`-Objekt zurück, das diesen Moment um eine gegebene Dauer (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} umwandelbar ist) nach vorne verschoben darstellt.
+Die **`add()`** Methode von {{jsxref("Temporal.Instant")}} Instanzen gibt ein neues `Temporal.Instant` Objekt zurück, das diesen Zeitpunkt um eine gegebene Dauer vorwärts verschoben repräsentiert (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} umwandelbar ist).
 
 ## Syntax
 
@@ -18,24 +18,24 @@ add(duration)
 ### Parameter
 
 - `duration`
-  - : Ein String, ein Objekt oder eine Instanz von {{jsxref("Temporal.Duration")}}, die eine hinzuzufügende Dauer zu diesem Moment darstellt. Es wird mit dem gleichen Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt umgewandelt.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}} Instanz, die eine Dauer repräsentiert, die zu diesem Zeitpunkt hinzugefügt werden soll. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration` Objekt konvertiert.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Instant")}}-Objekt, das die Addition von `duration` zu diesem Moment darstellt. Ist `duration` positiv, dann liegt der zurückgegebene Moment später als dieser Moment; ist `duration` negativ, dann liegt der zurückgegebene Moment früher als dieser Moment.
+Ein neues {{jsxref("Temporal.Instant")}} Objekt, das die Addition von `duration` zu diesem Zeitpunkt darstellt. Ist `duration` positiv, so ist der zurückgegebene Zeitpunkt später als dieser Zeitpunkt; ist `duration` negativ, so ist der zurückgegebene Zeitpunkt früher als dieser Zeitpunkt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - `duration` ist eine [Kalenderdauer](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (sie hat `years`, `months` oder `weeks` ungleich null) oder hat `days` ungleich null, da Kalenderdauern ohne Kalender- und Zeitreferenz mehrdeutig sind.
-    - Die Summe von `this` und `duration` überschreitet das maximal darstellbare oder unterschreitet das minimal darstellbare Datum, das ±10<sup>8</sup> Tage (etwa ±273.972,6 Jahre) beträgt.
+    - `duration` ist eine [Kalenderdauer](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (sie hat eine ungleich null `years`, `months`, oder `weeks`), oder hat ein ungleich null `days`, da Kalenderdauern ohne Kalender und Zeitreferenz mehrdeutig sind.
+    - Das Ergebnis liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), welcher ±10<sup>8</sup> Tage, oder etwa ±273.972,6 Jahre, ab der Unix-Epoche ist.
 
 ## Beschreibung
 
-Im Wesentlichen ermittelt die `add()`-Methode zunächst die Anzahl der von `duration` dargestellten Nanosekunden, addiert sie zu den {{jsxref("Temporal/Instant/epochNanoseconds", "epochNanoseconds")}} dieses Moments und erstellt dann ein neues `Temporal.Instant`-Objekt aus dem Ergebnis. Deshalb muss die Dauer eindeutig eine feste Zeitmenge darstellen.
+Im Wesentlichen erhält die `add()` Methode zuerst die Anzahl der Nanosekunden, die durch `duration` repräsentiert werden, addiert sie zu diesem Zeitpunkt's {{jsxref("Temporal/Instant/epochNanoseconds", "epochNanoseconds")}}, und erstellt dann ein neues `Temporal.Instant` Objekt aus dem Ergebnis. Daher muss die Dauer eindeutig eine feste Zeitmenge darstellen.
 
-Wenn Sie eine Kalenderdauer hinzufügen möchten, muss die Addition im Kontext eines Kalenders und einer Zeitzone durchgeführt werden, um die variablen Längen von Monaten, Jahren und Tagen (aufgrund von Sommerzeit) zu berücksichtigen. In diesem Fall konvertieren Sie den Moment in ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt, fügen die Dauer hinzu und konvertieren das Ergebnis dann wieder in einen Moment.
+Wenn Sie eine Kalenderdauer hinzufügen möchten, muss die Addition im Kontext eines Kalenders und einer Zeitzone erfolgen, um die variablen Längen von Monaten, Jahren und Tagen (wegen Sommerzeit) zu berücksichtigen. In diesem Fall konvertieren Sie den Zeitpunkt in ein {{jsxref("Temporal.ZonedDateTime")}} Objekt, addieren die Dauer und konvertieren das Ergebnis dann zurück in einen Zeitpunkt.
 
 Das Hinzufügen einer Dauer ist gleichbedeutend mit dem [Subtrahieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant/subtract) ihrer [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated).
 

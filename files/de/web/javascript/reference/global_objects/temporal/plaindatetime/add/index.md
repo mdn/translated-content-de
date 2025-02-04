@@ -2,12 +2,12 @@
 title: Temporal.PlainDateTime.prototype.add()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/add
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`add()`** Methode von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt ein neues `Temporal.PlainDateTime` Objekt zurück, das diesen Zeitpunkt repräsentiert, der um eine angegebene Dauer nach vorne verschoben wurde (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist).
+Die **`add()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das diesen Datum-Uhrzeit-Wert um eine angegebene Dauer (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist) nach vorne verschoben darstellt.
 
 ## Syntax
 
@@ -19,19 +19,24 @@ add(duration, options)
 ### Parameter
 
 - `duration`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}} Instanz, die eine Dauer darstellt, die zu diesem Zeitpunkt hinzugefügt werden soll. Es wird unter Verwendung des gleichen Algorithmus in ein `Temporal.Duration` Objekt konvertiert wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}}.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine hinzuzufügende Dauer zu diesem Datum-Uhrzeit-Wert darstellt. Diese wird mithilfe des gleichen Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt umgewandelt.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten angibt, wenn eine Datums-Komponente außerhalb des gültigen Bereichs liegt. Mögliche Werte sind:
+      - : Ein String, der das Verhalten bei einem ungültigen Datumsbestandteil spezifiziert. Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Datums-Komponente wird auf den gültigen Bereich [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
+          - : Der Datumsbestandteil wird auf den gültigen Bereich [begrenzt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
         - `"reject"`
-          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datums-Komponente außerhalb des gültigen Bereichs liegt.
+          - : Es wird ein {{jsxref("RangeError")}} ausgelöst, wenn der Datumsbestandteil außerhalb des gültigen Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime` Objekt, das den durch das ursprüngliche `PlainDateTime` spezifizierten Zeitpunkt plus die Dauer darstellt.
+Ein neues `Temporal.PlainDateTime`-Objekt, das das durch das ursprüngliche `PlainDateTime` und die Dauer spezifizierte Datum-Uhrzeit darstellt.
+
+### Ausnahmen
+
+- {{jsxref("RangeError")}}
+  - : Wird ausgelöst, wenn das Ergebnis nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates) liegt, der ±(10<sup>8</sup> + 1) Tage oder etwa ±273.972,6 Jahre vom Unix-Epoch umfasst.
 
 ## Beschreibung
 
@@ -41,7 +46,7 @@ Das Hinzufügen einer Dauer entspricht dem [Subtrahieren](/de/docs/Web/JavaScrip
 
 ## Beispiele
 
-### Hinzufügen einer Dauer
+### Eine Dauer hinzufügen
 
 ```js
 const start = Temporal.PlainDateTime.from("2021-01-01T12:34:56");
@@ -58,7 +63,7 @@ const end = start.add({
 console.log(end.toString()); // 2022-03-26T17:41:03.008
 ```
 
-Für weitere Beispiele, insbesondere wie sich verschiedene Kalender und die `overflow` Option auf Kalenderdauern auswirken, siehe {{jsxref("Temporal/PlainDate/add", "Temporal.PlainDate.prototype.add()")}}.
+Für weitere Beispiele, insbesondere wie unterschiedliche Kalender und die `overflow`-Option mit Kalenderdauern interagieren, siehe {{jsxref("Temporal/PlainDate/add", "Temporal.PlainDate.prototype.add()")}}.
 
 ## Spezifikationen
 

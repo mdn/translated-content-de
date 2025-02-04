@@ -2,14 +2,14 @@
 title: Temporal.PlainDateTime.prototype.subtract()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/subtract
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`subtract()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das dieses Datum-Uhrzeit um eine bestimmte Dauer rückwärts bewegt darstellt (in einer Form, die von {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist).
+Die **`subtract()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das diese Datum-Zeit um eine gegebene Dauer zurückverschoben darstellt (in einer Form, die von {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist).
 
-Wenn Sie zwei Datum-Uhrzeiten subtrahieren und eine Dauer erhalten möchten, verwenden Sie stattdessen {{jsxref("Temporal/PlainDateTime/since", "since()")}} oder {{jsxref("Temporal/PlainDateTime/until", "until()")}}.
+Wenn Sie zwei Datum-Zeiten subtrahieren und eine Dauer erhalten möchten, verwenden Sie stattdessen {{jsxref("Temporal/PlainDateTime/since", "since()")}} oder {{jsxref("Temporal/PlainDateTime/until", "until()")}}.
 
 ## Syntax
 
@@ -21,23 +21,28 @@ subtract(duration, options)
 ### Parameter
 
 - `duration`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine von diesem Datum-Uhrzeit abzuziehende Dauer darstellt. Sie wird mit demselben Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt umgewandelt.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine Dauer darstellt, die von dieser Datum-Zeit subtrahiert werden soll. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt konvertiert.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten angibt, wenn eine Datums-Komponente außerhalb des Bereichs liegt. Mögliche Werte sind:
+      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des Bereichs liegt. Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Datums-Komponente wird auf den gültigen Bereich [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
+          - : Die Datumskomponente wird auf den gültigen Bereich [eingegrenzt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
         - `"reject"`
-          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datums-Komponente außerhalb des Bereichs liegt.
+          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime`-Objekt, das das durch das ursprüngliche `PlainDateTime` angegebene Datum-Uhrzeit minus der Dauer darstellt.
+Ein neues `Temporal.PlainDateTime`-Objekt, das die Datum-Zeit darstellt, die durch das ursprüngliche `PlainDateTime` minus der Dauer angegeben wird.
+
+### Ausnahmen
+
+- {{jsxref("RangeError")}}
+  - : Wird ausgelöst, wenn das Ergebnis nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates) liegt, was ±(10<sup>8</sup> + 1) Tage, oder etwa ±273.972,6 Jahre, ab dem Unix-Epoch bedeutet.
 
 ## Beschreibung
 
-Das Subtrahieren einer Dauer entspricht dem [Addieren](Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/add) ihrer [Negation](Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated), daher gelten alle gleichen Überlegungen.
+Das Subtrahieren einer Dauer ist gleichbedeutend mit dem [Addieren](Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/add) ihrer [Negation](Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated), sodass alle Überlegungen gleich bleiben.
 
 ## Beispiele
 

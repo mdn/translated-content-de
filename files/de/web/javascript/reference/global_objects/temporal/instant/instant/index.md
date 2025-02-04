@@ -2,14 +2,14 @@
 title: Temporal.Instant()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/Instant
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Der **`Temporal.Instant()`** Konstruktor erzeugt {{jsxref("Temporal.Instant")}} Objekte.
+Der **`Temporal.Instant()`** Konstruktor erstellt {{jsxref("Temporal.Instant")}} Objekte.
 
-Dieser Konstruktor ist genau gleichbedeutend mit dem Aufruf von {{jsxref("Temporal/Instant/fromEpochNanoseconds", "Temporal.Instant.fromEpochNanoseconds()")}}.
+Dieser Konstruktor ist genau äquivalent zum Aufruf von {{jsxref("Temporal/Instant/fromEpochNanoseconds", "Temporal.Instant.fromEpochNanoseconds()")}}.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ Dieser Konstruktor ist genau gleichbedeutend mit dem Aufruf von {{jsxref("Tempor
 new Temporal.Instant(epochNanoseconds)
 ```
 
-> **Note:** `Temporal.Instant()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
+> **Hinweis:** `Temporal.Instant()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -26,12 +26,12 @@ new Temporal.Instant(epochNanoseconds)
 
 ### Rückgabewert
 
-Ein neues `Temporal.Instant` Objekt, das den durch `epochNanoseconds` angegebenen Zeitpunkt in der Zeit darstellt.
+Ein neues `Temporal.Instant` Objekt, das den Zeitpunkt darstellt, der durch `epochNanoseconds` festgelegt wird.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `epochNanoseconds` außerhalb des Bereichs eines darstellbaren Zeitpunkts liegt, was ±10<sup>8</sup> Tage (±8,64e21 Nanosekunden oder etwa ±273.972,6 Jahre) umfasst.
+  - : Wird geworfen, wenn `epochNanoseconds` einen Zeitpunkt außerhalb des Bereichs darstellbarer Zeitpunkte repräsentiert, welcher ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre von der Unix-Epoche entfernt ist.
 
 ## Beispiele
 

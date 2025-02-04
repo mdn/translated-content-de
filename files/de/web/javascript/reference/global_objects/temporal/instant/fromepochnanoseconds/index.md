@@ -2,12 +2,12 @@
 title: Temporal.Instant.fromEpochNanoseconds()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/fromEpochNanoseconds
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.Instant.fromEpochNanoseconds()`** erstellt ein neues `Temporal.Instant`-Objekt aus der Anzahl der Nanosekunden seit dem Unix-Epoch (Mitternacht am Anfang des 1. Januar 1970, UTC).
+Die statische Methode **`Temporal.Instant.fromEpochNanoseconds()`** erstellt ein neues `Temporal.Instant`-Objekt basierend auf der Anzahl der Nanosekunden seit der Unix-Epoche (Mitternacht zu Beginn des 1. Januars 1970, UTC).
 
 Um ein {{jsxref("Date")}}-Objekt in ein `Temporal.Instant`-Objekt zu konvertieren, verwenden Sie stattdessen {{jsxref("Date.prototype.toTemporalInstant()")}}.
 
@@ -20,16 +20,16 @@ Temporal.Instant.fromEpochNanoseconds(epochNanoseconds)
 ### Parameter
 
 - `epochNanoseconds`
-  - : Ein [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt), der die Anzahl der Nanosekunden seit dem Unix-Epoch darstellt.
+  - : Ein [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt), das die Anzahl der Nanosekunden seit der Unix-Epoche repräsentiert.
 
 ### Rückgabewert
 
-Ein neues `Temporal.Instant`-Objekt, das den durch `epochNanoseconds` angegebenen Zeitpunkt in der Zeit darstellt.
+Ein neues `Temporal.Instant`-Objekt, das den durch `epochNanoseconds` angegebenen Zeitpunkt darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `epochNanoseconds` außerhalb des Bereichs eines darstellbaren Zeitpunkts liegt, was ±10<sup>8</sup> Tage (±8.64e21 Nanosekunden oder etwa ±273,972.6 Jahre) umfasst.
+  - : Wird ausgelöst, wenn `epochNanoseconds` nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates) liegt, der ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre von der Unix-Epoche umfasst.
 
 ## Beispiele
 

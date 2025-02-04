@@ -2,120 +2,120 @@
 title: Temporal.ZonedDateTime
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Das **`Temporal.ZonedDateTime`**-Objekt repräsentiert ein Datum und eine Uhrzeit mit einer Zeitzone. Es wird grundsätzlich als Kombination aus einem [Instant](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant), einer Zeitzone und einem Kalendersystem dargestellt.
+Das **`Temporal.ZonedDateTime`** Objekt repräsentiert ein Datum und eine Uhrzeit mit einer Zeitzone. Es wird grundsätzlich als Kombination aus einem [instant](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant), einer Zeitzone und einem Kalendersystem dargestellt.
 
 ## Beschreibung
 
-Ein `ZonedDateTime` fungiert als Brücke zwischen einer genauen Zeit und einer Wand-Uhrzeit: es repräsentiert gleichzeitig einen Moment in der Geschichte (wie ein {{jsxref("Temporal.Instant")}}) und eine lokale Wand-Uhrzeit (wie ein {{jsxref("Temporal.PlainDateTime")}}). Dies geschieht durch das Speichern des Moments, der Zeitzone und des Kalendersystems. Die Zeitzone wird verwendet, um zwischen dem Moment und der lokalen Zeit zu konvertieren, und das Kalendersystem wird verwendet, um die lokale Zeit zu interpretieren.
+Ein `ZonedDateTime` fungiert als Brücke zwischen einer exakten Zeit und einer Uhrzeit: Es stellt gleichzeitig einen Moment in der Geschichte dar (wie ein {{jsxref("Temporal.Instant")}}) und eine lokale, auf dem Kalender basierende Zeit (wie ein {{jsxref("Temporal.PlainDateTime")}}). Dies geschieht, indem das Instant, die Zeitzone und das Kalendersystem gespeichert werden. Die Zeitzone wird verwendet, um zwischen dem Instant und der lokalen Zeit zu konvertieren, und das Kalendersystem wird verwendet, um die lokale Zeit zu interpretieren.
 
-`ZonedDateTime` ist die einzige `Temporal`-Klasse, die zeitzonenbewusst ist. Die Hinzufügung einer Zeitzone bewirkt, dass `ZonedDateTime`-Objekte wichtige Verhaltensunterschiede gegenüber {{jsxref("Temporal.PlainDateTime")}}-Objekten haben. Das bedeutet, dass Sie nicht mehr davon ausgehen können, dass "die Zeit 1 Minute danach" jeden Tag gleich ist oder dass ein Tag 24 Stunden hat. Im schlimmsten Fall kann ein ganzer Tag im lokalen Kalender fehlen. Unten bieten wir einen kurzen Überblick über Zeitzonen und Offsets und wie sie die Umrechnung zwischen UTC-Zeit und lokaler Zeit beeinflussen.
+`ZonedDateTime` ist die einzige `Temporal`-Klasse, die sich der Zeitzone bewusst ist. Die Hinzufügung einer Zeitzone bringt bedeutende Verhaltensunterschiede der `ZonedDateTime` Objekte gegenüber {{jsxref("Temporal.PlainDateTime")}} Objekten mit sich. Namentlich können Sie nicht mehr davon ausgehen, dass "die Zeit 1 Minute später" an jedem Tag gleich ist, oder dass ein Tag 24 Stunden hat. Im schlimmsten Fall könnte ein ganzer Tag im lokalen Kalender fehlen. Unten bieten wir einen kurzen Überblick über Zeitzonen und Offsets und wie sie die Umstellung zwischen UTC-Zeit und lokaler Zeit beeinflussen.
 
 ### Zeitzonen und Offsets
 
-Alle Zeiten in JavaScript haben einen goldenen Standard: die UTC-Zeit, die sich kontinuierlich und gleichmäßig mit dem Fortschritt der physischen Zeit erhöht. Im Gegensatz dazu sind Benutzer mehr an ihrer lokalen Zeit interessiert, die sie auf ihren Kalendern und Uhren ablesen. Der Prozess der Umrechnung zwischen UTC-Zeit und lokaler Zeit beinhaltet ein Zeitzonen-_Offset_, das wie folgt berechnet wird:
+Alle Zeiten in JavaScript haben einen goldenen Standard: die UTC-Zeit, die sich kontinuierlich und gleichmäßig mit dem Fortschreiten der physischen Zeit erhöht. Im Gegensatz dazu interessieren sich Benutzer mehr für ihre lokale Zeit, die Zeit, die sie auf ihren Kalendern und Uhren sehen. Der Prozess der Umrechnung zwischen UTC-Zeit und lokaler Zeit umfasst einen Zeitzonen-Offset, der wie folgt berechnet wird:
 
 ```plain
 local time = UTC time + offset
 ```
 
-Zum Beispiel, wenn die UTC-Zeit 1970-01-01T00:00:00 ist, und das Offset "-05:00" lautet, dann ist die lokale Zeit:
+Zum Beispiel, wenn die UTC-Zeit 1970-01-01T00:00:00 ist und der Offset "-05:00" ist, dann ist die lokale Zeit:
 
 ```plain
 1970-01-01T00:00:00 + -05:00 = 1969-12-31T19:00:00
 ```
 
-Indem diese lokale Zeit mit dem Offset versehen wird, wird diese Zeit als "1969-12-31T19:00:00-05:00" ausgedrückt und kann nun eindeutig als ein Moment in der Geschichte verstanden werden.
+Indem Sie diese lokale Zeit mit dem Offset nachstellen, und diese Zeit als "1969-12-31T19:00:00-05:00" ausdrücken, kann sie jetzt unmissverständlich als ein Moment in der Geschichte verstanden werden.
 
-Um das Offset zu kennen, benötigen wir zwei Informationen: die _Zeitzone_ und den _Moment_. Die Zeitzone ist eine Region auf der Erde, in der das gleiche Offset zu allen Zeiten verwendet wird. Zwei Uhren in derselben Zeitzone werden immer zur gleichen Zeit die gleiche Uhrzeit anzeigen, aber das Offset ist nicht unbedingt konstant: Das bedeutet, dass sich die Uhrenzeiten abrupt ändern können. Dies geschieht häufig während der Übergänge zur Sommerzeit, wo das Offset um eine Stunde verändert wird, was zweimal im Jahr passiert. Offsets können sich auch dauerhaft durch politische Veränderungen ändern, z.B. wenn ein Land die Zeitzonen wechselt.
+Um den Offset zu kennen, benötigen wir zwei Informationen, die _Zeitzone_ und den _Moment_. Die Zeitzone ist eine Region auf der Erde, in der zu allen Zeiten derselbe Offset verwendet wird. Zwei Uhren in derselben Zeitzone zeigen immer gleichzeitig die gleiche Zeit, aber der Offset ist nicht unbedingt konstant: Das heißt, die Zeiten dieser Uhren können sich abrupt ändern. Dies geschieht häufig während der Sommerzeitumstellungen, bei denen der Offset um eine Stunde geändert wird, was zweimal im Jahr passiert. Offsets können sich auch dauerhaft durch politische Änderungen ändern, z.B. ein Land wechselt die Zeitzone.
 
-Die Zeitzonen werden in der [IANA Time Zone Database](https://www.iana.org/time-zones) gespeichert. Jede IANA-Zeitzone hat:
+Die Zeitzonen sind in der [IANA Time Zone Database](https://www.iana.org/time-zones) gespeichert. Jede IANA-Zeitzone hat:
 
-- Einen _primären Zeitzonen-Identifier_, der die Zeitzone eindeutig identifiziert. Er bezieht sich in der Regel auf ein geografisches Gebiet, das durch eine Stadt verankert ist (z.B. `Europe/Paris` oder `Africa/Kampala`), kann aber auch Einzel-Offset-Zeitzonen wie `UTC` (ein konstantes `+00:00`-Offset) oder `Etc/GMT+5` (aus historischen Gründen ein negatives Offset `-05:00`) benennen. Aus historischen Gründen ist der primäre Name für die UTC-Zeitzone `UTC`, obwohl er in IANA `Etc/UTC` ist.
-- Eine _Zeitzonendefinition_ in Form einer Tabelle, die UTC-Datum-/Uhrzeitbereiche (einschließlich zukünftiger Bereiche) spezifischen Offsets zuordnet.
-- Null oder mehr _nicht-primäre Zeitzonen-Identifier_, die Aliase des primären Zeitzonen-Identifiers sind. Diese sind in der Regel historische Namen, die nicht mehr verwendet werden, aber aus Kompatibilitätsgründen beibehalten werden. Weitere Informationen finden Sie unten.
+- Einen _primären Zeitzonen-Identifier_, der die Zeitzone eindeutig identifiziert. Er bezieht sich normalerweise auf ein geografisches Gebiet, das von einer Stadt verankert wird (z.B. `Europe/Paris` oder `Africa/Kampala`), kann aber auch Zeitzonen mit einem einzigen Offset wie `UTC` (ein konsistenter `+00:00` Offset) oder `Etc/GMT+5` (was aus historischen Gründen ein negativer Offset `-05:00` ist) bezeichnen. Aus historischen Gründen ist der primäre Name für die UTC-Zeitzone `UTC`, obwohl er in IANA `Etc/UTC` ist.
+- Eine _Zeitzonendefinition_ in Form einer Tabelle, die UTC-Datums-/Zeitbereiche (einschließlich zukünftiger Bereiche) auf spezifische Offsets abbildet.
+- Null oder mehr _nicht-primäre Zeitzonen-Identifier_, die Aliase für den primären Zeitzonen-Identifier sind. Diese sind normalerweise historische Namen, die nicht mehr verwendet werden, aber aus Kompatibilitätsgründen erhalten bleiben. Siehe unten für weitere Informationen.
 
-Als Eingabe werden benannte Identifier ohne Beachtung der Groß- und Kleinschreibung abgeglichen. Intern werden sie in ihrer bevorzugten Schreibweise gespeichert, und nicht-primäre Identifier werden _nicht_ in ihren primären Identifier umgewandelt.
-
-> [!NOTE]
-> Wenn Sie den Zeitzonennamen festlegen, möchten Sie ihn selten auf `"UTC"` setzen. `ZonedDateTime` ist zur Anzeige für Benutzer gedacht, aber kein Mensch lebt in der "UTC"-Zeitzone. Wenn Sie die Zeitzone zum Zeitpunkt der Erstellung nicht kennen, aber die Wand-Uhrzeit kennen, verwenden Sie ein {{jsxref("Temporal.PlainDateTime")}}. Wenn Sie den genauen Moment kennen, verwenden Sie ein {{jsxref("Temporal.Instant")}}.
-
-Wenn eine `Temporal`-API einen _Zeitzonen-Identifier_ akzeptiert, akzeptiert sie zusätzlich zu primären Zeitzonen-Identifiern und nicht-primären Zeitzonen-Identifiern auch einen _Offset-Zeitzonen-Identifier_, der in derselben Form wie das Offset ist, jedoch ist Präzision auf Minutenbasis nicht zulässig. Beispielsweise sind `+05:30`, `-08`, `+0600` alle gültige Offset-Identifier. Intern werden Offset-Identifier in der Form `±HH:mm` gespeichert.
+Als Eingabe werden benannte Bezeichnungen fallunempfindlich abgeglichen. Intern werden sie in ihrer bevorzugten Schreibweise gespeichert, und nicht-primäre Bezeichnungen werden _nicht_ in ihre primäre Bezeichnung umgewandelt.
 
 > [!NOTE]
-> Vermeiden Sie die Verwendung von Offset-Identifikatoren, wenn Sie stattdessen eine benannte Zeitzone verwenden können. Selbst wenn eine Region immer nur ein einzelnes Offset verwendet hat, ist es besser, den benannten Identifier zu verwenden, um sich vor zukünftigen politischen Änderungen des Offsets zu schützen.
+> Wenn Sie den Zeitzonennamen festlegen, möchten Sie ihn selten auf `"UTC"` setzen. `ZonedDateTime` ist dazu gedacht, Benutzern angezeigt zu werden, aber kein Mensch lebt in der "UTC" Zeitzone. Wenn Sie die Zeitzone zum Zeitpunkt der Erstellung nicht kennen, aber die lokale Uhrzeit wissen, verwenden Sie einen {{jsxref("Temporal.PlainDateTime")}}. Wenn Sie den genauen Moment kennen, verwenden Sie einen {{jsxref("Temporal.Instant")}}.
+
+Wenn eine `Temporal`-API einen _Zeitzonen-Identifier_ akzeptiert, akzeptiert sie zusätzlich zu primären Zeitzonen-Identifiern und nicht-primären Zeitzonen-Identifiern auch einen _Offset-Zeitzonen-Identifier_, der dieselbe Form wie der Offset hat, außer dass Unterminuten-Präzision nicht erlaubt ist. Zum Beispiel sind `+05:30`, `-08`, `+0600` alle gültige Offsets. Intern werden die Offset-Bezeichner in der `±HH:mm`-Form gespeichert.
+
+> [!NOTE]
+> Vermeiden Sie es, Offset-Bezeichner zu verwenden, wenn Sie stattdessen eine benannte Zeitzone verwenden können. Selbst wenn eine Region immer nur einen Offset verwendet hat, ist es besser, den benannten Identifier zu verwenden, um sich gegen zukünftige politische Änderungen des Offsets zu schützen.
 >
-> Wenn eine Region (oder früher) mehrere Offsets verwendet hat, ist die Verwendung ihrer benannten Zeitzone noch wichtiger. Dies liegt daran, dass `Temporal.ZonedDateTime` Methoden wie `add` oder `with` verwenden kann, um neue Instanzen zu erstellen, die einem anderen Moment entsprechen. Wenn diese abgeleiteten Instanzen einem Moment entsprechen, der ein anderes Offset verwendet (zum Beispiel nach einem Übergang zur Sommerzeit), sind Ihre Berechnungen möglicherweise eine falsche lokale Zeit. Die Verwendung einer benannten Zeitzone stellt sicher, dass lokale Daten und Zeiten immer für das korrekte Offset für diesen Moment angepasst werden.
+> Wenn eine Region mehrere Offsets verwendet (oder verwendet hat), dann ist die Verwendung ihrer benannten Zeitzone noch wichtiger. Dies liegt daran, dass `Temporal.ZonedDateTime` Methoden wie `add` oder `with` verwenden kann, um neue Instanzen zu einem anderen Moment zu erstellen. Wenn diese abgeleiteten Instanzen einem Moment entsprechen, der einen anderen Offset verwendet (z.B. nach einer Sommerzeitumstellung), dann werden Ihre Berechnungen eine inkorrekte lokale Zeit haben. Die Verwendung einer benannten Zeitzone stellt sicher, dass lokale Daten und Zeiten immer für den korrekten Offset zu diesem Zeitpunkt angepasst werden.
 
-Der Einfachheit halber, wenn Sie einen Zeitzonen-Identifier für `Temporal`-APIs wie `Temporal.ZonedDateTime.prototype.withTimeZone()` und die `timeZoneId`-Option von `Temporal.ZonedDateTime.from()` angeben, können Sie ihn in einigen anderen Formen angeben:
+Der Einfachheit halber, wenn Sie einen Zeitzonen-Identifier zu `Temporal`-APIs wie `Temporal.ZonedDateTime.prototype.withTimeZone()` und der `timeZoneId`-Option von `Temporal.ZonedDateTime.from()` bereitstellen, können Sie ihn in einigen anderen Formen angeben:
 
 - Als eine andere `ZonedDateTime`-Instanz, deren `timeZoneId` verwendet wird.
-- Als [RFC 9557-String](#rfc_9557_format) mit einer Zeitzonenanmerkung, deren Zeitzonen-Identifier verwendet wird.
-- Als ISO 8601 / RFC 3339-String mit einem Offset, dessen Offset als Offset-Identifikator verwendet wird; oder, falls `Z` verwendet wird, wird die Zeitzone `"UTC"` verwendet. Diese Nutzung wird im Allgemeinen nicht empfohlen, da, wie oben diskutiert, Offset-Identifikatoren nicht in der Lage sind, andere `Temporal.ZonedDateTime`-Instanzen sicher über einen Offset-Übergang hinweg abzuleiten, wie wenn die Sommerzeit beginnt oder endet. Erwägen Sie stattdessen, einfach `Temporal.Instant` zu verwenden oder die tatsächliche benannte Zeitzone des Benutzers zu ermitteln.
+- Als ein [RFC 9557 String](#rfc_9557_format) mit einer Zeitzonenannotation, deren Zeitzonen-Identifikator verwendet wird.
+- Als ein ISO 8601 / RFC 3339 String, der einen Offset enthält, dessen Offset als Offset-Identifikator verwendet wird; oder, wenn `Z` verwendet wird, wird die `"UTC"`-Zeitzone verwendet. Diese Verwendung wird im Allgemeinen nicht empfohlen, da, wie oben erläutert, Offset-Identifikatoren die Möglichkeit fehlt, andere `Temporal.ZonedDateTime` Instanzen sicher über eine Offset-Übergang wie beim Start oder Ende der Sommerzeit abzuleiten. Betrachten Sie stattdessen nur `Temporal.Instant` zu verwenden oder die tatsächliche benannte Zeitzone des Nutzers abzurufen.
 
-Die IANA-Zeitzonendatenbank ändert sich von Zeit zu Zeit, normalerweise um neue Zeitzonen als Reaktion auf politische Änderungen hinzuzufügen. In seltenen Fällen werden jedoch IANA-Zeitzonen-Identifier umbenannt, um aktualisierte englische Übersetzungen eines Stadtnamens zu übernehmen oder um veraltete Namenskonventionen zu aktualisieren. Zum Beispiel, hier sind einige bemerkenswerte Namensänderungen:
+Die IANA-Zeitzonendatenbank ändert sich von Zeit zu Zeit, normalerweise um neue Zeitzonen als Reaktion auf politische Änderungen hinzuzufügen. Allerdings werden IANA-Zeitzonen-Identifier selten umbenannt, um die aktualisierte englische Übersetzung eines Städtenamens wiederzugeben oder um veraltete Namenskonventionen zu aktualisieren. Zum Beispiel hier ein paar bemerkenswerte Namensänderungen:
 
-| Aktueller IANA-Haupt-Identifier  | Alter, jetzt nicht primärer Identifier |
-| -------------------------------- | -------------------------------------- |
-| `America/Argentina/Buenos_Aires` | `America/Buenos_Aires`                 |
-| `Asia/Kolkata`                   | `Asia/Calcutta`                        |
-| `Asia/Ho_Chi_Minh`               | `Asia/Saigon`                          |
-| `Europe/Kyiv`                    | `Europe/Kiev`                          |
+| Aktueller IANA primärer Identifier | Alter, jetzt nicht primärer Identifier |
+| ---------------------------------- | -------------------------------------- |
+| `America/Argentina/Buenos_Aires`   | `America/Buenos_Aires`                 |
+| `Asia/Kolkata`                     | `Asia/Calcutta`                        |
+| `Asia/Ho_Chi_Minh`                 | `Asia/Saigon`                          |
+| `Europe/Kyiv`                      | `Europe/Kiev`                          |
 
-Historisch gesehen verursachten diese Umbenennungen Probleme für Programmierer, weil die Unicode [CLDR-Datenbank](https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-bcp47/bcp47/timezone.json) (eine von Browsern verwendete Bibliothek zur Bereitstellung von Zeitzonen-Identifikatoren und -Daten) IANA-Umbenennungen aus [Stabilitätsgründen](https://unicode.org/reports/tr35/#Time_Zone_Identifiers) nicht befolgte. Infolgedessen berichteten einige Browser wie Chrome und Safari über die veralteten CLDR-Identifikatoren, während andere Browser wie Firefox die Standardeinstellungen von CLDR überschrieben und die aktuellen Haupt-Identifikatoren gemeldet haben.
+Historisch verursachten diese Umbenennungen Probleme für Programmierer, weil die Unicode [CLDR-Datenbank](https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-bcp47/bcp47/timezone.json) (eine von Browsern genutzte Bibliothek zur Bereitstellung von Zeitzonen-Identifikatoren und -Daten) IANAs Umbenennungen aus [Stabilitätsgründen](https://unicode.org/reports/tr35/#Time_Zone_Identifiers) nicht ins Auge fasste. Infolgedessen berichteten einige Browser wie Chrome und Safari die veralteten Identifier von CLDR, während andere Browser wie Firefox die voreingestellten Werte von CLDR überschrieben und die aktuellen primären Identifier meldeten.
 
-Mit der Einführung von Temporal ist dieses Verhalten nun standardisierter:
+Mit der Einführung von Temporal ist dieses Verhalten nun mehr standardisiert:
 
-- [CLDR-Daten](https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-bcp47/bcp47/timezone.json) enthalten jetzt ein `"_iana"`-Attribut, das den aktuellsten Identifier angibt, wenn der ältere, stabile Identifier umbenannt wurde. Browser können dieses neue Attribut verwenden, um Anrufern aktuelle Identifier bereitzustellen.
-- Zeitzonen-Identifier, die vom Programmierer bereitgestellt werden, werden niemals durch einen Alias ersetzt. Zum Beispiel, wenn der Anrufer `Asia/Calcutta` oder `Asia/Kolkata` als Identifizierer-Eingabe für `Temporal.ZonedDateTime.from()` bereitstellt, dann wird im resultierenden Instanz-`timeZoneId` derselbe Identifizierer zurückgegeben. Beachten Sie, dass die Groß-/Kleinschreibung der Ausgaben normalisiert wird, um mit IANA übereinzustimmen, sodass `ASIA/calCuTTa` als Eingabe eine `timeZoneId` von `Asia/Calcutta` als Ausgabe erzeugt.
-- Wenn ein Zeitzonen-Identifier nicht vom Anrufer bereitgestellt wird, sondern stattdessen vom System selbst bezogen wird (zum Beispiel, wenn `Temporal.Now.timeZoneId()` verwendet wird), werden moderne Identifier in allen Browsern zurückgegeben. Für Städte-Umbenennungen gibt es eine Verzögerung von zwei Jahren, bevor diese system-bereitgestellten Identifikatoren-APIs den neuen Namen anzeigen, wodurch anderen Komponenten (wie einem Node-Server) Zeit gegeben wird, ihre Kopien der IANA-Datenbank zu aktualisieren, um den neuen Namen zu erkennen.
+- [CLDR-Daten](https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-bcp47/bcp47/timezone.json) enthalten nun ein `"_iana"` Attribut, das den neuesten Bezeichner angibt, wenn der ältere, stabile Bezeichner umbenannt wurde. Browser können dieses neue Attribut verwenden, um den Aufrufern aktuelle Identifikationen bereitzustellen.
+- Zeitzonen-Identifikatoren, die vom Programmierer bereitgestellt werden, werden niemals durch einen Alias ersetzt. Zum Beispiel, wenn der Aufrufer `Asia/Calcutta` oder `Asia/Kolkata` als Identifikator-Eingabe zu {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} bereitstellt, wird derselbe Identifier in der resultierenden Instanz's {{jsxref("Temporal/ZonedDateTime/timeZoneId", "timeZoneId")}} zurückgegeben. Beachten Sie, dass die Buchstabengröße der Ausgaben normalisiert wird, um IANA zu entsprechen. Daher erzeugt `ASIA/calCuTTa` als Eingabe eine {{jsxref("Temporal/ZonedDateTime/timeZoneId", "timeZoneId")}} von `Asia/Calcutta` als Ausgabe.
+- Wenn ein Zeitzonen-Identifier nicht von einem Aufrufer bereitgestellt wird, sondern stattdessen vom System selbst bezogen wird (z.B. bei der Verwendung von {{jsxref("Temporal/Now/timeZoneId", "Temporal.Now.timeZoneId()")}}), werden moderne Identifier in allen Browsern zurückgegeben. Bei Städtenamenänderungen gibt es eine zweijährige Verzögerung, bevor diese systembereitgestellten Bezeichnungs-APIs den neuen Namen offenlegen, wodurch anderen Komponenten (wie einem Node-Server) Zeit gegeben wird, ihre Kopien der IANA-Datenbank zu aktualisieren, um den neuen Namen zu erkennen.
 
-Beachten Sie, dass die Zuweisung der primären Identifikatoren den Ländercode bewahrt: Zum Beispiel verzeichnet die IANA-Datenbank `Atlantic/Reykjavik` als Alias für `Africa/Abidjan`, aber weil sie unterschiedlichen Ländern (Island und Côte d'Ivoire bzw.) entsprechen, werden sie als verschiedene primäre Identifikatoren behandelt.
+Beachten Sie, dass die Attribuierung der primären Identifier länderspezifisch bleibt: Zum Beispiel verzeichnet die IANA-Datenbank `Atlantic/Reykjavik` als Alias für `Africa/Abidjan`, aber da sie unterschiedlichen Ländern (Island bzw. Côte d'Ivoire) entsprechen, werden sie als unterschiedliche primäre Identifier behandelt.
 
-Diese Standardisierung gilt auch außerhalb von `Temporal`. Zum Beispiel, die `timeZone`-Option, die von {{jsxref("Intl/DateTimeFormat/resolvedOptions", "Intl.DateTimeFormat.prototype.resolvedOptions()")}} zurückgegeben wird, wird auch nie durch einen Alias ersetzt, obwohl Browser diese Identifikatoren traditionell vor der Standardisierung durch Temporal kanonisiert haben. Andererseits werden {{jsxref("Intl/Locale/getTimeZones", "Intl.Locale.prototype.getTimeZones()")}} und {{jsxref("Intl.supportedValuesOf()")}} (`timeZone`-Option) den aktuellsten Identifier zurückgeben, während einige Browser früher den alten, nicht primären Identifier zurückgegeben haben.
+Diese Standardisierung gilt auch außerhalb von `Temporal`. Zum Beispiel wird die `timeZone`-Option, die von {{jsxref("Intl/DateTimeFormat/resolvedOptions", "Intl.DateTimeFormat.prototype.resolvedOptions()")}} zurückgegeben wird, auch niemals durch einen Alias ersetzt, obwohl Browser diese Identifier traditionell vor der Standardisierung durch Temporal kanonisiert haben. Andererseits würden {{jsxref("Intl/Locale/getTimeZones", "Intl.Locale.prototype.getTimeZones()")}} und {{jsxref("Intl.supportedValuesOf()")}} (`timeZone`-Option) den aktuellsten Identifier zurückgeben, während einige Browser früher den alten, nicht primären Identifier zurückgaben.
 
 ### RFC 9557 Format
 
-`ZonedDateTime`-Objekte können unter Verwendung des [RFC 9557](https://datatracker.ietf.org/doc/html/rfc9557) Formats serialisiert und geparst werden, einer Erweiterung des [ISO 8601 / RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) Formats. Der String hat folgendes Format (Leerzeichen sind nur zur Lesbarkeit hinzugefügt und sollten im eigentlichen String nicht vorhanden sein):
+`ZonedDateTime` Objekte können mithilfe des [RFC 9557](https://datatracker.ietf.org/doc/html/rfc9557) Formats serialisiert und analysiert werden, einer Erweiterung des [ISO 8601 / RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) Formats. Der String hat die folgende Form (Leerzeichen sind nur zur Lesbarkeit und sollen im eigentlichen String nicht vorhanden sein):
 
 ```plain
-YYYY-MM-DD T HH:mm:ss.sssssssss Z/±HH:mm:ss.sssssssss [time_zone_id] [u-ca=calendar_id]
+YYYY-MM-DD T HH:mm:ss.sssssssss Z/±HH:mm [time_zone_id] [u-ca=calendar_id]
 ```
 
 - `YYYY`
-  - : Entweder eine vierstellige Zahl oder eine sechsstellige Zahl mit einem `+` oder `-` Zeichen.
+  - : Entweder eine vierstellige Zahl oder eine sechsstellige Zahl mit einem `+`- oder `-`-Zeichen.
 - `MM`
   - : Eine zweistellige Zahl von `01` bis `12`.
 - `DD`
-  - : Eine zweistellige Zahl von `01` bis `31`. Die `YYYY`, `MM` und `DD` Komponenten können durch `-` oder nichts getrennt werden.
+  - : Eine zweistellige Zahl von `01` bis `31`. Die `YYYY`, `MM` und `DD` Komponenten können durch `-` oder gar nichts getrennt werden.
 - `T` {{optional_inline}}
-  - : Der Datum-Uhrzeit-Separator, der `T`, `t`, oder ein Leerzeichen sein kann. Vorhanden, wenn und nur wenn `HH` vorhanden ist.
+  - : Der Datums-/Zeit-Trenner, der `T`, `t` oder ein Leerzeichen sein kann. Vorhanden, falls und nur wenn `HH` vorhanden ist.
 - `HH` {{optional_inline}}
-  - : Eine zweistellige Zahl von `00` bis `23`. Standard ist `00`.
+  - : Eine zweistellige Zahl von `00` bis `23`. Standardmäßig `00`.
 - `mm` {{optional_inline}}
-  - : Eine zweistellige Zahl von `00` bis `59`. Standard ist `00`.
+  - : Eine zweistellige Zahl von `00` bis `59`. Standardmäßig `00`.
 - `ss.sssssssss` {{optional_inline}}
-  - : Eine zweistellige Zahl von `00` bis `59`. Kann optional von einem `.` oder `,` gefolgt sein und einer bis neun Stellen. Standard ist `00`. Die `HH`, `mm` und `ss` Komponenten können durch `:` oder nichts getrennt werden. Sie können entweder nur `ss` weglassen oder sowohl `ss` als auch `mm`, sodass die Zeit eine von drei Formen haben kann: `HH`, `HH:mm`, oder `HH:mm:ss.sssssssss`.
-- `Z/±HH:mm:ss.sssssssss` {{optional_inline}}
-  - : Entweder der UTC-Indikator `Z` oder `z`, oder ein Offset von UTC in der Form `+` oder `-`, gefolgt vom gleichen Format wie die Zeitkomponente. Beachten Sie, dass Präzision auf Minutenbasis möglicherweise von anderen Systemen nicht unterstützt wird. Wenn weggelassen, wird das Offset aus dem Zeitzonen-Identifikator abgeleitet. Wenn vorhanden, dann muss die Zeit ebenfalls bereitgestellt werden. `Z` ist nicht dasselbe wie `+00:00`: Ersteres bedeutet, dass die Zeit in UTC-Form angegeben ist, unabhängig vom Zeitzonen-Identifier, während Letzteres bedeutet, dass die Zeit in lokaler Zeit angegeben ist, die zufällig UTC+0 ist, und wird über die `offset`-Option gegen den Zeitzonen-Identifier validiert.
+  - : Eine zweistellige Zahl von `00` bis `59`. Kann optional mit einem `.` oder `,` und eins bis neun Ziffern gefolgt werden. Standardmäßig `00`. Die `HH`, `mm` und `ss` Komponenten können durch `:` oder nichts getrennt werden. Sie können entweder nur `ss` oder sowohl `ss` als auch `mm` auslassen, so dass die Zeit in einer der drei Formen sein kann: `HH`, `HH:mm`, oder `HH:mm:ss.sssssssss`.
+- `Z/±HH:mm` {{optional_inline}}
+  - : Entweder der UTC-Indikator `Z` oder `z`, oder ein Offset von UTC in der Form `+` oder `-`, gefolgt durch dasselbe Format wie die Zeitkomponente. Beachten Sie, dass Unterminuten-Präzision (`:ss.sssssssss`) von anderen Systemen möglicherweise nicht unterstützt wird und akzeptiert, aber nie ausgegeben wird. Falls weggelassen, wird der Offset aus dem Zeitzonen-Identifier abgeleitet. Falls vorhanden, muss dann auch die Zeit bereitgestellt werden. `Z` ist nicht dasselbe wie `+00:00`: Letzteres bedeutet, dass die Zeit in lokaler Zeit angegeben ist, die zufällig UTC+0 ist, und wird gegen den Zeitzonen-Identifier via der [`offset` option](#offset-mehrdeutigkeit) validiert.
 - `[time_zone_id]`
-  - : Ersetzen Sie `time_zone_id` durch den Zeitzonen-Identifier (benannt oder Offset) wie oben beschrieben. Kann ein _Kritismus-Flag_ haben, indem der Identifier mit `!` vorangestellt wird: z.B. `[!America/New_York]`. Dieses Flag weist andere Systeme im Allgemeinen darauf hin, dass es nicht ignoriert werden kann, wenn sie es nicht unterstützen. Beachten Sie, dass es für `Temporal.ZonedDateTime.from()` erforderlich ist: Wenn es weggelassen wird, wird ein `RangeError` ausgelöst. Wenn Sie ISO 8601 / RFC 3339 Strings ohne Zeitzonen-Identifikator-Anmerkungen parsen möchten, verwenden Sie {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} stattdessen.
+  - : Ersetzen Sie `time_zone_id` durch den Zeitzonen-Identifikator (benannt oder Offset) wie oben beschrieben. Kann ein _kritisches Flag_ haben, indem der Identifier mit `!` vorangestellt wird: z.B. `[!America/New_York]`. Dieses Flag sagt anderen Systemen im Allgemeinen, dass es nicht ignoriert werden kann, wenn sie es nicht unterstützen. Beachten Sie, dass es für `Temporal.ZonedDateTime.from()` erforderlich ist: Falls weggelassen, wird ein `RangeError` ausgelöst. Wenn Sie ISO 8601 / RFC 3339 Strings ohne Zeitzonen-Identifier-Annotations analysieren möchten, verwenden Sie {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} stattdessen.
 - `[u-ca=calendar_id]` {{optional_inline}}
-  - : Ersetzen Sie `calendar_id` durch den zu verwendenden Kalender. Kann ein _Kritismus-Flag_ haben, indem der Schlüssel mit `!` vorangestellt wird: z.B. `[!u-ca=iso8601]`. Dieses Flag weist andere Systeme im Allgemeinen darauf hin, dass es nicht ignoriert werden kann, wenn sie es nicht unterstützen. Der `Temporal`-Parser wird einen Fehler auslösen, wenn die Anmerkungen zwei oder mehr Kalenderanmerkungen enthalten und eine davon kritisch ist. Der Standard ist `[u-ca=iso8601]`. Beachten Sie, dass das `YYYY-MM-DD` immer als ISO 8601 Kalenderdatum interpretiert und dann in den angegebenen Kalender konvertiert wird.
+  - : Ersetzen Sie `calendar_id` durch das zu verwendende Kalendersystem. Kann ein _kritisches Flag_ haben, indem der Schlüssel mit `!` vorangestellt wird: z.B. `[!u-ca=iso8601]`. Dieses Flag sagt anderen Systemen im Allgemeinen, dass es nicht ignoriert werden kann, wenn sie es nicht unterstützen. Der `Temporal`-Parser wird einen Fehler auslösen, wenn die Anmerkungen zwei oder mehr Kalenderanmerkungen enthalten und eine davon kritisch ist. Standardmäßig `[u-ca=iso8601]`. Beachten Sie, dass das `YYYY-MM-DD` stets als ISO 8601 Kalenderdatum interpretiert und dann in das angegebene Kalender konvertiert wird.
 
-Als Eingabe werden andere Anmerkungen im `[key=value]`-Format ignoriert und dürfen das Kritismus-Flag nicht haben.
+Als Eingabe werden andere Anmerkungen im `[key=value]` Format ignoriert und dürfen kein kritisches Flag haben.
 
-Beim Serialisieren können Sie die Bruchteilssekundenstellen, ob das Offset/Zeitzonen-ID/Kalender-ID angezeigt wird, und ob ein Kritismus-Flag für die Anmerkungen hinzugefügt wird, konfigurieren.
+Bei der Serialisierung können Sie die Bruchteile der Sekunde, ob der Offset/Zeitzonen-ID/Kalender-ID angezeigt werden soll, und ob für die Anmerkungen ein kritisches Flag hinzugefügt werden soll, konfigurieren.
 
-### Mehrdeutigkeit und Lücken bei der Umwandlung von lokaler Zeit in UTC-Zeit
+### Mehrdeutigkeit und Lücken von lokaler Zeit zu UTC-Zeit
 
-Angesichts einer Zeitzone ist die Umrechnung von UTC in lokale Zeit unkompliziert: Sie erhalten zuerst das Offset unter Verwendung des Zeitzonennamens und des Moments und addieren dann das Offset zum Moment. Das Gegenteil ist nicht wahr: Die Umrechnung von lokaler Zeit in UTC, ohne explizites Offset, ist mehrdeutig, weil eine lokale Zeit null, einer oder vielen UTC-Zeiten entsprechen kann. Betrachten Sie die häufigste Ursache: Übergänge zur Sommerzeit. Nehmen Sie New York als Beispiel. Sein Standard-Offset ist UTC-5, aber während der Sommerzeit werden alle Uhren um eine Stunde vorgestellt, sodass das Offset UTC-4 wird. In den USA finden die Übergänge um 2:00 Uhr Ortszeit statt, sodass diese beiden Übergangstage betrachtet werden sollten:
+Angesichts einer Zeitzone ist die Umstellung von UTC auf lokale Zeit einfach: Zuerst erhält man den Offset mit dem Zeitzonennamen und dem Moment, dann fügt man den Offset zum Moment hinzu. Das Gegenteil ist nicht wahr: Die Umstellung von lokaler Zeit auf UTC ist ohne einen expliziten Offset mehrdeutig, da eine lokale Zeit zu null, einem oder vielen UTC-Zeiten gehören kann. Betrachten Sie die häufigste Ursache: Sommerzeitumstellungen. Nehmen Sie zum Beispiel New York. Sein Standardoffset ist UTC-5, aber während der Sommerzeit werden alle Uhren um eine Stunde vorgestellt, sodass der Offset UTC-4 wird. In den USA erfolgen Übergänge um 2:00 Uhr Ortszeit, also betrachten Sie diese beiden Übergangstage:
 
-| UTC-Zeit             | New York-Zeit             |
+| UTC-Zeit             | New Yorker Zeit           |
 | -------------------- | ------------------------- |
 | 2024-03-10T06:58:00Z | 2024-03-10T01:58:00-05:00 |
 | 2024-03-10T06:59:00Z | 2024-03-10T01:59:00-05:00 |
@@ -125,177 +125,81 @@ Angesichts einer Zeitzone ist die Umrechnung von UTC in lokale Zeit unkomplizier
 | 2024-11-03T05:59:00Z | 2024-11-03T01:59:00-04:00 |
 | 2024-11-03T06:00:00Z | 2024-11-03T01:00:00-05:00 |
 
-Wie Sie sehen können, verschwindet im März eine Stunde aus der lokalen Zeit, und im November gibt es zwei Stunden mit der gleichen Wand-Uhrzeit. Angenommen, wir haben ein `PlainDateTime` gespeichert, das "2024-03-10T02:05:00" sagt, und wir wollen es in der `America/New_York` Zeitzone interpretieren, es wird keine Zeit geben, die dem entspricht, während ein `PlainDateTime`, das "2024-11-03T01:05:00" sagt, zwei verschiedenen Momenten entsprechen kann.
+Wie Sie sehen können, verschwand im März eine Stunde aus der lokalen Zeit, und im November gibt es zwei Stunden, die die gleiche Uhrzeit haben. Angenommen, wir haben ein `PlainDateTime` gespeichert, das "2024-03-10T02:05:00" sagt, und wir wollen es in der `America/New_York`-Zeitzone interpretieren, dann wird es keine Zeit geben, die ihm entspricht, während ein `PlainDateTime`, das "2024-11-03T01:05:00" sagt, zu zwei verschiedenen Momenten gehören kann.
 
-Bei der Erstellung eines `ZonedDateTime` aus einer lokalen Zeit (mit {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}, {{jsxref("Temporal/ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}}, {{jsxref("Temporal/PlainDateTime/toZonedDateTime", "Temporal.PlainDateTime.prototype.toZonedDateTime()")}}) ist das Verhalten bei Mehrdeutigkeit und Lücken über die `disambiguation`-Option konfigurierbar:
+Wenn ein `ZonedDateTime` aus einer lokalen Uhrzeit konstruiert wird (unter Verwendung {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}, {{jsxref("Temporal/ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}}, {{jsxref("Temporal/PlainDateTime/toZonedDateTime", "Temporal.PlainDateTime.prototype.toZonedDateTime()")}}), ist das Verhalten für Mehrdeutigkeit und Lücken über die `disambiguation`-Option konfigurierbar:
 
 - `earlier`
-  - : Wenn es zwei mögliche Momente gibt, wählen Sie den früheren. Wenn es eine Lücke gibt, gehen Sie um die Dauer der Lücke zurück.
+  - : Wenn es zwei mögliche Momente gibt, wählen Sie den früheren. Falls es eine Lücke gibt, gehen Sie um die Lückendauer zurück.
 - `later`
-  - : Wenn es zwei mögliche Momente gibt, wählen Sie den späteren. Wenn es eine Lücke gibt, gehen Sie um die Dauer der Lücke vorwärts.
+  - : Wenn es zwei mögliche Momente gibt, wählen Sie den späteren. Falls es eine Lücke gibt, gehen Sie um die Lückendauer vor.
 - `compatible` (Standard)
   - : Gleiches Verhalten wie {{jsxref("Date")}}: Verwenden Sie `later` für Lücken und `earlier` für Mehrdeutigkeiten.
 - `reject`
-  - : Werfen Sie einen `RangeError`, wann immer es eine Mehrdeutigkeit oder eine Lücke gibt.
+  - : Werfen Sie einen `RangeError`, wann immer eine Mehrdeutigkeit oder eine Lücke auftritt.
 
-Es gibt mehrere Fälle, in denen es keine Mehrdeutigkeit bei der Erstellung eines `ZonedDateTime` gibt:
+Es gibt mehrere Fälle, in denen es keine Mehrdeutigkeit beim Konstruieren eines `ZonedDateTime` gibt:
 
-- Wenn die Zeit in UTC über das `Z` Offset angegeben ist.
-- Wenn das Offset explizit angegeben und verwendet wird (siehe unten).
+- Falls die Zeit explizit in UTC über den `Z`-Offset angegeben wird.
+- Wenn der Offset explizit bereitgestellt und verwendet wird (siehe unten).
 
 ### Offset-Mehrdeutigkeit
 
-Wir haben bereits demonstriert, wie Mehrdeutigkeit entstehen kann, wenn man eine lokale Zeit in einer Zeitzone interpretiert, ohne ein explizites Offset anzugeben. Wenn Sie jedoch ein explizites Offset angeben, entsteht ein weiterer Konflikt: zwischen dem angegebenen Offset und dem berechneten Offset aus der Zeitzone und der lokalen Zeit. Dies ist ein unvermeidbares reales Problem: Wenn Sie eine Zeit in der Zukunft mit einem vorhergesagten Offset speichern, kann sich die Zeitzonendefinition ändern, bevor diese Zeit kommt, aufgrund politischer Gründe. Zum Beispiel, angenommen, wir setzen 2018 eine Erinnerung für die Zeit `2019-12-23T12:00:00-02:00[America/Sao_Paulo]` (was eine Sommerzeit ist; Brasilien befindet sich auf der südlichen Hemisphäre, daher tritt die Sommerzeit im Oktober ein und endet im Februar). Aber bevor diese Zeit kommt, beschließt Brasilien Anfang 2019, die Sommerzeit nicht mehr zu beachten, sodass das tatsächliche Offset `-03:00` wird. Sollte die Erinnerung jetzt noch um 12:00 Uhr ausgelöst werden (unter Beibehaltung der lokalen Zeit), oder sollte sie um 11:00 Uhr unter Beibehaltung der exakten Zeit ausgelöst werden?
+Wir haben bereits gezeigt, wie Mehrdeutigkeit entstehen kann, wenn eine lokale Zeit in einer Zeitzone interpretiert wird, ohne einen expliziten Offset bereitzustellen. Wenn Sie jedoch einen expliziten Offset angeben, entsteht ein weiterer Konflikt: zwischen dem Offset wie angegeben und dem Offset, wie er aus der Zeitzone und der lokalen Zeit berechnet wird. Dies ist ein unvermeidbares realweltliches Problem: Wenn Sie eine Zeit in der Zukunft speichern, mit einem erwarteten Offset, bevor diese Zeit kommt, könnte sich die Zeitzonendefinition aus politischen Gründen geändert haben. Beispielsweise, angenommen, wir setzen 2018 eine Erinnerung auf die Zeit `2019-12-23T12:00:00-02:00[America/Sao_Paulo]` (das sich in der Sommerzeit befindet; Brasilien ist auf der Südhalbkugel, so dass es im Oktober in die Sommerzeit eintritt und im Februar austritt). Aber bevor diese Zeit kommt, entscheidet Brasilien Anfang 2019, die Sommerzeit nicht mehr zu beachten, so dass der reale Offset `-03:00` wird. Sollte die Erinnerung jetzt immer noch um Mittag ausgelöst werden (die lokale Zeit haltend), oder sollte sie um 11:00 Uhr ausgelöst werden (die genaue Zeit haltend)?
 
-Beim Erstellen eines `ZonedDateTime` mit {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} oder beim Aktualisieren mit der {{jsxref("Temporal/ZonedDateTime/with", "with()")}}-Methode ist das Verhalten bei Offset-Mehrdeutigkeit über die `offset`-Option konfigurierbar:
+Beim Konstruieren eines `ZonedDateTime` mit {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} oder beim Aktualisieren mit der {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode ist das Verhalten für Offset-Mehrdeutigkeit über die `offset`-Option konfigurierbar:
 
 - `use`
-  - : Verwenden Sie das Offset, um die genaue Zeit zu berechnen. Diese Option "verwendet" das Offset bei der Bestimmung des Moments, der durch den String repräsentiert wird, der derselbe Moment ist, der ursprünglich berechnet wurde, als wir die Zeit gespeichert haben, selbst wenn sich das Offset zu diesem Moment geändert hat. Der Zeitzonen-Identifier wird weiterhin verwendet, um das (möglicherweise aktualisierte) Offset zu ermitteln und dieses Offset zu verwenden, um die genaue Zeit in lokale Zeit umzuwandeln.
+  - : Verwenden Sie den Offset, um die genaue Zeit zu berechnen. Diese Option "verwendet" den Offset, um den durch den String dargestellten Moment zu bestimmen, der derselbe Moment sein wird, der ursprünglich berechnet wurde, als wir die Zeit speicherten, selbst wenn sich der Offset zu dem Moment geändert hat. Der Zeitzonen-Identifier wird weiterhin verwendet, um den (möglicherweise aktualisierten) Offset abzuleiten und verwendet diesen Offset, um die genaue Zeit in die lokale Zeit zu konvertieren.
 - `ignore`
-  - : Verwenden Sie den Zeitzonen-Identifier, um das Offset erneut zu berechnen, wobei das im String angegebene Offset ignoriert wird. Diese Option behält die gleiche lokale Zeit bei, wie ursprünglich berechnet, als wir die Zeit gespeichert haben, kann aber einem anderen Moment entsprechen. Beachten Sie, dass diese Option dieselbe Mehrdeutigkeit der lokalen Zeitinterpretation verursachen kann, wie oben demonstriert, die mit der `disambiguation`-Option gelöst wird.
+  - : Verwenden Sie den Zeitzonen-Identifier, um den Offset neu zu berechnen, und ignorieren Sie den im String angegebenen Offset. Diese Option behält die gleiche lokale Zeit, die ursprünglich berechnet wird, wenn wir die Zeit gespeichert haben, kann jedoch einem anderen Moment entsprechen. Beachten Sie, dass diese Option die gleiche lokale Zeit-Interpretationsmehrdeutigkeit verursachen kann, wie bereits oben demonstriert, die mit der `disambiguation`-Option gelöst wird.
 - `reject`
-  - : Werfen Sie einen `RangeError`, wann immer es einen Konflikt zwischen dem Offset und dem Zeitzonen-Identifier gibt. Dies ist der Standard für {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}.
+  - : Werfen Sie einen `RangeError`, wann immer es zu einem Konflikt zwischen dem Offset und dem Zeitzonen-Identifier kommt. Dies ist der Standard für {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}.
 - `prefer`
-  - : Verwenden Sie das Offset, wenn es gültig ist, andernfalls berechnen Sie das Offset aus dem Zeitzonen-Identifier. Dies ist der Standard für {{jsxref("Temporal/ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}} (siehe die Methode für weitere Details). Dies unterscheidet sich von `ignore`, weil im Fall von Mehrdeutigkeit der lokalen Zeit das Offset zur Lösung verwendet wird, anstatt der `disambiguation`-Option.
+  - : Verwenden Sie den Offset, wenn er gültig ist, andernfalls berechnen Sie den Offset aus dem Zeitzonen-Identifier. Dies ist der Standard für {{jsxref("Temporal/ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}} (siehe die Methode für mehr Details). Dies ist anders als `ignore`, weil bei lokaler Zeit-Mehrdeutigkeit der Offset verwendet wird, um sie zu lösen, anstatt der `disambiguation`-Option.
 
-Beachten Sie, dass das `Z` Offset nicht `+00:00` bedeutet; es wird immer unabhängig von der Zeitzone als gültig betrachtet. Die Zeit wird als UTC-Zeit interpretiert, und der Zeitzonen-Identifier wird dann verwendet, um sie in lokale Zeit zu konvertieren. Mit anderen Worten, `Z` erzwingt dasselbe Verhalten wie die `ignore`-Option, und seine Ergebnisse können niemals mehrdeutig sein.
+Beachten Sie, dass der `Z` Offset nicht `+00:00` bedeutet; er wird immer als gültig angesehen, unabhängig von der Zeitzone. Die Zeit wird als UTC-Zeit interpretiert und der Zeitzonen-Identifier wird dann verwendet, um sie in lokale Zeit zu konvertieren. Mit anderen Worten, `Z` erzwingt das gleiche Verhalten wie die `ignore`-Option und seine Ergebnisse können nie mehrdeutig sein.
 
 > [!NOTE]
-> Obwohl {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} auch einen [RFC 9557](#rfc_9557_format) String in derselben Form akzeptiert, gibt es keine Mehrdeutigkeit, da er immer den Zeitzonen-Identifier ignoriert und nur das Offset liest.
+> Obwohl {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} auch einen [RFC 9557](#rfc_9557_format) String in derselben Form annimmt, gibt es keine Mehrdeutigkeit, da es immer den Zeitzonen-Identifier ignoriert und nur den Offset liest.
 
 ## Konstruktor
 
 - {{jsxref("Temporal/ZonedDateTime/ZonedDateTime", "Temporal.ZonedDateTime()")}} {{experimental_inline}}
-  - : Erstellt ein neues `Temporal.ZonedDateTime`-Objekt durch direktes Bereitstellen der zugrunde liegenden Daten.
+  - : Erstellt ein neues `Temporal.ZonedDateTime` Objekt durch direktes Übergeben der zugrundeliegenden Daten.
 
 ## Statische Methoden
 
 - {{jsxref("Temporal/ZonedDateTime/compare", "Temporal.ZonedDateTime.compare()")}} {{experimental_inline}}
-  - : Gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob die erste Datum-Uhrzeit vor, gleichzeitig oder nach der zweiten Datum-Uhrzeit kommt. Entspricht dem Vergleich der {{jsxref("Temporal/ZonedDateTime/epochNanoseconds", "epochNanoseconds")}} der beiden Datum-Uhrzeiten.
+  - : Gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob die erste Datum-Zeit vor, genau gleich oder nach der zweiten Datum-Zeit kommt. Entspricht dem Vergleich der {{jsxref("Temporal/ZonedDateTime/epochNanoseconds", "epochNanoseconds")}} der beiden Datums- und Zeitangaben.
 - {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} {{experimental_inline}}
-  - : Erstellt ein neues `Temporal.ZonedDateTime`-Objekt aus einem anderen `Temporal.ZonedDateTime`-Objekt, einem Objekt mit Datums-, Zeit- und Zeitzoneneigenschaften oder einem [RFC 9557](#rfc_9557_format) String.
+  - : Erstellt ein neues `Temporal.ZonedDateTime` Objekt aus einem anderen `Temporal.ZonedDateTime` Objekt, einem Objekt mit Datums-, Zeit- und Zeitzonen-Eigenschaften oder einem [RFC 9557](#rfc_9557_format) String.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-Diese Eigenschaften sind auf `Temporal.ZonedDateTime.prototype` definiert und werden von allen `Temporal.ZonedDateTime`-Instanzen geteilt.
+Diese Eigenschaften sind auf `Temporal.ZonedDateTime.prototype` definiert und werden von allen `Temporal.ZonedDateTime` Instanzen geteilt.
 
 - {{jsxref("Temporal/ZonedDateTime/calendarId", "Temporal.ZonedDateTime.prototype.calendarId")}} {{experimental_inline}}
-  - : Gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) repräsentiert, der verwendet wird, um das interne ISO 8601 Datum zu interpretieren.
+  - : Gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) darstellt, der verwendet wird, um das interne ISO 8601 Datum zu interpretieren.
 - {{jsxref("Object/constructor", "Temporal.ZonedDateTime.prototype.constructor")}}
-  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Temporal.ZonedDateTime`-Instanzen ist der Anfangswert die {{jsxref("Temporal/ZonedDateTime/ZonedDateTime", "Temporal.ZonedDateTime()")}}-Konstruktor.
+  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Temporal.ZonedDateTime` Instanzen ist der Anfangswert der {{jsxref("Temporal/ZonedDateTime/ZonedDateTime", "Temporal.ZonedDateTime()")}} Konstruktor.
 - {{jsxref("Temporal/ZonedDateTime/day", "Temporal.ZonedDateTime.prototype.day")}} {{experimental_inline}}
-  - : Gibt eine positive ganze Zahl zurück, die den 1-basierten Tag-Index im Monat dieses Datums darstellt, was dieselbe Tagesnummer ist, die Sie in einem Kalender sehen würden. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. Beginnt im Allgemeinen bei 1 und ist kontinuierlich, aber nicht immer.
+  - : Gibt eine positive Ganzzahl zurück, die den 1-basierten Tagindex im Monat dieses Datums darstellt, der dieselbe Tagesnummer ist, die Sie auf einem Kalender sehen würden. Abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars). Allgemein beginnt bei 1 und ist kontinuierlich, aber nicht immer.
 - {{jsxref("Temporal/ZonedDateTime/dayOfWeek", "Temporal.ZonedDateTime.prototype.dayOfWeek")}} {{experimental_inline}}
-  - : Gibt eine positive ganze Zahl zurück, die den 1-basierten Tag-Index in der Woche dieses Datums darstellt. Tage in einer Woche werden sequentiell von `1` bis {{jsxref("Temporal/ZonedDateTime/daysInWeek", "daysInWeek")}} nummeriert, wobei jede Zahl ihrem Namen zugeordnet wird. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. 1 stellt normalerweise Montag im Kalender dar, auch wenn Lokale, die den Kalender verwenden, einen anderen Tag als den ersten Tag der Woche betrachten können (siehe {{jsxref("Intl/Locale/getWeekInfo", "Intl.Locale.prototype.getWeekInfo()")}}).
+  - : Gibt eine positive Ganzzahl zurück, die den 1-basierten Tagindex der Woche dieses Datums darstellt. Tage in einer Woche sind sequentiell von `1` bis {{jsxref("Temporal/ZonedDateTime/daysInWeek", "daysInWeek")}} nummeriert, wobei jede Zahl ihrem Namen zugeordnet ist. Abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars). 1 repräsentiert gewöhnlich Montag im Kalender, selbst wenn Lokalisierungen, die den Kalender verwenden, einen anderen Tag als ersten Tag der Woche betrachten (siehe {{jsxref("Intl/Locale/getWeekInfo", "Intl.Locale.prototype.getWeekInfo()")}}).
 - {{jsxref("Temporal/ZonedDateTime/dayOfYear", "Temporal.ZonedDateTime.prototype.dayOfYear")}} {{experimental_inline}}
-  - : Gibt eine positive ganze Zahl zurück, die den 1-basierten Tag-Index im Jahr dieses Datums darstellt. Der erste Tag dieses Jahres ist `1`, und der letzte Tag ist der {{jsxref("Temporal/ZonedDateTime/daysInYear", "daysInYear")}}. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
+  - : Gibt eine positive Ganzzahl zurück, die den 1-basierten Tagindex im Jahr dieses Datums darstellt. Der erste Tag dieses Jahres ist `1`, und der letzte Tag ist der {{jsxref("Temporal/ZonedDateTime/daysInYear", "daysInYear")}}. Abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
 - {{jsxref("Temporal/ZonedDateTime/daysInMonth", "Temporal.ZonedDateTime.prototype.daysInMonth")}} {{experimental_inline}}
-  - : Gibt eine positive ganze Zahl zurück, die die Anzahl der Tage im Monat dieses Datums darstellt. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
+  - : Gibt eine positive Ganzzahl zurück, die die Anzahl der Tage im Monat dieses Datums darstellt. Abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
 - {{jsxref("Temporal/ZonedDateTime/daysInWeek", "Temporal.ZonedDateTime.prototype.daysInWeek")}} {{experimental_inline}}
-  - : Gibt eine positive ganze Zahl zurück, die die Anzahl der Tage in der Woche dieses Datums darstellt. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. Für den ISO 8601 Kalender sind es immer 7, aber in anderen Kalendersystemen kann es von Woche zu Woche unterschiedlich sein.
+  - : Gibt eine positive Ganzzahl zurück, die die Anzahl der Tage in der Woche dieses Datums darstellt. Abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars). Für den ISO 8601 Kalender sind es immer 7, aber in anderen Kalendersystemen kann es von Woche zu Woche abweichen.
 - {{jsxref("Temporal/ZonedDateTime/daysInYear", "Temporal.ZonedDateTime.prototype.daysInYear")}} {{experimental_inline}}
-  - : Gibt eine positive ganze Zahl zurück, die die Anzahl der Tage im Jahr dieses Datums darstellt. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. Für den ISO 8601 Kalender sind es 365 oder 366 in einem Schaltjahr.
+  - : Gibt eine positive Ganzzahl zurück, die die Anzahl der Tage im Jahr dieses Datums darstellt. Abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars). Für den ISO 8601 Kalender sind es 365, oder 366 in einem Schaltjahr.
 - {{jsxref("Temporal/ZonedDateTime/epochMilliseconds", "Temporal.ZonedDateTime.prototype.epochMilliseconds")}} {{experimental_inline}}
-  - : Gibt eine ganze Zahl zurück, die die Anzahl der Millisekunden seit dem Unix-Epoch (Mitternacht am Anfang des 1. Januar 1970, UTC) bis zu diesem Moment darstellt. Entspricht der Teilung von `epochNanoseconds` durch `1e6` und dem Abrunden des Ergebnisses.
+  - : Gibt eine Ganzzahl zurück, die die Anzahl der Millisekunden darstellt, die seit der Unix-Epoche (Mitternacht am Beginn des 1. Januar 1970, UTC) bis zu diesem Moment vergangen sind. Entspricht der Division von `epochNanoseconds` durch `1e6` und der Abrundung des Ergebnisses.
 - {{jsxref("Temporal/ZonedDateTime/epochNanoseconds", "Temporal.ZonedDateTime.prototype.epochNanoseconds")}} {{experimental_inline}}
-  - : Gibt einen {{jsxref("BigInt")}} zurück, der die Anzahl der Nanosekunden seit dem Unix-Epoch (Mitternacht am Anfang des 1. Januar 1970, UTC) bis zu diesem Moment darstellt.
+  - : Gibt ein {{jsxref("BigInt")}} zurück, das die Anzahl der Nanosekunden darstellt, die seit der Unix-Epoche (Mitternacht am Beginn des 1. Januar 1970, UTC) bis zu diesem Moment vergangen sind.
 - {{jsxref("Temporal/ZonedDateTime/era", "Temporal.ZonedDateTime.prototype.era")}} {{experimental_inline}}
-  - : Gibt einen kalender-spezifischen Kleinbuchstaben-String zurück, der die Ära dieses Datums darstellt, oder `undefined`, wenn der Kalender keine Ären verwendet (z.B. ISO 8601). `era` und `eraYear` zusammen identifizieren ein Jahr in einem Kalender eindeutig, auf die gleiche Weise wie `year`. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. Für Gregorianisch ist es entweder `"gregory"` oder `"gregory-inverse"`.
+  - : Gibt einen kalenderabhängigen Kleinbuchstaben-String zurück, der die Ära dieses Datums darstellt, oder `undefined`, wenn der Kalender keine Äras verwendet (z.B. ISO 8601). `era` und `eraYear` zusammen identifizieren ein Jahr in einem Kalender eindeutig, auf die gleiche Weise, wie es `year` tut. Abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars). Für Gregorianisch ist es entweder `"gregory"` oder `"gregory-inverse"`.
 - {{jsxref("Temporal/ZonedDateTime/eraYear", "Temporal.ZonedDateTime.prototype.eraYear")}} {{experimental_inline}}
-  - : Gibt eine nicht-negative ganze Zahl zurück, die das Jahr dieses Datums innerhalb der Ära darstellt, oder `undefined`, wenn der Kalender keine Ären verwendet (z.B. ISO 8601). Der Jahr-Index beginnt normalerweise bei 1 (häufiger) oder 0, und Jahre in einer Ära können mit der Zeit abnehmen (z.B. Gregorianisches BCE). `era` und `eraYear` zusammen identifizieren ein Jahr in einem Kalender eindeutig, auf die gleiche Weise wie `year`. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
-- {{jsxref("Temporal/ZonedDateTime/hour", "Temporal.ZonedDateTime.prototype.hour")}} {{experimental_inline}}
-  - : Gibt eine ganze Zahl von 0 bis 23 zurück, die die Stundenkomponente dieser Zeit darstellt.
-- {{jsxref("Temporal/ZonedDateTime/hoursInDay", "Temporal.ZonedDateTime.prototype.hoursInDay")}} {{experimental_inline}}
-  - : Gibt eine positive ganze Zahl zurück, die die Anzahl der Stunden im Tag dieses Datums in der Zeitzone darstellt. Es können mehr oder weniger als 24 sein im Falle von Offset-Änderungen wie Sommerzeit.
-- {{jsxref("Temporal/ZonedDateTime/inLeapYear", "Temporal.ZonedDateTime.prototype.inLeapYear")}} {{experimental_inline}}
-  - : Gibt einen boolean zurück, der angibt, ob dieses Datum in einem Schaltjahr liegt. Ein Schaltjahr ist ein Jahr mit mehr Tagen (aufgrund eines Schalttages oder -monats) als ein normales Jahr. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
-- {{jsxref("Temporal/ZonedDateTime/microsecond", "Temporal.ZonedDateTime.prototype.microsecond")}} {{experimental_inline}}
-  - : Gibt eine ganze Zahl von 0 bis 999 zurück, die die Mikrosekunden (10<sup>-6</sup> Sekunde) Komponente dieser Zeit darstellt.
-- {{jsxref("Temporal/ZonedDateTime/millisecond", "Temporal.ZonedDateTime.prototype.millisecond")}} {{experimental_inline}}
-  - : Gibt eine ganze Zahl von 0 bis 999 zurück, die die Millisekunden (10<sup>-3</sup> Sekunde) Komponente dieser Zeit darstellt.
-- {{jsxref("Temporal/ZonedDateTime/minute", "Temporal.ZonedDateTime.prototype.minute")}} {{experimental_inline}}
-  - : Gibt eine ganze Zahl von 0 bis 59 zurück, die die Minutenkomponente dieser Zeit darstellt.
-- {{jsxref("Temporal/ZonedDateTime/month", "Temporal.ZonedDateTime.prototype.month")}} {{experimental_inline}}
-  - : Gibt eine positive ganze Zahl zurück, die den 1-basierten Monat-Index im Jahr dieses Datums darstellt. Der erste Monat dieses Jahres ist `1`, und der letzte Monat ist der {{jsxref("Temporal/ZonedDateTime/monthsInYear", "monthsInYear")}}. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. Beachten Sie, dass im Gegensatz zu {{jsxref("Date.prototype.getMonth()")}} der Index 1-basiert ist. Wenn der Kalender Schaltmonate hat, kann der Monat mit dem gleichen {{jsxref("Temporal/ZonedDateTime/monthCode", "monthCode")}} unterschiedliche `month`-Indizes für verschiedene Jahre haben.
-- {{jsxref("Temporal/ZonedDateTime/monthCode", "Temporal.ZonedDateTime.prototype.monthCode")}} {{experimental_inline}}
-  - : Gibt einen kalender-spezifischen String zurück, der den Monat dieses Datums darstellt. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. In der Regel ist es `M` plus eine zweistellige Monatsnummer. Für Schaltmonate ist es der vorherige Monatscode gefolgt von `L`. Falls der Schaltmonat der erste Monat des Jahres ist, ist der Code `M00L`.
-- {{jsxref("Temporal/ZonedDateTime/monthsInYear", "Temporal.ZonedDateTime.prototype.monthsInYear")}} {{experimental_inline}}
-  - : Gibt eine positive ganze Zahl zurück, die die Anzahl der Monate im Jahr dieses Datums darstellt. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. Für den ISO 8601 Kalender sind es immer 12, aber in anderen Kalendersystemen kann es abweichen.
-- {{jsxref("Temporal/ZonedDateTime/nanosecond", "Temporal.ZonedDateTime.prototype.nanosecond")}} {{experimental_inline}}
-  - : Gibt eine ganze Zahl von 0 bis 999 zurück, die die Nanosekunden (10<sup>-9</sup> Sekunde) Komponente dieser Zeit darstellt.
-- {{jsxref("Temporal/ZonedDateTime/offset", "Temporal.ZonedDateTime.prototype.offset")}} {{experimental_inline}}
-  - : Gibt einen String zurück, der das [Offset](#zeitzonen_und_offsets) verwendet, um den internen Moment zu interpretieren, in der Form `±HH:mm` (oder `±HH:mm:ss.sssssssss` mit so viel Subminute-Präzision wie nötig).
-- {{jsxref("Temporal/ZonedDateTime/offsetNanoseconds", "Temporal.ZonedDateTime.prototype.offsetNanoseconds")}} {{experimental_inline}}
-  - : Gibt eine ganze Zahl zurück, die das [Offset](#zeitzonen_und_offsets) verwendet, um den internen Moment zu interpretieren, als eine Anzahl von Nanosekunden (positiv oder negativ).
-- {{jsxref("Temporal/ZonedDateTime/second", "Temporal.ZonedDateTime.prototype.second")}} {{experimental_inline}}
-  - : Gibt eine ganze Zahl von 0 bis 59 zurück, die die Sekundenkomponente dieser Zeit darstellt.
-- {{jsxref("Temporal/ZonedDateTime/timeZoneId", "Temporal.ZonedDateTime.prototype.timeZoneId")}} {{experimental_inline}}
-  - : Gibt einen String zurück, der den [Zeitzonen-Identifier](#zeitzonen_und_offsets) verwendet, um den internen Moment zu interpretieren. Es verwendet den gleichen String, der bei der Erstellung des `Temporal.ZonedDateTime`-Objekts verwendet wurde, welcher entweder ein IANA-Zeitzonenname oder ein festes Offset ist.
-- {{jsxref("Temporal/ZonedDateTime/weekOfYear", "Temporal.ZonedDateTime.prototype.weekOfYear")}} {{experimental_inline}}
-  - : Gibt eine positive ganze Zahl zurück, die den 1-basierten Wochen-Index im {{jsxref("Temporal/ZonedDateTime/yearOfWeek", "yearOfWeek")}} dieses Datums darstellt, oder `undefined`, wenn der Kalender kein gut definiertes Wochensystem hat. Die erste Woche des Jahres ist `1`. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. Beachten Sie, dass für ISO 8601 die ersten und letzten Tage des Jahres der letzten Woche des vorherigen Jahres oder der ersten Woche des nächsten Jahres zugeschrieben werden können.
-- {{jsxref("Temporal/ZonedDateTime/year", "Temporal.ZonedDateTime.prototype.year")}} {{experimental_inline}}
-  - : Gibt eine ganze Zahl zurück, die die Anzahl der Jahre dieses Datums relativ zum Beginn eines kalender-spezifischen Epoch-Jahres darstellt. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. Normalerweise ist Jahr 1 entweder das erste Jahr der letzten Ära oder das ISO 8601 Jahr `0001`. Wenn die Epoche in der Jahresmitte ist, wird dieses Jahr den gleichen Wert vor und nach dem Startdatum der Ära haben.
-- {{jsxref("Temporal/ZonedDateTime/yearOfWeek", "Temporal.ZonedDateTime.prototype.yearOfWeek")}} {{experimental_inline}}
-  - : Gibt eine ganze Zahl zurück, die das Jahr angibt, das mit der {{jsxref("Temporal/ZonedDateTime/weekOfYear", "weekOfYear")}} dieses Datums paarig ist, oder `undefined`, wenn der Kalender kein gut definiertes Wochensystem hat. [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. Normalerweise ist dies das Jahr des Datums, aber für ISO 8601 können die ersten und letzten Tage des Jahres der letzten Woche des vorherigen Jahres oder der ersten Woche des nächsten Jahres zugeschrieben werden, was dazu führt, dass sich das `yearOfWeek` um 1 unterscheidet.
-- `Temporal.ZonedDateTime.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"Temporal.ZonedDateTime"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
-
-## Instanzmethoden
-
-- {{jsxref("Temporal/ZonedDateTime/add", "Temporal.ZonedDateTime.prototype.add()")}} {{experimental_inline}}
-  - : Gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das diesen Datum-Uhrzeit um eine angegebene Dauer (in einer Form konvertierbar von {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}}) nach vorne verschoben darstellt.
-- {{jsxref("Temporal/ZonedDateTime/equals", "Temporal.ZonedDateTime.prototype.equals()")}} {{experimental_inline}}
-  - : Gibt `true` zurück, wenn diese Datum-Uhrzeit im Wert mit einer anderen Datum-Uhrzeit gleichwertig ist (in einer Form konvertierbar von {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}), und `false` sonst. Sie werden sowohl nach ihren Moment-Werten, Zeitzonen und ihren Kalendern verglichen, sodass zwei Datum-Uhrzeiten aus verschiedenen Kalendern oder Zeitzonen als gleich von {{jsxref("Temporal/ZonedDateTime/compare", "Temporal.ZonedDateTime.compare()")}} betrachtet werden können, aber nicht von `equals()`.
-- {{jsxref("Temporal/ZonedDateTime/getTimeZoneTransition", "Temporal.ZonedDateTime.prototype.getTimeZoneTransition()")}} {{experimental_inline}}
-  - : Gibt ein `Temporal.ZonedDateTime`-Objekt zurück, das den ersten Moment nach oder vor diesem Moment darstellt, bei dem sich das UTC-Offset der Zeitzone ändert, oder `null`, wenn es keinen solchen Übergang gibt. Dies ist nützlich, um die Offset-Regeln einer Zeitzone herauszufinden, wie ihr Sommerzeitmuster.
-- {{jsxref("Temporal/ZonedDateTime/round", "Temporal.ZonedDateTime.prototype.round()")}} {{experimental_inline}}
-  - : Gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das diesen Datum-Uhrzeit auf die angegebene Einheit gerundet darstellt.
-- {{jsxref("Temporal/ZonedDateTime/since", "Temporal.ZonedDateTime.prototype.since()")}} {{experimental_inline}}
-  - : Gibt ein neues {{jsxref("Temporal.Duration")}}-Objekt zurück, das die Dauer von einer anderen Datum-Uhrzeit (in einer Form konvertierbar von {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}) zu dieser Datum-Uhrzeit darstellt. Die Dauer ist positiv, wenn die andere Datum-Uhrzeit vor dieser Datum-Uhrzeit ist, und negativ, wenn danach.
-- {{jsxref("Temporal/ZonedDateTime/startOfDay", "Temporal.ZonedDateTime.prototype.startOfDay()")}} {{experimental_inline}}
-  - : Gibt ein `Temporal.ZonedDateTime`-Objekt zurück, das den ersten Moment dieses Datums in der Zeitzone darstellt. Es hat normalerweise eine Uhrzeit von `00:00:00`, kann aber anders sein, wenn Mitternacht aufgrund von Offset-Änderungen nicht existiert, in diesem Fall wird die der erste existierende Zeitpunkt zurückgegeben.
-- {{jsxref("Temporal/ZonedDateTime/subtract", "Temporal.ZonedDateTime.prototype.subtract()")}} {{experimental_inline}}
-  - : Gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das diesen Datum-Uhrzeit um eine angegebene Dauer (in einer Form konvertierbar von {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}}) zurückwärts verschoben darstellt.
-- {{jsxref("Temporal/ZonedDateTime/toInstant", "Temporal.ZonedDateTime.prototype.toInstant()")}} {{experimental_inline}}
-  - : Gibt ein neues {{jsxref("Temporal.Instant")}}-Objekt zurück, das den Moment dieser Datum-Uhrzeit darstellt.
-- {{jsxref("Temporal/ZonedDateTime/toJSON", "Temporal.ZonedDateTime.prototype.toJSON()")}} {{experimental_inline}}
-  - : Gibt einen String zurück, der diesen Datum-Uhrzeit in demselben [RFC 9557 Format](#rfc_9557_format) wie der Aufruf von {{jsxref("Temporal/ZonedDateTime/toString", "toString()")}} darstellt. Soll implizit durch {{jsxref("JSON.stringify()")}} aufgerufen werden.
-- {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} {{experimental_inline}}
-  - : Gibt einen String mit einer sprachspezifischen Darstellung dieser Datum-Uhrzeit zurück.
-- {{jsxref("Temporal/ZonedDateTime/toPlainDate", "Temporal.ZonedDateTime.prototype.toPlainDate()")}} {{experimental_inline}}
-  - : Gibt ein neues {{jsxref("Temporal.PlainDate")}}-Objekt zurück, das das Datumsstück dieser Datum-Uhrzeit darstellt.
-- {{jsxref("Temporal/ZonedDateTime/toPlainDateTime", "Temporal.ZonedDateTime.prototype.toPlainDateTime()")}} {{experimental_inline}}
-  - : Gibt ein neues {{jsxref("Temporal.PlainDateTime")}}-Objekt zurück, das das Datums- und Uhrzeitstück dieser Datum-Uhrzeit darstellt. Nur die Zeitzoneninformationen werden entfernt.
-- {{jsxref("Temporal/ZonedDateTime/toPlainTime", "Temporal.ZonedDateTime.prototype.toPlainTime()")}} {{experimental_inline}}
-  - : Gibt ein neues {{jsxref("Temporal.PlainTime")}}-Objekt zurück, das das Uhrzeitstück dieser Datum-Uhrzeit darstellt.
-- {{jsxref("Temporal/ZonedDateTime/toString", "Temporal.ZonedDateTime.prototype.toString()")}} {{experimental_inline}}
-  - : Gibt einen String zurück, der diese Datum-Uhrzeit im [RFC 9557 Format](#rfc_9557_format) darstellt.
-- {{jsxref("Temporal/ZonedDateTime/until", "Temporal.ZonedDateTime.prototype.until()")}} {{experimental_inline}}
-  - : Gibt ein neues {{jsxref("Temporal.Duration")}}-Objekt zurück, das die Dauer von dieser Datum-Uhrzeit zu einer anderen Datum-Uhrzeit (in einer Form konvertierbar von {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}) darstellt. Die Dauer ist positiv, wenn die andere Datum-Uhrzeit nach dieser Datum-Uhrzeit liegt, und negativ, wenn davor.
-- {{jsxref("Temporal/ZonedDateTime/valueOf", "Temporal.ZonedDateTime.prototype.valueOf()")}} {{experimental_inline}}
-  - : Wirft einen {{jsxref("TypeError")}}, der verhindert, dass `Temporal.ZonedDateTime`-Instanzen [implizit zu primitiven Werten umgewandelt](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) werden, wenn sie in arithmetischen oder Vergleichsoperationen verwendet werden.
-- {{jsxref("Temporal/ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}} {{experimental_inline}}
-  - : Gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das diesen Datum-Uhrzeit mit einigen Feldern darstellt, die durch neue Werte ersetzt wurden.
-- {{jsxref("Temporal/ZonedDateTime/withCalendar", "Temporal.ZonedDateTime.prototype.withCalendar()")}} {{experimental_inline}}
-  - : Gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das diesen Datum-Uhrzeit im neuen Kalendersystem interpretiert darstellt.
-- {{jsxref("Temporal/ZonedDateTime/withPlainTime", "Temporal.ZonedDateTime.prototype.withPlainTime()")}} {{experimental_inline}}
-  - : Gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das diesen Datum-Uhrzeit mit dem Zeitteil vollständig durch die neue Zeit ersetzt darstellt (in einer Form konvertierbar von {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}})
-- {{jsxref("Temporal/ZonedDateTime/withTimeZone", "Temporal.ZonedDateTime.prototype.withTimeZone()")}} {{experimental_inline}}
-  - : Gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das denselben Moment wie diese Datum-Uhrzeit darstellt, aber in der neuen Zeitzone.
-
-## Spezifikationen
-
-{{Specifications}}
-
-## Browser-Kompatibilität
-
-{{Compat}}
-
-## Siehe auch
-
-- {{jsxref("Temporal")}}
-- {{jsxref("Temporal.Duration")}}
-- {{jsxref("Temporal.Instant")}}
-- {{jsxref("Temporal.PlainDateTime")}}
-- {{jsxref("Temporal.PlainDate")}}
-- {{jsxref("Temporal.PlainTime")}}
+  - : Gibt eine nicht-negative Ganzzahl zurück, die das Jahr dieses Datums innerhalb der Ära darstellt, oder `undefined`, wenn der Kalender keine Äras verwendet (z.B. ISO 8601). Der Jahrindex beginnt normalerweise bei 1 (häufiger) oder 0, und Jahre in einer Ära können mit der Zeit abnehmen (z.B. Gregorianisch BCE). `era` und `eraYear` zusammen identifizieren ein Jahr in einem Kalender eindeutig, auf dieselbe Weise, wie `year` es tut. Abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
