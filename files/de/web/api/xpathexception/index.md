@@ -2,12 +2,12 @@
 title: XPathException
 slug: Web/API/XPathException
 l10n:
-  sourceCommit: 839b5e82a117678948392e77b81d64a7f6d03811
+  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
 ---
 
 {{APIRef("DOM XPath")}}{{Deprecated_Header}}
 
-In der [DOM XPath API](/de/docs/Web/XPath) repräsentiert das **`XPathException`** Interface Ausnahmebedingungen, die bei der Durchführung von XPath-Operationen auftreten können.
+In der [DOM XPath API](/de/docs/Web/XML/XPath) repräsentiert das **`XPathException`**-Interface Ausnahmebedingungen, die während der Ausführung von XPath-Operationen auftreten können.
 
 ## Instanz-Eigenschaften
 
@@ -29,17 +29,14 @@ In der [DOM XPath API](/de/docs/Web/XPath) repräsentiert das **`XPathException`
       <td><code>INVALID_EXPRESSION_ERR</code></td>
       <td><code>51</code></td>
       <td>
-        Wenn der Ausdruck einen Syntaxfehler hat oder anderweitig kein gültiger
-        Ausdruck gemäß den Regeln des spezifischen
-        [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator) ist oder spezialisierte
-        Erweiterungsfunktionen oder Variablen enthält, die von dieser Implementierung nicht unterstützt werden.
+        Wenn der Ausdruck einen Syntaxfehler enthält oder anderweitig kein gültiger Ausdruck gemäß den Regeln des spezifischen [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator) ist oder spezialisierte Erweiterungsfunktionen oder Variablen enthält, die von dieser Implementierung nicht unterstützt werden.
       </td>
     </tr>
     <tr>
       <td><code>TYPE_ERR</code></td>
       <td><code>52</code></td>
       <td>
-        Wenn der Ausdruck nicht in den angegebenen Rückgabetyp konvertiert werden kann.
+        Wenn der Ausdruck nicht in den angegebenen Typ umgewandelt werden kann.
       </td>
     </tr>
   </tbody>

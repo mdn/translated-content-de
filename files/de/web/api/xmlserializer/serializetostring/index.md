@@ -3,12 +3,12 @@ title: "XMLSerializer: serializeToString()-Methode"
 short-title: serializeToString()
 slug: Web/API/XMLSerializer/serializeToString
 l10n:
-  sourceCommit: fe468a9966c87cac081d3986b3332d0a51c4e2ee
+  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
 ---
 
 {{APIRef("DOM Parsing")}}
 
-Die [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)-Methode **`serializeToString()`** erstellt einen String, der den angegebenen {{Glossary("DOM", "DOM")}}-Baum in {{Glossary("XML", "XML")}}-Form darstellt.
+Die [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)-Methode **`serializeToString()`** erstellt eine Zeichenkette, die den angegebenen {{Glossary("DOM", "DOM")}}-Baum in {{Glossary("XML", "XML")}}-Form darstellt.
 
 ## Syntax
 
@@ -23,24 +23,24 @@ serializeToString(rootNode)
 
 ### Rückgabewert
 
-Ein String, der die XML-Darstellung des angegebenen DOM-Baums enthält.
+Eine Zeichenkette, die die XML-Darstellung des angegebenen DOM-Baums enthält.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn der angegebene `rootNode` kein kompatibler Knotentyp ist. Der Wurzelknoten muss entweder [`Node`](/de/docs/Web/API/Node) oder [`Attr`](/de/docs/Web/API/Attr) sein.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Baum nicht erfolgreich serialisiert werden konnte, wahrscheinlich aufgrund von Problemen mit der Kompatibilität des Inhalts mit der XML-Serialisierung.
+  - : Wird ausgelöst, wenn der Baum nicht erfolgreich serialisiert werden konnte, wahrscheinlich aufgrund von Problemen mit der Kompatibilität der Inhalte mit der XML-Serialisierung.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine Serialisierung von HTML angefordert wurde, aber nicht gelingen konnte, weil der Inhalt nicht wohlgeformt ist.
+  - : Wird ausgelöst, wenn eine Serialisierung von HTML angefordert wurde, aber aufgrund von nicht wohlgeformten Inhalten nicht erfolgreich sein konnte.
 
-## Anwendungshinweise
+## Hinweise zur Nutzung
 
 ### Kompatible Knotentypen
 
-Der angegebene Wurzelknoten—und alle seine Nachkommen—müssen mit dem XML-Serialisierungsalgorithmus kompatibel sein. Der Wurzelknoten selbst muss entweder ein [`Node`](/de/docs/Web/API/Node) oder ein [`Attr`](/de/docs/Web/API/Attr)-Objekt sein.
+Der angegebene Wurzelknoten—und alle seine Nachkommen—müssen mit dem XML-Serialisierungsalgorithmus kompatibel sein. Der Wurzelknoten selbst muss entweder ein [`Node`](/de/docs/Web/API/Node)- oder [`Attr`](/de/docs/Web/API/Attr)-Objekt sein.
 
-Die folgenden Typen sind auch als Nachkommen des Wurzelknotens zulässig, zusätzlich zu `Node` und `Attr`:
+Die folgenden Typen sind zusätzlich zu `Node` und `Attr` als Nachkommen des Wurzelknotens zulässig:
 
 - [`DocumentType`](/de/docs/Web/API/DocumentType)
 - [`Document`](/de/docs/Web/API/Document)
@@ -53,13 +53,13 @@ Die folgenden Typen sind auch als Nachkommen des Wurzelknotens zulässig, zusät
 
 Wenn ein anderer Typ angetroffen wird, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
 
-### Hinweise zum resultierenden XML
+### Hinweise zur resultierenden XML
 
-Es gibt einige Punkte, die bezüglich des von `serializeToString()` ausgegebenen XML beachtenswert sind:
+Einige Dinge sind in Bezug auf die von `serializeToString()` generierte XML-Ausgabe zu beachten:
 
-- Für XML-Serialisierungen werden `Element`- und `Attr`-Knoten immer mit ihrem [`namespaceURI`](/de/docs/Web/API/Element/namespaceURI) serialisiert. Dies kann bedeuten, dass ein zuvor angegebener [`prefix`](/de/docs/Web/API/Element/prefix) oder Standard-Namensraum entfernt oder geändert wird.
-- Das resultierende XML ist mit dem HTML-Parser kompatibel.
-- Elemente im HTML-Namensraum, die keine Kindknoten haben (damit leere Tags darstellen), werden mit sowohl Anfangs- als auch End-Tags (`"<someelement></someelement>"`) serialisiert, anstelle des leeren Elemente-Tags (`"<someelement/>"`).
+- Für XML-Serialisierungen werden `Element`- und `Attr`-Knoten immer mit ihren [`namespaceURI`](/de/docs/Web/API/Element/namespaceURI) serialisiert. Dies kann bedeuten, dass ein zuvor angegebener [`prefix`](/de/docs/Web/API/Element/prefix) oder der Standard-Namespace möglicherweise entfernt oder geändert wird.
+- Die resultierende XML-Darstellung ist mit dem HTML-Parser kompatibel.
+- Elemente im HTML-Namespace, die keine Kindknoten haben (und damit leere Tags darstellen), werden mit Anfangs- und End-Tags serialisiert (`"<someelement></someelement>"`) anstelle des leeren Tag-Formats (`"<someelement/>"`).
 
 ## Spezifikationen
 
@@ -71,7 +71,6 @@ Es gibt einige Punkte, die bezüglich des von `serializeToString()` ausgegebenen
 
 ## Siehe auch
 
-- [Parsen und Serialisieren von XML](/de/docs/Web/XML/Parsing_and_serializing_XML)
-- Serialisierung zu HTML: [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) und
-  [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML)
-- Parsen von HTML oder XML zur Erstellung eines DOM-Baums: [`DOMParser`](/de/docs/Web/API/DOMParser)
+- [Parsing und Serialisierung von XML](/de/docs/Web/XML/Guides/Parsing_and_serializing_XML)
+- Serialisierung in HTML: [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) und [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML)
+- Parsing von HTML oder XML, um einen DOM-Baum zu erstellen: [`DOMParser`](/de/docs/Web/API/DOMParser)

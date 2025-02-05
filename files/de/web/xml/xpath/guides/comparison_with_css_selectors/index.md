@@ -1,0 +1,17 @@
+---
+title: Vergleich von CSS-Selektoren und XPath
+slug: Web/XML/XPath/Guides/Comparison_with_CSS_selectors
+l10n:
+  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+---
+
+Dieser Artikel zielt darauf ab, die Unterschiede zwischen CSS-Selektoren und XPath zu dokumentieren, damit Webentwickler besser in der Lage sind, das richtige Werkzeug für die jeweilige Aufgabe auszuwählen.
+
+| [XPath-Funktion](/de/docs/Web/XML/XPath)                                                                                                                                                                         | [CSS-Äquivalent](/de/docs/Web/CSS/CSS_selectors)                                                                                                                    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`ancestor`](/de/docs/Web/XML/XPath/Reference/Axes#ancestor), [`parent`](/de/docs/Web/XML/XPath/Reference/Axes#parent) oder [`preceding-sibling`](/de/docs/Web/XML/XPath/Reference/Axes#preceding-sibling)-Achse | {{CSSxRef(":has",":has()")}}-Selektor                                                                                                                               |
+| [`attribute`](/de/docs/Web/XML/XPath/Reference/Axes#attribute)-Achse                                                                                                                                             | [Attribut-Selektoren](/de/docs/Web/CSS/Attribute_selectors)                                                                                                         |
+| [`child`](/de/docs/Web/XML/XPath/Reference/Axes#child)-Achse                                                                                                                                                     | [Kind-Kombinator](/de/docs/Web/CSS/Child_combinator)                                                                                                                |
+| [`descendant`](/de/docs/Web/XML/XPath/Reference/Axes#descendant)-Achse                                                                                                                                           | [Nachfahre-Kombinator](/de/docs/Web/CSS/Descendant_combinator)                                                                                                      |
+| [`following-sibling`](/de/docs/Web/XML/XPath/Reference/Axes#following-sibling)-Achse                                                                                                                             | [Nachfolgender-Geschwister-Kombinator](/de/docs/Web/CSS/Subsequent-sibling_combinator) oder [Next-Geschwister-Kombinator](/de/docs/Web/CSS/Next-sibling_combinator) |
+| [`self`](/de/docs/Web/XML/XPath/Reference/Axes#self)-Achse                                                                                                                                                       | {{CSSxRef(":scope")}} oder {{CSSxRef(":host")}}-Selektor                                                                                                            |

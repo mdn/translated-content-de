@@ -3,12 +3,12 @@ title: "Window: external-Eigenschaft"
 short-title: external
 slug: Web/API/Window/external
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
 ---
 
 {{APIRef}} {{deprecated_header}}
 
-Die `external`-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-API gibt eine Instanz der `External`-Schnittstelle zurück, die ursprünglich gedacht war, Funktionen zum Hinzufügen externer Suchanbieter zum Browser zu enthalten. Diese Funktion ist jedoch nun veraltet, und die enthaltenen Methoden sind jetzt Dummy-Funktionen, die gemäß der Spezifikation nichts tun.
+Die `external`-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-API gibt eine Instanz der `External`-Schnittstelle zurück, die ursprünglich Funktionen im Zusammenhang mit dem Hinzufügen externer Suchanbieter zum Browser enthalten sollte. Diese Eigenschaft ist jedoch veraltet, und die enthaltenen Methoden sind gemäß der Spezifikation nun Dummy-Funktionen, die nichts ausführen.
 
 ## Instanzmethoden
 
@@ -25,15 +25,15 @@ Das `External`-Objekt verfügt über die folgenden Methoden:
         <code>AddSearchProvider(<em>descriptionURL)</em></code>
       </td>
       <td>
-        Dummy-Funktion; macht nichts. Siehe
-        <a href="/de/docs/Web/OpenSearch#autodiscovery_of_search_plugins"
-          >Autodiscovery von Such-Plugins</a
+        Dummy-Funktion; führt nichts aus. Siehe
+        <a href="/de/docs/Web/XML/Guides/OpenSearch#autodiscovery_of_search_plugins"
+          >Automatische Erkennung von Such-Plugins</a
         >.
       </td>
     </tr>
     <tr>
       <td><code>IsSearchProviderInstalled()</code></td>
-      <td>Dummy-Funktion; macht nichts.</td>
+      <td>Dummy-Funktion; führt nichts aus.</td>
     </tr>
   </tbody>
 </table>

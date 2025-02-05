@@ -2,15 +2,15 @@
 title: "CSP: script-src-elem"
 slug: Web/HTTP/Headers/Content-Security-Policy/script-src-elem
 l10n:
-  sourceCommit: 6368e2b112a343fa00ae1a8cf51ceb0b0b845834
+  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) **`script-src-elem`**-Direktive gibt gültige Quellen für JavaScript-{{HTMLElement("script")}}-Elemente an.
+Die HTTP-Header-{{HTTPHeader("Content-Security-Policy")}}-Richtlinie (CSP) **`script-src-elem`** gibt gültige Quellen für JavaScript-{{HTMLElement("script")}}-Elemente an.
 
-Diese Direktive spezifiziert nur gültige Quellen in `<script>`-Elementen (sowohl Skriptanfragen als auch Blockierungen).
-Sie gilt nicht für andere JavaScript-Quellen, die Skriptausführung auslösen können, wie Inline-Skript-Ereignishandler (`onclick`), Skriptausführungsmethoden [beschränkt durch den Check "unsafe-eval"](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_eval_expressions) und [XSLT-Stylesheets](/de/docs/Web/XSLT).
+Diese Richtlinie spezifiziert nur gültige Quellen in `<script>`-Elementen (sowohl Skriptanfragen als auch Blöcke).
+Sie gilt nicht für andere JavaScript-Quellen, die eine Skriptausführung auslösen können, wie z. B. Inline-Skriptereignishandler (`onclick`), Skriptausführungsmethoden [abhängig von der "unsafe-eval"-Prüfung](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_eval_expressions) und [XSLT-Stylesheets](/de/docs/Web/XML/XSLT).
 (Gültige Quellen können für alle JavaScript-Skriptquellen mit {{CSP("script-src")}} oder nur für Inline-Skripthandler mit {{CSP("script-src-attr")}} angegeben werden.)
 
 <table class="properties">
@@ -20,14 +20,14 @@ Sie gilt nicht für andere JavaScript-Quellen, die Skriptausführung auslösen k
       <td>3</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
+      <th scope="row">Richtlinientyp</th>
+      <td>{{Glossary("Fetch_directive", "Fetch-Richtlinie")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Rückfall</th>
+      <th scope="row">{{CSP("default-src")}}-Fallback</th>
       <td>
         Ja.
-        Ist diese Direktive nicht vorhanden, sucht der Benutzeragent nach der {{CSP("script-src")}}-Direktive und fällt, wenn beide fehlen, auf die <code>default-src</code>-Direktive zurück.
+        Wenn diese Richtlinie fehlt, sucht der User-Agent nach der {{CSP("script-src")}}-Richtlinie. Wenn beide fehlen, wird auf die <code>default-src</code>-Richtlinie zurückgegriffen.
       </td>
     </tr>
   </tbody>
@@ -40,15 +40,15 @@ Content-Security-Policy: script-src-elem 'none';
 Content-Security-Policy: script-src-elem <source-expression-list>;
 ```
 
-Diese Direktive kann einen der folgenden Werte haben:
+Diese Richtlinie kann einen der folgenden Werte aufweisen:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Source Expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Source Expressions übereinstimmen. Für diese Direktive sind alle in der [Fetch-Direktiven-Syntax](/de/docs/Web/HTTP/Headers/Content-Security-Policy#fetch_directive_syntax) aufgeführten Source Expression-Werte anwendbar, mit Ausnahme von [`'unsafe-hashes'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#unsafe-hashes).
+  - : Eine durch Leerzeichen getrennte Liste von _Source-Expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Source-Expressions übereinstimmen. Für diese Richtlinie sind alle im [Fetch-Richtlinien-Syntax](/de/docs/Web/HTTP/Headers/Content-Security-Policy#fetch_directive_syntax) aufgeführten Source-Expression-Werte anwendbar, mit Ausnahme von [`'unsafe-hashes'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#unsafe-hashes).
 
-`script-src-elem` kann zusammen mit {{CSP("script-src")}} verwendet werden:
+`script-src-elem` kann in Verbindung mit {{CSP("script-src")}} verwendet werden:
 
 ```http
 Content-Security-Policy: script-src <source>;
@@ -59,13 +59,13 @@ Content-Security-Policy: script-src-elem <source>;
 
 ### Verletzungsfall
 
-Angenommen, dieser CSP-Header:
+Angenommen, dieser CSP-Header ist gesetzt:
 
 ```http
 Content-Security-Policy: script-src-elem https://example.com/
 ```
 
-…wird das folgende Skript blockiert und nicht geladen oder ausgeführt:
+…dann wird das folgende Skript blockiert und nicht geladen oder ausgeführt:
 
 ```html
 <script src="https://not-example.com/js/library.js"></script>

@@ -2,21 +2,21 @@
 title: DOMParser
 slug: Web/API/DOMParser
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
 ---
 
 {{APIRef("DOM")}}
 
-Die **`DOMParser`**-Schnittstelle bietet die Möglichkeit, {{Glossary("XML", "XML")}} oder {{Glossary("HTML", "HTML")}}-Quellcode aus einem String in ein DOM-[`Document`](/de/docs/Web/API/Document) zu parsen.
+Das **`DOMParser`**-Interface bietet die Möglichkeit, {{Glossary("XML", "XML")}}- oder {{Glossary("HTML", "HTML")}}-Quellcode aus einer Zeichenkette in ein DOM-[`Document`](/de/docs/Web/API/Document) zu parsen.
 
-Sie können die entgegengesetzte Operation durchführen – das Konvertieren eines DOM-Baums in XML oder HTML-Quellcode – indem Sie die [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)-Schnittstelle verwenden.
+Das Gegenteil — das Konvertieren eines DOM-Baums in XML- oder HTML-Quellcode — kann mit dem [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)-Interface durchgeführt werden.
 
-Im Fall eines HTML-Dokuments können Sie auch Teile des DOM durch neue DOM-Bäume ersetzen, die aus HTML erstellt werden, indem Sie den Wert der Eigenschaften [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) und [`outerHTML`](/de/docs/Web/API/Element/outerHTML) festlegen. Diese Eigenschaften können auch gelesen werden, um HTML-Fragmente abzurufen, die dem entsprechenden DOM-Teilbaum entsprechen.
+Im Fall eines HTML-Dokuments können Sie auch Teile des DOM mit neuen DOM-Bäumen, die aus HTML erstellt wurden, ersetzen, indem Sie den Wert der Eigenschaften [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) und [`outerHTML`](/de/docs/Web/API/Element/outerHTML) setzen. Diese Eigenschaften können auch gelesen werden, um HTML-Fragmente abzurufen, die den entsprechenden DOM-Teilbäumen entsprechen.
 
-Beachten Sie, dass [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) XML und HTML direkt von einer URL-adressierbaren Ressource parsen kann und ein `Document` in seiner [`response`](/de/docs/Web/API/XMLHttpRequest/response)-Eigenschaft zurückgibt.
+Beachten Sie, dass [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) XML und HTML direkt aus einer ressourcenadressierbaren URL parsen kann und ein `Document` in seiner [`response`](/de/docs/Web/API/XMLHttpRequest/response)-Eigenschaft zurückgibt.
 
 > [!NOTE]
-> Beachten Sie, dass {{Glossary("Block-level_content", "Block-Elemente")}} wie `<p>` automatisch geschlossen werden, wenn ein anderes Block-Element darin verschachtelt ist und daher vor dem schließenden `</p>`-Tag geparst wird.
+> Beachten Sie, dass {{Glossary("Block-level_content", "block-level elements")}} wie `<p>` automatisch geschlossen werden, wenn ein anderes Block-Level-Element darin verschachtelt ist und daher vor dem schließenden `</p>`-Tag geparst wird.
 
 ## Konstruktor
 
@@ -26,11 +26,11 @@ Beachten Sie, dass [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) XML und H
 ## Instanzmethoden
 
 - [`DOMParser.parseFromString()`](/de/docs/Web/API/DOMParser/parseFromString)
-  - : Parst einen String mit dem HTML-Parser oder XML-Parser und gibt ein [`HTMLDocument`](/de/docs/Web/API/HTMLDocument) oder [`XMLDocument`](/de/docs/Web/API/XMLDocument) zurück.
+  - : Parst eine Zeichenkette mit dem HTML-Parser oder dem XML-Parser und gibt ein [`HTMLDocument`](/de/docs/Web/API/HTMLDocument) oder [`XMLDocument`](/de/docs/Web/API/XMLDocument) zurück.
 
 ## Beispiele
 
-Die Dokumentation für [`DOMParser.parseFromString()`](/de/docs/Web/API/DOMParser/parseFromString), die einzige Methode dieser Schnittstelle, enthält Beispiele zum Parsen von XML-, SVG- und HTML-Strings.
+Die Dokumentation zu [`DOMParser.parseFromString()`](/de/docs/Web/API/DOMParser/parseFromString), der einzigen Methode dieses Interfaces, enthält Beispiele zum Parsen von XML-, SVG- und HTML-Zeichenketten.
 
 ## Spezifikationen
 
@@ -42,7 +42,7 @@ Die Dokumentation für [`DOMParser.parseFromString()`](/de/docs/Web/API/DOMParse
 
 ## Siehe auch
 
-- [Parsing und Serialisieren von XML](/de/docs/Web/XML/Parsing_and_serializing_XML)
+- [XML parsen und serialisieren](/de/docs/Web/XML/Guides/Parsing_and_serializing_XML)
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
 - [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
 - {{jsxref("JSON.parse()")}} - Gegenstück für {{jsxref("JSON")}}-Dokumente.
