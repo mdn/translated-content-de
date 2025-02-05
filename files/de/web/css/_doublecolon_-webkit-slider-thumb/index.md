@@ -2,12 +2,12 @@
 title: "::-webkit-slider-thumb"
 slug: Web/CSS/::-webkit-slider-thumb
 l10n:
-  sourceCommit: 08e04f121ea7b3a55e6ef47782d2d82fb053ca88
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{SeeCompatTable}}{{non-standard_header}}
 
-Das **`::-webkit-slider-thumb`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "Daumen", den der Benutzer innerhalb der "Nut" eines {{HTMLElement("input")}} mit `type="range"` bewegen kann, um dessen numerischen Wert zu ändern.
+Das **`::-webkit-slider-thumb`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "Daumen", den der Benutzer innerhalb der "Rille" eines {{HTMLElement("input")}} mit `type="range"` bewegen kann, um dessen numerischen Wert zu ändern.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Das **`::-webkit-slider-thumb`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-ele
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 

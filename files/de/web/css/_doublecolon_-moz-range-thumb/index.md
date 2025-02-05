@@ -2,15 +2,15 @@
 title: "::-moz-range-thumb"
 slug: Web/CSS/::-moz-range-thumb
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-moz-range-thumb`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die den _Thumb_ (d. h. den virtuellen Knopf) eines {{HTMLElement("input")}} mit `type="range"` darstellt. Der Benutzer kann den Thumb entlang der Spur des Eingabefelds bewegen, um den numerischen Wert zu ändern.
+Das **`::-moz-range-thumb`**-[CSS](/de/docs/Web/CSS)-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die den _Thumb_ (d. h. den virtuellen Knopf) eines {{HTMLElement("input")}} mit `type="range"` darstellt. Der Benutzer kann den Thumb entlang der Eingabeschiene bewegen, um den numerischen Wert zu ändern.
 
 > [!NOTE]
-> Die Verwendung von `::-moz-range-thumb` mit etwas anderem als einem `<input type="range">` hat keine Wirkung.
+> Die Verwendung von `::-moz-range-thumb` mit etwas anderem als einem `<input type="range">` führt zu keiner Übereinstimmung und hat keine Wirkung.
 
 ## Syntax
 
@@ -40,13 +40,13 @@ input[type="range"]::-moz-range-thumb {
 
 {{EmbedLiveSample("Examples", 300, 50)}}
 
-Eine Fortschrittsleiste, die mit diesem Stil gestaltet ist, könnte so aussehen:
+Ein Fortschrittsbalken, der diesen Stil verwendet, könnte so aussehen:
 
-![Der Thumb des 'input type=right', grün gestylt](screen_shot_2015-12-04_at_13.30.08.png)
+![Der Thumb eines 'input type=range' im grünen Stil](screen_shot_2015-12-04_at_13.30.08.png)
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -54,14 +54,14 @@ Teil keiner Norm.
 
 ## Siehe auch
 
-- Die von Gecko verwendeten Pseudo-Elemente, um andere Teile eines Range Inputs zu gestalten:
+- Die Pseudo-Elemente, die von Gecko verwendet werden, um andere Teile eines Range-Inputs zu stylen:
 
-  - {{cssxref("::-moz-range-track")}} repräsentiert die Rille, in der der Thumb gleitet.
-  - {{cssxref("::-moz-range-progress")}} repräsentiert den unteren Teil der Rille.
+  - {{cssxref("::-moz-range-track")}} stellt die Führungsschiene dar, auf der der Thumb gleitet.
+  - {{cssxref("::-moz-range-progress")}} repräsentiert den unteren Bereich der Schiene.
 
 - Ähnliche Pseudo-Elemente, die von anderen Browsern verwendet werden:
 
-  - {{cssxref("::-webkit-slider-thumb")}}, Pseudo-Element unterstützt von WebKit und Blink (Safari, Chrome und Opera)
+  - {{cssxref("::-webkit-slider-thumb")}}, ein Pseudo-Element, das von WebKit und Blink (Safari, Chrome und Opera) unterstützt wird.
 
 - [CSS-Tricks: Styling Cross-Browser Compatible Range Inputs with CSS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
 - [QuirksMode: Styling and scripting sliders](https://www.quirksmode.org/blog/archives/2015/11/styling_and_scr.html)

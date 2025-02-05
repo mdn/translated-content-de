@@ -2,15 +2,15 @@
 title: ":-moz-only-whitespace"
 slug: Web/CSS/:-moz-only-whitespace
 l10n:
-  sourceCommit: 0326d9301650304ef67a56e88b542b160093042e
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}
 
 > [!NOTE]
-> In [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo) wurde der {{CSSxRef(":empty")}} Selektor geändert, um wie `:-moz-only-whitespace` zu funktionieren, aber bislang unterstützt kein Browser diese Änderung.
+> In [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo) wurde der {{CSSxRef(":empty")}} Selektor so geändert, dass er wie `:-moz-only-whitespace` funktioniert. Allerdings unterstützt derzeit kein Browser diese Funktionalität.
 
-Die **`:-moz-only-whitespace`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente aus, die nur Textknoten enthalten, welche ausschließlich {{Glossary("whitespace", "Leerzeichen")}} beinhalten. (Dies schließt Elemente mit leeren Textknoten und Elemente ohne Kindelemente ein.)
+Die **`:-moz-only-whitespace`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) selektiert Elemente, die nur Textknoten enthalten, die ausschließlich {{Glossary("whitespace", "Leerraum")}} enthalten. (Dies schließt Elemente mit leeren Textknoten und Elemente ohne Knoten-Kinder ein.)
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Die **`:-moz-only-whitespace`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/
 
 ## Beispiele
 
-### Einfaches Beispiel für :-moz-only-whitespace
+### Einfaches :-moz-only-whitespace-Beispiel
 
 #### HTML
 
@@ -48,7 +48,7 @@ div {
 
 ## Spezifikationen
 
-Kurz als `:blank` in [Selectors Level 4](https://drafts.csswg.org/selectors-4/#changes-2018-02) definiert, wurde die Funktionalität dann in {{CSSxRef(":empty")}} integriert und {{CSSxRef(":blank")}} neu definiert, um ein leeres {{HTMLElement("input")}} zu bedeuten.
+Kurzzeitig als `:blank` in [Selectors Level 4](https://drafts.csswg.org/selectors-4/#changes-2018-02) definiert, wurde die Funktionalität anschließend in {{CSSxRef(":empty")}} integriert, und {{CSSxRef(":blank")}} wurde neu definiert, um leere {{HTMLElement("input")}} zu bezeichnen.
 
 ## Browser-Kompatibilität
 

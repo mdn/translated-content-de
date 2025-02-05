@@ -3,14 +3,14 @@ title: "SVGPatternElement: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/SVGPatternElement/y
 l10n:
-  sourceCommit: 51343298b735a3767176c24b7f37cd2233e745b3
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y`**-Eigenschaft der [`SVGPatternElement`](/de/docs/Web/API/SVGPatternElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die y-Koordinate des Startpunkts des Musters als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) beschreibt. Sie spiegelt den berechneten Wert des {{SVGAttr("y")}}-Attributs auf dem {{SVGElement("pattern")}}-Element wider.
+Die **`y`** schreibgeschützte Eigenschaft der [`SVGPatternElement`](/de/docs/Web/API/SVGPatternElement)-Schnittstelle beschreibt die y-Achsen-Koordinate des Startpunkts des Musters als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("y")}}-Attributs im {{SVGElement("pattern")}}-Element wider.
 
-Der Attributwert kann ein [`\<length>`](/de/docs/Web/SVG/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Content_type#number) sein. Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Startpunkts des Musters im Benutzer-Koordinatensystem.
+Der Attributwert kann ein [`<length>`](/de/docs/Web/SVG/Content_type#length) (Länge), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) (Prozentsatz) oder [`<number>`](/de/docs/Web/SVG/Content_type#number) (Zahl) sein. Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Startpunkts des Musters im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Angenommen, folgendes SVG:
+Gegeben ist folgendes SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +48,7 @@ Angenommen, folgendes SVG:
 </svg>
 ```
 
-Wir können die berechneten Werte der `y`-Attribute abrufen:
+Wir können auf die berechneten Werte der `y`-Attribute zugreifen:
 
 ```js
 const patterns = document.querySelectorAll("pattern");

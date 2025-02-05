@@ -2,7 +2,7 @@
 title: ":right"
 slug: Web/CSS/:right
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
@@ -16,10 +16,10 @@ Die **`:right`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-
 }
 ```
 
-Ob eine bestimmte Seite "links" oder "rechts" ist, wird durch die Hauptschriftrichtung des Dokuments bestimmt. Beispielsweise, wenn die erste Seite eine Hauptschriftrichtung von links nach rechts hat, dann wird sie eine `:right` Seite sein; wenn sie eine Hauptschriftrichtung von rechts nach links hat, dann wird sie eine {{Cssxref(":left")}} Seite sein.
+Ob eine bestimmte Seite "left" oder "right" ist, wird durch die Hauptrichtung des Schreibens im Dokument bestimmt. Zum Beispiel, wenn die erste Seite eine Hauptrichtung von links nach rechts hat, wird sie eine `:right`-Seite sein; wenn sie eine Hauptrichtung von rechts nach links hat, wird sie eine {{Cssxref(":left")}}-Seite sein.
 
 > [!NOTE]
-> Diese Pseudoklasse kann nur verwendet werden, um die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} der _Seitenbox_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und nur die Seitenbox, nicht der Dokumentinhalt auf der Seite, wird beeinflusst.
+> Diese Pseudoklasse kann nur verwendet werden, um die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} des _Seitenrahmens_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und nur der Seitenrahmen, nicht der Dokumentinhalt auf der Seite, wird betroffen sein.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Ob eine bestimmte Seite "links" oder "rechts" ist, wird durch die Hauptschriftri
 
 ## Beispiele
 
-### Ränder für rechte Seiten festlegen
+### Festlegen der Ränder für rechte Seiten
 
 ```css
 @page :right {
@@ -50,4 +50,4 @@ Ob eine bestimmte Seite "links" oder "rechts" ist, wird durch die Hauptschriftri
 ## Siehe auch
 
 - {{ Cssxref("@page") }}
-- Andere seitenbezogene Pseudoklassen: {{ Cssxref(":first") }}, {{ Cssxref(":left") }}
+- Andere seitenspezifische Pseudoklassen: {{ Cssxref(":first") }}, {{ Cssxref(":left") }}

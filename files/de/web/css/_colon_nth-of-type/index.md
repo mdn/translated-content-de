@@ -2,18 +2,18 @@
 title: ":nth-of-type()"
 slug: Web/CSS/:nth-of-type
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:nth-of-type()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf ihrer Position unter Geschwistern desselben Typs (Tag-Name) aus.
+Die **`:nth-of-type()`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf ihrer Position unter Geschwistern desselben Typs (Tag-Name) aus.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-nth-of-type.html", "tabbed-shorter")}}
 
 ## Syntax
 
-Die `nth-of-type` Pseudoklasse wird mit einem einzelnen Argument angegeben, das das Muster für die Auswahl von Elementen repräsentiert.
+Die `nth-of-type` Pseudo-Klasse wird mit einem einzelnen Argument angegeben, das das Muster für die Auswahl von Elementen darstellt.
 
 Siehe {{Cssxref(":nth-child")}} für eine detailliertere Erklärung der Syntax.
 
@@ -70,7 +70,7 @@ p.fancy:nth-of-type(2n + 1) {
 {{EmbedLiveSample('Basic_example', 250, 250)}}
 
 > [!NOTE]
-> Es gibt keine Möglichkeit, das nth-of-class mit diesem Selektor auszuwählen. Der Selektor betrachtet nur den Typ bei der Erstellung der Liste der Übereinstimmungen. Sie können jedoch CSS auf ein Element anwenden, das auf `:nth-of-type`-Position **und** eine Klasse basiert, wie im obigen Beispiel gezeigt.
+> Es gibt keine Möglichkeit, mit diesem Selektor das nth-of-class auszuwählen. Der Selektor berücksichtigt nur den Typ, wenn die Liste der Übereinstimmungen erstellt wird. Sie können jedoch CSS auf ein Element basierend auf dem `:nth-of-type` Standort **und** einer Klasse anwenden, wie im obigen Beispiel gezeigt.
 
 ## Spezifikationen
 

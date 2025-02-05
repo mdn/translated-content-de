@@ -2,12 +2,12 @@
 title: ":placeholder-shown"
 slug: Web/CSS/:placeholder-shown
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}} oder {{HTMLElement("textarea")}}-Element, das momentan [Platzhaltertext](/de/docs/Web/HTML/Element/input#placeholder) anzeigt.
+Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element, das derzeit [Platzhaltertext](/de/docs/Web/HTML/Element/input#placeholder) anzeigt.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-placeholder-shown.html", "tabbed-shorter")}}
 
@@ -23,7 +23,7 @@ Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/We
 
 ### Einfaches Beispiel
 
-Dieses Beispiel wendet spezielle Schrift- und Rahmenstile an, wenn der Platzhalter angezeigt wird.
+Dieses Beispiel wendet besondere Schrift- und Rahmenstile an, wenn der Platzhalter angezeigt wird.
 
 #### HTML
 
@@ -52,7 +52,7 @@ input:placeholder-shown {
 
 ### Überlaufender Text
 
-Wenn Formularfelder zu klein sind, kann der Platzhaltertext auf unerwünschte Weise abgeschnitten werden. Sie können die {{cssxref("text-overflow")}}-Eigenschaft verwenden, um die Anzeige des überlaufenden Textes zu ändern.
+Wenn Formularfelder zu klein sind, kann Platzhaltertext auf eine unerwünschte Weise abgeschnitten werden. Sie können die Eigenschaft {{cssxref("text-overflow")}} verwenden, um zu ändern, wie überlaufender Text angezeigt wird.
 
 #### HTML
 
@@ -75,7 +75,7 @@ Wenn Formularfelder zu klein sind, kann der Platzhaltertext auf unerwünschte We
 
 ### Angepasstes Eingabefeld
 
-Das folgende Beispiel hebt das Studentennummer-Feld mit einem benutzerdefinierten Stil hervor.
+Das folgende Beispiel hebt das Feld für die Studentenausweisnummer mit einem individuellen Stil hervor.
 
 #### HTML
 
@@ -132,6 +132,6 @@ input.student-id:placeholder-shown {
 
 ## Siehe auch
 
-- Das {{CSSxRef("::placeholder")}} Pseudo-Element stylt den Platzhalter _selbst_.
+- Das {{CSSxRef("::placeholder")}}-Pseudoelement gestaltet den Platzhalter _selbst_.
 - Verwandte HTML-Elemente: {{HTMLElement("input")}}, {{HTMLElement("textarea")}}
 - [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)

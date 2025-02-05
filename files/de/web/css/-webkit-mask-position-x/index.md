@@ -2,7 +2,7 @@
 title: "-webkit-mask-position-x"
 slug: Web/CSS/-webkit-mask-position-x
 l10n:
-  sourceCommit: 5bbe2b2db2e92981cb625822d4ea62d6eea3c5f8
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}
@@ -42,7 +42,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 ### Werte
 
 - `<length-percentage>`
-  - : Eine Länge, die die Position des linken Randes des Bildes relativ zum linken Rand der Box-Padding-Kante angibt. Prozentwerte werden relativ zur horizontalen Dimension der Box-Padding-Fläche berechnet. Das bedeutet, ein Wert von `0%` bedeutet, dass der linke Rand des Bildes mit dem linken Rand der Box-Padding-Kante ausgerichtet ist, und ein Wert von `100%` bedeutet, dass der rechte Rand des Bildes mit dem rechten Rand der Box-Padding-Kante ausgerichtet ist.
+  - : Eine Länge, die die Position der linken Kante des Bildes relativ zur linken Polsterungskante der Box angibt. Prozentwerte werden relativ zur horizontalen Dimension des Polsterbereichs der Box berechnet. Das bedeutet, ein Wert von `0%` bedeutet, dass die linke Kante des Bildes mit der linken Polsterungskante der Box ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die rechte Kante des Bildes mit der rechten Polsterungskante der Box ausgerichtet ist.
 - `left`
   - : Entspricht `0%`.
 - `center`
@@ -79,7 +79,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 

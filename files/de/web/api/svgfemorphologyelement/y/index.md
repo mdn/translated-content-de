@@ -3,14 +3,14 @@ title: "SVGFEMorphologyElement: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/SVGFEMorphologyElement/y
 l10n:
-  sourceCommit: 9ecba36579d53837ec5853ea6883f57c3d6fc864
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`y`** der [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement)-Schnittstelle beschreibt die vertikale Koordinate der Position einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`y`** schreibgeschützte Eigenschaft der [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement)-Schnittstelle beschreibt die vertikale Koordinate der Position eines SVG-Filter-Primitivs als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGAttr("y")}}-Attribut des {{SVGElement("feMorphology")}}-Elements wider. Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Die `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die die gegebene Entfernung vom Ursprung des Filters entlang der y-Achse darstellt. Wenn das `y`-Attribut ein Prozentwert ist, ist der Eigenschaftswert relativ zur Höhe des Filterbereichs in Benutzerkoordinatensystemeinheiten. Der Standardwert ist `0`.
+Sie spiegelt das {{SVGAttr("y")}}-Attribut des {{SVGElement("feMorphology")}}-Elements wider. Das Attribut ist entweder ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Die `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegebenen Abstand vom Ursprung des Filters entlang der y-Achse darstellt. Wenn das `y`-Attribut einen Prozentwert hat, ist der Eigenschaftswert relativ zur Höhe des Filterbereichs in Einheiten des Benutzerkoordinatensystems. Der Standardwert ist `0`.
 
 ## Wert
 
@@ -35,5 +35,5 @@ console.log(topPosition.baseVal.value); // the `y` value
 ## Siehe auch
 
 - [`SVGFEMorphologyElement.x`](/de/docs/Web/API/SVGFEMorphologyElement/x)
-- CSS {{cssxref("blend-mode")}} Datentyp
-- CSS {{cssxref("mix-blend-mode")}} Eigenschaft
+- CSS-Datentyp {{cssxref("blend-mode")}}
+- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}

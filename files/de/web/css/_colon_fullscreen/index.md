@@ -2,12 +2,12 @@
 title: ":fullscreen"
 slug: Web/CSS/:fullscreen
 l10n:
-  sourceCommit: f5e0743ddbe2f47896d3349191ed1093488e45dd
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:fullscreen`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) trifft auf jedes Element zu, das sich derzeit im Vollbildmodus befindet. Wenn mehrere Elemente in den Vollbildmodus versetzt wurden, werden alle ausgewählt.
+Die **`:fullscreen`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wendet sich auf jedes Element an, das sich aktuell im Vollbildmodus befindet. Wenn mehrere Elemente in den Vollbildmodus versetzt wurden, werden alle ausgewählt.
 
 ## Syntax
 
@@ -17,15 +17,15 @@ Die **`:fullscreen`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Ps
 }
 ```
 
-## Verwendungsnotizen
+## Verwendungshinweise
 
-Die `:fullscreen`-Pseudoklasse ermöglicht es Ihnen, Ihre Stylesheets so zu konfigurieren, dass sie die Größe, den Stil oder das Layout von Inhalten automatisch anpassen, wenn Elemente zwischen Vollbild- und herkömmlicher Darstellung wechseln.
+Die `:fullscreen`-Pseudoklasse ermöglicht es Ihnen, Ihre Stylesheets so zu konfigurieren, dass die Größe, der Stil oder das Layout von Inhalten automatisch angepasst werden, wenn Elemente zwischen Vollbild- und herkömmlichen Präsentationsmodi wechseln.
 
 ## Beispiele
 
 ### Styling eines Vollbildelements
 
-Dieses Beispiel wendet eine andere Hintergrundfarbe auf ein {{htmlelement("div")}}-Element an, je nachdem, ob es sich im Vollbildmodus befindet oder nicht. Es beinhaltet einen {{htmlelement("button")}}, um Vollbild ein- und auszuschalten.
+Dieses Beispiel wendet eine andere Hintergrundfarbe auf ein {{htmlelement("div")}}-Element an, abhängig davon, ob es sich im Vollbildmodus befindet oder nicht. Es enthält einen {{htmlelement("button")}}-Knopf, um zwischen Vollbildmodus ein- und auszuschalten.
 
 ```html
 <div class="element">
@@ -57,7 +57,7 @@ Die `:fullscreen`-Pseudoklasse wird verwendet, um die [`background-color`](/de/d
 }
 ```
 
-Das folgende JavaScript bietet eine Ereignisbehandlungsfunktion, die den Vollbildmodus umschaltet, wenn auf den `<button>` geklickt wird.
+Der folgende JavaScript-Code enthält eine Ereignisbehandlungsfunktion, die den Vollbildmodus umschaltet, wenn der `<button>` geklickt wird.
 
 ```js
 document.querySelector(".toggle").addEventListener("click", function (event) {
@@ -85,8 +85,8 @@ document.querySelector(".toggle").addEventListener("click", function (event) {
 
 ## Siehe auch
 
-- [Fullscreen-API](/de/docs/Web/API/Fullscreen_API)
-- [Leitfaden zur Fullscreen-API](/de/docs/Web/API/Fullscreen_API/Guide)
+- [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
+- [Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide)
 - {{cssxref("::backdrop")}}
 - DOM-API: [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen), [`Document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen), [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement)
 - [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen)-Attribut

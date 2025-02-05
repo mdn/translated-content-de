@@ -2,18 +2,18 @@
 title: "::view-transition-new"
 slug: Web/CSS/::view-transition-new
 l10n:
-  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Das **`::view-transition-new`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "neuen" Ansichtsstatus eines View-Transitions — eine Live-Darstellung des Zustands nach der Transition.
+Das **`::view-transition-new`** [CSS](/de-DE/docs/Web/CSS) [Pseudoelement](/de-DE/docs/Web/CSS/Pseudo-elements) repräsentiert den "neuen" Ansichtsstatus eines View-Transitions — eine Schnappschuss-Live-Darstellung des Zustands nach der Transition.
 
-Während einer Ansichtstransition ist `::view-transition-new` in dem zugehörigen Pseudo-Element-Baum enthalten, wie in [Der Pseudo-Element-Baum der Ansichtstransition](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) erklärt. Es ist immer nur ein Kind eines {{cssxref("::view-transition-image-pair")}} und hat niemals eigene Kinder.
+Während einer View-Transition wird `::view-transition-new` im zugehörigen Pseudoelement-Baum wie in [Der Pseudoelement-Baum der View-Transition](/de-DE/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) beschrieben, eingeschlossen. Es ist immer nur ein Kind von {{cssxref("::view-transition-image-pair")}} und hat niemals eigene Kinder.
 
-Es ist ein ersetztes Element und kann daher mit Eigenschaften wie {{cssxref("object-fit")}} und {{cssxref("object-position")}} manipuliert werden. Es hat natürliche Abmessungen, die der Größe des Inhaltes entsprechen.
+Es handelt sich um ein ersetztes Element und kann daher mit Eigenschaften wie {{cssxref("object-fit")}} und {{cssxref("object-position")}} manipuliert werden. Es hat natürliche Maße, die der Größe des Inhalts entsprechen.
 
-Das folgende Standard-Styling ist im UA-Stylesheet enthalten:
+Das folgende Standardstyling ist im UA-Stylesheet enthalten:
 
 ```css
 :root::view-transition-old(*),
@@ -46,7 +46,7 @@ Das folgende Standard-Styling ist im UA-Stylesheet enthalten:
 ```
 
 > [!NOTE]
-> Zusätzliche Stile für Ansichtstransitionen sind ebenfalls eingerichtet, um `::view-transition-new` zu animieren. Diese werden während der Ansichtstransition dynamisch erzeugt; siehe die Spezifikationsabschnitte [Transition Pseudo-Elemente einrichten](https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements) und [Pseudo-Element-Stile aktualisieren](https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles) für weitere Details.
+> Zusätzliche View-Transition-Stile werden ebenfalls eingerichtet, um `::view-transition-new` zu animieren. Diese werden während der Ansichtstransition dynamisch generiert; siehe die Abschnitte [Setup-Transition-Pseudoelemente](https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements) und [Update-Pseudoelement-Stile](https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles) in der Spezifikation für weitere Details.
 
 ## Syntax
 
@@ -56,14 +56,14 @@ Das folgende Standard-Styling ist im UA-Stylesheet enthalten:
 }
 ```
 
-`<pt-name-selector>` kann einer der folgenden Werte sein:
+`<pt-name-selector>` kann einen der folgenden Werte annehmen:
 
 - `*`
-  - : Bewirkt, dass das Pseudo-Element alle Ansichtstransitionsgruppen entspricht.
+  - : Veranlasst, dass das Pseudoelement mit allen View-Transition-Gruppen übereinstimmt.
 - `root`
-  - : Bewirkt, dass das Pseudo-Element der Standard-Ansichtstransitions-Snapshotgruppe `root` entspricht, die vom Benutzeragenten erstellt wurde, um die Ansichtstransition für die gesamte Seite zu enthalten. Diese Gruppe umfasst jedes Element, das nicht über die Eigenschaft {{cssxref("view-transition-name")}} einer eigenen spezifischen Ansichtstransitions-Snapshotgruppe zugewiesen ist.
+  - : Veranlasst, dass das Pseudoelement mit der Standard-`root`-View-Transition-Snapshot-Gruppe übereinstimmt, die vom Benutzeragenten erstellt wurde, um die Ansichtstransition für die gesamte Seite zu enthalten. Diese Gruppe umfasst jedes Element, dem keine spezifische eigene View-Transition-Snapshot-Gruppe über die {{cssxref("view-transition-name")}}-Eigenschaft zugewiesen wurde.
 - {{cssxref("custom-ident")}}
-  - : Bewirkt, dass das Pseudo-Element einer spezifischen Ansichtstransitions-Snapshotgruppe entspricht, die durch Zuweisung des angegebenen {{cssxref("custom-ident")}} zu einem Element über die Eigenschaft {{cssxref("view-transition-name")}} erstellt wird.
+  - : Veranlasst, dass das Pseudoelement mit einer spezifischen View-Transition-Snapshot-Gruppe übereinstimmt, die erstellt wurde, indem der gegebene {{cssxref("custom-ident")}} einem Element über die {{cssxref("view-transition-name")}}-Eigenschaft zugewiesen wurde.
 
 ## Beispiele
 
@@ -117,5 +117,5 @@ figcaption {
 
 ## Siehe auch
 
-- [View Transition API](/de/docs/Web/API/View_Transition_API)
-- [Nahtlose Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [View Transition API](/de-DE/docs/Web/API/View_Transition_API)
+- [Fließende Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

@@ -2,17 +2,17 @@
 title: ":blank"
 slug: Web/CSS/:blank
 l10n:
-  sourceCommit: d278eda568df670011d4e89c1f30f57b66a8a850
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
 > [!NOTE]
-> Der `:blank`-Selektor gilt als risikoreich, da die CSSWG ihn ständig ändert.
+> Der `:blank`-Selektor wird als gefährdet angesehen, da das CSSWG ihn ständig verändert.
 >
 > Siehe [CSSWG Issue #1967](https://github.com/w3c/csswg-drafts/issues/1967).
 
-Die **`:blank`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt leere Benutzereingabeelemente aus (z. B. {{HTMLElement("input")}} oder {{HTMLElement("textarea")}}).
+Die **`:blank`**-[[CSS](/de/docs/Web/CSS)]-[[Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes)] wählt leere Benutzereingabe-Elemente aus (z. B. {{HTMLElement("input")}} oder {{HTMLElement("textarea")}}).
 
 ## Syntax
 
@@ -24,9 +24,9 @@ Die **`:blank`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-
 
 ## Beispiele
 
-### Grundlegendes :blank-Beispiel
+### Grundlegendes Beispiel für :blank
 
-In zukünftig unterstützenden Browsern wird die `:blank`-Pseudoklasse es Entwicklern ermöglichen, Eingabesteuerungen, die nicht erforderlich sind, aber dennoch keinen Inhalt haben, auf irgendeine Weise hervorzuheben, möglicherweise als Erinnerung für die Benutzer.
+In zukünftigen unterstützenden Browsern wird die `:blank`-Pseudo-Klasse Entwicklern ermöglichen, Eingabesteuerelemente, die nicht erforderlich, aber noch kein ausgefülltes Inhalt haben, auf irgendeine Weise hervorzuheben, möglicherweise als Erinnerung für Benutzer.
 
 #### HTML
 
@@ -52,7 +52,7 @@ textarea:blank {
 
 ## Browser-Kompatibilität
 
-Derzeit hat kein Browser diese Funktion implementiert.
+Derzeit hat kein Browser dieses Feature implementiert.
 
 ## Siehe auch
 

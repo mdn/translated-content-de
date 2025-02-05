@@ -2,12 +2,12 @@
 title: ":target"
 slug: Web/CSS/:target
 l10n:
-  sourceCommit: 5bcc3c7f96984e42dd8bb61ff97b7c5d64dd3e95
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:target`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt das _Zielelement des Dokuments_ aus. Wenn das Dokument geladen wird, wird das Zielelement mit Hilfe des [URL-Fragmentbezeichners](/de/docs/Web/URI/Fragment#fragment) des Dokuments ermittelt.
+Die **`:target`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt das _Zielelement des Dokuments_ aus. Beim Laden des Dokuments wird das Zielelement anhand des [URL-Fragmentbezeichners](/de/docs/Web/URI/Fragment#fragment) des Dokuments bestimmt.
 
 ```css
 /* Selects document's target element */
@@ -16,13 +16,13 @@ Die **`:target`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo
 }
 ```
 
-Zum Beispiel enthält die folgende URL einen Fragmentbezeichner (gekennzeichnet durch das _#_-Zeichen), der das Element mit der [`id`](/de/docs/Web/HTML/Global_attributes/id) von `setup` als Zielelement des Dokuments markiert:
+Zum Beispiel enthält die folgende URL einen Fragmentbezeichner (gekennzeichnet durch das _#_-Zeichen), der das Element mit der [`id`](/de/docs/Web/HTML/Global_attributes/id) `setup` als Zielelement des Dokuments markiert:
 
 ```url
 http://www.example.com/help/#setup
 ```
 
-Das folgende Element würde durch einen `:target`-Selektor ausgewählt, wenn die aktuelle URL der obigen entspricht:
+Das folgende Element würde von einem `:target`-Selektor ausgewählt, wenn die aktuelle URL der oben angegebenen entspricht:
 
 ```html
 <section id="setup">Installation instructions</section>
@@ -38,18 +38,18 @@ Das folgende Element würde durch einen `:target`-Selektor ausgewählt, wenn die
 
 ## Beschreibung
 
-Wenn ein HTML-Dokument geladen wird, legt der Browser sein Zielelement fest. Das Element wird mithilfe des URL-Fragmentbezeichners identifiziert. Ohne den URL-Fragmentbezeichner hat das Dokument kein Zielelement. Die `:target`-Pseudoklasse erlaubt es, das Zielelement des Dokuments zu stylen. Das Element könnte fokussiert, hervorgehoben, animiert usw. werden.
+Beim Laden eines HTML-Dokuments legt der Browser dessen Zielelement fest. Dieses Element wird mithilfe des URL-Fragmentbezeichners identifiziert. Ohne einen URL-Fragmentbezeichner hat das Dokument kein Zielelement. Die `:target`-Pseudoklasse ermöglicht es, das Zielelement eines Dokuments zu stylen. Dieses Element könnte zum Beispiel fokussiert, hervorgehoben oder animiert werden.
 
-Das Zielelement wird beim Laden des Dokuments sowie bei Aufrufen der Methoden [`history.back()`](/de/docs/Web/API/History/back), [`history.forward()`](/de/docs/Web/API/History/forward) und [`history.go()`](/de/docs/Web/API/History/forward) festgelegt. Es wird jedoch _nicht_ geändert, wenn die Methoden [`history.pushState()`](/de/docs/Web/API/History/pushState) und [`history.replaceState()`](/de/docs/Web/API/History/replaceState) aufgerufen werden.
+Das Zielelement wird beim Laden des Dokuments sowie durch die Methoden [`history.back()`](/de/docs/Web/API/History/back), [`history.forward()`](/de/docs/Web/API/History/forward) und [`history.go()`](/de/docs/Web/API/History/forward) festgelegt. Es wird jedoch _nicht_ geändert, wenn die Methoden [`history.pushState()`](/de/docs/Web/API/History/pushState) und [`history.replaceState()`](/de/docs/Web/API/History/replaceState) aufgerufen werden.
 
 > [!NOTE]
-> Aufgrund [eines möglichen Fehlers in der CSS-Spezifikation](https://discourse.wicg.io/t/target-css-does-not-work-because-shadowroot-does-not-set-a-target-element/2070/) funktioniert `:target` nicht innerhalb eines [Web-Komponents](/de/docs/Web/API/Web_components), da die [Shadow-Wurzel](/de/docs/Web/API/ShadowRoot) das Zielelement nicht in den Shadow-Baum hinunterreicht.
+> Aufgrund [eines möglichen Fehlers in der CSS-Spezifikation](https://discourse.wicg.io/t/target-css-does-not-work-because-shadowroot-does-not-set-a-target-element/2070/) funktioniert `:target` nicht innerhalb einer [Web-Komponente](/de/docs/Web/API/Web_components), da die [Shadow-Root](/de/docs/Web/API/ShadowRoot) das Zielelement nicht an den Shadow-Tree weitergibt.
 
 ## Beispiele
 
 ### Ein Inhaltsverzeichnis
 
-Die `:target`-Pseudoklasse kann verwendet werden, um den Teil einer Seite hervorzuheben, der von einem Inhaltsverzeichnis aus verlinkt wurde.
+Die `:target`-Pseudoklasse kann verwendet werden, um den Abschnitt einer Seite hervorzuheben, auf den aus einem Inhaltsverzeichnis verwiesen wurde.
 
 #### HTML
 

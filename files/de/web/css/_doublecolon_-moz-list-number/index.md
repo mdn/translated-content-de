@@ -2,12 +2,12 @@
 title: "::-moz-list-number"
 slug: Web/CSS/::-moz-list-number
 l10n:
-  sourceCommit: b60bc79c7ad36c56dddf6760d2fd4dbb642d2023
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}{{SeeCompatTable}}
 
-Das **`::-moz-list-number`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die den Marker (typischerweise eine Zahl) eines Listenelements ({{HTMLElement("li")}}) in einer nummerierten Liste ({{HTMLElement("ol")}}) darstellt.
+Das **`::-moz-list-number`** [CSS](/de/docs/Web/CSS)-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die das Markierungszeichen (typischerweise eine Nummer) eines Listenelements ({{HTMLElement("li")}}) in einer geordneten Liste ({{HTMLElement("ol")}}) darstellt.
 
 ## Syntax
 

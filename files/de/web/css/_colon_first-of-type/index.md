@@ -2,7 +2,7 @@
 title: ":first-of-type"
 slug: Web/CSS/:first-of-type
 l10n:
-  sourceCommit: 5fea7c9593f5e4b4ef13ec65064acf1eabf01e4e
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
@@ -21,7 +21,7 @@ Die **`:first-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS
 
 ## Beispiele
 
-### Gestaltung des ersten Absatzes
+### Das erste Absatz-Element stylen
 
 #### HTML
 
@@ -46,7 +46,7 @@ p:first-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie auch verschachtelte Elemente gezielt angesprochen werden können. Beachten Sie, dass der [Universal-Selektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert ist, wenn kein Typ-Selektor angegeben wird.
+Dieses Beispiel zeigt, wie auch verschachtelte Elemente angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert ist, wenn kein Typselektor geschrieben wird.
 
 #### HTML
 

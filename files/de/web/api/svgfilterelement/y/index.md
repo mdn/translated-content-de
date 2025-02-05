@@ -1,16 +1,16 @@
 ---
-title: "SVGFilterElement: y-Eigenschaft"
+title: "SVGFilterElement: y Eigenschaft"
 short-title: "y"
 slug: Web/API/SVGFilterElement/y
 l10n:
-  sourceCommit: ed8d1fc9149b9b5987d1019b1a6e1c7216a5333b
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y`**-Eigenschaft der Schnittstelle [`SVGFilterElement`](/de/docs/Web/API/SVGFilterElement) beschreibt die vertikale Koordinate der Position eines SVG-Filterprimitives als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`y`** schreibgeschützte Eigenschaft der [`SVGFilterElement`](/de/docs/Web/API/SVGFilterElement)-Schnittstelle beschreibt die vertikale Koordinate der Position einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGAttr("y")}}-Attribut des {{SVGElement("filter")}}-Elements wider. Das Attribut ist eine [`<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die die angegebene Entfernung vom Ursprung des Filters entlang der y-Achse darstellt. Wenn das `y`-Attribut einen Prozentwert hat, ist der Eigenschaftswert relativ zur Höhe der Filterregion in Benutzereinheitssystemen. Der Standardwert ist `0`.
+Sie gibt das {{SVGAttr("y")}}-Attribut des {{SVGElement("filter")}}-Elements wieder. Das Attribut ist entweder ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Die `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegebenen Abstand von der Herkunft des Filters entlang der y-Achse angibt. Wenn das `y`-Attribut einen Prozentwert darstellt, ist der Eigenschaftswert relativ zur Höhe des Filterbereichs in Einheiten des Benutzerkoordinatensystems. Der Standardwert ist `0`.
 
 ## Wert
 
@@ -34,7 +34,7 @@ console.log(topPosition.baseVal.value); // the `y` value
 
 ## Siehe auch
 
-- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
-- [SVG-Filter-Primitiv-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
-- CSS {{cssxref("blend-mode")}} Datentyp
-- CSS {{cssxref("mix-blend-mode")}} Eigenschaft
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Filterprimitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
+- CSS-Datentyp {{cssxref("blend-mode")}}
+- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}

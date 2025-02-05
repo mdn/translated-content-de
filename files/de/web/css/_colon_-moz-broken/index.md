@@ -2,12 +2,12 @@
 title: ":-moz-broken"
 slug: Web/CSS/:-moz-broken
 l10n:
-  sourceCommit: b60bc79c7ad36c56dddf6760d2fd4dbb642d2023
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}{{deprecated_header}}
 
-Die **`:-moz-broken`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente abgleicht, die defekte Bildlinks darstellen.
+Die **`:-moz-broken`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente abgleicht, die defekte Bildverknüpfungen repräsentieren.
 
 > [!NOTE]
 > Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler gedacht.
@@ -52,4 +52,4 @@ Nicht Teil eines Standards.
 ## Siehe auch
 
 - {{cssxref(":-moz-loading")}}, {{cssxref(":-moz-suppressed")}}, {{cssxref(":-moz-user-disabled")}}
-- [Firefox Bug 11011](https://bugzil.la/11011)
+- [Firefox-Bug 11011](https://bugzil.la/11011)

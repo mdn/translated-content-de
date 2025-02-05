@@ -2,15 +2,15 @@
 title: "::-webkit-progress-value"
 slug: Web/CSS/::-webkit-progress-value
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-webkit-progress-value`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den ausgefüllten Teil der Leiste eines {{HTMLElement("progress")}}-Elements. Es ist ein Kindelement des {{cssxref("::-webkit-progress-bar")}}-Pseudo-Elements.
+Das **`::-webkit-progress-value`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den ausgefüllten Teil der Leiste eines {{HTMLElement("progress")}}-Elements. Es ist ein Kind des {{cssxref("::-webkit-progress-bar")}}-Pseudo-Elements.
 
 > [!NOTE]
-> Damit `::-webkit-progress-value` Wirkung zeigt, muss das {{cssxref("appearance")}} auf `none` für das `<progress>`-Element gesetzt werden.
+> Damit `::-webkit-progress-value` wirksam ist, muss {{cssxref("appearance")}} auf `none` für das `<progress>`-Element gesetzt werden.
 
 ## Syntax
 
@@ -48,13 +48,13 @@ progress {
 
 ### Ergebnis-Screenshot
 
-Eine Fortschrittsanzeige, die den obigen Stil verwendet, würde wie folgt aussehen:
+Eine Fortschrittsanzeige mit dem obigen Stil würde so aussehen:
 
-![Ein langer orange-grauer Kasten. Die linken 20% sind orange. Die rechten 80% sind grau.](progress-value.png)
+![Eine lange orangefarbene und graue Box. Die linken 20% sind orange. Die rechten 80% sind grau.](progress-value.png)
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -62,7 +62,7 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-- Die Pseudo-Elemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{HTMLElement("progress")}}-Elements zu stylen:
+- Die von WebKit/Blink verwendeten Pseudo-Elemente, um andere Teile eines {{HTMLElement("progress")}}-Elements zu stylen:
 
   - {{ cssxref("::-webkit-progress-bar") }}
   - {{ cssxref("::-webkit-progress-inner-element") }}

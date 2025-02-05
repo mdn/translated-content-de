@@ -2,12 +2,12 @@
 title: "::-webkit-meter-inner-element"
 slug: Web/CSS/::-webkit-meter-inner-element
 l10n:
-  sourceCommit: 07d81f6124dfd4e248c6004267b3314c5757b4f1
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}
 
-**`::-webkit-meter-inner-element`** ist ein proprietäres WebKit CSS-Pseudoelement zum Auswählen und Anwenden von Stilen auf das äußere enthaltende Element eines {{htmlelement("meter")}} Elements. Zusätzliches Markup, um das Meter-Element als schreibgeschützt darzustellen.
+**`::-webkit-meter-inner-element`** ist ein proprietäres WebKit CSS-Pseudoelement, das verwendet wird, um Stile auf das äußere enthaltende Element eines {{htmlelement("meter")}}-Elements anzuwenden. Zusätzliches Markup, um das Meter-Element schreibgeschützt darzustellen.
 
 ## Syntax
 
@@ -79,7 +79,7 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-Die von WebKit/Blink verwendeten Pseudoelemente zur Gestaltung anderer Teile eines {{htmlelement("meter")}} Elements sind wie folgt:
+Die Pseudoelemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{htmlelement("meter")}}-Elements zu stylen, sind wie folgt:
 
 - {{cssxref("::-webkit-meter-bar")}}
 - {{cssxref("::-webkit-meter-even-less-good-value")}}

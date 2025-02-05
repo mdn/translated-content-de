@@ -2,7 +2,7 @@
 title: "-moz-orient"
 slug: Web/CSS/-moz-orient
 l10n:
-  sourceCommit: 69f98c69898886886f3267a4fa5f450f32133ca1
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}
@@ -11,18 +11,18 @@ Die **`-moz-orient`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Ausrichtung d
 
 ## Syntax
 
-Die `-moz-orient`-Eigenschaft wird als einer der Schlüsselwortwerte aus der unten stehenden Liste angegeben.
+Die `-moz-orient`-Eigenschaft wird als einer der Schlüsselwort-Werte aus der unten aufgeführten Liste angegeben.
 
 ### Werte
 
 - `inline`
-  - : Das Element wird in derselben Richtung wie die Achse des Textes gerendert: horizontal für horizontale Schreibmodi, vertikal für vertikale Schreibmodi.
+  - : Das Element wird in derselben Richtung wie die Textachse dargestellt: horizontal für horizontale Schreibmodi, vertikal für vertikale Schreibmodi.
 - `block`
-  - : Das Element wird orthogonal zur Achse des Textes gerendert: vertikal für horizontale Schreibmodi, horizontal für vertikale Schreibmodi.
+  - : Das Element wird orthogonal zur Textachse dargestellt: vertikal für horizontale Schreibmodi, horizontal für vertikale Schreibmodi.
 - `horizontal`
-  - : Das Element wird horizontal gerendert.
+  - : Das Element wird horizontal dargestellt.
 - `vertical`
-  - : Das Element wird vertikal gerendert.
+  - : Das Element wird vertikal dargestellt.
 
 ## Formale Definition
 
@@ -63,7 +63,7 @@ Die `-moz-orient`-Eigenschaft wird als einer der Schlüsselwortwerte aus der unt
 
 ## Spezifikationen
 
-Nicht Teil eines Standards. Obwohl [eingereicht](https://lists.w3.org/Archives/Public/www-style/2014Jun/0396.html) bei der W3C, mit positiver anfänglicher Rückmeldung, ist diese Eigenschaft noch nicht Teil einer Spezifikation; derzeit ist dies eine Mozilla-spezifische Erweiterung (das heißt, `-moz-orient`).
+Nicht Teil eines Standards. Obwohl die Eigenschaft [eingereicht wurde](https://lists.w3.org/Archives/Public/www-style/2014Jun/0396.html) und anfänglich positives Feedback erhalten hat, ist sie bisher nicht Teil einer Spezifikation; derzeit handelt es sich um eine Mozilla-spezifische Erweiterung (das heißt, `-moz-orient`).
 
 ## Browser-Kompatibilität
 

@@ -2,23 +2,23 @@
 title: "::grammar-error"
 slug: Web/CSS/::grammar-error
 l10n:
-  sourceCommit: 632289fcc10e926d166e1b49e5ba3505de182856
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Das **`::grammar-error`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert ein Textsegment, das vom {{Glossary("user_agent", "User-Agent")}} als grammatikalisch falsch markiert wurde.
+Der **`::grammar-error`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert einen Textabschnitt, der vom {{Glossary("user_agent", "User Agent")}} als grammatikalisch falsch markiert wurde.
 
-## Erlaubte Eigenschaften
+## Zulässige Eigenschaften
 
-Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::grammar-error` im Selektor verwendet werden:
+Nur eine kleine Teilmenge von CSS-Eigenschaften kann in einer Regel mit `::grammar-error` im Selektor verwendet werden:
 
 - {{cssxref("color")}}
 - {{cssxref("background-color")}}
 - {{cssxref("cursor")}}
 - {{cssxref("caret-color")}}
-- {{cssxref("outline")}} und seine Langformen
-- {{cssxref("text-decoration")}} und die dazugehörigen Eigenschaften
+- {{cssxref("outline")}} und deren Langformen
+- {{cssxref("text-decoration")}} und die zugehörigen Eigenschaften
 - {{cssxref("text-emphasis-color")}}
 - {{cssxref("text-shadow")}}
 
@@ -34,7 +34,7 @@ Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::gram
 
 ### Grundlegende Dokument-Grammatikprüfung
 
-In diesem Beispiel sollten unterstützende Browser eventuelle als grammatikalisch inkorrekt markierte Fehler mit den gezeigten Stilen hervorheben.
+In diesem Beispiel sollten unterstützende Browser alle markierten grammatischen Fehler mit den gezeigten Stilen hervorheben.
 
 #### HTML
 

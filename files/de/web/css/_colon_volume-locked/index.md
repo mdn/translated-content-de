@@ -2,15 +2,15 @@
 title: ":volume-locked"
 slug: Web/CSS/:volume-locked
 l10n:
-  sourceCommit: b85bf9fcc2c0062a765d104799d7d45d9e9b13bb
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Der **`:volume-locked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor repräsentiert ein Element, das in der Lage ist, Ton abzuspielen, wie z.B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, aber das Audiovolumen des Medienelements ist derzeit vom Benutzer "gesperrt".
+Der **`:volume-locked`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das in der Lage ist, Ton wiederzugeben, wie z. B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, bei dem die Lautstärke des Media-Elements derzeit vom Benutzer "gesperrt" ist.
 
-Benutzeragenten können Medien [`muted`](/de/docs/Web/API/HTMLMediaElement/muted) oder [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) Werte gemäß den Benutzereinstellungen festlegen (z.B. das letzte eingestellte Volumen über Sitzungen hinweg merken, pro Seite oder auf andere Weise).
-Ein Element, das `:volume-locked` ist, kann weder stummgeschaltet, entstummt noch kann sein Volumen über JavaScript geändert werden. Der gesperrte Status ist eine Voreinstellung des Betriebssystems oder des Benutzeragenten.
+Benutzeragenten können Medienwerte [`muted`](/de/docs/Web/API/HTMLMediaElement/muted) oder [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) in Übereinstimmung mit den Benutzerpräferenzen setzen (z. B. durch das Speichern des zuletzt festgelegten Werts über Sitzungen hinweg, pro Website oder auf andere Weise).
+Ein Element, das `:volume-locked` ist, kann weder stummgeschaltet noch nicht stummgeschaltet werden, noch kann seine Lautstärke über JavaScript geändert werden. Der gesperrte Status ist eine Betriebssystem- oder Benutzeragenteneinstellung.
 
 ## Syntax
 
@@ -51,4 +51,4 @@ video:volume-locked {
 - {{cssxref(":seeking")}}
 - {{cssxref(":stalled")}}
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) Objekten
+- [`volume`](/de/docs/Web/API/HTMLMediaElement/volume)-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten

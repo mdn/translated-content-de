@@ -2,12 +2,12 @@
 title: "-webkit-mask-repeat-x"
 slug: Web/CSS/-webkit-mask-repeat-x
 l10n:
-  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die Eigenschaft `-webkit-mask-repeat-x` gibt an, ob und wie ein Maskenbild horizontal wiederholt (gekachelt) wird.
+Die Eigenschaft `-webkit-mask-repeat-x` legt fest, ob und wie ein Maskenbild horizontal wiederholt (gekachelt) wird.
 
 ## Syntax
 
@@ -34,13 +34,13 @@ Die Eigenschaft `-webkit-mask-repeat-x` gibt an, ob und wie ein Maskenbild horiz
 - repeat
   - : Das Maskenbild wird sowohl horizontal als auch vertikal wiederholt.
 - no-repeat
-  - : Das Maskenbild wird nicht wiederholt; es wird nur eine Kopie des Maskenbilds gezeichnet. Der Rest des Inhalts des maskierten Elements wird nicht angezeigt.
+  - : Das Maskenbild wird nicht wiederholt; nur eine Kopie des Maskenbilds wird gezeichnet. Der verbleibende Inhalt des maskierten Elements wird nicht angezeigt.
 - repeat
   - : Das Maskenbild wird sowohl horizontal als auch vertikal wiederholt.
 - space
-  - : Das Bild wird so oft wie möglich ohne Zuschneiden wiederholt. Die ersten und letzten Bilder werden an die Seiten des Elements gepinnt, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, es kann nur ein Bild ohne Zuschneiden dargestellt werden. Clipping tritt nur auf, wenn nicht genügend Platz vorhanden ist, um ein Bild darzustellen.
+  - : Das Bild wird so oft wie möglich wiederholt, ohne abgeschnitten zu werden. Das erste und letzte Bild werden an den jeweiligen Seiten des Elements fixiert, und der verbleibende Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, es kann nur ein Bild ohne Abschneiden angezeigt werden. Der einzige Fall, in dem mit "space" abgeschnitten wird, ist, wenn nicht genug Platz vorhanden ist, um ein Bild anzuzeigen.
 - round
-  - : Wenn der verfügbare Platz größer wird, werden die wiederholten Bilder gestreckt (ohne Lücken), bis Platz für ein weiteres Bild vorhanden ist. Beim Hinzufügen eines neuen Bildes werden alle aktuellen Bilder komprimiert, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Breite von 260px, das dreimal wiederholt wird, könnte sich dehnen, bis jede Wiederholung 300px breit ist, und dann wird ein weiteres Bild hinzugefügt. Danach werden sie auf 225px komprimiert.
+  - : Wenn der verfügbare Platz größer wird, dehnen sich die wiederholten Bilder (ohne Lücken) aus, bis Platz für ein weiteres Bild vorhanden ist. Wenn ein weiteres Bild hinzugefügt wird, komprimieren sich alle vorherigen, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Breite von 260px, das dreimal wiederholt wird, könnte sich bis auf eine Breite von 300px pro Wiederholung ausdehnen, bevor ein weiteres Bild hinzugefügt wird. Anschließend komprimieren sich die Bilder auf 225px Breite.
 
 ## Formale Definition
 
@@ -55,7 +55,7 @@ Die Eigenschaft `-webkit-mask-repeat-x` gibt an, ob und wie ein Maskenbild horiz
 
 ## Beispiele
 
-### Verwendung eines wiederholten oder nicht wiederholten Maskenbildes
+### Verwendung eines sich wiederholenden oder nicht wiederholenden Maskenbilds
 
 ```css
 .example-one {
@@ -71,7 +71,7 @@ Die Eigenschaft `-webkit-mask-repeat-x` gibt an, ob und wie ein Maskenbild horiz
 
 ### Verwendung mehrerer Maskenbilder
 
-Sie können einen unterschiedlichen `<repeat-style>` für jedes Maskenbild angeben, getrennt durch Kommas:
+Sie können für jedes Maskenbild einen anderen `<repeat-style>` angeben, getrennt durch Kommata:
 
 ```css
 .example-three {
@@ -80,11 +80,11 @@ Sie können einen unterschiedlichen `<repeat-style>` für jedes Maskenbild angeb
 }
 ```
 
-Jedes Bild wird mit dem entsprechenden Wiederholungsstil von zuerst angegeben bis zuletzt abgestimmt.
+Jedes Bild wird mit dem entsprechenden Wiederholungsstil verknüpft, in der Reihenfolge, wie sie angegeben wurden.
 
 ## Spezifikationen
 
-Teil keines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 

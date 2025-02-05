@@ -2,12 +2,12 @@
 title: ":last-of-type"
 slug: Web/CSS/:last-of-type
 l10n:
-  sourceCommit: 5fea7c9593f5e4b4ef13ec65064acf1eabf01e4e
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:last-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element seines Typs innerhalb einer Gruppe von Geschwisterelementen.
+Die **`:last-of-type`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element seines Typs innerhalb einer Gruppe von Geschwisterelementen.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-last-of-type.html", "tabbed-shorter")}}
 
@@ -46,7 +46,7 @@ p:last-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie auch verschachtelte Elemente angesprochen werden können. Beachten Sie, dass der [universelle Selektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert wird, wenn kein einfacher Selektor geschrieben wird.
+Dieses Beispiel zeigt, wie auch verschachtelte Elemente gezielt angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Universal_selectors) (`*`) implizit ist, wenn kein einfacher Selektor geschrieben wird.
 
 #### HTML
 
@@ -76,7 +76,7 @@ article :last-of-type {
 
 ### Elemente mit mehreren Selektoren
 
-Dieses HTML-Beispiel enthält verschachtelte Elemente verschiedener Typen. Das CSS enthält sowohl Typselektoren als auch Klassenselektoren.
+Dieses HTML-Beispiel enthält verschachtelte Elemente unterschiedlicher Typen. Das CSS enthält sowohl Typselektoren als auch Klassenselektoren.
 
 #### HTML
 
@@ -118,7 +118,7 @@ p:last-of-type {
 
 {{EmbedLiveSample('Multiple_selectors_elements', 500)}}
 
-Das letzte `<div>` und das letzte `<p>` sind beide rot und fett, da `.item:last-of-type` das letzte Element jedes Typs auswählt, wenn dieses letzte Element auch die Klasse `item` hat.
+Das letzte `<div>` und das letzte `<p>` sind sowohl rot als auch fett formatiert, da `.item:last-of-type` das letzte Element jedes Typs auswählt, wenn dieses letzte Element ebenfalls die Klasse `item` besitzt.
 
 ## Spezifikationen
 

@@ -1,31 +1,31 @@
 ---
-title: "HTMLImageElement: y-Eigenschaft"
+title: "HTMLImageElement: y Eigenschaft"
 short-title: "y"
 slug: Web/API/HTMLImageElement/y
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`y`** gibt die y-Koordinate des oberen Randes des {{HTMLElement("img")}}-Elements relativ zum Ursprung des Stamm-Elements an.
+Die schreibgeschützte [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`y`** gibt die y-Koordinate der oberen Randkante des {{HTMLElement("img")}}-Elements relativ zum Ursprung des Root-Elements an.
 
-Die Eigenschaften [`x`](/de/docs/Web/API/HTMLImageElement/x) und `y` sind nur dann für ein Bild gültig, wenn seine {{cssxref("display")}}-Eigenschaft den berechneten Wert `table-column` oder `table-column-group` hat. Anders ausgedrückt: Es hat entweder einen dieser Werte explizit gesetzt oder erbt sie von einem umgebenden Element oder durch seine Position in einer durch {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschriebenen Spalte.
+Die [`x`](/de/docs/Web/API/HTMLImageElement/x)- und `y`-Eigenschaften sind nur für ein Bild gültig, wenn dessen {{cssxref("display")}}-Eigenschaft den berechneten Wert `table-column` oder `table-column-group` hat. Anders gesagt: Es hat entweder einen dieser Werte explizit gesetzt, diesen von einem umschließenden Element geerbt, oder befindet sich in einer Spalte, die entweder durch {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschrieben wird.
 
 ## Wert
 
-Ein ganzzahliger Wert, der den Abstand in Pixeln vom oberen Rand des nächsten Stamm-Elements zum oberen Rand des Rahmenkastens des {{HTMLElement("img")}}-Elements angibt. Das nächste Stamm-Element ist das äußerste {{HTMLElement("html")}}-Element, das das Bild enthält. Befindet sich das Bild in einem {{HTMLElement("iframe")}}, ist `y` relativ zu diesem Frame.
+Ein ganzzahliger Wert, der den Abstand in Pixeln von der oberen Kante des nächstgelegenen Root-Elements bis zur oberen Kante des Randrahmens des {{HTMLElement("img")}}-Elements angibt. Das nächstgelegene Root-Element ist das äußerste {{HTMLElement("html")}}-Element, das das Bild enthält. Wenn sich das Bild in einem {{HTMLElement("iframe")}} befindet, bezieht sich `y` relativ auf dieses Frame.
 
-Im unten stehenden Diagramm ist der obere Rand des blauen Bereichs der obere Rand des Innenabstands. Der von `y` zurückgegebene Wert wäre also der Abstand von diesem Punkt zum oberen Rand des Inhaltsbereichs.
+Im untenstehenden Diagramm ist die obere Randkante die Oberkante des blauen Padding-Bereichs. Der von `y` zurückgegebene Wert wäre daher der Abstand von diesem Punkt bis zur oberen Kante des Inhaltsbereichs.
 
-![Diagramm, das die Beziehungen zwischen den verschiedenen mit einem Element verbundenen Kästen zeigt](boxmodel-3.png)
+![Diagramm, das die Beziehungen zwischen den verschiedenen Kästen, die zu einem Element gehören, zeigt](boxmodel-3.png)
 
 > [!NOTE]
-> Die `y`-Eigenschaft ist nur dann gültig, wenn der berechnete Wert der {{cssxref("display")}}-Eigenschaft des Bildes entweder `table-column` oder `table-column-group` ist; mit anderen Worten, einer dieser Werte ist direkt auf dem {{HTMLElement("img")}} gesetzt oder wird von einem umgebenden Element geerbt, oder durch seine Position in einer durch {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschriebenen Spalte.
+> Die `y`-Eigenschaft ist nur gültig, wenn der berechnete Wert der {{cssxref("display")}}-Eigenschaft des Bildes entweder `table-column` oder `table-column-group` ist. Anders gesagt: Einer dieser Werte wurde entweder direkt auf das {{HTMLElement("img")}} gesetzt, wurde von einem umschließenden Element geerbt oder stammt von einer Spalte, die entweder durch {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschrieben wird.
 
 ## Beispiel
 
-Siehe [`HTMLImageElement.x`](/de/docs/Web/API/HTMLImageElement/x#example) für Beispielcode, der die Verwendung von `HTMLImageElement.y` (und `HTMLImageElement.x`) demonstriert.
+Siehe [`HTMLImageElement.x`](/de/docs/Web/API/HTMLImageElement/x#example) für Beispielcode, der die Nutzung von `HTMLImageElement.y` (und `HTMLImageElement.x`) demonstriert.
 
 ## Spezifikationen
 

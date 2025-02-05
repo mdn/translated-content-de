@@ -3,14 +3,14 @@ title: "SVGRect: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/SVGRect/y
 l10n:
-  sourceCommit: 3ae7f380c04096191376ffc2b455471e5d5fd8a8
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y`**-Eigenschaft der [`SVGRect`](/de/docs/Web/API/SVGRect)-Schnittstelle ist ein Alias für die [`DOMRect.y`](/de/docs/Web/API/DOMRect/y)-Eigenschaft. Sie beschreibt die vertikale Koordinate der Position des Elements. Sie spiegelt das {{SVGattr("y")}}-Attribut des SVG-Elements und die CSS-{{cssxref("y")}}-Eigenschaft wider.
+Die **`y`**-Eigenschaft des [`SVGRect`](/de/docs/Web/API/SVGRect)-Interfaces ist ein Alias für die [`DOMRect.y`](/de/docs/Web/API/DOMRect/y)-Eigenschaft. Sie beschreibt die vertikale Koordinate der Position des Elements. Sie spiegelt das {{SVGattr("y")}}-Attribut des SVG-Elements und die CSS-{{cssxref("y")}}-Eigenschaft wider.
 
-Ein `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegebenen Abstand vom Ursprung des Benutzerkoordinatensystems entlang der relevanten Achse (der y-Achse für Y-Koordinaten, der x-Achse für X-Koordinaten) darstellt. Die Syntax ist dieselbe wie für [`<length>`](/de/docs/Web/SVG/Content_type#length).
+Ein `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegebenen Abstand vom Ursprung des Benutzerkoordinatensystems entlang der entsprechenden Achse (der y-Achse für Y-Koordinaten, der x-Achse für X-Koordinaten) darstellt. Seine Syntax entspricht der von [`<length>`](/de/docs/Web/SVG/Content_type#length).
 
 ## Verwendungskontext
 
@@ -34,7 +34,7 @@ Ein `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegeben
       </td>
     </tr>
     <tr>
-      <td>Initial</td>
+      <td>Initialwert</td>
       <td>0</td>
     </tr>
     <tr>
@@ -54,7 +54,7 @@ Ein `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegeben
     <tr>
       <td>Prozentangaben</td>
       <td>
-        beziehen sich auf die Größe des SVG-Anzeigebereichs
+        beziehen sich auf die Größe des SVG-Viewports
       </td>
     </tr>
     <tr>
@@ -63,7 +63,7 @@ Ein `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegeben
     </tr>
     <tr>
       <td>Berechneter Wert</td>
-      <td>absolute Länge oder Prozentsatz</td>
+      <td>absolute Länge oder Prozentangabe</td>
     </tr>
     <tr>
       <td>Animierbar</td>

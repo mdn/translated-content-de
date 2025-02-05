@@ -2,12 +2,12 @@
 title: "::-webkit-slider-runnable-track"
 slug: Web/CSS/::-webkit-slider-runnable-track
 l10n:
-  sourceCommit: 08e04f121ea7b3a55e6ef47782d2d82fb053ca88
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{SeeCompatTable}}{{non-standard_header}}
 
-Der **`::-webkit-slider-runnable-track`** CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) stellt die "Spur" (die Rille, in der der Indikator gleitet) eines {{HTMLElement("input/range", '&lt;input type="range"&gt;')}} dar.
+Das **`::-webkit-slider-runnable-track`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die "Schiene" (die Nut, in der der Indikator gleitet) eines {{HTMLElement("input/range", '&lt;input type="range"&gt;')}}.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Der **`::-webkit-slider-runnable-track`** CSS-[Pseudo-Element](/de/docs/Web/CSS/
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -28,7 +28,7 @@ Kein Teil eines Standards.
 ## Siehe auch
 
 - {{CSSxRef("::-webkit-slider-thumb")}}
-- Ähnliche Pseudo-Elemente, die von anderen Browsern verwendet werden:
+- Ähnliche Pseudoelemente, die von anderen Browsern verwendet werden:
 
   - {{CSSxRef("::-moz-range-track")}}
 

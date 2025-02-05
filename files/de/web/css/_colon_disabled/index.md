@@ -2,12 +2,12 @@
 title: ":disabled"
 slug: Web/CSS/:disabled
 l10n:
-  sourceCommit: 5fef5d3c2b35846676218d5c9f7c5cfad10aa94b
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes deaktivierte Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, eingegeben usw.) oder fokussiert werden kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert oder fokussiert werden kann.
+Die **`:disabled`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes deaktivierte Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, hineingeschrieben usw.) oder in den Fokus genommen werden kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert werden oder den Fokus erhalten kann.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-disabled.html", "tabbed-standard")}}
 
@@ -21,7 +21,7 @@ Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseu
 
 ## Beispiele
 
-Dieses Beispiel zeigt ein grundlegendes Versandformular. Es nutzt das [JavaScript](/de/docs/Web/JavaScript) [`change`](/de/docs/Web/API/HTMLElement/change_event)-Event, um dem Benutzer zu ermöglichen, die Rechnungsfelder zu aktivieren/deaktivieren.
+Dieses Beispiel zeigt ein grundlegendes Versandformular. Es verwendet das [JavaScript](/de/docs/Web/JavaScript)-[`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis, um dem Benutzer zu ermöglichen, die Felder für die Rechnungsadresse zu aktivieren/deaktivieren.
 
 ### HTML
 
@@ -56,7 +56,7 @@ input[type="text"]:disabled {
 
 ### JavaScript
 
-Schaltet die deaktivierten Eingabefelder um, wenn das Kontrollkästchen angeklickt wird
+Deaktivieren/Aktivieren der Eingabefelder, wenn das Kontrollkästchen angeklickt wird.
 
 ```js
 const checkbox = document.querySelector("#billing-checkbox");
@@ -71,7 +71,7 @@ checkbox.addEventListener("change", () => {
 
 ### Ergebnis
 
-Aktivieren/Deaktivieren Sie das Kontrollkästchen, um die Stilisierung der Rechnungsfelder zu ändern.
+Markieren/Entmarkieren Sie das Kontrollkästchen, um das Styling der Felder für die Rechnungsadresse zu ändern.
 
 {{EmbedLiveSample('Examples', 300, 250)}}
 

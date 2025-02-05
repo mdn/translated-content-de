@@ -2,15 +2,15 @@
 title: "y"
 slug: Web/CSS/y
 l10n:
-  sourceCommit: c276224e43228e7d45e4894729fdc56a904615f5
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`y`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die y-Achsen-Koordinate der oberen linken Ecke der SVG {{SVGElement("rect")}} Form, des {{SVGElement("image")}} Bildes, des {{SVGElement("foreignObject")}} Viewports und des verschachtelten {{SVGElement("svg")}} Viewports relativ zum Benutzer- [Koordinatensystem](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems) des nächstgelegenen `<svg>` Vorfahren. Wenn vorhanden, überschreibt sie das {{SVGAttr("y")}} Attribut des Elements.
+Die **`y`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die y-Achsen-Koordinate der oberen linken Ecke der SVG-{{SVGElement("rect")}}-Form, des {{SVGElement("image")}}-Bildes, des {{SVGElement("foreignObject")}}-Viewports und des verschachtelten {{SVGElement("svg")}}-Viewports relativ zum Benutzer-[Koordinatensystem](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems) des nächsten `<svg>`-Vorfahrens. Falls vorhanden, überschreibt sie das {{SVGAttr("y")}}-Attribut des Elements.
 
 > [!NOTE]
-> Die `y` Eigenschaft gilt nur für {{SVGElement("rect")}}, {{SVGElement("image")}}, {{SVGElement("foreignObject")}} und {{SVGElement("svg")}} Elemente, die in einem `<svg>` verschachtelt sind. Sie hat keine Auswirkung auf äußerste `<svg>` Elemente und gilt nicht für andere SVG-Elemente, noch für HTML-Elemente oder Pseudo-Elemente.
+> Die `y`-Eigenschaft gilt nur für {{SVGElement("rect")}}-, {{SVGElement("image")}}-, {{SVGElement("foreignObject")}}- und {{SVGElement("svg")}}-Elemente, die in einem `<svg>` verschachtelt sind. Sie hat keine Wirkung auf äußerste `<svg>`-Elemente und gilt nicht für andere SVG-Elemente noch für HTML-Elemente oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -29,15 +29,15 @@ y: unset;
 
 ### Werte
 
-Die {{cssxref("length")}} und {{cssxref("percentage")}} Werte geben die y-Achsen-Koordinatenposition der oberen linken Ecke des SVG-Elements an.
+Die Werte {{cssxref("length")}} und {{cssxref("percentage")}} geben die y-Achsen-Koordinatenposition der oberen linken Ecke des SVG-Elements an.
 
 - {{cssxref("length")}}
 
-  - : Als absolute oder relative Länge kann sie in jeder vom CSS {{cssxref("&lt;length&gt;")}} Datentyp zugelassenen Einheit ausgedrückt werden.
+  - : Als eine absolute oder relative Länge kann sie in jeder Einheit angegeben werden, die vom CSS-Datentyp {{cssxref("&lt;length&gt;")}} erlaubt ist.
 
 - {{cssxref("percentage")}}
 
-  - : Prozentsätze beziehen sich auf die Höhe des SVG {{SVGAttr("viewBox")}}, falls deklariert; andernfalls bezieht sich der Prozentsatz auf die Höhe des aktuellen SVG-Viewports.
+  - : Prozentwerte beziehen sich auf die Höhe der SVG-{{SVGAttr("viewBox")}}, falls vorhanden, andernfalls beziehen sich die Prozente auf die Höhe des aktuellen SVG-Viewports.
 
 ## Formale Definition
 
@@ -51,11 +51,11 @@ Die {{cssxref("length")}} und {{cssxref("percentage")}} Werte geben die y-Achsen
 
 ### Definieren der y-Achsen-Koordinaten von SVG-Formen
 
-Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `y` und wie die CSS `y` Eigenschaft Vorrang vor dem `y` Attribut hat.
+Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `y` und wie die CSS-`y`-Eigenschaft das `y`-Attribut übergeht.
 
 #### HTML
 
-Wir fügen vier identische SVG `<rect>` Elemente ein; deren {{SVGAttr("x")}} und `y` Attributwerte sind alle `10`, was bedeutet, dass sich die vier Rechtecke alle an derselben Stelle befinden, `10px` von der oberen und linken Ecke des SVG-Viewports entfernt.
+Wir fügen vier identische SVG-`<rect>`-Elemente ein. Ihre {{SVGAttr("x")}}- und `y`-Attributwerte sind alle `10`, was bedeutet, dass sich alle vier Rechtecke an derselben Stelle befinden, `10px` vom oberen und linken Rand des SVG-Viewports.
 
 ```html
 <svg>
@@ -68,7 +68,7 @@ Wir fügen vier identische SVG `<rect>` Elemente ein; deren {{SVGAttr("x")}} und
 
 #### CSS
 
-Wir gestalten alle Rechtecke mit einem schwarzen Rand und leicht transparent, damit überlappende Rechtecke sichtbar sind. Wir geben dem Rechteck unterschiedliche {{cssxref("fill")}} und `y` Werte.
+Wir gestalten alle Rechtecke mit einer schwarzen Umrandung und leicht transparenter Füllung, sodass sich überlappende Rechtecke sichtbar sind. Wir geben den Rechtecken unterschiedliche {{cssxref("fill")}}- und `y`-Werte.
 
 ```css
 svg {
@@ -99,9 +99,9 @@ rect:nth-of-type(4) {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Definieren der y-Achsen-Koordinate von SVG-Formen", "300", "180")}}
+{{EmbedLiveSample("Defining the y-axis coordinate of SVG shapes", "300", "180")}}
 
-Die oberen Kanten der Rechtecke liegen jeweils bei `10` (vom Attribut), `-20px`, `4em` und `60%`. Das Rechteck ist `40px` hoch, somit befindet sich die Hälfte des roten Rechtecks bei `-20px` außerhalb des Viewports. Das SVG ist `150px` hoch, sodass die obere Seite des orangefarbenen Rechtecks `90px` von der Oberseite des SVG-Viewports entfernt ist.
+Die oberen Kanten der Rechtecke befinden sich bei `10` (durch das Attribut), `-20px`, `4em` und `60%`. Die Höhe des Rechtecks beträgt `40px`, daher befindet sich die Hälfte des roten Rechtecks bei `-20px` außerhalb des Viewports. Das SVG ist `150px` hoch, daher befindet sich die Oberkante des orangefarbenen Rechtecks `90px` vom oberen Rand des SVG-Viewports entfernt.
 
 ## Spezifikationen
 
@@ -113,9 +113,9 @@ Die oberen Kanten der Rechtecke liegen jeweils bei `10` (vom Attribut), `-20px`,
 
 ## Siehe auch
 
-- SVG {{SVGAttr("y")}} Attribut
-- Geometrieeigenschaften: `y`, {{cssxref("cx")}}, {{cssxref("cy")}}, {{cssxref("r")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("width")}}, {{cssxref("height")}}
+- SVG-{{SVGAttr("y")}}-Attribut
+- Geometrie-Eigenschaften: `y`, {{cssxref("cx")}}, {{cssxref("cy")}}, {{cssxref("r")}}, {{cssxref("rx")}}, {{cssxref("ry")}}, {{cssxref("x")}}, {{cssxref("width")}}, {{cssxref("height")}}
 - {{cssxref("fill")}}
 - {{cssxref("stroke")}}
 - {{cssxref("paint-order")}}
-- {{cssxref("basic-shape")}} Datentyp
+- {{cssxref("basic-shape")}}-Datentyp

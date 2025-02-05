@@ -2,15 +2,15 @@
 title: ":-moz-handler-blocked"
 slug: Web/CSS/:-moz-handler-blocked
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}} {{Non-standard_header}}
 
-Die **`:-moz-handler-blocked`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente auswählt, die nicht angezeigt werden können, da ihre Handler blockiert wurden.
+Die **`:-moz-handler-blocked`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente auswählt, die nicht angezeigt werden können, weil ihre Handler blockiert wurden.
 
 > [!NOTE]
-> Dieser Selektor ist hauptsächlich für Theme-Entwickler gedacht.
+> Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler gedacht.
 
 ## Syntax
 

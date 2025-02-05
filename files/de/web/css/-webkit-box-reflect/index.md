@@ -2,12 +2,12 @@
 title: "-webkit-box-reflect"
 slug: Web/CSS/-webkit-box-reflect
 l10n:
-  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_Header}}
 
-Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, den Inhalt eines Elements in eine spezifische Richtung zu spiegeln.
+Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS)-Eigenschaft erlaubt es, den Inhalt eines Elements in eine bestimmte Richtung zu spiegeln.
 
 ## Syntax
 
@@ -35,7 +35,7 @@ Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es
 ### Werte
 
 - `above`_,_ `below`_,_ `right`_,_ `left`
-  - : Sind Schlüsselwörter, die angeben, in welche Richtung die Spiegelung erfolgen soll.
+  - : Schlüsselwörter, die angeben, in welche Richtung die Spiegelung erfolgen soll.
 - {{CSSxRef("&lt;length&gt;")}}
   - : Gibt die Größe der Spiegelung an.
 - {{CSSxRef("&lt;image&gt;")}}
@@ -54,7 +54,7 @@ Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es
 
 ## Spezifikationen
 
-Teil keiner Norm. Der standardmäßige Weg, um Spiegelungen in CSS zu realisieren, ist die Verwendung der CSS {{CSSxRef("element", "element()")}} Funktion.
+Nicht Teil eines Standards. Die standardisierte Methode, um Spiegelungen in CSS zu erzeugen, ist die CSS-Funktion {{CSSxRef("element", "element()")}}.
 
 ## Browser-Kompatibilität
 
@@ -62,5 +62,5 @@ Teil keiner Norm. Der standardmäßige Weg, um Spiegelungen in CSS zu realisiere
 
 ## Siehe auch
 
-- Die Apple [Dokumentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html).
-- Die WebKit [Spezifikation](https://webkit.org/blog/182/css-reflections/).
+- Die Apple-[Dokumentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html).
+- Die WebKit-[Spezifikation](https://webkit.org/blog/182/css-reflections/).

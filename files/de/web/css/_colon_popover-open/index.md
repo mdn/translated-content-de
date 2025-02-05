@@ -2,12 +2,12 @@
 title: ":popover-open"
 slug: Web/CSS/:popover-open
 l10n:
-  sourceCommit: e492ae4891e1f0a454fd452ee2e67986f8e1150f
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:popover-open`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein [Popover](/de/docs/Web/API/Popover_API)-Element (d. h. eines mit einem [`popover`-Attribut](/de/docs/Web/HTML/Global_attributes/popover)), das sich im sichtbaren Zustand befindet. Sie können dies verwenden, um Stil nur auf Popover-Elemente anzuwenden, wenn sie angezeigt werden.
+Die **`:popover-open`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein [Popover](/de/docs/Web/API/Popover_API)-Element (d. h. ein Element mit einem [`popover`-Attribut](/de/docs/Web/HTML/Global_attributes/popover)), das sich im angezeigten Zustand befindet. Sie können dies verwenden, um Popover-Elemente nur dann zu stylen, wenn sie angezeigt werden.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Die **`:popover-open`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/
 
 ## Beispiele
 
-Standardmäßig erscheinen Popovers in der Mitte des Ansichtsfensters. Die Standardformatierung wird im UA-Stylesheet folgendermaßen erreicht:
+Standardmäßig erscheinen Popover in der Mitte des Viewports. Diese Standardgestaltung wird im UA-Stylesheet folgendermaßen umgesetzt:
 
 ```css
 [popover] {
@@ -36,7 +36,7 @@ Standardmäßig erscheinen Popovers in der Mitte des Ansichtsfensters. Die Stand
 }
 ```
 
-Um die Standardstile zu überschreiben und das Popover an einer anderen Stelle im Ansichtsfenster erscheinen zu lassen, könnten Sie die obigen Stile mit etwas wie diesem überschreiben:
+Um die Standardstile zu überschreiben und das Popover an einer anderen Stelle im Viewport erscheinen zu lassen, könnten Sie die obigen Stile mit etwas wie diesem überschreiben:
 
 ```css
 :popover-open {
@@ -61,4 +61,4 @@ Um die Standardstile zu überschreiben und das Popover an einer anderen Stelle i
 ## Siehe auch
 
 - [Popover API](/de/docs/Web/API/Popover_API)
-- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) globales HTML-Attribut
+- [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-HTML-Globalattribut

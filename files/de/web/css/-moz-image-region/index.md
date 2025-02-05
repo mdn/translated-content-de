@@ -2,14 +2,14 @@
 title: "-moz-image-region"
 slug: Web/CSS/-moz-image-region
 l10n:
-  sourceCommit: 69f92b8a249a9da025a5b12d98aafd84d417c8d9
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_Header}}
 
-Für bestimmte XUL-Elemente und Pseudoelemente, die ein Bild aus der {{CSSxRef("list-style-image")}}-Eigenschaft verwenden, gibt diese Eigenschaft einen Bereich des Bildes an, der anstelle des gesamten Bildes verwendet wird. Dies ermöglicht es Elementen, verschiedene Teile desselben Bildes zu verwenden, um die Leistung zu verbessern.
+Für bestimmte XUL-Elemente und Pseudo-Elemente, die ein Bild aus der {{CSSxRef("list-style-image")}}-Eigenschaft verwenden, gibt diese Eigenschaft einen Bereich des Bildes an, der anstelle des gesamten Bildes genutzt wird. Dadurch können verschiedene Teile desselben Bildes von Elementen verwendet werden, um die Leistung zu verbessern.
 
-Die Syntax ist ähnlich wie bei der Eigenschaft {{CSSxRef("clip")}}. Alle vier Werte sind relativ zur oberen linken Ecke des Bildes.
+Die Syntax ist der {{CSSxRef("clip")}}-Eigenschaft ähnlich. Alle vier Werte beziehen sich auf die obere linke Ecke des Bildes.
 
 ## Syntax
 
@@ -29,9 +29,9 @@ Die Syntax ist ähnlich wie bei der Eigenschaft {{CSSxRef("clip")}}. Alle vier W
 ### Werte
 
 - `auto`
-  - : Definiert automatisch den zu verwendenden Bereich des Bildes.
+  - : Definiert automatisch den Bereich des Bildes, der verwendet werden soll.
 - [`<shape>`](/de/docs/Web/CSS/shape)
-  - : Eine Form, die den zu verwendenden Teil des Bildes definiert. Die Funktion `rect()` definiert ein Rechteck als Form. Ihre Parameter definieren der Reihenfolge nach die oberen, rechten, unteren und linken Versätze der Bildkanten.
+  - : Eine Form, die den zu verwendenden Teil des Bildes definiert. Die `rect()`-Funktion definiert ein Rechteck, das als Form verwendet wird. Ihre Parameter definieren die oberen, rechten, unteren und linken Abstände der Bildränder in dieser Reihenfolge.
 
 ## Formale Definition
 
@@ -46,7 +46,7 @@ Die Syntax ist ähnlich wie bei der Eigenschaft {{CSSxRef("clip")}}. Alle vier W
 
 ## Beispiele
 
-### Ausschneiden eines Bildes
+### Zuschneiden eines Bildes
 
 ```css
 #example-button {

@@ -2,7 +2,7 @@
 title: ":first-child"
 slug: Web/CSS/:first-child
 l10n:
-  sourceCommit: 8d4fb1e2934111a13989d2796152dc601468e7b5
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
@@ -51,7 +51,7 @@ p:first-child {
 
 {{EmbedLiveSample('Basic_example', 500, 200)}}
 
-### Eine Liste stylen
+### Styling einer Liste
 
 #### HTML
 

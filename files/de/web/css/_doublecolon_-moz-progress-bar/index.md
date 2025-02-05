@@ -2,14 +2,14 @@
 title: "::-moz-progress-bar"
 slug: Web/CSS/::-moz-progress-bar
 l10n:
-  sourceCommit: b60bc79c7ad36c56dddf6760d2fd4dbb642d2023
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}{{SeeCompatTable}}
 
-Das **`::-moz-progress-bar`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die die Fortschrittsleiste innerhalb eines {{HTMLElement("progress")}}-Elements darstellt. (Die Leiste repräsentiert den Fortschritt, der gemacht wurde.)
+Das **`::-moz-progress-bar`** [CSS](/de/docs/Web/CSS)-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die die Fortschrittsanzeige innerhalb eines {{HTMLElement("progress")}}-Elements darstellt. (Die Leiste stellt den Fortschritt dar, der erreicht wurde.)
 
-Wenn Sie den nicht vollendeten Teil des {{HTMLElement("progress")}}-Elements in Mozilla auswählen möchten, wählen Sie bitte das {{HTMLElement("progress")}}-Element direkt aus.
+Wenn Sie den nicht abgeschlossenen Teil von {{HTMLElement("progress")}} in Mozilla auswählen möchten, wählen Sie bitte direkt das {{HTMLElement("progress")}}-Element aus.
 
 ## Syntax
 
@@ -47,7 +47,7 @@ Wenn Sie den nicht vollendeten Teil des {{HTMLElement("progress")}}-Elements in 
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Gehört zu keinem Standard.
 
 ## Browser-Kompatibilität
 

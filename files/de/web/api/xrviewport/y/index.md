@@ -3,30 +3,23 @@ title: "XRViewport: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/XRViewport/y
 l10n:
-  sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Schnittstelle [`XRViewport`](/de/docs/Web/API/XRViewport)
-enthält die **`y`**-Eigenschaft, die den Versatz von der Unterkante der
-Zielfläche (typischerweise ein [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)) bis zur Unterkante des
-Ansichtsfensters innerhalb der Fläche angibt, in die WebXR-Inhalte gerendert werden sollen. Die
-Eigenschaft [`x`](/de/docs/Web/API/XRViewport/x) des Ansichtsfensters identifiziert die `x`-Komponente des Ursprungs, und die Dimensionen werden durch die Eigenschaften [`width`](/de/docs/Web/API/XRViewport/width)
-und [`height`](/de/docs/Web/API/XRViewport/height) angegeben.
+Die schreibgeschützte [`XRViewport`](/de/docs/Web/API/XRViewport)-Schnittstelle besitzt die **`y`**-Eigenschaft, die den Versatz von der unteren Kante der Zieloberfläche (typischerweise ein [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)) zur unteren Kante des Ansichtsbereichs innerhalb der Oberfläche angibt, in die WebXR-Inhalte gerendert werden sollen. Die [`x`](/de/docs/Web/API/XRViewport/x)-Eigenschaft des Ansichtsbereichs identifiziert die `x`-Komponente des Ursprungs, und dieser wird durch die [`width`](/de/docs/Web/API/XRViewPort/width)- und [`height`](/de/docs/Web/API/XRViewport/height)-Eigenschaften definiert.
 
 ## Wert
 
-Der Versatz von der Unterkante der Rendering-Fläche bis zur Unterkante des
-Ansichtsfensters, in Pixeln.
+Der Versatz von der unteren Kante der Rendering-Oberfläche zur unteren Kante des Ansichtsbereichs, in Pixeln.
 
 > [!NOTE]
-> Obwohl andere Web-APIs typischerweise die `y`-Achse am oberen Bildschirmrand beginnen und nach unten hin wachsen lassen, kehrt WebGL dies um,
-> mit `y`, das nach oben auf dem Bildschirm größer wird.
+> Obwohl andere Web-APIs typischerweise die `y`-Achse am oberen Rand beginnen lassen und diese in Richtung nach unten größer wird, kehrt WebGL dies um, sodass `y` größer wird, während es sich nach oben auf dem Bildschirm bewegt.
 
 ## Beispiele
 
-Siehe die Hauptseite zu [`XRViewport`](/de/docs/Web/API/XRViewport) für Beispiele.
+Beispiele finden Sie auf der Hauptseite von [`XRViewport`](/de/docs/Web/API/XRViewport).
 
 ## Spezifikationen
 

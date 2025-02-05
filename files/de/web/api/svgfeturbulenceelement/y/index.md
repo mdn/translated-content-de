@@ -1,16 +1,16 @@
 ---
-title: "SVGFETurbulenceElement: Eigenschaft y"
+title: "SVGFETurbulenceElement: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/SVGFETurbulenceElement/y
 l10n:
-  sourceCommit: ec48a043c5dbedef746b2d85f780f73cef59f332
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y`**-Schreibgeschützte Eigenschaft des [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement)-Interfaces beschreibt die vertikale Koordinate der Position einer SVG-Filter-Primitiv als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die schreibgeschützte **`y`**-Eigenschaft der [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement)-Schnittstelle beschreibt die vertikale Koordinate der Position einer SVG-Filterprimitive als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das Attribut {{SVGAttr("y")}} des {{SVGElement("feTurbulence")}}-Elements wider, das die Synthese künstlicher Texturen ermöglicht. Das Attribut ist ein [`\<length>`](/de/docs/Web/SVG/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegebenen Abstand vom Ursprung des Filters entlang der y-Achse darstellt. Wenn das `y`-Attribut ein Prozentwert ist, ist der Eigenschaftswert relativ zur Höhe der Filterregion in Benutzerkoordinatensystem-Einheiten. Der Standardwert ist `0`.
+Sie spiegelt das {{SVGAttr("y")}}-Attribut des {{SVGElement("feTurbulence")}}-Elements wider, welches die Synthese künstlicher Texturen ermöglicht. Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Die `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den angegebenen Abstand vom Ursprung des Filters entlang der y-Achse darstellt. Falls das `y`-Attribut einen Prozentwert enthält, ist der Eigenschaftswert relativ zur Höhe des Filterbereichs in Einheiten des Benutzerkoordinatensystems. Der Standardwert ist `0`.
 
 ## Wert
 
@@ -35,5 +35,5 @@ console.log(topPosition.baseVal.value); // the `y` value
 ## Siehe auch
 
 - [`SVGFETurbulenceElement.x`](/de/docs/Web/API/SVGFETurbulenceElement/x)
-- CSS-Datentyp {{cssxref("blend-mode")}}
-- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}
+- CSS {{cssxref("blend-mode")}} Datentyp
+- CSS {{cssxref("mix-blend-mode")}} Eigenschaft

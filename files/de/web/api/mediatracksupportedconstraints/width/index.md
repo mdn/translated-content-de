@@ -3,18 +3,18 @@ title: "MediaTrackSupportedConstraints: width-Eigenschaft"
 short-title: width
 slug: Web/API/MediaTrackSupportedConstraints/width
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 5e3c69527de87e8ff9407de62e919db9254f0627
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`width`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter Boolescher Wert. Dieser ist im Objekt, das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, vorhanden (und auf `true` gesetzt), wenn und nur wenn der [user agent](/de/docs/Glossary/user_agent) die `width`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, daher wird dieser Wert niemals `false` sein.
+Die **`width`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter Boolescher Wert, der in dem Objekt enthalten (und auf `true` gesetzt) ist, das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, und zwar nur, wenn der {{Glossary("user_agent", "User Agent")}} die `width`-Einschränkung unterstützt. Falls die Einschränkung nicht unterstützt wird, ist sie in der Liste nicht enthalten, sodass dieser Wert niemals `false` sein wird.
 
-Sie können das Wörterbuch der unterstützten Einschränkungen abrufen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
+Sie können auf das Wörterbuch der unterstützten Einschränkungen zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 
-### Wert
+## Wert
 
-Diese Eigenschaft ist im Wörterbuch vorhanden (und ihr Wert ist immer `true`), wenn der user agent die `width`-Einschränkung unterstützt. Wenn die Eigenschaft nicht vorhanden ist, fehlt diese Eigenschaft im Wörterbuch der unterstützten Einschränkungen, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, auf ihren Wert zuzugreifen.
+Diese Eigenschaft ist in dem Wörterbuch enthalten (und der Wert ist immer `true`), wenn der User Agent die `width`-Einschränkung unterstützt. Falls die Eigenschaft nicht enthalten ist, fehlt sie im Wörterbuch der unterstützten Einschränkungen, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert abzufragen.
 
 ## Beispiel
 

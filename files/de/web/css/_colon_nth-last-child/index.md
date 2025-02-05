@@ -2,18 +2,18 @@
 title: ":nth-last-child()"
 slug: Web/CSS/:nth-last-child
 l10n:
-  sourceCommit: 49cf48d75edd801ea870c848b913187b5c882798
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:nth-last-child()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf ihrer Position in einer Gruppe von Geschwistern, vom Ende gezählt.
+Die **`:nth-last-child()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf ihrer Position innerhalb einer Gruppe von Geschwistern aus, wobei von hinten gezählt wird.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-nth-last-child.html", "tabbed-shorter")}}
 
 ## Syntax
 
-Die `nth-last-child` Pseudoklasse wird mit einem einzigen Argument angegeben, das das Muster für die zu wählenden Elemente darstellt, vom Ende gezählt.
+Die `nth-last-child`-Pseudoklasse wird mit einem einzigen Argument angegeben, das das Muster für die Auswahl von Elementen repräsentiert, wobei von hinten gezählt wird.
 
 ```css-nolint
 :nth-last-child(<nth> [of <complex-selector-list>]?) {
@@ -21,28 +21,28 @@ Die `nth-last-child` Pseudoklasse wird mit einem einzigen Argument angegeben, da
 }
 ```
 
-### Schlüsselwortwerte
+### Schlüsselwort-Werte
 
 - `odd`
-  - : Repräsentiert Elemente, deren numerische Position in einer Serie von Geschwistern ungerade ist: 1, 3, 5, usw., vom Ende gezählt.
+  - : Repräsentiert Elemente, deren numerische Position in einer Serie von Geschwistern ungerade ist: 1, 3, 5 usw., wobei von hinten gezählt wird.
 - `even`
-  - : Repräsentiert Elemente, deren numerische Position in einer Serie von Geschwistern gerade ist: 2, 4, 6, usw., vom Ende gezählt.
+  - : Repräsentiert Elemente, deren numerische Position in einer Serie von Geschwistern gerade ist: 2, 4, 6 usw., wobei von hinten gezählt wird.
 
-### Funktionsnotation
+### Funktionale Notation
 
 - `<An+B>`
 
-  - : Repräsentiert Elemente, deren numerische Position in einer Serie von Geschwistern dem Muster `An+B` entspricht, für jeden positiven ganzzahligen oder null Wert von `n`, wobei:
+  - : Repräsentiert Elemente, deren numerische Position in einer Serie von Geschwistern dem Muster `An+B` entspricht, für jeden positiven ganzzahligen oder null-Wert von `n`, wobei:
 
-    - `A` ist eine ganzzahlige Schrittgröße,
-    - `B` ist ein ganzzahliger Versatz,
-    - `n` sind alle nichtnegativen ganzen Zahlen, beginnend bei 0.
+    - `A` eine ganzzahlige Schrittweite ist,
+    - `B` ein ganzzahliger Versatz ist,
+    - `n` alle nichtnegativen Ganzzahlen sind, beginnend bei 0.
 
-    Es kann als das `An+B`-te Element einer Liste gelesen werden. Der Index des ersten Elements, vom Ende gezählt, ist `1`. `A` und `B` müssen beide {{cssxref("&lt;integer&gt;")}} Werte haben.
+    Dies kann als das `An+B`-te Element einer Liste gelesen werden. Der Index des ersten Elements, gezählt von hinten, ist `1`. Sowohl `A` als auch `B` müssen {{cssxref("&lt;integer&gt;")}}-Werte haben.
 
-### Die `of <selector>` Syntax
+### Die `of <selector>`-Syntax
 
-Durch Übergabe eines Selektor-Arguments können wir das **nth-letzte** Element auswählen, das diesem Selektor entspricht. Zum Beispiel wählt der folgende Selektor die letzten drei _wichtigen_ Listenelemente, die mit `class="important"` versehen sind.
+Indem Sie ein Selektoren-Argument übergeben, können Sie das **n-letzte** Element auswählen, das zu diesem Selektor passt. Zum Beispiel wählt der folgende Selektor die letzten drei _wichtigen_ Listenelemente aus, die mit `class="important"` versehen sind.
 
 ```css
 :nth-last-child(-n + 3 of li.important) {
@@ -50,34 +50,34 @@ Durch Übergabe eines Selektor-Arguments können wir das **nth-letzte** Element 
 ```
 
 > [!NOTE]
-> Dies unterscheidet sich davon, den Selektor außerhalb der Funktion zu platzieren, wie:
+> Dies unterscheidet sich davon, den Selektor außerhalb der Funktion zu platzieren, wie hier:
 
 ```css
 li.important: nth-last-child(-n + 3);
 ```
 
-Dieser Selektor wendet einen Stil auf Listenelemente an, wenn sie auch zu den letzten drei Kindern gehören.
+Dieser Selektor wendet einen Stil auf Listenelemente an, wenn diese auch innerhalb der letzten drei Kinder sind.
 
 ## Beispiele
 
 ### Beispielselektoren
 
 - `tr:nth-last-child(odd)` oder `tr:nth-last-child(2n+1)`
-  - : Repräsentiert die ungeraden Zeilen einer HTML-Tabelle: 1, 3, 5, usw., vom Ende gezählt.
+  - : Repräsentiert die ungeraden Zeilen einer HTML-Tabelle: 1, 3, 5 usw., wobei von hinten gezählt wird.
 - `tr:nth-last-child(even)` oder `tr:nth-last-child(2n)`
-  - : Repräsentiert die geraden Zeilen einer HTML-Tabelle: 2, 4, 6, usw., vom Ende gezählt.
+  - : Repräsentiert die geraden Zeilen einer HTML-Tabelle: 2, 4, 6 usw., wobei von hinten gezählt wird.
 - `:nth-last-child(7)`
-  - : Repräsentiert das siebte Element, vom Ende gezählt.
+  - : Repräsentiert das siebte Element, gezählt von hinten.
 - `:nth-last-child(5n)`
-  - : Repräsentiert die Elemente 5, 10, 15, usw., vom Ende gezählt.
+  - : Repräsentiert die Elemente 5, 10, 15 usw., wobei von hinten gezählt wird.
 - `:nth-last-child(3n+4)`
-  - : Repräsentiert die Elemente 4, 7, 10, 13, usw., vom Ende gezählt.
+  - : Repräsentiert die Elemente 4, 7, 10, 13 usw., wobei von hinten gezählt wird.
 - `:nth-last-child(-n+3)`
-  - : Repräsentiert die letzten drei Elemente in einer Gruppe von Geschwistern.
+  - : Repräsentiert die letzten drei Elemente innerhalb einer Gruppe von Geschwistern.
 - `p:nth-last-child(n)` oder `p:nth-last-child(n+1)`
-  - : Repräsentiert jedes `<p>` Element in einer Gruppe von Geschwistern. Dies ist dasselbe wie ein einfacher `p` Selektor. (Da `n` bei null beginnt, während das letzte Element bei eins beginnt, wählen `n` und `n+1` dieselben Elemente aus.)
+  - : Repräsentiert jedes `<p>`-Element innerhalb einer Gruppe von Geschwistern. Dies ist gleichbedeutend mit einem einfachen `p`-Selektor. (Da `n` bei null beginnt und währenddessen das letzte Element bei eins startet, werden `n` und `n+1` dieselben Elemente auswählen.)
 - `p:nth-last-child(1)` oder `p:nth-last-child(0n+1)`
-  - : Repräsentiert jedes `<p>`, das das erste Element in einer Gruppe von Geschwistern ist, vom Ende gezählt. Dies ist dasselbe wie der {{cssxref(":last-child")}} Selektor.
+  - : Repräsentiert jedes `<p>`, das das erste Element innerhalb einer Gruppe von Geschwistern ist, wobei von hinten gezählt wird. Dies ist gleichbedeutend mit dem {{cssxref(":last-child")}}-Selektor.
 
 ### Tabellenbeispiel
 
@@ -134,7 +134,7 @@ tr:nth-last-child(2) {
 
 ### Mengenabfrage
 
-Eine _Mengenabfrage_ gestaltet Elemente abhängig davon, wie viele es davon gibt. In diesem Beispiel werden Listenelemente rot, wenn es mindestens drei davon in einer gegebenen Liste gibt. Dies wird erreicht, indem die Fähigkeiten der `nth-last-child` Pseudoklasse und des [nachfolgenden Geschwisterkombinators](/de/docs/Web/CSS/Subsequent-sibling_combinator) kombiniert werden.
+Eine _Mengenabfrage_ gestaltet Elemente abhängig davon, wie viele es davon gibt. In diesem Beispiel werden Listenelemente rot gefärbt, wenn es mindestens drei davon in einer Liste gibt. Dies wird durch die Kombination der Möglichkeiten der `nth-last-child`-Pseudoklasse und des [Darauffolgenden-Geschwisterkombinators](/de/docs/Web/CSS/Subsequent-sibling_combinator) erreicht.
 
 #### HTML
 
@@ -169,9 +169,9 @@ li:nth-last-child(3) ~ li {
 
 {{EmbedLiveSample('Quantity_query', '100%', 270)}}
 
-### `of <selector>` Syntaxbeispiel
+### `of <selector>`-Syntaxbeispiel
 
-In diesem Beispiel gibt es eine ungeordnete Liste von Namen. Einige Elemente haben eine `noted` Klasse und werden dann mit einer dicken unteren Umrandung hervorgehoben.
+In diesem Beispiel gibt es eine unsortierte Liste mit Namen. Einige Einträge haben die Klasse `noted` und werden mit einer dicken unteren Begrenzung hervorgehoben.
 
 #### HTML
 
@@ -226,7 +226,7 @@ li {
 }
 ```
 
-Im folgenden CSS richten wir uns an die **ungeraden** Listenelemente, die mit `class="noted"` markiert sind.
+Im folgenden CSS zielen wir auf die **ungeraden** Listenelemente ab, die mit `class="noted"` gekennzeichnet sind.
 
 ```css
 li:nth-last-child(odd of .noted) {
@@ -237,7 +237,7 @@ li:nth-last-child(odd of .noted) {
 
 #### Ergebnis
 
-Elemente mit `class="noted"` haben eine dicke untere Umrandung und Elemente 1, 7, 14 und 20 haben einen festen Hintergrund, da sie die _ungeraden_ Listenelemente mit `class="noted"` sind.
+Einträge mit `class="noted"` haben eine dicke untere Begrenzung und die Einträge 1, 7, 14 und 20 haben einen durchgehenden Hintergrund, da sie die _ungeraden_ Listenelemente mit `class="noted"` sind.
 
 {{EmbedLiveSample('of_selector_syntax_example', 550, 120)}}
 
@@ -253,4 +253,4 @@ Elemente mit `class="noted"` haben eine dicke untere Umrandung und Elemente 1, 7
 
 - {{Cssxref(":nth-child")}}
 - {{Cssxref(":nth-last-of-type")}}
-- [Quantity Queries for CSS](https://alistapart.com/article/quantity-queries-for-css/)
+- [Mengenabfragen für CSS](https://alistapart.com/article/quantity-queries-for-css/)

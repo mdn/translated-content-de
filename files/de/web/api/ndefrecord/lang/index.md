@@ -3,18 +3,19 @@ title: "NDEFRecord: lang-Eigenschaft"
 short-title: lang
 slug: Web/API/NDEFRecord/lang
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 5e3c69527de87e8ff9407de62e919db9254f0627
 ---
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`lang`**-Eigenschaft der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Schnittstelle gibt die Sprache einer textuellen Nutzlast zurück, oder `null`, wenn keine angegeben wurde.
+Die **`lang`**
+Eigenschaft der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Schnittstelle gibt die Sprache einer textuellen Nutzlast zurück oder `null`, wenn keine angegeben wurde.
 
-Der Datensatz könnte ein Sprachkennzeichen fehlen, zum Beispiel, wenn die aufgenommene Information nicht lokalspezifisch ist.
+Der Eintrag könnte beispielsweise keinen Sprach-Tag aufweisen, wenn die aufgezeichneten Informationen nicht spezifisch für eine Sprache oder Region sind.
 
-### Wert
+## Wert
 
-Ein string.
+Ein String.
 
 ## Spezifikationen
 
@@ -26,5 +27,5 @@ Ein string.
 
 ## Siehe auch
 
-- [HTML `lang`-Attribut](/de/docs/Web/HTML/Global_attributes/lang), das die Sprache des Inhalts des Dokuments oder seiner Elemente deklariert
-- HTTP-Header, die die Inhaltssprache deklarieren: {{HTTPHeader("Content-Language")}} und {{HTTPHeader("Accept-Language")}}
+- [HTML `lang`-Attribut](/de/docs/Web/HTML/Global_attributes/lang), das die Sprache des Inhalts des Dokuments oder seiner Elemente angibt
+- HTTP-Header, die die Sprache des Inhalts deklarieren: {{HTTPHeader("Content-Language")}} und {{HTTPHeader("Accept-Language")}}

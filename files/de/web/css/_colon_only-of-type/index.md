@@ -2,12 +2,12 @@
 title: ":only-of-type"
 slug: Web/CSS/:only-of-type
 l10n:
-  sourceCommit: 71d9840f3da24005b015d3d103b358d4f9f46819
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:only-of-type`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das keine Geschwister des gleichen Typs hat.
+Die **`:only-of-type`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das keine Geschwister desselben Typs hat.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-only-of-type.html", "tabbed-shorter")}}
 
@@ -21,7 +21,7 @@ Die **`:only-of-type`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repr
 
 ## Beispiele
 
-### Stile für Elemente ohne Geschwister des gleichen Typs
+### Elemente ohne Geschwister desselben Typs stylen
 
 #### HTML
 

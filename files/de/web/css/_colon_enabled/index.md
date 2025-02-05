@@ -2,12 +2,12 @@
 title: ":enabled"
 slug: Web/CSS/:enabled
 l10n:
-  sourceCommit: f4db7ef7a2e2d38835b42146e86fd0a400e9f69e
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:enabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes aktivierte Element. Ein Element ist aktiviert, wenn es aktiviert werden kann (ausgewählt, angeklickt, beschreibbar usw.) oder den Fokus akzeptieren kann. Das Element hat auch einen deaktivierten Zustand, in dem es nicht aktiviert werden kann oder den Fokus akzeptieren kann.
+Die **`:enabled`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes aktivierte Element. Ein Element ist aktiviert, wenn es aktiviert werden kann (ausgewählt werden, angeklickt werden, Text eingeben usw.) oder den Fokus empfangen kann. Das Element hat auch einen deaktivierten Zustand, in dem es nicht aktiviert werden kann oder keinen Fokus empfangen kann.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-enabled.html", "tabbed-standard")}}
 
@@ -19,7 +19,7 @@ Die **`:enabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseud
 
 ## Beispiele
 
-Das folgende Beispiel macht die Farbe von Text und {{htmlElement("input")}}-Buttons grün, wenn sie aktiviert sind, und grau, wenn sie deaktiviert sind. Dies hilft dem Benutzer zu verstehen, mit welchen Elementen interagiert werden kann.
+Das folgende Beispiel macht die Textfarbe und die Schaltflächen der {{htmlElement("input")}}s grün, wenn sie aktiviert sind, und grau, wenn sie deaktiviert sind. Dies hilft dem Benutzer zu verstehen, mit welchen Elementen interagiert werden kann.
 
 ### HTML
 

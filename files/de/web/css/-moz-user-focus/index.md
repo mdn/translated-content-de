@@ -2,14 +2,14 @@
 title: "-moz-user-focus"
 slug: Web/CSS/-moz-user-focus
 l10n:
-  sourceCommit: 05a463a3bc1af6e1b1e0d6a273582d954ae00ed0
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}} {{deprecated_header}}{{non-standard_header}}
 
-Die **`-moz-user-focus`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um anzugeben, ob ein Element den Fokus erhalten kann.
+Die **`-moz-user-focus`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) wird verwendet, um anzuzeigen, ob ein Element den Fokus erhalten kann.
 
-Indem Sie den Wert auf `ignore` setzen, können Sie den Fokus auf das Element deaktivieren. Das bedeutet, dass der Benutzer das Element nicht aktivieren kann und es in der Tab-Reihenfolge übersprungen wird. Der Standardwert ist `none`, was den Fokus auf das Element deaktiviert und den Fokus von anderen Elementen entfernt, wenn versucht wird, das Element auszuwählen.
+Indem Sie den Wert auf `ignore` setzen, können Sie das Fokussieren des Elements deaktivieren. Das bedeutet, dass der Benutzer das Element nicht aktivieren kann und das Element in der Tabulatorreihenfolge übersprungen wird. Der Standardwert ist `none`, welcher das Fokussieren auf das Element deaktiviert und den Fokus von anderen Elementen entfernt, wenn versucht wird, das betreffende Element auszuwählen.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Indem Sie den Wert auf `ignore` setzen, können Sie den Fokus auf das Element de
 ### Werte
 
 - `ignore`
-  - : Das Element akzeptiert keinen Tastaturfokus und wird in der Tab-Reihenfolge übersprungen.
+  - : Das Element akzeptiert keinen Tastaturfokus und wird in der Tabulatorreihenfolge übersprungen.
 - `normal`
   - : Das Element kann Tastaturfokus akzeptieren.
 - `none`
@@ -39,7 +39,7 @@ Indem Sie den Wert auf `ignore` setzen, können Sie den Fokus auf das Element de
 
 {{CSSInfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 ```plain
 -moz-user-focus =
@@ -64,7 +64,7 @@ Indem Sie den Wert auf `ignore` setzen, können Sie den Fokus auf das Element de
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Gehört zu keinem Standard.
 
 ## Browser-Kompatibilität
 

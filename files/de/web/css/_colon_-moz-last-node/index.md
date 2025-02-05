@@ -2,15 +2,15 @@
 title: ":-moz-last-node"
 slug: Web/CSS/:-moz-last-node
 l10n:
-  sourceCommit: b60bc79c7ad36c56dddf6760d2fd4dbb642d2023
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{Non-standard_header}}{{CSSRef}}{{SeeCompatTable}}
 
-Die **`:-moz-last-node`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die jedes Element darstellt, das das letzte Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{cssxref(":last-child")}}, da sie kein Element als letztes Kind zuordnet, wenn nach ihm (nicht-leerer) Text vorhanden ist.
+Die **`:-moz-last-node`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die jedes Element repräsentiert, das das letzte Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{cssxref(":last-child")}}, da sie keine last-child-Elemente mit (nicht-leerem) Text danach selektiert.
 
 > [!NOTE]
-> Jeglicher Leerraum am Ende eines Elements wird bei der Bestimmung von `:-moz-last-node` ignoriert.
+> Jegliche Leerzeichen am Ende eines Elements werden bei der Bestimmung von `:-moz-last-node` ignoriert.
 
 ## Syntax
 
@@ -50,7 +50,7 @@ span:-moz-last-node {
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

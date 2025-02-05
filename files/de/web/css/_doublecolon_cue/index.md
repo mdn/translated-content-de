@@ -2,19 +2,19 @@
 title: "::cue"
 slug: Web/CSS/::cue
 l10n:
-  sourceCommit: 3975bcf6caa09c9c5f7fddf2eef2be6c021d00f6
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Das **`::cue`** [CSS](/de/docs/Web/CSS)-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) wird verwendet, um [WebVTT](/de/docs/Web/API/WebVTT_API)-Cues innerhalb eines ausgewählten Elements zu erfassen.
-Dies kann genutzt werden, um [Untertitel und andere Cues zu stylen](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet), die in Medien mit VTT-Tracks vorkommen.
+Das **`::cue`**- [CSS](/de/docs/Web/CSS)-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) wendet sich auf [WebVTT](/de/docs/Web/API/WebVTT_API)-Cues innerhalb eines ausgewählten Elements an.
+Dies kann verwendet werden, um [Untertitel und andere Cues zu gestalten](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Tracks.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-element-cue.html", "tabbed-shorter")}}
 
-Die Eigenschaften werden auf die gesamte Menge an Cues angewandt, als ob sie eine einzige Einheit wären. Die einzige Ausnahme bildet die Eigenschaft `background` und deren Einzelwerte, die auf jedes Cue einzeln angewandt werden, um zu vermeiden, dass Boxen erstellt werden, die unerwartet große Bereiche des Mediums verdecken.
+Die Eigenschaften werden auf die gesamte Menge der Cues angewendet, als ob sie eine einzige Einheit wären. Die einzige Ausnahme bilden `background` und seine Langform-Eigenschaften, die auf jeden Cue einzeln angewendet werden, um zu vermeiden, dass Boxen erstellt und unerwartet große Bereiche des Mediums überdeckt werden.
 
-Im obigen Beispiel selektiert der `::cue(u)`-Selektor alle [`<u>`](/de/docs/Web/HTML/Element/u)-Elemente im [Cue-Text](https://raw.githubusercontent.com/mdn/interactive-examples/main/live-examples/media/examples/friday.vtt).
+Im obigen Beispiel wählt der Selektor `::cue(u)` alle [`<u>`](/de/docs/Web/HTML/Element/u)-Elemente innerhalb [des Cue-Texts](https://raw.githubusercontent.com/mdn/interactive-examples/main/live-examples/media/examples/friday.vtt) aus.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Im obigen Beispiel selektiert der `::cue(u)`-Selektor alle [`<u>`](/de/docs/Web/
 
 ## Erlaubte Eigenschaften
 
-Regeln, deren Selektoren dieses Element einschließen, dürfen nur die folgenden CSS-Eigenschaften verwenden:
+Regeln, deren Selektoren dieses Element enthalten, dürfen nur die folgenden CSS-Eigenschaften verwenden:
 
 - [`background`](/de/docs/Web/CSS/background)
 - [`background-attachment`](/de/docs/Web/CSS/background-attachment)
@@ -64,9 +64,9 @@ Regeln, deren Selektoren dieses Element einschließen, dürfen nur die folgenden
 
 ## Beispiele
 
-### WebVTT-Cues als Weiß-auf-Schwarz stylen
+### WebVTT-Cues als Weiß-auf-Schwarz gestalten
 
-Das folgende CSS setzt den Cue-Stil so, dass der Text weiß ist und der Hintergrund eine halbtransparente schwarze Box ist.
+Das folgende CSS setzt die Cue-Stilrichtung so, dass der Text weiß und der Hintergrund eine durchscheinende schwarze Box ist.
 
 ```css
 ::cue {
@@ -75,11 +75,10 @@ Das folgende CSS setzt den Cue-Stil so, dass der Text weiß ist und der Hintergr
 }
 ```
 
-### Stylen von WebVTT-internen Node-Objekten
+### Gestaltung von WebVTT-internen Node-Objekten
 
-Cue-Text kann _interne Node-Objekte_ wie die Tags (ähnlich zu HTML-Elementen) `<c>`, `<i>`, `<b>`, `<u>`, `<ruby>`, `<rt>`, `<v>`, und `<lang>` enthalten.
-Der `::cue()`-Selektor kann verwendet werden, um Stile auf Inhalte innerhalb dieser Tags anzuwenden, um zu bestimmen, wie der WebVTT-Track angezeigt wird.
-Betrachten Sie den folgenden Cue-Text, der das `<u>`-Tag benutzt, um Text zu unterstreichen:
+Cue-Text kann _interne Node-Objekte_ enthalten, d. h. Tags (ähnlich wie HTML-Elemente) wie `<c>`, `<i>`, `<b>`, `<u>`, `<ruby>`, `<rt>`, `<v>` und `<lang>`.
+Der Selektor `::cue()` kann verwendet werden, um Stile auf Inhalte innerhalb dieser Tags anzuwenden und so anzupassen, wie der WebVTT-Track dargestellt wird. Betrachten Sie den folgenden Cue-Text, der das `<u>`-Tag verwendet, um Text zu unterstreichen:
 
 ```plain
 00:00:01.500 --> 00:00:02.999 line:80%

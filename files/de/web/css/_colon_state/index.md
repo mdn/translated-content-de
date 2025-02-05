@@ -2,16 +2,16 @@
 title: ":state()"
 slug: Web/CSS/:state
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:state()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) passt zu [benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements), die den angegebenen benutzerdefinierten Zustand haben.
+Die **`:state()`**-[Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) in [CSS](/de/docs/Web/CSS) vergleicht [Custom-Elemente](/de/docs/Web/API/Web_components/Using_custom_elements), die sich in einem bestimmten benutzerdefinierten Zustand befinden.
 
 ## Syntax
 
-Die `:state()`-Pseudo-Klasse nimmt als Argument einen benutzerdefinierten Bezeichner, der den Zustand des benutzerdefinierten Elements repräsentiert, das abgeglichen werden soll.
+Die Pseudo-Klasse `:state()` nimmt als Argument einen benutzerdefinierten Bezeichner, der den Zustand des Custom-Elements repräsentiert, das verglichen werden soll.
 
 ```css-nolint
 :state(<custom identifier>) {
@@ -21,19 +21,25 @@ Die `:state()`-Pseudo-Klasse nimmt als Argument einen benutzerdefinierten Bezeic
 
 ## Beschreibung
 
-Elemente können aufgrund von Benutzerinteraktion und anderen Faktoren zwischen Zuständen wechseln. Ein Element kann beispielsweise im "hover"-Zustand sein, wenn ein Benutzer über das Element schwebt, oder ein Link kann im "visited"-Zustand sein, nachdem ein Benutzer darauf geklickt hat. Von Browsern bereitgestellte Elemente können basierend auf diesen Zuständen mit CSS-Pseudoklassen wie [`:hover`](/de/docs/Web/CSS/:hover) und [`:visited`](/de/docs/Web/CSS/:visited) gestylt werden. Ebenso können [autonome benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements#types_of_custom_element) (benutzerdefinierte Elemente, die nicht von integrierten Elementen abgeleitet sind) ihre Zustände offenlegen, sodass Seiten, die die Elemente verwenden, diese mithilfe der CSS-`:state()`-Pseudoklasse stylen können.
+Elemente können aufgrund von Benutzerinteraktionen und anderen Faktoren zwischen Zuständen wechseln.
+Beispielsweise kann sich ein Element im "Hover"-Zustand befinden, wenn ein Benutzer mit der Maus darüberfährt, oder ein Link kann sich im "Visited"-Zustand befinden, nachdem ein Benutzer darauf geklickt hat.
+Von Browsern bereitgestellte Elemente können mit CSS-Pseudo-Klassen wie [`:hover`](/de/docs/Web/CSS/:hover) und [`:visited`](/de/docs/Web/CSS/:visited) basierend auf diesen Zuständen gestaltet werden.
+Ähnlich können [autonome Custom-Elemente](/de/docs/Web/API/Web_components/Using_custom_elements#types_of_custom_element) (Custom-Elemente, die nicht von eingebauten Elementen abgeleitet sind) ihre Zustände offenlegen, sodass Seiten, die diese Elemente verwenden, sie mithilfe der CSS-Pseudo-Klasse `:state()` gestalten können.
 
-Die Zustände eines benutzerdefinierten Elements werden durch Zeichenfolgenwerte repräsentiert. Diese Werte werden einem [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Objekt hinzugefügt oder daraus entfernt, das dem Element zugeordnet ist. Die CSS-`:state()`-Pseudoklasse stimmt mit einem Element überein, wenn der als Argument übergebene Bezeichner im `CustomStateSet` des Elements vorhanden ist.
+Die Zustände eines Custom-Elements werden durch Zeichenketten dargestellt.
+Diese Werte werden hinzugefügt oder entfernt aus einem [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Objekt, das mit dem Element verknüpft ist.
+Die CSS-Pseudo-Klasse `:state()` vergleicht ein Element, wenn der angegebene Bezeichner, der als Argument übergeben wird, im `CustomStateSet` des Elements vorhanden ist.
 
-Die `:state()`-Pseudoklasse kann auch verwendet werden, um benutzerdefinierte Zustände innerhalb der Implementierung eines benutzerdefinierten Elements abzugleichen. Dies wird erreicht, indem `:state()` innerhalb der [`:host()`](/de/docs/Web/CSS/:host_function)-Pseudoklassenfunktion verwendet wird, die einen Zustand nur innerhalb des Shadow DOM des aktuellen benutzerdefinierten Elements abgleicht.
+Die Pseudo-Klasse `:state()` kann auch verwendet werden, um benutzerdefinierte Zustände innerhalb der Implementierung eines Custom-Elements zu vergleichen.
+Dies wird erreicht, indem `:state()` innerhalb der [`:host()`](/de/docs/Web/CSS/:host_function)-Pseudo-Klasse verwendet wird, die einen Zustand nur innerhalb des Shadow-DOM des aktuellen Custom-Elements vergleicht.
 
-Zudem ermöglicht die [`::part()`](/de/docs/Web/CSS/::part)-Pseudo-Elementfunktion, gefolgt von der `:state()`-Pseudo-Klasse, das Abgleichen der [Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts) eines benutzerdefinierten Elements, die sich in einem bestimmten Zustand befinden. (**Shadow-Parts** sind Teile eines benutzerdefinierten Element-Shadow-Baums, die explizit für das Styling einer enthaltenden Seite freigelegt werden.)
+Zusätzlich ermöglicht die [`::part()`](/de/docs/Web/CSS/::part)-Pseudo-Element in Kombination mit der `:state()`-Pseudo-Klasse den Vergleich von [Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts) eines Custom-Elements, die sich in einem bestimmten Zustand befinden. (**Shadow-Parts** sind Teile des Shadow-DOM eines Custom-Elements, die explizit für Styling-Zwecke einer Seite zugänglich gemacht werden.)
 
 ## Beispiele
 
-### Anpassen eines benutzerdefinierten Zustandes
+### Vergleich eines benutzerdefinierten Zustands
 
-Dieses CSS zeigt, wie die Grenze des autonomen benutzerdefinierten Elements `<labeled-checkbox>` auf `rot` geändert wird, wenn es sich im "checked"-Zustand befindet.
+Dieses CSS zeigt, wie der Rahmen des autonomen Custom-Elements `<labeled-checkbox>` auf `rot` geändert wird, wenn es sich im Zustand "checked" befindet.
 
 ```css
 labeled-checkbox {
@@ -44,13 +50,13 @@ labeled-checkbox:state(checked) {
 }
 ```
 
-Ein Live-Beispiel dieser Umsetzung finden Sie im [Anpassen des benutzerdefinierten Zustands eines benutzerdefinierten Checkbox-Elements](/de/docs/Web/API/CustomStateSet#matching_the_custom_state_of_a_custom_checkbox_element)-Beispiel auf der `CustomStateSet`-Seite.
+Ein Live-Beispiel für diesen Code finden Sie unter [Vergleich des benutzerdefinierten Zustands eines benutzerdefinierten Checkbox-Elements](/de/docs/Web/API/CustomStateSet#matching_the_custom_state_of_a_custom_checkbox_element) auf der `CustomStateSet`-Seite.
 
-### Anpassen eines benutzerdefinierten Zustandes im Shadow DOM eines benutzerdefinierten Elements
+### Vergleich eines benutzerdefinierten Zustands im Shadow-DOM eines Custom-Elements
 
-Dieses Beispiel zeigt, wie die `:state()`-Pseudoklasse innerhalb der [`:host()`](/de/docs/Web/CSS/:host_function)-Pseudoklassenfunktion verwendet werden kann, um benutzerdefinierte Zustände innerhalb der Implementierung eines benutzerdefinierten Elements abzugleichen.
+Dieses Beispiel zeigt, wie die `:state()`-Pseudo-Klasse innerhalb der [`:host()`](/de/docs/Web/CSS/:host_function)-Pseudo-Klasse verwendet werden kann, um benutzerdefinierte Zustände innerhalb der Implementierung eines Custom-Elements zu vergleichen.
 
-Das folgende CSS fügt ein graues `[x]` vor dem Element ein, wenn es sich im "checked"-Zustand befindet.
+Das folgende CSS fügt ein graues `[x]` vor dem Element ein, wenn es sich im Zustand "checked" befindet.
 
 ```css
 :host(:state(checked))::before {
@@ -58,19 +64,21 @@ Das folgende CSS fügt ein graues `[x]` vor dem Element ein, wenn es sich im "ch
 }
 ```
 
-Ein Live-Beispiel dieser Umsetzung finden Sie im [Anpassen des benutzerdefinierten Zustands eines benutzerdefinierten Checkbox-Elements](/de/docs/Web/API/CustomStateSet#matching_the_custom_state_of_a_custom_checkbox_element)-Beispiel auf der `CustomStateSet`-Seite.
+Ein Live-Beispiel für diesen Code finden Sie unter [Vergleich des benutzerdefinierten Zustands eines benutzerdefinierten Checkbox-Elements](/de/docs/Web/API/CustomStateSet#matching_the_custom_state_of_a_custom_checkbox_element) auf der `CustomStateSet`-Seite.
 
-### Anpassen eines benutzerdefinierten Zustandes in einem Shadow-Part
+### Vergleich eines benutzerdefinierten Zustands in einem Shadow-Part
 
-Dieses Beispiel zeigt, wie die `:state()`-Pseudoklasse verwendet werden kann, um auf die [Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts) eines benutzerdefinierten Elements zu zielen.
+Dieses Beispiel zeigt, wie die `:state()`-Pseudo-Klasse verwendet werden kann, um die [Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts) eines Custom-Elements anzusprechen.
 
-Shadow-Parts werden mithilfe des [`part`](/de/docs/Web/HTML/Global_attributes/part)-Attributs definiert und benannt. Beispielsweise betrachten Sie ein benutzerdefiniertes Element namens `<question-box>`, das ein `<labeled-checkbox>`-benutzerdefiniertes Element als Shadow-Part mit dem Namen `checkbox` verwendet:
+Shadow-Parts werden durch das [`part`](/de/docs/Web/HTML/Global_attributes/part)-Attribut definiert und benannt.
+Beispielsweise verwenden wir ein Custom-Element `<question-box>`, das ein `<labeled-checkbox>`-Custom-Element als ein Shadow-Part namens `checkbox` definiert:
 
 ```js
 shadowRoot.innerHTML = `<labeled-checkbox part='checkbox'>Yes</labeled-checkbox>`;
 ```
 
-Das CSS unten zeigt, wie das [`::part()`](/de/docs/Web/CSS/::part)-Pseudo-Element verwendet werden kann, um gegen den `'checkbox'`-Shadow-Part zu matchen. Es zeigt dann, wie das `::part()`-Pseudo-Element, gefolgt von der `:state()`-Pseudo-Klasse, verwendet werden kann, um gegen denselben Part zu matchen, wenn er sich im `checked`-Zustand befindet.
+Das folgende CSS zeigt, wie das [`::part()`](/de/docs/Web/CSS/::part)-Pseudo-Element verwendet werden kann, um das `'checkbox'`-Shadow-Part zu vergleichen.
+Weiterhin zeigt es, wie mithilfe der `::part()`-Pseudo-Element in Kombination mit der `:state()`-Pseudo-Klasse das gleiche Part angesprochen werden kann, wenn es sich im Zustand `checked` befindet.
 
 ```css
 question-box::part(checkbox) {
@@ -82,7 +90,7 @@ question-box::part(checkbox):state(checked) {
 }
 ```
 
-Ein Live-Beispiel dieser Umsetzung finden Sie im [Anpassen eines benutzerdefinierten Zustands in einem Shadow-Part eines benutzerdefinierten Elements](/de/docs/Web/API/CustomStateSet#matching_a_custom_state_in_a_shadow_part_of_a_custom_element)-Beispiel auf der `CustomStateSet`-Seite.
+Ein Live-Beispiel für diesen Code finden Sie unter [Vergleich eines benutzerdefinierten Zustands in einem Shadow-Part eines Custom-Elements](/de/docs/Web/API/CustomStateSet#matching_a_custom_state_in_a_shadow_part_of_a_custom_element) auf der `CustomStateSet`-Seite.
 
 ## Spezifikationen
 
@@ -95,6 +103,6 @@ Ein Live-Beispiel dieser Umsetzung finden Sie im [Anpassen eines benutzerdefinie
 ## Siehe auch
 
 - [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)
-- [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)
-- [Lernen: Pseudoklassen und Pseudo-Elemente](/de/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements)
-- [Benutzerdefinierte Zustände und benutzerdefinierte Zustands-Pseudoklassen-CSS-Selektoren](/de/docs/Web/API/Web_components/Using_custom_elements#custom_states_and_custom_state_pseudo-class_css_selectors) in [Verwendung von benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements)
+- [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes)
+- [Leitfaden: Pseudo-Klassen und Pseudo-Elemente](/de/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements)
+- [Benutzerdefinierte Zustände und benutzerdefinierte Pseudo-Klassen-Selektoren](/de/docs/Web/API/Web_components/Using_custom_elements#custom_states_and_custom_state_pseudo-class_css_selectors) in [Verwendung von Custom-Elementen](/de/docs/Web/API/Web_components/Using_custom_elements)

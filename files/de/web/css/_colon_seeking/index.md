@@ -2,16 +2,16 @@
 title: ":seeking"
 slug: Web/CSS/:seeking
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Der **`:seeking`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-](/de/docs/Web/CSS/Pseudo-classes) Selektor repräsentiert ein Element, das abspielbar ist, wie zum Beispiel {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn das abspielbare Element eine Abspielposition in der Medienressource sucht.
-Eine Ressource gilt als "suche", wenn der Nutzer die Wiedergabe einer bestimmten Position in der Medienressource angefordert hat, das Medienelement diese Position jedoch noch nicht erreicht hat.
+Der **`:seeking`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein abspielbares Element, wie {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn das abspielbare Element eine Wiedergabeposition in der Medienressource sucht.
+Eine Ressource wird als "seeking" betrachtet, wenn der Benutzer die Wiedergabe einer bestimmten Position in der Medienressource angefordert hat, das Medienelement diese Position jedoch noch nicht erreicht hat.
 
-"Suchen" unterscheidet sich von {{cssxref(":buffering")}}, insofern das Medienelement momentan keine Daten lädt, sondern zu einer neuen Position in der Medienressource springt.
-Für weitere Informationen siehe den [Leitfaden zu Medienpufferung, Suchen und Zeitbereichen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/buffering_seeking_time_ranges#seekable).
+"Seeking" unterscheidet sich von {{cssxref(":buffering")}} insofern, als das Medienelement derzeit keine Daten lädt, sondern stattdessen zu einer neuen Position in der Medienressource springt.
+Weitere Informationen finden Sie im [Leitfaden zu Media-Buffering, Seeking, und Zeitbereichen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/buffering_seeking_time_ranges#seekable).
 
 ## Syntax
 
@@ -51,4 +51,4 @@ video:seeking {
 - {{cssxref(":playing")}}
 - {{cssxref(":stalled")}}
 - {{cssxref(":volume-locked")}}
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)

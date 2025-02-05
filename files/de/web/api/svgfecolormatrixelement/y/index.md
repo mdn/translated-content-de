@@ -3,14 +3,14 @@ title: "SVGFEColorMatrixElement: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/SVGFEColorMatrixElement/y
 l10n:
-  sourceCommit: ac0a3f797c6c81e964f49bf0f491cd08154d848f
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y`**-Leseeigenschaft des [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement)-Interfaces beschreibt die vertikale Koordinate der Position eines SVG-Filterprimitives als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`y`** schreibgeschützte Eigenschaft der [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement)-Schnittstelle beschreibt die vertikale Koordinate der Position eines SVG-Filterprimitivs als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt den Wert des {{SVGElement("feColorMatrix")}}-Elements, des Attributs {{SVGAttr("y")}} eines Filterprimitives wider. Der `<feColorMatrix>`-Filter wendet eine Matrixtransformation auf die {{Glossary("RGB", "RGB")}}-Farb- und {{Glossary("alpha", "alpha")}}-Werte an. Das Attribut ist entweder ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegebenen Abstand vom Ursprung des Filters entlang der y-Achse darstellt. Wenn das `y`-Attribut einen Prozentwert hat, ist der Eigenschaftswert relativ zur Höhe der Filterregion in Benutzerkoordinatensystemeinheiten. Der Standardwert ist `0`.
+Sie spiegelt den Wert des {{SVGElement("feColorMatrix")}}-Elements der {{SVGAttr("y")}}-Filterprimitiv-Attributs wider. Der `<feColorMatrix>`-Filter wendet eine Matrixtransformation auf die {{Glossary("RGB", "RGB")}}-Farb- und {{Glossary("alpha", "Alpha")}}-Werte an. Das Attribut ist entweder ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Die `<coordinate>` ist eine Länge im Benutzereinheitensystem, welche die gegebene Entfernung vom Ursprung des Filters entlang der y-Achse darstellt. Ist das `y`-Attribut ein Prozentwert, ist der Eigenschaftswert relativ zur Höhe des Filterbereichs in Einheiten des Benutzereinheitensystems. Der Standardwert ist `0`.
 
 ## Wert
 
@@ -35,8 +35,8 @@ console.log(topPosition.baseVal.value); // the `y` value
 ## Siehe auch
 
 - [`SVGFEColorMatrixElement.x`](/de/docs/Web/API/SVGFEColorMatrixElement/x)
-- CSS-Datentyp {{cssxref("blend-mode")}}
-- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}
+- CSS {{cssxref("blend-mode")}} Datentyp
+- CSS {{cssxref("mix-blend-mode")}} Eigenschaft
 - [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
-- SVG-Element {{SVGElement("filter")}}, SVG-Attribut {{SVGAttr("filter")}} in [SVG](/de/docs/Web/SVG)
+- SVG-{{SVGElement("filter")}}-Element, SVG-{{SVGAttr("filter")}}-Attribut in [SVG](/de/docs/Web/SVG)
 - [Anwenden von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Applying_SVG_effects_to_HTML_content)

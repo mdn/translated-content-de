@@ -2,18 +2,18 @@
 title: ":-moz-locale-dir(rtl)"
 slug: Web/CSS/:-moz-locale-dir_rtl
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die **`:-moz-locale-dir(rtl)`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein Element auswählt, wenn die Benutzeroberfläche von rechts nach links angezeigt wird. Dies wird durch die Einstellung `intl.uidirection.locale` bestimmt (wobei `locale` die aktuelle Lokalisierung ist), die auf "rtl" gesetzt ist.
+Die **`:-moz-locale-dir(rtl)`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein Element auswählt, wenn die Benutzeroberfläche von rechts nach links angezeigt wird. Dies wird durch die Einstellung der Präferenz `intl.uidirection.locale` (wobei `locale` die aktuelle Spracheinstellung ist) auf "rtl" bestimmt.
 
 > [!NOTE]
-> Dieser Selektor wird hauptsächlich von Erweiterungen und Themes verwendet, um die Benutzeroberfläche basierend auf der Lokalisierung des Benutzers anzupassen. (Dies kann von Fenster zu Fenster und sogar von Tab zu Tab variieren.) Es ermöglicht Erweiterungen auch zu funktionieren, selbst wenn sie die Standardsprache des Benutzers nicht unterstützen, da sie sowohl Layouts von links nach rechts als auch von rechts nach links unterstützen können, unabhängig von den spezifischen Lokalisierungen.
+> Dieser Selektor wird hauptsächlich von Erweiterungen und Themes verwendet, um die Benutzeroberfläche basierend auf der Spracheinstellung des Benutzers anzupassen. (Dies kann von Fenster zu Fenster und sogar von Tab zu Tab variieren.) Darüber hinaus ermöglicht er es Erweiterungen, auch dann zu funktionieren, wenn sie die Standardsprache des Benutzers nicht unterstützen, da sie sowohl links-nach-rechts- als auch rechts-nach-links-Layouts unabhängig von den jeweiligen Spracheinstellungen unterstützen können.
 
 > [!WARNING]
-> Dieser Selektor funktioniert nicht richtig aus HTML heraus; er trifft nie zu, egal ob die UI-Lokalisierung von links nach rechts oder von rechts nach links erfolgt.
+> Dieser Selektor funktioniert nicht ordnungsgemäß in HTML; er passt nie, unabhängig davon, ob die Benutzerschnittstelle links-nach-rechts oder rechts-nach-links ist.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Die **`:-moz-locale-dir(rtl)`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/
 
 ## Beispiele
 
-Dieses Beispiel funktioniert nicht, wenn Sie nicht Firefox verwenden, und möglicherweise auch nicht richtig in Firefox aufgrund eines Problems mit der Verwendung dieses Selektors in HTML.
+Dieses Beispiel funktioniert nicht, wenn Sie nicht Firefox verwenden, und könnte sogar in Firefox aufgrund eines Problems mit der Verwendung dieses Selektors in HTML nicht ordnungsgemäß funktionieren.
 
 ### HTML
 
@@ -47,7 +47,7 @@ p:-moz-locale-dir(rtl) {
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Siehe auch
 

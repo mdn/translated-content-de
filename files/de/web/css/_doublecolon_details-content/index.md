@@ -2,12 +2,12 @@
 title: "::details-content"
 slug: Web/CSS/::details-content
 l10n:
-  sourceCommit: 9c15368794c97a0b9ae38059551b71420a3d0222
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Das **`::details-content`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den erweiterbaren/zusammenklappbaren Inhalt eines {{HTMLElement("details")}} Elements.
+Das **`::details-content`** [CSS](/de/docs/Web/CSS)-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die ein- und ausklappbaren Inhalte eines {{HTMLElement("details")}}-Elements.
 
 [//]: # '{{EmbedInteractiveExample("pages/tabbed/pseudo-element-details-content.html", "tabbed-shorter")}}'
 
@@ -21,7 +21,7 @@ selector::details-content
 
 ### Einfaches Beispiel
 
-In diesem Beispiel wird das Pseudoelement `::details-content` genutzt, um eine {{cssxref("background-color")}} auf den Inhalt des {{HTMLElement("details")}} Elements anzuwenden.
+In diesem Beispiel wird das `::details-content`-Pseudoelement verwendet, um eine {{cssxref("background-color")}} für den Inhalt des {{HTMLElement("details")}}-Elements festzulegen.
 
 #### HTML
 
@@ -44,12 +44,12 @@ details::details-content {
 
 {{EmbedLiveSample("Basic_example", "100%", 150)}}
 
-### Übergangsbeispiel
+### Beispiel mit Übergang
 
-In diesem Beispiel wird das Pseudoelement `::details-content` verwendet, um eine {{cssxref("transition")}} auf den Inhalt des {{HTMLElement("details")}} Elements zu setzen, sodass es sanft ein- und ausblendet, wenn es erweitert bzw. zusammengeklappt wird. Um dies zu erreichen, werden zwei separate Übergänge innerhalb der Kurzform-Eigenschaft `transition` angegeben:
+In diesem Beispiel wird das `::details-content`-Pseudoelement verwendet, um einen {{cssxref("transition")}} auf den Inhalt des {{HTMLElement("details")}}-Elements festzulegen, sodass es beim Öffnen sanft eingeblendet und beim Schließen wieder ausgeblendet wird. Um dies zu erreichen, werden zwei separate Übergänge innerhalb der `transition`-Kurznotation angegeben:
 
-- Der Eigenschaft {{cssxref("opacity")}} wird ein einfacher Übergang über `600ms` zugewiesen, um den Effekt des Ein- und Ausblendens zu erzeugen.
-- Der Eigenschaft {{cssxref("content-visibility")}} (die zwischen `hidden` und `visible` geschaltet wird, wenn der `<details>`-Inhalt erweitert/zusammengeklappt wird) wird ebenfalls ein einfacher `600ms` Übergang zugewiesen, jedoch mit dem {{cssxref("transition-behavior")}} Wert `allow-discrete`. Damit wird der Browser in die Lage versetzt, einen Übergang auf `content-visibility` zu starten, wobei das Animationsverhalten [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete) ist. Der Effekt ist, dass der Inhalt für die gesamte Dauer des Übergangs sichtbar ist, wodurch andere Übergänge gesehen werden können. Wenn dieser Übergang nicht enthalten wäre, würde der Inhalt sofort verschwinden, wenn der `<details>`-Inhalt zusammengeklappt wird — man würde das sanfte Ausblenden nicht sehen.
+- Die {{cssxref("opacity")}}-Eigenschaft erhält einen Basisübergang über `600ms`, um den Ein- und Ausblendeffekt zu erzeugen.
+- Die {{cssxref("content-visibility")}}-Eigenschaft (die beim Erweitern/Reduzieren des `<details>`-Inhalts zwischen `hidden` und `visible` umgeschaltet wird) erhält ebenfalls einen grundlegenden `600ms`-Übergang, jedoch mit dem Wert {{cssxref("transition-behavior")}} `allow-discrete`. Dieser signalisiert dem Browser, dass ein Übergang für `content-visibility` gestartet werden soll, dessen Animationsverhalten [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete) ist. Der Effekt besteht darin, dass der Inhalt während der gesamten Dauer des Übergangs sichtbar bleibt, sodass andere Übergänge beobachtbar sind. Wenn dieser Übergang nicht enthalten wäre, würde der Inhalt sofort verschwinden, sobald der `<details>`-Inhalt reduziert wird — das sanfte Ausblenden wäre nicht sichtbar.
 
 #### HTML
 

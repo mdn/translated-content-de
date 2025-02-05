@@ -3,7 +3,7 @@ title: "SVGImageElement: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/SVGImageElement/y
 l10n:
-  sourceCommit: 7b3ccaec4a93584da12939587ea746acaabe30bc
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{APIRef("SVG")}}

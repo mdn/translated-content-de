@@ -2,12 +2,12 @@
 title: ":root"
 slug: Web/CSS/:root
 l10n:
-  sourceCommit: 5fea7c9593f5e4b4ef13ec65064acf1eabf01e4e
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die CSS-Pseudoklasse **`:root`** entspricht dem Wurzelelement eines Baumes, der das Dokument darstellt. In HTML repräsentiert `:root` das {{HTMLElement("html")}}-Element und ist identisch mit dem Selektor `html`, mit der Ausnahme, dass seine [Spezifität](/de/docs/Web/CSS/Specificity) höher ist.
+Die **`:root`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) entspricht dem Wurzelelement eines Baums, der das Dokument repräsentiert. In HTML stellt `:root` das {{HTMLElement("html")}}-Element dar und ist mit dem Selektor `html` identisch, außer dass seine [Spezifität](/de/docs/Web/CSS/Specificity) höher ist.
 
 ```css
 /* Selects the root element of the document:

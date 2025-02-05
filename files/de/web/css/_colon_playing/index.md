@@ -2,13 +2,13 @@
 title: ":playing"
 slug: Web/CSS/:playing
 l10n:
-  sourceCommit: b85bf9fcc2c0062a765d104799d7d45d9e9b13bb
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Der **`:playing`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)-Selektor repräsentiert den Wiedergabestatus eines Elements, das abspielbar ist, wie etwa {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn dieses Element "spielt".
-Ein Element wird als spielend betrachtet, wenn es derzeit die Mediendatei abspielt oder wenn es aus anderen Gründen als einer Benutzerabsicht vorübergehend gestoppt wurde (wie etwa {{cssxref(":buffering")}} oder {{cssxref(":stalled")}}).
+Der **`:playing`** [CSS](/de/docs/Web/CSS)-[Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert den Wiedergabezustand eines Elements, das abspielbar ist, wie {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn dieses Element „spielt“.
+Ein Element wird als spielend betrachtet, wenn es die Medienressource derzeit abspielt oder wenn es vorübergehend aus anderen Gründen als der Benutzerabsicht (wie {{cssxref(":buffering")}} oder {{cssxref(":stalled")}}) angehalten wurde.
 
 ## Syntax
 

@@ -2,12 +2,12 @@
 title: ":last-child"
 slug: Web/CSS/:last-child
 l10n:
-  sourceCommit: 8d4fb1e2934111a13989d2796152dc601468e7b5
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Die **`:last-child`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element innerhalb einer Gruppe von Geschwisterelementen.
+Die **`:last-child`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element einer Gruppe von Nachbarelementen.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-last-child.html", "tabbed-shorter")}}
 
@@ -51,7 +51,7 @@ p:last-child {
 
 {{EmbedLiveSample('Basic_example', 500, 200)}}
 
-### Styling einer Liste
+### Formatierung einer Liste
 
 #### HTML
 

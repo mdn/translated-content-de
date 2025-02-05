@@ -2,7 +2,7 @@
 title: "::selection"
 slug: Web/CSS/::selection
 l10n:
-  sourceCommit: 3928d2b1004e2435e063ef4b037e06e1906d62f3
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
@@ -11,13 +11,13 @@ Das **`::selection`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) wend
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-element-selection.html", "tabbed-shorter")}}
 
-## Zulässige Eigenschaften
+## Erlaubte Eigenschaften
 
 Nur bestimmte CSS-Eigenschaften können mit `::selection` verwendet werden:
 
 - {{CSSxRef("color")}}
 - {{CSSxRef("background-color")}}
-- {{CSSxRef("text-decoration")}} und die damit verbundenen Eigenschaften
+- {{CSSxRef("text-decoration")}} und die dazugehörigen Eigenschaften
 - {{CSSxRef("text-shadow")}}
 - {{CSSxRef("-webkit-text-stroke-color")}}, {{CSSxRef("-webkit-text-fill-color")}} und {{CSSxRef("-webkit-text-stroke-width")}}
 
@@ -33,15 +33,15 @@ Insbesondere wird {{CSSxRef("background-image")}} ignoriert.
 
 ## Barrierefreiheit
 
-**Ändern Sie nicht die Stile des ausgewählten Textes aus rein ästhetischen Gründen** — Benutzer können sie an ihre Bedürfnisse anpassen. Für Menschen mit kognitiven Beeinträchtigungen oder geringerer technischer Bildung können unerwartete Änderungen der Auswahldarstellung das Verständnis der Funktionalität beeinträchtigen.
+**Überschreiben Sie die Stile für ausgewählten Text nicht aus rein ästhetischen Gründen** — Benutzer können sie an ihre Bedürfnisse anpassen. Für Personen mit kognitiven Herausforderungen oder geringerer technischer Erfahrung könnten unerwartete Änderungen an Auswahlstilen das Verständnis der Funktionalität erschweren.
 
-Wenn Änderungen vorgenommen werden, ist es wichtig sicherzustellen, dass das **Kontrastverhältnis** zwischen dem Text und den Hintergrundfarben der Auswahl hoch genug ist, damit Menschen mit Sehbeeinträchtigungen es lesen können.
+Falls Stile überschrieben werden, ist es wichtig sicherzustellen, dass das **Kontrastverhältnis** zwischen den Textfarben und den Hintergrundfarben der Auswahl hoch genug ist, damit Personen mit Sehbehinderungen den Text lesen können.
 
-Das Farbkontrastverhältnis wird durch den Vergleich der Leuchtdichte des ausgewählten Textes und der Hintergrundfarben des ausgewählten Textes ermittelt. Um den aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, muss der Textinhalt ein Kontrastverhältnis von **4.5:1** aufweisen oder 3:1 für größeren Text wie Überschriften. (WCAG definiert großen Text als zwischen `18.66px` und `24px` und [fett](/de/docs/Web/CSS/font-weight), oder `24px` oder größer.)
+Das Farbkontrastverhältnis wird durch den Vergleich der Helligkeit des ausgewählten Textes und des Hintergrunds des ausgewählten Textes bestimmt. Um den aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, muss Textinhalt ein Kontrastverhältnis von **4.5:1** aufweisen, oder 3:1 für größeren Text, wie Überschriften. (WCAG definiert großen Text als zwischen `18.66px` und `24px` und [fett](/de/docs/Web/CSS/font-weight) oder `24px` oder größer.)
 
 - [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
-- [MDN Verständnis von WCAG, Erklärung zur Richtlinie 1.4](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [MDN Verständnis für WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
 ## Beispiele
 
@@ -94,4 +94,4 @@ p::selection {
 
 ## Siehe auch
 
-- {{cssxref("pointer-events")}} - steuern, welche Ereignisse auf dem Element aktiv sind
+- {{cssxref("pointer-events")}} - Kontrolle darüber, welche Ereignisse auf dem Element aktiv sind

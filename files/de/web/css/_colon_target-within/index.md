@@ -2,12 +2,12 @@
 title: ":target-within"
 slug: Web/CSS/:target-within
 l10n:
-  sourceCommit: 83d1dcd39940a7a2c48dec4ae817bac77fbbeca0
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`:target-within`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das ein Zielelement ist oder ein Element _enthält_, das ein Ziel ist. Ein Zielelement ist ein eindeutiges Element mit einer [`id`](/de/docs/Web/HTML/Global_attributes/id), die mit dem Fragment der URL übereinstimmt. Anders ausgedrückt: Es repräsentiert ein Element, das selbst durch die {{CSSxRef(":target")}} Pseudoklasse oder einen Nachfahren, der durch `:target` erfasst wird, übereinstimmt. (Dies schließt Nachfahren in [Shadow-Bäumen](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
+Die **`:target-within`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das entweder ein Ziel-Element ist oder _ein Ziel-Element enthält_. Ein Ziel-Element ist ein einzigartiges Element mit einer passenden [`id`](/de/docs/Web/HTML/Global_attributes/id), die dem Fragment in der URL entspricht. Mit anderen Worten: Es repräsentiert ein Element, das entweder selbst von der {{CSSxRef(":target")}} Pseudo-Klasse getroffen wird oder einen Nachkommen hat, der von `:target` getroffen wird. (Dies umfasst Nachkommen in [Shadow Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM).)
 
 ```css
 /* Selects a <div> when one of its descendants is a target */
@@ -26,9 +26,9 @@ div:target-within {
 
 ## Beispiele
 
-### Hervorhebung eines Artikels
+### Hervorheben eines Artikels
 
-Die `:target-within` Pseudoklasse kann verwendet werden, um den Artikel hervorzuheben, wenn etwas innerhalb des Artikels direkt verlinkt wurde. Die `:target` Pseudoklasse wird ebenfalls verwendet, um zu zeigen, welches Element gezielt wurde.
+Die `:target-within` Pseudo-Klasse kann genutzt werden, um einen Artikel hervorzuheben, wenn irgendein Element innerhalb des Artikels direkt verlinkt wurde. Die `:target` Pseudo-Klasse wird ebenfalls verwendet, um zu zeigen, welches Element gezielt wurde.
 
 #### HTML
 
@@ -83,7 +83,7 @@ p:target i {
 
 ## Browser-Kompatibilität
 
-Derzeit hat kein Browser dieses Feature implementiert.
+Derzeit wurde dieses Feature in keinem Browser implementiert.
 
 ## Siehe auch
 

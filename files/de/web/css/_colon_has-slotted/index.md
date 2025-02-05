@@ -2,16 +2,16 @@
 title: ":has-slotted"
 slug: Web/CSS/:has-slotted
 l10n:
-  sourceCommit: 60b9445fef4448368dbc2cf6333ba22a9a8d092b
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`:has-slotted`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) trifft zu, wenn der Inhalt eines {{HTMLElement("slot")}}-Elements nicht leer ist oder nicht den Standardwert verwendet (siehe [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots) für weitere Informationen).
+Die **`:has-slotted`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) greift, wenn der Inhalt eines {{HTMLElement("slot")}}-Elements nicht leer ist oder keinen Standardwert verwendet (siehe [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots) für weitere Informationen).
 
-> [!NOTE] Selbst ein einzelnes Leerzeichen-Textknoten genügt, damit `:has-slotted` angewendet wird.
+> [!NOTE] Selbst ein einzelner Leerzeichen-Textknoten reicht aus, damit `:has-slotted` angewendet wird.
 
-Dies funktioniert nur, wenn es in CSS verwendet wird, das innerhalb eines [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) platziert ist.
+Diese Pseudoklasse funktioniert nur, wenn sie innerhalb von CSS verwendet wird, das sich im [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) befindet.
 
 ```css
 /* Selects the content of a <slot> element that has content that is not default  */
@@ -35,7 +35,7 @@ Dies funktioniert nur, wenn es in CSS verwendet wird, das innerhalb eines [Shado
 
 ## Beispiele
 
-Dieses Beispiel enthält zwei `<slot>`-Elemente, von denen einem Inhalt zugewiesen wurde und dem anderen nicht.
+Dieses Beispiel enthält zwei `<slot>`-Elemente, von denen eines mit Inhalt belegt wurde und das andere nicht.
 
 ### HTML
 
@@ -56,7 +56,7 @@ Dieses Beispiel enthält zwei `<slot>`-Elemente, von denen einem Inhalt zugewies
 
 ### Ergebnis
 
-Das `<slot>`-Element, dem Inhalt zugewiesen wurde, entspricht der `:has-slotted` Pseudo-Klasse und hat den `color` Wert `rebeccapurple` angewendet.
+Das `<slot>`-Element, dem Inhalt zugewiesen wurde, entspricht der Pseudoklasse `:has-slotted` und hat den `color`-Wert `rebeccapurple` erhalten.
 
 {{EmbedLiveSample("simple_example",100,300)}}
 
@@ -70,6 +70,6 @@ Das `<slot>`-Element, dem Inhalt zugewiesen wurde, entspricht der `:has-slotted`
 
 ## Siehe auch
 
-- HTML {{HTMLElement("template")}} Element
-- HTML {{HTMLElement("slot")}} Element
+- HTML-{{HTMLElement("template")}}-Element
+- HTML-{{HTMLElement("slot")}}-Element
 - {{CSSXRef("::slotted")}}

@@ -3,12 +3,12 @@ title: "MouseEvent: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/MouseEvent/y
 l10n:
-  sourceCommit: 7b3ccaec4a93584da12939587ea746acaabe30bc
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{APIRef("UI Events")}}
 
-Die **`MouseEvent.y`**-Eigenschaft ist ein Alias für die [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY)-Eigenschaft.
+Die **`MouseEvent.y`**-Eigenschaft ist ein Alias für die Eigenschaft [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY).
 
 ## Spezifikationen
 

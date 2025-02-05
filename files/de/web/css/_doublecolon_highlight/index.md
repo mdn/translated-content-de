@@ -2,16 +2,16 @@
 title: "::highlight()"
 slug: Web/CSS/::highlight
 l10n:
-  sourceCommit: 07bcffffe4c08e8c75d3ac64ebb91e5fe50d8fd6
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Das **`::highlight()`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf ein benutzerdefiniertes Highlight an.
+Das **`::highlight()`** CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf ein benutzerdefiniertes Highlight an.
 
-Ein benutzerdefiniertes Highlight ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite mit dem [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
+Ein benutzerdefiniertes Highlight ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite mithilfe des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
 
-## Zulässige Eigenschaften
+## Erlaubte Eigenschaften
 
 Nur bestimmte CSS-Eigenschaften können mit `::highlight()` verwendet werden:
 
@@ -126,4 +126,4 @@ for (let i = 0; i < textNode.textContent.length; i++) {
 ## Siehe auch
 
 - [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+- [CSS Pseudo-Elements](/de/docs/Web/CSS/CSS_pseudo-elements) Modul

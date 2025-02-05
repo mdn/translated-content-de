@@ -2,7 +2,7 @@
 title: "-webkit-mask-position-y"
 slug: Web/CSS/-webkit-mask-position-y
 l10n:
-  sourceCommit: 5bbe2b2db2e92981cb625822d4ea62d6eea3c5f8
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}{{Non-standard_header}}
@@ -42,7 +42,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 ### Werte
 
 - `<length-percentage>`
-  - : Eine Länge, die die Position der oberen Seite des Bildes relativ zur oberen Kante des Box-Paddings angibt. Prozentsätze werden relativ zur vertikalen Dimension des Box-Padding-Bereichs berechnet. Ein Wert von `0%` bedeutet, dass die obere Kante des Bildes mit der oberen Kante des Box-Paddings ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bildes mit der unteren Kante des Box-Paddings ausgerichtet ist.
+  - : Eine Länge, die die Position der oberen Seite des Bildes relativ zur oberen Polsterrandkante der Box angibt. Prozentwerte werden basierend auf der vertikalen Dimension des Polsterbereichs der Box berechnet. Ein Wert von `0%` bedeutet, dass die obere Kante des Bildes mit der oberen Polsterrandkante der Box ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bildes mit der unteren Polsterrandkante der Box ausgerichtet ist.
 - `top`
   - : Entspricht `0%`.
 - `bottom`
@@ -79,7 +79,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Gehört zu keinem Standard.
 
 ## Browser-Kompatibilität
 

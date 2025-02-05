@@ -2,19 +2,19 @@
 title: ":checked"
 slug: Web/CSS/:checked
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
 ---
 
 {{CSSRef}}
 
-Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes **Radio**-([`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)), **Checkbox**-([`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)) oder **Option**-({{HTMLElement("option")}} in einem {{HTMLElement("select")}}) Element, das aktiviert oder auf einen `on`-Zustand geschaltet ist.
+Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes **Radio** ([`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)), **Checkbox** ([`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)) oder **Option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}) Element, das ausgewählt oder in einem `on`-Zustand ist.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-checked.html", "tabbed-shorter")}}
 
-Der Benutzer kann diesen Zustand erreichen, indem er ein Element aktiviert/auswählt oder es deaktiviert/deselektiert.
+Der Benutzer kann diesen Zustand aktivieren, indem er ein Element auswählt, oder deaktivieren, indem er die Auswahl des Elements aufhebt.
 
 > [!NOTE]
-> Da Browser `<option>`s oft als [ersetzte Elemente](/de/docs/Web/CSS/Replaced_element) behandeln, variiert der Grad, in dem sie mit der `:checked` Pseudoklasse gestylt werden können, von Browser zu Browser.
+> Da Browser `<option>`s oft als [ersetzte Elemente](/de/docs/Web/CSS/Replaced_element) behandeln, variiert der Umfang, in dem sie mit der `:checked`-Pseudoklasse gestylt werden können, von Browser zu Browser.
 
 ## Syntax
 
@@ -85,9 +85,9 @@ option:checked {
 
 {{EmbedLiveSample("Basic_example")}}
 
-### Elemente mit einer versteckten Checkbox umschalten
+### Umschalten von Elementen mit einer versteckten Checkbox
 
-Dieses Beispiel nutzt die `:checked` Pseudoklasse, um dem Benutzer zu ermöglichen, Inhalte basierend auf dem Zustand einer Checkbox umzuschalten, und das alles ohne [JavaScript](/de/docs/Web/JavaScript).
+Dieses Beispiel verwendet die `:checked`-Pseudoklasse, um dem Benutzer das Umschalten von Inhalten basierend auf dem Zustand einer Checkbox zu ermöglichen – alles ohne [JavaScript](/de/docs/Web/JavaScript) zu verwenden.
 
 #### HTML
 
@@ -183,7 +183,7 @@ Dieses Beispiel nutzt die `:checked` Pseudoklasse, um dem Benutzer zu ermöglich
 
 ## Siehe auch
 
-- [Webformulare — Arbeit mit Benutzerdaten](/de/docs/Learn_web_development/Extensions/Forms)
-- [Gestaltung von Webformularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
-- Verwandte HTML-Elemente: [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), {{HTMLElement("select")}}, und {{HTMLElement("option")}}
+- [Webformulare — Arbeiten mit Benutzerdaten](/de/docs/Learn_web_development/Extensions/Forms)
+- [Webformulare stilisieren](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
+- Verwandte HTML-Elemente: [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), {{HTMLElement("select")}} und {{HTMLElement("option")}}
 - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)
