@@ -11,6 +11,9 @@ name: PR review companion
 
 on: workflow_call
 
+permissions:
+  actions: read
+
 jobs:
   review:
     runs-on: ubuntu-latest
