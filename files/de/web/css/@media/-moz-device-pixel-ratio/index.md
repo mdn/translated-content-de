@@ -1,5 +1,5 @@
 ---
-title: "-moz-device-pixel-ratio"
+title: -moz-device-pixel-ratio
 slug: Web/CSS/@media/-moz-device-pixel-ratio
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

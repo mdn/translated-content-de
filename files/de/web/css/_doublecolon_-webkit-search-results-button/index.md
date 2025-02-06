@@ -1,5 +1,5 @@
 ---
-title: "::-webkit-search-results-button"
+title: ::-webkit-search-results-button
 slug: Web/CSS/::-webkit-search-results-button
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

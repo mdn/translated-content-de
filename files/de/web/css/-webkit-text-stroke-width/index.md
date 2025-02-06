@@ -1,5 +1,5 @@
 ---
-title: "-webkit-text-stroke-width"
+title: -webkit-text-stroke-width
 slug: Web/CSS/-webkit-text-stroke-width
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

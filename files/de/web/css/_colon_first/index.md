@@ -1,5 +1,5 @@
 ---
-title: ":first"
+title: :first
 slug: Web/CSS/:first
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

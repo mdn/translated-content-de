@@ -1,5 +1,5 @@
 ---
-title: ":stalled"
+title: :stalled
 slug: Web/CSS/:stalled
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

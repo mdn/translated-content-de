@@ -1,5 +1,5 @@
 ---
-title: "-webkit-device-pixel-ratio"
+title: -webkit-device-pixel-ratio
 slug: Web/CSS/@media/-webkit-device-pixel-ratio
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

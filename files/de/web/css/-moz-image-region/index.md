@@ -1,5 +1,5 @@
 ---
-title: "-moz-image-region"
+title: -moz-image-region
 slug: Web/CSS/-moz-image-region
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

@@ -1,5 +1,5 @@
 ---
-title: "-webkit-transform-2d"
+title: -webkit-transform-2d
 slug: Web/CSS/@media/-webkit-transform-2d
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

@@ -1,5 +1,5 @@
 ---
-title: "-webkit-text-fill-color"
+title: -webkit-text-fill-color
 slug: Web/CSS/-webkit-text-fill-color
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

@@ -1,5 +1,5 @@
 ---
-title: "::-webkit-meter-suboptimum-value"
+title: ::-webkit-meter-suboptimum-value
 slug: Web/CSS/::-webkit-meter-suboptimum-value
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

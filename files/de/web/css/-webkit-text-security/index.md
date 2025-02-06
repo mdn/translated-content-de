@@ -1,5 +1,5 @@
 ---
-title: "-webkit-text-security"
+title: -webkit-text-security
 slug: Web/CSS/-webkit-text-security
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

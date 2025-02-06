@@ -1,5 +1,5 @@
 ---
-title: "::-moz-list-number"
+title: ::-moz-list-number
 slug: Web/CSS/::-moz-list-number
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

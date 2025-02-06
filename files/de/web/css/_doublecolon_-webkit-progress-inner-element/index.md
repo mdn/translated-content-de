@@ -1,5 +1,5 @@
 ---
-title: "::-webkit-progress-inner-element"
+title: ::-webkit-progress-inner-element
 slug: Web/CSS/::-webkit-progress-inner-element
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

@@ -1,5 +1,5 @@
 ---
-title: ":placeholder-shown"
+title: :placeholder-shown
 slug: Web/CSS/:placeholder-shown
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

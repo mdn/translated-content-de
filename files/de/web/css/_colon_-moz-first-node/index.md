@@ -1,5 +1,5 @@
 ---
-title: ":-moz-first-node"
+title: :-moz-first-node
 slug: Web/CSS/:-moz-first-node
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

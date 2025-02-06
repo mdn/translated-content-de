@@ -1,5 +1,5 @@
 ---
-title: ":host()"
+title: :host()
 slug: Web/CSS/:host_function
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
