@@ -1,5 +1,5 @@
 ---
-title: ":-moz-handler-crashed"
+title: :-moz-handler-crashed
 slug: Web/CSS/:-moz-handler-crashed
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

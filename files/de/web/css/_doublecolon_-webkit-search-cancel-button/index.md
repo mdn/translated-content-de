@@ -1,5 +1,5 @@
 ---
-title: "::-webkit-search-cancel-button"
+title: ::-webkit-search-cancel-button
 slug: Web/CSS/::-webkit-search-cancel-button
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

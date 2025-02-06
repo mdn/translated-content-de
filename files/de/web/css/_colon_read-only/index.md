@@ -1,5 +1,5 @@
 ---
-title: ":read-only"
+title: :read-only
 slug: Web/CSS/:read-only
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

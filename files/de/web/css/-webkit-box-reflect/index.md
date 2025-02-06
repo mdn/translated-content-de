@@ -1,5 +1,5 @@
 ---
-title: "-webkit-box-reflect"
+title: -webkit-box-reflect
 slug: Web/CSS/-webkit-box-reflect
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

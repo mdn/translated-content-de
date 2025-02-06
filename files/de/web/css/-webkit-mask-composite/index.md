@@ -1,5 +1,5 @@
 ---
-title: "-webkit-mask-composite"
+title: -webkit-mask-composite
 slug: Web/CSS/-webkit-mask-composite
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

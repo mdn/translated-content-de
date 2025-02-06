@@ -1,5 +1,5 @@
 ---
-title: ":first-of-type"
+title: :first-of-type
 slug: Web/CSS/:first-of-type
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

@@ -1,5 +1,5 @@
 ---
-title: ":-moz-locale-dir(rtl)"
+title: :-moz-locale-dir(rtl)
 slug: Web/CSS/:-moz-locale-dir_rtl
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

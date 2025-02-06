@@ -1,5 +1,5 @@
 ---
-title: "::view-transition-new"
+title: ::view-transition-new
 slug: Web/CSS/::view-transition-new
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::view-transition-new`** [CSS](/de-DE/docs/Web/CSS) [Pseudoelement](/de-DE/docs/Web/CSS/Pseudo-elements) repräsentiert den "neuen" Ansichtsstatus eines View-Transitions — eine Schnappschuss-Live-Darstellung des Zustands nach der Transition.
+Das **`::view-transition-new`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "neuen" Ansichtsstatus eines View-Transitions — eine Schnappschuss-Live-Darstellung des Zustands nach der Transition.
 
-Während einer View-Transition wird `::view-transition-new` im zugehörigen Pseudoelement-Baum wie in [Der Pseudoelement-Baum der View-Transition](/de-DE/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) beschrieben, eingeschlossen. Es ist immer nur ein Kind von {{cssxref("::view-transition-image-pair")}} und hat niemals eigene Kinder.
+Während einer View-Transition wird `::view-transition-new` im zugehörigen Pseudoelement-Baum wie in [Der Pseudoelement-Baum der View-Transition](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) beschrieben, eingeschlossen. Es ist immer nur ein Kind von {{cssxref("::view-transition-image-pair")}} und hat niemals eigene Kinder.
 
 Es handelt sich um ein ersetztes Element und kann daher mit Eigenschaften wie {{cssxref("object-fit")}} und {{cssxref("object-position")}} manipuliert werden. Es hat natürliche Maße, die der Größe des Inhalts entsprechen.
 
@@ -117,5 +117,5 @@ figcaption {
 
 ## Siehe auch
 
-- [View Transition API](/de-DE/docs/Web/API/View_Transition_API)
+- [View Transition API](/de/docs/Web/API/View_Transition_API)
 - [Fließende Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

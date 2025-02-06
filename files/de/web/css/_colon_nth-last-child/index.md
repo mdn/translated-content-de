@@ -1,5 +1,5 @@
 ---
-title: ":nth-last-child()"
+title: :nth-last-child()
 slug: Web/CSS/:nth-last-child
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

@@ -1,5 +1,5 @@
 ---
-title: "::-webkit-progress-bar"
+title: ::-webkit-progress-bar
 slug: Web/CSS/::-webkit-progress-bar
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

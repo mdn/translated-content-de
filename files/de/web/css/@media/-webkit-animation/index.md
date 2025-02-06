@@ -1,5 +1,5 @@
 ---
-title: "-webkit-animation"
+title: -webkit-animation
 slug: Web/CSS/@media/-webkit-animation
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

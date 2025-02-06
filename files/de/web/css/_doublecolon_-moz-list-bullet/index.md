@@ -1,5 +1,5 @@
 ---
-title: "::-moz-list-bullet"
+title: ::-moz-list-bullet
 slug: Web/CSS/::-moz-list-bullet
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

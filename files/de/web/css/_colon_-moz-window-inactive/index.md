@@ -1,5 +1,5 @@
 ---
-title: ":-moz-window-inactive"
+title: :-moz-window-inactive
 slug: Web/CSS/:-moz-window-inactive
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a

@@ -1,6 +1,6 @@
 ---
 title: "CSSRotate: y-Eigenschaft"
-short-title: "y"
+short-title: y
 slug: Web/API/CSSRotate/y
 l10n:
   sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
