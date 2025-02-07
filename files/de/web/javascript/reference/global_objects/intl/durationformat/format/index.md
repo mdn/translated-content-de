@@ -2,12 +2,12 @@
 title: Intl.DurationFormat.prototype.format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/format
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: 415324c4a53612154ec3186c23fc7326676e53b0
 ---
 
 {{JSRef}}
 
-Die **`format()`** Methode von {{jsxref("Intl.DurationFormat")}} Instanzen formatiert eine Dauer gemäß der Gebietsschema- und Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts.
+Die Methode **`format()`** von {{jsxref("Intl.DurationFormat")}}-Instanzen formatiert eine Dauer gemäß der Sprache und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}}-Objekts.
 
 ## Syntax
 
@@ -18,20 +18,20 @@ format(duration)
 ### Parameter
 
 - `duration`
-  - : Das zu formatierende Dauerelement. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `years`, `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`. Kann ein {{jsxref("Temporal.Duration")}} Objekt sein.
+  - : Das zu formatierende Dauerobjekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `years`, `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`. Der Wert jeder Eigenschaft sollte eine ganze Zahl sein, und die Vorzeichen sollten konsistent sein. Dies kann ein {{jsxref("Temporal.Duration")}}-Objekt sein; sehen Sie die {{jsxref("Temporal.Duration")}}-Dokumentation für weitere Informationen zu diesen Eigenschaften.
 
 ### Rückgabewert
 
-Ein Zeichenfolgewert, der die gegebene `duration` entsprechend den Gebietsschema- und Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts formatiert darstellt.
+Ein String, der die angegebene `duration` gemäß der Sprache und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}}-Objekts formatiert darstellt.
 
 > [!NOTE]
-> Meistens ist das von `format()` zurückgegebene Format konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, selbst innerhalb desselben Gebietsschemas — Ausgabeschwankungen sind laut der Spezifikation beabsichtigt und erlaubt. Es kann auch nicht dem entsprechen, was Sie erwarten. Zum Beispiel kann die Zeichenfolge geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest codierten Konstanten vergleichen.
+> Meistens ist die von `format()` zurückgegebene Formatierung konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, selbst innerhalb derselben Sprache — Variationen sind absichtlich gestaltet und durch die Spezifikation erlaubt. Die Ausgabe könnte auch anders sein als erwartet. Beispielsweise könnte der String nicht trennbare Leerzeichen verwenden oder von bidi-Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Verwendung von format()
 
-Das folgende Beispiel zeigt, wie ein Dauer-Formatter für die englische Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie ein Duration-Formatter für die englische Sprache erstellt wird.
 
 ```js
 const duration = {
@@ -60,7 +60,7 @@ new Intl.DurationFormat("en", { style: "narrow" }).format(duration);
 // "1y 2mo 3w 3d 4h 5m 6s 7ms 8μs 9ns"
 ```
 
-### Verwendung von format() mit verschiedenen Gebietsschemas und Stilen
+### Verwendung von format() mit verschiedenen Sprachen und Stilen
 
 ```js
 const duration = {

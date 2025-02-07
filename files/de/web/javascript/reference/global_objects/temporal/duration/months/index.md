@@ -2,16 +2,16 @@
 title: Temporal.Duration.prototype.months
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/months
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 262c13dcbcd394beddd98e07d9c78bc79ce3513c
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`months`** Zugriffsproperty von {{jsxref("Temporal.Duration")}} Instanzen liefert eine Ganzzahl, die die Anzahl der Monate in der Dauer darstellt.
+Die **`months`** Zugriffseigenschaft von {{jsxref("Temporal.Duration")}} Instanzen gibt eine Ganzzahl zurück, die die Anzahl der Monate in der Dauer darstellt.
 
-Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Wertes nicht annehmen, aber Sie können das Vorzeichen durch Überprüfung der [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Property der Dauer ermitteln. Wenn sie zu einer Einheit oberhalb von Monaten ausgeglichen ist, hängt der Wertebereich des absoluten Werts von `months` vom Kalender ab (wie viele Monate in einem Jahr sind).
+Es sei denn, die Dauer ist [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing), Sie können den Bereich dieses Werts nicht annehmen, aber Sie können dessen Vorzeichen durch Überprüfen der [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer feststellen. Wenn sie auf eine Einheit über Monate ausgeglichen ist, hängt der absolute Wertebereich der `months` von dem Kalender ab (wie viele Monate ein Jahr hat).
 
-Der Set-Zugriff von `months` ist `undefined`. Sie können diese Property nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der set-Accessor von `months` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ console.log(d4.months); // 12
 
 // Balance d4
 const d4Balanced = d4.round({
-  largestUnit: "year",
+  largestUnit: "years",
   relativeTo: Temporal.PlainDate.from("2021-01-01"), // ISO 8601 calendar
 });
 console.log(d4Balanced.months); // 0

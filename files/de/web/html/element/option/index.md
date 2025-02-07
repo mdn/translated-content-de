@@ -1,36 +1,36 @@
 ---
-title: "<option>: Das HTML Option Element"
+title: "<option>: Das HTML-Optionselement"
 slug: Web/HTML/Element/option
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: a88e260a72f1250c13b09665f9af247f80edb4f7
 ---
 
 {{HTMLSidebar}}
 
-Das **`<option>`** [HTML](/de/docs/Web/HTML) Element wird verwendet, um ein Element innerhalb eines {{HTMLElement("select")}}, eines {{HTMLElement("optgroup")}} oder eines {{HTMLElement("datalist")}} Elements zu definieren. Daher kann `<option>` Menüelemente in Pop-ups und andere Elementlisten in einem HTML-Dokument darstellen.
+Das **`<option>`**-[HTML](/de/docs/Web/HTML)-Element wird verwendet, um ein Element in einem {{HTMLElement("select")}}, einem {{HTMLElement("optgroup")}} oder einem {{HTMLElement("datalist")}}-Element zu definieren. Als solches kann `<option>` Menüpunkte in Popups und anderen Listen von Elementen in einem HTML-Dokument repräsentieren.
 
 {{EmbedInteractiveExample("pages/tabbed/option.html", "tabbed-standard")}}
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
-  - : Wenn dieses Boolean-Attribut gesetzt ist, kann diese Option nicht ausgewählt werden. Browser blenden normalerweise solche Steuerungen aus und sie erhalten keine Browserevents, wie Mausklicks oder Fokus-bezogene Aktionen. Wenn dieses Attribut nicht gesetzt ist, kann das Element dennoch deaktiviert werden, wenn einer seiner Vorfahren ein deaktiviertes {{HTMLElement("optgroup")}} Element ist.
+  - : Wenn dieses boolesche Attribut gesetzt ist, kann diese Option nicht ausgewählt werden. Häufig grauen Browser solche Steuerelemente aus, und sie empfangen keine Browsing-Ereignisse wie Mausklicks oder fokusbezogene Ereignisse. Wenn dieses Attribut nicht gesetzt ist, kann das Element dennoch deaktiviert sein, falls eines seiner übergeordneten Elemente ein deaktiviertes {{HTMLElement("optgroup")}}-Element ist.
 - `label`
-  - : Dieses Attribut ist ein Text für das Label, das die Bedeutung der Option angibt. Wenn das `label` Attribut nicht definiert ist, ist sein Wert der Textinhalt des Elements.
+  - : Dieses Attribut ist der Text für das Label, das die Bedeutung der Option angibt. Wenn das `label`-Attribut nicht definiert ist, entspricht sein Wert dem Textinhalt des Elements.
 - `selected`
-  - : Wenn vorhanden, zeigt dieses Boolean-Attribut an, dass die Option anfänglich ausgewählt ist. Wenn das `<option>` Element ein Nachkomme eines {{HTMLElement("select")}} Elements ist, dessen [`multiple`](/de/docs/Web/HTML/Element/select#multiple) Attribut nicht gesetzt ist, darf nur ein einziges `<option>` dieses {{HTMLElement("select")}} Elements das `selected` Attribut haben.
+  - : Wenn vorhanden, zeigt dieses boolesche Attribut an, dass die Option zunächst ausgewählt ist. Wenn das `<option>`-Element ein Nachfahre eines {{HTMLElement("select")}}-Elements ist, dessen [`multiple`](/de/docs/Web/HTML/Element/select#multiple)-Attribut nicht gesetzt ist, darf nur ein einziges `<option>` dieses {{HTMLElement("select")}}-Elements das `selected`-Attribut haben.
 - `value`
-  - : Der Inhalt dieses Attributs repräsentiert den Wert, der mit dem Formular übermittelt werden soll, falls diese Option ausgewählt ist. Wenn dieses Attribut weggelassen wird, wird der Wert aus dem Textinhalt des Option Elements genommen.
+  - : Der Inhalt dieses Attributs repräsentiert den Wert, der mit dem Formular übermittelt werden soll, falls diese Option ausgewählt wird. Wenn dieses Attribut weggelassen wird, wird der Wert aus dem Textinhalt des Optionselements übernommen.
 
-## Styling mit CSS
+## Gestaltung mit CSS
 
-Das Styling des **`<option>`** Elements ist stark eingeschränkt. Optionen erben nicht die Schriftart, die im übergeordneten Element gesetzt ist. In Firefox können nur [`color`](/de/docs/Web/CSS/color) und [`background-color`](/de/docs/Web/CSS/background-color) festgelegt werden, jedoch ist es in Chrome und Safari nicht möglich, irgendwelche Eigenschaften zu setzen. Weitere Details zum Styling finden Sie in [unserem Leitfaden zum fortgeschrittenen Form- Styling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling).
+Die Gestaltung des **`<option>`**-Elements innerhalb eines `<select>`-Dropdowns ist stark eingeschränkt. In Firefox wird nur die Schriftgröße des übergeordneten `<select>`-Elements berücksichtigt. Chrome ermöglicht zusätzlich die Einstellung von [`color`](/de/docs/Web/CSS/color), [`background-color`](/de/docs/Web/CSS/background-color), [`font-size`](/de/docs/Web/CSS/font-size), [`font-family`](/de/docs/Web/CSS/font-family), [`font-variant`](/de/docs/Web/CSS/font-variant) und [`text-align`](/de/docs/Web/CSS/text-align). Weitere Details zum Styling finden Sie in [unserem Leitfaden für erweitertes Formularstyling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling).
 
 ## Beispiele
 
-Sehen Sie sich {{HTMLElement("select")}} für Beispiele an.
+Siehe {{HTMLElement("select")}} für Beispiele.
 
 ## Technische Zusammenfassung
 
@@ -47,17 +47,17 @@ Sehen Sie sich {{HTMLElement("select")}} für Beispiele an.
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        Text, möglicherweise mit Escape-Zeichen (wie
+        Text, möglicherweise mit maskierten Zeichen (z. B.
         <code>&#x26;eacute;</code>).
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Der Start-Tag ist obligatorisch. Der End-Tag ist optional, wenn dieses Element
-        unmittelbar von einem anderen <code>&#x3C;option></code> Element oder einem
-        {{HTMLElement("optgroup")}} gefolgt wird, oder wenn das übergeordnete Element keinen
-        weiteren Inhalt hat.
+        Das Start-Tag ist verpflichtend. Das End-Tag ist optional, wenn dieses Element
+        direkt gefolgt wird von einem anderen <code>&#x3C;option></code>-Element oder einem
+        {{HTMLElement("optgroup")}}, oder wenn das übergeordnete Element keinen weiteren
+        Inhalt hat.
       </td>
     </tr>
     <tr>
@@ -65,7 +65,7 @@ Sehen Sie sich {{HTMLElement("select")}} für Beispiele an.
       <td>
         Ein {{HTMLElement("select")}}, ein
         {{HTMLElement("optgroup")}} oder ein
-        {{HTMLElement("datalist")}} Element.
+        {{HTMLElement("datalist")}}-Element.
       </td>
     </tr>
     <tr>

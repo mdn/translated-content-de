@@ -2,12 +2,14 @@
 title: tabs.TAB_ID_NONE
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/TAB_ID_NONE
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 225ef6194babb4ee1eecc663d8c91c991f7e9282
 ---
 
 {{AddonSidebar}}
 
-Ein spezieller ID-Wert, der Tabs zugewiesen wird, die keine Browser-Tabs sind (zum Beispiel Tabs in Entwicklungswerkzeug-Fenstern).
+Eine spezielle ID-Wert, der Tabs zugewiesen wird, die keine Browser-Tabs sind (z. B. Tabs in DevTools-Fenstern).
+
+Der Wert ist `-1`.
 
 ## Browser-Kompatibilität
 
@@ -16,7 +18,7 @@ Ein spezieller ID-Wert, der Tabs zugewiesen wird, die keine Browser-Tabs sind (z
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#property-TAB_ID_NONE) API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#property-TAB_ID_NONE). Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

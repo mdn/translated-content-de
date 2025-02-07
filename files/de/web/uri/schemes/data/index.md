@@ -1,53 +1,53 @@
 ---
-title: Data-URLs
+title: Daten-URLs
 slug: Web/URI/Schemes/data
 l10n:
-  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
+  sourceCommit: 48fc59029d83dbc53748561d30be41f6a0ae62c1
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/URI")}}
 
-**Data-URLs**, URLs, die mit dem Schema `data:` beginnen, ermöglichen es Inhaltsentwicklern, kleine Dateien direkt in Dokumente einzubetten. Früher wurden sie als "data URIs" bezeichnet, bis dieser Name von der WHATWG verworfen wurde.
+**Daten-URLs**, URLs mit dem Präfix `data:`-Schema, ermöglichen es Inhaltsautoren, kleine Dateien direkt in Dokumente einzubetten. Sie wurden früher als "Daten-URIs" bekannt, bis dieser Name von der WHATWG verworfen wurde.
 
 > [!NOTE]
-> Data-URLs werden von modernen Browsern als einzigartige, undurchsichtige Ursprünge behandelt, anstatt den Ursprung des verantwortlichen Einstellungsobjekts für die Navigation zu erben.
+> Daten-URLs werden von modernen Browsern als eindeutige, undurchsichtige Ursprünge behandelt, anstatt den Ursprung des für die Navigation verantwortlichen Einstellungsobjekts zu übernehmen.
 
 ## Syntax
 
-Data-URLs bestehen aus vier Teilen: einem Präfix (`data:`), einem [MIME-Typ](/de/docs/Web/HTTP/MIME_types), der den Datentyp angibt, einem optionalen `base64`-Token, falls nicht-textuell, und den Daten selbst:
+Daten-URLs bestehen aus vier Teilen: einem Präfix (`data:`), einem [MIME-Typ](/de/docs/Web/HTTP/MIME_types), der den Datentyp angibt, einem optionalen `base64`-Token, falls die Daten nicht textuell sind, und den eigentlichen Daten:
 
 ```plain
 data:[<media-type>][;base64],<data>
 ```
 
-Der `media-type` ist ein [MIME-Typ](/de/docs/Web/HTTP/MIME_types)-String, wie zum Beispiel `'image/jpeg'` für eine JPEG-Bilddatei. Wird er weggelassen, wird standardmäßig `text/plain;charset=US-ASCII` angenommen.
+Der `media-type` ist eine [MIME-Typ](/de/docs/Web/HTTP/MIME_types)-Zeichenkette, wie z. B. `'image/jpeg'` für eine JPEG-Bilddatei. Wenn er weggelassen wird, ist `text/plain;charset=US-ASCII` der Standardwert.
 
-Wenn die Daten [Zeichen enthalten, die in RFC 3986 als reservierte Zeichen definiert sind](https://datatracker.ietf.org/doc/html/rfc3986#section-2.2), oder Leerzeichen, Zeilenumbrüche oder andere nicht druckbare Zeichen enthalten, müssen diese Zeichen {{Glossary("Percent-encoding", "prozentcodiert")}} werden.
+Wenn die Daten [Zeichen enthalten, die in RFC 3986 als reservierte Zeichen definiert sind](https://datatracker.ietf.org/doc/html/rfc3986#section-2.2), oder Leerzeichen, Zeilenumbrüche oder andere nicht druckbare Zeichen enthalten, müssen diese Zeichen {{Glossary("Percent-encoding", "prozentkodiert")}} werden.
 
-Wenn die Daten textuell sind, können Sie den Text einbetten (unter Verwendung der entsprechenden Entitäten oder Escapes basierend auf dem Typ des umgebenden Dokuments). Andernfalls können Sie `base64` angeben, um base64-codierte Binärdaten einzubetten. Weitere Informationen zu MIME-Typen finden Sie [hier](/de/docs/Web/HTTP/MIME_types) und [hier](/de/docs/Web/HTTP/MIME_types/Common_types).
+Wenn die Daten textuell sind, können Sie den Text einbetten (mit den entsprechenden Entity-Referenzen oder Escapes basierend auf dem Typ des umschließenden Dokuments). Andernfalls können Sie `base64` angeben, um Base64-kodierte Binärdaten einzubetten. Weitere Informationen zu MIME-Typen finden Sie [hier](/de/docs/Web/HTTP/MIME_types) und [hier](/de/docs/Web/HTTP/MIME_types/Common_types).
 
 Einige Beispiele:
 
 - `data:,Hello%2C%20World%21`
-  - : Die text/plain-Daten `Hello, World!`. Beachten Sie, wie das Komma als `%2C` und das Leerzeichen als `%20` {{Glossary("Percent-encoding", "prozentcodiert")}} sind.
+  - : Die text/plain-Daten `Hello, World!`. Beachten Sie, wie das Komma als `%2C` {{Glossary("Percent-encoding", "prozentkodiert")}} ist und das Leerzeichen als `%20`.
 - `data:text/plain;base64,SGVsbG8sIFdvcmxkIQ==`
-  - : Base64-codierte Version des obigen Beispiels
+  - : Base64-kodierte Version des obigen Beispiels.
 - `data:text/html,%3Ch1%3EHello%2C%20World%21%3C%2Fh1%3E`
-  - : Ein HTML-Dokument mit `<h1>Hello, World!</h1>`
+  - : Ein HTML-Dokument mit `<h1>Hello, World!</h1>`.
 - `data:text/html,%3Cscript%3Ealert%28%27hi%27%29%3B%3C%2Fscript%3E`
-  - : Ein HTML-Dokument mit `<script>alert('hi');</script>`, das einen JavaScript-Alarm auslöst. Beachten Sie, dass das abschließende Script-Tag erforderlich ist.
+  - : Ein HTML-Dokument mit `<script>alert('hi');</script>`, das eine JavaScript-Benachrichtigung ausführt. Beachten Sie, dass das schließende Skripttag erforderlich ist.
 
-## Daten in das Base64-Format kodieren
+## Daten in Base64-Format kodieren
 
-Base64 ist eine Gruppe von Binär-zu-Text-Kodierungsschemata, die Binärdaten in einem {{Glossary("ASCII", "ASCII")}}-String-Format darstellen, indem sie in eine Radix-64-Darstellung übersetzt werden. Da sie nur Zeichen verwenden, die von der URL-Syntax erlaubt sind ("URL-sicher"), können wir Binärdaten sicher in Data-URLs kodieren. Base64 verwendet die Zeichen `+` und `/`, die in URLs eine spezielle Bedeutung haben können. Da Data-URLs keine URL-Pfadsegmente oder Abfrageparameter haben, ist diese Kodierung in diesem Kontext sicher.
+Base64 ist eine Gruppe von Binär-zu-Text-Kodierungsschemata, die Binärdaten in einem {{Glossary("ASCII", "ASCII")}}-Zeichenformat darstellen, indem sie in eine Radix-64-Darstellung übersetzt werden. Da nur Zeichen verwendet werden, die von der URL-Syntax erlaubt sind ("URL-sicher"), können wir Binärdaten sicher in Daten-URLs kodieren. Base64 nutzt die Zeichen `+` und `/`, die in URLs spezielle Bedeutungen haben können. Da Daten-URLs jedoch keine URL-Pfadsegmente oder Abfrageparameter haben, ist diese Kodierung in diesem Kontext sicher.
 
 ### Kodierung in JavaScript
 
-Die Web-APIs haben native Methoden zum Kodieren oder Dekodieren in Base64: {{Glossary("Base64", "Base64")}}.
+Die Web-APIs haben native Methoden, um nach Base64 zu kodieren oder davon zu dekodieren: {{Glossary("Base64", "Base64")}}.
 
 ### Kodierung auf einem Unix-System
 
-Die Base64-Kodierung einer Datei oder eines Strings auf Linux- und macOS-Systemen kann über die Kommandozeile `base64` (oder alternativ das `uuencode`-Tool mit dem Argument `-m`) erreicht werden.
+Die Base64-Kodierung einer Datei oder eines Strings auf Linux- und macOS-Systemen kann mit dem Kommandozeilenprogramm `base64` (oder alternativ mit dem `uuencode` Dienstprogramm mit dem Argument `-m`) erreicht werden.
 
 ```bash
 echo -n hello|base64
@@ -63,7 +63,7 @@ base64 a.txt>b.txt
 
 ### Kodierung auf Microsoft Windows
 
-Unter Windows kann [Convert.ToBase64String](https://learn.microsoft.com/en-us/dotnet/api/system.convert.tobase64string?view=net-5.0) aus PowerShell verwendet werden, um die Base64-Kodierung durchzuführen:
+Unter Windows kann [Convert.ToBase64String](https://learn.microsoft.com/en-us/dotnet/api/system.convert.tobase64string?view=net-5.0) in PowerShell verwendet werden, um die Base64-Kodierung durchzuführen:
 
 ```plain
 [convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes("hello"))
@@ -79,7 +79,7 @@ bash$ echo -n hello | base64
 
 ## Häufige Probleme
 
-In diesem Abschnitt werden Probleme beschrieben, die häufig beim Erstellen und Verwenden von `data`-URLs auftreten.
+Dieser Abschnitt beschreibt Probleme, die häufig beim Erstellen und Verwenden von `data` URLs auftreten.
 
 ```html
 data:text/html,lots of text…<p><a name%3D"bottom">bottom</a>?arg=val</p>
@@ -93,17 +93,17 @@ lots of text…
 ```
 
 - Syntax
-  - : Das Format für `data`-URLs ist sehr einfach, aber es ist leicht zu vergessen, ein Komma vor dem "Daten"-Segment zu setzen oder die Daten falsch ins Base64-Format zu kodieren.
+  - : Das Format für `data` URLs ist sehr einfach, aber es ist leicht, zu vergessen, ein Komma vor dem "data"-Segment zu setzen oder die Daten falsch in das Base64-Format zu kodieren.
 - Formatierung in HTML
-  - : Eine `data`-URL bietet eine Datei innerhalb einer Datei, die im Verhältnis zur Breite des umgebenden Dokuments potenziell sehr breit sein kann. Als URL sollte das `data` mit Leerzeichen (Zeilenumbruch, Tabulator oder Leerzeichen) formatiert werden können, aber es gibt praktische Probleme, die [bei der Verwendung der Base64-Kodierung](https://bugzil.la/73026#c12) auftreten.
+  - : Eine `data` URL liefert eine Datei innerhalb einer Datei, die potenziell sehr breit im Verhältnis zur Breite des umgebenden Dokuments sein kann. Als URL sollte die `data` mit Leerzeichen (Zeilenumbruch, Tabulator oder Leerzeichen) formatiert werden können, aber es gibt praktische Probleme, die [bei der Verwendung der Base64-Kodierung](https://bugzil.la/73026#c12) auftreten.
 - Längenbeschränkungen
-  - : Browser sind nicht verpflichtet, eine bestimmte maximale Datenlänge zu unterstützen. Beispielsweise begrenzte der Opera 11-Browser URLs auf eine Länge von 65535 Zeichen, was `data`-URLs auf 65529 Zeichen beschränkt (65529 Zeichen ist die Länge der kodierten Daten, nicht die der Quelle, wenn Sie das einfache `data:` verwenden, ohne einen MIME-Typ anzugeben). Firefox Version 97 und neuer unterstützt `data`-URLs von bis zu 32MB (vor 97 lag das Limit bei fast 256MB). Chromium lehnt URLs über 512MB ab, und WebKit (Safari) URLs über 2048MB.
+  - : Browser sind nicht verpflichtet, eine maximale Länge von Daten zu unterstützen. Chromium und Firefox begrenzen `data` URLs auf 512 MB, und Safari (WebKit) begrenzt sie auf 2048 MB. Beachten Sie, dass Firefox 97 die Grenze von 256 KB auf 32 MB erhöht hat und [Firefox 136 sie auf 512 MB erhöht hat](/de/docs/Mozilla/Firefox/Releases/136).
 - Fehlende Fehlerbehandlung
-  - : Ungültige Parameter im `media` oder Tippfehler bei der Angabe von `'base64'` werden ignoriert, es wird jedoch kein Fehler angezeigt.
-- Keine Unterstützung für Abfragezeichenfolgen usw.
-  - : Der Datenteil einer Data-URL ist undurchsichtig, daher führt der Versuch, eine Abfragezeichenfolge (seitenspezifische Parameter, mit der Syntax `<url>?parameter-data`) mit einer Data-URL zu verwenden, nur dazu, dass die Abfragezeichenfolge in die Daten aufgenommen wird, die die URL darstellt.
+  - : Ungültige Parameter im `media` oder Tippfehler bei der Spezifizierung von `'base64'` werden ignoriert, ohne dass ein Fehler angezeigt wird.
+- Keine Unterstützung für Abfragezeichenketten usw.
+  - : Der Datenabschnitt einer Daten-URL ist undurchsichtig, sodass ein Versuch, eine Abfragezeichenkette (seitenspezifische Parameter mit der Syntax `<url>?parameter-data`) mit einer Daten-URL zu verwenden, die Abfragezeichenkette nur in die Daten einbindet, die die URL repräsentiert.
 - Sicherheitsprobleme
-  - : Eine Reihe von Sicherheitsproblemen (zum Beispiel Phishing) wurden mit Data-URLs in Verbindung gebracht, insbesondere mit der Navigation dorthin im obersten Tab des Browsers. Um solche Probleme zu mildern, wird die Navigation auf oberster Ebene zu `data:`-URLs in allen modernen Browsern blockiert. Weitere Informationen finden Sie in [diesem Blogbeitrag des Mozilla-Sicherheitsteams](https://blog.mozilla.org/security/2017/11/27/blocking-top-level-navigations-data-urls-firefox-59/).
+  - : Eine Reihe von Sicherheitsproblemen (z. B. Phishing) wurde mit Daten-URLs und ihrer Navigation auf oberster Ebene im Browser in Verbindung gebracht. Um solche Probleme zu minimieren, ist die Navigation auf oberster Ebene zu `data:` URLs in allen modernen Browsern blockiert. Weitere Details finden Sie in [diesem Blogbeitrag des Mozilla Security Teams](https://blog.mozilla.org/security/2017/11/27/blocking-top-level-navigations-data-urls-firefox-59/).
 
 ## Spezifikationen
 

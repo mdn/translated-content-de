@@ -2,82 +2,85 @@
 title: Firefox 135 für Entwickler
 slug: Mozilla/Firefox/Releases/135
 l10n:
-  sourceCommit: 80422f01b928a8f180187ca69adeedb26e02add0
+  sourceCommit: c5849bd1313be60afdf4126aacd587c52bace335
 ---
 
 {{FirefoxSidebar}}
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 135, die Entwickler betreffen. Firefox 135 wurde am [4. Februar 2025](https://whattrainisitnow.com/release/?version=135) veröffentlicht.
+Dieser Artikel bietet Informationen zu den Änderungen in Firefox 135, die Entwickler betreffen. Firefox 135 wurde am [4. Februar 2025](https://whattrainisitnow.com/release/?version=135) veröffentlicht.
 
 ## Änderungen für Webentwickler
 
 ### HTML
 
-Keine bemerkenswerten Änderungen.
+Keine bedeutenden Änderungen
 
 ### CSS
 
 #### Entfernungen
 
-- Die [`-moz-user-input`](/de/docs/Web/CSS/-moz-user-input)-CSS-Eigenschaft erlaubte das Deaktivieren von Eingabefeldern. Die Eigenschaft ist nun veraltet und wurde entfernt ([Firefox-Bug 1935198](https://bugzil.la/1935198)).
+- Die [`-moz-user-input`](/de/docs/Web/CSS/-moz-user-input)-CSS-Eigenschaft, die es ermöglichte, Eingabefelder zu deaktivieren, ist jetzt veraltet und wurde entfernt ([Firefox Bug 1935198](https://bugzil.la/1935198)).
 
 ### JavaScript
 
-- Der [JSON parse with source proposal](https://github.com/tc39/proposal-json-parse-with-source) wird nun unterstützt. Dieser Vorschlag zielt darauf ab, Probleme im Zusammenhang mit Präzisionsverlust bei der Umwandlung von Werten wie großen Gleitkommazahlen und Datumswerten zwischen JavaScript-Werten und JSON-Text zu mindern ([Firefox-Bug 1934622](https://bugzil.la/1934622)). Insbesondere stehen die folgenden Funktionen jetzt zur Verfügung:
-  - Das `JSON.parse()`-[`reviver`-Parameter-`context`-Argument](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#the_reviver_parameter): Bietet Zugriff auf den ursprünglichen JSON-Quelltext, der analysiert wurde.
-  - [`JSON.isRawJSON()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/isRawJSON): Prüft, ob ein Wert ein von `JSON.rawJSON()` zurückgegebenes Objekt ist.
-  - [`JSON.rawJSON()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/rawJSON): Erstellt ein "rohes JSON"-Objekt, das einen Teil von JSON-Text enthält und in einem Objekt enthalten sein kann, um den angegebenen Wert beim Serialisieren des Objekts beizubehalten.
+- Der [JSON parse with source proposal](https://github.com/tc39/proposal-json-parse-with-source) wird nun unterstützt. Ziel dieses Vorschlags ist es, Probleme im Zusammenhang mit Präzisionsverlusten zu mindern, die beim Konvertieren von Werten wie großen Fließkommazahlen und Datumswerten zwischen JavaScript-Werten und JSON-Text auftreten ([Firefox Bug 1934622](https://bugzil.la/1934622)). Insbesondere sind die folgenden Funktionen jetzt verfügbar:
+  - Der `reviver`-Parameter `context`-Argument von `JSON.parse()` ([`reviver` parameter `context` argument](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#the_reviver_parameter)): Ermöglicht Zugriff auf den ursprünglichen JSON-Quelltext, der analysiert wurde.
+  - [`JSON.isRawJSON()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/isRawJSON): Überprüft, ob ein Wert ein Objekt ist, das von `JSON.rawJSON()` zurückgegeben wurde.
+  - [`JSON.rawJSON()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/rawJSON): Erstellt ein "rohes JSON"-Objekt, das ein Stück JSON-Text enthält und in ein Objekt eingefügt werden kann, um den angegebenen Wert beim Serialisieren des Objekts beizubehalten.
 
 ### Sicherheit
 
-- Die [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency) ist ein Standard, der sicherstellt, dass Zertifikate öffentlich bekannt gemacht werden, bevor Webbrowser ihnen vertrauen. Firefox unterstützt dieses Feature jetzt in Desktop-Versionen (nicht auf Android).
-  Dies betrifft nur Server, die Zertifikate verwenden, die von einer Zertifizierungsstelle im Root-CA-Programm von Mozilla ausgegeben wurden.
-  ([Firefox-Bug 1938242](https://bugzil.la/1938242)).
+- [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency) ist ein Standard, der sicherstellt, dass Zertifikate öffentlich bekannt gemacht werden, bevor sie von Webbrowsern vertraut werden. Firefox unterstützt diese Funktion nun in der Desktop-Version (nicht auf Android).
+  Dies betrifft nur Server, die Zertifikate von einer Zertifizierungsstelle verwenden, die im Mozilla Root CA-Programm enthalten ist.
+  ([Firefox Bug 1938242](https://bugzil.la/1938242)).
 
 ### APIs
 
-- Die [`PublicKeyCredential.getClientCapabilities()`](/de/docs/Web/API/PublicKeyCredential/getClientCapabilities_static)-statische Methode wird unterstützt, sodass eine Web-App überprüfen kann, ob ein Browser bestimmte [WebAuthn](/de/docs/Web/API/Web_Authentication_API)-Funktionen und [Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions) aktiviert hat, ohne Benutzer-Agent-Sniffing nutzen zu müssen.
-  ([Firefox-Bug 1884466](https://bugzil.la/1884466)).
+- Die statische Methode [`PublicKeyCredential.getClientCapabilities()`](/de/docs/Web/API/PublicKeyCredential/getClientCapabilities_static) wird unterstützt. Damit kann eine Webanwendung prüfen, ob ein Browser bestimmte [WebAuthn](/de/docs/Web/API/Web_Authentication_API)-Funktionen und [Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions) aktiviert hat, ohne auf User-Agent-Sniffing zurückgreifen zu müssen.
+  ([Firefox Bug 1884466](https://bugzil.la/1884466)).
 
 #### DOM
 
 #### Medien, WebRTC und Web Audio
 
-- Die Eigenschaften [`mid`](/de/docs/Web/API/RTCOutboundRtpStreamStats/mid) und [`rid`](/de/docs/Web/API/RTCOutboundRtpStreamStats/rid) der [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Schnittstelle sowie die Eigenschaft [`mid`](/de/docs/Web/API/RTCOutboundRtpStreamStats/mid) der [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Schnittstelle werden nun unterstützt. ([Firefox-Bug 1643001](https://bugzil.la/1643001)).
+- Die [`mid`](/de/docs/Web/API/RTCOutboundRtpStreamStats/mid)- und [`rid`](/de/docs/Web/API/RTCOutboundRtpStreamStats/rid)-Eigenschaften des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Interfaces sowie die [`mid`](/de/docs/Web/API/RTCOutboundRtpStreamStats/mid)-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Interfaces werden jetzt unterstützt. ([Firefox Bug 1643001](https://bugzil.la/1643001)).
 
 ### WebDriver-Konformität (WebDriver BiDi, Marionette)
 
 #### Allgemein
 
-- Um Benutzereingaben realistischer zu gestalten und reale Benutzerinteraktionen im Browser besser zu simulieren, wurde die Verarbeitung der Aktionssequenzen der `Perform Actions`-Befehle in Marionette und WebDriver BiDi vom Content-Prozess in den Parent-Prozess verschoben. Während Ereignisse weiterhin synchron vom Content-Prozess gesendet werden, werden sie jetzt asynchron über IPC-Aufrufe ausgelöst, die vom Parent-Prozess ausgehen ([Firefox-Bug 1922077](https://bugzilla.mozilla.org/show_bug.cgi?id=1922077)).
+- Um Benutzereingaben realistischer zu gestalten und reale Benutzerinteraktionen im Browser besser zu simulieren, wurde die Verarbeitung der Aktionssequenzen der `Perform Actions`-Befehle sowohl in Marionette als auch in WebDriver BiDi vom Content-Prozess in den Parent-Prozess verlagert. Während Ereignisse weiterhin synchron aus dem Content-Prozess gesendet werden, werden sie jetzt asynchron über IPC-Aufrufe ausgelöst, die vom Parent-Prozess ausgehen ([Firefox Bug 1922077](https://bugzilla.mozilla.org/show_bug.cgi?id=1922077)).
 
-  Aufgrund dieser signifikanten Änderung können einige Regressionen bestehen. Sollten Sie auf Probleme stoßen, melden Sie bitte einen [Bug für den Remote-Agent](https://bugzilla.mozilla.org/enter_bug.cgi?product=Remote%20Protocol&component=Remote%20Agent). Falls die Regressionen die Testausführung blockieren, können Sie vorübergehend zum vorherigen Verhalten zurückkehren, indem Sie die Firefox-Einstellung `remote.events.async.enabled` auf `false` setzen.
+  Aufgrund dieser signifikanten Änderung können noch einige Regressionen existieren. Sollten Probleme auftreten, melden Sie diese bitte im [Bugzilla für den Remote Agent](https://bugzilla.mozilla.org/enter_bug.cgi?product=Remote%20Protocol&component=Remote%20Agent). Falls die Regressionen die Testausführung blockieren, kann vorübergehend auf das vorherige Verhalten zurückgegriffen werden, indem die Firefox-Präferenz `remote.events.async.enabled` auf `false` gesetzt wird.
 
-- Durch die Verarbeitung von Aktionen im Parent-Prozess wurden auch die folgenden Probleme behoben:
+- Durch die Verarbeitung von Aktionen im Parent-Prozess wurden auch folgende Probleme behoben:
 
-  - Die korrekte Warteschlangenverwaltung der Aktionssequenzen ohne Race-Conditions wird nun unterstützt. Dies ist insbesondere für den WebDriver-BiDi-Befehl `input.performActions` wichtig, der mehrfach parallel aufgerufen werden kann und die enqueueten Aktionen sequentiell ausführen muss ([Firefox-Bug 1915798](https://bugzilla.mozilla.org/show_bug.cgi?id=1915798)).
+  - Es wird nun eine korrekte Warteschlange von Aktionssequenzen ohne Race-Conditions unterstützt. Dies ist insbesondere für den `input.performActions`-Befehl von WebDriver BiDi wichtig, der mehrfach parallel aufgerufen werden kann und die eingereihten Aktionen sequenziell ausführen muss ([Firefox Bug 1915798](https://bugzilla.mozilla.org/show_bug.cgi?id=1915798)).
 
-  - Beim Dispatching von Aktionen wird die `input cancel list` nun korrekt erst nach erfolgreicher Ausführung der Aktion aktualisiert. Vorher konnte eine Rückgängigmachungsaktion bestehen bleiben, was zu unerwarteten Nebeneffekten beim Zurücksetzen des Zustands der `input source` führte ([Firefox-Bug 1930845](https://bugzilla.mozilla.org/show_bug.cgi?id=1930845)).
+  - Beim Versenden von Aktionen wird die `input cancel list` jetzt korrekt nur nach erfolgreicher Verarbeitung der Aktion aktualisiert. Zuvor konnte es bei einer fehlgeschlagenen Aktion dazu kommen, dass eine Rückgängig-Aktion fälschlicherweise bestehen blieb, was zu unerwarteten Seiteneffekten beim Zurücksetzen des `input source`-Status führte ([Firefox Bug 1930845](https://bugzilla.mozilla.org/show_bug.cgi?id=1930845)).
 
-  - Einzelne Aktionen werden nun bei der Ausführung erneut versucht, insbesondere in Situationen, in denen eine einzelne Aktion eine Navigation auslöst, die den aktuellen Browsing-Kontext ersetzt ([Firefox-Bug 1930530](https://bugzilla.mozilla.org/show_bug.cgi?id=1930530), [Firefox-Bug 1930090](https://bugzilla.mozilla.org/show_bug.cgi?id=1930090)).
+  - Während der Ausführung von Aktionen werden nun individuelle Aktionen während der Ausführung wiederholt, insbesondere in Situationen, in denen eine einzelne Aktion eine Navigation auslöst, die den aktuellen Browsing-Kontext ersetzt ([Firefox Bug 1930530](https://bugzilla.mozilla.org/show_bug.cgi?id=1930530), [Firefox Bug 1930090](https://bugzilla.mozilla.org/show_bug.cgi?id=1930090)).
 
-  - Ein Fehler `TypeError: can't access property "getActor", browsingContext.currentWindowGlobal is null` trat auf, wenn eine Aktion (nicht die letzte) in der Aktionskette das Fenster schloss und die verbleibenden Aktionen noch ausgeführt wurden ([Firefox-Bug 1932916](https://bugzilla.mozilla.org/show_bug.cgi?id=1932916)).
+  - Bei der Ausführung von Aktionen trat ein Fehler des Typs `TypeError: can't access property "getActor", browsingContext.currentWindowGlobal is null` auf, wenn eine Aktion (nicht die letzte) in der Aktionskette das Fenster schloss und die verbleibenden Aktionen noch verarbeitet wurden ([Firefox Bug 1932916](https://bugzilla.mozilla.org/show_bug.cgi?id=1932916)).
 
-- Einige Marionette- und WebDriver-BiDi-Befehle, die intern darauf angewiesen sind, dass ein `requestAnimationFrame` ausgegeben wird, bevor sie zurückkehren, hingen, wenn der aktuelle Browsing-Kontext während ihrer Ausführung navigiert wurde ([Firefox-Bug 1937118](https://bugzilla.mozilla.org/show_bug.cgi?id=1937118)).
+- Einige Marionette- und WebDriver-BiDi-Befehle, die intern darauf angewiesen sind, dass ein `requestAnimationFrame` vor ihrer Rückkehr ausgelöst wird, hingen fest, wenn der aktuelle Browsing-Kontext während ihrer Ausführung navigiert wurde ([Firefox Bug 1937118](https://bugzilla.mozilla.org/show_bug.cgi?id=1937118)).
 
 #### WebDriver BiDi
 
-- Unterstützung für das `format`-Feld im Befehl `browsingContext.captureScreenshot` wurde hinzugefügt, wodurch Clients unterschiedliche Dateiformate (`image/png` und `image/jpg` derzeit unterstützt) und die Kompressionsqualität für Screenshots festlegen können ([Firefox-Bug 1861737](https://bugzilla.mozilla.org/show_bug.cgi?id=1861737)).
+- Unterstützung für das `format`-Feld im `browsingContext.captureScreenshot`-Befehl wurde hinzugefügt. Damit können Clients unterschiedliche Dateiformate spezifizieren (`image/png` und `image/jpg` werden derzeit unterstützt) und die Komprimierungsqualität für Screenshots definieren ([Firefox Bug 1861737](https://bugzilla.mozilla.org/show_bug.cgi?id=1861737)).
 
-## Experimentelle Webfunktionen
+## Änderungen für Add-on-Entwickler
 
-Diese Funktionen sind neu in Firefox 135, aber standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie die entsprechende Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`. Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+- {{WebExtAPIRef("commands.update")}} kann jetzt Tastenkombinationen für Befehle den Tasten `F13` bis `F19` zuweisen. Allerdings können Erweiterungen diese Tasten nicht über den [`commands`-Schlüssel der manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) zuweisen. Benutzer können diese Tasten auch über [Tastenkombinationen von Erweiterungen verwalten](https://support.mozilla.org/en-US/kb/manage-extension-shortcuts-firefox) Funktionen zuweisen ([Firefox Bug 1924542](https://bugzil.la/1924542)).
 
-- **Temporal-API** (Nightly-Version): <code>javascript.options.experimental.temporal</code>. Das [Temporal-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal) zielt darauf ab, die Arbeit mit Daten und Zeiten in verschiedenen Szenarien zu vereinfachen, einschließlich integrierter Zeitzonen- und Kalenderdarstellungen. ([Firefox-Bug 1912511](https://bugzil.la/1912511)).
+## Experimentelle Web-Features
+
+Diese Features sind neu in Firefox 135 integriert, aber standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Präferenz und setzen Sie diese auf `true`. Weitere experimentelle Funktionen finden Sie auf der Seite [Experimental features](/de/docs/Mozilla/Firefox/Experimental_features).
+
+- **Temporal API** (Nightly-Version): <code>javascript.options.experimental.temporal</code>. Das [Temporal-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal) zielt darauf ab, die Arbeit mit Datums- und Zeitangaben in verschiedenen Szenarien zu vereinfachen, mit integrierten Zeitzonen- und Kalenderdarstellungen. ([Firefox Bug 1912511](https://bugzil.la/1912511)).
 - **Prioritized Task Scheduling API**: <code>dom.enable_web_task_scheduling</code>.
-  Die [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API) bietet eine standardisierte Möglichkeit, alle Aufgaben einer Anwendung zu priorisieren, unabhängig davon, ob sie im Code eines Websiteentwicklers oder in Drittanbieter-Bibliotheken und -Frameworks definiert wurden.
-  Diese wurde vorübergehend in Nightly-Builds deaktiviert, um [Fehler im praktischen Einsatz](https://bugzil.la/1937232) zu vermeiden.
-  ([Firefox-Bug 1938242](https://bugzil.la/1938242)).
+  Die [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API) bietet eine standardisierte Methode, um alle einer Anwendung zugehörigen Aufgaben zu priorisieren, unabhängig davon, ob sie im Code des Website-Entwicklers oder in Drittanbieterbibliotheken und -frameworks definiert wurden.
+  Diese wurde vorübergehend in Nightly-Builds deaktiviert, um [Fehlfunktionen in freier Wildbahn](https://bugzil.la/1937232) zu vermeiden. ([Firefox Bug 1938242](https://bugzil.la/1938242)).
 
 ## Ältere Versionen
 

@@ -2,16 +2,16 @@
 title: Temporal.Duration.prototype.years
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/years
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 262c13dcbcd394beddd98e07d9c78bc79ce3513c
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`years`** Zugriffs-Eigenschaft von {{jsxref("Temporal.Duration")}} Instanzen gibt eine Ganzzahl zurück, die die Anzahl der Jahre in der Dauer darstellt.
+Die **`years`** Zugriffseigenschaft von {{jsxref("Temporal.Duration")}}-Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Jahre in der Dauer darstellt.
 
-Sie können das Vorzeichen von `years` feststellen, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen.
+Sie können das Vorzeichen von `years` herausfinden, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen.
 
-Der Set-Accessor von `years` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Setter von `years` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}}-Methode, um ein neues `Temporal.Duration`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ console.log(d4.years); // 0
 
 // Balance d4
 const d4Balanced = d4.round({
-  largestUnit: "year",
+  largestUnit: "years",
   relativeTo: Temporal.PlainDate.from("2021-01-01"), // ISO 8601 calendar
 });
 console.log(d4Balanced.years); // 1

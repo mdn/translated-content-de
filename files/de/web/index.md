@@ -2,82 +2,82 @@
 title: Webtechnologie für Entwickler
 slug: Web
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: cdf5bebefe9bb292b3aa6c9e733ba06a8466016e
 ---
 
 <section id="Quick_links">
   {{ListSubpages("", 1, 0, 1)}}
 </section>
 
-Das offene Web bietet unglaubliche Möglichkeiten für Entwickler. Um diese Technologien voll auszuschöpfen, müssen Sie wissen, wie man sie nutzt. Unten finden Sie Links zu unserer Dokumentation über Webtechnologien.
+Das offene Web bietet unglaubliche Möglichkeiten für Entwickler. Um diese Technologien voll auszuschöpfen, müssen Sie wissen, wie man sie verwendet. Unten finden Sie Links zu unserer Webtechnologie-Dokumentation.
 
 ## Dokumentation für Webentwickler
 
-- [Leitfaden für Webentwickler](/de/docs/Web/Guide)
-  - : Der Leitfaden für Webentwickler bietet nützliche Anleitungen, die Ihnen helfen, Webtechnologien tatsächlich so zu nutzen, wie Sie es wollen oder brauchen.
-- [Tutorials für Webentwickler](/de/docs/Web/Tutorials)
-  - : Tutorials, die Ihnen Schritt für Schritt das Lernen von HTML, CSS, JavaScript und Web-APIs erleichtern.
+- [Leitfäden für Webentwickler](/de/docs/MDN/Guides)
+  - : Die Leitfäden für Webentwickler bieten praktische Anleitungen, die Ihnen helfen, Webtechnologien für Ihre Ziele oder Bedürfnisse zu nutzen.
+- [Anleitungen für Webentwickler](/de/docs/MDN/Tutorials)
+  - : Schritt-für-Schritt-Tutorials, um HTML, CSS, JavaScript und Web-APIs zu lernen.
 - [Barrierefreiheit](/de/docs/Web/Accessibility)
-  - : Ermöglichung, dass möglichst viele Menschen Websites nutzen können, selbst wenn deren Fähigkeiten auf irgendeine Weise eingeschränkt sind.
-- [Leistung](/de/docs/Web/Performance)
-  - : Inhalte so schnell wie möglich verfügbar und interaktiv machen.
+  - : Ermöglicht so vielen Menschen wie möglich die Nutzung von Websites, auch wenn deren Fähigkeiten in irgendeiner Weise eingeschränkt sind.
+- [Performance](/de/docs/Web/Performance)
+  - : Inhalte möglichst schnell verfügbar und interaktiv machen.
 - [Datenschutz](/de/docs/Web/Privacy)
-  - : Schutz der persönlichen Daten von Nutzern.
+  - : Schutz der persönlichen Daten der Nutzer.
 - [Sicherheit](/de/docs/Web/Security)
-  - : Schutz der Nutzer vor Datenlecks und Datendiebstahl, Seitenkanalangriffen und Angriffen wie Cross-Site-Scripting, Inhaltsinjektionen und Clickjacking.
+  - : Schutz der Nutzer vor Datenlecks und Datendiebstahl, Seitenkanalangriffen und Angriffen wie Cross-Site-Scripting, Inhaltsinjektion und Clickjacking.
 - [Glossar](/de/docs/Glossary)
   - : Definitionen von Web-bezogenen Begriffen.
 
 ## Referenzen zu Webtechnologien
 
-- [Web-APIs](/de/docs/Web/API)
-  - : JavaScript-Programmier-APIs, die Sie verwenden können, um Apps im Web zu erstellen.
+- [Web APIs](/de/docs/Web/API)
+  - : JavaScript-Programmier-APIs, die Sie nutzen können, um Apps im Web zu erstellen.
 - [HTML](/de/docs/Web/HTML)
-  - : HTML stellt die grundlegenden Bausteine zur Strukturierung von Webdokumenten und -anwendungen bereit.
+  - : HTML bietet die grundlegenden Bausteine zur Strukturierung von Web-Dokumenten und -Apps.
 - [CSS](/de/docs/Web/CSS)
-  - : Cascading Style Sheets werden verwendet, um das Erscheinungsbild von Webdokumenten und -anwendungen zu beschreiben.
+  - : Cascading Style Sheets werden verwendet, um das Erscheinungsbild von Web-Dokumenten und -Apps zu beschreiben.
 - [JavaScript](/de/docs/Web/JavaScript)
   - : JavaScript ist die native Programmiersprache des Webs.
 - [WebAssembly](/de/docs/WebAssembly)
-  - : WebAssembly ermöglicht die Ausführung von Programmen, die in C, C++, Rust, Swift, C#, Go und anderen Sprachen geschrieben wurden, im Web.
+  - : WebAssembly ermöglicht das Ausführen von Programmen, die in C, C++, Rust, Swift, C#, Go und anderen Sprachen geschrieben sind, im Web.
 - [Events](/de/docs/Web/Events)
-  - : Ereignisse sind Dinge, auf die Webanwendungen reagieren, z. B. wenn eine Webseite geladen wird, ein Nutzer etwas auswählt, eine Taste drückt, ein Fenster vergrößert, ein Formular abschickt oder ein `<video>` pausiert.
+  - : Ereignisse sind das, worauf Web-Apps reagieren — beispielsweise wenn eine Webseite das Laden beendet, ein Benutzer etwas auswählt, eine Taste drückt, ein Fenster neu dimensioniert, ein Formular absendet oder ein Video pausiert.
 - [HTTP](/de/docs/Web/HTTP)
-  - : HTTP ist das grundlegende Internetprotokoll, um Dokumente, Stylesheets, Skripte, Bilder, Videos, Schriftarten und andere Ressourcen über das Web abzurufen – und um Daten an Webserver zurückzusenden.
+  - : HTTP ist das grundlegende Internetprotokoll zum Abrufen von Dokumenten, Stylesheets, Skripten, Bildern, Videos, Schriftarten und anderen Ressourcen über das Web — und zum Senden von Daten zurück an Webserver.
 - [Medien](/de/docs/Web/Media)
-  - : Formate, Codecs, Protokolle, APIs und Techniken zum Einbetten und Streamen von Video-, Audio- und Bildinhalten in Webdokumenten und -anwendungen.
+  - : Formate, Codecs, Protokolle, APIs und Techniken zum Einbetten und Streamen von Video-, Audio- und Bildinhalten in Web-Dokumenten und -Apps.
 - [SVG](/de/docs/Web/SVG)
-  - : Scalable Vector Graphics ermöglicht die Erstellung von Bildern, die sich nahtlos in jede Größe skalieren lassen.
+  - : Scalable Vector Graphics ermöglicht das Erstellen von Bildern, die sich nahtlos in jede Größe skalieren lassen.
 - [MathML](/de/docs/Web/MathML)
-  - : MathML erlaubt die Darstellung komplexer mathematischer Notation im Web.
+  - : MathML ermöglicht die Darstellung komplexer mathematischer Notationen im Web.
 - [URI](/de/docs/Web/URI)
-  - : Uniform Resource Identifiers werden von verschiedenen Technologien verwendet, einschließlich des Browsers selbst über die Adressleiste, um Ressourcen auf verschiedene Weise zu identifizieren.
+  - : Uniform Resource Identifiers werden von verschiedenen Technologien, einschließlich des Browsers über die Adressleiste, verwendet, um Ressourcen auf verschiedene Weise zu identifizieren.
 - [WebDriver](/de/docs/Web/WebDriver)
-  - : WebDriver ist ein Browser-Automatisierungsmechanismus zum Fernsteuern eines Browsers durch Emulation der Aktionen eines echten Nutzers. Es wird häufig für die plattformübergreifende Prüfung von Webanwendungen verwendet.
+  - : WebDriver ist ein Mechanismus zur Browser-Automatisierung, mit dem ein Browser ferngesteuert werden kann, indem die Aktionen einer echten Person imitiert werden. Es wird häufig für plattformübergreifendes Testen von Web-Apps genutzt.
 - [Web Extensions](/de/docs/Mozilla/Add-ons/WebExtensions)
-  - : Web Extensions ermöglichen es Ihnen, den Nutzern erweiterte Funktionen in ihren Browsern anzubieten – etwa zum Blockieren von Werbung und anderen Inhalten, zur Anpassung des Erscheinungsbilds von Seiten und mehr.
+  - : Web Extensions ermöglichen es Ihnen, Benutzern erweiterte Funktionen in ihren Browsern zur Verfügung zu stellen — etwa zum Blockieren von Werbung und anderen Inhalten, zur Anpassung des Erscheinungsbildes von Seiten und mehr.
 - [Web App Manifeste](/de/docs/Web/Manifest)
-  - : Web App Manifeste ermöglichen es Nutzern, Webanwendungen auf die Startbildschirme ihrer Geräte zu installieren, mit voreingestellten Merkmalen wie Hoch-/Querformat-Bildschirmausrichtung und Anzeigeweisen (z. B. Vollbildmodus).
+  - : Web App Manifeste ermöglichen es Ihnen, Benutzern die Installation von Web-Apps auf ihren Geräte-Startbildschirmen zu ermöglichen, wobei Aspekte wie Hoch-/Querformat-Ausrichtung und Anzeigemodus (z. B. Vollbild) voreingestellt sind.
 - [Progressive Web Apps (PWAs)](/de/docs/Web/Progressive_web_apps)
   - : Progressive Web Apps bieten ein Benutzererlebnis, das nativen mobilen Apps ähnelt.
 - [OpenSearch](/de/docs/Web/XML/Guides/OpenSearch)
-  - : OpenSearch ermöglicht einer Website, eine Suchmaschine für sich selbst zu beschreiben, sodass ein Browser oder eine andere Client-Anwendung diese Suchmaschine nutzen kann.
+  - : OpenSearch ermöglicht es einer Website, eine Suchmaschine für sich selbst zu beschreiben, sodass ein Browser oder eine andere Clientanwendung diese Suchmaschine nutzen kann.
 - [XML](/de/docs/Web/XML)
-  - : Die Extensible Markup Language ist eine strikte Serialisierung des [Document Object Model](/de/docs/Web/API/Document_Object_Model).
+  - : Die Extensible Markup Language ist eine strenge Serialisierung des [Document Object Model](/de/docs/Web/API/Document_Object_Model).
 - [XSLT](/de/docs/Web/XML/XSLT)
-  - : Extensible Stylesheet Language Transformations ist eine [XML](/de/docs/Web/XML/Guides/XML_introduction)-basierte Sprache, die in Verbindung mit spezieller Verarbeitungssoftware für die Transformation von XML-Dokumenten verwendet wird.
+  - : Extensible Stylesheet Language Transformations ist eine auf [XML](/de/docs/Web/XML/Guides/XML_introduction) basierende Sprache, die zusammen mit spezieller Verarbeitungssoftware zur Umwandlung von XML-Dokumenten verwendet wird.
 - [XPath](/de/docs/Web/XML/XPath)
-  - : XPath verwendet eine Nicht-XML-Syntax, um auf flexible Weise auf verschiedene Teile eines [XML](/de/docs/Web/XML/Guides/XML_introduction)-Dokuments zu verweisen. Es kann auch verwendet werden, um adressierte Knoten in einem Dokument zu testen, um zu ermitteln, ob sie einem Muster entsprechen.
+  - : XPath verwendet eine Nicht-XML-Syntax, um eine flexible Möglichkeit zur Adressierung (Verweis) auf verschiedene Teile eines [XML](/de/docs/Web/XML/Guides/XML_introduction)-Dokuments bereitzustellen. Es kann auch verwendet werden, um adressierte Knoten innerhalb eines Dokuments zu testen, ob diese einem Muster entsprechen oder nicht.
 - [EXSLT](/de/docs/Web/XML/EXSLT)
-  - : EXSLT ist eine Sammlung von Erweiterungen für [XSLT](/de/docs/Web/XML/XSLT).
+  - : EXSLT ist eine Reihe von Erweiterungen zu [XSLT](/de/docs/Web/XML/XSLT).
 
-## Dokumentation für Entwicklerwerkzeuge
+## Dokumentation der Entwickler-Tools
 
 - [Firefox Developer Tools](https://firefox-source-docs.mozilla.org/devtools-user/index.html)
-  - : Dokumentation für die Webentwickler-Tools, die in Firefox integriert sind.
+  - : Dokumentation zu den in Firefox integrierten Entwickler-Tools.
 - [Chrome DevTools](https://developer.chrome.com/docs/devtools/)
-  - : Dokumentation für die Webentwickler-Tools, die in Chrome integriert sind.
+  - : Dokumentation zu den in Chrome integrierten Entwickler-Tools.
 - [Safari Web Inspector](https://webkit.org/web-inspector/)
-  - : Dokumentation für die Webentwickler-Tools, die in Safari integriert sind.
+  - : Dokumentation zu den in Safari integrierten Entwickler-Tools.
 - [Edge DevTools](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/landing/)
-  - : Dokumentation für die Webentwickler-Tools, die in Edge integriert sind.
+  - : Dokumentation zu den in Edge integrierten Entwickler-Tools.

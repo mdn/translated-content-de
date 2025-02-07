@@ -2,16 +2,16 @@
 title: Temporal.Duration.prototype.minutes
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/minutes
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 262c13dcbcd394beddd98e07d9c78bc79ce3513c
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die Zugriffseigenschaft **`minutes`** von Instanzen von {{jsxref("Temporal.Duration")}} gibt eine ganze Zahl zurück, die die Anzahl der Minuten in der Dauer darstellt.
+Die **`minutes`**-Zugriffseigenschaft von {{jsxref("Temporal.Duration")}}-Instanzen gibt eine Ganzzahl zurück, die die Anzahl der Minuten in der Dauer repräsentiert.
 
-Es sei denn, die Dauer ist [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing), Sie können den Bereich dieses Wertes nicht annehmen, aber Sie können das Vorzeichen ermitteln, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen. Wenn sie zu einer Einheit über den Minuten ausgeglichen ist, liegt der absolute Wert der `minutes` zwischen 0 und 59, einschließlich.
+Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Werts nicht vorhersagen, aber Sie können das Vorzeichen ermitteln, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign)-Eigenschaft der Dauer überprüfen. Wenn die Dauer zu einer Einheit über Minuten ausgeglichen ist, liegt der absolute Wert von `minutes` zwischen 0 und 59, einschließlich.
 
-Der Set-Zugriffsmechanismus von `minutes` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}}-Methode, um ein neues `Temporal.Duration`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `minutes` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}}-Methode, um ein neues `Temporal.Duration`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
@@ -29,7 +29,7 @@ console.log(d3.minutes); // 0
 console.log(d4.minutes); // 60
 
 // Balance d4
-const d4Balanced = d4.round({ largestUnit: "hour" });
+const d4Balanced = d4.round({ largestUnit: "hours" });
 console.log(d4Balanced.minutes); // 0
 console.log(d4Balanced.hours); // 1
 ```
