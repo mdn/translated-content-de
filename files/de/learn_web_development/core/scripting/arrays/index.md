@@ -2,30 +2,30 @@
 title: Arrays
 slug: Learn_web_development/Core/Scripting/Arrays
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 07d0f18e4b2ad43185bcc98ce99b7080c6411b2a
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Useful_string_methods", "Learn_web_development/Core/Scripting/Silly_story_generator", "Learn_web_development/Core/Scripting")}}
 
-In dieser Lektion betrachten wir Arrays – eine clevere Möglichkeit, eine Liste von Datenelementen unter einem einzigen Variablennamen zu speichern. Hier zeigen wir, warum dies nützlich ist, und erkunden dann, wie man ein Array erstellt, Elemente darin abruft, hinzufügt und entfernt und noch mehr.
+In dieser Lektion betrachten wir Arrays – eine clevere Möglichkeit, eine Liste von Datenobjekten unter einem einzigen Variablennamen zu speichern. Wir betrachten, warum dies nützlich ist, und untersuchen, wie man ein Array erstellt, Elemente daraus abruft, hinzufügt und entfernt und mehr.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>. Vertrautheit mit grundlegenden Datentypen wie Zahlen und Zeichenfolgen, wie in den vorherigen Lektionen behandelt.</td>
+      <td>Ein grundlegendes Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>. Vertrautheit mit grundlegenden Datentypen wie Zahlen und Strings, wie in den vorherigen Lektionen behandelt.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Was ein Array ist — eine Struktur, die eine Liste von Variablen enthält.</li>
-          <li>Die Syntax von Arrays — <code>[a, b, c]</code> und die Zugriffssyntax, <code>myArray[x]</code>.</li>
-          <li>Modifizieren von Array-Werten mit <code>myArray[x] = y</code>.</li>
-          <li>Manipulation von Arrays mithilfe gängiger Eigenschaften und Methoden wie <code>length</code>, <code>push()</code>, <code>pop()</code>, <code>join()</code> und <code>split()</code>.</li>
-          <li>Erweiterte Array-Methoden wie <code>forEach()</code>, <code>map()</code> und <code>filter()</code>.</li>
+          <li>Was ein Array ist – eine Struktur, die eine Liste von Variablen enthält.</li>
+          <li>Die Syntax von Arrays – <code>[a, b, c]</code> und die Zugriffssyntax, <code>myArray[x]</code>.</li>
+          <li>Ändern von Array-Werten mit <code>myArray[x] = y</code>.</li>
+          <li>Manipulation von Arrays unter Verwendung gängiger Eigenschaften und Methoden wie <code>length</code>, <code>push()</code>, <code>pop()</code>, <code>join()</code> und <code>split()</code>.</li>
+          <li>Fortgeschrittene Array-Methoden wie <code>forEach()</code>, <code>map()</code> und <code>filter()</code>.</li>
         </ul>
       </td>
     </tr>
@@ -34,15 +34,15 @@ In dieser Lektion betrachten wir Arrays – eine clevere Möglichkeit, eine List
 
 ## Was ist ein Array?
 
-Arrays werden im Allgemeinen als "listenähnliche Objekte" beschrieben; im Grunde genommen sind sie einzelne Objekte, die mehrere Werte in einer Liste speichern. Array-Objekte können in Variablen gespeichert und ähnlich behandelt werden wie jeder andere Wertetyp, mit dem Unterschied, dass wir auf jeden Wert innerhalb der Liste einzeln zugreifen können und nützliche und effiziente Dinge mit der Liste machen können, wie sie zu durchlaufen und dieselbe Aktion auf jeden Wert anzuwenden. Vielleicht haben wir eine Reihe von Produktartikeln und deren Preise in einem Array gespeichert und möchten alle durchlaufen und auf einer Rechnung ausdrucken, während wir alle Preise zusammenzählen und den Gesamtpreis am Ende ausdrucken.
+Arrays werden allgemein als „listenartige Objekte“ beschrieben; sie sind im Grunde genommen einzelne Objekte, die mehrere Werte in einer Liste speichern. Array-Objekte können in Variablen gespeichert und ähnlich wie jeder andere Werttyp behandelt werden, mit dem Unterschied, dass wir auf jeden Wert in der Liste einzeln zugreifen können und sehr nützliche und effiziente Dinge mit der Liste tun können, wie z. B. durch sie zu iterieren und denselben Vorgang auf jeden Wert anzuwenden. Vielleicht haben wir eine Reihe von Produkten und deren Preise in einem Array gespeichert, und wir möchten durch die Liste iterieren, um alles auf einer Rechnung auszugeben, die Preise zu summieren und den Gesamtpreis unten anzuzeigen.
 
-Ohne Arrays müssten wir jedes Element in einer separaten Variablen speichern und dann den Code, der das Drucken und Addieren übernimmt, für jedes Element separat aufrufen. Dies wäre viel länger zu schreiben, weniger effizient und fehleranfälliger. Wenn wir 10 Artikel zur Rechnung hinzufügen wollten, wäre das bereits ärgerlich, aber was ist mit 100 Artikeln oder 1000? Wir werden später in dem Artikel auf dieses Beispiel zurückkommen.
+Ohne Arrays müssten wir jedes Element in einer separaten Variablen speichern und den Code, der das Ausdrucken und Addieren übernimmt, für jedes Element separat aufrufen. Dies wäre viel länger zu schreiben, weniger effizient und fehleranfälliger. Bei 10 Elementen auf einer Rechnung wäre das schon mühsam, aber wie wäre es bei 100 oder 1000 Elementen? Wir kehren später in diesem Artikel zu diesem Beispiel zurück.
 
-Wie in den vorherigen Artikeln lernen wir die Grundlagen von Arrays, indem wir einige Beispiele in die [Browser-Entwicklerkonsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) eingeben.
+Wie in vorherigen Artikeln lernen wir die Grundlagen von Arrays, indem wir einige Beispiele in die [Browser-Entwicklungstools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) eingeben.
 
 ## Arrays erstellen
 
-Arrays bestehen aus eckigen Klammern und Elementen, die durch Kommata getrennt sind.
+Arrays bestehen aus eckigen Klammern und Elementen, die durch Kommas getrennt sind.
 
 1. Angenommen, wir möchten eine Einkaufsliste in einem Array speichern. Fügen Sie den folgenden Code in die Konsole ein:
 
@@ -51,27 +51,27 @@ Arrays bestehen aus eckigen Klammern und Elementen, die durch Kommata getrennt s
    console.log(shopping);
    ```
 
-2. Im obigen Beispiel ist jedes Element eine Zeichenfolge, aber in einem Array können wir verschiedene Datentypen speichern — Zeichenfolgen, Zahlen, Objekte und sogar andere Arrays. Wir können auch Datentypen in einem einzigen Array mischen — wir müssen uns nicht darauf beschränken, nur Zahlen in einem Array zu speichern und in einem anderen nur Zeichenfolgen. Zum Beispiel:
+2. Im obigen Beispiel ist jedes Element ein String, aber in einem Array können verschiedene Datentypen gespeichert werden – Strings, Zahlen, Objekte und sogar andere Arrays. Es ist auch möglich, Datentypen in einem einzigen Array zu mischen – wir müssen uns nicht darauf beschränken, nur Zahlen in einem Array und nur Strings in einem anderen zu speichern. Beispiel:
 
    ```js
    const sequence = [1, 1, 2, 3, 5, 8, 13];
    const random = ["tree", 795, [0, 1, 2]];
    ```
 
-3. Bevor Sie fortfahren, erstellen Sie ein paar Beispiel-Arrays.
+3. Erstellen Sie vor dem Fortfahren einige Beispiel-Arrays.
 
-## Die Länge eines Arrays herausfinden
+## Länge eines Arrays ermitteln
 
-Sie können die Länge eines Arrays (wie viele Elemente darin vorhanden sind) auf genau die gleiche Weise herausfinden, wie Sie die Länge (in Zeichen) einer Zeichenfolge ermitteln — indem Sie die {{jsxref("Array.prototype.length","length")}}-Eigenschaft verwenden. Probieren Sie Folgendes aus:
+Die Länge eines Arrays (wie viele Elemente es enthält) kann auf genau dieselbe Weise ermittelt werden wie die Länge eines Strings (in Zeichen) – mit der {{jsxref("Array.prototype.length","length")}}-Eigenschaft. Probieren Sie Folgendes:
 
 ```js
 const shopping = ["bread", "milk", "cheese", "hummus", "noodles"];
 console.log(shopping.length); // 5
 ```
 
-## Zugreifen auf und Modifizieren von Array-Elementen
+## Auf Elemente zugreifen und sie ändern
 
-Elemente in einem Array werden nummeriert, beginnend bei null. Diese Nummer wird als der _Index_ des Elements bezeichnet. Das erste Element hat also den Index 0, das zweite hat den Index 1 und so weiter. Sie können auf einzelne Elemente im Array mit der Klammernotation zugreifen und den Index des Elements angeben, auf die gleiche Weise, wie Sie auf die [Buchstaben in einem String zugreifen](/de/docs/Learn_web_development/Core/Scripting/Useful_string_methods#retrieving_a_specific_string_character).
+Elemente in einem Array werden nummeriert, beginnend bei null. Diese Zahl wird als _Index_ des Elements bezeichnet. Das erste Element hat also den Index 0, das zweite den Index 1 und so weiter. Sie können auf einzelne Elemente im Array mit der Notation in eckigen Klammern zugreifen und den Index des Elements angeben, ähnlich wie Sie [auf die Buchstaben in einem String zugegriffen haben](/de/docs/Learn_web_development/Core/Scripting/Useful_string_methods#retrieving_a_specific_string_character).
 
 1. Geben Sie Folgendes in Ihre Konsole ein:
 
@@ -81,7 +81,7 @@ Elemente in einem Array werden nummeriert, beginnend bei null. Diese Nummer wird
    // returns "bread"
    ```
 
-2. Sie können auch ein Element in einem Array ändern, indem Sie einem einzelnen Array-Element einen neuen Wert zuweisen. Probieren Sie dies aus:
+2. Sie können auch ein Element in einem Array ändern, indem Sie einem einzigen Array-Element einen neuen Wert zuweisen. Probieren Sie Folgendes aus:
 
    ```js
    const shopping = ["bread", "milk", "cheese", "hummus", "noodles"];
@@ -91,20 +91,21 @@ Elemente in einem Array werden nummeriert, beginnend bei null. Diese Nummer wird
    ```
 
    > [!NOTE]
-   > Wir haben es schon einmal gesagt, aber nur zur Erinnerung – JavaScript beginnt die Indizierung von Arrays bei null!
+   > Wir haben es bereits gesagt, aber hier zur Erinnerung: JavaScript beginnt bei Arrays mit der Indexierung bei null!
 
-3. Beachten Sie, dass ein Array innerhalb eines Arrays als mehrdimensionales Array bezeichnet wird. Sie können auf ein Element in einem Array, das sich selbst in einem anderen Array befindet, zugreifen, indem Sie zwei Sätze von eckigen Klammern verketten. Um beispielsweise auf eines der Elemente im Array zuzugreifen, das das dritte Element im `random`-Array ist (siehe vorheriger Abschnitt), könnten wir so etwas tun:
+3. Beachten Sie, dass ein Array innerhalb eines Arrays ein mehrdimensionales Array genannt wird. Sie können auf ein Element in einem Array zugreifen, das sich selbst in einem anderen Array befindet, indem Sie zwei eckige Klammern zusammen verketten. Um beispielsweise auf eines der Elemente im dritten Element des `random`-Arrays (siehe vorherigen Abschnitt) zuzugreifen, könnten Sie Folgendes tun:
 
    ```js
    const random = ["tree", 795, [0, 1, 2]];
    random[2][2];
    ```
 
-4. Versuchen Sie, einige weitere Änderungen an Ihren Array-Beispielen vorzunehmen, bevor Sie fortfahren. Spielen Sie ein wenig herum und sehen Sie, was funktioniert und was nicht.
+4. Probieren Sie aus, weitere Änderungen an Ihren Array-Beispielen vorzunehmen, bevor Sie fortfahren. Experimentieren Sie ein wenig und schauen Sie, was funktioniert und was nicht.
 
-## Den Index von Elementen in einem Array finden
+## Index von Elementen in einem Array finden
 
-Wenn Sie den Index eines Elements nicht kennen, können Sie die {{jsxref("Array.prototype.indexOf()","indexOf()")}}-Methode verwenden. Die `indexOf()`-Methode nimmt ein Element als Argument und gibt entweder den Index des Elements oder `-1` zurück, wenn sich das Element nicht im Array befindet:
+Wenn Sie den Index eines Elements nicht kennen, können Sie die {{jsxref("Array.prototype.indexOf()","indexOf()")}}-Methode verwenden.
+Die `indexOf()`-Methode nimmt ein Element als Argument und gibt entweder den Index des Elements oder `-1` zurück, wenn das Element nicht im Array enthalten ist:
 
 ```js
 const birds = ["Parrot", "Falcon", "Owl"];
@@ -114,7 +115,7 @@ console.log(birds.indexOf("Rabbit")); // -1
 
 ## Elemente hinzufügen
 
-Um ein oder mehrere Elemente am Ende eines Arrays hinzuzufügen, können wir {{jsxref("Array.prototype.push()","push()")}} verwenden. Beachten Sie, dass Sie ein oder mehrere Elemente angeben müssen, die Sie am Ende Ihres Arrays hinzufügen möchten.
+Um ein oder mehrere Elemente an das Ende eines Arrays hinzuzufügen, können wir {{jsxref("Array.prototype.push()","push()")}} verwenden. Beachten Sie, dass Sie ein oder mehrere Elemente angeben müssen, die Sie ans Ende Ihres Arrays hinzufügen möchten.
 
 ```js
 const cities = ["Manchester", "Liverpool"];
@@ -124,7 +125,7 @@ cities.push("Bradford", "Brighton");
 console.log(cities); // [ "Manchester", "Liverpool", "Cardiff", "Bradford", "Brighton" ]
 ```
 
-Die neue Länge des Arrays wird zurückgegeben, wenn der Methodenaufruf abgeschlossen ist. Wenn Sie die neue Array-Länge in einer Variablen speichern möchten, könnten Sie etwas so tun:
+Die neue Länge des Arrays wird zurückgegeben, wenn der Methodenaufruf abgeschlossen ist. Wenn Sie die neue Array-Länge in einer Variablen speichern möchten, könnten Sie Folgendes tun:
 
 ```js
 const cities = ["Manchester", "Liverpool"];
@@ -133,7 +134,7 @@ console.log(cities); // [ "Manchester", "Liverpool", "Bristol" ]
 console.log(newLength); // 3
 ```
 
-Um ein Element am Anfang des Arrays hinzuzufügen, verwenden Sie {{jsxref("Array.prototype.unshift()","unshift()")}}:
+Um ein Element an den Anfang des Arrays hinzuzufügen, verwenden Sie {{jsxref("Array.prototype.unshift()","unshift()")}}:
 
 ```js
 const cities = ["Manchester", "Liverpool"];
@@ -159,7 +160,7 @@ const removedCity = cities.pop();
 console.log(removedCity); // "Liverpool"
 ```
 
-Um das erste Element eines Arrays zu entfernen, verwenden Sie {{jsxref("Array.prototype.shift()","shift()")}}:
+Um das erste Element aus einem Array zu entfernen, verwenden Sie {{jsxref("Array.prototype.shift()","shift()")}}:
 
 ```js
 const cities = ["Manchester", "Liverpool"];
@@ -178,7 +179,7 @@ if (index !== -1) {
 console.log(cities); // [ "Manchester", "Edinburgh", "Carlisle" ]
 ```
 
-In diesem Aufruf von `splice()` gibt das erste Argument an, wo das Entfernen von Elementen beginnt, und das zweite Argument gibt an, wie viele Elemente entfernt werden sollen. So können Sie mehr als ein Element entfernen:
+Im Aufruf von `splice()` gibt das erste Argument an, wo begonnen werden soll, Elemente zu entfernen, und das zweite Argument gibt an, wie viele Elemente entfernt werden sollen. Es können also mehrere Elemente entfernt werden:
 
 ```js
 const cities = ["Manchester", "Liverpool", "Edinburgh", "Carlisle"];
@@ -191,7 +192,7 @@ console.log(cities); // [ "Manchester", "Carlisle" ]
 
 ## Auf jedes Element zugreifen
 
-Sehr oft werden Sie auf jedes Element im Array zugreifen wollen. Dies können Sie mit der {{jsxref("statements/for...of","for...of")}}-Anweisung tun:
+Sehr häufig möchten Sie auf jedes Element im Array zugreifen. Dies können Sie mit der {{jsxref("statements/for...of","for...of")}}-Anweisung tun:
 
 ```js
 const birds = ["Parrot", "Falcon", "Owl"];
@@ -201,7 +202,7 @@ for (const bird of birds) {
 }
 ```
 
-Manchmal werden Sie dasselbe für jedes Element in einem Array tun wollen, sodass Sie ein Array erhalten, das die geänderten Elemente enthält. Dies können Sie mit {{jsxref("Array.prototype.map()","map()")}} tun. Der folgende Code nimmt ein Array von Zahlen und verdoppelt jede Zahl:
+Manchmal möchten Sie dasselbe mit jedem Element in einem Array machen und ein Array mit den geänderten Elementen erhalten. Dies können Sie mit {{jsxref("Array.prototype.map()","map()")}} tun. Der folgende Code nimmt ein Array von Zahlen und verdoppelt jede Zahl:
 
 ```js
 function double(number) {
@@ -212,9 +213,9 @@ const doubled = numbers.map(double);
 console.log(doubled); // [ 10, 4, 14, 12 ]
 ```
 
-Wir geben `map()` eine Funktion, und `map()` ruft die Funktion einmal für jedes Element im Array auf und übergibt das Element. Anschließend fügt es den Rückgabewert jedes Funktionsaufrufs zu einem neuen Array hinzu und gibt schließlich das neue Array zurück.
+Wir geben `map()` eine Funktion, und `map()` ruft die Funktion einmal für jedes Element im Array auf und gibt das Element als Argument weiter. Schließlich fügt es den Rückgabewert jedes Funktionsaufrufs zu einem neuen Array hinzu und gibt das neue Array zurück.
 
-Manchmal möchten Sie ein neues Array erstellen, das nur die Elemente im ursprünglichen Array enthält, die einem bestimmten Test entsprechen. Dies können Sie mit {{jsxref("Array.prototype.filter()","filter()")}} tun. Der folgende Code nimmt ein Array von Zeichenfolgen und gibt ein Array zurück, das nur die Zeichenfolgen enthält, die länger als 8 Zeichen sind:
+Manchmal möchten Sie ein neues Array erstellen, das nur die Elemente des ursprünglichen Arrays enthält, die einem bestimmten Test entsprechen. Dies können Sie mit {{jsxref("Array.prototype.filter()","filter()")}} tun. Der folgende Code nimmt ein Array von Strings und gibt ein Array zurück, das nur die Strings enthält, die länger als 8 Zeichen sind:
 
 ```js
 function isLong(city) {
@@ -225,29 +226,29 @@ const longer = cities.filter(isLong);
 console.log(longer); // [ "Liverpool", "Edinburgh" ]
 ```
 
-Wie `map()` geben wir der `filter()`-Methode eine Funktion, und `filter()` ruft diese Funktion für jedes Element im Array auf und übergibt das Element. Wenn die Funktion `true` zurückgibt, wird das Element zu einem neuen Array hinzugefügt. Schließlich gibt es das neue Array zurück.
+Wie bei `map()` geben wir eine Funktion an die `filter()`-Methode, und `filter()` ruft diese Funktion für jedes Element im Array auf und gibt das Element als Argument weiter. Wenn die Funktion `true` zurückgibt, wird das Element zum neuen Array hinzugefügt. Schließlich wird das neue Array zurückgegeben.
 
-## Umwandeln zwischen Strings und Arrays
+## Konvertierung zwischen Strings und Arrays
 
-Oft werden Sie vor dem Problem stehen, dass einige Rohdaten in einer langen Zeichenfolge enthalten sind, und Sie möchten die nützlichen Elemente in eine nützlichere Form separatieren und dann Dinge damit tun, wie sie in einer Datentabelle anzuzeigen. Dazu können wir die {{jsxref("String.prototype.split()","split()")}}-Methode verwenden. In ihrer einfachsten Form nimmt sie einen einzigen Parameter, das Zeichen, an dem Sie die Zeichenfolge trennen möchten, und gibt die Zeichenfolgen zwischen dem Trennzeichen als Elemente in einem Array zurück.
+Häufig wird Ihnen eine Menge roher Daten in einem langen String präsentiert, und Sie möchten die nützlichen Elemente in eine nützlichere Form extrahieren und dann Dinge damit tun, wie z. B. sie in einer Datentabelle anzeigen. Hierfür können wir die {{jsxref("String.prototype.split()","split()")}}-Methode verwenden. In ihrer einfachsten Form nimmt sie einen einzelnen Parameter, das Zeichen, bei dem der String getrennt werden soll, und gibt die Teilstrings zwischen dem Trennzeichen als Elemente in einem Array zurück.
 
 > [!NOTE]
-> Okay, das ist technisch gesehen eine String-Methode, keine Array-Methode, aber wir haben sie hier mit Arrays eingefügt, da sie hier gut passt.
+> Okay, dies ist technisch gesehen eine String-Methode, keine Array-Methode, aber wir haben sie hier eingefügt, da sie hier gut hinpasst.
 
-1. Spielen wir damit, um zu sehen, wie es funktioniert. Erstellen Sie zuerst eine Zeichenfolge in Ihrer Konsole:
+1. Spielen wir damit, um zu sehen, wie es funktioniert. Erstellen Sie zunächst einen String in Ihrer Konsole:
 
    ```js
    const data = "Manchester,London,Liverpool,Birmingham,Leeds,Carlisle";
    ```
 
-2. Teilen Sie sie jetzt bei jedem Komma:
+2. Trennen wir ihn nun bei jedem Komma:
 
    ```js
    const cities = data.split(",");
    cities;
    ```
 
-3. Versuchen Sie schließlich, die Länge Ihres neuen Arrays zu ermitteln und einige Elemente daraus abzurufen:
+3. Zum Schluss versuchen Sie, die Länge Ihres neuen Arrays zu ermitteln und einige Elemente daraus abzurufen:
 
    ```js
    cities.length;
@@ -256,31 +257,31 @@ Oft werden Sie vor dem Problem stehen, dass einige Rohdaten in einer langen Zeic
    cities[cities.length - 1]; // the last item in the array
    ```
 
-4. Sie können auch den umgekehrten Weg mit der {{jsxref("Array.prototype.join()","join()")}}-Methode gehen. Versuchen Sie Folgendes:
+4. Sie können auch den umgekehrten Weg mit der {{jsxref("Array.prototype.join()","join()")}}-Methode gehen. Probieren Sie Folgendes:
 
    ```js
    const commaSeparated = cities.join(",");
    commaSeparated;
    ```
 
-5. Eine andere Möglichkeit, ein Array in eine Zeichenfolge umzuwandeln, ist die Verwendung der {{jsxref("Array.prototype.toString()","toString()")}}-Methode. `toString()` ist möglicherweise einfacher als `join()`, da es keinen Parameter benötigt, aber begrenzender. Bei `join()` können Sie verschiedene Trennzeichen angeben, während `toString()` immer ein Komma verwendet. (Versuchen Sie, Schritt 4 mit einem anderen Zeichen als einem Komma auszuführen.)
+5. Eine andere Möglichkeit, ein Array in einen String zu konvertieren, besteht darin, die {{jsxref("Array.prototype.toString()","toString()")}}-Methode zu verwenden. `toString()` ist wohl einfacher als `join()`, da es keinen Parameter erfordert, aber eingeschränkter ist. Mit `join()` können Sie verschiedene Trennzeichen angeben, während `toString()` immer ein Komma verwendet. (Versuchen Sie es mit einem anderen Zeichen als einem Komma bei Schritt 4.)
 
    ```js
    const dogNames = ["Rocket", "Flash", "Bella", "Slugger"];
    dogNames.toString(); // Rocket,Flash,Bella,Slugger
    ```
 
-## Aktives Lernen: Diese Produkte drucken
+## Aktives Lernen: Diese Produkte ausdrucken
 
-Lassen Sie uns zu dem Beispiel zurückkehren, das wir bereits beschrieben haben — Produktnamen und Preise auf einer Rechnung ausdrucken, dann die Preise summieren und sie unten ausdrucken. In dem editierbaren Beispiel unten gibt es Kommentare mit Nummern — jeder von ihnen markiert eine Stelle, an der Sie etwas zum Code hinzufügen müssen. Sie sind wie folgt:
+Kehren wir zu dem Beispiel zurück, das wir zuvor beschrieben haben – Produktnamen und Preise auf einer Rechnung auszugeben, dann die Preise zu summieren und sie unten auf der Rechnung auszugeben. Im bearbeitbaren Beispiel unten gibt es Kommentare mit Zahlen – jede davon kennzeichnet eine Stelle, an der Sie etwas zum Code hinzufügen müssen. Sie sind wie folgt:
 
-1. Unter dem Kommentar `// number 1` befinden sich eine Anzahl von Zeichenfolgen, von denen jede einen Produktnamen und einen Preis enthält, getrennt durch einen Doppelpunkt. Wir möchten, dass Sie dies in ein Array umwandeln und es in einem Array namens `products` speichern.
-2. Unter dem Kommentar `// number 2` beginnen Sie eine `for...of()`-Schleife, um jedes Element im `products`-Array zu durchlaufen.
-3. Unter dem Kommentar `// number 3` möchten wir, dass Sie eine Codezeile schreiben, die das aktuelle Array-Element (`name:price`) in zwei separate Elemente aufteilt, eines enthält nur den Namen und das andere nur den Preis. Wenn Sie nicht sicher sind, wie das geht, konsultieren Sie den Artikel über [nützliche Zeichenfolgenmethoden](/de/docs/Learn_web_development/Core/Scripting/Useful_string_methods) für Hilfe oder besser noch den Abschnitt [Umwandeln zwischen Strings und Arrays](#umwandeln_zwischen_strings_und_arrays) in diesem Artikel.
-4. Im Rahmen der obigen Codezeile möchten Sie auch den Preis von einer Zeichenfolge in eine Zahl umwandeln. Wenn Sie sich nicht erinnern können, wie das geht, schauen Sie sich den [ersten Zeichenfolgenartikel](/de/docs/Learn_web_development/Core/Scripting/Strings#numbers_vs._strings) an.
-5. Es gibt eine Variable namens `total`, die oben im Code erstellt und mit dem Wert 0 versehen wird. Innerhalb der Schleife (unter `// number 4`) möchten wir, dass Sie eine Zeile hinzufügen, die den aktuellen Elementpreis zu diesem Gesamtwert in jeder Iteration der Schleife addiert, sodass am Ende des Codes die korrekte Gesamtsumme auf die Rechnung gedruckt wird. Sie könnten einen [Zuweisungsoperator](/de/docs/Learn_web_development/Core/Scripting/Math#assignment_operators) dafür benötigen.
-6. Wir möchten, dass Sie die Zeile direkt unter `// number 5` so ändern, dass die Variable `itemText` gleich "aktueller Elementname — $aktueller Elementpreis" ist, zum Beispiel "Schuhe — $23.99" in jedem Fall, sodass die korrekten Informationen für jedes Element auf die Rechnung gedruckt werden. Dies ist einfach eine Zeichenfolgenverkettung, die Ihnen bekannt sein sollte.
-7. Schließlich müssen Sie unter dem Kommentar `// number 6` eine `}` hinzufügen, um das Ende der `for...of()`-Schleife zu kennzeichnen.
+1. Unter dem Kommentar `// number 1` sind eine Reihe von Strings, die jeweils einen Produktnamen und einen Preis enthalten, getrennt durch einen Doppelpunkt. Wandeln Sie dies in ein Array um und speichern Sie es in einer Variablen namens `products`.
+2. Unter dem Kommentar `// number 2` starten Sie eine `for...of()`-Schleife, um jedes Element des `products`-Arrays durchzugehen.
+3. Unter dem Kommentar `// number 3` schreiben Sie eine Zeile Code, die das aktuelle Array-Element (`name:price`) in zwei separate Elemente aufteilt, eines mit nur dem Namen und eines mit nur dem Preis. Wenn Sie nicht wissen, wie das geht, sehen Sie sich den Artikel [Nützliche String-Methoden](/de/docs/Learn_web_development/Core/Scripting/Useful_string_methods) an oder noch besser den Abschnitt [Konvertierung zwischen Strings und Arrays](#konvertierung_zwischen_strings_und_arrays) aus diesem Artikel.
+4. Konvertieren Sie im Rahmen der obigen Codezeile auch den Preis von einem String in eine Zahl. Wenn Sie sich nicht daran erinnern, wie das geht, schauen Sie sich den [ersten String-Artikel](/de/docs/Learn_web_development/Core/Scripting/Strings#numbers_vs._strings) an.
+5. Es gibt eine Variable namens `total`, die oben im Code erstellt und auf 0 gesetzt wird. Innerhalb der Schleife (unter `// number 4`) schreiben Sie eine Zeile, die den Preis des aktuellen Elements in jeder Iteration der Schleife zu dieser Gesamtmenge addiert, sodass am Ende des Codes die korrekte Gesamtsumme auf die Rechnung gedruckt wird. Sie benötigen möglicherweise einen [Zuweisungsoperator](/de/docs/Learn_web_development/Core/Scripting/Math#assignment_operators) dafür.
+6. Ändern Sie die Zeile direkt unter `// number 5`, sodass die Variable `itemText` gleich "aktueller Artikelname – $aktueller Artikelpreis" gesetzt wird, z. B. "Schuhe – $23.99", sodass die richtigen Informationen für jedes Element auf der Rechnung angezeigt werden. Dies ist nur einfache String-Konkatenation, die Ihnen bekannt sein sollte.
+7. Fügen Sie schließlich unter dem Kommentar `// number 6` ein `}` hinzu, um das Ende der `for...of()`-Schleife zu markieren.
 
 ```html hidden
 <h2>Live output</h2>
@@ -464,19 +465,19 @@ body {
 
 {{ EmbedLiveSample('Active_learning_Printing_those_products', '100%', 750) }}
 
-## Aktives Lernen: Top 5 Suchanfragen
+## Aktives Lernen: Die Top-5-Suchen
 
-Eine gute Verwendung für Array-Methoden wie {{jsxref("Array.prototype.push()","push()")}} und {{jsxref("Array.prototype.pop()","pop()")}} ist, wenn Sie ein Protokoll von aktuell aktiven Elementen in einer Web-App pflegen. In einer animierten Szene zum Beispiel könnten Sie ein Array von Objekten haben, das die aktuell angezeigten Hintergrundgrafiken darstellt, und Sie möchten vielleicht nur 50 auf einmal anzeigen, aus Leistungsgründen oder um ein Überladen zu vermeiden. Wenn neue Objekte erstellt und dem Array hinzugefügt werden, können ältere aus dem Array gelöscht werden, um die gewünschte Anzahl zu halten.
+Eine gute Anwendung für Array-Methoden wie {{jsxref("Array.prototype.push()","push()")}} und {{jsxref("Array.prototype.pop()","pop()")}} ist die Verwaltung einer Liste aktuell aktiver Elemente in einer Webanwendung. In einer animierten Szene könnten Sie beispielsweise ein Array von Objekten haben, das die aktuell angezeigten Hintergrundgrafiken repräsentiert, und Sie möchten möglicherweise aus Leistungs- oder Übersichtsgründen nur maximal 50 anzeigen lassen. Wenn neue Objekte erstellt und dem Array hinzugefügt werden, können ältere aus dem Array gelöscht werden, um die gewünschte Anzahl beizubehalten.
 
-In diesem Beispiel zeigen wir eine viel einfachere Verwendung — hier geben wir Ihnen eine gefälschte Suchseite mit einem Suchfeld. Die Idee ist, dass beim Eingeben von Begriffen ins Suchfeld die letzten 5 vorherigen Suchbegriffe in der Liste angezeigt werden. Wenn die Anzahl der Begriffe über 5 steigt, wird jeder neue Begriff nach oben hinzugefügt, die letzte Suche wird in diesem Fall gelöscht, sodass immer die 5 letzten Begriffe angezeigt werden.
+In diesem Beispiel zeigen wir eine viel einfachere Anwendung – hier geben wir Ihnen eine gefälschte Suchseite mit einer Suchleiste. Die Idee ist, dass bei der Eingabe von Begriffen in die Suchleiste die letzten fünf Suchbegriffe in der Liste angezeigt werden. Wenn die Anzahl der Begriffe fünf übersteigt, wird jedes Mal, wenn ein neuer Begriff hinzugefügt wird, der letzte Begriff gelöscht, sodass stets die letzten fünf Begriffe angezeigt werden.
 
 > [!NOTE]
-> In einer echten Such-App könnten Sie wahrscheinlich auf die vorherigen Suchbegriffe klicken, um zu den vorherigen Suchen zurückzukehren, und sie würde tatsächliche Suchergebnisse anzeigen! Wir halten es einfach nur zu Demonstrationszwecken simpel.
+> In einer echten Suchanwendung könnten Sie wahrscheinlich auf die vorherigen Suchbegriffe klicken, um diese erneut zu suchen, und es würden tatsächliche Suchergebnisse angezeigt! Wir halten es aber vorerst einfach.
 
 Um die App zu vervollständigen, müssen Sie:
 
-1. Eine Zeile unter dem Kommentar `// number 1` hinzufügen, die den aktuellen Wert aus der Such-Eingabe an den Anfang des Arrays hinzufügt. Dieser kann mit `searchInput.value` abgerufen werden.
-2. Eine Zeile unter dem Kommentar `// number 2` hinzufügen, die den Wert entfernt, der sich derzeit am Ende des Arrays befindet.
+1. Unter dem Kommentar `// number 1` eine Zeile hinzufügen, die den aktuellen Wert, der in das Suchfeld eingegeben wurde, am Anfang des Arrays hinzufügt. Dieser kann mit `searchInput.value` abgerufen werden.
+2. Unter dem Kommentar `// number 2` eine Zeile hinzufügen, die den Wert entfernt, der sich derzeit am Ende des Arrays befindet.
 
 ```html hidden
 <h2>Live output</h2>
@@ -676,21 +677,21 @@ textarea.onkeyup = () => {
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen vor dem Weitermachen behalten haben — siehe [Testen Sie Ihre Fähigkeiten: Arrays](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills:_Arrays).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie finden weitere Tests, um zu überprüfen, ob Sie die Informationen behalten haben, bevor Sie weitermachen – sehen Sie sich [Testen Sie Ihre Fähigkeiten: Arrays](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills:_Arrays) an.
 
 ## Fazit
 
-Nach der Lektüre dieses Artikels sind wir sicher, dass Sie zustimmen werden, dass Arrays ziemlich nützlich erscheinen; Sie werden sie überall in JavaScript sehen, oft in Verbindung mit Schleifen, um dieselbe Aktion auf jedes Element in einem Array anzuwenden. Wir werden Ihnen später im Modul alles über Schleifen beibringen.
+Nach dem Lesen dieses Artikels werden Sie sicher zustimmen, dass Arrays ziemlich nützlich sind; Sie werden sie in JavaScript überall finden, oft in Verbindung mit Schleifen, um dasselbe mit jedem Element in einem Array zu tun. Wir werden Ihnen später im Modul alles über Schleifen beibringen.
 
-Im nächsten Artikel geben wir Ihnen eine Herausforderung, um Ihr Verständnis der vorhergehenden Artikel zu testen.
+Im nächsten Artikel geben wir Ihnen eine Herausforderung, um Ihr Verständnis der bisher behandelten Artikel zu testen.
 
 ## Siehe auch
 
 - [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
-  - : Ein fortgeschrittener Leitfaden zu Arrays und ihren Verwandten, den typisierten Arrays.
+  - : Ein Leitfaden auf fortgeschrittenem Niveau für Arrays und deren Verwandte, die typisierten Arrays.
 - {{jsxref("Array")}}
-  - : Die `Array`-Objektreferenzseite — für einen detaillierten Referenzleitfaden zu den auf dieser Seite besprochenen Funktionen und vielen mehr.
-- [Aside: Intro zu Arrays](https://v2.scrimba.com/the-frontend-developer-career-path-c0j/~06e?via=mdn), Scrimba <sup>_MDN Curriculumspartner_</sup>
+  - : Die Referenzseite zum `Array`-Objekt – für eine detaillierte Referenz zu den in dieser Seite behandelten Funktionen und vielen weiteren.
+- [Nebenbei: Einführung in Arrays](https://v2.scrimba.com/the-frontend-developer-career-path-c0j/~06e?via=mdn), Scrimba <sup>_MDN-Lernpartner_</sup>
   - : Eine interaktive Lektion, die eine Einführung in Arrays bietet.
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Useful_string_methods", "Learn_web_development/Core/Scripting/Silly_story_generator", "Learn_web_development/Core/Scripting")}}

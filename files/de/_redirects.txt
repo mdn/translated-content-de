@@ -11850,7 +11850,7 @@
 /de/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid,_Logical_Values_and_Writing_Modes	/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes
 /de/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility	/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility
 /de/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Logical_Values_and_Writing_Modes	/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes
-/de/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_and_Progressive_Enhancement	/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_progressive_enhancement
+/de/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_and_Progressive_Enhancement	/de/docs/Web/CSS/CSS_grid_layout
 /de/docs/Web/CSS/CSS_Grid_Layout/Grid_logical_values_and_writing_modes	/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes
 /de/docs/Web/CSS/CSS_Grid_Layout/Line-based_Placement_with_CSS_Grid	/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement
 /de/docs/Web/CSS/CSS_Grid_Layout/Masonry	/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout
@@ -11915,6 +11915,7 @@
 /de/docs/Web/CSS/CSS_descriptor_definition	/de/docs/Web/CSS
 /de/docs/Web/CSS/CSS_flex-wrap	/de/docs/Web/CSS/flex-wrap
 /de/docs/Web/CSS/CSS_flexible_box_layout/Backwards_compatibility_of_flexbox	/de/docs/Glossary/Flexbox
+/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_progressive_enhancement	/de/docs/Web/CSS/CSS_grid_layout
 /de/docs/Web/CSS/CSS_grid_layout/Layout_using_line-based_placement	/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement
 /de/docs/Web/CSS/CSS_grid_layout/Layout_using_named_grid_lines	/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines
 /de/docs/Web/CSS/CSS_miscellaneous	/de/docs/Web/CSS
@@ -12428,6 +12429,7 @@
 /de/docs/Web/Events/webkitmouseforceup	/de/docs/Web/API/Element/webkitmouseforceup_event
 /de/docs/Web/Events/webkitmouseforcewillbegin	/de/docs/Web/API/Element/webkitmouseforcewillbegin_event
 /de/docs/Web/Events/wheel	/de/docs/Web/API/Element/wheel_event
+/de/docs/Web/Guide	/de/docs/MDN/Guides
 /de/docs/Web/Guide/AJAX	/de/docs/Learn_web_development/Core/Scripting/Network_requests
 /de/docs/Web/Guide/AJAX/Community	/de/docs/Learn_web_development/Core/Scripting/Network_requests
 /de/docs/Web/Guide/AJAX/Getting_Started	/de/docs/Learn_web_development/Core/Scripting/Network_requests
@@ -12607,7 +12609,7 @@
 /de/docs/Web/Guide/HTML/Using_data_attributes	/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes
 /de/docs/Web/Guide/HTML/XHTML	/de/docs/Glossary/XHTML
 /de/docs/Web/Guide/Houdini	/de/docs/Web/API/Houdini_APIs
-/de/docs/Web/Guide/Index	/de/docs/Web/Guide
+/de/docs/Web/Guide/Index	/de/docs/MDN/Guides
 /de/docs/Web/Guide/Introduction_to_Web_development	/de/docs/Learn_web_development
 /de/docs/Web/Guide/Mobile	/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design
 /de/docs/Web/Guide/Mobile/A_hybrid_approach	/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design
@@ -12621,7 +12623,7 @@
 /de/docs/Web/Guide/Printing	/de/docs/Web/CSS/CSS_media_queries/Printing
 /de/docs/Web/Guide/Responsive_design	/de/docs/Web/Progressive_web_apps
 /de/docs/Web/Guide/Responsive_design/Responsive_design_references	/de/docs/Web/Progressive_web_apps
-/de/docs/Web/Guide/SVG-in-OpenType	/de/docs/Web/Guide
+/de/docs/Web/Guide/SVG-in-OpenType	/de/docs/MDN/Guides
 /de/docs/Web/Guide/Terminology	/de/docs/Glossary
 /de/docs/Web/Guide/Touch_events	/de/docs/Web/API/Touch_events
 /de/docs/Web/Guide/User_experience/Using_the_Page_Visibility_API	/de/docs/Web/API/Page_Visibility_API
@@ -13547,6 +13549,7 @@
 /de/docs/Web/Security/Securing_your_site/Configuring_server_MIME_types	/de/docs/Learn_web_development/Extensions/Server-side/Configuring_server_MIME_types
 /de/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion	/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion
 /de/docs/Web/Text_fragments	/de/docs/Web/URI/Fragment/Text_fragments
+/de/docs/Web/Tutorials	/de/docs/MDN/Tutorials
 /de/docs/Web/WebDriver/Commands/New_Window	/de/docs/Web/WebDriver/Commands/NewWindow
 /de/docs/Web/WebGL	/de/docs/Web/API/WebGL_API
 /de/docs/Web/WebGL/Adding_2D_content_to_a_WebGL_context	/de/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context
@@ -13996,7 +13999,7 @@
 /de/docs/Web_Audio_API	/de/docs/Web/API/Web_Audio_API
 /de/docs/Web_Audio_API/Porting_webkitAudioContext_code_to_standards_based_AudioContext	/de/docs/Web/API/Web_Audio_API
 /de/docs/Web_Audio_API/Using_Web_Audio_API	/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API
-/de/docs/Web_Development	/de/docs/Web/Guide
+/de/docs/Web_Development	/de/docs/MDN/Guides
 /de/docs/Web_Development/HTTP_cookies	/de/docs/Web/HTTP/Cookies
 /de/docs/Web_Development/Introduction_to_Web_development	/de/docs/Learn_web_development
 /de/docs/Web_Development/Mobile	/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design

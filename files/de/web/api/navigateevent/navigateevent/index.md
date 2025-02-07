@@ -3,12 +3,12 @@ title: "NavigateEvent: NavigateEvent() Konstruktor"
 short-title: NavigateEvent()
 slug: Web/API/NavigateEvent/NavigateEvent
 l10n:
-  sourceCommit: 7c44de6d40778dbfb6eeb1163d7d850e911cd706
+  sourceCommit: 1bd08bc0642029f650d2da7df5fd1baef09148ef
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Der **`NavigateEvent()`** Konstruktor erstellt eine neue Instanz eines [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) Objekt.
+Der **`NavigateEvent()`**-Konstruktor erstellt eine neue Instanz des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Objekts.
 
 ## Syntax
 
@@ -19,31 +19,37 @@ new NavigateEvent(type, init)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Ereignisses repräsentiert. Im Fall von `NavigateEvent` ist dies immer `navigate`.
+  - : Ein String, der den Typ des Ereignisses darstellt.
 - `init`
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt, das _zusätzlich zu den Eigenschaften, die in [`Event()`](/de/docs/Web/API/Event/Event) definiert sind,_ die folgenden Eigenschaften hat:
     - `canIntercept` {{optional_inline}}
-      - : Ein Boolean, der definiert, ob die Navigation abgefangen werden kann oder nicht (z. B. kann eine Cross-Origin-Navigation nicht abgefangen werden). Standardmäßig `false`.
+      - : Ein Boolescher Wert, der definiert, ob die Navigation abgefangen werden kann oder nicht (z. B. kann eine Cross-Origin-Navigation nicht abgefangen werden). Standardwert ist `false`.
     - `destination`
-      - : Ein [`NavigationDestination`](/de/docs/Web/API/NavigationDestination) Objekt, das das Ziel der Navigation repräsentiert.
+      - : Ein [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Objekt, das den Zielort beschreibt, zu dem navigiert wird.
     - `downloadRequest` {{optional_inline}}
-      - : Der Dateiname der angeforderten Datei im Fall einer Download-Navigation (z. B. ein {{htmlelement("a")}} oder {{htmlelement("area")}} Element mit einem `download` Attribut). Standardmäßig `null`.
+      - : Der Dateiname der angeforderten Datei im Falle einer Download-Navigation (z. B. ein {{htmlelement("a")}}- oder {{htmlelement("area")}}-Element mit einem `download`-Attribut). Standardwert ist `null`.
     - `formData` {{optional_inline}}
-      - : Das [`FormData`](/de/docs/Web/API/FormData) Objekt, das die übermittelten Daten im Fall eines `POST`-Formularabsendung repräsentiert. Standardmäßig `null`.
+      - : Das [`FormData`](/de/docs/Web/API/FormData)-Objekt, das die übermittelten Daten bei einer `POST`-Formularübermittlung repräsentiert. Standardwert ist `null`.
     - `hashChange` {{optional_inline}}
-      - : Ein Boolean, der definiert, ob die Navigation eine Fragmentnavigation ist (d. h. zu einem Fragmentbezeichner im selben Dokument). Standardmäßig `false`.
+      - : Ein Boolescher Wert, der definiert, ob es sich bei der Navigation um eine Fragment-Navigation handelt (d. h. zu einem Fragment-Identifier im selben Dokument). Standardwert ist `false`.
+    - `hasUAVisualTransition` {{optional_inline}}
+      - : Ein Boolescher Wert, der angibt, ob der User-Agent vor dem Auslösen dieses Ereignisses eine visuelle Transition für diese Navigation durchgeführt hat. Standardwert ist `false`.
     - `info` {{optional_inline}}
-      - : Der `info` Datenwert, der durch die initiierende Navigationsoperation übergeben wurde (z. B. [`Navigation.back()`](/de/docs/Web/API/Navigation/back), oder [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate)).
+      - : Der `info`-Datenwert, der von der auslösenden Navigationsoperation übergeben wurde (z. B. [`Navigation.back()`](/de/docs/Web/API/Navigation/back) oder [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate)).
     - `navigationType` {{optional_inline}}
-      - : Der Typ der Navigation. Mögliche Werte — `push`, `reload`, `replace` und `traverse`. Standardmäßig `push`.
+      - : Der Typ der Navigation. Mögliche Werte — `push`, `reload`, `replace` und `traverse`. Standardwert ist `push`.
     - `signal`
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das abgebrochen wird, wenn die Navigation abgebrochen wird (z. B. wenn der Benutzer die "Stop"-Schaltfläche des Browsers drückt oder eine andere Navigation beginnt und damit die laufende abbricht).
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das abgebrochen wird, wenn die Navigation abgebrochen wird (z. B. durch Betätigung der "Stop"-Taste im Browser oder durch Start einer anderen Navigation, die die laufende Navigation abbricht).
     - `userInitiated` {{optional_inline}}
-      - : Ein Boolean, der definiert, ob die Navigation vom Benutzer initiiert wurde (z. B. durch Klicken auf einen Link, Absenden eines Formulars oder Drücken der "Zurück"/"Vorwärts"-Tasten des Browsers). Standardmäßig `false`.
+      - : Ein Boolescher Wert, der definiert, ob die Navigation vom Benutzer initiiert wurde (z. B. durch das Klicken auf einen Link, das Absenden eines Formulars oder das Drücken der "Zurück-/Vorwärts"-Tasten im Browser). Standardwert ist `false`.
+
+### Rückgabewert
+
+Ein neues [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Objekt.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `NavigateEvent` Objekt wird erstellt, wenn ein Handler als Ergebnis des [`navigate`](/de/docs/Web/API/Navigation/navigate_event) Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `NavigateEvent`-Objekt wird erzeugt, wenn ein Handler als Ergebnis des [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Ereignisses ausgelöst wird.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -81,6 +87,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne client-seitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärungsdokument](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API-Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Live-Demo zur Navigation API](https://gigantic-honored-octagon.glitch.me/)
