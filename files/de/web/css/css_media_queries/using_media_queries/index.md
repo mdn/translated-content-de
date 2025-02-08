@@ -2,32 +2,32 @@
 title: Verwendung von Media Queries
 slug: Web/CSS/CSS_media_queries/Using_media_queries
 l10n:
-  sourceCommit: 53930e7004d7cd5cb475bfadfc0450f88853d8ea
+  sourceCommit: 01e8b5077df6d79e52f2521dfbe734e0923d1fc4
 ---
 
 {{CSSRef}}
 
-**Media Queries** ermöglichen es Ihnen, CSS-Stile abhängig vom Medientyp eines Geräts (z.B. Druck vs. Bildschirm) oder von anderen Funktionen oder Merkmalen wie Bildschirmauflösung oder -ausrichtung, {{Glossary("aspect_ratio", "Seitenverhältnis")}}, Browser-{{Glossary("viewport", "Viewport")}}-Breite oder -Höhe, Benutzerpräferenzen wie bevorzugte reduzierte Bewegungen, Datennutzung oder Transparenz anzuwenden.
+**Media Queries** ermöglichen es Ihnen, CSS-Stile basierend auf dem Medientyp eines Geräts (wie Druck vs. Bildschirm) oder anderen Merkmalen oder Eigenschaften wie Bildschirmauflösung oder Orientierung, {{Glossary("aspect_ratio", "Seitenverhältnis")}}, {{Glossary("viewport", "Viewport")}}-Breite oder -Höhe des Browsers sowie Benutzerpräferenzen wie reduzierte Bewegung, Datennutzung oder Transparenz anzuwenden.
 
-Media Queries werden verwendet für:
+Media Queries werden für Folgendes verwendet:
 
-- Bedingtes Anwenden von Stilen mit den [CSS](/de/docs/Web/CSS) {{cssxref("@media")}} und {{cssxref("@import")}} [At-Regeln](/de/docs/Web/CSS/At-rule).
-- Das gezielte Ansprechen bestimmter Medien für die {{HTMLElement("style")}}, {{HTMLElement("link")}}, {{HTMLElement("source")}} und andere [HTML](/de/docs/Web/HTML)-Elemente mit den Attributen `media=` oder `sizes="`.
-- [Testen und Überwachen von Medienzuständen](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries) mit den Methoden [`Window.matchMedia()`](/de/docs/Web/API/Window/matchMedia) und [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
+- Bedingtes Anwenden von Stilen mit den [CSS](/de/docs/Web/CSS) {{cssxref("@media")}}- und {{cssxref("@import")}}-[At-Regeln](/de/docs/Web/CSS/At-rule).
+- Ausrichten auf bestimmte Medien für die {{HTMLElement("style")}}, {{HTMLElement("link")}}, {{HTMLElement("source")}} und andere [HTML](/de/docs/Web/HTML)-Elemente mit den Attributen `media=` oder `sizes="`.
+- [Testen und Überwachen von Medienzuständen](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries) durch die Methoden [`Window.matchMedia()`](/de/docs/Web/API/Window/matchMedia) und [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
 
 > [!NOTE]
-> Die Beispiele auf dieser Seite verwenden CSS's `@media` zu Illustrationszwecken, aber die grundlegende Syntax bleibt für alle Arten von Media Queries dieselbe.
+> Die Beispiele auf dieser Seite verwenden zur Veranschaulichung das CSS `@media`, aber die grundlegende Syntax ist für alle Arten von Media Queries gleich.
 
 ## Syntax
 
-Ein Media Query besteht aus einem optionalen _Medientyp_ und einer beliebigen Anzahl von _Media-Feature_-Ausdrücken, die optional auf verschiedene Weise mit _logischen Operatoren_ kombiniert werden können.
-Media Queries sind nicht groß- und kleinschreibungssensitiv.
+Eine Media Query besteht aus einem optionalen _Medientyp_ und beliebig vielen _Media-Feature_-Ausdrücken, die optional auf verschiedene Weise mit _logischen Operatoren_ kombiniert werden können.
+Media Queries sind nicht case-sensitiv.
 
-- [Medientypen](/de/docs/Web/CSS/@media#media_types) definieren die breite Kategorie des Geräts, für das der Media Query gilt: `all`, `print`, `screen`.
+- [Medientypen](/de/docs/Web/CSS/@media#media_types) definieren die übergeordnete Kategorie des Geräts, für die die Media Query gilt: `all`, `print`, `screen`.
 
-  Der Typ ist optional (angenommen wird `all`), es sei denn, es wird der logische Operator `only` verwendet.
+  Der Typ ist optional (als `all` angenommen), es sei denn, der logische Operator `only` wird verwendet.
 
-- [Media-Features](/de/docs/Web/CSS/@media#media_features) beschreiben ein spezifisches Merkmal des {{Glossary("user_agent", "User Agents")}}, des Ausgabegeräts oder der Umgebung:
+- [Media Features](/de/docs/Web/CSS/@media#media_features) beschreiben eine spezifische Eigenschaft des {{Glossary("user_agent", "User-Agent")}}, des Ausgabegeräts oder der Umgebung:
 
   - {{cssxref("@media/any-hover", "any-hover")}}
   - {{cssxref("@media/any-pointer", "any-pointer")}}
@@ -37,6 +37,7 @@ Media Queries sind nicht groß- und kleinschreibungssensitiv.
   - {{cssxref("@media/color-index", "color-index")}}
   - {{cssxref("@media/device-aspect-ratio", "device-aspect-ratio")}} {{deprecated_inline}}
   - {{cssxref("@media/device-height", "device-height")}} {{deprecated_inline}}
+  - {{cssxref("@media/device-posture", "device-posture")}}
   - {{cssxref("@media/device-width", "device-width")}} {{deprecated_inline}}
   - {{cssxref("@media/display-mode", "display-mode")}}
   - {{cssxref("@media/dynamic-range", "dynamic-range")}}
@@ -58,28 +59,26 @@ Media Queries sind nicht groß- und kleinschreibungssensitiv.
   - {{cssxref("@media/scripting", "scripting")}}
   - {{cssxref("@media/update", "update")}}
   - {{cssxref("@media/video-dynamic-range", "video-dynamic-range")}}
-  - {{cssxref("@media/width", "width")}}.
+  - {{cssxref("@media/width", "width")}}
 
-  Zum Beispiel ermöglicht das {{cssxref("@media/hover", "hover")}}-Feature eine Abfrage, ob das Gerät das Hovering über Elemente unterstützt.
-  Media Feature Ausdrücke testen auf deren Vorhandensein oder Wert und sind vollständig optional.
-  Jeder Media Feature Ausdruck muss von Klammern umgeben sein.
+  Zum Beispiel erlaubt das {{cssxref("@media/hover", "hover")}}-Feature einer Query zu prüfen, ob das Gerät das Hovering über Elemente unterstützt.
+  Media-Feature-Ausdrücke testen auf ihre Präsenz oder ihren Wert und sind vollständig optional. Jedes Media-Feature-Ausdruck muss in Klammern gesetzt werden.
 
 - [Logische Operatoren](/de/docs/Web/CSS/@media#logical_operators) können verwendet werden, um eine komplexe Media Query zu erstellen: `not`, `and` und `only`.
-  Sie können auch mehrere Media Queries zu einer einzigen Regel kombinieren, indem Sie sie mit Kommas trennen.
+  Mehrere Media Queries können auch zu einer einzigen Regel kombiniert werden, indem sie durch Kommata getrennt werden.
 
-Ein Media Query ergibt `true`, wenn der Medientyp (falls angegeben) mit dem Gerät übereinstimmt, auf dem ein Dokument angezeigt wird, und alle Media-Feature-Ausdrücke als true berechnet werden.
-Anfragen mit unbekannten Medientypen sind immer false.
+Eine Media Query errechnet sich zu `true`, wenn der Medientyp (falls angegeben) dem Gerät entspricht, auf dem ein Dokument angezeigt wird, _und_ alle Media-Feature-Ausdrücke als wahr ausgewertet werden.
+Abfragen mit unbekannten Medientypen sind immer falsch.
 
 > [!NOTE]
-> Ein Stylesheet mit einem an seinen {{HTMLElement("link")}}-Tag angehängten Media Query wird [noch heruntergeladen](https://scottjehl.github.io/CSS-Download-Tests/), selbst wenn die Abfrage `false` ergibt, der Download geschieht, aber die Priorität des Herunterladens wird viel geringer sein.
-> Dennoch werden die Inhalte erst angewendet, wenn das Ergebnis der Abfrage `true` wird.
-> Sie können in Tomayacs Blog darüber lesen, warum dies geschieht: [Why Browser Download Stylesheet with Non-Matching Media Queries](https://medium.com/@tomayac/why-browsers-download-stylesheets-with-non-matching-media-queries-eb61b91b85a2).
+> Ein Stylesheet mit einer Media Query, die an sein {{HTMLElement("link")}}-Tag angehängt ist, [wird trotzdem heruntergeladen](https://scottjehl.github.io/CSS-Download-Tests/), auch wenn die Query `false` zurückgibt. Der Download erfolgt, aber mit einer viel niedrigeren Priorität.
+> Dennoch werden die Inhalte nicht angewendet, es sei denn und bis das Ergebnis der Query auf `true` wechselt.
+> Gründe dafür können Sie in Tomayacs Blog [Why Browser Download Stylesheet with Non-Matching Media Queries](https://medium.com/@tomayac/why-browsers-download-stylesheets-with-non-matching-media-queries-eb61b91b85a2) nachlesen.
 
-## Ansprechen von Medientypen
+## Medienarten gezielt ansprechen
 
 Medientypen beschreiben die allgemeine Kategorie eines bestimmten Geräts.
-Obwohl Websites häufig mit Bildschirmen im Sinn entworfen werden, möchten Sie möglicherweise Stile erstellen, die auf spezielle Geräte wie Drucker oder audio-basierte Screenreader abzielen.
-Zum Beispiel zielt dieses CSS auf Drucker ab:
+Obwohl Websites üblicherweise für Bildschirme entwickelt werden, möchten Sie vielleicht Stile erstellen, die spezielle Geräte wie Drucker oder audio-basierte Screenreader ansprechen. Zum Beispiel richtet sich dieses CSS an Drucker:
 
 ```css
 @media print {
@@ -87,8 +86,8 @@ Zum Beispiel zielt dieses CSS auf Drucker ab:
 }
 ```
 
-Sie können auch mehrere Geräte ansprechen.
-Zum Beispiel verwendet diese `@media`-Regel zwei Media Queries, um sowohl Bildschirm- als auch Druckgeräte anzusprechen:
+Sie können auch mehrere Geräte gezielt ansprechen.
+Diese `@media`-Regel verwendet beispielsweise zwei Media Queries, um sowohl Geräte mit Bildschirm als auch Druckgeräte anzusprechen:
 
 ```css
 @media screen, print {
@@ -96,14 +95,14 @@ Zum Beispiel verwendet diese `@media`-Regel zwei Media Queries, um sowohl Bildsc
 }
 ```
 
-Sehen Sie sich [Medientypen](/de/docs/Web/CSS/@media#media_types) für die Liste der verfügbaren Medientypen an.
-Da Medientypen Geräte in sehr allgemeinen Begriffen beschreiben, wurden die meisten ursprünglich definierten Medientypen als veraltet erklärt, wobei nur `screen`, `print` und `all` verbleiben. Um spezifischere Attribute anzusprechen, verwenden Sie stattdessen _Media Features_.
+Siehe [Medientypen](/de/docs/Web/CSS/@media#media_types) für die Liste der verfügbaren Medientypen.
+Da Medientypen Geräte in sehr allgemeinen Begriffen beschreiben, wurden die meisten ursprünglich definierten Medientypen als veraltet markiert, wobei nur `screen`, `print` und `all` übrigblieben. Um spezifischere Attribute zu adressieren, verwenden Sie stattdessen _Media Features_.
 
-## Ansprechen von Media Features
+## Zielgerichtetes Ansprechen von Media Features
 
-Media Features beschreiben die spezifischen Merkmale eines bestimmten {{Glossary("user_agent", "User Agents")}}, Ausgabegeräts oder der Umgebung.
-Zum Beispiel können Sie spezifische Stile auf Breitbildmonitore, Computer, die Mäuse verwenden, oder Geräte anwenden, die in schwach beleuchteten Bedingungen verwendet werden.
-In diesem Beispiel werden Stile angewendet, wenn der _primäre_ Eingabemechanismus des Benutzers (wie eine Maus) über Elemente schweben kann:
+Media Features beschreiben die spezifischen Eigenschaften eines bestimmten {{Glossary("user_agent", "User-Agent")}}, Ausgabegeräts oder der Umgebung.
+Beispielsweise können Sie spezifische Stile für Breitbildmonitore, Computer mit Maussteuerung oder Geräte in lichtarmen Umgebungen anwenden.
+Dieses Beispiel wendet Stile an, wenn der _primäre_ Eingabemechanismus des Benutzers (wie eine Maus) über Elemente hovern kann:
 
 ```css
 @media (hover: hover) {
@@ -111,9 +110,9 @@ In diesem Beispiel werden Stile angewendet, wenn der _primäre_ Eingabemechanism
 }
 ```
 
-Media Features sind entweder Bereichs- oder diskret.
+Media Features sind entweder „Range“ oder „Discrete“.
 
-_Diskrete Features_ nehmen ihre Werte aus einer {{Glossary("enumerated", "aufgezählten")}} Menge möglicher Schlüsselwortwerte. Zum Beispiel akzeptiert das diskrete `orientation`-Feature entweder `landscape` oder `portrait`.
+_Discrete Features_ beziehen ihren Wert aus einer {{Glossary("enumerated", "enumerierten")}} Menge möglicher Schlüsselwortwerte. Beispielsweise akzeptiert das diskrete Feature `orientation` entweder `landscape` oder `portrait`.
 
 ```css
 @media print and (orientation: portrait) {
@@ -121,8 +120,8 @@ _Diskrete Features_ nehmen ihre Werte aus einer {{Glossary("enumerated", "aufgez
 }
 ```
 
-Viele _Bereichs-Features_ können mit "min-" oder "max-" vorangestellt werden, um Einschränkungen für "minimale Bedingung" oder "maximale Bedingung" auszudrücken.
-Zum Beispiel wird dieses CSS nur dann Stile anwenden, wenn die {{Glossary("viewport", "Viewport")}}-Breite Ihres Browsers gleich oder schmaler als 1250px ist:
+Viele _Range Features_ können mit "min-" oder "max-" vorangestellt werden, um „Mindestbedingungen“ oder „Höchstbedingungen“ auszudrücken.
+Zum Beispiel wird dieses CSS nur angewendet, wenn die {{Glossary("viewport", "Viewport")}}-Breite des Browsers gleich oder kleiner als 1250px ist:
 
 ```css
 @media (max-width: 1250px) {
@@ -130,7 +129,7 @@ Zum Beispiel wird dieses CSS nur dann Stile anwenden, wenn die {{Glossary("viewp
 }
 ```
 
-Die folgenden Media Queries sind äquivalent zu dem obigen Beispiel:
+Die folgenden Media Queries sind gleichwertig zu obigem Beispiel:
 
 ```css
 @media (width <= 1250px) {
@@ -142,7 +141,7 @@ Die folgenden Media Queries sind äquivalent zu dem obigen Beispiel:
 }
 ```
 
-Mit den Range-Features der Media Queries können Sie entweder die inklusiven `min-` und `max-` Präfixe oder die prägnanteren Bereichssyntaxoperatoren `<=` und `>=` verwenden.
+Mit Range Features bei Media Queries können Sie entweder die inklusiven Präfixe `min-` und `max-` verwenden oder die prägnanteren Bereichssyntaxoperatoren `<=` und `>=`.
 
 Die folgenden Media Queries sind gleichwertig:
 
@@ -160,7 +159,7 @@ Die folgenden Media Queries sind gleichwertig:
 }
 ```
 
-Die Bereichsvergleiche oben sind einschließlich. Um den Vergleichswert auszuschließen, verwenden Sie `<` und/oder `>`.
+Die obigen Bereichsvergleiche sind inklusiv. Um den Vergleichswert auszuschließen, verwenden Sie `<` und/oder `>`.
 
 ```css
 @media (30em < width < 50em) {
@@ -172,8 +171,8 @@ Die Bereichsvergleiche oben sind einschließlich. Um den Vergleichswert auszusch
 }
 ```
 
-Wenn Sie eine Media Feature Abfrage ohne Angabe eines Wertes erstellen, werden die verschachtelten Stile verwendet, solange der Wert des Features nicht `0` oder `none` ist.
-Zum Beispiel wird dieses CSS auf jedes Gerät mit einem Farbbildschirm angewendet:
+Wenn Sie eine Media-Feature-Abfrage ohne Wertangabe erstellen, werden die verschachtelten Stile verwendet, solange der Wert des Features nicht `0` oder `none` ist.
+Zum Beispiel gilt dieses CSS für jedes Gerät mit einem Farbdisplay:
 
 ```css
 @media (color) {
@@ -181,29 +180,30 @@ Zum Beispiel wird dieses CSS auf jedes Gerät mit einem Farbbildschirm angewende
 }
 ```
 
-Wenn ein Feature nicht auf das Gerät zutrifft, auf dem der Browser ausgeführt wird, sind Ausdrücke, die dieses Media Feature betreffen, immer false.
+Wenn ein Feature nicht für das Gerät gilt, auf dem der Browser läuft, sind Ausdrücke, die dieses Media Feature beinhalten, immer false.
 
-Für weitere [Media Feature](/de/docs/Web/CSS/@media#media_features)-Beispiele siehe bitte die Referenzseite für jedes spezifische Feature.
+Weitere Beispiele zu [Media Features](/de/docs/Web/CSS/@media#media_features) finden Sie auf der Referenzseite für jedes spezifische Feature.
 
-## Erstellen von komplexen Media Queries
+## Komplexe Media Queries erstellen
 
-Manchmal möchten Sie eine Media Query erstellen, die von mehreren Bedingungen abhängt. Hier kommen die _logischen Operatoren_ ins Spiel: `not`, `and` und `only`.
-Darüber hinaus können Sie mehrere Media Queries zu einer durch Kommas getrennten Liste kombinieren; dies ermöglicht es Ihnen, dieselben Stile in verschiedenen Situationen anzuwenden, wobei die enthaltenen Media Queries als logische `or`-Komposition ausgewertet werden: interpretiert, als ob jede Media Query in Klammern mit einem `or` dazwischen wäre.
+Manchmal möchten Sie eine Media Query erstellen, die von mehreren Bedingungen abhängt.
+Hier kommen die _logischen Operatoren_ ins Spiel: `not`, `and` und `only`.
+Außerdem können Sie mehrere Media Queries zu einer kommaseparierten Liste kombinieren. Dadurch können Sie dieselben Stile in verschiedenen Situationen anwenden, wobei die enthaltenen Media Queries als logische `or`-Zusammensetzung ausgewertet werden: interpretiert, als ob jede Media Query in Klammern mit einem `or` dazwischen stünde.
 
-Im vorherigen Beispiel haben wir den `and`-Operator verwendet, um einen Media _Typ_ mit einem Media _Feature_ zu gruppieren.
-Der `and`-Operator kann auch verwendet werden, um mehrere Media Features innerhalb einer einzelnen Media Query zu kombinieren.
-Der `not`-Operator negiert eine Media Query oder ein Media Feature, wenn es mit Klammern verwendet wird, und kehrt im Grunde deren normale Bedeutungen um.
-Der `or`-Operator kann, unter bestimmten Bedingungen, verwendet werden, um mehrere Media Features innerhalb einer einzigen Media Query zu kombinieren.
-Schließlich wurde der `only`-Operator verwendet, um zu verhindern, dass ältere Browser die Stile ohne Auswertung der Media Feature Ausdrücke anwenden, aber er hat keine Wirkung in modernen Browsern.
+Im vorherigen Beispiel haben wir gesehen, wie der `and`-Operator verwendet wird, um einen Medientyp mit einem Media Feature zu gruppieren.
+Der `and`-Operator kann auch mehrere Media Features innerhalb einer einzigen Media Query kombinieren.
+Der `not`-Operator negiert eine Media Query oder ein Media Feature, wenn er mit Klammern verwendet wird, und kehrt im Wesentlichen deren normale Bedeutungen um.
+Der `or`-Operator kann unter bestimmten Bedingungen verwendet werden, um mehrere Media Features innerhalb einer einzigen Media Query zu kombinieren.
+Schließlich wurde der `only`-Operator verwendet, um ältere Browser daran zu hindern, die Stile anzuwenden, ohne die Media Feature-Ausdrücke auszuwerten. Er hat jedoch in modernen Browsern keine Wirkung.
 
 > [!NOTE]
-> In den meisten Fällen wird der Medientyp `all` standardmäßig verwendet, wenn kein anderer Typ spezifiziert ist.
-> Wenn Sie jedoch den `only`-Operator verwenden, müssen Sie ausdrücklich einen Medientyp angeben. Sie können `only screen` oder `only print` als Ganzes sehen.
+> In den meisten Fällen wird der Medientyp `all` standardmäßig verwendet, wenn kein anderer Typ angegeben ist.
+> Wenn Sie jedoch den `only`-Operator verwenden, müssen Sie explizit einen Medientyp angeben. Sie könnten beispielsweise `only screen` oder `only print` als Gesamtheit sehen.
 
 ### Kombinieren mehrerer Typen oder Features
 
 Das Schlüsselwort `and` kombiniert ein Media Feature mit einem Medientyp _oder_ anderen Media Features.
-Dieses Beispiel kombiniert zwei Media Features, um Stile auf Geräte im Querformat mit einer Breite von mindestens 30 ems zu beschränken:
+Dieses Beispiel kombiniert zwei Media Features, um die Stile auf Geräte im Querformat mit einer Breite von mindestens 30 `em` zu beschränken:
 
 ```css
 @media (min-width: 30em) and (orientation: landscape) {
@@ -211,7 +211,7 @@ Dieses Beispiel kombiniert zwei Media Features, um Stile auf Geräte im Querform
 }
 ```
 
-Um die Stile auf Geräte mit einem Bildschirm zu beschränken, können Sie die Media Features mit dem Medientyp `screen` verknüpfen:
+Um die Stile auf Geräte mit Bildschirm zu beschränken, können Sie die Media Features mit dem Medientyp `screen` verketten:
 
 ```css
 @media screen and (min-width: 30em) and (orientation: landscape) {
@@ -219,11 +219,11 @@ Um die Stile auf Geräte mit einem Bildschirm zu beschränken, können Sie die M
 }
 ```
 
-### Testen für mehrere Anfragen
+### Testen mehrerer Queries
 
-Sie können eine durch Kommas getrennte Liste von Media Queries verwenden, um Stile anzuwenden, wenn das Gerät des Benutzers mit einem der verschiedenen Medientypen, Merkmale oder Zustände übereinstimmt.
+Sie können eine kommaseparierte Liste von Media Queries verwenden, um Stile anzuwenden, wenn das Gerät des Benutzers mit einem der verschiedenen Medientypen, Features oder Zuständen übereinstimmt.
 
-Die folgende Regel enthält zwei Media Queries. Die Stile des Blocks werden angewendet, wenn entweder das Gerät des Benutzers eine Höhe von 680px oder mehr hat _oder_ wenn der Browser-Viewport im Hochformat ist (die Viewport-Höhe ist größer als die Viewport-Breite):
+Die folgende Regel enthält zwei Media Queries. Die Stile des Blocks werden angewendet, wenn entweder das Gerät des Benutzers eine Höhe von 680px oder mehr hat _oder_ wenn sich der Browser-Viewport im Hochformat befindet (die Höhe des Viewports ist größer als die Breite):
 
 ```css
 @media (min-height: 680px), screen and (orientation: portrait) {
@@ -231,14 +231,15 @@ Die folgende Regel enthält zwei Media Queries. Die Stile des Blocks werden ange
 }
 ```
 
-In diesem Beispiel, wenn der Benutzer in eine PDF druckt und die Seitenhöhe 800px beträgt, gibt die Media Query true zurück, weil die erste Abfragekomponente — die testet, ob der Viewport eine Höhe von `680px` oder mehr hat — wahr ist.
-Ebenso, wenn ein Benutzer auf einem Smartphone im Hochformat mit einer Viewport-Höhe von 480px ist, gibt die Media Query true zurück, weil die zweite Abfragekomponente wahr ist.
+In diesem Beispiel wird die Media Query bei einem Druck in eine PDF-Datei mit einer Seitenhöhe von 800px als wahr ausgewertet, da die erste Komponentenabfrage – die prüft, ob der Viewport eine Höhe von `680px` oder mehr hat – wahr ist.
+Ähnlich wird die Media Query wahr, wenn der Benutzer ein Smartphone im Hochformat verwendet, dessen Viewport-Höhe 480px beträgt, da die zweite Komponentenabfrage wahr ist.
 
-In einer durch Kommas getrennten Liste von Media Queries enden die einzelnen Media Queries am Komma oder, im Fall der letzten Media Query in der Liste, an der öffnenden Klammer (`{`).
+In einer kommaseparierten Liste von Media Queries enden die einzelnen Media Queries am Komma oder im Fall der letzten Media Query der Liste mit der öffnenden Klammer (`{`).
 
-### Bedeutung einer Anfrage umkehren
+### Umkehren der Bedeutung einer Query
 
-Das Schlüsselwort `not` kehrt die Bedeutung einer einzelnen Media Query um. Zum Beispiel werden die CSS-Stile in dieser Media Query auf alles _außer_ auf gedruckte Medien angewendet:
+Das Schlüsselwort `not` kehrt die Bedeutung einer einzelnen Media Query um.
+Beispielsweise werden die CSS-Stile in dieser Media Query auf alles _außer_ Druckmedien angewendet:
 
 ```css
 @media not print {
@@ -246,7 +247,8 @@ Das Schlüsselwort `not` kehrt die Bedeutung einer einzelnen Media Query um. Zum
 }
 ```
 
-Das `not` negiert nur die Media Query, auf die es angewendet wird. Das `not`, ohne Klammern, negiert alle Features innerhalb der Media Query, in der es enthalten ist. Das bedeutet, dass in einer durch Kommas getrennten Liste von Media Queries jedes `not` auf die einzige Abfrage angewendet wird, in der es enthalten ist, und auf _alle_ Features innerhalb dieser einzigen Abfrage. In diesem Beispiel wird das `not` auf die erste Media Query angewendet, die am ersten Komma endet:
+Der `not`-Operator negiert nur die Media Query, auf die er angewendet wird. Ohne Klammern negiert `not` alle Features innerhalb der Media Query, in der es enthalten ist.
+Das bedeutet: In einer kommaseparierten Liste von Media Queries wird jedes `not` nur auf die einzelne Query angewendet, in der es enthalten ist, und gilt für _alle_ Features innerhalb dieser einzelnen Query. In diesem Beispiel gilt das `not` für die erste Media Query, die am ersten Komma endet:
 
 ```css
 @media not screen and (color), print and (color) {
@@ -262,11 +264,13 @@ Die obige Abfrage wird so ausgewertet:
 }
 ```
 
-Beide Beispiele sind gültig. Medienbedingungen können gruppiert werden, indem sie in Klammern (`()`) eingeschlossen werden. Diese Gruppen können dann innerhalb einer Bedingung wie eine einzige Media Query verschachtelt werden.
+Beide Beispiele sind gültig.
+Medienbedingungen können gruppiert werden, indem sie in Klammern (`()`) gesetzt werden.
+Diese Gruppen können dann in einer Bedingung verschachtelt werden, genauso wie eine einzelne Media Query.
 
-Das `not` wird als letztes in einer Media Query ausgewertet, was bedeutet, dass es auf die gesamte Media Query angewendet wird, nicht auf ein einzelnes Feature innerhalb einer Abfrage, als ob nach dem `not` sofort eine öffnende Klammer hinzugefügt und am Ende der Media Query geschlossen würde.
+Der `not`-Operator wird in einer Media Query zuletzt ausgewertet, wodurch er auf die gesamte Media Query und nicht auf ein einzelnes Feature innerhalb einer Query angewendet wird, als ob direkt nach dem `not` eine öffnende Klammer gesetzt und am Ende der Media Query wieder geschlossen würde.
 
-Die folgende Abfrage:
+Die folgende Query:
 
 ```css
 @media not all and (monochrome) {
@@ -282,7 +286,7 @@ wird so ausgewertet:
 }
 ```
 
-Sie wird nicht wie folgt ausgewertet:
+Sie wird nicht so ausgewertet:
 
 ```css example-bad
 @media (not all) and (monochrome) {
@@ -290,9 +294,9 @@ Sie wird nicht wie folgt ausgewertet:
 }
 ```
 
-Um ein einzelnes Feature innerhalb einer Media Query zu negieren, verwenden Sie Klammern. Die Ummantelung eines `not` und eines Media Features in Klammern begrenzt die Komponenten der Abfrage, die negiert werden.
+Um ein einzelnes Feature innerhalb einer Media Query zu negieren, verwenden Sie Klammern. Indem Sie ein `not` und ein Media Feature in Klammern einschließen, schränken Sie die Komponenten der Query ein, die negiert werden.
 
-In diesem Beispiel negieren wir das `hover` Media Feature, aber nicht den `all` Medientyp:
+In diesem Beispiel negieren wir das Media Feature `hover`, aber nicht den Medientyp `all`:
 
 ```css
 @media all and (not(hover)) {
@@ -300,11 +304,11 @@ In diesem Beispiel negieren wir das `hover` Media Feature, aber nicht den `all` 
 }
 ```
 
-Das `not(hover)` trifft zu, wenn das Gerät keine Hover-Fähigkeit hat. In diesem Fall, wegen der Klammern, bezieht sich das `not` auf `hover`, aber nicht auf `all`.
+Das `not(hover)` trifft zu, wenn das Gerät keine Hover-Fähigkeiten hat. In diesem Fall gilt das `not` wegen der Klammern nur für `hover`, nicht aber für `all`.
 
 ### Verbesserung der Kompatibilität mit älteren Browsern
 
-Das Schlüsselwort `only` verhindert, dass ältere Browser, die Media Queries mit Media Features nicht unterstützen, die gegebenen Stile anwenden.
+Das Schlüsselwort `only` verhindert, dass ältere Browser, die keine Media Queries mit Media Features unterstützen, die angegebenen Stile anwenden.
 _Es hat keine Wirkung auf moderne Browser._
 
 ```css
@@ -313,10 +317,10 @@ _Es hat keine Wirkung auf moderne Browser._
 }
 ```
 
-### Testen für mehrere Features mit `or`
+### Testen mehrerer Features mit `or`
 
-Sie können `or` verwenden, um nach einer Übereinstimmung unter mehr als einem Feature zu suchen, wobei `true` aufgelöst wird, wenn eines der Features wahr ist.
-Zum Beispiel testet die folgende Abfrage Geräte, die ein monochromes Display oder eine Hover-Fähigkeit haben:
+Sie können `or` verwenden, um eine Übereinstimmung unter mehreren Features zu testen, wobei das Ergebnis `true` ist, wenn eines der Features wahr ist.
+Zum Beispiel testet die folgende Query Geräte, die über ein monochromes Display oder Hover-Fähigkeiten verfügen:
 
 ```css
 @media (not (color)) or (hover) {
@@ -324,9 +328,10 @@ Zum Beispiel testet die folgende Abfrage Geräte, die ein monochromes Display od
 }
 ```
 
-Beachten Sie, dass Sie den `or`-Operator nicht auf der gleichen Ebene wie die `and` und `not`-Operatoren verwenden können. Sie können entweder die Media Features mit einem Komma trennen oder Klammern verwenden, um Unterausdrücke von Media Features zu gruppieren, um die Auswertungsreihenfolge zu klären.
+Beachten Sie, dass Sie den Operator `or` nicht auf derselben Ebene wie die Operatoren `and` und `not` verwenden können.
+Sie können die Media Features entweder mit einem Komma trennen oder Klammern verwenden, um Teil-Ausdrücke von Media Features zu gruppieren und die Reihenfolge der Auswertung zu klären.
 
-Zum Beispiel sind die folgenden Anfragen beide gültig:
+Die folgenden Queries sind zum Beispiel beide gültig:
 
 ```css
 @media ((color) and (hover)) or (monochrome) {
@@ -343,7 +348,7 @@ Zum Beispiel sind die folgenden Anfragen beide gültig:
 
 - [@media](/de/docs/Web/CSS/@media)
 - [Container Queries](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Testen von Media Queries programmgesteuert](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Testing media queries programmatically](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
 - [CSS-Animationen zwischen Media Queries](https://davidwalsh.name/animate-media-queries)
-- [Erweiterte Mozilla Media Features](/de/docs/Web/CSS/Mozilla_Extensions#media_features)
-- [Erweiterte WebKit Media Features](/de/docs/Web/CSS/WebKit_Extensions#media_features)
+- [Erweiterte Mozilla-Media Features](/de/docs/Web/CSS/Mozilla_Extensions#media_features)
+- [Erweiterte WebKit-Media Features](/de/docs/Web/CSS/WebKit_Extensions#media_features)

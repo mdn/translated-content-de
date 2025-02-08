@@ -3,12 +3,12 @@ title: "BrowserCaptureMediaStreamTrack: restrictTo()-Methode"
 short-title: restrictTo()
 slug: Web/API/BrowserCaptureMediaStreamTrack/restrictTo
 l10n:
-  sourceCommit: d9879ec9fe29b627ea1bde790d981dd13d602794
+  sourceCommit: 01e8b5077df6d79e52f2521dfbe734e0923d1fc4
 ---
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`restrictTo()`**-Methode der [`BrowserCaptureMediaStreamTrack`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack)-Schnittstelle beschränkt einen Selbstaufnahme-Stream auf ein spezifisches DOM-Element (und dessen Nachkommen).
+Die **`restrictTo()`**-Methode der [`BrowserCaptureMediaStreamTrack`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack)-Schnittstelle beschränkt einen Selbstaufnahme-Stream auf ein bestimmtes DOM-Element (und dessen Nachkommen).
 
 ## Syntax
 
@@ -19,26 +19,26 @@ restrictTo(restrictionTarget)
 ### Parameter
 
 - `restrictionTarget`
-  - : Eine [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget)-Instanz, die das Element repräsentiert, auf das der Stream beschränkt werden soll, oder `null`/`undefined`. In diesem Fall wird jede zuvor gesetzte Einschränkung von der Spur entfernt.
+  - : Eine Instanz von [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget), die das Element repräsentiert, auf das der Stream beschränkt werden soll, oder `null`/`undefined`, in welchem Fall jegliche zuvor gesetzte Einschränkung von der Spur entfernt wird.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich zu {{jsxref("undefined")}} auflöst.
+Ein {{jsxref("Promise")}}, das zu {{jsxref("undefined")}} aufgelöst wird.
 
-Das Promise schlägt fehl, wenn:
+Das Promise wird abgelehnt, wenn:
 
-- Die Spur [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) nicht `"video"` ist oder deren [`readyState`](/de/docs/Web/API/MediaStreamTrack/readyState) nicht `"live"` ist.
+- Der [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) der Spur nicht `"video"` ist, oder ihr [`readyState`](/de/docs/Web/API/MediaStreamTrack/readyState) nicht `"live"` ist.
 - Das Ziel-Element der Einschränkung nicht mehr existiert.
-- Die eingeschränkte Spur keine Spur ist, die vom Bildschirm des Nutzers aufgenommen wurde.
-- `restrictionTarget` keine [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget)-Instanz, `null` oder `undefined` ist.
-- `restrictionTarget` in einem anderen Tab erstellt wurde als dem, der gerade aufgezeichnet wird.
+- Die eingeschränkte Spur keine Spur ist, die vom Bildschirm des Benutzers aufgenommen wurde.
+- `restrictionTarget` keine Instanz von [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget), `null` oder `undefined` ist.
+- `restrictionTarget` in einem anderen Tab erstellt wurde als dem, der aufgenommen wird.
 
 > [!NOTE]
-> In Chromium schlägt `restrictTo()` fehl, wenn eine Spur Klone hat (siehe [Chrome Issue 41482026](https://issues.chromium.org/issues/41482026)).
+> In Chromium wird ein Aufruf von `restrictTo()` abgelehnt, wenn eine Spur Klone hat (siehe [Chrome issue 41482026](https://issues.chromium.org/issues/41482026)).
 
 ## Beispiele
 
-### Einfaches Beispiel für eine Einschränkung
+### Grundlegendes Einschränkungsbeispiel
 
 ```js
 // Options for getDisplayMedia()
@@ -62,11 +62,11 @@ await track.restrictTo(restrictionTarget);
 videoElem.srcObject = stream;
 ```
 
-Sehen Sie sich [Verwendung der APIs für Element- und Bereichserfassung](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture) für Beispielcode im Kontext an.
+Sehen Sie [Verwendung der Element-Capture- und Region-Capture-APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture) für Beispielcode im Kontext.
 
 ### Beenden der Einschränkung
 
-Sie können die Einschränkung beenden, indem Sie `restrictTo()` auf derselben Spur aufrufen und dabei `null` als Argument übergeben:
+Sie können die Einschränkung aufheben, indem Sie `restrictTo()` auf demselben Track aufrufen und `null` als Argument übergeben:
 
 ```js
 // Stop restricting
@@ -84,4 +84,4 @@ await track.restrictTo(null);
 ## Siehe auch
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
-- [Verwendung der APIs für Element- und Bereichserfassung](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture)
+- [Verwendung der Element-Capture- und Region-Capture-APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture)

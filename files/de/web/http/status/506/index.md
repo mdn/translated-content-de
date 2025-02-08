@@ -2,18 +2,18 @@
 title: 506 Variant Also Negotiates
 slug: Web/HTTP/Status/506
 l10n:
-  sourceCommit: bd4d7bc4176d9f67297e3940ae7163a258f07ef5
+  sourceCommit: dae4a066bdf3900056bb4e8e6af85f50e4d1fd71
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode für den **`506 Variant Also Negotiates`** [Serverfehler](/de/docs/Web/HTTP/Status#server_error_responses) wird während der Inhaltsverhandlung zurückgegeben, wenn es eine rekursive Schleife im Prozess der Ressourcenauswahl gibt.
+Der HTTP-Statuscode **`506 Variant Also Negotiates`** [Server-Fehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) wird während der Inhaltsaushandlung zurückgegeben, wenn es eine rekursive Schleife im Prozess der Auswahl einer Ressource gibt.
 
-[Agenten-gesteuerte Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation#agent-driven_negotiation) ermöglicht es einem Client und einem Server, gemeinsam die beste Variante einer gegebenen Ressource zu bestimmen, wenn der Server mehrere Varianten hat.
-Ein Server sendet einen `506`-Statuscode aufgrund einer Serverfehlkonfiguration, die zu zirkulären Referenzen bei der Erstellung von Antworten führt.
+[Agent-gesteuerte Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation#agent-driven_negotiation) ermöglicht es einem Client und einem Server, gemeinsam die beste Variante einer Ressource zu bestimmen, wenn der Server mehrere Varianten besitzt.
+Ein Server sendet einen `506`-Statuscode aufgrund einer Server-Fehlkonfiguration, die zu zirkulären Referenzen bei der Erstellung von Antworten führt.
 
-Aufgrund des Mangels an Standardisierung, wie Clients automatisch aus Antworten auswählen, und der zusätzlichen Round-Trips, die die Client-Server-Interaktion verlangsamen, wird dieser Mechanismus selten verwendet.
-[Server-gesteuerte Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation#server-driven_content_negotiation) ist weitaus häufiger, bei der der Server basierend auf den Anfrage-Headern des Clients ({{HTTPHeader("Accept-Language")}}, {{HTTPHeader("Accept")}}, usw.) direkt die passendste Ressource auswählt.
+Ein Mangel an Standardisierung, wie Clients automatisch aus Antworten auswählen, sowie die zusätzlichen Round-Trips, die die Interaktion zwischen Client und Server verlangsamen, führen dazu, dass dieser Mechanismus selten verwendet wird.
+[Server-gesteuerte Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation#server-driven_content_negotiation) ist weitaus häufiger, da der Server direkt die passendste Ressource für den Client basierend auf den Anfrage-Headern ({{HTTPHeader("Accept-Language")}}, {{HTTPHeader("Accept")}}, etc.) auswählt.
 
 ## Status
 
@@ -21,15 +21,11 @@ Aufgrund des Mangels an Standardisierung, wie Clients automatisch aus Antworten 
 506 Variant Also Negotiates
 ```
 
-## Spezifikationen
-
-{{Specifications}}
-
 ## Beispiele
 
 ### Ressource mit Varianten
 
-Im folgenden Beispiel fordert ein Client eine Seite im `fr`-Lokalisierung mit dem {{HTTPHeader("Accept-Language")}}-Header an.
+Im folgenden Beispiel fordert ein Client eine Seite in der Lokalisierung `fr` mithilfe des {{HTTPHeader("Accept-Language")}}-Headers an.
 Dies kann mit curl durchgeführt werden:
 
 ```bash
@@ -47,8 +43,8 @@ Negotiate: trans
 Accept-Language: fr
 ```
 
-Aufgrund einer Serverfehlkonfiguration verweist die Variante für `fr` auf eine [Typenkarte](https://httpd.apache.org/docs/trunk/mod/mod_negotiation.html#typemaps), die selbst eine transparente Verhandlung auslösen kann.
-Der Server kann diesen Zustand erkennen, indem er in einer Auswahlantwort vor dem Senden das Vorhandensein eines `TCN`-Headers überprüft:
+Aufgrund einer Server-Fehlkonfiguration verweist die Variantenantwort für `fr` auf eine [Type Map](https://httpd.apache.org/docs/trunk/mod/mod_negotiation.html#typemaps), die selbst eine transparente Aushandlung verursacht.
+Der Server kann diesen Zustand anhand der Präsenz eines `TCN`-Headers in einer Auswahlantwort erkennen, bevor diese gesendet wird:
 
 ```http
 HTTP/1.1 506 Variant Also Negotiates
@@ -71,11 +67,15 @@ Alternates: {"index.html.en" 1 {type text/html} {language en} {length 48}}, {"an
 </html>
 ```
 
+## Spezifikationen
+
+{{Specifications}}
+
 ## Siehe auch
 
 - {{HTTPStatus("300", "300 Multiple Choices")}}
 - {{RFC("2295")}}
-- [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation)
+- [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
-- [Inhaltsverhandlung](https://httpd.apache.org/docs/2.4/content-negotiation.html) in der Apache HTTP Server-Dokumentation
-- [Apache httpd `mod_negotiation.c` Source](https://github.com/apache/httpd/blob/6a2433cb3fbc30c8a55f450a046e4b0f69e73143/modules/mappers/mod_negotiation.c#L2687-L2691), die Bedingungen zeigt, die eine `HTTP_VARIANT_ALSO_VARIES`-Antwort auslösen.
+- [Content Negotiation](https://httpd.apache.org/docs/2.4/content-negotiation.html) in der Apache HTTP Server Dokumentation
+- [Apache httpd `mod_negotiation.c` source](https://github.com/apache/httpd/blob/6a2433cb3fbc30c8a55f450a046e4b0f69e73143/modules/mappers/mod_negotiation.c#L2687-L2691), die Bedingungen zeigt, die die `HTTP_VARIANT_ALSO_VARIES`-Antwort auslösen.
