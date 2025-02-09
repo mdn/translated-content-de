@@ -2,12 +2,12 @@
 title: XSLTProcessor
 slug: Web/API/XSLTProcessor
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 914b6d3206dfaeb22617739e7baaf15e5ba3aa21
 ---
 
 {{APIRef("XSLT")}}
 
-Ein **`XSLTProcessor`** wendet eine [XSLT](/de/docs/Web/XML/XSLT)-Stylesheet-Transformation auf ein XML-Dokument an, um ein neues XML-Dokument als Ausgabe zu erzeugen. Er bietet Methoden zum Laden des XSLT-Stylesheets, zur Manipulation von `<xsl:param>`-Parameterwerten und zur Anwendung der Transformation auf Dokumente.
+Ein **`XSLTProcessor`** wendet eine [XSLT](/de/docs/Web/XML/XSLT)-Stylesheet-Transformation auf ein XML-Dokument an, um ein neues XML-Dokument als Ausgabe zu erzeugen. Er bietet Methoden zum Laden des XSLT-Stylesheets, zum Manipulieren von `<xsl:param>`-Parameterwerten und zum Anwenden der Transformation auf Dokumente.
 
 ## Konstruktor
 
@@ -18,28 +18,28 @@ Ein **`XSLTProcessor`** wendet eine [XSLT](/de/docs/Web/XML/XSLT)-Stylesheet-Tra
 
 - [`XSLTProcessor.importStylesheet()`](/de/docs/Web/API/XSLTProcessor/importStylesheet)
   - : Importiert das XSLT-Stylesheet.
-    Wenn der gegebene Knoten ein Dokumentknoten ist, können Sie ein komplettes XSL-Transform oder eine [Literal Result Element Transform](https://www.w3.org/TR/xslt/#result-element-stylesheet) übergeben; andernfalls muss es ein `<xsl:stylesheet>`- oder `<xsl:transform>`-Element sein.
+    Wird ein Dokumentknoten übergeben, kann ein vollständiger XSL-Transform oder eine [Literal Result Element Transform](https://www.w3.org/TR/xslt/#result-element-stylesheet) verwendet werden; andernfalls muss es sich um ein `<xsl:stylesheet>`- oder `<xsl:transform>`-Element handeln.
 - [`XSLTProcessor.transformToFragment()`](/de/docs/Web/API/XSLTProcessor/transformToFragment)
-  - : Transformiert die Quellknoten durch Anwendung des mit der Funktion [`XSLTProcessor.importStylesheet()`](/de/docs/Web/API/XSLTProcessor/importStylesheet) importierten XSLT-Stylesheets.
-    Das Besitzer-Dokument des resultierenden Dokumentfragments ist der Besitzerknoten.
+  - : Transformiert die Quellknoten, indem das mit der Funktion [`XSLTProcessor.importStylesheet()`](/de/docs/Web/API/XSLTProcessor/importStylesheet) importierte XSLT-Stylesheet angewendet wird.
+    Das Eigentümerdokument des resultierenden Dokumentfragments ist der Owner-Knoten.
 - [`XSLTProcessor.transformToDocument()`](/de/docs/Web/API/XSLTProcessor/transformToDocument)
-  - : Transformiert die Quellknoten durch Anwendung des mit der Funktion [`XSLTProcessor.importStylesheet()`](/de/docs/Web/API/XSLTProcessor/importStylesheet) importierten XSLT-Stylesheets.
+  - : Transformiert die Quellknoten, indem das mit der Funktion [`XSLTProcessor.importStylesheet()`](/de/docs/Web/API/XSLTProcessor/importStylesheet) importierte XSLT-Stylesheet angewendet wird.
 - [`XSLTProcessor.setParameter()`](/de/docs/Web/API/XSLTProcessor/setParameter)
-  - : Legt den Wert eines Parameters (`<xsl:param>`) im importierten XSLT-Stylesheet fest.
+  - : Setzt einen Parameterwert (`<xsl:param>`) im importierten XSLT-Stylesheet.
 - [`XSLTProcessor.getParameter()`](/de/docs/Web/API/XSLTProcessor/getParameter)
-  - : Ruft den Wert eines Parameters aus dem XSLT-Stylesheet ab.
+  - : Gibt den Wert eines Parameters aus dem XSLT-Stylesheet zurück.
 - [`XSLTProcessor.removeParameter()`](/de/docs/Web/API/XSLTProcessor/removeParameter)
-  - : Entfernt den Parameter, falls er zuvor festgelegt wurde.
-    Dies führt dazu, dass der `XSLTProcessor` den im XSLT-Stylesheet angegebenen Standardwert für den Parameter verwendet.
+  - : Entfernt den Parameter, falls dieser zuvor gesetzt wurde.
+    Dadurch wird der `XSLTProcessor` den Standardwert für den Parameter verwenden, wie im XSLT-Stylesheet angegeben.
 - [`XSLTProcessor.clearParameters()`](/de/docs/Web/API/XSLTProcessor/clearParameters)
-  - : Entfernt alle gesetzten Parameter vom `XSLTProcessor`.
-    Der `XSLTProcessor` verwendet anschließend die im XSLT-Stylesheet angegebenen Standardwerte.
+  - : Entfernt alle gesetzten Parameter aus dem `XSLTProcessor`.
+    Der `XSLTProcessor` wird dann die Standardwerte verwenden, wie sie im XSLT-Stylesheet angegeben sind.
 - [`XSLTProcessor.reset()`](/de/docs/Web/API/XSLTProcessor/reset)
   - : Entfernt alle Parameter und Stylesheets aus dem `XSLTProcessor`.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Es gibt keine Eigenschaften für diese Schnittstelle._
+_Diese Schnittstelle hat keine Eigenschaften._
 
 ## Beispiele
 
@@ -61,11 +61,11 @@ async function init() {
 }
 ```
 
-### Erstellung eines XML-Dokuments basierend auf einem Teil eines Dokument-DOMs
+### Erstellen eines XML-Dokuments basierend auf einem Teil der DOM-Struktur eines Dokuments
 
-Für die eigentliche Transformation benötigt der `XSLTProcessor` ein XML-Dokument, welches in Verbindung mit der importierten XSL-Datei verwendet wird, um das endgültige Ergebnis zu erzeugen. Das XML-Dokument kann eine separate XML-Datei sein, die mit [`fetch()`](/de/docs/Web/API/Window/fetch) geladen wird, oder es kann Teil der bestehenden Seite sein.
+Für die eigentliche Transformation benötigt der `XSLTProcessor` ein XML-Dokument, das in Verbindung mit der importierten XSL-Datei verwendet wird, um das endgültige Ergebnis zu erzeugen. Das XML-Dokument kann eine separate, mit [`fetch()`](/de/docs/Web/API/Window/fetch) geladene XML-Datei sein oder Teil der bestehenden Seite.
 
-Um einen Teil des Seiten-DOMs zu verarbeiten, muss zunächst ein XML-Dokument im Speicher erstellt werden. Angenommen, das zu verarbeitende DOM befindet sich in einem Element mit der ID `example`, kann dieses DOM mit der Methode [`Document.importNode()`](/de/docs/Web/API/Document/importNode) des speicherbasierten XML-Dokuments „geklont“ werden. [`Document.importNode()`](/de/docs/Web/API/Document/importNode) ermöglicht den Transfer eines DOM-Fragments zwischen Dokumenten, in diesem Fall von einem HTML-Dokument zu einem XML-Dokument. Der erste Parameter referenziert den zu klonenden DOM-Knoten. Durch Festlegen des zweiten Parameters auf "true" wird ein umfassender Klon aller Nachkommen erstellt (ein tiefer Klon). Das geklonte DOM kann dann mit [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) in das XML-Dokument eingefügt werden, wie unten gezeigt.
+Um einen Teil der DOM-Struktur einer Seite zu verarbeiten, ist es notwendig, zunächst ein XML-Dokument im Speicher zu erstellen. Angenommen, die zu verarbeitende DOM-Struktur befindet sich in einem Element mit der ID `example`; diese DOM-Struktur kann mit der Methode [`Document.importNode()`](/de/docs/Web/API/Document/importNode) des XML-Dokuments im Speicher "geklont" werden. [`Document.importNode()`](/de/docs/Web/API/Document/importNode) ermöglicht das Übertragen eines DOM-Fragments zwischen Dokumenten – in diesem Fall von einem HTML-Dokument zu einem XML-Dokument. Der erste Parameter verweist auf die zu klonende DOM-Struktur. Wird der zweite Parameter auf "true" gesetzt, werden auch alle Nachkommen geklont (Deep Clone). Die geklonte DOM-Struktur kann dann mit [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) in das XML-Dokument eingefügt werden, wie folgend demonstriert.
 
 ```js
 // Create a new XML document in memory
@@ -80,11 +80,11 @@ const clonedNode = xmlRef.importNode(myNode, true);
 xmlRef.appendChild(clonedNode);
 ```
 
-Nachdem das Stylesheet importiert wurde, muss der `XSLTProcessor` zwei Methoden für die eigentliche Transformation ausführen, nämlich [`XSLTProcessor.transformToDocument()`](/de/docs/Web/API/XSLTProcessor/transformToDocument) und [`XSLTProcessor.transformToFragment()`](/de/docs/Web/API/XSLTProcessor/transformToFragment). [`XSLTProcessor.transformToDocument()`](/de/docs/Web/API/XSLTProcessor/transformToDocument) gibt ein vollständiges XML-Dokument zurück, während [`XSLTProcessor.transformToFragment()`](/de/docs/Web/API/XSLTProcessor/transformToFragment) ein Dokumentfragment zurückgibt, das problemlos in ein bestehendes Dokument eingefügt werden kann. Beide benötigen als ersten Parameter das zu transformierende XML-Dokument. [`XSLTProcessor.transformToFragment()`](/de/docs/Web/API/XSLTProcessor/transformToFragment) erfordert zusätzlich einen zweiten Parameter, nämlich das Dokumentobjekt, dem das generierte Fragment zugeordnet sein soll. Wird das generierte Fragment in das aktuelle HTML-Dokument eingefügt, reicht es, `document` zu übergeben.
+Sobald das Stylesheet importiert wurde, muss der `XSLTProcessor` zwei Methoden für die eigentliche Transformation ausführen, nämlich [`XSLTProcessor.transformToDocument()`](/de/docs/Web/API/XSLTProcessor/transformToDocument) und [`XSLTProcessor.transformToFragment()`](/de/docs/Web/API/XSLTProcessor/transformToFragment). [`XSLTProcessor.transformToDocument()`](/de/docs/Web/API/XSLTProcessor/transformToDocument) gibt ein vollständiges XML-Dokument zurück, während [`XSLTProcessor.transformToFragment()`](/de/docs/Web/API/XSLTProcessor/transformToFragment) ein Dokumentfragment zurückgibt, das einfach zu einem bestehenden Dokument hinzugefügt werden kann. Beide nehmen als ersten Parameter das umzuwandelnde XML-Dokument entgegen. [`XSLTProcessor.transformToFragment()`](/de/docs/Web/API/XSLTProcessor/transformToFragment) benötigt einen zweiten Parameter: das Dokumentobjekt, das Eigentümer des generierten Fragments sein wird. Soll das generierte Fragment in das aktuelle HTML-Dokument eingefügt werden, reicht es aus, das Dokument zu übergeben.
 
-### Erstellung eines XML-Dokuments aus einer Zeichenkette ('XML Soup')
+### Erstellen eines XML-Dokuments aus einem String 'XML Soup'
 
-Sie können den [`DOMParser`](/de/docs/Web/API/DOMParser) verwenden, um ein XML-Dokument aus einer XML-Zeichenkette zu erstellen.
+Sie können den [`DOMParser`](/de/docs/Web/API/DOMParser) verwenden, um ein XML-Dokument aus einem XML-String zu erstellen.
 
 ```js
 const parser = new DOMParser();
@@ -99,7 +99,7 @@ const fragment = xsltProcessor.transformToFragment(xmlRef, document);
 
 ### Einfaches Beispiel
 
-Das einfache Beispiel lädt eine XML-Datei und wendet eine XSL-Transformation darauf an. Es werden dieselben Dateien verwendet wie im Beispiel [Generating HTML](/de/docs/Web/API/XSLTProcessor/Generating_HTML). Die XML-Datei beschreibt einen Artikel, und die XSL-Datei formatiert die Informationen zur Anzeige.
+Das einfache Beispiel lädt eine XML-Datei und wendet eine XSL-Transformation darauf an. Dies sind dieselben Dateien, die im Beispiel [HTML generieren](/de/docs/Web/API/Document_Object_Model/Transforming_with_XSLT#generating_html) verwendet werden. Die XML-Datei beschreibt einen Artikel, und die XSL-Datei formatiert die Informationen zur Anzeige.
 
 #### XML
 
@@ -185,7 +185,7 @@ Das einfache Beispiel lädt eine XML-Datei und wendet eine XSL-Transformation da
 </xsl:stylesheet>
 ```
 
-Das Beispiel lädt sowohl die `.xsl`-(`xslStylesheet`) als auch die `.xml`-(`xmlDoc`) Dateien in den Speicher. Die `.xsl`-Datei wird anschließend importiert (`xsltProcessor.importStylesheet(xslStylesheet)`) und die Transformation ausgeführt (`xsltProcessor.transformToFragment(xmlDoc, document)`). Dies ermöglicht das Abrufen von Daten nach dem Laden der Seite, ohne eine erneute Seitenladung auszulösen.
+Das Beispiel lädt die Dateien .xsl (`xslStylesheet`) und .xml (`xmlDoc`) in den Speicher. Die .xsl-Datei wird dann importiert (`xsltProcessor.importStylesheet(xslStylesheet)`), und die Transformation wird ausgeführt (`xsltProcessor.transformToFragment(xmlDoc, document)`). Dies ermöglicht das Abrufen von Daten nach dem Laden der Seite, ohne einen neuen Seitenaufruf zu starten.
 
 #### JavaScript
 
@@ -216,11 +216,11 @@ init();
 
 ### Fortgeschrittenes Beispiel
 
-Dieses fortgeschrittene Beispiel sortiert verschiedene `div`-Elemente basierend auf ihrem Inhalt. Das Beispiel erlaubt die mehrfache Sortierung des Inhalts, wobei zwischen aufsteigender und absteigender Reihenfolge gewechselt wird. Das JavaScript lädt die `.xsl`-Datei nur beim ersten Sortiervorgang und setzt die Variable `xslLoaded` auf `true`, sobald das Laden der Datei abgeschlossen ist. Mithilfe der Methode [`XSLTProcessor.getParameter()`](/de/docs/Web/API/XSLTProcessor/getParameter) kann der Code feststellen, ob in aufsteigender oder absteigender Reihenfolge sortiert werden soll. Standardmäßig wird aufsteigend sortiert, falls der Parameter leer ist (beim ersten Sortiervorgang, da dafür kein Wert im XSLT-Stylesheet angegeben ist). Der Sortierwert wird mit [`XSLTProcessor.setParameter()`](/de/docs/Web/API/XSLTProcessor/setParameter) gesetzt.
+Dieses fortgeschrittene Beispiel sortiert mehrere `div`-Elemente basierend auf deren Inhalt. Das Beispiel erlaubt es, den Inhalt mehrfach zu sortieren, wobei zwischen aufsteigender und absteigender Reihenfolge gewechselt wird. Das JavaScript lädt die .xsl-Datei nur beim ersten Sortieren und setzt die Variable `xslLoaded` auf „true“, sobald das Laden der Datei abgeschlossen ist. Mit der Methode [`XSLTProcessor.getParameter()`](/de/docs/Web/API/XSLTProcessor/getParameter) kann der Code herausfinden, ob aufsteigend oder absteigend sortiert werden soll. Standardmäßig wird aufsteigend sortiert, wenn der Parameter leer ist (beim ersten Sortieren, da im XSLT-Dokument kein Wert für ihn vorhanden ist). Der Sortierwert wird mit [`XSLTProcessor.setParameter()`](/de/docs/Web/API/XSLTProcessor/setParameter) festgelegt.
 
-Die XSLT-Datei enthält einen Parameter namens `myOrder`, den JavaScript festlegt, um die Sortiermethode zu ändern. Das Attribut `order` des `xsl:sort`-Elements kann auf den Wert des Parameters mit `$myOrder` zugreifen. Allerdings muss der Wert ein XPath-Ausdruck und kein String sein, sodass `{$myOrder}` verwendet wird. Die Verwendung von `{}` wertet den Inhalt als XPath-Ausdruck aus.
+Die XSLT-Datei enthält einen Parameter namens `myOrder`, den JavaScript setzt, um die Sortiermethode zu ändern. Das `xsl:sort`-Element kann auf den Wert des Parameters mit `$myOrder` zugreifen. Der Wert muss jedoch ein XPath-Ausdruck und kein String sein, daher wird `{$myOrder}` verwendet. Mit {} wird der Inhalt als XPath-Ausdruck ausgewertet.
 
-Nach Abschluss der Transformation wird das Ergebnis wie in diesem Beispiel gezeigt dem Dokument hinzugefügt.
+Sobald die Transformation abgeschlossen ist, wird das Ergebnis dem Dokument hinzugefügt, wie im folgenden Beispiel gezeigt wird.
 
 #### XHTML
 
@@ -325,6 +325,7 @@ async function sort() {
 ## Siehe auch
 
 - [XSLT](/de/docs/Web/XML/XSLT)
-- [Welche Art von Sprache ist XSLT?](https://developer.ibm.com/technologies/web-development/) bei [IBM Developer](https://developer.ibm.com/)
+- [Transformationen mit XSLT](/de/docs/Web/API/Document_Object_Model/Transforming_with_XSLT)
+- [Welche Art von Sprache ist XSLT?](https://developer.ibm.com/technologies/web-development/) bei [IBM developer](https://developer.ibm.com/)
 - [XSLT-Tutorial](https://zvon.org/xxl/XSLTutorial/Books/Book1/index.html) bei [zvon.org](https://zvon.org/)
 - [XPath-Tutorial](https://zvon.org/xxl/XPathTutorial/General/examples.html) bei [zvon.org](https://zvon.org/)

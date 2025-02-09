@@ -2,15 +2,15 @@
 title: overflow-block
 slug: Web/CSS/overflow-block
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 737125e41bb99b0cf1c733aac13f79f806f7f296
 ---
 
 {{CSSRef}}
 
-Die **`overflow-block`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was angezeigt wird, wenn Inhalt über die Blockanfangs- und Blockende-Kanten eines Kastens hinausgeht. Dies kann nichts, eine Scrollleiste oder der Überlaufinhalt sein.
+Die **`overflow-block`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, was angezeigt wird, wenn der Inhalt die Blockanfangs- und Blockendkanten einer Box überläuft. Dies kann nichts, eine Scrollleiste oder der überlaufende Inhalt sein.
 
 > [!NOTE]
-> Die `overflow-block` Eigenschaft wird je nach Schreibmodus des Dokuments auf {{Cssxref("overflow-y")}} oder {{Cssxref("overflow-x")}} abgebildet.
+> Die Eigenschaft `overflow-block` wird auf {{Cssxref("overflow-y")}} oder {{Cssxref("overflow-x")}} abgebildet, abhängig von der Schreibrichtung des Dokuments.
 
 ## Syntax
 
@@ -30,20 +30,20 @@ overflow-block: revert-layer;
 overflow-block: unset;
 ```
 
-Die `overflow-block` Eigenschaft wird als einzelner {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwert angegeben:
+Die Eigenschaft `overflow-block` wird als einzelner {{CSSXref("overflow_value", "&lt;overflow&gt;")}}-Schlüsselwortwert angegeben:
 
 ### Werte
 
 - `visible`
-  - : Inhalt wird nicht abgeschnitten und kann außerhalb der Blockanfangs- und Blockende-Kanten des Padding-Rahmens gerendert werden.
+  - : Der Inhalt wird nicht abgeschnitten und kann außerhalb der Blockanfangs- und Blockendkanten der Padding-Box gerendert werden.
 - `hidden`
-  - : Inhalt wird, falls erforderlich, abgeschnitten, um in die Blockdimension im Padding-Rahmen zu passen. Es werden keine Scrollleisten bereitgestellt.
+  - : Der Inhalt wird, falls erforderlich, pro Dimension der Padding-Box abgeschnitten. Es werden keine Scrollleisten bereitgestellt.
 - `clip`
-  - : Überlaufinhalt wird an der Überlaufklipkante des Elements abgeschnitten, die mit der Eigenschaft {{CSSXref("overflow-clip-margin")}} definiert ist.
+  - : Überlaufender Inhalt wird an der Überlauf-Clip-Kante des Elements abgeschnitten, die mit der {{CSSXref("overflow-clip-margin")}}-Eigenschaft definiert ist.
 - `scroll`
-  - : Inhalt wird, falls erforderlich, abgeschnitten, um in die Blockdimension im Padding-Rahmen zu passen. Browser zeigen Scrollleisten an, unabhängig davon, ob Inhalt tatsächlich abgeschnitten ist oder nicht. (Dies verhindert, dass Scrollleisten erscheinen oder verschwinden, wenn sich der Inhalt ändert.) Drucker könnten dennoch überlaufenden Inhalt drucken.
+  - : Der Inhalt wird, falls erforderlich, innerhalb der Blockdimension der Padding-Box abgeschnitten. Browser zeigen Scrollleisten an, unabhängig davon, ob tatsächlich Inhalt abgeschnitten ist. (Dies verhindert, dass Scrollleisten erscheinen oder verschwinden, wenn sich der Inhalt ändert.) Drucker können dennoch überlaufenden Inhalt drucken.
 - `auto`
-  - : Hängt vom Benutzeragenten ab. Wenn der Inhalt in den Padding-Rahmen passt, sieht es aus wie `visible`, aber es wird dennoch ein neuer Block-Formatierungskontext etabliert.
+  - : Hängt vom Benutzeragenten ab. Wenn der Inhalt in die Padding-Box passt, sieht es wie `visible` aus, etabliert jedoch dennoch einen neuen Block-Formatierungskontext.
 
 ## Formale Definition
 
@@ -135,7 +135,7 @@ div {
 #scroll {
   overflow-block: scroll;
 }
-#scroll {
+#clip {
   overflow-block: clip;
 }
 #visible {
@@ -161,8 +161,8 @@ div {
 ## Siehe auch
 
 - {{cssxref("text-overflow")}}, {{cssxref("white-space")}}, {{Cssxref("overflow")}}, {{Cssxref("overflow-inline")}}, {{Cssxref("overflow-x")}}, {{Cssxref("overflow-y")}}, {{Cssxref("clip")}}, {{Cssxref("display")}}
-- [CSS logische Eigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Scrollleisten-Stil](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
-- [CSS Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes)
-- [Lernen: Überlaufender Inhalt](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)
+- [CSS-logische Eigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS-Scrollleisten-Stil](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
+- [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes)
+- [Anleitung: Überlaufender Inhalt](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)
