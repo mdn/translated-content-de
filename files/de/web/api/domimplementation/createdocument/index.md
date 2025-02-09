@@ -3,7 +3,7 @@ title: "DOMImplementation: createDocument()-Methode"
 short-title: createDocument()
 slug: Web/API/DOMImplementation/createDocument
 l10n:
-  sourceCommit: 4656260748aea78929639c4bf776d643d9911a82
+  sourceCommit: 9f4a82ea0e441b13c86acd0a75076b9f9c2d3701
 ---
 
 {{ApiRef("DOM")}}
@@ -20,15 +20,15 @@ createDocument(namespaceURI, qualifiedName, documentType)
 ### Parameter
 
 - `namespaceURI`
-  - : Ein String, der den Namespace-URI des zu erstellenden Dokuments enthält, oder `null`, wenn das Dokument zu keinem gehört.
+  - : Ein String, der den Namespace-URI des zu erstellenden Dokuments enthält, oder `null`, wenn das Dokument zu keinem Namespace gehört.
 - `qualifiedName`
-  - : Ein String, der den qualifizierten Namen enthält, also ein optionales Präfix und Doppelpunkt plus den lokalen Namen des Stammeslements des zu erstellenden Dokuments. Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird als leerer String (`""`) behandelt.
+  - : Ein String, der den qualifizierten Namen enthält, also ein optionales Präfix und ein Doppelpunkt sowie den lokalen Namen des Root-Elements des zu erstellenden Dokuments. Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird wie ein leerer String (`""`) behandelt.
 - `documentType` {{optional_inline}}
-  - : Der [`DocumentType`](/de/docs/Web/API/DocumentType) des zu erstellenden Dokuments. Standardmäßig ist er auf `null` gesetzt.
+  - : Der [`DocumentType`](/de/docs/Web/API/DocumentType) des zu erstellenden Dokuments. Standardmäßig `null`.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Das neu erstellte [`XMLDocument`](/de/docs/Web/API/XMLDocument).
 
 ## Beispiele
 
