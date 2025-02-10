@@ -2,12 +2,14 @@
 title: <feGaussianBlur>
 slug: Web/SVG/Element/feGaussianBlur
 l10n:
-  sourceCommit: 01b8471b84e1d157cbddbb3ffaf560a86b082070
+  sourceCommit: 332c4375206089fa38609d6d9e3fe2cd7a502f22
 ---
 
 {{SVGRef}}
 
-Das **`<feGaussianBlur>`** [SVG](/de/docs/Web/SVG) Filter-Primitive verwischt das Eingabebild um den in {{SVGAttr("stdDeviation")}} angegebenen Betrag, der die Gauß-Kurve definiert.
+Der **`<feGaussianBlur>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv verwischt das Eingabebild um den Betrag, der in {{SVGAttr("stdDeviation")}} angegeben ist und die Glockenkurve (Bell-Curve) definiert.
+
+Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um `sRGB` zu nutzen.
 
 ## Verwendungskontext
 
@@ -49,7 +51,7 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 
 {{EmbedLiveSample("Basic_example", "", "130")}}
 
-### Beispiel für einen Schlagschatten
+### Beispiel für Schlagschatten
 
 #### SVG
 
@@ -86,7 +88,7 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 
 ## Siehe auch
 
-- [SVG Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
+- [SVG-Filterattribut-Primitiven](/de/docs/Web/SVG/Attribute#filters_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}

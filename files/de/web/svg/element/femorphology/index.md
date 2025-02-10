@@ -2,14 +2,16 @@
 title: <feMorphology>
 slug: Web/SVG/Element/feMorphology
 l10n:
-  sourceCommit: 3a1ef2abc8233835f0b0cc73afaf36e44edaf4a1
+  sourceCommit: 332c4375206089fa38609d6d9e3fe2cd7a502f22
 ---
 
 {{SVGRef}}
 
-Der **`<feMorphology>`** [SVG](/de/docs/Web/SVG) Filter-Primitive wird verwendet, um das Eingabebild zu erodieren oder zu erweitern. Seine Nützlichkeit liegt insbesondere in Verdickungs- oder Ausdünnungseffekten.
+Das **`<feMorphology>`** [SVG](/de/docs/Web/SVG)-Filter-Primitive wird verwendet, um das Eingabebild zu erodieren oder zu erweitern. Seine Nützlichkeit liegt insbesondere in Verdickungs- oder Verdünnungseffekten.
 
-## Verwendungskontext
+Wie andere Filter-Primitives verarbeitet es die Farbkomponenten standardmäßig im `linearRGB`-{{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um `sRGB` statt `linearRGB` zu nutzen.
+
+## Verwendungszusammenhang
 
 {{svginfo}}
 
@@ -19,13 +21,13 @@ Der **`<feMorphology>`** [SVG](/de/docs/Web/SVG) Filter-Primitive wird verwendet
 - {{SVGAttr("operator")}}
 - {{SVGAttr("radius")}}
 
-## DOM-Schnittstelle
+## DOM-Interface
 
-Dieses Element implementiert die [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement) Schnittstelle.
+Dieses Element implementiert das [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement)-Interface.
 
 ## Beispiele
 
-### SVG-Inhalt filtern
+### SVG-Inhalte filtern
 
 #### SVG
 
@@ -62,7 +64,7 @@ text {
 
 {{EmbedLiveSample("Filtering_SVG_content", 340, 180)}}
 
-### HTML-Inhalt filtern
+### HTML-Inhalte filtern
 
 #### SVG
 
@@ -129,4 +131,4 @@ p {
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

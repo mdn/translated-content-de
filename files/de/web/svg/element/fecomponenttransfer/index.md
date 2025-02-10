@@ -2,14 +2,16 @@
 title: <feComponentTransfer>
 slug: Web/SVG/Element/feComponentTransfer
 l10n:
-  sourceCommit: 3a1ef2abc8233835f0b0cc73afaf36e44edaf4a1
+  sourceCommit: 332c4375206089fa38609d6d9e3fe2cd7a502f22
 ---
 
 {{SVGRef}}
 
-Der **`<feComponentTransfer>`** [SVG](/de/docs/Web/SVG)-Filterprimitive führt eine farbkomponentenweise Neuzuordnung der Daten für jedes Pixel durch. Dies ermöglicht Operationen wie Helligkeitsanpassung, Kontrasteinstellung, Farbbalance oder Schwellenwertbestimmung.
+Das **`<feComponentTransfer>`** [SVG](/de/docs/Web/SVG) Filter-Primitive führt eine Farbkomponentenweise Neuabbildung der Daten für jedes Pixel durch. Es ermöglicht Operationen wie Helligkeitsanpassung, Kontrasteinstellung, Farbkorrektur oder Schwellenwertanpassung.
 
-Die Berechnungen erfolgen auf nicht-prä-multiplizierten Farbwerten. Die Farben werden modifiziert, indem jeder Kanal (R, G, B und A) in das Ergebnis umgewandelt wird, das die Kinder {{SVGElement("feFuncR")}}, {{SVGElement("feFuncB")}}, {{SVGElement("feFuncG")}} und {{SVGElement("feFuncA")}} zurückgeben. Wenn mehr als eines derselben Elements angegeben ist, wird das zuletzt angegebene verwendet, und wenn kein Element bereitgestellt wird, um einen der Kanäle zu modifizieren, ist die Wirkung dieselbe, als ob eine Identitätstransformation für diesen Kanal angegeben worden wäre.
+Die Berechnungen werden an nicht-vormultiplizierten Farbwerten durchgeführt. Die Farben werden geändert, indem jeder Kanal (R, G, B und A) in das Ergebnis dessen geändert wird, was die Kinder {{SVGElement("feFuncR")}}, {{SVGElement("feFuncB")}}, {{SVGElement("feFuncG")}} und {{SVGElement("feFuncA")}} zurückgeben. Wenn mehr als ein gleiches Element bereitgestellt wird, wird das zuletzt angegebene verwendet. Wenn für einen der Kanäle kein Element bereitgestellt wird, entspricht die Wirkung der Angabe einer Identitätstransformation für diesen Kanal.
+
+Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
 ## Verwendungskontext
 
@@ -21,7 +23,7 @@ Die Berechnungen erfolgen auf nicht-prä-multiplizierten Farbwerten. Die Farben 
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die Schnittstelle [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement).
+Dieses Element implementiert die [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement) Schnittstelle.
 
 ## Beispiel
 
@@ -145,7 +147,7 @@ rect {
 
 ## Siehe auch
 
-- [Attribute von SVG-Filter-Primitiven](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
+- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -166,4 +168,4 @@ rect {
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

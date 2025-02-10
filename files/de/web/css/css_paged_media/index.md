@@ -1,34 +1,46 @@
 ---
-title: CSS paged media
+title: CSS Paged Media
 slug: Web/CSS/CSS_paged_media
 l10n:
-  sourceCommit: d303345cabd0cd9ab33fdfe51957479c8fb35424
+  sourceCommit: 76885324c55eda81ef536254ffe532ca68a2f502
 ---
 
 {{CSSRef}}
 
-Das **CSS paged media** Modul definiert die Eigenschaften, die die Darstellung von Inhalten für den Druck oder andere Medien steuern, die Inhalte in einzelne Seiten unterteilen. Es ermöglicht Ihnen, Seitenumbrüche festzulegen, den druckbaren Bereich zu kontrollieren, linke und rechte Seiten unterschiedlich zu gestalten und Umbrüche innerhalb von Elementen zu steuern.
+Das **CSS Paged Media**-Modul definiert die Eigenschaften, die die Darstellung von Inhalten für den Druck oder andere Medien, die Inhalte in separate Seiten aufteilen, steuern. Es ermöglicht Ihnen, Seitenumbrüche festzulegen, druckbare Bereiche zu steuern, linke und rechte Seiten unterschiedlich zu gestalten und Unterbrechungen innerhalb von Elementen zu kontrollieren.
 
 ## Referenz
 
 ### Eigenschaften
 
-- {{cssxref("break-after")}}
-- {{cssxref("break-before")}}
-- {{cssxref("break-inside")}}
-- {{cssxref("orphans")}}
-- {{cssxref("widows")}}
+- {{cssxref('page')}}
 
-### At-Regeln
+### At-Rules
 
 - {{cssxref('@page')}}
+  - {{cssxref('@page/page-orientation', 'page-orientation')}} Descriptor
+  - {{cssxref('@page/size', 'size')}} Descriptor
+  - [Margin-Deskriptoren](/de/docs/Web/CSS/margin)
+- [Margin-At-Rules](/de/docs/Web/CSS/@page#margin_at-rules)
 
-### Pseudoklassen
+> [!NOTE]
+> Das CSS Paged Media-Modul führt zwei `@page`-Deskriptoren ein, die nicht implementiert wurden: `bleeds` und `marks`.
+
+### Pseudo-Klassen
 
 - {{cssxref(':blank')}}
 - {{cssxref(':first')}}
 - {{cssxref(':left')}}
 - {{cssxref(':right')}}
+
+## Verwandte Konzepte
+
+- [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation)-Modul
+  - {{cssxref("break-after")}}-Eigenschaft
+  - {{cssxref("break-before")}}-Eigenschaft
+  - {{cssxref("break-inside")}}-Eigenschaft
+  - {{cssxref("orphans")}}-Eigenschaft
+  - {{cssxref("widows")}}-Eigenschaft
 
 ## Spezifikationen
 
@@ -36,5 +48,6 @@ Das **CSS paged media** Modul definiert die Eigenschaften, die die Darstellung v
 
 ## Siehe auch
 
-- [Drucken](/de/docs/Web/CSS/CSS_media_queries/Printing) Leitfaden
-- [CSS Media Queries](/de/docs/Web/CSS/CSS_media_queries) Modul
+- [Drucken](/de/docs/Web/CSS/CSS_media_queries/Printing)-Leitfaden
+- [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation)-Modul
+- [CSS Media Queries](/de/docs/Web/CSS/CSS_media_queries)-Modul

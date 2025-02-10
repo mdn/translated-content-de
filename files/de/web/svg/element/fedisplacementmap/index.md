@@ -2,20 +2,22 @@
 title: <feDisplacementMap>
 slug: Web/SVG/Element/feDisplacementMap
 l10n:
-  sourceCommit: 3a1ef2abc8233835f0b0cc73afaf36e44edaf4a1
+  sourceCommit: 332c4375206089fa38609d6d9e3fe2cd7a502f22
 ---
 
 {{SVGRef}}
 
-Der **`<feDisplacementMap>`** [SVG](/de/docs/Web/SVG) Filterprimitive verwendet die Pixelwerte des Bildes von {{SVGAttr("in2")}}, um das Bild von {{SVGAttr("in")}} räumlich zu verschieben.
+Die **`<feDisplacementMap>`** [SVG](/de/docs/Web/SVG)-Filterprimitive verwendet die Pixelwerte aus dem Bild von {{SVGAttr("in2")}}, um das Bild von {{SVGAttr("in")}} räumlich zu verschieben.
 
-Die Formel für die Transformation sieht so aus:
+Die Formel für die Transformation sieht wie folgt aus:
 
 `P'(x,y) ← P(x + scale * (XC(x,y) - 0.5), y + scale * (YC(x,y) - 0.5))`
 
-wobei `P(x,y)` das Eingabebild, {{SVGAttr("in")}}, ist und `P'(x,y)` das Zielbild. `XC(x,y)` und `YC(x,y)` sind die Komponentenwerte des Kanals, der durch {{SVGAttr("xChannelSelector")}} und {{SVGAttr("yChannelSelector")}} angegeben wird.
+Dabei ist `P(x,y)` das Eingabebild, {{SVGAttr("in")}}, und `P'(x,y)` die Zielposition. `XC(x,y)` und `YC(x,y)` sind die Komponentenwerte des Kanals, der durch {{SVGAttr("xChannelSelector")}} und {{SVGAttr("yChannelSelector")}} bestimmt wird.
 
-## Verwendungszusammenhang
+Wie andere Filterprimitive verarbeitet es Farbkomponenten standardmäßig im Farbraum `linearRGB`. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -29,7 +31,7 @@ wobei `P(x,y)` das Eingabebild, {{SVGAttr("in")}}, ist und `P'(x,y)` das Zielbil
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement) Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement).
 
 ## Beispiel
 
@@ -88,4 +90,4 @@ Dieses Element implementiert die [`SVGFEDisplacementMapElement`](/de/docs/Web/AP
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filter-Effekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

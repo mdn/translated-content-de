@@ -2,12 +2,12 @@
 title: text-spacing-trim
 slug: Web/CSS/text-spacing-trim
 l10n:
-  sourceCommit: 2b26cc6e576d23f68fdf992767da81de9707965e
+  sourceCommit: b64538dc77e9a6181b882bd54bdbb307c1430ba8
 ---
 
 {{CSSRef}}{{seecompattable}}
 
-Die **`text-spacing-trim`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert den internen Abstand, der auf chinesische/japanische/koreanische (CJK) Interpunktionszeichen zwischen benachbarten Zeichen (Kerning) und am Anfang oder Ende von Textzeilen gesetzt wird.
+Die **`text-spacing-trim`**-Eigenschaft [CSS](/de/docs/Web/CSS) steuert den inneren Abstand, der bei chinesischen, japanischen und koreanischen (CJK) Satzzeichen zwischen benachbarten Zeichen (Kerning) sowie am Anfang und Ende von Textzeilen festgelegt wird.
 
 ## Syntax
 
@@ -30,41 +30,41 @@ text-spacing-trim: unset;
 
 - `<spacing-trim>`
 
-  - : Definiert die verschiedenen Option zum Kürzen des Abstands. Verfügbare Werte sind:
+  - : Definiert die verschiedenen Optionen für das Reduzieren von Abständen. Verfügbare Werte sind:
 
     - `normal`
-      - : Setzt CJK-Interpunktionszeichen mit voller Breite am Anfang jeder Zeile. Setzt CJK-Interpunktionszeichen mit voller Breite am Ende jeder Zeile oder mit halber Breite, wenn sie nicht in die Zeile vor dem Blocksatz passen. [Reduziert Abstände](#vollbreiteninterpunktion-kollaps) zwischen Interpunktionszeichen.
+      - : Setzt CJK-Vollbreiten-Eröffnungszeichen am Anfang jeder Zeile auf Vollbreite. Setzt CJK-Vollbreiten-Schlusszeichen am Ende jeder Zeile auf Vollbreite oder auf Halbbreite, wenn sie vor der Ausrichtung nicht auf die Zeile passen. [Reduziert den Abstand](#reduzierung_von_vollbreiten-satzzeichen) zwischen Satzzeichen.
     - `space-all`
-      - : Alle CJK-Interpunktionszeichen mit voller Breite werden auf volle Breite gesetzt.
+      - : Alle CJK-Vollbreiten-Satzzeichen werden auf Vollbreite gesetzt.
     - `space-first`
-      - : Verhält sich wie `normal`, außer dass CJK-Einleitungszeichen mit voller Breite am Anfang der ersten Zeile des Textblocks und am Anfang jeder nachfolgenden Zeile, die nach einem expliziten Zeilenumbruch wie einem Zeilenumbruchzeichen folgt, auf volle Breite gesetzt werden.
+      - : Verhält sich wie `normal`, außer dass CJK-Vollbreiten-Eröffnungszeichen am Anfang der ersten Zeile des Blockcontainers des Textes und am Anfang jeder nachfolgenden Zeile nach einem expliziten Zeilenumbruch (z. B. einem Zeilenumbruchzeichen) auf Vollbreite gesetzt werden.
     - `trim-start`
 
-      - : Verhält sich wie `normal`, außer dass CJK-Einleitungszeichen mit voller Breite am Anfang jeder Zeile auf halbe Breite gesetzt werden.
+      - : Verhält sich wie `normal`, außer dass CJK-Vollbreiten-Eröffnungszeichen am Anfang jeder Zeile auf Halbbreite gesetzt werden.
 
     > [!NOTE]
     > Das [CSS Text](/de/docs/Web/CSS/CSS_text)-Modul definiert auch die Werte `trim-both`, `trim-all` und `auto`. Diese sind jedoch derzeit in keinem Browser implementiert.
 
 ## Beschreibung
 
-Die `text-spacing-trim`-Eigenschaft wendet Abstand/Kerning auf CJK Interpunktionszeichen an, um eine optisch ansprechende Typografie zu erzeugen, wie sie in den [Anforderungen an japanisches Textlayout](https://w3c.github.io/jlreq/) (JLREQ) und den [Anforderungen an chinesisches Textlayout](https://www.w3.org/International/clreq/) (CLREQ) definiert ist.
+Die Eigenschaft `text-spacing-trim` wendet Abstände/Kerning auf CJK-Satzzeichen an, um eine optisch ansprechende Typografie zu erzeugen, wie sie in den [Anforderungen an das Layout japanischer Texte](https://w3c.github.io/jlreq/) (JLREQ) und den [Anforderungen an das Layout chinesischer Texte](https://www.w3.org/International/clreq/) (CLREQ) definiert ist.
 
-Viele CJK-Interpunktionszeichen enthalten glypheninternen Abstand. Zum Beispiel haben der CJK-Punkt und die CJK-Schließklammer normalerweise glypheninternen Abstand auf ihrer rechten Seite, um ein konstantes {{Glossary("Advance_measure", "Vorrücken")}} im Einklang mit anderen ideografischen Zeichen zu gewährleisten. Wenn sie jedoch in Folge erscheinen, kann der glypheninterne Abstand zu übermäßig werden.
+Viele CJK-Satzzeichen enthalten glyph-interne Abstände. Zum Beispiel haben der CJK-Punkt und die CJK-Schließklammer normalerweise glyph-interne Abstände auf ihrer rechten Seite, um ihnen eine konstante {{Glossary("Advance_measure", "Advance Measure")}} zu geben, die mit anderen ideografischen Zeichen konsistent ist. Wenn sie jedoch in einer Reihe erscheinen, können die glyph-internen Abstände übermäßig werden.
 
-`text-spacing-trim` kann verwendet werden, um solchen übermäßigen Abstand zwischen benachbarten Zeichen (Kerning) und am Anfang oder Ende von Textzeilen anzupassen. Allgemein gesagt:
+`text-spacing-trim` kann verwendet werden, um solche übermäßigen Abstände zwischen benachbarten Zeichen (Kerning) sowie am Anfang oder Ende von Textzeilen anzupassen. Allgemein gilt:
 
-- Wenn ein Interpunktionszeichen mit voller Breite auf volle Breite gesetzt wird, hat es internen Abstand auf beiden Seiten und ist die volle Breite eines Ideogramms.
-- Wenn ein Interpunktionszeichen mit voller Breite auf halbe Breite gesetzt wird, hat es internen Abstand nur auf einer Seite, und seine andere Seite ist am Anfang (bei einleitenden Interpunktionszeichen) oder Ende (bei schließenden Interpunktionszeichen) bündig. Zeichen mit halber Breite sind typischerweise halbe Breite eines Ideogramms.
+- Wenn ein Vollbreiten-Satzzeichen auf Vollbreite eingestellt ist, hat es innenliegende Abstände auf beiden Seiten und entspricht der vollen Breite eines Ideogramms.
+- Wenn ein Vollbreiten-Satzzeichen auf Halbbreite eingestellt ist, hat es innenliegende Abstände nur auf einer Seite, und seine andere Seite liegt bündig am Anfang (bei Eröffnungszeichen) oder Ende (bei Schlusszeichen) an. Halbbreiten-Zeichen sind typischerweise halb so breit wie ein Ideogramm.
 
 > [!NOTE]
-> Um das Risiko übermäßigen Kernings zu vermeiden, müssen Schriftarten das OpenType-Feature "Alternate Half Widths" (`halt`), das Feature "Contextual Half-width Spacing" (`chws`) oder beide haben. Wenn die Schriftart keines dieser Features hat, ist `text-spacing-trim` deaktiviert.
+> Um das Risiko übermäßigen Kernings zu vermeiden, müssen Schriftarten über die OpenType-Features Alternate Half Widths (`halt`), Contextual Half-width Spacing (`chws`) oder beide verfügen. Wenn die Schriftart keines dieser Features hat, wird `text-spacing-trim` deaktiviert.
 
-### Vollbreiteninterpunktion-Kollaps
+### Reduzierung von Vollbreiten-Satzzeichen
 
-Wenn Paare von Interpunktionszeichen nebeneinander stehen, wird der Abstand zwischen ihnen gemäß den folgenden Regeln reduziert:
+Wenn Satzzeichenpaare angrenzend sind, wird der Abstand zwischen ihnen gemäß folgender Regeln reduziert:
 
-- Ein einleitendes Interpunktionszeichen mit voller Breite wird auf halbe Breite gesetzt, wenn das vorherige Zeichen ein einleitendes Interpunktionszeichen mit voller Breite, ein mittlerer Punkt mit voller Breite, ein ideografischer Raum (U+3000), ein schließendes Interpunktionszeichen mit voller Breite in gleicher oder größerer Schriftgröße oder ein Zeichen der [Unicode-Allgemeinkategorie "Öffnende Interpunktion" (Ps)](https://www.compart.com/en/unicode/category/Ps) ist. Andernfalls wird es auf volle Breite gesetzt.
-- Ein schließendes Interpunktionszeichen mit voller Breite wird auf halbe Breite gesetzt, wenn das nächste Zeichen ein schließendes Interpunktionszeichen mit voller Breite, ein mittlerer Punkt mit voller Breite, ein ideografischer Raum (U+3000), ein einleitendes Interpunktionszeichen mit voller Breite in größerer Schriftgröße oder ein Zeichen der [Unicode-Allgemeinkategorie "Schließende Interpunktion" (Pe)](https://www.compart.com/en/unicode/category/Pe) ist. Andernfalls wird es auf volle Breite gesetzt.
+- Setzen Sie ein Vollbreiten-Eröffnungszeichen auf Halbbreite, wenn das vorherige Zeichen ein Vollbreiten-Eröffnungszeichen, ein Mittelpunkt in Vollbreite, ein ideografisches Leerzeichen (U+3000), ein Vollbreiten-Schlusszeichen mit gleicher oder größerer Schriftgröße oder ein Zeichen aus der [Unicode-General-Kategorie "Öffnendes Satzzeichen" Ps](https://www.compart.com/en/unicode/category/Ps) ist. Andernfalls setzen Sie es auf Vollbreite.
+- Setzen Sie ein Vollbreiten-Schlusszeichen auf Halbbreite, wenn das nächste Zeichen ein Vollbreiten-Schlusszeichen, ein Mittelpunkt in Vollbreite, ein ideografisches Leerzeichen (U+3000), ein Vollbreiten-Eröffnungszeichen mit größerer Schriftgröße oder ein Zeichen aus der [Unicode-General-Kategorie "Schließendes Satzzeichen" (Pe)](https://www.compart.com/en/unicode/category/Pe) ist. Andernfalls setzen Sie es auf Vollbreite.
 
 ## Formale Definition
 
@@ -78,7 +78,7 @@ Wenn Paare von Interpunktionszeichen nebeneinander stehen, wird der Abstand zwis
 
 ### Vergleich von `text-spacing-trim`-Werten
 
-Dieses Beispiel vergleicht die Wirkung von vier verschiedenen `text-spacing-trim`-Eigenschaften, indem sie auf vier identische Absätze angewendet werden, sodass Sie die visuellen Unterschiede zwischen jedem von ihnen sehen können.
+Dieses Beispiel zeigt die Wirkung von vier verschiedenen `text-spacing-trim`-Eigenschaften, indem sie auf vier identische Absätze angewendet werden, damit Sie die visuellen Unterschiede zwischen diesen sehen können.
 
 #### HTML
 
@@ -172,5 +172,5 @@ p {
 
 ## Siehe auch
 
-- [`ic`](/de/docs/Web/CSS/CSS_Values_and_Units#local_font-relative_lengths) und [`ric`](/de/docs/Web/CSS/CSS_Values_and_Units#root_font-relative_lengths) Einheiten
-- [CSS Text](/de/docs/Web/CSS/CSS_text) Modul
+- [`ic`](/de/docs/Web/CSS/CSS_Values_and_Units#local_font-relative_lengths) und [`ric`](/de/docs/Web/CSS/CSS_Values_and_Units#root_font-relative_lengths)-Einheiten
+- Modul [CSS Text](/de/docs/Web/CSS/CSS_text)

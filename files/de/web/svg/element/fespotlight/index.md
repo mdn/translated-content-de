@@ -2,13 +2,15 @@
 title: <feSpotLight>
 slug: Web/SVG/Element/feSpotLight
 l10n:
-  sourceCommit: 3a1ef2abc8233835f0b0cc73afaf36e44edaf4a1
+  sourceCommit: 332c4375206089fa38609d6d9e3fe2cd7a502f22
 ---
 
 {{SVGRef}}
 
-Das **`<feSpotLight>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert eine Lichtquelle, die verwendet werden kann, um einen Spotlight-Effekt zu erzeugen.
-Es wird innerhalb eines Beleuchtungsfilter-Primitives verwendet: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
+Das **`<feSpotLight>`** [SVG](/de/docs/Web/SVG)-Filter-Primitiv definiert eine Lichtquelle, die verwendet werden kann, um einen Spotlight-Effekt zu erzeugen.
+Es wird innerhalb eines Beleuchtungs-Filter-Primitives verwendet: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
+
+Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB`-{{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
 ## Verwendungskontext
 
@@ -27,7 +29,7 @@ Es wird innerhalb eines Beleuchtungsfilter-Primitives verwendet: {{SVGElement("f
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement)-Schnittstelle.
 
 ## Beispiel
 

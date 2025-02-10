@@ -2,12 +2,12 @@
 title: mask-composite
 slug: Web/CSS/mask-composite
 l10n:
-  sourceCommit: 759e230fb79ab6b333691262e089749d99104c25
+  sourceCommit: b64538dc77e9a6181b882bd54bdbb307c1430ba8
 ---
 
 {{CSSRef}}
 
-Die **`mask-composite`** [CSS](/de/docs/Web/CSS) Eigenschaft stellt eine Kompositionsoperation dar, die auf die aktuelle Maskierungsschicht mit den darunterliegenden Maskierungsschichten angewendet wird.
+Die **`mask-composite`**-Eigenschaft [CSS](/de/docs/Web/CSS) repräsentiert eine Kompositionsoperation, die auf die aktuelle Maskenebene mit den darunterliegenden Maskenebenen angewendet wird.
 
 ## Syntax
 
@@ -26,20 +26,20 @@ mask-composite: revert-layer;
 mask-composite: unset;
 ```
 
-Eines oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Kommas.
+Eins oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Kommas.
 
 ### Werte
 
-Für die Komposition wird die aktuelle Maskenschicht als _source_ bezeichnet, während alle darunter liegenden Schichten als _destination_ bezeichnet werden.
+Für die Komposition wird die aktuelle Maskenebene als _source_ bezeichnet, während alle darunterliegenden Ebenen als _destination_ bezeichnet werden.
 
 - `add`
-  - : Die Quelle wird über das Ziel gelegt.
+  - : Die _source_ wird über die _destination_ gelegt.
 - `subtract`
-  - : Die Quelle wird platziert, wo sie außerhalb des Ziels fällt.
+  - : Die _source_ wird platziert, wo sie außerhalb der _destination_ liegt.
 - `intersect`
-  - : Die Teile der Quelle, die das Ziel überlappen, ersetzen das Ziel.
+  - : Die Teile der _source_, die die _destination_ überlappen, ersetzen die _destination_.
 - `exclude`
-  - : Die nicht überlappenden Regionen von Quelle und Ziel werden kombiniert.
+  - : Die nicht überlappenden Bereiche von _source_ und _destination_ werden kombiniert.
 
 ## Formale Definition
 
@@ -51,7 +51,7 @@ Für die Komposition wird die aktuelle Maskenschicht als _source_ bezeichnet, w�
 
 ## Beispiele
 
-### Maskenschichten mit Addition komponieren
+### Kombinieren von Maskenebenen mit Addition
 
 ```html live-sample___mask-composite-example
 <div class="masked"></div>
@@ -82,4 +82,4 @@ Für die Komposition wird die aktuelle Maskenschicht als _source_ bezeichnet, w�
 
 ## Siehe auch
 
-- [Clipping und Masking in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Ausschneiden und Maskieren in CSS](https://css-tricks.com/clipping-masking-css/)

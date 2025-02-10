@@ -2,15 +2,17 @@
 title: <feDropShadow>
 slug: Web/SVG/Element/feDropShadow
 l10n:
-  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
+  sourceCommit: 332c4375206089fa38609d6d9e3fe2cd7a502f22
 ---
 
 {{SVGRef}}
 
-Das **`<feDropShadow>`** [SVG](/de/docs/Web/SVG)-Filterprimtiv erstellt einen Schlagschatten des Eingabebildes. Es kann nur innerhalb eines {{SVGElement('filter')}}-Elements verwendet werden.
+Das **`<feDropShadow>`** [SVG](/de/docs/Web/SVG)-Filter-Primitive erzeugt einen Schlagschatten des Eingabebildes. Es kann nur innerhalb eines {{SVGElement('filter')}}-Elements verwendet werden.
 
 > [!NOTE]
 > Die Farbe und Opazität des Schattens können durch die Präsentationsattribute {{SVGAttr('flood-color')}} und {{SVGAttr('flood-opacity')}} geändert werden.
+
+Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im Farbraum `linearRGB`. Mit {{svgattr("color-interpolation-filters")}} können Sie den Farbraum `sRGB` verwenden.
 
 ## Beispiel
 
@@ -54,14 +56,14 @@ svg {
 ## Attribute
 
 - {{SVGAttr("dx")}}
-  - : Dieses Attribut definiert den x-Versatz des Schattens.
-    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert den x-Versatz des Schlagschattens.
+    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
 - {{SVGAttr("dy")}}
-  - : Dieses Attribut definiert den y-Versatz des Schattens.
-    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert den y-Versatz des Schlagschattens.
+    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
 - {{SVGAttr("stdDeviation")}}
   - : Dieses Attribut definiert die Standardabweichung für die Unschärfeoperation im Schlagschatten.
-    _Wertetyp_: [**\<number-optional-number>**](/de/docs/Web/SVG/Content_type#number-optional-number); _Standardwert_: `2`; _Animierbar_: **ja**
+    _Werttyp_: [**\<number-optional-number>**](/de/docs/Web/SVG/Content_type#number-optional-number); _Standardwert_: `2`; _Animierbar_: **ja**
 
 ## Verwendungskontext
 
@@ -77,5 +79,5 @@ svg {
 
 ## Siehe auch
 
-- [SVG-Filter-Primtivattribute](/de/docs/Web/SVG/Attribute#filters_attributes) einschließlich {{SVGAttr('height')}}, {{SVGAttr('in')}}, {{SVGAttr('result')}}, {{SVGAttr('x')}}, {{SVGAttr('y')}}, und {{SVGAttr('width')}}.
+- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes), einschließlich {{SVGAttr('height')}}, {{SVGAttr('in')}}, {{SVGAttr('result')}}, {{SVGAttr('x')}}, {{SVGAttr('y')}}, und {{SVGAttr('width')}}.
 - [SVG-Präsentationsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes), einschließlich {{SVGAttr('flood-color')}}, und {{SVGAttr('flood-opacity')}}.

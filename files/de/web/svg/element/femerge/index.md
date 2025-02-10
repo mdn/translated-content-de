@@ -2,12 +2,14 @@
 title: <feMerge>
 slug: Web/SVG/Element/feMerge
 l10n:
-  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
+  sourceCommit: 332c4375206089fa38609d6d9e3fe2cd7a502f22
 ---
 
 {{SVGRef}}
 
-Das **`<feMerge>`** [SVG](/de/docs/Web/SVG) Element ermöglicht es, Filtereffekte gleichzeitig statt nacheinander anzuwenden. Dies wird erreicht, indem andere Filter ihr Ergebnis über das {{ SVGAttr("result") }} Attribut speichern und dann in einem {{ SVGElement("feMergeNode") }} Kind darauf zugreifen.
+Das **`<feMerge>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es, Filtereffekte gleichzeitig anstelle von sequenziell anzuwenden. Dies wird erreicht, indem andere Filter ihre Ausgabe über das {{ SVGAttr("result") }}-Attribut speichern und diese anschließend in einem {{ SVGElement("feMergeNode") }}-Kind abgerufen wird.
+
+Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB`-{{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um `sRGB` zu nutzen.
 
 ## Verwendungskontext
 
@@ -43,7 +45,7 @@ Das **`<feMerge>`** [SVG](/de/docs/Web/SVG) Element ermöglicht es, Filtereffekt
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert das [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMergeElement) Interface.
+Dieses Element implementiert die [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMergeElement)-Schnittstelle.
 
 ## Spezifikationen
 
@@ -55,9 +57,9 @@ Dieses Element implementiert das [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMer
 
 ## Siehe auch
 
-- [SVG Filterprimitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
-- {{SVGAttr("flood-color")}} Attribut
-- {{SVGAttr("flood-opacity")}} Attribut
+- [SVG Attribut für Filterprimitive](/de/docs/Web/SVG/Attribute#filters_attributes)
+- {{SVGAttr("flood-color")}}-Attribut
+- {{SVGAttr("flood-opacity")}}-Attribut
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -75,4 +77,4 @@ Dieses Element implementiert das [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMer
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

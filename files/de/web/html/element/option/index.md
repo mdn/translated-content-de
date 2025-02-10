@@ -1,13 +1,13 @@
 ---
-title: "<option>: Das HTML-Optionselement"
+title: "<option>: Das HTML-Option-Element"
 slug: Web/HTML/Element/option
 l10n:
-  sourceCommit: a88e260a72f1250c13b09665f9af247f80edb4f7
+  sourceCommit: b80c82981e07b1f42952439aef4a1c6060198395
 ---
 
 {{HTMLSidebar}}
 
-Das **`<option>`**-[HTML](/de/docs/Web/HTML)-Element wird verwendet, um ein Element in einem {{HTMLElement("select")}}, einem {{HTMLElement("optgroup")}} oder einem {{HTMLElement("datalist")}}-Element zu definieren. Als solches kann `<option>` Menüpunkte in Popups und anderen Listen von Elementen in einem HTML-Dokument repräsentieren.
+Das **`<option>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um ein Element in einem {{HTMLElement("select")}}, einem {{HTMLElement("optgroup")}} oder einem {{HTMLElement("datalist")}}-Element zu definieren. Daher kann `<option>` Menüeinträge in Popups und anderen Listen von Elementen in einem HTML-Dokument darstellen.
 
 {{EmbedInteractiveExample("pages/tabbed/option.html", "tabbed-standard")}}
 
@@ -16,23 +16,25 @@ Das **`<option>`**-[HTML](/de/docs/Web/HTML)-Element wird verwendet, um ein Elem
 Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
-  - : Wenn dieses boolesche Attribut gesetzt ist, kann diese Option nicht ausgewählt werden. Häufig grauen Browser solche Steuerelemente aus, und sie empfangen keine Browsing-Ereignisse wie Mausklicks oder fokusbezogene Ereignisse. Wenn dieses Attribut nicht gesetzt ist, kann das Element dennoch deaktiviert sein, falls eines seiner übergeordneten Elemente ein deaktiviertes {{HTMLElement("optgroup")}}-Element ist.
+  - : Wenn dieses boolesche Attribut gesetzt ist, kann diese Option nicht ausgewählt werden. Oft werden solche Steuerelemente im Browser ausgegraut, und sie erhalten keine Ereignisse wie Mausklicks oder solche, die mit dem Fokus zusammenhängen. Ist dieses Attribut nicht gesetzt, kann das Element dennoch deaktiviert sein, wenn einer seiner Vorfahren ein deaktiviertes {{HTMLElement("optgroup")}}-Element ist.
 - `label`
-  - : Dieses Attribut ist der Text für das Label, das die Bedeutung der Option angibt. Wenn das `label`-Attribut nicht definiert ist, entspricht sein Wert dem Textinhalt des Elements.
+  - : Dieses Attribut ist ein Text, der die Bedeutung der Option beschreibt. Wenn das `label`-Attribut nicht definiert ist, wird sein Wert aus dem Textinhalt des Elements übernommen.
 - `selected`
-  - : Wenn vorhanden, zeigt dieses boolesche Attribut an, dass die Option zunächst ausgewählt ist. Wenn das `<option>`-Element ein Nachfahre eines {{HTMLElement("select")}}-Elements ist, dessen [`multiple`](/de/docs/Web/HTML/Element/select#multiple)-Attribut nicht gesetzt ist, darf nur ein einziges `<option>` dieses {{HTMLElement("select")}}-Elements das `selected`-Attribut haben.
+  - : Wenn vorhanden, zeigt dieses boolesche Attribut an, dass die Option initial ausgewählt ist. Wenn das `<option>`-Element ein Nachkomme eines {{HTMLElement("select")}}-Elements ist, dessen [`multiple`](/de/docs/Web/HTML/Element/select#multiple)-Attribut nicht gesetzt ist, darf nur ein einziges `<option>`-Element dieses {{HTMLElement("select")}}-Elements das `selected`-Attribut besitzen.
 - `value`
-  - : Der Inhalt dieses Attributs repräsentiert den Wert, der mit dem Formular übermittelt werden soll, falls diese Option ausgewählt wird. Wenn dieses Attribut weggelassen wird, wird der Wert aus dem Textinhalt des Optionselements übernommen.
+  - : Der Inhalt dieses Attributs gibt den Wert an, der zusammen mit dem Formular abgesendet wird, wenn diese Option ausgewählt ist. Wenn dieses Attribut nicht angegeben ist, wird der Wert aus dem Textinhalt des Option-Elements übernommen.
 
 ## Gestaltung mit CSS
 
-Die Gestaltung des **`<option>`**-Elements innerhalb eines `<select>`-Dropdowns ist stark eingeschränkt. In Firefox wird nur die Schriftgröße des übergeordneten `<select>`-Elements berücksichtigt. Chrome ermöglicht zusätzlich die Einstellung von [`color`](/de/docs/Web/CSS/color), [`background-color`](/de/docs/Web/CSS/background-color), [`font-size`](/de/docs/Web/CSS/font-size), [`font-family`](/de/docs/Web/CSS/font-family), [`font-variant`](/de/docs/Web/CSS/font-variant) und [`text-align`](/de/docs/Web/CSS/text-align). Weitere Details zum Styling finden Sie in [unserem Leitfaden für erweitertes Formularstyling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling).
+Das Styling des **`<option>`**-Elements innerhalb eines `<select>`-Dropdowns ist stark eingeschränkt und abhängig vom Browser und Betriebssystem. Je nach Betriebssystem wird die [`font-size`](/de/docs/Web/CSS/font-size) des äußeren `<select>` in Firefox und Chromium respektiert. Chromium erlaubt möglicherweise zusätzlich die Festlegung von [`color`](/de/docs/Web/CSS/color), [`background-color`](/de/docs/Web/CSS/background-color), [`font-family`](/de/docs/Web/CSS/font-family), [`font-variant`](/de/docs/Web/CSS/font-variant) und [`text-align`](/de/docs/Web/CSS/text-align).
+
+Weitere Details zum Styling von `<option>` finden Sie in [unserem Leitfaden zur erweiterten Formulargestaltung](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling).
 
 ## Beispiele
 
 Siehe {{HTMLElement("select")}} für Beispiele.
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -47,17 +49,17 @@ Siehe {{HTMLElement("select")}} für Beispiele.
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        Text, möglicherweise mit maskierten Zeichen (z. B.
+        Text, möglicherweise mit entzeichneten Zeichen (wie
         <code>&#x26;eacute;</code>).
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
+      <th scope="row">Tag-Weglassen</th>
       <td>
-        Das Start-Tag ist verpflichtend. Das End-Tag ist optional, wenn dieses Element
-        direkt gefolgt wird von einem anderen <code>&#x3C;option></code>-Element oder einem
-        {{HTMLElement("optgroup")}}, oder wenn das übergeordnete Element keinen weiteren
-        Inhalt hat.
+        Der Start-Tag ist obligatorisch. Der End-Tag ist optional, wenn dieses Element
+        unmittelbar von einem anderen <code>&#x3C;option></code>-Element oder einem
+        {{HTMLElement("optgroup")}} gefolgt wird oder wenn das Elternelement keinen
+        weiteren Inhalt hat.
       </td>
     </tr>
     <tr>
@@ -74,7 +76,7 @@ Siehe {{HTMLElement("select")}} für Beispiele.
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Keine <code>role</code> erlaubt</td>
+      <td>Keine erlaubte <code>role</code></td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -93,4 +95,4 @@ Siehe {{HTMLElement("select")}} für Beispiele.
 
 ## Siehe auch
 
-- Andere formularbezogene Elemente: {{HTMLElement("form")}}, {{HTMLElement("legend")}}, {{HTMLElement("label")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("datalist")}}, {{HTMLElement("optgroup")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("textarea")}}, {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("progress")}} und {{HTMLElement("meter")}}.
+- Weitere formularbezogene Elemente: {{HTMLElement("form")}}, {{HTMLElement("legend")}}, {{HTMLElement("label")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("datalist")}}, {{HTMLElement("optgroup")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("textarea")}}, {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("progress")}} und {{HTMLElement("meter")}}.

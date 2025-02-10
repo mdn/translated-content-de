@@ -2,12 +2,14 @@
 title: <feTurbulence>
 slug: Web/SVG/Element/feTurbulence
 l10n:
-  sourceCommit: 3a1ef2abc8233835f0b0cc73afaf36e44edaf4a1
+  sourceCommit: 332c4375206089fa38609d6d9e3fe2cd7a502f22
 ---
 
 {{SVGRef}}
 
-Das **`<feTurbulence>`** [SVG](/de/docs/Web/SVG) Filterprimitiv erstellt ein Bild unter Verwendung der [Perlin-Turbulenz-Funktion](https://en.wikipedia.org/wiki/Perlin_noise). Es ermöglicht die Synthese von künstlichen Texturen wie Wolken oder Marmor. Das resultierende Bild wird die gesamte Filterprimitiv-Unterregion ausfüllen.
+Der **`<feTurbulence>`** [SVG](/de/docs/Web/SVG)-Filterprimitive erzeugt ein Bild mithilfe der [Perlin-Turbulenzfunktion](https://en.wikipedia.org/wiki/Perlin_noise). Dies ermöglicht die Synthese künstlicher Texturen wie Wolken oder Marmor. Das resultierende Bild füllt die gesamte Subregion des Filterprimitives aus.
+
+Wie bei anderen Filterprimitives werden Farbbestandteile standardmäßig im `linearRGB`-{{Glossary("color_space", "Farbraum")}} verarbeitet. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
 ## Verwendungskontext
 
@@ -23,7 +25,7 @@ Das **`<feTurbulence>`** [SVG](/de/docs/Web/SVG) Filterprimitiv erstellt ein Bil
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement) Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement).
 
 ## Beispiel
 
@@ -63,7 +65,7 @@ Dieses Element implementiert die [`SVGFETurbulenceElement`](/de/docs/Web/API/SVG
 
 ## Siehe auch
 
-- [SVG Filterprimitiv-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes), einschließlich {{SVGAttr('result')}}.
+- [SVG-Filterprimitive-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes), einschließlich {{SVGAttr('result')}}.
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}
@@ -82,4 +84,4 @@ Dieses Element implementiert die [`SVGFETurbulenceElement`](/de/docs/Web/API/SVG
 - {{SVGElement("feOffset")}}
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
-- [SVG Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filter-Effekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

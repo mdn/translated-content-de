@@ -2,14 +2,16 @@
 title: <feBlend>
 slug: Web/SVG/Element/feBlend
 l10n:
-  sourceCommit: 3a1ef2abc8233835f0b0cc73afaf36e44edaf4a1
+  sourceCommit: 332c4375206089fa38609d6d9e3fe2cd7a502f22
 ---
 
 {{SVGRef}}
 
-Das **`<feBlend>`** [SVG](/de/docs/Web/SVG)-Filterprimitive fügt zwei Objekte gemäß einem bestimmten Überblendmodus zusammen. Dies ist vergleichbar mit dem, was aus Bildbearbeitungssoftware bekannt ist, wenn zwei Ebenen gemischt werden. Der Modus wird durch das Attribut {{SVGAttr("mode")}} definiert.
+Das **`<feBlend>`**-[SVG](/de/docs/Web/SVG)-Filterprimitive kombiniert zwei Objekte miteinander, basierend auf einem bestimmten Mischmodus. Dies ist vergleichbar mit dem, was aus Bildbearbeitungssoftware beim Mischen zweier Ebenen bekannt ist. Der Modus wird durch das Attribut {{SVGAttr("mode")}} definiert.
 
-## Nutzungskontext
+Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB`-{{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -19,9 +21,9 @@ Das **`<feBlend>`** [SVG](/de/docs/Web/SVG)-Filterprimitive fügt zwei Objekte g
 - {{SVGAttr("in2")}}
 - {{SVGAttr("mode")}}
 
-## DOM-Schnittstelle
+## DOM-Interface
 
-Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)-Schnittstelle.
+Dieses Element implementiert das [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)-Interface.
 
 ## Beispiel
 
@@ -90,4 +92,4 @@ Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBle
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
