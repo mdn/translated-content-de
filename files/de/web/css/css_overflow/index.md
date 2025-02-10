@@ -2,22 +2,22 @@
 title: CSS overflow
 slug: Web/CSS/CSS_overflow
 l10n:
-  sourceCommit: a09c221ec70c550da9939d2d105defc1d75ec322
+  sourceCommit: 6c8e52645dd3bc28340fbfd57439600b4fcba4d3
 ---
 
 {{CSSRef}}
 
-Die Eigenschaften des **CSS overflow** Moduls ermöglichen es Ihnen, scrollenden Überlauf in visuellen Medien zu behandeln.
+Die **CSS overflow**-Modul-Eigenschaften ermöglichen es Ihnen, scrollbaren Überlauf in visuellen Medien zu handhaben.
 
-Überlauf tritt auf, wenn der Inhalt in einem Elementrahmen über eine oder mehrere Kanten des Rahmens hinausgeht. **Scrollbarer Überlauf** ist der Inhalt, der außerhalb des Elementrahmens erscheint, für den Sie möglicherweise einen Scrollmechanismus hinzufügen möchten. CSS overflow-Eigenschaften ermöglichen es Ihnen, zu steuern, was passiert, wenn Inhalte einen Elementrahmen überfließen.
+Überlauf tritt auf, wenn der Inhalt in einer Elementbox über eine oder mehrere Kanten der Box hinausgeht. **Scrollbarer Überlauf** ist der Inhalt, der außerhalb der Elementbox erscheint und für den Sie eventuell einen Scroll-Mechanismus hinzufügen möchten. CSS-Überlauf-Eigenschaften erlauben es Ihnen, zu steuern, was passiert, wenn Inhalt über eine Elementbox hinausgeht.
 
-Darstellungseffekte, die den Inhalt überlaufen, aber nicht an dem CSS-Boxmodell teilnehmen, beeinflussen das Layout nicht. Diese Art von Überlauf ist auch als {{Glossary("ink_overflow", "Tintenüberlauf")}} bekannt. Beispiele für Tintenüberläufe sind Box-Schatten, Bildrahmen, Textdekorationen, überhängende Glyphen und Umrisse. Tintenüberläufe erweitern die scrollbare Überflussregion nicht.
+Malereieffekte, die den Inhalt überlaufen, jedoch nicht am CSS-Boxmodell teilnehmen, beeinflussen das Layout nicht. Diese Art von Überlauf wird auch {{Glossary("ink_overflow", "ink overflow")}} genannt. Beispiele für Ink-Overflows sind Box-Schatten, Rahmenbilder, Textdekorationen, überhängende Glyphen und Umrandungen. Ink-Overflows erweitern nicht den scrollbaren Überlaufbereich.
 
 ## Überlauf in Aktion
 
-Versuchen Sie das folgende Beispiel, um die Auswirkungen verschiedener `overflow`-Eigenschaftswerte auf den Inhaltsüberlauf und die Scrollbalken im angrenzenden Rahmen mit fester Größe zu sehen.
+Probieren Sie das folgende Beispiel aus, um die Auswirkungen verschiedener Werte der `overflow`-Eigenschaft auf den Inhaltsüberlauf und die Scrollleisten in der angrenzenden Box mit fester Größe zu sehen.
 
-Das Beispiel enthält Optionen, um die Werte für die Eigenschaften `overflow-clip-margin` und `width` zu ändern, sowie den Inhalt programmatisch zu scrollen, wenn die overflow-Eigenschaft einen {{Glossary("scroll_container", "scroll container")}} erstellt. Wählen Sie `overflow: clip` und sehen Sie sich die Auswirkungen verschiedener `overflow-clip-margin`-Werte an. Wählen Sie `overflow: hidden` oder `overflow: scroll`, um die verschiedenen `ScrollLeft`- und `ScrollTop`-Slider-Einstellungen zu überprüfen.
+Das Beispiel enthält Optionen zum Ändern der Werte für die Eigenschaften `overflow-clip-margin` und `width`, sowie die Möglichkeit, den Inhalt programmatisch zu scrollen, wenn die Eigenschaft `overflow` einen {{Glossary("scroll_container", "scroll container")}} erstellt. Wählen Sie `overflow: clip` und beobachten Sie die Auswirkungen verschiedener Werte von `overflow-clip-margin`. Wählen Sie `overflow: hidden` oder `overflow: scroll`, um die verschiedenen `ScrollLeft`- und `ScrollTop`-Schieberegler-Einstellungen zu prüfen.
 
 ```html hidden live-sample___overflow
 <article>
@@ -210,13 +210,14 @@ article:not(:has(pre.hidden, pre.scroll, pre.auto, pre.overlay))
 
 {{EmbedLiveSample("overflow", "", "400px")}}
 
-Ein Link ist im Inhaltsfeld oben enthalten, um die Auswirkungen von Tastaturfokus auf Überlauf- und Scrollverhalten zu demonstrieren. Versuchen Sie, zum Link zu tabben oder den Inhalt programmatisch zu scrollen: Der Inhalt wird nur scrollen, wenn der aufgezählte `<overflow>`-Wert einen Scroll-Container erstellt.
+Ein Link ist im obigen Inhaltsbereich enthalten, um die Auswirkungen von Tastaturfokus auf Überlauf- und Scrollverhalten aufzuzeigen. Versuchen Sie, mit der Tab-Taste zum Link zu navigieren oder den Inhalt programmatisch zu scrollen: Der Inhalt wird nur scrollen, wenn der angegebene `<overflow>`-Wert einen Scrollcontainer erstellt.
 
 ## Referenz
 
 ### CSS-Eigenschaften
 
-- {{CSSxRef("overflow")}} Abkürzung
+- {{CSSxRef("line-clamp")}}
+- {{CSSxRef("overflow")}} Kurzschrift
 - {{CSSxRef("overflow-block")}}
 - {{CSSxRef("overflow-clip-margin")}}
 - {{CSSxRef("overflow-inline")}}
@@ -225,21 +226,20 @@ Ein Link ist im Inhaltsfeld oben enthalten, um die Auswirkungen von Tastaturfoku
 - {{CSSxRef("scroll-behavior")}}
 - {{CSSxRef("scrollbar-gutter")}}
 - {{CSSxRef("text-overflow")}}
-- {{CSSxRef("-webkit-line-clamp")}}
 
 > [!NOTE]
-> Das CSS overflow Modul Ebene 4 führt die Eigenschaften `block-ellipsis`, `continue`, `line-clamp` und `max-lines` ein. Diese wurden noch nicht implementiert.
+> Das CSS-Overflow-Modul Level 4 führt die Eigenschaften `block-ellipsis`, `continue` und `max-lines` ein. Diese wurden noch nicht implementiert.
 
 ### Datentypen
 
-- [`<overflow>`](/de/docs/Web/CSS/overflow_value) aufgezählte Werte
+- [`<overflow>`](/de/docs/Web/CSS/overflow_value) Enumerationen
 
 ## Leitfäden
 
 - [Lernen: Überlaufender Inhalt](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)
-  - : Erfahren Sie, was Überlauf ist und wie man ihn verwaltet.
-- [Erstellen einer benannten Scroll-Fortschritts-Zeitachsen-Animation](/de/docs/Web/CSS/scroll-timeline-name#creating_a_named_scroll_progress_timeline_animation)
-  - : Die CSS-Scroll-Zeitachse {{cssxref('scroll-timeline-name')}} und {{cssxref('scroll-timeline-axis')}} Eigenschaften, zusammen mit der {{cssxref('scroll-timeline')}} Abkürzung, erstellen Animationen, die mit dem Scrollversatz eines Scroll-Containers verbunden sind.
+  - : Lernen Sie, was Überlauf ist und wie man ihn verwaltet.
+- [Erstellen einer benannten Scroll-Fortschritts-Timeline-Animation](/de/docs/Web/CSS/scroll-timeline-name#creating_a_named_scroll_progress_timeline_animation)
+  - : Die CSS-Scroll-Timeline-Eigenschaften {{cssxref('scroll-timeline-name')}} und {{cssxref('scroll-timeline-axis')}}, zusammen mit der {{cssxref('scroll-timeline')}}-Kurzschrift, erstellen Animationen, die an den Scroll-Offset eines Scrollcontainers gebunden sind.
 
 ## Verwandte Konzepte
 
@@ -247,25 +247,25 @@ Ein Link ist im Inhaltsfeld oben enthalten, um die Auswirkungen von Tastaturfoku
 - {{CSSxRef("scrollbar-color")}} CSS-Eigenschaft
 - {{CSSxRef("scrollbar-gutter")}} CSS-Eigenschaft
 - {{CSSxRef("scroll-behavior")}} CSS-Eigenschaft
-- {{cssxref("scroll-margin")}} CSS-Abkürzungseigenschaft
-- {{cssxref("scroll-padding")}} CSS-Abkürzungseigenschaft
+- {{cssxref("scroll-margin")}} CSS-Kurzschrift-Eigenschaft
+- {{cssxref("scroll-padding")}} CSS-Kurzschrift-Eigenschaft
 - {{cssxref("scroll-snap-align")}} CSS-Eigenschaft
 - {{cssxref("scroll-snap-stop")}} CSS-Eigenschaft
 - {{cssxref("scroll-snap-type")}} CSS-Eigenschaft
 - {{cssxref("text-overflow")}} CSS-Eigenschaft
-- {{CSSxRef("::-webkit-scrollbar")}} Pseudo-Element
+- {{CSSxRef("::-webkit-scrollbar")}} Pseudoelement
 - [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Roles/scrollbar_role) ARIA-Rolle
-- Element [`scroll()`](/de/docs/Web/API/Element/scroll) Methode
-- Element [`scrollBy()`](/de/docs/Web/API/Element/scrollBy) Methode
-- Element [`scrollIntoView()`](/de/docs/Web/API/Element/scrollIntoView) Methode
-- Element [`scrollTo()`](/de/docs/Web/API/Element/scrollTo) Methode
-- Element [`scrollTop`](/de/docs/Web/API/Element/scrollTop) Eigenschaft
-- Element [`scrollLeft`](/de/docs/Web/API/Element/scrollLeft) Eigenschaft
-- Element [`scrollWidth`](/de/docs/Web/API/Element/scrollWidth) Eigenschaft
-- Element [`scrollHeight`](/de/docs/Web/API/Element/scrollHeight) Eigenschaft
-- Dokument [`scroll`](/de/docs/Web/API/Document/scroll_event) Ereignis
-- {{Glossary("Scroll_container", "Scroll-Container")}} Glossarbegriff
-- {{Glossary("Ink_overflow", "Tintenüberlauf")}} Glossarbegriff
+- Element-Methode [`scroll()`](/de/docs/Web/API/Element/scroll)
+- Element-Methode [`scrollBy()`](/de/docs/Web/API/Element/scrollBy)
+- Element-Methode [`scrollIntoView()`](/de/docs/Web/API/Element/scrollIntoView)
+- Element-Methode [`scrollTo()`](/de/docs/Web/API/Element/scrollTo)
+- Element-Eigenschaft [`scrollTop`](/de/docs/Web/API/Element/scrollTop)
+- Element-Eigenschaft [`scrollLeft`](/de/docs/Web/API/Element/scrollLeft)
+- Element-Eigenschaft [`scrollWidth`](/de/docs/Web/API/Element/scrollWidth)
+- Element-Eigenschaft [`scrollHeight`](/de/docs/Web/API/Element/scrollHeight)
+- [`scroll`](/de/docs/Web/API/Document/scroll_event)-Ereignis des Dokuments
+- {{Glossary("Scroll_container", "Scrollcontainer")}} Glossarbegriff
+- {{Glossary("Ink_overflow", "Ink Overflow")}} Glossarbegriff
 
 ## Spezifikationen
 
@@ -273,7 +273,7 @@ Ein Link ist im Inhaltsfeld oben enthalten, um die Auswirkungen von Tastaturfoku
 
 ## Siehe auch
 
-- [CSS Scrollbars-Styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
-- [CSSOM-Ansicht](/de/docs/Web/CSS/CSSOM_view) Modul
+- [CSS-Scrollleisten-Styling](/de/docs/Web/CSS/CSS_scrollbars_styling)-Modul
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap)-Modul
+- [CSSOM-Ansicht](/de/docs/Web/CSS/CSSOM_view)-Modul
 - Anleitung zum [Debuggen von scrollbarem Überlauf](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/debug_scrollable_overflow/index.html)

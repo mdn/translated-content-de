@@ -3,14 +3,14 @@ title: "PublicKeyCredential: signalUnknownCredential() statische Methode"
 short-title: signalUnknownCredential()
 slug: Web/API/PublicKeyCredential/signalUnknownCredential_static
 l10n:
-  sourceCommit: 1e98f1356a5eda11db10cd9b08dc52cce868ebff
+  sourceCommit: b1392b60ee71b9f09c0123694a494a71d0dbbb8a
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}{{seecompattable}}
 
-Die **`signalUnknownCredential()`** statische Methode der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle signalisiert dem Authentifikator, dass eine [Credential-ID](/de/docs/Web/API/PublicKeyCredentialRequestOptions#id) vom [Relying Party](https://en.wikipedia.org/wiki/Relying_party) (RP) Server nicht erkannt wurde.
+Die statische Methode **`signalUnknownCredential()`** der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle signalisiert dem Authenticator, dass eine [Credential ID](/de/docs/Web/API/PublicKeyCredentialRequestOptions#id) vom [Relying Party](https://en.wikipedia.org/wiki/Relying_party) (RP)-Server nicht erkannt wurde.
 
-Dies ermöglicht es dem Authentifikator, Anmeldeinformationen zu entfernen, die von der RP nicht erlaubt sind, wie zum Beispiel solche für gelöschte Konten oder Konten, die auf dem Authentifikator erstellt und gespeichert wurden, aber nicht ordnungsgemäß auf dem Server aktualisiert wurden. Im Allgemeinen wird die Methode aufgerufen, nachdem das Anmelden fehlgeschlagen ist, weil die Kontodetails für die RP nicht verfügbar waren. Sie kann verwendet werden, selbst wenn der aktuelle Benutzer nicht authentifiziert ist, da sie keine sensiblen Informationen preisgibt.
+Dadurch kann der Authenticator Anmeldedaten entfernen, die vom RP nicht zugelassen sind, wie z. B. solche, die zu gelöschten Konten gehören oder Konten, die auf dem Authenticator erstellt, aber nicht ordnungsgemäß auf dem Server aktualisiert wurden. Die Methode wird im Allgemeinen aufgerufen, nachdem eine Anmeldung fehlgeschlagen ist, weil die Kontodetails dem RP nicht verfügbar waren. Sie kann auch aufgerufen werden, wenn der aktuelle Benutzer nicht authentifiziert ist, da sie keine sensiblen Informationen preisgibt.
 
 ## Syntax
 
@@ -23,46 +23,46 @@ signalUnknownCredential(options)
 - `options`
   - : Ein Objekt, das die nicht erkannte Anmeldeinformation darstellt und die folgenden Eigenschaften enthält:
     - `credentialId`
-      - : Ein base64url-kodierter String, der die [`id` der Anmeldeinformation](/de/docs/Web/API/PublicKeyCredentialRequestOptions#id) darstellt, die nicht erkannt wurde.
+      - : Ein base64url-codierter String, der die [`id` der Anmeldeinformation](/de/docs/Web/API/PublicKeyCredentialRequestOptions#id) darstellt, die nicht erkannt wurde.
     - `rpId`
-      - : Ein String, der die [`id` der RP](/de/docs/Web/API/PublicKeyCredentialCreationOptions#id_2) darstellt, die das Signal gesendet hat.
+      - : Ein String, der die [`id` des RPs](/de/docs/Web/API/PublicKeyCredentialCreationOptions#id_2) darstellt, welche das Signal gesendet hat.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das in {{jsxref("undefined")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das auf {{jsxref("undefined")}} aufgelöst wird.
 
 ### Ausnahmen
 
-Das Promise wird mit den folgenden Ausnahmen abgelehnt:
+Das Promise wird mit folgenden Ausnahmen abgelehnt:
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die RP-Domäne ist nicht gültig.
+  - : Die RP-Domain ist nicht gültig.
 - `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die `credentialId` ist kein gültiger base64url-kodierter String.
+  - : Die `credentialId` ist kein gültiger base64url-codierter String.
 
 ## Beschreibung
 
-Es ist möglich, dass die Informationen, die im Authentifikator eines Benutzers über eine [auffindbare Anmeldeinformation](/de/docs/Web/API/Web_Authentication_API#discoverable_credentials_and_conditional_mediation) (zum Beispiel [einen Passkey](https://passkeys.dev/)) gespeichert sind, nicht mehr mit dem RP-Server synchron sind. Dies geschieht in der Regel, wenn der Benutzer eine Anmeldeinformation aus der RP-Webanwendung löscht, ohne den Authentifikator zu aktualisieren.
+Es ist möglich, dass die Informationen, die in einem Benutzer-Authenticator über eine [discoverable credential](/de/docs/Web/API/Web_Authentication_API#discoverable_credentials_and_conditional_mediation) (zum Beispiel [eine Passkey](https://passkeys.dev/)) gespeichert sind, nicht mit dem RP-Server synchronisiert sind. Dies geschieht in der Regel, wenn der Benutzer eine Anmeldeinformation aus der RP-Webanwendung löscht, ohne den Authenticator zu aktualisieren.
 
-Wenn ein Benutzer versucht, sich mit auffindbaren Anmeldeinformationen anzumelden, wird ihm ein Satz von Anmeldeinformationen aus dem Authentifikator zur Auswahl präsentiert, und die ausgewählte Anmeldeinformation wird an die RP-Webanwendung zurückgegeben, um sich anzumelden. Wenn der Benutzer eine Anmeldeinformation auswählt, die vom RP-Server gelöscht wurde, wird sie nicht erkannt und die Anmeldung schlägt fehl. Dies ist eine verwirrende Erfahrung für Benutzer, die erwarten, nur Anmeldeinformationen angeboten zu bekommen, die erfolgreich sein sollten.
+Wenn ein Benutzer versucht, sich mit discoverable credentials anzumelden, wird ihm eine Auswahl an Anmeldeinformationen aus dem Authenticator präsentiert, aus denen er wählen kann, und die ausgewählte Anmeldeinformation wird an die RP-Webanwendung zurückgegeben, um sich anzumelden. Wenn der Benutzer eine Anmeldeinformation auswählt, die vom RP-Server gelöscht wurde, wird diese nicht erkannt, und die Anmeldung schlägt fehl. Dies ist eine verwirrende Erfahrung für Benutzer, die erwarten, nur Anmeldeinformationen angeboten zu bekommen, die erfolgreich sein sollten.
 
-Um dieses Problem zu mindern, sollte `signalUnknownCredential()` in der RP-Webanwendung jedes Mal aufgerufen werden, wenn eine Anmeldung auf Basis auffindbarer Anmeldeinformationen fehlschlägt, um dem Authentifikator mitzuteilen, dass die Credential-ID nicht erkannt wurde.
+Um dieses Problem zu mindern, sollte `signalUnknownCredential()` auf der RP-Webanwendung jedes Mal aufgerufen werden, wenn eine Anmeldung basierend auf discoverable credentials fehlschlägt, um den Authenticator darüber zu informieren, dass die Credential ID nicht erkannt wurde.
 
-Es liegt am Authentifikator, mit dieser Information umzugehen, aber die Erwartung ist, dass er die relevante Anmeldeinformation löscht, damit es keine Abweichung zwischen den im Authentifikator und bei der Relying Party gespeicherten Daten gibt.
+Es liegt am Authenticator, wie er diese Information behandelt, aber die Erwartung ist, dass er die entsprechende Anmeldeinformation löscht, sodass keine Diskrepanz zwischen den Daten, die auf dem Authenticator und dem Relying Party gespeichert sind, besteht.
 
-Darüber hinaus könnte `signalUnknownCredential()` auch aufgerufen werden, wenn eine Webanwendung in der Lage ist, eine auffindbare Anmeldeinformation auf dem Authentifikator zu erstellen, aber aus irgendeinem Grund die Anmeldeinformationen nicht auf den Server hochladen kann.
+Zusätzlich könnte `signalUnknownCredential()` auch aufgerufen werden, wenn eine Webanwendung in der Lage ist, eine discoverable credential auf dem Authenticator zu erstellen, aber aus irgendeinem Grund nicht in der Lage ist, die Credential-Informationen auf den Server hochzuladen.
 
-`signalUnknownCredential()` kann aufgerufen werden, selbst wenn der aktuelle Benutzer nicht authentifiziert ist, da es keine sensiblen Informationen preisgibt.
+`signalUnknownCredential()` kann auch dann aufgerufen werden, wenn der aktuelle Benutzer nicht authentifiziert ist, da keine sensiblen Informationen preisgegeben werden.
 
 ## Beispiele
 
-### Signalisieren eines unbekannten Credentials
+### Signalisiert eine unbekannte Anmeldeinformation
 
-In diesem Beispiel wird ein Anmeldeversuch mit auffindbaren Anmeldeinformationen über einen [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf unternommen. Die Anmeldeinformation wird erfolgreich zurückgegeben, und die Credential-ID und Nutzdaten werden in Konstanten gespeichert.
+In diesem Beispiel wird ein Anmeldeversuch mit discoverable credentials über einen [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf durchgeführt. Die Anmeldeinformation wird erfolgreich zurückgegeben, und die Credential ID und Nutzdaten werden in Konstanten gespeichert.
 
-Die Nutzdaten werden über eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage an den RP-Server gesendet, um den Benutzer anzumelden, aber die Anfrage schlägt mit einer {{httpstatus("404")}}-Antwort fehl, weil die RP diesen Benutzer nicht erkennt (zum Beispiel weil diese Anmeldeinformation zuvor von der RP gelöscht wurde).
+Die Nutzdaten werden über eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage an den RP-Server gesendet, um den Benutzer anzumelden, aber die Anfrage schlägt mit einer {{httpstatus("404")}}-Antwort fehl, da der RP diesen Benutzer nicht erkennt (zum Beispiel, weil diese Anmeldeinformation zuvor vom RP gelöscht wurde).
 
-Infolgedessen rufen wir die `signalUnknownCredential()`-Methode auf, indem wir ihr die `rpId` und die Credential-ID übergeben, um dem Authentifikator mitzuteilen, dass die Anmeldeinformation der RP unbekannt ist. Der Authentifikator sollte dann die Anmeldeinformation löschen, damit dieses Problem nicht erneut auftritt.
+Infolgedessen rufen wir die Methode `signalUnknownCredential()` auf, übergeben ihr die `rpId` und die Credential ID, um den Authenticator darüber zu informieren, dass die Anmeldeinformation dem RP unbekannt ist. Der Authenticator sollte diese Anmeldeinformation dann löschen, damit sie nicht erneut das gleiche Problem verursacht.
 
 ```js
 const credential = await navigator.credentials.get({
@@ -108,4 +108,4 @@ if (result.status === 404) {
 
 - [`PublicKeyCredential.signalAllAcceptedCredentials()`](/de/docs/Web/API/PublicKeyCredential/signalAllAcceptedCredentials_static)
 - [`PublicKeyCredential.signalCurrentUserDetails()`](/de/docs/Web/API/PublicKeyCredential/signalCurrentUserDetails_static)
-- [Passkeys mit Anmeldeinformationen auf Ihrem Server mit der Signal-API konsistent halten](https://developer.chrome.com/docs/identity/webauthn-signal-api) auf developer.chrome.com (2024)
+- [Passkeys konsistent mit Anmeldeinformationen auf Ihrem Server halten mit der Signal-API](https://developer.chrome.com/docs/identity/webauthn-signal-api) auf developer.chrome.com (2024)

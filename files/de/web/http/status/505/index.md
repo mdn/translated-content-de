@@ -2,15 +2,15 @@
 title: 505 HTTP Version Not Supported
 slug: Web/HTTP/Status/505
 l10n:
-  sourceCommit: f584f1b27f9f3b78c95122c560f5135866a87eb0
+  sourceCommit: 6bef243050a1f49bf5b7f37e9c4552f7aa30e24d
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`505 HTTP Version Not Supported`** [Server-Fehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass die in der Anfrage verwendete HTTP-Version vom Server nicht unterstützt wird.
+Der HTTP-Statuscode **`505 HTTP Version Not Supported`** [Serverfehler-Antwort](/de/docs/Web/HTTP/Status#server_error_responses) gibt an, dass die in der Anfrage verwendete HTTP-Version vom Server nicht unterstützt wird.
 
-Dieser Fehler tritt häufig auf, wenn eine Anforderungszeile falsch formatiert ist, wie z. B. `GET /path to resource HTTP/1.1` oder mit `\n`, das die Anforderungszeile beendet, anstelle von `\r\n`.
-Zum Beispiel können Zwischenstellen wie Load-Balancer Anforderungszeilen einer weitergeleiteten Anfrage nicht korrekt handhaben, wie im folgenden Beispiel veranschaulicht.
+Dieser Fehler tritt häufig auf, wenn eine Anfragelinie falsch formatiert ist, wie z. B. `GET /path to resource HTTP/1.1` oder wenn die Anfragelinie mit `\n` statt `\r\n` endet.
+Zum Beispiel können Vermittler wie Load Balancer Anfragelinien einer weitergeleiteten Anfrage nicht richtig behandeln, wie im folgenden Beispiel dargestellt.
 
 ## Status
 
@@ -18,17 +18,13 @@ Zum Beispiel können Zwischenstellen wie Load-Balancer Anforderungszeilen einer 
 505 HTTP Version Not Supported
 ```
 
-## Spezifikationen
-
-{{Specifications}}
-
 ## Beispiele
 
-### Ein 505 aufgrund einer fehlerhaften Anforderungszeile
+### Ein 505 aufgrund einer falsch formatierten Anfragelinie
 
-Im folgenden Beispiel fordert ein Client `example.com/dog%20trainers` an, aber aufgrund einer falschen Konfiguration des Load-Balancers wird das {{Glossary("Percent-encoding", "Prozent-Encoding")}} in der URL nicht korrekt verarbeitet.
-In diesem Fall sieht der Ursprung-Server `trainers` anstelle der HTTP-Version, und es wird eine `505`-Antwort zurückgegeben.
-Ein Anfrageidentifikator ist im Antwortkörper enthalten, um eine Möglichkeit zu veranschaulichen, die Serveradministratoren helfen kann, die Ursache des Problems einzugrenzen:
+Im folgenden Beispiel fordert ein Client `example.com/dog%20trainers` an, aber aufgrund einer falschen Load-Balancer-Konfiguration wird das {{Glossary("Percent-encoding", "Prozentcodierung")}} in der URL nicht korrekt verarbeitet.
+In diesem Fall sieht der Ursprungsserver `trainers` anstelle der HTTP-Version, und es wird eine `505`-Antwort zurückgegeben.
+Ein Anfrage-Identifikator ist im Antworttext enthalten, um darzustellen, wie Serveradministratoren möglicherweise die Ursache des Problems leichter eingrenzen können:
 
 ```http
 GET /dog trainers HTTP/1.1
@@ -53,7 +49,11 @@ Content-Length: 123
 </html>
 ```
 
+## Spezifikationen
+
+{{Specifications}}
+
 ## Siehe auch
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
-- {{HTTPHeader("Upgrade")}} header
+- {{HTTPHeader("Upgrade")}} Header

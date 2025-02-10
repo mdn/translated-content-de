@@ -1,14 +1,14 @@
 ---
-title: "RestrictionTarget: Die statische Methode fromElement()"
+title: "RestrictionTarget: fromElement() statische Methode"
 short-title: fromElement()
 slug: Web/API/RestrictionTarget/fromElement_static
 l10n:
-  sourceCommit: 01e8b5077df6d79e52f2521dfbe734e0923d1fc4
+  sourceCommit: b1392b60ee71b9f09c0123694a494a71d0dbbb8a
 ---
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die statische Methode **`fromElement()`** der [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget)-Schnittstelle gibt eine Instanz von [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget) zurück, die verwendet werden kann, um eine erfasste Videospur auf ein bestimmtes DOM-Element (und dessen Nachkommen) einzuschränken.
+Die **`fromElement()`** statische Methode der [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget)-Schnittstelle gibt eine [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget)-Instanz zurück, die verwendet werden kann, um eine erfasste Video-Track-Ausgabe auf ein bestimmtes DOM-Element (und dessen Nachkommen) einzuschränken.
 
 ## Syntax
 
@@ -20,27 +20,27 @@ RestrictionTarget.fromElement(element)
 
 - `element`
 
-  - : Ein Verweis auf ein [`Element`](/de/docs/Web/API/Element), das Sie als Eingrenzungsziel verwenden möchten. Damit ein Element als Eingrenzungsziel verwendet werden kann, muss es:
+  - : Ein Verweis auf ein [`Element`](/de/docs/Web/API/Element), das Sie als Einschränkungsziel verwenden möchten. Damit ein Element für eine Einschränkung verwendet werden kann, muss es:
 
     - Einen [Stacking Context](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context) bilden.
-    - Im 3D-Raum abgeflacht sein (zum Beispiel darf es keinen 3D-[Transforms](/de/docs/Web/CSS/CSS_transforms) unterliegen).
-    - Gerendert sein (zum Beispiel darf es sich nicht außerhalb des sichtbaren Bereichs befinden oder durch `display: none` ausgeblendet sein).
-    - Nur ein Box-Fragment enthalten (zum Beispiel darf es nicht über mehrere Zeilen aufgeteilt sein).
+    - Im 3D-Raum flach sein (z. B. nicht von einem 3D-[Transform](/de/docs/Web/CSS/CSS_transforms) betroffen sein).
+    - Gerendert werden (zum Beispiel nicht außerhalb des Sichtfelds liegen oder über `display: none` verborgen sein).
+    - Nur ein Box-Fragment enthalten (zum Beispiel nicht über mehrere Zeilen verteilt sein).
 
-    Wenn es die oben genannten Kriterien nicht erfüllt, gilt es als **nicht geeignet für die Einschränkung**.
+    Wenn es diese Kriterien nicht erfüllt, wird es als **nicht für Einschränkungen geeignet** betrachtet.
 
-    Zusätzlich wird das Element nicht erfasst, wenn die eingeschränkte Spur Klone hat (zum Beispiel durch [`BrowserCaptureMediaStreamTrack.clone()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/clone) erstellt) oder aus einem anderen Tab als dem aktuellen Benutzer-Tab erfasst wird (zum Beispiel über [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) übergeben).
+    Außerdem wird das Element nicht erfasst, wenn der eingeschränkte Track Klone besitzt (also durch [`BrowserCaptureMediaStreamTrack.clone()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/clone) erstellt wurde) oder aus einem anderen Tab als dem aktuellen Tab des Benutzers erfasst wird (zum Beispiel über [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage)).
 
 > [!NOTE]
-> Wenn das Element erfasst wird, ist ein auf ihm eingestellter Alpha-Kanal-Wert nicht enthalten. Wenn das Eingrenzungsziel-Element halbtransparent ist, wird es in der Erfassung vollständig undurchsichtig sein und daher anders aussehen.
+> Wenn das Element erfasst wird, wird kein Alpha-Kanal-Wert einbezogen. Wenn das Einschränkungsziel-Element halbtransparent ist, erscheint es in der Aufnahme vollständig undurchsichtig und sieht daher anders aus.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das in eine [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget)-Objektinstanz aufgelöst wird, die dann an [`BrowserCaptureMediaStreamTrack.restrictTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/restrictTo) übergeben werden kann, um das in der Spur erfasste Video nur auf das bestimmte DOM-Element einzuschränken, mit dem das `RestrictionTarget` erstellt wurde.
+Ein {{jsxref("Promise")}}, das zu einer [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget)-Objektinstanz aufgelöst wird. Dieses Objekt kann dann an [`BrowserCaptureMediaStreamTrack.restrictTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/restrictTo) übergeben werden, um das im Track erfasste Video auf genau das DOM-Element einzuschränken, für das das `RestrictionTarget` erstellt wurde.
 
 `RestrictionTarget`-Objekte sind serialisierbar. Sie können mit Mechanismen wie [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) an ein anderes Dokument übergeben werden.
 
-Das Promise wird abgelehnt, wenn das Eingrenzungsziel-Element nicht für die Einschränkung geeignet ist.
+Das Promise wird abgelehnt, wenn das Einschränkungsziel-Element nicht für Einschränkungen geeignet ist.
 
 ## Beispiele
 
@@ -66,7 +66,7 @@ await track.restrictTo(restrictionTarget);
 videoElem.srcObject = stream;
 ```
 
-Siehe [Verwendung der Element Capture und Region Capture APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture) für kontextbezogene Code-Beispiele.
+Siehe [Verwendung der Element Capture und Region Capture APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture) für ein Beispiel im Kontext.
 
 ## Spezifikationen
 

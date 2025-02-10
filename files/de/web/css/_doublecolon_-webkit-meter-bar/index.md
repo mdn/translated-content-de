@@ -1,13 +1,13 @@
 ---
-title: ::-webkit-meter-bar
+title: "::-webkit-meter-bar"
 slug: Web/CSS/::-webkit-meter-bar
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 6bef243050a1f49bf5b7f37e9c4552f7aa30e24d
 ---
 
 {{CSSRef}}{{Non-standard_header}}{{deprecated_header}}
 
-Der **`::-webkit-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element", "Pseudo-Element")}} ist eine [WebKit-Erweiterung](/de/docs/Web/CSS/WebKit_Extensions), die den Hintergrund eines {{HTMLElement("meter")}}-Elements darstellt. Es wird verwendet, um Stile auf den Container einer Messanzeige anzuwenden.
+Das **`::-webkit-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element", "Pseudoelement")}} ist eine [WebKit-Erweiterung](/de/docs/Web/CSS/WebKit_Extensions), die den Hintergrund eines {{HTMLElement("meter")}}-Elements repräsentiert. Es wird verwendet, um Stile auf den Container einer Messanzeige anzuwenden.
 
 ## Syntax
 
@@ -16,10 +16,6 @@ Der **`::-webkit-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element
   /* ... */
 }
 ```
-
-## Spezifikationen
-
-Gehört zu keinem Standard.
 
 ## Beispiele
 
@@ -77,17 +73,21 @@ if (is_safari) {
 
 {{ EmbedLiveSample('Examples') }}
 
+## Spezifikationen
+
+Kein Bestandteil eines Standards.
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Die Pseudo-Elemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{HTMLElement("meter")}}-Elements zu stylen, sind wie folgt:
+- Die von WebKit/Blink verwendeten Pseudoelemente zum Stylen anderer Teile eines {{htmlelement("meter")}}-Elements sind wie folgt:
 
   - {{cssxref("::-webkit-meter-inner-element")}}
   - {{cssxref("::-webkit-meter-even-less-good-value")}}
   - {{cssxref("::-webkit-meter-optimum-value")}}
   - {{cssxref("::-webkit-meter-suboptimum-value")}}
 
-- [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)
+- [WebKit-CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)

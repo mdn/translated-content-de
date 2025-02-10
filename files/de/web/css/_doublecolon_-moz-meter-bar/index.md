@@ -1,13 +1,13 @@
 ---
-title: ::-moz-meter-bar
+title: "::-moz-meter-bar"
 slug: Web/CSS/::-moz-meter-bar
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 6bef243050a1f49bf5b7f37e9c4552f7aa30e24d
 ---
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element", "Pseudo-Element")}} repräsentiert die Messskala in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um Stile für die Skala innerhalb eines `meter`-Elements auszuwählen und anzuwenden.
+Das **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS)-{{Glossary("Pseudo-element", "Pseudo-Element")}} repräsentiert die Anzeigeleiste (Meter-Gauge) in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um Stile auf die Anzeigeleiste innerhalb eines `meter`-Elements anzuwenden.
 
 ## Syntax
 
@@ -16,10 +16,6 @@ Das **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element", 
   /* ... */
 }
 ```
-
-## Spezifikationen
-
-Kein Teil eines Standards.
 
 ## Beispiele
 
@@ -52,6 +48,10 @@ meter {
 ### Ergebnis
 
 {{ EmbedLiveSample('Examples') }}
+
+## Spezifikationen
+
+Gehört zu keinem Standard.
 
 ## Browser-Kompatibilität
 
