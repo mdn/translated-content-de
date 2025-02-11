@@ -2,14 +2,14 @@
 title: Temporal.ZonedDateTime.prototype.subtract()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/subtract
 l10n:
-  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
+  sourceCommit: b4696c099a33202f1ce2063f14648de398703774
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`subtract()`** Methode der Instanzen von {{jsxref("Temporal.ZonedDateTime")}} gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das diesen Datum-Uhrzeit-Wert um eine gegebene Dauer zurückverschoben darstellt (in einer Form, die von {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} umgewandelt werden kann).
+Die Methode **`subtract()`** von Instanzen von {{jsxref("Temporal.ZonedDateTime")}} gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, welches diesen Zeitpunkt um eine angegebene Dauer (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist) zurückversetzt darstellt.
 
-Wenn Sie zwei Datum-Uhrzeit-Werte subtrahieren und eine Dauer erhalten möchten, verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/since", "since()")}} oder {{jsxref("Temporal/ZonedDateTime/until", "until()")}}.
+Wenn Sie zwei Zeitpunkte voneinander abziehen und eine Dauer erhalten möchten, verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/since", "since()")}} oder {{jsxref("Temporal/ZonedDateTime/until", "until()")}}.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ subtract(duration, options)
 ### Parameter
 
 - `duration`
-  - : Ein String, ein Objekt oder eine Instanz von {{jsxref("Temporal.Duration")}}, die eine von diesem Datum-Uhrzeit-Wert zu subtrahierende Dauer darstellt. Sie wird mit demselben Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt umgewandelt.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine Dauer darstellt, welche von diesem Zeitpunkt abgezogen werden soll. Es wird mit demselben Algorithmus wie bei {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt konvertiert.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit der folgenden Eigenschaft:
+  - : Ein Objekt, das folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten beschreibt, wenn eine Datums-Komponente außerhalb des Bereichs liegt. Mögliche Werte sind:
+      - : Ein String, der das Verhalten bestimmt, wenn eine Datums-Komponente außerhalb des Bereichs liegt. Mögliche Werte sind:
         - `"constrain"` (Standard)
           - : Die Datums-Komponente wird auf den gültigen Bereich [begrenzt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
         - `"reject"`
@@ -33,16 +33,16 @@ subtract(duration, options)
 
 ### Rückgabewert
 
-Ein neues `Temporal.ZonedDateTime`-Objekt, das den durch das ursprüngliche `ZonedDateTime` angegebene Datum-Uhrzeit minus der Dauer darstellt.
+Ein neues `Temporal.ZonedDateTime`-Objekt, das den durch den ursprünglichen `ZonedDateTime` festgelegten Zeitpunkt minus der Dauer darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn das Ergebnis nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates) liegt, der ±10<sup>8</sup> Tage, oder etwa ±273.972,6 Jahre, vom Unix-Epoch umfasst.
+  - : Wird ausgelöst, wenn das Ergebnis nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates) liegt, der ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre ab der Unix-Epoche beträgt.
 
 ## Beschreibung
 
-Das Subtrahieren einer Dauer entspricht dem [Hinzufügen](Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/add) ihrer [Negation](Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated), daher gelten alle gleichen Überlegungen.
+Das Subtrahieren einer Dauer entspricht dem [Addieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/add) der [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated) dieser Dauer, sodass alle gleichen Überlegungen gelten.
 
 ## Beispiele
 

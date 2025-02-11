@@ -1,22 +1,22 @@
 ---
-title: Mauerwerk-Layout
+title: Masonry-Layout
 slug: Web/CSS/CSS_grid_layout/Masonry_layout
 l10n:
-  sourceCommit: c6e02b5aa7c12f9e64f80a62f75ede8f5cb5ec21
+  sourceCommit: bf69d21a66ea3d757afaf5b04dcf279ddbbfc140
 ---
 
 {{CSSRef}} {{SeeCompatTable}}
 
-Level 3 der [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Spezifikation enthält einen `masonry`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden beschreibt, was das Mauerwerk-Layout ist und wie man es verwendet.
+Level 3 der [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout)-Spezifikation beinhaltet einen `masonry`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden erklärt, was ein Masonry-Layout ist und wie es verwendet wird.
 
-Das Mauerwerk-Layout ist eine Layoutmethode, bei der eine Achse ein typisches striktes Rasterlayout verwendet, am häufigsten die Spalten, und die andere ein Mauerwerk-Layout. Auf der Mauerwerk-Achse, anstatt ein striktes Raster mit Lücken zu haben, die nach kürzeren Elementen bleiben, steigen die Elemente in der folgenden Reihe auf, um die Lücken vollständig zu füllen.
+Ein Masonry-Layout ist eine Layoutmethode, bei der eine Achse ein typisches strenges Grid-Layout verwendet, meist Spalten, und die andere eine Masonry-Layout-Methode anwendet. Auf der Masonry-Achse wird anstelle eines strengen Rasters mit Freiräumen nach kürzeren Elementen die nächste Zeile so verschoben, dass diese Lücken vollständig gefüllt werden.
 
-## Erstellen eines Mauerwerk-Layouts
+## Erstellung eines Masonry-Layouts
 
-Um das häufigste Mauerwerk-Layout zu erstellen, werden Ihre Spalten die Rasterachse und die Reihen die Mauerwerk-Achse, definiert mit `grid-template-columns` und `grid-template-rows`.
-Die Kindelemente dieses Containers werden nun Element für Element entlang der Reihen angeordnet, wie sie es bei automatischer Platzierung im regulären Grid-Layout tun würden.
+Um das häufigste Masonry-Layout zu erstellen, werden Ihre Spalten die Grid-Achse und die Zeilen die Masonry-Achse, definiert mit `grid-template-columns` und `grid-template-rows`.
+Die Kind-Elemente dieses Containers werden nun Element für Element entlang der Zeilen angeordnet, wie sie es auch bei der automatischen Platzierung eines regulären Grid-Layouts tun würden.
 
-Wenn die Elemente in neue Reihen übergehen, werden sie gemäß dem Mauerwerk-Algorithmus angezeigt. Elemente werden in die Spalte geladen, die am meisten Platz bietet, was zu einem dicht gepackten Layout ohne strikte Zeilenführung führt.
+Wenn die Elemente auf neue Zeilen gelangen, werden sie entsprechend dem Masonry-Algorithmus angezeigt. Elemente werden in die Spalte mit dem meisten Platz geladen, wodurch ein dicht gepacktes Layout ohne strikte Zeilenraster entsteht.
 
 ```css hidden live-sample___block-axis
 * {
@@ -64,7 +64,7 @@ Wenn die Elemente in neue Reihen übergehen, werden sie gemäß dem Mauerwerk-Al
 
 {{EmbedLiveSample("block-axis", "", "250px")}}
 
-Es ist auch möglich, ein Mauerwerk-Layout mit Elementen zu erstellen, die in Reihen geladen werden.
+Es ist auch möglich, ein Masonry-Layout zu erstellen, bei dem die Elemente in Zeilen geladen werden.
 
 ```html hidden live-sample___inline-axis
 <div class="grid">
@@ -110,15 +110,15 @@ Es ist auch möglich, ein Mauerwerk-Layout mit Elementen zu erstellen, die in Re
 }
 ```
 
-{{EmbedLiveSample("inline-axis", "", "350px")}}
+{{EmbedLiveSample("inline-axis", "", "450px")}}
 
-## Steuerung der Rasterachse
+## Steuerung der Grid-Achse
 
-Auf der Rasterachse funktioniert alles wie erwartet im Grid-Layout. Sie können Elemente über mehrere Tracks spannen lassen, während sie sich in der automatischen Platzierung befinden, indem Sie das `span`-Schlüsselwort verwenden. Elemente können auch mit Line-basierter Positionierung positioniert werden.
+Auf der Grid-Achse funktionieren Dinge genau so, wie Sie es von einem Grid-Layout erwarten würden. Sie können Elemente mit dem Schlüsselwort `span` über mehrere Rasterschritte hinweg spannen lassen, während sie in der automatischen Platzierung bleiben. Elemente können auch mit zeilenbasierten Positionierungen platziert werden.
 
-### Mauerwerk-Layout mit übergreifenden Elementen
+### Masonry-Layout mit überlappenden Elementen
 
-In diesem Beispiel spannen zwei der Elemente über zwei Tracks, und die Mauerwerk-Elemente arbeiten um sie herum.
+In diesem Beispiel spannen zwei der Elemente über zwei Rasterschritte, und die Masonry-Elemente ordnen sich um diese herum an.
 
 ```html live-sample___spanners
 <div class="grid">
@@ -164,9 +164,9 @@ In diesem Beispiel spannen zwei der Elemente über zwei Tracks, und die Mauerwer
 }
 ```
 
-{{EmbedLiveSample("spanners", "", "220px")}}
+{{EmbedLiveSample("spanners", "", "270px")}}
 
-Dieses Beispiel enthält ein Element, das Positionierung für Spalten hat. Elemente mit eindeutiger Platzierung werden vor der Ausführung des Mauerwerk-Layouts platziert.
+Dieses Beispiel enthält ein Element, das für Spalten positioniert ist. Elemente mit definierter Platzierung werden positioniert, bevor das Masonry-Layout durchgeführt wird.
 
 ```html live-sample___positioned
 <div class="grid">
@@ -221,11 +221,11 @@ body {
 }
 ```
 
-{{EmbedLiveSample("positioned", "", "260px")}}
+{{EmbedLiveSample("positioned", "", "290px")}}
 
-## Fallbacks für Mauerwerk-Layout
+## Fallbacks für Masonry-Layout
 
-In Browsern [die Mauerwerk nicht unterstützen](#browser-kompatibilität), wird stattdessen die reguläre automatische Rasterplatzierung verwendet.
+In Browsern, [die Masonry nicht unterstützen](#browser-kompatibilität), wird stattdessen die reguläre automatische Grid-Platzierung verwendet.
 
 ## Browser-Kompatibilität
 
@@ -233,5 +233,5 @@ In Browsern [die Mauerwerk nicht unterstützen](#browser-kompatibilität), wird 
 
 ## Siehe auch
 
-- {{cssxref("grid-auto-flow")}} zur Steuerung der automatischen Rasterplatzierung
-- [Nativer CSS-Mauerwerk-Layout in CSS-Grid](https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/)
+- {{cssxref("grid-auto-flow")}} zum Steuern der automatischen Grid-Platzierung
+- [Native CSS masonry layout in CSS grid](https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/) via Smashing Magazine (2020)

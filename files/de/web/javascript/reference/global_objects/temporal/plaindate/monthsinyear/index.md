@@ -2,14 +2,14 @@
 title: Temporal.PlainDate.prototype.monthsInYear
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/monthsInYear
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b4696c099a33202f1ce2063f14648de398703774
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die Zugriffs-Eigenschaft **`monthsInYear`** von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine positive ganze Zahl zurück, die die Anzahl der Monate im Jahr dieses Datums darstellt. Sie ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
+Die **`monthsInYear`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine positive Ganzzahl zurück, die die Anzahl der Monate im Jahr dieses Datums repräsentiert. Dies ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
 
-Für den ISO 8601-Kalender sind es immer 12 Monate, aber in anderen Kalendersystemen kann diese Zahl variieren. Beispielsweise haben Kalender mit Schaltmonaten in Schaltjahren einen Monat mehr als in gewöhnlichen Jahren.
+Für den ISO 8601-Kalender sind dies immer 12, aber in anderen Kalendersystemen kann es variieren. Beispielsweise haben Kalender mit Schaltmonaten in Schaltjahren einen Monat mehr als in normalen Jahren.
 
 Der Set-Accessor von `monthsInYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
@@ -30,7 +30,7 @@ console.log(date3.monthsInYear); // 13; 2023 is a Chinese leap year
 
 ### Wechsel zum vorletzten Monat des Jahres
 
-Sie können `monthsInYear` verwenden, um zum vorletzten Tag des Monats zu wechseln:
+Sie können `monthsInYear` verwenden, um zum vorletzten Monat des Jahres zu wechseln:
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01");
