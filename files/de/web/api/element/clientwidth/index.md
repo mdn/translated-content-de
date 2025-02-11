@@ -3,17 +3,17 @@ title: "Element: clientWidth-Eigenschaft"
 short-title: clientWidth
 slug: Web/API/Element/clientWidth
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Element.clientWidth`**-Eigenschaft ist null für Inline-Elemente und Elemente ohne CSS; andernfalls ist sie die innere Breite eines Elements in Pixel. Sie umfasst die Auffüllung, schließt jedoch Rahmen, Ränder und vertikale Bildlaufleisten (falls vorhanden) aus.
+Die **`Element.clientWidth`**-Eigenschaft ist für Inline-Elemente und Elemente ohne CSS gleich null. Andernfalls ist sie die innere Breite eines Elements in Pixel. Sie umfasst das `padding`, schließt jedoch `borders`, `margins` und vertikale Scrollleisten (falls vorhanden) aus.
 
-Wenn `clientWidth` auf das Wurzelelement (das `<html>` Element) angewendet wird (oder auf `<body>`, wenn das Dokument im Quirks-Modus ist), wird die Breite des Ansichtsfensters (ausschließlich der Bildlaufleiste) zurückgegeben. [Dies ist ein Sonderfall von `clientWidth`](https://www.w3.org/TR/2016/WD-cssom-view-1-20160317/#dom-element-clientwidth).
+Wenn `clientWidth` auf dem Wurzelelement (dem `<html>`-Element) verwendet wird, (oder auf `<body>`, falls das Dokument sich im Quirks-Modus befindet), wird die Breite des Ansichtsbereichs (ohne Scrollleiste) zurückgegeben.
 
 > [!NOTE]
-> Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Wenn Sie einen Bruchwert benötigen, verwenden Sie [`element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
+> Diese Eigenschaft rundet den Wert auf eine Ganzzahl. Wenn Sie einen Bruchwert benötigen, verwenden Sie [`element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
 
 ## Wert
 
@@ -21,7 +21,7 @@ Eine Zahl.
 
 ## Beispiele
 
-![Ein Beispiel-Element mit großem Padding, Rahmen und Rand. clientWidth ist die innere Breite des Elements einschließlich seines Paddings, auszuschließen sind sein Rand, Rahmen und die vertikale Bildlaufleiste.](dimensions-client.png)
+![Ein Beispiel-Element mit großem padding, border und margin. clientWidth ist die innere Breite des Elements einschließlich seines padding, aber ohne seine margin, border und vertikale Scrollleiste.](dimensions-client.png)
 
 ## Spezifikationen
 
@@ -35,4 +35,4 @@ Eine Zahl.
 
 - [`HTMLElement.offsetWidth`](/de/docs/Web/API/HTMLElement/offsetWidth)
 - [`Element.scrollWidth`](/de/docs/Web/API/Element/scrollWidth)
-- [Bestimmung der Abmessungen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [Bestimmung der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)

@@ -5792,6 +5792,7 @@
 /de/docs/MDN/At_ten/Contributing_to_MDN	/de/docs/MDN/Community/Getting_started
 /de/docs/MDN/At_ten/History_of_MDN	https://developer.mozilla.org/en-US/about#our_journey
 /de/docs/MDN/Changelog	/de/docs/MDN/Writing_guidelines/Changelog
+/de/docs/MDN/Community/Contributing	/de/docs/MDN/Community
 /de/docs/MDN/Community/Contributing/Getting_started	/de/docs/MDN/Community/Getting_started
 /de/docs/MDN/Community/Contributing/Security_vulnerability_response	/de/docs/MDN/Community/Security_vulnerability_response
 /de/docs/MDN/Community/Contributing/Translated_content	/de/docs/MDN/Community/Translated_content

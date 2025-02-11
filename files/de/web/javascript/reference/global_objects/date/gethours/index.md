@@ -2,14 +2,21 @@
 title: Date.prototype.getHours()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getHours
 l10n:
-  sourceCommit: 5c3c25fd4f2fbd7a5f01727a65c2f70d73f1880a
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`getHours()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Stunden für dieses Datum gemäß der lokalen Zeit zurück.
+Die **`getHours()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Stunden dieses Datums gemäß der lokalen Zeit zurück.
 
-{{EmbedInteractiveExample("pages/js/date-gethours.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Date.getHours()", "shorter")}}
+
+```js interactive-example
+const birthday = new Date("March 13, 08 04:20");
+
+console.log(birthday.getHours());
+// Expected output: 4
+```
 
 ## Syntax
 
@@ -23,7 +30,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine Ganzzahl, zwischen 0 und 23, die die Stunden für das angegebene Datum gemäß der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Ganzzahl zwischen 0 und 23, die die Stunden für das angegebene Datum gemäß der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 

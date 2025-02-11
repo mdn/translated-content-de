@@ -2,14 +2,32 @@
 title: WeakSet.prototype.add()
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/add
 l10n:
-  sourceCommit: 5e878acadb7afcf0443b619b1d2f70a4dfafd679
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`add()`** Methode von {{jsxref("WeakSet")}} Instanzen fügt ein neues Objekt am Ende dieses `WeakSet` hinzu.
+Die **`add()`**-Methode von {{jsxref("WeakSet")}}-Instanzen fügt ein neues Objekt am Ende dieses `WeakSet` hinzu.
 
-{{EmbedInteractiveExample("pages/js/weakset-prototype-add.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: WeakSet.Prototype.add()", "taller")}}
+
+```js interactive-example
+const weakset1 = new WeakSet();
+const object1 = {};
+
+weakset1.add(object1);
+console.log(weakset1.has(object1));
+// Expected output: true
+
+try {
+  weakset1.add(1);
+} catch (error) {
+  console.log(error);
+  // Expected output (Chrome): TypeError: Invalid value used in weak set
+  // Expected output (Firefox): TypeError: WeakSet value must be an object, got 1
+  // Expected output (Safari): TypeError: Attempted to add a non-object key to a WeakSet
+}
+```
 
 ## Syntax
 
@@ -20,16 +38,16 @@ add(value)
 ### Parameter
 
 - `value`
-  - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Wert, der zur `WeakSet`-Sammlung hinzugefügt werden soll.
+  - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Wert, der der `WeakSet`-Sammlung hinzugefügt wird.
 
 ### Rückgabewert
 
-Das `WeakSet` Objekt.
+Das `WeakSet`-Objekt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `value` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+  - : Wird ausgelöst, wenn `value` weder ein Objekt noch ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 

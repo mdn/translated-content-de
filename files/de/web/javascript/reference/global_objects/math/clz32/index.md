@@ -2,14 +2,28 @@
 title: Math.clz32()
 slug: Web/JavaScript/Reference/Global_Objects/Math/clz32
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.clz32()`** gibt die Anzahl der führenden Null-Bits in der 32-Bit-Binärdarstellung einer Zahl zurück.
+Die statische Methode **`Math.clz32()`** gibt die Anzahl der führenden Nullen im 32-Bit-Binärformat einer Zahl zurück.
 
-{{EmbedInteractiveExample("pages/js/math-clz32.html")}}
+{{InteractiveExample("JavaScript Demo: Math.clz32()")}}
+
+```js interactive-example
+// 00000000000000000000000000000001
+console.log(Math.clz32(1));
+// Expected output: 31
+
+// 00000000000000000000000000000100
+console.log(Math.clz32(4));
+// Expected output: 29
+
+// 00000000000000000000001111101000
+console.log(Math.clz32(1000));
+// Expected output: 22
+```
 
 ## Syntax
 
@@ -24,17 +38,17 @@ Math.clz32(x)
 
 ### Rückgabewert
 
-Die Anzahl der führenden Null-Bits in der 32-Bit-Binärdarstellung von `x`.
+Die Anzahl der führenden Nullen im 32-Bit-Binärformat von `x`.
 
 ## Beschreibung
 
 `clz32` steht für **C**ount**L**eading**Z**eros**32**.
 
-Wenn `x` keine Zahl ist, wird es zuerst in eine Zahl und dann in eine 32-Bit-Integerzahl ohne Vorzeichen umgewandelt.
+Falls `x` keine Zahl ist, wird es zunächst in eine Zahl umgewandelt und anschließend in eine 32-Bit-unsigned-Integer-Zahl konvertiert.
 
-Wenn die umgewandelte 32-Bit-Integerzahl ohne Vorzeichen `0` ist, wird `32` zurückgegeben, da alle Bits `0` sind. Ist das höchstwertige Bit `1` (d.h. die Zahl ist größer oder gleich 2<sup>31</sup>), wird `0` zurückgegeben.
+Falls die konvertierte 32-Bit-unsigned-Integer-Zahl `0` ist, wird `32` zurückgegeben, da alle Bits `0` sind. Falls das höchstwertige Bit `1` ist (d.h., die Zahl ist größer oder gleich 2<sup>31</sup>), wird `0` zurückgegeben.
 
-Diese Funktion ist besonders nützlich für Systeme, die nach JS kompiliert werden, wie [Emscripten](https://emscripten.org/).
+Diese Funktion ist besonders nützlich für Systeme, die in JS kompiliert werden, wie [Emscripten](https://emscripten.org/).
 
 ## Beispiele
 
@@ -64,9 +78,9 @@ Math.clz32(true); // 31
 Math.clz32(3.5); // 30
 ```
 
-### Implementierung von Count Leading Ones und darüber hinaus
+### Implementierung von Count Leading Ones und mehr
 
-Derzeit gibt es kein `Math.clon` für "Count Leading Ones" (genannt "clon", nicht "clo", da "clo" und "clz" besonders für nicht englischsprachige Menschen zu ähnlich sind). Eine `clon`-Funktion kann jedoch leicht erstellt werden, indem die Bits einer Zahl invertiert und das Ergebnis an `Math.clz32` übergeben wird. Dies funktioniert, weil das Inverse von 1 gleich 0 ist und umgekehrt. Somit wird durch das Invertieren der Bits die gemessene Anzahl an 0en (von `Math.clz32`) invertiert, wodurch `Math.clz32` die Anzahl der Einsen anstelle von Nullen zählt.
+Derzeit gibt es keine `Math.clon`-Funktion für "Count Leading Ones" (benannt als "clon" und nicht "clo", da "clo" und "clz" für nicht-englischsprachige Personen zu ähnlich sind). Jedoch kann eine `clon`-Funktion leicht erstellt werden, indem die Bits einer Zahl invertiert und das Ergebnis an `Math.clz32` übergeben wird. Dies funktioniert, da das Inverse von 1 gleich 0 ist und umgekehrt. Somit führt das Invertieren der Bits dazu, dass die gemessene Anzahl von Nullen (durch `Math.clz32`) umgekehrt wird, sodass `Math.clz32` die Anzahl der Einsen anstelle der Anzahl der Nullen zählt.
 
 Betrachten Sie das folgende 32-Bit-Wort:
 
@@ -78,7 +92,7 @@ const b = ~32776; // 11111111111111110111111111110111 (32776 inverted, 0 leading
 Math.clz32(b); // 0 (this is equal to how many leading one's there are in a)
 ```
 
-Mit dieser Logik kann eine `clon`-Funktion wie folgt erstellt werden:
+Basierend auf dieser Logik kann eine `clon`-Funktion wie folgt erstellt werden:
 
 ```js
 const clz = Math.clz32;
@@ -88,7 +102,7 @@ function clon(integer) {
 }
 ```
 
-Weiterhin kann diese Technik erweitert werden, um eine sprunglose "Count Trailing Zeros" Funktion zu erstellen, wie unten gezeigt. Die `ctrz`-Funktion nimmt ein bitweises UND des Integers mit seinem Zweierkomplement. Durch die Funktionsweise des Zweierkomplements werden alle nachgestellten Nullen in Einsen umgewandelt, und wenn dann 1 addiert wird, wird es weitergetragen, bis die erste `0` (die ursprünglich eine `1` war) erreicht wird. Alle höherwertigen Bits bleiben gleich und sind Inverse der Bits des ursprünglichen Integers. Daher werden bei einem bitweisen UND mit dem ursprünglichen Integer alle höherwertigen Bits zu `0`, was mit `clz` gezählt werden kann. Die Anzahl der nachgestellten Nullen, plus das erste `1`-Bit, plus die führenden Bits, die durch `clz` gezählt wurden, ergeben insgesamt 32.
+Darüber hinaus kann diese Technik erweitert werden, um eine sprunglose „Count Trailing Zeros“-Funktion zu erstellen, wie im folgenden Beispiel dargestellt. Die `ctrz`-Funktion nimmt ein bitweises UND der ganzen Zahl mit ihrem Zweierkomplement. Aufgrund der Funktionsweise von Zweierkomplement werden alle nachfolgenden Nullen in Einsen umgewandelt, und wenn man dann 1 hinzufügt, wird der Übertrag bis zum ersten `0` (das ursprünglich ein `1` war) weitergegeben. Alle Bits höher als dieses bleiben gleich und sind Inverse der ursprünglichen Bits der Zahl. Daher werden beim bitweisen UND mit der ursprünglichen Zahl alle höheren Bits `0`, die dann mit `clz` gezählt werden können. Die Anzahl der nachfolgenden Nullen plus das erste `1`-Bit plus die gezählten führenden Bits ergeben zusammen 32.
 
 ```js
 function ctrz(integer) {
@@ -102,7 +116,7 @@ function ctrz(integer) {
 }
 ```
 
-Dann können wir eine Funktion "Count Trailing Ones" wie folgt definieren:
+Daraufhin kann eine Funktion "Count Trailing Ones" wie folgt definiert werden:
 
 ```js
 function ctron(integer) {
@@ -110,7 +124,7 @@ function ctron(integer) {
 }
 ```
 
-Diese Hilfsfunktionen können in ein [asm.js](/de/docs/Games/Tools/asm.js)-Modul integriert werden, um eine potenzielle Leistungsverbesserung zu erzielen.
+Diese Hilfsfunktionen können in ein [asm.js](/de/docs/Games/Tools/asm.js)-Modul umgesetzt werden, um eine potenzielle Leistungsverbesserung zu erzielen.
 
 ```js
 const countTrailsMethods = (function (stdlib, foreign, heap) {

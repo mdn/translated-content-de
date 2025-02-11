@@ -2,14 +2,27 @@
 title: Intl.RelativeTimeFormat.prototype.format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/format
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die Methode **`format()`** von {{jsxref("Intl.RelativeTimeFormat")}}-Instanzen formatiert einen `value` und `unit` gemäß den Lokalisierungs- und Formatierungsoptionen dieses `Intl.RelativeTimeFormat`-Objekts.
+Die **`format()`**-Methode von {{jsxref("Intl.RelativeTimeFormat")}}-Instanzen formatiert einen `value` und eine `unit` gemäß der Sprache und Formatierungsoptionen des `Intl.RelativeTimeFormat`-Objekts.
 
-{{EmbedInteractiveExample("pages/js/intl-relativetimeformat-prototype-format.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.RelativeTimeFormat.prototype.format")}}
+
+```js interactive-example
+const rtf1 = new Intl.RelativeTimeFormat("en", { style: "short" });
+
+console.log(rtf1.format(3, "quarter"));
+// Expected output: "in 3 qtrs."
+
+console.log(rtf1.format(-1, "day"));
+// Expected output: "1 day ago"
+
+console.log(rtf1.format(10, "seconds"));
+// Expected output: "in 10 sec."
+```
 
 ## Syntax
 
@@ -20,22 +33,22 @@ format(value, unit)
 ### Parameter
 
 - `value`
-  - : Der numerische Wert, der in der lokalisierten relativen Zeitangabe verwendet wird.
+  - : Numerischer Wert, der in der internationalisierten relativen Zeitnachricht verwendet wird.
 - `unit`
-  - : Die Einheit, die in der internationalisierten relativen Zeitangabe verwendet wird. Mögliche Werte sind: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`. Pluralformen sind ebenfalls erlaubt.
+  - : Einheit, die in der internationalisierten relativen Zeitnachricht verwendet wird. Mögliche Werte sind: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`. Auch Pluralformen sind erlaubt.
 
 ### Rückgabewert
 
-Ein String, der den gegebenen `value` und `unit` darstellt, formatiert gemäß den Lokalisierungs- und Formatierungsoptionen dieses {{jsxref("Intl.RelativeTimeFormat")}}-Objekts.
+Ein String, der den gegebenen `value` und die `unit` formatiert und sich nach der Sprache und den Formatierungsoptionen des {{jsxref("Intl.RelativeTimeFormat")}}-Objekts richtet.
 
 > [!NOTE]
-> Meistens ist die Formatierung, die von `format()` zurückgegeben wird, konsistent. Jedoch kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb derselben Lokalisierung — solche Unterschiede sind durch das Design und die Spezifikation erlaubt. Die Ausgabe entspricht möglicherweise auch nicht den Erwartungen. So kann die Zeichenkette z.B. geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest codierten Konstanten vergleichen.
+> Meistens ist die von `format()` zurückgegebene Formatierung konsistent. Trotzdem kann die Ausgabe je nach Umsetzung variieren, selbst innerhalb derselben Sprache — solche Variationen sind im Design vorgesehen und durch die Spezifikation erlaubt. Sie entspricht möglicherweise auch nicht Ihren Erwartungen. Zum Beispiel kann der String nicht trennbare Leerzeichen enthalten oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
 
 ## Beispiele
 
-### Grundlegende Verwendungsweise der Formatierung
+### Grundlegende Nutzung der Formatierung
 
-Das folgende Beispiel zeigt, wie ein relativer Zeitformatierer mit der englischen Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie ein Formatter für relative Zeit mit englischer Sprache erstellt wird.
 
 ```js
 // Create a relative time formatter in your locale
@@ -55,7 +68,7 @@ rtf.format(1, "day"); // "in 1 day"
 
 ### Verwendung der Auto-Option
 
-Wenn die Option `numeric:auto` übergeben wird, erzeugt sie die Zeichenkette `yesterday`, `today` oder `tomorrow` anstelle von `1 day ago`, `in 0 days` oder `in 1 day`. Dadurch muss nicht immer ein numerischer Wert in der Ausgabe verwendet werden.
+Wenn die Option `numeric:auto` übergeben wird, erzeugt sie die Zeichenfolge `yesterday`, `today` oder `tomorrow` anstelle von `1 day ago`, `in 0 days` oder `in 1 day`. Dadurch muss nicht immer ein numerischer Wert in der Ausgabe verwendet werden.
 
 ```js
 // Create a relative time formatter in your locale

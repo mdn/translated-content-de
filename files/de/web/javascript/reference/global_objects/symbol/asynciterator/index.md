@@ -2,14 +2,43 @@
 title: Symbol.asyncIterator
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator
 l10n:
-  sourceCommit: 6e93ec8fc9e1f3bd83bf2f77e84e1a39637734f8
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Symbol.asyncIterator`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.asyncIterator`. Das [asynchrone iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) sucht dieses Symbol für die Methode, die den asynchronen Iterator für ein Objekt zurückgibt. Damit ein Objekt asynchron iterierbar ist, muss es einen `[Symbol.asyncIterator]`-Schlüssel haben.
+Die statische Dateneigenschaft **`Symbol.asyncIterator`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.asyncIterator`. Das [asynchrone Iterablen-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) verwendet dieses Symbol für die Methode, die den asynchronen Iterator für ein Objekt zurückgibt. Damit ein Objekt asynchron iterierbar ist, muss es einen `[Symbol.asyncIterator]`-Schlüssel besitzen.
 
-{{EmbedInteractiveExample("pages/js/symbol-asynciterator.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Symbol.asyncIterator", "taller")}}
+
+```js interactive-example
+const delayedResponses = {
+  delays: [500, 1300, 3500],
+
+  wait(delay) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, delay);
+    });
+  },
+
+  async *[Symbol.asyncIterator]() {
+    for (const delay of this.delays) {
+      await this.wait(delay);
+      yield `Delayed response for ${delay} milliseconds`;
+    }
+  },
+};
+
+(async () => {
+  for await (const response of delayedResponses) {
+    console.log(response);
+  }
+})();
+
+// Expected output: "Delayed response for 500 milliseconds"
+// Expected output: "Delayed response for 1300 milliseconds"
+// Expected output: "Delayed response for 3500 milliseconds"
+```
 
 ## Wert
 
@@ -21,7 +50,7 @@ Das wohlbekannte Symbol `Symbol.asyncIterator`.
 
 ### Benutzerdefinierte asynchrone Iterables
 
-Sie können Ihr eigenes asynchrones Iterable definieren, indem Sie die Eigenschaft `[Symbol.asyncIterator]()` auf ein Objekt setzen.
+Sie können Ihr eigenes asynchrones Iterable definieren, indem Sie die Eigenschaft `[Symbol.asyncIterator]()` auf einem Objekt setzen.
 
 ```js
 const myAsyncIterable = {
@@ -43,11 +72,11 @@ const myAsyncIterable = {
 // "iteration!"
 ```
 
-Beim Erstellen einer API sollten Sie beachten, dass asynchrone Iterables so konzipiert sind, dass sie etwas _iterierbares_ darstellen – wie ein Datenstrom oder eine Liste – und nicht dazu gedacht sind, in den meisten Situationen vollständig Rückrufe und Ereignisse zu ersetzen.
+Wenn Sie eine API erstellen, bedenken Sie, dass asynchrone Iterables dazu gedacht sind, etwas _iterierbares_ zu repräsentieren – wie einen Datenstrom oder eine Liste –, und nicht in den meisten Situationen dazu dienen, Callbacks und Ereignisse vollständig zu ersetzen.
 
 ### Eingebaute asynchrone Iterables
 
-Es gibt kein Objekt in der Kern-JavaScript-Sprache, das asynchron iterierbar ist. Einige Web-APIs, wie zum Beispiel [`ReadableStream`](/de/docs/Web/API/ReadableStream), haben die `Symbol.asyncIterator`-Methode standardmäßig gesetzt.
+Es gibt kein Objekt in der Kernsprache JavaScript, das asynchron iterierbar ist. Einige Web-APIs, wie zum Beispiel [`ReadableStream`](/de/docs/Web/API/ReadableStream), haben die Methode `Symbol.asyncIterator` standardmäßig gesetzt.
 
 ## Spezifikationen
 

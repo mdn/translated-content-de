@@ -1,15 +1,29 @@
 ---
-title: Subtraction (-)
+title: Subtraktion (-)
 slug: Web/JavaScript/Reference/Operators/Subtraction
 l10n:
-  sourceCommit: 145e8c316fcdd8f67f3595fc52b0bbfacf7b949d
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Subtraktionsoperator (`-`)** subtrahiert die beiden Operanden und erzeugt deren Differenz.
+Der **Subtraktionsoperator (`-`)** zieht den zweiten Operanden vom ersten ab und liefert deren Unterschied.
 
-{{EmbedInteractiveExample("pages/js/expressions-subtraction.html")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Subtraction operator")}}
+
+```js interactive-example
+console.log(5 - 3);
+// Expected output: 2
+
+console.log(3.5 - 5);
+// Expected output: -1.5
+
+console.log(5 - "hello");
+// Expected output: NaN
+
+console.log(5 - true);
+// Expected output: 4
+```
 
 ## Syntax
 
@@ -19,7 +33,7 @@ x - y
 
 ## Beschreibung
 
-Der `-` Operator ist für zwei Operanden-Arten überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [wandelt beide Operanden zuerst in numerische Werte um](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und prüft deren Typen. Er führt eine BigInt-Subtraktion durch, wenn beide Operanden zu BigInts werden; andernfalls führt er eine Zahlensubtraktion durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, aber der andere zu einer Zahl.
+Der `-`-Operator ist für zwei Arten von Operanden überladen: `number` und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Zuerst [wandelt er beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und überprüft ihre Typen. Wenn beide Operanden zu `BigInt` werden, führt er eine BigInt-Subtraktion aus; ansonsten erfolgt eine Subtraktion auf Basis von Zahlen. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem `BigInt` umgewandelt wird, der andere jedoch eine Zahl ist.
 
 ## Beispiele
 
@@ -30,7 +44,7 @@ Der `-` Operator ist für zwei Operanden-Arten überladen: Zahl und [BigInt](/de
 3 - 5; // -2
 ```
 
-Andere Nicht-BigInt-Werte werden zu Zahlen umgewandelt:
+Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 
 ```js
 "foo" - 3; // NaN; "foo" is converted to the number NaN
@@ -43,7 +57,7 @@ Andere Nicht-BigInt-Werte werden zu Zahlen umgewandelt:
 2n - 1n; // 1n
 ```
 
-Sie können BigInt- und Zahlen-Operanden in der Subtraktion nicht mischen.
+BigInt- und Zahl-Operanden können bei der Subtraktion nicht gemischt werden.
 
 ```js example-bad
 2n - 1; // TypeError: Cannot mix BigInt and other types, use explicit conversions
@@ -72,7 +86,7 @@ Number(2n) - 1; // 1
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
 - [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
-- [Increment (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
-- [Decrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
+- [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
+- [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

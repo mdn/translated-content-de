@@ -1,15 +1,28 @@
 ---
-title: Logical AND assignment (&&=)
+title: Logisches UND-Zuweisung (`&&=`)
 slug: Web/JavaScript/Reference/Operators/Logical_AND_assignment
 l10n:
-  sourceCommit: 71cf0cb885d46d83af054ae4df350248e246f006
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Logical AND Assignment (`&&=`)** Operator wertet nur den rechten Operanden aus und weist dem linken Operanden zu, wenn der linke Operand {{Glossary("truthy", "truthy")}} ist.
+Der **logische UND-Zuweisungsoperator (`&&=`)** wertet nur den rechten Operanden aus und weist ihn dem linken zu, wenn der linke Operand {{Glossary("truthy", "truthy")}} ist.
 
-{{EmbedInteractiveExample("pages/js/expressions-logical-and-assignment.html")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Logical AND assignment")}}
+
+```js interactive-example
+let a = 1;
+let b = 0;
+
+a &&= 2;
+console.log(a);
+// Expected output: 2
+
+b &&= 2;
+console.log(b);
+// Expected output: 0
+```
 
 ## Syntax
 
@@ -19,16 +32,16 @@ x &&= y
 
 ## Beschreibung
 
-Logical AND Assignment [_reduziert die Auswertung_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), was bedeutet, dass `x &&= y` äquivalent zu `x && (x = y)` ist, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+Die logische UND-Zuweisung [_short-circuits_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), was bedeutet, dass `x &&= y` gleichwertig ist mit `x && (x = y)`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
-Es wird keine Zuweisung vorgenommen, wenn die linke Seite nicht truthy ist, aufgrund der Reduzierung der Auswertung des [Logical AND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) Operators. Zum Beispiel wirft das Folgende keinen Fehler, obwohl `x` eine `const` ist:
+Es erfolgt keine Zuweisung, wenn die linke Seite nicht "truthy" ist, aufgrund des Short-Circuitings des [logischen UND-Operators](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND). Zum Beispiel führt der folgende Fall nicht zu einem Fehler, obwohl `x` als `const` deklariert ist:
 
 ```js
 const x = 0;
 x &&= 2;
 ```
 
-Auch das Folgende würde den Setter nicht auslösen:
+Ebenso würde der folgende Fall keinen Setter auslösen:
 
 ```js
 const x = {
@@ -43,7 +56,7 @@ const x = {
 x.value &&= 2;
 ```
 
-Tatsächlich wird `y` gar nicht ausgewertet, wenn `x` nicht truthy ist.
+Tatsächlich wird `y` überhaupt nicht ausgewertet, wenn `x` nicht "truthy" ist.
 
 ```js
 const x = 0;
@@ -53,7 +66,7 @@ x &&= console.log("y evaluated");
 
 ## Beispiele
 
-### Verwendung von Logical AND Assignment
+### Verwendung von logischer UND-Zuweisung
 
 ```js
 let x = 0;
@@ -75,8 +88,8 @@ y &&= 0; // 0
 
 ## Siehe auch
 
-- [Logical AND (`&&`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND)
+- [Logisches UND (`&&`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND)
 - [Nullish coalescing operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
-- [Bitwise AND assignment (`&=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment)
+- [Bitweises UND-Zuweisung (`&=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment)
 - {{Glossary("Truthy", "Truthy")}}
 - {{Glossary("Falsy", "Falsy")}}

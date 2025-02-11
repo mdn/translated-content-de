@@ -2,14 +2,36 @@
 title: Intl.ListFormat() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat
 l10n:
-  sourceCommit: 21d44fab158378a975fd89ec37e46ec68a411bf2
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Der **`Intl.ListFormat()`** Konstruktor erstellt {{jsxref("Intl.ListFormat")}} Objekte.
+Der **`Intl.ListFormat()`**-Konstruktor erstellt {{jsxref("Intl.ListFormat")}}-Objekte.
 
-{{EmbedInteractiveExample("pages/js/intl-listformat.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Intl.ListFormat", "taller")}}
+
+```js interactive-example
+const vehicles = ["Motorcycle", "Bus", "Car"];
+
+const formatter = new Intl.ListFormat("en", {
+  style: "long",
+  type: "conjunction",
+});
+console.log(formatter.format(vehicles));
+// Expected output: "Motorcycle, Bus, and Car"
+
+const formatter2 = new Intl.ListFormat("de", {
+  style: "short",
+  type: "disjunction",
+});
+console.log(formatter2.format(vehicles));
+// Expected output: "Motorcycle, Bus oder Car"
+
+const formatter3 = new Intl.ListFormat("en", { style: "narrow", type: "unit" });
+console.log(formatter3.format(vehicles));
+// Expected output: "Motorcycle Bus Car"
+```
 
 ## Syntax
 
@@ -19,28 +41,28 @@ new Intl.ListFormat(locales)
 new Intl.ListFormat(locales, options)
 ```
 
-> **Note:** `Intl.ListFormat()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> **Note:** `Intl.ListFormat()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47-Sprach-Tag oder eine {{jsxref("Intl.Locale")}} Instanz, oder ein Array solcher Locale-Identifikatoren. Die Standard-Locale der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Locale-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales` Arguments siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47-Sprachcode oder einer {{jsxref("Intl.Locale")}}-Instanz, oder ein Array solcher Sprachcode-Kennungen. Die Standardlocale des Laufzeitsystems wird verwendet, wenn `undefined` übergeben wird oder wenn keine der angegebenen Sprachkennungen unterstützt wird. Für die allgemeine Form und Interpretation des Parameters `locales` siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
     - `localeMatcher`
-      - : Der einzusetzende Locale-Abgleichalgorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen zu dieser Option siehe [Lokalisierung und Verhandlung von Locale-Informationen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der zu verwendende Locale-Matching-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für weitere Informationen zu dieser Option siehe [Lokale Identifikation und Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `type`
-      - : Gibt die Art der Gruppierung an. Mögliche Werte sind:
+      - : Gibt den Typ der Gruppierung an. Mögliche Werte sind:
         - `"conjunction"` (Standard)
-          - : Für "und"-basierte Gruppierung der Listenelemente: "A, B, und C"
+          - : Für "und"-basierte Gruppierung der Listenelemente: "A, B, and C"
         - `"disjunction"`
-          - : Für "oder"-basierte Gruppierung der Listenelemente: "A, B, oder C"
+          - : Für "oder"-basierte Gruppierung der Listenelemente: "A, B, or C"
         - `"unit"`
           - : Für die Gruppierung der Listenelemente als Einheit (weder "und"-basiert noch "oder"-basiert): "A, B, C"
     - `style`
-      - : Der Gruppierungsstil (beispielsweise, ob Listentrenner und Konjunktionen eingeschlossen sind). Mögliche Werte sind:
+      - : Der Gruppierungsstil (zum Beispiel, ob Listen-Trennzeichen und Konjunktionen enthalten sind). Mögliche Werte sind:
         - `"long"` (Standard)
-          - : Z.B. "A, B, und C"
+          - : Z.B. "A, B, and C"
         - `"short"`
           - : Z.B. "A, B, C"
         - `"narrow"`
@@ -53,9 +75,9 @@ new Intl.ListFormat(locales, options)
 
 ## Beispiele
 
-### Format verwenden
+### Verwendung von format
 
-Das folgende Beispiel zeigt, wie ein Listformator für die englische Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie man einen List-Formatter mit der englischen Sprache erstellt.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];

@@ -2,14 +2,26 @@
 title: Array.prototype.entries()
 slug: Web/JavaScript/Reference/Global_Objects/Array/entries
 l10n:
-  sourceCommit: 6fbdb78c1362fae31fbd545f4b2d9c51987a6bca
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`entries()`**-Methode von {{jsxref("Array")}} Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das die Schlüssel/Wert-Paare für jeden Index im Array enthält.
+Die **`entries()`**-Methode von {{jsxref("Array")}}-Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das die Schlüssel/Wert-Paare für jeden Index im Array enthält.
 
-{{EmbedInteractiveExample("pages/js/array-entries.html")}}
+{{InteractiveExample("JavaScript Demo: Array.entries()")}}
+
+```js interactive-example
+const array1 = ["a", "b", "c"];
+
+const iterator1 = array1.entries();
+
+console.log(iterator1.next().value);
+// Expected output: Array [0, "a"]
+
+console.log(iterator1.next().value);
+// Expected output: Array [1, "b"]
+```
 
 ## Syntax
 
@@ -23,17 +35,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator).
+Ein neues [iterables Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator).
 
 ## Beschreibung
 
-Wenn die Methode auf [sparse Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) angewendet wird, iteriert die `entries()`-Methode über leere Stellen, als ob sie den Wert `undefined` hätten.
+Wenn die Methode auf [Sparsame Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) angewendet wird, iteriert die `entries()`-Methode über leere Stellen, als ob sie den Wert `undefined` haben.
 
-Die `entries()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlige Schlüsselwerteigenschaften hat.
+Die `entries()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und integer-basierte Schlüssel-Eigenschaften besitzt.
 
 ## Beispiele
 
-### Iteration mit Index und Element
+### Iterieren mit Index und Element
 
 ```js
 const a = ["a", "b", "c"];
@@ -47,7 +59,7 @@ for (const [index, element] of a.entries()) {
 // 2 'c'
 ```
 
-### Verwendung einer for...of-Schleife
+### Verwendung von for...of-Schleifen
 
 ```js
 const array = ["a", "b", "c"];
@@ -62,9 +74,9 @@ for (const element of arrayEntries) {
 // [2, 'c']
 ```
 
-### Iterieren über Sparse Arrays
+### Iterieren über sparsame Arrays
 
-`entries()` besucht leere Stellen, als ob sie `undefined` sind.
+Die Methode `entries()` besucht leere Stellen, als ob diese `undefined` wären.
 
 ```js
 for (const element of [, "a"].entries()) {
@@ -76,7 +88,7 @@ for (const element of [, "a"].entries()) {
 
 ### Aufrufen von entries() auf Nicht-Array-Objekten
 
-Die `entries()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative Ganzzahl kleiner als `length` ist.
+Die `entries()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative ganze Zahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -105,7 +117,7 @@ for (const entry of Array.prototype.entries.call(arrayLike)) {
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.entries` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [Leitfaden über indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Anleitung zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.keys()")}}
 - {{jsxref("Array.prototype.values()")}}

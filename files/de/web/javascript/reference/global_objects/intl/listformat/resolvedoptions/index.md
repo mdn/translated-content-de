@@ -2,14 +2,29 @@
 title: Intl.ListFormat.prototype.resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/resolvedOptions
 l10n:
-  sourceCommit: 643fa96e963ecaf2959cca5ddb573751a3efafac
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`resolvedOptions()`** Methode von {{jsxref("Intl.ListFormat")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `ListFormat` Objekts berechneten Optionen widerspiegeln.
+Die Methode **`resolvedOptions()`** von {{jsxref("Intl.ListFormat")}}-Instanzen gibt ein neues Objekt zurück, dessen Eigenschaften die während der Initialisierung dieses `ListFormat`-Objekts berechneten Optionen widerspiegeln.
 
-{{EmbedInteractiveExample("pages/js/intl-listformat-prototype-resolvedoptions.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.ListFormat.prototype.resolvedOptions()")}}
+
+```js interactive-example
+const deListFormatter1 = new Intl.ListFormat("de-DE", { type: "disjunction" });
+const options1 = deListFormatter1.resolvedOptions();
+
+console.log(options1.locale);
+// Expected output (Firefox / Safari): "de-DE"
+// Expected output (Chrome): "de"
+
+console.log(options1.style);
+// Expected output: "long"
+
+console.log(options1.type);
+// Expected output: "disjunction"
+```
 
 ## Syntax
 
@@ -23,14 +38,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `ListFormat` Objekts berechneten Optionen widerspiegeln. Das Objekt enthält die folgenden Eigenschaften in der aufgelisteten Reihenfolge:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `ListFormat`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, in der sie aufgelistet sind:
 
 - `locale`
-  - : Der BCP 47 Sprach-Tag für das tatsächlich verwendete Gebietsschema, ermittelt durch den [locale negotiation](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation) Prozess. Es wird kein Unicode-Erweiterungsschlüssel in die Ausgabe aufgenommen.
+  - : Der BCP 47-Sprachcode für das tatsächlich verwendete Gebietsschema, ermittelt durch den [Verhandlungsprozess des Gebietsschemas](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Kein Unicode-Erweiterungsschlüssel wird in der Ausgabe enthalten sein.
 - `type`
-  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßiger Auffüllung nach Bedarf. Es ist entweder `"conjunction"`, `"disjunction"`, oder `"unit"`. Der Standardwert ist `"conjunction"`.
+  - : Der für diese Eigenschaft im `options`-Argument bereitgestellte Wert, mit Standardeinstellungen, falls nötig. Es ist entweder `"conjunction"`, `"disjunction"` oder `"unit"`. Der Standardwert ist `"conjunction"`.
 - `style`
-  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit standardmäßiger Auffüllung nach Bedarf. Es ist entweder `"long"`, `"short"`, oder `"narrow"`. Der Standardwert ist `"long"`.
+  - : Der für diese Eigenschaft im `options`-Argument bereitgestellte Wert, mit Standardeinstellungen, falls nötig. Es ist entweder `"long"`, `"short"` oder `"narrow"`. Der Standardwert ist `"long"`.
 
 ## Beispiele
 

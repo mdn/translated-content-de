@@ -1,17 +1,17 @@
 ---
-title: -moz-user-input
+title: "-moz-user-input"
 slug: Web/CSS/-moz-user-input
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
 ---
 
 {{CSSRef}}{{Non-standard_Header}}{{Deprecated_Header}}
 
 In Mozilla-Anwendungen bestimmt **`-moz-user-input`**, ob ein Element Benutzereingaben akzeptiert.
 
-Ab Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit verleihen, Benutzereingaben zu akzeptieren, wenn es dies normalerweise nicht tut. Sie kann nur noch verwendet werden, um Benutzereingaben zu deaktivieren.
+Seit Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit verleihen, Benutzereingaben zu akzeptieren, wenn es normalerweise keine akzeptiert. Sie kann nur noch verwendet werden, um Benutzereingaben zu deaktivieren.
 
-> **Note:** `-moz-user-input` war einer der Vorschläge, die zur vorgeschlagenen CSS3-Eigenschaft {{cssxref("user-input")}} führten, die bisher noch nicht den Status eines Candidate Recommendation (Aufforderung zur Implementierung) erreicht hat. Eine ähnliche Eigenschaft, `user-focus`, wurde in [frühen Entwürfen eines Vorläufers der User Interface für CSS3-Spezifikation](https://www.w3.org/TR/2000/WD-css3-userint-20000216) vorgeschlagen, aber von der Arbeitsgruppe abgelehnt.
+Die Eigenschaft `user-input` befindet sich derzeit nicht in einem Standardisierungsprozess.
 
 ## Syntax
 
@@ -29,9 +29,9 @@ Ab Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit ver
 ### Werte
 
 - `auto`
-  - : Das Element reagiert auf Benutzereingaben, wenn es normalerweise solche akzeptiert, z. B. ein {{HTMLElement("textarea")}}.
+  - : Das Element reagiert auf Benutzereingaben, wenn es normalerweise Benutzereingaben akzeptiert, wie z. B. ein {{HTMLElement("textarea")}}.
 - `none`
-  - : Das Element reagiert nicht auf Benutzereingaben und wird nicht {{CSSxRef(":active")}}.
+  - : Das Element reagiert nicht auf Benutzereingaben und wird nicht zu {{CSSxRef(":active")}}.
 
 ## Formale Definition
 
@@ -57,7 +57,7 @@ input.example {
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

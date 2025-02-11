@@ -1,20 +1,36 @@
 ---
-title: Quantifiers
+title: Quantifizierer
 slug: Web/JavaScript/Guide/Regular_expressions/Quantifiers
 l10n:
-  sourceCommit: 2c762771070a207d410a963166adf32213bc3a45
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
-{{jsSidebar("JavaScript Leitfaden")}}
+{{jsSidebar("JavaScript Guide")}}
 
-Quantoren geben die Anzahl von Zeichen oder Ausdrücken an, die übereinstimmen sollen.
+Quantifizierer geben die Anzahl der Zeichen oder Ausdrücke an, die übereinstimmen sollen.
 
-{{EmbedInteractiveExample("pages/js/regexp-quantifiers.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: RegExp quantifiers", "taller")}}
+
+```js interactive-example
+const ghostSpeak = "booh boooooooh";
+const regexpSpooky = /bo{3,}h/;
+console.log(ghostSpeak.match(regexpSpooky));
+// Expected output: Array ["boooooooh"]
+
+const modifiedQuote = "[He] ha[s] to go read this novel [Alice in Wonderland].";
+const regexpModifications = /\[.*?\]/g;
+console.log(modifiedQuote.match(regexpModifications));
+// Expected output: Array ["[He]", "[s]", "[Alice in Wonderland]"]
+
+const regexpTooGreedy = /\[.*\]/g;
+console.log(modifiedQuote.match(regexpTooGreedy));
+// Expected output: Array ["[He] ha[s] to go read this novel [Alice in Wonderland]"]
+```
 
 ## Typen
 
 > [!NOTE]
-> Im Folgenden bezieht sich _item_ nicht nur auf einzelne Zeichen, sondern umfasst auch [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) und [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences).
+> Im Folgenden bezieht sich _Item_ nicht nur auf einzelne Zeichen, sondern umfasst auch [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) sowie [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences).
 
 <table class="standard-table">
   <thead>
@@ -30,9 +46,9 @@ Quantoren geben die Anzahl von Zeichen oder Ausdrücken an, die übereinstimmen 
       </td>
       <td>
         <p>
-          Passt den vorherigen Artikel "x" 0 oder mehrmals an. Zum Beispiel,
-          <code>/bo*/</code> passt "boooo" in "A ghost booooed" und "b" in "A
-          bird warbled", aber nichts in "A goat grunted".
+          Passt zum vorangehenden Element "x" 0- oder mehrmals. Zum Beispiel
+          passt <code>/bo*/</code> in "A ghost booooed" zu "boooo" und in "A
+          bird warbled" zu "b", aber zu nichts in "A goat grunted".
         </p>
       </td>
     </tr>
@@ -42,9 +58,9 @@ Quantoren geben die Anzahl von Zeichen oder Ausdrücken an, die übereinstimmen 
       </td>
       <td>
         <p>
-          Passt den vorherigen Artikel "x" 1 oder mehrmals an. Entspricht
-          <code>{1,}</code>. Zum Beispiel, <code>/a+/</code> passt das "a" in
-          "candy" und alle "a"'s in "caaaaaaandy".
+          Passt zum vorangehenden Element "x" 1- oder mehrmals. Entspricht
+          <code>{1,}</code>. Zum Beispiel passt <code>/a+/</code> zur "a" in
+          "candy" und allen "a"s in "caaaaaaandy".
         </p>
       </td>
     </tr>
@@ -54,16 +70,16 @@ Quantoren geben die Anzahl von Zeichen oder Ausdrücken an, die übereinstimmen 
       </td>
       <td>
         <p>
-          Passt den vorherigen Artikel "x" 0 oder 1 Mal an. Zum Beispiel,
-          <code>/e?le?/</code> passt das "el" in "angel" und das "le" in
-          "angle."
+          Passt zum vorangehenden Element "x" 0- oder 1-mal. Zum Beispiel passt
+          <code>/e?le?/</code> zur "el" in "angel" und zur "le" in
+          "angle".
         </p>
         <p>
-          Wenn unmittelbar nach einem beliebigen der Quantifizierer <code>*</code>,
-          <code>+</code>, <code>?</code> oder <code>{}</code> verwendet, macht
-          es den Quantifizierer nicht-gierig (das Minimum an Malen passend), im
-          Gegensatz zur Standardeinstellung, die gierig ist (das Maximum an
-          Malen passend).
+          Wenn unmittelbar nach einem der Quantifizierer <code>*</code>,
+          <code>+</code>, <code>?</code> oder <code>{}</code> verwendet,
+          macht es den Quantifizierer nicht-gierig (er sucht die minimale Anzahl
+          an Passungen), im Gegensatz zur Standardeinstellung, bei der er gierig
+          ist (die maximale Anzahl an Passungen).
         </p>
       </td>
     </tr>
@@ -73,10 +89,10 @@ Quantoren geben die Anzahl von Zeichen oder Ausdrücken an, die übereinstimmen 
       </td>
       <td>
         <p>
-          Wo "n" eine nicht-negative ganze Zahl ist, passt genau "n" Vorkommen
-          des vorherigen Artikels "x". Zum Beispiel, <code>/a{2}/</code> passt
-          nicht das "a" in "candy", aber alle "a"'s in "caandy", und die ersten
-          zwei "a"'s in "caaandy".
+          Wo "n" eine nicht-negative ganze Zahl ist, entspricht dies genau "n"
+          Vorkommen des vorangehenden Elements "x". Zum Beispiel passt
+          <code>/a{2}/</code> nicht zur "a" in "candy", aber zu allen "a"s in
+          "caandy" und den ersten beiden "a"s in "caaandy".
         </p>
       </td>
     </tr>
@@ -86,10 +102,10 @@ Quantoren geben die Anzahl von Zeichen oder Ausdrücken an, die übereinstimmen 
       </td>
       <td>
         <p>
-          Wo "n" eine nicht-negative ganze Zahl ist, passt mindestens "n"
-          Vorkommen des vorherigen Artikels "x". Zum Beispiel, <code>/a{2,}/</code>
-          passt nicht das "a" in "candy", passt aber alle "a"'s in "caandy" und
-          in "caaaaaaandy".
+          Wo "n" eine nicht-negative ganze Zahl ist, passt es zu mindestens "n"
+          Vorkommen des vorangehenden Elements "x". Zum Beispiel passt
+          <code>/a{2,}/</code> nicht zur "a" in "candy", aber zu allen "a"s in
+          "caandy" und in "caaaaaaandy".
         </p>
       </td>
     </tr>
@@ -98,14 +114,15 @@ Quantoren geben die Anzahl von Zeichen oder Ausdrücken an, die übereinstimmen 
         <code><em>x</em>{<em>n</em>,<em>m</em>}</code>
       </td>
       <td>
+        <!-- cSpell:ignore cndy -->
         <p>
           Wo "n" und "m" nicht-negative ganze Zahlen sind und <code>m >= n</code>,
-          passt mindestens "n" und höchstens "m" Vorkommen des vorherigen
-          Artikels "x". Zum Beispiel, <code>/a{1,3}/</code> passt nichts in
-          "cndy", das "a" in "candy", die zwei "a"'s in "caandy", und die ersten
-          drei "a"'s in "caaaaaaandy". Beachten Sie, dass beim Abgleichen von
-          "caaaaaaandy", das Übereinstimmungsergebnis "aaa" ist, auch wenn die
-          ursprüngliche Zeichenkette mehr "a"s enthielt.
+          passt es zu mindestens "n" und höchstens "m" Vorkommen des vorangehenden
+          Elements "x". Zum Beispiel passt <code>/a{1,3}/</code> zu nichts in
+          "cndy", zur "a" in "candy", zu den zwei "a"s in "caandy" und zu den ersten
+          drei "a"s in "caaaaaaandy". Beachten Sie, dass bei der Übereinstimmung mit
+          "caaaaaaandy" das Ergebnis "aaa" ist, obwohl die ursprüngliche Zeichenkette
+          mehr "a"s enthält.
         </p>
       </td>
     </tr>
@@ -121,18 +138,18 @@ Quantoren geben die Anzahl von Zeichen oder Ausdrücken an, die übereinstimmen 
       <td>
         <p>
           Standardmäßig sind Quantifizierer wie <code>*</code> und <code>+</code>
-          "gierig", das bedeutet, dass sie versuchen, so viel von der Zeichenkette
-          wie möglich zu passen. Das <code>?</code>-Zeichen nach dem Quantifizierer
-          macht den Quantifizierer "nicht-gierig": Das bedeutet, dass er aufhört,
-          sobald er eine Übereinstimmung findet. Zum Beispiel, bei einer Zeichenkette
+          "gierig", das heißt, sie versuchen, so viel von der Zeichenkette wie möglich
+          abzugleichen. Das Zeichen <code>?</code> nach dem Quantifizierer macht
+          den Quantifizierer "nicht-gierig": Das bedeutet, dass er aufhört, sobald
+          er eine Übereinstimmung findet. Zum Beispiel wird bei einer Zeichenkette
           wie "some &#x3C;foo> &#x3C;bar> new &#x3C;/bar> &#x3C;/foo> thing":
         </p>
         <ul>
           <li>
-            <code>/&#x3C;.*>/</code> wird "&#x3C;foo> &#x3C;bar> new
-            &#x3C;/bar> &#x3C;/foo>" passen
+            <code>/&#x3C;.*>/</code> "&#x3C;foo> &#x3C;bar> new &#x3C;/bar>
+            &#x3C;/foo>" abgleichen
           </li>
-          <li><code>/&#x3C;.*?>/</code> wird "&#x3C;foo>" passen</li>
+          <li><code>/&#x3C;.*?>/</code> "&#x3C;foo>" abgleichen</li>
         </ul>
       </td>
     </tr>
@@ -143,7 +160,7 @@ Quantoren geben die Anzahl von Zeichen oder Ausdrücken an, die übereinstimmen 
 
 ### Wiederholtes Muster
 
-In diesem Beispiel passen wir ein oder mehr Wortzeichen mit `\w+`, dann ein oder mehr Zeichen "a" mit `a+`, und schließlich enden wir an einer Wortgrenze mit `\b`.
+In diesem Beispiel gleichen wir ein oder mehrere Zeichen eines Wortes mit `\w+` ab, dann ein oder mehrere Zeichen "a" mit `a+` und enden schließlich an einer Wortgrenze mit `\b`.
 
 ```js
 const wordEndingWithAs = /\w+a+\b/;
@@ -152,9 +169,9 @@ const delicateMessage = "This is Spartaaaaaaa";
 console.table(delicateMessage.match(wordEndingWithAs)); // [ "Spartaaaaaaa" ]
 ```
 
-### Zeichen zählen
+### Zählen von Zeichen
 
-In diesem Beispiel passen wir Wörter, die einen einzigen Buchstaben haben, Wörter, die zwischen 2 und 6 Buchstaben haben, und Wörter, die 13 oder mehr Buchstaben haben.
+In diesem Beispiel gleichen wir Wörter ab, die einen Buchstaben haben, Wörter, die zwischen 2 und 6 Buchstaben haben, und Wörter, die 13 oder mehr Buchstaben haben.
 
 ```js
 const singleLetterWord = /\b\w\b/g;
@@ -170,7 +187,7 @@ console.table(sentence.match(longWord)); // ["multiplication"]
 
 ### Optionales Zeichen
 
-In diesem Beispiel passen wir Wörter, die entweder mit "our" oder "or" enden.
+In diesem Beispiel gleichen wir Wörter ab, die entweder mit "our" oder "or" enden.
 
 ```js
 const britishText = "He asked his neighbour a favour.";
@@ -191,7 +208,7 @@ console.table(americanText.match(regexpEnding));
 
 ### Gierig versus nicht-gierig
 
-In diesem Beispiel passen wir ein oder mehr Wortzeichen oder Leerzeichen mit `[\w ]+` und `[\w ]+?`. Das erste ist gierig und das zweite ist nicht-gierig. Beachten Sie, wie das zweite aufhört, sobald es die minimalen Anforderungen erfüllt.
+In diesem Beispiel gleichen wir ein oder mehrere Zeichen eines Wortes oder Leerzeichen mit `[\w ]+` und `[\w ]+?` ab. Das erste ist gierig, das zweite nicht-gierig. Beachten Sie, wie der zweite bereits stoppt, sobald die minimale Anforderung erfüllt ist.
 
 ```js
 const text = "I must be getting somewhere near the center of the earth.";
@@ -209,10 +226,10 @@ console.log(text.match(nonGreedyRegexp));
 
 ## Siehe auch
 
-- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Leitfaden
-- [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) Leitfaden
-- [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) Leitfaden
-- [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) Leitfaden
+- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)-Leitfaden
+- [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes)-Leitfaden
+- [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)-Leitfaden
+- [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences)-Leitfaden
 - [`RegExp`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Referenz
-- [Quantifier: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)
+- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)-Referenz
+- [Quantifizierer: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)

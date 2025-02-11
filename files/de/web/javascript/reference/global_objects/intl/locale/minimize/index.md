@@ -2,16 +2,29 @@
 title: Intl.Locale.prototype.minimize()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/minimize
 l10n:
-  sourceCommit: fb85334ffa4a2c88d209b1074909bee0e0abd57a
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`minimize()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen versucht,
-Informationen über diese Locale zu entfernen, die durch den Aufruf von
-{{jsxref("Intl/Locale/maximize", "maximize()")}} hinzugefügt würden.
+Die **`minimize()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen versucht, Informationen über diese Locale zu entfernen, die durch den Aufruf von {{jsxref("Intl/Locale/maximize", "maximize()")}} hinzugefügt werden würden.
 
-{{EmbedInteractiveExample("pages/js/intl-locale-prototype-minimize.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.Locale.prototype.minimize()")}}
+
+```js interactive-example
+const english = new Intl.Locale("en-Latn-US");
+const korean = new Intl.Locale("ko-Kore-KR");
+const arabic = new Intl.Locale("ar-Arab-EG");
+
+console.log(english.minimize().baseName);
+// Expected output: "en"
+
+console.log(korean.minimize().baseName);
+// Expected output: "ko"
+
+console.log(arabic.minimize().baseName);
+// Expected output: "ar"
+```
 
 ## Syntax
 
@@ -25,23 +38,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine {{jsxref("Intl.Locale")}}-Instanz, deren `baseName`-Eigenschaft das Ergebnis des
-[Remove Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags)-Algorithmus zurückgibt,
-der auf _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_ ausgeführt wurde.
+Eine {{jsxref("Intl.Locale")}}-Instanz, deren `baseName`-Eigenschaft das Ergebnis des [Remove Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags)-Algorithmus liefert, der auf _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_ ausgeführt wird.
 
 ## Beschreibung
 
-Diese Methode führt das Gegenteil von {{jsxref("Intl/Locale/maximize", "maximize()")}} durch,
-indem sie alle Sprach-, Skript- oder Regionsuntertags aus dem Sprachbezeichner der Locale entfernt
-(im Wesentlichen den Inhalt von `baseName`). Dies ist nützlich, wenn überflüssige Untertags im
-Sprachbezeichner vorhanden sind; beispielsweise kann "en-Latn" zu "en" vereinfacht werden,
-da "Latn" das einzige Skript ist, das zur Darstellung von Englisch verwendet wird.
-`minimize()` betrifft nur die Hauptuntertags, die den
-[Sprachbezeichner](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) bilden:
-Sprach-, Skript- und Regionsuntertags. Andere Untertags nach dem "-u"
-im Locale-Bezeichner werden als Erweiterungsuntertags bezeichnet und sind von der
-`minimize()`-Methode nicht betroffen. Beispiele für diese Untertags sind
-{{jsxref("Intl/Locale/hourCycle", "hourCycle")}}, {{jsxref("Intl/Locale/calendar", "calendar")}} und {{jsxref("Intl/Locale/numeric", "numeric")}}.
+Diese Methode führt das Gegenteil von {{jsxref("Intl/Locale/maximize", "maximize()")}} aus, indem sie alle Sprach-, Skript- oder Regions-Subtags aus dem Sprachkennzeichen der Locale (im Wesentlichen der Inhalt von `baseName`) entfernt. Dies ist nützlich, wenn überflüssige Subtags im Sprachkennzeichen enthalten sind; beispielsweise kann "en-Latn" zu "en" vereinfacht werden, da "Latn" das einzige Skript ist, das zur Darstellung der englischen Sprache verwendet wird. `minimize()` betrifft nur die Haupt-Subtags, die das [Sprachkennzeichen](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) ausmachen: Sprach-, Skript- und Regions-Subtags. Andere Subtags nach dem "-u" im Locale-Identifier werden als Erweiterungs-Subtags bezeichnet und werden von der `minimize()`-Methode nicht beeinflusst. Beispiele für diese Subtags sind {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}, {{jsxref("Intl/Locale/calendar", "calendar")}} und {{jsxref("Intl/Locale/numeric", "numeric")}}.
 
 ## Beispiele
 

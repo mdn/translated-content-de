@@ -2,14 +2,26 @@
 title: Array.prototype.copyWithin()
 slug: Web/JavaScript/Reference/Global_Objects/Array/copyWithin
 l10n:
-  sourceCommit: 6e8ca9ecc4bfd14ea5c46d4817f189eecacb8296
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`copyWithin()`**-Methode von {{jsxref("Array")}}-Instanzen kopiert seicht einen Teil dieses Arrays an eine andere Stelle im gleichen Array und gibt dieses Array zurück, ohne seine Länge zu ändern.
+Die **`copyWithin()`**-Methode von {{jsxref("Array")}}-Instanzen kopiert seicht einen Teil dieses Arrays an eine andere Position im gleichen Array und gibt dieses Array zurück, ohne dessen Länge zu ändern.
 
-{{EmbedInteractiveExample("pages/js/array-copywithin.html")}}
+{{InteractiveExample("JavaScript Demo: Array.copyWithin()")}}
+
+```js interactive-example
+const array1 = ["a", "b", "c", "d", "e"];
+
+// Copy to index 0 the element at index 3
+console.log(array1.copyWithin(0, 3, 4));
+// Expected output: Array ["d", "b", "c", "d", "e"]
+
+// Copy to index 1 all elements from index 3 to the end
+console.log(array1.copyWithin(1, 3));
+// Expected output: Array ["d", "d", "e", "d", "e"]
+```
 
 ## Syntax
 
@@ -21,22 +33,22 @@ copyWithin(target, start, end)
 ### Parameter
 
 - `target`
-  - : Nullbasierter Index, an dem die Sequenz kopiert wird, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Dies entspricht der Stelle, an die das Element von `start` kopiert wird, und alle Elemente zwischen `start` und `end` werden an nachfolgende Indizes kopiert.
-    - Negative Indizes zählen vom Ende des Arrays zurück — wenn `-array.length <= target < 0`, wird `target + array.length` verwendet.
+  - : Index (nullbasiert), an dem die Sequenz kopiert werden soll, [konvertiert zu einer Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Dieser Index gibt an, wo das Element von `start` kopiert wird, und alle Elemente zwischen `start` und `end` werden in aufeinanderfolgende Indizes kopiert.
+    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= target < 0`, wird `target + array.length` verwendet.
     - Wenn `target < -array.length`, wird `0` verwendet.
     - Wenn `target >= array.length`, wird nichts kopiert.
-    - Wenn `target` nach der Normalisierung hinter `start` positioniert ist, wird nur bis zum Ende von `array.length` kopiert (mit anderen Worten, `copyWithin()` erweitert das Array nie).
+    - Wenn `target` nach der Normalisierung hinter `start` positioniert ist, wird nur bis zum Ende von `array.length` kopiert (mit anderen Worten, `copyWithin()` erweitert das Array niemals).
 - `start`
-  - : Nullbasierter Index, von dem begonnen wird, Elemente zu kopieren, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Negative Indizes zählen vom Ende des Arrays zurück — wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
+  - : Index (nullbasiert), an dem mit dem Kopieren von Elementen begonnen wird, [konvertiert zu einer Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
     - Wenn `start < -array.length`, wird `0` verwendet.
     - Wenn `start >= array.length`, wird nichts kopiert.
 - `end` {{optional_inline}}
-  - : Nullbasierter Index, an dem das Kopieren der Elemente endet, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `copyWithin()` kopiert bis, aber nicht einschließlich `end`.
-    - Negative Indizes zählen vom Ende des Arrays zurück — wenn `-array.length <= end < 0`, wird `end + array.length` verwendet.
+  - : Index (nullbasiert), an dem das Kopieren von Elementen endet, [konvertiert zu einer Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `copyWithin()` kopiert bis, aber nicht einschließlich `end`.
+    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= end < 0`, wird `end + array.length` verwendet.
     - Wenn `end < -array.length`, wird `0` verwendet.
-    - Wenn `end >= array.length` oder `end` weggelassen wird, wird `array.length` verwendet, wodurch alle Elemente bis zum Ende kopiert werden.
-    - Wenn `end` eine Position vor oder an der Position impliziert, die `start` impliziert, wird nichts kopiert.
+    - Wenn `end >= array.length` oder `end` nicht angegeben ist, wird `array.length` verwendet, wodurch alle Elemente bis zum Ende kopiert werden.
+    - Wenn `end` eine Position angibt, die vor oder an der von `start` angegebenen Position liegt, wird nichts kopiert.
 
 ### Rückgabewert
 
@@ -44,24 +56,24 @@ Das modifizierte Array.
 
 ## Beschreibung
 
-Die `copyWithin()`-Methode funktioniert ähnlich wie C und C++'s `memmove` und ist eine hochperformante Methode, um die Daten eines {{jsxref("Array")}} zu verschieben. Dies gilt besonders für die Methode {{jsxref("TypedArray/copyWithin", "TypedArray")}} mit dem gleichen Namen. Die Sequenz wird als ein Vorgang kopiert und eingefügt; die eingefügte Sequenz hat die kopierten Werte auch dann, wenn der Kopier- und Einfügebereich überlappen.
+Die Methode `copyWithin()` arbeitet ähnlich wie `memmove` in C und C++ und ist eine hochleistungsfähige Methode, um die Daten eines {{jsxref("Array")}} zu verschieben. Dies gilt besonders für die {{jsxref("TypedArray/copyWithin", "TypedArray")}}-Methode gleichen Namens. Die Sequenz wird als eine Operation kopiert und eingefügt; die eingefügte Sequenz hat die kopierten Werte, selbst wenn sich die Bereiche für Kopieren und Einfügen überlappen.
 
-Da `undefined` beim Konvertieren in eine Ganzzahl zu `0` wird, hat das Weglassen des `start`-Parameters denselben Effekt, als würde `0` übergeben, was das gesamte Array an die Zielposition kopiert, was einem Rechtsschieben entspricht, bei dem die rechte Grenze abgeschnitten und die linke Grenze dupliziert wird. Dieses Verhalten kann Leser Ihres Codes verwirren, daher sollten Sie explizit `0` als `start` übergeben.
+Da `undefined` bei der Konvertierung zu einer Ganzzahl `0` wird, hat das Weglassen des Parameters `start` denselben Effekt wie das Übergeben von `0`. Dies kopiert das gesamte Array an die Zielposition, was einer Rechtsverschiebung entspricht, bei der die rechte Grenze abgeschnitten und die linke Grenze dupliziert wird. Dieses Verhalten kann für Leser Ihres Codes verwirrend sein, daher sollten Sie `0` explizit als `start` übergeben.
 
 ```js
 console.log([1, 2, 3, 4, 5].copyWithin(2));
 // [1, 2, 1, 2, 3]; move all elements to the right by 2 positions
 ```
 
-Die `copyWithin()`-Methode ist eine [verändernde Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie verändert nicht die Länge von `this`, aber sie wird den Inhalt von `this` ändern und bei Bedarf neue Eigenschaften erstellen oder vorhandene löschen.
+Die Methode `copyWithin()` ist eine [mutierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie ändert nicht die Länge des Arrays `this`, aber sie verändert den Inhalt von `this` und erstellt neue Eigenschaften oder entfernt bestehende, falls erforderlich.
 
-Die `copyWithin()`-Methode bewahrt leere Stellen. Wenn der zu kopierende Bereich [lückenhaft](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist, werden die entsprechenden neuen Indizes der leeren Stellen [gelöscht](/de/docs/Web/JavaScript/Reference/Operators/delete) und werden ebenfalls leere Stellen.
+Die Methode `copyWithin()` bewahrt leere Stellen. Falls der zu kopierende Bereich [lückenhaft](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist, werden die entsprechenden neuen Indizes der leeren Stellen [gelöscht](/de/docs/Web/JavaScript/Reference/Operators/delete) und ebenfalls zu leeren Stellen.
 
-Die `copyWithin()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlenschlüsselbasierte Eigenschaften hat. Obwohl Strings auch array-ähnlich sind, ist diese Methode nicht geeignet, um auf ihnen angewendet zu werden, da Strings unveränderlich sind.
+Die Methode `copyWithin()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlige Schlüssel-Eigenschaften hat. Obwohl Strings ebenfalls array-ähnlich sind, ist diese Methode nicht geeignet, um auf ihnen angewendet zu werden, da Strings unveränderlich sind.
 
 ## Beispiele
 
-### Verwenden von copyWithin()
+### Verwendung von copyWithin()
 
 ```js
 console.log([1, 2, 3, 4, 5].copyWithin(0, 3));
@@ -74,9 +86,9 @@ console.log([1, 2, 3, 4, 5].copyWithin(-2, -3, -1));
 // [1, 2, 3, 3, 4]
 ```
 
-### Verwenden von copyWithin() auf lückenhaften Arrays
+### Verwendung von copyWithin() auf lückenhaften Arrays
 
-`copyWithin()` wird leere Stellen propagieren.
+`copyWithin()` propagiert leere Stellen.
 
 ```js
 console.log([1, , 3].copyWithin(2, 1, 2)); // [1, empty, empty]
@@ -84,7 +96,7 @@ console.log([1, , 3].copyWithin(2, 1, 2)); // [1, empty, empty]
 
 ### Aufrufen von copyWithin() auf Nicht-Array-Objekten
 
-Die `copyWithin()`-Methode liest die `length`-Eigenschaft von `this` und manipuliert dann die beteiligten ganzzahligen Indizes.
+Die Methode `copyWithin()` liest die Eigenschaft `length` von `this` und manipuliert die beteiligten ganzzahligen Indizes.
 
 ```js
 const arrayLike = {
@@ -109,6 +121,6 @@ console.log(Array.prototype.copyWithin.call(arrayLike, 3, 1));
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.copyWithin` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [Leitfaden für indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("TypedArray.prototype.copyWithin()")}}

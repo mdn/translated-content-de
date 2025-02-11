@@ -2,14 +2,29 @@
 title: Math.abs()
 slug: Web/JavaScript/Reference/Global_Objects/Math/abs
 l10n:
-  sourceCommit: dc90e6a09235136e0e5113e1fab2c11053e467d7
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
 Die statische Methode **`Math.abs()`** gibt den Absolutwert einer Zahl zurück.
 
-{{EmbedInteractiveExample("pages/js/math-abs.html")}}
+{{InteractiveExample("JavaScript Demo: Math.abs()")}}
+
+```js interactive-example
+function difference(a, b) {
+  return Math.abs(a - b);
+}
+
+console.log(difference(3, 5));
+// Expected output: 2
+
+console.log(difference(5, 3));
+// Expected output: 2
+
+console.log(difference(1.23456, 7.89012));
+// Expected output: 6.6555599999999995
+```
 
 ## Syntax
 
@@ -24,11 +39,11 @@ Math.abs(x)
 
 ### Rückgabewert
 
-Der Absolutwert von `x`. Wenn `x` negativ oder `-0` ist, wird die entgegengesetzte Zahl `-x` (die nicht negativ ist) zurückgegeben. Andernfalls wird `x` selbst zurückgegeben. Das Ergebnis ist daher immer eine positive Zahl oder `0`.
+Der Absolutwert von `x`. Falls `x` negativ oder `-0` ist, wird die entgegengesetzte Zahl `-x` (die nicht negativ ist) zurückgegeben. Andernfalls wird `x` selbst zurückgegeben. Das Ergebnis ist daher immer eine positive Zahl oder `0`.
 
 ## Beschreibung
 
-Da `abs()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.abs()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `abs()` eine statische Methode von `Math` ist, wird sie immer als `Math.abs()` verwendet, anstatt als Methode eines erstellten `Math`-Objekts (da `Math` kein Konstruktor ist).
 
 ## Beispiele
 
@@ -43,7 +58,7 @@ Math.abs(1); // 1
 Math.abs(Infinity); // Infinity
 ```
 
-### Typumwandlung des Parameters
+### Umwandlung des Parameters
 
 `Math.abs()` [wandelt seinen Parameter in eine Zahl um](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). Nicht umwandelbare Werte werden zu `NaN`, wodurch `Math.abs()` ebenfalls `NaN` zurückgibt.
 

@@ -2,7 +2,7 @@
 title: SharedArrayBuffer()-Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/SharedArrayBuffer
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
@@ -12,7 +12,15 @@ l10n:
 
 Der **`SharedArrayBuffer()`**-Konstruktor erstellt {{jsxref("SharedArrayBuffer")}}-Objekte.
 
-{{EmbedInteractiveExample("pages/js/sharedarraybuffer-constructor.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: SharedArrayBuffer Constructor", "shorter")}}
+
+```js interactive-example
+// Create a SharedArrayBuffer with a size in bytes
+const buffer = new SharedArrayBuffer(8);
+
+console.log(buffer.byteLength);
+// Expected output: 8
+```
 
 ## Syntax
 
@@ -21,26 +29,26 @@ new SharedArrayBuffer(length)
 new SharedArrayBuffer(length, options)
 ```
 
-> **Hinweis:** `SharedArrayBuffer()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Wird versucht, ihn ohne `new` aufzurufen, wird ein {{jsxref("TypeError")}} ausgelöst.
+> **Hinweis:** `SharedArrayBuffer()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, ihn ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `length`
-  - : Die Größe des zu erstellenden Array-Buffers in Bytes.
+  - : Die Größe des zu erstellenden Arraypuffers in Bytes.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
+  - : Ein Objekt, das folgende Eigenschaften enthalten kann:
     - `maxByteLength` {{optional_inline}}
-      - : Die maximale Größe in Bytes, auf die der Shared Array Buffer vergrößert werden kann.
+      - : Die maximale Größe, in Bytes, bis zu der der gemeinsam genutzte Arraypuffer erweitert werden kann.
 
 ### Rückgabewert
 
-Ein neues `SharedArrayBuffer`-Objekt der angegebenen Größe, dessen {{jsxref("SharedArrayBuffer/maxByteLength", "maxByteLength")}}-Eigenschaft auf das angegebene `maxByteLength` gesetzt ist, falls eines angegeben wurde. Sein Inhalt wird auf 0 initialisiert.
+Ein neues `SharedArrayBuffer`-Objekt der angegebenen Größe, dessen {{jsxref("SharedArrayBuffer/maxByteLength", "maxByteLength")}}-Eigenschaft auf den angegebenen `maxByteLength` gesetzt wird, falls einer angegeben wurde. Sein Inhalt ist auf 0 initialisiert.
 
 ## Beispiele
 
-### Immer den new-Operator verwenden, um einen SharedArrayBuffer zu erstellen
+### Verwenden Sie immer den new-Operator, um einen SharedArrayBuffer zu erstellen
 
-`SharedArrayBuffer`-Konstruktoren müssen mit einem {{jsxref("Operators/new", "new")}}-Operator konstruiert werden. Das Aufrufen eines `SharedArrayBuffer`-Konstruktors als Funktion ohne `new` führt zu einem {{jsxref("TypeError")}}.
+`SharedArrayBuffer`-Konstruktoren müssen mit einem {{jsxref("Operators/new", "new")}}-Operator konstruiert werden. Der Aufruf eines `SharedArrayBuffer`-Konstruktors als Funktion ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ```js example-bad
 const sab = SharedArrayBuffer(1024);
@@ -52,9 +60,9 @@ const sab = SharedArrayBuffer(1024);
 const sab = new SharedArrayBuffer(1024);
 ```
 
-### Wachsen eines vergrößerbaren SharedArrayBuffer
+### Einen erweiterbaren SharedArrayBuffer vergrößern
 
-In diesem Beispiel erstellen wir einen 8-Byte-Buffer, der auf eine maximale Länge von 16 Bytes vergrößerbar ist, und vergrößern ihn dann mit {{jsxref("SharedArrayBuffer/grow", "grow()")}} auf 12 Bytes:
+In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der bis zu einer maximalen Länge von 16 Byte erweiterbar ist. Anschließend vergrößern wir ihn mit {{jsxref("SharedArrayBuffer/grow", "grow()")}} auf 12 Byte:
 
 ```js
 const buffer = new SharedArrayBuffer(8, { maxByteLength: 16 });
@@ -63,7 +71,7 @@ buffer.grow(12);
 ```
 
 > [!NOTE]
-> Es wird empfohlen, `maxByteLength` auf den kleinstmöglichen Wert für Ihren Anwendungsfall zu setzen. Es sollte niemals `1073741824` (1GB) überschreiten, um das Risiko von "Out of Memory"-Fehlern zu verringern.
+> Es wird empfohlen, dass `maxByteLength` auf den kleinstmöglichen Wert für Ihren Anwendungsfall gesetzt wird. Er sollte niemals `1073741824` (1GB) überschreiten, um das Risiko von Speicherüberlauf-Fehlern zu reduzieren.
 
 ## Spezifikationen
 

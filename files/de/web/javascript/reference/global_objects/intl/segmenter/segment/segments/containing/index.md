@@ -2,14 +2,25 @@
 title: Segments.prototype.containing()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments/containing
 l10n:
-  sourceCommit: 27180875516cc311342e74b596bfb589b7211e0c
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`containing()`** Methode von [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments) Instanzen gibt ein Objekt zurück, das das Segment in der Zeichenkette beschreibt, das die Codeeinheit am angegebenen Index enthält.
+Die **`containing()`**-Methode von [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Instanzen gibt ein Objekt zurück, das das Segment in der Zeichenkette beschreibt, das die Code-Einheit am angegebenen Index enthält.
 
-{{EmbedInteractiveExample("pages/js/segments-prototype-containing.html")}}
+{{InteractiveExample("JavaScript Demo: Segments.prototype.containing")}}
+
+```js interactive-example
+const segmenterFr = new Intl.Segmenter("fr", { granularity: "word" });
+const string1 = "Que ma joie demeure";
+
+const segments = segmenterFr.segment(string1);
+
+console.log(segments.containing(5));
+// Expected output:
+// Object {segment: 'ma', index: 4, input: 'Que ma joie demeure', isWordLike: true}
+```
 
 ## Syntax
 
@@ -20,20 +31,20 @@ containing(codeUnitIndex)
 ### Parameter
 
 - `codeUnitIndex` {{optional_inline}}
-  - : Eine Zahl, die den Index der Codeeinheit in der ursprünglichen Eingabezeichenkette angibt. Wird der Wert weggelassen, ist der Standardwert `0`.
+  - : Eine Zahl, die den Index der Code-Einheit in der ursprünglichen Eingabezeichenkette angibt. Wenn der Wert weggelassen wird, ist der Standardwert `0`.
 
 ### Rückgabewert
 
-Ein Objekt, das das Segment der ursprünglichen Zeichenkette mit den folgenden Eigenschaften beschreibt, oder `undefined`, falls der angegebene Indexwert außerhalb des gültigen Bereichs liegt.
+Ein Objekt, das das Segment der ursprünglichen Zeichenkette mit den folgenden Eigenschaften beschreibt, oder `undefined`, wenn der angegebene Index außerhalb der Grenzen liegt.
 
 - `segment`
-  - : Ein String, der das aus der ursprünglichen Eingabezeichenkette extrahierte Segment enthält.
+  - : Eine Zeichenkette, die das aus der ursprünglichen Eingabezeichenkette extrahierte Segment enthält.
 - `index`
-  - : Der Codeeinheitenindex in der ursprünglichen Eingabezeichenkette, an dem das Segment beginnt.
+  - : Der Code-Einheits-Index in der ursprünglichen Eingabezeichenkette, an dem das Segment beginnt.
 - `input`
   - : Die vollständige Eingabezeichenkette, die segmentiert wurde.
 - `isWordLike`
-  - : Ein boolescher Wert nur, wenn `granularity` `"word"` ist; andernfalls `undefined`. Wenn `granularity` `"word"` ist, dann ist `isWordLike` `true`, wenn das Segment wortähnlich ist (d. h., aus Buchstaben/Zahlen/Ideogrammen/etc. besteht); andernfalls `false`.
+  - : Ein Boolean-Wert nur, wenn `granularity` `"word"` ist; andernfalls `undefined`. Wenn `granularity` `"word"` ist, ist `isWordLike` `true`, wenn das Segment wortähnlich ist (d.h. aus Buchstaben/Zahlen/Ideogrammen/etc. besteht); andernfalls `false`.
 
 ## Beispiele
 

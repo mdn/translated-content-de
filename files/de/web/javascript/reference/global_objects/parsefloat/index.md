@@ -2,14 +2,29 @@
 title: parseFloat()
 slug: Web/JavaScript/Reference/Global_Objects/parseFloat
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Objects")}}
 
-Die **`parseFloat()`** Funktion analysiert ein Zeichenkettenargument und gibt eine Gleitkommazahl zurück.
+Die **`parseFloat()`**-Funktion analysiert ein String-Argument und gibt eine Gleitkommazahl zurück.
 
-{{EmbedInteractiveExample("pages/js/globalprops-parsefloat.html")}}
+{{InteractiveExample("JavaScript Demo: Standard built-in objects - parseFloat()")}}
+
+```js interactive-example
+function circumference(r) {
+  return parseFloat(r) * 2.0 * Math.PI;
+}
+
+console.log(circumference(4.567));
+// Expected output: 28.695307297889173
+
+console.log(circumference("4.567abcdefgh"));
+// Expected output: 28.695307297889173
+
+console.log(circumference("abcdefgh"));
+// Expected output: NaN
+```
 
 ## Syntax
 
@@ -20,29 +35,29 @@ parseFloat(string)
 ### Parameter
 
 - `string`
-  - : Der zu analysierende Wert, [in eine Zeichenkette umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende {{Glossary("whitespace", "Leerzeichen")}} in diesem Argument werden ignoriert.
+  - : Der zu analysierende Wert, [in einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende {{Glossary("whitespace", "Leerzeichen")}} in diesem Argument werden ignoriert.
 
 ### Rückgabewert
 
-Eine Gleitkommazahl, die aus der gegebenen `string` analysiert wurde, oder {{jsxref("NaN")}}, wenn das erste Nicht-Leerzeichenzeichen nicht in eine Zahl umgewandelt werden kann.
+Eine aus dem gegebenen `string` analysierte Gleitkommazahl oder {{jsxref("NaN")}}, wenn das erste Nicht-Leerzeichen-Zeichen nicht in eine Zahl umgewandelt werden kann.
 
 > [!NOTE]
-> JavaScript unterscheidet auf Sprachebene nicht zwischen "Gleitkommazahlen" und "Ganzzahlen". [`parseInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/parseInt) und `parseFloat()` unterscheiden sich nur in ihrem Analyseverhalten, aber nicht unbedingt in ihren Rückgabewerten. Zum Beispiel würden `parseInt("42")` und `parseFloat("42")` denselben Wert zurückgeben: eine {{jsxref("Number")}} 42.
+> JavaScript unterscheidet auf Sprachebene nicht zwischen "Gleitkommazahlen" und "Ganzzahlen". [`parseInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/parseInt) und `parseFloat()` unterscheiden sich nur im Analyseverhalten, aber nicht zwingend in ihren Rückgabewerten. Zum Beispiel würden `parseInt("42")` und `parseFloat("42")` denselben Wert zurückgeben: eine {{jsxref("Number")}} 42.
 
 ## Beschreibung
 
-Die `parseFloat` Funktion konvertiert ihr erstes Argument in eine Zeichenkette, analysiert diese Zeichenkette als dezimale Zahlenliterale und gibt dann eine Zahl oder `NaN` zurück. Die akzeptierte Zahlensyntax kann wie folgt zusammengefasst werden:
+Die Funktion `parseFloat` konvertiert ihr erstes Argument in einen String, analysiert diesen String als ein literales Dezimalzahlensystem und gibt dann eine Zahl oder `NaN` zurück. Die von ihr akzeptierte Syntax von Zahlen kann wie folgt zusammengefasst werden:
 
-- Die von `parseFloat()` akzeptierten Zeichen sind Pluszeichen (`+`), Minuszeichen (`-` U+002D HYPHEN-MINUS), Dezimalziffern (`0` – `9`), Dezimalpunkt (`.`), Exponentenzeichen (`e` oder `E`) und das `"Infinity"` Literal.
-- Die `+`/`-` Zeichen können nur strikt am Anfang der Zeichenkette oder unmittelbar nach dem `e`/`E` Zeichen erscheinen. Der Dezimalpunkt kann nur einmal und nur vor dem `e`/`E` Zeichen erscheinen. Das `e`/`E` Zeichen kann nur einmal erscheinen und nur, wenn sich mindestens eine Ziffer davor befindet.
-- Führende Leerzeichen im Argument werden abgeschnitten und ignoriert.
-- `parseFloat()` kann auch {{jsxref("Infinity")}} oder `-Infinity` analysieren und zurückgeben, wenn die Zeichenkette mit `"Infinity"` oder `"-Infinity"` beginnt, gefolgt von keinen oder mehreren Leerzeichen.
-- `parseFloat()` wählt das längste Teilstück, das von Anfang an einen gültigen Zahlenliteral erzeugt. Wenn es auf ein ungültiges Zeichen stößt, gibt es die Zahl zurück, die bis zu diesem Punkt dargestellt wird, und ignoriert das ungültige Zeichen und alle folgenden Zeichen.
-- Wenn das erste Zeichen des Arguments keinen legalen Zahlenliteral nach der obigen Syntax starten kann, gibt `parseFloat` {{jsxref("NaN")}} zurück.
+- Die von `parseFloat()` akzeptierten Zeichen sind Pluszeichen (`+`), Minuszeichen (`-` U+002D HYPHEN-MINUS), Dezimalziffern (`0` – `9`), Dezimalpunkt (`.`), Exponentenzeichen (`e` oder `E`) und das Literal `"Infinity"`.
+- Die Zeichen `+`/`-` können nur streng am Anfang des Strings oder direkt nach dem Zeichen `e`/`E` erscheinen. Der Dezimalpunkt kann nur einmal und nur vor dem Zeichen `e`/`E` erscheinen. Das Zeichen `e`/`E` kann ebenfalls nur einmal erscheinen und nur, wenn davor mindestens eine Ziffer vorhanden ist.
+- Führende Leerzeichen im Argument werden entfernt und ignoriert.
+- `parseFloat()` kann auch {{jsxref("Infinity")}} oder `-Infinity` analysieren und zurückgeben, wenn der String mit `"Infinity"` oder `"-Infinity"` beginnt, vorausgesetzt, davor stehen keine oder beliebig viele Leerzeichen.
+- `parseFloat()` wählt die längste Teilfolge vom Anfang, die ein gültiges Zahlenliteral ergibt. Wenn es ein ungültiges Zeichen trifft, gibt es die Zahl zurück, die bis zu diesem Punkt dargestellt wurde, und ignoriert das ungültige Zeichen sowie alle nachfolgenden Zeichen.
+- Wenn das erste Zeichen des Arguments kein zulässiges Zahlenliteral starten kann, gibt `parseFloat` {{jsxref("NaN")}} zurück.
 
-Syntaxmäßig analysiert `parseFloat()` einen Teil der Syntax, den die [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number) Funktion akzeptiert. Nämlich unterstützt `parseFloat()` keine nicht-dezimale Literale mit den Präfixen `0x`, `0b` oder `0o`, aber unterstützt alles andere. `parseFloat()` ist jedoch nachgiebiger als `Number()`, da es nachfolgende ungültige Zeichen ignoriert, die `Number()` dazu veranlassen würden, `NaN` zurückzugeben.
+Syntaxtechnisch analysiert `parseFloat()` eine Teilmenge der Syntax, die die [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/Number)-Funktion akzeptiert. Namentlich unterstützt `parseFloat()` keine nicht-dezimalen Literale mit den Präfixen `0x`, `0b` oder `0o`, unterstützt jedoch alles andere. Im Gegensatz dazu ist `parseFloat()` nachsichtiger als `Number()`, da es nachfolgende ungültige Zeichen ignoriert, die `Number()` dazu veranlassen würden, `NaN` zurückzugeben.
 
-Ähnlich wie bei Zahlenliteralen und `Number()` kann die von `parseFloat()` zurückgegebene Zahl nicht genau der Zahl entsprechen, die durch die Zeichenkette dargestellt wird, aufgrund von Gleitkommabereich und Ungenauigkeit. Für Zahlen außerhalb des Bereichs `-1.7976931348623158e+308` – `1.7976931348623158e+308` (siehe {{jsxref("Number.MAX_VALUE")}}) wird `-Infinity` oder `Infinity` zurückgegeben.
+Ähnlich wie bei Zahlenliteralen und `Number()` entspricht die von `parseFloat()` zurückgegebene Zahl möglicherweise nicht genau der Zahl, die durch den String dargestellt wird, aufgrund des Gleitkommadatenbereichs und der Ungenauigkeit. Für Zahlen außerhalb des Bereichs `-1.7976931348623158e+308` – `1.7976931348623158e+308` (siehe {{jsxref("Number.MAX_VALUE")}}) wird `-Infinity` oder `Infinity` zurückgegeben.
 
 ## Beispiele
 
@@ -72,7 +87,7 @@ Das folgende Beispiel gibt `NaN` zurück:
 parseFloat("FF2");
 ```
 
-Angeekdotet, da die Zeichenkette `NaN` selbst eine ungültige Syntax ist, wie sie von `parseFloat()` akzeptiert wird, gibt auch das Übergeben von `"NaN"` `NaN` zurück.
+Anmerkung: Da der String `NaN` selbst eine ungültige Syntax ist, wie sie von `parseFloat()` akzeptiert wird, gibt auch das Übergeben von `"NaN"` `NaN` zurück.
 
 ```js
 parseFloat("NaN"); // NaN
@@ -80,14 +95,14 @@ parseFloat("NaN"); // NaN
 
 ### Rückgabe von Infinity
 
-Unendlichkeit wird zurückgegeben, wenn die Zahl außerhalb des Bereichs des Doppelpräzisions-64-Bit IEEE 754-2019-Formats liegt:
+"Wertbereiche außerhalb des Bereichs des Double-Precision-64-Bit-IEEE-754-2019-Formats" erzeugen Unendlichkeitswerte:
 
 ```js
 parseFloat("1.7976931348623159e+308"); // Infinity
 parseFloat("-1.7976931348623159e+308"); // -Infinity
 ```
 
-Unendlichkeit wird auch zurückgegeben, wenn die Zeichenkette mit `"Infinity"` oder `"-Infinity"` beginnt:
+Infinity wird auch zurückgegeben, wenn der String mit `"Infinity"` oder `"-Infinity"` beginnt:
 
 ```js
 parseFloat("Infinity"); // Infinity
@@ -96,14 +111,14 @@ parseFloat("-Infinity"); // -Infinity
 
 ### Interaktion mit BigInt-Werten
 
-`parseFloat()` verarbeitet keine {{jsxref("BigInt")}} Werte. Es stoppt beim `n` Zeichen und behandelt die voranstehende Zeichenkette als normale Ganzzahl, was zu einem möglichen Präzisionsverlust führt. Wenn ein BigInt-Wert an `parseFloat()` übergeben wird, wird er in eine Zeichenkette konvertiert, und die Zeichenkette wird als Gleitkommazahl analysiert, was ebenfalls zu einem Präzisionsverlust führen kann.
+`parseFloat()` verarbeitet keine {{jsxref("BigInt")}}-Werte. Es stoppt am Zeichen `n` und behandelt die vorangehenden Zeichen als eine normale Ganzzahl, was zu einem möglichen Präzisionsverlust führen kann. Wenn ein BigInt-Wert an `parseFloat()` übergeben wird, wird er in einen String konvertiert, und der String wird als Gleitkommazahl analysiert, was ebenfalls zu einem Präzisionsverlust führen kann.
 
 ```js example-bad
 parseFloat(900719925474099267n); // 900719925474099300
 parseFloat("900719925474099267n"); // 900719925474099300
 ```
 
-Sie sollten die Zeichenkette stattdessen an die [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) Funktion übergeben, ohne das abschließende `n` Zeichen.
+Sie sollten den String stattdessen an die [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt)-Funktion übergeben, ohne das abschließende `n`-Zeichen.
 
 ```js example-good
 BigInt("900719925474099267");

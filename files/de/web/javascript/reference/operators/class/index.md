@@ -1,17 +1,32 @@
 ---
-title: Klassenausdruck
+title: class-Ausdruck
 slug: Web/JavaScript/Reference/Operators/class
 l10n:
-  sourceCommit: 5bdcf72ed6ffc7d4fa878060a548869ed6ae149b
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Operators")}}
 
-Das **`class`** Schlüsselwort kann verwendet werden, um eine Klasse innerhalb eines Ausdrucks zu definieren.
+Das Schlüsselwort **`class`** kann verwendet werden, um eine Klasse innerhalb eines Ausdrucks zu definieren.
 
-Sie können Klassen auch mithilfe der [`class` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/class) definieren.
+Sie können Klassen auch mithilfe der [`class`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/class) definieren.
 
-{{EmbedInteractiveExample("pages/js/expressions-classexpression.html")}}
+{{InteractiveExample("JavaScript Demo: Expressions - class expression")}}
+
+```js interactive-example
+const Rectangle = class {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+  area() {
+    return this.height * this.width;
+  }
+};
+
+console.log(new Rectangle(5, 8).area());
+// Expected output: 40
+```
 
 ## Syntax
 
@@ -25,17 +40,17 @@ class name {
 ```
 
 > [!NOTE]
-> Eine [Ausdruckanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `class` beginnen, um Verwechslungen mit einer [`class` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/class) zu vermeiden. Das `class` Schlüsselwort leitet nur einen Ausdruck ein, wenn es in einem Kontext erscheint, der keine Anweisungen akzeptieren kann.
+> Eine [Ausdrucksanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `class` beginnen, um Verwechslungen mit einer [`class`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/class) zu vermeiden. Das Schlüsselwort `class` beginnt nur dann einen Ausdruck, wenn es in einem Kontext erscheint, der keine Anweisungen akzeptiert.
 
 ## Beschreibung
 
-Ein `class` Ausdruck ist dem [`class` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/class) sehr ähnlich und hat fast die gleiche Syntax. Wie bei `class` Deklarationen wird der Körper eines `class` Ausdrucks im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ausgeführt. Der Hauptunterschied zwischen einem `class` Ausdruck und einer `class` Deklaration ist der _Klassenname_, der in `class` Ausdrücken weggelassen werden kann, um _anonyme_ Klassen zu erstellen. Klassenausdrücke ermöglichen es Ihnen, Klassen neu zu definieren, während das erneute Deklarieren einer Klasse mit `class` Deklarationen einen {{jsxref("SyntaxError")}} auslöst. Siehe auch das Kapitel über [Klassen](/de/docs/Web/JavaScript/Reference/Classes) für weitere Informationen.
+Ein `class`-Ausdruck ist dem [`class`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/class) sehr ähnlich und hat fast die gleiche Syntax. Genau wie bei `class`-Deklarationen wird der Körper eines `class`-Ausdrucks im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ausgeführt. Der Hauptunterschied zwischen einem `class`-Ausdruck und einer `class`-Deklaration ist der _Klassenname_, der in `class`-Ausdrücken weggelassen werden kann, um _anonyme_ Klassen zu erstellen. `class`-Ausdrücke ermöglichen es Ihnen, Klassen neu zu definieren, während das erneute Deklarieren einer Klasse mit `class`-Deklarationen einen {{jsxref("SyntaxError")}} auslöst. Weitere Informationen finden Sie auch im Kapitel über [Klassen](/de/docs/Web/JavaScript/Reference/Classes).
 
 ## Beispiele
 
-### Ein einfacher Klassenausdruck
+### Ein grundlegender class-Ausdruck
 
-Dies ist nur ein anonymer Klassenausdruck, auf den Sie mit der Variablen `Foo` zugreifen können.
+Dies ist lediglich ein anonymer `class`-Ausdruck, auf den Sie mithilfe der Variablen `Foo` verweisen können.
 
 ```js
 const Foo = class {
@@ -50,9 +65,9 @@ instance.bar(); // "Hello World!"
 Foo.name; // "Foo"
 ```
 
-### Benannte Klassenausdrücke
+### Benannte class-Ausdrücke
 
-Wenn Sie innerhalb des Klassenkörpers auf die aktuelle Klasse verweisen möchten, können Sie einen _benannten Klassenausdruck_ erstellen. Der Name ist nur im Gültigkeitsbereich des Klassenausdrucks selbst sichtbar.
+Wenn Sie innerhalb des Klassenkörpers auf die aktuelle Klasse verweisen möchten, können Sie einen _benannten class-Ausdruck_ erstellen. Der Name ist nur im Kontext des `class`-Ausdrucks selbst sichtbar.
 
 ```js
 const Foo = class NamedFoo {

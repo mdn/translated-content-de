@@ -2,14 +2,27 @@
 title: Atomics.store()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/store
 l10n:
-  sourceCommit: a92a2bb31cf5d79808878701f0344a4eabf12963
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.store()`** speichert einen gegebenen Wert an der angegebenen Position im Array und gibt diesen Wert zurück.
+Die statische Methode **`Atomics.store()`** speichert einen angegebenen Wert an einer angegebenen Position im Array und gibt diesen Wert zurück.
 
-{{EmbedInteractiveExample("pages/js/atomics-store.html")}}
+{{InteractiveExample("JavaScript Demo: Atomics.store()")}}
+
+```js interactive-example
+// Create a SharedArrayBuffer with a size in bytes
+const buffer = new SharedArrayBuffer(16);
+const uint8 = new Uint8Array(buffer);
+uint8[0] = 5;
+
+console.log(Atomics.store(uint8, 0, 2));
+// Expected output: 2
+
+console.log(Atomics.load(uint8, 0));
+// Expected output: 2
+```
 
 ## Syntax
 
@@ -20,13 +33,13 @@ Atomics.store(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typ-Array. Eine der {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein Integer-Typed-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
-    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}}, oder
+    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
     {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der ein
-    `value` gespeichert werden soll.
+  - : Die Position im `typedArray`, an der der
+    `value` gespeichert wird.
 - `value`
   - : Die Zahl, die gespeichert werden soll.
 
@@ -39,7 +52,7 @@ Der Wert, der gespeichert wurde.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` im `typedArray` außerhalb des gültigen Bereichs liegt.
 
 ## Beispiele
 

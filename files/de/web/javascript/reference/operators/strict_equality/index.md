@@ -2,14 +2,28 @@
 title: Strikte Gleichheit (===)
 slug: Web/JavaScript/Reference/Operators/Strict_equality
 l10n:
-  sourceCommit: 934ba3b7968030a573a28346dfcb371e796075a3
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **strikte Gleichheitsoperator (`===`)** prüft, ob seine beiden Operanden gleich sind und gibt ein Boolesches Ergebnis zurück. Im Gegensatz zum [Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Equality) betrachtet der strikte Gleichheitsoperator Operanden unterschiedlichen Typs immer als unterschiedlich.
+Der **Operator für strikte Gleichheit (`===`)** überprüft, ob seine beiden Operanden gleich sind, und gibt ein boolesches Ergebnis zurück. Im Gegensatz zum [Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Equality) betrachtet der Operator für strikte Gleichheit Operanden unterschiedlichen Typs immer als verschieden.
 
-{{EmbedInteractiveExample("pages/js/expressions-strict-equality.html")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Strict equality operator")}}
+
+```js interactive-example
+console.log(1 === 1);
+// Expected output: true
+
+console.log("hello" === "hello");
+// Expected output: true
+
+console.log("1" === 1);
+// Expected output: false
+
+console.log(0 === false);
+// Expected output: false
+```
 
 ## Syntax
 
@@ -19,20 +33,19 @@ x === y
 
 ## Beschreibung
 
-Die strikten Gleichheitsoperatoren (`===` und `!==`) bieten die [IsStrictlyEqual](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#strict_equality_using) Semantik.
+Die Operatoren für strikte Gleichheit (`===` und `!==`) verwenden die [IsStrictlyEqual](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#strict_equality_using)-Semantik.
 
-- Wenn die Operanden unterschiedliche Typen haben, gibt `false` zurück.
-- Wenn beide Operanden Objekte sind, gibt `true` nur zurück, wenn sie sich auf dasselbe Objekt beziehen.
-- Wenn beide Operanden `null` sind oder beide Operanden `undefined` sind, gibt `true` zurück.
-- Wenn einer der Operanden `NaN` ist, gibt `false` zurück.
+- Wenn die Operanden unterschiedliche Typen haben, wird `false` zurückgegeben.
+- Wenn beide Operanden Objekte sind, wird `true` nur zurückgegeben, wenn sie auf dasselbe Objekt verweisen.
+- Wenn beide Operanden `null` sind oder beide `undefined` sind, wird `true` zurückgegeben.
+- Wenn einer der Operanden `NaN` ist, wird `false` zurückgegeben.
 - Andernfalls werden die Werte der beiden Operanden verglichen:
 
   - Zahlen müssen denselben numerischen Wert haben. `+0` und `-0` werden als derselbe Wert betrachtet.
   - Zeichenketten müssen dieselben Zeichen in derselben Reihenfolge haben.
-  - Boolesche Werte müssen beide `true` oder beide `false` sein.
+  - Booleans müssen entweder beide `true` oder beide `false` sein.
 
-Der bemerkenswerteste Unterschied zwischen diesem Operator und dem [Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Equality)
-(`==`) besteht darin, dass der `==` Operator versucht, die Operanden vor dem Vergleich in denselben Typ zu konvertieren, wenn sie unterschiedliche Typen haben.
+Der auffälligste Unterschied zwischen diesem Operator und dem [Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Equality) (`==`) ist, dass der `==`-Operator versucht, die Operanden vor dem Vergleich in den gleichen Typ zu konvertieren, wenn sie unterschiedliche Typen haben.
 
 ## Beispiele
 

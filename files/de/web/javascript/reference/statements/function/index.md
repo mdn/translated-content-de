@@ -2,16 +2,25 @@
 title: function
 slug: Web/JavaScript/Reference/Statements/function
 l10n:
-  sourceCommit: 3f91fdcc678991410f4f5adcbff44d1b3b1ede88
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Statements")}}
 
-Die **`function`**-Deklaration erstellt eine {{Glossary("binding", "Bindung")}} einer neuen Funktion zu einem gegebenen Namen.
+Die **`function`**-Deklaration erstellt eine {{Glossary("binding", "Bindung")}} einer neuen Funktion an einen gegebenen Namen.
 
-Sie können auch Funktionen mithilfe des [`function` Ausdrucks](/de/docs/Web/JavaScript/Reference/Operators/function) definieren.
+Sie können Funktionen auch mit dem [`function` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) definieren.
 
-{{EmbedInteractiveExample("pages/js/statement-function.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Statement - Function", "shorter")}}
+
+```js interactive-example
+function calcRectArea(width, height) {
+  return width * height;
+}
+
+console.log(calcRectArea(5, 6));
+// Expected output: 30
+```
 
 ## Syntax
 
@@ -30,30 +39,30 @@ function name(param0, param1, /* …, */ paramN) {
 ### Parameter
 
 - `name`
-  - : Der Funktionsname.
+  - : Der Name der Funktion.
 - `param` {{optional_inline}}
   - : Der Name eines formalen Parameters für die Funktion. Die maximale Anzahl von Argumenten variiert in verschiedenen Engines. Für die Syntax der Parameter siehe die [Funktionsreferenz](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
 - `statements` {{optional_inline}}
-  - : Die Anweisungen, die den Funktionskörper ausmachen.
+  - : Die Anweisungen, die den Funktionskörper bilden.
 
 ## Beschreibung
 
-Eine `function`-Deklaration erstellt ein {{jsxref("Function")}}-Objekt. Jedes Mal, wenn eine Funktion aufgerufen wird, gibt sie den Wert zurück, der durch die letzte ausgeführte {{jsxref("Statements/return", "return")}}-Anweisung angegeben ist, oder `undefined`, wenn das Ende des Funktionskörpers erreicht wird. Siehe [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) für detaillierte Informationen zu Funktionen.
+Eine `function`-Deklaration erstellt ein {{jsxref("Function")}}-Objekt. Jedes Mal, wenn eine Funktion aufgerufen wird, gibt sie den Wert zurück, der durch die zuletzt ausgeführte {{jsxref("Statements/return", "return")}}-Anweisung angegeben wird, oder `undefined`, wenn das Ende des Funktionskörpers erreicht wird. Detaillierte Informationen zu Funktionen finden Sie unter [Funktionen](/de/docs/Web/JavaScript/Reference/Functions).
 
 `function`-Deklarationen verhalten sich wie eine Mischung aus {{jsxref("Statements/var", "var")}} und {{jsxref("Statements/let", "let")}}:
 
-- Wie `let`, im strikten Modus, [sind Funktionsdeklarationen auf den am nächsten enthaltenen Block beschränkt](#block-level-funktionsdeklaration).
-- Wie `let` können Funktionsdeklarationen auf höchster Ebene eines Moduls oder innerhalb von Blöcken im strikten Modus nicht durch andere Deklarationen [erneut deklariert](#redeclarations) werden.
-- Wie `var` werden Funktionsdeklarationen auf höchster Ebene eines Skripts (strikt oder nicht strikt) zu Eigenschaften von {{jsxref("globalThis")}}. Funktionsdeklarationen auf höchster Ebene eines Skripts oder Funktionskörpers (strikt oder nicht strikt) können durch eine andere `function` oder `var` erneut deklariert werden.
-- Wie beide, können Funktionsdeklarationen neu zugewiesen werden, aber Sie sollten dies vermeiden.
-- Anders als bei beiden werden Funktionsdeklarationen [gehoben](#hoisting) zusammen mit ihrem Wert und können überall in ihrem Geltungsbereich aufgerufen werden.
+- Ähnlich wie `let` sind [Funktionserklärungen in strict mode auf den nächstgelegenen Block beschränkt](#block-level_function_declaration).
+- Ähnlich wie `let` können Funktionsdeklarationen auf der obersten Ebene eines Moduls oder innerhalb von Blöcken im strict mode nicht durch eine andere Deklaration [erneut deklariert](#redeclarations) werden.
+- Ähnlich wie `var` werden Funktionsdeklarationen auf der obersten Ebene eines Skripts (strict oder nicht-strict) zu Eigenschaften von {{jsxref("globalThis")}}. Funktionsdeklarationen auf der obersten Ebene eines Skripts oder Funktionskörpers (strict oder nicht-strict) können durch eine andere `function` oder `var` erneut deklariert werden.
+- Ähnlich wie bei beiden können Funktionsdeklarationen neu zugewiesen werden. Dies sollte jedoch vermieden werden.
+- Im Gegensatz zu beiden werden Funktionsdeklarationen [zusammen mit ihrem Wert gehoben](#hoisting) und können überall in ihrem Bereich aufgerufen werden.
 
-### Block-Level-Funktionsdeklaration
+### Block-level Function Declaration
 
 > [!WARNING]
-> Im [nicht-strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) verhalten sich Funktionsdeklarationen innerhalb von Blöcken seltsam. Deklarieren Sie nur Funktionen in Blöcken, wenn Sie im strikten Modus sind.
+> Im [nicht-strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) verhalten sich Funktionsdeklarationen innerhalb von Blöcken merkwürdig. Deklarieren Sie Funktionen nur dann in Blöcken, wenn Sie sich im strict mode befinden.
 
-Funktionen können bedingt deklariert werden — das heißt, eine Funktionsanweisung kann innerhalb einer [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung verschachtelt werden. Im nicht-strikten Modus sind die Ergebnisse jedoch je nach Implementierung inkonsistent.
+Funktionen können bedingt deklariert werden – das heißt, eine Funktionsanweisung kann innerhalb einer [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung verschachtelt werden. Im nicht-strict mode sind die Ergebnisse jedoch zwischen Implementierungen inkonsistent.
 
 ```js
 console.log(
@@ -77,7 +86,7 @@ if (false) {
 // 'foo' name is global. typeof foo is function
 ```
 
-Die Wirkung der Geltungsbereichs- und Hebungsmechanismen ändert sich nicht, unabhängig davon, ob der `if`-Block tatsächlich ausgeführt wird.
+Die Auswirkungen auf den Scope und das Hoisting ändern sich nicht, unabhängig davon, ob der `if`-Block tatsächlich ausgeführt wird.
 
 ```js
 console.log(
@@ -101,7 +110,7 @@ if (true) {
 // 'foo' name is global. typeof foo is function
 ```
 
-Im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) sind Funktionsdeklarationen auf [Block](/de/docs/Web/JavaScript/Reference/Statements/block)-Ebene auf diesen Block beschränkt und werden an die Spitze des Blocks gehoben.
+Im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) werden [block](/de/docs/Web/JavaScript/Reference/Statements/block)-level Funktionsdeklarationen auf diesen Block beschränkt und an die Spitze des Blocks gehoben.
 
 ```js
 "use strict";
@@ -123,7 +132,7 @@ console.log(
 
 ### Hoisting
 
-Funktionsdeklarationen in JavaScript werden in den oberen Teil der umgebenden Funktion oder des globalen Geltungsbereichs {{Glossary("Hoisting", "gehoben")}}. Sie können die Funktion verwenden, bevor Sie sie deklariert haben:
+Funktionsdeklarationen in JavaScript werden {{Glossary("Hoisting", "gehoben")}} an die Spitze des umschließenden Funktions- oder globalen Scopes. Sie können die Funktion verwenden, bevor Sie sie deklarieren:
 
 ```js
 hoisted(); // Logs "foo"
@@ -145,9 +154,9 @@ var notHoisted = function () {
 
 ### Redeclarations
 
-Ob `function`-Deklarationen im gleichen Geltungsbereich erneut deklariert werden können, hängt davon ab, in welchem Geltungsbereich sie sich befinden.
+Ob `function`-Deklarationen im gleichen Scope erneut deklariert werden können, hängt davon ab, in welchem Scope sie enthalten sind.
 
-Auf der obersten Ebene eines Skripts verhalten sich `function`-Deklarationen wie `var` und können durch eine andere `function` oder `var`, aber nicht durch {{jsxref("Statements/let", "let")}}, {{jsxref("Statements/const", "const")}} oder {{jsxref("Statements/class", "class")}} erneut deklariert werden.
+Auf der obersten Ebene eines Skripts verhalten sich `function`-Deklarationen wie `var` und können durch eine andere `function` oder `var`, jedoch nicht durch {{jsxref("Statements/let", "let")}}, {{jsxref("Statements/const", "const")}} oder {{jsxref("Statements/class", "class")}} erneut deklariert werden.
 
 ```js-nolint example-bad
 function a(b) {}
@@ -156,7 +165,7 @@ console.log(a.length); // 2
 let a = 2; // SyntaxError: Identifier 'a' has already been declared
 ```
 
-Wenn `function`-Deklarationen durch `var` erneut deklariert werden, überschreibt der Initialisierer der `var`-Deklaration immer den Funktionswert, unabhängig von ihrer relativen Position. Dies liegt daran, dass Funktionsdeklarationen vor jeder Initialisierungsbewertung gehoben werden, sodass die Initialisierung später kommt und den Wert überschreibt.
+Wenn `function`-Deklarationen durch `var` erneut deklariert werden, überschreibt der Initialisierer der `var`-Deklaration immer den Funktionswert, unabhängig von ihrer relativen Position. Dies liegt daran, dass Funktionsdeklarationen vor der Auswertung des Initialisierers gehoben werden. Der Initialisierer kommt später und überschreibt den Wert.
 
 ```js
 var a = 1;
@@ -164,7 +173,7 @@ function a() {}
 console.log(a); // 1
 ```
 
-Auf der obersten Ebene des Funktionskörpers verhält sich `function` ebenfalls wie `var` und kann erneut deklariert werden oder denselben Namen wie ein Parameter haben.
+Auf Ebene des Funktionskörpers verhalten sich `function`-Deklarationen ebenfalls wie `var` und können erneut deklariert oder denselben Namen wie ein Parameter haben.
 
 ```js
 function foo(a) {
@@ -175,7 +184,7 @@ function foo(a) {
 foo(2); // Logs "function"
 ```
 
-Auf der obersten Ebene eines Moduls oder eines Blocks im strikten Modus verhalten sich `function`-Deklarationen wie `let` und können nicht durch eine andere Deklaration erneut deklariert werden.
+Auf der obersten Ebene eines Moduls oder Blocks im strict mode verhalten sich `function`-Deklarationen wie `let` und können von keiner anderen Deklaration erneut deklariert werden.
 
 ```js-nolint example-bad
 // Assuming current source is a module
@@ -191,7 +200,7 @@ function foo() {} // SyntaxError: Identifier 'foo' has already been declared
 }
 ```
 
-Eine `function`-Deklaration innerhalb eines `catch`-Blocks kann nicht denselben Namen wie der durch `catch` gebundene Bezeichner haben, auch nicht im nicht-strikten Modus.
+Eine `function`-Deklaration innerhalb eines `catch`-Blocks darf nicht denselben Namen wie der im `catch`-Block gebundene Bezeichner haben, selbst im nicht-strict mode.
 
 ```js-nolint example-bad
 try {
@@ -204,7 +213,7 @@ try {
 
 ### Verwendung von function
 
-Der folgende Code deklariert eine Funktion, die den Gesamtumsatz zurückgibt, wenn die Anzahl der verkauften Einheiten von drei Produkten angegeben wird.
+Der folgende Code deklariert eine Funktion, die die Gesamtsumme der Verkäufe zurückgibt, wenn die Anzahl der verkauften Einheiten von drei Produkten angegeben wird.
 
 ```js
 function calcSales(unitsA, unitsB, unitsC) {

@@ -2,14 +2,26 @@
 title: Object.fromEntries()
 slug: Web/JavaScript/Reference/Global_Objects/Object/fromEntries
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Object.fromEntries()`** verwandelt eine Liste von Schlüssel-Wert-Paaren in ein Objekt.
+Die **`Object.fromEntries()`** statische Methode transformiert eine Liste von Schlüssel-Werte-Paaren in ein Objekt.
 
-{{EmbedInteractiveExample("pages/js/object-fromentries.html")}}
+{{InteractiveExample("JavaScript Demo: Object.fromEntries()")}}
+
+```js interactive-example
+const entries = new Map([
+  ["foo", "bar"],
+  ["baz", 42],
+]);
+
+const obj = Object.fromEntries(entries);
+
+console.log(obj);
+// Expected output: Object { foo: "bar", baz: 42 }
+```
 
 ## Syntax
 
@@ -21,10 +33,10 @@ Object.fromEntries(iterable)
 
 - `iterable`
 
-  - : Ein [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), wie ein {{jsxref("Array")}} oder eine {{jsxref("Map")}}, das eine Liste von Objekten enthält. Jedes Objekt sollte zwei Eigenschaften haben:
+  - : Ein [iterables Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), zum Beispiel ein {{jsxref("Array")}} oder {{jsxref("Map")}}, das eine Liste von Objekten enthält. Jedes Objekt sollte zwei Eigenschaften haben:
 
     - `0`
-      - : Ein String oder [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), das den Eigenschaftsschlüssel darstellt.
+      - : Ein String oder [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), der den Eigenschaftsschlüssel darstellt.
     - `1`
       - : Der Eigenschaftswert.
 
@@ -32,22 +44,22 @@ Object.fromEntries(iterable)
 
 ### Rückgabewert
 
-Ein neues Objekt, dessen Eigenschaften durch die Einträge des Iterables gegeben sind.
+Ein neues Objekt, dessen Eigenschaften durch die Einträge des `iterable` definiert sind.
 
 ## Beschreibung
 
-Die Methode `Object.fromEntries()` nimmt eine Liste von Schlüssel-Wert-Paaren und gibt ein neues Objekt zurück, dessen Eigenschaften durch diese Einträge gegeben sind. Das Argument `iterable` wird erwartet, ein Objekt zu sein, das eine `[Symbol.iterator]()`-Methode implementiert. Die Methode gibt ein Iterator-Objekt zurück, das Array-ähnliche Objekte mit zwei Elementen produziert. Das erste Element ist ein Wert, der als Eigenschaftsschlüssel verwendet wird, und das zweite Element ist der Wert, der diesem Eigenschaftsschlüssel zugeordnet werden soll.
+Die `Object.fromEntries()`-Methode nimmt eine Liste von Schlüssel-Werte-Paaren und gibt ein neues Objekt zurück, dessen Eigenschaften durch diese Einträge definiert sind. Das Argument `iterable` sollte ein Objekt sein, das eine `[Symbol.iterator]()`-Methode implementiert. Diese Methode gibt ein Iterator-Objekt zurück, das Array-ähnliche Objekte mit zwei Elementen produziert. Das erste Element wird als Eigenschaftsschlüssel verwendet, das zweite Element bestimmt den zugehörigen Eigenschaftswert.
 
-`Object.fromEntries()` führt die Umkehrung von {{jsxref("Object.entries()")}} aus, wobei `Object.entries()` nur Eigenschaften mit String-Schlüsseln zurückgibt, während `Object.fromEntries()` auch Symbol-Schlüssel erstellen kann.
+`Object.fromEntries()` macht das Gegenteil von {{jsxref("Object.entries()")}}, wobei `Object.entries()` nur Zeichenketten-Schlüssel-Zuordnungen zurückgibt, wohingegen `Object.fromEntries()` auch Symbol-Schlüssel-Zuordnungen erstellen kann.
 
 > [!NOTE]
-> Im Gegensatz zu {{jsxref("Array.from()")}} verwendet `Object.fromEntries()` nicht den Wert von `this`, sodass der Aufruf bei einem anderen Konstruktor keine Objekte dieses Typs erstellt.
+> Im Gegensatz zu {{jsxref("Array.from()")}} verwendet `Object.fromEntries()` nicht den Wert von `this`. Wenn es auf einem anderen Konstruktor aufgerufen wird, erzeugt es daher keine Objekte dieses Typs.
 
 ## Beispiele
 
-### Umwandeln einer Map in ein Objekt
+### Konvertierung von einer Map zu einem Objekt
 
-Mit `Object.fromEntries` können Sie von einer {{jsxref("Map")}} auf ein {{jsxref("Object")}} konvertieren:
+Mit `Object.fromEntries` können Sie von {{jsxref("Map")}} zu {{jsxref("Object")}} konvertieren:
 
 ```js
 const map = new Map([
@@ -58,9 +70,9 @@ const obj = Object.fromEntries(map);
 console.log(obj); // { foo: "bar", baz: 42 }
 ```
 
-### Umwandeln eines Arrays in ein Objekt
+### Konvertierung von einem Array zu einem Objekt
 
-Mit `Object.fromEntries` können Sie von einem {{jsxref("Array")}} auf ein {{jsxref("Object")}} konvertieren:
+Mit `Object.fromEntries` können Sie von {{jsxref("Array")}} zu {{jsxref("Object")}} konvertieren:
 
 ```js
 const arr = [
@@ -72,9 +84,9 @@ const obj = Object.fromEntries(arr);
 console.log(obj); // { 0: "a", 1: "b", 2: "c" }
 ```
 
-### Objektumwandlungen
+### Objekttransformationen
 
-Mit `Object.fromEntries`, seiner Gegenmethode {{jsxref("Object.entries()")}} und [Array-Manipulationsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods) können Sie Objekte wie folgt umwandeln:
+Mit `Object.fromEntries`, seiner Umkehrmethode {{jsxref("Object.entries()")}} und [Array-Manipulations-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods) können Sie Objekte wie folgt transformieren:
 
 ```js
 const object1 = { a: 1, b: 2, c: 3 };
@@ -97,7 +109,7 @@ console.log(object2);
 
 ## Siehe auch
 
-- [Polyfill von `Object.fromEntries` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
+- [Polyfill für `Object.fromEntries` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
 - {{jsxref("Object.entries()")}}
 - {{jsxref("Object.keys()")}}
 - {{jsxref("Object.values()")}}

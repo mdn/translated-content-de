@@ -2,14 +2,36 @@
 title: Intl.ListFormat.prototype.format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/format
 l10n:
-  sourceCommit: 1574e4728b2d31b8898f84843a9832253790c516
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`format()`**-Methode von {{jsxref("Intl.ListFormat")}}-Instanzen gibt eine Zeichenkette zurück, die eine sprachspezifische Darstellung der Liste enthält.
+Die Methode **`format()`** von {{jsxref("Intl.ListFormat")}}-Instanzen gibt eine Zeichenfolge mit einer sprachspezifischen Darstellung der Liste zurück.
 
-{{EmbedInteractiveExample("pages/js/intl-listformat.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Intl.ListFormat", "taller")}}
+
+```js interactive-example
+const vehicles = ["Motorcycle", "Bus", "Car"];
+
+const formatter = new Intl.ListFormat("en", {
+  style: "long",
+  type: "conjunction",
+});
+console.log(formatter.format(vehicles));
+// Expected output: "Motorcycle, Bus, and Car"
+
+const formatter2 = new Intl.ListFormat("de", {
+  style: "short",
+  type: "disjunction",
+});
+console.log(formatter2.format(vehicles));
+// Expected output: "Motorcycle, Bus oder Car"
+
+const formatter3 = new Intl.ListFormat("en", { style: "narrow", type: "unit" });
+console.log(formatter3.format(vehicles));
+// Expected output: "Motorcycle Bus Car"
+```
 
 ## Syntax
 
@@ -20,20 +42,20 @@ format(list)
 ### Parameter
 
 - `list`
-  - : Ein iterierbares Objekt, wie beispielsweise ein Array, das Zeichenketten enthält. Wenn es ausgelassen wird, wird das leere Array formatiert, was etwas verwirrend sein kann, daher wird empfohlen, immer explizit eine Liste zu übergeben.
+  - : Ein iterierbares Objekt, wie ein Array, das Zeichenfolgen enthält. Wenn es weggelassen wird, wird ein leeres Array formatiert, was möglicherweise leicht verwirrend sein kann. Daher wird empfohlen, immer explizit eine Liste zu übergeben.
 
 ### Rückgabewert
 
-Eine sprachspezifisch formatierte Zeichenkette, die die Elemente der Liste darstellt.
+Eine sprachspezifisch formatierte Zeichenfolge, die die Elemente der Liste darstellt.
 
 > [!NOTE]
-> Meistens ist das von `format()` zurückgegebene Format konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, selbst innerhalb derselben Lokalisierung — Abweichungen in der Ausgabe sind beabsichtigt und gemäß der Spezifikation erlaubt. Es könnte auch nicht dem entsprechen, was Sie erwarten. Beispielsweise könnte die Zeichenkette geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
+> Meistens ist die von `format()` zurückgegebene Formatierung konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb derselben Spracheinstellung — Variationen in der Ausgabe sind durch das Design erlaubt und von der Spezifikation vorgeschrieben. Es kann auch sein, dass sie nicht Ihren Erwartungen entspricht. Zum Beispiel könnte die Zeichenfolge geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit festkodierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Verwendung von format
 
-Das folgende Beispiel zeigt, wie man einen Listen-Formatter mit der englischen Sprache erstellt.
+Das folgende Beispiel zeigt, wie ein Listen-Formatter unter Verwendung der englischen Sprache erstellt wird.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];

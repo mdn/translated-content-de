@@ -2,14 +2,35 @@
 title: Intl.DateTimeFormat.prototype.formatRange()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/formatRange
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`formatRange()`**-Methode von {{jsxref("Intl.DateTimeFormat")}}-Instanzen formatiert einen Datumsbereich auf die prägnanteste Weise basierend auf den beim Erstellen dieses `Intl.DateTimeFormat`-Objekts angegebenen Lokalisierungen und Optionen.
+Die **`formatRange()`**-Methode von {{jsxref("Intl.DateTimeFormat")}}-Instanzen formatiert einen Datumsbereich auf die prägnanteste Weise, basierend auf den beim Instanziieren dieses `Intl.DateTimeFormat`-Objekts angegebenen Locales und Optionen.
 
-{{EmbedInteractiveExample("pages/js/intl-datetimeformat-prototype-formatrange.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Intl.DateTimeFormat.prototype.formatRange()", "taller")}}
+
+```js interactive-example
+const options1 = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+const options2 = { year: "2-digit", month: "numeric", day: "numeric" };
+
+const startDate = new Date(Date.UTC(2007, 0, 10, 10, 0, 0));
+const endDate = new Date(Date.UTC(2008, 0, 10, 11, 0, 0));
+
+const dateTimeFormat = new Intl.DateTimeFormat("en", options1);
+console.log(dateTimeFormat.formatRange(startDate, endDate));
+// Expected output: "Wednesday, January 10, 2007 – Thursday, January 10, 2008"
+
+const dateTimeFormat2 = new Intl.DateTimeFormat("en", options2);
+console.log(dateTimeFormat2.formatRange(startDate, endDate));
+// Expected output: "1/10/07 – 1/10/08"
+```
 
 ## Syntax
 
@@ -20,21 +41,21 @@ formatRange(startDate, endDate)
 ### Parameter
 
 - `startDate`
-  - : Der Beginn des Datumsbereichs. Kann ein {{jsxref("Date")}}- oder {{jsxref("Temporal.PlainDateTime")}}-Objekt sein. Zusätzlich kann es sich um ein {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}} oder {{jsxref("Temporal.PlainMonthDay")}}-Objekt handeln, wenn das `DateTimeFormat`-Objekt dafür konfiguriert wurde, mindestens einen relevanten Teil des Datums anzuzeigen.
+  - : Der Beginn des Datumsbereichs. Kann ein {{jsxref("Date")}}- oder ein {{jsxref("Temporal.PlainDateTime")}}-Objekt sein. Zusätzlich kann es ein {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}} oder {{jsxref("Temporal.PlainMonthDay")}}-Objekt sein, wenn das `DateTimeFormat`-Objekt so konfiguriert wurde, dass mindestens ein relevanter Teil des Datums ausgegeben wird.
     > [!NOTE]
-    > Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt wird immer einen `TypeError` werfen; verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder konvertieren Sie es in ein {{jsxref("Temporal.PlainDateTime")}}-Objekt.
+    > Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt führt immer zu einem `TypeError`; nutzen Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder konvertieren Sie es in ein {{jsxref("Temporal.PlainDateTime")}}-Objekt.
 - `endDate`
-  - : Das Ende des Datumsbereichs. Muss denselben Typ wie `startDate` haben.
+  - : Das Ende des Datumsbereichs. Muss den gleichen Typ wie `startDate` haben.
 
 ### Rückgabewert
 
-Ein String, der den gegebenen Datumsbereich formatiert entsprechend der Lokale und Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}}-Objekts darstellt.
+Ein String, der den gegebenen Datumsbereich formatiert darstellt, entsprechend den `locale`-Einstellungen und Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}}-Objekts.
 
 ## Beispiele
 
 ### Grundlegende Verwendung von formatRange
 
-Diese Methode erhält zwei {{jsxref("Date")}}s und formatiert den Datumsbereich auf die prägnanteste Weise basierend auf dem `locale` und den `options`, die beim Erstellen von {{jsxref("Intl.DateTimeFormat")}} angegeben wurden.
+Diese Methode empfängt zwei {{jsxref("Date")}}-Objekte und formatiert den Datumsbereich auf die prägnanteste Weise, basierend auf den beim Instanziieren von {{jsxref("Intl.DateTimeFormat")}} angegebenen `locale`- und `options`.
 
 ```js
 const date1 = new Date(Date.UTC(1906, 0, 10, 10, 0, 0)); // Wed, 10 Jan 1906 10:00:00 GMT

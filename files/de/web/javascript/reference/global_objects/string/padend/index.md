@@ -2,14 +2,26 @@
 title: String.prototype.padEnd()
 slug: Web/JavaScript/Reference/Global_Objects/String/padEnd
 l10n:
-  sourceCommit: b7ca46c94631967ecd9ce0fe36579be334a01275
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`padEnd()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen String (bei Bedarf wiederholt), so dass der resultierende String eine bestimmte Länge erreicht. Das Padding wird am Ende dieses Strings angewendet.
+Die Methode **`padEnd()`** von {{jsxref("String")}}-Werten füllt diese Zeichenkette mit einer angegebenen Zeichenkette (bei Bedarf wiederholt) auf, sodass die resultierende Zeichenkette eine bestimmte Länge erreicht. Die Auffüllung erfolgt vom Ende dieser Zeichenkette aus.
 
-{{EmbedInteractiveExample("pages/js/string-padend.html")}}
+{{InteractiveExample("JavaScript Demo: String.padEnd()")}}
+
+```js interactive-example
+const str1 = "Breaded Mushrooms";
+
+console.log(str1.padEnd(25, "."));
+// Expected output: "Breaded Mushrooms........"
+
+const str2 = "200";
+
+console.log(str2.padEnd(5));
+// Expected output: "200  "
+```
 
 ## Syntax
 
@@ -21,13 +33,13 @@ padEnd(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` gepolstert wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird der aktuelle String unverändert zurückgegeben.
+  - : Die Länge der resultierenden Zeichenkette, nachdem die aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird die aktuelle Zeichenkette unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Der String, mit dem der aktuelle `str` aufgefüllt werden soll. Wenn `padString` zu lang ist, um innerhalb `targetLength` zu bleiben, wird er gekürzt: Für links-nach-rechts-Sprachen wird der linke Teil und für rechts-nach-links-Sprachen der rechte Teil angewendet. Der Standardwert für diesen Parameter ist " " (`U+0020`).
+  - : Die Zeichenkette, mit der die aktuelle `str` aufgefüllt wird. Falls `padString` zu lang ist, um innerhalb von `targetLength` zu bleiben, wird sie abgeschnitten: Für Links-nach-Rechts-Sprachen wird der linke Teil und für Rechts-nach-Links-Sprachen der rechte Teil angewendet. Der Standardwert für diesen Parameter ist " " (`U+0020`).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength` mit dem `padString`, der am Ende des aktuellen `str` angewendet wird.
+Ein {{jsxref("String")}} der spezifizierten `targetLength` mit der `padString`, die am Ende der aktuellen `str` angewendet wurde.
 
 ## Beispiele
 

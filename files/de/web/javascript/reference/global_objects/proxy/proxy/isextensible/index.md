@@ -2,14 +2,46 @@
 title: handler.isExtensible()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/isExtensible
 l10n:
-  sourceCommit: 5c9b080f763346a4a18cc2c50fa4e21d2feec700
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`handler.isExtensible()`** Methode ist ein Trap für die `[[IsExtensible]]` [interne Objekt-Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), welche von Operationen wie {{jsxref("Object.isExtensible()")}} verwendet wird.
+Die Methode **`handler.isExtensible()`** ist eine Trap für die interne Methode `[[IsExtensible]]` des [Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die durch Operationen wie {{jsxref("Object.isExtensible()")}} verwendet wird.
 
-{{EmbedInteractiveExample("pages/js/proxyhandler-isextensible.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: handler.isExtensible()", "taller")}}
+
+```js interactive-example
+const monster1 = {
+  canEvolve: true,
+};
+
+const handler1 = {
+  isExtensible(target) {
+    return Reflect.isExtensible(target);
+  },
+  preventExtensions(target) {
+    target.canEvolve = false;
+    return Reflect.preventExtensions(target);
+  },
+};
+
+const proxy1 = new Proxy(monster1, handler1);
+
+console.log(Object.isExtensible(proxy1));
+// Expected output: true
+
+console.log(monster1.canEvolve);
+// Expected output: true
+
+Object.preventExtensions(proxy1);
+
+console.log(Object.isExtensible(proxy1));
+// Expected output: false
+
+console.log(monster1.canEvolve);
+// Expected output: false
+```
 
 ## Syntax
 
@@ -22,31 +54,31 @@ new Proxy(target, {
 
 ### Parameter
 
-Der folgende Parameter wird an die `isExtensible()`-Methode übergeben. `this` ist an den Handler gebunden.
+Der folgende Parameter wird an die Methode `isExtensible()` übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
 
 ### Rückgabewert
 
-Die `isExtensible()`-Methode muss ein {{jsxref("Boolean")}} zurückgeben, das angibt, ob das Zielobjekt erweiterbar ist oder nicht. Andere Werte werden [in Booleans umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Die Methode `isExtensible()` muss einen {{jsxref("Boolean")}} zurückgeben, der angibt, ob das Zielobjekt erweiterbar ist oder nicht. Andere Werte werden zu [Booleans umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
 
 ## Beschreibung
 
-### Abfangen von Operationen
+### Abfangvorgänge
 
-Dieser Trap kann diese Operationen abfangen:
+Diese Trap kann folgende Operationen abfangen:
 
 - {{jsxref("Object.isExtensible()")}}
 - {{jsxref("Reflect.isExtensible()")}}
 
-Oder jede andere Operation, die die `[[IsExtensible]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
+Oder jede andere Operation, die die interne Methode `[[IsExtensible]]` des [Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
 
 ### Invarianten
 
-Die `[[IsExtensible]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die interne Methode `[[IsExtensible]]` des Proxys löst einen {{jsxref("TypeError")}} aus, wenn die Definition des Handlers eine der folgenden Invarianten verletzt:
 
-- Das Ergebnis muss dasselbe sein wie bei {{jsxref("Reflect.isExtensible()")}} auf dem Zielobjekt.
+- Das Ergebnis muss mit dem von {{jsxref("Reflect.isExtensible()")}} für das Zielobjekt übereinstimmen.
 
 ## Beispiele
 
@@ -96,7 +128,7 @@ Object.isExtensible(p); // TypeError is thrown
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Object.isExtensible()")}}
 - {{jsxref("Reflect.isExtensible()")}}
 - {{jsxref("Reflect.preventExtensions()")}}

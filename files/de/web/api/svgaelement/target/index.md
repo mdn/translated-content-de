@@ -3,24 +3,22 @@ title: "SVGAElement: target-Eigenschaft"
 short-title: target
 slug: Web/API/SVGAElement/target
 l10n:
-  sourceCommit: 511b483843fa33373dd26eabc28beee59b995d01
+  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`SVGAElement.target`** des [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt zurück, das den Teil eines Ziel-Fensters, -Rahmens oder -Bereichs angibt, in den ein Dokument geöffnet werden soll, wenn ein Link aktiviert wird.
+Die **`SVGAElement.target`**-Schreibeigenshaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt zurück, das den Bereich eines Ziel-Fensters, Rahmens oder Paneels angibt, in den ein Dokument geöffnet werden soll, wenn ein Link aktiviert wird.
 
-Diese Eigenschaft wird verwendet, wenn es mehrere mögliche Ziele für die abschließende Ressource gibt, wie zum Beispiel, wenn das übergeordnete Dokument ein mehrrahmiges HTML- oder XHTML-Dokument ist.
+Diese Eigenschaft wird verwendet, wenn es mehrere mögliche Ziele für die Ausgabe-Ressource gibt, beispielsweise wenn das übergeordnete Dokument ein HTML- oder XHTML-Dokument mit mehreren Rahmen ist.
 
 ## Wert
 
-Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das das Ziel der abschließenden Ressource angibt, die das Dokument öffnet, wenn der Link aktiviert wird.
-
-Beispielwerte finden Sie [hier](https://www.w3.org/TR/2011/REC-SVG11-20110816/linking.html#AElementTargetAttribute)
+Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das das Ziel der Ausgabe-Ressource angibt, das beim Aktivieren des Links das Dokument öffnet. Siehe {{SVGAttr("target")}} für gültige Werte.
 
 ## Beispiele
 
-Der Code stammt aus dem ["Beispielcode von SVGAElement"](/de/docs/Web/API/SVGAElement#example)
+Der Code stammt aus dem ["SVGAElement-Beispielcode"](/de/docs/Web/API/SVGAElement#example).
 
 ```js
 // ...

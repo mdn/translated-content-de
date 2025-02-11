@@ -2,14 +2,26 @@
 title: Date.prototype.getTimezoneOffset()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
 l10n:
-  sourceCommit: bcad8171fa4acb38d2b9069fdff134da1d36c7ee
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die Methode **`getTimezoneOffset()`** von {{jsxref("Date")}} Instanzen gibt die Differenz in Minuten zwischen diesem Datum im UTC-Zeitraum und demselben Datum im lokalen Zeitraum zurück.
+Die Methode **`getTimezoneOffset()`** von {{jsxref("Date")}}-Instanzen gibt den Unterschied in Minuten zwischen diesem Datum, wie es in der UTC-Zeitzone ausgewertet wird, und dem gleichen Datum, wie es in der lokalen Zeitzone ausgewertet wird, zurück.
 
-{{EmbedInteractiveExample("pages/js/date-gettimezoneoffset.html")}}
+{{InteractiveExample("JavaScript Demo: Date.getTimezoneOffset()")}}
+
+```js interactive-example
+const date1 = new Date("August 19, 1975 23:15:30 GMT+07:00");
+const date2 = new Date("August 19, 1975 23:15:30 GMT-02:00");
+
+console.log(date1.getTimezoneOffset());
+// Expected output: your local timezone offset in minutes
+// (e.g., -120). NOT the timezone offset of the date object.
+
+console.log(date1.getTimezoneOffset() === date2.getTimezoneOffset());
+// Expected output: true
+```
 
 ## Syntax
 
@@ -23,15 +35,15 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zahl, die die Differenz in Minuten zwischen dem Datum im UTC-Zeitraum und dem im lokalen Zeitraum darstellt. Der tatsächliche lokale Zeit-Algorithmus ist implementationsabhängig, und der Rückgabewert darf in Laufzeiten ohne geeignete Daten null sein. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Zahl, die den Unterschied in Minuten zwischen dem Datum, wie es in der UTC-Zeitzone ausgewertet wird, und wie es in der lokalen Zeitzone ausgewertet wird, darstellt. Der tatsächliche lokale Zeit-Algorithmus ist implementierungsabhängig, und der Rückgabewert kann in Laufzeitumgebungen ohne entsprechende Informationen null sein. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-`date.getTimezoneOffset()` gibt die Differenz in Minuten zwischen `date` im UTC-Zeitraum und im lokalen Zeitraum zurück — das heißt, der Zeitzone des Hosts, in dem der Browser verwendet wird (wenn der Code im Web in einem Browser ausgeführt wird), oder anderweitig des Hostsystems, welcher JavaScript-Laufzeit (zum Beispiel einer Node.js Umgebung) der Code ausgeführt wird.
+`date.getTimezoneOffset()` gibt den Unterschied in Minuten zwischen `date`, wie es in der UTC-Zeitzone ausgewertet wird, und wie es in der lokalen Zeitzone ausgewertet wird, zurück — das heißt, der Zeitzone des Hostsystems, in dem der Browser verwendet wird (falls der Code im Web ausgeführt wird), oder anderweitig des Hostsystems der jeweiligen JavaScript-Laufzeitumgebung (zum Beispiel einer Node.js-Umgebung), in der der Code ausgeführt wird.
 
 ### Negative und positive Werte
 
-Die Anzahl der Minuten, die von `getTimezoneOffset()` zurückgegeben werden, ist positiv, wenn die lokale Zeitzone hinter UTC liegt, und negativ, wenn die lokale Zeitzone vor UTC liegt. Zum Beispiel wird für UTC+10 `-600` zurückgegeben.
+Die von `getTimezoneOffset()` zurückgegebene Minutenanzahl ist positiv, wenn die lokale Zeitzone hinter UTC liegt, und negativ, wenn die lokale Zeitzone vor UTC liegt. Zum Beispiel wird für UTC+10 `-600` zurückgegeben.
 
 | Aktuelle Zeitzone | Rückgabewert |
 | ----------------- | ------------ |
@@ -41,13 +53,13 @@ Die Anzahl der Minuten, die von `getTimezoneOffset()` zurückgegeben werden, ist
 
 ### Unterschiedliche Ergebnisse in Regionen mit Sommerzeit (DST)
 
-In einer Region, die jährlich in die Sommerzeit (DST) hinein- und herauswechselt, kann die Anzahl der Minuten, die durch Aufrufen von `getTimezoneOffset()` zurückgegeben werden, ungleichmäßig sein, je nachdem, wie `date` variiert.
+In einer Region, die jährlich zwischen Sommerzeit (DST) und Normalzeit wechselt, kann die Anzahl der Minuten, die durch Aufruf von `getTimezoneOffset()` zurückgegeben wird, nicht einheitlich sein, wenn sich `date` ändert.
 
-> **Hinweis:** Das Verhalten von `getTimezoneOffset()` wird sich nie aufgrund der Laufzeit unterscheiden – sein Verhalten ist immer konsistent, wenn es in derselben Region ausgeführt wird. Nur der Wert von `date` beeinflusst das Ergebnis.
+> **Note:** Das Verhalten von `getTimezoneOffset()` ändert sich nie in Abhängigkeit von der Zeit, zu der der Code ausgeführt wird — sein Verhalten ist immer konsistent, wenn es in der gleichen Region ausgeführt wird. Nur der Wert von `date` beeinflusst das Ergebnis.
 
-> **Hinweis:** [Viele Länder haben damit experimentiert, die Zeit nicht zweimal im Jahr zu ändern](https://en.wikipedia.org/wiki/Daylight_saving_time_by_country#Past_observance), was bedeutete, dass die Sommerzeit auch im Winter fortgesetzt wurde. Zum Beispiel dauerte die Sommerzeit in Großbritannien vom 02:00 Uhr, den 18. Februar 1968, bis 03:00 Uhr, den 31. Oktober 1971, sodass die Uhren im Winter nicht zurückgestellt wurden.
+> **Note:** [Viele Länder haben experimentiert, die Zeitumstellung zweimal im Jahr abzuschaffen](https://en.wikipedia.org/wiki/Daylight_saving_time_by_country#Past_observance). Das bedeutete, dass die Sommerzeit in einigen Fällen auch im Winter fortgeführt wurde. Beispielsweise dauerte in Großbritannien die Sommerzeit von 2:00 Uhr am 18. Februar 1968 bis 3:00 Uhr am 31. Oktober 1971, sodass die Uhren im Winter nicht zurückgestellt wurden.
 
-In den meisten Implementierungen wird die [IANA-Zeitzonendatenbank](https://en.wikipedia.org/wiki/Daylight_saving_time#IANA_time_zone_database) (tzdata) verwendet, um den Offset der lokalen Zeitzone zum Zeitpunkt des `date` genau zu bestimmen. Wenn solche Informationen jedoch nicht verfügbar sind, kann eine Implementierung null zurückgeben.
+In den meisten Implementierungen wird die [IANA-Zeitzonendatenbank](https://en.wikipedia.org/wiki/Daylight_saving_time#IANA_time_zone_database) (tzdata) verwendet, um den Offset der lokalen Zeitzone zum Zeitpunkt des `date` präzise zu bestimmen. Falls solche Informationen nicht verfügbar sind, kann eine Implementierung null zurückgeben.
 
 ## Beispiele
 
@@ -64,9 +76,9 @@ currentLocalDate.getTimezoneOffset() ===
 // false, sometimes, in any timezone that annually shifts in and out of DST
 ```
 
-### getTimezoneOffset() und Sommerzeit
+### getTimezoneOffset() und DST
 
-In Regionen, die die Sommerzeit (DST) nutzen, kann sich der Rückgabewert je nach Jahreszeit, in der sich `date` befindet, ändern. Unten ist die Ausgabe in einer Laufzeit in New York, wo die Zeitzone UTC-05:00 ist.
+In Regionen, die DST verwenden, kann der Rückgabewert sich abhängig von der Jahreszeit, in der sich `date` befindet, ändern. Unten ist die Ausgabe in einer Laufzeitumgebung in New York, wo die Zeitzone UTC-05:00 ist.
 
 ```js
 const nyOffsetSummer = new Date("2022-02-01").getTimezoneOffset(); // 300
@@ -75,14 +87,14 @@ const nyOffsetWinter = new Date("2022-08-01").getTimezoneOffset(); // 240
 
 ### getTimezoneOffset() und historische Daten
 
-Aus historischen Gründen kann sich die Zeitzone einer Region ständig ändern, auch ohne Berücksichtigung der Sommerzeit. Zum Beispiel ist unten die Ausgabe in einer Laufzeit in Shanghai, wo die Zeitzone UTC+08:00 ist.
+Aus historischen Gründen kann sich die Zeitzone einer Region ständig ändern, selbst abgesehen von der Sommerzeit. Unten ist die Ausgabe in einer Laufzeitumgebung in Shanghai, wo die Zeitzone UTC+08:00 ist.
 
 ```js
 const shModernOffset = new Date("2022-01-27").getTimezoneOffset(); // -480
 const shHistoricalOffset = new Date("1943-01-27").getTimezoneOffset(); // -540
 ```
 
-Das liegt daran, dass während des [Sino-Japanischen Krieges](https://en.wikipedia.org/wiki/Second_Sino-Japanese_War), als Shanghai unter japanischer Kontrolle war, die Zeitzone auf UTC+09:00 geändert wurde, um mit Japan übereinzustimmen (in der Tat war es eine "ganzjährige Sommerzeit"), und dies wurde in der IANA-Datenbank verzeichnet.
+Dies liegt daran, dass während des [Sino-Japanischen Kriegs](https://en.wikipedia.org/wiki/Second_Sino-Japanese_War), als Shanghai unter japanischer Kontrolle stand, die Zeitzone auf UTC+09:00 geändert wurde, um sich an die japanische Zeitzone anzupassen (in der Praxis war es eine "ganzjährige Sommerzeit"), und dies wurde in der IANA-Datenbank aufgezeichnet.
 
 ## Spezifikationen
 

@@ -2,14 +2,28 @@
 title: Math.floor()
 slug: Web/JavaScript/Reference/Global_Objects/Math/floor
 l10n:
-  sourceCommit: 6a0f9553932823cd0c4dcf695d4b4813474964fb
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.floor()`** rundet immer ab und gibt die größte ganze Zahl zurück, die kleiner oder gleich einer gegebenen Zahl ist.
+Die statische Methode **`Math.floor()`** rundet immer ab und gibt die größte Ganzzahl zurück, die kleiner als oder gleich einer gegebenen Zahl ist.
 
-{{EmbedInteractiveExample("pages/js/math-floor.html")}}
+{{InteractiveExample("JavaScript Demo: Math.floor()")}}
+
+```js interactive-example
+console.log(Math.floor(5.95));
+// Expected output: 5
+
+console.log(Math.floor(5.05));
+// Expected output: 5
+
+console.log(Math.floor(5));
+// Expected output: 5
+
+console.log(Math.floor(-5.05));
+// Expected output: -6
+```
 
 ## Syntax
 
@@ -24,11 +38,11 @@ Math.floor(x)
 
 ### Rückgabewert
 
-Die größte ganze Zahl, die kleiner oder gleich `x` ist. Es ist derselbe Wert wie [`-Math.ceil(-x)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil).
+Die größte Ganzzahl, die kleiner als oder gleich `x` ist. Dies ist derselbe Wert wie [`-Math.ceil(-x)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil).
 
 ## Beschreibung
 
-Da `floor()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.floor()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `floor()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.floor()` und nicht als Methode eines selbst erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -48,9 +62,9 @@ Math.floor(Infinity); // Infinity
 
 ### Dezimalanpassung
 
-In diesem Beispiel implementieren wir eine Methode namens `decimalAdjust()`, die eine Verbesserung der Methode `Math.floor()`, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}} darstellt. Während die drei `Math`-Funktionen den Eingabewert immer auf die Stellen der Einheitenziffer anpassen, akzeptiert `decimalAdjust` einen `exp`-Parameter, der die Anzahl der Stellen angibt, die links vom Dezimalpunkt angepasst werden sollen. Zum Beispiel bedeutet `-1`, dass eine Stelle nach dem Dezimalpunkt stehen bleiben würde (wie in "× 10<sup>-1</sup>"). Außerdem können Sie die Art der Anpassung — `round`, `floor` oder `ceil` — über den `type`-Parameter auswählen.
+In diesem Beispiel implementieren wir eine Methode namens `decimalAdjust()`, die eine erweiterte Methode von `Math.floor()`, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}} ist. Während die drei `Math`-Funktionen die Eingabe immer an die Stellen der Einheitenziffer anpassen, akzeptiert `decimalAdjust` einen Parameter `exp`, der die Anzahl der Stellen links vom Dezimalpunkt angibt, an die die Zahl angepasst werden soll. Zum Beispiel bedeutet `-1`, dass eine Stelle nach dem Dezimalpunkt verbleiben würde (wie in "× 10<sup>-1</sup>"). Zusätzlich ermöglicht sie die Auswahl der Methode der Anpassung — `round`, `floor` oder `ceil` — über den Parameter `type`.
 
-Dies geschieht, indem die Zahl mit einer Potenz von 10 multipliziert, das Ergebnis auf die nächste ganze Zahl gerundet und dann durch die Potenz von 10 geteilt wird. Um die Genauigkeit besser zu erhalten, nutzt es die [`toString()`-Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) der Zahl, die große oder kleine Zahlen in wissenschaftlicher Notation darstellt (wie `6.02e23`).
+Dies geschieht, indem die Zahl mit einer Zehnerpotenz multipliziert wird, das Ergebnis auf die nächste Ganzzahl gerundet wird und schließlich durch die Zehnerpotenz wieder geteilt wird. Um Präzision besser zu erhalten, wird dabei die Methode [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) von `Number` benutzt, die große oder kleine Zahlen in wissenschaftlicher Notation darstellt (wie `6.02e23`).
 
 ```js
 /**

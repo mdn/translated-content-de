@@ -2,14 +2,28 @@
 title: Reflect.set()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/set
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.set()`** ist wie der [Property-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) und die [Zuweisungssyntax](/de/docs/Web/JavaScript/Reference/Operators/Assignment), aber als Funktion.
+Die **`Reflect.set()`** statische Methode ist vergleichbar mit dem [Property Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) und der [Zuweisungs](/de/docs/Web/JavaScript/Reference/Operators/Assignment)-Syntax, jedoch in Form einer Funktion.
 
-{{EmbedInteractiveExample("pages/js/reflect-set.html")}}
+{{InteractiveExample("JavaScript Demo: Reflect.set()")}}
+
+```js interactive-example
+const object1 = {};
+Reflect.set(object1, "property1", 42);
+
+console.log(object1.property1);
+// Expected output: 42
+
+const array1 = ["duck", "duck", "duck"];
+Reflect.set(array1, 2, "goose");
+
+console.log(array1[2]);
+// Expected output: "goose"
+```
 
 ## Syntax
 
@@ -21,17 +35,17 @@ Reflect.set(target, propertyKey, value, receiver)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, auf dem die Eigenschaft gesetzt werden soll.
+  - : Das Zielobjekt, auf dem die Eigenschaft gesetzt wird.
 - `propertyKey`
-  - : Der Name der zu setzenden Eigenschaft.
+  - : Der Name der Eigenschaft, die gesetzt werden soll.
 - `value`
-  - : Der Wert, der gesetzt werden soll.
+  - : Der zu setzende Wert.
 - `receiver` {{optional_inline}}
-  - : Der Wert von `this`, der für den Aufruf des Setzers für `propertyKey` auf `target` bereitgestellt wird. Wenn angegeben und `target` keinen Setzer für `propertyKey` hat, wird die Eigenschaft stattdessen auf `receiver` gesetzt.
+  - : Der Wert von `this`, der für den Aufruf des Setters für `propertyKey` auf `target` bereitgestellt wird. Falls angegeben und `target` keinen Setter für `propertyKey` besitzt, wird die Eigenschaft stattdessen auf `receiver` gesetzt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, der angibt, ob das Setzen der Eigenschaft erfolgreich war oder nicht.
+Ein {{jsxref("Boolean")}}, der angibt, ob das Setzen der Eigenschaft erfolgreich war.
 
 ### Ausnahmen
 
@@ -40,13 +54,13 @@ Ein {{jsxref("Boolean")}}, der angibt, ob das Setzen der Eigenschaft erfolgreich
 
 ## Beschreibung
 
-`Reflect.set()` bietet die reflexive Semantik eines [Property-Zugriffs](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Das heißt, `Reflect.set(target, propertyKey, value, receiver)` ist semantisch gleichwertig mit:
+`Reflect.set()` bietet die reflexive Semantik eines [Property Access](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Das heißt, `Reflect.set(target, propertyKey, value, receiver)` ist semantisch äquivalent zu:
 
 ```js
 target[propertyKey] = value;
 ```
 
-Beachten Sie, dass bei einem normalen Property-Zugriff `target` und `receiver` beobachtbar dasselbe Objekt wären.
+Beachten Sie, dass bei einem normalen Property Access `target` und `receiver` beobachtbar dasselbe Objekt wären.
 
 `Reflect.set()` ruft die `[[Set]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
@@ -75,9 +89,9 @@ Reflect.getOwnPropertyDescriptor(obj, "undefined");
 // { value: undefined, writable: true, enumerable: true, configurable: true }
 ```
 
-### Unterschiedliche `target` und `receiver`
+### Unterschiedliches Ziel und Empfänger
 
-Wenn `target` und `receiver` unterschiedlich sind, verwendet `Reflect.set` den Property-Deskriptor von `target` (um den Setzer zu finden oder festzustellen, ob die Eigenschaft beschreibbar ist), setzt die Eigenschaft jedoch auf `receiver`.
+Wenn `target` und `receiver` unterschiedlich sind, verwendet `Reflect.set` den Property Descriptor von `target` (zum Finden des Setters oder zum Bestimmen, ob die Eigenschaft beschreibbar ist), setzt die Eigenschaft jedoch auf `receiver`.
 
 ```js
 const target = {};
@@ -112,5 +126,5 @@ Reflect.set(target, "a", 2, receiver); // true
 
 - [Polyfill von `Reflect.set` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
 - {{jsxref("Reflect")}}
-- [Property-Accessoren](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
+- [Property Accessors](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
 - [`handler.set()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set)

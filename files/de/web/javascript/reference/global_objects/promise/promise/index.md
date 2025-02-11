@@ -2,14 +2,30 @@
 title: Promise() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Promise/Promise
 l10n:
-  sourceCommit: 1edfd3d5da5e1a559adb5d3a6a56beaed14845d6
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Der **`Promise()`**-Konstruktor erstellt {{jsxref("Promise")}}-Objekte. Er wird hauptsächlich verwendet, um callback-basierte APIs zu umhüllen, die noch keine Unterstützung für Promises bieten.
+Der **`Promise()`** Konstruktor erstellt {{jsxref("Promise")}} Objekte. Er wird hauptsächlich verwendet, um Callback-basierte APIs, die noch keine Unterstützung für Promises bieten, zu kapseln.
 
-{{EmbedInteractiveExample("pages/js/promise-constructor.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Promise Constructor", "taller")}}
+
+```js interactive-example
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("foo");
+  }, 300);
+});
+
+promise1.then((value) => {
+  console.log(value);
+  // Expected output: "foo"
+});
+
+console.log(promise1);
+// Expected output: [object Promise]
+```
 
 ## Syntax
 
@@ -17,20 +33,20 @@ Der **`Promise()`**-Konstruktor erstellt {{jsxref("Promise")}}-Objekte. Er wird 
 new Promise(executor)
 ```
 
-> **Hinweis:** `Promise()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Hinweis:** `Promise()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `executor`
-  - : Eine {{jsxref("function")}}, die vom Konstruktor ausgeführt wird. Sie erhält zwei Funktionen als Parameter: `resolveFunc` und `rejectFunc`. Alle im `executor` auftretenden Fehler führen dazu, dass die Promise abgelehnt wird, und der Rückgabewert wird ignoriert. Die Semantik des `executor` ist unten detailliert beschrieben.
+  - : Eine {{jsxref("function")}}, die vom Konstruktor ausgeführt wird. Sie erhält zwei Funktionen als Parameter: `resolveFunc` und `rejectFunc`. Alle Fehler, die in der `executor`-Funktion geworfen werden, führen dazu, dass das Promise abgelehnt wird, und der Rückgabewert wird ignoriert. Die Semantik des `executor` wird im Folgenden detailliert beschrieben.
 
 ### Rückgabewert
 
-Beim Aufruf mit `new` gibt der `Promise`-Konstruktor ein Promise-Objekt zurück. Das Promise-Objekt wird _aufgelöst_, wenn eine der Funktionen `resolveFunc` oder `rejectFunc` aufgerufen wird. Beachten Sie, dass, wenn Sie `resolveFunc` aufrufen und ein anderes Promise-Objekt als Argument übergeben, das ursprüngliche Promise als "aufgelöst", aber noch nicht "erledigt" angesehen werden kann. Siehe die [Promise-Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#description) für weitere Erläuterungen.
+Wenn der Konstruktor mit `new` aufgerufen wird, gibt der `Promise` Konstruktor ein Promise-Objekt zurück. Das Promise-Objekt wird _aufgelöst_ (resolved), wenn eine der Funktionen `resolveFunc` oder `rejectFunc` aufgerufen wird. Beachten Sie, dass, wenn `resolveFunc` mit einem anderen Promise-Objekt als Argument aufgerufen wird, das ursprüngliche Promise als "aufgelöst" betrachtet werden kann, jedoch immer noch nicht "erledigt" (settled) ist. Weitere Erklärungen finden Sie in der [Promise-Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#description).
 
 ## Beschreibung
 
-Traditionell (vor Promises) wurden asynchrone Aufgaben als Callbacks gestaltet.
+Traditionell (vor Promises) wurden asynchrone Aufgaben mit Callbacks gestaltet.
 
 ```js
 readFile("./data.txt", (error, result) => {
@@ -43,12 +59,12 @@ readFile("./data.txt", (error, result) => {
 // making `readFile` "asynchronous".
 ```
 
-Um die Lesbarkeit und die von Promises angebotenen Sprachfunktionen nutzen zu können, ermöglicht der `Promise()`-Konstruktor, die callback-basierte API in eine promise-basierte zu transformieren.
+Um von den verbesserten Lesbarkeits- und Sprachfeatures, die Promises bieten, zu profitieren, ermöglicht der `Promise()`-Konstruktor, eine Callback-basierte API in eine Promise-basierte umzuwandeln.
 
 > [!NOTE]
-> Wenn Ihre Aufgabe bereits auf Promises basiert, benötigen Sie wahrscheinlich keinen `Promise()`-Konstruktor.
+> Wenn Ihre Aufgabe bereits auf Promises basiert, benötigen Sie den `Promise()`-Konstruktor wahrscheinlich nicht.
 
-Der `executor` ist ein benutzerdefinierter Code, der ein Ergebnis in einem Callback an ein Promise bindet. Sie, der Programmierer, schreiben den `executor`. Die Signatur wird erwartet als:
+Der `executor` ist benutzerdefinierter Code, der ein Ergebnis eines Callbacks an ein Promise bindet. Der Programmierer schreibt den `executor`. Seine Signatur wird wie folgt erwartet:
 
 ```js
 function executor(resolveFunc, rejectFunc) {
@@ -57,37 +73,37 @@ function executor(resolveFunc, rejectFunc) {
 }
 ```
 
-`resolveFunc` und `rejectFunc` sind ebenfalls Funktionen, und Sie können ihnen beliebige tatsächliche Namen geben. Ihre Signaturen sind einfach: Sie akzeptieren einen einzelnen Parameter beliebigen Typs.
+`resolveFunc` und `rejectFunc` sind ebenfalls Funktionen, und Sie können ihnen beliebige Namen geben. Ihre Signaturen sind einfach: Sie akzeptieren jeweils einen einzigen Parameter beliebigen Typs.
 
 ```js
 resolveFunc(value); // call on resolved
 rejectFunc(reason); // call on rejected
 ```
 
-Der `value`-Parameter, der an `resolveFunc` übergeben wird, kann ein anderes Promise-Objekt sein, in diesem Fall wird der neu konstruierte Promise-Zustand an das übergebene Promise "gebunden" (im Rahmen der [Auflösung](#die_resolve-funktion)-Promise). Die `rejectFunc` hat eine Semantik, die der des [`throw`](/de/docs/Web/JavaScript/Reference/Statements/throw)-Statements nahekommt, daher ist `reason` typischerweise eine [`Error`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error)-Instanz. Wenn entweder `value` oder `reason` weggelassen wird, wird das Promise mit `undefined` erfüllt/abgelehnt.
+Der an `resolveFunc` übergebene `value`-Parameter kann ein anderes Promise-Objekt sein, in welchem Fall der Zustand des neu konstruierten Promises an das übergebene Promise "gebunden" ist (im Rahmen des Promise [Resolution](#die_resolve-funktion)). `rejectFunc` hat semantisch eine Ähnlichkeit mit der [`throw`](/de/docs/Web/JavaScript/Reference/Statements/throw)-Anweisung, weshalb `reason` typischerweise eine [`Error`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error)-Instanz ist. Wenn entweder `value` oder `reason` weggelassen wird, wird das Promise mit `undefined` erfüllt bzw. abgelehnt.
 
-Der Abschlusszustand des `executor` hat begrenzte Auswirkungen auf den Zustand des Promise:
+Der Abschlusszustand des `executor` hat nur begrenzte Auswirkungen auf den Zustand des Promises:
 
-- Der Rückgabewert des `executor` wird ignoriert. `return`-Anweisungen innerhalb des `executor` beeinflussen lediglich den Kontrollfluss und ändern, ob ein Teil der Funktion ausgeführt wird, haben jedoch keine Auswirkungen auf den Erfüllungswert des Promise. Wenn `executor` beendet wird und es unmöglich ist, dass `resolveFunc` oder `rejectFunc` in der Zukunft aufgerufen werden (z.B. keine asynchronen Aufgaben geplant sind), bleibt das Promise für immer ausstehend.
-- Wenn im `executor` ein Fehler auftritt, wird das Promise abgelehnt, es sei denn, `resolveFunc` oder `rejectFunc` wurde bereits aufgerufen.
+- Der Rückgabewert des `executor` wird ignoriert. `return`-Anweisungen innerhalb des `executor` beeinflussen lediglich den Kontrollfluss und ob Teile der Funktion ausgeführt werden, haben jedoch keinen Effekt auf den Erfüllungswert des Promises. Wenn der `executor` beendet wird und es unmöglich ist, dass `resolveFunc` oder `rejectFunc` in der Zukunft aufgerufen werden (zum Beispiel, weil keine asynchronen Aufgaben geplant sind), bleibt das Promise für immer ausstehend (pending).
+- Wenn im `executor` ein Fehler geworfen wird, wird das Promise abgelehnt, es sei denn, `resolveFunc` oder `rejectFunc` wurde bereits aufgerufen.
 
 > [!NOTE]
-> Die Existenz ausstehender Promises hindert das Programm nicht daran, zu beenden. Wenn die Ereignisschleife leer ist, beendet das Programm, trotz jeder ausstehenden Promises (da diese notwendigerweise immer ausstehend sind).
+> Die Existenz von ausstehenden Promises verhindert nicht, dass das Programm beendet wird. Wenn die Event-Schleife leer ist, wird das Programm beendet, selbst wenn es ausstehende Promises gibt (da diese notwendigerweise auf ewig ausstehen).
 
-Hier ist eine Zusammenfassung des typischen Ablaufs:
+Hier ist eine Übersicht über den typischen Ablauf:
 
-1. In dem Moment, in dem der Konstruktor das neue `Promise`-Objekt erzeugt, erzeugt er auch ein entsprechendes Paar von Funktionen für `resolveFunc` und `rejectFunc`; diese sind an das `Promise`-Objekt "gebunden".
-2. `executor` umschließt typischerweise eine asynchrone Operation, die eine callback-basierte API bereitstellt. Das Callback (das an die ursprüngliche callback-basierte API übergeben wird) ist innerhalb des `executor`-Codes definiert, sodass es Zugriff auf die Funktionen `resolveFunc` und `rejectFunc` hat.
-3. Der `executor` wird synchron aufgerufen (sobald das `Promise` konstruiert ist) mit den Funktionen `resolveFunc` und `rejectFunc` als Argumente.
-4. Der Code innerhalb des `executor` hat die Gelegenheit, eine Operation auszuführen. Der eventuelle Abschluss der asynchronen Aufgabe wird der Promise-Instanz über den Nebeneffekt mitgeteilt, der durch `resolveFunc` oder `rejectFunc` verursacht wird. Der Nebeneffekt ist, dass das `Promise`-Objekt "aufgelöst" wird.
-   - Wenn `resolveFunc` zuerst aufgerufen wird, wird der übergebene Wert [aufgelöst](#die_resolve-funktion). Das Promise kann ausstehend bleiben (falls ein anderes [thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) übergeben wird), erfüllt werden (in den meisten Fällen, in denen ein nicht-thenable Wert übergeben wird), oder abgelehnt werden (im Falle eines ungültigen Auflösungswertes).
-   - Wenn `rejectFunc` zuerst aufgerufen wird, wird das Promise sofort abgelehnt.
-   - Sobald eine der Auflösungsfunktionen (`resolveFunc` oder `rejectFunc`) aufgerufen wurde, bleibt das Promise aufgelöst. Nur der erste Aufruf von `resolveFunc` oder `rejectFunc` beeinflusst den endgültigen Zustand des Promise, und nachfolgende Aufrufe einer der Funktionen können weder den Erfüllungswert/den Ablehnungsgrund ändern noch dessen endgültigen Zustand von "erfüllt" in "abgelehnt" oder umgekehrt ändern.
-   - Wenn `executor` durch Auslösen eines Fehlers beendet wird, dann wird das Promise abgelehnt. Der Fehler wird jedoch ignoriert, wenn eine der Auflösungsfunktionen bereits aufgerufen wurde (sodass das Promise bereits aufgelöst ist).
-   - Die Auflösung des Promise führt nicht notwendigerweise dazu, dass das Promise erfüllt oder abgelehnt wird (d.h. erledigt). Das Promise kann immer noch ausstehend sein, weil es mit einem anderen thenable aufgelöst wird, aber sein endgültiger Zustand wird dem des aufgelösten thenable entsprechen.
-5. Sobald das Promise erledigt ist, ruft es (asynchron) alle weiteren zugeordneten Handler auf, die über {{jsxref("Promise/then", "then()")}}, {{jsxref("Promise/catch", "catch()")}} oder {{jsxref("Promise/finally", "finally()")}} assoziiert wurden. Der endgültige Erfüllungswert oder Ablehnungsgrund wird an den Aufruf der Erfüllungs- und Ablehnungshandler als Eingabeparameter übergeben (siehe [Verkettete Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#chained_promises)).
+1. Beim Erstellen des neuen `Promise`-Objekts generiert der Konstruktor gleichzeitig ein entsprechendes Paar von Funktionen für `resolveFunc` und `rejectFunc`; diese Funktionen sind eng mit dem `Promise`-Objekt verbunden.
+2. `executor` kapselt typischerweise eine asynchrone Operation, die eine Callback-basierte API bietet. Das Callback (das der ursprünglichen Callback-basierten API übergeben wird) wird innerhalb des `executor`-Codes definiert, sodass es Zugriff auf `resolveFunc` und `rejectFunc` hat.
+3. Der `executor` wird synchron (sofort nachdem das `Promise` erstellt wurde) mit den Funktionen `resolveFunc` und `rejectFunc` als Argumente aufgerufen.
+4. Der Code innerhalb des `executor` hat die Möglichkeit, eine Operation auszuführen. Das endgültige Ergebnis der asynchronen Aufgabe wird mit der Promise-Instanz durch den Seiteneffekt kommuniziert, der durch `resolveFunc` oder `rejectFunc` verursacht wird. Der Seiteneffekt besteht darin, dass das `Promise`-Objekt "aufgelöst" wird.
+   - Wenn `resolveFunc` zuerst aufgerufen wird, wird der übergebene Wert [resolved](#die_resolve-funktion). Das Promise kann ausstehend bleiben (falls ein anderer [thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) übergeben wird), erfüllt werden (in den meisten Fällen, in denen ein nicht-thenabler Wert übergeben wird) oder abgelehnt werden (im Falle eines ungültigen Auflösungswerts).
+   - Wenn `rejectFunc` zuerst aufgerufen wird, wird das versprochene Ergebnis sofort abgelehnt.
+   - Sobald einer der beiden Auflösungsfunktionen (`resolveFunc` oder `rejectFunc`) aufgerufen wurde, bleibt das Promise aufgelöst. Nur der erste Aufruf einer der beiden Funktionen beeinflusst den endgültigen Zustand des Promises; spätere Aufrufe haben keine Wirkung darauf.
+   - Wenn der `executor` beendet wird, indem ein Fehler geworfen wird, wird das Promise abgelehnt. Der Fehler wird jedoch ignoriert, wenn eine der Auflösungsfunktionen bereits aufgerufen wurde (sodass das Promise bereits aufgelöst ist).
+   - Die Auflösung des Promises führt nicht unbedingt dazu, dass das Promise erfüllt oder abgelehnt (d.h. abgeschlossen) wird. Es kann immer noch ausstehend sein, da es mit einem weiteren Thenable aufgelöst wurde. Der endgültige Zustand wird jedoch an den Zustand des dann aufgelösten Thenables angepasst.
+5. Sobald das Promise abgeschlossen ist, ruft es (asynchron) alle weiteren Handler auf, die mit {{jsxref("Promise/then", "then()")}}, {{jsxref("Promise/catch", "catch()")}} oder {{jsxref("Promise/finally", "finally()")}} verknüpft sind. Der endgültige Erfüllungswert oder der Ablehnungsgrund wird bei der Ausführung von Erfüllungs- und Ablehnungs-Handlern als Eingabeparameter übergeben (siehe [Verkettete Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#chained_promises)).
 
-Zum Beispiel kann die oben gezeigte callback-basierte `readFile`-API in eine auf Promises basierende transformiert werden.
+Zum Beispiel kann die oben erwähnte Callback-basierte `readFile` API in eine Promise-basierte umgewandelt werden.
 
 ```js
 const readFilePromise = (path) =>
@@ -106,17 +122,17 @@ readFilePromise("./data.txt")
   .catch((error) => console.error("Failed to read data"));
 ```
 
-Die `resolve`- und `reject`-Callbacks sind nur innerhalb des Bereichs der Executor-Funktion verfügbar, was bedeutet, dass Sie nach der Erstellung des Promise nicht mehr auf sie zugreifen können. Wenn Sie das Promise erstellen möchten, bevor Sie entscheiden, wie es aufgelöst werden soll, können Sie stattdessen die Methode {{jsxref("Promise.withResolvers()")}} verwenden, die die `resolve`- und `reject`-Funktionen offenlegt.
+Die `resolve`- und `reject`-Callbacks sind nur innerhalb des Geltungsbereichs der Executor-Funktion verfügbar, was bedeutet, dass Sie darauf nicht mehr zugreifen können, nachdem das Promise erstellt wurde. Wenn Sie das Promise erstellen möchten, bevor Sie entscheiden, wie es aufgelöst wird, können Sie stattdessen die Methode {{jsxref("Promise.withResolvers()")}} verwenden, die die `resolve`- und `reject`-Funktionen bereitstellt.
 
 ### Die resolve-Funktion
 
 Die `resolve`-Funktion hat die folgenden Verhaltensweisen:
 
-- Wenn sie mit dem gleichen Wert aufgerufen wird wie das neu erstellte Promise (das Promise, an das sie "gebunden" ist), wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
-- Wenn sie mit einem nicht-[thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) Wert aufgerufen wird (ein primitiver Wert, oder ein Objekt, dessen `then`-Eigenschaft nicht aufruffähig ist, auch wenn die Eigenschaft nicht vorhanden ist), wird das Promise sofort mit diesem Wert erfüllt.
-- Wenn sie mit einem thenable Wert aufgerufen wird (einschließlich einer anderen `Promise`-Instanz), dann wird die `then`-Methode des thenable gespeichert und später aufgerufen (sie wird immer asynchron aufgerufen). Die `then`-Methode wird mit zwei Callbacks aufgerufen, die zwei neue Funktionen mit genau den gleichen Verhaltensweisen wie die an die `executor`-Funktion übergebenen `resolveFunc` und `rejectFunc` sind. Wenn der Aufruf der `then`-Methode eine Ausnahme auslöst, wird das aktuelle Promise mit dem ausgelösten Fehler abgelehnt.
+- Wenn sie mit demselben Wert wie das neu erstellte Promise (das Promise, mit dem sie "verbunden" ist) aufgerufen wird, wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
+- Wenn sie mit einem nicht-[thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) Wert (einem primitiven Wert oder einem Objekt, dessen `then`-Eigenschaft nicht aufrufbar ist oder fehlt) aufgerufen wird, wird das Promise sofort mit diesem Wert erfüllt.
+- Wenn sie mit einem thenable Wert (einschließlich einer anderen `Promise`-Instanz) aufgerufen wird, wird die Methode `then` dieses Thenables gespeichert und in der Zukunft aufgerufen (immer asynchron). Die `then`-Methode wird mit zwei Callbacks aufgerufen, die dieselben Verhaltensweisen wie die an den `executor` übergebenen `resolveFunc`- und `rejectFunc`-Funktionen haben. Wenn beim Aufrufen der `then`-Methode ein Fehler auftritt, wird das aktuelle Promise mit diesem Fehler abgelehnt.
 
-Im letzten Fall bedeutet es, dass Code wie:
+Im letzten Fall bedeutet dies, dass der folgende Code:
 
 ```js
 new Promise((resolve, reject) => {
@@ -124,7 +140,7 @@ new Promise((resolve, reject) => {
 });
 ```
 
-In etwa das Gleiche ist wie:
+in etwa gleichbedeutend ist mit:
 
 ```js
 new Promise((resolve, reject) => {
@@ -139,18 +155,18 @@ new Promise((resolve, reject) => {
 });
 ```
 
-Außer dass im `resolve(thenable)`-Fall:
+Mit der Ausnahme, dass im Fall von `resolve(thenable)`:
 
-1. `resolve` wird synchron aufgerufen, so dass der erneute Aufruf von `resolve` oder `reject` keine Auswirkungen hat, selbst wenn die Handler, die durch `anotherPromise.then()` angehängt wurden, noch nicht aufgerufen wurden.
-2. Die `then`-Methode wird asynchron aufgerufen, so dass das Promise nie sofort aufgelöst wird, wenn ein thenable übergeben wird.
+1. `resolve` synchron aufgerufen wird, sodass ein erneutes Aufrufen von `resolve` oder `reject` keinerlei Wirkung hat, selbst wenn die durch `anotherPromise.then()` angehängten Handler noch nicht aufgerufen wurden.
+2. Die `then`-Methode asynchron aufgerufen wird, sodass das Promise nie sofort aufgelöst wird, wenn ein Thenable übergeben wird.
 
-Weil `resolve` erneut mit dem, was `thenable.then()` als `value` übergibt, aufgerufen wird, ist die Resolver-Funktion in der Lage, geschachtelte thenables zu flatten, wo ein thenable seinen `onFulfilled`-Handler mit einem anderen thenable aufruft. Der Effekt ist, dass der Erfüllungshandler eines realen Promise niemals ein thenable als seinen Erfüllungswert erhält.
+Da `resolve` erneut mit dem Wert aufgerufen wird, den `thenable.then()` übergibt, kann die Resolver-Funktion verschachtelte Thenables "abflachen", wobei ein Thenable seinen `onFulfilled`-Handler mit einem anderen Thenable aufruft. Das Ergebnis ist, dass der Erfüllungs-Handler eines echten Promises niemals einen Thenable als Erfüllungswert erhält.
 
 ## Beispiele
 
-### Eine callback-basierte API in eine auf Promises basierende verwandeln
+### Eine Callback-basierte API in eine Promise-basierte umwandeln
 
-Um einer Funktion eine Promise-Funktionalität zu bieten, muss sie ein Promise zurückgeben, indem die `resolve`- und `reject`-Funktionen zu den richtigen Zeiten aufgerufen werden.
+Um einer Funktion Promise-Funktionalität zu geben, lassen Sie sie ein Promise durch Aufruf der `resolve`- und `reject`-Funktionen zu den passenden Zeitpunkten zurückgeben.
 
 ```js
 function myAsyncFunction(url) {
@@ -164,11 +180,11 @@ function myAsyncFunction(url) {
 }
 ```
 
-### Effekt des Aufrufs von resolveFunc
+### Wirkung des Aufrufs von resolveFunc
 
-Der Aufruf von `resolveFunc` führt dazu, dass das Promise aufgelöst wird, so dass der erneute Aufruf von `resolveFunc` oder `rejectFunc` keine Auswirkungen hat. Das Promise kann jedoch in jedem der Zustände sein: ausstehend, erfüllt oder abgelehnt.
+Der Aufruf von `resolveFunc` führt dazu, dass das Promise aufgelöst wird, sodass ein erneutes Aufrufen von `resolveFunc` oder `rejectFunc` keine Wirkung mehr hat. Das Promise kann jedoch in irgendeinem der Zustände sein: ausstehend, erfüllt oder abgelehnt.
 
-Diese `pendingResolved`-Promise ist aufgelöst, sobald sie erstellt wird, weil sie bereits an den endgültigen Zustand des inneren Promise "gebunden" wurde, und der spätere Aufruf von `resolveOuter` oder `rejectOuter` oder das Auslösen eines Fehlers im Executor hat keinen Einfluss auf ihren endgültigen Zustand. Das innere Promise ist jedoch weiterhin ausstehend, bis 100 ms später, was bedeutet, dass das äußere Promise auch ausstehend ist:
+Dieses `pendingResolved`-Promise wird im Moment seiner Erstellung als aufgelöst angesehen, da es bereits "gebunden" ist, den späteren Zustand des inneren Promises zu übernehmen, und spätere Aufrufe von `resolveOuter`, `rejectOuter` oder das Werfen eines Fehlers im `executor` haben keinen Einfluss mehr auf seinen endgültigen Zustand. Das innere Promise bleibt jedoch bis 100ms später ausstehend, sodass das äußere Promise ebenfalls ausstehend bleibt:
 
 ```js
 const pendingResolved = new Promise((resolveOuter, rejectOuter) => {
@@ -182,7 +198,7 @@ const pendingResolved = new Promise((resolveOuter, rejectOuter) => {
 });
 ```
 
-Diese `fulfilledResolved`-Promise wird in dem Moment erfüllt, in dem sie aufgelöst wird, weil sie mit einem nicht-thenable Wert aufgelöst wird. Trotzdem ist sie beim Erstellen ungelöst, weil weder `resolve` noch `reject` bisher aufgerufen wurde. Ein ungelöstes Promise ist notwendigerweise ausstehend:
+Dieses `fulfilledResolved`-Promise wird erfüllt, sobald es aufgerufen wird, weil es mit einem nicht-thenable Wert aufgelöst wurde. Beim Erstellen ist es jedoch noch nicht aufgelöst, da weder `resolve` noch `reject` aufgerufen wurden. Ein nicht aufgelöstes Promise ist notwendigerweise ausstehend:
 
 ```js
 const fulfilledResolved = new Promise((resolve, reject) => {
@@ -192,7 +208,7 @@ const fulfilledResolved = new Promise((resolve, reject) => {
 });
 ```
 
-Der Aufruf von `rejectFunc` führt offensichtlich dazu, dass das Promise abgelehnt wird. Es gibt jedoch auch zwei Möglichkeiten, das Promise sofort abzulehnen, selbst wenn der `resolveFunc`-Callback aufgerufen wird.
+Durch den Aufruf von `rejectFunc` wird das Promise offensichtlich abgelehnt. Es gibt jedoch auch zwei Möglichkeiten, das Promise sofort abzulehnen, selbst wenn der `resolveFunc`-Callback aufgerufen wird.
 
 ```js
 // 1. Resolving with the promise itself

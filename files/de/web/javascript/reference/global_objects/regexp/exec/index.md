@@ -2,14 +2,26 @@
 title: RegExp.prototype.exec()
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/exec
 l10n:
-  sourceCommit: 4e21ab343030c6b842394266247db7cb0274f037
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die Methode **`exec()`** von {{jsxref("RegExp")}}-Instanzen führt eine Suche mit diesem regulären Ausdruck nach einem Übereinstimmungstreffer in einem angegebenen String aus und gibt ein Ergebnis-Array oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück.
+Die Methode **`exec()`** von {{jsxref("RegExp")}}-Instanzen führt eine Suche mit diesem regulären Ausdruck in einer angegebenen Zeichenkette durch und gibt ein Ergebnis-Array oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück.
 
-{{EmbedInteractiveExample("pages/js/regexp-prototype-exec.html")}}
+{{InteractiveExample("JavaScript Demo: RegExp.prototype.exec()")}}
+
+```js interactive-example
+const regex1 = RegExp("foo*", "g");
+const str1 = "table football, foosball";
+let array1;
+
+while ((array1 = regex1.exec(str1)) !== null) {
+  console.log(`Found ${array1[0]}. Next starts at ${regex1.lastIndex}.`);
+  // Expected output: "Found foo. Next starts at 9."
+  // Expected output: "Found foo. Next starts at 19."
+}
+```
 
 ## Syntax
 
@@ -20,39 +32,39 @@ exec(str)
 ### Parameter
 
 - `str`
-  - : Der String, mit dem der reguläre Ausdruck abgeglichen werden soll. Alle Werte werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder die Übergabe von `undefined` dazu, dass `exec()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
+  - : Die Zeichenkette, gegen die der reguläre Ausdruck abgeglichen werden soll. Alle Werte werden [zu Zeichenketten konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher bewirkt das Weglassen oder Übergeben von `undefined`, dass `exec()` nach der Zeichenkette `"undefined"` sucht, was selten gewünscht ist.
 
 ### Rückgabewert
 
-Wenn keine Übereinstimmung gefunden wird, gibt die Methode `exec()` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück und setzt die [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex)-Eigenschaft des regulären Ausdrucks auf `0`.
+Schlägt der Abgleich fehl, gibt die Methode `exec()` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück und setzt die [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex)-Eigenschaft der Regex auf `0`.
 
-Wenn eine Übereinstimmung gefunden wird, gibt die Methode `exec()` ein Array zurück und aktualisiert die [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex)-Eigenschaft des regulären Ausdrucksobjekts. Das zurückgegebene Array enthält den gefundenen Text als erstes Element und danach je ein Element für jede Gruppe des gefundenen Textes. Das Array besitzt zusätzlich folgende Eigenschaften:
+Bei einem erfolgreichen Abgleich gibt die Methode `exec()` ein Array zurück und aktualisiert die [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex)-Eigenschaft des regulären Ausdruck-Objekts. Das zurückgegebene Array enthält den abgeglichenen Text als erstes Element und dann ein Element für jede erfasste Gruppe des abgeglichenen Textes. Das Array hat auch die folgenden zusätzlichen Eigenschaften:
 
 - `index`
-  - : Der nullbasierte Index der Übereinstimmung im String.
+  - : Der nullbasierte Index des Abgleichs in der Zeichenkette.
 - `input`
-  - : Der ursprüngliche String, der mit dem regulären Ausdruck abgeglichen wurde.
+  - : Die ursprüngliche Zeichenkette, die abgeglichen wurde.
 - `groups`
-  - : Ein [`null`-Prototype-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) der benannten Gruppen, dessen Schlüssel die Namen und Werte die Gruppen oder {{jsxref("undefined")}} sind, wenn keine benannten Gruppen definiert wurden. Weitere Informationen finden Sie unter [Gruppen in regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences).
+  - : Ein [`Null-Prototyp-Objekt`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) von benannten Erfassungsgruppen, deren Schlüssel die Namen und Werte die Gruppen sind, oder {{jsxref("undefined")}}, wenn keine benannten Erfassungsgruppen definiert wurden. Weitere Informationen finden Sie unter [Erfassungsgruppen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences).
 - `indices` {{optional_inline}}
 
-  - : Diese Eigenschaft ist nur vorhanden, wenn das [`d`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices)-Flag gesetzt ist. Es handelt sich um ein Array, bei dem jeder Eintrag die Grenzen eines Teilstring-Treffers darstellt. Der Index jedes Elements in diesem Array entspricht dem Index des jeweiligen Teilstring-Treffers im von `exec()` zurückgegebenen Array. Mit anderen Worten repräsentiert der erste `indices`-Eintrag den gesamten Treffer, der zweite `indices`-Eintrag die erste Gruppe und so weiter. Jeder Eintrag ist selbst ein zweielementiges Array, wobei die erste Zahl den Startindex und die zweite Zahl den Endindex des Treffers darstellt.
+  - : Diese Eigenschaft ist nur vorhanden, wenn das [`d`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices)-Flag gesetzt ist. Es handelt sich um ein Array, bei dem jeder Eintrag die Grenzen eines Teilzeichenketten-Abgleichs darstellt. Der Index jedes Elements in diesem Array entspricht dem Index des jeweiligen Teilzeichenketten-Abgleichs im von `exec()` zurückgegebenen Array. Anders ausgedrückt repräsentiert der erste `indices`-Eintrag den gesamten Abgleich, der zweite Eintrag repräsentiert die erste Erfassungsgruppe usw. Jeder Eintrag selbst ist ein Array mit zwei Elementen, wobei die erste Zahl den Startindex und die zweite Zahl den Endindex des Abgleichs darstellt.
 
-    Das `indices`-Array hat zusätzlich eine `groups`-Eigenschaft, die ein [`null`-Prototype-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) aller benannten Gruppen enthält. Die Schlüssel sind die Namen der Gruppen, und jeder Wert ist ein zweielementiges Array mit dem Start- und Endindex der Gruppe. Wenn der reguläre Ausdruck keine benannten Gruppen enthält, ist `groups` `undefined`.
+    Das `indices`-Array hat zusätzlich eine `groups`-Eigenschaft, die ein [`Null-Prototyp-Objekt`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) aller benannten Erfassungsgruppen enthält. Die Schlüssel sind die Namen der Erfassungsgruppen, und jeder Wert ist ein Array mit zwei Elementen, wobei die erste Zahl den Startindex und die zweite Zahl den Endindex der Erfassungsgruppe darstellt. Enthält der reguläre Ausdruck keine benannten Erfassungsgruppen, ist `groups` `undefined`.
 
 ## Beschreibung
 
-JavaScript-{{jsxref("RegExp")}}-Objekte sind _zustandsbehaftet_, wenn die [global](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global)- oder [sticky](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky)-Flags gesetzt sind (z. B. `/foo/g` oder `/foo/y`). Sie speichern den [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) des vorherigen Treffers. Mithilfe dieser internen Eigenschaft kann `exec()` verwendet werden, um über mehrere Treffer in einem Text (mit Gruppen) zu iterieren, anstatt nur die Übereinstimmungen mit {{jsxref("String.prototype.match()")}} zu erhalten.
+JavaScript-{{jsxref("RegExp")}}-Objekte sind _zustandsbehaftet_, wenn die [global](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global)- oder [sticky](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky)-Flags gesetzt sind (z. B. `/foo/g` oder `/foo/y`). Sie speichern einen [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) des vorherigen Abgleichs. Mithilfe dieses internen Werts kann `exec()` verwendet werden, um mehrere Abgleiche in einer Zeichenkette mit Text (mit Erfassungsgruppen) zu durchlaufen, anstatt nur die übereinstimmenden Zeichenfolgen mit {{jsxref("String.prototype.match()")}} zu erhalten.
 
-Wenn `exec()` verwendet wird, hat das globale Flag keinen Effekt, wenn das Sticky-Flag gesetzt ist — der Treffer ist immer "sticky".
+Wenn Sie `exec()` verwenden, hat das globale Flag keine Auswirkung, wenn das Sticky-Flag gesetzt ist — der Abgleich ist immer sticky.
 
-`exec()` ist die grundlegende Methode von regulären Ausdrücken. Viele andere Methoden für reguläre Ausdrücke rufen intern `exec()` auf — einschließlich der Methoden, die von String-Methoden aufgerufen werden, wie [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace). Obwohl `exec()` selbst leistungsstark ist (und am effizientesten), vermittelt es oft nicht am klarsten die Absicht.
+`exec()` ist die grundlegende Methode von Regexps. Viele andere Regex-Methoden rufen intern `exec()` auf — einschließlich der Methoden, die von Zeichenkettenmethoden wie [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace) verwendet werden. Obwohl `exec()` leistungsstark (und am effizientesten) ist, wird die Absicht oft nicht am klarsten ausgedrückt.
 
-- Wenn Sie nur überprüfen möchten, ob der reguläre Ausdruck mit einem String übereinstimmt, aber nicht, was tatsächlich übereinstimmt, verwenden Sie stattdessen {{jsxref("RegExp.prototype.test()")}}.
-- Wenn Sie alle Vorkommen eines globalen regulären Ausdrucks finden möchten und keine Informationen wie Gruppen benötigen, verwenden Sie {{jsxref("String.prototype.match()")}}. Darüber hinaus vereinfacht {{jsxref("String.prototype.matchAll()")}} das Finden mehrerer Teile eines Strings (mit Gruppen), indem es Ihnen ermöglicht, über die Treffer zu iterieren.
-- Wenn Sie einen Treffer suchen, um dessen Indexposition im String zu finden, verwenden Sie stattdessen die Methode {{jsxref("String.prototype.search()")}}.
+- Wenn Sie nur überprüfen möchten, ob der reguläre Ausdruck eine Zeichenkette abgleicht, aber nicht, was genau gematcht wird, verwenden Sie stattdessen {{jsxref("RegExp.prototype.test()")}}.
+- Wenn Sie alle Vorkommen eines globalen Regex finden und Informationen wie Erfassungsgruppen uninteressant sind, verwenden Sie stattdessen {{jsxref("String.prototype.match()")}}. Darüber hinaus vereinfacht {{jsxref("String.prototype.matchAll()")}} das Abgleichen mehrerer Teile einer Zeichenkette (mit Erfassungsgruppen), indem Sie über die Abgleiche iterieren können.
+- Wenn Sie einen Abgleich ausführen, um dessen Indexposition in der Zeichenkette zu finden, verwenden Sie stattdessen die Methode {{jsxref("String.prototype.search()")}}.
 
-`exec()` ist nützlich für komplexe Operationen, die sich mit keiner der oben genannten Methoden leicht erreichen lassen, insbesondere wenn Sie [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) manuell anpassen müssen. ({{jsxref("String.prototype.matchAll()")}} kopiert den regulären Ausdruck, sodass Änderungen an `lastIndex` während der Iteration über `matchAll` die Iteration nicht beeinflussen.) Ein solches Beispiel finden Sie unter [lastIndex zurücksetzen](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex#rewinding_lastindex).
+`exec()` ist nützlich für komplexe Operationen, die nicht einfach mit einer der oben genannten Methoden durchgeführt werden können, insbesondere wenn Sie den [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) manuell anpassen müssen. ({{jsxref("String.prototype.matchAll()")}} kopiert die Regex, sodass das Ändern von `lastIndex` während der Iteration über `matchAll` die Iteration nicht beeinflusst.) Ein solches Beispiel finden Sie unter [Zurücksetzen von `lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex#rewinding_lastindex).
 
 ## Beispiele
 
@@ -68,25 +80,25 @@ const re = /quick\s(?<color>brown).+?(jumps)/dgi;
 const result = re.exec("The Quick Brown Fox Jumps Over The Lazy Dog");
 ```
 
-Die folgende Tabelle zeigt den Status von `result` nach Ausführung dieses Skripts:
+Die folgende Tabelle zeigt den Zustand von `result`, nachdem dieses Skript ausgeführt wurde:
 
-| Eigenschaft | Wert                                                              |
-| ----------- | ----------------------------------------------------------------- |
-| `[0]`       | `"Quick Brown Fox Jumps"`                                         |
-| `[1]`       | `"Brown"`                                                         |
-| `[2]`       | `"Jumps"`                                                         |
-| `index`     | `4`                                                               |
-| `indices`   | `[[4, 25], [10, 15], [20, 25]]`<br />`groups: { color: [10, 15]}` |
-| `input`     | `"The Quick Brown Fox Jumps Over The Lazy Dog"`                   |
-| `groups`    | `{ color: "brown" }`                                              |
+| Eigenschaft | Wert                                                               |
+| ----------- | ------------------------------------------------------------------ |
+| `[0]`       | `"Quick Brown Fox Jumps"`                                          |
+| `[1]`       | `"Brown"`                                                          |
+| `[2]`       | `"Jumps"`                                                          |
+| `index`     | `4`                                                                |
+| `indices`   | `[[4, 25], [10, 15], [20, 25]]`<br />`groups: { color: [10, 15 ]}` |
+| `input`     | `"The Quick Brown Fox Jumps Over The Lazy Dog"`                    |
+| `groups`    | `{ color: "brown" }`                                               |
 
-Zusätzlich wird `re.lastIndex` auf `25` gesetzt, da dieser reguläre Ausdruck global ist.
+Zusätzlich wird `re.lastIndex` auf `25` gesetzt, da dieser Regex global ist.
 
-### Aufeinanderfolgende Treffer finden
+### Aufeinanderfolgende Abgleiche finden
 
-Wenn Ihr regulärer Ausdruck das [`g`](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags)-Flag verwendet, können Sie die Methode `exec()` mehrmals verwenden, um aufeinanderfolgende Treffer im selben String zu finden. Dabei startet die Suche beim Teilstring von `str`, der durch die {{jsxref("RegExp/lastIndex", "lastIndex")}}-Eigenschaft des regulären Ausdrucks angegeben ist ({{jsxref("RegExp/test", "test()")}} setzt die {{jsxref("RegExp/lastIndex", "lastIndex")}}-Eigenschaft ebenfalls fort). Beachten Sie, dass die {{jsxref("RegExp/lastIndex", "lastIndex")}}-Eigenschaft nicht zurückgesetzt wird, wenn ein anderer String durchsucht wird – sie startet die Suche am bestehenden {{jsxref("RegExp/lastIndex", "lastIndex")}}.
+Wenn Ihr regulärer Ausdruck das [`g`](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags)-Flag verwendet, können Sie die Methode `exec()` mehrmals verwenden, um aufeinanderfolgende Abgleiche in derselben Zeichenkette zu finden. In diesem Fall beginnt die Suche an der Teilzeichenkette von `str`, die durch die {{jsxref("RegExp/lastIndex", "lastIndex")}}-Eigenschaft des regulären Ausdrucks angegeben wird ({{jsxref("RegExp/test", "test()")}} wird ebenfalls die {{jsxref("RegExp/lastIndex", "lastIndex")}}-Eigenschaft voranstellen). Beachten Sie, dass die {{jsxref("RegExp/lastIndex", "lastIndex")}}-Eigenschaft beim Suchen in einer anderen Zeichenkette nicht zurückgesetzt wird; sie beginnt ihre Suche bei ihrem bestehenden {{jsxref("RegExp/lastIndex", "lastIndex")}}.
 
-Zum Beispiel:
+Angenommen, Sie haben dieses Skript:
 
 ```js
 const myRe = /ab*/g;
@@ -99,7 +111,7 @@ while ((myArray = myRe.exec(str)) !== null) {
 }
 ```
 
-Dieses Skript zeigt folgenden Text:
+Dieses Skript zeigt den folgenden Text an:
 
 ```plain
 Found abb. Next match starts at 3
@@ -109,11 +121,11 @@ Found ab. Next match starts at 9
 > [!WARNING]
 > Es gibt viele Fallstricke, die dazu führen können, dass dies zu einer Endlosschleife wird!
 >
-> - Platzieren Sie _nicht_ den regulären Ausdruck-Literal (oder den {{jsxref("RegExp")}}-Konstruktor) in der `while`-Bedingung – er wird den regulären Ausdruck bei jeder Iteration neu erstellen und {{jsxref("RegExp/lastIndex", "lastIndex")}} zurücksetzen.
-> - Stellen Sie sicher, dass das [globale (`g`) Flag](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags) gesetzt ist, andernfalls wird `lastIndex` niemals vorgerückt.
-> - Falls der reguläre Ausdruck möglicherweise Treffer mit leerer Zeichenlänge liefert (zum Beispiel `/^/gm`), erhöhen Sie seine {{jsxref("RegExp/lastIndex", "lastIndex")}} manuell bei jeder Iteration, um zu vermeiden, dass Sie an derselben Stelle hängen bleiben.
+> - Platzieren Sie den regulären Ausdruck-Literal (oder den {{jsxref("RegExp")}}-Konstruktor) _nicht_ innerhalb der `while`-Bedingung – dies würde den Regex bei jeder Iteration neu erstellen und {{jsxref("RegExp/lastIndex", "lastIndex")}} zurücksetzen.
+> - Stellen Sie sicher, dass das [globale (`g`) Flag](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags) gesetzt ist, oder `lastIndex` wird nie vorangestellt.
+> - Wenn der Regex möglicherweise Zeichen mit null Länge abgleicht (z. B. `/^/gm`), erhöhen Sie dessen {{jsxref("RegExp/lastIndex", "lastIndex")}} manuell bei jeder Iteration, um zu vermeiden, dass er an derselben Stelle hängen bleibt.
 
-Sie können diese Art von Code in der Regel durch {{jsxref("String.prototype.matchAll()")}} ersetzen, um ihn weniger fehleranfällig zu machen.
+Solchen Code können Sie meist durch {{jsxref("String.prototype.matchAll()")}} ersetzen, um ihn weniger fehleranfällig zu machen.
 
 ### Verwendung von exec() mit RegExp-Literalen
 
@@ -124,7 +136,7 @@ const matches = /(hello \S+)/.exec("This is a hello world!");
 console.log(matches[1]);
 ```
 
-Dies wird eine Nachricht mit `'hello world!'` protokollieren.
+Dies gibt eine Nachricht aus, die `'hello world!'` enthält.
 
 ## Spezifikationen
 
@@ -136,5 +148,5 @@ Dies wird eine Nachricht mit `'hello world!'` protokollieren.
 
 ## Siehe auch
 
-- [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)
+- [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions)
 - {{jsxref("RegExp")}}

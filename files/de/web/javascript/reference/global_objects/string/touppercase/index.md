@@ -2,14 +2,21 @@
 title: String.prototype.toUpperCase()
 slug: Web/JavaScript/Reference/Global_Objects/String/toUpperCase
 l10n:
-  sourceCommit: c2445ce1dc3a0170e2fbfdbee10e18a7455c2282
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`toUpperCase()`**-Methode von {{jsxref("String")}}-Werten gibt diese Zeichenkette in Großbuchstaben konvertiert zurück.
+Die Methode **`toUpperCase()`** von {{jsxref("String")}}-Werten gibt diesen String in Großbuchstaben zurück.
 
-{{EmbedInteractiveExample("pages/js/string-touppercase.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: String.toUpperCase()", "shorter")}}
+
+```js interactive-example
+const sentence = "The quick brown fox jumps over the lazy dog.";
+
+console.log(sentence.toUpperCase());
+// Expected output: "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG."
+```
 
 ## Syntax
 
@@ -23,12 +30,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue Zeichenkette, die die aufrufende Zeichenkette in Großbuchstaben konvertiert darstellt.
+Ein neuer String, der den aufrufenden String in Großbuchstaben darstellt.
 
 ## Beschreibung
 
-Die `toUpperCase()`-Methode gibt den Wert der Zeichenkette in
-Großbuchstaben konvertiert zurück. Diese Methode beeinflusst nicht den Wert der Zeichenkette selbst, da JavaScript-Zeichenketten unveränderlich sind.
+Die Methode `toUpperCase()` gibt den Wert des Strings in Großbuchstaben zurück. Diese Methode beeinflusst den Wert des Strings selbst nicht, da JavaScript-Strings unveränderlich sind.
 
 ## Beispiele
 
@@ -38,10 +44,9 @@ Großbuchstaben konvertiert zurück. Diese Methode beeinflusst nicht den Wert de
 console.log("alphabet".toUpperCase()); // 'ALPHABET'
 ```
 
-### Umwandlung von nicht-Zeichenketten-`this`-Werten zu Zeichenketten
+### Umwandlung von Nicht-String-`this`-Werten in Strings
 
-Diese Methode wird jeden nicht-Zeichenkettenwert in eine Zeichenkette umwandeln, wenn Sie ihr
-`this` auf einen Wert setzen, der keine Zeichenkette ist:
+Diese Methode konvertiert jeden Wert, der kein String ist, in einen String, wenn Sie `this` auf einen Wert setzen, der kein String ist:
 
 ```js
 const a = String.prototype.toUpperCase.call({

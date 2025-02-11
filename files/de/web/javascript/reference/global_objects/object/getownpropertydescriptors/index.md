@@ -2,14 +2,28 @@
 title: Object.getOwnPropertyDescriptors()
 slug: Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
 l10n:
-  sourceCommit: 70f09675ddcfc75a3bb66d2dce4cf82738948a37
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Object.getOwnPropertyDescriptors()`** gibt alle eigenen Eigenschaftenbeschreibungen eines gegebenen Objekts zurück.
+Die statische Methode **`Object.getOwnPropertyDescriptors()`** gibt alle eigenen Property-Deskriptoren eines gegebenen Objekts zurück.
 
-{{EmbedInteractiveExample("pages/js/object-getownpropertydescriptors.html")}}
+{{InteractiveExample("JavaScript Demo: Object.getOwnPropertyDescriptors()")}}
+
+```js interactive-example
+const object1 = {
+  property1: 42,
+};
+
+const descriptors1 = Object.getOwnPropertyDescriptors(object1);
+
+console.log(descriptors1.property1.writable);
+// Expected output: true
+
+console.log(descriptors1.property1.value);
+// Expected output: 42
+```
 
 ## Syntax
 
@@ -20,36 +34,36 @@ Object.getOwnPropertyDescriptors(obj)
 ### Parameter
 
 - `obj`
-  - : Das Objekt, für das alle eigenen Eigenschaftenbeschreibungen abgerufen werden sollen.
+  - : Das Objekt, für das alle eigenen Property-Deskriptoren abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein Objekt, das alle eigenen Eigenschaftenbeschreibungen eines Objekts enthält. Kann ein leeres Objekt sein, wenn keine Eigenschaften vorhanden sind.
+Ein Objekt, das alle eigenen Property-Deskriptoren des Objekts enthält. Es kann ein leeres Objekt sein, wenn keine Eigenschaften vorhanden sind.
 
 ## Beschreibung
 
-Diese Methode ermöglicht die Untersuchung der genauen Beschreibung aller eigenen Eigenschaften eines Objekts. Eine _Eigenschaft_ in JavaScript besteht entweder aus einem string-wertigen Namen oder einem {{jsxref("Symbol")}} und einer Eigenschaftenbeschreibung. Weitere Informationen über Arten von Eigenschaftenbeschreibungen und deren Attribute finden Sie in {{jsxref("Object.defineProperty()")}}.
+Diese Methode ermöglicht die genaue Untersuchung der Beschreibung aller eigenen Eigenschaften eines Objekts. Eine _Eigenschaft_ in JavaScript besteht entweder aus einem string-basierten Namen oder einem {{jsxref("Symbol")}} und einem Property-Deskriptor. Weitere Informationen über die Typen und Attribute von Property-Deskriptoren finden Sie in {{jsxref("Object.defineProperty()")}}.
 
-Eine _Eigenschaftenbeschreibung_ ist ein Datensatz mit einigen der folgenden Attribute:
+Ein _Property-Deskriptor_ ist ein Datensatz mit einigen der folgenden Attribute:
 
 - `value`
-  - : Der Wert, der mit der Eigenschaft verknüpft ist (nur Datenbeschreibungen).
+  - : Der mit der Eigenschaft verknüpfte Wert (nur Daten-Deskriptoren).
 - `writable`
-  - : `true` genau dann, wenn der mit der Eigenschaft verknüpfte Wert geändert werden darf (nur Datenbeschreibungen).
+  - : `true`, wenn und nur wenn der Wert, der mit der Eigenschaft verknüpft ist, geändert werden kann (nur Daten-Deskriptoren).
 - `get`
-  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Getter gibt (nur Zugriffs-Beschreibungen).
+  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn kein Getter vorhanden ist (nur Accessor-Deskriptoren).
 - `set`
-  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Setter gibt (nur Zugriffs-Beschreibungen).
+  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn kein Setter vorhanden ist (nur Accessor-Deskriptoren).
 - `configurable`
-  - : `true` genau dann, wenn der Typ dieser Eigenschaftenbeschreibung geändert werden darf und wenn die Eigenschaft vom entsprechenden Objekt gelöscht werden darf.
+  - : `true`, wenn und nur wenn der Typ dieses Property-Deskriptors geändert werden kann und die Eigenschaft aus dem entsprechenden Objekt gelöscht werden kann.
 - `enumerable`
-  - : `true` genau dann, wenn diese Eigenschaft bei der Aufzählung der Eigenschaften des entsprechenden Objekts angezeigt wird.
+  - : `true`, wenn und nur wenn diese Eigenschaft bei der Aufzählung der Eigenschaften des entsprechenden Objekts angezeigt wird.
 
 ## Beispiele
 
 ### Erstellen einer flachen Kopie
 
-Während die Methode {{jsxref("Object.assign()")}} nur aufzählbare und eigene Eigenschaften von einem Quellobjekt zu einem Zielobjekt kopiert, können Sie diese Methode und {{jsxref("Object.create()")}} für eine {{Glossary("Shallow_copy", "flache Kopie")}} zwischen zwei unbekannten Objekten verwenden:
+Während die Methode {{jsxref("Object.assign()")}} nur aufzählbare und eigene Eigenschaften von einem Quellobjekt auf ein Zielobjekt kopiert, können Sie diese Methode und {{jsxref("Object.create()")}} für eine {{Glossary("Shallow_copy", "flache Kopie")}} zwischen zwei unbekannten Objekten verwenden:
 
 ```js
 Object.create(
@@ -60,7 +74,7 @@ Object.create(
 
 ### Erstellen einer Unterklasse
 
-Ein typischer Weg, eine Unterklasse zu erstellen, ist das Definieren der Unterklasse, das Setzen ihres Prototyps auf eine Instanz der Oberklasse und das anschließende Definieren von Eigenschaften auf dieser Instanz. Dies kann besonders für Getter und Setter umständlich werden. Stattdessen können Sie diesen Code verwenden, um den Prototyp festzulegen:
+Ein typischer Weg, eine Unterklasse zu erstellen, besteht darin, die Unterklasse zu definieren, ihren Prototyp auf eine Instanz der Oberklasse zu setzen und dann Eigenschaften auf dieser Instanz zu definieren. Dies kann insbesondere bei Gettern und Settern umständlich werden. Stattdessen können Sie diesen Code verwenden, um den Prototyp festzulegen:
 
 ```js
 function superclass() {}

@@ -2,14 +2,22 @@
 title: Array.of()
 slug: Web/JavaScript/Reference/Global_Objects/Array/of
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Array.of()`** erstellt eine neue `Array`-Instanz aus einer variablen Anzahl von Argumenten, unabhängig von Anzahl oder Typ der Argumente.
+Die statische Methode **`Array.of()`** erstellt eine neue `Array`-Instanz aus einer variablen Anzahl von Argumenten, unabhängig von der Anzahl oder dem Typ der Argumente.
 
-{{EmbedInteractiveExample("pages/js/array-of.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Array.of()", "shorter")}}
+
+```js interactive-example
+console.log(Array.of("foo", 2, "bar", true));
+// Expected output: Array ["foo", 2, "bar", true]
+
+console.log(Array.of());
+// Expected output: Array []
+```
 
 ## Syntax
 
@@ -23,15 +31,15 @@ Array.of(element1, element2, /* …, */ elementN)
 ### Parameter
 
 - `element1`, …, `elementN`
-  - : Elemente, die zum Erstellen des Arrays verwendet werden.
+  - : Elemente, die verwendet werden, um das Array zu erstellen.
 
 ### Rückgabewert
 
-Eine neue {{jsxref("Array")}} Instanz.
+Eine neue {{jsxref("Array")}}-Instanz.
 
 ## Beschreibung
 
-Der Unterschied zwischen `Array.of()` und dem [`Array()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Array)-Konstruktor liegt im Umgang mit einzelnen Argumenten: `Array.of(7)` erstellt ein Array mit einem einzelnen Element, `7`, während `Array(7)` ein leeres Array mit einer `length`-Eigenschaft von `7` erstellt. (Das impliziert ein Array von 7 leeren Slots, nicht Slots mit tatsächlichen {{jsxref("undefined")}}-Werten.)
+Der Unterschied zwischen `Array.of()` und dem [`Array()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Array)-Konstruktor liegt in der Verarbeitung von Einzelargumenten: `Array.of(7)` erstellt ein Array mit einem einzigen Element, `7`, während `Array(7)` ein leeres Array mit einer `length`-Eigenschaft von `7` erstellt. (Das impliziert ein Array mit 7 leeren Slots, nicht Slots mit tatsächlichen {{jsxref("undefined")}}-Werten.)
 
 ```js
 Array.of(7); // [7]
@@ -41,7 +49,7 @@ Array.of(1, 2, 3); // [1, 2, 3]
 Array(1, 2, 3); // [1, 2, 3]
 ```
 
-Die `Array.of()`-Methode ist eine generische Fabrikmethode. Wenn beispielsweise eine Unterklasse von `Array` die `of()`-Methode erbt, wird die geerbte `of()`-Methode neue Instanzen der Unterklasse anstelle von `Array`-Instanzen zurückgeben. Tatsächlich kann der `this`-Wert jede Konstrukturfunktion sein, die ein einziges Argument akzeptiert, das die Länge des neuen Arrays darstellt, und der Konstruktor wird mit der Anzahl der an `of()` übergebenen Argumente aufgerufen. Die endgültige `length` wird erneut festgelegt, wenn alle Elemente zugewiesen sind. Wenn der `this`-Wert keine Konstrukturfunktion ist, wird stattdessen der einfache `Array`-Konstruktor verwendet.
+Die Methode `Array.of()` ist eine allgemeine Fabrikmethode. Wenn z. B. eine Unterklasse von `Array` die Methode `of()` erbt, gibt die geerbte `of()`-Methode neue Instanzen der Unterklasse zurück, anstatt `Array`-Instanzen. Tatsächlich kann der `this`-Wert jede Konstruktorfunktion sein, die ein einziges Argument akzeptiert, das die Länge des neuen Arrays darstellt, und der Konstruktor wird mit der Anzahl der Argumente, die an `of()` übergeben wurden, aufgerufen. Die endgültige `length`-Eigenschaft wird erneut festgelegt, wenn alle Elemente zugewiesen sind. Wenn der `this`-Wert keine Konstruktorfunktion ist, wird stattdessen der einfache `Array`-Konstruktor verwendet.
 
 ## Beispiele
 
@@ -53,9 +61,9 @@ Array.of(1, 2, 3); // [1, 2, 3]
 Array.of(undefined); // [undefined]
 ```
 
-### Aufrufen von of() auf Nicht-Array-Konstruktoren
+### Aufruf von of() bei Nicht-Array-Konstruktoren
 
-Die `of()`-Methode kann auf jede Konstrukturfunktion aufgerufen werden, die ein einziges Argument akzeptiert, das die Länge des neuen Arrays darstellt.
+Die Methode `of()` kann bei jeder Konstruktorfunktion aufgerufen werden, die ein einzelnes Argument akzeptiert, das die Länge des neuen Arrays darstellt.
 
 ```js
 function NotArray(len) {
@@ -86,7 +94,7 @@ console.log(Array.of.call({}, 1)); // [ 1 ]
 ## Siehe auch
 
 - [Polyfill von `Array.of` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)-Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array/Array", "Array()")}}
 - {{jsxref("Array.from()")}}

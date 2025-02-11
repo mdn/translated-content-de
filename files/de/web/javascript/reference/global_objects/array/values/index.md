@@ -2,14 +2,27 @@
 title: Array.prototype.values()
 slug: Web/JavaScript/Reference/Global_Objects/Array/values
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`values()`** Methode von {{jsxref("Array")}} Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das den Wert jedes Elements im Array durchläuft.
+Die **`values()`**-Methode von {{jsxref("Array")}}-Instanzen gibt ein neues _[Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das den Wert jedes Elements im Array iteriert.
 
-{{EmbedInteractiveExample("pages/js/array-values.html")}}
+{{InteractiveExample("JavaScript Demo: Array.values()")}}
+
+```js interactive-example
+const array1 = ["a", "b", "c"];
+const iterator = array1.values();
+
+for (const value of iterator) {
+  console.log(value);
+}
+
+// Expected output: "a"
+// Expected output: "b"
+// Expected output: "c"
+```
 
 ## Syntax
 
@@ -33,15 +46,15 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 Array.prototype.values === Array.prototype[Symbol.iterator]; // true
 ```
 
-Wenn `values()` auf [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) verwendet wird, durchläuft die Methode leere Stellen, als ob sie den Wert `undefined` hätten.
+Bei der Verwendung auf [lückenhaften Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) iteriert die `values()`-Methode leere Stellen, als hätten sie den Wert `undefined`.
 
-Die `values()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integerindizierte Eigenschaften hat.
+Die `values()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und Integer-Index-Eigenschaften besitzt.
 
 ## Beispiele
 
-### Iteration mit einer for...of Schleife
+### Iteration mit der for...of-Schleife
 
-Da `values()` einen iterierbaren Iterator zurückgibt, können Sie eine [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) Schleife verwenden, um ihn zu durchlaufen.
+Da `values()` einen iterierbaren Iterator zurückgibt, können Sie eine [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife verwenden, um ihn zu iterieren.
 
 ```js
 const arr = ["a", "b", "c", "d", "e"];
@@ -54,7 +67,7 @@ for (const letter of iterator) {
 
 ### Iteration mit next()
 
-Da der Rückgabewert auch ein Iterator ist, können Sie seine `next()` Methode direkt aufrufen.
+Da der Rückgabewert ebenfalls ein Iterator ist, können Sie direkt dessen `next()`-Methode aufrufen.
 
 ```js
 const arr = ["a", "b", "c", "d", "e"];
@@ -68,12 +81,12 @@ iterator.next(); // { value: undefined, done: true }
 console.log(iterator.next().value); // undefined
 ```
 
-### Wiederverwendung des Iterables
+### Wiederverwendung des Iterierbaren
 
 > [!WARNING]
-> Das Array-Iterator-Objekt sollte ein einmalig verwendbares Objekt sein. Wiederverwenden Sie es nicht.
+> Das Array-Iterator-Objekt sollte nur einmalig verwendet werden. Verwenden Sie es nicht erneut.
 
-Das von `values()` zurückgegebene Iterable ist nicht wiederverwendbar. Wenn `next().done = true` oder `currentIndex > length`, [endet die `for...of` Schleife](/de/docs/Web/JavaScript/Reference/Iteration_protocols#interactions_between_the_language_and_iteration_protocols), und weiteres Durchlaufen hat keine Wirkung.
+Das aus `values()` zurückgegebene Iterierbare ist nicht wiederverwendbar. Wenn `next().done = true` oder `currentIndex > length`, [endet die `for...of`-Schleife](/de/docs/Web/JavaScript/Reference/Iteration_protocols#interactions_between_the_language_and_iteration_protocols), und ein weiteres Iterieren hat keine Wirkung.
 
 ```js
 const arr = ["a", "b", "c", "d", "e"];
@@ -88,7 +101,7 @@ for (const letter of values) {
 // undefined
 ```
 
-Wenn Sie eine [`break`](/de/docs/Web/JavaScript/Reference/Statements/break) Anweisung verwenden, um die Iteration vorzeitig zu beenden, kann der Iterator ab der aktuellen Position fortgesetzt werden, wenn Sie ihn weiter durchlaufen.
+Wird eine [`break`](/de/docs/Web/JavaScript/Reference/Statements/break)-Anweisung verwendet, um die Iteration frühzeitig zu beenden, kann der Iterator vom aktuellen Stand aus fortfahren, wenn er weiter iteriert wird.
 
 ```js
 const arr = ["a", "b", "c", "d", "e"];
@@ -109,7 +122,7 @@ for (const letter of values) {
 
 ### Änderungen während der Iteration
 
-Es werden keine Werte im Array-Iterator-Objekt gespeichert, das von `values()` zurückgegeben wird; stattdessen speichert es die Adresse des Arrays, das bei seiner Erstellung verwendet wurde, und liest den aktuell besuchten Index bei jeder Iteration. Daher hängt die Ausgabe der Iteration von dem Wert ab, der zum Zeitpunkt des Durchlaufs an diesem Index gespeichert ist. Wenn sich die Werte im Array ändern, ändern sich auch die vom Array-Iterator-Objekt zurückgegebenen Werte.
+Es werden keine Werte im Array-Iterator-Objekt, das von `values()` zurückgegeben wird, gespeichert. Stattdessen speichert es die Adresse des Arrays, das bei der Erstellung verwendet wurde, und liest den derzeit besuchten Index bei jeder Iteration. Daher hängt die Iterationsausgabe von dem Wert ab, der zu diesem Zeitpunkt an diesem Index gespeichert ist. Wenn sich die Werte im Array ändern, ändern sich auch die Werte des Array-Iterator-Objekts.
 
 ```js
 const arr = ["a", "b", "c", "d", "e"];
@@ -120,7 +133,7 @@ arr[1] = "n";
 console.log(iterator.next().value); // "n"
 ```
 
-Anders als [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) speichert das Array-Iterator-Objekt die Länge des Arrays nicht zur Zeit seiner Erstellung, sondern liest sie bei jeder Iteration einmal. Daher besucht der Iterator neue Elemente, wenn das Array während der Iteration wächst. Dies kann zu Endlosschleifen führen.
+Anders als bei [iterativen Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) speichert das Array-Iterator-Objekt nicht die Länge des Arrays zum Zeitpunkt seiner Erstellung, sondern liest sie bei jeder Iteration. Wächst das Array während der Iteration, besucht der Iterator auch die neuen Elemente. Dies kann zu endlosen Schleifen führen.
 
 ```js
 const arr = [1, 2, 3];
@@ -130,9 +143,9 @@ for (const e of arr) {
 // RangeError: invalid array length
 ```
 
-### Iteration über spärliche Arrays
+### Iteration lückenhafter Arrays
 
-`values()` wird leere Stellen besuchen, als ob sie `undefined` sind.
+`values()` besucht leere Stellen, als wären sie `undefined`.
 
 ```js
 for (const element of [, "a"].values()) {
@@ -144,7 +157,7 @@ for (const element of [, "a"].values()) {
 
 ### Aufrufen von values() auf Nicht-Array-Objekten
 
-Die `values()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative Ganzzahl ist, die kleiner als `length` ist.
+Die `values()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative Ganzzahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -173,10 +186,10 @@ for (const entry of Array.prototype.values.call(arrayLike)) {
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.values` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- Leitfaden zu [Indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Leitfaden zu indizierten Sammlungen (Indexed collections)](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.entries()")}}
 - {{jsxref("Array.prototype.keys()")}}
 - [`Array.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator)
 - {{jsxref("TypedArray.prototype.values()")}}
-- [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iteration-Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)

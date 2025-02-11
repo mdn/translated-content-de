@@ -2,14 +2,27 @@
 title: Date.prototype.getUTCDay()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getUTCDay
 l10n:
-  sourceCommit: 27180875516cc311342e74b596bfb589b7211e0c
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`getUTCDay()`**-Methode von {{jsxref("Date")}}-Instanzen gibt den Wochentag für dieses Datum gemäß der Weltzeit zurück, wobei 0 für Sonntag steht.
+Die Methode **`getUTCDay()`** von {{jsxref("Date")}}-Instanzen gibt den Wochentag dieses Datums gemäß universeller Zeit zurück, wobei 0 für Sonntag steht.
 
-{{EmbedInteractiveExample("pages/js/date-getutcday.html")}}
+{{InteractiveExample("JavaScript Demo: Date.getUTCDay()")}}
+
+```js interactive-example
+const date1 = new Date("August 19, 1975 23:15:30 GMT+11:00");
+const date2 = new Date("August 19, 1975 23:15:30 GMT-11:00");
+
+// Tuesday
+console.log(date1.getUTCDay());
+// Expected output: 2
+
+// Wednesday
+console.log(date2.getUTCDay());
+// Expected output: 3
+```
 
 ## Syntax
 
@@ -23,13 +36,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl, die dem Wochentag für das angegebene Datum gemäß der Weltzeit entspricht: 0 für Sonntag, 1 für Montag, 2 für Dienstag und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl, die dem Wochentag für das angegebene Datum gemäß universeller Zeit entspricht: 0 für Sonntag, 1 für Montag, 2 für Dienstag und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getUTCDay()
 
-Im folgenden Beispiel wird der Wochentag des aktuellen Datums der Variablen `weekday` zugewiesen.
+Das folgende Beispiel weist den Wochentag des aktuellen Datums der Variablen `weekday` zu.
 
 ```js
 const today = new Date();

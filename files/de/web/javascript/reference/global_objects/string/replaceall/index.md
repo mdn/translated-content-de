@@ -2,14 +2,26 @@
 title: String.prototype.replaceAll()
 slug: Web/JavaScript/Reference/Global_Objects/String/replaceAll
 l10n:
-  sourceCommit: 7d09807ed7594cf5c7b93afc1fa0424a26663b9b
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`replaceAll()`**-Methode von {{jsxref("String")}}-Werten gibt einen neuen String zurück, bei dem alle Übereinstimmungen eines `pattern` durch einen `replacement` ersetzt werden. Das `pattern` kann ein String oder ein {{jsxref("RegExp")}} sein, und der `replacement` kann ein String oder eine Funktion sein, die für jede Übereinstimmung aufgerufen wird. Der ursprüngliche String bleibt unverändert.
+Die **`replaceAll()`**-Methode von {{jsxref("String")}}-Werten gibt einen neuen String zurück, bei dem alle Vorkommen eines `pattern` durch einen `replacement` ersetzt wurden. Das `pattern` kann ein String oder ein {{jsxref("RegExp")}} sein, und der `replacement` kann ein String oder eine Funktion sein, die für jedes Vorkommen aufgerufen wird. Der ursprüngliche String bleibt unverändert.
 
-{{EmbedInteractiveExample("pages/js/string-replaceall.html")}}
+{{InteractiveExample("JavaScript Demo: String.replaceAll()")}}
+
+```js interactive-example
+const paragraph = "I think Ruth's dog is cuter than your dog!";
+
+console.log(paragraph.replaceAll("dog", "monkey"));
+// Expected output: "I think Ruth's monkey is cuter than your monkey!"
+
+// Global flag required when calling replaceAll with regex
+const regex = /Dog/gi;
+console.log(paragraph.replaceAll(regex, "ferret"));
+// Expected output: "I think Ruth's ferret is cuter than your ferret!"
+```
 
 ## Syntax
 
@@ -21,27 +33,27 @@ replaceAll(pattern, replacement)
 
 - `pattern`
 
-  - : Kann ein String oder ein Objekt mit einer [`Symbol.replace`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace)-Methode sein — das typische Beispiel ist ein [regulärer Ausdruck](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp). Jeder Wert, der nicht über die `Symbol.replace`-Methode verfügt, wird in einen String umgewandelt.
+  - : Kann ein String oder ein Objekt mit einer [`Symbol.replace`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace)-Methode sein – typischerweise ein [Regulärer Ausdruck](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp). Jeder Wert, der keine `Symbol.replace`-Methode besitzt, wird in einen String umgewandelt.
 
-    Wenn `pattern` [ein Regex ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes), dann muss es das globale (`g`) Flag gesetzt haben, ansonsten wird ein {{jsxref("TypeError")}} ausgelöst.
+    Wenn `pattern` [ein Regulärer Ausdruck ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes), muss er das globale (`g`)-Flag gesetzt haben, andernfalls wird ein {{jsxref("TypeError")}} ausgelöst.
 
 - `replacement`
-  - : Kann ein String oder eine Funktion sein. Der Ersatz hat dieselbe Semantik wie der von [`String.prototype.replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace).
+  - : Kann ein String oder eine Funktion sein. Der Ersatzwert hat dieselben Semantiken wie der von [`String.prototype.replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace).
 
 ### Rückgabewert
 
-Ein neuer String, bei dem alle Übereinstimmungen eines Musters durch einen Ersatz ersetzt wurden.
+Ein neuer String, bei dem alle Vorkommen eines Musters durch einen Ersatzwert ersetzt wurden.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das `pattern` [ein Regex ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes), das nicht das globale (`g`) Flag gesetzt hat (die [`flags`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/flags)-Eigenschaft enthält kein `"g"`).
+  - : Wird ausgelöst, wenn das `pattern` [ein Regulärer Ausdruck ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes), der nicht das globale (`g`)-Flag gesetzt hat (dessen [`flags`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/flags)-Eigenschaft enthält kein `"g"`).
 
 ## Beschreibung
 
-Diese Methode verändert den String-Wert, auf den sie angewendet wird, nicht. Sie gibt einen neuen String zurück.
+Diese Methode verändert den String-Wert, auf dem sie aufgerufen wird, nicht. Sie gibt einen neuen String zurück.
 
-Im Gegensatz zu [`replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace) ersetzt diese Methode alle Vorkommen eines Strings, nicht nur das erste. Während es auch möglich ist, `replace()` mit einem dynamisch konstruierten globalen Regex über [`RegExp()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp) zu verwenden, um alle Instanzen eines Strings zu ersetzen, kann dies unbeabsichtigte Folgen haben, wenn der String Sonderzeichen enthält, die in regulären Ausdrücken eine Bedeutung haben (was passieren könnte, wenn der Ersatzstring aus Benutzereingaben kommt). Während Sie diesen Fall mit {{jsxref("RegExp.escape()")}} mildern können, um den regulären Ausdruck zu einem literalen Muster zu machen, ist es besser, einfach `replaceAll()` zu verwenden und den String zu übergeben, ohne ihn in ein Regex umzuwandeln.
+Im Gegensatz zu [`replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace) ersetzt diese Methode alle Vorkommen eines Strings, nicht nur das erste. Es ist zwar auch möglich, `replace()` mit einem dynamisch konstruierten globalen Regulären Ausdruck mithilfe von [`RegExp()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp) zu verwenden, um alle Instanzen eines Strings zu ersetzen, dies kann jedoch unbeabsichtigte Konsequenzen haben, wenn der String Sonderzeichen enthält, die in regulären Ausdrücken eine Bedeutung haben (was passieren kann, wenn der Ersatz-String aus Benutzereingaben stammt). Während dies durch die Verwendung von {{jsxref("RegExp.escape()")}} zur Umwandlung des regulären Ausdrucksstrings in ein wörtliches Muster entschärft werden kann, ist es besser, einfach `replaceAll()` zu verwenden und den String ohne Umwandlung in einen Regulären Ausdruck zu übergeben.
 
 ```js
 function unsafeRedactName(text, name) {
@@ -58,15 +70,15 @@ console.log(unsafeRedactName(report, "ha.*er")); // "A [REDACTED]s in their name
 console.log(safeRedactName(report, "ha.*er")); // "A hacker called [REDACTED] used special characters in their name to breach the system."
 ```
 
-Wenn `pattern` ein Objekt mit einer [`Symbol.replace`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace)-Methode ist (einschließlich `RegExp`-Objekten), wird diese Methode mit dem Zielstring und dem `replacement` als Argumenten aufgerufen. Ihr Rückgabewert wird zum Rückgabewert von `replaceAll()`. In diesem Fall wird das Verhalten von `replaceAll()` vollständig durch die `[Symbol.replace]()`-Methode bestimmt und wird daher dasselbe Ergebnis wie `replace()` haben (abgesehen von der zusätzlichen Eingabevalidierung, dass das Regex global ist).
+Wenn `pattern` ein Objekt mit einer [`Symbol.replace`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace)-Methode ist (einschließlich `RegExp`-Objekten), wird diese Methode mit dem Zielstring und `replacement` als Argumente aufgerufen. Der Rückgabewert wird zum Rückgabewert von `replaceAll()`. In diesem Fall wird das Verhalten von `replaceAll()` vollständig durch die `[Symbol.replace]()`-Methode definiert und hat daher dasselbe Ergebnis wie `replace()` (abgesehen von der zusätzlichen Eingabevalidierung, dass der Reguläre Ausdruck global ist).
 
-Wenn das `pattern` ein leerer String ist, wird der Ersatz zwischen jede UTF-16-Code-Einheit eingefügt, ähnlich dem Verhalten von [`split()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split).
+Wenn das `pattern` ein leerer String ist, wird der Ersatzwert zwischen jede UTF-16-Codeeinheit eingefügt, ähnlich wie das Verhalten von [`split()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split).
 
 ```js
 "xxx".replaceAll("", "_"); // "_x_x_x_"
 ```
 
-Für weitere Informationen darüber, wie Regex-Eigenschaften (insbesondere das [sticky](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky)-Flag) mit `replaceAll()` interagieren, siehe [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace).
+Weitere Informationen darüber, wie Regex-Eigenschaften (insbesondere das [sticky](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky)-Flag) mit `replaceAll()` interagieren, finden Sie unter [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace).
 
 ## Beispiele
 
@@ -77,16 +89,16 @@ Für weitere Informationen darüber, wie Regex-Eigenschaften (insbesondere das [
 // 'aa..cc'
 ```
 
-### Nicht-globales Regex wirft einen Fehler
+### Nicht-globale Regex löst Fehler aus
 
-Bei Verwendung eines regulären Ausdrucks als Suchwert muss dieser global sein. Das hier wird nicht funktionieren:
+Bei der Verwendung eines Regulären Ausdrucks als Suchwert muss dieser global sein. Dies funktioniert nicht:
 
 ```js example-bad
 "aabbcc".replaceAll(/b/, ".");
 // TypeError: replaceAll must be called with a global RegExp
 ```
 
-Das hier wird funktionieren:
+Das funktioniert:
 
 ```js example-good
 "aabbcc".replaceAll(/b/g, ".");
@@ -104,7 +116,7 @@ Das hier wird funktionieren:
 ## Siehe auch
 
 - [Polyfill von `String.prototype.replaceAll` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions)
+- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Leitfaden
 - {{jsxref("String.prototype.replace()")}}
 - {{jsxref("String.prototype.match()")}}
 - {{jsxref("RegExp.prototype.exec()")}}

@@ -2,14 +2,24 @@
 title: Number.EPSILON
 slug: Web/JavaScript/Reference/Global_Objects/Number/EPSILON
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
 Die statische Dateneigenschaft **`Number.EPSILON`** stellt den Unterschied zwischen 1 und der kleinsten Gleitkommazahl dar, die größer als 1 ist.
 
-{{EmbedInteractiveExample("pages/js/number-epsilon.html")}}
+{{InteractiveExample("JavaScript Demo: Number.EPSILON")}}
+
+```js interactive-example
+const result = Math.abs(0.2 - 0.3 + 0.1);
+
+console.log(result);
+// Expected output: 2.7755575615628914e-17
+
+console.log(result < Number.EPSILON);
+// Expected output: true
+```
 
 ## Wert
 
@@ -19,24 +29,24 @@ Die statische Dateneigenschaft **`Number.EPSILON`** stellt den Unterschied zwisc
 
 ## Beschreibung
 
-`Number.EPSILON` ist die Differenz zwischen 1 und der nächstgrößeren Zahl, die im Number-Format darstellbar ist, da das [Double-Precision-Gleitkommaformat](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) nur 52 Bits zum Repräsentieren der [Mantisse](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding) hat und das niederwertigste Bit eine Bedeutung von 2<sup>-52</sup> besitzt.
+`Number.EPSILON` ist der Unterschied zwischen 1 und der nächstgrößeren Zahl im Number-Format, da das [Doppelgenaue Gleitkommaformat](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) nur 52 Bits verwendet, um die [Mantisse](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding) darzustellen. Das niedrigste Bit hat dabei eine Bedeutung von 2<sup>-52</sup>.
 
-Beachten Sie, dass die absolute Genauigkeit von Gleitkommazahlen abnimmt, je größer das Zahl wird, denn der Exponent wächst, während die Genauigkeit der Mantisse gleich bleibt. {{jsxref("Number.MIN_VALUE")}} ist die kleinste darstellbare positive Zahl, die viel kleiner ist als `Number.EPSILON`.
+Beachten Sie, dass die absolute Genauigkeit von Gleitkommazahlen abnimmt, je größer die Zahl wird, da der Exponent wächst, während die Genauigkeit der Mantisse gleich bleibt. {{jsxref("Number.MIN_VALUE")}} ist die kleinste darstellbare positive Zahl, die wesentlich kleiner ist als `Number.EPSILON`.
 
-Da `EPSILON` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie sie immer als `Number.EPSILON` und nicht als Eigenschaft eines Zahlenwerts.
+Da `EPSILON` eine statische Eigenschaft von {{jsxref("Number")}} ist, wird sie immer als `Number.EPSILON` verwendet und nicht als Eigenschaft eines Zahlenwertes.
 
 ## Beispiele
 
 ### Gleichheit testen
 
-Jedes Zahlencodierungssystem, das eine endliche Anzahl von Bits, in welcher Basis auch immer (z.B. dezimal oder binär), verwendet, kann _notwendigerweise_ nicht alle Zahlen exakt darstellen, weil Sie versuchen, eine unendliche Anzahl von Punkten auf der Zahlenlinie mit einer endlichen Menge Speicher darzustellen. Zum Beispiel kann ein Dezimalsystem (Basis 10) nicht 1/3 exakt darstellen und ein Binärsystem (Basis 2) kann `0.1` nicht exakt darstellen. Daher ist beispielsweise `0.1 + 0.2` nicht genau `0.3`:
+Jedes Zahlencodierungssystem, das eine endliche Anzahl von Bits verwendet, unabhängig von der Basis (z. B. Dezimal oder Binär), kann notwendigerweise nicht alle Zahlen exakt darstellen, da versucht wird, eine unendliche Anzahl von Punkten auf der Zahlenlinie mit einer endlichen Menge an Speicher darzustellen. Zum Beispiel kann ein System mit Basis-10 (Dezimalsystem) 1/3 nicht exakt darstellen, und ein System mit Basis-2 (Binärsystem) kann `0.1` nicht exakt darstellen. So ist beispielsweise `0.1 + 0.2` nicht exakt gleich `0.3`:
 
 ```js
 console.log(0.1 + 0.2); // 0.30000000000000004
 console.log(0.1 + 0.2 === 0.3); // false
 ```
 
-Aus diesem Grund wird oft geraten, keine Gleitkommazahlen mit `===` zu vergleichen. Stattdessen können wir zwei Zahlen als gleich erachten, wenn sie _nahe genug_ beieinander liegen. Die Konstante `Number.EPSILON` ist normalerweise eine angemessene Schwelle für Fehler, wenn die Arithmetik im Bereich der Größenordnung von `1` liegt, da `EPSILON` im Wesentlichen festlegt, wie genau die Zahl "1" ist.
+Aus diesem Grund wird oft empfohlen, **Gleitkommazahlen niemals mit `===` zu vergleichen**. Stattdessen können zwei Zahlen als gleich angesehen werden, wenn sie _nahe genug_ beieinander liegen. Die Konstante `Number.EPSILON` ist in der Regel eine vernünftige Schwelle für Fehler, wenn die Arithmetik ungefähr die Größenordnung von `1` hat, da `EPSILON` im Wesentlichen angibt, wie genau die Zahl "1" ist.
 
 ```js
 function equal(x, y) {
@@ -49,7 +59,7 @@ const z = 0.1;
 console.log(equal(x + z, y)); // true
 ```
 
-Jedoch ist `Number.EPSILON` für jegliche Arithmetik mit größerer Größenordnung ungeeignet. Wenn Ihre Daten in der Größenordnung 10<sup>3</sup> sind, hat der Dezimalteil eine viel geringere Genauigkeit als `Number.EPSILON`:
+Allerdings ist `Number.EPSILON` ungeeignet für Arithmetik auf einer größeren Größenordnung. Wenn Ihre Daten beispielsweise in der Größenordnung von 10<sup>3</sup> liegen, hat der Dezimalanteil eine viel geringere Genauigkeit als `Number.EPSILON`:
 
 ```js
 function equal(x, y) {
@@ -63,7 +73,7 @@ console.log(x + y); // 2000.3000000000002; error of 10^-13 instead of 10^-16
 console.log(equal(x + y, z)); // false
 ```
 
-In diesem Fall ist eine größere Toleranz erforderlich. Da die verglichenen Zahlen eine Größenordnung von ungefähr `2000` haben, schafft ein Multiplikator wie `2000 * Number.EPSILON` genügend Toleranz für diesen Fall.
+In diesem Fall ist eine größere Toleranz erforderlich. Da die zu vergleichenden Zahlen eine Größenordnung von ungefähr `2000` haben, schafft ein Multiplikator wie `2000 * Number.EPSILON` genügend Toleranz für diesen Fall.
 
 ```js
 function equal(x, y, tolerance = Number.EPSILON) {
@@ -76,10 +86,10 @@ const z = 2000.3;
 console.log(equal(x + y, z, 2000 * Number.EPSILON)); // true
 ```
 
-Zusätzlich zur Größenordnung ist es wichtig, die _Genauigkeit_ Ihrer Eingaben zu berücksichtigen. Wenn die Zahlen beispielsweise aus einem Formulareingabefeld erfasst werden und der Eingabewert nur in Schritten von `0.1` angepasst werden kann (d.h. [`<input type="number" step="0.1">`](/de/docs/Web/HTML/Attributes/step)), ist es normalerweise sinnvoll, eine viel größere Toleranz wie `0.01` zuzulassen, da die Daten nur eine Genauigkeit von `0.1` haben.
+Zusätzlich zur Größenordnung ist es wichtig, die _Genauigkeit_ Ihrer Eingaben zu berücksichtigen. Wenn die Zahlen beispielsweise aus einem Formularfeld stammen und der Eingabewert nur in Schritten von `0.1` angepasst werden kann (d. h. [`<input type="number" step="0.1">`](/de/docs/Web/HTML/Attributes/step)), ist es in der Regel sinnvoll, eine viel größere Toleranz zuzulassen, wie etwa `0.01`, da die Daten nur eine Genauigkeit von `0.1` aufweisen.
 
 > [!NOTE]
-> Wichtiger Hinweis: Verwenden Sie `Number.EPSILON` nicht einfach als Schwelle für Gleichheitstests. Verwenden Sie eine Schwelle, die für die Größenordnung und Genauigkeit der zu vergleichenden Zahlen geeignet ist.
+> Wichtiger Hinweis: Verwenden Sie `Number.EPSILON` nicht einfach als Schwelle für Gleichheitstests. Verwenden Sie eine Schwelle, die der Größenordnung und der Genauigkeit der Zahlen entspricht, die Sie vergleichen.
 
 ## Spezifikationen
 

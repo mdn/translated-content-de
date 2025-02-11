@@ -2,14 +2,36 @@
 title: handler.apply()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/apply
 l10n:
-  sourceCommit: 5c9b080f763346a4a18cc2c50fa4e21d2feec700
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die Methode **`handler.apply()`** ist eine Trap für die `[[Call]]` [interne Methode eines Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die bei Operationen wie Funktionsaufrufen verwendet wird.
+Die Methode **`handler.apply()`** ist eine Falle für die `[[Call]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die bei Operationen wie Funktionsaufrufen verwendet wird.
 
-{{EmbedInteractiveExample("pages/js/proxyhandler-apply.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: handler.apply()", "taller")}}
+
+```js interactive-example
+function sum(a, b) {
+  return a + b;
+}
+
+const handler = {
+  apply: function (target, thisArg, argumentsList) {
+    console.log(`Calculate sum: ${argumentsList}`);
+    // Expected output: "Calculate sum: 1,2"
+
+    return target(argumentsList[0], argumentsList[1]) * 10;
+  },
+};
+
+const proxy1 = new Proxy(sum, handler);
+
+console.log(sum(1, 2));
+// Expected output: 3
+console.log(proxy1(1, 2));
+// Expected output: 30
+```
 
 ## Syntax
 
@@ -25,7 +47,7 @@ new Proxy(target, {
 Die folgenden Parameter werden an die Methode `apply()` übergeben. `this` ist an den Handler gebunden.
 
 - `target`
-  - : Das Ziel-Callable-Objekt.
+  - : Das Zielobjekt, das aufrufbar ist.
 - `thisArg`
   - : Das `this`-Argument für den Aufruf.
 - `argumentsList`
@@ -33,13 +55,13 @@ Die folgenden Parameter werden an die Methode `apply()` übergeben. `this` ist a
 
 ### Rückgabewert
 
-Die Methode `apply()` kann jeden Wert zurückgeben, der den Rückgabewert des Funktionsaufrufs darstellt.
+Die Methode `apply()` kann jeden Wert zurückgeben, der den Rückgabewert des Funktionsaufrufs repräsentiert.
 
 ## Beschreibung
 
-### Abfangvorgänge
+### Abfangmechanismen
 
-Diese Trap kann folgende Operationen abfangen:
+Diese Falle kann folgende Operationen abfangen:
 
 - Funktionsaufruf: `proxy(...args)`
 - {{jsxref("Function.prototype.apply()")}} und {{jsxref("Function.prototype.call()")}}
@@ -49,9 +71,9 @@ Oder jede andere Operation, die die `[[Call]]` [interne Methode](/de/docs/Web/Ja
 
 ### Invarianten
 
-Die `[[Call]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Definition des Handlers gegen eine der folgenden Invarianten verstößt:
+Die `[[Call]]`-interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Das `target` muss selbst ein aufrufbares Objekt sein. Das heißt, es muss ein Funktionsobjekt sein.
+- Das `target` muss selbst aufrufbar sein. Das bedeutet, es muss ein Funktionsobjekt sein.
 
 ## Beispiele
 
@@ -82,7 +104,7 @@ console.log(p(1, 2, 3)); // "called: 1,2,3"
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Function.prototype.apply()")}}
 - {{jsxref("Function.prototype.call()")}}
 - {{jsxref("Reflect.apply()")}}

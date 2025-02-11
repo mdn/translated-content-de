@@ -1,19 +1,19 @@
 ---
-title: Raster-Layout mit linienbasierter Platzierung
+title: Grid-Layout mit linienbasierter Platzierung
 slug: Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement
 l10n:
-  sourceCommit: bd6d62961fbc6a05298a8b182f3c5461e5e54b28
+  sourceCommit: a7444882eb1b18918f3c924d83eb3c78f245643a
 ---
 
 {{CSSRef}}
 
-Im [Leitfaden zu den grundlegenden Konzepten des Raster-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout) haben wir einen kurzen Blick darauf geworfen, wie Elemente eines Rasters mithilfe von Liniennummern positioniert werden können. In diesem Leitfaden werden wir vollständig erkunden, wie diese fundamentale Funktion der Spezifikation funktioniert.
+Im [Leitfaden zu den grundlegenden Konzepten von Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout) haben wir uns kurz angeschaut, wie Elemente anhand von Liniennummern in einem Gitter positioniert werden können. In diesem Leitfaden werden wir vollständig untersuchen, wie diese grundlegende Funktion der Spezifikation funktioniert.
 
-Das Verständnis von nummerierten Linien ist der logischste Ausgangspunkt bei der Erkundung von Rastern, da Sie beim Arbeiten mit Raster-Layouts immer nummerierte Linien haben. Die Linien sind für Spalten und Zeilen nummeriert und werden ab `1` indexiert. Beachten Sie, dass der Index des Rasters vom Schreibmodus des Dokuments abhängt. In einer von links nach rechts verlaufenden Sprache wie Englisch befindet sich Linie 1 auf der linken Seite des Rasters. Wenn Sie in einer von rechts nach links verlaufenden Sprache wie Arabisch arbeiten, befindet sich Linie 1 auf der rechten Seite des Rasters. Mehr über die Interaktion zwischen Schreibmodi und Rastern erfahren Sie im Leitfaden [Raster, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes).
+Mit nummerierten Linien zu beginnen, wenn Sie Grid untersuchen, ist der logischste Ausgangspunkt, da Sie bei Verwendung des Grid-Layouts immer nummerierte Linien haben. Die Linien werden für Spalten und Zeilen nummeriert und beginnen mit `1`. Beachten Sie, dass Grid gemäß des Schreibmodus des Dokuments indiziert wird. In einer von links nach rechts geschriebenen Sprache wie Englisch befindet sich Linie 1 auf der linken Seite des Gitters. Wenn Sie in einer von rechts nach links geschriebenen Sprache wie Arabisch arbeiten, befindet sich Linie 1 auf der rechten Seite des Gitters. Wir werden mehr über die Interaktion zwischen Schreibmodi und Gittern im [Leitfaden zu Gittern, logischen Werten und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes) lernen.
 
 ## Ein einfaches Beispiel
 
-Als einfaches Beispiel erstellen wir ein Raster mit 3 Spaltenspuren und 3 Zeilenspuren. Dies führt zu jeweils 4 Linien in jeder Dimension.
+In einem einfachen Beispiel erstellen wir ein Gitter mit 3 Spaltenstrecken und 3 Zeilenstrecken. Dies ergibt 4 Linien in jeder Dimension.
 
 ```css hidden
 * {
@@ -43,7 +43,7 @@ Als einfaches Beispiel erstellen wir ein Raster mit 3 Spaltenspuren und 3 Zeilen
 }
 ```
 
-Innerhalb unseres Raster-Containers fügen wir vier Kind-Elemente ein.
+Innerhalb unseres Gittercontainers fügen wir vier Kind-Elemente hinzu.
 
 ```html
 <div class="wrapper">
@@ -56,13 +56,13 @@ Innerhalb unseres Raster-Containers fügen wir vier Kind-Elemente ein.
 
 {{ EmbedLiveSample('A_basic_example', '300', '330') }}
 
-Wenn wir diese Elemente nicht manuell im Raster platzieren, werden sie gemäß den Regeln für die automatische Platzierung angeordnet, wobei jeweils ein Element in einer der ersten vier Zellen liegt. Sie können das Raster mit den Entwicklertools Ihres Browsers überprüfen, um zu sehen, wie die Spalten und Zeilen definiert sind.
+Wenn wir diese Elemente nicht explizit im Gitter platzieren, werden sie gemäß der Regeln der automatischen Platzierung verteilt, ein Element in jeder der ersten vier Zellen. Sie können das Gitter mit den Entwicklerwerkzeugen Ihres Browsers inspizieren, um zu sehen, wie Spalten und Zeilen des Gitters definiert sind.
 
-![Das Beispielraster hervorgehoben in DevTools](highlighted_grid.png)
+![Das Beispielgitter im DevTools hervorgehoben](highlighted_grid.png)
 
-## Elemente mithilfe von Liniennummern positionieren
+## Elemente anhand von Liniennummern positionieren
 
-Wir können die linienbasierte Platzierung verwenden, um zu kontrollieren, wo diese Elemente im Raster positioniert werden. Mit den Eigenschaften {{cssxref("grid-column-start")}} und {{cssxref("grid-column-end")}} können wir das erste Element am äußersten linken Ende des Rasters beginnen und eine einzelne Spaltenspur überspannen lassen. Mit {{cssxref("grid-row-start")}} und {{cssxref("grid-row-end")}} lassen wir das Element an der ersten Zeilenlinie oben im Raster beginnen und bis zur vierten Zeilenlinie verlaufen.
+Wir können die linienbasierte Platzierung verwenden, um zu steuern, wo sich diese Elemente auf dem Gitter befinden. Wir können die Eigenschaften {{cssxref("grid-column-start")}} und {{cssxref("grid-column-end")}} verwenden, um das erste Element auf der äußersten linken Seite des Gitters beginnen zu lassen und es nur eine Spaltenstrecke umfassen zu lassen. Mit {{cssxref("grid-row-start")}} und {{cssxref("grid-row-end")}} beginnt das Element in der ersten Zeilenlinie oben im Gitter und erstreckt sich bis zur vierten Zeilenlinie.
 
 ```css
 .box1 {
@@ -73,9 +73,9 @@ Wir können die linienbasierte Platzierung verwenden, um zu kontrollieren, wo di
 }
 ```
 
-Während Sie einige Elemente positionieren, werden andere Elemente im Raster weiterhin gemäß den Regeln für die automatische Platzierung angeordnet. Dieses Verhalten wird im [Leitfaden zur automatischen Platzierung im Raster-Layout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout) erläutert. Beobachten Sie zunächst, wie das Raster nicht platzierte Elemente in leere Zellen des Rasters legt.
+Wenn Sie einige Elemente positionieren, werden andere Elemente im Gitter weiterhin gemäß den Regeln der automatischen Platzierung verteilt. Dieses Verhalten wird im [Leitfaden zur automatischen Platzierung im Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout) erklärt. Beobachten Sie zunächst, wie das Gitter nicht platzierte Elemente in leere Zellen des Gitters einfügt.
 
-Jedes Element einzeln adressierend, verwenden wir dieselben Eigenschaften mit unterschiedlichen Werten, um alle vier Elemente zu platzieren und dabei sowohl Zeilen- als auch Spaltenspuren zu überspannen.
+Indem Sie jedes Element einzeln mit denselben Eigenschaften, aber unterschiedlichen Werten ansprechen, können Sie alle vier Elemente platzieren, die sich über Zeilen- und Spaltenstrecken erstrecken.
 
 ```css hidden
 * {
@@ -138,11 +138,11 @@ Jedes Element einzeln adressierend, verwenden wir dieselben Eigenschaften mit un
 
 {{ EmbedLiveSample('Positioning_items_by_line_number', '300', '330') }}
 
-Beachten Sie, dass wir Zellen leer lassen können, wenn wir möchten. Eine der sehr schönen Eigenschaften des Raster-Layouts ist die Möglichkeit, Freiflächen in Designs zu haben, ohne auf Tricks zurückzugreifen.
+Beachten Sie, dass wir Zellen nach Belieben leer lassen können. Eine der wesentlichen Stärken des Grid-Layouts ist die Fähigkeit, Leerraum in Designs zu schaffen, ohne irgendwelche Tricks anzuwenden.
 
-## Die Kurzschreibweisen `grid-column` und `grid-row`
+## Die Kurzschreibweise `grid-column` und `grid-row`
 
-Das vorherige Beispiel enthielt ziemlich viel Code, um jedes Element zu positionieren. Es sollte keine Überraschung sein, dass es eine [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) gibt. Die Eigenschaften {{cssxref("grid-column-start")}} und {{cssxref("grid-column-end")}} können zu {{cssxref("grid-column")}} kombiniert werden, ebenso können {{cssxref("grid-row-start")}} und {{cssxref("grid-row-end")}} zu {{cssxref("grid-row")}} kombiniert werden. In diesem Beispiel replizieren wir das obige Beispiel mithilfe dieser Kurzschreibweise:
+Das vorherige Beispiel enthielt ziemlich viel Code, um jedes Element zu positionieren. Es ist nicht überraschend, dass es eine [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) gibt. Die Eigenschaften {{cssxref("grid-column-start")}} und {{cssxref("grid-column-end")}} können zu {{cssxref("grid-column")}} kombiniert werden, ebenso {{cssxref("grid-row-start")}} und {{cssxref("grid-row-end")}} zu {{cssxref("grid-row")}}. In diesem Beispiel replizieren wir das obige Beispiel mit diesen Kurzschreibweisen:
 
 ```css hidden
 * {
@@ -197,13 +197,13 @@ Das vorherige Beispiel enthielt ziemlich viel Code, um jedes Element zu position
 
 {{ EmbedLiveSample('The_grid-column_and_grid-row_shorthands', '300', '330') }}
 
-## Standardmäßige Spannweiten
+## Standardmäßige Bereiche
 
-In den obigen Beispielen haben wir jede Zeilen- und Spaltenlinie angegeben, um die Eigenschaften zu demonstrieren, aber in der Praxis können Sie den Wert von `grid-column-end` oder `grid-row-end` weglassen, wenn ein Element nur eine Spur überspannt. Raster überspannt standardmäßig eine Spur.
+In den obigen Beispielen haben wir jede Endzeile und jede Spaltenlinie, um die Eigenschaften zu demonstrieren, angegeben. In der Praxis können Sie jedoch, wenn ein Element nur eine Strecke umfasst, den Wert für `grid-column-end` oder `grid-row-end` weglassen. Grid legt standardmäßig eine Strecke von einem Track fest.
 
-### Standardmäßige Spannweiten mit ausführlicher Platzierung
+### Standardmäßige Bereiche mit detaillierter Platzierung
 
-Das bedeutet, dass unser ursprüngliches, ausführliches Beispiel so aussehen würde:
+Das bedeutet, dass unser anfängliches, ausführliches Beispiel folgendermaßen aussehen würde:
 
 ```css hidden
 * {
@@ -261,9 +261,9 @@ Das bedeutet, dass unser ursprüngliches, ausführliches Beispiel so aussehen w�
 
 {{ EmbedLiveSample('Default_spans_with_longhand_placement', '300', '330') }}
 
-### Standardmäßige Spannweiten mit Kurzschreibweise
+### Standardmäßige Bereiche mit Kurzschreibweise
 
-Unsere Kurzschreibweise würde wie folgt aussehen, ohne Schrägstrich und zweiten Wert für die Elemente, die nur eine Spur überspannen.
+Unsere Kurzschreibweise würde wie der folgende Code aussehen, ohne einen Schrägstrich und einen zweiten Wert für Elemente, die nur eine Strecke umfassen.
 
 ```css hidden
 * {
@@ -318,9 +318,9 @@ Unsere Kurzschreibweise würde wie folgt aussehen, ohne Schrägstrich und zweite
 
 {{ EmbedLiveSample('Default_spans_with_shorthand_placement', '300', '330') }}
 
-## Die Eigenschaft `grid-area`
+## Die `grid-area`-Eigenschaft
 
-Wir können noch weiter gehen und mit einer einzigen Eigenschaft – {{cssxref("grid-area")}} – jeden Bereich definieren. Die Reihenfolge der Werte für `grid-area` lautet:
+Wir können noch einen Schritt weiter gehen und jede Fläche mit einer einzigen Eigenschaft definieren – {{cssxref("grid-area")}}. Die Reihenfolge der Werte für `grid-area` ist wie folgt.
 
 – {{cssxref("grid-row-start")}}
 – {{cssxref("grid-column-start")}}
@@ -376,24 +376,24 @@ Wir können noch weiter gehen und mit einer einzigen Eigenschaft – {{cssxref("
 
 {{ EmbedLiveSample('The_grid-area_property', '300', '330') }}
 
-Diese Reihenfolge der Werte für `grid-area` mag zunächst seltsam erscheinen – sie ist das Gegenteil der Richtung, in der wir zum Beispiel Abstände und Polsterungen als Kurzform spezifizieren. Es kann helfen zu verstehen, dass dies darauf zurückzuführen ist, dass CSS-Raster-Layouts die flussrelativen Richtungen verwenden, die in [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) definiert sind. Wir untersuchen, wie Raster mit Schreibmodi zusammenarbeiten, im Leitfaden [Raster, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes). Betrachten Sie vorerst das Konzept der vier {{Glossary("Flow_relative_values", "flussrelativen")}} Richtungen:
+Diese Reihenfolge der Werte für `grid-area` mag etwas ungewöhnlich erscheinen – sie ist das Gegenteil der Richtung, in der wir Ränder und Abstände in einer Kurzform angeben, z. B. `margin` und `padding`. Es kann hilfreich sein, zu erkennen, dass dies daran liegt, dass das CSS-Grid-Layout die flussrelativen Richtungen verwendet, die in [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) definiert sind. Wir erkunden, wie Grids mit Schreibmodi funktionieren, im [Leitfaden zu Gittern, logischen Werten und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes). Betrachten Sie zunächst das Konzept der vier {{Glossary("Flow_relative_values", "flussrelativen Werte")}}:
 
 - `block-start`
 - `block-end`
 - `inline-start`
 - `inline-end`
 
-Wir arbeiten in Englisch, einer von links nach rechts lesenden Sprache. Unser `block-start` ist die oberste Zeilenlinie des Raster-Containers, `block-end` ist die letzte Zeilenlinie des Containers. Unser `inline-start` ist die linke Spaltenlinie, da `inline-start` immer der Punkt ist, von dem aus Text im aktuellen Schreibmodus geschrieben würde, während `inline-end` die letzte Spaltenlinie unseres Rasters ist.
+Wir arbeiten hier in Englisch, einer von links nach rechts Sprache. Unser `block-start` ist die obere Zeilenlinie des Gittercontainers, `block-end` ist die unterste Zeilenlinie des Containers. Unser `inline-start` ist die linke Spaltenlinie, da `inline-start` immer der Punkt ist, an dem Text im aktuellen Schreibmodus geschrieben würde, während `inline-end` die letzte Spaltenlinie unseres Gitters ist.
 
-Wenn wir unseren Rasterbereich mit der Eigenschaft `grid-area` spezifizieren, definieren wir zuerst beide Startlinien (`block-start` und `inline-start`), dann beide Endlinien (`block-end` und `inline-end`). Dies mag zunächst ungewöhnlich erscheinen, da wir an die {{Glossary("physical_properties", "physischen Eigenschaften")}} von `top`, `right`, `bottom` und `left` gewöhnt sind, aber es macht mehr Sinn, wenn Sie anfangen, Webseiten als multidirektional in verschiedenen Schreibmodi zu betrachten.
+Wenn wir unsere Gitterfläche mit der Eigenschaft `grid-area` festlegen, definieren wir zuerst beide Startlinien `block-start` und `inline-start`, dann beide Endlinien `block-end` und `inline-end`. Dies mag zu Beginn ungewöhnlich erscheinen, da wir an die {{Glossary("physical_properties", "physischen Eigenschaften")}} von `top`, `right`, `bottom` und `left` gewöhnt sind. Es ergibt jedoch mehr Sinn, wenn Sie Webseiten als multidirektionale Entitäten in verschiedenen Schreibmodi betrachten.
 
 ## Rückwärts zählen
 
-Wir können auch rückwärts von den Block- und Inline-Enden des Rasters zählen, was für Englisch die rechte Spaltenlinie und die letzte Zeilenlinie wäre. Die letzten Linien des expliziten Rasters können als `-1` angesprochen werden, und Sie können von dort aus zurückzählen – die zweitletzte Linie ist also `-2`.
+Zusätzlich können wir von den Block- und Inline-Enden des Gitters aus rückwärts zählen. Für Englisch würde dies die rechte Spaltenlinie und die unterste Zeilenlinie betreffen. Die letzten Linien des expliziten Gitters können als `-1` adressiert werden, und Sie können von dort aus rückwärts zählen – die zweitletzte Linie ist z. B. `-2`.
 
-Beachten Sie, dass negative Werte nur für das explizite Raster relevant sind. Die letzte Linie ist die letzte Linie des durch `grid-template-columns` und `grid-template-rows` definierten Rasters und berücksichtigt keine Zeilen oder Spalten, die im _impliziten Raster_ außerhalb davon hinzugefügt werden.
+Beachten Sie jedoch, dass negative Werte nur für das explizite Gitter relevant sind. Die letzte Linie ist die letzte Linie des durch `grid-template-columns` und `grid-template-rows` definierten Gitters und berücksichtigt keine Zeilen oder Spalten, die im _impliziten Gitter_ außerhalb davon hinzugefügt wurden.
 
-Im nächsten Beispiel haben wir das Layout umgedreht, indem wir von der rechten und unteren Seite unseres Rasters arbeiten, um die Elemente zu platzieren.
+Im nächsten Beispiel haben wir das Layout so geändert, dass wir ausgehend von der rechten und unteren Seite unseres Gitters die Elemente platzieren.
 
 ```css hidden
 * {
@@ -456,9 +456,9 @@ Im nächsten Beispiel haben wir das Layout umgedreht, indem wir von der rechten 
 
 {{ EmbedLiveSample('Counting_backwards', '300', '330') }}
 
-### Ein Element über das gesamte Raster erstrecken
+### Ein Element über das gesamte Gitter spannen
 
-Die Möglichkeit, die Start- und Endlinien des Rasters anzusprechen, ist nützlich, da Sie damit ein Element über das gesamte Raster erstrecken können, mit:
+Es ist nützlich, den Start- und Endlinien des Gitters Adressen zuzuweisen, da Sie dadurch ein Element über das gesamte Gitter spannen können, etwa so:
 
 ```css
 .item {
@@ -466,11 +466,11 @@ Die Möglichkeit, die Start- und Endlinien des Rasters anzusprechen, ist nützli
 }
 ```
 
-## Abstände oder Lücken
+## Abstände oder "Gutters"
 
-Das CSS-Raster ermöglicht das Hinzufügen von Abständen zwischen Spalten- und Zeilenspuren mit den Eigenschaften {{cssxref("column-gap")}} und {{cssxref("row-gap")}} oder der Kurzschreibweise {{cssxref("gap")}}.
+CSS-Grid ermöglicht die Hinzufügung von Abständen zwischen Spalten- und Zeilenstrecken mit den Eigenschaften {{cssxref("column-gap")}} und {{cssxref("row-gap")}}, oder der Kurzschreibweise {{cssxref("gap")}}.
 
-Abstände erscheinen nur zwischen den Spuren des Rasters, sie fügen keinen Platz oben und unten oder links und rechts des Containers hinzu. Wir können die Abstände zu unserem vorherigen Beispiel hinzufügen, indem wir diese Eigenschaften auf den Raster-Container anwenden.
+Abstände erscheinen nur zwischen den Strecken des Gitters. Sie fügen weder an den oberen und unteren noch den linken oder rechten Seiten des Containers zusätzlichen Platz hinzu. Wir können Abstände zu unserem vorherigen Beispiel hinzufügen, indem wir diese Eigenschaften auf den Gittercontainer anwenden.
 
 ```css hidden
 * {
@@ -532,9 +532,9 @@ Abstände erscheinen nur zwischen den Spuren des Rasters, sie fügen keinen Plat
 
 {{ EmbedLiveSample('Gutters_or_Alleys', '300', '350') }}
 
-### Die Kurzschreibweise `gap`
+### Die Kurzschreibweise für Gap
 
-Die beiden Eigenschaften können auch als Kurzform ausgedrückt werden, {{cssxref("gap")}}. Wenn Sie nur einen Wert für `gap` angeben, wird er sowohl auf die Spalten- als auch auf die Zeilenabstände angewendet. Wenn Sie zwei Werte angeben, wird der erste verwendet für `row-gap` und der zweite für `column-gap`.
+Die beiden Eigenschaften können auch in der Kurzform ausgedrückt werden, {{cssxref("gap")}}. Wenn Sie nur einen Wert für `gap` angeben, gilt dieser sowohl für Zeilen- als auch Spaltenabstände. Wenn Sie zwei Werte angeben, wird der erste für `row-gap` und der zweite für `column-gap` verwendet.
 
 ```css
 .wrapper {
@@ -545,11 +545,11 @@ Die beiden Eigenschaften können auch als Kurzform ausgedrückt werden, {{cssxre
 }
 ```
 
-In Bezug auf die linienbasierte Positionierung von Elementen handelt die Lücke so, als ob die Linie eine zusätzliche Breite erhalten hätte. Alles, was an dieser Linie beginnt, beginnt nach der Lücke, und Sie können die Lücke weder ansprechen noch etwas darin platzieren. Wenn Sie Abstände möchten, die wie reguläre Spuren agieren, können Sie eine Spur für diesen Zweck definieren.
+In Bezug auf die linienbasierte Platzierung von Elementen verhält sich die Lücke so, als hätte die Linie zusätzliche Breite erhalten. Alles, was bei dieser Linie beginnt, startet nach der Lücke und Sie können die Lücke nicht direkt adressieren oder etwas in sie setzen. Wenn Sie Abstände wünschen, die sich eher wie reguläre Strecken verhalten, können Sie dafür eine Strecke definieren.
 
-## Verwendung des Schlüsselworts `span`
+## Das Keyword `span` verwenden
 
-Zusätzlich zur Angabe der Start- und Endlinien durch Nummern können Sie eine Startlinie angeben und dann die Anzahl der Spuren, die der Bereich mit dem Schlüsselwort `span` überspannen soll.
+Neben der Festlegung der Start- und Endlinien durch Zahlen können Sie auch eine Startlinie festlegen und dann die Anzahl der Strecken, die der Bereich umfassen soll, mit dem Keyword `span` angeben.
 
 ```css hidden
 * {
@@ -604,7 +604,7 @@ Zusätzlich zur Angabe der Start- und Endlinien durch Nummern können Sie eine S
 
 {{ EmbedLiveSample('Using_the_span_keyword', '300', '330') }}
 
-Sie können das Schlüsselwort `span` auch im Wert von `grid-row-start`/`grid-row-end` und `grid-column-start/grid-column-end` verwenden. Die folgenden zwei Beispiele erzeugen denselben Rasterbereich. Im ersten Beispiel setzen wir die Startzeilenlinie, dann geben wir für die Endlinie an, dass der Bereich 3 Spuren umfassen soll. Der Bereich beginnt bei Linie 1 und endet 3 Linien von Linie 1 entfernt, also bei Linie 4.
+Sie können das Keyword `span` auch im Wert von `grid-row-start`/`grid-row-end` und `grid-column-start/grid-column-end` verwenden. Die folgenden zwei Beispiele erzeugen denselben Gitterbereich. Im ersten Beispiel legen wir die Startzeilenlinie fest, dann die Endlinie, und geben an, dass der Bereich 3 Strecken umfassen soll. Der Bereich beginnt bei Linie 1 und endet 3 Linien von Linie 1 entfernt, also bei Linie 4.
 
 ```css
 .box1 {
@@ -614,7 +614,7 @@ Sie können das Schlüsselwort `span` auch im Wert von `grid-row-start`/`grid-ro
 }
 ```
 
-Im zweiten Beispiel geben wir die Endzeilenlinie an, an der das Element enden soll, und setzen dann die Startlinie als `span 3`. Das bedeutet, dass sich das Element vom Ende der angegebenen Zeilenlinie aus nach oben erstrecken wird. Der Bereich beginnt bei Linie 4 und erstreckt sich über 3 Linien bis Linie 1.
+Im zweiten Beispiel geben wir die Endzeilenlinie an, an der das Element enden soll, und legen dann die Startlinie als `span 3` fest. Dies bedeutet, dass sich das Element von der angegebenen Zeilenlinie 3 Strecken nach oben erstrecken wird. Der Bereich beginnt bei Linie 4 und erstreckt sich über 3 Linien bis zu Linie 1.
 
 ```css
 .box1 {
@@ -624,6 +624,6 @@ Im zweiten Beispiel geben wir die Endzeilenlinie an, an der das Element enden so
 }
 ```
 
-Um sich mit der linienbasierten Positionierung im Raster vertraut zu machen, versuchen Sie, einige häufige Layouts zu erstellen, indem Sie Elemente auf Rastern mit unterschiedlichen Spaltenanzahlen platzieren. Denken Sie daran, dass alle nicht platzierten Elemente entsprechend den Regeln für die automatische Platzierung angeordnet werden. Dies könnte das gewünschte Layout ergeben, aber wenn etwas an einem unerwarteten Ort erscheint, überprüfen Sie, ob Sie eine Position dafür festgelegt haben.
+Um sich mit der linienbasierten Platzierung im Grid vertraut zu machen, versuchen Sie, ein paar gängige Layouts zu erstellen, indem Sie Elemente auf Gittern mit unterschiedlichen Spaltenanzahlen platzieren. Denken Sie daran, dass, wenn Sie nicht alle Elemente platzieren, die übrig gebliebenen Elemente gemäß den Regeln der automatischen Platzierung verteilt werden. Dies kann zu dem gewünschten Layout führen, aber wenn etwas unerwartet erscheint, überprüfen Sie, ob Sie eine Position für das Element festgelegt haben.
 
-Beachten Sie auch, dass sich Elemente im Raster überlappen können, wenn Sie sie auf diese Weise explizit platzieren. Überlappende Elemente können einige nette Effekte erzeugen, Sie können jedoch auch unerwünschte Überlappungen haben, wenn Sie falsche Start- oder Endlinien angeben. Die Überprüfung von Rastern mit den Entwicklertools Ihres Browsers kann sehr hilfreich sein, um solche Probleme zu identifizieren, insbesondere wenn Ihr Raster recht kompliziert ist.
+Denken Sie außerdem daran, dass sich Elemente im Gitter überlappen können, wenn Sie sie explizit auf diese Weise platzieren. Überlappende Elemente können einige schöne Effekte erzeugen, aber auch falsches Überlappen kann auftreten, wenn Sie eine falsche Start- oder Endlinie angeben. Das Gitter mit den Entwicklerwerkzeugen Ihres Browsers zu inspizieren, kann beim Erlernen dieses Konzepts besonders hilfreich sein, insbesondere wenn Ihr Gitter ziemlich komplex ist.

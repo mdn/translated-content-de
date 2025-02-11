@@ -2,12 +2,12 @@
 title: Math.log2()
 slug: Web/JavaScript/Reference/Global_Objects/Math/log2
 l10n:
-  sourceCommit: 761b9047d78876cbd153be811efb1aa77b419877
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.log2()`** gibt den Logarithmus zur Basis 2 einer Zahl zurück. Das bedeutet
+Die statische Methode **`Math.log2()`** gibt den Logarithmus zur Basis 2 einer Zahl zurück. Das bedeutet:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -15,7 +15,21 @@ Die statische Methode **`Math.log2()`** gibt den Logarithmus zur Basis 2 einer Z
 </math>
 <!-- prettier-ignore-end -->
 
-{{EmbedInteractiveExample("pages/js/math-log2.html")}}
+{{InteractiveExample("JavaScript Demo: Math.log2()")}}
+
+```js interactive-example
+console.log(Math.log2(3));
+// Expected output: 1.584962500721156
+
+console.log(Math.log2(2));
+// Expected output: 1
+
+console.log(Math.log2(1));
+// Expected output: 0
+
+console.log(Math.log2(0));
+// Expected output: -Infinity
+```
 
 ## Syntax
 
@@ -26,17 +40,17 @@ Math.log2(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl größer als oder gleich 0.
+  - : Eine Zahl, die größer oder gleich 0 ist.
 
 ### Rückgabewert
 
-Der Logarithmus zur Basis 2 von `x`. Wenn `x < 0`, wird {{jsxref("NaN")}} zurückgegeben.
+Der Logarithmus zur Basis 2 von `x`. Falls `x < 0`, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `log2()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.log2()` und nicht als Methode eines erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `log2()` eine statische Methode von `Math` ist, wird sie immer als `Math.log2()` verwendet und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
-Diese Funktion entspricht `Math.log(x) / Math.log(2)`. Für `log2(e)` verwenden Sie die Konstante {{jsxref("Math.LOG2E")}}, die 1 / {{jsxref("Math.LN2")}} ist.
+Diese Funktion entspricht `Math.log(x) / Math.log(2)`. Für `log2(e)` verwenden Sie die Konstante {{jsxref("Math.LOG2E")}}, welche 1 / {{jsxref("Math.LN2")}} ist.
 
 ## Beispiele
 

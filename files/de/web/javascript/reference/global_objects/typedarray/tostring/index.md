@@ -2,14 +2,23 @@
 title: TypedArray.prototype.toString()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/toString
 l10n:
-  sourceCommit: c2445ce1dc3a0170e2fbfdbee10e18a7455c2282
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`toString()`**-Methode von {{jsxref("TypedArray")}} Instanzen gibt eine Zeichenfolge zurück, die das spezifizierte typisierte Array und dessen Elemente darstellt. Diese Methode folgt demselben Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
+Die **`toString()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt einen String zurück, der das angegebene TypedArray und dessen Elemente repräsentiert. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
 
-{{EmbedInteractiveExample("pages/js/typedarray-tostring.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.toString()", "shorter")}}
+
+```js interactive-example
+const uint8 = new Uint8Array([10, 20, 30, 40, 50]);
+
+const uint8String = uint8.toString();
+
+console.log(uint8String.startsWith("10"));
+// Expected output: true
+```
 
 ## Syntax
 
@@ -23,15 +32,15 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die die Elemente des typisierten Arrays darstellt.
+Ein String, der die Elemente des TypedArrays repräsentiert.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.toString()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf typisierte Array-Instanzen aufgerufen werden.
+Weitere Details siehe {{jsxref("Array.prototype.toString()")}}. Diese Methode ist nicht generisch und kann nur auf TypedArray-Instanzen angewendet werden.
 
 ## Beispiele
 
-### Konvertierung eines typisierten Arrays in eine Zeichenfolge
+### Umwandlung eines TypedArrays in einen String
 
 ```js
 const uint8 = new Uint8Array([1, 2, 3]);
@@ -51,7 +60,7 @@ console.log(`${uint8}`); // 1,2,3
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript TypedArrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.join()")}}
 - {{jsxref("TypedArray.prototype.toLocaleString()")}}

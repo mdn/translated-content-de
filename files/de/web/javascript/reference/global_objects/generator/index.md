@@ -2,20 +2,36 @@
 title: Generator
 slug: Web/JavaScript/Reference/Global_Objects/Generator
 l10n:
-  sourceCommit: 6e93ec8fc9e1f3bd83bf2f77e84e1a39637734f8
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Das **`Generator`**-Objekt wird von einer {{jsxref("Statements/function*", "generator function", "", 1)}} zurückgegeben und entspricht sowohl dem [iterable protocol](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) als auch dem [iterator protocol](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol).
+Das **`Generator`**-Objekt wird von einer {{jsxref("Statements/function*", "Generatorfunktion", "", 1)}} zurückgegeben und entspricht sowohl dem [iterierbaren Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) als auch dem [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol).
 
-`Generator` ist eine Unterklasse der verborgenen {{jsxref("Iterator")}} Klasse.
+`Generator` ist eine Unterklasse der verborgenen {{jsxref("Iterator")}}-Klasse.
 
-{{EmbedInteractiveExample("pages/js/expressions-functionasteriskexpression.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Expressions - function* expression", "taller")}}
+
+```js interactive-example
+const foo = function* () {
+  yield "a";
+  yield "b";
+  yield "c";
+};
+
+let str = "";
+for (const val of foo()) {
+  str = str + val;
+}
+
+console.log(str);
+// Expected output: "abc"
+```
 
 ## Konstruktor
 
-Es gibt keine JavaScript-Entität, die dem `Generator` Konstruktor entspricht. Instanzen von `Generator` müssen von [generator functions](/de/docs/Web/JavaScript/Reference/Statements/function*) zurückgegeben werden:
+Es gibt keine JavaScript-Entität, die dem `Generator`-Konstruktor entspricht. Instanzen von `Generator` müssen von [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*) zurückgegeben werden:
 
 ```js
 function* generator() {
@@ -31,37 +47,37 @@ console.log(gen.next().value); // 2
 console.log(gen.next().value); // 3
 ```
 
-Es gibt nur ein verborgenes Objekt, das das Prototypobjekt ist, das von allen Objekten geteilt wird, die durch generator functions erstellt wurden. Dieses Objekt wird oft als `Generator.prototype` stilisiert, um es wie eine Klasse aussehen zu lassen, aber es sollte passender {{jsxref("GeneratorFunction.prototype.prototype")}} genannt werden, da `GeneratorFunction` eine tatsächliche JavaScript-Entität ist. Um die Prototypkette von `Generator` Instanzen zu verstehen, siehe {{jsxref("GeneratorFunction.prototype.prototype")}}.
+Es gibt nur ein verborgenes Objekt, das das Prototypobjekt ist, das von allen Objekten geteilt wird, die durch Generatorfunktionen erstellt wurden. Dieses Objekt wird oft als `Generator.prototype` stilisiert, damit es wie eine Klasse aussieht, sollte jedoch passender {{jsxref("GeneratorFunction.prototype.prototype")}} genannt werden, da `GeneratorFunction` eine tatsächliche JavaScript-Entität ist. Um die Prototypenkette von `Generator`-Instanzen zu verstehen, siehe {{jsxref("GeneratorFunction.prototype.prototype")}}.
 
-## Instanzeigenschaften
+## Eigenschaften von Instanzen
 
-Diese Eigenschaften sind auf `Generator.prototype` definiert und werden von allen `Generator` Instanzen geteilt.
+Diese Eigenschaften sind auf `Generator.prototype` definiert und werden von allen `Generator`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Generator.prototype.constructor")}}
 
-  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Generator` Instanzen ist der Anfangswert [`GeneratorFunction.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction).
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Generator`-Instanzen ist der Anfangswert [`GeneratorFunction.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction).
 
-    > **Note:** `Generator` Objekte speichern keinen Verweis auf die generator function, die sie erstellt hat.
+    > **Hinweis:** `Generator`-Objekte speichern keinen Verweis auf die Generatorfunktion, die sie erstellt hat.
 
 - `Generator.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"Generator"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Generator"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanzmethoden
+## Methoden von Instanzen
 
 _Erbt auch Instanzmethoden von seinem übergeordneten {{jsxref("Iterator")}}._
 
 - {{jsxref("Generator.prototype.next()")}}
-  - : Gibt einen Wert zurück, der von dem {{jsxref("Operators/yield", "yield")}} Ausdruck geliefert wird.
+  - : Gibt einen Wert zurück, der durch den {{jsxref("Operators/yield", "yield")}}-Ausdruck bereitgestellt wird.
 - {{jsxref("Generator.prototype.return()")}}
-  - : Agiert so, als ob eine `return`-Anweisung an der aktuellen, ausgesetzten Position im Körper des Generators eingefügt wird, was den Generator beendet und es dem Generator ermöglicht, alle Aufräumarbeiten in Kombination mit einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) Block durchzuführen.
+  - : Wirkt, als ob eine `return`-Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird, was den Generator beendet und es ihm ermöglicht, jegliche Aufräumarbeiten auszuführen, wenn er in Kombination mit einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block)-Block verwendet wird.
 - {{jsxref("Generator.prototype.throw()")}}
-  - : Agiert so, als ob eine `throw`-Anweisung an der aktuellen, ausgesetzten Position im Körper des Generators eingefügt wird, was den Generator über einen Fehlerzustand informiert und ihm ermöglicht, den Fehler zu behandeln oder Aufräumarbeiten durchzuführen und sich zu schließen.
+  - : Wirkt, als ob eine `throw`-Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird, was den Generator über einen Fehlerzustand informiert und es ihm ermöglicht, den Fehler zu behandeln, Aufräumarbeiten auszuführen und sich selbst zu schließen.
 
 ## Beispiele
 
 ### Ein unendlicher Iterator
 
-Mit einer generator function werden Werte erst ausgewertet, wenn sie benötigt werden. Daher ermöglicht ein Generator es uns, eine potenziell unendliche Datenstruktur zu definieren.
+Mit einer Generatorfunktion werden Werte erst ausgewertet, wenn sie benötigt werden. Daher ermöglicht ein Generator die Definition einer potenziell unendlichen Datenstruktur.
 
 ```js
 function* infinite() {

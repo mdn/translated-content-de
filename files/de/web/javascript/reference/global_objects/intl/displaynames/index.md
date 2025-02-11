@@ -2,14 +2,27 @@
 title: Intl.DisplayNames
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
 l10n:
-  sourceCommit: c420b9b3126451f53d112afe33e007d6efdb605d
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Das **`Intl.DisplayNames`**-Objekt ermöglicht die konsistente Übersetzung von Sprach-, Regions- und Skriptnamen.
+Das **`Intl.DisplayNames`**-Objekt ermöglicht die konsistente Übersetzung von Anzeige-Namen für Sprachen, Regionen und Schriftsysteme.
 
-{{EmbedInteractiveExample("pages/js/intl-displaynames.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.DisplayNames")}}
+
+```js interactive-example
+const regionNamesInEnglish = new Intl.DisplayNames(["en"], { type: "region" });
+const regionNamesInTraditionalChinese = new Intl.DisplayNames(["zh-Hant"], {
+  type: "region",
+});
+
+console.log(regionNamesInEnglish.of("US"));
+// Expected output: "United States"
+
+console.log(regionNamesInTraditionalChinese.of("US"));
+// Expected output: "美國"
+```
 
 ## Konstruktor
 
@@ -19,29 +32,29 @@ Das **`Intl.DisplayNames`**-Objekt ermöglicht die konsistente Übersetzung von 
 ## Statische Methoden
 
 - {{jsxref("Intl/DisplayNames/supportedLocalesOf", "Intl.DisplayNames.supportedLocalesOf()")}}
-  - : Gibt ein Array zurück, das diejenigen der bereitgestellten Locales enthält, die unterstützt werden, ohne auf die Standard-Locales der Laufzeitumgebung zurückgreifen zu müssen.
+  - : Gibt ein Array zurück, das die unterstützten Lokalisierungen unter den angegebenen Lokalisierungen enthält, ohne auf die Standardlokalisierung der Laufzeitumgebung zurückgreifen zu müssen.
 
 ## Instanz-Eigenschaften
 
-Diese Eigenschaften sind auf `Intl.DisplayNames.prototype` definiert und werden von allen `Intl.DisplayNames`-Instanzen geteilt.
+Diese Eigenschaften sind auf `Intl.DisplayNames.prototype` definiert und werden von allen Instanzen von `Intl.DisplayNames` geteilt.
 
 - {{jsxref("Object/constructor", "Intl.DisplayNames.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.DisplayNames`-Instanzen ist der anfängliche Wert der {{jsxref("Intl/DisplayNames/DisplayNames", "Intl.DisplayNames")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.DisplayNames`-Instanzen ist der ursprüngliche Wert der {{jsxref("Intl/DisplayNames/DisplayNames", "Intl.DisplayNames")}}-Konstruktor.
 - `Intl.DisplayNames.prototype[Symbol.toStringTag]`
   - : Der anfängliche Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Intl.DisplayNames"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
 ## Instanz-Methoden
 
 - {{jsxref("Intl/DisplayNames/of", "Intl.DisplayNames.prototype.of()")}}
-  - : Diese Methode empfängt einen `code` und gibt einen String basierend auf der Locale und den Optionen zurück, die bei der Instanziierung von `Intl.DisplayNames` angegeben wurden.
+  - : Diese Methode erhält einen `code` und gibt einen String zurück, basierend auf der Lokalisierung und den Optionen, die bei der Instanziierung von `Intl.DisplayNames` angegeben wurden.
 - {{jsxref("Intl/DisplayNames/resolvedOptions", "Intl.DisplayNames.prototype.resolvedOptions()")}}
-  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die Locale und die Formatierungsoptionen widerspiegeln, die während der Initialisierung des Objekts berechnet wurden.
+  - : Gibt ein neues Objekt zurück, das die Eigenschaften widerspiegelt, die während der Initialisierung des Objekts für die Lokalisierung und Formatierungsoptionen berechnet wurden.
 
 ## Beispiele
 
-### Anzeigennamen für Regionscodes
+### Anzeige-Namen für Regionscodes
 
-Um ein `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für einen Regionscode zu erhalten.
+Um ein `Intl.DisplayNames` für eine Lokalisierung zu erstellen und den Anzeige-Namen für einen Regionscode zu erhalten.
 
 ```js
 // Get display names of region in English
@@ -61,9 +74,9 @@ regionNames.of("BA"); // "波士尼亞與赫塞哥維納"
 regionNames.of("MM"); // "緬甸"
 ```
 
-### Anzeigennamen für Sprachen
+### Anzeige-Namen für Sprachen
 
-Um ein `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für eine Sprach-Skript-Region-Sequenz zu erhalten.
+Um ein `Intl.DisplayNames` für eine Lokalisierung zu erstellen und den Anzeige-Namen für eine Sprach-Schrift-Region-Sequenz zu erhalten.
 
 ```js
 // Get display names of language in English
@@ -82,9 +95,9 @@ languageNames.of("zh"); // "中文"
 languageNames.of("de"); // "德文"
 ```
 
-### Anzeigennamen für Skriptcode
+### Anzeige-Namen für Schriftsystemcodes
 
-Um ein `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für einen Skriptcode zu erhalten.
+Um ein `Intl.DisplayNames` für eine Lokalisierung zu erstellen und den Anzeige-Namen für einen Schriftsystemcode zu erhalten.
 
 ```js
 // Get display names of script in English
@@ -101,9 +114,9 @@ scriptNames.of("Arab"); // "阿拉伯文"
 scriptNames.of("Kana"); // "片假名"
 ```
 
-### Anzeigennamen für Währungscodes
+### Anzeige-Namen für Währungs-Codes
 
-Um ein `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für einen Währungscode zu erhalten.
+Um ein `Intl.DisplayNames` für eine Lokalisierung zu erstellen und den Anzeige-Namen für einen Währungs-Code zu erhalten.
 
 ```js
 // Get display names of currency code in English

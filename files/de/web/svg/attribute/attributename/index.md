@@ -2,12 +2,12 @@
 title: attributeName
 slug: Web/SVG/Attribute/attributeName
 l10n:
-  sourceCommit: 54eb3a678b4d4cbc94588d2234103e74dfa063a0
+  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
 ---
 
 {{SVGRef}}
 
-Das **`attributeName`**-Attribut gibt den Namen der CSS-Eigenschaft oder des Attributs des Zielelements an, das während einer Animation geändert werden soll.
+Das **`attributeName`**-Attribut gibt den Namen der CSS-Eigenschaft oder des Attributs des Ziel-Elements an, das während einer Animation geändert werden soll.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -41,7 +41,7 @@ svg {
 
 {{EmbedLiveSample("Example", "400", "250")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -51,7 +51,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keiner</em></td>
+      <td><em>Keine</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -61,7 +61,7 @@ svg {
 </table>
 
 - `<name>`
-  - : Dieser Wert gibt den Namen der CSS-Eigenschaft oder des Attributs des Zielelements an, das animiert werden soll.
+  - : Dieser Wert gibt den Namen der CSS-Eigenschaft oder des Attributs des Ziel-Elements an, das animiert werden soll.
 
 ## Spezifikationen
 
@@ -69,4 +69,4 @@ svg {
 
 ## Siehe auch
 
-- [SMIL Animation specification](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AccumulateAttribute)
+- [SVG-Animation mit SMIL](/de/docs/Web/SVG/SVG_animation_with_SMIL)

@@ -2,16 +2,27 @@
 title: class
 slug: Web/JavaScript/Reference/Statements/class
 l10n:
-  sourceCommit: 5bdcf72ed6ffc7d4fa878060a548869ed6ae149b
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Statements")}}
 
-Die **`class`**-Deklaration erstellt eine {{Glossary("binding", "Bindung")}} einer neuen [Klasse](/de/docs/Web/JavaScript/Reference/Classes) zu einem gegebenen Namen.
+Die **`class`**-Deklaration erstellt eine {{Glossary("binding", "Bindung")}} einer neuen [Klasse](/de/docs/Web/JavaScript/Reference/Classes) an einen gegebenen Namen.
 
-Sie können Klassen auch mit dem [`class`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/class) definieren.
+Sie können Klassen auch mithilfe des [`class` expression](/de/docs/Web/JavaScript/Reference/Operators/class) definieren.
 
-{{EmbedInteractiveExample("pages/js/statement-class.html")}}
+{{InteractiveExample("JavaScript Demo: Statement - Class")}}
+
+```js interactive-example
+class Polygon {
+  constructor(height, width) {
+    this.area = height * width;
+  }
+}
+
+console.log(new Polygon(4, 3).area);
+// Expected output: 12
+```
 
 ## Syntax
 
@@ -26,14 +37,14 @@ class name extends otherName {
 
 ## Beschreibung
 
-Der Klassenrumpf einer Klassendeklaration wird im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) ausgeführt. Die `class`-Deklaration ist sehr ähnlich der {{jsxref("Statements/let", "let")}}-Deklaration:
+Der Klassenkörper einer Klassendeklaration wird im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ausgeführt. Die `class`-Deklaration ist der {{jsxref("Statements/let", "let")}}-Deklaration sehr ähnlich:
 
-- `class`-Deklarationen sind sowohl auf Blöcke als auch auf Funktionen beschränkt.
-- `class`-Deklarationen können nur nach Erreichen des Deklarationsortes zugegriffen werden (siehe [temporäre Totzone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)). Aus diesem Grund gelten `class`-Deklarationen allgemein als {{Glossary("Hoisting", "nicht-hoistisch")}} (im Gegensatz zu [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function)).
-- `class`-Deklarationen erstellen keine Eigenschaften auf {{jsxref("globalThis")}}, wenn sie auf der obersten Ebene eines Skripts deklariert werden (im Gegensatz zu [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function)).
-- `class`-Deklarationen können nicht durch eine andere Deklaration im selben Gültigkeitsbereich [erneut deklariert](/de/docs/Web/JavaScript/Reference/Statements/let#redeclarations) werden.
+- `class`-Deklarationen sind sowohl an Blöcke als auch an Funktionen gebunden.
+- `class`-Deklarationen können erst nach der Deklarationsstelle verwendet werden (siehe [temporal dead zone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)). Aus diesem Grund gelten `class`-Deklarationen allgemein als {{Glossary("Hoisting", "nicht gehoben")}} (im Gegensatz zu [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function)).
+- `class`-Deklarationen erstellen keine Eigenschaften auf {{jsxref("globalThis")}}, wenn sie im obersten Bereich eines Skripts deklariert werden (im Gegensatz zu [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function)).
+- `class`-Deklarationen können innerhalb desselben Bereichs nicht durch eine andere Deklaration [erneut deklariert](/de/docs/Web/JavaScript/Reference/Statements/let#redeclarations) werden.
 
-Außerhalb des Klassenkörpers können `class`-Deklarationen wie `let` neu zugewiesen werden, aber dies sollte vermieden werden. Innerhalb des Klassenkörpers ist die Bindung konstant wie `const`.
+Außerhalb des Klassenkörpers können `class`-Deklarationen wie `let` neu zugewiesen werden, jedoch sollte dies vermieden werden. Innerhalb des Klassenkörpers ist die Bindung wie `const` konstant.
 
 ```js
 class Foo {
@@ -55,9 +66,9 @@ console.log(Foo3); // 1
 
 ### Eine Klassendeklaration
 
-Im folgenden Beispiel definieren wir zunächst eine Klasse namens `Rectangle` und erweitern sie dann, um eine Klasse namens `FilledRectangle` zu erstellen.
+Im folgenden Beispiel definieren wir zuerst eine Klasse namens `Rectangle` und erweitern sie anschließend, um eine Klasse namens `FilledRectangle` zu erstellen.
 
-Beachten Sie, dass `super()`, das im `constructor` verwendet wird, nur in Konstruktoren verwendet werden kann und _muss_ aufgerufen werden, _bevor_ das Schlüsselwort `this` verwendet werden kann.
+Beachten Sie, dass `super()`, das im `constructor` verwendet wird, nur in Konstruktoren verwendet werden kann und _vor_ der Verwendung des `this`-Schlüsselworts _aufgerufen werden muss_.
 
 ```js
 class Rectangle {
@@ -88,5 +99,5 @@ class FilledRectangle extends Rectangle {
 ## Siehe auch
 
 - [`function`](/de/docs/Web/JavaScript/Reference/Statements/function)
-- [`class`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/class)
+- [`class` expression](/de/docs/Web/JavaScript/Reference/Operators/class)
 - [Klassen](/de/docs/Web/JavaScript/Reference/Classes)

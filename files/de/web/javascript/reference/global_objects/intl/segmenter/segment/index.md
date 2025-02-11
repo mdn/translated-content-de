@@ -2,14 +2,27 @@
 title: Intl.Segmenter.prototype.segment()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment
 l10n:
-  sourceCommit: 3ed94a520e98ab711f5b808d14ae1dbd9033eda0
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`segment()`**-Methode von {{jsxref("Intl.Segmenter")}}-Instanzen segmentiert einen String entsprechend der Locale und Granularität des `Intl.Segmenter`-Objekts.
+Die **`segment()`**-Methode von {{jsxref("Intl.Segmenter")}}-Instanzen teilt einen String gemäß der Lokalisierung und der Granularität dieses `Intl.Segmenter`-Objekts auf.
 
-{{EmbedInteractiveExample("pages/js/intl-segmenter-prototype-segment.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.Segmenter.prototype.segment")}}
+
+```js interactive-example
+const string1 = "Que ma joie demeure";
+
+const segmenterFrGrapheme = new Intl.Segmenter("fr", {
+  granularity: "grapheme",
+});
+const graphemeSegments = segmenterFrGrapheme.segment(string1);
+
+console.log(Array.from(graphemeSegments)[0]);
+// Expected output:
+// Object {segment: 'Q', index: 0, input: 'Que ma joie demeure'}
+```
 
 ## Syntax
 
@@ -20,11 +33,11 @@ segment(input)
 ### Parameter
 
 - `input`
-  - : Der zu segmentierende Text als String.
+  - : Der Text, der als String segmentiert werden soll.
 
 ### Rückgabewert
 
-Ein neues iterierbares [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Objekt, das die Segmente des Eingabestrings enthält und die Locale und Granularität des Segmenter verwendet.
+Ein neues iterierbares [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Objekt, das die Segmente des Eingabestrings enthält, basierend auf der Lokalisierung und Granularität des Segmenters.
 
 ## Beispiele
 

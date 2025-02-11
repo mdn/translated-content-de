@@ -2,46 +2,61 @@
 title: Intl.RelativeTimeFormat
 slug: Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat
 l10n:
-  sourceCommit: c420b9b3126451f53d112afe33e007d6efdb605d
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Das **`Intl.RelativeTimeFormat`**-Objekt ermöglicht die sprachsensitive relative Zeitformatierung.
+Das **`Intl.RelativeTimeFormat`** Objekt ermöglicht sprachsensitives Formatieren relativer Zeitangaben.
 
-{{EmbedInteractiveExample("pages/js/intl-relativetimeformat.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.RelativeTimeFormat")}}
+
+```js interactive-example
+const rtf1 = new Intl.RelativeTimeFormat("en", { style: "short" });
+
+console.log(rtf1.format(3, "quarter"));
+// Expected output: "in 3 qtrs."
+
+console.log(rtf1.format(-1, "day"));
+// Expected output: "1 day ago"
+
+const rtf2 = new Intl.RelativeTimeFormat("es", { numeric: "auto" });
+
+console.log(rtf2.format(2, "day"));
+// Expected output: "pasado mañana"
+```
 
 ## Konstruktor
 
 - {{jsxref("Intl/RelativeTimeFormat/RelativeTimeFormat", "Intl.RelativeTimeFormat()")}}
-  - : Erstellt ein neues `Intl.RelativeTimeFormat`-Objekt.
+  - : Erstellt ein neues `Intl.RelativeTimeFormat` Objekt.
 
 ## Statische Methoden
 
 - {{jsxref("Intl/RelativeTimeFormat/supportedLocalesOf", "Intl.RelativeTimeFormat.supportedLocalesOf()")}}
-  - : Gibt ein Array zurück, das diejenigen der angegebenen Sprachen enthält, die unterstützt werden, ohne auf die Standard-Locale der Laufzeitumgebung zurückgreifen zu müssen.
+  - : Gibt ein Array zurück, das die bereitgestellten Locales enthält, die unterstützt werden, ohne auf die Standard-Locale zur Laufzeit zurückgreifen zu müssen.
 
 ## Instanzeigenschaften
 
-Diese Eigenschaften sind auf `Intl.RelativeTimeFormat.prototype` definiert und werden von allen `Intl.RelativeTimeFormat`-Instanzen gemeinsam genutzt.
+Diese Eigenschaften sind auf `Intl.RelativeTimeFormat.prototype` definiert und werden von allen Instanzen von `Intl.RelativeTimeFormat` geteilt.
 
 - {{jsxref("Object/constructor", "Intl.RelativeTimeFormat.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.RelativeTimeFormat`-Instanzen ist der Anfangswert der {{jsxref("Intl/RelativeTimeFormat/RelativeTimeFormat", "Intl.RelativeTimeFormat")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.RelativeTimeFormat` Instanzen ist der Anfangswert der {{jsxref("Intl/RelativeTimeFormat/RelativeTimeFormat", "Intl.RelativeTimeFormat")}} Konstruktor.
 - `Intl.RelativeTimeFormat.prototype[Symbol.toStringTag]`
   - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"Intl.RelativeTimeFormat"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
 ## Instanzmethoden
 
 - {{jsxref("Intl/RelativeTimeFormat/format", "Intl.RelativeTimeFormat.prototype.format()")}}
-  - : Formatiert einen `value` und eine `unit` gemäß der Locale und den Formatierungsoptionen des angegebenen `Intl.RelativeTimeFormat`-Objekts.
+  - : Formatiert einen `value` und eine `unit` entsprechend der Locale und den Formatierungsoptionen des gegebenen `Intl.RelativeTimeFormat` Objekts.
 - {{jsxref("Intl/RelativeTimeFormat/formatToParts", "Intl.RelativeTimeFormat.prototype.formatToParts()")}}
-  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, die das relative Zeitformat in Teilen darstellen, die für benutzerdefinierte, sprachbewusste Formatierungen verwendet werden können.
+  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, die das relative Zeitformat in Teilen repräsentieren, welche für eine benutzerdefinierte, localesensitive Formatierung verwendet werden können.
 - {{jsxref("Intl/RelativeTimeFormat/resolvedOptions", "Intl.RelativeTimeFormat.prototype.resolvedOptions()")}}
-  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die bei der Initialisierung des Objekts berechneten Locale und Formatierungsoptionen widerspiegeln.
+  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die Locale und die während der Initialisierung des Objekts berechneten Formatierungsoptionen widerspiegeln.
 
 ## Beispiele
 
-### Grundlegender Formatgebrauch
+### Grundlegende Verwendung des Formats
 
 Das folgende Beispiel zeigt, wie ein relativer Zeitformatierer für die englische Sprache verwendet wird.
 
@@ -63,7 +78,7 @@ rtf.format(1, "day"); // "in 1 day"
 
 ### Verwendung von formatToParts
 
-Das folgende Beispiel zeigt, wie man einen relativen Zeitformatierer erstellt, der formatierte Teile zurückgibt.
+Das folgende Beispiel zeigt, wie ein relativer Zeitformatierer erstellt wird, der formatierte Teile zurückgibt.
 
 ```js
 const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });

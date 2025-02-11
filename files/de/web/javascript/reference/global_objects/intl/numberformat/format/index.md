@@ -2,14 +2,30 @@
 title: Intl.NumberFormat.prototype.format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/format
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die Methode **`format()`** von {{jsxref("Intl.NumberFormat")}} Instanzen formatiert eine Zahl entsprechend der [Lokal- und Formatierungsoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#parameters) dieses `Intl.NumberFormat`-Objekts.
+Die **`format()`**-Methode von {{jsxref("Intl.NumberFormat")}}-Instanzen formatiert eine Zahl entsprechend den [Lokalisierungs- und Formatierungsoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#parameters) dieses `Intl.NumberFormat`-Objekts.
 
-{{EmbedInteractiveExample("pages/js/intl-numberformat-prototype-format.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Intl.NumberFormat.prototype.format", "taller")}}
+
+```js interactive-example
+const amount = 654321.987;
+
+const options1 = { style: "currency", currency: "RUB" };
+const numberFormat1 = new Intl.NumberFormat("ru-RU", options1);
+
+console.log(numberFormat1.format(amount));
+// Expected output: "654 321,99 ₽"
+
+const options2 = { style: "currency", currency: "USD" };
+const numberFormat2 = new Intl.NumberFormat("en-US", options2);
+
+console.log(numberFormat2.format(amount));
+// Expected output: "$654,321.99"
+```
 
 ## Syntax
 
@@ -20,30 +36,30 @@ format(number)
 ### Parameter
 
 - `number`
-  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}} oder ein String, der formatiert werden soll. Strings werden auf die gleiche Weise wie bei der [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) geparst, außer dass `format()` den exakten Wert verwendet, den der String darstellt, um den Verlust von Präzision bei der impliziten Umwandlung in eine Zahl zu vermeiden.
+  - : Ein {{jsxref("Number")}}, {{jsxref("BigInt")}} oder ein String, der formatiert wird. Strings werden auf die gleiche Weise analysiert wie bei der [Zahlumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), außer dass `format()` den genauen Wert verwendet, den der String darstellt, wodurch ein Verlust der Präzision bei der impliziten Umwandlung in eine Zahl vermieden wird.
 
 > [!NOTE]
-> Ältere Versionen der Spezifikation parsten Strings als {{jsxref("Number")}}.
+> Ältere Versionen der Spezifikation analysierten Strings wie ein {{jsxref("Number")}}.
 > Überprüfen Sie die Kompatibilitätstabelle für Ihren Browser.
 
 ### Rückgabewert
 
-Ein String, der die gegebene `number` gemäß der Lokal- und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts formatiert darstellt.
+Ein String, der die angegebene `number` nach den Lokalisierungs- und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts formatiert darstellt.
 
 > [!NOTE]
-> Meistens ist die Formatierung, die `format()` zurückgibt, konsistent. Das Ergebnis kann jedoch je nach Implementierung variieren, sogar innerhalb derselben Locale — solche Variationen sind gewollt und von der Spezifikation erlaubt. Es kann auch vorkommen, dass es nicht dem entspricht, was Sie erwarten. Zum Beispiel könnte der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit festkodierten Konstanten vergleichen.
+> Meistens ist die Formatierung, die von `format()` zurückgegeben wird, konsistent. Trotzdem kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb derselben Lokalisierung – diese Variationen sind durch Design vorgesehen und von der Spezifikation erlaubt. Es ist auch möglich, dass die Ausgabe nicht Ihren Erwartungen entspricht. Zum Beispiel kann der String geschützte Leerzeichen enthalten oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
 
 ## Beschreibung
 
-{{jsxref("Number")}}-Werte in JavaScript leiden an Präzisionsverlusten, wenn sie zu groß oder zu klein sind, was die Textdarstellung ungenau macht.
-Wenn Sie Berechnungen mit ganzen Zahlen durchführen, die größer als {{jsxref("Number.MAX_SAFE_INTEGER")}} sind, sollten Sie stattdessen ein {{jsxref("BigInt")}} verwenden, da dies korrekt formatiert wird:
+{{jsxref("Number")}}-Werte in JavaScript leiden unter Präzisionsverlust, wenn sie zu groß oder zu klein sind, was die Textdarstellung ungenau macht.
+Wenn Sie Berechnungen mit Ganzzahlen durchführen, die größer als {{jsxref("Number.MAX_SAFE_INTEGER")}} sind, sollten Sie stattdessen ein {{jsxref("BigInt")}} verwenden, das korrekt formatiert wird:
 
 ```js
 new Intl.NumberFormat("en-US").format(1234567891234567891); // 1,234,567,891,234,568,000
 new Intl.NumberFormat("en-US").format(1234567891234567891n); // 1,234,567,891,234,567,891
 ```
 
-Sie können auch sehr große Strings durchlaufen lassen, um sie als Dezimalstrings mit beliebiger Genauigkeit zu formatieren (wenn Sie Berechnungen mit den Daten durchführen, müssen Sie dennoch mit `BigInt` arbeiten):
+Sie können auch sehr große Strings übergeben, um sie als Dezimalzeichenkette mit beliebiger Präzision zu formatieren (wenn Sie Berechnungen mit den Daten durchführen, müssen Sie weiterhin mit `BigInt` arbeiten):
 
 ```js
 new Intl.NumberFormat("en-US").format("1234567891234567891"); // 1,234,567,891,234,567,891
@@ -53,8 +69,8 @@ new Intl.NumberFormat("en-US").format("1234567891234567891"); // 1,234,567,891,2
 
 ### Verwendung von format
 
-Verwenden Sie die `format` Getter-Funktion, um einen einzelnen Währungswert zu formatieren.
-Das folgende Beispiel zeigt, wie man die Währung Rubel für ein russisches Locale formatiert:
+Verwenden Sie die `format`-Getter-Funktion, um einen einzelnen Währungswert zu formatieren.
+Der folgende Code zeigt, wie die Währung "Rubel" für eine russische Lokalisierung formatiert werden kann:
 
 ```js
 const options = { style: "currency", currency: "RUB" };
@@ -65,9 +81,9 @@ console.log(numberFormat.format(654321.987));
 
 ### Verwendung von format mit map
 
-Verwenden Sie die `format` Getter-Funktion, um alle Zahlen in einem Array zu formatieren.
-Beachten Sie, dass die Funktion an das {{jsxref("Intl.NumberFormat")}}, von dem sie abgeleitet wurde, gebunden ist, sodass sie direkt an {{jsxref("Array.prototype.map")}} übergeben werden kann.
-Dies wird als historisches Artefakt betrachtet, als Teil einer Konvention, die für neue Funktionen nicht mehr befolgt wird, aber erhalten bleibt, um die Kompatibilität mit bestehenden Programmen zu gewährleisten.
+Verwenden Sie die `format`-Getter-Funktion, um alle Zahlen in einem Array zu formatieren.
+Beachten Sie, dass die Funktion an das {{jsxref("Intl.NumberFormat")}} gebunden ist, aus dem sie stammt, sodass sie direkt an {{jsxref("Array.prototype.map")}} übergeben werden kann.
+Dies gilt als historisches Artefakt, als Teil einer Konvention, die für neue Funktionen nicht mehr befolgt wird, aber beibehalten wird, um die Kompatibilität mit bestehenden Programmen zu gewährleisten.
 
 ```js
 const a = [123456.789, 987654.321, 456789.123];
@@ -79,7 +95,7 @@ console.log(formatted.join("; "));
 
 ### Verwendung von format mit einem String
 
-Mit einem String können wir Zahlen, die größer als {{jsxref("Number.MAX_SAFE_INTEGER")}} sind, ohne Genauigkeitsverlust angeben.
+Mit einem String können wir Zahlen angeben, die größer als {{jsxref("Number.MAX_SAFE_INTEGER")}} sind, ohne dass Präzision verloren geht.
 
 ```js
 const numberFormat = new Intl.NumberFormat("en-US");
@@ -93,8 +109,8 @@ console.log(numberFormat.format("987654321987654321"));
 // 987,654,321,987,654,321
 ```
 
-Wir können auch die allgemeine "E"-Exponentsyntax für Dezimalstrings verwenden: `#.#E#`.
-Der untenstehende Code erstellt ein {{jsxref("BigInt")}}, zwingt ihn zu einem String mit dem Suffix `E-6` und formatiert ihn dann.
+Wir können auch die allgemeine "E"-Exponenten-Schreibweise für Dezimalstrings verwenden: `#.#E#`.
+Der folgende Code erstellt ein {{jsxref("BigInt")}}, wandelt es in einen String mit dem Suffix `E-6` um und formatiert es dann.
 
 ```js
 const numberFormat = new Intl.NumberFormat("en-US");

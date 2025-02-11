@@ -2,14 +2,29 @@
 title: Reflect.has()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/has
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
 Die statische Methode **`Reflect.has()`** ist wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator, jedoch als Funktion.
 
-{{EmbedInteractiveExample("pages/js/reflect-has.html")}}
+{{InteractiveExample("JavaScript Demo: Reflect.has()")}}
+
+```js interactive-example
+const object1 = {
+  property1: 42,
+};
+
+console.log(Reflect.has(object1, "property1"));
+// Expected output: true
+
+console.log(Reflect.has(object1, "property2"));
+// Expected output: false
+
+console.log(Reflect.has(object1, "toString"));
+// Expected output: true
+```
 
 ## Syntax
 
@@ -20,13 +35,13 @@ Reflect.has(target, propertyKey)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, in dem nach der Eigenschaft gesucht werden soll.
+  - : Das Zielobjekt, in dem nach der Eigenschaft gesucht wird.
 - `propertyKey`
-  - : Der Name der Eigenschaft, die überprüft werden soll.
+  - : Der Name der zu überprüfenden Eigenschaft.
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, der angibt, ob das `target` die Eigenschaft hat oder nicht.
+Ein {{jsxref("Boolean")}}, der angibt, ob das `target` die Eigenschaft besitzt oder nicht.
 
 ### Ausnahmen
 
@@ -35,13 +50,13 @@ Ein {{jsxref("Boolean")}}, der angibt, ob das `target` die Eigenschaft hat oder 
 
 ## Beschreibung
 
-`Reflect.has()` bietet die reflektierende Semantik einer Überprüfung, ob eine Eigenschaft in einem Objekt vorhanden ist. Das heißt, `Reflect.has(target, propertyKey)` ist semantisch äquivalent zu:
+`Reflect.has()` bietet die reflektierende Semantik zum Überprüfen, ob eine Eigenschaft in einem Objekt vorhanden ist. Das heißt, `Reflect.has(target, propertyKey)` ist semantisch äquivalent zu:
 
 ```js
 propertyKey in target;
 ```
 
-`Reflect.has()` ruft die `[[HasProperty]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.has()` ruft die `[[HasProperty]]`-[interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
 ## Beispiele
 
@@ -67,7 +82,7 @@ Reflect.has(obj, "doorbell"); // true
 Reflect.has(obj, "dormitory"); // false
 ```
 
-`Reflect.has` gibt `true` für alle geerbten Eigenschaften zurück, ähnlich wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) Operator:
+`Reflect.has` gibt `true` für alle geerbten Eigenschaften zurück, wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator:
 
 ```js
 const a = { foo: 123 };

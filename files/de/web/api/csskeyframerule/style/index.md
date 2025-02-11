@@ -1,31 +1,32 @@
 ---
-title: "CSSKeyframeRule: style-Eigenschaft"
+title: "CSSKeyframeRule: Eigenschaft style"
 short-title: style
 slug: Web/API/CSSKeyframeRule/style
 l10n:
-  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
+  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte Eigenschaft **`CSSKeyframeRule.style`** ist die Schnittstelle [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) für den [Deklarationsblock](https://www.w3.org/TR/1998/REC-CSS2-19980512/syndata.html#block) der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule).
+Die schreibgeschützte **`CSSKeyframeRule.style`**-Eigenschaft ist die [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Schnittstelle für den Deklarationsblock der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule).
 
 ## Wert
 
-Ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) Objekt mit den folgenden Eigenschaften:
+Ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt mit den folgenden Eigenschaften:
 
-- berechnetes Flag
+- computed flag
   - : Nicht gesetzt.
-- Deklarationen
-  - : Die deklarierten Deklarationen in der Regel, in der Reihenfolge, in der sie angegeben wurden, Kurzschreibweisen erweitert zu Langformen.
-- übergeordnete CSS-Regel
-  - : Das Kontextobjekt, das ein Alias für [dieses](https://heycam.github.io/webidl/#this) ist.
-- Eigentümerknoten
+- declarations
+  - : Die in der Regel angegebenen Deklarationen, in der Reihenfolge, in der sie spezifiziert wurden, wobei Kurzschreibweisen auf Langformen erweitert werden.
+- parent CSS rule
+  - : Das Kontextobjekt, welches ein Alias für [this](https://heycam.github.io/webidl/#this) ist.
+- owner node
   - : Null.
 
 ## Beispiele
 
-Das CSS enthält eine {{cssxref("@keyframes")}}-At-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die durch `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule) Objekt zurück, das einzelne [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule) Objekte für jedes Keyframe enthalten wird.
+Das CSS enthält eine {{cssxref("@keyframes")}}-At-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, das einzelne [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule)-Objekte für jedes Keyframe enthält.
 
 ```css
 @keyframes slide-in {

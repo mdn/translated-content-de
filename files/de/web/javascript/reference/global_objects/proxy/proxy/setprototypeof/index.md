@@ -2,14 +2,37 @@
 title: handler.setPrototypeOf()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/setPrototypeOf
 l10n:
-  sourceCommit: 5c9b080f763346a4a18cc2c50fa4e21d2feec700
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`handler.setPrototypeOf()`**-Methode ist eine Falle für die `[[SetPrototypeOf]]` [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.setPrototypeOf()")}} verwendet wird.
+Die Methode **`handler.setPrototypeOf()`** ist eine Falle für die `[[SetPrototypeOf]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.setPrototypeOf()")}} verwendet wird.
 
-{{EmbedInteractiveExample("pages/js/proxyhandler-setprototypeof.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: handler.setPrototypeOf()", "taller")}}
+
+```js interactive-example
+const handler1 = {
+  setPrototypeOf(monster1, monsterProto) {
+    monster1.geneticallyModified = true;
+    return false;
+  },
+};
+
+const monsterProto = {};
+const monster1 = {
+  geneticallyModified: false,
+};
+
+const proxy1 = new Proxy(monster1, handler1);
+// Object.setPrototypeOf(proxy1, monsterProto); // Throws a TypeError
+
+console.log(Reflect.setPrototypeOf(proxy1, monsterProto));
+// Expected output: false
+
+console.log(monster1.geneticallyModified);
+// Expected output: true
+```
 
 ## Syntax
 
@@ -22,7 +45,7 @@ new Proxy(target, {
 
 ### Parameter
 
-Die folgenden Parameter werden an die `setPrototypeOf()`-Methode übergeben. `this` ist an den Handler gebunden.
+Die folgenden Parameter werden an die Methode `setPrototypeOf()` übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
@@ -31,36 +54,36 @@ Die folgenden Parameter werden an die `setPrototypeOf()`-Methode übergeben. `th
 
 ### Rückgabewert
 
-Die `setPrototypeOf()`-Methode muss einen {{jsxref("Boolean")}} zurückgeben, der angibt, ob der Prototyp erfolgreich geändert wurde oder nicht. Andere Werte werden zu Booleans [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Die Methode `setPrototypeOf()` muss ein {{jsxref("Boolean")}} zurückgeben, das angibt, ob der Prototyp erfolgreich geändert wurde. Andere Werte werden [in Booleans umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
 
-Viele Operationen, einschließlich {{jsxref("Object.setPrototypeOf()")}}, werfen einen {{jsxref("TypeError")}}, wenn die interne `[[SetPrototypeOf]]`-Methode `false` zurückgibt.
+Viele Operationen, einschließlich {{jsxref("Object.setPrototypeOf()")}}, werfen einen {{jsxref("TypeError")}}, wenn die interne Methode `[[SetPrototypeOf]]` `false` zurückgibt.
 
 ## Beschreibung
 
-### Abfangmethoden
+### Abfangmöglichkeiten
 
-Diese Falle kann folgende Operationen abfangen:
+Diese Falle kann die folgenden Operationen abfangen:
 
 - {{jsxref("Object.setPrototypeOf()")}}
 - {{jsxref("Reflect.setPrototypeOf()")}}
 
-Oder jede andere Operation, die die `[[SetPrototypeOf]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
+Oder jede andere Operation, die die interne Methode `[[SetPrototypeOf]]` [invokiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods).
 
 ### Invarianten
 
-Die `[[SetPrototypeOf]]`-Methode des Proxies wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die interne Methode `[[SetPrototypeOf]]` des Proxy-Objekts wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Wenn das Zielobjekt nicht erweiterbar ist, kann der Prototyp nicht geändert werden. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} auf `target` `false` zurückgibt und `prototype` nicht mit dem Ergebnis von `Reflect.getPrototypeOf(target)` identisch ist, muss die Falle einen falschen Wert zurückgeben.
+- Wenn das Zielobjekt nicht erweiterbar ist, kann der Prototyp nicht geändert werden. Das bedeutet, wenn {{jsxref("Reflect.isExtensible()")}} auf `target` `false` zurückgibt und `prototype` nicht derselbe ist wie das Ergebnis von `Reflect.getPrototypeOf(target)`, muss die Falle einen falschen Wert zurückgeben.
 
 ## Beispiele
 
-Wenn Sie das Setzen eines neuen Prototyps für Ihr Objekt nicht erlauben möchten, kann die `setPrototypeOf()`-Methode Ihres Handlers entweder `false` zurückgeben oder eine Ausnahme werfen.
+Wenn Sie nicht möchten, dass ein neuer Prototyp für Ihr Objekt gesetzt wird, kann die Methode `setPrototypeOf()` Ihres Handlers entweder `false` zurückgeben oder eine Ausnahme werfen.
 
-### Ansatz 1: Zurückgeben von false
+### Ansatz 1: `false` zurückgeben
 
-Dieser Ansatz bedeutet, dass jede verändernde Operation, die bei nicht erfolgreicher Mutation eine Ausnahme wirft, die Ausnahme selbst erzeugen muss.
+Dieser Ansatz bedeutet, dass jede mutierende Operation, die bei einem Fehler eine Ausnahme wirft, die Ausnahme selbst erstellen muss.
 
-Zum Beispiel wird {{jsxref("Object.setPrototypeOf()")}} selbst eine {{jsxref("TypeError")}}-Ausnahme erzeugen und werfen. Wenn die Mutation durch eine Operation vorgenommen wird, die normalerweise keine Ausnahme im Falle eines Scheiterns wirft, wie {{jsxref("Reflect.setPrototypeOf()")}}, wird keine Ausnahme geworfen.
+Zum Beispiel wird {{jsxref("Object.setPrototypeOf()")}} selbst einen {{jsxref("TypeError")}} erstellen und werfen. Wenn die Mutation durch eine Operation durchgeführt wird, die beim Scheitern normalerweise _keine_ Ausnahme wirft, wie etwa {{jsxref("Reflect.setPrototypeOf()")}}, wird keine Ausnahme geworfen.
 
 ```js
 const handlerReturnsFalse = {
@@ -79,7 +102,7 @@ Reflect.setPrototypeOf(p1, newProto); // returns false
 
 ### Ansatz 2: Eine Ausnahme werfen
 
-Der zweite Ansatz führt dazu, dass _jede_ Operation, die versucht zu mutieren, eine Ausnahme wirft. Dieser Ansatz ist am besten geeignet, wenn Sie möchten, dass selbst nicht werfende Operationen im Falle eines Scheiterns eine Ausnahme werfen, oder wenn Sie einen benutzerdefinierten Ausnahme-Wert werfen möchten.
+Dieser Ansatz führt dazu, dass _jede_ Operation, die versucht, zu mutieren, eine Ausnahme wirft. Dieser Ansatz ist ideal, wenn Sie möchten, dass selbst nicht-wurfende Operationen bei einem Scheitern eine Ausnahme werfen, oder wenn Sie eine benutzerdefinierte Ausnahme werfen möchten.
 
 ```js
 const handlerThrows = {
@@ -107,6 +130,6 @@ Reflect.setPrototypeOf(p2, newProto); // throws new Error("custom error")
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Object.setPrototypeOf()")}}
 - {{jsxref("Reflect.setPrototypeOf()")}}

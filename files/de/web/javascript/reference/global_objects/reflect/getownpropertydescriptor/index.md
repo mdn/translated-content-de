@@ -2,14 +2,29 @@
 title: Reflect.getOwnPropertyDescriptor()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/getOwnPropertyDescriptor
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.getOwnPropertyDescriptor()`** ähnelt {{jsxref("Object.getOwnPropertyDescriptor()")}}. Sie gibt einen Eigenschaftsdescriptor der angegebenen Eigenschaft zurück, wenn sie auf dem Objekt existiert, andernfalls {{jsxref("undefined")}}.
+Die statische Methode **`Reflect.getOwnPropertyDescriptor()`** ist ähnlich wie {{jsxref("Object.getOwnPropertyDescriptor()")}}. Sie gibt eine Eigenschaftsbeschreibung der angegebenen Eigenschaft zurück, falls diese auf dem Objekt vorhanden ist, oder {{jsxref("undefined")}}, falls nicht.
 
-{{EmbedInteractiveExample("pages/js/reflect-getownpropertydescriptor.html")}}
+{{InteractiveExample("JavaScript Demo: Reflect.getOwnPropertyDescriptor()")}}
+
+```js interactive-example
+const object1 = {
+  property1: 42,
+};
+
+console.log(Reflect.getOwnPropertyDescriptor(object1, "property1").value);
+// Expected output: 42
+
+console.log(Reflect.getOwnPropertyDescriptor(object1, "property2"));
+// Expected output: undefined
+
+console.log(Reflect.getOwnPropertyDescriptor(object1, "property1").writable);
+// Expected output: true
+```
 
 ## Syntax
 
@@ -22,11 +37,11 @@ Reflect.getOwnPropertyDescriptor(target, propertyKey)
 - `target`
   - : Das Zielobjekt, in dem nach der Eigenschaft gesucht wird.
 - `propertyKey`
-  - : Der Name der Eigenschaft, für die ein eigener Eigenschaftsdescriptor abgerufen werden soll.
+  - : Der Name der Eigenschaft, für die ein eigener Eigenschaftsbeschreiber abgerufen werden soll.
 
 ### Rückgabewert
 
-Ein Eigenschaftsdescriptor-Objekt, wenn die Eigenschaft als eigene Eigenschaft von `target` existiert; andernfalls {{jsxref("undefined")}}.
+Ein Eigenschaftsbeschreibeobjekt, falls die Eigenschaft als eigene Eigenschaft von `target` existiert. Andernfalls {{jsxref("undefined")}}.
 
 ### Ausnahmen
 
@@ -35,13 +50,13 @@ Ein Eigenschaftsdescriptor-Objekt, wenn die Eigenschaft als eigene Eigenschaft v
 
 ## Beschreibung
 
-`Reflect.getOwnPropertyDescriptor()` bietet die reflexive Semantik, um den Eigenschaftsdescriptor eines Objekts abzurufen. Der einzige Unterschied zu {{jsxref("Object.getOwnPropertyDescriptor()")}} besteht darin, wie nicht-objektartige Ziele behandelt werden. `Reflect.getOwnPropertyDescriptor()` löst einen {{jsxref("TypeError")}} aus, wenn das Ziel kein Objekt ist, während `Object.getOwnPropertyDescriptor()` es zu einem Objekt umwandelt.
+`Reflect.getOwnPropertyDescriptor()` bietet die reflexive Semantik zum Abrufen der Eigenschaftsbeschreibung eines Objekts. Der einzige Unterschied zu {{jsxref("Object.getOwnPropertyDescriptor()")}} besteht darin, wie nicht-Objekt-Ziele behandelt werden. `Reflect.getOwnPropertyDescriptor()` löst einen {{jsxref("TypeError")}} aus, wenn das Ziel kein Objekt ist, während `Object.getOwnPropertyDescriptor()` es in ein Objekt umwandelt.
 
-`Reflect.getOwnPropertyDescriptor()` ruft die `[[GetOwnProperty]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.getOwnPropertyDescriptor()` ruft die `[[GetOwnProperty]]` [interne Objekt-Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) des `target` auf.
 
 ## Beispiele
 
-### Verwenden von Reflect.getOwnPropertyDescriptor()
+### Verwendung von Reflect.getOwnPropertyDescriptor()
 
 ```js
 Reflect.getOwnPropertyDescriptor({ x: "hello" }, "x");
@@ -56,7 +71,7 @@ Reflect.getOwnPropertyDescriptor([], "length");
 
 ### Unterschied zu Object.getOwnPropertyDescriptor()
 
-Wenn das `target`-Argument dieser Methode kein Objekt (ein primitiver Wert) ist, wird ein {{jsxref("TypeError")}} verursacht. Bei {{jsxref("Object.getOwnPropertyDescriptor")}} wird ein nicht-Objekt-erstes Argument zuerst in ein Objekt umgewandelt.
+Falls das Argument `target` dieser Methode kein Objekt (z. B. ein Primitive) ist, führt dies zu einem {{jsxref("TypeError")}}. Bei {{jsxref("Object.getOwnPropertyDescriptor")}} würde das nicht-Objekt-Argument zuerst in ein Objekt umgewandelt.
 
 ```js
 Reflect.getOwnPropertyDescriptor("foo", 0);

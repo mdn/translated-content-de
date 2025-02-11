@@ -2,48 +2,60 @@
 title: RegExp.prototype.dotAll
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/dotAll
 l10n:
-  sourceCommit: 355cb905102efabcc189d1d10a95bb27cba6daf0
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`dotAll`** Accessor-Eigenschaft von {{jsxref("RegExp")}} Instanzen gibt zurück, ob das `s`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
+Die **`dotAll`** Zugriffseigenschaft von {{jsxref("RegExp")}}-Instanzen gibt zurück, ob das `s`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
 
-{{EmbedInteractiveExample("pages/js/regexp-prototype-dotall.html")}}
+{{InteractiveExample("JavaScript Demo: RegExp.prototype.dotAll")}}
+
+```js interactive-example
+const regex1 = new RegExp("foo", "s");
+
+console.log(regex1.dotAll);
+// Expected output: true
+
+const regex2 = new RegExp("bar");
+
+console.log(regex2.dotAll);
+// Expected output: false
+```
 
 ## Beschreibung
 
-`RegExp.prototype.dotAll` hat den Wert `true`, wenn das `s`-Flag verwendet wurde; andernfalls `false`. Das `s`-Flag gibt an, dass das spezielle Zeichen Punkt (`.`) zusätzlich die folgenden Zeilenabschlusszeichen ("Newline") in einem String matchen soll, die es sonst nicht matchen würde:
+`RegExp.prototype.dotAll` hat den Wert `true`, wenn das `s`-Flag verwendet wurde; andernfalls `false`. Das `s`-Flag gibt an, dass das spezielle Zeichen Punkt (`.`) zusätzlich zu den folgenden Zeilentrennzeichen ("newline")-Zeichen in einem String passen soll, die es sonst nicht passen würde:
 
 - U+000A LINE FEED (LF) (`\n`)
 - U+000D CARRIAGE RETURN (CR) (`\r`)
 - U+2028 LINE SEPARATOR
 - U+2029 PARAGRAPH SEPARATOR
 
-Dies bedeutet effektiv, dass der Punkt jede UTF-16 Codeeinheit matchen wird. Er wird jedoch _keine_ Zeichen matchen, die außerhalb der Unicode Basic Multilingual Plane (BMP) liegen, auch bekannt als astrale Zeichen, die als [Surrogatpaare](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) dargestellt werden und es erfordern, mit zwei `.` Mustern statt einem zu matchen.
+Das bedeutet effektiv, dass der Punkt jede UTF-16-Codeeinheit trifft. Es wird jedoch _keine_ Zeichen treffen, die sich außerhalb der Unicode Basic Multilingual Plane (BMP) befinden, auch bekannt als astrale Zeichen, die durch [Surrogatpaare](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) dargestellt werden. Zum Treffen dieser Zeichen sind stattdessen zwei `.`-Muster erforderlich, nicht eines.
 
 ```js
 "😄".match(/(.)(.)/s);
 // Array(3) [ "😄", "\ud83d", "\ude04" ]
 ```
 
-Das [`u`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode) (Unicode)-Flag kann verwendet werden, um dem Punkt zu ermöglichen, astrale Zeichen als ein einzelnes Zeichen zu matchen.
+Das [`u`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode)-Flag (unicode) kann verwendet werden, um zu erlauben, dass der Punkt astrale Zeichen als ein einzelnes Zeichen trifft.
 
 ```js
 "😄".match(/./su);
 // Array [ "😄" ]
 ```
 
-Beachten Sie, dass ein Muster wie `.*` auch ohne das `u`-Flag in der Lage ist, astrale Zeichen als Teil eines größeren Kontextes zu _konsumieren_.
+Beachten Sie, dass ein Muster wie `.*` dennoch in der Lage ist, astrale Zeichen als Teil eines größeren Kontexts _zu konsumieren_, selbst ohne das `u`-Flag.
 
 ```js
 "😄".match(/.*/s);
 // Array [ "😄" ]
 ```
 
-Die gleichzeitige Verwendung der `s`- und `u`-Flags ermöglicht es dem Punkt, jedes Unicode-Zeichen auf intuitivere Weise zu matchen.
+Die gleichzeitige Verwendung der `s`- und `u`-Flags ermöglicht es dem Punkt, jedes Unicode-Zeichen auf eine intuitivere Weise zu treffen.
 
-Der set-Accessor von `dotAll` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `dotAll` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 

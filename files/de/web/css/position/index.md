@@ -2,12 +2,12 @@
 title: position
 slug: Web/CSS/position
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 179872e1c21ddaba37d4ef9d1187ee5995e0aa45
 ---
 
 {{CSSRef}}
 
-Die **`position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie ein Element in einem Dokument positioniert wird. Die Eigenschaften {{Cssxref("top")}}, {{Cssxref("right")}}, {{Cssxref("bottom")}} und {{Cssxref("left")}} bestimmen die endgültige Position von positionierten Elementen.
+Die **`position`**-Eigenschaft in [CSS](/de/docs/Web/CSS) legt fest, wie ein Element in einem Dokument positioniert wird. Die Eigenschaften {{Cssxref("top")}}, {{Cssxref("right")}}, {{Cssxref("bottom")}} und {{Cssxref("left")}} bestimmen die endgültige Position von positionierten Elementen.
 
 {{EmbedInteractiveExample("pages/css/position.html")}}
 
@@ -31,60 +31,62 @@ position: unset;
 ### Werte
 
 - `static`
-  - : Das Element wird gemäß dem [normalen Fluss](/de/docs/Learn_web_development/Core/CSS_layout/Introduction#normal_layout_flow) des Dokuments positioniert. Die Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, {{cssxref("left")}} und {{cssxref("z-index")}} haben _keine Wirkung_. Dies ist der Standardwert.
+
+  - : Das Element wird gemäß dem [Normalfluss](/de/docs/Learn_web_development/Core/CSS_layout/Introduction#normal_layout_flow) des Dokuments positioniert. Die Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, {{cssxref("left")}} und {{cssxref("z-index")}} haben _keine Wirkung_. Dies ist der Standardwert.
+
 - `relative`
 
-  - : Das Element wird gemäß dem normalen Fluss des Dokuments positioniert und dann _relativ zu sich selbst_ basierend auf den Werten von `top`, `right`, `bottom` und `left` versetzt. Der Versatz beeinflusst nicht die Position anderer Elemente; daher bleibt der Raum, der für das Element im Seitenlayout vorgesehen ist, derselbe, als wäre die Position `static`.
+  - : Das Element wird gemäß dem Normalfluss des Dokuments positioniert und dann _relativ zu sich selbst_ basierend auf den Werten von `top`, `right`, `bottom` und `left` verschoben. Die Verschiebung beeinflusst die Position anderer Elemente nicht; daher nimmt das Element im Seitenlayout denselben Platz ein, als wäre die Position `static`.
 
-    Dieser Wert erzeugt einen neuen [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context), wenn der Wert von `z-index` nicht `auto` ist. Seine Wirkung auf Elemente von `table-*-group`, `table-row`, `table-column`, `table-cell` und `table-caption` ist undefiniert.
+    Dieser Wert erzeugt einen neuen [Stapelfluss](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context), wenn der Wert von `z-index` nicht `auto` ist. Seine Wirkung auf Elemente wie `table-*-group`, `table-row`, `table-column`, `table-cell` und `table-caption` ist undefiniert.
 
 - `absolute`
 
-  - : Das Element wird aus dem normalen Dokumentfluss entfernt und es wird kein Platz für das Element im Seitenlayout geschaffen. Das Element wird relativ zu seinem nächsten positionierten Vorfahren (falls vorhanden) oder dem anfänglichen [umgebenden Block](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block) positioniert. Seine endgültige Position wird durch die Werte von `top`, `right`, `bottom` und `left` bestimmt.
+  - : Das Element wird aus dem normalen Dokumentenfluss entfernt, und es wird kein Platz für das Element im Seitenlayout geschaffen. Das Element wird relativ zu seinem nächsten positionierten Vorfahren (falls vorhanden) oder zum initialen [Enthaltungsblock](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block) positioniert. Seine endgültige Position wird durch die Werte von `top`, `right`, `bottom` und `left` bestimmt.
 
-    Dieser Wert erzeugt einen neuen [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context), wenn der Wert von `z-index` nicht `auto` ist. Die Ränder von absolut positionierten Boxen [kollabieren](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) nicht mit anderen Rändern.
+    Dieser Wert erzeugt einen neuen [Stapelfluss](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context), wenn der Wert von `z-index` nicht `auto` ist. Die Ränder von absolut positionierten Boxen kollabieren nicht mit anderen Rändern.
 
 - `fixed`
 
-  - : Das Element wird aus dem normalen Dokumentfluss entfernt und es wird kein Platz für das Element im Seitenlayout geschaffen. Das Element wird relativ zu seinem anfänglichen [umgebenden Block](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block) positioniert, was im Fall von visuellen Medien der Viewport ist. Seine endgültige Position wird durch die Werte von `top`, `right`, `bottom` und `left` bestimmt.
+  - : Das Element wird aus dem normalen Dokumentenfluss entfernt, und es wird kein Platz für das Element im Seitenlayout geschaffen. Das Element wird relativ zu seinem initialen [Enthaltungsblock](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block) positioniert, welcher im Fall von visuellen Medien der Viewport ist. Seine endgültige Position wird durch die Werte von `top`, `right`, `bottom` und `left` bestimmt.
 
-    Dieser Wert erzeugt immer einen neuen [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context). In ausgedruckten Dokumenten wird das Element auf _jeder Seite_ an derselben Position platziert.
+    Dieser Wert erzeugt immer einen neuen [Stapelfluss](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context). In gedruckten Dokumenten wird das Element auf _jeder Seite_ an derselben Position platziert.
 
 - `sticky`
 
-  - : Das Element wird gemäß dem normalen Fluss des Dokuments positioniert und dann relativ zu seinem _nächsten scrollenden Vorfahren_ und [umgebenden Block](/de/docs/Web/CSS/Containing_block) (nächster block-level Vorfahre), einschließlich tabellenbezogener Elemente, basierend auf den Werten von `top`, `right`, `bottom` und `left` versetzt. Der Versatz beeinflusst nicht die Position anderer Elemente.
+  - : Das Element wird gemäß dem Normalfluss des Dokuments positioniert und dann relativ zu seinem _nächsten scrollenden Vorfahren_ und [Enthaltungsblock](/de/docs/Web/CSS/Containing_block) (nächster Block-Vorfahr), einschließlich tabellenbezogener Elemente, basierend auf den Werten von `top`, `right`, `bottom` und `left` verschoben. Die Verschiebung beeinflusst die Position anderer Elemente nicht.
 
-    Dieser Wert erzeugt immer einen neuen [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context). Beachten Sie, dass ein "sticky" Element an seinem nächsten Vorfahren "haftet", der einen "Scrolling-Mechanismus" hat (entsteht, wenn `overflow` `hidden`, `scroll`, `auto`, oder `overlay` ist), auch wenn dieser Vorfahre nicht der tatsächlich nächste scrollende Vorfahre ist.
+    Dieser Wert erzeugt immer einen neuen [Stapelfluss](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context). Beachten Sie, dass ein sticky Element an seinem nächsten Vorfahren haften bleibt, der einen "Scrollmechanismus" aufweist (erstellt, wenn `overflow` auf `hidden`, `scroll`, `auto` oder `overlay` gesetzt ist), auch wenn dieser Vorfahr nicht der tatsächlich nächste scrollende Vorfahr ist.
 
     > [!NOTE]
-    > Mindestens eine [inset](/de/docs/Web/CSS/inset) Eigenschaft ({{cssxref("top")}}, {{cssxref("inset-block-start")}}, {{cssxref("right")}}, {{cssxref("inset-inline-end")}}, etc.) muss auf einen nicht-`auto` Wert gesetzt werden, damit die Achse, auf der das Element klebend gemacht werden soll, funktioniert. Wenn beide `inset` Eigenschaften für eine Achse auf `auto` gesetzt sind, verhält sich der `sticky` Wert auf dieser Achse wie `relative`.
+    > Mindestens eine [inset](/de/docs/Web/CSS/inset)-Eigenschaft ({{cssxref("top")}}, {{cssxref("inset-block-start")}}, {{cssxref("right")}}, {{cssxref("inset-inline-end")}} usw.) muss auf einen vom Standard abweichenden Wert gesetzt sein, damit die Achse, auf der das Element sticky sein soll, funktioniert. Wenn beide `inset`-Eigenschaften für eine Achse auf `auto` gesetzt sind, verhält sich der `sticky`-Wert auf dieser Achse wie `relative`.
 
 ## Beschreibung
 
-### Arten der Positionierung
+### Positionierungstypen
 
-- Ein **positioniertes Element** ist ein Element, dessen [berechneter](/de/docs/Web/CSS/computed_value) `position` Wert entweder `relative`, `absolute`, `fixed` oder `sticky` ist. (Mit anderen Worten: es ist alles außer `static`.)
-- Ein **relativ positioniertes Element** ist ein Element, dessen [berechneter](/de/docs/Web/CSS/computed_value) `position` Wert `relative` ist. Die Eigenschaften {{Cssxref("top")}} und {{Cssxref("bottom")}} geben den vertikalen Versatz von seiner normalen Position an; die Eigenschaften {{Cssxref("left")}} und {{Cssxref("right")}} geben den horizontalen Versatz an.
-- Ein **absolut positioniertes Element** ist ein Element, dessen [berechneter](/de/docs/Web/CSS/computed_value) `position` Wert `absolute` oder `fixed` ist. Die Eigenschaften {{Cssxref("top")}}, {{Cssxref("right")}}, {{Cssxref("bottom")}} und {{Cssxref("left")}} geben die Versätze von den Rändern des Elements [umgebenden Blocks](/de/docs/Web/CSS/Containing_block) an. (Der umgebende Block ist der Vorfahre, relativ zu dem das Element positioniert wird.) Wenn das Element Ränder hat, werden diese zum Versatz hinzugefügt. Das Element erstellt einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC) für seinen Inhalt.
-- Ein **klebrig positioniertes Element** ist ein Element, dessen [berechneter](/de/docs/Web/CSS/computed_value) `position` Wert `sticky` ist. Es wird als relativ positioniert behandelt, bis sein [umgebender Block](/de/docs/Web/CSS/Containing_block) einen bestimmten Schwellenwert überschreitet (wie das Setzen von {{Cssxref("top")}} auf einen anderen Wert als auto) innerhalb seiner Flusswurzel (oder des Containers, in dem es scrollt), an welchem Punkt es als "festgeklebt" betrachtet wird, bis es den gegenüberliegenden Rand seines [umgebenden Blocks](/de/docs/Web/CSS/Containing_block) erreicht.
+- Ein **positioniertes Element** ist ein Element, dessen [berechneter](/de/docs/Web/CSS/computed_value) `position`-Wert entweder `relative`, `absolute`, `fixed` oder `sticky` ist. (Mit anderen Worten, es ist alles außer `static`.)
+- Ein **relativ positioniertes Element** ist ein Element, dessen [berechneter](/de/docs/Web/CSS/computed_value) `position`-Wert `relative` ist. Die Eigenschaften {{Cssxref("top")}} und {{Cssxref("bottom")}} geben den vertikalen Versatz von seiner normalen Position an; die Eigenschaften {{Cssxref("left")}} und {{Cssxref("right")}} geben den horizontalen Versatz an.
+- Ein **absolut positioniertes Element** ist ein Element, dessen [berechneter](/de/docs/Web/CSS/computed_value) `position`-Wert `absolute` oder `fixed` ist. Die Eigenschaften {{Cssxref("top")}}, {{Cssxref("right")}}, {{Cssxref("bottom")}} und {{Cssxref("left")}} bestimmen die Versätze von den Rändern des [Enthaltungsblocks](/de/docs/Web/CSS/Containing_block) des Elements. (Der Enthaltungsblock ist der Vorfahr, relativ zu dem das Element positioniert wird.) Falls das Element Ränder hat, werden diese dem Versatz hinzugefügt. Das Element erstellt einen neuen [Block-Formatierungs-Kontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC) für seinen Inhalt.
+- Ein **sticky positioniertes Element** ist ein Element, dessen [berechneter](/de/docs/Web/CSS/computed_value) `position`-Wert `sticky` ist. Es wird wie relativ positioniert behandelt, bis sein [Enthaltungsblock](/de/docs/Web/CSS/Containing_block) einen bestimmten Schwellenwert überschreitet (wie das Einstellen von {{Cssxref("top")}} auf einen vom Standard abweichenden Wert) in seinem Flussursprung (oder dem Container, in dem es scrollt), an welchem Punkt es als "fixiert" behandelt wird, bis es die gegenüberliegende Kante des [Enthaltungsblocks](/de/docs/Web/CSS/Containing_block) erreicht.
 
-Die meiste Zeit werden absolut positionierte Elemente, die {{Cssxref("height")}} und {{Cssxref("width")}} auf `auto` gesetzt haben, so dimensioniert, dass sie in ihren Inhalt passen. Allerdings können nicht-[ersetzte](/de/docs/Web/CSS/Replaced_element), absolut positionierte Elemente so gestaltet werden, dass sie den verfügbaren vertikalen Raum ausfüllen, indem sowohl {{Cssxref("top")}} als auch {{Cssxref("bottom")}} angegeben werden und {{Cssxref("height")}} nicht angegeben wird (d.h. `auto`). Ebenso können sie so gestaltet werden, dass sie den verfügbaren horizontalen Raum ausfüllen, indem sowohl {{Cssxref("left")}} als auch {{Cssxref("right")}} angegeben werden und {{Cssxref("width")}} auf `auto` belassen wird.
+In den meisten Fällen sind absolut positionierte Elemente, die {{Cssxref("height")}} und {{Cssxref("width")}} auf `auto` gesetzt haben, so dimensioniert, dass sie ihren Inhalt aufnehmen. Nicht-[ersetzte Elemente](/de/docs/Web/CSS/Replaced_element), die absolut positioniert sind, können jedoch so eingestellt werden, dass sie den verfügbaren vertikalen Platz ausfüllen, indem sowohl {{Cssxref("top")}} und {{Cssxref("bottom")}} definiert und {{Cssxref("height")}} nicht festgelegt wird (d. h. `auto`). Ähnlich können sie den verfügbaren horizontalen Platz ausfüllen, indem sowohl {{Cssxref("left")}} als auch {{Cssxref("right")}} definiert werden und {{Cssxref("width")}} auf `auto` bleibt.
 
-Mit Ausnahme des oben beschriebenen Falls (von absolut positionierten Elementen, die den verfügbaren Raum ausfüllen):
+Außer in dem gerade beschriebenen Fall (absolut positionierte Elemente, die den verfügbaren Platz ausfüllen):
 
-- Wenn sowohl `top` als auch `bottom` angegeben sind (technisch, nicht `auto`), gewinnt `top`.
-- Wenn sowohl `left` als auch `right` angegeben sind, gewinnt `left`, wenn {{Cssxref("direction")}} `ltr` ist (Englisch, horizontales Japanisch, etc.) und `right` gewinnt, wenn {{Cssxref("direction")}} `rtl` ist (Persisch, Arabisch, Hebräisch, etc.).
+- Wenn sowohl `top` als auch `bottom` angegeben sind (technisch, nicht `auto`), hat `top` Priorität.
+- Wenn sowohl `left` als auch `right` angegeben sind, hat `left` Vorrang, wenn {{Cssxref("direction")}} `ltr` ist (Englisch, horizontal Japanisch, etc.), und `right` hat Vorrang, wenn {{Cssxref("direction")}} `rtl` ist (Persisch, Arabisch, Hebräisch, etc.).
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass Elemente, die mit einem `absolute` oder `fixed` Wert positioniert sind, anderen Inhalt nicht verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
+Stellen Sie sicher, dass Elemente, die mit dem Wert `absolute` oder `fixed` positioniert sind, andere Inhalte nicht verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
 
-- [MDN Verständnis für WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [MDN Verständnis WCAG, Erklärungen zur Richtlinie 1.4](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
 - [Visuelle Präsentation: Verständnis von SC 1.4.8 | Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
 ### Leistung & Barrierefreiheit
 
-Scrollende Elemente, die `fixed` oder `sticky` Inhalte enthalten, können Leistungs- und Barrierefreiheitsprobleme verursachen. Während ein Benutzer scrollt, muss der Browser den klebrigen oder fixierten Inhalt an einer neuen Position neu zeichnen. Abhängig vom Inhalt, der neu gezeichnet werden muss, der Leistung des Browsers und der Verarbeitungsgeschwindigkeit des Geräts, ist es möglich, dass der Browser die Neuzeichnungen nicht mit 60 fps verwalten kann. Ein solches Szenario kann zu {{Glossary("Jank", "Ruckeln")}} führen und, was noch wichtiger ist, zu Barrierefreiheitsproblemen für Personen mit Sensitivitäten. Eine Lösung ist, dem positionierten Element {{cssxref("will-change", "will-change: transform")}} hinzuzufügen, um das Element in seiner eigenen Schicht darzustellen, was die Neuzeichnungsgeschwindigkeit und somit Leistung und Barrierefreiheit verbessert.
+Das Scrollen von Elementen, die Inhalte mit `fixed` oder `sticky` enthalten, kann Leistungs- und Barrierefreiheitsprobleme verursachen. Wenn ein Benutzer scrollt, muss der Browser den sticky- oder fixed-Inhalt an einer neuen Position neu zeichnen. Abhängig vom neu zu zeichnenden Inhalt, der Browser-Leistung und der Verarbeitungsgeschwindigkeit des Geräts kann es vorkommen, dass der Browser die Neuzeichnungen nicht mit einer Geschwindigkeit von 60 fps ausführen kann. Ein solches Szenario kann zu {{Glossary("Jank", "Ruckeln")}} führen und, was noch wichtiger ist, Barrierefreiheitsprobleme für Menschen mit Sensibilitäten verursachen. Eine Lösung besteht darin, {{cssxref("will-change", "will-change: transform")}} auf die positionierten Elemente anzuwenden, um das Element in einer eigenen Ebene zu rendern, was die Neuzeichnungsgeschwindigkeit und folglich die Leistung und Barrierefreiheit verbessert.
 
 ## Formale Definition
 
@@ -98,7 +100,7 @@ Scrollende Elemente, die `fixed` oder `sticky` Inhalte enthalten, können Leistu
 
 ### Relative Positionierung
 
-Relativ positionierte Elemente sind um einen bestimmten Betrag von ihrer normalen Position innerhalb des Dokuments versetzt, ohne dass der Versatz andere Elemente beeinflusst. Im folgenden Beispiel beachten Sie, wie die anderen Elemente platziert werden, als ob "Two" den Raum seiner normalen Position einnehmen würde.
+Relativ positionierte Elemente werden um einen bestimmten Betrag von ihrer normalen Position im Dokument verschoben, ohne dass die Verschiebung andere Elemente beeinflusst. Im folgenden Beispiel beachten Sie, wie die anderen Elemente so platziert sind, als würde "Two" den Platz seiner normalen Position einnehmen.
 
 #### HTML
 
@@ -136,7 +138,7 @@ Relativ positionierte Elemente sind um einen bestimmten Betrag von ihrer normale
 
 ### Absolute Positionierung
 
-Relativ positionierte Elemente bleiben im normalen Fluss des Dokuments. Im Gegensatz dazu wird ein absolut positioniertes Element aus dem Fluss genommen; daher werden andere Elemente so positioniert, als ob es nicht existieren würde. Das absolut positionierte Element wird relativ zu seinem _nächsten positionierten Vorfahren_ (d.h. dem nächsten Vorfahren, der nicht `static` ist) positioniert. Wenn ein positionierter Vorfahre nicht existiert, wird es relativ zum ICB (anfänglicher umgebender Block – siehe auch die [W3C-Definition](https://www.w3.org/TR/CSS2/visudet.html#containing-block-details)) positioniert, der der umgebende Block des Stammes des Dokuments ist.
+Elemente, die relativ positioniert sind, bleiben im normalen Fluss des Dokuments. Im Gegensatz dazu wird ein absolut positioniertes Element aus dem Fluss entfernt; daher werden andere Elemente so positioniert, als würde es nicht existieren. Das absolut positionierte Element wird relativ zu seinem _nächsten positionierten Vorfahren_ (d. h. dem nächsten Vorfahren, der nicht `static` ist) positioniert. Wenn kein positionierter Vorfahr existiert, wird es relativ zum ICB (Initial Containing Block – siehe auch die [W3C-Definition](https://www.w3.org/TR/CSS2/visudet.html#containing-block-details)) positioniert, welcher der Enthaltungsblock des Root-Elements des Dokuments ist.
 
 #### HTML
 
@@ -165,7 +167,7 @@ Relativ positionierte Elemente bleiben im normalen Fluss des Dokuments. Im Gegen
   the same line. Overflowing inline elements
   <span>wrap onto a new line if possible — like this one containing text</span>,
   or just go on to a new line if not, much like this image will do:
-  <img src="long.jpg" />
+  <img src="https://mdn.github.io/shared-assets/images/examples/long.jpg" />
 </p>
 ```
 
@@ -207,7 +209,7 @@ span {
 
 ### Feste Positionierung
 
-Feste Positionierung ist ähnlich wie absolute Positionierung, mit der Ausnahme, dass der [umgebende Block](/de/docs/Web/CSS/Containing_block) des Elements der anfängliche umgebende Block ist, der durch den _Viewport_ festgelegt wird, es sei denn, ein Vorfahre hat die `transform`, `perspective` oder `filter` Eigenschaft auf einen anderen Wert als `none` gesetzt (siehe [CSS Transforms Spec](https://www.w3.org/TR/css-transforms-1/#propdef-transform)), wodurch dieser Vorfahre die Stelle des [umgebenden Blocks](/de/docs/Web/CSS/Containing_block) des Elements einnimmt. Dies kann verwendet werden, um ein "schwebendes" Element zu erstellen, das auch beim Scrollen an derselben Position bleibt. Im folgenden Beispiel bleibt Box "One" 80 Pixel vom oberen Rand der Seite und 10 Pixel vom linken Rand entfernt fixiert. Selbst nach dem Scrollen bleibt es relativ zum Viewport an derselben Stelle. Auch wenn die [`will-change`](/de/docs/Web/CSS/will-change) Eigenschaft auf `transform` gesetzt ist, wird ein neuer umgebender Block erstellt.
+Die feste Positionierung ähnelt der absoluten Positionierung, mit der Ausnahme, dass der [Enthaltungsblock](/de/docs/Web/CSS/Containing_block) des Elements der initiale Enthaltungsblock ist, der durch den _Viewport_ erstellt wird, es sei denn, ein Vorfahre hat die Eigenschaft `transform`, `perspective` oder `filter` auf einen anderen Wert als `none` gesetzt (siehe [CSS Transforms Spec](https://www.w3.org/TR/css-transforms-1/#propdef-transform)), wodurch dieser Vorfahre den Platz des [Enthaltungsblocks](/de/docs/Web/CSS/Containing_block) des Elements einnimmt. Dies kann verwendet werden, um ein "schwebendes" Element zu erstellen, das unabhängig vom Scrollen an derselben Position bleibt. Im folgenden Beispiel bleibt die Box "One" 80 Pixel vom oberen Rand der Seite und 10 Pixel vom linken Rand fest positioniert. Auch nach dem Scrollen bleibt sie relativ zum Viewport an derselben Stelle. Wenn die [`will-change`](/de/docs/Web/CSS/will-change)-Eigenschaft auf `transform` gesetzt ist, wird ein neuer Enthaltungsblock erstellt.
 
 #### HTML
 
@@ -278,7 +280,7 @@ Feste Positionierung ist ähnlich wie absolute Positionierung, mit der Ausnahme,
 
 ### Sticky Positionierung
 
-Die folgende CSS-Regel positioniert das Element mit der ID `one` relativ, bis der Viewport so gescrollt wird, dass das Element 10 Pixel vom oberen Rand entfernt ist. Jenseits dieses Schwellenwertes wird das Element 10 Pixel vom oberen Rand fixiert.
+Die folgende CSS-Regel positioniert das Element mit der ID `one` relativ, bis der Viewport so gescrollt wird, dass sich das Element 10 Pixel vom oberen Rand befindet. Über diesen Schwellenwert hinaus wird das Element auf 10 Pixel vom oberen Rand fixiert.
 
 ```css
 #one {
@@ -287,11 +289,11 @@ Die folgende CSS-Regel positioniert das Element mit der ID `one` relativ, bis de
 }
 ```
 
-#### Liste mit klebrigen Überschriften
+#### Liste mit Sticky-Überschriften
 
-Eine häufige Verwendung für Sticky-Positionierung ist für die Überschriften in einer alphabetisch sortierten Liste. Die "B"-Überschrift erscheint direkt unter den Einträgen, die mit "A" beginnen, bis sie aus dem Bildschirm gescrollt werden. Anstatt mit dem Rest des Inhalts vom Bildschirm zu gleiten, bleibt die "B"-Überschrift dann oben im Viewport fixiert, bis alle "B"-Elemente vom Bildschirm gescrollt wurden, an welchem Punkt sie von der "C"-Überschrift überdeckt wird, und so weiter.
+Eine häufige Verwendung der Sticky-Positionierung sind die Überschriften in einer alphabetisch sortierten Liste. Die Überschrift "B" wird direkt unter den Elementen angezeigt, die mit "A" beginnen, bis sie aus dem Sichtfeld gescrollt werden. Anstatt mit dem restlichen Inhalt aus dem Sichtfeld zu rutschen, bleibt die Überschrift "B" oben im Viewport fixiert, bis alle "B"-Elemente aus dem Sichtfeld gescrollt wurden. Danach wird sie von der "C"-Überschrift überdeckt und so weiter.
 
-Sie müssen einen Schwellenwert mit mindestens einem `top`, `right`, `bottom` oder `left` für Sticky-Positionierung angeben, um das erwartete Verhalten zu erhalten. Andernfalls ist es nicht von relativer Positionierung zu unterscheiden.
+Sie müssen mit mindestens einer der Eigenschaften `top`, `right`, `bottom` oder `left` einen Schwellenwert definieren, damit die Sticky-Positionierung wie erwartet funktioniert. Andernfalls ist sie nicht von der relativen Positionierung zu unterscheiden.
 
 ##### HTML
 
@@ -375,9 +377,9 @@ dd + dd {
 
 {{EmbedLiveSample('List with sticky headings', '', '300px')}}
 
-#### Sticky-Position mit allen festgelegten Inset-Grenzen
+#### Sticky-Positionierung mit allen festgelegten Insets
 
-Das folgende Beispiel zeigt das Verhalten eines Elements, wenn alle Inset-Grenzen festgelegt sind. Hier haben wir zwei Glühbirnen-Emojis in einem Absatz. Die Glühbirnen verwenden Sticky-Positionierung und die Inset-Grenzen sind mit 50px vom oberen Rand, 100px vom rechten Rand, 50px vom unteren Rand und 50px vom linken Rand angegeben. Ein grauer Hintergrund auf dem Eltern-div-Element markiert den Inset-Bereich.
+Das folgende Beispiel demonstriert das Verhalten eines Elements, bei dem alle Insets definiert sind. Hier haben wir zwei Glühbirnen-Emojis in einem Absatz. Die Glühbirnen verwenden Sticky-Positionierung, und die Insets sind wie folgt festgelegt: 50 Pixel vom oberen Rand, 100 Pixel vom rechten Rand, 50 Pixel vom unteren Rand und 50 Pixel vom linken Rand. Ein grauer Hintergrund auf dem übergeordneten div-Element markiert den Bereich der Insets.
 
 ##### HTML
 
@@ -439,7 +441,7 @@ div {
 
 {{EmbedLiveSample('Sticky position with all the inset boundaries set', '', '300px')}}
 
-Wenn Sie beide Glühbirnen an ihren richtigen Platz gesetzt haben, werden Sie feststellen, dass sie relativ innerhalb des Inset-Bereichs positioniert sind. Wenn Sie sie aus dem Inset-Bereich heraus bewegen, werden sie im Gegensatz dazu (sticky) an der Inset-Grenze in diese Richtung fixiert.
+Wenn Sie beide Glühbirnen an ihren Platz bewegen, werden Sie bemerken, dass sie relativ innerhalb des Inset-Bereichs positioniert sind. Wenn Sie sie aus dem Inset-Bereich herausbewegen, bleiben sie an der Inset-Grenze in dieser Richtung fixiert (sticky).
 
 ## Spezifikationen
 
@@ -451,4 +453,4 @@ Wenn Sie beide Glühbirnen an ihren richtigen Platz gesetzt haben, werden Sie fe
 
 ## Siehe auch
 
-- [Lernen CSS: Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
+- [CSS lernen: Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)

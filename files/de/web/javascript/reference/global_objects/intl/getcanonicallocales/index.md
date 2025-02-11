@@ -2,14 +2,30 @@
 title: Intl.getCanonicalLocales()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales
 l10n:
-  sourceCommit: c420b9b3126451f53d112afe33e007d6efdb605d
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Intl.getCanonicalLocales()`** gibt ein Array zurück, das die kanonischen Locale-Namen enthält. Duplikate werden weggelassen und Elemente werden als strukturell gültige Sprach-Tags validiert.
+Die statische Methode **`Intl.getCanonicalLocales()`** gibt ein Array zurück, das die kanonischen Locales-Namen enthält. Doppelte Einträge werden ausgelassen und die Elemente werden als strukturell gültige Sprach-Tags validiert.
 
-{{EmbedInteractiveExample("pages/js/intl-getcanonicallocales.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.GetCanonicalLocales")}}
+
+```js interactive-example
+console.log(Intl.getCanonicalLocales("EN-US"));
+// Expected output: Array ["en-US"]
+
+console.log(Intl.getCanonicalLocales(["EN-US", "Fr"]));
+// Expected output: Array ["en-US", "fr"]
+
+try {
+  Intl.getCanonicalLocales("EN_US");
+} catch (err) {
+  console.log(err.toString());
+  // Expected output (Firefox/Safari): RangeError: invalid language tag: "EN_US"
+  // Expected output (Chrome): RangeError: Incorrect locale information provided
+}
+```
 
 ## Syntax
 

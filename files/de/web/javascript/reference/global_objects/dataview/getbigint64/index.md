@@ -2,14 +2,28 @@
 title: DataView.prototype.getBigInt64()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getBigInt64
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`getBigInt64()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 8 Bytes, beginnend ab dem angegebenen Byte-Offset dieses `DataView`, und interpretiert sie als 64-Bit-Ganzzahl mit Vorzeichen. Es gibt keine Ausrichtungseinschränkung; mehrbyteige Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die Methode **`getBigInt64()`** von {{jsxref("DataView")}}-Instanzen liest 8 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 64-Bit-ganzzahligen Wert mit Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
 
-{{EmbedInteractiveExample("pages/js/dataview-getbigint64.html")}}
+{{InteractiveExample("JavaScript Demo: DataView.getBigInt64()")}}
+
+```js interactive-example
+// Create an ArrayBuffer with a size in bytes
+const buffer = new ArrayBuffer(16);
+
+// Highest possible BigInt value that fits in a signed 64-bit integer
+const max = 2n ** (64n - 1n) - 1n;
+
+const view = new DataView(buffer);
+view.setBigInt64(1, max);
+
+console.log(view.getBigInt64(1));
+// Expected output: 9223372036854775807n
+```
 
 ## Syntax
 
@@ -21,18 +35,18 @@ getBigInt64(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Beginn der Ansicht, ab dem die Daten gelesen werden.
+  - : Der Offset in Bytes vom Beginn der Ansicht, von dem die Daten gelesen werden sollen.
 - `littleEndian` {{optional_inline}}
   - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Ein {{jsxref("BigInt")}} von -2<sup>63</sup> bis 2<sup>63</sup>-1, einschließlich.
+Ein {{jsxref("BigInt")}} im Bereich von -2<sup>63</sup> bis 2<sup>63</sup>-1, einschließlich.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass es über das Ende der Ansicht hinauslesen würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinausliest.
 
 ## Beispiele
 
@@ -54,7 +68,7 @@ console.log(dataview.getBigInt64(1)); // 72623859790382856n
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("BigInt64Array")}}
