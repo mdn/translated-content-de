@@ -1,5 +1,5 @@
 ---
-title: "::-moz-meter-bar"
+title: ::-moz-meter-bar
 slug: Web/CSS/::-moz-meter-bar
 l10n:
   sourceCommit: 6bef243050a1f49bf5b7f37e9c4552f7aa30e24d
