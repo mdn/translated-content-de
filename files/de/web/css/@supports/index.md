@@ -2,14 +2,14 @@
 title: "@supports"
 slug: Web/CSS/@supports
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}
 
-Die **`@supports`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) ermöglicht es Ihnen, CSS-Deklarationen anzugeben, die von der Unterstützung von CSS-Funktionen durch einen Browser abhängen.
-Die Verwendung dieser At-Regel wird üblicherweise als _Feature-Abfrage_ bezeichnet.
-Die Regel muss auf oberster Ebene Ihres Codes oder innerhalb einer anderen bedingten Gruppen-At-Regel verschachtelt sein.
+Die **`@supports`** [CSS](/de/docs/Web/CSS) [@-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) ermöglicht es Ihnen, CSS-Deklarationen zu definieren, die von der Unterstützung einer CSS-Funktion durch den Browser abhängen.   
+Die Verwendung dieser @-Regel wird allgemein als _Feature Query_ bezeichnet.  
+Die Regel muss auf der obersten Ebene Ihres Codes oder innerhalb einer anderen bedingten Gruppenregel verschachtelt sein.
 
 {{EmbedInteractiveExample("pages/tabbed/at-rule-supports.html", "tabbed-standard")}}
 
@@ -17,8 +17,8 @@ In JavaScript kann auf `@supports` über die CSS-Objektmodell-Schnittstelle [`CS
 
 ## Syntax
 
-Die `@supports`-At-Regel besteht aus einem Block von Anweisungen mit einer _supports-Bedingung._
-Die supports-Bedingung ist eine Menge von einem oder mehreren Name-Wert-Paaren (z.B., `<property>: <value>`).
+Die `@supports`-Regel besteht aus einem Block von Anweisungen mit einer _Supports-Bedingung._  
+Die Supports-Bedingung ist eine Menge aus einem oder mehreren Name-Wert-Paaren (z. B. `<property>: <value>`).
 
 ```css
 @supports (<supports-condition>) {
@@ -34,15 +34,14 @@ Die Bedingungen können durch Konjunktionen (`and`), Disjunktionen (`or`) und/od
 }
 ```
 
-Die Priorität der Operatoren kann mit Klammern definiert werden.
-Supports-Bedingungen können entweder eine `<property>: <value>`-Deklarationssyntax oder eine `<function()>`-Syntax verwenden.
-Die folgenden Abschnitte beschreiben die Verwendung jedes Typs von supports-Bedingungen.
+Die Reihenfolge der Operatoren kann mit Klammern definiert werden.  
+Supports-Bedingungen können entweder eine `<property>: <value>`-Deklarationssyntax oder eine `<function()>`-Syntax verwenden.  
+Im Folgenden werden die Verwendung der jeweiligen Supports-Bedingung beschrieben.
 
 ### Deklarationssyntax
 
-Die Deklarationssyntax überprüft, ob ein Browser die angegebene `<property>: <value>`-Deklaration unterstützt.
-Die Deklaration muss von Klammern umgeben sein.
-Das folgende Beispiel ergibt true, wenn der Browser den Ausdruck `transform-origin: 5% 5%` unterstützt:
+Die Deklarationssyntax prüft, ob ein Browser die angegebene `<property>: <value>`-Deklaration unterstützt.  
+Die Deklaration muss von Klammern umgeben sein. Im folgenden Beispiel wird true zurückgegeben, wenn der Browser den Ausdruck `transform-origin: 5% 5%` unterstützt:
 
 ```css
 @supports (transform-origin: 5% 5%) {
@@ -51,13 +50,13 @@ Das folgende Beispiel ergibt true, wenn der Browser den Ausdruck `transform-orig
 
 ### Funktionssyntax
 
-Die Funktionssyntax überprüft, ob ein Browser Werte oder Ausdrücke innerhalb der Funktion unterstützt.
-Die unterstützten Funktionen in der Funktionssyntax werden in den folgenden Abschnitten beschrieben.
+Die Funktionssyntax überprüft, ob ein Browser Werte oder Ausdrücke innerhalb der Funktion unterstützt.  
+Die unterstützten Funktionen der Funktionssyntax werden in den nachfolgenden Abschnitten beschrieben.
 
 #### `selector()`
 
-Diese Funktion bewertet, ob ein Browser die angegebene Selektorsyntax unterstützt.
-Das folgende Beispiel ergibt true und wendet den CSS-Stil an, wenn der Browser den [Kind-Kombinator](/de/docs/Web/CSS/Child_combinator) unterstützt:
+Diese Funktion bewertet, ob ein Browser die angegebene Selektorsyntax unterstützt.  
+Das folgende Beispiel gibt true zurück und wendet den CSS-Stil an, wenn der Browser den [Kind-Kombinator](/de/docs/Web/CSS/Child_combinator) unterstützt:
 
 ```css
 @supports selector(h2 > p) {
@@ -66,39 +65,39 @@ Das folgende Beispiel ergibt true und wendet den CSS-Stil an, wenn der Browser d
 
 #### `font-tech()`
 
-Diese Funktion prüft, ob ein Browser die angegebene Schrifttechnologie für Layout und Rendering unterstützt.
-Das folgende Beispiel ergibt true und wendet den CSS-Stil an, wenn der Browser die `COLRv1`-Schrifttechnologie unterstützt:
+Diese Funktion prüft, ob ein Browser die angegebene Schrifttechnologie für Layout und Rendering unterstützt.  
+Das folgende Beispiel gibt true zurück und wendet den CSS-Stil an, wenn der Browser die `COLRv1`-Schrifttechnologie unterstützt:
 
 ```css
 @supports font-tech(color-COLRv1) {
 }
 ```
 
-Die folgende Tabelle beschreibt die Schrifttechnologien (`<font-tech>`), einschließlich Farbfont-Technologien (`<color-font-tech>`), Schriftmerkmale-Technologien (`<font-features-tech>`), und andere verfügbare Schrifttechnologien, die mit der Funktion `font-tech()` abgefragt werden können:
+Die folgende Tabelle beschreibt die Schrifttechnologien (`<font-tech>`), einschließlich farbiger Schrifttechnologien (`<color-font-tech>`), Schriftfunktions-Technologien (`<font-features-tech>`) sowie weiteren verfügbaren Schrifttechnologien, die mit der `font-tech()`-Funktion abgefragt werden können:
 
-| Technologie                    | Unterstützt                                                                                                            |
-| :----------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
-| **`<color-font-tech>`**        |                                                                                                                        |
-| `color-colrv0`                 | Mehrfarbige Glyphen über die COLR Version 0 Tabelle                                                                    |
-| `color-colrv1`                 | Mehrfarbige Glyphen über die COLR Version 1 Tabelle                                                                    |
-| `color-svg`                    | SVG-Mehrfachtabellen                                                                                                   |
-| `color-sbix`                   | Standard-Bitmap-Grafiktabellen                                                                                         |
-| `color-cbdt`                   | Farb-Bitmap-Datentabellen                                                                                              |
-| **`<font-features-tech>`**     |                                                                                                                        |
-| `features-opentype`            | OpenType `GSUB` und `GPOS` Tabellen                                                                                    |
-| `features-aat`                 | TrueType `morx` und `kerx` Tabellen                                                                                    |
-| `features-graphite`            | Graphite-Features, nämlich `Silf`, `Glat`, `Gloc`, `Feat` und `Sill` Tabellen                                          |
-| **Andere `<font-tech>` Werte** |                                                                                                                        |
-| `incremental-patch`            | Inkrementelles Schriftartenladen mit der Patch-Subset-Methode                                                          |
-| `incremental-range`            | Inkrementelles Schriftartenladen mit der Bereichsanfrage-Methode                                                       |
-| `incremental-auto`             | Inkrementelles Schriftartenladen mittels Methodenverhandlung                                                           |
-| `variations`                   | Schriftvariationen in TrueType- und OpenType-Schriften zur Steuerung der Schriftachse, des Gewichts, der Glyphen, etc. |
-| `palettes`                     | Schriftpaletten mittels `font-palette`, um eine von vielen Farbpaletten in der Schrift auszuwählen                     |
+| Technologie                     | Unterstützt                                                                             |
+| :----------------------------- | :------------------------------------------------------------------------------------- |
+| **`<color-font-tech>`**        |                                                                                       |
+| `color-colrv0`                 | Mehrfarbige Glyphen über die COLR-Version-0-Tabelle                                   |
+| `color-colrv1`                 | Mehrfarbige Glyphen über die COLR-Version-1-Tabelle                                   |
+| `color-svg`                    | SVG-mehrfarbige Tabellen                                                              |
+| `color-sbix`                   | Standard-Bitmap-Grafik-Tabellen                                                      |
+| `color-cbdt`                   | Farb-Bitmap-Daten-Tabellen                                                           |
+| **`<font-features-tech>`**     |                                                                                       |
+| `features-opentype`            | OpenType `GSUB`- und `GPOS`-Tabellen                                                 |
+| `features-aat`                 | TrueType `morx`- und `kerx`-Tabellen                                                 |
+| `features-graphite`            | Graphite-Funktionen, beispielsweise `Silf`, `Glat`, `Gloc`, `Feat` und `Sill`-Tabellen |
+| **Andere `<font-tech>`-Werte** |                                                                                       |
+| `incremental-patch`            | Inkrementelles Schrift-Laden mit der Patch-Subset-Methode                            |
+| `incremental-range`            | Inkrementelles Schrift-Laden mit der Range-Request-Methode                           |
+| `incremental-auto`             | Inkrementelles Schrift-Laden mit Aushandlungsmethode                                 |
+| `variations`                   | Schriftvariationen in TrueType- und OpenType-Schriften zur Steuerung der Achsen, Gewichte, Glyphen usw. |
+| `palettes`                     | Schriftpaletten mit Hilfe von `font-palette`, um aus mehreren Farbschemata im Font zu wählen |
 
 #### `font-format()`
 
-Diese Funktion prüft, ob ein Browser das angegebene Schriftformat für Layout und Rendering unterstützt.
-Das folgende Beispiel ergibt true und wendet den CSS-Stil an, wenn der Browser das `opentype`-Schriftformat unterstützt:
+Diese Funktion prüft, ob ein Browser das angegebene Schriftformat für Layout und Rendering unterstützt.  
+Das folgende Beispiel gibt true zurück und wendet den CSS-Stil an, wenn der Browser das `opentype`-Schriftformat unterstützt:
 
 ```css
 @supports font-format(opentype) {
@@ -107,27 +106,27 @@ Das folgende Beispiel ergibt true und wendet den CSS-Stil an, wenn der Browser d
 
 Die folgende Tabelle beschreibt die verfügbaren Formate (`<font-format>`-Werte), die mit dieser Funktion abgefragt werden können:
 
-| Format              | Beschreibung                    | Dateierweiterungen |
-| :------------------ | :------------------------------ | :----------------- |
-| `collection`        | OpenType Collection             | `.otc`, `.ttc`     |
-| `embedded-opentype` | Eingebettetes OpenType          | `.eot`             |
-| `opentype`          | OpenType                        | `.ttf`, `.otf`     |
-| `svg`               | SVG-Schriftart (veraltet)       | `.svg`, `.svgz`    |
-| `truetype`          | TrueType                        | `.ttf`             |
-| `woff`              | WOFF 1.0 (Web Open Font Format) | `.woff`            |
-| `woff2`             | WOFF 2.0 (Web Open Font Format) | `.woff2`           |
+| Format              | Beschreibung                       | Dateiendungen   |
+| :------------------ | :---------------------------------- | :-------------- |
+| `collection`        | OpenType-Sammlung                  | `.otc`, `.ttc`  |
+| `embedded-opentype` | Eingebettetes OpenType             | `.eot`          |
+| `opentype`          | OpenType                           | `.ttf`, `.otf`  |
+| `svg`               | SVG-Font (veraltet)                | `.svg`, `.svgz` |
+| `truetype`          | TrueType                           | `.ttf`          |
+| `woff`              | WOFF 1.0 (Web Open Font Format)    | `.woff`         |
+| `woff2`             | WOFF 2.0 (Web Open Font Format)    | `.woff2`        |
 
 ### Der not-Operator
 
-Der `not`-Operator geht einer Ausdruck voraus und führt zur Negation des Ausdrucks.
-Das folgende ergibt true, wenn die {{CSSxRef("transform-origin")}}-Eigenschaft des Browsers `10em 10em 10em` **als ungültig ansieht:**
+Der `not`-Operator geht einem Ausdruck voran und führt zur Negation des Ausdrucks.  
+Das folgende Beispiel gibt true zurück, wenn die {{CSSxRef("transform-origin")}}-Eigenschaft des Browsers `10em 10em 10em` **als ungültig** ansieht:
 
 ```css
 @supports not (transform-origin: 10em 10em 10em) {
 }
 ```
 
-Wie bei jedem Operator kann der `not`-Operator auf eine Deklaration beliebiger Komplexität angewendet werden.
+Wie bei jedem Operator kann der `not`-Operator auf eine Deklaration jeder Komplexitätsstufe angewendet werden.  
 Die folgenden Beispiele sind beide gültig:
 
 ```css
@@ -137,20 +136,23 @@ Die folgenden Beispiele sind beide gültig:
 }
 ```
 
-> [!NOTE]
-> Es ist nicht erforderlich, den `not`-Operator auf der obersten Ebene zwischen zwei Klammern zu setzen.
-> Um ihn mit anderen Operatoren wie `and` und `or` zu kombinieren, sind die Klammern erforderlich.
+> [!NOTE]  
+> Es ist nicht erforderlich, den `not`-Operator auf oberster Ebene zwischen zwei Klammern zu setzen.  
+> Um ihn jedoch mit anderen Operatoren wie `and` und `or` zu kombinieren, sind Klammern erforderlich.
 
 ### Der and-Operator
 
-Der `and`-Operator erzeugt einen neuen Ausdruck aus der Konjunktion von zwei kürzeren Ausdrücken. Er ergibt nur dann true, wenn **beide** der kürzeren Ausdrücke ebenfalls true sind. Das folgende Beispiel ergibt true, wenn und nur wenn beide kürzeren Ausdrücke gleichzeitig true sind:
+Der `and`-Operator erstellt einen neuen Ausdruck aus der Konjunktion zweier kürzerer Ausdrücke.  
+Er gibt nur dann true zurück, wenn **beide** kürzeren Ausdrücke ebenfalls true sind.  
+Das folgende Beispiel gibt true zurück, wenn und nur wenn die beiden kürzeren Ausdrücke gleichzeitig true sind:
 
 ```css
 @supports (display: table-cell) and (display: list-item) {
 }
 ```
 
-Mehrere Konjunktionen können nebeneinandergestellt werden, ohne dass mehr Klammern benötigt werden. Die folgenden sind beide gleichwertig:
+Mehrere Konjunktionen können ohne zusätzliche Klammern aneinandergereiht werden.  
+Die folgenden Beispiele sind beide gleichwertig:
 
 ```css
 @supports (display: table-cell) and (display: list-item) and (display: contents) {
@@ -162,14 +164,17 @@ Mehrere Konjunktionen können nebeneinandergestellt werden, ohne dass mehr Klamm
 
 ### Der or-Operator
 
-Der `or`-Operator erzeugt einen neuen Ausdruck aus der Disjunktion von zwei kürzeren Ausdrücken. Er ergibt true, wenn **einer oder beide** der kürzeren Ausdrücke ebenfalls true sind. Das folgende Beispiel ergibt true, wenn mindestens einer der zwei kürzeren Ausdrücke true ist:
+Der `or`-Operator erstellt einen neuen Ausdruck aus der Disjunktion zweier kürzerer Ausdrücke.  
+Er gibt true zurück, wenn **einer oder beide** der kürzeren Ausdrücke ebenfalls true sind.  
+Das folgende Beispiel gibt true zurück, wenn mindestens einer der beiden kürzeren Ausdrücke true ist:
 
 ```css
 @supports (transform-style: preserve) or (-moz-transform-style: preserve) {
 }
 ```
 
-Mehrere Disjunktionen können nebeneinandergestellt werden, ohne dass mehr Klammern benötigt werden. Die folgenden sind beide gleichwertig:
+Mehrere Disjunktionen können ohne zusätzlichen Bedarf an Klammern aneinandergereiht werden.  
+Die folgenden Beispiele sind beide gleichwertig:
 
 ```css
 @supports (transform-style: preserve) or (-moz-transform-style: preserve) or (-webkit-transform-style: preserve) {}
@@ -177,8 +182,9 @@ Mehrere Disjunktionen können nebeneinandergestellt werden, ohne dass mehr Klamm
 @supports (transform-style: preserve-3d) or ((-moz-transform-style: preserve-3d) or (-webkit-transform-style: preserve-3d))) {}
 ```
 
-> [!NOTE]
-> Wenn sowohl `and`- als auch `or`-Operatoren verwendet werden, müssen die Klammern verwendet werden, um die Reihenfolge ihrer Anwendung zu definieren. Andernfalls ist die Bedingung ungültig und die gesamte Regel wird ignoriert.
+> [!NOTE]  
+> Wenn sowohl `and`- als auch `or`-Operatoren verwendet werden, müssen Klammern verwendet werden, um die Reihenfolge ihrer Anwendung zu definieren.  
+> Andernfalls ist die Bedingung ungültig und die gesamte Regel wird ignoriert.
 
 ## Formale Syntax
 
@@ -186,7 +192,7 @@ Mehrere Disjunktionen können nebeneinandergestellt werden, ohne dass mehr Klamm
 
 ## Beispiele
 
-### Überprüfen der Unterstützung einer CSS-Eigenschaft
+### Testen der Unterstützung einer CSS-Eigenschaft
 
 ```css
 @supports (animation-name: test) {
@@ -197,7 +203,7 @@ Mehrere Disjunktionen können nebeneinandergestellt werden, ohne dass mehr Klamm
 }
 ```
 
-### Überprüfen der Unterstützung einer bestimmten CSS-Eigenschaft oder einer mit Präfix versehenen Version
+### Testen der Unterstützung einer CSS-Eigenschaft oder einer präfixierten Version
 
 ```css
 @supports (text-stroke: 10px) or (-webkit-text-stroke: 10px) {
@@ -205,7 +211,7 @@ Mehrere Disjunktionen können nebeneinandergestellt werden, ohne dass mehr Klamm
 }
 ```
 
-### Überprüfen der Nichtunterstützung einer spezifischen CSS-Eigenschaft
+### Testen der Nicht-Unterstützung einer spezifischen CSS-Eigenschaft
 
 ```css
 @supports not ((text-align-last: justify) or (-moz-text-align-last: justify)) {
@@ -213,9 +219,9 @@ Mehrere Disjunktionen können nebeneinandergestellt werden, ohne dass mehr Klamm
 }
 ```
 
-### Überprüfen der Unterstützung eines Selektors
+### Testen der Unterstützung eines Selektors
 
-CSS-bedingte Regeln bieten die Möglichkeit, die Unterstützung eines Selektors wie {{cssxref(":has",":has()")}} zu überprüfen.
+Bedingte CSS-Regeln bieten die Möglichkeit, die Unterstützung eines Selektors wie {{cssxref(":has",":has()")}} zu testen.
 
 ```css
 /* This rule won't be applied in browsers that don't support :has() */
@@ -243,7 +249,7 @@ ul:has(> li li) {
 }
 ```
 
-### Überprüfen der Unterstützung einer Schrifttechnologie
+### Testen der Unterstützung einer Schrifttechnologie
 
 Das folgende Beispiel wendet den CSS-Stil an, wenn der Browser die `COLRv1`-Schrifttechnologie unterstützt:
 
@@ -255,8 +261,8 @@ Das folgende Beispiel wendet den CSS-Stil an, wenn der Browser die `COLRv1`-Schr
 }
 ```
 
-Es ist auch möglich, die Unterstützung einer Schrifttechnologie zu überprüfen, indem die `tech`-Funktion innerhalb der {{CSSxRef("@font-face")}}-At-Regel verwendet wird.
-Falls ein Browser die Schrifttechnologie nicht unterstützt, kann eine Ersatzschrift (`Bungee-fallback.otf`) verwendet werden.
+Es ist auch möglich, die Unterstützung einer Schrifttechnologie mit der `tech`-Funktion innerhalb der {{CSSxRef("@font-face")}}-Regel zu testen.  
+Falls ein Browser die Schrifttechnologie nicht unterstützt, kann eine Ersatzschriftart (`Bungee-fallback.otf`) verwendet werden.
 
 ```css
 @font-face {
@@ -268,7 +274,7 @@ Falls ein Browser die Schrifttechnologie nicht unterstützt, kann eine Ersatzsch
 }
 ```
 
-### Überprüfen der Unterstützung eines Schriftformats
+### Testen der Unterstützung eines Schriftformats
 
 Das folgende Beispiel wendet den CSS-Stil an, wenn der Browser das `woff2`-Schriftformat unterstützt:
 
@@ -289,5 +295,5 @@ Das folgende Beispiel wendet den CSS-Stil an, wenn der Browser das `woff2`-Schri
 
 ## Siehe auch
 
-- [Verwendung von Feature-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
-- Die CSSOM-Klasse [`CSSSupportsRule`](/de/docs/Web/API/CSSSupportsRule) und die Methode [`CSS.supports()`](/de/docs/Web/API/CSS/supports_static), die dieselbe Überprüfung über JavaScript ermöglicht.
+- [Feature Queries verwenden](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
+- Die CSSOM-Klasse [`CSSSupportsRule`](/de/docs/Web/API/CSSSupportsRule) und die Methode [`CSS.supports()`](/de/docs/Web/API/CSS/supports_static), um dieselbe Prüfung über JavaScript durchzuführen.

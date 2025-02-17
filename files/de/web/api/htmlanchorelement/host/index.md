@@ -3,15 +3,14 @@ title: "HTMLAnchorElement: host-Eigenschaft"
 short-title: host
 slug: Web/API/HTMLAnchorElement/host
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.host`**-Eigenschaft ist ein
-String, der den Host enthält, also den _Hostname_, und dann,
-wenn der _Port_ der URL nicht leer ist, einen `':'`, und den _Port_
-der URL.
+Die **`host`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ist ein String, der den Host enthält, bestehend aus dem [`hostname`](/de/docs/Web/API/HTMLAnchorElement/hostname) und, falls der {{Glossary("port", "port")}} der URL nicht leer ist, einem `":"`, gefolgt vom [`port`](/de/docs/Web/API/HTMLAnchorElement/port) der URL. Falls die URL keinen `hostname` hat, enthält diese Eigenschaft einen leeren String, `""`.
+
+Siehe [`URL.host`](/de/docs/Web/API/URL/host) für weitere Informationen.
 
 ## Wert
 
@@ -43,4 +42,4 @@ anchor.host === "developer.mozilla.org:4097";
 
 ## Siehe auch
 
-- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Schnittstelle, zu der es gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interface, zu dem es gehört.

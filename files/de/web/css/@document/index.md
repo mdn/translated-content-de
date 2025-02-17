@@ -2,12 +2,12 @@
 title: "@document"
 slug: Web/CSS/@document
 l10n:
-  sourceCommit: a3fa3aa839515195aca021ec7a8371863eb5fd67
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}{{Deprecated_header}}{{Non-standard_header}}
 
-Die **`@document`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/At-rule) beschränkt die darin enthaltenen Stilregeln basierend auf der URL des Dokuments. Sie ist in erster Linie für vom Benutzer definierte Stylesheets konzipiert (siehe [userchrome.org](https://www.userchrome.org/) für weitere Informationen), kann jedoch auch in vom Autor definierten Stylesheets verwendet werden.
+Die **`@document`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) schränkt die darin enthaltenen Stilregeln basierend auf der URL des Dokuments ein. Sie ist primär für benutzerdefinierte Stylesheets gedacht (siehe [userchrome.org](https://www.userchrome.org/) für weitere Informationen), kann jedoch auch in autoren-definierten Stylesheets verwendet werden.
 
 ```css
 @document url("https://www.example.com/")
@@ -20,27 +20,27 @@ Die **`@document`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/At-rule) 
 
 ## Syntax
 
-Eine `@document`-Regel kann eine oder mehrere passende Funktionen spezifizieren. Wenn eine der Funktionen auf eine gegebene URL zutrifft, wirkt die Regel auf diese URL. Die verfügbaren Funktionen sind:
+Eine `@document`-Regel kann eine oder mehrere passende Funktionen festlegen. Wenn eine der Funktionen auf eine bestimmte URL zutrifft, wird die Regel auf diese URL angewendet. Die verfügbaren Funktionen sind:
 
 - `url()`
-  - : Passt zu einer exakten URL.
+  - : Passt auf eine exakte URL.
 - `url-prefix()`
   - : Passt, wenn die Dokument-URL mit dem angegebenen Wert beginnt.
 - `domain()`
-  - : Passt, wenn die Dokument-URL auf der angegebenen Domain (oder einer Subdomain davon) liegt.
+  - : Passt, wenn die Dokument-URL zu der angegebenen Domain (oder einer Subdomain davon) gehört.
 - `media-document()`
-  - : Passt das Medium entsprechend dem Parameterwert, einer von `video`, `image`, `plugin` oder `all`.
+  - : Passt das Medium entsprechend der im Parameter angegebenen Zeichenkette, eine der Optionen `video`, `image`, `plugin` oder `all`.
 - `regexp()`
-  - : Passt, wenn die Dokument-URL mit dem angegebenen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) übereinstimmt. Der Ausdruck muss die gesamte URL abdecken.
+  - : Passt, wenn die Dokument-URL durch den angegebenen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) übereinstimmt. Der Ausdruck muss die gesamte URL abgleichen.
 
-Die an die Funktionen `url()`, `url-prefix()`, `domain()` und `media-document()` übergebenen Werte können optional in Einzel- oder Doppelte Anführungszeichen eingeschlossen werden. Die an die Funktion `regexp()` übergebenen Werte _müssen_ in Anführungszeichen eingeschlossen sein.
+Die in den Funktionen `url()`, `url-prefix()`, `domain()` und `media-document()` bereitgestellten Werte können optional in einfache oder doppelte Anführungszeichen gesetzt werden. Die in der Funktion `regexp()` bereitgestellten Werte _müssen_ in Anführungszeichen gesetzt werden.
 
-Entkommene Werte, die an die Funktion `regexp()` übergeben werden, müssen zusätzlich aus dem CSS entkommen werden. Zum Beispiel passt ein `.` (Punkt) in regulären Ausdrücken zu jedem Zeichen. Um einen Punkt wörtlich zu erfassen, müssten Sie ihn zunächst mit regulären Ausdruckregeln entkommen (zu `\.`) und dann diesen String mit CSS-Regeln entkommen (zu `\\.`).
+Escapete Werte, die der Funktion `regexp()` übergeben werden, müssen zusätzlich in der CSS-Syntax escaped werden. Ein Beispiel: Ein `.` (Punkt) passt in regulären Ausdrücken auf jedes beliebige Zeichen. Um auf einen wörtlichen Punkt zu passen, müsste er zunächst gemäß der Regeln für reguläre Ausdrücke escaped werden (zu `\.`) und anschließend gemäß der CSS-Regeln erneut escaped werden (zu `\\.`).
 
-`@document` wird derzeit nur in Firefox unterstützt; wenn Sie diese Funktionalität in Ihrem eigenen Nicht-Firefox-Browser replizieren möchten, könnten Sie versuchen, [diesen Polyfill](https://github.com/An-Error94/Handy-Scripts/tree/master/%40document-polyfill) von @An-Error94 zu verwenden, der eine Kombination aus einem Benutzerskript, [data-\* Attributen](/de/docs/Web/HTML/Global_attributes/data-*) und [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) verwendet.
+`@document` wird derzeit nur in Firefox unterstützt. Wenn Sie eine ähnliche Funktionalität in einem nicht-Firefox-Browser replizieren möchten, können Sie [dieses Polyfill](https://github.com/An-Error94/Handy-Scripts/tree/master/%40document-polyfill) von @An-Error94 verwenden, das eine Kombination aus einem Benutzerskript, [data-\* Attributen](/de/docs/Web/HTML/Global_attributes/data-*), und [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) nutzt.
 
 > [!NOTE]
-> Es gibt eine moz-präfixierte Version dieser Eigenschaft — `@-moz-document`. Diese wurde in Firefox 59 in Nightly und Beta auf die Verwendung in Benutzer- und UA-Blättern beschränkt — ein Experiment, das dazu gedacht ist, potenzielle CSS-Injektionsangriffe zu entschärfen (siehe [Firefox-Bug 1035091](https://bugzil.la/1035091)).
+> Es gibt eine -moz-präfixierte Version dieser Eigenschaft — `@-moz-document`. Diese wurde ab Firefox 59 in Nightly und Beta auf die Verwendung nur in Benutzer- und UA-Stylesheets beschränkt – ein Experiment, um mögliche CSS-Injection-Angriffe zu entschärfen (siehe [Firefox-Bug 1035091](https://bugzil.la/1035091)).
 
 ## Formale Syntax
 
@@ -57,7 +57,7 @@ Entkommene Werte, die an die Funktion `regexp()` übergeben werden, müssen zus�
 
 ## Beispiele
 
-### Dokument für CSS-Regel spezifizieren
+### Dokument für CSS-Regel festlegen
 
 ```css
 @document url("http://www.w3.org/"),
@@ -83,7 +83,7 @@ Entkommene Werte, die an die Funktion `regexp()` übergeben werden, müssen zus�
 
 ## Spezifikationen
 
-[Ursprünglich](https://www.w3.org/TR/2012/WD-css3-conditional-20120911/#at-document) in Level 3, wurde `@document` auf Level 4 [verschoben](https://www.w3.org/TR/2012/WD-css3-conditional-20121213/#changes), dann jedoch anschließend entfernt.
+[Zunächst](https://www.w3.org/TR/2012/WD-css3-conditional-20120911/#at-document) in Level 3 eingeführt, wurde `@document` [zurückgestellt](https://www.w3.org/TR/2012/WD-css3-conditional-20121213/#changes) auf Level 4 und dann schließlich entfernt.
 
 ## Browser-Kompatibilität
 

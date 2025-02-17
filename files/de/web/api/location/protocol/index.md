@@ -3,14 +3,16 @@ title: "Location: protocol-Eigenschaft"
 short-title: protocol
 slug: Web/API/Location/protocol
 l10n:
-  sourceCommit: 1238ffad886924b20549d0cf3adca735cb0d074f
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("Location")}}
 
-Die **`protocol`**-Eigenschaft der [`Location`](/de/docs/Web/API/Location)
-Schnittstelle ist ein String, der das Protokollschema der URL repräsentiert,
-einschließlich des abschließenden `':'`.
+Die **`protocol`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der das Protokoll oder Schema der URL des Standorts enthält, einschließlich des abschließenden `":"`. Wenn der Port der Standardport für das Protokoll ist (`80` für `ws:` und `http:`, `443` für `wss:` und `https:` sowie `21` für `ftp:`), enthält diese Eigenschaft einen leeren String, `""`.
+
+Diese Eigenschaft kann gesetzt werden, um das Protokoll der URL zu ändern. Ein `":"` wird an den bereitgestellten String angehängt, falls es nicht angegeben wurde. Das bereitgestellte Schema muss mit dem Rest der URL kompatibel sein, um als gültig angesehen zu werden.
+
+Sehen Sie sich [`URL.protocol`](/de/docs/Web/API/URL/protocol) für weitere Informationen an.
 
 ## Wert
 

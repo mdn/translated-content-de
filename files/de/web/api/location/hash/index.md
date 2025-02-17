@@ -3,22 +3,22 @@ title: "Location: hash-Eigenschaft"
 short-title: hash
 slug: Web/API/Location/hash
 l10n:
-  sourceCommit: 6033c369db35bf1df34430cc375705e2d959fc0b
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ APIRef("Location") }}
 
-Die **`hash`**-Eigenschaft der [`Location`](/de/docs/Web/API/Location)-Schnittstelle gibt einen String zurück, der ein `'#'` gefolgt vom Fragment-Bezeichner der URL enthält — also die ID auf der Seite, auf die die URL zuzugreifen versucht.
+Die **`hash`**-Eigenschaft der [`Location`](/de/docs/Web/API/Location)-Schnittstelle ist eine Zeichenkette, die ein `"#"` gefolgt vom Fragment-Identifikator der URL enthält. Wenn die URL keinen Fragment-Identifikator hat, enthält diese Eigenschaft eine leere Zeichenkette, `""`.
 
-Das Fragment ist nicht {{Glossary("Percent-encoding", "prozentkodiert")}}. Wenn die URL keinen Fragment-Bezeichner hat, enthält diese Eigenschaft einen leeren String, `""`.
+Weitere Informationen finden Sie unter [`URL.hash`](/de/docs/Web/API/URL/hash).
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Beispiele
 
-Angenommen, der Benutzer hat `https://example.org#examples` aufgerufen, wird der folgende Code `#examples` protokollieren:
+Angenommen, der Benutzer hat `https://example.org#examples` aufgerufen, dann gibt der folgende Code `#examples` aus:
 
 ```js
 const result = location.hash;

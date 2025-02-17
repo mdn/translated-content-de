@@ -1,21 +1,20 @@
 ---
-title: "URL: port Eigenschaft"
+title: "URL: port-Eigenschaft"
 short-title: port
 slug: Web/API/URL/port
 l10n:
-  sourceCommit: 354f23773b65bad14192eca53e4a63471061b158
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`port`** Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist ein String, der die Portnummer der URL enthält, oder der leere String, wenn der Port der Standard für das Protokoll ist.
+Die **`port`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist eine Zeichenkette, die die Portnummer der URL enthält. Wenn der Port der Standardport für das Protokoll ist (`80` für `ws:` und `http:`, `443` für `wss:` und `https:`, und `21` für `ftp:`), enthält diese Eigenschaft eine leere Zeichenkette, `""`.
 
-> [!NOTE]
-> Wenn das [`URL`](/de/docs/Web/API/URL)-Objekt auf eine URL verweist, die keine explizite Portnummer enthält (z. B. `https://localhost`) oder eine Portnummer enthält, die der Standardportnummer entspricht, die zum Protokollteil der URL gehört (z. B. `https://localhost:443`), dann wird der Wert der `port`-Eigenschaft der leere String sein: `''`.
+Diese Eigenschaft kann gesetzt werden, um den Port der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/URL/host) hat oder das Schema `file:` ist, hat das Setzen dieser Eigenschaft keine Wirkung. Ungültige Portnummern werden ebenfalls stillschweigend ignoriert.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Beispiele
 

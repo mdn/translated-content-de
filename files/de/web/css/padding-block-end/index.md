@@ -2,12 +2,12 @@
 title: padding-block-end
 slug: Web/CSS/padding-block-end
 l10n:
-  sourceCommit: f26b3f2ab7a079151245759bc2682427dc36870c
+  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
 ---
 
 {{CSSRef}}
 
-Die **`padding-block-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die logische Block-End-Polsterung eines Elements, die je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Polsterung zugeordnet wird.
+Die **`padding-block-end`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) definiert den logischen Block-End-Abstand (`padding`) eines Elements. Dieser wird je nach Schreibrichtung, Richtung und Textorientierung des Elements einer physischen `padding`-Eigenschaft zugeordnet.
 
 {{EmbedInteractiveExample("pages/css/padding-block-end.html")}}
 
@@ -32,15 +32,15 @@ padding-block-end: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe der Polsterung als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des `padding` wird als fester Wert definiert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe der Polsterung als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [enthältenden Blocks](/de/docs/Web/CSS/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des `padding` wird als Prozentwert definiert, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
 
 ## Beschreibung
 
-Die Eigenschaft `padding-block-end` nimmt dieselben Werte an wie physische Polstereigenschaften wie {{cssxref("padding-top")}}. Sie kann jedoch je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} festgelegten Werten gleichwertig zu {{cssxref("padding-bottom")}}, `padding-top`, {{cssxref("padding-left")}} oder {{cssxref("padding-right")}} sein.
+Die `padding-block-end`-Eigenschaft nimmt die gleichen Werte an wie physische `padding`-Eigenschaften wie z. B. {{cssxref("padding-top")}}. Sie kann jedoch je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} festgelegten Werten gleichwertig zu {{cssxref("padding-bottom")}}, `padding-top`, {{cssxref("padding-left")}} oder {{cssxref("padding-right")}} sein.
 
-Sie bezieht sich auf {{cssxref("padding-block-start")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}, welche die anderen Polsterwerte des Elements definieren.
+Sie steht in Beziehung zu {{cssxref("padding-block-start")}}, {{cssxref("padding-inline-start")}} und {{cssxref("padding-inline-end")}}, die die anderen `padding`-Werte des Elements definieren.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Sie bezieht sich auf {{cssxref("padding-block-start")}}, {{cssxref("padding-inli
 
 ## Beispiele
 
-### Block-End-Polsterung für vertikalen Text festlegen
+### Block-End-`padding` für vertikalen Text setzen
 
 #### HTML
 

@@ -1,21 +1,21 @@
 ---
-title: :not()
+title: ":not()"
 slug: Web/CSS/:not
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: a29769d6d10261f771321eb60f3990029c160924
 ---
 
 {{CSSRef}}
 
-Die **`:not()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert Elemente, die nicht mit einer Liste von Selektoren übereinstimmen. Da sie spezifische Elemente von der Auswahl ausschließt, ist sie als _Negationspseudoklasse_ bekannt.
+Die **`:not()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert Elemente, die nicht mit einer Liste von Selektoren übereinstimmen. Da sie verhindert, dass bestimmte Elemente ausgewählt werden, wird sie als _Negations-Pseudoklasse_ bezeichnet.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-not.html", "tabbed-shorter")}}
 
-Die `:not()`-Pseudoklasse hat eine Reihe von [Eigenheiten, Tricks und unerwarteten Ergebnissen](#beschreibung), die Sie kennen sollten, bevor Sie sie verwenden.
+Die `:not()`-Pseudoklasse kann einige [Merkmale, Tricks und unerwartete Ergebnisse](#beschreibung) aufweisen, die Sie kennen sollten, bevor Sie sie verwenden.
 
 ## Syntax
 
-Die `:not()`-Pseudoklasse erfordert eine [Selektor-Liste](/de/docs/Web/CSS/CSS_selectors/Selector_structure#selector_list), eine durch Kommas getrennte Liste von einem oder mehreren Selektoren, als Argument. Die Liste darf keine [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) enthalten, aber alle anderen einfachen, zusammengesetzten und komplexen Selektoren sind erlaubt.
+Die `:not()`-Pseudoklasse benötigt als Argument eine [Selektorenliste](/de/docs/Web/CSS/CSS_selectors/Selector_structure#selector_list), eine kommagetrennte Liste von einem oder mehreren Selektoren. Die Liste darf keinen [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) enthalten, aber alle anderen einfachen, zusammengesetzten und komplexen Selektoren sind zulässig.
 
 ```css-nolint
 :not(<complex-selector-list>) {
@@ -25,21 +25,21 @@ Die `:not()`-Pseudoklasse erfordert eine [Selektor-Liste](/de/docs/Web/CSS/CSS_s
 
 ## Beschreibung
 
-Es gibt mehrere ungewöhnliche Effekte und Ergebnisse bei der Verwendung von `:not()`, die Sie im Hinterkopf behalten sollten:
+Es gibt einige ungewöhnliche Effekte und Ergebnisse bei der Verwendung von `:not()`, die Sie beachten sollten:
 
-- Nutzlose Selektoren können mit dieser Pseudoklasse geschrieben werden. Zum Beispiel stimmt `:not(*)` mit jedem Element überein, das kein Element ist, was offensichtlich keinen Sinn ergibt. Daher wird die zugehörige Regel nie angewendet.
-- Diese Pseudoklasse kann die [Spezifität](/de/docs/Web/CSS/Specificity) einer Regel erhöhen. Zum Beispiel stimmt `#foo:not(#bar)` mit demselben Element wie der einfachere Selektor `#foo` überein, hat jedoch die höhere Spezifität von zwei `id`-Selektoren.
-- Die Spezifität der `:not()`-Pseudoklasse wird durch die Spezifität des spezifischsten Selektors in ihrem durch Kommas getrennten Selektor-Argument ersetzt; sie hat dieselbe Spezifität, als ob sie als [`:not(:is(argument))`](/de/docs/Web/CSS/:is) geschrieben wäre.
-- `:not(.foo)` stimmt mit allem überein, was nicht `.foo` ist, _einschließlich {{HTMLElement("html")}} und {{HTMLElement("body")}}._
-- Dieser Selektor stimmt mit allem überein, das „kein X“ ist. Das kann überraschen, wenn er mit [Nachfahrenkombinatoren](/de/docs/Web/CSS/Descendant_combinator) verwendet wird, da es mehrere Wege gibt, ein Ziel-Element auszuwählen. Zum Beispiel wird `body :not(table) a` weiterhin auf Links innerhalb einer {{HTMLElement("table")}} angewendet, da {{HTMLElement("tr")}}, {{HTMLElement("tbody")}}, {{HTMLElement("th")}}, {{HTMLElement("td")}}, {{HTMLElement("caption")}} usw. alle auf den `:not(table)`-Teil des Selektors passen können. Um dies zu vermeiden, können Sie `body a:not(table a)` verwenden, was nur auf Links angewendet wird, die keine Nachfahren von Tabellen sind.
-- Sie können mehrere Selektoren gleichzeitig ausschließen. Beispiel: `:not(.foo, .bar)` ist gleichwertig mit `:not(.foo):not(.bar)`.
-- Wenn ein beliebiger Selektor, der an die `:not()`-Pseudoklasse übergeben wird, ungültig oder nicht vom Browser unterstützt ist, wird die gesamte Regel ungültig. Eine wirksame Methode, um dieses Verhalten zu umgehen, ist die Verwendung der [`:is()`](/de/docs/Web/CSS/:is)-Pseudoklasse, die eine tolerante Selektorliste akzeptiert. Zum Beispiel wird `:not(.foo, :invalid-pseudo-class)` eine ganze Regel ungültig machen, aber `:not(:is(.foo, :invalid-pseudo-class))` stimmt mit jedem (_einschließlich {{HTMLElement("html")}} und {{HTMLElement("body")}}_) Element überein, das nicht `.foo` ist.
+- Sinnlose Selektoren können mit dieser Pseudoklasse geschrieben werden. Zum Beispiel entspricht `:not(*)` jedem Element, das kein Element ist. Das ist offensichtlich Unsinn und die zugehörige Regel wird nie angewendet.
+- Diese Pseudoklasse kann die [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) einer Regel erhöhen. Zum Beispiel entspricht `#foo:not(#bar)` demselben Element wie das einfachere `#foo`, hat jedoch die höhere Spezifität von zwei `id`-Selektoren.
+- Die Spezifität der `:not()`-Pseudoklasse wird durch die Spezifität des spezifischsten Selektors in ihrem kommagetrennten Argument von Selektoren ersetzt; sie bietet dieselbe Spezifität, als ob sie [`:not(:is(argument))`](/de/docs/Web/CSS/:is) geschrieben worden wäre.
+- `:not(.foo)` wird alles auswählen, was nicht `.foo` ist, _einschließlich {{HTMLElement("html")}} und {{HTMLElement("body")}}._
+- Dieser Selektor wird alles auswählen, das "kein X" ist. Dies kann überraschend sein, wenn er mit [Nachfahr-Kombinatoren](/de/docs/Web/CSS/Descendant_combinator) verwendet wird, da es mehrere Wege gibt, ein Zielelement auszuwählen. Beispielsweise wird `body :not(table) a` weiterhin auf Links innerhalb einer {{HTMLElement("table")}} angewendet, da {{HTMLElement("tr")}}, {{HTMLElement("tbody")}}, {{HTMLElement("th")}}, {{HTMLElement("td")}}, {{HTMLElement("caption")}} usw. den `:not(table)`-Teil des Selektors erfüllen können. Um dies zu vermeiden, können Sie stattdessen `body a:not(table a)` verwenden, das nur auf Links angewendet wird, die keine Nachfahren einer Tabelle sind.
+- Sie können mehrere Selektoren gleichzeitig negieren. Beispiel: `:not(.foo, .bar)` ist äquivalent zu `:not(.foo):not(.bar)`.
+- Wenn ein beliebiger Selektor, der an die `:not()`-Pseudoklasse übergeben wird, ungültig oder vom Browser nicht unterstützt ist, wird die gesamte Regel ungültig. Ein effektiver Weg, dieses Verhalten zu umgehen, ist die Verwendung der [`:is()`-Pseudoklasse](/de/docs/Web/CSS/:is), die eine tolerante Selektorenliste akzeptiert. Zum Beispiel macht `:not(.foo, :invalid-pseudo-class)` eine gesamte Regel ungültig, während `:not(:is(.foo, :invalid-pseudo-class))` jedes Element (einschließlich {{HTMLElement("html")}} und {{HTMLElement("body")}}) auswählt, das nicht `.foo` ist.
 
 ## Beispiele
 
-### Verwenden von :not() mit gültigen Selektoren
+### Verwendung von :not() mit gültigen Selektoren
 
-Dieses Beispiel zeigt einige Beispiele für die Verwendung von `:not()`.
+Dieses Beispiel zeigt einige Anwendungsfälle von `:not()`.
 
 #### HTML
 
@@ -90,7 +90,7 @@ h2 :not(span.foo) {
 
 {{EmbedLiveSample('Using_not_with_valid_selectors', '100%', 320)}}
 
-### Verwenden von :not() mit ungültigen Selektoren
+### Verwendung von :not() mit ungültigen Selektoren
 
 Dieses Beispiel zeigt die Verwendung von `:not()` mit ungültigen Selektoren und wie man eine Ungültigkeit verhindert.
 
@@ -136,9 +136,9 @@ div:not(:is(.foo, .bar)) {
 
 {{EmbedLiveSample('Using_not_with_invalid_selectors', '100%', 320)}}
 
-Die Regel `p:not(.foo, :invalid-pseudo-class)` ist ungültig, da sie einen ungültigen Selektor enthält. Die `:is()`-Pseudoklasse akzeptiert eine tolerante Selektorliste, sodass die Regel `:is(.foo, :invalid-pseudo-class)` gültig und gleichwertig zu `:is(.foo)` ist. Somit ist die Regel `p:not(:is(.foo, :invalid-pseudo-class))` gültig und gleichwertig zu `p:not(.foo)`.
+Die Regel `p:not(.foo, :invalid-pseudo-class)` ist ungültig, da sie einen ungültigen Selektor enthält. Die `:is()`-Pseudoklasse akzeptiert eine tolerante Selektorenliste, sodass die Regel `:is(.foo, :invalid-pseudo-class)` gültig und äquivalent zu `:is(.foo)` ist. Daher ist die Regel `p:not(:is(.foo, :invalid-pseudo-class))` gültig und äquivalent zu `p:not(.foo)`.
 
-Wenn `:invalid-pseudo-class` ein gültiger Selektor wäre, wären die ersten beiden oben genannten Regeln dennoch gleichwertig (die letzten beiden Regeln zeigen dies). Die Verwendung von `:is()` macht die Regel robuster.
+Wenn `:invalid-pseudo-class` ein gültiger Selektor wäre, wären die ersten beiden oben genannten Regeln immer noch äquivalent (die letzten beiden Regeln zeigen das). Die Verwendung von `:is()` macht die Regel robuster.
 
 ## Spezifikationen
 
@@ -158,4 +158,4 @@ Wenn `:invalid-pseudo-class` ein gültiger Selektor wäre, wären die ersten bei
   - {{cssxref(":is", ":is()")}}
   - {{cssxref(":where", ":where()")}}
 
-- [Wie :not() mehrere Selektoren kombiniert](/en-US/blog/css-not-pseudo-multiple-selectors/) auf dem MDN-Blog (2023)
+- [Wie :not() mehrere Selektoren verknüpft](/en-US/blog/css-not-pseudo-multiple-selectors/) auf dem MDN Blog (2023)

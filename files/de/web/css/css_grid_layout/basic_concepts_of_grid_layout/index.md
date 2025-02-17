@@ -1,45 +1,45 @@
 ---
-title: Grundkonzepte des Grid-Layouts
+title: Grundlegende Konzepte des Grid-Layouts
 slug: Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout
 l10n:
-  sourceCommit: 3714892d278cd121e91b8efa4f96e18ea4c6dc8d
+  sourceCommit: fa5ac9bd4a01375d7ab8f05b4f71e23e4e8e6a84
 ---
 
 {{CSSRef}}
 
-[CSS grid layout](/de/docs/Web/CSS/CSS_grid_layout) führt ein zweidimensionales Rastersystem in CSS ein. Raster können verwendet werden, um große Seitenbereiche oder kleine Benutzeroberflächenelemente zu layouten. Dieser Artikel führt in das CSS-Rasterlayout und die neue Terminologie ein, die Teil der CSS-Rasterlayout-Level-1-Spezifikation ist. Die in diesem Überblick gezeigten Funktionen werden dann im restlichen Leitfaden ausführlicher erklärt.
+[CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) führt ein zweidimensionales Rastersystem in CSS ein. Raster können verwendet werden, um sowohl große Seitenbereiche als auch kleine Benutzeroberflächenelemente anzuordnen. Dieser Leitfaden führt in das CSS Grid Layout ein und erläutert die Terminologie, die Teil der CSS Grid Layout-Spezifikation ist. Die in dieser Übersicht gezeigten Funktionen werden in den anderen Leitfäden dieser Reihe ausführlicher erklärt.
 
-## Was ist ein Raster?
+## Was ist ein Grid?
 
-Ein Raster ist ein Satz sich kreuzender horizontaler und vertikaler Linien, die Reihen und Spalten definieren. Elemente können innerhalb dieser Spalten- und Reihenlinien auf das Raster gelegt werden. Das CSS-Rasterlayout bietet folgende Funktionen:
+Ein Grid ist ein Satz aus sich schneidenden horizontalen und vertikalen Linien, die Zeilen und Spalten definieren. Elemente können innerhalb dieser Spalten- und Zeilenlinien auf das Grid gesetzt werden. CSS Grid Layout bietet die folgenden Funktionen:
 
 ### Feste und flexible Spurgrößen
 
-Sie können ein Raster mit festen Spurgrößen erstellen – zum Beispiel mit Pixeln. Dies setzt das Raster auf die spezifizierte Pixelgröße, die zu dem von Ihnen gewünschten Layout passt. Sie können auch ein Raster mit flexiblen Größen unter Verwendung von Prozentwerten oder mit der speziell dafür entwickelten Einheit `fr` erstellen.
+Sie können ein Grid mit festen Spurgrößen erstellen – beispielsweise mit Pixeln. Damit wird das Grid auf die angegebene Pixelgröße festgelegt, die zu dem gewünschten Layout passt. Sie können auch ein Grid mit flexiblen Größen erstellen, indem Sie Prozentsätze oder die für diesen Zweck entworfene Einheit [`fr`](#die_einheit_fr) verwenden.
 
-### Platzierung von Elementen
+### Positionierung von Elementen
 
-Sie können Elemente an einer genauen Position auf dem Raster platzieren, indem Sie Liniennummern, Namen oder ein Zielgebiet des Rasters verwenden. Raster enthält auch einen Algorithmus zur Steuerung der Platzierung von Elementen, denen keine explizite Position auf dem Raster zugewiesen wurde.
+Sie können Elemente auf einen präzisen Ort im Grid setzen, indem Sie Liniennummern, Namen oder einen Bereich des Grids ansprechen. Grid enthält außerdem einen Algorithmus, um die Platzierung von Elementen zu steuern, denen keine explizite Position im Grid zugewiesen wurde.
 
 ### Erstellung zusätzlicher Spuren zur Aufnahme von Inhalten
 
-Sie können ein explizites Raster mit Rasterlayout definieren. Die Rasterlayout-Spezifikation ist flexibel genug, um bei Bedarf zusätzliche Reihen und Spalten hinzuzufügen. Funktionen wie das Hinzufügen von „so vielen Spalten, die in einen Container passen“, sind enthalten.
+Mit Grid Layout können Sie ein explizites Grid definieren. Die im Grid Layout-Modul definierten Funktionen bieten die Flexibilität, bei Bedarf zusätzliche Zeilen und Spalten hinzuzufügen. Funktionen wie „so viele Spalten hinzufügen, wie in einen Container passen“ sind enthalten.
 
-### Ausrichtungssteuerung
+### Kontrolle der Ausrichtung
 
-Raster enthält Ausrichtungsfunktionen, sodass wir steuern können, wie die Elemente ausgerichtet werden, sobald sie in einem Rasterbereich platziert sind, und wie das gesamte Raster ausgerichtet ist.
+CSS Grid Layout und [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment) ermöglichen es, die Ausrichtung der Elemente innerhalb eines Grid-Bereichs sowie des gesamten Grids zu steuern.
 
-### Steuerung von überlappenden Inhalten
+### Kontrolle überlappender Inhalte
 
-Mehr als ein Element kann in eine Rasterzelle oder einen Bereich eingefügt werden und sie können sich teilweise überlappen. Diese Schichtung kann dann mit der {{cssxref("z-index")}}-Eigenschaft gesteuert werden.
+Mehr als ein Element kann in einer Grid-Zelle oder einem Grid-Bereich platziert werden, sodass sie sich teilweise überlappen können. Diese Schichtung kann anschließend mit der Eigenschaft {{cssxref("z-index")}} gesteuert werden.
 
-Das Raster ist eine leistungsstarke Spezifikation, die in Kombination mit anderen Teilen von CSS wie [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) helfen kann, Layouts zu erstellen, die zuvor in CSS nicht darstellbar waren. Alles beginnt mit der Erstellung eines Rasters in Ihrem **grid container**.
+Grid ist eine leistungsstarke Layout-Methode, die zusammen mit anderen CSS-Funktionen, wie zum Beispiel [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout), helfen kann, responsive, flexible und zugängliche Layouts zu erstellen. Alles beginnt mit der Erstellung eines Grids im **{{Glossary("grid_container", "Grid-Container")}}**.
 
 ## Grid-Container
 
-Wir erstellen einen _Grid-Container_, indem wir `display: grid` oder `display: inline-grid` auf einem Element deklarieren. Sobald wir dies tun, werden alle _direkten Kinder_ dieses Elements zu _Grid-Items_.
+Ein _Grid-Container_ wird erstellt, indem `display: grid` oder `display: inline-grid` auf einem Element deklariert wird. Sobald dies erfolgt, werden alle _direkten Kinder_ dieses Elements zu _Grid-Elementen_.
 
-In diesem Beispiel habe ich ein enthaltenes div mit einer Klasse von wrapper und darin fünf Kindelementen.
+Im folgenden Beispiel haben wir ein übergeordnetes `div` mit der Klasse `wrapper`. Darin sind fünf Kindelemente verschachtelt.
 
 ```html
 <div class="wrapper">
@@ -51,7 +51,7 @@ In diesem Beispiel habe ich ein enthaltenes div mit einer Klasse von wrapper und
 </div>
 ```
 
-Ich mache das `.wrapper` zu einem Grid-Container.
+Wir machen die `.wrapper`-Klasse zu einem Grid-Container, indem wir `display: grid;` verwenden.
 
 ```css
 .wrapper {
@@ -81,27 +81,27 @@ Ich mache das `.wrapper` zu einem Grid-Container.
 
 {{ EmbedLiveSample('The_Grid_container', '200', '330') }}
 
-Alle direkten Kinder sind jetzt Grid-Items. In einem Webbrowser sehen Sie keinen Unterschied in der Anzeige dieser Elemente, bevor sie in ein Raster umgewandelt werden, da das Raster eine einspaltige Anordnung für die Elemente erstellt hat. An dieser Stelle kann es nützlich sein, mit dem [Grid Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html) zu arbeiten, der Teil der Firefox Developer Tools ist. Wenn Sie dieses Beispiel in Firefox anzeigen und das Raster inspizieren, sehen Sie ein kleines Symbol neben dem Wert `grid`. Klicken Sie darauf und dann wird das Raster auf diesem Element im Browserfenster überlagert angezeigt.
+Alle direkten Kinder sind nun Grid-Elemente. In einem Webbrowser sehen Sie keinen Unterschied zur Anzeige dieser Elemente vor der Änderung, da das Grid zunächst einspaltig angelegt wurde. Wenn Sie das Grid in den Entwickler-Tools Ihres Browsers inspizieren, könnte ein kleines Symbol neben dem Wert `grid` erscheinen. Klicken Sie darauf, um in den meisten Browsern das Grid in der Browseransicht überlagert darzustellen.
 
-![Verwendung des Grid-Highlighters in DevTools zur Anzeige eines Rasters](1-grid-inspector.png)
+![Verwendung des Grid-Highlighters in Firefox DevTools, um ein Grid sichtbar zu machen](1-grid-inspector.png)
 
-Wenn Sie lernen und dann mit dem CSS-Rasterlayout arbeiten, wird Ihnen dieses Tool ein besseres visuelles Verständnis dafür geben, was mit Ihren Rastern geschieht.
+Während Sie den Umgang mit CSS Grid Layout lernen und anwenden, helfen Ihnen Ihre Browser-Tools, visuell besser zu verstehen, was auf Ihren Grids passiert.
 
-Um mehr im Rasterdarstellungsstil zu arbeiten, müssen wir Spuren hinzufügen.
+Wenn wir damit beginnen möchten, das Layout grid-artiger zu gestalten, müssen wir Spalten-Spuren hinzufügen.
 
-## Rasterspuren
+## Grid-Spuren
 
-Wir definieren Reihen und Spalten in unserem Raster mit den {{cssxref("grid-template-rows")}}- und {{cssxref("grid-template-columns")}}-Eigenschaften. Diese definieren die Spuren des Rasters. Eine _Rasterspur_ ist der Raum zwischen zwei benachbarten Linien im Raster. Das folgende Bild zeigt eine hervorgehobene Spur – dies ist die erste Spur in unserer Rasterzeile.
+Wir definieren Zeilen und Spalten auf unserem Grid mit den Eigenschaften {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}}. Diese definieren {{Glossary("grid_tracks", "Grid-Spuren")}}. Eine _Grid-Spur_ ist der Raum zwischen zwei benachbarten Linien im Grid. Das folgende Bild zeigt eine hervorgehobene Spur – dies ist die erste Zeilen-Spur in unserem Grid.
 
-![Eine Box mit 3 Rasterelementen. Über den drei Elementen befindet sich ein durchgehender hellgrüner Bereich, der die Spur darstellt.](1_grid_track.png)
+![Eine Box mit 3 Grid-Elementen. Oberhalb der drei Elemente befindet sich ein durchgehender hellgrüner Bereich, der die Spur darstellt.](1_grid_track.png)
 
-Rasterspuren werden im expliziten Raster durch die Verwendung der Eigenschaften `grid-template-columns` und `grid-template-rows` oder durch die Kurzformen `grid` oder `grid-template` definiert. Spuren werden auch im impliziten Raster erstellt, indem ein Rasterobjekt außerhalb der im expliziten Raster erstellten Spuren positioniert wird.
+Grid-Spuren werden im [expliziten Grid](#implizite_und_explizite_grids) durch die Eigenschaften `grid-template-columns` und `grid-template-rows` oder durch die Kurzformen `grid` oder `grid-template` definiert. Spuren werden auch im impliziten Grid erstellt, indem ein Grid-Element außerhalb der im expliziten Grid erstellten Spuren positioniert wird.
 
 ### Einfaches Beispiel
 
-Ich kann unser früheres Beispiel erweitern, indem ich die `grid-template-columns`-Eigenschaft hinzufüge und dann die Größe der Spaltenspuren definiere.
+Wir können unser vorheriges Beispiel erweitern, indem wir die Eigenschaft `grid-template-columns` hinzufügen und dann die Größe der Spalten-Spuren definieren.
 
-Ich habe jetzt ein Raster mit drei 200 Pixel breiten Spaltenspuren erstellt. Die Kind-Elemente werden einzeln in dieser Rasterzelle angeordnet.
+Wir haben nun ein Grid mit drei 200 Pixel breiten Spalten-Spuren erstellt. Die Kind-Elemente werden auf diesem Grid jeweils in einer Zelle angeordnet.
 
 ```html
 <div class="wrapper">
@@ -142,9 +142,9 @@ Ich habe jetzt ein Raster mit drei 200 Pixel breiten Spaltenspuren erstellt. Die
 
 {{ EmbedLiveSample('Basic_example', '610', '140') }}
 
-### Die fr-Einheit
+### Die Einheit fr
 
-Spuren können unter Verwendung jeder Längeneinheit definiert werden. Raster führt auch eine zusätzliche Längeneinheit ein, die uns bei der Erstellung flexibler Rasterspuren hilft. Die neue `fr`-Einheit repräsentiert einen Bruchteil des verfügbaren Raums im Rastercontainer. Die nächste Rasterdefinition würde drei gleich breite Spuren erstellen, die sich entsprechend dem verfügbaren Raum vergrößern oder verkleinern.
+Spuren können mit jeder Längeneinheit definiert werden. Grid führt auch eine zusätzliche Längeneinheit ein, die uns dabei hilft, flexible Grid-Spuren zu erstellen. Die [`fr`](/de/docs/Web/CSS/flex_value) Einheit repräsentiert einen Bruchteil des verfügbaren Raums im Grid-Container. Die folgende Grid-Definition würde drei gleich breite Spuren erstellen, die je nach verfügbarem Platz wachsen und schrumpfen.
 
 ```html
 <div class="wrapper">
@@ -187,7 +187,7 @@ Spuren können unter Verwendung jeder Längeneinheit definiert werden. Raster f�
 
 ### Ungleiche Größen
 
-Im nächsten Beispiel erstellen wir eine Definition mit einer `2fr` Spur und dann zwei `1fr` Spuren. Der verfügbare Raum wird in vier Teile geteilt. Zwei Teile werden der ersten Spur gegeben und jeweils ein Teil den nächsten zwei Spuren.
+In diesem Beispiel erstellen wir eine Definition mit einer `2fr`-Spur und zwei `1fr`-Spuren. Der verfügbare Platz wird in vier Teile aufgeteilt. Zwei Teile werden der ersten Spur zugeteilt und jeweils ein Teil den beiden nächsten Spuren.
 
 ```html
 <div class="wrapper">
@@ -228,9 +228,9 @@ Im nächsten Beispiel erstellen wir eine Definition mit einer `2fr` Spur und dan
 
 {{ EmbedLiveSample('Unequal_sizes', '220', '140') }}
 
-### Mischung aus flexiblen und absoluten Größen
+### Kombination aus flexiblen und absoluten Größen
 
-Im letzten Beispiel kombinieren wir absolut dimensionierte Spuren mit `fr`-Einheiten. Die erste Spur ist 500 Pixel, sodass die feste Breite vom verfügbaren Raum abgezogen wird. Der verbleibende Raum wird in drei Teile geteilt und proportional den zwei flexiblen Spuren zugewiesen.
+Im nächsten Beispiel kombinieren wir festgelegte Spurgrößen mit `fr`-Einheiten. Die erste Spur hat eine feste Breite von `500px`, die vom verfügbaren Platz abgezogen wird. Der verbleibende Platz wird in drei Teile geteilt und proportional den beiden flexiblen Spuren zugewiesen.
 
 ```html
 <div class="wrapper">
@@ -271,9 +271,9 @@ Im letzten Beispiel kombinieren wir absolut dimensionierte Spuren mit `fr`-Einhe
 
 {{ EmbedLiveSample('Mixing_flexible_and_absolute_sizes', '220', '140') }}
 
-### Spurlisten mit der repeat()-Notation
+### Spurlisten mit repeat()-Schreibweise
 
-Große Raster mit vielen Spuren können die `repeat()`-Notation verwenden, um alle oder einen Teil der Spurliste zu wiederholen. Zum Beispiel kann die Rasterdefinition:
+Große Grids mit vielen Spuren können die Schreibweise [`repeat()`](/de/docs/Web/CSS/repeat) verwenden, um die Liste der Grid-Spuren vollständig oder teilweise zu wiederholen. Das folgende Grid könnte wie folgt definiert werden:
 
 ```css
 .wrapper {
@@ -282,7 +282,7 @@ Große Raster mit vielen Spuren können die `repeat()`-Notation verwenden, um al
 }
 ```
 
-auch geschrieben werden als:
+Oder als:
 
 ```css
 .wrapper {
@@ -291,7 +291,7 @@ auch geschrieben werden als:
 }
 ```
 
-Die Wiederholungsnotation kann für einen Teil der Spurliste verwendet werden. Im nächsten Beispiel habe ich ein Raster mit einer anfänglichen 20-Pixel-Spur, dann einem wiederholten Abschnitt mit 6 `1fr` Spuren und letztlich einer abschließenden 20-Pixel-Spur erstellt.
+Die Repeat-Schreibweise kann auch nur für Teile der Spurdefinition verwendet werden. In diesem Beispiel erstellen wir ein Grid mit 8 Spalten; die erste Spur ist `20px`, gefolgt von einer Wiederholung von 6 `1fr`-Spuren sowie einer abschließenden `20px`-Spur.
 
 ```css
 .wrapper {
@@ -300,7 +300,7 @@ Die Wiederholungsnotation kann für einen Teil der Spurliste verwendet werden. I
 }
 ```
 
-Die Wiederholungsnotation nimmt die Spurliste und verwendet sie, um ein sich wiederholendes Muster von Spuren zu erstellen. Im nächsten Beispiel wird mein Raster aus 10 Spuren bestehen, einer `1fr` Spur, gefolgt von einer `2fr` Spur. Dieses Muster wird fünfmal wiederholt.
+Die Repeat-Schreibweise (`repeat()`) erstellt ein wiederholendes Muster von Spuren basierend auf der Liste der angegebenen Spuren. Im folgenden Beispiel hätte das Grid 10 Spuren; eine `1fr`-Spur wird von einer `2fr`-Spur gefolgt. Dieses Muster wird fünfmal wiederholt.
 
 ```css
 .wrapper {
@@ -309,15 +309,17 @@ Die Wiederholungsnotation nimmt die Spurliste und verwendet sie, um ein sich wie
 }
 ```
 
-### Implizite und explizite Raster
+### Implizite und explizite Grids
 
-Als wir unser Beispielraster erstellten, definierten wir speziell unsere Spaltenspuren mit der {{cssxref("grid-template-columns")}}-Eigenschaft, aber das Raster erstellte auch eigenständig Reihen. Diese Reihen sind Teil des impliziten Rasters. Während das explizite Raster alle mit {{cssxref("grid-template-columns")}} oder {{cssxref("grid-template-rows")}} definierten Reihen und Spalten umfasst.
+Beim Erstellen unseres Beispielgrids haben wir unsere Spalten-Spuren explizit durch die Eigenschaft {{cssxref("grid-template-columns")}} definiert, wobei das Grid die Zeilen je nach Inhalt erstellt. Die Spalten bilden das explizite Grid, während die Zeilen Teil des impliziten Grids sind.
 
-Wenn Sie etwas außerhalb des definierten Rasters platzieren - oder aufgrund der Vielzahl von Inhalten mehr Rasterspuren benötigt werden - erstellt das Raster die erforderlichen Reihen und Spalten im impliziten Raster. Diese Spuren werden standardmäßig automatisch dimensioniert, basierend auf der Größe des Inhalts, der sich in ihnen befindet.
+Das _explizite Grid_ besteht aus Zeilen und Spalten, die mit {{cssxref("grid-template-columns")}} oder {{cssxref("grid-template-rows")}} definiert werden. Das _implizite Grid_ erweitert das definierte explizite Grid, wenn Inhalte außerhalb dieses Grids platziert werden, z. B. in Zeilen, durch das Ziehen zusätzlicher Grid-Linien.
 
-Sie können auch eine festgelegte Größe für Spuren definieren, die im impliziten Raster erstellt werden, unter Verwendung der {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} Eigenschaften.
+Platzieren Sie Inhalte außerhalb des definierten Grids – oder wenn durch die Menge an Inhalt weitere Grid-Spuren benötigt werden –, erstellt das Grid Zeilen und Spalten im _impliziten Grid_. Diese Spuren haben standardmäßig eine automatische Größe, weshalb ihre Größe basierend auf dem Inhalt bestimmt wird, der sich darin befindet.
 
-Im untenstehenden Beispiel verwenden wir `grid-auto-rows`, um sicherzustellen, dass im impliziten Raster erstellte Spuren eine Höhe von 200 Pixeln haben.
+Sie können auch eine feste Größe für Spuren definieren, die im impliziten Grid erstellt werden, indem Sie die Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} verwenden.
+
+In diesem Beispiel setzen wir `grid-auto-rows: 200px`, wodurch die Spuren, die in diesem impliziten Grid erstellt werden, 200 Pixel hoch sind.
 
 ```html
 <div class="wrapper">
@@ -361,9 +363,9 @@ Im untenstehenden Beispiel verwenden wir `grid-auto-rows`, um sicherzustellen, d
 
 ### Spurgrößen und minmax
 
-Beim Einrichten eines expliziten Rasters oder beim Definieren der Größe für automatisch erstellte Reihen oder Spalten möchten wir den Spuren möglicherweise eine Mindestgröße geben, aber auch sicherstellen, dass sie sich an den hinzugefügten Inhalt anpassen. Zum Beispiel möchte ich vielleicht, dass meine Reihen niemals kleiner als 100 Pixel werden, aber wenn mein Inhalt auf 300 Pixel in der Höhe ansteigt, möchte ich, dass sich die Reihe an diese Höhe anpasst.
+Beim Einrichten eines expliziten Grids oder beim Definieren der Größe für automatisch erstellte Zeilen oder Spalten möchten wir möglicherweise, dass Spuren eine Mindestgröße haben, aber gleichzeitig so breit sein können, wie der Inhalt es verlangt. Dies wird durch die Funktion {{cssxref("minmax", "minmax()")}} gelöst.
 
-Das Raster bietet hierfür eine Lösung mit der Funktion {{cssxref("minmax", "minmax()")}}. Im nächsten Beispiel verwende ich `minmax()` im Wert von {{cssxref("grid-auto-rows")}}. Das bedeutet, dass automatisch erstellte Reihen mindestens 100 Pixel hoch sind und maximal `auto`. Die Verwendung von `auto` bedeutet, dass die Größe den Inhaltsgröße berücksichtigt und sich ausdehnt, um Platz für das höchste Element in einer Zelle in dieser Reihe zu bieten.
+Im nächsten Beispiel verwenden wir `minmax()` innerhalb der Eigenschaft `grid-auto-rows`. Indem wir `grid-auto-rows: minmax(100px, auto);` setzen, haben automatisch erstellte Spuren eine Mindestgröße von `100px` und eine maximale Größe von `auto`. Die Angabe von `auto` als Wert für die maximale Größe bedeutet, dass die Spur sich an den Inhalt anpasst, basierend auf der höchsten Zelle des Inhalts.
 
 ```css
 .wrapper {
@@ -393,12 +395,12 @@ Das Raster bietet hierfür eine Lösung mit der Funktion {{cssxref("minmax", "mi
 }
 ```
 
-```html
+```html hidden
 <div class="wrapper">
   <div>One</div>
   <div>
     Two
-    <p>I have some more content in.</p>
+    <p>We have some more content.</p>
     <p>This makes me taller than 100 pixels.</p>
   </div>
   <div>Three</div>
@@ -407,23 +409,23 @@ Das Raster bietet hierfür eine Lösung mit der Funktion {{cssxref("minmax", "mi
 </div>
 ```
 
-{{ EmbedLiveSample('Track_sizing_and_minmax', '240', '470') }}
+{{ EmbedLiveSample('Track_sizing_and_minmax', '240', '270') }}
 
-## Rasterlinien
+## Grid-Linien
 
-Es sollte beachtet werden, dass wir beim Definieren eines Rasters die Spuren des Rasters, nicht die Linien, definieren. Raster gibt uns dann nummerierte Linien, die wir verwenden können, wenn wir Elemente positionieren. In unserem Raster mit drei Spalten und zwei Reihen haben wir vier Spaltenlinien.
+Es sollte beachtet werden, dass wir bei der Definition eines Grids die Grid-Spuren, nicht die Linien, definieren. Grid gibt uns dann nummerierte Linien, die wir für die Positionierung von Elementen verwenden können. In unserem dreispaltigen, zwei-zeiligen Grid haben wir vier Spaltenlinien.
 
-![Diagramm, das nummerierte Rasterlinien zeigt.](1_diagram_numbered_grid_lines.png)
+![Diagramm, das nummerierte Grid-Linien zeigt.](1_diagram_numbered_grid_lines.png)
 
-Die Linien sind entsprechend dem Schreibmodus des Dokuments nummeriert. In einer Sprache von links nach rechts befindet sich die Linie 1 auf der linken Seite des Rasters. In einer Sprache von rechts nach links befindet sie sich auf der rechten Seite des Rasters. Linien können auch benannt werden, und wir werden später in dieser Leitfadenreihe darauf eingehen, wie dies durchgeführt wird.
+Die Linien sind entsprechend der Schreibweise des Dokuments nummeriert. In einer links-nach-rechts-Sprache liegt Linie 1 auf der linken Seite des Grids. In einer rechts-nach-links-Sprache auf der rechten Seite. Linien können auch benannt werden, was im Leitfaden [Grid-Layout mit benannten Grid-Linien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) besprochen wird.
 
-### Positionierung von Elementen an Linien
+### Positionierung von Elementen anhand von Linien
 
-Wir werden die auf Linien basierende Platzierung ausführlich in einem späteren Artikel untersuchen. Das folgende Beispiel demonstriert dies auf einfache Weise. Beim Platzieren eines Elements zielen wir auf die Linie – statt auf die Spur.
+Das folgende Beispiel zeigt eine grundlegende, linienbasierte Positionierung. Dabei positioniert man ein Element an einer Linie und nicht auf der Spur. Weitere Informationen finden Sie im Leitfaden [Grid-Layout mit linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement).
 
-Im folgenden Beispiel platziere ich die ersten beiden Elemente auf unserem dreispurigen Spaltenraster unter Verwendung der Eigenschaften {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}}, {{cssxref("grid-row-start")}} und {{cssxref("grid-row-end")}}. Von links nach rechts wird das erste Element an der Spaltenlinie 1 platziert und spannt sich bis zur Spaltenlinie 4, die in unserem Fall die äußerste rechte Linie im Raster ist. Es beginnt an der Reihenlinie 1 und endet an der Reihenlinie 3 und spannt somit zwei Reihen-Spuren.
+Im Beispiel unten werden die ersten zwei Elemente unseres dreispaltigen Grid anhand der Eigenschaften {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}}, {{cssxref("grid-row-start")}} und {{cssxref("grid-row-end")}} positioniert. 
 
-Das zweite Element beginnt an der Spaltenlinie 1 des Rasters und überspannt eine Spur. Dies ist die Standardeinstellung, daher muss ich die Endlinie nicht angeben. Es überspannt auch zwei Zeilenspuren von der Zeilenlinie 3 bis zur Zeilenlinie 5. Die anderen Elemente werden sich in die leeren Räume im Raster platzieren.
+Das erste Element wird bei Spaltenlinie 1 gestartet und erstreckt sich bis zu Spaltenlinie 4. Es beginnt bei Zeilenlinie 1 und endet bei Zeilenlinie 3 und erstreckt sich damit über zwei Zeilen-Spuren. Das zweite Element beginnt bei Spaltenlinie 1 und erstreckt sich über einen Track. Es erstreckt sich ebenfalls über zwei Zeilen-Tracks, von Linie 3 bis Linie 5. Die anderen Elemente platzieren sich automatisch in den verbleibenden Platz im Grid.
 
 ```html
 <div class="wrapper">
@@ -478,14 +480,13 @@ Das zweite Element beginnt an der Spaltenlinie 1 des Rasters und überspannt ein
 
 {{ EmbedLiveSample('Positioning_items_against_lines', '230', '450') }}
 
-> [!NOTE]
-> Vergessen Sie nicht, dass Sie den [Grid Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html) in den Firefox Developer Tools verwenden können, um zu sehen, wie die Elemente gegen die Linien des Rasters positioniert sind.
+Verwenden Sie den Grid-Inspektor in Ihren Entwickler-Tools, um die Positionierung der Elemente an den Linien des Grids zu betrachten.
 
-### Kurzformen für die Linienpositionierung
+### Verkürzte Schreibweise für die Linienpositionierung
 
-Die im obigen Beispiel verwendeten Langformwerte können für Spalten mit {{cssxref("grid-column")}} und für Reihen mit {{cssxref("grid-row")}} auf eine Zeile komprimiert werden. Das folgende Beispiel würde die gleiche Positionierung wie im vorherigen Code bereitstellen, jedoch mit weit weniger CSS. Der Wert vor dem Schrägstrich (`/`) ist die Startlinie, der Wert danach die Endlinie.
+Die langen Werte, wie sie oben gezeigt wurden, können auf eine Zeile für Spalten mit dem {{cssxref("grid-column")}}-Kurzschreibweise oder für Zeilen mit {{cssxref("grid-row")}} komprimiert werden. Das folgende Beispiel liefert dieselbe Positionierung wie im vorherigen Code, jedoch mit viel weniger CSS. Der Wert vor dem Schrägstrich (`/`) ist die Startlinie, der Wert danach die Endlinie.
 
-Sie können den Endwert weglassen, wenn der Bereich nur eine Spur überspannt.
+Sie können den Endwert weglassen, wenn der Bereich nur eine Spur umfasst.
 
 ```css
 .wrapper {
@@ -505,21 +506,21 @@ Sie können den Endwert weglassen, wenn der Bereich nur eine Spur überspannt.
 }
 ```
 
-## Rasterzellen
+## Grid-Zellen
 
-Eine _Rasterzelle_ ist die kleinste Einheit in einem Raster. Konzeptionell ist sie wie eine Tabellenzelle. Wie wir in unseren früheren Beispielen gesehen haben, legen sich die Kindelemente in jeder definierten Rasterzelle an, sobald ein Raster als Elternteil definiert ist. Im folgenden Bild habe ich die erste Zelle des Rasters hervorgehoben.
+Eine _Grid-Zelle_ ist die kleinste Einheit in einem Grid. Konzeptuell ist sie wie eine Tabellenzelle. Wie in den vorherigen Beispielen gezeigt, werden Kind-Elemente in einer Zelle jeder definierten Grid-Spur angeordnet, sobald das Grid als übergeordnetes Element definiert ist. Im Bild unten ist die erste Zelle des Grids hervorgehoben.
 
-![Die erste Rasterzelle hervorgehoben](1_grid_cell.png)
+![Die erste Zelle des Grids ist hervorgehoben.](1_grid_cell.png)
 
-## Rasterbereiche
+## Grid-Bereiche
 
-Elemente können eine oder mehrere Zellen sowohl in der Reihe als auch in der Spalte überspannen, und dies schafft einen _Rasterbereich_. Rasterbereiche müssen rechteckig sein – es ist zum Beispiel nicht möglich, einen L-förmigen Bereich zu schaffen. Der hervorgehobene Rasterbereich umfasst zwei Reihen- und zwei Spaltenspuren.
+Elemente können sich sowohl über mehrere Zellen in Zeilen- als auch in Spaltenrichtung erstrecken und damit einen _Grid-Bereich_ bilden. Grid-Bereiche müssen rechteckig sein – es ist z.B. nicht möglich, einen L-förmigen Bereich zu erstellen. Der hervorgehobene Grid-Bereich erstreckt sich über zwei Zeilen- und zwei Spalten-Tracks.
 
-![Ein Rasterbereich](1_grid_area.png)
+![Ein Grid-Bereich.](1_grid_area.png)
 
 ## Zwischenräume
 
-_Zwischenräume_ oder _Gänge_ zwischen Rasterzellen können mit den Eigenschaften {{cssxref("column-gap")}} und {{cssxref("row-gap")}}, oder der Kurzform {{cssxref("gap")}} erstellt werden. Im untenstehenden Beispiel erstelle ich einen 10-Pixel-Abstand zwischen Spalten und einen `1em`-Abstand zwischen Reihen.
+_Zwischenräume_ oder _Abstände_ zwischen Grid-Zellen können mit den Eigenschaften {{cssxref("column-gap")}} und {{cssxref("row-gap")}} oder der Kurzform {{cssxref("gap")}} erstellt werden. Im Beispiel unten fügen wir einen 10-Pixel-Abstand zwischen den Spalten und einen `1em`-Abstand zwischen den Zeilen hinzu.
 
 ```css
 .wrapper {
@@ -529,11 +530,6 @@ _Zwischenräume_ oder _Gänge_ zwischen Rasterzellen können mit den Eigenschaft
   row-gap: 1em;
 }
 ```
-
-> [!NOTE]
-> Als das Raster erstmals in Browsern verfügbar wurde, wurden die Eigenschaften {{cssxref("column-gap")}}, {{cssxref("row-gap")}} und {{cssxref("gap")}} mit dem `grid-`-Präfix als `grid-column-gap`, `grid-row-gap` und `grid-gap` vorangestellt.
->
-> Alle Browser unterstützen jetzt nicht mehr vorangestellte Werte, jedoch werden die vorangestellten Versionen als Aliase beibehalten, was ihre Verwendung sicher macht.
 
 ```html
 <div class="wrapper">
@@ -569,17 +565,17 @@ _Zwischenräume_ oder _Gänge_ zwischen Rasterzellen können mit den Eigenschaft
 
 {{ EmbedLiveSample('Gutters') }}
 
-Der von Zwischenräumen genutzte Raum wird berücksichtigt, bevor Raum an die flexible Längeneinheit `fr`-Spuren zugewiesen wird, und Zwischenräume wirken für Zweck wie Größenverhältnisse wie eine reguläre Rasterspur, jedoch kann nichts in einen Zwischenraum platziert werden. In Bezug auf die auf Linien basierende Positionierung verhält sich der Zwischenraum wie eine dicke Linie.
+Jeder durch Lücken genutzte Raum wird vor der Zuweisung an die flexiblen `fr`-Spuren berücksichtigt, und Zwischenräume verhalten sich in Bezug auf die Größenanpassung wie eine reguläre Grid-Spur. Sie können jedoch nichts in eine Lücke setzen. In Bezug auf die linienbasierte Positionierung verhalten sich die Zwischenräume wie eine breite, transparente Linie.
 
-## Verschachtelung von Rastern
+## Geschachtelte Grids
 
-Ein Rasterelement kann ein Rastercontainer werden. Im folgenden Beispiel habe ich das zuvor erstellte dreispurige Raster mit unseren zwei positionierten Elementen. In diesem Fall hat das erste Element einige Unterelemente. Da diese Elemente keine direkten Kinder des Rasters sind, nehmen sie nicht am Rasterlayout teil und werden im normalen Dokumentenfluss angezeigt.
+Ein Grid-Element kann selbst zu einem Grid-Container werden. Im folgenden Beispiel erweitern wir das dreispaltige Grid mit den zuerst positionierten Elementen und fügen dem ersten Grid-Element Unterelemente hinzu. Da diese verschachtelten Elemente keine direkten Kinder des Grids sind, nehmen sie nicht am Grid-Layout teil und werden im normalen Dokumentfluss angezeigt.
 
-![Verschachteltes Raster im Fluss](1_nested_grids_in_flow.png)
+![Geschachteltes Grid im Fluss](1_nested_grids_in_flow.png)
 
-### Verschachtelung ohne Subgrid
+### Verschachtelung ohne Grid-Vererbung (Subgrid)
 
-Wenn ich `box1` auf `display: grid` setze, kann ich eine Spurdarstellung geben und es wird ebenfalls zu einem Raster. Die Elemente werden dann auf diesem neuen Raster angeordnet.
+Wenn wir `box1` auf `display: grid` setzen, können wir ihm eine Spurdefinition zuweisen, und es wird selbst ein Grid. Die Elemente ordnen sich dann gemäß diesem neuen Grid an.
 
 ```css
 .box1 {
@@ -640,15 +636,15 @@ Wenn ich `box1` auf `display: grid` setze, kann ich eine Spurdarstellung geben u
 }
 ```
 
-{{ EmbedLiveSample('Nesting_without_subgrid', '600', '340') }}
+{{ EmbedLiveSample('Nesting_without_subgrid', '600', '250') }}
 
-In diesem Fall hat das verschachtelte Raster keine Beziehung zum übergeordneten Raster. Wie Sie im Beispiel sehen können, hat es den {{cssxref("gap")}} des übergeordneten Rasters nicht geerbt und die Linien im verschachtelten Raster stimmen nicht mit den Linien im übergeordneten Raster überein.
+In diesem Fall besteht keine Beziehung zwischen dem verschachtelten Grid und dem übergeordneten Grid. Wie im Beispiel zu sehen ist, erbt es weder die {{cssxref("gap")}}-Eigenschaft des übergeordneten Grids, noch richten sich die Linien im verschachtelten Grid an den Linien des Hauptgrids aus.
 
 ### Subgrid
 
-Zusätzlich zu regulären Rastern erlaubt _Subgrid_ uns, verschachtelte Raster zu erstellen, die die Spurdarstellung des übergeordneten Rasters verwenden.
+Zusätzlich zu den regulären Grids können wir ein _Subgrid_ erstellen. Der Wert `subgrid` erlaubt uns, verschachtelte Grids zu erstellen, die die Spurdefinition des übergeordneten Grids nutzen.
 
-Um sie zu verwenden, bearbeiten wir das obige Beispiel des verschachtelten Rasters, um die Spurdarstellung von `grid-template-columns: repeat(3, 1fr)` in `grid-template-columns: subgrid` zu ändern. Das verschachtelte Raster verwendet dann die übergeordneten Rasterspuren, um Elemente anzuordnen.
+Um dies anzuwenden, ändern wir das oben genannte verschachtelte Grid-Beispiel und ersetzen in der Spurdefinition `grid-template-columns: repeat(3, 1fr)` durch `grid-template-columns: subgrid`. Das verschachtelte Grid verwendet dann die Spurdefinition des übergeordneten Grids, um seine Elemente zu organisieren.
 
 ```css
 .box1 {
@@ -661,13 +657,13 @@ Um sie zu verwenden, bearbeiten wir das obige Beispiel des verschachtelten Raste
 }
 ```
 
-## Stapeln von Elementen mit z-index
+## Überlappungen von Elementen mit z-index
 
-Rasterelemente können dieselbe Zelle belegen und in diesem Fall können wir die Eigenschaft {{cssxref("z-index")}} verwenden, um die Reihenfolge zu steuern, in der sich überlappende Elemente stapeln.
+Grid-Elemente können dieselbe Zelle belegen. In diesem Fall können wir die Reihenfolge der überlappenden Elemente mit der Eigenschaft {{cssxref("z-index")}} steuern.
 
 ### Überlappung ohne z-index
 
-Wenn wir zu unserem Beispiel mit durch Liniennummern positionierten Elementen zurückkehren, können wir dies ändern, um zwei Elemente überlappen zu lassen.
+Wenn wir zu unserem Beispiel mit anhand der Liniennummer positionierten Elementen zurückkehren, können wir dies so ändern, dass zwei Elemente überlappen.
 
 ```html
 <div class="wrapper">
@@ -722,11 +718,11 @@ Wenn wir zu unserem Beispiel mit durch Liniennummern positionierten Elementen zu
 
 {{ EmbedLiveSample('Overlapping_without_z-index', '230', '460') }}
 
-Das Element `box2` überlappt jetzt `box1` und wird darüber angezeigt, da es später in der Quellreihenfolge kommt.
+Das Element `box2` überlappt nun `box1` und wird darüber angezeigt, da es später im Dokumentenquellcode vorkommt.
 
-### Steuerung der Reihenfolge
+### Reihenfolge steuern
 
-Wir können die Reihenfolge, in der sich die Elemente stapeln, mit der `z-index`-Eigenschaft steuern – genauso wie positionierte Elemente. Wenn wir `box2` einen niedrigeren `z-index` als `box1` geben, wird es unter `box1` in der Stapelung angezeigt.
+Wir können die Anzeigereihenfolge wie bei positionierten Elementen mit dem `z-index`-Wert steuern. Wenn wir `box2` einen niedrigeren `z-index` als `box1` geben, wird es unter `box1` in der Schichtung angezeigt.
 
 ```css
 .wrapper {
@@ -781,8 +777,8 @@ Wir können die Reihenfolge, in der sich die Elemente stapeln, mit der `z-index`
 }
 ```
 
-{{ EmbedLiveSample('Controlling_the_order', '230', '460') }}
+{{ EmbedLiveSample('Controlling_the_order', '230', '420') }}
 
 ## Nächste Schritte
 
-In diesem Artikel haben wir einen sehr kurzen Blick auf die Möglichkeiten der Rasterlayouts geworfen. Erkunden und experimentieren Sie mit den Codebeispielen und gehen Sie dann weiter zum [nächsten Teil dieses Leitfadens](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods), wo wir wirklich anfangen werden, die Details des CSS-Rasterlayouts zu erforschen.
+In dieser Übersicht haben wir einen schnellen Einblick in die Möglichkeiten des Grid-Layouts geworfen. Experimentieren Sie mit den Code-Beispielen und gehen Sie dann zum Leitfaden [Verhältnis des Grid-Layouts zu anderen Layout-Methoden](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods) über, um die Details des CSS Grid-Layouts ausführlich zu erforschen.

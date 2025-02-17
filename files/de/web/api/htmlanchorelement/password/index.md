@@ -3,16 +3,18 @@ title: "HTMLAnchorElement: password-Eigenschaft"
 short-title: password
 slug: Web/API/HTMLAnchorElement/password
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.password`**-Eigenschaft ist ein String, der das vor dem Domainnamen angegebene Passwort enthält.
+Die **`password`**-Eigenschaft der [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Schnittstelle ist ein String, der die Passwort-Komponente des `href`-Attributs des `<a>`-Elements enthält. Wenn die URL kein Passwort hat, enthält diese Eigenschaft einen leeren String, `""`.
 
-Wenn es gesetzt wird, ohne vorher die
-[`username`](/de/docs/Web/API/HTMLAnchorElement/username)
-Eigenschaft festzulegen, schlägt es stillschweigend fehl.
+Diese Eigenschaft kann gesetzt werden, um das Passwort der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/HTMLAnchorElement/host) hat oder ihr Schema `file:` ist, hat das Setzen dieser Eigenschaft keine Wirkung.
+
+Das Passwort wird beim Setzen {{Glossary("Percent-encoding", "prozentkodiert")}}, aber beim Abrufen nicht prozent-dekodiert.
+
+Siehe [`URL.password`](/de/docs/Web/API/URL/password) für weitere Informationen.
 
 ## Wert
 
@@ -36,4 +38,4 @@ anchor.password; // returns 'flabada'
 
 ## Siehe auch
 
-- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Interface, zu dem es gehört.
+- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Schnittstelle, zu der sie gehört.

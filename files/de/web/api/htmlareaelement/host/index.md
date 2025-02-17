@@ -3,15 +3,14 @@ title: "HTMLAreaElement: host-Eigenschaft"
 short-title: host
 slug: Web/API/HTMLAreaElement/host
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.host`**-Eigenschaft ist ein
-String, der den Host enthält, das heißt den _Hostnamen_, und dann,
-wenn der _Port_ der URL nicht leer ist, ein `':'`, und den _Port_
-der URL.
+Die **`host`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle ist ein String, der den Host enthält. Dieser besteht aus dem [`hostname`](/de/docs/Web/API/HTMLAreaElement/hostname) und, falls der {{Glossary("port", "port")}} der URL nicht leer ist, einem `":"`, gefolgt vom [`port`](/de/docs/Web/API/HTMLAreaElement/port) der URL. Wenn die URL keinen `hostname` hat, enthält diese Eigenschaft einen leeren String, `""`.
+
+Weitere Informationen finden Sie unter [`URL.host`](/de/docs/Web/API/URL/host).
 
 ## Wert
 
@@ -43,4 +42,4 @@ area.host === "developer.mozilla.org:4097";
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.
+- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der es gehört.

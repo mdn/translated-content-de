@@ -3,24 +3,24 @@ title: "HTMLAreaElement: hash-Eigenschaft"
 short-title: hash
 slug: Web/API/HTMLAreaElement/hash
 l10n:
-  sourceCommit: a2847ff3788f224ffb4cdf05cb0139e07fde7533
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLAreaElement.hash`**-Eigenschaft gibt eine Zeichenkette zurück, die ein `'#'` enthält, gefolgt vom Fragmentbezeichner der URL.
+Die **`hash`**-Eigenschaft der Schnittstelle [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) ist ein String, der ein `"#"` gefolgt vom Fragmentidentifikator des `href`-Attributs des `<area>`-Elements enthält. Wenn die URL keinen Fragmentidentifikator hat, enthält diese Eigenschaft einen leeren String, `""`.
 
-Das Fragment ist nicht {{Glossary("Percent-encoding", "percent-codiert")}}. Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft eine leere Zeichenkette, `""`.
+Weitere Informationen finden Sie unter [`URL.hash`](/de/docs/Web/API/URL/hash).
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
-### Den Hash von einem Bereichslink abrufen
+### Den Hash eines Area-Links abrufen
 
-Gegeben ist dieses HTML
+Angenommen, dieses HTML:
 
 ```html
 <map name="infographic">
@@ -38,7 +38,7 @@ Gegeben ist dieses HTML
   alt="MDN infographic" />
 ```
 
-können Sie den Hash des Bereichslinks so abrufen:
+Dann können Sie den Hash des Area-Links so abrufen:
 
 ```js
 const area = document.getElementById("mdn-circle");
@@ -55,4 +55,4 @@ area.hash; // '#ExampleSection'
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.
+- Die Schnittstelle [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement), zu der sie gehört.

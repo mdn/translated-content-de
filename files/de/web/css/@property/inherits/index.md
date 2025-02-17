@@ -2,12 +2,13 @@
 title: inherits
 slug: Web/CSS/@property/inherits
 l10n:
-  sourceCommit: 6834ad69f8844894e0578ea06375e3e1e1e17e73
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}
 
-Der **`inherits`** [CSS](/de/docs/Web/CSS)-Deskriptor der {{cssxref("@property")}} [at-rule](/de/docs/Web/CSS/At-rule) steuert, ob die registrierte [CSS Custom Property](/de/docs/Web/CSS/--*) standardmäßig vererbt wird oder nicht. Es ist ein erforderlicher Deskriptor; fehlt er oder ist er ungültig, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
+Der **`inherits`** [CSS](/de/docs/Web/CSS)-Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) steuert, ob die registrierte [CSS- benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) standardmäßig vererbt wird oder nicht.  
+Es handelt sich um einen erforderlichen Deskriptor; fehlt er oder ist ungültig, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
 
 ## Syntax
 
@@ -30,15 +31,15 @@ inherits: true;
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Einstellen des Verhaltens der Vererbung einer benutzerdefinierten Eigenschaft
+### Festlegen des Verhaltens der Vererbung einer benutzerdefinierten Eigenschaft
 
-Dieses Beispiel zeigt, wie eine benutzerdefinierte Eigenschaft `--my-color` definiert wird, die ihren Wert nicht von ihren Elternelementen erbt:
+Dieses Beispiel zeigt, wie Sie eine benutzerdefinierte Eigenschaft `--my-color` definieren, die ihren Wert nicht von ihren Elternelementen erbt:
 
 ```css
 @property --my-color {
@@ -69,7 +70,7 @@ window.CSS.registerProperty({
 
 ## Siehe auch
 
-- Andere {{cssxref("@property")}} Deskriptoren: {{cssxref("@property/initial-value", "initial-value")}} und {{cssxref("@property/syntax","syntax")}}
+- Andere {{cssxref("@property")}}-Deskriptoren: {{cssxref("@property/initial-value", "initial-value")}} und {{cssxref("@property/syntax","syntax")}}
 - [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API)
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
 - [CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API)

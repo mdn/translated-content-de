@@ -2,18 +2,18 @@
 title: <hue-interpolation-method>
 slug: Web/CSS/hue-interpolation-method
 l10n:
-  sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Der **`<hue-interpolation-method>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert den Algorithmus, der zur Interpolation zwischen {{CSSXref("&lt;hue&gt;")}}-Werten verwendet wird. Die Interpolationsmethode gibt an, wie ein Mittelpunkt zwischen zwei Farbtonwerten basierend auf einem Farbkreis gefunden wird. Es wird als Komponente des {{CSSXref("&lt;color-interpolation-method&gt;")}}-Datentyps verwendet.
+Der **`<hue-interpolation-method>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert den Algorithmus, der für die Interpolation zwischen {{CSSXref("&lt;hue&gt;")}}-Werten verwendet wird. Die Interpolationsmethode legt fest, wie ein Mittelpunkt zwischen zwei Farbtonwerten basierend auf einem Farbkreis gefunden wird. Sie wird als Bestandteil des Datentyps {{CSSXref("&lt;color-interpolation-method&gt;")}} verwendet.
 
-Bei der Interpolation von `<hue>`-Werten standardisiert der Farbtoninterpolationsalgorithmus auf [`shorter`](#shorter).
+Bei der Interpolation von `<hue>`-Werten verwendet der Farbton-Interpolationsalgorithmus standardmäßig [`shorter`](#shorter).
 
 ## Syntax
 
-Ein `<hue-interpolation-method>`-Wert besteht aus dem Namen eines Farbtoninterpolationsalgorithmus, gefolgt von einem literalen Token `hue`:
+Ein `<hue-interpolation-method>`-Wert besteht aus dem Namen eines Farbton-Interpolationsalgorithmus, gefolgt von einem literalen Token `hue`:
 
 ```plain
 shorter hue
@@ -24,62 +24,62 @@ decreasing hue
 
 ### Werte
 
-Jedes Paar von Farbtonwinkeln entspricht zwei Radien auf dem {{Glossary("color_wheel", "Farbkreis")}}, die den Umfang in zwei mögliche Bögen für die Interpolation schneiden. Beide Bögen beginnen am ersten Radius und enden am zweiten Radius, aber einer verläuft im Uhrzeigersinn und der andere gegen den Uhrzeigersinn.
+Jedes Paar von Farbtonwinkeln entspricht zwei Radien auf dem {{Glossary("color_wheel", "Farbkreis")}}, die den Umfang in zwei mögliche Bögen für die Interpolation aufteilen. Beide Bögen beginnen am ersten Radius und enden am zweiten Radius, wobei einer im Uhrzeigersinn und der andere gegen den Uhrzeigersinn verläuft.
 
 > [!NOTE]
-> Die folgenden Beschreibungen und Illustrationen basieren auf Farbkreisen, in denen Farbtonwinkel im Uhrzeigersinn zunehmen. Beachten Sie, dass es Farbkreise gibt, bei denen eine Zunahme der Winkel eine gegen den Uhrzeigersinn gerichtete Operation ist.
+> Die folgenden Beschreibungen und Abbildungen basieren auf Farbkreisen, bei denen Farbtonwinkel im Uhrzeigersinn zunehmen. Beachten Sie, dass es Farbkreise gibt, bei denen eine Zunahme der Winkel gegen den Uhrzeigersinn erfolgt.
 
-Für ein Paar von Farbtonwinkeln `θ1` und `θ2`, die auf den Bereich `[0deg, 360deg)` normalisiert sind, gibt es vier Algorithmen, um zu bestimmen, welcher Bogen verwendet wird, wenn von `θ1` zu `θ2` interpoliert wird:
+Für ein Paar von Farbtonwinkeln `θ1` und `θ2`, die auf den Bereich `[0deg, 360deg)` normalisiert sind, gibt es vier Algorithmen, um zu bestimmen, welcher Bogen bei der Interpolation von `θ1` nach `θ2` verwendet wird:
 
 - `shorter`
 
-  - : Verwende den kürzeren Bogen. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzigen Punkt. Wenn beide Bögen die gleiche Länge haben:
+  - : Verwendet den kürzeren Bogen. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzigen Punkt. Wenn beide Bögen gleich lang sind:
 
-    - Wenn `θ1 < θ2`, verwende den im Uhrzeigersinn verlaufenden Bogen;
-    - Wenn `θ1 > θ2`, verwende den gegen den Uhrzeigersinn verlaufenden Bogen.
+    - Wenn `θ1 < θ2`, wird der Bogen im Uhrzeigersinn verwendet;
+    - Wenn `θ1 > θ2`, wird der Bogen gegen den Uhrzeigersinn verwendet.
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                       | `θ1 = 135deg`, `θ2 = 45deg`                                       |
-    | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+    | `θ1 = 45deg`, `θ2 = 135deg`                                        | `θ1 = 135deg`, `θ2 = 45deg`                                        |
+    | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
     | ![shorter mit θ1 = 45deg und θ2 = 135deg](shorter_increasing.png) | ![shorter mit θ1 = 135deg und θ2 = 45deg](shorter_decreasing.png) |
 
 - `longer`
 
-  - : Verwende den längeren Bogen. Wenn die beiden Radien zusammenfallen:
+  - : Verwendet den längeren Bogen. Wenn die beiden Radien zusammenfallen:
 
-    - Wenn `θ1 ≤ θ2`, wird der Bogen zum vollen Umfang mit im Uhrzeigersinn verlaufender Orientierung.
-    - Wenn `θ1 > θ2`, wird der Bogen zum vollen Umfang mit gegen den Uhrzeigersinn verlaufender Orientierung.
+    - Wenn `θ1 ≤ θ2`, wird der Bogen zum gesamten Umfang mit Uhrzeigersinn-Orientierung.
+    - Wenn `θ1 > θ2`, wird der Bogen zum gesamten Umfang mit gegen den Uhrzeigersinn-Orientierung.
 
-    Wenn beide Bögen die gleiche Länge haben:
+    Wenn beide Bögen gleich lang sind:
 
-    - Wenn `θ1 < θ2`, verwende den im Uhrzeigersinn verlaufenden Bogen;
-    - Wenn `θ1 > θ2`, verwende den gegen den Uhrzeigersinn verlaufenden Bogen.
+    - Wenn `θ1 < θ2`, wird der Bogen im Uhrzeigersinn verwendet;
+    - Wenn `θ1 > θ2`, wird der Bogen gegen den Uhrzeigersinn verwendet.
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                     | `θ1 = 135deg`, `θ2 = 45deg`                                     |
-    | --------------------------------------------------------------- | --------------------------------------------------------------- |
+    | `θ1 = 45deg`, `θ2 = 135deg`                                      | `θ1 = 135deg`, `θ2 = 45deg`                                      |
+    | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
     | ![longer mit θ1 = 45deg und θ2 = 135deg](longer_decreasing.png) | ![longer mit θ1 = 135deg und θ2 = 45deg](longer_increasing.png) |
 
 - `increasing`
 
-  - : Verwende den im Uhrzeigersinn verlaufenden Bogen. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzigen Punkt.
+  - : Verwendet den Bogen im Uhrzeigersinn. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzigen Punkt.
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                          | `θ1 = 135deg`, `θ2 = 45deg`                                         |
-    | -------------------------------------------------------------------- | ------------------------------------------------------------------- |
+    | `θ1 = 45deg`, `θ2 = 135deg`                                           | `θ1 = 135deg`, `θ2 = 45deg`                                          |
+    | --------------------------------------------------------------------- | -------------------------------------------------------------------- |
     | ![increasing mit θ1 = 45deg und θ2 = 135deg](shorter_increasing.png) | ![increasing mit θ1 = 135deg und θ2 = 45deg](longer_increasing.png) |
 
 - `decreasing`
 
-  - : Verwende den gegen den Uhrzeigersinn verlaufenden Bogen. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzigen Punkt.
+  - : Verwendet den Bogen gegen den Uhrzeigersinn. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzigen Punkt.
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                         | `θ1 = 135deg`, `θ2 = 45deg`                                          |
-    | ------------------------------------------------------------------- | -------------------------------------------------------------------- |
+    | `θ1 = 45deg`, `θ2 = 135deg`                                          | `θ1 = 135deg`, `θ2 = 45deg`                                           |
+    | -------------------------------------------------------------------- | --------------------------------------------------------------------- |
     | ![decreasing mit θ1 = 45deg und θ2 = 135deg](longer_decreasing.png) | ![decreasing mit θ1 = 135deg und θ2 = 45deg](shorter_decreasing.png) |
 
-Da es nur zwei Bögen zur Auswahl gibt, sind diese Algorithmen paarweise gleichwertig unter bestimmten Umständen. Insbesondere:
+Da es nur zwei Bögen zur Auswahl gibt, sind diese Algorithmen unter bestimmten Umständen paarweise gleichwertig. Insbesondere:
 
 - Wenn `0deg < θ2 - θ1 < 180deg` oder `θ2 - θ1 < -180deg`, sind `shorter` und `increasing` gleichwertig, während `longer` und `decreasing` gleichwertig sind.
 - Wenn `-180deg < θ2 - θ1 < 0deg` oder `θ2 - θ1 > 180deg`, sind `shorter` und `decreasing` gleichwertig, während `longer` und `increasing` gleichwertig sind.
 
-Ein bemerkenswertes Merkmal von `increasing` und `decreasing` ist, dass, wenn der Farbtonwinkeldifferenz während der Übergänge oder Animationen `180deg` überschreitet, der Bogen nicht umschlägt wie bei `shorter` und `longer`.
+Ein bemerkenswertes Merkmal von `increasing` und `decreasing` ist, dass, wenn der Farbtonwinkeldifferenz während einer Transition oder Animation durch `180deg` geht, der Bogen nicht wie bei `shorter` und `longer` auf die andere Seite wechselt.
 
 ## Formale Syntax
 
@@ -87,9 +87,9 @@ Ein bemerkenswertes Merkmal von `increasing` und `decreasing` ist, dass, wenn de
 
 ## Beispiele
 
-### Vergleich von Farbtoninterpolationsalgorithmen
+### Vergleich von Farbton-Interpolationsalgorithmen
 
-Das folgende Beispiel zeigt die Auswirkungen der Verwendung verschiedener Farbtoninterpolationsalgorithmen in einem {{CSSXref("gradient/linear-gradient", "linear-gradient()")}}.
+Das folgende Beispiel zeigt die Wirkung der Verwendung verschiedener Farbton-Interpolationsalgorithmen in einem {{CSSXref("gradient/linear-gradient", "linear-gradient()")}}.
 
 #### HTML
 

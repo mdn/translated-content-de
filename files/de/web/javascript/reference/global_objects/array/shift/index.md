@@ -2,13 +2,12 @@
 title: Array.prototype.shift()
 slug: Web/JavaScript/Reference/Global_Objects/Array/shift
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 2e6d901aaa8d1e5c99f92e7fb62d637e2f9899ec
 ---
 
 {{JSRef}}
 
-Die Methode **`shift()`** von {{jsxref("Array")}}-Instanzen entfernt das **erste**
-Element eines Arrays und gibt dieses entfernte Element zurück. Diese Methode ändert die Länge des Arrays.
+Die Methode **`shift()`** von {{jsxref("Array")}}-Instanzen entfernt das **erste** Element aus einem Array und gibt dieses entfernte Element zurück. Diese Methode verändert die Länge des Arrays.
 
 {{InteractiveExample("JavaScript Demo: Array.shift()")}}
 
@@ -36,23 +35,23 @@ Keine.
 
 ### Rückgabewert
 
-Das entfernte Element aus dem Array; {{jsxref("undefined")}} wenn das Array leer ist.
+Das entfernte Element des Arrays; {{jsxref("undefined")}}, wenn das Array leer ist.
 
 ## Beschreibung
 
-Die `shift()`-Methode entfernt das Element am nullten Index, verschiebt die Werte an den folgenden Indizes nach unten und gibt dann den entfernten Wert zurück. Falls die {{jsxref("Array/length", "length")}}-Eigenschaft 0 ist, wird {{jsxref("undefined")}} zurückgegeben.
+Die Methode `shift()` verschiebt alle Werte um 1 nach links und reduziert die Länge um 1, wodurch das erste Element entfernt wird. Falls die {{jsxref("Array/length", "length")}}-Eigenschaft 0 ist, wird {{jsxref("undefined")}} zurückgegeben.
 
-Die Methode {{jsxref("Array/pop", "pop()")}} verhält sich ähnlich wie `shift()`, wird jedoch auf das letzte Element eines Arrays angewendet.
+Die Methode {{jsxref("Array/pop", "pop()")}} verhält sich ähnlich wie `shift()`, wird jedoch auf das letzte Element eines Arrays angewandt.
 
-Die `shift()`-Methode ist eine [mutierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie ändert die Länge und den Inhalt von `this`. Wenn Sie den Wert von `this` unverändert lassen, aber ein neues Array mit dem entfernten ersten Element zurückgeben möchten, können Sie stattdessen [`arr.slice(1)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) verwenden.
+Die Methode `shift()` ist eine [verändernde Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie ändert die Länge und den Inhalt von `this`. Falls Sie den Wert von `this` beibehalten und stattdessen ein neues Array mit entferntem ersten Element zurückgeben möchten, können Sie [`arr.slice(1)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) verwenden.
 
-Die `shift()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integerindizierte Eigenschaften hat. Obwohl Zeichenketten ebenfalls array-ähnlich sind, ist diese Methode für sie nicht geeignet, da Zeichenketten unveränderlich sind.
+Die Methode `shift()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der Wert von `this` eine `length`-Eigenschaft und integer-indizierte Eigenschaften hat. Obwohl Zeichenketten ebenfalls array-ähnlich sind, ist diese Methode nicht dafür geeignet, auf sie angewandt zu werden, da Zeichenketten unveränderlich sind.
 
 ## Beispiele
 
 ### Entfernen eines Elements aus einem Array
 
-Der folgende Code zeigt das Array `myFish` vor und nach dem Entfernen des ersten Elements. Außerdem wird das entfernte Element angezeigt:
+Der folgende Code zeigt das `myFish`-Array vor und nach dem Entfernen seines ersten Elements. Außerdem zeigt es das entfernte Element:
 
 ```js
 const myFish = ["angel", "clown", "mandarin", "surgeon"];
@@ -69,9 +68,9 @@ console.log("Removed this element:", shifted);
 // Removed this element: angel
 ```
 
-### Verwendung der shift()-Methode in einer While-Schleife
+### Verwendung der shift()-Methode in einer while-Schleife
 
-Die `shift()`-Methode wird häufig in einer Bedingung innerhalb einer While-Schleife verwendet. Im folgenden Beispiel wird in jeder Iteration das nächste Element aus einem Array entfernt, bis es leer ist:
+Die Methode `shift()` wird häufig in der Bedingung innerhalb einer `while`-Schleife verwendet. Im folgenden Beispiel entfernt jede Iteration das nächste Element aus einem Array, bis es leer ist:
 
 ```js
 const names = ["Andrew", "Tyrone", "Paul", "Maria", "Gayatri"];
@@ -82,9 +81,9 @@ while (typeof (i = names.shift()) !== "undefined") {
 // Andrew, Tyrone, Paul, Maria, Gayatri
 ```
 
-### Aufruf von shift() bei nicht-arrayartigen Objekten
+### Aufruf von shift() auf Nicht-Array-Objekten
 
-Die `shift()`-Methode liest die `length`-Eigenschaft von `this`. Wenn die [normalisierte Länge](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#normalization_of_the_length_property) 0 ist, wird `length` erneut auf `0` gesetzt (obwohl sie möglicherweise negativ oder `undefined` war). Andernfalls wird die Eigenschaft bei Index `0` zurückgegeben, und die übrigen Eigenschaften werden um eins nach links verschoben. Die `length`-Eigenschaft wird um eins verringert.
+Die Methode `shift()` liest die `length`-Eigenschaft von `this`. Falls die [normalisierte Länge](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#normalization_of_the_length_property) 0 ist, wird `length` erneut auf `0` gesetzt (während sie möglicherweise negativ oder `undefined` war). Andernfalls wird die Eigenschaft bei `0` zurückgegeben und der Rest der Eigenschaften um eins nach links verschoben. Die Eigenschaft bei `length - 1` wird [gelöscht](/de/docs/Web/JavaScript/Reference/Operators/delete), und die `length`-Eigenschaft wird um eins verringert.
 
 ```js
 const arrayLike = {
@@ -114,7 +113,7 @@ console.log(plainObj);
 
 ## Siehe auch
 
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)-Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.push()")}}
 - {{jsxref("Array.prototype.pop()")}}

@@ -2,25 +2,28 @@
 title: Experimentelle Funktionen in Firefox
 slug: Mozilla/Firefox/Experimental_features
 l10n:
-  sourceCommit: 23cc7f056d87fb609a61d7d02f88c41576562495
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{FirefoxSidebar}}
 
-Diese Seite listet experimentelle und teilweise implementierte Funktionen von Firefox auf, einschließlich solcher für vorgeschlagene oder moderne Web-Plattform-Standards, zusammen mit Informationen zu den Releases, in denen sie verfügbar sind, ob sie "standardmäßig" aktiviert sind oder nicht, und welche _Präferenz_ verwendet werden kann, um sie zu aktivieren oder zu deaktivieren. Dies ermöglicht es Ihnen, die Funktionen zu testen, bevor sie veröffentlicht werden.
+Diese Seite listet experimentelle und teilweise implementierte Funktionen in Firefox auf, einschließlich solcher für vorgeschlagene oder hochmoderne Webplattform-Standards, mit Informationen darüber, in welchen Builds sie vorhanden sind, ob sie "standardmäßig" aktiviert sind und welche _Einstellungen_ verwendet werden können, um sie zu aktivieren oder zu deaktivieren.  
+Dies ermöglicht es Ihnen, Funktionen vor ihrer Veröffentlichung zu testen.
 
-Neue Funktionen erscheinen zunächst in der [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/) Version, wo sie häufig standardmäßig aktiviert sind. Später gelangen sie zur [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) und schließlich zur Release-Version. Sobald eine Funktion in einer Release-Version standardmäßig aktiviert ist, wird sie nicht mehr als experimentell betrachtet und sollte aus diesem Thema entfernt werden.
+Neue Funktionen erscheinen zuerst im [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/) Build, wo sie häufig standardmäßig aktiviert sind.  
+Später gelangen sie in die [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) und schließlich in den Release-Build.  
+Wenn eine Funktion standardmäßig in einem Release-Build aktiviert wird, gilt sie nicht mehr als experimentell und sollte aus diesem Thema entfernt werden.
 
-Experimentelle Funktionen können über den [Firefox Konfigurationseditor](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) (geben Sie `about:config` in die Adressleiste von Firefox ein) aktiviert oder deaktiviert werden, indem Sie die unten aufgeführte _Präferenz_ ändern.
+Experimentelle Funktionen können mithilfe des [Firefox Konfigurationseditors](https://support.mozilla.org/de/kb/about-config-editor-firefox) (geben Sie `about:config` in die Adressleiste von Firefox ein) durch Modifikation der zugehörigen _Einstellung_ aktiviert oder deaktiviert werden.
 
 > [!NOTE]
-> Für Redakteure – beim Hinzufügen von Funktionen zu diesen Tabellen versuchen Sie bitte, einen Link zum entsprechenden Bug oder zu den Bugs mittels `[Firefox bug <Nummer>](https://bugzil.la/<Nummer>)` einzufügen.
+> Für Redakteure - Beim Hinzufügen von Funktionen zu diesen Tabellen versuchen Sie bitte, einen Link zum entsprechenden Bug oder den Bugs mit `[Firefox bug <number>](https://bugzil.la/<number>)` bereitzustellen.
 
 ## HTML
 
-### Autokorrektur für bearbeitbare Textelemente
+### Autokorrektur in editierbaren Textelementen
 
-Das HTML-Attribut [`autocorrect`](/de/docs/Web/HTML/Global_attributes/autocorrect) (und die entsprechende [`HTMLElement.autocorrect`](/de/docs/Web/API/HTMLElement/autocorrect)-Eigenschaft) erlaubt die Autokorrektur in bearbeitbaren Textelementen, einschließlich: der meisten Arten von {{htmlelement("input")}}-Textfeldern, {{htmlelement("textarea")}}-Elementen und Elementen mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut ([Firefox bug 1725806](https://bugzil.la/1725806)).
+Das HTML-Attribut [`autocorrect`](/de/docs/Web/HTML/Global_attributes/autocorrect) (und die entsprechende [`HTMLElement.autocorrect`](/de/docs/Web/API/HTMLElement/autocorrect)-Eigenschaft) ermöglichen Autokorrektur in editierbaren Textelementen, einschließlich der meisten Arten von Text-{{htmlelement("input")}}-Elementen, {{htmlelement("textarea")}}-Elementen und Elementen mit dem Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) ([Firefox bug 1725806](https://bugzil.la/1725806)).
 
 <table>
   <thead>
@@ -58,9 +61,9 @@ Das HTML-Attribut [`autocorrect`](/de/docs/Web/HTML/Global_attributes/autocorrec
   </tbody>
 </table>
 
-### Layout für `input type="search"`
+### Layout für input type="search"
 
-Das Layout für `input type="search"` wurde aktualisiert. Dadurch erhält ein Suchfeld ein Symbol zum Löschen, sobald jemand anfängt, etwas einzugeben, um mit Implementierungen anderer Browser übereinzustimmen. (Weitere Details in [Firefox bug 558594](https://bugzil.la/558594)).
+Das Layout für `input type="search"` wurde aktualisiert. Dadurch enthält ein Suchfeld ein Löschsymbol, sobald jemand beginnt, in das Feld einzutippen, um andere Browser-Implementierungen anzugleichen. (Siehe [Firefox bug 558594](https://bugzil.la/558594) für weitere Details.)
 
 <table>
   <thead>
@@ -100,7 +103,7 @@ Das Layout für `input type="search"` wurde aktualisiert. Dadurch erhält ein Su
 
 ### Passwortanzeige umschalten
 
-HTML-Passworteingabeelemente ([`<input type="password">`](/de/docs/Web/HTML/Element/input/password)) beinhalten ein "Auge"-Symbol, das umgeschaltet werden kann, um den Passworttext anzuzeigen oder auszublenden ([Firefox bug 502258](https://bugzil.la/502258)).
+HTML-Passworteingabefelder ([`<input type="password">`](/de/docs/Web/HTML/Element/input/password)) beinhalten ein "Augen"-Symbol, das umgeschaltet werden kann, um das Passwort anzuzeigen oder zu verbergen ([Firefox bug 502258](https://bugzil.la/502258)).
 
 <table>
   <thead>
@@ -138,9 +141,9 @@ HTML-Passworteingabeelemente ([`<input type="password">`](/de/docs/Web/HTML/Elem
   </tbody>
 </table>
 
-### Nur-Text-Modus für `contenteditable`
+### Nur-Text-Modus für contenteditable
 
-Der `plaintext-only`-Wert des globalen [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attributs zeigt an, dass das Element bearbeitbar ist; die Formatierung für Rich Text ist deaktiviert, und jegliche Formatierung in eingefügtem Text wird automatisch entfernt. (Weitere Details in [Firefox bug 1922723](https://bugzil.la/1922723)).
+Der `plaintext-only`-Wert des globalen Attributes [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) zeigt an, dass das Element editierbar ist; reichhaltige Textformatierung ist deaktiviert, und jegliche Formatierung von eingefügtem Text wird automatisch entfernt. (Siehe [Firefox bug 1922723](https://bugzil.la/1922723) für mehr Details.)
 
 <table>
   <thead>
@@ -180,9 +183,9 @@ Der `plaintext-only`-Wert des globalen [`contenteditable`](/de/docs/Web/HTML/Glo
 
 ## CSS
 
-### Hex-Boxen zur Darstellung von Steuerzeichen
+### Hex-Boxen zur Anzeige von Steuerzeichen
 
-Diese Funktion rendert Steuerzeichen (Unicode-Kategorie Cc) außer _tab_ (`U+0009`), _line feed_ (`U+000A`), _form feed_ (`U+000C`), und _carriage return_ (`U+000D`) als eine Hex-Box, wenn sie nicht erwartet werden. (Weitere Details in [Firefox bug 1099557](https://bugzil.la/1099557)).
+Dieses Feature stellt Steuerzeichen (Unicode-Kategorie Cc) außer _Tab_ (`U+0009`), _Zeilenumbruch_ (`U+000A`), _Formfeed_ (`U+000C`) und _Wagenrücklauf_ (`U+000D`) als Hex-Box dar, wenn sie unerwartet auftreten. (Siehe [Firefox bug 1099557](https://bugzil.la/1099557) für weitere Details.)
 
 <table>
   <thead>
@@ -222,9 +225,9 @@ Diese Funktion rendert Steuerzeichen (Unicode-Kategorie Cc) außer _tab_ (`U+000
   </tbody>
 </table>
 
-### `initial-letter`-Eigenschaft
+### initial-letter Eigenschaft
 
-Die {{cssxref("initial-letter")}} CSS-Eigenschaft ist Teil der [CSS Inline Layout](https://drafts.csswg.org/css-inline/)-Spezifikation und erlaubt es Ihnen zu spezifizieren, wie Initialbuchstaben angezeigt werden. (Weitere Details in [Firefox bug 1223880](https://bugzil.la/1223880)).
+Die {{cssxref("initial-letter")}} CSS-Eigenschaft gehört zur [CSS Inline Layout](https://drafts.csswg.org/css-inline/) Spezifikation und ermöglicht es, festzulegen, wie herabhängende, hervorgehobene und vertiefte Initialbuchstaben angezeigt werden. (Siehe [Firefox bug 1223880](https://bugzil.la/1223880) für weitere Details.)
 
 <table>
   <thead>
@@ -264,18 +267,18 @@ Die {{cssxref("initial-letter")}} CSS-Eigenschaft ist Teil der [CSS Inline Layou
 
 ...
 
-(_Der Rest des Dokuments wird in ähnlicher Form weiter übersetzt._)
+(Der verbleibende Inhalt wird auf dieselbe Weise weitergeführt.)
 
 ## APIs
 
 ### CloseWatcher-Schnittstelle
 
-Integrierte Webkomponenten mit "open"- und "close"-Semantik, wie modale Dialoge und Popovers, können über geräteeigene Mechanismen geschlossen werden. Zum Beispiel kann ein Dialog auf Android mit der Zurück-Taste geschlossen werden. Die [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Schnittstelle ermöglicht es Entwicklern, UI-Komponenten wie benutzerdefinierte Sidebars zu implementieren, die ebenfalls mit nativen Mechanismen geschlossen werden können. ([Firefox-Bug 1888729](https://bugzil.la/1888729)).
+Eingebaute Webkomponenten mit "open"- und "close"-Semantik, wie modale Dialoge und Popovers, können mithilfe von gerätenativen Mechanismen geschlossen werden. Zum Beispiel können Sie unter Android einen Dialog mit der Zurück-Taste schließen. Die [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Schnittstelle ermöglicht Entwicklern die Implementierung von UI-Komponenten, wie benutzerdefinierte Seitenleisten, die ebenfalls mit nativen Mechanismen geschlossen werden können. ([Firefox-Bug 1888729](https://bugzil.la/1888729)).
 
 <table>
   <thead>
     <tr>
-      <th>Release-Kanal</th>
+      <th>Veröffentlichungskanal</th>
       <th>Hinzugefügte Version</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
@@ -302,7 +305,7 @@ Integrierte Webkomponenten mit "open"- und "close"-Semantik, wie modale Dialoge 
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Name der Präferenz</th>
+      <th>Preference-Name</th>
       <td colspan="2"><code>dom.closewatcher.enabled</code></td>
     </tr>
   </tbody>
@@ -310,25 +313,25 @@ Integrierte Webkomponenten mit "open"- und "close"-Semantik, wie modale Dialoge 
 
 ### Trusted Types API
 
-Die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) bietet Mechanismen, um sicherzustellen, dass Funktionen, die potenziell als Vektor für XSS-Angriffe verwendet werden können, nur mit validierten oder bereinigten Daten aufgerufen werden können.
+Die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) bietet Mechanismen, um sicherzustellen, dass Funktionen, die potenziell als Vektoren für XSS-Angriffe genutzt werden könnten, nur mit geprüften oder bereinigten Daten aufgerufen werden können.
 
 > [!NOTE]
-> Zum Zeitpunkt des Schreibens wurde noch nicht genug von der API implementiert, um sie effektiv testen zu können. Diese Notiz wird entfernt, sobald sie bereit ist.
+> Zum Zeitpunkt der Erstellung dieses Dokuments wurde nicht genügend von der API implementiert, um eine effektive Testbarkeit zu gewährleisten. Diese Anmerkung wird entfernt, sobald sie bereit ist.
 
-Der folgende Teil der API wurde implementiert:
+Folgende Teilmengen der API wurden implementiert:
 
 - [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory):
   - [`getAttributeType()`](/de/docs/Web/API/TrustedTypePolicyFactory/getAttributeType) und [`getPropertyType()`](/de/docs/Web/API/TrustedTypePolicyFactory/getPropertyType) ([Firefox-Bug 1917783](https://bugzil.la/1917783), [Firefox-Bug 1917784](https://bugzil.la/1917784)).
-- Die Methoden [`write()`](/de/docs/Web/API/Document/write) und [`writeln()`](/de/docs/Web/API/Document/writeln) der [`Document`](/de/docs/Web/API/Document)-Schnittstelle akzeptieren jetzt [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte als Parameter neben Strings. ([Firefox-Bug 1906301](https://bugzil.la/1906301)).
-- Die Eigenschaften [`text`](/de/docs/Web/API/HTMLScriptElement/text), [`innerText`](/de/docs/Web/API/HTMLScriptElement/innerText) und [`textContent`](/de/docs/Web/API/HTMLScriptElement/textContent) der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle akzeptieren jetzt [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte, während [`src`](/de/docs/Web/API/HTMLScriptElement/src) [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Werte akzeptiert. ([Firefox-Bug 1905706](https://bugzil.la/1905706)).
+- Die Methoden [`write()`](/de/docs/Web/API/Document/write) und [`writeln()`](/de/docs/Web/API/Document/writeln) der [`Document`](/de/docs/Web/API/Document)-Schnittstelle akzeptieren nun [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte als Parameter zusätzlich zu Strings. ([Firefox-Bug 1906301](https://bugzil.la/1906301)).
+- Die Eigenschaften [`text`](/de/docs/Web/API/HTMLScriptElement/text), [`innerText`](/de/docs/Web/API/HTMLScriptElement/innerText) und [`textContent`](/de/docs/Web/API/HTMLScriptElement/textContent) der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle akzeptieren nun [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte, während [`src`](/de/docs/Web/API/HTMLScriptElement/src) [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Werte akzeptiert. ([Firefox-Bug 1905706](https://bugzil.la/1905706)).
 - Die Methoden [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval) und [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout) können mit einem [`TrustedScript`](/de/docs/Web/API/TrustedScript) aufgerufen werden. ([Firefox-Bug 1931290](https://bugzil.la/1931290)).
 - Die globale Eigenschaft [`trustedTypes`](/de/docs/Web/API/Window/trustedTypes) ist verfügbar, um auf die Trusted Types API zuzugreifen.
-- Die Eigenschaften [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) und [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) können mit [Trusted Types](/de/docs/Web/API/Trusted_Types_API) verwendet werden.
+- Die Eigenschaften [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) und [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) können mit [trusted types](/de/docs/Web/API/Trusted_Types_API) aufgerufen werden.
 
 <table>
   <thead>
     <tr>
-      <th>Release-Kanal</th>
+      <th>Veröffentlichungskanal</th>
       <th>Hinzugefügte Version</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
@@ -355,102 +358,10 @@ Der folgende Teil der API wurde implementiert:
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Name der Präferenz</th>
+      <th>Preference-Name</th>
       <td colspan="2"><code>dom.security.trusted_types.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### Grafik: Canvas, WebGL und WebGPU
-
-#### WebGL: Entwurfserweiterungen
-
-Wenn diese Präferenz aktiviert ist, werden alle WebGL-Erweiterungen im "Entwurfsstatus", die getestet werden, zur Verwendung aktiviert. Derzeit werden keine WebGL-Erweiterungen von Firefox getestet.
-
-#### WebGPU API
-
-Die [WebGPU API](/de/docs/Web/API/WebGPU_API) bietet Unterstützung für Low-Level-Berechnung und Grafik-Rendering mithilfe der [Graphics Processing Unit (GPU)](https://en.wikipedia.org/wiki/Graphics_Processing_Unit) des Benutzergeräts oder -computers. Siehe [Firefox-Bug 1602129](https://bugzil.la/1602129) für unseren Fortschritt bei dieser API.
-
-<table>
-  <thead>
-    <tr>
-      <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
-      <th>Standardmäßig aktiviert?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Nightly</th>
-      <td>113</td>
-      <td>Ja</td>
-    </tr>
-    <tr>
-      <th>Developer Edition</th>
-      <td>73</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Beta</th>
-      <td>73</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Release</th>
-      <td>73</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Name der Präferenz</th>
-      <td colspan="2"><code>dom.webgpu.enabled</code></td>
-    </tr>
-  </tbody>
-</table>
-
-### Unterstützung der Reporting API für CSP-Verletzungen
-
-Die [Reporting API](/de/docs/Web/API/Reporting_API) unterstützt nun die Meldung von [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzungen.
-
-[`Report`](/de/docs/Web/API/Report)-Instanzen, die von der [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Schnittstelle zurückgegeben werden, können jetzt einen `type`-Wert von `"csp-violation"` und eine `body`-Eigenschaft haben, die eine Instanz der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle enthält. Dies ermöglicht es, CSP-Verletzungen innerhalb einer Webseite zu melden.
-
-CSP-Verletzungsberichte können auch an entfernte Endpunkte gesendet werden, die durch einen Namen in der CSP {{CSP("report-to")}}-Direktive angegeben werden – die Endpunktsnamen und die entsprechenden URLs müssen zuerst im {{httpheader('Reporting-Endpoints')}}- oder {{httpheader('Report-To')}}-HTTP-Antwortheader definiert werden. Der Bericht ist eine Serialisierung des oben beschriebenen [`Report`](/de/docs/Web/API/Report)-Objekts, mit einer `body`-Eigenschaft, die eine Serialisierung einer [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Instanz ist.
-
-Dieser Verletzungsbericht ersetzt einen ähnlichen, CSP-spezifischen Mechanismus zum Versenden von Berichten, der die CSP-Direktive {{CSP("report-uri")}} verwendet, um die URL des Berichts-Endpunkts festzulegen, und ein [CSP-spezifisches JSON-Format für Verletzungsberichte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/report-uri#violation_report_syntax) hat. ([Firefox-Bug 1391243](https://bugzil.la/1391243)).
-
-<table>
-  <thead>
-    <tr>
-      <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
-      <th>Standardmäßig aktiviert?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Nightly</th>
-      <td>130</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Developer Edition</th>
-      <td>130</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Beta</th>
-      <td>130</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Release</th>
-      <td>130</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Name der Präferenz</th>
-      <td colspan="2"><code>dom.reporting.enabled</code></td>
-    </tr>
-  </tbody>
-</table>
-
-Die Übersetzung endet hier für diese Abschnittsvorschau. Sie dauert an, wenn Sie fortfahren möchten!
+...

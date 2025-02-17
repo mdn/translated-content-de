@@ -1,18 +1,18 @@
 ---
-title: "HTMLCanvasElement: height Eigenschaft"
+title: "HTMLCanvasElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/HTMLCanvasElement/height
 l10n:
-  sourceCommit: c16ab7959173ec929df57d3916f8f4dbce485709
+  sourceCommit: 4aa077d26c6b1f7168af634082b6e6f71e11bb99
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`HTMLCanvasElement.height`**-Eigenschaft ist eine positive `integer`, die das HTML-Attribut [`height`](/de/docs/Web/HTML/Element/canvas#height) des {{HTMLElement("canvas")}} Elements widerspiegelt und in CSS-Pixeln interpretiert wird. Wenn das Attribut nicht angegeben ist oder auf einen ungültigen Wert gesetzt ist, wie zum Beispiel einen negativen, wird der Standardwert von `150` verwendet.
+Die Eigenschaft **`HTMLCanvasElement.height`** ist eine positive `integer`, die das [`height`](/de/docs/Web/HTML/Element/canvas#height)-HTML-Attribut des {{HTMLElement("canvas")}}-Elements in CSS-Pixeln interpretiert. Wenn das Attribut nicht angegeben ist oder einen ungültigen Wert, wie etwa einen negativen, enthält, wird der Standardwert `150` verwendet.
 
-Wenn die `height`-Eigenschaft gesetzt wird, wird der Zeichenpuffer immer auf leer zurückgesetzt - dies gilt für alle Kontexttypen, sogar wenn die Höhe auf denselben Wert gesetzt wird. Falls Sie den vorherigen Inhalt wiederherstellen müssen, können Sie ihn mittels [`CanvasRenderingContext2D.getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) speichern und mittels [`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData) wiederherstellen.
+Wenn die `height`-Eigenschaft gesetzt wird, wird der Zeichenpuffer immer auf leer zurückgesetzt – dies gilt für alle Kontexttypen, auch wenn die Höhe auf denselben Wert gesetzt wird. Möchten Sie den vorherigen Inhalt wiederherstellen, können Sie ihn über [`CanvasRenderingContext2D.getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) speichern und über [`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData) wiederherstellen.
 
-Dies ist eine der zwei Eigenschaften, wobei die andere [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width) ist, die die Größe des Canvas steuert.
+Dies ist eine von zwei Eigenschaften, die andere ist [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width), welche die Größe des Canvas steuern.
 
 ## Wert
 
@@ -20,13 +20,13 @@ Eine Zahl.
 
 ## Beispiele
 
-Angenommen, dieses {{HTMLElement("canvas")}} Element:
+Gegeben ist dieses {{HTMLElement("canvas")}}-Element:
 
 ```html
 <canvas id="canvas" width="300" height="300"></canvas>
 ```
 
-Sie können die Höhe des Canvas mit dem folgenden Code ermitteln:
+Sie können die Höhe des Canvas mit dem folgenden Code abrufen:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -43,11 +43,11 @@ console.log(canvas.height); // 300
 
 ## Siehe auch
 
-- [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement): Schnittstelle zur Definition der `HTMLCanvasElement.height`-Eigenschaft
-- [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width): Andere Eigenschaft, um die Größe des Canvas zu steuern
-- [`HTMLEmbedElement.width`](/de/docs/Web/API/HTMLEmbedElement/width)
-- [`HTMLIFrameElement.width`](/de/docs/Web/API/HTMLIFrameElement/width)
-- [`HTMLImageElement.width`](/de/docs/Web/API/HTMLImageElement/width)
-- [`HTMLObjectElement.width`](/de/docs/Web/API/HTMLObjectElement/width)
-- [`HTMLSourceElement.width`](/de/docs/Web/API/HTMLSourceElement/width)
-- [`HTMLVideoElement.width`](/de/docs/Web/API/HTMLVideoElement/width)
+- [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement): Schnittstelle, die verwendet wird, um die `HTMLCanvasElement.height`-Eigenschaft zu definieren
+- [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width): Andere Eigenschaft zur Steuerung der Canvas-Größe
+- [`HTMLEmbedElement.height`](/de/docs/Web/API/HTMLEmbedElement/height)
+- [`HTMLIFrameElement.height`](/de/docs/Web/API/HTMLIFrameElement/height)
+- [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height)
+- [`HTMLObjectElement.height`](/de/docs/Web/API/HTMLObjectElement/height)
+- [`HTMLSourceElement.height`](/de/docs/Web/API/HTMLSourceElement/height)
+- [`HTMLVideoElement.height`](/de/docs/Web/API/HTMLVideoElement/height)

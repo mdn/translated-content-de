@@ -2,12 +2,12 @@
 title: AbortSignal
 slug: Web/API/AbortSignal
 l10n:
-  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
+  sourceCommit: 594eb7514960642e7c79b19fdd71c203db55c9db
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`AbortSignal`**-Schnittstelle repräsentiert ein Signalobjekt, das es Ihnen ermöglicht, mit einem asynchronen Vorgang (wie einer Fetch-Anfrage) zu kommunizieren und diesen bei Bedarf über ein [`AbortController`](/de/docs/Web/API/AbortController)-Objekt abzubrechen.
+Die **`AbortSignal`**-Schnittstelle repräsentiert ein Signalobjekt, das es ermöglicht, mit einer asynchronen Operation (wie einer `fetch`-Anfrage) zu kommunizieren und diese bei Bedarf über ein [`AbortController`](/de/docs/Web/API/AbortController)-Objekt abzubrechen.
 
 {{InheritanceDiagram}}
 
@@ -16,9 +16,9 @@ Die **`AbortSignal`**-Schnittstelle repräsentiert ein Signalobjekt, das es Ihne
 _Erbt auch Eigenschaften von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`AbortSignal.aborted`](/de/docs/Web/API/AbortSignal/aborted) {{ReadOnlyInline}}
-  - : Ein {{Glossary("Boolean", "Boolean")}}, das angibt, ob die Anfrage(n), mit der(en) das Signal kommuniziert, abgebrochen ist/sind (`true`) oder nicht (`false`).
+  - : Ein {{Glossary("Boolean", "Boolean")}}, der anzeigt, ob die Anfrage(n), mit denen das Signal kommuniziert, abgebrochen ist/sind (`true`) oder nicht (`false`).
 - [`AbortSignal.reason`](/de/docs/Web/API/AbortSignal/reason) {{ReadOnlyInline}}
-  - : Ein JavaScript-Wert, der den Abbruchgrund angibt, sobald das Signal abgebrochen wurde.
+  - : Ein JavaScript-Wert, der den Abbruchgrund bereitstellt, wenn das Signal abgebrochen wurde.
 
 ## Statische Methoden
 
@@ -27,7 +27,7 @@ _Erbt auch Methoden von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web
 - [`AbortSignal.abort()`](/de/docs/Web/API/AbortSignal/abort_static)
   - : Gibt eine `AbortSignal`-Instanz zurück, die bereits als abgebrochen gesetzt ist.
 - [`AbortSignal.any()`](/de/docs/Web/API/AbortSignal/any_static)
-  - : Gibt ein `AbortSignal` zurück, das abbricht, wenn eines der angegebenen Abbruchsignale abbricht.
+  - : Gibt ein `AbortSignal` zurück, das abgebrochen wird, wenn eines der übergebenen Abbruchsignale abgebrochen wird.
 - [`AbortSignal.timeout()`](/de/docs/Web/API/AbortSignal/timeout_static)
   - : Gibt eine `AbortSignal`-Instanz zurück, die nach einer bestimmten Zeit automatisch abgebrochen wird.
 
@@ -36,30 +36,30 @@ _Erbt auch Methoden von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web
 _Erbt auch Methoden von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`AbortSignal.throwIfAborted()`](/de/docs/Web/API/AbortSignal/throwIfAborted)
-  - : Wirft den Abbruch-`reason` des Signals, wenn das Signal abgebrochen wurde; andernfalls passiert nichts.
+  - : Wirft den Abbruch-[`reason`](/de/docs/Web/API/AbortSignal/reason) des Signals, wenn das Signal abgebrochen wurde; andernfalls tut es nichts.
 
 ## Ereignisse
 
 _Erbt auch Ereignisse von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-Dieses Ereignis kann mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) abgehört werden oder indem ein Ereignislistener der `oneventname`-Eigenschaft dieser Schnittstelle zugewiesen wird.
+Hören Sie auf dieses Ereignis mittels [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisung eines Ereignislisteners zur `oneventname`-Eigenschaft dieser Schnittstelle.
 
 - [`abort`](/de/docs/Web/API/AbortSignal/abort_event)
-  - : Wird aufgerufen, wenn die asynchronen Vorgänge, mit der(en) das Signal kommuniziert, abgebrochen werden.
-    Auch über die `onabort`-Eigenschaft verfügbar.
+  - : Wird ausgelöst, wenn die asynchronen Operationen, mit denen das Signal kommuniziert, abgebrochen werden.
+    Auch verfügbar über die `onabort`-Eigenschaft.
 
 ## Beispiele
 
 ### Abbrechen einer Fetch-Operation mit einem expliziten Signal
 
-Der folgende Ausschnitt zeigt, wie wir ein Signal verwenden könnten, um das Herunterladen eines Videos mit der [Fetch API](/de/docs/Web/API/Fetch_API) abzubrechen.
+Der folgende Ausschnitt zeigt, wie wir ein Signal verwenden könnten, um den Download eines Videos über die [Fetch-API](/de/docs/Web/API/Fetch_API) abzubrechen.
 
-Zunächst erstellen wir einen Abbruch-Controller mit dem [`AbortController()`](/de/docs/Web/API/AbortController/AbortController)-Konstruktor und holen dann eine Referenz auf sein zugehöriges `AbortSignal`-Objekt über die [`AbortController.signal`](/de/docs/Web/API/AbortController/signal)-Eigenschaft.
+Zuerst erstellen wir einen Abbruch-Controller mit dem [`AbortController()`](/de/docs/Web/API/AbortController/AbortController)-Konstruktor und greifen dann auf das zugehörige `AbortSignal`-Objekt über die Eigenschaft [`AbortController.signal`](/de/docs/Web/API/AbortController/signal) zu.
 
-Wenn die [Fetch-Anfrage](/de/docs/Web/API/Window/fetch) initiiert wird, übergeben wir das `AbortSignal` als Option in das Optionsobjekt der Anfrage (das `{signal}` unten). Dies verknüpft das Signal und den Controller mit der Fetch-Anfrage und ermöglicht uns, sie abzubrechen, indem wir [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) aufrufen.
-Unten können Sie sehen, dass die Fetch-Operation im zweiten Ereignislistener abgebrochen wird, der ausgelöst wird, wenn der Abbruchknopf (`abortBtn`) geklickt wird.
+Wenn die [fetch-Anfrage](/de/docs/Web/API/Window/fetch) initiiert wird, übergeben wir das `AbortSignal` als Option im Optionen-Objekt der Anfrage (das `{signal}` unten). Dadurch wird das Signal und der Controller mit der Fetch-Anfrage verknüpft, und wir können sie durch Aufruf von [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) abbrechen.
+Nachfolgend sehen Sie, dass die Fetch-Operation im zweiten Event-Listener abgebrochen wird, welcher ausgelöst wird, wenn der Abbruch-Button (`abortBtn`) geklickt wird.
 
-Wenn `abort()` aufgerufen wird, lehnt das `fetch()`-Promise mit einer `DOMException` namens `AbortError` ab.
+Wenn `abort()` aufgerufen wird, lehnt das `fetch()`-Versprechen mit einem `DOMException` ab, der den Namen `AbortError` trägt.
 
 ```js
 let controller;
@@ -91,7 +91,7 @@ async function fetchVideo() {
 }
 ```
 
-Wenn die Anfrage nach dem Abschluss des `fetch()`-Aufrufs, aber bevor der Antwortkörper gelesen wurde, abgebrochen wird, wird der Versuch, den Antwortkörper zu lesen, mit einer `AbortError`-Ausnahme abgelehnt.
+Wenn die Anfrage nach dem erfolgreichen Abschluss des `fetch()`-Aufrufs, aber bevor der Antwortkörper gelesen wurde, abgebrochen wird, schlägt der Versuch, den Antwortkörper zu lesen, mit einer `AbortError`-Exception fehl.
 
 ```js
 async function get() {
@@ -108,16 +108,16 @@ async function get() {
 }
 ```
 
-Sie können ein [voll funktionsfähiges Beispiel auf GitHub](https://github.com/mdn/dom-examples/tree/main/abort-api) finden; Sie können es auch [live sehen](https://mdn.github.io/dom-examples/abort-api/).
+Sie können ein [voll funktionsfähiges Beispiel auf GitHub finden](https://github.com/mdn/dom-examples/tree/main/abort-api); Sie können es auch [live ansehen](https://mdn.github.io/dom-examples/abort-api/).
 
 ### Abbrechen einer Fetch-Operation mit einem Timeout
 
-Wenn Sie die Operation bei einem Timeout abbrechen müssen, können Sie die statische Methode [`AbortSignal.timeout()`](/de/docs/Web/API/AbortSignal/timeout_static) verwenden.
-Diese gibt ein `AbortSignal` zurück, das nach einer bestimmten Anzahl von Millisekunden automatisch abgebrochen wird.
+Wenn Sie eine Operation bei Timeout abbrechen müssen, können Sie die statische Methode [`AbortSignal.timeout()`](/de/docs/Web/API/AbortSignal/timeout_static) verwenden.
+Diese gibt ein `AbortSignal` zurück, das nach einer bestimmten Anzahl von Millisekunden automatisch abläuft.
 
-Der untenstehende Codeausschnitt zeigt, wie Sie entweder erfolgreich eine Datei herunterladen, oder einen Timeout-Fehler nach 5 Sekunden behandeln würden.
-Beachten Sie, dass bei einem Timeout das `fetch()`-Promise mit einer `TimeoutError` `DOMException` abgelehnt wird.
-Dies ermöglicht es dem Code, zwischen Timeouts (für die wahrscheinlich eine Benachrichtigung des Benutzers erforderlich ist) und Benutzerabbrüchen zu unterscheiden.
+Der folgende Codeausschnitt zeigt, wie Sie entweder eine Datei erfolgreich herunterladen oder nach 5 Sekunden einen Timeout-Fehler handhaben würden.
+Beachten Sie, dass die `fetch()`-Promise bei einem Timeout mit einem `TimeoutError`-`DOMException` verworfen wird.
+Dies ermöglicht es, zwischen Timeouts (für die eine Benutzerbenachrichtigung wahrscheinlich erforderlich ist) und Benutzerabbrüchen zu unterscheiden.
 
 ```js
 const url = "video.mp4";
@@ -140,9 +140,9 @@ try {
 }
 ```
 
-### Abbrechen eines Fetch mit Timeout oder explizitem Abbruch
+### Abbrechen eines Fetchs mit Timeout oder explizitem Abbruch
 
-Wenn Sie aus mehreren Signalen abbrechen möchten, können Sie [`AbortSignal.any()`](/de/docs/Web/API/AbortSignal/any_static) verwenden, um sie in ein einziges Signal zu kombinieren. Das folgende Beispiel zeigt dies mit [`fetch`](/de/docs/Web/API/Window/fetch):
+Wenn Sie mehrere Signale verwenden möchten, um eine Operation abzubrechen, können Sie [`AbortSignal.any()`](/de/docs/Web/API/AbortSignal/any_static) verwenden, um sie in ein einzelnes Signal zu kombinieren. Das folgende Beispiel zeigt dies mit [`fetch`](/de/docs/Web/API/Window/fetch):
 
 ```js
 try {
@@ -166,14 +166,15 @@ try {
 ```
 
 > [!NOTE]
-> Anders als bei der Verwendung von [`AbortSignal.timeout()`](/de/docs/Web/API/AbortSignal/timeout_static), gibt es keine Möglichkeit festzustellen, ob der endgültige Abbruch durch einen Timeout verursacht wurde.
+> Im Gegensatz zur Nutzung von [`AbortSignal.timeout()`](/de/docs/Web/API/AbortSignal/timeout_static) gibt es keine Möglichkeit festzustellen, ob der endgültige Abbruch durch einen Timeout verursacht wurde.
 
 ### Implementieren einer abbrechbaren API
 
-Eine API, die das Abbrechen unterstützen muss, kann ein `AbortSignal`-Objekt akzeptieren und seinen Status verwenden, um bei Bedarf das Handling von Abbruchsignalen auszulösen.
+Eine API, die das Abbrechen unterstützen muss, kann ein `AbortSignal`-Objekt akzeptieren und dessen Zustand verwenden, um bei Bedarf die Abbruchsignalverarbeitung auszulösen.
 
-Eine auf {{jsxref("Promise")}} basierende API sollte auf das Abbruchsignal reagieren, indem sie ein ungelöstes Promise mit dem Abbruch-`reason` des `AbortSignal` ablehnt.
-Zum Beispiel kann die folgende `myCoolPromiseAPI`, die ein Signal annimmt und ein Promise zurückgibt, sofort abgelehnt werden, wenn das Signal bereits abgebrochen ist oder das Abbruchereignis erkannt wird.
+Eine {{jsxref("Promise")}}-basierte API sollte auf das Abbruchsignal reagieren, indem es ein noch ungelöstes Promise mit dem `AbortSignal`-Abbruch-[`reason`](/de/docs/Web/API/AbortSignal/reason) ablehnt.
+Betrachten Sie zum Beispiel die folgende `myCoolPromiseAPI`, welche ein Signal akzeptiert und ein Promise zurückgibt.
+Das Promise wird sofort abgelehnt, wenn das Signal bereits abgebrochen wurde oder wenn das Abbruchereignis erkannt wird.
 Andernfalls wird es normal abgeschlossen und das Promise wird aufgelöst.
 
 ```js
@@ -182,6 +183,7 @@ function myCoolPromiseAPI(/* …, */ { signal }) {
     // If the signal is already aborted, immediately throw in order to reject the promise.
     if (signal.aborted) {
       reject(signal.reason);
+      return;
     }
 
     // Perform the main purpose of the API
@@ -198,7 +200,7 @@ function myCoolPromiseAPI(/* …, */ { signal }) {
 ```
 
 Die API könnte dann wie gezeigt verwendet werden.
-Beachten Sie, dass [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) aufgerufen wird, um die Operation abzubrechen.
+Beachten Sie, dass [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) aufgerufen wird, um den Vorgang abzubrechen.
 
 ```js
 const controller = new AbortController();

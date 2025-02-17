@@ -2,12 +2,12 @@
 title: CSS-Verschachtelung und Spezifität
 slug: Web/CSS/CSS_nesting/Nesting_and_specificity
 l10n:
-  sourceCommit: 7e1956dbec8369ae5533be89e21cbce2d5a2ae1c
+  sourceCommit: a29769d6d10261f771321eb60f3990029c160924
 ---
 
 {{CSSRef}}
 
-Die {{cssxref('specificity')}} des `&`-Verschachtelungsselectors wird anhand der höchsten Spezifität in der zugehörigen Selektorliste berechnet. Dies entspricht der Berechnung der Spezifität bei Verwendung der {{cssxref(':is',':is()')}}-Funktion.
+Die [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) des `&`-Verschachtelungs-Selektors wird basierend auf der höchsten Spezifität in der zugehörigen Selektorliste berechnet. Dies ist identisch mit der Art und Weise, wie die Spezifität bei der Verwendung der {{cssxref(':is', ':is()')}}-Funktion berechnet wird.
 
 ```html
 <b class="foo">
@@ -43,13 +43,13 @@ Die {{cssxref('specificity')}} des `&`-Verschachtelungsselectors wird anhand der
 }
 ```
 
-In diesem Beispiel hat der ID-Selektor (`#a`) eine Spezifität von [`1-0-0`](/de/docs/Web/CSS/Specificity#selector_weight_categories), während der Typselektor (`b`) eine Spezifität von `0-0-1` hat. Der [`&`-Verschachtelungsselektor](/de/docs/Web/CSS/Nesting_selector) und die `:is()`-Pseudoklasse haben beide eine Spezifität von `1-0-0`, obwohl der `#a`-ID-Selektor nie verwendet wird.
+In diesem Beispiel hat der ID-Selektor (`#a`) eine Spezifität von [`1-0-0`](/de/docs/Web/CSS/CSS_cascade/Specificity#selector_weight_categories), während der Typ-Selektor (`b`) eine Spezifität von `0-0-1` hat. Der [`&`-Verschachtelungs-Selektor](/de/docs/Web/CSS/Nesting_selector) und die `:is()`-Pseudo-Klasse haben beide eine Spezifität von `1-0-0`, obwohl der `#a`-ID-Selektor nie verwendet wird.
 
-Der `.foo`-Klassenselektor hat eine Spezifität von `0-1-0`. Dadurch ergibt sich eine Gesamtspezifität von `1-0-1` für `& c` und `0-1-1` für `.foo c`, was bedeutet, dass `color: blue;` den Vorrang hat.
+Der `.foo`-Klassen-Selektor hat eine Spezifität von `0-1-0`. Dies ergibt eine Gesamtspezifität von `1-0-1` für `& c` und `0-1-1` für `.foo c`, was bedeutet, dass `color: blue;` Vorrang hat.
 
 ## Siehe auch
 
-- [CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting) Modul
-- [`&`-Verschachtelungsselektor](/de/docs/Web/CSS/Nesting_selector)
-- [Verwendung der CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
+- [CSS-Verschachtelungsmodul](/de/docs/Web/CSS/CSS_nesting)  
+- [`&`-Verschachtelungs-Selektor](/de/docs/Web/CSS/Nesting_selector)
+- [Verwendung von CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
 - [Verschachtelung von At-Regeln](/de/docs/Web/CSS/CSS_nesting/Nesting_at-rules)

@@ -3,12 +3,18 @@ title: "HTMLAreaElement: username-Eigenschaft"
 short-title: username
 slug: Web/API/HTMLAreaElement/username
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.username`**-Eigenschaft ist ein String, der den vor dem Domainnamen angegebenen Benutzernamen enthält.
+Die **`username`**-Eigenschaft der Schnittstelle [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) ist ein String, der die Benutzerkomponente des `href` des `<area>`-Elements enthält. Wenn die URL keinen Benutzernamen enthält, enthält diese Eigenschaft einen leeren String, `""`.
+
+Diese Eigenschaft kann gesetzt werden, um den Benutzernamen der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/HTMLAreaElement/host) hat oder ihr Schema `file:` ist, hat das Setzen dieser Eigenschaft keine Auswirkung.
+
+Der Benutzername wird {{Glossary("Percent-encoding", "percent-codiert")}}, wenn er gesetzt wird, aber nicht percent-dekodiert, wenn er gelesen wird.
+
+Weitere Informationen finden Sie unter [`URL.username`](/de/docs/Web/API/URL/username).
 
 ## Wert
 
@@ -16,7 +22,7 @@ Ein String.
 
 ## Beispiele
 
-### Den Benutzernamen von einem Bereichslink abrufen
+### Den Benutzernamen aus einem Bereichslink abrufen
 
 ```js
 // An <area id="myArea" href="https://anonymous:flabada@developer.mozilla.org/en-US/docs/HTMLAreaElement"> element is in the document
@@ -34,4 +40,4 @@ area.username; // returns 'anonymous'
 
 ## Siehe auch
 
-- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der sie gehört.
+- Die Schnittstelle [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement), zu der sie gehört.

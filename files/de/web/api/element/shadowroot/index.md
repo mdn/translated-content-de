@@ -1,30 +1,31 @@
 ---
-title: "Element: shadowRoot Eigenschaft"
+title: "Element: shadowRoot-Eigenschaft"
 short-title: shadowRoot
 slug: Web/API/Element/shadowRoot
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: 1099567e480ad28fa86729e02a9fa8fa4cea9331
 ---
 
 {{APIRef("Shadow DOM")}}
 
-Die schreibgeschützte Eigenschaft `Element.shadowRoot`
-repräsentiert das Shadow-Root, das vom Element gehostet wird.
+Die schreibgeschützte Eigenschaft `Element.shadowRoot` 
+repräsentiert den Shadow-Root, der vom Element gehostet wird.
 
-Verwenden Sie [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow), um einem bestehenden Element ein Shadow-Root hinzuzufügen.
+Verwenden Sie [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow), um einem vorhandenen Element einen Shadow-Root hinzuzufügen.
 
 ## Wert
 
-Eine Instanz des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekts oder `null`, wenn das zugehörige
-Shadow-Root mit seinem [`mode`](/de/docs/Web/API/ShadowRoot/mode) auf
-`closed` gesetzt wurde. (Siehe [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) für weitere Details).
+Eine Instanz des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekts oder `null`, wenn der zugehörige
+Shadow-Root mit seinem [`mode`](/de/docs/Web/API/ShadowRoot/mode) auf `closed` festgelegt wurde. (Details hierzu finden Sie unter [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow)).
+
+Einige eingebaute Elemente, wie z. B. {{HTMLElement("input")}} und {{HTMLElement("img")}}, haben benutzeragentenbasierte Shadow-Roots, die für Skripte geschlossen sind. Folglich ist ihre `shadowRoot`-Eigenschaft immer `null`.
 
 ## Beispiele
 
-Die folgenden Ausschnitte stammen aus unserem [life-cycle-callbacks](https://github.com/mdn/web-components-examples/tree/main/life-cycle-callbacks)
-Beispiel ([siehe es auch live](https://mdn.github.io/web-components-examples/life-cycle-callbacks/)), welches ein Element erstellt, das ein Quadrat mit einer Größe und Farbe anzeigt, die in den Attributen des Elements angegeben sind.
+Die folgenden Codeausschnitte stammen aus unserem [life-cycle-callbacks](https://github.com/mdn/web-components-examples/tree/main/life-cycle-callbacks)-Beispiel ([sehen Sie es auch live](https://mdn.github.io/web-components-examples/life-cycle-callbacks/)), das ein Element erstellt, das ein Quadrat anzeigt, dessen Größe und Farbe in den Attributen des Elements angegeben sind.
 
-Innerhalb der Klassen-Definition des `<custom-square>`-Elements fügen wir einige Lebenszyklus-Callbacks hinzu, die eine externe Funktion, `updateStyle()`, aufrufen, welche tatsächlich die Größe und Farbe auf das Element anwendet. Sie werden sehen, dass wir diese Funktion mit `this` (das benutzerdefinierte Element selbst) als Parameter aufrufen.
+Innerhalb der Klassen-Definition des `<custom-square>`-Elements fügen wir einige Lebenszyklus-Callbacks hinzu, die eine externe Funktion,
+`updateStyle()`, aufrufen. Diese Funktion wendet tatsächlich die Größe und die Farbe auf das Element an. Sie werden sehen, dass wir `this` (das benutzerdefinierte Element selbst) als Parameter übergeben.
 
 ```js
 class Square extends HTMLElement {
@@ -40,8 +41,7 @@ class Square extends HTMLElement {
 }
 ```
 
-In der `updateStyle()`-Funktion selbst erhalten wir eine Referenz zum Shadow DOM
-mithilfe von `Element.shadowRoot`. Von hier aus verwenden wir standardmäßige DOM-Traversierungstechniken, um das {{htmlelement("style")}}-Element im Shadow DOM zu finden und dann das darin enthaltene CSS zu aktualisieren:
+In der `updateStyle()`-Funktion selbst erhalten wir eine Referenz auf das Shadow-DOM mit `Element.shadowRoot`. Hier verwenden wir Standard-DOM-Durchsuchungstechniken, um das {{htmlelement("style")}}-Element im Shadow-DOM zu finden und die darin enthaltene CSS-Deklaration zu aktualisieren:
 
 ```js
 function updateStyle(elem) {

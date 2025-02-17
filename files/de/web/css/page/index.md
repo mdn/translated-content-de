@@ -2,14 +2,14 @@
 title: page
 slug: Web/CSS/page
 l10n:
-  sourceCommit: 80291cd55771c14c0ad6005a013cc8e656d62771
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}
 
-Die **`page`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die benannte Seite anzugeben, eine bestimmte Art von Seite, die durch die {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/At-rule) definiert ist.
+Die **`page`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) wird verwendet, um die benannte Seite zu spezifizieren, eine spezifische Art von Seite, die durch die {{cssxref("@page")}}-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) definiert wird.
 
-Wenn mehrere Selektoren nacheinander eine benannte Seite verwenden, kann ein erzwungener Seitenumbruch mit [`break-after`](/de/docs/Web/CSS/break-after) erforderlich sein.
+Wenn es mehrere Selektoren gibt, die nacheinander eine benannte Seite verwenden, könnte ein erzwungener Seitenumbruch mithilfe von [`break-after`](/de/docs/Web/CSS/break-after) erforderlich sein.
 
 ## Syntax
 
@@ -32,9 +32,9 @@ page: unset;
 ### Werte
 
 - `auto`
-  - : Standardwert. Verwenden Sie den Wert des nächsten Vorfahren mit einem nicht-`auto` Wert. Wenn kein Vorfahre einen benannten Seitenwert festgelegt hat, ist der verwendete Wert für auto der leere String.
+  - : Standardwert. Verwendet den Wert des nächsten Vorfahren mit einem Wert, der nicht `auto` ist. Wenn kein Vorfahr einen benannten Seitenwert gesetzt hat, ist der verwendete Wert für `auto` eine leere Zeichenkette.
 - {{cssxref("custom-ident")}}
-  - : Groß-/Kleinschreibung beachtender Name, definiert in einer [`@page`](/de/docs/Web/CSS/@page) At-Regel.
+  - : Groß-/Kleinschreibungssensitiver Name, der in einer [`@page`](/de/docs/Web/CSS/@page)-At-Regel definiert ist.
 
 ## Formale Definition
 
@@ -46,16 +46,16 @@ page: unset;
 
 ## Beispiele
 
-### Beispiel für benannte Seite
+### Beispiel für eine benannte Seite
 
 #### HTML
 
 Dieses HTML besteht aus zwei Teilen:
 
-- Die Drucksteuerungen
-- Der zu druckende Inhalt
+- Den Druckkontrollen
+- Dem Inhalt, der gedruckt werden soll
 
-Die Drucksteuerungen ermöglichen es dem Benutzer auszuwählen, wie die `section`-Elemente im `article` gedruckt werden.
+Die Druckkontrollen ermöglichen es dem Benutzer, auszuwählen, wie die `section`s im `article` gedruckt werden.
 
 ```html
 <!-- print options -->
@@ -152,7 +152,7 @@ fieldset {
 }
 ```
 
-Der erste Teil des CSS richtet die **benannten** Seiten ein, einschließlich Größe und Ausrichtung sowie etwas Inhalt, der im [`@top-center` Rand](/de/docs/Web/CSS/@page#margin_at-rules) der gedruckten Seiten eingefügt wird.
+Der erste Teil des CSS definiert die **benannten** Seiten, einschließlich der Größe und Ausrichtung sowie einiger Inhalte, die in den [`@top-center`-Rand](/de/docs/Web/CSS/@page#margin_at-rules) der gedruckten Seiten eingefügt werden.
 
 ```css
 @page toc {
@@ -191,9 +191,9 @@ Der erste Teil des CSS richtet die **benannten** Seiten ein, einschließlich Gr�
 }
 ```
 
-Der nächste Teil des CSS verwendet [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors), um die Druckdimensionen, Ausrichtung und Ränder, die in den benannten `@page` Regeln im vorherigen CSS-Abschnitt definiert sind, auf Elemente anzuwenden, die die `page` Eigenschaft verwenden.
+Der nächste Teil des CSS verwendet [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors), um die Druckabmessungen, Ausrichtung und Ränder, die in den benannten `@page`-Regeln im vorherigen CSS-Abschnitt definiert sind, auf Elemente anzuwenden, die die `page`-Eigenschaft verwenden.
 
-Die Abschnitte mit `class="chapter"` sind aufeinanderfolgend und erscheinen als eine Seite. Das `break-after: page;` wird verwendet, um sie aufzuteilen, wodurch jedes Kapitel auf einer separat gedruckten Seite erscheint.
+Die Abschnitte mit `class="chapter"` sind aufeinanderfolgend und erscheinen als eine Seite. Das `break-after: page;` wird verwendet, um sie zu trennen, wodurch jedes Kapitel auf eine separat gedruckte Seite aufgeteilt wird.
 
 ```css
 @media print {
@@ -243,7 +243,7 @@ Die Abschnitte mit `class="chapter"` sind aufeinanderfolgend und erscheinen als 
 
 #### JavaScript
 
-Das JavaScript aktualisiert den Wert des `data-print` Attributs, welches das Attribut ist, auf das die benannte Seite angewendet wird, wenn Sie eine andere Druckoption auswählen:
+Das JavaScript aktualisiert den Wert des `data-print`-Attributes. Dieses Attribut wird verwendet, um die benannte Seite bei Auswahl einer anderen Druckoption anzuwenden:
 
 ```js
 const printArea = document.querySelector("#print-area");
@@ -265,7 +265,7 @@ printButton.addEventListener("click", () => {
 
 #### Ergebnis
 
-Was gedruckt wird und was im Druckvorschau-Dialog angezeigt wird, ändert sich, je nachdem welcher Druckstil über das Optionsfeld ausgewählt ist.
+Was gedruckt wird und was im Druckvorschau-Dialog angezeigt wird, ändert sich je nachdem, welcher Radiobutton für den Druckstil ausgewählt ist.
 
 {{ EmbedLiveSample('Named page example', '100%', 520) }}
 

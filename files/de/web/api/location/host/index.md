@@ -3,12 +3,14 @@ title: "Location: host-Eigenschaft"
 short-title: host
 slug: Web/API/Location/host
 l10n:
-  sourceCommit: 1238ffad886924b20549d0cf3adca735cb0d074f
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("Location")}}
 
-Die **`host`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der den Host enthält, also den _hostname_, und dann, falls der _port_ der URL nicht leer ist, einen `':'`, gefolgt vom _port_ der URL.
+Die **`host`**-Eigenschaft der [`Location`](/de/docs/Web/API/Location)-Schnittstelle ist ein String, der den Host enthält, also den [`hostname`](/de/docs/Web/API/Location/hostname), und dann, falls der {{Glossary("port", "port")}} der URL nicht leer ist, ein `":"`, gefolgt vom [`port`](/de/docs/Web/API/Location/port) der URL. Hat die URL keinen `hostname`, enthält diese Eigenschaft einen leeren String, `""`.
+
+Weitere Informationen finden Sie unter [`URL.host`](/de/docs/Web/API/URL/host).
 
 ## Wert
 

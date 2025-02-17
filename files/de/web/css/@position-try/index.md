@@ -2,16 +2,16 @@
 title: "@position-try"
 slug: Web/CSS/@position-try
 l10n:
-  sourceCommit: 12d435505853b709d2d0e2d896023e6802669eff
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`@position-try`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) wird verwendet, um eine benutzerdefinierte Positionierungsversuchs-Fallback-Option zu definieren, die zur Positionierung und Ausrichtung von verankerten Elementen verwendet werden kann. Eine oder mehrere Sätze von Positionierungsversuchs-Fallback-Optionen können über die {{cssxref("position-try-fallbacks")}}-Eigenschaft oder die {{cssxref("position-try")}}-Kurzform auf das verankerte Element angewendet werden. Wenn das positionierte Element an eine Stelle bewegt wird, an der es anfängt, den umgebenden Block oder den Ansichtsbereich zu überlaufen, wählt der Browser die erste gefundene Positionierungsversuchs-Fallback-Option, die das positionierte Element vollständig wieder auf den Bildschirm bringt.
+Die **`@position-try`** [CSS](/de/docs/Web/CSS) [Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) wird verwendet, um eine benutzerdefinierte Fallback-Option für Positionierungen zu definieren, die zur Definition von Positionierung und Ausrichtung für Anker-Positionierungselemente genutzt werden kann. Eine oder mehrere Fallback-Optionen für `position-try` können über die {{cssxref("position-try-fallbacks")}}-Eigenschaft oder die Abkürzung {{cssxref("position-try")}} auf das verankerte Element angewendet werden. Wenn das positionierte Element an eine Stelle verschoben wird, an der es beginnt, aus dem enthaltenden Block oder dem Sichtfenster herauszuragen, wählt der Browser die erste Fallback-Option aus, die das positionierte Element vollständig zurück auf den Bildschirm bringt.
 
-Jede Positionsoption wird mit einem {{cssxref("dashed-ident")}} benannt und enthält eine Deskriptorliste, die Deklarationen festlegt, die Informationen wie Inset-Position, Rand, Größe und Selbstausrichtung definieren. Das `<dashed-ident>` wird verwendet, um die benutzerdefinierte Positionsoption in der {{cssxref("position-try-fallbacks")}}-Eigenschaft und der {{cssxref("position-try")}}-Kurzform zu referenzieren.
+Jede Positionsoption wird mit einem {{cssxref("dashed-ident")}} benannt und enthält eine Liste von Deskriptoren, die Definitionen wie Einfügeposition, Rand, Größenanpassung und Selbstausrichtung angeben. Der `<dashed-ident>` wird verwendet, um die benutzerdefinierte Positionsoption in der {{cssxref("position-try-fallbacks")}}-Eigenschaft und der Kurzform {{cssxref("position-try")}} zu referenzieren.
 
-Für ausführliche Informationen zu Ankerfunktionen und der Verwendung von Positionierungsversuchs-Fallbacks siehe die Modul-Übersichtsseite [CSS anchor positioning](/de/docs/Web/CSS/CSS_anchor_positioning) und die Anleitung [Handling overflow: try fallbacks and conditional hiding](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding).
+Für detaillierte Informationen über Ankerfunktionen und die Verwendung von Fallback-Optionen besuchen Sie die [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul-Startseite und den Leitfaden [Überlauf behandeln: Fallbacks und bedingtes Verstecken](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding).
 
 ## Syntax
 
@@ -22,18 +22,18 @@ Für ausführliche Informationen zu Ankerfunktionen und der Verwendung von Posit
 ```
 
 > [!NOTE]
-> Der `--try-option-name` ist ein {{cssxref("dashed-ident")}}, der einen identifizierenden Namen für die benutzerdefinierte Positionsoption angibt, die dann verwendet werden kann, um diese Fallback-Option zur Liste der {{cssxref("position-try-fallbacks")}} hinzuzufügen.
+> `--try-option-name` ist ein {{cssxref("dashed-ident")}}, das einen Namen für die benutzerdefinierte Positionsoption angibt, die dann der Liste der {{cssxref("position-try-fallbacks")}} hinzugefügt werden kann.
 
 ### Deskriptoren
 
-Die Deskriptoren spezifizieren Eigenschaftswerte, die das Verhalten der benutzerdefinierten Positionsoption definieren, d. h., wo das positionierte Element platziert wird.
+Die Deskriptoren definieren Eigenschaftswerte, die das Verhalten der benutzerdefinierten Positionsoption festlegen, d. h., wohin das positionierte Element platziert wird.
 
 - `position-anchor`
-  - : Gibt einen Wert der {{cssxref("position-anchor")}}-Eigenschaft an, der das Ankerelement definiert, an das das positionierte Element gebunden ist, indem es einen {{cssxref("dashed-ident")}}-Wert angibt, der gleich dem Wert der {{cssxref("anchor-name")}}-Eigenschaft des Ankerelements ist.
+  - : Gibt einen {{cssxref("position-anchor")}}-Eigenschaftswert an, der das Ankerelement definiert, an das das positionierte Element gebunden ist, indem ein {{cssxref("dashed-ident")}}-Wert angegeben wird, der dem {{cssxref("anchor-name")}}-Eigenschaftswert des Ankerelements entspricht.
 - `position-area`
-  - : Gibt einen Wert der {{cssxref("position-area")}}-Eigenschaft an, der die Position des verankerten Elements relativ zum Anker definiert.
-- {{Glossary("Inset_properties", "Inset-Eigenschafts")}}-Deskriptoren
-  - : Geben [`anchor()`](/de/docs/Web/CSS/anchor)-Funktionswerte an, die die Position der Kanten des verankerten Elements relativ zur Kante des Ankerelements definieren. Inset-Eigenschaftsdeskriptoren können festgelegt werden, die folgende Eigenschaften darstellen:
+  - : Gibt einen {{cssxref("position-area")}}-Eigenschaftswert an, der die Position des ankerpositionierten Elements relativ zum Anker definiert.
+- {{Glossary("Inset_properties", "Inset-Eigenschaften")}} Deskriptoren
+  - : Geben Werte der Funktion [`anchor()`](/de/docs/Web/CSS/anchor) an, die die Position der Kanten des ankerpositionierten Elements relativ zur Kante des Ankerelements definieren. Inset-Eigenschaften-Deskriptoren können für die folgenden Eigenschaften festgelegt werden:
     - {{cssxref("top")}}
     - {{cssxref("left")}}
     - {{cssxref("bottom")}}
@@ -45,8 +45,8 @@ Die Deskriptoren spezifizieren Eigenschaftswerte, die das Verhalten der benutzer
     - {{cssxref("inset-block")}}
     - {{cssxref("inset-inline")}}
     - {{cssxref("inset")}}
-- Rand-Eigenschaftsdeskriptoren
-  - : Geben den Rand an, der auf das verankerte Element gesetzt ist. Rand-Eigenschaftsdeskriptoren können festgelegt werden, die folgende Eigenschaften darstellen:
+- Rand-Eigenschaften-Deskriptoren
+  - : Geben den Randwert an, der für das ankerpositionierte Element festgelegt ist. Rand-Eigenschaften-Deskriptoren können für die folgenden Eigenschaften festgelegt werden:
     - {{cssxref("margin-top")}}
     - {{cssxref("margin-left")}}
     - {{cssxref("margin-bottom")}}
@@ -58,8 +58,8 @@ Die Deskriptoren spezifizieren Eigenschaftswerte, die das Verhalten der benutzer
     - {{cssxref("margin")}}
     - {{cssxref("margin-block")}}
     - {{cssxref("margin-inline")}}
-- Größen-Eigenschaftsdeskriptoren
-  - : Geben [`anchor-size()`](/de/docs/Web/CSS/anchor-size)-Funktionswerte an, die die Größe des verankerten Elements relativ zur Größe des Ankerelements definieren. Größen-Eigenschaftsdeskriptoren können festgelegt werden, die folgende Eigenschaften darstellen:
+- Größenanpassung-Eigenschaften-Deskriptoren
+  - : Geben Werte der Funktion [`anchor-size()`](/de/docs/Web/CSS/anchor-size) an, die die Größe des ankerpositionierten Elements relativ zur Größe des Ankerelements definieren. Größenanpassung-Eigenschaften-Deskriptoren können für die folgenden Eigenschaften festgelegt werden:
     - {{cssxref("width")}}
     - {{cssxref("height")}}
     - {{cssxref("min-width")}}
@@ -72,11 +72,11 @@ Die Deskriptoren spezifizieren Eigenschaftswerte, die das Verhalten der benutzer
     - {{cssxref("min-inline-size")}}
     - {{cssxref("max-block-size")}}
     - {{cssxref("max-inline-size")}}
-- Eigenschaftsdeskriptoren zur Selbstausrichtung
-  - : Geben Sie den [`anchor-center`](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center)-Wert an, um das verankerte Element relativ zur Mitte des Ankerelements, in Block- oder Inline-Richtung, auszurichten. Die Eigenschaften {{cssxref("align-self")}} und {{cssxref("justify-self")}} können den `anchor-center`-Wert annehmen.
+- Selbstausrichtungs-Eigenschaften-Deskriptoren
+  - : Geben den Wert [`anchor-center`](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center) an, um das ankerpositionierte Element relativ zur Mitte des Ankerelements in Block- oder Inline-Richtung auszurichten. Die Eigenschaften-Deskriptoren {{cssxref("align-self")}} und {{cssxref("justify-self")}} können den Wert `anchor-center` annehmen.
 
 > [!NOTE]
-> Wenn eine benutzerdefinierte Positionsoption auf ein Element angewendet wird, haben die in der `@position-try`-At-Regel definierten Eigenschaftswerte Vorrang vor den Werten, die über Standard-CSS-Eigenschaften auf das Element gesetzt sind.
+> Wenn eine benutzerdefinierte Positionsoption auf ein Element angewendet wird, haben die von den Deskriptoren der `@position-try`-Regel definierten Eigenschaftswerte Vorrang vor den Werten, die über standardmäßige CSS-Eigenschaften auf das Element gesetzt wurden.
 
 ## Formale Syntax
 
@@ -86,11 +86,11 @@ Die Deskriptoren spezifizieren Eigenschaftswerte, die das Verhalten der benutzer
 
 ### Verwendung von benutzerdefinierten Positionsoptionen
 
-In diesem Beispiel definieren wir ein Ankerelement und ein verankertes Element und erstellen dann vier benannte benutzerdefinierte Positionierungsversuchs-Fallback-Optionen. Diese Optionen werden auf das positionierte Element angewendet, um sicherzustellen, dass dessen Inhalt immer sichtbar ist, egal wo sich das Ankerelement im Ansichtsbereich befindet.
+In diesem Beispiel definieren wir ein Ankerelement und ein ankerpositioniertes Element und erstellen dann vier benannte benutzerdefinierte Fallback-Positionierungsoptionen. Diese Optionen werden auf das positionierte Element angewendet, um sicherzustellen, dass sein Inhalt immer sichtbar bleibt, egal wo sich das Ankerelement im Sichtfenster befindet.
 
 #### HTML
 
-Wir fügen zwei {{htmlelement("div")}}-Elemente hinzu, die zu einem Anker und einem verankerten Element werden:
+Wir fügen zwei {{htmlelement("div")}}-Elemente ein, die zu einem Anker und einem ankerpositionierten Element werden:
 
 ```html
 <div class="anchor">⚓︎</div>
@@ -102,7 +102,7 @@ Wir fügen zwei {{htmlelement("div")}}-Elemente hinzu, die zu einem Anker und ei
 
 #### CSS
 
-Wir gestalten zuerst das `<body>`-Element sehr groß, sodass wir den Anker und das positionierte Element im Ansichtsbereich sowohl horizontal als auch vertikal bewegen können:
+Wir gestalten zunächst das `<body>`-Element so, dass es sehr groß ist, damit wir den Anker und das positionierte Element horizontal und vertikal im Sichtfenster verschieben können:
 
 ```css
 body {
@@ -124,7 +124,7 @@ body {
 }
 ```
 
-Dem Anker wird eine {{cssxref("anchor-name")}}-Eigenschaft gegeben und ein {{cssxref("position")}}-Wert von `absolute` darauf gesetzt. Wir positionieren ihn dann irgendwo in der Nähe des Zentrums der anfänglichen `<body>`-Darstellung mit den Werten {{cssxref("top")}} und {{cssxref("left")}}:
+Dem Anker wird ein {{cssxref("anchor-name")}} zugewiesen und es wird eine {{cssxref("position")}}-Eigenschaft mit dem Wert `absolute` darauf gesetzt. Wir positionieren es dann irgendwo in der Nähe der Mitte der anfänglichen `<body>`-Rendering mittels {{cssxref("top")}}- und {{cssxref("left")}}-Werten:
 
 ```css
 .anchor {
@@ -146,13 +146,13 @@ Dem Anker wird eine {{cssxref("anchor-name")}}-Eigenschaft gegeben und ein {{css
 }
 ```
 
-Als nächstes verwenden wir die `@position-try`-At-Regel, um vier benutzerdefinierte Positionsoptionen zu definieren, mit beschreibenden {{cssxref("dashed-ident")}}-Namen, um sie zu identifizieren und ihren Zweck zu beschreiben. Jede positioniert das verankerte Element an einem spezifischen Ort rund um das Ankerelement und gibt ihm einen entsprechenden `10px` Rand zwischen dem verankerten Element und seinem Anker. Die Positionierung wird auf verschiedene Weisen gehandhabt, um die verschiedenen verfügbaren Techniken zu demonstrieren:
+Anschließend verwenden wir die `@position-try`-Regel, um vier benutzerdefinierte Positionsoptionen zu definieren, mit beschreibenden {{cssxref("dashed-ident")}}-Namen, um sie zu identifizieren und ihren Zweck zu beschreiben. Jede Option platziert das positionierte Element in einer bestimmten Position um das Ankerelement und gibt ihm einen passenden `10px`-Rand zwischen dem positionierten Element und seinem Anker. Die Positionierung wird auf verschiedene Weise gehandhabt, um die verfügbaren Techniken zu demonstrieren:
 
-- Die erste und letzte Positionsoption verwenden ein {{cssxref("position-area")}}.
-- Die zweite Positionsoption verwendet {{cssxref("top")}} mit einem {{cssxref("anchor()")}}-Wert und {{cssxref("justify-self", "justify-self: anchor-center")}}, um das verankerte Element in der Inline-Richtung auf dem Anker zu zentrieren.
-- Die dritte Positionsoption verwendet {{cssxref("left")}} mit einem {{cssxref("anchor()")}}-Wert, der in eine {{cssxref("calc()")}}-Funktion eingebettet ist, die `10px` Abstand hinzufügt (anstatt den Abstand mit {{cssxref("margin")}} zu erstellen, wie es die anderen Optionen tun). Sie verwendet dann {{cssxref("align-self", "align-self: anchor-center")}}, um das verankerte Element in der Blockrichtung auf dem Anker zu zentrieren.
+- Die erste und die letzte Positionsoption verwenden eine {{cssxref("position-area")}}.
+- Die zweite Positionsoption verwendet {{cssxref("top")}} mit einem {{cssxref("anchor()")}}-Wert und {{cssxref("justify-self", "justify-self: anchor-center")}}, um das positionierte Element in der Inline-Richtung am Anker zu zentrieren.
+- Die dritte Positionsoption verwendet {{cssxref("left")}} mit einem {{cssxref("anchor()")}}-Wert, der innerhalb einer {{cssxref("calc()")}}-Funktion eingewickelt ist, die `10px` Abstand hinzufügt (anstelle des Abstands mit {{cssxref("margin")}} wie bei den anderen Optionen). Es wird dann {{cssxref("align-self", "align-self: anchor-center")}} verwendet, um das positionierte Element in der Blockrichtung am Anker zu zentrieren.
 
-Schließlich werden die linken und rechten Positionsoptionen mit einer schmaleren {{cssxref("width")}} versehen.
+Schließlich erhalten die linken und rechten Positionsoptionen eine schmalere {{cssxref("width")}}.
 
 ```css
 @position-try --custom-left {
@@ -181,7 +181,7 @@ Schließlich werden die linken und rechten Positionsoptionen mit einer schmalere
 }
 ```
 
-Das Infokästchen erhält eine feste Positionierung, eine {{cssxref("position-anchor")}}-Eigenschaft, die den `anchor-name` des Ankers referenziert, um die beiden zu verbinden, und ist an die Oberkante des Ankers mit einem {{cssxref("position-area")}} gebunden. Wir geben ihm auch eine feste {{cssxref("width")}} und einen unteren {{cssxref("margin")}}. Die benutzerdefinierten Positionsoptionen werden dann in der {{cssxref("position-try-fallbacks")}}-Eigenschaft referenziert, um zu verhindern, dass das positionierte Element überläuft oder aus dem Ansichtsbereich herausgescrollt wird, wenn sich der Anker der Kante des Ansichtsbereichs nähert.
+Das Infokästchen erhält eine feste Positionierung, eine {{cssxref("position-anchor")}}-Eigenschaft, die auf den `anchor-name` des Ankers verweist, um die beiden miteinander zu verknüpfen, und es wird mit der oberen Kante des Ankers über eine {{cssxref("position-area")}} verbunden. Außerdem geben wir ihm eine feste {{cssxref("width")}} und eine untere {{cssxref("margin")}}. Die benutzerdefinierten Positionsoptionen werden dann in der {{cssxref("position-try-fallbacks")}}-Eigenschaft referenziert, um zu verhindern, dass das positionierte Element überläuft oder aus dem Blickfeld gescrollt wird, wenn sich der Anker nahe an den Rand des Sichtfensters bewegt.
 
 ```css-nolint
 .infobox {
@@ -198,21 +198,21 @@ Das Infokästchen erhält eine feste Positionierung, eine {{cssxref("position-an
 
 #### Ergebnis
 
-Blättern Sie auf der Seite und beachten Sie die Veränderung der Platzierung des positionierten Elements, wenn sich der Anker der verschiedenen Kanten des Ansichtsbereichs nähert. Dies liegt an den verschiedenen angewendeten Fallback-Positionsoptionen.
+Scrollen Sie die Seite und bemerken Sie die Änderung in der Platzierung des positionierten Elements, wenn sich der Anker an den verschiedenen Rändern des Sichtfensters nähert. Dies ist auf die Anwendung verschiedener Fallback-Positionsoptionen zurückzuführen.
 
 {{ EmbedLiveSample("Custom position option usage", "100%", "250") }}
 
 Lassen Sie uns durchgehen, wie diese Positionsoptionen funktionieren:
 
-- Zunächst beachten Sie, dass unsere Standardposition durch `position-area: top` definiert wird. Wenn das Infokästchen die Seite in keiner Richtung überläuft, befindet sich das Infokästchen über dem Anker, und die in der `position-try-fallbacks`-Eigenschaft festgelegten Positionierungsversuchs-Fallback-Optionen werden ignoriert. Beachten Sie auch, dass das Infokästchen eine feste Breite und einen unteren Rand festgelegt hat. Diese Werte ändern sich, wenn unterschiedliche Positionierungsversuchs-Fallback-Optionen angewendet werden.
-- Wenn das Infokästchen zu überlaufen beginnt, versucht der Browser zuerst die `--custom-left` Position. Dies verschiebt das Infokästchen nach links vom Anker mit `position-area: left`, passt den Rand entsprechend an und gibt dem Infokästchen auch eine andere Breite.
-- Der Browser versucht als nächstes die `--custom-bottom` Position. Dies verschiebt das Infokästchen nach unten vom Anker mit `top` und `justify-self` statt eines `position-area` und setzt einen entsprechenden Rand. Es wird kein `width`-Deskriptor einbezogen, sodass das Infokästchen auf seine Standardbreite von `200px` zurückkehrt, die durch die `width`-Eigenschaft festgelegt ist.
-- Der Browser versucht als nächstes die `--custom-right` Position. Dies funktioniert ähnlich wie die `--custom-left` Position, mit demselben `width`-Deskriptor-Wert. Wir verwenden jedoch `left` und `align-self`, um das positionierte Element zu platzieren, anstatt eines `position-area`. Und wir umwickeln den `left`-Eigenwert in eine `calc()`-Funktion, in der wir `10px` hinzufügen, um Abstand zu schaffen, anstatt `margin` zu verwenden.
-- Wenn keine der anderen Versuchs-Fallback-Optionen es schafft, das positionierte Element vom Überlaufen abzuhalten, versucht der Browser schließlich die `--custom-bottom-right`-Position als letzten Ausweg. Dies platziert das positionierte Element rechts unten vom Anker mit `position-area: bottom right`.
+- Zunächst beachten Sie, dass unsere Standardposition durch `position-area: top` definiert ist. Wenn das Infokästchen nicht in irgendeine Richtung überläuft, sitzt das Infokästchen oberhalb des Ankers, und die in der `position-try-fallbacks`-Eigenschaft gesetzten Fallback-Positionsoptionen werden ignoriert. Beachten Sie auch, dass das Infokästchen eine feste Breite und einen unteren Rand hat. Diese Werte ändern sich, wenn verschiedene Fallback-Positionsoptionen angewendet werden.
+- Wenn das Infokästchen zu überlaufen beginnt, versucht der Browser zuerst die Position `--custom-left`. Dadurch wird das Infokästchen mit `position-area: left` an die linke Seite des Ankers verschoben, der Rand entsprechend angepasst und dem Infokästchen eine andere Breite gegeben.
+- Als nächstes versucht der Browser die Position `--custom-bottom`. Dadurch wird das Infokästchen mit `top` und `justify-self` an die untere Seite des Ankers verschoben, anstatt eine `position-area` zu verwenden, und ein geeigneter Rand gesetzt. Es enthält keinen `width`-Deskriptor, sodass das Infokästchen zu seiner Standardbreite von `200px` zurückkehrt, die durch die `width`-Eigenschaft gesetzt wurde.
+- Der Browser versucht dann die Position `--custom-right`. Dies funktioniert ähnlich wie die Position `--custom-left`, wobei derselbe `width`-Deskriptorwert angewendet wird. Wir verwenden jedoch `left` und `align-self`, um das positionierte Element zu platzieren, anstatt eine `position-area`. Und wir wickeln den `left`-Wert in eine `calc()`-Funktion ein, in der wir `10px` hinzufügen, um Abstände zu schaffen, anstatt `margin` zu verwenden.
+- Wenn keine der anderen Fallback-Optionen erfolgreich ist, um zu verhindern, dass das positionierte Element überläuft, versucht der Browser als letzten Ausweg die Position `--custom-bottom-right`. Dadurch wird das positionierte Element mit `position-area: bottom right` unten rechts zum Anker platziert.
 
-Wenn eine Positionsoption angewendet wird, überschreiben ihre Werte die initial auf das positionierte Element gesetzten Werte. Beispielsweise beträgt die initial auf das positionierte Element gesetzte `width` `200px`, aber wenn die `--custom-right` Positionsoption angewendet wird, wird ihre Breite auf `100px` gesetzt.
+Wenn eine Positionsoption angewendet wird, überschreiben ihre Werte die anfänglich auf das positionierte Element gesetzten Werte. Beispielsweise wird die Breite, die ursprünglich auf das positionierte Element gesetzt wurde, auf `200px` eingestellt, aber wenn die Positionsoption `--custom-right` angewendet wird, wird ihre Breite auf `100px` festgelegt.
 
-In einigen Fällen müssen wir innerhalb der benutzerdefinierten Positionsoptionen Werte festlegen, um die Anfangswerte auszuschalten. Die `--custom-bottom` und `--custom-right` Optionen verwenden Inset-Eigenschafts- und `*-self: anchor-center`-Werte, um das positionierte Element zu platzieren, daher entfernen wir in jedem Fall den zuvor eingestellten `position-area`-Wert, indem wir `position-area: none` setzen. Wenn wir dies nicht tun würden, würde der anfänglich gesetzte `position-area: top`-Wert noch wirksam bleiben und die anderen Positionierungsinformationen stören.
+In einigen Fällen müssen wir Werte innerhalb der benutzerdefinierten Positionsoptionen einstellen, um die anfänglich gesetzten Werte zu deaktivieren. Die Optionen `--custom-bottom` und `--custom-right` verwenden Inset-Eigenschafts- und `*-self: anchor-center`-Werte, um das positionierte Element zu platzieren, daher entfernen wir den zuvor gesetzten `position-area`-Wert in jedem Fall, indem wir `position-area: none` setzen. Wenn wir dies nicht tun würden, würde der anfänglich gesetzte Wert `position-area: top` weiterhin wirksam bleiben und die anderen Positionierungsinformationen beeinträchtigen.
 
 ## Spezifikationen
 
@@ -230,7 +230,7 @@ In einigen Fällen müssen wir innerhalb der benutzerdefinierten Positionsoption
 - {{cssxref("position-try")}}
 - Die {{cssxref("anchor()")}}-Funktion
 - Die {{cssxref("anchor-size()")}}-Funktion
-- [CSS anchor positioning](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Anleitung
-- [Handling overflow: try fallbacks and conditional hiding](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Anleitung
+- [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
+- [Verwendung von CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Leitfaden
+- [Überlauf behandeln: Fallbacks und bedingtes Verstecken](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Leitfaden
 - [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)

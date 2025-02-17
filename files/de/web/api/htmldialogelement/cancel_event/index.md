@@ -1,22 +1,22 @@
 ---
-title: "HTMLDialogElement: cancel Ereignis"
+title: "HTMLDialogElement: cancel event"
 short-title: cancel
 slug: Web/API/HTMLDialogElement/cancel_event
 l10n:
-  sourceCommit: d2421d25d1676cc11b01cc4981061e4d0aa78e95
+  sourceCommit: 9ba2221a19fc2de15894bf8b511d6674cfc0d653
 ---
 
 {{APIRef}}
 
-Das **`cancel`** Ereignis tritt auf einem {{HTMLElement("dialog")}}-Element auf, wenn der Benutzer den Browser anweist, das aktuell offene Dialogfeld zu schließen. Der Browser löst dieses Ereignis aus, wenn der Benutzer die <kbd>Esc</kbd>-Taste drückt.
+Das **`cancel`**-Ereignis wird auf einem {{HTMLElement("dialog")}}-Element ausgelöst, wenn der Benutzer dem Browser mitteilt, dass er den aktuell geöffneten Dialog schließen möchte. Der Browser löst dieses Ereignis aus, wenn der Benutzer die <kbd>Esc</kbd>-Taste drückt.
 
-Dieses Ereignis kann abgebrochen werden, kann jedoch nicht blubbern.
+Dieses Ereignis ist abfangbar, kann jedoch nicht weitergeleitet werden.
 
-Wenn ein `<dialog>` mit der <kbd>Esc</kbd>-Taste geschlossen wird, werden sowohl das `cancel`-Ereignis als auch das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst.
+Wenn ein `<dialog>` mit der <kbd>Esc</kbd>-Taste geschlossen wird, werden sowohl das `cancel`- als auch das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("cancel", (event) => {});
@@ -30,13 +30,13 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Abbrechen eines Dialogs
+### Einen Dialog abbrechen
 
 #### HTML
 
 ```html
 <dialog class="example-dialog">
-  <button class="close" type="reset">Close</button>
+  <button class="close">Close</button>
 </dialog>
 
 <button class="open-dialog">Open dialog</button>

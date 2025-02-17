@@ -1,31 +1,31 @@
 ---
-title: Grundlegende Konzepte logischer Eigenschaften und Werte
+title: Grundlegende Konzepte von logischen Eigenschaften und Werten
 slug: Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values
 l10n:
-  sourceCommit: f3d3298130d8e22fb89ba123a0648ad3cb7b3655
+  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
 ---
 
 {{CSSRef}}
 
-Das [CSS Logical Properties and Values Module](/de/docs/Web/CSS/CSS_logical_properties_and_values#properties) definiert flussbezogene Abbildungen für viele der {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werte in CSS. Dieser Artikel behandelt dieses Modul und erklärt {{Glossary("flow_relative_values", "flussbezogene Werte")}} und Eigenschaften.
+Das [CSS-Modul für logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values#properties) definiert flussbezogene Zuordnungen für viele der {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werte in CSS. Dieser Artikel behandelt dieses Modul und erklärt {{Glossary("flow_relative_values", "flussbezogene Werte")}} und Eigenschaften.
 
 ## Warum sind logische Eigenschaften nützlich?
 
-CSS 2.1 und frühere Versionen hatten Dinge nach den physischen Abmessungen des Bildschirms dimensioniert. Daher beschreiben wir Boxen als {{CSSxRef("width")}} und {{CSSxRef("height")}}, positionieren Elemente mit `top` und `left` und weisen den `top`, `right`, `bottom`, `left` usw. Ränder, Abstände und Rahmen zu. Das Modul der logischen Eigenschaften und Werte definiert Abbildungen für diese {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werte zu deren logischen oder flussbezogenen Gegenstücken — z. B. `start` und `end` anstelle von `left` und `right`/`top` und `bottom`.
+CSS 2.1 und früheren Versionen haben Elemente basierend auf den physischen Dimensionen des Bildschirms skaliert. Daher beschreiben wir Boxen mit {{CSSxRef("width")}} und {{CSSxRef("height")}}, positionieren Elemente relativ zu `top` und `left` und weisen Grenzen, Margen und Abstände den Seiten `top`, `right`, `bottom`, `left` usw. zu. Das Modul für logische Eigenschaften und Werte definiert Zuordnungen dieser {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werte zu ihren logischen oder flussbezogenen Entsprechungen — z. B. `start` und `end` anstelle von `left` und `right`/`top` und `bottom`.
 
-Diese Abbildungen sind besonders nützlich für Websites, die in Sprachen mit einer anderen Schreibrichtung als das ursprüngliche Layout übersetzt werden. Zum Beispiel: Mit einem CSS-Grid-Layout, wenn der Raster-Container eine Breite hat und die {{CSSxRef("align-self")}}- und {{CSSxRef("justify-self")}}-Eigenschaften genutzt werden, um die Rasterelemente auszurichten, bewirken diese flussbezogenen Eigenschaften, dass `justify-self: start` das Element am Anfang der Inlinedimension ausrichtet und `align-self: start` dasselbe in der Blockdimension.
+Diese Zuordnungen sind besonders nützlich für Websites, die in Sprachen mit einem anderen Schreibmodus als dem ursprünglichen Layout übersetzt werden. Zum Beispiel, wenn in einem CSS-Grid-Layout der Grid-Container eine Breite hat und die Eigenschaften {{CSSxRef("align-self")}} und {{CSSxRef("justify-self")}} verwendet werden, um die Grid-Elemente auszurichten. Da diese Eigenschaften flussbezogen sind, richtet `justify-self: start` das Element am Anfang der Inline-Dimension aus, während `align-self: start` dasselbe für die Block-Dimension macht.
 
-![Ein Raster in einer horizontalen Schreibrichtung](grid-horizontal-width-sm.png)
+![Ein Raster in einem horizontalen Schreibmodus](grid-horizontal-width-sm.png)
 
-Wenn der Schreibrichtung-Modus dieser Komponente mithilfe der {{CSSxRef("writing-mode")}}-Eigenschaft auf `vertical-rl` geändert wird, funktioniert die Ausrichtung weiterhin auf die gleiche Weise. Die Inline-Dimension läuft vertikal, und die Block-Dimension horizontal. Das Raster sieht jedoch nicht mehr gleich aus, da die Breite des Containers ein horizontaler Messwert ist, ein Messwert, der mit der physischen und nicht mit der logischen oder flussbezogenen Ausrichtung des Textes verbunden ist.
+Wenn der Schreibmodus dieser Komponente mit der Eigenschaft {{CSSxRef("writing-mode")}} in `vertical-rl` geändert wird, funktioniert die Ausrichtung weiterhin wie gewohnt. Die Inline-Dimension verläuft nun vertikal und die Block-Dimension horizontal. Das Raster sieht jedoch nicht mehr gleich aus, da die Breite des Containers eine horizontale Maßnahme ist, die an physische und nicht an logische oder flussbezogene Dimensionen gekoppelt ist.
 
-![Ein Raster in einer vertikalen Schreibrichtung.](grid-vertical-width-sm.png)
+![Ein Raster im vertikalen Schreibmodus.](grid-vertical-width-sm.png)
 
-Wenn stattdessen die logische Eigenschaft {{CSSxRef("inline-size")}} verwendet wird, funktioniert die Komponente unabhängig davon, welcher Schreibrichtung-Modus verwendet wird, auf die gleiche Weise.
+Wird stattdessen die logische Eigenschaft {{CSSxRef("inline-size")}} verwendet, funktioniert die Komponente unabhängig davon, welcher Schreibmodus verwendet wird.
 
-![Ein Raster-Layout in einer vertikalen Schreibrichtung](grid-vertical-inline-size-small.png)
+![Ein Rasterlayout im vertikalen Schreibmodus](grid-vertical-inline-size-small.png)
 
-Sie können dies im Live-Beispiel unten ausprobieren. Ändern Sie `writing-mode` von `vertical-rl` zu `horizontal-tb` bei `.grid`, um zu sehen, wie sich die verschiedenen Eigenschaften auf das Layout auswirken.
+Sie können dies im Live-Beispiel unten ausprobieren. Ändern Sie `writing-mode` von `vertical-rl` zu `horizontal-tb` auf `.grid`, um zu sehen, wie sich die verschiedenen Eigenschaften auf das Layout auswirken.
 
 ```html live-sample___intro-grid-example
 <div class="grid">
@@ -74,27 +74,27 @@ body {
 
 {{EmbedLiveSample("intro-grid-example", "", "450px")}}
 
-Wenn Sie an einer Website arbeiten, die sich in einer anderen Schreibrichtung als horizontal von oben nach unten befindet, oder wenn Sie Schreibrichtungen aus kreativen Gründen verwenden, ist es sinnvoll, sich auf den Fluss des Inhalts beziehen zu können.
+Wenn Sie mit einer Website in einem anderen Schreibmodus als einem horizontalen, von oben nach unten verlaufenden Modus arbeiten oder Schreibmodi aus kreativen Gründen nutzen, ergibt es Sinn, sich an dem Fluss des Inhalts zu orientieren.
 
 ## Block- und Inline-Dimensionen
 
-Ein Schlüsselkonzept bei der Arbeit mit flussbezogenen Eigenschaften und Werten sind die beiden Dimensionen Block und Inline. CSS-Layout-Methoden wie Flexbox und Grid Layout verwenden die Konzepte `block` und `inline` anstelle von `right` und `left`/`top` und `bottom` beim Ausrichten von Elementen.
+Ein Schlüsselkonzept beim Arbeiten mit flussbezogenen Eigenschaften und Werten sind die beiden Dimensionen Block und Inline. CSS-Layoutmethoden wie Flexbox und Grid-Layout verwenden die Konzepte `block` und `inline` statt `right` und `left`/`top` und `bottom`, wenn es um die Ausrichtung von Elementen geht.
 
-Die `inline`-Dimension ist die Dimension, entlang der eine Textzeile in der verwendeten Schreibrichtung verläuft. Daher ist in einem englischen Dokument, bei dem der Text horizontal von links nach rechts läuft, oder in einem arabischen Dokument, bei dem der Text horizontal von rechts nach links läuft, die Inline-Dimension _horizontal_. Wechseln Sie zu einer vertikalen Schreibrichtung (z. B. ein japanisches Dokument), dann ist die Inline-Dimension jetzt _vertikal_, da die Zeilen in dieser Schreibrichtung vertikal verlaufen.
+Die `inline`-Dimension ist die Dimension, entlang derer eine Textzeile im verwendeten Schreibmodus verläuft. In einem englischen Dokument, bei dem der Text horizontal von links nach rechts läuft, oder in einem arabischen Dokument, bei dem der Text horizontal von rechts nach links läuft, ist die Inline-Dimension _horizontal_. Wechseln Sie zu einem vertikalen Schreibmodus (z. B. ein japanisches Dokument), so ist die Inline-Dimension nun _vertikal_, da Zeilen in diesem Schreibmodus vertikal verlaufen.
 
-Die Block-Dimension ist die andere Dimension und die Richtung, in der Blöcke — wie Absätze — nacheinander angezeigt werden. In Englisch und Arabisch verlaufen diese vertikal, während sie in jeder vertikalen Schreibrichtung horizontal verlaufen.
+Die Block-Dimension ist die andere Dimension und die Richtung, in der Blöcke — wie Absätze — nacheinander dargestellt werden. In Englisch und Arabisch verlaufen diese vertikal, während sie in einem vertikalen Schreibmodus horizontal verlaufen.
 
-Das folgende Diagramm zeigt die Inline- und Block-Richtungen in einer horizontalen Schreibrichtung:
+Das folgende Diagramm zeigt die Inline- und Block-Dimensionen in einem horizontalen Schreibmodus:
 
-![Diagramm, das die Inline-Achse horizontal verlaufend und die Block-Achse vertikal verlaufend zeigt.](mdn-horizontal.png)
+![Diagramm, das die Inline-Achse horizontal und die Block-Achse vertikal zeigt.](mdn-horizontal.png)
 
-Dieses Diagramm zeigt Block und Inline in einer vertikalen Schreibrichtung:
+Dieses Diagramm zeigt die Block- und Inline-Dimensionen in einem vertikalen Schreibmodus:
 
-![Diagramm, das die Block-Achse horizontal und die Inline-Achse vertikal verlaufend zeigt.](mdn-vertical.png)
+![Diagramm, das die Block-Achse horizontal und die Inline-Achse vertikal zeigt.](mdn-vertical.png)
 
 ## Siehe auch
 
 - [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
 - [Box-Ausrichtung im Flex-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
-- [Flusslayout und Schreibrichtungen](/de/docs/Web/CSS/CSS_flow_layout/Flow_layout_and_writing_modes)
+- [Flusslayout und Schreibmodi](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes)
 - [Understanding logical properties and values](https://www.smashingmagazine.com/2018/03/understanding-logical-properties-values/) auf Smashing Magazine (2018)

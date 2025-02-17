@@ -2,33 +2,33 @@
 title: <system-color>
 slug: Web/CSS/system-color
 l10n:
-  sourceCommit: 4db32ac1814749885a7692f684ae671f0b1449d4
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Der **`<system-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) spiegelt normalerweise die Standardfarbwahl wider, die für die verschiedenen Teile einer Webseite verwendet wird.
+Der **`<system-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) spiegelt normalerweise die Standardfarbwahl wider, die für die verschiedenen Teile einer Webseite verwendet wird.
 
-Jedoch können Benutzeragenten eine Barrierefreiheitseinstellung namens _erzwungener Farbmodus_ bereitstellen, bei dem Farben auf eine vom Benutzer und Benutzeragenten definierte Palette beschränkt werden und die vom Autor gewählten Farben in bestimmten Eigenschaften überschrieben werden. Im erzwungenen Farbmodus gibt `<system-color>` die gewählten Farben an, sodass der Rest der Seite sich anpassen kann. Ein Beispiel für einen erzwungenen Farbmodus ist der [hochkontrastige Modus auf Windows](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/).
+Allerdings können Benutzeragenten eine Barrierefreiheitsfunktion namens _Zwangsfarbenmodus_ bereitstellen, bei der die Farben auf eine vom Benutzer und Benutzeragenten definierte Palette eingeschränkt werden. Diese überschreibt die Farbauswahl des Autors in bestimmten Eigenschaften. Im Zwangsfarbenmodus gibt `<system-color>` die gewählten Farben an, sodass der Rest der Seite sich daran anpassen kann. Ein Beispiel für den Zwangsfarbenmodus ist der [Hoher-Kontrast-Modus in Windows](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/).
 
-Im erzwungenen Farbmodus sollten Autoren Farben aus dem `<system-color>` Typ für alle Eigenschaften verwenden, die _nicht_ zu den Eigenschaften gehören, deren Farben überschrieben werden. Dies stellt sicher, dass die Seite konsistent dieselbe Farbpalette über alle Eigenschaften hinweg verwendet.
+Im Zwangsfarbenmodus sollten Autoren Farben des `<system-color>`-Typs für alle Eigenschaften verwenden, die _nicht_ zu den überschriebenen Eigenschaften gehören. Dies stellt sicher, dass die Seite durchgehend dieselbe Farbpalette in allen Eigenschaften verwendet.
 
-Autoren können den erzwungenen Farbmodus mithilfe des [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors) Media-Features erkennen.
+Autoren können den Zwangsfarbenmodus mithilfe der [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors)-Media-Feature erkennen.
 
-Ein `<system-color>` Wert kann überall verwendet werden, wo ein [`<color>`](/de/docs/Web/CSS/color_value) verwendet werden kann.
+Ein `<system-color>`-Wert kann überall verwendet werden, wo ein [`<color>`](/de/docs/Web/CSS/color_value) verwendet werden kann.
 
 ## Syntax
 
-Beachten Sie, dass diese Schlüsselwörter _nicht auf die Groß- und Kleinschreibung achten_, hier jedoch zur besseren Lesbarkeit in gemischter Schreibweise aufgeführt sind.
+Beachten Sie, dass diese Schlüsselwörter _nicht groß-/kleinbuchstabenabhängig_ sind, hier aber zur besseren Lesbarkeit gemischt geschrieben werden.
 
 - `AccentColor`
-  - : Hintergrund von hervorgehobenen Benutzeroberflächenelementen.
+  - : Hintergrund von akzentuierten Benutzeroberflächen-Steuerelementen.
 - `AccentColorText`
-  - : Text von hervorgehobenen Benutzeroberflächenelementen.
+  - : Text von akzentuierten Benutzeroberflächen-Steuerelementen.
 - `ActiveText`
   - : Text aktiver Links.
 - `ButtonBorder`
-  - : Grundfarbe der Rahmen von Steuerelementen.
+  - : Standardrahmenfarbe von Steuerelementen.
 - `ButtonFace`
   - : Hintergrundfarbe von Steuerelementen.
 - `ButtonText`
@@ -44,78 +44,78 @@ Beachten Sie, dass diese Schlüsselwörter _nicht auf die Groß- und Kleinschrei
 - `GrayText`
   - : Textfarbe für deaktivierte Elemente (zum Beispiel ein deaktiviertes Steuerelement).
 - `Highlight`
-  - : Hintergrund von ausgewählten Elementen.
+  - : Hintergrund ausgewählter Elemente.
 - `HighlightText`
-  - : Textfarbe von ausgewählten Elementen.
+  - : Textfarbe ausgewählter Elemente.
 - `LinkText`
-  - : Text von nicht-aktiven, nicht-besuchten Links.
+  - : Text nicht aktiver, nicht besuchter Links.
 - `Mark`
-  - : Hintergrund von speziell markiertem Text (zum Beispiel durch das HTML-`mark` Element).
+  - : Hintergrund von speziell markiertem Text (z. B. durch das HTML-Element `mark`).
 - `MarkText`
-  - : Text, der speziell markiert wurde (zum Beispiel durch das HTML-`mark` Element).
+  - : Text, der speziell markiert wurde (z. B. durch das HTML-Element `mark`).
 - `SelectedItem`
-  - : Hintergrund von ausgewählten Elementen, zum Beispiel eines ausgewählten Kontrollkästchens.
+  - : Hintergrund ausgewählter Elemente, z. B. eines ausgewählten Kontrollkästchens.
 - `SelectedItemText`
-  - : Text von ausgewählten Elementen.
+  - : Text ausgewählter Elemente.
 - `VisitedText`
-  - : Text besuchter Links.
+  - : Text von besuchten Links.
 
-### Veraltete Systemfarbenschlüsselwörter
+### Veraltete Schlüsselwörter für Systemfarben
 
-Die folgenden Schlüsselwörter wurden in früheren Versionen des CSS Farbmoduls definiert. Sie sind nun für die Verwendung auf öffentlichen Webseiten veraltet.
+Die folgenden Schlüsselwörter wurden in früheren Versionen des CSS Color Moduls definiert. Sie sind jetzt für die Verwendung auf öffentlichen Webseiten veraltet.
 
 - `ActiveBorder` {{Deprecated_Inline}}
-  - : Aktiver Fensterrahmen. Dasselbe wie `ButtonBorder`.
+  - : Aktiver Fensterrahmen. Entspricht `ButtonBorder`.
 - `ActiveCaption` {{Deprecated_Inline}}
-  - : Aktive Fensterbeschriftung. Sollte mit `CaptionText` als Vordergrundfarbe verwendet werden. Dasselbe wie `Canvas`.
+  - : Aktive Fensterüberschrift. Sollte mit `CaptionText` als Vordergrundfarbe verwendet werden. Entspricht `Canvas`.
 - `AppWorkspace` {{Deprecated_Inline}}
-  - : Hintergrundfarbe einer Mehrdokumentenschnittstelle. Dasselbe wie `Canvas`.
+  - : Hintergrundfarbe der Mehrfachdokumentenschnittstelle. Entspricht `Canvas`.
 - `Background` {{Deprecated_Inline}}
-  - : Desktop-Hintergrund. Dasselbe wie `Canvas`.
+  - : Desktop-Hintergrund. Entspricht `Canvas`.
 - `ButtonHighlight` {{Deprecated_Inline}}
-  - : Die Farbe des Rahmen, der zur Lichtquelle gerichtet ist, für 3D-Elemente, die aufgrund dieser Rahmenschicht in 3D erscheinen. Dasselbe wie `ButtonFace`.
+  - : Farbe des dem Licht zugewandten Rahmens für 3D-Elemente, die durch eine umgebende Rahmenebene dreidimensional erscheinen. Entspricht `ButtonFace`.
 - `ButtonShadow` {{Deprecated_Inline}}
-  - : Die Farbe des Rahmens, der von der Lichtquelle abgewandt ist, für 3D-Elemente, die aufgrund dieser Rahmenschicht in 3D erscheinen. Dasselbe wie `ButtonFace`.
+  - : Farbe des vom Licht abgewandten Rahmens für 3D-Elemente, die durch eine umgebende Rahmenebene dreidimensional erscheinen. Entspricht `ButtonFace`.
 - `CaptionText` {{Deprecated_Inline}}
-  - : Text in Beschriftungen, Größenfeldern und Scrollleistenpfeilen. Sollte mit der `ActiveCaption` Hintergrundfarbe verwendet werden. Dasselbe wie `CanvasText`.
+  - : Text in Überschriften, Größenbox und Scrollpfeilbox. Sollte mit der Hintergrundfarbe `ActiveCaption` verwendet werden. Entspricht `CanvasText`.
 - `InactiveBorder` {{Deprecated_Inline}}
-  - : Inaktiver Fensterrahmen. Dasselbe wie `ButtonBorder`.
+  - : Rahmen eines inaktiven Fensters. Entspricht `ButtonBorder`.
 - `InactiveCaption` {{Deprecated_Inline}}
-  - : Inaktive Fensterbeschriftung. Sollte mit der `InactiveCaptionText` Vordergrundfarbe verwendet werden. Dasselbe wie `Canvas`.
+  - : Inaktive Fensterüberschrift. Sollte mit der Vordergrundfarbe `InactiveCaptionText` verwendet werden. Entspricht `Canvas`.
 - `InactiveCaptionText` {{Deprecated_Inline}}
-  - : Farbe des Textes in einer inaktiven Beschriftung. Sollte mit der `InactiveCaption` Hintergrundfarbe verwendet werden. Dasselbe wie `GrayText`.
+  - : Farbe des Textes in einer inaktiven Überschrift. Sollte mit der Hintergrundfarbe `InactiveCaption` verwendet werden. Entspricht `GrayText`.
 - `InfoBackground` {{Deprecated_Inline}}
-  - : Hintergrundfarbe für Tooltip-Steuerelemente. Sollte mit der `InfoText` Vordergrundfarbe verwendet werden. Dasselbe wie `Canvas`.
+  - : Hintergrundfarbe für Tooltip-Steuerelemente. Sollte mit der Vordergrundfarbe `InfoText` verwendet werden. Entspricht `Canvas`.
 - `InfoText` {{Deprecated_Inline}}
-  - : Textfarbe für Tooltip-Steuerelemente. Sollte mit der `InfoBackground` Hintergrundfarbe verwendet werden. Dasselbe wie `CanvasText`.
+  - : Textfarbe für Tooltip-Steuerelemente. Sollte mit der Hintergrundfarbe `InfoBackground` verwendet werden. Entspricht `CanvasText`.
 - `Menu` {{Deprecated_Inline}}
-  - : Menü-Hintergrund. Sollte mit der `MenuText` oder `-moz-MenuBarText` Vordergrundfarbe verwendet werden. Dasselbe wie `Canvas`.
+  - : Menühintergrund. Sollte mit der Vordergrundfarbe `MenuText` oder `-moz-MenuBarText` verwendet werden. Entspricht `Canvas`.
 - `MenuText` {{Deprecated_Inline}}
-  - : Text in Menüs. Sollte mit der `Menu` Hintergrundfarbe verwendet werden. Dasselbe wie `CanvasText`.
+  - : Text in Menüs. Sollte mit der Hintergrundfarbe `Menu` verwendet werden. Entspricht `CanvasText`.
 - `Scrollbar` {{Deprecated_Inline}}
-  - : Hintergrundfarbe von Scrollleisten. Dasselbe wie `Canvas`.
+  - : Hintergrundfarbe von Bildlaufleisten. Entspricht `Canvas`.
 - `ThreeDDarkShadow` {{Deprecated_Inline}}
-  - : Die Farbe des dunkleren (in der Regel äußeren) der beiden Rahmen von der Lichtquelle weg für 3D-Elemente, die aufgrund zweier konzentrischer Rahmenschichten in 3D erscheinen. Dasselbe wie `ButtonBorder`.
+  - : Die Farbe des dunkleren (normalerweise äußeren) der beiden Rahmen, die vom Licht abgewandt sind, für 3D-Elemente, die durch zwei konzentrische Umgebungsschichten dreidimensional erscheinen. Entspricht `ButtonBorder`.
 - `ThreeDFace` {{Deprecated_Inline}}
-  - : Die Gesichts-Hintergrundfarbe für 3D-Elemente, die aufgrund zweier konzentrischer Rahmenschichten in 3D erscheinen. Sollte mit der `ButtonText` Vordergrundfarbe verwendet werden. Dasselbe wie `ButtonFace`.
+  - : Die Hintergrundfarbe der Fläche für 3D-Elemente, die durch zwei konzentrische Umgebungsschichten dreidimensional erscheinen. Sollte mit der Vordergrundfarbe `ButtonText` verwendet werden. Entspricht `ButtonFace`.
 - `ThreeDHighlight` {{Deprecated_Inline}}
-  - : Die Farbe des helleren (in der Regel äußeren) der beiden Rahmen zur Lichtquelle hin für 3D-Elemente, die aufgrund zweier konzentrischer Rahmenschichten in 3D erscheinen. Dasselbe wie `ButtonBorder`.
+  - : Die Farbe des helleren (normalerweise äußeren) der beiden Rahmen, die dem Licht zugewandt sind, für 3D-Elemente, die durch zwei konzentrische Umgebungsschichten dreidimensional erscheinen. Entspricht `ButtonBorder`.
 - `ThreeDLightShadow` {{Deprecated_Inline}}
-  - : Die Farbe des dunkleren (in der Regel inneren) der beiden Rahmen zur Lichtquelle hin für 3D-Elemente, die aufgrund zweier konzentrischer Rahmenschichten in 3D erscheinen. Dasselbe wie `ButtonBorder`.
+  - : Die Farbe des dunkleren (normalerweise inneren) der beiden Rahmen, die dem Licht zugewandt sind, für 3D-Elemente, die durch zwei konzentrische Umgebungsschichten dreidimensional erscheinen. Entspricht `ButtonBorder`.
 - `ThreeDShadow` {{Deprecated_Inline}}
-  - : Die Farbe des helleren (in der Regel inneren) der beiden Rahmen von der Lichtquelle weg für 3D-Elemente, die aufgrund zweier konzentrischer Rahmenschichten in 3D erscheinen. Dasselbe wie `ButtonBorder`.
+  - : Die Farbe des helleren (normalerweise inneren) der beiden Rahmen, die vom Licht abgewandt sind, für 3D-Elemente, die durch zwei konzentrische Umgebungsschichten dreidimensional erscheinen. Entspricht `ButtonBorder`.
 - `Window` {{Deprecated_Inline}}
-  - : Fensterhintergrund. Sollte mit der `WindowText` Vordergrundfarbe verwendet werden. Dasselbe wie `Canvas`.
+  - : Fensterhintergrund. Sollte mit der Vordergrundfarbe `WindowText` verwendet werden. Entspricht `Canvas`.
 - `WindowFrame` {{Deprecated_Inline}}
-  - : Fensterrahmen. Dasselbe wie `ButtonBorder`.
+  - : Fensterrahmen. Entspricht `ButtonBorder`.
 - `WindowText` {{Deprecated_Inline}}
-  - : Text in Fenstern. Sollte mit der `Window` Hintergrundfarbe verwendet werden. Dasselbe wie `CanvasText`.
+  - : Text in Fenstern. Sollte mit der Hintergrundfarbe `Window` verwendet werden. Entspricht `CanvasText`.
 
 ## Beispiele
 
 ### Verwendung von Systemfarben
 
-In diesem Beispiel haben wir eine Schaltfläche, die normalerweise durch die Eigenschaft {{cssxref("box-shadow")}} ihren Kontrast erhält. Im erzwungenen Farbmodus wird `box-shadow` auf `none` gesetzt, sodass das Beispiel das `forced-colors` Media-Feature verwendet, um sicherzustellen, dass es einen Rahmen der entsprechenden Farbe (`ButtonBorder` in diesem Fall) gibt.
+In diesem Beispiel haben wir eine Schaltfläche, die normalerweise ihren Kontrast über die {{cssxref("box-shadow")}}-Eigenschaft erhält. Im Zwangsfarbenmodus wird `box-shadow` erzwungen auf `none` gesetzt, sodass das Beispiel die Media-Feature `forced-colors` verwendet, um sicherzustellen, dass es einen Rahmen der entsprechenden Farbe gibt (in diesem Fall `ButtonBorder`).
 
 #### HTML
 
@@ -157,4 +157,4 @@ In diesem Beispiel haben wir eine Schaltfläche, die normalerweise durch die Eig
 
 ## Siehe auch
 
-- [`<color>`](/de/docs/Web/CSS/color_value): Der Datentyp, zu dem diese Schlüsselwörter gehören
+- [`<color>`](/de/docs/Web/CSS/color_value): der Datentyp, zu dem diese Schlüsselwörter gehören

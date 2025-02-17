@@ -3,12 +3,14 @@ title: "XMLHttpRequest: abort()-Methode"
 short-title: abort()
 slug: Web/API/XMLHttpRequest/abort
 l10n:
-  sourceCommit: 9c78a44b9321fcd3fbe63d6f5b61ed749c2fa261
+  sourceCommit: 1d7d53ef07169095702a60e3b315aa4f820c98b4
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`XMLHttpRequest.abort()`**-Methode bricht die Anfrage ab, wenn sie bereits gesendet wurde. Wenn eine Anfrage abgebrochen wird, ändert sich ihr [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) zu `XMLHttpRequest.UNSENT` (0) und der [`status`](/de/docs/Web/API/XMLHttpRequest/status)-Code der Anfrage wird auf 0 gesetzt.
+Die **`XMLHttpRequest.abort()`**-Methode bricht die Anfrage ab, falls sie bereits gesendet wurde. Wird eine Anfrage abgebrochen, ändert sich der [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) auf `XMLHttpRequest.UNSENT` (0) und der [`status`](/de/docs/Web/API/XMLHttpRequest/status)-Code wird auf 0 gesetzt.
+
+Falls die Anfrage noch in Bearbeitung ist (ihr `readyState` ist weder `XMLHttpRequest.DONE` noch `XMLHttpRequest.UNSENT`), werden ein [`readystatechange`](/de/docs/Web/API/XMLHttpRequest/readystatechange_event)-Ereignis, ein [`abort`](/de/docs/Web/API/XMLHttpRequest/abort_event)-Ereignis und ein [`loadend`](/de/docs/Web/API/XMLHttpRequest/loadend_event)-Ereignis in dieser Reihenfolge ausgelöst. Bei synchronen Anfragen werden keine Ereignisse ausgelöst und stattdessen ein Fehler geworfen.
 
 ## Syntax
 
@@ -22,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keinen ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel beginnt mit dem Laden von Inhalten von der MDN-Homepage und bricht dann aufgrund einer bestimmten Bedingung den Transfer durch Aufrufen von `abort()` ab.
+Dieses Beispiel beginnt damit, Inhalte von der MDN-Startseite zu laden. Aufgrund einer Bedingung wird der Transfer anschließend durch einen Aufruf von `abort()` abgebrochen.
 
 ```js
 const xhr = new XMLHttpRequest();

@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: Methode compileShader()"
+title: "WebGLRenderingContext: compileShader()-Methode"
 short-title: compileShader()
 slug: Web/API/WebGLRenderingContext/compileShader
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: bcff6fc367dc53ce8f11a059d545e8ca813923e1
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **WebGLRenderingContext.compileShader()** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) kompiliert einen GLSL-Shader in binäre Daten, damit er von einem [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) verwendet werden kann.
+Die **WebGLRenderingContext.compileShader()**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) kompiliert einen GLSL-Shader in Binärdaten, sodass er von einem [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) verwendet werden kann.
 
 ## Syntax
 
@@ -24,6 +24,11 @@ compileShader(shader)
 ### Rückgabewert
 
 Keiner ({{jsxref("undefined")}}).
+
+### Ausnahmen
+
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn der angegebene `shader` nicht vom Typ `WebGLShader` ist.
 
 ## Beispiele
 

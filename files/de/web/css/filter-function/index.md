@@ -2,19 +2,19 @@
 title: <filter-function>
 slug: Web/CSS/filter-function
 l10n:
-  sourceCommit: 5755d6dfbac15abc29ddcd924cee110c4139b073
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Der **`<filter-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen grafischen Effekt, der das Erscheinungsbild eines Eingabebildes verändern kann. Er wird in den Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet.
+Der **`<filter-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert einen grafischen Effekt, der das Aussehen eines Eingabebildes verändern kann. Er wird in den Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet.
 
 ## Syntax
 
-Der `<filter-function>` Datentyp wird mit einer der unten aufgeführten Filterfunktionen angegeben. Jede Funktion erfordert ein Argument, das, wenn es ungültig ist, dazu führt, dass kein Filter angewendet wird.
+Der `<filter-function>`-Datentyp wird mittels einer der unten aufgelisteten Filterfunktionen angegeben. Jede Funktion benötigt ein Argument, welches, falls es ungültig ist, dazu führt, dass kein Filter angewendet wird.
 
 - {{cssxref("filter-function/blur", "blur()")}}
-  - : Verwässert das Bild.
+  - : Macht das Bild unscharf.
 - {{cssxref("filter-function/brightness", "brightness()")}}
   - : Macht das Bild heller oder dunkler.
 - {{cssxref("filter-function/contrast", "contrast()")}}
@@ -24,13 +24,13 @@ Der `<filter-function>` Datentyp wird mit einer der unten aufgeführten Filterfu
 - {{cssxref("filter-function/grayscale", "grayscale()")}}
   - : Konvertiert das Bild in Graustufen.
 - {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}
-  - : Ändert den Gesamtfarbton des Bildes.
+  - : Ändert den Gesamteindruck der Farbtöne des Bildes.
 - {{cssxref("filter-function/invert", "invert()")}}
   - : Kehrt die Farben des Bildes um.
 - {{cssxref("filter-function/opacity", "opacity()")}}
   - : Macht das Bild transparent.
 - {{cssxref("filter-function/saturate", "saturate()")}}
-  - : Über-saturiert oder entsättigt das Eingabebild.
+  - : Über-sättigt oder entsättigt das Eingabebild.
 - {{cssxref("filter-function/sepia", "sepia()")}}
   - : Konvertiert das Bild in Sepia.
 
@@ -42,7 +42,7 @@ Der `<filter-function>` Datentyp wird mit einer der unten aufgeführten Filterfu
 
 ### Vergleich von Filterfunktionen
 
-Dieses Beispiel bietet eine einfache Grafik zusammen mit einem Auswahlmenü, das Ihnen ermöglicht, zwischen den verschiedenen Arten von Filterfunktionen zu wählen, und einem Schieberegler, mit dem Sie die in der Filterfunktion verwendeten Werte variieren können. Die Aktualisierung der Steuerelemente aktualisiert den Filtereffekt in Echtzeit und ermöglicht es Ihnen, die Effekte verschiedener Filter zu untersuchen.
+Dieses Beispiel zeigt eine einfache Grafik zusammen mit einem Auswahlmenü, mit dem Sie zwischen den verschiedenen Arten von Filterfunktionen wählen können, und einem Schieberegler, mit dem Sie die Werte innerhalb der Filterfunktion variieren können. Durch Ändern der Steuerelemente wird der Filtereffekt in Echtzeit aktualisiert, sodass Sie die Auswirkungen der verschiedenen Filter untersuchen können.
 
 ```css
 div {
@@ -55,7 +55,7 @@ div {
 }
 ```
 
-Wo der `<filter-function>` der von Ihnen aus dem Dropdown-Menü ausgewählte Filter ist und der `<value>` die von Ihnen mit dem Schieberegler festgelegten Werte sind:
+Hierbei ist `<filter-function>` der Filter, den Sie aus dem Dropdown-Menü auswählen, und `<value>` die Werte, die Sie mit dem Schieberegler einstellen:
 
 ```html live-sample___filter-functions
 <div></div>

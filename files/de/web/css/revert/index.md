@@ -2,38 +2,38 @@
 title: revert
 slug: Web/CSS/revert
 l10n:
-  sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Das **`revert`** CSS-Schlüsselwort kehrt den kaskadierten Wert einer Eigenschaft von ihrem aktuellen Wert auf den Wert zurück, den die Eigenschaft gehabt hätte, wenn keine Änderungen durch den aktuellen **{{Glossary("style_origin", "Style Origin")}}** am aktuellen Element vorgenommen worden wären. Somit wird die Eigenschaft entweder auf den vom Benutzeragenten gesetzten Wert, den vom Benutzer festgelegten Wert, auf ihren geerbten Wert (falls sie vererbbar ist) oder auf den Anfangswert zurückgesetzt. Es kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschlusseigenschaft {{cssxref("all")}}.
+Das **`revert`** CSS-Schlüsselwort setzt den gekaskadierten Wert einer Eigenschaft von ihrem aktuellen Wert auf den Wert zurück, den die Eigenschaft gehabt hätte, wenn keine Änderungen durch den aktuellen **{{Glossary("style_origin", "Stilorigin")}}** am aktuellen Element vorgenommen worden wären. Es setzt die Eigenschaft somit entweder auf den vom Benutzeragenten gesetzten Wert, den vom Benutzer gesetzten Wert, den geerbten Wert (wenn vererbbar) oder den Anfangswert zurück. Es kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschreibeigenschaft {{cssxref("all")}}.
 
-Dieses Schlüsselwort entfernt aus der Kaskade alle überschriebenen Stile, bis der Stil erreicht ist, zu dem zurückgegangen wird.
+Dieses Schlüsselwort entfernt aus der Kaskade alle Stile, die überschrieben wurden, bis der Stil erreicht wird, zu dem zurückgerollt werden soll.
 
-- Wenn es von den eigenen Stilen einer Seite (dem Autor-Origin) verwendet wird, rollt `revert` den kaskadierten Wert der Eigenschaft auf den benutzerdefinierten Stil zurück, falls einer existiert; andernfalls wird der Stil auf den Standardstil des Benutzeragenten zurückgesetzt.
-- Wenn es in einem benutzerdefinierten Stylesheet eines Benutzers verwendet wird oder wenn der Stil vom Benutzer angewendet wurde (dem Benutzer-Origin), rollt `revert` den kaskadierten Wert auf den Standardstil des Benutzeragenten zurück.
-- Wenn es innerhalb der Standardstile des Benutzeragenten verwendet wird, ist dieses Schlüsselwort funktional äquivalent zu {{cssxref("unset")}}.
+- Wenn es in den Stilen einer Website (dem Autoren-Origin) verwendet wird, setzt `revert` den gekaskadierten Wert der Eigenschaft auf den benutzerdefinierten Stil des Benutzers zurück, falls vorhanden; andernfalls wird der Stil auf den Standardstil des Benutzeragenten zurückgesetzt.
+- Wenn es in einem benutzerdefinierten Stylesheet eines Benutzers oder in Stilen verwendet wird, die vom Benutzer angewendet wurden (der Benutzer-Origin), setzt `revert` den gekaskadierten Wert auf den Standardstil des Benutzeragenten zurück.
+- Wenn es innerhalb der Standardstile des Benutzeragenten verwendet wird, ist dieses Schlüsselwort funktional gleichwertig mit {{cssxref("unset")}}.
 
-Das `revert` Schlüsselwort funktioniert in vielen Fällen genau wie [`unset`](/de/docs/Web/CSS/unset). Der einzige Unterschied besteht bei Eigenschaften, die vom Browser oder von benutzerdefinierten Stylesheets (auf Browserseite) gesetzt werden.
+Das Schlüsselwort `revert` funktioniert in vielen Fällen genauso wie [`unset`](/de/docs/Web/CSS/unset). Der einzige Unterschied besteht bei Eigenschaften, die von Browsern oder durch vom Benutzer erstellte benutzerdefinierte Stylesheets (auf der Browserseite festgelegt) gesetzt wurden.
 
-Revert wird Regeln, die auf Kinder eines Elements angewendet werden, das Sie zurücksetzen, nicht beeinflussen (entfernt jedoch die Effekte einer Elternregel auf ein Kind). Wenn Sie also eine Regel `color: green` für alle Abschnitte und `all: revert` auf einem bestimmten Abschnitt haben, wird die Farbe des Abschnitts schwarz. Aber wenn Sie eine Regel haben, die alle Absätze rot macht, bleiben alle Absätze in allen Abschnitten rot.
-
-> [!NOTE]
-> Revert ist nur ein Wert. Es ist weiterhin möglich, den `revert`-Wert mit [Spezifität](/de/docs/Web/CSS/Specificity) zu überschreiben.
+`Revert` beeinflusst keine Regeln, die auf Kinder eines Elements angewendet werden, das zurückgesetzt wird (entfernt jedoch die Effekte einer übergeordneten Regel auf ein Kind). Wenn Sie also `color: green` für alle Sektionen und `all: revert` auf einer bestimmten Sektion haben, wird die Farbe der Sektion schwarz. Wenn Sie jedoch eine Regel haben, um alle Absätze rot zu machen, dann bleiben alle Absätze in allen Sektionen rot.
 
 > [!NOTE]
-> Das `revert`-Schlüsselwort ist anders als und sollte nicht mit dem {{cssxref("initial")}}-Schlüsselwort verwechselt werden, das den [Anfangswert](/de/docs/Web/CSS/initial_value) verwendet, der für jede Eigenschaft in den CSS-Spezifikationen definiert ist. Im Gegensatz dazu setzen Benutzeragent-Stylesheets Standardwerte auf Basis von CSS-Selektoren.
+> `Revert` ist nur ein Wert. Es ist weiterhin möglich, den `revert`-Wert mittels [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) zu überschreiben.
+
+> [!NOTE]
+> Das Schlüsselwort `revert` unterscheidet sich vom Schlüsselwort {{cssxref("initial")}} und sollte nicht damit verwechselt werden. `Initial` verwendet den [Anfangswert](/de/docs/Web/CSS/CSS_cascade/initial_value), der für jede Eigenschaft von den CSS-Spezifikationen festgelegt ist. Im Gegensatz dazu setzen Benutzeragenten-Stylesheets Standardwerte basierend auf CSS-Selektoren.
 >
-> Zum Beispiel ist der [Anfangswert](/de/docs/Web/CSS/initial_value) für die [`display`](/de/docs/Web/CSS/display#formal_definition)-Eigenschaft `inline`, während ein normales Benutzeragent-Stylesheet den Standard-{{cssxref("display")}}-Wert von {{HTMLElement("div")}}s auf `block`, von {{HTMLElement("table")}}s zu `table` usw. setzt.
+> Zum Beispiel ist der [Anfangswert](/de/docs/Web/CSS/CSS_cascade/initial_value) der [`display`](/de/docs/Web/CSS/display#formal_definition)-Eigenschaft `inline`, während ein normales Benutzeragenten-Stylesheet den Standardwert von {{HTMLElement("div")}}s auf `block`, von {{HTMLElement("table")}}s auf `table` usw. setzt.
 
 ## Beispiele
 
 ### Revert vs. unset
 
-Obwohl `revert` und `unset` ähnlich sind, unterscheiden sie sich für einige Eigenschaften bei einigen Elementen.
+Obwohl `revert` und `unset` ähnlich sind, gibt es Unterschiede bei bestimmten Eigenschaften für bestimmte Elemente.
 
-Im folgenden Beispiel setzen wir benutzerdefinierte [`font-weight`](/de/docs/Web/CSS/font-weight#formal_definition), versuchen dann aber, es im HTML-Dokument inline mit `revert` und `unset` zurückzusetzen. Das `revert`-Schlüsselwort wird den Text in Fett zurücksetzen, weil das in den meisten Browsern der Standardwert für Überschriften ist. Das `unset`-Schlüsselwort wird den Text normal halten, da die `font-weight`-Eigenschaft als vererbte Eigenschaft ihren Wert dann vom Körper erben würde.
+Im folgenden Beispiel setzen wir einen benutzerdefinierten [`font-weight`](/de/docs/Web/CSS/font-weight#formal_definition), versuchen dann jedoch, ihn inline im HTML-Dokument mit `revert` und `unset` zurückzusetzen. Das Schlüsselwort `revert` setzt den Text auf fett zurück, da dies der Standardwert für Überschriften in den meisten Browsern ist. Das Schlüsselwort `unset` hält den Text normal, da `font-weight` als vererbte Eigenschaft dann seinen Wert vom `body` übernehmen würde.
 
 #### HTML
 
@@ -61,9 +61,9 @@ h3 {
 
 {{EmbedLiveSample('Revert_vs_unset', 0, 200)}}
 
-### Revert alle
+### Alles zurücksetzen
 
-Das Zurücksetzen aller Werte ist nützlich, wenn Sie mehrere Stiländerungen vorgenommen haben und dann zu den Standardwerten des Browsers zurückkehren möchten. In dem obigen Beispiel könnten Sie statt `font-weight` und `color` separat zurückzusetzen einfach alle auf einmal zurücksetzen - indem Sie das `revert`-Schlüsselwort auf `all` anwenden.
+Das Zurücksetzen aller Werte ist nützlich, wenn Sie mehrere Stiländerungen vorgenommen haben und dann zu den Standardwerten des Browsers zurückkehren möchten. Im obigen Beispiel könnten Sie anstelle des separaten Zurücksetzens von `font-weight` und `color` einfach alle auf einmal mit dem Schlüsselwort `revert` auf `all` zurücksetzen.
 
 #### HTML
 
@@ -88,9 +88,9 @@ h3 {
 
 {{EmbedLiveSample('Revert_all', 0, 200)}}
 
-### Revert auf einem Elternteil
+### Revert auf einem übergeordneten Element
 
-Das Zurücksetzen entfernt effektiv den Wert für das Element, das Sie mit einer Regel auswählen, und das passiert nur für dieses Element. Um dies zu veranschaulichen, setzen wir eine grüne Farbe auf einen Abschnitt und eine rote Farbe auf einen Absatz.
+Das Zurücksetzen entfernt effektiv den Wert für das ausgewählte Element bei einer Regel und betrifft nur dieses Element. Um dies zu verdeutlichen, setzen wir eine grüne Farbe auf eine Sektion und eine rote Farbe auf einen Absatz.
 
 #### HTML
 
@@ -141,9 +141,9 @@ section.with-revert {
 
 {{EmbedLiveSample('Revert_on_a_parent', '100%', '300px')}}
 
-Beachten Sie, wie der Absatz immer noch rot ist, obwohl eine `color`-Eigenschaft für den Abschnitt zurückgesetzt wurde. Beachten Sie auch, dass sowohl der Header als auch der einfache Textknoten `steelblue` sind. Das Ergebnis des Zurücksetzens macht es so, als gäbe es `section { color: darkgreen; }` nicht für den Abschnitt mit `color: revert` angewendet.
+Beachten Sie, dass der Absatz weiterhin rot ist, obwohl die `color`-Eigenschaft für die Sektion zurückgesetzt wurde. Außerdem sind sowohl der Header als auch der einfache Textknoten `steelblue`. Das Ergebnis des Zurücksetzens bewirkt, dass es so aussieht, als ob `section { color: darkgreen; }` für die Sektion, auf die `color: revert` angewandt wurde, nicht existieren würde.
 
-Auch wenn weder der Benutzeragent noch der Benutzer die `<h3>` oder `<section>` Farbwerte überschreiben, wird die `steelblue`-Farbe von `<main>` geerbt, da die {{cssxref("color")}}-Eigenschaft eine vererbte Eigenschaft ist.
+Wenn weder der Benutzeragent noch der Benutzer die Farben von `<h3>` oder `<section>` überschreiben, wird die `steelblue`-Farbe von `<main>` geerbt, da die {{cssxref("color")}}-Eigenschaft vererbbar ist.
 
 ## Spezifikationen
 
@@ -155,8 +155,8 @@ Auch wenn weder der Benutzeragent noch der Benutzer die `<h3>` oder `<section>` 
 
 ## Siehe auch
 
-- Verwenden Sie das {{cssxref("initial")}}-Schlüsselwort, um eine Eigenschaft auf ihren Anfangswert zu setzen.
-- Verwenden Sie das {{cssxref("inherit")}}-Schlüsselwort, um die Eigenschaft eines Elements mit der seines Elternteils gleichzusetzen.
-- Verwenden Sie das {{cssxref("revert-layer")}}-Schlüsselwort, um eine Eigenschaft auf den Wert zurückzusetzen, der in einer vorherigen Kaskadenschicht festgelegt wurde.
-- Verwenden Sie das {{cssxref("unset")}}-Schlüsselwort, um eine Eigenschaft auf ihren geerbten Wert zu setzen, wenn sie vererbt wird, oder auf ihren Anfangswert, wenn nicht.
-- Die {{cssxref("all")}}-Eigenschaft ermöglicht es, alle Eigenschaften gleichzeitig auf ihren ursprünglichen, geerbten, zurückgesetzten oder nicht festgelegten Zustand zurückzusetzen.
+- Verwenden Sie das Schlüsselwort {{cssxref("initial")}}, um eine Eigenschaft auf ihren Anfangswert zu setzen.
+- Verwenden Sie das Schlüsselwort {{cssxref("inherit")}}, um die Eigenschaft eines Elements mit der seines übergeordneten Elements gleichzusetzen.
+- Verwenden Sie das Schlüsselwort {{cssxref("revert-layer")}}, um eine Eigenschaft auf den in einer vorhergehenden Kaskadenschicht festgelegten Wert zurückzusetzen.
+- Verwenden Sie das Schlüsselwort {{cssxref("unset")}}, um eine Eigenschaft entweder auf ihren vererbten Wert, falls sie vererbt wird, oder auf ihren Anfangswert, falls nicht, zu setzen.
+- Die Eigenschaft {{cssxref("all")}} ermöglicht es, alle Eigenschaften gleichzeitig auf ihren Initial-, Vererbten-, Zurückgesetzten- oder Unset-Zustand zurückzusetzen.

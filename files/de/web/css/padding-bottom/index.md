@@ -2,21 +2,21 @@
 title: padding-bottom
 slug: Web/CSS/padding-bottom
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
 ---
 
 {{CSSRef}}
 
-Die **`padding-bottom`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Höhe des [Polsterbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) am unteren Rand eines Elements fest.
+Die **`padding-bottom`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) legt die Höhe des [Abstandsbereichs (Padding Area)](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) am unteren Rand eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/padding-bottom.html")}}
 
-Der Polsterbereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
+Der Abstand eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
 
-![Die Wirkung der CSS-Eigenschaft padding-bottom auf das Elementfeld](padding-bottom.svg)
+![Die Wirkung der CSS-Eigenschaft padding-bottom auf das Element-Box-Modell](padding-bottom.svg)
 
 > [!NOTE]
-> Die {{cssxref("padding")}} Eigenschaft kann verwendet werden, um Polsterungen an allen vier Seiten eines Elements mit einer einzigen Deklaration festzulegen.
+> Die {{cssxref("padding")}}-Eigenschaft kann verwendet werden, um mit einer einzigen Deklaration die Abstände an allen vier Seiten eines Elements festzulegen.
 
 ## Syntax
 
@@ -37,14 +37,14 @@ padding-bottom: revert-layer;
 padding-bottom: unset;
 ```
 
-Die `padding-bottom` Eigenschaft wird als einzelner Wert aus der unten aufgeführten Liste angegeben. Im Gegensatz zu Abständen sind negative Werte für Polsterungen nicht erlaubt.
+Die Eigenschaft `padding-bottom` wird als ein einzelner Wert angegeben, der aus der unten stehenden Liste ausgewählt wird. Im Gegensatz zu Rändern (margins) sind für Abstände (padding) negative Werte nicht erlaubt.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe der Polsterung als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe der Polsterung als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umfassenden Blockes](/de/docs/Web/CSS/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -56,7 +56,7 @@ Die `padding-bottom` Eigenschaft wird als einzelner Wert aus der unten aufgefüh
 
 ## Beispiele
 
-### Festlegen der unteren Polsterung mit Pixeln und Prozentsätzen
+### Festlegen von padding-bottom mit Pixeln und Prozentsätzen
 
 ```css
 .content {
@@ -78,8 +78,8 @@ Die `padding-bottom` Eigenschaft wird als einzelner Wert aus der unten aufgefüh
 ## Siehe auch
 
 - {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, und {{cssxref("padding-left")}}
-- {{cssxref("padding")}} Kurzform
+- {{cssxref("padding")}} Kurzhandnotation
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
-- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzformen
-- [Einführung in das grundlegende CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzhandnotationen
+- [Einführung in das grundlegende Box-Modell von CSS](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
 - [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul

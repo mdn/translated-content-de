@@ -1,13 +1,13 @@
 ---
-title: :first
+title: ":first"
 slug: Web/CSS/:first
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}
 
-Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), die mit der {{cssxref("@page")}}-[At-Regel](/de/docs/Web/CSS/At-rule) verwendet wird, repräsentiert die erste Seite eines gedruckten Dokuments. (Siehe {{cssxref(":first-child")}} für das allgemeine erste Element eines Knotens.)
+Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes), verwendet mit der {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), repräsentiert die erste Seite eines gedruckten Dokuments. (Siehe {{cssxref(":first-child")}} für das allgemeine erste Element eines Knotens.)
 
 ```css
 /* Selects the first page when printing */
@@ -18,7 +18,7 @@ Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-
 ```
 
 > [!NOTE]
-> Sie können mit dieser Pseudoklasse nicht alle CSS-Eigenschaften ändern. Es können nur die Ränder, {{cssxref("orphans")}}, {{cssxref("widows")}} und Seitenumbrüche des Dokuments geändert werden. Außerdem dürfen für die Definition der Ränder nur [absolute Längeneinheiten](/de/docs/Web/CSS/length#absolute_length_units) verwendet werden. Alle anderen Eigenschaften werden ignoriert.
+> Sie können mit dieser Pseudo-Klasse nicht alle CSS-Eigenschaften ändern. Sie können nur die Ränder, {{cssxref("orphans")}}, {{cssxref("widows")}} und Seitenumbrüche des Dokuments ändern. Außerdem dürfen Sie nur [Absolute Längeneinheiten](/de/docs/Web/CSS/length#absolute_length_units) verwenden, wenn Sie die Ränder definieren. Alle anderen Eigenschaften werden ignoriert.
 
 ## Syntax
 
@@ -61,7 +61,7 @@ document.querySelector("button").addEventListener("click", () => {
 
 ### Ergebnis
 
-Drücken Sie die Schaltfläche „Drucken!“, um das Beispiel zu drucken. Die Wörter auf der ersten Seite sollten sich ungefähr in der Mitte befinden, während der Inhalt auf anderen Seiten in der Standardposition erscheint.
+Drücken Sie die Schaltfläche „Drucken!“, um das Beispiel zu drucken. Die Wörter auf der ersten Seite sollten ungefähr in der Mitte positioniert sein, während andere Seiten ihre Inhalte an der Standardposition haben.
 
 {{ EmbedLiveSample('Examples', '80%', '150px') }}
 
@@ -76,4 +76,4 @@ Drücken Sie die Schaltfläche „Drucken!“, um das Beispiel zu drucken. Die W
 ## Siehe auch
 
 - {{Cssxref("@page")}}
-- Andere seitenbezogene Pseudoklassen: {{Cssxref(":left")}}, {{Cssxref(":right")}}
+- Andere seitenbezogene Pseudo-Klassen: {{Cssxref(":left")}}, {{Cssxref(":right")}}

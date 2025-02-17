@@ -2,17 +2,17 @@
 title: stroke-linejoin
 slug: Web/SVG/Attribute/stroke-linejoin
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: b50a635018b8a797dd41aa3b6c53adb74914dd4c
 ---
 
 {{SVGRef}}
 
-Das **`stroke-linejoin`** Attribut ist ein Präsentationsattribut, das die Form definiert, die an den Ecken von Pfaden verwendet werden soll, wenn sie gestrichen werden.
+Das **`stroke-linejoin`**-Attribut ist ein Präsentationsattribut, das die Form definiert, die an den Ecken von Pfaden verwendet werden soll, wenn diese mit einer Linie versehen sind.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-linejoin` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-linejoin')}} für mehr Informationen.
+> Als Präsentationsattribut kann `stroke-linejoin` auch als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-linejoin')}} für weitere Informationen.
 
-Dieses Attribut kann mit folgenden SVG-Elementen verwendet werden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('path')}}
 - {{SVGElement('polygon')}}
@@ -117,7 +117,7 @@ svg {
     <tr>
       <th scope="row">Wert</th>
       <td>
-        <code>arcs</code> | <code>bevel</code> |<code>miter</code> |
+        <code>arcs</code> | <code>bevel</code> | <code>miter</code> |
         <code>miter-clip</code> | <code>round</code>
       </td>
     </tr>
@@ -135,9 +135,9 @@ svg {
 ### arcs
 
 > [!NOTE]
-> Der `arcs` Wert wurde in SVG2 eingeführt und wird noch nicht weitgehend unterstützt, siehe unten [Browser-Kompatibilität](#browser-kompatibilität) für Details.
+> Der Wert `arcs` wird noch nicht weit verbreitet unterstützt.
 
-Der `arcs` Wert gibt an, dass eine Bogenkannte verwendet werden soll, um die Pfadsegmente zu verbinden. Die Bogenform wird gebildet, indem die äußeren Kanten des Strichs am Verbindungspunkt mit Bögen verlängert werden, die die gleiche Krümmung wie die äußeren Kanten am Verbindungspunkt haben.
+Der Wert `arcs` gibt an, dass eine Bogenform an Ecken verwendet werden soll, um Pfadsegmente zu verbinden. Die Bogenform entsteht, indem die äußeren Kanten des Strichs am Verbindungsbereich mit Bögen verlängert werden, die dieselbe Krümmung aufweisen wie die äußeren Kanten im Verbindungsbereich.
 
 ```css hidden
 html,
@@ -177,7 +177,7 @@ svg {
 
 ### bevel
 
-Der `bevel` Wert gibt an, dass eine abgeschrägte Ecke verwendet werden soll, um die Pfadsegmente zu verbinden.
+Der Wert `bevel` gibt an, dass eine abgeschrägte Ecke verwendet werden soll, um Pfadsegmente zu verbinden.
 
 ```css hidden
 html,
@@ -213,10 +213,10 @@ svg {
 
 ### miter
 
-Der `miter` Wert gibt an, dass eine scharfe Ecke verwendet werden soll, um die Pfadsegmente zu verbinden. Die Ecke wird gebildet, indem die äußeren Kanten des Strichs an den Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
+Der Wert `miter` gibt an, dass eine scharfe Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Die Ecke entsteht, indem die äußeren Kanten des Strichs an den Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
 
 > [!NOTE]
-> Wenn das {{SVGAttr('stroke-miterlimit')}} überschritten wird, fällt die Linienverbindung auf `bevel` zurück.
+> Wenn der {{SVGAttr('stroke-miterlimit')}} überschritten wird, fällt die Linienverbindung auf `bevel` zurück.
 
 ```css hidden
 html,
@@ -275,11 +275,11 @@ svg {
 ### miter-clip
 
 > [!NOTE]
-> Der `miter-clip` Wert wurde in SVG2 eingeführt und wird noch nicht weitgehend unterstützt, siehe unten [Browser-Kompatibilität](#browser-kompatibilität) für Details.
+> Der Wert `miter-clip` wird noch nicht weit verbreitet unterstützt.
 
-Der `miter-clip` Wert gibt an, dass eine scharfe Ecke verwendet werden soll, um die Pfadsegmente zu verbinden. Die Ecke wird gebildet, indem die äußeren Kanten des Strichs an den Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
+Der Wert `miter-clip` gibt an, dass eine scharfe Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Die Ecke entsteht, indem die äußeren Kanten des Strichs an den Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
 
-Wenn das {{SVGAttr('stroke-miterlimit')}} überschritten wird, wird der Gehrungsschnitt in einer Entfernung abgeschnitten, die gleich dem halben Wert des {{SVGAttr('stroke-miterlimit')}} multipliziert mit der Strichbreite von dem Schnittpunkt der Pfadsegmente ist. Dies bietet eine bessere Wiedergabe als `miter` bei sehr scharfen Verbindungen oder im Falle einer Animation.
+Wenn der {{SVGAttr('stroke-miterlimit')}} überschritten wird, wird das Miter an einer Entfernung abgeschnitten, die gleich der Hälfte des {{SVGAttr('stroke-miterlimit')}}-Wertes multipliziert mit der Strichbreite ist, gemessen vom Schnittpunkt der Pfadsegmente. Dies ermöglicht eine bessere Darstellung als `miter` bei sehr scharfen Verbindungen oder im Fall einer Animation.
 
 ```css hidden
 html,
@@ -336,7 +336,7 @@ svg {
 
 ### round
 
-Der `round` Wert gibt an, dass eine abgerundete Ecke verwendet werden soll, um die Pfadsegmente zu verbinden.
+Der Wert `round` gibt an, dass eine abgerundete Ecke verwendet werden soll, um Pfadsegmente zu verbinden.
 
 ```css hidden
 html,
@@ -380,4 +380,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("stroke-linejoin")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("stroke-linejoin")}}

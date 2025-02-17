@@ -2,26 +2,27 @@
 title: CSSSupportsRule
 slug: Web/API/CSSSupportsRule
 l10n:
-  sourceCommit: 32305cc3cf274fbfdcc73a296bbd400a26f38296
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSSupportsRule`**-Schnittstelle repräsentiert eine einzelne CSS-{{cssxref("@supports")}}-[At-Regel](/de/docs/Web/CSS/At-rule).
+Das **`CSSSupportsRule`**-Interface repräsentiert eine einzelne CSS-{{cssxref("@supports")}}-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule).
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt Eigenschaften von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule), und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt Methoden von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule), und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-Das CSS enthält eine CSS-Funktionsabfrage mithilfe der {{cssxref("@supports")}}-[At-Regel](/de/docs/Web/CSS/At-rule), die eine Stilregel umfasst. Dies wird die erste CSSRule sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0]` gibt daher ein `CSSSupportsRule`-Objekt zurück.
+Das CSS enthält eine CSS-Feature-Abfrage mit der {{cssxref("@supports")}}-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), die eine einzige Stilregel beinhaltet. Dies wird die erste `CSSRule` sein, die durch `document.styleSheets[0].cssRules` zurückgegeben wird.  
+`myRules[0]` gibt daher ein `CSSSupportsRule`-Objekt zurück.
 
 ```css
 @supports (display: grid) {

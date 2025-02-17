@@ -2,30 +2,30 @@
 title: Verwenden der Web Animations API
 slug: Web/API/Web_Animations_API/Using_the_Web_Animations_API
 l10n:
-  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
+  sourceCommit: a29769d6d10261f771321eb60f3990029c160924
 ---
 
 {{DefaultAPISidebar("Web Animations")}}
 
-Die Web Animations API ermöglicht es uns, Animationen zu erstellen und ihre Wiedergabe mit JavaScript zu steuern. Dieser Artikel wird Ihnen den richtigen Einstieg mit unterhaltsamen Demos und Tutorials mit Alice im Wunderland geben.
+Die Web Animations API ermöglicht es, Animationen zu erstellen und ihre Wiedergabe mit JavaScript zu steuern. Dieser Artikel bringt Sie mit unterhaltsamen Demos und Tutorials, die Alice im Wunderland zeigen, auf den richtigen Weg.
 
-## Einführung in die Web Animations API
+## Die Web Animations API kennenlernen
 
-Die [Web Animations API](/de/docs/Web/API/Web_Animations_API) öffnet die Animations-Engine des Browsers für Entwickler und Manipulationen durch JavaScript. Diese API wurde entwickelt, um Implementierungen von sowohl [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) als auch [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions) zugrunde zu liegen und lässt Raum für zukünftige Animationseffekte. Sie ist eine der performantesten Möglichkeiten, im Web zu animieren, da der Browser seine eigenen internen Optimierungen ohne Hacks, Zwänge oder [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) vornehmen kann.
+Die [Web Animations API](/de/docs/Web/API/Web_Animations_API) öffnet die Animations-Engine des Browsers für Entwickler und deren Manipulation durch JavaScript. Diese API wurde entwickelt, um sowohl die Implementierungen von [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) als auch von [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions) zu unterstützen, und lässt Raum für zukünftige Animationseffekte. Sie ist eine der performantesten Möglichkeiten, im Web zu animieren, da der Browser dadurch eigene interne Optimierungen ohne Tricks, Zwang oder [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) ausführen kann.
 
-Mit der Web Animations API können wir interaktive Animationen von Stylesheets nach JavaScript verschieben und die Präsentation vom Verhalten trennen. Wir müssen nicht mehr auf DOM-intensive Techniken wie das Schreiben von CSS-Eigenschaften und das Setzen von Klassen auf Elemente zur Steuerung der Wiedergaberichtung zurückgreifen. Und im Gegensatz zu rein deklarativem CSS können wir mit JavaScript auch dynamisch Werte von Eigenschaften bis hin zu Dauern festlegen. Für den Aufbau benutzerdefinierter Animationsbibliotheken und das Erstellen interaktiver Animationen könnte die Web Animations API das perfekte Werkzeug für den Job sein. Schauen wir uns an, was sie kann!
+Mit der Web Animations API können wir interaktive Animationen aus Stylesheets in JavaScript verlagern und so Präsentation von Verhalten trennen. Es ist nicht mehr nötig, auf DOM-intensive Techniken zurückzugreifen, wie das Schreiben von CSS-Eigenschaften und das Anwenden von Klassen, um die Wiedergaberichtung zu steuern. Anders als reine deklarative CSS-Animationen ermöglicht es uns JavaScript außerdem, Werte vom Eigenschaften bis zu den Dauern dynamisch festzulegen. Zum Erstellen benutzerdefinierter Animationsbibliotheken und interaktiver Animationen könnte die Web Animations API das perfekte Werkzeug sein. Sehen wir uns an, was sie leisten kann!
 
-## Schreiben von CSS-Animationen mit der Web Animations API
+## CSS-Animationen mit der Web Animations API schreiben
 
-Einer der vertrauteren Ansätze zum Erlernen der Web Animations API besteht darin, mit etwas zu beginnen, mit dem die meisten Webentwickler schon zuvor gespielt haben: CSS-Animationen. CSS-Animationen haben eine vertraute Syntax, die sich gut zu Demonstrationszwecken aufgliedern lässt.
+Eine der vertrauteren Möglichkeiten, sich mit der Web Animations API vertraut zu machen, besteht darin, mit etwas zu beginnen, mit dem die meisten Webentwickler bereits gearbeitet haben: CSS-Animationen. CSS-Animationen verfügen über eine vertraute Syntax, die sich gut für Demonstrationen eignet.
 
 ### Die CSS-Version
 
-Hier ist eine Animation, die das Fallen von Alice in das Kaninchenloch zeigt, das ins Wunderland führt (sehen Sie sich den vollständigen [Code auf CodePen](https://codepen.io/rachelnabors/pen/QyOqqW) an):
+Hier ist eine tumbling animation in CSS, die Alice zeigt, wie sie in den Kaninchenbau fällt, der ins Wunderland führt (sehen Sie den vollständigen [Code auf CodePen](https://codepen.io/rachelnabors/pen/QyOqqW)):
 
-[![Alice fällt in das Kaninchenloch.](tumbling-alice_optimized.gif)](https://codepen.io/rachelnabors/pen/rxpmJL)
+[![Alice tumbling in den Kaninchenbau.](tumbling-alice_optimized.gif)](https://codepen.io/rachelnabors/pen/rxpmJL)
 
-Beachten Sie, dass sich der Hintergrund bewegt, Alice sich dreht und ihre Farbe versetzt zur Drehung ändert. Wir werden uns in diesem Tutorial nur auf Alice konzentrieren. Hier ist das vereinfachte CSS, das die Animation von Alice steuert:
+Beachten Sie, dass sich der Hintergrund bewegt, Alice sich dreht und ihre Farbe sich zeitversetzt zur Drehung ändert. Wir werden uns für dieses Tutorial nur auf Alice konzentrieren. Hier ist das vereinfachte CSS, das die Animation von Alice steuert:
 
 ```css
 #alice {
@@ -47,15 +47,15 @@ Beachten Sie, dass sich der Hintergrund bewegt, Alice sich dreht und ihre Farbe 
 }
 ```
 
-Dies ändert Alices Farbe und die Rotation ihres `transform` über 3 Sekunden mit einer konstanten (linearen) Rate und wiederholt sich unendlich. Im {{cssxref("@keyframes")}}-Block sehen wir, dass 30% des Weges durch jede Schleife (etwa .9 Sekunden) Alices Farbe von Schwarz in ein tiefes Burgunderrot wechselt und am Ende der Schleife wieder zurück.
+Diese Animation ändert die Farbe von Alice und die Rotation ihrer `transform`-Eigenschaft über 3 Sekunden mit einer konstanten (linearen) Geschwindigkeit und wiederholt sich unendlich. Im {{cssxref("@keyframes")}}-Block sehen wir, dass sich 30 % des Weges durch jede Schleife (etwa 0,9 Sekunden) die Farbe von Alice von Schwarz in ein tiefes Burgunderrot und dann bis zum Ende der Schleife wieder zurück ändert.
 
-### In JavaScript umwandeln
+### Übertragen nach JavaScript
 
 Versuchen wir nun, dieselbe Animation mit der Web Animations API zu erstellen.
 
 #### Keyframes darstellen
 
-Das Erste, was wir benötigen, ist die Erstellung eines [Keyframe Objects](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats), das unserem CSS-{{cssxref("@keyframes")}}-Block entspricht:
+Zunächst müssen wir ein [Keyframe-Objekt](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats) erstellen, das unserem CSS-{{cssxref("@keyframes")}}-Block entspricht:
 
 ```js
 const aliceTumbling = [
@@ -65,17 +65,17 @@ const aliceTumbling = [
 ];
 ```
 
-Hier verwenden wir ein Array mit mehreren Objekten. Jedes Objekt repräsentiert einen Schlüssel aus dem ursprünglichen CSS. Im Gegensatz zu CSS muss der Web Animations API jedoch nicht explizit mitgeteilt werden, in welchen prozentualen Abständen jedes Schlüsselbild erscheinen soll. Es wird die Animation automatisch in gleiche Teile unterteilen, basierend auf der Anzahl der gegebenen Schlüssel. Dies bedeutet, dass ein Keyframe-Objekt mit drei Schlüsseln das mittlere Schlüsselbild in 50% des Weges durch jede Schleife der Animation abspielt, es sei denn, es wird anders angegeben.
+Hier verwenden wir ein Array, das mehrere Objekte enthält. Jedes Objekt stellt einen Key aus dem ursprünglichen CSS dar. Anders als beim CSS muss der Web Animations API nicht explizit mitgeteilt werden, bei welchen Prozentsätzen entlang der Animation jeder Key angezeigt werden soll. Es wird automatisch in gleiche Teile aufgeteilt, basierend auf der Anzahl der angegebenen Keys. Dies bedeutet, dass ein Keyframe-Objekt mit drei Keys den mittleren Key genau bei 50 % der Animation abspielen wird, es sei denn, Sie geben etwas anderes an.
 
-Wenn wir den Versatz eines Schlüssels von den anderen Schlüsseln explizit festlegen möchten, können wir den Versatz direkt im Objekt angeben, getrennt von der Deklaration durch ein Komma. Im obigen Beispiel, um sicherzustellen, dass sich Alices Farbe bei 30% (nicht 50%) für den Farbwechsel ändert, geben wir ihm `offset: 0.3`.
+Wenn wir den Abstand eines Keys explizit von anderen Keys festlegen möchten, können wir einen Offset direkt im Objekt angeben, getrennt durch ein Komma. Im obigen Beispiel geben wir an, dass die Farbänderung bei Alice ungefähr bei 30 % (nicht 50 %) erfolgen soll, indem wir `offset: 0.3` hinzufügen.
 
-Derzeit sollten mindestens zwei Keyframes angegeben werden (die Anfangs- und Endzustände der Animationssequenz darstellend). Wenn Ihre Keyframeliste nur einen Eintrag hat, könnte [`Element.animate()`](/de/docs/Web/API/Element/animate) bei einigen Browsern einen `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException) auslösen, bis sie aktualisiert werden.
+Derzeit sollten mindestens zwei Keyframes angegeben werden (die die Anfangs- und Endzustände der Animationssequenz repräsentieren). Wenn Ihre Keyframeliste lediglich einen Eintrag enthält, könnte [`Element.animate()`](/de/docs/Web/API/Element/animate) in einigen Browsern einen `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException) werfen, bis diese aktualisiert werden.
 
-Zusammengefasst sind die Schlüssel standardmäßig gleichmäßig verteilt, es sei denn, Sie spezifizieren einen Versatz bei einem Schlüssel. Praktisch, nicht wahr?
+Zusammengefasst: Die Keys sind standardmäßig gleichmäßig verteilt, es sei denn, Sie geben einen Offset für einen Key an. Praktisch, nicht wahr?
 
-#### Zeitverhältnisse darstellen
+#### Zeitliche Eigenschaften darstellen
 
-Wir müssen auch ein Objekt von Zeitsteuerungseigenschaften erstellen, das den Werten in Alices Animation entspricht:
+Wir müssen auch ein Objekt für die Zeitmerkmale erstellen, das den Werten in der Animation von Alice entspricht:
 
 ```js
 const aliceTiming = {
@@ -84,25 +84,25 @@ const aliceTiming = {
 };
 ```
 
-Hier fallen einige Unterschiede auf, wie äquivalente Werte in CSS dargestellt werden:
+Sie werden einige Unterschiede zu den entsprechenden Werten in CSS bemerken:
 
-- Erstens ist die Dauer in Millisekunden statt in Sekunden — 3000 statt 3s. Wie [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) akzeptiert die Web Animations API nur Millisekunden.
-- Ein weiterer Unterschied ist, dass es `iterations` und nicht `iteration-count` ist.
+- Zum einen wird die Dauer in Millisekunden anstelle von Sekunden angegeben – 3000 statt 3s. Wie bei [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) akzeptiert die Web Animations API ausschließlich Millisekunden.
+- Außerdem wird `iterations` und nicht `iteration-count` verwendet.
 
 > [!NOTE]
-> Es gibt eine Reihe kleiner Unterschiede zwischen der Terminologie, die in CSS-Animationen verwendet wird, und der in Web-Animationen. Zum Beispiel verwendet Web Animations nicht den String `"infinite"`, sondern das JavaScript-Schlüsselwort `Infinity`. Und anstelle von `timing-function` verwenden wir `easing`. Wir listen hier keinen `easing`-Wert auf, weil im Gegensatz zu CSS-Animationen, wo der Standardwert für {{cssxref("animation-timing-function")}} `ease` ist, der Standardwert für `easing` in der Web Animations API `linear` ist — was wir hier wollen.
+> Es gibt eine Reihe von kleinen Unterschieden zwischen der Terminologie, die in CSS-Animationen verwendet wird, und derjenigen in der Web Animations API. Zum Beispiel verwendet die Web Animations API nicht den String `"infinite"`, sondern das JavaScript-Schlüsselwort `Infinity`. Und anstelle von `timing-function` verwenden wir `easing`. Hier listen wir keinen `easing`-Wert auf, da die Standard-{{cssxref("animation-timing-function")}} bei CSS-Animationen `ease` ist, während bei der Web Animations API das Standardeasing `linear` ist — was wir hier benötigen.
 
-#### Die Teile zusammenfügen
+#### Die Teile zusammenführen
 
-Jetzt ist es an der Zeit, sie mit der [`Element.animate()`](/de/docs/Web/API/Element/animate)-Methode zusammenzuführen:
+Nun ist es an der Zeit, beide mit der Methode [`Element.animate()`](/de/docs/Web/API/Element/animate) zusammenzuführen:
 
 ```js
 document.getElementById("alice").animate(aliceTumbling, aliceTiming);
 ```
 
-Und voilà: Die Animation beginnt zu spielen (siehe die fertige [Version auf CodePen](https://codepen.io/rachelnabors/pen/rxpmJL)).
+Und voilà: Die Animation beginnt zu spielen (sehen Sie die fertige [Version auf CodePen](https://codepen.io/rachelnabors/pen/rxpmJL)).
 
-Die `animate()`-Methode kann auf jedem DOM-Element aufgerufen werden, das mit CSS animiert werden kann. Und es kann auf mehrere Arten geschrieben werden. Anstatt Objekte für Keyframes und Zeitsteuerungseigenschaften zu erstellen, könnten wir ihre Werte direkt übergeben, wie folgt:
+Die `animate()`-Methode kann auf jedes DOM-Element angewendet werden, das mit CSS animierbar ist. Sie kann auf mehrere Arten geschrieben werden. Anstelle von Objekten für Keyframes und Zeitmerkmale könnten wir ihre Werte direkt übergeben, wie folgt:
 
 ```js
 document.getElementById("alice").animate(
@@ -118,7 +118,7 @@ document.getElementById("alice").animate(
 );
 ```
 
-Außerdem, wenn wir nur die Dauer der Animation und nicht deren Iterationen angeben wollten (standardmäßig wird eine Animation einmal iteriert), könnten wir einfach die Millisekunden allein übergeben:
+Wenn wir dabei nur die Dauer der Animation und nicht ihre Iterationen spezifizieren möchten (standardmäßig läuft eine Animation einmal), könnten wir allein die Millisekunden übergeben:
 
 ```js
 document.getElementById("alice").animate(
@@ -131,17 +131,17 @@ document.getElementById("alice").animate(
 );
 ```
 
-## Steuerung der Wiedergabe mit play(), pause(), reverse() und updatePlaybackRate()
+## Wiedergabesteuerung mit play(), pause(), reverse() und updatePlaybackRate()
 
-Während wir CSS-Animationen mit der Web Animations API schreiben können, ist ihre wahre Stärke die Manipulation der Wiedergabe der Animation. Die Web Animations API bietet mehrere nützliche Methoden zur Steuerung der Wiedergabe. Schauen wir uns das Anhalten und Abspielen von Animationen im Spiel "Wachsendes/Sich verkleinerndes Alice" an (sehen Sie sich den [vollständigen Code auf CodePen](https://codepen.io/rachelnabors/pen/PNYGZQ) an):
+Während wir mit der Web Animations API CSS-Animationen erstellen können, liegt der wahre Nutzen der API darin, die Wiedergabe der Animation zu steuern. Die Web Animations API bietet mehrere nützliche Methoden zur Steuerung der Wiedergabe. Sehen wir uns das Pausieren und Wiedergeben von Animationen im Growing/Shrinking Alice-Spiel an (sehen Sie den [vollständigen Code auf CodePen](https://codepen.io/rachelnabors/pen/PNYGZQ)):
 
-[![Spielen des wachsendes und verkleinerndes Spiels mit Alice.](growing-shrinking_article_optimized.gif)](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010)
+[![Das Spiel mit der wachsenden und schrumpfenden Alice.](growing-shrinking_article_optimized.gif)](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010)
 
-In diesem Spiel hat Alice eine Animation, die sie von klein zu groß bringt, was wir über eine Flasche und einen Cupcake steuern. Beide haben ihre eigenen Animationen.
+In diesem Spiel hat Alice eine Animation, die sie von klein zu groß macht und die wir über eine Flasche und einen Cupcake steuern. Beide haben ihre eigenen Animationen.
 
-### Pausieren und Abspielen von Animationen
+### Pausieren und Wiedergeben von Animationen
 
-Wir werden später mehr über Alices Animation sprechen, aber im Moment werfen wir einen genaueren Blick auf die Animation des Cupcakes:
+Wir sprechen später mehr über Alices Animation, für den Moment schauen wir uns die Animation des Cupcakes genauer an:
 
 ```js
 const nommingCake = document
@@ -156,19 +156,19 @@ const nommingCake = document
   );
 ```
 
-Die Methode [`Element.animate()`](/de/docs/Web/API/Element/animate) wird sofort ausgeführt, nachdem sie aufgerufen wurde. Um zu verhindern, dass sich der Kuchen selbst aufisst, bevor der Benutzer die Möglichkeit hat, darauf zu klicken, rufen wir [`Animation.pause()`](/de/docs/Web/API/Animation/pause) sofort nach ihrer Definition wie folgt auf:
+Die Methode [`Element.animate()`](/de/docs/Web/API/Element/animate) wird sofort nach ihrem Aufruf ausgeführt. Um zu verhindern, dass der Kuchen selbst isst, bevor der Benutzer ihn anklicken kann, rufen wir [`Animation.pause()`](/de/docs/Web/API/Animation/pause) direkt nach der Definition der Animation auf:
 
 ```js
 nommingCake.pause();
 ```
 
-Nun können wir die Methode [`Animation.play()`](/de/docs/Web/API/Animation/play) verwenden, um sie auszuführen, wann immer wir bereit sind:
+Nun können wir die Methode [`Animation.play()`](/de/docs/Web/API/Animation/play) verwenden, um die Animation auszuführen, wann immer wir bereit sind:
 
 ```js
 nommingCake.play();
 ```
 
-Insbesondere möchten wir sie an Alices Animation knüpfen, sodass sie größer wird, während der Cupcake gegessen wird. Dies können wir über die folgende Funktion erreichen:
+Insbesondere möchten wir sie mit Alices Animation verknüpfen, sodass sie größer wird, während der Cupcake aufgegessen wird. Dies können wir mit der folgenden Funktion erreichen:
 
 ```js
 const growAlice = () => {
@@ -180,7 +180,7 @@ const growAlice = () => {
 };
 ```
 
-Wenn ein Benutzer seine Maus gedrückt hält oder seinen Finger auf den Kuchen auf einem Touchscreen legt, können wir nun `growAlice` aufrufen, um alle Animationen abzuspielen:
+Wenn ein Benutzer die Maus gedrückt hält oder auf einem Touchscreen seinen Finger auf den Kuchen legt, können wir jetzt `growAlice` aufrufen, um alle Animationen abzuspielen:
 
 ```js
 cake.addEventListener("mousedown", growAlice, false);
@@ -189,13 +189,13 @@ cake.addEventListener("touchstart", growAlice, false);
 
 ### Weitere nützliche Methoden
 
-Zusätzlich zum Pausieren und Abspielen können wir die folgenden Animation-Methoden verwenden:
+Zusätzlich zu Pausieren und Abspielen können wir die folgenden Animation-Methoden verwenden:
 
 - [`Animation.finish()`](/de/docs/Web/API/Animation/finish) springt zum Ende der Animation.
-- [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel) bricht die Animation ab und entfernt ihre Effekte.
-- [`Animation.reverse()`](/de/docs/Web/API/Animation/reverse) setzt die Wiedergabegeschwindigkeit der Animation ([`Animation.playbackRate`](/de/docs/Web/API/Animation/playbackRate)) auf einen negativen Wert, sodass sie rückwärts läuft.
+- [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel) bricht die Animation ab und entfernt deren Auswirkungen.
+- [`Animation.reverse()`](/de/docs/Web/API/Animation/reverse) setzt die Wiedergaberate der Animation ([`Animation.playbackRate`](/de/docs/Web/API/Animation/playbackRate)) auf einen negativen Wert, sodass sie rückwärts läuft.
 
-Schauen wir uns zuerst die `playbackRate` an — eine negative `playbackRate` lässt eine Animation rückwärts laufen. Wenn Alice aus der Flasche trinkt, wird sie kleiner. Das liegt daran, dass die Flasche ihre `playbackRate` von 1 auf -1 ändert:
+Sehen wir uns zunächst `playbackRate` an — eine negative Wiedergaberate lässt eine Animation rückwärts laufen. Wenn Alice aus der Flasche trinkt, schrumpft sie. Das liegt daran, dass die Flasche Alices Wiedergaberate von 1 auf -1 ändert:
 
 ```js
 const shrinkAlice = () => {
@@ -205,13 +205,13 @@ const shrinkAlice = () => {
 
 bottle.addEventListener("mousedown", shrinkAlice, false);
 bottle.addEventListener("touchstart", shrinkAlice, false);
-```
+``` 
 
-In [Hinter den Spiegeln](https://en.wikipedia.org/wiki/Through_the_Looking-Glass) reist Alice in eine Welt, in der sie laufen muss, um an Ort und Stelle zu bleiben — und doppelt so schnell laufen muss, um sich vorwärts zu bewegen! Im Beispiel des Rennens der Roten Königin rennen Alice und die Rote Königin, um an Ort und Stelle zu bleiben (sehen Sie sich den [vollständigen Code auf CodePen](https://codepen.io/rachelnabors/pen/PNGGaV) an):
+In [Hinter den Spiegeln](https://en.wikipedia.org/wiki/Through_the_Looking-Glass) reist Alice in eine Welt, in der sie rennen muss, um an Ort und Stelle zu bleiben — und zweimal so schnell rennen muss, um sich vorwärts zu bewegen! Im Beispiel des Rennens mit der Roten Königin laufen Alice und die Rote Königin, um an Ort und Stelle zu bleiben (sehen Sie den [vollständigen Code auf CodePen](https://codepen.io/rachelnabors/pen/PNGGaV)):
 
-[![Alice und die Rote Königin rennen, um das nächste Feld zu erreichen.](red-queen-race_optimized.gif)](https://codepen.io/rachelnabors/pen/PNGGaV)
+[![Alice und die Rote Königin laufen um das nächste Feld zu erreichen.](red-queen-race_optimized.gif)](https://codepen.io/rachelnabors/pen/PNGGaV)
 
-Da kleine Kinder leicht ermüden, im Gegensatz zu automatisierten Schachfiguren, verlangsamt sich Alice ständig. Wir können dies erreichen, indem wir einen Abbau auf ihre `playbackRate` setzen. Wir verwenden `updatePlaybackRate()` anstelle der direkten Einstellung der `playbackRate`, da dies ein reibungsloses Update ergibt:
+Da kleine Kinder schneller ermüden als automatisierte Schachfiguren, wird Alice konstant langsamer. Wir können dies durch eine Abschwächung ihrer `playbackRate` erreichen. Dabei verwenden wir `updatePlaybackRate()`, anstatt die Wiedergaberate direkt zu setzen, da das eine sanftere Aktualisierung erzeugt: 
 
 ```js
 setInterval(() => {
@@ -222,7 +222,7 @@ setInterval(() => {
 }, 3000);
 ```
 
-Aber wenn man sie anfeuert, indem man klickt oder tippt, lässt sie schneller laufen, indem man ihre `playbackRate` multipliziert:
+Durch Klicken oder Tippen wird ihre Geschwindigkeit jedoch durch Multiplikation der Wiedergaberate erhöht: 
 
 ```js
 const goFaster = () => {
@@ -233,40 +233,40 @@ document.addEventListener("click", goFaster);
 document.addEventListener("touchstart", goFaster);
 ```
 
-Die Hintergrundelemente haben ebenfalls `playbackRate`s, die beim Klick oder Tippen beeinflusst werden. Was passiert, wenn Sie Alice und die Rote Königin doppelt so schnell laufen lassen? Was passiert, wenn Sie ihnen erlauben, langsamer zu werden?
+Die Hintergrundelemente haben ebenfalls `playbackRate`s, die beim Klicken oder Tippen beeinflusst werden. Was passiert, wenn Sie Alice und die Rote Königin doppelt so schnell laufen lassen? Was passiert, wenn Sie sie verlangsamen?
 
-## Persistieren von Animationsstilen
+## Animationsstile beibehalten
 
-Bei der Animation von Elementen besteht ein häufiges Anwendungsbeispiel darin, den Endzustand der Animation zu behalten, nachdem die Animation abgeschlossen ist. Eine Methode, die hierfür manchmal verwendet wird, ist das Setzen des `fill mode` der Animation auf `forwards`. Es wird jedoch nicht empfohlen, Füllmodi zu verwenden, um die Wirkung einer Animation unbegrenzt beizubehalten, aus zwei Gründen:
+Ein häufiger Anwendungsfall beim Animieren von Elementen ist das Beibehalten des Endzustands der Animation, nachdem die Animation abgeschlossen ist. Eine Methode, die hierfür manchmal verwendet wird, ist das Setzen des [Fill-Modus](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#fill) auf `forwards`. Es wird jedoch nicht empfohlen, Füllmodi zu verwenden, um die Wirkung einer Animation auf unbestimmte Zeit beizubehalten, aus zwei Gründen:
 
-- Der Browser muss den Zustand der Animation beibehalten, während sie noch aktiv ist, sodass die Animation weiterhin Ressourcen verbraucht, obwohl sie nicht mehr animiert. Beachten Sie, dass dies durch das automatische Entfernen der Füllanimations durch den Browser [teilweise gelindert wird](#automatisches_entfernen_von_füllanimationen).
-- Von Animationen angewendete Stile haben eine [höhere Priorität in der Kaskade](/de/docs/Web/CSS/Cascade#cascading_order) als spezifizierte Stile, sodass es schwierig sein kann, sie bei Bedarf zu überschreiben.
+- Der Browser muss den Zustand der Animation aufrechterhalten, während diese aktiv bleibt. Das bedeutet, dass die Animation Ressourcen verbraucht, obwohl sie nicht mehr animiert wird. Dies wird jedoch teilweise dadurch gemildert, dass der Browser [füllende Animationen automatisch entfernt](#automatische_entfernung_von_füllenden_animationen).
+- Von Animationen angewendete Stile haben eine [höhere Priorität in der Cascade](/de/docs/Web/CSS/CSS_cascade/Cascade#cascading_order) als spezifizierte Stile, was es schwierig machen kann, sie bei Bedarf zu überschreiben.
 
-Ein besserer Ansatz ist die Verwendung der Methode [`Animation.commitStyles()`](/de/docs/Web/API/Animation/commitStyles). Diese schreibt die berechneten Werte der aktuellen Stile der Animation in das `style`-Attribut ihres Ziel-Elements, danach kann das Element normal neu gestylt werden.
+Eine bessere Methode ist die Verwendung der Methode [`Animation.commitStyles()`](/de/docs/Web/API/Animation/commitStyles). Diese schreibt die berechneten Werte der aktuellen Stile der Animation in das [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attribut des Ziels, wonach das Element normal umgestaltet werden kann.
 
-## Automatisches Entfernen von Füllanimationen
+## Automatische Entfernung von füllenden Animationen
 
-Es ist möglich, eine große Anzahl von Animationen auf demselben Element auszulösen. Wenn sie unbegrenzt sind (d.h. forwards-füllend), könnte dies zu einer riesigen Animationsliste führen, was ein Speicherleck erzeugen könnte. Aus diesem Grund entfernen Browser Füllanimationen automatisch, nachdem sie durch neuere Animationen ersetzt wurden, es sei denn, der Entwickler gibt ausdrücklich an, sie zu behalten.
+Es ist möglich, eine große Anzahl von Animationen auf dasselbe Element auszulösen. Wenn diese Animationen unbefristet sind (d. h., `forwards` füllend), könnte dies zu einer langen Animationsliste führen, die möglicherweise ein Speicherleck hervorruft. Aus diesem Grund entfernen Browser automatisch füllende Animationen, nachdem sie durch neuere Animationen ersetzt wurden, es sei denn, der Entwickler gibt explizit an, dass sie beibehalten werden sollen.
 
-Animationen werden entfernt, wenn alle folgenden Bedingungen erfüllt sind:
+Animationen werden entfernt, wenn alle folgenden Bedingungen erfüllt sind: 
 
-- Die Animation wird gefüllt (ihr `fill` ist `forwards`, wenn sie vorwärts abgespielt wird, `backwards`, wenn sie rückwärts abgespielt wird, oder `both`).
-- Die Animation ist beendet. (Beachten Sie, dass sie aufgrund des `fill` weiterhin in Kraft bleibt.)
-- Die Zeitleiste der Animation ist monoton zunehmend. (Dies ist immer wahr für [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline); andere Zeitleisten wie {{cssxref("scroll-timeline")}} können rückwärts laufen.)
-- Die Animation wird nicht durch deklarative Markup wie CSS gesteuert.
-- Jeder Stileffekt des [`AnimationEffect`](/de/docs/Web/API/AnimationEffect) der Animation wird durch eine andere Animation überschrieben, die ebenfalls alle oben genannten Bedingungen erfüllt. (Typischerweise, wenn zwei Animationen dieselbe Stileigenschaft desselben Elements setzen würden, überschreibt die zuletzt erstellte Animation die andere.)
+- Die Animation füllt (ihr `fill` ist `forwards`, wenn sie vorwärts abläuft, `backwards`, wenn sie rückwärts abläuft, oder `both`).
+- Die Animation ist beendet (beachten Sie, dass sie aufgrund des `fill` weiterhin wirksam bleibt).
+- Die Zeitleiste der Animation steigt monoton an. (Dies gilt immer für [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline); andere Zeitleisten wie {{cssxref("scroll-timeline")}} können rückwärts laufen.)
+- Die Animation wird nicht durch deklaratives Markup wie CSS gesteuert.
+- Jede Styling-Wirkung des [`AnimationEffect`](/de/docs/Web/API/AnimationEffect) der Animation wird durch eine andere Animation überschrieben, die ebenfalls alle oben genannten Bedingungen erfüllt. (Typischerweise überschreibt die letzte erstellte Animation jede vorherige, wenn zwei Animationen dieselbe Stileigenschaft desselben Elements setzen.)
 
-Die ersten vier Bedingungen stellen sicher, dass die Animation ohne Eingriff durch JavaScript-Code niemals ihre Wirkung ändern oder enden wird. Die letzte Bedingung stellt sicher, dass die Animation niemals tatsächlich den Stil eines Elements beeinflussen wird: Sie wurde vollständig ersetzt.
+Die ersten vier Bedingungen stellen sicher, dass der Effekt der Animation ohne Eingreifen durch JavaScript-Code niemals geändert oder beendet wird. Die letzte Bedingung stellt sicher, dass die Animation tatsächlich keine Stiländerung eines Elements mehr bewirkt: Sie wurde vollständig ersetzt.
 
-Wenn die Animation automatisch entfernt wird, wird das `remove`-Ereignis der Animation ausgelöst.
+Wird die Animation automatisch entfernt, wird das Event [`remove`](/de/docs/Web/API/Animation/remove_event) der Animation ausgelöst.
 
 Um zu verhindern, dass der Browser Animationen automatisch entfernt, rufen Sie die Methode [`persist()`](/de/docs/Web/API/Animation/persist) der Animation auf.
 
-Die Eigenschaft [`replaceState`](/de/docs/Web/API/Animation/replaceState) der Animation wird `removed` sein, wenn die Animation entfernt wurde, `persisted`, wenn Sie [`persist()`](/de/docs/Web/API/Animation/persist) auf die Animation aufgerufen haben, oder `active` sonst.
+Die Eigenschaft [`replaceState`](/de/docs/Web/API/Animation/replaceState) der Animation wird `removed` sein, wenn die Animation entfernt wurde, `persisted`, wenn Sie [`persist()`](/de/docs/Web/API/Animation/persist) aufgerufen haben, oder `active` sonst.
 
 ## Informationen aus Animationen abrufen
 
-Stellen Sie sich vor, wir könnten `playbackRate` auf andere Weise nutzen, zum Beispiel um die Barrierefreiheit für Benutzer mit vestibulären Störungen zu verbessern, indem wir ihnen ermöglichen, Animationen auf einer gesamten Website zu verlangsamen. Das wäre mit CSS unmöglich, ohne die Dauern in jeder CSS-Regel neu zu berechnen, aber mit der Web Animations API könnten wir die Methode [`Document.getAnimations`](/de/docs/Web/API/Document/getAnimations) nutzen, um über jede Animation auf der Seite zu gehen und ihre `playbackRate`s zu halbieren, wie folgt:
+Stellen Sie sich vor, wie wir die Wiedergaberate nutzen könnten, um beispielsweise die Barrierefreiheit für Benutzer mit vestibulären Störungen zu verbessern, indem wir sie Animationen über die gesamte Website hinweg verlangsamen lassen. Das wäre mit CSS unmöglich, ohne die Dauern jeder CSS-Regel neu zu berechnen, aber mit der Web Animations API könnten wir die Methode [`Document.getAnimations`](/de/docs/Web/API/Document/getAnimations) verwenden, um jede Animation auf der Seite zu durchlaufen und deren Wiedergaberate zu halbieren, wie folgt: 
 
 ```js
 document.getAnimations().forEach((animation) => {
@@ -276,7 +276,7 @@ document.getAnimations().forEach((animation) => {
 
 Mit der Web Animations API müssen Sie nur eine kleine Eigenschaft ändern!
 
-Eine weitere Sache, die mit CSS-Animationen allein schwer zu machen ist, ist das Erstellen von Abhängigkeiten von Werten, die von anderen Animationen bereitgestellt werden. Beispielsweise könnte Ihnen im Beispiel des wachsenden und schrumpfenden Alice-Spiels etwas Seltsames an der Dauer des Kuchens aufgefallen sein:
+Eine weitere Herausforderung mit alleinigen CSS-Animationen ist das Erstellen von Abhängigkeiten basierend auf Werten, die von anderen Animationen bereitgestellt werden. Im Beispiel mit dem Spiel "Wachsende und Schrumpfende Alice" ist Ihnen möglicherweise etwas Eigenartiges bei der Dauer des Kuchens aufgefallen:
 
 ```js
 document.getElementById("eat-me_sprite").animate([], {
@@ -284,7 +284,7 @@ document.getElementById("eat-me_sprite").animate([], {
 });
 ```
 
-Um zu verstehen, was hier passiert, schauen wir uns Alices Animation genauer an:
+Um das zu verstehen, werfen wir einen Blick auf Alices Animation:
 
 ```js
 const aliceChange = document
@@ -302,27 +302,27 @@ const aliceChange = document
   );
 ```
 
-Alices Animation lässt sie von ihrer halben Größe zu ihrer doppelten Größe über 8 Sekunden gehen. Dann pausieren wir sie:
+Alices Animation lässt sie von halber Größe auf die doppelte Größe über 8 Sekunden wachsen. Anschließend pausieren wir ihre Animation:
 
 ```js
 aliceChange.pause();
 ```
 
-Wenn wir sie zu Beginn ihrer Animation pausiert belassen hätten, würde sie in halber Größe beginnen, als hätte sie schon die gesamte Flasche getrunken! Wir möchten ihren "Abspielkopf" in der Mitte einstellen, sodass sie schon halb fertig ist. Wir könnten dies tun, indem wir ihre [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) auf 4 Sekunden setzen, wie folgt:
+Würde es direkt am Anfang ihrer Animation pausiert bleiben, würde Alice mit halber Größe starten, als hätte sie bereits die ganze Flasche ausgetrunken! Wir möchten seine Timeline jedoch auf die Mitte setzen, damit sie bereits auf halbem Weg ist. Das könnten wir tun, indem wir Alices [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) auf 4 Sekunden setzen, wie folgt:
 
 ```js
 aliceChange.currentTime = 4000;
 ```
 
-Aber während wir an dieser Animation arbeiten, könnten wir Alices Dauer oft ändern. Wäre es nicht besser, wenn wir ihre `currentTime` dynamisch einstellen könnten, sodass wir nicht zwei Aktualisierungen auf einmal vornehmen müssen? Wir können dies tatsächlich erreichen, indem wir auf die Eigenschaft [`Animation.effect`](/de/docs/Web/API/Animation/effect) von aliceChange verweisen, die ein Objekt zurückgibt, das alle Details der auf Alice aktiven Effekte enthält:
+Aber während wir an dieser Animation arbeiten, könnten wir Alices Dauer oft ändern. Wäre es nicht besser, wenn wir ihre `currentTime` dynamisch setzen könnten, sodass wir nicht zwei Aktualisierungen vornehmen müssen? Tatsächlich können wir das tun, indem wir auf Alices [`Animation.effect`](/de/docs/Web/API/Animation/effect)-Eigenschaft verweisen, die ein Objekt mit allen Details der auf Alice aktiven Effekte zurückgibt:
 
 ```js
 aliceChange.currentTime = aliceChange.effect.getComputedTiming().duration / 2;
 ```
 
-`effect` ermöglicht es uns, auf die Keyframes und Zeitsteuerungseigenschaften der Animation zuzugreifen — `aliceChange.effect.getComputedTiming()` weist auf Alices Zeitsteuerungsobjekt hin — dies enthält ihre [`dauer`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect). Wir können ihre Dauer halbieren, um den Mittelpunkt ihrer Animationszeitleiste zu erhalten, und sie auf normale Höhe setzen. Jetzt können wir ihre Animation in beide Richtungen umkehren und abspielen lassen, um sie kleiner oder größer werden zu lassen!
+Mit `effect` können wir die Keyframes und Zeiteigenschaften der Animationen abrufen — `aliceChange.effect.getComputedTiming()` gibt auf Alices Timing-Objekt hin — welches ihre [`duration`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect) enthält. Wir können ihre Dauer halbieren, um den Mittelpunkt ihrer Timeline zu berechnen, und sie auf normale Größe setzen. Jetzt können wir ihre Animation in beide Richtungen umkehren und abspielen lassen, um sie kleiner oder größer werden zu lassen!
 
-Und wir können dasselbe tun, wenn wir die Dauern von Kuchen und Flasche einstellen:
+Und wir können dasselbe tun, wenn wir die Dauer von Kuchen und Flaschen setzen:
 
 ```js
 const drinking = document
@@ -334,9 +334,9 @@ const drinking = document
 drinking.pause();
 ```
 
-Jetzt sind alle drei Animationen an nur eine Dauer gebunden, die wir leicht an einem Ort ändern können.
+Nun sind alle drei Animationen an eine einzige Dauer gekoppelt, die wir einfach an einer Stelle ändern können.
 
-Wir können die Web Animations API auch verwenden, um die aktuelle Zeit der Animation herauszufinden. Das Spiel endet, wenn Sie keinen Kuchen mehr zum Essen haben oder die Flasche geleert ist. Welche Szene den Spielern präsentiert wird, hängt davon ab, wie weit Alice in ihrer Animation war, ob sie zu groß geworden ist und nicht mehr durch die kleine Tür passt, oder zu klein, um den Schlüssel zu erreichen, um die Tür zu öffnen. Wir können feststellen, ob sie am großen oder kleinen Ende ihrer Animation steht, indem wir die [`currentTime`](/de/docs/Web/API/Animation/currentTime) ihrer Animation abrufen und sie durch ihre `activeDuration` teilen:
+Mit der Web Animations API können wir auch den aktuellen Zeitpunkt der Animation herausfinden. Das Spiel endet, sobald der Kuchen aufgegessen oder die Flasche leer ist. Welche Szene den Spielern gezeigt wird, hängt davon ab, wie weit Alice in ihrer Animation war — ob sie zu groß wurde und nicht mehr durch die winzige Tür passt oder zu klein, um die Tür aufzuschließen. Wir können herausfinden, ob sie sich am großen oder kleinen Ende ihrer Animation befindet, indem wir ihre [`currentTime`](/de/docs/Web/API/Animation/currentTime) abrufen und durch ihre `activeDuration` teilen:
 
 ```js
 const endGame = () => {
@@ -363,14 +363,14 @@ const endGame = () => {
 };
 ```
 
-## Rückrufe und Versprechungen
+## Callbacks und Promises
 
-CSS-Animationen und Übergänge haben ihre eigenen Ereignis-Listener, und diese sind auch mit der Web Animations API möglich:
+CSS-Animationen und -Übergänge haben eigene Event-Listener, und diese sind auch mit der Web Animations API möglich:
 
-- [`onfinish`](/de/docs/Web/API/Animation/finish_event) ist der Ereignishandler für das `finish`-Ereignis und kann manuell mit [`finish()`](/de/docs/Web/API/Animation/finish) ausgelöst werden.
-- [`oncancel`](/de/docs/Web/API/Animation/cancel_event) ist der Ereignishandler für das `cancel`-Ereignis und kann mit [`cancel()`](/de/docs/Web/API/Animation/cancel) ausgelöst werden.
+- [`onfinish`](/de/docs/Web/API/Animation/finish_event) ist der Event-Handler für das `finish`-Event und kann manuell mit [`finish()`](/de/docs/Web/API/Animation/finish) ausgelöst werden.
+- [`oncancel`](/de/docs/Web/API/Animation/cancel_event) ist der Event-Handler für das `cancel`-Event und kann mit [`cancel()`](/de/docs/Web/API/Animation/cancel) ausgelöst werden.
 
-Hier setzen wir die Rückrufe für den Kuchen, die Flasche und Alice, um die Funktion `endGame` auszulösen:
+Hier setzen wir die Callbacks für den Kuchen, die Flasche und Alice, um die Funktion `endGame` auszuführen:
 
 ```js
 // When the cake or bottle runs out
@@ -381,13 +381,13 @@ drinking.onfinish = endGame;
 aliceChange.onfinish = endGame;
 ```
 
-Noch besser ist, dass die Web Animations API auch ein [`finished`](/de/docs/Web/API/Animation/finished)-Versprechen bietet, das sich auflöst, wenn die Animation beendet ist, oder abgelehnt wird, wenn sie abgebrochen wird.
+Noch besser: Die Web Animations API stellt auch ein Promise namens [`finished`](/de/docs/Web/API/Animation/finished) bereit, das aufgelöst wird, wenn die Animation abgeschlossen ist, oder abgelehnt wird, wenn sie abgebrochen wird.
 
 ## Fazit
 
-Dies sind die grundlegenden Funktionen der Web Animations API. Bis jetzt sollten Sie bereit sein, das "Kaninchenloch" der Animationen im Browser hinunterzuspringen und bereit, Ihre eigenen Animationsexperimente zu schreiben!
+Dies sind die grundlegenden Funktionen der Web Animations API. Sie sollten nun bereit sein, "in den Kaninchenbau zu springen" und Ihre eigenen Animationsexperimente im Browser zu schreiben!
 
 ## Siehe auch
 
-- Die [vollständige Sammlung von Alice im Wunderland Demos](https://codepen.io/collection/nqNJvD) auf CodePen zum Spielen, Verzweigen und Teilen.
-- [Animieren, als ob es Ihnen egal wäre, mit Element.animate](https://hacks.mozilla.org/2016/08/animating-like-you-just-dont-care-with-element-animate/) (2016) Erklärt den Hintergrund der Web Animations API und warum sie performanter ist als andere Web-Animationsmethoden.
+- Die [vollständige Sammlung der Alice-im-Wunderland-Demos](https://codepen.io/collection/nqNJvD) auf CodePen, die Sie spielen, fork'en und teilen können.
+- [Animating like you just don't care with Element.animate](https://hacks.mozilla.org/2016/08/animating-like-you-just-dont-care-with-element-animate/) (2016) erklärt den Hintergrund der Web Animations API und warum sie performanter ist als andere Methoden der Web-Animation.

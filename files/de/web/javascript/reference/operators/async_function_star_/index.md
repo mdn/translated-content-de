@@ -1,35 +1,33 @@
 ---
-title: async function* expression
+title: async function* Ausdruck
 slug: Web/JavaScript/Reference/Operators/async_function*
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e439cd79166dbfd9bbe3a003abaf5898ae165509
 ---
 
 {{jsSidebar("Operators")}}
 
-Die Schlüsselwörter **`async function*`** können verwendet werden, um eine asynchrone Generatorfunktion innerhalb eines Ausdrucks zu definieren.
+Die Schlüsselwörter **`async function*`** können verwendet werden, um eine asynchrone Generatorfunktion in einem Ausdruck zu definieren.
 
-Sie können asynchrone Generatorfunktionen auch mit der [`async function*`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/async_function*) definieren.
+Sie können asynchrone Generatorfunktionen auch mit der [`async function*` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/async_function*) definieren.
 
 {{InteractiveExample("JavaScript Demo: Expressions - Async Function Asterisk", "taller")}}
 
 ```js interactive-example
-async function* foo() {
+async function joinAll(generator) {
+  let str = "";
+  for await (const val of generator()) {
+    str = str + val;
+  }
+  return str;
+}
+
+const str = generate(async function* () {
   yield await Promise.resolve("a");
   yield await Promise.resolve("b");
   yield await Promise.resolve("c");
-}
-
-let str = "";
-
-async function generate() {
-  for await (const val of foo()) {
-    str = str + val;
-  }
-  console.log(str);
-}
-
-generate();
+});
+console.log(str);
 // Expected output: "abc"
 ```
 
@@ -58,26 +56,26 @@ async function* name(param0, param1, /* …, */ paramN) {
 ```
 
 > [!NOTE]
-> Eine [Ausdrucks-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit den Schlüsselwörtern `async function` beginnen, um eine Verwechslung mit einer [`async function*`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/async_function*) zu vermeiden. Die Schlüsselwörter `async function` beginnen nur dann einen Ausdruck, wenn sie in einem Kontext erscheinen, in dem keine Anweisungen akzeptiert werden können.
+> Eine [Ausdrucksanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit den Schlüsselwörtern `async function` beginnen, um Mehrdeutigkeiten mit einer [`async function*` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/async_function*) zu vermeiden. Die Schlüsselwörter `async function` beginnen nur dann einen Ausdruck, wenn sie in einem Kontext erscheinen, der keine Anweisungen akzeptiert.
 
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : Der Funktionsname. Kann weggelassen werden, in diesem Fall ist die Funktion _anonym_. Der Name ist nur im Funktionskörper lokal verfügbar.
+  - : Der Funktionsname. Kann weggelassen werden, wodurch die Funktion _anonym_ wird. Der Name ist nur im Funktionskörper lokal.
 - `paramN` {{optional_inline}}
-  - : Der Name eines formalen Parameters für die Funktion. Für die Syntax der Parameter, siehe die [Funktionen Referenz](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
+  - : Der Name eines formalen Parameters für die Funktion. Zur Syntax der Parameter siehe die [Funktionen-Referenz](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
 - `statements` {{optional_inline}}
-  - : Die Anweisungen, die den Körper der Funktion bilden.
+  - : Die Anweisungen, welche den Funktionskörper bilden.
 
 ## Beschreibung
 
-Ein `async function*`-Ausdruck ist sehr ähnlich zu und hat fast dieselbe Syntax wie eine [`async function*`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/async_function*). Der Hauptunterschied zwischen einem `async function*`-Ausdruck und einer `async function*`-Deklaration ist der _Funktionsname_, der bei `async function*`-Ausdrücken weggelassen werden kann, um _anonyme_ Funktionen zu erstellen. Ein `async function*`-Ausdruck kann als {{Glossary("IIFE", "IIFE")}} (Immediately Invoked Function Expression) verwendet werden, der sofort ausgeführt wird, wenn er definiert ist, wodurch Sie ein Ad-hoc-[asynchrones iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) erstellen können. Siehe auch das Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) für weitere Informationen.
+Ein `async function*` Ausdruck ist dem [`async function*` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/async_function*) sehr ähnlich und hat nahezu dieselbe Syntax. Der Hauptunterschied zwischen einem `async function*` Ausdruck und einer `async function*` Deklaration ist der _Funktionsname_, der in `async function*` Ausdrücken weggelassen werden kann, um _anonyme_ Funktionen zu erstellen. Ein `async function*` Ausdruck kann als {{Glossary("IIFE", "IIFE")}} (Sofortige Funktionsausführung) verwendet werden, welche ausgeführt wird, sobald sie definiert ist, was es ermöglicht, ein Ad-hoc-[asynchrones iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) zu erstellen. Siehe auch das Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) für weitere Informationen.
 
 ## Beispiele
 
-### Verwendung eines async function\*-Ausdrucks
+### Verwendung von async function\* Ausdruck
 
-Das folgende Beispiel definiert eine unbenannte asynchrone Generatorfunktion und weist sie `x` zu. Die Funktion liefert das Quadrat ihres Arguments:
+Im folgenden Beispiel wird eine unbenannte asynchrone Generatorfunktion definiert und `x` zugewiesen. Die Funktion gibt das Quadrat ihres Arguments zurück:
 
 ```js
 const x = async function* (y) {
@@ -102,6 +100,6 @@ x(6)
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - {{jsxref("Statements/async_function*", "async function*")}}
 - {{jsxref("AsyncGeneratorFunction")}}
-- [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iteratoren-Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
 - {{jsxref("Operators/yield", "yield")}}
 - {{jsxref("Operators/yield*", "yield*")}}

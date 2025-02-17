@@ -1,14 +1,16 @@
 ---
-title: "Location: hostname-Eigenschaft"
+title: "Standort: hostname-Eigenschaft"
 short-title: hostname
 slug: Web/API/Location/hostname
 l10n:
-  sourceCommit: b68a1e071ee203718f5a6300472b820bc3a71885
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("URL API")}}
 
-Die **`hostname`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der den {{Glossary("domain_name", "Domainnamen")}} der URL enthält.
+Die **`hostname`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der entweder den {{Glossary("domain_name", "Domainnamen")}} oder die {{Glossary("IP_address", "IP-Adresse")}} der Standort-URL enthält. Wenn die URL keinen Hostnamen hat, enthält diese Eigenschaft einen leeren String, `""`. IPv4- und IPv6-Adressen werden normalisiert, z. B. durch das Entfernen führender Nullen, und Domainnamen werden in [IDN](https://en.wikipedia.org/wiki/Internationalized_domain_name) umgewandelt.
+
+Weitere Informationen finden Sie unter [`URL.hostname`](/de/docs/Web/API/URL/hostname).
 
 ## Wert
 

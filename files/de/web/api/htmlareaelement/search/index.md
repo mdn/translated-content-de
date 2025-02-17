@@ -3,26 +3,32 @@ title: "HTMLAreaElement: search-Eigenschaft"
 short-title: search
 slug: Web/API/HTMLAreaElement/search
 l10n:
-  sourceCommit: ab007c32f6ef1f5d426f8ff806c67652692e4108
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.search`**-Eigenschaft ist ein Suchstring, auch als _Query-String_ bezeichnet, der eine Zeichenkette ist, die ein `'?'` gefolgt von den Parametern der URL enthält.
+Die **`search`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle ist eine Suchzeichenkette, auch _query string_ genannt. Es handelt sich dabei um eine Zeichenkette, die ein `"?"` gefolgt von den Parametern des `href`-Attributs des `<area>`-Elements enthält. Wenn die URL keine Suchabfrage besitzt, enthält diese Eigenschaft eine leere Zeichenkette, `""`.
 
-Moderne Browser bieten
+Diese Eigenschaft kann gesetzt werden, um die Suchzeichenkette der URL zu ändern. Beim Setzen wird der Wert mit einem vorangestellten `"?"` versehen, falls dieser nicht bereits vorhanden ist. Wird der Wert auf `""` gesetzt, wird die Suchzeichenkette entfernt.
+
+Die Suchzeichenkette wird beim Setzen {{Glossary("Percent-encoding", "percent-codiert")}}, jedoch beim Lesen nicht percent-decodiert.
+
+Moderne Browser bieten 
 [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples)
 und
-[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples),
-um das Parsen der Parameter aus dem Query-String zu erleichtern.
+[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples), 
+um das Parsen der Parameter aus der Suchzeichenkette zu erleichtern.
+
+Weitere Informationen finden Sie unter [`URL.search`](/de/docs/Web/API/URL/search).
 
 ## Wert
 
-Ein String.
+Ein Zeichenkette.
 
 ## Beispiele
 
-### Den Suchstring aus einem Area-Link abrufen
+### Abfragen der Suchzeichenkette von einem `area`-Link
 
 ```js
 // An <area id="myArea" href="/en-US/docs/HTMLAreaElement?q=123"> element is in the document
@@ -30,7 +36,7 @@ const area = document.getElementById("myArea");
 area.search; // returns '?q=123'
 ```
 
-### Fortgeschrittenes Parsen mit URLSearchParams
+### Erweiterte Analyse mit URLSearchParams
 
 Alternativ kann [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples) verwendet werden:
 
@@ -49,4 +55,4 @@ let q = parseInt(params.get("q")); // returns the number 123
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.
+- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der sie gehört.

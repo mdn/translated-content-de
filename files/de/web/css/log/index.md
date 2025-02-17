@@ -2,16 +2,16 @@
 title: log()
 slug: Web/CSS/log
 l10n:
-  sourceCommit: 5332af37c3d94913bf15b6aed87aaed2693f19d5
+  sourceCommit: 8dac6c62fc3cee2de82960d4dd9d9be16a3a1761
 ---
 
 {{CSSRef}}
 
 Die **`log()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine exponentielle Funktion, die den Logarithmus einer Zahl zurückgibt.
 
-Ein [Logarithmus](https://en.wikipedia.org/wiki/Logarithm) ist das Inverse der Exponentiation. Es ist die Zahl, auf die eine feste Basis potenziert werden muss, um die als erster Parameter übergebene Zahl zu ergeben.
+Ein [Logarithmus](https://de.wikipedia.org/wiki/Logarithmus) ist die Umkehrung der Potenzierung. Es ist die Zahl, auf die eine feste Basis potenziert werden muss, um die als erster Parameter übergebene Zahl zu erhalten.
 
-In CSS, wenn ein einzelner Parameter übergeben wird, wird der natürliche Logarithmus `e` oder ungefähr `2.7182818` verwendet, obwohl die Basis mit einem optionalen zweiten Parameter auf jeden Wert gesetzt werden kann.
+In CSS wird beim Übergeben eines einzelnen Parameters der natürliche Logarithmus `e`, etwa `2.7182818`, verwendet, obwohl die Basis mit einem optionalen zweiten Parameter auf einen beliebigen Wert gesetzt werden kann.
 
 ## Syntax
 
@@ -24,14 +24,14 @@ width: calc(100px * log(625, 5)); /* 400px */
 
 ### Parameter
 
-Die Funktion `log(value [, base]?)` akzeptiert zwei durch Komma getrennte Werte als Parameter.
+Die Funktion `log(value [, base]?)` akzeptiert zwei durch Kommas getrennte Werte als Parameter.
 
 - `value`
 
-  - : Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} größer oder gleich 0 auflöst. Sie repräsentiert den Wert, dessen Logarithmus berechnet werden soll.
+  - : Eine Berechnung, die sich zu einem {{cssxref("&lt;number&gt;")}} größer oder gleich 0 auflöst. Repräsentiert den Wert, dessen Logarithmus berechnet werden soll.
 
 - `base`
-  - : Optional. Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} größer oder gleich 0 auflöst. Sie repräsentiert die Basis des Logarithmus. Wenn sie nicht definiert ist, wird die Standard-Logarithmenbasis `e` verwendet.
+  - : Optional. Eine Berechnung, die sich zu einem {{cssxref("&lt;number&gt;")}} größer oder gleich 0 auflöst. Repräsentiert die Basis des Logarithmus. Falls nicht definiert, wird die logarithmische Basis `e` standardmäßig verwendet.
 
 ### Rückgabewert
 
@@ -45,9 +45,9 @@ Der natürliche Logarithmus (Basis `e`) von `value`, wenn `base` nicht definiert
 
 ## Beispiele
 
-### Verwendung der Funktion `log()` auf einer logarithmischen Skala
+### Nutzung der `log()`-Funktion auf einer logarithmischen Skala
 
-Dieses Beispiel zeigt, wie die Funktion `log()` verwendet werden kann, um Datenwerte anhand einer [logarithmischen Skala](https://en.wikipedia.org/wiki/Logarithmic_scale) darzustellen. Die Breite jeder Leiste in diesem Beispiel ist relativ zu ihrem Datenwert auf einer logarithmischen Skala mit Basis 10. Auf jedem Element wird sein Wert einer [CSS-Benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Using_CSS_custom_properties) namens `--value` zugewiesen, die dann von der Klasse `.bar` verwendet wird, um ihre Breite zu berechnen.
+Dieses Beispiel zeigt, wie die `log()`-Funktion verwendet werden kann, um Datenwerte auf einer [logarithmischen Skala](https://de.wikipedia.org/wiki/Logarithmische_Skala) darzustellen. Die Breite jeder Balkenanzeige in diesem Beispiel ist relativ zum Datenwert auf einer logarithmischen Skala mit der Basis 10. Für jedes Element wird sein Wert einer [CSS-Benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) namens `--value` zugewiesen, die anschließend von der `.bar`-Klasse verwendet wird, um ihre Breite zu berechnen.
 
 #### HTML
 

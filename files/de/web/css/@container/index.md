@@ -2,20 +2,20 @@
 title: "@container"
 slug: Web/CSS/@container
 l10n:
-  sourceCommit: 36b140be395b9976ac8ef659e88e9f81a547b3ed
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}
 
-Die **`@container`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) ist eine bedingte Gruppenregel, die auf einen [Containment-Kontext](/de/docs/Web/CSS/CSS_containment/Container_queries#naming_containment_contexts) angewendet wird. Stil-Deklarationen werden durch eine Bedingung gefiltert und auf den Container angewendet, wenn die Bedingung wahr ist. Die Bedingung wird ausgewertet, wenn sich die Containergröße oder der Wert von [`<style-feature>`](#container-stil-abfragen) ändert.
+Die **`@container`**-[CSS](/de/docs/Web/CSS)-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) ist eine bedingte Gruppenregel, die Stile auf einen [Containment-Kontext](/de/docs/Web/CSS/CSS_containment/Container_queries#naming_containment_contexts) anwendet. Stil-Deklarationen werden durch eine Bedingung gefiltert und auf den Container angewendet, wenn die Bedingung erfüllt ist. Die Bedingung wird ausgewertet, wenn sich die Größe des Containers oder der Wert von [`<style-feature>`](#container-stil-abfragen) ändert.
 
-Die {{cssxref("container-name")}} Eigenschaft spezifiziert eine Liste von Namen für Abfrage-Container. Diese Namen können von `@container` Regeln verwendet werden, um zu filtern, welche Abfrage-Container angesprochen werden. Das optionale, groß- und kleinschreibungssensible `<container-name>` filtert die Abfrage-Container, die durch die Abfrage anvisiert werden.
+Die Eigenschaft {{cssxref("container-name")}} gibt eine Liste von Namen für Abfrage-Container an. Diese Namen können von `@container`-Regeln verwendet werden, um zu filtern, welche Abfrage-Container angesprochen werden. Der optionale, groß-/kleinschreibungssensitive `<container-name>` filtert die Abfrage-Container, die von der Abfrage angesprochen werden.
 
-Sobald ein geeigneter Abfrage-Container für ein Element ausgewählt wurde, wird jedes Container-Feature in der `<container-condition>` gegen diesen Abfrage-Container ausgewertet.
+Sobald ein qualifizierter Abfrage-Container für ein Element ausgewählt wurde, wird jede Container-Funktion in der `<container-condition>` gegen diesen Abfrage-Container ausgewertet.
 
 ## Syntax
 
-Die `@container` At-Regel hat die folgende Syntax:
+Die `@container`-At-Regel hat die folgende Syntax:
 
 ```plain
 @container <container-condition># {
@@ -58,15 +58,15 @@ Zum Beispiel:
 
 - `<container-condition>`
 
-  - : Ein optionaler `<container-name>` und eine `<container-query>`. Stile, die im `<stylesheet>` definiert sind, werden angewendet, wenn die Bedingung wahr ist.
+  - : Ein optionaler `<container-name>` und eine `<container-query>`. Stile, die im `<stylesheet>` definiert sind, werden angewendet, wenn die Bedingung erfüllt ist.
 
     - `<container-name>`
-      - : Optional. Der Name des Containers, auf den die Stile angewendet werden, wenn die Abfrage als wahr ausgewertet wird, angegeben als {{cssxref("ident")}}.
+      - : Optional. Der Name des Containers, auf den die Stile angewendet werden, wenn die Abfrage zu wahr ausgewertet wird. Angegeben als ein {{cssxref("ident")}}.
     - `<container-query>`
-      - : Eine Anzahl von Features, die gegen den Abfrage-Container ausgewertet werden, wenn sich die Größe des Containers ändert.
+      - : Eine Reihe von Funktionen, die gegen den Abfrage-Container ausgewertet werden, wenn sich die Größe des Containers ändert.
 
 - `<stylesheet>`
-  - : Eine Anzahl von CSS-Deklarationen.
+  - : Eine Sammlung von CSS-Deklarationen.
 
 ### Logische Schlüsselwörter in Container-Abfragen
 
@@ -74,7 +74,7 @@ Logische Schlüsselwörter können verwendet werden, um die Container-Bedingung 
 
 - `and` kombiniert zwei oder mehr Bedingungen.
 - `or` kombiniert zwei oder mehr Bedingungen.
-- `not` negiert die Bedingung. Pro Container-Abfrage ist nur eine `not`-Bedingung erlaubt und kann nicht mit den `and` oder `or` Schlüsselwörtern verwendet werden.
+- `not` negiert die Bedingung. Es ist nur eine `not`-Bedingung pro Container-Abfrage erlaubt und sie kann nicht mit den Schlüsselwörtern `and` oder `or` kombiniert werden.
 
 ```css
 @container (width > 400px) and (height > 400px) {
@@ -92,7 +92,7 @@ Logische Schlüsselwörter können verwendet werden, um die Container-Bedingung 
 
 ### Benannte Containment-Kontexte
 
-Ein Containment-Kontext kann mit der {{cssxref("container-name")}} Eigenschaft benannt werden.
+Ein Containment-Kontext kann mithilfe der Eigenschaft {{cssxref("container-name")}} benannt werden.
 
 ```css
 .post {
@@ -101,7 +101,7 @@ Ein Containment-Kontext kann mit der {{cssxref("container-name")}} Eigenschaft b
 }
 ```
 
-Die Kurzschreibweise dafür ist die Verwendung von {{cssxref("container")}} in der Form `container: <name> / <type>`, zum Beispiel:
+Die Kurzschreibweise hierfür ist die Verwendung von {{cssxref("container")}} in der Form `container: <name> / <type>`, z. B.:
 
 ```css
 .post {
@@ -109,7 +109,7 @@ Die Kurzschreibweise dafür ist die Verwendung von {{cssxref("container")}} in d
 }
 ```
 
-In Container-Abfragen wird die {{cssxref("container-name")}} Eigenschaft verwendet, um die Menge der Container auf diejenigen mit einem passenden Namen des Abfrage-Containers zu filtern:
+In Container-Abfragen wird die Eigenschaft {{cssxref("container-name")}} verwendet, um die Menge der Container auf diejenigen zu filtern, die einen passenden Namen für den Abfrage-Container besitzen:
 
 ```css
 @container sidebar (width > 400px) {
@@ -117,7 +117,7 @@ In Container-Abfragen wird die {{cssxref("container-name")}} Eigenschaft verwend
 }
 ```
 
-Details zur Verwendung und zu Namenseinschränkungen sind auf der {{cssxref("container-name")}} Seite beschrieben.
+Details zur Verwendung und zu Benennungseinschränkungen sind auf der Seite {{cssxref("container-name")}} beschrieben.
 
 ### Deskriptoren
 
@@ -125,26 +125,26 @@ Die folgenden Deskriptoren können innerhalb der Container-Bedingung verwendet w
 
 - `aspect-ratio`
 
-  - : Das {{cssxref("aspect-ratio")}} des Containers, berechnet als Verhältnis der Breite zur Höhe des Containers, ausgedrückt als {{cssxref("ratio")}} Wert.
+  - : Das {{cssxref("aspect-ratio")}} des Containers, berechnet als Breite zu Höhe des Containers, ausgedrückt als {{cssxref("ratio")}}-Wert.
 
 - `block-size`
 
-  - : Die {{cssxref("block-size")}} des Containers, ausgedrückt als {{cssxref("length")}} Wert.
+  - : Die {{cssxref("block-size")}} des Containers, ausgedrückt als {{cssxref("length")}}-Wert.
 
 - `height`
 
-  - : Die Höhe des Containers, ausgedrückt als {{cssxref("length")}} Wert.
+  - : Die Höhe des Containers, ausgedrückt als {{cssxref("length")}}-Wert.
 
 - `inline-size`
 
-  - : Die {{cssxref("inline-size")}} des Containers, ausgedrückt als {{cssxref("length")}} Wert.
+  - : Die {{cssxref("inline-size")}} des Containers, ausgedrückt als {{cssxref("length")}}-Wert.
 
 - `orientation`
 
   - : Die [Ausrichtung](/de/docs/Web/CSS/@media/orientation) des Containers, entweder `landscape` oder `portrait`.
 
 - `width`
-  - : Die Breite des Containers, ausgedrückt als {{cssxref("length")}} Wert.
+  - : Die Breite des Containers, ausgedrückt als {{cssxref("length")}}-Wert.
 
 ## Formale Syntax
 
@@ -154,7 +154,7 @@ Die folgenden Deskriptoren können innerhalb der Container-Bedingung verwendet w
 
 ### Stile basierend auf der Größe eines Containers festlegen
 
-Betrachten Sie das folgende Beispiel eines Kartenkomponenten mit einem Titel und etwas Text:
+Betrachten Sie das folgende Beispiel einer Karten-Komponente mit einem Titel und etwas Text:
 
 ```html
 <div class="post">
@@ -165,7 +165,7 @@ Betrachten Sie das folgende Beispiel eines Kartenkomponenten mit einem Titel und
 </div>
 ```
 
-Ein Container-Kontext kann mit der `container-type` Eigenschaft erstellt werden, in diesem Fall unter Verwendung des `inline-size` Werts auf der `.post` Klasse. Sie können dann die `@container` At-Regel verwenden, um Stile auf das Element mit der `.card` Klasse in einem Container anzuwenden, der schmaler als `650px` ist.
+Ein Container-Kontext kann mit der `container-type`-Eigenschaft erstellt werden, in diesem Fall mit dem Wert `inline-size` für die Klasse `.post`. Sie können dann die `@container`-At-Regel verwenden, um Stile auf das Element mit der Klasse `.card` in einem Container anzuwenden, der schmaler als `650px` ist.
 
 ```js hidden
 const post = document.querySelector(".post");
@@ -211,9 +211,9 @@ span {
 
 {{EmbedLiveSample("Setting_styles_based_on_a_container's_size", "100%", 230)}}
 
-### Erstellen von benannten Container-Kontexten
+### Benannte Containment-Kontexte erstellen
 
-Gegeben ist das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Titel und etwas Text ist:
+Angenommen, Sie haben das folgende HTML-Beispiel, das eine Karten-Komponente mit einem Titel und etwas Text darstellt:
 
 ```html
 <div class="post">
@@ -224,7 +224,7 @@ Gegeben ist das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Tite
 </div>
 ```
 
-Erstellen Sie zuerst einen Container-Kontext mit den Eigenschaften `container-type` und `container-name`. Die Kurzschreibweise für diese Deklaration ist auf der {{cssxref("container")}} Seite beschrieben.
+Zuerst erstellen Sie einen Container-Kontext mit den Eigenschaften `container-type` und `container-name`. Die Kurzschreibweise für diese Deklaration ist auf der {{cssxref("container")}}-Seite beschrieben.
 
 ```css
 .post {
@@ -233,7 +233,7 @@ Erstellen Sie zuerst einen Container-Kontext mit den Eigenschaften `container-ty
 }
 ```
 
-Zielen Sie dann auf diesen Container, indem Sie den Namen zur Container-Abfrage hinzufügen:
+Danach fügen Sie den Namen der Container-Abfrage hinzu, um diesen Container anzusprechen:
 
 ```css
 @container summary (min-width: 400px) {
@@ -245,9 +245,9 @@ Zielen Sie dann auf diesen Container, indem Sie den Namen zur Container-Abfrage 
 
 ### Verschachtelte Container-Abfragen
 
-Es ist nicht möglich, in einer einzigen Container-Abfrage auf mehrere Container zu zielen. Es ist jedoch möglich, Container-Abfragen zu verschachteln, was denselben Effekt hat.
+Es ist nicht möglich, mehrere Container in einer einzelnen Container-Abfrage anzusprechen. Es ist jedoch möglich, Container-Abfragen zu verschachteln, was denselben Effekt hat.
 
-Die folgende Abfrage wird als wahr ausgewertet und wendet den deklarierten Stil an, wenn der Container mit dem Namen `summary` breiter als `400px` ist und einen übergeordneten Container hat, der breiter als `800px` ist:
+Die folgende Abfrage wird zu wahr ausgewertet und wendet den deklarierten Stil an, wenn der Container mit dem Namen `summary` breiter als `400px` ist und einen übergeordneten Container besitzt, der breiter als `800px` ist:
 
 ```css
 @container summary (min-width: 400px) {
@@ -259,7 +259,7 @@ Die folgende Abfrage wird als wahr ausgewertet und wendet den deklarierten Stil 
 
 ### Container-Stil-Abfragen
 
-Container-Abfragen können auch den berechneten Stil des Container-Elements bewerten. Eine _Container-Stil-Abfrage_ ist eine `@container` Abfrage, die eine oder mehrere `style()` funktionale Notationen verwendet. Die boolesche Syntax und Logik zur Kombination von Stil-Features in eine Stil-Abfrage ist dieselbe wie für [CSS Feature-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries).
+Container-Abfragen können auch den berechneten Stil des Container-Elements auswerten. Eine _Container-Stil-Abfrage_ ist eine `@container`-Abfrage, die eine oder mehrere `style()`-Funktionalnotationen verwendet. Die boolesche Syntax und die Logik beim Kombinieren von Stilfunktionen in einer Stil-Abfrage sind dieselben wie bei [CSS-Feature-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries).
 
 ```css
 @container style(<style-feature>),
@@ -270,7 +270,7 @@ Container-Abfragen können auch den berechneten Stil des Container-Elements bewe
 }
 ```
 
-Der Parameter jeder `style()` ist ein einzelnes `<style-feature>`. Ein **`<style-feature>`** ist eine gültige CSS [Deklaration](/de/docs/Web/CSS/Syntax#css_declarations), eine CSS-Eigenschaft oder ein [`<custom-property-name>`](/de/docs/Web/CSS/var#values).
+Der Parameter jedes `style()` ist ein einzelnes `<style-feature>`. Ein **`<style-feature>`** ist eine gültige CSS-[Deklaration](/de/docs/Web/CSS/CSS_syntax/Syntax#css_declarations), eine CSS-Eigenschaft oder ein [`<custom-property-name>`](/de/docs/Web/CSS/var#values).
 
 ```css
 @container style(--themeBackground),
@@ -281,11 +281,11 @@ Der Parameter jeder `style()` ist ein einzelnes `<style-feature>`. Ein **`<style
 }
 ```
 
-Ein Stil-Feature ohne Wert wird als wahr ausgewertet, wenn der berechnete Wert von dem initialen Wert der gegebenen Eigenschaft abweicht.
+Eine Stil-Funktion ohne Wert wird zu wahr ausgewertet, wenn der berechnete Wert vom Initialwert der gegebenen Eigenschaft abweicht.
 
-Wenn das `<style-feature>`, das als Argument der `style()` Funktion übergeben wird, eine Deklaration ist, wird die Stil-Abfrage als wahr ausgewertet, wenn der Deklarationswert mit dem berechneten Wert dieser Eigenschaft für den abgefragten Container übereinstimmt. Andernfalls löst sie sich auf false.
+Wenn das `<style-feature>` als Argument der `style()`-Funktion eine Deklaration ist, wird die Stil-Abfrage zu wahr ausgewertet, wenn der Wert der Deklaration dem berechneten Wert dieser Eigenschaft für den abgefragten Container entspricht. Andernfalls ergibt sie falsch.
 
-Die folgende Container-Abfrage überprüft, ob der {{cssxref("computed_value")}} des Container-Elements `--accent-color` `blue` ist:
+Die folgende Container-Abfrage überprüft, ob der {{cssxref("computed_value")}} der Eigenschaft `--accent-color` des Container-Elements `blue` ist:
 
 ```css
 @container style(--accent-color: blue) {
@@ -294,11 +294,11 @@ Die folgende Container-Abfrage überprüft, ob der {{cssxref("computed_value")}}
 ```
 
 > [!NOTE]
-> Wenn eine benutzerdefinierte Eigenschaft den Wert `blue` hat, wird der äquivalente Hexadezimalcode `#0000ff` nicht übereinstimmen, es sei denn, die Eigenschaft wurde als Farbe mit {{cssxref("@property")}} definiert, damit der Browser berechnete Werte richtig vergleichen kann.
+> Wenn eine benutzerdefinierte Eigenschaft den Wert `blue` hat, wird der entsprechende hexadezimale Code `#0000ff` nicht übereinstimmen, es sei denn, die Eigenschaft wurde als Farbe mit {{cssxref("@property")}} definiert, sodass der Browser die berechneten Werte korrekt vergleichen kann.
 
-Stil-Features, die eine Kurzschreibweise abfragen, sind wahr, wenn die berechneten Werte für jede ihrer Langform-Eigenschaften übereinstimmen, und andernfalls falsch. Zum Beispiel wird `@container style(border: 2px solid red)` als wahr ausgewertet, wenn alle 12 Langform-Eigenschaften (`border-bottom-style` usw.), die diese Kurzform bilden, als wahr ausgewertet werden.
+Stil-Funktionen, die eine Kurzschreibweise abfragen, sind wahr, wenn die berechneten Werte für jede ihrer Langform-Eigenschaften übereinstimmen, ansonsten falsch. Zum Beispiel wird `@container style(border: 2px solid red)` zu wahr, wenn alle 12 Langform-Eigenschaften (`border-bottom-style` usw.), die diese Kurzform ausmachen, wahr sind.
 
-Die globalen `revert` und `revert-layer` sind als Werte in einem `<style-feature>` ungültig und verursachen, dass die Container-Stil-Abfrage auf false gesetzt wird.
+Die globalen Werte `revert` und `revert-layer` sind als Werte in einem `<style-feature>` ungültig und führen dazu, dass die Container-Stil-Abfrage zu falsch wird.
 
 ## Spezifikationen
 
@@ -310,10 +310,10 @@ Die globalen `revert` und `revert-layer` sind als Werte in einem `<style-feature
 
 ## Siehe auch
 
-- [Verwendung von Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Verwendung von Container-Größen- und Stil-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
+- [Verwenden von Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
+- [Verwenden von Container-Größen- und Stil-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
 - {{Cssxref("container-name")}}
 - {{Cssxref("container-type")}}
 - {{Cssxref("contain")}}
 - {{Cssxref("content-visibility")}}
-- [CSS-Containment-Modul](/de/docs/Web/CSS/CSS_containment)
+- [CSS Containment Modul](/de/docs/Web/CSS/CSS_containment)

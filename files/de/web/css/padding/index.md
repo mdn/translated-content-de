@@ -2,23 +2,23 @@
 title: padding
 slug: Web/CSS/padding
 l10n:
-  sourceCommit: 9a3940b0231838338f65ae1c37d5b874439a3d43
+  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
 ---
 
 {{CSSRef}}
 
-Die **`padding`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt den [Padding-Bereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) auf allen vier Seiten eines Elements gleichzeitig fest.
+Die **`padding`**-[CSS](/de/docs/Web/CSS)-[Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) legt den [Abstandsbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) auf allen vier Seiten eines Elements gleichzeitig fest.
 
 {{EmbedInteractiveExample("pages/css/padding.html")}}
 
-Der Padding-Bereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
+Der Abstandsbereich (`padding area`) eines Elements ist der Raum zwischen seinem Inhalt und seiner Umrandung (`border`).
 
 > [!NOTE]
-> Padding erzeugt zusätzlichen Raum innerhalb eines Elements. Im Gegensatz dazu erzeugt {{cssxref("margin")}} zusätzlichen Raum _um_ ein Element.
+> **Padding** erzeugt zusätzlichen Platz innerhalb eines Elements. Im Gegensatz dazu erzeugt {{cssxref("margin")}} zusätzlichen Platz _um_ ein Element herum.
 
-## Einzelne Eigenschaften
+## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("padding-top")}}
 - {{cssxref("padding-right")}}
@@ -48,19 +48,19 @@ padding: revert-layer;
 padding: unset;
 ```
 
-Die `padding`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist eine {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}. Negative Werte sind ungültig.
+Die `padding`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist entweder ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}. Negative Werte sind ungültig.
 
-- Wenn **ein** Wert angegeben ist, gilt er für **alle vier Seiten**.
-- Wenn **zwei** Werte angegeben sind, gilt der erste Wert für **oben und unten**, der zweite für **links und rechts**.
-- Wenn **drei** Werte angegeben sind, gilt der erste Wert für **oben**, der zweite für **rechts und links**, der dritte für **unten**.
-- Wenn **vier** Werte angegeben sind, gelten die Abstände der Reihe nach (im Uhrzeigersinn) für **oben**, **rechts**, **unten** und **links**.
+- Wenn **ein** Wert angegeben wird, gilt das gleiche Padding für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben werden, gilt das erste Padding für **oben und unten**, das zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben werden, gilt das erste Padding für **oben**, das zweite für **rechts und links**, das dritte für **unten**.
+- Wenn **vier** Werte angegeben werden, gelten die Paddings in der Reihenfolge **oben**, **rechts**, **unten** und **links** (im Uhrzeigersinn).
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Paddings als fester Wert.
+  - : Die Größe des Paddings als ein fester Wert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Paddings als Prozentsatz, relativ zur Breite (Inline-Größe in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/Containing_block).
+  - : Die Größe des Paddings als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
 
 ## Formale Definition
 
@@ -131,6 +131,6 @@ padding: 1em 3px 30px 5px; /* top:    1em padding  */
 
 - {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
-- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzschreibweisen
-- [Einführung in das CSS-Grundlagen-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul
+- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzformen
+- [Einführung in das grundlegende CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model)-Modul

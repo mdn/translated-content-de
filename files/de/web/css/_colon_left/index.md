@@ -1,13 +1,13 @@
 ---
-title: :left
+title: ":left"
 slug: Web/CSS/:left
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}
 
-Die **`:left`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), die mit der {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/At-rule) verwendet wird, repräsentiert alle linken Seiten eines gedruckten Dokuments.
+Die **`:left`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), verwendet mit der {{cssxref("@page")}}-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), repräsentiert alle linken Seiten eines gedruckten Dokuments.
 
 ```css
 /* Selects any left-hand pages when printing */
@@ -16,10 +16,10 @@ Die **`:left`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-c
 }
 ```
 
-Ob eine bestimmte Seite "left" oder "right" ist, wird durch die Hauptrichtung des Schreibens des Dokuments bestimmt. Zum Beispiel, wenn die erste Seite eine Hauptrichtung von links-nach-rechts (left-to-right) hat, dann wird sie eine {{Cssxref(":right")}}-Seite sein; wenn sie eine Hauptrichtung von rechts-nach-links (right-to-left) hat, dann wird sie eine `:left`-Seite sein.
+Ob eine bestimmte Seite "left" (links) oder "right" (rechts) ist, wird durch die Hauptrichtung des Textflusses im Dokument bestimmt. Wenn zum Beispiel die erste Seite eine Hauptrichtung von links nach rechts hat, dann wird sie eine {{Cssxref(":right")}}-Seite sein; hat sie eine Hauptrichtung von rechts nach links, dann wird sie eine `:left`-Seite sein.
 
 > [!NOTE]
-> Diese Pseudoklasse kann nur verwendet werden, um die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} der _Seitenbox_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und nur die Seitenbox, nicht der Dokumentinhalt auf der Seite, wird beeinflusst.
+> Diese Pseudoklasse kann nur verwendet werden, um die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} der _Seitenbox_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und es wird nur die Seitenbox beeinflusst, nicht der Inhalt des Dokuments auf der Seite.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Ob eine bestimmte Seite "left" oder "right" ist, wird durch die Hauptrichtung de
 
 ## Beispiele
 
-### Festlegen eines Abstands für linke Seiten
+### Festlegen eines Randes für linke Seiten
 
 ```css
 @page :left {

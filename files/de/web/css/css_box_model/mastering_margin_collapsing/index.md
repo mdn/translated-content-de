@@ -1,31 +1,31 @@
 ---
-title: Das Beherrschen von Margin-Zusammenstoß
+title: Beherrschung des Margin-Zusammenführens
 slug: Web/CSS/CSS_box_model/Mastering_margin_collapsing
 l10n:
-  sourceCommit: afaf3aeeffa8408cf0a8a46c3d8fb0d347aad9f5
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}
 
-Die [oberen](/de/docs/Web/CSS/margin-top) und [unteren](/de/docs/Web/CSS/margin-bottom) Ränder von Blöcken werden manchmal zu einem einzigen Rand zusammengefasst (zusammengeklappt), dessen Größe die größte der einzelnen Ränder ist (oder nur einer davon, wenn sie gleich sind). Dieses Verhalten wird als **Margin-Zusammenstoß** bezeichnet. Beachten Sie, dass die Ränder von [schwebenden](/de/docs/Web/CSS/float) und [absolut positionierten](/de/docs/Web/CSS/position#types_of_positioning) Elementen niemals kollabieren.
+Die [Top-](/de/docs/Web/CSS/margin-top) und [Bottom-Margen](/de/docs/Web/CSS/margin-bottom) von Block-Elementen werden manchmal zu einem einzigen Margin kombiniert (zusammengeführt), dessen Größe der größte der einzelnen Margen ist (oder einer von ihnen, wenn sie gleich sind). Dieses Verhalten ist als **Margin-Zusammenführen** bekannt. Beachten Sie, dass die Margen von [floatenden](/de/docs/Web/CSS/float) und [absolut positionierten](/de/docs/Web/CSS/position#types_of_positioning) Elementen niemals zusammengeführt werden.
 
-Margin-Zusammenstoß tritt in drei grundlegenden Fällen auf:
+Das Margin-Zusammenführen tritt in drei grundlegenden Fällen auf:
 
-- Angrenzende Geschwister
-  - : Die Ränder von angrenzenden Geschwisterelementen werden zusammengeklappt (außer wenn das spätere Geschwisterelement past-Floats [freigeräumt](/de/docs/Web/CSS/clear) werden muss).
+- Benachbarte Geschwister
+  - : Die Margen von benachbarten Geschwistern werden zusammengeführt (außer wenn das nachfolgende Geschwister [geklärt](/de/docs/Web/CSS/clear) werden muss, um an Floats vorbeizukommen).
 - Kein Inhalt zwischen Eltern und Nachkommen
-  - : Wenn es keinen Rahmen, kein Padding, keinen Inline-Teil, keinen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) oder _[Freiraum](/de/docs/Web/CSS/clear)_ gibt, um den {{cssxref("margin-top")}} eines Blocks von dem {{cssxref("margin-top")}} eines oder mehrerer seiner Nachkommenblöcke zu trennen; oder keinen Rahmen, kein Padding, keinen Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}}, um den {{cssxref("margin-bottom")}} eines Blocks von dem {{cssxref("margin-bottom")}} eines oder mehrerer seiner Nachkommenblöcke zu trennen, dann kollabieren diese Ränder. Der zusammengeschlossene Rand endet außerhalb des Elternteils.
+  - : Wenn es weder eine Begrenzung, ein Auffüllen, einen Inline-Teil, einen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) noch eine _[Klärung](/de/docs/Web/CSS/clear)_ gibt, um das {{cssxref("margin-top")}} eines Blocks vom {{cssxref("margin-top")}} eines oder mehrerer seiner Nachkommen zu trennen; oder wenn es weder eine Begrenzung, ein Auffüllen, Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}} gibt, um das {{cssxref("margin-bottom")}} eines Blocks vom {{cssxref("margin-bottom")}} eines oder mehrerer seiner Nachkommen zu trennen, dann werden diese Margen zusammengeführt. Die zusammengeführte Margin befindet sich außerhalb des Elternelements.
 - Leere Blöcke
-  - : Wenn es keinen Rahmen, kein Padding, keinen Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}} gibt, um den {{cssxref("margin-top")}} eines Blocks von seinem {{cssxref("margin-bottom")}} zu trennen, dann kollabieren seine oberen und unteren Ränder.
+  - : Wenn es weder eine Begrenzung, ein Auffüllen, Inline-Inhalt, {{cssxref("height")}} noch {{cssxref("min-height")}} gibt, um das {{cssxref("margin-top")}} eines Blocks von seinem {{cssxref("margin-bottom")}} zu trennen, dann werden seine oberen und unteren Margen zusammengeführt.
 
-Einige Dinge, die zu beachten sind:
+Einige Punkte zur Beachtung:
 
-- Komplexere Margin-Zusammenstöße (von mehr als zwei Rändern) treten auf, wenn die oben genannten Fälle kombiniert werden.
-- Diese Regeln gelten auch für Ränder, die Null sind, sodass der Rand eines Nachkommen (entsprechend den obigen Regeln) außerhalb seines Elternteils endet, unabhängig davon, ob der Rand des Elternteils Null ist oder nicht.
-- Wenn negative Ränder beteiligt sind, ist die Größe des zusammengeschlossenen Randes die Summe des größten positiven Randes und des kleinsten (am meisten negativen) negativen Randes.
-- Wenn alle Ränder negativ sind, ist die Größe des zusammengeschlossenen Randes der kleinste (am meisten negative) Rand. Dies gilt sowohl für angrenzende als auch für verschachtelte Elemente.
-- Das Zusammenstoßen von Rändern ist nur in vertikaler Richtung relevant.
-- In einem Container mit `display` auf `flex` oder `grid` gesetzt, kollabieren die Ränder nicht.
+- Ein komplexeres Margin-Zusammenführen (von mehr als zwei Margen) tritt auf, wenn die oben genannten Fälle kombiniert werden.
+- Diese Regeln gelten auch für Margen, die Null sind, sodass die Margin eines Nachkommen außerhalb seines Elternteils endet (gemäß den oben genannten Regeln), unabhängig davon, ob die Margin des Elternteils Null ist oder nicht.
+- Wenn negative Margen involviert sind, ist die Größe der zusammengeführten Margin die Summe der größten positiven Margin und der kleinsten (stärksten negativen) negativen Margin.
+- Wenn alle Margen negativ sind, entspricht die Größe der zusammengeführten Margin der kleinsten (stärksten negativen) Margin. Dies gilt sowohl für benachbarte als auch für verschachtelte Elemente.
+- Margin-Zusammenführen ist nur in vertikaler Richtung relevant.
+- Margen werden in einem Container mit `display` auf `flex` oder `grid` gesetzt nicht zusammengeführt.
 
 ## Beispiele
 
@@ -73,20 +73,20 @@ p {
 
 ## Siehe auch
 
-- CSS-Schlüsselkonzepte:
-  - [CSS-Syntax](/de/docs/Web/CSS/Syntax)
-  - [At-Regeln](/de/docs/Web/CSS/At-rule)
-  - [Kommentare](/de/docs/Web/CSS/Comments)
-  - [Spezifität](/de/docs/Web/CSS/Specificity)
-  - [Vererbung](/de/docs/Web/CSS/Inheritance)
-  - [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- Wichtige CSS-Konzepte:
+  - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
+  - [At-Rules](/de/docs/Web/CSS/CSS_syntax/At-rule)
+  - [Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
+  - [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
+  - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
+  - [Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
   - [Layout-Modi](/de/docs/Web/CSS/Layout_mode)
   - [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/Visual_formatting_model)
   - Werte
-    - [Initialwerte](/de/docs/Web/CSS/initial_value)
-    - [Berechnete Werte](/de/docs/Web/CSS/computed_value)
-    - [Verwendete Werte](/de/docs/Web/CSS/used_value)
-    - [Tatsächliche Werte](/de/docs/Web/CSS/actual_value)
-  - [Wertdefinitionssyntax](/de/docs/Web/CSS/Value_definition_syntax)
-  - [Kurzschreibweise-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
+    - [Initialwerte](/de/docs/Web/CSS/CSS_cascade/initial_value)
+    - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/computed_value)
+    - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/used_value)
+    - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/actual_value)
+  - [Wertdefinition-Syntax](/de/docs/Web/CSS/Value_definition_syntax)
+  - [Kurzschrift-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
   - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)

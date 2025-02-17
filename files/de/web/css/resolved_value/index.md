@@ -1,17 +1,17 @@
 ---
-title: Resolved Value
+title: Aufgelöster Wert
 slug: Web/CSS/resolved_value
 l10n:
-  sourceCommit: 24c2196fd3f32dd271a8b5e9a34d38a2060484d5
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}
 
-Der **resolved value** einer [CSS](/de/docs/Web/CSS)-Eigenschaft ist der Wert nach Anwendung der aktiven Stylesheets und Auflösung etwaiger grundlegender Berechnungen, die diese Werte enthalten können. Die Methode [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) gibt ein Live-`CSSStyleDeclaration`-Objekt zurück, das die auf ein bestimmtes Element angewendeten resolved values aller CSS-Eigenschaften enthält.
+Der **aufgelöste Wert** einer [CSS](/de/docs/Web/CSS)-Eigenschaft ist der Wert, der nach Anwendung der aktiven Stylesheets und der Auflösung jeglicher grundlegender Berechnungen dieser Werte entsteht. Die Methode [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) gibt ein Live-Objekt vom Typ [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) zurück, welches die aufgelösten Werte aller auf ein bestimmtes Element angewendeten CSS-Eigenschaften enthält.
 
-Historisch gesehen gab `getComputedStyle()` den [computed value](/de/docs/Web/CSS/computed_value) eines Elements oder Pseudo-Elements zurück. Mit der Weiterentwicklung von CSS entwickelte sich auch das Konzept des "computed value", aber die von `getComputedStyle()` zurückgegebenen Werte mussten aus Gründen der Rückwärtskompatibilität mit bereitgestellten Skripten gleich bleiben. Diese Werte sind die "resolved values".
+Historisch gesehen gab `getComputedStyle()` den [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/computed_value) eines Elements oder Pseudo-Elements zurück. Mit der Weiterentwicklung von CSS hat sich das Konzept des „berechneten Wertes“ verändert, aber die von `getComputedStyle()` zurückgegebenen Werte mussten aus Gründen der Rückwärtskompatibilität mit bestehenden Skripten gleich bleiben. Diese Werte sind die „aufgelösten Werte“.
 
-Für die meisten Eigenschaften ist der resolved value der [computed value](/de/docs/Web/CSS/computed_value), aber für einige veraltete Eigenschaften (einschließlich {{cssxref("width")}} und {{cssxref("height")}}) ist es der [used value](/de/docs/Web/CSS/used_value). Details finden Sie im unten stehenden Spezifikationslink.
+Für die meisten Eigenschaften ist der aufgelöste Wert der [berechnete Wert](/de/docs/Web/CSS/CSS_cascade/computed_value). Für einige ältere Eigenschaften (einschließlich {{cssxref("width")}} und {{cssxref("height")}}) ist es jedoch der [verwendete Wert](/de/docs/Web/CSS/CSS_cascade/used_value). Details zu einzelnen Eigenschaften finden Sie im unten stehenden Link zur Spezifikation.
 
 ## Spezifikationen
 
@@ -22,13 +22,13 @@ Für die meisten Eigenschaften ist der resolved value der [computed value](/de/d
 - [`window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle)
 - [`CSSStyleDeclaration.getPropertyValue`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue)
 - Werte
-  - [Initialwerte](/de/docs/Web/CSS/initial_value)
-  - [Computed values](/de/docs/Web/CSS/computed_value)
-  - [Used values](/de/docs/Web/CSS/used_value)
-  - [Actual values](/de/docs/Web/CSS/actual_value)
-- [CSS-Syntax](/de/docs/Web/CSS/Syntax)
-- [At-rules](/de/docs/Web/CSS/At-rule)
-- [Spezifität](/de/docs/Web/CSS/Specificity)
-- [Vererbung](/de/docs/Web/CSS/Inheritance)
-- [Wertdefinitions-Syntax](/de/docs/Web/CSS/Value_definition_syntax)
-- [Kurzschreibweise-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
+  - [Initialwerte](/de/docs/Web/CSS/CSS_cascade/initial_value)
+  - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/computed_value)
+  - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/used_value)
+  - [Aktuelle Werte](/de/docs/Web/CSS/CSS_cascade/actual_value)
+- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
+- [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
+- [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
+- [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
+- [Wertedefinitionssyntax](/de/docs/Web/CSS/Value_definition_syntax)
+- [Kurzform-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)

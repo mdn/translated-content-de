@@ -1,35 +1,35 @@
 ---
-title: CSS Namespaces
+title: CSS-Namensräume
 slug: Web/CSS/CSS_namespaces
 l10n:
-  sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}
 
-Das **CSS-Namespaces**-Modul definiert die Syntax für die Verwendung von {{Glossary("namespace", "Namespaces")}} in CSS.
+Das **CSS-Namensräume**-Modul definiert die Syntax für die Verwendung von {{Glossary("namespace", "Namensräumen")}} in CSS.
 
-CSS ist nicht nur für die Gestaltung von HTML. Ein Stylesheet kann verwendet werden, um SVG, MathML, XML oder HTML zu gestalten, von denen jede eine andere Namespace hat oder ein Dokument enthält, das mehrere Namespaces umfasst.
+CSS dient nicht nur zum Styling von HTML. Ein Stylesheet kann verwendet werden, um SVG, MathML, XML oder HTML zu stylen, wobei jedes eine andere Namensraumdefinition verwendet oder ein Dokument mehrere Namensräume enthalten kann.
 
-Die in diesem Modul definierte [`@namespace`](/de/docs/Web/CSS/@namespace) Regel ermöglicht es, zwischen gleichnamigen Elementen in verschiedenen Namespaces zu unterscheiden. Element-Tagnamen sind nicht einzigartig für eine einzelne Sprache. Zum Beispiel ist das `<a>`-Element nicht auf HTML beschränkt. Sie möchten möglicherweise die `<a>`s innerhalb Ihrer SVGs anders gestalten als die Links in Ihrem HTML. Sie werden auch wahrscheinlich sicherstellen wollen, dass {{domxref("Document.querySelectorAll", "querySelectorAll(\"a\")")}} das richtige Element auswählt. Namespaces können helfen.
+Die durch diese Spezifikation definierte [`@namespace`](/de/docs/Web/CSS/@namespace) Regel ermöglicht es, zwischen gleichnamigen Elementen in unterschiedlichen Namensräumen zu unterscheiden. Tag-Namen von Elementen sind nicht eindeutig einer einzigen Sprache zugeordnet. Zum Beispiel ist das `<a>`-Element nicht auf HTML beschränkt. Es kann sein, dass Sie die `<a>`-Elemente innerhalb Ihrer SVGs anders stylen möchten als die Links in Ihrem HTML. Ebenso möchten Sie vermutlich sicherstellen, dass {{domxref("Document.querySelectorAll", "querySelectorAll(\"a\")")}} das richtige Element auswählt. Hier kann die Verwendung von Namensräumen hilfreich sein.
 
-Die `@namespace` Regel wird verwendet, um einen Standard-Namespace zu deklarieren und um Namespaces an Namespace-Präfixe zu binden. Das Namespaces-Modul definiert auch die Syntax zur Verwendung dieser Präfixe, um namespacequalifizierte Namen darzustellen. Das ist alles. Was ein Name bedeutet oder ob der Name überhaupt gültig ist, hängt vom Kontext und der Wirtssprache ab.
+Die `@namespace`-Regel wird verwendet, um einen Standard-Namensraum zu deklarieren und um Namensräume mit Namensraum-Präfixen zu verbinden. Das Namensräume-Modul definiert außerdem die Syntax für die Verwendung dieser Präfixe, um Namensraum-qualifizierte Namen darzustellen. Das ist alles. Was ein Name bedeutet oder ob der Name überhaupt gültig ist, hängt vom Kontext und der Host-Sprache ab.
 
 ## Referenz
 
-### At-Rules
+### Regelgruppen
 
 - {{cssxref("@namespace")}}
 
 ## Leitfäden
 
-- [Namespaces Crash-Kurs](/de/docs/Web/SVG/Namespaces_Crash_Course)
+- [Schnelle Einführung in Namensräume](/de/docs/Web/SVG/Namespaces_Crash_Course)
 
-  - : Tiefgründige Untersuchung dessen, was ein Namespace ist und wie sie in XML und XML-basierten Auszeichnungssprachen verwendet werden.
+  - : Eintauchen in die Grundlagen, was ein Namensraum ist und wie er in XML und XML-basierten Auszeichnungssprachen verwendet wird.
 
 ## Verwandte Konzepte
 
-- CSS [Namespace-Trennzeichen (`|`)](/de/docs/Web/CSS/Namespace_separator) Kombinator
+- CSS [Namensraum-Trennzeichen (`|`)](/de/docs/Web/CSS/Namespace_separator) Kombinator
 - CSS [Typselektoren](/de/docs/Web/CSS/Type_selectors)
 - CSS [Universalselektor](/de/docs/Web/CSS/Universal_selectors)
 - [`CSSNamespaceRule`](/de/docs/Web/API/CSSNamespaceRule) Schnittstelle
@@ -49,7 +49,7 @@ Die `@namespace` Regel wird verwendet, um einen Standard-Namespace zu deklariere
 - [`NamedNodeMap.getNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/getNamedItemNS) Methode
 - [`NamedNodeMap.removeNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/removeNamedItemNS) Methode
 - [`NamedNodeMap.setNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/setNamedItemNS) Methode
-- {{Glossary("Namespace", "Namespace")}} Glossarbegriff
+- {{Glossary("Namespace", "Namensraum")}} Glossareintrag
 
 ## Spezifikationen
 
@@ -61,8 +61,8 @@ Die `@namespace` Regel wird verwendet, um einen Standard-Namespace zu deklariere
 
 ## Siehe auch
 
-- [`<a>`](/de/docs/Web/SVG/Element/a#example) SVG Element
+- [`<a>`](/de/docs/Web/SVG/Element/a#example) SVG-Element
 - [CSS `<url>` Typ](/de/docs/Web/CSS/url_value)
-- [CSS At-Rules](/de/docs/Web/CSS/At-rule)
-- [CSS At-Rule-Funktionen](/de/docs/Web/CSS/At-rule-functions)
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS-Regelgruppen](/de/docs/Web/CSS/CSS_syntax/At-rule)
+- [CSS-Regelgruppen-Funktionen](/de/docs/Web/CSS/At-rule-functions)
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)

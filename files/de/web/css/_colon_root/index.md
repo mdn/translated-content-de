@@ -1,13 +1,13 @@
 ---
-title: :root
+title: ":root"
 slug: Web/CSS/:root
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: a29769d6d10261f771321eb60f3990029c160924
 ---
 
 {{CSSRef}}
 
-Die **`:root`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) entspricht dem Wurzelelement eines Baums, der das Dokument repräsentiert. In HTML stellt `:root` das {{HTMLElement("html")}}-Element dar und ist mit dem Selektor `html` identisch, außer dass seine [Spezifität](/de/docs/Web/CSS/Specificity) höher ist.
+Die **`:root`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) stimmt mit dem Wurzelelement eines Baums überein, der das Dokument repräsentiert. In HTML repräsentiert `:root` das {{HTMLElement("html")}}-Element und ist identisch mit dem Selektor `html`, außer dass seine [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) höher ist.
 
 ```css
 /* Selects the root element of the document:
@@ -29,7 +29,7 @@ Die **`:root`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-c
 
 ### Globale CSS-Variablen deklarieren
 
-`:root` kann nützlich sein, um globale [CSS-Variablen](/de/docs/Web/CSS/Using_CSS_custom_properties) zu deklarieren:
+`:root` kann nützlich sein, um globale [CSS-Variablen](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) zu deklarieren:
 
 ```css
 :root {

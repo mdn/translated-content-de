@@ -3,17 +3,19 @@ title: "HTMLAreaElement: hostname-Eigenschaft"
 short-title: hostname
 slug: Web/API/HTMLAreaElement/hostname
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.hostname`**-Eigenschaft ist ein String, der die Domain der URL enthält.
+Die **`hostname`**-Eigenschaft des [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interfaces ist ein String, der entweder den {{Glossary("domain_name", "Domain-Namen")}} oder die {{Glossary("IP_address", "IP-Adresse")}} der URL des `<area>`-Elements enthält. Wenn die URL keinen Hostnamen hat, enthält diese Eigenschaft einen leeren String, `""`. IPv4- und IPv6-Adressen werden normalisiert, beispielsweise durch das Entfernen führender Nullen, und Domain-Namen werden in [IDN](https://de.wikipedia.org/wiki/Internationalized_Domain_Name) umgewandelt.
+
+Weitere Informationen finden Sie unter [`URL.hostname`](/de/docs/Web/API/URL/hostname).
 
 ## Wert
 
-Ein String, der die Domain der URL enthält, die mit dem `area`-Element verbunden ist.
-Es kann sowohl als Setter als auch als Getter verwendet werden.
+Ein String, der die Domain der mit dem `area`-Element verbundenen URL enthält.  
+Diese Eigenschaft kann sowohl als Setter als auch als Getter verwendet werden.
 
 ## Beispiele
 
@@ -59,4 +61,4 @@ log.textContent += `area2 hostname: ${area2.hostname}`; // 'coolexample.com'
 
 ## Siehe auch
 
-- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) Schnittstelle, zu der es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.

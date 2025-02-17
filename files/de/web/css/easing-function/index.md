@@ -2,14 +2,14 @@
 title: <easing-function>
 slug: Web/CSS/easing-function
 l10n:
-  sourceCommit: a7444882eb1b18918f3c924d83eb3c78f245643a
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Der **`<easing-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert eine mathematische Funktion, die die Rate beschreibt, mit der sich ein Wert ändert.
+Der **`<easing-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert eine mathematische Funktion, die die Rate beschreibt, mit der ein Wert sich ändert.
 
-Dieser Übergang zwischen zwei Werten kann in verschiedenen Situationen angewendet werden. Zum Beispiel kann er verwendet werden, um zu beschreiben, wie schnell Werte während Animationen verändert werden. Damit können Sie die Geschwindigkeit einer Animation über ihre Dauer variieren. Eine `easing function` kann für die CSS-Eigenschaften [transition](/de/docs/Web/CSS/transition-timing-function) und [animation](/de/docs/Web/CSS/animation-timing-function) angegeben werden.
+Dieser Übergang zwischen zwei Werten kann in verschiedenen Situationen angewendet werden. Er kann verwendet werden, um zu beschreiben, wie schnell sich Werte während Animationen ändern. Dadurch können Sie die Geschwindigkeit der Animation im Laufe ihrer Dauer variieren. Sie können eine Easing-Funktion für die CSS-Attribute [transition](/de/docs/Web/CSS/transition-timing-function) und [animation](/de/docs/Web/CSS/animation-timing-function) festlegen.
 
 ## Syntax
 
@@ -45,74 +45,74 @@ Eine `<easing-function>` kann einer der folgenden Typen sein:
 
 - `<linear-easing-function>`
 
-  - : Erstellt Übergänge, die mit einer konstanten Rate verlaufen. Diese Funktion kann auf folgende Weise angegeben werden:
+  - : Erstellt Übergänge, die mit einer konstanten Rate verlaufen. Diese Funktion kann wie folgt angegeben werden:
 
     - `linear`
 
-      - : Gibt eine konstante Interpolationsrate an, ohne Änderung in der Fortschrittsrate während der gesamten Dauer (d.h. keine Beschleunigung oder Verlangsamung).
-        Dieser Schlüsselwortwert ist gleichwertig zu `linear(0, 1)`.
-        Er kann auch durch `cubic-bezier(0, 0, 1, 1)` dargestellt werden.
+      - : Gibt eine konstante Interpolationsrate an, ohne Änderungen in der Progressionsrate während der Dauer (d. h. keine Beschleunigung oder Verzögerung).
+        Dieser Schlüsselwortwert entspricht `linear(0, 1)`.
+        Er kann auch als `cubic-bezier(0, 0, 1, 1)` dargestellt werden.
 
-        ![Graph des Eingabe- zum Ausgabefortschritt, der eine Linie zeigt, die vom Ursprung bis zu (1, 1) verläuft.](linear.svg)
+        ![Grafik des Eingabe-Fortschritts zum Ausgabe-Fortschritt: eine Linie, die sich vom Ursprung bis zu (1, 1) erstreckt.](linear.svg)
 
         > [!NOTE]
-        > Das Schlüsselwort `linear` wird immer als `linear(0, 1)` interpretiert, wohingegen die Funktion `linear(0, 1)` als `linear(0 0%, 1 100%)` interpretiert wird.
+        > Das Schlüsselwort `linear` wird immer als `linear(0, 1)` interpretiert, während die Funktion `linear(0, 1)` als `linear(0 0%, 1 100%)` interpretiert wird.
 
     - {{cssxref("easing-function/linear", "linear()")}}
       - : Definiert mehrere Fortschrittspunkte mit {{cssxref("&lt;number&gt;")}}-Werten und optionalen {{cssxref("&lt;percentage&gt;")}}-Werten, um deren Timing zu steuern.
 
 - `<cubic-bezier-easing-function>`
 
-  - : Erstellt sanfte Übergänge mit variablen Änderungsraten. Diese Funktion kann auf folgende Weise angegeben werden:
+  - : Erstellt glatte Übergänge mit variablen Änderungsraten. Diese Funktion kann wie folgt angegeben werden:
 
     - `ease`
 
-      - : Repräsentiert die `cubic-bezier(0.25, 0.1, 0.25, 1)` Funktion.
-        Diese Funktion gibt an, dass die Interpolation langsam beginnt, dann stark beschleunigt und schließlich allmählich bis zum Ende verlangsamt.
-        Ähnlich wie das Schlüsselwort `ease-in-out`, allerdings beschleunigt es am Anfang stärker.
+      - : Repräsentiert die Easing-Funktion `cubic-bezier(0.25, 0.1, 0.25, 1)`.
+        Sie gibt an, dass die Interpolation langsam beginnt, stark beschleunigt und dann allmählich gegen Ende langsamer wird.
+        Sie ähnelt dem Schlüsselwort `ease-in-out`, beschleunigt jedoch am Anfang stärker.
 
     - `ease-in`
 
-      - : Repräsentiert die `cubic-bezier(0.42, 0, 1, 1)` Funktion.
-        Diese Funktion gibt an, dass die Interpolation langsam beginnt und dann progressiv beschleunigt, bis sie abrupt am Ende stoppt.
+      - : Repräsentiert die Easing-Funktion `cubic-bezier(0.42, 0, 1, 1)`.
+        Sie gibt an, dass die Interpolation langsam beginnt, dann allmählich beschleunigt und am Ende abrupt stoppt.
 
     - `ease-out`
 
-      - : Repräsentiert die `cubic-bezier(0, 0, 0.58, 1)` Funktion.
-        Diese Funktion gibt an, dass die Interpolation abrupt beginnt und dann progressiv bis zum Ende verlangsamt.
+      - : Repräsentiert die Easing-Funktion `cubic-bezier(0, 0, 0.58, 1)`.
+        Sie gibt an, dass die Interpolation abrupt beginnt und dann allmählich gegen Ende langsamer wird.
 
     - `ease-in-out`
 
-      - : Repräsentiert die `cubic-bezier(0.42, 0, 0.58, 1)` Funktion.
-        Diese Funktion gibt an, dass die Interpolation langsam beginnt, beschleunigt und dann bis zum Ende verlangsamt.
-        Am Anfang verhält sie sich wie das Schlüsselwort `ease-in`; am Ende wie `ease-out`.
+      - : Repräsentiert die Easing-Funktion `cubic-bezier(0.42, 0, 0.58, 1)`.
+        Sie gibt an, dass die Interpolation langsam beginnt, beschleunigt und dann gegen Ende langsamer wird.
+        Zu Beginn verhält sie sich wie das Schlüsselwort `ease-in`; am Ende ähnlich wie `ease-out`.
 
-        ![Diagramme des Eingabe- zum Ausgabefortschritt. Easing zeigt eine gekrümmte Linie, die schnell vom Ursprung zu (1, 1) ansteigt; ease-in zeigt eine flache Kurve vom Ursprung, die sich zur Geraden auf (1, 1) einpendelt; ease-out zeigt eine diagonale Gerade, die sich gegen (1, 1) leicht krümmt; und ease-in-out zeigt eine symmetrische, S-förmige Kurve vom Ursprung nach (1, 1).](ease.svg)
+        ![Diagramme des Eingabe-Fortschritts zum Ausgabe-Fortschritt. Hierbei zeigt ease eine kurvige Linie, die schnell vom Ursprung zu (1, 1) ansteigt; ease-in zeigt eine flache, gebogene Linie, die sich dem Ursprung nähert; ease-out weicht von der diagonalen Linie leicht gebogen ab, während ease-in-out eine s-förmige Linie zum Ursprung und (1,1) zeigt.](ease.svg)
 
     - {{cssxref("easing-function/cubic-bezier", "cubic-bezier()")}}
 
-      - : Definiert eine benutzerdefinierte Kurve mit vier {{cssxref("&lt;number&gt;")}}-Werten, die die Koordinaten von zwei Kontrollpunkten angeben.
+      - : Definiert eine benutzerdefinierte Kurve mit vier {{cssxref("&lt;number&gt;")}}-Werten, die die Koordinaten von zwei Kontrollpunkten spezifizieren.
         Die x-Koordinaten müssen im Bereich `[0, 1]` liegen.
 
 - `<step-easing-function>`
 
-  - : Erstellt gestufte Übergänge, die die Animation in eine bestimmte Anzahl gleich langer Intervalle unterteilen, wodurch die Animation von einem Schritt zum nächsten springt, anstatt sich reibungslos zu verändern.
-    Diese Funktion kann auf folgende Weise angegeben werden:
+  - : Erstellt gestufte Übergänge, indem die Animation in eine festgelegte Anzahl von Intervallen mit gleicher Länge unterteilt wird, sodass die Animation springend statt reibungslos übergeht.
+    Diese Funktion kann wie folgt angegeben werden:
 
     - `step-start`
 
-      - : Repräsentiert die Funktion `steps(1, jump-start)` oder `steps(1, start)`.
-        Gibt an, dass die Interpolation sofort in ihren Endzustand springt und dort bis zum Ende bleibt.
+      - : Repräsentiert die Easing-Funktion `steps(1, jump-start)` oder `steps(1, start)`.
+        Sie gibt an, dass die Interpolation sofort in ihren Endzustand springt, wo sie bis zum Ende bleibt.
 
     - `step-end`
 
-      - : Repräsentiert die Funktion `steps(1, jump-end)` oder `steps(1, end)`.
-        Gibt an, dass die Interpolation bis zum Ende in ihrem Anfangszustand bleibt und dann direkt in ihren Endzustand springt.
+      - : Repräsentiert die Easing-Funktion `steps(1, jump-end)` oder `steps(1, end)`.
+        Sie gibt an, dass die Interpolation bis zum Ende in ihrem Ausgangszustand bleibt und dann direkt in ihren Endzustand springt.
 
-        ![Zwei Diagramme des Eingabe- zum Ausgabefortschritt. Im step-start Diagramm repräsentiert ein nicht ausgefüllter Kreis den Ursprungspunkt (0, 0), mit einer horizontalen Linie, die von (0, 1) bis (1, 1) verläuft. Im step-end Diagramm verläuft eine horizontale Linie vom Ursprung zu (1, 0), mit einem nicht ausgefüllten Kreis bei (1, 0) und einem ausgefüllten Kreis bei (1, 1).](step.svg)
+        ![Zwei Diagramme des Eingabe-Fortschritts zum Ausgabe-Fortschritt. In der step-start-Grafik repräsentiert ein ungefüllter Kreis den Ursprungspunkt (0, 0), mit einer horizontalen Linie, die von (0, 1) bis (1, 1) reicht. In der step-end-Grafik eine horizontale Linie vom Ursprung bis (1, 0), ein ungefüllter Kreis bei (1,0) und ein gefüllter Kreis bei (1, 1).](step.svg)
 
     - {{cssxref("easing-function/steps", "steps()")}}
-      - : Erstellt eine treppenartige Kurve mit einem {{cssxref("&lt;integer&gt;")}}, der die Anzahl der Intervalle angibt, und einem optionalen Schlüsselwort, das das Timing der Sprünge steuert.
+      - : Erstellt eine stufenförmige Kurve mit einem {{cssxref("&lt;integer&gt;")}}, das die Anzahl der Intervalle angibt, und einem optionalen Schlüsselwort zur Steuerung des Sprungtimings.
 
 ## Formale Syntax
 
@@ -122,7 +122,7 @@ Eine `<easing-function>` kann einer der folgenden Typen sein:
 
 ### Vergleich der Easing-Funktionen
 
-Dieses Beispiel ermöglicht einen einfachen Vergleich der verschiedenen Easing-Funktionen mithilfe einer Animation. Im Dropdown-Menü können Sie eine `easing function` auswählen – es gibt ein paar Schlüsselwörter sowie Optionen wie `cubic-bezier()` und `steps()`. Nach der Auswahl können Sie die Animation mit dem bereitgestellten Schalter starten und stoppen.
+Dieses Beispiel erlaubt einen einfachen Vergleich zwischen den verschiedenen Easing-Funktionen mit einer Animation. Im Dropdown-Menü können Sie eine Easing-Funktion auswählen – es gibt einige Schlüsselwörter und Optionen für `cubic-bezier()` und `steps()`. Nachdem Sie eine Option ausgewählt haben, können Sie die Animation mit dem bereitgestellten Button starten und stoppen.
 
 #### HTML
 

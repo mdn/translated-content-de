@@ -2,14 +2,14 @@
 title: initial-value
 slug: Web/CSS/@property/initial-value
 l10n:
-  sourceCommit: 6834ad69f8844894e0578ea06375e3e1e1e17e73
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}
 
-Der **`initial-value`** Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/At-rule) legt den Anfangswert für die registrierte [CSS-Custom-Property](/de/docs/Web/CSS/--*) fest.
-Er ist ein erforderlicher Deskriptor, es sei denn, der Wert des Deskriptors {{cssxref("@property/syntax", "syntax")}} ist die universelle Syntax (`*`).
-Wenn er erforderlich ist, aber fehlt oder ungültig ist, ist die gesamte `@property` Regel ungültig und wird ignoriert.
+Der **`initial-value`** Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) gibt den Initialwert für die registrierte [CSS-Custom-Property](/de/docs/Web/CSS/--*) an. 
+Es handelt sich um einen erforderlichen Deskriptor, es sei denn, der Wert des {{cssxref("@property/syntax", "syntax")}} Deskriptors ist die universelle Syntax (`*`). 
+Falls erforderlich, aber fehlend oder ungültig, wird die gesamte `@property`-Regel als ungültig betrachtet und ignoriert.
 
 ## Syntax
 
@@ -23,8 +23,8 @@ initial-value: 2rem;
 
 ### Werte
 
-Ein Wert, der dem im Deskriptor {{cssxref("@property/syntax", "syntax")}} angegebenen Typ entspricht.
-Wenn beispielsweise `syntax` `<color>` ist, muss der `initial-value` ein gültiger {{cssxref("color")}} Wert sein.
+Ein Wert, der dem in dem {{cssxref("@property/syntax", "syntax")}} Deskriptor angegebenen Typ entspricht. 
+Wenn beispielsweise `syntax` `<color>` ist, muss der `initial-value` ein gültiger {{cssxref("color")}}-Wert sein.
 
 ## Formale Definition
 
@@ -36,9 +36,9 @@ Wenn beispielsweise `syntax` `<color>` ist, muss der `initial-value` ein gültig
 
 ## Beispiele
 
-### Festlegen eines Anfangswerts für eine benutzerdefinierte Eigenschaft
+### Festlegen eines Initialwerts für eine benutzerdefinierte Eigenschaft
 
-Dieses Beispiel zeigt, wie eine benutzerdefinierte Eigenschaft `--my-color` mit einem anfänglichen Farbwert von `#c0ffee` definiert wird. Dieser Anfangswert wird verwendet, wenn die Eigenschaft nicht vererbt wird (`inherits: false`) und kein anderer Wert am Element gesetzt ist.
+Dieses Beispiel zeigt, wie eine benutzerdefinierte Eigenschaft `--my-color` mit einem anfänglichen Farbwert von `#c0ffee` definiert wird. Dieser Initialwert wird verwendet, wenn die Eigenschaft nicht vererbt wird (`inherits: false`) und kein anderer Wert auf dem Element gesetzt ist.
 
 ```css
 @property --my-color {

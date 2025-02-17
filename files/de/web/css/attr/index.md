@@ -2,15 +2,15 @@
 title: attr()
 slug: Web/CSS/attr
 l10n:
-  sourceCommit: 5d5f7a8f52ad9b21eb4b8f6dd9d0afce23d1bdf6
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
 > [!NOTE]
-> Die `attr()` Funktion kann mit jeder CSS-Eigenschaft verwendet werden, aber die Unterstützung für Eigenschaften außer {{CSSxRef("content")}} ist experimentell.
+> Die `attr()`-Funktion kann mit jeder CSS-Eigenschaft verwendet werden, aber die Unterstützung für andere Eigenschaften als {{CSSxRef("content")}} ist experimentell.
 
-Die **`attr()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) wird verwendet, um den Wert eines Attributs des ausgewählten Elements abzurufen und ihn in einem Eigenschaftswert zu verwenden, ähnlich wie die {{cssxref("var", "var()")}} Funktion einen benutzerdefinierten Eigenschaftswert ersetzt. Sie kann auch mit [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) verwendet werden, wobei in diesem Fall der Attributwert des Ursprünglichelements des Pseudo-Elements zurückgegeben wird.
+Die **`attr()`**-[CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Functions) wird verwendet, um den Wert eines Attributs des ausgewählten Elements abzurufen und in einem Eigenschaftswert zu verwenden, ähnlich wie die {{cssxref("var", "var()")}}-Funktion einen benutzerdefinierten Eigenschaftswert ersetzt. Sie kann auch mit [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) verwendet werden, wobei in diesem Fall der Wert des Attributs des Ursprungs-Elements des Pseudo-Elements zurückgegeben wird.
 
 {{EmbedInteractiveExample("pages/tabbed/function-attr.html", "tabbed-shorter")}}
 
@@ -37,7 +37,7 @@ attr(data-something, "default")
 
 ### Parameter
 
-Die Syntax der `attr()` Funktion ist wie folgt:
+Die Syntax der `attr()`-Funktion ist wie folgt:
 
 ```plain
 attr(<attr-name> <attr-type>? , <fallback-value>?)
@@ -46,33 +46,33 @@ attr(<attr-name> <attr-type>? , <fallback-value>?)
 Die Parameter sind:
 
 - `<attr-name>`
-  - : Der Attributname, dessen Wert von den ausgewählten HTML-Elementen abgerufen werden soll.
+  - : Der Name des Attributs, dessen Wert aus dem ausgewählten HTML-Element abgerufen werden soll.
 - `<attr-type>`
 
-  - : Gibt an, wie der Attributwert in einen CSS-Wert geparst wird. Dies kann das `string`-Schlüsselwort, eine `type()`-Funktion oder eine CSS-Dimensionseinheit sein. Wenn nicht angegeben, wird standardmäßig `string` verwendet.
+  - : Gibt an, wie der Attributwert in einen CSS-Wert geparst wird. Dies kann das Schlüsselwort `string`, eine `type()`-Funktion oder eine CSS-Dimensionseinheit sein. Wenn es ausgelassen wird, lautet es standardmäßig `string`.
 
-    - Das `string`-Schlüsselwort parst den Wert in einen CSS-String.
+    - Das Schlüsselwort `string` parst den Wert in einen CSS-String.
 
       ```css
       attr(data-name string, "stranger")
       ```
 
-    - Die `type()`-Funktion nimmt ein `<syntax>` als Argument, das angibt, in welchen [Datentyp](/de/docs/Web/CSS/CSS_Types) der Wert geparst werden soll. Das `<syntax>` kann {{CSSxRef("&lt;angle&gt;")}}, {{CSSxRef("&lt;color&gt;")}}, {{CSSxRef("&lt;custom-ident&gt;")}}, {{CSSxRef("&lt;image&gt;")}}, {{CSSxRef("&lt;integer&gt;")}}, {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;length-percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;resolution&gt;")}}, {{CSSxRef("&lt;string&gt;")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;transform-function&gt;")}} oder eine Kombination davon sein.
+    - Die `type()`-Funktion nimmt ein `<syntax>` als Argument, das angibt, in welchen [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) der Wert geparst werden soll. Das `<syntax>` kann {{CSSxRef("&lt;angle&gt;")}}, {{CSSxRef("&lt;color&gt;")}}, {{CSSxRef("&lt;custom-ident&gt;")}}, {{CSSxRef("&lt;image&gt;")}}, {{CSSxRef("&lt;integer&gt;")}}, {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;length-percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;resolution&gt;")}}, {{CSSxRef("&lt;string&gt;")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;transform-function&gt;")}}, oder eine Kombination davon sein.
 
       ```css
       attr(id type(<custom-ident>), none)
       attr(data-count type(<number>), 0)
       ```
 
-      Um mehrere Typen zu akzeptieren, geben Sie alle erlaubten `<syntax>`e in der `type()`-Funktion an, getrennt durch ein `|`.
+      Um mehrere Typen zuzulassen, listen Sie alle erlaubten `<syntax>` getrennt durch ein `|` in der `type()`-Funktion auf.
 
       ```css
       attr(data-size type(<length> | <percentage>), 0px)
       ```
 
-      Aus [Sicherheitsgründen](#einschränkungen_und_sicherheit) ist {{CSSxRef("url_value", "&lt;url&gt;")}} als `<syntax>` nicht erlaubt.
+      Aus [Sicherheitsgründen](#einschränkungen_und_sicherheit) ist {{CSSxRef("url_value", "&lt;url&gt;")}} nicht als `<syntax>` erlaubt.
 
-    - Der `<attr-unit>`-Bezeichner gibt die Einheit an, die ein numerischer Wert haben soll (falls vorhanden). Es kann das `%`-Zeichen (Prozent) oder eine [CSS-Streckeneinheit](/de/docs/Web/CSS/CSS_Values_and_Units#distance_units) wie `px`, `rem`, `deg`, `s` usw. sein.
+    - Der `<attr-unit>`-Bezeichner gibt die Einheit an, die ein numerischer Wert haben soll (falls vorhanden). Dies kann das Zeichen `%` (Prozent) oder eine [CSS-Distanz-Einheit](/de/docs/Web/CSS/CSS_Values_and_Units#distance_units) wie `px`, `rem`, `deg`, `s` usw. sein.
 
       ```css
       attr(data-size rem)
@@ -81,21 +81,21 @@ Die Parameter sind:
       ```
 
 - `<fallback-value>`
-  - : Der Wert, der verwendet werden soll, wenn das angegebene Attribut fehlt oder einen ungültigen Wert enthält.
+  - : Der Wert, der verwendet wird, wenn das angegebene Attribut fehlt oder einen ungültigen Wert enthält.
 
 ### Rückgabewert
 
-Der Rückgabewert von `attr()` ist der Wert des HTML-Attributs, dessen Name `<attr-name>` ist, geparst als der angegebene `<attr-type>` oder geparst als ein CSS-String.
+Der Rückgabewert von `attr()` ist der Wert des HTML-Attributs mit dem Namen `<attr-name>`, geparst als der angegebene `<attr-type>` oder als CSS-String geparst.
 
-Wenn ein `<attr-type>` festgelegt ist, versucht `attr()`, das Attribut in den angegebenen `<attr-type>` zu parsen und zurückzugeben. Wenn das Attribut nicht in den angegebenen `<attr-type>` geparst werden kann, wird stattdessen der `<fallback-value>` zurückgegeben. Wenn kein `<attr-type>` festgelegt ist, wird das Attribut in einen CSS-String geparst.
+Wenn ein `<attr-type>` festgelegt ist, versucht `attr()`, das Attribut in den angegebenen `<attr-type>` zu parsen und zurückzugeben. Kann das Attribut nicht in den angegebenen `<attr-type>` geparst werden, wird stattdessen der `<fallback-value>` zurückgegeben. Wenn kein `<attr-type>` festgelegt ist, wird das Attribut in einen CSS-String geparst.
 
-Wenn kein `<fallback-value>` festgelegt ist, wird der Rückgabewert standardmäßig ein leerer String sein, wenn kein `<attr-type>` festgelegt ist, oder der {{Glossary("guaranteed_invalid_value", "garantiert ungültige Wert")}}, wenn ein `<attr-type>` festgelegt ist.
+Wenn kein `<fallback-value>` festgelegt ist, wird der Rückgabewert standardmäßig zu einem leeren String, wenn kein `<attr-type>` festgelegt ist, oder zum {{Glossary("guaranteed_invalid_value", "garantiert ungültigen Wert")}}, wenn ein `<attr-type>` festgelegt ist.
 
 ## Beschreibung
 
 ### Einschränkungen und Sicherheit
 
-Die `attr()` Funktion kann auf Attribute verweisen, die vom Seitenautor nie für die Verwendung im Styling vorgesehen waren, und könnte sensible Informationen enthalten (zum Beispiel ein Sicherheitstoken, das von Skripten auf der Seite verwendet wird). Im Allgemeinen ist das unproblematisch, aber es kann zu einem Sicherheitsrisiko werden, wenn es in URLs verwendet wird. Daher können Sie `attr()` nicht verwenden, um URLs dynamisch zu konstruieren.
+Die `attr()`-Funktion kann auf Attribute verweisen, die vom Seitenautor nie für die Verwendung in der Gestaltung vorgesehen waren und möglicherweise sensible Informationen enthalten (z. B. ein Sicherheitstoken, das von Skripten auf der Seite verwendet wird). Im Allgemeinen ist dies kein Problem, es kann aber ein Sicherheitsrisiko darstellen, wenn es in URLs verwendet wird. Daher kann `attr()` nicht zum dynamischen Erstellen von URLs verwendet werden.
 
 ```html
 <!-- This won't work! -->
@@ -107,15 +107,15 @@ Die `attr()` Funktion kann auf Attribute verweisen, die vom Seitenautor nie für
 </style>
 ```
 
-Werte, die `attr()` verwenden, werden als _"`attr()`-verunreinigt"_ markiert. Die Verwendung eines `attr()`-verunreinigten Wertes als oder in einem `<url>` macht eine Deklaration ["invalid at computed value time" oder IACVT"](https://brm.us/iacvt).
+Werte, die `attr()` verwenden, werden als _"`attr()`-belastet"_ markiert. Wird ein belasteter `attr()`-Wert als Teil eines `<url>`s verwendet, wird eine Deklaration ["invalid at computed value time" oder kurz IACVT](https://brm.us/iacvt).
 
 ### Rückwärtskompatibilität
 
-Im Allgemeinen ist die moderne `attr()` Syntax rückwärtskompatibel, da die alte Verwendungsmethode — ohne Angabe eines `<attr-type>` — sich genauso verhält wie vorher. Das Vorhandensein von `attr(data-attr)` in Ihrem Code ist dasselbe wie das Schreiben von `attr(data-attr type(<string>))` oder das einfachere `attr(data-attr string)`.
+Im Allgemeinen ist die moderne `attr()`-Syntax rückwärtskompatibel, da die alte Verwendungsweise — ohne Angabe eines `<attr-type>` — genauso funktioniert wie zuvor. `attr(data-attr)` in Ihrem Code zu haben, entspricht `attr(data-attr type(<string>))` oder dem einfacheren `attr(data-attr string)`.
 
-Es gibt jedoch zwei Sonderfälle, in denen sich die moderne `attr()` Syntax anders verhält als die alte Syntax.
+Es gibt jedoch zwei Randfälle, in denen sich die moderne `attr()`-Syntax anders verhält als die alte Syntax.
 
-Im folgenden Snippet werden Browser, die die moderne `attr()` Syntax nicht unterstützen, die zweite Deklaration verwerfen, weil sie diese nicht parsen können. Das Ergebnis in diesen Browsern ist `"Hello World"`.
+Im folgenden Beispiel verwerfen Browser, die die moderne `attr()`-Syntax nicht unterstützen, die zweite Deklaration, da sie diese nicht parsen können. Das Ergebnis in diesen Browsern lautet `"Hello World"`.
 
 ```html
 <div text="Hello"></div>
@@ -130,11 +130,11 @@ div::before {
 }
 ```
 
-In Browsern mit Unterstützung für die moderne Syntax wird die Ausgabe … nichts sein. Diese Browser werden die zweite Deklaration erfolgreich parsen, aber weil es ungültiger Inhalt für die `content` Eigenschaft ist, wird die Deklaration ["invalid at computed value time" oder IACVT"](https://brm.us/iacvt).
+In Browsern mit Unterstützung für die moderne Syntax gibt es … nichts. Diese Browser parsen die zweite Deklaration erfolgreich, aber da sie ungültiger Inhalt für die `content`-Eigenschaft ist, wird die Deklaration ["invalid at computed value time" oder IACVT](https://brm.us/iacvt).
 
-Um diese Art von Situation zu verhindern, wird [Feature-Erkennung](#feature-erkennung) empfohlen.
+Um solche Situationen zu vermeiden, wird [Feature Detection](#feature_detection) empfohlen.
 
-Ein zweiter Sonderfall ist der folgende:
+Ein zweiter Grenzfall ist der folgende:
 
 ```html
 <div id="parent"><div id="child" data-attr="foo"></div></div>
@@ -149,15 +149,15 @@ Ein zweiter Sonderfall ist der folgende:
 }
 ```
 
-Browser ohne Unterstützung für moderne Syntax zeigen den Text `"foo"`. In Browsern mit moderner `attr()` Unterstützung gibt es keine Ausgabe.
+Browser ohne Unterstützung der modernen Syntax zeigen den Text `"foo"` an. In Browsern mit Unterstützung für die moderne `attr()`-Syntax gibt es keine Ausgabe.
 
-Dies ist, weil `attr()` — ähnlich wie benutzerdefinierte Eigenschaften, die die `var()` Funktion verwenden — bei [Berechnungszeitpunkt](https://brm.us/iacvt/#custom-properties) ersetzt werden. Mit dem modernen Verhalten versucht `--x` zuerst, das `data-attr` Attribut vom `#parent` Element zu lesen, was zu einem leeren String führt, da es kein solches Attribut auf `#parent` gibt. Dieser leere String wird dann vom `#child` Element geerbt, was zu einer `content: ;` Deklaration führt.
+Dies liegt daran, dass `attr()` — ähnlich wie benutzerdefinierte Eigenschaften, die die `var()`-Funktion verwenden — zum Zeitpunkt der [computed value-Ermittlung](https://brm.us/iacvt/#custom-properties) ersetzt werden. Bei der modernen Funktionalität versucht `--x` zuerst, das `data-attr`-Attribut vom `#parent`-Element zu lesen, was zu einem leeren String führt, da ein solches Attribut bei `#parent` nicht existiert. Dieser leere String wird dann vom `#child`-Element geerbt, was eine `content: ;`-Deklaration zur Folge hat.
 
-Um diese Art von Situation zu verhindern, sollten Sie keine geerbten `attr()` Werte an Kinder weitergeben, es sei denn, Sie möchten dies ausdrücklich.
+Um solche Situationen zu vermeiden, sollten Sie keine geerbten `attr()`-Werte an Kind-Elemente weitergeben, es sei denn, Sie möchten dies ausdrücklich.
 
-### Feature-Erkennung
+### Feature Detection
 
-Sie können die Unterstützung für moderne `attr()` Syntax mit der {{CSSxRef("@supports")}} at-rule erkennen. Im Test versuchen Sie, erweitertes `attr()` einer (nicht benutzerdefinierten) CSS-Eigenschaft zuzuweisen.
+Sie können die Unterstützung für die moderne `attr()`-Syntax mithilfe der {{CSSxRef("@supports")}}-Regel erkennen. Im Test versuchen Sie, fortschrittliche `attr()`-Werte einer (nicht-benutzerdefinierten) CSS-Eigenschaft zuzuweisen.
 
 Zum Beispiel:
 
@@ -171,7 +171,7 @@ Zum Beispiel:
 }
 ```
 
-Wir können denselben Check in JavaScript mit [`CSS.supports()`](/de/docs/Web/API/CSS/supports_static) durchführen:
+Wir können dieselbe Überprüfung in JavaScript mit [`CSS.supports()`](/de/docs/Web/API/CSS/supports_static) durchführen:
 
 ```js
 if (CSS.supports("x: attr(x type(*))")) {
@@ -189,9 +189,9 @@ if (!CSS.supports("x: attr(x type(*))")) {
 
 ## Beispiele
 
-### content Eigenschaft
+### content-Eigenschaft
 
-In diesem Beispiel fügen wir den Wert des `data-foo` [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*) [globalen Attributs](/de/docs/Web/HTML/Global_attributes) zum Inhalt des {{HTMLElement("p")}} Elements hinzu.
+In diesem Beispiel fügen wir den Wert des `data-foo`-[`data-*`](/de/docs/Web/HTML/Global_attributes/data-*)-[Globalattributs](/de/docs/Web/HTML/Global_attributes) dem Inhalt des {{HTMLElement("p")}}-Elements voran.
 
 #### HTML
 
@@ -211,11 +211,11 @@ In diesem Beispiel fügen wir den Wert des `data-foo` [`data-*`](/de/docs/Web/HT
 
 {{EmbedLiveSample("content_property", "100%", 50)}}
 
-### Verwenden eines Fallback-Werts
+### Verwendung eines Fallback-Werts
 
 {{SeeCompatTable}}
 
-In diesem Beispiel fügen wir den Wert des `data-browser` [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*) [globalen Attributs](/de/docs/Web/HTML/Global_attributes) zum {{HTMLElement("p")}} Element hinzu. Wenn das `data-browser` Attribut auf dem {{HTMLElement("p")}} Element fehlt, fügen wir den _Fallback_-Wert "**Unknown**" hinzu.
+In diesem Beispiel hängen wir den Wert des `data-browser`-[`data-*`](/de/docs/Web/HTML/Global_attributes/data-*)-[Globalattributs](/de/docs/Web/HTML/Global_attributes) an das {{HTMLElement("p")}}-Element an. Wenn das `data-browser`-Attribut beim {{HTMLElement("p")}}-Element fehlt, wird der _Fallback_-Wert "**Unknown**" hinzugefügt.
 
 #### HTML
 
@@ -237,11 +237,11 @@ p::after {
 
 {{EmbedLiveSample("using_fallback", "100%", 90)}}
 
-### Farbwert
+### color-Wert
 
 {{SeeCompatTable}}
 
-In diesem Beispiel setzen wir den CSS-Wert von {{CSSXRef("background-color")}} auf den Wert des `data-background` [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*) [globalen Attributs](/de/docs/Web/HTML/Global_attributes), das dem {{HTMLElement("div")}} Element zugewiesen ist.
+In diesem Beispiel setzen wir den CSS-Wert von {{CSSXRef("background-color")}} auf den Wert des `data-background`-[`data-*`](/de/docs/Web/HTML/Global_attributes/data-*)-[Globalattributs](/de/docs/Web/HTML/Global_attributes), das dem {{HTMLElement("div")}}-Element zugewiesen ist.
 
 #### HTML
 
@@ -274,11 +274,11 @@ In diesem Beispiel setzen wir den CSS-Wert von {{CSSXRef("background-color")}} a
 
 {{EmbedLiveSample("color_value", "100%", 50)}}
 
-### Verwenden von Dimensions-Einheiten
+### Verwendung von Dimensionseinheiten
 
 {{SeeCompatTable}}
 
-In diesem Beispiel wird das `data-rotation` Attribut in eine `deg` Einheit geparst, die die Rotation des Elements angibt.
+In diesem Beispiel wird das Attribut `data-rotation` in eine `deg`-Einheit geparst, die die Drehung des Elements angibt.
 
 #### HTML
 
@@ -317,17 +317,17 @@ div {
 
 {{EmbedLiveSample("using_dimension_units", "100%", 300)}}
 
-### Parsen von `attr()` Werten als `<custom-ident>`s
+### Parsing von `attr()`-Werten als `<custom-ident>`s
 
 {{SeeCompatTable}}
 
-In diesem Beispiel werden die Werte für die {{cssxref("view-transition-name")}} Eigenschaft aus dem `id` Attribut des Elements abgeleitet. Das Attribut wird in ein {{CSSxRef("&lt;custom-ident&gt;")}} geparst, welches von {{cssxref("view-transition-name")}} als Wert akzeptiert wird.
+In diesem Beispiel werden die Werte für die {{cssxref("view-transition-name")}}-Eigenschaft aus dem `id`-Attribut des Elements abgeleitet. Das Attribut wird in ein {{CSSxRef("&lt;custom-ident&gt;")}} geparst, was von {{cssxref("view-transition-name")}} als Wert akzeptiert wird.
 
 Die resultierenden Werte für {{cssxref("view-transition-name")}} sind `card-1`, `card-2`, `card-3` usw.
 
 #### HTML
 
-Das HTML enthält vier Karten mit unterschiedlichen `id` Attributen und einen "Shuffle cards" `<button>`, der die Karten mischt.
+Das HTML enthält vier Karten mit unterschiedlichen `id`-Attributen und einen `<button>` "Karten mischen", der die Karten mischt.
 
 ```html
 <div class="cards">
@@ -422,7 +422,7 @@ Die Karten sind in einem Flex-Container angeordnet:
 }
 ```
 
-Auf jeder Karte ruft die `attr()` Funktion das `id` Attribut ab und parst es in ein {{CSSxRef("&lt;custom-ident&gt;")}}, das als Wert für die {{cssxref("view-transition-name")}} Eigenschaft verwendet wird. Wenn kein `id` auf einer Karte festgelegt ist, wird stattdessen der Fallback-Wert `none` verwendet.
+Für jede Karte ruft die `attr()`-Funktion das `id`-Attribut ab und parsed es in ein {{CSSxRef("&lt;custom-ident&gt;")}}, das als Wert für die {{cssxref("view-transition-name")}}-Eigenschaft verwendet wird. Wenn bei einer Karte kein `id` festgelegt ist, wird stattdessen der Fallback-Wert `none` verwendet.
 
 ```css
 .card {
@@ -433,9 +433,9 @@ Auf jeder Karte ruft die `attr()` Funktion das `id` Attribut ab und parst es in 
 
 #### JavaScript
 
-Wenn der `<button>` gedrückt wird, werden die Karten gemischt. Dies geschieht durch Zufallsanordnung der Reihenfolge eines Arrays, das Verweise auf alle Karten enthält, und dann Aktualisieren der {{CSSxRef("order")}} Eigenschaft jeder Karte auf ihre neue Array-Indexposition.
+Wenn der `<button>` gedrückt wird, werden die Karten gemischt. Dies geschieht, indem die Reihenfolge eines Arrays mit Referenzen zu allen Karten zufällig geändert und anschließend die {{CSSxRef("order")}}-Eigenschaft jeder Karte auf ihren neuen Array-Index gesetzt wird.
 
-Um jede Karte zu ihrem neuen Standort zu animieren, werden [View Transitions](/de/docs/Web/API/View_Transition_API/Using) verwendet. Dies erfolgt durch das Einhüllen des `order` Updates in einen Anruf bei [`document.startViewTransition`](/de/docs/Web/API/Document/startViewTransition).
+Um jede Karte in ihre neue Position zu animieren, werden [View Transitions](/de/docs/Web/API/View_Transition_API/Using) verwendet. Dies erfolgt, indem die `order`-Aktualisierung in einen Aufruf von [`document.startViewTransition`](/de/docs/Web/API/Document/startViewTransition) eingeschlossen wird.
 
 ```js
 const shuffle = (array) => {

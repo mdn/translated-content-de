@@ -1,17 +1,18 @@
 ---
-title: "Location: port Eigenschaft"
+title: "Location: port-Eigenschaft"
 short-title: port
 slug: Web/API/Location/port
 l10n:
-  sourceCommit: 354f23773b65bad14192eca53e4a63471061b158
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("Location")}}
 
-Die **`port`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der die Portnummer der URL enthält, oder der leere String, wenn der Port der Standardwert für das Protokoll ist.
+Die **`port`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der die Portnummer der URL des Standorts enthält. Wenn der Port der Standardport für das Protokoll ist (`80` für `ws:` und `http:`, `443` für `wss:` und `https:`, und `21` für `ftp:`), enthält diese Eigenschaft einen leeren String, `""`.
 
-> [!NOTE]
-> Wenn das [`Location`](/de/docs/Web/API/Location)-Objekt auf eine URL verweist, die keine explizite Portnummer enthält (z. B. `https://localhost`) oder eine Portnummer enthält, die der Standard-Portnummer entspricht, die zum Protokollteil der URL gehört (z. B. `https://localhost:443`), dann wird die `port`-Eigenschaft der leere String sein: `''`.
+Diese Eigenschaft kann festgelegt werden, um den Port der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/Location/host) hat oder das Schema `file:` ist, hat das Festlegen dieser Eigenschaft keine Wirkung. Ungültige Portnummern werden ebenfalls stillschweigend ignoriert.
+
+Weiterführende Informationen finden Sie unter [`URL.port`](/de/docs/Web/API/URL/port).
 
 ## Wert
 
