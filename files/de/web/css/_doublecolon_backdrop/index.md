@@ -1,5 +1,5 @@
 ---
-title: "::backdrop"
+title: ::backdrop
 slug: Web/CSS/::backdrop
 l10n:
   sourceCommit: b64538dc77e9a6181b882bd54bdbb307c1430ba8

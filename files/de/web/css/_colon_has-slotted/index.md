@@ -1,5 +1,5 @@
 ---
-title: ":has-slotted"
+title: :has-slotted
 slug: Web/CSS/:has-slotted
 l10n:
   sourceCommit: f1f63785fbdd38339554b75cf03e4b8b3274bcbc
