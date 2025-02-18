@@ -9,8 +9,8 @@ l10n:
 
 Die **`CSSPositionTryDescriptors`**-Schnittstelle definiert Eigenschaften, die die Liste der CSS-Deskriptoren darstellen, die im Body einer {{cssxref("@position-try")}}-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) festgelegt werden können.
 
-Jeder Deskriptor im Body der entsprechenden {{cssxref("@position-try")}}-At-Regel kann entweder über seinen Eigenschaftsnamen in der [Klammernotation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#bracket_notation) oder die Camel-Case-Version des Eigenschaftsnamens "propertyName" in der [Punktschreibweise](/de/docs/Learn_web_development/Core/Scripting/Object_basics#dot_notation) aufgerufen werden.  
-Beispielsweise kann auf die CSS-Eigenschaft "property-name" zugegriffen werden als `style["property-name"]` oder `style.propertyName`, wobei `style` eine Instanz von `CSSPositionTryDescriptors` ist.  
+Jeder Deskriptor im Body der entsprechenden {{cssxref("@position-try")}}-At-Regel kann entweder über seinen Eigenschaftsnamen in der [Klammernotation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#bracket_notation) oder die Camel-Case-Version des Eigenschaftsnamens "propertyName" in der [Punktschreibweise](/de/docs/Learn_web_development/Core/Scripting/Object_basics#dot_notation) aufgerufen werden.
+Beispielsweise kann auf die CSS-Eigenschaft "property-name" zugegriffen werden als `style["property-name"]` oder `style.propertyName`, wobei `style` eine Instanz von `CSSPositionTryDescriptors` ist.
 Eine Eigenschaft mit einem einwortigen Namen wie {{cssxref("height")}} kann mit beiden Notationen aufgerufen werden: `style["height"]` oder `style.height`.
 
 > [!NOTE]

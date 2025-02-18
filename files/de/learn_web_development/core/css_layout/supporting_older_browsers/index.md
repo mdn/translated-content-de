@@ -14,10 +14,10 @@ Besucher Ihrer Website können Nutzer sein, die entweder ältere Browser oder Br
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        HTML-Grundlagen (siehe 
+        HTML-Grundlagen (siehe
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
           >Einführung in HTML</a
-        >) und ein Verständnis dafür, wie CSS funktioniert (siehe 
+        >) und ein Verständnis dafür, wie CSS funktioniert (siehe
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling-Grundlagen</a>).
       </td>
     </tr>

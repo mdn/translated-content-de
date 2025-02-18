@@ -130,31 +130,31 @@ body {
 
 Es gibt Zuordnungen für alle bestehenden Werte von `display`; die häufigsten sind in der Tabelle unten aufgeführt. Für eine vollständige Liste schauen Sie sich die Tabelle in der [`display`-Eigenschaftsspezifikation](https://drafts.csswg.org/css-display/#display-value-summary) an.
 
-| Einzelwert     | Mehrere Werte       |
-| -------------- | ------------------- |
-| `block`        | `block flow`        |
-| `flow-root`    | `block flow-root`   |
-| `inline`       | `inline flow`       |
-| `inline-block` | `inline flow-root`  |
-| `flex`         | `block flex`        |
-| `inline-flex`  | `inline flex`       |
-| `grid`         | `block grid`        |
-| `inline-grid`  | `inline grid`       |
+| Einzelwert     | Mehrere Werte      |
+| -------------- | ------------------ |
+| `block`        | `block flow`       |
+| `flow-root`    | `block flow-root`  |
+| `inline`       | `inline flow`      |
+| `inline-block` | `inline flow-root` |
+| `flex`         | `block flex`       |
+| `inline-flex`  | `inline flex`      |
+| `grid`         | `block grid`       |
+| `inline-grid`  | `inline grid`      |
 
 ## display: block flow-root und display: inline flow-root
 
 Bezüglich der Klarheit, die diese Multi-Schlüsselwort-Syntax der CSS-Layout-Beschreibung hinzufügt, können wir uns einige Werte in der obigen Tabelle ansehen, die Ihnen vielleicht weniger geläufig sind. Der Multi-Schlüsselwort-Wert `display: block flow-root` entspricht einem Einzelwert: `display: flow-root`. Dieser Wert hat nur den Zweck, einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC) zu erstellen. Ein BFC stellt sicher, dass alles innerhalb Ihrer Box bleibt und Dinge außerhalb der Box nicht in diese eindringen können.
 
-Im folgenden Beispiel zeigen zwei `<p>`-Elemente, eines davon innerhalb eines `<div>`, wie sich Anzeige-Werte auf Formatierungskontexte auswirken.  
-Das erste `<div>`-Element mit den Demo-Steuerelementen ist ausgeblendet, sodass wir uns auf die folgenden Elemente konzentrieren können.  
+Im folgenden Beispiel zeigen zwei `<p>`-Elemente, eines davon innerhalb eines `<div>`, wie sich Anzeige-Werte auf Formatierungskontexte auswirken.
+Das erste `<div>`-Element mit den Demo-Steuerelementen ist ausgeblendet, sodass wir uns auf die folgenden Elemente konzentrieren können.
 Die Elemente, auf die wir achten sollten, sind die `<div>`- und `<p>`-Elemente mit den IDs „parent“, „child“ und „sibling“, die dadurch unterschieden werden können.
 
-Was an diesem Layout auffällt, ist, dass zwischen den Parent- und Child-Elementen kein Inhalt ist, und das Child-Element einen oberen Rand hat.  
-Man könnte erwarten, dass der obere Rand effektiv das Kind-Element innerhalb des Eltern-Elements nach unten drückt, doch passiert stattdessen etwas, das [_Margin Collapsing_](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) genannt wird.  
-In diesem Fall erstreckt sich der Rand des Kind-Elements weit über den Begrenzungsrahmen des Elternteils hinaus und schiebt das Elternteil weiter nach unten auf der Seite.  
+Was an diesem Layout auffällt, ist, dass zwischen den Parent- und Child-Elementen kein Inhalt ist, und das Child-Element einen oberen Rand hat.
+Man könnte erwarten, dass der obere Rand effektiv das Kind-Element innerhalb des Eltern-Elements nach unten drückt, doch passiert stattdessen etwas, das [_Margin Collapsing_](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) genannt wird.
+In diesem Fall erstreckt sich der Rand des Kind-Elements weit über den Begrenzungsrahmen des Elternteils hinaus und schiebt das Elternteil weiter nach unten auf der Seite.
 Das lässt sich besser erkennen, wenn Sie das Box-Modell des Kind-Elements [in den Entwickler-Tools Ihres Browsers](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#use_browser_devtools_to_view_the_box_model) untersuchen.
 
-Ändern Sie die ausgewählte Option im `<select>`-Element, um die Auswirkungen verschiedener `display`-Werte zu sehen.  
+Ändern Sie die ausgewählte Option im `<select>`-Element, um die Auswirkungen verschiedener `display`-Werte zu sehen.
 Sie können jeden Wert mit `flow-root` verwenden, um einen neuen Formatierungskontext für das Elternteil zu erstellen, wodurch der Rand des Kind-Elements relativ zum äußeren Rand des Elternteils wird und das Zusammenfallen der Ränder vermieden wird. Das Wechseln zwischen `display: flow-root` und `display: block flow-root` hat den gleichen Effekt wie das Einzelwert-Schlüsselwort `flow-root`.
 
 ```js hidden
@@ -267,7 +267,7 @@ Um mit Einzelwerten von `display` umzugehen, erklärt [die Spezifikation](https:
 
 > „Wenn ein `<display-outside>`-Wert angegeben wird, aber `<display-inside>` weggelassen wird, wird der innere Anzeige-Typ des Elements standardmäßig auf flow gesetzt.“
 
-Das bedeutet, dass sich das Verhalten genau so verhält wie in einer Einzelwert-Welt. Wenn Sie `display: block` oder `display: inline` angeben, ändert das den äußeren Anzeige-Wert der Box, aber alle Kinder bleiben im normalen Fluss.  
+Das bedeutet, dass sich das Verhalten genau so verhält wie in einer Einzelwert-Welt. Wenn Sie `display: block` oder `display: inline` angeben, ändert das den äußeren Anzeige-Wert der Box, aber alle Kinder bleiben im normalen Fluss.
 Wenn nur ein innerer Wert wie `flex`, `grid` oder `flow-root` angegeben wird, erklärt [die Spezifikation](https://www.w3.org/TR/css-display-3/#inner-model), dass der äußere Wert auf `block` gesetzt werden sollte:
 
 > „Wenn ein `<display-inside>`-Wert angegeben wird, aber `<display-outside>` weggelassen wird, wird der äußere Anzeige-Typ des Elements standardmäßig auf block gesetzt — außer für ruby, das standardmäßig inline ist.“

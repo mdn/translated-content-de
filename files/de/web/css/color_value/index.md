@@ -133,16 +133,16 @@ color-mix(in oklch, oklch(60% 0.2 10), oklch(60% 0.2 30))
 
 Wenn eine Farbe, die interpoliert werden soll, nicht im Interpolationsfarbraum liegt, werden fehlende Komponenten in die konvertierte Farbe basierend auf den **analogen Komponenten** derselben Kategorie überführt, wie in der folgenden Tabelle beschrieben:
 
-| Kategorie     | Analoge Komponenten |
-| ------------- | ------------------- |
-| Rot           | `R`, `X`           |
-| Grün          | `G`, `Y`           |
-| Blau          | `B`, `Z`           |
-| Helligkeit    | `L`                |
-| Farbigkeit    | `C`, `S`           |
-| Farbton       | `H`                |
-| a             | `a`                |
-| b             | `b`                |
+| Kategorie  | Analoge Komponenten |
+| ---------- | ------------------- |
+| Rot        | `R`, `X`            |
+| Grün       | `G`, `Y`            |
+| Blau       | `B`, `Z`            |
+| Helligkeit | `L`                 |
+| Farbigkeit | `C`, `S`            |
+| Farbton    | `H`                 |
+| a          | `a`                 |
+| b          | `b`                 |
 
 Zum Beispiel:
 

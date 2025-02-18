@@ -7,8 +7,8 @@ l10n:
 
 {{CSSRef}}
 
-Der **`syntax`** Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) definiert die erlaubten Wertetypen für die registrierte [CSS Custom Property](/de/docs/Web/CSS/--*).  
-Er steuert, wie der angegebene Wert der Eigenschaft verarbeitet wird, um den {{cssxref("computed_value", "berechneten Wert")}} zu erhalten.  
+Der **`syntax`** Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) definiert die erlaubten Wertetypen für die registrierte [CSS Custom Property](/de/docs/Web/CSS/--*).
+Er steuert, wie der angegebene Wert der Eigenschaft verarbeitet wird, um den {{cssxref("computed_value", "berechneten Wert")}} zu erhalten.
 Es handelt sich um einen obligatorischen Deskriptor; wenn er fehlt oder ungültig ist, wird die gesamte `@property`-Regel als ungültig betrachtet und ignoriert.
 
 ## Syntax
@@ -38,21 +38,21 @@ syntax: "*";
 
 ### Werte
 
-Ein String (als Syntax-String bezeichnet), der die erlaubten Werte definiert.  
+Ein String (als Syntax-String bezeichnet), der die erlaubten Werte definiert.
 Es kann einer der folgenden Fälle sein:
 
 - Einer oder mehrere Namen von Syntaxkomponenten, die sein können:
   - Datentypnamen (geschrieben in spitzen Klammern, z. B. `<color>` oder `<length>`)
   - Schlüsselwörter (geschrieben ohne spitze Klammern, z. B. `auto` oder `none`)
-- Die universelle Syntax `*`, die jeden gültigen CSS-Wert akzeptiert.  
+- Die universelle Syntax `*`, die jeden gültigen CSS-Wert akzeptiert.
   Sie kann nicht multipliziert oder mit anderen Syntaxkomponenten kombiniert werden.
 
 Die Namen der Syntaxkomponenten können allein verwendet oder in verschiedenen Formen multipliziert und kombiniert werden:
 
-- Die Multiplikatoren `+` (durch Leerzeichen getrennt) und `#` (durch Kommas getrennt) geben an, dass eine Liste von Werten erwartet wird.  
+- Die Multiplikatoren `+` (durch Leerzeichen getrennt) und `#` (durch Kommas getrennt) geben an, dass eine Liste von Werten erwartet wird.
   Zum Beispiel bedeutet `<color>#`, dass eine kommagetrennte Liste von `<color>`-Werten die erwartete Syntax ist.
 
-- Der vertikale Strich (`|`) als Kombinator kann "oder"-Bedingungen für die erwartete Syntax erstellen.  
+- Der vertikale Strich (`|`) als Kombinator kann "oder"-Bedingungen für die erwartete Syntax erstellen.
   Zum Beispiel akzeptiert `<length> | auto` entweder `<length>` oder `auto`, und `<color># | <integer>#` erwartet eine kommagetrennte Liste von `<color>`-Werten oder eine kommagetrennte Liste von `<integer>`-Werten.
 
 Die folgenden Namen von Syntaxkomponenten werden unterstützt:

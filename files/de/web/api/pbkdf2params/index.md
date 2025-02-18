@@ -21,8 +21,7 @@ Das **`Pbkdf2Params`**-Dictionary der [Web Crypto API](/de/docs/Web/API/Web_Cryp
     - `SHA-384`: Wählt den [SHA-384](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus aus.
     - `SHA-512`: Wählt den [SHA-512](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus aus.
 
-    > [!WARNING]  
-    > `SHA-1` wird in den meisten kryptographischen Anwendungen als unsicher angesehen, gilt jedoch in PBKDF2 weiterhin als sicher. Dennoch ist es ratsam, überall darauf zu verzichten. Verwenden Sie nach Möglichkeit einen anderen Digest-Algorithmus.
+    > [!WARNING] > `SHA-1` wird in den meisten kryptographischen Anwendungen als unsicher angesehen, gilt jedoch in PBKDF2 weiterhin als sicher. Dennoch ist es ratsam, überall darauf zu verzichten. Verwenden Sie nach Möglichkeit einen anderen Digest-Algorithmus.
 
 - `salt`
   - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder eine {{jsxref("DataView")}}. Dies sollte ein zufälliger oder pseudorandomisierter Wert mit mindestens 16 Bytes sein. Im Gegensatz zum Eingabematerial, das an [`deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) übergeben wird, muss `salt` nicht geheim gehalten werden.

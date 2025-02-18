@@ -1,5 +1,5 @@
 ---
-title: ":host-context()"
+title: :host-context()
 slug: Web/CSS/:host-context
 l10n:
   sourceCommit: a29769d6d10261f771321eb60f3990029c160924

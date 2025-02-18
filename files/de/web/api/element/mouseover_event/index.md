@@ -71,7 +71,7 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern [`UIEvent`](/de/docs/W
 - [`MouseEvent.shiftKey`](/de/docs/Web/API/MouseEvent/shiftKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>Shift</kbd>-Taste gedrückt war, als das Maus-Event ausgelöst wurde.
 - [`MouseEvent.mozInputSource`](/de/docs/Web/API/MouseEvent/mozInputSource) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Typ des Geräts, das das Event ausgelöst hat (eine der `MOZ_SOURCE_*`-Konstanten). 
+  - : Der Typ des Geräts, das das Event ausgelöst hat (eine der `MOZ_SOURCE_*`-Konstanten).
     Damit können Sie beispielsweise bestimmen, ob ein Maus-Event von einer tatsächlichen Maus oder einem Touch-Event generiert wurde (was die Genauigkeit beeinflussen könnte, mit der Sie die mit dem Event verbundenen Koordinaten interpretieren).
 - [`MouseEvent.webkitForce`](/de/docs/Web/API/MouseEvent/webkitForce) {{non-standard_inline()}} {{ReadOnlyInline}}
   - : Der angewendete Druck während des Klickens.

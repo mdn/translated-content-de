@@ -47,8 +47,8 @@ reduce(callbackFn, initialValue)
     - `array`
       - : Das Array, auf dem `reduce()` aufgerufen wurde.
 - `initialValue` {{optional_inline}}
-  - : Ein Wert, mit dem `accumulator` beim ersten Aufruf des Callbacks initialisiert wird.  
-    Wenn `initialValue` angegeben ist, beginnt `callbackFn` mit dem ersten Wert im Array als `currentValue`.  
+  - : Ein Wert, mit dem `accumulator` beim ersten Aufruf des Callbacks initialisiert wird.
+    Wenn `initialValue` angegeben ist, beginnt `callbackFn` mit dem ersten Wert im Array als `currentValue`.
     Wenn `initialValue` _nicht_ angegeben ist, wird `accumulator` mit dem ersten Wert im Array initialisiert, und `callbackFn` beginnt mit dem zweiten Wert im Array als `currentValue`. In diesem Fall, falls das Array leer ist (sodass kein erster Wert als `accumulator` zurückgegeben werden kann), wird ein Fehler ausgelöst.
 
 ### Rückgabewert
@@ -119,8 +119,8 @@ array.reduce(reducer);
 
 Die Callback-Funktion würde viermal aufgerufen werden, mit folgenden Argumenten und Rückgabewerten bei jedem Aufruf:
 
-|             | `accumulator` | `currentValue` | `index` | Rückgabewert |
-| ----------- | ------------- | -------------- | ------- | ------------ |
+|                | `accumulator` | `currentValue` | `index` | Rückgabewert |
+| -------------- | ------------- | -------------- | ------- | ------------ |
 | Erster Aufruf  | `15`          | `16`           | `1`     | `31`         |
 | Zweiter Aufruf | `31`          | `17`           | `2`     | `48`         |
 | Dritter Aufruf | `48`          | `18`           | `3`     | `66`         |
@@ -141,8 +141,8 @@ Hier reduzieren wir dasselbe Array mit demselben Algorithmus, jedoch mit einem `
 
 Die Callback-Funktion würde fünfmal aufgerufen werden, mit folgenden Argumenten und Rückgabewerten bei jedem Aufruf:
 
-|               | `accumulator` | `currentValue` | `index` | Rückgabewert |
-| ------------- | ------------- | -------------- | ------- | ------------ |
+|                | `accumulator` | `currentValue` | `index` | Rückgabewert |
+| -------------- | ------------- | -------------- | ------- | ------------ |
 | Erster Aufruf  | `10`          | `15`           | `0`     | `25`         |
 | Zweiter Aufruf | `25`          | `16`           | `1`     | `41`         |
 | Dritter Aufruf | `41`          | `17`           | `2`     | `58`         |

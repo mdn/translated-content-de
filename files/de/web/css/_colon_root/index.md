@@ -1,5 +1,5 @@
 ---
-title: ":root"
+title: :root
 slug: Web/CSS/:root
 l10n:
   sourceCommit: a29769d6d10261f771321eb60f3990029c160924

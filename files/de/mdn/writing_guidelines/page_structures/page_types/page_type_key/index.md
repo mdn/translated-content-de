@@ -79,4 +79,4 @@ Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Glossary](/de/docs/
 
 ...
 
-### Exakte Übersetzungen der Abschnitte wurden fortgesetzt gemäß den gegebenen Regeln.
+### Exakte Übersetzungen der Abschnitte wurden fortgesetzt gemäß den gegebenen Regeln

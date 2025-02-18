@@ -6,7 +6,7 @@ l10n:
   sourceCommit: a29769d6d10261f771321eb60f3990029c160924
 ---
 
-Die Links auf dieser Seite führen zu verschiedenen Tutorials und Lernmaterialien.  
+Die Links auf dieser Seite führen zu verschiedenen Tutorials und Lernmaterialien.
 Egal, ob Sie Anfänger, Fortgeschrittener oder Experte in der Webentwicklung sind, hier finden Sie nützliche Inhalte.
 
 Diese Tutorials wurden von fortschrittlich denkenden Unternehmen und Webentwicklern erstellt, die offene Standards und gute Praktiken unterstützen und Übersetzungen über eine offene Inhaltslizenz wie Creative Commons erlauben oder bereitstellen.
@@ -14,7 +14,7 @@ Diese Tutorials wurden von fortschrittlich denkenden Unternehmen und Webentwickl
 ## Für absolute Anfänger
 
 - [Erste Schritte mit dem Web](/de/docs/Learn_web_development/Getting_started/Your_first_website)
-  - : _Erste Schritte mit dem Web_ ist eine kurze Reihe von Anleitungen, die Sie in die praktischen Aspekte der Webentwicklung einführt.  
+  - : _Erste Schritte mit dem Web_ ist eine kurze Reihe von Anleitungen, die Sie in die praktischen Aspekte der Webentwicklung einführt.
     Sie richten die Tools ein, die Sie benötigen, um eine grundlegende Webseite zu erstellen und Ihren eigenen Code zu veröffentlichen.
 
 ## HTML-Tutorials
@@ -22,10 +22,10 @@ Diese Tutorials wurden von fortschrittlich denkenden Unternehmen und Webentwickl
 ### Einführung in HTML
 
 - [Inhalte mit HTML strukturieren](/de/docs/Learn_web_development/Core/Structuring_content)
-  - : Unser Einführungsmodul zu HTML vermittelt HTML von Grund auf — es sind keine Vorkenntnisse erforderlich.  
+  - : Unser Einführungsmodul zu HTML vermittelt HTML von Grund auf — es sind keine Vorkenntnisse erforderlich.
     Es legt die Grundlagen, um Sie mit wichtigen Konzepten und Syntax vertraut zu machen. Dabei wird gezeigt, wie HTML auf Text angewendet wird, wie Hyperlinks erstellt werden und wie Sie HTML verwenden, um eine Webseite zu strukturieren.
 - [HTML für Anfänger](https://www.theblogstarter.com/html-for-beginners/)
-  - : Ein HTML-Leitfaden für Anfänger, der Erklärungen zu häufig verwendeten Tags, einschließlich `HTML`-Tags, enthält.  
+  - : Ein HTML-Leitfaden für Anfänger, der Erklärungen zu häufig verwendeten Tags, einschließlich `HTML`-Tags, enthält.
     Außerdem bietet es eine Schritt-für-Schritt-Anleitung zum Erstellen einer einfachen Webseite mit Codebeispielen.
 - [HTML-Herausforderungen](https://en.wikiversity.org/wiki/Web_Design/HTML_Challenges)
   - : Verwenden Sie diese Herausforderungen, um Ihre HTML-Fähigkeiten zu verbessern (zum Beispiel: "Sollte ich ein `<h2>`-Element oder ein `<strong>`-Element verwenden?"), mit Fokus auf sinnvollem Markup.
@@ -42,7 +42,7 @@ Diese Tutorials wurden von fortschrittlich denkenden Unternehmen und Webentwickl
 ### Einführung in CSS
 
 - [CSS-Grundlagen](/de/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content)
-  - : CSS (Cascading Style Sheets) ist der Code, den Sie verwenden, um Ihre Webseite zu gestalten. _CSS-Grundlagen_ führt Sie durch alles, was Sie zum Einstieg benötigen.  
+  - : CSS (Cascading Style Sheets) ist der Code, den Sie verwenden, um Ihre Webseite zu gestalten. _CSS-Grundlagen_ führt Sie durch alles, was Sie zum Einstieg benötigen.
     Wir beantworten Fragen wie: Wie mache ich meinen Text schwarz oder rot? Wie bringe ich meinen Inhalt an eine bestimmte Stelle auf dem Bildschirm? Wie dekoriere ich meine Webseite mit Hintergrundbildern und Farben?
 - [Grundlagen der CSS-Stilgestaltung](/de/docs/Learn_web_development/Core/Styling_basics)
   - : CSS (Cascading Style Sheets) wird verwendet, um Webseiten zu gestalten und zu layouten — zum Beispiel, um Schriftart, Farbe, Größe und Abstand Ihres Inhalts zu ändern, ihn in mehrere Spalten aufzuteilen oder Animationen und andere dekorative Elemente hinzuzufügen. Dieses Modul bietet einen sanften Einstieg in den Weg zur CSS-Beherrschung mit den grundlegenden Funktionsweisen, der Syntax und der Anwendung von CSS.

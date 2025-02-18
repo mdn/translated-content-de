@@ -51,17 +51,17 @@ Jeder `<font-weight-absolute>`-Wert kann einer der folgenden sein:
 
 Die numerischen Werte `100` bis `900` entsprechen ungefähr den folgenden gemeinsamen Gewichtsnamen:
 
-| Wert  | Gemeinsamer Gewichtname       |
-| ----- | ----------------------------- |
-| 100   | Dünn (Haarlinie)              |
-| 200   | Extra Leicht (Ultra Leicht)   |
-| 300   | Leicht                        |
-| 400   | Normal                        |
-| 500   | Mittel                        |
-| 600   | Halbfett (Demi Fett)          |
-| 700   | Fett                          |
-| 800   | Extra Fett (Ultra Fett)       |
-| 900   | Schwarz (Schwer)              |
+| Wert | Gemeinsamer Gewichtname     |
+| ---- | --------------------------- |
+| 100  | Dünn (Haarlinie)            |
+| 200  | Extra Leicht (Ultra Leicht) |
+| 300  | Leicht                      |
+| 400  | Normal                      |
+| 500  | Mittel                      |
+| 600  | Halbfett (Demi Fett)        |
+| 700  | Fett                        |
+| 800  | Extra Fett (Ultra Fett)     |
+| 900  | Schwarz (Schwer)            |
 
 ### Variable Schriftarten
 

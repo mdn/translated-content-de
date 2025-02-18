@@ -7,8 +7,8 @@ l10n:
 
 {{CSSRef}}
 
-Der **`initial-value`** Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) gibt den Initialwert für die registrierte [CSS-Custom-Property](/de/docs/Web/CSS/--*) an. 
-Es handelt sich um einen erforderlichen Deskriptor, es sei denn, der Wert des {{cssxref("@property/syntax", "syntax")}} Deskriptors ist die universelle Syntax (`*`). 
+Der **`initial-value`** Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) gibt den Initialwert für die registrierte [CSS-Custom-Property](/de/docs/Web/CSS/--*) an.
+Es handelt sich um einen erforderlichen Deskriptor, es sei denn, der Wert des {{cssxref("@property/syntax", "syntax")}} Deskriptors ist die universelle Syntax (`*`).
 Falls erforderlich, aber fehlend oder ungültig, wird die gesamte `@property`-Regel als ungültig betrachtet und ignoriert.
 
 ## Syntax
@@ -23,7 +23,7 @@ initial-value: 2rem;
 
 ### Werte
 
-Ein Wert, der dem in dem {{cssxref("@property/syntax", "syntax")}} Deskriptor angegebenen Typ entspricht. 
+Ein Wert, der dem in dem {{cssxref("@property/syntax", "syntax")}} Deskriptor angegebenen Typ entspricht.
 Wenn beispielsweise `syntax` `<color>` ist, muss der `initial-value` ein gültiger {{cssxref("color")}}-Wert sein.
 
 ## Formale Definition

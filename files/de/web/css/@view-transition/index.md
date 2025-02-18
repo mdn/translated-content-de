@@ -37,8 +37,8 @@ Damit eine View-Transition zwischen Dokumenten funktioniert, müssen sich das ak
 
 ### Übergang der Seitenansicht
 
-Die folgenden Codebeispiele zeigen Schlüsselkonzepte, die in einer Demo zu Seitenübergängen verwendet werden.  
-Die Demo nutzt View-Transitions zwischen Dokumenten: ein halbe Sekunde dauernder Übergang, der beim Navigieren zwischen zwei Seiten einer Website auftritt.  
+Die folgenden Codebeispiele zeigen Schlüsselkonzepte, die in einer Demo zu Seitenübergängen verwendet werden.
+Die Demo nutzt View-Transitions zwischen Dokumenten: ein halbe Sekunde dauernder Übergang, der beim Navigieren zwischen zwei Seiten einer Website auftritt.
 Für die vollständige Demo, siehe [View transitions multi-page app demo](https://mdn.github.io/dom-examples/view-transitions/mpa/).
 
 Die At-Regel `@view-transition` wird sowohl im CSS für das aktuelle als auch im CSS für das Zieldokument der Navigation angegeben, um beide für die View-Transition zu aktivieren:

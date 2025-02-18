@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`contain`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) gibt an, dass ein Element und dessen Inhalt so weit wie möglich unabhängig vom restlichen Dokumentenbaum sind.  
+Die **`contain`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) gibt an, dass ein Element und dessen Inhalt so weit wie möglich unabhängig vom restlichen Dokumentenbaum sind.
 Eingrenzung ermöglicht die Isolierung eines Abschnitts des DOMs und bietet Leistungsverbesserungen, indem Berechnungen für Layout, Stil, Malen, Größe oder eine Kombination nur auf einen DOM-Teilbaum beschränkt werden, anstatt auf die gesamte Seite. Eingrenzung kann außerdem verwendet werden, um CSS-Zähler und Anführungszeichen zu begrenzen.
 
 {{EmbedInteractiveExample("pages/css/contain.html")}}
@@ -171,23 +171,23 @@ div {
 }
 ```
 
-Die erste Karte hat Layouteingrenzung angewendet, und ihr Layout ist vom Rest der Seite isoliert.  
-Wir können diese Karte an anderen Stellen der Seite wiederverwenden, ohne uns über Layout-Neuberechnungen anderer Elemente Sorgen machen zu müssen.  
-Falls Floats die Kartengrenzen überlappen, werden Elemente im Rest der Seite nicht beeinflusst.  
-Wenn der Browser das Subtree-Layout des eingeschlossenen Elements neu berechnet, wird nur dieses Element neu berechnet. Nichts außerhalb des eingeschlossenen Elements muss neu berechnet werden.  
+Die erste Karte hat Layouteingrenzung angewendet, und ihr Layout ist vom Rest der Seite isoliert.
+Wir können diese Karte an anderen Stellen der Seite wiederverwenden, ohne uns über Layout-Neuberechnungen anderer Elemente Sorgen machen zu müssen.
+Falls Floats die Kartengrenzen überlappen, werden Elemente im Rest der Seite nicht beeinflusst.
+Wenn der Browser das Subtree-Layout des eingeschlossenen Elements neu berechnet, wird nur dieses Element neu berechnet. Nichts außerhalb des eingeschlossenen Elements muss neu berechnet werden.
 Darüber hinaus verwendet das feste Kästchen die Karte als Layout-Container, um sich zu positionieren.
 
-Die zweite und dritte Karte haben keine Eingrenzung.  
-Der Layoutkontext für das feste Kästchen in der zweiten Karte ist das Root-Element, daher wird das feste Kästchen in der oberen rechten Ecke der Seite positioniert.  
-Ein Float überlappt die Grenzen der zweiten Karte, was dazu führt, dass die dritte Karte eine unerwartete Layoutverschiebung aufweist, die sich im Positionieren des `<h2>`-Elements zeigt.  
-Wenn eine Neuberechnung erfolgt, ist diese nicht auf einen Container beschränkt.  
+Die zweite und dritte Karte haben keine Eingrenzung.
+Der Layoutkontext für das feste Kästchen in der zweiten Karte ist das Root-Element, daher wird das feste Kästchen in der oberen rechten Ecke der Seite positioniert.
+Ein Float überlappt die Grenzen der zweiten Karte, was dazu führt, dass die dritte Karte eine unerwartete Layoutverschiebung aufweist, die sich im Positionieren des `<h2>`-Elements zeigt.
+Wenn eine Neuberechnung erfolgt, ist diese nicht auf einen Container beschränkt.
 Dies beeinträchtigt die Leistung und stört das restliche Seitenlayout.
 
 {{EmbedLiveSample("Layout_containment", "100%", 350)}}
 
 ### Stileingrenzung
 
-Stileingrenzung begrenzt [Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) und [Anführungszeichen](/de/docs/Web/CSS/quotes) auf das eingeschlossene Element.  
+Stileingrenzung begrenzt [Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) und [Anführungszeichen](/de/docs/Web/CSS/quotes) auf das eingeschlossene Element.
 Für CSS-Zähler werden die Eigenschaften {{cssxref("counter-increment")}} und {{cssxref("counter-set")}} so eingeschränkt, als befände sich das Element an der Wurzel des Dokuments.
 
 #### Eingrenzung und Zähler
@@ -219,7 +219,7 @@ li::before {
 }
 ```
 
-Ohne Eingrenzung würde der Zähler für jedes Listenelement von 1 bis 5 hochzählen.  
+Ohne Eingrenzung würde der Zähler für jedes Listenelement von 1 bis 5 hochzählen.
 Stileingrenzung bewirkt, dass die {{cssxref("counter-increment")}}-Eigenschaft auf den Teilbaum des Elements beschränkt wird und der Zähler erneut bei 1 beginnt:
 
 {{EmbedLiveSample('Containment_and_counters', '100%', 140)}}

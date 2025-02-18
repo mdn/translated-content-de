@@ -205,13 +205,13 @@ const shrinkAlice = () => {
 
 bottle.addEventListener("mousedown", shrinkAlice, false);
 bottle.addEventListener("touchstart", shrinkAlice, false);
-``` 
+```
 
 In [Hinter den Spiegeln](https://en.wikipedia.org/wiki/Through_the_Looking-Glass) reist Alice in eine Welt, in der sie rennen muss, um an Ort und Stelle zu bleiben — und zweimal so schnell rennen muss, um sich vorwärts zu bewegen! Im Beispiel des Rennens mit der Roten Königin laufen Alice und die Rote Königin, um an Ort und Stelle zu bleiben (sehen Sie den [vollständigen Code auf CodePen](https://codepen.io/rachelnabors/pen/PNGGaV)):
 
 [![Alice und die Rote Königin laufen um das nächste Feld zu erreichen.](red-queen-race_optimized.gif)](https://codepen.io/rachelnabors/pen/PNGGaV)
 
-Da kleine Kinder schneller ermüden als automatisierte Schachfiguren, wird Alice konstant langsamer. Wir können dies durch eine Abschwächung ihrer `playbackRate` erreichen. Dabei verwenden wir `updatePlaybackRate()`, anstatt die Wiedergaberate direkt zu setzen, da das eine sanftere Aktualisierung erzeugt: 
+Da kleine Kinder schneller ermüden als automatisierte Schachfiguren, wird Alice konstant langsamer. Wir können dies durch eine Abschwächung ihrer `playbackRate` erreichen. Dabei verwenden wir `updatePlaybackRate()`, anstatt die Wiedergaberate direkt zu setzen, da das eine sanftere Aktualisierung erzeugt:
 
 ```js
 setInterval(() => {
@@ -222,7 +222,7 @@ setInterval(() => {
 }, 3000);
 ```
 
-Durch Klicken oder Tippen wird ihre Geschwindigkeit jedoch durch Multiplikation der Wiedergaberate erhöht: 
+Durch Klicken oder Tippen wird ihre Geschwindigkeit jedoch durch Multiplikation der Wiedergaberate erhöht:
 
 ```js
 const goFaster = () => {
@@ -248,7 +248,7 @@ Eine bessere Methode ist die Verwendung der Methode [`Animation.commitStyles()`]
 
 Es ist möglich, eine große Anzahl von Animationen auf dasselbe Element auszulösen. Wenn diese Animationen unbefristet sind (d. h., `forwards` füllend), könnte dies zu einer langen Animationsliste führen, die möglicherweise ein Speicherleck hervorruft. Aus diesem Grund entfernen Browser automatisch füllende Animationen, nachdem sie durch neuere Animationen ersetzt wurden, es sei denn, der Entwickler gibt explizit an, dass sie beibehalten werden sollen.
 
-Animationen werden entfernt, wenn alle folgenden Bedingungen erfüllt sind: 
+Animationen werden entfernt, wenn alle folgenden Bedingungen erfüllt sind:
 
 - Die Animation füllt (ihr `fill` ist `forwards`, wenn sie vorwärts abläuft, `backwards`, wenn sie rückwärts abläuft, oder `both`).
 - Die Animation ist beendet (beachten Sie, dass sie aufgrund des `fill` weiterhin wirksam bleibt).
@@ -266,7 +266,7 @@ Die Eigenschaft [`replaceState`](/de/docs/Web/API/Animation/replaceState) der An
 
 ## Informationen aus Animationen abrufen
 
-Stellen Sie sich vor, wie wir die Wiedergaberate nutzen könnten, um beispielsweise die Barrierefreiheit für Benutzer mit vestibulären Störungen zu verbessern, indem wir sie Animationen über die gesamte Website hinweg verlangsamen lassen. Das wäre mit CSS unmöglich, ohne die Dauern jeder CSS-Regel neu zu berechnen, aber mit der Web Animations API könnten wir die Methode [`Document.getAnimations`](/de/docs/Web/API/Document/getAnimations) verwenden, um jede Animation auf der Seite zu durchlaufen und deren Wiedergaberate zu halbieren, wie folgt: 
+Stellen Sie sich vor, wie wir die Wiedergaberate nutzen könnten, um beispielsweise die Barrierefreiheit für Benutzer mit vestibulären Störungen zu verbessern, indem wir sie Animationen über die gesamte Website hinweg verlangsamen lassen. Das wäre mit CSS unmöglich, ohne die Dauern jeder CSS-Regel neu zu berechnen, aber mit der Web Animations API könnten wir die Methode [`Document.getAnimations`](/de/docs/Web/API/Document/getAnimations) verwenden, um jede Animation auf der Seite zu durchlaufen und deren Wiedergaberate zu halbieren, wie folgt:
 
 ```js
 document.getAnimations().forEach((animation) => {

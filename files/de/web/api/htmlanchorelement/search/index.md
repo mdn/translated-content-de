@@ -16,8 +16,8 @@ Die Anfrage wird beim Setzen {{Glossary("Percent-encoding", "percent-codiert")}}
 
 Moderne Browser bieten
 [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples)
-und 
-[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples) 
+und
+[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples)
 an, um die Parameter aus dem Querystring einfach auszulesen.
 
 Weitere Informationen finden Sie unter [`URL.search`](/de/docs/Web/API/URL/search).

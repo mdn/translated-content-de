@@ -13,8 +13,7 @@ Die **`padding`**-[CSS](/de/docs/Web/CSS)-[Kurzform-Eigenschaft](/de/docs/Web/CS
 
 Der Abstandsbereich (`padding area`) eines Elements ist der Raum zwischen seinem Inhalt und seiner Umrandung (`border`).
 
-> [!NOTE]
-> **Padding** erzeugt zusätzlichen Platz innerhalb eines Elements. Im Gegensatz dazu erzeugt {{cssxref("margin")}} zusätzlichen Platz _um_ ein Element herum.
+> [!NOTE] > **Padding** erzeugt zusätzlichen Platz innerhalb eines Elements. Im Gegensatz dazu erzeugt {{cssxref("margin")}} zusätzlichen Platz _um_ ein Element herum.
 
 ## Zusammengesetzte Eigenschaften
 

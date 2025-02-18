@@ -32,36 +32,36 @@ veryverythickmathspace => 0.3888888888888889em
 
 ### Einheiten
 
-| Einheit | Beschreibung                                                                                               |
-| ------- | --------------------------------------------------------------------------------------------------------- |
-| `em`    | {{ Cssxref("font-size", "Schriftart-relative") }} Einheit                                                 |
+| Einheit | Beschreibung                                                                                                                 |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `em`    | {{ Cssxref("font-size", "Schriftart-relative") }} Einheit                                                                    |
 | `ex`    | {{ Cssxref("font-size", "Schriftart-relative") }} Einheit. (Die "x"-Höhe des Elements, `1ex ≈ 0.5em` in vielen Schriftarten) |
-| `px`    | Pixel                                                                                                     |
-| `in`    | Zoll (1 Zoll = 2,54 Zentimeter)                                                                           |
-| `cm`    | Zentimeter                                                                                                |
-| `mm`    | Millimeter                                                                                                |
-| `pt`    | Punkte (1 Punkt = 1/72 Zoll)                                                                              |
-| `pc`    | Pica (1 Pica = 12 Punkte)                                                                                 |
-| `%`     | Prozentsatz des Standardwerts.                                                                            |
+| `px`    | Pixel                                                                                                                        |
+| `in`    | Zoll (1 Zoll = 2,54 Zentimeter)                                                                                              |
+| `cm`    | Zentimeter                                                                                                                   |
+| `mm`    | Millimeter                                                                                                                   |
+| `pt`    | Punkte (1 Punkt = 1/72 Zoll)                                                                                                 |
+| `pc`    | Pica (1 Pica = 12 Punkte)                                                                                                    |
+| `%`     | Prozentsatz des Standardwerts.                                                                                               |
 
 ### Konstanten
 
-| Konstante                         | Wert       |
-| --------------------------------- | ---------- |
-| `veryverythinmathspace`           | 1/18 `em`  |
-| `verythinmathspace`               | 2/18 `em`  |
-| `thinmathspace`                   | 3/18 `em`  |
-| `mediummathspace`                 | 4/18 `em`  |
-| `thickmathspace`                  | 5/18 `em`  |
-| `verythickmathspace`              | 6/18 `em`  |
-| `veryverythickmathspace`          | 7/18 `em`  |
-| `negativeveryverythinmathspace`   | -1/18 `em` |
-| `negativeverythinmathspace`       | -2/18 `em` |
-| `negativethinmathspace`           | -3/18 `em` |
-| `negativemediummathspace`         | -4/18 `em` |
-| `negativethickmathspace`          | -5/18 `em` |
-| `negativeverythickmathspace`      | -6/18 `em` |
-| `negativeveryverythickmathspace`  | -7/18 `em` |
+| Konstante                        | Wert       |
+| -------------------------------- | ---------- |
+| `veryverythinmathspace`          | 1/18 `em`  |
+| `verythinmathspace`              | 2/18 `em`  |
+| `thinmathspace`                  | 3/18 `em`  |
+| `mediummathspace`                | 4/18 `em`  |
+| `thickmathspace`                 | 5/18 `em`  |
+| `verythickmathspace`             | 6/18 `em`  |
+| `veryverythickmathspace`         | 7/18 `em`  |
+| `negativeveryverythinmathspace`  | -1/18 `em` |
+| `negativeverythinmathspace`      | -2/18 `em` |
+| `negativethinmathspace`          | -3/18 `em` |
+| `negativemediummathspace`        | -4/18 `em` |
+| `negativethickmathspace`         | -5/18 `em` |
+| `negativeverythickmathspace`     | -6/18 `em` |
+| `negativeveryverythickmathspace` | -7/18 `em` |
 
 ## Browser-Kompatibilität
 

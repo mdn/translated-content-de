@@ -20,9 +20,9 @@ Optional kann ein einzelnes `+`- oder `-`-Vorzeichen vorangestellt sein. Positiv
 ### Einheiten
 
 - `deg`
-  - : Repräsentiert einen Winkel in [Grad](https://de.wikipedia.org/wiki/Grad_(Winkeleinheit)). Ein voller Kreis entspricht `360deg`. Beispiele: `0deg`, `90deg`, `14.23deg`.
+  - : Repräsentiert einen Winkel in [Grad](<https://de.wikipedia.org/wiki/Grad_(Winkeleinheit)>). Ein voller Kreis entspricht `360deg`. Beispiele: `0deg`, `90deg`, `14.23deg`.
 - `grad`
-  - : Repräsentiert einen Winkel in [Gon](https://de.wikipedia.org/wiki/Gon_(Winkeleinheit)). Ein voller Kreis entspricht `400grad`. Beispiele: `0grad`, `100grad`, `38.8grad`.
+  - : Repräsentiert einen Winkel in [Gon](<https://de.wikipedia.org/wiki/Gon_(Winkeleinheit)>). Ein voller Kreis entspricht `400grad`. Beispiele: `0grad`, `100grad`, `38.8grad`.
 - `rad`
   - : Repräsentiert einen Winkel in [Radianten](https://de.wikipedia.org/wiki/Radiant). Ein voller Kreis entspricht 2π Radianten, was etwa `6.2832rad` entspricht. `1rad` entspricht 180/π Grad. Beispiele: `0rad`, `1.0708rad`, `6.2832rad`.
 - `turn`

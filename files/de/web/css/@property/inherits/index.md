@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`inherits`** [CSS](/de/docs/Web/CSS)-Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) steuert, ob die registrierte [CSS- benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) standardmäßig vererbt wird oder nicht.  
+Der **`inherits`** [CSS](/de/docs/Web/CSS)-Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) steuert, ob die registrierte [CSS- benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) standardmäßig vererbt wird oder nicht.
 Es handelt sich um einen erforderlichen Deskriptor; fehlt er oder ist ungültig, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
 
 ## Syntax

@@ -21,7 +21,7 @@ _Erbt Methoden von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSCon
 
 ## Beispiele
 
-Das CSS enthält eine CSS-Feature-Abfrage mit der {{cssxref("@supports")}}-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), die eine einzige Stilregel beinhaltet. Dies wird die erste `CSSRule` sein, die durch `document.styleSheets[0].cssRules` zurückgegeben wird.  
+Das CSS enthält eine CSS-Feature-Abfrage mit der {{cssxref("@supports")}}-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), die eine einzige Stilregel beinhaltet. Dies wird die erste `CSSRule` sein, die durch `document.styleSheets[0].cssRules` zurückgegeben wird.
 `myRules[0]` gibt daher ein `CSSSupportsRule`-Objekt zurück.
 
 ```css

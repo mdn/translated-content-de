@@ -212,16 +212,16 @@ for (const value of ofInterest) {
 
 Für diejenigen von Ihnen, die einen Browser ohne Unterstützung verwenden, sollte die obige Ausgabe so aussehen:
 
-| Eigenschaft                              | Wert  | Einheit      |
-| ---------------------------------------- | ----- | ------------ |
-| {{cssxref("padding-top")}}               | 0     | `px`         |
-| {{cssxref("margin-bottom")}}             | 16    | `px`         |
-| {{cssxref("font-size")}}                 | 16    | `px`         |
-| {{cssxref("font-stretch")}}              | 100   | `%`          |
-| {{cssxref("animation-duration")}}        | 0     | `px`         |
-| {{cssxref("animation-iteration-count")}} | 1     | _number_     |
-| {{cssxref("width")}}                     | auto  | _undefined_  |
-| {{cssxref("height")}}                    | auto  | _undefined_  |
+| Eigenschaft                              | Wert | Einheit     |
+| ---------------------------------------- | ---- | ----------- |
+| {{cssxref("padding-top")}}               | 0    | `px`        |
+| {{cssxref("margin-bottom")}}             | 16   | `px`        |
+| {{cssxref("font-size")}}                 | 16   | `px`        |
+| {{cssxref("font-stretch")}}              | 100  | `%`         |
+| {{cssxref("animation-duration")}}        | 0    | `px`        |
+| {{cssxref("animation-iteration-count")}} | 1    | _number_    |
+| {{cssxref("width")}}                     | auto | _undefined_ |
+| {{cssxref("height")}}                    | auto | _undefined_ |
 
 Sie werden feststellen, dass die Einheit {{cssxref('&lt;length&gt;')}} als `px` zurückgegeben wird, {{cssxref('&lt;percentage&gt;')}} als `percent`, {{cssxref('&lt;time&gt;')}} als `s` für 'Sekunden' und die einheitslose Einheit {{cssxref('&lt;number&gt;')}} als `number`.
 
