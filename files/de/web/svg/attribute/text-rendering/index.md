@@ -2,15 +2,15 @@
 title: text-rendering
 slug: Web/SVG/Attribute/text-rendering
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`text-rendering`** Attribut gibt dem Renderer Hinweise darauf, welche Kompromisse beim Rendern von Text gemacht werden sollten.
+Das **`text-rendering`**-Attribut gibt dem Renderer Hinweise darauf, welche Kompromisse beim Rendern von Text zu machen sind.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `text-rendering` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS {{cssxref("text-rendering")}} Eigenschaft.
+> Als Präsentationsattribut hat `text-rendering` auch ein entsprechendes CSS-Eigenschafts-Pendant: {{cssxref("text-rendering")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -58,13 +58,13 @@ svg {
 </table>
 
 - `auto`
-  - : Dieser Wert gibt an, dass der Benutzeragent geeignete Kompromisse machen soll, um eine Balance zwischen Geschwindigkeit, Lesbarkeit und geometrischer Präzision zu finden, wobei der Lesbarkeit mehr Bedeutung beigemessen wird als der Geschwindigkeit und der geometrischen Präzision.
+  - : Dieser Wert gibt an, dass der User-Agent geeignete Kompromisse eingeht, um Geschwindigkeit, Lesbarkeit und geometrische Präzision auszugleichen, wobei Lesbarkeit eine höhere Priorität als Geschwindigkeit und geometrische Präzision eingeräumt wird.
 - `optimizeSpeed`
-  - : Dieser Wert gibt an, dass der Benutzeragent die Rendergeschwindigkeit gegenüber Lesbarkeit und geometrischer Präzision betonen soll. Diese Option wird manchmal einige Benutzeragenten dazu veranlassen, die Text-Anti-Aliasing abzuschalten.
+  - : Dieser Wert gibt an, dass der User-Agent die Rendergeschwindigkeit gegenüber Lesbarkeit und geometrischer Präzision bevorzugt. Diese Option kann dazu führen, dass einige User-Agents das Text-Anti-Aliasing deaktivieren.
 - `optimizeLegibility`
-  - : Dieser Wert gibt an, dass der Benutzeragent die Lesbarkeit gegenüber Rendergeschwindigkeit und geometrischer Präzision betonen soll. Der Benutzeragent wird häufig entscheiden, ob Anti-Aliasing-Techniken, eingebaute Font-Hinweise oder beides angewendet werden, um den lesbarsten Text zu erzeugen.
+  - : Dieser Wert gibt an, dass der User-Agent die Lesbarkeit gegenüber Rendergeschwindigkeit und geometrischer Präzision bevorzugt. In der Regel entscheidet der User-Agent, ob Anti-Aliasing-Techniken, integrierte Schriftanpassung oder beides verwendet werden, um den lesbarsten Text zu erzeugen.
 - `geometricPrecision`
-  - : Dieser Wert gibt an, dass der Benutzeragent die geometrische Präzision gegenüber Lesbarkeit und Rendergeschwindigkeit betonen soll. Diese Option führt in der Regel dazu, dass der Benutzeragent die Verwendung von Hinweisen aussetzt, sodass {{Glossary("glyph", "Glyphen")}}-Umrisse mit vergleichbarer geometrischer Präzision zum Rendern der Pfaddaten gezeichnet werden.
+  - : Dieser Wert gibt an, dass der User-Agent die geometrische Präzision gegenüber Lesbarkeit und Rendergeschwindigkeit bevorzugt. Diese Option sorgt normalerweise dafür, dass der User-Agent auf Schriftanpassung verzichtet, sodass die {{Glossary("glyph", "Glyphen")}}-Umrisse mit ähnlicher geometrischer Präzision wie die Darstellung von Pfaddaten gezeichnet werden.
 
 ## Spezifikationen
 
@@ -76,4 +76,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("text-rendering")}} Eigenschaft
+- CSS {{cssxref("text-rendering")}}-Eigenschaft

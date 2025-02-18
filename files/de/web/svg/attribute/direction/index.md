@@ -2,19 +2,19 @@
 title: direction
 slug: Web/SVG/Attribute/direction
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`direction`**-Attribut gibt die inline-basierte Richtung eines {{SVGElement("text")}}- oder {{SVGElement("tspan")}}-Elements an. Es definiert die Start- und Endpunkte einer Textzeile, wie sie von den {{SVGAttr("text-anchor")}}- und {{SVGAttr("inline-size")}}-Eigenschaften verwendet werden. Es kann auch die Richtung beeinflussen, in der Zeichen positioniert werden, wenn der Wert der {{SVGAttr("unicode-bidi")}}-Eigenschaft entweder `embed` oder `bidi-override` ist.
+Das **`direction`**-Attribut legt die inline-basierte Richtung eines {{SVGElement("text")}}- oder {{SVGElement("tspan")}}-Elements fest. Es definiert die Start- und Endpunkte einer Textzeile, wie sie von den Eigenschaften {{SVGAttr("text-anchor")}} und {{SVGAttr("inline-size")}} verwendet werden. Es kann auch die Richtung beeinflussen, in der Zeichen positioniert werden, wenn der Wert der {{SVGAttr("unicode-bidi")}}-Eigenschaft entweder `embed` oder `bidi-override` ist.
 
-Es gilt nur für Glyphen, die senkrecht zur inline-basierten Richtung ausgerichtet sind, was den üblichen Fall von horizontal ausgerichtetem lateinischen oder arabischen Text und den Fall von schmalzelligen lateinischen oder arabischen Zeichen umfasst, die um 90 Grad im Uhrzeigersinn gedreht sind in Bezug auf eine von oben nach unten verlaufende inline-basierte Richtung.
+Es gilt nur für Glyphen, die senkrecht zur inline-basierten Richtung ausgerichtet sind, was den üblichen Fall von horizontal ausgerichtetem lateinischen oder arabischen Text sowie den Fall von schmalen lateinischen oder arabischen Zeichen umfasst, die um 90 Grad im Uhrzeigersinn relativ zu einer von oben nach unten verlaufenden inline-basierten Richtung gedreht sind.
 
-In vielen Fällen erzeugt der bidirektionale Unicode-Algorithmus automatisch das gewünschte Ergebnis, sodass dieses Attribut in diesen Fällen nicht angegeben werden muss. In anderen Fällen, wie zum Beispiel bei der Verwendung von rechts-nach-links Sprachen, kann es ausreichend sein, das `direction`-Attribut zum äußersten {{SVGElement("svg")}}-Element hinzuzufügen, und es dieser Richtung erlauben, auf alle Textelemente zu erben:
+In vielen Fällen liefert der bidirektionale Unicode-Algorithmus automatisch das gewünschte Ergebnis, sodass dieses Attribut in solchen Fällen nicht angegeben werden muss. Für andere Fälle, wie z. B. bei der Verwendung von Recht-zu-Links-Sprachen, kann es ausreichen, das `direction`-Attribut zum äußersten {{SVGElement("svg")}}-Element hinzuzufügen, sodass diese Richtung an alle Textelemente vererbt wird:
 
 > [!NOTE]
-> Als ein Präsentationsattribut kann `direction` als eine CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie unter CSS {{cssxref("direction")}}.
+> Als Präsentationsattribut hat `direction` auch ein entsprechendes CSS-Eigenschafts-Pendant: {{cssxref("direction")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -45,7 +45,7 @@ svg {
 </svg>
 ```
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -74,4 +74,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("direction")}}-Eigenschaft
+- CSS-Eigenschaft {{cssxref("direction")}}

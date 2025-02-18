@@ -1,15 +1,15 @@
 ---
-title: "HTMLDialogElement: showModal()-Methode"
+title: "HTMLDialogElement: showModal() Methode"
 short-title: showModal()
 slug: Web/API/HTMLDialogElement/showModal
 l10n:
-  sourceCommit: 694a813ca116ab209166ac162fe2fa59a9d20e55
+  sourceCommit: d4ef52651257b64f9298fb34db82071f605a3fae
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`showModal()`**-Methode der
-[`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle zeigt das Dialogfeld als Modalfenster an, überlagert andere möglicherweise vorhandene Dialogfelder. Es wird in der {{Glossary("top_layer", "Top-Schicht")}} angezeigt, zusammen mit einem {{cssxref('::backdrop')}}-Pseudo-Element. Elemente im gleichen Dokument wie das Dialogfeld, mit Ausnahme des Dialogs und seiner Nachkommen, werden _inert_ (als ob das [`inert`](/de/docs/Web/HTML/Global_attributes/inert)-Attribut angegeben wäre). Nur das enthaltene Dokument wird blockiert; wenn das Dialogfeld in einem iframe gerendert wird, bleibt der Rest der Seite interaktiv.
+Die **`showModal()`**-Methode des
+[`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces zeigt den Dialog als Modal an, überlagert alle anderen möglicherweise vorhandenen Dialoge. Er wird in der {{Glossary("top_layer", "obersten Ebene")}} angezeigt, zusammen mit einem {{cssxref('::backdrop')}}-Pseudo-Element. Elemente, die sich im selben Dokument wie der Dialog befinden, mit Ausnahme des Dialogs und seiner Nachkommen, werden _unwirksam_ (als ob das [`inert`](/de/docs/Web/HTML/Global_attributes/inert)-Attribut angegeben wäre). Nur das umgebende Dokument wird blockiert; wenn der Dialog innerhalb eines `iframe` angezeigt wird, bleibt der Rest der Seite interaktiv.
 
 ## Syntax
 
@@ -28,13 +28,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Dialogfeld bereits geöffnet ist (d. h. wenn das `open`-Attribut bereits auf dem {{htmlelement("dialog")}}-Element gesetzt ist), oder wenn das Dialogfeld auch ein [Popover](/de/docs/Web/API/Popover_API) ist, das bereits angezeigt wird.
+  - : Wird ausgelöst, wenn der Dialog bereits geöffnet und nicht modal ist (d. h. wenn der Dialog bereits mit [`HTMLDialogElement.show()`](/de/docs/Web/API/HTMLDialogElement/show) geöffnet wurde).
 
 ## Beispiele
 
-### Öffnen eines modalen Dialogfelds
+### Öffnen eines modalen Dialogs
 
-Das folgende Beispiel zeigt eine Schaltfläche, die beim Anklicken ein modales {{htmlelement("dialog")}} mit einem Formular über die `HTMLDialogElement.showModal()`-Funktion öffnet. Während es geöffnet ist, wird alles außer dem Inhalt des modalen Dialogfelds inert. Von dort können Sie die Schaltfläche _Abbrechen_ verwenden, um das Dialogfeld zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Funktion), oder das Formular über die Senden-Schaltfläche übermitteln. Wenn Sie die Abbrechen-Schaltfläche auswählen, wird das Dialogfeld geschlossen, wodurch ein [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst wird, kein [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis.
+Das folgende Beispiel zeigt eine Schaltfläche, die beim Anklicken einen modalen {{htmlelement("dialog")}} mit einem Formular über die Funktion `HTMLDialogElement.showModal()` öffnet. Während der Dialog geöffnet ist, wird alles außer dem Inhalt des modalen Dialogs unwirksam. Von dort aus können Sie entweder auf die _Abbrechen_-Schaltfläche klicken, um den Dialog zu schließen (über die Funktion [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)), oder das Formular über die Absenden-Schaltfläche einreichen. Das Auswählen der Abbrechen-Schaltfläche schließt den Dialog und löst ein [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis aus, jedoch kein [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis.
 
 #### HTML
 
@@ -106,4 +106,4 @@ cancelButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.

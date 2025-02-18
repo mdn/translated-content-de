@@ -2,15 +2,15 @@
 title: stroke-linecap
 slug: Web/SVG/Attribute/stroke-linecap
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`stroke-linecap`** Attribut ist ein Präsentationsattribut, das die Form definiert, die am Ende von offenen Unterpfaden verwendet werden soll, wenn sie gestrichen werden.
+Das Attribut **`stroke-linecap`** ist ein Präsentationsattribut, das die Form definiert, die am Ende offener Teilpfade verwendet wird, wenn diese gestrichen werden.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-linecap` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie unter {{cssxref('stroke-linecap')}}.
+> Als Präsentationsattribut hat `stroke-linecap` auch ein entsprechendes CSS-Property: {{cssxref("stroke-linecap")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -74,7 +74,7 @@ svg {
 
 ### butt
 
-Der Wert `butt` zeigt an, dass der Strich für jeden Unterpfad nicht über seine beiden Endpunkte hinausreicht. Bei einem Unterpfad mit null Länge wird der Pfad überhaupt nicht dargestellt.
+Der Wert `butt` gibt an, dass der Strich für jeden Teilpfad nicht über seine beiden Endpunkte hinausgeht. Bei einem Teilpfad mit einer Länge von null wird der Pfad überhaupt nicht gerendert.
 
 #### Beispiel
 
@@ -109,7 +109,7 @@ svg {
 
 ### round
 
-Der Wert `round` zeigt an, dass der Strich am Ende jedes Unterpfads um einen Halbkreis mit einem Durchmesser, der der Strichbreite entspricht, verlängert wird. Bei einem Unterpfad mit null Länge besteht der Strich aus einem vollständigen Kreis, der auf den Punkt des Unterpfads zentriert ist.
+Der Wert `round` gibt an, dass der Strich am Ende jedes Teilpfads um einen Halbkreis mit einem Durchmesser, der der Strichbreite entspricht, verlängert wird. Bei einem Teilpfad mit einer Länge von null besteht der Strich aus einem vollständigen Kreis, der am Punkt des Teilpfads zentriert ist.
 
 #### Beispiel
 
@@ -144,7 +144,7 @@ svg {
 
 ### square
 
-Der Wert `square` zeigt an, dass der Strich am Ende jedes Unterpfads um ein Rechteck mit einer Breite, die der halben Breite des Strichs entspricht, und einer Höhe, die der Breite des Strichs entspricht, verlängert wird. Bei einem Unterpfad mit null Länge besteht der Strich aus einem Quadrat mit einer Breite, die der Strichbreite entspricht, zentriert auf den Punkt des Unterpfads.
+Der Wert `square` gibt an, dass der Strich am Ende jedes Teilpfads um ein Rechteck verlängert wird. Die Breite dieses Rechtecks entspricht der halben Strichbreite, und die Höhe entspricht der Strichbreite. Bei einem Teilpfad mit einer Länge von null besteht der Strich aus einem Quadrat, dessen Breite der Strichbreite entspricht und das am Punkt des Teilpfads zentriert ist.
 
 #### Beispiel
 
@@ -187,4 +187,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("stroke-linecap")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("stroke-linecap")}}

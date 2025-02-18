@@ -2,24 +2,24 @@
 title: color-interpolation-filters
 slug: Web/SVG/Attribute/color-interpolation-filters
 l10n:
-  sourceCommit: 6a01359152716aafd62878599603f6ce76a9a9bf
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das Attribut **`color-interpolation-filters`** spezifiziert den Farbraum für Bildoperationen, die über Filtereffekte durchgeführt werden.
+Das **`color-interpolation-filters`** Attribut gibt den Farbraum für Bildoperationen an, die über Filtereffekte ausgeführt werden.
 
 > [!NOTE]
-> Diese Eigenschaft wirkt sich nur auf Filteroperationen aus. Daher hat sie keinen Effekt auf Filterprimitive wie {{SVGElement("feOffset")}}, {{SVGElement("feImage")}}, {{SVGElement("feTile")}} oder {{SVGElement("feFlood")}}.
+> Diese Eigenschaft wirkt sich ausschließlich auf Filteroperationen aus. Daher hat sie keinen Einfluss auf Filterprimitiven wie {{SVGElement("feOffset")}}, {{SVGElement("feImage")}}, {{SVGElement("feTile")}} oder {{SVGElement("feFlood")}}.
 >
-> `color-interpolation-filters` hat einen anderen Anfangswert als {{SVGAttr("color-interpolation")}}. `color-interpolation-filters` hat einen Anfangswert von `linearRGB`, während `color-interpolation` einen Anfangswert von `sRGB` hat. In der Standardeinstellung erfolgen Filtereffekt-Operationen somit im linearRGB-Farbraum, während alle anderen Farbinterpolationen standardmäßig im sRGB-Farbraum erfolgen.
+> `color-interpolation-filters` hat einen anderen Standardwert als {{SVGAttr("color-interpolation")}}. `color-interpolation-filters` hat den Standardwert `linearRGB`, während `color-interpolation` den Standardwert `sRGB` besitzt. Daher finden Filtereffekt-Operationen standardmäßig im `linearRGB`-Farbraum statt, während alle anderen Farbinterpolationen standardmäßig im `sRGB`-Farbraum erfolgen.
 >
-> Es hat keinen Effekt auf Filterfunktionen, die im {{Glossary("RGB", "sRGB")}} Farbraum arbeiten.
+> Es hat keine Wirkung auf Filterfunktionen, die im {{Glossary("RGB", "sRGB")}}-Farbraum ausgeführt werden.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `color-interpolation-filters` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('color-interpolation-filters')}} für weitere Informationen.
+> Als Präsentationsattribut hat `color-interpolation-filters` auch ein entsprechendes CSS-Eigenschafts-Pendant: {{cssxref("color-interpolation-filters")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feSpotLight")}}
 - {{SVGElement("feBlend")}}
@@ -40,7 +40,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -60,11 +60,11 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `auto`
-  - : Gibt an, dass der Benutzeragent entweder die `sRGB`- oder `linearRGB`-Farbräume für die Farbinterpolation wählen kann. Diese Option gibt an, dass der Autor nicht verlangt, dass die Farbinterpolation in einem bestimmten Farbraum erfolgt.
+  - : Gibt an, dass der Benutzeragent entweder den `sRGB`- oder den `linearRGB`-Farbraum für die Farbinterpolation auswählen kann. Diese Option zeigt an, dass der Autor nicht verlangt, dass die Farbinterpolation in einem bestimmten Farbraum erfolgen muss.
 - `sRGB`
-  - : Gibt an, dass die Farbinterpolation im sRGB-Farbraum erfolgen soll.
+  - : Gibt an, dass die Farbinterpolation im sRGB-Farbraum stattfinden soll.
 - `linearRGB`
-  - : Gibt an, dass die Farbinterpolation im linearisierten RGB-Farbraum erfolgen soll, wie in der [sRGB-Spezifikation](https://webstore.iec.ch/en/publication/6169) beschrieben.
+  - : Gibt an, dass die Farbinterpolation im linearisierten RGB-Farbraum stattfinden soll, wie in [der sRGB-Spezifikation](https://webstore.iec.ch/en/publication/6169) beschrieben.
 
 ## Spezifikationen
 
@@ -77,5 +77,5 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 ## Siehe auch
 
 - SVG-Attribut {{SVGAttr("color-interpolation")}}
-- CSS-Eigenschaft {{cssxref('color-interpolation-filters')}}
+- CSS {{cssxref('color-interpolation-filters')}} Eigenschaft
 - [sRGB-Spezifikation](https://webstore.iec.ch/en/publication/6169)

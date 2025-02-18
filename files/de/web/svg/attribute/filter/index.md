@@ -2,17 +2,17 @@
 title: filter
 slug: Web/SVG/Attribute/filter
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`filter`**-Attribut gibt die Filtereffekte an, die durch das {{SVGElement("filter")}}-Element definiert werden und auf das entsprechende Element angewendet werden sollen.
+Das **`filter`**-Attribut gibt die Filtereffekte an, die durch das {{SVGElement("filter")}}-Element definiert sind und auf das jeweilige Element angewendet werden sollen.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `filter` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie unter CSS {{cssxref("filter")}}.
+> Als Präsentationsattribut hat `filter` auch ein entsprechendes CSS-Attribut: {{cssxref("filter")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Als Präsentationsattribut kann es auf jedes Element angewendet werden, es wirkt jedoch nur auf [Container-Elemente](/de/docs/Web/SVG/Element#container_elements) ohne das {{SVGElement("defs")}}-Element, auf alle [Grafikelemente](/de/docs/Web/SVG/Element#graphics_elements) und auf das {{SVGElement("use")}}-Element.
+Technisch kann `filter` auf jedes Element angewendet werden, aber es hat nur Auswirkungen auf [Container-Elemente](/de/docs/Web/SVG/Element#container_elements) ohne das {{SVGElement("defs")}}-Element, alle [Grafik-Elemente](/de/docs/Web/SVG/Element#graphics_elements) und das {{SVGElement("use")}}-Element.
 
 ## Beispiel
 
@@ -36,7 +36,7 @@ svg {
 
 {{EmbedLiveSample("Example", "220", "220")}}
 
-## Anwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -46,7 +46,7 @@ svg {
         <code>none</code>
         <a
           href="/de/docs/Web/CSS/Value_definition_syntax#single_bar"
-          title="Single bar: exactly one of the entities must be present"
+          title="Single bar: genau eine der Entitäten muss vorhanden sein"
           >|</a
         >
         <code>&#x3C;filter-value-list></code>
@@ -63,7 +63,7 @@ svg {
   </tbody>
 </table>
 
-Eine Beschreibung der Werte finden Sie unter der CSS {{cssxref("filter")}}-Eigenschaft.
+Eine Beschreibung der Werte finden Sie in der CSS-Eigenschaft {{cssxref("filter")}}.
 
 ## Spezifikationen
 
@@ -76,4 +76,4 @@ Eine Beschreibung der Werte finden Sie unter der CSS {{cssxref("filter")}}-Eigen
 ## Siehe auch
 
 - {{SVGElement("filter")}}
-- CSS {{cssxref("filter")}}-Eigenschaft
+- CSS-Eigenschaft {{cssxref("filter")}}

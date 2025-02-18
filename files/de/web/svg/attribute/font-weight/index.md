@@ -2,15 +2,15 @@
 title: font-weight
 slug: Web/SVG/Attribute/font-weight
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`font-weight`** Attribut bezieht sich auf die Fettschrift oder Leichtigkeit der Glyphen, die zum Rendern des Textes verwendet werden, relativ zu anderen Schriften in derselben Schriftfamilie.
+Das **`font-weight`**-Attribut bezieht sich auf die Stärke oder Leichtigkeit der Glyphen, die zum Rendern des Textes verwendet werden, relativ zu anderen Schriftarten in der gleichen Schriftfamilie.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `font-weight` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS {{cssxref("font-weight")}} Eigenschaft.
+> Als Präsentationsattribut hat `font-weight` auch ein entsprechendes CSS-Attribut: {{cssxref("font-weight")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -38,7 +38,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "30")}}
 
-## Verwendungsnotizen
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -60,7 +60,7 @@ svg {
   </tbody>
 </table>
 
-Eine Beschreibung der Werte finden Sie in der [CSS `font-weight`](/de/docs/Web/CSS/font-weight#values) Eigenschaft.
+Für eine Beschreibung der Werte konsultieren Sie bitte die [CSS `font-weight`](/de/docs/Web/CSS/font-weight#values)-Eigenschaft.
 
 ## Spezifikationen
 
@@ -72,4 +72,4 @@ Eine Beschreibung der Werte finden Sie in der [CSS `font-weight`](/de/docs/Web/C
 
 ## Siehe auch
 
-- CSS {{cssxref("font-weight")}} Eigenschaft
+- CSS {{cssxref("font-weight")}}-Eigenschaft

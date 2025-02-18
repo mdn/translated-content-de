@@ -2,19 +2,19 @@
 title: marker-end
 slug: Web/SVG/Attribute/marker-end
 l10n:
-  sourceCommit: f1b6d2b8e68aaf767adaa86edcc261490c07f14d
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`marker-end`** Attribut definiert den Pfeilkopf oder Polymarker, der an der letzten Ecke der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
+Das **`marker-end`**-Attribut definiert den Pfeilkopf oder Mehrfach-Markierer, der am letzten Scheitelpunkt der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
 
-Für alle Formelemente, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist die letzte Ecke identisch mit der ersten Ecke. In diesem Fall werden, wenn der Wert von {{SVGAttr("marker-start")}} und `marker-end` beide nicht `none` sind, zwei Marker an dieser letzten Ecke dargestellt. Bei `<path>`-Elementen ist für jeden geschlossenen Unterpfad die letzte Ecke identisch mit der ersten Ecke. `marker-end` wird nur an der letzten Ecke der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands) gerendert.
+Für alle Form-Elemente außer {{SVGElement("polyline")}} und {{SVGElement("path")}} ist der letzte Scheitelpunkt identisch mit dem ersten Scheitelpunkt. In diesem Fall, wenn der Wert von {{SVGAttr("marker-start")}} und `marker-end` beide nicht `none` sind, werden zwei Markierer an diesem letzten Scheitelpunkt gerendert. Für `<path>`-Elemente ist bei jedem geschlossenen Teilpfad der letzte Scheitelpunkt identisch mit dem ersten Scheitelpunkt. `marker-end` wird nur auf dem finalen Scheitelpunkt der [Pfad-Daten](/de/docs/Web/SVG/Attribute/d#path_commands) gerendert.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `marker-end` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('marker-end')}} für mehr.
+> Als Präsentationsattribut hat `marker-end` auch ein entsprechendes CSS-Property: {{cssxref("marker-end")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("ellipse")}}
@@ -59,7 +59,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -79,9 +79,9 @@ svg {
 </table>
 
 - `none`
-  - : Gibt an, dass kein Markersymbol an der letzten Ecke gezeichnet werden soll.
+  - : Gibt an, dass kein Markiersymbol am letzten Scheitelpunkt gezeichnet wird.
 - `<marker-ref>`
-  - : Dieser Wert ist ein Verweis auf ein {{SVGElement("marker")}} Element, das an der letzten Ecke gezeichnet wird. Wenn der Verweis ungültig ist, wird kein Marker gezeichnet.
+  - : Dieser Wert ist ein Verweis auf ein {{SVGElement("marker")}}-Element, das am letzten Scheitelpunkt gezeichnet wird. Wenn der Verweis nicht gültig ist, wird kein Marker gezeichnet.
 
 ## Spezifikationen
 
@@ -96,4 +96,4 @@ svg {
 - {{SVGElement("marker")}}
 - {{SVGAttr("marker-start")}}
 - {{SVGAttr("marker-mid")}}
-- CSS {{cssxref('marker-end')}} Eigenschaft
+- CSS {{cssxref('marker-end')}}-Eigenschaft

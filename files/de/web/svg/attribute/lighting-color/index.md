@@ -2,14 +2,17 @@
 title: lighting-color
 slug: Web/SVG/Attribute/lighting-color
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`lighting-color`** Attribut definiert die Farbe der Lichtquelle für Lichtfilter-Primitiven.
+Das **`lighting-color`**-Attribut definiert die Farbe der Lichtquelle für Beleuchtungs-Filter-Primitives.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+> [!NOTE]
+> Als Präsentationsattribut hat `lighting-color` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("lighting-color")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feDiffuseLighting")}}
 - {{SVGElement("feSpecularLighting")}}
@@ -68,7 +71,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -83,5 +86,5 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("lighting-color")}} Eigenschaft
-- [Beschreibung des Phong-Reflection-Modells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)
+- CSS {{cssxref("lighting-color")}}-Eigenschaft
+- [Beschreibung des Phong-Reflexionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)

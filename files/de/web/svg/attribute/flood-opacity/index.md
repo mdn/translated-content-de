@@ -2,15 +2,15 @@
 title: flood-opacity
 slug: Web/SVG/Attribute/flood-opacity
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`flood-opacity`**-Attribut gibt den Opazitätswert an, der über die aktuelle Filterprimitiv-Subregion verwendet werden soll.
+Das **`flood-opacity`**-Attribut gibt den Opazitätswert an, der in der aktuellen Filter-Primitive-Unterregion verwendet wird.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `flood-opacity` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut hat `flood-opacity` auch ein entsprechendes CSS-Attribut: {{cssxref("flood-opacity")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -59,7 +59,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -68,7 +68,7 @@ svg {
       <td><code>&#x3C;alpha-value></code></td>
     </tr>
     <tr>
-      <th scope="row">Initialwert</th>
+      <th scope="row">Startwert</th>
       <td><code>1</code></td>
     </tr>
     <tr>
@@ -79,7 +79,8 @@ svg {
 </table>
 
 - `<alpha-value>`
-  - : Eine Zahl oder ein Prozentsatz, der den Opazitätswert angibt, der über die aktuelle Filterprimitiv-Subregion verwendet werden soll. Eine Zahl von `0` oder ein Prozentsatz von `0%` stellt eine vollständig transparente Farbe dar, `1` oder `100%` stellt eine vollständig opake Farbe dar.
+  - : Eine Zahl oder ein Prozentsatz, der den Opazitätswert angibt, der in der aktuellen Filter-Primitive-Unterregion verwendet werden soll.
+    Eine Zahl von `0` oder ein Prozentsatz von `0%` repräsentiert eine vollständig transparente Farbe, `1` oder `100%` repräsentiert eine vollständig opake Farbe.
 
 ## Spezifikationen
 

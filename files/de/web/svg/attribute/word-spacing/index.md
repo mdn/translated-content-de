@@ -2,19 +2,19 @@
 title: word-spacing
 slug: Web/SVG/Attribute/word-spacing
 l10n:
-  sourceCommit: 6c3fa1be644bab0b94ce933ae4331e4fd49a9db1
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`word-spacing`**-Attribut legt das Abstandsverhalten zwischen Wörtern fest.
+Das **`word-spacing`**-Attribut gibt das Verhalten des Abstands zwischen Wörtern an.
 
-Wenn eine {{cssxref("length")}} ohne Einheit angegeben wird (z. B. eine unqualifizierte Zahl wie 128), verarbeitet der Browser die \<length> als Breitenwert im aktuellen Benutzerkoordinatensystem.
+Wenn eine {{cssxref("length")}} ohne Einheitenbezeichner angegeben wird (z. B. eine unqualifizierte Zahl wie 128), verarbeitet der Browser die \<length> als einen Breitenwert im aktuellen Benutzerkoordinatensystem.
 
-Wird eine \<length> mit einer der Einheiten (z. B. .25em oder 1%) angegeben, dann wandelt der Browser die \<length> in einen entsprechenden Wert im aktuellen Benutzerkoordinatensystem um.
+Wenn eine \<length> mit einem der Einheitenbezeichner angegeben wird (z. B. .25em oder 1%), konvertiert der Browser die \<length> in einen entsprechenden Wert im aktuellen Benutzerkoordinatensystem.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `word-spacing` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("word-spacing")}}.
+> Als Präsentationsattribut hat `word-spacing` auch ein entsprechendes CSS-Attribut: {{cssxref("word-spacing")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 ## Elemente
 
@@ -44,7 +44,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte siehe bitte die [CSS `letter-spacing`](/de/docs/Web/CSS/letter-spacing#values) Eigenschaft.
+Für eine Beschreibung der Werte siehe die [CSS `letter-spacing`](/de/docs/Web/CSS/letter-spacing#values)-Eigenschaft.
 
 ## Beispiele
 
@@ -77,4 +77,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("word-spacing")}} Eigenschaft
+- CSS {{cssxref("word-spacing")}}-Eigenschaft

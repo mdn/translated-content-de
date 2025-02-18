@@ -2,17 +2,17 @@
 title: font-family
 slug: Web/SVG/Attribute/font-family
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das Attribut **`font-family`** gibt an, welche Schriftfamilie zur Darstellung des Textes verwendet wird. Es wird als priorisierte Liste von Schriftfamiliennamen und/oder generischen Familiennamen angegeben.
+Das **`font-family`**-Attribut gibt an, welche Schriftfamilie zur Darstellung des Textes verwendet wird. Es wird als priorisierte Liste von Schriftfamiliennamen und/oder generischen Schriftfamiliennamen angegeben.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `font-family` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("font-family")}}.
+> Als Präsentationsattribut hat `font-family` auch ein entsprechendes CSS-Property: {{cssxref("font-family")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
@@ -38,7 +38,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "30")}}
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -48,7 +48,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td>Hängt vom Benutzeragenten ab</td>
+      <td>Hängt vom User-Agent ab</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -57,7 +57,7 @@ svg {
   </tbody>
 </table>
 
-Eine Beschreibung der Werte finden Sie in der [CSS `font-family`](/de/docs/Web/CSS/font-family#values) Eigenschaft.
+Für eine Beschreibung der Werte lesen Sie bitte die [`font-family`](/de/docs/Web/CSS/font-family#values)-Eigenschaft in CSS.
 
 ## Spezifikationen
 
@@ -69,4 +69,4 @@ Eine Beschreibung der Werte finden Sie in der [CSS `font-family`](/de/docs/Web/C
 
 ## Siehe auch
 
-- CSS {{cssxref("font-family")}} Eigenschaft
+- CSS {{cssxref("font-family")}}-Eigenschaft

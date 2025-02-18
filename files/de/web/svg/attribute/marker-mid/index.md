@@ -2,17 +2,17 @@
 title: marker-mid
 slug: Web/SVG/Attribute/marker-mid
 l10n:
-  sourceCommit: f1b6d2b8e68aaf767adaa86edcc261490c07f14d
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`marker-mid`** Attribut definiert die Pfeilspitze oder den Polymarker, der an allen inneren Scheitelpunkten der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
+Das **`marker-mid`**-Attribut definiert den Pfeilkopf oder Polymarker, der an allen inneren Eckpunkten der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
 
-Der Marker wird an jedem Scheitelpunkt gerendert, außer dem ersten und letzten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands).
+Der Marker wird auf jedem Eckpunkt außer dem ersten und letzten Eckpunkt der [Path-Daten](/de/docs/Web/SVG/Attribute/d#path_commands) gerendert.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `marker-mid` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('marker-mid')}} für mehr Informationen.
+> Als Präsentationsattribut hat `marker-mid` auch ein entsprechendes CSS-Property: {{cssxref("marker-mid")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -51,7 +51,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -71,9 +71,9 @@ svg {
 </table>
 
 - `none`
-  - : Zeigt an, dass kein Markersymbol an den angegebenen Scheitelpunkten gezeichnet wird.
+  - : Zeigt an, dass kein Markersymbol an den angegebenen Eckpunkten gezeichnet wird.
 - `<marker-ref>`
-  - : Dieser Wert ist ein Verweis auf ein {{SVGElement("marker")}} Element, das an den angegebenen Scheitelpunkten gezeichnet wird. Wenn der Verweis ungültig ist, wird kein Marker gezeichnet.
+  - : Dieser Wert ist eine Referenz auf ein {{SVGElement("marker")}}-Element, das an den angegebenen Eckpunkten gezeichnet wird. Wenn die Referenz ungültig ist, wird kein Marker gezeichnet.
 
 ## Spezifikationen
 

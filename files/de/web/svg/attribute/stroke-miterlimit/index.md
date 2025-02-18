@@ -2,15 +2,15 @@
 title: stroke-miterlimit
 slug: Web/SVG/Attribute/stroke-miterlimit
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`stroke-miterlimit`** Attribut ist ein Präsentationsattribut, das ein Limit für das Verhältnis der Gehrungslänge zur {{ SVGAttr("stroke-width") }} festlegt, die zum Zeichnen einer Gehrungsverbindung verwendet wird. Wird das Limit überschritten, wird die Verbindung von einer Gehrung in eine Fase umgewandelt.
+Das **`stroke-miterlimit`**-Attribut ist ein Präsentationsattribut, das eine Begrenzung für das Verhältnis der Miterlänge zur {{ SVGAttr("stroke-width") }} festlegt, die verwendet wird, um eine Gehrungsfuge (`miter join`) zu zeichnen. Wenn die Begrenzung überschritten wird, wird die Gehrungsfuge in eine abgeschrägte Verbindung (`bevel`) umgewandelt.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-miterlimit` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-miterlimit')}} für mehr Informationen.
+> Als Präsentationsattribut hat `stroke-miterlimit` auch ein entsprechendes CSS-Property: {{cssxref("stroke-miterlimit")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -86,9 +86,9 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 400)}}
 
-Wenn zwei Liniensegmente in einem scharfen Winkel aufeinandertreffen und `miter`-Verbindungen für {{ SVGAttr("stroke-linejoin") }} angegeben wurden, kann es passieren, dass die Gehrung weit über die Dicke der Linie, die den Pfad streicht, hinausgeht. Das `stroke-miterlimit`-Verhältnis wird verwendet, um zu definieren, wann das Limit überschritten wird. In diesem Fall wird die Verbindung von einer Gehrung in eine Fase umgewandelt.
+Wenn sich zwei Liniensegmente in einem scharfen Winkel treffen und für {{ SVGAttr("stroke-linejoin") }} `miter`-Verbindungen festgelegt wurden, ist es möglich, dass die Gehrung weit über die Breite der Linie hinausgeht, die den Pfad zeichnet. Das `stroke-miterlimit`-Verhältnis wird verwendet, um festzulegen, wann die Grenze überschritten wird; in diesem Fall wird die Verbindung von einer Gehrungsfuge zu einer abgeschrägten Verbindung umgewandelt.
 
-Das Verhältnis der Gehrungslänge (Abstand zwischen der äußeren Spitze und der inneren Ecke der Gehrung) zur {{ SVGAttr("stroke-width") }} steht in direktem Zusammenhang mit dem Winkel (Theta) zwischen den Segmenten im Benutzerraum durch die Formel:
+Das Verhältnis der Miterlänge (der Abstand zwischen der äußeren Spitze und der inneren Ecke der Gehrung) zu {{ SVGAttr("stroke-width") }} steht in direktem Zusammenhang mit dem Winkel (Theta) zwischen den Segmenten im Benutzerraum durch die nachstehende Formel:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -96,9 +96,13 @@ Das Verhältnis der Gehrungslänge (Abstand zwischen der äußeren Spitze und de
 </math>
 <!-- prettier-ignore-end -->
 
-Zum Beispiel konvertiert ein Gehrungslimit von 1,414 Gehrungen in Fasen für Theta kleiner als 90 Grad, ein Limit von 4,0 konvertiert sie für Theta kleiner als ungefähr 29 Grad, und ein Limit von 10,0 konvertiert sie für Theta kleiner als ungefähr 11,5 Grad.
+Zum Beispiel:
 
-## Verwendungskontext
+- Ein Miter-Limit von 1,414 wandelt Gehrungen in Abschrägungen um, wenn der Winkel Theta kleiner als 90 Grad ist.
+- Ein Limit von 4,0 wandelt sie für Theta unter ungefähr 29 Grad um.
+- Ein Limit von 10,0 wandelt sie für Theta unter ungefähr 11,5 Grad um.
+
+## Gebrauchskontext
 
 <table class="properties">
   <tbody>
@@ -135,4 +139,4 @@ Der Wert von `stroke-miterlimit` muss größer oder gleich 1 sein.
 
 ## Siehe auch
 
-- CSS {{cssxref("stroke-miterlimit")}} Eigenschaft
+- CSS {{cssxref("stroke-miterlimit")}}-Property

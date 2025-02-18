@@ -1,15 +1,14 @@
 ---
-title: "HTMLDialogElement: show() Methode"
+title: "HTMLDialogElement: show()-Methode"
 short-title: show()
 slug: Web/API/HTMLDialogElement/show
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: d4ef52651257b64f9298fb34db82071f605a3fae
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`show()`** Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)
-Interfaces zeigt das Dialogfeld modelless an, d.h. es erlaubt weiterhin die Interaktion mit Inhalt außerhalb des Dialogs.
+Die **`show()`**-Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces zeigt das Dialogfeld modelless an, d.h., sie erlaubt weiterhin die Interaktion mit dem Inhalt außerhalb des Dialogs.
 
 ## Syntax
 
@@ -23,14 +22,16 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
+
+### Ausnahmen
+
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das Dialogfeld bereits geöffnet ist und modal ist (d.h., wenn das Dialogfeld bereits mit [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet wurde).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der, wenn er geklickt wird, ein
-{{htmlelement("dialog")}} mit einem Formular über die `show()`-Methode öffnet. Von
-dort aus können Sie den _Cancel_-Button anklicken, um den Dialog zu schließen (über die
-[`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Methode), oder das Formular über den Submit-Button absenden.
+Das folgende Beispiel zeigt einen einfachen Button, der beim Anklicken ein {{htmlelement("dialog")}} mit einem Formular über die `show()`-Methode öffnet. Von dort aus können Sie entweder den _Abbrechen_-Button klicken, um das Dialogfeld zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode), oder das Formular über den Absenden-Button einreichen.
 
 ```html
 <!-- Simple pop-up dialog box, containing a form -->

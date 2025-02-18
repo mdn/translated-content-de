@@ -2,24 +2,24 @@
 title: visibility
 slug: Web/SVG/Attribute/visibility
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das Attribut **`visibility`** ermöglicht Ihnen die Kontrolle über die Sichtbarkeit von grafischen Elementen. Mit einem Wert von `hidden` oder `collapse` wird das aktuelle Grafikelement unsichtbar.
+Das **`visibility`**-Attribut ermöglicht es Ihnen, die Sichtbarkeit von grafischen Elementen zu steuern. Mit einem Wert von `hidden` oder `collapse` ist das aktuelle Grafikelement unsichtbar.
 
 > [!NOTE]
-> Wenn das `visibility`-Attribut auf einem Textelement auf `hidden` gesetzt ist, wird der Text unsichtbar, nimmt aber weiterhin Platz in den Textlayout-Berechnungen ein.
+> Wenn das `visibility`-Attribut bei einem Textelement auf `hidden` gesetzt ist, bleibt der Text unsichtbar, nimmt aber weiterhin Platz in den Textlayout-Berechnungen ein.
 
-Abhängig vom Wert des Attributs {{SVGAttr("pointer-events")}} können grafische Elemente, die ihr `visibility`-Attribut auf `hidden` gesetzt haben, weiterhin Ereignisse empfangen.
+Abhängig vom Wert des Attributs {{SVGAttr("pointer-events")}} können grafische Elemente, deren `visibility`-Attribut auf `hidden` gesetzt ist, weiterhin Ereignisse empfangen.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `visibility` als CSS-Eigenschaft verwendet werden. Siehe die CSS-Eigenschaft {{cssxref("visibility")}} für weitere Informationen.
+> Als Präsentationsattribut hat `visibility` auch ein entsprechendes CSS-Eigenschafts-Pendant: {{cssxref("visibility")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 ## Elemente
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("a")}}
 - `<audio>`
@@ -64,9 +64,9 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - `visible`
   - : Dieser Wert gibt an, dass das Element gezeichnet wird.
 - `hidden`
-  - : Dieser Wert gibt an, dass das Element nicht gezeichnet wird. Es ist jedoch weiterhin Teil des Rendering-Baums, d. h., es kann Zeigereignisse je nach Attribut {{SVGAttr("pointer-events")}} empfangen, je nach Attribut {{SVGAttr("tabindex")}} den Fokus erhalten, trägt zur Berechnung der Begrenzungsrahmen und der Clipping-Pfade bei und beeinflusst das Textlayout.
+  - : Dieser Wert gibt an, dass das Element nicht gezeichnet wird. Es ist jedoch weiterhin Teil des Rendering-Baums, d.h., es kann abhängig vom {{SVGAttr("pointer-events")}}-Attribut Zeigereignisse empfangen, abhängig vom {{SVGAttr("tabindex")}}-Attribut den Fokus erhalten, zu Berechnungen der Begrenzungsbox und Schnittwege beitragen und sich auf das Textlayout auswirken.
 - `collapse`
-  - : Dieser Wert ist gleich `hidden`.
+  - : Dieser Wert entspricht `hidden`.
 
 ## Beispiele
 
@@ -101,7 +101,7 @@ svg {
 
 ### Beispiel 2
 
-Das folgende Beispiel wechselt die CSS-`visibility` des SVG-Bildpfads um.
+Das folgende Beispiel schaltet die CSS-`visibility` des SVG-Bildpfads um.
 
 #### HTML
 
@@ -169,4 +169,4 @@ button.addEventListener("click", (evt) => {
 ## Siehe auch
 
 - {{SVGAttr("display")}}-Attribut
-- CSS {{cssxref("visibility")}}-Eigenschaft
+- CSS-{{cssxref("visibility")}}-Eigenschaft

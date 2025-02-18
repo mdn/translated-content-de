@@ -2,26 +2,26 @@
 title: unicode-bidi
 slug: Web/SVG/Attribute/unicode-bidi
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das Attribut **`unicode-bidi`** legt fest, wie die Akkumulation des Hintergrundbildes verwaltet wird.
+Das Attribut **`unicode-bidi`** gibt an, wie die Akkumulation des Hintergrundbildes verwaltet wird.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `unicode-bidi` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der [CSS `unicode-bidi`](/de/docs/Web/CSS/unicode-bidi)-Eigenschaft.
+> Als Präsentationsattribut hat `unicode-bidi` ebenfalls ein entsprechendes CSS-Property: {{cssxref("unicode-bidi")}}. Wenn beide angegeben sind, hat das CSS-Property Priorität.
 
 ## Elemente
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("textPath")}}
 - {{SVGElement("text")}}
 - {{SVGElement("tref")}}
 - {{SVGElement("tspan")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -40,7 +40,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte lesen Sie bitte die CSS-Eigenschaft {{cssxref("unicode-bidi")}}.
+Für eine Beschreibung der Werte sehen Sie bitte die CSS-Eigenschaft {{cssxref("unicode-bidi")}} nach.
 
 ## Spezifikationen
 
@@ -52,4 +52,4 @@ Für eine Beschreibung der Werte lesen Sie bitte die CSS-Eigenschaft {{cssxref("
 
 ## Siehe auch
 
-- CSS {{cssxref("unicode-bidi")}}-Eigenschaft
+- CSS-{{cssxref("unicode-bidi")}}-Eigenschaft

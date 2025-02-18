@@ -2,15 +2,15 @@
 title: shape-rendering
 slug: Web/SVG/Attribute/shape-rendering
 l10n:
-  sourceCommit: 10c719061d0f21f1b6ff4457a624e9dd49083d3f
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`shape-rendering`** Attribut gibt dem Renderer Hinweise darauf, welche Kompromisse beim Rendern von Formen wie Pfaden, Kreisen oder Rechtecken eingegangen werden sollen.
+Das **`shape-rendering`**-Attribut gibt dem Renderer Hinweise darauf, welche Kompromisse beim Rendern von Formen wie Pfaden, Kreisen oder Rechtecken eingegangen werden sollen.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `shape-rendering` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('shape-rendering')}} für mehr Informationen.
+> Als Präsentationsattribut hat `shape-rendering` auch ein entsprechendes CSS-Eigenschaftspendant: {{cssxref("shape-rendering")}}. Wenn beides angegeben ist, hat die CSS-Eigenschaft Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -39,7 +39,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", "420", "220")}}
+{{EmbedLiveSample("Example", "420", "220")}}
 
 ## Nutzungshinweise
 
@@ -64,13 +64,13 @@ svg {
 </table>
 
 - `auto`
-  - : Dieser Wert gibt an, dass der Benutzeragent geeignete Kompromisse eingehen soll, um Geschwindigkeit, scharfe Kanten und geometrische Präzision auszugleichen, wobei der geometrischen Präzision mehr Bedeutung beigemessen wird als Geschwindigkeit und scharfen Kanten.
+  - : Dieser Wert gibt an, dass der User Agent geeignete Kompromisse eingehen soll, um Geschwindigkeit, scharfe Kanten und geometrische Präzision auszugleichen, wobei der geometrischen Präzision mehr Bedeutung beigemessen wird als Geschwindigkeit und scharfen Kanten.
 - `optimizeSpeed`
-  - : Dieser Wert gibt an, dass der Benutzeragent die Rendergeschwindigkeit gegenüber geometrischer Präzision und scharfen Kanten betonen soll. Diese Option kann dazu führen, dass der Benutzeragent das Kantenglätten von Formen ausschaltet.
+  - : Dieser Wert gibt an, dass der User Agent die Rendergeschwindigkeit über geometrische Präzision und scharfe Kanten stellen soll. Diese Option kann dazu führen, dass der User Agent die Kantenglättung (Anti-Aliasing) deaktiviert.
 - `crispEdges`
-  - : Dieser Wert gibt an, dass der Benutzeragent versuchen soll, den Kontrast zwischen sauberen Kanten von Kunstwerken gegenüber der Rendergeschwindigkeit und der geometrischen Präzision zu betonen. Um scharfe Kanten zu erreichen, kann der Benutzeragent das Kantenglätten für alle Linien und Kurven oder möglicherweise nur für nahezu vertikale oder horizontale Geraden ausschalten. Außerdem kann der Benutzeragent gegebenenfalls Linienpositionen und -breiten anpassen, um Kanten mit Gerätepixeln auszurichten.
+  - : Dieser Wert gibt an, dass der User Agent den Kontrast zwischen sauberen Kanten eines Kunstwerks gegenüber Rendergeschwindigkeit und geometrischer Präzision betonen soll. Um scharfe Kanten zu erreichen, könnte der User Agent die Kantenglättung für alle Linien und Kurven deaktivieren oder möglicherweise nur für gerade Linien, die fast vertikal oder horizontal verlaufen. Außerdem könnte der User Agent Linienpositionen und -breiten anpassen, um Kanten an Gerätepixeln auszurichten.
 - `geometricPrecision`
-  - : Gibt an, dass der Benutzeragent die geometrische Präzision gegenüber Geschwindigkeit und scharfen Kanten betonen soll.
+  - : Gibt an, dass der User Agent die geometrische Präzision über Geschwindigkeit und scharfe Kanten stellen soll.
 
 ## Spezifikationen
 
@@ -82,4 +82,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref('shape-rendering')}} Eigenschaft
+- CSS-Eigenschaft {{cssxref('shape-rendering')}}
