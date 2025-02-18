@@ -26,7 +26,7 @@ _Keine spezifischen Methoden; erbt Methoden von seinem Vorfahren [`CSSRule`](/de
 
 ## Beispiele
 
-Das CSS enthält eine `keyframes`-At-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.  
+Das CSS enthält eine `keyframes`-At-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
 `myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, das einzelne `CSSKeyFrameRule`-Objekte für jeden Keyframe enthalten wird.
 
 ```css

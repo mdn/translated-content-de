@@ -14,19 +14,19 @@ Komplexe Websites besitzen häufig sehr umfangreiche CSS-Dateien, was oft zu ein
 Benutzereigenschaften, die [mithilfe von zwei Bindestrichen (`--`)](/de/docs/Web/CSS/--*) definiert werden, unterliegen der [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) und erben ihren Wert vom übergeordneten Element. Der {{cssxref("@property")}}-Regelsatz bietet mehr Kontrolle über die Benutzereigenschaft und ermöglicht es, anzugeben, ob sie ihren Wert vom Elternteil erben soll, was der Standardwert ist, und welche Typbeschränkungen gelten sollen.
 
 > [!NOTE]
-> Variablen funktionieren nicht innerhalb von Media Queries oder Container Queries.  
-> Sie können die Funktion {{cssxref("var", "var()")}} in jedem Teil eines Wertes für jede Eigenschaft eines Elements verwenden.  
+> Variablen funktionieren nicht innerhalb von Media Queries oder Container Queries.
+> Sie können die Funktion {{cssxref("var", "var()")}} in jedem Teil eines Wertes für jede Eigenschaft eines Elements verwenden.
 > Sie können jedoch {{cssxref("var", "var()")}} nicht für Eigenschaftsnamen, Selektoren oder andere Dinge außer Eigenschaftswerten verwenden, was bedeutet, dass Sie es nicht in einer Media Query oder Container Query verwenden können.
 
 ## Benutzereigenschaften deklarieren
 
-In CSS können Sie eine Benutzereigenschaft deklarieren, indem Sie dem Eigenschaftsnamen zwei Bindestriche als Präfix hinzufügen oder den Regelsatz {{cssxref("@property")}} verwenden.  
+In CSS können Sie eine Benutzereigenschaft deklarieren, indem Sie dem Eigenschaftsnamen zwei Bindestriche als Präfix hinzufügen oder den Regelsatz {{cssxref("@property")}} verwenden.
 Die folgenden Abschnitte erläutern, wie Sie diese beiden Methoden anwenden können.
 
 ### Verwendung eines Präfixes mit zwei Bindestrichen (`--`)
 
-Eine mit zwei Bindestrichen präfixierte Benutzereigenschaft beginnt mit `--`, gefolgt vom Eigenschaftsnamen (z. B. `--my-property`) und einem Eigenschaftswert, der jeden [gültigen CSS-Wert](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) enthalten kann.  
-Wie jede andere Eigenschaft wird diese innerhalb eines Regelsatzes geschrieben.  
+Eine mit zwei Bindestrichen präfixierte Benutzereigenschaft beginnt mit `--`, gefolgt vom Eigenschaftsnamen (z. B. `--my-property`) und einem Eigenschaftswert, der jeden [gültigen CSS-Wert](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) enthalten kann.
+Wie jede andere Eigenschaft wird diese innerhalb eines Regelsatzes geschrieben.
 
 Das folgende Beispiel zeigt, wie eine Benutzereigenschaft `--main-bg-color` erstellt wird, wobei ein [`<named-color>`](/de/docs/Web/CSS/named-color)-Wert von `brown` verwendet wird:
 
@@ -36,7 +36,7 @@ section {
 }
 ```
 
-Der dem Regelsatz zugewiesene Selektor (im obigen Beispiel [`<section>`](/de/docs/Web/HTML/Element/section)-Elemente) definiert den Gültigkeitsbereich, in dem die Benutzereigenschaft verwendet werden kann.  
+Der dem Regelsatz zugewiesene Selektor (im obigen Beispiel [`<section>`](/de/docs/Web/HTML/Element/section)-Elemente) definiert den Gültigkeitsbereich, in dem die Benutzereigenschaft verwendet werden kann.
 Aus diesem Grund ist es gängige Praxis, Benutzereigenschaften auf der {{cssxref(":root")}} Pseudoklasse zu definieren, damit sie global referenziert werden können:
 
 ```css
@@ -52,7 +52,7 @@ Das muss jedoch nicht immer der Fall sein: Sie könnten möglicherweise einen gu
 
 ### Verwendung des `@property`-Regelsatzes
 
-Der {{cssxref("@property")}}-Regelsatz ermöglicht eine detailliertere Definition einer Benutzereigenschaft mit der Möglichkeit, eine Typzuweisung mit der Eigenschaft zu verknüpfen, Standardwerte festzulegen und die Vererbung zu steuern.  
+Der {{cssxref("@property")}}-Regelsatz ermöglicht eine detailliertere Definition einer Benutzereigenschaft mit der Möglichkeit, eine Typzuweisung mit der Eigenschaft zu verknüpfen, Standardwerte festzulegen und die Vererbung zu steuern.
 
 Im folgenden Beispiel wird eine Benutzereigenschaft `--logo-color` erstellt, die einen [`<color>`](/de/docs/Web/CSS/color_value) erwartet:
 
@@ -64,7 +64,7 @@ Im folgenden Beispiel wird eine Benutzereigenschaft `--logo-color` erstellt, die
 }
 ```
 
-Wenn Sie Benutzereigenschaften stattdessen in JavaScript anstelle von CSS direkt definieren oder verwenden möchten, gibt es eine entsprechende API, die Sie dafür nutzen können.  
+Wenn Sie Benutzereigenschaften stattdessen in JavaScript anstelle von CSS direkt definieren oder verwenden möchten, gibt es eine entsprechende API, die Sie dafür nutzen können.
 Auf der Seite [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API) können Sie nachlesen, wie dies funktioniert.
 
 ### Referenzierung von Benutzereigenschaften mit `var()`
@@ -79,7 +79,7 @@ details {
 
 ## Erste Schritte mit Benutzereigenschaften
 
-Beginnen wir mit etwas HTML, auf das wir einige Stile anwenden möchten.  
+Beginnen wir mit etwas HTML, auf das wir einige Stile anwenden möchten.
 Es gibt ein `<div>`, das als Container fungiert und einige Kindelemente enthält, von denen einige verschachtelt sind:
 
 ```html
@@ -98,7 +98,7 @@ Es gibt ein `<div>`, das als Container fungiert und einige Kindelemente enthält
 </div>
 ```
 
-Wir verwenden das folgende CSS, um verschiedene Elemente basierend auf ihren Klassen zu stylen (einige Layoutregeln sind unten nicht gezeigt, damit wir uns auf die Farben konzentrieren können).  
+Wir verwenden das folgende CSS, um verschiedene Elemente basierend auf ihren Klassen zu stylen (einige Layoutregeln sind unten nicht gezeigt, damit wir uns auf die Farben konzentrieren können).
 Abhängig von ihren Klassen geben wir den Elementen die Hintergrundfarben `cornflowerblue` oder `aquamarine`:
 
 ```css hidden
@@ -175,8 +175,8 @@ Es bietet sich an, Benutzereigenschaften zu verwenden, um wiederholte Werte in d
 
 ## Verwendung der :root-Pseudoklasse
 
-Für einige CSS-Deklarationen ist es möglich, diese höher in der Kaskade zu deklarieren und das CSS-Vererbungsverhalten für die Lösung dieses Problems einzusetzen.  
-Für nicht triviale Projekte ist dies jedoch nicht immer möglich.  
+Für einige CSS-Deklarationen ist es möglich, diese höher in der Kaskade zu deklarieren und das CSS-Vererbungsverhalten für die Lösung dieses Problems einzusetzen.
+Für nicht triviale Projekte ist dies jedoch nicht immer möglich.
 Ein CSS-Autor kann durch das Deklarieren einer Benutzereigenschaft auf der {{cssxref(":root")}}-Pseudoklasse und deren Verwendung an den erforderlichen Stellen des Dokuments die Notwendigkeit von Wiederholungen reduzieren:
 
 ```css
@@ -208,7 +208,7 @@ Dies führt zum selben Ergebnis wie das vorherige Beispiel, ermöglicht jedoch e
 
 ## Vererbung von Benutzereigenschaften
 
-Eine Benutzereigenschaft, die mit zwei Bindestrichen `--` anstelle von `@property` definiert wird, erbt immer den Wert ihres übergeordneten Elements.  
+Eine Benutzereigenschaft, die mit zwei Bindestrichen `--` anstelle von `@property` definiert wird, erbt immer den Wert ihres übergeordneten Elements.
 Dies wird im folgenden Beispiel demonstriert:
 
 ```html live-sample___dash-custom-property-inheritance
@@ -277,17 +277,17 @@ Die Ergebnisse von `var(--box-color)` in Abhängigkeit von der Vererbung sind:
 - `class="three"`: `aquamarine`
 - `class="four"`: `cornflowerblue` (vererbt von ihrem Elternteil)
 
-Ein Aspekt von Benutzereigenschaften, den die obigen Beispiele zeigen, ist, dass sie sich nicht exakt wie Variablen in anderen Programmiersprachen verhalten.  
-Der Wert wird berechnet, wo er benötigt wird, und nicht gespeichert und an anderen Stellen eines Stylesheets wiederverwendet.  
-Zum Beispiel können Sie nicht erwarten, einen Wert abzurufen, der in einer Regel eines Geschwister-Elements definiert wurde.  
+Ein Aspekt von Benutzereigenschaften, den die obigen Beispiele zeigen, ist, dass sie sich nicht exakt wie Variablen in anderen Programmiersprachen verhalten.
+Der Wert wird berechnet, wo er benötigt wird, und nicht gespeichert und an anderen Stellen eines Stylesheets wiederverwendet.
+Zum Beispiel können Sie nicht erwarten, einen Wert abzurufen, der in einer Regel eines Geschwister-Elements definiert wurde.
 Die Eigenschaft wird nur für den passenden Selektor und dessen Nachkommen gesetzt.
 
 ### Nutzung von `@property` zur Steuerung der Vererbung
 
-Der `@property`-Regelsatz erlaubt ausdrücklich anzugeben, ob die Eigenschaft vererbt wird oder nicht.  
+Der `@property`-Regelsatz erlaubt ausdrücklich anzugeben, ob die Eigenschaft vererbt wird oder nicht.
 Das folgende Beispiel erstellt eine Benutzereigenschaft mit dem `@property`-Regelsatz. Die Vererbung ist deaktiviert, es wurde ein [`<color>`](/de/docs/Web/CSS/color_value)-Datentyp festgelegt und ein Standardwert von `cornflowerblue` definiert.
 
-Das Elternelement setzt `--box-color` auf einen Wert von `green` und verwendet `--box-color` als Wert für seine Hintergrundfarbe.  
+Das Elternelement setzt `--box-color` auf einen Wert von `green` und verwendet `--box-color` als Wert für seine Hintergrundfarbe.
 Das Kindelement verwendet ebenfalls `background-color: var(--box-color)`, und wir würden erwarten, dass es die Farbe `green` hätte, wenn die Vererbung aktiviert wäre (oder wenn es mit der Schreibweise der doppelten Bindestriche definiert wurde).
 
 ```html live-sample___at-property-inheritance
@@ -340,14 +340,14 @@ Da `inherits: false;` im Regelsatz festgelegt ist und kein Wert für die Eigensc
 Sie können Fallback-Werte für Benutzereigenschaften mithilfe der `var()`-Funktion und des Standardwertes in der `@property`-Regelsatz-Deklaration definieren.
 
 > [!NOTE]
-> Fallback-Werte werden nicht genutzt, um Kompatibilitätsprobleme zu lösen, wenn CSS-Benutzereigenschaften nicht unterstützt werden, da der Fallback-Wert in diesem Fall nicht funktioniert.  
+> Fallback-Werte werden nicht genutzt, um Kompatibilitätsprobleme zu lösen, wenn CSS-Benutzereigenschaften nicht unterstützt werden, da der Fallback-Wert in diesem Fall nicht funktioniert.
 > Fallbacks decken den Fall ab, dass der Browser CSS-Benutzereigenschaften unterstützt und einen anderen Wert verwenden kann, wenn die gewünschte Variable noch nicht definiert oder ungültig ist.
 
 ### Fallbacks in der `var()`-Funktion definieren
 
 Mit der [`var()`](/de/docs/Web/CSS/var)-Funktion können Sie mehrere **Fallback-Werte** definieren, wenn die angegebene Variable noch nicht definiert ist. Das kann nützlich sein, wenn Sie mit [Custom Elements](/de/docs/Web/API/Web_components/Using_custom_elements) und [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) arbeiten.
 
-Das erste Argument der Funktion ist der Name der Benutzereigenschaft. Das zweite Argument der Funktion ist ein optionaler Fallback-Wert, der als Ersatzwert verwendet wird, wenn die referenzierte Benutzereigenschaft ungültig ist.  
+Das erste Argument der Funktion ist der Name der Benutzereigenschaft. Das zweite Argument der Funktion ist ein optionaler Fallback-Wert, der als Ersatzwert verwendet wird, wenn die referenzierte Benutzereigenschaft ungültig ist.
 Die Funktion akzeptiert zwei Parameter, wobei alles, was auf das erste Komma folgt, als zweiter Parameter betrachtet wird. Wenn der zweite Parameter ungültig ist, schlägt der Fallback fehl. Beispiel:
 
 ```css
@@ -367,7 +367,7 @@ Die Funktion akzeptiert zwei Parameter, wobei alles, was auf das erste Komma fol
 }
 ```
 
-Das Einbeziehen einer Benutzereigenschaft als Fallback, wie im zweiten obigen Beispiel (`var(--my-var, var(--my-background, pink))`), ist der korrekte Weg, um mehr als einen Fallback mit `var()` bereitzustellen.  
+Das Einbeziehen einer Benutzereigenschaft als Fallback, wie im zweiten obigen Beispiel (`var(--my-var, var(--my-background, pink))`), ist der korrekte Weg, um mehr als einen Fallback mit `var()` bereitzustellen.
 Sie sollten jedoch die Leistungsbelastung dieser Methode beachten, da das Parsen der geschachtelten Variablen mehr Zeit in Anspruch nimmt.
 
 > [!NOTE]
@@ -375,13 +375,13 @@ Sie sollten jedoch die Leistungsbelastung dieser Methode beachten, da das Parsen
 
 ### Fallbacks mit dem `@property`-Standardwert
 
-Abgesehen von der Verwendung von `var()` kann der im `@property`-Regelsatz definierte Standardwert als Fallback-Mechanismus verwendet werden.  
+Abgesehen von der Verwendung von `var()` kann der im `@property`-Regelsatz definierte Standardwert als Fallback-Mechanismus verwendet werden.
 Tatsächlich haben wir dies bereits im Abschnitt [`@property`-Vererbung](#using_property_to_control_inheritance) gesehen.
 
 <!-- cSpell:ignore aqumarine -->
 
-Im folgenden Beispiel wird ein Standardwert `cornflowerblue` für `--box-color` mit dem `@property`-Regelsatz festgelegt.  
-Im Regelsatz nach dem `@property`-Regelsatz wollen wir `--box-color` auf `aquamarine` setzen, aber es gibt einen Tippfehler im Wertnamen. Dasselbe gilt für das dritte `<div>`, wo wir `2rem` für die Benutzereigenschaft verwendet haben, die einen gültigen [`<color>`-Wert](/de/docs/Web/CSS/color_value) erwartet.  
+Im folgenden Beispiel wird ein Standardwert `cornflowerblue` für `--box-color` mit dem `@property`-Regelsatz festgelegt.
+Im Regelsatz nach dem `@property`-Regelsatz wollen wir `--box-color` auf `aquamarine` setzen, aber es gibt einen Tippfehler im Wertnamen. Dasselbe gilt für das dritte `<div>`, wo wir `2rem` für die Benutzereigenschaft verwendet haben, die einen gültigen [`<color>`-Wert](/de/docs/Web/CSS/color_value) erwartet.
 Sowohl `2rem` als auch `aqumarine` sind ungültige Farbwerte, sodass der Standardwert `cornflowerblue` angewendet wird:
 
 ```css live-sample___at-property-initial-value
@@ -439,10 +439,10 @@ div {
 
 ## Ungültige Benutzereigenschaften
 
-Jede CSS-Eigenschaft kann eine definierte [Menge von Werten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) zugeordnet werden.  
+Jede CSS-Eigenschaft kann eine definierte [Menge von Werten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) zugeordnet werden.
 Wenn Sie versuchen, einer Eigenschaft einen Wert außerhalb ihres gültigen Wertebereichs zuzuweisen, wird dieser als _ungültig_ betrachtet.
 
-Wenn der Browser auf einen ungültigen Wert für eine reguläre CSS-Eigenschaft stößt (z. B. ein Wert von `16px` für die Eigenschaft {{cssxref("color")}}), verwirft er die Deklaration, und die Elemente erhalten die Werte, die sie gehabt hätten, wenn die Deklaration nicht existierte.  
+Wenn der Browser auf einen ungültigen Wert für eine reguläre CSS-Eigenschaft stößt (z. B. ein Wert von `16px` für die Eigenschaft {{cssxref("color")}}), verwirft er die Deklaration, und die Elemente erhalten die Werte, die sie gehabt hätten, wenn die Deklaration nicht existierte.
 Im folgenden Beispiel sehen wir, was passiert, wenn eine reguläre CSS-Deklaration ungültig ist; `color: 16px;` wird verworfen, und die vorherige Regel `color: blue` wird stattdessen angewendet:
 
 ```html live-sample___invalid-property
@@ -462,15 +462,15 @@ p {
 
 {{EmbedLiveSample('invalid-property', 100, 50)}}
 
-Wenn jedoch die Werte von Benutzereigenschaften geparst werden, kann der Browser noch nicht wissen, wo sie verwendet werden, sodass er nahezu alle Werte als _gültig_ betrachten muss.  
+Wenn jedoch die Werte von Benutzereigenschaften geparst werden, kann der Browser noch nicht wissen, wo sie verwendet werden, sodass er nahezu alle Werte als _gültig_ betrachten muss.
 Unglücklicherweise können diese gültigen Werte mithilfe der `var()`-funktionalen Notation in einem Kontext verwendet werden, in dem sie möglicherweise keinen Sinn ergeben. Eigenschaften und Benutzervariablen können zu ungültigen CSS-Anweisungen führen, was zum Konzept von _gültig zur Berechnungszeit_ führt.
 
-Wenn der Browser auf eine ungültige `var()`-Substitution stößt, wird der [Standardswert](/de/docs/Web/CSS/CSS_cascade/initial_value) oder der [geerbte Wert](/de/docs/Web/CSS/CSS_cascade/Inheritance) der Eigenschaft verwendet.  
+Wenn der Browser auf eine ungültige `var()`-Substitution stößt, wird der [Standardswert](/de/docs/Web/CSS/CSS_cascade/initial_value) oder der [geerbte Wert](/de/docs/Web/CSS/CSS_cascade/Inheritance) der Eigenschaft verwendet.
 Dieses Beispiel ähnelt dem letzten, außer dass wir eine Benutzereigenschaft verwenden.
 
 Der Browser ersetzt den Wert von `--text-color` anstelle von `var(--text-color)`, aber `16px` ist kein gültiger Eigenschaftswert für {{cssxref("color")}}. Nach der Substitution macht die Eigenschaft keinen Sinn mehr, und der Browser behandelt diese Situation in zwei Schritten:
 
-1. Überprüfen Sie, ob die Eigenschaft {{cssxref("color")}} vererbbar ist. Sie ist es, aber dieses `<p>` hat kein übergeordnetes Element mit der `color`-Eigenschaft. Daher fahren wir mit dem nächsten Schritt fort.  
+1. Überprüfen Sie, ob die Eigenschaft {{cssxref("color")}} vererbbar ist. Sie ist es, aber dieses `<p>` hat kein übergeordnetes Element mit der `color`-Eigenschaft. Daher fahren wir mit dem nächsten Schritt fort.
 2. Setzen Sie den Wert auf den **Standardwert**, der bei der Farbe schwarz ist.
 
 ```html live-sample___invalid-custom-property

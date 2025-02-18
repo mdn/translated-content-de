@@ -1,5 +1,5 @@
 ---
-title: ":is()"
+title: :is()
 slug: Web/CSS/:is
 l10n:
   sourceCommit: a29769d6d10261f771321eb60f3990029c160924

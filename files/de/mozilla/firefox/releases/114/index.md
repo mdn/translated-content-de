@@ -22,7 +22,7 @@ Keine bemerkenswerten Änderungen.
 
 ### CSS
 
-- Die [`:lang()`](/de/docs/Web/CSS/:lang)-Pseudoklasse verwendet jetzt String-Matching-Semantiken (einschließlich `*`-Wildcards), um Sprachcodes zuzuordnen, anstatt Präfix-Matching-Semantiken zu verwenden. 
+- Die [`:lang()`](/de/docs/Web/CSS/:lang)-Pseudoklasse verwendet jetzt String-Matching-Semantiken (einschließlich `*`-Wildcards), um Sprachcodes zuzuordnen, anstatt Präfix-Matching-Semantiken zu verwenden.
   Zusätzlich werden jetzt komma-separierte Listen von Sprachen unterstützt, um mehrere Sprachen abzugleichen ([Firefox Bug 1121792](https://bugzil.la/1121792)).
 - Die [`-webkit-text-security`](/de/docs/Web/CSS/-webkit-text-security)-Eigenschaft, die es ermöglicht, Zeichen durch Formen zu ersetzen, wird jetzt unterstützt. Sie können mit dieser Eigenschaft die Darstellung der Textsicherheit steuern ([Firefox Bug 1826629](https://bugzil.la/1826629)).
 - Die Konstanten `infinity` und `NaN` werden jetzt innerhalb der [`calc()`](/de/docs/Web/CSS/calc)-Funktion unterstützt ([Firefox Bug 1830759](https://bugzil.la/1830759)).

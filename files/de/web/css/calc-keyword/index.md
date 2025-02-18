@@ -43,7 +43,7 @@ Die Serialisierung der Argumente innerhalb von [`calc()`](/de/docs/Web/CSS/calc)
 - Positive und negative Null sind mögliche Werte (`0⁺` und `0⁻`).
   Dies hat folgende Auswirkungen:
   - Multiplikation oder Division, die Null ergibt und genau ein negatives Argument hat (`-5 * 0` oder `1 / (-infinity)`), oder ein negatives Ergebnis aus Kombinationen in den anderen mathematischen Funktionen, ergibt `0⁻`.
-  - `0⁻ + 0⁻` oder `0⁻ - 0` ergibt `0⁻`.  
+  - `0⁻ + 0⁻` oder `0⁻ - 0` ergibt `0⁻`.
     Alle anderen Additionen oder Subtraktionen, die zu Null führen, ergeben `0⁺`.
   - Wenn `0⁻` mit einer positiven Zahl (einschließlich `0⁺`) multipliziert oder dividiert wird, ergibt dies ein negatives Ergebnis (entweder `0⁻` oder `-infinity`), während `0⁻` mit einer negativen Zahl multipliziert oder dividiert ein positives Ergebnis ergibt.
 

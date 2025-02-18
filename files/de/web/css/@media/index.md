@@ -44,7 +44,7 @@ Die `<media-query-list>` einer Media Query enthält [`<media-type>`s](#media-typ
 
 ### Media-Typen
 
-Ein _`<media-type>`_ beschreibt die allgemeine Kategorie eines Geräts. 
+Ein _`<media-type>`_ beschreibt die allgemeine Kategorie eines Geräts.
 Außer bei Verwendung des logischen Operators `only` ist der Media-Typ optional, und der Typ `all` wird impliziert.
 
 - `all`
@@ -59,7 +59,7 @@ Außer bei Verwendung des logischen Operators `only` ist der Media-Typ optional,
 
 ### Media-Features
 
-Ein _`<media feature>`_ beschreibt spezifische Eigenschaften des {{Glossary("user_agent", "User Agents")}}, des Ausgabegeräts oder der Umgebung. 
+Ein _`<media feature>`_ beschreibt spezifische Eigenschaften des {{Glossary("user_agent", "User Agents")}}, des Ausgabegeräts oder der Umgebung.
 Media-Feature-Ausdrücke testen ihre Anwesenheit, ihren Wert oder Wertebereiche und sind vollständig optional. Jeder Media-Feature-Ausdruck muss in Klammern gesetzt sein.
 
 - {{cssxref("@media/any-hover", "any-hover")}}
@@ -169,7 +169,7 @@ Sie können auch mehrere Media Queries zu einer einzigen Regel kombinieren, inde
 
 ### User-Agent-Client-Hinweise
 
-Einige Media Queries haben entsprechende [User-Agent-Client-Hinweise](/de/docs/Web/HTTP/Client_hints). 
+Einige Media Queries haben entsprechende [User-Agent-Client-Hinweise](/de/docs/Web/HTTP/Client_hints).
 Dies sind HTTP-Header, die Inhalte anfordern, die für die spezifischen Media-Anforderungen voroptimiert sind.
 Dazu gehören {{HTTPHeader("Sec-CH-Prefers-Color-Scheme")}} und {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}}.
 
@@ -183,14 +183,14 @@ Um Menschen, die die Textgröße einer Website anpassen, bestmöglich zu unterst
 
 Sowohl [`em`](/de/docs/Web/CSS/CSS_Values_and_Units#numeric_data_types) als auch [`px`](/de/docs/Web/CSS/CSS_Values_and_Units#numeric_data_types) sind gültige Einheiten, aber [`em`](/de/docs/Web/CSS/CSS_Values_and_Units#numeric_data_types) funktioniert besser, wenn der Nutzer die Textgröße des Browsers ändert.
 
-Erwägen Sie außerdem Media Queries oder [HTTP-User-Agent-Client-Hinweise](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints), um die Benutzererfahrung zu verbessern. 
+Erwägen Sie außerdem Media Queries oder [HTTP-User-Agent-Client-Hinweise](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints), um die Benutzererfahrung zu verbessern.
 Zum Beispiel kann die Media Query [`prefers-reduced-motion`](/de/docs/Web/CSS/@media/prefers-reduced-motion) oder der entsprechende HTTP-Header {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}} verwendet werden, um die Menge an Animation oder Bewegung basierend auf Nutzerpräferenzen zu minimieren.
 
 ## Sicherheit
 
 Da Media Queries Einblicke in die Fähigkeiten - und somit in die Merkmale und das Design - des Geräts geben, mit dem der Benutzer arbeitet, besteht die Möglichkeit, dass sie missbraucht werden könnten, um einen {{Glossary("Fingerprinting", "\"Fingerprint\"")}} zu erstellen, der das Gerät identifiziert oder es zumindest bis zu einem gewissen Grad kategorisiert, was für Nutzer möglicherweise unerwünscht ist.
 
-Aufgrund dieses Potenzials könnte ein Browser beschließen, die zurückgegebenen Werte auf irgendeine Weise zu verfälschen, um zu verhindern, dass sie verwendet werden, um einen Computer präzise zu identifizieren. 
+Aufgrund dieses Potenzials könnte ein Browser beschließen, die zurückgegebenen Werte auf irgendeine Weise zu verfälschen, um zu verhindern, dass sie verwendet werden, um einen Computer präzise zu identifizieren.
 Ein Browser könnte auch zusätzliche Maßnahmen in diesem Bereich anbieten; zum Beispiel, wenn in Firefox die Einstellung "Resist Fingerprinting" aktiviert ist, melden viele Media Queries Standardwerte anstelle von Werten, die den tatsächlichen Gerätestatus darstellen.
 
 ## Beispiele

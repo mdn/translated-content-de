@@ -21,8 +21,7 @@ Für detaillierte Informationen über Ankerfunktionen und die Verwendung von Fal
 }
 ```
 
-> [!NOTE]
-> `--try-option-name` ist ein {{cssxref("dashed-ident")}}, das einen Namen für die benutzerdefinierte Positionsoption angibt, die dann der Liste der {{cssxref("position-try-fallbacks")}} hinzugefügt werden kann.
+> [!NOTE] > `--try-option-name` ist ein {{cssxref("dashed-ident")}}, das einen Namen für die benutzerdefinierte Positionsoption angibt, die dann der Liste der {{cssxref("position-try-fallbacks")}} hinzugefügt werden kann.
 
 ### Deskriptoren
 

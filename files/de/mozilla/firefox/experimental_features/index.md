@@ -7,11 +7,11 @@ l10n:
 
 {{FirefoxSidebar}}
 
-Diese Seite listet experimentelle und teilweise implementierte Funktionen in Firefox auf, einschließlich solcher für vorgeschlagene oder hochmoderne Webplattform-Standards, mit Informationen darüber, in welchen Builds sie vorhanden sind, ob sie "standardmäßig" aktiviert sind und welche _Einstellungen_ verwendet werden können, um sie zu aktivieren oder zu deaktivieren.  
+Diese Seite listet experimentelle und teilweise implementierte Funktionen in Firefox auf, einschließlich solcher für vorgeschlagene oder hochmoderne Webplattform-Standards, mit Informationen darüber, in welchen Builds sie vorhanden sind, ob sie "standardmäßig" aktiviert sind und welche _Einstellungen_ verwendet werden können, um sie zu aktivieren oder zu deaktivieren.
 Dies ermöglicht es Ihnen, Funktionen vor ihrer Veröffentlichung zu testen.
 
-Neue Funktionen erscheinen zuerst im [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/) Build, wo sie häufig standardmäßig aktiviert sind.  
-Später gelangen sie in die [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) und schließlich in den Release-Build.  
+Neue Funktionen erscheinen zuerst im [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/) Build, wo sie häufig standardmäßig aktiviert sind.
+Später gelangen sie in die [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) und schließlich in den Release-Build.
 Wenn eine Funktion standardmäßig in einem Release-Build aktiviert wird, gilt sie nicht mehr als experimentell und sollte aus diesem Thema entfernt werden.
 
 Experimentelle Funktionen können mithilfe des [Firefox Konfigurationseditors](https://support.mozilla.org/de/kb/about-config-editor-firefox) (geben Sie `about:config` in die Adressleiste von Firefox ein) durch Modifikation der zugehörigen _Einstellung_ aktiviert oder deaktiviert werden.

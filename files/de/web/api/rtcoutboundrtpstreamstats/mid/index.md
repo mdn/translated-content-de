@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`mid`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist ein String, der die zwischen den lokalen und den entfernten Peers ausgehandelte Medien-ID enthält. 
+Die **`mid`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist ein String, der die zwischen den lokalen und den entfernten Peers ausgehandelte Medien-ID enthält.
 Diese identifiziert eindeutig die Zuordnung von Quelle und Ziel für den Stream des Transceivers.
 
 ## Wert

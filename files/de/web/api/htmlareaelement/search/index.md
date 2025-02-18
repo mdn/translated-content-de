@@ -14,10 +14,10 @@ Diese Eigenschaft kann gesetzt werden, um die Suchzeichenkette der URL zu änder
 
 Die Suchzeichenkette wird beim Setzen {{Glossary("Percent-encoding", "percent-codiert")}}, jedoch beim Lesen nicht percent-decodiert.
 
-Moderne Browser bieten 
+Moderne Browser bieten
 [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples)
 und
-[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples), 
+[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples),
 um das Parsen der Parameter aus der Suchzeichenkette zu erleichtern.
 
 Weitere Informationen finden Sie unter [`URL.search`](/de/docs/Web/API/URL/search).

@@ -32,15 +32,15 @@ wobei:
 
 ## Beschreibung
 
-Regeln innerhalb einer Cascade-Layer werden zusammengeführt, was Webentwickler*innen mehr Kontrolle über die Cascade gibt. Stile, die nicht innerhalb einer Layer definiert sind, überschreiben immer Stile, die in benannten und anonymen Layern deklariert sind.
+Regeln innerhalb einer Cascade-Layer werden zusammengeführt, was Webentwickler\*innen mehr Kontrolle über die Cascade gibt. Stile, die nicht innerhalb einer Layer definiert sind, überschreiben immer Stile, die in benannten und anonymen Layern deklariert sind.
 
 Das folgende Diagramm zeigt die Priorität der Layer, wobei die Layer in der Reihenfolge 1, 2, ..., N deklariert werden.
 
 ![Diagramm, das die Prioritäten von Cascade-Layern zeigt](https://mdn.github.io/shared-assets/images/diagrams/css/at-rules/layer-cascade.svg)
 
-Wie im obigen Diagramm dargestellt, haben _wichtige Deklarationen_, also Deklarationen mit dem `!important`-Flag, Vorrang vor _normalen Deklarationen_, also regulären Deklarationen ohne das `!important`-Flag. Die Reihenfolge der Priorität bei wichtigen Regeln ist das Gegenteil von normalen Regeln. Übergänge haben die höchste Priorität. Danach folgen die wichtigen {{Glossary("user_agent", "User-Agent")}}-Deklarationen, wichtige Benutzer-Deklarationen und wichtige Autor-Deklarationen in dieser Reihenfolge. Benutzer*innen können Stile über Browsereinstellungen, Betriebssystemeinstellungen oder Browsererweiterungen festlegen. Ihre wichtigen Deklarationen haben Vorrang vor _Autor*innen_-, also von Webentwickler*innen geschriebenen, wichtigen Deklarationen.
+Wie im obigen Diagramm dargestellt, haben _wichtige Deklarationen_, also Deklarationen mit dem `!important`-Flag, Vorrang vor _normalen Deklarationen_, also regulären Deklarationen ohne das `!important`-Flag. Die Reihenfolge der Priorität bei wichtigen Regeln ist das Gegenteil von normalen Regeln. Übergänge haben die höchste Priorität. Danach folgen die wichtigen {{Glossary("user_agent", "User-Agent")}}-Deklarationen, wichtige Benutzer-Deklarationen und wichtige Autor-Deklarationen in dieser Reihenfolge. Benutzer*innen können Stile über Browsereinstellungen, Betriebssystemeinstellungen oder Browsererweiterungen festlegen. Ihre wichtigen Deklarationen haben Vorrang vor \_Autor*innen\_-, also von Webentwickler\*innen geschriebenen, wichtigen Deklarationen.
 
-Innerhalb von Autor*innenstilen haben alle wichtigen Deklarationen innerhalb von CSS-Layern Vorrang vor allen wichtigen Deklarationen außerhalb einer Layer, während alle normalen Deklarationen innerhalb von CSS-Layern eine niedrigere Priorität haben als Deklarationen außerhalb einer Layer.
+Innerhalb von Autor\*innenstilen haben alle wichtigen Deklarationen innerhalb von CSS-Layern Vorrang vor allen wichtigen Deklarationen außerhalb einer Layer, während alle normalen Deklarationen innerhalb von CSS-Layern eine niedrigere Priorität haben als Deklarationen außerhalb einer Layer.
 Die Reihenfolge der Deklarationen ist entscheidend. Die zuerst deklarierte Layer hat die niedrigste Priorität, und die zuletzt deklarierte Layer hat die höchste Priorität. Allerdings wird die Priorität umgekehrt, wenn das [`!important`](/de/docs/Web/CSS/important)-Flag verwendet wird.
 
 Die `@layer`-At-Regel wird auf drei Arten verwendet, um eine Cascade-Layer zu erstellen.

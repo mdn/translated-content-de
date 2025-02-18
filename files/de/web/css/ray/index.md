@@ -324,7 +324,7 @@ offset-rotate: 0deg;</pre>
 
 {{EmbedLiveSample('Animating an element along the ray', '100%', 750)}}
 
->>> Im Beispiel, wo `offset-path` ohne und mit {{cssxref("offset-rotate")}} angewendet wird, wird der Standardwert {{cssxref("offset-position")}} auf `normal` gesetzt, was bedeutet, dass die Bewegung des Pfads vom Punkt `50% 50%` aus startet. Die letzten zwei `offset-path`-Beispiele zeigen `<size>`-Werte an den Ecken: `closest-corner` und `farthest-corner`.
+> > > Im Beispiel, wo `offset-path` ohne und mit {{cssxref("offset-rotate")}} angewendet wird, wird der Standardwert {{cssxref("offset-position")}} auf `normal` gesetzt, was bedeutet, dass die Bewegung des Pfads vom Punkt `50% 50%` aus startet. Die letzten zwei `offset-path`-Beispiele zeigen `<size>`-Werte an den Ecken: `closest-corner` und `farthest-corner`.
 
 ## Spezifikationen
 

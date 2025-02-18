@@ -423,7 +423,7 @@ Die Linien sind entsprechend der Schreibweise des Dokuments nummeriert. In einer
 
 Das folgende Beispiel zeigt eine grundlegende, linienbasierte Positionierung. Dabei positioniert man ein Element an einer Linie und nicht auf der Spur. Weitere Informationen finden Sie im Leitfaden [Grid-Layout mit linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement).
 
-Im Beispiel unten werden die ersten zwei Elemente unseres dreispaltigen Grid anhand der Eigenschaften {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}}, {{cssxref("grid-row-start")}} und {{cssxref("grid-row-end")}} positioniert. 
+Im Beispiel unten werden die ersten zwei Elemente unseres dreispaltigen Grid anhand der Eigenschaften {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}}, {{cssxref("grid-row-start")}} und {{cssxref("grid-row-end")}} positioniert.
 
 Das erste Element wird bei Spaltenlinie 1 gestartet und erstreckt sich bis zu Spaltenlinie 4. Es beginnt bei Zeilenlinie 1 und endet bei Zeilenlinie 3 und erstreckt sich damit über zwei Zeilen-Spuren. Das zweite Element beginnt bei Spaltenlinie 1 und erstreckt sich über einen Track. Es erstreckt sich ebenfalls über zwei Zeilen-Tracks, von Linie 3 bis Linie 5. Die anderen Elemente platzieren sich automatisch in den verbleibenden Platz im Grid.
 

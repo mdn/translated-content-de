@@ -17,12 +17,12 @@ Zwei Verhältnisse werden durch Vergleichen der Quotienten ihrer numerischen Wer
 
 ### Häufige Seitenverhältnisse
 
-| Verhältnis            |                                                                              | Verwendung                                      |
-| --------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------- |
-| `4/3` oder `1.33333`  | ![Ein Rechteck, das drei Einheiten hoch und vier Einheiten breit ist](ratio4_3.png)    | Traditionelles TV-Format im zwanzigsten Jahrhundert. |
-| `16/9` oder `1.7777778` | ![Ein Rechteck, das neun Einheiten hoch und sechzehn Einheiten breit ist](ratio16_9.png) | Modernes "Widescreen"-TV-Format.              |
-| `185/100` oder `1.85` | ![Ein Rechteck, das 1 Einheit hoch und 1.85 Einheiten breit ist](ratio1_1.85.png)      | Das häufigste Filmformat seit den 1960er Jahren. |
-| `239/100` oder `2.39` | ![Ein Rechteck, das 1 Einheit hoch und 2.39 Einheiten breit ist](ratio1_2.39.png)      | "Widescreen", anamorphen Filmformat.          |
+| Verhältnis              |                                                                                          | Verwendung                                           |
+| ----------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| `4/3` oder `1.33333`    | ![Ein Rechteck, das drei Einheiten hoch und vier Einheiten breit ist](ratio4_3.png)      | Traditionelles TV-Format im zwanzigsten Jahrhundert. |
+| `16/9` oder `1.7777778` | ![Ein Rechteck, das neun Einheiten hoch und sechzehn Einheiten breit ist](ratio16_9.png) | Modernes "Widescreen"-TV-Format.                     |
+| `185/100` oder `1.85`   | ![Ein Rechteck, das 1 Einheit hoch und 1.85 Einheiten breit ist](ratio1_1.85.png)        | Das häufigste Filmformat seit den 1960er Jahren.     |
+| `239/100` oder `2.39`   | ![Ein Rechteck, das 1 Einheit hoch und 2.39 Einheiten breit ist](ratio1_2.39.png)        | "Widescreen", anamorphen Filmformat.                 |
 
 ## Formaler Syntax
 

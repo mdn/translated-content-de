@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die schreibgeschützte Eigenschaft `Element.shadowRoot` 
+Die schreibgeschützte Eigenschaft `Element.shadowRoot`
 repräsentiert den Shadow-Root, der vom Element gehostet wird.
 
 Verwenden Sie [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow), um einem vorhandenen Element einen Shadow-Root hinzuzufügen.

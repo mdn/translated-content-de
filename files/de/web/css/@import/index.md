@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@import`**-[CSS](/de/docs/Web/CSS)-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) wird verwendet, um Stilregeln aus anderen gültigen Stylesheets zu importieren. 
+Die **`@import`**-[CSS](/de/docs/Web/CSS)-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) wird verwendet, um Stilregeln aus anderen gültigen Stylesheets zu importieren.
 Eine `@import`-Regel _muss_ zu Beginn des Stylesheets definiert werden, vor allen anderen At-Regeln (mit Ausnahme von [@charset](/de/docs/Web/CSS/@charset) und [@layer](/de/docs/Web/CSS/@layer)) und Stil-Deklarationen. Andernfalls wird sie ignoriert.
 
 ## Syntax
@@ -33,7 +33,7 @@ Dabei gilt:
 - _layer-name_
   - : Ist der Name einer [Cascade Layer](/de/docs/Web/CSS/@layer), in die der Inhalt der verlinkten Ressource importiert wird.
 - _supports-condition_
-  - : Gibt die Funktion(en) an, die der Browser unterstützen muss, damit das Stylesheet importiert wird. 
+  - : Gibt die Funktion(en) an, die der Browser unterstützen muss, damit das Stylesheet importiert wird.
     Falls der Browser nicht den in der _supports-condition_ festgelegten Bedingungen entspricht, wird das verlinkte Stylesheet möglicherweise nicht abgerufen und selbst wenn es durch andere Wege heruntergeladen wird, nicht geladen.
     Die Syntax von `supports()` ist nahezu identisch mit der in {{CSSxRef("@supports")}} beschriebenen und kann als umfassendere Referenz genutzt werden.
 
@@ -68,7 +68,7 @@ Die `@import`-Regel ist keine [verschachtelte Anweisung](/de/docs/Web/CSS/CSS_sy
 Damit {{Glossary("user_agent", "User Agents")}} Ressourcen für nicht unterstützte Medientypen vermeiden können, können Autoren medienabhängige Importbedingungen angeben. Diese bedingten Importe definieren durch Kommata getrennte [Media-Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) nach der URL. Fehlt eine Media-Query, ist der Import nicht an ein bestimmtes Medium gebunden. Das Spezifizieren von `all` für die `list-of-media-queries` hat denselben Effekt.
 
 Ebenso können User Agents die `supports()`-Funktion in einer `@import`-At-Regel verwenden, um Ressourcen nur abzurufen, wenn eine bestimmte Funktionalität unterstützt wird oder nicht.
-So können Autoren neue CSS-Funktionalitäten nutzen und gleichzeitig ältere Browser-Versionen durch sinnvolle Fallbacks unterstützen. 
+So können Autoren neue CSS-Funktionalitäten nutzen und gleichzeitig ältere Browser-Versionen durch sinnvolle Fallbacks unterstützen.
 Beachten Sie, dass die Bedingungen in der `supports()`-Funktion einer `@import`-At-Regel in JavaScript über [`CSSImportRule.supportsText`](/de/docs/Web/API/CSSImportRule/supportsText) abgerufen werden können.
 
 Die `@import`-Regel kann auch verwendet werden, um eine [Cascade Layer](/de/docs/Web/CSS/@layer) zu erstellen, indem Regeln aus einer verlinkten Ressource importiert werden. Regeln können auch in eine bestehende Cascade Layer importiert werden. Das Schlüsselwort `layer` oder die Funktion `layer()` wird hierfür mit `@import` verwendet. Deklarationen in Stilregeln aus importierten Stylesheets interagieren mit der Schichtung, als wären sie wörtlich an der Importstelle in das Stylesheet geschrieben.
@@ -111,8 +111,8 @@ Die oben gezeigten `@import`-Regeln verdeutlichen, wie Sie ein Layout importiere
 Obwohl Sie nur eine einzelne `supports()`-Anweisung haben können, können Sie eine beliebige Anzahl von Funktionsüberprüfungen mit `not`, `and` und `or` kombinieren. Sie müssen jedoch Klammern verwenden, um die Reihenfolge zu definieren, wenn Sie diese kombinieren, z. B. ist `supports((..) or (..) and not (..))` ungültig, aber `supports((..) or ((..) and (not (..))))` gültig.
 Beachten Sie, dass Sie, wenn Sie nur eine einzelne Deklaration haben, diese nicht in zusätzliche Klammern einschließen müssen: Dies wird im ersten obigen Beispiel gezeigt.
 
-Die obigen Beispiele zeigen Unterstützungsbedingungen unter Verwendung der grundlegenden Deklarationssyntax. 
-Sie können auch CSS-Funktionen in `supports()` angeben, und diese wird zu `true` ausgewertet, wenn sie unterstützt werden und im User Agent ausgewertet werden können. 
+Die obigen Beispiele zeigen Unterstützungsbedingungen unter Verwendung der grundlegenden Deklarationssyntax.
+Sie können auch CSS-Funktionen in `supports()` angeben, und diese wird zu `true` ausgewertet, wenn sie unterstützt werden und im User Agent ausgewertet werden können.
 Zum Beispiel zeigt der folgende Code eine `@import`, die von sowohl [Kind-Kombinatoren](/de/docs/Web/CSS/Child_combinator) (`selector()`) als auch der `font-tech()`-Funktion abhängig ist:
 
 ```css

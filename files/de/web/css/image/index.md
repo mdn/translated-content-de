@@ -32,17 +32,17 @@ CSS kann die folgenden Arten von Bildern verarbeiten:
 
 CSS bestimmt die _konkrete Größe_ eines Objekts anhand von (1) seinen _intrinsischen Abmessungen_; (2) seiner _festgelegten Größe_, definiert durch CSS-Eigenschaften wie {{CSSxRef("width")}}, {{CSSxRef("height")}} oder {{CSSxRef("background-size")}}; und (3) seiner _Standardgröße_, die durch die Art der Eigenschaft, mit der das Bild verwendet wird, bestimmt wird:
 
-| Art des Objekts (CSS-Eigenschaft)                                                          | Standardgröße des Objekts                                                                                     |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| {{CSSxRef("background-image")}}                                                            | Die Größe des Hintergrundpositionierungsbereichs des Elements                                                 |
-| {{CSSxRef("list-style-image")}}                                                            | Die Größe eines `1em`-Zeichens                                                                               |
-| {{CSSxRef("border-image-source")}}                                                         | Die Größe des Randbilderbereichs des Elements                                                                |
-| {{CSSxRef("cursor")}}                                                                      | Die vom Browser definierte Größe, die der üblichen Cursorgröße auf dem System des Clients entspricht           |
-| {{CSSxRef("mask-image")}}                                                                  | ?                                                                                                             |
-| {{CSSxRef("shape-outside")}}                                                               | ?                                                                                                             |
-| {{CSSxRef("mask-border-source")}}                                                          | ?                                                                                                             |
-| {{CSSxRef("symbols", "symbols()")}} für @counter-style                                     | Diese Funktion ist risikobehaftet. Falls unterstützt, entspricht die Größe der üblichen Cursorgröße auf dem System des Clients der vom Browser definierten Größe. |
-| {{CSSxRef("content")}} für ein Pseudo-Element ({{CSSxRef("::after")}}/{{CSSxRef("::before")}}) | Ein Rechteck von 300px × 150px                                                                               |
+| Art des Objekts (CSS-Eigenschaft)                                                              | Standardgröße des Objekts                                                                                                                                         |
+| ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {{CSSxRef("background-image")}}                                                                | Die Größe des Hintergrundpositionierungsbereichs des Elements                                                                                                     |
+| {{CSSxRef("list-style-image")}}                                                                | Die Größe eines `1em`-Zeichens                                                                                                                                    |
+| {{CSSxRef("border-image-source")}}                                                             | Die Größe des Randbilderbereichs des Elements                                                                                                                     |
+| {{CSSxRef("cursor")}}                                                                          | Die vom Browser definierte Größe, die der üblichen Cursorgröße auf dem System des Clients entspricht                                                              |
+| {{CSSxRef("mask-image")}}                                                                      | ?                                                                                                                                                                 |
+| {{CSSxRef("shape-outside")}}                                                                   | ?                                                                                                                                                                 |
+| {{CSSxRef("mask-border-source")}}                                                              | ?                                                                                                                                                                 |
+| {{CSSxRef("symbols", "symbols()")}} für @counter-style                                         | Diese Funktion ist risikobehaftet. Falls unterstützt, entspricht die Größe der üblichen Cursorgröße auf dem System des Clients der vom Browser definierten Größe. |
+| {{CSSxRef("content")}} für ein Pseudo-Element ({{CSSxRef("::after")}}/{{CSSxRef("::before")}}) | Ein Rechteck von 300px × 150px                                                                                                                                    |
 
 Die konkrete Größe eines Objekts wird mit folgendem Algorithmus berechnet:
 

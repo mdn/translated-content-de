@@ -24,7 +24,7 @@ slice(start, end)
 ````
 
 > [!NOTE]
-> Die verwendete Markup-Sprache in diesem Fall ist `js-nolint`, wobei `js` anzeigt, dass JavaScript-Syntaxhervorhebung verwendet werden soll. 
+> Die verwendete Markup-Sprache in diesem Fall ist `js-nolint`, wobei `js` anzeigt, dass JavaScript-Syntaxhervorhebung verwendet werden soll.
 > Für JavaScript-Syntaxabschnitte ist `-nolint` ebenfalls erforderlich, da der Syntaxabschnitt absichtlich nicht "ganz" JavaScript ist und der Linter dies nicht "korrigieren" soll (Rückgabewerte und Semikolons am Zeilenende werden weggelassen).
 
 ### Allgemeine Stilregeln

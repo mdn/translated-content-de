@@ -1,5 +1,5 @@
 ---
-title: "-webkit-transition"
+title: -webkit-transition
 slug: Web/CSS/@media/-webkit-transition
 l10n:
   sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52

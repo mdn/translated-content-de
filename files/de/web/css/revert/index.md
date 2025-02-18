@@ -19,8 +19,7 @@ Das Schlüsselwort `revert` funktioniert in vielen Fällen genauso wie [`unset`]
 
 `Revert` beeinflusst keine Regeln, die auf Kinder eines Elements angewendet werden, das zurückgesetzt wird (entfernt jedoch die Effekte einer übergeordneten Regel auf ein Kind). Wenn Sie also `color: green` für alle Sektionen und `all: revert` auf einer bestimmten Sektion haben, wird die Farbe der Sektion schwarz. Wenn Sie jedoch eine Regel haben, um alle Absätze rot zu machen, dann bleiben alle Absätze in allen Sektionen rot.
 
-> [!NOTE]
-> `Revert` ist nur ein Wert. Es ist weiterhin möglich, den `revert`-Wert mittels [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) zu überschreiben.
+> [!NOTE] > `Revert` ist nur ein Wert. Es ist weiterhin möglich, den `revert`-Wert mittels [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) zu überschreiben.
 
 > [!NOTE]
 > Das Schlüsselwort `revert` unterscheidet sich vom Schlüsselwort {{cssxref("initial")}} und sollte nicht damit verwechselt werden. `Initial` verwendet den [Anfangswert](/de/docs/Web/CSS/CSS_cascade/initial_value), der für jede Eigenschaft von den CSS-Spezifikationen festgelegt ist. Im Gegensatz dazu setzen Benutzeragenten-Stylesheets Standardwerte basierend auf CSS-Selektoren.

@@ -91,7 +91,7 @@ Falls der Server nach jedem Segment auf ein ACK wartet, würde dies häufige ACK
 
 Andererseits kann das gleichzeitige Senden zu vieler Segmente zu Problemen führen: In einem stark ausgelasteten Netzwerk könnte der Client nicht in der Lage sein, die Segmente zu empfangen und weiterhin ACKs senden, ohne den vollständigen Paketinhalt zu erhalten. Der Server müsste den Inhalt wiederholt senden.
 
-Um die Anzahl der übertragenen Segmente auszugleichen, wird der {{Glossary("TCP_slow_start", "Langsame TCP-Start")}}-Algorithmus verwendet. Dieser erhöht allmählich die Datenmenge, bis die maximale Netzbandbreite ermittelt werden kann, und reduziert die Datenmenge bei starker Netzwerkauslastung. 
+Um die Anzahl der übertragenen Segmente auszugleichen, wird der {{Glossary("TCP_slow_start", "Langsame TCP-Start")}}-Algorithmus verwendet. Dieser erhöht allmählich die Datenmenge, bis die maximale Netzbandbreite ermittelt werden kann, und reduziert die Datenmenge bei starker Netzwerkauslastung.
 
 Der Wert des Staukontrollfensters (CWND) reguliert die zu übertragenden Segmente. Wenn ACKs empfangen werden, verdoppelt sich der CWND-Wert, andernfalls wird dieser halbiert.
 

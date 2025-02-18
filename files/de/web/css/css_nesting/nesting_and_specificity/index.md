@@ -49,7 +49,7 @@ Der `.foo`-Klassen-Selektor hat eine Spezifität von `0-1-0`. Dies ergibt eine G
 
 ## Siehe auch
 
-- [CSS-Verschachtelungsmodul](/de/docs/Web/CSS/CSS_nesting)  
+- [CSS-Verschachtelungsmodul](/de/docs/Web/CSS/CSS_nesting)
 - [`&`-Verschachtelungs-Selektor](/de/docs/Web/CSS/Nesting_selector)
 - [Verwendung von CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
 - [Verschachtelung von At-Regeln](/de/docs/Web/CSS/CSS_nesting/Nesting_at-rules)

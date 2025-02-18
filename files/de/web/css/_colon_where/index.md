@@ -1,5 +1,5 @@
 ---
-title: ":where()"
+title: :where()
 slug: Web/CSS/:where
 l10n:
   sourceCommit: a29769d6d10261f771321eb60f3990029c160924

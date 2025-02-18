@@ -10,8 +10,8 @@ l10n:
 
 Die **`retransmittedBytesSent`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs repräsentiert die Gesamtanzahl der erneut gesendeten Nutzlast-Bytes für die Quelle, die mit diesem Stream verbunden ist.
 
-RTX (Retransmission) ist einer von mehreren Mechanismen, die WebRTC zum Wiederholen verlorener Nutzlast-Bytes verwendet. Im Allgemeinen bezieht er sich auf die Unterstützung der speziellen Pakete, die in {{rfc("4588")}} definiert sind.  
-RTX muss während des anfänglichen Handshakes zwischen Sender und Empfänger ausgehandelt werden.  
+RTX (Retransmission) ist einer von mehreren Mechanismen, die WebRTC zum Wiederholen verlorener Nutzlast-Bytes verwendet. Im Allgemeinen bezieht er sich auf die Unterstützung der speziellen Pakete, die in {{rfc("4588")}} definiert sind.
+RTX muss während des anfänglichen Handshakes zwischen Sender und Empfänger ausgehandelt werden.
 Wenn RTX nicht ausgehandelt wurde, werden die erneut gesendeten Bytes über die gleiche SSRC gesendet; andernfalls werden die Bytes über eine separate SSRC gesendet, aber trotzdem in dieser Eigenschaft berücksichtigt.
 
 Die erneut gesendeten Bytes sind in der von [`bytesSent`](/de/docs/Web/API/RTCOutboundRtpStreamStats_/bytesSent) gemeldeten Anzahl enthalten.

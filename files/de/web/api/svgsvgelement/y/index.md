@@ -1,6 +1,6 @@
 ---
 title: "SVGSVGElement: y-Eigenschaft"
-short-title: "y"
+short-title: y
 slug: Web/API/SVGSVGElement/y
 l10n:
   sourceCommit: be7ff0e5b105020be70e073d3ca362267ecf0845

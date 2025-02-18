@@ -14,7 +14,7 @@ Weitere Informationen finden Sie unter [`URL.hostname`](/de/docs/Web/API/URL/hos
 
 ## Wert
 
-Ein String, der die Domain der mit dem `area`-Element verbundenen URL enthält.  
+Ein String, der die Domain der mit dem `area`-Element verbundenen URL enthält.
 Diese Eigenschaft kann sowohl als Setter als auch als Getter verwendet werden.
 
 ## Beispiele

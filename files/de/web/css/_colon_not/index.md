@@ -1,5 +1,5 @@
 ---
-title: ":not()"
+title: :not()
 slug: Web/CSS/:not
 l10n:
   sourceCommit: a29769d6d10261f771321eb60f3990029c160924

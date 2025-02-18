@@ -15,9 +15,9 @@ Diese Eigenschaft kann gesetzt werden, um den Query-String der URL zu ändern. B
 Die Abfrage wird beim Setzen {{Glossary("Percent-encoding", "percent-codiert")}}, aber beim Lesen nicht dekodiert.
 
 Moderne Browser bieten
-[`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples) 
-und 
-[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples), 
+[`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples)
+und
+[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples),
 um das Analysieren der Parameter aus dem Query-String zu erleichtern.
 
 Siehe [`URL.search`](/de/docs/Web/API/URL/search) für weitere Informationen.

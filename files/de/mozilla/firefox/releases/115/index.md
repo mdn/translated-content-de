@@ -13,7 +13,7 @@ Dieser Artikel stellt Informationen zu den Änderungen in Firefox 115 bereit, di
 
 ### HTML
 
-- Das [`modulepreload`](/de/docs/Web/HTML/Attributes/rel/modulepreload)-Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Element/link#rel)-Attribut des {{HTMLElement("link")}}-Elements wird nun unterstützt.  
+- Das [`modulepreload`](/de/docs/Web/HTML/Attributes/rel/modulepreload)-Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Element/link#rel)-Attribut des {{HTMLElement("link")}}-Elements wird nun unterstützt.
   Dies ermöglicht eine frühzeitige (und asynchrone) Fetching von [Modul-Skripten](/de/docs/Web/JavaScript/Guide/Modules) und deren Abhängigkeiten parallel, die dann in der Modul-Map des Dokuments gespeichert werden ([Firefox-Bug 1425310](https://bugzil.la/1425310)).
 
 ### CSS
@@ -23,28 +23,28 @@ Dieser Artikel stellt Informationen zu den Änderungen in Firefox 115 bereit, di
 
 ### JavaScript
 
-- Die statische Methode {{jsxref("Array.fromAsync()")}} wird jetzt unterstützt.  
+- Die statische Methode {{jsxref("Array.fromAsync()")}} wird jetzt unterstützt.
   Die Methode gibt asynchron eine neue, flach kopierte `Array`-Instanz aus einem [asynchronen Iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols), [Iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) oder [Array-ähnlichen](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects) Objekt zurück ([Firefox-Bug 1795816](https://bugzil.la/1795816)).
-- Die Methoden `Array` und `TypedArray` [`Array.toReversed()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed), [`Array.toSorted()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted), [`Array.toSpliced()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/toSpliced), [`Array.with()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/with), [`TypedArrays.toReversed()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/toReversed), [`TypedArrays.toSorted()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/toSorted) und [`TypedArrays.with()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/with) werden nun unterstützt.  
-  Diese Methoden geben ein neues Array mit Elementen zurück, die flach kopiert wurden (ähnlich benannte Methoden ohne das Präfix `to` ändern die Elemente des Arrays direkt).  
+- Die Methoden `Array` und `TypedArray` [`Array.toReversed()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed), [`Array.toSorted()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted), [`Array.toSpliced()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/toSpliced), [`Array.with()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/with), [`TypedArrays.toReversed()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/toReversed), [`TypedArrays.toSorted()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/toSorted) und [`TypedArrays.with()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/with) werden nun unterstützt.
+  Diese Methoden geben ein neues Array mit Elementen zurück, die flach kopiert wurden (ähnlich benannte Methoden ohne das Präfix `to` ändern die Elemente des Arrays direkt).
   ([Firefox-Bug 1811057](https://bugzil.la/1811057)).
 
 ### HTTP
 
-- Der [`Sec-Purpose`](/de/docs/Web/HTTP/Headers/Sec-Purpose)-HTTP-{{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anforderungs-Header")}} wird nun in Anfragen für {{Glossary("Prefetch", "Prefetch")}}-Ressourcen aufgenommen.  
+- Der [`Sec-Purpose`](/de/docs/Web/HTTP/Headers/Sec-Purpose)-HTTP-{{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anforderungs-Header")}} wird nun in Anfragen für {{Glossary("Prefetch", "Prefetch")}}-Ressourcen aufgenommen.
   Dadurch können Server eine spezielle Handhabung ermöglichen, wie z. B. das Anpassen des Cache-Ablaufs für die Anfrage ([Firefox-Bug 1836328](https://bugzil.la/1836328)).
 
 ### APIs
 
-- Die statische Methode [`Response.json()`](/de/docs/Web/API/Response/json_static) wird nun unterstützt. Dies erleichtert die Erstellung von [`Response`](/de/docs/Web/API/Response)-Objekten für die Rückgabe von JSON-Daten.  
+- Die statische Methode [`Response.json()`](/de/docs/Web/API/Response/json_static) wird nun unterstützt. Dies erleichtert die Erstellung von [`Response`](/de/docs/Web/API/Response)-Objekten für die Rückgabe von JSON-Daten.
   Diese Methode wird nützlich für [Service Worker](/de/docs/Web/API/Service_Worker_API) und anderen Code, der auf Browseranfragen mit JSON-Daten antworten muss ([Firefox-Bug 1758943](https://bugzil.la/1758943)).
-- Die statische Methode [`URL.canParse()`](/de/docs/Web/API/URL/canParse_static) kann jetzt verwendet werden, um eine absolute URL oder eine relative URL mit Basis-URL zu analysieren und zu validieren.  
-  Dies bietet eine schnelle und einfache Möglichkeit, die Gültigkeit von URLs zu überprüfen, anstatt sie innerhalb eines `try...catch`-Blocks zu konstruieren und Ausnahmen zu behandeln.  
+- Die statische Methode [`URL.canParse()`](/de/docs/Web/API/URL/canParse_static) kann jetzt verwendet werden, um eine absolute URL oder eine relative URL mit Basis-URL zu analysieren und zu validieren.
+  Dies bietet eine schnelle und einfache Möglichkeit, die Gültigkeit von URLs zu überprüfen, anstatt sie innerhalb eines `try...catch`-Blocks zu konstruieren und Ausnahmen zu behandeln.
   ([Firefox-Bug 1823354](https://bugzil.la/1823354)).
-- Die Methoden [`URLSearchParams.has()`](/de/docs/Web/API/URLSearchParams/has) und [`URLSearchParams.delete()`](/de/docs/Web/API/URLSearchParams/delete) unterstützen nun das optionale Argument `value`.  
-  Dies ermöglicht das Abgleichen eines Suchparameters sowohl nach dem `name` als auch nach dem `value`, was die Arbeit mit Abfragezeichenfolgen erleichtert, die mehrere Suchparameter mit demselben Name enthalten.  
+- Die Methoden [`URLSearchParams.has()`](/de/docs/Web/API/URLSearchParams/has) und [`URLSearchParams.delete()`](/de/docs/Web/API/URLSearchParams/delete) unterstützen nun das optionale Argument `value`.
+  Dies ermöglicht das Abgleichen eines Suchparameters sowohl nach dem `name` als auch nach dem `value`, was die Arbeit mit Abfragezeichenfolgen erleichtert, die mehrere Suchparameter mit demselben Name enthalten.
   ([Firefox-Bug 1831587](https://bugzil.la/1831587)).
-- Das Attribut [`RTCRtpReceiver.jitterBufferTarget`](/de/docs/Web/API/RTCRtpReceiver/jitterBufferTarget) wird nun unterstützt, wodurch eine WebRTC-Anwendung die Balance zwischen Wiedergabeverzögerung und dem Risiko von Audio- oder Video-Frames-Verlust aufgrund von Netzwerkstörungen beeinflussen kann.  
+- Das Attribut [`RTCRtpReceiver.jitterBufferTarget`](/de/docs/Web/API/RTCRtpReceiver/jitterBufferTarget) wird nun unterstützt, wodurch eine WebRTC-Anwendung die Balance zwischen Wiedergabeverzögerung und dem Risiko von Audio- oder Video-Frames-Verlust aufgrund von Netzwerkstörungen beeinflussen kann.
   ([Firefox-Bug 1592988](https://bugzil.la/1592988)).
 
 #### Entfernt

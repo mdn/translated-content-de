@@ -57,6 +57,7 @@ max-height: unset;
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
   - : Verwendet die `fit-content`-Formel, wobei der verfügbare Platz durch das angegebene Argument ersetzt wird, d. h. `min(max-content, max(min-content, argument))`.
 - `stretch`
+
   - : Begrenzt die maximale Höhe der [Margin-Box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Höhe seines [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die Margin-Box so anzupassen, dass sie den verfügbaren Platz im umschließenden Block ausfüllt, verhält sich also ähnlich wie `100%`, wendet die resultierende Größe jedoch auf die Margin-Box an und nicht auf die Box, die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmt wird.
 
     > [!NOTE]
