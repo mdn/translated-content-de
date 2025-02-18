@@ -2,24 +2,24 @@
 title: Beziehung des Grid-Layouts zu anderen Layout-Methoden
 slug: Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
 ---
 
 {{CSSRef}}
 
-CSS Grid-Layout wurde entwickelt, um neben anderen Teilen von CSS als Teil eines vollständigen Systems für das Layout zu funktionieren. In diesem Leitfaden werde ich erklären, wie ein Grid mit anderen Techniken zusammenpasst, die Sie möglicherweise bereits verwenden.
+[CSS Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) ist so konzipiert, dass es zusammen mit anderen Teilen von CSS funktioniert und Teil eines vollständigen Systems zur Erstellung von Layouts ist. Dieser Leitfaden erklärt, wie Grid-Layout sich mit anderen Techniken verbindet.
 
 ## Grid und Flexbox
 
-Der grundlegende Unterschied zwischen CSS Grid-Layout und [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) besteht darin, dass Flexbox für Layouts in einer Dimension entwickelt wurde - entweder eine Reihe _oder_ eine Spalte. Grid hingegen wurde für zweidimensionale Layouts entworfen - Reihen und Spalten gleichzeitig. Die beiden Spezifikationen teilen einige gemeinsame Merkmale, und wenn Sie bereits gelernt haben, wie man Flexbox verwendet, sollten die Ähnlichkeiten Ihnen helfen, das Grid zu verstehen.
+Der grundlegende Unterschied zwischen CSS Grid-Layout und [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) besteht darin, dass Flexbox für das Layout in einer Dimension entwickelt wurde - entweder einer Reihe _oder_ einer Spalte. Grid wurde für zweidimensionale Layouts entwickelt - Reihen und Spalten gleichzeitig. Beide Spezifikationen nutzen die [CSS Box-Alignment](/de/docs/Web/CSS/CSS_box_alignment) Funktionen. Wenn Sie bereits gelernt haben, wie man Flexbox verwendet, sollten Ihnen die Ähnlichkeiten helfen, Grid zu verstehen.
 
 ### Eindimensionales versus zweidimensionales Layout
 
-Ein einfaches Beispiel kann den Unterschied zwischen ein- und zweidimensionalen Layouts verdeutlichen.
+Ein einfaches Beispiel kann den Unterschied zwischen eindimensionalen und zweidimensionalen Layouts demonstrieren.
 
-Im ersten Beispiel verwende ich Flexbox, um eine Reihe von Boxen anzuordnen. Ich habe fünf Kind-Elemente in meinem Container und habe den `flex` Eigenschaften Werte gegeben, sodass sie vom `flex-basis` von 150 Pixeln aus wachsen und schrumpfen können.
+In diesem ersten Beispiel verwenden wir Flexbox, um eine Reihe von Boxen anzuordnen. Wir haben fünf Kind-Elemente in unserem Container und haben den Flex-Eigenschaften Werte gegeben, sodass sie von einer Flex-Basis von 150 Pixeln wachsen und schrumpfen können.
 
-Ich habe auch die {{cssxref("flex-wrap")}} Eigenschaft auf `wrap` gesetzt, sodass, wenn der Raum im Container zu schmal wird, um die Flex-Basis beizubehalten, die Elemente auf eine neue Zeile umbrochen werden.
+Wir setzen auch die {{cssxref("flex-wrap")}} Eigenschaft auf `wrap`, sodass, wenn der Platz im Container zu eng wird, um die Flex-Basis zu halten, die Elemente in eine neue Reihe umbrechen.
 
 ```css hidden
 * {
@@ -62,15 +62,15 @@ Ich habe auch die {{cssxref("flex-wrap")}} Eigenschaft auf `wrap` gesetzt, sodas
 }
 ```
 
-{{ EmbedLiveSample('One-dimensional_versus_two-dimensional_layout', '500', '230') }}
+{{ EmbedLiveSample('One-dimensional_versus_two-dimensional_layout', '500', '170') }}
 
-Im Bild sehen Sie, dass zwei Elemente auf eine neue Zeile umgebrochen sind. Diese Elemente teilen sich den verfügbaren Raum und sind nicht unter den Elementen oben ausgerichtet. Dies liegt daran, dass, wenn Sie Flex-Elemente umbrechen, jede neue Zeile (oder Spalte, wenn Sie mit Spalten arbeiten) eine unabhängige Flex-Linie im Flex-Container ist. Die Platzverteilung erfolgt über die Flex-Linie.
+Auf dem Bild können Sie sehen, dass zwei Elemente in eine neue Zeile umgebrochen sind. Diese Elemente teilen sich den verfügbaren Platz und richten sich nicht unter den darüber liegenden Elementen aus. Dies liegt daran, dass beim Umbruch von Flex-Elementen jede neue Zeile (oder Spalte beim Arbeiten mit Spalten) eine unabhängige Flex-Linie im Flex-Container ist. Die Platzverteilung erfolgt entlang der Flex-Linie.
 
-Eine häufige Frage ist dann, wie man diese Elemente ausrichtet. Hier benötigen Sie eine zweidimensionale Layout-Methode: Sie möchten die Ausrichtung nach Reihen und Spalten steuern, und hier kommt das Grid ins Spiel.
+Eine häufige Frage ist dann, wie man diese Elemente ausrichten kann. Hierbei handelt es sich um eine zweidimensionale Layout-Methode: Sie möchten die Ausrichtung nach Reihe und Spalte steuern, und hier kommt das Grid ins Spiel.
 
-### Dasselbe Layout mit CSS Grids
+### Das gleiche Layout mit CSS-Grids
 
-Im nächsten Beispiel erstelle ich dasselbe Layout mit Grid. Diesmal haben wir drei `1fr` Spalten-Spuren. Wir müssen nichts an den Elementen selbst einstellen; sie legen sich eines in jede Zelle des erstellten Grids. Wie Sie sehen, bleiben sie in einem strengen Gitter, ausgerichtet in Reihen und Spalten. Mit fünf Elementen entsteht am Ende der zweiten Reihe eine Lücke.
+Im nächsten Beispiel erstellen wir das gleiche Layout unter Verwendung von Grid. Diesmal haben wir drei `1fr`-Spaltenspuren. Wir müssen nichts an den Elementen selbst einstellen; sie legen sich jeweils in eine Zelle des erstellten Grids. Wie Sie sehen können, bleiben sie in einem strengen Raster und richten sich in Reihen und Spalten aus. Mit fünf Elementen entsteht eine Lücke am Ende der zweiten Reihe.
 
 ```css hidden
 * {
@@ -111,28 +111,26 @@ Im nächsten Beispiel erstelle ich dasselbe Layout mit Grid. Diesmal haben wir d
 
 {{ EmbedLiveSample('The_same_layout_with_CSS_grids', '300', '170') }}
 
-Eine einfache Frage, die Sie sich stellen können, wenn Sie sich zwischen Grid und Flexbox entscheiden, ist:
+Eine wichtige Frage, die Sie sich stellen sollten, wenn Sie sich zwischen Grid und Flexbox entscheiden, lautet:
 
-- benötige ich nur die Kontrolle über das Layout nach Reihe _oder_ Spalte – verwenden Sie eine Flexbox
-- benötige ich die Kontrolle über das Layout nach Reihe _und_ Spalte – verwenden Sie ein Grid
+- Müssen wir das Layout nur nach Reihe _oder_ Spalte steuern? Wenn ja, verwenden Sie Flexbox.
+- Müssen wir das Layout nach Reihe _und_ Spalte steuern? Wenn ja, verwenden Sie Grid-Layout.
 
-### Inhalt von innen oder Layout von außen?
+### Inhalt von außen oder Layout von innen?
 
-Zusätzlich zur Unterscheidung zwischen ein- und zweidimensional, gibt es eine weitere Möglichkeit zu entscheiden, ob Sie Flexbox oder Grid für ein Layout verwenden sollten. Flexbox arbeitet von innen heraus. Ein idealer Anwendungsfall für Flexbox ist, wenn Sie eine Reihe von Elementen haben und diese gleichmäßig in einem Container verteilen möchten. Sie lassen die Größe des Inhalts entscheiden, wie viel Platz jedes Element einnimmt. Wenn die Elemente auf eine neue Zeile umbrechen, berechnen sie ihre Abstände basierend auf ihrer Größe und dem verfügbaren Platz _in dieser Zeile_.
+Zusätzlich zum Unterschied zwischen eindimensional und zweidimensional gibt es eine weitere Möglichkeit zu entscheiden, ob Sie Flexbox oder Grid für ein Layout verwenden sollten. Flexbox arbeitet von Inhalt nach außen. Ein idealer Anwendungsfall für Flexbox ist, wenn Sie eine Reihe von Elementen haben und diese gleichmäßig in einem Container verteilen möchten. Sie lassen die Größe des Inhalts entscheiden, wie viel individuellen Platz jedes Element einnimmt. Wenn die Elemente in eine neue Zeile umbrechen, ermitteln sie ihren Abstand basierend auf ihrer Größe und dem verfügbaren Platz _in dieser Zeile_.
 
-Grid arbeitet von außen hinein. Wenn Sie CSS Grid-Layout verwenden, erstellen Sie ein Layout und platzieren dann die Elemente darin, oder Sie erlauben den automatischen Platzierungsregeln, die Elemente in die Grid-Zellen gemäß diesem strengen Gitter zu platzieren. Es ist möglich, Spuren zu erstellen, die auf die Größe des Inhalts reagieren, jedoch ändern sie dann den gesamten Spur.
+Grid arbeitet vom Layout nach innen. Wenn Sie das CSS-Grid-Layout verwenden, erstellen Sie ein Layout und platzieren dann Elemente darin, oder Sie erlauben den Auto-Platzierungsregeln, die Elemente in die Grid-Zellen gemäß diesem strengen Grid zu platzieren. Es ist möglich, Spuren zu erstellen, die auf die Größe des Inhalts reagieren, jedoch ändern sie auch die gesamte Spur.
 
-Wenn Sie Flexbox verwenden und feststellen, dass Sie etwas von der Flexibilität deaktivieren, sollten Sie wahrscheinlich CSS-Grid-Layout verwenden. Ein Beispiel wäre, wenn Sie eine prozentuale Breite auf ein Flex-Element setzen, um es mit anderen Elementen in einer Reihe darüber auszurichten. In diesem Fall ist ein Grid wahrscheinlich eine bessere Wahl.
+Wenn Sie Flexbox verwenden und feststellen, dass Sie einige der Flexibilität deaktivieren, müssen Sie wahrscheinlich das CSS Grid-Layout verwenden. Zum Beispiel, wenn Sie eine Breite auf ein Flex-Element setzen, um es mit anderen Elementen in einer darüber liegenden Reihe auszurichten, ist ein Grid wahrscheinlich eine bessere Wahl.
 
-### Box-Ausrichtung
+### Box-Alignment
 
-Die Funktion von Flexbox, die für viele von uns am aufregendsten war, ist, dass sie uns erstmals eine ordentliche Ausrichtungssteuerung ermöglichte. Sie machte es einfach, eine Box auf der Seite zu zentrieren. Flex-Elemente können sich auf die Höhe des Flex-Containers strecken, was bedeutete, dass gleich hohe Spalten möglich waren. Das waren Dinge, die wir schon sehr lange tun wollten und für die wir alle möglichen Tricks angewendet haben, um sie zumindest visuell zu erreichen.
+Die meisten Grid-Ausrichtungsfunktionen wurden ursprünglich im [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) definiert. Diese Funktionen boten erstmals eine ordnungsgemäße Ausrichtungskontrolle und ermöglichten es, eine Box einfach auf der Seite zu zentrieren. Flex-Elemente können sich auf die Höhe des Flex-Containers strecken, was gleich hohe Spalten ermöglicht. Diese Eigenschaften werden jetzt im [CSS Box-Alignment](/de/docs/Web/CSS/CSS_box_alignment) Modul definiert und werden in mehreren Layout-Modi verwendet, einschließlich des Grid-Layouts.
 
-Die Ausrichtungseigenschaften aus der Flexbox-Spezifikation wurden in eine neue Spezifikation namens [Box Alignment Level 3](https://drafts.csswg.org/css-align/) aufgenommen. Das bedeutet, dass sie in anderen Spezifikationen verwendet werden können, einschließlich Grid-Layout. In Zukunft könnten sie möglicherweise auch auf andere Layout-Methoden angewendet werden.
+Wir werden uns später genauer mit dem [Ausrichten von Elementen im CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout) befassen. Für den Moment hier ein Vergleich zwischen einfachen Beispielen von Flexbox und Grid.
 
-In einem späteren Leitfaden in dieser Serie werde ich einen genaueren Blick auf die Box-Ausrichtung und deren Funktionsweise im Grid-Layout werfen. Für den Moment finden Sie hier einen Vergleich zwischen einfachen Beispielen von Flexbox und Grid.
-
-Im ersten Beispiel, das Flexbox verwendet, habe ich einen Container mit drei enthaltenen Elementen. Der {{cssxref("min-height")}} des Wrappers ist gesetzt, sodass er die Höhe des Flex-Containers definiert. Ich habe {{cssxref("align-items")}} im Flex-Container auf `flex-end` gesetzt, sodass die Elemente am Ende des Flex-Containers ausgerichtet werden. Ich habe die Eigenschaft {{cssxref("align-self")}} auf `box1` gesetzt, sodass es den Standard überschreibt und sich zur Höhe des Containers streckt, und auf `box2`, sodass es sich am Anfang des Flex-Containers ausrichtet.
+Im ersten Beispiel, das Flexbox verwendet, haben wir einen Container mit drei enthaltenen Elementen. Die {{cssxref("min-height")}} des Containers ist festgelegt, sodass sie die Höhe des Flex-Containers definiert. Wir haben {{cssxref("align-items")}} auf den Flex-Container `flex-end` gesetzt, damit sich die Elemente am Ende des Flex-Containers ausrichten. Wir haben auch die {{cssxref("align-self")}} Eigenschaft auf `box1` gesetzt, damit es die Standardwerte überschreibt und sich auf die Höhe des Containers dehnt und auf `box2`, damit es sich am Anfang des Flex-Containers ausrichtet.
 
 ```css hidden
 * {
@@ -178,9 +176,9 @@ Im ersten Beispiel, das Flexbox verwendet, habe ich einen Container mit drei ent
 
 {{ EmbedLiveSample('Box_alignment', '300', '230') }}
 
-### Ausrichtung in CSS Grids
+### Ausrichtung in CSS-Grids
 
-Dieses zweite Beispiel verwendet ein Grid, um dasselbe Layout zu erstellen. Diesmal nutzen wir die Box-Ausrichtungseigenschaften, wie sie auf ein Grid-Layout angewendet werden. Wir richten diesmal nach `start` und `end` aus, anstatt nach `flex-start` und `flex-end`. Im Fall eines Grid-Layouts richten wir die Elemente innerhalb ihres Grid-Bereichs aus. In diesem Fall ist das eine einzelne Grid-Zelle, es könnte aber auch ein Bereich sein, der aus mehreren Grid-Zellen besteht.
+In diesem Beispiel wird ein Grid verwendet, um das gleiche Layout zu erstellen. Wir verwenden die Box-Ausrichtungs-Eigenschaften, wie sie in einem Grid-Layout gelten. Wir richten uns an `start` und `end` aus. (Wir hätten die {{cssxref("content-position")}} Synonyme `flex-start` und `flex-end` verwenden können.) Im Fall eines Grid-Layouts richten wir die Elemente innerhalb ihrer Grid-Fläche aus. In diesem Fall ist das eine einzelne Grid-Zelle, aber es könnte auch ein Bereich aus mehreren Grid-Zellen sein.
 
 ```css hidden
 * {
@@ -225,21 +223,21 @@ Dieses zweite Beispiel verwendet ein Grid, um dasselbe Layout zu erstellen. Dies
 }
 ```
 
-{{ EmbedLiveSample('Alignment_in_CSS_Grids', '200', '310') }}
+{{ EmbedLiveSample('Alignment_in_CSS_Grids', '200', '240') }}
 
-### Die `fr` Einheit und `flex-basis`
+### Die `fr`-Einheit und `flex-basis`
 
-Wir haben bereits gesehen, wie die `fr` Einheit funktioniert, um einen Anteil des verfügbaren Raums im Grid-Container unseren Grid-Spuren zuzuweisen. Die `fr` Einheit kann, kombiniert mit der {{cssxref("minmax", "minmax()")}} Funktion, ein sehr ähnliches Verhalten wie die `flex` Eigenschaften in Flexbox bieten, während sie dennoch die Erstellung eines zweidimensionalen Layouts ermöglicht.
+Wir haben bereits gesehen, wie die `fr`-Einheit funktioniert, um einen Anteil des verfügbaren Raums im Grid-Container unseren Grid-Spuren zuzuweisen. Die `fr`-Einheit kann, in Kombination mit der {{cssxref("minmax", "minmax()")}} Funktion, ein sehr ähnliches Verhalten wie die `flex` Eigenschaften in Flexbox bieten und dennoch die Erstellung eines Layouts in zwei Dimensionen ermöglichen.
 
-Wenn wir auf das Beispiel zurückblicken, in dem ich den Unterschied zwischen ein- und zweidimensionalen Layouts demonstriert habe, sehen Sie, dass es einen Unterschied in der responsiven Arbeitsweise der beiden Layouts gibt. Mit dem Flex-Layout passt sich die Flexbox gut an die Anzahl der Elemente in jeder Reihe entsprechend dem verfügbaren Raum an, wenn wir unser Fenster verbreitern und verkleinern. Haben wir viel Platz, passen alle fünf Elemente in eine Reihe. Haben wir einen sehr schmalen Container, könnten wir nur Platz für eines haben.
+Wenn wir uns das Beispiel ansehen, wo wir den Unterschied zwischen eindimensionalen und zweidimensionalen Layouts demonstriert haben, können Sie sehen, dass es einen Unterschied zwischen den beiden Layouts in Bezug auf responsives Verhalten gibt. Mit dem Flex-Layout, wenn wir unser Fenster breiter und schmaler ziehen, passt sich das Flexbox-Layout gut an, indem es die Anzahl der Elemente in jeder Reihe entsprechend dem verfügbaren Raum anpasst. Wenn wir viel Platz haben, passen alle fünf Elemente in eine Reihe. Haben wir einen sehr schmalen Container, haben wir möglicherweise nur Platz für eines.
 
-Im Vergleich dazu hat die Grid-Version immer drei Spalten-Spuren. Die Spuren selbst werden wachsen und schrumpfen, aber es gibt immer drei, da wir drei angefordert haben, als wir unser Grid definierten.
+Im Vergleich dazu hat die Grid-Version immer drei Spaltenspuren. Die Spuren selbst werden wachsen und schrumpfen, aber es gibt immer drei, da wir beim Definieren unseres Grids drei angefordert haben.
 
-#### Automatische Auffüllung von Grid-Spuren
+#### Auto-Filling von Grid-Spuren
 
-Wir können Grid verwenden, um einen ähnlichen Effekt wie bei Flexbox zu erzielen, während wir den Inhalt dennoch in strengen Reihen und Spalten anordnen, indem wir unser Spur-Listing mit Wiederholungsnotation und den `auto-fill` und `auto-fit` Eigenschaften erstellen.
+Wir können Grid nutzen, um einen ähnlichen Effekt wie Flexbox zu erzielen, während wir den Inhalt weiterhin in strenge Reihen und Spalten anordnen, indem wir unsere Spurauflistung mit Wiederholungsnotation und den Eigenschaften `auto-fill` und `auto-fit` erstellen.
 
-Im nächsten Beispiel habe ich das `auto-fill` Schlüsselwort anstelle einer Zahl in der Wiederholungsnotation verwendet und das Spur-Listing auf 200 Pixel gesetzt. Das bedeutet, dass Grid so viele 200-Pixel-Spalten-Spuren erstellt, wie in den Container passen.
+Im nächsten Beispiel haben wir das Schlüsselwort `auto-fill` anstelle einer Zahl in der Wiederholungsnotation verwendet und die Spurauflistung auf 200 Pixel gesetzt. Das bedeutet, dass das Grid so viele 200-Pixel-Spaltenspuren erstellt, wie in den Container passen.
 
 ```css hidden
 * {
@@ -276,11 +274,13 @@ Im nächsten Beispiel habe ich das `auto-fill` Schlüsselwort anstelle einer Zah
 }
 ```
 
-{{ EmbedLiveSample('Auto-filling_grid_tracks', '500', '170') }}
+{{ EmbedLiveSample('Auto-filling_grid_tracks', '500', '70') }}
 
 ### Eine flexible Anzahl von Spuren
 
-Das ist nicht ganz dasselbe wie Flexbox. Im Flexbox-Beispiel sind die Elemente größer als die 200 Pixel Basis vor dem Umbruch. Wir können dasselbe im Grid erreichen, indem wir `auto-fit` und die {{cssxref("minmax", "minmax()")}} Funktion kombinieren. Im nächsten Beispiel erstelle ich automatisch gefüllte Spuren mit `minmax`. Ich möchte, dass meine Spuren mindestens 200 Pixel sind, also setze ich das Maximum auf `1fr`. Sobald der Browser berechnet hat, wie oft 200 Pixel in den Container passen – auch unter Berücksichtigung der Grid-Lücken – behandelt er das `1fr` Maximum als Anweisung, den verbleibenden Platz zwischen den Elementen zu verteilen.
+Das ist nicht ganz dasselbe wie Flexbox. Im Flexbox-Beispiel sind die Elemente größer als die 200-Pixel-Basis, bevor sie umbrechen. Wir können das Gleiche in Grid erreichen, indem wir `auto-fit` und die {{cssxref("minmax", "minmax()")}} Funktion kombinieren.
+
+In diesem Beispiel erstellen wir mit `minmax` autofilled Spuren. Wir wollen, dass unsere Spuren mindestens 200 Pixel groß sind, also setzen wir das Maximum auf `1fr`. Sobald der Browser berechnet hat, wie oft 200 Pixel in den Container passen (unter Berücksichtigung der Grid-Abstände), wird er das `1fr` Maximum als Anweisung behandeln, den verbleibenden Platz zwischen den Elementen aufzuteilen.
 
 ```css hidden
 * {
@@ -317,19 +317,19 @@ Das ist nicht ganz dasselbe wie Flexbox. Im Flexbox-Beispiel sind die Elemente g
 }
 ```
 
-{{ EmbedLiveSample('A_flexible_number_of_tracks', '500', '170') }}
+{{ EmbedLiveSample('A_flexible_number_of_tracks', '500', '70') }}
 
-Mit dem Grid-Layout können wir ein Grid mit einer dynamischen Anzahl flexibler Spuren erstellen und die Elemente im Grid anordnen, ausgerichtet nach Reihen und Spalten.
+Mit dem Grid-Layout können wir ein Grid mit einer dynamischen Anzahl flexibler Spuren erstellen und die Elemente im Grid in Reihen und Spalten ausgerichtet anordnen.
 
 ## Grid und absolut positionierte Elemente
 
-Grid interagiert mit absolut positionierten Elementen, was nützlich sein kann, wenn Sie ein Element innerhalb eines Grids oder Grid-Bereichs positionieren möchten. Die Spezifikation definiert das Verhalten, wenn ein Grid-Container ein enthaltender Block und ein Elternteil des absolut positionierten Elements ist.
+Grid interagiert mit [absolut positionierten](/de/docs/Web/CSS/position#absolute_positioning) Elementen, was nützlich sein kann, wenn Sie ein Element innerhalb eines Grids oder Grid-Bereichs positionieren möchten. Die Spezifikation definiert das Verhalten, wenn ein Grid-Container einen Block enthält und übergeordnetes Element des absolut positionierten Elements ist.
 
 ### Ein Grid-Container als enthaltender Block
 
-Um den Grid-Container zu einem enthaltenden Block zu machen, müssen Sie die `position` Eigenschaft mit dem Wert `relative` zum Container hinzufügen, genauso wie Sie einen enthaltenden Block für andere absolut positionierte Elemente erstellen würden. Sobald Sie dies getan haben, nimmt ein Grid-Element mit `position: absolute` als enthaltenden Block den Grid-Container oder, wenn das Element auch eine Grid-Position hat, den Bereich des Grids ein, in den es platziert wurde.
+Um den Grid-Container zu einem [enthaltenden Block](/de/docs/Web/CSS/CSS_display/Containing_block) zu machen, müssen Sie die {{cssxref("position")}} Eigenschaft mit dem Wert `relative` zum Container hinzufügen, so wie Sie es tun würden, um einen enthaltenden Block für andere absolut positionierte Elemente zu erstellen. Sobald Sie dies getan haben, wird ein Grid-Element mit `position: absolute` seinen enthaltenden Block als den Grid-Container oder, wenn das Element auch eine Grid-Position hat, den Bereich des Grids, in den es platziert ist, nehmen.
 
-Im unteren Beispiel habe ich einen Wrapper, der vier Kind-Elemente enthält. Element drei ist absolut positioniert und wird auch mithilfe der linienbasierten Platzierung auf dem Grid platziert. Der Grid-Container hat `position: relative` und wird somit zum Positionierungskontext dieses Elements.
+Im folgenden Beispiel haben wir einen Wrapper, der vier untergeordnete Elemente enthält. Element drei ist absolut positioniert und ebenfalls auf dem Grid mit linienbasierter Platzierung platziert. Der Grid-Container hat `position: relative` und wird so zum Positionierungskontext dieses Elements.
 
 ```css hidden
 * {
@@ -383,25 +383,25 @@ Im unteren Beispiel habe ich einen Wrapper, der vier Kind-Elemente enthält. Ele
 }
 ```
 
-{{ EmbedLiveSample('A_grid_container_as_containing_block', '500', '330') }}
+{{ EmbedLiveSample('A_grid_container_as_containing_block', '500', '270') }}
 
-Sie können sehen, dass das Element den Bereich von Grid-Spaltenlinie 2 bis 4 einnimmt und nach Linie 1 beginnt. Dann wird es in diesem Bereich durch die Top- und Left-Eigenschaften versetzt. Es wurde jedoch aus dem Fluss genommen, wie es für absolut positionierte Elemente üblich ist, und so platzieren die automatischen Platzierungsregeln nun Elemente im selben Raum. Das Element verursacht auch nicht die zusätzliche Zeile, die benötigt wird, um zur Zeilenlinie 3 zu spannen.
+Sie können sehen, dass das Element den Bereich von Grid-Spaltenlinie 2 bis 4 übernimmt und nach Linie 1 startet. Dann wird es in diesem Bereich mit den Eigenschaften top und left versetzt. Es wurde jedoch wie üblich für absolut positionierte Elemente aus dem Fluss genommen, sodass die Auto-Platzierungsregeln nun Gegenstände in den gleichen Raum platzieren. Das Element führt auch nicht dazu, dass eine zusätzliche Zeile erstellt wird, um auf Zeilenlinie 3 zu spannen.
 
 Wenn wir `position: absolute` aus den Regeln für `.box3` entfernen, können Sie sehen, wie es ohne die Positionierung angezeigt werden würde.
 
-### Ein Grid-Container als Elternteil
+### Ein Grid-Container als übergeordnetes Element
 
-Wenn das absolut positionierte Kind einen Grid-Container als Elternteil hat, aber dieser Container keinen neuen Positionierungskontext erstellt, wird es wie im vorherigen Beispiel aus dem Fluss genommen. Der Positionierungskontext wird jedes Element sein, das einen Positionierungskontext erstellt, wie es auch bei anderen Layout-Methoden üblich ist. In unserem Fall, wenn wir `position: relative` aus dem obigen Wrapper entfernen, ist der Positionierungskontext der Viewport, wie in diesem Bild gezeigt.
+Wenn das absolut positionierte Kind einen Grid-Container als übergeordnetes Element hat, dieser Container jedoch keinen neuen Positionierungskontext erstellt, dann wird es wie im vorherigen Beispiel aus dem Fluss genommen. Der _Positionierungskontext_ ist das Element, zu dem das absolut positionierte Element relativ ist. Der Positionierungskontext ist das Element, das einen Positionierungskontext erstellt, wie es bei anderen Layout-Methoden üblich ist. In unserem Fall, wenn wir `position: relative` aus dem Wrapper oben entfernen, ist der Positionierungskontext das Viewport, wie auf diesem Bild gezeigt.
 
-![Bild des Grid-Containers als Elternteil](2_abspos_example.png)
+![Bild von Grid-Container als Elternteil](2_abspos_example.png)
 
-Auch hier nimmt das Element nicht mehr am Grid-Layout in Bezug auf Größenanpassung teil, oder wenn andere Elemente automatisch platziert werden.
+Wieder einmal nimmt das Element nicht am Grid-Layout in Bezug auf Größe oder beim automatische Platzieren teil.
 
 ### Mit einem Grid-Bereich als Elternteil
 
-Wenn das absolut positionierte Element in einem Grid-Bereich verschachtelt ist, können Sie auf diesem Bereich einen Positionierungskontext erstellen. Im untenstehenden Beispiel haben wir unser Grid wie zuvor, aber diesmal habe ich ein Element in `.box3` des Grids eingebettet.
+Wenn sich das absolut positionierte Element innerhalb eines Grid-Bereichs befindet, können Sie einen Positionierungskontext auf diesem Bereich erstellen. In diesem Beispiel haben wir unser Grid wie zuvor, aber diesmal haben wir ein Element innerhalb von `.box3` des Grids verschachtelt.
 
-Ich habe `.box3` relativ positioniert und dann das Unterelement mit den Offset-Eigenschaften positioniert. In diesem Fall ist der Positionierungskontext der Grid-Bereich.
+Wir haben `.box3` relative positioniert und dann das Unterelement mit den Versatzeigenschaften positioniert. In diesem Fall ist der Positionierungskontext der Grid-Bereich.
 
 ```css hidden
 * {
@@ -468,15 +468,13 @@ Ich habe `.box3` relativ positioniert und dann das Unterelement mit den Offset-E
 
 ## Grid und display: contents
 
-Eine letzte Interaktion mit einer anderen Layout-Spezifikation, die erwähnenswert ist, ist die Interaktion zwischen CSS Grid-Layout und `display: contents`. Der `contents` Wert der display-Eigenschaft ist ein neuer Wert, der in der [Display-Spezifikation](https://drafts.csswg.org/css-display/#box-generation) wie folgt beschrieben wird:
+Eine letzte erwähnenswerte Interaktion ist die Interaktion zwischen CSS-Grid-Layout und `display: contents`, definiert im [CSS-Display](/de/docs/Web/CSS/CSS_display) Modul. Wenn die {{cssxref("display")}} Eigenschaft auf `contents` gesetzt ist, erzeugt das Element selbst keine Boxen, aber seine Kinder und Pseudo-Elemente erzeugen Boxen wie gewohnt. Das bedeutet, dass das Element für die Zwecke der Box-Erstellung und des Layouts so behandelt wird, als ob es durch seine Kinder und Pseudo-Elemente im Dokumentbaum ersetzt wurde.
 
-> "Das Element selbst erzeugt keine Boxen, aber seine Kinder und Pseudo-Elemente generieren weiterhin Boxen wie gewohnt. Für die Zwecke der Box-Generierung und des Layouts muss das Element behandelt werden, als wäre es mit seinen Kindern und Pseudo-Elementen im Dokumentenbaum ersetzt worden."
+Wenn Sie ein Element auf `display: contents` setzen, verschwindet die Box, die es normalerweise erstellen würde, und die Boxen der untergeordneten Elemente erscheinen, als wären sie eine Ebene höher gestiegen. Dies bedeutet, dass Kinder eines Grid-Elements zu Grid-Elementen werden können. Hört sich seltsam an? Hier ist ein Beispiel.
 
-Wenn Sie ein Element auf `display: contents` setzen, verschwindet die Box, die es normalerweise erzeugen würde, und die Boxen der Kindelemente erscheinen, als wären sie eine Ebene nach oben verschoben. Dies bedeutet, dass Kinder eines Grid-Elements Grid-Elemente werden können. Klingt seltsam? Hier ist ein einfaches Beispiel.
+### Grid-Layout mit geschachtelten Kind-Elementen
 
-### Grid-Layout mit verschachtelten Kind-Elementen
-
-Im folgenden Markup habe ich ein Grid und das erste Element im Grid ist so eingestellt, dass es alle drei Spalten-Spuren überspannt. Es enthält drei verschachtelte Elemente. Da diese Elemente keine direkten Kinder sind, werden sie nicht Teil des Grid-Layouts und so mit dem normalen Block-Layout angezeigt.
+In diesem Beispiel ist das erste Element unseres Grids so eingestellt, dass es alle drei Spaltenspuren überspannt. Es enthält drei geschachtelte Elemente. Da diese Elemente keine direkten Kinder sind, werden sie nicht Teil des Grid-Layouts und werden daher im regulären Block-Layout angezeigt.
 
 ```css hidden
 * {
@@ -532,9 +530,9 @@ Im folgenden Markup habe ich ein Grid und das erste Element im Grid ist so einge
 
 {{ EmbedLiveSample('Grid_layout_with_nested_child_elements', '400', '440') }}
 
-### Die Verwendung von display: contents
+### Verwendung von display: contents
 
-Wenn ich jetzt `display: contents` zu den Regeln für `box1` hinzufüge, verschwindet die Box für dieses Element und die Unterelemente werden nun zu Grid-Elementen und legen sich mithilfe der automatischen Platzierungsregeln aus.
+Wenn wir jetzt `display: contents` zu den Regeln für `box1` hinzufügen, verschwindet die Box für dieses Element und die Unterelemente werden nun zu Grid-Elementen und legen sich nach den Auto-Platzierungsregeln aus.
 
 ```css hidden
 * {
@@ -591,11 +589,11 @@ Wenn ich jetzt `display: contents` zu den Regeln für `box1` hinzufüge, verschw
 
 {{ EmbedLiveSample('Using_display_contents', '400', '350') }}
 
-Dies kann eine Möglichkeit sein, um Elemente, die in das Grid eingebettet sind, so zu behandeln, als wären sie Teil des Grids, und ist ein Weg, um einige der Probleme zu lösen, die durch Subgrids gelöst würden, sobald diese implementiert sind. Sie können `display: contents` auch auf ähnliche Weise mit Flexbox verwenden, um verschachtelte Elemente dazu zu bringen, Flex-Elemente zu werden.
+Dies kann eine Möglichkeit sein, um Elemente in das Grid zu bringen, sodass sie sich wie Teil des Grids verhalten. Sie können `display: contents` auch in ähnlicher Weise mit Flexbox verwenden, um geschachtelte Elemente zu Flex-Elementen zu machen.
 
-Wie Sie aus diesem Leitfaden sehen können, ist CSS Grid-Layout nur ein Teil Ihres Werkzeugkastens. Verschiedene Methoden zur Erstellung von Layouts zu kombinieren, um die unterschiedlichen erforderlichen Effekte zu erzielen, sollte keine Angst machen.
+Wie in diesem Leitfaden zu sehen ist, ist CSS-Grid-Layout nur ein Teil Ihres Werkzeugsatzes. Scheuen Sie sich nicht, es mit anderen Methoden zur Erstellung von Layouts zu kombinieren, um die verschiedenen benötigten Effekte zu erzielen.
 
 ## Siehe auch
 
 - [Flexbox-Leitfäden](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox)
-- [Leitfäden für Mehrspalten-Layouts](/de/docs/Web/CSS/CSS_multicol_layout)
+- [Mehrspalten-Layout-Leitfäden](/de/docs/Web/CSS/CSS_multicol_layout)
