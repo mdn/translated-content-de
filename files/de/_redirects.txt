@@ -3603,7 +3603,7 @@
 /de/docs/Glossary/Static_property	/de/docs/Glossary/property/JavaScript
 /de/docs/Glossary/Transferable_objects	/de/docs/Web/API/Web_Workers_API/Transferable_objects
 /de/docs/Glossary/Transmission_Control_Protocol_(TCP)	/de/docs/Glossary/TCP
-/de/docs/Glossary/URI/www_vs_non-www_URLs	/de/docs/Web/URI/Authority/Choosing_between_www_and_non-www_URLs
+/de/docs/Glossary/URI/www_vs_non-www_URLs	/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs
 /de/docs/Glossary/WWW	/de/docs/Glossary/World_Wide_Web
 /de/docs/Glossary/WebExtension	/de/docs/Glossary/WebExtensions
 /de/docs/Glossary/Web_Sockets	/de/docs/Glossary/WebSockets
@@ -6124,7 +6124,11 @@
 /de/docs/Mozilla/Add-ons/WebExtensions/API/proxy/registerProxyScript	/de/docs/Mozilla/Add-ons/WebExtensions/API/proxy
 /de/docs/Mozilla/Add-ons/WebExtensions/API/proxy/unregister	/de/docs/Mozilla/Add-ons/WebExtensions/API/proxy
 /de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/moveInSuccession()	/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/moveInSuccession
-/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/RegisteredUserScript/RegisteredUserScript.unregister()	/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/RegisteredUserScript/unregister
+/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/RegisteredUserScript/RegisteredUserScript.unregister()	/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/RegisteredUserScript/unregister
+/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/RegisteredUserScript/unregister	/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/RegisteredUserScript/unregister
+/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/UserScriptOptions	/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/UserScriptOptions
+/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/Working_with_userScripts	/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/Working_with_userScripts
+/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/onBeforeScript	/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/onBeforeScript
 /de/docs/Mozilla/Add-ons/WebExtensions/API/windows/update()	/de/docs/Mozilla/Add-ons/WebExtensions/API/windows/update
 /de/docs/Mozilla/Add-ons/WebExtensions/Accessible_guidelines	https://extensionworkshop.com/documentation/develop/build-an-accessible-extension/
 /de/docs/Mozilla/Add-ons/WebExtensions/Add-on_ID	https://extensionworkshop.com/documentation/develop/extensions-and-the-add-on-id/
@@ -7259,7 +7263,7 @@
 /de/docs/The_XSLT_JavaScript_Interface_in_Gecko:Resources	/de/docs/Web/API/XSLTProcessor
 /de/docs/The_XSLT_JavaScript_Interface_in_Gecko:Setting_Parameters	/de/docs/Web/API/XSLTProcessor
 /de/docs/The_add-on_bar	/de/docs/Mozilla/Firefox/Releases/4/The_add-on_bar
-/de/docs/The_data_URL_scheme	/de/docs/Web/URI/Schemes/data
+/de/docs/The_data_URL_scheme	/de/docs/Web/URI/Reference/Schemes/data
 /de/docs/Thunderbird/Autoconfiguration	https://www.bucksch.org/1/projects/thunderbird/autoconfiguration/
 /de/docs/Thunderbird/Autoconfiguration/FileFormat/Definition	https://www.bucksch.org/1/projects/thunderbird/autoconfiguration/config-file-format.html
 /de/docs/Thunderbird/Autoconfiguration/FileFormat/HowTo	https://www.bucksch.org/1/projects/thunderbird/autoconfiguration/how-to-create-your-own
@@ -7686,8 +7690,8 @@
 /de/docs/Transforming_XML_with_XSLT:The_Netscape_XSLT_XPath_Reference:Functions	/de/docs/Web/XML/XPath/Reference/Functions
 /de/docs/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces	/de/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
 /de/docs/URI	/de/docs/Glossary/URI
-/de/docs/URI/www and non-www URLs	/de/docs/Web/URI/Authority/Choosing_between_www_and_non-www_URLs
-/de/docs/URI/www_vs_non-www_URLs	/de/docs/Web/URI/Authority/Choosing_between_www_and_non-www_URLs
+/de/docs/URI/www and non-www URLs	/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs
+/de/docs/URI/www_vs_non-www_URLs	/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs
 /de/docs/URL.createObjectURL	/de/docs/Web/API/URL/createObjectURL_static
 /de/docs/URLUtilsReadOnly.origin	/de/docs/Web/API/WorkerLocation/origin
 /de/docs/USA	/de/docs/Web/Progressive_web_apps
@@ -12752,15 +12756,15 @@
 /de/docs/Web/HTTP/Access_control_CORS	/de/docs/Web/HTTP/CORS
 /de/docs/Web/HTTP/Basic_access_authentication	/de/docs/Web/HTTP/Authentication
 /de/docs/Web/HTTP/Basics_of_HTTP	/de/docs/Web/HTTP
-/de/docs/Web/HTTP/Basics_of_HTTP/Choosing_between_www_and_non-www_URLs	/de/docs/Web/URI/Authority/Choosing_between_www_and_non-www_URLs
-/de/docs/Web/HTTP/Basics_of_HTTP/Data_URIs	/de/docs/Web/URI/Schemes/data
-/de/docs/Web/HTTP/Basics_of_HTTP/Data_URLs	/de/docs/Web/URI/Schemes/data
+/de/docs/Web/HTTP/Basics_of_HTTP/Choosing_between_www_and_non-www_URLs	/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs
+/de/docs/Web/HTTP/Basics_of_HTTP/Data_URIs	/de/docs/Web/URI/Reference/Schemes/data
+/de/docs/Web/HTTP/Basics_of_HTTP/Data_URLs	/de/docs/Web/URI/Reference/Schemes/data
 /de/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP	/de/docs/Web/HTTP/Evolution_of_HTTP
-/de/docs/Web/HTTP/Basics_of_HTTP/Introduction_to_www_and_non-www_URLs	/de/docs/Web/URI/Authority/Choosing_between_www_and_non-www_URLs
+/de/docs/Web/HTTP/Basics_of_HTTP/Introduction_to_www_and_non-www_URLs	/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs
 /de/docs/Web/HTTP/Basics_of_HTTP/MIME_types	/de/docs/Web/HTTP/MIME_types
 /de/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types	/de/docs/Web/HTTP/MIME_types/Common_types
 /de/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types	/de/docs/Web/HTTP/MIME_types/Common_types
-/de/docs/Web/HTTP/Basics_of_HTTP/Resource_URLs	/de/docs/Web/URI/Schemes/resource
+/de/docs/Web/HTTP/Basics_of_HTTP/Resource_URLs	/de/docs/Web/URI/Reference/Schemes/resource
 /de/docs/Web/HTTP/CORS/Errors/Reason:_CORS_header_‘Origin’_cannot_be_added	/de/docs/Web/HTTP/CORS/Errors/CORSOriginHeaderNotAdded
 /de/docs/Web/HTTP/Caching_FAQ	/de/docs/Web/HTTP/Caching
 /de/docs/Web/HTTP/Configuring_servers_for_Ogg_media	/de/docs/Web/Media/Guides/Formats/Configuring_servers_for_Ogg_media
@@ -12838,8 +12842,8 @@
 /de/docs/Web/HTTP/Status/506_Variant_Also_Negotiates	/de/docs/Web/HTTP/Status/506
 /de/docs/Web/HTTP/Status/510_Not_Extended	/de/docs/Web/HTTP/Status/510
 /de/docs/Web/HTTP/X-Frame-Options	/de/docs/Web/HTTP/Headers/X-Frame-Options
-/de/docs/Web/HTTP/data_URIs	/de/docs/Web/URI/Schemes/data
-/de/docs/Web/HTTP/www_and_non-www_URLs	/de/docs/Web/URI/Authority/Choosing_between_www_and_non-www_URLs
+/de/docs/Web/HTTP/data_URIs	/de/docs/Web/URI/Reference/Schemes/data
+/de/docs/Web/HTTP/www_and_non-www_URLs	/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs
 /de/docs/Web/Houdini	/de/docs/Web/API/Houdini_APIs
 /de/docs/Web/Houdini/CSS_Painting_API	/de/docs/Web/API/CSS_Painting_API/Guide
 /de/docs/Web/Houdini/CSS_Typed_OM	/de/docs/Web/API/CSS_Typed_OM_API
@@ -13584,8 +13588,19 @@
 /de/docs/Web/Security/Securing_your_site	/de/docs/Web/Security/Practical_implementation_guides
 /de/docs/Web/Security/Securing_your_site/Configuring_server_MIME_types	/de/docs/Learn_web_development/Extensions/Server-side/Configuring_server_MIME_types
 /de/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion	/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion
-/de/docs/Web/Text_fragments	/de/docs/Web/URI/Fragment/Text_fragments
+/de/docs/Web/Text_fragments	/de/docs/Web/URI/Reference/Fragment/Text_fragments
 /de/docs/Web/Tutorials	/de/docs/MDN/Tutorials
+/de/docs/Web/URI/Authority	/de/docs/Web/URI/Reference/Authority
+/de/docs/Web/URI/Authority/Choosing_between_www_and_non-www_URLs	/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs
+/de/docs/Web/URI/Fragment	/de/docs/Web/URI/Reference/Fragment
+/de/docs/Web/URI/Fragment/Text_fragments	/de/docs/Web/URI/Reference/Fragment/Text_fragments
+/de/docs/Web/URI/Guides/Text_fragments	/de/docs/Web/URI/Reference/Fragment/Text_fragments
+/de/docs/Web/URI/Reference/Authority/Choosing_between_www_and_non-www_URLs	/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs
+/de/docs/Web/URI/Reference/Text_fragments	/de/docs/Web/URI/Reference/Fragment/Text_fragments
+/de/docs/Web/URI/Schemes	/de/docs/Web/URI/Reference/Schemes
+/de/docs/Web/URI/Schemes/data	/de/docs/Web/URI/Reference/Schemes/data
+/de/docs/Web/URI/Schemes/javascript	/de/docs/Web/URI/Reference/Schemes/javascript
+/de/docs/Web/URI/Schemes/resource	/de/docs/Web/URI/Reference/Schemes/resource
 /de/docs/Web/WebDriver/Commands/New_Window	/de/docs/Web/WebDriver/Commands/NewWindow
 /de/docs/Web/WebGL	/de/docs/Web/API/WebGL_API
 /de/docs/Web/WebGL/Adding_2D_content_to_a_WebGL_context	/de/docs/Web/API/WebGL_API/Tutorial/Adding_2D_content_to_a_WebGL_context
@@ -14334,7 +14349,7 @@
 /de/docs/cssText	/de/docs/Web/API/CSSRule/cssText
 /de/docs/ctrlKey	/de/docs/Web/API/MouseEvent/ctrlKey
 /de/docs/currentTarget	/de/docs/Web/API/Event/currentTarget
-/de/docs/data_URIs	/de/docs/Web/URI/Schemes/data
+/de/docs/data_URIs	/de/docs/Web/URI/Reference/Schemes/data
 /de/docs/de_temp	/de/docs/Web/API/document/documentElement
 /de/docs/defineGetter	/de/docs/Web/JavaScript/Guide/Working_with_objects
 /de/docs/defineSetter	/de/docs/Web/JavaScript/Guide/Working_with_objects
@@ -14589,5 +14604,5 @@
 /de/docs/window.toolbar	/de/docs/Web/API/Window/toolbar
 /de/docs/window.unescape	/de/docs/Web/JavaScript/Reference/Global_Objects/unescape
 /de/docs/window.window	/de/docs/Web/API/Window/window
-/de/docs/www_vs_non-www_URLs	/de/docs/Web/URI/Authority/Choosing_between_www_and_non-www_URLs
+/de/docs/www_vs_non-www_URLs	/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs
 /de/docs/xml:base	/de/docs/Web/API/Node/baseURI

@@ -1,14 +1,14 @@
 ---
-title: "Dokument: domain-Eigenschaft"
+title: "Document: domain-Eigenschaft"
 short-title: domain
 slug: Web/API/Document/domain
 l10n:
-  sourceCommit: e114a6686e813abfcb8f071b18987eb4c1f17ce6
+  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
 ---
 
 {{ApiRef}} {{Deprecated_Header}}
 
-Die **`domain`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces holt/setzt den Domain-Teil des {{Glossary("origin", "Ursprungs")}} des aktuellen Dokuments, wie er von der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) verwendet wird.
+Die **`domain`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ruft den Domain-Teil des {{Glossary("origin", "origin")}} des aktuellen Dokuments ab oder setzt diesen, wie er in der [same-origin policy](/de/docs/Web/Security/Same-origin_policy) verwendet wird.
 
 ## Wert
 
@@ -17,84 +17,83 @@ Ein String.
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Beispiele
 
-### Abrufen der Domain
+### Domain abrufen
 
-Für Code, der unter der URL `https://developer.mozilla.org/de/docs/Web` ausgeführt wird, würde dieses Beispiel `currentDomain` auf den String `"developer.mozilla.org"` setzen.
+Für Code, der auf der URL `https://developer.mozilla.org/de/docs/Web` ausgeführt wird, würde dieses Beispiel `currentDomain` auf den String `"developer.mozilla.org"` setzen.
 
 ```js
 const currentDomain = document.domain;
 ```
 
-Der Getter für diese Eigenschaft gibt den Domain-Teil des Ursprungs des aktuellen Dokuments zurück. In den meisten Fällen wird dies der Hostname-Teil der URL des Dokuments sein. Es gibt jedoch einige Ausnahmen:
+Der Getter für diese Eigenschaft gibt den Domain-Teil des Origins des aktuellen Dokuments zurück. In den meisten Fällen ist dies der Hostname-Teil der URL des Dokuments. Es gibt jedoch einige Ausnahmen:
 
-- Wenn die Seite einen undurchsichtigen {{Glossary("origin", "Ursprung")}} hat, z. B. für eine Seite mit einer [Data-URL](/de/docs/Web/URI/Schemes/data), dann wird ein leerer String zurückgegeben.
-- Wenn der `document.domain`-[Setter](#setzen_der_domain) verwendet wurde, dann wird der Wert, der gesetzt wurde, zurückgegeben.
+- Wenn die Seite ein undurchsichtiges {{Glossary("origin", "origin")}} hat, z. B. für eine Seite mit einer [data URL](/de/docs/Web/URI/Reference/Schemes/data), gibt sie einen leeren String zurück.
+- Wenn der [Setter](#domain_setzen) von `document.domain` verwendet wurde, wird der Wert zurückgegeben, der gesetzt wurde.
 
-Obwohl der Getter nicht auf die gleiche Weise gefährlich ist wie der Setter, ist es wahrscheinlich einfacher und nützlicher, die [`Location.hostname`]-Eigenschaft(/de/docs/Web/API/Location/hostname) zu verwenden. So können Sie `document.domain` vollständig vermeiden:
+Obwohl der Getter nicht auf die gleiche Weise gefährlich ist wie der Setter, ist es wahrscheinlich einfacher und nützlicher, die [`Location.hostname`](/de/docs/Web/API/Location/hostname)-Eigenschaft zu verwenden. Damit können Sie `document.domain` vollständig vermeiden:
 
 ```js
 const currentHostname = location.hostname;
 ```
 
-Für die URL `https://developer.mozilla.org/de/docs/Web` ist `currentHostname` ebenfalls der String `"developer.mozilla.org"`. Andere Alternativen, die leicht unterschiedliche Informationen bieten, sind [`Location.host`](/de/docs/Web/API/Location/host), das den Port einschließt, und [`Window.origin`](/de/docs/Web/API/Window/origin), das den vollständigen Ursprung bereitstellt.
+Für die URL `https://developer.mozilla.org/de/docs/Web` ist `currentHostname` ebenfalls der String `"developer.mozilla.org"`. Andere Alternativen, die leicht unterschiedliche Informationen liefern, sind [`Location.host`](/de/docs/Web/API/Location/host), das den Port einschließt, und [`Window.origin`](/de/docs/Web/API/Window/origin), das das vollständige Origin bereitstellt.
 
-### Setzen der Domain
+### Domain setzen
 
 ```js
 document.domain = domainString;
 ```
 
-Der Setter für diese Eigenschaft kann verwendet werden, um den {{Glossary("origin", "Ursprung")}} einer Seite zu _ändern_ und somit zu beeinflussen, wie bestimmte Sicherheitsüberprüfungen durchgeführt werden. Er kann nur auf die gleiche oder eine übergeordnete Domain gesetzt werden. Zum Beispiel, wenn `https://a.example.com` und `https://b.example.com` beide verwenden
+Der Setter für diese Eigenschaft kann verwendet werden, um das {{Glossary("origin", "origin")}} einer Seite zu _ändern_ und dadurch zu beeinflussen, wie bestimmte Sicherheitsüberprüfungen durchgeführt werden. Er kann nur auf dieselbe oder eine übergeordnete Domain gesetzt werden. Zum Beispiel, wenn sowohl `https://a.example.com` als auch `https://b.example.com` Folgendes verwenden:
 
 ```js
 document.domain = "example.com";
 ```
 
-dann haben sie beide ihren Ursprung so verändert, dass sie dieselbe Domain haben, und sie können nun direkt auf das DOM des anderen zugreifen — trotz originübergreifend, was normalerweise einen solchen Zugriff verhindern würde.
+Dann haben beide ihr Origin so modifiziert, dass sie dieselbe Domain haben, und sie können jetzt direkt auf das DOM des jeweils anderen zugreifen—obwohl dies normalerweise aufgrund von Cross-Origin-Sicherheitsbeschränkungen nicht möglich wäre.
 
-Beachten Sie, dass das Setzen von `document.domain` auf seinen aktuellen Wert kein No-Op ist. Es ändert dennoch den Ursprung. Zum Beispiel, wenn eine Seite setzt
+Beachten Sie, dass das Setzen von `document.domain` auf seinen aktuellen Wert keine No-Op ist. Es ändert immer noch das Origin. Zum Beispiel, wenn eine Seite Folgendes setzt:
 
 ```js
 document.domain = document.domain;
 ```
 
-dann wird sie als originübergreifend von jeder anderen normalerweise gleichbürtigen Seitenseiten betrachtet, die nicht dasselbe getan haben.
+Dann wird diese Seite als Cross-Origin zu anderen normalerweise gleich-origin Seiten gewertet, die dies nicht ebenfalls gemacht haben.
 
-#### Veralterung
+#### Veraltete Nutzung
 
-Der `document.domain`-Setter ist veraltet. Er untergräbt die Sicherheitsmaßnahmen, die durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) bereitgestellt werden, und verkompliziert das Ursprungsmodell in Browsern, was zu Interoperabilitätsproblemen und Sicherheitslücken führt.
+Der `document.domain`-Setter ist veraltet. Er untergräbt die Sicherheitsmechanismen der [same origin policy](/de/docs/Web/Security/Same-origin_policy) und erschwert das Origin-Modell in Browsern, was zu Interoperabilitätsproblemen und Sicherheitslücken führt.
 
-Das Setzen von `document.domain` ist gefährlich. Es öffnet den vollen Zugriff auf das DOM einer Seite von _allen_ Subdomains, was wahrscheinlich nicht beabsichtigt ist. Es entfernt auch die Portkomponente vom Ursprung, sodass Ihre Seite nun von anderen Seiten mit derselben IP-Adresse oder derselben Hostkomponente, selbst an einem anderen Port, darauf zugegriffen werden kann.
+Der Versuch, `document.domain` zu setzen, ist gefährlich. Er ermöglicht vollen Zugriff auf das DOM einer Seite von _allen_ Subdomains aus, was wahrscheinlich nicht beabsichtigt ist. Außerdem entfernt er die Port-Komponente vom Origin, sodass Ihre Seite jetzt von anderen Seiten mit derselben IP-Adresse oder demselben Hostnamen, selbst auf einem anderen Port, zugänglich gemacht werden kann.
 
-Dies ist besonders unsicher bei gemeinsam genutztem Hosting. Wenn zum Beispiel ein anderer Kunde des gemeinsamen Hostings in der Lage ist, eine Seite mit derselben IP-Adresse, aber an einem anderen Port zu hosten, dann entfernt das Setzen von `document.domain` den gleichbürtigen Schutz, der Sie normalerweise vor dem Zugriff der anderen Kundenseite auf die Daten Ihrer Seite bewahrt.
+Dies ist besonders unsicher bei Shared Hosting. Wenn beispielsweise ein anderer Shared Hosting-Kunde in der Lage ist, eine Website mit derselben IP-Adresse, aber auf einem anderen Port zu hosten, führt das Setzen von `document.domain` dazu, dass die same-origin protection entfernt wird, die Ihre Site normalerweise vor dem Zugriff durch die Site des anderen Kunden schützt.
 
-Ähnliche Probleme treten bei gemeinsam genutzten Hosting-Seiten auf, die jedem Kunden eine andere Subdomain zuweisen. Wenn eine Seite `document.domain` setzt, kann jeder andere Kunde auf einer anderen Subdomain dasselbe tun und beginnen, auf die Daten der ursprünglichen Seite zuzugreifen.
+Ähnliche Probleme treten bei Shared Hosting-Sites auf, die jedem Kunden eine andere Subdomain zuweisen. Wenn eine Site `document.domain` setzt, kann jeder andere Kunde auf einer anderen Subdomain dasselbe tun und damit beginnen, auf die Daten der ursprünglichen Site zuzugreifen.
 
-Anstatt `document.domain` zu verwenden, um die kommunikation über Ursprünge hinweg zu erleichtern, sollten Sie [`Window.postMessage`](/de/docs/Web/API/Window/postMessage) verwenden, um eine asynchrone Nachricht an den anderen Ursprung zu senden. Dieser kontrollierte Zugriff durch Nachrichtenübermittlung ist viel sicherer als die vollständige Freigabe aller Daten durch `document.domain`.
+Statt `document.domain` zu verwenden, um Cross-Origin-Kommunikation zu ermöglichen, sollten Sie [`Window.postMessage`](/de/docs/Web/API/Window/postMessage) verwenden, um eine asynchrone Nachricht an das andere Origin zu senden. Dieser kontrollierte Zugriff über Message-Passing ist weitaus sicherer als das pauschale Aussetzen aller Daten durch `document.domain`.
 
 #### Fehler
 
-Der Setter wirft in mehreren Fällen einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException):
+Der Setter wird in mehreren Fällen einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) auslösen:
 
-- Die {{httpheader('Permissions-Policy/document-domain','document-domain')}}
-  {{HTTPHeader("Permissions-Policy")}} ist deaktiviert.
-- Das Dokument befindet sich innerhalb eines sandboxed {{htmlelement("iframe")}}.
-- Das Dokument hat keinen {{Glossary("browsing_context", "Browsing-Kontext")}}.
-- Die [effektive Domain](https://html.spec.whatwg.org/multipage/origin.html#concept-origin-effective-domain) des Dokuments ist `null`.
-- Der angegebene Wert ist weder derselbe wie der aktuelle Hostname der Seite noch eine übergeordnete Domain davon.
+- Wenn die {{httpheader('Permissions-Policy/document-domain','document-domain')}} {{HTTPHeader("Permissions-Policy")}} deaktiviert ist.
+- Wenn das Dokument sich innerhalb eines sandboxed {{htmlelement("iframe")}} befindet.
+- Wenn das Dokument keinen {{Glossary("browsing_context", "browsing context")}} besitzt.
+- Wenn die [effective domain](https://html.spec.whatwg.org/multipage/origin.html#concept-origin-effective-domain) des Dokuments `null` ist.
+- Wenn der angegebene Wert weder mit dem aktuellen Hostnamen der Seite noch mit einer übergeordneten Domain übereinstimmt.
 
-Als Beispiel für diesen letzten Fehlfall wird ein Versuch, `document.domain` auf `"example.org"` zu setzen, wenn man sich auf `https://example.com/` befindet, einen Fehler werfen.
+Ein Beispiel für diesen letzten Fehlerfall wäre ein Versuch, `document.domain` auf `"example.org"` zu setzen, während man sich auf `https://example.com/` befindet—dies würde einen Fehler auslösen.
 
-Zusätzlich wird es als Teil seiner Deprecation nichts tun, wenn es mit bestimmten modernen Isolationsfunktionen kombiniert wird:
+Außerdem wird dieser Setter, als Teil seiner Veraltung, in Kombination mit bestimmten modernen Isolationsfunktionen keine Wirkung zeigen:
 
-- Wenn es auf einer originübergreifend isolierten Seite verwendet wird, d. h. einer, die die entsprechenden Werte für die {{httpheader("Cross-Origin-Opener-Policy")}} und {{httpheader("Cross-Origin-Embedder-Policy")}} HTTP-Headers verwendet.
-- Wenn es auf einer origin-isolierten Seite verwendet wird, d. h. einer, die den {{httpheader("Origin-Agent-Cluster")}} {{experimental_inline}} HTTP-Header verwendet.
+- Wenn er auf einer cross-origin isolierten Seite verwendet wird, also einer Seite, die die entsprechenden Werte für die {{httpheader("Cross-Origin-Opener-Policy")}} und {{httpheader("Cross-Origin-Embedder-Policy")}} HTTP-Header verwendet.
+- Wenn er auf einer origin-isolierten Seite verwendet wird, also einer Seite, die den {{httpheader("Origin-Agent-Cluster")}} {{experimental_inline}} HTTP-Header verwendet.
 
-Schließlich ändert das Setzen von `document.domain` nicht den Ursprung, der für Ursprungsüberprüfungen durch einige Web-APIs verwendet wird, wodurch der Sub-Domain-Zugriff über diesen Mechanismus verhindert wird. Betroffene APIs umfassen (aber sind nicht darauf beschränkt): [`Window.localStorage`](/de/docs/Web/API/Window/localStorage), [IndexDB API](/de/docs/Web/API/IndexedDB_API), [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), [`SharedWorker`](/de/docs/Web/API/SharedWorker).
+Schließlich ändert das Setzen von `document.domain` nicht das für Origin-Prüfungen von einigen Web-APIs verwendete Origin, wodurch der Subdomain-Zugriff über diesen Mechanismus verhindert wird. Betroffene APIs umfassen (sind aber nicht beschränkt auf): [`Window.localStorage`](/de/docs/Web/API/Window/localStorage), [IndexDB API](/de/docs/Web/API/IndexedDB_API), [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), [`SharedWorker`](/de/docs/Web/API/SharedWorker).
 
 ## Spezifikationen
 
@@ -106,7 +105,7 @@ Schließlich ändert das Setzen von `document.domain` nicht den Ursprung, der f�
 
 ## Siehe auch
 
-- [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy)
+- [Same-origin policy](/de/docs/Web/Security/Same-origin_policy)
 - [`Location.hostname`](/de/docs/Web/API/Location/hostname)
 - [`Location.host`](/de/docs/Web/API/Location/host)
 - [`Window.origin`](/de/docs/Web/API/Window/origin)

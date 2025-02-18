@@ -1,56 +1,57 @@
 ---
-title: "<base>: Das Dokument Basis-URL-Element"
+title: "<base>: Das Dokument-Basis-URL-Element"
 slug: Web/HTML/Element/base
 l10n:
-  sourceCommit: 1a48b6abdd27e168c78edcf04a7a9f6a8e0fdc15
+  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
 ---
 
 {{HTMLSidebar}}
 
-Das **`<base>`** [HTML](/de/docs/Web/HTML)-Element gibt die Basis-URL an, die für alle _relativen_ URLs in einem Dokument verwendet werden soll. Es kann nur ein `<base>`-Element in einem Dokument geben.
+Das **`<base>`** [HTML](/de/docs/Web/HTML)-Element legt die Basis-URL fest, die für alle _relativen_ URLs in einem Dokument verwendet wird. Es kann nur ein `<base>`-Element in einem Dokument geben.
 
-Die verwendete Basis-URL eines Dokuments kann von Skripten mit [`Node.baseURI`](/de/docs/Web/API/Node/baseURI) abgerufen werden. Falls das Dokument kein `<base>`-Element enthält, verwendet `baseURI` standardmäßig [`location.href`](/de/docs/Web/API/Location/href).
+Die verwendete Basis-URL eines Dokuments kann von Skripten mit [`Node.baseURI`](/de/docs/Web/API/Node/baseURI) abgerufen werden. Wenn das Dokument keine `<base>`-Elemente enthält, ist `baseURI` standardmäßig auf [`location.href`](/de/docs/Web/API/Location/href) gesetzt.
 
 ## Attribute
 
-Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 > [!WARNING]
-> Ein `<base>`-Element muss ein `href`-Attribut, ein `target`-Attribut oder beides besitzen. Wenn mindestens eines dieser Attribute angegeben ist, **muss** das `<base>`-Element vor anderen Elementen mit Attributwerten, die URLs sind, wie z.B. dem `href`-Attribut eines {{HTMLElement("link")}}, stehen.
+> Ein `<base>`-Element muss ein `href`-Attribut, ein `target`-Attribut oder beide besitzen.
+> Wenn mindestens eines dieser Attribute angegeben ist, **muss** das `<base>`-Element vor anderen Elementen mit Attributwerten, die URLs enthalten, wie z. B. dem `href`-Attribut eines {{HTMLElement("link")}}, stehen.
 
 - `href`
   - : Die Basis-URL, die im gesamten Dokument für relative URLs verwendet wird.
-    Absolute und relative URLs sind zulässig.
-    [`data:`](/de/docs/Web/URI/Schemes/data) und [`javascript:`](/de/docs/Web/URI/Schemes/javascript) URLs sind nicht zulässig.
+    Absolute und relative URLs sind erlaubt.
+    [`data:`](/de/docs/Web/URI/Reference/Schemes/data)- und [`javascript:`](/de/docs/Web/URI/Reference/Schemes/javascript)-URLs sind nicht erlaubt.
 - `target`
 
-  - : Ein **Schlüsselwort** oder **benutzerdefinierter Name** des standardmäßigen {{Glossary("browsing_context", "Browsing-Kontexts")}}, in dem die Ergebnisse der Navigation von {{HTMLElement("a")}}, {{HTMLElement("area")}}, oder {{HTMLElement("form")}}-Elementen ohne explizite `target`-Attribute angezeigt werden sollen. Die folgenden Schlüsselwörter haben spezielle Bedeutungen:
+  - : Ein **Schlüsselwort** oder ein **benutzerdefinierter Name** des Standard-{{Glossary("browsing_context", "Browsing-Kontexts")}}, in dem die Ergebnisse der Navigation von {{HTMLElement("a")}}, {{HTMLElement("area")}} oder {{HTMLElement("form")}}-Elementen ohne explizite `target`-Attribute angezeigt werden sollen. Die folgenden Schlüsselwörter haben spezielle Bedeutungen:
 
-    - `_self` (Standard): Zeigt das Ergebnis im aktuellen Browsing-Kontext an.
-    - `_blank`: Zeigt das Ergebnis in einem neuen, unbenannten Browsing-Kontext an.
-    - `_parent`: Zeigt das Ergebnis im übergeordneten Browsing-Kontext des aktuellen an, wenn die aktuelle Seite in einem Frame ist. Wenn es keinen Elternteil gibt, verhält es sich wie `_self`.
-    - `_top`: Zeigt das Ergebnis im obersten Browsing-Kontext an (dem Browsing-Kontext, der ein Vorfahre des aktuellen ist und keinen Elternteil hat). Wenn es keinen Elternteil gibt, verhält es sich wie `_self`.
+    - `_self` (Standard): Die Ergebnisse im aktuellen Browsing-Kontext anzeigen.
+    - `_blank`: Die Ergebnisse in einem neuen, unbenannten Browsing-Kontext anzeigen.
+    - `_parent`: Die Ergebnisse im übergeordneten Browsing-Kontext des aktuellen Kontexts anzeigen, wenn die aktuelle Seite sich innerhalb eines Frames befindet. Wenn es keinen übergeordneten Kontext gibt, verhält sich das wie `_self`.
+    - `_top`: Die Ergebnisse im obersten Browsing-Kontext anzeigen (der Browsing-Kontext, der ein Vorfahr des aktuellen ist und keinen übergeordneten Kontext hat). Wenn es keinen übergeordneten Kontext gibt, verhält sich das wie `_self`.
 
-## Verwendungshinweise
+## Hinweise zur Nutzung
 
 ### Mehrere \<base>-Elemente
 
-Wenn mehrere `<base>`-Elemente verwendet werden, werden nur das erste `href` und das erste `target` befolgt — alle anderen werden ignoriert.
+Wenn mehrere `<base>`-Elemente verwendet werden, werden nur das erste `href` und das erste `target` beachtet – alle anderen werden ignoriert.
 
 ### Anker im Dokument
 
-Links, die auf ein Fragment im Dokument verweisen — z.B. `<a href="#some-id">` — werden mit dem `<base>` aufgelöst, wodurch eine HTTP-Anfrage an die Basis-URL mit dem angehängten Fragment ausgelöst wird.
+Links, die auf ein Fragment im Dokument zeigen – z. B. `<a href="#some-id">` – werden mit dem `<base>` aufgelöst, was eine HTTP-Anfrage an die Basis-URL mit dem angehängten Fragment auslöst.
 
-Zum Beispiel, gegeben `<base href="https://example.com/">` und dieser Link: `<a href="#anchor">Zu Anker</a>`. Der Link verweist auf `https://example.com/#anchor`.
+Zum Beispiel: Gegeben `<base href="https://example.com/">` und diesen Link: `<a href="#anchor">To anchor</a>`. Der Link zeigt auf `https://example.com/#anchor`.
 
 ### target darf keine ASCII-Zeilenumbrüche, Tabs oder < enthalten
 
 Wenn das [`target`](#target)-Attribut einen ASCII-Zeilenumbruch, einen Tab oder das `<`-Zeichen enthält, wird der Wert auf `_blank` zurückgesetzt.
-Dies geschieht, um Angriffe mit nicht geschlossenem Markup zu verhindern, ein skriptloser Angriff, bei dem ein ungeschlossenes `target`-Attribut in die Seite eingefügt wird, sodass jeglicher Text, der darauf folgt, erfasst wird, bis der Browser auf ein Zeichen stößt, das das Attribut schließt.
+Dies dient dazu, danglende Markup-Injektionen zu verhindern, eine skriptlose Angriffsmethode, bei der ein ungeschlossenes `target`-Attribut in die Seite injiziert wird, sodass jeglicher Text danach erfasst wird, bis der Browser auf ein Zeichen stößt, das das Attribut schließt.
 
 ### Open Graph
 
-[Open Graph](https://ogp.me/)-Tags erkennen `<base>` nicht an und sollten immer vollständige absolute URLs haben. Zum Beispiel:
+[Open Graph](https://ogp.me/)-Tags erkennen `<base>` nicht und sollten immer vollständige absolute URLs enthalten. Zum Beispiel:
 
 ```html
 <meta property="og:image" content="https://example.com/thumbnail.jpg" />
@@ -75,28 +76,28 @@ Dies geschieht, um Angriffe mit nicht geschlossenem Markup zu verhindern, ein sk
       <td>Metadaten-Inhalt.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
-      <td>Kein Inhalt; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
+      <th scope="row">Zulässiger Inhalt</th>
+      <td>Keiner; es ist ein {{Glossary("void_element", "void-Element")}}.</td>
     </tr>
     <tr>
-      <th scope="row">Auslassung des Tags</th>
-      <td>Muss ein Start-Tag haben und darf keine End-Tag haben.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
-        Ein {{HTMLElement("head")}}, das kein anderes <code>&lt;base&gt;</code>-Element enthält.
+        Ein {{HTMLElement("head")}}, das kein weiteres <code>&lt;base&gt;</code>-Element enthält.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Keine <code>role</code> erlaubt</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Kein <code>role</code> erlaubt</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
