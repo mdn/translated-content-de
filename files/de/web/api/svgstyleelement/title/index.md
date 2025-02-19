@@ -3,26 +3,26 @@ title: "SVGStyleElement: title-Eigenschaft"
 short-title: title
 slug: Web/API/SVGStyleElement/title
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 176953b8260e0dd4328a7e788e8179accbafb8e1
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGStyleElement.title`**-Eigenschaft ist ein String, der dem [`title`](/de/docs/Web/SVG/Element/style#title)-Attribut des gegebenen SVG-Stilelements entspricht. Sie kann verwendet werden, um zwischen [alternativen Stylesheets](/de/docs/Web/CSS/Alternative_style_sheets) auszuwählen.
+Die **`SVGStyleElement.title`**-Eigenschaft ist ein String, der dem [`title`](/de/docs/Web/SVG/Element/style#title)-Attribut des gegebenen SVG-Style-Elements entspricht. Sie kann verwendet werden, um zwischen [alternativen Stylesheets](/de/docs/Web/HTML/Attributes/rel/alternate_stylesheet) zu wählen.
 
 ## Wert
 
 Ein String mit beliebigem Wert.
 
-Der Wert wird mit dem String initialisiert, der im entsprechenden `title`-Attribut des Styles angegeben ist.
+Der Wert wird mit dem im entsprechenden Styles gegebene String im [`title`](/de/docs/Web/SVG/Element/style#title)-Attribut initialisiert.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man programmgesteuert die `title`-Eigenschaft eines Styles, der in einer SVG-Definition definiert wurde, auslesen und setzen kann.
+Dieses Beispiel zeigt, wie man die `title`-Eigenschaft eines in einer SVG-Definition definierten Styles programmatisch abruft und setzt.
 
 ### HTML
 
-Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/Element/circle) mit einem [`<style>`](/de/docs/Web/SVG/Element/style)-Element, das ein `title` hat. Wir definieren auch ein Textfeld zum Protokollieren des aktuellen Titels.
+Das HTML enthält eine SVG-Definition für ein [`<circle>`](/de/docs/Web/SVG/Element/circle) mit einem [`<style>`](/de/docs/Web/SVG/Element/style)-Element, das ein `title` hat. Wir definieren auch ein Textfeld zum Protokollieren des aktuellen Titels.
 
 ```html
 <textarea id="log" rows="3" cols="50"></textarea>
@@ -40,7 +40,7 @@ Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/E
 
 ### JavaScript
 
-Der untenstehende Code erhält das `style`-Element (ein `SVGStyleElement`) über seinen Tag-Namen, protokolliert den Titel und ändert und protokolliert dann den Titel erneut.
+Der folgende Code ruft das `style`-Element (ein `SVGStyleElement`) über seinen Tag-Namen ab, protokolliert den Titel, ändert ihn dann und protokolliert den Titel erneut.
 
 ```js
 const log = document.getElementById("log");
@@ -54,15 +54,16 @@ log.value += `New title: ${style.title}`;
 
 ### Ergebnis
 
-Der Text im Protokoll unten zeigt, dass der Titel zunächst das entsprechende Attribut des `<style>`-Elements widerspiegelt, aber dann auf einen anderen Wert geändert werden kann.
+Der Text im untenstehenden Protokoll zeigt, dass der Titel zunächst das übereinstimmende Attribut am `<style>`-Element widerspiegelt, aber dann in einen anderen Wert geändert werden kann.
 
 {{EmbedLiveSample("Examples")}}
 
-Beachten Sie, dass alternative Styles nicht standardmäßig angewendet werden; sie müssen vom Benutzer als bevorzugtes Stylesheet ausgewählt werden. Um die alternativen Stylesheets in Firefox anzuwenden:
+Beachten Sie, dass alternative Styles standardmäßig nicht angewendet werden; sie müssen vom Benutzer als bevorzugtes Stylesheet ausgewählt werden.
+Um die alternativen Stylesheets in Firefox anzuwenden:
 
-1. Öffnen Sie die Menüleiste (drücken Sie `F10` oder tippen Sie auf die `Alt`-Taste)
-2. Öffnen Sie das **Ansicht > Seitendesign**-Untermenü
-3. Wählen Sie die Stylesheets basierend auf ihren Namen aus.
+1. Öffnen Sie die Menüleiste (drücken Sie `F10` oder tippen Sie die `Alt`-Taste)
+2. Öffnen Sie das Untermenü **Ansicht > Seitenstil**
+3. Wählen Sie die Stylesheets anhand ihrer Namen aus.
 
 ## Spezifikationen
 

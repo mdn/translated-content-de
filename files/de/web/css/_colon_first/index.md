@@ -1,13 +1,13 @@
 ---
-title: :first
+title: ":first"
 slug: Web/CSS/:first
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 2b3eb646cec5c9bc74e263b7880a52ad52e37913
 ---
 
 {{CSSRef}}
 
-Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes), verwendet mit der {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), repräsentiert die erste Seite eines gedruckten Dokuments. (Siehe {{cssxref(":first-child")}} für das allgemeine erste Element eines Knotens.)
+Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), verwendet mit der {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), repräsentiert die erste Seite eines gedruckten Dokuments. (Siehe {{cssxref(":first-child")}} für das allgemeine erste Element eines Knotens.)
 
 ```css
 /* Selects the first page when printing */
@@ -18,7 +18,7 @@ Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo
 ```
 
 > [!NOTE]
-> Sie können mit dieser Pseudo-Klasse nicht alle CSS-Eigenschaften ändern. Sie können nur die Ränder, {{cssxref("orphans")}}, {{cssxref("widows")}} und Seitenumbrüche des Dokuments ändern. Außerdem dürfen Sie nur [Absolute Längeneinheiten](/de/docs/Web/CSS/length#absolute_length_units) verwenden, wenn Sie die Ränder definieren. Alle anderen Eigenschaften werden ignoriert.
+> Sie können nicht alle CSS-Eigenschaften mit dieser Pseudoklasse ändern. Sie können nur die Ränder, {{cssxref("orphans")}}, {{cssxref("widows")}} und Seitenumbrüche des Dokuments ändern. Außerdem dürfen Sie nur [absolute-Längen](/de/docs/Web/CSS/length#absolute_length_units)-Einheiten verwenden, wenn Sie die Ränder definieren. Alle anderen Eigenschaften werden ignoriert.
 
 ## Syntax
 
@@ -30,40 +30,36 @@ Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo
 
 ## Beispiele
 
-### HTML
+### Verwendung von `:first` für Druckstile von Seiten
 
-```html
+Drücken Sie die Schaltfläche "Drucken!", um das Beispiel zu drucken. Die Wörter auf der ersten Seite sollten ungefähr in der Mitte sein, während andere Seiten ihren Inhalt an der Standardposition haben:
+
+```html live-sample___colon-first
 <p>First Page.</p>
 <p>Second Page.</p>
 <button>Print!</button>
 ```
 
-### CSS
-
-```css
+```css live-sample___colon-first
 @page :first {
-  margin-left: 50%;
-  margin-top: 50%;
+  size: 8.5in 11in;
+  margin-left: 3in;
+  margin-top: 5in;
 }
 
 p {
   page-break-after: always;
+  font: 1.2em sans-serif;
 }
 ```
 
-### JavaScript
-
-```js
+```js live-sample___colon-first
 document.querySelector("button").addEventListener("click", () => {
   window.print();
 });
 ```
 
-### Ergebnis
-
-Drücken Sie die Schaltfläche „Drucken!“, um das Beispiel zu drucken. Die Wörter auf der ersten Seite sollten ungefähr in der Mitte positioniert sein, während andere Seiten ihre Inhalte an der Standardposition haben.
-
-{{ EmbedLiveSample('Examples', '80%', '150px') }}
+{{EmbedLiveSample('colon-first', '100%', , , , , , "allow-modals")}}
 
 ## Spezifikationen
 
@@ -76,4 +72,4 @@ Drücken Sie die Schaltfläche „Drucken!“, um das Beispiel zu drucken. Die W
 ## Siehe auch
 
 - {{Cssxref("@page")}}
-- Andere seitenbezogene Pseudo-Klassen: {{Cssxref(":left")}}, {{Cssxref(":right")}}
+- Andere seitenbezogene Pseudoklassen: {{Cssxref(":left")}}, {{Cssxref(":right")}}

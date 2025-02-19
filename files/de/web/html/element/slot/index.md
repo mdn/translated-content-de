@@ -1,23 +1,20 @@
 ---
-title: "<slot>: Das Slot-Element der Web-Komponente"
+title: "<slot>: Das Web-Komponenten-Slot-Element"
 slug: Web/HTML/Element/slot
 l10n:
-  sourceCommit: f47d71927e4dc46f3aabde0a56c7f940da988d9f
+  sourceCommit: cca1e467eab1468f7bd9c7619e30f8e2a8f4177c
 ---
 
 {{HTMLSidebar}}
 
-Das **`<slot>`** [HTML](/de/docs/Web/HTML)-Element, Teil der [Web Components](/de/docs/Web/API/Web_components)-Technologie-Suite, ist ein Platzhalter innerhalb einer Web-Komponente, den Sie mit eigenem Markup füllen können. Dies ermöglicht es Ihnen, separate DOM-Bäume zu erstellen und diese gemeinsam darzustellen.
+Das **`<slot>`** [HTML](/de/docs/Web/HTML)-Element – Teil des [Web Components](/de/docs/Web/API/Web_components) Technologiepakets – ist ein Platzhalter innerhalb einer Webkomponente, den Sie mit Ihrem eigenen Markup füllen können. Dadurch können Sie separate DOM-Bäume erstellen und diese zusammen präsentieren.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `name`
-
-  - : Der Name des Slots.
-
-    Ein **_benannter Slot_** ist ein `<slot>`-Element mit einem `name`-Attribut.
+  - : Der Name des Slots. Wenn die Komponente, die den Slot enthält, gerendert wird, wird der Slot mit dem Kindelement des benutzerdefinierten Elements gerendert, das ein übereinstimmendes [`slot`](/de/docs/Web/HTML/Global_attributes/slot)-Attribut besitzt. Ein _benannter Slot_ ist ein `<slot>`-Element mit einem `name`-Attribut. Unbenannte Slots haben standardmäßig den leeren String als Namen. Namen sollten eindeutig pro Shadow-Wurzel sein: Wenn Sie zwei Slots mit demselben Namen haben, werden alle Elemente mit einem übereinstimmenden `slot`-Attribut dem ersten Slot mit diesem Namen zugeordnet.
 
 ## Beispiele
 
@@ -66,7 +63,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 ```
 
 > [!NOTE]
-> Sie können dieses vollständige Beispiel in Aktion unter [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) sehen (sehen Sie es [live](https://mdn.github.io/web-components-examples/element-details/)). Darüber hinaus finden Sie eine Erklärung unter [Using templates and slots](/de/docs/Web/API/Web_components/Using_templates_and_slots).
+> Sie können dieses vollständige Beispiel in Aktion sehen unter [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) (siehe es [live in Aktion](https://mdn.github.io/web-components-examples/element-details/)). Zusätzlich finden Sie eine Erklärung unter [Using templates and slots](/de/docs/Web/API/Web_components/Using_templates_and_slots).
 
 ## Technische Zusammenfassung
 
@@ -80,15 +77,15 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >Fließinhalte</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Textauszeichnungsinhalte</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Zugelassener Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a
           href="/de/docs/Web/HTML/Content_categories#transparent_content_model"
@@ -102,14 +99,14 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Textauszeichnungsinhalte</a
         >
         akzeptiert
       </td>
@@ -124,7 +121,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
     </tr>
     <tr>
       <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Keine <code>role</code> zulässig</td>
+      <td>Kein <code>role</code> erlaubt</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -147,4 +144,4 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 - HTML [`slot`](/de/docs/Web/HTML/Global_attributes/slot)-Attribut
 - CSS {{CSSXref("::slotted")}} Pseudo-Element
 - CSS {{cssxref(":has-slotted")}} Pseudo-Klasse
-- [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping)-Modul
+- [CSS Scoping](/de/docs/Web/CSS/CSS_scoping) Modul

@@ -1,21 +1,23 @@
 ---
-title: "StyleSheet: disabled-Eigenschaft"
+title: "StyleSheet: disabled Eigenschaft"
 short-title: disabled
 slug: Web/API/StyleSheet/disabled
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 176953b8260e0dd4328a7e788e8179accbafb8e1
 ---
 
 {{APIRef("CSSOM")}}
 
 Die **`disabled`**-Eigenschaft des
-[`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces bestimmt, ob das Stylesheet daran gehindert wird, auf das Dokument angewendet zu werden.
+[`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces bestimmt, ob das Stylesheet daran gehindert wird,
+auf das Dokument angewendet zu werden.
 
-Ein Stylesheet kann deaktiviert werden, indem diese Eigenschaft manuell auf `true` gesetzt wird oder wenn es sich um ein inaktives [alternatives Stylesheet](/de/docs/Web/CSS/Alternative_style_sheets) handelt. Beachten Sie, dass `disabled === false` nicht garantiert, dass das Stylesheet angewendet wird (es könnte zum Beispiel aus dem Dokument entfernt werden).
+Ein Stylesheet kann deaktiviert werden, indem diese Eigenschaft manuell auf `true` gesetzt wird oder
+wenn es sich um ein inaktives [alternatives Stylesheet](/de/docs/Web/HTML/Attributes/rel/alternate_stylesheet) handelt. Beachten Sie, dass `disabled === false` nicht garantiert, dass das Stylesheet angewendet wird (es könnte zum Beispiel aus dem Dokument entfernt werden).
 
 ## Wert
 
-Ein boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 

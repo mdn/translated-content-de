@@ -1,78 +1,75 @@
 ---
-title: Attribution und Copyright-Lizenzierung
+title: Urheberrecht und Lizenzierung
 slug: MDN/Writing_guidelines/Attrib_copyright_license
 l10n:
-  sourceCommit: 719645a32546d9e514ac530a5eb66aa4c26d4f51
+  sourceCommit: 24b4a3d9e5488d5c5600cf8eb278484d47bca07e
 ---
 
-Die Inhalte der MDN Web Docs sind kostenlos verfügbar und unterliegen verschiedenen Open-Source-Lizenzen.
+MDN Web Docs-Inhalte sind kostenlos verfügbar und unterliegen verschiedenen Open-Source-Lizenzen.
 
-## Nutzung der MDN Web Docs-Inhalte
+## Verwendung von MDN Web Docs-Inhalten
 
-In diesem Abschnitt werden die von uns bereitgestellten Inhaltstypen sowie die Urheberrechte und Lizenzen behandelt, die für jeden Typ gelten, wenn Sie sich dazu entscheiden, sie wiederzuverwenden.
+Dieser Abschnitt behandelt die Arten von Inhalten, die wir bereitstellen, und die Urheberrechte und Lizenzen, die für jede Art gelten, wenn Sie sich entscheiden, einen Teil davon wiederzuverwenden.
 
 ### Dokumentation
 
 > [!NOTE]
-> Die Inhalte der MDN Web Docs wurden mit Beiträgen von Autoren innerhalb und außerhalb von Mozilla erstellt. Sofern nicht anders angegeben, sind die Inhalte unter den Bedingungen der [Creative Commons Attribution-ShareAlike Lizenz](https://creativecommons.org/licenses/by-sa/2.5/) (CC-BY-SA) v2.5 oder einer späteren Version verfügbar.
+> Die Inhalte auf MDN Web Docs wurden mit Beiträgen von Autoren innerhalb und außerhalb von Mozilla erstellt. Sofern nicht anders angegeben, sind die Inhalte unter den Bedingungen der [Creative Commons Attribution-ShareAlike-Lizenz](https://creativecommons.org/licenses/by-sa/2.5/) (CC-BY-SA), Version 2.5 oder einer späteren Version verfügbar.
 
-Ihre Wiederverwendung der hier enthaltenen Inhalte erfolgt unter derselben Lizenz wie die Originalinhalte—CC-BY-SA v2.5 oder eine spätere Version. Wenn Sie Inhalte der MDN Web Docs wiederverwenden, müssen Sie sicherstellen, dass die Urheberschaft sowohl für die Originalinhalte als auch für die "Mozilla Contributors" angegeben wird. Fügen Sie einen Hyperlink (online) oder eine URL (in gedruckter Form) zur spezifischen Seite der Quelleninhalte hinzu. Um zum Beispiel die Urheberschaft für _diesen_ Artikel anzugeben, können Sie schreiben:
+Ihre Wiederverwendung der Inhalte hier wird unter derselben Lizenz wie der Originalinhalt veröffentlicht – CC-BY-SA v2.5 oder einer späteren Version. Bei der Wiederverwendung der Inhalte auf MDN Web Docs müssen [Namensnennung](https://creativecommons.org/licenses/by/2.5/deed.en#ref-appropriate-credit) für das Material sowie zu "Mozilla Contributors" erfolgen. Eine gute Namensnennung umfasst den **Titel** des Dokuments mit einem Hyperlink (online) oder einer URL (im Druck) zur spezifischen Seite des verwendeten Inhalts, und jede von Ihnen vorgenommene Modifikation sollte kurz beschrieben werden. Zum Beispiel können Sie zur Namensnennung für diese Seite schreiben:
 
-> [Attributions and copyright licensing](/de/docs/MDN/Writing_guidelines/Attrib_copyright_license) von [Mozilla Contributors](/de/docs/MDN/Community/Roles_teams#contributor) ist lizenziert unter [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/). <!--need to revisit the contributors.txt link-->
+> ["Urheberrecht und Lizenzierung"](/de/docs/MDN/Writing_guidelines/Attrib_copyright_license) von Mozilla Contributors, lizenziert unter [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
 
-In dem obigen Beispiel verweist "Mozilla Contributors" auf die Historie der zitierten Seite. Siehe [Empfohlene Praktiken für die Attribution](https://wiki.creativecommons.org/wiki/Recommended_practices_for_attribution) für eine weitere Erläuterung.
+Sie können auch "Mozilla Contributors" zu einer `contributors.txt` Datei verlinken, die im Seitenfuß angegeben ist, um eine Liste der Autoren anzuzeigen, wenn dies angemessen ist. Weitere Einzelheiten finden Sie unter [Empfohlene Praktiken für Namensnennung](https://wiki.creativecommons.org/wiki/Recommended_practices_for_attribution).
 
 ### Code-Beispiele
 
-Code-Beispiele, die am oder nach dem 20. August 2010 hinzugefügt wurden, gehören zur [Public Domain CC0](https://creativecommons.org/publicdomain/zero/1.0/). Kein Lizenzhinweis ist notwendig, aber falls Sie einen benötigen, können Sie diesen verwenden: `Any copyright is dedicated to the Public Domain: https://creativecommons.org/publicdomain/zero/1.0/`
+Code-Beispiele, die am oder nach dem 20. August 2010 hinzugefügt wurden, sind unter [Public Domain CC0](https://creativecommons.org/publicdomain/zero/1.0/) verfügbar. Kein Lizenzhinweis ist erforderlich, aber wenn Sie einen benötigen, können Sie verwenden: `Any copyright is dedicated to the Public Domain: https://creativecommons.org/publicdomain/zero/1.0/`
 
-Code-Beispiele, die vor dem 20. August 2010 hinzugefügt wurden, stehen unter der [MIT-Lizenz](https://opensource.org/license/mit); Sie sollten die folgende Urheberrechtsinformation in die MIT-Vorlage einfügen: "© \<Datum der letzten Wiki-Seitenrevision> \<Name der Person, die es ins Wiki gestellt hat>".
+Code-Beispiele, die vor dem 20. August 2010 hinzugefügt wurden, sind unter der [MIT-Lizenz](https://opensource.org/license/mit) verfügbar; Sie sollten folgendes Namensnennungsinformation in die MIT-Vorlage einfügen: "© \<Datum der letzten Wiki-Seiten-Überarbeitung> \<Name der Person, die es im Wiki eingefügt hat>".
 
-Seit dem Start der neuen Yari MDN-Plattform am 14. Dezember 2020 gibt es derzeit keine Möglichkeit zu bestimmen, welches Sie benötigen. Wir arbeiten daran und werden diesen Inhalt bald aktualisieren. <!--do we still need this here?-->
+Seit dem Start der neuen Yari MDN-Plattform am 14. Dezember 2020 gibt es derzeit keine Möglichkeit festzustellen, welche von beiden Sie benötigen. Wir arbeiten daran und werden diesen Inhalt bald aktualisieren. <!--benötigen wir das hier noch?-->
 
 ### Ihre Beiträge
 
-Wenn Sie zu den MDN Web Docs beitragen möchten, erklären Sie sich damit einverstanden, dass Ihre Dokumentation unter der Attribution-ShareAlike-Lizenz verfügbar ist (oder gelegentlich einer alternativen Lizenz, die bereits auf der von Ihnen bearbeiteten Seite angegeben ist) und dass Ihre Code-Beispiele unter [Creative Commons CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (eine Widmung an die Public Domain) verfügbar sind.
+Wenn Sie zu den MDN Web Docs beitragen möchten, erklären Sie sich damit einverstanden, dass Ihre Dokumentation unter der Attribution-ShareAlike-Lizenz (oder gelegentlich einer alternativen Lizenz, die bereits von der Seite angegeben ist, die Sie bearbeiten) zur Verfügung steht und dass Ihre Code-Beispiele unter [Creative Commons CC-0](https://creativecommons.org/publicdomain/zero/1.0/) (eine Widmung zum Public Domain) verfügbar sind.
 
 > [!WARNING]
-> Es dürfen keine neuen Seiten mit alternativen Lizenzen erstellt werden.
+> Keine neuen Seiten dürfen unter alternativen Lizenzen erstellt werden.
 
-**Das Urheberrecht für eingereichte Materialien bleibt beim Autor, es sei denn, der Autor überträgt es an jemand anderen.**
+**Das Urheberrecht für eingereichte Materialien bleibt beim Autor, es sei denn, der Autor überträgt es auf jemand anderen.**
 
-Wenn Sie Fragen oder Bedenken zu den hier besprochenen Themen haben, kontaktieren Sie bitte das [MDN Web Docs-Team](/de/docs/MDN/Community/Communication_channels).
+Wenn Sie Fragen oder Bedenken zu den hier besprochenen Themen haben, wenden Sie sich bitte an das [MDN Web Docs-Team](/de/docs/MDN/Community/Communication_channels).
 
 ### Logos, Marken, Dienstleistungsmarken und Wortmarken
 
-Die Rechte an den Logos, Marken und Dienstleistungsmarken der Mozilla Foundation sowie das Aussehen und die Gestaltung dieser Website sind nicht unter der Creative Commons Lizenz lizenziert, und soweit es sich um urheberrechtliche Werke handelt (wie Logos und Grafikdesign), sind sie nicht in dem Werk enthalten, das unter diesen Bedingungen lizenziert ist. Wenn Sie den Text von Dokumenten verwenden möchten und ebenfalls eines dieser Rechte nutzen möchten, oder wenn Sie weitere Fragen zur Einhaltung unserer Lizenzbedingungen für diese Sammlung haben, sollten Sie sich hier an die Mozilla Foundation wenden: [licensing@mozilla.org](mailto:licensing@mozilla.org).
+Die Rechte an den Logos, Marken und Dienstleistungsmarken der Mozilla Foundation sowie das Aussehen und die Gestaltung dieser Website sind nicht unter der Creative Commons-Lizenz lizenziert und soweit sie Werke der Urheberschaft sind (wie Logos und Grafikdesign), sind sie nicht in den Werken enthalten, die unter diesen Bedingungen lizenziert sind. Wenn Sie den Text von Dokumenten verwenden und auch eines dieser Rechte nutzen möchten, oder wenn Sie andere Fragen zur Einhaltung unserer Lizenzbedingungen für diese Sammlung haben, sollten Sie die Mozilla Foundation hier kontaktieren: [licensing@mozilla.org](mailto:licensing@mozilla.org).
 
-## Verwendung von Inhalten von anderen MDN Web Docs-Seiten
+## Verwendung von Inhalten von anderen Stellen auf MDN Web Docs
 
-Im Allgemeinen befürworten wir nicht das Kopieren von Inhalten aus anderen Quellen und deren Einfügen in MDN.
-MDN sollte nach Möglichkeit aus Originalinhalten bestehen.
-Wenn wir eine Pull-Anfrage erhalten und feststellen, dass sie plagiierten Inhalt enthält, werden wir sie schließen und den Beitraggeber bitten, die Änderung mit neu formulierten Inhalten erneut einzureichen.
+Im Allgemeinen befürworten wir nicht das Kopieren von Inhalten aus anderen Quellen, um sie auf MDN zu stellen. MDN sollte möglichst aus Originalinhalten bestehen. Wenn wir eine Pull-Anfrage erhalten und feststellen, dass sie plagiierten Inhalt enthält, werden wir sie schließen und den Einreicher darum bitten, die Änderung neu einzureichen, mit in eigenen Worten umgeschriebenem Inhalt.
 
-### Wenn Sie Inhalte wiederverwenden oder erneut veröffentlichen möchten
+### Wiederverwendung oder Neupublizierung Ihres Inhalts auf MDN
 
 > [!NOTE]
-> Sofern es keinen triftigen Grund zur erneuten Veröffentlichung der Inhalte gibt, werden wir wahrscheinlich "nein" sagen.
-> Die Entscheidung des MDN-Autorenteams ist endgültig.
+> Sofern es keinen guten Grund gibt, den Inhalt neu zu veröffentlichen, werden wir wahrscheinlich "nein" sagen. Die Entscheidung des MDN-Redaktionsteams ist endgültig.
 
-Wenn jemand einen Artikel an MDN spenden möchte, den er zuvor auf seinem Blog veröffentlicht hat, oder es sinnvoll ist, ein komplexes Nachschlagewerk zu MDN zu kopieren, kann es eine Rechtfertigung für die erneute Veröffentlichung geben. In diesen Fällen besprechen Sie Ihren Plan im Voraus mit dem MDN-Team:
+Wenn jemand einen Artikel spenden möchte, den er zuvor auf seinem Blog veröffentlicht hat, oder es sinnvoll ist, ein komplexes Nachschlagewerk auf MDN zu kopieren, könnte es Gründe für eine Neupublikation geben. Für diese Fälle besprechen Sie Ihren Plan im Voraus mit dem MDN-Team:
 
 - [Erstellen Sie ein GitHub-Issue](https://github.com/mdn/mdn/issues/new/choose), das Ihre Absicht erklärt.
-  - Beschreiben Sie, was Sie kopieren oder erneut veröffentlichen möchten.
+  - Beschreiben Sie, was Sie kopieren oder neu veröffentlichen möchten.
   - Geben Sie eine URL zur Ressource an.
-  - Erklären Sie, warum Sie denken, dass es angemessen ist.
+  - Erklären Sie, warum Sie es für angemessen halten.
 
 **Wenn der Inhalt unter einer geschlossenen Lizenz veröffentlicht ist:**
 
-- Wenn Sie die Rechte an dem Inhalt halten, geben Sie dies an und stimmen Sie der Veröffentlichung auf MDN ausdrücklich zu.
-- Wenn Sie die Rechte an dem Inhalt nicht halten, fügen Sie den Autor/Verleger nach Möglichkeit dem Issue hinzu oder geben Sie an, wie er kontaktiert werden kann, damit wir sie um Erlaubnis bitten können, den Inhalt erneut zu veröffentlichen.
+- Wenn Sie die Rechte an dem Inhalt halten, geben Sie dies an und Ihre ausdrückliche Zustimmung, ihn auf MDN neu zu veröffentlichen.
+- Wenn Sie die Rechte an dem Inhalt nicht halten, fügen Sie den Autor/Verlag im Issue ein, sofern möglich, oder fügen Sie Details hinzu, wie sie kontaktiert werden können, damit wir sie um Erlaubnis bitten können, den Inhalt neu zu veröffentlichen.
 
 **Wenn der Inhalt unter einer offenen Lizenz veröffentlicht ist:**
 
-- Geben Sie an, um welche Lizenz es sich handelt, und verlinken Sie darauf, damit wir prüfen können, ob sie mit [MDNs Lizenz](https://github.com/mdn/content/blob/main/LICENSE.md) kompatibel ist.
+- Geben Sie an, welche es ist, und verlinken Sie auf die Lizenz, damit wir prüfen können, ob sie mit [der Lizenz von MDN](https://github.com/mdn/content/blob/main/LICENSE.md) kompatibel ist.
 
-## Verlinken zu MDN Web Docs-Artikeln
+## Verlinkung zu MDN Web Docs-Artikeln
 
-Wir bekommen regelmäßig Anfragen von Nutzern, die wissen möchten, wie man zu MDN Web Docs verlinkt und ob das überhaupt erlaubt ist. Die kurze Antwort ist: **Ja, Sie können zu MDN Web Docs verlinken!** Der Hyperlink ist nicht nur das Wesen des Webs, sondern auch eine Möglichkeit, Ihre Benutzer auf wertvolle Ressourcen hinzuweisen und das Vertrauen in die Arbeit unserer Community zu zeigen.
+Wir erhalten regelmäßig Fragen von Usern, wie man auf MDN Web Docs verlinkt und ob das überhaupt erlaubt ist. Die kurze Antwort lautet: **Ja, Sie können auf MDN Web Docs verlinken!** Der Hypertext-Link ist nicht nur das Wesen des Webs, sondern auch eine Möglichkeit, Ihre Nutzer auf wertvolle Ressourcen hinzuweisen sowie Vertrauen in die Arbeit unserer Community zu zeigen.
