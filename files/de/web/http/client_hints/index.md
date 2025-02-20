@@ -1,88 +1,78 @@
 ---
-title: HTTP Client-Hinweise
+title: HTTP-Client-Hinweise
 slug: Web/HTTP/Client_hints
 l10n:
-  sourceCommit: 810682f11400bad32c92ae7182daddfc0ca973b3
+  sourceCommit: 217e25f9d2c39d2031ecf50f891c27e7f5b96e06
 ---
 
 {{HTTPSidebar}}
 
-**Client-Hinweise** sind eine Reihe von Feldern in [HTTP-Anforderungsheader](/de/docs/Web/HTTP/Headers), die ein Server proaktiv von einem Client anfordern kann, um Informationen über das Gerät, das Netzwerk, die Benutzer und benutzerspezifische Präferenzen des User-Agents zu erhalten.
-Der Server kann basierend auf den Informationen, die der Client bereitstellen möchte, bestimmen, welche Ressourcen gesendet werden sollen.
+**Client-Hinweise** sind eine Reihe von Feldern im [HTTP-Anfrage-Header](/de/docs/Web/HTTP/Headers), die ein Server proaktiv von einem Client anfordern kann, um Informationen über das Gerät, das Netzwerk, den Benutzer und benutzerspezifische Präferenzen des User-Agents zu erhalten. Der Server kann basierend auf den Informationen, die der Client bereitstellt, entscheiden, welche Ressourcen gesendet werden.
 
-Die Liste der "Hinweis"-Header finden Sie im Thema [HTTP-Header](/de/docs/Web/HTTP/Headers#client_hints) und [unten zusammengefasst](#hinweisarten).
+Die Liste der "Hinweis"-Header ist im Thema [HTTP Headers](/de/docs/Web/HTTP/Headers#client_hints) aufgeführt und [unten zusammengefasst](#hinweisarten).
 
 ## Überblick
 
-Ein Server muss ankündigen, dass er Client-Hinweise unterstützt, indem er den {{HTTPHeader("Accept-CH")}}-Header verwendet, um die Hinweise zu spezifizieren, die er gerne empfangen möchte.
-Wenn ein Client, der Client-Hinweise unterstützt, den `Accept-CH`-Header empfängt, kann er wählen, einige oder alle der aufgelisteten Client-Hinweis-Header in seinen nachfolgenden Anfragen hinzuzufügen.
+Ein Server muss ankündigen, dass er Client-Hinweise unterstützt, indem er den {{HTTPHeader("Accept-CH")}}-Header verwendet, um die Hinweise zu spezifizieren, die er zu erhalten wünscht. Wenn ein Client, der Client-Hinweise unterstützt, den `Accept-CH`-Header empfängt, kann er wählen, einige oder alle der aufgeführten Client-Hinweis-Header in seine nachfolgenden Anfragen aufzunehmen.
 
-Zum Beispiel könnte der Client nachfolgend auf `Accept-CH` in einer Antwort die Header {{HTTPHeader("Width")}}, {{HTTPHeader("Downlink")}} und {{HTTPHeader("Sec-CH-UA")}} zu allen nachfolgenden Anfragen hinzufügen.
+Beispielsweise könnte der Client nachfolgend dem `Accept-CH` im untenstehenden Antwortbeispiel die Header {{HTTPHeader("Width")}}, {{HTTPHeader("Downlink")}} und {{HTTPHeader("Sec-CH-UA")}} zu allen nachfolgenden Anfragen hinzufügen.
 
 ```http
 Accept-CH: Width, Downlink, Sec-CH-UA
 ```
 
-Dieser Ansatz ist effizient, da der Server nur die Informationen anfordert, die er sinnvoll verarbeiten kann.
-Es ist auch relativ "datenschutzfreundlich", da es dem Client überlassen bleibt, zu entscheiden, welche Informationen er sicher teilen kann.
+Dieser Ansatz ist effizient, da der Server nur die Informationen anfordert, die er sinnvoll verarbeiten kann. Er ist auch relativ "datenschutzfreundlich", da es dem Client überlassen ist, zu entscheiden, welche Informationen sicher geteilt werden können.
 
-Es gibt eine kleine Menge von [niedrig-Entropie-Client-Hinweis-Headern](#hinweise_mit_niedriger_entropie), die von einem Client gesendet werden können, selbst wenn sie nicht angefordert werden.
+Es gibt eine kleine Menge an [Client-Hinweis-Headern mit geringer Entropie](#hinweise_mit_geringer_entropie), die vom Client gesendet werden können, auch wenn sie nicht angefordert wurden.
 
 > [!NOTE]
-> Client-Hinweise können auch in HTML mit dem {{HTMLElement("meta")}}-Element und dem [`http-equiv`](/de/docs/Web/HTML/Element/meta#http-equiv)-Attribut spezifiziert werden.
+> Client-Hinweise können auch in HTML mit dem {{HTMLElement("meta")}}-Element unter Verwendung des [`http-equiv`](/de/docs/Web/HTML/Element/meta#http-equiv)-Attributs angegeben werden.
 >
 > ```html
 > <meta http-equiv="Accept-CH" content="Width, Downlink, Sec-CH-UA" />
 > ```
 
-## Zwischenspeicherung und Client-Hinweise
+## Caching und Client-Hinweise
 
-Client-Hinweise, die bestimmen, welche Ressourcen in Antworten gesendet werden, sollten generell auch im betroffenen {{HTTPHeader("Vary")}}-Header der Antwort enthalten sein.
-Dies stellt sicher, dass für jeden unterschiedlichen Wert des Hinweis-Headers eine andere Ressource zwischengespeichert wird.
+Client-Hinweise, die bestimmen, welche Ressourcen in Antworten gesendet werden, sollten generell auch im {{HTTPHeader("Vary")}}-Header der betreffenden Antwort enthalten sein. Dies stellt sicher, dass für jeden unterschiedlichen Wert des Hinweis-Headers eine andere Ressource zwischengespeichert wird.
 
 ```http
 Vary: Accept, Width, ECT
 ```
 
-Es könnte vorzuziehen sein, {{HTTPHeader("Vary")}} nicht zu spezifizieren oder eine andere Strategie für Client-Hinweis-Header zu verwenden, bei denen sich der Wert häufig ändert, da dies die Ressource effektiv nicht zwischenspeicherbar macht. (Für jeden eindeutigen Wert wird ein neuer Cacheeintrag erstellt.)
-Dies gilt insbesondere für Netzwerk-Client-Hinweise wie {{HTTPHeader("Downlink")}} und {{HTTPHeader("RTT")}}.
-Für weitere Informationen siehe [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary).
+Es könnte bevorzugt werden, darauf zu verzichten, {{HTTPHeader("Vary")}} zu spezifizieren, oder eine andere Strategie für Client-Hinweis-Header zu verwenden, bei denen sich der Wert häufig ändert, da dies die Ressource effektiv unveränderlich macht. (Ein neuer Cache-Eintrag wird für jeden einzigartigen Wert erstellt.) Dies gilt insbesondere für Netzwerk-Client-Hinweise wie {{HTTPHeader("Downlink")}} und {{HTTPHeader("RTT")}}. Weitere Informationen finden Sie unter [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary).
 
 ## Hinweislebensdauer
 
-Ein Server spezifiziert die Client-Hinweis-Header, die er gerne erhalten möchte, im `Accept-CH` Antwort-Header.
-Der User-Agent fügt die angeforderten Client-Hinweis-Header oder zumindest den Teilbereich, den er mit diesem Server teilen möchte, allen nachfolgenden Anfragen in der aktuellen Browsersitzung hinzu.
+Ein Server gibt die Client-Hinweis-Header an, die er im `Accept-CH`-Antwort-Header erhalten möchte. Der User-Agent fügt die angeforderten Client-Hinweis-Header, oder zumindest die Teilmenge, die er mit diesem Server teilen möchte, allen nachfolgenden Anfragen in der aktuellen Browsing-Sitzung hinzu.
 
-Mit anderen Worten, die Anfrage für eine spezifische Menge von Hinweisen läuft erst ab, wenn der Browser heruntergefahren wird.
+Mit anderen Worten, die Anforderung einer bestimmten Reihe von Hinweisen läuft nicht ab, bis der Browser heruntergefahren wird.
 
-Ein Server kann die Menge der Client-Hinweise, an deren Empfang er interessiert ist, ersetzen, indem er den `Accept-CH` Antwort-Header mit einer neuen Liste erneut sendet.
-Zum Beispiel könnte er, um keine Hinweise mehr anzufordern, `Accept-CH` mit einer leeren Liste senden.
+Ein Server kann die Menge an Client-Hinweisen, die er erhalten möchte, ersetzen, indem er den `Accept-CH`-Antwort-Header mit einer neuen Liste erneut sendet. Um beispielsweise keine Hinweise mehr anzufordern, würde er `Accept-CH` mit einer leeren Liste senden.
 
 > [!NOTE]
-> Die für einen bestimmten Ursprung festgelegten Client-Hinweise können auch gelöscht werden, indem ein {{httpheader("Clear-Site-Data", "Clear-Site-Data: \"clientHints\"")}} Antwort-Header für eine URL innerhalb dieses Ursprungs gesendet wird.
+> Die für eine bestimmte Herkunft festgelegten Client-Hinweise können auch durch Senden eines {{httpheader("Clear-Site-Data", "Clear-Site-Data: \"clientHints\"")}}-Antwort-Headers für eine URL innerhalb dieser Herkunft gelöscht werden.
 
-## Hinweise mit niedriger Entropie
+## Hinweise mit geringer Entropie
 
-Client-Hinweise werden grob in Hinweise mit hoher und niedriger Entropie unterteilt.
+Client-Hinweise werden grob in solche mit hoher und niedriger Entropie eingeteilt. Die Hinweise mit niedriger Entropie sind diejenigen, die nicht viel Informationen preisgeben, die möglicherweise zur Erstellung eines {{Glossary("Fingerprinting", "Fingerabdrucks")}} eines Benutzers verwendet werden könnten. Sie können standardmäßig bei jeder Client-Anfrage gesendet werden, unabhängig vom `Accept-CH`-Antwort-Header des Servers, je nach Erlaubnisrichtlinie. Hinweise mit geringer Entropie sind:
 
-Die Hinweise mit niedriger Entropie sind solche, die nicht viel Informationen preisgeben, die zur Erstellung eines {{Glossary("Fingerprinting", "Fingerabdrucks")}} eines Benutzers verwendet werden könnten.
-Sie können standardmäßig bei jeder Client-Anfrage gesendet werden, unabhängig vom `Accept-CH` Antwort-Header des Servers, abhängig von den Berechtigungsrichtlinien.
-Zu diesen Hinweisen gehören: {{HTTPHeader("Save-Data")}}, {{HTTPHeader("Sec-CH-UA")}}, {{HTTPHeader("Sec-CH-UA-Mobile")}}, {{HTTPHeader("Sec-CH-UA-Platform")}}.
+- {{HTTPHeader("Save-Data")}},
+- {{HTTPHeader("Sec-CH-UA")}},
+- {{HTTPHeader("Sec-CH-UA-Mobile")}}, und
+- {{HTTPHeader("Sec-CH-UA-Platform")}}.
 
-Die Hinweise mit hoher Entropie sind solche, die das Potenzial haben, mehr Informationen preiszugeben, die für das Fingerprinting von Benutzern verwendet werden können, und sind daher so gestaltet, dass der User-Agent entscheiden kann, ob er sie bereitstellen möchte.
-Die Entscheidung könnte auf den Benutzerpräferenzen, einer Berechtigungsanfrage oder der Berechtigungsrichtlinie basieren.
-Alle Client-Hinweise, die keine Hinweise mit niedriger Entropie sind, gelten als Hinweise mit hoher Entropie.
+## Hinweise mit hoher Entropie
+
+Die Hinweise mit hoher Entropie sind solche, die potenziell mehr Informationen preisgeben könnten, die für das Fingerprinting eines Benutzers genutzt werden können, und daher so gestaltet sind, dass der User-Agent entscheiden kann, ob er sie bereitstellt. Die Entscheidung könnte auf Benutzereinstellungen, einer Berechtigungsanfrage oder der Erlaubnisrichtlinie basieren. Alle Client-Hinweise, die keine Hinweise mit niedriger Entropie sind, gelten als Hinweise mit hoher Entropie.
 
 ## Kritische Client-Hinweise
 
-Ein _kritischer Client-Hinweis_ ist einer, bei dem die Anwendung der Antwort die gerenderte Seite erheblich verändern könnte, potenziell auf eine Art, die störend wirkt oder die Benutzerfreundlichkeit beeinträchtigt, und der daher angewendet werden muss, bevor der Inhalt gerendert wird.
-Zum Beispiel wird `Sec-CH-Prefers-Reduced-Motion` häufig als kritischer Hinweis behandelt, da er das Verhalten von Animationen deutlich beeinflussen könnte und weil ein Benutzer, der diese Präferenz wählt, benötigt, dass sie gesetzt wird.
+Ein _kritischer Client-Hinweis_ ist einer, bei dem die Anwendung der Antwort die gerenderte Seite signifikant verändern kann, potenziell auf eine Weise, die störend ist oder die Benutzerfreundlichkeit beeinträchtigt, und daher vor dem Darstellen des Inhalts angewendet werden muss. Zum Beispiel wird `Sec-CH-Prefers-Reduced-Motion` häufig als kritischer Hinweis behandelt, weil er das Verhalten von Animationen stark beeinflussen könnte und weil ein Benutzer, der diese Präferenz wählt, sie eingestellt haben muss.
 
-Ein Server kann den {{HTTPHeader("Critical-CH")}} Antwort-Header zusammen mit `Accept-CH` verwenden, um zu spezifizieren, dass ein akzeptierter Client-Hinweis auch ein kritischer Client-Hinweis ist (ein Header in `Critical-CH` muss auch in `Accept-CH` erscheinen).
-Benutzeragenten, die eine Antwort mit `Critical-CH` erhalten, müssen prüfen, ob die angegebenen kritischen Header in der ursprünglichen Anfrage gesendet wurden. Falls nicht, wird der Benutzeragent die Anfrage erneut stellen, anstatt die Seite zu rendern.
-Dieser Ansatz stellt sicher, dass die mit kritischen Client-Hinweisen festgelegten Benutzerpräferenzen immer verwendet werden, auch wenn sie nicht in der ersten Anfrage enthalten sind, oder wenn sich die Serverkonfiguration ändert.
+Ein Server kann den {{HTTPHeader("Critical-CH")}}-Antwort-Header zusammen mit `Accept-CH` verwenden, um anzugeben, dass ein akzeptierter Client-Hinweis auch ein kritischer Client-Hinweis ist (ein Header in `Critical-CH` muss auch in `Accept-CH` erscheinen). Bei Erhalt einer Antwort mit `Critical-CH` müssen User-Agents überprüfen, ob die angegebenen kritischen Header in der ursprünglichen Anfrage gesendet wurden. Wenn nicht, wird der User-Agent die Anfrage erneut senden, anstatt die Seite darzustellen. Dieser Ansatz stellt sicher, dass Client-Präferenzen, die über kritische Client-Hinweise festgelegt werden, immer verwendet werden, auch wenn sie nicht in der ersten Anfrage enthalten sind oder wenn sich die Serverkonfiguration ändert.
 
-Zum Beispiel teilt in diesem Fall der Server einem Client über {{httpheader("Accept-CH")}} mit, dass er `Sec-CH-Prefers-Reduced-Motion` akzeptiert, und {{httpheader("Critical-CH")}} wird verwendet, um zu spezifizieren, dass `Sec-CH-Prefers-Reduced-Motion` als kritischer Client-Hinweis betrachtet wird:
+Zum Beispiel teilt in diesem Fall der Server einem Client über {{httpheader("Accept-CH")}} mit, dass er `Sec-CH-Prefers-Reduced-Motion` akzeptiert, und {{httpheader("Critical-CH")}} wird verwendet, um anzugeben, dass `Sec-CH-Prefers-Reduced-Motion` als kritischer Client-Hinweis betrachtet wird:
 
 ```http
 HTTP/1.1 200 OK
@@ -93,9 +83,9 @@ Critical-CH: Sec-CH-Prefers-Reduced-Motion
 ```
 
 > [!NOTE]
-> Wir haben ebenfalls `Sec-CH-Prefers-Reduced-Motion` im {{httpheader("Vary")}} Header spezifiziert, um dem Browser anzuzeigen, dass der bereitgestellte Inhalt basierend auf diesem Headerwert unterschiedlich sein wird, selbst wenn die URL gleich bleibt, sodass der Browser keine bestehende gecachte Antwort verwenden sollte und stattdessen diese Antwort separat zwischenspeichern sollte. Jeder im `Critical-CH` Header aufgeführte Header sollte auch in den `Accept-CH` und `Vary` Headers vorhanden sein.
+> Wir haben auch `Sec-CH-Prefers-Reduced-Motion` im {{httpheader("Vary")}}-Header spezifiziert, um dem Browser anzuzeigen, dass der bereitgestellte Inhalt auf Basis des Header-Wertes unterschiedlich sein wird, selbst wenn die URL gleich bleibt, sodass der Browser nicht einfach eine bestehende zwischengespeicherte Antwort verwenden und stattdessen diese Antwort separat zwischenspeichern sollte. Jeder im `Critical-CH`-Header aufgeführte Header sollte auch in den `Accept-CH`- und `Vary`-Headern vorhanden sein.
 
-Da `Sec-CH-Prefers-Reduced-Motion` ein kritischer Hinweis ist, der in der ursprünglichen Anfrage nicht vorhanden war, stellt der Client die Anfrage automatisch erneut — diesmal teilt er dem Server über `Sec-CH-Prefers-Reduced-Motion` mit, dass er eine Benutzerpräferenz für Animationen mit reduzierter Bewegung hat.
+Da `Sec-CH-Prefers-Reduced-Motion` ein kritischer Hinweis ist, der nicht in der ursprünglichen Anfrage war, wiederholt der Client automatisch die Anfrage – diesmal teilt er dem Server über `Sec-CH-Prefers-Reduced-Motion` mit, dass er eine Benutzerpräferenz für reduzierte Bewegungsanimationen hat.
 
 ```http
 GET / HTTP/1.1
@@ -107,39 +97,32 @@ Sec-CH-Prefers-Reduced-Motion: "reduce"
 
 ### User-Agent-Client-Hinweise
 
-User-Agent (UA) Client-Hinweis-Header ermöglichen einem Server, Antworten basierend auf dem User-Agent (Browser), dem Betriebssystem und dem Gerät zu variieren.
-Für eine Liste der `Sec-CH-UA-*` Header, siehe [User-Agent-Client-Hinweis-Header](/de/docs/Web/HTTP/Headers#user_agent_client_hints).
+User-Agent (UA) Client-Hinweis-Header ermöglichen es einem Server, Antworten basierend auf dem User-Agent (Browser), dem Betriebssystem und dem Gerät zu variieren. Eine Liste der `Sec-CH-UA-*`-Header finden Sie unter [User-Agent-Client-Hinweis-Header](/de/docs/Web/HTTP/Headers#user_agent_client_hints).
 
-Client-Hinweise sind über die [User Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API) für JavaScript auf Web-Seiten verfügbar.
-
-> [!NOTE]
-> Server erhalten derzeit die meisten der gleichen Informationen durch die Analyse des {{HTTPHeader("User-Agent")}} Headers.
-> Aus historischen Gründen enthält dieser Header viele größtenteils irrelevante Informationen und Informationen, die verwendet werden könnten, um einen _bestimmten Benutzer_ zu identifizieren.
-> UA-Client-Hinweise bieten eine effizientere und datenschutzfreundlichere Möglichkeit, die gewünschten Informationen zu erhalten.
-> Es wird erwartet, dass sie schließlich diesen älteren Ansatz ersetzen.
+Client-Hinweise sind über die [User-Agent-Client-Hints-API](/de/docs/Web/API/User-Agent_Client_Hints_API) für JavaScript auf Webseiten verfügbar.
 
 > [!NOTE]
-> User-Agent-Client-Hinweise sind innerhalb von [fenced frames](/de/docs/Web/API/Fenced_frame_API) nicht verfügbar, da sie auf [Berechtigungsrichtlinien](/de/docs/Web/HTTP/Permissions_Policy) Delegation angewiesen sind, die verwendet werden könnte, um Daten zu leaken.
+> Server erhalten derzeit die meisten der gleichen Informationen durch das Parsing des {{HTTPHeader("User-Agent")}}-Headers. Aus historischen Gründen enthält dieser Header eine Menge größtenteils irrelevanter Informationen und Informationen, die zur Identifizierung eines _bestimmten Benutzers_ verwendet werden könnten. UA-Client-Hinweise bieten eine effizientere und datenschutzfreundlichere Möglichkeit, die gewünschten Informationen zu erhalten. Sie sollen letztendlich diesen älteren Ansatz ersetzen.
 
-### Benutzerpräferenz-Mediendienste-Client-Hinweise
+> [!NOTE]
+> User-Agent-Client-Hinweise stehen nicht in [fenced frames](/de/docs/Web/API/Fenced_frame_API) zur Verfügung, da sie auf der Delegation der [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) basieren, die zum Datenleak verwendet werden könnte.
 
-Benutzerpräferenz-Mediendienste-Client-Hinweise ermöglichen einem Server, Antworten basierend auf den Präferenzen eines User-Agents für [CSS-Medienfeatures](/de/docs/Web/CSS/@media#media_features) wie Farbschema oder reduzierte Bewegung zu variieren.
-Header umfassen: {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}}, {{HTTPHeader("Sec-CH-Prefers-Color-Scheme")}}.
+### Benutzerpräferenz-Media-Features-Client-Hinweise
+
+Benutzerpräferenz-Media-Features-Client-Hinweise ermöglichen es einem Server, Antworten basierend auf den Präferenzen eines User-Agents für [CSS-Media-Features](/de/docs/Web/CSS/@media#media_features) wie Farbschema oder reduzierte Bewegung zu variieren. Header beinhalten: {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}}, {{HTTPHeader("Sec-CH-Prefers-Color-Scheme")}}.
 
 ### Geräte-Client-Hinweise
 
-Geräte-Client-Hinweise ermöglichen einem Server, Antworten basierend auf Geräteeigenschaften einschließlich verfügbarem Arbeitsspeicher und Anzeigeeigenschaften zu variieren.
-Header umfassen: {{HTTPHeader("Device-Memory")}}, {{HTTPHeader("Width")}}, {{HTTPHeader("Viewport-Width")}}.
+Geräte-Client-Hinweise ermöglichen es einem Server, Antworten basierend auf Gerätemerkmalen einschließlich verfügbarem Speicher und Bildschirmparametern zu variieren. Header beinhalten: {{HTTPHeader("Device-Memory")}}, {{HTTPHeader("Width")}}, {{HTTPHeader("Viewport-Width")}}.
 
 ### Netzwerk-Client-Hinweise
 
-Netzwerk-Client-Hinweise ermöglichen einem Server, Antworten basierend auf der Wahl des Benutzers, der Netzwerkbandbreite und der Latenz zu variieren.
-Header umfassen: {{HTTPHeader("Save-Data")}}, {{HTTPHeader("Downlink")}}, {{HTTPHeader("ECT")}}, {{HTTPHeader("RTT")}}.
+Netzwerk-Client-Hinweise ermöglichen es einem Server, Antworten basierend auf der Benutzerwahl, der Netzwerkbandbreite und der Latenz zu variieren. Header beinhalten: {{HTTPHeader("Save-Data")}}, {{HTTPHeader("Downlink")}}, {{HTTPHeader("ECT")}}, {{HTTPHeader("RTT")}}.
 
 ## Siehe auch
 
-- [Client-Hinweis-Header](/de/docs/Web/HTTP/Headers#client_hints)
-- [HTTP `Vary` Header](/de/docs/Web/HTTP/Headers/Vary)
-- [Client Hints Infrastruktur](https://wicg.github.io/client-hints-infrastructure/)
-- [User Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
-- [Verbesserung der Privatsphäre der Benutzer und der Entwicklererfahrung mit User-Agent Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Client-Hints-Header](/de/docs/Web/HTTP/Headers#client_hints)
+- [`Vary` HTTP-Header](/de/docs/Web/HTTP/Headers/Vary)
+- [Client-Hints-Infrastruktur](https://wicg.github.io/client-hints-infrastructure/)
+- [User-Agent-Client-Hints-API](/de/docs/Web/API/User-Agent_Client_Hints_API)
+- [Verbesserung der Benutzerprivatsphäre und Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
