@@ -1,16 +1,16 @@
 ---
-title: "FileSystemEntry: remove() Methode"
+title: "FileSystemEntry: remove()-Methode"
 short-title: remove()
 slug: Web/API/FileSystemEntry/remove
 l10n:
-  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
+  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
 ---
 
 {{APIRef("File and Directory Entries API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die Methode **`remove()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) Interfaces löscht die Datei oder das Verzeichnis aus dem Dateisystem. Verzeichnisse müssen leer sein, bevor sie entfernt werden können.
+Die Methode **`remove()`** der [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) Schnittstelle löscht die Datei oder das Verzeichnis aus dem Dateisystem. Verzeichnisse müssen leer sein, bevor sie entfernt werden können.
 
-Um ein Verzeichnis, seinen gesamten Inhalt und seine Unterverzeichnisse rekursiv zu entfernen, rufen Sie stattdessen [`FileSystemDirectoryEntry.removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively) auf.
+Um ein Verzeichnis sowie dessen Inhalte und Unterverzeichnisse rekursiv zu entfernen, verwenden Sie stattdessen [`FileSystemDirectoryEntry.removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively).
 
 ## Syntax
 
@@ -22,9 +22,9 @@ remove(successCallback, errorCallback)
 ### Parameter
 
 - `successCallback`
-  - : Eine Funktion, die aufgerufen wird, sobald die Datei erfolgreich entfernt wurde.
+  - : Eine Funktion, die aufgerufen wird, nachdem die Datei erfolgreich entfernt wurde.
 - `errorCallback` {{optional_inline}}
-  - : Ein optionaler Rückruf, der aufgerufen wird, wenn der Versuch, die Datei zu entfernen, fehlschlägt.
+  - : Ein optionaler Callback, der aufgerufen wird, wenn der Versuch, die Datei zu entfernen, fehlschlägt.
 
 ### Rückgabewert
 
@@ -35,13 +35,13 @@ Keiner ({{jsxref("undefined")}}).
 - `FileError.INVALID_MODIFICATION_ERR`
   - : Der angegebene Eintrag war das Wurzelverzeichnis des Dateisystems, oder der angegebene Eintrag ist ein Verzeichnis, das nicht leer ist.
 - `FileError.INVALID_STATE_ERR`
-  - : Der zwischengespeicherte Zustand des Dateisystems ist nicht mit seinem Zustand auf der Festplatte konsistent, so dass die Datei aus Sicherheitsgründen nicht gelöscht werden konnte.
+  - : Der zwischengespeicherte Zustand des Dateisystems stimmt nicht mit seinem Zustand auf der Festplatte überein, daher konnte die Datei aus Sicherheitsgründen nicht gelöscht werden.
 - `FileError.NO_MODIFICATION_ALLOWED_ERR`
   - : Der Zustand des Dateisystems erlaubt es nicht, die Datei oder das Verzeichnis zu entfernen.
 - `FileError.NOT_FOUND_ERR`
   - : Die Datei oder das Verzeichnis existiert nicht.
 - `FileError.SECURITY_ERR`
-  - : Der Eintrag konnte aufgrund von Berechtigungen oder anderen Zugriffsbeschränkungen nicht entfernt werden, oder weil zu viele Aufrufe auf Dateiresourcen gemacht werden.
+  - : Der Eintrag konnte aufgrund von Berechtigungen oder anderen Zugriffsbeschränkungen nicht entfernt werden, oder weil zu viele Aufrufe von Dateieressourcen gemacht werden.
 
 ## Beispiele
 
@@ -67,5 +67,4 @@ workingDirectory.getFile(
 ## Siehe auch
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
 - [`FileSystemDirectoryEntry.removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively)

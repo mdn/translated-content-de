@@ -2,24 +2,24 @@
 title: DirectoryReaderSync
 slug: Web/API/DirectoryReaderSync
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
 ---
 
 {{APIRef("File and Directory Entries API")}}{{Non-standard_Header}}{{Deprecated_Header}}
 
-Das `DirectoryReaderSync`-Interface ermöglicht es, die Einträge in einem Verzeichnis zu lesen.
+Das `DirectoryReaderSync`-Interface ermöglicht das Lesen der Einträge in einem Verzeichnis.
 
 > [!WARNING]
-> Dieses Interface ist veraltet und ist nicht mehr auf dem Standardpfad.
+> Dieses Interface ist veraltet und gehört nicht mehr zum Standard.
 > _Verwenden Sie es nicht mehr._ Nutzen Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
 
-## Grundkonzepte
+## Grundlegende Konzepte
 
-Bevor Sie die einzige Methode in diesem Interface, [`readEntries()`](#readentries), aufrufen, erstellen Sie das [`DirectoryEntrySync`](/de/docs/Web/API/DirectoryEntrySync)-Objekt. Aber DirectoryEntrySync (sowie [`FileEntrySync`](/de/docs/Web/API/FileEntrySync)) ist kein Datentyp, den Sie zwischen einer aufrufenden App und einem Web Worker-Thread übergeben können. Das ist kein großes Problem, da es nicht wirklich nötig ist, dass die Haupt-App und der Worker-Thread dasselbe JavaScript-Objekt sehen; sie müssen lediglich auf dieselben Dateien zugreifen können. Sie können dies erreichen, indem Sie anstelle einer Liste von Einträgen eine Liste von `filesystem:`-URLs übergeben—die einfach nur Zeichenketten sind. Sie können die `filesystem:`-URL auch verwenden, um den Eintrag mit `resolveLocalFileSystemURL()` nachzuschlagen. Damit gelangen Sie zurück zu einem DirectoryEntrySync (sowie FileEntrySync)-Objekt.
+Bevor Sie die einzige Methode in diesem Interface aufrufen, [`readEntries()`](#readentries), erstellen Sie das [`DirectoryEntrySync`](/de/docs/Web/API/DirectoryEntrySync)-Objekt. Aber DirectoryEntrySync (ebenso wie [`FileEntrySync`](/de/docs/Web/API/FileEntrySync)) ist kein Datentyp, den Sie zwischen einer aufrufenden Anwendung und einem Web Worker-Thread übergeben können. Das ist nicht weiter schlimm, da Sie nicht unbedingt dasselbe JavaScript-Objekt in der Hauptanwendung und im Worker-Thread sehen müssen; Sie müssen lediglich auf dieselben Dateien zugreifen. Das kann erreicht werden, indem Sie eine Liste von `filesystem:` URLs — die einfach Zeichenketten sind — anstelle einer Liste von Einträgen übergeben. Sie können die `filesystem:` URL auch verwenden, um den Eintrag mit `solveLocalFileSystemURL()` nachzuschlagen. Dadurch erhalten Sie wieder ein DirectoryEntrySync- (sowie FileEntrySync-) Objekt.
 
 ### Beispiel
 
-Im folgenden Code-Schnipsel von [HTML5Rocks (web.dev)](https://web.dev/articles/filesystem-sync) erstellen wir Web Worker und übergeben Daten davon an die Hauptanwendung.
+Im folgenden Code-Schnipsel von [HTML5Rocks (web.dev)](https://web.dev/articles/filesystem-sync), erstellen wir Web Workers und übergeben Daten daraus an die Hauptanwendung.
 
 ```js
 // Taking care of the browser-specific prefixes.
@@ -41,7 +41,7 @@ worker.onmessage = (e) => {
 worker.postMessage({ cmd: "list" });
 ```
 
-Das Folgende ist der Code von `worker.js`, der den Inhalt des Verzeichnisses abrufen lässt.
+Das folgende ist der Code von `worker.js`, der den Inhalt des Verzeichnisses abruft.
 
 ```js
 // worker.js
@@ -96,7 +96,7 @@ self.onmessage = (e) => {
 
 ### readEntries()
 
-Gibt eine Liste von Einträgen aus einem bestimmten Verzeichnis zurück. Rufen Sie diese Methode auf, bis ein leeres Array zurückgegeben wird.
+Gibt eine Liste von Einträgen aus einem spezifischen Verzeichnis zurück. Rufen Sie diese Methode auf, bis ein leeres Array zurückgegeben wird.
 
 #### Syntax
 
@@ -119,12 +119,12 @@ Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit den fo
 | Ausnahme            | Beschreibung                                                                      |
 | ------------------- | --------------------------------------------------------------------------------- |
 | `NOT_FOUND_ERR`     | Das Verzeichnis existiert nicht.                                                  |
-| `INVALID_STATE_ERR` | Das Verzeichnis wurde seit dem ersten Aufruf von readEntries verändert.           |
-| `SECURITY_ERR`      | Der Browser hat bestimmt, dass es nicht sicher ist, die Metadaten nachzuschlagen. |
+| `INVALID_STATE_ERR` | Das Verzeichnis wurde seit dem ersten Aufruf von readEntries geändert.            |
+| `SECURITY_ERR`      | Der Browser hat festgestellt, dass es unsicher war, die Metadaten nachzuschlagen. |
 
 ## Spezifikationen
 
-Dieses Feature ist nicht mehr Teil irgendeiner Spezifikation. Es ist nicht länger auf dem Weg, ein Standard zu werden.
+Diese Funktion ist nicht mehr Teil einer Spezifikation. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 
@@ -133,4 +133,3 @@ Dieses Feature ist nicht mehr Teil irgendeiner Spezifikation. Es ist nicht läng
 ## Siehe auch
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)

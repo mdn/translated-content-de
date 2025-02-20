@@ -2,16 +2,16 @@
 title: FileEntrySync
 slug: Web/API/FileEntrySync
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
 ---
 
 {{APIRef("File and Directory Entries API")}} {{Non-standard_header}}{{Deprecated_Header}}
 
-Die `FileEntrySync`-Schnittstelle repräsentiert eine Datei in einem Dateisystem. Sie ermöglicht es Ihnen, Inhalte in eine Datei zu schreiben.
+Das `FileEntrySync`-Interface repräsentiert eine Datei in einem Dateisystem. Es ermöglicht Ihnen, Inhalte in eine Datei zu schreiben.
 
 > [!WARNING]
-> Diese Schnittstelle ist veraltet und befindet sich nicht mehr auf dem Standardpfad.
-> _Verwenden Sie sie nicht mehr._ Nutzen Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
+> Dieses Interface ist veraltet und gehört nicht mehr zum Standard.
+> _Verwenden Sie es nicht mehr._ Nutzen Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
 
 ## Grundkonzepte
 
@@ -40,7 +40,7 @@ Um Inhalte in eine Datei zu schreiben, erstellen Sie ein `FileWriter`-Objekt, in
 
 ### createWriter()
 
-Erstellt einen neuen `FileWriter`, der mit der Datei assoziiert ist, die das `FileEntry` repräsentiert.
+Erstellt einen neuen `FileWriter`, der mit der Datei verbunden ist, die das `FileEntry` repräsentiert.
 
 ```js-nolint
 createWriter()
@@ -56,16 +56,16 @@ Ein `FileWriterSync`-Objekt.
 
 #### Ausnahmen
 
-Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
+Diese Methode kann einen [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
 
-| Ausnahme            | Beschreibung                                                              |
-| ------------------- | ------------------------------------------------------------------------- |
-| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                                |
-| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als der Löschung nicht mehr gültig. |
+| Ausnahme            | Beschreibung                                                             |
+| ------------------- | ------------------------------------------------------------------------ |
+| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                               |
+| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als dem Löschen nicht mehr gültig. |
 
 ### file()
 
-Gibt eine Datei zurück, die den aktuellen Zustand der Datei repräsentiert, die dieses `FileEntry` darstellt.
+Gibt eine Datei zurück, die den aktuellen Zustand der Datei darstellt, die dieses `FileEntry` repräsentiert.
 
 ```js-nolint
 file()
@@ -81,16 +81,16 @@ Ein `File`-Objekt.
 
 #### Ausnahmen
 
-Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
+Diese Methode kann einen [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
 
-| Ausnahme            | Beschreibung                                                              |
-| ------------------- | ------------------------------------------------------------------------- |
-| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                                |
-| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als der Löschung nicht mehr gültig. |
+| Ausnahme            | Beschreibung                                                             |
+| ------------------- | ------------------------------------------------------------------------ |
+| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                               |
+| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als dem Löschen nicht mehr gültig. |
 
 ## Spezifikationen
 
-Diese Funktion ist nicht mehr Teil einer Spezifikation. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Feature ist nicht mehr Teil einer Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 
@@ -98,5 +98,4 @@ Diese Funktion ist nicht mehr Teil einer Spezifikation. Sie ist nicht mehr auf d
 
 ## Siehe auch
 
-- [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- [Grundkonzepte über die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
+- [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)

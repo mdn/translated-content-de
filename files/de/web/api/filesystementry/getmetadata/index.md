@@ -3,12 +3,12 @@ title: "FileSystemEntry: getMetadata()-Methode"
 short-title: getMetadata()
 slug: Web/API/FileSystemEntry/getMetadata
 l10n:
-  sourceCommit: e4cc8b707a1056c14a6316079798b95cb39b725f
+  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
 ---
 
 {{APIRef("File and Directory Entries API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die Methode **`getMetadata()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces erhält ein [`Metadata`](/de/docs/Web/API/Metadata)-Objekt mit Informationen über den Dateisystemeintrag, wie zum Beispiel sein Änderungsdatum und -zeit und seine Größe.
+Die Methode **`getMetadata()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces ruft ein [`Metadata`](/de/docs/Web/API/Metadata)-Objekt ab, das Informationen über den Dateisystemeintrag enthält, wie beispielsweise das Änderungsdatum und die Größe.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ getMetadata(successCallback, errorCallback)
 ### Parameter
 
 - `successCallback`
-  - : Eine Funktion, die aufgerufen wird, wenn der Kopiervorgang erfolgreich abgeschlossen wurde. Sie erhält einen einzelnen Eingabeparameter: ein [`Metadata`](/de/docs/Web/API/Metadata)-Objekt mit Informationen über die Datei.
+  - : Eine Funktion, die aufgerufen wird, wenn der Kopiervorgang erfolgreich abgeschlossen wurde. Sie erhält ein einzelnes Eingabeparameter: ein [`Metadata`](/de/docs/Web/API/Metadata)-Objekt mit Informationen über die Datei.
 - `errorCallback` {{optional_inline}}
-  - : Ein optionaler Rückruf, der ausgeführt wird, wenn ein Fehler beim Suchen der Metadaten auftritt. Es gibt einen einzelnen Parameter: ein [`FileError`](/de/docs/Web/API/FileError), der beschreibt, was schiefgegangen ist.
+  - : Ein optionaler Rückruf, der ausgeführt wird, wenn beim Abrufen der Metadaten ein Fehler auftritt. Es gibt ein einzelnes Parameter: ein [`FileError`](/de/docs/Web/API/FileError), das beschreibt, was schiefgelaufen ist.
 
 ### Rückgabewert
 
@@ -31,13 +31,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `FileError.NOT_FOUND_ERR`
-  - : Der [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) verweist auf ein Element, das nicht existiert.
+  - : Der [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) verweist auf ein Objekt, das nicht existiert.
 - `FileError.SECURITY_ERR`
-  - : Sicherheitsbeschränkungen verbieten das Abrufen der angeforderten Metadaten.
+  - : Sicherheitsbeschränkungen verhindern das Abrufen der angeforderten Metadaten.
 
 ## Beispiele
 
-Dieses Beispiel überprüft die Größe einer Log-Datei in einem temporären Ordner und verschiebt sie in ein anderes Verzeichnis, wenn sie ein Megabyte überschreitet.
+Dieses Beispiel überprüft die Größe einer Protokolldatei in einem temporären Ordner und verschiebt sie in ein anderes Verzeichnis, wenn sie eine Megabyte überschreitet.
 
 ```js
 workingDirectory.getFile(
@@ -68,4 +68,3 @@ workingDirectory.getFile(
 ## Siehe auch
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)

@@ -2,16 +2,16 @@
 title: <time-percentage>
 slug: Web/CSS/time-percentage
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 83dd1960e946e82f2cf830ac5df5703df501f73b
 ---
 
 {{CSSRef}}
 
-Das **`<time-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) stellt einen Wert dar, der entweder ein {{Cssxref("time")}} oder ein {{Cssxref("percentage")}} sein kann.
+Der **`<time-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert einen Wert, der entweder eine {{Cssxref("time")}} oder ein {{Cssxref("percentage")}} sein kann.
 
 ## Syntax
 
-Weitere Details zu den jeweiligen erlaubten Syntaxen dieses Typs finden Sie in der Dokumentation zu {{Cssxref("time")}} und {{Cssxref("percentage")}}.
+Siehe die Dokumentation für {{Cssxref("time")}} und {{Cssxref("percentage")}} für Details zu den einzelnen Syntaxen, die von diesem Typ erlaubt sind.
 
 ## Formale Syntax
 
@@ -21,7 +21,7 @@ Weitere Details zu den jeweiligen erlaubten Syntaxen dieses Typs finden Sie in d
 
 ### Verwendung in calc()
 
-Wenn ein `<time-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz zu einer Zeit aufgelöst wird und daher in einem {{Cssxref("calc", "calc()")}}-Ausdruck verwendet werden kann.
+Wo ein `<time-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz in eine Zeit aufgelöst wird und daher in einem {{Cssxref("calc", "calc()")}} Ausdruck verwendet werden kann.
 
 ### Gültige Prozentsätze
 
@@ -68,4 +68,4 @@ Wenn ein `<time-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, d
 
 - {{cssxref("&lt;percentage&gt;")}}
 - {{cssxref("&lt;time&gt;")}}
-- [CSS Values and Units](/de/docs/Web/CSS/CSS_Values_and_Units)
+- Modul [CSS values and units](/de/docs/Web/CSS/CSS_Values_and_Units)
