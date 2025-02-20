@@ -2,14 +2,31 @@
 title: Strikte Ungleichheit (!==)
 slug: Web/JavaScript/Reference/Operators/Strict_inequality
 l10n:
-  sourceCommit: f616cb604af851f77f8cd59368e94ee3e43a8838
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **strikte Ungleichheitsoperator (`!==`)** überprüft, ob seine beiden Operanden nicht gleich sind und gibt ein Boolesches Ergebnis zurück. Im Gegensatz zum [Ungleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Inequality) betrachtet der strikte Ungleichheitsoperator Operanden unterschiedlicher Typen immer als unterschiedlich.
+Der **strikte Ungleichheitsoperator (`!==`)** überprüft, ob seine beiden Operanden
+nicht gleich sind, und gibt ein Boolean-Ergebnis zurück. Im Gegensatz zum [Ungleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Inequality)
+berücksichtigt der strikte Ungleichheitsoperator immer Operanden unterschiedlichen Typs als
+unterschiedlich.
 
-{{EmbedInteractiveExample("pages/js/expressions-strict-inequality.html")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Strict inequality operator")}}
+
+```js interactive-example
+console.log(1 !== 1);
+// Expected output: false
+
+console.log("hello" !== "hello");
+// Expected output: false
+
+console.log("1" !== 1);
+// Expected output: true
+
+console.log(0 !== false);
+// Expected output: true
+```
 
 ## Syntax
 
@@ -19,7 +36,10 @@ x !== y
 
 ## Beschreibung
 
-Der strikte Ungleichheitsoperator überprüft, ob seine Operanden nicht gleich sind. Er ist die Negation des [strikten Gleichheitsoperators](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality), sodass die folgenden zwei Zeilen immer das gleiche Ergebnis liefern:
+Der strikte Ungleichheitsoperator prüft, ob seine Operanden nicht gleich sind.
+Er ist die Negation des
+[strikten Gleichheitsoperators](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality),
+sodass die folgenden zwei Zeilen immer dasselbe Ergebnis liefern:
 
 ```js
 x !== y;
@@ -27,9 +47,11 @@ x !== y;
 !(x === y);
 ```
 
-Details des Vergleichsalgorithmus finden Sie auf der Seite für den [strikten Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality).
+Für Details zum Vergleichsalgorithmus siehe die Seite des
+[strikten Gleichheitsoperators](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality).
 
-Wie der strikte Gleichheitsoperator betrachtet der strikte Ungleichheitsoperator Operanden unterschiedlicher Typen immer als unterschiedlich:
+Wie der strikte Gleichheitsoperator betrachtet der strikte Ungleichheitsoperator immer
+Operanden unterschiedlichen Typs als unterschiedlich:
 
 ```js
 3 !== "3"; // true
@@ -37,7 +59,7 @@ Wie der strikte Gleichheitsoperator betrachtet der strikte Ungleichheitsoperator
 
 ## Beispiele
 
-### Vergleich von Operanden desselben Typs
+### Operanden desselben Typs vergleichen
 
 ```js
 "hello" !== "hello"; // false
@@ -52,7 +74,7 @@ true !== false; // true
 null !== null; // false
 ```
 
-### Vergleich von Operanden unterschiedlicher Typen
+### Operanden unterschiedlichen Typs vergleichen
 
 ```js
 "3" !== 3; // true
@@ -60,7 +82,7 @@ true !== 1; // true
 null !== undefined; // true
 ```
 
-### Vergleich von Objekten
+### Objekte vergleichen
 
 ```js
 const object1 = {

@@ -3,13 +3,18 @@ title: "HTMLAnchorElement: username-Eigenschaft"
 short-title: username
 slug: Web/API/HTMLAnchorElement/username
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.username`**-Eigenschaft ist ein
-String, der den Benutzernamen enthält, der vor dem Domainnamen angegeben wird.
+Die **`username`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ist ein String, der den Benutzernamen-Komponenten des `href` des `<a>`-Elements enthält. Wenn die URL keinen Benutzernamen hat, enthält diese Eigenschaft einen leeren String, `""`.
+
+Diese Eigenschaft kann gesetzt werden, um den Benutzernamen der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/HTMLAnchorElement/host) hat oder ihr Schema `file:` ist, hat das Setzen dieser Eigenschaft keinen Effekt.
+
+Der Benutzername wird beim Setzen {{Glossary("Percent-encoding", "prozentkodiert")}}, aber nicht dekodiert, wenn er ausgelesen wird.
+
+Siehe [`URL.username`](/de/docs/Web/API/URL/username) für weitere Informationen.
 
 ## Wert
 
@@ -17,7 +22,7 @@ Ein String.
 
 ## Beispiele
 
-### Abrufen des Benutzernamens aus einem Anker-Link
+### Den Benutzernamen aus einem Anker-Link auslesen
 
 ```js
 // An <a id="myAnchor" href="https://anonymous:flabada@developer.mozilla.org/en-US/docs/HTMLAnchorElement"> element is in the document
@@ -35,4 +40,4 @@ anchor.username; // returns 'anonymous'
 
 ## Siehe auch
 
-- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Schnittstelle, zu der sie gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interface, zu dem es gehört.

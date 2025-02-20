@@ -2,14 +2,28 @@
 title: Atomics.or()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/or
 l10n:
-  sourceCommit: 6a0f9553932823cd0c4dcf695d4b4813474964fb
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.or()`** führt eine bitweise OR-Operation mit einem gegebenen Wert an einer bestimmten Position im Array durch und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine andere Schreiboperation erfolgt, bis der geänderte Wert zurückgeschrieben wird.
+Die statische Methode **`Atomics.or()`** berechnet ein bitweises OR mit einem angegebenen Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine andere Schreiboperation durchgeführt wird, bis der geänderte Wert zurückgeschrieben wurde.
 
-{{EmbedInteractiveExample("pages/js/atomics-or.html")}}
+{{InteractiveExample("JavaScript Demo: Atomics.or()")}}
+
+```js interactive-example
+// Create a SharedArrayBuffer with a size in bytes
+const buffer = new SharedArrayBuffer(16);
+const uint8 = new Uint8Array(buffer);
+uint8[0] = 5;
+
+// 5 (0101) OR 2 (0010) = 7 (0111)
+console.log(Atomics.or(uint8, 0, 2));
+// Expected output: 5
+
+console.log(Atomics.load(uint8, 0));
+// Expected output: 7
+```
 
 ## Syntax
 
@@ -20,31 +34,27 @@ Atomics.or(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typed-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
-    {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
-    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
-    {{jsxref("BigUint64Array")}}.
+  - : Ein ganzzahliges typisiertes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, um die bitweise OR-Operation durchzuführen.
+  - : Die Position im `typedArray`, an der das bitweise OR berechnet wird.
 - `value`
-  - : Die Zahl, mit der die bitweise OR-Operation durchgeführt wird.
+  - : Die Zahl, mit der das bitweise OR berechnet wird.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position
-(`typedArray[index]`).
+Der alte Wert an der angegebenen Position (`typedArray[index]`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der zulässigen Ganzzahltypen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` ist.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
 
 ## Beschreibung
 
-Die bitweise OR-Operation ergibt 1, wenn entweder `a` oder `b` 1 ist.
-Die Wahrheitswerttabelle für die OR-Operation ist:
+Die bitweise OR-Operation liefert 1, wenn entweder `a` oder `b` den Wert 1 haben.
+Die Wahrheitstabelle für die OR-Operation lautet:
 
 | `a` | `b` | `a \| b` |
 | --- | --- | -------- |
@@ -53,7 +63,7 @@ Die Wahrheitswerttabelle für die OR-Operation ist:
 | 1   | 0   | 1        |
 | 1   | 1   | 1        |
 
-Zum Beispiel ergibt ein bitweises OR von `5 | 1` `0101`, was dezimal 5 ist.
+Zum Beispiel ergibt ein bitweises OR von `5 | 1` `0101`, was in Dezimal 5 entspricht.
 
 ```plain
 5  0101

@@ -2,14 +2,28 @@
 title: Math.ceil()
 slug: Web/JavaScript/Reference/Global_Objects/Math/ceil
 l10n:
-  sourceCommit: 910a6fedb299488ba7e94b884da7bcd71e79ec1a
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.ceil()`** rundet immer nach oben und gibt die kleinste ganze Zahl zurück, die größer oder gleich einer gegebenen Zahl ist.
+Die statische Methode **`Math.ceil()`** rundet immer auf und gibt die kleinste ganze Zahl zurück, die größer oder gleich einer gegebenen Zahl ist.
 
-{{EmbedInteractiveExample("pages/js/math-ceil.html")}}
+{{InteractiveExample("JavaScript Demo: Math.ceil()")}}
+
+```js interactive-example
+console.log(Math.ceil(0.95));
+// Expected output: 1
+
+console.log(Math.ceil(4));
+// Expected output: 4
+
+console.log(Math.ceil(7.004));
+// Expected output: 8
+
+console.log(Math.ceil(-7.004));
+// Expected output: -7
+```
 
 ## Syntax
 
@@ -24,11 +38,11 @@ Math.ceil(x)
 
 ### Rückgabewert
 
-Die kleinste ganze Zahl, die größer oder gleich `x` ist. Es ist der gleiche Wert wie [`-Math.floor(-x)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
+Die kleinste ganze Zahl, die größer oder gleich `x` ist. Dies entspricht dem Wert von [`-Math.floor(-x)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
 
 ## Beschreibung
 
-Da `ceil()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.ceil()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `ceil()` eine statische Methode von `Math` ist, wird sie immer als `Math.ceil()` verwendet und nicht als Methode eines selbst erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

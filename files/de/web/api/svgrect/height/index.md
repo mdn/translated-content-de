@@ -3,16 +3,16 @@ title: "SVGRect: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGRect/height
 l10n:
-  sourceCommit: 3ae7f380c04096191376ffc2b455471e5d5fd8a8
+  sourceCommit: a7444882eb1b18918f3c924d83eb3c78f245643a
 ---
 
 {{APIRef("SVG")}}
 
-Die **`height`**-Eigenschaft des [`SVGRect`](/de/docs/Web/API/SVGRect)-Interfaces ist ein Alias für die [`DOMRect.height`](/de/docs/Web/API/DOMRect/height)-Eigenschaft. Sie beschreibt die vertikale Größe des Elements. Sie spiegelt das {{SVGattr("height")}}-Attribut des SVG-Elements und die CSS-{{cssxref("height")}}-Eigenschaft wider.
+Die **`height`**-Eigenschaft der [`SVGRect`](/de/docs/Web/API/SVGRect)-Schnittstelle ist ein Alias für die [`DOMRect.height`](/de/docs/Web/API/DOMRect/height)-Eigenschaft. Sie beschreibt die vertikale Größe des Elements. Sie spiegelt das {{SVGattr("height")}}-Attribut des SVG-Elements und die CSS-{{cssxref("height")}}-Eigenschaft wider.
 
-Die Höhe ist eine Länge; es ist der Abstand von der Oberseite des Elements zur Unterseite des Elements im Benutzerkoordinatensystem. Ihre Syntax ist dieselbe wie die für [`<length>`](/de/docs/Web/SVG/Content_type#length).
+Die Höhe ist eine Länge; sie ist der Abstand vom oberen Ende des Elements bis zum unteren Ende im Benutzerkoordinatensystem. Ihre Syntax ist dieselbe wie für [`<length>`](/de/docs/Web/SVG/Content_type#length).
 
-## Verwendungskontext
+## Nutzungskontext
 
 <table>
   <thead>
@@ -34,11 +34,11 @@ Die Höhe ist eine Länge; es ist der Abstand von der Oberseite des Elements zur
       </td>
     </tr>
     <tr>
-      <td>Initial</td>
+      <td>Initialwert</td>
       <td>0</td>
     </tr>
     <tr>
-      <td>Gilt für</td>
+      <td>Anwendbar auf</td>
       <td>
         {{ SVGElement("mask") }},
         {{ SVGElement("svg") }},
@@ -52,7 +52,7 @@ Die Höhe ist eine Länge; es ist der Abstand von der Oberseite des Elements zur
       <td>nein</td>
     </tr>
     <tr>
-      <td>Prozentwerte</td>
+      <td>Prozentsätze</td>
       <td>
         beziehen sich auf die Größe des SVG-Viewports
       </td>

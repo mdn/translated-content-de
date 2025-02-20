@@ -3,16 +3,15 @@ title: "HTMLElement: focus()-Methode"
 short-title: focus()
 slug: Web/API/HTMLElement/focus
 l10n:
-  sourceCommit: 1ca8335a919a2877ab9dc1bf6ad5967682d7c876
+  sourceCommit: a7444882eb1b18918f3c924d83eb3c78f245643a
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.focus()`**-Methode setzt den Fokus auf das angegebene Element, sofern es fokussiert werden kann.
+Die **`HTMLElement.focus()`**-Methode setzt den Fokus auf das angegebene Element, sofern es fokussierbar ist.
 Das fokussierte Element ist das Element, das standardmäßig Tastatur- und ähnliche Ereignisse empfängt.
 
-Standardmäßig scrollt der Browser das Element in den sichtbaren Bereich, nachdem es fokussiert wurde, und er kann auch eine sichtbare Hervorhebung des fokussierten Elements bereitstellen (in der Regel durch die Anzeige eines "Fokusrings" um das Element).
-Parameteroptionen werden bereitgestellt, um das standardmäßige Scrollen zu deaktivieren und die sichtbare Hervorhebung bei Elementen zu erzwingen.
+Standardmäßig scrollt der Browser das Element nach dem Fokussieren in den sichtbaren Bereich und kann auch eine sichtbare Hervorhebung des fokussierten Elements anzeigen (meistens durch einen "Fokusring" um das Element). Parameteroptionen können verwendet werden, um das standardmäßige Scrollen zu deaktivieren oder eine sichtbare Hervorhebung auf Elementen zu erzwingen.
 
 ## Syntax
 
@@ -25,16 +24,16 @@ focus(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein optionales Objekt zur Steuerung von Aspekten des Fokussierungsprozesses.
+  - : Ein optionales Objekt, um Aspekte des Fokussierungsprozesses zu steuern.
     Dieses Objekt kann die folgenden Eigenschaften enthalten:
 
     - `preventScroll` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob der Browser das Dokument scrollen sollte, um das neu fokussierte Element in den sichtbaren Bereich zu bringen.
-        Ein Wert von `false` für `preventScroll` (der Standardwert) bedeutet, dass der Browser das Element nach dem Fokussieren in den sichtbaren Bereich scrollt.
-        Wenn `preventScroll` auf `true` gesetzt ist, tritt kein Scrollen auf.
+      - : Ein boolescher Wert, der angibt, ob der Browser das Dokument scrollen soll, um das neu fokussierte Element sichtbar zu machen.
+        Ein Wert von `false` für `preventScroll` (Standard) bedeutet, dass der Browser nach dem Fokussieren zum Element scrollt.
+        Wenn `preventScroll` auf `true` gesetzt ist, erfolgt kein Scrollen.
     - `focusVisible` {{optional_inline}} {{experimental_inline}}
-      - : Ein boolescher Wert, der auf `true` gesetzt werden sollte, um die sichtbare Hervorhebung des fokussierten Elements zu erzwingen oder auf `false`, um sie zu verhindern.
-        Wenn die Eigenschaft nicht angegeben ist, wird eine sichtbare Hervorhebung bereitgestellt, wenn der Browser feststellt, dass dies die Barrierefreiheit für Benutzer verbessern würde.
+      - : Ein boolescher Wert, der auf `true` gesetzt werden soll, um eine sichtbare Hervorhebung zu erzwingen, oder auf `false`, um eine sichtbare Hervorhebung zu verhindern.
+        Wenn die Eigenschaft nicht angegeben ist, sorgt der Browser für eine sichtbare Hervorhebung, wenn dies die Zugänglichkeit für Benutzer verbessert.
 
 ### Rückgabewert
 
@@ -42,9 +41,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Fokus auf ein Textfeld
+### Fokus auf ein Textfeld setzen
 
-Dieses Beispiel verwendet einen Button, um den Fokus auf ein Textfeld zu setzen.
+Dieses Beispiel verwendet eine Schaltfläche, um den Fokus auf ein Textfeld zu setzen.
 
 #### HTML
 
@@ -55,8 +54,8 @@ Dieses Beispiel verwendet einen Button, um den Fokus auf ein Textfeld zu setzen.
 
 #### JavaScript
 
-Der folgende Code fügt einen Ereignishandler hinzu, um den Fokus auf das Textfeld zu setzen, wenn der Button gedrückt wird.
-Beachten Sie, dass die meisten Browser automatisch eine sichtbare Hervorhebung (einen "Fokusring") für ein fokussiertes Textfeld hinzufügen, daher setzt der Code `focusVisible` nicht auf `true`.
+Der unten stehende Code fügt einen Ereignishandler hinzu, um den Fokus auf das Textfeld zu setzen, wenn die Schaltfläche gedrückt wird.
+Beachten Sie, dass die meisten Browser automatisch eine sichtbare Hervorhebung (einen "Fokusring") für ein fokussiertes Textfeld hinzufügen. Daher legt der Code `focusVisible` nicht auf `true` fest.
 
 ```js
 document.getElementById("focusButton").addEventListener("click", () => {
@@ -66,19 +65,18 @@ document.getElementById("focusButton").addEventListener("click", () => {
 
 #### Ergebnis
 
-Wählen Sie den Button, um den Fokus auf das Textfeld zu setzen.
+Wählen Sie die Schaltfläche aus, um den Fokus auf das Textfeld zu setzen.
 
 {{ EmbedLiveSample('Focus_on_a_text_field') }}
 
-### Fokus auf einen Button
+### Fokus auf eine Schaltfläche setzen
 
-Dieses Beispiel zeigt, wie Sie den Fokus auf ein Button-Element setzen können.
+Dieses Beispiel zeigt, wie Sie den Fokus auf ein Schaltflächenelement setzen können.
 
 #### HTML
 
-Zuerst definieren wir drei Buttons.
-Sowohl der mittlere als auch der rechte Button setzen den Fokus auf den äußersten linken Button.
-Der ganz rechte Button spezifiziert auch `focusVisible`.
+Zuerst definieren wir drei Schaltflächen.
+Sowohl die mittlere als auch die rechte Schaltfläche setzen den Fokus auf die linke Schaltfläche. Die rechte Schaltfläche legt zusätzlich `focusVisible` fest.
 
 ```html
 <button id="myButton">Button</button>
@@ -90,7 +88,7 @@ Der ganz rechte Button spezifiziert auch `focusVisible`.
 
 #### JavaScript
 
-Der folgende Code richtet Handler für Klickereignisse auf den mittleren und rechten Buttons ein.
+Der unten stehende Code richtet Ereignishandler für Klickereignisse auf der mittleren und rechten Schaltfläche ein.
 
 ```js
 document.getElementById("focusButton").addEventListener("click", () => {
@@ -106,20 +104,20 @@ document
 
 #### Ergebnis
 
-Wählen Sie entweder den mittleren Button oder den ganz rechten Button, um den Fokus auf den äußersten linken Button zu setzen.
+Wählen Sie entweder die mittlere oder die rechte Schaltfläche aus, um den Fokus auf die linke Schaltfläche zu setzen.
 
-Browser zeigen normalerweise keine sichtbare Fokus-Hervorhebung auf Button-Elementen, wenn der Fokus programmgesteuert gesetzt wird, daher ist die Wirkung der Auswahl des mittleren Buttons möglicherweise nicht offensichtlich.
-Wenn die `focusVisible`-Option jedoch von Ihrem Browser unterstützt wird, sollten Sie sehen, dass sich der Fokus auf den äußersten linken Button ändert, wenn der ganz rechte Button ausgewählt wird.
+Browser zeigen normalerweise keine sichtbare Fokusanzeige auf Schaltflächenelementen, wenn der Fokus programmgesteuert gesetzt wird, daher ist die Wirkung durch Auswahl der mittleren Schaltfläche möglicherweise nicht offensichtlich.
+Wenn jedoch die Option `focusVisible` in Ihrem Browser unterstützt wird, sollten Sie sehen, wie sich der Fokus auf die linke Schaltfläche ändert, wenn die rechte Schaltfläche ausgewählt wird.
 
 {{ EmbedLiveSample('Focus_on_a_button') }}
 
-### Fokus mit und ohne Scrollen
+### Fokus mit und ohne Scrollen setzen
 
-Dieses Beispiel zeigt die Wirkung des Setzens des Fokus mit der Option [`preventScroll`](#preventscroll) auf `true` und `false` (der Standardwert).
+Dieses Beispiel zeigt die Wirkung des Fokussierens mit der Option [`preventScroll`](#preventscroll) auf `true` und `false` (Standardwert).
 
 #### HTML
 
-Das HTML definiert zwei Buttons, die verwendet werden, um den Fokus auf einen dritten Button zu setzen, der außerhalb des sichtbaren Bereichs liegt.
+Das HTML definiert zwei Schaltflächen, die verwendet werden, um den Fokus auf eine dritte, außerhalb des sichtbaren Bereichs befindliche Schaltfläche zu setzen.
 
 ```html
 <button id="focus_scroll">Click to set focus on off-screen button</button>
@@ -134,8 +132,8 @@ Das HTML definiert zwei Buttons, die verwendet werden, um den Fokus auf einen dr
 
 #### JavaScript
 
-Dieser Code setzt einen Klick-Ereignishandler auf den ersten und zweiten Button, um den Fokus auf den letzten Button zu setzen.
-Beachten Sie, dass der erste Handler die `preventScroll`-Option nicht spezifiziert, sodass das Scrollen zum fokussierten Element aktiviert ist.
+Dieser Code setzt einen Klick-Ereignishandler für die erste und zweite Schaltfläche, um den Fokus auf die letzte Schaltfläche zu setzen.
+Beachten Sie, dass der erste Handler die Option `preventScroll` nicht angibt, sodass zum fokussierten Element gescrollt wird.
 
 ```js
 document.getElementById("focus_scroll").addEventListener("click", () => {
@@ -149,8 +147,8 @@ document.getElementById("focus_no_scroll").addEventListener("click", () => {
 
 #### Ergebnis
 
-Wählen Sie den ersten Button, um den Fokus zu setzen und zum außerhalb des sichtbaren Bereichs liegenden Button zu scrollen.
-Wenn Sie den zweiten Button auswählen, wird der Fokus gesetzt, aber das Scrollen ist deaktiviert.
+Wählen Sie die erste Schaltfläche aus, um den Fokus zu setzen und zur außerhalb des sichtbaren Bereichs befindlichen Schaltfläche zu scrollen.
+Wählen Sie die zweite Schaltfläche aus, um den Fokus zu setzen, ohne zu scrollen.
 
 {{ EmbedLiveSample('Focus with and without scrolling') }}
 
@@ -158,10 +156,10 @@ Wenn Sie den zweiten Button auswählen, wird der Fokus gesetzt, aber das Scrolle
 
 {{Specifications}}
 
-## Anmerkungen
+## Hinweise
 
-- Wenn Sie `HTMLElement.focus()` aus einem mousedown-Ereignishandler aufrufen, müssen Sie `event.preventDefault()` aufrufen, um zu verhindern, dass der Fokus das `HTMLElement` verlässt.
-- Das Verhalten des Fokus in Bezug auf verschiedene HTML-Funktionen wie [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex) oder {{Glossary("shadow_tree", "shadow dom")}}, die zuvor unter-spezifiziert blieben, wurden im Oktober 2019 aktualisiert.
+- Wenn Sie `HTMLElement.focus()` aus einem `mousedown`-Ereignishandler aufrufen, müssen Sie `event.preventDefault()` aufrufen, um zu verhindern, dass der Fokus das `HTMLElement` verlässt.
+- Das Verhalten des Fokus in Bezug auf verschiedene HTML-Funktionen wie [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex) oder den {{Glossary("shadow_tree", "Shadow DOM")}}, die zuvor ungenau spezifiziert waren, wurde im Oktober 2019 aktualisiert.
   Weitere Informationen finden Sie im [WHATWG-Blog](https://blog.whatwg.org/focusing-on-focus).
 
 ## Browser-Kompatibilität
@@ -170,5 +168,5 @@ Wenn Sie den zweiten Button auswählen, wird der Fokus gesetzt, aber das Scrolle
 
 ## Siehe auch
 
-- [`HTMLElement.blur`](/de/docs/Web/API/HTMLElement/blur) zum Entfernen des Fokus von einem Element.
-- [`document.activeElement`](/de/docs/Web/API/Document/activeElement) um zu wissen, welches Element derzeit fokussiert ist.
+- [`HTMLElement.blur`](/de/docs/Web/API/HTMLElement/blur), um den Fokus von einem Element zu entfernen.
+- [`document.activeElement`](/de/docs/Web/API/Document/activeElement), um zu wissen, welches Element derzeit fokussiert ist.

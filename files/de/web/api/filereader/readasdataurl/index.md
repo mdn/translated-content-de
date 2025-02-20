@@ -1,19 +1,17 @@
 ---
-title: "FileReader: readAsDataURL() Methode"
+title: "FileReader: Methode readAsDataURL()"
 short-title: readAsDataURL()
 slug: Web/API/FileReader/readAsDataURL
 l10n:
-  sourceCommit: 6b730e3cfdf0f51940b44efa71bd59c84ce76e71
+  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`readAsDataURL()`** Methode des [`FileReader`](/de/docs/Web/API/FileReader) Interfaces wird verwendet, um die Inhalte des angegebenen [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) zu lesen. Wenn der Lesevorgang beendet ist, wird die [`readyState`](/de/docs/Web/API/FileReader/readyState) Eigenschaft `DONE`, und das [`loadend`](/de/docs/Web/API/FileReader/loadend_event) Ereignis wird ausgelöst. Zu diesem Zeitpunkt enthält das [`result`](/de/docs/Web/API/FileReader/result) Attribut die Daten als [data: URL](/de/docs/Web/URI/Schemes/data), die die Daten der Datei als base64-codierter String darstellt.
+Die **`readAsDataURL()`**-Methode des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird verwendet, um den Inhalt eines angegebenen [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) zu lesen. Sobald der Lesevorgang abgeschlossen ist, ändert sich die [`readyState`](/de/docs/Web/API/FileReader/readyState)-Eigenschaft zu `DONE`, und das [`loadend`](/de/docs/Web/API/FileReader/loadend_event)-Ereignis wird ausgelöst. Zu diesem Zeitpunkt enthält das [`result`](/de/docs/Web/API/FileReader/result)-Attribut die Daten als [data: URL](/de/docs/Web/URI/Reference/Schemes/data), die die Daten der Datei als Base64-codierten String repräsentiert.
 
 > [!NOTE]
-> Das [`result`](/de/docs/Web/API/FileReader/result) eines Blobs kann nicht
-> direkt als Base64 dekodiert werden, ohne zuerst die Data-URL-Deklaration zu entfernen, die den
-> Base64-codierten Daten vorangeht. Um nur den Base64-codierten String zu erhalten, entfernen Sie zuerst `data:*/*;base64,` aus dem Ergebnis.
+> Das [`result`](/de/docs/Web/API/FileReader/result) des Blobs kann nicht direkt als Base64 dekodiert werden, ohne zuerst die Data-URL-Deklaration, die den Base64-codierten Daten vorangeht, zu entfernen. Um nur den Base64-codierten String zu erhalten, entfernen Sie zunächst `data:*/*;base64,` aus dem Ergebnis.
 
 ## Syntax
 
@@ -32,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Einzeldatendatei lesen
+### Lesen einer einzelnen Datei
 
 #### HTML
 
@@ -68,7 +66,7 @@ function previewFile() {
 
 {{EmbedLiveSample("Reading a single file", "100%", 240)}}
 
-### Mehrere Dateien lesen
+### Lesen mehrerer Dateien
 
 #### HTML
 

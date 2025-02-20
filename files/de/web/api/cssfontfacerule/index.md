@@ -2,12 +2,12 @@
 title: CSSFontFaceRule
 slug: Web/API/CSSFontFaceRule
 l10n:
-  sourceCommit: b64538dc77e9a6181b882bd54bdbb307c1430ba8
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSFontFaceRule`**-Schnittstelle repräsentiert eine {{cssxref("@font-face")}} [at-rule](/de/docs/Web/CSS/At-rule).
+Die **`CSSFontFaceRule`**-Schnittstelle repräsentiert eine {{cssxref("@font-face")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule).
 
 {{InheritanceDiagram}}
 
@@ -24,12 +24,13 @@ _Erbt Methoden von ihrem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-Dieses Beispiel verwendet die CSS, die auf der Seite zu {{cssxref("@font-face")}} beschrieben ist. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSFontFaceRule` sein.
+Dieses Beispiel nutzt das CSS, das auf der Seite zu {{cssxref("@font-face")}} als Beispiel aufgeführt ist. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSFontFaceRule` sein.
 
 ```css
 @font-face {
   font-family: MyHelvetica;
-  src: local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"),
+  src:
+    local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"),
     url(MgOpenModernaBold.ttf);
   font-weight: bold;
 }

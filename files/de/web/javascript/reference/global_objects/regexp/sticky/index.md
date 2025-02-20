@@ -2,50 +2,66 @@
 title: RegExp.prototype.sticky
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/sticky
 l10n:
-  sourceCommit: 6fbdb78c1362fae31fbd545f4b2d9c51987a6bca
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`sticky`** Zugriffseigenschaft von {{jsxref("RegExp")}}-Instanzen gibt an, ob das `y`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
+Die **`sticky`** Accessor-Eigenschaft von {{jsxref("RegExp")}}-Instanzen gibt zurück, ob das `y`-Flag mit diesem regulären Ausdruck verwendet wird.
 
-{{EmbedInteractiveExample("pages/js/regexp-prototype-sticky.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: RegExp.prototype.sticky", "taller")}}
+
+```js interactive-example
+const str1 = "table football";
+const regex1 = new RegExp("foo", "y");
+
+regex1.lastIndex = 6;
+
+console.log(regex1.sticky);
+// Expected output: true
+
+console.log(regex1.test(str1));
+// Expected output: true
+
+console.log(regex1.test(str1));
+// Expected output: false
+```
 
 ## Beschreibung
 
-`RegExp.prototype.sticky` hat den Wert `true`, wenn das `y`-Flag verwendet wurde; andernfalls `false`. Das `y`-Flag zeigt an, dass der reguläre Ausdruck versucht, die Zielzeichenfolge nur ab dem Index abzugleichen, der durch die {{jsxref("RegExp/lastIndex", "lastIndex")}}-Eigenschaft angegeben wird (und im Gegensatz zu einem globalen Regex, versucht nicht, von späteren Indizes abzugleichen).
+`RegExp.prototype.sticky` hat den Wert `true`, wenn das `y`-Flag verwendet wurde; ansonsten `false`. Das `y`-Flag zeigt an, dass der reguläre Ausdruck nur ab dem Index übereinstimmen soll, der durch die {{jsxref("RegExp/lastIndex", "lastIndex")}}-Eigenschaft angegeben wird (und im Gegensatz zu einem globalen regulären Ausdruck nicht versucht, ab späteren Indizes zu übereinstimmen).
 
-Der Set-Zugriff von `sticky` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `sticky` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
-Für sowohl sticky Regex als auch [globale](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) Regex:
+Sowohl für sticky als auch für [globale](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) reguläre Ausdrücke gilt:
 
 - Sie beginnen mit dem Abgleich bei `lastIndex`.
-- Wenn der Abgleich erfolgreich ist, wird `lastIndex` auf das Ende des Abgleichs verschoben.
-- Wenn `lastIndex` außerhalb der Grenzen der derzeit abgeglichenen Zeichenfolge liegt, wird `lastIndex` auf 0 zurückgesetzt.
+- Wenn die Übereinstimmung erfolgreich ist, wird `lastIndex` bis zum Ende der Übereinstimmung vorgerückt.
+- Wenn `lastIndex` außerhalb der Grenzen der aktuell abgeglichenen Zeichenkette liegt, wird `lastIndex` auf 0 zurückgesetzt.
 
-Beim [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)-Methode ist das Verhalten bei einem fehlschlagenden Abgleich unterschiedlich:
+Für die [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)-Methode ist das Verhalten bei fehlgeschlagener Übereinstimmung jedoch unterschiedlich:
 
-- Wenn die [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)-Methode bei einem sticky Regex aufgerufen wird und der Regex den Abgleich bei `lastIndex` nicht schafft, gibt der Regex sofort `null` zurück und setzt `lastIndex` auf 0 zurück.
-- Wenn die [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)-Methode bei einem globalen Regex aufgerufen wird und der Regex den Abgleich bei `lastIndex` nicht schafft, versucht es, ab dem nächsten Zeichen abzugleichen, und so weiter, bis ein Abgleich gefunden wird oder das Ende der Zeichenfolge erreicht ist.
+- Wenn die [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)-Methode auf einen sticky regulären Ausdruck angewendet wird, gibt der reguläre Ausdruck sofort `null` zurück und setzt `lastIndex` auf 0 zurück, wenn er bei `lastIndex` nicht übereinstimmt.
+- Wenn die [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)-Methode auf einen globalen regulären Ausdruck angewendet wird, versucht der reguläre Ausdruck, ab dem nächsten Zeichen und so weiter zu übereinstimmen, bis eine Übereinstimmung gefunden wird oder das Ende der Zeichenkette erreicht ist.
 
-Für die [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)-Methode verhält sich ein Regex, das sowohl sticky als auch global ist, wie ein sticky und nicht-globales Regex. Da [`test()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) ein einfacher Wrapper um `exec()` ist, würde `test()` das globale Flag ignorieren und ebenfalls sticky-Abgleiche durchführen. Aufgrund vieler anderer Methoden, die das Verhalten von globalen Regexen speziell behandeln, ist das globale Flag im Allgemeinen orthogonal zum sticky Flag.
+Für die [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)-Methode verhält sich ein regulärer Ausdruck, der sowohl sticky als auch global ist, genauso wie ein nicht-globaler sticky Regulärer Ausdruck. Da [`test()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) ein einfacher Wrapper um `exec()` ist, ignoriert `test()` das globale Flag und führt ebenfalls sticky Abstimmungen durch. Aufgrund vieler anderer Methoden, die das Verhalten globaler regulärer Ausdrücke speziell behandeln, ist das globale Flag im Allgemeinen unabhängig vom sticky Flag.
 
 - [`String.prototype.matchAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll) (ruft [`RegExp.prototype[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) auf): `y`, `g` und `gy` sind alle unterschiedlich.
-  - Für `y` Regex: `matchAll()` wirft einen Fehler; `[Symbol.matchAll]()` gibt das `exec()`-Ergebnis genau einmal zurück, ohne den `lastIndex` des Regex zu aktualisieren.
-  - Für `g` oder `gy` Regex: Gibt einen Iterator zurück, der eine Sequenz von `exec()`-Ergebnissen liefert.
+  - Für `y`-Ausdrücke: `matchAll()` löst einen Fehler aus; `[Symbol.matchAll]()` gibt das `exec()`-Ergebnis genau einmal zurück, ohne den `lastIndex` des Regulären Ausdrucks zu aktualisieren.
+  - Für `g`- oder `gy`-Ausdrücke: Gibt einen Iterator zurück, der eine Sequenz von `exec()`-Ergebnissen liefert.
 - [`String.prototype.match()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/match) (ruft [`RegExp.prototype[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match) auf): `y`, `g` und `gy` sind alle unterschiedlich.
-  - Für `y` Regex: Gibt das `exec()`-Ergebnis zurück und aktualisiert den `lastIndex` des Regex.
-  - Für `g` oder `gy` Regex: Gibt ein Array aller `exec()`-Ergebnisse zurück.
-- [`String.prototype.search()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/search) (ruft [`RegExp.prototype[Symbol.search]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search) auf): das `g`-Flag ist immer irrelevant.
-  - Für `y` oder `gy` Regex: Gibt immer `0` zurück (wenn der Anfang der Zeichenfolge übereinstimmt) oder `-1` (wenn der Anfang nicht übereinstimmt), ohne den `lastIndex` des Regex bei Beendigung zu aktualisieren.
-  - Für `g` Regex: Gibt den Index der ersten Übereinstimmung in der Zeichenfolge zurück oder `-1`, wenn keine Übereinstimmung gefunden wird.
-- [`String.prototype.split()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) (ruft [`RegExp.prototype[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) auf): `y`, `g` und `gy` verhalten sich gleich.
+  - Für `y`-Ausdrücke: Gibt das `exec()`-Ergebnis zurück und aktualisiert den `lastIndex` des Regulären Ausdrucks.
+  - Für `g`- oder `gy`-Ausdrücke: Gibt ein Array aller `exec()`-Ergebnisse zurück.
+- [`String.prototype.search()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/search) (ruft [`RegExp.prototype[Symbol.search]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search) auf): Das `g`-Flag ist immer irrelevant.
+  - Für `y`- oder `gy`-Ausdrücke: Gibt immer `0` zurück (wenn der Anfang der Zeichenkette übereinstimmt) oder `-1` (wenn der Anfang nicht übereinstimmt), ohne den `lastIndex` des Regulären Ausdrucks zu aktualisieren, wenn es beendet wird.
+  - Für `g`-Ausdrücke: Gibt den Index der ersten Übereinstimmung in der Zeichenkette zurück oder `-1`, wenn keine Übereinstimmung gefunden wird.
+- [`String.prototype.split()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) (ruft [`RegExp.prototype[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) auf): `y`, `g` und `gy` haben das gleiche Verhalten.
 - [`String.prototype.replace()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace) (ruft [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace) auf): `y`, `g` und `gy` sind alle unterschiedlich.
-  - Für `y` Regex: Ersetzt einmal am aktuellen `lastIndex` und aktualisiert `lastIndex`.
-  - Für `g` und `gy` Regex: Ersetzt alle Vorkommen, die von `exec()` abgeglichen werden.
+  - Für `y`-Ausdrücke: Ersetzt einmal an der aktuellen Position von `lastIndex` und aktualisiert `lastIndex`.
+  - Für `g`- und `gy`-Ausdrücke: Ersetzt alle Übereinstimmungen, die von `exec()` gefunden werden.
 - [`String.prototype.replaceAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) (ruft [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace) auf): `y`, `g` und `gy` sind alle unterschiedlich.
-  - Für `y` Regex: `replaceAll()` wirft einen Fehler.
-  - Für `g` und `gy` Regex: Ersetzt alle Vorkommen, die von `exec()` abgeglichen werden.
+  - Für `y`-Ausdrücke: `replaceAll()` löst einen Fehler aus.
+  - Für `g`- und `gy`-Ausdrücke: Ersetzt alle Übereinstimmungen, die von `exec()` gefunden werden.
 
 ## Beispiele
 
@@ -64,9 +80,9 @@ regex.lastIndex; // 0 (reset after match failure)
 
 ### Verankertes sticky-Flag
 
-Für mehrere Versionen hatte die SpiderMonkey-Engine von Firefox [einen Fehler](https://bugzil.la/773687) in Bezug auf die `^`-Assertion und das sticky-Flag, der es Ausdrücken, die mit der `^`-Assertion beginnen und das sticky-Flag verwenden, erlaubte, Übereinstimmungen zu finden, wenn sie es nicht sollten. Der Fehler wurde irgendwann nach Firefox 3.6 eingeführt (welches das sticky-Flag hatte, aber nicht den Fehler) und 2015 behoben. Vielleicht wegen des Fehlers ruft die Spezifikation [explizit](https://tc39.es/ecma262/multipage/text-processing.html#sec-compileassertion) den Fakt auf:
+In mehreren Versionen hatte die SpiderMonkey-Engine von Firefox [einen Bug](https://bugzil.la/773687) in Bezug auf die `^`-Assertion und das sticky-Flag, der es Ausdrücken mit beginnender `^`-Assertion und sticky-Flag erlaubte, übereinzustimmen, wenn sie es eigentlich nicht sollten. Der Fehler wurde irgendwann nach Firefox 3.6 eingeführt (das das sticky-Flag hatte, aber nicht den Bug) und 2015 behoben. Möglicherweise wegen dieses Fehlers hebt die Spezifikation [explizit hervor](https://tc39.es/ecma262/multipage/text-processing.html#sec-compileassertion), dass:
 
-> Auch wenn das `y`-Flag mit einem Muster verwendet wird, passt `^` immer nur am Anfang von _Input_ oder (wenn _rer_.[[Multiline]] `true` ist) am Anfang einer Zeile.
+> Auch wenn das `y`-Flag mit einem Muster verwendet wird, stimmt `^` immer nur am Anfang von _Input_ oder (wenn _rer_.[[Multiline]] `true` ist) am Anfang einer Zeile überein.
 
 Beispiele für korrektes Verhalten:
 

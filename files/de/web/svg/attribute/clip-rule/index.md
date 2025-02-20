@@ -2,16 +2,17 @@
 title: clip-rule
 slug: Web/SVG/Attribute/clip-rule
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-« [SVG Attribut-Referenz-Startseite](/de/docs/Web/SVG/Attribute)
+Das Attribut `clip-rule` gilt nur für Grafikelemente, die sich innerhalb eines {{ SVGElement("clipPath") }}-Elements befinden. Das Attribut `clip-rule` funktioniert im Wesentlichen wie das Attribut {{ SVGAttr("fill-rule") }}, mit dem Unterschied, dass es auf Definitionen von {{ SVGElement("clipPath") }} angewendet wird.
 
-Das Attribut `clip-rule` gilt nur für Grafikelemente, die in einem {{ SVGElement("clipPath") }}-Element enthalten sind. Das Attribut `clip-rule` funktioniert im Wesentlichen wie das Attribut {{ SVGAttr("fill-rule") }}, außer dass es auf {{ SVGElement("clipPath") }}-Definitionen angewendet wird.
+> [!NOTE]
+> Als Präsentationsattribut hat `clip-rule` auch ein entsprechendes CSS-Property: {{cssxref("clip-rule")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
 
-Das folgende Codefragment wird dazu führen, dass eine evenodd-Clipping-Regel auf den Clipping-Pfad angewendet wird, da `clip-rule` auf dem {{ SVGElement("path") }}-Element angegeben wird, das die Clipping-Form definiert:
+Der folgende Codeausschnitt bewirkt, dass eine "evenodd"-Clipping-Regel auf den Clipping-Pfad angewendet wird, da `clip-rule` auf dem {{ SVGElement("path") }}-Element spezifiziert ist, das die Clipping-Form definiert:
 
 ```html
 <g>
@@ -22,7 +23,7 @@ Das folgende Codefragment wird dazu führen, dass eine evenodd-Clipping-Regel au
 </g>
 ```
 
-während das folgende Codefragment nicht dazu führt, dass eine evenodd-Clipping-Regel angewendet wird, da die `clip-rule` auf das referenzierende Element und nicht auf das Objekt, das die Clipping-Form definiert, spezifiziert wird:
+Hingegen wird der folgende Codeausschnitt keine "evenodd"-Clipping-Regel anwenden, da `clip-rule` auf dem referenzierenden Element angegeben ist und nicht auf dem Objekt, das die Clipping-Form definiert:
 
 ```html
 <g>
@@ -32,8 +33,6 @@ während das folgende Codefragment nicht dazu führt, dass eine evenodd-Clipping
   <rect clip-path="url(#MyClip)" clip-rule="evenodd" ... />
 </g>
 ```
-
-Als Präsentationsattribut kann es auch als Eigenschaft direkt innerhalb eines CSS Stylesheets verwendet werden.
 
 ## Verwendungshinweise
 
@@ -55,9 +54,9 @@ Als Präsentationsattribut kann es auch als Eigenschaft direkt innerhalb eines C
 </table>
 
 - nonzero
-  - : Siehe Beschreibung der Eigenschaft {{ SVGAttr("fill-rule") }}.
+  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }}-Eigenschaft.
 - evenodd
-  - : Siehe Beschreibung der Eigenschaft {{ SVGAttr("fill-rule") }}.
+  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }}-Eigenschaft.
 
 ## Beispiel
 
@@ -90,7 +89,7 @@ Als Präsentationsattribut kann es auch als Eigenschaft direkt innerhalb eines C
 
 ## Elemente
 
-Die folgenden Elemente können das Attribut `clip-rule` verwenden, jedoch nur, wenn sie sich innerhalb eines {{ SVGElement("clipPath") }}-Elements befinden.
+Die folgenden Elemente können das Attribut `clip-rule` verwenden, allerdings nur, wenn sie sich innerhalb eines {{ SVGElement("clipPath") }}-Elements befinden.
 
 - [Grafikelemente](/de/docs/Web/SVG/Element#graphics_elements)
 

@@ -2,14 +2,24 @@
 title: TypedArray.prototype.lastIndexOf()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/lastIndexOf
 l10n:
-  sourceCommit: d9e66eca59d82c65166c65e7946332650da8f48f
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`lastIndexOf()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt den letzten Index zurück, an dem ein gegebenes Element im typisierten Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist. Das typisierte Array wird rückwärts durchsucht, beginnend bei `fromIndex`. Diese Methode hat den gleichen Algorithmus wie {{jsxref("Array.prototype.lastIndexOf()")}}.
+Die Methode **`lastIndexOf()`** von {{jsxref("TypedArray")}}-Instanzen liefert den letzten Index, an dem ein angegebenes Element im Typed Array gefunden werden kann, oder `-1`, wenn es nicht vorhanden ist. Das Typed Array wird rückwärts durchsucht, beginnend bei `fromIndex`. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.lastIndexOf()")}}.
 
-{{EmbedInteractiveExample("pages/js/typedarray-lastindexof.html")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.lastIndexOf()")}}
+
+```js interactive-example
+const uint8 = new Uint8Array([10, 20, 50, 50, 50, 60]);
+
+console.log(uint8.lastIndexOf(50, 5));
+// Expected output: 4
+
+console.log(uint8.lastIndexOf(50, 3));
+// Expected output: 3
+```
 
 ## Syntax
 
@@ -21,17 +31,17 @@ lastIndexOf(searchElement, fromIndex)
 ### Parameter
 
 - `searchElement`
-  - : Element, das im typisierten Array gesucht werden soll.
+  - : Element, das im Typed Array gefunden werden soll.
 - `fromIndex` {{optional_inline}}
-  - : Nullbasierter Index, ab dem rückwärts gesucht werden soll, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Nullbasierter Index, ab dem rückwärts gesucht wird, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 
 ### Rückgabewert
 
-Der letzte Index von `searchElement` im typisierten Array; `-1`, wenn nicht gefunden.
+Der letzte Index des `searchElement` im Typed Array; `-1`, wenn nicht gefunden.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.lastIndexOf()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierte Array-Instanzen aufgerufen werden.
+Weitere Einzelheiten finden Sie unter {{jsxref("Array.prototype.lastIndexOf()")}}. Diese Methode ist nicht generisch und kann nur auf Typed Array-Instanzen angewendet werden.
 
 ## Beispiele
 
@@ -58,7 +68,7 @@ uint8.lastIndexOf(2, -1); // 3
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.lastIndexOf` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typed arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden für JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}
 - {{jsxref("TypedArray.prototype.findLastIndex()")}}

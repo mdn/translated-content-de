@@ -2,14 +2,29 @@
 title: TypedArray.prototype.toLocaleString()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/toLocaleString
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`toLocaleString()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt einen String zurück, der die Elemente des typisierten Arrays repräsentiert. Die Elemente werden mit ihren `toLocaleString` Methoden in Strings umgewandelt, und diese Strings werden durch einen ortsspezifischen String (wie zum Beispiel ein Komma ",") getrennt. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.toLocaleString()")}}.
+Die Methode **`toLocaleString()`** von {{jsxref("TypedArray")}}-Instanzen gibt eine Zeichenkette zurück, die die Elemente des Typed Arrays repräsentiert. Die Elemente werden unter Verwendung ihrer `toLocaleString`-Methoden in Strings umgewandelt, und diese Strings werden durch eine localespezifische Zeichenfolge (wie ein Komma ",") getrennt. Diese Methode folgt demselben Algorithmus wie {{jsxref("Array.prototype.toLocaleString()")}}.
 
-{{EmbedInteractiveExample("pages/js/typedarray-tolocalestring.html")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.toLocaleString()")}}
+
+```js interactive-example
+const uint8 = new Uint32Array([500, 8123, 12]);
+
+console.log(uint8.toLocaleString());
+// Expected output: "500,8123,12"
+
+console.log(uint8.toLocaleString("en-GB"));
+// Expected output: "500,8,123,12"
+
+console.log(
+  uint8.toLocaleString("de-DE", { style: "currency", currency: "EUR" }),
+);
+// Expected output: "500,00 €,8.123,00 €,12,00 €"
+```
 
 ## Syntax
 
@@ -22,17 +37,17 @@ toLocaleString(locales, options)
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47 Sprach-Tag, oder ein Array solcher Strings. Für die allgemeine Form und Interpretation des `locales` Arguments siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Eine Zeichenkette mit einem BCP 47-Sprach-Tag oder ein Array solcher Zeichenketten. Informationen zur allgemeinen Form und Interpretation des Arguments `locales` finden Sie in [der Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
   - : Ein Objekt mit Konfigurationseigenschaften. Siehe {{jsxref("Number.prototype.toLocaleString()")}}.
 
 ### Rückgabewert
 
-Ein String, der die Elemente des typisierten Arrays repräsentiert.
+Eine Zeichenkette, die die Elemente des Typed Arrays repräsentiert.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.toLocaleString()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierte Array-Instanzen angewendet werden.
+Weitere Einzelheiten finden Sie unter {{jsxref("Array.prototype.toLocaleString()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen von Typed Arrays aufgerufen werden.
 
 ## Beispiele
 
@@ -62,7 +77,7 @@ uint.toLocaleString("ja-JP", { style: "currency", currency: "JPY" });
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.toString()")}}
 - {{jsxref("Array.prototype.toLocaleString()")}}

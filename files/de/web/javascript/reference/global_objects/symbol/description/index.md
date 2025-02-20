@@ -2,22 +2,36 @@
 title: Symbol.prototype.description
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/description
 l10n:
-  sourceCommit: c2445ce1dc3a0170e2fbfdbee10e18a7455c2282
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`description`** Zugriffseigenschaft von {{jsxref("Symbol")}}-Werten gibt einen String zurück, der die Beschreibung dieses Symbols enthält, oder `undefined`, wenn das Symbol keine Beschreibung hat.
+Die **`description`** Accessor-Eigenschaft von {{jsxref("Symbol")}}-Werten gibt einen String zurück, der die Beschreibung dieses Symbols enthält, oder `undefined`, wenn das Symbol keine Beschreibung hat.
 
-{{EmbedInteractiveExample("pages/js/symbol-prototype-description.html")}}
+{{InteractiveExample("JavaScript Demo: Symbol.prototype.description")}}
+
+```js interactive-example
+console.log(Symbol("desc").description);
+// Expected output: "desc"
+
+console.log(Symbol.iterator.description);
+// Expected output: "Symbol.iterator"
+
+console.log(Symbol.for("foo").description);
+// Expected output: "foo"
+
+console.log(`${Symbol("foo").description}bar`);
+// Expected output: "foobar"
+```
 
 ## Beschreibung
 
-{{jsxref("Symbol")}}-Objekte können mit einer optionalen Beschreibung erstellt werden, die zum Debuggen verwendet werden kann, jedoch nicht, um auf das Symbol selbst zuzugreifen. Die Eigenschaft `Symbol.prototype.description` kann verwendet werden, um diese Beschreibung auszulesen. Sie unterscheidet sich von `Symbol.prototype.toString()`, da sie nicht den umschließenden `"Symbol()"`-String enthält. Siehe die Beispiele.
+{{jsxref("Symbol")}}-Objekte können mit einer optionalen Beschreibung erstellt werden, die zum Debuggen verwendet werden kann, jedoch nicht, um auf das Symbol selbst zuzugreifen. Die Eigenschaft `Symbol.prototype.description` kann verwendet werden, um diese Beschreibung auszulesen. Sie unterscheidet sich von `Symbol.prototype.toString()`, da sie nicht die einschließende Zeichenkette `"Symbol()"` enthält. Siehe die Beispiele.
 
 ## Beispiele
 
-### Verwendung von description
+### Verwendung der Beschreibung
 
 ```js
 Symbol("desc").toString(); // "Symbol(desc)"

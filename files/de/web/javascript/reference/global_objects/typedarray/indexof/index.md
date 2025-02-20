@@ -2,14 +2,28 @@
 title: TypedArray.prototype.indexOf()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/indexOf
 l10n:
-  sourceCommit: d9e66eca59d82c65166c65e7946332650da8f48f
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`indexOf()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt den ersten Index zurück, an dem ein gegebenes Element im typisierten Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.indexOf()")}}.
+Die Methode **`indexOf()`** von {{jsxref("TypedArray")}}-Instanzen gibt den ersten Index zurück, an dem ein bestimmtes Element im Typed Array gefunden werden kann, oder `-1`, wenn es nicht vorhanden ist. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.indexOf()")}}.
 
-{{EmbedInteractiveExample("pages/js/typedarray-indexof.html")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.indexOf()")}}
+
+```js interactive-example
+const uint8 = new Uint8Array([10, 20, 30, 40, 50]);
+
+console.log(uint8.indexOf(50));
+// Expected output: 4
+
+// From position 3
+console.log(uint8.indexOf(20, 3));
+// Expected output: -1
+
+console.log(uint8.indexOf(51));
+// Expected output: -1
+```
 
 ## Syntax
 
@@ -21,17 +35,17 @@ indexOf(searchElement, fromIndex)
 ### Parameter
 
 - `searchElement`
-  - : Element, das im typisierten Array gesucht werden soll.
+  - : Das zu suchende Element im Typed Array.
 - `fromIndex` {{optional_inline}}
-  - : [Zum Ganzzahl konvertierter](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) nullbasierter Index, ab dem gesucht werden soll.
+  - : Nullbasierter Index, bei dem die Suche beginnen soll, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 
 ### Rückgabewert
 
-Der erste Index von `searchElement` im typisierten Array; `-1`, wenn nicht gefunden.
+Der erste Index von `searchElement` im Typed Array; `-1`, wenn nicht gefunden.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.indexOf()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.indexOf()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen eines Typed Arrays aufgerufen werden.
 
 ## Beispiele
 

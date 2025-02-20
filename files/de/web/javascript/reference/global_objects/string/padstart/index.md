@@ -2,14 +2,28 @@
 title: String.prototype.padStart()
 slug: Web/JavaScript/Reference/Global_Objects/String/padStart
 l10n:
-  sourceCommit: b7ca46c94631967ecd9ce0fe36579be334a01275
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`padStart()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem anderen String (mehrfach, falls erforderlich) auf, bis der resultierende String die angegebene Länge erreicht. Das Auffüllen wird am Anfang dieses Strings angewendet.
+Die **`padStart()`**-Methode von {{jsxref("String")}}-Werten füllt diese Zeichenkette mit einer anderen Zeichenkette (mehrfach, falls notwendig) auf, bis die resultierende Zeichenkette die angegebene Länge erreicht. Das Auffüllen erfolgt am Anfang dieser Zeichenkette.
 
-{{EmbedInteractiveExample("pages/js/string-padstart.html")}}
+{{InteractiveExample("JavaScript Demo: String.padStart()")}}
+
+```js interactive-example
+const str1 = "5";
+
+console.log(str1.padStart(2, "0"));
+// Expected output: "05"
+
+const fullNumber = "2034399002125581";
+const last4Digits = fullNumber.slice(-4);
+const maskedNumber = last4Digits.padStart(fullNumber.length, "*");
+
+console.log(maskedNumber);
+// Expected output: "************5581"
+```
 
 ## Syntax
 
@@ -21,17 +35,17 @@ padStart(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
+  - : Die Länge der resultierenden Zeichenkette, sobald der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Der String, mit dem der aktuelle `str` aufgefüllt werden soll. Wenn `padString` zu lang ist, um innerhalb der `targetLength` zu bleiben, wird er am Ende abgeschnitten. Der Standardwert ist das Unicode-"Leerzeichen"-Zeichen (U+0020).
+  - : Die Zeichenkette, mit der der aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um in die `targetLength` zu passen, wird es am Ende abgeschnitten. Der Standardwert ist das Unicode-Leerzeichen (U+0020).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString`, angewendet vom Start.
+Eine {{jsxref("String")}} mit der angegebenen `targetLength`, wobei `padString` vom Anfang angewendet wurde.
 
 ## Beispiele
 
-### Einfache Beispiele
+### Grundlegende Beispiele
 
 ```js
 "abc".padStart(10); // "       abc"
@@ -41,7 +55,7 @@ Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString`, angewen
 "abc".padStart(1); // "abc"
 ```
 
-### Konvertierung auf feste Breite für String-Nummern
+### Umwandlung von Zahlen in Zeichenketten mit fester Breite
 
 ```js
 // JavaScript version of: (unsigned)

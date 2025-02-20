@@ -1,50 +1,67 @@
 ---
-title: Anleitung zum Hinzufügen von Bildern und Medien
+title: Wie Sie Bilder, Medien und Ressourcen hinzufügen
 short-title: Medien hinzufügen
 slug: MDN/Writing_guidelines/Howto/Images_media
 l10n:
-  sourceCommit: 719645a32546d9e514ac530a5eb66aa4c26d4f51
+  sourceCommit: 269fa421f0a79b18f6000a26baebe30c74571b1f
 ---
 
-## Bilder hinzufügen
+Diese Seite beschreibt, wie Sie Bilder und Medien zu Dokumentationsseiten auf MDN hinzufügen können.
 
-Um ein Bild zu einem Dokument hinzuzufügen, fügen Sie Ihre Bilddatei in den Ordner des Dokuments ein und verweisen Sie dann im `index.md`-Dokument mit der [Markdown-Bildsyntax](https://github.github.com/gfm/#images) oder dem entsprechenden HTML-`<img>`-Element auf das Bild.
+## Medien mit shared-assets speichern und verwenden
+
+Bevor Sie Bilder oder Medien hinzufügen (insbesondere, wenn Sie eine Technologie demonstrieren, bei der die Medieninhalte sekundär sind), prüfen Sie, ob etwas Passendes bereits im [mdn/shared-assets-Repository](https://github.com/mdn/shared-assets) existiert. Behandeln Sie dieses Repository wie eine **Medienbibliothek**, die Sie durchsuchen können, um eine geeignete Ressource für ein Beispiel auszuwählen, ohne sich um Speicherplatz, Bereitstellung oder Lizenzierung sorgen zu müssen.
+
+Das Repository enthält Audio-, Video-, Schriftdateien, Bilder wie Fotos, Diagramme und Icons sowie verschiedene Dateien wie PDFs, Untertitel, Farbprofile usw. Falls im Repository nichts Passendes vorhanden ist, können Sie Ihre eigenen Ressourcen zusammen mit den Quelldateien für die Medien, die Sie einfügen möchten, hinzufügen. Beispiele finden Sie im [HTTP-Verzeichnis des shared-assets-Repositorys](https://github.com/mdn/shared-assets/tree/main/images/diagrams/http).
+
+Um etwas aus dem shared-assets-Repository auf einer MDN-Seite zu verwenden, lesen Sie den Abschnitt [Using shared assets in documentation](https://github.com/mdn/shared-assets?tab=readme-ov-file#using-shared-assets-in-documentation) in der Projekt-README.
+
+## Verwendung von Vektorformaten
+
+Im Allgemeinen sollten Sie, wenn Sie Bilder hinzufügen, insbesondere Diagramme, ein Vektorformat wie SVG verwenden. Dies aus den folgenden Gründen:
+
+- **Autoren können SVG direkt bearbeiten** mit jeder IDE oder Online-Tools. Das Bearbeiten einer `.png`-Datei erfordert oft die Neuerstellung eines Assets oder die Verwendung von Bildbearbeitungssoftware, was fehleranfällig ist und visuelle oder Komprimierungsartefakte einfügen kann.
+- **SVG kann von Git differenziert werden**. Im Gegensatz dazu wird bei einer Änderung einer Binärdatei die gesamte Datei als geändert betrachtet, sodass eine `.png`-Datei von 1 MB bei jeder Änderung die Repository-Größe um 1 MB erhöht.
+- **Flexibles UX**. SVGs sind Vektorformate, weshalb sie bei jeder Skalierung nicht verschwommen erscheinen.
+
+## Bilder in Inhalts-Repositories übernehmen
+
+Falls das shared-assets-Repository für Ihren Anwendungsfall nicht geeignet ist, können Sie Bilder in einem Inhaltsrepository (en-US oder translated-content) hinzufügen. Um ein Bild zu einem Dokument hinzuzufügen, legen Sie die Bilddatei im Ordner des Dokuments ab und referenzieren Sie sie anschließend in der Datei `index.md` des Dokuments entweder mit [Markdown-Bildsyntax](https://github.github.com/gfm/#images) oder dem entsprechenden HTML-`<img>`-Element.
 
 Gehen wir ein Beispiel durch:
 
-1. Beginnen Sie mit einem frischen Arbeitszweig, der den neuesten Inhalt des `main`-Zweigs des `mdn`-Remotes enthält.
+1. Beginnen Sie mit einem neuen Arbeitsbranch, der den aktuellsten Inhalt des `main`-Branches des `mdn`-Remote enthält.
 
    ```bash
    cd ~/path/to/mdn/content
    git checkout main
    git pull mdn main
-   # Run "yarn" again just to ensure you've
-   # installed the latest Yari dependency.
+   # Run "yarn" to make sure dependencies are up-to-date
    yarn
    git checkout -b my-images
    ```
 
-2. Fügen Sie Ihr Bild in den Dokumentenordner ein. Für dieses Beispiel nehmen wir an, dass wir ein neues Bild zum Dokument `files/en-us/web/css` hinzufügen.
+2. Fügen Sie Ihr Bild dem Dokumentordner hinzu. Nehmen wir für dieses Beispiel an, wir fügen dem Dokument `files/en-us/web/css` ein neues Bild hinzu.
 
    ```bash
    cd ~/path/to/mdn/content
    cp ../some/path/my-cool-image.png files/en-us/web/css/
    ```
 
-3. Führen Sie `filecheck` für jedes Bild aus, was meckern könnte, wenn etwas nicht stimmt. Weitere Details finden Sie im Abschnitt [Bilder komprimieren](#bilder_komprimieren).
+3. Führen Sie `filecheck` bei jedem Bild aus. Es wird möglicherweise warnen, wenn etwas nicht stimmt. Weitere Informationen finden Sie im Abschnitt [Bilder komprimieren](#bilder_komprimieren).
 
    ```bash
    yarn filecheck files/en-us/web/css/my-cool-image.png
    ```
 
-4. Verweisen Sie auf Ihr Bild im Dokument mit der Markdown-Syntax für Bilder und geben Sie [beschreibenden Text für das `alt`-Attribut](/de/docs/Learn_web_development/Core/Accessibility/HTML#text_alternatives) in den Klammern an, der das Bild beschreibt, oder fügen Sie ein {{htmlelement("img")}}-Element mit `alt`-Attribut in `files/en-us/web/css/index.md` ein:
+4. Referenzieren Sie Ihr Bild im Dokument unter Verwendung der Markdown-Syntax für Bilder und geben Sie [einen beschreibenden Text für das `alt`-Attribut](/de/docs/Learn_web_development/Core/Accessibility/HTML#text_alternatives) zwischen den Klammern ein, der das Bild beschreibt. Alternativ können Sie ein {{htmlelement("img")}}-Element mit `alt`-Attribut im Dokument `files/en-us/web/css/index.md` hinzufügen:
 
    ```md
    ![My cool image](my-cool-image.png)
    <img src="my-cool-image.png" alt="My cool image" />
    ```
 
-5. Fügen Sie alle gelöschten, erstellten und geänderten Dateien hinzu und committen Sie sie, und pushen Sie Ihren Zweig in Ihren Fork:
+5. Fügen Sie alle gelöschten, erstellten und geänderten Dateien hinzu und committen Sie diese. Anschließend pushen Sie Ihren Branch in Ihren Fork:
 
    ```bash
    git add files/en-us/web/css/my-cool-image.png files/en-us/web/css/index.html
@@ -52,15 +69,17 @@ Gehen wir ein Beispiel durch:
    git push -u origin my-images
    ```
 
-6. Jetzt sind Sie bereit, Ihre [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) zu erstellen.
+6. Nun sind Sie bereit, eine [Pull-Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) zu erstellen.
 
-## Alternative Texte zu Bildern hinzufügen
+## Alternativtext zu Bildern hinzufügen
 
-Jedem Bild, `![]` und `<img>`, muss ein `alt`-Text hinzugefügt werden. Alt-Attribute sollten kurz sein und alle relevanten Informationen enthalten, die das Bild vermittelt. Beim Schreiben der Bildbeschreibung sollten Sie an die wesentlichen Informationen des Bildes denken und daran, wie Sie diese Informationen jemandem vermitteln würden, der die Seiteninhalte lesen kann, aber keine Bilder laden kann.
+Jedes Bild, `![]` und `<img>`, muss einen `alt`-Text enthalten. Alt-Attribute sollten kurz und dennoch so aussagekräftig sein, dass sie die relevanten Informationen des Bildes vermitteln. Beim Schreiben der Bildbeschreibung sollten Sie an die wertvollen Informationen des Bildes denken und überlegen, wie Sie diese Informationen jemandem mitteilen würden, der die Seiteninhalte lesen, aber keine Bilder laden kann.
 
-Stellen Sie sicher, dass der alternative Text des Bildes auf dessen Kontext basiert. Wenn das Foto von Fluffy dem Hund ein Avatar neben einer Bewertung für Yuckymeat-Hundefutter ist, ist `alt="Fluffy"` passend. Wenn dasselbe Foto Teil von Fluffys Tieradoptionsseite ist, sind die im Bild vermittelten Informationen für potenzielle Hundebesitzer relevant, wie `alt="Fluffy, ein dreifarbiger Terrier mit sehr kurzem Fell, mit einem Tennisball im Maul."`. Der umgebende Text enthält wahrscheinlich Fluffys Größe und Rasse, daher wäre es redundant, dies hinzuzufügen. Verzichten Sie darauf, das Bild zu detailreich zu beschreiben: Der künftige Besitzer muss nicht wissen, ob der Hund drin oder draußen ist oder ein rotes Halsband und eine blaue Leine hat.
+Lesen Sie den Alternativtext im Kontext des Bildes. Wenn ein Foto von Fluffy, dem Hund, als Avatar neben einer Bewertung für Yuckymeat-Hundefutter angezeigt wird, wäre `alt="Fluffy"` angebracht. Ist dasselbe Foto jedoch Teil von Fluffys Adoption-Seite eines Tierheims, sind die Informationen, die das Bild vermittelt, für potenzielle Hundebesitzer relevant, zum Beispiel `alt="Fluffy, ein dreifarbiger Terrier mit sehr kurzem Fell, hält einen Tennisball im Maul."`. Der umliegende Text enthält wahrscheinlich schon Angaben zu Fluffys Größe und Rasse, deshalb wäre es redundant, diese zu wiederholen.
 
-Bei Screenshots schreiben Sie, was Sie aus dem Bild lernen, beschreiben nicht den Inhalt des Screenshots und lassen Informationen weg, die Leser nicht benötigen oder bereits wissen. Zum Beispiel, wenn Sie auf einer Seite über das Ändern von Einstellungen in Bing sind und einen Screenshot eines Bing-Suchergebnisses haben, sollten Sie den Suchbegriff oder die Anzahl der Ergebnisse usw. nicht einschließen, da diese nicht der Punkt des Bildes sind. Begrenzen Sie das `alt` auf das aktuelle Thema: wie man Einstellungen in Bing ändert. Das `alt` könnte `alt="Das Einstellungen-Symbol befindet sich in der Navigationsleiste unterhalb des Suchfeldes."` sein. Fügen Sie nicht "Screenshot" oder "Bing" hinzu, da der Benutzer nicht wissen muss, dass es sich um einen Screenshot handelt und bereits weiß, dass es sich um Bing handelt, da er sich auf einer Seite zum Ändern der Bing-Einstellungen befindet.
+Verzichten Sie auf zu detaillierte Beschreibungen des Bildes: Der potenzielle Tierelternteil muss nicht wissen, ob der Hund drinnen oder draußen ist oder ein rotes Halsband und eine blaue Leine trägt.
+
+In Bezug auf Screenshots schreiben Sie, was Sie aus dem Bild lernen können, ohne die Inhalte des Screenshots im Detail zu beschreiben. Lassen Sie Informationen aus, die die Leser nicht benötigen oder bereits wissen. Zum Beispiel, wenn Sie sich auf einer Seite über das Ändern von Einstellungen bei Bing befinden und ein Screenshot eines Bing-Suchergebnisses zeigen, sollten Sie keine Suchbegriffe oder die Anzahl der Ergebnisse einfügen, da diese für das Bild nicht relevant sind. Begrenzen Sie den Alternativtext auf das jeweilige Thema: Wie man Einstellungen bei Bing ändert. Der Alternativtext könnte `alt="Das Einstellungssymbol befindet sich in der Navigationsleiste unterhalb des Suchfelds."` lauten. Vermeiden Sie es, "Screenshot" oder "Bing" zu erwähnen, da der Nutzer weiß, dass es sich um Bing handelt und auf einer entsprechenden Seite ist.
 
 Die Syntax in Markdown und HTML:
 
@@ -76,155 +95,151 @@ Beispiele:
 <img alt="OpenWebDocs Logo: Carle the book worm" src="carle.png" />
 ```
 
-Während rein dekorative Bilder ein leeres `alt`-Attribut haben sollten, sollten die zu MDN-Dokumentationen hinzugefügten Bilder einen Zweck haben und daher eine Beschreibung mit einem Nicht-Null-String erfordern. Weitere Hinweise zum `alt`-Text finden Sie im [Entscheidungsbaum für Alt-Text](https://www.w3.org/WAI/tutorials/images/decision-tree/), um zu lernen, wie man ein `alt`-Attribut für Bilder in verschiedenen Situationen verwendet.
+Rein dekorative Bilder sollten ein leeres `alt` haben. Bilder, die zur MDN-Dokumentation hinzugefügt werden, sollten jedoch eine Funktion haben und daher eine nicht leere Beschreibungszeichenfolge erfordern. Für Hinweise zum Alternativtext siehe [Ein alt-Entscheidungsbaum](https://www.w3.org/WAI/tutorials/images/decision-tree/) und lernen Sie, wie Sie das `alt`-Attribut für Bilder in verschiedenen Situationen verwenden.
 
 ## Bilder komprimieren
 
-Wenn Sie Bilder zu einer Seite auf den MDN Web Docs hinzufügen, sollten Sie sicherstellen, dass sie so weit wie möglich (ohne Qualitätsverlust) komprimiert sind, um die Downloadgröße für unsere Leser zu verringern. In der Tat, wenn Sie dies nicht tun, wird unser CI-Prozess fehlschlagen und die Bauergebnisse warnen Sie, dass einige Ihrer Bilder zu groß sind.
+Wenn Sie Bilder zu einer Seite bei den MDN Web Docs hinzufügen, sollten Sie sicherstellen, dass sie möglichst stark komprimiert sind (ohne Qualitätsverlust), um die Download-Größe für unsere Leser zu minimieren. Falls das nicht der Fall ist, schlägt unser CI-Prozess fehl, und die Build-Ergebnisse warnen vor zu großen Bildern.
 
-Der beste Weg, die Bilder zu komprimieren, ist die Verwendung des integrierten Komprimierungstools. Sie können ein Bild angemessen komprimieren, indem Sie den `filecheck`-Befehl mit der Option `--save-compression` verwenden. Diese Option komprimiert das Bild so weit wie möglich und ersetzt das Original durch die komprimierte Version. Zum Beispiel:
+Die beste Methode, um Bilder zu komprimieren, besteht in der Verwendung des integrierten Komprimierungstools. Mit dem `filecheck`-Kommando und der Option `--save-compression` können Sie ein Bild entsprechend komprimieren. Diese Option komprimiert das Bild maximal und ersetzt das Original durch die komprimierte Version. Zum Beispiel:
 
 ```bash
 yarn filecheck files/en-us/web/css/my-cool-image.png --save-compression
 ```
 
-## Videos hinzufügen
+## Videos zu MDN-Seiten hinzufügen
 
-MDN Web Docs ist keine sehr videolastige Seite, aber es gibt bestimmte Stellen, an denen Videoinhalte sinnvoll sind, um sie als Teil eines Artikels zu verwenden. Dieser Artikel bespricht, wann das Einfügen von Videos in Artikel angebracht ist und gibt Tipps, wie man einfache aber effektive Videos mit einem Budget erstellt.
+MDN Web Docs ist keine seitenübergreifend videointensive Seite, aber es gibt bestimmte Situationen, in denen Videos sinnvoll als Bestandteil eines Artikels verwendet werden können. Dieser Artikel behandelt, wann Videos in Artikeln passend sind, und bietet Tipps, wie man einfache, aber effektive Videos mit wenig Budget erstellt.
 
-Es gibt mehrere Argumente gegen den Einsatz von Videoinhalten in technischer Dokumentation, insbesondere für Referenzmaterialien und fortgeschrittene Leitfäden. Einige davon sind unten aufgeführt:
+Es gibt verschiedene Argumente gegen die Verwendung von Videoinhalten für technische Dokumentationen, besonders im Bereich von Referenzmaterial und fortgeschrittenen Leitfäden. Einige davon sind:
 
-- Video ist linear. Menschen neigen nicht dazu, Online-Dokumentation linear zu lesen, d.h. von Anfang bis Ende. _Sie überfliegen._ Video ist wirklich schwer zu überfliegen — es zwingt den Benutzer, den Inhalt von Anfang bis Ende zu konsumieren.
-- Video ist weniger informationsdicht als Text. Es dauert länger, ein Video anzusehen, das etwas erklärt, als die entsprechenden Anweisungen zu lesen.
-- Video ist groß, was die Dateigröße betrifft, und daher teurer und weniger performant als Text.
-- Video hat Zugänglichkeitsprobleme: Es ist generell teurer zu produzieren als Text, insbesondere um es zu lokalisieren oder für Benutzer von Bildschirmlesegeräten nutzbar zu machen.
-- Infolge des letzten Punkts ist Video viel schwieriger zu bearbeiten/aktualisieren/warten als Textinhalt.
+- **Video ist linear.** Menschen neigen dazu, Online-Dokumentationen nicht linear zu lesen — sie scannen. Videos hingegen sind schwer zu scannen und zwingen den Nutzer, den gesamten Inhalt anzusehen.
+- **Video ist weniger informationsdicht als Text.** Es dauert länger, ein Video anzusehen, das etwas erklärt, als die entsprechenden Textanleitungen zu lesen.
+- **Video ist speicherintensiv und damit teurer und weniger performant als Text.**
+- **Video hat Barrierefreiheitsprobleme.** Es ist generell teurer in der Produktion als Text, insbesondere beim Übersetzen oder Anpassen für Screenreader-Nutzer.
+- **Videos sind schwerer zu bearbeiten/aktualisieren/pflegen als Textinhalte.**
 
 > [!NOTE]
-> Es lohnt sich, diese Probleme im Kopf zu behalten, selbst wenn Sie Videos erstellen, damit Sie versuchen können, einige davon zu lindern.
+> Behalten Sie diese Probleme im Hinterkopf, selbst wenn Sie Videos erstellen, damit Sie versuchen können, einige dieser Probleme zu mildern.
 
-Es gibt viele beliebte Videoseiten, die viele Video-Tutorials anbieten. MDN Web Docs ist keine videobetreibene Seite, aber Video hat in bestimmten Kontexten einen Platz auf MDN Web Docs.
+Es gibt viele populäre Videoseiten, die zahlreiche Tutorials bieten. MDN Web Docs ist keine videogesteuerte Plattform, aber Videos haben in bestimmten Kontexten ihren Platz.
 
-Wir verwenden Videos am häufigsten, wenn wir eine Art von Anweisungssequenz oder einen mehrstufigen Workflow beschreiben, der nur schwer prägnant in Worten zu beschreiben ist: _"tun Sie dies, dann das, dann passiert das"_. Es ist besonders nützlich, wenn versucht wird, Prozesse zu beschreiben, die über mehrere Anwendungen oder Fenster hinweg gehen und GUI-Interaktionen beinhalten, die nicht einfach zu beschreiben sind: _"klicken Sie jetzt auf den Knopf oben links, der ein bisschen wie eine Ente aussieht"_.
+Wir verwenden Videos am häufigsten, um eine Art von Anleitungssequenz oder mehrstufigen Workflow zu beschreiben, die schwer prägnant in Worte zu fassen ist: _"Machen Sie dies, dann jenes, und dann passiert Folgendes"_. Besonders nützlich ist es, wenn Prozesse beschrieben werden sollen, die mehrere Anwendungen oder Fenster umfassen und GUI-Interaktionen beinhalten, die nicht leicht beschreibbar sind: _"Klicken Sie jetzt auf die Schaltfläche in der oberen linken Ecke, die wie eine Ente aussieht."_
 
-In solchen Fällen ist es oft effektiver, einfach zu **zeigen**, was Sie meinen.
+In solchen Fällen ist es oft effektiver, einfach zu **zeigen**, was gemeint ist.
 
-<!-- Wir verwenden Videos am häufigsten, wenn wir Funktionen der [Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/index.html) erklären.-->
-
-## Richtlinien für Videoinhalte
+### Richtlinien für Videoinhalte
 
 Videoinhalte für MDN Web Docs sollten sein:
 
-- **Kurz**: Versuchen Sie, Videos unter 30 Sekunden, idealerweise unter 20 Sekunden zu halten. Dies ist kurz genug, um die Aufmerksamkeitsspanne der Leser nicht zu stark zu beanspruchen.
-- **Einfach**: Versuchen Sie, den Workflow einfach zu halten, bestehend aus 2-4 klar unterscheidbaren Teilen. Dadurch wird es einfacher, ihnen zu folgen.
-- **Stumm**: Audio macht Videos viel ansprechender, aber sie sind viel zeitaufwändiger in der Herstellung. Es zu erklären, was Sie tun, macht die Videos auch viel länger und erhöht die Kosten (sowohl finanziell als auch in Bezug auf die Zeit) der Lokalisierung.
+- **Kurz:** Versuchen Sie, Videos unter 30 Sekunden, idealerweise unter 20 Sekunden zu halten. Dies ist kurz genug, um die Aufmerksamkeitsspanne der Leser nicht übermäßig zu beanspruchen.
+- **Einfach:** Machen Sie den Workflow einfach, mit 2–4 deutlichen Schritten. Dies macht ihn leichter nachzuvollziehen.
+- **Still:** Audio macht Videos zwar ansprechender, aber auch zeitaufwendiger in der Erstellung. Zudem verlängert das Erklären das Video und erhöht die Kosten (sowohl finanziell als auch zeitlich) für die Lokalisierung.
 
-Um etwas Komplexeres zu erklären, können Sie eine Mischung aus kurzen Videos und Screenshots verwenden, durchsetzt mit Text. Der Text kann helfen, die im Video gemachten Punkte zu verstärken, und der Benutzer kann sich auf den Text oder das Video verlassen, je nachdem, was ihm besser gefällt. Siehe [Arbeiten mit dem Animationsinspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/work_with_animations/index.html#animation-inspector) für ein gutes Beispiel.
+Um etwas Komplexeres zu erklären, können Sie eine Kombination aus kurzen Videos und Screenshots verwenden, ergänzt durch Text. Der Text kann die im Video erläuterten Punkte verstärken, und die Nutzer können sich wahlweise auf den Text oder das Video verlassen. Ein gutes Beispiel finden Sie unter [Arbeiten mit dem Animationsinspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/work_with_animations/index.html#animation-inspector).
 
-Zusätzlich sollten Sie die folgenden Tipps beachten:
+In Betracht zu ziehen sind außerdem folgende Tipps:
 
-- Das Video wird letztendlich vor dem Einbetten auf YouTube hochgeladen. Wir empfehlen ein 16:9 {{Glossary("aspect_ratio", "Seitenverhältnis")}} für diesen Gebrauch, damit es den gesamten Anzeigebereich ausfüllt und Sie keine unschönen schwarzen Balken oben und unten (oder links und rechts) auf Ihrem Video haben. Sie könnten beispielsweise eine Auflösung von 1024×576, 1152×648 oder 1280×720 wählen.
-- Zeichnen Sie das Video in HD auf, damit es besser aussieht, wenn es hochgeladen wird.
-- Für DevTools-Videos ist es oft eine gute Idee, ein kontrastierendes Thema zur Seiteninhaltsfarbe zu wählen. Wählen Sie zum Beispiel das dunkle Thema, wenn die Beispielwebseite hell gestaltet ist. Es ist einfacher zu sehen, was passiert und wo die DevTools beginnen und die Seite endet.
-- Zoomen Sie bei DevTools-Videos die DevTools so weit wie möglich, während Sie alles zeigen, was Sie zeigen möchten, und es soll in Ordnung aussehen.
-- Stellen Sie sicher, dass das, was Sie demonstrieren möchten, nicht durch den Mauszeiger verdeckt wird.
-- Überlegen Sie, ob es nützlich wäre, das Bildschirmaufnahme-Tool so zu konfigurieren, dass ein visueller Indikator für Mausklicks hinzugefügt wird.
+- Das Video wird letztendlich vor dem Einbetten auf YouTube hochgeladen. Ein {{Glossary("aspect_ratio", "16:9-Bildverhältnis")}} wird hierfür empfohlen, um den gesamten Betrachtungsrahmen auszufüllen und unschöne schwarze Balken oben und unten (oder links und rechts) zu vermeiden. Geeignete Auflösungen sind z. B. 1024×576, 1152×648 oder 1280×720.
+- Nehmen Sie das Video in HD auf, damit es hochgeladen besser aussieht.
+- Für DevTools-Videos ist es oft eine gute Idee, ein kontrastierendes Thema zur Webseiten-Farbgebung zu wählen. Beispielsweise könnte das dunkle Thema gewählt werden, wenn die Beispielwebseite hell gestaltet ist. So ist besser sichtbar, was passiert, und was DevTools angehört und was zur Seite gehört.
+- Zoomen Sie in DevTools-Videos so weit hinein, dass alles, was Sie zeigen möchten, sichtbar ist und dennoch gut aussieht.
+- Achten Sie darauf, dass das, was Sie demonstrieren möchten, nicht vom Mauszeiger verdeckt wird.
+- Überlegen Sie, ob es hilfreich wäre, im Bildschirmaufnahmewerkzeug eine visuelle Anzeige der Mausklicks zu aktivieren.
 
-## Richtlinien für Videotools
+### Videotools und Software
 
-Sie benötigen ein Tool zur Aufzeichnung des Videos. Diese reichen von kostenlos bis teuer und von einfach bis komplex. Wenn Sie bereits Erfahrung im Erstellen von Videoinhalten haben, großartig. Wenn nicht, empfehlen wir Ihnen, mit einem einfachen Tool zu beginnen und dann zu etwas Komplexerem überzugehen, wenn Sie anfangen, Freude am Erstellen von Videoinhalten zu haben und interessantere Produktionen erstellen möchten.
+Für die Aufnahme benötigen Sie ein Werkzeug. Diese reichen von kostenlos bis teuer und von einfach bis komplex. Falls Sie bereits Erfahrung im Erstellen von Video-Inhalten haben, hervorragend. Falls nicht, beginnen Sie mit einem einfachen Werkzeug und steigern Sie sich erst bei Interesse an komplexeren Produktionen.
 
-Die folgende Tabelle bietet einige Empfehlungen für gute Startertools:
+Die folgende Tabelle gibt Empfehlungen für gute Einsteiger-Werkzeuge:
 
-| Tool                      | OS                    | Kosten    | Funktionen zur Nachbearbeitung verfügbar? |
-| ------------------------- | --------------------- | --------- | ----------------------------------------- |
-| Open Broadcaster Software | macOS, Windows, Linux | Kostenlos | Ja                                        |
-| CamStudio                 | Windows               | Kostenlos | Begrenzt                                  |
-| Camtasia                  | Windows, macOS        | Hoch      | Ja                                        |
-| QuickTime Player          | macOS                 | Kostenlos | Nein, nur zur einfachen Aufnahme          |
-| ScreenFlow                | macOS                 | Mittel    | Ja                                        |
-| Kazam                     | Linux                 | Kostenlos | Minimal                                   |
+| Werkzeug                  | OS                    | Kosten    | Funktionen für Nachbearbeitung? |
+| ------------------------- | --------------------- | --------- | ------------------------------- |
+| Open Broadcaster Software | macOS, Windows, Linux | Kostenlos | Ja                              |
+| CamStudio                 | Windows               | Kostenlos | Begrenzt                        |
+| Camtasia                  | Windows, macOS        | Hoch      | Ja                              |
+| QuickTime Player          | macOS                 | Kostenlos | Nein, nur einfache Aufnahme     |
+| ScreenFlow                | macOS                 | Mittel    | Ja                              |
+| Kazam                     | Linux                 | Kostenlos | Minimal                         |
 
-### Tipps für QuickTime Player
+#### Tipps für QuickTime Player
 
-Wenn Sie macOS verwenden, sollten Sie QuickTime Player zur Verfügung haben. Die Aufnahmeschritte mit diesem Tool sind recht einfach:
+Falls Sie macOS verwenden, sollte QuickTime Player verfügbar sein. Die Schritte zur Aufnahme mit diesem Programm sind recht einfach:
 
 1. Wählen Sie _Datei_ > _Neue Bildschirmaufnahme_ aus dem Hauptmenü.
-2. In dem _Bildschirmaufnahme_-Fenster drücken Sie die Aufnahmetaste (den roten Rundknopf).
-3. Ziehen Sie ein Rechteck um den Bereich des Bildschirms, den Sie aufnehmen möchten.
-4. Drücken Sie die _Aufnahme starten_-Taste.
-5. Führen Sie die Aktionen aus, die Sie aufnehmen möchten.
-6. Drücken Sie die _Stopp_-Taste.
-7. Wählen Sie _Datei_ > _Exportieren als..._ > _1080p_ aus dem Hauptmenü, um es in hoher Auflösung zu speichern.
+2. Klicken Sie im Fenster _Bildschirmaufnahme_ auf die Aufnahmetaste (den roten runden Button).
+3. Ziehen Sie ein Rechteck um den Bildschirmbereich, den Sie aufnehmen möchten.
+4. Drücken Sie die Taste _Aufnahme starten_.
+5. Führen Sie die gewünschten Aktionen aus, die Sie aufnehmen möchten.
+6. Drücken Sie die Taste _Stopp_.
+7. Wählen Sie _Datei_ > _Exportieren als..._ > _1080p_, um die Aufnahme in HD zu speichern.
 
 ### Weitere Ressourcen
 
-- [Anleitung zur Hinzufügung von benutzerdefinierten Callouts zu Screencast-Videos in ScreenFlow](https://photography.tutsplus.com/tutorials/how-to-add-custom-callouts-to-screencast-videos-in-screenflow--cms-27122)
+- [Anleitung: Wie man benutzerdefinierte Callouts zu Screencast-Videos in ScreenFlow hinzufügt](https://photography.tutsplus.com/tutorials/how-to-add-custom-callouts-to-screencast-videos-in-screenflow--cms-27122)
 
-## Ablauf zur Erstellung von Videos
+### Workflow zur Videoerstellung
 
-Die folgenden Unterabschnitte beschreiben die allgemeinen Schritte, die Sie befolgen möchten, um ein Video zu erstellen und es in einen Artikel von MDN Web Docs einzufügen.
+Die folgenden Abschnitte beschreiben die allgemeinen Schritte, die Sie befolgen sollten, um ein Video zu erstellen und zu einem Artikel der MDN Web Docs hinzuzufügen.
 
-### Vorbereitung
+Planen Sie zunächst den Ablauf, den Sie einfangen möchten: Überlegen Sie die besten Punkte zum Starten und Beenden. Achten Sie darauf, dass der Desktop-Hintergrund und Ihr Browserprofil aufgeräumt sind. Planen Sie die Größe und Position der Browserfenster, besonders wenn Sie mehrere Fenster verwenden möchten.
 
-Planen Sie zunächst den Ablauf, den Sie aufnehmen möchten: Überlegen Sie sich die besten Start- und Endpunkte.
+Planen Sie sorgfältig, was Sie tatsächlich aufnehmen möchten, und üben Sie die Schritte vor der Aufnahme ein paar Mal:
 
-Stellen Sie sicher, dass der Desktop-Hintergrund und Ihr Browser-Profil sauber sind. Planen Sie die Größe und Positionierung der Browserfenster, insbesondere wenn Sie mehrere Fenster verwenden werden.
-
-Planen Sie sorgfältig, was Sie tatsächlich aufnehmen werden, und üben Sie die Schritte ein paar Mal, bevor Sie sie aufzeichnen:
-
-- Beginnen Sie ein Video nicht mitten in einem Prozess — überlegen Sie, ob der Betrachter genug Kontext für Ihre Aktionen hat, um sie nachvollziehen zu können. In einem kurzen DevTools-Video ist es zum Beispiel eine gute Idee, mit dem Öffnen der DevTools zu beginnen, damit sich der Betrachter orientieren kann.
-- Überlegen Sie sich, was Ihre Aktionen sind, verlangsamen Sie und machen Sie sie offensichtlich. Wann immer Sie eine Aktion ausführen müssen (z.B. ein Symbol anklicken), nehmen Sie sich Zeit und machen Sie sie offensichtlich. Zum Beispiel:
+- Starten Sie Videos nicht mitten in einem Prozess — überlegen Sie, ob die Zuschauer genügend Kontext haben, um Ihre Aktionen zu verstehen. In einem kurzen DevTools-Video ist es beispielsweise eine gute Idee, mit dem Öffnen der DevTools zu beginnen, damit der Zuschauer sich orientieren kann.
+- Überlegen Sie Ihre Aktionen, verlangsamen Sie diese und machen Sie sie offensichtlich. Wann immer Sie eine Aktion (z. B. das Klicken auf ein Symbol) durchführen müssen, gehen Sie langsam vor und machen Sie es deutlich. Zum Beispiel:
 
   - Bewegen Sie die Maus über das Symbol.
-  - Hervorheben oder Hineinzoomen (nicht immer, je nachdem, ob es nötig erscheint).
-  - Eine kurze Pause einlegen.
-  - Auf das Symbol klicken.
+  - Markieren oder zoomen Sie heran (nicht immer nötig, je nach Bedarf).
+  - Halten Sie für einen Moment inne.
+  - Klicken Sie auf das Symbol.
 
-- Planen Sie die Zoomstufen für die Teile der Benutzeroberfläche, die Sie zeigen werden. Nicht jeder kann Ihr Video in hoher Qualität ansehen. Sie werden in der Lage sein, bestimmte Teile in der Nachbearbeitung zu vergrößern, aber es ist eine gute Idee, die App auch vorher zu zoomen.
-
-> [!NOTE]
-> Zoomen Sie nicht so weit, dass die Benutzeroberflächen, die Sie zeigen, ungewohnt oder hässlich aussehen.
-
-### Aufzeichnung
-
-Wenn Sie den Workflow, den Sie zeigen möchten, aufnehmen, gehen Sie den Ablauf reibungslos und stetig durch. Machen Sie eine Pause für ein oder zwei Sekunden, wenn Sie an wichtigen Momenten sind — zum Beispiel, wenn Sie kurz davor sind, eine Schaltfläche zu klicken. Stellen Sie sicher, dass der Mauszeiger keine Symbole oder Texte verdeckt, die wichtig sind für das, was Sie demonstrieren möchten.
-
-Denken Sie daran, am Ende eine Pause von ein oder zwei Sekunden einzulegen, um das Ergebnis des Ablaufs zu zeigen.
+- Planen Sie die Zoomstufen für die Teile der Benutzeroberfläche, die Sie zeigen möchten. Nicht jeder kann Ihr Video in HD ansehen. Sie können bestimmte Teile in der Nachbearbeitung heranzoomen, aber es ist auch eine gute Idee, die Anwendung vorab zu vergrößern.
 
 > [!NOTE]
-> Wenn Sie ein wirklich einfaches Tool wie QuickTime Player verwenden und aus irgendeinem Grund eine Nachbearbeitung nicht möglich ist, sollten Sie Ihre Fenster auf die richtige Größe einstellen, um den Bereich zu zeigen, den Sie zeigen möchten. In den Firefox DevTools können Sie das [Lineal-Tool](https://firefox-source-docs.mozilla.org/devtools-user/rulers/index.html) verwenden, um sicherzustellen, dass das Ansichtsfenster das richtige Seitenverhältnis für die Aufzeichnung hat.
+> Zoomen Sie nicht so stark, dass die Benutzeroberflächen, die Sie zeigen, unkenntlich oder unattraktiv wirken.
 
-### Nachbearbeitung
+#### Aufnahme
 
-Sie können Schlüsselmomente in der Nachbearbeitung hervorheben. Ein Highlight kann aus ein paar Dingen bestehen, die Sie oft kombinieren werden, wie:
+Während der Aufnahme des Workflows, den Sie demonstrieren möchten, gehen Sie den Ablauf ruhig und gleichmäßig durch. Halten Sie an wichtigen Momenten — z. B. bevor Sie eine Schaltfläche anklicken — für ein bis zwei Sekunden inne. Achten Sie darauf, dass der Mauszeiger keine wichtigen Symbole oder Texte verdeckt, die Sie zeigen möchten.
 
-- Vergrößern eines Teils des Bildschirms.
-- Ausblenden des Hintergrunds.
-
-Heben Sie Schlüsselmomente des Workflows hervor, insbesondere dort, wo die Details schwer zu erkennen sind: das Klicken auf ein bestimmtes Symbol oder das Eingeben einer bestimmten URL beispielsweise. Versuchen Sie, das Highlight 1-2 Sekunden lang andauern zu lassen. Es ist eine gute Idee, am Anfang und am Ende der Highlights eine kurze Übergangszeit (200-300 Millisekunden) hinzuzufügen.
-
-Gebrauchen Sie hier etwas Zurückhaltung: Machen Sie das Video nicht zu einer ständigen Abfolge von Zoom-Ins und -Outs, sonst wird den Betrachtern schwindelig.
-
-Schneiden Sie das Video auf das gewünschte Seitenverhältnis zu, falls erforderlich.
-
-### Hochladen
-
-Zurzeit müssen Videos auf YouTube hochgeladen werden, um auf den MDN Web Docs angezeigt zu werden, zum Beispiel auf den [mozhacks](https://www.youtube.com/user/mozhacks/videos) Kanal. Fragen Sie ein Mitglied des MDN Web Docs-Teams, das Video hochzuladen, wenn Sie keinen geeigneten Ort dafür haben.
+Denken Sie daran, am Ende ein oder zwei Sekunden zu pausieren, damit das Ergebnis des Workflows zu sehen ist.
 
 > [!NOTE]
-> Markieren Sie das Video als "nicht gelistet", wenn es außerhalb des Kontexts der Seite keinen Sinn ergibt (wenn es ein kurzes Video ist, dann tut es das wahrscheinlich nicht).
+> Wenn Sie ein sehr einfaches Werkzeug wie QuickTime Player verwenden und eine Nachbearbeitung aus irgendeinem Grund nicht möglich ist, sollten Sie Ihre Fenster in der richtigen Größe einrichten, um den gewünschten Bereich zu zeigen. In den Firefox DevTools können Sie das [Linealwerkzeug](https://firefox-source-docs.mozilla.org/devtools-user/rulers/index.html) verwenden, um sicherzustellen, dass der Ansichtsbereich die richtige Seitenverhältnisgröße für die Aufnahme hat.
+
+#### Nachbearbeitung
+
+In der Nachbearbeitung können Sie wichtige Momente hervorheben. Ein Highlight kann aus verschiedenen Dingen bestehen, die Sie oft kombinieren, wie:
+
+- Vergrößern bestimmter Bildschirmteile.
+- Den Hintergrund verblassen lassen.
+
+Heben Sie wichtige Momente des Workflows hervor, besonders dort, wo die Details schwer zu erkennen sind, z. B. beim Anklicken eines bestimmten Symbols oder Eingeben einer bestimmten URL. Ziel ist, dass das Highlight für 1-2 Sekunden sichtbar ist. Eine kurze Übergangszeit (200-300 Millisekunden) am Anfang und Ende der Highlights ist empfehlenswert.
+
+Zeigen Sie Zurückhaltung hierbei: Vermeiden Sie ein konstantes Ein- und Auszoomen, da dies Sehstörungen beim Zuschauer verursacht. Schneiden Sie das Video bei Bedarf auf das gewünschte Seitenverhältnis zurecht.
+
+#### Hochladen und Einbetten von Videos
+
+Videos müssen derzeit auf YouTube hochgeladen werden, um auf MDN Web Docs angezeigt werden zu können, beispielsweise im [mozhacks](https://www.youtube.com/user/mozhacks/videos)-Kanal. Bitten Sie ein Mitglied des MDN-Web-Docs-Teams, das Video hochzuladen, falls Sie keinen geeigneten Ort dafür haben.
+
+> [!NOTE]
+> Markieren Sie das Video als „Nicht gelistet“, wenn es außerhalb des Kontexts der Seite keinen Sinn ergibt (bei kurzen Videos ist dies wahrscheinlich der Fall).
 
 ### Einbetten
 
-Sobald es hochgeladen ist, können Sie das Video auf der Seite mit dem [`EmbedYouTube`](https://github.com/mdn/yari/blob/main/kumascript/macros/EmbedYouTube.ejs)-Makro einbetten. Dies wird verwendet, indem folgendes auf Ihrer Seite an der Stelle eingefügt wird, an der das Video erscheinen soll:
+Nachdem das Video hochgeladen wurde, können Sie es mithilfe des [`EmbedYouTube`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/embeds/embed_youtube.rs)-Makros einbetten. Dies wird erreicht, indem Sie Folgendes an der gewünschten Position in Ihrer Seite einfügen:
 
 ```plain
 \{{EmbedYouTube("you-tube-url-slug")}}
 ```
 
-Die einzige Eigenschaft, die vom Makroaufruf genommen wird, ist die Zeichenfolge am Ende der Video-URL, nicht die gesamte URL. Wenn die Video-URL beispielsweise `https://www.youtube.com/watch?v=ELS2OOUvxIw` ist, lautet der erforderliche Makroaufruf:
+Das einzige Argument, das der Makroaufruf benötigt, ist die Zeichenfolge am Ende der Video-URL, nicht die gesamte URL. Wenn z. B. die Video-URL `https://www.youtube.com/watch?v=ELS2OOUvxIw` lautet, ist der erforderliche Makroaufruf:
 
 ```plain
 \{{EmbedYouTube("ELS2OOUvxIw")}}
 ```
+
+## Siehe auch
+
+- [Verwendung von SVG-Format anstelle von .png-Bildern](https://github.com/orgs/mdn/discussions/631) MDN GitHub-Diskussion

@@ -2,14 +2,29 @@
 title: Number.isSafeInteger()
 slug: Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger
 l10n:
-  sourceCommit: 70f09675ddcfc75a3bb66d2dce4cf82738948a37
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`Number.isSafeInteger()`** statische Methode bestimmt, ob der angegebene Wert eine Zahl ist, die ein _sicherer Integer_ ist.
+Die **`Number.isSafeInteger()`** statische Methode bestimmt, ob der übergebene Wert eine Zahl ist, die ein _sicherer Integer_ ist.
 
-{{EmbedInteractiveExample("pages/js/number-issafeinteger.html")}}
+{{InteractiveExample("JavaScript Demo: Number.isSafeInteger()")}}
+
+```js interactive-example
+function warn(x) {
+  if (Number.isSafeInteger(x)) {
+    return "Precision safe.";
+  }
+  return "Precision may be lost!";
+}
+
+console.log(warn(Math.pow(2, 53)));
+// Expected output: "Precision may be lost!"
+
+console.log(warn(Math.pow(2, 53) - 1));
+// Expected output: "Precision safe."
+```
 
 ## Syntax
 
@@ -20,7 +35,7 @@ Number.isSafeInteger(testValue)
 ### Parameter
 
 - `testValue`
-  - : Der Wert, der darauf getestet werden soll, ob er ein sicherer Integer ist.
+  - : Der Wert, der darauf getestet wird, ob er ein sicherer Integer ist.
 
 ### Rückgabewert
 
@@ -28,16 +43,16 @@ Der boolesche Wert `true`, wenn der angegebene Wert eine Zahl ist, die ein siche
 
 ## Beschreibung
 
-Die sicheren Integer bestehen aus allen ganzen Zahlen von -(2<sup>53</sup> - 1) bis 2<sup>53</sup> - 1, einschließlich (±9.007.199.254.740.991). Ein sicherer Integer ist ein Integer, der:
+Die sicheren Integer umfassen alle Ganzzahlen von -(2<sup>53</sup> - 1) bis 2<sup>53</sup> - 1, einschließlich (±9.007.199.254.740.991). Ein sicherer Integer ist ein Integer, der:
 
-- genau als eine IEEE-754-Doppelpräzisionszahl dargestellt werden kann und
-- dessen IEEE-754-Darstellung nicht das Ergebnis der Rundung eines anderen Integers ist, um in die IEEE-754-Darstellung zu passen.
+- exakt als IEEE-754-Doppelpräzisionszahl dargestellt werden kann, und
+- dessen IEEE-754-Darstellung nicht das Ergebnis des Rundens einer anderen Ganzzahl ist, um in die IEEE-754-Darstellung zu passen.
 
-Zum Beispiel ist 2<sup>53</sup> - 1 ein sicherer Integer: Er kann exakt dargestellt werden, und kein anderer Integer wird unter irgendeinem IEEE-754-Rundungsmodus auf ihn gerundet. Im Gegensatz dazu ist 2<sup>53</sup> _kein_ sicherer Integer: Er kann zwar genau in IEEE-754 dargestellt werden, aber der Integer 2<sup>53</sup> + 1 kann nicht direkt in IEEE-754 dargestellt werden, sondern wird unter Rundung auf Nächsten und Rundung auf Null auf 2<sup>53</sup> gerundet.
+Zum Beispiel ist 2<sup>53</sup> - 1 ein sicherer Integer: Er kann exakt dargestellt werden, und keine andere Ganzzahl wird auf ihn gemäß irgendeinem IEEE-754-Rundungsmodus gerundet. Im Gegensatz dazu ist 2<sup>53</sup> _kein_ sicherer Integer: Er kann exakt in IEEE-754 dargestellt werden, aber die Ganzzahl 2<sup>53</sup> + 1 kann nicht direkt in IEEE-754 dargestellt werden, sondern wird stattdessen im Rundungsmodus "auf nächste Zahl runden" oder "auf null runden" auf 2<sup>53</sup> gerundet.
 
-Das Handhaben von Werten, die größer oder kleiner als etwa 9 Billiarden sind, mit voller Präzision erfordert die Verwendung einer [beliebigen Präzisionsarithmetik-Bibliothek](https://de.wikipedia.org/wiki/Arithmetik_mit_beliebiger_Präzision). Siehe [Was jeder Programmierer über Gleitkomma-Arithmetik wissen sollte](https://floating-point-gui.de/) für weitere Informationen über die Gleitkomma-Darstellung von Zahlen.
+Um Werte jenseits von \~9 Billiarden mit voller Präzision zu bearbeiten, wird die Verwendung einer [Arbitrary Precision Arithmetic Library](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic) benötigt. Lesen Sie [What Every Programmer Needs to Know about Floating Point Arithmetic](https://floating-point-gui.de/) für weitere Informationen über die Darstellung von Gleitkommazahlen.
 
-Für größere Integer ziehen Sie in Betracht, den {{jsxref("BigInt")}}-Typ zu verwenden.
+Für größere Ganzzahlen sollten Sie den Typ {{jsxref("BigInt")}} in Betracht ziehen.
 
 ## Beispiele
 

@@ -2,26 +2,43 @@
 title: Symbol.split
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/split
 l10n:
-  sourceCommit: e2dd7ae35f27c814d6017b79dac87e23c7996837
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Symbol.split`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.split`. Die Methode {{jsxref("String.prototype.split()")}} sucht in ihrem ersten Argument nach diesem Symbol für die Methode, die einen String an den Indizes aufteilt, die mit dem aktuellen Objekt übereinstimmen.
+Die **`Symbol.split`** statische Dateneigenschaft repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.split`. Die Methode {{jsxref("String.prototype.split()")}} sucht dieses Symbol im ersten Argument, um die Methode zu finden, die einen String an den Indizes aufteilt, die mit dem aktuellen Objekt übereinstimmen.
 
-Für weitere Informationen siehe [`RegExp.prototype[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) und {{jsxref("String.prototype.split()")}}.
+Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) und {{jsxref("String.prototype.split()")}}.
 
-{{EmbedInteractiveExample("pages/js/symbol-split.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Symbol.split", "taller")}}
+
+```js interactive-example
+class Split1 {
+  constructor(value) {
+    this.value = value;
+  }
+  [Symbol.split](string) {
+    const index = string.indexOf(this.value);
+    return `${this.value}${string.substring(0, index)}/${string.substring(
+      index + this.value.length,
+    )}`;
+  }
+}
+
+console.log("foobar".split(new Split1("foo")));
+// Expected output: "foo/bar"
+```
 
 ## Wert
 
-Das wohlbekannte Symbol `Symbol.split`.
+Das bekannte Symbol `Symbol.split`.
 
 {{js_property_attributes(0, 0, 0)}}
 
 ## Beispiele
 
-### Benutzerdefiniertes umgekehrtes Split
+### Benutzerdefiniertes reverses Split
 
 ```js
 class ReverseSplit {

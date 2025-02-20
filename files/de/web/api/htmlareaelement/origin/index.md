@@ -3,18 +3,22 @@ title: "HTMLAreaElement: origin-Eigenschaft"
 short-title: origin
 slug: Web/API/HTMLAreaElement/origin
 l10n:
-  sourceCommit: 59a92ab5609f0a021602f11843f3b00b16e67e6d
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLAreaElement.origin`** ist ein String, der die Unicode-Serialisierung des Ursprungs der dargestellten URL enthält.
+Die schreibgeschützte **`origin`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle gibt einen String zurück, der die Unicode-Serialisierung des Ursprungs (`origin`) des `href`-Attributes des `<area>`-Elements enthält.
 
-Das bedeutet:
+Die genaue Struktur variiert je nach URL-Typ:
 
-- Für URLs, die `http` oder `https` verwenden, das Schema gefolgt von `'://'`, gefolgt von der Domain, gefolgt von `':'`, gefolgt von dem Port (der Standardport, `80` und `443` jeweils, wenn explizit angegeben);
-- Für URLs, die das `file:`-Schema verwenden, ist der Wert abhängig vom Browser;
-- Für URLs, die das `blob:`-Schema verwenden, ist der Ursprung der URL, die auf `blob:` folgt. Z.B. wird `"blob:https://mozilla.org"` `"https://mozilla.org"` als Ursprung haben.
+- Für URLs mit den Schemata `ftp:`, `http:`, `https:`, `ws:` und `wss:` wird das [`protocol`](/de/docs/Web/API/HTMLAnchorElement/protocol) gefolgt von `//` und anschließend dem [`host`](/de/docs/Web/API/HTMLAnchorElement/host) zurückgegeben. Ähnlich wie bei `host` wird der [`port`](/de/docs/Web/API/HTMLAnchorElement/port) nur einbezogen, wenn er nicht der Standardwert für das Protokoll ist.
+- Für URLs mit dem Schema `file:` ist der Wert abhängig vom Browser.
+- Für URLs mit dem Schema `blob:` wird der Ursprung der URL nach `blob:` verwendet, jedoch nur, wenn diese URL `http:`, `https:` oder `file:` als Schema verwendet. Zum Beispiel wird `blob:https://mozilla.org` den Ursprung `https://mozilla.org` haben.
+
+In allen anderen Fällen wird der String `"null"` zurückgegeben.
+
+Weitere Informationen finden Sie unter [`URL.origin`](/de/docs/Web/API/URL/origin).
 
 ## Wert
 
@@ -38,4 +42,4 @@ area.origin; // returns 'https://developer.mozilla.org'
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.
+- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der diese Eigenschaft gehört.

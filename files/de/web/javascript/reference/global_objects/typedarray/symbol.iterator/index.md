@@ -2,16 +2,29 @@
 title: TypedArray.prototype[Symbol.iterator]()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/Symbol.iterator
 l10n:
-  sourceCommit: 6fbdb78c1362fae31fbd545f4b2d9c51987a6bca
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`[Symbol.iterator]()`** Methode von {{jsxref("TypedArray")}} Instanzen implementiert das [Iterable-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es, dass typisierte Arrays von den meisten Syntaxen, die Iterables erwarten, wie der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen, konsumiert werden. Sie gibt ein [Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das den Wert jedes Indexes im typisierten Array liefert.
+Die Methode **`[Symbol.iterator]()`** von {{jsxref("TypedArray")}}-Instanzen implementiert das [Iterable-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es, dass typisierte Arrays von den meisten Syntaxen konsumiert werden können, die Iterable erwarten, wie z. B. der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}}-Schleifen. Sie gibt ein [Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das den Wert jedes Indexes im typisierten Array liefert.
 
-Der anfängliche Wert dieser Eigenschaft ist dasselbe Funktionsobjekt wie der anfängliche Wert der {{jsxref("TypedArray.prototype.values")}} Eigenschaft.
+Der Anfangswert dieser Eigenschaft ist derselbe Funktionsobjekt wie der Anfangswert der Eigenschaft {{jsxref("TypedArray.prototype.values")}}.
 
-{{EmbedInteractiveExample("pages/js/typedarray-prototype-@@iterator.html")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype[Symbol.iterator]()")}}
+
+```js interactive-example
+const uint8 = new Uint8Array([10, 20, 30]);
+const iterator1 = uint8[Symbol.iterator]();
+
+for (const value of iterator1) {
+  console.log(value);
+}
+
+// Expected output: 10
+// Expected output: 20
+// Expected output: 30
+```
 
 ## Syntax
 
@@ -25,13 +38,13 @@ Keine.
 
 ### Rückgabewert
 
-Der gleiche Rückgabewert wie {{jsxref("TypedArray.prototype.values()")}}: ein neues [Iterable-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das den Wert jedes Indexes im typisierten Array liefert.
+Der Rückgabewert ist derselbe wie der von {{jsxref("TypedArray.prototype.values()")}}: ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das den Wert jedes Indexes im typisierten Array liefert.
 
 ## Beispiele
 
-### Iteration mit der for...of Schleife
+### Iteration mit der for...of-Schleife
 
-Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Das Vorhandensein der `[Symbol.iterator]()` Methode macht typisierte Arrays [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und iterierende Syntaxen wie die `for...of` Schleife rufen diese Methode automatisch auf, um den Iterator zum Durchlaufen zu erhalten.
+Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der Methode `[Symbol.iterator]()` macht typisierte Arrays [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und Iterations-Syntaxen wie die `for...of`-Schleife rufen diese Methode automatisch auf, um den Iterator zum Durchlaufen zu erhalten.
 
 ```js
 const arr = new Uint8Array([10, 20, 30, 40, 50]);
@@ -40,9 +53,9 @@ for (const n of arr) {
 }
 ```
 
-### Manuelles Erstellen des Iterators
+### Manuelles Arbeiten mit dem Iterator
 
-Sie können dennoch manuell die `next()` Methode des zurückgegebenen Iterator-Objekts aufrufen, um maximale Kontrolle über den Iterationsprozess zu erreichen.
+Sie können die `next()`-Methode des zurückgegebenen Iterator-Objekts weiterhin manuell aufrufen, um maximale Kontrolle über den Iterationsprozess zu erhalten.
 
 ```js
 const arr = new Uint8Array([10, 20, 30, 40, 50]);
@@ -65,10 +78,10 @@ console.log(arrIter.next().value); // 50
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype[Symbol.iterator]` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.entries()")}}
 - {{jsxref("TypedArray.prototype.keys()")}}
 - {{jsxref("TypedArray.prototype.values()")}}
 - {{jsxref("Symbol.iterator")}}
-- [Iterative Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iteration-Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)

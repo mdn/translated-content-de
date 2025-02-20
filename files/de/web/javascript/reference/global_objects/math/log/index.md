@@ -2,12 +2,12 @@
 title: Math.log()
 slug: Web/JavaScript/Reference/Global_Objects/Math/log
 l10n:
-  sourceCommit: 761b9047d78876cbd153be811efb1aa77b419877
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.log()`** gibt den natürlichen Logarithmus (zur Basis [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E)) einer Zahl zurück. Das bedeutet
+Die **`Math.log()`** statische Methode gibt den natürlichen Logarithmus (Basis [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E)) einer Zahl zurück. Das bedeutet
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -15,7 +15,21 @@ Die statische Methode **`Math.log()`** gibt den natürlichen Logarithmus (zur Ba
 </math>
 <!-- prettier-ignore-end -->
 
-{{EmbedInteractiveExample("pages/js/math-log.html")}}
+{{InteractiveExample("JavaScript Demo: Math.log()")}}
+
+```js interactive-example
+function getBaseLog(x, y) {
+  return Math.log(y) / Math.log(x);
+}
+
+// 2 x 2 x 2 = 8
+console.log(getBaseLog(2, 8));
+// Expected output: 3
+
+// 5 x 5 x 5 x 5 = 625
+console.log(getBaseLog(5, 625));
+// Expected output: 4
+```
 
 ## Syntax
 
@@ -30,15 +44,15 @@ Math.log(x)
 
 ### Rückgabewert
 
-Der natürliche Logarithmus (zur Basis [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E)) von `x`. Ist `x` ±0, wird [`-Infinity`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY) zurückgegeben. Ist `x < 0`, wird {{jsxref("NaN")}} zurückgegeben.
+Der natürliche Logarithmus (Basis [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E)) von `x`. Wenn `x` ±0 ist, wird [`-Infinity`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY) zurückgegeben. Wenn `x < 0` ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `log()` eine statische Methode von `Math` ist, wird sie immer als `Math.log()` verwendet, anstatt als Methode eines selbst erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `log()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.log()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
-Wenn Sie den natürlichen Logarithmus von 2 oder 10 benötigen, verwenden Sie die Konstanten {{jsxref("Math.LN2")}} oder {{jsxref("Math.LN10")}}. Wenn Sie einen Logarithmus zur Basis 2 oder 10 benötigen, verwenden Sie {{jsxref("Math.log2()")}} oder {{jsxref("Math.log10()")}}. Bei Bedarf eines Logarithmus zu anderen Basen, verwenden Sie `Math.log(x) / Math.log(otherBase)` wie im untenstehenden Beispiel; Sie könnten `1 / Math.log(otherBase)` vorab berechnen, da die Multiplikation in `Math.log(x) * constant` erheblich schneller ist.
+Falls Sie den natürlichen Logarithmus von 2 oder 10 benötigen, verwenden Sie die Konstanten {{jsxref("Math.LN2")}} oder {{jsxref("Math.LN10")}}. Falls Sie einen Logarithmus zur Basis 2 oder 10 benötigen, verwenden Sie {{jsxref("Math.log2()")}} oder {{jsxref("Math.log10()")}}. Falls Sie einen Logarithmus zu anderen Basen benötigen, verwenden Sie `Math.log(x) / Math.log(otherBase)` wie im folgenden Beispiel; es könnte sinnvoll sein, `1 / Math.log(otherBase)` vorab zu berechnen, da die Multiplikation in `Math.log(x) * constant` wesentlich schneller ist.
 
-Beachten Sie, dass positive Zahlen, die sehr nahe bei 1 liegen, unter Präzisionsverlust leiden können, was ihren natürlichen Logarithmus weniger genau macht. In diesem Fall sollten Sie stattdessen {{jsxref("Math.log1p")}} verwenden.
+Beachten Sie, dass positive Zahlen, die sehr nahe bei 1 liegen, an Genauigkeit verlieren können, was den natürlichen Logarithmus weniger präzise macht. In diesem Fall könnten Sie stattdessen {{jsxref("Math.log1p")}} verwenden.
 
 ## Beispiele
 
@@ -63,7 +77,7 @@ function getBaseLog(x, y) {
 }
 ```
 
-Wenn Sie `getBaseLog(10, 1000)` ausführen, wird `2.9999999999999996` aufgrund von Rundungsfehlern bei Gleitkommazahlen zurückgegeben, allerdings dennoch sehr nah am tatsächlichen Wert 3.
+Wenn Sie `getBaseLog(10, 1000)` ausführen, wird `2.9999999999999996` zurückgegeben, was aufgrund von Rundungsfehlern im Gleitkommaformat geschieht, aber immer noch sehr nahe am tatsächlichen Ergebnis von 3 liegt.
 
 ## Spezifikationen
 

@@ -3,22 +3,22 @@ title: "SVGRect: width-Eigenschaft"
 short-title: width
 slug: Web/API/SVGRect/width
 l10n:
-  sourceCommit: 3ae7f380c04096191376ffc2b455471e5d5fd8a8
+  sourceCommit: a7444882eb1b18918f3c924d83eb3c78f245643a
 ---
 
 {{APIRef("SVG")}}
 
-Die **`width`**-Eigenschaft des [`SVGRect`](/de/docs/Web/API/SVGRect)-Interfaces ist ein Alias für die [`DOMRect.width`](/de/docs/Web/API/DOMRect/width)-Eigenschaft. Sie beschreibt die horizontale Größe des Elements. Sie spiegelt das {{SVGattr("width")}}-Attribut des SVG-Elements und die CSS-{{cssxref("width")}}-Eigenschaft wider.
+Die **`width`**-Eigenschaft der [`SVGRect`](/de/docs/Web/API/SVGRect)-Schnittstelle ist ein Alias für die [`DOMRect.width`](/de/docs/Web/API/DOMRect/width)-Eigenschaft. Sie beschreibt die horizontale Größe des Elements. Sie spiegelt das {{SVGattr("width")}}-Attribut des SVG-Elements und die CSS-{{cssxref("width")}}-Eigenschaft wider.
 
-Die Breite ist eine Länge; es ist die Entfernung von der linken Seite des Elements zur rechten Seite des Elements im Benutzerskoordinatensystem. Ihre Syntax ist dieselbe wie die für [`<length>`](/de/docs/Web/SVG/Content_type#length).
+Die Breite ist eine Länge; sie ist der Abstand von der linken Seite des Elements bis zur rechten Seite des Elements im Benutzerkoordinatensystem. Ihre Syntax entspricht der von [`<length>`](/de/docs/Web/SVG/Content_type#length).
 
-## Verwendungskontext
+## Nutzungskontext
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Breite</th>
+      <th>width</th>
     </tr>
   </thead>
   <tbody>
@@ -38,7 +38,7 @@ Die Breite ist eine Länge; es ist die Entfernung von der linken Seite des Eleme
       <td>0</td>
     </tr>
     <tr>
-      <td>Gilt für</td>
+      <td>Anwendbar auf</td>
       <td>
         {{ SVGElement("mask") }},
         {{ SVGElement("svg") }},
@@ -52,7 +52,7 @@ Die Breite ist eine Länge; es ist die Entfernung von der linken Seite des Eleme
       <td>nein</td>
     </tr>
     <tr>
-      <td>Prozentsätze</td>
+      <td>Prozentangaben</td>
       <td>
         beziehen sich auf die Größe des SVG-Viewports
       </td>

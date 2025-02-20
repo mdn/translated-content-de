@@ -3,20 +3,32 @@ title: "RTCOutboundRtpStreamStats: qualityLimitationReason-Eigenschaft"
 short-title: qualityLimitationReason
 slug: Web/API/RTCOutboundRtpStreamStats/qualityLimitationReason
 l10n:
-  sourceCommit: 4627deeb339b4d86fadc01199014f0c5385fb851
+  sourceCommit: ae2ce98063b729ec0a21687642c0a4d06b8e7f69
 ---
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`qualityLimitationReason`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist ein String, der den Grund angibt, warum die Medienqualität im Stream derzeit vom Codec während der Kodierung reduziert wird, oder `none`, wenn keine Qualitätsreduktion erfolgt.
+Die **`qualityLimitationReason`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist ein String, der den Grund angibt, warum die Medienqualität im Stream derzeit durch den Codec während der Kodierung reduziert wird, oder `none`, wenn keine Qualitätsreduzierung durchgeführt wird.
 
-Diese Qualitätsreduktion kann Änderungen wie eine verringerte Bildrate oder Auflösung oder eine erhöhte Kompressionsrate beinhalten.
+Diese Qualitätsreduzierung kann Änderungen wie reduzierte Bildrate oder Auflösung oder eine Erhöhung des Kompressionsfaktors umfassen. Beachten Sie, dass der User-Agent den stärksten einschränkenden Faktor meldet. Wenn der stärkste einschränkende Faktor nicht bestimmt werden kann, wird das Ergebnis in der folgenden Prioritätsreihenfolge gemeldet: "bandwidth", "cpu", "other".
 
-Die Zeit, in der das kodierte Medium auf jede der möglichen Arten in seiner Qualität reduziert wurde, kann in [`qualityLimitationDurations`](/de/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationDurations) gefunden werden.
+Die Zeitspanne, in der die kodierten Medien in jeder der möglichen Arten in ihrer Qualität reduziert wurden, finden Sie in [`qualityLimitationDurations`](/de/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationDurations).
+
+> [!NOTE]
+> Die Eigenschaft ist für Audio-Streams nicht definiert.
 
 ## Wert
 
-Eine {{jsxref("Map")}}, deren Schlüssel Strings sind, deren Werte `none`, `cpu`, `bandwidth` oder `other` sind, und deren Werte die Dauer des Mediums in Sekunden angeben, dessen Qualität aus diesem Grund reduziert wurde.
+Ein String mit einem der folgenden Werte:
+
+- `none`
+  - : Die Qualität ist nicht begrenzt.
+- `cpu`
+  - : Die Qualität ist hauptsächlich aufgrund der CPU-Auslastung begrenzt.
+- `bandwidth`
+  - : Die Qualität ist hauptsächlich aufgrund von Stausignalen während der Bandbreitenschätzung begrenzt, wie z. B. Inter-Arrival-Zeit und Round-Trip-Zeit.
+- `other`
+  - : Die Qualität ist hauptsächlich aus einem anderen als den oben genannten Gründen begrenzt.
 
 ## Beispiele
 

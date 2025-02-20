@@ -2,35 +2,35 @@
 title: Surfen im Web
 slug: Learn_web_development/Getting_started/Environment_setup/Browsing_the_web
 l10n:
-  sourceCommit: 523d14433912228edd781fd7994aa0efae062b0b
+  sourceCommit: a7444882eb1b18918f3c924d83eb3c78f245643a
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Environment_setup/Installing_software", "Learn_web_development/Getting_started/Environment_setup/Code_editors", "Learn_web_development/Getting_started/Environment_setup")}}
 
-An diesem Punkt im Modul sollten Sie mehrere moderne Webbrowser auf Ihrem Computer oder anderen verfügbaren Geräten installiert haben. Dieser Artikel vertieft das Thema der Nutzung von Browsern, betrachtet, wie ein Webbrowser funktioniert, den Unterschied zwischen einigen alltäglichen Dingen, mit denen Sie interagieren werden, und wie Sie nach Informationen suchen.
+Zu diesem Zeitpunkt im Modul sollten Sie mehrere moderne Webbrowser auf Ihrem Computer oder anderen verfügbaren Geräten installiert haben. Dieser Artikel vertieft den Umgang mit Browsern, erklärt, wie ein Webbrowser funktioniert, unterscheidet zwischen einigen Begriffen, die Sie regelmäßig verwenden werden, und zeigt, wie Sie nach Informationen suchen.
 
 > [!NOTE]
-> Falls Sie außer den standardmäßig mit Ihren Geräten gelieferten Browsern keine weiteren installiert haben, installieren Sie einige andere. Weitere Informationen finden Sie unter [Moderne Webbrowser](/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software#modern_web_browsers).
+> Wenn Sie über keinen Browser jenseits der Standardbrowser, die mit Ihren Geräten geliefert wurden, verfügen, installieren Sie weitere. Siehe [Moderne Webbrowser](/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software#modern_web_browsers) für weitere Informationen.
 
-Wie in jedem Wissensbereich bringt das Web eine Menge Fachjargon und technische Terminologie mit sich. Keine Sorge: Wir werden Sie nicht sofort mit allem überfordern (wenn Sie neugierig sind, können Sie das [Glossar](/de/docs/Glossary) nachschlagen). Es gibt jedoch einige grundlegende Begriffe, die Sie von Anfang an verstehen müssen, da Sie diese Ausdrücke ständig hören werden. Wir führen einige wichtige Begriffe unten ein.
+Wie in jedem Wissensgebiet gibt es im Web viel Fachjargon und technische Terminologie. Keine Sorge: Wir werden Sie nicht gleich zu Beginn mit allem überfordern (Sie können das [Glossar](/de/docs/Glossary) konsultieren, wenn Sie neugierig sind). Es gibt jedoch einige grundlegende Begriffe, die Sie von Anfang an verstehen müssen, da Sie diese Ausdrücke ständig hören werden. Wir stellen einige wichtige Begriffe unten vor.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse über Ihr Computer-Betriebssystem.
+        Grundkenntnisse im Umgang mit Ihrem Computer-Betriebssystem.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Der Unterschied zwischen einem Webbrowser, einer Website und einer Suchmaschine.</li>
-          <li>Wie ein Webbrowser auf grundlegender Ebene funktioniert.</li>
-          <li>Informationen suchen.</li>
+          <li>Den Unterschied zwischen einem Webbrowser, einer Website und einer Suchmaschine kennen.</li>
+          <li>Grundlegendes Verständnis, wie ein Webbrowser funktioniert.</li>
+          <li>Suchstrategien für Informationen beherrschen.</li>
         </ul>
       </td>
     </tr>
@@ -39,44 +39,44 @@ Wie in jedem Wissensbereich bringt das Web eine Menge Fachjargon und technische 
 
 ## Der Unterschied zwischen Webseite, Website, Webserver und Suchmaschine
 
-Wir beginnen mit der Beschreibung verschiedener webbezogener Konzepte: Webseiten, Websites, Webserver und Suchmaschinen. Diese Begriffe werden oft von Neulingen im Web verwechselt oder falsch verwendet. Lassen Sie uns sicherstellen, dass Sie wissen, was sie jeweils bedeuten! Beginnen wir mit einigen Definitionen:
+Wir beginnen mit der Beschreibung verschiedener webbezogener Begriffe: Webseiten, Websites, Webserver und Suchmaschinen. Diese Begriffe werden von Web-Neulingen häufig verwechselt oder falsch verwendet. Lassen Sie uns sicherstellen, dass Sie verstehen, was sie bedeuten. Beginnen wir mit einigen Definitionen:
 
 - **Webseite**
-  - : Ein Dokument, das in einem Web-{{Glossary("browser", "Browser")}} angezeigt werden kann. Diese werden oft einfach als "Seiten" bezeichnet. Solche Dokumente werden in der {{Glossary("HTML", "HTML")}}-Sprache geschrieben (die wir später im Detail betrachten).
+  - : Ein Dokument, das in einem Web-{{Glossary("browser", "Browser")}} angezeigt werden kann. Diese werden oft einfach als „Seiten“ bezeichnet. Solche Dokumente werden in der {{Glossary("HTML", "HTML")}}-Sprache geschrieben (die wir später noch genauer betrachten).
 - **Website**
-  - : Eine Sammlung von Webseiten, die zu einer einzigen Ressource gruppiert sind und durch Links miteinander verbunden sind. Oft als "Seite" bezeichnet.
+  - : Eine Sammlung von Webseiten, die zu einer einzigen Ressource gruppiert sind und durch Links miteinander verbunden sind. Oft als „Seite“ bezeichnet.
 - **Webserver**
   - : Ein Computer, der eine Website im Internet hostet.
 - **Suchmaschine**
-  - : Ein Webdienst, der Ihnen hilft, andere Webseiten zu finden, wie Google, Bing, Yahoo oder DuckDuckGo. Suchmaschinen werden normalerweise über einen Webbrowser aufgerufen (zum Beispiel können Sie in der Adressleiste von Firefox, Chrome usw. direkt Suchanfragen ausführen) oder über eine Webseite (zum Beispiel [bing.com](https://www.bing.com/) oder [duckduckgo.com](https://duckduckgo.com/)).
+  - : Ein Webdienst, der Ihnen hilft, andere Webseiten zu finden, wie z. B. Google, Bing, Yahoo oder DuckDuckGo. Suchmaschinen werden normalerweise über einen Webbrowser aufgerufen (z. B. können Sie Suchanfragen direkt in der Adressleiste von Firefox, Chrome usw. ausführen) oder über eine Webseite (z. B. [bing.com](https://www.bing.com/) oder [duckduckgo.com](https://duckduckgo.com/)).
 
-Sehen wir uns einen Vergleich an – eine öffentliche Bibliothek. Das ist das allgemeine Vorgehen beim Besuch einer Bibliothek:
+Betrachten wir hierzu eine Analogie – eine öffentliche Bibliothek. In einer Bibliothek würden Sie generell Folgendes tun:
 
-1. Finden Sie einen Suchindex und suchen Sie nach dem Titel des Buches, das Sie wollen.
-2. Notieren Sie sich die Katalognummer des Buches.
-3. Gehen Sie zum betreffenden Abschnitt, der das Buch enthält, finden Sie die richtige Katalognummer und holen Sie das Buch.
+1. Ein Suchverzeichnis finden und nach dem Titel des gewünschten Buches suchen.
+2. Die Katalognummer des Buches notieren.
+3. Den entsprechenden Abschnitt der Bibliothek aufsuchen, die richtige Katalognummer finden und das Buch entnehmen.
 
-Vergleichen wir eine öffentliche Bibliothek mit dem Web:
+Vergleichen wir nun eine öffentliche Bibliothek mit dem Web:
 
-- Die Bibliothek ist wie ein Webserver. Sie hat mehrere Abteilungen, ähnlich wie ein Webserver mehrere Websites hostet.
-- Die verschiedenen Abteilungen (Wissenschaft, Mathematik, Geschichte usw.) in der Bibliothek sind wie Websites. Jede Abteilung ist wie eine einzigartige Website (zwei Abteilungen enthalten nicht die gleichen Bücher).
-- Die Bücher in jeder Abteilung sind wie Webseiten. Eine Website kann mehrere Webseiten haben, zum Beispiel die Wissenschaftsabteilung (die Website) hat Bücher über Wärme, Schall, Thermodynamik, Statik usw.
-- Der Suchindex ist wie die Suchmaschine. Jedes Buch hat seinen eigenen einzigartigen Standort in der Bibliothek (zwei Bücher können nicht am selben Ort aufbewahrt werden), der durch die Katalognummer angegeben wird.
+- Die Bibliothek entspricht einem Webserver. Sie hat mehrere Abschnitte, was einem Webserver ähnelt, der mehrere Websites hostet.
+- Die verschiedenen Abschnitte (Wissenschaft, Mathematik, Geschichte usw.) in der Bibliothek entsprechen Websites. Jeder Abschnitt ist wie eine einzigartige Website (zwei Abschnitte enthalten nicht dieselben Bücher).
+- Die Bücher in jedem Abschnitt entsprechen Webseiten. Eine Website kann mehrere Webseiten haben, z. B. enthält der Wissenschaftsabschnitt (die Website) Bücher zu Wärme, Schall, Thermodynamik, Statik usw.
+- Das Suchverzeichnis entspricht der Suchmaschine. Jedes Buch hat einen einzigartigen Standort in der Bibliothek (zwei Bücher können nicht am selben Ort stehen), der durch die Katalognummer angegeben wird.
 
-Nehmen wir uns jetzt die Zeit, um jeden Begriff etwas genauer zu betrachten.
+Sehen wir uns nun jeden Begriff etwas genauer an.
 
 ### Webseite
 
-Eine **Webseite** ist ein einfaches Dokument, das von einem Browser dargestellt werden kann. Eine Webseite kann eine Vielzahl unterschiedlicher Ressourcentypen einbetten, wie z.B.:
+Eine **Webseite** ist ein einfaches Dokument, das von einem Browser angezeigt werden kann. Eine Webseite kann verschiedene Arten von Ressourcen einbetten, wie z. B.:
 
-- _Stilinformationen_ — Steuerung des Aussehens einer Seite.
-- _Skripte_ — welche der Seite Interaktivität verleihen.
-- _Medien_ — Bilder, Geräusche und Videos.
+- _Stilinformationen_ – zur Steuerung des Erscheinungsbildes einer Seite.
+- _Skripte_ – die der Seite Interaktivität hinzufügen.
+- _Medien_ – Bilder, Töne und Videos.
 
 > [!NOTE]
 > Browser können auch andere Dokumente wie {{Glossary("PDF", "PDF")}}-Dateien und andere Ressourcen wie Bilder oder Videos anzeigen, aber der Begriff **Webseite** bezieht sich speziell auf HTML-Dokumente.
 
-Alle Webseiten können an einem einzigartigen Ort gefunden werden (Webadresse, auch als {{Glossary("URL", "URL")}} bezeichnet). Um auf eine Seite zuzugreifen, geben Sie einfach die Adresse in die Adressleiste Ihres Browsers ein:
+Jede Webseite kann unter einer eindeutigen Adresse (Webadresse, auch als {{Glossary("URL", "URL")}} bezeichnet) gefunden werden. Um auf eine Seite zuzugreifen, geben Sie einfach ihre Adresse in die Adressleiste Ihres Browsers ein:
 
 ![Beispiel einer Webseitenadresse in der Browser-Adressleiste](web-page.jpg)
 
@@ -84,13 +84,13 @@ Alle Webseiten können an einem einzigartigen Ort gefunden werden (Webadresse, a
 >
 > **Probieren Sie es aus**
 >
-> Versuchen Sie, eine Ihrer Lieblingswebsites jetzt in einem Browser zu laden.
+> Laden Sie eine Ihrer Lieblingswebsites jetzt in einem Browser.
 
 ### Website
 
-Eine _Website_ ist eine Sammlung von verknüpften Webseiten (plus ihrer zugehörigen Ressourcen), die einen einzigartigen [Domainnamen](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name) teilen. Jede Webseite einer bestimmten Website bietet explizite Links – meistens in Form von anklickbaren Textteilen – die es dem Benutzer ermöglichen, von einer Seite der Website zu einer anderen zu wechseln.
+Eine _Website_ ist eine Sammlung von miteinander verknüpften Webseiten (zusätzlich zu den zugehörigen Ressourcen), die einen eindeutigen [Domainnamen](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name) teilen. Jede Webseite einer bestimmten Website bietet explizite Links – meistens in der Form von anklickbaren Textabschnitten –, die es dem Nutzer ermöglichen, von einer Seite der Website zu einer anderen zu navigieren.
 
-Wenn Sie Ihre Lieblingswebsite in einem Browser laden, wird im Allgemeinen zuerst die Hauptwebseite der Website oder die _Startseite_ angezeigt (umgangssprachlich als "Home" bezeichnet):
+Wenn Sie Ihre Lieblingswebsite in einem Browser laden, wird in der Regel zunächst die Hauptwebseite der Website oder die _Homepage_ angezeigt (im Alltag oft „Home“ genannt):
 
 ![Beispiel eines Website-Domainnamens in der Browser-Adressleiste](web-site.jpg)
 
@@ -98,30 +98,30 @@ Wenn Sie Ihre Lieblingswebsite in einem Browser laden, wird im Allgemeinen zuers
 >
 > **Probieren Sie es aus**
 >
-> Versuchen Sie, einige Menüpunkte oder Links anzuklicken, um verschiedene Seiten auf Ihrer Lieblingswebsite anzusehen.
+> Klicken Sie auf einige Menüeinträge oder Links, um verschiedene Seiten Ihrer Lieblingswebsite anzusehen.
 
 > [!NOTE]
-> Es ist auch möglich, eine {{Glossary("SPA", "_Single-Page-App_")}} zu haben: eine Website, die aus einer einzigen Webseite besteht und bei Bedarf dynamisch mit neuen Inhalten aktualisiert wird.
+> Es ist auch möglich, eine {{Glossary("SPA", "_Single-Page App_")}} zu haben: eine Website, die aus einer einzigen Webseite besteht, die bei Bedarf dynamisch mit neuen Inhalten aktualisiert wird.
 
 ### Webserver
 
-Ein _Webserver_ ist ein Computer, der eine oder mehrere _Websites_ hostet. "Hosting" bedeutet, dass alle _Webseiten_ und ihre zugehörigen Dateien auf diesem Computer verfügbar sind. Der _Webserver_ sendet die von ihm gehosteten Webseitendateien an den Browser eines Benutzers, wenn dieser versucht, sie zu laden.
+Ein _Webserver_ ist ein Computer, der eine oder mehrere _Websites_ hostet. „Hosten“ bedeutet, dass alle _Webseiten_ und ihre zugehörigen Dateien auf diesem Computer verfügbar sind. Der _Webserver_ sendet die Dateien der von ihm gehosteten Webseiten an den Browser eines Nutzers, wenn dieser versucht, sie zu laden.
 
-Verwechseln Sie nicht _Websites_ und _Webserver_. Wenn Sie jemanden sagen hören, "Meine Website reagiert nicht", bedeutet das tatsächlich, dass der _Webserver_ nicht reagiert und daher die _Website_ nicht verfügbar ist. Wichtiger noch, da ein Webserver mehrere Websites hosten kann, wird der Begriff _Webserver_ nie verwendet, um eine Website zu bezeichnen, da dies zu großer Verwirrung führen könnte. In unserem vorherigen Beispiel, wenn wir sagten, "Mein Webserver reagiert nicht", bedeutet das, dass mehrere Websites auf diesem Webserver nicht verfügbar sind.
+Verwechseln Sie nicht _Websites_ und _Webserver_. Wenn Sie zum Beispiel jemanden sagen hören: „Meine Website reagiert nicht“, bedeutet das eigentlich, dass der _Webserver_ nicht reagiert und daher die _Website_ nicht verfügbar ist. Noch wichtiger: Da ein Webserver mehrere Websites hosten kann, wird der Begriff _Webserver_ niemals verwendet, um eine Website zu bezeichnen, da dies zu großer Verwirrung führen könnte. In unserem vorherigen Beispiel würde die Aussage „Mein Webserver reagiert nicht“ bedeuten, dass mehrere Websites auf diesem Webserver nicht verfügbar sind.
 
 ### Suchmaschine
 
-Suchmaschinen sind eine häufige Quelle der Verwirrung im Web. Eine Suchmaschine ist eine spezielle Art von Website, die Benutzern hilft, Webseiten von _anderen_ Websites zu finden.
+Suchmaschinen sind eine häufige Quelle der Verwirrung im Web. Eine Suchmaschine ist eine spezielle Art von Website, die Nutzern hilft, Webseiten von _anderen_ Websites zu finden.
 
-Es gibt viele da draußen: [Google](https://www.google.com/), [Bing](https://www.bing.com/), [Yandex](https://yandex.com/), [DuckDuckGo](https://duckduckgo.com/), und viele mehr. Einige sind allgemein, einige sind spezialisiert auf bestimmte Themen.
+Es gibt viele: [Google](https://www.google.com/), [Bing](https://www.bing.com/), [Yandex](https://yandex.com/), [DuckDuckGo](https://duckduckgo.com/) und viele mehr. Einige sind generell, andere auf bestimmte Themen spezialisiert.
 
-Viele Anfänger im Web verwechseln Suchmaschinen und Browser. Lassen Sie es uns klarstellen: Ein _Browser_ ist ein Softwareprogramm, das Webseiten abruft und darstellt; eine _Suchmaschine_ ist eine Website, die Menschen hilft, Webseiten von anderen Websites zu finden. Die Verwirrung entsteht, weil beim ersten Start eines Browsers dieser oft die Homepage einer Suchmaschine oder ein Suchfeld anzeigt, das es ermöglicht, einen Suchbegriff mit dieser Suchmaschine zu durchsuchen. Die meisten Browser ermöglichen es ihren Nutzern auch, eine Suchmaschine zu verwenden, indem sie Suchbegriffe direkt in die Browser-Adressleiste eingeben.
+Viele Anfänger im Web verwechseln Suchmaschinen mit Browsern. Lassen Sie uns das klarstellen: Ein _Browser_ ist ein Softwareprogramm, das Webseiten abruft und anzeigt; eine _Suchmaschine_ ist eine Website, die Nutzern hilft, Webseiten von anderen Websites zu finden. Die Verwirrung entsteht oft, weil Browser beim ersten Start häufig die Startseite einer Suchmaschine oder ein Suchfeld anzeigen, das es Nutzern ermöglicht, einen Suchbegriff direkt einzugeben. Die meisten Browser erlauben es ihren Nutzern auch, eine Suchmaschine zu verwenden, indem sie Suchbegriffe direkt in die Adressleiste eingeben.
 
-Dies alles macht Sinn, weil das erste, was die Leute in der Regel mit einem Browser tun wollen, darin besteht, eine Webseite zu finden, die angezeigt werden soll. Verwechseln Sie nicht die Software (den Browser) mit dem Dienst (die Suchmaschine).
+Das macht Sinn, da die erste Aktion, die viele Menschen mit einem Browser durchführen, oft das Auffinden einer anzuzeigenden Webseite ist. Verwechseln Sie aber nicht die Software (den Browser) mit dem Dienst (die Suchmaschine).
 
-Hier ist ein Beispiel von Firefox, das ein Google-Suchfeld als Standardstartseite anzeigt:
+Hier ist ein Beispiel eines Firefox-Browsers, der eine Google-Suchbox als Standard-Startseite zeigt:
 
-![Beispiel von Firefox nightly, das eine angepasste Google-Seite als Standard anzeigt](search-engine.jpg)
+![Beispiel von Firefox Nightly mit einer benutzerdefinierten Google-Seite als Standard](search-engine.jpg)
 
 > [!CALLOUT]
 >
@@ -129,90 +129,90 @@ Hier ist ein Beispiel von Firefox, das ein Google-Suchfeld als Standardstartseit
 >
 > Führen Sie eine Suche in einer Suchmaschine durch:
 >
-> - Gehen Sie zu einer Suchmaschinen-Homepage und geben Sie einen Suchbegriff ein.
-> - Geben Sie einen Suchbegriff in die Browser-Adressleiste ein.
+> - Besuchen Sie die Homepage einer Suchmaschine und geben Sie einen Suchbegriff ein.
+> - Geben Sie einen Suchbegriff in die Adressleiste Ihres Browsers ein.
 
 ## Wie das Web funktioniert: die Grundlagen
 
-In vielen Teilen der Welt ist das Web genauso ein unverzichtbares Werkzeug in unserem täglichen Leben geworden wie Besteck, Fahrräder und Autos oder Zahnbürsten. Wenn das unrealistisch für Sie klingt, denken Sie nur daran, wie oft Sie eine Website oder eine Mobiltelefon-App jeden Tag nutzen! Auch wenn Sie keine Webadresse in einen Webbrowser eingeben, um auf Inhalte oder Dienste zuzugreifen, ist die Wahrscheinlichkeit groß, dass die von Ihnen genutzte App wahrscheinlich Webtechnologie im Hintergrund verwendet, um Daten zu präsentieren.
+In vielen Teilen der Welt ist das Web ebenso ein unverzichtbares Werkzeug in unserem Alltag geworden wie Besteck, Fahrräder und Autos oder Zahnbürsten. Wenn das unrealistisch klingt, denken Sie einfach daran, wie oft Sie täglich eine Website oder eine mobile App nutzen! Selbst wenn Sie keine Webadresse in einen Browser eingeben, verwendet die von Ihnen genutzte App wahrscheinlich Webtechnologie, um Daten im Hintergrund abzurufen und anzuzeigen.
 
-Wenn Sie auf das Web zugreifen, passiert einiges zwischen Ihrer ersten Interaktion (zum Beispiel, wenn Sie eine Webadresse (URL) in einen Browser eingeben und <kbd>Enter</kbd>/<kbd>Return</kbd> drücken) und dem Ergebnis Ihrer Aktion (zum Beispiel, die Website erscheint in Ihrem Webbrowser):
+Wenn Sie auf das Web zugreifen, passiert eine Menge zwischen Ihrer ersten Interaktion (z. B. das Eingeben einer Webadresse (URL) in einen Browser und Drücken der Taste <kbd>Enter</kbd>/<kbd>Return</kbd>) und dem Ergebnis, das Ihnen angezeigt wird (z. B. die Anzeige der Website in Ihrem Webbrowser):
 
-1. Der Webbrowser fordert die Ressource (zum Beispiel eine Webseite, einige Daten oder ein Bild oder Video) an, die Sie auf dem Webserver, auf dem sie gespeichert ist, aufrufen möchten. Solche Anfragen (und die resultierenden Antworten) werden mit einer Technologie namens {{Glossary("HTTP", "HTTP")}} (Hypertext Transfer Protocol) durchgeführt, die eine Sprache der Verben (wie **GET**) verwendet, um zu beschreiben, was geschehen soll.
-2. Wenn die Anfrage erfolgreich ist, sendet der Webserver eine HTTP-Antwort zurück an den Webbrowser, die die angeforderte Ressource enthält.
-3. In einigen Fällen löst die angeforderte Ressource mehr HTTP-Anfragen aus, was zu weiteren Antworten führt. Zum Beispiel:
-   1. Wenn eine Website geladen wird, wird zunächst die Haupt-Index-HTML-Datei der Startseite der Website angefordert.
-   2. Wenn diese Datei vom Browser empfangen wird, beginnt dieser sie zu analysieren und findet wahrscheinlich Anweisungen, um weitere Anfragen zu stellen. Wie oben besprochen, könnten diese Anfragen für einzubettende Dateien wie Bilder, Stilinformationen, Skripte usw. sein.
-4. Wenn alle Ressourcen angefordert sind, analysiert und rendert der Webbrowser sie nach Bedarf, bevor er das Ergebnis dem Benutzer anzeigt.
+1. Der Webbrowser fordert die Ressource (z. B. eine Webseite, einige Daten oder ein Bild oder Video) an, auf die Sie zugreifen möchten, von dem Webserver an, auf dem sie gespeichert ist. Solche Anforderungen (und die daraus resultierenden Antworten) werden mit einer Technologie namens {{Glossary("HTTP", "HTTP")}} (Hypertext Transfer Protocol) durchgeführt, die eine Sprache von Verben (wie **GET**) verwendet, um zu beschreiben, was passieren soll.
+2. Wenn die Anfrage erfolgreich ist, sendet der Webserver eine HTTP-Antwort mit der angeforderten Ressource an den Webbrowser zurück.
+3. In einigen Fällen löst die angeforderte Ressource weitere HTTP-Anfragen aus, was zu weiteren Antworten führt. Zum Beispiel:
+   1. Beim Laden einer Website wird zunächst die Haupt-HTML-Datei der Startseite der Website angefordert.
+   2. Nach Erhalt dieser Datei beginnt der Browser, sie zu analysieren. Wahrscheinlich findet er darin Anweisungen für weitere Anforderungen, z. B. Dateien zum Einbetten wie Bilder, Stilinformationen, Skripte usw.
+4. Wenn alle Ressourcen angefordert wurden, analysiert und rendert der Webbrowser sie wie erforderlich, bevor er das Ergebnis dem Nutzer anzeigt.
 
-Diese Beschreibung, wie das Web funktioniert, ist stark vereinfacht, aber es ist alles, was Sie im Moment wirklich wissen müssen. Sie werden eine detailliertere Beschreibung finden, wie Webseiten angefordert und von einem Webbrowser gerendert werden, in unserem [Webstandards](/de/docs/Learn_web_development/Getting_started/Web_standards)-Modul, etwas später.
+Diese Beschreibung der Funktionsweise des Webs ist stark vereinfacht, aber für den Moment reicht dieses Wissen aus. Eine detailliertere Erklärung, wie Webseiten von einem Webbrowser angefordert und gerendert werden, finden Sie in unserem Modul [Webstandards](/de/docs/Learn_web_development/Getting_started/Web_standards), welches später behandelt wird.
 
-Fürs Erste versuchen Sie, einen Webbrowser zu öffnen und ein paar Ihrer Lieblingsseiten zu laden, und denken Sie dabei an die oben genannten Schritte.
+Für jetzt können Sie einen Webbrowser öffnen und einige Ihrer Lieblingsseiten laden. Denken Sie dabei an die oben genannten Schritte.
 
 ## Nach Informationen suchen
 
-Als Webentwickler werden Sie viel Zeit damit verbringen, nach Informationen zu suchen, von Syntax, die Sie sich nicht merken können, bis hin zu Lösungen für spezifische Probleme. Es ist daher eine gute Idee, zu lernen, wie man effektiv im Internet sucht.
+Als Webentwickler verbringen Sie viel Zeit mit der Suche nach Informationen, sei es, um eine Syntax zu finden, die Sie sich nicht merken können, oder um spezifische Probleme zu lösen. Es ist daher ratsam, zu lernen, wie das Web effektiv durchsucht werden kann.
 
-Wenn Sie nach allgemeinen Informationen zu einer bestimmten Webtechnologie-Funktion suchen, sollten Sie den Namen der Funktion in das MDN-Suchfeld eingeben. Beispielsweise versuchen Sie, `box model`, `fetch()` oder `video element` in das Suchfeld einzugeben und sehen Sie, was erscheint. Wenn Sie die benötigten Informationen nicht finden, versuchen Sie, Ihre Suche zu erweitern – versuchen Sie, Ihren Suchbegriff in einer Suchmaschine zu verwenden.
+Wenn Sie allgemeine Informationen zu einer spezifischen Webtechnologie suchen, sollten Sie den Namen der Funktion in das MDN-Suchfeld eingeben. Zum Beispiel: Geben Sie `box model`, `fetch()` oder `video element` ein und sehen Sie, welche Ergebnisse erscheinen. Wenn Sie die benötigten Informationen nicht finden, erweitern Sie Ihre Suche — versuchen Sie Ihre Suchbegriffe in einer Suchmaschine.
 
-Wenn Sie nach einer Lösung für ein spezielles Problem suchen, wie „wie man die Fibonacci-Folge mit JavaScript ausgibt“ oder „wie man berechnet, ob eine Zahl eine Primzahl mit JavaScript ist“, ist es eine gute Idee, eine Website wie [StackOverflow](https://stackoverflow.com) zu durchsuchen, die einer Gemeinschaft gewidmet ist, die Programmierprobleme beantwortet. Versuchen Sie erneut, eine allgemeine Suchmaschine zu verwenden, wenn eine bestimmte Seite Ihnen keine hilfreiche Antwort gibt.
-
-> [!CALLOUT]
->
-> **Probieren Sie es aus**
->
-> Versuchen Sie, einige der oben genannten Suchen durchzuführen:
->
-> - Beginnen Sie, indem Sie nach den genauen Begriffen suchen, die wir oben angegeben haben.
-> - Gehen Sie dann weiter zu eigenen Themen, die Sie lernen möchten. Versuchen Sie, spezifischere und weniger spezifische Suchanfragen zu verwenden und verschiedene verwandte Begriffe, um zu sehen, was am besten funktioniert.
-> - Sehen Sie sich unsere [Suchtipps](#suchtipps) für weitere Tipps an.
-
-### Verwendung von KI
-
-Durch KI generierte Suchergebnisse sind eine sehr beliebte Methode, um Informationen zu erhalten. Sie bieten im Grunde eine superschnelle Suche: Sie führen im Hintergrund viele Suchen durch, bevor sie die Ergebnisse in einer einzigen, leicht verdaulichen Antwort zusammenstellen. Beliebte Optionen sind [ChatGPT](https://chatgpt.com), [Google Gemini](https://gemini.google.com/app) und [Microsoft Copilot](https://copilot.microsoft.com), die entweder direkt im Chat-Format oder über KI-gestützte Hilfe oder Automatisierungssysteme in Apps aufgerufen werden.
-
-Beim Lernen zu programmieren können KI-Chatbefehle auf verschiedene Weise nützlich sein:
-
-- Durchführung konventioneller Suchen, wie in den obigen Beispielen.
-- Fehler in einem Codeblock feststellen. Wenn Sie frustriert sind, weil Ihr Code nicht funktioniert, können Sie Ihren Code in eine KI-Chat-Eingabeaufforderung einfügen, gefolgt von einer Frage wie „Wo ist der Fehler in diesem Code?“
-- Einen optimierten Codeblock generieren. Dies kann nützlich sein, wenn Sie einen Codeblock geschrieben haben, der funktioniert, aber herausfinden möchten, wie er effizienter gemacht werden könnte oder auf eine robustere Weise, die mehr Anwendungsfälle abdeckt.
-- Beratung zu erhalten, wie man etwas umsetzt. Zum Beispiel, wenn Sie nicht nur wissen wollen, wo der Fehler in einem Codeblock ist, sondern stattdessen Beratung zu der Strategie wünschen, die Sie zur Fehlerbehebung verwenden sollten.
+Wenn Sie eine Lösung für ein spezifisches Problem suchen, wie z. B. `how to print out the fibonacci sequence with JavaScript` oder `how to calculate whether a number is a prime number with JavaScript`, ist es sinnvoll, auf einer Website wie [StackOverflow](https://stackoverflow.com) zu suchen, einer Community, die sich der Beantwortung von Programmierproblemen widmet. Auch hier kann Ihnen eine allgemeine Suchmaschine helfen, wenn eine spezifische Seite keine hilfreiche Antwort liefert.
 
 > [!CALLOUT]
 >
 > **Probieren Sie es aus**
 >
-> Versuchen Sie, einige KI-Tools zu verwenden, um einige Suchen durchzuführen.
+> Testen Sie einige oben genannte Suchen:
+>
+> - Beginnen Sie mit der Suche nach den genau angegebenen Begriffen.
+> - Suchen Sie danach nach Themen, die Sie interessieren. Probieren Sie spezifischere und allgemeinere Suchanfragen aus, und nutzen Sie verschiedene verwandte Begriffe, um herauszufinden, was am besten funktioniert.
+> - Siehe unsere [Suchtipps](#suchtipps) für weitere Anregungen.
 
-### Eine warnende Geschichte
+### Nutzung von KI
 
-In Wahrheit können KI-Tools so viel leisten, dass Sie sich fragen könnten, warum Sie überhaupt programmieren lernen sollten.
+KI-generierte Suchergebnisse sind eine sehr beliebte Möglichkeit, Informationen zu erhalten. Sie bieten im Wesentlichen eine hochentwickelte Suche: Sie führen viele Suchen im Hintergrund durch, bevor sie die Ergebnisse in einer einzigen, leicht verdaulichen Antwort zusammenstellen. Bekannte Optionen sind [ChatGPT](https://chatgpt.com), [Google Gemini](https://gemini.google.com/app) und [Microsoft Copilot](https://copilot.microsoft.com), die entweder direkt in einem Chat-Format oder über KI-gestützte Hilfe- oder Automatisierungssysteme in Apps verfügbar sind.
 
-Aber warten Sie! Folgendes ist wichtig: **Sie müssen immer noch verstehen, was Sie auf einer höheren Ebene zu tun versuchen, was der Code bewirkt und wo jedes Stück Code verwendet werden muss**. Andernfalls sind Sie bei der Lösung realer Probleme nicht sehr hilfreich. Das bedeutet, dass Sie trotzdem programmieren lernen müssen. KI kann ein wirklich nützliches Werkzeug sein, um schneller Antworten zu finden, aber wenn Sie jede Frage, die Ihnen gestellt wird, in eine KI-Eingabeaufforderung eingeben, werden Sie nicht verstehen, wie irgendetwas funktioniert.
+Beim Programmieren lernen können KI-Chat-Eingabeaufforderungen auf verschiedene Weise nützlich sein:
+
+- Konventionelle Suchanfragen stellen, wie in den obigen Beispielen.
+- Bugfindung in einem Codeblock. Wenn Sie frustriert sind, weil Ihr Code nicht funktioniert, können Sie Ihren Code in eine KI-Eingabeaufforderung einfügen, mit einer Frage wie `Where is the mistake in this code?`.
+- Einen optimierten Codeblock generieren. Dies ist nützlich, wenn Sie einen funktionierenden Code geschrieben haben, aber wissen wollen, wie er effizienter oder robuster gestaltet werden könnte.
+- Ratschläge geben, wie etwas gemacht werden kann. Wenn Sie z. B. nicht nur wissen wollen, wo der Fehler liegt, sondern wissen möchten, welche Strategie zum Debugging geeignet ist.
+
+> [!CALLOUT]
+>
+> **Probieren Sie es aus**
+>
+> Testen Sie einige Suchen mit KI-Tools.
+
+### Eine vorsichtige Betrachtung
+
+In Wahrheit kann KI so viel, dass man sich fragen könnte, warum man überhaupt noch programmieren lernen muss.
+
+Doch aufgepasst! Folgendes ist wichtig: **Sie müssen immer noch verstehen, was Sie auf einer höheren Ebene erreichen wollen, was der Code bewirkt und wo jedes Code-Stück verwendet werden muss**. Wenn Sie das nicht tun, werden Sie bei der Lösung von Problemen in der realen Welt nicht hilfreich sein. Das bedeutet, dass Sie immer noch programmieren lernen müssen. KI kann ein äußerst nützliches Werkzeug sein, um schneller Antworten zu finden, aber wenn Sie jede Frage direkt in eine KI-Eingabeaufforderung eingeben, werden Sie nicht verstehen, wie etwas funktioniert.
 
 Zusätzlich:
 
-- KI-Tools präsentieren ihre Antworten in einer sicheren, autoritären Stimme, aber sie können oft irreführend oder einfach falsch sein. Einige der Fehler, die sie machen, können sehr subtil sein. Sie haben keine eigene Intelligenz – sie sind im Grunde fortschrittliche Mustererkennungstools. KI-Tools kompilieren ihre Antworten aus anderen Quellen, daher nehmen sie sowohl falsche als auch richtige Informationen auf. Auch zwei korrekte Quellen können kombiniert werden, um eine falsche Antwort zu ergeben.
-- Neuere Informationen sind möglicherweise nicht verfügbar, oder die Antworten werden möglicherweise in Richtung älterer und weiter verbreiteter Dokumentationen verzerrt, sodass „wie man X in JS macht“ möglicherweise veraltete Anleitungen liefert.
+- KI-Tools präsentieren ihre Antworten in einem selbstbewussten, autoritären Ton, können jedoch oft irreführend oder schlichtweg falsch sein. Einige ihrer Fehler können sehr subtil sein. Sie besitzen keine eigene Intelligenz – sie sind im Wesentlichen fortgeschrittene Mustererkennungstools. KI-Tools erstellen ihre Antworten aus bestehenden Quellen, sodass sie falsche sowie richtige Informationen aufnehmen. Sogar zwei korrekte Quellen können zu einer falschen Antwort kombiniert werden.
+- Neuere Informationen könnten fehlen oder Antworten könnten zu älterer und weiter verbreiteter Dokumentation verzerrt sein. Eine Anfrage wie „how to do X in JS“ könnte Ihnen veraltete Anleitungen liefern.
 
-Daher sollten Sie vorsichtig sein und die Antworten, die sie Ihnen geben, überprüfen und nicht einfach alles ohne Frage vertrauen.
+Daher sollten Sie die von KI bereitgestellten Antworten sorgfältig prüfen und nicht alles ungeprüft als richtig akzeptieren.
 
-**Wenn Sie lernen, verbringen Sie Zeit damit, das Problem selbst zu lösen, bevor Sie eine Antwort suchen, egal ob Sie KI oder eine herkömmliche Suchmaschine verwenden. Es wird Sie zu einem besseren Entwickler machen.**
+**Wenn Sie lernen, nehmen Sie sich die Zeit, selbst eine Lösung zu finden, bevor Sie nach einer Antwort suchen, sei es durch KI oder eine herkömmliche Suchmaschine. Es wird Sie zu einem besseren Entwickler machen.**
 
 ### Suchtipps
 
-- Sie sollten die Sprache, die Sie verwenden, in den Suchbegriff einbeziehen, wie in den obigen Beispielen gezeigt. Wenn Sie nur „wie man die Fibonacci-Folge ausgibt“ eingeben, würden Sie wahrscheinlich mehrere Lösungen in Python, C++, Java, Ruby oder anderen Sprachen erhalten – nicht ganz so hilfreich, wenn Sie JavaScript lernen möchten!
-- Wenn Sie eine nützliche Antwort finden, markieren Sie sie oder machen Sie eine Kopie davon, damit Sie sie später wiederfinden können. Sie werden erstaunt sein, wie oft Sie auf dasselbe Problem stoßen.
-- Wenn Ihr Code eine spezifische Fehlermeldung zurückgibt, versuchen Sie, den Fehler in eine Suchmaschine oder eine KI-Eingabeaufforderung einzugeben. Andere Leute haben wahrscheinlich bereits denselben Fehler in der Vergangenheit gelöst und Lösungen irgendwo öffentlich dokumentiert.
-- Wenn möglich, bleiben Sie bei empfohlenen Websites wie MDN und [StackOverflow](https://stackoverflow.com).
-- Es gibt viele fortgeschrittene Suchtechniken, die Sie in Suchmaschinen verwenden können, die Ihnen bessere Ergebnisse liefern, als einfach einen einfachen Suchbegriff einzugeben. Das Eingeben eines einfachen Suchbegriffs wie „ant fish cheese“ liefert Ergebnisse, die eine beliebige Kombination dieser Wörter enthalten. Die meisten Suchmaschinen unterstützen jedoch Variationen der folgenden Formate:
+- Sie sollten die Sprache, die Sie verwenden, in den Suchbegriff einbeziehen, wie in den obigen Beispielen gezeigt. Wenn Sie nur `how to print out the fibonacci sequence` eingeben, würden Sie wahrscheinlich mehrere Lösungen in Python, C++, Java, Ruby oder anderen Sprachen erhalten – nicht besonders hilfreich, wenn Sie JavaScript lernen möchten!
+- Wenn Sie eine hilfreiche Antwort finden, setzen Sie ein Lesezeichen oder machen Sie eine Kopie davon, damit Sie sie später wiederfinden. Sie werden überrascht sein, wie oft Sie auf dasselbe Problem stoßen.
+- Wenn Ihr Code eine spezifische Fehlermeldung liefert, versuchen Sie, den Fehler in eine Suchmaschine oder KI-Eingabeaufforderung einzugeben. Andere haben wahrscheinlich schon dieselbe Fehlermeldung erlebt und die Lösung öffentlich niedergeschrieben.
+- Wenn möglich, halten Sie sich an empfohlene Seiten wie MDN und [StackOverflow](https://stackoverflow.com).
+- Es gibt viele fortgeschrittene Suchtechniken, die Ihnen in Suchmaschinen bessere Ergebnisse liefern können, als einfach nur einen einfachen Suchbegriff einzugeben. Wenn Sie z. B. einen einfachen Suchbegriff wie `ant fish cheese` eingeben, erhalten Sie Ergebnisse, die eine beliebige Kombination dieser Wörter enthalten. Die meisten Suchmaschinen unterstützen jedoch Variationen der folgenden Formate:
 
-  - Das Eingeben von `"ant fish cheese"` (mit den Anführungszeichen) wird nur Ergebnisse zurückgeben, die genau diese Phrase enthalten.
-  - `"ant cheese" -fish` wird Ergebnisse zurückgeben, die `ant` und/oder `cheese` aber nicht `fish` enthalten.
-  - `ant OR cheese` wird nur Ergebnisse mit einem Begriff oder dem anderen, nicht beiden zurückgeben. Laut unseren Tests schien dies nur in Google effektiv zu funktionieren.
-  - `intitle:cheese` wird nur Ergebnisse zurückgeben, die "cheese" im Haupttitel der Seite enthalten.
+  - Wenn Sie `"ant fish cheese"` (mit Anführungszeichen) eingeben, werden nur Ergebnisse zurückgegeben, die exakt diese Phrase enthalten.
+  - `"ant cheese" -fish` gibt Ergebnisse zurück, die `ant` und/oder `cheese`, aber nicht `fish` enthalten.
+  - `ant OR cheese` gibt nur Ergebnisse mit einem der Begriffe oder dem anderen zurück, nicht mit beiden. In unseren Tests schien dies jedoch nur in Google effektiv zu funktionieren.
+  - `intitle:cheese` gibt nur Ergebnisse zurück, die "cheese" in den Haupttitel der Seite enthalten.
 
   > [!NOTE]
-  > Es gibt viele andere Techniken, die Sie in verschiedenen Suchmaschinen verwenden können. Versuchen Sie zu sehen, welche anderen Sie finden können – einige nützliche Ressourcen sind [Google-Suchen verfeinern](https://support.google.com/websearch/answer/2466433?hl=de), [Erweiterte Syntax auf DuckDuckGo-Suche verwenden](https://duckduckgo.com/duckduckgo-help-pages/results/syntax/), und [Microsoft: Erweiterte Suchoptionen](https://support.microsoft.com/en-us/topic/advanced-search-options-b92e25f1-0085-4271-bdf9-14aaea720930).
+  > Es gibt viele andere Techniken, die Sie in verschiedenen Suchmaschinen verwenden können. Schauen Sie nach, welche Sie sonst noch finden können – einige nützliche Ressourcen sind [Google-Suchen verfeinern](https://support.google.com/websearch/answer/2466433?hl=de), [Wie man erweiterte Syntax in DuckDuckGo verwendet](https://duckduckgo.com/duckduckgo-help-pages/results/syntax/) und [Microsoft: Erweiterte Suchoptionen](https://support.microsoft.com/de-de/topic/advanced-search-options-b92e25f1-0085-4271-bdf9-14aaea720930).
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Environment_setup/Installing_software", "Learn_web_development/Getting_started/Environment_setup/Code_editors", "Learn_web_development/Getting_started/Environment_setup")}}

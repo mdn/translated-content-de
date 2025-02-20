@@ -2,14 +2,22 @@
 title: ArrayBuffer() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/ArrayBuffer
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
 Der **`ArrayBuffer()`** Konstruktor erstellt {{jsxref("ArrayBuffer")}} Objekte.
 
-{{EmbedInteractiveExample("pages/js/arraybuffer-constructor.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: ArrayBuffer Constructor", "shorter")}}
+
+```js interactive-example
+// Create an ArrayBuffer with a size in bytes
+const buffer = new ArrayBuffer(8);
+
+console.log(buffer.byteLength);
+// Expected output: 8
+```
 
 ## Syntax
 
@@ -18,20 +26,20 @@ new ArrayBuffer(length)
 new ArrayBuffer(length, options)
 ```
 
-> **Note:** `ArrayBuffer()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Hinweis:** `ArrayBuffer()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `length`
-  - : Die Größe, in Bytes, des zu erstellenden ArrayBuffers.
+  - : Die Größe des ArrayBuffers in Bytes, der erstellt werden soll.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
     - `maxByteLength` {{optional_inline}}
-      - : Die maximale Größe, in Bytes, auf die der ArrayBuffer vergrößert werden kann.
+      - : Die maximale Größe, in Bytes, auf die der ArrayBuffer geändert werden kann.
 
 ### Rückgabewert
 
-Ein neues `ArrayBuffer` Objekt der angegebenen Größe, dessen {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} Eigenschaft auf das angegebene `maxByteLength` gesetzt ist, falls angegeben. Sein Inhalt ist auf 0 initialisiert.
+Ein neues `ArrayBuffer`-Objekt der angegebenen Größe, dessen Eigenschaft {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} auf den angegebenen Wert von `maxByteLength` festgelegt ist, falls dieser angegeben wurde. Der Inhalt ist auf 0 initialisiert.
 
 ### Ausnahmen
 
@@ -42,18 +50,18 @@ Ein neues `ArrayBuffer` Objekt der angegebenen Größe, dessen {{jsxref("ArrayBu
 
 ## Beispiele
 
-### Erstellen eines ArrayBuffers
+### Einen ArrayBuffer erstellen
 
-In diesem Beispiel erstellen wir einen 8-Byte-Puffer mit einem {{jsxref("Int32Array")}}-View, der auf den Puffer verweist:
+In diesem Beispiel erstellen wir einen 8-Byte-Puffer mit einer {{jsxref("Int32Array")}}-Ansicht, die auf den Puffer verweist:
 
 ```js
 const buffer = new ArrayBuffer(8);
 const view = new Int32Array(buffer);
 ```
 
-### Erstellen eines anpassbaren ArrayBuffers
+### Einen vergrößerbaren ArrayBuffer erstellen
 
-In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes vergrößert werden kann, und dann wird er mit {{jsxref("ArrayBuffer/resize", "resize()")}} auf 12 Bytes vergrößert:
+In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes vergrößert werden kann, und ändern ihn anschließend mit {{jsxref("ArrayBuffer/resize", "resize()")}} auf 12 Bytes:
 
 ```js
 const buffer = new ArrayBuffer(8, { maxByteLength: 16 });
@@ -62,7 +70,7 @@ buffer.resize(12);
 ```
 
 > [!NOTE]
-> Es wird empfohlen, dass `maxByteLength` auf den kleinstmöglichen Wert für Ihren Anwendungsfall gesetzt wird. Es sollte niemals `1073741824` (1GB) überschreiten, um das Risiko von Speichermangel-Fehlern zu reduzieren.
+> Es wird empfohlen, `maxByteLength` so klein wie möglich für Ihren Anwendungsfall festzulegen. Es sollte niemals `1073741824` (1GB) überschreiten, um das Risiko von Speicherfehlern zu minimieren.
 
 ## Spezifikationen
 
@@ -75,5 +83,5 @@ buffer.resize(12);
 ## Siehe auch
 
 - [Polyfill von `ArrayBuffer` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("SharedArrayBuffer")}}

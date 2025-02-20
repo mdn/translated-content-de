@@ -2,12 +2,12 @@
 title: padding-inline-end
 slug: Web/CSS/padding-inline-end
 l10n:
-  sourceCommit: f26b3f2ab7a079151245759bc2682427dc36870c
+  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
 ---
 
 {{CSSRef}}
 
-Die **`padding-inline-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen inline end padding eines Elements, der in Abhängigkeit vom Schreibmodus, der Richtung und der Textorientierung des Elements auf ein physisches Padding abgebildet wird.
+Die **`padding-inline-end`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-Ende-Abstand (Padding) eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Polsterung zugeordnet wird.
 
 {{EmbedInteractiveExample("pages/css/padding-inline-end.html")}}
 
@@ -32,15 +32,15 @@ padding-inline-end: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Paddings als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Abstands als fester Wert. Muss nichtnegativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Paddings als Prozentsatz, relativ zur [inline-size](/de/docs/Web/CSS/CSS_flow_layout/Block_and_inline_layout_in_normal_flow) (_Breite_ in einer horizontalen Sprache) des [containing block](/de/docs/Web/CSS/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz, bezogen auf die [inline-size](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow) (_Breite_ in einer horizontalen Sprache) des [Enthaltenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nichtnegativ sein.
 
 ## Beschreibung
 
-Die Eigenschaft `padding-inline-end` nimmt dieselben Werte an wie physikalische Padding-Eigenschaften wie {{cssxref("padding-top")}}. Sie kann jedoch je nach den eingestellten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} gleichwertig mit {{cssxref("padding-right")}}, {{cssxref("padding-left")}}, `padding-top` oder {{cssxref("padding-bottom")}} sein.
+Die `padding-inline-end`-Eigenschaft nimmt dieselben Werte wie physische Polsterungseigenschaften wie {{cssxref("padding-top")}} an. Sie kann jedoch je nach den Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} gleichbedeutend mit {{cssxref("padding-right")}}, {{cssxref("padding-left")}}, `padding-top` oder {{cssxref("padding-bottom")}} sein.
 
-Sie steht im Zusammenhang mit {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}} und {{cssxref("padding-inline-start")}}, die die anderen Padding-Werte des Elements definieren.
+Sie steht in Bezug zu {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}} und {{cssxref("padding-inline-start")}}, die die anderen Polsterungswerte des Elements definieren.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Sie steht im Zusammenhang mit {{cssxref("padding-block-start")}}, {{cssxref("pad
 
 ## Beispiele
 
-### Festlegen des inneren End-Paddings für vertikalen Text
+### Festlegen des Inline-Ende-Abstands für vertikalen Text
 
 #### HTML
 
@@ -93,5 +93,5 @@ div {
 ## Siehe auch
 
 - [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Die zugeordneten physikalischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}} und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

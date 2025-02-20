@@ -2,14 +2,25 @@
 title: Date.prototype[Symbol.toPrimitive]()
 slug: Web/JavaScript/Reference/Global_Objects/Date/Symbol.toPrimitive
 l10n:
-  sourceCommit: 6fbdb78c1362fae31fbd545f4b2d9c51987a6bca
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`[Symbol.toPrimitive]()`** Methode von {{jsxref("Date")}} Instanzen gibt einen primitiven Wert zurück, der dieses Datum darstellt. Es kann entweder ein String oder eine Zahl sein, abhängig von dem angegebenen Hinweis.
+Die Methode **`[Symbol.toPrimitive]()`** von {{jsxref("Date")}}-Instanzen gibt einen primitiven Wert zurück, der dieses Datum darstellt. Dieser Wert kann entweder ein String oder eine Zahl sein, abhängig vom angegebenen Hinweis (`hint`).
 
-{{EmbedInteractiveExample("pages/js/date-toprimitive.html")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype[Symbol.toPrimitive]")}}
+
+```js interactive-example
+// Depending on timezone, your results will vary
+const date = new Date("20 December 2019 14:48");
+
+console.log(date[Symbol.toPrimitive]("string"));
+// Expected output: "Fri Dec 20 2019 14:48:00 GMT+0530 (India Standard Time)"
+
+console.log(date[Symbol.toPrimitive]("number"));
+// Expected output: 1576833480000
+```
 
 ## Syntax
 
@@ -20,15 +31,15 @@ date[Symbol.toPrimitive](hint)
 ### Parameter
 
 - `hint`
-  - : Ein String, der den Typ des zurückzugebenden primitiven Werts darstellt. Die folgenden Werte sind gültig:
+  - : Ein String, der die Art des zurückzugebenden primitiven Wertes angibt. Folgende Werte sind gültig:
     - `"string"` oder `"default"`: Die Methode sollte einen String zurückgeben.
     - `"number"`: Die Methode sollte eine Zahl zurückgeben.
 
 ### Rückgabewert
 
-Wenn `hint` `"string"` oder `"default"` ist, gibt diese Methode einen String zurück, indem sie den `this`-Wert in einen String [umwandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) (zuerst `toString()` und dann `valueOf()` versucht).
+Wenn `hint` `"string"` oder `"default"` ist, gibt diese Methode einen String zurück, indem [der `this`-Wert in einen String umgewandelt wird](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) (zuerst wird `toString()` aufgerufen, dann `valueOf()`).
 
-Wenn `hint` `"number"` ist, gibt diese Methode eine Zahl zurück, indem sie den `this`-Wert in eine Zahl [umwandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) (zuerst `valueOf()` und dann `toString()` versucht).
+Wenn `hint` `"number"` ist, gibt diese Methode eine Zahl zurück, indem [der `this`-Wert in eine Zahl umgewandelt wird](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) (zuerst wird `valueOf()` aufgerufen, dann `toString()`).
 
 ### Ausnahmen
 
@@ -37,9 +48,9 @@ Wenn `hint` `"number"` ist, gibt diese Methode eine Zahl zurück, indem sie den 
 
 ## Beschreibung
 
-Die `[Symbol.toPrimitive]()` Methode ist Teil des [Typumwandlungsprotokolls](/de/docs/Web/JavaScript/Data_structures#type_coercion). JavaScript ruft immer die `[Symbol.toPrimitive]()` Methode als Priorität auf, um ein Objekt in einen primitiven Wert zu konvertieren. Sie müssen die `[Symbol.toPrimitive]()` Methode selten selbst aufrufen; JavaScript ruft sie automatisch auf, wenn es auf ein Objekt trifft, bei dem ein primitiver Wert erwartet wird.
+Die Methode `[Symbol.toPrimitive]()` ist Teil des [Typumwandlungsprotokolls](/de/docs/Web/JavaScript/Data_structures#type_coercion). JavaScript ruft immer prioritär die Methode `[Symbol.toPrimitive]()` auf, um ein Objekt in einen primitiven Wert umzuwandeln. Es ist selten nötig, die Methode `[Symbol.toPrimitive]()` selbst aufzurufen; JavaScript führt dies automatisch aus, wenn es auf ein Objekt trifft, bei dem ein primitiver Wert erwartet wird.
 
-Die `[Symbol.toPrimitive]()` Methode des {{jsxref("Date")}} Objekts gibt einen primitiven Wert zurück, indem entweder {{jsxref("Date/valueOf", "this.valueOf()")}} aufgerufen wird und eine Zahl zurückgegeben wird, oder {{jsxref("Date/toString", "this.toString()")}} aufgerufen wird und ein String zurückgegeben wird. Sie existiert, um den Standardprozess der [primitiven Umwandlung](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) zu überschreiben, um einen String anstelle einer Zahl zurückzugeben, da die primitive Umwandlung standardmäßig {{jsxref("Date/valueOf", "valueOf()")}} vor {{jsxref("Date/toString", "toString()")}} aufruft. Mit dem benutzerdefinierten `[Symbol.toPrimitive]()`, gibt `new Date(0) + 1` `"Thu Jan 01 1970 00:00:00 GMT+0000 (Coordinated Universal Time)1"` (einen String) anstelle von `1` (einer Zahl) zurück.
+Die Methode `[Symbol.toPrimitive]()` des {{jsxref("Date")}}-Objekts gibt einen primitiven Wert zurück, indem entweder {{jsxref("Date/valueOf", "this.valueOf()")}} aufgerufen wird, um eine Zahl zurückzugeben, oder {{jsxref("Date/toString", "this.toString()")}}, um einen String zurückzugeben. Sie existiert, um den Standardprozess der [primitiven Umwandlung](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) zu überschreiben, damit ein String anstelle einer Zahl zurückgegeben wird. Denn die primitive Umwandlung ruft standardmäßig {{jsxref("Date/valueOf", "valueOf()")}} vor {{jsxref("Date/toString", "toString()")}} auf. Mit der benutzerdefinierten Methode `[Symbol.toPrimitive]()` gibt `new Date(0) + 1` den String `"Thu Jan 01 1970 00:00:00 GMT+0000 (Coordinated Universal Time)1"` zurück, anstatt die Zahl `1`.
 
 ## Beispiele
 

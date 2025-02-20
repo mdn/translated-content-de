@@ -2,14 +2,28 @@
 title: Math.imul()
 slug: Web/JavaScript/Reference/Global_Objects/Math/imul
 l10n:
-  sourceCommit: 70f09675ddcfc75a3bb66d2dce4cf82738948a37
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.imul()`** gibt das Ergebnis der C-ähnlichen 32-Bit-Multiplikation der zwei Parameter zurück.
+Die statische Methode **`Math.imul()`** gibt das Ergebnis der C-ähnlichen 32-Bit-Multiplikation der beiden Parameter zurück.
 
-{{EmbedInteractiveExample("pages/js/math-imul.html")}}
+{{InteractiveExample("JavaScript Demo: Math.imul()")}}
+
+```js interactive-example
+console.log(Math.imul(3, 4));
+// Expected output: 12
+
+console.log(Math.imul(-5, 12));
+// Expected output: -60
+
+console.log(Math.imul(0xffffffff, 5));
+// Expected output: -5
+
+console.log(Math.imul(0xfffffffe, 5));
+// Expected output: -10
+```
 
 ## Syntax
 
@@ -30,11 +44,11 @@ Das Ergebnis der C-ähnlichen 32-Bit-Multiplikation der angegebenen Argumente.
 
 ## Beschreibung
 
-`Math.imul()` ermöglicht 32-Bit-Integer-Multiplikation mit C-ähnlicher Semantik. Diese Funktion ist nützlich für Projekte wie [Emscripten](https://en.wikipedia.org/wiki/Emscripten).
+`Math.imul()` ermöglicht die 32-Bit-Ganzzahlenmultiplikation mit C-ähnlicher Semantik. Diese Funktionalität ist nützlich für Projekte wie [Emscripten](https://en.wikipedia.org/wiki/Emscripten).
 
-Da `imul()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.imul()` anstelle als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `imul()` eine statische Methode von `Math` ist, wird sie immer als `Math.imul()` verwendet und nicht als Methode eines von Ihnen erstellten `Math`-Objektes (`Math` ist kein Konstruktor).
 
-Wenn Sie normale JavaScript-Gleitkommazahlen in `imul()` verwenden, wird die Leistung beeinträchtigt. Dies liegt an der teuren Umwandlung von einer Gleitkommazahl in einen Integer zur Multiplikation und dann zurück von einem multiplizierten Integer in eine Gleitkommazahl. Mit [asm.js](/de/docs/Games/Tools/asm.js), das es JIT-Optimierern ermöglicht, Integer in JavaScript zuverlässiger zu nutzen, könnte das Multiplizieren von zwei Zahlen, die intern als Integer gespeichert sind (was nur mit asm.js möglich ist), mit `imul()` potenziell leistungsfähiger sein.
+Wenn Sie normale JavaScript-Gleitkommazahlen in `imul()` verwenden, wird die Performance beeinträchtigt. Dies liegt an der aufwändigen Umwandlung von einer Gleitkommazahl in eine Ganzzahl für die Multiplikation und der anschließenden Umwandlung der multiplizierten Ganzzahl zurück in eine Gleitkommazahl. Mit [asm.js](/de/docs/Games/Tools/asm.js), das JIT-Optimierer dazu befähigt, sicherer Ganzzahlen in JavaScript zu verwenden, könnte das Multiplizieren von zwei intern als Ganzzahlen gespeicherten Zahlen (was nur mit asm.js möglich ist) mit `imul()` potenziell leistungsfähiger sein.
 
 ## Beispiele
 

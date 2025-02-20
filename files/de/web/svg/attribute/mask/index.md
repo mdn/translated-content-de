@@ -2,17 +2,17 @@
 title: mask
 slug: Web/SVG/Attribute/mask
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`mask`**-Attribut ist ein Präsentationsattribut, das hauptsächlich dazu verwendet wird, ein gegebenes {{ SVGElement("mask") }}-Element mit dem Element zu verknüpfen, zu dem das Attribut gehört.
+Das **`mask`**-Attribut ist ein Präsentationsattribut, das hauptsächlich verwendet wird, um ein gegebenes {{ SVGElement("mask") }}-Element mit dem Element zu verknüpfen, zu dem das Attribut gehört.
 
 > [!NOTE]
-> Als Präsentationsattribut kann {{cssxref('mask')}} auch als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut hat `mask` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("mask")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('a')}}
 - {{SVGElement('circle')}}
@@ -64,9 +64,9 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-Seit SVG2 ist das {{cssxref('mask')}}-Attribut als CSS-Eigenschaft definiert und eine Kurzform für viele andere Eigenschaften: {{cssxref('mask-image')}}, {{cssxref('mask-mode')}}, {{cssxref('mask-repeat')}}, {{cssxref('mask-position')}}, {{cssxref('mask-clip')}}, {{cssxref('mask-origin')}}, {{cssxref('mask-size')}}, und {{cssxref('mask-composite')}}.
+Seit SVG2 wird das {{cssxref('mask')}}-Attribut als CSS-Eigenschaft definiert und ist ein Shorthand für viele andere Eigenschaften: {{cssxref('mask-image')}}, {{cssxref('mask-mode')}}, {{cssxref('mask-repeat')}}, {{cssxref('mask-position')}}, {{cssxref('mask-clip')}}, {{cssxref('mask-origin')}}, {{cssxref('mask-size')}} und {{cssxref('mask-composite')}}.
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -95,4 +95,4 @@ Seit SVG2 ist das {{cssxref('mask')}}-Attribut als CSS-Eigenschaft definiert und
 
 ## Siehe auch
 
-- CSS-{{cssxref("mask")}}-Eigenschaft
+- CSS-Eigenschaft {{cssxref("mask")}}

@@ -2,14 +2,31 @@
 title: Intl.Locale() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale
 l10n:
-  sourceCommit: 537aeae8ea6f3f080941261af7229dba30f791ac
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Der **`Intl.Locale()`** Konstruktor erstellt {{jsxref("Intl.Locale")}} Objekte.
+Der **`Intl.Locale()`** Konstruktor erstellt {{jsxref("Intl.Locale")}}-Objekte.
 
-{{EmbedInteractiveExample("pages/js/intl-locale.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.Locale")}}
+
+```js interactive-example
+const korean = new Intl.Locale("ko", {
+  script: "Kore",
+  region: "KR",
+  hourCycle: "h23",
+  calendar: "gregory",
+});
+
+const japanese = new Intl.Locale("ja-Jpan-JP-u-ca-japanese-hc-h12");
+
+console.log(korean.baseName, japanese.baseName);
+// Expected output: "ko-Kore-KR" "ja-Jpan-JP"
+
+console.log(korean.hourCycle, japanese.hourCycle);
+// Expected output: "h23" "h12"
+```
 
 ## Syntax
 
@@ -18,46 +35,46 @@ new Intl.Locale(tag)
 new Intl.Locale(tag, options)
 ```
 
-> **Hinweis:** `Intl.Locale()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> **Note:** `Intl.Locale()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `tag`
-  - : Die Unicode-Locale-Identifikatorzeichenfolge. Für die Syntax von Locale-Identifikatorzeichenfolgen siehe die [Intl Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument). Beachten Sie, dass der `Intl.Locale` Konstruktor, im Gegensatz zu den meisten anderen `Intl` Konstruktoren, kein Array von Locales oder `undefined` akzeptiert.
+  - : Der Unicode-Locale-Identifier-String. Die Syntax der Locale-Identifier-Strings finden Sie auf der [Intl-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument). Beachten Sie, dass der `Intl.Locale`-Konstruktor, im Gegensatz zu den meisten anderen `Intl`-Konstruktoren, kein Array von Locales oder `undefined` akzeptiert.
 - `options`
-  - : Ein Objekt, das die Konfiguration für die Locale enthält. Optionswerte hier haben Vorrang vor Erweiterungsschlüsseln im Locale-Identifikator. Mögliche Eigenschaften sind:
+  - : Ein Objekt, das die Konfiguration für die Locale enthält. Werte in diesem Objekt haben Vorrang vor Erweiterungsschlüsseln im Locale-Identifier. Mögliche Eigenschaften sind:
     - `language`
-      - : Die Sprache. Jede syntaktisch gültige Zeichenfolge gemäß der [`unicode_language_subtag`](https://unicode.org/reports/tr35/#unicode_language_subtag) Grammatik (2–3 oder 5–8 Buchstaben) wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten.
+      - : Die Sprache. Jeder syntaktisch gültige String gemäß der Grammatik des [`unicode_language_subtag`](https://unicode.org/reports/tr35/#unicode_language_subtag) (2–3 oder 5–8 Buchstaben) wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten.
     - `script`
-      - : Das Skript. Jede syntaktisch gültige Zeichenfolge gemäß der [`unicode_script_subtag`](https://unicode.org/reports/tr35/#unicode_script_subtag) Grammatik (4 Buchstaben) wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten.
+      - : Das Skript. Jeder syntaktisch gültige String gemäß der Grammatik des [`unicode_script_subtag`](https://unicode.org/reports/tr35/#unicode_script_subtag) (4 Buchstaben) wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten.
     - `region`
-      - : Die Region. Jede syntaktisch gültige Zeichenfolge gemäß der [`unicode_region_subtag`](https://unicode.org/reports/tr35/#unicode_region_subtag) Grammatik (entweder 2 Buchstaben oder 3 Ziffern) wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten.
+      - : Die Region. Jeder syntaktisch gültige String gemäß der Grammatik des [`unicode_region_subtag`](https://unicode.org/reports/tr35/#unicode_region_subtag) (entweder 2 Buchstaben oder 3 Ziffern) wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten.
     - `calendar`
-      - : Der Kalender. Jede syntaktisch gültige Zeichenfolge gemäß der [`type`](https://unicode.org/reports/tr35/#Unicode_locale_identifier) Grammatik (ein oder mehrere Segmente aus 3–8 alphanumerischen Zeichen, verbunden durch Bindestriche) wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten, die in [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) aufgelistet sind.
+      - : Der Kalender. Jeder syntaktisch gültige String gemäß der [`type`](https://unicode.org/reports/tr35/#Unicode_locale_identifier)-Grammatik (ein oder mehrere Segmente von 3–8 alphanumerischen Zeichen, durch Bindestriche verbunden) wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten, die in [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) aufgeführt sind.
     - `collation`
-      - : Die Sortierung. Jede syntaktisch gültige Zeichenfolge gemäß der `type` Grammatik wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten, die in [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_collation_types) aufgelistet sind.
+      - : Die Kollation. Jeder syntaktisch gültige String gemäß der `type`-Grammatik wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten, die in [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_collation_types) aufgeführt sind.
     - `numberingSystem`
-      - : Das Zahlensystem. Jede syntaktisch gültige Zeichenfolge gemäß der `type` Grammatik wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten, die in [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types) aufgelistet sind.
+      - : Das Nummerierungssystem. Jeder syntaktisch gültige String gemäß der `type`-Grammatik wird akzeptiert, aber die Implementierung erkennt nur bestimmte Arten, die in [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types) aufgeführt sind.
     - `caseFirst`
-      - : Die Groß-Klein-Schreibung als Sortieroption. Mögliche Werte sind `"upper"`, `"lower"` oder `"false"`.
+      - : Die Groß-/Kleinschreibung-Priorität bei der Sortierung. Mögliche Werte sind `"upper"`, `"lower"` oder `"false"`.
     - `hourCycle`
-      - : Der Stundenzyklus. Mögliche Werte sind `"h23"`, `"h12"`, `"h11"` oder das praktisch ungenutzte `"h24"`, welche in [`Intl.Locale.prototype.getHourCycles`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getHourCycles#supported_hour_cycle_types) erklärt werden.
+      - : Der Stundentakt. Mögliche Werte sind `"h23"`, `"h12"`, `"h11"` oder das praktisch nicht verwendete `"h24"`, welche in [`Intl.Locale.prototype.getHourCycles`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getHourCycles#supported_hour_cycle_types) erklärt werden.
     - `numeric`
-      - : Die numerische Sortieroption. Ein boolescher Wert.
+      - : Die numerische Sortierung. Ein boolean.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Im einfachsten Fall nimmt der `Intl.Locale()` Konstruktor eine Locale-Identifikatorzeichenfolge als Argument:
+Am einfachsten nimmt der `Intl.Locale()`-Konstruktor einen Locale-Identifier-String als Argument:
 
 ```js
 const us = new Intl.Locale("en-US");
 ```
 
-### Verwendung des Locale-Konstruktors mit einem Optionsobjekt
+### Nutzung des Locale-Konstruktors mit einem Optionsobjekt
 
-Der Konstruktor kann auch ein optionales Konfigurationsobjekt als Argument annehmen, das verschiedene Erweiterungstypen enthalten kann. Setzen Sie zum Beispiel die [`hourCycle`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/hourCycle) Eigenschaft des Konfigurationsobjekts auf den gewünschten Stundenzyklustyp und übergeben Sie es dann an den Konstruktor:
+Der Konstruktor akzeptiert auch ein optionales Konfigurationsobjekt als Argument, das verschiedene Erweiterungstypen enthalten kann. Zum Beispiel können Sie die [`hourCycle`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/hourCycle)-Eigenschaft des Konfigurationsobjekts auf Ihren gewünschten Stundentakt setzen und es dann an den Konstruktor übergeben:
 
 ```js
 const locale = new Intl.Locale("en-US", { hourCycle: "h12" });
@@ -75,4 +92,4 @@ console.log(locale.hourCycle); // "h12"
 ## Siehe auch
 
 - {{jsxref("Intl.Collator")}}
-- [Kanonische Unicode Locale Identifikatoren](https://www.unicode.org/reports/tr35/#Canonical_Unicode_Locale_Identifiers) in der Unicode-Locale-Daten-Markup-Sprachspezifikation
+- [Canonical Unicode Locale Identifiers](https://www.unicode.org/reports/tr35/#Canonical_Unicode_Locale_Identifiers) in der Unicode-Locale-Daten-Markup-Sprachspezifikation

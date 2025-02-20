@@ -1,15 +1,29 @@
 ---
-title: Unäre Negation (-)
+title: Unary-Negation (-)
 slug: Web/JavaScript/Reference/Operators/Unary_negation
 l10n:
-  sourceCommit: f616cb604af851f77f8cd59368e94ee3e43a8838
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **unäre Negationsoperator (`-`)** steht vor seinem Operanden und negiert diesen.
+Der **Unary-Negation-Operator (`-`)** steht vor seinem Operanden und negiert diesen.
 
-{{EmbedInteractiveExample("pages/js/expressions-unary-negation.html")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Unary negation operator")}}
+
+```js interactive-example
+const x = 4;
+const y = -x;
+
+console.log(y);
+// Expected output: -4
+
+const a = "4";
+const b = -a;
+
+console.log(b);
+// Expected output: -4
+```
 
 ## Syntax
 
@@ -19,7 +33,7 @@ Der **unäre Negationsoperator (`-`)** steht vor seinem Operanden und negiert di
 
 ## Beschreibung
 
-Der `-` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Zunächst [wandelt er den Operanden in einen numerischen Wert um](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und testet dessen Typ. Er führt eine BigInt-Negation durch, wenn der Operand zu einem BigInt wird; andernfalls führt er eine Zahlennegation durch.
+Der `-` Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt den Operanden zunächst zu einem numerischen Wert](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und überprüft dessen Typ. Wenn der Operand zu einem BigInt wird, wird die BigInt-Negation durchgeführt; andernfalls erfolgt die Zahlen-Negation.
 
 ## Beispiele
 
@@ -33,7 +47,7 @@ const y = -x;
 
 ### Nicht-Zahlen negieren
 
-Der unäre Negationsoperator kann eine Nicht-Zahl in eine Zahl umwandeln.
+Der Unary-Negation-Operator kann eine Nicht-Zahl in eine Zahl umwandeln.
 
 ```js
 const x = "4";
@@ -42,7 +56,7 @@ const y = -x;
 // y is -4
 ```
 
-BigInts können mit dem unären Negationsoperator negiert werden.
+BigInts können mit dem Unary-Negation-Operator negiert werden.
 
 ```js
 const x = 4n;
@@ -66,7 +80,7 @@ const y = -x;
 - [Division (`/`)](/de/docs/Web/JavaScript/Reference/Operators/Division)
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
 - [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
-- [Exponentialrechnung (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)
+- [Unary-Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

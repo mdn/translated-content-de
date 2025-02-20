@@ -2,14 +2,25 @@
 title: Addition Assignment (+=)
 slug: Web/JavaScript/Reference/Operators/Addition_assignment
 l10n:
-  sourceCommit: 145e8c316fcdd8f67f3595fc52b0bbfacf7b949d
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Addition Assignment (`+=`)** Operator führt eine [Addition](/de/docs/Web/JavaScript/Reference/Operators/Addition) durch (entweder numerische Addition oder Zeichenfolgenverkettung) auf den beiden Operanden und weist das Ergebnis dem linken Operanden zu.
+Der **Addition Assignment (`+=`)**-Operator führt eine [Addition](/de/docs/Web/JavaScript/Reference/Operators/Addition) (entweder numerische Addition oder Stringverkettung) der beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
-{{EmbedInteractiveExample("pages/js/expressions-addition-assignment.html")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Addition assignment operator")}}
+
+```js interactive-example
+let a = 2;
+let b = "hello";
+
+console.log((a += 3)); // Addition
+// Expected output: 5
+
+console.log((b += " world")); // Concatenation
+// Expected output: "hello world"
+```
 
 ## Syntax
 
@@ -19,7 +30,7 @@ x += y
 
 ## Beschreibung
 
-`x += y` ist gleichwertig mit `x = x + y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x += y` ist gleichbedeutend mit `x = x + y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
@@ -30,7 +41,7 @@ let bar = 5;
 bar += 2; // 7
 ```
 
-Andere Nicht-Zeichenfolgen- und Nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere nicht-String- und nicht-BigInt-Werte werden in Zahlen umgewandelt:
 
 ```js
 let baz = true;
@@ -47,7 +58,7 @@ x += 2n; // 3n
 x += 1; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-### Addition Assignment mit Zeichenfolgen
+### Addition Assignment mit Strings
 
 ```js
 let foo = "foo";

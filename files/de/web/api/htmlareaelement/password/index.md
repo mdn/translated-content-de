@@ -3,17 +3,18 @@ title: "HTMLAreaElement: password-Eigenschaft"
 short-title: password
 slug: Web/API/HTMLAreaElement/password
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.password`**-Eigenschaft ist ein
-String, der das Passwort enthält, das vor dem Domainnamen angegeben wird.
+Die **`password`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle ist ein String, der die Passworth-Komponente des `href`-Attributs des `<area>`-Elements enthält. Wenn die URL kein Passwort hat, enthält diese Eigenschaft einen leeren String, `""`.
 
-Wenn es gesetzt wird, ohne zuerst die
-[`username`](/de/docs/Web/API/HTMLAreaElement/username)
-Eigenschaft zu setzen, schlägt es stillschweigend fehl.
+Diese Eigenschaft kann gesetzt werden, um das Passwort der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/HTMLAreaElement/host) hat oder ihr Schema `file:` ist, hat das Setzen dieser Eigenschaft keine Wirkung.
+
+Das Passwort wird beim Setzen {{Glossary("Percent-encoding", "percent-encodiert")}}, aber nicht percent-decodiert, wenn es gelesen wird.
+
+Siehe [`URL.password`](/de/docs/Web/API/URL/password) für weitere Informationen.
 
 ## Wert
 
@@ -37,4 +38,4 @@ area.password; // returns 'flabada'
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.
+- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der es gehört.

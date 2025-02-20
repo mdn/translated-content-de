@@ -2,14 +2,29 @@
 title: Intl.Locale.prototype.maximize()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/maximize
 l10n:
-  sourceCommit: fb85334ffa4a2c88d209b1074909bee0e0abd57a
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`maximize()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen ermittelt die wahrscheinlichsten Werte für die Sprache, das Skript und die Region dieser Locale basierend auf vorhandenen Werten.
+Die Methode **`maximize()`** von {{jsxref("Intl.Locale")}}-Instanzen ermittelt die wahrscheinlichsten Werte für Sprache, Skript und Region dieser Locale basierend auf den bestehenden Werten.
 
-{{EmbedInteractiveExample("pages/js/intl-locale-prototype-maximize.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.Locale.prototype.maximize()")}}
+
+```js interactive-example
+const english = new Intl.Locale("en");
+const korean = new Intl.Locale("ko");
+const arabic = new Intl.Locale("ar");
+
+console.log(english.maximize().baseName);
+// Expected output: "en-Latn-US"
+
+console.log(korean.maximize().baseName);
+// Expected output: "ko-Kore-KR"
+
+console.log(arabic.maximize().baseName);
+// Expected output: "ar-Arab-EG"
+```
 
 ## Syntax
 
@@ -23,11 +38,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine {{jsxref("Intl.Locale")}}-Instanz, deren `baseName`-Eigenschaft das Ergebnis des [Add Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags)-Algorithmus zurückgibt, der gegen _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_ ausgeführt wurde.
+Eine {{jsxref("Intl.Locale")}}-Instanz, deren `baseName`-Eigenschaft das Ergebnis des [Add Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags)-Algorithmus zurückgibt, der auf _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_ ausgeführt wurde.
 
 ## Beschreibung
 
-Manchmal ist es nützlich, die wahrscheinlichsten Locale-Identifikatorsubtags basierend auf einer unvollständigen Sprach-ID zu identifizieren. Der Add Likely Subtags-Algorithmus bietet uns diese Funktionalität. Beispielsweise würde der Algorithmus für die Sprach-ID "en" "en-Latn-US" zurückgeben, da Englisch nur in lateinischer Schrift geschrieben werden kann und höchstwahrscheinlich in den Vereinigten Staaten verwendet wird, da dies das größte englischsprachige Land der Welt ist. Diese Funktionalität wird JavaScript-Programmierern über die `maximize()`-Methode zur Verfügung gestellt. `maximize()` wirkt sich nur auf die Haupt-Subtags aus, die den [language identifier](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) umfassen: Sprache-, Skript- und Regions-Subtags. Andere Subtags nach dem "-u" im Locale-Identifikator werden Erweiterungs-Subtags genannt und werden nicht von der `maximize()`-Methode beeinflusst. Beispiele für diese Subtags sind {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}, {{jsxref("Intl/Locale/calendar", "calendar")}} und {{jsxref("Intl/Locale/numeric", "numeric")}}.
+Manchmal ist es praktisch, die wahrscheinlichsten Untertags eines Locale-Sprachidentifikators basierend auf einer unvollständigen Sprach-ID zu identifizieren. Der "Add Likely Subtags"-Algorithmus bietet uns diese Funktionalität. Zum Beispiel gibt der Algorithmus für die Sprach-ID "en" das Ergebnis "en-Latn-US" zurück, da Englisch nur im lateinischen Skript geschrieben werden kann und höchstwahrscheinlich in den Vereinigten Staaten verwendet wird, da dies das größte englischsprachige Land der Welt ist. Diese Funktionalität wird JavaScript-Programmierern über die Methode `maximize()` bereitgestellt. `maximize()` wirkt sich nur auf die Hauptuntertags aus, die den [Sprachidentifikator](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) bilden: Sprach-, Skript- und Regionsuntertags. Andere Untertags nach dem "-u" im Locale-Identifikator, sogenannte Erweiterungstags, werden durch die Methode `maximize()` nicht beeinflusst. Beispiele für diese Untertags sind {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}, {{jsxref("Intl/Locale/calendar", "calendar")}} und {{jsxref("Intl/Locale/numeric", "numeric")}}.
 
 ## Beispiele
 
@@ -63,4 +78,4 @@ console.log(myLocMaximized.toString());
 
 - {{jsxref("Intl.Locale")}}
 - {{jsxref("Intl/Locale/baseName", "baseName")}}
-- [Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags) in der Unicode locale data markup language Spezifikation
+- [Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags) in der Unicode-Locale-Daten-Markup-Sprache-Spezifikation

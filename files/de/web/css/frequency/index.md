@@ -2,16 +2,16 @@
 title: <frequency>
 slug: Web/CSS/frequency
 l10n:
-  sourceCommit: 91ee05b8120e9df02c5ff04c22ece9a06d3ed26f
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Der **`<frequency>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert eine Frequenzdimension, wie z. B. die Tonhöhe einer Sprechstimme. Er wird derzeit in keiner CSS-Eigenschaft verwendet.
+Der **`<frequency>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert eine Frequenzdimension, wie zum Beispiel die Tonhöhe einer Sprechstimme. Derzeit wird dieser Datentyp in keiner CSS-Eigenschaft verwendet.
 
 ## Syntax
 
-Der `<frequency>` Datentyp besteht aus einem {{cssxref("&lt;number&gt;")}} gefolgt von einer der unten aufgeführten Einheiten. Wie bei allen CSS-Dimensionen gibt es keinen Abstand zwischen dem Einheitensymbol und der Zahl.
+Der `<frequency>`-Datentyp besteht aus einer {{cssxref("&lt;number&gt;")}} gefolgt von einer der unten aufgeführten Einheiten. Wie bei allen CSS-Dimensionen gibt es keinen Leerraum zwischen der Einheit und der Zahl.
 
 ### Einheiten
 
@@ -21,7 +21,7 @@ Der `<frequency>` Datentyp besteht aus einem {{cssxref("&lt;number&gt;")}} gefol
   - : Repräsentiert eine Frequenz in Kilohertz. Beispiele: `0kHz`, `1.5kHz`, `10kHz`.
 
 > [!NOTE]
-> Obwohl die Zahl `0` unabhängig von der Einheit immer dieselbe ist, darf die Einheit nicht weggelassen werden. Mit anderen Worten, `0` ist ungültig und repräsentiert nicht `0Hz` oder `0kHz`. Obwohl die Einheiten nicht case-sensitiv sind, ist es eine gute Praxis, ein großes "H" für `Hz` und `kHz` zu verwenden, wie im [SI](https://en.wikipedia.org/wiki/International_System_of_Units) angegeben.
+> Obwohl die Zahl `0` unabhängig von der Einheit immer gleich ist, darf die Einheit nicht weggelassen werden. Mit anderen Worten, `0` ist ungültig und repräsentiert weder `0Hz` noch `0kHz`. Obwohl die Einheiten nicht zwischen Groß- und Kleinschreibung unterscheiden (case-insensitive) sind, ist es eine gute Praxis, ein großes "H" für `Hz` und `kHz` zu verwenden, wie im [SI](https://en.wikipedia.org/wiki/International_System_of_Units) spezifiziert.
 
 ## Beispiele
 
@@ -49,9 +49,9 @@ Ungültige Frequenzwerte:
 
 ## Browser-Kompatibilität
 
-Kein Browser unterstützt derzeit dieses Feature.
+Kein Browser unterstützt derzeit diese Funktion.
 
 ## Siehe auch
 
 - {{cssxref("&lt;frequency-percentage&gt;")}}
-- [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)
+- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)

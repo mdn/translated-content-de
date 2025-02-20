@@ -2,18 +2,18 @@
 title: transform-style
 slug: Web/CSS/transform-style
 l10n:
-  sourceCommit: 478a7e522593f720c1f8c882b7db82cfe8c11862
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Die **`transform-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob die Kinder eines Elements im 3D-Raum positioniert werden oder in der Ebene des Elements abgeflacht sind.
+Die **`transform-style`**- [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Nachfahren eines Elements im 3D-Raum positioniert werden oder ob sie in der Ebene des Elements abgeflacht werden.
 
 {{EmbedInteractiveExample("pages/css/transform-style.html")}}
 
-Wenn abgeflacht, existieren die Kinderelemente nicht eigenständig im 3D-Raum.
+Falls abgeflacht, existieren die Nachfahren des Elements nicht eigenständig im 3D-Raum.
 
-Da diese Eigenschaft nicht vererbt wird, muss sie für alle nicht-Blatt-Nachfahren des Elements gesetzt werden.
+Da diese Eigenschaft nicht vererbt wird, muss sie für alle nicht-Blatt-Nachfahren des Elements festgelegt werden.
 
 ## Syntax
 
@@ -33,40 +33,40 @@ transform-style: unset;
 ### Werte
 
 - `flat`
-  - : Gibt an, dass die Kinder des Elements in der Ebene des Elements selbst liegen.
+  - : Gibt an, dass die Nachfahren des Elements in der Ebene des Elements selbst liegen.
 - `preserve-3d`
-  - : Gibt an, dass die Kinder des Elements im 3D-Raum positioniert werden sollten.
+  - : Gibt an, dass die Nachfahren des Elements im 3D-Raum positioniert werden sollen.
 
 ## Beschreibung
 
-Die Spezifikation listet einige [Gruppierungseigenschaftswerte](https://drafts.csswg.org/css-transforms-2/#grouping-property-values) auf, die vom User Agent verlangen, eine abgeflachte Darstellung der Nachkommenelemente zu erstellen, bevor sie angewendet werden können, und erzwingen daher, dass das Element einen [verwendeten Wert](/de/docs/Web/CSS/used_value) von `transform-style: flat` hat, selbst wenn `preserve-3d` angegeben ist. Diese Eigenschaftswerte umfassen:
+Die Spezifikation listet einige [Gruppierungseigenschaftswerte](https://drafts.csswg.org/css-transforms-2/#grouping-property-values) auf, die den User-Agent zwingen, eine abgeflachte Darstellung der Nachfahrelemente zu erstellen, bevor sie angewendet werden können. Dies führt dazu, dass das Element einen [Used Value](/de/docs/Web/CSS/CSS_cascade/used_value) von `transform-style: flat` erhält, auch wenn `preserve-3d` angegeben wurde. Zu diesen Eigenschaftswerten gehören:
 
-- {{cssxref("overflow")}}: jeden Wert außer `visible` oder `clip`.
-- {{cssxref("opacity")}}: jeden Wert kleiner als `1`.
-- {{cssxref("filter")}}: jeden Wert außer `none`.
-- {{cssxref("clip")}}: jeden Wert außer `auto`.
-- {{cssxref("clip-path")}}: jeden Wert außer `none`.
-- {{cssxref("isolation")}}: verwendeter Wert von `isolate`.
-- {{cssxref("mask-image")}}: jeden Wert außer `none`.
-- {{cssxref("mask-border-source")}}: jeden Wert außer `none`.
-- {{cssxref("mix-blend-mode")}}: jeden Wert außer `normal`.
-- {{cssxref("contain")}}: `paint` und jede andere Eigenschaft/Wert-Kombination, die Mal-Inhaltserfassung verursacht. Dies umfasst jede Eigenschaft, die den verwendeten Wert der `contain`-Eigenschaft beeinflusst, wie zum Beispiel `content-visibility: hidden`.
+- {{cssxref("overflow")}}: Jeder Wert außer `visible` oder `clip`.
+- {{cssxref("opacity")}}: Jeder Wert kleiner als `1`.
+- {{cssxref("filter")}}: Jeder Wert außer `none`.
+- {{cssxref("clip")}}: Jeder Wert außer `auto`.
+- {{cssxref("clip-path")}}: Jeder Wert außer `none`.
+- {{cssxref("isolation")}}: Used Value von `isolate`.
+- {{cssxref("mask-image")}}: Jeder Wert außer `none`.
+- {{cssxref("mask-border-source")}}: Jeder Wert außer `none`.
+- {{cssxref("mix-blend-mode")}}: Jeder Wert außer `normal`.
+- {{cssxref("contain")}}: `paint` und jede andere Eigenschaft/Wert-Kombination, die zu einer Mal-Kontainierung führt. Dies schließt jede Eigenschaft ein, die den Used Value der `contain`-Eigenschaft beeinflusst, wie z. B. `content-visibility: hidden`.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Demonstration der Transform-Eigenschaft
+### Demonstration der Transformationsstil-Eigenschaft
 
-In diesem Beispiel haben wir einen 3D-Würfel erstellt, der Transformationen verwendet. Der übergeordnete Container der Würfelflächen hat standardmäßig `transform-style: preserve-3d` gesetzt, sodass er im 3D-Raum transformiert wird und Sie ihn wie beabsichtigt sehen können.
+In diesem Beispiel haben wir einen 3D-Würfel, der mithilfe von Transformationen erstellt wurde. Der übergeordnete Container der Würfelflächen hat standardmäßig `transform-style: preserve-3d` gesetzt, sodass er im 3D-Raum transformiert wird und Sie ihn wie vorgesehen sehen können.
 
-Wir bieten auch ein Kontrollkästchen, das Ihnen ermöglicht, zwischen diesem und `transform-style: flat` umzuschalten. In diesem alternativen Zustand werden die Würfelflächen alle auf die Ebene ihres übergeordneten Elements abgeflacht, und Sie könnten sie möglicherweise gar nicht sehen, abhängig vom verwendeten Browser.
+Es gibt auch ein Kontrollkästchen, mit dem Sie zwischen diesem Zustand und `transform-style: flat` umschalten können. Im alternativen Zustand werden die Würfelflächen alle auf die Ebene ihres übergeordneten Containers abgeflacht, und möglicherweise können Sie sie überhaupt nicht sehen, je nach verwendetem Browser.
 
 #### HTML
 

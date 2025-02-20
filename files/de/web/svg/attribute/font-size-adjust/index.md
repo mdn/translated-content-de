@@ -2,15 +2,15 @@
 title: font-size-adjust
 slug: Web/SVG/Attribute/font-size-adjust
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das Attribut `font-size-adjust` ermöglicht es Autoren, einen Aspektwert für ein Element anzugeben, der die x-Höhe der bevorzugten Schriftart in einer Ersatzschriftart bewahrt.
+Das Attribut `font-size-adjust` ermöglicht es Autoren, einen Aspektwert für ein Element anzugeben, der die x-Höhe der bevorzugten Schriftart in einer Ersatzschriftart beibehält.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `font-size-adjust` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("font-size-adjust")}}.
+> Als Präsentationsattribut hat `font-size-adjust` auch ein entsprechendes CSS-Eigenschaftspendant: {{cssxref("font-size-adjust")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -55,7 +55,7 @@ svg {
 
 {{EmbedLiveSample("Example", "600", "100")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -75,14 +75,14 @@ svg {
 </table>
 
 - `none`
-  - : Wählen Sie die Größe der Schriftart nur basierend auf der {{ Cssxref("font-size") }} Eigenschaft.
+  - : Wählt die Schriftgröße ausschließlich basierend auf der Eigenschaft {{ Cssxref("font-size") }} aus.
 - {{cssxref("&lt;number&gt;")}}
 
-  - : Wählen Sie die Größe der Schriftart so, dass ihre Kleinbuchstaben (bestimmt durch die x-Höhe der Schriftart) die angegebene Zahl mal die {{ Cssxref("font-size") }} sind.
+  - : Legt die Schriftgröße so fest, dass die Kleinbuchstaben der Schriftart (bestimmt durch die x-Höhe der Schriftart) die angegebene Zahl mal der {{ Cssxref("font-size") }} beträgt.
 
-    Die angegebene Zahl sollte im Allgemeinen das {{Glossary("aspect_ratio", "Seitenverhältnis")}} (Verhältnis von x-Höhe zur Schriftgröße) der bevorzugten {{ Cssxref("font-family") }} sein. Dies bedeutet, dass die bevorzugte Schriftart, wenn verfügbar, in Browsern gleich groß erscheint, unabhängig davon, ob sie `font-size-adjust` unterstützen oder nicht.
+    Die angegebene Zahl sollte im Allgemeinen dem {{Glossary("aspect_ratio", "Seitenverhältnis")}} (Verhältnis von x-Höhe zur Schriftgröße) der bevorzugten {{ Cssxref("font-family") }} entsprechen. Das bedeutet, dass die bevorzugte Schriftart, wenn verfügbar, in Browsern die gleiche Größe aufweist, unabhängig davon, ob sie `font-size-adjust` unterstützen oder nicht.
 
-    `0` ergibt Text mit null Höhe (versteckter Text).
+    `0` führt zu Text mit null Höhe (versteckter Text).
 
 ## Spezifikationen
 
@@ -94,4 +94,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("font-size-adjust")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("font-size-adjust")}}

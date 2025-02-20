@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: createShader()-Methode"
 short-title: createShader()
 slug: Web/API/WebGLRenderingContext/createShader
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: bcff6fc367dc53ce8f11a059d545e8ca813923e1
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die Methode **`createShader()`** des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) in der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt ein [`WebGLShader`](/de/docs/Web/API/WebGLShader), der anschließend weiter mit [`WebGLRenderingContext.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource) und [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) konfiguriert werden kann.
+Die Methode **`createShader()`** des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) in der [WebGL-API](/de/docs/Web/API/WebGL_API) erstellt ein [`WebGLShader`](/de/docs/Web/API/WebGLShader), das anschließend mithilfe von [`WebGLRenderingContext.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource) und [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) weiter konfiguriert werden kann.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ createShader(type)
 ### Parameter
 
 - `type`
-  - : Entweder `gl.VERTEX_SHADER` oder `gl.FRAGMENT_SHADER`
+  - : Entweder `gl.VERTEX_SHADER` oder `gl.FRAGMENT_SHADER`. Der [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) setzt das Fehlerflag `gl.INVALID_ENUM`, wenn ein nicht akzeptabler Wert angegeben wurde.
 
 ### Rückgabewert
 
-Ein neuer ([`WebGLShader`](/de/docs/Web/API/WebGLShader)).
+Eine neue Instanz von [`WebGLShader`](/de/docs/Web/API/WebGLShader) oder `null`, falls ein Fehler bei der Erstellung des Shaders auftritt (zum Beispiel, weil `type` einen ungültigen Wert hatte).
 
 ## Beispiele
 
-Siehe [`WebGLShader`](/de/docs/Web/API/WebGLShader) für Nutzung und Beispiele.
+Siehe [`WebGLShader`](/de/docs/Web/API/WebGLShader) für Anwendungen und Beispiele.
 
 ## Spezifikationen
 

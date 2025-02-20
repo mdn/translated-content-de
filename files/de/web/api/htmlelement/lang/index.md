@@ -1,22 +1,20 @@
 ---
-title: "HTMLElement: lang-Eigenschaft"
+title: "HTMLElement: lang Eigenschaft"
 short-title: lang
 slug: Web/API/HTMLElement/lang
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 55353013e95844403fb16dd12d6a74a6be4f0120
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.lang`**-Eigenschaft holt oder setzt die Basissprache der Attributwerte und des Textinhalts eines Elements.
+Die **`lang`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle gibt die Basissprache der Attributwerte und des Textinhalts eines Elements an, in Form eines {{RFC(5646, "BCP 47 Sprachidentifikator-Tags")}}. Sie entspricht dem [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Attribut des Elements; das `xml:lang`-Attribut beeinflusst diese Eigenschaft nicht.
 
-Der von dieser Eigenschaft zurückgegebene Sprachcode ist in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert. Häufige Beispiele sind "en" für Englisch, "ja" für Japanisch, "es" für Spanisch und so weiter. Der Standardwert dieses Attributs ist `unknown`. Beachten Sie, dass dieses Attribut, obwohl es auf der hier beschriebenen Ebene individueller Elemente gültig ist, am häufigsten für das Wurzelelement des Dokuments angegeben wird.
-
-Dies funktioniert auch nur mit dem `lang`-Attribut und nicht mit `xml:lang`.
+Beachten Sie, dass, wenn das `lang`-Attribut nicht angegeben ist, das Element selbst die Sprache möglicherweise vom übergeordneten Element erbt. Diese geerbte Sprache wird jedoch nicht im Wert dieser Eigenschaft widergespiegelt.
 
 ## Wert
 
-Ein String.
+Ein String. Häufige Beispiele sind "en" für Englisch, "ja" für Japanisch, "es" für Spanisch und so weiter. Wenn nicht angegeben, ist der Wert ein leerer String.
 
 ## Beispiele
 

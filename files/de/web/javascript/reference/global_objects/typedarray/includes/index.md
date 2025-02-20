@@ -2,14 +2,25 @@
 title: TypedArray.prototype.includes()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/includes
 l10n:
-  sourceCommit: fb442649a7e91a177a582a3e9c6e1a95a9e8dda5
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`includes()`**-Methode von {{jsxref("TypedArray")}}-Instanzen bestimmt, ob ein typisiertes Array einen bestimmten Wert unter seinen Einträgen enthält und gibt entsprechend `true` oder `false` zurück. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.includes()")}}.
+Die **`includes()`**-Methode von {{jsxref("TypedArray")}}-Instanzen bestimmt, ob ein Typed Array einen bestimmten Wert unter seinen Einträgen enthält, und gibt entsprechend `true` oder `false` zurück. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.includes()")}}.
 
-{{EmbedInteractiveExample("pages/js/typedarray-includes.html")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.includes()")}}
+
+```js interactive-example
+const uint8 = new Uint8Array([10, 20, 30, 40, 50]);
+
+console.log(uint8.includes(20));
+// Expected output: true
+
+// Check from position 3
+console.log(uint8.includes(20, 3));
+// Expected output: false
+```
 
 ## Syntax
 
@@ -21,17 +32,17 @@ includes(searchElement, fromIndex)
 ### Parameter
 
 - `searchElement`
-  - : Der zu suchende Wert.
+  - : Der Wert, nach dem gesucht wird.
 - `fromIndex` {{optional_inline}}
-  - : Der Null-basierte Index, ab dem die Suche beginnen soll, [umgerechnet in eine Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Nullbasierter Index, ab dem die Suche beginnt, [zu einer Ganzzahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 
 ### Rückgabewert
 
-Ein Boolean-Wert, der `true` ist, wenn der Wert `searchElement` innerhalb des typisierten Arrays gefunden wird (oder im Teil des typisierten Arrays, der durch den Index `fromIndex` angegeben wird, falls vorhanden).
+Ein booleanes Wert, der `true` ist, wenn der Wert `searchElement` im Typed Array gefunden wird (oder im Teil des Typed Arrays, der durch den Index `fromIndex` angegeben ist, falls spezifisch).
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.includes()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Für weitere Details siehe {{jsxref("Array.prototype.includes()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen von Typed Arrays aufgerufen werden.
 
 ## Beispiele
 
@@ -59,7 +70,7 @@ new Float32Array([NaN]).includes(NaN); // true
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.includes` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.indexOf()")}}
 - {{jsxref("TypedArray.prototype.find()")}}

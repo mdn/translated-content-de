@@ -1,5 +1,5 @@
 ---
-title: "::-webkit-meter-bar"
+title: ::-webkit-meter-bar
 slug: Web/CSS/::-webkit-meter-bar
 l10n:
   sourceCommit: 6bef243050a1f49bf5b7f37e9c4552f7aa30e24d

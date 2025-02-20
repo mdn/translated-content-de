@@ -2,23 +2,23 @@
 title: stop-opacity
 slug: Web/SVG/Attribute/stop-opacity
 l10n:
-  sourceCommit: 401b6b1355a1ca28f686cff9be83384e68e81d82
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`stop-opacity`** Attribut definiert die Deckkraft eines bestimmten Farbverlaufsstops.
+Das **`stop-opacity`**-Attribut definiert die Deckkraft eines bestimmten Farbverlaufsstopps.
 
-Der für die Verlaufsberechnung verwendete Deckkraftwert ist das Produkt aus dem Wert von `stop-opacity` und der Deckkraft des Wertes des {{SVGAttr("stop-color")}} Attributs. Für `stop-color` Werte, die keine explizite Deckkraftinformation enthalten, wird die Deckkraft als `1` behandelt.
+Der für die Verlaufskalkulation genutzte Deckkraftwert ist das Produkt aus dem Wert von `stop-opacity` und der Deckkraft des Wertes des Attributs {{SVGAttr("stop-color")}}. Für `stop-color`-Werte, die keine expliziten Deckkraftinformationen enthalten, wird die Deckkraft als `1` behandelt.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stop-opacity` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut hat `stop-opacity` auch ein entsprechendes CSS-Eigenschafts-Pendant: {{cssxref("stop-opacity")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("stop")}}
 
-## Verwendungsnotizen
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -44,7 +44,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<opacity-value>`
-  - : Dieser Wert ist entweder eine {{cssxref("number")}} zwischen `0` und `1` oder ein {{cssxref("percentage")}} Wert, der die Deckkraft des Farbverlaufsstops angibt.
+  - : Dieser Wert ist entweder eine {{cssxref("number")}} zwischen `0` und `1` oder ein {{cssxref("percentage")}}-Wert, der die Deckkraft des Farbverlaufsstopps angibt.
 
 ## Spezifikationen
 
@@ -56,7 +56,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## Siehe auch
 
-- CSS {{cssxref("stop-opacity")}} Eigenschaft
+- CSS {{cssxref("stop-opacity")}}-Eigenschaft
 - {{SVGAttr("stop-color")}}
 - {{SVGAttr("opacity")}}
 - {{SVGAttr("fill-opacity")}}

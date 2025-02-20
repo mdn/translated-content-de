@@ -2,14 +2,27 @@
 title: WeakMap.prototype.delete()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/delete
 l10n:
-  sourceCommit: 88d71e500938fa8ca969fe4fe3c80a5abe23d767
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`delete()`** Methode von {{jsxref("WeakMap")}} Instanzen entfernt das angegebene Element aus diesem `WeakMap`.
+Die **`delete()`**-Methode von {{jsxref("WeakMap")}}-Instanzen entfernt das angegebene Element aus diesem `WeakMap`.
 
-{{EmbedInteractiveExample("pages/js/weakmap-prototype-delete.html")}}
+{{InteractiveExample("JavaScript Demo: WeakMap.prototype.delete()")}}
+
+```js interactive-example
+const weakmap1 = new WeakMap();
+const object1 = {};
+
+weakmap1.set(object1, 42);
+
+console.log(weakmap1.delete(object1));
+// Expected output: true
+
+console.log(weakmap1.has(object1));
+// Expected output: false
+```
 
 ## Syntax
 
@@ -20,11 +33,11 @@ weakMapInstance.delete(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das vom `WeakMap`-Objekt entfernt werden soll.
+  - : Der Schlüssel des zu entfernenden Elements aus dem `WeakMap`-Objekt.
 
 ### Rückgabewert
 
-`true`, wenn ein Element im `WeakMap`-Objekt erfolgreich entfernt wurde. `false`, wenn der Schlüssel nicht im `WeakMap` gefunden wird. Gibt immer `false` zurück, wenn `key` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+`true`, wenn ein Element im `WeakMap`-Objekt erfolgreich entfernt wurde. `false`, wenn der Schlüssel nicht im `WeakMap` gefunden wird. Liefert immer `false`, wenn `key` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 

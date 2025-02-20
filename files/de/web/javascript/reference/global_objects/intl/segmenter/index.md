@@ -2,14 +2,27 @@
 title: Intl.Segmenter
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Segmenter
 l10n:
-  sourceCommit: c420b9b3126451f53d112afe33e007d6efdb605d
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Das **`Intl.Segmenter`**-Objekt ermöglicht lokalisierungsabhängige Textsegmentierung, wodurch Sie bedeutungsvolle Elemente (Grapheme, Wörter oder Sätze) aus einer Zeichenfolge erhalten können.
+Das **`Intl.Segmenter`**-Objekt ermöglicht lokalisierungssensitives Textsegmentieren, wodurch Sie bedeutungsvolle Einheiten (Grapheme, Wörter oder Sätze) aus einer Zeichenkette abrufen können.
 
-{{EmbedInteractiveExample("pages/js/intl-segmenter.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.Segmenter")}}
+
+```js interactive-example
+const segmenterFr = new Intl.Segmenter("fr", { granularity: "word" });
+const string1 = "Que ma joie demeure";
+
+const iterator1 = segmenterFr.segment(string1)[Symbol.iterator]();
+
+console.log(iterator1.next().value.segment);
+// Expected output: 'Que'
+
+console.log(iterator1.next().value.segment);
+// Expected output: ' '
+```
 
 ## Konstruktor
 
@@ -19,29 +32,29 @@ Das **`Intl.Segmenter`**-Objekt ermöglicht lokalisierungsabhängige Textsegment
 ## Statische Methoden
 
 - {{jsxref("Intl/Segmenter/supportedLocalesOf", "Intl.Segmenter.supportedLocalesOf()")}}
-  - : Gibt ein Array zurück, das diejenigen der bereitgestellten Lokalisierungen enthält, die unterstützt werden, ohne auf die Standardlokalisierung der Laufzeitumgebung zurückgreifen zu müssen.
+  - : Gibt ein Array zurück, das die angegebenen Locales enthält, die unterstützt werden, ohne auf die Standardeinstellung des Laufzeitumgebungs-Locales zurückzufallen.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 Diese Eigenschaften sind auf `Intl.Segmenter.prototype` definiert und werden von allen `Intl.Segmenter`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Intl.Segmenter.prototype.constructor")}}
   - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.Segmenter`-Instanzen ist der Anfangswert der {{jsxref("Intl/Segmenter/Segmenter", "Intl.Segmenter")}}-Konstruktor.
 - `Intl.Segmenter.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Intl.Segmenter"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist die Zeichenkette `"Intl.Segmenter"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - {{jsxref("Intl/Segmenter/resolvedOptions", "Intl.Segmenter.prototype.resolvedOptions()")}}
   - : Gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `Intl.Segmenter`-Objekts berechneten Lokalisierungs- und Granularitätsoptionen widerspiegeln.
 - {{jsxref("Intl/Segmenter/segment", "Intl.Segmenter.prototype.segment()")}}
-  - : Gibt eine neue, iterierbare [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Instanz zurück, die die Segmente einer Zeichenfolge entsprechend der Lokalisierung und Granularität dieser `Intl.Segmenter`-Instanz darstellt.
+  - : Gibt eine neue iterierbare [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Instanz zurück, die die Segmente einer Zeichenkette gemäß der Lokalisierung und Granularität dieser `Intl.Segmenter`-Instanz repräsentiert.
 
 ## Beispiele
 
-### Grundlegende Nutzung und Unterschied zu String.prototype.split()
+### Grundlegende Verwendung und Unterschied zu String.prototype.split()
 
-Wenn wir [`String.prototype.split(" ")`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) verwenden würden, um einen Text in Wörter zu segmentieren, würden wir nicht das korrekte Ergebnis erhalten, wenn die Lokalisierung des Textes keine Leerzeichen zwischen den Wörtern verwendet (was z.B. bei Japanisch, Chinesisch, Thailändisch, Laotisch, Khmer, Myanmar usw. der Fall ist).
+Wenn wir [`String.prototype.split(" ")`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) verwenden würden, um einen Text in Wörter zu segmentieren, bekäme man kein korrektes Ergebnis, falls die Sprache des Textes keine Leerzeichen zwischen Wörtern verwendet (was z. B. für Japanisch, Chinesisch, Thai, Lao, Khmer, Myanmar usw. der Fall ist).
 
 ```js example-bad
 const str = "吾輩は猫である。名前はたぬき。";

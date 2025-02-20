@@ -1,15 +1,15 @@
 ---
-title: "WebGLRenderingContext: shaderSource() Methode"
+title: "WebGLRenderingContext: shaderSource()-Methode"
 short-title: shaderSource()
 slug: Web/API/WebGLRenderingContext/shaderSource
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: bcff6fc367dc53ce8f11a059d545e8ca813923e1
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.shaderSource()`** Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt den Quellcode eines
-[`WebGLShader`](/de/docs/Web/API/WebGLShader) fest.
+Die **`WebGLRenderingContext.shaderSource()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) setzt den Quellcode eines
+[`WebGLShader`](/de/docs/Web/API/WebGLShader).
 
 ## Syntax
 
@@ -20,13 +20,18 @@ shaderSource(shader, source)
 ### Parameter
 
 - `shader`
-  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt, in dem der Quellcode festgelegt wird.
+  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt, in das der Quellcode gesetzt wird.
 - `source`
-  - : Ein String, der den festzulegenden GLSL-Quellcode enthält.
+  - : Ein String, der den zu setzenden GLSL-Quellcode enthält.
 
 ### Rückgabewert
 
 Keiner ({{jsxref("undefined")}}).
+
+### Ausnahmen
+
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn der angegebene `shader` nicht vom Typ `WebGLShader` ist.
 
 ## Beispiele
 

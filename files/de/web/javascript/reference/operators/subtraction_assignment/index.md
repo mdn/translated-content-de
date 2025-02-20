@@ -1,15 +1,25 @@
 ---
-title: Subtraction assignment (-=)
+title: Subtraktionszuweisung (-=)
 slug: Web/JavaScript/Reference/Operators/Subtraction_assignment
 l10n:
-  sourceCommit: 145e8c316fcdd8f67f3595fc52b0bbfacf7b949d
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Subtraction Assignment (`-=`)**-Operator führt eine [Subtraktion](/de/docs/Web/JavaScript/Reference/Operators/Subtraction) auf den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der **Subtraktionszuweisungsoperator (`-=`)** führt eine [Subtraktion](/de/docs/Web/JavaScript/Reference/Operators/Subtraction) auf den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
-{{EmbedInteractiveExample("pages/js/expressions-subtraction-assignment.html")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Subtraction assignment operator")}}
+
+```js interactive-example
+let a = 2;
+
+console.log((a -= 3));
+// Expected output: -1
+
+console.log((a -= "Hello"));
+// Expected output: NaN
+```
 
 ## Syntax
 
@@ -23,7 +33,7 @@ x -= y
 
 ## Beispiele
 
-### Subtraction Assignment mit Zahlen
+### Subtraktionszuweisung unter Verwendung von Zahlen
 
 ```js
 let bar = 5;
@@ -37,7 +47,7 @@ Andere nicht-BigInt-Werte werden in Zahlen umgewandelt:
 bar -= "foo"; // NaN
 ```
 
-### Subtraction Assignment mit BigInts
+### Subtraktionszuweisung unter Verwendung von BigInts
 
 ```js
 let foo = 3n;
@@ -55,5 +65,5 @@ foo -= 1; // TypeError: Cannot mix BigInt and other types, use explicit conversi
 
 ## Siehe auch
 
-- [Assignment-Operatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
-- [Subtraction (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Subtraction)
+- [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
+- [Subtraktion (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Subtraction)

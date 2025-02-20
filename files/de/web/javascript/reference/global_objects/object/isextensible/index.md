@@ -2,14 +2,26 @@
 title: Object.isExtensible()
 slug: Web/JavaScript/Reference/Global_Objects/Object/isExtensible
 l10n:
-  sourceCommit: fcd80ee4c8477b6f73553bfada841781cf74cf46
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Object.isExtensible()`** bestimmt, ob ein Objekt erweiterbar ist (ob ihm neue Eigenschaften hinzugefügt werden können).
+Die **`Object.isExtensible()`**-statische Methode bestimmt, ob ein Objekt erweiterbar ist (ob es neue Eigenschaften erhalten kann).
 
-{{EmbedInteractiveExample("pages/js/object-isextensible.html")}}
+{{InteractiveExample("JavaScript Demo: Object.isExtensible()")}}
+
+```js interactive-example
+const object1 = {};
+
+console.log(Object.isExtensible(object1));
+// Expected output: true
+
+Object.preventExtensions(object1);
+
+console.log(Object.isExtensible(object1));
+// Expected output: false
+```
 
 ## Syntax
 
@@ -24,11 +36,11 @@ Object.isExtensible(obj)
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, der angibt, ob das gegebene Objekt erweiterbar ist oder nicht.
+Ein {{jsxref("Boolean")}}, der angibt, ob das angegebene Objekt erweiterbar ist oder nicht.
 
 ## Beschreibung
 
-Objekte sind standardmäßig erweiterbar: ihnen können neue Eigenschaften hinzugefügt werden, und ihr `[[Prototype]]` kann neu zugewiesen werden. Ein Objekt kann als nicht erweiterbar markiert werden, indem eine der Methoden {{jsxref("Object.preventExtensions()")}}, {{jsxref("Object.seal()")}}, {{jsxref("Object.freeze()")}} oder {{jsxref("Reflect.preventExtensions()")}} verwendet wird.
+Objekte sind standardmäßig erweiterbar: Sie können neue Eigenschaften erhalten, und ihr `[[Prototype]]` kann neu zugewiesen werden. Ein Objekt kann als nicht erweiterbar markiert werden, indem eine der folgenden Methoden verwendet wird: {{jsxref("Object.preventExtensions()")}}, {{jsxref("Object.seal()")}}, {{jsxref("Object.freeze()")}} oder {{jsxref("Reflect.preventExtensions()")}}.
 
 ## Beispiele
 
@@ -54,7 +66,7 @@ Object.isExtensible(frozen); // false
 
 ### Nicht-Objekt-Argument
 
-In ES5 verursacht die Übergabe eines nicht-Objekt-Arguments (eines Primitivwertes) an diese Methode einen {{jsxref("TypeError")}}. In ES2015 wird `false` zurückgegeben, ohne dass ein Fehler auftritt, wenn ein nicht-Objekt-Argument übergeben wird, da Primitive definitionsgemäß unveränderlich sind.
+In ES5 führt ein Argument, das kein Objekt (ein Primitivwert) ist, bei dieser Methode zu einem {{jsxref("TypeError")}}. In ES2015 gibt die Methode `false` zurück, ohne einen Fehler auszulösen, wenn ein Nicht-Objekt-Argument übergeben wird, da Primitivwerte per Definition unveränderlich sind.
 
 ```js
 Object.isExtensible(1);

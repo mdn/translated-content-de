@@ -2,14 +2,25 @@
 title: DataView.prototype.getInt8()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getInt8
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`getInt8()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 1 Byte an dem angegebenen Byte-Offset dieses `DataView` und interpretiert es als 8-Bit-Ganzzahl mit Vorzeichen.
+Die Methode **`getInt8()`** von {{jsxref("DataView")}}-Instanzen liest 1 Byte an dem angegebenen Byte-Offset dieses `DataView` aus und interpretiert es als 8-Bit vorzeichenbehaftete Ganzzahl.
 
-{{EmbedInteractiveExample("pages/js/dataview-getint8.html")}}
+{{InteractiveExample("JavaScript Demo: DataView.getInt8()")}}
+
+```js interactive-example
+// Create an ArrayBuffer with a size in bytes
+const buffer = new ArrayBuffer(16);
+
+const view = new DataView(buffer);
+view.setInt8(1, 127); // Max signed 8-bit integer
+
+console.log(view.getInt8(1));
+// Expected output: 127
+```
 
 ## Syntax
 
@@ -20,16 +31,16 @@ getInt8(byteOffset)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Beginn der Ansicht, von dem die Daten gelesen werden sollen.
+  - : Der Offset in Bytes ab dem Anfang der Ansicht, von dem die Daten gelesen werden sollen.
 
 ### Rückgabewert
 
-Eine Ganzzahl von -128 bis 127, inklusive.
+Eine Ganzzahl zwischen -128 und 127, inklusive.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so eingestellt ist, dass er über das Ende der Ansicht hinauslesen würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass es über das Ende der Ansicht hinaus liest.
 
 ## Beispiele
 
@@ -51,7 +62,7 @@ console.log(dataview.getInt8(1)); // 1
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Int8Array")}}

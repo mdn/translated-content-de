@@ -1,32 +1,32 @@
 ---
-title: CSS-Verschachtelung
+title: CSS-Nesting
 slug: Web/CSS/CSS_nesting
 l10n:
-  sourceCommit: c9c86abc12c3bdd3fdb07c73a0d1cf88cdd0e1bc
+  sourceCommit: a29769d6d10261f771321eb60f3990029c160924
 ---
 
 {{CSSRef}}
 
-Das **CSS-Verschachtelungs**-Modul definiert eine Syntax zum Verschachteln von Selektoren, wodurch es möglich wird, eine Stilregel innerhalb einer anderen zu verschachteln, wobei der Selektor der Kindregel relativ zum Selektor der Elternregel ist.
+Das **CSS-Nesting**-Modul definiert eine Syntax für das Verschachteln von Selektoren und ermöglicht es, eine Stilregel innerhalb einer anderen zu verschachteln, wobei der Selektor der untergeordneten Regel relativ zum Selektor der übergeordneten Regel ist.
 
-CSS-Verschachtelung unterscheidet sich von CSS-Präprozessoren wie [Sass](https://sass-lang.com/) darin, dass sie vom Browser geparst wird, anstatt von einem CSS-Präprozessor vorab kompiliert zu werden.
+CSS-Nesting unterscheidet sich von CSS-Präprozessoren wie [Sass](https://sass-lang.com/), da es vom Browser geparst wird und nicht vorab von einem CSS-Präprozessor kompiliert wird.
 
-Die CSS-Verschachtelung trägt zur Lesbarkeit, Modularität und Wartbarkeit von CSS-Stylesheets bei. Sie kann auch helfen, die Größe der CSS-Dateien zu reduzieren, wodurch die Menge der von Benutzern heruntergeladenen Daten verringert wird.
+CSS-Nesting verbessert die Lesbarkeit, Modularität und Wartbarkeit von CSS-Stylesheets. Es kann auch dazu beitragen, die Größe von CSS-Dateien zu reduzieren, wodurch die von Nutzern heruntergeladene Datenmenge verringert wird.
 
 ## Referenz
 
 ### Selektoren
 
-- [`&`-Verschachtelungsselektor](/de/docs/Web/CSS/Nesting_selector)
+- [`&` nesting selector](/de/docs/Web/CSS/Nesting_selector)
 
 ## Leitfäden
 
-- [Verwendung von CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
-  - : Erklärt, wie man CSS-Verschachtelung verwendet.
-- [CSS-Verschachtelungs-at-rules](/de/docs/Web/CSS/CSS_nesting/Nesting_at-rules)
-  - : Erklärt, wie man at-rules verschachtelt.
-- [CSS-Verschachtelung und Spezifität](/de/docs/Web/CSS/CSS_nesting/Nesting_and_specificity)
-  - : Erklärt die Unterschiede in der Spezifität bei der Verschachtelung von CSS.
+- [Verwendung von CSS-Nesting](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
+  - : Erklärt, wie CSS-Nesting verwendet wird.
+- [CSS-Nesting @-Regeln](/de/docs/Web/CSS/CSS_nesting/Nesting_at-rules)
+  - : Erklärt, wie @-Regeln verschachtelt werden können.
+- [CSS-Nesting und Spezifität](/de/docs/Web/CSS/CSS_nesting/Nesting_and_specificity)
+  - : Erklärt die Unterschiede in der Spezifität bei der Verwendung von CSS-Nesting.
 
 ## Verwandte Konzepte
 
@@ -40,6 +40,6 @@ Die CSS-Verschachtelung trägt zur Lesbarkeit, Modularität und Wartbarkeit von 
 
 ## Siehe auch
 
-- [Spezifität](/de/docs/Web/CSS/Specificity)
-- [CSS-Kaskadierungs- und Vererbungsmodul](/de/docs/Web/CSS/CSS_cascade)
-- [CSS-Selektorenmodul](/de/docs/Web/CSS/CSS_selectors)
+- [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
+- [CSS-Cascading- und Vererbungsmodul](/de/docs/Web/CSS/CSS_cascade)
+- [CSS-Selektormodul](/de/docs/Web/CSS/CSS_selectors)

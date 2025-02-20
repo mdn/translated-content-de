@@ -2,18 +2,18 @@
 title: all
 slug: Web/CSS/all
 l10n:
-  sourceCommit: 9e521726ed1d605756b73a788eaa55498d540821
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Die **`all`** [Shorthand-](/de/docs/Web/CSS/Shorthand_properties) [CSS-](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften eines Elements zurück, außer {{cssxref("unicode-bidi")}}, {{cssxref("direction")}} und [CSS Custom Properties](/de/docs/Web/CSS/Using_CSS_custom_properties). Sie kann Eigenschaften auf ihre initialen oder vererbten Werte setzen oder auf die Werte, die in einer anderen Kaskadenschicht oder im Stylesheet-Ursprung angegeben sind.
+Die **`all`** [Shorthand](/de/docs/Web/CSS/Shorthand_properties)-[CSS](/de/docs/Web/CSS)-Eigenschaft setzt alle Eigenschaften eines Elements zurück, außer {{cssxref("unicode-bidi")}}, {{cssxref("direction")}} und [CSS Custom Properties](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties). Sie kann Eigenschaften auf ihre ursprünglichen oder geerbten Werte setzen oder auf Werte, die in einer anderen Cascade-Ebene oder einem anderen Stylesheet-Ursprung angegeben sind.
 
 {{EmbedInteractiveExample("pages/css/all.html")}}
 
-## Zusammensetzende Eigenschaften
+## Bestandteile der Eigenschaft
 
-Diese Eigenschaft ist ein Shorthand für alle CSS-Eigenschaften außer {{cssxref("unicode-bidi")}}, {{cssxref("direction")}} und [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Using_CSS_custom_properties).
+Diese Eigenschaft ist ein Shorthand für alle CSS-Eigenschaften, außer für {{cssxref("unicode-bidi")}}, {{cssxref("direction")}} und [Custom Properties](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties).
 
 ## Syntax
 
@@ -26,23 +26,23 @@ all: revert;
 all: revert-layer;
 ```
 
-Die `all` Eigenschaft wird als einer der CSS-Global-Keyword-Werte spezifiziert. Beachten Sie, dass keiner dieser Werte die Eigenschaften {{cssxref("unicode-bidi")}} und {{cssxref("direction")}} beeinflusst.
+Die `all`-Eigenschaft wird mit einem der globalen CSS-Schlüsselwortwerte angegeben. Beachten Sie, dass keiner dieser Werte die Eigenschaften {{cssxref("unicode-bidi")}} und {{cssxref("direction")}} beeinflusst.
 
 ### Werte
 
 - {{cssxref("initial")}}
-  - : Gibt an, dass alle Eigenschaften des Elements auf ihre [initialen Werte](/de/docs/Web/CSS/initial_value) geändert werden sollen.
+  - : Gibt an, dass alle Eigenschaften des Elements auf ihre [ursprünglichen Werte](/de/docs/Web/CSS/CSS_cascade/initial_value) zurückgesetzt werden sollen.
 - {{cssxref("inherit")}}
-  - : Gibt an, dass alle Eigenschaften des Elements auf ihre [vererbten Werte](/de/docs/Web/CSS/Inheritance) geändert werden sollen.
+  - : Gibt an, dass alle Eigenschaften des Elements auf ihre [geerbten Werte](/de/docs/Web/CSS/CSS_cascade/Inheritance) gesetzt werden sollen.
 - {{cssxref("unset")}}
-  - : Gibt an, dass alle Eigenschaften des Elements auf ihre vererbten Werte geändert werden, wenn sie standardmäßig vererbt werden, oder auf ihre initialen Werte, wenn nicht.
+  - : Gibt an, dass alle Eigenschaften des Elements auf ihre geerbten Werte gesetzt werden sollen, wenn sie standardmäßig vererbbar sind, oder auf ihre ursprünglichen Werte, wenn nicht.
 - {{cssxref("revert")}}
-  - : Bestimmt ein Verhalten, das vom Stylesheet-Ursprung abhängt, zu dem die Deklaration gehört:
-    - Wenn die Regel zum [Autor-Ursprung](/de/docs/Web/CSS/Cascade#author_stylesheets) gehört, setzt der `revert` Wert die [Kaskade](/de/docs/Web/CSS/Cascade) auf die Benutzerebene zurück, sodass die [spezifizierten Werte](/de/docs/Web/CSS/specified_value) berechnet werden, als ob keine Regeln auf Autorenebene für das Element spezifiziert wären. Für Zwecke von `revert` beinhaltet der Autor-Ursprung die Override- und Animations-Ursprünge.
-    - Wenn die Regel zum [Benutzer-Ursprung](/de/docs/Web/CSS/Cascade#user_stylesheets) gehört, setzt der `revert` Wert die [Kaskade](/de/docs/Web/CSS/Cascade) auf die Benutzeragentenebene zurück, sodass die [spezifizierten Werte](/de/docs/Web/CSS/specified_value) berechnet werden, als ob keine Regeln auf Autoren- oder Benutzerebene für das Element spezifiziert wären.
-    - Wenn die Regel zum [Benutzeragenten-Ursprung](/de/docs/Web/CSS/Cascade#user-agent_stylesheets) gehört, wirkt `revert` wie `unset`.
+  - : Gibt ein Verhalten basierend auf dem Stylesheet-Ursprung an, zu dem die Deklaration gehört:
+    - Wenn die Regel dem [Autor-Ursprung](/de/docs/Web/CSS/CSS_cascade/Cascade#author_stylesheets) gehört, setzt der `revert`-Wert die [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) auf Benutzerebene zurück, sodass die [spezifizierten Werte](/de/docs/Web/CSS/CSS_cascade/specified_value) so berechnet werden, als ob keine Regeln auf der Autorenebene für das Element angegeben waren. Für `revert` umfasst der Autor-Ursprung auch die Override- und Animationsursprünge.
+    - Wenn die Regel dem [Benutzer-Ursprung](/de/docs/Web/CSS/CSS_cascade/Cascade#user_stylesheets) gehört, setzt der `revert`-Wert die [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) auf die Benutzeragent-Ebene zurück, sodass die [spezifizierten Werte](/de/docs/Web/CSS/CSS_cascade/specified_value) so berechnet werden, als ob keine Regeln auf der Autoren- oder Benutzerebene für das Element angegeben waren.
+    - Wenn die Regel dem [Benutzeragent-Ursprung](/de/docs/Web/CSS/CSS_cascade/Cascade#user-agent_stylesheets) gehört, verhält sich der `revert`-Wert wie `unset`.
 - {{cssxref("revert-layer")}}
-  - : Gibt an, dass alle Eigenschaften des Elements die Kaskade auf eine vorherige [Kaskadenschicht](/de/docs/Web/CSS/@layer) zurücksetzen sollen, falls eine vorhanden ist. Wenn keine andere Kaskadenschicht existiert, werden die Eigenschaften des Elements zur passenden Regel in der aktuellen Schicht oder zu einem vorherigen {{Glossary("Style_origin", "Stil-Ursprung")}} zurückgesetzt, falls eine existiert.
+  - : Gibt an, dass alle Eigenschaften des Elements die Kaskade auf eine vorherige [Kaskadenschicht](/de/docs/Web/CSS/@layer) zurücksetzen sollen, falls eine existiert. Wenn keine andere Kaskadenschicht existiert, werden die Eigenschaften des Elements auf die übereinstimmende Regel in der aktuellen Schicht oder auf einen vorherigen {{Glossary("Style_origin", "Stil-Ursprung")}} zurückgesetzt.
 
 ## Formale Definition
 
@@ -54,7 +54,7 @@ Die `all` Eigenschaft wird als einer der CSS-Global-Keyword-Werte spezifiziert. 
 
 ## Beispiele
 
-In diesem Beispiel enthält die CSS-Datei Stile für das {{HTMLElement("blockquote")}} Element zusätzlich zu einigen Stilen für das übergeordnete `<body>` Element. Verschiedene Ausgaben im Ergebnisabschnitt zeigen, wie die Stilisierung des `<blockquote>` Elements beeinflusst wird, wenn unterschiedliche Werte für die `all` Eigenschaft innerhalb der `blockquote` Regel angewendet werden.
+In diesem Beispiel enthält die CSS-Datei Styling für das {{HTMLElement("blockquote")}}-Element sowie Styling für das übergeordnete `<body>`-Element. In den Ergebnissen wird gezeigt, wie sich das Styling des `<blockquote>`-Elements ändert, wenn verschiedene Werte für die `all`-Eigenschaft in der `blockquote`-Regel angewendet werden.
 
 ### HTML
 
@@ -82,9 +82,9 @@ blockquote {
 }
 ```
 
-### Ergebnis
+### Ergebnisse
 
-#### A. Keine `all` Eigenschaft
+#### A. Keine `all`-Eigenschaft
 
 ```html hidden
 <blockquote id="quote">
@@ -107,7 +107,7 @@ blockquote {
 
 {{EmbedLiveSample("a._no_all_property", "200", "125")}}
 
-Dies ist das Szenario, in dem keinerlei `all` Eigenschaft innerhalb der `blockquote` Regel festgelegt ist. Das {{HTMLElement("blockquote")}} Element verwendet die Standard-Stilisierung des Browsers, die ihm einen Rand verleiht, zusammen mit einem spezifischen Hintergrund und einer Textfarbe, die im Stylesheet angegeben sind. Es verhält sich außerdem als Blockelement: Der Text, der ihm folgt, befindet sich darunter.
+In diesem Szenario wird im `blockquote`-Selektor keine `all`-Eigenschaft gesetzt. Das {{HTMLElement("blockquote")}}-Element verwendet das Standardstyling des Browsers, das ihm einen Rand, eine bestimmte Hintergrundfarbe und Textfarbe verleiht, wie im Stylesheet angegeben. Es verhält sich auch wie ein _Block_-Element: Der darauf folgende Text befindet sich darunter.
 
 #### B. `all: initial`
 
@@ -133,7 +133,7 @@ blockquote {
 
 {{EmbedLiveSample("b._all_initial", "200", "125")}}
 
-Mit der `all` Eigenschaft auf `initial` in der `blockquote` Regel verwendet das {{HTMLElement("blockquote")}} Element die Standard-Stilisierung des Browsers nicht mehr: Es ist nun ein Inline-Element (Anfangswert), seine [`background-color`](/de/docs/Web/CSS/background-color#formal_definition) ist `transparent` (Anfangswert), seine [`font-size`](/de/docs/Web/CSS/font-size#formal_definition) ist `medium` und seine [`color`](/de/docs/Web/CSS/color#formal_definition) ist `black` (Anfangswert).
+Mit der `all`-Eigenschaft, die im `blockquote`-Selektor auf `initial` gesetzt ist, verwendet das {{HTMLElement("blockquote")}}-Element nicht mehr das Standardstyling des Browsers: Es ist jetzt ein _Inline_-Element (ursprünglicher Wert), seine [`background-color`](/de/docs/Web/CSS/background-color#formal_definition) ist `transparent` (ursprünglicher Wert), seine [`font-size`](/de/docs/Web/CSS/font-size#formal_definition) ist `medium`, und seine [`color`](/de/docs/Web/CSS/color#formal_definition) ist `black` (ursprünglicher Wert).
 
 #### C. `all: inherit`
 
@@ -159,7 +159,7 @@ blockquote {
 
 {{EmbedLiveSample("c._all_inherit", "200", "125")}}
 
-In diesem Fall verwendet das {{HTMLElement("blockquote")}} Element nicht die Standard-Stilisierung des Browsers. Stattdessen erbt es Stilwerte von seinem übergeordneten {{HTMLElement("body")}} Element: es ist nun ein Blockelement (geerbter Wert), seine {{cssxref("background-color")}} ist `#F0F0F0` (geerbter Wert), seine {{cssxref("font-size")}} ist `small` (geerbter Wert), und seine {{cssxref("color")}} ist `blue` (geerbter Wert).
+In diesem Fall verwendet das {{HTMLElement("blockquote")}}-Element nicht das Standardstyling des Browsers. Stattdessen erbt es die Stilwerte vom übergeordneten {{HTMLElement("body")}}-Element: Es ist jetzt ein _Block_-Element (geerbter Wert), seine {{cssxref("background-color")}} ist `#F0F0F0` (geerbter Wert), seine {{cssxref("font-size")}} ist `small` (geerbter Wert), und seine {{cssxref("color")}} ist `blue` (geerbter Wert).
 
 #### D. `all: unset`
 
@@ -185,7 +185,7 @@ blockquote {
 
 {{EmbedLiveSample("d._all_unset", "200", "125")}}
 
-Wenn der `unset` Wert auf die `all` Eigenschaft in der `blockquote` Regel angewendet wird, verwendet das {{HTMLElement("blockquote")}} Element nicht die Standard-Stilisierung des Browsers. Da [`background-color`](/de/docs/Web/CSS/background-color#formal_definition) eine nicht-vererbte Eigenschaft ist und [`font-size`](/de/docs/Web/CSS/font-size#formal_definition) und [`color`](/de/docs/Web/CSS/color#formal_definition) vererbte Eigenschaften sind, ist das `<blockquote>` Element jetzt ein Inline-Element (Anfangswert), seine {{cssxref("background-color")}} ist `transparent` (Anfangswert), aber seine {{cssxref("font-size")}} bleibt `small` (geerbter Wert) und seine {{cssxref("color")}} ist `blue` (geerbter Wert).
+Wenn der Wert `unset` auf die `all`-Eigenschaft in der `blockquote`-Regel angewendet wird, verwendet das {{HTMLElement("blockquote")}}-Element nicht das Standardstyling des Browsers. Weil [`background-color`](/de/docs/Web/CSS/background-color#formal_definition) keine geerbte Eigenschaft ist und [`font-size`](/de/docs/Web/CSS/font-size#formal_definition) und [`color`](/de/docs/Web/CSS/color#formal_definition) geerbte Eigenschaften sind, ist das `<blockquote>`-Element jetzt ein _Inline_-Element (ursprünglicher Wert), seine {{cssxref("background-color")}} ist `transparent` (ursprünglicher Wert), aber seine {{cssxref("font-size")}} ist weiterhin `small` (geerbter Wert), und seine {{cssxref("color")}} ist `blue` (geerbter Wert).
 
 #### E. `all: revert`
 
@@ -211,7 +211,7 @@ blockquote {
 
 {{EmbedLiveSample("e._all_revert", "200", "125")}}
 
-Wenn die `all` Eigenschaft in der `blockquote` Regel auf `revert` gesetzt wird, wird die `blockquote` Regel als nicht existent betrachtet und die Stilisierungseigenschaftswerte werden von denen des übergeordneten Elements `<body>` geerbt. So wird das `<blockquote>` Element als Blockelement gestaltet, mit {{cssxref("background-color")}} `#F0F0F0`, {{cssxref("font-size")}} `small` und {{cssxref("color")}} `blue` - alle Werte geerbt aus der `body` Regel.
+Wenn die `all`-Eigenschaft in der `blockquote`-Regel auf `revert` gesetzt wird, wird die `blockquote`-Regel als nicht existent angesehen, und die Stilwerte werden aus den für das übergeordnete `<body>`-Element angewendeten Werten geerbt. So wird das `<blockquote>`-Element als _Block_-Element gestaltet, mit {{cssxref("background-color")}} `#F0F0F0`, {{cssxref("font-size")}} `small` und {{cssxref("color")}} `blue` - alle Werte geerbt aus der `body`-Regel.
 
 #### F. `all: revert-layer`
 
@@ -237,7 +237,7 @@ blockquote {
 
 {{EmbedLiveSample("f._all_revert-layer", "200", "125")}}
 
-Es sind keine Kaskadenschichten in der CSS-Datei definiert, daher erbt das `<blockquote>` Element seinen Stil aus der passenden `body` Regel. Das `<blockquote>` Element hier wird als Blockelement gestaltet, mit {{cssxref("background-color")}} `#F0F0F0`, {{cssxref("font-size")}} `small` und {{cssxref("color")}} `blue` - alle Werte geerbt aus der `body` Regel. Dieses Szenario ist ein Beispiel für den Fall, wenn `all` auf `revert-layer` gesetzt wird und sich genauso verhält wie wenn `all` auf `revert` gesetzt ist.
+In der CSS-Datei sind keine Kaskadenschichten definiert, daher übernimmt das `<blockquote>`-Element die Stilwerte aus der passenden `body`-Regel. Das `<blockquote>`-Element wird hier als _Block_-Element gestaltet, mit {{cssxref("background-color")}} `#F0F0F0`, {{cssxref("font-size")}} `small` und {{cssxref("color")}} `blue` - alle Werte geerbt aus der `body`-Regel. Dieses Szenario ist ein Beispiel dafür, dass `all`, wenn es auf `revert-layer` gesetzt ist, sich genauso verhält, wie wenn `all` auf `revert` gesetzt ist.
 
 ## Spezifikationen
 
@@ -249,4 +249,4 @@ Es sind keine Kaskadenschichten in der CSS-Datei definiert, daher erbt das `<blo
 
 ## Siehe auch
 
-CSS Global-Keyword-Werte: {{cssxref("initial")}}, {{cssxref("inherit")}}, {{cssxref("unset")}}, {{cssxref("revert")}}, {{cssxref("revert-layer")}}
+Globale CSS-Schlüsselwortwerte: {{cssxref("initial")}}, {{cssxref("inherit")}}, {{cssxref("unset")}}, {{cssxref("revert")}}, {{cssxref("revert-layer")}}

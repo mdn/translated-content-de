@@ -2,7 +2,7 @@
 title: padding-left
 slug: Web/CSS/padding-left
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
 ---
 
 {{CSSRef}}
@@ -11,10 +11,10 @@ Die **`padding-left`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite des [
 
 {{EmbedInteractiveExample("pages/css/padding-left.html")}}
 
-Der Padding-Bereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rand.
+Der Padding-Bereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
 
 > [!NOTE]
-> Die {{cssxref("padding")}}-Eigenschaft kann verwendet werden, um mit einer einzigen Deklaration Abstände auf allen vier Seiten eines Elements festzulegen.
+> Die {{cssxref("padding")}}-Eigenschaft kann verwendet werden, um das Padding auf allen vier Seiten eines Elements mit einer einzigen Deklaration festzulegen.
 
 ## Syntax
 
@@ -35,14 +35,14 @@ padding-left: revert-layer;
 padding-left: unset;
 ```
 
-Die `padding-left`-Eigenschaft wird als einzelner Wert aus der unten stehenden Liste festgelegt. Im Gegensatz zu Margen sind negative Werte für Abstände nicht zulässig.
+Die `padding-left`-Eigenschaft wird als Einzelwert aus der unten angegebenen Liste festgelegt. Im Gegensatz zu Margins sind negative Werte für Padding nicht zulässig.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Paddings als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_width_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umfassenden Blocks](/de/docs/Web/CSS/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Paddings als Prozentsatz, relativ zur Inline-Größe (_width_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umfassenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -54,7 +54,7 @@ Die `padding-left`-Eigenschaft wird als einzelner Wert aus der unten stehenden L
 
 ## Beispiele
 
-### Linken Abstand mit Pixeln und Prozentsätzen festlegen
+### Linkes Padding mit Pixeln und Prozentsätzen festlegen
 
 ```css
 .content {
@@ -76,8 +76,8 @@ Die `padding-left`-Eigenschaft wird als einzelner Wert aus der unten stehenden L
 ## Siehe auch
 
 - {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, und {{cssxref("padding-bottom")}}
-- {{cssxref("padding")}} Kurzform
+- {{cssxref("padding")}}-Kurzform
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
-- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzformen
-- [Einführung in das grundlegende CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul
+- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}}-Kurzformen
+- [Einführung in das CSS-Basis-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model)-Modul

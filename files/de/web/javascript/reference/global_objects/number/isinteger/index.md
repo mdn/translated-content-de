@@ -2,14 +2,29 @@
 title: Number.isInteger()
 slug: Web/JavaScript/Reference/Global_Objects/Number/isInteger
 l10n:
-  sourceCommit: 70f09675ddcfc75a3bb66d2dce4cf82738948a37
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
 Die statische Methode **`Number.isInteger()`** bestimmt, ob der übergebene Wert eine Ganzzahl ist.
 
-{{EmbedInteractiveExample("pages/js/number-isinteger.html")}}
+{{InteractiveExample("JavaScript Demo: Number.isInteger()")}}
+
+```js interactive-example
+function fits(x, y) {
+  if (Number.isInteger(y / x)) {
+    return "Fits!";
+  }
+  return "Does NOT fit!";
+}
+
+console.log(fits(5, 10));
+// Expected output: "Fits!"
+
+console.log(fits(5, 11));
+// Expected output: "Does NOT fit!"
+```
 
 ## Syntax
 
@@ -20,19 +35,19 @@ Number.isInteger(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der auf Ganzzahligkeit getestet werden soll.
+  - : Der Wert, der auf Ganzzahligkeit geprüft werden soll.
 
 ### Rückgabewert
 
-Der boolesche Wert `true`, wenn der angegebene Wert eine Ganzzahl ist. Andernfalls `false`.
+Der boolesche Wert `true`, wenn der gegebene Wert eine Ganzzahl ist. Andernfalls `false`.
 
 ## Beschreibung
 
-Wenn der Zielwert eine Ganzzahl ist, wird `true` zurückgegeben, andernfalls `false`. Wenn der Wert {{jsxref("NaN")}} oder {{jsxref("Infinity")}} ist, wird `false` zurückgegeben. Die Methode gibt auch `true` für Gleitkommazahlen zurück, die als Ganzzahlen dargestellt werden können. Sie wird immer `false` zurückgeben, wenn der Wert keine Zahl ist.
+Wenn der Zielwert eine Ganzzahl ist, wird `true` zurückgegeben, andernfalls `false`. Wenn der Wert {{jsxref("NaN")}} oder {{jsxref("Infinity")}} ist, wird `false` zurückgegeben. Die Methode gibt auch `true` für Gleitkommazahlen zurück, die als Ganzzahl dargestellt werden können. Sie gibt immer `false` zurück, wenn der Wert keine Zahl ist.
 
-Beachten Sie, dass einige Zahlenliterale, obwohl sie wie Nicht-Ganzzahlen aussehen, tatsächlich Ganzzahlen darstellen — aufgrund der Begrenzung der Genauigkeit der ECMAScript-Gleitkommazahlencodierung (IEEE-754). Zum Beispiel unterscheidet sich `5.0000000000000001` nur um `1e-16` von `5`, was zu klein ist, um dargestellt zu werden. (Zum Vergleich speichert [`Number.EPSILON`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON) den Abstand zwischen 1 und der nächsten darstellbaren Gleitkommazahl größer als 1 und das ist etwa `2.22e-16`.) Daher wird `5.0000000000000001` mit der gleichen Codierung wie `5` dargestellt, wodurch `Number.isInteger(5.0000000000000001)` `true` zurückgibt.
+Beachten Sie, dass einige Zahlenliterale, obwohl sie wie keine Ganzzahlen aussehen, tatsächlich Ganzzahlen darstellen – aufgrund der Präzisionsgrenze der ECMAScript-Gleitkomma-Zahlenkodierung (IEEE-754). Zum Beispiel unterscheidet sich `5.0000000000000001` nur durch `1e-16` von `5`, was zu klein ist, um dargestellt zu werden. (Zur Referenz: [`Number.EPSILON`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON) gibt den Abstand zwischen 1 und der nächsten darstellbaren Gleitkommazahl größer als 1 an, und dieser beträgt etwa `2.22e-16`.) Daher wird `5.0000000000000001` mit der gleichen Kodierung wie `5` dargestellt, wodurch `Number.isInteger(5.0000000000000001)` `true` zurückgibt.
 
-In ähnlicher Weise werden Zahlen in der Größenordnung von [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) unter Präzisionsverlust leiden und `Number.isInteger` wird `true` zurückgeben, selbst wenn sie keine Ganzzahl sind. (Die tatsächliche Schwelle variiert basierend darauf, wie viele Bits benötigt werden, um die Dezimalzahl darzustellen — zum Beispiel ist `Number.isInteger(4500000000000000.1)` `true`, aber `Number.isInteger(4500000000000000.5)` ist `false`.)
+In ähnlicher Weise leiden Zahlen in der Größenordnung von [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) unter Präzisionsverlust, wodurch `Number.isInteger` `true` zurückgibt, auch wenn es sich nicht um eine Ganzzahl handelt. (Die tatsächliche Schwelle variiert basierend darauf, wie viele Bits benötigt werden, um die Dezimalzahl darzustellen – zum Beispiel ist `Number.isInteger(4500000000000000.1)` `true`, aber `Number.isInteger(4500000000000000.5)` ist `false`.)
 
 ## Beispiele
 

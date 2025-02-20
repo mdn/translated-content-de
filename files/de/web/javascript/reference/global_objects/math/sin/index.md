@@ -2,14 +2,29 @@
 title: Math.sin()
 slug: Web/JavaScript/Reference/Global_Objects/Math/sin
 l10n:
-  sourceCommit: fcd80ee4c8477b6f73553bfada841781cf74cf46
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.sin()`** gibt den Sinus einer Zahl in Bogenmaß zurück.
+Die statische Methode **`Math.sin()`** liefert den Sinus einer Zahl in Bogenmaß.
 
-{{EmbedInteractiveExample("pages/js/math-sin.html")}}
+{{InteractiveExample("JavaScript Demo: Math.sin()")}}
+
+```js interactive-example
+function getCircleY(radians, radius) {
+  return Math.sin(radians) * radius;
+}
+
+console.log(getCircleY(1, 10));
+// Expected output: 8.414709848078965
+
+console.log(getCircleY(2, 10));
+// Expected output: 9.092974268256818
+
+console.log(getCircleY(Math.PI, 10));
+// Expected output: 1.2246467991473533e-15
+```
 
 ## Syntax
 
@@ -24,7 +39,7 @@ Math.sin(x)
 
 ### Rückgabewert
 
-Der Sinus von `x`, zwischen -1 und 1, einschließlich. Wenn `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
+Der Sinus von `x`, im Bereich von -1 bis 1, einschließlich der Grenzen. Falls `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 

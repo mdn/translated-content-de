@@ -2,14 +2,25 @@
 title: Promise.prototype.catch()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/catch
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`catch()`**-Methode von {{jsxref("Promise")}}-Instanzen plant eine Funktion ein, die aufgerufen wird, wenn das Promise abgelehnt wird. Sie gibt sofort ein weiteres {{jsxref("Promise")}}-Objekt zurück, das es Ihnen ermöglicht, Aufrufe anderer Promise-Methoden [zu verketten](/de/docs/Web/JavaScript/Guide/Using_promises#chaining). Es ist eine Abkürzung für {{jsxref("Promise/then", "then(undefined, onRejected)")}}.
+Die **`catch()`**-Methode von {{jsxref("Promise")}}-Instanzen plant die Ausführung einer Funktion, wenn das `Promise`-Objekt abgelehnt wird. Sie gibt sofort ein weiteres {{jsxref("Promise")}}-Objekt zurück, sodass Sie Aufrufe an andere `Promise`-Methoden [verketteln](/de/docs/Web/JavaScript/Guide/Using_promises#chaining) können. Sie ist eine Abkürzung für {{jsxref("Promise/then", "then(undefined, onRejected)")}}.
 
-{{EmbedInteractiveExample("pages/js/promise-catch.html")}}
+{{InteractiveExample("JavaScript Demo: Promise.catch()")}}
+
+```js interactive-example
+const promise1 = new Promise((resolve, reject) => {
+  throw new Error("Uh-oh!");
+});
+
+promise1.catch((error) => {
+  console.error(error);
+});
+// Expected output: Error: Uh-oh!
+```
 
 ## Syntax
 
@@ -20,21 +31,21 @@ promiseInstance.catch(onRejected)
 ### Parameter
 
 - `onRejected`
-  - : Eine Funktion, die asynchron ausgeführt wird, wenn dieses Promise abgelehnt wird. Ihr Rückgabewert wird zum Erfüllungswert des von `catch()` zurückgegebenen Promise. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die asynchron ausgeführt wird, wenn dieses `Promise`-Objekt abgelehnt wird. Der Rückgabewert dieser Funktion wird zum Erfüllungswert des von `catch()` zurückgegebenen `Promise`-Objekts. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `reason`
-      - : Der Wert, mit dem das Promise abgelehnt wurde.
+      - : Der Wert, mit dem das `Promise`-Objekt abgelehnt wurde.
 
 ### Rückgabewert
 
-Gibt ein neues {{jsxref("Promise")}} zurück. Dieses neue Promise ist immer ausstehend, wenn es zurückgegeben wird, unabhängig vom Status des aktuellen Promise. Wenn `onRejected` aufgerufen wird, wird das zurückgegebene Promise basierend auf dem Rückgabewert dieses Aufrufs aufgelöst oder mit dem im Aufruf ausgelösten Fehler abgelehnt. Wenn das aktuelle Promise erfüllt wird, wird `onRejected` nicht aufgerufen und das zurückgegebene Promise wird auf denselben Wert erfüllt.
+Gibt ein neues {{jsxref("Promise")}}-Objekt zurück. Dieses neue `Promise` ist immer schwebend, wenn es zurückgegeben wird, unabhängig vom Status des aktuellen `Promise`. Wenn `onRejected` aufgerufen wird, wird das zurückgegebene `Promise` entsprechend dem Rückgabewert dieses Aufrufs aufgelöst oder mit dem von diesem Aufruf geworfenen Fehler abgelehnt. Wenn das aktuelle `Promise` erfüllt wird, wird `onRejected` nicht aufgerufen und das zurückgegebene `Promise` wird mit demselben Wert erfüllt.
 
 ## Beschreibung
 
-Die `catch`-Methode wird für die Fehlerbehandlung in der Promise-Komposition verwendet. Da sie ein {{jsxref("Promise")}} zurückgibt, [kann es verkettet werden](/de/docs/Web/JavaScript/Guide/Using_promises#chaining_after_a_catch) auf die gleiche Weise wie seine Schwestermethode {{jsxref("Promise/then", "then()")}}.
+Die Methode `catch` wird für die Fehlerbehandlung in der Promise-Zusammensetzung verwendet. Da sie ein {{jsxref("Promise")}} zurückgibt, [kann sie verkettet werden](/de/docs/Web/JavaScript/Guide/Using_promises#chaining_after_a_catch), genauso wie ihre Schwester-Methode {{jsxref("Promise/then", "then()")}}.
 
-Wenn ein Promise abgelehnt wird und es keine Ablehnungshandler zu rufen gibt (ein Handler kann durch eines der {{jsxref("Promise/then", "then()")}}, `catch()` oder {{jsxref("Promise/finally", "finally()")}} angehängt werden), wird das Ablehnungsereignis vom Host weitergegeben. Im Browser führt dies zu einem [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)-Ereignis. Wenn ein Handler an ein abgelehntes Promise angehängt wird, dessen Ablehnung bereits ein unbehandeltes Ablehnungsereignis verursacht hat, wird dann ein weiteres [`rejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)-Ereignis ausgelöst.
+Wenn ein `Promise`-Objekt abgelehnt wird und es keine Ablehnungs-Handler gibt, die aufgerufen werden können (ein Handler kann über {{jsxref("Promise/then", "then()")}}, `catch()` oder {{jsxref("Promise/finally", "finally()")}} angehängt werden), wird das Ablehnungsereignis vom Host sichtbar gemacht. Im Browser resultiert dies in einem [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)-Ereignis. Wenn ein Handler an ein abgelehntes `Promise`-Objekt angehängt wird, dessen Ablehnung bereits ein "unhandled rejection"-Ereignis verursacht hat, wird ein weiteres [`rejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)-Ereignis ausgelöst.
 
-`catch()` ruft intern `then()` auf dem Objekt auf, auf dem es aufgerufen wurde, und übergibt `undefined` und `onRejected` als Argumente. Der Wert dieses Aufrufs wird direkt zurückgegeben. Dies ist beobachtbar, wenn Sie die Methoden umschließen.
+`catch()` ruft intern `then()` auf dem Objekt auf, auf dem es aufgerufen wurde, und übergibt `undefined` und `onRejected` als Argumente. Der Rückgabewert dieses Aufrufs wird direkt zurückgegeben. Dies ist erkennbar, wenn die Methoden gekapselt werden.
 
 ```js
 // overriding original Promise.prototype.then/catch just to add some logs
@@ -60,16 +71,16 @@ Promise.resolve().catch(function XXX() {});
 // Called .then on Promise{} with arguments: Arguments{2} [0: undefined, 1: function XXX()]
 ```
 
-Das bedeutet, dass die Übergabe von `undefined` dazu führt, dass das zurückgegebene Promise weiterhin abgelehnt wird, und Sie müssen eine Funktion übergeben, um zu verhindern, dass das endgültige Promise abgelehnt wird.
+Dies bedeutet, dass das Übergeben von `undefined` dazu führt, dass das zurückgegebene `Promise` weiterhin abgelehnt wird, und Sie eine Funktion übergeben müssen, um zu verhindern, dass das endgültige `Promise` abgelehnt wird.
 
-Da `catch()` einfach `then()` aufruft, unterstützt es die Unterklassenbildung.
+Da `catch()` nur `then()` aufruft, unterstützt es die Verwendung in Unterklassen.
 
 > [!NOTE]
-> Die folgenden Beispiele werfen Instanzen von [`Error`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error). Wie bei synchronen [`throw`](/de/docs/Web/JavaScript/Reference/Statements/throw)-Anweisungen wird dies als gute Praxis betrachtet; andernfalls müsste der Teil, der das Auffangen durchführt, Überprüfungen durchführen, um zu sehen, ob das Argument ein String oder ein Fehler war, und Sie könnten wertvolle Informationen wie Stack-Traces verlieren.
+> Die untenstehenden Beispiele werfen Instanzen von [`Error`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error). Wie bei synchronen [`throw`](/de/docs/Web/JavaScript/Reference/Statements/throw)-Anweisungen wird dies als gute Praxis angesehen; andernfalls müsste die fangende Komponente überprüfen, ob das Argument ein String oder ein Fehler war, und Sie könnten wertvolle Informationen wie Stack-Traces verlieren.
 
 ## Beispiele
 
-### Verwenden und Verketten der catch()-Methode
+### Verwendung und Verkettung der catch()-Methode
 
 ```js
 const p1 = new Promise((resolve, reject) => {
@@ -102,9 +113,9 @@ p1.then((value) => {
   );
 ```
 
-### Fehler beim Werfen von Fehlern
+### Fallstricke beim Werfen von Fehlern
 
-Das Werfen eines Fehlers ruft die `catch()`-Methode meistens auf:
+Das Werfen eines Fehlers wird die `catch()`-Methode meistens aufrufen:
 
 ```js
 const p1 = new Promise((resolve, reject) => {
@@ -116,7 +127,7 @@ p1.catch((e) => {
 });
 ```
 
-Fehler, die innerhalb von asynchronen Funktionen geworfen werden, verhalten sich wie nicht aufgefangene Fehler:
+Fehler, die innerhalb asynchroner Funktionen geworfen werden, verhalten sich wie nicht abgefangene Fehler:
 
 ```js
 const p2 = new Promise((resolve, reject) => {
@@ -143,7 +154,7 @@ p3.catch((e) => {
 });
 ```
 
-### catch() wird nicht aufgerufen, wenn das Promise erfüllt wird
+### catch() wird nicht aufgerufen, wenn das Promise erfüllt ist
 
 ```js
 // Create a promise which would not call onReject

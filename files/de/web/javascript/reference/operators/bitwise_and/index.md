@@ -2,14 +2,22 @@
 title: Bitweises UND (&)
 slug: Web/JavaScript/Reference/Operators/Bitwise_AND
 l10n:
-  sourceCommit: c6a18542128d1743b208c24de2333f61b601f1a9
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Operators")}}
 
-Der Operator **bitweises UND (`&`)** gibt eine Zahl oder BigInt zurück, deren binäre Darstellung in jeder Bitposition, für die die entsprechenden Bits beider Operanden `1` sind, eine `1` hat.
+Der **bitweise UND (`&`)**-Operator gibt eine Zahl oder ein BigInt zurück, dessen Binärdarstellung in jeder Bit-Position, für die die entsprechenden Bits beider Operanden `1` sind, eine `1` enthält.
 
-{{EmbedInteractiveExample("pages/js/expressions-bitwise-and.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Bitwise AND", "shorter")}}
+
+```js interactive-example
+const a = 5; // 00000000000000000000000000000101
+const b = 3; // 00000000000000000000000000000011
+
+console.log(a & b); // 00000000000000000000000000000001
+// Expected output: 1
+```
 
 ## Syntax
 
@@ -19,11 +27,11 @@ x & y
 
 ## Beschreibung
 
-Der `&`-Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Für Zahlen gibt der Operator eine 32-Bit-Ganzzahl zurück. Für BigInts gibt der Operator einen BigInt zurück. Er [zwingt beide Operanden zu numerischen Werten](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und prüft deren Typen. Er führt ein BigInt UND aus, wenn beide Operanden zu BigInts werden; andernfalls konvertiert er beide Operanden zu [32-Bit-Integern](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) und führt ein zahlmäßiges bitweises UND aus. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, aber der andere zu einer Zahl.
+Der `&`-Operator ist für zwei Operanden-Typen überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Für Zahlen gibt der Operator eine 32-Bit-Zahl zurück. Für BigInts gibt der Operator ein BigInt zurück. Zuerst [wandelt er beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und prüft deren Typen. Er führt ein BigInt UND aus, wenn beide Operanden zu BigInts werden; andernfalls werden beide Operanden in [32-Bit-Zahlen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) umgewandelt und ein bitweises UND für Zahlen wird ausgeführt. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand ein BigInt wird, der andere jedoch eine Zahl.
 
-Der Operator arbeitet auf den Bit-Darstellungen der Operanden im [Zweierkomplement](https://en.wikipedia.org/wiki/Two's_complement). Jedes Bit im ersten Operanden wird mit dem entsprechenden Bit im zweiten Operanden gepaart: _erstes Bit_ zu _erstem Bit_, _zweites Bit_ zu _zweitem Bit_ und so weiter. Der Operator wird auf jedes Bitpaar angewendet, und das Ergebnis wird bitweise zusammengestellt.
+Der Operator arbeitet mit den Bit-Repräsentationen der Operanden in der [Zweierkomplement-Darstellung](https://en.wikipedia.org/wiki/Two's_complement). Jedes Bit im ersten Operanden wird mit dem entsprechenden Bit im zweiten Operanden gepaart: _erstes Bit_ mit _erstem Bit_, _zweites Bit_ mit _zweitem Bit_ usw. Der Operator wird auf jedes Bit-Paar angewendet, und das Ergebnis wird bitweise konstruiert.
 
-Die Wahrheitstabelle für die UND-Operation ist:
+Die Wahrheitstabelle für die UND-Operation lautet:
 
 | x   | y   | x UND y |
 | --- | --- | ------- |
@@ -39,20 +47,20 @@ Die Wahrheitstabelle für die UND-Operation ist:
 14 & 9 (base 10) = 00000000000000000000000000001000 (base 2) = 8 (base 10)
 ```
 
-Zahlen mit mehr als 32 Bits verlieren ihre bedeutendsten Bits. Zum Beispiel wird die folgende Ganzzahl mit mehr als 32 Bits in eine 32-Bit-Ganzzahl umgewandelt:
+Zahlen mit mehr als 32 Bit verlieren ihre höchstwertigen Bits. Zum Beispiel wird die folgende Ganzzahl mit mehr als 32 Bit in eine 32-Bit-Zahl umgewandelt:
 
 ```plain
 Before: 11100110111110100000000000000110000000000001
 After:              10100000000000000110000000000001
 ```
 
-Für BigInts gibt es keine Abschneidung. Konzeptuell verstehen Sie positive BigInts als eine unendliche Anzahl führender `0`-Bits, und negative BigInts als eine unendliche Anzahl führender `1`-Bits.
+Für BigInts gibt es keine Abschneidung. Konzeptuell kann man sich positive BigInts mit einer unendlichen Anzahl führender `0`-Bits und negative BigInts mit einer unendlichen Anzahl führender `1`-Bits vorstellen.
 
-Bitweises UND mit jeder Zahl `x` mit `-1` gibt `x` als 32-Bit-Ganzzahl zurück. Verwenden Sie `& -1` nicht, um Zahlen auf Ganzzahlen zu kürzen; verwenden Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers).
+Ein bitweises UND mit einer beliebigen Zahl `x` und `-1` gibt `x` als 32-Bit-Zahl zurück. Verwenden Sie nicht `& -1`, um Zahlen auf Ganzzahlen zu kürzen; verwenden Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers).
 
 ## Beispiele
 
-### Verwendung des bitweisen UND
+### Verwendung von bitweisem UND
 
 ```js
 // 9  (00000000000000000000000000001001)

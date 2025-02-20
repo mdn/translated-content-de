@@ -2,14 +2,22 @@
 title: ArrayBuffer.isView()
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/isView
 l10n:
-  sourceCommit: 5c3c25fd4f2fbd7a5f01727a65c2f70d73f1880a
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`ArrayBuffer.isView()`** bestimmt, ob der übergebene Wert eine der `ArrayBuffer`-Ansichten ist, wie etwa [typisierte Array-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) oder ein {{jsxref("DataView")}}.
+Die statische Methode **`ArrayBuffer.isView()`** bestimmt, ob der übergebene Wert eine der `ArrayBuffer`-Ansichten ist, wie z. B. [typed array objects](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) oder ein {{jsxref("DataView")}}.
 
-{{EmbedInteractiveExample("pages/js/arraybuffer-isview.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: ArrayBuffer.isView()", "shorter")}}
+
+```js interactive-example
+// Create an ArrayBuffer with a size in bytes
+const buffer = new ArrayBuffer(16);
+
+console.log(ArrayBuffer.isView(new Int32Array()));
+// Expected output: true
+```
 
 ## Syntax
 
@@ -24,7 +32,7 @@ ArrayBuffer.isView(value)
 
 ### Rückgabewert
 
-`true`, wenn das angegebene Argument eine der {{jsxref("ArrayBuffer")}}-Ansichten ist; andernfalls `false`.
+`true`, wenn das gegebene Argument eine der {{jsxref("ArrayBuffer")}}-Ansichten ist; andernfalls `false`.
 
 ## Beispiele
 
@@ -57,4 +65,4 @@ ArrayBuffer.isView(dv); // true
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- Leitfaden zu [JavaScript typed arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)

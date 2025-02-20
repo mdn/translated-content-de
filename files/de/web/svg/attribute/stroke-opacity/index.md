@@ -2,17 +2,17 @@
 title: stroke-opacity
 slug: Web/SVG/Attribute/stroke-opacity
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`stroke-opacity`** Attribut ist ein Präsentationsattribut, das die Deckkraft des Farbgebers (_Farbe_, _Verlauf_, _Muster_, etc.) definiert, der auf den Umriss einer Form angewendet wird.
+Das **`stroke-opacity`**-Attribut ist ein Präsentationsattribut, das die Deckkraft des Farbsystems (_color_, _gradient_, _pattern_ etc.) definiert, das auf den Umriss einer Form angewendet wird.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-opacity` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-opacity')}} für mehr Informationen.
+> Als Präsentationsattribut hat `stroke-opacity` auch ein entsprechendes CSS-Attribut: {{cssxref("stroke-opacity")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -54,7 +54,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -80,7 +80,7 @@ svg {
   </tbody>
 </table>
 
-Es ist wichtig zu wissen, dass der Umriss teilweise die Füllung einer Form überdeckt, sodass ein Umriss mit einer Deckkraft ungleich `1` die darunterliegende Füllung teilweise zeigt. Um diesen Effekt zu vermeiden, kann eine globale Deckkraft mit dem {{SVGAttr('opacity')}} Attribut angewendet oder der Umriss hinter die Füllung mit dem {{SVGAttr('paint-order')}} Attribut gelegt werden.
+Es ist wichtig zu wissen, dass der Umriss (stroke) teilweise die Füllung einer Form überdeckt. Ein Umriss mit einer Deckkraft ungleich `1` zeigt daher teilweise die darunterliegende Füllung. Um diesen Effekt zu vermeiden, kann entweder eine globale Deckkraft mit dem {{SVGAttr('opacity')}}-Attribut angewendet werden oder der Umriss hinter der Füllung angeordnet werden, indem das Attribut {{SVGAttr('paint-order')}} verwendet wird.
 
 ## Spezifikationen
 
@@ -92,4 +92,4 @@ Es ist wichtig zu wissen, dass der Umriss teilweise die Füllung einer Form übe
 
 ## Siehe auch
 
-- CSS {{cssxref("stroke-opacity")}} Eigenschaft
+- CSS {{cssxref("stroke-opacity")}}-Eigenschaft

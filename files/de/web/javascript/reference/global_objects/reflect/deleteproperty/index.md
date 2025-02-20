@@ -2,14 +2,31 @@
 title: Reflect.deleteProperty()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/deleteProperty
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.deleteProperty()`** ist wie der {{jsxref("Operators/delete", "delete")}} Operator, jedoch als Funktion. Sie löscht eine Eigenschaft aus einem Objekt.
+Die **`Reflect.deleteProperty()`** statische Methode ähnelt dem {{jsxref("Operators/delete", "delete")}}-Operator, ist jedoch eine Funktion. Sie löscht eine Eigenschaft aus einem Objekt.
 
-{{EmbedInteractiveExample("pages/js/reflect-deleteproperty.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Reflect.deleteProperty()", "taller")}}
+
+```js interactive-example
+const object1 = {
+  property1: 42,
+};
+
+Reflect.deleteProperty(object1, "property1");
+
+console.log(object1.property1);
+// Expected output: undefined
+
+const array1 = [1, 2, 3, 4, 5];
+Reflect.deleteProperty(array1, "3");
+
+console.log(array1);
+// Expected output: Array [1, 2, 3, undefined, 5]
+```
 
 ## Syntax
 
@@ -22,11 +39,11 @@ Reflect.deleteProperty(target, propertyKey)
 - `target`
   - : Das Zielobjekt, von dem die Eigenschaft gelöscht werden soll.
 - `propertyKey`
-  - : Der Name der zu löschenden Eigenschaft.
+  - : Der Name der Eigenschaft, die gelöscht werden soll.
 
 ### Rückgabewert
 
-Ein boolean-Wert, der angibt, ob die Eigenschaft erfolgreich gelöscht wurde oder nicht.
+Ein Boolean, der angibt, ob die Eigenschaft erfolgreich gelöscht wurde oder nicht.
 
 ### Ausnahmen
 
@@ -35,15 +52,15 @@ Ein boolean-Wert, der angibt, ob die Eigenschaft erfolgreich gelöscht wurde ode
 
 ## Beschreibung
 
-`Reflect.deleteProperty()` bietet die reflektive Semantik des [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) Operators. Das heißt, `Reflect.deleteProperty(target, propertyKey)` ist semantisch gleichwertig mit:
+`Reflect.deleteProperty()` bietet die reflektive Semantik des [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operators. Das bedeutet, dass `Reflect.deleteProperty(target, propertyKey)` semantisch äquivalent ist zu:
 
 ```js
 delete target.propertyKey;
 ```
 
-Auf sehr niedriger Ebene gibt das Löschen einer Eigenschaft ein boolean zurück (wie es bei [dem Proxy-Handler](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/deleteProperty) der Fall ist). `Reflect.deleteProperty()` gibt direkt den Status zurück, während `delete` einen {{jsxref("TypeError")}} in [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) werfen würde, wenn der Status `false` ist. Im Nicht-strict mode verhalten sich `delete` und `Reflect.deleteProperty()` gleich.
+Auf der niedrigsten Ebene gibt das Löschen einer Eigenschaft einen Boolean zurück (wie im Fall des [Proxy-Handlers](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/deleteProperty)). `Reflect.deleteProperty()` gibt diesen Status direkt zurück, während `delete` einen {{jsxref("TypeError")}} in [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) auslöst, wenn der Status `false` ist. Im Nicht-Strict Mode verhalten sich `delete` und `Reflect.deleteProperty()` identisch.
 
-`Reflect.deleteProperty()` ruft die `[[Delete]]` [interne Objekte-Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.deleteProperty()` ruft die `[[Delete]]`-[interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
 ## Beispiele
 

@@ -3,19 +3,21 @@ title: "HTMLAreaElement: pathname-Eigenschaft"
 short-title: pathname
 slug: Web/API/HTMLAreaElement/pathname
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.pathname`**-Eigenschaft ist ein
-Zeichenfolgenwert, der ein anfängliches `'/'` enthält, gefolgt von dem Pfad der
-URL ohne die Abfragezeichenfolge oder den Fragmentteil (oder die leere Zeichenfolge, wenn kein
+Die **`HTMLAreaElement.pathname`**-Eigenschaft ist eine
+Zeichenkette, die mit einem anfänglichen `'/'` beginnt, gefolgt vom Pfad der
+URL ohne den Query-String oder Fragment (oder einer leeren Zeichenkette, falls kein
 Pfad vorhanden ist).
+
+Der Pfad wird {{Glossary("Percent-encoding", "prozentkodiert")}} beim Setzen, jedoch nicht prozentdekodiert beim Auslesen.
 
 ## Wert
 
-Eine Zeichenfolge.
+Eine Zeichenkette.
 
 ## Beispiele
 
@@ -35,4 +37,4 @@ area.pathname; // returns '/en-US/docs/HTMLAreaElement'
 
 ## Siehe auch
 
-- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.
+- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der sie gehört.

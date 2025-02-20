@@ -2,23 +2,23 @@
 title: <integer>
 slug: Web/CSS/integer
 l10n:
-  sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Der **`<integer>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) ist eine spezielle Art von {{cssxref("number")}}, die eine positive oder negative ganze Zahl darstellt. Ganzzahlen können in zahlreichen CSS-Eigenschaften und Deskriptoren verwendet werden, wie zum Beispiel in den Eigenschaften {{cssxref("column-count")}}, {{cssxref("counter-increment")}}, {{cssxref("grid-column")}}, {{cssxref("grid-row")}} und {{cssxref("z-index")}} sowie im Deskriptor {{cssxref("@counter-style/range", "range")}}.
+Der **`<integer>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) ist ein spezieller Typ von {{cssxref("number")}}, der eine positive oder negative ganze Zahl darstellt. Ganzzahlen können in zahlreichen CSS-Eigenschaften und -Deskriptoren verwendet werden, wie zum Beispiel bei den Eigenschaften {{cssxref("column-count")}}, {{cssxref("counter-increment")}}, {{cssxref("grid-column")}}, {{cssxref("grid-row")}}, und {{cssxref("z-index")}} sowie dem Deskriptor {{cssxref("@counter-style/range", "range")}}.
 
 ## Syntax
 
-Der `<integer>` Datentyp besteht aus einer oder mehreren Dezimalziffern, 0 bis einschließlich 9, optional vorangestellt durch ein einzelnes `+` oder `-` Zeichen. Es ist keine Einheit mit Ganzzahlen verbunden.
+Der `<integer>` Datentyp besteht aus einer oder mehreren Dezimalziffern von 0 bis 9 (einschließlich), die optional von einem einzelnen `+`- oder `-`-Zeichen vorangestellt werden können. Ganzzahlen haben keine zugehörige Einheit.
 
 > [!NOTE]
-> Es gibt keinen offiziellen Bereich gültiger `<integer>` Werte, und die Spezifikationen geben keinen Bereich an.
+> Es gibt keinen offiziellen Bereich gültiger `<integer>`-Werte, und die Spezifikationen geben keinen Bereich vor.
 
 ## Interpolation
 
-Bei Animationen werden Werte des `<integer>` Datentyps unter Verwendung diskreter, ganzer Schritte {{Glossary("interpolation", "interpoliert")}}. Die Berechnung erfolgt, als ob es sich um reale Gleitkommazahlen handelt; der diskrete Wert wird mit der [Floor-Funktion](https://en.wikipedia.org/wiki/Floor_function) ermittelt. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
+Bei Animationen werden Werte des `<integer>` Datentyps mithilfe diskreter, ganzer Schritte {{Glossary("interpolation", "interpoliert")}}. Die Berechnung wird so durchgeführt, als wären es reale Gleitkommazahlen; der diskrete Wert wird mit der [Boden-Funktion (floor function)](https://en.wikipedia.org/wiki/Floor_function) ermittelt. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
 
 ## Beispiele
 

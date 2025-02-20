@@ -2,14 +2,29 @@
 title: Math.tan()
 slug: Web/JavaScript/Reference/Global_Objects/Math/tan
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.tan()`** gibt den Tangens einer Zahl in Radiant zurück.
+Die statische Methode **`Math.tan()`** gibt die Tangente einer Zahl im Bogenmaß zurück.
 
-{{EmbedInteractiveExample("pages/js/math-tan.html")}}
+{{InteractiveExample("JavaScript Demo: Math.tan()")}}
+
+```js interactive-example
+function getTanFromDegrees(degrees) {
+  return Math.tan((degrees * Math.PI) / 180);
+}
+
+console.log(getTanFromDegrees(0));
+// Expected output: 0
+
+console.log(getTanFromDegrees(45));
+// Expected output: 0.9999999999999999
+
+console.log(getTanFromDegrees(90));
+// Expected output: 16331239353195370
+```
 
 ## Syntax
 
@@ -20,18 +35,18 @@ Math.tan(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl, die einen Winkel in Radiant darstellt.
+  - : Eine Zahl, die einen Winkel im Bogenmaß repräsentiert.
 
 ### Rückgabewert
 
-Der Tangens von `x`. Wenn `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
+Die Tangente von `x`. Falls `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 > [!NOTE]
-> Aufgrund der Gleitkomma-Präzision ist es nicht möglich, den exakten Wert π/2 zu erreichen, sodass das Ergebnis immer endlich ist, wenn es nicht `NaN` ist.
+> Aufgrund der Begrenzung der Gleitkomma-Präzision ist es nicht möglich, den genauen Wert von π/2 zu erhalten. Daher ist das Ergebnis immer endlich, falls es nicht `NaN` ist.
 
 ## Beschreibung
 
-Da `tan()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.tan()` und nicht als eine Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `tan()` eine statische Methode von `Math` ist, wird sie immer als `Math.tan()` verwendet und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -48,7 +63,7 @@ Math.tan(Infinity); // NaN
 
 ### Math.tan() und π/2
 
-Es ist nicht möglich, `tan(π/2)` genau zu berechnen.
+Es ist nicht möglich, `tan(π/2)` exakt zu berechnen.
 
 ```js
 Math.tan(Math.PI / 2); // 16331239353195370
@@ -57,7 +72,7 @@ Math.tan(Math.PI / 2 + Number.EPSILON); // -6218431163823738
 
 ### Verwendung von Math.tan() mit einem Gradwert
 
-Da die Funktion `Math.tan()` Radiant akzeptiert, es aber oft einfacher ist, mit Grad zu arbeiten, akzeptiert die folgende Funktion einen Wert in Grad, wandelt ihn in Radiant um und gibt den Tangens zurück.
+Da die Funktion `Math.tan()` Bogenmaß erwartet, es jedoch oft einfacher ist, mit Gradwerten zu arbeiten, akzeptiert die folgende Funktion einen Wert in Grad, konvertiert ihn in Bogenmaß und gibt die Tangente zurück.
 
 ```js
 function getTanDeg(deg) {

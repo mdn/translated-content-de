@@ -1,32 +1,29 @@
 ---
-title: "Document: activeElement-Eigenschaft"
+title: "Dokument: activeElement-Eigenschaft"
 short-title: activeElement
 slug: Web/API/Document/activeElement
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: 6af8f743d5b66c85549d785dcf240d061ac4d92b
 ---
 
-{{APIRef("Shadow DOM")}}
+{{APIRef("DOM")}}
 
-Die **`activeElement`** schreibgeschützte Eigenschaft
-der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt das [`Element`](/de/docs/Web/API/Element) innerhalb des DOM zurück, das derzeit den Fokus hat.
+Die **`activeElement`**-Eigenschaft, eine schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces, gibt das [`Element`](/de/docs/Web/API/Element) innerhalb des DOM zurück, das Tastaturereignisse wie [`keydown`](/de/docs/Web/API/Element/keydown_event) und [`keyup`](/de/docs/Web/API/Element/keyup_event) empfängt. Dies entspricht normalerweise dem fokussierten Element.
 
-Oft gibt `activeElement` ein [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) oder
-[`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Objekt zurück, wenn es zu diesem Zeitpunkt die Textauswahl hat. In diesem Fall können Sie mit den Eigenschaften `selectionStart` und `selectionEnd` des Objekts weitere Details erhalten.
-Andere Male könnte das fokussierte Element ein {{HTMLElement("select")}}-Element (Menü) oder
-ein {{HTMLElement("input")}}-Element sein.
+Welche Elemente fokussierbar sind, variiert je nach Plattform und den aktuellen Einstellungen des Browsers. Zum Beispiel sind in Safari, entsprechend der macOS-Standardverhalten, Elemente, die keine Texteingabeelemente sind, standardmäßig nicht fokussierbar. Dies gilt es sei denn, die Einstellung „Voller Tastaturzugriff“ ist in den Systemeinstellungen aktiviert.
 
-Typischerweise kann ein Benutzer die Tabulatortaste drücken, um den Fokus auf der Seite zwischen
-fokussierbaren Elementen zu bewegen, und die Leertaste verwenden, um eines zu aktivieren (das heißt, um eine Schaltfläche zu drücken oder ein Optionsfeld umzuschalten). Welche Elemente fokussierbar sind, hängt von der Plattform
-und der aktuellen Konfiguration des Browsers ab. Beispielsweise sind auf macOS-Systemen Elemente, die keine Texteingabeelemente sind, standardmäßig nicht fokussierbar.
+In der Regel kann ein Benutzer die <kbd>Tab</kbd>-Taste drücken, um den Fokus auf der Seite zwischen fokussierbaren Elementen zu verschieben, und Tastaturgesten wie <kbd>Leerzeichen</kbd> oder <kbd>Eingabe</kbd> verwenden, um Klicks auf das fokussierte Element zu simulieren.
 
 > [!NOTE]
-> Fokus (welches Element Benutzereingabeereignisse empfängt) ist nicht dasselbe wie Auswahl (der aktuell hervorgehobene Teil des Dokuments). Sie können die aktuelle Auswahl mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) erhalten.
+> Fokus (welches Element Benutzereingabeevents empfängt) ist nicht dasselbe wie Auswahl (der aktuell hervorgehobene Teil des Dokuments). Sie können die aktuelle Auswahl mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) abrufen.
 
 ## Wert
 
-Das [`Element`](/de/docs/Web/API/Element), das derzeit den Fokus hat, {{HTMLElement("body")}} oder
-`null`, wenn kein Element fokussiert ist.
+Das tiefste [`Element`](/de/docs/Web/API/Element), das derzeit den Fokus hat.
+
+- Wenn sich das fokussierte Element innerhalb eines Shadow-Trees im aktuellen Dokument befindet (zum Beispiel ist das fokussierte Element in einem `iframe`, und das aufrufende `document` enthält dieses iframe), dann ist dies das Wurzelelement dieses Trees (in diesem Beispiel das `iframe`).
+- Wenn sich das fokussierte Element in einem Dokumentbaum befindet, der nicht vom aktuellen Dokument abstammt (zum Beispiel ist das fokussierte Element im Hauptdokument, und das aufrufende `document` ist ein eingebettetes iframe), dann ist dies `null`.
+- Wenn kein fokussiertes Element vorhanden ist, ist dies [`Document.body`](/de/docs/Web/API/Document/body) oder [`Document.documentElement`](/de/docs/Web/API/Document/documentElement).
 
 ## Beispiele
 

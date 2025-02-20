@@ -2,14 +2,25 @@
 title: Intl.Collator.prototype.resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Collator/resolvedOptions
 l10n:
-  sourceCommit: 537aeae8ea6f3f080941261af7229dba30f791ac
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`resolvedOptions()`** Methode von {{jsxref("Intl.Collator")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `Collator`-Objekts berechneten Optionen widerspiegeln.
+Die **`resolvedOptions()`**-Methode von {{jsxref("Intl.Collator")}}-Instanzen gibt ein neues Objekt zurück, das Eigenschaften enthält, die die während der Initialisierung dieses `Collator`-Objekts errechneten Optionen widerspiegeln.
 
-{{EmbedInteractiveExample("pages/js/intl-collator-prototype-resolvedoptions.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.Collator.prototype.resolvedOptions")}}
+
+```js interactive-example
+const numberDe = new Intl.NumberFormat("de-DE");
+const numberAr = new Intl.NumberFormat("ar");
+
+console.log(numberDe.resolvedOptions().numberingSystem);
+// Expected output: "latn"
+
+console.log(numberAr.resolvedOptions().numberingSystem);
+// Expected output: "arab"
+```
 
 ## Syntax
 
@@ -23,22 +34,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `Collator`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat folgende Eigenschaften, in der Reihenfolge, in der sie aufgelistet sind:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `Collator`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften in der angegebenen Reihenfolge:
 
 - `locale`
-  - : Das BCP 47 Sprach-Tag für die tatsächlich verwendete Sprache, bestimmt durch den [Sprachen-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur die Unicode-Erweiterungsschlüssel `co`, `kn` und `kf`, wenn angefordert und unterstützt, können in der Ausgabe enthalten sein.
+  - : Das BCP 47 Sprach-Tag für das tatsächlich verwendete Gebietsschema, das durch den [Locale-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation) bestimmt wurde. Nur die Unicode-Erweiterungsschlüssel `co`, `kn` und `kf` können, falls angefordert und unterstützt, in der Ausgabe enthalten sein.
 - `usage`
-  - : Der in dem `options`-Argument angegebene Wert, mit standardmäßiger Auffüllung, falls notwendig. Er ist entweder `"sort"` oder `"search"`. Der Standardwert ist `"sort"`.
+  - : Der für diese Eigenschaft im `options`-Argument angegebene Wert, mit ausgefülltem Standardwert, falls benötigt. Er ist entweder `"sort"` oder `"search"`. Der Standardwert ist `"sort"`.
 - `sensitivity`
-  - : Der in dem `options`-Argument angegebene Wert, mit standardmäßiger Auffüllung, falls notwendig. Er ist entweder `"base"`, `"accent"`, `"case"` oder `"variant"`. Der Standardwert ist `"variant"` für die Verwendung `"sort"`; es ist von der Sprache abhängig für die Verwendung `"search"`.
+  - : Der für diese Eigenschaft im `options`-Argument angegebene Wert, mit ausgefülltem Standardwert, falls benötigt. Es ist entweder `"base"`, `"accent"`, `"case"` oder `"variant"`. Der Standardwert ist `"variant"` für die Verwendung `"sort"`; er ist gebietsschemaabhängig für die Verwendung `"search"`.
 - `ignorePunctuation`
-  - : Der in dem `options`-Argument angegebene Wert, mit standardmäßiger Auffüllung, falls notwendig. Es ist ein boolean. Der Standardwert ist `true` für Thai (`th`) und `false` für alle anderen Sprachen.
+  - : Der für diese Eigenschaft im `options`-Argument angegebene Wert, mit ausgefülltem Standardwert, falls benötigt. Es ist ein boolean. Der Standardwert ist `true` für Thai (`th`) und `false` für alle anderen Sprachen.
 - `collation`
-  - : Der in dem `options`-Argument angegebene Wert oder mit dem Unicode-Erweiterungsschlüssel `"co"`, mit standardmäßiger Auffüllung, falls notwendig. Es ist ein unterstützter [Kollationstyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_collation_types) für diese Sprache. Der Standardwert ist `"default"`.
+  - : Der für diese Eigenschaft im `options`-Argument angegebene Wert, oder der über den Unicode-Erweiterungsschlüssel `"co"` angegebene Wert, mit ausgefülltem Standardwert, falls benötigt. Es ist ein unterstützter [Kollationstyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_collation_types) für dieses Gebietsschema. Der Standardwert ist `"default"`.
 - `numeric`
-  - : Der in dem `options`-Argument angegebene Wert oder mit dem Unicode-Erweiterungsschlüssel `"kn"`, mit standardmäßiger Auffüllung, falls notwendig. Es ist ein boolean. Der Standardwert ist `false`. Wenn die Implementierung diesen Unicode-Erweiterungsschlüssel nicht unterstützt, wird diese Eigenschaft ausgelassen.
+  - : Der für diese Eigenschaft im `options`-Argument angegebene Wert, oder der über den Unicode-Erweiterungsschlüssel `"kn"` angegebene Wert, mit ausgefülltem Standardwert, falls benötigt. Es ist ein boolean. Der Standardwert ist `false`. Falls die Implementierung diesen Unicode-Erweiterungsschlüssel nicht unterstützt, wird diese Eigenschaft weggelassen.
 - `caseFirst`
-  - : Der in dem `options`-Argument angegebene Wert oder mit dem Unicode-Erweiterungsschlüssel `"kf"`, mit standardmäßiger Auffüllung, falls notwendig. Es ist entweder `"upper"`, `"lower"` oder `"false"`. Der Standardwert ist `"false"`. Wenn die Implementierung diesen Unicode-Erweiterungsschlüssel nicht unterstützt, wird diese Eigenschaft ausgelassen.
+  - : Der für diese Eigenschaft im `options`-Argument angegebene Wert, oder der über den Unicode-Erweiterungsschlüssel `"kf"` angegebene Wert, mit ausgefülltem Standardwert, falls benötigt. Es ist entweder `"upper"`, `"lower"` oder `"false"`. Der Standardwert ist `"false"`. Falls die Implementierung diesen Unicode-Erweiterungsschlüssel nicht unterstützt, wird diese Eigenschaft weggelassen.
 
 ## Beispiele
 

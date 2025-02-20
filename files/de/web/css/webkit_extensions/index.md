@@ -1,5 +1,5 @@
 ---
-title: "-webkit-präfixierte CSS-Erweiterungen"
+title: -webkit-präfixierte CSS-Erweiterungen
 slug: Web/CSS/WebKit_Extensions
 l10n:
   sourceCommit: 6c8e52645dd3bc28340fbfd57439600b4fcba4d3

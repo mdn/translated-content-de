@@ -342,8 +342,8 @@ Wenn Sie dies tun, können Hintergrundbilder übereinander liegen. Die Hintergr�
 Die anderen `background-*` Eigenschaften können ebenso Komma-getrennte Werte verwenden wie `background-image`:
 
 ```css
-background-image: url(image1.png), url(image2.png), url(image3.png),
-  url(image4.png);
+background-image:
+  url(image1.png), url(image2.png), url(image3.png), url(image4.png);
 background-repeat: no-repeat, repeat-x, repeat;
 background-position:
   10px 20px,
@@ -374,7 +374,8 @@ Im Beispiel unten sind zwei Hintergrundbilder enthalten. Um die Stapelreihenfolg
 }
 
 .box {
-  background-image: url(https://mdn.github.io/shared-assets/images/examples/star.png),
+  background-image:
+    url(https://mdn.github.io/shared-assets/images/examples/star.png),
     url(https://mdn.github.io/shared-assets/images/examples/big-star.png);
 }
 ```

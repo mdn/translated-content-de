@@ -2,16 +2,16 @@
 title: min-height
 slug: Web/CSS/min-height
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Die **`min-height`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Mindesthöhe eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/used_value) der {{cssxref("height")}} Eigenschaft kleiner wird als der für `min-height` angegebene Wert.
+Die **`min-height`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt die Mindesthöhe eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/CSS_cascade/used_value) der {{cssxref("height")}}-Eigenschaft kleiner wird als der für `min-height` angegebene Wert.
 
 {{EmbedInteractiveExample("pages/css/min-height.html")}}
 
-Die Höhe des Elements wird auf den Wert von `min-height` gesetzt, wann immer `min-height` größer ist als {{cssxref("max-height")}} oder {{cssxref("height")}}.
+Die Höhe des Elements wird auf den Wert von `min-height` gesetzt, wenn `min-height` größer ist als {{cssxref("max-height")}} oder {{cssxref("height")}}.
 
 ## Syntax
 
@@ -44,23 +44,23 @@ min-height: unset;
 - {{cssxref("&lt;length&gt;")}}
   - : Definiert die `min-height` als absoluten Wert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Definiert die `min-height` als Prozentsatz der Höhe des umgebenden Blocks.
+  - : Definiert die `min-height` als Prozentsatz der Höhe des umschließenden Blocks.
 - `auto`
-  - : Der Browser berechnet und wählt eine `min-height` für das angegebene Element.
+  - : Der Browser berechnet und wählt eine `min-height` für das angegebene Element aus.
 - `max-content`
-  - : Die intrinsische bevorzugte `min-height`.
+  - : Die intrinsisch bevorzugte `min-height`.
 - `min-content`
   - : Die intrinsische minimale `min-height`.
 - `fit-content`
-  - : Nutzt den verfügbaren Platz, jedoch nicht mehr als [max-content](/de/docs/Web/CSS/max-content), also `min(max-content, max(min-content, stretch))`.
+  - : Nutzt den verfügbaren Platz, jedoch nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
-  - : Verwendet die `fit-content`-Formel, wobei der verfügbare Platz durch das angegebene Argument ersetzt wird, also `min(max-content, max(min-content, argument))`.
+  - : Verwendet die `fit-content`-Formel mit dem verfügbaren Platz, der durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, argument))`.
 - `stretch`
 
-  - : Begrenzt die minimale Höhe der [Margin-Box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Höhe seines [umschließenden Blocks](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block). Es versucht, die Margin-Box auf den verfügbaren Raum im umschließenden Block auszufüllen, verhält sich also in gewisser Weise ähnlich wie `100%`, wendet die resultierende Größe jedoch auf die Margin-Box anstatt auf die durch das [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box an.
+  - : Begrenzt die minimale Höhe der [Margenbox](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Höhe seines [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die Margenbox so zu erweitern, dass sie den verfügbaren Platz im umschließenden Block ausfüllt, und verhält sich in gewisser Weise ähnlich wie `100%`, wobei die resultierende Größe jedoch auf die Margenbox und nicht auf die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box angewendet wird.
 
     > [!NOTE]
-    > Um Aliase zu prüfen, die von Browsern für den Wert `stretch` verwendet werden, sowie deren Implementierungsstatus, siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
+    > Informationen zu Aliassen, die von Browsern für den Wert `stretch` verwendet werden, und zu dessen Implementierungsstatus finden Sie im Abschnitt [Browser-Kompatibilität](#browser_kompatibilität).
 
 ## Formale Definition
 
@@ -72,7 +72,7 @@ min-height: unset;
 
 ## Beispiele
 
-### Setzen der min-height
+### min-height festlegen
 
 ```css
 table {
@@ -99,5 +99,5 @@ form {
 - {{cssxref("min-inline-size")}}
 - {{cssxref("min-block-size")}}
 - {{cssxref("box-sizing")}}
-- [Einführung in das grundlegende CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
+- [Einführung in das CSS-basierte Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model)-Modul

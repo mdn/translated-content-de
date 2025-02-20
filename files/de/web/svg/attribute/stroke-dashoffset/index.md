@@ -2,17 +2,17 @@
 title: stroke-dashoffset
 slug: Web/SVG/Attribute/stroke-dashoffset
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das Attribut **`stroke-dashoffset`** ist ein Präsentationsattribut, das einen Versatz bei der Darstellung des zugehörigen Strichmusters festlegt.
+Das **`stroke-dashoffset`**-Attribut ist ein Präsentationsattribut, das einen Versatz bei der Darstellung des verbundenen Strichmusters definiert.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-dashoffset` auch als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-dashoffset')}} für mehr Informationen.
+> Als Präsentationsattribut hat `stroke-dashoffset` auch ein CSS-Entsprechung: {{cssxref("stroke-dashoffset")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -94,7 +94,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Anwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -125,7 +125,7 @@ svg {
   </tbody>
 </table>
 
-Der Versatz wird normalerweise in Benutzereinheiten ausgedrückt, die im Verhältnis zur {{SVGAttr('pathLength')}} aufgelöst werden. Wenn jedoch ein [\<percentage>](/de/docs/Web/SVG/Content_type#percentage) verwendet wird, wird der Wert als Prozentsatz des aktuellen Ansichtsfensters aufgelöst.
+Der Versatz wird normalerweise in Benutzereinheiten ausgedrückt, die sich auf die {{SVGAttr('pathLength')}} beziehen. Wenn jedoch ein [\<percentage>](/de/docs/Web/SVG/Content_type#percentage) verwendet wird, wird der Wert als Prozentsatz des aktuellen Ansichtsfensters berechnet.
 
 ## Spezifikationen
 

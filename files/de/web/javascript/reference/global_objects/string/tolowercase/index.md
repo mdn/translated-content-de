@@ -2,14 +2,21 @@
 title: String.prototype.toLowerCase()
 slug: Web/JavaScript/Reference/Global_Objects/String/toLowerCase
 l10n:
-  sourceCommit: c2445ce1dc3a0170e2fbfdbee10e18a7455c2282
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`toLowerCase()`** Methode von {{jsxref("String")}}-Werten gibt diese Zeichenkette in Kleinbuchstaben umgewandelt zurück.
+Die **`toLowerCase()`**-Methode von {{jsxref("String")}}-Werten gibt diese Zeichenkette in Kleinbuchstaben umgewandelt zurück.
 
-{{EmbedInteractiveExample("pages/js/string-tolowercase.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: String.toLowerCase()", "shorter")}}
+
+```js interactive-example
+const sentence = "The quick brown fox jumps over the lazy dog.";
+
+console.log(sentence.toLowerCase());
+// Expected output: "the quick brown fox jumps over the lazy dog."
+```
 
 ## Syntax
 
@@ -23,11 +30,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue Zeichenkette, die die aufrufende Zeichenkette in Kleinbuchstaben umgewandelt darstellt.
+Eine neue Zeichenkette, die die aufrufende Zeichenkette in Kleinbuchstaben konvertiert darstellt.
 
 ## Beschreibung
 
-Die `toLowerCase()`-Methode gibt den Wert der Zeichenkette in Kleinbuchstaben umgewandelt zurück. `toLowerCase()` beeinflusst den Wert der Zeichenkette `str` selbst nicht.
+Die Methode `toLowerCase()` gibt den Wert der Zeichenkette in Kleinbuchstaben umgewandelt zurück. `toLowerCase()` ändert nicht den Wert der Zeichenkette `str` selbst.
 
 ## Beispiele
 

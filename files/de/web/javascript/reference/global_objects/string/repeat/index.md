@@ -2,15 +2,21 @@
 title: String.prototype.repeat()
 slug: Web/JavaScript/Reference/Global_Objects/String/repeat
 l10n:
-  sourceCommit: fb85334ffa4a2c88d209b1074909bee0e0abd57a
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten erstellt und gibt eine neue Zeichenkette zurück,
-die die angegebene Anzahl von Kopien dieser Zeichenkette enthält, zusammengefügt.
+Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten erstellt und gibt einen neuen String zurück, der die angegebene Anzahl von Kopien dieses Strings enthält, zusammengefügt zu einem String.
 
-{{EmbedInteractiveExample("pages/js/string-repeat.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: String.repeat()", "shorter")}}
+
+```js interactive-example
+const mood = "Happy! ";
+
+console.log(`I feel ${mood.repeat(3)}`);
+// Expected output: "I feel Happy! Happy! Happy! "
+```
 
 ## Syntax
 
@@ -21,18 +27,17 @@ repeat(count)
 ### Parameter
 
 - `count`
-  - : Eine ganze Zahl zwischen `0` und
-    {{jsxref("Number/POSITIVE_INFINITY", "+Infinity")}}, die angibt,
-    wie oft die Zeichenkette wiederholt werden soll.
+  - : Eine Ganzzahl zwischen `0` und
+    {{jsxref("Number/POSITIVE_INFINITY", "+Infinity")}}, die angibt, wie oft der String wiederholt werden soll.
 
 ### Rückgabewert
 
-Eine neue Zeichenkette, die die angegebene Anzahl von Kopien der gegebenen Zeichenkette enthält.
+Ein neuer String, der die angegebene Anzahl von Kopien des gegebenen Strings enthält.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `count` negativ ist oder wenn `count` die maximale Zeichenkettenlänge überschreitet.
+  - : Wird ausgelöst, wenn `count` negativ ist oder wenn `count` die maximale Stringlänge überschreitet.
 
 ## Beispiele
 

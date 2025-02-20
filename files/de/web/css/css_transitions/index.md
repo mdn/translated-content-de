@@ -2,31 +2,36 @@
 title: CSS-Übergänge
 slug: Web/CSS/CSS_transitions
 l10n:
-  sourceCommit: c0daf1f038fdbdb62d71bfdeaf3a0a083660792c
+  sourceCommit: 32a1f3fd761455da4ac94e89e50efb07fb322b76
 ---
 
 {{CSSRef}}
 
-Das **CSS transitions** Modul ermöglicht es Ihnen, allmähliche Übergänge zwischen den Werten bestimmter CSS-Eigenschaften zu erstellen. Das Verhalten dieser Übergänge kann durch die Angabe der `easing`-Funktion, der Dauer und anderer Attribute gesteuert werden.
+Das **CSS transitions**-Modul ermöglicht es, schrittweise Übergänge zwischen den Werten spezifischer CSS-Eigenschaften zu erstellen. Das Verhalten dieser Übergänge kann durch die Angabe von Easing-Funktion, Dauer und weiteren Attributen gesteuert werden.
 
 ## Referenz
 
 ### Eigenschaften
 
 - {{cssxref("transition")}}
+- {{cssxref("transition-behavior")}}
 - {{cssxref("transition-delay")}}
 - {{cssxref("transition-duration")}}
 - {{cssxref("transition-property")}}
 - {{cssxref("transition-timing-function")}}
 
-### At-Regeln
+### At-Rules
 
 - {{cssxref("@starting-style")}}
+
+### Schnittstellen
+
+- [`CSSStartingStyleRule`](/de/docs/Web/API/CSSStartingStyleRule)
 
 ## Leitfäden
 
 - [CSS-Übergänge verwenden](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
-  - : Schritt-für-Schritt-Anleitung zur Erstellung von Übergängen mit CSS. Dieser Artikel beschreibt jede relevante CSS-Eigenschaft und erklärt, wie sie miteinander interagieren.
+  - : Eine Schritt-für-Schritt-Anleitung, wie Übergänge mit CSS erstellt werden. Dieser Artikel beschreibt jede relevante CSS-Eigenschaft und erklärt, wie sie miteinander interagieren.
 
 ## Spezifikationen
 
@@ -34,5 +39,5 @@ Das **CSS transitions** Modul ermöglicht es Ihnen, allmähliche Übergänge zwi
 
 ## Siehe auch
 
-- Die {{cssxref("interpolate-size")}} Eigenschaft und die {{cssxref("calc-size()")}} Funktion zur Aktivierung von Übergängen zu und von {{Glossary("Intrinsic_Size", "intrinsischen Größenwerten")}}.
-- Das [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) Modul.
+- Die {{cssxref("interpolate-size")}}-Eigenschaft und die Funktion {{cssxref("calc-size()")}} zum Aktivieren von Übergängen zu und von {{Glossary("Intrinsic_Size", "Werten für intrinsische Größe")}}.
+- Modul [CSS-Animationen](/de/docs/Web/CSS/CSS_animations).

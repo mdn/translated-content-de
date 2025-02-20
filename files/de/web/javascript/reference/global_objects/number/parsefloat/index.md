@@ -2,14 +2,29 @@
 title: Number.parseFloat()
 slug: Web/JavaScript/Reference/Global_Objects/Number/parseFloat
 l10n:
-  sourceCommit: fb85334ffa4a2c88d209b1074909bee0e0abd57a
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Number.parseFloat()`** analysiert ein Argument und gibt eine Gleitkommazahl zurück. Kann keine Nummer aus dem Argument analysiert werden, gibt sie {{jsxref("NaN")}} zurück.
+Die statische Methode **`Number.parseFloat()`** analysiert ein Argument und gibt eine Gleitkommazahl zurück. Wenn aus dem Argument keine Zahl analysiert werden kann, gibt sie {{jsxref("NaN")}} zurück.
 
-{{EmbedInteractiveExample("pages/js/number-parsefloat.html")}}
+{{InteractiveExample("JavaScript Demo: Number.parseFloat()")}}
+
+```js interactive-example
+function circumference(r) {
+  if (Number.isNaN(Number.parseFloat(r))) {
+    return 0;
+  }
+  return parseFloat(r) * 2.0 * Math.PI;
+}
+
+console.log(circumference("4.567abcdefgh"));
+// Expected output: 28.695307297889173
+
+console.log(circumference("abcdefgh"));
+// Expected output: 0
+```
 
 ## Syntax
 
@@ -20,13 +35,13 @@ Number.parseFloat(string)
 ### Parameter
 
 - `string`
-  - : Der zu analysierende Wert, [in einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende {{Glossary("whitespace", "Leerzeichen")}} in diesem Argument werden ignoriert.
+  - : Der zu analysierende Wert, [zu einem String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führender {{Glossary("whitespace", "Whitespace")}} in diesem Argument wird ignoriert.
 
 ### Rückgabewert
 
-Eine Gleitkommazahl, die aus dem übergebenen `string` analysiert wurde.
+Eine Gleitkommazahl, die aus dem angegebenen `string` analysiert wurde.
 
-Oder {{jsxref("NaN")}}, wenn das erste Nicht-Leerzeichen-Zeichen nicht in eine Zahl umgewandelt werden kann.
+Oder {{jsxref("NaN")}}, wenn das erste nicht-Whitespace-Zeichen nicht in eine Zahl umgewandelt werden kann.
 
 ## Beispiele
 
@@ -38,7 +53,7 @@ Diese Methode hat die gleiche Funktionalität wie die globale Funktion {{jsxref(
 Number.parseFloat === parseFloat; // true
 ```
 
-Ihr Zweck ist die Modularisierung von globalen Objekten.
+Ihr Zweck ist die Modularisierung globaler Funktionen.
 
 Weitere Details und Beispiele finden Sie unter {{jsxref("parseFloat()")}}.
 

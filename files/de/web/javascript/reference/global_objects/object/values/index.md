@@ -2,14 +2,25 @@
 title: Object.values()
 slug: Web/JavaScript/Reference/Global_Objects/Object/values
 l10n:
-  sourceCommit: 4ce6b9526bfa5b44a518e8ecb21a9894973136bd
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`Object.values()`** statische Methode gibt ein Array mit den eigenen aufzählbaren, durch Zeichenfolgen indizierten Eigenschaftswerten eines gegebenen Objekts zurück.
+Die statische Methode **`Object.values()`** gibt ein Array mit den eigenen aufzählbaren, string-schlüsselbasierten Eigenschaftswerten eines gegebenen Objekts zurück.
 
-{{EmbedInteractiveExample("pages/js/object-values.html")}}
+{{InteractiveExample("JavaScript Demo: Object.values()")}}
+
+```js interactive-example
+const object1 = {
+  a: "somestring",
+  b: 42,
+  c: false,
+};
+
+console.log(Object.values(object1));
+// Expected output: Array ["somestring", 42, false]
+```
 
 ## Syntax
 
@@ -24,13 +35,13 @@ Object.values(obj)
 
 ### Rückgabewert
 
-Ein Array, das die eigenen aufzählbaren, durch Zeichenfolgen indizierten Eigenschaftswerte des gegebenen Objekts enthält.
+Ein Array, das die eigenen aufzählbaren, string-schlüsselbasierten Eigenschaftswerte des gegebenen Objekts enthält.
 
 ## Beschreibung
 
-`Object.values()` gibt ein Array zurück, dessen Elemente Werte der aufzählbaren, durch Zeichenfolgen indizierten Eigenschaften des direkt auf `object` befindlichen Objekts sind. Dies entspricht dem Durchlaufen mit einer {{jsxref("Statements/for...in", "for...in")}} Schleife, mit dem Unterschied, dass eine `for...in` Schleife auch Eigenschaften in der Prototypenkette aufzählt. Die Reihenfolge des durch `Object.values()` zurückgegebenen Arrays ist dieselbe wie die, die von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird.
+`Object.values()` gibt ein Array zurück, dessen Elemente die Werte der aufzählbaren, string-schlüsselbasierten Eigenschaften sind, die direkt auf dem `Objekt` gefunden werden. Dies entspricht dem Iterieren mit einer {{jsxref("Statements/for...in", "for...in")}}-Schleife, mit dem Unterschied, dass eine `for...in`-Schleife auch Eigenschaften in der Prototyp-Kette auflistet. Die Reihenfolge des von `Object.values()` zurückgegebenen Arrays ist identisch mit der, die von einer {{jsxref("Statements/for...in", "for...in")}}-Schleife bereitgestellt wird.
 
-Wenn Sie die Eigenschaftsschlüssel benötigen, verwenden Sie stattdessen {{jsxref("Object.keys()")}}. Wenn Sie sowohl die Eigenschaftsschlüssel als auch die Werte benötigen, verwenden Sie {{jsxref("Object.entries()")}}.
+Wenn Sie die Eigenschaftsschlüssel benötigen, verwenden Sie {{jsxref("Object.keys()")}}. Wenn Sie sowohl die Eigenschaftsschlüssel als auch die Werte benötigen, verwenden Sie {{jsxref("Object.entries()")}}.
 
 ## Beispiele
 
@@ -66,7 +77,7 @@ console.log(Object.values(myObj)); // ['bar']
 
 ### Verwendung von Object.values() bei Primitiven
 
-Nicht-Objekt-Argumente werden [zu Objekten gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) können nicht zu Objekten gemacht werden und werfen sofort einen {{jsxref("TypeError")}}. Nur Zeichenfolgen können eigene aufzählbare Eigenschaften haben, während alle anderen Primitiven ein leeres Array zurückgeben.
+Nicht-Objekt-Argumente werden [zu Objekten konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) können nicht zu Objekten konvertiert werden und werfen sofort einen {{jsxref("TypeError")}}. Nur Strings können eigene aufzählbare Eigenschaften haben, während bei allen anderen Primitiven ein leeres Array zurückgegeben wird.
 
 ```js
 // Strings have indices as enumerable own properties
@@ -87,7 +98,7 @@ console.log(Object.values(100)); // []
 ## Siehe auch
 
 - [Polyfill von `Object.values` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
-- [Aufzählbarkeit und Eigentümerschaft von Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
+- [Enumerierbarkeit und Zugehörigkeit von Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
 - {{jsxref("Object.keys()")}}
 - {{jsxref("Object.entries()")}}
 - {{jsxref("Object.prototype.propertyIsEnumerable()")}}

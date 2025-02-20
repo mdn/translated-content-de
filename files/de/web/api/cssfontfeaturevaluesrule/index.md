@@ -2,12 +2,12 @@
 title: CSSFontFeatureValuesRule
 slug: Web/API/CSSFontFeatureValuesRule
 l10n:
-  sourceCommit: dd3be0c826d1a611b13c98e7e0b4c38d8eb3b146
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSFontFeatureValuesRule`**-Schnittstelle repräsentiert eine {{cssxref("@font-feature-values")}} [At-Regel](/de/docs/Web/CSS/At-rule), die es Entwicklern ermöglicht, für jede Schriftart einen gemeinsamen Namen zuzuweisen, um Feature-Indizes festzulegen, die in {{cssxref("font-variant-alternates")}} verwendet werden sollen.
+Das **`CSSFontFeatureValuesRule`**-Interface repräsentiert eine {{cssxref("@font-feature-values")}} [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rule), die es Entwicklern ermöglicht, für jede Schriftart einen gemeinsamen Namen zuzuweisen, um Indizes für Features zu spezifizieren, die in {{cssxref("font-variant-alternates")}} verwendet werden sollen.
 
 {{InheritanceDiagram}}
 
@@ -16,7 +16,7 @@ Die **`CSSFontFeatureValuesRule`**-Schnittstelle repräsentiert eine {{cssxref("
 _Erbt Eigenschaften von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSFontFeatureValuesRule.fontFamily`](/de/docs/Web/API/CSSFontFeatureValuesRule/fontFamily)
-  - : Ein String, der die Schriftfamilie identifiziert, für die diese Regel gilt.
+  - : Ein String, der die Schriftfamilie identifiziert, auf die diese Regel angewendet wird.
 
 ## Instanz-Methoden
 
@@ -24,9 +24,9 @@ _Erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-### Schriftfamilie lesen
+### Schriftfamilie auslesen
 
-In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, eine für die Schriftfamilie _Font One_ und die andere für _Font Two_. Anschließend verwenden wir das CSSOM, um diese Schriftfamilien auszulesen und protokollieren sie.
+In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, eine für die Schriftfamilie _Font One_ und eine andere für _Font Two_. Anschließend verwenden wir das CSSOM, um diese Schriftfamilien auszulesen und sie im Log anzuzeigen.
 
 #### HTML
 

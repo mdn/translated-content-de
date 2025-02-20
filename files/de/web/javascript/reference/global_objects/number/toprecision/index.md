@@ -2,14 +2,29 @@
 title: Number.prototype.toPrecision()
 slug: Web/JavaScript/Reference/Global_Objects/Number/toPrecision
 l10n:
-  sourceCommit: 2de0ebb6bde4500adb9b7f497763210066f4e395
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`toPrecision()`** Methode von {{jsxref("Number")}}-Werten gibt eine Zeichenfolge zurück, die diese Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt.
+Die **`toPrecision()`**-Methode von {{jsxref("Number")}}-Werten gibt einen String zurück, der diese Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt.
 
-{{EmbedInteractiveExample("pages/js/number-toprecision.html")}}
+{{InteractiveExample("JavaScript Demo: Number.toPrecision()")}}
+
+```js interactive-example
+function precise(x) {
+  return x.toPrecision(4);
+}
+
+console.log(precise(123.456));
+// Expected output: "123.5"
+
+console.log(precise(0.004));
+// Expected output: "0.004000"
+
+console.log(precise(1.23e5));
+// Expected output: "1.230e+5"
+```
 
 ## Syntax
 
@@ -21,13 +36,13 @@ toPrecision(precision)
 ### Parameter
 
 - `precision` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der die Anzahl signifikanter Stellen angibt.
+  - : Eine ganze Zahl, die die Anzahl signifikanter Stellen angibt.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn diese Methode auf einem Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
+  - : Wird ausgelöst, wenn diese Methode auf ein Objekt angewendet wird, das kein {{jsxref("Number")}} ist.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die die gegebene Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt. Wissenschaftliche Notation wird verwendet, wenn der Exponent größer oder gleich `precision` oder kleiner als -6 ist. Hat dasselbe Verhalten wie {{jsxref("Number.prototype.toString()")}}, wenn das `precision` Argument weggelassen wird.
+Ein String, der die gegebene Zahl unter Verwendung der angegebenen Anzahl signifikanter Stellen darstellt. Wissenschaftliche Notation wird verwendet, wenn der Exponent größer oder gleich `precision` ist oder kleiner als -6. Verhält sich genauso wie {{jsxref("Number.prototype.toString()")}}, wenn das Argument `precision` weggelassen wird.
 
 ### Ausnahmen
 

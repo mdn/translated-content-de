@@ -2,17 +2,17 @@
 title: fill-opacity
 slug: Web/SVG/Attribute/fill-opacity
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`fill-opacity`**-Attribut ist ein Präsentationsattribut, das die Opazität des Farbservers (_Farbe_, _Verlauf_, _Muster_, etc.) definiert, der auf eine Form angewendet wird.
+Das Attribut **`fill-opacity`** ist ein Präsentationsattribut, das die Deckkraft des Farbanschlusses (_color_, _gradient_, _pattern_ etc.) definiert, der auf eine Form angewendet wird.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill-opacity` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut hat `fill-opacity` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("fill-opacity")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Dieses Attribut können Sie mit den folgenden SVG-Elementen verwenden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -53,7 +53,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -80,7 +80,7 @@ svg {
 </table>
 
 > [!NOTE]
-> SVG2 führt Prozentwerte für `fill-opacity` ein, diese werden jedoch noch nicht weitreichend unterstützt (_siehe [Browser-Kompatibilität](#browser-kompatibilität) unten_). Daher ist es am besten, die Opazität mit einem Wert im Bereich `[0-1]` festzulegen.
+> SVG2 führt Prozentwerte für `fill-opacity` ein, jedoch wird dies noch nicht weitreichend unterstützt (_Siehe [Browser-Kompatibilität](#browser-kompatibilität) unten_). Daher ist es eine bewährte Praxis, die Deckkraft mit einem Wert im Bereich `[0-1]` festzulegen.
 
 ## Spezifikationen
 
@@ -92,7 +92,7 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("fill-opacity")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("fill-opacity")}}
 - {{SVGAttr("opacity")}}
 - {{SVGAttr("stop-opacity")}}
 - {{SVGAttr("stroke-opacity")}}

@@ -2,14 +2,25 @@
 title: DataView.prototype.getUint8()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getUint8
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`getUint8()`** Methode von {{jsxref("DataView")}} Instanzen liest 1 Byte an dem angegebenen Byte-Offset dieses `DataView` und interpretiert es als 8-Bit-Integer ohne Vorzeichen.
+Die **`getUint8()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 1 Byte am angegebenen Byte-Offset dieses `DataView` und interpretiert es als 8-Bit-unsigned Integer.
 
-{{EmbedInteractiveExample("pages/js/dataview-getuint8.html")}}
+{{InteractiveExample("JavaScript Demo: DataView.getUint8()")}}
+
+```js interactive-example
+// Create an ArrayBuffer with a size in bytes
+const buffer = new ArrayBuffer(16);
+
+const view = new DataView(buffer);
+view.setUint8(1, 255); // Max unsigned 8-bit integer
+
+console.log(view.getUint8(1));
+// Expected output: 255
+```
 
 ## Syntax
 
@@ -20,16 +31,16 @@ getUint8(byteOffset)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset, in Bytes, vom Anfang der Ansicht, von dem die Daten gelesen werden sollen.
+  - : Der Offset in Bytes vom Beginn der Ansicht, von dem die Daten gelesen werden sollen.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert von 0 bis 255, einschließlich.
+Eine Ganzzahl von 0 bis einschließlich 255.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinauslesen würde.
 
 ## Beispiele
 
@@ -51,7 +62,7 @@ console.log(dataview.getUint8(1)); // 1
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Uint8Array")}}

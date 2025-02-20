@@ -1,15 +1,38 @@
 ---
-title: Unary plus (+)
+title: Unäres Plus (+)
 slug: Web/JavaScript/Reference/Operators/Unary_plus
 l10n:
-  sourceCommit: f616cb604af851f77f8cd59368e94ee3e43a8838
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **unäre Plus-Operator (`+`)** steht vor seinem Operanden und ergibt seinen Operanden, versucht jedoch, [ihn in eine Zahl umzuwandeln](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), falls er es nicht bereits ist.
+Der **unäre Plusoperator (`+`)** steht vor seinem Operanden und wertet zu seinem Operanden aus, versucht jedoch, [ihn in eine Zahl umzuwandeln](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), falls er es nicht bereits ist.
 
-{{EmbedInteractiveExample("pages/js/expressions-unary-plus.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Unary plus operator", "taller")}}
+
+```js interactive-example
+const x = 1;
+const y = -1;
+
+console.log(+x);
+// Expected output: 1
+
+console.log(+y);
+// Expected output: -1
+
+console.log(+"");
+// Expected output: 0
+
+console.log(+true);
+// Expected output: 1
+
+console.log(+false);
+// Expected output: 0
+
+console.log(+"hello");
+// Expected output: NaN
+```
 
 ## Syntax
 
@@ -19,9 +42,9 @@ Der **unäre Plus-Operator (`+`)** steht vor seinem Operanden und ergibt seinen 
 
 ## Beschreibung
 
-Obwohl die unäre Negation (`-`) ebenfalls Nicht-Zahlen umwandeln kann, ist das unäre Plus die schnellste und bevorzugte Methode, um etwas in eine Zahl umzuwandeln, da es keine anderen Operationen auf die Zahl ausführt.
+Obwohl die unäre Negation (`-`) Nicht-Zahlen ebenfalls umwandeln kann, ist das unäre Plus der schnellste und bevorzugte Weg, etwas in eine Zahl umzuwandeln, da es keine weiteren Operationen auf der Zahl ausführt.
 
-Das unäre Plus führt genau dieselben Schritte wie die normale [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) aus, die von den meisten eingebauten Methoden, die Zahlen erwarten, verwendet wird. Es kann sowohl Zeichenfolgendarstellungen von ganzen Zahlen und Fließkommazahlen als auch die Nicht-Zeichenfolgenwerte `true`, `false` und `null` umwandeln. Ganze Zahlen im Dezimal- und Hexadezimalformat (mit `0x`-Präfix) werden unterstützt. Negative Zahlen werden unterstützt (jedoch nicht für Hexadezimalzahlen). Wenn ein bestimmter Wert nicht analysiert werden kann, wird er zu {{jsxref("NaN")}} ausgewertet. Im Gegensatz zu anderen arithmetischen Operatoren, die sowohl mit Zahlen als auch mit [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) arbeiten, führt die Verwendung des `+`-Operators auf BigInt-Werten zu einem {{jsxref("TypeError")}}.
+Das unäre Plus führt genau die gleichen Schritte wie die normale [Number-Konvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) durch, die von den meisten eingebauten Methoden erwartet wird, die Zahlen erfordern. Es kann sowohl String-Darstellungen von Ganzzahlen und Gleitkommazahlen als auch die Nicht-String-Werte `true`, `false` und `null` umwandeln. Ganzzahlen im dezimalen und hexadezimalen (`0x`-vorangestellten) Format werden unterstützt. Negative Zahlen werden unterstützt (außer im hexadezimalen Format). Kann ein bestimmter Wert nicht verarbeitet werden, wird er zu {{jsxref("NaN")}} ausgewertet. Im Gegensatz zu anderen arithmetischen Operatoren, die sowohl mit Zahlen als auch mit [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) arbeiten, wirft die Verwendung des `+`-Operators auf BigInt-Werten eine {{jsxref("TypeError")}} aus.
 
 ## Beispiele
 
@@ -63,7 +86,7 @@ console.log(+y);
 - [Division (`/`)](/de/docs/Web/JavaScript/Reference/Operators/Division)
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
 - [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
-- [Exponentialrechnung (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
 - [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)

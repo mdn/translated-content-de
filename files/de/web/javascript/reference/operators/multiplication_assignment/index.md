@@ -2,14 +2,24 @@
 title: Multiplikationszuweisung (*=)
 slug: Web/JavaScript/Reference/Operators/Multiplication_assignment
 l10n:
-  sourceCommit: 145e8c316fcdd8f67f3595fc52b0bbfacf7b949d
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Multiplikationszuweisungsoperator (`*=`)** führt eine [Multiplikation](/de/docs/Web/JavaScript/Reference/Operators/Multiplication) mit den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der **Multiplikationszuweisungsoperator (`*=`)** führt eine [Multiplikation](/de/docs/Web/JavaScript/Reference/Operators/Multiplication) der beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
-{{EmbedInteractiveExample("pages/js/expressions-multiplication-assignment.html")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Multiplication assignment operator")}}
+
+```js interactive-example
+let a = 2;
+
+console.log((a *= 3));
+// Expected output: 6
+
+console.log((a *= "hello"));
+// Expected output: NaN
+```
 
 ## Syntax
 
@@ -19,7 +29,7 @@ x *= y
 
 ## Beschreibung
 
-`x *= y` ist gleichbedeutend mit `x = x * y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x *= y` ist äquivalent zu `x = x * y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 

@@ -2,14 +2,25 @@
 title: DataView.prototype.getInt32()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getInt32
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`getInt32()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 4 Bytes, beginnend beim angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit-Ganzzahl mit Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die **`getInt32()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 4 Bytes, beginnend beim angegebenen Byte-Offset dieses `DataView`, und interpretiert sie als 32-Bit vorzeichenbehaftete Ganzzahl. Es gibt keine Ausrichtungsbeschränkung; mehrbyteige Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
 
-{{EmbedInteractiveExample("pages/js/dataview-getint32.html")}}
+{{InteractiveExample("JavaScript Demo: DataView.getInt32()")}}
+
+```js interactive-example
+// Create an ArrayBuffer with a size in bytes
+const buffer = new ArrayBuffer(16);
+
+const view = new DataView(buffer);
+view.setInt32(1, 2147483647); // Max signed 32-bit integer
+
+console.log(view.getInt32(1));
+// Expected output: 2147483647
+```
 
 ## Syntax
 
@@ -21,18 +32,18 @@ getInt32(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes, von dem aus die Daten am Anfang der Ansicht gelesen werden.
+  - : Der Offset in Bytes, vom Anfang der Ansicht, von dem die Daten gelesen werden.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert sind. Falls `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian-")}} Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Eine Ganzzahl von -2147483648 bis 2147483647, inklusive.
+Eine Ganzzahl im Bereich von -2147483648 bis 2147483647, einschließlich.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass es über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt wird, dass über das Ende der Ansicht hinaus gelesen würde.
 
 ## Beispiele
 
@@ -54,7 +65,7 @@ console.log(dataview.getInt32(1)); // 16909060
 
 ## Siehe auch
 
-- [Leitfaden zu JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Int32Array")}}

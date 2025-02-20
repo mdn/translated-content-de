@@ -1,28 +1,28 @@
 ---
-title: <prozentual>
+title: <percentage>
 slug: Web/CSS/percentage
 l10n:
-  sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Der **`<percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen prozentualen Wert. Er wird oft verwendet, um eine Größe relativ zu einem übergeordneten Element eines Objekts zu definieren. Zahlreiche Eigenschaften können Prozentsätze verwenden, wie zum Beispiel {{CSSxRef("width")}}, {{CSSxRef("height")}}, {{CSSxRef("margin")}}, {{CSSxRef("padding")}} und {{CSSxRef("font-size")}}.
+Der **`<percentage>`** [CSS](/de/docs/Web/CSS)-[Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert einen Prozentwert. Er wird häufig verwendet, um eine Größe relativ zum übergeordneten Element eines Elements zu definieren. Zahlreiche Eigenschaften können Prozentsätze verwenden, wie zum Beispiel {{CSSxRef("width")}}, {{CSSxRef("height")}}, {{CSSxRef("margin")}}, {{CSSxRef("padding")}} und {{CSSxRef("font-size")}}.
 
 > [!NOTE]
-> Nur berechnete Werte können vererbt werden. Daher wird, selbst wenn ein prozentualer Wert für die übergeordnete Eigenschaft verwendet wird, ein reeller Wert (wie eine Breite in Pixeln für einen {{CSSxRef("&lt;length&gt;")}}-Wert) auf der vererbten Eigenschaft zugänglich sein, nicht der prozentuale Wert.
+> Es können nur berechnete Werte vererbt werden. Selbst wenn auf der übergeordneten Eigenschaft ein Prozentwert verwendet wird, ist auf der geerbten Eigenschaft ein realer Wert (wie eine Breite in Pixeln für einen {{CSSxRef("&lt;length&gt;")}}-Wert) zugänglich, nicht der Prozentwert.
 
 ## Syntax
 
-Der `<percentage>`-Datentyp besteht aus einem {{CSSxRef("&lt;number&gt;")}}, gefolgt vom Prozentzeichen (`%`). Optional kann ihm ein einzelnes `+` oder `-` Zeichen vorangestellt werden, obwohl negative Werte nicht für alle Eigenschaften gültig sind. Wie bei allen CSS-Dimensionen gibt es keinen Leerraum zwischen dem Symbol und der Zahl.
+Der `<percentage>`-Datentyp besteht aus einem {{CSSxRef("&lt;number&gt;")}}, gefolgt vom Prozentzeichen (`%`). Optional kann er durch ein einzelnes `+`- oder `-`-Zeichen vorangestellt werden, obwohl negative Werte nicht für alle Eigenschaften gültig sind. Wie bei allen CSS-Maßen gibt es keinen Zwischenraum zwischen dem Symbol und der Zahl.
 
 ## Interpolation
 
-Bei Animationen werden die Werte des `<percentage>`-Datentyps als reale, Gleitkommazahlen {{Glossary("interpolation", "interpoliert")}}. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
+Bei Animationen werden Werte des `<percentage>`-Datentyps als reale Gleitkommazahlen {{Glossary("interpolation", "interpoliert")}}. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verknüpfte [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
 
 ## Beispiele
 
-### Breite und margin-left
+### Width und margin-left
 
 ```html
 <div style="background-color:navy;">
@@ -35,7 +35,7 @@ Bei Animationen werden die Werte des `<percentage>`-Datentyps als reale, Gleitko
 </div>
 ```
 
-Das obige HTML führt zu folgender Ausgabe:
+Das obige HTML gibt folgendes aus:
 
 {{EmbedLiveSample('Width_and_margin-left', '600', 140)}}
 
@@ -49,7 +49,7 @@ Das obige HTML führt zu folgender Ausgabe:
 </div>
 ```
 
-Das obige HTML führt zu folgender Ausgabe:
+Das obige HTML gibt folgendes aus:
 
 {{EmbedLiveSample('Font-size', 'auto', 160)}}
 

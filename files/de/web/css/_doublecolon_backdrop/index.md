@@ -1,5 +1,5 @@
 ---
-title: "::backdrop"
+title: ::backdrop
 slug: Web/CSS/::backdrop
 l10n:
   sourceCommit: b64538dc77e9a6181b882bd54bdbb307c1430ba8
@@ -64,7 +64,8 @@ Wir fügen ein Hintergrundbild für das Backdrop hinzu und erstellen mithilfe de
 
 ```css
 ::backdrop {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       circle,
       #fff 0 5vw,
       transparent 5vw 20vw,

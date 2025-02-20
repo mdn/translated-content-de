@@ -2,14 +2,14 @@
 title: tabs.update()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/update
 l10n:
-  sourceCommit: a3a52b0f278b81ca2638a8662a6e82a4447c5485
+  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
 ---
 
 {{AddonSidebar}}
 
-Navigieren Sie den Tab zu einer neuen URL oder ändern Sie andere Eigenschaften des Tabs.
+Rufen Sie einen neuen URL auf oder ändern Sie andere Eigenschaften des Tabs.
 
-Um diese Funktion zu verwenden, übergeben Sie die ID des zu aktualisierenden Tabs und ein `updateProperties`-Objekt, das die zu ändernden Eigenschaften enthält. Eigenschaften, die nicht in `updateProperties` angegeben sind, werden nicht geändert.
+Um diese Funktion zu verwenden, übergeben Sie die ID des zu aktualisierenden Tabs und ein `updateProperties`-Objekt, das die zu ändernden Eigenschaften enthält. Eigenschaften, die im `updateProperties`-Objekt nicht angegeben sind, werden nicht geändert.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -28,53 +28,53 @@ let updating = browser.tabs.update(
   - : `integer`. Standardmäßig der ausgewählte Tab des aktuellen Fensters.
 - `updateProperties`
 
-  - : `object`. Die Menge der Eigenschaften, die für diesen Tab aktualisiert werden sollen. Weitere Informationen zu diesen Eigenschaften finden Sie in der {{WebExtAPIRef("tabs.Tab")}} Dokumentation.
+  - : `object`. Die Menge von Eigenschaften, die in diesem Tab aktualisiert werden sollen. Weitere Informationen zu diesen Eigenschaften finden Sie in der {{WebExtAPIRef("tabs.Tab")}}-Dokumentation.
 
     - `active` {{optional_inline}}
-      - : `boolean`. Ob der Tab aktiv werden soll. Beeinflusst nicht, ob das Fenster fokussiert ist (siehe {{WebExtAPIRef('windows.update')}}). Wenn `true`, werden nicht-aktive hervorgehobene Tabs nicht mehr hervorgehoben. Wenn `false`, passiert nichts.
+      - : `boolean`. Ob der Tab aktiv werden soll. Hat keinen Einfluss darauf, ob das Fenster fokussiert wird (siehe {{WebExtAPIRef('windows.update')}}). Wenn `true`, werden nicht-aktive hervorgehobene Tabs nicht mehr hervorgehoben. Wenn `false`, passiert nichts.
     - `autoDiscardable` {{optional_inline}}
-      - : `boolean`. Ob der Tab vom Browser verworfen werden kann. Der Standardwert ist `true`. Wenn auf `false` gesetzt, kann der Browser den Tab nicht automatisch verwerfen. Der Tab kann jedoch durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
+      - : `boolean`. Ob der Tab durch den Browser verworfen werden kann. Der Standardwert ist `true`. Wenn `false` gesetzt ist, kann der Tab nicht automatisch verworfen werden. Der Tab kann jedoch durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
     - `highlighted` {{optional_inline}}
 
-      - : `boolean`. Fügt den Tab zur aktuellen Auswahl hinzu oder entfernt ihn. Wenn `true` und der Tab nicht hervorgehoben ist, wird er standardmäßig aktiv.
+      - : `boolean`. Fügt den Tab zur aktuellen Auswahl hinzu oder entfernt ihn daraus. Wenn `true` und der Tab nicht hervorgehoben ist, wird er standardmäßig aktiv.
 
-        Wenn Sie den Tab nur hervorheben möchten, ohne ihn zu aktivieren, akzeptiert Firefox das Setzen von `highlighted` auf `true` und `active` auf `false`. Andere Browser können den Tab selbst in diesem Fall aktivieren.
+        Wenn Sie den Tab nur hervorheben möchten, ohne ihn zu aktivieren, akzeptiert Firefox das Setzen von `highlighted` auf `true` und `active` auf `false`. Andere Browser könnten den Tab auch in diesem Fall aktivieren.
 
     - `loadReplace` {{optional_inline}}
 
-      - : `boolean`. Ob die neue URL die alte URL in der Navigation des Tabs ersetzen soll, wie über die "Zurück"-Taste aufgerufen.
+      - : `boolean`. Ob die neue URL die alte URL in der Navigationshistorie des Tabs, wie sie über die "Zurück"-Taste erreichbar ist, ersetzen soll.
 
-        Beispielsweise, wenn der Benutzer einen neuen Tab mit Strg+T erstellt. Standardmäßig würde in Firefox "about:newtab" geladen. Wenn Ihre Erweiterung dann diese Seite mit `tabs.update` aktualisiert, ohne `loadReplace`, wird die "Zurück"-Taste aktiviert und führt den Benutzer zurück zu "about:newtab". Wenn die Erweiterung `loadReplace` setzt, wird die "Zurück"-Taste deaktiviert und es wäre so, als ob die von der Erweiterung angegebene URL die erste Seite wäre, die in diesem Tab besucht wurde.
+        Beispielsweise erstellt der Benutzer mit Strg+T einen neuen Tab. Standardmäßig würde in Firefox "about:newtab" geladen. Wenn Ihre Erweiterung anschließend diese Seite mithilfe von `tabs.update` aktualisiert, ohne `loadReplace`, wird die "Zurück"-Taste aktiviert sein und den Benutzer zu "about:newtab" zurückbringen. Wenn die Erweiterung `loadReplace` setzt, wird die "Zurück"-Taste deaktiviert, und es wird so sein, als ob der von der Erweiterung angegebene URL die erste aufgerufene Seite in diesem Tab wäre.
 
-        Beachten Sie jedoch, dass die ursprüngliche URL immer noch in der globalen Verlaufshistorie des Browsers erscheint.
+        Beachten Sie jedoch, dass der ursprüngliche URL weiterhin in der globalen Browser-Historie erscheint.
 
     - `muted` {{optional_inline}}
       - : `boolean`. Ob der Tab stummgeschaltet werden soll.
     - `openerTabId` {{optional_inline}}
-      - : `integer`. Die ID des Tabs, der diesen Tab geöffnet hat. Wenn angegeben, muss der ursprüngliche Tab im selben Fenster wie dieser Tab sein. Auf `-1` setzen, um die gesetzte `openerTabId` zu löschen.
+      - : `integer`. Die ID des Tabs, der diesen Tab geöffnet hat. Wenn angegeben, muss der öffnende Tab im selben Fenster sein wie dieser Tab. Setzen Sie den Wert auf `-1`, um den gesetzten `openerTabId` zu löschen.
     - `pinned` {{optional_inline}}
-      - : `boolean`. Ob der Tab angeheftet sein soll.
+      - : `boolean`. Ob der Tab angeheftet werden soll.
     - `selected` {{deprecated_inline}} {{optional_inline}}
-      - : `boolean`. Ob der Tab ausgewählt sein soll. Diese Eigenschaft wurde durch `active` und `highlighted` ersetzt.
+      - : `boolean`. Ob der Tab ausgewählt werden soll. Diese Eigenschaft wurde durch `active` und `highlighted` ersetzt.
     - `successorTabId` {{optional_inline}}
-      - : `integer`. Die ID des nachfolgenden Tabs.
+      - : `integer`. Die ID des Nachfolgers dieses Tabs.
     - `url` {{optional_inline}}
 
       - : `string`. Eine URL, zu der der Tab navigiert werden soll.
 
-        Aus Sicherheitsgründen darf dies in Firefox keine privilegierte URL sein. Das Übergeben einer der folgenden URLs schlägt fehl, wobei {{WebExtAPIRef("runtime.lastError")}} auf eine Fehlermeldung gesetzt wird:
+        Aus Sicherheitsgründen darf dies in Firefox keine privilegierte URL sein. Das Übergeben eines der folgenden URLs schlägt fehl, wobei {{WebExtAPIRef("runtime.lastError")}} auf eine Fehlermeldung gesetzt wird:
 
         - chrome: URLs
-        - [javascript: URLs](/de/docs/Web/URI/Schemes/javascript)
-        - [data: URLs](/de/docs/Web/URI/Schemes/data)
-        - file: URLs (d.h. Dateien im Dateisystem. Um eine Datei zu verwenden, die in der Erweiterung gepackt ist, siehe unten)
-        - privilegierte about: URLs (zum Beispiel `about:config`, `about:addons`, `about:debugging`, `about:newtab`). Nicht-privilegierte URLs (z.B. `about:blank`) sind erlaubt.
+        - [javascript: URLs](/de/docs/Web/URI/Reference/Schemes/javascript)
+        - [data: URLs](/de/docs/Web/URI/Reference/Schemes/data)
+        - file: URLs (d.h. Dateien aus dem Dateisystem. Um jedoch eine in die Erweiterung gepackte Datei zu verwenden, siehe unten)
+        - privilegierte about: URLs (zum Beispiel `about:config`, `about:addons`, `about:debugging`, `about:newtab`). Nicht privilegierte URLs (z.B. `about:blank`) sind erlaubt.
 
-        Um eine Seite zu laden, die mit Ihrer Erweiterung verpackt ist, geben Sie eine absolute URL an, die bei der manifest.json-Datei der Erweiterung beginnt. Zum Beispiel: '/path/to/my-page.html'. Wenn Sie das führende '/' weglassen, wird die URL als relative URL behandelt, und verschiedene Browser können unterschiedliche absolute URLs konstruieren.
+        Um eine Seite zu laden, die in Ihrer Erweiterung enthalten ist, geben Sie eine absolute URL ausgehend von der Manifest-Datei `manifest.json` an. Zum Beispiel: '/path/to/my-page.html'. Wenn der führende '/' weggelassen wird, wird die URL als relative URL behandelt, und verschiedene Browser könnten unterschiedliche absolute URLs daraus konstruieren.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt erfüllt wird, das Details über den aktualisierten Tab enthält. Das {{WebExtAPIRef('tabs.Tab')}}-Objekt enthält nicht `url`, `title` und `favIconUrl`, es sei denn, passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder die `"tabs"`-Berechtigung wurde angefordert. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt erfüllt wird, das Details über den aktualisierten Tab enthält. Das {{WebExtAPIRef('tabs.Tab')}}-Objekt enthält keinen `url`, `title` und `favIconUrl`, es sei denn, es wurden passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder die Berechtigung `"tabs"` angefordert. Wenn der Tab nicht gefunden werden kann oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -93,7 +93,7 @@ let updating = browser.tabs.update({ url: "https://developer.mozilla.org" });
 updating.then(onUpdated, onError);
 ```
 
-Aktivieren Sie den ersten Tab im aktuellen Fenster und navigieren Sie zu `https://developer.mozilla.org`:
+Aktivieren Sie den ersten Tab im aktuellen Fenster und navigieren Sie ihn zu `https://developer.mozilla.org`:
 
 ```js
 function onUpdated(tab) {
@@ -123,7 +123,7 @@ querying.then(updateFirstTab, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-update) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-update)-API von Chromium. Diese Dokumentation wurde von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

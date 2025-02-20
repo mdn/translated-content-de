@@ -2,14 +2,21 @@
 title: Date.prototype.getSeconds()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getSeconds
 l10n:
-  sourceCommit: 27180875516cc311342e74b596bfb589b7211e0c
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`getSeconds()`**-Methode von {{jsxref("Date")}} Instanzen gibt die Sekunden für dieses Datum gemäß der Ortszeit zurück.
+Die Methode **`getSeconds()`** von {{jsxref("Date")}}-Instanzen gibt die Sekunden für dieses Datum gemäß der lokalen Zeit zurück.
 
-{{EmbedInteractiveExample("pages/js/date-getseconds.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Date.getSeconds()", "shorter")}}
+
+```js interactive-example
+const moonLanding = new Date("July 20, 69 00:20:18");
+
+console.log(moonLanding.getSeconds());
+// Expected output: 18
+```
 
 ## Syntax
 
@@ -23,13 +30,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl zwischen 0 und 59, die die Sekunden für das gegebene Datum gemäß der Ortszeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Ganzzahl zwischen 0 und 59, die die Sekunden für das angegebene Datum gemäß der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getSeconds()
 
-Die Variable `seconds` hat den Wert `30`, basierend auf dem Wert des {{jsxref("Date")}} Objekts `xmas95`.
+Die Variable `seconds` hat den Wert `30`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`.
 
 ```js
 const xmas95 = new Date("1995-12-25T23:15:30");

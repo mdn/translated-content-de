@@ -2,17 +2,17 @@
 title: stroke-width
 slug: Web/SVG/Attribute/stroke-width
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`stroke-width`**-Attribut ist ein Präsentationsattribut, das die Breite des Strichs definiert, der auf die Form angewendet werden soll. Es gilt für jedes SVG-Form- oder Textinhaltselement (siehe {{SVGAttr("stroke-width")}} für eine vollständige Liste), kann aber als geerbtes Attribut auf Elemente wie {{SVGElement("g")}} angewendet werden und hat dennoch die beabsichtigte Wirkung auf die Striche der Nachkommenelemente.
+Das **`stroke-width`**-Attribut ist ein Präsentationsattribut, das die Breite der Kontur (Stroke) definiert, die auf die Form angewendet wird. Es kann auf jedes SVG-Shape- oder Textinhalts-Element angewendet werden (siehe {{SVGAttr("stroke-width")}} für eine vollständige Liste), aber als geerbte Eigenschaft kann es auch auf Elemente wie {{SVGElement("g")}} angewendet werden und hat dennoch die gewünschte Wirkung auf die Striche der abgeleiteten Elemente.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-width` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-width')}} für mehr Informationen.
+> Als Präsentationsattribut hat `stroke-width` auch ein entsprechendes CSS-Property: {{cssxref("stroke-width")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -51,7 +51,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -82,7 +82,7 @@ svg {
 </table>
 
 > [!NOTE]
-> Ein Prozentwert wird immer als Prozentsatz der normalisierten Diagonallänge des {{SVGAttr('viewBox')}} berechnet.
+> Ein Prozentwert wird immer als ein Prozentsatz der normalisierten {{SVGAttr('viewBox')}}-Diagonalenlänge berechnet.
 
 ## Spezifikationen
 
@@ -94,4 +94,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("stroke-width")}} Eigenschaft
+- CSS-Property {{cssxref("stroke-width")}}

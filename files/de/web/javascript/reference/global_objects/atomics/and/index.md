@@ -2,14 +2,28 @@
 title: Atomics.and()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/and
 l10n:
-  sourceCommit: 6a0f9553932823cd0c4dcf695d4b4813474964fb
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.and()`** berechnet ein bitweises UND mit einem gegebenen Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass kein anderer Schreibvorgang erfolgt, bis der modifizierte Wert zurückgeschrieben wird.
+Die **`Atomics.and()`** statische Methode führt eine bitweise UND-Operation mit einem angegebenen Wert an einer angegebenen Position im Array aus und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine anderen Schreibvorgänge stattfinden, bis der geänderte Wert zurückgeschrieben wird.
 
-{{EmbedInteractiveExample("pages/js/atomics-and.html")}}
+{{InteractiveExample("JavaScript Demo: Atomics.and()")}}
+
+```js interactive-example
+// Create a SharedArrayBuffer with a size in bytes
+const buffer = new SharedArrayBuffer(16);
+const uint8 = new Uint8Array(buffer);
+uint8[0] = 7;
+
+// 7 (0111) AND 2 (0010) = 2 (0010)
+console.log(Atomics.and(uint8, 0, 2));
+// Expected output: 7
+
+console.log(Atomics.load(uint8, 0));
+// Expected output: 2
+```
 
 ## Syntax
 
@@ -20,31 +34,29 @@ Atomics.and(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typ-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein Integer-Typed-Array. Einer der folgenden Typen: {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
-    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}}, oder
+    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
     {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der das bitweise UND berechnet werden soll.
+  - : Die Position im `typedArray`, an der das bitweise UND berechnet wird.
 - `value`
-  - : Die Zahl, mit der das bitweise UND berechnet werden soll.
+  - : Die Zahl, mit der das bitweise UND berechnet wird.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position
-(`typedArray[index]`).
+Der alte Wert an der angegebenen Position (`typedArray[index]`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht eine der erlaubten Integer-Typen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
 
 ## Beschreibung
 
-Die bitweise UND-Operation ergibt nur dann 1, wenn sowohl `a` als auch `b`
-1 sind. Die Wahrheitstabelle für die UND-Operation lautet:
+Die bitweise UND-Operation ergibt nur 1, wenn sowohl `a` als auch `b` gleich 1 sind. Die Wahrheitstabelle für die UND-Operation lautet:
 
 | `a` | `b` | `a & b` |
 | --- | --- | ------- |
@@ -53,8 +65,7 @@ Die bitweise UND-Operation ergibt nur dann 1, wenn sowohl `a` als auch `b`
 | 1   | 0   | 0       |
 | 1   | 1   | 1       |
 
-Zum Beispiel führt ein bitweises UND von `5 & 1` zu `0001`, was
-im Dezimalsystem 1 ist.
+Ein Beispiel: Ein bitweises UND von `5 & 1` ergibt `0001`, was in Dezimal 1 entspricht.
 
 ```plain
 5  0101

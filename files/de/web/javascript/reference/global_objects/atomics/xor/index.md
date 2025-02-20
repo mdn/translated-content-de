@@ -2,14 +2,28 @@
 title: Atomics.xor()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/xor
 l10n:
-  sourceCommit: 6a0f9553932823cd0c4dcf695d4b4813474964fb
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.xor()`** berechnet ein bitweises XOR mit einem gegebenen Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass kein anderer Schreibvorgang erfolgt, bis der geänderte Wert zurückgeschrieben wird.
+Die statische Methode **`Atomics.xor()`** führt eine bitweise XOR-Operation mit einem angegebenen Wert an einer gegebenen Position in dem Array durch und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine weiteren Schreibvorgänge erfolgen, bis der geänderte Wert zurückgeschrieben wurde.
 
-{{EmbedInteractiveExample("pages/js/atomics-xor.html")}}
+{{InteractiveExample("JavaScript Demo: Atomics.xor()")}}
+
+```js interactive-example
+// Create a SharedArrayBuffer with a size in bytes
+const buffer = new SharedArrayBuffer(16);
+const uint8 = new Uint8Array(buffer);
+uint8[0] = 7;
+
+// 7 (0111) XOR 2 (0010) = 5 (0101)
+console.log(Atomics.xor(uint8, 0, 2));
+// Expected output: 7
+
+console.log(Atomics.load(uint8, 0));
+// Expected output: 5
+```
 
 ## Syntax
 
@@ -20,29 +34,29 @@ Atomics.xor(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein ganzzahliges typisiertes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein Integer-Typed-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
     {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
     {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, um das bitweise XOR zu berechnen.
+  - : Die Position im `typedArray`, an der das bitweise XOR berechnet wird.
 - `value`
   - : Die Zahl, mit der das bitweise XOR berechnet wird.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position (`typedArray[index]`).
+Der alte Wert an der gegebenen Position (`typedArray[index]`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten ganzzahligen Typen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der zulässigen Integer-Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb des Bereichs im `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
 
 ## Beschreibung
 
-Die bitweise XOR-Operation ergibt 1, wenn `a` und `b` unterschiedlich sind. Die Wahrheitstabelle für die XOR-Operation ist:
+Die bitweise XOR-Operation ergibt 1, wenn `a` und `b` unterschiedlich sind. Die Wahrheitstabelle für die XOR-Operation lautet:
 
 | `a` | `b` | `a ^ b` |
 | --- | --- | ------- |
@@ -51,7 +65,7 @@ Die bitweise XOR-Operation ergibt 1, wenn `a` und `b` unterschiedlich sind. Die 
 | 1   | 0   | 1       |
 | 1   | 1   | 0       |
 
-Zum Beispiel ergibt ein bitweises XOR von `5 ^ 1` das Ergebnis `0100`, was im Dezimalsystem 4 ist.
+Zum Beispiel ergibt ein bitweises XOR von `5 ^ 1` das Ergebnis `0100`, welches im Dezimalsystem 4 ist.
 
 ```plain
 5  0101

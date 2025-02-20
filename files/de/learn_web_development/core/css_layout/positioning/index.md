@@ -1,15 +1,15 @@
 ---
-title: Platzierung
+title: Positionierung
 slug: Learn_web_development/Core/CSS_layout/Positioning
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 179872e1c21ddaba37d4ef9d1187ee5995e0aa45
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Floats", "Learn_web_development/Core/CSS_layout/Flexbox", "Learn_web_development/Core/CSS_layout")}}
 
-Platzierung ermöglicht es Ihnen, Elemente aus dem normalen Dokumentfluss herauszunehmen und sie sich anders verhalten zu lassen, z.B. übereinander zu liegen oder immer an derselben Stelle im Browserfenster zu verbleiben. Dieser Artikel erklärt die verschiedenen {{cssxref("position")}}-Werte und deren Anwendung.
+Die Positionierung ermöglicht es, Elemente aus dem normalen Dokumentenfluss zu entfernen und sie anders verhalten zu lassen, z. B. übereinander zu sitzen oder immer an derselben Stelle im Browser-Viewport zu bleiben. Dieser Artikel erklärt die verschiedenen {{cssxref("position")}}-Werte und wie man sie verwendet.
 
 <table>
   <tbody>
@@ -17,11 +17,11 @@ Platzierung ermöglicht es Ihnen, Elemente aus dem normalen Dokumentfluss heraus
       <th scope="row">Voraussetzungen:</th>
       <td>
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
-          >Strukturierung von Inhalten mit HTML</a
+          >Inhalte mit HTML strukturieren</a
         >,
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen der CSS-Gestaltung</a>,
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS-Styling-Grundlagen</a>,
         <a href="/de/docs/Learn_web_development/Core/Text_styling/Fundamentals">Grundlegende Text- und Schriftgestaltung</a>,
-        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/CSS_layout/Introduction">Grundkonzepten der CSS-Layout</a>.
+        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/CSS_layout/Introduction">Grundlagen der CSS-Layout-Konzepte</a>.
       </td>
     </tr>
     <tr>
@@ -29,28 +29,28 @@ Platzierung ermöglicht es Ihnen, Elemente aus dem normalen Dokumentfluss heraus
       <td>
         <ul>
           <li><code>static</code>-Positionierung ist die Standardweise, wie Elemente auf der Seite positioniert werden.</li>
-          <li>Relativ positionierte Elemente bleiben im normalen Fluss, aber absolute (und fixe/klebrige) Positionierung gibt Elemente vollständig aus dem normalen Fluss heraus, um in einer separaten Ebene zu sitzen.</li>
-          <li>Die endgültige Layoutposition kann mithilfe der Eigenschaften <code>top</code>, <code>bottom</code>, <code>left</code> und <code>right</code> geändert werden, aber diese haben unterschiedliche Effekte je nach festgelegtem <code>position</code>-Wert.</li>
-          <li>Festlegen des Platzierungskontextes eines positionierten Elements durch Positionierung eines übergeordneten Elements.</li>
+          <li>Relativ positionierte Elemente bleiben im normalen Fluss, aber absolute (und fixe/sticky) Positionierung entfernt Elemente vollständig aus dem normalen Fluss, sodass sie in einer separaten Ebene sitzen.</li>
+          <li>Die endgültige Position im Layout kann mit den Eigenschaften <code>top</code>, <code>bottom</code>, <code>left</code> und <code>right</code> geändert werden, jedoch haben diese je nach festgelegtem <code>position</code>-Wert unterschiedliche Auswirkungen.</li>
+          <li>Festlegung des Positionierungskontextes eines positionierten Elements durch Positionierung eines übergeordneten Elements.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-Wir möchten, dass Sie die folgenden Übungen auf Ihrem lokalen Computer durchführen. Wenn möglich, holen Sie sich eine Kopie von [`0_basic-flow.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/0_basic-flow.html) aus unserem GitHub-Repository ([Quellcode hier](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/0_basic-flow.html)) und verwenden Sie diese als Ausgangspunkt.
+Wir möchten, dass Sie die folgenden Übungen auf Ihrem lokalen Computer durchführen. Holen Sie sich, wenn möglich, eine Kopie von [`0_basic-flow.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/0_basic-flow.html) aus unserem GitHub-Repository ([Quellcode hier](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/0_basic-flow.html)) und verwenden Sie diese als Ausgangspunkt.
 
-## Einführung in die Platzierung
+## Einführung in die Positionierung
 
-Platzierung ermöglicht es uns, interessante Ergebnisse zu erzielen, indem der normale Dokumentfluss außer Kraft gesetzt wird. Was, wenn Sie die Position einiger Kästen leicht von ihrer Standardflussposition ändern möchten, um ein leicht unkonventionelles, zerrüttetes Gefühl zu erzeugen? Platzierung ist Ihr Werkzeug. Oder was, wenn Sie ein UI-Element erstellen möchten, das über anderen Teilen der Seite schwebt und/oder immer an derselben Stelle im Browserfenster bleibt, egal wie weit die Seite gescrollt wird? Platzierung macht ein solches Layout möglich.
+Positionierung ermöglicht es uns, interessante Ergebnisse zu erzielen, indem der normale Dokumentenfluss überschrieben wird. Was ist, wenn Sie die Position einiger Boxen leicht von ihrer Standardflussposition ändern möchten, um ein leicht eigenartiges, unregelmäßiges Erscheinungsbild zu erzielen? Die Positionierung ist Ihr Werkzeug. Oder was ist, wenn Sie ein UI-Element erstellen möchten, das über anderen Teilen der Seite schwebt und/oder immer an derselben Stelle im Browserfenster sitzt, egal wie stark die Seite nach unten gescrollt wird? Solche Layout-Arbeiten sind mit der Positionierung möglich.
 
-Es gibt eine Reihe verschiedener Typen der Platzierung, die Sie auf HTML-Elemente anwenden können. Um einen bestimmten Typ der Platzierung auf ein Element anzuwenden, verwenden wir die Eigenschaft {{cssxref("position")}}.
+Es gibt verschiedene Arten der Positionierung, die Sie auf HTML-Elemente anwenden können. Um eine bestimmte Art der Positionierung auf ein Element anzuwenden, verwenden wir die {{cssxref("position")}}-Eigenschaft.
 
-## Statische Platzierung
+## Statische Positionierung
 
-Statische Platzierung ist der Standard, den jedes Element erhält. Es bedeutet einfach „platzieren Sie das Element an seiner Standardposition im normalen Fluss — nichts Besonderes zu sehen hier.“
+Statische Positionierung ist die Standardeinstellung, die jedes Element erhält. Es bedeutet einfach: „Setzen Sie das Element an seine Standardposition im normalen Fluss – nichts Besonderes zu sehen.“
 
-Um dies zu sehen (und Ihr Beispiel für zukünftige Abschnitte einzurichten), fügen Sie zuerst eine `class` von `positioned` zum zweiten {{htmlelement("p")}} im HTML hinzu:
+Um dies zu sehen (und Ihr Beispiel für zukünftige Abschnitte einzurichten), fügen Sie zunächst eine `class` von `positioned` zum zweiten {{htmlelement("p")}} in Ihrem HTML hinzu:
 
 ```html
 <p class="positioned">…</p>
@@ -65,24 +65,24 @@ Fügen Sie nun die folgende Regel am Ende Ihres CSS hinzu:
 }
 ```
 
-Wenn Sie speichern und aktualisieren, sehen Sie keinen Unterschied, außer die aktualisierte Hintergrundfarbe des zweiten Absatzes. Das ist in Ordnung — wie zuvor gesagt, statische Platzierung ist das Standardverhalten!
+Wenn Sie speichern und aktualisieren, sehen Sie überhaupt keinen Unterschied, außer der aktualisierten Hintergrundfarbe des zweiten Absatzes. Das ist in Ordnung — wie wir zuvor gesagt haben, ist die statische Positionierung das Standardverhalten!
 
 > [!NOTE]
-> Sie können das Beispiel an dieser Stelle live auf [`1_static-positioning.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/1_static-positioning.html) sehen ([Quellcode ansehen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/1_static-positioning.html)).
+> Sie können das Beispiel an diesem Punkt live unter [`1_static-positioning.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/1_static-positioning.html) ansehen ([Quellcode anzeigen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/1_static-positioning.html)).
 
-## Relative Platzierung
+## Relative Positionierung
 
-Relative Platzierung ist der erste Positionstyp, den wir uns ansehen werden. Dies ist sehr ähnlich zur statischen Platzierung, außer dass, sobald das positionierte Element seinen Platz im normalen Fluss eingenommen hat, Sie seine endgültige Position ändern können, einschließlich der Überlappung anderer Elemente auf der Seite. Aktualisieren Sie die `position`-Deklaration in Ihrem Code:
+Die relative Positionierung ist die erste Art der Positionierung, die wir uns ansehen. Dies ist der statischen Positionierung sehr ähnlich, außer dass Sie die endgültige Position des positionierten Elements ändern können, sobald es seinen Platz im normalen Fluss eingenommen hat, einschließlich der Möglichkeit, es mit anderen Elementen auf der Seite zu überlappen. Aktualisieren Sie die `position`-Deklaration in Ihrem Code:
 
 ```css
 position: relative;
 ```
 
-Wenn Sie an diesem Punkt speichern und aktualisieren, werden Sie keine Veränderung im Ergebnis sehen. Wie ändern Sie also die Position des Elements? Sie müssen die Eigenschaften {{cssxref("top")}}, {{cssxref("bottom")}}, {{cssxref("left")}} und {{cssxref("right")}} verwenden, die wir im nächsten Abschnitt erklären werden.
+Wenn Sie speichern und aktualisieren, sehen Sie zunächst keine Änderung am Ergebnis. Wie ändern Sie also die Position des Elements? Sie müssen die Eigenschaften {{cssxref("top")}}, {{cssxref("bottom")}}, {{cssxref("left")}} und {{cssxref("right")}} verwenden, die wir im nächsten Abschnitt erklären werden.
 
 ### Einführung in top, bottom, left und right
 
-Die Eigenschaften {{cssxref("top")}}, {{cssxref("bottom")}}, {{cssxref("left")}} und {{cssxref("right")}} werden zusammen mit {{cssxref("position")}} verwendet, um genau anzugeben, wohin das positionierte Element verschoben werden soll. Um dies auszuprobieren, fügen Sie die folgenden Deklarationen zur `.positioned`-Regel in Ihrem CSS hinzu:
+{{cssxref("top")}}, {{cssxref("bottom")}}, {{cssxref("left")}} und {{cssxref("right")}} werden zusammen mit {{cssxref("position")}} verwendet, um genau anzugeben, wohin das positionierte Element bewegt werden soll. Um dies auszuprobieren, fügen Sie die folgenden Deklarationen zur `.positioned`-Regel in Ihrem CSS hinzu:
 
 ```css
 top: 30px;
@@ -90,9 +90,9 @@ left: 30px;
 ```
 
 > [!NOTE]
-> Die Werte dieser Eigenschaften können jede [Einheit](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) annehmen, die Sie vernünftigerweise erwarten würden: Pixel, mm, rems, %, etc.
+> Die Werte dieser Eigenschaften können jede [Einheit](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) annehmen, die Sie vernünftigerweise erwarten können: Pixel, mm, rem, %, usw.
 
-Wenn Sie nun speichern und aktualisieren, erhalten Sie ein Ergebnis, das in etwa so aussieht:
+Wenn Sie jetzt speichern und aktualisieren, erhalten Sie ein Ergebnis wie dieses:
 
 ```html hidden
 <h1>Relative positioning</h1>
@@ -119,7 +119,9 @@ Wenn Sie nun speichern und aktualisieren, erhalten Sie ein Ergebnis, das in etwa
   the same line. Overflowing inline elements
   <span>wrap onto a new line if possible — like this one containing text</span>,
   or just go on to a new line if not, much like this image will do:
-  <img src="long.jpg" alt="snippet of cloth" />
+  <img
+    src="https://mdn.github.io/shared-assets/images/examples/long.jpg"
+    alt="snippet of cloth" />
 </p>
 ```
 
@@ -151,24 +153,24 @@ span {
 
 {{ EmbedLiveSample('Introducing_top_bottom_left_and_right', '100%', 500) }}
 
-Cool, oder? Okay, das war wahrscheinlich nicht das, was Sie erwartet haben. Warum hat es sich nach unten und rechts bewegt, wenn wir _top_ und _left_ angegeben haben? Das mag kontraintuitiv erscheinen. Sie müssen es sich so vorstellen, als gäbe es eine unsichtbare Kraft, die die angegebene Seite des positionierten Kästchens schiebt und es in die entgegengesetzte Richtung bewegt. Wenn Sie zum Beispiel `top: 30px;` angeben, ist es so, als würde eine Kraft die Oberseite des Kästchens schieben und es um 30px nach unten bewegen.
+Cool, oder? Ok, das war wahrscheinlich nicht, was Sie erwartet haben. Warum hat es nach unten und rechts verschoben, obwohl wir _top_ und _left_ angegeben haben? Dies mag kontraintuitiv erscheinen. Sie müssen sich dies so vorstellen, als gäbe es eine unsichtbare Kraft, die die angegebene Seite der positionierten Box drückt, wodurch sie sich in die entgegengesetzte Richtung bewegt. Wenn Sie also beispielsweise `top: 30px;` angeben, wird die Oberseite der Box durch eine Kraft nach unten um 30px gedrückt.
 
 > [!NOTE]
-> Sie können das Beispiel an dieser Stelle live auf [`2_relative-positioning.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/2_relative-positioning.html) sehen ([Quellcode ansehen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/2_relative-positioning.html)).
+> Sie können das Beispiel an diesem Punkt live unter [`2_relative-positioning.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/2_relative-positioning.html) ansehen ([Quellcode anzeigen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/2_relative-positioning.html)).
 
-## Absolute Platzierung
+## Absolute Positionierung
 
-Absolute Platzierung bringt sehr unterschiedliche Ergebnisse.
+Absolute Positionierung bringt sehr unterschiedliche Ergebnisse.
 
 ### Einstellung von position: absolute
 
-Versuchen wir, die Deklaration der Position in Ihrem Code wie folgt zu ändern:
+Versuchen wir, die Positionsdeklaration in Ihrem Code wie folgt zu ändern:
 
 ```css
 position: absolute;
 ```
 
-Wenn Sie jetzt speichern und aktualisieren, sollten Sie etwas in dieser Art sehen:
+Wenn Sie jetzt speichern und aktualisieren, sollten Sie etwas wie folgt sehen:
 
 ```html hidden
 <h1>Absolute positioning</h1>
@@ -195,7 +197,9 @@ Wenn Sie jetzt speichern und aktualisieren, sollten Sie etwas in dieser Art sehe
   the same line. Overflowing inline elements
   <span>wrap onto a new line if possible — like this one containing text</span>,
   or just go on to a new line if not, much like this image will do:
-  <img src="long.jpg" alt="snippet of cloth" />
+  <img
+    src="https://mdn.github.io/shared-assets/images/examples/long.jpg"
+    alt="snippet of cloth" />
 </p>
 ```
 
@@ -227,32 +231,32 @@ span {
 
 {{ EmbedLiveSample('Setting_position_absolute', '100%', 450) }}
 
-Beachten Sie zunächst, dass die Lücke, wo das positionierte Element im Dokumentfluss sein sollte, nicht mehr vorhanden ist — die ersten und dritten Elemente sind zusammengeschlossen, als ob es nicht mehr existiert! Nun, in gewisser Weise ist das wahr. Ein absolut positioniertes Element existiert nicht mehr im normalen Dokumentfluss. Stattdessen sitzt es auf einer eigenen Ebene, getrennt von allem anderen. Dies ist sehr nützlich: Es bedeutet, dass wir isolierte UI-Features erstellen können, die das Layout anderer Elemente auf der Seite nicht stören. Zum Beispiel Popup-Informationskästen, Steuerungsmenüs, Roll-over-Panels, UI-Features, die überall auf der Seite gezogen und abgelegt werden können, und so weiter.
+Beachten Sie zuerst, dass die Lücke, in der sich das positionierte Element im Dokumentenfluss befinden sollte, nicht mehr vorhanden ist — das erste und das dritte Element sind zusammengeschoben, als ob es nicht mehr existiert! In gewisser Weise ist dies wahr. Ein absolut positioniertes Element existiert nicht mehr im normalen Dokumentenfluss. Stattdessen befindet es sich auf einer eigenen Ebene, getrennt von allem anderen. Das ist sehr nützlich: Es bedeutet, dass wir isolierte UI-Funktionen erstellen können, die das Layout anderer Elemente auf der Seite nicht beeinträchtigen. Zum Beispiel Popup-Informationsboxen, Steuermenüs, Rollover-Panels, UI-Funktionen, die überall auf der Seite hin und her verschoben werden können, und so weiter.
 
-Zweitens beachten Sie, dass sich die Position des Elements geändert hat. Dies liegt daran, dass {{cssxref("top")}}, {{cssxref("bottom")}}, {{cssxref("left")}} und {{cssxref("right")}} bei absoluter Platzierung anders verhalten. Anstatt das Element basierend auf seiner relativen Position innerhalb des normalen Dokumentflusses zu positionieren, geben sie den Abstand an, den das Element von jeder Seite des enthaltenden Elements haben sollte. In diesem Fall sagen wir, dass das absolut positionierte Element 30px vom oberen Rand des **enthaltenden Elements** entfernt sitzen soll (dem **ersten enthaltenden Block**, in diesem Fall, siehe unten) und 30px von links.
-
-> [!NOTE]
-> Sie können {{cssxref("top")}}, {{cssxref("bottom")}}, {{cssxref("left")}} und {{cssxref("right")}} verwenden, um Elemente bei Bedarf zu vergrößern. Versuchen Sie, `top: 0; bottom: 0; left: 0; right: 0;` und `margin: 0;` auf Ihre positionierten Elemente zu setzen und sehen Sie, was passiert! Setzen Sie es danach wieder zurück...
+Zweitens hat sich die Position des Elements geändert. Dies liegt daran, dass {{cssxref("top")}}, {{cssxref("bottom")}}, {{cssxref("left")}} und {{cssxref("right")}} bei absoluter Positionierung anders funktionieren. Anstatt das Element basierend auf seiner relativen Position innerhalb des normalen Dokumentenflusses zu positionieren, geben sie den Abstand an, den das Element von jeder Seite des enthaltenden Elements haben soll. In diesem Fall geben wir an, dass das absolut positionierte Element 30px vom oberen Rand des **enthaltenden Elements** (in diesem Fall der **initiale enthaltende Block**, siehe unten) und 30px vom linken Rand entfernt sitzen soll.
 
 > [!NOTE]
-> Ja, Ränder beeinflussen immer noch positionierte Elemente. Randkollapierung jedoch nicht.
+> Sie können {{cssxref("top")}}, {{cssxref("bottom")}}, {{cssxref("left")}} und {{cssxref("right")}} verwenden, um Elemente bei Bedarf zu dimensionieren. Versuchen Sie, `top: 0; bottom: 0; left: 0; right: 0;` und `margin: 0;` auf Ihre positionierten Elemente anzuwenden und sehen Sie, was passiert! Setzen Sie es danach wieder zurück …
 
 > [!NOTE]
-> Sie können das Beispiel an dieser Stelle live auf [`3_absolute-positioning.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/3_absolute-positioning.html) sehen ([Quellcode ansehen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/3_absolute-positioning.html)).
+> Ja, Margins wirken sich noch immer auf positionierte Elemente aus. Margin Collapsing jedoch nicht.
 
-### Platzierungskontexte
+> [!NOTE]
+> Sie können das Beispiel an diesem Punkt live unter [`3_absolute-positioning.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/3_absolute-positioning.html) ansehen ([Quellcode anzeigen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/3_absolute-positioning.html)).
 
-Welches Element ist das „enthaltende Element“ eines absolut positionierten Elements? Dies hängt sehr stark vom `position`-Eigenschaftswert der Vorfahren des positionierten Elements ab.
+### Positionierungskontexte
 
-Wenn keine Vorfahrelemente ihre Positionseigenschaft ausdrücklich definiert haben, dann haben standardmäßig alle Vorfahrelemente eine statische Position. Das Ergebnis ist, dass das absolut positionierte Element im **ersten enthaltenden Block** enthalten sein wird. Der erste enthaltende Block hat die Abmessungen des Ansichtsfensters und ist auch der Block, der das {{htmlelement("html")}}-Element enthält. Mit anderen Worten, das absolut positionierte Element wird außerhalb des {{htmlelement("html")}}-Elements angezeigt und relativ zum ursprünglichen Ansichtsfenster positioniert.
+Welches Element ist das "enthaltende Element" eines absolut positionierten Elements? Dies hängt stark vom `position`-Eigenschaftswert der Vorfahren des positionierten Elements ab.
 
-Das positionierte Element ist im HTML-Quellcode innerhalb des {{htmlelement("body")}} verschachtelt, wird aber im endgültigen Layout 30px von den oberen und linken Rändern der Seite entfernt positioniert. Wir können den **Platzierungskontext** ändern, d.h. welches Element das absolut positionierte Element relativ positioniert wird. Dies geschieht durch Einstellung der Positionierung auf einem der Vorfahren des Elements: auf einem der Elemente, in das es verschachtelt ist (Sie können es nicht relativ zu einem Element positionieren, in das es nicht verschachtelt ist). Um dies zu sehen, fügen Sie die folgende Deklaration zu Ihrer `body`-Regel hinzu:
+Wenn keine Vorfahren-Elemente ihre Positions-Eigenschaft explizit definiert haben, haben standardmäßig alle Vorfahren-Elemente eine statische Position. Das Ergebnis ist, dass das absolut positionierte Element im **initialen enthaltenden Block** enthalten sein wird. Der initiale enthaltende Block hat die Dimensionen des Viewports und ist auch der Block, der das {{htmlelement("html")}}-Element enthält. Mit anderen Worten, das absolut positionierte Element wird außerhalb des {{htmlelement("html")}}-Elements angezeigt und relativ zum initialen Viewport positioniert.
+
+Das positionierte Element ist im HTML-Quellcode innerhalb des {{htmlelement("body")}} verschachtelt, wird jedoch im endgültigen Layout 30px von den oberen und linken Rändern der Seite entfernt positioniert. Wir können den **Positionierungskontext** ändern, d.h. welches Element das absolut positionierte Element relativ positioniert. Dies erfolgt durch das Setzen der Positionierung auf eines der Vorfahren-Elemente: zu einem der Elemente, in die es verschachtelt ist (es kann nicht relativ zu einem Element positioniert werden, in das es nicht verschachtelt ist). Um dies zu sehen, fügen Sie die folgende Deklaration zur Regel Ihres `body` hinzu:
 
 ```css
 position: relative;
 ```
 
-Dies sollte das folgende Ergebnis ergeben:
+Dies sollte folgendes Ergebnis bringen:
 
 ```html hidden
 <h1>Positioning context</h1>
@@ -278,7 +282,9 @@ Dies sollte das folgende Ergebnis ergeben:
   the same line. Overflowing inline elements
   <span>wrap onto a new line if possible — like this one containing text</span>,
   or just go on to a new line if not, much like this image will do:
-  <img src="long.jpg" alt="snippet of cloth" />
+  <img
+    src="https://mdn.github.io/shared-assets/images/examples/long.jpg"
+    alt="snippet of cloth" />
 </p>
 ```
 
@@ -311,16 +317,16 @@ span {
 
 {{ EmbedLiveSample('Positioning_contexts', '100%', 420) }}
 
-Das positionierte Element sitzt jetzt relativ zum {{htmlelement("body")}}-Element.
+Das positionierte Element sitzt nun relativ zum {{htmlelement("body")}}-Element.
 
 > [!NOTE]
-> Sie können das Beispiel an dieser Stelle live auf [`4_positioning-context.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/4_positioning-context.html) sehen ([Quellcode ansehen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/4_positioning-context.html)).
+> Sie können das Beispiel an diesem Punkt live unter [`4_positioning-context.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/4_positioning-context.html) ansehen ([Quellcode anzeigen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/4_positioning-context.html)).
 
-### Einführung in den z-index
+### Einführung in z-index
 
-All diese absolute Positionierung macht Spaß, aber es gibt noch eine weitere Funktion, die wir noch nicht in Betracht gezogen haben. Wenn Elemente anfangen sich zu überlappen, was bestimmt, welche Elemente über anderen erscheinen und welche unter anderen erscheinen? In dem bisher gesehenen Beispiel haben wir nur ein positioniertes Element im Platzierungskontext, und es erscheint ganz oben, da positionierte Elemente den nicht positionierten Elementen überlegen sind. Was passiert, wenn wir mehr als eines haben?
+All diese absolute Positionierung macht Spaß, aber es gibt eine weitere Funktion, die wir noch nicht berücksichtigt haben. Wenn Elemente beginnen, sich zu überlappen, was bestimmt dann, welche Elemente über anderen erscheinen und welche unter anderen? In dem Beispiel, das wir bisher gesehen haben, gibt es nur ein positioniertes Element im Positionierungskontext, und es erscheint oben, da positionierte Elemente gegenüber nicht positionierten Elementen bevorzugt werden. Was passiert, wenn es mehr als eins gibt?
 
-Versuchen Sie, folgendes in Ihr CSS zu ergänzen, um auch den ersten Absatz absolut zu positionieren:
+Versuchen Sie, Ihrem CSS Folgendes hinzuzufügen, um den ersten Absatz ebenfalls absolut zu positionieren:
 
 ```css
 p:nth-of-type(1) {
@@ -331,19 +337,19 @@ p:nth-of-type(1) {
 }
 ```
 
-An dieser Stelle werden Sie sehen, dass der erste Absatz lime-grün gefärbt und aus dem Dokumentenfluss herausgenommen wurde und etwas oberhalb von seinem ursprünglichen Platz positioniert ist. Er wird auch unter dem ursprünglichen `.positioned`-Absatz überlagert, wo die beiden sich überschneiden. Das liegt daran, dass der `.positioned`-Absatz der zweite Absatz in der Quellreihenfolge ist, und positionierte Elemente, die später in der Quellreihenfolge sind, gewinnen über positionierte Elemente, die früher in der Quellreihenfolge sind.
+An diesem Punkt werden Sie sehen, wie der erste Absatz limonengrün eingefärbt wurde, aus dem Dokumentenfluss entfernt wurde und etwas über dem ursprünglichen Ort positioniert wurde. Es wird jedoch auch unter dem ursprünglichen `.positioned`-Absatz platziert, wo sich die beiden überlappen. Dies liegt daran, dass der `.positioned`-Absatz der zweite Absatz in der Quellreihenfolge ist, und positionierte Elemente, die später in der Quellreihenfolge auftreten, bevorzugt werden.
 
-Können Sie die Stapelreihenfolge ändern? Ja, das können Sie, indem Sie die {{cssxref("z-index")}}-Eigenschaft verwenden. "z-index" bezieht sich auf die z-Achse. Sie erinnern sich vielleicht aus früheren Punkten im Kurs, wo wir besprachen, dass Webseiten horizontale (x-Achse) und vertikale (y-Achse) Koordinaten verwenden, um die Positionierung für Dinge wie Hintergrundbilder und Schattenversätze zu berechnen. Für Sprachen, die von links nach rechts laufen, ist (0,0) oben links auf der Seite (oder dem Element), und die x- und y-Achse verlaufen nach rechts und nach unten auf der Seite.
+Können Sie die Stapelreihenfolge ändern? Ja, das können Sie, indem Sie die {{cssxref("z-index")}}-Eigenschaft verwenden. „z-index“ ist ein Verweis auf die z-Achse. Sie erinnern sich vielleicht an frühere Punkte im Kurs, an denen wir besprachen, dass Webseiten horizontale (x-Achse) und vertikale (y-Achse) Koordinaten verwenden, um die Positionierung für Dinge wie Hintergrundbilder und Drop-Shadow-Versätze zu berechnen. Für Sprachen, die von links nach rechts laufen, liegt (0,0) oben links auf der Seite (oder dem Element), und die x- und y-Achsen laufen nach rechts und unten durch die Seite.
 
-Webseiten haben auch eine z-Achse: eine imaginäre Linie, die von der Oberfläche Ihres Bildschirms zu Ihrem Gesicht (oder was auch immer Sie gerne vor dem Bildschirm haben) verläuft. {{cssxref("z-index")}}-Werte beeinflussen, wo positionierte Elemente auf dieser Achse liegen; positive Werte bewegen sie höher im Stapel, negative Werte bewegen sie weiter nach unten im Stapel. Standardmäßig haben alle positionierten Elemente einen `z-index` von `auto`, was effektiv 0 ist.
+Webseiten haben auch eine z-Achse: eine imaginäre Linie, die von der Oberfläche Ihres Bildschirms auf Ihr Gesicht (oder etwas anderes vor dem Bildschirm) zuläuft. {{cssxref("z-index")}}-Werte beeinflussen, wo positionierte Elemente auf dieser Achse sitzen; positive Werte bewegen sie weiter nach oben im Stapel, negative Werte weiter nach unten. Standardmäßig haben alle positionierten Elemente einen `z-index` von `auto`, was effektiv 0 ist.
 
-Um die Stapelreihenfolge zu ändern, versuchen Sie, die folgende Deklaration zu Ihrer `p:nth-of-type(1)`-Regel hinzuzufügen:
+Um die Stapelreihenfolge zu ändern, versuchen Sie, der Regel `p:nth-of-type(1)` die folgende Deklaration hinzuzufügen:
 
 ```css
 z-index: 1;
 ```
 
-Sie sollten nun sehen, dass der limettenfarbene Absatz oben ist:
+Sie sollten nun sehen, dass der limonengrüne Absatz oben ist:
 
 ```html hidden
 <h1>z-index</h1>
@@ -369,7 +375,9 @@ Sie sollten nun sehen, dass der limettenfarbene Absatz oben ist:
   the same line. Overflowing inline elements
   <span>wrap onto a new line if possible — like this one containing text</span>,
   or just go on to a new line if not, much like this image will do:
-  <img src="long.jpg" alt="snippet of cloth" />
+  <img
+    src="https://mdn.github.io/shared-assets/images/examples/long.jpg"
+    alt="snippet of cloth" />
 </p>
 ```
 
@@ -410,18 +418,18 @@ p:nth-of-type(1) {
 
 {{ EmbedLiveSample('Introducing_z-index', '100%', 400) }}
 
-Beachten Sie, dass `z-index` nur indexlos Zahlenwerte akzeptiert; Sie können nicht angeben, dass Sie möchten, dass ein Element 23 Pixel auf der Z-Achse nach oben geht — so funktioniert das nicht. Höhere Werte gehen über niedrigere Werte und es bleibt Ihnen überlassen, welche Werte Sie verwenden. Das Verwenden von Werten von 2 oder 3 würde denselben Effekt erzielen wie Werte von 300 oder 40000.
+Beachten Sie, dass `z-index` nur indexierte Werte ohne Einheit akzeptiert; Sie können nicht angeben, dass ein Element 23 Pixel auf der Z-Achse nach oben verschoben werden soll — so funktioniert das nicht. Höhere Werte gehen über niedrigere Werte, und es liegt an Ihnen, welche Werte Sie verwenden. Werte von 2 oder 3 würden denselben Effekt wie Werte von 300 oder 40000 erzielen.
 
 > [!NOTE]
-> Sie können ein Beispiel dazu live auf [`5_z-index.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/5_z-index.html) sehen ([Quellcode ansehen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/5_z-index.html)).
+> Sie können ein Beispiel hierzu live unter [`5_z-index.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/5_z-index.html) ansehen ([Quellcode anzeigen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/5_z-index.html)).
 
-## Fixierte Platzierung
+## Fixe Positionierung
 
-Schauen wir uns nun die fixierte Platzierung an. Diese funktioniert genauso wie die absolute Platzierung, mit einem wichtigen Unterschied: Während absolute Platzierung ein Element relativ zu seinem nächstgelegenen positionierten Vorfahren fixiert (dem ersten enthaltenden Block, wenn es keinen gibt), fixiert **fixierte Platzierung** ein Element relativ zum sichtbaren Teil des Ansichtsfensters. Dies bedeutet, dass Sie nützliche UI-Elemente erstellen können, die an Ort und Stelle fixiert sind, wie z.B. persistente Navigationsmenüs, die immer sichtbar sind, egal wie weit die Seite gescrollt wird.
+Schauen wir uns nun die fixe Positionierung an. Diese funktioniert auf genau dieselbe Weise wie die absolute Positionierung, mit einem entscheidenden Unterschied: Während absolute Positionierung ein Element relativ zum nächstgelegenen positionierten Vorfahren (dem initialen enthaltenden Block, wenn keiner vorhanden ist) fixiert, fixiert **fixe Positionierung** ein Element relativ zum sichtbaren Bereich des Viewports. Das bedeutet, dass Sie nützliche UI-Elemente erstellen können, die fixiert bleiben, wie z. B. stets sichtbare Navigationsmenüs, unabhängig davon, wie stark die Seite gescrollt wird.
 
-Lassen Sie uns ein einfaches Beispiel erstellen, um zu zeigen, was wir meinen. Löschen Sie zuerst die bestehenden `p:nth-of-type(1)` und `.positioned`-Regeln aus Ihrem CSS.
+Erstellen wir ein einfaches Beispiel, um zu zeigen, was wir meinen. Entfernen Sie zunächst die vorhandenen Regeln `p:nth-of-type(1)` und `.positioned` aus Ihrem CSS.
 
-Aktualisieren Sie nun die `body`-Regel, um die `position: relative;`-Deklaration zu entfernen und eine feste Höhe hinzuzufügen, wie folgt:
+Aktualisieren Sie nun die Regel für `body`, um die Deklaration `position: relative;` zu entfernen und eine feste Höhe hinzuzufügen, wie folgt:
 
 ```css
 body {
@@ -431,7 +439,7 @@ body {
 }
 ```
 
-Nun geben wir dem {{htmlelement("Heading_Elements", "&lt;h1>")}}-Element `position: fixed;` und lassen es am oberen Rand des Ansichtsfensters sitzen. Fügen Sie folgende Regel zu Ihrem CSS hinzu:
+Nun werden wir das {{htmlelement("Heading_Elements", "&lt;h1>")}}-Element auf `position: fixed;` setzen und es oben im Viewport fixieren. Fügen Sie die folgende Regel zu Ihrem CSS hinzu:
 
 ```css
 h1 {
@@ -444,9 +452,9 @@ h1 {
 }
 ```
 
-Das `top: 0;` ist erforderlich, um es an den oberen Rand des Bildschirms zu kleben. Wir geben der Überschrift dieselbe Breite wie der Inhaltsbereich und dann einen weißen Hintergrund und etwas Padding und Margin, damit der Inhalt nicht darunter sichtbar wird.
+Das `top: 0;` ist notwendig, um es am oberen Rand des Bildschirms zu fixieren. Wir geben der Überschrift dieselbe Breite wie der Inhaltskolumne sowie einen weißen Hintergrund und einige Padding- und Margin-Werte, sodass der Inhalt nicht darunter sichtbar wird.
 
-Wenn Sie speichern und aktualisieren, sehen Sie einen lustigen kleinen Effekt, bei dem die Überschrift fixiert bleibt — der Inhalt scheint nach oben zu scrollen und darunter zu verschwinden. Beachten Sie jedoch, dass einige Inhalte zunächst unter der Überschrift abgeschnitten werden. Dies liegt daran, dass die positionierte Überschrift nicht mehr im Dokumentenfluss erscheint, sodass der Rest des Inhalts bis ganz nach oben verschoben wird. Wir können dies verbessern, indem wir die Absätze ein wenig nach unten verschieben. Wir können dies tun, indem wir dem ersten Absatz etwas oberen Rand setzen. Fügen Sie dies nun hinzu:
+Wenn Sie speichern und aktualisieren, sehen Sie einen kleinen Effekt, bei dem die Überschrift fixiert bleibt — der Inhalt scheint hochzuscrollen und darunter zu verschwinden. Beachten Sie jedoch, wie ein Teil des Inhalts zunächst unter der Überschrift abgeschnitten ist. Dies liegt daran, dass die positionierte Überschrift nicht mehr im Dokumentenfluss erscheint, sodass der Rest des Inhalts nach oben verschoben wird. Wir könnten dies verbessern, indem wir die Absätze alle etwas nach unten verschieben. Dies können wir tun, indem wir einen oberen Rand für den ersten Absatz setzen. Fügen Sie dies nun hinzu:
 
 ```css
 p:nth-of-type(1) {
@@ -477,7 +485,9 @@ Sie sollten nun das fertige Beispiel sehen:
   the same line. Overflowing inline elements
   <span>wrap onto a new line if possible — like this one containing text</span>,
   or just go on to a new line if not, much like this image will do:
-  <img src="long.jpg" alt="snippet of cloth" />
+  <img
+    src="https://mdn.github.io/shared-assets/images/examples/long.jpg"
+    alt="snippet of cloth" />
 </p>
 ```
 
@@ -516,15 +526,15 @@ p:nth-of-type(1) {
 {{ EmbedLiveSample('Fixed_positioning', '100%', 400) }}
 
 > [!NOTE]
-> Sie können ein Beispiel dazu live auf [`6_fixed-positioning.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/6_fixed-positioning.html) sehen ([Quellcode ansehen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/6_fixed-positioning.html)).
+> Sie können ein Beispiel hierfür live unter [`6_fixed-positioning.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/6_fixed-positioning.html) ansehen ([Quellcode anzeigen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/6_fixed-positioning.html)).
 
-## Klebrige Platzierung
+## Sticky Positionierung
 
-Es gibt einen weiteren Positionswert namens `position: sticky`, der etwas neuer ist als die anderen. Dies ist im Grunde eine Mischung aus relativer und fixierter Position. Es ermöglicht einem positionierten Element, so zu handeln, als ob es relativ positioniert wäre, bis es zu einem bestimmten Schwellenwert gescrollt wird (z. B. 10px vom oberen Rand des Ansichtsfensters), ab dem es fixiert wird.
+Es gibt einen weiteren Wert für die Positionierung namens `position: sticky`, der etwas neuer als die anderen ist. Dies ist im Grunde eine Kombination aus relativer und fixer Positionierung. Es erlaubt einem positionierten Element, sich wie ein relativ positioniertes Element zu verhalten, bis es an einen bestimmten Schwellenwert gescrollt wird (z. B. 10px vom oberen Rand des Viewports), wonach es fixiert wird.
 
 ### Einfaches Beispiel
 
-Klebrige Platzierung kann verwendet werden, um beispielsweise eine Navigationsleiste zu erstellen, die mit der Seite scrollt, bis zu einem bestimmten Punkt und dann oben auf der Seite klebt.
+Sticky-Positionierung kann beispielsweise verwendet werden, um eine Navigationsleiste zu erstellen, die mit der Seite scrollt, bis zu einem bestimmten Punkt, und dann am oberen Rand der Seite fixiert bleibt.
 
 ```html hidden
 <h1>Sticky positioning</h1>
@@ -591,9 +601,9 @@ body {
 
 {{ EmbedLiveSample('Basic_example', '100%', 200) }}
 
-### Scrollindex
+### Scroll-Index
 
-Ein interessanter und häufiger Gebrauch von `position: sticky` ist die Erstellung einer scrollenden Indexseite, bei der verschiedene Überschriften oben auf der Seite haften bleiben, wenn sie diese erreichen. Das Markup für ein solches Beispiel könnte so aussehen:
+Ein interessanter und häufiger Anwendungsfall für `position: sticky` ist die Erstellung einer Scroll-Index-Seite, bei der verschiedene Überschriften am oberen Rand der Seite haften, wenn sie ihn erreichen. Das Markup für ein solches Beispiel könnte folgendermaßen aussehen:
 
 ```html
 <h1>Sticky positioning</h1>
@@ -627,7 +637,7 @@ Ein interessanter und häufiger Gebrauch von `position: sticky` ist die Erstellu
 </dl>
 ```
 
-Das CSS könnte wie folgt aussehen. Im normalen Fluss scrollen die {{htmlelement("dt")}}-Elemente mit dem Inhalt. Wenn wir nun `position: sticky` auf das {{htmlelement("dt")}}-Element anwenden, zusammen mit einem {{cssxref("top")}}-Wert von 0, werden unterstützende Browser die Überschriften oben im Ansichtsfenster kleben, wenn sie diese Position erreichen. Jede nachfolgende Überschrift wird dann die vorherige ersetzen, wenn sie nach oben zu dieser Position scrollt.
+Das CSS könnte wie folgt aussehen. Im normalen Fluss scrollen die {{htmlelement("dt")}}-Elemente mit dem Inhalt. Wenn wir `position: sticky` zum {{htmlelement("dt")}}-Element hinzufügen, zusammen mit einem {{cssxref("top")}}-Wert von 0, haften die Überschriften in unterstützenden Browsern am oberen Rand des Viewports, sobald sie diese Position erreichen. Jede nachfolgende Überschrift ersetzt dann die vorherige, wenn sie an diese Position scrollt.
 
 ```css
 dt {
@@ -651,22 +661,22 @@ body {
 
 {{ EmbedLiveSample('Scrolling_index', '100%', 200) }}
 
-Klebrige Elemente sind relativ zu dem nächsten Vorfahren, der einen "Scrollmechanismus" hat, hast, was durch die [overflow](/de/docs/Web/CSS/overflow)-Eigenschaft seiner Vorfahren bestimmt wird.
+Sticky-Elemente sind "klebrig" relativ zu dem nächstgelegenen Vorfahren mit einem "Scrolling-Mechanismus", der durch die [overflow](/de/docs/Web/CSS/overflow)-Eigenschaft seiner Vorfahren bestimmt wird.
 
 > [!NOTE]
-> Sie können dieses Beispiel live auf [`7_sticky-positioning.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/7_sticky-positioning.html) sehen ([Quellcode ansehen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/7_sticky-positioning.html)).
+> Dieses Beispiel kann live unter [`7_sticky-positioning.html`](https://mdn.github.io/learning-area/css/css-layout/positioning/7_sticky-positioning.html) angezeigt werden ([Quellcode anzeigen](https://github.com/mdn/learning-area/blob/main/css/css-layout/positioning/7_sticky-positioning.html)).
 
-## Testen Sie Ihre Fähigkeiten!
+## Testen Sie Ihr Wissen!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Position_skills).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie finden einige zusätzliche Tests, um zu prüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihr Wissen: Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Position_skills).
 
 ## Zusammenfassung
 
-Ich bin sicher, Sie hatten Spaß beim Spielen mit der Basisplatzierung. Während es keine ideale Methode für die Verwendung in gesamten Layouts ist, gibt es viele spezifische Ziele, für die es geeignet ist. Als nächstes schauen wir uns Flexbox an.
+Ich bin sicher, Sie hatten Spaß daran, mit grundlegender Positionierung zu experimentieren. Obwohl es keine ideale Methode für komplette Layouts ist, gibt es viele spezifische Zwecke, für die sie geeignet ist. Als Nächstes werden wir uns mit Flexbox befassen.
 
 ## Siehe auch
 
-- Der {{cssxref("position")}}-Eigenschaftsreferenz.
-- [Praktische Platzierungsbeispiele](/de/docs/Learn_web_development/Core/CSS_layout/Practical_positioning_examples), für einige nützlichere Ideen.
+- Die {{cssxref("position")}}-Eigenschaftsreferenz.
+- [Praktische Positionierungsbeispiele](/de/docs/Learn_web_development/Core/CSS_layout/Practical_positioning_examples) für einige weitere nützliche Ideen.
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Floats", "Learn_web_development/Core/CSS_layout/Flexbox", "Learn_web_development/Core/CSS_layout")}}

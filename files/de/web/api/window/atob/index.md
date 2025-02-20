@@ -3,14 +3,15 @@ title: "Window: atob()-Methode"
 short-title: atob()
 slug: Web/API/Window/atob
 l10n:
-  sourceCommit: 087a73e18e2818c1cc6b9955218c614c44e612a0
+  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`atob()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces dekodiert einen Datenstring, der mit {{Glossary("Base64", "Base64")}}-Kodierung kodiert wurde. Sie können die [`Window.btoa()`](/de/docs/Web/API/Window/btoa)-Methode verwenden, um Daten zu kodieren und zu übertragen, die ansonsten Kommunikationsprobleme verursachen könnten, und anschließend die `atob()`-Methode verwenden, um die Daten wieder zu dekodieren. Zum Beispiel können Sie Steuerzeichen wie {{Glossary("ASCII", "ASCII")}}-Werte von 0 bis 31 kodieren, übertragen und dekodieren.
+Die **`atob()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces dekodiert eine
+Datenzeichenkette, die mit der {{Glossary("Base64", "Base64")}}-Kodierung kodiert wurde. Sie können die [`Window.btoa()`](/de/docs/Web/API/Window/btoa)-Methode verwenden, um Daten zu kodieren und zu übertragen, die sonst Kommunikationsprobleme verursachen könnten, diese dann zu übertragen und anschließend mit der `atob()`-Methode die Daten wieder zu dekodieren. Zum Beispiel können Sie Steuerzeichen, wie etwa {{Glossary("ASCII", "ASCII")}}-Werte von 0 bis 31, kodieren, übertragen und dekodieren.
 
-Erwägen Sie auch die Verwendung der {{jsxref("Uint8Array.fromBase64()")}}-Methode, die ein `Uint8Array`-Objekt aus einem base64-kodierten String erstellt. Das Ergebnis ist ein Byte-Array, mit dem leichter zu arbeiten ist als mit einem String, der rohe Bytes enthält.
+Es wird außerdem empfohlen, die Methode {{jsxref("Uint8Array.fromBase64()")}} zu verwenden, die ein `Uint8Array`-Objekt aus einer base64-kodierten Zeichenkette erstellt. Dies ergibt ein Byte-Array, das einfacher zu handhaben ist als eine Zeichenkette, die rohe Bytes enthält.
 
 ## Syntax
 
@@ -21,16 +22,16 @@ atob(encodedData)
 ### Parameter
 
 - `encodedData`
-  - : Ein binärer String (d.h. ein String, bei dem jedes Zeichen im String als Byte binärer Daten behandelt wird), der base64-kodierte Daten enthält.
+  - : Eine Binärzeichenkette (d. h. eine Zeichenkette, in der jedes Zeichen als Byte binärer Daten behandelt wird), die base64-kodierte Daten enthält.
 
 ### Rückgabewert
 
-Ein ASCII-String, der dekodierte Daten aus `encodedData` enthält.
+Eine ASCII-Zeichenkette, die decodierte Daten aus `encodedData` enthält.
 
 ### Ausnahmen
 
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `encodedData` nicht valide base64 ist.
+  - : Wird ausgelöst, wenn `encodedData` keine gültige Base64-Kodierung darstellt.
 
 ## Beispiele
 
@@ -39,7 +40,7 @@ const encodedData = window.btoa("Hello, world"); // encode a string
 const decodedData = window.atob(encodedData); // decode the string
 ```
 
-Weitere Beispiele finden Sie in der [`Window.btoa()`](/de/docs/Web/API/Window/btoa)-Methode.
+Weitere Beispiele finden Sie in der Beschreibung der [`Window.btoa()`](/de/docs/Web/API/Window/btoa)-Methode.
 
 ## Spezifikationen
 
@@ -51,8 +52,8 @@ Weitere Beispiele finden Sie in der [`Window.btoa()`](/de/docs/Web/API/Window/bt
 
 ## Siehe auch
 
-- [Ein Polyfill von `atob`](https://github.com/zloirock/core-js#base64-utility-methods) ist verfügbar in [`core-js`](https://github.com/zloirock/core-js)
-- [`data` URLs](/de/docs/Web/URI/Schemes/data)
-- [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob): die gleiche Methode, aber in Worker-Scope.
+- [Ein Polyfill von `atob`](https://github.com/zloirock/core-js#base64-utility-methods) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
+- [`data` URLs](/de/docs/Web/URI/Reference/Schemes/data)
+- [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob): dieselbe Methode, aber in Worker-Scopes.
 - [`Window.btoa()`](/de/docs/Web/API/Window/btoa)
 - {{jsxref("Uint8Array.fromBase64()")}}

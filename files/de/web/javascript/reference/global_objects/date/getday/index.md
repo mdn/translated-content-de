@@ -2,14 +2,23 @@
 title: Date.prototype.getDay()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getDay
 l10n:
-  sourceCommit: 27180875516cc311342e74b596bfb589b7211e0c
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die Methode **`getDay()`** von {{jsxref("Date")}}-Instanzen gibt den Wochentag für dieses Datum gemäß lokaler Zeit zurück, wobei 0 für Sonntag steht. Für den Kalendertag siehe {{jsxref("Date.prototype.getDate()")}}.
+Die Methode **`getDay()`** von {{jsxref("Date")}}-Instanzen gibt den Wochentag für dieses Datum gemäß der lokalen Zeit zurück, wobei 0 für Sonntag steht. Für den Tag des Monats siehe {{jsxref("Date.prototype.getDate()")}}.
 
-{{EmbedInteractiveExample("pages/js/date-getday.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Date.getDay()", "shorter")}}
+
+```js interactive-example
+const birthday = new Date("August 19, 1975 23:15:30");
+const day1 = birthday.getDay();
+// Sunday - Saturday : 0 - 6
+
+console.log(day1);
+// Expected output: 2
+```
 
 ## Syntax
 
@@ -23,11 +32,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl zwischen 0 und 6, die den Wochentag für das angegebene Datum gemäß lokaler Zeit darstellt: 0 für Sonntag, 1 für Montag, 2 für Dienstag usw. Gibt `NaN` zurück, wenn das Datum [ungültig ist](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date).
+Eine ganze Zahl zwischen 0 und 6, die den Wochentag für das angegebene Datum gemäß der lokalen Zeit darstellt: 0 für Sonntag, 1 für Montag, 2 für Dienstag, und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-Der Rückgabewert von `getDay()` ist nullbasiert, was nützlich ist zum Indizieren in Arrays von Tagen, zum Beispiel:
+Der Rückgabewert von `getDay()` ist nullbasiert, was nützlich ist, um beispielsweise auf Arrays von Wochentagen zuzugreifen:
 
 ```js
 const valentines = new Date("1995-02-14");
@@ -37,7 +46,7 @@ const dayNames = ["Sunday", "Monday", "Tuesday" /* , … */];
 console.log(dayNames[day]); // "Monday"
 ```
 
-Allerdings sollten Sie für die Zwecke der Internationalisierung stattdessen {{jsxref("Intl.DateTimeFormat")}} mit dem Parameter `options` verwenden.
+Für Internationalisierungszwecke sollten Sie jedoch bevorzugt {{jsxref("Intl.DateTimeFormat")}} mit dem Parameter `options` verwenden.
 
 ```js
 const options = { weekday: "long" };

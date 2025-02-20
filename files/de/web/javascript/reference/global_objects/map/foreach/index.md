@@ -2,14 +2,30 @@
 title: Map.prototype.forEach()
 slug: Web/JavaScript/Reference/Global_Objects/Map/forEach
 l10n:
-  sourceCommit: 27180875516cc311342e74b596bfb589b7211e0c
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`forEach()`**-Methode von {{jsxref("Map")}}-Instanzen führt eine bereitgestellte Funktion einmal pro Schlüssel/Wert-Paar in dieser Map in der Einfügereihenfolge aus.
+Die **`forEach()`**-Methode von {{jsxref("Map")}}-Instanzen führt eine bereitgestellte Funktion einmal pro Schlüssel/Wert-Paar in dieser Map in Einfügereihenfolge aus.
 
-{{EmbedInteractiveExample("pages/js/map-prototype-foreach.html")}}
+{{InteractiveExample("JavaScript Demo: Map.prototype.forEach()")}}
+
+```js interactive-example
+function logMapElements(value, key, map) {
+  console.log(`m[${key}] = ${value}`);
+}
+
+new Map([
+  ["foo", 3],
+  ["bar", {}],
+  ["baz", undefined],
+]).forEach(logMapElements);
+
+// Expected output: "m[foo] = 3"
+// Expected output: "m[bar] = [object Object]"
+// Expected output: "m[baz] = undefined"
+```
 
 ## Syntax
 
@@ -29,7 +45,7 @@ forEach(callbackFn, thisArg)
     - `map`
       - : Die Map, die durchlaufen wird.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird.
+  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird.
 
 ### Rückgabewert
 
@@ -37,7 +53,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Die `forEach`-Methode führt die bereitgestellte `callback`-Funktion einmal für jeden Schlüssel der Map aus, der tatsächlich existiert. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Sie wird jedoch für Werte ausgeführt, die vorhanden sind, aber den Wert `undefined` haben.
+Die `forEach`-Methode führt den bereitgestellten `callback` einmal für jeden vorhandenen Schlüssel der Map aus. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Sie wird jedoch für Werte ausgeführt, die vorhanden sind, aber den Wert `undefined` haben.
 
 `callback` wird mit **drei Argumenten** aufgerufen:
 
@@ -45,15 +61,15 @@ Die `forEach`-Methode führt die bereitgestellte `callback`-Funktion einmal für
 - dem `key` des Eintrags
 - dem **`Map`-Objekt**, das durchlaufen wird
 
-Wenn ein `thisArg`-Parameter an `forEach` übergeben wird, wird dieser an `callback` weitergegeben, um als dessen `this`-Wert verwendet zu werden. Andernfalls wird der Wert `undefined` übergeben, der als dessen `this`-Wert verwendet wird. Der letztendlich von `callback` beobachtbare `this`-Wert wird gemäß [den üblichen Regeln zur Bestimmung des von einer Funktion gesehenen `this`](/de/docs/Web/JavaScript/Reference/Operators/this) bestimmt.
+Wenn ein `thisArg`-Parameter an `forEach` übergeben wird, wird er an `callback` übergeben, wenn es aufgerufen wird, um als dessen `this`-Wert zu dienen. Andernfalls wird der Wert `undefined` übergeben, um als `this`-Wert zu dienen. Der schließlich von `callback` sichtbare `this`-Wert wird gemäß [den üblichen Regeln zur Bestimmung des `this`, das durch eine Funktion sichtbar ist](/de/docs/Web/JavaScript/Reference/Operators/this) ermittelt.
 
-Jeder Wert wird einmal besucht, es sei denn, er wurde gelöscht und vor dem Abschluss von `forEach` erneut hinzugefügt. `callback` wird nicht für Werte aufgerufen, die gelöscht wurden, bevor sie besucht wurden. Neue Werte, die hinzugefügt werden, bevor `forEach` abgeschlossen ist, werden besucht.
+Jeder Wert wird einmal besucht, außer in dem Fall, dass er vor dem Abschluss von `forEach` gelöscht und erneut hinzugefügt wurde. `callback` wird nicht für Werte aufgerufen, die vor dem Besuch gelöscht wurden. Neue Werte, die vor dem Abschluss von `forEach` hinzugefügt werden, werden besucht.
 
 ## Beispiele
 
-### Die Inhalte eines Map-Objekts ausgeben
+### Inhalte eines Map-Objekts ausgeben
 
-Der folgende Code gibt eine Zeile für jedes Element in einem `Map`-Objekt aus:
+Der folgende Code protokolliert eine Zeile für jedes Element in einem `Map`-Objekt:
 
 ```js
 function logMapElements(value, key, map) {

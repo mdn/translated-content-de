@@ -2,18 +2,34 @@
 title: Assertions
 slug: Web/JavaScript/Guide/Regular_expressions/Assertions
 l10n:
-  sourceCommit: 2c762771070a207d410a963166adf32213bc3a45
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
-{{jsSidebar("JavaScript Leitfaden")}}
+{{jsSidebar("JavaScript-Leitfaden")}}
 
-Assertionen umfassen Begrenzungen, die den Anfang und das Ende von Zeilen und Wörtern anzeigen, sowie andere Muster, die auf irgendeine Weise andeuten, dass ein Treffer möglich ist (einschließlich Look-ahead, Look-behind und bedingte Ausdrücke).
+Zu den Assertions gehören Grenzen, die den Anfang und das Ende von Zeilen und Wörtern anzeigen, sowie andere Muster, die anzeigen, dass eine Übereinstimmung möglich ist (einschließlich Lookahead, Lookbehind und bedingte Ausdrücke).
 
-{{EmbedInteractiveExample("pages/js/regexp-assertions.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: RegExp Assertions", "taller")}}
+
+```js interactive-example
+const text = "A quick fox";
+
+const regexpLastWord = /\w+$/;
+console.log(text.match(regexpLastWord));
+// Expected output: Array ["fox"]
+
+const regexpWords = /\b\w+\b/g;
+console.log(text.match(regexpWords));
+// Expected output: Array ["A", "quick", "fox"]
+
+const regexpFoxQuality = /\w+(?= fox)/;
+console.log(text.match(regexpFoxQuality));
+// Expected output: Array ["quick"]
+```
 
 ## Typen
 
-### Begrenzungs-Typ Assertionen
+### Assertions vom Typ Grenze
 
 <table class="standard-table">
   <thead>
@@ -27,21 +43,16 @@ Assertionen umfassen Begrenzungen, die den Anfang und das Ende von Zeilen und W�
       <td><code>^</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion"><strong>Anfangs-Assertions-Grenze:</strong></a>
-          Entspricht dem Anfang der Eingabe. Wenn das <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline"><code>multiline</code></a> (m) Flag aktiviert ist,
-          entspricht es auch direkt nach einem Zeilenumbruchzeichen. Zum Beispiel
-          passt <code>/^A/</code> nicht zum "A" in "an A", aber es passt zum
-          ersten "A" in "An A".
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion"><strong>Input-Grenze Anfangs-Assertion:</strong></a>
+          Passt am Anfang des Eingabewerts. Wenn das <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline"><code>multiline</code></a> (m)-Flag aktiviert ist, passt es auch unmittelbar nach einem Zeilenumbruch-Zeichen. Zum Beispiel passt <code>/^A/</code> nicht auf das "A" in "an A", jedoch auf das erste "A" in "An A".
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Dieses Zeichen hat eine andere Bedeutung, wenn
-            es am Anfang einer
+            <strong>Hinweis:</strong> Dieses Zeichen hat eine andere Bedeutung, wenn es am Anfang einer
             <a
               href="/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes"
               >Zeichenklasse</a
-            >
-            erscheint.
+            > erscheint.
           </p>
         </div>
       </td>
@@ -50,10 +61,8 @@ Assertionen umfassen Begrenzungen, die den Anfang und das Ende von Zeilen und W�
       <td><code>$</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion"><strong>Ende-Assertions-Grenze:</strong></a>
-          Entspricht dem Ende der Eingabe. Wenn das <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline"><code>multiline</code></a> (m) Flag aktiviert ist, entspricht es auch
-          direkt vor einem Zeilenumbruchzeichen. Zum Beispiel
-          passt <code>/t$/</code> nicht zum "t" in "eater", aber es passt in "eat".
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion"><strong>Input-Grenze End-Assertion:</strong></a>
+          Passt am Ende des Eingabewerts. Wenn das <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline"><code>multiline</code></a> (m)-Flag aktiviert ist, passt es auch unmittelbar vor einem Zeilenumbruch-Zeichen. Zum Beispiel passt <code>/t$/</code> nicht auf das "t" in "eater", jedoch auf das "t" in "eat".
         </p>
       </td>
     </tr>
@@ -61,33 +70,28 @@ Assertionen umfassen Begrenzungen, die den Anfang und das Ende von Zeilen und W�
       <td><code>\b</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion"><strong>Wort-Grenzen-Assertion:</strong></a>
-          Entspricht einer Wortgrenze. Dies ist die Position, an der ein Wortzeichen
-          nicht von einem anderen Wortzeichen gefolgt oder vorhergegangen wird, wie z.B. zwischen
-          einem Buchstaben und einem Leerzeichen. Beachten Sie, dass eine gefundene Wortgrenze nicht
-          im Treffer enthalten ist. Mit anderen Worten, die Länge einer gefundenen Wortgrenze ist null.
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion"><strong>Wortgrenzen-Assertion:</strong></a>
+          Passt an einer Wortgrenze. Dies ist die Position, an der ein Wortzeichen nicht von einem anderen Wortzeichen gefolgt oder vor einem solchen steht, wie z. B. zwischen einem Buchstaben und einem Leerzeichen. Beachten Sie, dass eine erkannte Wortgrenze nicht Teil der Übereinstimmung ist. Mit anderen Worten: Die Länge einer passenden Wortgrenze ist null.
         </p>
         <p>Beispiele:</p>
         <ul>
-          <li><code>/\bm/</code> passt zum "m" in "moon".</li>
+          <li><code>/\bm/</code> passt auf das "m" in "moon".</li>
           <li>
-            <code>/oo\b/</code> passt nicht zum "oo" in "moon", da "oo"
-            von "n" gefolgt wird, welches ein Wortzeichen ist.
+            <code>/oo\b/</code> passt nicht auf das "oo" in "moon", da "oo" von "n" gefolgt wird, welches ein Wortzeichen ist.
           </li>
           <li>
-            <code>/oon\b/</code> passt zum "oon" in "moon", da "oon"
-            das Ende der Zeichenkette ist und somit nicht von einem Wortzeichen gefolgt wird.
+            <code>/oon\b/</code> passt auf das "oon" in "moon", da "oon" das Ende des Strings ist und somit nicht von einem Wortzeichen gefolgt wird.
           </li>
           <li>
-            <code>/\w\b\w/</code> wird nie etwas finden, da ein Wortzeichen
-            nie sowohl von einem Nicht-Wort- als auch einem Wortzeichen gefolgt werden kann.
+            <code>/\w\b\w/</code> wird nie passen, da ein Wortzeichen niemals gleichzeitig von einem Nicht-Wortzeichen und einem Wortzeichen gefolgt sein kann.
           </li>
         </ul>
         <p>
-          Um ein Rückschrittzeichen (<code>[\b]</code>) zu finden, lesen Sie
-          die <a
+          Um ein Rückschrittzeichen (<code>[\b]</code>) zu matchen, siehe
+          <a
             href="/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes"
-            >Zeichenklassen</a>.
+            >Zeichenklassen</a
+          >.
         </p>
       </td>
     </tr>
@@ -95,25 +99,18 @@ Assertionen umfassen Begrenzungen, die den Anfang und das Ende von Zeilen und W�
       <td><code>\B</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion"><strong>Nicht-Wort-Grenzen-Assertion:</strong></a>
-          Entspricht einer Nicht-Wortgrenze. Dies ist eine Position, an der das vorherige und
-          das nächste Zeichen vom gleichen Typ sind: Entweder müssen beide Wörter sein, oder
-          beide müssen Nicht-Wörter sein, z.B. zwischen zwei Buchstaben oder zwei
-          Leerzeichen. Der Anfang und das Ende einer Zeichenkette werden als Nicht-Wörter angesehen.
-          Genauso wie die gefundene Wortgrenze ist die gefundene Nicht-Wortgrenze
-          auch nicht im Treffer enthalten. Zum Beispiel
-          <code>/\Bon/</code> passt zu "on" in "at noon", und
-          <code>/ye\B/</code> passt zu "ye" in "possibly yesterday".
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion"><strong>Keine-Wortgrenze-Assertion:</strong></a>
+          Passt an einer Nicht-Wortgrenze. Dies ist eine Position, an der das vorherige und das nächste Zeichen vom gleichen Typ sind: Entweder müssen beide Wörter oder beide Nicht-Wörter sein, z. B. zwischen zwei Buchstaben oder zwischen zwei Leerzeichen. Der Anfang und das Ende eines Strings werden als Nicht-Wörter betrachtet. Genau wie die erkannte Wortgrenze ist die erkannte Nicht-Wortgrenze ebenfalls nicht Teil der Übereinstimmung. Zum Beispiel passt <code>/\Bon/</code> auf "on" in "at noon", und <code>/ye\B/</code> passt auf "ye" in "possibly yesterday".
         </p>
       </td>
     </tr>
   </tbody>
 </table>
 
-### Andere Assertionen
+### Andere Assertions
 
 > [!NOTE]
-> Das Zeichen `?` kann auch als Quantor verwendet werden.
+> Das Zeichen `?` kann auch als Quantifier verwendet werden.
 
 <table class="standard-table">
   <thead>
@@ -128,13 +125,11 @@ Assertionen umfassen Begrenzungen, die den Anfang und das Ende von Zeilen und W�
       <td>
         <p>
           <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion"><strong>Lookahead-Assertion:</strong></a>
-          Entspricht "x" nur, wenn "x"
-          von "y" gefolgt wird. Zum Beispiel passt <code>/Jack(?=Sprat)/</code> nur zu
-          "Jack", wenn es von "Sprat" gefolgt wird.<br /><code
+          Passt "x" nur, wenn "x"
+          von "y" gefolgt wird. Zum Beispiel passt <code>/Jack(?=Sprat)/</code> auf "Jack" nur, wenn es von "Sprat" gefolgt wird.<br /><code
             >/Jack(?=Sprat|Frost)/</code
           >
-          passt zu "Jack", nur wenn es von "Sprat" oder "Frost" gefolgt wird. Weder
-          "Sprat" noch "Frost" sind Teil des Treffer-Ergebnisses.
+          passt auf "Jack" nur, wenn es von "Sprat" oder "Frost" gefolgt wird. Weder "Sprat" noch "Frost" sind jedoch Teil der Übereinstimmungsergebnisse.
         </p>
       </td>
     </tr>
@@ -143,12 +138,10 @@ Assertionen umfassen Begrenzungen, die den Anfang und das Ende von Zeilen und W�
       <td>
         <p>
           <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion"><strong>Negative Lookahead-Assertion:</strong></a>
-          Entspricht "x" nur, wenn "x"
-          nicht von "y" gefolgt wird. Zum Beispiel passt <code>/\d+(?!\.)/</code> zu
-          einer Zahl nur, wenn sie nicht von einem Dezimalpunkt gefolgt wird. <code
+          Passt "x" nur, wenn "x" nicht von "y" gefolgt wird. Zum Beispiel passt <code>/\d+(?!\.)/</code> auf eine Zahl, nur wenn sie nicht von einem Dezimalpunkt gefolgt wird. <code
             >/\d+(?!\.)/.exec('3.141')</code
           >
-          passt zu "141", aber nicht zu "3".
+          passt auf "141", jedoch nicht auf "3".
         </p>
       </td>
     </tr>
@@ -157,12 +150,7 @@ Assertionen umfassen Begrenzungen, die den Anfang und das Ende von Zeilen und W�
       <td>
         <p>
           <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion"><strong>Lookbehind-Assertion:</strong></a>
-          Entspricht "x" nur, wenn "x"
-          von "y" vorhergegangen wird. Zum Beispiel passt
-          <code>/(?&#x3C;=Jack)Sprat/</code> zu "Sprat" nur, wenn es
-          von "Jack" vorhergegangen wird. <code>/(?&#x3C;=Jack|Tom)Sprat/</code> passt
-          zu "Sprat" nur, wenn es von "Jack" oder "Tom" vorhergegangen wird. Weder
-          "Jack" noch "Tom" sind Teil des Treffer-Ergebnisses.
+          Passt "x" nur, wenn "x" von "y" vorangestellt ist. Zum Beispiel passt <code>/(?&#x3C;=Jack)Sprat/</code> auf "Sprat", nur wenn es von "Jack" vorangestellt ist. <code>/(?&#x3C;=Jack|Tom)Sprat/</code> passt auf "Sprat", nur wenn es von "Jack" oder "Tom" vorangestellt ist. Weder "Jack" noch "Tom" sind jedoch Teil der Übereinstimmungsergebnisse.
         </p>
       </td>
     </tr>
@@ -171,11 +159,7 @@ Assertionen umfassen Begrenzungen, die den Anfang und das Ende von Zeilen und W�
       <td>
         <p>
           <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion"><strong>Negative Lookbehind-Assertion:</strong></a>
-          Entspricht "x" nur, wenn
-          "x" nicht von "y" vorhergegangen wird. Zum Beispiel passt
-          <code>/(?&#x3C;!-)\d+/</code> zu einer Zahl nur, wenn sie nicht
-          von einem Minuszeichen vorhergegangen wird. <code>/(?&#x3C;!-)\d+/.exec('3')</code>
-          passt zu "3". <code>/(?&#x3C;!-)\d+/.exec('-3')</code> findet keinen Treffer, weil die Zahl von einem Minuszeichen vorhergegangen wird.
+          Passt "x" nur, wenn "x" nicht von "y" vorangestellt ist. Zum Beispiel passt <code>/(?&#x3C;!-)\d+/</code> auf eine Zahl, nur wenn sie nicht von einem Minuszeichen vorangestellt ist. <code>/(?&#x3C;!-)\d+/.exec('3')</code> passt auf "3". <code>/(?&#x3C;!-)\d+/.exec('-3')</code> findet keine Übereinstimmung, da die Zahl von einem Minuszeichen vorangestellt ist.
         </p>
       </td>
     </tr>
@@ -184,7 +168,7 @@ Assertionen umfassen Begrenzungen, die den Anfang und das Ende von Zeilen und W�
 
 ## Beispiele
 
-### Allgemeine Überblicksbeispiele zu Begrenzungen
+### Allgemeines Beispiel für Grenz-Typen
 
 <!-- cSpell:ignore greon -->
 
@@ -210,9 +194,9 @@ fixedMultiline = buggyMultiline.replace(/\Bo/gim, "e");
 console.log(4, fixedMultiline); // fix 'greon' => 'green' but do not touch 'on'.
 ```
 
-### Das Anfang der Eingabe mit einem ^ Steuerzeichen abgleichen
+### Den Anfang des Eingabewerts mit einem ^-Steuerzeichen abgleichen
 
-Verwenden Sie `^`, um am Anfang der Eingabe abzugleichen. In diesem Beispiel können wir die Früchte erhalten, die mit 'A' beginnen, indem wir einen `/^A/` Regex verwenden. Zum Auswählen der passenden Früchte können wir die [`filter`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) Methode mit einer [Pfeil-](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) Funktion nutzen.
+Verwenden Sie `^`, um am Anfang des Eingabewerts abzugleichen. In diesem Beispiel können wir die Früchte finden, die mit 'A' beginnen, indem wir einen `/^A/` Regex verwenden. Um die passenden Früchte auszuwählen, können wir die [`filter`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)-Methode mit einer [arrow](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions)-Funktion verwenden.
 
 ```js
 const fruits = ["Apple", "Watermelon", "Orange", "Avocado", "Strawberry"];
@@ -224,7 +208,7 @@ const fruitsStartsWithA = fruits.filter((fruit) => /^A/.test(fruit));
 console.log(fruitsStartsWithA); // [ 'Apple', 'Avocado' ]
 ```
 
-Im zweiten Beispiel wird `^` sowohl zum Abgleichen am Anfang der Eingabe verwendet als auch zum Erstellen einer negierten oder ergänzenden Zeichenklasse, wenn es innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) eingesetzt wird.
+Im zweiten Beispiel wird `^` sowohl verwendet, um am Anfang des Eingabewerts abzugleichen, als auch, um eine negierte oder komplementierte Zeichenklasse innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) zu erstellen.
 
 ```js
 const fruits = ["Apple", "Watermelon", "Orange", "Avocado", "Strawberry"];
@@ -240,11 +224,11 @@ const fruitsStartsWithNotA = fruits.filter((fruit) => /^[^A]/.test(fruit));
 console.log(fruitsStartsWithNotA); // [ 'Watermelon', 'Orange', 'Strawberry' ]
 ```
 
-Siehe weitere Beispiele in der Referenz zur [Eingabe-Grenz-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion).
+Weitere Beispiele finden Sie in der Referenz zu [Input-Grenz-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion).
 
 ### Eine Wortgrenze abgleichen
 
-In diesem Beispiel gleichen wir Fruchtnamen ab, die ein Wort enthalten, das in "en" oder "ed" endet.
+In diesem Beispiel gleichen wir Obstnamen ab, die ein Wort enthalten, das mit "en" oder "ed" endet.
 
 ```js
 const fruitsWithDescription = ["Red apple", "Orange orange", "Green Avocado"];
@@ -257,11 +241,11 @@ const enEdSelection = fruitsWithDescription.filter((descr) =>
 console.log(enEdSelection); // [ 'Red apple', 'Green Avocado' ]
 ```
 
-Siehe weitere Beispiele in der Referenz zur [Wort-Grenzen-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion).
+Weitere Beispiele finden Sie in der Referenz zu [Wortgrenzen-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion).
 
 ### Lookahead-Assertion
 
-In diesem Beispiel gleichen wir das Wort "First" nur ab, wenn es von dem Wort "test" gefolgt wird, aber wir schließen "test" nicht in die Treffer-Ergebnisse ein.
+In diesem Beispiel gleichen wir das Wort "First" nur ab, wenn es von dem Wort "test" gefolgt wird, jedoch wird "test" nicht in die Übereinstimmungsergebnisse aufgenommen.
 
 ```js
 const regex = /First(?= test)/g;
@@ -272,21 +256,21 @@ console.log("This is a First test in a year.".match(regex)); // [ 'First' ]
 console.log("This is a First peach in a month.".match(regex)); // null
 ```
 
-Siehe weitere Beispiele in der Referenz zur [Lookahead-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion).
+Weitere Beispiele finden Sie in der Referenz zu [Lookahead-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion).
 
-### Grundlegende negative Lookahead-Assertion
+### Grundlegende Negative Lookahead-Assertion
 
-Zum Beispiel passt `/\d+(?!\.)/` zu einer Zahl nur, wenn sie nicht von einem Dezimalpunkt gefolgt wird. `/\d+(?!\.)/.exec('3.141')` passt zu "141", aber nicht zu "3".
+Beispielsweise passt `/\d+(?!\.)/` auf eine Zahl nur, wenn sie nicht von einem Dezimalpunkt gefolgt wird. `/\d+(?!\.)/.exec('3.141')` passt auf "141", jedoch nicht auf "3".
 
 ```js
 console.log(/\d+(?!\.)/g.exec("3.141")); // [ '141', index: 2, input: '3.141' ]
 ```
 
-Siehe weitere Beispiele in der Referenz zur [Lookahead-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion).
+Weitere Beispiele finden Sie in der Referenz zu [Lookahead-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion).
 
-### Unterschiedliche Bedeutung der '?!' Kombination bei der Verwendung in Assertionen und Zeichenklassen
+### Verschiedene Bedeutungen der Kombination '?!' in Assertions und Zeichenklassen
 
-Die `?!` Kombination hat unterschiedliche Bedeutungen in Assertionen wie `/x(?!y)/` und [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) wie `[^?!]`.
+Die Kombination `?!` hat unterschiedliche Bedeutungen in Assertions wie `/x(?!y)/` und [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) wie `[^?!]`.
 
 ```js
 const orangeNotLemon =
@@ -302,7 +286,7 @@ console.log(orangeNotLemon.match(selectNotOrangeRegex)); // [ ' Yes, I do not wa
 
 ### Lookbehind-Assertion
 
-In diesem Beispiel ersetzen wir das Wort "orange" durch "apple" nur, wenn es von dem Wort "ripe" vorhergegangen wird.
+In diesem Beispiel ersetzen wir das Wort "orange" durch "apple", nur wenn es von dem Wort "ripe" vorangestellt ist.
 
 ```js
 const oranges = ["ripe orange A", "green orange B", "ripe orange C"];
@@ -313,17 +297,17 @@ const newFruits = oranges.map((fruit) =>
 console.log(newFruits); // ['ripe apple A', 'green orange B', 'ripe apple C']
 ```
 
-Siehe weitere Beispiele in der Referenz zur [Lookbehind-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion).
+Weitere Beispiele finden Sie in der Referenz zu [Lookbehind-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion).
 
 ## Siehe auch
 
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Leitfaden
 - [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) Leitfaden
-- [Quantoren](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers) Leitfaden
+- [Quantifiers](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers) Leitfaden
 - [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) Leitfaden
 - [`RegExp`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Referenz
-- [Eingabe-Grenz-Assertion: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
+- [Input-Grenz-Assertion: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
 - [Lookahead-Assertion: `(?=...)`, `(?!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
 - [Lookbehind-Assertion: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)
-- [Wort-Grenzen-Assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
+- [Wortgrenzen-Assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)

@@ -2,15 +2,15 @@
 title: pointer-events
 slug: Web/SVG/Attribute/pointer-events
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das Attribut **`pointer-events`** ist ein Präsentationsattribut, das bestimmt, ob oder wann ein Element das Ziel eines Mausereignisses sein kann.
+Das Attribut **`pointer-events`** ist ein Präsentationsattribut, das definiert, ob oder wann ein Element Ziel eines Mausereignisses sein kann.
 
 > [!NOTE]
-> Als Präsentationsattribut kann {{cssxref('pointer-events')}} auch als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut hat `pointer-events` auch ein Gegenstück als CSS-Eigenschaft: {{cssxref("pointer-events")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -84,7 +84,7 @@ window.addEventListener("mouseup", (e) => {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Anmerkungen zur Verwendung
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -108,7 +108,7 @@ window.addEventListener("mouseup", (e) => {
   </tbody>
 </table>
 
-_Eine detaillierte Erklärung der einzelnen möglichen Werte finden Sie in der CSS-Dokumentation zu {{cssxref('pointer-events')}}._
+_Für eine detaillierte Erklärung der möglichen Werte werfen Sie einen Blick in die CSS-Dokumentation zu {{cssxref('pointer-events')}}._
 
 ## Spezifikationen
 
@@ -120,4 +120,4 @@ _Eine detaillierte Erklärung der einzelnen möglichen Werte finden Sie in der C
 
 ## Siehe auch
 
-- CSS-Eigenschaft {{cssxref("pointer-events")}}
+- CSS {{cssxref("pointer-events")}}-Eigenschaft

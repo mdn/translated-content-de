@@ -1,13 +1,13 @@
 ---
-title: CSS-at-rule-Funktionen
+title: CSS-At-Regel-Funktionen
 slug: Web/CSS/At-rule-functions
 l10n:
-  sourceCommit: 6fbfac8960ba76c1dc5aea34d35a5c11f8487ba7
+  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
 ---
 
 {{CSSRef}}
 
-**[CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/At-rule) Funktionen** sind at-rule-Anweisungen, die komplexe Regeln darstellen oder spezielle Datenverarbeitung oder Berechnungen aufrufen können.
+**[CSS](/de/docs/Web/CSS)-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule)-Funktionen** sind At-Regel-Anweisungen, die komplexe Regeln darstellen oder spezielle Datenverarbeitung oder Berechnungen ausführen können.
 
 ## Syntax
 
@@ -16,42 +16,42 @@ l10n:
 }
 ```
 
-Die Syntax beginnt mit dem At-Symbol `@` und einem at-rule-Identifikator, wie etwa `import`. Darauf folgt der **Name der at-rule-Funktion**, wie `url`, gefolgt von einem Paar öffnender und schließender Klammern. Ein oder mehrere Argumente werden innerhalb der Klammern angegeben.
+Die Syntax beginnt mit dem At-Symbol `@` und einem At-Regel-Identifikator, wie `import`. Darauf folgt der **Name der At-Regel-Funktion**, wie `url`, gefolgt von einem Paar öffnender und schließender Klammern. Ein oder mehrere Argumente werden innerhalb der Klammern angegeben.
 
-Einige at-rule-Funktionen können mehrere Argumente annehmen, die ähnlich wie CSS-Werte formatiert sind. Leerzeichen sind erlaubt, aber innerhalb der Klammern optional. Mehrere Argumente können durch ein Komma oder ein Leerzeichen getrennt werden.
+Einige At-Regel-Funktionen können mehrere Argumente akzeptieren, die ähnlich wie CSS-Property-Werte formatiert sind. Leerzeichen sind erlaubt, aber sie sind innerhalb der Klammern optional. Mehrere Argumente können durch ein Komma oder ein Leerzeichen getrennt werden.
 
 ## @import-Funktionen
 
-Die at-rule {{CSSxRef("@import")}} wird verwendet, um Stilvorlagen von anderen Stylesheets zu importieren.
+Die {{CSSxRef("@import")}}-At-Regel wird verwendet, um Stile aus anderen Stylesheets zu importieren.
 
 - {{CSSxRef("@import", "@import url()")}}
   - : Importiert eine Stylesheet-Datei von der angegebenen URL.
 - {{CSSxRef("@import", "@import supports()")}}
-  - : Importiert eine Stylesheet-Datei basierend auf der Browserunterstützung.
+  - : Importiert eine Stylesheet-Datei basierend auf Browser-Unterstützung.
 - {{CSSxRef("@import", "@import layer()")}}
   - : Importiert eine Stylesheet-Datei in die angegebene Kaskadenschicht.
 
 ## @supports-Funktionen
 
-Die at-rule {{CSSxRef("@supports")}} prüft die Unterstützung eines Browsers für das angegebene CSS-Feature und wendet dann das CSS-Styling an.
+Die {{CSSxRef("@supports")}}-At-Regel überprüft die Unterstützung eines Browsers für die angegebene CSS-Funktion und wendet dann das CSS-Styling an.
 
 - {{CSSxRef("@supports", "@supports selector()")}}
-  - : Wendet CSS-Regeln an, nachdem die Unterstützung des Browsers für die angegebene Selektorsyntax geprüft wurde.
+  - : Wendet CSS-Regeln an, nachdem die Unterstützung des Browsers für die angegebene Selektorsyntax überprüft wurde.
 - {{CSSxRef("@supports", "@supports font-tech()")}}
-  - : Wendet CSS-Regeln an, nachdem die Unterstützung des Browsers für die angegebene Schriftarttechnologie geprüft wurde.
+  - : Wendet CSS-Regeln an, nachdem die Unterstützung des Browsers für die angegebene Schrifttechnologie überprüft wurde.
 - {{CSSxRef("@supports", "@supports font-format()")}}
-  - : Wendet CSS-Regeln an, nachdem die Unterstützung des Browsers für das angegebene Schriftartformat geprüft wurde.
+  - : Wendet CSS-Regeln an, nachdem die Unterstützung des Browsers für das angegebene Schriftformat überprüft wurde.
 
 ## @namespace-Funktionen
 
-Die {{CSSxRef("@namespace")}} at-rule wird verwendet, um XML-Namensräume anzugeben, die in einem CSS-Stylesheet verwendet werden sollen.
+Die {{CSSxRef("@namespace")}}-At-Regel wird verwendet, um XML-Namespaces festzulegen, die in einem CSS-Stylesheet verwendet werden sollen.
 
 - {{CSSxRef("@namespace", "@namespace url()")}}
-  - : Definiert den XML-Namespace von der angegebenen URL.
+  - : Definiert einen XML-Namespace von der angegebenen URL.
 
 ## @container-Funktionen
 
-Die {{CSSxRef("@container")}} at-rule wird verwendet, um Stilvorlagen für einen Containment-Kontext festzulegen.
+Die {{CSSxRef("@container")}}-At-Regel wird verwendet, um Stile für einen Containment-Kontext festzulegen.
 
 - {{CSSxRef("@container", "@container style()")}}
-  - : Definiert den Stil des Containment-Kontexts.
+  - : Definiert den Containment-Kontextstil.

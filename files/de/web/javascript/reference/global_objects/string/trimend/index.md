@@ -2,14 +2,24 @@
 title: String.prototype.trimEnd()
 slug: Web/JavaScript/Reference/Global_Objects/String/trimEnd
 l10n:
-  sourceCommit: 27180875516cc311342e74b596bfb589b7211e0c
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die Methode **`trimEnd()`** von {{jsxref("String")}}-Werten entfernt Leerzeichen vom Ende des Strings und gibt einen neuen String zurück, ohne den ursprünglichen String zu verändern. `trimRight()` ist ein Alias für diese Methode.
+Die **`trimEnd()`**-Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen am Ende dieses Strings und gibt einen neuen String zurück, ohne den ursprünglichen String zu verändern. `trimRight()` ist ein Alias für diese Methode.
 
-{{EmbedInteractiveExample("pages/js/string-trimend.html")}}
+{{InteractiveExample("JavaScript Demo: String.trimEnd()")}}
+
+```js interactive-example
+const greeting = "   Hello world!   ";
+
+console.log(greeting);
+// Expected output: "   Hello world!   ";
+
+console.log(greeting.trimEnd());
+// Expected output: "   Hello world!";
+```
 
 ## Syntax
 
@@ -25,13 +35,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer String, der `str` darstellt und von Leerzeichen an seinem Ende (rechte Seite) befreit ist. Leerzeichen sind als [Leerraumzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) plus [Zeilenbegrenzungen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) definiert.
+Ein neuer String, der `str` darstellt, jedoch ohne Leerzeichen am Ende (rechte Seite). Leerzeichen werden definiert durch [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen und [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
 
-Wenn das Ende von `str` keine Leerzeichen enthält, wird trotzdem ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
+Falls das Ende von `str` keine Leerzeichen enthält, wird trotzdem ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
 
-### Aliasing
+### Aliase
 
-Nachdem {{jsxref("String/trim", "trim()")}} standardisiert wurde, implementierten Engines auch die nicht standardisierte Methode `trimRight`. Jedoch wurde, um Konsistenz mit {{jsxref("String/padEnd", "padEnd()")}} zu gewährleisten, bei der Standardisierung dieser Methode der Name `trimEnd` gewählt. Aus Gründen der Web-Kompatibilität bleibt `trimRight` als Alias für `trimEnd` erhalten, und sie beziehen sich auf dasselbe Funktionsobjekt. In einigen Engines bedeutet dies:
+Nachdem {{jsxref("String/trim", "trim()")}} standardisiert wurde, implementierten Engines auch die nicht-standardisierte Methode `trimRight`. Um jedoch die Konsistenz mit {{jsxref("String/padEnd", "padEnd()")}} zu wahren, wurde beim Standardisierungsprozess der Name `trimEnd` gewählt. Aus Gründen der Web-Kompatibilität bleibt `trimRight` als Alias für `trimEnd` erhalten, und beide beziehen sich auf dasselbe Funktionsobjekt. In einigen Engines bedeutet dies:
 
 ```js
 String.prototype.trimRight.name === "trimEnd";
@@ -41,7 +51,7 @@ String.prototype.trimRight.name === "trimEnd";
 
 ### Verwendung von trimEnd()
 
-Im folgenden Beispiel werden Leerzeichen vom Ende von `str` entfernt, aber nicht vom Anfang.
+Im folgenden Beispiel werden Leerzeichen am Ende von `str` entfernt, nicht jedoch am Anfang.
 
 ```js
 let str = "   foo  ";

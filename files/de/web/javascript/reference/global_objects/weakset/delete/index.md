@@ -2,14 +2,29 @@
 title: WeakSet.prototype.delete()
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/delete
 l10n:
-  sourceCommit: 88d71e500938fa8ca969fe4fe3c80a5abe23d767
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`delete()`** Methode von {{jsxref("WeakSet")}} Instanzen entfernt das angegebene Element aus diesem `WeakSet`.
+Die **`delete()`**-Methode von {{jsxref("WeakSet")}}-Instanzen entfernt das angegebene Element aus diesem `WeakSet`.
 
-{{EmbedInteractiveExample("pages/js/weakset-prototype-delete.html")}}
+{{InteractiveExample("JavaScript Demo: WeakSet.Prototype.delete()")}}
+
+```js interactive-example
+const weakset1 = new WeakSet();
+const object1 = {};
+
+weakset1.add(object1);
+
+console.log(weakset1.has(object1));
+// Expected output: true
+
+weakset1.delete(object1);
+
+console.log(weakset1.has(object1));
+// Expected output: false
+```
 
 ## Syntax
 
@@ -28,7 +43,7 @@ weakSetInstance.delete(value)
 
 ## Beispiele
 
-### Verwendung der Methode delete()
+### Verwendung der delete()-Methode
 
 ```js
 const ws = new WeakSet();

@@ -2,14 +2,28 @@
 title: Object.isSealed()
 slug: Web/JavaScript/Reference/Global_Objects/Object/isSealed
 l10n:
-  sourceCommit: 2ae5490e54b413897242860dfe2328e825773bda
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Object.isSealed()`** bestimmt, ob ein Objekt [versiegelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/seal) ist.
+Die statische Methode **`Object.isSealed()`** überprüft, ob ein Objekt [versiegelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/seal) ist.
 
-{{EmbedInteractiveExample("pages/js/object-issealed.html")}}
+{{InteractiveExample("JavaScript Demo: Object.isSealed()")}}
+
+```js interactive-example
+const object1 = {
+  property1: 42,
+};
+
+console.log(Object.isSealed(object1));
+// Expected output: false
+
+Object.seal(object1);
+
+console.log(Object.isSealed(object1));
+// Expected output: true
+```
 
 ## Syntax
 
@@ -24,14 +38,11 @@ Object.isSealed(obj)
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, der angibt, ob das gegebene Objekt versiegelt ist oder nicht.
+Ein {{jsxref("Boolean")}}, der angibt, ob das angegebene Objekt versiegelt ist oder nicht.
 
 ## Beschreibung
 
-Gibt `true` zurück, wenn das Objekt versiegelt ist, ansonsten `false`. Ein
-Objekt ist versiegelt, wenn es nicht {{jsxref("Object/isExtensible", "erweiterbar", "", 1)}} ist und
-wenn alle seine Eigenschaften nicht konfigurierbar sind und daher nicht entfernt werden können (aber nicht
-notwendigerweise nicht überschreibbar).
+Gibt `true` zurück, wenn das Objekt versiegelt ist, andernfalls `false`. Ein Objekt ist versiegelt, wenn es nicht {{jsxref("Object/isExtensible", "erweiterbar", "", 1)}} ist und alle seine Eigenschaften nicht konfigurierbar sind und daher nicht entfernt werden können (aber nicht unbedingt schreibgeschützt).
 
 ## Beispiele
 
@@ -89,7 +100,7 @@ Object.isFrozen(s3); // true
 
 ### Nicht-Objekt-Argument
 
-In ES5, wenn das Argument dieser Methode kein Objekt (ein primitiver Wert) ist, führt es zu einem {{jsxref("TypeError")}}. In ES2015 wird `true` zurückgegeben, ohne dass ein Fehler auftritt, wenn ein Nicht-Objekt-Argument übergeben wird, da primitive Werte per Definition unveränderlich sind.
+In ES5 verursacht diese Methode einen {{jsxref("TypeError")}}, wenn das Argument kein Objekt (ein primitives Datenelement) ist. In ES2015 wird `true` zurückgegeben, ohne dass ein Fehler auftritt, wenn ein Nicht-Objekt-Argument übergeben wird, da primitive Datenelemente per Definition unveränderlich sind.
 
 ```js
 Object.isSealed(1);

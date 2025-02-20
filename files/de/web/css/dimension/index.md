@@ -2,18 +2,18 @@
 title: <dimension>
 slug: Web/CSS/dimension
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Der **`<dimension>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert ein {{CSSxRef("&lt;number&gt;")}} mit einer Einheit, beispielsweise `10px`.
+Die **`<dimension>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) stellt eine {{CSSxRef("&lt;number&gt;")}} mit einer angehängten Einheit dar, zum Beispiel `10px`.
 
-CSS verwendet Dimensionen, um Abstände ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}), Auflösungen ({{CSSxRef("&lt;resolution&gt;")}}) und andere Mengen anzugeben.
+CSS verwendet Dimensionen, um Abstände ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}), Auflösungen ({{CSSxRef("&lt;resolution&gt;")}}) und andere Größen zu spezifizieren.
 
 ## Syntax
 
-Die Syntax von `<dimension>` ist ein {{CSSxRef("&lt;number&gt;")}}, dem unmittelbar eine Einheit als Bezeichner folgt. Einheitsbezeichner sind nicht case-sensitiv.
+Die Syntax von `<dimension>` besteht aus einer {{CSSxRef("&lt;number&gt;")}}, die unmittelbar von einer Einheit, einem Bezeichner, gefolgt wird. Einheitsbezeichner sind nicht groß- und kleinschreibungsempfindlich.
 
 ## Beispiele
 
@@ -47,6 +47,6 @@ Die Syntax von `<dimension>` ist ein {{CSSxRef("&lt;number&gt;")}}, dem unmittel
 
 ## Siehe auch
 
-- [CSS-Datentypen](/de/docs/Web/CSS/CSS_Types)
-- [Lernen Sie, HTML mit CSS zu stylen](/de/docs/Learn_web_development/Core/Styling_basics)
+- [CSS-Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types)
+- [HTML mit CSS gestalten lernen](/de/docs/Learn_web_development/Core/Styling_basics)
 - CSS-Abstände ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}) und Auflösungen ({{CSSxRef("&lt;resolution&gt;")}})

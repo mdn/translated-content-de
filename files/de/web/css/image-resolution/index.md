@@ -2,14 +2,14 @@
 title: image-resolution
 slug: Web/CSS/image-resolution
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: f35733893f8c17dcbf8e9d5cf2551f6fb1cbecd5
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`image-resolution`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die intrinsische Auflösung aller Rasterbilder an, die in oder auf dem Element verwendet werden. Sie betrifft Inhaltsbilder wie ersetzte Elemente und generierte Inhalte sowie dekorative Bilder wie `background-image`.
+Die **`image-resolution`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die intrinsische Auflösung aller Rasterbilder, die im oder auf dem Element verwendet werden. Sie betrifft Inhaltsbilder wie ersetzte Elemente und generierte Inhalte sowie dekorative Bilder wie `background-image` Bilder.
 
-Die Bildauflösung wird als Anzahl der Bildpixel pro Längeneinheit definiert, z.B. Pixel pro Zoll. Standardmäßig geht CSS von einer Auflösung von einem Bildpixel pro CSS px Einheit aus; die Eigenschaft `image-resolution` erlaubt jedoch die Angabe einer anderen Auflösung.
+Die Bildauflösung wird als Anzahl der Bildpunkte pro Längeneinheit definiert, z.B. Pixel pro Zoll. Standardmäßig nimmt CSS eine Auflösung von einem Bildpunkt pro CSS-Px-Einheit an; jedoch ermöglicht die `image-resolution` Eigenschaft, eine andere Auflösung anzugeben.
 
 ## Syntax
 
@@ -30,14 +30,14 @@ image-resolution: unset;
 ### Werte
 
 - {{cssxref("&lt;resolution&gt;")}}
-  - : Gibt die intrinsische Auflösung explizit an.
+  - : Spezifiziert die intrinsische Auflösung explizit.
 - `from-image`
-  - : Verwendet die intrinsische Auflösung, wie sie durch das Bildformat angegeben wird. Wenn das Bild seine eigene Auflösung nicht angibt, wird die explizit angegebene Auflösung verwendet (falls vorhanden), andernfalls ist der Standard `1dppx` (1 Bildpixel pro CSS px Einheit).
+  - : Verwendet die durch das Bildformat angegebene intrinsische Auflösung. Wenn das Bild seine eigene Auflösung nicht spezifiziert, wird die explizit angegebene Auflösung verwendet (falls gegeben), andernfalls wird `1dppx` (1 Bildpunkt pro CSS-Px-Einheit) als Standard verwendet.
 - `snap`
-  - : Wenn das Schlüsselwort `snap` angegeben ist, wird die berechnete Auflösung zur nächsten Zahl gerundet, die ein Bildpixel einer ganzen Zahl von Gerätepixeln zuordnet. Wenn die Auflösung vom Bild genommen wird, dann ist die verwendete intrinsische Auflösung die nativen Auflösung des Bildes, ebenfalls angepasst.
+  - : Wenn das Schlüsselwort `snap` angegeben ist, ist die berechnete Auflösung die spezifizierte Auflösung, gerundet auf den nächsten Wert, der einen Bildpunkt auf eine ganze Anzahl von {{Glossary("device_pixel", "Gerätepixeln")}} abbilden würde. Wenn die Auflösung vom Bild übernommen wird, ist die verwendete intrinsische Auflösung die entsprechend angepasste native Auflösung des Bildes.
 
 > [!NOTE]
-> Da Vektorformate wie SVG keine intrinsische Auflösung haben, hat diese Eigenschaft keine Auswirkungen auf Vektorbilder.
+> Da Vektorformate wie SVG keine intrinsische Auflösung haben, hat diese Eigenschaft keinen Einfluss auf Vektorbilder.
 
 ## Formale Definition
 
@@ -49,9 +49,9 @@ image-resolution: unset;
 
 ## Beispiele
 
-### Eine hohe dpi für den Druck einstellen
+### Einstellung einer hohen dpi für den Druck
 
-Verwenden Sie beim Drucken des Dokuments eine höhere Auflösung.
+Beim Drucken des Dokuments verwenden Sie eine höhere Auflösung.
 
 ```css
 @media print {
@@ -61,9 +61,9 @@ Verwenden Sie beim Drucken des Dokuments eine höhere Auflösung.
 }
 ```
 
-### Verwenden der Bildauflösung mit Fallback
+### Verwendung der Bildauflösung mit Fallback
 
-Verwendet die Auflösung aus dem Bild. Wenn das Bild keine Auflösung hat, verwenden Sie 300dpi anstelle des Standards 1dppx.
+Verwendet die Auflösung aus dem Bild. Wenn das Bild keine Auflösung hat, verwenden Sie 300 dpi anstelle des Standards von 1dppx.
 
 ```css
 .my-image {
@@ -77,9 +77,9 @@ Verwendet die Auflösung aus dem Bild. Wenn das Bild keine Auflösung hat, verwe
 
 ## Browser-Kompatibilität
 
-Derzeit unterstützt kein Browser diese Eigenschaft.
+Kein Browser unterstützt derzeit diese Eigenschaft.
 
 ## Siehe auch
 
 - Andere bildbezogene CSS-Eigenschaften: {{cssxref("object-fit")}}, {{cssxref("object-position")}}, {{cssxref("image-orientation")}}, {{cssxref("image-rendering")}}.
-- [Chromium Bug: 1086473](https://crbug.com/1086473).
+- [Chromium-Bug: 1086473](https://crbug.com/1086473).

@@ -2,19 +2,19 @@
 title: marker-start
 slug: Web/SVG/Attribute/marker-start
 l10n:
-  sourceCommit: f1b6d2b8e68aaf767adaa86edcc261490c07f14d
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das **`marker-start`** Attribut definiert die Pfeilspitze oder das Polymarker, das an dem ersten Scheitelpunkt der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
+Das Attribut **`marker-start`** definiert den Pfeilkopf oder Polymarker, der am ersten Scheitelpunkt der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
 
-Für alle Formelemente, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Scheitelpunkt derselbe wie der erste. In diesem Fall, wenn der Wert von `marker-start` und {{SVGAttr("marker-end")}} beide nicht `none` sind, werden zwei Markierungen an diesem letzten Scheitelpunkt gerendert. Bei `<path>` Elementen, für jeden geschlossenen Unterpfad, ist der letzte Scheitelpunkt derselbe wie der erste. `marker-start` wird nur am ersten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands) gerendert.
+Bei allen Formelementen, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Scheitelpunkt identisch mit dem ersten Scheitelpunkt. In diesem Fall werden, wenn der Wert von `marker-start` und {{SVGAttr("marker-end")}} beide nicht `none` sind, zwei Marker auf diesem letzten Scheitelpunkt angezeigt. Für `<path>`-Elemente gilt: Für jeden geschlossenen Teilpfad ist der letzte Scheitelpunkt identisch mit dem ersten Scheitelpunkt. `marker-start` wird nur am ersten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands) angezeigt.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `marker-start` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('marker-start')}} für mehr Informationen.
+> Als Präsentationsattribut hat `marker-start` auch ein entsprechendes CSS-Eigenschafts-Pendant: {{cssxref("marker-start")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("ellipse")}}
@@ -73,7 +73,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>disko</td>
+      <td>diskret</td>
     </tr>
   </tbody>
 </table>
@@ -81,7 +81,7 @@ svg {
 - `none`
   - : Gibt an, dass kein Markersymbol am ersten Scheitelpunkt gezeichnet wird.
 - `<marker-ref>`
-  - : Dieser Wert ist eine Referenz zu einem {{SVGElement("marker")}} Element, das am ersten Scheitelpunkt gezeichnet wird. Wenn die Referenz ungültig ist, wird kein Marker gezeichnet.
+  - : Dieser Wert ist eine Referenz auf ein {{SVGElement("marker")}}-Element, das am ersten Scheitelpunkt gezeichnet wird. Ist die Referenz ungültig, wird kein Marker gezeichnet.
 
 ## Spezifikationen
 
@@ -96,4 +96,4 @@ svg {
 - {{SVGElement("marker")}}
 - {{SVGAttr("marker-end")}}
 - {{SVGAttr("marker-mid")}}
-- CSS {{cssxref('marker-start')}} Eigenschaft
+- CSS {{cssxref('marker-start')}}-Eigenschaft

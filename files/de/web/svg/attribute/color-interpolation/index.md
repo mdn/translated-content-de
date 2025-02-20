@@ -2,22 +2,22 @@
 title: color-interpolation
 slug: Web/SVG/Attribute/color-interpolation
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
-Das Attribut **`color-interpolation`** gibt den Farbraum für Farbverlaufsinterpolationen, Farbanimationen und Alpha-Kompositionen an.
+Das **`color-interpolation`**-Attribut legt den Farbraum für Farbverlaufsinterpolationen, Farbanimationen und Alphazusammenführungen fest.
 
 > [!NOTE]
 > Für Filtereffekte steuert die Eigenschaft {{SVGAttr("color-interpolation-filters")}}, welcher Farbraum verwendet wird.
 
-Die Eigenschaft `color-interpolation` wählt zwischen Farboperationen im sRGB-Farbraum oder in einem (lichtenergie-linearen) linearisierten RGB-Farbraum. Nachdem der entsprechende Farbraum ausgewählt wurde, wird eine komponentenweise lineare Interpolation verwendet.
+Die `color-interpolation`-Eigenschaft wählt, ob Farbberechnungen im sRGB-Farbraum oder in einem linearisierten RGB-Farbraum (linear in Bezug auf die Lichtenergie) erfolgen. Nachdem der passende Farbraum ausgewählt wurde, wird eine komponentenweise lineare Interpolation durchgeführt.
 
-Wenn ein Kindelement in einen Hintergrund eingeblendet wird, bestimmt der Wert der Eigenschaft `color-interpolation` auf dem Kind den Typ der Überblendung, nicht der Wert der `color-interpolation` auf dem Elternteil. Für Verläufe, die das {{SVGAttr("href")}}- oder das veraltete {{SVGAttr("xlink:href")}}-Attribut verwenden, um auf einen anderen Verlauf zu verweisen, verwendet der Verlauf den Eigenschaftswert von dem durch die {{SVGAttr("fill")}}- oder {{SVGAttr("stroke")}}-Eigenschaft direkt referenzierten Verlaufs-Element. Beim Animieren von Farben wird die Farbinterpolation gemäß dem Wert der `color-interpolation`-Eigenschaft auf dem animierten Element durchgeführt.
+Wenn ein Kindelement in einen Hintergrund gemischt wird, bestimmt der Wert der `color-interpolation`-Eigenschaft des Kindelements die Art der Mischung, nicht der Wert der `color-interpolation`-Eigenschaft des Elternelements. Bei Farbverläufen, die das {{SVGAttr("href")}}- oder das veraltete {{SVGAttr("xlink:href")}}-Attribut verwenden, um auf einen anderen Verlauf zu verweisen, verwendet der Verlauf den Eigenschaftswert des Gradientelements, das direkt von der {{SVGAttr("fill")}}- oder {{SVGAttr("stroke")}}-Eigenschaft referenziert wird. Beim Animieren von Farben wird die Farbinterpolation entsprechend dem Wert der `color-interpolation`-Eigenschaft des animierten Elements ausgeführt.
 
 > [!NOTE]
-> Als Präsentationsattribut kann {{CSSXref("color-interpolation")}} als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut hat `color-interpolation` auch ein entsprechendes CSS-Attribut: {{cssxref("color-interpolation")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -50,7 +50,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement("tspan")}}
 - {{SVGElement("use")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -70,7 +70,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `auto`
-  - : Gibt an, dass der Benutzeragent entweder die Farbräume `sRGB` oder `linearRGB` für die Farbinterpolation wählen kann. Diese Option zeigt an, dass der Autor nicht erfordert, dass die Farbinterpolation in einem bestimmten Farbraum erfolgt.
+  - : Gibt an, dass der Benutzeragent entweder den `sRGB`- oder den `linearRGB`-Farbraum für die Farbinterpolation wählen kann. Diese Option gibt an, dass der Autor nicht vorschreibt, dass die Farbinterpolation in einem bestimmten Farbraum erfolgen muss.
 - `sRGB`
   - : Gibt an, dass die Farbinterpolation im sRGB-Farbraum erfolgen soll.
 - `linearRGB`
@@ -78,9 +78,9 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## Beispiel
 
-Dieses Beispiel zeigt vier SVGs, jeweils mit einem {{SVGElement("rect")}}-Element und einem unterschiedlichen Verlauf, der als Füllung für das `<rect>` verwendet wird. Die ersten beiden SVGs verwenden {{SVGElement("linearGradient")}} und die zweiten beiden verwenden {{SVGElement("radialGradient")}}-Elemente. In nicht unterstützten Browsern sieht der Verlauf gleich aus.
+Dieses Beispiel zeigt vier SVGs, jedes mit einem {{SVGElement("rect")}}-Element und einem unterschiedlichen Farbverlauf, der als Füllung für das `<rect>` verwendet wird. Die ersten beiden SVGs verwenden {{SVGElement("linearGradient")}}, und die zweiten beiden verwenden {{SVGElement("radialGradient")}}. In nicht unterstützten Browsern sieht der Farbverlauf gleich aus.
 
-In diesem ersten SVG ist das `color-interpolation`-Attribut nicht im `<linearGradient>`-Element enthalten, was standardmäßig `sRGB` ist.
+Im ersten SVG ist das `color-interpolation`-Attribut nicht im `<linearGradient>`-Element enthalten und hat daher den Standardwert `sRGB`.
 
 ```css hidden
 svg {
@@ -115,7 +115,7 @@ svg {
 </svg>
 ```
 
-In diesem zweiten SVG ist das `color-interpolation`-Attribut im `<linearGradient>`-Element enthalten und auf `linearRGB` gesetzt.
+Im zweiten SVG ist das `color-interpolation`-Attribut im `<linearGradient>`-Element enthalten und auf `linearRGB` gesetzt.
 
 ```html
 <svg width="450" height="70">
@@ -144,7 +144,7 @@ In diesem zweiten SVG ist das `color-interpolation`-Attribut im `<linearGradient
 </svg>
 ```
 
-In diesem dritten SVG ist das `color-interpolation`-Attribut nicht im `<radialGradient>`-Element enthalten, was standardmäßig `sRGB` ist.
+Im dritten SVG ist das `color-interpolation`-Attribut nicht im `<radialGradient>`-Element enthalten und hat daher den Standardwert `sRGB`.
 
 ```html
 <svg width="450" height="70">
@@ -164,7 +164,7 @@ In diesem dritten SVG ist das `color-interpolation`-Attribut nicht im `<radialGr
 </svg>
 ```
 
-In diesem vierten SVG ist das `color-interpolation`-Attribut im `<radialGradient>`-Element enthalten und auf `linearRGB` gesetzt.
+Im vierten SVG ist das `color-interpolation`-Attribut im `<radialGradient>`-Element enthalten und auf `linearRGB` gesetzt.
 
 ```html
 <svg width="450" height="70">
@@ -207,4 +207,4 @@ In diesem vierten SVG ist das `color-interpolation`-Attribut im `<radialGradient
 - CSS {{cssxref("color-interpolation")}}-Eigenschaft
 - [sRGB-Spezifikation](https://webstore.iec.ch/en/publication/6169)
 - {{SVGAttr("color-interpolation-filters")}}
-- [Computer color is broken](https://www.youtube.com/watch?v=LKnqECcg6Gw) - populäre Demonstration von linearRGB
+- [Computer color is broken](https://www.youtube.com/watch?v=LKnqECcg6Gw) - populäre Darstellung von linearRGB

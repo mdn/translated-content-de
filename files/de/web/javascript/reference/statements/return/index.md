@@ -2,14 +2,29 @@
 title: return
 slug: Web/JavaScript/Reference/Statements/return
 l10n:
-  sourceCommit: 4c26e8a3fb50d06963b06017f51ce19364350564
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{jsSidebar("Statements")}}
 
-Die **`return`**-Anweisung beendet die Ausführung einer Funktion und gibt einen Wert an den Funktionsaufrufer zurück.
+Die **`return`**-Anweisung beendet die Ausführung einer Funktion und gibt einen Wert zurück an den Aufrufer dieser Funktion.
 
-{{EmbedInteractiveExample("pages/js/statement-return.html")}}
+{{InteractiveExample("JavaScript Demo: Statement - Return")}}
+
+```js interactive-example
+function getRectArea(width, height) {
+  if (width > 0 && height > 0) {
+    return width * height;
+  }
+  return 0;
+}
+
+console.log(getRectArea(3, 4));
+// Expected output: 12
+
+console.log(getRectArea(-3, 4));
+// Expected output: 0
+```
 
 ## Syntax
 
@@ -19,38 +34,38 @@ return expression;
 ```
 
 - `expression` {{optional_inline}}
-  - : Der Ausdruck, dessen Wert zurückgegeben werden soll. Wenn weggelassen, wird `undefined` zurückgegeben.
+  - : Der Ausdruck, dessen Wert zurückgegeben werden soll. Wenn dieser weggelassen wird, wird `undefined` zurückgegeben.
 
 ## Beschreibung
 
-Die `return`-Anweisung kann nur innerhalb von Funktionskörpern verwendet werden. Wenn eine `return`-Anweisung im Funktionskörper verwendet wird, wird die Ausführung der Funktion gestoppt. Die `return`-Anweisung hat unterschiedliche Effekte, je nachdem, in welcher Funktion sie platziert ist:
+Die `return`-Anweisung kann nur innerhalb von Funktionskörpern verwendet werden. Wenn eine `return`-Anweisung in einem Funktionskörper verwendet wird, wird die Ausführung der Funktion abgebrochen. Die `return`-Anweisung hat unterschiedliche Auswirkungen in verschiedenen Funktionen:
 
-- In einer normalen Funktion wird der Funktionsaufruf mit dem Rückgabewert ausgewertet.
-- In einer asynchronen Funktion wird das erzeugte Promise mit dem zurückgegebenen Wert aufgelöst.
-- In einer Generatorfunktion gibt die `next()`-Methode des erzeugten Generatorobjekts `{ done: true, value: returnedValue }` zurück.
-- In einer asynchronen Generatorfunktion wird ein Promise mit `{ done: true, value: returnedValue }` zurückgegeben, das vom erzeugten asynchronen Generatorobjekt erfüllt wird.
+- In einer einfachen Funktion wird der Funktionsaufruf mit dem Rückgabewert ausgewertet.
+- In einer asynchronen Funktion (`async function`) wird die daraus resultierende Promise mit dem zurückgegebenen Wert aufgelöst.
+- In einer Generatorfunktion gibt die Methode `next()` des erzeugten Generator-Objekts `{ done: true, value: returnedValue }` zurück.
+- In einer asynchronen Generatorfunktion (`async generator function`) gibt die Methode `next()` des erzeugten asynchronen Generator-Objekts ein Promise zurück, das mit `{ done: true, value: returnedValue }` erfüllt wird.
 
-Wird eine `return`-Anweisung innerhalb eines {{jsxref("Statements/try...catch", "try")}}-Blocks ausgeführt, so wird zunächst dessen `finally`-Block, falls vorhanden, ausgeführt, bevor der Wert tatsächlich zurückgegeben wird.
+Wenn eine `return`-Anweisung innerhalb eines {{jsxref("Statements/try...catch", "try")}}-Blocks ausgeführt wird, wird, falls vorhanden, zunächst der zugehörige `finally`-Block ausgeführt, bevor der Wert tatsächlich zurückgegeben wird.
 
-### Automatische Semikolonsetzung
+### Automatische Semikolon-Einfügung
 
-Die Syntax verbietet Zeilenumbrüche zwischen dem `return`-Schlüsselwort und dem Ausdruck, der zurückgegeben werden soll.
+Die Syntax verbietet Zeilenumbrüche zwischen dem `return`-Schlüsselwort und dem zurückzugebenden Ausdruck.
 
 ```js-nolint example-bad
 return
 a + b;
 ```
 
-Der obige Code wird durch die [automatische Semikolonsetzung (ASI)](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) in Folgendes umgewandelt:
+Der obige Code wird durch [automatische Semikolon-Einfügung (ASI)](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) wie folgt interpretiert:
 
 ```js-nolint
 return;
 a + b;
 ```
 
-Dies führt dazu, dass die Funktion `undefined` zurückgibt und der Ausdruck `a + b` nie ausgewertet wird. Dies kann [eine Warnung in der Konsole erzeugen](/de/docs/Web/JavaScript/Reference/Errors/Stmt_after_return).
+Dies führt dazu, dass die Funktion `undefined` zurückgibt und der Ausdruck `a + b` nie ausgewertet wird. Dies könnte [eine Warnung in der Konsole erzeugen](/de/docs/Web/JavaScript/Reference/Errors/Stmt_after_return).
 
-Um dieses Problem zu vermeiden (um ASI zu verhindern), könnten Sie Klammern verwenden:
+Um dieses Problem zu vermeiden (und ASI vorzubeugen), könnten Sie Klammern verwenden:
 
 ```js-nolint
 return (
@@ -93,7 +108,7 @@ counter();
 
 ### Eine Funktion zurückgeben
 
-Siehe auch den Artikel über [Closures](/de/docs/Web/JavaScript/Closures).
+Siehe dazu auch den Artikel über [Closures](/de/docs/Web/JavaScript/Closures).
 
 ```js
 function magic() {
@@ -116,5 +131,5 @@ answer(1337); // 56154
 
 ## Siehe auch
 
-- [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
+- [Functions](/de/docs/Web/JavaScript/Reference/Functions)
 - [Closures](/de/docs/Web/JavaScript/Closures)

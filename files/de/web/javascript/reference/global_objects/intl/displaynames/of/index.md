@@ -2,14 +2,27 @@
 title: Intl.DisplayNames.prototype.of()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames/of
 l10n:
-  sourceCommit: 1778cb29f7bfd5c9ae86261b7b554a4386910ee9
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`of()`**-Methode der {{jsxref("Intl.DisplayNames")}} Instanzen nimmt einen Code entgegen und gibt einen String basierend auf der beim Instanziieren dieses `Intl.DisplayNames`-Objekts bereitgestellten Locale und Optionen zurück.
+Die Methode **`of()`** von {{jsxref("Intl.DisplayNames")}}-Instanzen nimmt einen Code entgegen und gibt eine Zeichenkette basierend auf der beim Erstellen dieses `Intl.DisplayNames`-Objekts angegebenen Sprache und Optionen zurück.
 
-{{EmbedInteractiveExample("pages/js/intl-displaynames.html")}}
+{{InteractiveExample("JavaScript Demo: Intl.DisplayNames")}}
+
+```js interactive-example
+const regionNamesInEnglish = new Intl.DisplayNames(["en"], { type: "region" });
+const regionNamesInTraditionalChinese = new Intl.DisplayNames(["zh-Hant"], {
+  type: "region",
+});
+
+console.log(regionNamesInEnglish.of("US"));
+// Expected output: "United States"
+
+console.log(regionNamesInTraditionalChinese.of("US"));
+// Expected output: "美國"
+```
 
 ## Syntax
 
@@ -21,29 +34,29 @@ of(code)
 
 - `code`
 
-  - : Der bereitzustellende `code` hängt vom `type` ab:
+  - : Der `code`, der angegeben werden muss, hängt vom `type` ab:
 
-    - Wenn der Typ "region" ist, sollte `code` entweder ein [zwei-Buchstaben-ISO 3166 Regionscode](https://www.iso.org/iso-3166-country-codes.html) oder ein [drei-Ziffern-UN M49 geografischer Region](https://unstats.un.org/unsd/methodology/m49/) sein. Er muss der Grammatik des [`unicode_region_subtag`](https://unicode.org/reports/tr35/#unicode_region_subtag) folgen. Verwenden Sie Großbuchstabencodes (z. B. `"US"`), da Kleinbuchstabencodes (z. B. `"us"`) nicht überall zuverlässig funktionieren könnten.
-    - Wenn der Typ "script" ist, sollte `code` ein [vier-Buchstaben-ISO 15924 Skriptcode](https://unicode.org/iso15924/iso15924-codes.html) sein. Er muss der Grammatik des [`unicode_script_subtag`](https://unicode.org/reports/tr35/#unicode_script_subtag) folgen.
-    - Wenn der Typ "language" ist, sollte `code` dem [`unicode_language_id`](https://unicode.org/reports/tr35/#Unicode_language_identifier) Nichtterminal entsprechen.
-    - Wenn der Typ "currency" ist, sollte `code` ein [drei-Buchstaben-ISO 4217 Währungscode](https://www.iso.org/iso-4217-currency-codes.html) sein. Er muss genau drei alphabetische Zeichen haben.
-    - Wenn der Typ "dateTimeField" ist, sollte `code` einer der folgenden sein: `"era"`, `"year"`, `"quarter"`, `"month"`, `"weekOfYear"`, `"weekday"`, `"day"`, `"dayPeriod"`, `"hour"`, `"minute"`, `"second"`, `"timeZoneName"`.
-    - Wenn der Typ "calendar" ist, sollte `code` ein [Kalenderschlüssel](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar) sein. Er muss der `type` Grammatik eines [Unicode-Locale-Identifiers](https://unicode.org/reports/tr35/#32-unicode-locale-identifier) folgen.
+    - Wenn der Typ "region" ist, sollte `code` entweder ein [zwei-buchstabiger ISO 3166-Regionen-Code](https://www.iso.org/iso-3166-country-codes.html) oder ein [drei-stelliger UN M49 geografischer Code](https://unstats.un.org/unsd/methodology/m49/) sein. Er muss der Grammatik des [`unicode_region_subtag`](https://unicode.org/reports/tr35/#unicode_region_subtag) folgen. Verwenden Sie Großbuchstaben-Codes (z. B. `"US"`), da Kleinbuchstaben (z. B. `"us"`) möglicherweise nicht überall zuverlässig funktionieren.
+    - Wenn der Typ "script" ist, sollte `code` ein [vier-buchstabiger ISO 15924-Schriftart-Code](https://unicode.org/iso15924/iso15924-codes.html) sein. Er muss der Grammatik des [`unicode_script_subtag`](https://unicode.org/reports/tr35/#unicode_script_subtag) folgen.
+    - Wenn der Typ "language" ist, sollte `code` mit der [`unicode_language_id`](https://unicode.org/reports/tr35/#Unicode_language_identifier) Nichtterminal übereinstimmen.
+    - Wenn der Typ "currency" ist, sollte `code` ein [drei-buchstabiger ISO 4217-Währungscode](https://www.iso.org/iso-4217-currency-codes.html) sein. Er muss genau drei alphabetische Zeichen enthalten.
+    - Wenn der Typ "dateTimeField" ist, sollte `code` einer der folgenden Werte sein: `"era"`, `"year"`, `"quarter"`, `"month"`, `"weekOfYear"`, `"weekday"`, `"day"`, `"dayPeriod"`, `"hour"`, `"minute"`, `"second"`, `"timeZoneName"`.
+    - Wenn der Typ "calendar" ist, sollte `code` ein [Kalenderschlüssel](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar) sein. Er muss der `type`-Grammatik eines [Unicode-Sprachbezeichners](https://unicode.org/reports/tr35/#32-unicode-locale-identifier) folgen.
 
 ### Rückgabewert
 
-Ein sprachspezifisch formatierter String, oder `undefined`, wenn keine Daten für die Eingabe vorhanden sind und `fallback` auf `"none"` gesetzt ist.
+Eine sprachspezifisch formatierte Zeichenkette oder `undefined`, wenn keine Daten für die Eingabe vorhanden sind und `fallback` den Wert `"none"` hat.
 
-> **Note:** `fallback` wird nur verwendet, wenn `code` strukturell gültig ist. Siehe [Benutzung des Fallbacks](#verwendung_des_fallbacks).
+> **Hinweis:** `fallback` wird nur verwendet, wenn `code` strukturell gültig ist. Siehe [Verwendung von Fallback](#verwendung_von_fallback).
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `code` für den gegebenen `type` strukturell nicht gültig ist.
+  - : Wird ausgelöst, wenn `code` für den angegebenen `type` strukturell ungültig ist.
 
 ## Beispiele
 
-### Verwendung der of-Methode
+### Die Methode of verwenden
 
 ```js
 const regionNames = new Intl.DisplayNames("en", { type: "region" });
@@ -68,9 +81,9 @@ const languageNamesDialect = new Intl.DisplayNames("fr", {
 languageNamesDialect.of("fr-CA"); // "français canadien"
 ```
 
-### Verwendung des Fallbacks
+### Verwendung von Fallback
 
-Wenn `Intl.DisplayNames` mit `fallback: "code"` konstruiert wird, gibt die `of()`-Methode den `code` zurück, wenn die Eingabe strukturell gültig aussieht, aber keine Daten für die Eingabe vorhanden sind. Wenn `fallback` auf `"none"` gesetzt ist, wird `undefined` zurückgegeben.
+Wenn `Intl.DisplayNames` mit `fallback: "code"` erstellt wurde, gibt die Methode `of()` den `code` zurück, wenn die Eingabe strukturell gültig aussieht, aber keine Daten für die Eingabe vorhanden sind. Hat `fallback` den Wert `"none"`, wird `undefined` zurückgegeben.
 
 ```js
 console.log(
@@ -82,7 +95,7 @@ console.log(
 ); // undefined
 ```
 
-Dies gilt jedoch nur, wenn der `code` strukturell gültig ist. Beispielsweise, wenn `type` `"region"` ist, aber `code` nicht der `unicode_region_subtag` Grammatik folgt (2 alphabetische Zeichen oder 3 numerische Zeichen), wird direkt ein {{jsxref("RangeError")}} ausgelöst, anstatt den Fallback zu verwenden.
+Dies gilt jedoch nur, wenn `code` strukturell gültig ist. Wenn zum Beispiel `type` `"region"` ist, aber `code` nicht der Grammatik des `unicode_region_subtag` (2 alphabetische Zeichen oder 3 numerische Zeichen) entspricht, wird ein {{jsxref("RangeError")}} direkt ausgelöst, anstatt den Fallback zu verwenden.
 
 ```js
 console.log(

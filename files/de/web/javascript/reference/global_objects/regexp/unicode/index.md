@@ -2,36 +2,47 @@
 title: RegExp.prototype.unicode
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/unicode
 l10n:
-  sourceCommit: c2445ce1dc3a0170e2fbfdbee10e18a7455c2282
+  sourceCommit: e439cd79166dbfd9bbe3a003abaf5898ae165509
 ---
 
 {{JSRef}}
 
-Die **`unicode`** Zugriffseigenschaft von {{jsxref("RegExp")}} Instanzen gibt zurück, ob das `u`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
+Die **`unicode`** Zugriffseigenschaft von {{jsxref("RegExp")}}-Instanzen gibt zurück, ob das `u`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
 
-{{EmbedInteractiveExample("pages/js/regexp-prototype-unicode.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: RegExp.prototype.unicode")}}
+
+```js interactive-example
+const regex1 = new RegExp("\\u{61}");
+const regex2 = new RegExp("\\u{61}", "u");
+
+console.log(regex1.unicode);
+// Expected output: false
+
+console.log(regex2.unicode);
+// Expected output: true
+```
 
 ## Beschreibung
 
-`RegExp.prototype.unicode` hat den Wert `true`, wenn das `u`-Flag verwendet wurde; andernfalls `false`. Das `u`-Flag aktiviert verschiedene Funktionen im Zusammenhang mit Unicode. Mit dem "u"-Flag:
+`RegExp.prototype.unicode` hat den Wert `true`, wenn das `u`-Flag verwendet wurde; andernfalls `false`. Das `u`-Flag aktiviert verschiedene unicodebezogene Funktionen. Mit dem `u`-Flag:
 
-- Jedes [Unicode-Codepunkt-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) (`\u{xxxx}`, `\p{UnicodePropertyValue}`) wird als solches interpretiert, anstatt als Identitäts-Escape. Zum Beispiel `/\u{61}/u` erfasst `"a"`, aber `/\u{61}/` (ohne `u`-Flag) erfasst `"u".repeat(61)`, wobei das `\u` einem einzelnen `u` entspricht.
-- Surrogatpaare werden als ganze Zeichen interpretiert, anstatt als zwei separate Zeichen. Zum Beispiel würde `/[😄]/u` nur `"😄"` erfassen, aber nicht `"\ud83d"`.
-- Wenn [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) automatisch weitergeschaltet wird (wie beim Aufruf von [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)), werden Unicode-Reguläre Ausdrücke nach Unicode-Codepunkten anstelle von UTF-16-Codeeinheiten weitergeschaltet.
+- Beliebige [Unicode-Codepunkt-Escapes](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) (`\u{xxxx}`, `\p{UnicodePropertyValue}`) werden als solche interpretiert, anstatt als Identitäts-Escapes. Zum Beispiel: `/\u{61}/u` passt zu `"a"`, aber `/\u{61}/` (ohne `u`-Flag) passt zu `"u".repeat(61)`, wobei `\u` gleichbedeutend mit einem einzelnen `u` ist.
+- Surrogatpaare werden als ganze Zeichen und nicht als zwei separate Zeichen interpretiert. Zum Beispiel würde `/[😄]/u` nur zu `"😄"` passen, aber nicht zu `"\ud83d"`.
+- Wenn [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) automatisch vorgerückt wird (z. B. beim Aufruf von [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)), rücken unicodebezogene reguläre Ausdrücke durch Unicode-Codepunkte statt durch UTF-16-Codeeinheiten vor.
 
-Es gibt weitere Änderungen im Parsing-Verhalten, die mögliche Syntaxfehler verhindern (analog zu [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) für Regex-Syntax). Diese Syntaxen sind alle [veraltet und werden nur für die Webkompatibilität beibehalten](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), und Sie sollten sich nicht darauf verlassen.
+Es gibt weitere Änderungen am Parserverhalten, die potenzielle Syntaxfehler verhindern (analog zum [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) für die Regex-Syntax). Diese Syntaxen sind alle [veraltet und werden nur aus Gründen der Web-Kompatibilität beibehalten](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), und Sie sollten sich nicht auf sie verlassen.
 
-Der Set-Accessor von `unicode` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Setter von `unicode` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
-### Unicode-basierter Modus
+### Unicode-awareness-Modus
 
-Wenn wir uns auf den _Unicode-basierten Modus_ beziehen, meinen wir, dass der reguläre Ausdruck entweder das `u`- oder das [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) Flag hat, in welchem Fall der reguläre Ausdruck Unicode-bezogene Features aktiviert (wie z.B. [Unicode-Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)) und viel strengere Syntaxregeln hat. Da `u` und `v` denselben regulären Ausdruck auf inkompatible Weisen interpretieren, führt die Verwendung beider Flags zu einem {{jsxref("SyntaxError")}}.
+Wenn wir uns auf den _Unicode-awareness-Modus_ beziehen, meinen wir, dass der reguläre Ausdruck entweder das `u`- oder das [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets)-Flag enthält. In diesem Fall aktiviert der reguläre Ausdruck unicodebezogene Funktionen (wie [Unicode-Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)) und hat viel strengere Syntaxregeln. Da `u` und `v` denselben regulären Ausdruck auf inkompatible Weise interpretieren, führt die Verwendung beider Flags zu einem {{jsxref("SyntaxError")}}.
 
-Ebenso ist ein regulärer Ausdruck _Unicode-unbewusst_, wenn er weder das `u`- noch das `v`-Flag hat. In diesem Fall wird der reguläre Ausdruck als eine Sequenz von UTF-16-Codeeinheiten interpretiert, und es gibt viele veraltete Syntaxen, die nicht zu Syntaxfehlern werden.
+Ebenso ist ein regulärer Ausdruck _Unicode-unaware_, wenn er weder das `u`- noch das `v`-Flag enthält. In diesem Fall wird der reguläre Ausdruck als Folge von UTF-16-Codeeinheiten interpretiert, und es gibt viele Legacy-Syntaxen, die keine Syntaxfehler darstellen.
 
 ## Beispiele
 
-### Die unicode-Eigenschaft verwenden
+### Verwendung der unicode-Eigenschaft
 
 ```js
 const regex = /\u{61}/u;

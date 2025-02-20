@@ -2,23 +2,23 @@
 title: image-rendering
 slug: Web/SVG/Attribute/image-rendering
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}
 
 Das **`image-rendering`**-Attribut gibt dem Browser einen Hinweis darauf, wie er bei der Bildverarbeitung zwischen Geschwindigkeit und Qualität abwägen soll.
 
-Das Resampling erfolgt immer in einem Truecolor- (z. B. 24-Bit) Farbraum, auch wenn die Originaldaten und/oder das Zielgerät indizierte Farben verwenden.
+Das Resampling erfolgt immer in einem Truecolor-Farbraum (z. B. 24-Bit), auch wenn die Originaldaten und/oder das Zielgerät Indizierte Farben verwenden.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `image-rendering` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-{{cssxref("image-rendering")}}-Eigenschaft.
+> Als Präsentationsattribut hat `image-rendering` auch ein entsprechendes CSS-Property: {{cssxref("image-rendering")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("image")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -41,11 +41,11 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `auto`
-  - : Gibt an, dass der Benutzeragent angemessene Kompromisse zur Balance zwischen Geschwindigkeit und Qualität machen soll, wobei der Qualität mehr Bedeutung beigemessen wird als der Geschwindigkeit.
+  - : Gibt an, dass der User-Agent geeignete Kompromisse eingehen soll, um Geschwindigkeit und Qualität auszugleichen, wobei jedoch der Qualität mehr Bedeutung beigemessen werden soll als der Geschwindigkeit.
 - `optimizeSpeed`
-  - : Gibt an, dass der Benutzeragent die Rendering-Geschwindigkeit über die Qualität stellen soll.
+  - : Gibt an, dass der User-Agent die Geschwindigkeit beim Rendering über die Qualität stellen soll.
 - `optimizeQuality`
-  - : Gibt an, dass der Benutzeragent die Qualität über die Rendering-Geschwindigkeit stellen soll.
+  - : Gibt an, dass der User-Agent die Qualität über die Geschwindigkeit beim Rendering stellen soll.
 
 ## Spezifikationen
 
@@ -57,4 +57,4 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## Siehe auch
 
-- CSS-{{cssxref("image-rendering")}}-Eigenschaft
+- CSS-Property {{cssxref("image-rendering")}}

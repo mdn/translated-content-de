@@ -2,35 +2,50 @@
 title: "RegExp: lastIndex"
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`lastIndex`** Dateneigenschaft einer {{jsxref("RegExp")}}-Instanz gibt den Index an, von dem aus der nächste Suchvorgang gestartet werden soll.
+Die **`lastIndex`** Daten-Eigenschaft einer {{jsxref("RegExp")}}-Instanz gibt den Index an, an dem der nächste Treffer starten soll.
 
-{{EmbedInteractiveExample("pages/js/regexp-lastindex.html")}}
+{{InteractiveExample("JavaScript Demo: RegExp.lastIndex")}}
+
+```js interactive-example
+const regex1 = new RegExp("foo", "g");
+const str1 = "table football, foosball";
+
+regex1.test(str1);
+
+console.log(regex1.lastIndex);
+// Expected output: 9
+
+regex1.test(str1);
+
+console.log(regex1.lastIndex);
+// Expected output: 19
+```
 
 ## Wert
 
-Eine nicht negative ganze Zahl.
+Eine nicht-negative Ganzzahl.
 
 {{js_property_attributes(1, 0, 0)}}
 
 ## Beschreibung
 
-Diese Eigenschaft wird nur gesetzt, wenn die reguläre Ausdrucksinstanz das `g`-Flag für eine globale Suche oder das `y`-Flag für eine direkte Übereinstimmung verwendet. Die folgenden Regeln gelten, wenn {{jsxref("RegExp/exec", "exec()")}} auf eine gegebene Eingabe aufgerufen wird:
+Diese Eigenschaft wird nur gesetzt, wenn die verwendete reguläre Ausdrucksinstanz das `g`-Flag für eine globale Suche oder das `y`-Flag für eine sticky-Suche verwendet. Die folgenden Regeln gelten, wenn {{jsxref("RegExp/exec", "exec()")}} für eine gegebene Eingabe aufgerufen wird:
 
-- Wenn `lastIndex` größer ist als die Länge der Eingabe, findet `exec()` keine Übereinstimmung und `lastIndex` wird auf 0 gesetzt.
-- Wenn `lastIndex` gleich oder kleiner als die Länge der Eingabe ist, versucht `exec()`, die Eingabe ab `lastIndex` zu matchen.
-  - Wenn `exec()` eine Übereinstimmung findet, wird `lastIndex` auf die Position des Endes des übereinstimmenden String in der Eingabe gesetzt.
-  - Wenn `exec()` keine Übereinstimmung findet, wird `lastIndex` auf 0 gesetzt.
+- Wenn `lastIndex` größer als die Länge der Eingabe ist, findet `exec()` keinen Treffer, und `lastIndex` wird auf 0 gesetzt.
+- Wenn `lastIndex` gleich oder kleiner als die Länge der Eingabe ist, versucht `exec()` die Eingabe von `lastIndex` aus zu durchsuchen.
+  - Wenn `exec()` einen Treffer findet, wird `lastIndex` auf die Position des Endes der Übereinstimmung innerhalb der Eingabe gesetzt.
+  - Wenn `exec()` keinen Treffer findet, wird `lastIndex` auf 0 gesetzt.
 
-Andere Methoden, die mit regulären Ausdrücken arbeiten, wie {{jsxref("RegExp.prototype.test()")}}, {{jsxref("String.prototype.match()")}}, {{jsxref("String.prototype.replace()")}} usw., rufen `exec()` im Hintergrund auf, sodass sie unterschiedliche Auswirkungen auf `lastIndex` haben. Siehe deren jeweilige Seiten für Details.
+Andere methodenbezogene Regex-Funktionen wie {{jsxref("RegExp.prototype.test()")}}, {{jsxref("String.prototype.match()")}}, {{jsxref("String.prototype.replace()")}} usw. rufen intern `exec()` auf, weshalb `lastIndex` unterschiedlich beeinflusst wird. Weitere Informationen finden Sie auf den jeweiligen Seiten.
 
 ## Beispiele
 
-### Verwenden von lastIndex
+### Verwendung von lastIndex
 
 Betrachten Sie die folgende Abfolge von Anweisungen:
 
@@ -38,27 +53,27 @@ Betrachten Sie die folgende Abfolge von Anweisungen:
 const re = /(hi)?/g;
 ```
 
-Übereinstimmungen mit dem leeren String.
+Findet die leere Zeichenkette.
 
 ```js
 console.log(re.exec("hi"));
 console.log(re.lastIndex);
 ```
 
-Gibt `["hi", "hi"]` zurück mit `lastIndex` gleich 2.
+Gibt `["hi", "hi"]` zurück, mit `lastIndex` gleich 2.
 
 ```js
 console.log(re.exec("hi"));
 console.log(re.lastIndex);
 ```
 
-Gibt `["", undefined]` zurück, ein leeres Array, dessen nulltes Element der Übereinstimmungs-String ist. In diesem Fall der leere String, da `lastIndex` 2 war (und immer noch 2 ist) und `hi` die Länge 2 hat.
+Gibt `["", undefined]` zurück, ein leeres Array, dessen nulltes Element die entsprechende Übereinstimmung ist. In diesem Fall die leere Zeichenkette, da `lastIndex` 2 war (und immer noch ist) und `hi` die Länge 2 hat.
 
-### Verwenden von lastIndex mit direkten regulären Ausdrücken
+### Verwendung von lastIndex mit sticky-RegExes
 
-Die `lastIndex`-Eigenschaft ist beschreibbar. Sie können sie setzen, um das nächste Suchen des regulären Ausdrucks bei einem bestimmten Index zu starten.
+Die `lastIndex`-Eigenschaft ist beschreibbar. Sie können sie setzen, um den regulären Ausdruck an einer bestimmten Position mit der nächsten Suche beginnen zu lassen.
 
-Das `y`-Flag erfordert fast immer das Setzen von `lastIndex`. Es stimmt immer genau bei `lastIndex` überein und versucht keine späteren Positionen. Dies ist normalerweise beim Schreiben von Parsern nützlich, wenn Sie Tokens nur an der aktuellen Position matchen möchten.
+Das `y`-Flag erfordert fast immer das Setzen von `lastIndex`. Es passt nur strikt an der `lastIndex`-Position und versucht keine späteren Positionen. Dies ist oft nützlich für das Schreiben von Parsern, wenn Sie Tokens nur an der aktuellen Position abgleichen möchten.
 
 ```js
 const stringPattern = /"[^"]*"/y;
@@ -73,7 +88,7 @@ console.log(stringPattern.exec(input)); // ['"Hello world"']
 
 ### Zurücksetzen von lastIndex
 
-Das `g`-Flag profitiert ebenfalls vom Setzen von `lastIndex`. Ein häufiger Anwendungsfall ist, wenn der String während einer globalen Suche geändert wird. In diesem Fall könnten wir eine bestimmte Übereinstimmung verpassen, wenn der String verkürzt wird. Dies kann vermieden werden, indem `lastIndex` zurückgesetzt wird.
+Das `g`-Flag profitiert ebenfalls vom Setzen von `lastIndex`. Ein häufiger Anwendungsfall ist, wenn die Zeichenkette während einer globalen Suche geändert wird. In diesem Fall können wir ein bestimmtes Match verpassen, wenn die Zeichenkette verkürzt wird. Dies können wir vermeiden, indem wir `lastIndex` zurücksetzen.
 
 ```js
 const mdLinkPattern = /\[[^[\]]+\]\((?<link>[^()\s]+)\)/dg;
@@ -106,14 +121,14 @@ console.log(
 ); // [`ServiceWorker`](/en-us/web/api/serviceworker) and [`SharedWorker`](/en-us/web/api/sharedworker)
 ```
 
-Probieren Sie, die Zeile `mdLinkPattern.lastIndex += resolvedLink.length - originalLink.length` zu löschen und das zweite Beispiel auszuführen. Sie werden feststellen, dass der zweite Link nicht korrekt ersetzt wird, weil der `lastIndex` bereits über dem Index des Links liegt, nachdem der String verkürzt wurde.
+Versuchen Sie, die Zeile `mdLinkPattern.lastIndex += resolvedLink.length - originalLink.length` zu entfernen und das zweite Beispiel auszuführen. Sie werden feststellen, dass der zweite Link nicht korrekt ersetzt wird, da `lastIndex` bereits hinter dem Index des Links liegt, nachdem die Zeichenkette verkürzt wurde.
 
 > [!WARNING]
-> Dieses Beispiel dient nur zur Demonstration. Um mit Markdown umzugehen, sollten Sie wahrscheinlich eine Parsing-Bibliothek anstelle von regulären Ausdrücken verwenden.
+> Dieses Beispiel dient nur der Veranschaulichung. Um Markdown zu verarbeiten, sollten Sie stattdessen wahrscheinlich eine Parsing-Bibliothek verwenden.
 
-### Optimieren der Suche
+### Optimierung der Suche
 
-Sie können die Suche optimieren, indem Sie `lastIndex` auf einen Punkt setzen, an dem vorherige mögliche Vorkommen ignoriert werden können. Zum Beispiel, anstelle von:
+Sie können die Suche optimieren, indem Sie `lastIndex` auf einen Punkt setzen, an dem frühere mögliche Vorkommen ignoriert werden können. Beispielsweise, anstelle von:
 
 ```js
 const stringPattern = /"[^"]*"/g;
@@ -127,7 +142,7 @@ console.log(nextString[0]); // "world"
 offset += nextString.index + nextString.length;
 ```
 
-Betrachten Sie dies:
+Erwägen Sie Folgendes:
 
 ```js
 stringPattern.lastIndex = offset;
@@ -136,11 +151,11 @@ console.log(nextString[0]); // "world"
 offset = stringPattern.lastIndex;
 ```
 
-Dies ist potenziell leistungsfähiger, da wir das Aufteilen von Strings vermeiden.
+Dies ist potenziell leistungsfähiger, da wir das Zuschneiden von Zeichenketten vermeiden.
 
-### Vermeiden von Nebeneffekten
+### Vermeidung von Seiteneffekten
 
-Die Nebeneffekte, die durch `exec()` verursacht werden, können verwirrend sein, insbesondere wenn die Eingabe für jedes `exec()` unterschiedlich ist.
+Die Seiteneffekte, die durch `exec()` verursacht werden, können verwirrend sein, besonders wenn die Eingabe für jedes `exec()` unterschiedlich ist.
 
 ```js
 const re = /foo/g;
@@ -148,7 +163,7 @@ console.log(re.test("foo bar")); // true
 console.log(re.test("foo baz")); // false, because lastIndex is non-zero
 ```
 
-Dies ist noch verwirrender, wenn Sie `lastIndex` manuell verändern. Um die Nebeneffekte einzuschränken, denken Sie daran, `lastIndex` zurückzusetzen, nachdem jede Eingabe vollständig verarbeitet wurde.
+Dies ist noch verwirrender, wenn Sie `lastIndex` manuell verändern. Um die Seiteneffekte einzudämmen, denken Sie daran, `lastIndex` zurückzusetzen, nachdem jede Eingabe vollständig verarbeitet wurde.
 
 ```js
 const re = /foo/g;
@@ -157,7 +172,7 @@ re.lastIndex = 0;
 console.log(re.test("foo baz")); // true
 ```
 
-Mit etwas Abstraktion können Sie erzwingen, dass `lastIndex` vor jedem `exec()`-Aufruf auf einen bestimmten Wert gesetzt wird.
+Mit etwas Abstraktion können Sie erfordern, dass `lastIndex` vor jedem `exec()`-Aufruf auf einen bestimmten Wert gesetzt wird.
 
 ```js
 function createMatcher(pattern) {

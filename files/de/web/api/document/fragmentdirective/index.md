@@ -3,12 +3,12 @@ title: "Document: fragmentDirective-Eigenschaft"
 short-title: fragmentDirective
 slug: Web/API/Document/fragmentDirective
 l10n:
-  sourceCommit: f7e5cd5c99785abe0408d9db6c427212c37b02e7
+  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
 ---
 
 {{APIRef("URL Fragment Text Directives")}}
 
-Die schreibgeschützte **`fragmentDirective`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt die [`FragmentDirective`](/de/docs/Web/API/FragmentDirective) für das aktuelle Dokument zurück.
+Die **`fragmentDirective`**-Schreibgeschützte Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt die [`FragmentDirective`](/de/docs/Web/API/FragmentDirective) für das aktuelle Dokument zurück.
 
 ## Wert
 
@@ -18,7 +18,9 @@ Ein [`FragmentDirective`](/de/docs/Web/API/FragmentDirective)-Objekt.
 
 ### Überprüfen, ob Textfragmente unterstützt werden
 
-Der folgende Code gibt aus, ob Textfragmente in Ihrem Browser unterstützt werden, indem das Vorhandensein des Objekts überprüft wird. Beachten Sie, dass das Objekt leer ist und derzeit hauptsächlich für die Feature-Erkennung gedacht ist. In Zukunft könnten weitere Informationen enthalten sein.
+Der folgende Code protokolliert, ob Textfragmente in Ihrem Browser unterstützt werden, indem die Existenz des Objekts überprüft wird.
+Beachten Sie, dass das Objekt leer ist und derzeit hauptsächlich für die Funktionsprüfung vorgesehen ist.
+In Zukunft könnte es zusätzliche Informationen enthalten.
 
 ```html hidden
 <pre id="log"></pre>
@@ -45,7 +47,7 @@ if (document.fragmentDirective) {
 }
 ```
 
-{{EmbedLiveSample("Überprüfen, ob Textfragmente unterstützt werden","100%","30px")}}
+{{EmbedLiveSample("Überprüfen, ob Textfragmente unterstützt werden", "100%", "30px")}}
 
 ## Spezifikationen
 
@@ -57,5 +59,5 @@ if (document.fragmentDirective) {
 
 ## Siehe auch
 
-- [Textfragmente](/de/docs/Web/URI/Fragment/Text_fragments)
+- [Textfragmente](/de/docs/Web/URI/Reference/Fragment/Text_fragments)
 - {{cssxref("::target-text")}}

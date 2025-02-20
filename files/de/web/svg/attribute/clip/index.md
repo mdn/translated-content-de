@@ -2,14 +2,17 @@
 title: clip
 slug: Web/SVG/Attribute/clip
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
 ---
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`clip`** Attribut ist ein Präsentationsattribut, das den sichtbaren Bereich eines Elements definiert.
+Das **`clip`**-Attribut definiert den sichtbaren Bereich eines Elements. Sie sollten stattdessen {{svgattr("clip-path")}} verwenden.
 
-Dieses Attribut hat die gleichen Parameterwerte wie für die CSS-Eigenschaft {{cssxref("clip")}} definiert. Einheitslose Werte, die aktuelle Benutzerkoordinaten anzeigen, sind für die Koordinatenwerte im `rect()` erlaubt. Der Wert `auto` definiert einen Clip-Pfad entlang der Grenzen des vom angegebenen Element erstellten Ansichtsfensters.
+> [!NOTE]
+> Als Präsentationsattribut hat `clip` auch ein entsprechendes CSS-Property: {{cssxref("clip")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Priorität.
+
+Dieses Attribut hat die gleichen Parameterwerte wie für die CSS-{{cssxref("clip")}}-Eigenschaft definiert. Einheitenlose Werte, die aktuelle Benutzerkoordinaten angeben, sind für die Koordinatenwerte im `rect()` erlaubt. Der Wert `auto` definiert einen Clipping-Pfad entlang der Grenzen des Viewports, der durch das angegebene Element erstellt wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -44,12 +47,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", '100%', 150)}}
+{{EmbedLiveSample("Example", '100%', 150)}}
 
 ## Verwendungshinweise
-
-> [!WARNING]
-> Diese Eigenschaft ist veraltet. Verwenden Sie stattdessen {{cssxref("clip-path")}}.
 
 <table class="properties">
   <tbody>
@@ -68,7 +68,7 @@ svg {
   </tbody>
 </table>
 
-Der Wert `auto` definiert einen Clip-Pfad entlang der Grenzen des vom angegebenen Element erstellten Ansichtsfensters. Der Wert `rect()` definiert ein Clip-Rechteck nach folgender Syntax: `rect(<oben>, <rechts>, <unten>, <links>)`. Die Werte `<oben>` und `<unten>` geben die Abstände von der _oberen Randkante_ des Elementansichtsfensters an, während `<rechts>` und `<links>` die Abstände von der _linken Randkante_ des Elementansichtsfensters angeben.
+Der Wert `auto` definiert einen Clipping-Pfad entlang der Grenzen des Viewports, der durch das angegebene Element erstellt wird. Der Wert `rect()` definiert ein Clipping-Rechteck nach folgendem Syntaxschema: `rect(<top>, <right>, <bottom>, <left>)`. Die Werte `<top>` und `<bottom>` geben die Offsets von der _oberen Randkante_ des Element-Viewports an, während `<right>` und `<left>` die Offsets von der _linken Randkante_ des Element-Viewports angeben.
 
 ## Spezifikationen
 

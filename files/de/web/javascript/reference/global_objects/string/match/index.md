@@ -2,14 +2,23 @@
 title: String.prototype.match()
 slug: Web/JavaScript/Reference/Global_Objects/String/match
 l10n:
-  sourceCommit: 7d09807ed7594cf5c7b93afc1fa0424a26663b9b
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
 Die **`match()`**-Methode von {{jsxref("String")}}-Werten ruft das Ergebnis des Abgleichs dieses Strings mit einem [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) ab.
 
-{{EmbedInteractiveExample("pages/js/string-match.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: String.match()", "shorter")}}
+
+```js interactive-example
+const paragraph = "The quick brown fox jumps over the lazy dog. It barked.";
+const regex = /[A-Z]/g;
+const found = paragraph.match(regex);
+
+console.log(found);
+// Expected output: Array ["T", "I"]
+```
 
 ## Syntax
 
@@ -21,36 +30,36 @@ match(regexp)
 
 - `regexp`
 
-  - : Ein RegExp-Objekt oder ein beliebiges Objekt, das eine [`Symbol.match`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/match)-Methode hat.
+  - : Ein Objekt vom Typ regulärer Ausdruck oder ein beliebiges Objekt, das eine [`Symbol.match`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/match)-Methode hat.
 
-    Wenn `regexp` kein `RegExp`-Objekt ist und keine `Symbol.match`-Methode hat, wird es implizit in ein {{jsxref("RegExp")}} mit `new RegExp(regexp)` umgewandelt.
+    Falls `regexp` kein `RegExp`-Objekt ist und keine `Symbol.match`-Methode hat, wird es implizit durch `new RegExp(regexp)` in eine {{jsxref("RegExp")}} umgewandelt.
 
-    Wenn Sie keinen Parameter angeben und die `match()`-Methode direkt verwenden, erhalten Sie ein {{jsxref("Array")}} mit einem leeren String: `[""]`, da dies gleichbedeutend ist mit `match(/(?:)/)`.
+    Falls Sie keinen Parameter angeben und die `match()`-Methode direkt verwenden, erhalten Sie ein {{jsxref("Array")}} mit einem leeren String: `[""]`, da dies gleichbedeutend mit `match(/(?:)/)` ist.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}}, dessen Inhalt von der Anwesenheit oder Abwesenheit des globalen (`g`)-Flags abhängt, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn keine Übereinstimmungen gefunden werden.
+Ein {{jsxref("Array")}}, dessen Inhalt von der Anwesenheit oder Abwesenheit des globalen (`g`) Flags abhängt, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn keine Übereinstimmungen gefunden werden.
 
-- Wenn das `g`-Flag verwendet wird, werden alle Ergebnisse, die dem gesamten regulären Ausdruck entsprechen, zurückgegeben, aber erfasste Gruppen sind nicht enthalten.
-- Wenn das `g`-Flag nicht verwendet wird, wird nur die erste vollständige Übereinstimmung und deren zugehörige erfasste Gruppen zurückgegeben. In diesem Fall gibt `match()` dasselbe Ergebnis zurück wie {{jsxref("RegExp.prototype.exec()")}} (ein Array mit einigen zusätzlichen Eigenschaften).
+- Wenn das `g`-Flag verwendet wird, werden alle Ergebnisse, die dem gesamten regulären Ausdruck entsprechen, zurückgegeben, aber keine erfassenden Gruppen.
+- Wenn das `g`-Flag nicht verwendet wird, wird nur die erste vollständige Übereinstimmung und die damit verbundenen erfassenden Gruppen zurückgegeben. In diesem Fall gibt `match()` dasselbe Ergebnis wie {{jsxref("RegExp.prototype.exec()")}} zurück (ein Array mit einigen zusätzlichen Eigenschaften).
 
 ## Beschreibung
 
-Die Implementierung von `String.prototype.match` tut nicht viel mehr, als die `Symbol.match`-Methode des Arguments mit dem String als ersten Parameter aufzurufen. Die eigentliche Implementierung stammt von [`RegExp.prototype[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match).
+Die Implementierung von `String.prototype.match` führt im Wesentlichen den Aufruf der `Symbol.match`-Methode des Arguments mit dem String als erstem Parameter durch. Die eigentliche Implementierung stammt von [`RegExp.prototype[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match).
 
-- Wenn Sie wissen müssen, ob ein String einem regulären Ausdruck entspricht, verwenden Sie {{jsxref("RegExp.prototype.test()")}}.
-- Wenn Sie nur die erste gefundene Übereinstimmung möchten, möchten Sie möglicherweise {{jsxref("RegExp.prototype.exec()")}} stattdessen verwenden.
-- Wenn Sie Erfassungsgruppen erhalten möchten und das globale Flag gesetzt ist, müssen Sie {{jsxref("RegExp.prototype.exec()")}} oder {{jsxref("String.prototype.matchAll()")}} stattdessen verwenden.
+- Falls Sie wissen möchten, ob ein String mit einem regulären Ausdruck {{jsxref("RegExp")}} übereinstimmt, verwenden Sie {{jsxref("RegExp.prototype.test()")}}.
+- Wenn Sie nur die erste gefundene Übereinstimmung möchten, könnten Sie stattdessen {{jsxref("RegExp.prototype.exec()")}} verwenden.
+- Falls Sie erfassende Gruppen erhalten möchten und das globale Flag gesetzt ist, müssen Sie {{jsxref("RegExp.prototype.exec()")}} oder {{jsxref("String.prototype.matchAll()")}} verwenden.
 
-Für weitere Informationen über die Semantik von `match()` bei übergebenem Regex siehe [`RegExp.prototype[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match).
+Weitere Informationen zu den Semantiken von `match()` bei Übergabe eines regulären Ausdrucks finden Sie unter [`RegExp.prototype[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match).
 
 ## Beispiele
 
 ### Verwendung von match()
 
-Im folgenden Beispiel wird `match()` verwendet, um `"Chapter"` zu finden, gefolgt von einem oder mehreren numerischen Zeichen, gefolgt von einem Dezimalpunkt und numerischen Zeichen, null oder mehrmals.
+Im folgenden Beispiel wird `match()` verwendet, um `"Chapter"`, gefolgt von einer oder mehreren Ziffern, gefolgt von einem Dezimalpunkt und null oder mehr Ziffern zu finden.
 
-Der reguläre Ausdruck enthält das `i`-Flag, sodass Groß-/Kleinschreibung ignoriert wird.
+Der reguläre Ausdruck enthält das `i`-Flag, sodass Groß- und Kleinschreibung ignoriert wird.
 
 ```js
 const str = "For more information, see Chapter 3.4.5.1";
@@ -68,11 +77,11 @@ console.log(found);
 // ]
 ```
 
-Im obigen Match-Ergebnis ist `'see Chapter 3.4.5.1'` die gesamte Übereinstimmung. `'Chapter 3.4.5.1'` wurde von `(chapter \d+(\.\d)*)` erfasst. `'.1'` war der letzte Wert, der von `(\.\d)` erfasst wurde. Die `index`-Eigenschaft (`22`) ist der nullbasierte Index der gesamten Übereinstimmung. Die `input`-Eigenschaft ist der ursprüngliche String, der geparst wurde.
+Im obigen Übereinstimmungsergebnis ist `'see Chapter 3.4.5.1'` die gesamte Übereinstimmung. `'Chapter 3.4.5.1'` wurde durch `(chapter \d+(\.\d)*)` erfasst. `'.1'` war der zuletzt von `(\.\d)` erfasste Wert. Die `index`-Eigenschaft (`22`) ist der nullbasierte Index der gesamten Übereinstimmung. Die `input`-Eigenschaft ist der ursprüngliche String, der analysiert wurde.
 
-### Verwendung von globalen und ignoreCase-Flags mit match()
+### Verwendung des globalen und ignoreCase-Flags mit match()
 
-Das folgende Beispiel zeigt die Verwendung des globalen Flags und des Ignore-Case-Flags mit `match()`. Alle Buchstaben `A` bis `E` und `a` bis `e` werden zurückgegeben, jeder als eigenes Element im Array.
+Das folgende Beispiel zeigt die Verwendung des globalen Flags und des ignore-case-Flags mit `match()`. Alle Buchstaben `A` bis `E` und `a` bis `e` werden zurückgegeben, wobei jeder Buchstabe ein eigenes Element im Array ist.
 
 ```js
 const str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -86,9 +95,9 @@ console.log(matches);
 > [!NOTE]
 > Siehe auch {{jsxref("String.prototype.matchAll()")}} und [Erweitertes Suchen mit Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags).
 
-### Verwendung von benannten Erfassungsgruppen
+### Verwendung benannter erfassender Gruppen
 
-In Browsern, die benannte Erfassungsgruppen unterstützen, erfasst der folgende Code `"fox"` oder `"cat"` in einer Gruppe namens `animal`:
+In Browsern, die benannte erfassende Gruppen unterstützen, erfasst der folgende Code `"fox"` oder `"cat"` in einer Gruppe namens `animal`:
 
 ```js
 const paragraph = "The quick brown fox jumps over the lazy dog. It barked.";
@@ -108,7 +117,7 @@ str.match(); // returns [""]
 
 ### Verwendung von match() mit einem Nicht-RegExp, das `[Symbol.match]()` implementiert
 
-Wenn ein Objekt eine `Symbol.match`-Methode hat, kann es als benutzerdefinierter Matcher verwendet werden. Der Rückgabewert von `Symbol.match` wird zum Rückgabewert von `match()`.
+Falls ein Objekt eine `Symbol.match`-Methode hat, kann es als benutzerdefinierter Matcher verwendet werden. Der Rückgabewert von `Symbol.match` wird der Rückgabewert von `match()`.
 
 ```js
 const str = "Hmm, this is interesting.";
@@ -122,7 +131,7 @@ str.match({
 
 ### Ein Nicht-RegExp als Parameter
 
-Wenn der `regexp`-Parameter ein String oder eine Zahl ist, wird er implizit in ein {{jsxref("RegExp")}} durch die Verwendung von `new RegExp(regexp)` umgewandelt.
+Wenn der `regexp`-Parameter eine Zeichenfolge oder eine Zahl ist, wird er implizit durch `new RegExp(regexp)` in eine {{jsxref("RegExp")}} umgewandelt.
 
 ```js
 const str1 =
@@ -140,13 +149,13 @@ str2.match(+65); // A number with a positive sign. returns ["65"]
 str3.match(null); // returns ["null"]
 ```
 
-Dies kann unerwartete Ergebnisse haben, wenn Sonderzeichen nicht richtig maskiert sind.
+Dies kann unerwartete Ergebnisse haben, falls Sonderzeichen nicht korrekt maskiert sind.
 
 ```js
 console.log("123".match("1.3")); // [ "123" ]
 ```
 
-Dies ist eine Übereinstimmung, da `.` in einem Regex jedes Zeichen trifft. Um es nur speziell mit einem Punkt-Zeichen übereinstimmen zu lassen, müssen Sie die Eingabe maskieren.
+Dies ist eine Übereinstimmung, weil `.` in einem regulären Ausdruck jedes Zeichen matcht. Um es nur mit einem Punkt-Zeichen übereinstimmen zu lassen, müssen Sie die Eingabe maskieren.
 
 ```js
 console.log("123".match("1\\.3")); // null
@@ -162,8 +171,8 @@ console.log("123".match("1\\.3")); // null
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.match` in `core-js` mit Korrekturen und Implementierung moderner Verhaltensweisen wie `Symbol.match`-Unterstützung](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)
+- [Polyfill von `String.prototype.match` in `core-js` mit Fehlerbehebungen und der Implementierung moderner Verhaltensweisen wie `Symbol.match`-Unterstützung](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Leitfaden
 - {{jsxref("String.prototype.matchAll()")}}
 - {{jsxref("RegExp")}}
 - {{jsxref("RegExp.prototype.exec()")}}

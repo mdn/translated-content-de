@@ -2,14 +2,28 @@
 title: Symbol.toPrimitive
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive
 l10n:
-  sourceCommit: 6fbdb78c1362fae31fbd545f4b2d9c51987a6bca
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Daten-Eigenschaft **`Symbol.toPrimitive`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.toPrimitive`. Alle Algorithmen zur [Typumwandlung](/de/docs/Web/JavaScript/Data_structures#type_coercion) suchen auf Objekten nach diesem Symbol für die Methode, die einen bevorzugten Typ akzeptiert und eine primitive Darstellung des Objekts zurückgibt, bevor sie als Fallback die `valueOf()`- und `toString()`-Methoden des Objekts verwenden.
+Die statische Dateneigenschaft **`Symbol.toPrimitive`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.toPrimitive`. Alle [Typumwandlungs-](/de/docs/Web/JavaScript/Data_structures#type_coercion) Algorithmen suchen dieses Symbol in Objekten, um die Methode zu finden, die einen bevorzugten Typ akzeptiert und eine primitive Darstellung des Objekts zurückgibt, bevor auf die Methoden `valueOf()` und `toString()` des Objekts zurückgegriffen wird.
 
-{{EmbedInteractiveExample("pages/js/symbol-toprimitive.html")}}
+{{InteractiveExample("JavaScript Demo: Symbol.toPrimitive")}}
+
+```js interactive-example
+const object1 = {
+  [Symbol.toPrimitive](hint) {
+    if (hint === "number") {
+      return 42;
+    }
+    return null;
+  },
+};
+
+console.log(+object1);
+// Expected output: 42
+```
 
 ## Wert
 
@@ -19,17 +33,17 @@ Das wohlbekannte Symbol `Symbol.toPrimitive`.
 
 ## Beschreibung
 
-Mit Hilfe der `Symbol.toPrimitive`-Eigenschaft (verwendet als Funktionswert) kann ein Objekt in einen primitiven Wert umgewandelt werden. Die Funktion wird mit einem String-Argument `hint` aufgerufen, das den bevorzugten Typ des resultierenden primitiven Wertes angibt. Das `hint`-Argument kann einer der folgenden Werte sein: `"number"`, `"string"` und `"default"`.
+Mit Hilfe der Eigenschaft `Symbol.toPrimitive` (verwendet als Funktionswert) kann ein Objekt in einen primitiven Wert umgewandelt werden. Die Funktion wird mit einem String-Argument `hint` aufgerufen, der den bevorzugten Typ des resultierenden primitiven Wertes angibt. Das Argument `hint` kann einer der Werte `"number"`, `"string"` oder `"default"` sein.
 
-Der `"number"`-Hinweis wird von [numerischen Umwandlungsalgorithmen](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) verwendet. Der `"string"`-Hinweis wird von dem [String-Umwandlungsalgorithmus](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) verwendet. Der `"default"`-Hinweis wird von dem [primitiven Umwandlungsalgorithmus](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) verwendet. Der `hint` dient nur als schwaches Präferenzsignal, und die Implementierung kann ihn ignorieren (wie es [`Symbol.prototype[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol.toPrimitive) tut). Die Sprache erzwingt keine Übereinstimmung zwischen dem `hint` und dem Ergebnistyp, obwohl `[Symbol.toPrimitive]()` einen primitiven Wert zurückgeben muss, oder ein {{jsxref("TypeError")}} wird ausgelöst.
+Der `"number"`-Hinweis wird von [numerischen Umwandlungs-](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) Algorithmen verwendet. Der `"string"`-Hinweis wird vom [String-Umwandlungs-](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) Algorithmus genutzt. Der `"default"`-Hinweis wird vom [primitiven Umwandlungs-](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) Algorithmus genutzt. Der `hint` fungiert nur als schwaches Signal der Präferenz, und die Implementierung kann ihn ignorieren (wie beispielsweise [`Symbol.prototype[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol.toPrimitive)). Die Sprache erzwingt keine Übereinstimmung zwischen dem `hint` und dem Resultat-Typ, obwohl `[Symbol.toPrimitive]()` einen primitiven Wert zurückgeben muss, andernfalls wird ein {{jsxref("TypeError")}} ausgelöst.
 
-Objekte ohne die `[Symbol.toPrimitive]`-Eigenschaft werden zu primitiven Werten umgewandelt, indem die Methoden `valueOf()` und `toString()` in unterschiedlicher Reihenfolge aufgerufen werden, was im Detail im Abschnitt zur [Typumwandlung](/de/docs/Web/JavaScript/Data_structures#type_coercion) erklärt wird. `[Symbol.toPrimitive]()` ermöglicht volle Kontrolle über den Umwandlungsprozess zu primitiven Werten. Zum Beispiel behandelt [`Date.prototype[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/Symbol.toPrimitive) `"default"` als wäre es `"string"` und ruft `toString()` statt `valueOf()` auf. [`Symbol.prototype[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol.toPrimitive) ignoriert den Hinweis und gibt immer ein Symbol zurück, was bedeutet, dass selbst in String-Kontexten {{jsxref("Symbol.prototype.toString()")}} nicht aufgerufen wird und `Symbol`-Objekte immer explizit durch [`String()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/String) in Strings umgewandelt werden müssen.
+Objekte ohne die `[Symbol.toPrimitive]`-Eigenschaft werden in primitive Werte umgewandelt, indem die Methoden `valueOf()` und `toString()` in unterschiedlicher Reihenfolge aufgerufen werden. Dies wird detailliert im Abschnitt [Typumwandlung](/de/docs/Web/JavaScript/Data_structures#type_coercion) erklärt. `[Symbol.toPrimitive]()` ermöglicht eine vollständige Kontrolle über den Umwandlungsprozess in primitive Werte. Zum Beispiel behandelt [`Date.prototype[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/Symbol.toPrimitive) `"default"` so, als wäre es `"string"`, und ruft `toString()` anstelle von `valueOf()` auf. [`Symbol.prototype[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/Symbol.toPrimitive) ignoriert den Hinweis und gibt immer ein Symbol zurück. Das bedeutet, dass auch in String-Kontexten {{jsxref("Symbol.prototype.toString()")}} nicht aufgerufen wird, und `Symbol`-Objekte immer explizit durch [`String()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/String) in Strings konvertiert werden müssen.
 
 ## Beispiele
 
-### Modifizieren von primitiven Werten, die von einem Objekt umgewandelt wurden
+### Ändern von primitiven Werten, die aus einem Objekt umgewandelt werden
 
-Das folgende Beispiel beschreibt, wie die Eigenschaft `Symbol.toPrimitive` den primitiven Wert modifizieren kann, der von einem Objekt umgewandelt wurde.
+Das folgende Beispiel beschreibt, wie die `Symbol.toPrimitive`-Eigenschaft den aus einem Objekt umgewandelten primitiven Wert ändern kann.
 
 ```js
 // An object without Symbol.toPrimitive property.

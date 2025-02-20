@@ -2,28 +2,28 @@
 title: revert-layer
 slug: Web/CSS/revert-layer
 l10n:
-  sourceCommit: c9c86abc12c3bdd3fdb07c73a0d1cf88cdd0e1bc
+  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
 ---
 
 {{CSSRef}}
 
-Das **`revert-layer`** [CSS-weite Schlüsselwort](/de/docs/Web/CSS/CSS_Types#css-wide_keywords) setzt den Wert einer Eigenschaft in einer [Kaskadenschicht](/de/docs/Web/CSS/@layer) auf den Wert der Eigenschaft in einer CSS-Regel zurück, die das Element in einer vorherigen Kaskadenschicht matcht. Der Wert einer Eigenschaft mit diesem Schlüsselwort wird neu berechnet, als ob in der aktuellen Kaskadenschicht keine Regeln auf das Ziel-Element angewendet wurden.
+Das **`revert-layer`** [CSS-weite Schlüsselwort](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types#css-wide_keywords) setzt den Wert einer Eigenschaft in einer [Kaskadenschicht](/de/docs/Web/CSS/@layer) auf den Wert der Eigenschaft in einer CSS-Regel zurück, die auf das Element in einer vorhergehenden Kaskadenschicht zutrifft. Der Wert einer Eigenschaft mit diesem Schlüsselwort wird neu berechnet, als ob keine Regeln für das Ziel-Element in der aktuellen Kaskadenschicht definiert wären.
 
-Falls es keine andere Kaskadenschicht zum Zurücksetzen für die übereinstimmende CSS-Regel gibt, fällt der Eigenschaftenwert auf den [berechneten Wert](/de/docs/Web/CSS/computed_value) ab, der von der aktuellen Schicht abgeleitet wird. Wenn es zudem in der aktuellen Schicht keine übereinstimmende CSS-Regel gibt, fällt der Eigenschaftenwert für das Element auf den Stil zurück, der in einem vorherigen {{Glossary("Style_origin", "Stil-Ursprung")}} definiert ist.
+Wenn es keine andere Kaskadenschicht gibt, auf die zurückgesetzt werden kann, wird der Eigenschaftswert auf den [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/computed_value) basierend auf der aktuellen Schicht zurückgesetzt. Darüber hinaus, wenn es keine passende CSS-Regel in der aktuellen Schicht gibt, wird der Eigenschaftswert des Elements auf den Stil zurückgesetzt, der in einer vorhergehenden {{Glossary("Style_origin", "Stilherkunft")}} definiert ist.
 
-Dieses Schlüsselwort kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschlusseigenschaft {{cssxref("all")}}.
+Dieses Schlüsselwort kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschreibeigenschaft {{cssxref("all")}}.
 
 ## Revert-layer vs. revert
 
-Das `revert-layer` Schlüsselwort erlaubt es Ihnen, Stile auf diejenigen in früheren Kaskadenschichten innerhalb des {{Glossary("Style_origin", "Autoren-Ursprungs")}} zurückzusetzen. Im Vergleich dazu ermöglicht das {{cssxref("revert")}} Schlüsselwort das Zurücksetzen von Stilen, die im Autoren-Ursprung auf diejenigen angewendet wurden, die im Benutzer-Ursprung oder im Benutzeragenten-Ursprung spezifiziert sind.
+Das Schlüsselwort `revert-layer` erlaubt es, Stile auf diejenige zurückzusetzen, die in vorherigen Kaskadenschichten innerhalb der {{Glossary("Style_origin", "Autorherkunft")}} definiert sind. Das {{cssxref("revert")}}-Schlüsselwort hingegen setzt Stile zurück, die in der Autorherkunft angewandt wurden, auf diejenigen, die in der Benutzerherkunft oder der Benutzeragent-Herkunft definiert sind.
 
-Das `revert-layer` Schlüsselwort ist idealerweise dafür gedacht, auf Eigenschaften innerhalb einer Kaskadenschicht angewendet zu werden. Wenn es jedoch auf Eigenschaften außerhalb einer Kaskadenschicht angewendet wird, setzt es Eigenschaftenwerte auf jegliche von Präsentationshinweisen gesetzten Werte (wie `width` und `height` Attribute oder das `<s>` Element in HTML) zurück und standardmäßig auf die vom Benutzeragenten-Stylesheet oder den Benutzerstilen festgelegten Werte. Im Gegensatz zum `revert` Schlüsselwort, das Präsentationshinweise als Teil des Autoren-Ursprungs betrachtet und sie ebenfalls zurücksetzt, ignoriert das `revert-layer` Schlüsselwort Präsentationshinweise außerhalb der Kaskadenschicht, sodass es sie nicht zurücksetzt.
+Das Schlüsselwort `revert-layer` ist idealerweise dazu gedacht, auf Eigenschaften innerhalb einer Kaskadenschicht angewendet zu werden. Wenn es jedoch auf Eigenschaften außerhalb einer Kaskadenschicht angewendet wird, setzt es Eigenschaftswerte auf jegliche durch Präsentationshinweise gesetzte Werte zurück (wie `width` und `height` Attribute oder das `<s>` Element in HTML) und standardmäßig auf die Werte, die vom Benutzeragent-Stil definiert wurden. Im Gegensatz zum `revert`-Schlüsselwort, das Präsentationshinweise als Teil der Autorherkunft betrachtet und sie auch zurücksetzt, ignoriert das Schlüsselwort `revert-layer` Präsentationshinweise außerhalb der Kaskadenschicht und setzt diese daher nicht zurück.
 
 ## Beispiele
 
 ### Standardverhalten der Kaskadenschicht
 
-Im unten stehenden Beispiel sind zwei Kaskadenschichten in der CSS definiert, `base` und `special`. Standardmäßig überschreiben Regeln in der `special` Schicht konkurrierende Regeln in der `base` Schicht, da `special` in der `@layer` Deklaration nach `base` aufgeführt ist.
+Im folgenden Beispiel werden zwei Kaskadenschichten in der CSS definiert: `base` und `special`. Standardmäßig überschreiben Regeln in der `special`-Schicht konkurrierende Regeln in der `base`-Schicht, da `special` nach `base` in der `@layer`-Deklarationsanweisung aufgeführt ist.
 
 #### HTML
 
@@ -62,11 +62,11 @@ Im unten stehenden Beispiel sind zwei Kaskadenschichten in der CSS definiert, `b
 
 {{EmbedLiveSample('Default_cascade_layer_behavior')}}
 
-Alle `<li>` Elemente entsprechen der Regel `item` in der `special` Schicht und sind rot. Dies ist das Standardverhalten der Kaskadenschicht, bei dem Regeln in der `special` Schicht Vorrang vor Regeln in der `base` Schicht haben.
+Alle `<li>`-Elemente entsprechen der Regel `item` in der `special`-Schicht und sind rot. Dies ist das Standardverhalten der Kaskadenschicht, bei der Regeln in der `special`-Schicht Vorrang vor Regeln in der `base`-Schicht haben.
 
-### Zurücksetzen auf Stil in vorheriger Kaskadenschicht
+### Zurücksetzen auf den Stil in einer vorherigen Kaskadenschicht
 
-Lassen Sie uns untersuchen, wie das `revert-layer` Schlüsselwort das Standardverhalten der Kaskadenschicht ändert. In diesem Beispiel enthält die `special` Schicht eine zusätzliche `feature` Regel, die das erste `<li>` Element anvisiert. Die `color` Eigenschaft in dieser Regel ist auf `revert-layer` gesetzt.
+Untersuchen wir, wie das Schlüsselwort `revert-layer` das Standardverhalten der Kaskadenschicht verändert. In diesem Beispiel enthält die `special`-Schicht eine zusätzliche `feature`-Regel, die auf das erste `<li>`-Element abzielt. Die Eigenschaft `color` in dieser Regel ist auf `revert-layer` gesetzt.
 
 #### HTML
 
@@ -108,11 +108,11 @@ Lassen Sie uns untersuchen, wie das `revert-layer` Schlüsselwort das Standardve
 
 {{EmbedLiveSample('Revert_to_style_in_previous_cascade_layer')}}
 
-Mit `color` auf `revert-layer` gesetzt, wird der Wert der `color` Eigenschaft auf den Wert in der übereinstimmenden `feature` Regel in der vorherigen Schicht `base` zurückgesetzt, und so ist 'Item one' nun grün.
+Mit `color` auf `revert-layer` gesetzt, wird der Wert der `color`-Eigenschaft auf den Wert in der entsprechenden Regel `feature` in der vorherigen Schicht `base` zurückgesetzt, und daher ist "Item one" jetzt grün.
 
-### Zurücksetzen auf Stil in vorheriger Quelle
+### Zurücksetzen auf den Stil in einer vorherigen Herkunft
 
-Dieses Beispiel zeigt das Verhalten des `revert-layer` Schlüsselwortes, wenn es keine Kaskadenschicht für das Zurücksetzen gibt _und_ es keine übereinstimmende CSS-Regel in der aktuellen Schicht gibt, um den Eigenschaftswert zu erben.
+Dieses Beispiel zeigt das Verhalten des Schlüsselworts `revert-layer`, wenn es keine Kaskadenschicht gibt, auf die zurückgesetzt werden kann, _und_ wenn es keine passende CSS-Regel in der aktuellen Schicht gibt, um den Eigenschaftswert zu übernehmen.
 
 #### HTML
 
@@ -140,7 +140,7 @@ Dieses Beispiel zeigt das Verhalten des `revert-layer` Schlüsselwortes, wenn es
 
 {{EmbedLiveSample('Revert_to_style_in_previous_origin')}}
 
-Der Stil für alle `<li>` Elemente wird auf die Standardwerte im Benutzeragenten-Ursprung zurückgesetzt.
+Der Stil für alle `<li>`-Elemente wird auf die Standardwerte in der Benutzeragent-Herkunft zurückgesetzt.
 
 ## Spezifikationen
 
@@ -157,4 +157,4 @@ Der Stil für alle `<li>` Elemente wird auf die Standardwerte im Benutzeragenten
 - {{cssxref("revert")}}
 - {{cssxref("unset")}}
 - {{cssxref("all")}}
-- [CSS Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul

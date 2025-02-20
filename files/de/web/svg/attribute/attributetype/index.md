@@ -2,12 +2,12 @@
 title: attributeType
 slug: Web/SVG/Attribute/attributeType
 l10n:
-  sourceCommit: 54eb3a678b4d4cbc94588d2234103e74dfa063a0
+  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
 ---
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`attributeType`** Attribut legt den Namensraum fest, in dem das Zielattribut und dessen zugehörige Werte definiert sind.
+Das Attribut **`attributeType`** gibt den Namensraum an, in dem das Zielattribut und seine zugehörigen Werte definiert sind.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -41,7 +41,7 @@ svg {
 
 {{EmbedLiveSample("Example", "400", "250")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -63,9 +63,9 @@ svg {
 - `CSS`
   - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name einer als animierbar definierten CSS-Eigenschaft ist.
 - `XML`
-  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name eines im Standard-XML-Namensraum für das Zielelement als animierbar definierten XML-Attributs ist.
+  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name eines XML-Attributs ist, das im Standard-XML-Namensraum für das Ziel-Element als animierbar definiert ist.
 - `auto`
-  - : Dieser Wert gibt an, dass die Implementierung das {{SVGAttr("attributeName")}} einem Attribut für das Zielelement zuordnen soll. Benutzeragenten durchsuchen zuerst die Liste der CSS-Eigenschaften nach einem übereinstimmenden Eigenschaftsnamen und durchsuchen, falls keiner gefunden wird, den Standard-XML-Namensraum für das Element.
+  - : Dieser Wert gibt an, dass die Implementierung das {{SVGAttr("attributeName")}} mit einem Attribut für das Ziel-Element abgleichen sollte. User Agents durchsuchen zunächst die Liste der CSS-Eigenschaften nach einem passenden Eigenschaftsnamen. Wenn keiner gefunden wird, durchsuchen sie den Standard-XML-Namensraum für das jeweilige Element.
 
 ## Spezifikationen
 
@@ -73,4 +73,4 @@ svg {
 
 ## Siehe auch
 
-- [SMIL-Animationsspezifikation](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AccumulateAttribute)
+- [SVG-Animation mit SMIL](/de/docs/Web/SVG/SVG_animation_with_SMIL)

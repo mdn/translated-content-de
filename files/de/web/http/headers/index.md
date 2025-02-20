@@ -3,494 +3,488 @@ title: HTTP-Header
 short-title: Headers
 slug: Web/HTTP/Headers
 l10n:
-  sourceCommit: e114a6686e813abfcb8f071b18987eb4c1f17ce6
+  sourceCommit: f35733893f8c17dcbf8e9d5cf2551f6fb1cbecd5
 ---
 
 {{HTTPSidebar}}
 
-**HTTP-Header** ermöglichen es dem Client und dem Server, zusätzliche Informationen mit einer Nachricht in einer Anfrage oder Antwort auszutauschen. In HTTP/1.X ist ein Header ein nicht auf Groß-/Kleinschreibung achtender Name, gefolgt von einem Doppelpunkt, dann folgt optional ein Leerzeichen, das ignoriert wird, und schließlich sein Wert (zum Beispiel: `Allow: POST`). In HTTP/2 und höher werden Header klein geschrieben, wenn sie in den Entwicklertools angezeigt werden (`accept: */*`), und mit einem Doppelpunkt für eine spezielle Gruppe von [Pseudo-Headern](/de/docs/Web/HTTP/Messages#pseudo-headers) versehen (`:status: 200`). Weitere Informationen zur Syntax in jeder Protokollversion finden Sie auf der Seite [HTTP-Nachrichten](/de/docs/Web/HTTP/Messages).
+**HTTP-Header** ermöglichen es dem Client und dem Server, zusätzliche Informationen mit einer Nachricht in einer Anfrage oder Antwort zu übermitteln. In HTTP/1.X ist ein Header ein nicht auf Groß- und Kleinschreibung reagierender Name, gefolgt von einem Doppelpunkt, dann optionalen Leerzeichen, die ignoriert werden, und schließlich seinem Wert (zum Beispiel: `Allow: POST`). In HTTP/2 und darüber hinaus werden die Header in Kleinbuchstaben angezeigt, wenn sie in Entwicklertools betrachtet werden (`accept: */*`), und für eine spezielle Gruppe von [Pseudo-Headern](/de/docs/Web/HTTP/Messages#pseudo-headers) mit einem Doppelpunkt versehen (`:status: 200`). Weitere Informationen zur Syntax in jeder Protokollversion finden Sie auf der Seite [HTTP-Nachrichten](/de/docs/Web/HTTP/Messages).
 
-Benutzerdefinierte proprietäre Header wurden historisch mit einem `X-` Präfix verwendet, aber diese Konvention wurde 2012 deprekiert, da sie bei der Standardisierung von nicht standardmäßigen Feldern Unannehmlichkeiten verursachte, wie in [RFC 6648](https://datatracker.ietf.org/doc/html/rfc6648) beschrieben. Weitere sind im [IANA HTTP-Feldnamen-Register](https://www.iana.org/assignments/http-fields/http-fields.xhtml) aufgelistet, dessen ursprünglicher Inhalt in [RFC 4229](https://datatracker.ietf.org/doc/html/rfc4229) definiert wurde. Das IANA-Register listet Header auf, einschließlich [Informationen über ihren Status](https://github.com/protocol-registries/http-fields?tab=readme-ov-file#choosing-the-right-status).
+Benutzerdefinierte proprietäre Header wurden historisch mit einem `X-` Präfix verwendet, aber diese Konvention wurde 2012 aufgrund der Unannehmlichkeiten, die sie verursachte, als nicht standardgemäße Felder in [RFC 6648](https://datatracker.ietf.org/doc/html/rfc6648) abgelöst; andere sind im [IANA HTTP Field Name Registry](https://www.iana.org/assignments/http-fields/http-fields.xhtml) aufgelistet, dessen ursprünglicher Inhalt in [RFC 4229](https://datatracker.ietf.org/doc/html/rfc4229) definiert wurde. Das IANA-Register listet Header auf, einschließlich [Informationen über deren Status](https://github.com/protocol-registries/http-fields?tab=readme-ov-file#choosing-the-right-status).
 
-Header können gemäß ihren Kontexten gruppiert werden:
+Header können nach ihren Kontexten gruppiert werden:
 
-- {{Glossary("Request_header", "Request-Header")}}
-  - : Enthalten mehr Informationen über die Ressource, die abgerufen werden soll, oder über den Client, der die Ressource anfordert.
-- {{Glossary("Response_header", "Response-Header")}}
-  - : Enthalten zusätzliche Informationen über die Antwort, wie ihren Standort oder über den Server, der sie bereitstellt.
-- {{Glossary("Representation_header", "Representation-Header")}}
-  - : Enthalten Informationen über den Inhalt der Ressource, wie ihren [MIME-Typ](/de/docs/Web/HTTP/MIME_types) oder Kodierung/Kompression, die angewendet wurde.
-- {{Glossary("Payload_header", "Payload-Header")}}
-  - : Enthalten darstellungsunabhängige Informationen über Nutzdaten, einschließlich der Inhaltslänge und der für den Transport verwendeten Kodierung.
+- {{Glossary("Request_header", "Anforderungs-Header")}}
+  - : Enthalten weitere Informationen über die Ressource, die abgerufen werden soll, oder über den Client, der die Ressource anfordert.
+- {{Glossary("Response_header", "Antwort-Header")}}
+  - : Halten zusätzliche Informationen über die Antwort, wie ihren Standort oder über den Server, der sie bereitstellt.
+- {{Glossary("Representation_header", "Repräsentations-Header")}}
+  - : Enthalten Informationen über den Körper der Ressource, wie ihren [MIME-Typ](/de/docs/Web/HTTP/MIME_types) oder angewendete Kodierung/Kompression.
+- {{Glossary("Payload_header", "Nutzlast-Header")}}
+  - : Enthalten darstellungsunabhängige Informationen über Nutzlastdaten, einschließlich der Inhaltslänge und der für den Transport verwendeten Kodierung.
 
-Header können auch gruppiert werden, je nachdem, wie {{Glossary("Proxy_server", "Proxys")}} sie behandeln:
+Header können auch nach der Art und Weise gruppiert werden, wie {{Glossary("Proxy_server", "Proxy-Server")}} sie behandeln:
 
-- End-to-end-Header
+- End-to-End-Header
   - : Diese Header _müssen_ an den endgültigen Empfänger der Nachricht übermittelt werden: der Server für eine Anfrage oder der Client für eine Antwort. Zwischenliegende Proxys müssen diese Header unverändert weiterleiten und Caches müssen sie speichern.
-- Hop-by-hop-Header
-  - : Diese Header sind nur für eine einzelne Transportverbindung sinnvoll und _dürfen nicht_ von Proxys weitergeleitet oder zwischengespeichert werden. Beachten Sie, dass nur Hop-by-hop-Header mit dem {{httpheader("Connection")}}-Header gesetzt werden dürfen.
+- Hop-by-Hop-Header
+  - : Diese Header sind nur für eine einzelne Transportverbindung sinnvoll und _dürfen nicht_ von Proxys weitergeleitet oder im Cache gespeichert werden. Beachten Sie, dass nur Hop-by-Hop-Header mit dem {{httpheader("Connection")}}-Header eingestellt werden dürfen.
 
 ## Authentifizierung
 
 - {{HTTPHeader("WWW-Authenticate")}}
-  - : Definiert die Authentifizierungsmethode, die zum Zugriff auf eine Ressource verwendet werden soll.
+  - : Definiert die Authentifizierungsmethode, die verwendet werden sollte, um auf eine Ressource zuzugreifen.
 - {{HTTPHeader("Authorization")}}
-  - : Enthält die Anmeldedaten, um einen Benutzeragenten bei einem Server zu authentifizieren.
+  - : Enthält die Anmeldedaten zur Authentifizierung eines Benutzer-Agents bei einem Server.
 - {{HTTPHeader("Proxy-Authenticate")}}
-  - : Definiert die Authentifizierungsmethode, die zum Zugriff auf eine Ressource hinter einem Proxy-Server verwendet werden soll.
+  - : Definiert die Authentifizierungsmethode, die verwendet werden sollte, um auf eine Ressource hinter einem Proxy-Server zuzugreifen.
 - {{HTTPHeader("Proxy-Authorization")}}
-  - : Enthält die Anmeldedaten, um einen Benutzeragenten bei einem Proxy-Server zu authentifizieren.
+  - : Enthält die Anmeldedaten zur Authentifizierung eines Benutzer-Agents bei einem Proxy-Server.
 
 ## Zwischenspeicherung
 
 - {{HTTPHeader("Age")}}
-  - : Die Zeit in Sekunden, die das Objekt im Proxy-Cache war.
+  - : Die Zeit in Sekunden, die das Objekt in einem Proxy-Cache verbracht hat.
 - {{HTTPHeader("Cache-Control")}}
-  - : Anweisungen für Zwischenspeicherungsmechanismen sowohl in Anfragen als auch in Antworten.
+  - : Direktiven für Zwischenspeichermechanismen in sowohl Anfragen als auch Antworten.
 - {{HTTPHeader("Clear-Site-Data")}}
-  - : Löscht Browsing-Daten (z.B. Cookies, Speicher, Cache), die mit der anfordernden Website verbunden sind.
+  - : Löscht Browsing-Daten (z. B. Cookies, Speicher, Cache), die mit der anfragenden Website verbunden sind.
 - {{HTTPHeader("Expires")}}
-  - : Das Datum/die Uhrzeit, nach der die Antwort als veraltet gilt.
+  - : Das Datum/die Uhrzeit, nach dem die Antwort als veraltet angesehen wird.
 - {{HTTPHeader("No-Vary-Search")}} {{experimental_inline}}
-  - : Gibt eine Reihe von Regeln an, die bestimmen, wie sich die Abfrageparameter einer URL auf das Cache-Matching auswirken. Diese Regeln diktieren, ob dieselbe URL mit unterschiedlichen URL-Parametern als separate Browser-Cache-Einträge gespeichert werden soll.
+  - : Gibt eine Reihe von Regeln an, die definieren, wie die Abfrageparameter einer URL das Cache-Matching beeinflussen. Diese Regeln diktieren, ob dieselbe URL mit unterschiedlichen URL-Parametern als separate Cache-Einträge des Browsers gespeichert werden sollte.
 
 ## Bedingungen
 
 - {{HTTPHeader("Last-Modified")}}
-  - : Das letzte Änderungsdatum der Ressource, das verwendet wird, um verschiedene Versionen derselben Ressource zu vergleichen. Es ist weniger genau als {{HTTPHeader("ETag")}}, aber in einigen Umgebungen einfacher zu berechnen. Bedingte Anfragen, die {{HTTPHeader("If-Modified-Since")}} und {{HTTPHeader("If-Unmodified-Since")}} verwenden, nutzen diesen Wert, um das Verhalten der Anfrage zu ändern.
+  - : Das letzte Änderungsdatum der Ressource, verwendet, um mehrere Versionen derselben Ressource zu vergleichen. Es ist weniger genau als {{HTTPHeader("ETag")}}, aber leichter zu berechnen in manchen Umgebungen. Bedingte Anfragen mit {{HTTPHeader("If-Modified-Since")}} und {{HTTPHeader("If-Unmodified-Since")}} verwenden diesen Wert, um das Verhalten der Anfrage zu ändern.
 - {{HTTPHeader("ETag")}}
-  - : Eine eindeutige Zeichenkette, die die Version der Ressource identifiziert. Bedingte Anfragen, die {{HTTPHeader("If-Match")}} und {{HTTPHeader("If-None-Match")}} verwenden, nutzen diesen Wert, um das Verhalten der Anfrage zu ändern.
+  - : Eine eindeutige Zeichenkette zur Identifizierung der Version der Ressource. Bedingte Anfragen mit {{HTTPHeader("If-Match")}} und {{HTTPHeader("If-None-Match")}} verwenden diesen Wert, um das Verhalten der Anfrage zu ändern.
 - {{HTTPHeader("If-Match")}}
-  - : Macht die Anfrage bedingt und wendet die Methode nur an, wenn die gespeicherte Ressource mit einem der angegebenen ETags übereinstimmt.
+  - : Macht die Anfrage bedingt und wendet die Methode nur an, wenn die gespeicherte Ressource einem der angegebenen ETags entspricht.
 - {{HTTPHeader("If-None-Match")}}
-  - : Macht die Anfrage bedingt und wendet die Methode nur an, wenn die gespeicherte Ressource _nicht_ mit einem der angegebenen ETags übereinstimmt. Dies wird verwendet, um Caches zu aktualisieren (für sichere Anfragen) oder um das Hochladen einer neuen Ressource zu verhindern, wenn bereits eine existiert.
+  - : Macht die Anfrage bedingt und wendet die Methode nur an, wenn die gespeicherte Ressource keinem der angegebenen ETags entspricht. Dies wird verwendet, um Caches (für sichere Anfragen) zu aktualisieren oder um das Hochladen einer neuen Ressource zu verhindern, wenn bereits eine existiert.
 - {{HTTPHeader("If-Modified-Since")}}
-  - : Macht die Anfrage bedingt und erwartet, dass die Ressource nur übertragen wird, wenn sie nach dem angegebenen Datum geändert wurde. Dies wird verwendet, um Daten nur zu übertragen, wenn der Cache veraltet ist.
+  - : Macht die Anfrage bedingt und erwartet, dass die Ressource nur übertragen wird, wenn sie nach dem angegebenen Datum geändert wurde. Dies wird verwendet, um Daten nur dann zu übertragen, wenn der Cache veraltet ist.
 - {{HTTPHeader("If-Unmodified-Since")}}
-  - : Macht die Anfrage bedingt und erwartet, dass die Ressource nur übertragen wird, wenn sie nach dem angegebenen Datum nicht geändert wurde. Dies stellt die Kohärenz eines neuen Fragments eines bestimmten Bereichs mit vorherigen sicher oder implementiert ein optimistisches Konkurrentzkontrollsystem bei Änderungen an vorhandenen Dokumenten.
+  - : Macht die Anfrage bedingt und erwartet, dass die Ressource nur übertragen wird, wenn sie nach dem angegebenen Datum nicht verändert wurde. Dies stellt die Kohärenz eines neuen Fragments eines bestimmten Bereichs mit vorangegangenen sicher oder ermöglicht ein optimistisches Sperrsteuerungssystem bei der Änderung bestehender Dokumente.
 - {{HTTPHeader("Vary")}}
-  - : Bestimmt, wie Anforderungsheader abgeglichen werden sollen, um zu entscheiden, ob eine zwischengespeicherte Antwort verwendet werden kann, anstatt eine neue vom Ursprungsserver anzufordern.
+  - : Bestimmt, wie Anforderungs-Header aufeinander abgestimmt werden, um zu entscheiden, ob eine zwischengespeicherte Antwort verwendet werden kann, anstatt eine neue vom Ursprungsserver zu verlangen.
 
-## Verbindungsmanagement
+## Verbindungsverwaltung
 
 - {{HTTPHeader("Connection")}}
-  - : Steuert, ob die Netzwerkverbindung nach Abschluss der aktuellen Transaktion offen bleibt.
+  - : Steuert, ob die Netzwerkverbindung offen bleibt, nachdem die aktuelle Transaktion beendet ist.
 - {{HTTPHeader("Keep-Alive")}}
-  - : Steuert, wie lange eine dauerhafte Verbindung offen bleiben soll.
+  - : Steuert, wie lange eine persistente Verbindung offen bleiben soll.
 
-## Inhaltsaushandlung
+## Inhaltsverhandlung
 
-Für weitere Details lesen Sie den Artikel [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation).
+Weitere Details finden Sie im [Artikel zur Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation).
 
 - {{HTTPHeader("Accept")}}
   - : Informiert den Server über die {{Glossary("MIME_type", "Typen")}} von Daten, die zurückgesendet werden können.
 - {{HTTPHeader("Accept-Encoding")}}
-  - : Der Kodierungsalgorithmus, normalerweise ein [Kompressionsalgorithmus](/de/docs/Web/HTTP/Compression), der auf die zurückgesendete Ressource angewendet werden kann.
+  - : Der Kodierungsalgorithmus, üblicherweise ein [Komprimierungsalgorithmus](/de/docs/Web/HTTP/Compression), der auf die zurückgesendete Ressource angewendet werden kann.
 - {{HTTPHeader("Accept-Language")}}
-  - : Informiert den Server über die menschliche Sprache, in der die Antwort erwartet wird. Dies ist ein Hinweis und nicht unbedingt vollständig unter der Kontrolle des Nutzers: Der Server sollte immer darauf achten, keine explizite Benutzerwahl (wie die Auswahl einer Sprache aus einem Dropdown-Menü) zu überschreiben.
+  - : Informiert den Server über die menschliche Sprache, die der Server zurücksenden soll. Dies ist ein Hinweis und nicht notwendigerweise vollständig unter der Kontrolle des Benutzers: Der Server sollte immer darauf achten, keine explizite Benutzerwahl zu überschreiben (wie durch das Auswählen einer Sprache aus einem Dropdown-Menü).
 - {{HTTPHeader("Accept-Patch")}}
-  - : Ein _request content negotiation_ Response-Header, der angibt, welche [Medientypen](/de/docs/Web/HTTP/MIME_types) der Server in einer {{HTTPMethod("PATCH")}}-Anfrage verstehen kann.
+  - : Ein _Anfrage-Inhaltsverhandlungs_-Antwort-Header, der angibt, welchen [Medientyp](/de/docs/Web/HTTP/MIME_types) der Server in einer {{HTTPMethod("PATCH")}}-Anfrage verstehen kann.
 - {{HTTPHeader("Accept-Post")}}
-  - : Ein _request content negotiation_ Response-Header, der angibt, welche [Medientypen](/de/docs/Web/HTTP/MIME_types) der Server in einer {{HTTPMethod("POST")}}-Anfrage verstehen kann.
+  - : Ein _Anfrage-Inhaltsverhandlungs_-Antwort-Header, der angibt, welchen [Medientyp](/de/docs/Web/HTTP/MIME_types) der Server in einer {{HTTPMethod("POST")}}-Anfrage verstehen kann.
 
-## Steuerungen
+## Steuerelemente
 
 - {{HTTPHeader("Expect")}}
-  - : Gibt Erwartungen an, die vom Server erfüllt werden müssen, um die Anfrage ordnungsgemäß zu verarbeiten.
+  - : Gibt Erwartungen an, die vom Server erfüllt werden müssen, um die Anfrage ordnungsgemäß zu bearbeiten.
 - {{HTTPHeader("Max-Forwards")}}
-  - : Bei Verwendung von [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE) gibt es die maximale Anzahl von Hops an, die die Anfrage durchlaufen kann, bevor sie an den Absender zurückgesendet wird.
+  - : Gibt bei der Verwendung von [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE) die maximale Anzahl von Hops an, die die Anfrage machen kann, bevor sie an den Absender zurückgespiegelt wird.
 
 ## Cookies
 
 - {{HTTPHeader("Cookie")}}
   - : Enthält gespeicherte [HTTP-Cookies](/de/docs/Web/HTTP/Cookies), die zuvor vom Server mit dem {{HTTPHeader("Set-Cookie")}}-Header gesendet wurden.
 - {{HTTPHeader("Set-Cookie")}}
-  - : Sendet Cookies vom Server an den Benutzeragenten.
+  - : Sendet Cookies vom Server zum Benutzer-Agent.
 
 ## CORS
 
-Für weitere Informationen lesen Sie die [CORS-Dokumentation](/de/docs/Web/HTTP/CORS).
+Weitere Informationen finden Sie in der [CORS-Dokumentation](/de/docs/Web/HTTP/CORS).
 
 - {{HTTPHeader("Access-Control-Allow-Credentials")}}
-  - : Gibt an, ob die Antwort auf die Anfrage freigegeben werden kann, wenn das Merkmal `credentials` wahr ist.
+  - : Gibt an, ob die Antwort zur Anfrage offengelegt werden kann, wenn das Anmeldekennzeichen wahr ist.
 - {{HTTPHeader("Access-Control-Allow-Headers")}}
   - : Wird als Antwort auf eine {{Glossary("Preflight_request", "Preflight-Anfrage")}} verwendet, um anzugeben, welche HTTP-Header bei der tatsächlichen Anfrage verwendet werden können.
 - {{HTTPHeader("Access-Control-Allow-Methods")}}
-  - : Gibt die Methoden an, die beim Zugriff auf die Ressource als Antwort auf eine Preflight-Anfrage erlaubt sind.
+  - : Gibt an, welche Methoden beim Zugriff auf die Ressource als Antwort auf eine Preflight-Anfrage erlaubt sind.
 - {{HTTPHeader("Access-Control-Allow-Origin")}}
   - : Gibt an, ob die Antwort geteilt werden kann.
 - {{HTTPHeader("Access-Control-Expose-Headers")}}
   - : Gibt an, welche Header als Teil der Antwort offengelegt werden können, indem ihre Namen aufgelistet werden.
 - {{HTTPHeader("Access-Control-Max-Age")}}
-  - : Gibt an, wie lange die Ergebnisse einer Preflight-Anfrage zwischengespeichert werden können.
+  - : Gibt an, wie lange die Ergebnisse einer Preflight-Anfrage im Cache bleiben können.
 - {{HTTPHeader("Access-Control-Request-Headers")}}
-  - : Wird verwendet, wenn eine Preflight-Anfrage gestellt wird, um den Server über die HTTP-Header zu informieren, die bei der tatsächlichen Anfrage verwendet werden.
+  - : Wird bei der Ausgabe einer Preflight-Anfrage verwendet, um den Server darüber zu informieren, welche HTTP-Header bei der tatsächlichen Anfrage verwendet werden.
 - {{HTTPHeader("Access-Control-Request-Method")}}
-  - : Wird verwendet, wenn eine Preflight-Anfrage gestellt wird, um den Server darüber zu informieren, welche [HTTP-Methode](/de/docs/Web/HTTP/Methods) bei der tatsächlichen Anfrage verwendet wird.
+  - : Wird bei der Ausgabe einer Preflight-Anfrage verwendet, um den Server darüber zu informieren, welche [HTTP-Methode](/de/docs/Web/HTTP/Methods) bei der tatsächlichen Anfrage verwendet wird.
 - {{HTTPHeader("Origin")}}
   - : Gibt an, von wo ein Abruf stammt.
 - {{HTTPHeader("Timing-Allow-Origin")}}
-  - : Gibt Ursprünge an, denen erlaubt ist, die Werte von Attributen zu sehen, die über Funktionen der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen wurden, die ansonsten aufgrund von Cross-Origin-Einschränkungen als Null gemeldet würden.
+  - : Gibt Ursprünge an, die berechtigt sind, Werte von Attributen zu sehen, die über Funktionen der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen werden, die ansonsten aufgrund von Cross-Origin-Beschränkungen als Null gemeldet würden.
 
 ## Downloads
 
 - {{HTTPHeader("Content-Disposition")}}
-  - : Gibt an, ob die übertragene Ressource inline angezeigt werden sollte (Standardverhalten ohne den Header) oder ob sie wie ein Download gehandhabt werden soll und der Browser ein "Speichern unter"-Dialog präsentieren soll.
+  - : Gibt an, ob die übertragene Ressource inline angezeigt werden sollte (Standardverhalten ohne den Header) oder ob sie wie ein Download behandelt werden soll und der Browser das Dialogfeld "Speichern unter" präsentieren soll.
 
-## Integritäts-Prüfsummen
+## Integritätsprüfungen
 
 - {{HTTPHeader("Content-Digest")}} {{experimental_inline}}
-  - : Bietet eine {{Glossary("digest", "Prüfsumme")}} des oktettumrahmten Streams in einer HTTP-Nachricht (der Nachrichteninhalt), abhängig von {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}}.
+  - : Liefert einen {{Glossary("digest", "Digest")}} des im HTTP-Nachricht gerahmten Oktettstroms (des Nachrichteninhalts), abhängig von {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}}.
 - {{HTTPHeader("Repr-Digest")}} {{experimental_inline}}
-  - : Bietet eine {{Glossary("digest", "Prüfsumme")}} der ausgewählten Darstellung der Zielressource vor der Übertragung.
-    Im Gegensatz zum {{HTTPHeader("Content-Digest")}} berücksichtigt die Prüfsumme nicht {{HTTPHeader("Content-Encoding")}} oder {{HTTPHeader("Content-Range")}}.
+  - : Liefert einen {{Glossary("digest", "Digest")}} der ausgewählten Darstellung der Zielressource vor der Übertragung.
+    Im Gegensatz zum {{HTTPHeader("Content-Digest")}} betrachtet der Digest weder {{HTTPHeader("Content-Encoding")}} noch {{HTTPHeader("Content-Range")}}.
 - {{HTTPHeader("Want-Content-Digest")}} {{experimental_inline}}
-  - : Ausdruck des Wunsches nach einem {{HTTPHeader("Content-Digest")}}-Header.
-    Es ist das `Content-` Analog zum {{HTTPHeader("Want-Repr-Digest")}}.
+  - : Gibt den Wunsch nach einem {{HTTPHeader("Content-Digest")}} Header an.
+    Es ist das `Content-` Gegenstück zum {{HTTPHeader("Want-Repr-Digest")}}.
 - {{HTTPHeader("Want-Repr-Digest")}} {{experimental_inline}}
-  - : Ausdruck des Wunsches nach einem {{HTTPHeader("Repr-Digest")}}-Header.
-    Es ist das `Repr-` Analog zum {{HTTPHeader("Want-Content-Digest")}}.
+  - : Gibt den Wunsch nach einem {{HTTPHeader("Repr-Digest")}} Header an.
+    Es ist das `Repr-` Gegenstück zum {{HTTPHeader("Want-Content-Digest")}}.
 
-## Nachrichtenkörperinformationen
+## Nachrichtenkörper-Informationen
 
 - {{HTTPHeader("Content-Length")}}
-  - : Die Größe der Ressource, in Dezimalzahlen von Bytes.
+  - : Die Größe der Ressource, in dezimaler Anzahl von Bytes.
 - {{HTTPHeader("Content-Type")}}
   - : Gibt den Medientyp der Ressource an.
 - {{HTTPHeader("Content-Encoding")}}
-  - : Wird verwendet, um den Kompressionsalgorithmus zu spezifizieren.
+  - : Wird verwendet, um den Komprimierungsalgorithmus zu spezifizieren.
 - {{HTTPHeader("Content-Language")}}
-  - : Beschreibt die menschliche Sprache(n), die für das Publikum bestimmt sind, sodass es einem Benutzer ermöglicht, gemäß der eigenen bevorzugten Sprache zu differenzieren.
+  - : Beschreibt die menschliche(n) Sprache(n), die für das Publikum vorgesehen sind, damit ein Benutzer entsprechend der eigenen bevorzugten Sprache differenzieren kann.
 - {{HTTPHeader("Content-Location")}}
-  - : Gibt einen alternativen Standort für die zurückgegebenen Daten an.
+  - : Gibt einen alternativen Ort für die zurückgegebenen Daten an.
 
 ## Proxys
 
 - {{HTTPHeader("Forwarded")}}
-  - : Enthält Informationen von der clientseitigen Seite von Proxy-Servern, die geändert oder verloren gehen, wenn ein Proxy im Pfad der Anfrage beteiligt ist.
+  - : Enthält Informationen von der dem Client zugewandten Seite von Proxy-Servern, die verändert oder verloren gehen, wenn ein Proxy im Anforderungspfad beteiligt ist.
 - {{HTTPHeader("Via")}}
-  - : Wird von Proxys hinzugefügt, sowohl vorwärts- als auch rückwärts-Proxys, und kann in den Anforderungsheadern und den Antwortheadern auftreten.
+  - : Wird von Proxys, sowohl vorwärts als auch rückwärts, hinzugefügt und kann in den Anforderungs- und den Antwort-Headern erscheinen.
 
 ## Bereichsanfragen
 
-HTTP-[Bereichsanfragen](/de/docs/Web/HTTP/Range_requests) ermöglichen es dem Client, einen Teil einer Ressource vom Server anzufordern. Bereichsanfragen sind nützlich für Anwendungen wie Mediaplayer, die zufälligen Zugriff unterstützen, Datenwerkzeuge, die wissen, dass sie nur einen Teil einer großen Datei benötigen, und Downloadmanager, die es dem Benutzer ermöglichen, einen Download zu pausieren und fortzusetzen.
+HTTP-[Bereichsanfragen](/de/docs/Web/HTTP/Range_requests) ermöglichen es dem Client, einen Teil einer Ressource vom Server anzufordern. Bereichsanfragen sind nützlich für Anwendungen wie Media-Player, die zufälligen Zugriff unterstützen, Datentools, die wissen, dass nur ein Teil einer großen Datei benötigt wird, und Download-Manager, die es dem Benutzer ermöglichen, einen Download zu unterbrechen und fortzusetzen.
 
 - {{HTTPHeader("Accept-Ranges")}}
-  - : Gibt an, ob der Server Bereichsanfragen unterstützt und in welcher Einheit der Bereich angegeben werden kann.
+  - : Gibt an, ob der Server Bereichsanfragen unterstützt und, falls ja, in welcher Einheit der Bereich ausgedrückt werden kann.
 - {{HTTPHeader("Range")}}
   - : Gibt den Teil eines Dokuments an, den der Server zurückgeben soll.
 - {{HTTPHeader("If-Range")}}
-  - : Erstellt eine bedingte Bereichsanfrage, die nur erfüllt wird, wenn das angegebene ETag oder Datum mit der entfernten Ressource übereinstimmt. Wird verwendet, um das Herunterladen von zwei Bereichen von inkompatiblen Versionen der Ressource zu verhindern.
+  - : Erstellt eine bedingte Bereichsanfrage, die nur erfüllt wird, wenn das angegebene ETag oder Datum mit der Remote-Ressource übereinstimmt. Verhindert das Herunterladen von zwei Bereichen von inkompatiblen Versionen der Ressource.
 - {{HTTPHeader("Content-Range")}}
-  - : Gibt an, wo in einer vollständigen Nachrichtenkörper eine Teilnachricht gehört.
+  - : Gibt an, wo in einer vollständigen Nachrichten eine partielle Nachricht gehört.
 
 ## Weiterleitungen
 
 - {{HTTPHeader("Location")}}
-  - : Gibt die URL an, zu der eine Seite umgeleitet werden soll.
+  - : Gibt die URL an, zu der eine Seite weitergeleitet werden soll.
 - {{HTTPHeader("Refresh")}}
-  - : Weist den Browser an, die Seite neu zu laden oder zu einer anderen weiterzuleiten. Nimmt den gleichen Wert wie das `meta`-Element mit [`http-equiv="refresh"`](/de/docs/Web/HTML/Element/meta#http-equiv).
+  - : Weist den Browser an, die Seite neu zu laden oder an eine andere weiterzuleiten. Nimmt denselben Wert an wie das `meta` Element mit [`http-equiv="refresh"`](/de/docs/Web/HTML/Element/meta#http-equiv).
 
 ## Anfragekontext
 
 - {{HTTPHeader("From")}}
-  - : Enthält eine Internet-E-Mail-Adresse für einen menschlichen Benutzer, der den anfordernden Benutzeragenten steuert.
+  - : Enthält eine Internet-E-Mail-Adresse für einen menschlichen Benutzer, der den anfragenden Benutzer-Agenten steuert.
 - {{HTTPHeader("Host")}}
-  - : Gibt den Domain-Namen des Servers an (für virtuelles Hosting) und (optional) die TCP-Portnummer, an der der Server auf Anfragen lauscht.
+  - : Gibt den Domänennamen des Servers (für virtuelles Hosting) an und (optional) die TCP-Portnummer, auf der der Server horcht.
 - {{HTTPHeader("Referer")}}
-  - : Die Adresse der vorherigen Webseite, von der ein Link zu der aktuell angeforderten Seite gefolgt wurde.
+  - : Die Adresse der vorherigen Webseite, von der aus ein Link auf die derzeit angeforderte Seite gefolgt wurde.
 - {{HTTPHeader("Referrer-Policy")}}
-  - : Regelt, welche Referrer-Informationen im {{HTTPHeader("Referer")}}-Header mit Anfragen gesendet werden sollen.
+  - : Regelt, welche Referrer-Informationen in dem {{HTTPHeader("Referer")}} Header mit Anfragen einbezogen werden sollen.
 - {{HTTPHeader("User-Agent")}}
-  - : Enthält eine charakteristische Zeichenfolge, die es Netzwerkprotokoll-Peers ermöglicht, den Anwendungstyp, das Betriebssystem, den Software-Anbieter oder die Softwareversion des anfordernden Benutzersoftwareagenten zu identifizieren.
+  - : Enthält eine charakteristische Zeichenfolge, die es den Netzwerkprotokoll-Peers ermöglicht, den Anwendungstyp, das Betriebssystem, den Softwareanbieter oder die Softwareversion des anfragenden Software-Benutzer-Agents zu identifizieren.
 
 ## Antwortkontext
 
 - {{HTTPHeader("Allow")}}
-  - : Listet die von einer Ressource unterstützten HTTP-Anforderungsmethoden auf.
+  - : Listet die Menge der von einer Ressource unterstützten HTTP-Anfrage-Methoden auf.
 - {{HTTPHeader("Server")}}
-  - : Enthält Informationen über die Software, die der Ursprungsserver verwendet, um die Anfrage zu bearbeiten.
+  - : Enthält Informationen über die Software, die vom Ursprungsserver zur Bearbeitung der Anfrage verwendet wird.
 
 ## Sicherheit
 
 - {{HTTPHeader("Cross-Origin-Embedder-Policy")}} (COEP)
-  - : Ermöglicht es einem Server, eine Einbettungsrichtlinie für ein bestimmtes Dokument zu erklären.
+  - : Ermöglicht es einem Server, eine Embedder-Richtlinie für ein bestimmtes Dokument zu deklarieren.
 - {{HTTPHeader("Cross-Origin-Opener-Policy")}} (COOP)
-  - : Verhindert, dass andere Domains ein Fenster öffnen/steuern.
+  - : Verhindert, dass andere Domains ein Fenster öffnen oder kontrollieren.
 - {{HTTPHeader("Cross-Origin-Resource-Policy")}} (CORP)
-  - : Verhindert, dass andere Domains die Antwort der Ressourcen auslesen, auf die dieser Header angewendet wird. Siehe auch [CORP-Erklärungsartikel](/de/docs/Web/HTTP/Cross-Origin_Resource_Policy).
+  - : Verhindert, dass andere Domains die Antwort der Ressourcen lesen, auf die dieser Header angewendet wird. Siehe auch [CORP Erklärungsartikel](/de/docs/Web/HTTP/Cross-Origin_Resource_Policy).
 - {{HTTPHeader("Content-Security-Policy")}} ({{Glossary("CSP", "CSP")}})
-  - : Steuert Ressourcen, die der Benutzeragent für eine bestimmte Seite laden darf.
+  - : Kontrolliert Ressourcen, die der Benutzer-Agent für eine bestimmte Seite laden darf.
 - {{HTTPHeader("Content-Security-Policy-Report-Only")}}
-  - : Ermöglicht es Webentwicklern, mit Richtlinien zu experimentieren, indem sie deren Auswirkungen überwachen, aber nicht durchsetzen. Diese Verstöße bestehen aus {{Glossary("JSON", "JSON")}}-Dokumenten, die über eine HTTP-`POST`-Anfrage an die angegebene URI gesendet werden.
+  - : Erlaubt Webentwicklern, mit Richtlinien zu experimentieren, indem sie die Auswirkungen ihrer Anwendungsfälle überwachen, aber nicht erzwingen. Diese Verstoßberichte bestehen aus {{Glossary("JSON", "JSON")}}-Dokumenten, die über eine HTTP-`POST`-Anfrage an die angegebene URI gesendet werden.
 - {{HTTPHeader("Expect-CT")}} {{deprecated_inline}}
-  - : Ermöglicht es Websites, sich in die Berichterstattung und Durchsetzung der [Zertifikattransparenz](/de/docs/Web/Security/Certificate_Transparency) einzutragen, um die Verwendung von fälschlicherweise ausgestellten Zertifikaten für diese Website zu erkennen.
+  - : Erlaubt es Websites, sich für die Berichterstattung und Durchsetzung der [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency) zu entscheiden, um die Verwendung von falsch ausgestellten Zertifikaten für diese Website zu erkennen.
 - {{HTTPHeader("Permissions-Policy")}}
-  - : Bietet einen Mechanismus, um die Verwendung von Browserfunktionen im eigenen Frame einer Website und in {{htmlelement("iframe")}}s, die sie einbetten, zu erlauben oder zu verbieten.
+  - : Bietet einen Mechanismus, um die Verwendung von Browserfunktionen im eigenen Frame einer Website und in {{htmlelement("iframe")}}s, die sie einbettet, zu erlauben und zu verweigern.
 - {{HTTPHeader("Reporting-Endpoints")}} {{experimental_inline}}
-  - : Antwortheader, der Website-Besitzern erlaubt, einen oder mehrere Endpunkte anzugeben, die zum Empfang von Fehlern wie CSP-Verstoßmeldungen, {{HTTPHeader("Cross-Origin-Opener-Policy")}}-Berichten oder anderen generischen Verstößen verwendet werden.
+  - : Antwort-Header, der den Website-Eigentümern ermöglicht, ein oder mehrere Endpunkte anzugeben, die zum Empfangen von Fehlern wie CSP-Verstoßberichten, {{HTTPHeader("Cross-Origin-Opener-Policy")}}-Berichten oder anderen allgemeinen Verstößen verwendet werden.
 - {{HTTPHeader("Strict-Transport-Security")}} ({{Glossary("HSTS", "HSTS")}})
-  - : Erzwingt die Kommunikation über HTTPS anstatt HTTP.
+  - : Erzwingt die Kommunikation über HTTPS anstelle von HTTP.
 - {{HTTPHeader("Upgrade-Insecure-Requests")}}
-  - : Sendet ein Signal an den Server, das die Präferenz des Clients für eine verschlüsselte und authentifizierte Antwort ausdrückt und dass er die {{CSP("upgrade-insecure-requests")}}-Direktive erfolgreich handhaben kann.
+  - : Sendet ein Signal an den Server, das die Bevorzugung eines verschlüsselten und authentifizierten Antworts angibt und dass es erfolgreich die {{CSP("upgrade-insecure-requests")}}-Richtlinie handhaben kann.
 - {{HTTPHeader("X-Content-Type-Options")}}
-  - : Deaktiviert das MIME-Sniffing und erzwingt, dass der Browser den in {{HTTPHeader("Content-Type")}} angegebenen Typ verwendet.
+  - : Deaktiviert MIME-Sniffing und zwingt den Browser, den im {{HTTPHeader("Content-Type")}} angegebenen Typ zu verwenden.
 - {{HTTPHeader("X-Frame-Options")}} (XFO)
-  - : Gibt an, ob ein Browser erlaubt sein sollte, eine Seite in einem {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} oder {{HTMLElement("object")}} darzustellen.
+  - : Gibt an, ob ein Browser erlaubt ist, eine Seite in einem {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} oder {{HTMLElement("object")}} darzustellen.
 - {{HTTPHeader("X-Permitted-Cross-Domain-Policies")}}
-  - : Eine Cross-Domain-Policy-Datei kann Clients, wie Adobe Acrobat oder Apache Flex (unter anderem), die Erlaubnis erteilen, Daten über Domains hinweg zu bearbeiten, die ansonsten aufgrund der [Same-Origin-Richtlinie](/de/docs/Web/Security/Same-origin_policy) eingeschränkt wären. Der `X-Permitted-Cross-Domain-Policies`-Header überschreibt solche Richtliniendateien, sodass Clients weiterhin unerwünschte Anfragen blockieren.
+  - : Eine Cross-Domain-Policy-Datei kann Clients, wie Adobe Acrobat oder Apache Flex (unter anderem), die Berechtigung erteilen, Daten über Domains hinweg zu behandeln, die sonst aufgrund der [Same-Origin Policy](/de/docs/Web/Security/Same-origin_policy) gesperrt würden.
+    Das `X-Permitted-Cross-Domain-Policies`-Header überschreibt solche Policy-Dateien, damit Clients unerwünschte Anfragen weiterhin blockieren.
 - {{HTTPHeader("X-Powered-By")}}
-  - : Kann von Hosting-Umgebungen oder anderen Frameworks festgelegt werden und enthält Informationen über diese, während sie keine Nützlichkeit für die Anwendung oder ihre Besucher bieten. Entfernen Sie diesen Header, um potenzielle Sicherheitslücken zu vermeiden.
+  - : Kann von Host-Umgebungen oder anderen Frameworks gesetzt werden und enthält Informationen über diese, während es keinen Nutzen für die Anwendung oder ihre Besucher bietet. Entfernen Sie diesen Header, um potenzielle Schwachstellen nicht preiszugeben.
 - {{HTTPHeader("X-XSS-Protection")}}
-  - : Aktiviert das Filtern von Cross-Site-Scripting.
+  - : Aktiviert die Filterung von Cross-Site-Scripting.
 
-### Fetch-Metadaten-Anforderungsheader
+### Fetch-Metadaten-Anforderungs-Header
 
-{{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anforderungsheader")}} bieten Informationen über den Kontext, aus dem die Anfrage stammt. Ein Server kann sie verwenden, um Entscheidungen darüber zu treffen, ob eine Anfrage erlaubt sein sollte, basierend darauf, woher die Anfrage kam und wie die Ressource verwendet wird.
+{{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anforderungs-Header")}} liefern Informationen über den Kontext, aus dem die Anfrage stammt. Ein Server kann sie verwenden, um Entscheidungen darüber zu treffen, ob eine Anfrage erlaubt werden sollte, basierend darauf, woher die Anfrage stammt und wie die Ressource verwendet wird.
 
 - {{HTTPHeader("Sec-Fetch-Site")}}
-  - : Gibt die Beziehung zwischen dem Ursprung des Anforderungsinitiators und dem Zielursprung an. Es ist ein struktureller Header, dessen Wert ein Token mit möglichen Werten `cross-site`, `same-origin`, `same-site` und `none` ist.
+  - : Gibt die Beziehung zwischen dem Ursprung eines Anforderungsinitiators und dem Ziel-Ursprung an. Es ist ein Strukturierter Header, dessen Wert ein Token mit möglichen Werten `cross-site`, `same-origin`, `same-site` und `none` ist.
 - {{HTTPHeader("Sec-Fetch-Mode")}}
-  - : Gibt den Modus der Anfrage an einen Server an. Es ist ein struktureller Header, dessen Wert ein Token mit möglichen Werten `cors`, `navigate`, `no-cors`, `same-origin` und `websocket` ist.
+  - : Gibt den Modus der Anforderung an einen Server an. Es ist ein Strukturierter Header, dessen Wert ein Token mit möglichen Werten `cors`, `navigate`, `no-cors`, `same-origin` und `websocket` ist.
 - {{HTTPHeader("Sec-Fetch-User")}}
-  - : Gibt an, ob eine Navigationsanfrage durch Benutzeraktivierung ausgelöst wurde. Es ist ein struktureller Header, dessen Wert ein boolescher ist, sodass mögliche Werte `?0` für falsch und `?1` für wahr sind.
+  - : Gibt an, ob eine Navigationsanfrage durch Benutzeraktivierung ausgelöst wurde oder nicht. Es ist ein Strukturierter Header, dessen Wert ein boolescher Wert ist, deshalb sind mögliche Werte `?0` für false und `?1` für true.
 - {{HTTPHeader("Sec-Fetch-Dest")}}
-  - : Gibt das Ziel der Anfrage an. Es ist ein struktureller Header, dessen Wert ein Token mit möglichen Werten `audio`, `audioworklet`, `document`, `embed`, `empty`, `font`, `image`, `manifest`, `object`, `paintworklet`, `report`, `script`, `serviceworker`, `sharedworker`, `style`, `track`, `video`, `worker` und `xslt` ist.
+  - : Gibt das Ziel der Anforderung an. Es ist ein Strukturierter Header, dessen Wert ein Token mit möglichen Werten `audio`, `audioworklet`, `document`, `embed`, `empty`, `font`, `image`, `manifest`, `object`, `paintworklet`, `report`, `script`, `serviceworker`, `sharedworker`, `style`, `track`, `video`, `worker` und `xslt` ist.
 
-Die folgenden Anforderungsheader sind nicht _streng genommen_ "Fetch-Metadaten-Anforderungsheader", bieten jedoch ähnlich Informationen über den Kontext, wie eine Ressource verwendet wird. Ein Server könnte sie verwenden, um sein Cache-Verhalten oder die zurückgegebenen Informationen zu ändern:
+Die folgenden Anforderungs-Header sind nicht _streng gesehen_ "Fetch-Metadaten-Anforderungs-Header", liefern aber ähnlich Informationen über den Kontext, wie eine Ressource verwendet wird. Ein Server könnte sie für die Änderung seines Cache-Verhaltens oder der zurückgegebenen Information verwenden:
 
 - {{HTTPHeader("Sec-Purpose")}}
-  - : Gibt den Zweck der Anfrage an, wenn der Zweck etwas anderes als die unmittelbare Nutzung durch den Benutzeragenten ist. Der Header hat derzeit einen möglichen Wert, `prefetch`, der angibt, dass die Ressource vorzeitig für eine mögliche zukünftige Navigation abgerufen wird.
+  - : Gibt den Zweck der Anforderung an, wenn der Zweck etwas anderes als die sofortige Verwendung durch den Benutzer-Agent ist. Der Header hat derzeit einen möglichen Wert, `prefetch`, der angibt, dass die Ressource präventiv für eine mögliche zukünftige Navigation abgerufen wird.
 - {{HTTPHeader("Service-Worker-Navigation-Preload")}}
-  - : Ein Anforderungsheader, der in vorzeitigen Anfragen gesendet wird, um eine Ressource während des Bootens eines Service-Workers mit [`fetch()`](/de/docs/Web/API/Window/fetch) abzurufen. Der Wert, der mit [`NavigationPreloadManager.setHeaderValue()`](/de/docs/Web/API/NavigationPreloadManager/setHeaderValue) festgelegt wird, kann verwendet werden, um einen Server zu informieren, dass eine andere Ressource als bei einem normalen `fetch()`-Vorgang zurückgegeben werden sollte.
+  - : Ein Anforderungs-Header, der in einer präventiven Anfrage gesendet wird, um eine Ressource während des Starts des Service Workers mit [`fetch()`](/de/docs/Web/API/Window/fetch) abzurufen. Der Wert, der mit [`NavigationPreloadManager.setHeaderValue()`](/de/docs/Web/API/NavigationPreloadManager/setHeaderValue) festgelegt wird, kann verwendet werden, um einen Server zu informieren, dass eine andere Ressource als bei einer normalen `fetch()`-Operation zurückgegeben werden sollte.
 
-## Server-sent Events
+## Server-gesendete Ereignisse
 
 - {{HTTPHeader("Reporting-Endpoints")}}
-  - : Antwortheader, der verwendet wird, um Server-Endpunkte anzugeben, an die der Browser beim Verwenden der [Reporting-API](/de/docs/Web/API/Reporting_API) Warnungen und Fehlermeldungen senden soll.
+  - : Antwort-Header, der verwendet wird, um Server-Endpunkte anzugeben, an die der Browser Warnungen und Fehlerberichte senden soll, wenn die [Reporting API](/de/docs/Web/API/Reporting_API) verwendet wird.
 - {{HTTPHeader("Report-To")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Antwortheader, der verwendet wird, um Server-Endpunkte anzugeben, an die der Browser beim Verwenden der [Reporting-API](/de/docs/Web/API/Reporting_API) Warnungen und Fehlermeldungen senden soll.
+  - : Antwort-Header, der verwendet wird, um Server-Endpunkte anzugeben, an die der Browser Warnungen und Fehlerberichte senden soll, wenn die [Reporting API](/de/docs/Web/API/Reporting_API) verwendet wird.
 
-## Transfer-Codierung
+## Transfer Codierung
 
 - {{HTTPHeader("Transfer-Encoding")}}
   - : Gibt die Form der Kodierung an, die verwendet wird, um die Ressource sicher an den Benutzer zu übertragen.
 - {{HTTPHeader("TE")}}
-  - : Gibt die Transfer-Codierungen an, die der Benutzeragent akzeptieren kann.
+  - : Gibt die Übertragungskodierungen an, die der Benutzer-Agent zu akzeptieren bereit ist.
 - {{HTTPHeader("Trailer")}}
-  - : Ermöglicht es dem Absender, am Ende einer chunked Nachricht zusätzliche Felder hinzuzufügen.
+  - : Ermöglicht dem Absender, zusätzliche Felder am Ende einer segmentierten Nachricht einzuschließen.
 
 ## WebSockets
 
-Header, die von der [WebSockets API](/de/docs/Web/API/WebSockets_API) im [WebSocket-Handshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet werden:
+Header, die von der [WebSockets API](/de/docs/Web/API/WebSockets_API) im [WebSocket-Handschlag](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet werden:
 
 - {{HTTPHeader("Sec-WebSocket-Accept")}}
-  - : Antwortheader, der anzeigt, dass der Server bereit ist, auf eine WebSocket-Verbindung umzusteigen.
+  - : Antwort-Header, der angibt, dass der Server bereit ist, auf eine WebSocket-Verbindung zu aktualisieren.
 - {{HTTPHeader("Sec-WebSocket-Extensions")}}
-  - : In Anfragen gibt dieser Header die vom Client in bevorzugter Reihenfolge unterstützten WebSocket-Erweiterungen an.
-    In Antworten zeigt er die vom Server aus den Präferenzen des Clients ausgewählten Erweiterungen an.
+  - : In Anfragen gibt dieser Header die vom Client unterstützten WebSocket-Erweiterungen in bevorzugter Reihenfolge an.
+    In Antworten gibt er die vom Server aus den Präferenzen des Clients ausgewählte Erweiterung an.
 - {{HTTPHeader("Sec-WebSocket-Key")}}
-  - : Anforderungsheader, der einen Schlüssel enthält, der bestätigt, dass der Client ausdrücklich beabsichtigt, einen `WebSocket` zu öffnen.
+  - : Anforderungs-Header, der einen Schlüssel enthält, der bestätigt, dass der Client explizit die Absicht hat, ein `WebSocket` zu öffnen.
 - {{HTTPHeader("Sec-WebSocket-Protocol")}}
-  - : In Anfragen gibt dieser Header die vom Client in bevorzugter Reihenfolge unterstützten Subprotokolle an.
-    In Antworten zeigt er das vom Server aus den Präferenzen des Clients ausgewählte Subprotokoll an.
+  - : In Anfragen gibt dieser Header die vom Client unterstützten Sub-Protokolle in bevorzugter Reihenfolge an.
+    In Antworten zeigt er das vom Server aus den Präferenzen des Clients ausgewählte Sub-Protokoll an.
 - {{HTTPHeader("Sec-WebSocket-Version")}}
-  - : In Anfragen gibt dieser Header die vom Client verwendete Version des WebSocket-Protokolls an.
-    In Antworten wird er nur gesendet, wenn die angeforderte Protokollversion nicht vom Server unterstützt wird, und listet die vom Server unterstützten Versionen auf.
+  - : In Anfragen gibt dieser Header die vom Client verwendete WebSocket-Protokollversion an.
+    In Antworten wird es nur gesendet, wenn die angeforderte Protokollversion vom Server nicht unterstützt wird, und listet die Versionen auf, die der Server unterstützt.
 
 ## Andere
 
 - {{HTTPHeader("Alt-Svc")}}
-  - : Wird verwendet, um alternative Wege aufzulisten, diesen Dienst zu erreichen.
+  - : Wird verwendet, um alternative Möglichkeiten anzugeben, diesen Service zu erreichen.
 - {{HTTPHeader("Alt-Used")}}
-  - : Wird verwendet, um den alternativen Dienst zu identifizieren, der verwendet wird.
+  - : Wird verwendet, um den alternativen Service zu identifizieren, der verwendet wird.
 - {{HTTPHeader("Date")}}
   - : Enthält das Datum und die Uhrzeit, zu der die Nachricht erstellt wurde.
 - {{HTTPHeader("Link")}}
   - : Dieses Entity-Header-Feld bietet eine Möglichkeit zur Serialisierung eines oder mehrerer Links in HTTP-Headern. Es ist semantisch äquivalent zum HTML-{{HTMLElement("link")}}-Element.
 - {{HTTPHeader("Retry-After")}}
-  - : Gibt an, wie lange der Benutzeragent warten sollte, bevor er eine Folgeanfrage stellt.
+  - : Gibt an, wie lange der Benutzer-Agent warten soll, bevor eine Folgebitte erstellt wird.
 - {{HTTPHeader("Server-Timing")}}
   - : Kommuniziert eine oder mehrere Metriken und Beschreibungen für den gegebenen Anfrage-Antwort-Zyklus.
 - {{HTTPHeader("Service-Worker")}}
-  - : Wird in Abrufe für die Skriptressource eines Service-Workers einbezogen.
-    Dieser Header hilft Administratoren, Service-Worker-Skriptanfragen zu Überwachungszwecken zu protokollieren.
+  - : Wird in Abrufen für die Skriptressource eines Service Workers einbezogen. Dieser Header hilft Administratoren beim Protokollieren von Service Worker-Skriptanforderungen zu Überwachungszwecken.
 - {{HTTPHeader("Service-Worker-Allowed")}}
-  - : Wird verwendet, um die [Pfadbeschränkung](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers#why_is_my_service_worker_failing_to_register) durch Hinzufügen dieses Headers [in der Antwort des Service-Worker-Skripts](https://w3c.github.io/ServiceWorker/#service-worker-script-response) zu entfernen.
+  - : Wird verwendet, um die [Pfadbeschränkung](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers#why_is_my_service_worker_failing_to_register) aufzuheben, indem dieser Header [in der Antwort des Service Worker's Skripts](https://w3c.github.io/ServiceWorker/#service-worker-script-response) enthalten wird.
 - {{HTTPHeader("SourceMap")}}
-  - : Verlinkt zu einer {{Glossary("source_map", "Source-Map")}}, damit Debugger durch den ursprünglichen Quellcode anstelle von generiertem oder transformiertem Code schrittweise vorgehen können.
+  - : Verweist auf eine {{Glossary("source_map", "Quellkarte")}}, sodass Debugger durch Originalquellcode anstelle von generiertem oder transformiertem Code schrittweise vorgehen können.
 - {{HTTPHeader("Upgrade")}}
-  - : Dieser HTTP/1.1 (nur) Header kann verwendet werden, um eine bereits etablierte Client/Server-Verbindung auf ein anderes Protokoll (über dasselbe Transportprotokoll) zu aktualisieren. Zum Beispiel kann er von einem Client verwendet werden, um eine Verbindung von HTTP 1.1 auf HTTP 2.0 zu aktualisieren oder eine HTTP- oder HTTPS-Verbindung auf einen WebSocket umzustellen.
+  - : Dieser HTTP/1.1- (nur) Header kann verwendet werden, um eine bereits bestehende Client/Server-Verbindung auf ein anderes Protokoll zu aktualisieren (über dasselbe Transportprotokoll). Zum Beispiel kann er von einem Client verwendet werden, um eine Verbindung von HTTP 1.1 auf HTTP 2.0 oder eine HTTP- oder HTTPS-Verbindung in einen WebSocket zu aktualisieren.
 - {{HTTPHeader("Priority")}}
-  - : Bietet einen Hinweis auf die Priorität einer bestimmten Ressourcenanfrage auf einer bestimmten Verbindung.
-    Der Wert kann in einer Anfrage gesendet werden, um die Client-Priorität anzugeben, oder in einer Antwort, wenn der Server die Neupriorisierung der Anfrage wählt.
+  - : Bietet einen Hinweis auf die Priorität einer bestimmten Ressourcenanfrage über eine bestimmte Verbindung. Der Wert kann in einer Anfrage gesendet werden, um die Client-Priorität anzuzeigen oder in einer Antwort, wenn der Server sich entscheidet, die Anfrage neu zu priorisieren.
 
 ## Experimentelle Header
 
-### Zuordnungsberichterstattung Header
+### Zuordnungsbericht-Header
 
-Die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) ermöglicht es Entwicklern, Konversionen zu messen — zum Beispiel, wenn ein Benutzer auf eine Anzeige klickt, die auf einer Site eingebunden ist, und dann auf der Website des Verkäufers einen Kauf tätigt — und dann Berichte über diese Konversionen zuzugreifen. Dies erfolgt ohne Verlassen auf Cookies von Drittanbietern, sondern durch verschiedene Header zur Registrierung von **Quellen** und **Auslösern**, die zusammenpassen, um eine Konversion anzuzeigen.
+Die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) ermöglicht es Entwicklern, Konversionen zu messen – zum Beispiel, wenn ein Benutzer auf eine in einer Website eingebettete Werbung klickt und dann den Artikel auf der Website des Anbieters kauft – und dann Berichte über diese Konversionen zu erhalten. Dies geschieht ohne die Verwendung von Drittanbieter-Tracking-Cookies, indem verschiedene Header verwendet werden, um **Quellen** und **Trigger** zu registrieren, die auf eine Konversion hinweisen.
 
 - {{httpheader("Attribution-Reporting-Eligible")}}
-  - : Wird verwendet, um anzugeben, dass die Antwort zur aktuellen Anfrage berechtigt ist, an der Zuordnungsberichterstattung teilzunehmen, indem entweder eine Zuordnungsquelle oder ein Auslöser registriert wird.
+  - : Wird verwendet, um anzugeben, dass die Antwort zur aktuellen Anfrage berechtigt ist, an der Zuordnungsberichterstattung teilzunehmen, indem entweder eine Zuordnungsquelle oder ein Trigger registriert wird.
 - {{httpheader("Attribution-Reporting-Register-Source")}}
-  - : Wird als Teil einer Antwort auf eine Anfrage hinzugefügt, die einen `Attribution-Reporting-Eligible`-Header enthielt, um eine Zuordnungsquelle zu registrieren.
+  - : Wird als Teil einer Antwort auf eine Anfrage verwendet, die einen `Attribution-Reporting-Eligible` Header enthielt, und wird verwendet, um eine Zuordnungsquelle zu registrieren.
 - {{httpheader("Attribution-Reporting-Register-Trigger")}}
-  - : Wird als Teil einer Antwort auf eine Anfrage hinzugefügt, die einen `Attribution-Reporting-Eligible`-Header enthielt, um einen Zuordnungsauslöser zu registrieren.
+  - : Wird als Teil einer Antwort auf eine Anfrage verwendet, die einen `Attribution-Reporting-Eligible` Header enthielt, und wird verwendet, um einen Zuordnungstrigger zu registrieren.
 
-### Client-Hinweise
+### Client-Hints
 
-HTTP-[Client-Hinweise](/de/docs/Web/HTTP/Client_hints) sind eine Reihe von Anfrage-Headern, die nützliche Informationen über den Client wie Gerätetyp und Netzwerkbedingungen bieten und es Servern ermöglichen, das zu optimieren, was unter diesen Bedingungen bereitgestellt wird.
+HTTP [Client-Hints](/de/docs/Web/HTTP/Client_hints) sind eine Reihe von Anforderungs-Headern, die nützliche Informationen über den Client wie Gerätetyp und Netzwerkbedingungen liefern und Servern ermöglichen, das, was unter diesen Bedingungen bereitgestellt wird, zu optimieren.
 
-Server fordern proaktiv die Client-Hinweise an, an denen sie vom Client interessiert sind, indem sie {{HTTPHeader("Accept-CH")}} verwenden. Der Client kann dann wählen, die angeforderten Header in nachfolgenden Anfragen einzubeziehen.
+Server fordern proaktiv die Client-Hint-Header an, an denen sie interessiert sind, vom Client mit {{HTTPHeader("Accept-CH")}} an. Der Client kann dann entscheiden, ob er die angeforderten Header in nachfolgenden Anfragen einschließen möchte.
 
 - {{HTTPHeader("Accept-CH")}}
-  - : Server können Unterstützung für Client-Hinweise mithilfe des `Accept-CH`-Header-Felds oder eines äquivalenten HTML-`<meta>`-Elements mit [`http-equiv`](/de/docs/Web/HTML/Element/meta#http-equiv) Attribut ankündigen.
+  - : Server können die Unterstützung für Client-Hints mit dem `Accept-CH` Header-Feld oder einem äquivalenten HTML-`<meta>`-Element mit [`http-equiv`](/de/docs/Web/HTML/Element/meta#http-equiv)-Attribut anzeigen.
 - {{HTTPHeader("Critical-CH")}} {{experimental_inline}}
-  - : Server verwenden `Critical-CH` zusammen mit {{HttpHeader("Accept-CH")}}, um anzumelden, dass akzeptierte Client-Hinweise auch [kritische Client-Hinweise](/de/docs/Web/HTTP/Client_hints#critical_client_hints) sind.
+  - : Server verwenden `Critical-CH` zusammen mit {{HttpHeader("Accept-CH")}}, um anzuzeigen, dass akzeptierte Client-Hints auch [kritische Client-Hints](/de/docs/Web/HTTP/Client_hints#critical_client_hints) sind.
 
-Die verschiedenen Kategorien von Client-Hinweisen sind unten aufgeführt.
+Die verschiedenen Kategorien von Client-Hints sind unten aufgeführt.
 
-#### Benutzeragenten-Client-Hinweise
+#### Benutzer-Agent-Client-Hints
 
-Die [UA-Client-Hinweise](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) sind Anfrage-Header, die Informationen über den Benutzeragenten, die Plattform/Architektur, auf der er läuft, und die Benutzereinstellungen liefern, die im Benutzeragenten oder auf der Plattform festgelegt sind:
+Die [UA-Client-Hints](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) sind Anforderungs-Header, die Informationen über den Benutzer-Agenten, die Plattform/Architektur, auf der er läuft, und Benutzereinstellungen auf dem Benutzer-Agenten oder der Plattform bereitstellen:
 
 - {{HTTPHeader("Sec-CH-UA")}} {{experimental_inline}}
-  - : Benutzeragenten-Branding und Version.
+  - : Marken- und Versionsinformationen des Benutzer-Agenten.
 - {{HTTPHeader("Sec-CH-UA-Arch")}} {{experimental_inline}}
-  - : Unterliegende Plattform-Architektur des Benutzeragenten.
+  - : Plattformarchitektur des Benutzer-Agenten.
 - {{HTTPHeader("Sec-CH-UA-Bitness")}} {{experimental_inline}}
-  - : Unterliegende CPU-Architektur-Bitness des Benutzeragenten (zum Beispiel "64" Bit).
+  - : Bitness der zugrunde liegenden CPU-Architektur des Benutzer-Agenten (zum Beispiel "64" Bit).
 - {{HTTPHeader("Sec-CH-UA-Form-Factor")}} {{experimental_inline}}
-  - : Formfaktoren des Benutzeragenten, die beschreiben, wie der Benutzer mit dem Benutzeragenten interagiert.
+  - : Formfaktoren des Benutzer-Agenten, die beschreiben, wie der Benutzer mit dem Benutzer-Agenten interagiert.
 - {{HTTPHeader("Sec-CH-UA-Full-Version")}} {{deprecated_inline}}
-  - : Vollständige Versionszeichenfolge des Benutzeragenten.
+  - : Vollständige Versionszeichenkette des Benutzer-Agenten.
 - {{HTTPHeader("Sec-CH-UA-Full-Version-List")}} {{experimental_inline}}
-  - : Vollständige Version für jede Marke in der Markenliste des Benutzeragenten.
+  - : Vollständige Version für jede Marke in der Markenliste des Benutzer-Agenten.
 - {{HTTPHeader("Sec-CH-UA-Mobile")}} {{experimental_inline}}
-  - : Der Benutzeragent läuft auf einem mobilen Gerät oder bevorzugt allgemein eine "mobile" Benutzererfahrung.
+  - : Benutzer-Agent läuft auf einem mobilen Gerät oder bevorzugt eher allgemein eine "mobile" Benutzererfahrung.
 - {{HTTPHeader("Sec-CH-UA-Model")}} {{experimental_inline}}
-  - : Gerätemodell des Benutzeragenten.
+  - : Gerätemodell des Benutzer-Agenten.
 - {{HTTPHeader("Sec-CH-UA-Platform")}} {{experimental_inline}}
-  - : Unterliegendes Betriebssystem/Plattform des Benutzeragenten.
+  - : Betriebssystem/Plattform des Benutzer-Agenten.
 - {{HTTPHeader("Sec-CH-UA-Platform-Version")}} {{experimental_inline}}
-  - : Version des unterliegenden Betriebssystems des Benutzeragenten.
+  - : Betriebssystemversion des Benutzer-Agenten.
 - {{HTTPHeader("Sec-CH-UA-WoW64")}} {{experimental_inline}}
-  - : Ob der Benutzeragenten-Binärcode im 32-Bit-Modus unter 64-Bit-Windows läuft.
+  - : Ob das Benutzer-Agenten-Binary im 32-Bit-Modus unter 64-Bit Windows ausgeführt wird oder nicht.
 - {{HTTPHeader("Sec-CH-Prefers-Color-Scheme")}} {{experimental_inline}}
-  - : Vorliebe des Nutzers für ein dunkles oder helles Farbschema.
+  - : Bevorzugung des Benutzers für ein dunkles oder helles Farbschema.
 - {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}} {{experimental_inline}}
-  - : Vorliebe des Nutzers, weniger Animationen und Inhaltslayoutveränderungen zu sehen.
+  - : Bevorzugung des Benutzers, weniger Animationen und Inhaltslayout-Änderungen zu sehen.
 - {{HTTPHeader("Sec-CH-Prefers-Reduced-Transparency")}} {{experimental_inline}}
-  - : Anfrage-Header gibt die Präferenz des Benutzeragenten für reduzierte Transparenz an.
+  - : Anforderungs-Header gibt die Präferenz des Benutzer-Agenten für reduzierte Transparenz an.
 
 > [!NOTE]
-> Benutzeragenten-Client-Hinweise sind nicht innerhalb von [fenced frames](/de/docs/Web/API/Fenced_frame_API) verfügbar, weil sie auf die Delegation der [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) angewiesen sind, die zur Datenweitergabe genutzt werden könnte.
+> Benutzer-Agent-Client-Hints sind innerhalb von [fenced frames](/de/docs/Web/API/Fenced_frame_API) nicht verfügbar, da sie von der Delegation der [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) abhängen, die verwendet werden könnte, um Daten zu leaken.
 
-#### Geräte-Client-Hinweise
+#### Geräte-Client-Hints
 
 - {{HTTPHeader("Content-DPR")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Antwortheader, der verwendet wird, um das Bildgerät zum Pixel-Verhältnis (DPR) in Anfragen zu bestätigen, bei denen der Bildschirm {{HTTPHeader("DPR")}}-Client-Hinweis verwendet wurde, um eine Bildressource auszuwählen.
+  - : Antwort-Header, der verwendet wird, um das Geräte-zu-Pixel-Verhältnis (DPR) für Bilder in Anfragen, bei denen der Bildschirm{{HTTPHeader("DPR")}}-Client-Hint verwendet wurde, zu wählen.
 - {{HTTPHeader("Device-Memory")}}
-  - : Ungefähre Menge an verfügbarem RAM-Speicher des Clients. Dies ist Teil der [Device Memory API](/de/docs/Web/API/Device_Memory_API).
+  - : Ungefährer Betrag des verfügbaren RAM-Speichers des Clients. Dies ist Teil der [Gerätespeicher API](/de/docs/Web/API/Device_Memory_API).
 - {{HTTPHeader("DPR")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Anfrage-Header, der das Pixelverhältnis des Client-Geräts angibt (die Anzahl physischer Gerätepixel pro {{Glossary("CSS_pixel", "CSS-Pixel")}}).
+  - : Anforderungs-Header, der das Geräte-Pixel-Verhältnis des Clients angibt (die Anzahl der physischen {{Glossary("device_pixel", "Geräte-Pixel")}} für jedes {{Glossary("CSS_pixel", "CSS-Pixel")}}).
 - {{HTTPHeader("Viewport-Width")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Anfrage-Header gibt die Layout-Viewport-Breite des Clients in {{Glossary("CSS_pixel", "CSS-Pixeln")}} an.
+  - : Anforderungs-Header, der die Layout-Viewport-Breite des Clients in {{Glossary("CSS_pixel", "CSS-Pixel")}} angibt.
 - {{HTTPHeader("Width")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Anfrage-Header gibt die gewünschte Ressourcenbreite in physikalischen Pixeln an (die intrinsische Größe eines Bildes).
+  - : Anforderungs-Header, der die gewünschte Ressourcenbreite in physischen Pixeln angibt (die intrinsische Größe eines Bildes).
 
-#### Netzwerk-Client-Hinweise
+#### Netzwerk-Client-Hints
 
-Netzwerk-Client-Hinweise ermöglichen es einem Server, zu wählen, welche Informationen gesendet werden, basierend auf den Benutzerentscheidungen und Netzwerkbandbreite und -latenz.
+Netzwerk-Client-Hints ermöglichen es einem Server, basierend auf der Benutzerwahl und der Netzwerkbandbreite und Latenz zu entscheiden, welche Informationen gesendet werden.
 
 - {{HTTPHeader("Downlink")}} {{experimental_inline}}
-  - : Ungefähre Bandbreite der Verbindung des Clients zum Server in Mbit/s. Dies ist Teil der [Network Information API](/de/docs/Web/API/Network_Information_API).
+  - : Ungefähre Bandbreite der Verbindung des Clients zum Server, in Mbit/s. Dies ist Teil der [Netzwerkinformationen API](/de/docs/Web/API/Network_Information_API).
 - {{HTTPHeader("ECT")}} {{experimental_inline}}
-  - : Der {{Glossary("effective_connection_type", "effektive Verbindungstyp")}} ("Netzwerkprofil"), das am besten zur Latenz und Bandbreite der Verbindung passt. Dies ist Teil der [Network Information API](/de/docs/Web/API/Network_Information_API).
+  - : Der {{Glossary("effective_connection_type", "effektive Verbindungstyp")}} ("Netzwerkprofil"), der am besten die Latenz und Bandbreite der Verbindung beschreibt. Dies ist Teil der [Netzwerkinformationen API](/de/docs/Web/API/Network_Information_API).
 - {{HTTPHeader("RTT")}} {{experimental_inline}}
-  - : Anwendungsschicht-Round-Trip-Time (RTT) in Millisekunden, die die Serververarbeitungszeit einschließt. Dies ist Teil der [Network Information API](/de/docs/Web/API/Network_Information_API).
+  - : Anwendungsschicht-Round Trip Time (RTT) in Millisekunden, die auch die Server-Verarbeitungszeit umfasst. Dies ist Teil der [Netzwerkinformationen API](/de/docs/Web/API/Network_Information_API).
 - {{HTTPHeader("Save-Data")}} {{experimental_inline}}
-  - : Ein Zeichenfolgenwert `on`, der die Vorliebe des Benutzeragenten für reduzierte Datennutzung angibt.
+  - : Ein String `on`, der die Präferenz des Benutzer-Agenten für eine reduzierte Datennutzung angibt.
 
-### Privatsphäre
+### Datenschutz
 
 - {{HTTPHeader("DNT")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Anfrage-Header, der die Vorliebe des Benutzers bezüglich Tracking (Do Not Track) angibt.
-    Nicht mehr empfohlen zugunsten von Global Privacy Control (GPC), das den Servern mit dem {{HTTPHeader("Sec-GPC")}}-Header mitgeteilt wird und den Clients über [`navigator.globalPrivacyControl`](/de/docs/Web/API/Navigator/globalPrivacyControl) zugänglich ist.
+  - : Anforderungs-Header, der die Benutzerspräferenz beim Tracking (Do Not Track) angibt. Veraltet zugunsten der Global Privacy Control (GPC), die an Server mit dem {{HTTPHeader("Sec-GPC")}}-Header kommuniziert wird und für Clients über [`navigator.globalPrivacyControl`](/de/docs/Web/API/Navigator/globalPrivacyControl) zugängig ist.
 - {{HTTPHeader("Tk")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Antwortheader, der den Tracking-Status angibt, der auf die entsprechende Anfrage angewendet wurde. Wird in Verbindung mit DNT verwendet.
+  - : Antwort-Header, der den Tracking-Status angibt, der auf die entsprechende Anfrage angewendet wurde. Wird zusammen mit DNT verwendet.
 - {{HTTPHeader("Sec-GPC")}} {{non-standard_inline}} {{experimental_inline}}
-  - : Gibt an, ob der Benutzer zustimmt, dass eine Website oder Dienstleistung ihre persönlichen Informationen mit Dritten verkauft oder teilt.
+  - : Gibt an, ob der Benutzer einem Verkauf oder einer Weitergabe seiner persönlichen Informationen an Dritte zustimmt.
 
 ### Sicherheit
 
 - {{HTTPHeader("Origin-Agent-Cluster")}} {{experimental_inline}}
-  - : Antwortheader, der verwendet wird, um anzugeben, dass das zugehörige [`Dokument`](/de/docs/Web/API/Document) in einem _ursprungsschlüssel-[Agentencluster](https://tc39.es/ecma262/#sec-agent-clusters)_ platziert werden soll. Diese Isolierung ermöglicht es Benutzeragenten, implementationsspezifische Ressourcen für Agentencluster, wie Prozesse oder Threads, effizienter zuzuweisen.
+  - : Antwort-Header, der verwendet wird, um anzuzeigen, dass das zugehörige [`Document`](/de/docs/Web/API/Document) in einem _origin-keyed [Agent-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)_ platziert werden sollte. Diese Isolation ermöglicht es Benutzer-Agenten, implementierungs-spezifische Ressourcen für Agent-Cluster, wie Prozesse oder Threads, effizienter zuzuweisen.
 
-### Server-sent Events
+### Server-gesendete Ereignisse
 
 - {{HTTPHeader("NEL")}} {{experimental_inline}}
-  - : Definiert einen Mechanismus, der Entwicklern ermöglicht, eine Netzwerkfehlerberichterstattungsrichtlinie zu deklarieren.
+  - : Definiert einen Mechanismus, der Entwicklern ermöglicht, eine Richtlinie für die Berichterstattung über Netzwerke zu deklarieren.
 
-### Topics-API
+### Themen-API
 
-Die Topics-API bietet Entwicklern einen Mechanismus zur Implementierung von Anwendungsfällen wie interessenbasierte Werbung (IBA).
-Siehe die [Topics-API](/de/docs/Web/API/Topics_API)-Dokumentation für weitere Informationen.
+Die Themen-API bietet einen Mechanismus für Entwickler, Anwendungsfälle wie interessenbasierte Werbung (IBA) zu implementieren. Weitere Informationen finden Sie in der [Themen-API-Dokumentation](/de/docs/Web/API/Topics_API).
 
 - {{HTTPHeader("Observe-Browsing-Topics")}} {{experimental_inline}} {{non-standard_inline}}
-  - : Antwortheader, der verwendet wird, um Themen von Interesse zu kennzeichnen, die aus der URL einer aufrufenden Site als in der Antwort auf eine Anfrage beobachtet markiert wurden, die von einer [Funktion, die die Topics-API ermöglicht](/de/docs/Web/API/Topics_API/Using#what_api_features_enable_the_topics_api), generiert wurde.
+  - : Antwort-Header, der verwendet wird, um Themen von Interesse zu markieren, die aus der URL der aufrufenden Website in der Antwort auf eine Anfrage erkannt werden, die durch ein [Feature, das die Themen-API aktiviert](/de/docs/Web/API/Topics_API/Using#what_api_features_enable_the_topics_api), generiert wurde.
 - {{HTTPHeader("Sec-Browsing-Topics")}} {{experimental_inline}} {{non-standard_inline}}
-  - : Anfrage-Header, der die ausgewählten Themen für den aktuellen Benutzer zusammen mit der zugehörigen Anfrage sendet, die von einer Werbungstechnologie-Plattform verwendet werden, um eine personalisierte Anzeige auszuwählen, die angezeigt werden soll.
+  - : Anforderungs-Header, der die ausgewählten Themen für den aktuellen Benutzer zusammen mit der zugehörigen Anfrage sendet, die von einer Werbetechnologieplattform verwendet werden, um eine personalisierte Anzeige auszuwählen, die angezeigt werden soll.
 
 ### Andere
 
 - {{HTTPHeader("Accept-Signature")}} {{experimental_inline}}
-  - : Ein Client kann den [`ACCEPT-Signature`](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#name-the-accept-signature-header)-Header senden, um die Absicht anzuzeigen, etwaige verfügbare Signaturen zu nutzen, und um anzugeben, welche Arten von Signaturen er unterstützt.
+  - : Ein Client kann den [`Accept-Signature`](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#name-the-accept-signature-header)-Header senden, um die Absicht anzuzeigen, vorhandene Signaturen nutzen zu wollen und die Arten von Signaturen anzugeben, die er unterstützt.
 - {{HTTPHeader("Early-Data")}} {{experimental_inline}}
-  - : Gibt an, dass die Anfrage in TLS-Frühdaten übermittelt wurde.
+  - : Gibt an, dass die Anfrage in TLS-vorläUFgingen Daten übertragen wurde.
 - {{HTTPHeader("Set-Login")}} {{experimental_inline}}
-  - : Antwortheader, der von einem föderierten Identitätsanbieter (IdP) gesendet wird, um seinen Anmeldestatus festzulegen, d.h., ob Benutzer im aktuellen Browser beim IdP eingeloggt sind oder nicht.
-    Dies wird vom Browser gespeichert und von der [FedCM-API](/de/docs/Web/API/FedCM_API) verwendet.
+  - : Antwort-Header, der von einem föderierten Identitätsanbieter (IdP) gesendet wird, um dessen Anmeldestatus festzulegen, was bedeutet, ob Benutzer auf dem aktuellen Browser in den IdP eingeloggt sind oder nicht. Dies wird vom Browser gespeichert und von der [FedCM API](/de/docs/Web/API/FedCM_API) verwendet.
 - {{HTTPHeader("Signature")}} {{experimental_inline}}
-  - : Der [`SIGNATURE`](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#name-the-signature-header)-Header-Feld überträgt eine Liste von Signaturen für einen Austausch, jede begleitet von Informationen darüber, wie die Autorität bestimmt und die Signatur aktualisiert werden kann.
+  - : Der [`Signature`](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#name-the-signature-header)-Header gibt eine Liste von Signaturen für einen Austausch an, von denen jede von Informationen begleitet wird, wie die Autorität bestimmt und die Signatur aktualisiert werden kann.
 - {{HTTPHeader("Signed-Headers")}} {{experimental_inline}}
-  - : Das [`Signed-Headers`](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#name-the-signed-headers-header)-Header-Feld identifiziert eine geordnete Liste von Antwortheadern, die in eine Signatur aufgenommen werden sollen.
+  - : Der [`Signed-Headers`](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#name-the-signed-headers-header)-Header identifiziert eine geordnete Liste von Antwort-Headerfeldern, die in eine Signatur aufgenommen werden sollen.
 - {{HTTPHeader("Speculation-Rules")}} {{experimental_inline}}
-  - : Bietet eine Liste von URLs, die zu Textressourcen zeigen, die [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API)-JSON-Definitionen enthalten.
-    Wenn die Antwort ein HTML-Dokument ist, werden diese Regeln zur Spekulationsregelsatz des Dokuments hinzugefügt.
+  - : Bietet eine Liste von URLs, die auf Textressourcen verweisen, die [Spekulationsregel-API](/de/docs/Web/API/Speculation_Rules_API)-JSON-Definitionen enthalten. Wenn die Antwort ein HTML-Dokument ist, werden diese Regeln dem Spekulationsregel-Set des Dokuments hinzugefügt.
 - {{HTTPHeader("Supports-Loading-Mode")}} {{experimental_inline}}
-  - : Setzt ein Navigationsziel, um sich für die Verwendung verschiedener risikoreicheren Lademodi zu entscheiden.
-    Zum Beispiel erfordert das präfektierte, gleiche-Site (domänenübergreifende) [Vorladen](/de/docs/Web/API/Speculation_Rules_API#using_prerendering) einen `Supports-Loading-Mode`-Wert von `credentialed-prerender`.
+  - : Von einem Navigationsziel festgelegt, um die Verwendung verschiedener riskanterer Lademodi zu ermöglichen. Beispielsweise erfordert das Cross-Origin, gleichstellen [prerendering](/de/docs/Web/API/Speculation_Rules_API#using_prerendering), dass ein `Supports-Loading-Mode`-Wert von `credentialed-prerender` festgelegt wird.
 
 ## Nicht standardisierte Header
 
 - {{HTTPHeader("X-Forwarded-For")}} {{non-standard_inline}}
-  - : Identifiziert die ursprünglichen IP-Adressen eines Clients, der über einen HTTP-Proxy oder einen Lastenausgleich zu einem Webserver Verbindungen herstellt.
+  - : Identifiziert die ursprünglichen IP-Adressen eines Clients, der sich über einen HTTP-Proxy oder einen Lastenausgleich mit einem Webserver verbindet.
 - {{HTTPHeader("X-Forwarded-Host")}} {{non-standard_inline}}
-  - : Identifiziert den ursprünglichen Host, den ein Client verwendet, um eine Verbindung zu Ihrem Proxy oder Lastenausgleich herzustellen.
+  - : Identifiziert den ursprünglichen Host-Anfrage, den ein Client verwendet hat, um sich mit Ihrem Proxy oder Lastenausgleich zu verbinden.
 - {{HTTPHeader("X-Forwarded-Proto")}} {{non-standard_inline}}
-  - : Identifiziert das Protokoll (HTTP oder HTTPS), das ein Client verwendet, um eine Verbindung zu Ihrem Proxy oder Lastenausgleich herzustellen.
+  - : Identifiziert das Protokoll (HTTP oder HTTPS), das ein Client verwendet hat, um sich mit Ihrem Proxy oder Lastenausgleich zu verbinden.
 - {{HTTPHeader("X-DNS-Prefetch-Control")}} {{non-standard_inline}}
-  - : Steuert das DNS-Vorabrufen, eine Funktion, bei der Browser proaktiv die Domainnamensauflösung sowohl auf Links, die der Benutzer möglicherweise auswählt, als auch auf URLs für Elemente, die vom Dokument referenziert werden, einschließlich Bildern, CSS, JavaScript usw., durchführen.
+  - : Steuert das DNS-Prefetching, eine Funktion, bei der Browser proaktiv die Domänennamensauflösung sowohl für Links durchführen, die der Benutzer möglicherweise folgen wird, als auch für URLs für Elemente, die vom Dokument referenziert werden, einschließlich Bilder, CSS, JavaScript und so weiter.
 - {{HTTPHeader("X-Robots-Tag")}} {{non-standard_inline}}
-  - : Der [`X-Robots-Tag`](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag)-HTTP-Header wird verwendet, um anzugeben, wie eine Webseite in den öffentlichen Suchmaschinenergebnissen indiziert werden soll. Der Header ist im Grunde äquivalent zu `<meta name="robots" content="…">`.
+  - : Der [`X-Robots-Tag`](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag)-HTTP-Header wird verwendet, um anzugeben, wie eine Webseite innerhalb öffentlicher Suchmaschinenergebnisse indexiert werden soll. Der Header ist effektiv gleichbedeutend mit `<meta name="robots" content="…">`.
 
 ## Veraltete Header
 
 - {{HTTPHeader("Pragma")}} {{deprecated_inline}}
-  - : Implementationsspezifischer Header, der entlang der gesamten Anforderungs-/Antwortkette verschiedene Auswirkungen haben kann. Wird zur Abwärtskompatibilität mit HTTP/1.0-Caches verwendet, bei denen der `Cache-Control`-Header noch nicht vorhanden ist.
+  - : Implementierungsspezifischer Header, der an verschiedenen Stellen entlang der Anforderungs-Antwort-Kette unterschiedliche Effekte haben kann. Wird für die Abwärtskompatibilität mit HTTP/1.0-Caches verwendet, bei denen der `Cache-Control`-Header noch nicht vorhanden ist.
 - {{HTTPHeader("Warning")}} {{deprecated_inline}}
   - : Allgemeine Warninformationen über mögliche Probleme.
 
-## Beitrag leisten
+## Mitwirken
 
-Sie können helfen, indem Sie [neue Einträge schreiben](/de/docs/MDN/Writing_guidelines/Howto/Document_an_HTTP_header) oder bestehende verbessern.
+Sie können helfen, indem Sie [neue Einträge schreiben](/de/docs/MDN/Writing_guidelines/Howto/Document_an_HTTP_header) oder die vorhandenen verbessern.
 
-<!-- Siehe https://github.com/mdn/content/issues/1458 für bekannte fehlende Seiten -->
+<!-- Prüfen Sie https://github.com/mdn/content/issues/1458 für bekannte fehlende Seiten -->
 
 ## Siehe auch
 
-- [Wikipedia-Seite über Liste von HTTP-Headern](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
+- [Wikipedia-Seite über Liste der HTTP-Header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
 - [IANA-Register](https://www.iana.org/assignments/http-fields/http-fields.xhtml)
 - [HTTP-Arbeitsgruppe](https://httpwg.org/specs/)

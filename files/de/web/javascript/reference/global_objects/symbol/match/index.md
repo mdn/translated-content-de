@@ -2,16 +2,32 @@
 title: Symbol.match
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/match
 l10n:
-  sourceCommit: 6fbdb78c1362fae31fbd545f4b2d9c51987a6bca
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`Symbol.match`** statische Daten-Eigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.match`. Die Methode {{jsxref("String.prototype.match()")}} sucht dieses Symbol in ihrem ersten Argument, um die Methode zu finden, die verwendet wird, um eine Eingabestring gegen das aktuelle Objekt abzugleichen. Dieses Symbol wird auch verwendet, um zu bestimmen, ob ein Objekt [als Regex behandelt werden sollte](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
+Die **`Symbol.match`** statische Daten-Eigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.match`. Die Methode {{jsxref("String.prototype.match()")}} ruft dieses Symbol im ersten Argument auf, um die Methode zu finden, die verwendet wird, um einen Eingabestring mit dem aktuellen Objekt abzugleichen. Dieses Symbol wird auch verwendet, um zu bestimmen, ob ein Objekt [als regulärer Ausdruck behandelt werden sollte](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
 
 Für weitere Informationen siehe [`RegExp.prototype[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match) und {{jsxref("String.prototype.match()")}}.
 
-{{EmbedInteractiveExample("pages/js/symbol-match.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Symbol.match", "taller")}}
+
+```js interactive-example
+const regexp1 = /foo/;
+// console.log('/foo/'.startsWith(regexp1));
+// Expected output (Chrome): Error: First argument to String.prototype.startsWith must not be a regular expression
+// Expected output (Firefox): Error: Invalid type: first can't be a Regular Expression
+// Expected output (Safari): Error: Argument to String.prototype.startsWith cannot be a RegExp
+
+regexp1[Symbol.match] = false;
+
+console.log("/foo/".startsWith(regexp1));
+// Expected output: true
+
+console.log("/baz/".endsWith(regexp1));
+// Expected output: false
+```
 
 ## Wert
 
@@ -21,13 +37,13 @@ Das wohlbekannte Symbol `Symbol.match`.
 
 ## Beschreibung
 
-Diese Funktion wird auch verwendet, um zu identifizieren, [ob Objekte das Verhalten von regulären Ausdrücken haben](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Zum Beispiel prüfen die Methoden {{jsxref("String.prototype.startsWith()")}}, {{jsxref("String.prototype.endsWith()")}} und {{jsxref("String.prototype.includes()")}}, ob ihr erstes Argument ein regulärer Ausdruck ist und werfen einen {{jsxref("TypeError")}}, wenn dies der Fall ist. Wenn das `match`-Symbol auf `false` gesetzt ist (oder auf einen {{Glossary("Falsy", "falsy")}} Wert außer `undefined`), zeigt dies an, dass das Objekt nicht als reguläres Ausdruck-Objekt verwendet werden soll.
+Diese Funktion wird ebenfalls verwendet, um [zu identifizieren, ob Objekte das Verhalten von regulären Ausdrücken haben](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Zum Beispiel überprüfen die Methoden {{jsxref("String.prototype.startsWith()")}}, {{jsxref("String.prototype.endsWith()")}} und {{jsxref("String.prototype.includes()")}}, ob ihr erstes Argument ein regulärer Ausdruck ist, und werfen einen {{jsxref("TypeError")}}, falls dies zutrifft. Wird das Symbol `match` jedoch auf `false` (oder einen {{Glossary("Falsy", "Falsy")}}-Wert außer `undefined`) gesetzt, zeigt dies an, dass das Objekt nicht als reguläres Ausdrucksobjekt verwendet werden soll.
 
 ## Beispiele
 
-### Ein RegExp als kein Regex markieren
+### Markieren eines RegExp als kein regulärer Ausdruck
 
-Der folgende Code wirft einen {{jsxref("TypeError")}}:
+Der folgende Code wird einen {{jsxref("TypeError")}} auslösen:
 
 ```js
 "/bar/".startsWith(/bar/);
@@ -36,7 +52,7 @@ Der folgende Code wirft einen {{jsxref("TypeError")}}:
 // and Symbol.match is not modified.
 ```
 
-Wenn Sie jedoch `Symbol.match` auf `false` setzen, wird das Objekt als [kein reguläres Ausdruck-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes) betrachtet. Die Methoden `startsWith` und `endsWith` werden dadurch keinen `TypeError` werfen.
+Wenn Sie jedoch `Symbol.match` auf `false` setzen, wird das Objekt als [kein reguläres Ausdrucksobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes) behandelt. Die Methoden `startsWith` und `endsWith` werden deshalb keinen `TypeError` werfen.
 
 ```js
 const re = /foo/;

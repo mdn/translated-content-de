@@ -2,12 +2,12 @@
 title: Math.cosh()
 slug: Web/JavaScript/Reference/Global_Objects/Math/cosh
 l10n:
-  sourceCommit: 761b9047d78876cbd153be811efb1aa77b419877
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`Math.cosh()`** statische Methode gibt den hyperbolischen Kosinus einer Zahl zurück. Das heißt,
+Die statische Methode **`Math.cosh()`** gibt den hyperbolischen Kosinus einer Zahl zurück. Das bedeutet:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -15,7 +15,21 @@ Die **`Math.cosh()`** statische Methode gibt den hyperbolischen Kosinus einer Za
 </math>
 <!-- prettier-ignore-end -->
 
-{{EmbedInteractiveExample("pages/js/math-cosh.html")}}
+{{InteractiveExample("JavaScript Demo: Math.cosh()")}}
+
+```js interactive-example
+console.log(Math.cosh(0));
+// Expected output: 1
+
+console.log(Math.cosh(1));
+// Expected output: 1.543080634815244 (approximately)
+
+console.log(Math.cosh(-1));
+// Expected output: 1.543080634815244 (approximately)
+
+console.log(Math.cosh(2));
+// Expected output: 3.7621956910836314
+```
 
 ## Syntax
 
@@ -34,7 +48,7 @@ Der hyperbolische Kosinus von `x`.
 
 ## Beschreibung
 
-Da `cosh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.cosh()` und nicht als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `cosh()` eine statische Methode von `Math` ist, wird sie immer als `Math.cosh()` verwendet und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

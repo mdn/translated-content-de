@@ -2,14 +2,22 @@
 title: TypedArray.BYTES_PER_ELEMENT
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/BYTES_PER_ELEMENT
 l10n:
-  sourceCommit: fb442649a7e91a177a582a3e9c6e1a95a9e8dda5
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die **`TypedArray.BYTES_PER_ELEMENT`** statische Dateneigenschaft repräsentiert die Größe in Bytes jedes Elements in einem typisierten Array.
+Die **`TypedArray.BYTES_PER_ELEMENT`** statische Dateneigenschaft stellt die Größe in Bytes jedes Elements in einem Typed Array dar.
 
-{{EmbedInteractiveExample("pages/js/typedarray-bytes-per-element.html", "shorter")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.BYTES_PER_ELEMENT", "shorter")}}
+
+```js interactive-example
+console.log(Float64Array.BYTES_PER_ELEMENT);
+// Expected output: 8
+
+console.log(Int8Array.BYTES_PER_ELEMENT);
+// Expected output: 1
+```
 
 ## Wert
 
@@ -19,9 +27,9 @@ Eine Zahl, deren Wert vom Typ des `TypedArray` abhängt.
 
 ## Beschreibung
 
-`TypedArray`-Objekte unterscheiden sich voneinander in der Anzahl der Bytes pro Element und in der Art, wie die Bytes interpretiert werden. Die Konstante `BYTES_PER_ELEMENT` enthält die Anzahl der Bytes, die jedes Element in dem gegebenen `TypedArray` hat.
+`TypedArray`-Objekte unterscheiden sich in der Anzahl der Bytes pro Element und in der Art und Weise, wie die Bytes interpretiert werden. Die Konstante `BYTES_PER_ELEMENT` enthält die Anzahl der Bytes, die jedes Element im gegebenen `TypedArray` besitzt.
 
-Die Eigenschaft `BYTES_PER_ELEMENT` ist sowohl eine _Instanzeigenschaft_ als auch eine _statische Eigenschaft_. Sie ist sowohl in den Konstruktoren von `TypedArray`-Unterklassen als auch in Instanzen dieser Konstruktoren verfügbar.
+Die Eigenschaft `BYTES_PER_ELEMENT` ist sowohl eine _Instanzeigenschaft_ als auch eine _statische Eigenschaft_. Sie ist sowohl auf den Unterklassenkonstruktoren von `TypedArray` als auch auf Instanzen dieser Konstruktoren verfügbar.
 
 Als Instanzeigenschaft ist `BYTES_PER_ELEMENT` auf dem `prototype` des Konstruktors definiert.
 
@@ -77,5 +85,5 @@ new BigUint64Array([]).BYTES_PER_ELEMENT; // 8
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}

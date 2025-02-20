@@ -2,14 +2,14 @@
 title: additive
 slug: Web/SVG/Attribute/additive
 l10n:
-  sourceCommit: 54eb3a678b4d4cbc94588d2234103e74dfa063a0
+  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
 ---
 
 {{SVGRef}}
 
 Das **`additive`**-Attribut steuert, ob eine Animation additiv ist oder nicht.
 
-Es ist häufig nützlich, Animationen als Verschiebung oder Delta zum Wert eines Attributs zu definieren, anstatt als absolute Werte.
+Es ist häufig nützlich, eine Animation als Offset oder Differenz zu einem Attributwert zu definieren, anstatt als absolute Werte.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -37,9 +37,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - sum
-  - : Gibt an, dass die Animation zum zugrunde liegenden Wert des Attributs und anderen Animationen mit niedrigerer Priorität hinzugefügt wird.
+  - : Gibt an, dass die Animation zum darunterliegenden Wert des Attributs und anderen Animationen mit niedrigerer Priorität hinzugefügt wird.
 - replace
-  - : Gibt an, dass die Animation den zugrunde liegenden Wert des Attributs und andere Animationen mit niedrigerer Priorität überschreibt. Dies ist der Standard, jedoch wird das Verhalten auch durch die Animationswertattribute {{SVGAttr("by")}} und {{SVGAttr("to")}} beeinflusst, wie in [SMIL-Animation: Wie von, zu und durch Attribute das additive Verhalten beeinflussen](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#FromToByAndAdditive) beschrieben.
+  - : Gibt an, dass die Animation den darunterliegenden Wert des Attributs und andere Animationen mit niedrigerer Priorität überschreibt. Dies ist der Standardwert. Das Verhalten wird jedoch auch durch die Animationswert-Attribute {{SVGAttr("by")}} und {{SVGAttr("to")}} beeinflusst, wie in [SMIL Animation: How from, to and by attributes affect additive behavior](https://www.w3.org/TR/smil-animation/#FromToByAndAdditive) beschrieben.
 
 ## Spezifikationen
 
@@ -47,4 +47,4 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## Siehe auch
 
-- [SMIL-Animationsspezifikation](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AdditiveAttribute)
+- [SVG-Animation mit SMIL](/de/docs/Web/SVG/SVG_animation_with_SMIL)

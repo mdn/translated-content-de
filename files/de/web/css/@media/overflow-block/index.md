@@ -2,28 +2,28 @@
 title: overflow-block
 slug: Web/CSS/@media/overflow-block
 l10n:
-  sourceCommit: 0813b7f6eb4aca4d2b7440a4644658495fa1f9d7
+  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
 ---
 
 {{CSSRef}}
 
-Die **`overflow-block`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie das Ausgabegerät Inhalte behandelt, die den initialen [Enthaltenen Block](/de/docs/Web/CSS/Containing_block) entlang der Blockachse überlaufen.
+Die **`overflow-block`**-Eigenschaft [CSS](/de/docs/Web/CSS) [Media Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie das Ausgabegerät mit Inhalten umgeht, die über das ursprüngliche [enthältende Blockelement](/de/docs/Web/CSS/CSS_display/Containing_block) entlang der Block-Achse hinausgehen.
 
 > [!NOTE]
-> Die `overflow-block`-Eigenschaft bestimmt nicht, ob ein Überlauf auftritt; sie zeigt vielmehr die Handhabung eines solchen Überlaufs durch das Gerät. Typischerweise wird auf Bildschirmen in den meisten Browsern das Verhalten "scrollen" sein: Wenn der Inhalt den verfügbaren vertikalen Raum überschreitet, erlaubt das Gerät das Scrollen, um auf den übergelaufenen Inhalt zuzugreifen.
+> Die `overflow-block`-Eigenschaft bestimmt nicht, ob ein Überlauf auftritt; vielmehr zeigt sie, wie das Gerät mit einem solchen Überlauf umgeht. Typischerweise wird auf Bildschirmen in den meisten Browsern das Verhalten "scroll" sein: Wenn der Inhalt den verfügbaren vertikalen Platz übersteigt, erlaubt das Gerät das Scrollen, um den übergelaufenen Inhalt zu erreichen.
 
 ## Syntax
 
-Das `overflow-block`-Feature wird als ein Schlüsselwortwert angegeben, der aus der unten stehenden Liste ausgewählt wird.
+Das `overflow-block`-Feature wird als ein Schlüsselwortwert spezifiziert, das aus der folgenden Liste ausgewählt wird.
 
 - `none`
-  - : Inhalt, der die Blockachse überläuft, wird nicht angezeigt.
+  - : Inhalt, der die Block-Achse überschreitet, wird nicht angezeigt.
 - `scroll`
-  - : Inhalt, der die Blockachse überläuft, kann durch Scrollen angezeigt werden.
+  - : Inhalt, der die Block-Achse überschreitet, kann durch Scrollen sichtbar gemacht werden.
 - `optional-paged`
-  - : Inhalt, der die Blockachse überläuft, kann durch Scrollen angezeigt werden, aber Seitenumbrüche können manuell ausgelöst werden (wie z. B. über {{cssxref("break-inside")}}, etc.), um den nachfolgenden Inhalt auf der nächsten Seite anzuzeigen.
+  - : Inhalt, der die Block-Achse überschreitet, kann durch Scrollen sichtbar gemacht werden, aber Seitenumbrüche können manuell ausgelöst werden (zum Beispiel über {{cssxref("break-inside")}}, usw.), sodass der folgende Inhalt auf der nächsten Seite angezeigt wird.
 - `paged`
-  - : Inhalt wird in separate Seiten aufgeteilt; Inhalt, der eine Seite in der Blockachse überläuft, wird auf der folgenden Seite angezeigt.
+  - : Inhalt wird in diskrete Seiten unterteilt; Inhalt, der eine Seite in der Block-Achse überschreitet, wird auf der nächsten Seite angezeigt.
 
 ## Beispiele
 

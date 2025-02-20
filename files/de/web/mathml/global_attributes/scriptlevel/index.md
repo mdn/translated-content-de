@@ -2,12 +2,12 @@
 title: scriptlevel
 slug: Web/MathML/Global_attributes/scriptlevel
 l10n:
-  sourceCommit: 56a27a0d3cf032771a715fee27ce5325ba859606
+  sourceCommit: a29769d6d10261f771321eb60f3990029c160924
 ---
 
 {{MathMLRef}}
 
-Das **`scriptlevel`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) legt die [math-depth](/de/docs/Web/CSS/math-depth) eines MathML-Elements fest. Es ermöglicht das Überschreiben von Regeln aus dem [User-Agent-Stylesheet](/de/docs/Web/CSS/Cascade#user-agent_stylesheets), die die automatische Berechnung der [Schriftgröße](/de/docs/Web/CSS/font-size) innerhalb von MathML-Formeln definieren.
+Das **`scriptlevel`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) legt die [math-depth](/de/docs/Web/CSS/math-depth) eines MathML-Elements fest. Es ermöglicht das Überschreiben von Regeln aus dem [User-Agent-Stylesheet](/de/docs/Web/CSS/CSS_cascade/Cascade#user-agent_stylesheets), die die automatische Berechnung der [font-size](/de/docs/Web/CSS/font-size) innerhalb von MathML-Formeln definieren.
 
 ## Beispiel
 
@@ -50,14 +50,14 @@ body {
 
 ### Werte
 
-Wenn `<U>` eine positive [Ganzzahl](/de/docs/Web/CSS/integer) ist (d. h. ohne Vorzeichen), dann sind die akzeptierten Werte:
+Wenn `<U>` eine nicht negative [ganzzahlige Zahl](/de/docs/Web/CSS/integer) ist (d. h. ohne ein vorangestelltes Vorzeichen), dann sind die akzeptierten Werte:
 
 - `<U>`
-  - : Setzt die `math-depth` auf den Wert `<U>`. Dies setzt die `font-size` des Elements auf denselben Wert wie die der Elemente in der angegebenen Tiefe.
+  - : Legt die `math-depth` auf den Wert `<U>` fest. Die `font-size` des Elements wird auf denselben Wert wie die von Elementen in der angegebenen Tiefe gesetzt.
 - `+<U>`
-  - : Setzt die `math-depth` auf den Wert `add(<U>)`. Dies verkleinert die `font-size` des Elements `<U>`-mal.
+  - : Legt die `math-depth` auf den Wert `add(<U>)` fest. Dies verkleinert die `font-size` auf dem Element um das `<U>`-Fache.
 - `-<U>`
-  - : Setzt die `math-depth` auf den Wert `add(-<U>)`. Dies vergrößert die `font-size` des Elements `<U>`-mal.
+  - : Legt die `math-depth` auf den Wert `add(-<U>)` fest. Dies vergrößert die `font-size` auf dem Element um das `<U>`-Fache.
 
 {{EmbedLiveSample("Example", "", 150)}}
 

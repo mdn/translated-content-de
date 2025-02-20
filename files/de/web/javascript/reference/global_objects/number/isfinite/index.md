@@ -2,14 +2,25 @@
 title: Number.isFinite()
 slug: Web/JavaScript/Reference/Global_Objects/Number/isFinite
 l10n:
-  sourceCommit: fb85334ffa4a2c88d209b1074909bee0e0abd57a
+  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Number.isFinite()`** bestimmt, ob der übergebene Wert eine endliche Zahl ist – das heißt, sie überprüft, ob ein gegebener Wert eine Zahl ist und die Zahl weder positiv {{jsxref("Infinity")}}, negativ `Infinity` noch {{jsxref("NaN")}} ist.
+Die statische Methode **`Number.isFinite()`** bestimmt, ob der übergebene Wert eine endliche Zahl ist – das heißt, sie überprüft, ob ein gegebener Wert eine Zahl ist und ob diese Zahl weder positives {{jsxref("Infinity")}}, negatives `Infinity` noch {{jsxref("NaN")}} ist.
 
-{{EmbedInteractiveExample("pages/js/number-isfinite.html")}}
+{{InteractiveExample("JavaScript Demo: Number.isFinite()")}}
+
+```js interactive-example
+console.log(Number.isFinite(1 / 0));
+// Expected output: false
+
+console.log(Number.isFinite(10 / 5));
+// Expected output: true
+
+console.log(Number.isFinite(0 / 0));
+// Expected output: false
+```
 
 ## Syntax
 
@@ -20,11 +31,11 @@ Number.isFinite(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der auf Endlichkeit geprüft werden soll.
+  - : Der Wert, der auf Endlichkeit überprüft werden soll.
 
 ### Rückgabewert
 
-Der boolesche Wert `true`, wenn der gegebene Wert eine endliche Zahl ist. Andernfalls `false`.
+Der boolesche Wert `true`, wenn der übergebene Wert eine endliche Zahl ist. Andernfalls `false`.
 
 ## Beispiele
 
@@ -41,7 +52,7 @@ Number.isFinite(2e64); // true
 
 ### Unterschied zwischen Number.isFinite() und global isFinite()
 
-Im Vergleich zur globalen Funktion {{jsxref("isFinite()")}}, konvertiert diese Methode den Parameter nicht zuerst in eine Zahl. Das bedeutet, dass nur Werte vom Typ Nummer, _und_ die endlich sind, `true` zurückgeben, und Nicht-Nummern immer `false` zurückgeben.
+Im Vergleich zur globalen {{jsxref("isFinite()")}}-Funktion wandelt diese Methode den Parameter nicht zuerst in eine Zahl um. Das bedeutet, dass nur Werte vom Typ Zahl _und_ die endlich sind, `true` zurückgeben. Nicht-Zahlen geben immer `false` zurück.
 
 ```js
 isFinite("0"); // true; coerced to number 0
