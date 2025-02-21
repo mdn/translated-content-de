@@ -1,5 +1,5 @@
 ---
-title: "::file-selector-button"
+title: ::file-selector-button
 slug: Web/CSS/::file-selector-button
 l10n:
   sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
