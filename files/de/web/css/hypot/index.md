@@ -2,14 +2,14 @@
 title: hypot()
 slug: Web/CSS/hypot
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{CSSRef}}
 
-Die **`hypot()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine exponentielle Funktion, die die [Quadratwurzel](https://de.wikipedia.org/wiki/Quadratwurzel) der Summe der Quadrate ihrer Parameter zurückgibt.
+Die **`hypot()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine exponentielle Funktion, die die [Quadratwurzel](https://en.wikipedia.org/wiki/Square_root) der Summe der Quadrate ihrer Parameter liefert.
 
-Während {{CSSxRef("pow")}} und {{CSSxRef("sqrt")}} nur mit einheitslosen Zahlen arbeiten, akzeptiert `hypot()` Werte mit Einheiten. Diese müssen jedoch alle denselben [Typ](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) haben.
+Während {{CSSxRef("pow")}} und {{CSSxRef("sqrt")}} nur mit einheitslosen Zahlen arbeiten, akzeptiert `hypot()` Werte mit Einheiten, jedoch müssen alle denselben [Typ](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) haben.
 
 ## Syntax
 
@@ -24,17 +24,17 @@ width: hypot(3px, 4px, 5px); /* 7.0710678118654755px */
 
 ### Parameter
 
-Die Funktion `hypot(x [, ...]#)` akzeptiert einen oder mehrere durch Kommas getrennte Berechnungen als Parameter.
+Die Funktion `hypot(x [, ...]#)` akzeptiert eine oder mehrere durch Kommas getrennte Berechnungen als Parameter.
 
 - `x`, `x2`, ..., `xN`
-  - : Eine Berechnung, die sich zu einem {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;dimension&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}} auflöst.
+  - : Eine Berechnung, die zu einem {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;dimension&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}} führt.
 
 ### Rückgabewert
 
-Gibt ein {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;dimension&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}} (basierend auf den Eingaben) zurück, welches die Quadratwurzel der Summe der Quadrate seiner Parameter ist.
+Gibt ein {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;dimension&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}} zurück (basierend auf den Eingaben), welches die Quadratwurzel der Summe der Quadrate seiner Parameter ist.
 
-- Wenn einer der Eingaben `infinite` ist, lautet das Ergebnis `+∞`.
-- Wird nur ein einzelner Parameter übergeben, ist das Ergebnis der Absolutwert seiner Eingabe. `hypot(2em)` und `hypot(-2em)` ergeben beide `2em`.
+- Wenn einer der Eingabewerte `infinite` ist, lautet das Ergebnis `+∞`.
+- Wenn ein einziger Parameter bereitgestellt wird, ist das Ergebnis der Absolutwert seines Eingabewertes. `hypot(2em)` und `hypot(-2em)` lösen beide zu `2em` auf.
 
 ## Formale Syntax
 
@@ -44,7 +44,7 @@ Gibt ein {{CSSxRef("&lt;number&gt;")}}, {{CSSxRef("&lt;dimension&gt;")}} oder {{
 
 ### Größen basierend auf der hypot-Funktion
 
-Dieses Beispiel zeigt, wie Sie die `hypot()`-Funktion verwenden können, um Größen zu berechnen.
+Dieses Beispiel zeigt, wie die `hypot()`-Funktion zur Berechnung von Größen verwendet werden kann.
 
 #### HTML
 
@@ -59,11 +59,11 @@ Dieses Beispiel zeigt, wie Sie die `hypot()`-Funktion verwenden können, um Grö
 
 #### CSS
 
-Hier verwenden wir [CSS Custom Properties](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties), um die zu verwendenden Größen zu definieren. Zunächst deklarieren wir die erste Größe (`--size-0`), die dann verwendet wird, um die anderen Größen zu berechnen.
+Hier verwenden wir [CSS Custom Properties](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties), um die zu verwendenden Größen zu definieren. Zuerst deklarieren wir die erste Größe (`--size-0`), die dann zur Berechnung der anderen Größen verwendet wird.
 
-- `--size-1` wird mit der Hypotenuse von `--size-0` (100px) berechnet. Dies nimmt den quadratischen Wert und, da es keinen anderen Wert gibt, gibt die Quadratwurzel des Wertes zurück, was zu 100px führt.
-- `--size-2` wird mit der Hypotenuse von `--size-0` (100px), zweimal, berechnet. Dies nimmt das Quadrat des Wertes (100px \* 100px = 10000px<sup>2</sup>) und addiert es zum Quadrat von `--size-0` erneut (10000px<sup>2</sup> + 10000px<sup>2</sup> = 20000px<sup>2</sup>) und gibt die Quadratwurzel der Summe zurück (√(20000px<sup>2</sup>)), was zu 141,42px führt.
-- `--size-3` wird mit der Hypotenuse `--size-0` \* 1.5 (150px) und `--size-0` \* 2 (200px) berechnet. Das Ergebnis ist die Quadratwurzel der Summe ihrer Quadrate: Die Werte werden quadriert (22500px<sup>2</sup> und 40000px<sup>2</sup>) und zusammenaddiert (62500px<sup>2</sup>), wobei die Summe quadriert wird (√(62500px<sup>2</sup>)) und 250px ergibt.
+- `--size-1` wird mit der Hypotenuse von `--size-0` (100px) berechnet. Dies nimmt den Quadratwert und, da kein anderer Wert vorhanden ist, ergibt sich die Quadratwurzel des Wertes, was zu 100px führt.
+- `--size-2` wird mit der Hypotenuse von `--size-0` (100px), zweimal, berechnet. Dies nimmt das Quadrat des Wertes (100px \* 100px = 10000px<sup>2</sup>) und addiert es zu dem Quadrat von `--size-0` erneut (10000px<sup>2</sup> + 10000px<sup>2</sup> = 20000px<sup>2</sup>) und gibt die Quadratwurzel der Summe zurück (√(20000px<sup>2</sup>)), was zu 141,42px führt.
+- `--size-3` wird mit der Hypotenuse `--size-0` \* 1.5 (150px) und `--size-0` \* 2 (200px) berechnet. Das Ergebnis ist die Quadratwurzel der Summe ihrer Quadrate: Die Werte werden quadriert (22500px<sup>2</sup> und 40000px<sup>2</sup>) und zusammenaddiert (62500px<sup>2</sup>), wobei die Summe quadrativ gezogen wird (√(62500px<sup>2</sup>)), was 250px ergibt.
 
 ```css
 :root {
@@ -95,7 +95,7 @@ Hier verwenden wir [CSS Custom Properties](/de/docs/Web/CSS/CSS_cascading_variab
 }
 ```
 
-Die Größen werden dann als `width`- und `height`-Werte der Selektoren angewendet.
+Die Größen werden dann als `width` und `height` Werte der Selektoren angewendet.
 
 ```css
 .one {
@@ -114,7 +114,7 @@ Die Größen werden dann als `width`- und `height`-Werte der Selektoren angewend
 
 #### Ergebnis
 
-{{EmbedLiveSample('Sizes based on hypot function', '100%', '270px')}}
+{{EmbedLiveSample('Größen basierend auf der hypot-Funktion', '100%', '270px')}}
 
 ## Spezifikationen
 

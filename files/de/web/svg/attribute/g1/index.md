@@ -2,16 +2,16 @@
 title: g1
 slug: Web/SVG/Attribute/g1
 l10n:
-  sourceCommit: 829db137a01feb14af7beaec178a3ea0118b4777
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`g1`** Attribut gibt eine Liste von Glypennamen an, die ein Set möglicher erster Glyphen im Kerning-Paar identifizieren.
+Das **`g1`**-Attribut bestimmt eine Liste von Glyphennamen, die eine Reihe möglicher erster Glyphen im Kerningpaar identifizieren.
 
-Alle Glyphen mit dem angegebenen Glypennamen sind in dem Set enthalten. Das gesamte Set möglicher erster Glyphen im Kerning-Paar ist die Vereinigung der durch die Attribute {{SVGAttr("u1")}} und `g1` angegebenen Glyphen.
+Alle Glyphen mit dem angegebenen Glyphennamen sind in der Menge enthalten. Die Gesamtheit der möglichen ersten Glyphen im Kerningpaar ist die Vereinigung der Glyphen, die durch die Attribute {{SVGAttr("u1")}} und `g1` angegeben sind.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("hkern")}}
 - {{SVGElement("vkern")}}
@@ -25,7 +25,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
       <td>
         <code
           >&#x3C;name><a
-            href="/de/docs/Web/CSS/Value_definition_syntax#hash_mark"
+            href="/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax#hash_mark"
             >#</a
           ></code
         >
@@ -33,7 +33,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -43,7 +43,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<name>#`
-  - : Dieser Wert gibt eine durch Kommas getrennte Sequenz von Glypennamen an (d.h. Werte, die zu {{SVGAttr("glyph-name")}} Attributen auf {{SVGElement("glyph")}} Elementen passen), die ein Set möglicher erster Glyphen im Kerning-Paar identifizieren.
+  - : Dieser Wert gibt eine kommagetrennte Sequenz von Glyphennamen an (d.h. Werte, die den Eigenschaften {{SVGAttr("glyph-name")}} auf {{SVGElement("glyph")}}-Elementen entsprechen), die eine Reihe möglicher erster Glyphen im Kerningpaar identifizieren.
 
 ## Spezifikationen
 

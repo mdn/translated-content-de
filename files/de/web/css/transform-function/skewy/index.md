@@ -2,16 +2,16 @@
 title: skewY()
 slug: Web/CSS/transform-function/skewY
 l10n:
-  sourceCommit: c9f96f06d4fbd265808f298eb9b2773f739860c5
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{CSSRef}}
 
-Die **`skewY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element in der vertikalen Richtung auf der 2D-Ebene schräg stellt. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`skewY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element in vertikaler Richtung auf der 2D-Ebene schiefstellt. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-skewY.html")}}
 
-Diese Transformation ist eine Scherabbildung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt eines Elements um einen bestimmten Winkel in vertikaler Richtung verzerrt. Die Ordinate (vertikale, y-Koordinate) jedes Punktes wird durch einen Wert modifiziert, der proportional zu dem angegebenen Winkel und der Entfernung zum Ursprung ist; je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der hinzugefügte Wert.
+Diese Transformation ist eine Scherabbildung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements um einen bestimmten Winkel in vertikaler Richtung verzerrt. Der Ordinatenwert (vertikale y-Koordinate) jedes Punktes wird um einen Wert geändert, der proportional zum angegebenen Winkel und der Entfernung zum Ursprung ist; je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der hinzugefügte Wert.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ skewY(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, der verwendet wird, um das Element entlang der Ordinate (vertikale, y-Koordinate) zu verzerren.
+  - : Ist ein {{cssxref("&lt;angle&gt;")}} der den Winkel repräsentiert, der verwendet wird, um das Element entlang der Ordinate (vertikale y-Koordinate) zu verzerren.
 
 <table class="standard-table">
   <thead>
@@ -106,7 +106,7 @@ div {
 
 - {{cssxref("transform")}}
 - {{cssxref("&lt;transform-function&gt;")}}
-- Individuelle Transformations-Eigenschaften:
+- Einzelne Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

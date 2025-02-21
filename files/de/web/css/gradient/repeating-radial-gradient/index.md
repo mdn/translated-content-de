@@ -2,20 +2,20 @@
 title: repeating-radial-gradient()
 slug: Web/CSS/gradient/repeating-radial-gradient
 l10n:
-  sourceCommit: 802978f38824a4132b4f9b3d3c23fb6970beba74
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{CSSRef}}
 
-Die **`repeating-radial-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) erzeugt ein Bild, das aus wiederholten Gradienten besteht, die von einem Ursprung ausstrahlen. Sie ist ähnlich wie {{cssxref("gradient/radial-gradient", "radial-gradient()")}} und nimmt die gleichen Argumente, wiederholt jedoch die Farbstopps unendlich in alle Richtungen, um ihren gesamten Container zu bedecken, ähnlich wie {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}. Das Ergebnis der Funktion ist ein Objekt des {{cssxref("&lt;gradient&gt;")}} Datentyps, welcher eine spezielle Art von {{cssxref("&lt;image&gt;")}} ist.
+Die **`repeating-radial-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) erstellt ein Bild, das aus sich wiederholenden Gradienten besteht, die von einem Ursprung ausstrahlen. Sie ist ähnlich wie {{cssxref("gradient/radial-gradient", "radial-gradient()")}} und nimmt die gleichen Argumente, jedoch wiederholt sie die Farbstopps unendlich in alle Richtungen, um ihren gesamten Container abzudecken, ähnlich wie {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}. Das Ergebnis der Funktion ist ein Objekt des Datentyps {{cssxref("&lt;gradient&gt;")}}, einer speziellen Art von {{cssxref("&lt;image&gt;")}}.
 
 {{EmbedInteractiveExample("pages/css/function-repeating-radial-gradient.html")}}
 
-Bei jeder Wiederholung werden die Positionen der Farbstopps um ein Vielfaches der Dimensionen des grundlegenden radialen Gradienten (die Entfernung zwischen dem letzten Farbstopp und dem ersten) verschoben. Dadurch fällt die Position jedes endenden Farbstopps mit einem startenden Farbstopp zusammen; wenn die Farbwerte unterschiedlich sind, führt dies zu einem scharfen visuellen Übergang, der gemildert werden kann, indem die erste Farbe als letzte wiederholt wird.
+Bei jeder Wiederholung werden die Positionen der Farbstopps um ein Vielfaches der Dimensionen des grundlegenden radialen Gradienten (die Entfernung zwischen dem letzten und dem ersten Farbstopp) verschoben. Dadurch fällt die Position jedes endenden Farbstopps mit einem startenden Farbstopp zusammen; wenn die Farbwerte unterschiedlich sind, resultiert dies in einem scharfen visuellen Übergang, der gemildert werden kann, indem die erste Farbe als letzte Farbe wiederholt wird.
 
-Wie jeder Gradient hat auch ein wiederholter radialer Gradient [keine intrinsischen Dimensionen](/de/docs/Web/CSS/image#description); d. h., er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe wird der Größe des Elements entsprechen, auf das er angewendet wird.
+Wie bei jedem Gradienten hat ein sich wiederholender radialer Gradient [keine intrinsischen Dimensionen](/de/docs/Web/CSS/image#description); d.h., er hat keine natürliche oder bevorzugte Größe und kein bevorzugtes Verhältnis. Seine konkrete Größe wird der Größe des Elements entsprechen, auf das er angewendet wird.
 
-Da `<gradient>`s zum `<image>` Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `repeating-radial-gradient()` nicht bei {{cssxref("background-color")}} und anderen Eigenschaften, die den {{cssxref("&lt;color&gt;")}} Datentyp verwenden.
+Da `<gradient>`s zum Datentyp `<image>` gehören, können sie nur dort verwendet werden, wo `<image>`s eingesetzt werden können. Aus diesem Grund funktioniert `repeating-radial-gradient()` nicht mit {{cssxref("background-color")}} und anderen Eigenschaften, die den Datentyp {{cssxref("&lt;color&gt;")}} verwenden.
 
 ## Syntax
 
@@ -35,25 +35,25 @@ repeating-radial-gradient(farthest-corner at 20% 20%, red 0, green, red 20%)
 ### Werte
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Die Position des Gradienten, interpretiert auf die gleiche Weise wie {{cssxref("background-position")}} oder {{cssxref("transform-origin")}}. Wenn nicht angegeben, ist der Standardwert `center`.
+  - : Die Position des Gradienten, interpretiert auf die gleiche Weise wie {{cssxref("background-position")}} oder {{cssxref("transform-origin")}}. Wenn nichts angegeben ist, ist der Standardwert `center`.
 - `<shape>`
-  - : Die Form des Gradienten. Der Wert kann `circle` (was bedeutet, dass die Form des Gradienten ein Kreis mit konstantem Radius ist) oder `ellipse` (was bedeutet, dass die Form eine achsenparallel ausgerichtete Ellipse ist) sein. Wenn nicht angegeben, lautet der Standardwert `ellipse`.
+  - : Die Form des Gradienten. Der Wert kann `circle` sein (was bedeutet, dass die Form des Gradienten ein Kreis mit konstantem Radius ist) oder `ellipse` (was bedeutet, dass die Form eine achsenparallele Ellipse ist). Wenn nichts angegeben ist, ist der Standardwert `ellipse`.
 - `<extent-keyword>`
 
   - : Ein Schlüsselwort, das beschreibt, wie groß die endende Form sein muss. Die möglichen Werte sind:
 
-    | Schlüsselwort     | Beschreibung                                                                                                                                                                                                                             |
-    | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `closest-side`    | Die endende Form des Gradienten erreicht die Seite der Box, die am nächsten zu ihrem Zentrum liegt (für Kreise) oder erreicht sowohl die vertikalen als auch die horizontalen Seiten, die am nächsten zum Zentrum liegen (für Ellipsen). |
-    | `closest-corner`  | Die endende Form des Gradienten wird so dimensioniert, dass sie genau die am nächsten gelegene Ecke der Box von ihrem Zentrum aus erreicht.                                                                                              |
-    | `farthest-side`   | Ähnlich wie `closest-side`, außer dass die endende Form so dimensioniert ist, dass sie die Seite der Box erreicht, die am weitesten von ihrem Zentrum entfernt ist (oder vertikale und horizontale Seiten).                              |
-    | `farthest-corner` | Die endende Form des Gradienten wird so dimensioniert, dass sie genau die am weitesten entfernte Ecke der Box von ihrem Zentrum aus erreicht.                                                                                            |
+    | Schlüsselwort     | Beschreibung                                                                                                                                                                              |
+    | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `closest-side`    | Die endende Form des Gradienten trifft auf die Seite des Kastens, die dem Zentrum am nächsten ist (für Kreise) oder trifft auf die vertikalen und horizontalen Seiten (für Ellipsen).     |
+    | `closest-corner`  | Die endende Form des Gradienten wird so dimensioniert, dass sie genau auf die dem Zentrum nächstgelegene Ecke des Kastens trifft.                                                         |
+    | `farthest-side`   | Ähnlich wie `closest-side`, nur dass die endende Form so dimensioniert ist, dass sie die weiteste Seite des Kastens vom Zentrum aus trifft (oder die vertikalen und horizontalen Seiten). |
+    | `farthest-corner` | Die endende Form des Gradienten wird so dimensioniert, dass sie genau auf die am weitesten entfernte Ecke des Kastens vom Zentrum trifft.                                                 |
 
     > [!NOTE]
-    > Frühe Implementierungen dieser Funktion enthielten andere Schlüsselwörter (`cover` und `contain`) als Synonyme für die Standardwerte `farthest-corner` und `closest-side`. Verwenden Sie nur die Standard-Schlüsselwörter, da einige Implementierungen diese älteren Varianten bereits entfernt haben.
+    > Frühere Implementierungen dieser Funktion beinhalteten andere Schlüsselwörter (`cover` und `contain`) als Synonyme für die Standardbegriffe `farthest-corner` und `closest-side`. Verwenden Sie nur die Standardbegriffe, da einige Implementierungen diese älteren Varianten bereits entfernt haben.
 
 - `<color-stop>`
-  - : Ein {{cssxref("&lt;color&gt;")}} Wert eines Farbstopps, gefolgt von einer optionalen Stopp-Position (entweder ein {{cssxref("&lt;percentage&gt;")}} oder eine {{cssxref("&lt;length&gt;")}} entlang der Gradientenachse). Ein Prozentsatz von `0%` oder eine Länge von `0` repräsentiert das Zentrum des Gradienten; der Wert `100%` repräsentiert den Schnittpunkt der endenden Form mit dem virtuellen Gradientenstrahl. Prozentuale Werte dazwischen sind linear auf dem virtuellen Gradientenstrahl positioniert.
+  - : Ein Wert des {{cssxref("&lt;color&gt;")}} eines Farbstopps, gefolgt von einer optionalen Stopp-Position (entweder ein {{cssxref("&lt;percentage&gt;")}} oder ein {{cssxref("&lt;length&gt;")}} entlang der Achse des Gradienten). Ein Prozentsatz von `0%` oder eine Länge von `0` repräsentiert das Zentrum des Gradienten; der Wert `100%` repräsentiert das Zusammentreffen der endenden Form mit dem virtuellen Gradientenstrahl. Prozentuale Werte dazwischen sind linear auf dem virtuellen Gradientenstrahl positioniert.
 
 ## Formale Syntax
 
@@ -119,7 +119,7 @@ repeating-radial-gradient(farthest-corner at 20% 20%, red 0, green, red 20%)
 
 {{EmbedLiveSample('Farthest-corner', 120, 120)}}
 
-Der elliptische Gradient wird zu 20% von oben links zentriert und wiederholt sich 10 Mal zwischen dem Zentrum und der am weitesten entfernten Ecke (der unteren rechten Ecke). Browser, die Farbstopps mit mehreren Positionen unterstützen, zeigen eine rot und grün gestreifte Ellipse an. Browser, die die Syntax noch nicht unterstützen, sehen einen Gradient, der von rot zu schwarz und dann von blau zu grün wechselt.
+Der elliptische Gradient wird 20% von oben links zentriert und wiederholt sich 10 Mal zwischen Zentrum und der am weitesten entfernten Ecke (der unteren rechten Ecke). Browser, die mehrere Positionen von Farbstopps unterstützen, zeigen eine rot-grüne gestreifte Ellipse an. Browser, die die Syntax noch nicht unterstützen, sehen einen Verlauf, der von Rot zu Schwarz und dann von Blau zu Grün geht.
 
 ### Interpolation mit Farbton
 
@@ -149,7 +149,7 @@ div {
 }
 ```
 
-In diesem Interpolationsbeispiel wird das [hsl](/de/docs/Web/CSS/color_value/hsl) Farbsystem verwendet, und der [hue](/de/docs/Web/CSS/hue) wird interpoliert.
+In diesem Beispiel zur Interpolation wird das [HSL](/de/docs/Web/CSS/color_value/hsl) Farbensystem verwendet und der [Farbton](/de/docs/Web/CSS/hue) wird interpoliert.
 
 ```css
 .shorter {
@@ -169,12 +169,12 @@ In diesem Interpolationsbeispiel wird das [hsl](/de/docs/Web/CSS/color_value/hsl
 }
 ```
 
-Die Box links verwendet die [kurze Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe von rot zu blau über den kürzeren Bogen am {{Glossary("Color_wheel", "Farbkreis")}} geht. Die Box rechts verwendet die [lange Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von rot zu blau über den längeren Bogen geht, durch Grün, Gelb und Orange.
+Das linke Kästchen verwendet die [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe von Rot zu Blau über den kürzeren Bogen des {{Glossary("Color_wheel", "Farbkreises")}} geht. Das rechte Kästchen verwendet die [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen geht und Grün, Gelb und Orange durchläuft.
 
 {{EmbedLiveSample("Interpolating with hue", 240, 200)}}
 
 > [!NOTE]
-> Bitte schauen Sie sich [Using CSS gradients](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients) für weitere Beispiele an.
+> Bitte sehen Sie unter [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients) für weitere Beispiele nach.
 
 ## Spezifikationen
 
@@ -186,8 +186,8 @@ Die Box links verwendet die [kurze Interpolation](/de/docs/Web/CSS/hue-interpola
 
 ## Siehe auch
 
-- [Using CSS gradients](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
-- Andere Gradient-Funktionen: {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
+- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- Andere Verlauf-Funktionen: {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
 - [`<hue-interpolation-method>`](/de/docs/Web/CSS/hue-interpolation-method)
 - [`<color-interpolation-method>`](/de/docs/Web/CSS/color-interpolation-method)
 - {{cssxref("&lt;image&gt;")}}

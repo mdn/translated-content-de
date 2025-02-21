@@ -2,12 +2,12 @@
 title: calc()
 slug: Web/CSS/calc
 l10n:
-  sourceCommit: 73349b0441acc8e32cd435b94ab4bd4c4bb9ee18
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{CSSRef}}
 
-Die **`calc()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ermöglicht die Durchführung von Berechnungen bei der Spezifikation von CSS-Werteigenschaften. Sie kann mit {{cssxref("&lt;length&gt;")}}, {{cssxref("&lt;frequency&gt;")}}, {{cssxref("&lt;angle&gt;")}}, {{cssxref("&lt;time&gt;")}}, {{cssxref("&lt;percentage&gt;")}}, {{cssxref("&lt;number&gt;")}}, {{cssxref("&lt;integer&gt;")}} und {{cssxref("color_value", "&lt;color-function&gt;")}} Werten verwendet werden.
+Die **`calc()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ermöglicht es Ihnen, Berechnungen bei der Angabe von CSS-Eigenschaftswerten durchzuführen. Sie kann mit Werten vom Typ {{cssxref("&lt;length&gt;")}}, {{cssxref("&lt;frequency&gt;")}}, {{cssxref("&lt;angle&gt;")}}, {{cssxref("&lt;time&gt;")}}, {{cssxref("&lt;percentage&gt;")}}, {{cssxref("&lt;number&gt;")}}, {{cssxref("&lt;integer&gt;")}} und {{cssxref("color_value", "&lt;color-function&gt;")}} verwendet werden.
 
 {{EmbedInteractiveExample("pages/css/function-calc.html")}}
 
@@ -27,26 +27,26 @@ calc(var(--hue) + 180)
 lch(from aquamarine l c calc(h + 180))
 ```
 
-Die `calc()` Funktion nimmt einen einzelnen Ausdruck als Parameter, dessen Ergebnis als Wert einer CSS-Eigenschaft verwendet wird. In diesem Ausdruck können die {{Glossary("operand", "Operanden")}} mit den unten aufgeführten {{Glossary("operator", "Operatoren")}} kombiniert werden. Bei mehreren Operanden innerhalb des Ausdrucks folgt `calc()` den standardmäßigen [Prioritätsregeln für Operatoren](/de/docs/Learn_web_development/Core/Scripting/Math#operator_precedence):
+Die `calc()`-Funktion nimmt einen einzigen Ausdruck als Parameter, und das Ergebnis des Ausdrucks wird als Wert für eine CSS-Eigenschaft verwendet. In diesem Ausdruck können die {{Glossary("operand", "Operanden")}} unter Verwendung der unten aufgeführten {{Glossary("operator", "Operatoren")}} kombiniert werden. Wenn der Ausdruck mehrere Operanden enthält, verwendet `calc()` die Standard-[Operatorvorrangsregeln](/de/docs/Learn_web_development/Core/Scripting/Math#operator_precedence):
 
 - `+`
   - : Addiert die angegebenen Operanden.
 - `-`
-  - : Subtrahiert den zweiten Operanden vom ersten Operanden.
+  - : Subtrahiert den zweiten Operand von dem ersten Operand.
 - `*`
   - : Multipliziert die angegebenen Operanden.
 - `/`
-  - : Teilt den linken Operanden (Dividend) durch den rechten Operanden (Divisor).
+  - : Dividiert den linken Operand (Dividend) durch den rechten Operand (Divisor).
 
-Alle Operanden, ausgenommen die vom Typ {{cssxref("&lt;number&gt;")}}, müssen mit einer geeigneten Einheit, wie `px`, `em` oder `%`, versehen sein. Unterschiedliche Einheiten können in einem Ausdruck verwendet werden. Ebenso ist es möglich, Klammern zu nutzen, um die Reihenfolge der Berechnung festzulegen.
+Alle Operanden, außer solche vom Typ {{cssxref("&lt;number&gt;")}}, müssen mit einem geeigneten Einheitenstring wie `px`, `em` oder `%` versehen sein. Sie können in Ihrem Ausdruck für jeden Operand eine andere Einheit verwenden. Sie können auch Klammern verwenden, um die Reihenfolge der Berechnung festzulegen, wenn nötig.
 
 ## Beschreibung
 
-Es gibt einige wichtige Punkte zu `calc()`, die in den folgenden Abschnitten näher erläutert werden.
+Es gibt einige Punkte zu beachten bei `calc()`, die in den unten aufgeführten Abschnitten detailliert sind.
 
 ### Resultierende Werte
 
-Die `calc()` Funktion muss einen vollständigen CSS-Wert eines der folgenden Typen darstellen:
+Die `calc()`-Funktion muss als vollständiger CSS-Wert eines der folgenden Typen stehen:
 
 - {{cssxref("&lt;length&gt;")}}
 - {{cssxref("&lt;frequency&gt;")}}
@@ -57,30 +57,30 @@ Die `calc()` Funktion muss einen vollständigen CSS-Wert eines der folgenden Typ
 - {{cssxref("&lt;percentage&gt;")}}
 - {{cssxref("&lt;number&gt;")}}
 - {{cssxref("&lt;integer&gt;")}}
-- Einen gemischten Typ wie {{cssxref("&lt;length-percentage&gt;")}}
+- Einer der gemischten Typen, wie {{cssxref("&lt;length-percentage&gt;")}}
 
-`calc()` kann nicht nur den numerischen Teil von Prozentwerten, Längeneinheiten, usw. ersetzen, ohne auch die dahinterstehende Einheit zu ersetzen. Zum Beispiel ist `calc(100 / 4)%` ungültig, während `calc(100% / 4)` gültig ist.
+`calc()` kann nicht nur den numerischen Teil von Prozentwerten, Längenwerten usw. ersetzen, ohne auch die Einheit danach zu ersetzen. Zum Beispiel ist `calc(100 / 4)%` ungültig, während `calc(100% / 4)` gültig ist.
 
-Der resultierende Wert von `calc()` muss mit dem Kontext kompatibel sein, in dem er verwendet wird. Zum Beispiel ist `margin: calc(1px + 2px)` gültig, jedoch nicht `margin: calc(1 + 2)`: Letzteres entspricht der Angabe von `margin: 3`, welche dazu führt, dass die Eigenschaft ignoriert wird.
+Der resultierende Wert von `calc()` muss mit dem Kontext, in dem er verwendet wird, kompatibel sein. Zum Beispiel, `margin: calc(1px + 2px)` ist gültig, aber `margin: calc(1 + 2)` nicht: es ist gleichbedeutend mit der Angabe von `margin: 3`, was dazu führt, dass die Eigenschaft ignoriert wird.
 
-Wenn ein {{cssxref("&lt;integer&gt;")}} erwartet wird, kann sich der `calc()`-Ausdruck auch zu einem `<number>` auswerten, der auf die nächste ganze Zahl gerundet wird. Somit ergibt `calc(1.4)` einen Wert von `1`. Wenn der Bruchteil genau `0.5` beträgt, wird der Wert auf die nächsthöhere Zahl aufgerundet. Zum Beispiel wird `calc(1.5)` zu `2`, während `calc(-1.5)` zu `-1` wird.
+Wenn ein {{cssxref("&lt;integer&gt;")}} erwartet wird, kann der `calc()`-Ausdruck auch zu einem `<number>` ausgewertet werden, welcher auf die nächste ganze Zahl gerundet wird. So resultiert `calc(1.4)` in einem Wert von `1`. Wenn der Bruchteil des Wertes genau `0.5` ist, wird der Wert zur positiven Unendlichkeit gerundet. Zum Beispiel resultiert `calc(1.5)` in einem Wert von `2`, während `calc(-1.5)` auf `-1` gerundet wird.
 
-`calc()` führt Gleitkommaberechnungen gemäß dem IEEE-754-Standard aus, was Überlegungen bezüglich der Werte `infinity` und `NaN` mit sich bringt. Weitere Details dazu, wie Konstanten serialisiert werden, finden Sie auf der Seite [`calc-keyword`](/de/docs/Web/CSS/calc-keyword).
+`calc()` führt Fließkommazahlenarithmetik nach dem IEEE-754 Standard durch, was einige Überlegungen bezüglich der `infinity`- und `NaN`-Werte mit sich bringt. Für weitere Details, wie Konstanten serialisiert werden, siehe die Seite [`calc-keyword`](/de/docs/Web/CSS/calc-keyword).
 
 ### Eingabebedingungen
 
-- `calc()` kann keine Berechnungen mit {{Glossary("Intrinsic_Size", "intrinsischen Größenwerten")}} wie {{cssxref("auto")}} und {{cssxref("fit-content")}} durchführen. Verwenden Sie stattdessen die {{cssxref("calc-size()")}} Funktion.
-- Die Operatoren `*` und `/` erfordern keine Leerzeichen, es wird jedoch empfohlen, diese aus Gründen der Konsistenz hinzuzufügen.
-- Es ist erlaubt, `calc()` Funktionen zu schachteln, wobei innere Funktionen wie einfache Klammern behandelt werden.
-- Aktuelle Implementierungen fordern, dass bei Verwendung der Operatoren `*` und `/` einer der Operanden einheitenlos sein muss. Für `/` muss der rechte Operand einheitenlos sein. Zum Beispiel ist `font-size: calc(1.25rem / 1.25)` gültig, aber `font-size: calc(1.25rem / 125%)` ist ungültig.
-- Mathematikausdrücke mit Prozentwerten für Breiten und Höhen von Tabellenspalten, Tabellenspalten-Gruppen, Tabellenzeilen, Tabellenzeilen-Gruppen und Tabellenzellen in auto- und fixed-Layout-Tabellen _können_ so behandelt werden, als sei `auto` angegeben.
-- Weitere Informationen zur Syntax von `+` und `-` Ausdrücken finden Sie unter {{cssxref("calc-sum", "&lt;calc-sum&gt;")}}.
+- `calc()` kann keine Berechnungen auf {{Glossary("Intrinsic_Size", "intrinsischen Größenwerten")}} wie {{cssxref("auto")}} und {{cssxref("fit-content")}} durchführen. Verwenden Sie stattdessen die Funktion {{cssxref("calc-size()")}}.
+- Die `*`- und `/`-Operatoren erfordern keinen Leerraum, aber das Hinzufügen ist zur Konsistenz empfohlen.
+- Es ist erlaubt, `calc()`-Funktionen zu verschachteln, in welchem Fall die inneren als einfache Klammern behandelt werden.
+- Aktuelle Implementierungen erfordern, dass bei Verwendung der `*`- und `/`-Operatoren einer der Operanden einheitenlos ist. Für `/` muss der rechte Operand einheitenlos sein. Zum Beispiel ist `font-size: calc(1.25rem / 1.25)` gültig, aber `font-size: calc(1.25rem / 125%)` ungültig.
+- Mathematische Ausdrücke, die Prozentsätze für Breiten und Höhen auf Tabellenspalten, Tabellenspalten-Gruppen, Tabellenzeilen, Tabellenzeilengruppen und Tabellenzellen in sowohl automatischen als auch festen Layouttabellen umfassen, _können_ behandelt werden, als ob `auto` angegeben ist.
+- Siehe {{cssxref("calc-sum", "&lt;calc-sum&gt;")}} für weitere Informationen über die Syntax von `+`- und `-`-Ausdrücken.
 
-### Unterstützung für die Berechnung von Farbkanälen in relativen Farben
+### Unterstützung zur Berechnung von Farbkanälen in relativen Farben
 
-Die `calc()` Funktion kann verwendet werden, um Farbkanäle direkt im Kontext von [relativen Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors) anzupassen. Damit können Farbkanäle dynamisch in Farbmodellen wie [`rgb()`](/de/docs/Web/CSS/color_value/rgb), [`hsl()`](/de/docs/Web/CSS/color_value/hsl) und [`lch()`](/de/docs/Web/CSS/color_value/lch) verändert werden.
+Die `calc()`-Funktion kann verwendet werden, um Farbkanäle direkt im Kontext von [relativen Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors) anzupassen. Dies ermöglicht dynamische Anpassungen der Farbkanäle in Farbmodellen wie [`rgb()`](/de/docs/Web/CSS/color_value/rgb), [`hsl()`](/de/docs/Web/CSS/color_value/hsl) und [`lch()`](/de/docs/Web/CSS/color_value/lch).
 
-Die relative Farbsyntax definiert mehrere Farbkanal-Schlüsselwörter, von denen jedes den Wert des Farbkanals als {{cssxref("&lt;number&gt;")}} darstellt (siehe [Kanalwerte lösen sich zu `<number>`-Werten auf](/de/docs/Web/CSS/CSS_colors/Relative_colors#channel_values_resolve_to_number_values) für weitere Informationen). Mit der `calc()` Funktion können diese Farbkanal-Schlüsselwörter genutzt werden, um dynamische Anpassungen vorzunehmen, z. B. `calc(r + 10)`.
+Die relative Farbsyntax definiert mehrere Farbkanal-Schlüsselwörter, von denen jedes den Wert des Farbkanals als {{cssxref("&lt;number&gt;")}} darstellt (siehe [Kanalwerte lösen sich in `<number>`-Werte auf](/de/docs/Web/CSS/CSS_colors/Relative_colors#channel_values_resolve_to_number_values) für weitere Informationen). Die `calc()`-Funktion kann diese Farbkanal-Schlüsselwörter verwenden, um dynamische Anpassungen an den Farbkanälen vorzunehmen, zum Beispiel `calc(r + 10)`.
 
 ## Formale Syntax
 
@@ -88,7 +88,7 @@ Die relative Farbsyntax definiert mehrere Farbkanal-Schlüsselwörter, von denen
 
 ## Barrierefreiheit
 
-Wenn `calc()` zur Steuerung der Textgröße verwendet wird, stellen Sie sicher, dass einer der Werte eine [relative Längeneinheit](/de/docs/Web/CSS/length#relative_length_units) beinhaltet, beispielsweise:
+Wenn `calc()` zur Steuerung der Textgröße verwendet wird, achten Sie darauf, dass einer der Werte eine [relative Längeneinheit](/de/docs/Web/CSS/length#relative_length_units) beinhaltet, zum Beispiel:
 
 ```css
 h1 {
@@ -96,16 +96,16 @@ h1 {
 }
 ```
 
-Dies gewährleistet, dass sich die Textgröße bei Vergrößerung der Seite anpasst.
+Dies stellt sicher, dass sich die Textgröße skaliert, wenn die Seite vergrößert wird.
 
-- [MDN Understanding WCAG, Guideline 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Understanding Success Criterion 1.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Verständnis von WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Beispiele
 
-### Positionierung eines Objekts auf dem Bildschirm mit einem Abstand
+### Positionierung eines Objekts auf dem Bildschirm mit einem Rand
 
-`calc()` erleichtert die Positionierung eines Objekts mit einem festgelegten Abstand. In diesem Beispiel erstreckt sich das Banner über das gesamte Fenster, mit einem Abstand von 40 Pixeln zwischen beiden Seiten des Banners und den Fensterrändern:
+`calc()` erleichtert die Positionierung eines Objekts mit einem festgelegten Rand. In diesem Beispiel erstellt das CSS ein Banner, das sich über das Fenster erstreckt, mit einem 40-Pixel-Abstand zwischen beiden Seiten des Banners und den Kanten des Fensters:
 
 ```css
 .banner {
@@ -129,9 +129,9 @@ Dies gewährleistet, dass sich die Textgröße bei Vergrößerung der Seite anpa
 
 ### Automatische Größenanpassung von Formularfeldern an ihren Container
 
-Ein weiterer Anwendungsfall von `calc()` ist die Sicherstellung, dass Formularfelder in den verfügbaren Platz passen, ohne über die Ränder ihres Containers hinauszugehen, während ein angemessener Abstand beibehalten wird.
+Ein weiterer Anwendungsfall für `calc()` ist die Unterstützung, um sicherzustellen, dass Formularfelder in den verfügbaren Raum passen, ohne über den Rand ihres Containers hinauszuragen, und dabei einen angemessenen Rand beibehalten.
 
-Ein Beispiel für CSS:
+Werfen wir einen Blick auf etwas CSS:
 
 ```css
 input {
@@ -147,7 +147,7 @@ input {
 }
 ```
 
-Hier wird das Formular selbst auf 1/6 der verfügbaren Fensterbreite gesetzt. Um sicherzustellen, dass Eingabefelder eine angemessene Größe beibehalten, verwenden wir erneut `calc()`, um festzulegen, dass sie die Breite ihres Containers minus 1em einnehmen sollen. Anschließend wird dieser CSS-Code in folgender HTML-Struktur verwendet:
+Hier wird das Formular so eingerichtet, dass es 1/6 der verfügbaren Fensterbreite nutzt. Dann wird erneut `calc()` verwendet, um sicherzustellen, dass Eingabefelder eine geeignete Größe behalten sollen, indem sie die Breite ihres Containers minus 1em betragen. Dann macht das folgende HTML Gebrauch von diesem CSS:
 
 ```html
 <form>
@@ -173,13 +173,14 @@ Sie können `calc()` mit [CSS-Variablen](/de/docs/Web/CSS/CSS_cascading_variable
 }
 ```
 
-Nach der vollständigen Auflösung aller Variablen hat `widthC` den Wert `calc(calc(100px / 2) / 2)`. Wenn dieser Wert der `width`-Eigenschaft von `.foo` zugewiesen wird, werden alle inneren `calc()` Funktionen (egal wie tief geschachtelt) auf einfache Klammern reduziert. Schließlich ergibt der Wert der `width`-Eigenschaft `calc((100px / 2) / 2)`, was 25px entspricht. Kurz gesagt, eine `calc()` innerhalb einer `calc()` ist identisch mit der Verwendung von Klammern.
+Nachdem alle Variablen expandiert sind, wird der Wert von `widthC` `calc(calc(100px / 2) / 2)` sein. Wenn er der `width`-Eigenschaft von `.foo` zugewiesen wird, werden alle inneren `calc()`-Funktionen (unabhängig davon, wie tief sie verschachtelt sind) einfach in Klammern abgeflacht. Daher wird der Wert der `width`-Eigenschaft letztendlich `calc((100px / 2) / 2)` sein, was `25px` entspricht. Kurz gesagt, ein `calc()` innerhalb eines `calc()` ist identisch mit der Verwendung von Klammern.
 
-### Anpassung der Farbkanäle in relativen Farben
+### Anpassung von Farbkanälen in relativen Farben
 
-Die `calc()` Funktion kann benutzt werden, um einzelne Farbkanäle in [relativen Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors) anzupassen, ohne dass Farbkanalwerte als Variablen gespeichert werden müssen.
+Die `calc()`-Funktion kann verwendet werden, um einzelne Farbkanäle in [relativen Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors) anzupassen, ohne dass es nötig ist, Farbkanalwerte als Variablen zu speichern.
 
-Im unten stehenden Beispiel verwendet der erste Absatz eine [`<named-color>`](/de/docs/Web/CSS/named-color). In den folgenden Absätzen wird `calc()` zusammen mit den Funktionen [`rgb()`](/de/docs/Web/CSS/color_value/rgb) und [`hsl()`](/de/docs/Web/CSS/color_value/hsl) verwendet, um die Werte der einzelnen Farbkanäle relativ zur ursprünglichen benannten Farbe anzupassen.
+Im folgenden Beispiel verwendet der erste Absatz eine [`<named-color>`](/de/docs/Web/CSS/named-color).
+In den darauf folgenden Absätzen wird `calc()` mit den Funktionen [`rgb()`](/de/docs/Web/CSS/color_value/rgb) und [`hsl()`](/de/docs/Web/CSS/color_value/hsl) verwendet, um die Werte jedes Farbkanals relativ zur ursprünglichen benannten Farbe anzupassen.
 
 ```html
 <p class="original">Original text color in rebeccapurple</p>
@@ -215,7 +216,7 @@ p {
 
 {{EmbedLiveSample('Adjusting color channels in relative colors', '700', '300')}}
 
-Weitere Beispiele für die Verwendung der `calc()` Funktion zur Ableitung relativer Farben finden Sie im Abschnitt [Using math functions](/de/docs/Web/CSS/CSS_colors/Relative_colors#using_math_functions) auf der Seite _Using relative colors_.
+Für ein weiteres Beispiel der Verwendung der `calc()`-Funktion, um relative Farben abzuleiten, siehe den Abschnitt [Verwendung von mathematischen Funktionen](/de/docs/Web/CSS/CSS_colors/Relative_colors#using_math_functions) auf der Seite _Verwendung relativer Farben_.
 
 ## Spezifikationen
 
@@ -229,5 +230,5 @@ Weitere Beispiele für die Verwendung der `calc()` Funktion zur Ableitung relati
 
 - {{CSSxRef("&lt;calc-sum&gt;")}}
 - {{CSSxRef("&lt;calc-keyword&gt;")}}
-- [CSS-Funktionen](/de/docs/Web/CSS/CSS_Functions)
-- [Ein umfassender Leitfaden zu calc() in CSS](https://css-tricks.com/a-complete-guide-to-calc-in-css/) (CSS-Tricks)
+- [CSS Funktionen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions)
+- [Eine vollständige Anleitung zu calc() in CSS](https://css-tricks.com/a-complete-guide-to-calc-in-css/) (CSS-Tricks)

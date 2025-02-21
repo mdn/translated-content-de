@@ -2,16 +2,16 @@
 title: Angegebener Wert
 slug: Web/CSS/CSS_cascade/specified_value
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{CSSRef}}
 
-Der **angegebene Wert** einer [CSS](/de/docs/Web/CSS)-Eigenschaft ist der Wert, den sie aus dem Stylesheet des Dokuments erhält. Der angegebene Wert für eine bestimmte Eigenschaft wird gemäß den folgenden Regeln bestimmt:
+Der **angegebene Wert** einer [CSS](/de/docs/Web/CSS)-Eigenschaft ist der Wert, den sie aus dem Stylesheet des Dokuments erhält. Der angegebene Wert für eine bestimmte Eigenschaft wird nach den folgenden Regeln bestimmt:
 
-1. Wenn das Stylesheet des Dokuments explizit einen Wert für die Eigenschaft angibt, wird dieser Wert verwendet.
-2. Wenn das Stylesheet des Dokuments keinen Wert angibt, die Eigenschaft aber vererbbar ist, wird der Wert vom Elternelement übernommen.
-3. Wenn keine der oben genannten Regeln zutrifft, wird der [anfängliche Wert](/de/docs/Web/CSS/CSS_cascade/initial_value) des Elements verwendet.
+1. Wenn das Stylesheet des Dokuments explizit einen Wert für die Eigenschaft angibt, wird der angegebene Wert verwendet.
+2. Wenn das Stylesheet des Dokuments keinen Wert angibt, es sich aber um eine vererbte Eigenschaft handelt, wird der Wert vom Elternelement übernommen.
+3. Wenn keine der oben genannten Bedingungen zutrifft, wird der [Anfangswert](/de/docs/Web/CSS/CSS_cascade/initial_value) des Elements verwendet.
 
 ## Beispiele
 
@@ -57,15 +57,15 @@ p {
 
 ## Siehe auch
 
-- [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
+- [Specificity](/de/docs/Web/CSS/CSS_cascade/Specificity)
 - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
 - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-- [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
+- [At-Rules](/de/docs/Web/CSS/CSS_syntax/At-rule)
 - [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [Layoutmodi](/de/docs/Web/CSS/Layout_mode)
+- [Layout-Modi](/de/docs/Web/CSS/Layout_mode)
 - [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/Visual_formatting_model)
-- [Randüberlagerung](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
-- [Anfängliche](/de/docs/Web/CSS/CSS_cascade/initial_value), [berechnete](/de/docs/Web/CSS/CSS_cascade/computed_value), [verwendete](/de/docs/Web/CSS/CSS_cascade/used_value) und [tatsächliche](/de/docs/Web/CSS/CSS_cascade/actual_value) Werte
-- [Wertdefinition-Syntax](/de/docs/Web/CSS/Value_definition_syntax)
-- [Kurzschrift-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
+- [Rand-Kollaps](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+- [Anfangs](/de/docs/Web/CSS/CSS_cascade/initial_value), [berechnete](/de/docs/Web/CSS/CSS_cascade/computed_value), [verwendete](/de/docs/Web/CSS/CSS_cascade/used_value) und [tatsächliche](/de/docs/Web/CSS/CSS_cascade/actual_value) Werte
+- [Wertedefinitions-Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
+- [Kurzschlüsseigenschaften](/de/docs/Web/CSS/Shorthand_properties)
 - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)

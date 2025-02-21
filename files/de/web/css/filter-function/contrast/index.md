@@ -2,12 +2,12 @@
 title: contrast()
 slug: Web/CSS/filter-function/contrast
 l10n:
-  sourceCommit: 5332af37c3d94913bf15b6aed87aaed2693f19d5
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{CSSRef}}
 
-Die **`contrast()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) passt den Kontrast des Eingabebildes an. Ihr Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`contrast()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) passt den Kontrast des Eingabebildes an. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
 {{EmbedInteractiveExample("pages/css/function-contrast.html")}}
 
@@ -20,9 +20,9 @@ contrast(amount)
 ### Werte
 
 - `amount`
-  - : Der Kontrast des Ergebnisses, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` verringert den Kontrast, während ein Wert über `100%` ihn erhöht. Ein Wert von `0` oder `0%` erzeugt ein Bild, das komplett grau ist, während ein Wert von `1` oder `100%` das Eingabebild unverändert lässt. Negative Werte sind nicht erlaubt. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `1`.
+  - : Der Kontrast des Ergebnisses, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` verringert den Kontrast, während ein Wert über `100%` ihn erhöht. Ein Wert von `0` oder `0%` erzeugt ein Bild, das vollständig grau ist, während ein Wert von `1` oder `100%` das Eingabebild unverändert lässt. Negative Werte sind nicht erlaubt. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `1`.
 
-Die folgenden Paare von Werten sind äquivalent:
+Die folgenden sind Paare von äquivalenten Werten:
 
 ```css
 contrast(0) /* Completely gray */
@@ -46,7 +46,7 @@ contrast(200%)
 
 ### Mit der Eigenschaft backdrop-filter
 
-Dieses Beispiel wendet einen `contrast()` Filter über die CSS-Eigenschaft {{cssxref("backdrop-filter")}} auf den Absatz und den monospaced Text an, wodurch die Farben im Bereich hinter dem `<p>` und `<code>` verschoben werden.
+Dieses Beispiel wendet einen `contrast()` Filter über die CSS-Eigenschaft {{cssxref("backdrop-filter")}} auf den Absatz und nichtproportionale Text an, wodurch die Farben im Bereich hinter dem `<p>` und `<code>` verschoben werden.
 
 ```css
 .container {
@@ -88,7 +88,7 @@ p {
 
 ### Mit der Eigenschaft filter
 
-Dieses Beispiel wendet einen `contrast()` Filter über die CSS-Eigenschaft {{cssxref("filter")}} an und ändert den Kontrast, indem die Farben des gesamten Elements einschließlich Inhalt, Rahmen, Hintergrund und Schatten verschoben werden.
+Dieses Beispiel wendet einen `contrast()` Filter über die CSS-Eigenschaft {{cssxref("filter")}} an, der den Kontrast durch Farbverschiebungen des gesamten Elements, einschließlich Inhalt, Rand, Hintergrund und Schatten, ändert.
 
 ```css
 p:first-of-type {
@@ -123,9 +123,9 @@ p {
 
 {{EmbedLiveSample('With_the_filter_property','100%','320')}}
 
-### Mit url() und dem SVG-Contrast-Filter
+### Mit url() und dem SVG-Kontrastfilter
 
-Das SVG-{{SVGElement("filter")}} Element wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann durch [`id`](/de/docs/Web/HTML/Global_attributes/id) referenziert werden können. Die {{SVGElement("feComponentTransfer")}} Primitive des `<filter>` ermöglicht die Farbumwandlung auf Pixel-Ebene. Gegeben folgendes:
+Das SVG-Element {{SVGElement("filter")}} wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann per [`id`](/de/docs/Web/HTML/Global_attributes/id) referenziert werden können. Die `<filter>` Primitive {{SVGElement("feComponentTransfer")}} ermöglicht eine pixelgenaue Farbzuordnung. Angesichts des Folgenden:
 
 ```svg
   <filter id="contrast">
@@ -151,7 +151,7 @@ filter: url(#contrast); /* with embedded SVG */
 filter: url(folder/fileName.svg#contrast); /* external svg filter definition */
 ```
 
-Dieses Beispiel zeigt drei Bilder: das Bild mit einer `contrast()` Filterfunktion, das Bild mit einem äquivalenten `url()` Filter und die Originalbilder zum Vergleich:
+Dieses Beispiel zeigt drei Bilder: das Bild mit einer angewendeten `contrast()` Filterfunktion, das Bild mit einem äquivalenten `url()` Filter und die Originalbilder zum Vergleich:
 
 ```html hidden
 <table cellpadding="5">
@@ -214,8 +214,8 @@ Dieses Beispiel zeigt drei Bilder: das Bild mit einer `contrast()` Filterfunktio
 
 ## Siehe auch
 
-- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
-- Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
+- Modul [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
+- Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, umfassen:
   - {{cssxref("filter-function/blur", "blur()")}}
   - {{cssxref("filter-function/brightness", "brightness()")}}
   - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}

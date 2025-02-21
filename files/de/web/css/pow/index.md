@@ -2,14 +2,14 @@
 title: pow()
 slug: Web/CSS/pow
 l10n:
-  sourceCommit: 676065ed85f246825b45579ac6228e41357dbdad
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{CSSRef}}
 
-Die **`pow()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine Exponentialfunktion, die den Wert einer Basis, die auf die Potenz einer Zahl erhoben wird, zurückgibt.
+Die **`pow()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine Exponentialfunktion, die den Wert einer Basis liefert, die auf die Potenz einer Zahl erhöht wird.
 
-Die {{CSSxRef("exp")}} Funktion ist ein Sonderfall von `pow()`, bei dem der Wert der Basis die mathematische Konstante [e](<https://en.wikipedia.org/wiki/E_(mathematical_constant)>) ist.
+Die {{CSSxRef("exp")}} Funktion ist ein Spezialfall von `pow()`, bei dem der Wert der Basis die mathematische Konstante [e](<https://en.wikipedia.org/wiki/E_(mathematical_constant)>) ist.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ width: calc(10px * pow(2, 10)); /* 10px * 1024 = 10240px */
 
 ### Parameter
 
-Die Funktion `pow(base, number)` akzeptiert zwei durch Komma getrennte Werte als Parameter.
+Die `pow(base, number)` Funktion akzeptiert zwei durch Kommas getrennte Werte als Parameter.
 
 - `base`
-  - : Eine Berechnung, die sich zu einer {{CSSxRef("&lt;number&gt;")}} auflöst und die Basis darstellt.
+  - : Eine Berechnung, die zu einer {{CSSxRef("&lt;number&gt;")}} aufgelöst wird und die Basis darstellt.
 - `number`
-  - : Eine Berechnung, die sich zu einer {{CSSxRef("&lt;number&gt;")}} auflöst und den Exponenten darstellt.
+  - : Eine Berechnung, die zu einer {{CSSxRef("&lt;number&gt;")}} aufgelöst wird und den Exponenten darstellt.
 
 ### Rückgabewert
 
-Gibt eine {{CSSxRef("&lt;number&gt;")}} zurück, die base<sup>number</sup> darstellt, also die `base`, die auf die Potenz von `number` erhoben wird.
+Gibt eine {{CSSxRef("&lt;number&gt;")}} zurück, die base<sup>number</sup> darstellt, d.h. `base` erhöht auf die Potenz von `number`.
 
 ## Formale Syntax
 
@@ -39,9 +39,9 @@ Gibt eine {{CSSxRef("&lt;number&gt;")}} zurück, die base<sup>number</sup> darst
 
 ## Beispiele
 
-### Überschriften nach festem Verhältnis skalieren
+### Skalieren von Überschriften mit festem Verhältnis
 
-Die `pow()` Funktion kann für Strategien wie die CSS Modular Scale nützlich sein, die alle Schriftgrößen auf einer Seite durch ein festes Verhältnis miteinander verbindet.
+Die `pow()` Funktion kann für Strategien wie CSS Modular Scale nützlich sein, die alle Schriftgrößen auf einer Seite durch ein festes Verhältnis zueinander in Beziehung setzen.
 
 #### HTML
 

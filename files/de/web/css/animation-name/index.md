@@ -2,25 +2,27 @@
 title: animation-name
 slug: Web/CSS/animation-name
 l10n:
-  sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
+  sourceCommit: f60df9abb92bb11aae0cd04730d27266d5f3290e
 ---
 
 {{CSSRef}}
 
-Die **`animation-name`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Namen von einem oder mehreren {{cssxref("@keyframes")}} at-Regeln, die die Animation beschreiben, die auf ein Element angewendet werden soll. Mehrere `@keyframe` at-Regeln werden als kommaseparierte Liste von Namen angegeben. Wenn der angegebene Name keiner `@keyframe` at-Regel entspricht, werden keine Eigenschaften animiert.
+Die **`animation-name`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Namen von einem oder mehreren {{cssxref("@keyframes")}} At-Regeln fest, die die Animation beschreiben, die auf ein Element angewendet werden soll. Mehrere `@keyframe` At-Regeln werden als kommagetrennte Liste von Namen angegeben. Wenn der angegebene Name keiner `@keyframe` At-Regel entspricht, werden keine Eigenschaften animiert.
 
 {{EmbedInteractiveExample("pages/css/animation-name.html")}}
 
-Es ist oft praktisch, die Kurzschreibweise {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
+Es ist oft praktisch, die Kurzschreibweiseigenschaft {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
 
 ## Syntax
 
 ```css
-/* Single animation */
+/* No animation */
 animation-name: none;
+
+/* Single animation */
 animation-name: test_05;
 animation-name: -specific;
-animation-name: sliding-vertically;
+animation-name: "sliding-vertically";
 
 /* Multiple animations */
 animation-name: test1, animation4;
@@ -40,12 +42,14 @@ animation-name: unset;
 ### Werte
 
 - `none`
-  - : Ein spezielles Schlüsselwort, das keine Keyframes bezeichnet. Es kann verwendet werden, um eine Animation zu deaktivieren, ohne die Reihenfolge der anderen Bezeichner zu ändern, oder um Animationen zu deaktivieren, die aus der Cascade stammen.
+  - : Ein spezielles Schlüsselwort, das keine Keyframes bezeichnet. Es kann verwendet werden, um eine Animation zu deaktivieren, ohne die Reihenfolge der anderen Identifikatoren zu ändern, oder um Animationen aus dem Kaskade zu deaktivieren.
 - {{cssxref("&lt;custom-ident&gt;")}}
-  - : Ein Name, der die Animation identifiziert. Dieser Bezeichner besteht aus einer Kombination aus Groß- und Kleinschreibungssensitiven Buchstaben `a` bis `z`, Zahlen `0` bis `9`, Unterstrichen (`_`) und/oder Bindestrichen (`-`). Das erste Zeichen, das kein Bindestrich ist, muss ein Buchstabe sein. Außerdem sind zwei Bindestriche am Anfang des Bezeichners verboten. Ferner darf der Bezeichner nicht `none`, `unset`, `initial` oder `inherit` sein.
+  - : Ein nicht zitierter Name, der die Animation identifiziert. Dieser Identifikator besteht aus einer Kombination von Groß- und Kleinschreibung beachtenden Buchstaben `a` bis `z`, Zahlen `0` bis `9`, Unterstrichen (`_`) und/oder Bindestrichen (`-`). Das erste Zeichen, das kein Bindestrich ist, muss ein Buchstabe sein. Außerdem sind zwei Bindestriche am Anfang des Identifikators verboten. Ferner kann der Identifikator nicht `none`, `unset`, `initial` oder `inherit` sein.
+- {{cssxref("&lt;string&gt;")}}
+  - : Eine Zeichenfolge, die denselben Regeln wie benutzerdefinierte Identifikatoren folgt, wie oben beschrieben, außer dass sie von doppelten (") oder einfachen (') Anführungszeichen umgeben ist. Wenn ein zitierter String sowohl für den `animation-name` als auch für den entsprechenden {{cssxref("@keyframes")}} At-Regelnamen verwendet wird, sind `none`, globale Schlüsselwörter und Namen, die mit einem Unterstrich oder doppelten Bindestrichen beginnen, gültig, obwohl nicht empfohlen.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Kommas getrennte Werte einer `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge auf die Animationen angewendet, in der die `animation-name`s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animationswerteigenschaften](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere kommagetrennte Werte bei einer `animation-*` Eigenschaft angeben, werden diese auf die Animationen in der Reihenfolge angewendet, in der die `animation-name`s erscheinen. Für Situationen, in denen die Anzahl der Animationen und der `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Werte für Animationseigenschaften](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 ## Formale Definition
 

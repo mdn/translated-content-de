@@ -2,23 +2,24 @@
 title: rotate3d()
 slug: Web/CSS/transform-function/rotate3d
 l10n:
-  sourceCommit: 802978f38824a4132b4f9b3d3c23fb6970beba74
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{CSSRef}}
 
-Die **`rotate3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element um eine feste Achse im 3D-Raum dreht, ohne es zu verformen. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`rotate3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element in einem festen Punkt im 3D-Raum dreht, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/rotate3d.html")}}
 
-Im 3D-Raum haben Rotationen drei Freiheitsgrade, die zusammen eine einzige Rotationsachse beschreiben. Die Rotationsachse wird durch einen \[x, y, z] Vektor definiert und verläuft durch den Ursprung (wie durch die {{cssxref("transform-origin")}} Eigenschaft definiert). Wenn der Vektor, wie angegeben, nicht _normalisiert_ ist (d. h. wenn die Summe der Quadrate seiner drei Koordinaten nicht 1 ist), wird der {{Glossary("user_agent", "Benutzeragent")}} ihn intern normalisieren. Ein nicht normalisierbarer Vektor, wie z.B. der Nullvektor, \[0, 0, 0], führt dazu, dass die Rotation ignoriert wird, ohne jedoch die gesamte CSS-Eigenschaft ungültig zu machen.
+Im 3D-Raum haben Rotationen drei Freiheitsgrade, die zusammen eine einzige Rotationsachse beschreiben. Die Rotationsachse wird durch einen \[x, y, z] Vektor definiert und verläuft durch den Ursprung (wie durch die {{ cssxref("transform-origin") }} Eigenschaft definiert). Wenn der Vektor, wie angegeben, nicht _normalisiert_ ist (d. h., wenn die Summe der Quadrate seiner drei Koordinaten nicht 1 ist), wird der {{Glossary("user_agent", "Benutzeragent")}} ihn intern normalisieren. Ein nicht normalisierbarer Vektor, wie der Nullvektor \[0, 0, 0], führt dazu, dass die Rotation ignoriert wird, ohne die gesamte CSS-Eigenschaft ungültig zu machen.
 
 > [!NOTE]
-> Anders als Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Mit anderen Worten: Die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
+> Anders als bei Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht
+> kommutativ. Mit anderen Worten, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
 
 ## Syntax
 
-Die durch `rotate3d()` erzeugte Rotationsmenge wird durch drei {{cssxref("&lt;number&gt;")}}s und einen {{cssxref("&lt;angle&gt;")}} angegeben. Die `<number>`s repräsentieren die x-, y- und z-Koordinaten des Vektors, der die Rotationsachse bezeichnet. Der `<angle>` repräsentiert den Rotationswinkel; ist er positiv, erfolgt die Bewegung im Uhrzeigersinn; ist er negativ, erfolgt sie gegen den Uhrzeigersinn.
+Der durch `rotate3d()` erzeugte Rotationsbetrag wird durch drei {{cssxref("&lt;number&gt;")}}s und einen {{cssxref("&lt;angle&gt;")}} angegeben. Die `<number>`n repräsentieren die x-, y- und z-Koordinaten des Vektors, der die Rotationsachse angibt. Der `<angle>` repräsentiert den Rotationswinkel; bei einem positiven Winkel erfolgt die Bewegung im Uhrzeigersinn, bei einem negativen gegen den Uhrzeigersinn.
 
 ```css
 rotate3d(x, y, z, a)
@@ -27,13 +28,13 @@ rotate3d(x, y, z, a)
 ### Werte
 
 - `x`
-  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die x-Koordinate des Vektors beschreibt, welcher die Rotationsachse bezeichnet und kann eine positive oder negative Zahl sein.
+  - : Ist eine {{cssxref("&lt;number&gt;")}} und beschreibt die x-Koordinate des Vektors, der die Rotationsachse angibt, und kann eine positive oder negative Zahl sein.
 - `y`
-  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die y-Koordinate des Vektors beschreibt, welcher die Rotationsachse bezeichnet und kann eine positive oder negative Zahl sein.
+  - : Ist eine {{cssxref("&lt;number&gt;")}} und beschreibt die y-Koordinate des Vektors, der die Rotationsachse angibt, und kann eine positive oder negative Zahl sein.
 - `z`
-  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die z-Koordinate des Vektors beschreibt, welcher die Rotationsachse bezeichnet und kann eine positive oder negative Zahl sein.
+  - : Ist eine {{cssxref("&lt;number&gt;")}} und beschreibt die z-Koordinate des Vektors, der die Rotationsachse angibt, und kann eine positive oder negative Zahl sein.
 - `a`
-  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel der Rotation repräsentiert. Ein positiver Winkel bezeichnet eine Drehung im Uhrzeigersinn, ein negativer eine gegen den Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und repräsentiert den Winkel der Rotation. Ein positiver Winkel bezeichnet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <tbody>
@@ -71,7 +72,7 @@ rotate3d(x, y, z, a)
 
 ## Beispiele
 
-### Drehung um die y-Achse
+### Drehung auf der y-Achse
 
 #### HTML
 

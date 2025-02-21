@@ -2,14 +2,14 @@
 title: g2
 slug: Web/SVG/Attribute/g2
 l10n:
-  sourceCommit: 829db137a01feb14af7beaec178a3ea0118b4777
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`g2`**-Attribut gibt eine Liste von Glyphennamen an, die ein Set von möglichen zweiten Glyphen im Kerning-Paar identifizieren.
+Das **`g2`**-Attribut gibt eine Liste von Glyphennamen an, die eine Menge möglicher zweiter Glyphen im Kerning-Paar identifizieren.
 
-Alle Glyphen mit dem angegebenen Glyphennamen werden in das Set aufgenommen. Das gesamte Set möglicher zweiter Glyphen im Kerning-Paar ist die Vereinigung der Glyphen, die durch die Attribute {{SVGAttr("u2")}} und `g2` angegeben sind.
+Alle Glyphen mit dem angegebenen Glyphennamen sind in der Menge enthalten. Die gesamte Menge möglicher zweiter Glyphen im Kerning-Paar ist die Vereinigung der Glyphen, die durch die Attribute {{SVGAttr("u2")}} und `g2` angegeben sind.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -25,7 +25,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
       <td>
         <code
           >&#x3C;name><a
-            href="/de/docs/Web/CSS/Value_definition_syntax#hash_mark"
+            href="/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax#hash_mark"
             >#</a
           ></code
         >
@@ -43,7 +43,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<name>#`
-  - : Dieser Wert gibt eine kommagetrennte Sequenz von Glyphennamen an (also Werte, die den {{SVGAttr("glyph-name")}}-Attributen auf {{SVGElement("glyph")}}-Elementen entsprechen), die ein Set von möglichen zweiten Glyphen im Kerning-Paar identifizieren.
+  - : Dieser Wert gibt eine durch Kommata getrennte Sequenz von Glyphennamen an (d. h. Werte, die mit {{SVGAttr("glyph-name")}}-Attributen auf {{SVGElement("glyph")}}-Elementen übereinstimmen), die eine Menge möglicher zweiter Glyphen im Kerning-Paar identifizieren.
 
 ## Spezifikationen
 

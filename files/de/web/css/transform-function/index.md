@@ -2,28 +2,28 @@
 title: <transform-function>
 slug: Web/CSS/transform-function
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{CSSRef}}
 
-Der **`<transform-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert eine Transformation, die das Erscheinungsbild eines Elements beeinflusst. Transformations[funktionen](/de/docs/Web/CSS/CSS_Functions) können ein Element in 2D- oder 3D-Raum drehen, skalieren, verzerren oder verschieben. Dieser Datentyp wird in der {{cssxref("transform")}}-Eigenschaft verwendet.
+Der **`<transform-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert eine Transformation, die das Erscheinungsbild eines Elements beeinflusst. Transformations-[Funktionen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) können ein Element in 2D oder 3D drehen, skalieren, verzerren oder bewegen. Es wird in der {{cssxref("transform")}}-Eigenschaft verwendet.
 
 ## Syntax
 
-Der `<transform-function>`-Datentyp wird mithilfe einer der unten aufgeführten Transformationsfunktionen angegeben. Jede Funktion führt eine geometrische Operation entweder in 2D oder 3D durch.
+Der `<transform-function>` Datentyp wird unter Verwendung einer der unten aufgeführten Transformationsfunktionen angegeben. Jede Funktion führt eine geometrische Operation entweder in 2D oder 3D aus.
 
-### Matrixtransformation
+### Matrix-Transformation
 
 - [`matrix()`](/de/docs/Web/CSS/transform-function/matrix)
   - : Beschreibt eine homogene 2D-Transformationsmatrix.
 - [`matrix3d()`](/de/docs/Web/CSS/transform-function/matrix3d)
-  - : Beschreibt eine 3D-Transformation als 4×4-homogene Matrix.
+  - : Beschreibt eine 3D-Transformation als 4×4 homogene Matrix.
 
 ### Perspektive
 
 - [`perspective()`](/de/docs/Web/CSS/transform-function/perspective)
-  - : Legt den Abstand zwischen dem Benutzer und der z=0-Ebene fest.
+  - : Legt den Abstand zwischen dem Benutzer und der z=0 Ebene fest.
 
 ### Rotation
 
@@ -38,20 +38,20 @@ Der `<transform-function>`-Datentyp wird mithilfe einer der unten aufgeführten 
 - [`rotateZ()`](/de/docs/Web/CSS/transform-function/rotateZ)
   - : Dreht ein Element um die z-Achse.
 
-### Skalierung (Größenänderung)
+### Skalieren (Größenänderung)
 
 - [`scale()`](/de/docs/Web/CSS/transform-function/scale)
-  - : Vergrößert oder verkleinert ein Element auf der 2D-Ebene.
+  - : Skaliert ein Element auf der 2D-Ebene nach oben oder unten.
 - [`scale3d()`](/de/docs/Web/CSS/transform-function/scale3d)
-  - : Vergrößert oder verkleinert ein Element im 3D-Raum.
+  - : Skaliert ein Element im 3D-Raum nach oben oder unten.
 - [`scaleX()`](/de/docs/Web/CSS/transform-function/scaleX)
-  - : Vergrößert oder verkleinert ein Element horizontal.
+  - : Skaliert ein Element horizontal nach oben oder unten.
 - [`scaleY()`](/de/docs/Web/CSS/transform-function/scaleY)
-  - : Vergrößert oder verkleinert ein Element vertikal.
+  - : Skaliert ein Element vertikal nach oben oder unten.
 - [`scaleZ()`](/de/docs/Web/CSS/transform-function/scaleZ)
-  - : Vergrößert oder verkleinert ein Element entlang der z-Achse.
+  - : Skaliert ein Element entlang der z-Achse nach oben oder unten.
 
-### Verzerrung (Schrägstellung)
+### Verzerrung (Skewing)
 
 - [`skew()`](/de/docs/Web/CSS/transform-function/skew)
   - : Verzerrt ein Element auf der 2D-Ebene.
@@ -60,7 +60,7 @@ Der `<transform-function>`-Datentyp wird mithilfe einer der unten aufgeführten 
 - [`skewY()`](/de/docs/Web/CSS/transform-function/skewY)
   - : Verzerrt ein Element in vertikaler Richtung.
 
-### Translation (Verschiebung)
+### Verschiebung (Translation)
 
 - [`translate()`](/de/docs/Web/CSS/transform-function/translate)
   - : Verschiebt ein Element auf der 2D-Ebene.
@@ -75,19 +75,19 @@ Der `<transform-function>`-Datentyp wird mithilfe einer der unten aufgeführten 
 
 ## Beschreibung
 
-Verschiedene Koordinatenmodelle können verwendet werden, um die Größe und Form eines HTML-Elements sowie jede darauf angewendete Transformation zu beschreiben. Am häufigsten wird das [kartesische Koordinatensystem](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) verwendet, obwohl auch [homogene Koordinaten](https://en.wikipedia.org/wiki/Homogeneous_coordinates) manchmal zum Einsatz kommen.
+Verschiedene Koordinatenmodelle können verwendet werden, um die Größe und Form eines HTML-Elements sowie alle darauf angewendeten Transformationen zu beschreiben. Das gebräuchlichste ist das [kartesische Koordinatensystem](https://en.wikipedia.org/wiki/Cartesian_coordinate_system), obwohl auch manchmal [homogene Koordinaten](https://en.wikipedia.org/wiki/Homogeneous_coordinates) verwendet werden.
 
 ### Kartesische Koordinaten
 
-Im kartesischen Koordinatensystem wird ein zweidimensionaler Punkt mit zwei Werten beschrieben: einer x-Koordinate (Abszisse) und einer y-Koordinate (Ordinate). Dies wird durch die Vektorschreibweise `(x, y)` dargestellt.
+Im kartesischen Koordinatensystem wird ein zweidimensionaler Punkt mit zwei Werten beschrieben: einer x-Koordinate (Abszisse) und einer y-Koordinate (Ordinate). Dies wird durch die Vektornotation `(x, y)` dargestellt.
 
-![Eine kartesische Ebene mit der negativen Y- und positiven X-Achse ausgehend vom Ursprung, mit drei Punkten P1, P2 und P3 und den entsprechenden X- und Y-Werten](coord_in_r2.png)
+![Eine kartesische Ebene, die die negative Y- und positive X-Achse zeigt, beginnend vom Ursprung mit drei Punkten P1, P2 und P3 mit entsprechenden X- und Y-Werten](coord_in_r2.png)
 
-In CSS (und den meisten Grafiksystemen) steht der Ursprung `(0, 0)` für die _linke obere Ecke_ eines Elements. Positive Koordinaten liegen unterhalb und rechts vom Ursprung, während negative oberhalb und links davon liegen. Ein Punkt 2 Einheiten nach rechts und 5 Einheiten nach unten würde also `(2, 5)` sein, während ein Punkt 3 Einheiten nach links und 12 Einheiten nach oben `(-3, -12)` wäre.
+In CSS (und den meisten Computergrafiken) repräsentiert der Ursprung `(0, 0)` die _obere linke_ Ecke eines Elements. Positive Koordinaten verlaufen nach unten und rechts vom Ursprung, während negative nach oben und links verlaufen. Ein Punkt, der 2 Einheiten nach rechts und 5 Einheiten nach unten ist, wäre `(2, 5)`, während ein Punkt, der 3 Einheiten nach links und 12 Einheiten nach oben ist, `(-3, -12)` wäre.
 
 ### Transformationsfunktionen
 
-Transformationsfunktionen verändern das Erscheinungsbild eines Elements, indem sie die Werte seiner Koordinaten manipulieren. Eine lineare Transformationsfunktion wird durch eine 2×2-Matrix beschrieben, wie folgt:
+Transformationsfunktionen verändern das Erscheinungsbild eines Elements, indem sie die Werte seiner Koordinaten manipulieren. Eine lineare Transformationsfunktion wird mit einer 2×2-Matrix beschrieben, wie folgt:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -95,7 +95,7 @@ Transformationsfunktionen verändern das Erscheinungsbild eines Elements, indem 
 </math>
 <!-- prettier-ignore-end -->
 
-Die Funktion wird durch Matrixmultiplikation auf ein Element angewendet, wodurch sich jede Koordinate basierend auf den Werten in der Matrix ändert:
+Die Funktion wird auf ein Element angewendet, indem die Matrixmultiplikation verwendet wird. Somit ändern sich die Koordinaten basierend auf den Werten in der Matrix:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -104,7 +104,7 @@ Die Funktion wird durch Matrixmultiplikation auf ein Element angewendet, wodurch
 </math>
 <!-- prettier-ignore-end -->
 
-Es ist sogar möglich, mehrere Transformationen hintereinander anzuwenden:
+Es ist sogar möglich, mehrere Transformationen nacheinander anzuwenden:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -112,23 +112,23 @@ Es ist sogar möglich, mehrere Transformationen hintereinander anzuwenden:
 </math>
 <!-- prettier-ignore-end -->
 
-Mit dieser Notation lässt sich die Mehrzahl der üblichen Transformationen – Rotationen, Skalierungen oder Schrägstellungen – beschreiben und zusammensetzen. (Tatsächlich können alle Transformationen beschrieben werden, die lineare Funktionen darstellen.) Zusammengesetzte Transformationen werden effektiv von rechts nach links angewendet.
+Mit dieser Notation ist es möglich, die meisten gängigen Transformationen zu beschreiben und daher zu kombinieren: Rotationen, Skalierung oder Verzerrung. (Tatsächlich können alle Transformationen, die lineare Funktionen sind, beschrieben werden.) Komplexe Transformationen werden effektiv in der Reihenfolge von rechts nach links angewendet.
 
-Allerdings gibt es eine wichtige Transformation, die nicht linear ist und daher in dieser Notation gesondert berücksichtigt werden muss: die Translation. Der Translationsvektor `(tx, ty)` muss separat als zwei zusätzliche Parameter beschrieben werden.
-
-> [!NOTE]
-> Obwohl sie schwieriger als kartesische Koordinaten sind, führen [homogene Koordinaten](https://en.wikipedia.org/wiki/Homogeneous_coordinates) in der [projektiven Geometrie](https://en.wikipedia.org/wiki/Projective_geometry) zu 3×3-Transformationsmatrizen und können Übersetzungen als lineare Funktionen ausdrücken.
+Eine Haupttransformation ist jedoch nicht linear und muss daher bei Verwendung dieser Notation speziell behandelt werden: die Translation. Der Translationsvektor `(tx, ty)` muss separat als zwei zusätzliche Parameter ausgedrückt werden.
 
 > [!NOTE]
-> Transformationsfunktionen werden zusammen mit der `transform`-Eigenschaft verwendet, jedoch nicht mit den individuellen Transformations-Eigenschaften {{cssxref("translate")}}, {{cssxref("scale")}} und {{cssxref("rotate")}}.
+> Obwohl sie komplizierter als kartesische Koordinaten sind, führen [homogene Koordinaten](https://en.wikipedia.org/wiki/Homogeneous_coordinates) in der [Projektiven Geometrie](https://en.wikipedia.org/wiki/Projective_geometry) zu 3×3 Transformationsmatrizen und können Translationen als lineare Funktionen ausdrücken.
+
+> [!NOTE]
+> Transformationsfunktionen werden mit der `transform`-Eigenschaft verwendet, aber nicht mit einzelnen Transformations-Eigenschaften-{{cssxref("translate")}}, {{cssxref("scale")}}, und {{cssxref("rotate")}}.
 
 ## Beispiele
 
 ### Vergleich von Transformationsfunktionen
 
-Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transformationen erstellt wurde, sowie ein Auswahlmenü, mit dem Sie verschiedene Transformationsfunktionen auswählen können, um den Würfel zu transformieren und die Auswirkungen der verschiedenen Typen zu vergleichen.
+Das folgende Beispiel bietet einen 3D-Würfel, der aus DOM-Elementen und Transformationen erstellt wurde, sowie ein Auswahlmenü, mit dem Sie verschiedene Transformationsfunktionen auswählen können, um den Würfel zu transformieren, sodass Sie die Effekte der verschiedenen Typen vergleichen können.
 
-Wählen Sie eine Option, und die Transformation wird auf den Würfel angewendet; nach 2 Sekunden kehrt der Würfel zu seinem Ausgangszustand zurück. Der Ausgangszustand des Würfels ist mit `transform3d()` leicht gedreht, um die Wirkung aller Transformationen sichtbarer zu machen.
+Wählen Sie eine aus, und die Transformation wird auf den Würfel angewendet; nach 2 Sekunden kehrt der Würfel zu seinem Ausgangszustand zurück. Der Ausgangszustand des Würfels ist leicht mit `transform3d()` rotiert, um Ihnen den Effekt aller Transformationen zu zeigen.
 
 #### HTML
 

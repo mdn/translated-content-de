@@ -2,12 +2,12 @@
 title: layer()
 slug: Web/CSS/@import/layer_function
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{CSSRef}}
 
-Die **`layer()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) wird zusammen mit der [`@import`](/de/docs/Web/CSS/@import) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) verwendet, um die importierte Ressource in einer separaten benannten [Kaskadenschicht](/de/docs/Web/CSS/@layer) zu platzieren.
+Die **`layer()`**-[CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wird zusammen mit der [`@import`](/de/docs/Web/CSS/@import)-[Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) verwendet, um die importierte Ressource in einer separaten benannten [Kaskadenschicht](/de/docs/Web/CSS/@layer) zu platzieren.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ Die **`layer()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functi
 @import "dark.css" layer(framework.themes.dark);
 ```
 
-`framework.themes.dark` ist die Schicht, in die die CSS-Datei importiert wird.
+Das `framework.themes.dark` ist die Schicht, in die die CSS-Datei importiert würde.
 
 ## Formale Syntax
 
@@ -33,4 +33,4 @@ Die **`layer()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functi
 ## Siehe auch
 
 - {{CSSxRef("@import")}}
-- Modul [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade)
+- [Modul zu CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade)

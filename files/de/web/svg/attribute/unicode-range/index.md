@@ -2,18 +2,18 @@
 title: unicode-range
 slug: Web/SVG/Attribute/unicode-range
 l10n:
-  sourceCommit: f5656e96eef40ef1d8694a4c04d5768c4df5cb2d
+  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
 ---
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das Attribut **`unicode-range`** definiert den Bereich der [ISO 10646](https://www.iso.org/standard/56921.html)-Zeichen, die möglicherweise von den Glyphen in einer Schriftart abgedeckt werden.
+Das **`unicode-range`** Attribut definiert den Bereich von [ISO 10646](https://www.iso.org/standard/56921.html) Zeichen, die möglicherweise von den Glyphen in einer Schriftart abgedeckt werden.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Anwendungshinweise
+## Anmerkungen zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -22,8 +22,8 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
       <td>
         <code
           >&#x3C;urange><a
-            href="/de/docs/Web/CSS/Value_definition_syntax#hash_mark"
-            title="Das Hash-Mark-Multiplikator zeigt an, dass die Entität einmal oder mehrmals wiederholt werden kann (zum Beispiel der Plus-Multiplikator), aber jedes Vorkommen wird durch ein Komma (&#x27;,&#x27;) getrennt."
+            href="/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax#hash_mark"
+            title="Der Hash-Mark-Multiplikator gibt an, dass die Entität einmal oder mehrmals wiederholt werden kann (zum Beispiel der Plus-Multiplikator), jedoch ist jedes Vorkommen durch ein Komma (&#x27;,&#x27;) getrennt."
             >#</a
           ></code
         >
@@ -41,7 +41,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<urange>#`
-  - : Dieser Wert ist eine kommagetrennte Liste von ISO 10646-Zeichen, die möglicherweise von den Glyphen in der Schriftart abgedeckt werden.
+  - : Dieser Wert ist eine kommagetrennte Liste von ISO 10646 Zeichen, die möglicherweise von den Glyphen in der Schriftart abgedeckt werden.
 
 ## Spezifikationen
 

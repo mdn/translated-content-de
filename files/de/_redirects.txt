@@ -564,7 +564,7 @@
 /de/docs/CSS/Using_CSS_variables	/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties
 /de/docs/CSS/Using_media_queries_from_code	/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries
 /de/docs/CSS/Using_the_CSS_multi-column_layout	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
-/de/docs/CSS/Value_definition_syntax	/de/docs/Web/CSS/Value_definition_syntax
+/de/docs/CSS/Value_definition_syntax	/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax
 /de/docs/CSS/Visual_formatting_model	/de/docs/Web/CSS/Visual_formatting_model
 /de/docs/CSS/actual_value	/de/docs/Web/CSS/CSS_cascade/actual_value
 /de/docs/CSS/align-content	/de/docs/Web/CSS/align-content
@@ -11860,7 +11860,9 @@
 /de/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_flexbox_to_lay_out_web_applications	/de/docs/Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox
 /de/docs/Web/CSS/CSS_Flow_Layout/Formatting_Contexts_Explained	/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts
 /de/docs/Web/CSS/CSS_Flow_Layout/Intro_to_formatting_contexts	/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts
-/de/docs/Web/CSS/CSS_Functionals	/de/docs/Web/CSS/CSS_Functions
+/de/docs/Web/CSS/CSS_Functionals	/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions
+/de/docs/Web/CSS/CSS_Functions	/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions
+/de/docs/Web/CSS/CSS_Functions/Using_CSS_math_functions	/de/docs/Web/CSS/CSS_Values_and_Units/Using_CSS_math_functions
 /de/docs/Web/CSS/CSS_Grid	/de/docs/Web/CSS/CSS_grid_layout
 /de/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout	/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout
 /de/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout	/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout
@@ -11926,6 +11928,7 @@
 /de/docs/Web/CSS/CSS_Types/display-outside	/de/docs/Web/CSS/display-outside
 /de/docs/Web/CSS/CSS_User_Interface	/de/docs/Web/CSS/CSS_basic_user_interface
 /de/docs/Web/CSS/CSS_Values_and_Units/CSS_Types	/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types
+/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions/Using_CSS_math_functions	/de/docs/Web/CSS/CSS_Values_and_Units/Using_CSS_math_functions
 /de/docs/Web/CSS/CSS_Variables	/de/docs/Web/CSS/CSS_cascading_variables
 /de/docs/Web/CSS/CSS_Viewport	/de/docs/Web/CSS
 /de/docs/Web/CSS/CSS_animations/Tips	/de/docs/Web/API/Web_Animations_API/Tips
@@ -12010,6 +12013,7 @@
 /de/docs/Web/CSS/Using_CSS_variables	/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties
 /de/docs/Web/CSS/Using_media_queries_from_code	/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries
 /de/docs/Web/CSS/Using_the_CSS_multi-column_layout	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
+/de/docs/Web/CSS/Value_definition_syntax	/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax
 /de/docs/Web/CSS/_image	/de/docs/Web/CSS/image/image
 /de/docs/Web/CSS/abs()	/de/docs/Web/CSS/abs
 /de/docs/Web/CSS/actual_value	/de/docs/Web/CSS/CSS_cascade/actual_value

@@ -1,16 +1,16 @@
 ---
-title: "PopStateEvent: hasUAVisualTransition-Eigenschaft"
+title: "PopStateEvent: hasUAVisualTransition Eigenschaft"
 short-title: hasUAVisualTransition
 slug: Web/API/PopStateEvent/hasUAVisualTransition
 l10n:
-  sourceCommit: 082221e2a29b7bea7a3029cd71442c8f294a8422
+  sourceCommit: 289df408e28407067ed51321862290f0ab76d646
 ---
 
 {{APIRef("History API")}}
 
-Die schreibgeschützte **`hasUAVisualTransition`**-Eigenschaft des [`PopStateEvent`](/de/docs/Web/API/PopStateEvent)-Interfaces gibt `true` zurück, wenn der User Agent eine visuelle Transition für diese Navigation durchgeführt hat, bevor dieses Ereignis ausgelöst wurde, oder andernfalls `false`.
+Die schreibgeschützte Eigenschaft **`hasUAVisualTransition`** des [`PopStateEvent`](/de/docs/Web/API/PopStateEvent)-Interfaces gibt `true` zurück, wenn der User-Agent vor dem Auslösen dieses Ereignisses eine visuelle Transition für diese Navigation durchgeführt hat, oder `false`, andernfalls.
 
-User Agents können beim Ausführen von Site-Navigationen eine eingebaute visuelle Transition bereitstellen. Wenn der Webseitenautor ebenfalls eine visuelle Transition hinzufügt, können sich User-Agent- und Author-Transitionen überschneiden und den Benutzer verwirren. Die Eigenschaft ermöglicht es Ihnen zu erkennen, ob eine UA-Transition bereitgestellt wurde, sodass Sie Author-Transitionen für eine bessere Benutzererfahrung überspringen können.
+User-Agents können eine eingebaute visuelle Transition bei Site-Navigationen bereitstellen. Wenn der Seitenautor ebenfalls eine visuelle Transition hinzufügt, können User-Agent- und Autorener-Übergänge in Konflikt geraten und den Besucher verwirren. Die Eigenschaft ermöglicht es Ihnen festzustellen, ob eine UA-Transition bereitgestellt wurde, sodass Sie Autorentransitionen zur Verbesserung der Benutzererfahrung überspringen können.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein boolescher Wert.
 ## Beispiele
 
 ```js
-window.addEventListener("popstate", (event) => {
+window.addEventListener("popstate", async (event) => {
   // Fetch the new content
   const newContent = await fetchNewContent(location.href);
 
@@ -48,7 +48,7 @@ window.addEventListener("popstate", (event) => {
 
 ## Siehe auch
 
-- [Moderne client-seitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
-- [Gleiche-Dokument-Ansichtstransitionen für Single-Page-Applications](https://developer.chrome.com/docs/web-platform/view-transitions/same-document)
+- [Ansichtstransitionen für einseitige Anwendungen im selben Dokument](https://developer.chrome.com/docs/web-platform/view-transitions/same-document)
