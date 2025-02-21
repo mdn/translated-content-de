@@ -1,14 +1,14 @@
 ---
-title: "WorkletSharedStorage: get() Methode"
+title: "WorkletSharedStorage: get()-Methode"
 short-title: get()
 slug: Web/API/WorkletSharedStorage/get
 l10n:
-  sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
+  sourceCommit: 775df1c62a1cbe555c4374ff9122d4ef15bd6f60
 ---
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`get()`** Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) Schnittstelle ruft einen Wert aus dem gemeinsamen Speicher ab.
+Die **`get()`**-Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Schnittstelle ruft einen Wert aus dem gemeinsamen Speicher ab.
 
 ## Syntax
 
@@ -19,27 +19,27 @@ get(key)
 ### Parameter
 
 - `key`
-  - : Ein String, der den Schlüssel des Schlüssel-Wert-Paares repräsentiert, das Sie abrufen möchten.
+  - : Ein String, der den Schlüssel des Schlüssel-Wert-Paares darstellt, das Sie abrufen möchten.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der entweder mit einem String aufgelöst wird, der dem Wert des abgerufenen Schlüssel-Wert-Paares entspricht, oder mit `undefined`, wenn der angegebene `key` nicht im gemeinsamen Speicher gefunden wird.
+Ein {{jsxref("Promise")}}, das mit entweder einem String erfüllt wird, der dem Wert des abgerufenen Schlüssel-Wert-Paares entspricht, oder `undefined`, wenn der angegebene `key` im gemeinsamen Speicher nicht gefunden wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn:
+  - : Ausgelöst, wenn:
     - Das Worklet-Modul noch nicht mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
-    - `key` die vom Browser festgelegte maximale Länge überschreitet.
-    - Die aufrufende Stelle die Shared Storage API nicht erfolgreich in einem [Datenschutz-Sandbox-Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingeschlossen hat.
+    - `key` die vom Browser definierte maximale Länge überschreitet.
+    - Die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Privacy-Sandbox-Anmeldeprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) eingeschlossen hat.
 
 ## Beispiele
 
-### Messung der K+ Frequenz
+### K+ Frequenz messen
 
-Das folgende Beispiel misst die K+ Frequenz von Inhaltsansichten. Manchmal als "effektive Frequenz" beschrieben, bezieht sich die K-Frequenz auf die Mindestanzahl von Ansichten, bevor ein Nutzer bestimmte Inhalte erkennt oder sich daran erinnert (häufig im Kontext von Anzeigenansichten verwendet).
+Das folgende Beispiel misst die K+ Frequenz von Inhaltsaufrufen. Manchmal als "effektive Frequenz" beschrieben, bezieht sich K-Frequenz auf die minimale Anzahl von Ansichten, bevor ein Benutzer bestimmte Inhalte erkennt oder sich daran erinnert (häufig im Kontext von Anzeigenansichten verwendet).
 
-Das Skript der Hauptseite:
+Das Hauptseitenskript:
 
 ```js
 // k-frequency-measurement.js
@@ -112,7 +112,7 @@ class KFreqMeasurementOperation {
 register("k-freq-measurement", KFreqMeasurementOperation);
 ```
 
-Für weitere Details zu diesem Beispiel siehe [K+ Frequenzmessung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/k-freq-reach). Besuchen Sie die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Einstiegsseite für Links zu weiteren Beispielen.
+Für weitere Details zu diesem Beispiel siehe [K+ Frequency Measurement](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/k-freq-reach). Weitere Links zu anderen Beispielen finden Sie auf der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite.
 
 ## Spezifikationen
 

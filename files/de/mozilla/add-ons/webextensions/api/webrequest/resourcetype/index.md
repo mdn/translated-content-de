@@ -2,67 +2,67 @@
 title: webRequest.ResourceType
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
 ---
 
 {{AddonSidebar}}
 
-Dieser Typ ist ein String, der den Kontext repräsentiert, in dem eine Ressource in einer Webanfrage abgerufen wurde.
+Dieser Typ ist ein String, der den Kontext darstellt, in dem eine Ressource in einer Webanfrage abgerufen wurde.
 
-Er wird verwendet, um [Anfragen zu filtern](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/RequestFilter), die Sie mithilfe der WebRequest-API überwachen möchten. Zum Beispiel: Sie können nur Anfragen für Bilder oder nur für Skripte überwachen.
+Er wird verwendet, um [Filter](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/RequestFilter) auf die Anfragen anzuwenden, die Sie mit der webRequest API überwachen. Zum Beispiel: Sie können Anfragen nur für Bilder oder nur für Skripte überwachen.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
+Werte dieses Typs sind Strings. Mögliche Werte sind:
 
 - `beacon`
-  - : Anfragen, die über die [Beacon API](/de/docs/Web/API/Beacon_API) gesendet wurden.
+  - : Anfragen, die über die [Beacon API](/de/docs/Web/API/Beacon_API) gesendet werden.
 - `csp_report`
-  - : Anfragen, die an die {{CSP("report-uri")}} gesendet werden, wie im {{HTTPHeader("Content-Security-Policy")}}-Header angegeben, wenn ein Versuch festgestellt wird, die Richtlinie zu verletzen.
+  - : Anfragen, die an die {{CSP("report-uri")}} gesendet werden, die im {{HTTPHeader("Content-Security-Policy")}}-Header angegeben ist, wenn ein Versuch entdeckt wird, die Richtlinie zu verletzen.
 - `font`
-  - : Web-Schriftarten, die für eine {{cssxref("@font-face")}} CSS-Regel geladen wurden.
+  - : Web-Schriftarten, die für eine {{cssxref("@font-face")}} CSS-Regel geladen werden.
 - `image`
-  - : Ressourcen, die als Bild dargestellt werden sollen, mit Ausnahme von `imageset` in Browsern, die diesen Typ unterstützen (siehe unten Browser-Kompatibilität).
+  - : Ressourcen, die geladen werden, um als Bild dargestellt zu werden, außer `imageset` in Browsern, die diesen Typ unterstützen (siehe unten die Browser-Kompatibilität).
 - `imageset`
-  - : Bilder, die durch ein {{HTMLElement("picture")}}-Element oder in einem `<img>`-Element über das Attribut [`srcset`](/de/docs/Web/HTML/Element/img#srcset) geladen werden.
+  - : Bilder, die von einem {{HTMLElement("picture")}}-Element geladen oder in einem `<img>`-Element mit dem [`srcset`](/de/docs/Web/HTML/Element/img#srcset)-Attribut angegeben werden.
 - `main_frame`
   - : Hauptdokumente, die in einem Tab geladen werden.
 - `media`
-  - : Ressourcen, die durch ein {{HTMLElement("video")}}- oder {{HTMLElement("audio")}}-Element geladen werden.
+  - : Ressourcen, die von einem {{HTMLElement("video")}}- oder {{HTMLElement("audio")}}-Element geladen werden.
 - `object`
 
-  - : Ressourcen, die durch ein {{HTMLElement("object")}}- oder {{HTMLElement("embed")}}-Element geladen werden.
+  - : Ressourcen, die von einem {{HTMLElement("object")}}- oder {{HTMLElement("embed")}}-Element geladen werden.
 
-    Browser, die keinen dedizierten `object_subrequest`-Typ haben (siehe unten Browser-Kompatibilität), kennzeichnen nachfolgende Plugin-Anfragen ebenfalls als `object`.
+    Browser, die keinen speziellen `object_subrequest`-Typ haben (siehe unten die Browser-Kompatibilität), kennzeichnen auch nachfolgende Anfragen des Plugins als `object`.
 
 - `object_subrequest`
-  - : Anfragen, die durch Plugins gesendet werden.
+  - : Anfragen, die von Plugins gesendet werden.
 - `ping`
 
-  - : Anfragen, die an die in einem Hyperlink angegebene URL im [`ping`](/de/docs/Web/HTML/Element/a#ping)-Attribut gesendet werden, wenn der Hyperlink geöffnet wird.
+  - : Anfragen, die an die URL im [`ping`](/de/docs/Web/HTML/Element/a#ping)-Attribut eines Hyperlinks gesendet werden, wenn der Hyperlink gefolgt wird.
 
-    Browser, die keinen dedizierten `beacon`-Typ haben (siehe unten Browser-Kompatibilität), kennzeichnen Anfragen, die über die Beacon API gesendet werden, ebenfalls als `ping`.
+    Browser, die keinen speziellen `beacon`-Typ haben (siehe unten die Browser-Kompatibilität), kennzeichnen auch Anfragen, die durch die Beacon API gesendet werden, als `ping`.
 
 - `script`
-  - : Code, der durch ein {{HTMLElement("script")}}-Element geladen wird oder in einem [Worker](/de/docs/Web/API/Web_Workers_API) läuft.
+  - : Code, der geladen wird, um von einem {{HTMLElement("script")}}-Element ausgeführt zu werden oder in einem [Worker](/de/docs/Web/API/Web_Workers_API) läuft.
 - `speculative`
-  - : Bei einer spekulativen Verbindung hat der Browser festgestellt, dass bald eine Anfrage zu einer URI kommen könnte, und startet daher sofort ein TCP- und/oder TLS-Handshake, damit die Ressource schneller bereit ist, wenn die Anfrage tatsächlich gestellt wird. Beachten Sie, dass diese Art von Verbindung keine gültigen Tab-Informationen bereitstellt, sodass Anfragedetails wie `tabId`, `frameId`, `parentFrameId` usw. ungenau sind.
+  - : Bei einer spekulativen Verbindung hat der Browser festgestellt, dass eine Anfrage zu einer URI möglicherweise bald erfolgt, also startet er sofort ein TCP- und/oder TLS-Handshake, damit die Ressource schneller bereit ist, wenn sie tatsächlich angefordert wird. Beachten Sie, dass diese Art von Verbindung keine gültigen Tab-Informationen bereitstellt, sodass Anfragedetails wie `tabId`, `frameId`, `parentFrameId` usw. ungenau sind.
 - `stylesheet`
-  - : [CSS](/de/docs/Web/CSS)-Stylesheets, die geladen wurden, um die Darstellung eines Dokuments zu beschreiben.
+  - : [CSS](/de/docs/Web/CSS)-Stylesheets, die geladen werden, um die Darstellung eines Dokuments zu beschreiben.
 - `sub_frame`
-  - : Dokumente, die in einem {{HTMLElement("iframe")}}- oder {{HTMLElement("frame")}}-Element geladen werden.
+  - : Dokumente, die in ein {{HTMLElement("iframe")}}- oder {{HTMLElement("frame")}}-Element geladen werden.
 - `web_manifest`
-  - : [Web App Manifeste](/de/docs/Web/Manifest), die für Websites geladen werden, die auf dem Startbildschirm installiert werden können.
+  - : [Web App Manifeste](/de/docs/Web/Progressive_web_apps/Manifest), die für Websites geladen werden, die auf dem Startbildschirm installiert werden können.
 - `websocket`
   - : Anfragen, die eine Verbindung zu einem Server über die [WebSocket API](/de/docs/Web/API/WebSockets_API) initiieren.
 - `xml_dtd`
   - : {{Glossary("Doctype", "DTDs")}}, die für ein XML-Dokument geladen werden.
 - `xmlhttprequest`
-  - : Anfragen, die durch ein [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt oder über die [Fetch API](/de/docs/Web/API/Fetch_API) gesendet werden.
+  - : Anfragen, die durch ein [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt oder durch die [Fetch API](/de/docs/Web/API/Fetch_API) gesendet werden.
 - `xslt`
-  - : [XSLT](/de/docs/Web/XML/XSLT)-Stylesheets, die für die Transformation eines XML-Dokuments geladen werden.
+  - : [XSLT](/de/docs/Web/XML/XSLT)-Stylesheets, die zum Transformieren eines XML-Dokuments geladen werden.
 - `other`
-  - : Ressourcen, die durch keinen anderen verfügbaren Typ abgedeckt werden.
+  - : Ressourcen, die von keinem anderen verfügbaren Typ abgedeckt werden.
 
 ## Browser-Kompatibilität
 
@@ -71,7 +71,7 @@ Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-ResourceType)-API. Diese Dokumentation wurde aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-ResourceType)-API von Chromium. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

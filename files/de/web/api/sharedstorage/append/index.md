@@ -3,12 +3,12 @@ title: "SharedStorage: append()-Methode"
 short-title: append()
 slug: Web/API/SharedStorage/append
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 775df1c62a1cbe555c4374ff9122d4ef15bd6f60
 ---
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`append()`**-Methode des [`SharedStorage`](/de/docs/Web/API/SharedStorage)-Interfaces fügt einen String zum Wert eines bestehenden Schlüssel-Wert-Paares im gemeinsam genutzten Speicher des aktuellen Ursprungs hinzu.
+Die **`append()`**-Methode der [`SharedStorage`](/de/docs/Web/API/SharedStorage)-Schnittstelle fügt einen String zum Wert eines vorhandenen Schlüssel-Wert-Paares im freigegebenen Speicher des aktuellen Ursprungs hinzu.
 
 ## Syntax
 
@@ -19,12 +19,12 @@ append(key, value)
 ### Parameter
 
 - `key`
-  - : Ein String, der den Schlüssel des Schlüssel-Wert-Paares darstellt, zu dem Sie einen Wert hinzufügen möchten.
+  - : Ein String, der den Schlüssel des Schlüssel-Wert-Paares darstellt, dem Sie einen Wert hinzufügen möchten.
 - `value`
-  - : Ein String, den Sie dem bestehenden Wert des Schlüssel-Wert-Paares hinzufügen möchten.
+  - : Ein String, den Sie dem vorhandenen Wert des Schlüssel-Wert-Paares hinzufügen möchten.
 
 > [!NOTE]
-> Wenn der angegebene `key` im gemeinsam genutzten Speicher nicht gefunden wird, ist der `append()`-Vorgang gleichbedeutend mit [`set()`](/de/docs/Web/API/SharedStorage/set), das heißt, ein neues Schlüssel-Wert-Paar mit dem angegebenen `key` wird zum gemeinsam genutzten Speicher hinzugefügt.
+> Wenn der angegebene `key` nicht im freigegebenen Speicher gefunden wird, ist der `append()`-Vorgang äquivalent zu [`set()`](/de/docs/Web/API/SharedStorage/set). Das bedeutet, dass ein neues Schlüssel-Wert-Paar mit dem angegebenen `key` zum freigegebenen Speicher hinzugefügt wird.
 
 ### Rückgabewert
 
@@ -33,13 +33,13 @@ Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 ### Ausnahmen
 
 - Das `Promise` wird mit einem {{jsxref("TypeError")}} abgelehnt, wenn:
-  - Der hinzugefügte Eintrag aufgrund der Nichtverfügbarkeit des gemeinsam genutzten Speichers nicht erfolgreich in der Datenbank gespeichert wurde (zum Beispiel, wenn er durch eine Browsereinstellung deaktiviert ist).
+  - Der hinzugefügte Eintrag aufgrund der Nichtverfügbarkeit des freigegebenen Speichers (z.B. durch Deaktivierung über eine Browsereinstellung) nicht erfolgreich in der Datenbank gespeichert wurde.
   - `key` und/oder `value` die vom Browser definierte maximale Länge überschreiten.
-  - Die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Datenschutz-Sandbox-Anmeldeprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingeschlossen hat.
+  - Die aufrufende Stelle die Shared Storage API nicht durch einen erfolgreichen [Privacy Sandbox Anmeldeprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) eingebunden hat.
 - Im Fall von [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) wird das `Promise` mit einem {{jsxref("TypeError")}} abgelehnt, wenn das Worklet-Modul nicht mit [`SharedStorageWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
 
 > [!NOTE]
-> Im Fall von [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage) wird kein Fehler ausgelöst, wenn der `append()`-Vorgang aus einem anderen Grund als der Nichtverfügbarkeit des gemeinsam genutzten Speichers nicht erfolgreich in die Datenbank geschrieben wird — der Vorgang wird dennoch mit `undefined` erfüllt.
+> Im Fall von [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage), wenn der `append()`-Vorgang aus einem anderen Grund als der Nichtverfügbarkeit des freigegebenen Speichers nicht erfolgreich in die Datenbank geschrieben wird, wird kein Fehler ausgelöst — der Vorgang wird trotzdem mit `undefined` erfüllt.
 
 ## Beispiele
 

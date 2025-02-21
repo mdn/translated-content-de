@@ -1,20 +1,20 @@
 ---
-title: "Window: launchQueue Eigenschaft"
+title: "Window: launchQueue-Eigenschaft"
 short-title: launchQueue
 slug: Web/API/Window/launchQueue
 l10n:
-  sourceCommit: ab4090ce439d9ea25229a8583a138b2f8fa8a74e
+  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
 ---
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte `launchQueue`-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle bietet Zugriff auf die [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Klasse, die es ermöglicht, eine benutzerdefinierte Startnavigationsbehandlung in einer [progressiven Web-App](/de/docs/Web/Progressive_web_apps) (PWA) zu implementieren. Der Behandlungskontext wird durch den Wert des `client_mode`-Feldes im [`launch_handler`](/de/docs/Web/Manifest/Reference/launch_handler)-Manifest angegeben.
+Die schreibgeschützte `launchQueue`-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interface bietet Zugriff auf die [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Klasse, die es ermöglicht, eine benutzerdefinierte Startnavigationsverarbeitung in einer [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) zu implementieren. Der Behandlungskontext wird durch den Manifestfeld-Wert `client_mode` in [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler) angezeigt.
 
-Die benutzerdefinierte Funktionalität zur Startnavigationsbehandlung wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das in die [`LaunchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer)-Callback-Funktion übergeben wird.
+Die Funktionalität zur benutzerdefinierten Startnavigationsverarbeitung wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das in die [`LaunchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer)-Rückruffunktion übergeben wird.
 
 ## Wert
 
-Eine Instanz eines [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Objekts.
+Eine Instanz des [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Objekts.
 
 ## Beispiele
 
@@ -49,4 +49,4 @@ if ("launchQueue" in window) {
 - [Launch Handler API](/de/docs/Web/API/Launch_Handler_API)
 - [Launch Handler API: Control how your app is launched](https://developer.chrome.com/docs/web-platform/launch-handler/)
 - `Window.launchQueue`
-- [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App
+- Demo-App [Musicr 2.0](https://launch-handler.glitch.me/)

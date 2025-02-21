@@ -2,12 +2,12 @@
 title: Weniger als
 slug: WebAssembly/Reference/Numeric/Less_than
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 916104c5348505f0921811af34d3f7499e9ac9f6
 ---
 
-Die **`lt`**-Anweisungen, kurz für _weniger als_, überprüfen, ob eine Zahl kleiner als eine andere Zahl ist. Wenn die erste Zahl kleiner als die zweite Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
+Die **`lt`**-Anweisungen, Abkürzung für _less than_, prüfen, ob eine Zahl kleiner als eine andere Zahl ist. Wenn die erste Zahl kleiner als die zweite Zahl ist, wird `1` auf den Stapel gepusht; andernfalls wird `0` auf den Stapel gepusht.
 
-Bei Ganzzahltypen gibt es separate "weniger als"-Anweisungen für vorzeichenbehaftete (**`lt_s`**) und vorzeichenlose (**`lt_u`**) Zahlen.
+Für Ganzzahltypen gibt es separate `less than`-Anweisungen für vorzeichenbehaftete (**`lt_s`**) und vorzeichenlose (**`lt_u`**) Zahlen.
 
 {{EmbedInteractiveExample("pages/wat/lt.html", "tabbed-taller")}}
 
@@ -18,7 +18,7 @@ Bei Ganzzahltypen gibt es separate "weniger als"-Anweisungen für vorzeichenbeha
 local.get $num
 i32.const 2
 
-;; check if $num is less then '2'
+;; check if $num is less than '2'
 i32.lt_u
 
 ;; if $num is less than the `2`, `1` will be pushed on to the stack,

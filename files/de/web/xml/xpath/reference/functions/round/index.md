@@ -2,10 +2,10 @@
 title: round
 slug: Web/XML/XPath/Reference/Functions/round
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 916104c5348505f0921811af34d3f7499e9ac9f6
 ---
 
-Die Funktion `round` gibt eine Zahl zurück, die die nächste ganze Zahl zur angegebenen Zahl ist.
+Die Funktion `round` gibt eine Zahl zurück, die die nächste ganze Zahl zum gegebenen Wert ist.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Die nächste ganze Zahl, die kleiner, größer oder gleich `decimal` ist.
 
 ## Beschreibung
 
-- \-0.5 wird auf negatives Null gerundet. 0.4 wird auf positives Null gerundet.
+- \-0.5 wird zu negativem Null gerundet. 0.4 wird zu positivem Null gerundet.
 
 ## Spezifikationen
 

@@ -3,16 +3,16 @@ title: "ExtendableCookieChangeEvent: deleted-Eigenschaft"
 short-title: deleted
 slug: Web/API/ExtendableCookieChangeEvent/deleted
 l10n:
-  sourceCommit: 08f7d7ef89c04b824fa246e6fd35d47aebef7b51
+  sourceCommit: 775df1c62a1cbe555c4374ff9122d4ef15bd6f60
 ---
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte Eigenschaft **`deleted`** der Schnittstelle [`ExtendableCookieChangeEvent`](/de/docs/Web/API/ExtendableCookieChangeEvent) gibt alle Cookies zurück, die durch die gegebene `ExtendableCookieChangeEvent`-Instanz gelöscht wurden.
+Die **`deleted`**-Eigenschaft des [`ExtendableCookieChangeEvent`](/de/docs/Web/API/ExtendableCookieChangeEvent)-Interfaces gibt die Cookies zurück, die durch die gegebene `ExtendableCookieChangeEvent`-Instanz gelöscht wurden.
 
 ## Wert
 
-Ein Array von Objekten, das die gelöschten Cookies enthält. Jedes Objekt enthält die folgenden Eigenschaften:
+Ein Array von Objekten, das die gelöschten Cookies enthält. Jedes Objekt enthält folgende Eigenschaften:
 
 - `name`
   - : Ein String, der den Namen des Cookies enthält.
@@ -25,24 +25,24 @@ Ein Array von Objekten, das die gelöschten Cookies enthält. Jedes Objekt enth�
 - `expires`
   - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
 - `secure`
-  - : Ein {{jsxref("boolean")}}, das angibt, ob das Cookie nur in einem sicheren Kontext verwendet wird (HTTPS anstelle von HTTP).
+  - : Ein {{jsxref("boolean")}}, der angibt, ob das Cookie nur in einem sicheren Kontext verwendet wird (HTTPS anstelle von HTTP).
 - `sameSite`
 
-  - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value) Werte:
+  - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value)-Werte:
 
     - `"strict"`
-      - : Cookies werden nur in einem Erstpartei-Kontext gesendet und nicht mit Anfragen, die von Drittanbieter-Websites initiiert wurden.
+      - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht mit Anfragen, die von Drittanbieter-Webseiten initiiert wurden.
     - `"lax"`
-      - : Cookies werden bei normalen Cross-Site-Subrequests nicht gesendet (zum Beispiel zum Laden von Bildern oder Frames auf einer Drittanbieter-Website), aber sie werden gesendet, wenn ein Benutzer innerhalb der Ursprungsseite navigiert (d. h. beim Folgen eines Links).
+      - : Cookies werden bei normalen Cross-Site-Subrequests nicht gesendet (z.B. um Bilder oder Frames auf einer Drittanbieter-Seite zu laden), aber sie werden gesendet, wenn ein Nutzer innerhalb der Ursprungsseite navigiert (d.h. bei der Verfolgung eines Links).
     - `"none"`
       - : Cookies werden in allen Kontexten gesendet.
 
 - `partitioned`
-  - : Ein Boolean, der angibt, ob das Cookie ein partitioniertes Cookie ist (`true`) oder nicht (`false`). Siehe [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies) für weitere Informationen.
+  - : Ein boolean, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies mit unabhängigen partitionierten Zuständen (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
 
 ## Beispiele
 
-In diesem Beispiel protokolliert der Event-Listener das erste Element in der `deleted`-Eigenschaft in die Konsole, wenn das Cookie gelöscht wird. Es enthält ein Objekt, das das soeben gelöschte Cookie repräsentiert.
+In diesem Beispiel wird, wenn das Cookie gelöscht wird, der erste Eintrag der `deleted`-Eigenschaft im Konsolen-Logger ausgegeben. Es enthält ein Objekt, das das gerade gelöschte Cookie darstellt.
 
 ```js
 self.addEventListener("cookiechange", (event) => {

@@ -2,19 +2,19 @@
 title: LaunchQueue
 slug: Web/API/LaunchQueue
 l10n:
-  sourceCommit: ab4090ce439d9ea25229a8583a138b2f8fa8a74e
+  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
 ---
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Das **`LaunchQueue`** Interface der [Launch Handler API](/de/docs/Web/API/Launch_Handler_API) steht über die [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) Eigenschaft zur Verfügung. Wenn eine [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) mit einem [`launch_handler`](/de/docs/Web/Manifest/Reference/launch_handler) `client_mode` Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wird, bietet `LaunchQueue` Zugriff auf Funktionen, die es erlauben, benutzerdefinierte Start-Navigationen in der PWA zu implementieren. Diese Funktionalität wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams) Objekts gesteuert, das in die [`setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) Rückruffunktion übergeben wird.
+Das **`LaunchQueue`**-Interface der [Launch Handler API](/de/docs/Web/API/Launch_Handler_API) ist über die [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)-Eigenschaft verfügbar. Wenn eine [progressive Web-App](/de/docs/Web/Progressive_web_apps) (PWA) mit einem `client_mode`-Wert des [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler) von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wird, bietet `LaunchQueue` Zugriff auf Funktionen, die eine benutzerdefinierte Startnavigation in der PWA ermöglichen. Diese Funktionalität wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das an die [`setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer)-Callback-Funktion übergeben wird.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
 - [`setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) {{Experimental_Inline}}
-  - : Beinhaltet eine Rückruffunktion, die benutzerdefinierte Start-Navigation für eine PWA behandelt.
+  - : Enthält eine Callback-Funktion, die die benutzerdefinierte Startnavigation für eine PWA behandelt.
 
 ## Beispiele
 
