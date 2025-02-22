@@ -1,18 +1,19 @@
 ---
-title: "Document: hasFocus()-Methode"
+title: "Dokument: hasFocus()-Methode"
 short-title: hasFocus()
 slug: Web/API/Document/hasFocus
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: 9b52765cefc649969574e722760cc90168c6b6df
 ---
 
 {{APIRef}}
 
-Die **`hasFocus()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob das Dokument oder ein beliebiges Element innerhalb des Dokuments den Fokus hat. Diese Methode kann verwendet werden, um festzustellen, ob das aktive Element in einem Dokument den Fokus hat.
+Die **`hasFocus()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob das Dokument oder ein beliebiges Element im Dokument den Fokus hat.
+Diese Methode kann verwendet werden, um festzustellen, ob das aktive Element in einem Dokument den Fokus hat.
 
 > [!NOTE]
-> Beim Betrachten eines Dokuments ist ein Element mit Fokus immer das [aktive Element](/de/docs/Web/API/Document/activeElement) im Dokument, aber ein aktives Element hat nicht unbedingt den Fokus.
-> Ein Beispiel hierfür ist ein aktives Element innerhalb eines Popup-Fensters, das nicht im Vordergrund ist und somit keinen Fokus hat.
+> Beim Betrachten eines Dokuments ist ein Element mit Fokus immer das [aktive Element](/de/docs/Web/API/Document/activeElement) im Dokument, aber ein aktives Element hat nicht notwendigerweise den Fokus.
+> Zum Beispiel hat ein aktives Element innerhalb eines Popup-Fensters, das nicht im Vordergrund ist, keinen Fokus.
 
 ## Syntax
 
@@ -27,31 +28,31 @@ Keine.
 ### Rückgabewert
 
 `false`, wenn das aktive Element im Dokument keinen Fokus hat;
-`true`, wenn das aktive Element im Dokument den Fokus hat.
+`true`, wenn das aktive Element im Dokument Fokus hat.
 
 ## Beispiele
 
-Das folgende Beispiel prüft, ob das Dokument Fokus hat oder nicht. Eine Funktion namens `checkPageFocus()` aktualisiert ein Absatz-Element abhängig vom Ergebnis von `document.hasFocus()`. Das Öffnen eines neuen Fensters führt dazu, dass das Dokument den Fokus verliert, und das Zurückwechseln zum ursprünglichen Fenster führt dazu, dass das Dokument den Fokus wiedererlangt.
+### Überprüfung, ob das Dokument Fokus hat
 
-### HTML
+Das folgende Beispiel überprüft, ob das Dokument Fokus hat oder nicht.
+Eine Funktion namens `checkPageFocus()` aktualisiert ein Absatz-Element je nach Ergebnis von `document.hasFocus()`.
+Das Öffnen eines neuen Fensters führt dazu, dass das Dokument den Fokus verliert, und das Zurückwechseln zum ursprünglichen Fenster führt dazu, dass das Dokument den Fokus wiedererlangt.
 
-```html
+```html live-sample___has-focus
 <p id="log">Focus check results are shown here.</p>
 <button id="newWindow">Open new window</button>
 ```
 
-```css hidden
+```css hidden live-sample___has-focus
 body {
   padding: 1rem;
   background: gray;
   text-align: center;
-  font-size: 1.5rem;
+  font: 1.5rem sans-serif;
 }
 ```
 
-### JavaScript
-
-```js
+```js live-sample___has-focus
 const body = document.querySelector("body");
 const log = document.getElementById("log");
 
@@ -77,9 +78,7 @@ document.getElementById("newWindow").addEventListener("click", openWindow);
 setInterval(checkDocumentFocus, 300);
 ```
 
-### Ergebnis
-
-{{EmbedLiveSample("Examples")}}
+{{EmbedLiveSample('has-focus', , , , , , , 'allow-popups')}}
 
 ## Spezifikationen
 
