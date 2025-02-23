@@ -2,16 +2,14 @@
 title: commands.reset()
 slug: Mozilla/Add-ons/WebExtensions/API/commands/reset
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: fa98e7a82bde55434e22f26e72bdcb509e7d169f
 ---
 
 {{AddonSidebar}}
 
-Setzt die Beschreibung und Tastenkombination des angegebenen Befehls auf die Werte zurück, die im [`commands`-Schlüssel der manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) der Erweiterung angegeben sind.
+Setzt die Beschreibung und die Tastenkombination des angegebenen Befehls auf die Werte zurück, die im [`commands` manifest.json key](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) der Erweiterung festgelegt sind.
 
-Dies macht effektiv alle Änderungen rückgängig, die mit der Funktion {{WEbExtAPIRef("commands.update()")}} am Befehl vorgenommen wurden.
-
-Diese Funktion ist asynchron und gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück.
+Dies macht effektiv alle Änderungen rückgängig, die am Befehl mit der Funktion {{WEbExtAPIRef("commands.update()")}} vorgenommen wurden.
 
 ## Syntax
 
@@ -24,7 +22,7 @@ browser.commands.reset(
 ### Parameter
 
 - `name`
-  - : `string`. Name des zurückzusetzenden Befehls, wie er durch die `name`-Eigenschaft des {{WebExtAPIRef("commands.Command")}} Objekts angegeben ist.
+  - : `string`. Name des Befehls, der zurückgesetzt werden soll, wie durch die `name`-Eigenschaft des Objekts {{WebExtAPIRef("commands.Command")}} angegeben.
 
 ### Rückgabewert
 
@@ -36,7 +34,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Setzt den Befehl mit dem Namen "my-command" zurück, wenn der Benutzer auf die Schaltfläche "Zurücksetzen" klickt:
+Setzt den Befehl mit dem Namen "my-command" zurück, wenn der Benutzer auf die Schaltfläche "reset" klickt:
 
 ```js
 const commandName = "my-command";

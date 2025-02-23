@@ -1,34 +1,38 @@
 ---
-title: commands
+title: Befehle
 slug: Mozilla/Add-ons/WebExtensions/API/commands
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 7f4c213138347a46655773421984057df58c0cc0
 ---
 
 {{AddonSidebar}}
 
-Hören Sie darauf, wenn der Benutzer Befehle ausführt, die Sie mit dem [`commands` manifest.json-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) registriert haben.
+Hört darauf, dass der Benutzer Befehle ausführt, die mit dem [`commands` manifest.json-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) registriert sind.
+
+Bietet auch Funktionen, um die Einstellungen der Tastenkombinationen zu aktualisieren. Weitere Informationen finden Sie unter [Aktualisieren von Tastenkombinationen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#updating_shortcuts) im [`commands` manifest.json-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) Leitfaden.
 
 ## Typen
 
 - {{WebExtAPIRef("commands.Command")}}
-  - : Objekt, das einen Befehl darstellt. Dies enthält die im [`commands` manifest.json-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) spezifizierten Informationen für den Befehl.
+  - : Objekt, das die Einstellungen eines Befehls enthält.
 
 ## Funktionen
 
 - {{WebExtAPIRef("commands.getAll")}}
-  - : Ruft alle registrierten Befehle für diese Erweiterung ab.
+  - : Ruft alle registrierten Befehle für die Erweiterung ab.
+- {{WebExtAPIRef("commands.openShortcutSettings")}}
+  - : Öffnet die Seite zur Verwaltung von Erweiterungskurzbefehlen und hebt die Shortcut-Optionen der Erweiterung hervor, falls vorhanden.
 - {{WebExtAPIRef("commands.reset")}}
-  - : Setzt die Beschreibung und das Kürzel des angegebenen Befehls auf die im Manifest-Schlüssel angegebenen Werte zurück.
+  - : Setzt die Beschreibung und die Tastenkombination eines Befehls auf die im manifest-Schlüssel angegebenen Werte zurück.
 - {{WebExtAPIRef("commands.update")}}
-  - : Ändert die Beschreibung oder das Kürzel für den angegebenen Befehl.
+  - : Ändert die Beschreibung oder Tastenkombination für einen Befehl.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("commands.onChanged")}}
-  - : Wird ausgelöst, wenn das Tastaturkürzel für einen Befehl geändert wird.
+  - : Wird ausgelöst, wenn die Tastenkombination für einen Befehl geändert wird.
 - {{WebExtAPIRef("commands.onCommand")}}
-  - : Wird ausgelöst, wenn ein Befehl mit seinem zugehörigen Tastaturkürzel ausgeführt wird.
+  - : Wird ausgelöst, wenn ein Befehl mit seiner zugehörigen Tastenkombination ausgeführt wird.
 
 {{WebExtExamples("h2")}}
 
@@ -37,7 +41,7 @@ Hören Sie darauf, wenn der Benutzer Befehle ausführt, die Sie mit dem [`comman
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

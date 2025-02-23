@@ -1,26 +1,28 @@
 ---
-title: Command
+title: Befehl
 slug: Mozilla/Add-ons/WebExtensions/API/commands/Command
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 7f4c213138347a46655773421984057df58c0cc0
 ---
 
 {{AddonSidebar}}
 
-Informationen über einen Befehl. Dies enthält die spezifizierten Informationen für den Befehl im [`commands` manifest.json Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands).
+Informationen zu den Einstellungen für die Befehle, die im [`commands` manifest.json-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) angegeben sind.
 
 Ein Array dieser Objekte wird von {{WebExtAPIRef('commands.getAll()')}} zurückgegeben.
 
 ## Typ
 
-Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
+Ein Wert dieses Typs ist ein Objekt, das diese Eigenschaften für die Befehle enthält:
 
-- `name` {{optional_inline}}
-  - : `string`. Name dieses Befehls. Dieser wird an den {{WebExtAPIRef('commands.onCommand')}} Ereignis-Listener übergeben.
+- `name`
+  - : `string`. Name des Befehls. Dieser wird an den {{WebExtAPIRef('commands.onCommand')}} Ereignis-Listener übergeben.
 - `description` {{optional_inline}}
-  - : `string`. Beschreibung dieses Befehls. Dies wird hauptsächlich verwendet, um dem Nutzer zu erklären, was dieser Befehl macht.
+  - : `string`. Beschreibung des Befehls. Diese wird verwendet, um dem Benutzer zu erklären, was dieser Befehl tut.
 - `shortcut` {{optional_inline}}
-  - : `string`. Taste(n), die verwendet werden, um diesen Befehl auszuführen, angegeben als ein String wie "Ctrl+Shift+Y".
+  - : `string`. Tasten, die zum Ausführen des Befehls verwendet werden, als String angegeben. Weitere Details finden Sie im Abschnitt [shortcut values](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values) der Dokumentation zum `commands` manifest-Schlüssel.
+
+`description` und `shortcut` spiegeln die im `commands` manifest.json-Schlüssel angegebenen Werte wider, es sei denn, sie wurden mit {{WebExtAPIRef('commands.update()')}} aktualisiert oder im Falle der Tastenkombination vom Benutzer angepasst.
 
 ## Browser-Kompatibilität
 
@@ -29,4 +31,4 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API von Chromium.
+> Diese API basiert auf der Chromium-API [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands).
