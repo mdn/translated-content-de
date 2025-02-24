@@ -2,50 +2,72 @@
 title: lang
 slug: Web/HTML/Global_attributes/lang
 l10n:
-  sourceCommit: 816cc4d4a5a318a23222946b6981bb92b499aebb
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`lang`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) hilft dabei, die Sprache eines Elements zu definieren: die Sprache, in der nicht editierbare Elemente geschrieben sind, oder die Sprache, in der editierbare Elemente vom Benutzer geschrieben werden sollten. Das Attribut enthält ein einzelnes "Sprach-Tag" im Format, das in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert ist.
+Das **`lang`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) hilft, die Sprache eines Elements zu definieren: die Sprache, in der nicht bearbeitbare Elemente verfasst sind, oder die Sprache, in der bearbeitbare Elemente vom Benutzer geschrieben werden sollten. Das Attribut enthält einen einzelnen "Sprach-Tag" im Format, das in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert ist.
 
 > [!NOTE]
 > Der Standardwert von `lang` ist der leere String, was bedeutet, dass die Sprache unbekannt ist. Daher wird empfohlen, immer einen geeigneten Wert für dieses Attribut anzugeben.
 
-{{EmbedInteractiveExample("pages/tabbed/attribute-lang.html","tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: lang", "tabbed-shorter")}}
 
-Wenn der Attributwert der _leere String_ (`lang=""`) ist, wird die Sprache auf _unbekannt_ gesetzt; wenn das Sprach-Tag gemäß BCP47 ungültig ist, wird es als _ungültig_ betrachtet.
+```html interactive-example
+<p>This paragraph is English, but the language is not specifically defined.</p>
 
-Selbst wenn das `lang`-Attribut gesetzt ist, wird es möglicherweise nicht berücksichtigt, da das `xml:lang`-Attribut Vorrang hat.
+<p lang="en-GB">This paragraph is defined as British English.</p>
 
-Für die CSS-Pseudoklasse {{cssxref(":lang")}} sind zwei ungültige Sprachbezeichnungen unterschiedlich, wenn ihre Namen unterschiedlich sind. Also während `:lang(es)` sowohl `lang="es-ES"` als auch `lang="es-419"` übereinstimmt, würde `:lang(xyzzy)` _nicht_ mit `lang="xyzzy-Zorp!"` übereinstimmen.
+<p lang="fr">Ce paragraphe est défini en français.</p>
+```
 
-## Sprach-Tag-Syntax
+```css interactive-example
+p::before {
+  padding-right: 5px;
+}
 
-Die vollständige BCP47-Syntax ist detailliert genug, um extrem spezifische Sprachdialekte zu kennzeichnen, aber die meisten Anwendungen sind viel einfacher.
+[lang="en-GB"]::before {
+  content: "(In British English) ";
+}
 
-Ein Sprach-Tag besteht aus durch Bindestriche getrennten _Sprach-Subtags_, wobei jeder Subtag eine bestimmte Eigenschaft der Sprache angibt. Die 3 häufigsten Subtags sind:
+[lang="fr"]::before {
+  content: "(In French) ";
+}
+```
 
-- Sprach-Subtag
-  - : Erforderlich. Ein 2- oder 3-Zeichen-Code, der die Grundsprache definiert, typischerweise in Kleinschreibung. Zum Beispiel ist der Sprachcode für Englisch `en` und der Code für Badeshi ist `bdz`.
-- Schrift-Subtag
-  - : Optional. Dieser Subtag definiert das Schriftsystem, das für die Sprache verwendet wird, und ist immer 4 Zeichen lang, wobei der erste Buchstabe großgeschrieben wird. Zum Beispiel ist Französisch-in-Braille `fr-Brai` und `ja-Kana` ist Japanisch, geschrieben mit dem Katakana-Alphabet. Wenn die Sprache auf eine sehr typische Weise geschrieben wird, wie zum Beispiel Englisch im lateinischen Alphabet, ist es nicht notwendig, diesen Subtag zu verwenden.
-- Regions-Subtag
-  - : Optional. Dieser Subtag definiert einen Dialekt der Grundsprache aus einem bestimmten Standort und besteht entweder aus zwei Großbuchstaben, die einem Ländercode entsprechen, oder aus drei Zahlen, die einem Gebiet ohne Länderbezug entsprechen. Zum Beispiel steht `es-ES` für Spanisch, wie es in Spanien gesprochen wird, und `es-013` ist Spanisch, wie es in Mittelamerika gesprochen wird. "International Spanish" wäre einfach `es`.
+Wenn der Attributwert der _leere String_ (`lang=""`) ist, ist die Sprache auf _unbekannt_ gesetzt; wenn der Sprach-Tag nicht gemäß BCP47 gültig ist, ist er auf _ungültig_ gesetzt.
 
-Der Schrift-Subtag geht dem Regions-Subtag voraus, wenn beide vorhanden sind — `ru-Cyrl-BY` ist Russisch, geschrieben in der kyrillischen Schrift, wie es in Weißrussland gesprochen wird.
+Auch wenn das `lang`-Attribut gesetzt ist, wird es möglicherweise nicht berücksichtigt, da das `xml:lang`-Attribut Priorität hat.
 
-Um die richtigen Subtag-Codes für eine Sprache zu finden, probieren Sie den [Language Subtag Lookup](https://r12a.github.io/app-subtags/) aus.
+Für die CSS-Pseudoklasse {{cssxref(":lang")}} sind zwei ungültige Sprachnamen unterschiedlich, wenn ihre Namen unterschiedlich sind. Während also `:lang(es)` sowohl `lang="es-ES"` als auch `lang="es-419"` entspricht, würde `:lang(xyzzy)` _nicht_ `lang="xyzzy-Zorp!"` entsprechen.
 
-## Barrierefreiheitsprobleme
+## Syntax des Sprach-Tags
 
-Das WCAG-Erfolgskriterium 3.1.1 **verlangt**, dass eine Sprachseite auf eine Weise spezifiziert wird, die 'programmgesteuert bestimmt' werden kann (d.h. über das **`lang`**-Attribut).
+Die vollständige BCP47-Syntax ist tiefgehend genug, um extrem spezifische Sprachdialekte zu markieren, aber die meisten Nutzungen sind viel einfacher.
 
-Das WCAG-Erfolgskriterium 3.1.2 erfordert, dass Seiten mit **Teilen** in verschiedenen Sprachen auch die Sprachen dieser Teile spezifiziert haben. Wiederum ist das **`lang`**-Attribut der richtige Mechanismus dafür.
+Ein Sprach-Tag besteht aus mit Bindestrichen getrennten _Sprach-Untertags_, wobei jeder Untertag eine bestimmte Eigenschaft der Sprache angibt. Die 3 häufigsten Untertags sind:
 
-Der Zweck dieser Anforderungen besteht hauptsächlich darin, barrierefreien Technologien wie Screenreadern die richtige Aussprache zu ermöglichen.
+- Sprach-Untertag
+  - : Erforderlich. Ein 2-oder-3-stelliger Code, der die Grundsprache definiert und typischerweise in Kleinbuchstaben geschrieben wird. Zum Beispiel ist der Sprachcode für Englisch `en`, und der Code für Badeshi ist `bdz`.
+- Schreibsystem-Untertag
+  - : Optional. Dieser Untertag definiert das für die Sprache verwendete Schriftsystem und ist immer 4 Zeichen lang, wobei der erste Buchstabe großgeschrieben wird. Zum Beispiel ist Französisch-in-Braille `fr-Brai` und `ja-Kana` ist Japanisch geschrieben mit dem Katakana-Alphabet. Wenn die Sprache in einer stark typischen Weise geschrieben wird, wie Englisch im lateinischen Alphabet, ist es nicht notwendig, diesen Untertag zu verwenden.
+- Regions-Untertag
+  - : Optional. Dieser Untertag definiert einen Dialekt der Basissprache aus einem bestimmten Ort und besteht entweder aus zwei Großbuchstaben, die einem Ländercode entsprechen, oder drei Ziffern, die einem Gebiet außerhalb der Ländergrenzen entsprechen. Zum Beispiel steht `es-ES` für Spanisch, wie es in Spanien gesprochen wird, und `es-013` für Spanisch, wie es in Mittelamerika gesprochen wird. "Internationales Spanisch" wäre einfach `es`.
 
-Zum Beispiel enthält das Sprachmenü auf dieser Seite (MDN) für jedes Eintrag ein **`lang`**-Attribut:
+Der Schreibsystem-Untertag geht dem Regions-Untertag voraus, wenn beide vorhanden sind — `ru-Cyrl-BY` ist Russisch, geschrieben im kyrillischen Alphabet, wie es in Weißrussland gesprochen wird.
+
+Um die richtigen Untertag-Codes für eine Sprache zu finden, verwenden Sie [die Language Subtag Lookup](https://r12a.github.io/app-subtags/).
+
+## Zugänglichkeitsbedenken
+
+Das WCAG-Erfolgskriterium 3.1.1 **erfordert**, dass die Seitensprache auf eine Weise angegeben wird, die 'programmatisch bestimmt' werden kann (d.h. über das **`lang`**-Attribut).
+
+Das WCAG-Erfolgskriterium 3.1.2 erfordert, dass Seiten mit **Teilen** in verschiedenen Sprachen auch die Sprachen dieser Teile spezifizieren. Auch hier ist das **`lang`**-Attribut der richtige Mechanismus dafür.
+
+Der Zweck dieser Anforderungen ist es hauptsächlich, assistierende Technologien wie Bildschirmlesegeräte in die Lage zu versetzen, die richtige Aussprache zu nutzen.
+
+Zum Beispiel enthält das Sprachmenü auf dieser Seite (MDN) ein **`lang`**-Attribut für jeden Eintrag:
 
 ```html
 <div class="dropdown-container language-menu">
@@ -134,7 +156,7 @@ Zum Beispiel enthält das Sprachmenü auf dieser Seite (MDN) für jedes Eintrag 
 
 ## Vererbung
 
-Wenn ein Element kein `lang`-Attribut hat, erbt es den `lang`-Wert vom {{Glossary("Node/DOM", "übergeordneten Knoten")}}, der wiederum von seinem übergeordneten Element erben kann, und so weiter.
+Wenn ein Element kein `lang`-Attribut besitzt, übernimmt es den `lang`-Wert von seinem {{Glossary("Node/DOM", "übergeordneten Knoten")}}, der wiederum von seinem übergeordneten Knoten erben kann, und so weiter.
 
 ## Spezifikationen
 

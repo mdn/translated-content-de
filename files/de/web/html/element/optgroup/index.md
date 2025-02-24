@@ -1,27 +1,50 @@
 ---
-title: "<optgroup>: Das Option Group Element"
+title: "<optgroup>: Das Option Group-Element"
 slug: Web/HTML/Element/optgroup
 l10n:
-  sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<optgroup>`** [HTML](/de/docs/Web/HTML) Element erstellt eine Gruppierung von Optionen innerhalb eines {{HTMLElement("select")}} Elements.
+Das **`<optgroup>`** [HTML](/de/docs/Web/HTML)-Element erstellt eine Gruppierung von Optionen innerhalb eines {{HTMLElement("select")}}-Elements.
 
-{{EmbedInteractiveExample("pages/tabbed/optgroup.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;optgroup&gt;", "tabbed-standard")}}
+
+```html interactive-example
+<label for="dino-select">Choose a dinosaur:</label>
+<select id="dino-select">
+  <optgroup label="Theropods">
+    <option>Tyrannosaurus</option>
+    <option>Velociraptor</option>
+    <option>Deinonychus</option>
+  </optgroup>
+  <optgroup label="Sauropods">
+    <option>Diplodocus</option>
+    <option>Saltasaurus</option>
+    <option>Apatosaurus</option>
+  </optgroup>
+</select>
+```
+
+```css interactive-example
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+```
 
 > [!NOTE]
-> Optgroup-Elemente dürfen nicht geschachtelt werden.
+> Optgroup-Elemente dürfen nicht verschachtelt werden.
 
 ## Attribute
 
-Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
-  - : Wenn dieses boolesche Attribut gesetzt ist, ist keines der Elemente in dieser Optionsgruppe auswählbar. Oftmals werden solche Steuerelemente in Browsern ausgegraut und sie erhalten keine Browsing-Ereignisse, wie Mausklicks oder fokusbezogene Ereignisse.
+  - : Wenn dieses Boolean-Attribut gesetzt ist, kann keins der Elemente in dieser Optionsgruppe ausgewählt werden. Oft wird diese Steuerung in Browsern ausgegraut und erhält keine Browserevents, wie zum Beispiel Mausklicks oder Fokus-bezogene Ereignisse.
 - `label`
-  - : Der Name der Optionsgruppe, den der Browser verwenden kann, um die Optionen in der Benutzeroberfläche zu beschriften. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
+  - : Der Name der Optionsgruppe, den der Browser zur Beschriftung der Optionen in der Benutzeroberfläche verwenden kann. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
 
 ## Beispiele
 
@@ -60,19 +83,17 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Null oder mehr {{HTMLElement("option")}} Elemente.</td>
+      <td>Null oder mehr {{HTMLElement("option")}}-Elemente.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Der Start-Tag ist obligatorisch. Der End-Tag ist optional, wenn dieses Element
-        unmittelbar von einem anderen <code>&#x3C;optgroup></code> Element gefolgt wird oder
-        wenn das Elternelement keinen weiteren Inhalt hat.
+        Das Start-Tag ist obligatorisch. Das End-Tag ist optional, wenn dieses Element direkt von einem anderen <code>&#x3C;optgroup></code>-Element gefolgt wird oder wenn das Elternelement keinen weiteren Inhalt hat.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
-      <td>Ein {{HTMLElement("select")}} Element.</td>
+      <td>Ein {{HTMLElement("select")}}-Element.</td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>

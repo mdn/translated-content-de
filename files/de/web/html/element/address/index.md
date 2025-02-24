@@ -1,19 +1,38 @@
 ---
-title: "<address>: Das Kontaktadressenelement"
+title: "<address>: Das Kontaktadressen-Element"
 slug: Web/HTML/Element/address
 l10n:
-  sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<address>`** [HTML](/de/docs/Web/HTML)-Element gibt an, dass das eingeschlossene HTML Kontaktinformationen für eine Person oder Personen oder für eine Organisation bereitstellt.
+Das **`<address>`** [HTML](/de/docs/Web/HTML)-Element zeigt an, dass die darin enthaltene HTML-Kontaktinformationen für eine Person oder Personen oder für eine Organisation bereitstellt.
 
-{{EmbedInteractiveExample("pages/tabbed/address.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;address&gt;", "tabbed-standard")}}
 
-Die vom Inhalt eines `<address>`-Elements bereitgestellten Kontaktinformationen können in jeglicher Form vorliegen, die für den Kontext angemessen ist, und können jede Art von benötigten Kontaktinformationen enthalten, wie z.B. eine physische Adresse, URL, E-Mail-Adresse, Telefonnummer, Social-Media-Handle, geografische Koordinaten usw. Das `<address>`-Element sollte den Namen der Person, der Personen oder der Organisation enthalten, auf die sich die Kontaktinformationen beziehen.
+```html interactive-example
+<p>Contact the author of this page:</p>
 
-`<address>` kann in verschiedenen Kontexten verwendet werden, z.B. um die Kontaktinformationen eines Unternehmens im Seitenkopf bereitzustellen oder um den Autor eines Artikels zu kennzeichnen, indem ein `<address>`-Element im {{HTMLElement("article")}} enthalten ist.
+<address>
+  <a href="mailto:jim@example.com">jim@example.com</a><br />
+  <a href="tel:+14155550132">+1 (415) 555‑0132</a>
+</address>
+```
+
+```css interactive-example
+a[href^="mailto"]::before {
+  content: "📧 ";
+}
+
+a[href^="tel"]::before {
+  content: "📞 ";
+}
+```
+
+Die von einem `<address>`-Element bereitgestellten Kontaktinformationen können in jeder form für den Kontext geeignet sein und können jegliche Art von benötigten Kontaktinformationen enthalten, wie z.B. eine physikalische Adresse, URL, E-Mail-Adresse, Telefonnummer, Social Media-Handle, geografische Koordinaten und so weiter. Das `<address>`-Element sollte den Namen der Person, Personen oder Organisation enthalten, auf die sich die Kontaktinformationen beziehen.
+
+`<address>` kann in einer Vielzahl von Kontexten verwendet werden, wie z.B. Bereitstellung von Kontaktinformationen eines Unternehmens im Seitenkopf oder Angabe des Autors eines Artikels durch Einfügen eines `<address>`-Elements innerhalb des {{HTMLElement("article")}}.
 
 ## Attribute
 
@@ -21,13 +40,13 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Nutzungshinweise
 
-- Das `<address>`-Element kann nur verwendet werden, um die Kontaktinformationen für sein nächstliegendes Vorfahrenelement {{HTMLElement("article")}} oder {{HTMLElement("body")}} darzustellen.
-- Dieses Element sollte keine Informationen enthalten, die über die Kontaktinformationen hinausgehen, wie z.B. ein Veröffentlichungsdatum (das in ein {{HTMLElement("time")}} Element gehört).
-- Typischerweise kann ein `<address>`-Element innerhalb des {{HTMLElement("footer")}}-Elements des aktuellen Abschnitts platziert werden, sofern vorhanden.
+- Das `<address>`-Element kann nur verwendet werden, um die Kontaktinformationen für sein nächstes {{HTMLElement("article")}}- oder {{HTMLElement("body")}}-Element als Vorfahren darzustellen.
+- Dieses Element sollte nicht mehr Informationen als die Kontaktinformationen enthalten, wie z.B. ein Veröffentlichungsdatum (das gehört in ein {{HTMLElement("time")}}-Element).
+- Typischerweise kann ein `<address>`-Element innerhalb des {{HTMLElement("footer")}}-Elements des aktuellen Abschnitts platziert werden, falls vorhanden.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung von `<address>`, um die Kontaktinformationen für den Autor eines Artikels zu kennzeichnen.
+Dieses Beispiel demonstriert die Verwendung von `<address>`, um die Kontaktinformationen des Autors eines Artikels abzugrenzen.
 
 ```html
 <address>
@@ -47,7 +66,7 @@ Dieses Beispiel zeigt die Verwendung von `<address>`, um die Kontaktinformatione
 
 {{EmbedLiveSample("Examples", "300", "200")}}
 
-Obwohl es Text mit derselben Standardformatierung wie die {{HTMLElement("i")}}- oder {{HTMLElement("em")}}-Elemente rendert, ist es angemessener, `<address>` zu verwenden, wenn es um Kontaktinformationen geht, da es zusätzliche semantische Informationen vermittelt.
+Obwohl es den Text mit demselben Standardstil wie die {{HTMLElement("i")}}- oder {{HTMLElement("em")}}-Elemente rendert, ist es angemessener, `<address>` zu verwenden, wenn es um Kontaktinformationen geht, da es zusätzliche semantische Informationen vermittelt.
 
 ## Technische Zusammenfassung
 
@@ -61,42 +80,42 @@ Obwohl es Text mit derselben Standardformatierung wie die {{HTMLElement("i")}}- 
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluss-Inhalt</a
-        >, greifbarer Inhalt.
+          >Fließende Inhalte</a
+        >, greifbare Inhalte.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Fließende Inhalte</a
         >, aber ohne verschachtelte <code>&#x3C;address></code>-Elemente, keine
-        Überschriften-Inhalte ({{HTMLElement("hgroup")}}, {{HTMLElement("Heading_Elements", "h1")}},
+        Überschrifteninhalte ({{HTMLElement("hgroup")}}, {{HTMLElement("Heading_Elements", "h1")}},
         {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}},
         {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}},
-        {{HTMLElement("Heading_Elements", "h6")}}), keine Gliederungsinhalte
+        {{HTMLElement("Heading_Elements", "h6")}}), keine Abschnittsinhalte
         ({{HTMLElement("article")}}, {{HTMLElement("aside")}},
         {{HTMLElement("section")}}, {{HTMLElement("nav")}}), und
-        kein {{HTMLElement("header")}} oder {{HTMLElement("footer")}}
-        Element.
+        keine {{HTMLElement("header")}} oder {{HTMLElement("footer")}}
+        Elemente.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Anfangs- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das Endzeichen sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluss-Inhalt</a
-        > akzeptiert, aber immer ausgenommen <code>&#x3C;address></code>-Elemente (nach
-        dem logischen Symmetrieprinzip, wenn
-        das <code>&#x3C;address></code>-Tag, als Eltern, kein verschachteltes
-        <code>&#x3C;address></code>-Element haben kann, dann kann derselbe
-        <code>&#x3C;address></code>-Inhalt nicht
-        <code>&#x3C;address></code>-Tag als Eltern haben).
+          >fließende Inhalte</a
+        > akzeptiert, jedoch immer ohne <code>&#x3C;address></code>-Elemente
+        (nach dem logischen Prinzip der Symmetrie kann, wenn
+        <code>&#x3C;address></code> als übergeordnetes Element keine verschachtelten
+        <code>&#x3C;address></code>-Elemente enthalten kann, dasselbe
+        <code>&#x3C;address></code> kein <code>&#x3C;address></code>-Tag als
+        übergeordneten Element enthalten).
       </td>
     </tr>
     <tr>
@@ -111,13 +130,12 @@ Obwohl es Text mit derselben Standardformatierung wie die {{HTMLElement("i")}}- 
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Beliebige</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Vor Gecko 2.0 (Firefox 4),
-        implementierte Gecko dieses Element mit der
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Vor Gecko 2.0 (Firefox 4) implementierte Gecko dieses Element unter Verwendung der
         [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Schnittstelle
       </td>
     </tr>

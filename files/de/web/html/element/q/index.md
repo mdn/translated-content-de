@@ -1,15 +1,31 @@
 ---
-title: "<q>: Das Inline-Zitat-Element"
+title: "<q>: Das Inline-Quote-Element"
 slug: Web/HTML/Element/q
 l10n:
-  sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<q>`** [HTML](/de/docs/Web/HTML) Element zeigt an, dass der eingeschlossene Text ein kurzes Inline-Zitat ist. Die meisten modernen Browser implementieren dies, indem sie den Text in Anführungszeichen setzen. Dieses Element ist für kurze Zitate gedacht, die keine Absatzumbrüche erfordern; für längere Zitate verwenden Sie das {{HTMLElement("blockquote")}} Element.
+Das **`<q>`** [HTML](/de/docs/Web/HTML)-Element zeigt an, dass der eingeschlossene Text ein kurzes Inline-Zitat ist. Die meisten modernen Browser setzen dies um, indem sie den Text in Anführungszeichen setzen. Dieses Element ist für kurze Zitate gedacht, die keine Absatzumbrüche erfordern; für längere Zitate verwenden Sie das {{HTMLElement("blockquote")}}-Element.
 
-{{EmbedInteractiveExample("pages/tabbed/q.html", "tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: &lt;q&gt;", "tabbed-shorter")}}
+
+```html interactive-example
+<p>
+  When Dave asks HAL to open the pod bay door, HAL answers:
+  <q
+    cite="https://www.imdb.com/title/tt0062622/quotes/?item=qt0396921&ref_=ext_shr_lnk">
+    I'm sorry, Dave. I'm afraid I can't do that.
+  </q>
+</p>
+```
+
+```css interactive-example
+q {
+  font-style: italic;
+}
+```
 
 ## Attribute
 
@@ -45,32 +61,33 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalte</a
-        >, fühlbare Inhalte.
+          >Textinhalt</a
+        >, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalte</a
+          >Textinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalte</a
-        > akzeptiert.
+          >Textinhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -78,14 +95,14 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generic</a
+            >generisch</a
           ></code
         >
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Jede</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -104,5 +121,5 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
 
 ## Siehe auch
 
-- Das {{HTMLElement("blockquote")}} Element für lange Zitate.
-- Das {{HTMLElement("cite")}} Element für Quellenangaben.
+- Das {{HTMLElement("blockquote")}}-Element für lange Zitate.
+- Das {{HTMLElement("cite")}}-Element für Quellenangaben.

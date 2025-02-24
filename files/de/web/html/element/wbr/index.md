@@ -1,29 +1,47 @@
 ---
-title: "<wbr>: Das Line Break Opportunity-Element"
+title: "<wbr>: Das Wort-Trenner-Möglichkeit-Element"
 slug: Web/HTML/Element/wbr
 l10n:
-  sourceCommit: 0af6781c93ffe3d011a060b4e517187cf780e93a
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<wbr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Worttrennungsmöglichkeit — eine Position im Text, an der der Browser optional eine Zeile brechen kann, obwohl seine Zeilenumbruchregeln ansonsten keinen Umbruch an dieser Stelle erzeugen würden.
+Das **`<wbr>`** [HTML](/de/docs/Web/HTML)-Element stellt eine Wort-Trennungsmöglichkeit dar – eine Position innerhalb eines Textes, an der der Browser optional eine Zeile brechen kann, obwohl seine Zeilenbrechungsregeln normalerweise keinen Bruch an dieser Stelle erzeugen würden.
 
-{{EmbedInteractiveExample("pages/tabbed/wbr.html", "tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: &lt;wbr&gt;", "tabbed-shorter")}}
+
+```html interactive-example
+<div id="example-paragraphs">
+  <p>Fernstraßenbauprivatfinanzierungsgesetz</p>
+  <p>Fernstraßen<wbr />bau<wbr />privat<wbr />finanzierungs<wbr />gesetz</p>
+  <p>Fernstraßen&shy;bau&shy;privat&shy;finanzierungs&shy;gesetz</p>
+</div>
+```
+
+```css interactive-example
+#example-paragraphs {
+  background-color: white;
+  overflow: hidden;
+  resize: horizontal;
+  width: 9rem;
+  border: 2px dashed #999;
+}
+```
 
 ## Attribute
 
 Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Hinweise
+## Anmerkungen
 
-Auf UTF-8 codierten Seiten verhält sich `<wbr>` wie der `U+200B ZERO-WIDTH SPACE` Codepunkt. Insbesondere verhält es sich wie ein Unicode bidi BN Codepunkt, was bedeutet, dass es keinen Effekt auf die {{Glossary("bidi", "bidi")}}-Reihenfolge hat: `<div dir=rtl>123,<wbr>456</div>` zeigt, wenn nicht auf zwei Zeilen gebrochen, `123,456` und nicht `456,123`.
+Auf UTF-8-kodierten Seiten verhält sich `<wbr>` wie der `U+200B ZERO-WIDTH SPACE` Codepunkt. Insbesondere verhält es sich wie ein Unicode Bidi BN Codepunkt, was bedeutet, dass es keinen Effekt auf die {{Glossary("bidi", "Bidi")}}-Anordnung hat: `<div dir=rtl>123,<wbr>456</div>` wird, wenn nicht auf zwei Zeilen gebrochen, als `123,456` und nicht als `456,123` angezeigt.
 
-Aus demselben Grund führt das `<wbr>`-Element keinen Bindestrich an der Zeilenumbruchstelle ein. Um einen Bindestrich nur am Zeilenende anzuzeigen, verwenden Sie stattdessen das weiche Bindestrich-Zeichen (`&shy;`).
+Aus demselben Grund fügt das `<wbr>`-Element keinen Bindestrich an der Zeilenbrechstelle hinzu. Um einen Bindestrich nur am Ende einer Zeile erscheinen zu lassen, verwenden Sie stattdessen das weiche Bindestrich-Zeichenentity (`&shy;`).
 
 ## Beispiele
 
-_[Der Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://styleguide.yahoo.com/)_ empfiehlt, [einen URL _vor_ einem Satzzeichen zu brechen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses), um zu vermeiden, dass ein Satzzeichen am Zeilenende stehen bleibt, das der Leser möglicherweise als Ende des URL missversteht.
+_Der [Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://styleguide.yahoo.com/)_ empfiehlt, [eine URL _vor_ einem Satzzeichen zu brechen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses), um zu vermeiden, dass ein Satzzeichen am Ende der Zeile stehen bleibt, das der Leser möglicherweise als Ende der URL missverstehen könnte.
 
 ```html
 <p>
@@ -47,10 +65,10 @@ _[Der Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://style
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließ-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Satzinhalt</a
         >.
       </td>
     </tr>
@@ -67,7 +85,7 @@ _[Der Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://style
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Satzinhalt</a
         >
         akzeptiert.
       </td>
@@ -82,7 +100,7 @@ _[Der Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://style
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

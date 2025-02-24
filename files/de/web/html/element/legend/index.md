@@ -1,19 +1,46 @@
 ---
-title: "<legend>: Das Legenden-Element für Fieldsets"
+title: "<legend>: Das Field Set Legend-Element"
 slug: Web/HTML/Element/legend
 l10n:
-  sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<legend>`** [HTML](/de/docs/Web/HTML) Element repräsentiert eine Beschriftung für den Inhalt des übergeordneten {{HTMLElement("fieldset")}}.
+Das **`<legend>`** [HTML](/de/docs/Web/HTML)-Element stellt eine Beschriftung für den Inhalt seines übergeordneten {{HTMLElement("fieldset")}} dar.
 
-{{EmbedInteractiveExample("pages/tabbed/legend.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;legend&gt;", "tabbed-standard")}}
+
+```html interactive-example
+<fieldset>
+  <legend>Choose your favorite monster</legend>
+
+  <input type="radio" id="kraken" name="monster" value="K" />
+  <label for="kraken">Kraken</label><br />
+
+  <input type="radio" id="sasquatch" name="monster" value="S" />
+  <label for="sasquatch">Sasquatch</label><br />
+
+  <input type="radio" id="mothman" name="monster" value="M" />
+  <label for="mothman">Mothman</label>
+</fieldset>
+```
+
+```css interactive-example
+legend {
+  background-color: #000;
+  color: #fff;
+  padding: 3px 6px;
+}
+
+input {
+  margin: 0.4rem;
+}
+```
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
@@ -26,7 +53,8 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
     <tr>
       <th scope="row">
         <a href="/de/docs/Web/HTML/Content_categories"
-          >Inhaltskategorien</a>
+          >Inhaltskategorien</a
+        >
       </th>
       <td>Keine.</td>
     </tr>
@@ -34,7 +62,8 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierung</a>
+          >Phrasierungsinhalt</a
+        >
         und
         <a href="/de/docs/Web/HTML/Element/Heading_Elements">Überschriften</a>
         (h1–h6 Elemente).
@@ -42,7 +71,7 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der startende als auch der endende Tag sind verpflichtend.</td>
+      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -55,7 +84,8 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
-          >Keine entsprechende Rolle</a>
+          >Keine entsprechende Rolle</a
+        >
       </td>
     </tr>
     <tr>
@@ -79,4 +109,4 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
 
 ## Siehe auch
 
-- [ARIA: Form role](/de/docs/Web/Accessibility/ARIA/Roles/form_role)
+- [ARIA: Formularrolle](/de/docs/Web/Accessibility/ARIA/Roles/form_role)

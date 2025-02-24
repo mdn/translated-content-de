@@ -2,40 +2,77 @@
 title: contenteditable
 slug: Web/HTML/Global_attributes/contenteditable
 l10n:
-  sourceCommit: 4d22748d5c77e54f6168b2f4d860c4a2081393d2
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`contenteditable`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein aufgezähltes Attribut, das angibt, ob das Element vom Benutzer bearbeitbar sein soll. Falls ja, modifiziert der Browser sein Widget, um die Bearbeitung zu ermöglichen.
+Das **`contenteditable`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein aufgezähltes Attribut, das angibt, ob das Element vom Benutzer bearbeitbar sein soll. Ist dies der Fall, ändert der Browser sein Widget, um die Bearbeitung zu ermöglichen.
 
-{{EmbedInteractiveExample("pages/tabbed/attribute-contenteditable.html","tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: contenteditable", "tabbed-shorter")}}
+
+```html interactive-example
+<blockquote contenteditable="true">
+  <p>Edit this content to add your own quote</p>
+</blockquote>
+
+<cite contenteditable="true">-- Write your own name here</cite>
+```
+
+```css interactive-example
+blockquote {
+  background: #eee;
+  border-radius: 5px;
+  margin: 16px 0;
+}
+
+blockquote p {
+  padding: 15px;
+}
+
+cite {
+  margin: 16px 32px;
+  font-weight: bold;
+}
+
+blockquote p::before {
+  content: "\201C";
+}
+
+blockquote p::after {
+  content: "\201D";
+}
+
+[contenteditable="true"] {
+  caret-color: red;
+}
+```
 
 ## Wert
 
-Das Attribut muss einen der folgenden Werte haben:
+Das Attribut muss einen der folgenden Werte annehmen:
 
-- `true` oder ein _leerer String_, was angibt, dass das Element bearbeitbar ist.
+- `true` oder ein _leer Zeichen_, was anzeigt, dass das Element bearbeitbar ist.
 - `false`, was anzeigt, dass das Element nicht bearbeitbar ist.
-- `plaintext-only`, was angibt, dass der Rohtext des Elements bearbeitbar ist, jedoch die Formatierung von Rich-Text deaktiviert ist.
+- `plaintext-only`, was anzeigt, dass der rohe Text des Elements bearbeitbar ist, jedoch die Formatierung von Rich-Text deaktiviert ist.
 
-Wenn das Attribut ohne Wert angegeben wird, wie in `<label contenteditable>Beispiel Etikett</label>`, wird sein Wert als leerer String behandelt.
+Wird das Attribut ohne einen Wert angegeben, wie `<label contenteditable>Beispiel-Label</label>`, wird sein Wert als leeres Zeichen behandelt.
 
-Wenn dieses Attribut fehlt oder sein Wert ungültig ist, wird sein Wert von seinem übergeordneten Element _geerbt_: Das Element ist also bearbeitbar, wenn sein übergeordnetes Element bearbeitbar ist.
+Falls dieses Attribut fehlt oder sein Wert ungültig ist, wird sein Wert von seinem Elternelement _geerbt_: Das Element ist also bearbeitbar, wenn sein Elternteil bearbeitbar ist.
 
-Beachten Sie, dass obwohl die erlaubten Werte `true` und `false` enthalten, dieses Attribut ein _{{Glossary("Enumerated", "aufgezähltes")}}_ und kein _Boolesches_ Attribut ist.
+Beachten Sie, dass dieses Attribut, obwohl es die erlaubten Werte `true` und `false` enthält, ein _{{Glossary("Enumerated", "aufgezähltes")}}_ und kein _Boolean_-Attribut ist.
 
-Sie können die Farbe, die zum Zeichnen des Text-Einfügemarkens verwendet wird, mit der CSS-Eigenschaft {{cssxref("caret-color")}} festlegen.
+Sie können die Farbe, die zur Darstellung des Texteingabecursors verwendet wird, mit der CSS-Eigenschaft {{cssxref("caret-color")}} festlegen.
 
-Elemente, die mit dem Attribut `contenteditable` bearbeitbar und dadurch interaktiv gemacht werden, können fokussiert werden. Sie nehmen an der sequentiellen Tastaturnavigation teil. Allerdings werden Elemente mit dem `contenteditable`-Attribut, die in andere `contenteditable`-Elemente eingebettet sind, standardmäßig nicht in die Tabulator-Sequenz aufgenommen. Sie können die eingebetteten `contenteditable`-Elemente zur Tastatur-Navigationssequenz hinzufügen, indem Sie den `tabindex`-Wert angeben ([`tabindex="0"`](/de/docs/Web/HTML/Global_attributes/tabindex)).
+Elemente, die durch das `contenteditable`-Attribut bearbeitbar und somit interaktiv gemacht werden, können fokussiert werden. Sie nehmen an sequentieller Tastaturnavigation teil. Allerdings werden Elemente mit dem `contenteditable`-Attribut, die sich innerhalb anderer `contenteditable`-Elemente befinden, standardmäßig nicht zur Tab-Reihenfolge hinzugefügt. Sie können die verschachtelten `contenteditable`-Elemente zur Tastaturnavigationssequenz hinzufügen, indem Sie den Wert von `tabindex` angeben ([`tabindex="0"`](/de/docs/Web/HTML/Global_attributes/tabindex)).
 
-Wenn Inhalt in ein Element mit `contenteditable="true"` eingefügt wird, bleibt die gesamte Formatierung erhalten. Wenn Inhalte in ein Element mit `contenteditable="plaintext-only"` eingefügt werden, wird alle Formatierung entfernt.
+Wenn Inhalte in ein Element mit `contenteditable="true"` eingefügt werden, bleibt die gesamte Formatierung erhalten. Werden Inhalte in ein Element mit `contenteditable="plaintext-only"` eingefügt, wird die gesamte Formatierung entfernt.
 
 ## Beispiele
 
-### Inhalte in `contenteditable` einfügen
+### Einfügen von Inhalten in contenteditable
 
-Dieses Beispiel enthält zwei {{HTMLElement("div")}}-Elemente mit `contenteditable`, das erste mit dem Wert `true` und das zweite mit dem Wert `plaintext-only`. Kopieren Sie den untenstehenden Inhalt und fügen Sie ihn in jedes `div` ein, um ihre Effekte zu sehen.
+Dieses Beispiel hat zwei {{HTMLElement("div")}}-Elemente mit `contenteditable`, das erste mit dem Wert `true` und das zweite mit dem Wert `plaintext-only`. Kopieren Sie den Inhalt unten und fügen Sie ihn in jedes `div` ein, um ihre Effekte zu sehen.
 
 #### HTML
 
@@ -130,4 +167,4 @@ h2 {
 - Alle [globalen Attribute](/de/docs/Web/HTML/Global_attributes)
 - [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable) und [`HTMLElement.isContentEditable`](/de/docs/Web/API/HTMLElement/isContentEditable)
 - Die CSS-Eigenschaft {{cssxref("caret-color")}}
-- [HTMLElement `input`-Ereignis](/de/docs/Web/API/Element/input_event)
+- [HTMLElement `input` Event](/de/docs/Web/API/Element/input_event)

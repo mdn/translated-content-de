@@ -2,16 +2,42 @@
 title: "<bdo>: Das Bidirectional Text Override Element"
 slug: Web/HTML/Element/bdo
 l10n:
-  sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<bdo>`** [HTML](/de/docs/Web/HTML)-Element überschreibt die aktuelle Textausrichtung, sodass der Text innerhalb des Elements in einer anderen Richtung dargestellt wird.
+Das **`<bdo>`**-[HTML](/de/docs/Web/HTML) Element überschreibt die aktuelle Textausrichtung, sodass der Text innerhalb des Elements in einer anderen Richtung angezeigt wird.
 
-{{EmbedInteractiveExample("pages/tabbed/bdo.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;bdo&gt;", "tabbed-standard")}}
 
-Die Zeichen des Textes werden vom Ausgangspunkt in die vorgegebene Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird nicht beeinflusst (die Zeichen werden zum Beispiel nicht rückwärts gezeichnet).
+```html interactive-example
+<h1>Famous seaside songs</h1>
+
+<p>The English song "Oh I do like to be beside the seaside"</p>
+
+<p>
+  Looks like this in Hebrew:
+  <span dir="rtl">אה, אני אוהב להיות ליד חוף הים</span>
+</p>
+
+<p>
+  In the computer's memory, this is stored as
+  <bdo dir="ltr">אה, אני אוהב להיות ליד חוף הים</bdo>
+</p>
+```
+
+```css interactive-example
+html {
+  font-family: sans-serif;
+}
+
+/* stylelint-disable-next-line block-no-empty */
+bdo {
+}
+```
+
+Die Zeichen des Textes werden vom Startpunkt in die angegebene Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird dabei nicht beeinflusst (z.B. werden Zeichen nicht rückwärts gezeichnet).
 
 ## Attribute
 
@@ -19,10 +45,10 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 - `dir`
 
-  - : Die Richtung, in die der Text innerhalb dieses Elements gerendert werden soll. Mögliche Werte sind:
+  - : Die Richtung, in die der Text in den Inhalten dieses Elements gerendert werden soll. Mögliche Werte sind:
 
-    - `ltr`: Gibt an, dass der Text in einer Links-nach-Rechts-Richtung verlaufen soll.
-    - `rtl`: Gibt an, dass der Text in einer Rechts-nach-Links-Richtung verlaufen soll.
+    - `ltr`: Gibt an, dass der Text von links nach rechts verlaufen soll.
+    - `rtl`: Gibt an, dass der Text von rechts nach links verlaufen soll.
 
 ## Beispiele
 
@@ -38,9 +64,9 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 ## Anmerkungen
 
-Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
+Die HTML 4-Spezifikation spezifizierte keine Events für dieses Element; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
@@ -56,11 +82,11 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
-        >, greifbarer Inhalt.
+        >, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
@@ -69,15 +95,16 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
-        > akzeptiert.
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -95,15 +122,15 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie
       <td>Beliebig</td>
     </tr>
     <tr>
-      <th scope="row">DOM-Schnittstelle</th>
+      <th scope="row">DOM-Interface</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox die
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox das
         <code
           ><a href="/de/docs/Web/API/HTMLSpanElement"
             >HTMLSpanElement</a
           ></code
         >
-        Schnittstelle für dieses Element.
+        Interface für dieses Element.
       </td>
     </tr>
   </tbody>

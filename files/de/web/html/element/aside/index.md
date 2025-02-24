@@ -1,29 +1,63 @@
 ---
-title: "<aside>: Das Aside-Element"
+title: "<aside>: Das Element Aside"
 slug: Web/HTML/Element/aside
 l10n:
-  sourceCommit: 829db137a01feb14af7beaec178a3ea0118b4777
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<aside>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Teil eines Dokuments, dessen Inhalt nur indirekt mit dem Hauptinhalt des Dokuments in Verbindung steht. Asides werden häufig als Seitenleisten oder hervorgehobene Boxen dargestellt.
+Das **`<aside>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Teil eines Dokuments, dessen Inhalt nur indirekt mit dem Hauptinhalt des Dokuments in Verbindung steht. `Aside`-Elemente werden häufig als Seitenleisten oder hervorhebende Kästen dargestellt.
 
-{{EmbedInteractiveExample("pages/tabbed/aside.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;aside&gt;", "tabbed-standard")}}
+
+```html interactive-example
+<p>
+  Salamanders are a group of amphibians with a lizard-like appearance, including
+  short legs and a tail in both larval and adult forms.
+</p>
+
+<aside>
+  <p>The Rough-skinned Newt defends itself with a deadly neurotoxin.</p>
+</aside>
+
+<p>
+  Several species of salamander inhabit the temperate rainforest of the Pacific
+  Northwest, including the Ensatina, the Northwestern Salamander and the
+  Rough-skinned Newt. Most salamanders are nocturnal, and hunt for insects,
+  worms and other small creatures.
+</p>
+```
+
+```css interactive-example
+aside {
+  width: 40%;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+  float: right;
+  box-shadow: inset 5px 0 5px -5px #29627e;
+  font-style: italic;
+  color: #29627e;
+}
+
+aside > p {
+  margin: 0.5rem;
+}
+```
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-- Verwenden Sie das `<aside>`-Element nicht, um eingeklammerten Text zu kennzeichnen, da diese Art von Text als Teil des Hauptflusses betrachtet wird.
+- Verwenden Sie das `<aside>`-Element nicht, um eingeklammerte Texte zu kennzeichnen, da dieser Text als Teil des Hauptflusses betrachtet wird.
 
 ## Beispiele
 
 ### Verwendung von \<aside>
 
-Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markieren. Der Absatz steht nur indirekt in Zusammenhang mit dem Hauptinhalt des Artikels:
+Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markieren. Der Absatz ist nur indirekt mit dem Hauptinhalt des Artikels verbunden:
 
 ```html
 <article>
@@ -54,14 +88,14 @@ Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markier
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >,
         <a
           href="/de/docs/Web/HTML/Content_categories#sectioning_content"
-          >Strukturierungsinhalt</a
+          >gliedernder Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#palpable_content"
-          >fühlbarer Inhalt</a
+          >wahrnehmbarer Inhalt</a
         >.
       </td>
     </tr>
@@ -69,25 +103,25 @@ Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markier
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Starttag als auch der Endtag sind erforderlich.</td>
+      <th scope="row">Weglassung von Tags</th>
+      <td>Keine, sowohl der Anfangs- als auch der Endtag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >fließenden Inhalt</a
         > akzeptiert. Beachten Sie, dass ein <code>&#x3C;aside></code>-Element kein Nachkomme eines {{HTMLElement("address")}}-Elements sein darf.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/complementary_role"
@@ -121,6 +155,6 @@ Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markier
 
 ## Siehe auch
 
-- Andere strukturbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("nav")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
-- [Verwendung von HTML-Abschnitten und -Gliederungen](/de/docs/Web/HTML/Element/Heading_Elements)
-- [ARIA: Komplementäre Rolle](/de/docs/Web/Accessibility/ARIA/Roles/complementary_role)
+- Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("nav")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
+- [Verwendung von HTML-Sektionen und Gliederungen](/de/docs/Web/HTML/Element/Heading_Elements)
+- [ARIA: Complementary-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/complementary_role)

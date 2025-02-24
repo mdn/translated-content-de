@@ -1,32 +1,60 @@
 ---
-title: "`<div>`: Das Inhaltsteilungselement"
+title: "<div>: Das Content Division Element"
 slug: Web/HTML/Element/div
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<div>`** [HTML](/de/docs/Web/HTML)-Element ist der generische Container für Flussinhalt. Es hat keine Auswirkung auf den Inhalt oder das Layout, bis es in irgendeiner Weise mit {{Glossary("CSS", "CSS")}} gestylt wird (z.B. wird Styling direkt darauf angewendet, oder ein Layoutmodell wie [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) wird auf das Elternelement angewendet).
+Das **`<div>`** [HTML](/de/docs/Web/HTML) Element ist der generische Container für Flussinhalt. Es hat keinen Einfluss auf den Inhalt oder das Layout, bis es in irgendeiner Weise mit {{Glossary("CSS", "CSS")}} gestaltet wird (z.B. wenn es direkt gestylt wird oder ein Layoutmodell wie [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) auf das übergeordnete Element angewendet wird).
 
-{{EmbedInteractiveExample("pages/tabbed/div.html","tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;div&gt;", "tabbed-standard")}}
 
-Als "reiner" Container repräsentiert das `<div>`-Element von sich aus nichts. Stattdessen wird es verwendet, um Inhalte zu gruppieren, die leicht mit den Attributen [`class`](/de/docs/Web/HTML/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Global_attributes/id) gestaltet werden können, um einen Abschnitt eines Dokuments als in einer anderen Sprache geschrieben zu markieren (unter Verwendung des [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Attributs) usw.
+```html interactive-example
+<div class="warning">
+  <img
+    src="/shared-assets/images/examples/leopard.jpg"
+    alt="An intimidating leopard." />
+  <p>Beware of the leopard</p>
+</div>
+```
+
+```css interactive-example
+.warning {
+  border: 10px ridge #f00;
+  background-color: #ff0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.warning img {
+  width: 100%;
+}
+
+.warning p {
+  font: small-caps bold 1.2rem sans-serif;
+  text-align: center;
+}
+```
+
+Als "reiner" Container stellt das `<div>`-Element an sich nichts dar. Stattdessen wird es verwendet, um Inhalte zu gruppieren, damit sie leicht mit den Attributen [`class`](/de/docs/Web/HTML/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Global_attributes/id) gestylt werden können, um einen Abschnitt eines Dokuments als in einer anderen Sprache verfasst zu kennzeichnen (mit dem Attribut [`lang`](/de/docs/Web/HTML/Global_attributes/lang)) und so weiter.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 > [!NOTE]
-> Das `align`-Attribut ist veraltet; verwenden Sie es nicht mehr. Stattdessen sollten Sie CSS-Eigenschaften oder Techniken wie [CSS Grid](/de/docs/Web/CSS/CSS_grid_layout) oder [CSS Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) nutzen, um `<div>`-Elemente auf der Seite auszurichten und zu positionieren.
+> Das `align`-Attribut ist obsolet; verwenden Sie es nicht mehr. Stattdessen sollten Sie CSS-Eigenschaften oder Techniken wie [CSS Grid](/de/docs/Web/CSS/CSS_grid_layout) oder [CSS Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) verwenden, um `<div>`-Elemente auf der Seite auszurichten und zu positionieren.
 
 ## Verwendungshinweise
 
-- Das `<div>`-Element sollte nur verwendet werden, wenn kein anderes semantisches Element (wie {{HTMLElement("article")}} oder {{HTMLElement("nav")}}) geeignet ist.
+- Das `<div>`-Element sollte nur verwendet werden, wenn kein anderes semantisches Element (wie z.B. {{HTMLElement("article")}} oder {{HTMLElement("nav")}}) angemessen ist.
 
 ## Barrierefreiheit
 
-Das `<div>`-Element hat [eine implizite Rolle von `generic`](https://www.w3.org/TR/wai-aria-1.2/#generic) und nicht none. Dies kann bestimmte ARIA-Kombinationsdeklarationen beeinflussen, die erwarten, dass ein direkter nachgeordneter Element mit einer bestimmten Rolle ordnungsgemäß funktioniert.
+Das `<div>`-Element hat [eine implizite Rolle von `generic`](https://www.w3.org/TR/wai-aria-1.2/#generic), und nicht von none. Dies kann bestimmte ARIA-Kombinationsdeklarationen beeinflussen, die erwarten, dass ein direktes Nachkommenselement mit einer bestimmten Rolle korrekt funktioniert.
 
 ## Beispiele
 
@@ -46,7 +74,7 @@ Das `<div>`-Element hat [eine implizite Rolle von `generic`](https://www.w3.org/
 
 ### Ein gestyltes Beispiel
 
-Dieses Beispiel erzeugt eine beschattete Box, indem ein Stil auf das `<div>` mit CSS angewendet wird. Beachten Sie die Verwendung des [`class`](/de/docs/Web/HTML/Global_attributes/class)-Attributs auf dem `<div>`, um den Stil mit dem Namen `"shadowbox"` auf das Element anzuwenden.
+Dieses Beispiel erstellt eine beschattete Box, indem ein Stil auf das `<div>`-Element mit CSS angewendet wird. Beachten Sie die Verwendung des [`class`](/de/docs/Web/HTML/Global_attributes/class) Attributs auf dem `<div>`, um den Stil namens `"shadowbox"` auf das Element anzuwenden.
 
 #### HTML
 
@@ -85,7 +113,7 @@ Dieses Beispiel erzeugt eine beschattete Box, indem ein Stil auf das `<div>` mit
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
-        >, <a href="/de/docs/Web/HTML/Content_categories#palpable_content">greifbarer Inhalt</a>.
+        >, <a href="/de/docs/Web/HTML/Content_categories#palpable_content">wahrnehmbarer Inhalt</a>.
       </td>
     </tr>
     <tr>
@@ -93,17 +121,17 @@ Dieses Beispiel erzeugt eine beschattete Box, indem ein Stil auf das `<div>` mit
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
-        >.<br />Oder (im {{Glossary("WHATWG", "WHATWG")}} HTML): Wenn das Elternelement ein
+        >.<br />Oder (in {{Glossary("WHATWG", "WHATWG")}} HTML): Wenn das übergeordnete Element ein
         {{HTMLElement("dl")}}-Element ist: ein oder mehrere
         {{HTMLElement("dt")}}-Elemente gefolgt von einem oder mehreren
         {{HTMLElement("dd")}}-Elementen, optional vermischt mit
-        {{HTMLElement("script")}}- und
-        {{HTMLElement("template")}}-Elementen.
+        {{HTMLElement("script")}} und
+        {{HTMLElement("template")}} Elementen.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Anfangs- als auch der Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -111,8 +139,7 @@ Dieses Beispiel erzeugt eine beschattete Box, indem ein Stil auf das `<div>` mit
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
-        >
-        akzeptiert.<br />Oder (im {{Glossary("WHATWG", "WHATWG")}} HTML):
+        > akzeptiert.<br />Oder (in {{Glossary("WHATWG", "WHATWG")}} HTML):
         {{HTMLElement("dl")}}-Element.
       </td>
     </tr>
@@ -128,7 +155,7 @@ Dieses Beispiel erzeugt eine beschattete Box, indem ein Stil auf das `<div>` mit
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Jede</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -147,5 +174,5 @@ Dieses Beispiel erzeugt eine beschattete Box, indem ein Stil auf das `<div>` mit
 
 ## Siehe auch
 
-- Semantische Abschnittelemente: {{HTMLElement("section")}}, {{HTMLElement("article")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}
-- {{HTMLElement("span")}}-Element zur Stilgestaltung von Phraseninhalt
+- Semantische Abschnittselemente: {{HTMLElement("section")}}, {{HTMLElement("article")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}
+- Das {{HTMLElement("span")}}-Element zur Gestaltung von Phraseninhalten

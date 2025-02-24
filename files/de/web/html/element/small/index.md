@@ -1,15 +1,37 @@
 ---
-title: "<small>: das Seitenskommentarelement"
+title: "<small>: das Side-Comment-Element"
 slug: Web/HTML/Element/small
 l10n:
-  sourceCommit: 533dc583856cfc95c1b9129335cd24793eac1093
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Seitenskommentare und Kleingedrucktes, wie Urheberrechts- und Rechtstexte, unabhängig von der dargestellten Formatierung. Standardmäßig rendert es den Text darin eine Schriftgröße kleiner, z. B. von `small` zu `x-small`.
+Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Randbemerkungen und Kleingedrucktes, wie Urheberrechts- und Rechtstexte, unabhängig von ihrer stilisierten Darstellung. Standardmäßig wird der Text innerhalb des Elements eine Schriftgröße kleiner angezeigt, z. B. von `small` zu `x-small`.
 
-{{EmbedInteractiveExample("pages/tabbed/small.html", "tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: &lt;small&gt;", "tabbed-shorter")}}
+
+```html interactive-example
+<p>
+  MDN Web Docs is a learning platform for Web technologies and the software that
+  powers the Web.
+</p>
+
+<hr />
+
+<p>
+  <small
+    >The content is licensed under a Creative Commons Attribution-ShareAlike 2.5
+    Generic License.</small
+  >
+</p>
+```
+
+```css interactive-example
+small {
+  font-size: 0.7em;
+}
+```
 
 ## Attribute
 
@@ -17,7 +39,7 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```html
 <p>
@@ -43,9 +65,9 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 {{EmbedLiveSample("CSS_alternative")}}
 
-## Hinweise
+## Anmerkungen
 
-Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, möglicherweise das Prinzip der Trennung von Struktur und Darstellung verletzt, sind alle drei in HTML gültig. Autoren werden ermutigt, ihr bestes Urteilsvermögen anzuwenden, wenn sie entscheiden, ob sie `<small>` oder CSS verwenden.
+Obwohl das `<small>`-Element, wie die Elemente {{htmlelement("b")}} und {{htmlelement("i")}}, möglicherweise als Verletzung des Prinzips der Trennung zwischen Struktur und Präsentation wahrgenommen wird, sind alle drei im HTML gültig. Autoren werden ermutigt, ihr bestes Urteilsvermögen zu nutzen, um zu bestimmen, ob `<small>` oder CSS verwendet werden soll.
 
 ## Technische Zusammenfassung
 
@@ -59,34 +81,34 @@ Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmle
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließ-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasierungs-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasierungs-Inhalt</a
         >
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine; muss sowohl einen Start- als auch einen End-Tag haben.</td>
+      <td>Keine; muss sowohl ein Start- als auch ein End-Tag haben.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Elternteile</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasierungs-Inhalt</a
         > akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließ-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -101,7 +123,7 @@ Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmle
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>
@@ -125,4 +147,4 @@ Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmle
 - {{HTMLElement("sub")}} und {{HTMLElement("sup")}}
 - {{HTMLElement("font")}}
 - {{HTMLElement("style")}}
-- HTML 4.01 Spezifikation: [Font Styles](https://www.w3.org/TR/html4/present/graphics.html#h-15.2)
+- HTML 4.01-Spezifikation: [Schriftstile](https://www.w3.org/TR/html4/present/graphics.html#h-15.2)

@@ -1,32 +1,52 @@
 ---
-title: "<p>: Das Paragraph-Element"
+title: "<p>: Das Absatzelement"
 slug: Web/HTML/Element/p
 l10n:
-  sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<p>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Paragraphen. Paragraphen werden in visuellen Medien normalerweise als Textblöcke dargestellt, die von benachbarten Blöcken durch Leerräume und/oder Einrückung der ersten Zeile getrennt sind. HTML-Paragraphen können jedoch jede strukturelle Gruppierung von verwandten Inhalten, wie etwa Bilder oder Formularfelder, sein.
+Das **`<p>`**-Element von [HTML](/de/docs/Web/HTML) repräsentiert einen Absatz. In visuellen Medien werden Absätze normalerweise als Textblöcke dargestellt, die durch Leerzeilen und/oder Einrückungen der ersten Zeile von benachbarten Blöcken getrennt sind. HTML-Absätze können jedoch jede strukturelle Gruppierung verwandter Inhalte sein, wie Bilder oder Formularfelder.
 
-Paragraphen sind {{Glossary("Block-level_content", "Block-Level-Elemente")}} und schließen sich automatisch, wenn ein weiteres Block-Level-Element vor dem schließenden `</p>`-Tag geparst wird. Siehe "Tag-Auslassung" unten.
+Absätze sind {{Glossary("Block-level_content", "Block-Elemente")}} und schließen sich bemerkenswerterweise automatisch, wenn ein anderes Block-Element vor dem schließenden `</p>`-Tag geparst wird. Siehe "Tag-Auslassung" unten.
 
-{{EmbedInteractiveExample("pages/tabbed/p.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;p&gt;", "tabbed-standard")}}
+
+```html interactive-example
+<p>
+  Geckos are a group of usually small, usually nocturnal lizards. They are found
+  on every continent except Antarctica.
+</p>
+
+<p>
+  Some species live in houses where they hunt insects attracted by artificial
+  light.
+</p>
+```
+
+```css interactive-example
+p {
+  margin: 10px 0;
+  padding: 5px;
+  border: 1px solid #999;
+}
+```
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 > [!NOTE]
 > Das `align`-Attribut bei `<p>`-Tags ist veraltet und sollte nicht verwendet werden.
 
 ## Barrierefreiheit
 
-Die Aufteilung von Inhalten in Paragraphen trägt dazu bei, eine Seite zugänglicher zu machen. Screenreader und andere unterstützende Technologien bieten Abkürzungen, um ihren Nutzern zu ermöglichen, zum nächsten oder vorherigen Paragraphen zu springen, sodass sie Inhalte ähnlich überfliegen können, wie Leerraum es visuellen Nutzern ermöglicht, sich zu orientieren.
+Das Aufteilen von Inhalten in Absätze trägt dazu bei, eine Seite zugänglicher zu machen. Bildschirmlesegeräte und andere unterstützende Technologien bieten Abkürzungen, mit denen Benutzer direkt zum nächsten oder vorherigen Absatz springen können, sodass sie Inhalte überfliegen können, ähnlich wie visuelle Benutzer durch Leerraum navigieren können.
 
-Die Verwendung von leeren `<p>`-Elementen, um Platz zwischen Paragraphen hinzuzufügen, ist problematisch für Menschen, die mit screenlesender Technologie navigieren. Screenreader könnten die Anwesenheit des Paragraphen ankündigen, jedoch keinen innerhalb enthaltenen Inhalt — weil keiner vorhanden ist. Dies kann die Person, die den Screenreader verwendet, verwirren und frustrieren.
+Die Verwendung leerer `<p>`-Elemente, um Abstand zwischen Absätzen zu schaffen, ist problematisch für Personen, die mit Bildschirmlesetechnologie navigieren. Bildschirmleser können das Vorhandensein des Absatzes ankündigen, aber nicht die darin enthaltenen Inhalte, da keine vorhanden sind. Dies kann die Person, die den Bildschirmleser benutzt, verwirren und frustrieren.
 
-Wenn zusätzlicher Leerraum gewünscht ist, verwenden Sie {{Glossary("CSS", "CSS")}}-Eigenschaften wie {{cssxref("margin")}}, um den Effekt zu erzielen:
+Wenn zusätzlicher Raum gewünscht ist, verwenden Sie {{Glossary("CSS", "CSS")}}-Eigenschaften wie {{cssxref("margin")}}, um den Effekt zu erzielen:
 
 ```css
 p {
@@ -53,9 +73,9 @@ p {
 
 {{EmbedLiveSample('Examples')}}
 
-## Formatierung von Paragraphen
+## Stilierung von Absätzen
 
-Standardmäßig trennen Browser Paragraphen mit einer einzigen Leerzeile. Alternative Trennmethoden, wie die Einrückung der ersten Zeile, können mit {{Glossary("CSS", "CSS")}} erreicht werden:
+Standardmäßig trennen Browser Absätze mit einer einzelnen Leerzeile. Alternative Trennmethoden, wie die Einrückung der ersten Zeile, können mit {{Glossary("CSS", "CSS")}} erreicht werden:
 
 ### HTML
 
@@ -134,22 +154,22 @@ document.querySelector("button").addEventListener("click", (event) => {
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
-        >, palpable Inhalte.
+          >Fluss-Inhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Satzfragmente</a
+          >Phrasierungs-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn das
+        Das öffnende Tag ist erforderlich. Das schließende Tag kann weggelassen werden, wenn das
         <code>&lt;p&gt;</code>-Element unmittelbar gefolgt wird von einem
         {{HTMLElement("address")}},
         {{HTMLElement("article")}}, {{HTMLElement("aside")}},
@@ -164,25 +184,23 @@ document.querySelector("button").addEventListener("click", (event) => {
         {{HTMLElement("main")}}, {{HTMLElement("menu")}}, {{HTMLElement("nav")}},
         {{HTMLElement("ol")}}, {{HTMLElement("pre")}}, {{HTMLElement("search")}},
         {{HTMLElement("section")}}, {{HTMLElement("table")}},
-        {{HTMLElement("ul")}} oder einem anderen <code>&lt;p&gt;</code>-Element,
-        oder wenn kein weiterer Inhalt im Eltern-Element vorhanden ist und das
-        Eltern-Element kein {{HTMLElement("a")}}, {{HTMLElement("audio")}},
+        {{HTMLElement("ul")}} oder einem anderen <code>&lt;p&gt;</code>-Element oder wenn es keine weiteren Inhalte im Elternelement gibt und das Elternelement kein {{HTMLElement("a")}}, {{HTMLElement("audio")}},
         {{HTMLElement("del")}}, {{HTMLElement("ins")}}, {{HTMLElement("map")}},
         {{HTMLElement("noscript")}} oder {{HTMLElement("video")}}-Element,
         oder ein autonomes benutzerdefiniertes Element ist.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern-Elemente</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließende Inhalte</a
+          >Fluss-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles"
           >paragraph</a
@@ -190,7 +208,7 @@ document.querySelector("button").addEventListener("click", (event) => {
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>

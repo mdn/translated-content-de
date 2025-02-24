@@ -2,18 +2,38 @@
 title: "<rtc>: Das Ruby Text Container-Element"
 slug: Web/HTML/Element/rtc
 l10n:
-  sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}{{deprecated_header}}
 
-Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Annotationen von Zeichen, die in einem Ruby von {{HTMLElement("rb")}}-Elementen verwendet werden, die innerhalb eines {{HTMLElement("ruby")}}-Elements genutzt werden. {{HTMLElement("rb")}}-Elemente können sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Annotationen haben.
+Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Anmerkungen von Zeichen, die in einem Ruby von {{HTMLElement("rb")}}-Elementen dargestellt werden, die innerhalb eines {{HTMLElement("ruby")}}-Elements verwendet werden. {{HTMLElement("rb")}}-Elemente können sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Anmerkungen haben.
 
-{{EmbedInteractiveExample("pages/tabbed/rtc.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;rtc&gt;", "tabbed-standard")}}
+
+```html interactive-example
+<ruby xml:lang="zh-Hant" style="ruby-position: under;">
+    <rbc>
+        <rb>馬</rb><rp>(</rp><rt>mǎ</rt><rp>)</rp>
+        <rb>來</rb><rp>(</rp><rt>lái</rt><rp>)</rp>
+        <rb>西</rb><rp>(</rp><rt>xī</rt><rp>)</rp>
+        <rb>亞</rb><rp>(</rp><rt>yà</rt><rp>)</rp>
+    </rbc>
+    <rtc xml:lang="en" style="ruby-position: over;">
+        <rp>(</rp><rt>Malaysia</rt><rp>)</rp>
+    </rtc>
+</ruby>
+```
+
+```css interactive-example
+ruby {
+  font-size: 2em;
+}
+```
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
@@ -57,15 +77,18 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Textliche Inhalte</a
+          >Phrasierungsinhalt</a
         >
         oder {{HTMLElement("rt")}}-Elemente.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
+      <th scope="row">Auslassung des Tags</th>
       <td>
-        Das schließende Tag kann weggelassen werden, wenn es unmittelbar von einem {{HTMLElement("rb")}}, <code>&lt;rtc&gt;</code> oder {{HTMLElement("rt")}}-Element-Öffnungstag oder vom Schließtag seines Elternteils gefolgt wird.
+        Der Schlusstag kann weggelassen werden, wenn er unmittelbar von einem
+        {{HTMLElement("rb")}}, <code>&lt;rtc&gt;</code>- oder
+        {{HTMLElement("rt")}}-Elementöffnungstag oder vom Schlusstag seines
+        Elternteils gefolgt wird.
       </td>
     </tr>
     <tr>

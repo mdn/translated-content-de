@@ -2,28 +2,68 @@
 title: "<nav>: Das Navigationselement"
 slug: Web/HTML/Element/nav
 l10n:
-  sourceCommit: 9f21f168c4f77a90e2d300c5aa26441ecd980058
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<nav>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Abschnitt einer Seite, dessen Zweck es ist, Navigationslinks bereitzustellen, entweder innerhalb des aktuellen Dokuments oder zu anderen Dokumenten. Häufige Beispiele für Navigationsabschnitte sind Menüs, Inhaltsverzeichnisse und Indizes.
+Das **`<nav>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Abschnitt einer Seite, dessen Zweck es ist, Navigationslinks bereitzustellen, entweder innerhalb des aktuellen Dokuments oder zu anderen Dokumenten. Typische Beispiele für Navigationsabschnitte sind Menüs, Inhaltsverzeichnisse und Indizes.
 
-{{EmbedInteractiveExample("pages/tabbed/nav.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;nav&gt;", "tabbed-standard")}}
+
+```html interactive-example
+<nav class="crumbs">
+  <ol>
+    <li class="crumb"><a href="#">Bikes</a></li>
+    <li class="crumb"><a href="#">BMX</a></li>
+    <li class="crumb">Jump Bike 3000</li>
+  </ol>
+</nav>
+
+<h1>Jump Bike 3000</h1>
+<p>
+  This BMX bike is a solid step into the pro world. It looks as legit as it
+  rides and is built to polish your skills.
+</p>
+```
+
+```css interactive-example
+nav {
+  border-bottom: 1px solid black;
+}
+
+.crumbs ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.crumb {
+  display: inline-block;
+}
+
+.crumb a::after {
+  display: inline-block;
+  color: #000;
+  content: ">";
+  font-size: 80%;
+  font-weight: bold;
+  padding: 0 3px;
+}
+```
 
 ## Attribute
 
 Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-- Es ist nicht notwendig, dass alle Links in einem `<nav>`-Element enthalten sind. `<nav>` ist nur für einen größeren Block von Navigationslinks vorgesehen; typischerweise enthält das {{HTMLElement("footer")}}-Element oft eine Liste von Links, die nicht in einem `<nav>`-Element sein müssen.
-- Ein Dokument kann mehrere `<nav>`-Elemente enthalten, beispielsweise eines für die Seitennavigation und eines für die Innerhalb-Seite-Navigation. [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) kann in einem solchen Fall verwendet werden, um die Barrierefreiheit zu fördern, siehe [Beispiel](/de/docs/Web/HTML/Element/Heading_Elements#labeling_section_content).
-- Benutzeragenten, wie Bildschirmlesegeräte für Benutzer mit Behinderungen, können dieses Element verwenden, um festzustellen, ob die anfängliche Darstellung von nur-Navigation-Inhalten ausgelassen werden soll.
+- Es ist nicht notwendig, dass alle Links in einem `<nav>`-Element enthalten sind. `<nav>` ist nur für einen wesentlichen Block von Navigationslinks gedacht; typischerweise enthält das {{HTMLElement("footer")}}-Element oft eine Liste von Links, die nicht in einem `<nav>`-Element sein müssen.
+- Ein Dokument kann mehrere `<nav>`-Elemente haben, beispielsweise eines für die Seitennavigation und eines für die interne Seitennavigation. [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) kann in einem solchen Fall zur Förderung der Barrierefreiheit verwendet werden, siehe [Beispiel](/de/docs/Web/HTML/Element/Heading_Elements#labeling_section_content).
+- Benutzeragenten, wie Bildschirmlesegeräte, die auf behinderte Benutzer abzielen, können dieses Element verwenden, um festzustellen, ob die erste Darstellung von ausschließlich navigationsbezogenen Inhalten weggelassen werden soll.
 
 ## Beispiele
 
-In diesem Beispiel wird ein `<nav>`-Block verwendet, um eine unsortierte Liste ({{HTMLElement("ul")}}) von Links zu enthalten. Mit geeigneten CSS kann dies als Seitenleiste, Navigationsleiste oder Dropdown-Menü präsentiert werden.
+In diesem Beispiel wird ein `<nav>`-Block verwendet, um eine ungeordnete Liste ({{HTMLElement("ul")}}) von Links zu enthalten. Mit entsprechender CSS kann dies als Seitenleiste, Navigationsleiste oder Dropdown-Menü dargestellt werden.
 
 ```html live-sample___unordered-list
 <nav class="menu">
@@ -37,7 +77,7 @@ In diesem Beispiel wird ein `<nav>`-Block verwendet, um eine unsortierte Liste (
 
 {{EmbedLiveSample('unordered-list')}}
 
-Die Semantik des `nav`-Elements besteht darin, Links bereitzustellen. Ein `nav`-Element muss jedoch keine Liste enthalten, es kann auch andere Arten von Inhalten enthalten. In diesem Navigationsblock werden Links in Prosa bereitgestellt:
+Die Semantik des `nav`-Elements besteht darin, Links bereitzustellen. Ein `nav`-Element muss jedoch keine Liste enthalten, es kann auch andere Arten von Inhalten enthalten. In diesem Navigationsblock werden Links im Fließtext bereitgestellt:
 
 ```html live-sample___prose
 <nav>
@@ -80,12 +120,12 @@ Die Semantik des `nav`-Elements besteht darin, Links bereitzustellen. Ein `nav`-
         >,
         <a
           href="/de/docs/Web/HTML/Content_categories#sectioning_content"
-          >Abschnittsinhalte</a
-        >, greifbarer Inhalt.
+          >Sektionierungsinhalt</a
+        >, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
@@ -138,4 +178,4 @@ Die Semantik des `nav`-Elements besteht darin, Links bereitzustellen. Ein `nav`-
 
 - Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
 - [Abschnitte und Gliederungen eines HTML-Dokuments](/de/docs/Web/HTML/Element/Heading_Elements).
-- [ARIA: Navigation role](/de/docs/Web/Accessibility/ARIA/Roles/navigation_role)
+- [ARIA: Navigationsrolle](/de/docs/Web/Accessibility/ARIA/Roles/navigation_role)

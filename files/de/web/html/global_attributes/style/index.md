@@ -2,17 +2,26 @@
 title: style
 slug: Web/HTML/Global_attributes/style
 l10n:
-  sourceCommit: 476fb44932d56c0f50628a620348cd77f411b5ab
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`style`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) enthält [CSS](/de/docs/Web/CSS)-Stildeklarationen, die auf das Element angewendet werden sollen. Beachten Sie, dass empfohlen wird, Stile in einer separaten Datei oder mehreren Dateien zu definieren. Dieses Attribut und das {{HTMLElement("style")}}-Element dienen hauptsächlich dem Zweck, eine schnelle Stildefinition zu ermöglichen, beispielsweise zu Testzwecken.
+Das **`style`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) enthält [CSS](/de/docs/Web/CSS)-Styling-Deklarationen, die auf das Element angewendet werden sollen. Es wird empfohlen, Styles in einer separaten Datei oder Dateien zu definieren. Dieses Attribut und das {{HTMLElement("style")}}-Element dienen hauptsächlich dem Zweck, schnell Styling anzuwenden, beispielsweise für Testzwecke.
 
-{{EmbedInteractiveExample("pages/tabbed/attribute-style.html","tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: style", "tabbed-shorter")}}
+
+```html interactive-example
+<div style="background: #ffe7e8; border: 2px solid #e66465">
+  <p style="margin: 15px; line-height: 1.5; text-align: center">
+    Well, I am the slime from your video<br />
+    Oozin' along on your livin' room floor.
+  </p>
+</div>
+```
 
 > [!NOTE]
-> Dieses Attribut darf nicht verwendet werden, um semantische Informationen zu vermitteln. Auch wenn alle Stile entfernt werden, sollte eine Seite semantisch korrekt bleiben. Typischerweise sollte es nicht verwendet werden, um irrelevante Informationen zu verbergen; dies sollte mit dem [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden)-Attribut geschehen.
+> Dieses Attribut darf nicht verwendet werden, um semantische Informationen zu übermitteln. Auch wenn das gesamte Styling entfernt wird, sollte eine Seite semantisch korrekt bleiben. Typischerweise sollte es nicht verwendet werden, um irrelevante Informationen zu verstecken; dies sollte mithilfe des [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden)-Attributs erfolgen.
 
 ## Spezifikationen
 

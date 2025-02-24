@@ -1,17 +1,27 @@
 ---
-title: "<ruby>: Das Ruby Annotation Element"
+title: "<ruby>: Das Ruby-Annotationselement"
 slug: Web/HTML/Element/ruby
 l10n:
-  sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<ruby>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert kleine Anmerkungen, die über, unter oder neben dem Basistext dargestellt werden. Es wird üblicherweise verwendet, um die Aussprache von ostasiatischen Zeichen anzuzeigen. Es kann auch zur Annotation anderer Textarten verwendet werden, aber diese Nutzung ist weniger verbreitet.
+Das **`<ruby>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert kleine Annotationen, die oberhalb, unterhalb oder neben dem Basistext dargestellt werden, normalerweise zur Darstellung der Aussprache von ostasiatischen Zeichen. Es kann auch zur Annotation anderer Arten von Text verwendet werden, aber diese Verwendung ist weniger verbreitet.
 
-Der Begriff _ruby_ stammt ursprünglich von [einer Maßeinheit, die von Schriftsetzern verwendet wurde](<https://en.wikipedia.org/wiki/Agate_(typography)>), und steht für die kleinste Größe, bei der Text auf Zeitungspapier gedruckt werden kann und dennoch lesbar bleibt.
+Der Begriff _ruby_ stammt ursprünglich von [einer Maßeinheit, die von Setzern verwendet wird](<https://en.wikipedia.org/wiki/Agate_(typography)>), und repräsentiert die kleinste Größe, in der Text auf Zeitungspapier gedruckt werden kann, während er noch leserlich bleibt.
 
-{{EmbedInteractiveExample("pages/tabbed/ruby.html", "tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: &lt;ruby&gt;", "tabbed-shorter")}}
+
+```html interactive-example
+<ruby> 明日 <rp>(</rp><rt>Ashita</rt><rp>)</rp> </ruby>
+```
+
+```css interactive-example
+ruby {
+  font-size: 2em;
+}
+```
 
 ## Attribute
 
@@ -53,10 +63,10 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phraseninhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -64,26 +74,25 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Erlaubte Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        >
-        akzeptiert.
+          >Phraseninhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a

@@ -1,17 +1,61 @@
 ---
-title: "<article>: Das Artikelinhalts-Element"
+title: "<article>: Das Element für Artikelinhalte"
 slug: Web/HTML/Element/article
 l10n:
-  sourceCommit: 829db137a01feb14af7beaec178a3ea0118b4777
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<article>`**-Element in [HTML](/de/docs/Web/HTML) repräsentiert eine eigenständige Zusammenstellung in einem Dokument, einer Seite, Anwendung oder Website, die eigenständig verteilt oder wiederverwendbar sein soll (z. B. in Syndikation). Beispiele hierfür sind: ein Forumsbeitrag, ein Magazin- oder Zeitungsartikel, ein Blogeintrag, eine Produktkarte, ein von Nutzern eingereichter Kommentar, ein interaktives Widget oder Gadget oder jedes andere unabhängige Inhaltselement.
+Das **`<article>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine in sich geschlossene Komposition in einem Dokument, einer Seite, Anwendung oder Website, die unabhängig vertrieben oder wiederverwendet werden kann (z. B. in Syndication). Beispiele umfassen: einen Forenbeitrag, einen Magazin- oder Zeitungsartikel, einen Blogeintrag, eine Produktkarte, einen von Benutzern eingereichten Kommentar, ein interaktives Widget oder Gadget oder jedes andere unabhängige Inhaltselement.
 
-{{EmbedInteractiveExample("pages/tabbed/article.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;article&gt;", "tabbed-standard")}}
 
-Ein bestimmtes Dokument kann mehrere Artikel enthalten; zum Beispiel auf einem Blog, der den Text jedes Artikels nacheinander zeigt, während der Leser scrollt, würde jeder Beitrag in einem `<article>`-Element enthalten sein, möglicherweise mit einem oder mehreren `<section>`-Elementen darin.
+```html interactive-example
+<article class="forecast">
+  <h1>Weather forecast for Seattle</h1>
+  <article class="day-forecast">
+    <h2>03 March 2018</h2>
+    <p>Rain.</p>
+  </article>
+  <article class="day-forecast">
+    <h2>04 March 2018</h2>
+    <p>Periods of rain.</p>
+  </article>
+  <article class="day-forecast">
+    <h2>05 March 2018</h2>
+    <p>Heavy rain.</p>
+  </article>
+</article>
+```
+
+```css interactive-example
+.forecast {
+  margin: 0;
+  padding: 0.3rem;
+  background-color: #eee;
+}
+
+.forecast > h1,
+.day-forecast {
+  margin: 0.5rem;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.day-forecast {
+  background: right/contain content-box border-box no-repeat
+    url("/shared-assets/images/examples/rain.svg") white;
+}
+
+.day-forecast > h2,
+.day-forecast > p {
+  margin: 0.2rem;
+  font-size: 1rem;
+}
+```
+
+Ein gegebenes Dokument kann mehrere Artikel enthalten; zum Beispiel in einem Blog, der den Text jedes Artikels nacheinander anzeigt, während der Leser scrollt, würde jeder Beitrag in einem `<article>`-Element enthalten sein, möglicherweise mit einem oder mehreren `<section>`s innerhalb.
 
 ## Attribute
 
@@ -19,9 +63,9 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Nutzungshinweise
 
-- Jedes `<article>` sollte identifiziert werden, typischerweise durch Einfügen einer Überschrift ([`<h1>` - `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements) Element) als Kind des `<article>`-Elements.
-- Wenn ein `<article>`-Element verschachtelt ist, repräsentiert das innere Element einen Artikel, der mit dem äußeren Element in Zusammenhang steht. Zum Beispiel können die Kommentare zu einem Blogbeitrag in `<article>`-Elementen verschachtelt sein, die den Blogbeitrag repräsentieren.
-- Autoreninformationen eines `<article>`-Elements können durch das {{HTMLElement("address")}}-Element bereitgestellt werden, es gilt jedoch nicht für verschachtelte `<article>`-Elemente.
+- Jedes `<article>` sollte identifiziert werden, typischerweise durch Einfügen einer Überschrift ([`<h1>` - `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements)) als Kind des `<article>`-Elements.
+- Wenn ein `<article>`-Element verschachtelt ist, repräsentiert das innere Element einen Artikel, der mit dem äußeren Element in Zusammenhang steht. Zum Beispiel können die Kommentare eines Blogbeitrags `<article>`-Elemente sein, die im `<article>` verschachtelt sind, das den Blogbeitrag repräsentiert.
+- Die Autoreninformation eines `<article>`-Elements kann durch das {{HTMLElement("address")}}-Element bereitgestellt werden, aber es gilt nicht für verschachtelte `<article>`-Elemente.
 - Das Veröffentlichungsdatum und die -zeit eines `<article>`-Elements können durch das [`datetime`](/de/docs/Web/HTML/Element/time#datetime)-Attribut eines {{HTMLElement("time")}}-Elements beschrieben werden.
 
 ## Beispiele
@@ -78,53 +122,34 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories"
-          >Inhaltskategorien</a
-        >
+        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
-        >,
-        <a
-          href="/de/docs/Web/HTML/Content_categories#sectioning_content"
-          >Gliederungsinhalt</a
-        >,
-        <a href="/de/docs/Web/HTML/Content_categories#palpable_content"
-          >griffiger Inhalt</a
-        >
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flow-Inhalt</a>,
+        <a href="/de/docs/Web/HTML/Content_categories#sectioning_content">Sectioning-Inhalt</a>,
+        <a href="/de/docs/Web/HTML/Content_categories#palpable_content">Palpable-Inhalt</a>
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
-        >.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flow-Inhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
-        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;article></code>-Element
-        kein Nachkomme eines {{HTMLElement("address")}}-Elements sein darf.
+        Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flow-Inhalt</a> akzeptiert. Beachten Sie, dass ein <code>&#x3C;article></code>-Element kein Nachfahre eines {{HTMLElement("address")}}-Elements sein darf.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/article_role"
-            >article</a
-          ></code
-        >
+        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/article_role">article</a></code>
       </td>
     </tr>
     <tr>
@@ -153,5 +178,5 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Siehe auch
 
-- Weitere Elemente im Abschnitt: {{HTMLElement("body")}}, {{HTMLElement("nav")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}}
-- [Verwendung von HTML-Abschnitten und -Gliederungen](/de/docs/Web/HTML/Element/Heading_Elements)
+- Andere bereichsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("nav")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}}
+- [Verwendung von HTML-Abschnitten und -Outlines](/de/docs/Web/HTML/Element/Heading_Elements)

@@ -2,14 +2,40 @@
 title: "<menu>: Das Menü-Element"
 slug: Web/HTML/Element/menu
 l10n:
-  sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
+  sourceCommit: d6094dd7e70de3d1711b3bbef2dd5e5dd93114f3
 ---
 
 {{HTMLSidebar}}
 
-Das **`<menu>`**-[HTML](/de/docs/Web/HTML)-Element wird in der HTML-Spezifikation als semantische Alternative zu {{HTMLElement("ul")}} beschrieben, aber von Browsern (und durch den Accessibility-Baum) nicht anders behandelt als {{HTMLElement("ul")}}. Es repräsentiert eine ungeordnete Liste von Elementen (die durch {{HTMLElement("li")}}-Elemente dargestellt werden).
+Das **`<menu>`**-[HTML](/de/docs/Web/HTML)-Element wird in der HTML-Spezifikation als eine semantische Alternative zu {{HTMLElement("ul")}} beschrieben, wird jedoch von Browsern (und durch den Accessibility-Tree) nicht anders als {{HTMLElement("ul")}} behandelt. Es repräsentiert eine ungeordnete Liste von Elementen (die durch {{HTMLElement("li")}}-Elemente dargestellt werden).
 
-{{EmbedInteractiveExample("pages/tabbed/menu.html", "tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: &lt;menu&gt;", "tabbed-shorter")}}
+
+```html interactive-example
+<div class="news">
+  <a href="#">NASA’s Webb Delivers Deepest Infrared Image of Universe Yet</a>
+  <menu>
+    <li><button id="save">Save for later</button></li>
+    <li><button id="share">Share this news</button></li>
+  </menu>
+</div>
+```
+
+```css interactive-example
+.news {
+  background-color: bisque;
+  padding: 1em;
+  border: solid thin black;
+}
+
+menu {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin-bottom: 0;
+  gap: 1em;
+}
+```
 
 ## Attribute
 
@@ -17,10 +43,10 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Verwendungshinweise
 
-Die `<menu>`- und {{HTMLElement("ul")}}-Elemente repräsentieren beide eine ungeordnete Liste von Elementen. Der Hauptunterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Anzeige enthält, während `<menu>` für interaktive Elemente gedacht war.
+Die `<menu>`- und {{HTMLElement("ul")}}-Elemente repräsentieren beide eine ungeordnete Liste von Elementen. Der Hauptunterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Anzeige enthält, während `<menu>` eine Symbolleiste darstellt, die Befehle enthält, die der Benutzer ausführen oder aktivieren kann.
 
 > [!NOTE]
-> In frühen Versionen der HTML-Spezifikation hatte das `<menu>`-Element einen zusätzlichen Verwendungszweck als Kontextmenü. Diese Funktionalität wird als veraltet betrachtet und ist nicht in der Spezifikation enthalten.
+> In frühen Versionen der HTML-Spezifikation hatte das `<menu>`-Element einen zusätzlichen Anwendungsfall als Kontextmenü. Diese Funktionalität gilt als veraltet und ist nicht in der Spezifikation enthalten.
 
 ## Beispiele
 
@@ -85,37 +111,34 @@ button {
       <td>
         <p>
           <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-            >Flow-Inhalt</a
-          >. Wenn die Kinder des Elements mindestens ein
+            >Fließender Inhalt</a
+          >. Wenn die Kind-Elemente des Elements mindestens ein
           {{HTMLElement("li")}}-Element enthalten:
           <a
             href="/de/docs/Web/HTML/Content_categories#palpable_content"
-            >Tastbarer Inhalt</a
+            >Fühlbarer Inhalt</a
           >.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <p>
           Null oder mehr Vorkommen von {{HTMLElement("li")}},
-          {{HTMLElement("script")}} und
+          {{HTMLElement("script")}}, und
           {{HTMLElement("template")}}.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flow-Inhalt</a
-        > akzeptiert.
+        Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">fließende Inhalte</a> akzeptiert.
       </td>
     </tr>
     <tr>
@@ -129,7 +152,7 @@ button {
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/directory_role"><code>directory</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role"><code>group</code></a>,
         <code
@@ -159,4 +182,4 @@ button {
 
 ## Siehe auch
 
-- Andere listenbezogene HTML-Elemente: {{HTMLElement("ol")}}, {{HTMLElement("ul")}} und {{HTMLElement("li")}}.
+- Andere HTML-Elemente in Bezug auf Listen: {{HTMLElement("ol")}}, {{HTMLElement("ul")}} und {{HTMLElement("li")}}.

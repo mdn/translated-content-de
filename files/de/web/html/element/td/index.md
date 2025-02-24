@@ -2,53 +2,119 @@
 title: "<td>: Das Table Data Cell-Element"
 slug: Web/HTML/Element/td
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<td>`** [HTML](/de/docs/Web/HTML) Element definiert eine Zelle einer Tabelle, die Daten enthält und als Kind des {{HTMLElement("tr")}} Elements verwendet werden kann.
+Das **`<td>`** [HTML](/de/docs/Web/HTML)-Element definiert eine Zelle einer Tabelle, die Daten enthält und kann als Kind des {{HTMLElement("tr")}}-Elements verwendet werden.
 
-{{EmbedInteractiveExample("pages/tabbed/td.html","tabbed-taller")}}
+{{InteractiveExample("HTML Demo: &lt;td&gt;", "tabbed-taller")}}
+
+```html interactive-example
+<table>
+  <caption>
+    Alien football stars
+  </caption>
+  <tr>
+    <th scope="col">Player</th>
+    <th scope="col">Gloobles</th>
+    <th scope="col">Za'taak</th>
+  </tr>
+  <tr>
+    <th scope="row">TR-7</th>
+    <td>7</td>
+    <td>4,569</td>
+  </tr>
+  <tr>
+    <th scope="row">Khiresh Odo</th>
+    <td>7</td>
+    <td>7,223</td>
+  </tr>
+  <tr>
+    <th scope="row">Mia Oolong</th>
+    <td>9</td>
+    <td>6,219</td>
+  </tr>
+</table>
+```
+
+```css interactive-example
+th,
+td {
+  border: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+}
+
+th[scope="col"] {
+  background-color: #505050;
+  color: #fff;
+}
+
+th[scope="row"] {
+  background-color: #d6ecd4;
+}
+
+td {
+  text-align: center;
+}
+
+tr:nth-of-type(even) {
+  background-color: #eee;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(140 140 140);
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+caption {
+  caption-side: bottom;
+  padding: 10px;
+}
+```
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `colspan`
-  - : Enthält einen nicht-negativen ganzzahligen Wert, der angibt, über wie viele Spalten sich die Datenzelle erstreckt oder ausdehnt. Der Standardwert ist `1`. Benutzeragenten ignorieren Werte größer als 1000 als falsch und setzen sie auf den Standardwert (`1`).
+  - : Enthält einen nicht-negativen Integer-Wert, der angibt, wie viele Spalten die Datenzelle überspannt oder erweitert. Der Standardwert ist `1`. Benutzeragenten ignorieren Werte über 1000 als fehlerhaft und setzen sie auf den Standardwert (`1`).
 - `headers`
-  - : Enthält eine Liste von leerzeichengetrennten Zeichenfolgen, die jeweils dem `id`-Attribut der {{HTMLElement("th")}}-Elemente entsprechen, die Überschriften für diese Tabellenzelle bereitstellen.
+  - : Enthält eine Liste von durch Leerzeichen getrennten Strings, die jeweils dem `id`-Attribut der {{HTMLElement("th")}}-Elemente entsprechen, die die Überschriften für diese Tabellenzelle bereitstellen.
 - `rowspan`
-  - : Enthält einen nicht-negativen ganzzahligen Wert, der angibt, über wie viele Zeilen sich die Datenzelle erstreckt oder ausdehnt. Der Standardwert ist `1`; wenn der Wert auf `0` gesetzt ist, erstreckt er sich bis zum Ende des Tabellengruppenabschnitts ({{HTMLElement("thead")}}, {{HTMLElement("tbody")}}, {{HTMLElement("tfoot")}}, auch wenn implizit definiert), zu dem die Zelle gehört. Werte größer als `65534` werden auf `65534` gekappt.
+  - : Enthält einen nicht-negativen Integer-Wert, der angibt, für wie viele Zeilen die Datenzelle überspannt oder erweitert wird. Der Standardwert ist `1`; wird der Wert auf `0` gesetzt, verlängert er sich bis zum Ende des Tabellengruppierungsabschnitts ({{HTMLElement("thead")}}, {{HTMLElement("tbody")}}, {{HTMLElement("tfoot")}}, auch wenn implizit definiert), zu dem die Zelle gehört. Werte über `65534` werden auf `65534` begrenzt.
 
 ### Veraltete Attribute
 
-Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind unten dokumentiert, um bei der Aktualisierung bestehender Codes und aus historischem Interesse als Referenz zu dienen.
+Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind unten zur Referenz aufgeführt, wenn bestehender Code aktualisiert wird, und aus historischem Interesse.
 
 - `abbr` {{deprecated_inline}}
 
-  - : Enthält eine kurze, abgekürzte Beschreibung des Inhalts der Datenzelle. Einige Benutzeragenten, wie z.B. Sprachsynthese-Geräte, können diese Beschreibung vor dem eigentlichen Inhalt präsentieren. Setzen Sie den abgekürzten Inhalt in die Zelle und platzieren Sie die (längere) Beschreibung in das [`title`](/de/docs/Web/HTML/Global_attributes/title) Attribut, da dieses Attribut veraltet ist. Oder vorzugsweise den Inhalt in der Datenzelle belassen und CSS verwenden, um [überlaufenden Text visuell zu kürzen](/de/docs/Web/CSS/text-overflow).
+  - : Enthält eine kurze abgekürzte Beschreibung des Inhalts der Datenzelle. Einige Benutzeragenten, wie Sprachausgabe, können diese Beschreibung vor dem eigentlichen Inhalt präsentieren. Platzieren Sie den abgekürzten Inhalt innerhalb der Zelle und die (längere) Beschreibung im [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attribut, da dieses Attribut veraltet ist. Oder, vorzugsweise, den Inhalt in der Datenzelle einfügen und CSS verwenden, um [Textüberläufe optisch abzuschneiden](/de/docs/Web/CSS/text-overflow).
 
 - `align` {{deprecated_inline}}
 
-  - : Gibt die horizontale Ausrichtung der Datenzelle an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn `char` unterstützt wird, richtet der Wert den Textinhalt auf das Zeichen aus, das im [`char`](#char) Attribut definiert ist, und den Offset, der durch das [`charoff`](#charoff) Attribut definiert ist. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die horizontale Ausrichtung der Datenzelle an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Bei Unterstützung richtet der `char`-Wert den Textinhalt am im [`char`](#char)-Attribut definierten Zeichen und dem durch das [`charoff`](#charoff)-Attribut definierten Versatz aus. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `axis` {{deprecated_inline}}
 
-  - : Enthält eine Liste von leerzeichengetrennten Zeichenfolgen, die jeweils dem `id`-Attribut einer Gruppe von Zellen entsprechen, auf die sich die Datenzelle bezieht.
+  - : Enthält eine Liste von durch Leerzeichen getrennten Zeichenfolgen, die jeweils dem `id`-Attribut einer Zellengruppe entsprechen, auf die die Datenzelle zutrifft.
 
 - `bgcolor` {{deprecated_inline}}
 
-  - : Definiert die Hintergrundfarbe der Datenzelle. Der Wert ist eine HTML-Farbe; entweder ein [6-stelliger hexadezimaler RGB-Code](/de/docs/Web/CSS/hex-color), mit einem `#` als Präfix, oder ein [Farb-Schlüsselwort](/de/docs/Web/CSS/named-color). Andere CSS {{cssxref("color_value", "&lt;color&gt")}} Werte werden nicht unterstützt. Verwenden Sie stattdessen die {{cssxref("background-color")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Definiert die Hintergrundfarbe der Datenzelle. Der Wert ist eine HTML-Farbe; entweder ein [6-stelliger hexadezimaler RGB-Code](/de/docs/Web/CSS/hex-color), vorangestellt durch ein `#`, oder ein [Farbschlüsselwort](/de/docs/Web/CSS/named-color). Andere CSS {{cssxref("color_value", "&lt;color&gt")}}-Werte werden nicht unterstützt. Verwenden Sie stattdessen die {{cssxref("background-color")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `char` {{deprecated_inline}}
 
-  - : Macht nichts. Es war ursprünglich dazu gedacht, die Ausrichtung des Inhalts auf ein Zeichen der Datenzelle zu spezifizieren. Typische Werte beinhalten einen Punkt (`.`), wenn versucht wird, Zahlen oder Geldbeträge auszurichten. Wenn [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert.
+  - : Tut nichts. Es war ursprünglich gedacht, um die Ausrichtung des Inhalts an einem Zeichen der Datenzelle zu spezifizieren. Typische Werte hierfür sind ein Punkt (`.`), wenn versucht wird, Zahlen oder Geldbeträge auszurichten. Falls [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert.
 
 - `charoff` {{deprecated_inline}}
 
-  - : Macht nichts. Es war ursprünglich dazu gedacht, die Anzahl der Zeichen anzugeben, um den Inhalt der Datenzelle vom Ausrichtungszeichen zu verschieben, das durch das [`char`](#char) Attribut angegeben ist.
+  - : Tut nichts. Es war ursprünglich gedacht, um die Anzahl der Zeichen zu spezifizieren, um die der Datenzellinhalt vom Ausrichtungszeichen, definiert durch das [`char`](#char)-Attribut, versetzt wird.
 
 - `height` {{deprecated_inline}}
 
@@ -56,11 +122,11 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie si
 
 - `scope` {{deprecated_inline}}
 
-  - : Definiert die Zellen, auf die sich die Überschrift (definiert im {{HTMLElement("th")}} Element) bezieht. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `row`, `col`, `rowgroup`, und `colgroup`. Verwenden Sie dieses Attribut nur mit dem {{HTMLElement("th")}} Element, um die Zeile oder Spalte zu definieren, für die es eine Überschrift ist, da dieses Attribut für das `<td>` Element veraltet ist.
+  - : Definiert die Zellen, zu denen die Kopfzeile (definiert im {{HTMLElement("th")}}) gehört. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `row`, `col`, `rowgroup` und `colgroup`. Verwenden Sie dieses Attribut nur mit dem {{HTMLElement("th")}}-Element, um die Zeile oder Spalte zu definieren, für die es eine Kopfzeile ist, da dieses Attribut für das `<td>`-Element veraltet ist.
 
 - `valign` {{deprecated_inline}}
 
-  - : Gibt die vertikale Ausrichtung der Datenzelle an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `baseline`, `bottom`, `middle`, und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die vertikale Ausrichtung der Datenzelle an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `width` {{deprecated_inline}}
 
@@ -68,28 +134,28 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie si
 
 ## Nutzungshinweise
 
-- Das `<td>` darf nur innerhalb eines {{HTMLElement("tr")}} Elements verwendet werden.
-- Beim Verwenden der [`colspan`](#colspan) und [`rowspan`](#rowspan) Attribute, um Datenzellen über mehrere Spalten und Zeilen zu erstrecken, werden Zellen ohne diese definierten Attribute (mit einem Standardwert von `1`) automatisch in die frei verfügbaren Bereiche der Tabellenstruktur eingefügt, die 1x1 Zellen umfassen, wie in der folgenden Abbildung dargestellt:
+- Das `<td>` darf nur innerhalb eines {{HTMLElement("tr")}}-Elements verwendet werden.
+- Bei der Verwendung der [`colspan`](#colspan)- und [`rowspan`](#rowspan)-Attribute, um Datenzellen über mehrere Spalten und Zeilen zu erstrecken, werden Zellen ohne diese definierten Attribute (mit einem Standardwert von `1`) automatisch in die freien verfügbaren Räume der Tabellenstruktur eingefügt, die 1x1-Zellen umfassen, wie in der folgenden Abbildung dargestellt:
 
-  ![Illustration, die das Erstrecken von Tabellenzellen über Spalten und Zeilen hinweg zeigt: Zellen 1, 3 und 4 erstrecken sich über zwei Zeilen; Zelle 2 erstreckt sich über zwei Spalten; Zellen 5 und 6 passen in die verfügbaren Zellen, die die zweite und dritte Spalte in der zweiten Zeile sind](column-row-span.png)
+  ![Darstellung, die Spalten- und Zeilenerweiterungen von Tabellenzellen zeigt: Zellen 1, 3 und 4 erstrecken sich über zwei Zeilen; Zelle 2 erstreckt sich über zwei Spalten; Zellen 5 und 6 fügen sich in die verfügbaren Zellen ein, die die zweite und dritte Spalte in der zweiten Zeile sind](column-row-span.png)
 
   > [!NOTE]
   > Diese Attribute dürfen nicht verwendet werden, um Zellen zu überlappen.
 
 ## Beispiele
 
-Siehe {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel, das allgemeine Standards und bewährte Praktiken einführt.
+Sehen Sie {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel, das gängige Standards und Best Practices einführt.
 
 ### Grundlegende Datenzellen
 
-In diesem Beispiel werden `<td>`-Elemente zusammen mit anderen tabellenbezogenen Elementen verwendet, um eine grundlegende Tabelle mit Daten über das phonetische Alphabet vorzustellen.
+Dieses Beispiel verwendet `<td>`-Elemente zusammen mit anderen tabellenbezogenen Elementen, um eine grundlegende Tabelle mit Daten über das phonetische Alphabet einzuführen.
 
 #### HTML
 
-Einige Tabellenzeilen ({{HTMLElement("tr")}} Elemente) enthalten sowohl Überschriftzellen ({{HTMLElement("th")}} Elemente) als auch `<td>` Datenzellen. Das {{HTMLElement("th")}} Element, das erstes Kind jeder Zeile ist, bildet die erste Spalte der Tabelle, wobei jede `<th>` als Zeilenüberschrift für die Datenzellen innerhalb dieser Zeile dient. Jedes entsprechende `<td>` Element enthält Daten, die mit seiner jeweiligen Spaltenüberschrift und Zeilenüberschrift ausgerichtet sind.
+Einige Tabellenzeilen ({{HTMLElement("tr")}}-Elemente) enthalten sowohl Header-Zellen ({{HTMLElement("th")}}-Elemente) als auch Datenzellen `<td>`. Das {{HTMLElement("th")}}-Element, das das erste Kind jeder Zeile darstellt, bildet die erste Spalte der Tabelle, wobei jede `<th>`-Zelle die Zeilenüberschrift für die Datenzellen innerhalb dieser Zeile bereitstellt. Jedes entsprechende `<td>`-Element enthält Daten, die mit seiner jeweiligen Spaltenüberschrift und Zeilenüberschrift ausgerichtet sind.
 
 > [!NOTE]
-> Normalerweise würde eine Tabellengruppe mit Spaltenüberschriften implementiert werden, um das Verständnis der Informationen in den Spalten zu erleichtern. Die {{HTMLElement("thead")}} und {{HTMLElement("tbody")}} Elemente würden verwendet werden, um solche Zeilen von Überschriften und Daten in die entsprechenden Tabellen-Head- und Body-Bereiche zu gruppieren. Dies wird in diesem Beispiel nicht umgesetzt, um sich auf die Datenzellen zu konzentrieren und die Komplexität dieses Beispiels zu reduzieren.
+> Normalerweise würde eine Tabellenkopfgruppe mit Spaltenüberschriften implementiert werden, um die Informationen in den Spalten leichter verständlich zu machen. Die {{HTMLElement("thead")}}- und {{HTMLElement("tbody")}}-Elemente würden verwendet werden, um solche Reihen von Überschriften und Daten in die entsprechenden Tabellenkopf- und -körperabschnitte zu gruppieren. Dies ist in diesem Beispiel nicht implementiert, um den Fokus auf die Datenzellen zu legen und die Komplexität dieses Beispiels zu reduzieren.
 
 ```html
 <table>
@@ -118,7 +184,7 @@ Einige Tabellenzeilen ({{HTMLElement("tr")}} Elemente) enthalten sowohl Übersch
 
 #### CSS
 
-Ein wenig grundlegendes CSS wird verwendet, um die Tabelle und ihre Zellen zu stylen. CSS [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) und die {{cssxref(":nth-of-type")}} Pseudoklasse werden verwendet, um das Erscheinungsbild der Zellen zu alternieren und so das Verständnis und die Identifizierung der Informationen in der Tabelle zu erleichtern.
+Ein einfaches CSS wird verwendet, um die Tabelle und ihre Zellen zu gestalten. CSS [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) und die {{cssxref(":nth-of-type")}} Pseudoklasse werden verwendet, um das Erscheinungsbild der Zellen zu alternieren und die Informationen in der Tabelle leichter verständlich und identifizierbar zu machen.
 
 ```css
 td,
@@ -152,13 +218,13 @@ table {
 
 ### Spalten- und Zeilenüberspannung
 
-Dieses Beispiel erweitert und verbessert die grundlegende Tabelle aus dem [vorherigen Beispiel](#grundlegende_datenzellen) durch Hinzufügen einer zusätzlichen "ABC"-Zelle.
+Dieses Beispiel erweitert und verbessert die einfache Tabelle aus dem [vorherigen Beispiel](#grundlegende_datenzellen) durch das Hinzufügen einer zusätzlichen "ABC"-Zelle.
 
 #### HTML
 
-Eine zusätzliche Datenzelle (`<td>` Element) wird in der ersten Zeile ({{HTMLElement("tr")}} Element) eingefügt. Dies erzeugt eine vierte Spalte in der Tabelle.
+Eine zusätzliche Datenzelle (`<td>`-Element) wird in der ersten Zeile ({{HTMLElement("tr")}}-Element) eingeführt. Dies erzeugt eine vierte Spalte in der Tabelle.
 
-Durch die Verwendung des [`rowspan`](#rowspan) Attributs wird die "ABC"-Zelle über die ersten drei Zeilen der Tabelle erstreckt. Die letzten Datenzellen der nachfolgenden Zeilen erstrecken sich jeweils über zwei Spalten. Dies erfolgt mittels des [`colspan`](#colspan) Attributs, wodurch sie korrekt innerhalb der Tabellenstruktur ausgerichtet werden. Beachten Sie, dass der Tabelle eine zusätzliche Zeile ({{HTMLElement("tr")}} Element) hinzugefügt wird, um dies zu veranschaulichen.
+Unter Verwendung des [`rowspan`](#rowspan)-Attributs wird die "ABC"-Zelle über die ersten drei Zeilen der Tabelle gestreckt. Die letzten Datenzellen der nachfolgenden Zeilen erstrecken sich jeweils über zwei Spalten. Dies wird mit dem [`colspan`](#colspan)-Attribut erreicht, indem sie korrekt innerhalb der Tabellenstruktur ausgerichtet werden. Beachten Sie, dass der Tabelle eine zusätzliche Zeile ({{HTMLElement("tr")}}-Element) hinzugefügt wurde, um dies zu veranschaulichen.
 
 ```html
 <table>
@@ -193,7 +259,7 @@ Durch die Verwendung des [`rowspan`](#rowspan) Attributs wird die "ABC"-Zelle ü
 
 #### CSS
 
-Die {{cssxref(":first-of-type")}} und {{cssxref(":last-of-type")}} Pseudoklassen werden im CSS verwendet, um die hinzugefügte "ABC"-Datenzelle auszuwählen und zu stylen.
+Die {{cssxref(":first-of-type")}} und {{cssxref(":last-of-type")}} Pseudoklassen werden im CSS verwendet, um die hinzugefügte "ABC"-Datenzelle auszuwählen und zu gestalten.
 
 ```css
 tr:first-of-type td:last-of-type {
@@ -233,16 +299,16 @@ table {
 
 {{EmbedLiveSample("Column_and_row_spanning", 650, 170)}}
 
-### Verknüpfung von Datenzellen mit Überschriftzellen
+### Datenzellen mit Kopfzellen verknüpfen
 
-Für komplexere Beziehungen zwischen Datenzellen (`<td>` Elemente) und Überschriftzellen ({{HTMLElement("th")}} Elemente) reicht die Verwendung von {{HTMLElement("th")}} Elementen mit dem [`scope`](/de/docs/Web/HTML/Element/th#scope) Attribut allein möglicherweise nicht für unterstützende Technologien, insbesondere Bildschirmlesegeräte, aus.
+Bei komplexeren Beziehungen zwischen Datenzellen (`<td>`-Elementen) und Kopfzellen ({{HTMLElement("th")}}-Elementen) kann die Verwendung von {{HTMLElement("th")}}-Elementen mit dem [`scope`](/de/docs/Web/HTML/Element/th#scope)-Attribut allein für unterstützende Technologien, insbesondere Bildschirmlesegeräte, nicht ausreichend sein.
 
 #### HTML
 
-Um die {{Glossary("accessibility", "Zugänglichkeit")}} des [vorherigen Beispiels](#spalten-_und_zeilenüberspannung) zu verbessern und z. B. Bildschirmlesegeräten die Möglichkeit zu geben, die mit jeder Datenzelle verknüpften Überschriften zu lesen, kann das [`headers`](#headers) Attribut zusammen mit [`id`](/de/docs/Web/HTML/Global_attributes/id) Attributen eingeführt werden. Jeder Zeilenkopf ({{HTMLElement("th")}} Element), der mit der "ABC"-Datenzelle verbunden ist, d.h. die Buchstaben "A", "B" und "C", erhält eine eindeutige Kennung mit dem [`id`](/de/docs/Web/HTML/Global_attributes/id) Attribut. Die "ABC"-Datenzelle (`<td>` Element) verwendet dann diese `id`-Werte in einer durch Leerzeichen getrennten Liste für das [`headers`](#headers) Attribut.
+Um die {{Glossary("accessibility", "Barrierefreiheit")}} des [vorherigen Beispiels](#spalten-_und_zeilenüberspannung) zu verbessern und Bildschirmlesegeräten zum Beispiel zu ermöglichen, die mit jeder Datenzelle verbundenen Überschriften zu nennen, kann das [`headers`](#headers)-Attribut zusammen mit [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attributen eingeführt werden. Jede Zeilenkopfzelle ({{HTMLElement("th")}}-Element), die mit der "ABC"-Datenzelle verbunden ist, d. h. die Buchstaben "A", "B" und "C", erhält einen eindeutigen Bezeichner mit dem [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut. Die "ABC"-Datenzelle (`<td>`-Element) verwendet dann diese `id`-Werte in einer durch Leerzeichen getrennten Liste für das [`headers`](#headers)-Attribut.
 
 > [!NOTE]
-> Es wird empfohlen, beschreibendere und nützlichere Werte für das [`id`](/de/docs/Web/HTML/Global_attributes/id) Attribut zu verwenden. Jedes `id` in einem Dokument muss für dieses Dokument eindeutig sein. In diesem Beispiel sind die `id`-Werte Einzelzeichen, um den Fokus auf das Konzept des [`headers`](#headers) Attributs zu richten.
+> Es wird empfohlen, beschreibendere und nützlichere Werte für das [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut zu verwenden. Jedes `id` in einem Dokument muss für dieses Dokument eindeutig sein. In diesem Beispiel sind die `id`-Werte einzelne Zeichen, um sich auf das Konzept des [`headers`](#headers)-Attributs zu konzentrieren.
 
 ```html
 <table>
@@ -277,7 +343,7 @@ Um die {{Glossary("accessibility", "Zugänglichkeit")}} des [vorherigen Beispiel
 
 #### Ergebnis
 
-Während das [visuelle Ergebnis](#result_2) im Vergleich zur [vorherigen Beispiel-Tabelle](#spalten-_und_zeilenüberspannung) unverändert bleibt, ist jetzt jede Datenzelle (`<td>`) explizit mit ihrer Zeilenkopfzeile (`<th>`) verknüpft.
+Während das [visuelle Ergebnis](#result_2) sich nicht vom [vorherigen Tabellenbeispiel](#spalten-_und_zeilenüberspannung) unterscheidet, ist jetzt jede Datenzelle (`<td>`) explizit mit ihrer Zeilenkopfzelle (`<th>`) verknüpft.
 
 ## Technische Zusammenfassung
 
@@ -289,13 +355,13 @@ Während das [visuelle Ergebnis](#result_2) im Vergleich zur [vorherigen Beispie
           >Inhaltskategorien</a
         >
       </th>
-      <td>Sectioning root.</td>
+      <td>Abschnittswurzel.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zugelassene Inhalte</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
@@ -303,14 +369,14 @@ Während das [visuelle Ergebnis](#result_2) im Vergleich zur [vorherigen Beispie
       <th scope="row">Tag-Auslassung</th>
       <td>
         Das Start-Tag ist obligatorisch.<br />Das End-Tag kann weggelassen werden, wenn es
-        unmittelbar von einem {{HTMLElement("th")}} oder
-        <code>&lt;td&gt;</code> Element gefolgt wird oder wenn keine weiteren Daten in seinem
-        übergeordneten Element vorhanden sind.
+        unmittelbar durch ein {{HTMLElement("th")}} oder
+        <code>&lt;td&gt;</code>-Element gefolgt wird oder wenn es keine weiteren Daten in seinem
+        Elternelement gibt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
-      <td>Ein {{HTMLElement("tr")}} Element.</td>
+      <th scope="row">Zugelassene Eltern</th>
+      <td>Ein {{HTMLElement("tr")}}-Element.</td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
@@ -320,7 +386,7 @@ Während das [visuelle Ergebnis](#result_2) im Vergleich zur [vorherigen Beispie
             >cell</a
           ></code
         >
-        wenn ein Nachkomme eines {{HTMLElement("table")}} Elements, oder <code
+        wenn ein Nachkomme eines {{HTMLElement("table")}}-Elements, oder <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role"
             >gridcell</a
           ></code
@@ -333,8 +399,8 @@ Während das [visuelle Ergebnis](#result_2) im Vergleich zur [vorherigen Beispie
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Any</td>
+      <th scope="row">Zugelassene ARIA-Rollen</th>
+      <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -353,12 +419,12 @@ Während das [visuelle Ergebnis](#result_2) im Vergleich zur [vorherigen Beispie
 
 ## Siehe auch
 
-- [Erlernen: Grundlagen der HTML-Tabelle](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
+- [Lernen: Grundlagen von HTML-Tabellen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
 - {{HTMLElement("caption")}}, {{HTMLElement("col")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("table")}}, {{HTMLElement("tbody")}}, {{HTMLElement("tfoot")}}, {{HTMLElement("th")}}, {{HTMLElement("thead")}}, {{HTMLElement("tr")}}: Andere tabellenbezogene Elemente
-- {{cssxref("background-color")}}: CSS-Eigenschaft zur Festlegung der Hintergrundfarbe jeder Datenzelle
+- {{cssxref("background-color")}}: CSS-Eigenschaft, um die Hintergrundfarbe jeder Datenzelle festzulegen
 - {{cssxref("border")}}: CSS-Eigenschaft zur Steuerung der Ränder von Datenzellen
-- {{cssxref("height")}}: CSS-Eigenschaft zur Steuerung der empfohlenen Datenzellenhöhe
+- {{cssxref("height")}}: CSS-Eigenschaft zur Steuerung der empfohlenen Höhe der Datenzelle
 - {{cssxref("text-align")}}: CSS-Eigenschaft zur horizontalen Ausrichtung des Inhalts jeder Datenzelle
 - {{cssxref("vertical-align")}}: CSS-Eigenschaft zur vertikalen Ausrichtung des Inhalts jeder Datenzelle
-- {{cssxref("width")}}: CSS-Eigenschaft zur Steuerung der empfohlenen Datenzellenbreite
+- {{cssxref("width")}}: CSS-Eigenschaft zur Steuerung der empfohlenen Breite der Datenzelle
 - {{cssxref(":nth-of-type")}}, {{cssxref(":first-of-type")}}, {{cssxref(":last-of-type")}}: CSS-Pseudoklassen zur Auswahl der gewünschten Datenzellen

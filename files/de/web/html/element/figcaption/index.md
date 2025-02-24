@@ -2,22 +2,55 @@
 title: "<figcaption>: Das Figure Caption-Element"
 slug: Web/HTML/Element/figcaption
 l10n:
-  sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Bildunterschrift oder Legende, die den restlichen Inhalt seines übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} bietet.
+Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschriftung oder Legende, die den restlichen Inhalt seines übergeordneten {{HTMLElement("figure")}}-Elements beschreibt, und bietet dem `<figure>` eine {{Glossary("accessible_description", "zugängliche Beschreibung")}}.
 
-{{EmbedInteractiveExample("pages/tabbed/figcaption.html","tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: &lt;figcaption&gt;", "tabbed-shorter")}}
+
+```html interactive-example
+<figure>
+  <img
+    src="/shared-assets/images/examples/elephant.jpg"
+    alt="Elephant at sunset" />
+  <figcaption>An elephant at sunset</figcaption>
+</figure>
+```
+
+```css interactive-example
+figure {
+  border: thin #c0c0c0 solid;
+  display: flex;
+  flex-flow: column;
+  padding: 5px;
+  max-width: 220px;
+  margin: auto;
+}
+
+img {
+  max-width: 220px;
+  max-height: 150px;
+}
+
+figcaption {
+  background-color: #222;
+  color: #fff;
+  font: italic smaller sans-serif;
+  padding: 3px;
+  text-align: center;
+}
+```
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
-Bitte sehen Sie sich die Seite zum {{HTMLElement("figure")}}-Element für Beispiele zu `<figcaption>` an.
+Bitte sehen Sie sich die Seite des {{HTMLElement("figure")}}-Elements für Beispiele zu `<figcaption>` an.
 
 ## Technische Zusammenfassung
 
@@ -35,13 +68,13 @@ Bitte sehen Sie sich die Seite zum {{HTMLElement("figure")}}-Element für Beispi
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließende Inhalte</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Weglassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das Endtag sind obligatorisch.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>

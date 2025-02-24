@@ -1,25 +1,55 @@
 ---
-title: "<hgroup>: Das Element Heading Group"
+title: "<hgroup>: Das Heading Group Element"
 slug: Web/HTML/Element/hgroup
 l10n:
-  sourceCommit: 4a93b09e58da589b7af14cbbe30fc7f337a1ad50
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<hgroup>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Überschrift und verwandte Inhalte. Es gruppiert ein einzelnes [`<h1>–<h6>`](/de/docs/Web/HTML/Element/Heading_Elements)-Element mit einem oder mehreren [`<p>`](/de/docs/Web/HTML/Element/p).
+Das **`<hgroup>`** [HTML](/de/docs/Web/HTML) Element repräsentiert eine Überschrift und verwandte Inhalte. Es gruppiert ein einzelnes [`<h1>–<h6>`](/de/docs/Web/HTML/Element/Heading_Elements) Element mit einem oder mehreren [`<p>`](/de/docs/Web/HTML/Element/p).
 
-{{EmbedInteractiveExample("pages/tabbed/hgroup.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;hgroup&gt;", "tabbed-standard")}}
+
+```html interactive-example
+<hgroup>
+  <h1>Frankenstein</h1>
+  <p>Or: The Modern Prometheus</p>
+</hgroup>
+<p>
+  Victor Frankenstein, a Swiss scientist, has a great ambition: to create
+  intelligent life. But when his creature first stirs, he realizes he has made a
+  monster. A monster which, abandoned by his master and shunned by everyone who
+  sees it, follows Dr Frankenstein to the very ends of the earth.
+</p>
+```
+
+```css interactive-example
+hgroup {
+  text-align: right;
+  padding-right: 16px;
+  border-right: 10px solid #00c8d7;
+}
+
+hgroup h1 {
+  margin-bottom: 0;
+}
+
+hgroup p {
+  margin: 0;
+  font-weight: bold;
+}
+```
 
 ## Attribute
 
 Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Das `<hgroup>`-Element ermöglicht die Gruppierung einer Überschrift mit sekundären Inhalten, wie Unterüberschriften, einem alternativen Titel oder einem Slogan. Jeder dieser Inhaltstypen wird als `<p>`-Element innerhalb des `<hgroup>` dargestellt.
+Das `<hgroup>` Element erlaubt die Gruppierung einer Überschrift mit jeglichem sekundären Inhalt, wie Untertitel, einem alternativen Titel oder Slogan. Jeder dieser Inhaltstypen wird als `<p>` Element innerhalb des `<hgroup>` repräsentiert.
 
-Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentstruktur einer Webseite. Vielmehr trägt die einzelne zulässige Überschrift innerhalb des `<hgroup>` zur Dokumentstruktur bei.
+Das `<hgroup>` selbst hat keine Auswirkung auf die Dokumentenstruktur einer Webseite. Vielmehr trägt die innerhalb des `<hgroup>` erlaubte Überschrift zur Dokumentenstruktur bei.
 
 ## Beispiele
 
@@ -54,39 +84,40 @@ Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentstruktur einer Webseit
         <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a>, Überschrifteninhalt, greifbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließinhalte</a>,
+        Überschrifteninhalte, greifbare Inhalte.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
-        Null oder mehr {{HTMLElement("p")}}-Elemente, gefolgt von einem
+        Null oder mehr {{HTMLElement("p")}} Elemente, gefolgt von einem
         {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}},
         {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}},
-        {{HTMLElement("Heading_Elements", "h5")}} oder {{HTMLElement("Heading_Elements", "h6")}}-Element,
-        gefolgt von null oder mehr {{HTMLElement("p")}}-Elementen.
+        {{HTMLElement("Heading_Elements", "h5")}}, oder {{HTMLElement("Heading_Elements", "h6")}} Element,
+        gefolgt von null oder mehr {{HTMLElement("p")}} Elementen.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das eröffnende als auch das schließende Tag sind zwingend erforderlich.</td>
+      <td>Keine, sowohl der startende als auch der endende Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a>
-        akzeptiert.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließinhalte</a> akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role">group</a></code>
+        <code
+          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role">group</a></code>
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>
@@ -106,5 +137,5 @@ Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentstruktur einer Webseit
 
 ## Siehe auch
 
-- Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
-- [Abschnitte und Gliederungen eines HTML-Dokuments](/de/docs/Web/HTML/Element/Heading_Elements).
+- Weitere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
+- [Abschnitte und Strukturen eines HTML-Dokuments](/de/docs/Web/HTML/Element/Heading_Elements).

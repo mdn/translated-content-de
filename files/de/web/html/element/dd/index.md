@@ -2,14 +2,45 @@
 title: "<dd>: Das Description Details-Element"
 slug: Web/HTML/Element/dd
 l10n:
-  sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<dd>`**-[HTML](/de/docs/Web/HTML)-Element liefert die Beschreibung, Definition oder den Wert für den vorhergehenden Begriff ({{HTMLElement("dt")}}) in einer Definitionsliste ({{HTMLElement("dl")}}).
+Das **`<dd>`** [HTML](/de/docs/Web/HTML)-Element bietet die Beschreibung, Definition oder den Wert für den vorangehenden Begriff ({{HTMLElement("dt")}}) in einer Definitionsliste ({{HTMLElement("dl")}}).
 
-{{EmbedInteractiveExample("pages/tabbed/dd.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;dd&gt;", "tabbed-standard")}}
+
+```html interactive-example
+<p>Cryptids of Cornwall:</p>
+
+<dl>
+  <dt>Beast of Bodmin</dt>
+  <dd>A large feline inhabiting Bodmin Moor.</dd>
+
+  <dt>Morgawr</dt>
+  <dd>A sea serpent.</dd>
+
+  <dt>Owlman</dt>
+  <dd>A giant owl-like creature.</dd>
+</dl>
+```
+
+```css interactive-example
+p,
+dt {
+  font-weight: bold;
+}
+
+dl,
+dd {
+  font-size: 0.9rem;
+}
+
+dd {
+  margin-bottom: 1em;
+}
+```
 
 ## Attribute
 
@@ -17,7 +48,7 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Beispiele
 
-Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/de/docs/Web/HTML/Element/dl#examples).
+Für Beispiele siehe die [Beispiele für das `<dl>`-Element](/de/docs/Web/HTML/Element/dl#examples).
 
 ## Technische Zusammenfassung
 
@@ -35,20 +66,23 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn dieses Element unmittelbar von einem anderen <code>&#x3C;dd></code>-Element oder einem {{HTMLElement("dt")}}-Element gefolgt wird, oder wenn es keinen weiteren Inhalt im Elternelement gibt.
+        Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn dieses Element unmittelbar von einem anderen <code>&#x3C;dd></code>-Element oder einem {{HTMLElement("dt")}}-Element gefolgt wird oder wenn kein weiterer Inhalt im übergeordneten Element vorhanden ist.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("dl")}} oder ein {{HTMLElement("div")}}, das ein Kind eines {{HTMLElement("dl")}} ist.<br />Dieses Element kann nach einem {{HTMLElement("dt")}} oder einem weiteren <code>&lt;dd&gt;</code>-Element verwendet werden.
+        Ein {{HTMLElement("dl")}} oder ein
+        {{HTMLElement("div")}}, das ein Kind eines
+        {{HTMLElement("dl")}} ist.<br />Dieses Element kann nach einem
+        {{HTMLElement("dt")}} oder einem anderen <code>&lt;dd&gt;</code>-Element verwendet werden.
       </td>
     </tr>
     <tr>
@@ -57,7 +91,7 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
         >
-        </td>
+      </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>

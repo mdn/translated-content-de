@@ -1,28 +1,76 @@
 ---
-title: "<ins>: Das Inserted Text Element"
+title: "<ins>: Das eingefügte Textelement"
 slug: Web/HTML/Element/ins
 l10n:
-  sourceCommit: bde0cb215d1d307c08678abe6623fc0d39f4cf7f
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<ins>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Textbereich, der in ein Dokument eingefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um ähnlich einen Textbereich darzustellen, der aus dem Dokument gelöscht wurde.
+Das **`<ins>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Bereich von Text, der in ein Dokument eingefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um einen Bereich von Text darzustellen, der aus dem Dokument gelöscht wurde.
 
-{{EmbedInteractiveExample("pages/tabbed/ins.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;ins&gt;", "tabbed-standard")}}
+
+```html interactive-example
+<p>&ldquo;You're late!&rdquo;</p>
+<del>
+  <p>&ldquo;I apologize for the delay.&rdquo;</p>
+</del>
+<ins cite="../howtobeawizard.html" datetime="2018-05">
+  <p>&ldquo;A wizard is never late &hellip;&rdquo;</p>
+</ins>
+```
+
+```css interactive-example
+del,
+ins {
+  display: block;
+  text-decoration: none;
+  position: relative;
+}
+
+del {
+  background-color: #fbb;
+}
+
+ins {
+  background-color: #d4fcbc;
+}
+
+del::before,
+ins::before {
+  position: absolute;
+  left: 0.5rem;
+  font-family: monospace;
+}
+
+del::before {
+  content: "−";
+}
+
+ins::before {
+  content: "+";
+}
+
+p {
+  margin: 0 1.8rem 0;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+}
+```
 
 ## Attribute
 
 Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `cite`
-  - : Dieses Attribut definiert die URI einer Ressource, die die Änderung erklärt, wie z.B. einen Link zu Besprechungsnotizen oder einem Ticket in einem Problemlösungssystem.
+  - : Dieses Attribut definiert die URI einer Ressource, die die Änderung erklärt, wie zum Beispiel einen Link zu Besprechungsnotizen oder ein Ticket in einem Fehlerbehebungssystem.
 - `datetime`
-  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit optionaler Zeitangabe sein. Wenn der Wert nicht als Datum mit optionaler Zeitangabe analysiert werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format der Zeichenfolge ohne Zeit siehe [Format eines gültigen Datumsstrings](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format der Zeichenfolge, wenn sie sowohl Datum als auch Zeit enthält, wird in [Format eines gültigen lokalen Datums- und Zeitstrings](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) behandelt.
+  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit optionaler Zeitzeichenkette sein. Wenn der Wert nicht als Datum mit optionaler Zeitzeichenkette geparst werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format der Zeichenkette ohne Zeit siehe [Format einer gültigen Datumszeichenkette](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format der Zeichenkette, wenn sie sowohl Datum als auch Zeit enthält, wird im [Format einer gültigen lokalen Datums- und Zeitzeichenkette](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) behandelt.
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `<ins>`-Elements wird von den meisten Screenreader-Technologien in ihrer Standardkonfiguration nicht angesagt. Es kann mithilfe der CSS-Eigenschaft {{cssxref("content")}}, sowie den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} angesagt werden.
+Das Vorhandensein des `<ins>`-Elements wird von den meisten Bildschirmlesetechnologien in ihrer Standardkonfiguration nicht angekündigt. Es kann angekündigt werden, indem die CSS-Eigenschaft {{cssxref("content")}} zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} verwendet wird.
 
 ```css
 ins::before,
@@ -45,10 +93,10 @@ ins::after {
 }
 ```
 
-Einige Menschen, die Screenreader verwenden, deaktivieren bewusst die Ankündigung von Inhalten, die zusätzliche Wortfülle erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen über eingefügten Inhalt das Verständnis beeinträchtigen würde.
+Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ankündigen von Inhalten, die zusätzliche Wortfülle erzeugen. Daher ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen, dass Inhalt eingefügt wurde, das Verständnis negativ beeinflussen würde.
 
-- [Kurze Anmerkung zum barrierefreieren Markieren | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
-- [Anpassung von Textstilen auf Inhaltsebene | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
+- [Short note on making your mark (more accessible) | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
+- [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
 
 ## Beispiele
 
@@ -72,10 +120,10 @@ Einige Menschen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Inline-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließinhalt</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
@@ -90,19 +138,19 @@ Einige Menschen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl Start- als auch End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Inline-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">insertion</a
@@ -131,4 +179,4 @@ Einige Menschen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
 
 ## Siehe auch
 
-- {{HTMLElement("del")}}-Element zur Markierung von Löschungen in einem Dokument
+- {{HTMLElement("del")}}-Element für die Markierung von Löschungen in einem Dokument

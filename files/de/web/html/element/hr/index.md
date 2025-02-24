@@ -1,32 +1,59 @@
 ---
-title: "<hr>: Das Thematische Unterbrechungselement (Horizontale Linie)"
+title: "<hr>: Das Thematische Trennelement (Horizontale Linie)"
 slug: Web/HTML/Element/hr
 l10n:
-  sourceCommit: d7e274e727920f0f85f14e0bdd18e6e585419a90
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<hr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine thematische Unterbrechung zwischen Absatzelementen: zum Beispiel ein Szenenwechsel in einer Geschichte oder ein Themenwechsel innerhalb eines Abschnitts.
+Das **`<hr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen thematischen Bruch zwischen Absatzelementen: zum Beispiel einen Szenenwechsel in einer Geschichte oder ein Themenwechsel innerhalb eines Abschnitts.
 
-{{EmbedInteractiveExample("pages/tabbed/hr.html", "tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: &lt;hr&gt;", "tabbed-shorter")}}
 
-Historisch wurde dies als horizontale Linie dargestellt. Während es in visuellen Browsern noch als horizontale Linie angezeigt werden kann, wird dieses Element nun semantisch und nicht mehr präsentationstechnisch definiert. Wenn Sie also eine horizontale Linie zeichnen möchten, sollten Sie dies mit geeignetem CSS tun.
+```html interactive-example
+<p>§1: The first rule of Fight Club is: You do not talk about Fight Club.</p>
+
+<hr />
+
+<p>§2: The second rule of Fight Club is: Always bring cupcakes.</p>
+```
+
+```css interactive-example
+hr {
+  border: none;
+  border-top: 3px double #333;
+  color: #333;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+}
+
+hr::after {
+  background: #fff;
+  content: "§";
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+}
+```
+
+Historisch wurde dies als horizontale Linie dargestellt. Während es in visuellen Browsern immer noch als horizontale Linie angezeigt werden kann, wird dieses Element jetzt in semantischen statt presentationalen Begriffen definiert. Wenn Sie eine horizontale Linie zeichnen möchten, sollten Sie dies mit entsprechendem CSS tun.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `align` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Legt die Ausrichtung der Linie auf der Seite fest. Wenn kein Wert angegeben wird, ist der Standardwert `left`.
+  - : Bestimmt die Ausrichtung der Linie auf der Seite. Wenn kein Wert angegeben ist, ist der Standardwert `left`.
 - `color` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Legt die Farbe der Linie durch Farbnamen oder hexadezimalen Wert fest.
+  - : Setzt die Farbe der Linie durch Farbnamen oder hexadezimalen Wert.
 - `noshade` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Linie auf keine Schattierung.
+  - : Bestimmt, dass die Linie keine Schattierung hat.
 - `size` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Legt die Höhe der Linie in Pixeln fest.
+  - : Definiert die Höhe der Linie in Pixeln.
 - `width` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Legt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert fest.
+  - : Setzt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert.
 
 ## Beispiel
 
@@ -50,7 +77,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 {{EmbedLiveSample("Example")}}
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
@@ -62,13 +89,13 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "void element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
@@ -78,7 +105,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
       <th scope="row">Erlaubte Eltern</th>
       <td>
         <ul>
-          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a> akzeptiert</li>
+          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">fließenden Inhalt</a> akzeptiert</li>
           <li><a href="/de/docs/Web/HTML/Element/select"><code>&lt;select></code></a> Element</li>
         </ul>
       </td>

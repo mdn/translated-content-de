@@ -1,27 +1,57 @@
 ---
-title: "<dl>: Das Description-List-Element"
+title: "<dl>: Das Beschreibungsliste-Element"
 slug: Web/HTML/Element/dl
 l10n:
-  sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<dl>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschreibungsliste. Das Element umfasst eine Liste von Gruppen von Begriffen (spezifiziert mit dem {{HTMLElement("dt")}}-Element) und Beschreibungen (bereitgestellt durch {{HTMLElement("dd")}}-Elemente). Gängige Verwendungen für dieses Element sind die Implementierung eines Glossars oder die Darstellung von Metadaten (eine Liste von Schlüssel-Wert-Paaren).
+Das **`<dl>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschreibungsliste. Das Element umfasst eine Liste von Gruppen von Begriffen (angegeben mit dem {{HTMLElement("dt")}}-Element) und Beschreibungen (bereitgestellt durch {{HTMLElement("dd")}}-Elemente). Häufige Verwendungen für dieses Element sind die Implementierung eines Glossars oder die Anzeige von Metadaten (einer Liste von Schlüssel-Wert-Paaren).
 
-{{EmbedInteractiveExample("pages/tabbed/dl.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;dl&gt;", "tabbed-standard")}}
+
+```html interactive-example
+<p>Cryptids of Cornwall:</p>
+
+<dl>
+  <dt>Beast of Bodmin</dt>
+  <dd>A large feline inhabiting Bodmin Moor.</dd>
+
+  <dt>Morgawr</dt>
+  <dd>A sea serpent.</dd>
+
+  <dt>Owlman</dt>
+  <dd>A giant owl-like creature.</dd>
+</dl>
+```
+
+```css interactive-example
+p,
+dt {
+  font-weight: bold;
+}
+
+dl,
+dd {
+  font-size: 0.9rem;
+}
+
+dd {
+  margin-bottom: 1em;
+}
+```
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Barrierefreiheit
 
-Jeder Screenreader zeigt `<dl>`-Inhalt unterschiedlich an, einschließlich der Gesamtanzahl, des Kontexts der Begriffe/Beschreibungen und der Navigationsmethoden. Diese Unterschiede sind nicht unbedingt Fehler.
-Ab iOS 14 kündigt VoiceOver an, dass `<dl>`-Inhalt eine Liste ist, wenn Sie mit dem virtuellen Cursor navigieren (nicht über den Befehl "Alles vorlesen"). VoiceOver unterstützt keine Listennavigationsbefehle mit `<dl>`. Seien Sie vorsichtig, wenn Sie ARIA-Rollen wie `term` und `definition` auf `<dl>`-Konstrukte anwenden, da VoiceOver (macOS und iOS) die Ansage entsprechend anpasst.
+Jeder Screenreader gibt den Inhalt von `<dl>` unterschiedlich wieder, einschließlich der Gesamtanzahl, der Begriffe/Definitionen-Kontext und der Navigationsmethoden. Diese Unterschiede sind nicht unbedingt Fehler. Seit iOS 14 gibt VoiceOver an, dass `<dl>`-Inhalt eine Liste ist, wenn mit dem virtuellen Cursor navigiert wird (nicht über den Befehl „Alles lesen“). VoiceOver unterstützt keine Listennavigationsbefehle mit `<dl>`. Seien Sie vorsichtig beim Anwenden von ARIA `term` und `definition` Rollen auf `<dl>`-Konstruktionen, da VoiceOver (macOS und iOS) dann anpasst, wie diese angesagt werden.
 
-- [VoiceOver auf iOS 14 unterstützt Beschreibungslisten](https://adrianroselli.com/2020/09/voiceover-on-ios-14-supports-description-lists.html)
-- [Kurze Notiz zur Unterstützung von Beschreibungslisten](https://adrianroselli.com/2022/12/brief-note-on-description-list-support.html)
+- [VoiceOver auf iOS 14 unterstützt Beschreibungsliste](https://adrianroselli.com/2020/09/voiceover-on-ios-14-supports-description-lists.html)
+- [Kurzer Hinweis zur Unterstützung von Beschreibungsliste](https://adrianroselli.com/2022/12/brief-note-on-description-list-support.html)
 
 ## Beispiele
 
@@ -43,7 +73,7 @@ Ab iOS 14 kündigt VoiceOver an, dass `<dl>`-Inhalt eine Liste ist, wenn Sie mit
 
 {{EmbedLiveSample("Single_term_and_description")}}
 
-### Mehrere Begriffe, einzelne Beschreibung
+### Mehrere Begriffe, eine Beschreibung
 
 ```html
 <dl>
@@ -87,11 +117,11 @@ Ab iOS 14 kündigt VoiceOver an, dass `<dl>`-Inhalt eine Liste ist, wenn Sie mit
 
 ### Mehrere Begriffe und Beschreibungen
 
-Es ist auch möglich, mehrere Begriffe mit mehreren entsprechenden Beschreibungen zu definieren, indem Sie die obigen Beispiele kombinieren.
+Es ist auch möglich, mehrere Begriffe mit mehreren entsprechenden Beschreibungen zu definieren, indem die obigen Beispiele kombiniert werden.
 
 ### Metadaten
 
-Beschreibungslists sind nützlich, um Metadaten als Liste von Schlüssel-Wert-Paaren darzustellen.
+Beschreibungsliste sind nützlich zur Darstellung von Metadaten als Liste von Schlüssel-Wert-Paaren.
 
 ```html
 <dl>
@@ -110,7 +140,7 @@ Beschreibungslists sind nützlich, um Metadaten als Liste von Schlüssel-Wert-Pa
 
 {{EmbedLiveSample('Metadata')}}
 
-Tipp: Es kann nützlich sein, einen Schlüssel-Wert-Trenner in CSS zu definieren, wie zum Beispiel:
+Tipp: Es kann hilfreich sein, einen Schlüssel-Wert-Trenner im CSS zu definieren, wie z.B.:
 
 ```css
 dt::after {
@@ -118,9 +148,9 @@ dt::after {
 }
 ```
 
-### Name-Wert-Gruppen in `div`-Elemente einwickeln
+### Umwickeln von Name-Wert-Gruppen in `div`-Elementen
 
-HTML erlaubt das Einwickeln jeder Name-Wert-Gruppe in einem `<dl>`-Element in ein {{HTMLElement("div")}}-Element. Dies kann nützlich sein, wenn [Mikrodaten](/de/docs/Web/HTML/Microdata) verwendet werden oder wenn [globale Attribute](/de/docs/Web/HTML/Global_attributes) für eine ganze Gruppe gelten oder für Styling-Zwecke.
+HTML erlaubt es, jede Name-Wert-Gruppe in einem `<dl>`-Element in einem {{HTMLElement("div")}}-Element zu umwickeln. Dies kann nützlich sein, wenn [Mikrodaten](/de/docs/Web/HTML/Microdata) verwendet werden, oder wenn [globale Attribute](/de/docs/Web/HTML/Global_attributes) auf eine ganze Gruppe angewendet werden, oder für Stilzwecke.
 
 ```html
 <dl>
@@ -147,9 +177,9 @@ HTML erlaubt das Einwickeln jeder Name-Wert-Gruppe in einem `<dl>`-Element in ei
 
 {{EmbedLiveSample('Wrapping name-value groups in `div` elements')}}
 
-## Anmerkungen
+## Hinweise
 
-Verwenden Sie dieses Element (noch {{HTMLElement("ul")}}-Elemente) nicht, um lediglich Einrückungen auf einer Seite zu erstellen. Auch wenn es funktioniert, ist dies eine schlechte Praxis und verdeckt die Bedeutung von Beschreibungslists.
+Verwenden Sie dieses Element nicht (noch {{HTMLElement("ul")}}-Elemente), um lediglich Einrückungen auf einer Seite zu erzeugen. Obwohl es funktioniert, ist dies eine schlechte Praxis und verschleiert die Bedeutung von Beschreibungsliste.
 
 Um die Einrückung eines Beschreibungsterms zu ändern, verwenden Sie die [CSS](/de/docs/Web/CSS) {{cssxref("margin")}}-Eigenschaft.
 
@@ -159,45 +189,58 @@ Um die Einrückung eines Beschreibungsterms zu ändern, verwenden Sie die [CSS](
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flow Content</a>, und wenn die Kinder des <code>&#x3C;dl></code>-Elements eine Name-Wert-Gruppe einschließen, spürbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >Fließender Inhalt</a
+        >, und wenn das <code>&#x3C;dl></code>-Element Kinder enthält, die eine Name-Wert-Gruppe beinhalten, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <p>
-          Entweder: Null oder mehr Gruppen, von denen jede aus einem oder mehreren {{HTMLElement("dt")}}-Elementen gefolgt von einem oder mehreren {{HTMLElement("dd")}}-Elementen besteht, optional durchmischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.<br />Oder: (in {{Glossary("WHATWG", "WHATWG")}} HTML, {{Glossary("W3C", "W3C")}} HTML 5.2 und später) Ein oder mehrere {{HTMLElement("div")}}-Elemente, optional durchmischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.
+          Entweder: Null oder mehr Gruppen, die jeweils aus einem oder mehreren {{HTMLElement("dt")}}-Elementen gefolgt von einem oder mehreren {{HTMLElement("dd")}}-Elementen bestehen, optional vermischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.<br />Oder: (in {{Glossary("WHATWG", "WHATWG")}} HTML, {{Glossary("W3C", "W3C")}} HTML 5.2 und später) Ein oder mehrere {{HTMLElement("div")}}-Elemente, optional vermischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flow-Content</a> akzeptiert.
+        Jedes Element, das
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >fließenden Inhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA Rolle</th>
       <td>
-        <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
+        <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
+          >Keine entsprechende Rolle</a
+        >
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role"><code>group</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/list_role"><code>list</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a>
+        <code
+          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/list_role"
+            >list</a
+          ></code
+        >, <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a>
       </td>
     </tr>
     <tr>
-      <th scope="row">DOM-Schnittstelle</th>
+      <th scope="row">DOM-Interface</th>
       <td>[`HTMLDListElement`](/de/docs/Web/API/HTMLDListElement)</td>
     </tr>
   </tbody>

@@ -2,115 +2,135 @@
 title: <input type="search">
 slug: Web/HTML/Element/input/search
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-{{HTMLElement("input")}}-Elemente des Typs **`search`** sind Textfelder, die für die Eingabe von Suchanfragen durch den Benutzer vorgesehen sind. Sie sind funktional identisch mit [`text`](/de/docs/Web/HTML/Element/input/text)-Eingaben, können jedoch vom {{Glossary("user_agent", "User-Agent")}} unterschiedlich gestaltet werden.
+{{HTMLElement("input")}}-Elemente des Typs **`search`** sind Textfelder, die für die Eingabe von Suchanfragen durch den Benutzer vorgesehen sind. Diese sind funktional identisch mit [`text`](/de/docs/Web/HTML/Element/input/text)-Eingaben, können jedoch vom {{Glossary("user_agent", "Benutzer-Agenten")}} anders gestylt werden.
 
-{{EmbedInteractiveExample("pages/tabbed/input-search.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;input type=&quot;search&quot;&gt;", "tabbed-standard")}}
+
+```html interactive-example
+<label for="site-search">Search the site:</label>
+<input type="search" id="site-search" name="q" />
+
+<button>Search</button>
+```
+
+```css interactive-example
+label {
+  display: block;
+  font:
+    1rem "Fira Sans",
+    sans-serif;
+}
+
+input,
+label {
+  margin: 0.4rem 0;
+}
+```
 
 ## Wert
 
-Das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut enthält einen Zeichenfolgenwert, der den Wert im Suchfeld repräsentiert. Sie können diesen mittels der JavaScript-Eigenschaft [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement#value) abrufen.
+Das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut enthält einen String, der den Wert im Suchfeld darstellt. Sie können diesen mit der [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement#value)-Eigenschaft in JavaScript abrufen.
 
 ```js
 searchTerms = mySearch.value;
 ```
 
-Falls keine Validierungskriterien für die Eingabe vorliegen (siehe [Validierung](#validierung) für weitere Details), kann der Wert eine beliebige Textzeichenfolge oder eine leere Zeichenfolge (`""`) sein.
+Wenn keine Validierungsbeschränkungen für die Eingabe vorhanden sind (siehe [Validierung](#validierung) für weitere Details), kann der Wert jeder beliebige Textstring oder ein leerer String (`""`) sein.
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den [globalen Attributen](/de/docs/Web/HTML/Global_attributes) und den Attributen, die auf alle {{HTMLElement("input")}}-Elemente unabhängig von ihrem Typ wirken, unterstützen Suchfeldeingaben die folgenden Attribute.
+Zusätzlich zu den [Globalen Attributen](/de/docs/Web/HTML/Global_attributes) und den Attributen, die auf alle {{HTMLElement("input")}}-Elemente unabhängig von ihrem Typ wirken, unterstützen Suchfeldeingaben die folgenden Attribute.
 
 ### list
 
-Der Wert des `list`-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das sich im selben Dokument befindet. Das {{HTMLElement("datalist")}} bietet eine Liste vordefinierter Werte an, die dem Benutzer für diese Eingabe vorgeschlagen werden sollen. Werte in der Liste, die nicht mit dem [`type`](/de/docs/Web/HTML/Element/input#type) kompatibel sind, werden in den vorgeschlagenen Optionen nicht berücksichtigt. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert eingeben.
+Der Wert des `list`-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das sich im selben Dokument befindet. Die {{HTMLElement("datalist")}}-Elemente liefern eine Liste von vordefinierten Werten, die dem Benutzer als Eingabevorschläge für dieses Eingabefeld angeboten werden. Alle Werte in der Liste, die nicht mit dem [`type`](/de/docs/Web/HTML/Element/input#type) kompatibel sind, werden nicht in die vorgeschlagenen Optionen aufgenommen. Die bereitgestellten Werte sind Vorschläge, keine Vorgaben: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert eingeben.
 
 ### maxlength
 
-Die maximale Zeichenfolgenlänge (gemessen in UTF-16 Codeeinheiten), die der Benutzer in das Suchfeld eingeben kann. Dies muss ein ganzzahliger Wert von 0 oder höher sein. Wenn kein `maxlength` angegeben ist oder ein ungültiger Wert angegeben wird, hat das Suchfeld keine maximale Länge. Dieser Wert muss außerdem größer oder gleich dem Wert von `minlength` sein.
+Die maximale Zeichenlänge (gemessen in UTF-16-Code-Einheiten), die der Benutzer im Suchfeld eingeben kann. Dieser Wert muss eine Ganzzahl von 0 oder höher sein. Wenn kein `maxlength` festgelegt wird oder ein ungültiger Wert angegeben ist, hat das Suchfeld keine maximale Länge. Dieser Wert muss auch größer oder gleich dem Wert von `minlength` sein.
 
-Die Eingabe wird die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes länger ist als `maxlength` UTF-16 Codeeinheiten. Eine Validierung erfolgt nur, wenn der Wert vom Benutzer geändert wird.
+Die Eingabe wird die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes größer ist als `maxlength` UTF-16-Code-Einheiten lang. Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
 
 ### minlength
 
-Die minimale Zeichenfolgenlänge (gemessen in UTF-16 Codeeinheiten), die der Benutzer in das Suchfeld eingeben kann. Dies muss ein nicht-negativer ganzzahliger Wert sein, der kleiner oder gleich dem in `maxlength` festgelegten Wert ist. Wenn kein `minlength` angegeben ist oder ein ungültiger Wert angegeben wird, hat die Sucheingabe keine Mindestlänge.
+Die minimale Zeichenlänge (gemessen in UTF-16-Code-Einheiten), die der Benutzer im Suchfeld eingeben kann. Dieser Wert muss eine nicht-negative Ganzzahl sein, die kleiner oder gleich dem durch `maxlength` angegebenen Wert ist. Wenn kein `minlength` festgelegt wird oder ein ungültiger Wert angegeben ist, hat die Sucheingabe keine minimale Länge.
 
-Das Suchfeld wird die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes kürzer als `minlength` UTF-16 Codeeinheiten ist. Eine Validierung erfolgt nur, wenn der Wert vom Benutzer geändert wird.
+Das Suchfeld wird die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes weniger als `minlength` UTF-16-Code-Einheiten beträgt. Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
 
 ### pattern
 
-Das `pattern`-Attribut ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe erfüllen muss, damit der Wert die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) besteht. Es muss ein gültiger JavaScript-regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, sodass das Muster als Sequenz von Unicode-Codepunkten behandelt wird, anstelle von {{Glossary("ASCII", "ASCII")}}. Es sollten keine Schrägstriche um den Mustertext angegeben werden.
+Das `pattern`-Attribut ist ein regulärer Ausdruck, mit dem der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe übereinstimmen muss, damit der Wert die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) besteht. Es muss ein gültiger JavaScript-Regulärer-Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird bei der Kompilierung des regulären Ausdrucks angegeben, damit das Muster als Folge von Unicode-Codepunkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}. Es sollten keine Schrägstriche um den Mustertext angegeben werden.
 
-Wenn das angegebene Muster nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut vollständig ignoriert.
+Wenn das angegebene Muster nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewandt und dieses Attribut vollständig ignoriert.
 
 > [!NOTE]
-> Verwenden Sie das [`title`](/de/docs/Web/HTML/Element/input#title)-Attribut, um Text anzugeben, der von den meisten Browsern als Tooltip angezeigt wird, um zu erklären, welche Anforderungen erfüllt werden müssen, um mit dem Muster übereinzustimmen. Sie sollten außerdem einen anderen erläuternden Text in der Nähe einfügen.
+> Verwenden Sie das [`title`](/de/docs/Web/HTML/Element/input#title)-Attribut, um Text anzugeben, den die meisten Browser als Tooltip anzeigen, um die Anforderungen zu erklären, die erfüllt werden müssen, um dem Muster zu entsprechen. Sie sollten auch andere erklärende Texte in der Nähe einfügen.
 
-Siehe den Abschnitt [Ein Muster angeben](#ein_muster_angeben) für Details und ein Beispiel.
+Siehe den Abschnitt [Festlegung eines Musters](#festlegung_eines_musters) für Details und ein Beispiel.
 
 ### placeholder
 
-Das `placeholder`-Attribut ist eine Zeichenfolge, die dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen im Feld erwartet werden. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp veranschaulicht, anstatt eine erläuternde Nachricht. Der Text _darf keinen_ Wagenrücklauf oder Zeilenumbrüche enthalten.
+Das `placeholder`-Attribut ist ein String, der dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Information im Feld erwartet wird. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp zeigt, anstatt eine erklärende Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn der Inhalt der Steuerung eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, der `placeholder` jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie Unicode-Steuerungszeichen für die bidirektionale Formatierung verwenden, um die Richtung innerhalb des `placeholder` zu überschreiben; siehe [Wie man Unicode-Steuerelemente für bidi-Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
+Wenn der Inhalt der Kontrolle eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, aber der Platzhalter in entgegengesetzter Richtung angezeigt werden soll, können Sie die Unicode-Bidirektionalitäts-Algorithmus-Formatzeichen verwenden, um die Richtung innerhalb des Platzhalters außer Kraft zu setzen; siehe [Wie man Unicode-Steuerungen für bidirektionalen Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
 
 > [!NOTE]
-> Wenn möglich, sollten Sie das `placeholder`-Attribut vermeiden. Es ist semantisch nicht so nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Labels](/de/docs/Web/HTML/Element/input#labels) für weitere Informationen.
+> Vermeiden Sie, wenn möglich, die Verwendung des `placeholder`-Attributs. Es ist nicht so semantisch nützlich wie andere Methoden, um Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Labels](/de/docs/Web/HTML/Element/input#labels) für weitere Informationen.
 
 ### readonly
 
-Ein Boolean-Attribut, welches, wenn vorhanden, bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch immer noch von JavaScript-Code geändert werden, der die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) `value`-Eigenschaft direkt setzt.
+Ein Boolean-Attribut, das, falls vorhanden, bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch immer noch durch JavaScript-Code, der direkt die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-`value`-Eigenschaft setzt, geändert werden.
 
 > [!NOTE]
-> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keinen Einfluss auf Eingaben mit dem ebenfalls angegebenen `readonly`-Attribut.
+> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keine Wirkung auf Eingaben mit dem ebenfalls angegebenen `readonly`-Attribut.
 
 ### size
 
-Das `size`-Attribut ist ein numerischer Wert, der angibt, wie viele Zeichen breit das Eingabefeld sein soll. Der Wert muss eine Zahl größer als Null sein, und der Standardwert ist 20. Da sich die Breiten von Zeichen unterscheiden, kann dies ungefähr sein und sollte nicht darauf verlassen werden, genau zu sein; das resultierende Eingabefeld kann schmaler oder breiter als die angegebene Anzahl von Zeichen sein, abhängig von den Zeichen und den Schriftarten ({{cssxref("font")}}-Einstellungen, die verwendet werden).
+Das `size`-Attribut ist ein numerischer Wert, der angibt, wie viele Zeichen breit das Eingabefeld sein soll. Der Wert muss eine Zahl größer als null sein, und der Standardwert ist 20. Da Zeichenbreiten variieren, kann dies genau oder ungenau sein und sollte nicht zu sehr darauf verlassen werden; das resultierende Eingabefeld kann je nach Zeichen und Font ({{cssxref("font")}}-Einstellungen) schmaler oder breiter sein als die angegebene Anzahl von Zeichen.
 
-Dies setzt _keine_ Grenze, wie viele Zeichen der Benutzer in das Feld eingeben kann. Es gibt nur ungefähr an, wie viele gleichzeitig sichtbar sein können. Um ein oberes Limit für die Länge der Eingabedaten festzulegen, verwenden Sie das [`maxlength`](#maxlength)-Attribut.
+Dies setzt _nicht_ eine Grenze für die Anzahl der Zeichen, die der Benutzer in das Feld eingeben kann. Es gibt nur an, wie viele Zeichen ungefähr gleichzeitig gesehen werden können. Um ein oberes Limit für die Länge der Eingabedaten festzulegen, verwenden Sie das [`maxlength`](#maxlength)-Attribut.
 
 ### spellcheck
 
-[`spellcheck`](/de/docs/Web/HTML/Global_attributes/spellcheck) ist ein globales Attribut, das verwendet wird, um anzugeben, ob die Rechtschreibprüfung für ein Element aktiviert werden soll. Es kann auf jedem bearbeitbaren Inhalt verwendet werden, hier betrachten wir jedoch die spezifischen Aspekte der Verwendung von `spellcheck` auf {{HTMLElement("input")}}-Elementen. Die erlaubten Werte für `spellcheck` sind:
+[`spellcheck`](/de/docs/Web/HTML/Global_attributes/spellcheck) ist ein globales Attribut, das verwendet wird, um anzugeben, ob die Rechtschreibprüfung für ein Element aktiviert werden soll. Es kann auf jedem bearbeitbaren Inhalt verwendet werden, aber hier betrachten wir spezifische Elemente im Zusammenhang mit der Verwendung von `spellcheck` auf {{HTMLElement("input")}}-Elementen. Die erlaubten Werte für `spellcheck` sind:
 
 - `false`
-  - : Deaktiviert die Rechtschreibprüfung für dieses Element.
+  - : Deaktivieren der Rechtschreibprüfung für dieses Element.
 - `true`
-  - : Aktiviert die Rechtschreibprüfung für dieses Element.
-- "" (leere Zeichenfolge) oder kein Wert
-  - : Verfolgt das Standardverhalten des Elements für die Rechtschreibprüfung. Dies kann auf der `spellcheck`-Einstellung eines übergeordneten Elements oder anderen Faktoren basieren.
+  - : Aktivieren der Rechtschreibprüfung für dieses Element.
+- "" (leerer String) oder kein Wert
+  - : Das Standardverhalten des Elements für die Rechtschreibprüfung befolgen. Dies kann auf der `spellcheck`-Einstellung eines übergeordneten Elements oder anderen Faktoren basieren.
 
 Ein Eingabefeld kann die Rechtschreibprüfung aktiviert haben, wenn es nicht das [readonly](#readonly)-Attribut gesetzt hat und nicht deaktiviert ist.
 
-Der Wert, der beim Lesen von `spellcheck` zurückgegeben wird, spiegelt möglicherweise nicht den tatsächlichen Status der Rechtschreibprüfung innerhalb einer Steuerung wider, wenn die Präferenzen des {{Glossary("user_agent", "User-Agent")}} die Einstellung überschreiben.
+Der durch Lesen von `spellcheck` zurückgegebene Wert kann nicht den tatsächlichen Zustand der Rechtschreibprüfung innerhalb eines Steuerelements widerspiegeln, wenn die Präferenzen des {{Glossary("user_agent", "Benutzer-Agenten")}} die Einstellungen außer Kraft setzen.
 
-## Nicht-standardisierte Attribute
+## Nicht standardmäßige Attribute
 
-Die folgenden nicht-standardisierten Attribute stehen für Sucheingabefelder zur Verfügung.
-Vermeiden Sie die Verwendung, wo möglich.
+Die folgenden nicht standardmäßigen Attribute sind für Sucheingaben verfügbar. Vermeiden Sie, wenn möglich, deren Verwendung.
 
 ### incremental
 
-Das Boolean-Attribut `incremental` ist eine WebKit- und Blink-Erweiterung (also unterstützt von Safari, Opera, Chrome, usw.), die, falls vorhanden, dem {{Glossary("user_agent", "User-Agent")}} mitteilt, die Eingabe als Live-Suche zu verarbeiten. Während der Benutzer den Wert des Feldes bearbeitet, sendet der User-Agent [`search`](/de/docs/Web/API/HTMLInputElement/search_event)-Ereignisse an das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekt, welches das Suchfeld repräsentiert. Dies ermöglicht es Ihrem Code, die Suchergebnisse in Echtzeit zu aktualisieren, während der Benutzer die Suche bearbeitet.
+Das Boolean-Attribut `incremental` ist eine WebKit- und Blink-Erweiterung (also unterstützt von Safari, Opera, Chrome usw.), die, falls vorhanden, den {{Glossary("user_agent", "Benutzer-Agenten")}} veranlasst, die Eingabe als Live-Suche zu verarbeiten. Während der Benutzer den Wert des Feldes bearbeitet, sendet der Benutzer-Agent [`search`](/de/docs/Web/API/HTMLInputElement/search_event)-Ereignisse an das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekt, das das Suchfeld repräsentiert. Dadurch kann Ihr Code die Suchergebnisse in Echtzeit aktualisieren, während der Benutzer die Suche bearbeitet.
 
-Falls `incremental` nicht angegeben ist, wird das [`search`](/de/docs/Web/API/HTMLInputElement/search_event)-Ereignis nur gesendet, wenn der Benutzer explizit eine Suche initiiert (wie durch Drücken der <kbd>Enter</kbd>- oder <kbd>Return</kbd>-Taste während der Bearbeitung des Feldes).
+Wenn `incremental` nicht angegeben ist, wird das [`search`](/de/docs/Web/API/HTMLInputElement/search_event)-Ereignis nur gesendet, wenn der Benutzer explizit eine Suche startet (zum Beispiel durch Drücken der <kbd>Enter</kbd>- oder <kbd>Return</kbd>-Taste beim Bearbeiten des Feldes).
 
-Das `search`-Ereignis ist begrenzt, sodass es nicht häufiger als in einem implementierungsdefinierten Intervall gesendet wird.
+Das `search`-Ereignis ist rate-begrenzt, sodass es nicht häufiger als in einem von der Implementierung definierten Intervall gesendet wird.
 
 ### results
 
-Das `results`-Attribut – nur von Safari unterstützt – ist ein numerischer Wert, der es Ihnen ermöglicht, die maximale Anzahl der Einträge zu überschreiben, die im nativ bereitgestellten Dropdown-Menü des {{HTMLElement("input")}}-Elements für frühere Suchanfragen angezeigt werden.
+Das `results`-Attribut—nur von Safari unterstützt—ist ein numerischer Wert, mit dem Sie die maximale Anzahl an Einträgen überschreiben können, die im nativ bereitgestellten Dropdown-Menü des {{HTMLElement("input")}}-Elements mit vorherigen Suchanfragen angezeigt werden.
 
-Der Wert muss eine nicht-negative Dezimalzahl sein. Wird er nicht bereitgestellt oder ein ungültiger Wert angegeben, wird die Standardmaximalanzahl der Einträge des Browsers verwendet.
+Der Wert muss eine nicht-negative Dezimalzahl sein. Wenn nicht angegeben oder ein ungültiger Wert gegeben ist, wird die standardmäßige maximale Anzahl von Einträgen des Browsers verwendet.
 
 ## Verwendung von Sucheingaben
 
-`<input>`-Elemente des Typs `search` sind sehr ähnlich denen des Typs `text`, außer dass sie speziell für die Verarbeitung von Suchbegriffen gedacht sind. Sie sind im Verhalten im Wesentlichen gleichwertig, aber User-Agents können wählen, sie standardmäßig anders zu gestalten (und natürlich können Websites Stylesheets verwenden, um ihnen benutzerdefinierte Stile zuzuweisen).
+`<input>`-Elemente des Typs `search` sind denen des Typs `text` sehr ähnlich, außer dass sie speziell für die Handhabung von Suchbegriffen vorgesehen sind. Sie sind im Verhalten im Wesentlichen identisch, aber Benutzer-Agenten können sich dafür entscheiden, sie standardmäßig anders zu stylen (und natürlich können Websites Stylesheets verwenden, um benutzerdefinierte Stile auf sie anzuwenden).
 
 ### Einfaches Beispiel
 
@@ -123,30 +143,30 @@ Der Wert muss eine nicht-negative Dezimalzahl sein. Wird er nicht bereitgestellt
 </form>
 ```
 
-Dies wird so gerendert:
+Dies wird folgendermaßen dargestellt:
 
 {{EmbedLiveSample("Basic_example", 600, 40)}}
 
-`q` ist der häufigste `name`, der Suchabfragen zugewiesen wird, obwohl es nicht verpflichtend ist. Beim Absenden wird das Daten-Namen/Wert-Paar `q=searchTerm` an den Server gesendet.
+`q` ist der häufigste `name`, der Sucheingaben gegeben wird, obwohl er nicht obligatorisch ist. Wenn das Formular übermittelt wird, wird das Name/Wert-Paar, das an den Server gesendet wird, `q=searchTerm` sein.
 
 > [!NOTE]
-> Denken Sie daran, einen [`name`](/de/docs/Web/HTML/Element/input#name) für Ihre Eingabe festzulegen, da sonst nichts gesendet wird.
+> Sie müssen daran denken, einen [`name`](/de/docs/Web/HTML/Element/input#name) für Ihre Eingabe festzulegen, ansonsten wird nichts übermittelt.
 
-### Unterschiede zwischen Such- und Texttypen
+### Unterschiede zwischen den Typen search und text
 
-Die Hauptunterschiede liegen in der Art und Weise, wie Browser diese Handhaben. Der erste Punkt ist, dass einige Browser ein Kreuzsymbol anzeigen, das angeklickt werden kann, um den Suchbegriff sofort zu entfernen. In Chrome wird diese Aktion auch durch Drücken der Escape-Taste ausgelöst. Der folgende Screenshot stammt aus Chrome:
+Die grundlegenden Unterschiede bestehen in der Art und Weise, wie Browser damit umgehen. Das erste, was zu beachten ist, ist, dass einige Browser ein x-Symbol anzeigen, das angeklickt werden kann, um den Suchbegriff bei Bedarf sofort zu entfernen; in Chrome wird diese Aktion auch ausgelöst, wenn Escape gedrückt wird. Der folgende Screenshot stammt aus Chrome:
 
-![Fokussiertes Suchfeld, mit Fokusring, mit dem Text 'cats'. Es gibt ein x-Symbol im Eingabefeld an der rechten Seite.](chrome-cross-icon.png)
+![Fokussiertes Suchfeld, mit Fokus-Ring, mit dem Text 'cats'. Es gibt ein x-Symbol im Eingabefeld, das an der rechten Seite anliegt.](chrome-cross-icon.png)
 
-Darüber hinaus speichern moderne Browser automatisch Suchbegriffe, die zuvor domainspezifisch eingegeben wurden, was dann als Autovervollständigungsoptionen angezeigt wird, wenn in den Suchfeldern auf dieser Domain nachfolgende Suchanfragen durchgeführt werden. Dies hilft Nutzern, die dazu neigen, wiederholt nach denselben oder ähnlichen Suchbegriffen zu suchen. Dieser Screenshot stammt aus Firefox:
+Moderne Browser neigen auch dazu, Suchbegriffe, die zuvor domänenübergreifend eingegeben wurden, automatisch zu speichern, die dann als Autovervollständigungsoptionen auftauchen, wenn in Sucheingaben auf dieser Domäne nachfolgenden Suchvorgänge durchgeführt werden. Dies hilft Nutzern, die häufig nach ähnlichen Suchanfragen suchen. Dieser Screenshot stammt aus Firefox:
 
-![Ein Eingabefeld im Fehlerzustand mit einem roten Fokusring. Der Benutzer hat den Buchstaben 'h' eingegeben. Eine Popup-Auswahlliste ist direkt unterhalb des Eingabefeldes geöffnet, mit zwei Optionen: hello und hermansje.](firefox-auto-complete.png)
+![Ein Eingabefeld im Fehlerzustand mit einem roten Fokus-Ring. Der Benutzer hat den Buchstaben 'h' eingegeben. Eine Popup-Auswahlliste ist direkt unter dem Eingabefeld geöffnet, mit zwei Optionen: hello und hermansje.](firefox-auto-complete.png)
 
 An diesem Punkt schauen wir uns einige nützliche Techniken an, die Sie auf Ihre Suchformulare anwenden können.
 
-### Platzhalter setzen
+### Platzhalter festlegen
 
-Sie können einen nützlichen Platzhalter innerhalb Ihrer Sucheingabe bereitstellen, der einen Hinweis darauf gibt, was zu tun ist, indem Sie das [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder)-Attribut verwenden. Betrachten Sie das folgende Beispiel:
+Sie können einen nützlichen Platzhalter in Ihrem Suchinput bereitstellen, der einen Hinweis darauf geben könnte, was zu tun ist, indem Sie das [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder)-Attribut verwenden. Schauen Sie sich das folgende Beispiel an:
 
 ```html
 <form>
@@ -161,20 +181,20 @@ Sie können einen nützlichen Platzhalter innerhalb Ihrer Sucheingabe bereitstel
 </form>
 ```
 
-Sie können sehen, wie der Platzhalter darunter gerendert wird:
+Sie können sehen, wie der Platzhalter unten dargestellt wird:
 
 {{EmbedLiveSample("Setting_placeholders", 600, 40)}}
 
 ### Suchformular-Labels und Barrierefreiheit
 
-Ein Problem mit Suchformularen ist ihre Zugänglichkeit; eine gängige Design-Praxis ist es, kein Label für das Suchfeld bereitzustellen (obwohl möglicherweise ein Lupensymbol oder ähnliches vorhanden ist), da der Zweck eines Suchformulars für sehende Benutzer aufgrund der Platzierung in der Regel ziemlich offensichtlich ist ([dieses Beispiel zeigt ein typisches Muster](https://mdn.github.io/learning-area/accessibility/aria/website-aria-roles/)).
+Ein Problem bei Suchformularen ist deren Barrierefreiheit; eine gängige Designpraxis ist es, kein Label für das Suchfeld bereitzustellen (obwohl es möglicherweise ein Symbol mit einer Lupe oder Ähnlichem gibt), da der Zweck eines Suchformulars für sehende Nutzer aufgrund der Platzierung normalerweise ziemlich offensichtlich ist ([dieses Beispiel zeigt ein typisches Muster](https://mdn.github.io/learning-area/accessibility/aria/website-aria-roles/)).
 
-Dies könnte jedoch für Benutzer von Bildschirmlesern verwirrend sein, da sie keine verbale Angabe darüber haben, was die Sucheingabe ist. Eine Möglichkeit, dies zu umgehen, die sich nicht auf Ihr visuelles Design auswirkt, ist die Verwendung von [WAI-ARIA]-Funktionen(/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics):
+Dies könnte jedoch für Screenreader-Nutzer zu Verwirrung führen, da sie keine verbale Information darüber haben, was die Sucheingabe ist. Ein Weg, dies zu umgehen, ohne Ihr visuelles Design zu beeinträchtigen, besteht darin, [WAI-ARIA](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics)-Funktionen zu verwenden:
 
-- Ein `role`-Attribut mit dem Wert `search` auf dem `<form>`-Element sorgt dafür, dass Bildschirmleser ankündigen, dass es sich um ein Suchformular handelt.
-- Wenn das nicht ausreicht, können Sie ein [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)-Attribut direkt am {{HTMLElement("input")}} selbst verwenden. Dies sollte ein beschreibender Text sein, der vom Bildschirmleser vorgelesen wird; es wird als nicht-visuelles Äquivalent zu `<label>` verwendet.
+- Ein `role`-Attribut mit dem Wert `search` auf dem `<form>`-Element veranlasst Screenreader, anzukündigen, dass das Formular ein Suchformular ist.
+- Wenn das nicht ausreicht, können Sie ein [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)-Attribut auf dem {{HTMLElement("input")}} selbst verwenden. Dies sollte ein beschreibender Textlabel sein, der vom Screenreader vorgelesen wird; es wird als nicht-visuelles Äquivalent zu `<label>` verwendet.
 
-Sehen wir uns ein Beispiel an:
+Schauen wir uns ein Beispiel an:
 
 ```html
 <form role="search">
@@ -194,14 +214,14 @@ Sie können sehen, wie dies unten gerendert wird:
 
 {{EmbedLiveSample("Search_form_labels_and_accessibility", 600, 40)}}
 
-Es gibt keinen visuellen Unterschied zum vorherigen Beispiel, aber Bildschirmleser-Nutzer haben viel mehr Informationen zur Verfügung.
+Es gibt keinen visuellen Unterschied zum vorherigen Beispiel, aber Nutzer von Screenreadern haben viel mehr Informationen zur Verfügung.
 
 > [!NOTE]
-> Siehe [Wegweiser/Landmarken](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics#signpostslandmarks) für weitere Informationen zu solchen Barrierefreiheitsfunktionen.
+> Weitere Informationen zu solchen Barrierefreiheitsfunktionen finden Sie unter [Wegweiser/Landmarken](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics#signpostslandmarks).
 
 ### Physische Größe des Eingabeelements
 
-Die physische Größe des Eingabefeldes kann mittels des [`size`](/de/docs/Web/HTML/Element/input#size)-Attributs gesteuert werden. Damit können Sie die Anzahl der Zeichen angeben, die das Eingabefeld gleichzeitig anzeigen kann. In diesem Beispiel z.B. ist das Suchfeld 30 Zeichen breit:
+Die physische Größe des Eingabefeldes kann mit dem [`size`](/de/docs/Web/HTML/Element/input#size)-Attribut gesteuert werden. Damit können Sie die Anzahl der Zeichen angeben, die das Eingabefeld gleichzeitig anzeigen kann. In diesem Beispiel ist das Suchfeld beispielsweise 30 Zeichen breit:
 
 ```html
 <form>
@@ -217,20 +237,20 @@ Die physische Größe des Eingabefeldes kann mittels des [`size`](/de/docs/Web/H
 </form>
 ```
 
-Das Ergebnis ist diese breitere Eingabebox:
+Das Ergebnis ist dieses breitere Eingabefeld:
 
-{{ EmbedLiveSample('Physical_input_element_size', 600, 40) }}
+{{EmbedLiveSample('Physical_input_element_size', 600, 40)}}
 
 ## Validierung
 
-`<input>`-Elemente des Typs `search` haben dieselben Validierungsfunktionen zur Verfügung wie reguläre `text`-Eingaben. Es ist weniger wahrscheinlich, dass man Validierungsfunktionen allgemein für Suchfelder verwenden möchte. In vielen Fällen sollte Benutzern erlaubt sein, nach allem zu suchen, aber es gibt einige Fälle, die zu berücksichtigen sind, wie z.B. Suchen gegen Daten in einem bekannten Format.
+`<input>`-Elemente des Typs `search` haben die gleichen Validierungsfunktionen zur Verfügung wie reguläre `text`-Eingaben. Es ist weniger wahrscheinlich, dass Sie im Allgemeinen Validierungsfunktionen für Suchfelder verwenden möchten. In vielen Fällen sollten Benutzer einfach nach allem suchen dürfen, aber es gibt einige Fälle, die berücksichtigt werden müssen, wie zum Beispiel Suchen gegen Daten eines bekannten Formats.
 
 > [!NOTE]
-> HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format vorliegen. Es ist viel zu einfach, Anpassungen am HTML vorzunehmen, die es ermöglichen, die Validierung zu umgehen oder sie ganz zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server übermittelt. Wenn Ihr serverseitiger Code die ankommenden Daten nicht validiert, könnte ein Desaster passieren, wenn fehlerhaft formatierte Daten (oder Daten, die zu groß sind, vom falschen Typ sind usw.) in Ihre Datenbank eingegeben werden.
+> Die HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format sind. Es ist viel zu einfach für jemanden, Anpassungen am HTML vorzunehmen, die ihm erlauben, die Validierung zu umgehen oder sie vollständig zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server übermittelt. Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, kann es zu Katastrophen kommen, wenn falsch formatierte Daten (oder Daten, die zu groß sind, vom falschen Typ sind usw.) in Ihre Datenbank eingegeben werden.
 
-### Eine Bemerkung zum Styling
+### Eine Anmerkung zum Styling
 
-Es gibt nützliche Pseudo-Klassen, die für das Styling von gültigen und ungültigen Formularelementen verfügbar sind: {{cssxref(":valid")}} und {{cssxref(":invalid")}}. In diesem Abschnitt verwenden wir das folgende CSS, welches ein Häkchen (Tick) neben Eingaben mit gültigen Werten und ein Kreuz neben Eingaben mit ungültigen Werten platziert.
+Es gibt nützliche Pseudo-Klassen zum Stylen von gültigen/ungültigen Formularelementen: {{cssxref(":valid")}} und {{cssxref(":invalid")}}. In diesem Abschnitt verwenden wir das folgende CSS, das hinter Inputs mit gültigen Werten ein Häkchen anzeigt und hinter Inputs mit ungültigen Werten ein Kreuz.
 
 ```css
 input:invalid ~ span::after {
@@ -246,11 +266,11 @@ input:valid ~ span::after {
 }
 ```
 
-Die Technik erfordert auch ein {{htmlelement("span")}}-Element, das nach dem Formularelement platziert wird und als Halter für die Icons dient. Dies war notwendig, weil einige Eingabetypen in einigen Browsern Icons, die direkt nach ihnen platziert wurden, nicht sehr gut anzeigen.
+Die Technik erfordert auch ein {{htmlelement("span")}}-Element, das nach dem Formularelement platziert wird und als Halter für die Symbole dient. Dies war notwendig, weil einige Eingabetypen in bestimmten Browsern die direkt nach ihnen platzierten Symbole nicht sehr gut anzeigen.
 
 ### Eingabe erforderlich machen
 
-Sie können das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut verwenden, um die Eingabe eines Wertes als Bedingung für die Formularübermittlung leicht festzulegen:
+Sie können das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut als einfache Methode verwenden, um die Eingabe eines Werts erforderlich zu machen, bevor eine Formularübermittlung erlaubt ist:
 
 ```html
 <form>
@@ -285,21 +305,21 @@ input:valid ~ span::after {
 }
 ```
 
-Dies wird so gerendert:
+Dies wird folgendermaßen dargestellt:
 
-{{ EmbedLiveSample('Making_input_required', 600, 40) }}
+{{EmbedLiveSample('Making_input_required', 600, 40)}}
 
-Darüber hinaus zeigt der Browser eine Nachricht an, wenn Sie versuchen, das Formular ohne eingegebenen Suchbegriff zu übermitteln. Das folgende Beispiel stammt aus Firefox:
+Darüber hinaus zeigt der Browser eine Meldung an, wenn Sie versuchen, das Formular ohne eingegebenen Suchbegriff abzusenden. Das folgende Beispiel stammt aus Firefox:
 
-![Formularfeld mit angehängter Nachricht, die sagt Bitte füllen Sie dieses Feld aus.](firefox-required-message.png)
+![Formularfeld mit angehängter Nachricht, die besagt: Bitte füllen Sie dieses Feld aus](firefox-required-message.png)
 
-Unterschiedliche Nachrichten werden angezeigt, wenn Sie versuchen, das Formular mit unterschiedlichen Typen von ungültigen Daten innerhalb der Eingaben zu übermitteln; siehe die untenstehenden Beispiele.
+Verschiedene Nachrichten werden angezeigt, wenn Sie versuchen, das Formular mit unterschiedlichen Arten von ungültigen Daten in den Eingaben abzuschicken; siehe die untenstehenden Beispiele.
 
 ### Eingabewertlänge
 
-Sie können eine Mindestanzahl an Zeichen für den einzutragenden Wert mit dem Attribut [`minlength`](/de/docs/Web/HTML/Element/input#minlength) festlegen; ähnlich verwenden Sie [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength), um die maximale Länge des einzutragenden Wertes festzulegen.
+Sie können eine Mindestlänge in Zeichen für den eingegebenen Wert mit dem [`minlength`](/de/docs/Web/HTML/Element/input#minlength)-Attribut angeben; verwenden Sie ebenso das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength), um die maximale Länge des eingegebenen Werts festzulegen.
 
-Das untenstehende Beispiel erfordert, dass der eingetragene Wert 4–8 Zeichen lang ist.
+Das folgende Beispiel erfordert, dass der eingegebene Wert 4–8 Zeichen lang ist.
 
 ```html
 <form>
@@ -338,17 +358,17 @@ input:valid ~ span::after {
 }
 ```
 
-Dies wird so gerendert:
+Dies wird folgendermaßen dargestellt:
 
-{{ EmbedLiveSample('Input_value_length', 600, 40) }}
+{{EmbedLiveSample('Input_value_length', 600, 40)}}
 
-Wenn Sie versuchen, das Formular mit weniger als 4 Zeichen zu übermitteln, erhalten Sie eine entsprechende Fehlermeldung (die je nach Browser unterschiedlich ist). Wenn Sie versuchen, mehr als 8 Zeichen einzugeben, lässt der Browser dies nicht zu.
+Wenn Sie versuchen, das Formular mit weniger als 4 Zeichen abzusenden, erhalten Sie eine entsprechende Fehlermeldung (die von Browser zu Browser unterschiedlich ist). Wenn Sie versuchen, über 8 Zeichen hinauszugehen, lässt der Browser dies nicht zu.
 
-### Ein Muster angeben
+### Festlegung eines Musters
 
-Sie können das [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribut verwenden, um einen regulären Ausdruck anzugeben, dem der eingegebene Wert folgen muss, um als gültig zu gelten (siehe [Validierung gegen einen regulären Ausdruck](/de/docs/Learn_web_development/Extensions/Forms/Form_validation#validating_against_a_regular_expression) für einen Einstiegskurs).
+Sie können das [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribut verwenden, um einen regulären Ausdruck anzugeben, dem der eingegebene Wert folgen muss, um als gültig zu gelten (siehe [Validierung gegen einen regulären Ausdruck](/de/docs/Learn_web_development/Extensions/Forms/Form_validation#validating_against_a_regular_expression) für einen Crash-Kurs).
 
-Lassen Sie uns ein Beispiel betrachten. Angenommen, wir wollten ein Suchformular für Produkt-IDs bereitstellen, und die IDs waren alle Codes aus zwei Buchstaben gefolgt von vier Zahlen. Das folgende Beispiel behandelt dies:
+Schauen wir uns ein Beispiel an. Angenommen, wir wollten ein Produkt-ID-Suchformular bereitstellen, und die IDs waren alle Codes aus zwei Buchstaben gefolgt von vier Zahlen. Das folgende Beispiel deckt dies ab:
 
 ```html
 <form>
@@ -386,13 +406,13 @@ input:valid ~ span::after {
 }
 ```
 
-Dieses wird wie folgt gerendert:
+Dies wird folgendermaßen dargestellt:
 
-{{ EmbedLiveSample('Specifying_a_pattern', 600, 40) }}
+{{EmbedLiveSample('Specifying_a_pattern', 600, 40)}}
 
 ## Beispiele
 
-Sie können ein gutes Beispiel für ein Suchformular im Kontext auf unserem [website-aria-roles](https://github.com/mdn/learning-area/tree/main/accessibility/aria/website-aria-roles)-Beispiel sehen ([live ansehen](https://mdn.github.io/learning-area/accessibility/aria/website-aria-roles/)).
+Ein gutes Beispiel für ein Suchformular in einem Kontext finden Sie in unserem [website-aria-roles](https://github.com/mdn/learning-area/tree/main/accessibility/aria/website-aria-roles)-Beispiel ([live sehen](https://mdn.github.io/learning-area/accessibility/aria/website-aria-roles/)).
 
 ## Technische Zusammenfassung
 
@@ -401,8 +421,7 @@ Sie können ein gutes Beispiel für ein Suchformular im Kontext auf unserem [web
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Eine Zeichenfolge, die den im
-        Suchfeld enthaltenen Wert repräsentiert.
+        Ein String, der den Wert im Suchfeld darstellt.
       </td>
     </tr>
     <tr>
@@ -413,7 +432,7 @@ Sie können ein gutes Beispiel für ein Suchformular im Kontext auf unserem [web
       </td>
     </tr>
     <tr>
-      <td><strong>Unterstützte Allgemeine Attribute</strong></td>
+      <td><strong>Unterstützte gemeinsame Attribute</strong></td>
       <td>
         <a href="/de/docs/Web/HTML/Element/input#autocomplete"><code>autocomplete</code></a>,
         <a href="/de/docs/Web/HTML/Element/input#list"><code>list</code></a>,
@@ -460,5 +479,5 @@ Sie können ein gutes Beispiel für ein Suchformular im Kontext auf unserem [web
 ## Siehe auch
 
 - [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)
-- {{HTMLElement("input")}} und die darauf basierende [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle
+- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle, auf der es basiert
 - [`<input type="text">`](/de/docs/Web/HTML/Element/input/text)

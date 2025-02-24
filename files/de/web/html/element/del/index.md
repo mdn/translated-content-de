@@ -1,30 +1,56 @@
 ---
-title: "<del>: Das Deleted Text-Element"
+title: "<del>: Das Deleted Text Element"
 slug: Web/HTML/Element/del
 l10n:
-  sourceCommit: bde0cb215d1d307c08678abe6623fc0d39f4cf7f
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<del>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen Textbereich, der aus einem Dokument gelöscht wurde. Dies kann beispielsweise genutzt werden, um "Änderungen nachverfolgen" anzuzeigen oder Differenzinformationen im Quellcode darzustellen. Das {{HTMLElement("ins")}} Element kann dagegen verwendet werden, um anzuzeigen, dass Text dem Dokument hinzugefügt wurde.
+Das **`<del>`**-[HTML](/de/docs/Web/HTML) Element repräsentiert einen Textbereich, der aus einem Dokument gelöscht wurde. Dies kann beispielsweise verwendet werden, um "Änderungen nachverfolgen" oder Quellcodedifferenzinformationen darzustellen. Das {{HTMLElement("ins")}} Element kann für den gegenteiligen Zweck verwendet werden: um Text anzugeben, der dem Dokument hinzugefügt wurde.
 
-{{EmbedInteractiveExample("pages/tabbed/del.html", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: &lt;del&gt;", "tabbed-standard")}}
 
-Dieses Element wird häufig (aber nicht zwingend) durch einen Durchstreich-Stil auf den Text gerendert.
+```html interactive-example
+<blockquote>
+  There is <del>nothing</del> <ins>no code</ins> either good or bad, but
+  <del>thinking</del> <ins>running it</ins> makes it so.
+</blockquote>
+```
+
+```css interactive-example
+del {
+  text-decoration: line-through;
+  background-color: #fbb;
+  color: #555;
+}
+
+ins {
+  text-decoration: none;
+  background-color: #d4fcbc;
+}
+
+blockquote {
+  padding-left: 15px;
+  border-left: 3px solid #d7d7db;
+  font-size: 1rem;
+}
+```
+
+Dieses Element wird häufig (aber nicht zwingend) durch Anwenden eines Durchstreichstils auf den Text dargestellt.
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `cite`
   - : Eine URI für eine Ressource, die die Änderung erklärt (zum Beispiel Sitzungsprotokolle).
 - `datetime`
-  - : Dieses Attribut gibt den Zeitpunkt und das Datum der Änderung an und muss eine gültige Datumszeichenkette mit optionaler Uhrzeit sein. Wenn der Wert nicht als Datum mit optionaler Zeitzeichenkette analysiert werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format der Zeichenkette ohne Zeitangabe siehe [Datumszeichenketten](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format der Zeichenkette, die sowohl Datum als auch Uhrzeit enthält, wird in [Lokale Datums- und Zeitzeichenketten](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) behandelt.
+  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss eine gültige Datumszeichenfolge mit optionaler Zeit sein. Wenn der Wert nicht als Datum mit optionaler Zeitzeichenfolge analysiert werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format der Zeichenfolge ohne Zeit siehe [Datumszeichenfolgen](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format der Zeichenfolge, falls es sowohl Datum als auch Zeit enthält, ist in [Lokale Datums- und Zeitzeichenfolgen](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) abgedeckt.
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `del`-Elements wird in der Standardkonfiguration der meisten Bildschirmlesetechnologien nicht angekündigt. Es kann angekündigt werden, indem die CSS {{cssxref("content")}}-Eigenschaft zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} verwendet wird.
+Das Vorhandensein des `del`-Elements wird von den meisten Bildschirmlesetechnologien in ihrer Standardkonfiguration nicht angekündigt. Es kann durch die Verwendung der CSS {{cssxref("content")}}-Eigenschaft sowie der {{cssxref("::before")}} und {{cssxref("::after")}} Pseudo-Elemente angekündigt werden.
 
 ```css
 del::before,
@@ -47,10 +73,10 @@ del::after {
 }
 ```
 
-Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren absichtlich die Ankündigung von Inhalten, die zusätzliche Wortfülle erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen über gelöschte Inhalte das Verständnis beeinträchtigen würde.
+Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ankündigen von Inhalten, die zusätzliche Wortfülle erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen, dass Inhalt gelöscht wurde, das Verständnis negativ beeinflussen würde.
 
-- [Kurznotiz dazu, Ihr Zeichen (zugänglicher) zu machen | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
-- [Stiländerungen auf Textebene anpassen | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
+- [Short note on making your mark (more accessible) | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
+- [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
 
 ## Beispiele
 
@@ -75,10 +101,10 @@ Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren absichtlich d
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Inhalt in Phrasenform</a
+          >Phrasing content</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Flow Content</a
         >.
       </td>
     </tr>
@@ -93,14 +119,14 @@ Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren absichtlich d
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Inhalt in Phrasenform</a
+          >Phrasing content</a
         > akzeptiert.
       </td>
     </tr>
@@ -134,5 +160,5 @@ Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren absichtlich d
 
 ## Siehe auch
 
-- {{HTMLElement("ins")}} Element für Einfügungen in einen Text
-- {{HTMLElement("s")}} Element für Durchstreichung ohne Darstellung der Löschung von Text
+- Das {{HTMLElement("ins")}} Element für Einfügungen in einen Text
+- Das {{HTMLElement("s")}} Element für Durchstreichung, getrennt von der Repräsentation der Löschung von Text

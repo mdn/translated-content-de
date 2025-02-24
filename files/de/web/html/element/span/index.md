@@ -1,19 +1,38 @@
 ---
-title: "<span>: Das Content-Span-Element"
+title: "<span>: Das Content Span-Element"
 slug: Web/HTML/Element/span
 l10n:
-  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<span>`** [HTML](/de/docs/Web/HTML) Element ist ein generischer Inline-Container für phrasierte Inhalte, der an sich nichts repräsentiert. Es kann verwendet werden, um Elemente für Styling-Zwecke zu gruppieren (unter Verwendung der [`class`](/de/docs/Web/HTML/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Global_attributes/id) Attribute), oder weil sie gemeinsame Attributwerte wie [`lang`](/de/docs/Web/HTML/Global_attributes/lang) teilen. Es sollte nur verwendet werden, wenn kein anderes semantisches Element geeignet ist. `<span>` ist dem {{HTMLElement("div")}} Element sehr ähnlich, aber {{HTMLElement("div")}} ist ein {{Glossary("Block-level_content", "Block-Level-Element")}}, während `<span>` ein {{Glossary("Inline-level_content", "Inline-Level-Element")}} ist.
+Das **`<span>`**-[HTML](/de/docs/Web/HTML)-Element ist ein generischer Inline-Container für Phrasierungsinhalte, das von sich aus nichts repräsentiert. Es kann verwendet werden, um Elemente für Styling-Zwecke zu gruppieren (unter Verwendung der [`class`](/de/docs/Web/HTML/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribute), oder weil sie gemeinsame Attributwerte wie [`lang`](/de/docs/Web/HTML/Global_attributes/lang) teilen. Es sollte nur verwendet werden, wenn kein anderes semantisches Element geeignet ist. `<span>` ist dem {{HTMLElement("div")}}-Element sehr ähnlich, aber {{HTMLElement("div")}} ist ein {{Glossary("Block-level_content", "Block-Level-Element")}}, während ein `<span>` ein {{Glossary("Inline-level_content", "Inline-Level-Element")}} ist.
 
-{{EmbedInteractiveExample("pages/tabbed/span.html", "tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: &lt;span&gt;", "tabbed-shorter")}}
+
+```html interactive-example
+<p>
+  Add the <span class="ingredient">basil</span>,
+  <span class="ingredient">pine nuts</span> and
+  <span class="ingredient">garlic</span> to a blender and blend into a paste.
+</p>
+
+<p>
+  Gradually add the <span class="ingredient">olive oil</span> while running the
+  blender slowly.
+</p>
+```
+
+```css interactive-example
+span.ingredient {
+  color: #f00;
+}
+```
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiel
 
@@ -65,34 +84,34 @@ li span {
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierende Inhalte</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierende Inhalte</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind verpflichtend.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >phrasierende Inhalte</a
+          >Phrasierungsinhalt</a
         > akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließende Inhalte</a
+          >Fließinhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -109,7 +128,7 @@ li span {
       <td>Beliebig</td>
     </tr>
     <tr>
-      <th scope="row">DOM-Schnittstelle</th>
+      <th scope="row">DOM-Interface</th>
       <td>
         [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)
       </td>
@@ -127,4 +146,4 @@ li span {
 
 ## Siehe auch
 
-- HTML {{HTMLElement("div")}} Element
+- HTML {{HTMLElement("div")}}-Element

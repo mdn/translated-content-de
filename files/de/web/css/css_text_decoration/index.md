@@ -1,13 +1,13 @@
 ---
-title: CSS text decoration
+title: CSS Textdekoration
 slug: Web/CSS/CSS_text_decoration
 l10n:
-  sourceCommit: e1b6d7d2d02a07f7e86268c81678713fad4d9a5d
+  sourceCommit: cb8f4ede62e0cc821eef8820f2c9eaea514111e2
 ---
 
 {{CSSRef}}
 
-Das **CSS-Textdekoration**-Modul definiert Funktionen in Bezug auf Textdekorationen, wie z. B. Unterstreichungen, Textschatten und Betonungszeichen.
+Das **CSS Textdekoration** Modul definiert Funktionen im Zusammenhang mit Textdekorationen, wie z.B. Unterstreichungen, Textschatten und Betonungsmarkierungen.
 
 ## Referenz
 
@@ -16,6 +16,7 @@ Das **CSS-Textdekoration**-Modul definiert Funktionen in Bezug auf Textdekoratio
 - {{cssxref("text-decoration")}}
 - {{cssxref("text-decoration-color")}}
 - {{cssxref("text-decoration-line")}}
+- {{cssxref("text-decoration-skip")}}
 - {{cssxref("text-decoration-skip-ink")}}
 - {{cssxref("text-decoration-style")}}
 - {{cssxref("text-decoration-thickness")}}
@@ -26,6 +27,8 @@ Das **CSS-Textdekoration**-Modul definiert Funktionen in Bezug auf Textdekoratio
 - {{cssxref("text-shadow")}}
 - {{cssxref("text-underline-offset")}}
 - {{cssxref("text-underline-position")}}
+
+Die Spezifikation definiert auch die `text-decoration-skip-box`, `text-decoration-skip-self`, `text-decoration-skip-spaces`, `text-decoration-trim` und `text-emphasis-skip` Eigenschaften, die von keinem Browser bisher unterstützt werden.
 
 ## Beispiele
 
@@ -77,8 +80,15 @@ Das **CSS-Textdekoration**-Modul definiert Funktionen in Bezug auf Textdekoratio
 </p>
 ```
 
-{{EmbedLiveSample('Beispiele','auto','320')}}
+{{EmbedLiveSample('Examples','auto','320')}}
 
 ## Spezifikationen
 
 {{Specifications}}
+
+## Siehe auch
+
+- [CSS Fonts](/de/docs/Web/CSS/CSS_fonts) Modul
+- [CSS Ruby Layout](/de/docs/Web/CSS/CSS_ruby_layout) Modul
+- [CSS Text](/de/docs/Web/CSS/CSS_text) Modul
+- [CSS Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul

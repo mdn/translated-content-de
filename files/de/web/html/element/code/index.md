@@ -2,14 +2,30 @@
 title: "<code>: Das Inline-Code-Element"
 slug: Web/HTML/Element/code
 l10n:
-  sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
+  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<code>`**-[HTML](/de/docs/Web/HTML)-Element zeigt seine Inhalte in einem Stil an, der darauf hinweist, dass der Text ein kurzer Ausschnitt von Computercode ist. Standardmäßig wird der Inhaltstext unter Verwendung der monospace Schriftart des {{Glossary("user_agent", "User-Agents")}} angezeigt.
+Das **`<code>`**-[HTML](/de/docs/Web/HTML)-Element zeigt seinen Inhalt in einem Stil an, der andeuten soll, dass der Text ein kurzes Fragment von Computercode ist. Standardmäßig wird der Inhalt in der Standard-Monospace-Schriftart des {{Glossary("user_agent", "Benutzeragenten")}} dargestellt.
 
-{{EmbedInteractiveExample("pages/tabbed/code.html", "tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: &lt;code&gt;", "tabbed-shorter")}}
+
+```html interactive-example
+<p>
+  The <code>push()</code> method adds one or more elements to the end of an
+  array and returns the new length of the array.
+</p>
+```
+
+```css interactive-example
+code {
+  background-color: #eee;
+  border-radius: 3px;
+  font-family: courier, monospace;
+  padding: 0 3px;
+}
+```
 
 ## Attribute
 
@@ -30,11 +46,11 @@ Ein Absatz mit Text, der `<code>` enthält:
 
 {{EmbedLiveSample("Example", 640, 70)}}
 
-## Hinweise
+## Anmerkungen
 
-Um mehrere Zeilen von Code darzustellen, umschließen Sie das `<code>`-Element mit einem {{HTMLElement("pre")}}-Element. Das `<code>`-Element für sich allein stellt nur einen einzelnen Codeabschnitt oder eine einzelne Codezeile dar.
+Um mehrere Codezeilen darzustellen, betten Sie das `<code>`-Element in ein {{HTMLElement("pre")}}-Element ein. Das `<code>`-Element allein stellt nur eine einzelne Phrase oder Zeile von Code dar.
 
-Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die standardmäßige Schriftart des Browsers zu überschreiben. Vom Benutzer festgelegte Präferenzen könnten jedoch Vorrang vor der angegebenen CSS haben.
+Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die Standardschriftart des Browsers zu überschreiben. Vom Benutzer vorgenommene Einstellungen können Vorrang vor der angegebenen CSS haben.
 
 ## Technische Zusammenfassung
 
@@ -42,47 +58,35 @@ Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die standardm�
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories"
-          >Inhaltskategorien</a
-        >
+        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließinhalt</a
-        >,
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        >, greifbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fluss-Content</a>,
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phrasen-Content</a>, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        >.
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phrasen-Content</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        > akzeptiert.
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phrasen-Content</a>
+        akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">code</a
-          ></code
-        >
+        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">code</a></code>
       </td>
     </tr>
     <tr>
@@ -92,7 +96,8 @@ Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die standardm�
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox die
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
+        implementiert Firefox die
         [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Schnittstelle für dieses Element.
       </td>
     </tr>
