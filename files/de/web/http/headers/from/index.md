@@ -2,17 +2,17 @@
 title: From
 slug: Web/HTTP/Headers/From
 l10n:
-  sourceCommit: edefa50f18613599b92e2eb3e9556fbde220b360
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`From`** {{Glossary("request_header", "Request-Header")}} enthält eine Internet-E-Mail-Adresse eines Administrators, der einen automatisierten Benutzeragenten steuert.
+Der HTTP-**`From`**- {{Glossary("request_header", "Request-Header")}} enthält eine Internet-E-Mail-Adresse eines Administrators, der einen automatisierten User-Agent kontrolliert.
 
-Wenn Sie einen robotischen Benutzeragenten betreiben (zum Beispiel einen Web-Crawler), muss der `From`-Header in Anfragen gesendet werden, damit Sie kontaktiert werden können, wenn Probleme auftreten, wie zum Beispiel wenn ein Bot übermäßige, unerwünschte oder ungültige Anfragen sendet.
+Wenn Sie einen roboterartigen User-Agent (zum Beispiel einen Webcrawler) betreiben, muss der `From`-Header in Anfragen gesendet werden, damit Sie kontaktiert werden können, falls Probleme auftreten, wie ein Bot, der übermäßig viele, unerwünschte oder ungültige Anfragen sendet.
 
 > [!WARNING]
-> Sie dürfen den `From`-Header nicht für Zugriffskontrolle oder Authentifizierung verwenden.
+> Sie dürfen den `From`-Header nicht für Zugangskontrolle oder Authentifizierung verwenden.
 
 <table class="properties">
   <tbody>
@@ -21,7 +21,7 @@ Wenn Sie einen robotischen Benutzeragenten betreiben (zum Beispiel einen Web-Cra
       <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>

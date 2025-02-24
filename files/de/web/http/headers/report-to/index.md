@@ -2,19 +2,19 @@
 title: Report-To
 slug: Web/HTTP/Headers/Report-To
 l10n:
-  sourceCommit: cadc98b0f5f2a770c6ab9b1ca0bf31a90378c6df
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}{{deprecated_header}}{{non-standard_header}}
 
 > [!WARNING]
-> Dieser Header wurde durch den HTTP-Antwortheader {{HTTPHeader("Reporting-Endpoints")}} ersetzt.
-> Er ist ein veralteter Teil einer früheren Iteration der [Reporting API](/de/docs/Web/API/Reporting_API)-Spezifikation.
+> Dieser Header wurde durch den {{HTTPHeader("Reporting-Endpoints")}} HTTP-Antwortheader ersetzt.
+> Es ist ein veralteter Teil einer früheren Iteration der [Reporting-API](/de/docs/Web/API/Reporting_API)-Spezifikation.
 
-Der HTTP **`Report-To`** {{Glossary("response_header", "Antwort-Header")}} ermöglicht es Website-Administratoren, benannte Gruppen von Endpunkten zu definieren, die als Ziel für Warn- und Fehlermeldungen verwendet werden können, wie z.B. CSP-Verstöße, {{HTTPHeader("Cross-Origin-Opener-Policy")}} Berichte, Veraltungsberichte oder andere allgemeine Verstöße.
+Der HTTP **`Report-To`** {{Glossary("response_header", "Antwort-Header")}} ermöglicht es Website-Administratoren, benannte Gruppen von Endpunkten zu definieren, die als Ziel für Warnungen und Fehlerberichte dienen können, wie zum Beispiel Berichte über CSP-Verletzungen, {{HTTPHeader("Cross-Origin-Opener-Policy")}}-Berichte, Veraltungsberichte oder andere allgemeine Verletzungen.
 
-`Report-To` wird häufig zusammen mit anderen Headern verwendet, die eine Gruppe von Endpunkten für eine bestimmte Art von Bericht auswählen.
-Zum Beispiel kann die Richtlinie {{HTTPHeader("Content-Security-Policy")}} {{CSP("report-to")}} verwendet werden, um die Gruppe auszuwählen, die für die Meldung von CSP-Verstößen verwendet wird.
+`Report-To` wird oft in Verbindung mit anderen Headern verwendet, die eine Gruppe von Endpunkten für eine bestimmte Art von Bericht auswählen.
+Der {{HTTPHeader("Content-Security-Policy")}}-Header {{CSP("report-to")}}-Direktive kann beispielsweise verwendet werden, um die Gruppe auszuwählen, die für die Meldung von CSP-Verletzungen verwendet wird.
 
 <table class="properties">
   <tbody>
@@ -23,12 +23,12 @@ Zum Beispiel kann die Richtlinie {{HTTPHeader("Content-Security-Policy")}} {{CSP
       <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-safe gelisteter Antwort-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-sicherer Antwort-Header")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -42,23 +42,23 @@ Report-To: <json-field-value>
 ```
 
 - `<json-field-value>`
-  - : Eine oder mehrere Definitionen von Endpunktgruppen, definiert als JSON-Array, das die umgebenden `[` und `]` Markierungen weglässt.
+  - : Eine oder mehrere Endpunktgruppendefinitionen, definiert als JSON-Array, das auf die umschließenden `[` und `]` Marker verzichtet.
     Jedes Objekt im Array hat die folgenden Mitglieder:
     - `group`
       - : Ein Name für die Gruppe von Endpunkten.
     - `max_age`
-      - : Die Zeit in Sekunden, die der Browser die Berichterstattungskonfiguration im Cache behalten soll.
+      - : Die Zeit in Sekunden, die der Browser die Berichterstattungskonfiguration zwischenspeichern soll.
     - `endpoints`
       - : Ein Array von einer oder mehreren URLs, an die die Berichte in der Gruppe gesendet werden sollen.
 
 ## Beispiele
 
-### Einstellen eines CSP-Verstoßmeldungsendpunkts
+### Festlegen eines Endpunkts für CSP-Verletzungsberichte
 
-Dieses Beispiel zeigt, wie ein Server `Report-To` verwenden könnte, um eine Gruppe von Endpunkten zu definieren, und dann die Gruppe als Ort festlegt, an den CSP-Verstoßberichte gesendet werden.
+In diesem Beispiel wird gezeigt, wie ein Server `Report-To` verwenden könnte, um eine Gruppe von Endpunkten zu definieren und dann die Gruppe als Ort festzulegen, an dem CSP-Verletzungsberichte gesendet werden.
 
 Zuerst könnte ein Server eine Antwort mit dem `Report-To` HTTP-Antwortheader senden, wie unten gezeigt.
-Dies legt eine Gruppe von `url` Endpunkten fest, die durch den Gruppennamen `csp-endpoints` identifiziert werden.
+Dies spezifiziert eine Gruppe von `url`-Endpunkten, die durch den Gruppennamen `csp-endpoints` identifiziert werden.
 
 ```http
 Report-To: { "group": "csp-endpoints",
@@ -69,18 +69,18 @@ Report-To: { "group": "csp-endpoints",
               ] }
 ```
 
-Der Server kann dann angeben, dass er möchte, dass diese Gruppe das Ziel für das Senden von CSP-Verstoßberichten ist, indem er den Gruppennamen als Wert der {{CSP("report-to")}} Direktive festlegt:
+Der Server kann dann festlegen, dass diese Gruppe das Ziel für das Senden von CSP-Verletzungsberichten sein soll, indem er den Gruppennamen als Wert der {{CSP("report-to")}} Direktive festlegt:
 
 ```http
 Content-Security-Policy: script-src https://example.com/; report-to csp-endpoints
 ```
 
-Bei den obigen Headern würden CSP-Verstöße `script-src`-Verstöße dazu führen, dass Verstoßberichte an beide `url`-Werte gesendet werden, die in `Report-To` aufgelistet sind.
+Unter den obigen Headern würde jede `script-src` CSP-Verletzung dazu führen, dass Verletzungsberichte an beide im `Report-To` aufgeführten `url`-Werte gesendet werden.
 
-### Spezifizierung mehrerer Berichterstattungsgruppen
+### Spezifizieren mehrerer Berichtsgruppen
 
-Das untenstehende Beispiel zeigt einen `Report-To` Header, der mehrere Endpunktgruppen angibt.
-Beachten Sie, dass jede Gruppe einen eindeutigen Namen hat und dass die Gruppen nicht durch Array-Markierungen begrenzt sind.
+Das folgende Beispiel zeigt einen `Report-To`-Header, der mehrere Endpunktgruppen spezifiziert.
+Beachten Sie, dass jede Gruppe einen eindeutigen Namen hat und dass die Gruppen nicht durch die Array-Markierungen begrenzt sind.
 
 ```http
 Report-To: { "group": "csp-endpoint-1",
@@ -95,7 +95,7 @@ Report-To: { "group": "csp-endpoint-1",
               ] }
 ```
 
-Wir können eine Endpunktgruppe als Ziel für Verstöße durch Namen auswählen, auf die gleiche Weise, wie wir es im vorherigen Beispiel getan haben:
+Wir können eine Endpunktgruppe auf die gleiche Weise wie im vorherigen Beispiel als Ziel für Verletzungsberichte auswählen:
 
 ```http
 Content-Security-Policy: script-src https://example.com/; report-to csp-endpoint-1
@@ -103,8 +103,8 @@ Content-Security-Policy: script-src https://example.com/; report-to csp-endpoint
 
 ## Spezifikationen
 
-Dieser Header ist nicht mehr Teil einer Spezifikation.
-Er war zuvor Teil der [Reporting API](/de/docs/Web/API/Reporting_API). <!-- https://github.com/w3c/reporting/pull/197 -->
+Dieser Header gehört zu keiner Spezifikation mehr.
+Er war zuvor Teil der [Reporting-API](/de/docs/Web/API/Reporting_API). <!-- https://github.com/w3c/reporting/pull/197 -->
 
 ## Browser-Kompatibilität
 
@@ -113,6 +113,6 @@ Er war zuvor Teil der [Reporting API](/de/docs/Web/API/Reporting_API). <!-- http
 ## Siehe auch
 
 - [Reporting API](/de/docs/Web/API/Reporting_API) und {{HTTPHeader("Reporting-Endpoints")}} Header
-- {{CSP("report-to")}} CSP Richtlinie
+- {{CSP("report-to")}} CSP-Direktive
 - {{HTTPHeader("Content-Security-Policy")}}, {{HTTPHeader("Content-Security-Policy-Report-Only")}} Header
 - [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP#violation_reporting) Leitfaden

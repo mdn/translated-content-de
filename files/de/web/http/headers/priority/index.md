@@ -2,26 +2,19 @@
 title: Priority
 slug: Web/HTTP/Headers/Priority
 l10n:
-  sourceCommit: cadc98b0f5f2a770c6ab9b1ca0bf31a90378c6df
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Header **`Priority`** signalisiert die Präferenz des Clients für die Reihenfolge, in der die Antwort, die die angeforderte Ressource enthält, relativ zu anderen Ressourcenanforderungen auf derselben Verbindung gesendet werden soll.
-Wenn der Header in der Anfrage nicht angegeben ist, wird eine Standardpriorität angenommen.
-Der Server kann diesen Header auch in Antworten verwenden, um anzuzeigen, dass er Interesse daran hat, die vom Client angezeigten Priorisierungsvorlieben zu ändern.
-In Antworten kann diese Information als Eingabe für den Priorisierungsprozess für Caching-Server und andere Server, die die Antwort weiterleiten, verwendet werden.
+Der HTTP **`Priority`** Header gibt die Präferenz eines Clients für die Prioritätenreihenfolge an, in der die Antwort mit der angeforderten Ressource im Verhältnis zu anderen Ressourcenanforderungen auf derselben Verbindung gesendet werden soll. Wenn der Header in der Anforderung nicht angegeben wird, wird eine Standardpriorität angenommen. Der Server kann diesen Header auch in Antworten einschließen, um anzuzeigen, dass er ein Interesse daran hat, die von dem Client angegebenen Prioritätseinstellungen zu ändern. In Antworten kann diese Information als Input für den Priorisierungsprozess für Caching-Server und andere Server, die die Antwort weiterleiten, verwendet werden.
 
-Der Server ist nicht an die Priorisierung des Clients gebunden und könnte Client-Prioritäten nur als Hinweise für seinen eigenen Priorisierungsprozess verwenden.
-Zum Beispiel kann ein Server wissen, dass ein bestimmtes Bild entscheidend für die Benutzererfahrung ist und sollte mit höchster Priorität gesendet werden.
-Die Server-Priorisierung kann auch durch Faktoren wie Netzwerküberlastung beeinflusst werden.
+Der Server ist nicht an die Priorisierung des Clients gebunden und könnte Client-Prioritäten nur als Hinweise für seinen eigenen Priorisierungsprozess verwenden. Zum Beispiel könnte ein Server wissen, dass ein spezifisches Bild für die Benutzererfahrung entscheidend ist und sollte daher mit der höchsten Priorität gesendet werden. Die Priorisierung des Servers könnte auch durch Faktoren wie Netzwerkkongestion beeinflusst werden.
 
-Diese Anfrage kann zwischengespeichert werden, und der Server wird erwartet, die Zwischenspeicherbarkeit oder die Anwendbarkeit der zwischengespeicherten Antwort mittels der Header-Felder, die das Caching-Verhalten kontrollieren, wie {{HTTPHeader("Cache-Control")}} und {{HTTPHeader("Vary")}}, zu steuern.
+Diese Anfrage könnte zwischengespeichert werden, und der Server wird erwartet, die Cachebarkeit oder die Anwendbarkeit der zwischengespeicherten Antwort mit den Headerfeldern, die das Caching-Verhalten steuern, wie {{HTTPHeader("Cache-Control")}} und {{HTTPHeader("Vary")}}, zu kontrollieren.
 
 > [!NOTE]
-> Dieser Header ist ein Teil des "Extensible Prioritization Scheme for HTTP", das in {{rfc("9218")}} definiert ist.
-> Es gibt auch `PRIORITY_UPDATE`-Frames für HTTP/2 und HTTP/3, die verwendet werden können, um eine Ressourcenanforderung nach deren Versand neu zu priorisieren.
-> Die Anforderung kann in jeder HTTP-Version gesendet werden.
+> Dieser Header ist Teil des "Extensible Prioritization Scheme for HTTP", das in {{rfc("9218")}} definiert ist. Es gibt auch HTTP/2- und HTTP/3-`PRIORITY_UPDATE`-Frames, die verwendet werden können, um die Priorität einer Ressourcenanforderung nach dem Senden neu zu priorisieren. Die Anfrage kann in jeder HTTP-Version gesendet werden.
 
 <table class="properties">
   <tbody>
@@ -33,7 +26,7 @@ Diese Anfrage kann zwischengespeichert werden, und der Server wird erwartet, die
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -51,42 +44,30 @@ Priority: u=<priority>, i
 
 - `u=<priority>`
 
-  - : Der "urgency" (`u`)-Parameter gibt einen Prioritätswert `<priority>` für die Ressource an.
-    Der Wert ist eine ganze Zahl zwischen 0 und 7 inklusive, in absteigender Reihenfolge der Priorität (0 ist die höchste Dringlichkeit).
-    Der Standardprioritätswert für Anforderungen ist 3.
-    Es gibt keinen Standardprioritätswert für Antworten: das Fehlen des Headers in einer Antwort bedeutet, dass der Server sich entschieden hat, die Client-Priorität nicht zu ändern.
-    Eine Priorität von 7 sollte nur für Ressourcen verwendet werden, die voraussichtlich keinen Einfluss auf die Benutzererfahrung haben, wie Hintergrundaufgaben oder das Ausliefern von Software-Updates.
+  - : Der "urgency" (`u`) Parameter gibt einen Prioritätswert `<priority>` für die Ressource an. Der Wert ist eine ganze Zahl zwischen 0 und 7 einschließlich, in absteigender Reihenfolge der Priorität (0 ist die höchste Dringlichkeit). Der Standard-Prioritätswert für Anforderungen ist 3. Es gibt keinen Standard-Prioritätswert für Antworten: das Fehlen des Headers in einer Antwort zeigt an, dass der Server sich entschieden hat, die Priorität des Clients nicht zu ändern. Eine Priorität von 7 sollte nur für Ressourcen verwendet werden, die voraussichtlich keinen Einfluss auf die Benutzererfahrung haben, wie Hintergrundaufgaben oder die Bereitstellung von Software-Updates.
 
-    Browser sollten Dokumente, die voraussichtlich andere Ressourcen verwenden, mit dem Standardprioritätslevel anfordern.
-    Die referenzierten Ressourcen sollten dann mit Werten angefordert werden, die die relative Auswirkung ihrer Ankunftszeit auf die Benutzererfahrung widerspiegeln.
+    Browser sollten Dokumente anfordern, die wahrscheinlich andere Ressourcen auf der Standard-Prioritätsebene verwenden. Die referenzierten Ressourcen sollten dann mit Werten angefordert werden, die den relativen Einfluss ihrer Ankunftszeit auf die Benutzererfahrung widerspiegeln.
 
-    Server können eine andere Sicht auf die Priorität als der Client haben und können mit einem anderen Wert antworten, um einen Prioritätshinweis an Zwischenserver zu senden.
-    Der Zwischenserver kann diesen Wert zusammen mit der ursprünglichen Anforderungspriorität berücksichtigen.
-    Das Fehlen des `Priority`-Headers in der Antwort bedeutet, dass der Server sich entschieden hat, die Client-Priorität nicht zu ändern.
+    Server könnten eine andere Ansicht zur Priorität als der Client haben und können mit einem anderen Wert antworten, um einen Prioritätshinweis an Zwischenserver zu geben. Der Zwischenserver kann diesen Wert zusammen mit der ursprünglichen Anforderungspriorität berücksichtigen. Das Fehlen des `Priority` Headers in der Antwort zeigt an, dass der Server sich entschieden hat, die Priorität des Clients nicht zu ändern.
 
 - `i`
 
-  - : Die inkrementelle (`i`)-Direktive, falls vorhanden, zeigt an, dass eine HTTP-Antwort inkrementell verarbeitet werden kann.
+  - : Die inkrementelle (`i`) Direktive, falls vorhanden, zeigt an, dass eine HTTP-Antwort inkrementell verarbeitet werden kann.
 
-    Ressourcen, die inkrementell verarbeitet werden können, sind solche, bei denen der Empfänger möglicherweise etwas Nützliches tun kann, sobald ein Abschnitt angekommen ist, anstatt darauf zu warten, dass die komplette Ressource verfügbar wird.
+    Ressourcen, die inkrementell verarbeitet werden können, sind solche, bei denen der Empfänger potenziell nützlich sein kann, sobald ein Teil ankommt, anstatt darauf zu warten, dass die vollständige Ressource verfügbar ist.
 
-    Wenn ein Browser diese Direktive setzt, kann der Server sich entscheiden, alle inkrementellen Anfragen mit der gleichen Dringlichkeit gleichzeitig zu bedienen.
-    Dies verteilt die mehreren Anfragen über die Verbindungskapazität, mit dem Ergebnis, dass alle Anfragen früher begonnen werden zu verarbeiten, aber insgesamt länger brauchen, um abgeschlossen zu werden.
+    Wenn ein Browser diese Direktive setzt, kann der Server wählen, alle inkrementellen Anfragen mit derselben Dringlichkeit gleichzeitig zu bedienen. Dies verteilt die mehreren Anfragen über die Verbindungsbandbreite, so dass alle Anfragen früher verarbeitet werden, aber insgesamt länger brauchen, um abgeschlossen zu werden.
 
-    Wenn der Browser diese Direktive nicht setzt, signalisiert er, dass er die Ressource nicht inkrementell verarbeiten wird.
-    In diesem Fall sollten Server Antworten mit gleicher Dringlichkeit eine nach der anderen senden, in der Reihenfolge, in der ihre zugehörigen Anfragen erzeugt wurden.
+    Wenn der Browser diese Direktive nicht setzt, zeigt es an, dass er die Ressource nicht inkrementell verarbeiten wird. In diesem Fall sollten Server Antworten mit derselben Dringlichkeit nacheinander senden, in der Reihenfolge, in der ihre zugehörigen Anfragen generiert wurden.
 
 > [!NOTE]
-> Es wird erwartet, dass Server Direktiven ignorieren, die sie auf diesem Header nicht verstehen.
-> Es wird erwartet, dass neue Direktiven, die in Zukunft hinzugefügt werden, mit diesen existierenden Direktiven kompatibel sind, sodass sie sicher ignoriert werden können.
+> Es wird erwartet, dass Server Direktiven, die sie nicht verstehen, auf diesem Header ignorieren. Neue Direktiven, die in Zukunft hinzugefügt werden, sollen zu diesen bestehenden Direktiven kompatibel sein, sodass sie sicher ignoriert werden können.
 
 ## Beispiele
 
-### Festlegen der Ressourcenpriorität
+### Festlegung der Ressourcen-Dringlichkeit
 
-Das folgende Beispiel zeigt eine Anfrage für eine HTML-Datei.
-Die Dringlichkeit ist nicht gesetzt und entspricht daher dem Standardwert 3, wobei `i` auf false gesetzt ist.
-Dies ist die normale Einstellung für ein Dokument, das andere Ressourcen besitzt.
+Das folgende Beispiel zeigt eine Anfrage für eine HTML-Datei. Die Dringlichkeit ist nicht festgelegt und hat daher den Standardwert 3, wobei `i` auf falsch gesetzt ist. Dies ist die normale Einstellung für ein Dokument, das andere Ressourcen besitzt.
 
 ```http
 :method = GET
@@ -95,8 +76,7 @@ Dies ist die normale Einstellung für ein Dokument, das andere Ressourcen besitz
 :path = /index.html
 ```
 
-Die Anfrage unten ist eine mögliche Anschlussanforderung für eine vom HTML verwendete CSS-Datei.
-Die Dringlichkeit ist auf 2 gesetzt, was darauf hinweist, dass der Browser sie als ziemlich hohe Priorität betrachtet, aber `i` ist nicht gesetzt, da die CSS-Datei nicht inkrementell verarbeitet werden kann.
+Die nachfolgende Anfrage ist eine mögliche Folgeanfrage für eine CSS-Datei, die vom HTML verwendet wird. Die Dringlichkeit wird auf 2 gesetzt, was darauf hinweist, dass der Browser sie für ziemlich hochprioritär hält, jedoch ist `i` nicht gesetzt, da die CSS-Datei nicht inkrementell verarbeitet werden kann.
 
 ```http
 :method = GET
@@ -107,8 +87,7 @@ priority = u=2
 ```
 
 > [!NOTE]
-> Die obigen Anfragen verwenden das menschenlesbare Format aus den HTTP/2- oder HTTP/3-Spezifikationen.
-> Das in den meisten dieser Dokumentation verwendete HTTP/1.1-Format wäre etwa:
+> Die obigen Anfragen verwenden das menschenlesbare Format aus den HTTP/2- oder HTTP/3-Spezifikationen. Das in dieser Dokumentation meist verwendete HTTP/1.1 Format wäre etwa so:
 >
 > ```http
 > GET /style.css HTTP/1.1
@@ -116,8 +95,7 @@ priority = u=2
 > Priority: u=2
 > ```
 
-Eine Antwort könnte folgendermaßen aussehen.
-Beachten Sie, dass in diesem Fall die `priority` nicht angegeben ist, was bedeutet, dass der Server nicht der Meinung war, dass er die Priorität für Zwischenserver ändern musste.
+Eine Antwort könnte wie unten gezeigt aussehen. Beachten Sie, dass in diesem Fall die `priority` nicht angegeben ist, was darauf hinweist, dass der Server nicht der Meinung war, dass er die Priorität für Zwischenserver ändern musste.
 
 ```http
 :status: 200
@@ -126,10 +104,9 @@ content-length: 610
 date: [current date]
 ```
 
-### Festlegen der inkrementellen Direktive
+### Festlegung der inkrementellen Direktive
 
-Der untenstehende Header zeigt eine Browseranforderung für ein Bild, das inkrementell gerendert werden kann.
-In diesem Fall ist die Priorität auf 4 gesetzt (niedriger als der Standard von 3), und `i` ist gesetzt, um anzuzeigen, dass der Client die JPG-Datei inkrementell verarbeiten kann.
+Der folgende Header zeigt eine Browseranfrage für ein Bild, das inkrementell gerendert werden kann. In diesem Fall wird die Priorität auf 4 gesetzt (niedriger als der Standardwert von 3), und `i` wird gesetzt, um anzuzeigen, dass der Client die JPG-Datei inkrementell verarbeiten kann.
 
 ```http
 :method = GET
@@ -139,8 +116,7 @@ In diesem Fall ist die Priorität auf 4 gesetzt (niedriger als der Standard von 
 priority = u=4, i
 ```
 
-Der Server könnte eine Antwort wie die untenstehende senden.
-In diesem Fall ist die Priorität auf 1 gesetzt, was darauf hindeutet, dass der Server die Ansicht hat, dass das spezifische Bild mit hoher Priorität gesendet werden sollte.
+Der Server könnte eine Antwort wie die unten dargestellte senden. In diesem Fall wird die Priorität auf 1 gesetzt, was anzeigt, dass der Server weiß, dass das spezielle Bild mit hoher Priorität gesendet werden sollte.
 
 ```http
 :status: 200

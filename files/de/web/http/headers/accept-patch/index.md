@@ -2,26 +2,29 @@
 title: Accept-Patch
 slug: Web/HTTP/Headers/Accept-Patch
 l10n:
-  sourceCommit: 8bdaa4a8990ed9731a40407e90834b483fbf2912
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Accept-Patch`** {{Glossary("response_header", "Antwort-Header")}} informiert darüber, welche [Medientypen](/de/docs/Web/HTTP/MIME_types) der Server in einer {{HTTPMethod("PATCH")}}-Anfrage verarbeiten kann. Beispielsweise könnte ein Server, der eine `PATCH`-Anfrage mit einem nicht unterstützten Medientyp erhält, mit {{HTTPStatus("415", "415 Unsupported Media Type")}} und einem `Accept-Patch`-Header antworten, der einen oder mehrere unterstützte Medientypen referenziert.
+Der HTTP **`Accept-Patch`** {{Glossary("response_header", "Antwortheader")}} gibt an, welche [Medientypen](/de/docs/Web/HTTP/MIME_types) der Server in einer {{HTTPMethod("PATCH")}}-Anfrage verstehen kann.
+Ein Server, der eine `PATCH`-Anfrage mit einem nicht unterstützten Medientyp erhält, könnte beispielsweise mit {{HTTPStatus("415", "415 Unsupported Media Type")}} antworten und einen `Accept-Patch`-Header zurückgeben, der einen oder mehrere unterstützte Medientypen auflistet.
 
-Der Header sollte in {{HTTPMethod("OPTIONS")}}-Anfragen an eine Ressource erscheinen, die die `PATCH`-Methode unterstützt. Ein `Accept-Patch`-Header in einer Antwort auf eine beliebige Anfrage-Methode bedeutet implizit, dass ein `PATCH` auf die Zielressource in der Anfrage erlaubt ist.
+Der Header sollte in {{HTTPMethod("OPTIONS")}}-Anfragen an eine Ressource erscheinen, die die `PATCH`-Methode unterstützt.
+Ein `Accept-Patch`-Header in einer Antwort auf jede Anfrageart bedeutet implizit, dass `PATCH` auf die Zielressource in der Anfrage erlaubt ist.
 
 > [!NOTE]
-> IANA pflegt [eine Liste mit offiziellen Inhaltscodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding). Die `bzip`- und `bzip2`-Codierungen sind nicht standardisiert, können aber in einigen Fällen, insbesondere zur Unterstützung älterer Systeme, verwendet werden.
+> Die IANA pflegt [eine Liste der offiziellen Inhaltscodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding).
+> Die Codierungen `bzip` und `bzip2` sind nicht standardisiert, können jedoch in einigen Fällen verwendet werden, insbesondere für die Unterstützung älterer Systeme.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrageheader")}}</th>
       <td>Ja</td>
     </tr>
   </tbody>
@@ -43,7 +46,8 @@ Accept-Patch: <media-type>/<subtype>, <media-type>/<subtype>
 - `<media-type>/<subtype>`
   - : Ein einzelner, präziser [Medientyp](/de/docs/Web/HTTP/MIME_types), wie `text/html`.
 - `<media-type>/*`
-  - : Ein Medientyp ohne Subtyp. Zum Beispiel entspricht `image/*` `image/png`, `image/svg`, `image/gif` und anderen Bildtypen.
+  - : Ein Medientyp ohne Subtyp.
+    Zum Beispiel entspricht `image/*` den Typen `image/png`, `image/svg`, `image/gif` und anderen Bildtypen.
 - `*/*`
   - : Jeder Medientyp.
 
@@ -61,10 +65,11 @@ Accept-Patch: text/plain;charset=utf-8
 
 ## Browser-Kompatibilität
 
-Die Browser-Kompatibilität ist für diesen Header nicht relevant. Der Server sendet den Header, und die Spezifikation definiert kein Verhalten für den Client.
+Browser-Kompatibilität ist für diesen Header nicht relevant.
+Der Server sendet den Header, und die Spezifikation definiert kein Client-Verhalten.
 
 ## Siehe auch
 
 - {{HTTPHeader("Accept-Post")}}
 - {{HTTPStatus("415", "415 Unsupported Media Type")}}
-- {{HTTPMethod("PATCH")}} Anfragemethode
+- {{HTTPMethod("PATCH")}}-Anfragemethode

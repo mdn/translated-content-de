@@ -2,21 +2,21 @@
 title: Upgrade-Insecure-Requests
 slug: Web/HTTP/Headers/Upgrade-Insecure-Requests
 l10n:
-  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Upgrade-Insecure-Requests`** {{Glossary("request_header", "Anforderungs-Header")}} sendet ein Signal an den Server, das auf die Präferenz des Clients für eine verschlüsselte und authentifizierte Antwort hinweist und dass der Client die {{CSP("upgrade-insecure-requests")}} [CSP](/de/docs/Web/HTTP/CSP)-Richtlinie erfolgreich handhaben kann.
+Der HTTP **`Upgrade-Insecure-Requests`** {{Glossary("request_header", "Request-Header")}} sendet ein Signal an den Server, das die Präferenz des Clients für eine verschlüsselte und authentifizierte Antwort anzeigt, und dass der Client in der Lage ist, die Richtlinie {{CSP("upgrade-insecure-requests")}} [CSP](/de/docs/Web/HTTP/CSP) erfolgreich zu handhaben.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Anforderungs-Header")}}</td>
+      <th scope="row">Headertyp</th>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -35,9 +35,9 @@ Upgrade-Insecure-Requests: <boolean>
 
 ## Beispiele
 
-### Nutzung von Upgrade-Insecure-Requests
+### Verwendung von Upgrade-Insecure-Requests
 
-Eine Anfrage des Clients signalisiert dem Server, dass sie die Upgrade-Mechanismen von {{CSP("upgrade-insecure-requests")}} unterstützt:
+Eine Anfrage des Clients signalisiert dem Server, dass er die Upgrade-Mechanismen von {{CSP("upgrade-insecure-requests")}} unterstützt:
 
 ```http
 GET / HTTP/1.1
@@ -45,7 +45,7 @@ Host: example.com
 Upgrade-Insecure-Requests: 1
 ```
 
-Der Server kann nun auf eine sichere Version der Site umleiten. Ein {{HTTPHeader("Vary")}} Header kann verwendet werden, damit die Site nicht von Caches an Clients geliefert wird, die den Upgrade-Mechanismus nicht unterstützen.
+Der Server kann nun auf eine sichere Version der Seite umleiten. Ein {{HTTPHeader("Vary")}}-Header kann verwendet werden, damit die Seite nicht von Caches an Clients ausgeliefert wird, die den Upgrade-Mechanismus nicht unterstützen.
 
 ```http
 Location: https://example.com/
@@ -63,5 +63,5 @@ Vary: Upgrade-Insecure-Requests
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- CSP-Richtlinie {{CSP("upgrade-insecure-requests")}}
-- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}} Header
+- CSP {{CSP("upgrade-insecure-requests")}}-Richtlinie
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}-Header

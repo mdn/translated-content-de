@@ -2,31 +2,31 @@
 title: RTT
 slug: Web/HTTP/Headers/RTT
 l10n:
-  sourceCommit: 6c32e8b21a39b1b8d3db7a194d2350e0f8218b64
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP **`RTT`** {{Glossary("request_header", "Request-Header")}} ist ein [Netzwerk-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#network_client_hints), der die ungefähre Rundlaufzeit auf der Anwendungsebene in Millisekunden angibt. Der RTT-Hinweis umfasst die Serververarbeitungszeit, im Gegensatz zur Rundlaufzeit der Transportschicht.
+Der HTTP **`RTT`** [Anforderungsheader](/de-DE/docs/Glossary/request_header) ist ein [Netzwerk-Client-Hinweis](/de-DE/docs/Web/HTTP/Client_hints#network_client_hints), der die ungefähre Round-Trip-Zeit auf der Anwendungsebene in Millisekunden angibt. Der `RTT`-Hinweis beinhaltet die Serververarbeitungszeit, im Gegensatz zur Round-Trip-Zeit der Transportschicht.
 
-Der RTT-Wert wird auf die nächsten 25 Millisekunden gerundet, um {{Glossary("Fingerprinting", "Fingerprinting")}} zu verhindern, obwohl es viele andere Mechanismen gibt, die ein Angreifer verwenden könnte, um ähnliche Informationen über die Rundlaufzeit zu erhalten.
+Der `RTT`-Wert wird auf die nächsten 25 Millisekunden gerundet, um [Fingerprinting](/de-DE/docs/Glossary/Fingerprinting) zu verhindern, obwohl es viele andere Mechanismen gibt, die ein Angreifer nutzen könnte, um ähnliche Round-Trip-Informationen zu erhalten.
 
-Der Hinweis erlaubt es einem Server, basierend auf der Netzwerkreaktionsfähigkeit/Latenz zu entscheiden, welche Informationen gesendet werden. Zum Beispiel könnte er entscheiden, weniger Ressourcen zu senden.
+Der Hinweis ermöglicht es einem Server zu entscheiden, welche Informationen basierend auf der Netzwerkreaktionszeit/-latenz gesendet werden. Zum Beispiel könnte er entscheiden, weniger Ressourcen zu senden.
 
 > [!NOTE]
-> Der {{HTTPHeader("Vary")}}-Header wird in Antworten verwendet, um anzuzeigen, dass eine andere Ressource für jeden anderen Wert des Headers gesendet wird (siehe [HTTP-Caching Vary](/de/docs/Web/HTTP/Caching#vary)). Auch wenn `RTT` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, sollten Sie in Erwägung ziehen, es im {{HTTPHeader("Vary")}}-Header wegzulassen – es ändert sich wahrscheinlich oft, was die Ressource effektiv nicht zwischenspeicherbar macht.
+> Der {{HTTPHeader("Vary")}}-Header wird in Antworten verwendet, um anzuzeigen, dass für jeden unterschiedlichen Wert des Headers eine andere Ressource gesendet wird (siehe [HTTP-Caching Vary](/de-DE/docs/Web/HTTP/Caching#vary)). Auch wenn `RTT` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, sollte man erwägen, es im {{HTTPHeader("Vary")}}-Header wegzulassen — es ist wahrscheinlich, dass es sich oft ändert, was effektiv macht, dass die Ressource nicht zwischengespeichert werden kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Request-Header")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
+        [Anforderungsheader](/de-DE/docs/Glossary/Request_header),
+        <a href="/de-DE/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">[Verbotener Anforderungsheader](/de-DE/docs/Glossary/Forbidden_request_header)</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -41,13 +41,13 @@ RTT: <number>
 ## Direktiven
 
 - `<number>`
-  - : Die ungefähre Rundlaufzeit in Millisekunden, gerundet auf die nächsten 25 Millisekunden.
+  - : Die ungefähre Round-Trip-Zeit in Millisekunden, gerundet auf die nächsten 25 Millisekunden.
 
 ## Beispiele
 
 ### Verwendung von RTT-Client-Hinweisen
 
-Ein Server muss zuerst zustimmen, den `RTT`-Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Antwort-Header mit `RTT` sendet.
+Ein Server muss zuerst zustimmen, den `RTT`-Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}}-Antwortheader sendet, der `RTT` enthält.
 
 ```http
 Accept-CH: RTT
@@ -71,6 +71,6 @@ RTT: 125
 
 - {{HTTPHeader("Downlink")}}, {{HTTPHeader("ECT")}}, {{HTTPHeader("Save-Data")}} Netzwerk-Client-Hinweise
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
-- [`NetworkInformation.effectiveType`](/de/docs/Web/API/NetworkInformation/effectiveType)
-- [Verbesserung des Datenschutzes der Nutzer und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [HTTP-Caching: Vary](/de-DE/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [`NetworkInformation.effectiveType`](/de-DE/docs/Web/API/NetworkInformation/effectiveType)
+- [Verbesserung der Privatsphäre der Benutzer und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

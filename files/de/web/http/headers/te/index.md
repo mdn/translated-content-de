@@ -2,17 +2,17 @@
 title: TE
 slug: Web/HTTP/Headers/TE
 l10n:
-  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`TE`** {{Glossary("request_header", "Anforderungsheader")}} spezifiziert die Transfercodierungen, die der Benutzeragent zu akzeptieren bereit ist. Die Transfercodierungen dienen zur Nachrichtenkompression und zum Stückeln von Daten während der Übertragung.
+Der HTTP **`TE`** {{Glossary("request_header", "Anforderungsheader")}} gibt die Transfercodierungen an, die der Benutzeragent akzeptieren möchte. Die Transfercodierungen dienen der Nachrichtenkompression und dem Aufteilen von Daten während der Übertragung.
 
-Transfercodierungen werden auf der Protokollschicht angewendet, sodass eine Anwendung, die Antworten konsumiert, den Körper so erhält, als ob keine Codierung angewendet worden wäre.
+Transfercodierungen werden auf der Protokollebene angewendet, sodass eine Anwendung, die Antworten konsumiert, den Körper erhält, als ob keine Codierung angewendet wurde.
 
 > [!NOTE]
-> In [HTTP/2](https://httpwg.org/specs/rfc9113.html#ConnectionSpecific) und [HTTP/3](https://httpwg.org/specs/rfc9114.html#header-formatting) wird das `TE`-Header-Feld nur akzeptiert, wenn der Wert `trailers` gesetzt ist.
+> In [HTTP/2](https://httpwg.org/specs/rfc9113.html#ConnectionSpecific) und [HTTP/3](https://httpwg.org/specs/rfc9114.html#header-formatting) wird das `TE`-Header-Feld nur akzeptiert, wenn der `trailers`-Wert gesetzt ist.
 
 <table class="properties">
   <tbody>
@@ -21,7 +21,7 @@ Transfercodierungen werden auf der Protokollschicht angewendet, sodass eine Anwe
       <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
       <td>Ja</td>
     </tr>
   </tbody>
@@ -36,7 +36,7 @@ TE: gzip
 TE: trailers
 ```
 
-Mehrere Direktiven in einer kommagetrennten Liste mit {{Glossary("quality_values", "Qualitätswerten")}} als Gewichtungen:
+Mehrere Direktiven in einer durch Kommas getrennten Liste mit {{Glossary("quality_values", "Qualitätswerten")}} als Gewichte:
 
 ```http
 TE: trailers, deflate;q=0.5
@@ -49,19 +49,19 @@ TE: trailers, deflate;q=0.5
 - `deflate`
   - : Die Verwendung der [zlib](https://en.wikipedia.org/wiki/Zlib)-Struktur wird als Transfercodierungsname akzeptiert.
 - `gzip`
-  - : Ein Format, das den [Lempel-Ziv-Codierung](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) (LZ77) mit einer 32-Bit-CRC verwendet, wird als Transfercodierungsname akzeptiert.
+  - : Ein Format, das die [Lempel-Ziv-Codierung](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) (LZ77) mit einem 32-Bit-CRC verwendet, wird als Transfercodierungsname akzeptiert.
 - `trailers`
-  - : Gibt an, dass der Client Trailer-Felder in einer [Chunked Transfer Coding](/de/docs/Web/HTTP/Headers/Transfer-Encoding#chunked) nicht verwirft.
+  - : Gibt an, dass der Client Trailer-Felder in einer [chunked transfer coding](/de/docs/Web/HTTP/Headers/Transfer-Encoding#chunked) nicht verwerfen wird.
 - `q`
-  - : Wenn mehrere Transfercodierungen akzeptabel sind, ordnet die `q`-Parameter-Syntax ({{Glossary("quality_values", "Qualitätswerte")}}) die Codierungen nach Präferenz.
+  - : Wenn mehrere Transfercodierungen akzeptabel sind, ordnet der `q`-Parameter ({{Glossary("quality_values", "Qualitätswert")}}) die Codierungen nach Präferenz.
 
-Beachten Sie, dass `chunked` immer von HTTP/1.1-Empfängern unterstützt wird, daher müssen Sie es nicht mit dem `TE`-Header spezifizieren. Weitere Details finden Sie im {{HTTPHeader("Transfer-Encoding")}}-Header.
+Beachten Sie, dass `chunked` von HTTP/1.1-Empfängern immer unterstützt wird, sodass Sie es nicht mit dem `TE`-Header angeben müssen. Siehe den {{HTTPHeader("Transfer-Encoding")}}-Header für weitere Details.
 
 ## Beispiele
 
 ### Verwendung des TE-Headers mit Qualitätswerten
 
-In der folgenden Anfrage gibt der Client eine Präferenz für `gzip`-codierte Antworten an, mit `deflate` als zweiter Präferenz unter Verwendung eines `q`-Werts:
+In der folgenden Anfrage gibt der Client eine Präferenz für `gzip`-codierte Antworten an, wobei `deflate` als zweite Präferenz mit einem `q`-Wert verwendet wird:
 
 ```http
 GET /resource HTTP/1.1

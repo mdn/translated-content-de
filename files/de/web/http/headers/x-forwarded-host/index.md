@@ -2,16 +2,16 @@
 title: X-Forwarded-Host
 slug: Web/HTTP/Headers/X-Forwarded-Host
 l10n:
-  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`X-Forwarded-Host`** (XFH) {{Glossary("request_header", "Request-Header")}} ist ein de-facto Standard-Header zur Identifizierung des ursprünglichen Hosts, der vom Client in der {{HTTPHeader("Host")}} HTTP-Request-Header angefordert wurde.
+Der HTTP **`X-Forwarded-Host`** (XFH) {{Glossary("request_header", "Request-Header")}} ist ein De-facto-Standard-Header zur Identifizierung des ursprünglichen Hosts, der vom Client im {{HTTPHeader("Host")}} HTTP-Request-Header angefordert wurde.
 
-Hostnamen und Ports von Reverse-{{Glossary("Proxy_server", "Proxies")}} (Load Balancer, CDNs) können sich vom Ursprungsserver, der die Anfrage bearbeitet, unterscheiden. In diesem Fall ist der `X-Forwarded-Host` Header nützlich, um zu bestimmen, welcher `Host` ursprünglich verwendet wurde.
+Hostnamen und Ports von Reverse-{{Glossary("Proxy_server", "Proxies")}} (Load-Balancer, CDNs) können sich vom Ursprungsserver, der die Anfrage bearbeitet, unterscheiden. In diesem Fall ist der `X-Forwarded-Host`-Header nützlich, um zu bestimmen, welcher `Host` ursprünglich verwendet wurde.
 
-Eine standardisierte Version dieses Headers ist der HTTP {{HTTPHeader("Forwarded")}} Header, obwohl dieser viel seltener verwendet wird.
+Eine standardisierte Version dieses Headers ist der HTTP {{HTTPHeader("Forwarded")}}-Header, der jedoch viel seltener verwendet wird.
 
 <table class="properties">
   <tbody>
@@ -20,7 +20,7 @@ Eine standardisierte Version dieses Headers ist der HTTP {{HTTPHeader("Forwarded
       <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Unzulässiger Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -45,7 +45,7 @@ X-Forwarded-Host: id42.example-cdn.com
 
 ## Spezifikationen
 
-Teil keiner aktuellen Spezifikation.
+Nicht Teil einer aktuellen Spezifikation.
 
 ## Siehe auch
 

@@ -2,26 +2,25 @@
 title: X-Permitted-Cross-Domain-Policies
 slug: Web/HTTP/Headers/X-Permitted-Cross-Domain-Policies
 l10n:
-  sourceCommit: a9686faf53ef37259a11e2d659622a6e0051ee89
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`X-Permitted-Cross-Domain-Policies`** {{Glossary("response_header", "Antwort-Header")}} definiert eine Meta-Policy, die steuert, ob Site-Ressourcen von einem Dokument, das in einem Web-Client wie Adobe Acrobat oder Microsoft Silverlight ausgeführt wird, übergreifend aufgerufen werden können.
+Der HTTP **`X-Permitted-Cross-Domain-Policies`** {{Glossary("response_header", "Antwort-Header")}} definiert eine Meta-Policy, die steuert, ob Website-Ressourcen von einem Dokument, das in einem Web-Client wie Adobe Acrobat oder Microsoft Silverlight läuft, domänenübergreifend zugegriffen werden können.
 
-Dieser Header kann in Fällen verwendet werden, in denen eine Website eine Cross-Domain-Policy deklarieren muss, aber nicht in das Stammverzeichnis der Domain schreiben kann.
+Er kann in Fällen verwendet werden, in denen die Website eine domänenübergreifende Policy erklären muss, aber nicht auf das Stammverzeichnis der Domain zugreifen kann.
 
-Die Verwendung dieses Headers ist weniger verbreitet, seit Adobe Flash Player und Microsoft Silverlight veraltet sind.
-Einige Sicherheitstest-Tools prüfen dennoch auf die Präsenz eines `X-Permitted-Cross-Domain-Policies: none` Headers, da er das Risiko einer zu permissiven Policy-Datei, die versehentlich oder durch bösartiges Handeln zu Ihrer Website hinzugefügt wurde, verringern kann.
+Die Verwendung dieses Headers ist weniger verbreitet, da Adobe Flash Player und Microsoft Silverlight veraltet sind. Einige Sicherheitstest-Tools überprüfen immer noch das Vorhandensein eines `X-Permitted-Cross-Domain-Policies: none` Headers, da er das Risiko einer versehentlich oder durch böswillige Handlungen hinzugefügten, zu freizügigen Policy-Datei auf Ihrer Website mindern kann.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -36,30 +35,29 @@ X-Permitted-Cross-Domain-Policies: <permitted-cross-domain-policy>
 ## Direktiven
 
 - `none`
-  - : Keine Policy-Dateien sind irgendwo auf dem Zielserver erlaubt, einschließlich in einer Haupt-Policy-Datei.
+  - : Keine Policy-Dateien sind auf dem Zielserver, einschließlich einer Master-Policy-Datei, erlaubt.
 - `master-only`
-  - : Erlaubt den Zugriff auf die Haupt-Policy-Datei, die auf derselben Domain definiert ist.
+  - : Ermöglicht den Zugriff auf die Master-Policy-Datei, die auf derselben Domain definiert ist.
 - `by-content-type` (nur HTTP/HTTPS)
-  - : Nur Policy-Dateien, die mit `Content-Type: text/x-cross-domain-policy` bedient werden, sind erlaubt.
+  - : Nur mit `Content-Type: text/x-cross-domain-policy` bereitgestellte Policy-Dateien sind erlaubt.
 - `by-ftp-filename` (nur FTP)
-  - : Nur Policy-Dateien mit dem Dateinamen `crossdomain.xml` (URLs, die auf `/crossdomain.xml` enden) sind erlaubt.
+  - : Nur Policy-Dateien mit dem Dateinamen `crossdomain.xml` (URLs die auf `/crossdomain.xml` enden) sind erlaubt.
 - `all`
   - : Alle Policy-Dateien auf dieser Zieldomain sind erlaubt.
 - `none-this-response`
-  - : Gibt an, dass das aktuelle Dokument nicht als Policy-Datei verwendet werden sollte, trotz anderer Header oder seines Inhalts.
-    Dieser Wert ist einzigartig für den HTTP-Header.
+  - : Gibt an, dass das aktuelle Dokument trotz anderer Header oder dessen Inhalt nicht als Policy-Datei verwendet werden sollte. Dieser Wert ist nur im HTTP-Header einzigartig.
 
 ## Beschreibung
 
-Web-Clients wie Adobe Acrobat oder Apache Flex können Web-Dokumente laden, die möglicherweise Ressourcen von derselben Seite oder anderen Seiten laden.
-Zugriff ist standardmäßig auf dieselben Seitenressourcen beschränkt, aufgrund der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy), aber Seiten mit anderen Ursprüngen können wählen, einige oder alle ihrer Ressourcen cross-origin über spezielle Dateien, sogenannte Cross-Domain-Policy-Dateien, verfügbar zu machen.
+Web-Clients wie Adobe Acrobat oder Apache Flex können Web-Dokumente laden, die wiederum Ressourcen von derselben oder anderen Websites laden können.
+Der Zugriff ist standardmäßig auf Ressourcen derselben Seite beschränkt durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy), aber andere Ursprünge können wählen, einige oder alle ihrer Ressourcen für Clients domänenübergreifend verfügbar zu machen, indem spezielle Dateien verwendet werden, die als domänenübergreifende Policy-Dateien bezeichnet werden.
 
-Eine "master" Cross-Domain-Policy-Datei kann als `crossdomain.xml` Datei im Stamm der Domain definiert werden, zum Beispiel: `http://example.com/crossdomain.xml`.
-Die Master-Datei definiert die _Meta-Policy_ für die gesamte Seite mithilfe des `permitted-cross-domain-policies` Attributs des `<site-control>` Tags.
-Die Meta-Policy steuert, ob irgendwelche Policies erlaubt sind und die Bedingungen für die Verwendung der anderen "Sub" Cross-Domain-Policy-Dateien.
-Diese anderen Policy-Dateien könnten in bestimmten Verzeichnissen erstellt werden, um den Zugriff über die Dateien in ihrem gegebenen Verzeichnisbaum zu spezifizieren.
+Eine "Master" domänenübergreifende Policy-Datei kann als `crossdomain.xml` Datei im Stamm der Domain definiert werden, zum Beispiel: `http://example.com/crossdomain.xml`.
+Die Master-Datei definiert die _Meta-Policy_ für die gesamte Website anhand des `permitted-cross-domain-policies` Attributs des `<site-control>` Tags.
+Die Meta-Policy steuert, ob irgendwelche Policies erlaubt sind, und die Bedingungen, damit die anderen "Sub" domänenübergreifenden Policy-Dateien verwendet werden dürfen.
+Diese anderen Policy-Dateien könnten in bestimmten Verzeichnissen erstellt werden, um Zugriff auf die Dateien in ihrem jeweiligen Verzeichnisbaum zu gewähren.
 
-Zum Beispiel, dies ist die am wenigsten permissive Master-Policy-Definition, die keinen Zugriff erlaubt und die Verwendung anderer "Sub" Policy-Dateien nicht erlaubt.
+Zum Beispiel, dies ist die am wenigsten freizügige Master-Policy-Definition, die keinen Zugriff erlaubt und die Verwendung von anderen "Sub"-Policy-Dateien nicht gestattet.
 
 ```xml
 <?xml version="1.0"?>
@@ -69,16 +67,16 @@ Zum Beispiel, dies ist die am wenigsten permissive Master-Policy-Definition, die
 </cross-domain-policy>
 ```
 
-Der `X-Permitted-Cross-Domain-Policies` Header kann eine Meta-Policy für die HTTP-Antwort spezifizieren, in der er enthalten ist, oder eine Meta-Policy überschreiben, die in der Master-Cross-Domain-Policy-Datei definiert ist, falls vorhanden.
-Er nimmt die gleichen Werte wie das `permitted-cross-domain-policies` Attribut der Datei an und zusätzlich `none-this-response`.
+Der `X-Permitted-Cross-Domain-Policies` Header kann eine Meta-Policy für die HTTP-Antwort angeben, in die er eingebunden ist, oder eine im Master-Cross-Domain-Policy-Datei definierte Meta-Policy überschreiben, falls vorhanden.
+Er übernimmt die gleichen Werte wie das `permitted-cross-domain-policies` Attribut der Datei und zusätzlich `none-this-response`.
 
-Am häufigsten wird er verwendet, um jeglichen Zugriff auf Site-Ressourcen zu verhindern, in Fällen, in denen der Entwickler nicht die Möglichkeit hat, eine Master-Cross-Domain-Policy-Datei im Stammbereich der Site zu erstellen.
+Am häufigsten wird er verwendet, um jeglichen Zugriff auf Website-Ressourcen zu verhindern, wenn der Entwickler keinen Zugang hat, um eine Master-Cross-Domain-Policy-Datei im Stammbereich der Website zu erstellen.
 
 ## Beispiele
 
-### Verbot von Cross-Domain-Policy-Dateien
+### Deaktivieren von domänenübergreifenden Policy-Dateien
 
-Wenn Sie keine Anwendungsdaten in Clients wie Adobe Flash Player oder Adobe Acrobat (oder Legacy-Clients) laden müssen, sollte der Header als `X-Permitted-Cross-Domain-Policies: none` konfiguriert werden:
+Wenn Sie keine Anwendungsdaten in Clients wie Adobe Flash Player oder Adobe Acrobat (oder älteren Clients) laden müssen, sollte der Header als `X-Permitted-Cross-Domain-Policies: none` konfiguriert werden:
 
 ```http
 X-Permitted-Cross-Domain-Policies: none
@@ -92,6 +90,6 @@ Dokumentiert in der [Adobe Cross Domain Policy File Specification](https://www.a
 
 - [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/CORS)
 - [Praktische Sicherheitsimplementierungs-Leitfäden](/de/docs/Web/Security/Practical_implementation_guides)
-- [HTTP Observatory](/en-US/observatory/) Header-Test-Tool
-- [Cross Domain Konfiguration](https://www.adobe.com/devnet-docs/acrobatetk/tools/AppSec/xdomain.html) auf adobe.com
-- [X-Permitted-Cross-Domain-Policies](https://github.com/OWASP/www-project-secure-headers/blob/master/tab_headers.md#x-permitted-cross-domain-policies) im OWASP Secure Headers Projekt
+- [HTTP Observatory](/en-US/observatory/) Header-Testtool
+- [Cross Domain Configuration](https://www.adobe.com/devnet-docs/acrobatetk/tools/AppSec/xdomain.html) auf adobe.com
+- [X-Permitted-Cross-Domain-Policies](https://github.com/OWASP/www-project-secure-headers/blob/master/tab_headers.md#x-permitted-cross-domain-policies) im OWASP Secure Headers Project

@@ -2,14 +2,14 @@
 title: Cookie
 slug: Web/HTTP/Headers/Cookie
 l10n:
-  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Cookie`** {{Glossary("request_header", "Anforderungsheader")}} enthält gespeicherte [HTTP-Cookies](/de/docs/Web/HTTP/Cookies), die mit dem Server verknüpft sind (d. h. zuvor vom Server mit dem {{HTTPHeader("Set-Cookie")}}-Header gesendet oder in JavaScript mit [`Document.cookie`](/de/docs/Web/API/Document/cookie) gesetzt).
+Der HTTP-**`Cookie`**-{{Glossary("request_header", "Anforderungsheader")}} enthält gespeicherte [HTTP-Cookies](/de/docs/Web/HTTP/Cookies), die mit dem Server verbunden sind (d. h. zuvor vom Server mit dem {{HTTPHeader("Set-Cookie")}}-Header gesendet oder in JavaScript mit [`Document.cookie`](/de/docs/Web/API/Document/cookie) gesetzt).
 
-Der `Cookie`-Header ist optional und kann weggelassen werden, wenn z.B. die Datenschutzeinstellungen des Browsers Cookies blockieren.
+Der `Cookie`-Header ist optional und kann weggelassen werden, wenn beispielsweise die Datenschutzeinstellungen des Browsers Cookies blockieren.
 
 <table class="properties">
   <tbody>
@@ -18,7 +18,7 @@ Der `Cookie`-Header ist optional und kann weggelassen werden, wenn z.B. die Date
       <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
       <td>Ja</td>
     </tr>
   </tbody>
@@ -35,7 +35,7 @@ Cookie: name=value; name2=value2; name3=value3
 ## Direktiven
 
 - `<cookie-list>`
-  - : Eine Liste von Name-Wert-Paaren in der Form `<cookie-name>=<cookie-value>`.
+  - : Eine Liste von Name-Wert-Paaren in der Form von `<cookie-name>=<cookie-value>`.
     Paare in der Liste werden durch ein Semikolon und ein Leerzeichen getrennt.
 
 ## Beispiele

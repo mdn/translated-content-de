@@ -1,16 +1,16 @@
 ---
-title: Forbidden response header name
+title: Verbotener Antwortheader-Name
 slug: Glossary/Forbidden_response_header_name
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{GlossarySidebar}}
 
-Ein _forbidden response header name_ ist ein [HTTP-Header](/de/docs/Web/HTTP/Headers)-Name (`Set-Cookie`), der programmatisch nicht verändert werden kann.
+Ein _verbotener Antwortheader-Name_ ist ein [HTTP-Header](/de/docs/Web/HTTP/Headers)-Name (`Set-Cookie`), der nicht programmgesteuert geändert werden kann.
 
 ## Siehe auch
 
-- [Fetch-Spezifikation: forbidden response-header name](https://fetch.spec.whatwg.org/#forbidden-response-header-name)
+- [Fetch-Spezifikation: verbotener Antwortheader-Name](https://fetch.spec.whatwg.org/#forbidden-response-header-name)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Forbidden_header_name", "Forbidden header name")}}
+  - {{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}

@@ -2,15 +2,15 @@
 title: Sec-CH-UA-Full-Version
 slug: Web/HTTP/Headers/Sec-CH-UA-Full-Version
 l10n:
-  sourceCommit: 217e25f9d2c39d2031ecf50f891c27e7f5b96e06
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}{{Deprecated_Header}}{{SecureContext_Header}}
 
 > [!NOTE]
-> Dies wird durch {{HTTPHeader("Sec-CH-UA-Full-Version-List")}} ersetzt.
+> Dies wird durch den {{HTTPHeader("Sec-CH-UA-Full-Version-List")}} ersetzt.
 
-Der HTTP **`Sec-CH-UA-Full-Version`** {{Glossary("request_header", "Request-Header")}} ist ein [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints), der die vollständige Versionszeichenkette des User-Agents bereitstellt.
+Der HTTP **`Sec-CH-UA-Full-Version`** {{Glossary("request_header", "Request-Header")}} ist ein [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints), der die vollständige Versionszeichenfolge des User-Agents bereitstellt.
 
 <table class="properties">
   <tbody>
@@ -22,8 +22,8 @@ Der HTTP **`Sec-CH-UA-Full-Version`** {{Glossary("request_header", "Request-Head
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>Ja (<code>Sec-</code> Präfix)</td>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
+      <td>Ja (<code>Sec-</code>-Präfix)</td>
     </tr>
   </tbody>
 </table>
@@ -37,21 +37,21 @@ Sec-CH-UA-Full-Version: <version>
 ### Direktiven
 
 - `<version>`
-  - : Eine Zeichenkette, die die vollständige Versionsnummer enthält, wie "96.0.4664.93".
+  - : Ein String, der die vollständige Versionsnummer enthält, wie "96.0.4664.93".
 
 ## Beispiele
 
 ### Verwendung von Sec-CH-UA-Full-Version
 
-Ein Server fordert den `Sec-CH-UA-Full-Version` Header an, indem er das {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf eine Anfrage des Clients einschließt und den Namen des gewünschten Headers als Token verwendet:
+Ein Server fordert den `Sec-CH-UA-Full-Version`-Header an, indem er den {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf eine beliebige Anfrage vom Client einfügt und den Namen des gewünschten Headers als Token verwendet:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Full-Version
 ```
 
-Der Client kann sich entscheiden, den Hint bereitzustellen und den `Sec-CH-UA-Full-Version` Header zu nachfolgenden Anfragen hinzuzufügen.
-Zum Beispiel könnte der Client den Header wie folgt hinzufügen:
+Der Client kann sich entscheiden, den Hint bereitzustellen, und den `Sec-CH-UA-Full-Version`-Header zu nachfolgenden Anfragen hinzufügen.
+Der Client könnte den Header zum Beispiel wie folgt hinzufügen:
 
 ```http
 GET /my/page HTTP/1.1
@@ -73,7 +73,7 @@ Sec-CH-UA-Platform: "Windows"
 
 ## Siehe auch
 
-- [Client-Hints](/de/docs/Web/HTTP/Client_hints)
+- [Client hints](/de/docs/Web/HTTP/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
 - {{HTTPHeader("Accept-CH")}}
 - [HTTP Caching: Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}} Header

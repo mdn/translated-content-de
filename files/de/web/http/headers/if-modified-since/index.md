@@ -2,19 +2,19 @@
 title: If-Modified-Since
 slug: Web/HTTP/Headers/If-Modified-Since
 l10n:
-  sourceCommit: edefa50f18613599b92e2eb3e9556fbde220b360
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
 Der HTTP **`If-Modified-Since`** {{Glossary("request_header", "Request-Header")}} macht eine Anfrage [konditional](/de/docs/Web/HTTP/Conditional_requests).
-Der Server sendet die angeforderte Ressource mit einem {{HTTPStatus("200")}}-Status nur zurück, wenn sie nach dem Datum im `If-Modified-Since`-Header modifiziert wurde.
-Falls die Ressource seitdem nicht modifiziert wurde, lautet die Antwort {{HTTPStatus("304")}} ohne jeglichen Body, und der {{HTTPHeader("Last-Modified")}}-Antwort-Header der vorherigen Anfrage enthält das Datum der letzten Modifikation.
+Der Server sendet die angeforderte Ressource mit einem {{HTTPStatus("200")}}-Status nur zurück, wenn sie nach dem Datum, das im `If-Modified-Since`-Header angegeben ist, modifiziert wurde.
+Wenn die Ressource seitdem nicht geändert wurde, ist die Antwort ein {{HTTPStatus("304")}} ohne Inhalt, und der {{HTTPHeader("Last-Modified")}}-Antwort-Header der vorherigen Anfrage enthält das Datum der letzten Änderung.
 
 Im Gegensatz zu {{HTTPHeader("If-Unmodified-Since")}} kann `If-Modified-Since` nur mit einem {{HTTPMethod("GET")}} oder {{HTTPMethod("HEAD")}} verwendet werden.
-Wird es zusammen mit {{HTTPHeader("If-None-Match")}} verwendet, wird es ignoriert, es sei denn, der Server unterstützt `If-None-Match` nicht.
+In Kombination mit {{HTTPHeader("If-None-Match")}} wird es ignoriert, es sei denn, der Server unterstützt `If-None-Match` nicht.
 
-Die häufigste Anwendungsfall ist das Aktualisieren einer zwischengespeicherten Entität, die kein zugehöriges {{HTTPHeader("ETag")}} hat.
+Der häufigste Anwendungsfall ist die Aktualisierung einer zwischengespeicherten Entität, die kein zugehöriges {{HTTPHeader("ETag")}} hat.
 
 <table class="properties">
   <tbody>
@@ -23,7 +23,7 @@ Die häufigste Anwendungsfall ist das Aktualisieren einer zwischengespeicherten 
       <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -38,11 +38,11 @@ If-Modified-Since: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
 ## Direktiven
 
 - `<day-name>`
-  - : Einer von `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` oder `Sun` (case-sensitive).
+  - : Einer von `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` oder `Sun` (Groß-/Kleinschreibung beachten).
 - `<day>`
   - : 2-stellige Tagesnummer, z.B. "04" oder "23".
 - `<month>`
-  - : Einer von `Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `Oct`, `Nov`, `Dec` (case-sensitive).
+  - : Einer von `Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `Oct`, `Nov`, `Dec` (Groß-/Kleinschreibung beachten).
 - `<year>`
   - : 4-stellige Jahreszahl, z.B. "1990" oder "2016".
 - `<hour>`
@@ -52,7 +52,7 @@ If-Modified-Since: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
 - `<second>`
   - : 2-stellige Sekundenzahl, z.B. "04" oder "59".
 - GMT
-  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT angegeben, nie in Ortszeit.
+  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT angegeben, niemals in lokaler Zeit.
 
 ## Beispiele
 
@@ -71,5 +71,5 @@ If-Modified-Since: Wed, 21 Oct 2015 07:28:00 GMT
 ## Siehe auch
 
 - {{HTTPHeader("ETag")}}
-- {{HTTPHeader("If-Match")}}, {{HTTPHeader("If-None-Match")}}, {{HTTPHeader("If-Unmodified-Since")}} konditionelle Anfrage-Header
-- {{HTTPStatus("304", "304 Not Modified")}}, {{HTTPStatus("412", "412 Precondition Failed")}} Antwortstatuscodes
+- {{HTTPHeader("If-Match")}}, {{HTTPHeader("If-None-Match")}}, {{HTTPHeader("If-Unmodified-Since")}} konditionale Request-Header
+- {{HTTPStatus("304", "304 Not Modified")}}, {{HTTPStatus("412", "412 Precondition Failed")}} Antwortstatus-Codes

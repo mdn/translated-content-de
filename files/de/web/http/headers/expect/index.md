@@ -2,27 +2,27 @@
 title: Expect
 slug: Web/HTTP/Headers/Expect
 l10n:
-  sourceCommit: edefa50f18613599b92e2eb3e9556fbde220b360
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-**`Expect`**-{{Glossary("request_header", "Anforderungsheader")}} zeigt an, dass es Erwartungen gibt, die vom Server erfüllt werden müssen, um die vollständige Anfrage erfolgreich zu bearbeiten.
+Der HTTP **`Expect`** {{Glossary("request_header", "Anforderungsheader")}} gibt an, dass es Erwartungen gibt, die vom Server erfüllt werden müssen, um die vollständige Anforderung erfolgreich zu bearbeiten.
 
-Wenn eine Anfrage einen `Expect: 100-continue`-Header enthält, sendet ein Server eine {{HTTPStatus("100", "100 Continue")}}-Antwort, um anzuzeigen, dass der Server bereit oder in der Lage ist, den Rest des Anfrageinhalts zu empfangen. Das Warten auf eine `100`-Antwort kann hilfreich sein, wenn ein Client mit einem Fehler rechnet, zum Beispiel, wenn zustandsverändernde Operationen ohne vorher verifizierte Authentifizierungsanmeldeinformationen gesendet werden.
+Wenn eine Anforderung einen `Expect: 100-continue` Header hat, sendet ein Server eine {{HTTPStatus("100", "100 Continue")}} Antwort, um anzuzeigen, dass der Server bereit oder in der Lage ist, den Rest des Anforderungsinhalts zu empfangen. Das Warten auf eine `100` Antwort kann hilfreich sein, wenn ein Kunde erwartet, dass ein Fehler wahrscheinlich ist, zum Beispiel beim Senden von zustandsändernden Operationen ohne zuvor überprüfte Authentifizierungsinformationen.
 
-Eine {{HTTPStatus("417", "417 Expectation Failed")}}-Antwort wird zurückgegeben, wenn der Server die Erwartung nicht erfüllen kann, oder anderweitig ein anderer Status (z.B. ein [4XX](/de/docs/Web/HTTP/Status#client_error_responses)-Status für einen Client-Fehler oder ein [2XX](/de/docs/Web/HTTP/Status#successful_responses)-Status, wenn die Anfrage erfolgreich ohne weitere Verarbeitung gelöst werden kann).
+Eine {{HTTPStatus("417", "417 Expectation Failed")}} Antwort wird zurückgegeben, wenn der Server die Erwartung nicht erfüllen kann, oder ein anderer Status ansonsten (z.B. ein [4XX](/de/docs/Web/HTTP/Status#client_error_responses) Status für einen Client-Fehler oder ein [2XX](/de/docs/Web/HTTP/Status#successful_responses) Status, wenn die Anforderung erfolgreich ohne weitere Bearbeitung gelöst werden kann).
 
-Keine der gängigeren Browser sendet den `Expect`-Header, aber einige Clients (Kommandozeilenwerkzeuge) tun dies standardmäßig.
+Keiner der geläufigeren Browser sendet den `Expect` Header, aber einige Clients (Kommandozeilen-Tools) tun dies standardmäßig.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Headertyp</th>
       <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
       <td>Ja</td>
     </tr>
   </tbody>
@@ -39,13 +39,13 @@ Expect: 100-continue
 Es gibt nur eine definierte Erwartung:
 
 - `100-continue`
-  - : Informiert die Empfänger, dass der Client im Begriff ist, einen (vermutlich großen) Nachrichteninhalt in dieser Anfrage zu senden und eine vorläufige {{HTTPStatus("100", "100 Continue")}}-Antwort erhalten möchte.
+  - : Informiert die Empfänger darüber, dass der Client dabei ist, einen (vermutlich großen) Nachrichtentext in dieser Anforderung zu senden und wünscht eine {{HTTPStatus("100", "100 Continue")}} Zwischenantwort zu erhalten.
 
 ## Beispiele
 
-### Großer Nachrichteninhalt
+### Großer Nachrichtentext
 
-Ein Client sendet eine Anfrage mit `Expect`-Header und wartet, bis der Server antwortet, bevor er den Nachrichteninhalt sendet.
+Ein Client sendet eine Anfrage mit `Expect` Header und wartet, bis der Server antwortet, bevor der Nachrichtentext gesendet wird.
 
 ```http
 PUT /somewhere/fun HTTP/1.1
@@ -55,7 +55,7 @@ Content-Length: 1234567890987
 Expect: 100-continue
 ```
 
-Der Server überprüft die Header und erzeugt die Antwort, wobei ein {{HTTPStatus("100", "100 Continue")}} den Client anweist, den Nachrichteninhalt zu senden:
+Der Server überprüft die Header und generiert die Antwort, bei der ein {{HTTPStatus("100", "100 Continue")}} dem Client anweist, den Nachrichtentext zu senden:
 
 ```http
 HTTP/1.1 100 Continue

@@ -2,12 +2,12 @@
 title: Via
 slug: Web/HTTP/Headers/Via
 l10n:
-  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der **`Via`** {{Glossary("request_header", "Request-")}} und {{Glossary("response_header", "Response-Header")}} wird von {{Glossary("Proxy_server", "Proxies")}}, sowohl vorwärts als auch rückwärts, hinzugefügt. Er wird verwendet, um Nachrichtenweiterleitungen zu verfolgen, Anforderungsschleifen zu vermeiden und die Protokollfähigkeiten von Absendern entlang der Anforderungs-/Antwortkette zu identifizieren.
+Der **`Via`** {{Glossary("request_header", "Request-")}} und {{Glossary("response_header", "Response-Header")}} wird von {{Glossary("Proxy_server", "Proxies")}} hinzugefügt, sowohl vorwärts- als auch rückwärtsleitend. Er wird verwendet, um Nachrichtenweiterleitungen zu verfolgen, Anfrage-Schleifen zu vermeiden und die Protokollfähigkeiten der Sender entlang der Anfrage-/Antwortkette zu identifizieren.
 
 <table class="properties">
   <tbody>
@@ -19,7 +19,7 @@ Der **`Via`** {{Glossary("request_header", "Request-")}} und {{Glossary("respons
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Ja</td>
     </tr>
   </tbody>
@@ -35,15 +35,15 @@ Via: [<protocol-name>/]<protocol-version> <pseudonym>
 ## Direktiven
 
 - `<protocol-name>` {{optional_inline}}
-  - : Der Name des verwendeten Protokolls, wie zum Beispiel "HTTP".
+  - : Der Name des verwendeten Protokolls, wie "HTTP".
 - `<protocol-version>`
-  - : Die Version des verwendeten Protokolls, wie zum Beispiel "1.1".
+  - : Die Version des verwendeten Protokolls, wie "1.1".
 - `<host>`
-  - : Öffentliche Proxy-URL und optionaler `<port>`.
-    Wenn kein Host angegeben wird, muss ein `<pseudonym>` verwendet werden.
+  - : Öffentliche Proxy-URL und optional `<port>`.
+    Wenn kein Host angegeben ist, muss ein `<pseudonym>` verwendet werden.
 - `<pseudonym>`
   - : Name/Alias eines internen Proxys.
-    Wenn kein Pseudonym angegeben wird, muss ein `<host>` verwendet werden.
+    Wenn kein Pseudonym angegeben ist, muss ein `<host>` verwendet werden.
 
 ## Beispiele
 

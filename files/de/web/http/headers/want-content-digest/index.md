@@ -2,25 +2,25 @@
 title: Want-Content-Digest
 slug: Web/HTTP/Headers/Want-Content-Digest
 l10n:
-  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Want-Content-Digest`** {{Glossary("request_header", "Request-")}} und {{Glossary("response_header", "Response-Header")}} gibt an, dass der Empfänger bevorzugt einen {{HTTPHeader("Content-Digest")}} Integritäts-Header in Nachrichten senden soll, die mit der Anforderungs-URI und den Repräsentationsmetadaten verknüpft sind.
+Der HTTP **`Want-Content-Digest`** {{Glossary("request_header", "Anfrage-")}} und {{Glossary("response_header", "Antwortheader")}} gibt eine Präferenz für den Empfänger an, einen {{HTTPHeader("Content-Digest")}} Integritätsheader in Nachrichten zu senden, die mit der Anfrage-URI und den Repräsentationsmetadaten verbunden sind.
 
-Der Header enthält Präferenzen für Hash-Algorithmen, die der Empfänger in nachfolgenden Nachrichten verwenden kann. Die Präferenzen dienen lediglich als Hinweis, und der Empfänger kann die Algorithmusauswahl oder die Integritäts-Header vollständig ignorieren.
+Der Header beinhaltet Präferenzen für Hash-Algorithmen, die der Empfänger in nachfolgenden Nachrichten verwenden kann. Die Präferenzen dienen nur als Hinweis, und der Empfänger kann die Algorithmuswahl oder die Integritätsheader ganz ignorieren.
 
-Einige Implementierungen können `Content-Digest` Header ohne vorheriges `Want-Content-Digest` Header in einer vorherigen Nachricht senden.
+Einige Implementierungen können ungefragt `Content-Digest` Header senden, ohne dass ein `Want-Content-Digest` Header in einer vorherigen Nachricht erforderlich ist.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Representation_header", "Repräsentations-Header")}}</td>
+      <td>{{Glossary("Representation_header", "Repräsentationsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrageheader")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -28,27 +28,28 @@ Einige Implementierungen können `Content-Digest` Header ohne vorheriges `Want-C
 
 ## Syntax
 
-Eine durch Kommata getrennte Liste von einem oder mehreren Hash-Algorithmen:
+Eine kommagetrennte Liste von einem oder mehreren Hash-Algorithmen:
 
 ```http
 Want-Content-Digest: <algorithm>=<preference>
 Want-Content-Digest: <algorithm>=<preference>, …, <algorithmN>=<preferenceN>
 ```
 
-## Direktiven
+## Anweisungen
 
 - `<algorithm>`
-  - : Der angeforderte Algorithmus, um einen Digest des Nachrichteninhalts zu erstellen. Nur zwei registrierte Digest-Algorithmen werden als sicher angesehen: `sha-512` und `sha-256`.
+  - : Der angeforderte Algorithmus, um einen Digest des Nachrichteninhalts zu erstellen.
+    Es werden nur zwei registrierte Digest-Algorithmen als sicher angesehen: `sha-512` und `sha-256`.
     Die unsicheren (veralteten) registrierten Digest-Algorithmen sind: `md5`, `sha` (SHA-1), `unixsum`, `unixcksum`, `adler` (ADLER32) und `crc32c`.
 - `<preference>`
-  - : Eine ganze Zahl zwischen 0 und 9, wobei `0` "nicht akzeptabel" bedeutet und die Werte `1` bis `9` aufsteigende, relative, gewichtete Präferenzen anzeigen.
+  - : Eine Ganzzahl von 0 bis 9, wobei `0` "nicht akzeptabel" bedeutet und die Werte `1` bis `9` aufsteigende, relative, gewichtete Präferenzen vermitteln.
     Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ über `q` {{Glossary("Quality_values", "Qualitätswerte")}} deklariert.
 
 ## Beispiele
 
 ### Verwendung von Want-Content-Digest in Anfragen
 
-Die folgende Nachricht fordert den Empfänger auf, einen `Content-Digest` Header unter Verwendung des SHA-512 Algorithmus zu senden:
+Die folgende Nachricht fordert den Empfänger auf, einen `Content-Digest` Header mit dem SHA-512-Algorithmus zu senden:
 
 ```http
 Want-Content-Digest: sha-512=9
@@ -68,7 +69,8 @@ Want-Content-Digest: md5=1, sha-512=2, sha-256=3
 
 ## Browser-Kompatibilität
 
-Dieser Header hat keine spezifikationsdefinierte Browser-Integration ("Browser-Kompatibilität" gilt nicht). Entwickler können HTTP-Header mit `fetch()` setzen und erhalten, um eine anwendungsspezifische Implementierungsverhalten zu ermöglichen.
+Dieser Header hat keine spezifikationsdefinierte Browser-Integration ("Browser-Kompatibilität" trifft nicht zu).
+Entwickler können HTTP-Header mit `fetch()` setzen und abfragen, um ein anwendungsspezifisches Implementierungsverhalten bereitzustellen.
 
 ## Siehe auch
 

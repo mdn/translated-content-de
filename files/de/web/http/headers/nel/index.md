@@ -2,21 +2,21 @@
 title: NEL
 slug: Web/HTTP/Headers/NEL
 l10n:
-  sourceCommit: cadc98b0f5f2a770c6ab9b1ca0bf31a90378c6df
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-**`NEL`**-{{Glossary("response_header", "Antwortheader")}} wird verwendet, um die Protokollierung von Netzwerk-Anfragen zu konfigurieren.
+Der HTTP **`NEL`** {{Glossary("response_header", "Antwort-Header")}} wird verwendet, um das Protokollieren von Netzwerkanfragen zu konfigurieren.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -38,4 +38,4 @@ NEL: { "report_to": "name_of_reporting_group", "max_age": 12345, "include_subdom
 
 ## Siehe auch
 
-- [Network Error Logging (NEL) Erklärer](/de/docs/Web/HTTP/Network_Error_Logging)
+- [Network Error Logging (NEL) Erläuterung](/de/docs/Web/HTTP/Network_Error_Logging)

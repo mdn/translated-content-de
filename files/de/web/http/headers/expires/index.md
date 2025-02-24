@@ -2,31 +2,31 @@
 title: Expires
 slug: Web/HTTP/Headers/Expires
 l10n:
-  sourceCommit: edefa50f18613599b92e2eb3e9556fbde220b360
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-**`Expires`**-{{Glossary("response_header", "Response-Header")}} enthält das Datum/die Uhrzeit, nach der die Antwort im Kontext des [HTTP-Cachings](/de/docs/Web/HTTP/Caching) als abgelaufen betrachtet wird.
+Der HTTP **`Expires`** {{Glossary("response_header", "Antwortheader")}} enthält das Datum/Uhrzeit, nach dem die Antwort im Kontext von [HTTP-Caching](/de/docs/Web/HTTP/Caching) als abgelaufen gilt.
 
-Der Wert `0` wird verwendet, um ein Datum in der Vergangenheit darzustellen, was bedeutet, dass die Ressource bereits abgelaufen ist.
+Der Wert `0` wird verwendet, um ein Datum in der Vergangenheit darzustellen, was darauf hinweist, dass die Ressource bereits abgelaufen ist.
 
 > [!NOTE]
-> Wenn im Response ein {{HTTPHeader("Cache-Control")}}-Header mit der `max-age`- oder `s-maxage`-Direktive vorhanden ist, wird der `Expires`-Header ignoriert.
+> Wenn ein {{HTTPHeader("Cache-Control")}}-Header mit der Anweisung `max-age` oder `s-maxage` in der Antwort vorhanden ist, wird der `Expires`-Header ignoriert.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Response-Header")}}</td>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Response-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Antwortheader")}}
       </th>
       <td>Ja</td>
     </tr>
@@ -44,19 +44,19 @@ Expires: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
 - `<day-name>`
   - : Einer von `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` oder `Sun` (Groß-/Kleinschreibung beachten).
 - `<day>`
-  - : 2-stellige Tagesnummer, z. B. "04" oder "23".
+  - : 2-stellige Tagesnummer, z.B. "04" oder "23".
 - `<month>`
   - : Einer von `Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `Oct`, `Nov`, `Dec` (Groß-/Kleinschreibung beachten).
 - `<year>`
-  - : 4-stellige Jahreszahl, z. B. "1990" oder "2016".
+  - : 4-stellige Jahreszahl, z.B. "1990" oder "2016".
 - `<hour>`
-  - : 2-stellige Stundenzahl, z. B. "09" oder "23".
+  - : 2-stellige Stundenzahl, z.B. "09" oder "23".
 - `<minute>`
-  - : 2-stellige Minutenzahl, z. B. "04" oder "59".
+  - : 2-stellige Minutenzahl, z.B. "04" oder "59".
 - `<second>`
-  - : 2-stellige Sekundenzahl, z. B. "04" oder "59".
+  - : 2-stellige Sekundenzahl, z.B. "04" oder "59".
 - GMT
-  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT ausgedrückt, niemals in lokaler Zeit.
+  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT ausgedrückt, nie in Ortszeit.
 
 ## Beispiele
 
@@ -74,6 +74,6 @@ Expires: Wed, 21 Oct 2015 07:28:00 GMT
 
 ## Siehe auch
 
-- [HTTP-Caching](/de/docs/Web/HTTP/Caching)-Leitfaden
+- [HTTP-Caching](/de/docs/Web/HTTP/Caching) Leitfaden
 - {{HTTPHeader("Cache-Control")}}
 - {{HTTPHeader("Age")}}

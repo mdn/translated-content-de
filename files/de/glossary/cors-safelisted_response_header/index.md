@@ -1,15 +1,15 @@
 ---
-title: CORS-safelisted response header
+title: CORS-safelisted-Antwortheader
 slug: Glossary/CORS-safelisted_response_header
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{GlossarySidebar}}
 
-Ein **CORS-safelisted response header** (auch bekannt als "einfacher Antwort-Header") ist ein [HTTP-Header](/de/docs/Web/HTTP/Headers) in einer [CORS](/de/docs/Web/HTTP/CORS) Antwort, der als _sicher_ angesehen wird, um für Client-Skripte offengelegt zu werden. Nur safelisted response headers werden Webseiten zur Verfügung gestellt.
+Ein **CORS-safelisted-Antwortheader** (auch bekannt als "einfacher Antwortheader") ist ein [HTTP-Header](/de/docs/Web/HTTP/Headers) in einer [CORS](/de/docs/Web/HTTP/CORS)-Antwort, der als _sicher_ angesehen wird, um ihn Client-Skripten zugänglich zu machen. Nur safelisted-Antwortheader sind für Webseiten verfügbar.
 
-Standardmäßig enthält die Safelist die folgenden Antwort-Header:
+Standardmäßig umfasst die Safeliste die folgenden Antwortheader:
 
 - {{HTTPHeader("Cache-Control")}}
 - {{HTTPHeader("Content-Language")}}
@@ -19,15 +19,15 @@ Standardmäßig enthält die Safelist die folgenden Antwort-Header:
 - {{HTTPHeader("Last-Modified")}}
 - {{HTTPHeader("Pragma")}}
 
-Zusätzliche Header können der Safelist mittels {{HTTPHeader("Access-Control-Expose-Headers")}} hinzugefügt werden.
+Zusätzliche Header können durch die Nutzung von {{HTTPHeader("Access-Control-Expose-Headers")}} zur Safeliste hinzugefügt werden.
 
-> **Note:** {{HTTPHeader("Content-Length")}} war nicht Teil des ursprünglichen Satzes von safelisted response headers \[[ref](https://github.com/whatwg/fetch/pull/626)]
+> **Hinweis:** {{HTTPHeader("Content-Length")}} war nicht Teil der ursprünglichen Gruppe von safelisted-Antwortheadern \[[ref](https://github.com/whatwg/fetch/pull/626)]
 
 ## Beispiele
 
-### Erweiterung der Safelist
+### Die Safeliste erweitern
 
-Sie können die Liste der CORS-safelisted response headers erweitern, indem Sie den {{HTTPHeader("Access-Control-Expose-Headers")}} Header verwenden:
+Sie können die Liste der CORS-safelisted-Antwortheader erweitern, indem Sie den {{HTTPHeader("Access-Control-Expose-Headers")}}-Header verwenden:
 
 ```http
 Access-Control-Expose-Headers: X-Custom-Header, Content-Encoding
@@ -40,6 +40,6 @@ Access-Control-Expose-Headers: X-Custom-Header, Content-Encoding
 - {{HTTPHeader("Access-Control-Expose-Headers")}}
 - Verwandte Glossarbegriffe:
   - {{Glossary("CORS", "CORS")}}
-  - {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request header")}}
-  - {{Glossary("Forbidden_header_name", "Forbidden header name")}}
-  - {{Glossary("Request_header", "Request header")}}
+  - {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Request Header")}}
+  - {{Glossary("Forbidden_request_header", "Verbotener Request Header")}}
+  - {{Glossary("Request_header", "Request Header")}}

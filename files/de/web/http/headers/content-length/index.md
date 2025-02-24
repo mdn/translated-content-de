@@ -2,30 +2,30 @@
 title: Content-Length
 slug: Web/HTTP/Headers/Content-Length
 l10n:
-  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Header **`Content-Length`** gibt die Größe des Nachrichtenkörpers in Bytes an, der an den Empfänger gesendet wird.
+Der HTTP-Header **`Content-Length`** gibt die Größe des Nachrichtentextes in Bytes an, der an den Empfänger gesendet wird.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Request-Header")}},
-        {{Glossary("Response_header", "Response-Header")}},
-        {{Glossary("Content_header", "Content-Header")}}
+        {{Glossary("Request_header", "Anforderungs-Header")}},
+        {{Glossary("Response_header", "Antwort-Header")}},
+        {{Glossary("Content_header", "Inhalts-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Response-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-sicher gelisteter Antwort-Header")}}
       </th>
       <td>Ja</td>
     </tr>
@@ -40,7 +40,7 @@ Content-Length: <length>
 
 ## Direktiven
 
-- `<length>`
+- \<length>
   - : Die Länge in Oktetten.
 
 ## Spezifikationen

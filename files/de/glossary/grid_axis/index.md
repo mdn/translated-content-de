@@ -1,28 +1,28 @@
 ---
-title: Gitterachse
+title: Grid-Achse
 slug: Glossary/Grid_Axis
 l10n:
-  sourceCommit: f3d3298130d8e22fb89ba123a0648ad3cb7b3655
+  sourceCommit: 423dccfc784a013348a32fc9bd0cb9af0e5db3a6
 ---
 
 {{GlossarySidebar}}
 
-Das CSS-Gitterlayout ist eine zweidimensionale Layoutmethode, die es ermöglicht, Inhalte in _Zeilen_ und _Spalten_ anzuordnen. Daher gibt es in jedem Gitter zwei Achsen: Die _Block- oder Spaltenachse_ und die _Inline- oder Zeilenachse_.
+Das CSS-Grid-Layout ist eine zweidimensionale Layoutmethode, die es ermöglicht, Inhalte in _Zeilen_ und _Spalten_ anzuordnen. Daher gibt es in jedem Grid zwei Achsen. Die _Block- oder Spaltenachse_ und die _Inline- oder Zeilenachse_.
 
-Entlang dieser Achsen können Elemente mithilfe der in der [Box Alignment-Spezifikation](/de/docs/Web/CSS/CSS_box_alignment) definierten Eigenschaften ausgerichtet und gerechtfertigt werden.
+Entlang dieser Achsen können Elemente mithilfe der im [Box Alignment-Spezifikation](/de/docs/Web/CSS/CSS_box_alignment) definierten Eigenschaften ausgerichtet und gerechtfertigt werden.
 
-In CSS ist die _Block- oder Spaltenachse_ die Achse, die verwendet wird, um Textblöcke anzuordnen. Wenn Sie zwei Absätze haben und in einer Sprache arbeiten, die von rechts nach links und von oben nach unten gelesen wird, werden diese untereinander entlang der Blockachse angeordnet.
+Die _Inline-Achse_ (auch Zeilenachse oder Hauptachse genannt) ist die Richtung, in der sich normaler Text bewegt. Die _Block-Achse_ (auch Spaltenachse oder Kreuzachse genannt) ist die Achse, die beim Anordnen von Textblöcken verwendet wird. Die physische Richtung dieser Achsen kann sich nach dem [Schreibmodus](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes) des Dokuments ändern.
 
-![Diagramm, das die Blockachse im CSS-Gitterlayout zeigt.](7_block_axis.png)
+Zum Beispiel: Wenn Sie von links nach rechts und von oben nach unten schreiben (wie im typischen englischen Prosa), werden die einzelnen Zeichen entlang der Inline-Achse platziert, die von links nach rechts verläuft.
 
-Die _Inline- oder Zeilenachse_ verläuft quer zur Blockachse und ist die Richtung, in der regulärer Text fließt. Dies sind unsere Zeilen im CSS-Gitterlayout.
+![Diagramm, das die Inline-Achse im CSS-Grid-Layout zeigt.](7_inline_axis.png)
 
-![Diagramm, das die Inline-Achse im CSS-Gitterlayout zeigt.](7_inline_axis.png)
+Und wenn der Text mehrere Zeilen enthält, werden diese Zeilen entlang der Block-Achse platziert, die von oben nach unten verläuft.
 
-Die physische Richtung dieser Achsen kann sich je nach [Schreibmodus](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes) des Dokuments ändern.
+![Diagramm, das die Block-Achse im CSS-Grid-Layout zeigt.](7_block_axis.png)
 
 ## Siehe auch
 
-- [Grundlegende Konzepte des Gitterlayouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-- [Box-Ausrichtung im Gitterlayout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
-- [Gitter, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)
+- [Grundlegende Konzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
+- [Grids, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)

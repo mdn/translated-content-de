@@ -2,23 +2,23 @@
 title: SourceMap
 slug: Web/HTTP/Headers/SourceMap
 l10n:
-  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
+  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`SourceMap`** {{Glossary("response_header", "Antwortheader")}} gibt den Ort einer {{Glossary("source_map", "Source-Map")}} für die Ressource an.
+Der HTTP **`SourceMap`** {{Glossary("response_header", "Response-Header")}} gibt den Speicherort einer {{Glossary("source_map", "Source Map")}} für die Ressource an.
 
-Der HTTP `SourceMap`-Header hat Vorrang vor einer Quellcode-Anmerkung (`sourceMappingURL=path-to-map.js.map`). Wenn beide vorhanden sind, wird die URL des Headers verwendet, um die Source-Map-Datei aufzulösen.
+Der HTTP `SourceMap`-Header hat Vorrang vor einer Quellennotation (`sourceMappingURL=path-to-map.js.map`), und wenn beide vorhanden sind, wird die URL im Header verwendet, um die Quelle der Map-Datei aufzulösen.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -34,11 +34,11 @@ X-SourceMap: <url> (deprecated)
 ### Direktiven
 
 - `<url>`
-  - : Eine relative (zur Anfrage-URL) oder absolute URL, die auf eine Source-Map-Datei zeigt.
+  - : Eine relative (zur Anforderungs-URL) oder absolute URL, die auf eine Source-Map-Datei zeigt.
 
 ## Beispiele
 
-### Verknüpfung zu einer Source-Map mit dem `SourceMap`-Header
+### Verlinkung zu einer Source Map mit dem `SourceMap`-Header
 
 Die folgende Antwort enthält einen absoluten Pfad im `SourceMap`-Header.
 
@@ -50,7 +50,7 @@ SourceMap: /path/to/file.js.map
 <optimized-javascript>
 ```
 
-Entwicklungstools verwenden die Source-Map, um den ursprünglichen Quellcode aus dem optimierten JavaScript, das in der Antwort zurückgegeben wird, zu rekonstruieren, sodass Entwickler den ursprünglichen Code debuggen können, anstatt das Format, das für die Übertragung optimiert wurde.
+Entwicklertools verwenden die Source Map, um die ursprüngliche Quelle aus dem optimierten JavaScript, das in der Antwort zurückgegeben wird, zu rekonstruieren. Dadurch können Entwickler den Originalcode debuggen und nicht das Format, das für den Versand optimiert wurde.
 
 ## Spezifikationen
 
@@ -62,6 +62,6 @@ Entwicklungstools verwenden die Source-Map, um den ursprünglichen Quellcode aus
 
 ## Siehe auch
 
-- {{Glossary("Source_map", "Source-Map")}}
-- [Firefox Developer Tools: using a source map](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html)
+- {{Glossary("Source_map", "Source Map")}}
+- [Firefox Developer Tools: Verwendung einer Source Map](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html)
 - [Was sind Source Maps?](https://web.dev/articles/source-maps) auf web.dev (2023)
