@@ -50,7 +50,7 @@ Um nur die Grundlagen der Registrierung und Installation eines Service Workers z
 
 ![Der Schriftzug Star Wars gefolgt von einem Bild einer Lego-Version der Darth Vader-Figur](demo-screenshot.png)
 
-Sie können den [Quellcode auf GitHub](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) und den [einfachen Service Worker live](<(https://bncb2v.csb.app/)>) sehen.
+Sie können den [Quellcode auf GitHub](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) und den [einfachen Service Worker live](https://bncb2v.csb.app/) sehen.
 
 ### Registrierung Ihres Workers
 
