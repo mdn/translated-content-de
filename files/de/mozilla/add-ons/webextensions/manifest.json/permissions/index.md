@@ -2,7 +2,7 @@
 title: permissions
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/permissions
 l10n:
-  sourceCommit: d681d0262045649aefa02efb937ff5f22b6e3b2a
+  sourceCommit: 814f49dc14eb8c8a15c6c3bdc6c83d24ed865cdf
 ---
 
 {{AddonSidebar}}
@@ -34,48 +34,48 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie den Schlüssel `permissions`, um spezielle Berechtigungen für Ihre Erweiterung anzufordern. Dieser Schlüssel ist ein Array von Zeichenfolgen, und jede Zeichenfolge ist eine Anfrage für eine Berechtigung.
+Verwenden Sie den Schlüssel `permissions`, um spezielle Berechtigungen für Ihre Erweiterung anzufordern. Dieser Schlüssel ist ein Array von Zeichenketten, und jede Zeichenkette ist eine Anfrage nach einer Berechtigung.
 
-Wenn Sie Berechtigungen mit diesem Schlüssel anfordern, kann der Browser den Benutzer bei der Installation darüber informieren, dass die Erweiterung bestimmte Berechtigungen anfordert, und ihn bitten, zu bestätigen, dass er mit der Gewährung dieser Berechtigungen einverstanden ist. Der Browser kann dem Benutzer auch erlauben, die Berechtigungen einer Erweiterung nach der Installation zu überprüfen. Da die Anfrage zur Gewährung von Berechtigungen die Bereitschaft der Benutzer zur Installation Ihrer Erweiterung beeinflussen kann, lohnt sich eine sorgfältige Abwägung der angeforderten Berechtigungen. Beispielsweise möchten Sie unnötige Berechtigungen vermeiden und könnten Informationen darüber bereitstellen, warum Sie Berechtigungen in der Storebeschreibung Ihrer Erweiterung anfordern. Mehr Informationen zu diesen Überlegungen finden Sie im Artikel [Die richtigen Berechtigungen anfordern](https://extensionworkshop.com/documentation/develop/request-the-right-permissions/).
+Wenn Sie Berechtigungen über diesen Schlüssel anfordern, kann der Browser den Benutzer bei der Installation darüber informieren, dass die Erweiterung bestimmte Privilegien anfordert und ihn bitten, zu bestätigen, dass er bereit ist, diese Privilegien zu gewähren. Der Browser kann dem Benutzer auch ermöglichen, die Privilegien einer Erweiterung nach der Installation zu überprüfen. Da die Anfrage von Privilegien die Bereitschaft der Benutzer beeinflussen kann, Ihre Erweiterung zu installieren, sollte das Anfordern von Privilegien sorgfältig überlegt werden. Zum Beispiel sollten unnötige Berechtigungen vermieden werden, und es könnte nützlich sein, Informationen darüber bereitzustellen, warum Sie Berechtigungen in der Beschreibung Ihrer Erweiterung im Store anfordern. Weitere Informationen zu den Überlegungen, die Sie anstellen sollten, finden Sie im Artikel [Anfordern der richtigen Berechtigungen](https://extensionworkshop.com/documentation/develop/request-the-right-permissions/).
 
-Informationen zum Testen und Vorabprüfen von Berechtigungsanfragen finden Sie unter [Berechtigungsanfragen testen](https://extensionworkshop.com/documentation/develop/test-permission-requests/) auf der Extension Workshop-Website.
+Informationen darüber, wie Sie Anfragen nach Berechtigungen testen und vorschauen können, finden Sie unter [Testen von Berechtigungsanfragen](https://extensionworkshop.com/documentation/develop/test-permission-requests/) auf der Extension Workshop-Seite.
 
 Der Schlüssel kann drei Arten von Berechtigungen enthalten:
 
-- Host-Berechtigungen (Nur Manifest V2, Host-Berechtigungen sind im Manifest-Schlüssel [`host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/host_permissions) für Manifest V3 oder höher angegeben.)
+- Host-Berechtigungen (nur Manifest V2, Host-Berechtigungen werden im Manifest-Schlüssel [`host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/host_permissions) für Manifest V3 oder höher angegeben.)
 - API-Berechtigungen
 - die `activeTab`-Berechtigung
 
 ## Host-Berechtigungen
 
 > [!NOTE]
-> Wie Sie Host-Berechtigungen anfordern, hängt davon ab, ob Sie diese zur Installationszeit oder zur Laufzeit benötigen und welche Manifest-Version Ihre Erweiterung verwendet.
+> Wie Sie Host-Berechtigungen anfordern, hängt davon ab, ob Sie sie zur Installationszeit oder zur Laufzeit benötigen und welche Manifestversion Ihre Erweiterung verwendet.
 >
 > - Manifest V2:
->   - Installationsanfrage mit diesem ( `permissions` ) Manifest-Schlüssel.
->   - Laufzeitanfrage mit dem Manifest-Schlüssel [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions).
+>   - Anforderung zur Installationszeit mit diesem (`permissions`) Manifest-Schlüssel.
+>   - Anforderung zur Laufzeit mit dem Manifest-Schlüssel [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions).
 > - Manifest V3 oder höher:
->   - Installationsanfrage mit dem Manifest-Schlüssel [`host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/host_permissions).
->   - Laufzeitanfrage mit dem Manifest-Schlüssel [`optional_host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_host_permissions).
+>   - Anforderung zur Installationszeit mit dem Manifest-Schlüssel [`host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/host_permissions).
+>   - Anforderung zur Laufzeit mit dem Manifest-Schlüssel [`optional_host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_host_permissions).
 
-Host-Berechtigungen werden als [Matchmuster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) angegeben, und jedes Muster identifiziert eine Gruppe von URLs, für die die Erweiterung zusätzliche Berechtigungen anfordert. Ein Host-Berechtigungsmuster könnte z.B. `"*://developer.mozilla.org/*"` sein.
+Host-Berechtigungen werden als [Match-Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) angegeben, und jedes Muster identifiziert eine Gruppe von URLs, für die die Erweiterung zusätzliche Privilegien anfordert. Ein Beispiel für eine Host-Berechtigung könnte `"*://developer.mozilla.org/*"` sein.
 
-Die zusätzlichen Berechtigungen umfassen:
+Die zusätzlichen Privilegien umfassen:
 
-- Zugriff auf [XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest) und [fetch](/de/docs/Web/API/Fetch_API) für diese Ursprünge ohne Cross-Origin-Beschränkungen (auch für Anfragen, die von Inhalts-Skripts gemacht werden)
-- die Möglichkeit, tabspezifische Metadaten ohne die "tabs"-Berechtigung auszulesen, wie die Eigenschaften `url`, `title` und `favIconUrl` von {{WebExtAPIRef("tabs.Tab")}} Objekten
-- die Möglichkeit, [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#loading_content_scripts) und Stile programmgesteuert in Seiten mit diesen Ursprüngen zu injizieren.
-- die Möglichkeit, Ereignisse von der {{webextAPIref("webRequest")}}-API für diese Hosts zu empfangen
-- die Möglichkeit, über die {{webextAPIref("cookies")}}-API auf Cookies dieses Hosts zuzugreifen, solange auch die "cookies"-API-Berechtigung enthalten ist.
-- Umgehung des Trackingschutzes für Erweiterungsseiten, bei denen ein Host als vollständige Domain oder mit Platzhaltern angegeben ist. Inhalts-Skripte können jedoch nur den Trackingschutz für Hosts umgehen, die mit einer vollständigen Domain angegeben sind.
+- [XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest)- und [fetch](/de/docs/Web/API/Fetch_API)-Zugriff auf diese Ursprünge ohne Cross-Origin-Einschränkungen (auch für Anfragen, die von Inhalts-Skripten gestellt werden)
+- Die Möglichkeit, tabspezifische Metadaten ohne die "tabs"-Berechtigung zu lesen, wie die Eigenschaften `url`, `title` und `favIconUrl` von {{WebExtAPIRef("tabs.Tab")}}-Objekten
+- Die Möglichkeit, programmgesteuert Inhalte und Stile in Seiten von diesen Ursprüngen zu injizieren.
+- Die Möglichkeit, Ereignisse von der {{webextAPIref("webRequest")}}-API für diese Hosts zu empfangen
+- Die Möglichkeit, auf Cookies für diesen Host zuzugreifen, solange die `"cookies"`-API-Berechtigung ebenfalls inkludiert ist.
+- Das Umgehen des Tracking-Schutzes für Erweiterungsseiten, bei denen ein Host als vollständige Domain oder mit Wildcards angegeben ist. Inhalts-Skripte können jedoch nur den Tracking-Schutz für Hosts umgehen, die mit einer vollständigen Domain angegeben sind.
 
-In Firefox erhalten Erweiterungen ab Version 56 automatisch Host-Berechtigungen für ihren eigenen Ursprung, welcher die Form hat:
+In Firefox erhalten Erweiterungen ab Version 56 automatisch Host-Berechtigungen für ihren eigenen Ursprung, der die Form hat:
 
 ```url
 moz-extension://60a20a9b-1ad4-af49-9b6c-c64c98c37920/
 ```
 
-wobei `60a20a9b-1ad4-af49-9b6c-c64c98c37920` die interne ID der Erweiterung ist. Die Erweiterung kann diese URL programmgesteuert durch den Aufruf von {{webextAPIref("extension/getURL", "extension.getURL()")}} abrufen:
+wobei `60a20a9b-1ad4-af49-9b6c-c64c98c37920` die interne ID der Erweiterung ist. Die Erweiterung kann diese URL programmgesteuert durch Aufrufen von {{webextAPIref("extension/getURL", "extension.getURL()")}} erhalten:
 
 ```js
 browser.extension.getURL("");
@@ -84,9 +84,9 @@ browser.extension.getURL("");
 
 ## API-Berechtigungen
 
-API-Berechtigungen werden als Schlüsselwörter spezifiziert, und jedes Schlüsselwort benennt eine [WebExtension-API](/de/docs/Mozilla/Add-ons/WebExtensions/API), die die Erweiterung verwenden möchte.
+API-Berechtigungen werden als Schlüsselwörter angegeben, und jedes Schlüsselwort benennt eine [WebExtension API](/de/docs/Mozilla/Add-ons/WebExtensions/API), die die Erweiterung verwenden möchte.
 
-Diese Berechtigungen sind in Manifest V2 und darüber verfügbar, sofern nicht anders angegeben:
+Diese Berechtigungen sind in Manifest V2 und höher verfügbar, es sei denn, es ist anders angegeben:
 
 - `activeTab`
 - `alarms`
@@ -105,7 +105,7 @@ Diese Berechtigungen sind in Manifest V2 und darüber verfügbar, sofern nicht a
 - `declarativeNetRequest`
 - `declarativeNetRequestFeedback`
 - `declarativeNetRequestWithHostAccess`
-- `devtools` (Diese Berechtigung wird implizit erteilt, wenn der Manifest-Schlüssel [`devtools_page`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) vorhanden ist.)
+- `devtools` (Diese Berechtigung wird automatisch gewährt, wenn der Manifest-Schlüssel [`devtools_page`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) vorhanden ist.)
 - `dns`
 - `downloads`
 - `downloads.open`
@@ -132,6 +132,7 @@ Diese Berechtigungen sind in Manifest V2 und darüber verfügbar, sofern nicht a
 - `theme`
 - `topSites`
 - `unlimitedStorage`
+- 'userScripts' (siehe [userScripts-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions))
 - `webNavigation`
 - `webRequest`
 - `webRequestAuthProvider` (Manifest V3 und höher)
@@ -139,82 +140,82 @@ Diese Berechtigungen sind in Manifest V2 und darüber verfügbar, sofern nicht a
 - `webRequestFilterResponse`
 - `webRequestFilterResponse.serviceWorkerScript`
 
-In den meisten Fällen gewährt die Berechtigung einfach den Zugriff auf die API, mit den folgenden Ausnahmen:
+In den meisten Fällen gewährt die Berechtigung nur Zugriff auf die API, mit den folgenden Ausnahmen:
 
-- `tabs` ermöglicht den Zugriff auf [privilegierte Teile der `tabs`-API](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs), ohne dass [Host-Berechtigungen](#host-berechtigungen) erforderlich sind: `Tab.url`, `Tab.title`, und `Tab.faviconUrl`.
+- `tabs` ermöglicht den Zugriff auf [privilegierte Teile der `tabs` API](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs) ohne die Notwendigkeit von [Host-Berechtigungen](#host-berechtigungen): `Tab.url`, `Tab.title`, und `Tab.faviconUrl`.
 
-  - In Firefox 85 und älter benötigen Sie auch `tabs`, wenn Sie `url` im `queryInfo`-Parameter für {{webextAPIref("tabs/query", "tabs.query()")}} einfügen möchten. Der Rest der `tabs`-API kann ohne Anforderung einer Berechtigung verwendet werden.
-  - Ab Firefox 86 und Chrome 50 können passende [Host-Berechtigungen](#host-berechtigungen) anstelle der "tabs"-Berechtigung verwendet werden.
+  - In Firefox 85 und früher benötigen Sie auch `tabs`, wenn Sie `url` im `queryInfo`-Parameter für {{webextAPIref("tabs/query", "tabs.query()")}} einbinden möchten. Der Rest der `tabs`-API kann ohne Anforderung von Berechtigungen verwendet werden.
+  - Seit Firefox 86 und Chrome 50 können auch entsprechende [Host-Berechtigungen](#host-berechtigungen) anstelle der "tabs"-Berechtigung verwendet werden.
 
-- `webRequestBlocking` ermöglicht Ihnen die Verwendung des Arguments `"blocking"`, sodass Sie Anfragen [ändern und abbrechen](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) können.
-- `downloads.open` ermöglicht Ihnen die Verwendung der API {{WebExtAPIRef("downloads.open()")}}.
-- `tabHide` ermöglicht Ihnen die Verwendung der API {{WebExtAPIRef("tabs.hide()")}}.
+- `webRequestBlocking` ermöglicht die Verwendung des `"blocking"`-Arguments, sodass Sie [Anfragen modifizieren und abbrechen können](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest).
+- `downloads.open` ermöglicht die Nutzung der {{WebExtAPIRef("downloads.open()")}} API.
+- `tabHide` ermöglicht die Nutzung der {{WebExtAPIRef("tabs.hide()")}} API.
 
-## activeTab Permission
+## activeTab-Berechtigung
 
-Diese Berechtigung wird als `"activeTab"` spezifiziert. Wenn eine Erweiterung die `activeTab`-Berechtigung hat, wird der Erweiterung, wenn der Benutzer mit der Erweiterung interagiert, genau für diesen aktiven Tab zusätzliche Berechtigungen erteilt.
+Diese Berechtigung wird als `"activeTab"` angegeben. Wenn eine Erweiterung die `activeTab`-Berechtigung hat, dann werden der Erweiterung beim Benutzerinteraktion nur für den aktiven Tab zusätzliche Privilegien gewährt.
 
-"Benutzerinteraktion" umfasst:
+"Benutzerinteraktion" beinhaltet:
 
-- der Benutzer klickt auf die {{webextAPIref("browserAction", "Schaltfläche der Browseraktion", "", 1)}} oder [Seitwärtsaktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions) der Erweiterung
-- der Benutzer wählt das Kontextmenüelement der Erweiterung aus
-- der Benutzer aktiviert eine von der Erweiterung definierte Tastenkombination
+- der Benutzer klickt auf die {{webextAPIref("browserAction", "browser action", "", 1)}} der Erweiterung oder auf eine [Seitenaktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions)
+- der Benutzer wählt ein Kontextmenüelement aus
+- der Benutzer aktiviert ein von der Erweiterung definiertes Tastenkürzel
 
-Die zusätzlichen Berechtigungen sind:
+Die zusätzlichen Privilegien sind:
 
-- Die Möglichkeit, JavaScript oder CSS in den Tab programmgesteuert zu injizieren (siehe [Inhalts-Skripte laden](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#loading_content_scripts)).
+- Die Möglichkeit, JavaScript oder CSS programmgesteuert in den Tab einzufügen (siehe [Laden von Inhalts-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#loading_content_scripts)).
 - Zugriff auf die privilegierten Teile der Tabs-API für den aktuellen Tab: `Tab.url`, `Tab.title`, und `Tab.faviconUrl`.
 
-Ziel dieser Berechtigung ist es, Erweiterungen zu ermöglichen, einen häufigen Anwendungsfall zu erfüllen, ohne ihnen sehr mächtige Berechtigungen zu geben. Viele Erweiterungen möchten "etwas mit der aktuellen Seite machen, wenn der Benutzer es verlangt".
+Der Zweck dieser Berechtigung ist es, Erweiterungen die Erfüllung eines häufigen Anwendungsfalls zu ermöglichen, ohne ihnen sehr mächtige Berechtigungen zu geben. Viele Erweiterungen möchten "etwas auf der aktuellen Seite tun, wenn der Benutzer es verlangt".
 
-Ein Beispiel: Eine Erweiterung möchte ein Skript auf der aktuellen Seite ausführen, wenn der Benutzer auf eine Browseraktion klickt. Wenn die `activeTab`-Berechtigung nicht existieren würde, müsste die Erweiterung die Host-Berechtigung `<all_urls>` anfordern. Aber das gäbe der Erweiterung mehr Macht, als sie benötigt: Sie könnte nun Skripte in _jedem Tab_ zu _jeder Zeit_ ausführen, anstatt nur im aktiven Tab und nur als Antwort auf eine Benutzeraktion.
+Zum Beispiel könnte eine Erweiterung, die ein Skript auf der aktuellen Seite ausführen möchte, wenn der Benutzer eine Browseraktion anklickt, das `activeTab`-Recht verwenden. Ohne `activeTab`-Berechtigung müsste die Erweiterung das Host-Recht `<all_urls>` anfordern. Dies würde der Erweiterung jedoch mehr Macht geben als nötig: Sie könnte jetzt Skripte in _jeder_ Registerkarte _jederzeit_ ausführen, anstatt nur im aktiven Tab und nur als Reaktion auf eine Benutzeraktion.
 
 > [!NOTE]
-> Sie können nur auf den Tab/die Daten zugreifen, die dort waren, als die Benutzerinteraktion stattgefunden hat (z.B. der Klick). Wenn der aktive Tab weg navigiert (z.B. durch das Beenden des Ladevorgangs oder eines anderen Ereignisses), gewährt die Berechtigung keinen Zugriff mehr auf den Tab.
+> Sie können nur auf die Registerkarte/Daten zugreifen, die zu dem Zeitpunkt vorhanden waren, als die Benutzerinteraktion stattfand (z.B. der Klick). Wenn die aktive Registerkarte navigiert (z.B. durch das Beenden des Ladevorgangs oder eines anderen Ereignisses), erlaubt Ihnen die Berechtigung nicht mehr, auf die Registerkarte zuzugreifen.
 
-Die `activeTab`-Berechtigung ermöglicht Skriptzugriff auf die Seite des obersten Tabs und gleichartigen Rahmen. Das Ausführen von Skripten oder Ändern von Stilen innerhalb [cross-origin](/de/docs/Web/Security/Same-origin_policy#cross-origin_network_access) Rahmen kann zusätzliche [Host-Berechtigungen](#host-berechtigungen) erfordern. Natürlich gelten auch die [Einschränkungen und Beschränkungen](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#permissions_restrictions_and_limitations), die sich auf bestimmte Sites und URI-Schemata beziehen.
+Die `activeTab`-Berechtigung ermöglicht den Skriptzugriff auf die oberste Ebene der Registerkarten-Seite und gleichherzige Frames. Das Ausführen von Skripten oder Modifizieren von Stilen innerhalb von [Cross-Origin](/de/docs/Web/Security/Same-origin_policy#cross-origin_network_access) Frames kann zusätzliche [Host-Berechtigungen](#host-berechtigungen) erfordern. Natürlich gelten auch [Einschränkungen und Begrenzungen](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#permissions_restrictions_and_limitations) in Bezug auf bestimmte Sites und URI-Schemata.
 
-Normalerweise ist der Tab, dem `activeTab` gewährt wird, einfach der aktuell aktive Tab, außer in einem Fall. Die {{webextAPIref("menus")}}-API ermöglicht es einer Erweiterung, ein Menüelement zu erstellen, das angezeigt wird, wenn der Benutzer auf einen Tab kontextklickt (d.h. auf das Element in der Tab-Leiste, das es dem Benutzer ermöglicht, von einem Tab zum anderen zu wechseln).
+Normalerweise ist die mit `activeTab` gewährte Registerkarte einfach die aktuell aktive Registerkarte, außer in einem Fall. Die {{webextAPIref("menus")}} API ermöglicht es einer Erweiterung, ein Menüelement zu erstellen, das angezeigt wird, wenn der Benutzer auf eine Registerkarte klickt (d.h. auf das Element im Tabstrip, das es dem Benutzer ermöglicht, von einer Registerkarte zur anderen zu wechseln).
 
-Wenn der Benutzer auf ein solches Element klickt, wird die `activeTab`-Berechtigung für den Tab gewährt, auf den der Benutzer geklickt hat, auch wenn es nicht der derzeit aktive Tab ist (ab Firefox 63, [Firefox-Bug 1446956](https://bugzil.la/1446956)).
+Wenn der Benutzer auf ein solches Element klickt, wird die `activeTab`-Berechtigung für die Registerkarte, auf die der Benutzer geklickt hat, gewährt, auch wenn sie nicht die derzeit aktive Registerkarte ist (seit Firefox 63, [Firefox-Bug 1446956](https://bugzil.la/1446956)).
 
-## Zwischenablagezugriff
+## Zugriff auf die Zwischenablage
 
-Es gibt zwei Berechtigungen, die der Erweiterung den Zugriff auf die Zwischenablage erlauben:
+Es gibt zwei Berechtigungen, die es der Erweiterung ermöglichen, mit der Zwischenablage zu interagieren:
 
 - `clipboardWrite`
-  - : Schreiben in die Zwischenablage mit [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write), [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText), `document.execCommand("copy")` oder `document.execCommand("cut")`
+  - : In die Zwischenablage schreiben mit [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write), [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText), `document.execCommand("copy")` oder `document.execCommand("cut")`
 - `clipboardRead`
-  - : Lesen aus der Zwischenablage mit [`Clipboard.read()`](/de/docs/Web/API/Clipboard/read), [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) oder `document.execCommand("paste")`
+  - : Aus der Zwischenablage lesen mit [`Clipboard.read()`](/de/docs/Web/API/Clipboard/read), [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) oder `document.execCommand("paste")`
 
-Weitere Details finden Sie unter [Interagieren mit der Zwischenablage](/de/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard).
+Weitere Informationen finden Sie unter [Interaktion mit der Zwischenablage](/de/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard).
 
 ## Unbegrenzter Speicher
 
-Die `unlimitedStorage`-Berechtigung:
+Die `unlimitedStorage` Berechtigung:
 
-- Ermöglicht Erweiterungen das Überschreiten jeder vom {{WebExtAPIRef("storage/local", "storage.local")}}-API auferlegten Quota
-- Ermöglicht es Erweiterungen in Firefox, eine "persistente" IndexedDB-Datenbank ohne Aufforderung an den Benutzer zur Erteilung von Berechtigungen zu erstellen, wenn die Datenbank erstellt wird.
+- Ermöglicht es Erweiterungen, jede durch die {{WebExtAPIRef("storage/local", "storage.local")}} API auferlegte Quote zu überschreiten
+- In Firefox können Erweiterungen eine ["persistente" IndexedDB-Datenbank](/de/docs/Web/API/IndexedDB_API) erstellen, ohne dass der Browser den Benutzer zur Erlaubnis auffordert, wenn die Datenbank erstellt wird.
 
-## Beispiel
+## Beispiele
 
 ```json
  "permissions": ["*://developer.mozilla.org/*"]
 ```
 
-Nur in Manifest V2, beantragen Sie privilegierten Zugriff auf Seiten unter `developer.mozilla.org`.
+In Manifest V2 nur, beantragen Sie privilegierten Zugriff auf Seiten unter `developer.mozilla.org`.
 
 ```json
   "permissions": ["tabs"]
 ```
 
-Fordern Sie Zugriff auf die privilegierten Teile der `tabs`-API an.
+Beantragen Sie Zugriff auf die privilegierten Teile der `tabs` API.
 
 ```json
   "permissions": ["*://developer.mozilla.org/*", "tabs"]
 ```
 
-Nur in Manifest V2, beantragen Sie beide der oben genannten Berechtigungen.
+In Manifest V2 nur, beantragen Sie beide oben genannten Berechtigungen.
 
 ## Browser-Kompatibilität
 

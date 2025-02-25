@@ -2,44 +2,84 @@
 title: userScripts
 slug: Mozilla/Add-ons/WebExtensions/API/userScripts
 l10n:
-  sourceCommit: 6b26a56826b43f539b79033378683bb3be5bbba9
+  sourceCommit: 814f49dc14eb8c8a15c6c3bdc6c83d24ed865cdf
 ---
 
 {{AddonSidebar}}
 
-Verwenden Sie diese API, um Benutzer-Skripte zu registrieren, also Drittanbieter-Skripte, die Webseiten manipulieren oder neue Funktionen bereitstellen. Das Registrieren eines Benutzer-Skripts weist den Browser an, das Skript zu Seiten hinzuzufügen, die den während der Registrierung angegebenen URL-Mustern entsprechen.
+Verwenden Sie diese API, um Benutzerskripte zu registrieren, also Drittanbieter-Skripte, die entwickelt wurden, um Webseiten zu manipulieren oder neue Funktionen bereitzustellen. Die Registrierung eines Benutzerskripts weist den Browser an, das Skript an Seiten anzuhängen, die den während der Registrierung angegebenen URL-Mustern entsprechen.
 
 > [!NOTE]
-> Dies ist die Dokumentation für die Legacy-API-Version, die in Firefox für Manifest V2 verfügbar ist. Eine neue API wurde entworfen, siehe [WECG issue 279](https://github.com/w3c/webextensions/issues/279). Diese neue Version der API wird in Firefox für die Verwendung in Manifest V3 verfügbar sein. Die Entwicklung wird in [Firefox bug 1875475](https://bugzil.la/1875475) verfolgt. Chrome beinhaltet [eine Implementierung der neuen API](https://developer.chrome.com/docs/extensions/reference/api/userScripts). In der Zwischenzeit sollten Sie bei der Verwendung von Manifest V3 oder höher {{WebExtAPIRef("scripting.registerContentScripts()")}} verwenden, um Skripte zu registrieren.
+> Dies ist die Dokumentation für die neue API-Version, verfügbar in Firefox für Manifest V3. Informationen zur API, die mit Manifest V2 in Firefox verwendet werden kann, finden Sie unter {{WebExtAPIRef("userScripts_legacy","userScripts (legacy)")}}.
 
-Diese API bietet ähnliche Funktionen wie {{WebExtAPIRef("contentScripts")}}, aber mit Merkmalen, die auf den Umgang mit Drittanbieter-Skripten zugeschnitten sind:
+Diese API bietet ähnliche Funktionen wie {{WebExtAPIRef("scripting")}}, jedoch mit Merkmalen, die für den Umgang mit Drittanbieter-Skripten geeignet sind.
 
-- Ausführung in einer isolierten Sandbox: Jedes Benutzer-Skript wird in einer isolierten Sandbox innerhalb des Webinhaltsprozesses ausgeführt, um unbeabsichtigte oder absichtliche Interferenzen zwischen Skripten zu verhindern.
-- Zugriff auf die globalen Werte `window` und `document`, die mit der Webseite verbunden sind, an die das Benutzer-Skript angehängt ist.
-- Kein Zugriff auf WebExtension-APIs oder zugehörige Berechtigungen, die der Erweiterung gewährt wurden: Das API-Skript, welches die Berechtigungen der Erweiterung erbt, kann gepackte WebExtension-APIs für registrierte Benutzer-Skripte bereitstellen. Ein API-Skript wird in der Manifestdatei der Erweiterung mit dem Schlüssel "user_scripts" deklariert.
+## Berechtigungen
 
-> [!WARNING]
-> Diese API erfordert das Vorhandensein des Schlüssels [`user_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/user_scripts) in der manifest.json, auch wenn kein API-Skript angegeben ist. Zum Beispiel: `user_scripts: {}`.
+Um diese API zu nutzen, benötigen Sie die `userScripts`-Berechtigung und [`host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/host_permissions) für Websites, auf denen Sie Skripte ausführen möchten. Der Ansatz zur Aktivierung der Nutzung dieser API variiert jedoch je nach Browser:
 
-Um die API zu verwenden, rufen Sie `{{WebExtAPIRef("userScripts.register","register()")}}` auf und übergeben ein Objekt, das die zu registrierenden Skripte definiert. Die Methode gibt ein Promise zurück, das mit einem `{{WebExtAPIRef("userScripts.RegisteredUserScript","RegisteredUserScript")}}`-Objekt aufgelöst wird.
+- In Firefox ist `userScripts` eine [optional-only-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions#optional-only_permissions), die im Manifest-Schlüssel `optional_permissions` deklariert wird. Ihre Erweiterung muss überprüfen, ob die Berechtigung erteilt wurde, indem sie die Verfügbarkeit des `userScripts`-API-Namespace prüft oder {{WebExtAPIRef("permissions.contains()")}} verwendet und, falls nicht, sie mit {{WebExtAPIRef("permissions.request()")}} anfordert.
+- In Chrome wird `userScripts` als zur Installationszeit angeforderte Berechtigung im [`permissions`-Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) deklariert. Um die Nutzung der API zu ermöglichen, müssen Benutzer jedoch [die Entwicklerumgebung in Chrome aktivieren](https://developer.chrome.com/docs/extensions/reference/api/userScripts#developer_mode_for_extension_users).
+
+## Ausführungsumgebungen
+
+Wenn ein Benutzerskript registriert oder aktualisiert wird (mithilfe von {{WebExtAPIRef("userScripts.register()")}} oder {{WebExtAPIRef("userScripts.update()")}}), kann Ihre Erweiterung es so konfigurieren, dass es in einer isolierten `USER_SCRIPT`-Umgebung oder der `MAIN`-Umgebung ausgeführt wird.
+
+Eine `USER_SCRIPT`-Umgebung bietet eine isolierte Ausführungsumgebung, die für eine Host-Seite oder andere Erweiterungen nicht zugänglich ist. Das bedeutet, dass ein Benutzerskript seine JavaScript-Umgebung ändern kann, ohne die Host-Seite oder Benutzer- und Inhaltskripte anderer Erweiterungen zu beeinflussen. In dieser Umgebung sind Benutzerskripte für die Host-Seite oder Benutzer- und Inhaltskripte anderer Erweiterungen nicht sichtbar. Die API ermöglicht einer Erweiterung auch die Konfiguration einer Content-Security-Policy (CSP) für die `USER_SCRIPT`-Umgebung mittels {{WebExtAPIRef("userScripts.configureWorld()")}}.
+
+In der `MAIN`-Umgebung können Host-Seiten und andere Erweiterungen die ausgeführten Benutzerskripte sehen und auf sie zugreifen.
+
+Diese Werte der Ausführungsumgebungen sind in {{WebExtAPIRef("userScripts.ExecutionWorld","ExecutionWorld")}} definiert.
+
+## Messaging
+
+Wie Inhaltskripte und andere Erweiterungsskripte kommunizieren Benutzerskripte mit anderen Teilen einer Erweiterung durch Nachrichten unter Verwendung von {{WebExtAPIRef("runtime.sendMessage()")}} und {{WebExtAPIRef("runtime.connect()")}}. Erweiterungen empfangen jedoch Nachrichten über die speziellen {{WebExtAPIRef("runtime.onUserScriptMessage")}} und {{WebExtAPIRef("runtime.onUserScriptConnect")}}. Spezielle Handler werden verwendet, da sie es einfacher machen, Nachrichten von Benutzerskripten zu identifizieren, die ein weniger vertrauenswürdiger Kontext sind.
+
+Um Messaging-APIs zu aktivieren, rufen Sie {{WebExtAPIRef("userScripts.configureWorld()")}} mit dem Argument `messaging` auf `true` gesetzt auf, bevor Sie ein Benutzerskript registrieren.
+
+```js
+browser.userScripts.configureWorld({
+  messaging: true,
+});
+```
+
+## Erweiterungsaktualisierungen
+
+Wenn eine Erweiterung aktualisiert wird, werden Benutzerskripte gelöscht. Um Skripte wiederherzustellen, fügen Sie Code in den {{WebExtAPIRef("runtime.onInstalled")}}-Ereignishandler der Erweiterung ein, der auf den Grund `"update"` reagiert.
 
 > [!NOTE]
-> Benutzer-Skripte werden abgemeldet, wenn die zugehörige Erweiterungsseite (von der aus die Benutzer-Skripte registriert wurden) entladen wird. Sie sollten deshalb ein Benutzer-Skript von einer Erweiterungsseite registrieren, die mindestens so lange bestehen bleibt, wie Sie möchten, dass die Benutzer-Skripte registriert bleiben.
+> Benutzerskripte werden abgemeldet, wenn die zugehörige Erweiterungsseite (von der die Benutzerskripte registriert wurden) entladen wird. Registrieren Sie Benutzerskripte also von einer Erweiterungsseite, die so lange bestehen bleibt, wie Sie möchten, dass die Benutzerskripte registriert bleiben.
 
 ## Typen
 
+- {{WebExtAPIRef("userScripts.ExecutionWorld")}}
+  - : Die Ausführungsumgebung für ein Skript, das mit {{WebExtAPIRef("userScripts.register()")}}
+    oder {{WebExtAPIRef("userScripts.update()")}} injiziert wurde.
 - {{WebExtAPIRef("userScripts.RegisteredUserScript")}}
-  - : Das `object`, das von der Methode {{WebExtAPIRef("userScripts.register","register()")}} zurückgegeben wird. Es repräsentiert die registrierten Benutzer-Skripte und wird verwendet, um die Benutzer-Skripte abzumelden.
+  - : Ein `object`, das von {{WebExtAPIRef("userScripts.getScripts","getScripts()")}} zurückgegeben wird und registrierte Benutzerskripte darstellt und als Eingabe für {{WebExtAPIRef("userScripts.register","register()")}} und {{WebExtAPIRef("userScripts.update","update()")}} verwendet wird.
+- {{WebExtAPIRef("userScripts.ScriptSource")}}
+  - : Der Code oder eine Dateiquelle für ein Benutzerskript.
+- {{WebExtAPIRef("userScripts.UserScriptFilter")}}
+  - : Eine Liste von Benutzerskripten, die von {{WebExtAPIRef("userScripts.getScripts()")}} oder {{WebExtAPIRef("userScripts.unregister()")}} verarbeitet werden sollen.
+- {{WebExtAPIRef("userScripts.WorldProperties")}}
+  - : Die Konfiguration einer `USER_SCRIPT`-Ausführungsumgebung.
 
 ## Methoden
 
+- {{WebExtAPIRef("userScripts.configureWorld()")}}
+  - : Konfiguriert eine `USER_SCRIPT`-Ausführungsumgebung für die Erweiterung.
+- {{WebExtAPIRef("userScripts.getScripts()")}}
+  - : Gibt von der Erweiterung registrierte Benutzerskripte zurück.
+- {{WebExtAPIRef("userScripts.getWorldConfigurations()")}}
+  - : Gibt alle von der Erweiterung registrierten Weltkonfigurationen zurück.
 - {{WebExtAPIRef("userScripts.register()")}}
-  - : Registriert Benutzer-Skripte.
-
-## Ereignisse
-
-- {{WebExtAPIRef("userScripts.onBeforeScript")}}
-  - : Ein Ereignis, das dem API-Skript zur Verfügung steht, das in [`"user_scripts"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/user_scripts) registriert ist. Es wird vor der Ausführung eines Benutzer-Skripts ausgelöst. Verwenden Sie es, um den Export zusätzlicher von dem API-Skript bereitgestellter APIs auszulösen, sodass diese im Benutzer-Skript verfügbar sind.
+  - : Registriert Benutzerskripte für die Erweiterung.
+- {{WebExtAPIRef("userScripts.resetWorldConfiguration()")}}
+  - : Setzt die Konfiguration für eine von der Erweiterung registrierte `USER_SCRIPT`-Welt zurück.
+- {{WebExtAPIRef("userScripts.unregister()")}}
+  - : Meldet von der Erweiterung registrierte Benutzerskripte ab.
+- {{WebExtAPIRef("userScripts.update()")}}
+  - : Aktualisiert von der Erweiterung registrierte Benutzerskripte.
 
 ## Browser-Kompatibilität
 
@@ -47,5 +87,4 @@ Um die API zu verwenden, rufen Sie `{{WebExtAPIRef("userScripts.register","regis
 
 ## Siehe auch
 
-- [Arbeiten mit `userScripts` (Legacy)](/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/Working_with_userScripts)
-- {{WebExtAPIRef("contentScripts","browser.contentScripts")}}
+- {{WebExtAPIRef("scripting","browser.scripting")}}

@@ -2,36 +2,36 @@
 title: Codecs, die von WebRTC verwendet werden
 slug: Web/Media/Guides/Formats/WebRTC_codecs
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: 5e3272a0eca109a48adeba7daf0a0d32d791bd69
 ---
 
-Die [WebRTC API](/de/docs/Web/API/WebRTC_API) ermöglicht es, Websites und Apps zu erstellen, die es Benutzern ermöglichen, in Echtzeit zu kommunizieren, wobei Audio und/oder Video sowie optionale Daten und andere Informationen genutzt werden. Um zu kommunizieren, müssen sich die beiden Geräte auf einen gemeinsam verstandenen Codec für jeden Track einigen, damit sie erfolgreich kommunizieren und die geteilten Medien präsentieren können. Dieser Leitfaden überprüft die Codecs, die Browser implementieren müssen, sowie andere Codecs, die von einigen oder allen Browsern für WebRTC unterstützt werden.
+Die [WebRTC API](/de/docs/Web/API/WebRTC_API) ermöglicht es, Websites und Apps zu erstellen, die Benutzern ermöglichen, in Echtzeit zu kommunizieren, indem sie Audio- und/oder Videodaten sowie optionale Daten und andere Informationen verwenden. Um zu kommunizieren, müssen sich die beiden Geräte auf einen gemeinsam verstandenen Codec für jede Spur einigen, damit sie erfolgreich kommunizieren und die freigegebenen Medien präsentieren können. Dieser Leitfaden überprüft die Codecs, die Browser umsetzen müssen, sowie andere Codecs, die einige oder alle Browser für WebRTC unterstützen.
 
-## Medien ohne Container
+## Containerlose Medien
 
-WebRTC verwendet nackte [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte für jeden Track, der von einem Peer zum anderen übertragen wird, ohne einen Container oder auch nur einem [`MediaStream`](/de/docs/Web/API/MediaStream), der mit den Tracks verbunden ist. Welche Codecs in diesen Tracks enthalten sein können, ist nicht durch die WebRTC-Spezifikation vorgeschrieben. Allerdings spezifiziert {{RFC(7742)}}, dass alle WebRTC-kompatiblen Browser [VP8](/de/docs/Web/Media/Guides/Formats/Video_codecs#vp8) und [H.264](/de/docs/Web/Media/Guides/Formats/Video_codecs#avc_h.264)'s Constrained Baseline Profile für Video unterstützen müssen, und {{RFC(7874)}} spezifiziert, dass Browser mindestens den [Opus](/de/docs/Web/Media/Guides/Formats/Audio_codecs#opus) Codec sowie die PCMA- und PCMU-Formate von [G.711](/de/docs/Web/Media/Guides/Formats/Audio_codecs#g.711_pulse_code_modulation_of_voice_frequencies) unterstützen müssen.
+WebRTC verwendet nackte [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte für jede Spur, die von einem Peer zum anderen geteilt wird, ohne einen Container oder sogar einen [`MediaStream`](/de/docs/Web/API/MediaStream), der mit den Spuren assoziiert ist. Welche Codecs innerhalb dieser Spuren sein können, wird durch die WebRTC-Spezifikation nicht vorgegeben. Allerdings legt {{RFC(7742)}} fest, dass alle WebRTC-kompatiblen Browser [VP8](/de/docs/Web/Media/Guides/Formats/Video_codecs#vp8) und das Constrained Baseline-Profil von [H.264](/de/docs/Web/Media/Guides/Formats/Video_codecs#avc_h.264) für Video unterstützen müssen, und {{RFC(7874)}} legt fest, dass Browser mindestens den [Opus](/de/docs/Web/Media/Guides/Formats/Audio_codecs#opus)-Codec sowie die PCMA- und PCMU-Formate von [G.711](/de/docs/Web/Media/Guides/Formats/Audio_codecs#g.711_pulse_code_modulation_of_voice_frequencies) unterstützen müssen.
 
-Diese beiden RFCs legen auch Optionen fest, die für jeden Codec unterstützt werden müssen, sowie spezifische Benutzerkomfortmerkmale wie Echounterdrückung. Dieser Leitfaden überprüft die Codecs, die Browser implementieren müssen, sowie andere Codecs, die von einigen oder allen Browsern für WebRTC unterstützt werden.
+Diese beiden RFCs legen auch Optionen fest, die für jeden Codec unterstützt werden müssen, sowie spezifische Benutzerkomfortfunktionen wie Echo-Kompensation. In diesem Leitfaden werden die Codecs überprüft, die Browser umsetzen müssen, sowie andere Codecs, die einige oder alle Browser für WebRTC unterstützen.
 
-Während die Kompression beim Umgang mit Medien im Web immer erforderlich ist, ist sie bei Videokonferenzen von besonderer Bedeutung, um sicherzustellen, dass die Teilnehmer ohne Verzögerungen oder Unterbrechungen kommunizieren können. Von untergeordneter Bedeutung ist die Notwendigkeit, Video und Audio zu synchronisieren, damit Bewegungen und alle zusätzlichen Informationen (wie Folien oder eine Projektion) gleichzeitig mit dem entsprechenden Audio präsentiert werden.
+Während Kompression beim Umgang mit Medien im Web immer notwendig ist, ist sie bei Videokonferenzen von besonderer Bedeutung, um sicherzustellen, dass die Teilnehmer ohne Verzögerungen oder Unterbrechungen kommunizieren können. Zweitrangig ist die Notwendigkeit, Video und Audio zu synchronisieren, damit die Bewegungen und alle zusätzlichen Informationen (wie Folien oder eine Projektion) gleichzeitig mit dem dazugehörigen Audio präsentiert werden.
 
 ## Allgemeine Codec-Anforderungen
 
-Bevor wir uns die spezifischen Fähigkeiten und Anforderungen der Codecs ansehen, gibt es einige allgemeine Anforderungen, die von _jeder_ Codec-Konfiguration erfüllt werden müssen, die mit WebRTC verwendet wird.
+Bevor man sich die codec-spezifischen Fähigkeiten und Anforderungen ansieht, gibt es einige allgemeine Anforderungen, die von _jeder_ Codec-Konfiguration erfüllt werden müssen, die mit WebRTC verwendet wird.
 
-Sofern das {{Glossary("SDP", "SDP")}} nicht ausdrücklich etwas anderes signalisiert, muss der Webbrowser, der einen WebRTC-Videostream empfängt, in der Lage sein, Videos mit mindestens 20 FPS bei einer Mindestauflösung von 320 Pixel in der Breite und 240 Pixel in der Höhe zu verarbeiten. Es wird empfohlen, dass Video mit einer Bildrate und Größe kodiert wird, die nicht niedriger ist, da dies im Wesentlichen die Untergrenze dessen darstellt, was WebRTC im Allgemeinen zu bewältigen erwartet wird.
+Es sei denn, der {{Glossary("SDP", "SDP")}} signalisiert explizit etwas anderes, muss der Webbrowser, der einen WebRTC-Videostream empfängt, in der Lage sein, Video mit 20 FPS bei einer minimalen Auflösung von 320 Pixeln Breite und 240 Pixeln Höhe zu verarbeiten. Es wird empfohlen, dass Video mit einer Bildrate und Größe kodiert wird, die nicht niedriger ist, da das im Wesentlichen die untere Grenze dessen ist, was WebRTC im Allgemeinen zu handhaben erwartet.
 
-SDP unterstützt eine codec-unabhängige Möglichkeit, bevorzugte Videoauflösungen anzugeben ({{RFC(6236)}}). Dies wird durch das Senden eines `a=image-attr` SDP-Attributs getan, um die maximale akzeptable Auflösung anzugeben. Der Sender ist nicht verpflichtet, diesen Mechanismus zu unterstützen, daher müssen Sie darauf vorbereitet sein, Medien in einer anderen als der angeforderten Auflösung zu empfangen. Über diese einfache maximale Auflösungsanforderung hinaus können spezifische Codecs weitere Möglichkeiten bieten, um bestimmte Medienkonfigurationen anzufordern.
+SDP unterstützt eine Codec-unabhängige Möglichkeit, bevorzugte Videoauflösungen anzugeben ({{RFC(6236)}}. Dies geschieht durch das Senden eines `a=image-attr` SDP-Attributs, um die maximale aufläsbare Auflösung anzugeben. Der Sender ist jedoch nicht verpflichtet, diesen Mechanismus zu unterstützen, daher müssen Sie darauf vorbereitet sein, Medien in einer anderen Auflösung zu empfangen, als Sie angefordert haben. Über diese einfache maximale Auflösungsanforderung hinaus können spezifische Codecs weitere Möglichkeiten bieten, um spezifische Medienkonfigurationen anzufordern.
 
-## Unterstützte Videocodecs
+## Unterstützte Video-Codecs
 
-WebRTC etabliert eine Basislinie von Codecs, die alle konformen Browser unterstützen müssen. Einige Browser können auch andere Codecs zulassen.
+WebRTC etabliert einen grundlegenden Satz von Codecs, die alle konformen Browser unterstützen müssen. Einige Browser können sich entscheiden, auch andere Codecs zuzulassen.
 
-Nachfolgend sind die Videocodecs aufgeführt, die in jedem vollständig WebRTC-kompatiblen Browser _erforderlich_ sind, sowie die Profile, die erforderlich sind, und die Browser, die diese Anforderung tatsächlich erfüllen.
+Im Folgenden sind die Video-Codecs aufgeführt, die in jedem vollständig WebRTC-konformen Browser _erforderlich_ sind, sowie die Profile, die erforderlich sind, und die Browser, die die Anforderung tatsächlich erfüllen.
 
 <table class="standard-table">
   <caption>
-    Verbindliche Videocodecs
+    Obligatorische Video-Codecs
   </caption>
   <thead>
     <tr>
@@ -42,43 +42,46 @@ Nachfolgend sind die Videocodecs aufgeführt, die in jedem vollständig WebRTC-k
   </thead>
   <tbody>
     <tr>
-      <th scope="row"><a href="#vp8">VP8</a></th>
+      <th id="vp8_table" scope="row"><a href="#vp8">VP8</a></th>
       <td>—</td>
-      <td>Chrome, Edge, Firefox, Safari (12.1+)</td>
+      <td><p>Chrome, Edge, Firefox, Safari (12.1+)</p>
+        <p>
+          Firefox 134 unterstützt VP8 für <a href="/de/docs/Web/API/WebRTC_API/Protocols#simulcast">Simulcast</a>.
+          Firefox 136+ unterstützt die <a href="/de/docs/Web/API/WebRTC_API/Protocols#dependency_descriptor_rtp_header_extension">DD RTP-Headererweiterung</a> mit VP8.
+        </p>
+      </td>
     </tr>
     <tr>
-      <th scope="row"><a href="#avc_h.264">AVC / H.264</a></th>
+      <th id="h264_table" scope="row"><a href="#avc_h.264">AVC / H.264</a></th>
       <td>Constrained Baseline (CB)</td>
       <td>
         <p>Chrome (52+), Edge, Firefox, Safari</p>
         <p>
-          Firefox für Android 68 und später unterstützen AVC (H.264) nicht mehr.
-          Dies liegt an einer Änderung der Anforderungen des Google Play Store, die
-          verhindern, dass Firefox den OpenH264-Codec herunterlädt und installiert,
-          der zum Umgang mit H.264 in WebRTC-Verbindungen benötigt wird. Details finden
-          Sie in
-          <a
-            href="https://support.mozilla.org/en-US/kb/firefox-android-openh264"
-            >diesem Artikel auf SUMO</a
-          >.
+          <ul>
+            <li>Firefox 137+ unterstützt die <a href="/de/docs/Web/API/WebRTC_API/Protocols#dependency_descriptor_rtp_header_extension">DD RTP-Headererweiterung</a> mit H264 auf dem Desktop.
+            Firefox auf Android unterstützt den DD-Header nicht (<a href="https://bugzil.la/1947116">Firefox Bug 1947116</a>).</li>
+            <li>Firefox 136+ unterstützt H.264 für Simulcast.</li>
+            <li>Firefox für Android 73+ wird hardwareunterstützt.</li>
+            <li>Firefox für Android Versionen 68 bis 72 unterstützen H.264 nicht (aufgrund einer Änderung der <a href="https://support.mozilla.org/en-US/kb/firefox-android-openh264">Google Play Store Anforderungen</a>, die Firefox daran hindern, den für die Verarbeitung von H.264 in WebRTC-Verbindungen erforderlichen OpenH264-Codec herunterzuladen und zu installieren).</li>
+          </ul>
         </p>
       </td>
     </tr>
   </tbody>
 </table>
 
-Details zu WebRTC-bezogenen Überlegungen für jeden Codec finden Sie in den Unterabschnitten unten, indem Sie die Links zu den Namen der jeweiligen Codecs folgen.
+Für Details zu WebRTC-bezogenen Überlegungen für jeden Codec, siehe die Unterabschnitte unten, indem Sie den Links auf den jeweiligen Codecnamen folgen.
 
-Vollständige Details zu den Video-Codecs und Konfigurationen, die WebRTC unterstützen muss, finden Sie in {{RFC(7742, "WebRTC Video Processing and Codec Requirements")}}. Es ist erwähnenswert, dass das RFC eine Vielzahl von video-bezogenen Anforderungen abdeckt, einschließlich Farbräume (sRGB ist der bevorzugte, aber nicht erforderliche Standardfarbraum), Empfehlungen für Webcam-Verarbeitungsfunktionen (automatischer Fokus, automatische Weißabgleich, automatische Lichtpegel) und so weiter.
+Vollständige Details, welche Video-Codecs und -Konfigurationen durch WebRTC unterstützt werden müssen, finden Sie in {{RFC(7742, "WebRTC Video Processing and Codec Requirements")}}. Es ist erwähnenswert, dass das RFC eine Vielzahl von video-bezogenen Anforderungen umfasst, einschließlich Farbräume (sRGB ist der bevorzugte, aber nicht erforderliche Standard-Farbraum), Empfehlungen für Webcam-Verarbeitungsfunktionen (automatischer Fokus, automatische Weißabgleich, automatische Lichtpegel) und so weiter.
 
 > [!NOTE]
-> Diese Anforderungen gelten für Webbrowser und andere vollständig WebRTC-konforme Produkte. Nicht-WebRTC-Produkte, die in gewissem Umfang mit WebRTC kommunizieren können, unterstützen diese Codecs möglicherweise oder möglicherweise nicht, obwohl sie in den Spezifikationsdokumenten dazu ermutigt werden.
+> Diese Anforderungen gelten für Webbrowser und andere vollständig WebRTC-konforme Produkte. Nicht-WebRTC-Produkte, die in gewissem Maße mit WebRTC kommunizieren können, unterstützen diese Codecs möglicherweise oder möglicherweise nicht, obwohl sie in den Spezifikationsdokumenten dazu ermutigt werden.
 
-Zusätzlich zu den verbindlichen Codecs unterstützen einige Browser auch zusätzliche Codecs. Diese sind in der folgenden Tabelle aufgeführt.
+Neben den obligatorischen Codecs unterstützen einige Browser auch zusätzliche Codecs. Diese sind in der folgenden Tabelle aufgeführt.
 
 <table class="standard-table">
   <caption>
-    Andere Videocodecs
+    Andere Video-Codecs
   </caption>
   <thead>
     <tr>
@@ -89,83 +92,106 @@ Zusätzlich zu den verbindlichen Codecs unterstützen einige Browser auch zusät
   </thead>
   <tbody>
     <tr>
-      <th scope="row">VP9</th>
+      <th id="vp9_table" scope="row">VP9</th>
       <td>—</td>
-      <td>Chrome (48+), Firefox</td>
+      <td>
+        <p>Chrome (48+), Firefox</p>
+        <p>Firefox unterstützt VP9 für Simulcast standardmäßig nicht (<a href="https://bugzil.la/1633876">Firefox Bug 1633876</a>).
+        Firefox 136+ unterstützt die <a href="/de/docs/Web/API/WebRTC_API/Protocols#dependency_descriptor_rtp_header_extension">DD RTP-Headererweiterung</a> mit VP9.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <th id="av1_table" scope="row"><a href="#av1">AV1</a></th>
+      <td>—</td>
+      <td>
+        <p>Chrome (113+), Firefox (136+)</p>
+        <p>Firefox 136 unterstützt AV1 für Simulcast und die <a href="/de/docs/Web/API/WebRTC_API/Protocols/de/docs/Web/API/WebRTC_API/Protocols#dependency_descriptor_rtp_header_extension">DD RTP-Headererweiterung</a>.</p>
+      </td>
     </tr>
   </tbody>
 </table>
 
 ### VP8
 
-VP8, das wir [allgemein beschreiben](/de/docs/Web/Media/Guides/Formats/Video_codecs#vp8) im Haupt-[Leitfaden zu Videocodecs, die im Web verwendet werden](/de/docs/Web/Media/Guides/Formats/Video_codecs), hat einige spezifische Anforderungen, die befolgt werden müssen, wenn es verwendet wird, um einen Videostream in einer WebRTC-Verbindung zu kodieren oder zu dekodieren.
+VP8, das wir in unserem [allgemeinen Leitfaden zu Videocodecs, die im Web verwendet werden](/de/docs/Web/Media/Guides/Formats/Video_codecs#vp8) [beschreiben](/de/docs/Web/Media/Guides/Formats/Video_codecs#vp8), hat spezifische Anforderungen, die befolgt werden müssen, wenn es verwendet wird, um eine Videospur in einer WebRTC-Verbindung zu kodieren oder zu dekodieren.
 
-Sofern nicht anders signalisiert, wird VP8 quadratische Pixel verwenden (d.h. Pixel mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} von 1:1).
+Sofern nicht anders signalisiert, verwendet VP8 quadratische Pixel (d.h. Pixel mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} von 1:1).
 
-#### Weitere Hinweise
+#### Weitere Anmerkungen
 
-Das Netzwerk-Payload-Format für das Teilen von VP8 mithilfe von {{Glossary("RTP", "RTP")}} (z.B. bei der Verwendung von WebRTC) wird in {{RFC(7741, "RTP Payload Format for VP8 Video")}} beschrieben.
+Das Netzwerk-Payload-Format zum Teilen von VP8 mit {{Glossary("RTP", "RTP")}} (wie bei der Verwendung von WebRTC) wird in {{RFC(7741, "RTP Payload Format for VP8 Video")}} beschrieben.
 
 ### AVC / H.264
 
-Unterstützung für AVC's Constrained Baseline (CB) Profile ist in allen vollständig konformen WebRTC-Implementierungen erforderlich. CB ist ein Unterprofil des Hauptprofils und ist speziell für Anwendungen mit niedriger Komplexität und niedriger Latenz ausgelegt, wie mobile Video- und Videokonferenzen, sowie für Plattformen mit weniger leistungsfähigen Videoverarbeitungsfähigkeiten.
+Die Unterstützung für das Constrained Baseline (CB)-Profil von AVC ist in allen vollständig konformen WebRTC-Implementierungen erforderlich. CB ist ein Subset des Hauptprofils und ist speziell für Anwendungen mit geringer Komplexität und geringer Verzögerung wie mobiles Video und Videokonferenzen sowie für Plattformen mit geringeren Videoverarbeitungsfähigkeiten ausgelegt.
 
-Unser [Überblick über AVC](/de/docs/Web/Media/Guides/Formats/Video_codecs#avc_h.264) und seine Funktionen finden Sie im Hauptleitfaden zu Videocodecs.
+Unsere [Übersicht über AVC](/de/docs/Web/Media/Guides/Formats/Video_codecs#avc_h.264) und seine Funktionen finden Sie im Hauptleitfaden zu Videocodecs.
 
-#### Anforderungen an die Sonderparameterunterstützung
+#### Besondere Anforderungen an Parameterunterstützung
 
-AVC bietet eine Vielzahl von Parametern zur Steuerung optionaler Werte. Um die Zuverlässigkeit der WebRTC-Medienfreigabe über mehrere Plattformen und Browser hinweg zu verbessern, müssen WebRTC-Endpunkte, die AVC unterstützen, bestimmte Parameter auf spezifische Weise handhaben. Manchmal bedeutet das, dass ein Parameter unterstützt oder nicht unterstützt werden muss. Manchmal bedeutet es, einen bestimmten Wert für einen Parameter zu verlangen oder zuzulassen, dass ein bestimmter Satz von Werten erlaubt ist. Und manchmal sind die Anforderungen komplexer.
+AVC bietet eine Vielzahl von Parametern zur Steuerung optionaler Werte. Um die Zuverlässigkeit der gemeinsamen Nutzung von WebRTC-Medien auf verschiedenen Plattformen und Browsern zu verbessern, müssen WebRTC-Endpunkte, die AVC unterstützen, bestimmte Parameter auf bestimmte Weise behandeln. Manchmal bedeutet dies, dass ein Parameter unterstützt werden muss (oder nicht unterstützt werden darf). Manchmal bedeutet es, dass ein bestimmter Wert für einen Parameter erforderlich ist oder dass ein bestimmter Satz von Werten zugelassen werden muss. Und manchmal sind die Anforderungen komplexer.
 
 ##### Parameter, die nützlich, aber nicht erforderlich sind
 
-Diese Parameter müssen nicht vom WebRTC-Endpunkt unterstützt werden, und deren Verwendung ist auch nicht erforderlich. Ihre Verwendung kann das Benutzererlebnis auf verschiedene Weise verbessern, muss aber nicht verwendet werden. Tatsächlich sind einige dieser Parameter recht kompliziert zu verwenden.
+Diese Parameter müssen vom WebRTC-Endpunkt nicht unterstützt werden und ihre Verwendung ist auch nicht erforderlich. Ihre Verwendung kann das Benutzererlebnis auf verschiedene Weise verbessern, muss aber nicht verwendet werden. In der Tat sind einige dieser ziemlich kompliziert zu verwenden.
 
 - `max-br`
-  - : Wenn angegeben und vom Software unterstützt, gibt der Parameter `max-br` die maximale Videobitrate in Einheiten von 1.000 bps für VCL und 1.200 bps für NAL an. Details hierzu finden Sie auf [Seite 47 von RFC 6184](https://datatracker.ietf.org/doc/html/rfc6184#page-47).
+  - : Wenn angegeben und von der Software unterstützt, gibt der `max-br`-Parameter die maximale Videobitrate in Einheiten von 1.000 bps für VCL und 1.200 bps für NAL an. Details dazu finden Sie auf [Seite 47 von RFC 6184](https://datatracker.ietf.org/doc/html/rfc6184#page-47).
 - `max-cpb`
-  - : Wenn angegeben und unterstützt, legt `max-cpb` die maximale Größe des codierten Bildpuffers fest. Dies ist ein ziemlich komplizierter Parameter, dessen Einheitengröße variieren kann. Siehe [Seite 45 von RFC 6184](https://datatracker.ietf.org/doc/html/rfc6184#page-45) für weitere Details.
+  - : Wenn angegeben und von der Software unterstützt, bestimmt `max-cpb` die maximale codierte Bildpuffergröße. Dies ist ein ziemlich komplizierter Parameter, dessen Einheitengröße variieren kann. Details finden Sie auf [Seite 45 von RFC 6184](https://datatracker.ietf.org/doc/html/rfc6184#page-45).
 - `max-dpb`
-  - : Wenn angegeben und unterstützt, gibt `max-dpb` die maximale Größe des decodierten Bildpuffers an, angegeben in Einheiten von 8/3 Makroblöcke. Siehe [RFC 6184, Seite 46](https://datatracker.ietf.org/doc/html/rfc6184#page-46) für weitere Details.
+  - : Wenn angegeben und unterstützt, zeigt `max-dpb` die maximale Dekodierbildpuffergröße an, angegeben in Einheiten von 8/3 Makroblöcken. Weitere Details finden Sie [RFC 6184, Seite 46](https://datatracker.ietf.org/doc/html/rfc6184#page-46).
 - `max-fs`
-  - : Wenn angegeben und vom Software unterstützt, spezifiziert `max-fs` die maximale Größe eines einzelnen Videobildes, angegeben als Anzahl der Makroblöcke.
+  - : Wenn angegeben und von der Software unterstützt, legt `max-fs` die maximale Größe eines einzelnen Videobildes fest, angegeben als Anzahl der Makroblöcke.
 - `max-mbps`
-  - : Wenn angegeben und unterstützt, ist dieser Wert eine Ganzzahl, die die maximale Rate angibt, mit der Makroblöcke pro Sekunde verarbeitet werden sollen (in Makroblöcken pro Sekunde).
+  - : Wenn angegeben und von der Software unterstützt, ist dieser Wert eine Ganzzahl, die die maximale Rate angibt, mit der Makroblöcke pro Sekunde (in Makroblöcken pro Sekunde) verarbeitet werden sollten.
 - `max-smbps`
-  - : Wenn angegeben und unterstützt, gibt dieser Wert eine Ganzzahl an, die die maximale Rate der statischen Makroblock-Verarbeitung in statischen Makroblöcken pro Sekunde angibt (unter der hypothetische Annahme, dass alle Makroblöcke statische Makroblöcke sind).
+  - : Wenn angegeben und von der Software unterstützt, spezifiziert dies eine Ganzzahl, die die maximale statische Makroblock-Verarbeitungsrate in statischen Makroblöcken pro Sekunde angibt (unter der hypothetischen Annahme, dass alle Makroblöcke statische Makroblöcke sind).
 
-##### Parameter mit spezifischen Anforderungen
+##### Parameter mit speziellen Anforderungen
 
-Diese Parameter können erforderlich oder optional sein, haben jedoch einige spezielle Anforderungen, wenn sie verwendet werden.
+Diese Parameter können erforderlich sein oder auch nicht, haben aber bei ihrer Verwendung besondere Anforderungen.
 
 - `packetization-mode`
-  - : Alle Endpunkte müssen den Modus 1 (nicht-verschachtelter Modus) unterstützen. Die Unterstützung anderer Paketisierungsmodi ist optional, und der Parameter muss nicht zwingend angegeben werden.
+  - : Alle Endpunkte müssen Modus 1 (nicht-interleaved Modus) unterstützen. Die Unterstützung anderer Paketisierungsmodi ist optional, und der Parameter selbst muss nicht angegeben werden.
 - `sprop-parameter-sets`
-  - : Die Sequenz- und Bildinformationen für AVC können entweder eingebettet oder außerhalb des Bandes gesendet werden. Wenn AVC mit WebRTC verwendet wird, _müssen_ diese Informationen im Band signalisiert werden; daher darf der Parameter `sprop-parameter-sets` nicht im SDP enthalten sein.
+  - : Sequenz- und Bildinformationen für AVC können entweder in-Band oder out-of-Band gesendet werden. Wenn AVC mit WebRTC verwendet wird, müssen diese Informationen _in-Band_ signalisiert werden; der Parameter `sprop-parameter-sets` darf daher nicht im SDP enthalten sein.
 
-##### Parameter, die angegeben werden müssen
+##### Parameter, die spezifiziert werden müssen
 
 Diese Parameter müssen immer angegeben werden, wenn AVC in einer WebRTC-Verbindung verwendet wird.
 
 - `profile-level-id`
-  - : Alle WebRTC-Implementierungen sind _verpflichtet_, diesen Parameter in ihrem SDP anzugeben und zu interpretieren, der das von dem Codec verwendete Subprofil identifiziert. Der spezifische Wert, der gesetzt wird, ist nicht definiert; wichtig ist, dass der Parameter überhaupt verwendet wird. Dies ist nützlich zu beachten, da in {{RFC(6184)}} ("RTP Payload Format for H.264 Video"), `profile-level-id` vollständig optional ist.
+  - : Alle WebRTC-Implementierungen sind _gefordert_, diesen Parameter im SDP zu spezifizieren und zu interpretieren, um das vom Codec verwendete Teilprofil zu identifizieren. Der spezifische festgelegte Wert ist nicht definiert; wichtig ist, dass der Parameter überhaupt verwendet wird. Das ist nützlich zu beachten, da in {{RFC(6184)}} ("RTP Payload Format for H.264 Video"), `profile-level-id` vollständig optional ist.
 
 #### Weitere Anforderungen
 
-Zur Unterstützung des Wechsels zwischen Hoch- und Querformat können zwei Methoden verwendet werden. Die erste Methode ist die Videodrehung (CVO) Header-Erweiterung des RTP-Protokolls. Wenn dies jedoch im SDP nicht als unterstützt signalisiert wird, wird empfohlen, dass Browser Display Orientation SEI-Nachrichten unterstützen, obwohl dies nicht erforderlich ist.
+Um den Wechsel zwischen Hoch- und Querformaten zu unterstützen, können zwei Methoden verwendet werden. Die erste ist die Video Orientation (CVO) Header-Erweiterung für das RTP-Protokoll. Wenn dies jedoch nicht im SDP signalisiert wird, wird empfohlen, dass Browser Display Orientation SEI-Nachrichten unterstützen, obwohl dies nicht erforderlich ist.
 
-Sofern nicht anders signalisiert, beträgt das Pixel-Seitenverhältnis 1:1, was bedeutet, dass die Pixel quadratisch sind.
+Sofern nicht anders signalisiert, beträgt das Seitenverhältnis der Pixel 1:1, was anzeigt, dass die Pixel quadratisch sind.
 
-#### Weitere Hinweise
+#### Weitere Anmerkungen
 
-Das Payload-Format für AVC in WebRTC wird in {{RFC(6184, "RTP Payload Format for H.264 Video")}} beschrieben. WebRTC-Implementierungen von AVC sind verpflichtet, die speziellen SEI-Nachrichten „Füller-Payload“ und „Vollbild-Freeze“ zu unterstützen; diese werden verwendet, um nahtlose Wechsel zwischen mehreren Eingabestreams zu unterstützen.
+Das Payload-Format, das für AVC in WebRTC verwendet wird, wird in {{RFC(6184, "RTP Payload Format for H.264 Video")}} beschrieben. AVC-Implementierungen für WebRTC müssen die speziellen "Filler Payload"- und "Full Frame Freeze"-SEI-Nachrichten unterstützen; diese werden verwendet, um nahtlos zwischen mehreren Eingabestreams zu wechseln.
 
-## Unterstützte Audiocodecs
+### AV1
 
-Die Audio-Codecs, die {{RFC(7874)}} vorschreibt, die alle WebRTC-kompatiblen Browser unterstützen müssen, sind in der folgenden Tabelle aufgeführt.
+AV1 wird [allgemein beschrieben](/de/docs/Web/Media/Guides/Formats/Video_codecs#av1) im [Hauptleitfaden zu Videocodecs, die im Web verwendet werden](/de/docs/Web/Media/Guides/Formats/Video_codecs).
+
+#### Dependency Descriptor RTP Header Erweiterung
+
+WebRTC unterstützt zwei Haupttechnologien zum effizienten Senden von Videos für den Verbrauch durch Empfänger, die mit unterschiedlichen Fähigkeiten und Netzwerkbedingungen arbeiten.
+
+AV1 verwendet die [Dependency Descriptor (DD) RTP Header-Erweiterung](/de/docs/Web/API/WebRTC_API/Protocols/de/docs/Web/API/WebRTC_API/Protocols#dependency_descriptor_rtp_header_extension), um die Frame-Abhängigkeitsinformationen bereitzustellen, die zur Unterstützung von [Multi-Party Konferenzanwendungsfällen](/de/docs/Web/API/WebRTC_API/Protocols#multi-party_video_conferencing) erforderlich sind.
+
+## Unterstützte Audio-Codecs
+
+Die Audio-Codecs, die {{RFC(7874)}} festlegt, dass alle WebRTC-kompatiblen Browser unterstützen müssen, sind in der Tabelle unten dargestellt.
 
 <table class="standard-table">
   <caption>
-    Verbindliche Audiocodecs
+    Obligatorische Audio-Codecs
   </caption>
   <thead>
     <tr>
@@ -201,18 +227,18 @@ Die Audio-Codecs, die {{RFC(7874)}} vorschreibt, die alle WebRTC-kompatiblen Bro
   </tbody>
 </table>
 
-Weitere Details zu WebRTC-spezifischen Überlegungen für jeden der oben aufgeführten Codecs finden Sie unten.
+Weiter unten finden Sie weitere Details zu eventuellen WebRTC-spezifischen Überlegungen, die für jeden der oben aufgeführten Codecs bestehen.
 
-Es ist nützlich zu beachten, dass {{RFC(7874)}} mehr als eine Liste von Audio-Codecs definiert, die ein WebRTC-konformer Browser unterstützen muss; es bietet auch Empfehlungen und Anforderungen für spezielle Audiofunktionen wie Echounterdrückung, Rauschunterdrückung und Audiogruppierung.
+Es ist nützlich zu beachten, dass {{RFC(7874)}} mehr als nur eine Liste von Audio-Codecs definiert, die ein WebRTC-kompatibler Browser unterstützen muss; es bietet auch Empfehlungen und Anforderungen für spezielle Audiofunktionen wie Echo-Kompensation, Rauschunterdrückung und Audio-Nivellierung.
 
 > [!NOTE]
-> Die obige Liste zeigt das Minimum an erforderlichen Codecs, die alle WebRTC-kompatiblen Endpunkte implementieren müssen. Ein bestimmter Browser kann auch andere Codecs unterstützen; jedoch kann die Kompatibilität über Plattformen und Geräte gefährdet sein, wenn Sie andere Codecs verwenden, ohne sorgfältig sicherzustellen, dass Unterstützung in allen Browsern vorhanden ist, die Ihre Benutzer möglicherweise bevorzugen.
+> Die obige Liste gibt den minimal erforderlichen Satz von Codecs an, die alle mit WebRTC-kompatiblen Endpunkten umsetzen müssen. Ein bestimmter Browser kann auch andere Codecs unterstützen; jedoch könnte die plattform- und geräteübergreifende Kompatibilität gefährdet sein, wenn Sie andere Codecs verwenden, ohne sorgfältig sicherzustellen, dass die Unterstützung in allen Browsern existiert, die Ihre Benutzer möglicherweise auswählen.
 
-Zusätzlich zu den verbindlichen Audiocodecs unterstützen einige Browser auch zusätzliche Codecs. Diese sind in der folgenden Tabelle aufgeführt.
+Neben den obligatorischen Audio-Codecs unterstützen einige Browser auch zusätzliche Codecs. Diese sind in der folgenden Tabelle aufgeführt.
 
 <table class="standard-table">
   <caption>
-    Andere Audiocodecs
+    Andere Audio-Codecs
   </caption>
   <thead>
     <tr>
@@ -236,64 +262,64 @@ Zusätzlich zu den verbindlichen Audiocodecs unterstützen einige Browser auch z
   </tbody>
 </table>
 
-Der **[Internet Low Bitrate Codec](https://en.wikipedia.org/wiki/Internet_Low_Bitrate_Codec)** (**iLBC**) ist ein Open-Source-Schmalbandcodec, der von Global IP Solutions und jetzt von Google entwickelt wurde, und speziell für das Streamen von Sprach-Audio konzipiert ist. Google und einige andere Browser-Entwickler haben ihn für WebRTC übernommen.
+**[Internet Low Bitrate Codec](https://en.wikipedia.org/wiki/Internet_Low_Bitrate_Codec)** (**iLBC**) ist ein Open-Source-Engbandcodec, der von Global IP Solutions und nun von Google entwickelt wurde, speziell für das Streaming von Sprachausgaben. Google und einige andere Browserentwickler haben es für WebRTC übernommen.
 
-Der **[Internet Speech Audio Codec](https://en.wikipedia.org/wiki/Internet_Speech_Audio_Codec)** (**iSAC**) ist ein weiterer Codec, der von Global IP Solutions entwickelt wurde und jetzt im Besitz von Google ist, das ihn als Open-Source bereitgestellt hat. Er wird von Google Talk, QQ und anderen Instant-Messaging-Clients verwendet und speziell für Sprachübertragungen entwickelt, die in einen RTP-Stream gekapselt sind.
+Der **[Internet Speech Audio Codec](https://en.wikipedia.org/wiki/Internet_Speech_Audio_Codec)** (**iSAC**) ist ein anderer Codec, der von Global IP Solutions entwickelt und nun im Besitz von Google ist, das ihn quelloffen gemacht hat. Er wird von Google Talk, QQ und anderen Instant-Messaging-Clients verwendet und ist speziell für Sprachübertragungen konzipiert, die innerhalb eines RTP-Streams gekapselt sind.
 
-**[Komfortgeräusch](https://en.wikipedia.org/wiki/Comfort_noise)** (**CN**) ist eine Form von künstlichem Hintergrundgeräusch, das verwendet wird, um Lücken in einer Übertragung zu füllen, anstelle von reinem Schweigen. Dies hilft zu vermeiden, dass ein störender Effekt auftritt, wenn die Sprachaktivierung und ähnliche Funktionen den Stream veranlassen, die Datenübertragung vorübergehend zu stoppen - eine Fähigkeit, die als Diskontinuierliche Übertragung (DTX) bekannt ist. In {{RFC(3389)}} gibt es eine Methode zur Bereitstellung eines geeigneten Füllers, der während der Stille verwendet werden kann.
+**[Komfortrauschen](https://en.wikipedia.org/wiki/Comfort_noise)** (**CN**) ist eine Form von künstlichem Hintergrundrauschen, das verwendet wird, um Lücken in einer Übertragung anstelle von reiner Stille zu füllen. Dies hilft, einen abrupten Effekt zu vermeiden, der auftreten kann, wenn Sprachaktivierung und ähnliche Funktionen einen Stream vorübergehend stoppen lassen - eine Fähigkeit, die als Diskontinuierliche Übertragung (DTX) bekannt ist. In {{RFC(3389)}} wird eine Methode zur Bereitstellung eines geeigneten Füllstoffs während der Stille beschrieben.
 
-Komfortgeräusch wird mit G.711 verwendet und kann potenziell auch mit anderen Codecs verwendet werden, die keine eingebaute CN-Funktion haben. Opus hat zum Beispiel seine eigene CN-Funktionalität; daher wird die Verwendung von RFC 3389 CN mit dem Opus-Codec nicht empfohlen.
+Komfortrauschen wird mit G.711 verwendet und kann möglicherweise mit anderen Codecs verwendet werden, die keine eingebaute CN-Funktion haben. Opus hat zum Beispiel seine eigene CN-Fähigkeit; daher wird die Verwendung von RFC 3389 CN mit dem Opus-Codec nicht empfohlen.
 
-Ein Audio-Sender ist niemals verpflichtet, diskontinuierliche Übertragung oder Komfortgeräusch zu verwenden.
+Ein Audio-Sender ist niemals verpflichtet, eine diskontinuierliche Übertragung oder Komfortrauschen zu verwenden.
 
 ### Opus
 
-Das Opus-Format, definiert durch {{RFC(6716)}}, ist das primäre Format für Audio in WebRTC. Das RTP-Payload-Format für Opus findet sich in {{RFC(7587)}}. Weitere allgemeine Informationen über Opus und seine Fähigkeiten sowie darüber, wie andere APIs Opus unterstützen können, finden Sie im [entsprechenden Abschnitt](/de/docs/Web/Media/Guides/Formats/Audio_codecs#opus) unseres [Leitfadens zu Audiocodecs, die im Web verwendet werden](/de/docs/Web/Media/Guides/Formats/Audio_codecs).
+Das Opus-Format, definiert durch {{RFC(6716)}}, ist das primäre Format für Audio in WebRTC. Das RTP-Payload-Format für Opus ist in {{RFC(7587)}} zu finden. Allgemeine Informationen über Opus und seine Fähigkeiten und wie andere APIs Opus unterstützen können, finden Sie im [entsprechenden Abschnitt](/de/docs/Web/Media/Guides/Formats/Audio_codecs#opus) unseres [Leitfadens für Audio-Codecs, die im Web verwendet werden](/de/docs/Web/Media/Guides/Formats/Audio_codecs).
 
-Sowohl der Sprach- als auch der allgemeine Audiomodus sollten unterstützt werden. Die Skalierbarkeit und Flexibilität von Opus sind nützlich, wenn es um Audio geht, das unterschiedliche Grade an Komplexität haben kann. Seine Unterstützung von eingebetteten Stereo-Signalen ermöglicht die Unterstützung von Stereo ohne eine komplizierte Demultiplexing-Prozess.
+Sowohl der Sprachmodus als auch der allgemeine Audiomodus sollten unterstützt werden. Die Skalierbarkeit und Flexibilität von Opus sind nützlich, wenn mit Audio gearbeitet wird, das unterschiedliche Komplexitätsgrade haben kann. Die Unterstützung von in-Band-Stereosignalen ermöglicht die Unterstützung von Stereo, ohne den Demultiplexing-Prozess zu verkomplizieren.
 
-Der gesamte Bereich der von Opus unterstützten Bitraten (6 kbps bis 510 kbps) wird in WebRTC unterstützt, wobei die Bitrate dynamisch geändert werden kann. Höhere Bitraten verbessern in der Regel die Qualität.
+Der gesamte unterstützte Bitratenbereich von Opus (6 kbps bis 510 kbps) wird in WebRTC unterstützt, wobei die Bitrate dynamisch geändert werden kann. Höhere Bitraten verbessern typischerweise die Qualität.
 
-#### Bitratempfehlungen
+#### Bitratenempfehlungen
 
-Bei einer Bildgröße von 20 Millisekunden zeigt die folgende Tabelle die empfohlenen Bitraten für verschiedene Medienarten.
+Bei einer Bildgröße von 20 Millisekunden zeigt die folgende Tabelle die empfohlenen Bitraten für verschiedene Medienformen:
 
-| Medientyp                           | Empfohlener Bitratenbereich |
-| ----------------------------------- | --------------------------- |
-| Schmalband-Sprache (NB)             | 8 bis 12 kbps               |
-| Breitband-Sprache (WB)              | 16 bis 20 kbps              |
-| Vollband-Sprache (FB)               | 28 bis 40 kbps              |
-| Vollband-monophones Musik (FB mono) | 48 bis 64 kbps              |
-| Vollband-Stereo-Musik (FB Stereo)   | 64 bis 128 kbps             |
+| Medientyp                         | Empfohlener Bitratenbereich |
+| --------------------------------- | --------------------------- |
+| Schmalband-Sprache (NB)           | 8 bis 12 kbps               |
+| Breitband-Sprache (WB)            | 16 bis 20 kbps              |
+| Fullband-Sprache (FB)             | 28 bis 40 kbps              |
+| Fullband-Mono-Musik (FB mono)     | 48 bis 64 kbps              |
+| Fullband-Stereo-Musik (FB stereo) | 64 bis 128 kbps             |
 
-Die Bitrate kann jederzeit angepasst werden. Um Netzwerküberlastungen zu vermeiden, sollte die durchschnittliche Audio-Bitrate die verfügbare Netzwerkkapazität nicht übersteigen (abzüglich aller anderen bekannten oder zu erwartenden zusätzlichen Bandbreitenanforderungen).
+Die Bitrate kann jederzeit angepasst werden. Um Netzwerküberlastungen zu vermeiden, sollte die durchschnittliche Audio-Bitrate die verfügbare Netzwerkbandbreite (abzüglich anderer bekannter oder erwarteter zusätzlicher Bandbreitenanforderungen) nicht überschreiten.
 
 ### G.711
 
-G.711 definiert das Format für **Puls-Code-Modulation** (**PCM**)-Audio als eine Reihe von 8-Bit-Integer-Proben, die mit einer Abtastfrequenz von 8.000 Hz aufgenommen werden, was eine Bitrate von 64 kbps ergibt. Sowohl [µ-law](https://en.wikipedia.org/wiki/M-law) als auch [A-law](https://en.wikipedia.org/wiki/A-law)-Kodierungen sind erlaubt.
+G.711 definiert das Format für **Puls-Code-Modulation** (**PCM**)-Audio als eine Reihe von 8-Bit-Integer-Proben, die mit einer Samplingrate von 8.000 Hz aufgenommen werden, was zu einer Bitrate von 64 kbps führt. Sowohl [µ-law](https://en.wikipedia.org/wiki/M-law) als auch [A-law](https://en.wikipedia.org/wiki/A-law) Kodierungen sind erlaubt.
 
-G.711 wird [durch die ITU definiert](https://www.itu.int/rec/T-REC-G.711-198811-I/en) und sein Payload-Format wird in {{RFC(3551, "", "4.5.14")}} definiert.
+G.711 ist [von der ITU](https://www.itu.int/rec/T-REC-G.711-198811-I/en) definiert und sein Payload-Format ist in {{RFC(3551, "", "4.5.14")}} beschrieben.
 
-WebRTC erfordert, dass G.711 8-Bit-Proben in der Standard-Bitrate von 64 kbps verwendet, obwohl G.711 einige andere Variationen unterstützt. Weder G.711.0 (verlustfreie Kompression), G.711.1 (Breitbandfähigkeit) noch eine andere Erweiterung des G.711-Standards werden von WebRTC vorgeschrieben.
+WebRTC erfordert, dass G.711 8-Bit-Samples mit der standardmäßigen 64 kbps-Rate verwendet, obwohl G.711 einige andere Varianten unterstützt. Weder G.711.0 (verlustfreie Kompression), G.711.1 (Breitbandfähigkeit) noch andere Erweiterungen des G.711-Standards sind durch WebRTC vorgeschrieben.
 
-Aufgrund ihrer niedrigen Abtastrate und Probengröße wird G.711-Audioqualität nach modernen Maßstäben im Allgemeinen als schlecht angesehen, obwohl sie etwa dem entspricht, was ein Festnetztelefon klingt. Es wird im Allgemeinen als kleinster gemeinsamer Nenner verwendet, um sicherzustellen, dass Browser eine Audiokonferenz unabhängig von Plattformen und Browsern herstellen können, oder allgemein als Fallback-Option.
+Aufgrund seiner niedrigen Samplingrate und Probenaufnahmegröße wird die Audioqualität von G.711 nach heutigen Maßstäben allgemein als schlecht angesehen, obwohl sie in etwa dem entspricht, wie sich ein Festnetztelefon anhört. Es wird im Allgemeinen als kleinster gemeinsamer Nenner verwendet, um sicherzustellen, dass Browser eine Audioverbindung unabhängig von Plattformen und Browsern erreichen können, oder allgemein als Fallback-Option.
 
-## Codecs spezifizieren und konfigurieren
+## Spezifizieren und Konfigurieren von Codecs
 
-### Die unterstützten Codecs abrufen
+### Erhalten der unterstützten Codecs
 
-Da ein gegebener Browser und eine Plattform unterschiedliche Verfügbarkeit unter den potenziellen Codecs haben können – und möglicherweise mehrere Profile oder Ebenen für einen gegebenen Codec unterstützt werden – ist der erste Schritt bei der Konfiguration von Codecs für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), die Liste der verfügbaren Codecs zu erhalten. Um dies zu tun, müssen Sie zunächst eine Verbindung herstellen, auf der Sie die Liste erhalten können.
+Da ein bestimmter Browser und eine Plattform möglicherweise unterschiedliche Verfügbarkeiten unter den möglichen Codecs haben - und möglicherweise mehrere Profile oder Ebenen für einen bestimmten Codec unterstützen - ist der erste Schritt bei der Konfiguration von Codecs für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), die Liste der verfügbaren Codecs zu erhalten. Dazu müssen Sie zunächst eine Verbindung herstellen, auf der Sie die Liste abrufen können.
 
-Es gibt ein paar Wege, wie Sie das tun können. Der effizienteste Weg ist, die statische Methode [`RTCRtpSender.getCapabilities()`](/de/docs/Web/API/RTCRtpSender/getCapabilities_static) (oder das Äquivalent [`RTCRtpReceiver.getCapabilities()`](/de/docs/Web/API/RTCRtpReceiver/getCapabilities_static) für einen Empfänger) zu verwenden, indem Sie den Medientyp als Eingabeparameter angeben. Zum Beispiel, um die unterstützten Codecs für Video zu bestimmen, können Sie dies tun:
+Es gibt einige Möglichkeiten, dies zu tun. Die effizienteste Möglichkeit ist die Verwendung der statischen Methode [`RTCRtpSender.getCapabilities()`](/de/docs/Web/API/RTCRtpSender/getCapabilities_static) (oder das Äquivalent [`RTCRtpReceiver.getCapabilities()`](/de/docs/Web/API/RTCRtpReceiver/getCapabilities_static) für einen Empfänger), indem Sie den Medientyp als Eingabewert angeben. Um beispielsweise die unterstützten Codecs für Video zu bestimmen, können Sie dies tun:
 
 ```js
 codecList = RTCRtpSender.getCapabilities("video").codecs;
 ```
 
-Nun ist `codecList` ein Array von [`codec`](/de/docs/Web/API/RTCRtpSender/getCapabilities_static#codecs)-Objekten, die jeweils eine Codec-Konfiguration beschreiben.
+Jetzt ist `codecList` ein Array von [`codec`](/de/docs/Web/API/RTCRtpSender/getCapabilities_static#codecs) Objekten, von denen jedes eine Codec-Konfiguration beschreibt.
 Auch in der Liste werden Einträge für [Retransmission](/de/docs/Web/API/RTCRtpSender/getCapabilities_static#rtx_retransmission) (RTX), [Redundant Coding](/de/docs/Web/API/RTCRtpSender/getCapabilities_static#red_redundant_audio_data) (RED) und [Forward Error Correction](/de/docs/Web/API/RTCRtpSender/getCapabilities_static#fec_forward_error_correction) (FEC) vorhanden sein.
 
-Wenn die Verbindung im Prozess des Startens ist, können Sie das [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event) Ereignis verwenden, um das Abschließen des {{Glossary("ICE", "ICE")}}-Kandidaten-Sammelns zu überwachen, und dann die Liste abrufen.
+Wenn die Verbindung gerade im Aufbauprozess ist, können Sie das [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event) Ereignis verwenden, um den Abschluss der {{Glossary("ICE", "ICE")}} Kandidatensammlung zu überwachen und dann die Liste abzurufen.
 
 ```js
 let codecList = null;
@@ -314,21 +340,20 @@ peerConnection.addEventListener("icegatheringstatechange", (event) => {
 });
 ```
 
-Der Ereignishandler für `icegatheringstatechange` wird eingerichtet; in ihm prüfen wir, ob der ICE-Sammelstatus `complete` ist, was anzeigt, dass keine weiteren Kandidaten gesammelt werden. Die Methode [`RTCPeerConnection.getSenders()`](/de/docs/Web/API/RTCPeerConnection/getSenders) wird aufgerufen, um eine Liste aller von der Verbindung verwendeten [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekte zu erhalten.
+Der Ereignishandler für `icegatheringstatechange` wird festgelegt; darin sehen wir nach, ob der ICE-Sammelstatus `complete` ist, was bedeutet, dass keine weiteren Kandidaten gesammelt werden. Die Methode [`RTCPeerConnection.getSenders()`](/de/docs/Web/API/RTCPeerConnection/getSenders) wird aufgerufen, um eine Liste aller von der Verbindung verwendeten [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) Objekte zu erhalten.
 
-Damit in der Hand, durchlaufen wir die Liste der Sender und suchen nach dem ersten, bei dem die [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) angibt, dass sein [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) `video` ist, was anzeigt, dass die Daten des Tracks Videomedien sind.
-Dann rufen wir die `getParameters()`-Methode dieses Senders auf und setzen `codecList` auf die `codecs`-Eigenschaft im zurückgegebenen Objekt und kehren dann zum Aufrufer zurück.
+Mit dieser in der Hand durchlaufen wir die Liste der Sender und suchen nach dem ersten, dessen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) angibt, dass sein [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) `video` ist, was darauf hinweist, dass die Daten der Spur Videodaten sind. Dann rufen wir diese Methode `getParameters()` des Senders auf und setzen `codecList` auf die `codecs` Eigenschaft im zurückgegebenen Objekt und kehren dann zum Aufrufer zurück.
 
-Wenn kein Videotrack gefunden wird, setzen wir `codecList` auf `null`.
+Wenn keine Videospur gefunden wird, setzen wir `codecList` auf `null`.
 
-Bei der Rückkehr ist `codecList` also entweder `null`, um anzuzeigen, dass keine Videotracks gefunden wurden, oder es ist ein Array von [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Objekten, die jeweils eine erlaubte Codec-Konfiguration beschreiben. Von besonderer Bedeutung in diesen Objekten: die [`payloadType`](/de/docs/Web/API/RTCCodecStats/payloadType)-Eigenschaft, die ein Ein-Byte-Wert ist, der die beschriebene Konfiguration eindeutig identifiziert.
+Bei Rückkehr ist `codecList` entweder `null`, um anzuzeigen, dass keine Videospuren gefunden wurden, oder es handelt sich um ein Array von [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) Objekten, von denen jedes eine erlaubte Codec-Konfiguration beschreibt. Von besonderer Bedeutung in diesen Objekten: die [`payloadType`](/de/docs/Web/API/RTCCodecStats/payloadType) Eigenschaft, die ein Ein-Byte-Wert ist, der die beschriebene Konfiguration eindeutig identifiziert.
 
 > [!NOTE]
-> Die beiden Methoden zum Abrufen von Codec-Listen, die hier gezeigt werden, verwenden unterschiedliche Ausgabetypen in ihren Codec-Listen. Beachten Sie dies bei der Verwendung der Ergebnisse.
+> Die beiden hier gezeigten Methoden zum Abrufen von Codeclisten verwenden unterschiedliche Ausgabetypen in ihren Codeclisten. Beachten Sie dies bei der Verwendung der Ergebnisse.
 
-### Die Codec-Liste anpassen
+### Anpassen der Codecliste
 
-Sobald Sie eine Liste der verfügbaren Codecs haben, können Sie sie ändern und die überarbeitete Liste an [`RTCRtpTransceiver.setCodecPreferences()`](/de/docs/Web/API/RTCRtpTransceiver/setCodecPreferences) senden, um die Codec-Liste neu anzuordnen. Dies ändert die Präferenzreihenfolge der Codecs und ermöglicht es Ihnen, WebRTC anzuweisen, einen anderen Codec allen anderen vorzuziehen.
+Sobald Sie eine Liste der verfügbaren Codecs haben, können Sie diese ändern und dann die überarbeitete Liste an [`RTCRtpTransceiver.setCodecPreferences()`](/de/docs/Web/API/RTCRtpTransceiver/setCodecPreferences) senden, um die Codecliste neu anzuordnen. Dadurch ändern Sie die Präferenzreihenfolge der Codecs, sodass Sie WebRTC anweisen können, einen anderen Codec bevorzugt zu verwenden.
 
 ```js
 function changeVideoCodec(mimeType) {
@@ -350,17 +375,17 @@ function changeVideoCodec(mimeType) {
 }
 ```
 
-In diesem Beispiel nimmt die Funktion `changeVideoCodec()` als Eingabe den MIME-Typ des Codecs, den Sie verwenden möchten. Der Code beginnt, indem er eine Liste aller Transceiver der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erhält.
+In diesem Beispiel nimmt die Funktion `changeVideoCodec()` als Eingabe den MIME-Typ des Codecs, den Sie verwenden möchten. Der Code beginnt damit, eine Liste aller Überträger der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu erhalten.
 
-Dann holen wir für jeden Transceiver die Art der vom Transceiver dargestellten Medien vom [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)'s Track's [`kind`](/de/docs/Web/API/MediaStreamTrack/kind). Wir erhalten auch die Listen aller vom Browser unterstützten Codecs sowohl für das Senden als auch für den Empfang von Videos, mittels der statischen Methode `getCapabilities()` sowohl von [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) und [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver).
+Dann holen wir für jeden Überträger die Art der Medien, die durch den Überträger dargestellt werden, vom [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)'s Track's [`kind`](/de/docs/Web/API/MediaStreamTrack/kind). Wir erhalten auch die Listen aller von dem Browser unterstützten Codecs sowohl für das Senden als auch für das Empfangen von Video, indem wir die `getCapabilities()` statische Methode sowohl des [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) als auch des [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) verwenden.
 
-Wenn die Medien Video sind, rufen wir sowohl für die Sender- als auch die Empfängercodec-Liste eine Methode namens `preferCodec()` auf; diese Methode ordnet die Codec-Liste auf die gewünschte Weise neu (siehe unten).
+Wenn das Medium Video ist, rufen wir die Methode `preferCodec()` sowohl für die Sender- als auch Empfänger-Codeclisten auf; diese Methode ordnet die Codecliste so um, wie wir es wollen (siehe unten).
 
-Schließlich rufen wir die [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)'s [`setCodecPreferences()`](/de/docs/Web/API/RTCRtpTransceiver/setCodecPreferences) Methode auf, um anzugeben, dass die gegebenen Sende- und Empfangs-Codecs in der neu angeordneten Reihenfolge erlaubt sind.
+Schließlich rufen wir die Methode [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)'s [`setCodecPreferences()`](/de/docs/Web/API/RTCRtpTransceiver/setCodecPreferences) auf, um anzugeben, dass die gegebenen Sende- und Empfangscodecs in der neu angeordneten Reihenfolge erlaubt sind.
 
-Das wird für jeden Transceiver auf der `RTCPeerConnection` gemacht; sobald alle Transceiver aktualisiert wurden, rufen wir den [`onnegotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) Ereignishandler auf, der ein neues Angebot erstellt, die lokale Beschreibung aktualisiert, das Angebot an den entfernten Peer sendet und so weiter, wodurch die Neuverhandlung der Verbindung ausgelöst wird.
+Das wird für jeden Überträger auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gemacht; sobald alle Überträger aktualisiert wurden, rufen wir den [`onnegotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) Ereignishandler auf, der ein neues Angebot erstellt, die lokale Beschreibung aktualisiert, das Angebot an den entfernten Peer sendet und so weiter, wodurch die Neuverhandlung der Verbindung ausgelöst wird.
 
-Die Funktion `preferCodec()`, die vom obigen Code aufgerufen wird, sieht folgendermaßen aus, um einen angegebenen Codec an die Spitze der Liste zu setzen (um während der Aushandlung priorisiert zu werden):
+Die `preferCodec()`-Funktion, die vom obigen Code aufgerufen wird, sieht so aus, dass ein bestimmter Codec an den Anfang der Liste gesetzt wird (um während der Verhandlung priorisiert zu werden):
 
 ```js
 function preferCodec(codecs, mimeType) {
@@ -380,15 +405,15 @@ function preferCodec(codecs, mimeType) {
 }
 ```
 
-Dieser Code teilt die Codec-Liste einfach in zwei Arrays auf: eines, das Codecs enthält, deren MIME-Typ mit dem durch den `mimeType`-Parameter angegebenen übereinstimmt, und das andere mit allen anderen Codecs. Sobald die Liste aufgeteilt wurde, werden sie wieder zusammengefügt mit den Einträgen, die dem gegebenen `mimeType` entsprechen, zuerst, gefolgt von allen anderen Codecs. Die neu geordnete Liste wird dann an den Aufrufer zurückgegeben.
+Dieser Code teilt die Codecliste einfach in zwei Arrays: eines, das Codecs enthält, deren MIME-Typ mit dem übereinstimmt, der durch den `mimeType`-Parameter angegeben wird, und das andere mit allen anderen Codecs. Sobald die Liste aufgeteilt ist, werden sie wieder miteinander verkettet, wobei die Einträge, die mit dem gegebenen `mimeType` übereinstimmen, zuerst erscheinen, gefolgt von allen anderen Codecs. Die umgestaltete Liste wird dann an den Aufrufer zurückgegeben.
 
 ## Standard-Codecs
 
-Sofern nicht anders angegeben, werden die Standard- oder, genauer gesagt, bevorzugten Codecs, die von den Implementierungen der WebRTC in jedem Browser angefordert werden, in der folgenden Tabelle dargestellt.
+Sofern nicht anders angegeben, sind die Standard- oder genauer die bevorzugten Codecs, die von der WebRTC-Implementierung jedes Browsers angefordert werden, in der Tabelle unten aufgeführt.
 
 <table class="standard-table">
   <caption>
-    Bevorzugte Codecs für WebRTC in den großen Webbrowsern
+    Bevorzugte Codecs für WebRTC in großen Webbrowsern
   </caption>
   <thead>
     <tr>
@@ -411,7 +436,7 @@ Sofern nicht anders angegeben, werden die Standard- oder, genauer gesagt, bevorz
     <tr>
       <th scope="row">Firefox</th>
       <td></td>
-      <td>VP9 (Firefox 46 und später)<br />VP8</td>
+      <td>VP9 (Firefox 46 und neuer)<br />VP8</td>
     </tr>
     <tr>
       <th scope="row">Opera</th>
@@ -426,55 +451,55 @@ Sofern nicht anders angegeben, werden die Standard- oder, genauer gesagt, bevorz
   </tbody>
 </table>
 
-## Den richtigen Codec wählen
+## Den richtigen Codec auswählen
 
-Bevor Sie einen Codec wählen, der nicht einer der verbindlichen Codecs ist (VP8 oder AVC für Video und Opus oder PCM für Audio), sollten Sie die potenziellen Nachteile ernsthaft in Betracht ziehen: Insbesondere können nur diese Codecs im Allgemeinen auf allen Geräten, die WebRTC unterstützen, als verfügbar angenommen werden.
+Bevor Sie einen Codec wählen, der nicht zu den obligatorischen Codecs zählt (VP8 oder AVC für Video und Opus oder PCM für Audio), sollten Sie ernsthaft die potenziellen Nachteile in Betracht ziehen: Insbesondere kann davon ausgegangen werden, dass nur diese Codecs im Wesentlichen auf allen Geräten verfügbar sind, die WebRTC unterstützen.
 
-Wenn Sie sich entscheiden, einen anderen Codec als die verbindlichen zu bevorzugen, sollten Sie zumindest die Möglichkeit eines Fallbacks auf einen der verbindlichen Codecs zulassen, wenn die Unterstützung für den von Ihnen bevorzugten Codec nicht verfügbar ist.
+Wenn Sie sich entscheiden, einen anderen als die obligatorischen Codecs bevorzugen, sollten Sie zumindest die Möglichkeit eines Rückfalls zu einem der obligatorischen Codecs berücksichtigen, wenn der von Ihnen bevorzugte Codec nicht unterstützt wird.
 
 ### Audio
 
-Im Allgemeinen sollten Sie, wenn es verfügbar ist und das Audio, das Sie senden möchten, eine Abtastrate von mehr als 8 kHz hat, ernsthaft die Verwendung von Opus als Ihren primären Codec in Betracht ziehen. Für sprachbasierte Verbindungen in einer eingeschränkten Umgebung kann die Verwendung von G.711 bei einer Abtastrate von 8 kHz ein akzeptables Erlebnis für Gespräche bieten, aber typischerweise werden Sie G.711 als Fallback-Option verwenden, da es andere Optionen gibt, die effizienter sind und besser klingen, wie Opus in seinem Schmalbandmodus.
+Im Allgemeinen, wenn es verfügbar ist und das Audio, das Sie senden möchten, eine Samplingrate von mehr als 8 kHz hat, sollten Sie ernsthaft in Betracht ziehen, Opus als Ihren primären Codec zu verwenden. Für Verbindungen nur mit Sprache in einer eingeschränkten Umgebung kann die Verwendung von G.711 mit einer Samplingrate von 8 kHz eine akzeptable Gesprächserfahrung bieten, aber normalerweise werden Sie G.711 als Fallback-Option verwenden, da es andere Optionen gibt, die effizienter sind und besser klingen, wie Opus im Schmalbandmodus.
 
 ### Video
 
-Es gibt eine Reihe von Faktoren, die bei der Entscheidung über einen Video-Codec (oder eine Codec-Gruppe) zu unterstützen, eine Rolle spielen.
+Bei der Entscheidung für einen Video-Codec (oder eine Sammlung von Codecs) spielen mehrere Faktoren eine Rolle.
 
 #### Lizenzbedingungen
 
-Bevor Sie sich für einen Videocodec entscheiden, stellen Sie sicher, dass Sie über alle Lizenzanforderungen zu dem von Ihnen ausgewählten Codec informiert sind; Sie finden Informationen zu möglichen Lizenzbedenken in unserem Haupt-[Leitfaden zu Videocodecs, die im Web verwendet werden](/de/docs/Web/Media/Guides/Formats/Video_codecs). Von den beiden verbindlichen Codecs für Video – VP8 und AVC/H.264 – ist nur VP8 vollständig frei von Lizenzanforderungen. Wenn Sie sich für AVC entscheiden, stellen Sie sicher, dass Sie sich über mögliche Gebühren im Klaren sind, die Sie möglicherweise zahlen müssen; dennoch haben die Patentinhaber im Allgemeinen erklärt, dass die meisten typischen Website-Entwickler sich nicht um die Zahlung von Lizenzgebühren kümmern müssen, die sich typischerweise mehr auf die Entwickler der Kodierungs- und Dekodierungssoftware konzentrieren.
+Bevor Sie einen Video-Codec auswählen, stellen Sie sicher, dass Sie sich der Lizenzanforderungen um den von Ihnen ausgewählten Codec bewusst sind; Sie finden Informationen über mögliche Lizenzierungsbedenken in unserem Hauptleitfaden zu Video-Codecs, die im Web verwendet werden. Von den beiden obligatorischen Codecs für Video - VP8 und AVC/H.264 - ist nur VP8 völlig lizenzfrei. Wenn Sie AVC auswählen, stellen Sie sicher, dass Sie sich über eventuelle Gebühren, die Sie möglicherweise zahlen müssen, im Klaren sind; abgesehen davon haben die Patentinhaber allgemein gesagt, dass sich die meisten typischen Website-Entwickler keine Sorgen über die Zahlung der Lizenzgebühren machen müssen, die sich typischerweise mehr auf die Entwickler der Kodierungs- und Dekodierungssoftware konzentrieren.
 
 > [!WARNING]
-> Die hier gegebenen Informationen stellen _keine_ Rechtsberatung dar! Stellen Sie sicher, dass Sie Ihre Haftung prüfen, bevor Sie endgültige Entscheidungen treffen, bei denen das Potenzial für Lizenzfragen besteht.
+> Die hier bereitgestellten Informationen stellen _keine_ Rechtsberatung dar! Stellen Sie sicher, dass Sie Ihre Haftung klären, bevor Sie endgültige Entscheidungen treffen, bei denen das Potenzial für Lizenzierungsprobleme besteht.
 
-#### Leistungsanforderungen und Akkulaufzeit
+#### Leistungsanforderungen und Batterielebensdauer
 
-Ein weiterer Faktor, der insbesondere auf mobilen Plattformen berücksichtigt werden muss, sind die Auswirkungen, die ein Codec auf die Akkulaufzeit haben kann. Wenn ein Codec in der Hardware auf einer bestimmten Plattform verarbeitet wird, kann dieser Codec wahrscheinlich eine viel bessere Akkulaufzeit und weniger Wärmeentwicklung ermöglichen.
+Ein weiterer zu berücksichtigender Faktor - insbesondere auf mobilen Plattformen - ist der Einfluss eines Codecs auf die Batterielebensdauer. Wenn ein Codec auf einer bestimmten Plattform in Hardware gehandhabt wird, ermöglicht dieser Codec wahrscheinlich eine viel bessere Batterielebensdauer und weniger Wärmeproduktion.
 
-Safari für iOS und iPadOS hat zum Beispiel WebRTC mit AVC als einzigem unterstützten Videocodec eingeführt. AVC hat den Vorteil, auf iOS und iPadOS in der Hardware kodiert und dekodiert werden zu können. Safari 12.1 führte Unterstützung für VP8 innerhalb von IRC ein, was die Interoperabilität verbessert, jedoch zu einem Preis – VP8 hat keine Hardwareunterstützung auf iOS-Geräten, sodass die Verwendung eine erhöhte Prozessorbelastung und verringerte Akkulaufzeit verursacht.
+Beispielsweise führte Safari für iOS und iPadOS WebRTC mit AVC als einzigem unterstütztem Video-Codec ein. AVC hat den Vorteil, auf iOS- und iPadOS-Geräten in Hardware kodiert und dekodiert werden zu können. Safari 12.1 führte im WebRTC-Bereich die Unterstützung für VP8 ein, was die Interoperabilität verbessert, jedoch auf Kosten - VP8 hat keine Hardwareunterstützung auf iOS-Geräten, sodass die Verwendung von VP8 zu einem erhöhten Prozessoraufwand und einer verringerten Batterielebensdauer führt.
 
 #### Leistung
 
-Glücklicherweise bieten VP8 und AVC aus der Perspektive des Endbenutzers ähnliche Leistungen und sind gleichermaßen geeignet für den Einsatz in Videokonferenzen und anderen WebRTC-Lösungen. Die endgültige Entscheidung liegt bei Ihnen. Egal für welchen Sie sich entscheiden, stellen Sie sicher, dass Sie die in diesem Artikel bereitgestellten Informationen zu den jeweiligen Konfigurationsproblemen lesen, mit denen Sie bei diesem Codec konfrontiert werden können.
+Glücklicherweise führen VP8 und AVC aus Endbenutzersicht ähnlich und sind gleichermaßen für die Verwendung in Videokonferenzen und anderen WebRTC-Lösungen geeignet. Die endgültige Entscheidung liegt bei Ihnen. Egal für welchen Codec Sie sich entscheiden, lesen Sie die Informationen in diesem Artikel, die über bestimmte Konfigurationsprobleme, mit denen Sie sich für diesen Codec auseinandersetzen müssen, Details enthalten.
 
-Denken Sie daran, dass die Auswahl eines Codecs, der nicht in der Liste der verbindlichen Codecs ist, wahrscheinlich das Risiko birgt, einen Codec auszuwählen, der von einem Browser, den Ihre Benutzer möglicherweise bevorzugen, nicht unterstützt wird. Lesen Sie den Artikel [Probleme bei der Unterstützung von Medien in Webinhalten beheben](/de/docs/Web/Media/Guides/Formats/Support_issues), um mehr darüber zu erfahren, wie Sie Unterstützung für Ihre bevorzugten Codecs bieten können, während Sie gleichzeitig eine Unterstützung für Browser ermöglichen, die diesen Codec nicht implementieren.
+Bedenken Sie, dass die Wahl eines Codecs, der nicht auf der Liste der obligatorischen Codecs steht, wahrscheinlich das Risiko birgt, einen Codec zu wählen, der nicht von einem Browser unterstützt wird, den Ihre Benutzer bevorzugen könnten. Weitere Informationen darüber, wie Sie die Unterstützung für Ihre bevorzugten Codecs anbieten können, während Sie dennoch in der Lage sind, auf Browser zurückzugreifen, die diesen Codec nicht implementieren, finden Sie im Artikel [Umgang mit Medien-Support-Problemen in Webinhalten](/de/docs/Web/Media/Guides/Formats/Support_issues).
 
 ## Sicherheitsimplikationen
 
-Während der Auswahl und Konfiguration von Codecs gibt es interessante potenzielle Sicherheitsprobleme. WebRTC-Video wird mit Datagram Transport Layer Security ({{Glossary("DTLS", "DTLS")}}) geschützt, aber es ist theoretisch möglich, dass eine motivierte Partei die Menge an Änderungen, die von Frame zu Frame auftritt, wenn variable Bitrate (VBR)-Codecs verwendet werden, ableiten kann, indem sie die Bitrate des Streams und wie sie sich im Laufe der Zeit ändert, überwacht. Dies könnte potenziell einem Angreifer ermöglichen, etwas über den Inhalt des Streams abzuleiten, angesichts des Flusses der Bitrate.
+Bei der Auswahl und Konfiguration von Codecs kommen interessante potenzielle Sicherheitsprobleme auf. WebRTC-Video wird durch Datagram Transport Layer Security ({{Glossary("DTLS", "DTLS")}}) geschützt, aber es ist theoretisch möglich für eine motivierte Partei, die Menge an Änderungen zu ermitteln, die von Frame zu Frame auftritt, wenn variable Bitrate (VBR)-Codecs verwendet werden, indem der Bitratenverlauf des Streams überwacht wird und wie sich dieser im Laufe der Zeit ändert. Dies könnte einem Angreifer potenziell ermöglichen, Rückschlüsse auf den Inhalt des Streams zu ziehen, gegeben den Anstieg und Rückgang der Bitrate.
 
-Weitere Informationen zu Sicherheitsüberlegungen bei der Verwendung von AVC in WebRTC finden Sie in {{RFC(6184, "RTP-Payload-Format für H.264-Video: Sicherheitsüberlegungen", 9)}}.
+Weitere Informationen zu Sicherheitsüberlegungen bei der Verwendung von AVC in WebRTC finden Sie in {{RFC(6184, "RTP Payload Format for H.264 Video: Security Considerations", 9)}}.
 
-## RTP-Payload-Format Medientypen
+## RTP-Payload-Format-Medientypen
 
-Es kann nützlich sein, auf die {{Glossary("IANA", "IANA")}}-Liste der {{Glossary("RTP", "RTP")}}-Payload-Format Medientypen zu verweisen; dies ist eine vollständige Liste der MIME-Medientypen, die für _potentielle_ Verwendung in RTP-Streams definiert sind, wie sie in WebRTC verwendet werden. Die meisten davon werden nicht in WebRTC-Kontexten verwendet, aber die Liste kann dennoch nützlich sein.
+Es kann nützlich sein, sich die {{Glossary("IANA", "IANA")}}'s Liste von {{Glossary("RTP", "RTP")}} Payload-Format-Medientypen anzusehen; dies ist eine vollständige Liste der MIME-Medientypen, die für die _mögliche_ Verwendung in RTP-Streams wie denjenigen, die in WebRTC verwendet werden, definiert sind. Die meisten davon werden im WebRTC-Kontext nicht verwendet, aber die Liste kann dennoch nützlich sein.
 
-Siehe auch {{RFC(4855)}}, das das Register der Medientypen abdeckt.
+Siehe auch {{RFC(4855)}}, das sich mit dem Registrierungsverzeichnis für Medientypen befasst.
 
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [Einführung in WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)
+- [Einführung in die WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)
 - [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
 - [Leitfaden zu Videocodecs, die im Web verwendet werden](/de/docs/Web/Media/Guides/Formats/Video_codecs)
 - [Leitfaden zu Audiocodecs, die im Web verwendet werden](/de/docs/Web/Media/Guides/Formats/Audio_codecs)
