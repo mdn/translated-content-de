@@ -2,52 +2,52 @@
 title: Hochpräzise Zeitmessung
 slug: Web/API/Performance_API/High_precision_timing
 l10n:
-  sourceCommit: 829720f86ce858b9bb8cbe7aa9e0bea148915f8c
+  sourceCommit: 31ff21cf5f083a3258fc04267d54b1fb72224ff6
 ---
 
 {{DefaultAPISidebar("Performance API")}}
 
-Die Performance API erlaubt hochpräzise Messungen auf Basis der Zeit in einer möglichen sub-Millisekunden-Auflösung und einer stabilen monotonen Uhr, die nicht den Schwankungen oder Anpassungen der Systemuhr unterliegt. Die hochauflösenden Timer werden für genaues Benchmarking benötigt, anstelle der weniger präzisen und nicht-monotonen {{jsxref("Date")}}-Zeitstempel.
+Die Performance API ermöglicht hochpräzise Messungen, die auf Zeit mit potenzieller Submillisekunden-Auflösung und einer stabilen monotone Uhr basieren, die nicht durch Systemuhrachtversatz oder Anpassungen beeinflusst wird. Die hochauflösenden Timer sind notwendig für genaue Benchmarking, im Gegensatz zu den weniger präzisen und nicht-motononen {{jsxref("Date")}} Zeitstempeln.
 
-Diese Seite bietet einen Überblick darüber, wie hochpräzise Zeit innerhalb der Performance API funktioniert und wie sie sich von {{jsxref("Date")}}-Zeitstempeln unterscheidet.
+Diese Seite bietet einen Überblick darüber, wie hochpräzise Zeit innerhalb der Performance API funktioniert und wie sie im Vergleich zu {{jsxref("Date")}} Zeitstempeln steht.
 
 ## `DOMHighResTimeStamp`
 
-Hochpräzise Zeitmessung wird durch die Verwendung des Typs [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) für Zeitwerte erreicht. Die Einheit ist Millisekunden und sollte auf 5 µs (Mikrosekunden) genau sein. Wenn der Browser jedoch nicht in der Lage ist, einen Zeitwert mit einer Genauigkeit von 5 Mikrosekunden bereitzustellen, kann der Browser den Wert als Zeit in Millisekunden mit einer Genauigkeit von einer Millisekunde darstellen. Dies kann aufgrund von Hardware-/Softwareeinschränkungen oder aus Sicherheits- und Datenschutzgründen auftreten. Weitere Informationen finden Sie im Abschnitt zur [reduzierten Genauigkeit](#reduzierte_genauigkeit) unten.
+Hochpräzise Zeitmessung wird erreicht durch die Verwendung des Typs [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) für Zeitwerte. Die Einheit ist Millisekunden und sollte genau auf 5 µs (Mikrosekunden) sein. Sollte der Browser nicht in der Lage sein, einen Zeitwert mit einer Genauigkeit von 5 Mikrosekunden bereitzustellen, kann der Browser den Wert als Zeit in Millisekunden darstellen, die auf eine Millisekunde genau ist. Dies kann aus Hardware- oder Softwareeinschränkungen oder aus Sicherheits- und Datenschutzgründen erfolgen. Für weitere Informationen, siehe den Abschnitt über [verringerte Genauigkeit](#verringerte_genauigkeit) unten.
 
-Alle Zeitstempel in der Performance API verwenden den Typ [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp). Zuvor verwendete die Performance API (und andere Web-APIs) den Typ `EpochTimeStamp` (früher bekannt als `DOMTimeStamp`). Diese Typen werden nun nicht mehr empfohlen.
+Alle Zeitstempel in der Performance API verwenden den Typ [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp). Zuvor verwendete die Performance API (und andere Web APIs) den Typ `EpochTimeStamp` (früher bekannt als `DOMTimeStamp`). Diese Typen sind jetzt nicht mehr empfohlen.
 
 ## `Performance.now()` vs. `Date.now()`
 
-JavaScript definiert {{jsxref("Date.now()")}} als die Anzahl der Millisekunden, die seit dem [Epoch](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) vergangen sind, der als Mitternacht zu Beginn des 1. Januar 1970, UTC, definiert ist. Die `performance.now()`-Methode hingegen bezieht sich auf die [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)-Eigenschaft. Weitere Informationen finden Sie im Abschnitt [Zeitursprünge](#zeitursprünge) unten.
+JavaScript definiert {{jsxref("Date.now()")}} als die Anzahl der seit der [Epoche](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) vergangenen Millisekunden, die als Mitternacht zu Beginn des 1. Januar 1970, UTC, definiert ist. Die `performance.now()`-Methode hingegen ist relativ zur [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)-Eigenschaft. Für weitere Informationen, siehe den [Abschnitt über Zeitursprünge](#zeitursprünge) unten.
 
-JavaScript-`Date`-Zeiten unterliegen den Schwankungen oder Anpassungen der Systemuhr. Das bedeutet, dass der Zeitwert nicht immer monoton steigen muss. Hauptzweck von `Date`-Objekten ist die Anzeige von Zeit- und Datumsinformationen für den Benutzer, und viele Betriebssysteme führen ein Dienstprogramm aus, das die Zeit regelmäßig synchronisiert. Es könnte sein, dass die Uhr mehrmals pro Stunde um einige Millisekunden angepasst wird.
+JavaScript `Date` Zeiten unterliegen Systemuhrachtversatz oder Anpassungen. Dies bedeutet, dass der Zeitwert nicht immer monoton steigend sein muss. Der Hauptzweck von `Date`-Objekten ist es, dem Benutzer Zeit- und Datumsinformationen anzuzeigen, und daher führen viele Betriebssysteme einen Dienst aus, der die Zeit regelmäßig synchronisiert. Es könnte sein, dass die Uhr mehrmals pro Stunde um einige Millisekunden verstellt wird.
 
-Die `performance.now()`-Methode (und alle anderen `DOMHighResTimeStamp`-Werte) liefern monoton steigende Zeitwerte und unterliegen keinen Uhrenanpassungen. Das bedeutet, dass garantiert ist, dass `DOMHighResTimeStamp`-Werte mindestens gleich oder größer sein werden als beim letzten Zugriff darauf.
+Die `performance.now()`-Methode (und alle anderen `DOMHighResTimeStamp`-Werte) liefern monoton steigende Zeitwerte und sind nicht von Uhrenanpassungen betroffen. Das bedeutet, dass es garantiert ist, dass `DOMHighResTimeStamp`-Werte mindestens gleich oder größer als der letzte Zugriff auf sie sein werden.
 
 ```js
 Date.now(); // 1678889977578
 performance.now(); // 233936
 ```
 
-Für die Messung der Leistung, die Berechnung präziser Bildraten (FPS), Animationsschleifen usw. verwenden Sie statt JavaScripts {{jsxref("Date.now()")}} den monoton steigenden hochauflösenden Zeitwert, der mit [`Performance.now()`](/de/docs/Web/API/Performance/now) verfügbar ist.
+Für die Messung von Leistung, die Berechnung präziser Bildwiederholraten (FPS), Animationsschleifen usw., verwenden Sie die monoton steigende hochauflösende Zeit verfügbar mit [`Performance.now()`](/de/docs/Web/API/Performance/now) anstelle von JavaScript's {{jsxref("Date.now()")}}.
 
-Zusammengefasst:
+Zusammenfassung:
 
-| -                               | [`Performance.now()`](/de/docs/Web/API/Performance/now)             | {{jsxref("Date.now()")}}         |
-| ------------------------------- | ------------------------------------------------------------------- | -------------------------------- |
-| Auflösung                       | Sub-Millisekunden                                                   | Millisekunden                    |
-| Ursprung                        | [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) | Unix-Epoch (1. Januar 1970, UTC) |
-| Verwendung von Uhrenanpassungen | Nein                                                                | Ja                               |
-| Monoton steigend                | Ja                                                                  | Nein                             |
+| -                | [`Performance.now()`](/de/docs/Web/API/Performance/now)             | {{jsxref("Date.now()")}}          |
+| ---------------- | ------------------------------------------------------------------- | --------------------------------- |
+| Auflösung        | Submillisekunden                                                    | Millisekunden                     |
+| Ursprung         | [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) | Unix Epoche (1. Januar 1970, UTC) |
+| Uhrenanpassungen | Nein                                                                | Ja                                |
+| Monoton steigend | Ja                                                                  | Nein                              |
 
 ## Zeitursprünge
 
-Die Performance API verwendet die [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)-Eigenschaft, um die Basislinie für leistungsbezogene Zeitstempel zu bestimmen. Alle `DOMHighResTimeStamp`-Zeiten sind relativ zur `timeOrigin`-Eigenschaft.
+Die Performance API verwendet die Eigenschaft [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin), um die Basislinie für leistungsbezogene Zeitstempel zu bestimmen. Alle `DOMHighResTimeStamp`-Zeiten sind relativ zur `timeOrigin`-Eigenschaft.
 
-In Window-Kontexten ist dieser Zeitursprung der Zeitpunkt, zu dem die Navigation gestartet wurde. In [`Worker`](/de/docs/Web/API/Worker)- und [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Kontexten ist der Zeitursprung der Zeitpunkt, zu dem der Worker ausgeführt wird.
+In Fensterkontexten ist dieser Zeitursprung der Zeitpunkt, zu dem die Navigation gestartet wurde. In [`Worker`](/de/docs/Web/API/Worker)- und [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Kontexten ist der Zeitursprung der Zeitpunkt, zu dem der Worker gestartet wurde.
 
-In der vorherigen Version der Spezifikation (Level 1) basierte die `performance.now()`-Methode auf der [`performance.timing.navigationStart`](/de/docs/Web/API/PerformanceTiming/navigationStart)-Eigenschaft aus der Navigation Timing-Spezifikation. Dies änderte sich jedoch in einer späteren Version der Spezifikation (Level 2), und `performance.now()` basiert jetzt auf [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin), was Risiken durch Uhrenänderungen beim Vergleich von Zeitstempeln über Webseiten hinweg vermeidet.
+In der vorherigen Version der Spezifikation (Level 1) war die `performance.now()`-Methode relativ zur [`performance.timing.navigationStart`](/de/docs/Web/API/PerformanceTiming/navigationStart)-Eigenschaft aus der Navigation Timing-Spezifikation. Dies änderte sich jedoch in einer späteren Version der Spezifikation (Level 2), und `performance.now()` ist nun relativ zur [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin), wodurch Risiken von Uhrenänderungen bei der Vergleichung von Zeitstempeln über Webseiten hinweg vermieden werden.
 
 ```js
 // Level 1 (clock change risks)
@@ -59,26 +59,25 @@ currentTime = performance.timeOrigin + performance.now();
 
 ### Synchronisierung von Zeitursprüngen zwischen Kontexten
 
-Um die unterschiedlichen Zeitursprünge in Fenster- und Worker-Kontexten zu berücksichtigen, sollten Sie die Zeitstempel aus Worker-Skripten mit Hilfe der `timeOrigin`-Eigenschaft übersetzen, so dass die Zeiten für die gesamte Anwendung synchronisiert werden. Sehen Sie sich den Abschnitt mit Beispielen auf der Seite [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) an, um Beispielcode zur Synchronisierung der Zeit zu erhalten.
+Um die unterschiedlichen Zeitursprünge in Fenster- und Workerkontexten zu berücksichtigen, sollten Sie die Zeitstempel aus Worker-Skripten mit Hilfe der `timeOrigin`-Eigenschaft übersetzen, damit die Zeiten für die gesamte Anwendung synchronisiert werden. Sehen Sie sich den Abschnitt mit Beispielen auf der Seite [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) für Beispielcode zur Synchronisierung der Zeit an.
 
-## Reduzierte Genauigkeit
+## Verringerte Genauigkeit
 
-Um Schutz gegen Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, werden `DOMHighResTimeStamp`-Typen basierend auf dem Website-Isolationsstatus grob eingestuft.
+Um Schutz gegen Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, werden `DOMHighResTimeStamp`-Typen basierend auf dem Status der Website-Isolation gekörnt.
 
 - Auflösung in isolierten Kontexten: 5 Mikrosekunden
-- Auflösung in nicht isolierten Kontexten: 100 Mikrosekunden
+- Auflösung in nicht-isolierten Kontexten: 100 Mikrosekunden
 
-Um übergreifende Isolierung auf Ihre Website anzuwenden, verwenden Sie die {{HTTPHeader("Cross-Origin-Opener-Policy")}} (COOP) und
-{{HTTPHeader("Cross-Origin-Embedder-Policy")}} (COEP)-Header:
+Um Quellisolierung auf Ihre Seite anzuwenden, verwenden Sie die {{HTTPHeader("Cross-Origin-Opener-Policy")}} (COOP) und
+{{HTTPHeader("Cross-Origin-Embedder-Policy")}} (COEP) Header:
 
 ```http
 Cross-Origin-Opener-Policy: same-origin
 Cross-Origin-Embedder-Policy: require-corp
 ```
 
-Diese Header stellen sicher, dass ein Dokument der obersten Ebene keine Browsing-Kontextgruppe mit
-Cross-Origin-Dokumenten teilt. {{HTTPHeader("Cross-Origin-Opener-Policy")}} isoliert Ihr Dokument und potenzielle Angreifer
-können nicht auf Ihr globales Objekt zugreifen, wenn sie es in einem Popup-Fenster öffnen würden, und verhindert eine Reihe von Cross-Origin-Angriffen, die als [XS-Leaks](https://github.com/xsleaks/xsleaks) bekannt sind.
+Diese Header stellen sicher, dass ein Top-Level-Dokument keine Browsing-Kontextgruppe mit
+fremdherkunfts-Dokumenten teilt. {{HTTPHeader("Cross-Origin-Opener-Policy")}} isoliert Ihren Prozess physisch, und potenzielle Angreifer können nicht auf Ihr globales Objekt zugreifen, wenn sie es in einem Popup geöffnet hätten, wodurch eine Reihe von Cross-Origin-Angriffe, genannt [XS-Leaks](https://github.com/xsleaks/xsleaks), verhindert wird.
 
 ## Siehe auch
 

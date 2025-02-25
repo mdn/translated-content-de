@@ -2,12 +2,12 @@
 title: "Multimedia: Bilder"
 slug: Learn_web_development/Extensions/Performance/Multimedia
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: 31ff21cf5f083a3258fc04267d54b1fb72224ff6
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Performance/measuring_performance", "Learn_web_development/Extensions/Performance/video", "Learn_web_development/Extensions/Performance")}}
 
-Medien, nämlich Bilder und Videos, machen über 70% der heruntergeladenen Bytes für die durchschnittliche Website aus. In Bezug auf die Download-Performance ist das Entfernen von Medien und das Reduzieren der Dateigröße die einfache Lösung. Dieser Artikel befasst sich mit der Optimierung von Bildern und Videos, um die Web-Performance zu verbessern.
+Medien, insbesondere Bilder und Videos, machen über 70 % der heruntergeladenen Bytes für die durchschnittliche Website aus. In Bezug auf die Download-Performance sind das Eliminieren von Medien und das Reduzieren der Dateigröße das naheliegendste Ziel. Dieser Artikel befasst sich mit der Optimierung von Bildern und Videos zur Verbesserung der Web-Performance.
 
 <table>
   <tbody>
@@ -19,41 +19,39 @@ Medien, nämlich Bilder und Videos, machen über 70% der heruntergeladenen Bytes
           >Grundlegende Software installiert</a
         >, und grundlegendes Wissen über
         <a href="/de/docs/Learn_web_development/Getting_started/Your_first_website"
-          >clientseitige Web-Technologien</a
+          >Clientseitige Webtechnologien</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Erfahren Sie mehr über die verschiedenen Bildformate, ihre Auswirkungen
-        auf die Performance und wie Sie die Auswirkungen von Bildern auf die
-        gesamte Ladezeit der Seite reduzieren können.
+        Lernen Sie die verschiedenen Bildformate, ihre Auswirkungen auf die Leistung und wie man die Auswirkungen von Bildern auf die Gesamtseitenladezeit reduzieren kann.
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Dies ist eine Einführung auf hoher Ebene zur Optimierung der Multimedia-Bereitstellung im Web, die allgemeine Prinzipien und Techniken abdeckt. Für einen ausführlicheren Leitfaden siehe <https://web.dev/learn/images>.
+> Dies ist eine Einführung auf hoher Ebene zur Optimierung der Bereitstellung von Multimedia im Web und deckt allgemeine Prinzipien und Techniken ab. Für einen ausführlicheren Leitfaden sehen Sie <https://web.dev/learn/images>.
 
-## Warum sollten Sie Ihr Multimedia optimieren?
+## Warum sollte man Multimedia optimieren?
 
-Für die durchschnittliche Website stammen [51% ihrer Bandbreite aus Bildern, gefolgt von Videos mit 25%](https://discuss.httparchive.org/t/state-of-the-web-top-image-optimization-strategies/1367), daher ist es offensichtlich wichtig, sich mit Ihrem Multimedia-Content zu befassen und diesen zu optimieren.
+Für die durchschnittliche Website stammen [51 % der Bandbreite aus Bildern, gefolgt von Video mit 25 %](https://discuss.httparchive.org/t/state-of-the-web-top-image-optimization-strategies/1367), daher ist es wichtig, Ihr Multimedia-Content zu adressieren und zu optimieren.
 
-Sie müssen den Datenverbrauch berücksichtigen. Viele Menschen haben begrenzte Datentarife oder sogar Prepaid-Pläne, bei denen sie buchstäblich pro Megabyte bezahlen. Dies ist kein Problem für aufstrebende Märkte. Im Jahr 2018 nutzen laut [OFCOM Nations & regions technology tracker - H1 2018 (PDF)](https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/technology-research/technology-tracker/technology-tracker-h1-2018-data-tables?v=323142) immer noch 24% der Menschen im Vereinigten Königreich Prepaid-Pläne.
+Sie müssen den Datenverbrauch berücksichtigen. Viele Menschen sind auf datenbeschränkten Verträgen oder sogar auf Prepaid-Plänen, wo sie buchstäblich pro Megabyte bezahlen. Dies ist auch kein Problem nur in aufstrebenden Märkten. Im Jahr 2018 nutzten laut [OFCOM Nations & regions technology tracker - H1 2018 (PDF)](https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/technology-research/technology-tracker/technology-tracker-h1-2018-data-tables?v=323142) 24 % des Vereinigten Königreichs immer noch Prepaid-Tarife.
 
-Sie müssen auch den Speicher berücksichtigen, da viele mobile Geräte über begrenzten RAM verfügen. Es ist wichtig zu beachten, dass Bilder, wenn sie heruntergeladen werden, im Speicher gespeichert werden müssen.
+Sie müssen auch den Speicher berücksichtigen, da viele mobile Geräte über begrenzten RAM verfügen. Es ist wichtig zu bedenken, dass Bilder im Speicher gespeichert werden müssen, sobald sie heruntergeladen werden.
 
 ## Optimierung der Bildbereitstellung
 
-Obwohl Bilder die größte Bandbreitenverbraucher sind, ist der Einfluss von Bilddownloads auf die [wahrgenommene Performance](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance) weit geringer als viele vermuten (hauptsächlich weil der Textinhalt der Seite sofort heruntergeladen wird und die Nutzer die Bilder sehen können, wenn sie ankommen). Trotzdem ist es für eine gute Benutzererfahrung wichtig, dass ein Besucher sie so schnell wie möglich sehen kann.
+Trotz des hohen Bandbreitenverbrauchs ist die Auswirkung des Bilddownloads auf die [wahrgenommene Leistung](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance) weit geringer als viele erwarten (hauptsächlich, weil der Textinhalt der Seite sofort heruntergeladen wird und die Nutzer die Bilder sehen können, während sie geladen werden). Für ein gutes Benutzererlebnis ist es jedoch dennoch wichtig, dass ein Besucher sie so schnell wie möglich sehen kann.
 
 ### Lade-Strategie
 
-Einer der größten Verbesserungen für die meisten Websites ist das [Lazy-Loading](/de/docs/Web/Performance/Lazy_loading) von Bildern unterhalb der Faltung anstatt beim ersten Laden der Seite alle Bilder herunterzuladen, unabhängig davon, ob ein Besucher herunterscrollt, um sie zu sehen oder nicht. Browser stellen dies nativ über das [`loading="lazy"`](/de/docs/Web/HTML/Element/img#loading) Attribut am `<img>`-Element zur Verfügung, und es gibt auch viele clientseitige JavaScript-Bibliotheken, die dies können.
+Eine der größten Verbesserungen für die meisten Websites ist das [Lazy-loading](/de/docs/Web/Performance/Guides/Lazy_loading) von Bildern unterhalb der Falte, anstatt sie alle beim ersten Seitenaufruf herunterzuladen, egal ob ein Besucher hinunterscrollt, um sie zu sehen, oder nicht. Browser bieten dies nativ über das [`loading="lazy"`](/de/docs/Web/HTML/Element/img#loading)-Attribut auf dem `<img>`-Element an, und es gibt auch viele clientseitige JavaScript-Bibliotheken, die dies tun können.
 
-Neben dem Laden eines Teils der Bilder sollten Sie das Format der Bilder selbst untersuchen:
+Unabhängig von der Lade-Teilmenge der Bilder sollten Sie auch das Format der Bilder selbst betrachten:
 
 - Laden Sie die optimalsten Dateiformate?
 - Haben Sie die Bilder gut komprimiert?
@@ -61,38 +59,38 @@ Neben dem Laden eines Teils der Bilder sollten Sie das Format der Bilder selbst 
 
 #### Das optimalste Format
 
-Das optimale Dateiformat hängt typischerweise von der Charakteristik des Bildes ab.
+Das optimale Dateiformat hängt typischerweise vom Charakter des Bildes ab.
 
 > [!NOTE]
-> Allgemeine Informationen zu Bildtypen finden Sie im [Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Guides/Formats/Image_types)
+> Für allgemeine Informationen über Bildtypen siehe den [Leitfaden für Bilddateitypen und -formate](/de/docs/Web/Media/Guides/Formats/Image_types)
 
-Das [SVG](/de/docs/Web/Media/Guides/Formats/Image_types#svg_scalable_vector_graphics) Format ist besser geeignet für Bilder, die wenige Farben haben und nicht fotorealistisch sind. Dies erfordert, dass die Quelle in einem Vektorgraphikformat vorliegt. Sollte ein solches Bild nur als Bitmap existieren, dann wäre [PNG](/de/docs/Web/Media/Guides/Formats/Image_types#png_portable_network_graphics) das Fallback-Format, das Sie wählen sollten. Beispiele für diese Arten von Motiven sind Logos, Illustrationen, Diagramme oder Icons (Hinweis: SVGs sind weitaus besser als Icon-Schriften!). Beide Formate unterstützen Transparenz.
+Das [SVG](/de/docs/Web/Media/Guides/Formats/Image_types#svg_scalable_vector_graphics)-Format eignet sich besser für Bilder, die wenige Farben haben und nicht fotorealistisch sind. Dies erfordert, dass die Quelle in einem Vektorgrafikformat verfügbar ist. Sollte ein solches Bild nur als Bitmap existieren, wäre [PNG](/de/docs/Web/Media/Guides/Formats/Image_types#png_portable_network_graphics) das zu wählende Ausweichformat. Beispiele für diese Arten von Motiven sind Logos, Illustrationen, Diagramme oder Symbole (Hinweis: SVGs sind weitaus besser als Iconschriften!). Beide Formate unterstützen Transparenz.
 
 PNGs können mit drei verschiedenen Ausgabekombinationen gespeichert werden:
 
-- 24-Bit Farbe + 8-Bit Transparenz — bieten volle Farbgenauigkeit und glatte Transparenz auf Kosten der Größe. Diese Kombination sollten Sie wahrscheinlich zugunsten von WebP (siehe unten) vermeiden.
-- 8-Bit Farbe + 8-Bit Transparenz — bieten nicht mehr als 255 Farben, aber erhalten glatte Transparenzen. Die Größe ist nicht zu groß. Das sind die PNGs, die Sie wahrscheinlich möchten.
-- 8-Bit Farbe + 1-Bit Transparenz — bieten nicht mehr als 255 Farben und nur volle oder keine Transparenz pro Pixel, wodurch die Transparenzränder hart und gezackt erscheinen. Die Größe ist klein, aber der Preis ist die Bildqualität.
+- 24-Bit-Farbe + 8-Bit-Transparenz — bietet vollständige Farbgenauigkeit und sanfte Transparenz auf Kosten der Größe. Sie möchten wahrscheinlich diese Kombination zugunsten von WebP vermeiden (siehe unten).
+- 8-Bit-Farbe + 8-Bit-Transparenz — bietet nicht mehr als 255 Farben, behält jedoch sanfte Transparenzen bei. Die Größe ist nicht zu groß. Das sind die PNGs, die Sie wahrscheinlich wollen.
+- 8-Bit-Farbe + 1-Bit-Transparenz — bietet nicht mehr als 255 Farben und nur keine oder vollständige Transparenz pro Pixel, wodurch die Transparenzränder hart und gezackt erscheinen. Die Größe ist klein, aber der Preis ist visuelle Treue.
 
 Ein gutes Online-Tool zur Optimierung von SVGs ist [SVGOMG](https://jakearchibald.github.io/svgomg/). Für PNGs gibt es [ImageOptim online](https://imageoptim.com/online) oder [Squoosh](https://squoosh.app/).
 
-Bei fotografischen Motiven, die keine Transparenz haben, gibt es ein viel breiteres Spektrum an Formaten zur Auswahl. Wenn Sie auf Nummer sicher gehen wollen, sollten Sie gut komprimierte **Progressive JPEGs** verwenden. Progressive JPEGs, im Gegensatz zu normalen JPEGs, stellen progressiv dar (daher der Name), was bedeutet, der Benutzer sieht eine niedrigauflösende Version, die an Klarheit gewinnt, während das Bild heruntergeladen wird, anstatt das Bild in voller Auflösung von oben nach unten zu laden oder es erst anzuzeigen, wenn es vollständig heruntergeladen ist. Ein guter Kompressor für diese wäre MozJPEG, z.B. verfügbar im Online-Bildoptimierungstool [Squoosh](https://squoosh.app/). Eine Qualitätseinstellung von 75% sollte gute Ergebnisse liefern.
+Bei Fotomotiven, die keine Transparenz aufweisen, gibt es eine viel größere Auswahl an Formaten. Wenn Sie auf Nummer sicher gehen wollen, entscheiden Sie sich für gut komprimierte **Progressive JPEGs**. Progressive JPEGs, im Gegensatz zu normalen JPEGs, werden progressiv gerendert (daher der Name), was bedeutet, dass der Benutzer eine niedrigauflösende Version sieht, die klarer wird, während das Bild heruntergeladen wird, anstatt dass das Bild von oben nach unten oder erst beim vollständigen Herunterladen in voller Auflösung geladen wird. Ein guter Kompressor hierfür wäre MozJPEG, z. B. verfügbar im Online-Bildoptimierungstool [Squoosh](https://squoosh.app/). Eine Qualitätseinstellung von 75 % sollte anständige Ergebnisse liefern.
 
-Andere Formate verbessern die Fähigkeiten von JPEG in Bezug auf Kompression, sind aber nicht in jedem Browser verfügbar:
+Andere Formate verbessern die Fähigkeiten von JPEG hinsichtlich der Kompression, sind jedoch nicht in jedem Browser verfügbar:
 
-- [WebP](/de/docs/Web/Media/Guides/Formats/Image_types#webp_image) — Hervorragende Wahl für sowohl Bilder als auch animierte Bilder. WebP bietet viel bessere Kompression als PNG oder JPEG mit Unterstützung für höhere Farbtiefen, animierte Frames, Transparenz usw. (jedoch keine progressive Anzeige). Unterstützt von allen großen Browsern außer Safari 14 auf macOS Desktop Big Sur oder älter.
+- [WebP](/de/docs/Web/Media/Guides/Formats/Image_types#webp_image) — Hervorragende Wahl sowohl für Bilder als auch für animierte Bilder. WebP bietet eine viel bessere Kompression als PNG oder JPEG mit Unterstützung für höhere Farbtiefen, animierte Rahmen, Transparenz usw. (aber keine progressive Darstellung.). Wird von allen großen Browsern mit Ausnahme von Safari 14 auf macOS-Desktop Big Sur oder früher unterstützt.
 
   > [!NOTE]
-  > Trotz der [Ankündigung von Apple zur Unterstützung von WebP in Safari 14](https://developer.apple.com/videos/play/wwdc2020/10663/?time=1174) zeigen Safari-Versionen vor 16.0 keine `.webp` Bilder erfolgreich auf macOS Desktop-Versionen vor 11/Big Sur. Safari für iOS 14 _zeigt_ `.webp` Bilder erfolgreich an.
+  > Trotz der Ankündigung von Apple [Unterstützung für WebP in Safari 14](https://developer.apple.com/videos/play/wwdc2020/10663/?time=1174), zeigen Safari-Versionen früher als 16.0 keine `.webp`-Bilder erfolgreich auf macOS-Desktop-Versionen früher als 11/Big Sur. Safari für iOS 14 zeigt `.webp`-Bilder jedoch erfolgreich an.
 
-- [AVIF](/de/docs/Web/Media/Guides/Formats/Image_types#avif_image) — Gute Wahl für sowohl Bilder als auch animierte Bilder aufgrund der hohen Leistung und des lizenzfreien Bildformats (noch effizienter als WebP, aber nicht so weit verbreitet unterstützt). Es wird jetzt in Chrome, Edge, Opera und Firefox unterstützt. [Squoosh](https://squoosh.app/) ist ein gutes Online-Tool zum Konvertieren früherer Bildformate in AVIF.
-- **JPEG2000** — sollte ursprünglich der Nachfolger von JPEG sein, wird aber nur in Safari unterstützt. Unterstützt ebenfalls keine progressive Anzeige.
+- [AVIF](/de/docs/Web/Media/Guides/Formats/Image_types#avif_image) — Gute Wahl für sowohl Bilder als auch animierte Bilder aufgrund des leistungsstarken und lizenzgebührenfreien Bildformats (noch effizienter als WebP, aber nicht so weit verbreitet unterstützt). Es wird jetzt auf Chrome, Edge, Opera und Firefox unterstützt. [Squoosh](https://squoosh.app/) ist ein gutes Online-Tool, um frühere Bildformate in AVIF zu konvertieren.
+- **JPEG2000** — sollte der Nachfolger von JPEG sein, wird jedoch nur in Safari unterstützt. Unterstützung für progressive Darstellung fehlt ebenfalls.
 
-Angesichts der geringen Unterstützung für JPEG-XR und JPEG2000 und unter Berücksichtigung der Dekodierungskosten ist der einzige ernsthafte Konkurrent für JPEG WebP. Daher könnten Sie Ihre Bilder auch in diesem Format anbieten. Dies kann über das `<picture>`-Element mit Hilfe eines `<source>`-Elements geschehen, das mit einem [type-Attribut](/de/docs/Web/HTML/Element/picture#the_type_attribute) ausgestattet ist.
+Angesichts der geringen Unterstützung von JPEG-XR und JPEG2000 und unter Berücksichtigung der Dekodierungskosten ist der einzige ernstzunehmende Konkurrent für JPEG WebP. Daher könnten Sie Ihre Bilder auch in diesem Format anbieten. Dies kann über das `<picture>`-Element mit Hilfe eines `<source>`-Elements erfolgen, das über ein [type-Attribut](/de/docs/Web/HTML/Element/picture#the_type_attribute) verfügt.
 
-Wenn all dies etwas kompliziert klingt oder sich nach zu viel Arbeit für Ihr Team anfühlt, gibt es auch Online-Dienste, die Sie als Bild-CDNs nutzen können, die das Ausliefern des richtigen Bildformats automatisch und je nach Gerät oder Browser, das/die das Bild anfordert, durchführen. Beliebte Optionen sind [Cloudinary](https://cloudinary.com/blog/make_all_images_on_your_website_responsive_in_3_easy_steps), [Image Engine](https://imageengine.io/), [ImageKit](https://imagekit.io/docs/image-optimization#automatic-format-conversion) und [imgix](https://www.imgix.com/).
+Wenn all dies ein wenig kompliziert erscheint oder wie zu viel Arbeit für Ihr Team, gibt es auch Online-Dienste, die Sie als Bild-CDNs verwenden können, die die automatische Bereitstellung des richtigen Bildformats je nach Art des Geräts oder Browsers, der das Bild anfordert, bedienen. Beliebte Auswahlmöglichkeiten sind [Cloudinary](https://cloudinary.com/blog/make_all_images_on_your_website_responsive_in_3_easy_steps), [Image Engine](https://imageengine.io/), [ImageKit](https://imagekit.io/docs/image-optimization#automatic-format-conversion) und [imgix](https://www.imgix.com/).
 
-Sollten Sie schließlich animierte Bilder auf Ihrer Seite einfügen wollen, wissen Sie, dass Safari die Verwendung von Videodateien innerhalb von `<img>` und `<picture>`-Elementen erlaubt. Dies ermöglicht es Ihnen auch, ein **animiertes WebP** für alle anderen modernen Browser hinzuzufügen.
+Schließlich, wenn Sie animierte Bilder auf Ihrer Seite hinzufügen möchten, wissen Sie, dass Safari die Verwendung von Video-Dateien innerhalb von `<img>` und `<picture>`-Elementen zulässt. Diese ermöglichen es Ihnen auch, eine **Animated WebP** für alle anderen modernen Browser hinzuzufügen.
 
 ```html
 <picture>
@@ -102,38 +100,38 @@ Sollten Sie schließlich animierte Bilder auf Ihrer Seite einfügen wollen, wiss
 </picture>
 ```
 
-#### Die optimale Größe bereitstellen
+#### Bereitstellung der optimalen Größe
 
-Bei der Bildbereitstellung wird die Strategie "eine Größe für alle" nicht die besten Ergebnisse liefern, was bedeutet, dass Sie für kleinere Bildschirme Bilder mit kleinerer Auflösung und umgekehrt für größere Bildschirme bereitstellen möchten. Außerdem würden Sie hochauflösende Bilder an diejenigen Geräte liefern, die über ein hochauflösendes Display verfügen (z.B. "Retina"). Neben der Erstellung vieler Zwischenvarianten von Bildern benötigen Sie auch eine Möglichkeit, die richtige Datei an den richtigen Browser zu liefern. Hierfür müssen Sie Ihre `<picture>`- und `<source>`-Elemente mit [media](/de/docs/Web/HTML/Element/source#media)- und/oder [sizes](/de/docs/Web/HTML/Element/source#sizes)-Attributen erweitern. Ein detaillierter Artikel darüber, wie man all diese Attribute kombiniert, finden Sie [hier](https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/).
+Bei der Bereitstellung von Bildern führt die "One-Size-Fits-All"-Lösung nicht zu den besten Ergebnissen. Das bedeutet, dass Sie für kleinere Bildschirme Bilder mit kleinerer Auflösung bereitstellen möchten und umgekehrt für größere Bildschirme. Darüber hinaus möchten Sie höhere Auflösung für diejenigen Geräte bereitstellen, die einen Bildschirm mit hoher DPI (z. B. "Retina") haben. Abgesehen davon, dass Sie viele Zwischenbildvarianten erstellen, benötigen Sie auch eine Möglichkeit, die richtige Datei an den richtigen Browser zu liefern. Dazu müssen Sie die `<picture>`- und `<source>`-Elemente mit [media](/de/docs/Web/HTML/Element/source#media) und/oder [sizes](/de/docs/Web/HTML/Element/source#sizes) Attributen aufrüsten. Ein ausführlicher Artikel, wie man all diese Attribute kombiniert, finden Sie [hier](https://www.smashingmagazine.com/2014/05/responsive-images-done-right-guide-picture-srcset/).
 
-Zwei interessante Effekte, die im Hinblick auf hochauflösende Bildschirme zu beachten sind, umfassen:
+Zwei interessante Effekte, die Sie bei Hoch-DPI-Bildschirmen beachten sollten, sind:
 
-- Bei einem hochauflösenden Bildschirm werden Menschen Komprimierungsartefakte viel später bemerken, was bedeutet, dass Sie für Bilder, die für diese Bildschirme gedacht sind, die Kompression über das Übliche hinaus erhöhen können.
-- [Nur sehr wenige Menschen können eine Erhöhung der Auflösung über 2× DPI hinaus erkennen](https://observablehq.com/@eeeps/visual-acuity-and-device-pixel-ratio), was bedeutet, dass Sie keine Bilder mit einer Auflösung höher als 2× bereitstellen müssen.
+- Mit einem Hoch-DPI-Bildschirm erkennen Menschen Komprimierungsartefakte viel später, was bedeutet, dass Sie für Bilder, die für diese Bildschirme bestimmt sind, die Komprimierung über das Übliche hinaus erhöhen können.
+- [Nur sehr wenige Menschen können eine Erhöhung der Auflösung über 2× DPI hinaus erkennen](https://observablehq.com/@eeeps/visual-acuity-and-device-pixel-ratio), was bedeutet, dass Sie keine Bilder bereitstellen müssen, die höher als 2× aufgelöst sind.
 
-#### Die Priorität (und Reihenfolge) des Herunterladens von Bildern steuern
+#### Steuerung der Priorität (und Reihenfolge) beim Herunterladen von Bildern
 
-Indem Sie die wichtigsten Bilder früher als die weniger wichtigen Bilder vor den Besuchern erscheinen lassen, können Sie die wahrgenommene Performance verbessern.
+Wichtige Bilder schneller als weniger wichtige vor Besuchern anzuzeigen, kann die wahrgenommene Performance verbessern.
 
-Das Erste, was zu überprüfen ist, dass Ihre Inhaltsbilder `<img>`- oder `<picture>`-Elemente verwenden und Ihre Hintergrundbilder in CSS mit `background-image` definiert sind – Bilder, die in `<img>`-Elementen referenziert werden, haben eine höhere Ladepriorität als Hintergrundbilder.
+Das Erste, was zu überprüfen ist, ist, dass Ihre Inhaltsbilder `<img>`- oder `<picture>`-Elemente verwenden, und Ihre Hintergrundbilder in CSS mit `background-image` definiert sind — Bilder, die in `<img>`-Elementen referenziert sind, erhalten eine höhere Ladepriorität als Hintergrundbilder.
 
-Zweitens, mit der Einführung von Priority Hints, können Sie die Priorität weiter steuern, indem Sie ein `fetchPriority`-Attribut zu Ihren Bilder-Tags hinzufügen. Ein Anwendungsfall für Prioritätshinweise bei Bildern sind Karussells, bei denen das erste Bild eine höhere Priorität hat als die nachfolgenden Bilder.
+Zweitens können Sie mit der Einführung von Priority Hints die Priorität weiter steuern, indem Sie ein `fetchPriority`-Attribut zu Ihren Bild-Tags hinzufügen. Ein Anwendungsfall für Prioritätshinweise für Bilder sind Karussells, bei denen das erste Bild eine höhere Priorität als die nachfolgenden Bilder hat.
 
-### Rendering-Strategie: Vermeidung von Ruckeln beim Laden von Bildern
+### Rendering-Strategie: Verhinderung von Ruckeln beim Laden von Bildern
 
-Da Bilder asynchron geladen werden und nach dem ersten Rendering weitergeladen werden, können sie, wenn ihre Abmessungen nicht vor dem Laden definiert sind, Neufluss auf den Seiteninhalt verursachen. Zum Beispiel, wenn Text durch das Laden von Bildern nach unten verschoben wird. Aus diesem Grund ist es wichtig, `width` und `height`-Attribute festzulegen, damit der Browser Platz für sie im Layout reservieren kann.
+Da Bilder asynchron geladen werden und nach dem ersten Anstrich weitergeladen werden, können sie, wenn ihre Abmessungen vor dem Laden nicht definiert sind, Umflows des Seiteninhalts verursachen. Zum Beispiel, wenn Text durch das Laden von Bildern nach unten auf der Seite geschoben wird. Aus diesem Grund ist es wichtig, `width` und `height` Attribute festzulegen, damit der Browser Platz für sie im Layout reservieren kann.
 
-Wenn die `width` und `height` Attribute eines Bildes im HTML {{htmlelement("img")}}-Element enthalten sind, kann das [Seitenverhältnis des Bildes](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio#adjusting_aspect_ratios_of_replaced_elements) vom Browser berechnet werden, bevor das Bild geladen wird. Dieses {{Glossary("aspect_ratio", "Seitenverhältnis")}} wird verwendet, um den benötigten Platz zur Anzeige des Bildes zu reservieren, wodurch ein Layout-Verschiebung reduziert oder sogar verhindert wird, wenn das Bild heruntergeladen und auf den Bildschirm gezeichnet wird. Die Reduzierung von Layout-Verschiebungen ist ein wichtiger Bestandteil einer guten Benutzererfahrung und Web-Performance.
+Wenn die `width` und `height` Attribute eines Bildes auf einem HTML {{htmlelement("img")}}-Element enthalten sind, kann das [Seitenverhältnis des Bildes](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio#adjusting_aspect_ratios_of_replaced_elements) vom Browser berechnet werden, bevor das Bild geladen wird. Dieses {{Glossary("aspect_ratio", "Seitenverhältnis")}} wird verwendet, um den benötigten Platz zum Anzeigen des Bildes zu reservieren, wodurch oder sogar verhindert wird, dass ein Layoutwechsel auftritt, wenn das Bild heruntergeladen und auf dem Bildschirm dargestellt wird. Das Reduzieren von Layoutverschiebungen ist eine wichtige Komponente für ein gutes Benutzererlebnis und die Webperformance.
 
-Browsers beginnen mit dem Rendern von Inhalten, sobald HTML analysiert wird, oft bevor alle Ressourcen einschließlich Bilder heruntergeladen wurden. Durch das Einschließen von Abmessungen können Browser eine korrekt dimensionierte Platzhalterbox für jedes Bild reservieren, die beim Laden der Bilder bei der ersten Darstellung der Seite erscheint.
+Browser beginnen mit dem Rendern von Inhalten, während HTML analysiert wird, oft bevor alle Ressourcen einschließlich der Bilder heruntergeladen sind. Durch die Angabe von Dimensionen können Browser einen korrekt dimensionierten Platzhalterkasten für jedes Bild reservieren, der erscheint, wenn die Bilder geladen werden, beim ersten Rendern der Seite.
 
-![Zwei Screenshots: Der erste ohne ein Bild, aber mit reserviertem Platz; der zweite zeigt das Bild, das in den reservierten Platz geladen wurde.](ar-guide.jpg)
+![Zwei Screenshots, der erste ohne ein Bild aber mit reserviertem Platz, der zweite zeigt das Bild, das in den reservierten Platz geladen wurde.](ar-guide.jpg)
 
-Ohne die `width` und `height` Attribute wird kein Platzhalter erstellt, was eine bemerkbare {{Glossary("jank", "Ruckelbewegung")}} oder Layout-Verschiebung auf der Seite verursacht, wenn das Bild nach dem Rendering der Seite geladen wird. Seitenneufluss und Neumalrichtungen sind Performance- und Nutzungsprobleme.
+Ohne die `width` und `height` Attribute wird kein Platzhalterraum erstellt, was zu einem sichtbaren {{Glossary("jank", "Ruckeln")}} oder Layoutwechsel auf der Seite führt, wenn das Bild nach dem Rendern der Seite geladen wird. Seiten-Umfluss und -Neuzeichnungen sind Leistungs- und Nutzbarkeitsprobleme.
 
-Die {{Glossary("CLS", "CLS")}}-Metrik misst Ruckeln beim Seitenladen oder wie stark sichtbare Inhalte im Viewport verschoben werden und um wie viel. Die Hauptverursacher schlechter CLS sind ersetzte Elemente ohne deklarierte Abmessungen, die beim Laden der Ressource neu fließen, einschließlich Bilder, Anzeigen, Einbettungen und iframes ohne eine Größe oder {{cssxref("aspect-ratio")}} und Web-Schriften.
+Der {{Glossary("CLS", "CLS")}} Metrik misst das Ruckeln beim Laden der Seite, oder wie stark sichtbarer Inhalt im Ansichtsfenster verschoben wird und um wie viel. Die Hauptursachen für schlechten CLS sind ersetzte Elemente ohne deklarierte Dimensionen, die einen Umfluss verursachen, wenn das Asset geladen wird, einschließlich Bilder, Anzeigen, Embeds und Iframes ohne eine Größe oder {{cssxref("aspect-ratio")}} und Web-Schriften.
 
-In responsiven Designs, wenn ein Container schmaler ist als ein Bild, wird im Allgemeinen das folgende CSS verwendet, um zu verhindern, dass Bilder aus ihren Containern herausbrechen:
+Bei responsiven Designs, wenn ein Container schmaler als ein Bild ist, wird normalerweise das folgende CSS verwendet, um zu verhindern, dass Bilder aus ihren Containern herausbrechen:
 
 ```css
 img {
@@ -142,20 +140,20 @@ img {
 }
 ```
 
-Während dies für responsive Layouts nützlich ist, verursacht dies Ruckeln und schlechte CLS, wenn Breiten- und Höheninformationen nicht enthalten sind, da, wenn keine Höheninformationen vorhanden sind, wenn das `<img>`-Element analysiert wird, aber bevor das Bild geladen hat, dieses CSS effektiv die Höhe auf 0 gesetzt hat. Wenn das Bild nach dem ersten Rendern der Seite auf dem Bildschirm geladen wird, wird die Seite neu geflossen und neu gezeichnet, wodurch eine Layout-Verschiebung entsteht, da Platz für die neu bestimmte Höhe geschaffen wird.
+Während nützlich für responsive Layouts, verursacht dies Ruckeln und schlechte CLS, wenn Breiten- und Höheninformationen nicht enthalten sind, denn wenn keine Höheninformationen vorhanden sind, wenn das `<img>`-Element analysiert wird, aber bevor das Bild geladen ist, hat dieses CSS die Höhe effektiv auf 0 gesetzt. Wenn das Bild nach dem anfänglichen Rendern der Seite auf den Bildschirm geladen wird, fließt die Seite neu und wird neu gezeichnet, wodurch ein Layoutwechsel entsteht, da es Platz für die neu ermittelte Höhe schafft.
 
-Browsers haben einen Mechanismus zur Größenbestimmung von Bildern, bevor das eigentliche Bild geladen wird. Wenn ein `<img>`, `<video>`, oder `<input type="button">`-Element `width` und `height`-Attribute darauf gesetzt hat, wird sein Seitenverhältnis vor der Ladezeit berechnet und steht dem Browser mit den bereitgestellten Dimensionen zur Verfügung.
+Browser haben einen Mechanismus zum Größen der Bilder vor dem tatsächlichen Laden des Bildes. Wenn auf einem `<img>`, `<video>` oder `<input type="button">`-Element `width` und `height` Attribute gesetzt sind, wird das Seitenverhältnis vor der Ladezeit berechnet und steht dem Browser zur Verfügung, indem die bereitgestellten Dimensionen verwendet werden.
 
-Das Seitenverhältnis wird dann verwendet, um die Höhe zu berechnen, und daher wird die richtige Größe auf das `<img>`-Element angewendet, was bedeutet, dass das zuvor erwähnte Ruckeln nicht auftritt oder minimal ist, wenn die angegebenen Abmessungen beim Laden des Bildes nicht vollständig genau sind.
+Das Seitenverhältnis wird dann verwendet, um die Höhe zu berechnen und somit die korrekte Größe auf das `<img>`-Element anzuwenden, was bedeutet, dass das zuvor erwähnte Ruckeln nicht auftritt oder minimal ist, wenn die angegebenen Dimensionen nicht vollends korrekt sind, wenn das Bild geladen wird.
 
-Das Seitenverhältnis wird nur beim Laden des Bilds zur Platzreservierung verwendet. Sobald das Bild geladen ist, wird das intrinsische Seitenverhältnis des geladenen Bildes oder der Wert der `aspect-ratio`-Eigenschaft verwendet, statt des Seitenverhältnisses von den Attributen. Dies stellt sicher, dass es im korrekten Seitenverhältnis angezeigt wird, auch wenn die Attributabmessungen nicht genau sind.
+Das Seitenverhältnis wird nur für die Bildreservierung beim Laden verwendet. Sobald das Bild geladen ist, wird das intrinsische Seitenverhältnis des geladenen Bildes oder der Wert der `aspect-ratio`-Eigenschaft anstelle des Seitenverhältnisses aus den Attributen verwendet. Dies stellt sicher, dass es im korrekten Seitenverhältnis angezeigt wird, auch wenn die Attributdimensionen nicht genau sind.
 
-Während Entwickler-Best-Practices aus dem letzten Jahrzehnt empfohlen haben könnten, die `width` und `height`-Attribute eines Bildes auf einem HTML {{htmlelement("img")}} zu weglassen, wird das Einschließen dieser beiden Attribute aufgrund der Zuordnung des Seitenverhältnisses als Best Practice für Entwickler angesehen.
+Während Entwickler Best Practices aus dem letzten Jahrzehnt möglicherweise empfohlen haben, die `width` und `height` Attribute eines Bildes in einem HTML {{htmlelement("img")}} auszuschließen, wird das Hinzufügen dieser beiden Attribute aufgrund der Zuordnung von Seitenverhältnissen als Entwickler-Best Practice angesehen.
 
-Für alle Hintergrundbilder ist es wichtig, dass Sie einen `background-color`-Wert festlegen, damit überlagerte Inhalte immer noch lesbar sind, bevor das Bild heruntergeladen wurde.
+Für alle Hintergrundbilder ist es wichtig, dass Sie einen `background-color`-Wert festlegen, damit alle überlagerten Inhalte immer noch lesbar sind, bevor das Bild heruntergeladen wurde.
 
 ## Fazit
 
-In diesem Abschnitt haben wir uns mit der Bildoptimierung befasst. Sie haben nun ein allgemeines Verständnis davon, wie Sie die Hälfte der durchschnittlichen Bandbreite einer durchschnittlichen Website optimieren können. Dies ist nur eine der Arten von Medien, die den Bandbreitenverbrauch der Nutzer belasten und die Ladezeit der Seite verlangsamen. Lassen Sie uns die Videooptimierung angehen, um die nächsten 20% des Bandbreitenverbrauchs zu bekämpfen.
+In diesem Abschnitt haben wir uns mit der Bildoptimierung befasst. Sie haben nun ein allgemeines Verständnis dafür, wie man die Hälfte der durchschnittlichen Bandbreitennutzung einer Website optimiert. Dies ist nur eine der Arten von Medien, die die Bandbreite der Nutzer konsumieren und die Seitenladezeit verlangsamen. Schauen wir uns Video-Optimierung an, um die nächsten 20 % des Bandbreitenverbrauchs anzugehen.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Performance/measuring_performance", "Learn_web_development/Extensions/Performance/video", "Learn_web_development/Extensions/Performance")}}

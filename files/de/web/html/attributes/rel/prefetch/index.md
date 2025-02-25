@@ -2,36 +2,35 @@
 title: rel=prefetch
 slug: Web/HTML/Attributes/rel/prefetch
 l10n:
-  sourceCommit: cb132bc83b660e51be8959de5336c00b08030104
+  sourceCommit: 31ff21cf5f083a3258fc04267d54b1fb72224ff6
 ---
 
 {{HTMLSidebar}}
 
-Das **`prefetch`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Element/link#rel) Attribut des {{HTMLElement("link")}} Elements gibt Browsern einen Hinweis darauf, dass der Benutzer die Zielressource wahrscheinlich für zukünftige Navigationen benötigt. Der Browser kann die Benutzererfahrung verbessern, indem er die Ressource im Voraus abruft und zwischenspeichert. `<link rel="prefetch">` wird für Navigationen auf derselben Seite oder für Teilressourcen verwendet, die von Seiten derselben Seite genutzt werden.
+Das **`prefetch`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Element/link#rel) Attribut des {{HTMLElement("link")}} Elements gibt Browsern einen Hinweis, dass der Benutzer die Zielressource wahrscheinlich für zukünftige Navigationen benötigen wird. Somit kann der Browser die Benutzererfahrung wahrscheinlich verbessern, indem er die Ressource vorbeugend abruft und zwischenspeichert. `<link rel="prefetch">` wird für Navigationen auf derselben Website oder für Unterressourcen verwendet, die von Seiten derselben Website genutzt werden.
 
-Das Ergebnis wird im HTTP-Cache auf der Festplatte gespeichert. Aus diesem Grund ist es nützlich, Teilressourcen vorab abzurufen, selbst wenn sie nicht auf der aktuellen Seite verwendet werden. Sie könnten es auch verwenden, um das nächste Dokument vorzubestellen, das der Benutzer wahrscheinlich auf der Website besuchen wird. Sie müssen jedoch bei den Headern vorsichtig sein - bestimmte [Cache-Control](/de/docs/Web/HTTP/Headers/Cache-Control) Header könnten das Vorabladen blockieren (zum Beispiel `no-cache` oder `no-store`).
+Das Ergebnis wird im HTTP-Cache auf der Festplatte gespeichert. Aufgrund dieser Tatsache ist es nützlich, Unterressourcen vorab abzurufen, selbst wenn sie auf der aktuellen Seite nicht verwendet werden. Sie könnten es auch verwenden, um das nächste Dokument, das der Benutzer wahrscheinlich auf der Website besuchen wird, vorab abzurufen. Allerdings müssen Sie daher mit Headern vorsichtig sein — zum Beispiel könnten bestimmte [Cache-Control](/de/docs/Web/HTTP/Headers/Cache-Control) Header das Prefetching blockieren (wie `no-cache` oder `no-store`).
 
 > [!NOTE]
-> Aufgrund solcher Einschränkungen wird empfohlen, stattdessen die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) für das Vorabladen von Dokumenten zu verwenden, wo sie unterstützt wird.
+> Aufgrund solcher Einschränkungen wird empfohlen, stattdessen die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) für Dokumenten-Prefetches zu verwenden, wo sie unterstützt wird.
 
-`<link rel="prefetch">` ist funktional äquivalent zu einem [`fetch()`](/de/docs/Web/API/Window/fetch) Aufruf mit einer `priority: "low"` Option, außer dass ersteres im Allgemeinen eine noch niedrigere Priorität hat und ein [`Sec-Purpose: prefetch`](/de/docs/Web/HTTP/Headers/Sec-Purpose) Header in der Anfrage gesetzt ist. Beachten Sie, dass Browser im Allgemeinen Vorabladeressourcen eine niedrigere Priorität als Preload-Ressourcen geben (z.B. angefordert über [`<link rel="preload">`](/de/docs/Web/HTML/Attributes/rel/preload)) — die aktuelle Seite ist wichtiger als die nächste.
+`<link rel="prefetch">` ist funktionell äquivalent zu einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf mit einer `priority: "low"` Option, außer dass ersteres generell eine noch niedrigere Priorität hat und es einen [`Sec-Purpose: prefetch`](/de/docs/Web/HTTP/Headers/Sec-Purpose) Header auf der Anfrage gesetzt hat. Beachten Sie, dass Browser im Allgemeinen Prefetch-Ressourcen eine niedrigere Priorität geben als Preload-Ressourcen (z.B. angefordert über [`<link rel="preload">`](/de/docs/Web/HTML/Attributes/rel/preload)) — die aktuelle Seite ist wichtiger als die nächste.
 
-Der Abruf für eine `prefetch` Operation führt zu einer HTTP-Anfrage, die den HTTP-Header [`Sec-Purpose: prefetch`](/de/docs/Web/HTTP/Headers/Sec-Purpose) enthält. Ein Server könnte diesen Header verwenden, um die Cache-Timeouts für die Ressourcen zu ändern oder andere spezielle Behandlungen durchzuführen.
-Die Anfrage wird auch den {{HTTPHeader("Sec-Fetch-Dest")}} Header mit dem Wert `empty` enthalten.
+Die Fetch-Anfrage für einen `prefetch`-Vorgang resultiert in einer HTTP-Anfrage, die den HTTP-Header [`Sec-Purpose: prefetch`](/de/docs/Web/HTTP/Headers/Sec-Purpose) enthält. Ein Server könnte diesen Header verwenden, um die Cache-Timeouts für die Ressourcen zu ändern oder andere spezielle Behandlungen vorzunehmen. Die Anfrage wird auch den {{HTTPHeader("Sec-Fetch-Dest")}} Header mit dem Wert `empty` enthalten.
 
-Der {{HTTPHeader("Accept")}} Header in der Anfrage entspricht dem Wert, der für normale Navigationsanfragen verwendet wird. Dies ermöglicht es dem Browser, die passenden zwischengespeicherten Ressourcen nach der Navigation zu finden.
+Der {{HTTPHeader("Accept")}} Header in der Anfrage wird den Wert verwenden, der für normale Navigationsanfragen verwendet wird. Dadurch kann der Browser die übereinstimmenden zwischengespeicherten Ressourcen nach der Navigation finden.
 
 ## Beispiele
 
-### Einfaches Prefetching
+### Einfaches Prefetch
 
 ```js
 <link rel="prefetch" href="main.js" />
 ```
 
-### Navigation und Teilressourcen-Prefetching
+### Navigation und Unterressourcen-Prefetches
 
-Das Vorabladen kann verwendet werden, um sowohl HTML als auch Teilressourcen für eine mögliche nächste Navigation abzurufen. Ein häufiger Anwendungsfall ist eine einfache Website-Landingpage, die schwerere Ressourcen vorlädt, die vom Rest der Seite verwendet werden.
+Prefetching kann verwendet werden, um sowohl HTML als auch Unterressourcen für eine mögliche nächste Navigation abzurufen. Ein häufiger Anwendungsfall ist, eine einfache Einstiegsseite einer Website zu haben, die "schwerere" Ressourcen abruft, die vom Rest der Website verwendet werden.
 
 ```html
 <link rel="prefetch" href="/app/style.css" />
@@ -40,13 +39,13 @@ Das Vorabladen kann verwendet werden, um sowohl HTML als auch Teilressourcen fü
 
 ### Die Auswirkungen der Cache-Partitionierung
 
-Viele Browser implementieren nun eine Form der [Cache-Partitionierung](https://developer.chrome.com/blog/http-cache-partitioning), was `<link rel="prefetch">` für Ressourcen nutzlos macht, die für verschiedene oberste Websites verwendet werden sollen. Dies schließt das Hauptdokument beim siteübergreifenden Navigieren ein. Zum Beispiel wäre das folgende Prefetch:
+Viele Browser implementieren jetzt eine Form der [Cache-Partitionierung](https://developer.chrome.com/blog/http-cache-partitioning), die `<link rel="prefetch">` für Ressourcen nutzlos macht, die für die Verwendung durch verschiedene Top-Level-Sites vorgesehen sind. Dies schließt das Hauptdokument beim Navigieren über verschiedene Seiten ein. Zum Beispiel wäre das folgende Prefetch:
 
 ```html
 <link rel="prefetch" href="https://news.example/article" />
 ```
 
-Von `https://aggregator.example/` nicht zugänglich.
+nicht zugänglich von `https://aggregator.example/`.
 
 ## Spezifikationen
 
@@ -58,4 +57,4 @@ Von `https://aggregator.example/` nicht zugänglich.
 
 ## Siehe auch
 
-- [Spekulatives Laden](/de/docs/Web/Performance/Speculative_loading) für einen Vergleich von `<link rel="prefetch">` und anderen ähnlichen Leistungsverbesserungsfunktionen.
+- [Spekulatives Laden](/de/docs/Web/Performance/Guides/Speculative_loading) für einen Vergleich von `<link rel="prefetch">` und anderen ähnlichen Leistungsverbesserungsfunktionen.

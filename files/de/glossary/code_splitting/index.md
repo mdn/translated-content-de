@@ -2,18 +2,18 @@
 title: Code-Splitting
 slug: Glossary/Code_splitting
 l10n:
-  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
+  sourceCommit: 31ff21cf5f083a3258fc04267d54b1fb72224ff6
 ---
 
 {{GlossarySidebar}}
 
-**Code-Splitting** ist die Praxis, den Code, auf den eine Webanwendung angewiesen ist — einschließlich des eigenen Codes und aller Drittanbieter-Abhängigkeiten — in separate Bündel zu unterteilen, die unabhängig voneinander geladen werden können. Dies ermöglicht es einer Anwendung, nur den Code zu laden, den sie tatsächlich zu einem bestimmten Zeitpunkt benötigt, und andere Bündel bei Bedarf zu laden. Dieser Ansatz wird verwendet, um die Performance der Anwendung zu verbessern, insbesondere beim erstmaligen Laden.
+**Code-Splitting** ist die Praxis, den Code, von dem eine Webanwendung abhängt — einschließlich ihres eigenen Codes und jeglicher Drittanbieterabhängigkeiten — in separate Bündel aufzuteilen, die unabhängig voneinander geladen werden können. Dies ermöglicht es einer Anwendung, nur den Code zu laden, den sie zu einem bestimmten Zeitpunkt tatsächlich benötigt, und andere Bündel bei Bedarf zu laden. Dieser Ansatz wird verwendet, um die Anwendungsleistung zu verbessern, insbesondere beim erstmaligen Laden.
 
-Code-Splitting ist eine Funktion, die von Bundlern wie [webpack](https://webpack.js.org/) und [Browserify](https://browserify.org/) unterstützt wird, die mehrere Bündel erstellen können, die zur Laufzeit dynamisch geladen werden können.
+Code-Splitting ist ein Feature, das von Bundlern wie [webpack](https://webpack.js.org/) und [Browserify](https://browserify.org/) unterstützt wird. Diese können mehrere Bündel erstellen, die zur Laufzeit dynamisch geladen werden können.
 
 ## Siehe auch
 
-- [Lazy Loading](/de/docs/Web/Performance/Lazy_loading)
+- [Lazy Loading](/de/docs/Web/Performance/Guides/Lazy_loading)
 - Verwandte Glossarbegriffe:
   - {{Glossary("HTTP_2", "HTTP/2")}}
   - {{Glossary("Tree_shaking", "Tree Shaking")}}
