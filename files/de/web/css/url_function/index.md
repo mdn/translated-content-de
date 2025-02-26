@@ -2,24 +2,24 @@
 title: url()
 slug: Web/CSS/url_function
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: fb51edbd4c95754178050012f09ffd4ef5284962
 ---
 
 {{CSSRef}}
 
-Die **`url()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wird verwendet, um eine Datei einzubinden. Der Parameter ist eine absolute URL, eine relative URL, eine Blob-URL oder eine Daten-URL. Die **`url()`** Funktion kann als Parameter einer anderen CSS-Funktion, wie der {{cssxref("attr")}} Funktion, übergeben werden. Abhängig von der Eigenschaft, für die sie ein Wert ist, kann die gesuchte Ressource ein Bild, eine Schriftart oder ein Stylesheet sein. Die `url()` funktionale Notation ist der Wert für den `<url>` Datentyp.
+Die **`url()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wird verwendet, um eine Datei einzubinden. Der Parameter ist eine absolute URL, eine relative URL, eine Blob-URL oder eine Daten-URL. Die **`url()`** Funktion kann als Parameter einer anderen CSS-Funktion übergeben werden, wie der {{cssxref("attr")}} Funktion. Abhängig von der Eigenschaft, für die sie als Wert verwendet wird, kann die gesuchte Ressource ein Bild, eine Schriftart oder ein Stylesheet sein. Die `url()` Funktionalnotation ist der Wert für den `<url>` Datentyp.
 
 > [!NOTE]
-> Es gibt einen Unterschied zwischen einem {{Glossary("URI", "URI")}} und einer {{Glossary("URL", "URL")}}. Ein URI identifiziert eine Ressource. Eine URL ist eine Art von URI und beschreibt den _Standort_ einer Ressource. Ein URI kann entweder eine URL oder ein Name ({{Glossary("URN", "URN")}}) einer Ressource sein.
+> Es gibt einen Unterschied zwischen einem {{Glossary("URI", "URI")}} und einer {{Glossary("URL", "URL")}}. Ein URI identifiziert eine Ressource. Eine URL ist ein Typ von URI und beschreibt den _Ort_ einer Ressource. Ein URI kann entweder eine URL oder ein Name ({{Glossary("URN", "URN")}}) einer Ressource sein.
 >
-> In CSS Level 1 beschrieb die `url()` funktionale Notation nur echte URLs. In CSS Level 2 wurde die Definition von `url()` erweitert, um jeden URI zu beschreiben, ob URL oder URN. Verwirrenderweise bedeutete dies, dass `url()` verwendet werden konnte, um einen `<uri>` CSS-Datentyp zu erstellen. Diese Änderung war nicht nur ungeschickt, sondern, streitbar, unnötig, da URNs in der tatsächlichen CSS-Anwendung fast nie verwendet werden. Um die Verwirrung zu mildern, kehrte CSS Level 3 zur engeren, ursprünglichen Definition zurück. Jetzt steht `url()` nur noch für echte `<url>`s.
+> In CSS Level 1 beschrieb die `url()` Funktionalnotation nur echte URLs. In CSS Level 2 wurde die Definition von `url()` erweitert, um jeden URI zu beschreiben, sei es eine URL oder eine URN. Verwirrenderweise bedeutete dies, dass `url()` verwendet werden konnte, um einen `<uri>` CSS-Datentyp zu erstellen. Diese Änderung war nicht nur ungeschickt, sondern debattierbar unnötig, da URNs fast nie in tatsächlichem CSS verwendet werden. Um die Verwirrung zu beseitigen, kehrte CSS Level 3 zur engeren, ursprünglichen Definition zurück. Jetzt bezeichnet `url()` nur noch echte `<url>`.
 
 ```css
 /* Basic usage */
 url("https://example.com/images/myImg.jpg");
 url('https://example.com/images/myImg.jpg');
 url(https://example.com/images/myImg.jpg);
-url("data:image/jpg;base64,iRxVB0…");
+url("data:image/jpeg;base64,iRxVB0…");
 url(myImg.jpg);
 url(#IDofSVGpath);
 
@@ -53,9 +53,11 @@ content: url(star.svg) url(star.svg) url(star.svg) url(star.svg) url(star.svg);
 @namespace url(http://www.w3.org/1999/xhtml);
 ```
 
-Relative URLs, falls verwendet, beziehen sich auf die URL des Stylesheets (und nicht auf die URL der Webseite).
+Relative URLs, falls verwendet, beziehen sich auf die URL des Stylesheets (nicht auf die URL der Webseite).
 
-Die **`url()`** Funktion kann als Wert für {{cssxref('background')}}, {{cssxref('background-image')}}, {{cssxref('border')}}, {{cssxref('border-image')}}, {{cssxref('border-image-source')}}, {{cssxref('content')}}, {{cssxref('cursor')}}, {{cssxref('filter')}}, {{cssxref('list-style')}}, {{cssxref('list-style-image')}}, {{cssxref('mask')}}, {{cssxref('mask-image')}}, {{cssxref('offset-path')}}, {{cssxref('clip-path')}}, [src](/de/docs/Web/CSS/@font-face/src) als Teil eines [`@font-face`](/de/docs/Web/CSS/@font-face) Blocks und [@counter-style/`symbol`](/de/docs/Web/CSS/@counter-style/symbols) enthalten sein.
+Die **`url()`** Funktion kann als Wert für
+{{cssxref('background')}}, {{cssxref('background-image')}}, {{cssxref('border')}}, {{cssxref('border-image')}}, {{cssxref('border-image-source')}}, {{cssxref('content')}}, {{cssxref('cursor')}}, {{cssxref('filter')}}, {{cssxref('list-style')}}, {{cssxref('list-style-image')}}, {{cssxref('mask')}}, {{cssxref('mask-image')}}, {{cssxref('offset-path')}}, {{cssxref('clip-path')}},
+[src](/de/docs/Web/CSS/@font-face/src) als Teil eines [`@font-face`](/de/docs/Web/CSS/@font-face) Blocks und [@counter-style/`symbol`](/de/docs/Web/CSS/@counter-style/symbols) eingeschlossen werden.
 
 ## Syntax
 
@@ -63,11 +65,11 @@ Die **`url()`** Funktion kann als Wert für {{cssxref('background')}}, {{cssxref
 
 - `<string>`
 
-  - : Ein String, der eine URL oder die ID einer SVG-Form spezifizieren kann.
+  - : Ein String, der möglicherweise eine URL oder die ID einer SVG-Form angibt.
 
     - url
 
-      - : Eine URL, die eine relative oder absolute Adresse oder ein Zeiger auf die einzubindende Webressource oder eine Daten-URL ist, optional in einfachen oder doppelten Anführungszeichen. Anführungszeichen sind erforderlich, wenn die URL Klammern, Leerzeichen oder Anführungszeichen enthält, es sei denn, diese Zeichen sind maskiert oder die Adresse enthält Steuerzeichen über 0x7e. Doppelte Anführungszeichen dürfen nicht innerhalb doppelter Anführungszeichen und einfache Anführungszeichen nicht innerhalb einfacher Anführungszeichen vorkommen, es sei denn, sie sind maskiert. Folgende sind alle gültig und gleichwertig:
+      - : Eine URL, die eine relative oder absolute Adresse oder ein Zeiger auf die Web-Ressource, die eingebunden werden soll, oder eine Daten-URL ist, optional in einfachen oder doppelten Anführungszeichen. Anführungszeichen sind erforderlich, wenn die URL Klammern, Leerzeichen oder Anführungszeichen enthält, es sei denn, diese Zeichen werden maskiert, oder wenn die Adresse Steuerzeichen über 0x7e enthält. Doppelte Anführungszeichen können nicht innerhalb doppelter Anführungszeichen und einfache Anführungszeichen nicht innerhalb einfacher Anführungszeichen vorkommen, es sei denn, sie sind maskiert. Die folgenden Beispiele sind alle gültig und gleichwertig:
 
         ```css
         <css_property>: url("https://example.com/image.png")
@@ -78,10 +80,10 @@ Die **`url()`** Funktion kann als Wert für {{cssxref('background')}}, {{cssxref
         Wenn Sie sich entscheiden, die URL ohne Anführungszeichen zu schreiben, verwenden Sie einen Backslash (`\`) vor allen Klammern, Leerzeichen, einfachen Anführungszeichen (`'`) und doppelten Anführungszeichen (`"`), die Teil der URL sind.
 
     - path
-      - : Referenziert die ID einer [SVG-Form](/de/docs/Web/SVG/Tutorial/Basic_Shapes) oder eines [SVG-Filters](/de/docs/Web/SVG/Element/filter).
+      - : Verweist auf die ID einer [SVG-Form](/de/docs/Web/SVG/Tutorial/Basic_Shapes) oder eines [SVG-Filters](/de/docs/Web/SVG/Element/filter).
 
 - `<url-modifier>`
-  - : In Zukunft könnte die `url()` Funktion die Angabe eines Modifikators unterstützen, einer Bezeichnung oder einer funktionalen Notation, die die Bedeutung des URL-Strings verändert. Dies wird derzeit nicht unterstützt und ist in der Spezifikation nicht vollständig definiert.
+  - : In Zukunft könnte die `url()` Funktion die Angabe eines Modifikators unterstützen, eines Identifikators oder einer funktionalen Notation, die die Bedeutung des URL-Strings verändert. Dies wird derzeit nicht unterstützt und ist in der Spezifikation nicht vollständig definiert.
 
 ## Formale Syntax
 
@@ -100,7 +102,7 @@ body {
 
 {{EmbedLiveSample("As the background property value", "100%", "200")}}
 
-### Für das Setzen eines Bildes als Aufzählungszeichen
+### Zum Setzen eines Bildes als Listensymbol
 
 ```html hidden
 <ul>
@@ -167,8 +169,8 @@ body {
 
 Wenn eine URL als Pfad für einen Filter verwendet wird, muss die URL eine der folgenden sein:
 
-1. Der Pfad zu einer SVG-Datei mit angehängter ID des Filters.
-2. die ID des Filters, wenn die SVG bereits auf der Seite existiert.
+1. Der Pfad zu einer SVG-Datei mit der angehängten ID des Filters.
+2. Die ID des Filters, wenn das SVG bereits auf der Seite vorhanden ist.
 
 ```css
 .blur {

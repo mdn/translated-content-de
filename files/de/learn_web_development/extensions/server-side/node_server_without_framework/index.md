@@ -1,17 +1,17 @@
 ---
-title: Node.js-Server ohne Framework
+title: Node.js Server ohne ein Framework
 slug: Learn_web_development/Extensions/Server-side/Node_server_without_framework
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: fb51edbd4c95754178050012f09ffd4ef5284962
 ---
 
 {{LearnSidebar}}
 
-Dieser Artikel bietet einen einfachen statischen Dateiserver, der mit reinem [Node.js](https://nodejs.org/en/) ohne die Verwendung eines Frameworks erstellt wurde. Der aktuelle Stand von Node.js ist so, dass fast alles, was wir benötigen, von den eingebauten APIs bereitgestellt wird und wir nur wenige Codezeilen benötigen.
+Dieser Artikel zeigt einen statischen Dateiserver, der in [Node.js](https://nodejs.org/en/) ohne die Verwendung von Frameworks erstellt wurde. Der aktuelle Stand von Node.js ist so, dass fast alles, was wir für den statischen Dateiserver benötigen, durch eingebaute APIs und ein paar Codezeilen bereitgestellt wird.
 
 ## Beispiel
 
-Ein einfacher statischer Dateiserver, der mit Node.js erstellt wurde:
+Ein statischer Dateiserver, der mit Node.js erstellt wurde:
 
 ```js
 import * as fs from "node:fs";
@@ -26,7 +26,7 @@ const MIME_TYPES = {
   js: "application/javascript",
   css: "text/css",
   png: "image/png",
-  jpg: "image/jpg",
+  jpg: "image/jpeg",
   gif: "image/gif",
   ico: "image/x-icon",
   svg: "image/svg+xml",
@@ -73,7 +73,7 @@ import * as http from "node:http";
 import * as path from "node:path";
 ```
 
-Als Nächstes haben wir eine Funktion zur Erstellung des Servers. `https.createServer` gibt ein `Server`-Objekt zurück, das wir durch Hören auf `PORT` starten können.
+Als nächstes haben wir eine Funktion zur Erstellung des Servers. `https.createServer` gibt ein `Server`-Objekt zurück, das wir durch das Lauschen auf `PORT` starten können.
 
 ```js
 http
@@ -85,11 +85,11 @@ http
 console.log(`Server running at http://127.0.0.1:${PORT}/`);
 ```
 
-Die asynchrone Funktion `prepareFile` gibt die Struktur zurück: `{ found: boolean, ext: string, stream: ReadableStream }`. Wenn die Datei ausgeliefert werden kann (der Serverprozess hat Zugriff und es wird keine Pfad-Traversierungs-Schwachstelle gefunden), geben wir den HTTP-Status `200` als `statusCode` zurück, der Erfolg anzeigt (anderenfalls geben wir `HTTP 404` zurück). Beachten Sie, dass andere Statuscodes in `http.STATUS_CODES` zu finden sind. Mit dem Status `404` geben wir den Inhalt der Datei `'/404.html'` zurück.
+Die asynchrone Funktion `prepareFile` gibt die Struktur zurück: `{ found: boolean, ext: string, stream: ReadableStream }`. Wenn die Datei ausgeliefert werden kann (der Serverprozess hat Zugriff und es wurde keine Pfadausnutzungsschwachstelle gefunden), werden wir den HTTP-Status `200` als `statusCode` zurückgeben, was Erfolg anzeigt (ansonsten geben wir `HTTP 404` zurück). Beachten Sie, dass andere Statuscodes in `http.STATUS_CODES` zu finden sind. Mit dem Status `404` geben wir den Inhalt der Datei `'/404.html'` zurück.
 
-Die Erweiterung der angeforderten Datei wird geparst und in Kleinbuchstaben umgewandelt. Danach durchsuchen wir die `MIME_TYPES`-Sammlung nach den richtigen [MIME-Typen](/de/docs/Web/HTTP/MIME_types). Wenn keine Übereinstimmungen gefunden werden, verwenden wir `application/octet-stream` als Standardtyp.
+Die Erweiterung der angeforderten Datei wird analysiert und in Kleinbuchstaben umgewandelt. Danach suchen wir in der `MIME_TYPES`-Sammlung nach den richtigen [MIME-Typen](/de/docs/Web/HTTP/MIME_types). Wenn keine Übereinstimmungen gefunden werden, verwenden wir `application/octet-stream` als Standardtyp.
 
-Schließlich, wenn keine Fehler auftreten, senden wir die angeforderte Datei. Der `file.stream` enthält einen `Readable`-Stream, der in `res` (eine Instanz des `Writable`-Streams) gepiped wird.
+Schließlich, wenn keine Fehler vorliegen, senden wir die angeforderte Datei. Der `file.stream` wird einen `Readable`-Stream enthalten, der in `res` (eine Instanz des `Writable`-Streams) geleitet wird.
 
 ```js
 res.writeHead(statusCode, { "Content-Type": mimeType });
