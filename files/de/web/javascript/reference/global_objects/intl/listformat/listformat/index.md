@@ -1,8 +1,8 @@
 ---
-title: Intl.ListFormat() Konstruktor
+title: Intl.ListFormat()-Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 56beb40c68076030d1812fcec837c89910b58373
 ---
 
 {{JSRef}}
@@ -41,16 +41,16 @@ new Intl.ListFormat(locales)
 new Intl.ListFormat(locales, options)
 ```
 
-> **Note:** `Intl.ListFormat()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Intl.ListFormat()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konzipiert werden. Der Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47-Sprachcode oder einer {{jsxref("Intl.Locale")}}-Instanz, oder ein Array solcher Sprachcode-Kennungen. Die Standardlocale des Laufzeitsystems wird verwendet, wenn `undefined` übergeben wird oder wenn keine der angegebenen Sprachkennungen unterstützt wird. Für die allgemeine Form und Interpretation des Parameters `locales` siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47-Sprach-Tag oder eine {{jsxref("Intl.Locale")}}-Instanz oder ein Array solcher Sprachkennungen. Die Standard-Locale des Laufzeitsystems wird verwendet, wenn `undefined` übergeben wird oder wenn keine der angegebenen Locale-Kennungen unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
     - `localeMatcher`
-      - : Der zu verwendende Locale-Matching-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für weitere Informationen zu dieser Option siehe [Lokale Identifikation und Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der Locale-Matching-Algorithmus, der verwendet werden soll. Mögliche Werte sind `"lookup"` und `"best fit"`; die Standardeinstellung ist `"best fit"`. Für Informationen zu dieser Option siehe [Locale-Identifikation und Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `type`
       - : Gibt den Typ der Gruppierung an. Mögliche Werte sind:
         - `"conjunction"` (Standard)
@@ -58,15 +58,15 @@ new Intl.ListFormat(locales, options)
         - `"disjunction"`
           - : Für "oder"-basierte Gruppierung der Listenelemente: "A, B, or C"
         - `"unit"`
-          - : Für die Gruppierung der Listenelemente als Einheit (weder "und"-basiert noch "oder"-basiert): "A, B, C"
+          - : Für die Gruppierung der Listenelemente als zusammengesetzte Einheit (weder "und"-basiert noch "oder"-basiert): "A, B, C"
     - `style`
-      - : Der Gruppierungsstil (zum Beispiel, ob Listen-Trennzeichen und Konjunktionen enthalten sind). Mögliche Werte sind:
+      - : Der Gruppierungsstil (zum Beispiel, ob Listentrenner und Konjunktionen enthalten sind). Mögliche Werte sind:
         - `"long"` (Standard)
-          - : Z.B. "A, B, and C"
+          - : Das typische Listenformat. Zum Beispiel: "A, B, and C"
         - `"short"`
-          - : Z.B. "A, B, C"
+          - : Der Abstand, die Länge oder das Vorhandensein einer Konjunktion und die Trennzeichen können sich ändern. Normalerweise möchten Sie auch, dass die Eingabeelemente abgekürzt werden. Zum Beispiel: "A, B, & C"
         - `"narrow"`
-          - : Z.B. "A B C"
+          - : Wo möglich, wird das Listenformat weiter abgekürzt, sodass die Ausgabe so kurz wie möglich ist. Zum Beispiel: "A, B, C"
 
 ### Ausnahmen
 
@@ -77,101 +77,118 @@ new Intl.ListFormat(locales, options)
 
 ### Verwendung von format
 
-Das folgende Beispiel zeigt, wie man einen List-Formatter mit der englischen Sprache erstellt.
+Das folgende Beispiel zeigt, wie ein Listenformatierer für die englische Sprache erstellt wird.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];
 
-console.log(
-  new Intl.ListFormat("en-GB", { style: "long", type: "conjunction" }).format(
-    list,
-  ),
-);
+console.log(new Intl.ListFormat("en-GB", { type: "conjunction" }).format(list));
 // Motorcycle, Bus and Car
 
-console.log(new Intl.ListFormat("en-GB", { style: "long" }).format(list));
+console.log(new Intl.ListFormat("en-GB", { type: "disjunction" }).format(list));
+// Motorcycle, Bus or Car
+```
+
+### Oxford-Komma
+
+Das [Oxford-Komma](https://en.wikipedia.org/wiki/Serial_comma) ist ein Komma, das unmittelbar vor der koordinierenden Konjunktion (normalerweise "and" oder "or") in einer Liste von drei oder mehr Begriffen steht. Etwas umstritten verwendet die `en-US`-Locale das Oxford-Komma, während die `en-GB`-Locale es nicht tut.
+
+```js
+const list = ["Motorcycle", "Bus", "Car"];
+
+console.log(new Intl.ListFormat("en-GB", { type: "conjunction" }).format(list));
 // Motorcycle, Bus and Car
 
-console.log(new Intl.ListFormat("en-US", { style: "long" }).format(list));
+console.log(new Intl.ListFormat("en-US", { type: "conjunction" }).format(list));
 // Motorcycle, Bus, and Car
+```
+
+### Einheit Formatierung
+
+Verwenden Sie `style: "unit"`, um die Listenelemente als zusammengesetzte Einheit zu formatieren. Tatsächlich verwendet {{jsxref("Intl.DurationFormat")}} intern einheitliches Listenformat, um Zeitdauern zu formatieren.
+
+```js
+const marathon = [
+  [42, "kilometer"],
+  [195, "meter"],
+];
 
 console.log(
-  new Intl.ListFormat("en-GB", { style: "short", type: "conjunction" }).format(
-    list,
+  new Intl.ListFormat("en-US", { type: "unit" }).format(
+    marathon.map((component) =>
+      component[0].toLocaleString("en-US", {
+        style: "unit",
+        unit: component[1],
+        unitDisplay: "long",
+      }),
+    ),
   ),
 );
-// Motorcycle, Bus and Car
+// 42 kilometers, 195 meters
+```
 
-console.log(
-  new Intl.ListFormat("en-US", { style: "short", type: "conjunction" }).format(
-    list,
-  ),
-);
+### Kurzer und enger Stil
+
+Die `"short"` und `"narrow"` Stile sind nützlich für kompakte Darstellungen von Listen.
+
+```js
+const list = ["Motorcycle", "Bus", "Car"];
+console.log(new Intl.ListFormat("en-US", { style: "short" }).format(list));
 // Motorcycle, Bus, & Car
-
-console.log(
-  new Intl.ListFormat("en-GB", { style: "narrow", type: "conjunction" }).format(
-    list,
-  ),
-);
-// Motorcycle, Bus, Car
-
-console.log(
-  new Intl.ListFormat("en-GB", { style: "long", type: "disjunction" }).format(
-    list,
-  ),
-);
-// Motorcycle, Bus or Car
-
-console.log(
-  new Intl.ListFormat("en-GB", { style: "short", type: "disjunction" }).format(
-    list,
-  ),
-);
-// Motorcycle, Bus or Car
-
-console.log(
-  new Intl.ListFormat("en-GB", { style: "narrow", type: "disjunction" }).format(
-    list,
-  ),
-);
-// Motorcycle, Bus or Car
 
 console.log(new Intl.ListFormat("en-US", { style: "narrow" }).format(list));
 // Motorcycle, Bus, Car
 
-console.log(
-  new Intl.ListFormat("en-GB", { style: "narrow", type: "unit" }).format(list),
-);
-// Motorcycle Bus Car
+console.log(new Intl.ListFormat("en-GB", { style: "short" }).format(list));
+// Motorcycle, Bus and Car
 
-console.log(
-  new Intl.ListFormat("en-US", { style: "long" }).format([
-    "30 degrees",
-    "15 minutes",
-    "50 seconds",
-  ]),
-);
-// 30 degrees, 15 minutes, and 50 seconds
-
-console.log(
-  new Intl.ListFormat("en-US", { style: "narrow" }).format([
-    "30 degrees",
-    "15 minutes",
-    "50 seconds",
-  ]),
-);
-// 30 degrees, 15 minutes, 50 seconds
-
-console.log(
-  new Intl.ListFormat("en-US", { style: "narrow", type: "unit" }).format([
-    "30°",
-    "15′",
-    "50″",
-  ]),
-);
-// 30° 15′ 50″
+console.log(new Intl.ListFormat("en-GB", { style: "narrow" }).format(list));
+// Motorcycle, Bus, Car
 ```
+
+Die Eingabeelemente werden nicht transformiert, aber häufig möchten Sie diese auch abkürzen.
+
+```js
+const marathon = [
+  [42, "kilometer"],
+  [195, "meter"],
+];
+
+function formatDistance(locale, distance, style) {
+  return new Intl.ListFormat(locale, { type: "unit", style }).format(
+    marathon.map((component) =>
+      component[0].toLocaleString(locale, {
+        style: "unit",
+        unit: component[1],
+        unitDisplay: style,
+      }),
+    ),
+  );
+}
+
+console.log(formatDistance("en-US", marathon, "long"));
+// 42 kilometers, 195 meters
+console.log(formatDistance("en-US", marathon, "short"));
+// 42 km, 195 m
+console.log(formatDistance("en-US", marathon, "narrow"));
+// 42km 195m
+```
+
+### Auswahl der Konjunktion
+
+Das verwendete Konjunktionswort kann von den String-Werten der Listenelemente abhängen. Zum Beispiel ist im Spanischen die Konjunktion `"y"` für die meisten Wörter, aber `"e"` für Wörter, die mit dem Vokal `"i"` beginnen.
+
+```js
+const words = ["fuerte", "indomable"];
+const formatter = new Intl.ListFormat("es-ES", { type: "conjunction" });
+
+console.log(formatter.format(words));
+// fuerte e indomable
+console.log(formatter.format(words.toReversed()));
+// indomable y fuerte
+```
+
+Der Algorithmus zur Bestimmung der Konjunktion ist nicht perfekt (zum Beispiel kann er nicht immer die Aussprache eines Wortes anhand seiner Schreibweise erkennen), sollte aber im Allgemeinen funktionieren.
 
 ## Spezifikationen
 

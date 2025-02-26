@@ -1,13 +1,13 @@
 ---
-title: CSS Bilder
+title: CSS-Bilder
 slug: Web/CSS/CSS_images
 l10n:
-  sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
+  sourceCommit: b5df38a16de5c44a7e9bf7de59f65994cafd5396
 ---
 
 {{CSSRef}}
 
-Das **CSS-Bilder**-Modul definiert die Bildtypen, die verwendet werden können (den {{CSSxRef("&lt;image&gt;")}}-Typ, der URLs, Gradienten und andere Bildtypen enthält), wie sie skaliert werden und wie sie und andere ersetzte Inhalte mit den verschiedenen Layoutmodellen interagieren.
+Das **CSS-Bilder**-Modul definiert die Arten von Bildern, die verwendet werden können (der {{CSSxRef("&lt;image&gt;")}}-Typ, der URLs, Verläufe und andere Arten von Bildern enthält), wie man sie skaliert und wie sie und andere ersetzte Inhalte mit den verschiedenen Layoutmodellen interagieren.
 
 ## Referenz
 
@@ -27,10 +27,10 @@ Das **CSS-Bilder**-Modul definiert die Bildtypen, die verwendet werden können (
 - {{CSSxRef("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}
 - {{CSSxRef("gradient/conic-gradient", "conic-gradient()")}}
 - {{CSSxRef("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
-- {{cssxref("url_value", "&lt;url&gt;")}}
+- {{CSSxRef("cross-fade", "cross-fade()")}}
 - {{CSSxRef("element", "element()")}}
 - {{CSSxRef("image/image", "image()")}}
-- {{CSSxRef("cross-fade", "cross-fade()")}}
+- {{CSSxRef("image/image-set", "image-set()")}}
 
 ### Datentypen
 
@@ -39,17 +39,22 @@ Das **CSS-Bilder**-Modul definiert die Bildtypen, die verwendet werden können (
 
 ## Leitfäden
 
-- [Verwendung von CSS-Gradienten](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
 
-  - : Stellt einen spezifischen Typ von CSS-Bildern, _Gradienten_, vor und wie man diese erstellt und verwendet.
+  - : Präsentiert einen speziellen Typ von CSS-Bildern, _Verläufe_, und wie man diese erstellt und verwendet.
 
-- [Implementierung von Bildspriten in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
+- [Implementierung von Bildsprites in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
 
-  - : Beschreibt die gängige Technik, mehrere Bilder in einem einzigen Dokument zu gruppieren, um Downloadanfragen zu sparen und die Verfügbarkeit einer Seite zu beschleunigen.
+  - : Beschreibt die gängige Technik, mehrere Bilder in einem einzigen Dokument zu gruppieren, um Download-Anfragen zu sparen und die Verfügbarkeit einer Seite zu beschleunigen.
 
-- [Verstehen von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
 
-  - : Erfahren Sie mehr über die `aspect-ratio`-Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige häufige Anwendungsfälle für Seitenverhältnisse.
+  - : Erlernen Sie die `aspect-ratio`-Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige häufige Anwendungsfälle von Seitenverhältnissen.
+
+## Verwandte Konzepte
+
+- {{cssxref("url_value", "&lt;url&gt;")}}
+- {{cssxref("url_function", "url()")}}
 
 ## Spezifikationen
 
@@ -57,6 +62,7 @@ Das **CSS-Bilder**-Modul definiert die Bildtypen, die verwendet werden können (
 
 ## Siehe auch
 
-- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
-- [CSS Komposition und Überblendung](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
-- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- Modul [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
+- Modul [CSS-Komposition und -Mischung](/de/docs/Web/CSS/CSS_compositing_and_blending)
+- Modul [CSS-Farben](/de/docs/Web/CSS/CSS_colors)
+- Modul [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)

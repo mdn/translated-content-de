@@ -3,12 +3,12 @@ title: "ImageCapture: track-Eigenschaft"
 short-title: track
 slug: Web/API/ImageCapture/track
 l10n:
-  sourceCommit: 91090d531495c5387b584fa07708dd2a8278eba1
+  sourceCommit: 624bbdcb7d9beace299a4fa0d3ddcd8f6732cd90
 ---
 
-{{APIRef("Image Capture API")}}{{SeeCompatTable}}
+{{APIRef("Image Capture API")}}
 
-Die schreibgeschützte **`track`**-Eigenschaft der [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Schnittstelle gibt eine Referenz auf den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück, der an den [`ImageCapture()`](/de/docs/Web/API/ImageCapture/ImageCapture)-Konstruktor übergeben wurde.
+Die **`track`** schreibgeschützte Eigenschaft des [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Interfaces gibt eine Referenz auf den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück, der an den [`ImageCapture()`](/de/docs/Web/API/ImageCapture/ImageCapture)-Konstruktor übergeben wurde.
 
 ## Wert
 

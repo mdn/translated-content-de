@@ -1,13 +1,13 @@
 ---
-title: ::-webkit-slider-runnable-track
+title: "::-webkit-slider-runnable-track"
 slug: Web/CSS/::-webkit-slider-runnable-track
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 624bbdcb7d9beace299a4fa0d3ddcd8f6732cd90
 ---
 
-{{CSSRef}}{{SeeCompatTable}}{{non-standard_header}}
+{{CSSRef}}{{non-standard_header}}
 
-Das **`::-webkit-slider-runnable-track`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die "Schiene" (die Nut, in der der Indikator gleitet) eines {{HTMLElement("input/range", '&lt;input type="range"&gt;')}}.
+Der **`::-webkit-slider-runnable-track`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die "Schiene" (die Rille, in der der Indikator gleitet) eines {{HTMLElement("input/range", '&lt;input type="range"&gt;')}}.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Das **`::-webkit-slider-runnable-track`** CSS-[Pseudoelement](/de/docs/Web/CSS/P
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Gehört zu keinem Standard.
 
 ## Browser-Kompatibilität
 
