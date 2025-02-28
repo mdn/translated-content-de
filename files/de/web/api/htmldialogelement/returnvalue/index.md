@@ -3,107 +3,68 @@ title: "HTMLDialogElement: returnValue-Eigenschaft"
 short-title: returnValue
 slug: Web/API/HTMLDialogElement/returnValue
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: ca147ed465e966afbdcec1abed15795d7a60505e
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces erhält oder setzt den Rückgabewert für das {{htmlelement("dialog")}}, üblicherweise um anzugeben, welche Schaltfläche der Benutzer gedrückt hat, um es zu schließen.
+Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces ist ein String, der den Rückgabewert für ein {{htmlelement("dialog")}}-Element repräsentiert, wenn es geschlossen wird. Sie können den Wert direkt setzen (`dialog.returnValue = "result"`) oder indem Sie den Wert als String-Argument an [`close()`](/de/docs/Web/API/HTMLDialogElement/close) oder [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose) übergeben.
 
 ## Wert
 
-Ein String, der den `returnValue` des Dialogs darstellt.
+Ein String, der den `returnValue` des Dialogs repräsentiert. Standardmäßig ist dieser ein leerer String (`""`).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine Schaltfläche zum Öffnen eines {{htmlelement("dialog")}} mit einem Formular über die Methode `showModal()`.
-Das Skript weist der `returnValue` initial den Wert `initialValue` zu.
-Die Bestätigungsschaltfläche (`confirmBtn`) sendet das Formular mit Validierung, und die "X"-Schaltfläche sendet das Formular ohne Validierung. Das Senden eines Formulars mit `method="dialog"` schließt den Dialog und setzt den Rückgabewert auf den `value`, falls vorhanden, der `button`- oder `input`-Elemente vom Typ `submit`.
-Die Zurücksetzen-Schaltfläche hat einen Ereignis-Handler, der den Dialog schließt; sie hat keinen Einfluss auf den `returnValue`. Auch das Schließen des Dialogs mit der <kbd>Esc</kbd>-Taste hat keinen Einfluss.
+Das folgende Beispiel zeigt einen Button, um einen Dialog mit einer Nutzungsbedingungen-Aufforderung über die `showModal()`-Methode anzuzeigen. Das Skript verarbeitet die Eingaben des Nutzers, indem es den `returnValue` zuweist, wenn der Annehmen- oder Ablehnen-Button geklickt wird. Der Button "Ablehnen" setzt den `returnValue` auf "declined", während der Button "Annehmen" ihn auf "accepted" setzt. Zudem aktualisiert das Schließen des Dialogs (z.B. mit dem Schließen-Ereignis) den Status-Text mit dem `returnValue` des Dialogs. Das Schließen des Dialogs mit der <kbd>Esc</kbd>-Taste setzt den `returnValue` nicht.
 
 ```html
-<!-- Simple pop-up dialog box containing a form -->
-<dialog id="favDialog">
-  <form method="dialog">
-    <input
-      type="submit"
-      aria-label="close"
-      value="X"
-      name="x-button"
-      formnovalidate />
-    <p>
-      <label
-        >Favorite animal:
-        <select name="favAnimal" required>
-          <option></option>
-          <option>Brine shrimp</option>
-          <option>Red panda</option>
-          <option>Spider monkey</option>
-        </select>
-      </label>
-    </p>
-    <menu>
-      <button type="reset" value="resetBtn">Reset</button>
-      <button type="submit" value="confirmBtn">Confirm</button>
-    </menu>
-  </form>
+<!-- Simple pop-up dialog box -->
+<dialog id="termsDialog">
+  <p>Do you agree to the Terms of Service(link)?</p>
+  <button id="declineButton" value="declined">Decline</button>
+  <button id="acceptButton" value="accepted">Accept</button>
 </dialog>
-
 <p>
-  <button id="openDialog">Open Dialog</button>
+  <button id="openDialog">Review ToS</button>
 </p>
-<p id="text"></p>
+<p id="statusText"></p>
 
 <script>
-  (() => {
-    const openDialog = document.getElementById("openDialog");
-    const dialog = document.getElementById("favDialog");
-    const text = document.getElementById("text");
-    const reset = document.querySelector("[type='reset']");
-    dialog.returnValue = "initialValue";
+  const dialog = document.getElementById("termsDialog");
+  const openDialog = document.getElementById("openDialog");
+  const statusText = document.getElementById("statusText");
+  const declineButton = document.getElementById("declineButton");
+  const acceptButton = document.getElementById("acceptButton");
 
-    function openCheck(dialog) {
-      if (dialog.open) {
-        text.innerText = "Dialog open";
-      } else {
-        text.innerText = "Dialog closed";
-      }
+  function handleUserInput(returnValue) {
+    if (returnValue === "") {
+      statusText.innerText = "There was no return value";
+    } else {
+      statusText.innerText = "Return value: " + returnValue;
     }
-
-    function handleUserInput(returnValue) {
-      if (!returnValue) {
-        text.innerText += ". There was no return value";
-      } else {
-        text.innerText += ". Return value: " + returnValue;
-      }
-    }
-
-    // "Open Dialog" button opens the <dialog> modally
-    openDialog.addEventListener("click", () => {
-      dialog.showModal();
-      openCheck(dialog);
-      handleUserInput(dialog.returnValue);
-    });
-
-    reset.addEventListener("click", () => {
-      dialog.close();
-    });
-
-    // when the dialog is closed, no matter how it is closed
-    dialog.addEventListener("close", () => {
-      openCheck(dialog);
-      handleUserInput(dialog.returnValue);
-    });
-  })();
-</script>
-<style>
-  [aria-label="close"] {
-    appearance: none;
-    border-radius: 50%;
-    border: 1px solid;
-    float: right;
   }
-</style>
+
+  openDialog.addEventListener("click", () => {
+    dialog.showModal();
+    handleUserInput(dialog.returnValue);
+  });
+
+  declineButton.addEventListener("click", closeDialog);
+  acceptButton.addEventListener("click", closeDialog);
+
+  function closeDialog(event) {
+    const button = event.target;
+    const returnValue = button.value;
+    dialog.close(returnValue);
+    handleUserInput(dialog.returnValue);
+  }
+
+  dialog.addEventListener("close", () => {
+    openCheck(dialog);
+    handleUserInput(dialog.returnValue);
+  });
+</script>
 ```
 
 ### Ergebnis
