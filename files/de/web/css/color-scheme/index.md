@@ -2,21 +2,21 @@
 title: color-scheme
 slug: Web/CSS/color-scheme
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 134f9a1ab341bf9ad30358e5f3a59bd9204078df
 ---
 
 {{CSSRef}}
 
-Die **`color-scheme`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es einem Element, anzugeben, in welchen Farbschemata es komfortabel dargestellt werden kann. Benutzeragenten ändern die folgenden Aspekte des UI-Chromes, um das verwendete Farbschema anzupassen:
+Die **`color-scheme`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es einem Element anzugeben, in welchen Farbschemata es komfortabel gerendert werden kann. Benutzeragenten ändern die folgenden Aspekte des Benutzeroberflächen-Chromes, um dem verwendeten Farbschema zu entsprechen:
 
 - Die Farbe der Leinwandoberfläche.
-- Die Standardfarben von Scrollbalken und anderen Interaktionselementen.
-- Die Standardfarben von Formularsteuerelementen.
-- Die Standardfarben anderer vom Browser bereitgestellter UI, wie z.B. "Rechtschreibprüfung"-Unterstreichungen.
+- Die Standardfarben von Scrollleisten und anderen Interaktions-UI-Elementen.
+- Die Standardfarben von Formularsteuerungen.
+- Die Standardfarben anderer browsergesteuerter UI, wie z.B. "Rechtschreibprüfung"-Unterstreichungen.
 
-Komponentenautoren müssen das [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) Medien-Feature verwenden, um Farbschemata für die übrigen Elemente zu unterstützen.
+Komponentenautoren müssen das Medienfeature [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) verwenden, um die Farbschemata auf den anderen Elementen zu unterstützen.
 
-Gängige Auswahlmöglichkeiten für Farbschemata des Betriebssystems sind "hell" und "dunkel" oder "Tagesmodus" und "Nachtmodus". Wenn ein Benutzer eines dieser Farbschemata auswählt, nimmt das Betriebssystem Anpassungen an der Benutzeroberfläche vor. Dies umfasst [Formularsteuerungen](/de/docs/Learn_web_development/Extensions/Forms), [Scrollbalken](/de/docs/Web/CSS/CSS_scrollbars_styling) und die verwendeten Werte der [CSS-Systemfarben](/de/docs/Web/CSS/system-color).
+Häufige Optionen für Betriebssystem-Farbschemata sind "hell" und "dunkel" oder "Tagmodus" und "Nachtmodus". Wenn ein Benutzer eines dieser Farbschemata auswählt, nimmt das Betriebssystem Anpassungen an der Benutzeroberfläche vor. Dies schließt [Formularsteuerungen](/de/docs/Learn_web_development/Extensions/Forms), [Scrollleisten](/de/docs/Web/CSS/CSS_scrollbars_styling) und die verwendeten Werte von [CSS-Systemfarben](/de/docs/Web/CSS/system-color) ein.
 
 {{EmbedInteractiveExample("pages/css/color-scheme.html")}}
 
@@ -42,16 +42,16 @@ Der Wert der `color-scheme` Eigenschaft muss eines der folgenden Schlüsselwört
 ### Werte
 
 - `normal`
-  - : Gibt an, dass das Element unter Verwendung der [Farbschema](/de/docs/Web/HTML/Element/meta/name#color-scheme) Einstellungen der Seite dargestellt werden kann. Wenn die Seite kein Farbschema gesetzt hat, wird das Element mit den Standardfarbeneinstellungen der Seite dargestellt.
+  - : Gibt an, dass das Element unter Verwendung der [Farbschema](/de/docs/Web/HTML/Element/meta/name#color-scheme)-Einstellungen der Seite gerendert werden kann. Wenn die Seite kein Farbschema festgelegt hat, wird das Element mit den Standardeinstellungen der Seite gerendert.
 - `light`
-  - : Gibt an, dass das Element unter Verwendung des _hellen_ Farbschemas des Betriebssystems dargestellt werden kann.
+  - : Gibt an, dass das Element unter Verwendung des _hellen_ Farbschemas des Betriebssystems gerendert werden kann.
 - `dark`
-  - : Gibt an, dass das Element unter Verwendung des _dunklen_ Farbschemas des Betriebssystems dargestellt werden kann.
+  - : Gibt an, dass das Element unter Verwendung des _dunklen_ Farbschemas des Betriebssystems gerendert werden kann.
 - `only`
 
-  - : Verbietet es dem Benutzeragenten, das Farbschema für das Element zu überschreiben.
+  - : Verhindert, dass der Benutzeragent das Farbschema für das Element überschreibt.
 
-    Kann verwendet werden, um Farbüberschreibungen zu deaktivieren, die durch Chromes [Auto Dark Theme](https://developer.chrome.com/blog/auto-dark-theme/#per-element-opt-out) verursacht werden, indem `color-scheme: only light;` auf ein bestimmtes Element oder `:root` angewendet wird.
+    Kann verwendet werden, um Farbüberschreibungen zu deaktivieren, die durch Chromes [Auto Dark Theme](https://developer.chrome.com/blog/auto-dark-theme/#per-element-opt-out) verursacht werden, indem `color-scheme: only light;` auf ein spezifisches Element oder `:root` angewendet wird.
 
 ## Formale Definition
 
@@ -87,9 +87,11 @@ footer {
 }
 ```
 
+Zusammen mit dem obigen CSS sollte auch das [`<meta name="color-scheme">`](/de/docs/Web/HTML/Element/meta/name#color-scheme) HTML {{HTMLElement("meta")}} Tag im {{htmlelement("head")}}, vor jeglicher CSS-Stilinformation, eingefügt werden, um Benutzeragenten über das bevorzugte Farbschema zu informieren und unerwünschte Bildschirmblitze während des Seitenladens zu verhindern.
+
 ### Styling basierend auf Farbschemata
 
-Um Elemente basierend auf Farbschema-Präferenzen zu stylen, verwenden Sie die [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) Media-Query. Das untenstehende Beispiel optiert die gesamte Seite sowohl für helle als auch dunkle Farbschemata des Betriebssystems über die `color-scheme` Eigenschaft ein und verwendet dann `prefers-color-scheme`, um die gewünschten Vorder- und Hintergrundfarben für individuelle Elemente in diesen Farbschemata festzulegen.
+Um Elemente basierend auf Farbschema-Präferenzen zu stylen, verwenden Sie die [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) Medienabfrage. Das folgende Beispiel schließt die gesamte Seite in die Verwendung sowohl des hellen als auch des dunklen Farbschemas des Betriebssystems über die `color-scheme` Eigenschaft ein und verwendet dann `prefers-color-scheme`, um die gewünschten Vorder- und Hintergrundfarben für einzelne Elemente in diesen Farbschemata anzugeben.
 
 ```css
 :root {
@@ -111,7 +113,7 @@ Um Elemente basierend auf Farbschema-Präferenzen zu stylen, verwenden Sie die [
 }
 ```
 
-Alternativ verwenden Sie die [`light-dark()`](/de/docs/Web/CSS/color_value/light-dark) [`<color>` Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions#color_functions), um Vorder- und Hintergrundfarben für die verschiedenen Farbschemata mit einer kompakteren Code-Struktur festzulegen:
+Alternativ können Sie die [`light-dark()`](/de/docs/Web/CSS/color_value/light-dark) [`<color>` Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions#color_functions) verwenden, um die Vorder- und Hintergrundfarben für die verschiedenen Farbschemata in einer kompakteren Code-Struktur festzulegen:
 
 ```css
 :root {
@@ -134,8 +136,8 @@ Alternativ verwenden Sie die [`light-dark()`](/de/docs/Web/CSS/color_value/light
 
 ## Siehe auch
 
-- [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) Media-Query, um Benutzerpräferenzen für Farbschemata zu erkennen.
-- {{CSSXref("color_value/light-dark", "light-dark()")}} Farb-Funktion, um Farben für sowohl helle als auch dunkle Farbschemata festzulegen.
+- [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) Medienabfrage, um Benutzerpräferenzen für Farbschemata zu erkennen.
+- {{CSSXref("color_value/light-dark", "light-dark()")}} Farb-Funktion, um Farben sowohl für helle als auch für dunkle Farbschemata festzulegen.
 - Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("accent-color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, und {{cssxref("column-rule-color")}}
 - {{cssxref("background-image")}}
 - {{cssxref("print-color-adjust")}}
