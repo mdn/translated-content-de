@@ -2,12 +2,12 @@
 title: text-box
 slug: Web/CSS/text-box
 l10n:
-  sourceCommit: c037c6870bb89d81ccd9204809b06c92677c3a9a
+  sourceCommit: 9cc1f40340f37fa05d6573cc519c9844fa4940be
 ---
 
-{{CSSRef}}{{seecompattable}}
+{{CSSRef}}
 
-Die **`text-box`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine Kurzform, die den Eigenschaften {{cssxref("text-box-trim")}} und {{cssxref("text-box-edge")}} entspricht. Diese Eigenschaften geben zusammen den Raum an, der von der Block-Startkante und der Block-Endkante eines Text-Elements in dessen Block-Container beschnitten werden soll.
+Die **`text-box`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine Kurzform, die den Eigenschaften {{cssxref("text-box-trim")}} und {{cssxref("text-box-edge")}} entspricht, die zusammen die Menge des Raums angeben, der von der Blockstartkante und der Blockendkante des Blockcontainers eines Textelements abgeschnitten werden soll.
 
 ## Bestandteileigenschaften
 
@@ -40,9 +40,9 @@ text-box: unset;
 
 ### Werte
 
-Der `text-box` Wert kann aus einem {{cssxref("text-box-trim")}} Wert und einem {{cssxref("text-box-edge")}} Wert bestehen, die durch ein Leerzeichen getrennt sind. Siehe die jeweiligen Seiten für die Wertbeschreibung.
+Der `text-box`-Wert kann aus einem {{cssxref("text-box-trim")}}-Wert und einem {{cssxref("text-box-edge")}}-Wert bestehen, die durch ein Leerzeichen getrennt sind. Siehe diese Seiten für Wertbeschreibungen.
 
-Die `text-box` Eigenschaft kann auch ein Schlüsselwort `normal` annehmen, was gleichbedeutend ist mit `text-box: none auto;`
+Die `text-box`-Eigenschaft kann auch ein Schlüsselwort `normal` annehmen, das `text-box: none auto;` entspricht.
 
 Wenn `text-box-trim` weggelassen wird, wird es auf `trim-both` gesetzt. Wenn `text-box-edge` weggelassen wird, wird es auf `auto` gesetzt.
 
@@ -56,19 +56,19 @@ Wenn `text-box-trim` weggelassen wird, wird es auf `trim-both` gesetzt. Wenn `te
 
 ## Beschreibung
 
-Die Höhe von reinem Textinhalt ist relativ zur Höhe der Schriftart. In digitalen Schriftdateien enthält die Höhe alle Zeichen, einschließlich Großbuchstaben, Oberlängen, Unterlängen usw. Unterschiedliche Schriftarten haben unterschiedliche Grundzeilenhöhen, was bedeutet, dass Textzeilen mit derselben `font-size` Linienboxen unterschiedlicher Höhen erzeugen, was das Erscheinungsbild des Abstands zwischen den Zeilen beeinflusst.
+Die Höhe von reinem Textinhalt ist relativ zur Höhe der Schriftart. In digitalen Schriftdateien umfasst die Höhe alle Zeichen, einschließlich Großbuchstaben, Oberlängen, Unterlängen usw. Unterschiedliche Schriftarten haben unterschiedliche Basislinienhöhen, was bedeutet, dass Textzeilen mit derselben `font-size` Zeilenboxen mit unterschiedlicher Höhe erzeugen, was das Erscheinungsbild des Abstands zwischen Zeilen beeinflusst.
 
-Mit den {{cssxref("text-box")}} Eigenschaften kann der zusätzliche Abstand von der Block-Startkante und der Block-Endkante eines Block-Containers eines Text-Elements beschnitten werden, welcher das {{Glossary("leading", "leading")}} an der Block-Startkante und Block-Endkante des Textes und den innerhalb der Schriftart definierten Abstand (wie oben beschrieben) beinhalten kann. Dies erleichtert die Kontrolle des Textabstands in der Blockrichtung erheblich.
+Die {{cssxref("text-box")}}-Eigenschaften ermöglichen das Abschneiden von zusätzlichem Abstand von der Blockstartkante und der Blockendkante des Blockcontainers eines Textelements, was den {{Glossary("leading", "Durchschuss")}} an der Blockstartkante und der Blockendkante des Texts und dem innerhalb der Schriftart definierten Abstand (wie oben beschrieben) einschließen kann. Dadurch wird es viel einfacher, den Textabstand in der Blockrichtung zu steuern.
 
 ## Beispiele
 
-### Grundlegende `text-box` Verwendung
+### Grundlegende Verwendung von `text-box`
 
-Im folgenden Beispiel haben wir zwei `<p>` Elemente mit den Klassen `one` und `two`.
+Im folgenden Beispiel haben wir zwei `<p>`-Elemente mit den Klassen `one` und `two`.
 
-Wir wenden einen `text-box` Wert von `trim-end cap alphabetic` auf den ersten Absatz an. Der {{cssxref("text-box-edge")}} Wert von `cap alphabetic` gibt an, dass der obere Rand bis zur Oberseite der Großbuchstaben und der untere Rand bündig mit der Textgrundlinie beschnitten wird. Da der {{cssxref("text-box-trim")}} Wert auf `trim-end` gesetzt ist, wird nur der untere Rand des Absatzes beschnitten.
+Wir wenden einen `text-box`-Wert von `trim-end cap alphabetic` auf den ersten Absatz an. Der {{cssxref("text-box-edge")}}-Wert von `cap alphabetic` gibt an, dass die obere Kante bis zur Oberkante der Großbuchstaben und die untere Kante bündig mit der Textbasislinie getrimmt werden soll. Da der {{cssxref("text-box-trim")}}-Wert auf `trim-end` gesetzt ist, wird nur die untere Kante des Absatzes getrimmt.
 
-Wir wenden einen `text-box` Wert von `trim-both ex alphabetic` auf den zweiten Absatz an. Der {{cssxref("text-box-edge")}} Wert von `ex alphabetic` gibt an, dass der obere Rand bis zur x-Höhe der Schrift (die Oberkante der kleinen Buchstaben) und der untere Rand bündig mit der Textgrundlinie beschnitten wird. Da der {{cssxref("text-box-trim")}} Wert auf `trim-both` gesetzt ist, werden sowohl der obere _als auch_ der untere Rand des Absatzes beschnitten.
+Wir wenden einen `text-box`-Wert von `trim-both ex alphabetic` auf den zweiten Absatz an. Der {{cssxref("text-box-edge")}}-Wert von `ex alphabetic` gibt an, dass die obere Kante bis zur x-Höhe der Schriftart (der oberen Kante der kurzen Kleinbuchstaben) und die untere Kante bündig mit der Textbasislinie getrimmt werden soll. Da der {{cssxref("text-box-trim")}}-Wert auf `trim-both` gesetzt ist, werden sowohl die obere _als auch_ die untere Kante des Absatzes getrimmt.
 
 ```html hidden
 <p class="one">This is .one</p>
@@ -114,7 +114,7 @@ p {
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt. Beachten Sie, wie wir jedem Absatz einen oberen und unteren Rand hinzugefügt haben, so dass Sie sehen können, wie der Raum in jedem Fall beschnitten wurde.
+Die Ausgabe ist wie folgt. Beachten Sie, wie wir oben und unten eine Grenze auf jedem Absatz eingefügt haben, damit Sie sehen können, wie der Raum in jedem Fall getrimmt wurde.
 
 {{EmbedLiveSample("Basic `text-box` usage","100%","360")}}
 

@@ -2,24 +2,24 @@
 title: font-stretch
 slug: Web/SVG/Attribute/font-stretch
 l10n:
-  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
+  sourceCommit: 9cc1f40340f37fa05d6573cc519c9844fa4940be
 ---
 
-{{SVGRef}}
+{{SVGRef}}{{deprecated_header}}
 
-Das **`font-stretch`**-Attribut gibt den gewünschten Grad der Komprimierung oder Erweiterung der Glyphen an, die zur Darstellung des Textes verwendet werden.
+Das **`font-stretch`** Attribut gibt an, wie stark die Glyphen, die zum Rendern des Textes verwendet werden, gestaucht oder gestreckt werden sollen.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `font-stretch` auch ein entsprechendes CSS-Property: {{cssxref("font-stretch")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Darstellungsattribut hat `font-stretch` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("font-stretch")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
 - {{SVGElement("tref")}}
 - {{SVGElement("tspan")}}
 
-## Verwendungshinweise
+## Verwendungsnotizen
 
 <table class="properties">
   <tbody>
@@ -48,4 +48,4 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## Siehe auch
 
-- CSS-Eigenschaft {{cssxref("font-stretch")}}
+- CSS {{cssxref("font-stretch")}} Eigenschaft

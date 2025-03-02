@@ -2,16 +2,16 @@
 title: font-stretch
 slug: Web/CSS/font-stretch
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: 9cc1f40340f37fa05d6573cc519c9844fa4940be
 ---
 
-{{CSSRef}}
+{{CSSRef}}{{deprecated_header}}
 
 > [!NOTE]
-> Die Eigenschaft `font-stretch` [wurde nun in den Spezifikationen in `font-width` umbenannt](https://drafts.csswg.org/css-fonts/#font-stretch-desc). Der Name `font-stretch` wurde als Alias für die Eigenschaft `font-width` beibehalten.
-> Der neue Name `font-width` wird von keinem Browser bisher unterstützt.
+> Die `font-stretch`-Eigenschaft [wurde in der Spezifikation in `font-width` umbenannt](https://drafts.csswg.org/css-fonts/#font-stretch-desc). Der Name `font-stretch` bleibt als Alias für die `font-width`-Eigenschaft erhalten.
+> Der neue Name `font-width` wird noch von keinem Browser unterstützt.
 
-Die **`font-stretch`** [CSS](/de/docs/Web/CSS) Eigenschaft wählt eine normale, komprimierte oder erweiterte Schriftart aus einer Schriftfamilie aus.
+Die **`font-stretch`** [CSS](/de/docs/Web/CSS) Eigenschaft wählt eine normale, kondensierte oder erweiterte Schriftart aus einer Schriftfamilie aus.
 
 {{EmbedInteractiveExample("pages/css/font-stretch.html")}}
 
@@ -49,40 +49,40 @@ Diese Eigenschaft kann als einzelner `<font-stretch-css3>` Schlüsselwortwert od
 - `normal`
   - : Gibt eine normale Schriftart an.
 - `semi-condensed`, `condensed`, `extra-condensed`, `ultra-condensed`
-  - : Gibt eine komprimiertere Schriftart als normal an, wobei `ultra-condensed` die kompakteste ist.
+  - : Gibt eine mehr kondensierte Schriftart als normal an, wobei `ultra-condensed` die am stärksten kondensierte ist.
 - `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`
-  - : Gibt eine erweiterte Schriftart als normal an, wobei `ultra-expanded` die breiteste ist.
+  - : Gibt eine mehr erweiterte Schriftart als normal an, wobei `ultra-expanded` die am stärksten erweiterte ist.
 - `<percentage>`
 
-  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert zwischen 50% und 200% (einschließlich). Negative Werte sind für diese Eigenschaft nicht erlaubt.
+  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert zwischen 50% und 200% (einschließlich). Negative Werte sind für diese Eigenschaft nicht zulässig.
 
 ### Zuordnung von Schlüsselwörtern zu numerischen Werten
 
-Die folgende Tabelle zeigt die Zuordnung zwischen den `<font-stretch-css3>` Schlüsselwortwerten und numerischen Prozentsätzen:
+Die folgende Tabelle zeigt die Zuordnung zwischen den `<font-stretch-css3>` Schlüsselwortwerten und numerischen Prozentwerten:
 
 | Schlüsselwort     | Prozentsatz |
 | ----------------- | ----------- |
 | `ultra-condensed` | 50%         |
-| `extra-condensed` | 62,5%       |
+| `extra-condensed` | 62.5%       |
 | `condensed`       | 75%         |
-| `semi-condensed`  | 87,5%       |
+| `semi-condensed`  | 87.5%       |
 | `normal`          | 100%        |
-| `semi-expanded`   | 112,5%      |
+| `semi-expanded`   | 112.5%      |
 | `expanded`        | 125%        |
 | `extra-expanded`  | 150%        |
 | `ultra-expanded`  | 200%        |
 
 ## Beschreibung
 
-Einige Schriftfamilien bieten zusätzliche Schriftvarianten, bei denen die Zeichen schmaler sind als die normale Variante (_condensed_ Varianten) oder breiter als die normale Variante (_expanded_ Varianten).
+Einige Schriftfamilien bieten zusätzliche Schriftschnitte an, in denen die Zeichen schmaler als der normale Schnitt sind (_kondensierte_ Schnitte) oder breiter als der normale Schnitt (_erweiterte_ Schnitte).
 
-Sie können `font-stretch` verwenden, um eine komprimierte oder erweiterte Variante aus solchen Schriftarten auszuwählen. Wenn die verwendete Schriftart keine komprimierten oder erweiterten Varianten bietet, hat diese Eigenschaft keine Wirkung.
+Sie können `font-stretch` verwenden, um einen kondensierten oder erweiterten Schnitt aus solchen Schriften auszuwählen. Wenn die verwendete Schriftart keine kondensierten oder erweiterten Schnitte bietet, hat diese Eigenschaft keine Wirkung.
 
-### Auswahl des Schriftschnitts
+### Schriftauswahl
 
-Die für einen gegebenen Wert von `font-stretch` ausgewählte Variante hängt von den unterstützten Varianten der betreffenden Schriftart ab. Wenn die Schriftart keine Variante bietet, die genau dem angegebenen Wert entspricht, dann führen Werte unter 100% zu einer schmaleren Variante, und Werte größer oder gleich 100% zu einer breiteren Variante.
+Der gewählte Schriftschnitt für einen bestimmten Wert von `font-stretch` hängt von den unterstützten Schnitten der jeweiligen Schriftart ab. Wenn die Schriftart keinen Schnitt bietet, der genau dem angegebenen Wert entspricht, dann führen Werte kleiner als 100% zu einem schmaleren Schnitt, und Werte größer oder gleich 100% zu einem breiteren Schnitt.
 
-Die folgende Tabelle zeigt die Wirkung verschiedener prozentualer Werte von `font-stretch` auf zwei verschiedene Schriftarten:
+Die folgende Tabelle demonstriert die Wirkung verschiedener Prozentwerte von `font-stretch` auf zwei verschiedene Schriftarten:
 
 ```css hidden
 @font-face {
@@ -197,8 +197,8 @@ td {
 
 {{EmbedLiveSample('Font_face_selection', "100%", "300px")}}
 
-- [Anek Malayalam](https://fonts.google.com/specimen/Anek+Malayalam) ist eine variable Google-Schriftart, die Breiten von 75% bis 125% unterstützt. Werte unterhalb und oberhalb dieses Bereichs wählen die am besten passende Schriftart aus.
-- [Inconsolata](https://fonts.google.com/specimen/Inconsolata) ist eine variable Schriftart, die einen kontinuierlichen Bereich von Breiten zwischen 50% und 200% bietet. <!-- Hinweis, dynamisch bezogenes woff2 von Google-Schriftarten durch Abfrage: https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200 -->
+- [Anek Malayalam](https://fonts.google.com/specimen/Anek+Malayalam) ist eine variable Google-Schrift, die Breiten von 75% bis 125% unterstützt. Werte außerhalb dieses Bereichs wählen die am nächsten passende Schriftart aus.
+- [Inconsolata](https://fonts.google.com/specimen/Inconsolata) ist eine variable Schriftart, die einen kontinuierlichen Bereich von Breiten von 50% bis 200% bietet. <!-- Hinweis: Dynamisch abgerufenes woff2 von Google Fonts mit der Anfrage: https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200 -->
 
 ## Formale Definition
 
@@ -210,7 +210,7 @@ td {
 
 ## Beispiele
 
-### Einstellen von Schriftdehnungsprozentsätzen
+### Festlegen von Font-Stretch-Prozenten
 
 ```html
 <p class="condensed">an elephantine lizard</p>
@@ -260,5 +260,5 @@ p {
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
 - SVG {{SVGAttr("font-stretch")}} Attribut
-- [Lernen: Fundamentales Text- und Schriftstyling](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
-- [CSS Schriftarten](/de/docs/Web/CSS/CSS_fonts) Modul
+- [Lernen: Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [CSS fonts](/de/docs/Web/CSS/CSS_fonts) Modul

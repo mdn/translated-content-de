@@ -3,12 +3,12 @@ title: "FileSystemObserver: observe() Methode"
 short-title: observe()
 slug: Web/API/FileSystemObserver/observe
 l10n:
-  sourceCommit: 328a7843ffd9e0afb4d21822d058bb08b17d3445
+  sourceCommit: 9cc1f40340f37fa05d6573cc519c9844fa4940be
 ---
 
-{{securecontext_header}}{{APIRef("File System API")}}
+{{securecontext_header}}{{APIRef("File System API")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`observe()`** Methode des [`FileSystemObserver`](/de/docs/Web/API/FileSystemObserver)-Interfaces fordert den Observer auf, Änderungen an einer bestimmten Datei oder einem Verzeichnis zu beobachten.
+Die **`observe()`**-Methode der [`FileSystemObserver`](/de/docs/Web/API/FileSystemObserver)-Schnittstelle fordert den Beobachter auf, Änderungen an einer bestimmten Datei oder einem Verzeichnis zu beobachten.
 
 ## Syntax
 
@@ -21,10 +21,10 @@ observe(handle, options)
 
 - `handle`
 
-  - : Der Handle des Dateisystem-Eintrags, der die Datei oder das Verzeichnis darstellt, das beobachtet werden soll.
+  - : Der Handle des Dateisystemeintrags, der die zu beobachtende Datei oder das Verzeichnis darstellt.
 
-    - Für das vom Benutzer beobachtbare Dateisystem kann dies ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) sein.
-    - Für das [Origin Private File System](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) kann es sich um ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle), ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) oder ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) handeln.
+    - Für das benutzerbeobachtbare Dateisystem kann dies ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) sein.
+    - Für das [Origin Private File System](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) kann es ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle), ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) oder ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) sein.
 
 - `options` {{optional_inline}}
 
@@ -32,26 +32,26 @@ observe(handle, options)
 
     - `recursive`
 
-      - : Ein Boolean, der angibt, ob Sie Änderungen an einem Verzeichnis rekursiv beobachten möchten. Wenn auf `true` gesetzt, werden Änderungen im Verzeichnis selbst und in allen enthaltenen Unterverzeichnissen und Dateien beobachtet. Wenn auf `false` gesetzt, werden Änderungen nur im Verzeichnis selbst und in direkt enthaltenen Dateien beobachtet (d. h. Dateien in Unterverzeichnissen sind ausgeschlossen). Standardwert ist `false`.
+      - : Ein boolescher Wert, der angibt, ob Sie Änderungen an einem Verzeichnis rekursiv beobachten möchten. Wenn auf `true` gesetzt, werden Änderungen im Verzeichnis selbst und in allen enthaltenen Unterverzeichnissen und Dateien beobachtet. Wenn auf `false` gesetzt, werden Änderungen nur im Verzeichnis selbst und in direkt enthaltenen Dateien beobachtet (das heißt, Dateien in Unterverzeichnissen sind ausgeschlossen). Standardmäßig `false`.
 
-        Diese Eigenschaft hat keine Auswirkungen, wenn `handle` eine Datei darstellt.
+        Diese Eigenschaft hat keine Auswirkung, wenn `handle` eine Datei darstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu {{jsxref('undefined')}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das sich in {{jsxref('undefined')}} auflöst.
 
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn die durch `handle` dargestellte Datei oder das Verzeichnis nicht gefunden werden konnte.
+  - : Ausgelöst, wenn die Datei oder das Verzeichnis, das durch `handle` repräsentiert wird, nicht gefunden werden konnte.
 
 ## Beispiele
 
-### Beobachtung einer Datei oder eines Verzeichnisses
+### Eine Datei oder ein Verzeichnis beobachten
 
-Angenommen, eine Instanz von `FileSystemObserver` ist verfügbar, können Sie Änderungen an einem Dateisystem-Eintrag durch Aufruf von `observe()` beobachten.
+Wenn eine Instanz von `FileSystemObserver` verfügbar ist, können Sie Änderungen an einem Dateisystemeintrag beobachten, indem Sie `observe()` aufrufen.
 
-Sie können eine Datei oder ein Verzeichnis im vom Benutzer beobachtbaren Dateisystem oder im [Origin Private File System](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) beobachten, indem Sie ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) an `observe()` übergeben. Instanzen dieser Objekte können beispielsweise zurückgegeben werden, wenn Sie den Benutzer bitten, eine Datei oder ein Verzeichnis mit [`Window.showSaveFilePicker()`](/de/docs/Web/API/Window/showSaveFilePicker) oder [`Window.showDirectoryPicker()`](/de/docs/Web/API/Window/showDirectoryPicker) auszuwählen:
+Sie können eine Datei oder ein Verzeichnis im benutzerbeobachtbaren Dateisystem oder im [Origin Private File System](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) beobachten, indem Sie ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) an `observe()` übergeben. Instanzen dieser Objekte können beispielsweise zurückgegeben werden, wenn der Benutzer aufgefordert wird, eine Datei oder ein Verzeichnis mit [`Window.showSaveFilePicker()`](/de/docs/Web/API/Window/showSaveFilePicker) oder [`Window.showDirectoryPicker()`](/de/docs/Web/API/Window/showDirectoryPicker) auszuwählen:
 
 ```js
 // Observe a file
@@ -105,5 +105,5 @@ Derzeit nicht Teil einer Spezifikation. Siehe [https://github.com/whatwg/fs/pull
 
 ## Siehe auch
 
-- [Dateisystem-API](/de/docs/Web/API/File_System_API)
-- [Der File System Observer API Origin Trial](https://developer.chrome.com/blog/file-system-observer#stop-observing-the-file-system) auf developer.chrome.com (2024)
+- [File System API](/de/docs/Web/API/File_System_API)
+- [Die Datei-Systembeobachter-API Origin Trial](https://developer.chrome.com/blog/file-system-observer#stop-observing-the-file-system) auf developer.chrome.com (2024)

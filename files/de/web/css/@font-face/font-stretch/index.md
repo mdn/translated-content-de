@@ -2,14 +2,14 @@
 title: font-stretch
 slug: Web/CSS/@font-face/font-stretch
 l10n:
-  sourceCommit: 46a2eda1ce316d5c2c789104c28bc4fdaee5ab8b
+  sourceCommit: 9cc1f40340f37fa05d6573cc519c9844fa4940be
 ---
 
-{{CSSRef}}
+{{CSSRef}}{{deprecated_header}}
 
-Der CSS-Deskriptor **`font-stretch`** ermöglicht es Autoren, eine normale, kondensierte oder erweiterte Schriftart für die im {{cssxref("@font-face")}}-At-Regel angegebenen Schriftarten zu spezifizieren.
+Der **`font-stretch`** CSS-Deskriptor ermöglicht es Autoren, ein normales, komprimiertes oder erweitertes Schriftbild für die im {{cssxref("@font-face")}} At-Regel angegebenen Schriftarten festzulegen.
 
-Für eine bestimmte Schriftfamilie können Autoren verschiedene Schriftstile herunterladen, die den unterschiedlichen Stilen derselben Schriftfamilie entsprechen, und dann den `font-stretch`-Deskriptor verwenden, um die Dehnung der Schriftart explizit festzulegen. Die Werte für den CSS-Deskriptor sind die gleichen wie die des entsprechenden Schriftarteigenschafts.
+Für eine bestimmte Schriftfamilie können Autoren verschiedene Schriftschnitte herunterladen, die den unterschiedlichen Stilvarianten derselben Schriftfamilie entsprechen, und dann den `font-stretch` Deskriptor verwenden, um die Streckung des Schriftschnitts explizit anzugeben. Die Werte für diesen CSS-Deskriptor sind die gleichen wie für seine entsprechende Schriftarten-Eigenschaft.
 
 ## Syntax
 
@@ -33,26 +33,26 @@ font-stretch: 75% 125%;
 font-stretch: condensed ultra-condensed;
 ```
 
-Die `font-stretch`-Eigenschaft wird mit einem der unten aufgeführten Werte beschrieben.
+Die Eigenschaft `font-stretch` wird unter Verwendung eines der unten aufgeführten Werte beschrieben.
 
 ### Werte
 
 - `normal`
-  - : Gibt eine normale Schriftart an.
+  - : Gibt ein normales Schriftbild an.
 - `semi-condensed`, `condensed`, `extra-condensed`, `ultra-condensed`
-  - : Gibt eine stärker kondensierte Schriftart als normal an, wobei ultra-condensed die kondensierteste ist.
+  - : Gibt ein engeres Schriftbild als normal an, wobei ultra-condensed das am stärksten komprimierte ist.
 - `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`
-  - : Gibt eine stärker erweiterte Schriftart als normal an, wobei ultra-expanded die erweiterte ist.
+  - : Gibt ein erweitertes Schriftbild als normal an, wobei ultra-expanded das am weitesten erweiterte ist.
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert zwischen 50% und 200% (einschließlich). Negative Werte sind für diese Eigenschaft nicht erlaubt.
+  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert zwischen 50% und 200% (einschließlich). Negative Werte sind für diese Eigenschaft nicht zulässig.
 
-In früheren Versionen der `font-stretch`-Spezifikation akzeptiert die Eigenschaft nur die neun Schlüsselwortwerte. CSS Fonts Level 4 erweitert die Syntax, um auch einen `<percentage>`-Wert zu akzeptieren. Dies ermöglicht es variablen Schriftarten, so etwas wie ein Kontinuum von Zeichenweiten anzubieten. Für TrueType- oder OpenType-Variable-Schriftarten wird die "wdth"-Variation verwendet, um unterschiedliche Breiten zu implementieren.
+In früheren Versionen der `font-stretch`-Spezifikation akzeptiert die Eigenschaft nur die neun Schlüsselwortwerte. CSS Fonts Level 4 erweitert die Syntax, um auch einen `<percentage>` Wert zu akzeptieren. Dies ermöglicht es variablen Schriftarten, etwas wie ein Kontinuum von Zeichenbreiten anzubieten. Für TrueType- oder OpenType-Variable Schriftarten wird die "wdth"-Variante verwendet, um unterschiedliche Breiten zu implementieren.
 
-Wenn die Schriftart kein Gesicht bietet, das genau dem angegebenen Wert entspricht, werden Werte unter 100 % einem schmaleren Gesicht zugeordnet, und Werte größer oder gleich 100 % einem breiteren Gesicht.
+Wenn die Schriftart kein Schriftbild bereitstellt, das genau dem angegebenen Wert entspricht, werden Werte kleiner als 100% einem schmaleren Schriftbild zugeordnet, und Werte gleich oder größer als 100% einem breiteren Schriftbild.
 
-### Zuordnung von Schlüsselwort zu numerischem Wert
+### Schlüsselwort-zu-numerische Abbildung
 
-Die folgende Tabelle zeigt die Zuordnung zwischen Schlüsselwortwerten und numerischen Prozentsätzen:
+Die folgende Tabelle zeigt die Abbildung zwischen Schlüsselwortwerten und numerischen Prozentsätzen:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -103,15 +103,15 @@ Die folgende Tabelle zeigt die Zuordnung zwischen Schlüsselwortwerten und numer
 
 ### Variable Schriftarten
 
-Die meisten Schriftarten haben eine bestimmte Breite, die einem der Schlüsselwortwerte entspricht. Einige Schriftarten, sogenannte variable Schriftarten, können jedoch einen Bereich von Streckungen mit mehr oder weniger feiner Granularität unterstützen, wodurch der Designer eine viel engere Kontrolle über das gewählte Gewicht erhält. Für diese sind Prozentsatzbereiche nützlich.
+Die meisten Schriftarten haben eine bestimmte Breite, die einem der Schlüsselwörterwerte entspricht. Einige Schriftarten, sogenannte variable Schriftarten, können jedoch eine Reihe von Streckungen mit mehr oder weniger feiner Granularität unterstützen, und dies kann dem Designer einen wesentlich genaueren Grad an Kontrolle über das gewählte Gewicht geben. Dafür sind Prozentsatzbereiche nützlich.
 
-Für TrueType- oder OpenType-Variable-Schriftarten wird die "wdth"-Variation verwendet, um unterschiedliche Glyphenbreiten zu implementieren.
+Für TrueType- oder OpenType-Variable Schriftarten wird die "wdth"-Variante verwendet, um unterschiedliche Glyphenbreiten zu implementieren.
 
 ## Barrierefreiheit
 
-Menschen mit Dyslexie und anderen kognitiven Beeinträchtigungen können Schwierigkeiten beim Lesen von zu stark kondensierten Schriftarten haben, insbesondere wenn die Schrift eine [geringe Kontrastfarbverhältnis](/de/docs/Web/CSS/color#accessibility) aufweist.
+Menschen mit Dyslexie und anderen kognitiven Bedingungen könnten Schwierigkeiten haben, Schriften zu lesen, die zu komprimiert sind, insbesondere wenn die Schriftart ein [Kontrastverhältnis mit niedrigem Farbumfang](/de/docs/Web/CSS/color#accessibility) hat.
 
-- [MDN Verständnis von WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [MDN Verständnis von WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
 - [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
 ## Formale Definition
@@ -124,9 +124,9 @@ Menschen mit Dyslexie und anderen kognitiven Beeinträchtigungen können Schwier
 
 ## Beispiele
 
-### Einstellen eines Prozentsatzbereichs für font-stretch
+### Festlegung eines Prozentsatzbereichs für font-stretch
 
-Der folgende Code sucht nach einer lokal verfügbaren Open Sans Schriftart oder importiert sie und ermöglicht die Verwendung der Schriftart für normale, semi-kondensierte und semi-erweiterte Zustände.
+Die folgenden finden eine lokale Open Sans Schriftart oder importieren sie und ermöglichen die Nutzung der Schriftart für normale, semi-kondensierte und semi-erweiterte Zustände.
 
 ```css
 @font-face {

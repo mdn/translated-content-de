@@ -1,14 +1,14 @@
 ---
-title: "FileSystemObserver: Methode disconnect()"
+title: "FileSystemObserver: `disconnect()`-Methode"
 short-title: disconnect()
 slug: Web/API/FileSystemObserver/disconnect
 l10n:
-  sourceCommit: 328a7843ffd9e0afb4d21822d058bb08b17d3445
+  sourceCommit: 9cc1f40340f37fa05d6573cc519c9844fa4940be
 ---
 
-{{securecontext_header}}{{APIRef("File System API")}}
+{{securecontext_header}}{{APIRef("File System API")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`disconnect()`**-Methode des [`FileSystemObserver`](/de/docs/Web/API/FileSystemObserver)-Interfaces stoppt die Beobachtung des Dateisystems durch den Observer.
+Die **`disconnect()`**-Methode der [`FileSystemObserver`](/de/docs/Web/API/FileSystemObserver)-Schnittstelle beendet die Beobachtung des Dateisystems.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Keiner ({{jsxref('undefined')}}).
 
 ## Beispiele
 
-### Beobachtung des Dateisystems stoppen
+### Beobachtung des Dateisystems beenden
 
-Angenommen, eine Instanz von `FileSystemObserver` ist verfügbar, können Sie die `disconnect()`-Methode aufrufen, um die Beobachtung von Änderungen am Dateisystemeintrag zu beenden:
+Angenommen, eine Instanz von `FileSystemObserver` ist verfügbar, dann können Sie die `disconnect()`-Methode aufrufen, wenn Sie die Beobachtung von Änderungen am Dateisystemeintrag beenden möchten:
 
 ```js
 observer.disconnect();
@@ -36,7 +36,7 @@ observer.disconnect();
 
 ## Spezifikationen
 
-Derzeit nicht Teil einer Spezifikation. Siehe [https://github.com/whatwg/fs/pull/165](https://github.com/whatwg/fs/pull/165) für das relevante Spezifikations-PR.
+Derzeit nicht Teil einer Spezifikation. Siehe [https://github.com/whatwg/fs/pull/165](https://github.com/whatwg/fs/pull/165) für den relevanten Spezifikations-PR.
 
 ## Browser-Kompatibilität
 
