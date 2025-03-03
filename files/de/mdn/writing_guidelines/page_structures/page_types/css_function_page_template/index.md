@@ -1,18 +1,18 @@
 ---
-title: CSS-Funktionsvorlagenseite
+title: Vorlagenseite für CSS-Funktionen
 slug: MDN/Writing_guidelines/Page_structures/Page_types/CSS_function_page_template
 l10n:
-  sourceCommit: 269fa421f0a79b18f6000a26baebe30c74571b1f
+  sourceCommit: 359403526b7b802cdb09b90acf28577b959076d0
 ---
 
-> **Hinweis:** _Entfernen Sie diesen Hinweisblock vor der Veröffentlichung._
+> **Note:** _Entfernen Sie diesen Hinweisblock vor der Veröffentlichung._
 >
 > ---
 >
-> **Page Front Matter:**
+> **Seiten-Metadaten:**
 >
-> Die Front Matter am Anfang der Seite wird verwendet, um "Seiten-Metadaten" zu definieren.
-> Die Werte sollten entsprechend für die jeweilige Funktion aktualisiert werden. Beachten Sie das Vorhandensein (oder Fehlen) von Klammern.
+> Die Metadaten am Anfang der Seite werden verwendet, um "Seiten-Metadaten" zu definieren.
+> Die Werte sollten entsprechend der jeweiligen Funktion aktualisiert werden. Beachten Sie das Vorhandensein (oder Fehlen) von Klammern.
 >
 > ```md
 > ---
@@ -20,79 +20,79 @@ l10n:
 > slug: Web/CSS/NameOfTheFunction
 > page-type: css-function
 > status:
->   - experimental
 >   - deprecated
+>   - experimental
 >   - non-standard
 > browser-compat: css.types.NameOfTheFunction
 > ---
 > ```
 >
 > - **title**
->   - : Der Wert von `title` wird oben auf der Seite angezeigt. Das Titel-Format ist _NameOfTheFunction()_.
->     Zum Beispiel hat die [`pow()`](/de/docs/Web/CSS/pow)-Funktion den Titel _pow()_.
+>   - : Der `title`-Wert wird oben auf der Seite angezeigt. Das Titel-Format ist _NameOfTheFunction()_.
+>     Zum Beispiel hat die [`pow()`](/de/docs/Web/CSS/pow) Funktion den Titel _pow()_.
 > - **slug**
->   - : Der Wert von `slug` ist das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`. Dieser wird im Format `Web/CSS/NameOfTheFunction` angegeben. Beachten Sie, dass die Klammern im `slug` weggelassen werden.
->     Zum Beispiel ist der `slug` für die [`pow()`](/de/docs/Web/CSS/pow)-Funktion `Web/CSS/pow`.
+>   - : Der `slug`-Wert ist das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`. Dies wird als `Web/CSS/NameOfTheFunction` formatiert. Beachten Sie das Fehlen von Klammern im Slug.
+>     Zum Beispiel ist der Slug für die [`pow()`](/de/docs/Web/CSS/pow) Funktion `Web/CSS/pow`.
 > - **page-type**
 >   - : Der `page-type`-Wert für CSS-Funktionen ist `css-function`.
 > - **status**
->   - : Beschreibt den Status dieses Features. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird anhand der Daten zur Browser-Kompatibilität für das Feature automatisch gesetzt. Siehe ["Anleitung zur Hinzufügung oder Aktualisierung des Feature-Status"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
+>   - : Markierungen, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
->   - : Ersetzen Sie den Platzhalterwert <code>css.types.NameOfTheFunction</code> mit der Abfragezeichenkette für die Funktion im [Browser-Compat-Daten-Repository](https://github.com/mdn/browser-compat-data/tree/main/css/types). Überprüfen Sie den Abschnitt _Andere Makros auf der Seite_ in diesem Hinweisblock, um zu sehen, wie dieses Schlüssel-Wert-Paar verwendet wird, um Inhalte in den Abschnitten _Spezifikationen_ und _Browser-Kompatibilität_ zu generieren.
+>   - : Ersetzen Sie den Platzhalterwert <code>css.types.NameOfTheFunction</code> durch den Abfragezeichenfolgenwert für die Funktion im [Browser compat data repo](https://github.com/mdn/browser-compat-data/tree/main/css/types). Überprüfen Sie den Abschnitt _Other macros in the page_ dieses Hinweisblocks, um zu sehen, wie dieses Schlüssel-Wert-Paar verwendet wird, um Inhalt für die _Spezifikationen_ und _Browser-Kompatibilität_ Abschnitte zu generieren.
 >
 > ---
 >
-> **Makros am Seitenanfang**
+> **Makros oben auf der Seite**
 >
-> Eine Reihe von Makroaufrufen erscheint am Anfang des Inhaltsabschnitts (direkt unterhalb der Front Matter der Seite).
-> Diese Makros werden automatisch von der Toolchain hinzugefügt (es besteht keine Notwendigkeit, sie hinzuzufügen/zu entfernen):
+> Eine Reihe von Makroaufrufen erscheint oben im Inhaltsbereich (unmittelbar unterhalb der Seiten-Metadaten).
+> Diese Makros werden automatisch vom Toolchain hinzugefügt (es ist nicht nötig, sie hinzuzufügen/zu entfernen):
 >
-> - `\{{SeeCompatTable}}`: Dieses Makro erzeugt ein **Experimentell**-Banner, das anzeigt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Wenn die Technologie experimentell ist und hinter einer Voreinstellung in Firefox verborgen wird, sollten Sie auch einen Eintrag auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Deprecated_Header}}`: Dieses Makro erzeugt ein **Veraltet**-Banner, das anzeigt, dass die Nutzung dieser Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
-> - `\{{Non-standard_Header}}`: Dieses Makro erzeugt ein **Nicht standardisiert**-Banner, das anzeigt, dass das Feature nicht Teil einer offiziellen Spezifikation ist.
+> - `\{{SeeCompatTable}}`: Dieses Makro erzeugt ein **Experimental**-Banner, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn die Technologie experimentell ist und hinter einer Einstellung in Firefox versteckt ist, sollten Sie auch einen Eintrag für sie auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
+> - `\{{Deprecated_Header}}`: Dieses Makro erzeugt ein **Deprecated**-Banner, das anzeigt, dass die Verwendung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) wird.
+> - `\{{Non-standard_Header}}` — Dies erzeugt ein **Non-standard**-Banner, das anzeigt, dass das Feature nicht Teil einer Spezifikation ist.
 >
-> Sie sollten die folgenden Makros gemäß den untenstehenden Hinweisen aktualisieren oder löschen:
+> Sie sollten die folgenden Makros gemäß der untenstehenden Ratschläge aktualisieren oder löschen:
 >
 > - `\{{CSSRef}}`: Dieses Makro muss auf jeder CSS-Seite vorhanden sein. Es erzeugt eine geeignete CSS-Seitenleiste, abhängig von den auf der Seite enthaltenen Tags.
->   Entfernen Sie das `\{{MDNSidebar}}`-Makro, wenn Sie diese Vorlage verwenden.
+>   Denken Sie daran, das `\{{MDNSidebar}}`-Makro zu entfernen, wenn Sie diese Vorlage verwenden.
 >
-> Status-Header-Makros nicht manuell bereitstellen. Verweisen Sie auf den Abschnitt ["Anleitung zur Hinzufügung oder Aktualisierung des Feature-Status"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses), um diese Status auf der Seite hinzuzufügen.
+> Stellen Sie Header-Makros für Statustitel nicht manuell bereit. Verweisen Sie auf den Abschnitt ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status zur Seite hinzuzufügen.
 >
-> Beispiele der **Experimentell**, **Veraltet** und **Nicht standardisiert**-Banner werden direkt nach diesem Hinweisblock gezeigt.
+> Beispiele für die **Experimental**, **Deprecated** und **Non-standard** Banner werden direkt nach diesem Hinweisblock gezeigt.
 >
 > ---
 >
 > **Andere Makros auf der Seite**
 >
-> - Abschnitt zur formalen Syntax: Der Inhalt für den Abschnitt _Formale Syntax_ wird mit dem `\{{CSSSyntax}}`-Makro generiert. Dieses Makro ruft Daten aus den Spezifikationen vom [@webref/css npm package](https://www.npmjs.com/package/@webref/css) ab.
-> - Abschnitte zu Spezifikationen und Browser-Kompatibilität: Das Build-Tool nutzt automatisch das Schlüssel-Wert-Paar `browser-compat` aus der Front Matter, um Daten in den Abschnitten _Spezifikationen_ und _Browser-Kompatibilität_ einzufügen (ersetzt dabei die `\{{Specifications}}` und `\{{Compat}}`-Makros in diesen Abschnitten).
+> - Abschnitte zur formalen Syntax: Der Inhalt des Abschnitts _Formale Syntax_ wird mit dem `\{{CSSSyntax}}`-Makro generiert. Dieses Makro ruft Daten von den Spezifikationen mithilfe des [@webref/css npm-Pakets](https://www.npmjs.com/package/@webref/css) ab.
+> - Abschnitte zu Spezifikationen und Browser-Kompatibilität: Das Build-Tool verwendet automatisch das `browser-compat`-Schlüssel-Wert-Paar aus den Seiten-Metadaten, um Daten in die Abschnitte _Spezifikationen_ und _Browser-Kompatibilität_ einzufügen (dabei werden die `\{{Specifications}}`- und `\{{Compat}}` Makros in diesen Abschnitten ersetzt).
 >
->   Beachten Sie, dass möglicherweise zuerst ein Eintrag für die Funktion und ihre Spezifikation in unserem <a href="https://github.com/mdn/browser-compat-data">Browser-Compat-Daten-Repository</a> erstellt/aktualisiert werden muss. Siehe unseren [Leitfaden für Kompatibilitätstabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für Informationen zur Hinzufügung oder Bearbeitung von Einträgen.
+>   Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für die Funktion und ihre Spezifikation in unserem <a href="https://github.com/mdn/browser-compat-data">Browser compat data repo</a> erstellen/aktualisieren müssen.
+>   Siehe unser [Leitfaden für Kompatibilitätstabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für Informationen zum Hinzufügen oder Bearbeiten von Einträgen.
 >
-> _Vergessen Sie nicht, diesen Hinweisblock vor der Veröffentlichung zu entfernen._
+> _Denken Sie daran, diesen Hinweisblock vor der Veröffentlichung zu entfernen._
 
 {{CSSRef}}{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Beginnen Sie den Inhalt der Seite mit einem einleitenden Absatz, in dem die Funktion benannt und beschrieben wird, was sie tut.
-Dies sollte idealerweise ein oder zwei kurze Sätze umfassen.
+Beginnen Sie den Inhalt auf der Seite mit einem einleitenden Absatz, der die Funktion benennt und beschreibt, was sie tut.
+Dies sollte idealerweise ein oder zwei kurze Sätze sein.
 
 ## Probieren Sie es aus
 
-_Dieser Titel wird automatisch durch das Makro `\{{EmbedInteractiveExample}}` generiert._
+_Dieser Titel wird automatisch vom Makro `\{{EmbedInteractiveExample}}` generiert._
 
-Dieser Abschnitt ist für interaktive Beispiele, die mithilfe des `\{{EmbedInteractiveExample}}`-Makros hinzugefügt werden. Siehe den Abschnitt [Interaktive Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#interactive_examples) in unseren _Schreibrichtlinien_ für weitere Informationen.
+Dieser Abschnitt ist für interaktive Beispiele vorgesehen, die mit dem Makro `\{{EmbedInteractiveExample}}` hinzugefügt werden. Siehe den Abschnitt [Interaktive Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#interactive_examples) in unseren _Schreibleitlinien_ für weitere Informationen.
 
 ## Syntax
 
-Fügen Sie einen CSS-Codeblock hinzu, um die Hauptanwendungsfälle der Syntax zu zeigen, einschließlich Beispiele für Parameter, die von der Funktion akzeptiert werden können.
-Nur die Funktion selbst einbeziehen, keine vollständige Deklaration, in der sie vorkommt. Zum Beispiel verwenden Sie `minmax(200px, 1fr)` und nicht `grid-template-columns: minmax(min-content, 300px)`.
+Fügen Sie einen CSS-Codeblock hinzu, um die Hauptanwendungsfälle der Syntax zu zeigen, einschließlich Beispiele der Parameter, die die Funktion akzeptieren kann. Nur die Funktion selbst einfügen, nicht eine vollständige Deklaration, in der sie auftritt. Verwenden Sie zum Beispiel `minmax(200px, 1fr)`, nicht `grid-template-columns: minmax(min-content, 300px)`.
 
-Beenden Sie die Syntax-Zeilen nicht mit Semikolons: Dies soll betonen, dass hier keine vollständigen gültigen CSS-Codes gezeigt werden, sondern nur die Syntax-Verwendung.
+Beenden Sie die Syntaxzeilen nicht mit Semikolons: Dies sollte betonen, dass hier kein vollständiger gültiger CSS-Code gezeigt wird, sondern nur die Syntaxverwendung.
 
-Zeigen Sie alle Aufrufmuster, die die Funktion haben kann. Vor jedem dieser Fälle sollte ein Kommentar den Verwendungszweck beschreiben und ein weiterer Kommentar die Parameter benennen und Syntaxzeichen sowie die Reihenfolge der Parameter hervorheben. Die Namen der Parameter im Kommentar sollten mit denen übereinstimmen, die im Abschnitt „Parameter“ aufgelistet sind.
+Zeigen Sie alle Aufrufmuster, die die Funktion annehmen kann. Fügen Sie vor allen solchen Fällen einen Kommentar hinzu, um den Anwendungsfall zu beschreiben und einen weiteren Kommentar, um die Parameter zu benennen und Syntaxzeichen und die Reihenfolge der Parameter hervorzuheben. Die Parameternamen im Kommentar sollten mit den im Abschnitt "Parameter" aufgeführten Parametern übereinstimmen.
 
-Der Kommentar, der jedes Aufrufmuster zeigt, sollte von genau einer leeren Zeile gefolgt werden.
+Der Kommentar, der jedes Aufrufmuster zeigt, sollte von genau einer Leerzeile gefolgt werden.
 
 Zum Beispiel:
 
@@ -116,26 +116,28 @@ var(--custom-prop, var(--default-value, red))
 
 ### Parameter
 
-Listen Sie die Parameter, die die Funktion akzeptieren kann, als {{htmlelement("dl")}} auf. Folgen Sie der Reihenfolge, in der sie im Abschnitt _Formale Syntax_ erscheinen. Geben Sie an, ob ein Parameter optional ist, indem Sie das `optional_inline`-Badge verwenden.
-Für jeden Parameter sollte ein Begriff und eine Definition enthalten sein.
+Listen Sie die Parameter auf, die die Funktion als {{htmlelement("dl")}} akzeptieren kann. Listen Sie sie in der Reihenfolge auf, in der sie im Abschnitt _Formale Syntax_ erscheinen. Geben Sie an, ob ein Parameter optional ist, mit dem `optional_inline`-Abzeichen.
+Fügen Sie einen Begriff und eine Definition für jeden Parameter hinzu.
 
 - `<custom-property-name>`
-  - : Fügen Sie eine Beschreibung des Parameters, seines Datentyps und seines Standardwerts (falls vorhanden) ein.
+  - : Fügen Sie eine Beschreibung des Parameters, seinen Datentyp und seinen Standardwert, falls vorhanden, hinzu.
 - `<declaration-value>` {{optional_inline}}
-  - : Fügen Sie eine Beschreibung des Parameters, seines Datentyps und seines Standardwerts (falls vorhanden) ein.
+  - : Fügen Sie eine Beschreibung des Parameters, seinen Datentyp und seinen Standardwert, falls vorhanden, hinzu.
+
+> [!WARNING]
+> Fügen Sie auf CSS-Seiten keine [Inline-Status-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#feature_status_icons_in_definition_lists) hinzu.
 
 ### Rückgabewert
 
-Beschreiben Sie den von der Funktion zurückgegebenen Wert.
-Beginnen Sie die Beschreibung mit dem Wort "Rückgabe", zum Beispiel: "Rückgabe eines `<number>` oder `<dimension>`."
+Beschreiben Sie den von der Funktion zurückgegebenen Wert. Beginnen Sie die Beschreibung mit dem Wort "Retournieren"; zum Beispiel, "Retournieren Sie ein `<number>` oder `<dimension>`."
 
 ## Beschreibung
 
-Dieser Abschnitt ist optional, aber empfehlenswert. Er enthält eine Beschreibung der Funktion und erklärt, wie sie funktioniert. Verwenden Sie diesen Abschnitt, um verwandte Begriffe zu erläutern und Anwendungsfälle für die Funktion hinzuzufügen.
+Dieser Abschnitt ist optional, aber empfehlenswert. Er enthält eine Beschreibung der Funktion und erklärt, wie sie funktioniert. Verwenden Sie diesen Abschnitt, um verwandte Begriffe zu erklären und Anwendungsbeispiele für die Funktion hinzuzufügen.
 
 ## Formale Syntax
 
-Nicht alle Funktionen haben eine formale Syntax: Wenn eine Funktion keine hat, lassen Sie diesen ganzen Abschnitt weg.
+Nicht alle Funktionen haben eine formale Syntax: Wenn eine Funktion keine hat, lassen Sie diesen gesamten Abschnitt weg.
 
 `\{{CSSSyntax}}`
 
@@ -143,46 +145,45 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Barrierefreiheit
 
-Dies ist ein optionaler Abschnitt. Fügen Sie Leitlinien zur Barrierefreiheit, bewährte Praktiken und potenzielle Bedenken ein, die Entwickler beim Verwenden dieser Eigenschaft berücksichtigen sollten. Sie können auch Umgehungslösungen oder Lösungen, wo zutreffend, hinzufügen.
+Dies ist ein optionaler Abschnitt. Enthalten Sie Richtlinien zur Barrierefreiheit, bewährte Praktiken und potenzielle Bedenken, die Entwickler beachten sollten, wenn Sie diese Eigenschaft verwenden. Sie können auch Lösungen oder Workarounds hinzufügen, wo zutreffend.
 
 ## Beispiele
 
-Beachten Sie, dass wir den Plural „Beispiele“ verwenden, auch wenn die Seite nur ein Beispiel enthält.
+Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur ein Beispiel enthält.
 
 ### Fügen Sie eine beschreibende Überschrift hinzu
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) enthalten, die das Beispiel benennt.
-Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt „Ein einfaches Beispiel“ nichts über das tatsächliche Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte präzise sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
 
-Siehe unseren Leitfaden zum Hinzufügen von [Code-Beispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
+Siehe unseren Leitfaden dazu, wie man [Codebeispiele hinzufügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
 
 > [!NOTE]
-> Manchmal möchten Sie auf Beispiele auf einer anderen Seite verlinken.
+> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite gegeben sind.
 >
-> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und weitere Beispiele auf einer anderen Seite haben:
+> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite haben und einige weitere Beispiele auf einer anderen Seite:
 >
-> Fügen Sie für jedes Beispiel auf dieser Seite eine H3-Überschrift (`###`) hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text „Weitere Beispiele“, unter der Sie auf die Beispiele auf anderen Seiten verlinken. Zum Beispiel:
+> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter dem Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
 >
 > ```md
-> ## Examples
+> ## Beispiele
 >
-> ### Verwendung der polygon()-Funktion
+> ### Verwendung der polygon() Funktion
 >
-> Beispiel für polygon()
+> Beispiel von polygon()
 >
 > ### Weitere Beispiele
 >
 > Links zu weiteren Beispielen auf anderen Seiten
 > ```
 >
-> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite und keine auf dieser Seite haben:
+> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite haben und keine auf dieser Seite:
 >
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie nur die Links direkt unter der H2-Überschrift „Beispiele“ hinzu. Zum Beispiel:
+> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
 >
 > ```md
-> ## Examples
+> ## Beispiele
 >
-> Für Beispiele zu dieser Funktion siehe [die Seite über basic-shape](https://example.org/).
+> Für Beispiele dieser Funktion siehe [die Seite über basic-shape](https://example.org/).
 > ```
 
 ## Spezifikationen
@@ -199,7 +200,7 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden ein, die mit der aktuellen Funktion zusammenhängen. Für weitere Leitlinien siehe den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) in der _Schreibstil-Leitfaden_.
+Fügen Sie Referenzlinks und Leitfäden zu der aktuellen Funktion hinzu. Weitere Richtlinien finden Sie im Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) in der _Schreibstil-Leitfaden_.
 
 - link1
 - link2

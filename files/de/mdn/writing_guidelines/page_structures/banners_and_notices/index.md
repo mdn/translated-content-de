@@ -2,18 +2,18 @@
 title: Banner und Hinweise
 slug: MDN/Writing_guidelines/Page_structures/Banners_and_notices
 l10n:
-  sourceCommit: 719645a32546d9e514ac530a5eb66aa4c26d4f51
+  sourceCommit: 359403526b7b802cdb09b90acf28577b959076d0
 ---
 
-Banner und Hinweise werden auf einigen Seiten angezeigt, insbesondere in der API-Referenz, um wichtige Faktoren hervorzuheben, die beeinflussen, wie der beschriebene Inhalt verwendet wird. Zum Beispiel werden Banner verwendet, um hervorzuheben, wenn eine bestimmte Schnittstelle, Methode oder Eigenschaft veraltet ist und in Produktionscode nicht verwendet werden sollte, oder nur in einem sicheren Kontext verwendet werden kann.
+Banner und Hinweise werden auf einigen Seiten, insbesondere in API-Referenzen, angezeigt, um wichtige Faktoren hervorzuheben, die die Nutzung des beschriebenen Inhalts beeinflussen werden. Zum Beispiel werden Banner genutzt, um hervorzuheben, wenn eine bestimmte Schnittstelle, Methode oder Eigenschaft veraltet ist und nicht im Produktivcode verwendet werden sollte, oder nur in einem sicheren Kontext benutzt werden kann.
 
-Banner werden im Seiteninhalt mit Makros gerendert. Einige Bannermakros werden automatisch zur Seite hinzugefügt, während andere manuell hinzugefügt werden.
+Banner werden mit Makros im Seiteninhalt dargestellt. Einige Banner-Makros werden automatisch zur Seite hinzugefügt, während andere manuell hinzugefügt werden.
 
 Dieser Artikel beschreibt die wichtigeren Banner und wie sie hinzugefügt werden.
 
-## Wo Bannermakros hinzugefügt werden
+## Wo werden Banner-Makros hinzugefügt
 
-Banner werden mit Makros hinzugefügt, die normalerweise unterhalb der Seitenmetadaten eingefügt werden, neben dem Makro der Seitennavigation. Zum Beispiel wurde im folgenden Block das Makro `\{{SecureContext_Header}}` verwendet, um anzuzeigen, dass die [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Schnittstelle nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist. Das Makro `\{{AvailableInWorkers}}` wurde verwendet, um anzuzeigen, dass die [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Schnittstelle nur im [Fensterkontext](/de/docs/Web/API/Window) und [dedizierten Worker-Kontext](/de/docs/Web/API/DedicatedWorkerGlobalScope) verfügbar ist, und `\{{SeeCompatTable}}` wurde hinzugefügt, um anzuzeigen, dass die Schnittstelle experimentell ist.
+Banner werden mit Makros hinzugefügt, die normalerweise unterhalb der Metadaten der Seite, neben dem Seitenleisten-Makro eingefügt werden. Zum Beispiel wurde im folgenden Block das `\{{SecureContext_Header}}` Makro verwendet, um anzugeben, dass die [`AudioDecoder`](/de/docs/Web/API/AudioDecoder) Schnittstelle nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist. Das `\{{AvailableInWorkers}}` Makro wurde verwendet, um anzugeben, dass die [`AudioDecoder`](/de/docs/Web/API/AudioDecoder) Schnittstelle nur im [Window-Kontext](/de/docs/Web/API/Window) und [dedizierten Worker-Kontext](/de/docs/Web/API/DedicatedWorkerGlobalScope) verfügbar ist, und `\{{SeeCompatTable}}` wurde hinzugefügt, um anzugeben, dass die Schnittstelle experimentell ist.
 
 ```md
 ---
@@ -32,44 +32,42 @@ browser-compat: api.AudioDecoder
 
 Sie müssen die folgenden Makros manuell hinzufügen:
 
-- `\{{SecureContext_Header}}` — erzeugt ein **Secure context**-Banner, das anzeigt, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist.
-- `\{{AvailableInWorkers}}` — erzeugt eine **Verfügbar in Workern**-Notiz, die anzeigt, dass die Technologie im [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
+- `\{{SecureContext_Header}}` — erzeugt ein **Sicherer Kontext**-Banner, das angibt, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist.
+- `\{{AvailableInWorkers}}` — erzeugt eine **Verfügbar in Workern**-Notiz, die angibt, dass die Technologie im [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
 
 ## Banner, die automatisch hinzugefügt werden
 
-Die folgenden Makros werden automatisch zum Inhalt hinzugefügt, um die in der [browser compat data](https://github.com/mdn/browser-compat-data)-Repository gespeicherten Status zu erfüllen:
+Die folgenden Makros werden automatisch zum Inhalt hinzugefügt, um die in der [browser compat data](https://github.com/mdn/browser-compat-data) Repository gespeicherten Status anzuzeigen:
 
-- `\{{SeeCompatTable}}` — erzeugt ein **Dies ist eine experimentelle Technologie**-Banner, das anzeigt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
-- `\{{Deprecated_Header}}` — erzeugt ein **Veraltet**-Banner, das anzeigt, dass die Nutzung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) wird.
-- `\{{Non-standard_Header}}` — erzeugt ein **Nicht-Standard**-Banner, das anzeigt, dass die Nutzung der Technologie nicht Teil einer formalen Spezifikation ist, selbst wenn sie in mehreren Browsern implementiert ist.
+- `\{{SeeCompatTable}}` — erzeugt ein **Dies ist eine experimentelle Technologie**-Banner, das angibt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+- `\{{Deprecated_Header}}` — erzeugt ein **Veraltet**-Banner, das angibt, dass die Nutzung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) wird.
+- `\{{Non-standard_Header}}` — erzeugt ein **Nicht-Standard**-Banner, das angibt, dass die Nutzung der Technologie nicht Teil einer formalen Spezifikation ist, selbst wenn sie in mehreren Browsern implementiert ist.
 
-[Aktualisieren Sie den Funktionsstatus im browser-compat-data-Repository](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses), um diese Werte zu ändern.
-
-> [!NOTE]
-> Während Sie diese Makros manuell in den Inhalt einfügen/aktualisieren können, werden Werte, die nicht mit den Browser-Kompatibilitätsdaten übereinstimmen, ersetzt oder entfernt.
+[Aktualisieren Sie den Feature-Status im browser-compat-data Repository](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Werte zu ändern.
 
 > [!NOTE]
-> Seiten, die die `\{{SeeCompatTable}}`, `\{{Deprecated_Header}}` oder `\{{Non-standard_Header}}` Banner haben, werden auch die entsprechenden `experimentell`, `veraltet` und `nicht-standardisiert` Statuswerte in den Seitenmetadaten enthalten.
-> Die Metadaten werden automatisch gleichzeitig mit den Überschriften aktualisiert.
-> Die Bannermakros sind nicht von diesen Statusmetadaten abhängig (könnten aber eines Tages daraus generiert werden).
+> Während Sie diese Makros im Inhalt manuell aktualisieren können, werden Werte, die nicht mit den Browser-Kompatibilitätsdaten übereinstimmen, ersetzt oder entfernt.
 
-## Experimentell: "Standards positions"-Banner
+> [!NOTE]
+> Seiten, die die `\{{SeeCompatTable}}`, `\{{Deprecated_Header}}` oder `\{{Non-standard_Header}}` Banner haben, werden auch die entsprechenden Statuswerte `experimentell`, `veraltet` und `nicht-standardisiert` in den Metadaten der Seite haben. Die Metadaten werden zur gleichen Zeit wie die Header automatisch aktualisiert. Die Banner-Makros sind nicht von diesen Status-Metadaten abhängig (könnten aber eines Tages daraus generiert werden).
 
-Manchmal sind sich Browser-Anbieter nicht einig, wie sich ein Feature entwickelt, und einige können es in seiner aktuellen Form ablehnen. In Ausnahmefällen dokumentiert MDN Technologien in diesem Zustand, um die Web-Community zu ermutigen, mit ihnen zu experimentieren, Feedback zu geben und den Browser-Anbietern zu helfen, einen Konsens zu erreichen.
+## Experimentell: "Standards positions" Banner
 
-Es ist wichtig, den Lesern den aktuellen Standardisierungsstatus solcher Features zu verdeutlichen. Während eine langfristige Lösung zur Darstellung dieser Informationen noch nicht endgültig ist, tun wir Folgendes für spezifische prominente Technologien, um Verwirrung zu vermeiden:
+Gelegentlich sind sich Browseranbieter uneinig darüber, wie sich ein Feature entwickelt, und einige können es in seiner aktuellen Form ablehnen. In Ausnahmefällen dokumentiert MDN Technologien in diesem Zustand, um die Web-Community zu ermutigen, mit ihnen zu experimentieren, Feedback zu geben und den Browseranbietern zu helfen, einen Konsens zu finden.
 
-- Hinzufügen dieses Banners auf der Startseite für dieses Feature (nicht auf jeder Unterseite des Features):
+Es ist wichtig, den Lesern den aktuellen Standardisierungsstatus solcher Features zu klären. Während eine langfristige Lösung zur Darstellung dieser Informationen noch nicht endgültig ist, machen wir folgendes für spezifische, hochkarätige Technologien, um Verwirrung zu vermeiden:
+
+- Hinzufügen dieses Banners zur Hauptseite dieses Features (nicht für jede Unterseite des Features):
 
   ```md
   > [!WARNING]
   > This feature is currently opposed by <number> browser vendor(s). See the [Standards positions](#standards_positions) section below for details of opposition.
   ```
 
-  - Ersetzen Sie `<number>` durch die Anzahl der Browser-Anbieter, die das Feature ablehnen.
-  - Verwenden Sie `vendor` oder `vendors` wie passend.
+  - Ersetzen Sie `<number>` durch die Anzahl der Browseranbieter, die gegen das Feature sind.
+  - Verwenden Sie `vendor` oder `vendors`, wie passend.
 
-- Hinzufügen eines "Standards positions"-Abschnitts zur gleichen Seite wie das obige Banner, als Unterabschnitt des standardmäßigen "Spezifikationen"-Abschnitts.
+- Hinzufügen eines "Standards positions"-Abschnitts auf derselben Seite wie das oben genannte Banner, als Unterabschnitt des standardmäßigen "Spezifikationen"-Abschnitts.
 
 > [!NOTE]
-> Siehe [Verwandte Website-Sets](/de/docs/Web/API/Storage_Access_API/Related_website_sets) für ein Beispiel des "Standards positions"-Abschnitts und was er enthalten sollte sowie das Banner auf der Startseite.
+> Siehe [Verwandte Website-Sets](/de/docs/Web/API/Storage_Access_API/Related_website_sets) für ein Beispiel des "Standards positions"-Abschnitts und was er enthalten sollte, sowie das Hauptseiten-Banner.

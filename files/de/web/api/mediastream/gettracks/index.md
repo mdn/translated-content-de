@@ -1,17 +1,17 @@
 ---
-title: "MediaStream: getTracks() Methode"
+title: "MediaStream: getTracks()-Methode"
 short-title: getTracks()
 slug: Web/API/MediaStream/getTracks
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: d8a660f63ae6e2e8a1dba567c1398f72a09f9658
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`getTracks()`**-Methode der
-[`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle gibt eine Sequenz zurück, die alle
-[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte im
-[Track-Set](https://www.w3.org/TR/mediacapture-streams/#track-set) dieses Streams repräsentiert,
+Die **`getTracks()`**-Methode des
+[`MediaStream`](/de/docs/Web/API/MediaStream)-Interfaces gibt eine Sequenz zurück, die alle
+[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte in diesem
+Stream's [Track-Set](https://www.w3.org/TR/mediacapture-streams/#dfn-track-set) repräsentiert,
 unabhängig von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind).
 
 ## Syntax

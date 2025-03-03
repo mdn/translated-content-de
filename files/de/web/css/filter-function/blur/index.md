@@ -2,18 +2,18 @@
 title: blur()
 slug: Web/CSS/filter-function/blur
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 9ca1b6d1fe5e69fc288ad18c6986b581afafc0a4
 ---
 
 {{CSSRef}}
 
-Die **`blur()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wendet einen [Gaussian Blur](https://en.wikipedia.org/wiki/Gaussian_blur) auf das Eingabebild an. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`blur()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wendet einen [Gaussian-Unschärfe](https://en.wikipedia.org/wiki/Gaussian_blur) auf das Eingangsbild an. Ihr Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
 {{EmbedInteractiveExample("pages/css/function-blur.html")}}
 
 ## Syntax
 
-Die `blur()` Funktion wendet einen Gaussian Blur auf die Elemente an, auf die sie angewendet wird.
+Die `blur()` Funktion wendet einen Gaussian-Unschärfe auf die Elemente an, auf die sie angewendet wird.
 
 ```css
 blur(radius)
@@ -21,20 +21,22 @@ blur(radius)
 
 ### Parameter
 
-- `radius`
-  - : Der Radius der Unschärfe, angegeben als {{cssxref("&lt;length&gt;")}}. Er definiert den Wert der Standardabweichung für die Gaussian-Funktion, d.h., wie viele Pixel auf dem Bildschirm ineinander übergehen; ein größerer Wert führt zu mehr Unschärfe. Ein Wert von `0` lässt die Eingabe unverändert. Der Ausgangswert für die {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentwerte sind ungültig.
+- `radius` {{Optional_Inline}}
+  - : Der Radius der Unschärfe, angegeben als {{cssxref("&lt;length&gt;")}}. Er definiert den Wert der Standardabweichung für die Gauß'sche Funktion, d.h. wie viele Pixel auf dem Bildschirm ineinander übergehen; daher führt ein größerer Wert zu mehr Unschärfe. Ein Wert von `0` lässt das Eingangssignal unverändert. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentwerte sind ungültig. Der Standardwert ist `0px`.
 
-### Einstellung einer Unschärfe mit Pixeln und mit rem
+### Beispiele für Unschärfe-Werte
 
 ```css
+blur()         /* No effect */
 blur(0)        /* No effect */
+
 blur(8px)      /* Blur with 8px radius */
 blur(1.17rem)  /* Blur with 1.17rem radius */
 ```
 
 ## SVG-Filter
 
-Das SVG {{SVGElement("feGaussianBlur")}} Filter-Element kann ebenfalls verwendet werden, um Inhalte zu verwischen. Das {{SVGAttr("stdDeviation")}} Attribut des Filters akzeptiert bis zu zwei Werte, die komplexere Unschärfe-Werte ermöglichen. Um eine äquivalente Unschärfe zu erzeugen, geben wir einen Wert für `stdDeviation` an. Dieser SVG-Effekt kann dann durch eine ID referenziert werden:
+Das SVG {{SVGElement("feGaussianBlur")}} Filter-Element kann ebenfalls verwendet werden, um Inhalte zu verwischen. Das {{SVGAttr("stdDeviation")}} Attribut des Filters akzeptiert bis zu zwei Werte, um komplexere Unschärfe-Werte zu erstellen. Um eine äquivalente Unschärfe zu erzeugen, verwenden wir einen Wert für `stdDeviation`. Dieser SVG-Effekt kann dann durch die ID referenziert werden:
 
 ```html
 <svg role="none">
@@ -58,7 +60,7 @@ filter: url(folder/fileName.svg#blur11); /* external svg filter definition */
 
 ## Beispiele
 
-Dieses Beispiel zeigt drei Bilder: das Bild mit einer `blur()` Filterfunktion angewendet, das Bild mit der äquivalenten SVG-Unschärfefunktion angewendet und die Originalbilder zum Vergleich:
+Dieses Beispiel zeigt drei Bilder: das Bild mit einer `blur()` Filterfunktion angewendet, das Bild mit der äquivalenten SVG-Unschärfe-Funktion und die Originalbilder zum Vergleich:
 
 ```css
 .filter {
@@ -134,7 +136,7 @@ svg:not([height]) {
 
 ## Siehe auch
 
-- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
+- Modul [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
 - Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
   - {{cssxref("filter-function/brightness", "brightness()")}}
   - {{cssxref("filter-function/contrast", "contrast()")}}
