@@ -2,14 +2,14 @@
 title: Symbol.matchAll
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/matchAll
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Symbol.matchAll`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.matchAll`. Die Methode {{jsxref("String.prototype.matchAll()")}} sucht dieses Symbol im ersten Argument der Methode, um einen Iterator zurückzugeben, der Übereinstimmungen des aktuellen Objekts mit einem String liefert.
+Die statische Dateneigenschaft **`Symbol.matchAll`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.matchAll`. Die Methode {{jsxref("String.prototype.matchAll()")}} sucht dieses Symbol im ersten Argument für die Methode, die einen Iterator zurückgibt, der Übereinstimmungen des aktuellen Objekts mit einem String liefert.
 
-Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) und {{jsxref("String.prototype.matchAll()")}}.
+Für weitere Informationen siehe [`RegExp.prototype[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) und {{jsxref("String.prototype.matchAll()")}}.
 
 {{InteractiveExample("JavaScript Demo: Symbol.matchAll")}}
 
@@ -56,6 +56,7 @@ console.log(Array.from(str.matchAll(numbers)));
 ## Siehe auch
 
 - [Polyfill von `Symbol.matchAll` in `core-js`](https://github.com/zloirock/core-js#ecmascript-symbol)
+- [es-shims Polyfill von `Symbol.matchAll`](https://www.npmjs.com/package/string.prototype.matchall)
 - {{jsxref("Symbol.match")}}
 - {{jsxref("Symbol.replace")}}
 - {{jsxref("Symbol.search")}}

@@ -2,12 +2,12 @@
 title: "Funktion: name"
 slug: Web/JavaScript/Reference/Global_Objects/Function/name
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die Daten-Eigenschaft **`name`** einer {{jsxref("Function")}}-Instanz gibt den Namen der Funktion an, wie sie bei der Erstellung festgelegt wurde, oder sie kann entweder `anonymous` oder `''` (ein leerer String) sein, wenn die Funktion anonym erstellt wurde.
+Die **`name`** Daten-Eigenschaft einer {{jsxref("Function")}} Instanz gibt den Namen der Funktion an, wie er bei der Erstellung angegeben wurde, oder kann entweder `anonymous` oder `''` (ein leerer String) für anonym erstellte Funktionen sein.
 
 {{InteractiveExample("JavaScript Demo: Function.name")}}
 
@@ -32,11 +32,11 @@ Ein String.
 {{js_property_attributes(0, 0, 1)}}
 
 > [!NOTE]
-> In nicht-standardmäßigen Implementierungen vor ES2015 war das `configurable`-Attribut ebenfalls `false`.
+> In nicht standardmäßigen, vor-ES2015 Implementierungen war das Attribut `configurable` ebenfalls `false`.
 
 ## Beschreibung
 
-Die `name`-Eigenschaft einer Funktion kann verwendet werden, um die Funktion in Debugging-Tools oder Fehlermeldungen zu identifizieren. Sie hat selbst keine semantische Bedeutung für die Sprache.
+Die `name`-Eigenschaft der Funktion kann verwendet werden, um die Funktion in Debugging-Tools oder Fehlermeldungen zu identifizieren. Sie hat keine semantische Bedeutung für die Sprache selbst.
 
 Die `name`-Eigenschaft ist schreibgeschützt und kann nicht durch den Zuweisungsoperator geändert werden:
 
@@ -49,7 +49,7 @@ console.log(someFunction.name); // someFunction
 
 Um sie zu ändern, verwenden Sie {{jsxref("Object.defineProperty()")}}.
 
-Die `name`-Eigenschaft wird normalerweise aus der Art, wie die Funktion definiert wurde, abgeleitet. In den folgenden Abschnitten beschreiben wir die verschiedenen Möglichkeiten, wie sie abgeleitet werden kann.
+Der `name`-Eigenschaft wird typischerweise von der Art und Weise abgeleitet, wie die Funktion definiert ist. In den folgenden Abschnitten beschreiben wir die verschiedenen Arten, wie sie abgeleitet werden kann.
 
 ### Funktionsdeklaration
 
@@ -60,9 +60,9 @@ function doSomething() {}
 doSomething.name; // "doSomething"
 ```
 
-### Standard-exportierte Funktionsdeklaration
+### Standardexportierte Funktionsdeklaration
 
-Eine [`export default`](/de/docs/Web/JavaScript/Reference/Statements/export)-Deklaration exportiert die Funktion als Deklaration anstelle eines Ausdrucks. Wenn die Deklaration anonym ist, lautet der Name `"default"`.
+Eine [`export default`](/de/docs/Web/JavaScript/Reference/Statements/export)-Deklaration exportiert die Funktion als Deklaration statt als Ausdruck. Wenn die Deklaration anonym ist, lautet der Name `"default"`.
 
 ```js
 // -- someModule.js --
@@ -91,14 +91,14 @@ const someFunction = function someFunctionName() {};
 someFunction.name; // "someFunctionName"
 ```
 
-Anonyme Funktionsausdrücke, die mit dem Schlüsselwort `function` oder Pfeilfunktionen erstellt wurden, haben `""` (einen leeren String) als Namen.
+Anonyme Funktionsausdrücke, die mit dem Schlüsselwort `function` oder mit Pfeilfunktionen erstellt wurden, hätten als Namen `""` (einen leeren String).
 
 ```js
 (function () {}).name; // ""
 (() => {}).name; // ""
 ```
 
-Solche Fälle sind jedoch selten — in der Regel wird der Funktionsausdruck beim Erstellen an einen Bezeichner gebunden (z. B. in einer Variablendeklaration), damit darauf verwiesen werden kann. In solchen Fällen kann der Name abgeleitet werden, wie die folgenden Abschnitte zeigen.
+Solche Fälle sind jedoch selten – normalerweise wird der Funktionsausdruck an ein Bezeichner angehängt, wenn er erstellt wird (etwa in einer Variablendeklaration), um den Ausdruck anderswo zu referenzieren. In solchen Fällen kann der Name abgeleitet werden, wie die folgenden Unterabschnitte zeigen.
 
 Ein praktischer Fall, in dem der Name nicht abgeleitet werden kann, ist eine Funktion, die von einer anderen Funktion zurückgegeben wird:
 
@@ -123,7 +123,7 @@ console.log(f.name); // "f"
 console.log(object.someMethod.name); // "someMethod"
 ```
 
-Das Gleiche gilt für Zuweisungen:
+Dasselbe gilt für Zuweisungen:
 
 ```js
 let f;
@@ -131,9 +131,9 @@ f = () => {};
 f.name; // "f"
 ```
 
-### Initialisierer und Standardwert
+### Initialisierung und Standardwert
 
-Funktionen in Initialisierern (Standardwerten) von [Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#default_value), [Standardparametern](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters), [Klassenfeldern](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) usw. übernehmen den Namen des gebundenen Bezeichners als ihren `name`.
+Funktionen in Initialisierungen (Standardwerte) von [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#default_value), [Standardparametern](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters), [Klassenfeldern](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) usw. erben den Namen des gebundenen Bezeichners als ihren `name`.
 
 ```js
 const [f = () => {}] = [];
@@ -153,7 +153,7 @@ class Foo {
 Foo.someMethod.name; // someMethod
 ```
 
-### Kurznotation Methode
+### Kurzschreibmethoden
 
 ```js
 const o = {
@@ -164,7 +164,7 @@ o.foo.name; // "foo";
 
 ### Gebundene Funktion
 
-{{jsxref("Function.prototype.bind()")}} erzeugt eine Funktion, deren Name "bound " plus der Funktionsname ist.
+{{jsxref("Function.prototype.bind()")}} erzeugt eine Funktion, deren Name aus "bound " plus dem Funktionsnamen besteht.
 
 ```js
 function foo() {}
@@ -173,7 +173,7 @@ foo.bind({}).name; // "bound foo"
 
 ### Getter und Setter
 
-Beim Verwenden von [`get`](/de/docs/Web/JavaScript/Reference/Functions/get)- und [`set`](/de/docs/Web/JavaScript/Reference/Functions/set)-Zugriffsmethoden erscheint "get" oder "set" im Funktionsnamen.
+Beim Verwenden von [`get`](/de/docs/Web/JavaScript/Reference/Functions/get) und [`set`](/de/docs/Web/JavaScript/Reference/Functions/set) Accessor-Eigenschaften erscheinen "get" oder "set" im Funktionsnamen.
 
 ```js
 const o = {
@@ -188,7 +188,7 @@ descriptor.set.name; // "set foo";
 
 ### Klasse
 
-Der Name einer Klasse folgt dem gleichen Algorithmus wie Funktionsdeklarationen und -ausdrücke.
+Ein Klassenname folgt demselben Algorithmus wie Funktionsdeklarationen und Ausdrücke.
 
 ```js
 class Foo {}
@@ -196,11 +196,11 @@ Foo.name; // "Foo"
 ```
 
 > [!WARNING]
-> JavaScript setzt die `name`-Eigenschaft einer Funktion nur, wenn eine Funktion keine eigene Eigenschaft mit dem Namen `name` besitzt. Klassen [statische Mitglieder](/de/docs/Web/JavaScript/Reference/Classes/static) werden jedoch als eigene Eigenschaften der Klassenkonstruktorfunktion festgelegt und verhindern so, dass die eingebaute `name`-Eigenschaft angewendet wird. Siehe [ein Beispiel](#den_konstruktor-namen_eines_objekts_angeben) unten.
+> JavaScript setzt die `name`-Eigenschaft einer Funktion nur dann, wenn eine Funktion keine eigene Eigenschaft `name` hat. Allerdings werden Klassen' [statische Mitglieder](/de/docs/Web/JavaScript/Reference/Classes/static) als eigene Eigenschaften der Klassenkonstruktorfunktion gesetzt und verhindern somit, dass der eingebaute `name` angewendet wird. Siehe [ein Beispiel](#den_konstruktor-namen_eines_objekts_ermitteln) unten.
 
 ### Symbol als Funktionsname
 
-Wenn ein {{jsxref("Symbol")}} als Funktionsname verwendet wird und das Symbol eine Beschreibung hat, ist der Methodenname die Beschreibung in eckigen Klammern.
+Wenn ein {{jsxref("Symbol")}} als Funktionsname verwendet wird und das Symbol eine Beschreibung hat, ist der Name der Methode die Beschreibung in eckigen Klammern.
 
 ```js
 const sym1 = Symbol("foo");
@@ -217,7 +217,7 @@ o[sym2].name; // "[]"
 
 ### Private Eigenschaft
 
-Private Felder und private Methoden enthalten die Raute (`#`) als Teil ihres Namens.
+Private Felder und private Methoden haben das Hash-Zeichen (`#`) als Teil ihres Namens.
 
 ```js
 class Foo {
@@ -236,7 +236,7 @@ new Foo().getNames();
 
 ## Beispiele
 
-### Den Konstruktor-Namen eines Objekts angeben
+### Den Konstruktor-Namen eines Objekts ermitteln
 
 Sie können `obj.constructor.name` verwenden, um die "Klasse" eines Objekts zu überprüfen.
 
@@ -247,7 +247,7 @@ const fooInstance = new Foo();
 console.log(fooInstance.constructor.name); // "Foo"
 ```
 
-Da statische Mitglieder jedoch zu eigenen Eigenschaften der Klasse werden, können wir den Klassennamen bei einer Klasse mit einer statischen `name()`-Methode praktisch nicht mehr abrufen:
+Da jedoch statische Mitglieder zu eigenen Eigenschaften der Klasse werden, können wir den Klassennamen praktisch nicht für jede Klasse mit einer statischen Methoden-Eigenschaft `name()` abrufen:
 
 ```js
 class Foo {
@@ -256,14 +256,14 @@ class Foo {
 }
 ```
 
-Wenn eine Klasse über eine `static name()`-Methode verfügt, enthält `Foo.name` nicht mehr den tatsächlichen Klassennamen, sondern einen Verweis auf das `name()`-Funktionsobjekt. Der Versuch, über `fooInstance.constructor.name` die Klasse der Instanz zu erlangen, gibt stattdessen einen Verweis auf die statische Klassenmethode zurück. Beispiel:
+Mit einer `static name()` Methode hält `Foo.name` nicht mehr den tatsächlichen Klassennamen, sondern eine Referenz auf das `name()` Funktionsobjekt. Der Versuch, die Klasse von `fooInstance` über `fooInstance.constructor.name` zu erhalten, gibt uns überhaupt nicht den Klassennamen, sondern eine Referenz auf die statische Klassenmethode. Beispiel:
 
 ```js
 const fooInstance = new Foo();
 console.log(fooInstance.constructor.name); // ƒ name() {}
 ```
 
-Aufgrund der Existenz statischer Felder kann `name` auch keine Funktion mehr sein.
+Aufgrund der Existenz statischer Felder könnte `name` auch keine Funktion sein.
 
 ```js
 class Foo {
@@ -272,21 +272,21 @@ class Foo {
 console.log(new Foo().constructor.name); // 123
 ```
 
-Falls eine Klasse eine statische Eigenschaft namens `name` hat, wird diese ebenfalls _beschreibbar_. Die eingebaute Definition, die bei Fehlen einer eigenen statischen Definition verwendet wird, ist _schreibgeschützt_:
+Wenn eine Klasse eine statische Eigenschaft namens `name` hat, wird sie ebenfalls _schreibbar_. Die eingebaute Definition in Abwesenheit einer benutzerdefinierten statischen Definition ist _schreibgeschützt_:
 
 ```js
 Foo.name = "Hello";
 console.log(Foo.name); // "Hello" if class Foo has a static "name" property, but "Foo" if not.
 ```
 
-Daher sollten Sie sich nicht darauf verlassen, dass die eingebaute `name`-Eigenschaft immer den Namen der Klasse enthält.
+Daher können Sie sich nicht darauf verlassen, dass die eingebaute `name`-Eigenschaft immer den Namen einer Klasse enthält.
 
-### JavaScript-Komprimierer und -Minifizierer
+### JavaScript-Kompressoren und Minifizierer
 
 > [!WARNING]
-> Seien Sie vorsichtig bei der Verwendung der `name`-Eigenschaft mit Quellcode-Transformationen, wie sie von JavaScript-Komprimierern (Minifizierern) oder Obfuskatoren durchgeführt werden. Diese Tools werden häufig im Rahmen einer JavaScript Build-Pipeline verwendet, um die Größe eines Programms zu reduzieren, bevor es in Produktion geht. Solche Transformationen ändern häufig den Namen einer Funktion zur Build-Zeit.
+> Seien Sie vorsichtig bei der Verwendung der `name`-Eigenschaft mit Quellcode-Transformationen, wie sie von JavaScript-Kompressoren (Minifizierern) oder Obfuskatoren durchgeführt werden. Diese Werkzeuge werden oft als Teil einer JavaScript-Build-Pipeline verwendet, um die Größe eines Programms vor der Bereitstellung zu reduzieren. Solche Transformationen ändern häufig den Namen einer Funktion zur Build-Zeit.
 
-Quellcode wie:
+Quellcode wie zum Beispiel:
 
 ```js
 function Foo() {}
@@ -311,7 +311,7 @@ if (b.constructor.name === "Foo") {
 }
 ```
 
-In der unkomprimierten Version führt das Programm zur "truthy"-Verzweigung und gibt aus, "'foo' is an instance of 'Foo'" — in der komprimierten Version hingegen verhält es sich anders und folgt der else-Verzweigung. Wenn Sie sich auf die `name`-Eigenschaft verlassen, wie im obigen Beispiel dargestellt, stellen Sie sicher, dass Ihre Build-Pipeline keine Funktionenamen ändert, oder gehen Sie nicht davon aus, dass eine Funktion einen bestimmten Namen hat.
+In der unkomprimierten Version läuft das Programm in den "truthy"-Zweig und protokolliert "'foo' ist eine Instanz von 'Foo'" — während sich das Verhalten in der komprimierten Version ändert und in den anderen Zweig läuft. Wenn Sie sich auf die `name`-Eigenschaft verlassen, wie im obigen Beispiel, stellen Sie sicher, dass Ihre Build-Pipeline die Funktionsnamen nicht ändert oder gehen Sie nicht davon aus, dass eine Funktion einen bestimmten Namen hat.
 
 ## Spezifikationen
 
@@ -324,4 +324,5 @@ In der unkomprimierten Version führt das Programm zur "truthy"-Verzweigung und 
 ## Siehe auch
 
 - [Polyfill für `Function: name` in `core-js`](https://github.com/zloirock/core-js#ecmascript-function)
+- [es-shims polyfill für `Function.prototype.name`](https://www.npmjs.com/package/function.prototype.name)
 - {{jsxref("Function")}}

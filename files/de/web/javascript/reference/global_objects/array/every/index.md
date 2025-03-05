@@ -2,12 +2,12 @@
 title: Array.prototype.every()
 slug: Web/JavaScript/Reference/Global_Objects/Array/every
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`every()`**-Methode von {{jsxref("Array")}}-Instanzen prüft, ob alle Elemente im Array den Test bestehen, der von der bereitgestellten Funktion implementiert wurde. Sie gibt einen Boolean-Wert zurück.
+Die **`every()`**-Methode von {{jsxref("Array")}}-Instanzen prüft, ob alle Elemente im Array den Test bestehen, der von der bereitgestellten Funktion implementiert wird. Sie gibt einen booleschen Wert zurück.
 
 {{InteractiveExample("JavaScript Demo: Array.every()", "shorter")}}
 
@@ -30,11 +30,11 @@ every(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Diese sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}}-Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test bestanden hat, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuell verarbeitete Element im Array.
+      - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
-      - : Der Index des aktuell verarbeiteten Elements im Array.
+      - : Der Index des aktuellen Elements, das im Array verarbeitet wird.
     - `array`
       - : Das Array, auf dem `every()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
@@ -42,21 +42,21 @@ every(callbackFn, thisArg)
 
 ### Rückgabewert
 
-`true`, es sei denn, `callbackFn` gibt einen {{Glossary("Falsy", "falsy")}}-Wert für ein Array-Element zurück. In diesem Fall wird sofort `false` zurückgegeben.
+`true`, solange `callbackFn` keinen {{Glossary("falsy", "falsy")}} Wert für ein Array-Element zurückgibt; in diesem Fall wird sofort `false` zurückgegeben.
 
 ## Beschreibung
 
-Die `every()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft die bereitgestellte Funktion `callbackFn` einmal für jedes Element in einem Array auf, bis `callbackFn` einen {{Glossary("Falsy", "falsy")}}-Wert zurückgibt. Wenn ein solches Element gefunden wird, gibt `every()` sofort `false` zurück und hört auf, das Array zu durchsuchen. Andernfalls gibt `every()` `true` zurück, wenn `callbackFn` für alle Elemente einen {{Glossary("Truthy", "truthy")}}-Wert zurückgibt. Lesen Sie den Abschnitt zu [iterativen Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), um weitere Informationen darüber zu erhalten, wie diese Methoden im Allgemeinen funktionieren.
+Die `every()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn` Funktion einmal für jedes Element in einem Array auf, bis `callbackFn` einen {{Glossary("Falsy", "falsy")}} Wert zurückgibt. Wenn ein solches Element gefunden wird, gibt `every()` sofort `false` zurück und stoppt die Iteration durch das Array. Andernfalls, wenn `callbackFn` einen {{Glossary("Truthy", "truthy")}} Wert für alle Elemente zurückgibt, gibt `every()` `true` zurück. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für mehr Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
 
-`every` funktioniert wie der "für alle"-Quantor in der Mathematik. Insbesondere gibt es bei einem leeren Array `true` zurück. (Es ist [trivialerweise wahr](https://en.wikipedia.org/wiki/Vacuous_truth), dass alle Elemente der [leeren Menge](https://en.wikipedia.org/wiki/Empty_set#Properties) eine beliebige Bedingung erfüllen.)
+`every` funktioniert wie der „für alle“ Quantor in der Mathematik. Insbesondere für ein leeres Array gibt es `true` zurück. (Es ist [trivialerweise wahr](https://de.wikipedia.org/wiki/Vakante_Wahrheit), dass alle Elemente der [leeren Menge](https://de.wikipedia.org/wiki/Leere_Menge#Eigenschaften) eine gegebene Bedingung erfüllen.)
 
-`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen sind. Es wird nicht für leere Felder in [sparsamen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
+`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen sind. Es wird nicht für leere Plätze in [sparsely besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
 
-Die `every()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlig indizierte Eigenschaften besitzt.
+Die `every()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integer-indexierte Eigenschaften hat.
 
 ## Beispiele
 
-### Prüfung der Größe aller Array-Elemente
+### Testen der Größe aller Array-Elemente
 
 Das folgende Beispiel prüft, ob alle Elemente im Array 10 oder größer sind.
 
@@ -68,7 +68,7 @@ function isBigEnough(element, index, array) {
 [12, 54, 18, 130, 44].every(isBigEnough); // true
 ```
 
-### Prüfung, ob ein Array ein Teilmengen-Array eines anderen ist
+### Überprüfen, ob ein Array eine Teilmenge eines anderen ist
 
 Das folgende Beispiel prüft, ob alle Elemente eines Arrays in einem anderen Array vorhanden sind.
 
@@ -80,9 +80,9 @@ console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 7, 6])); // true
 console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 8, 7])); // false
 ```
 
-### Nutzung des dritten Arguments von callbackFn
+### Verwenden des dritten Arguments von callbackFn
 
-Das Argument `array` ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten. Im folgenden Beispiel wird zuerst `filter()` verwendet, um die positiven Werte zu extrahieren, und anschließend `every()`, um zu prüfen, ob das Array streng monoton steigend ist.
+Das `array`-Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten. Das folgende Beispiel verwendet zunächst `filter()`, um die positiven Werte zu extrahieren, und verwendet dann `every()`, um zu überprüfen, ob das Array streng zunehmend ist.
 
 ```js
 const numbers = [-2, 4, -8, 16, -32];
@@ -97,18 +97,18 @@ const isIncreasing = numbers
 console.log(isIncreasing); // true
 ```
 
-### Verwendung von every() auf sparsamen Arrays
+### Verwenden von every() auf verzerrten Arrays
 
-`every()` wird das Prädikat für leere Felder nicht ausführen.
+`every()` wird sein Prädikat nicht auf leere Plätze anwenden.
 
 ```js
 console.log([1, , 3].every((x) => x !== undefined)); // true
 console.log([2, , 2].every((x) => x === 2)); // true
 ```
 
-### Aufruf von every() auf Nicht-Array-Objekten
+### Aufrufen von every() auf Nicht-Array-Objekten
 
-Die `every()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft mit einem nichtnegativen ganzzahligen Schlüssel zu, der kleiner als `length` ist, bis sie alle verarbeitet wurden oder `callbackFn` `false` zurückgibt.
+Die `every()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft mit einem nicht-negativen ganzzahligen Schlüssel zu, der kleiner als `length` ist, bis alle Werte abgerufen sind oder `callbackFn` `false` zurückgibt.
 
 ```js
 const arrayLike = {
@@ -134,6 +134,7 @@ console.log(
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.every` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
+- [es-shims Polyfill von `Array.prototype.every`](https://www.npmjs.com/package/array.prototype.every)
 - [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.forEach()")}}

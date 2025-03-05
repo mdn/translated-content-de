@@ -2,12 +2,12 @@
 title: Math.atanh()
 slug: Web/JavaScript/Reference/Global_Objects/Math/atanh
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.atanh()`** gibt den inversen hyperbolischen Tangens einer Zahl zurück. Das bedeutet:
+Die **`Math.atanh()`** statische Methode gibt den inversen hyperbolischen Tangens einer Zahl zurück. Das bedeutet:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -40,7 +40,7 @@ Math.atanh(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl zwischen -1 und 1, einschließlich.
+  - : Eine Zahl zwischen -1 und 1, inklusive.
 
 ### Rückgabewert
 
@@ -48,7 +48,7 @@ Der inverse hyperbolische Tangens von `x`. Wenn `x` 1 ist, wird {{jsxref("Infini
 
 ## Beschreibung
 
-Da `atanh()` eine statische Methode von `Math` ist, wird sie immer als `Math.atanh()` verwendet und nicht als Methode eines selbst erstellten `Math`-Objekts (da `Math` kein Konstruktor ist).
+Da `atanh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.atanh()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -75,6 +75,7 @@ Math.atanh(2); // NaN
 ## Siehe auch
 
 - [Polyfill von `Math.atanh` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
+- [es-shims Polyfill von `Math.atanh`](https://www.npmjs.com/package/math.atanh)
 - {{jsxref("Math.acosh()")}}
 - {{jsxref("Math.asinh()")}}
 - {{jsxref("Math.cosh()")}}

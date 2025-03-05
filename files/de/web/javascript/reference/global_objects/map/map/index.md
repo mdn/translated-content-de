@@ -2,7 +2,7 @@
 title: Map()-Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Map/Map
 l10n:
-  sourceCommit: 70f09675ddcfc75a3bb66d2dce4cf82738948a37
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
@@ -16,15 +16,15 @@ new Map()
 new Map(iterable)
 ```
 
-> **Note:** `Map()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) instanziiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Hinweis:** `Map()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `iterable` {{optional_inline}}
   - : Ein {{jsxref("Array")}} oder ein anderes
-    [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols),
+    [iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols) Objekt,
     dessen Elemente Schlüssel-Wert-Paare sind. (Zum Beispiel Arrays mit zwei Elementen,
-    wie `[[ 1, 'one' ],[ 2, 'two' ]]`.) Jedes Schlüssel-Wert-Paar wird zu dem
+    wie `[[ 1, 'one' ],[ 2, 'two' ]]`.) Jedes Schlüssel-Wert-Paar wird der
     neuen `Map` hinzugefügt.
 
 ## Beispiele
@@ -50,6 +50,7 @@ const myMap = new Map([
 ## Siehe auch
 
 - [Polyfill für `Map` in `core-js`](https://github.com/zloirock/core-js#map)
+- [es-shims Polyfill von `Map`](https://www.npmjs.com/package/es-map)
 - {{jsxref("Set")}}
 - {{jsxref("WeakMap")}}
 - {{jsxref("WeakSet")}}

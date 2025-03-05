@@ -2,12 +2,12 @@
 title: Iterator.prototype.forEach()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/forEach
 l10n:
-  sourceCommit: a71768c124d1bb2dceef873c0bda266e9f714e4c
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`forEach()`** Methode von {{jsxref("Iterator")}} Instanzen ist ähnlich zu {{jsxref("Array.prototype.forEach()")}}: Sie führt eine bereitgestellte Funktion einmal für jedes vom Iterator erzeugte Element aus.
+Die **`forEach()`** Methode von {{jsxref("Iterator")}} Instanzen ist ähnlich wie {{jsxref("Array.prototype.forEach()")}}: Sie führt eine bereitgestellte Funktion einmal für jedes vom Iterator erzeugte Element aus.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ forEach(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Der Rückgabewert wird verworfen. Die Funktion wird mit folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Der Rückgabewert wird verworfen. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das verarbeitet wird.
     - `index`
@@ -30,7 +30,7 @@ forEach(callbackFn)
 
 ## Beschreibung
 
-`forEach()` iteriert über den Iterator und ruft die Funktion `callbackFn` einmal für jedes Element auf. Anders als die meisten anderen Helfer-Methoden für Iteratoren funktioniert sie nicht mit unendlichen Iteratoren, da sie nicht lazy ausgeführt wird.
+`forEach()` durchläuft den Iterator und ruft die Funktion `callbackFn` einmal für jedes Element auf. Im Gegensatz zu den meisten anderen Hilfsmethoden für Iteratoren arbeitet sie nicht mit unendlichen Iteratoren, da sie nicht lazy ist.
 
 ## Beispiele
 
@@ -45,7 +45,7 @@ new Set([1, 2, 3]).values().forEach((v) => console.log(v));
 // 3
 ```
 
-Das ist äquivalent zu:
+Dies ist äquivalent zu:
 
 ```js
 for (const v of new Set([1, 2, 3]).values()) {
@@ -64,6 +64,7 @@ for (const v of new Set([1, 2, 3]).values()) {
 ## Siehe auch
 
 - [Polyfill von `Iterator.prototype.forEach` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
+- [es-shims Polyfill von `Iterator.prototype.forEach`](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.prototype.find()")}}
 - {{jsxref("Iterator.prototype.map()")}}

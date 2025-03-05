@@ -2,12 +2,12 @@
 title: Reflect.ownKeys()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`Reflect.ownKeys()`** statische Methode gibt ein Array der eigenen Eigenschaften-Schlüssel des `target` Objekts zurück.
+Die statische Methode **`Reflect.ownKeys()`** gibt ein Array der eigenen Eigenschaftsschlüssel des `target`-Objekts zurück.
 
 {{InteractiveExample("JavaScript Demo: Reflect.ownKeys()")}}
 
@@ -39,22 +39,22 @@ Reflect.ownKeys(target)
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} der eigenen Eigenschaften-Schlüssel des `target` Objekts, einschließlich Strings und Symbole. Für die meisten Objekte wird das Array in folgender Reihenfolge sein:
+Ein {{jsxref("Array")}} der eigenen Eigenschaftsschlüssel des `target`-Objekts, einschließlich Zeichenfolgen und Symbole. Für die meisten Objekte wird das Array in folgender Reihenfolge vorliegen:
 
-1. Nicht-negative ganzzahlige Indizes in aufsteigender numerischer Reihenfolge (aber als Strings)
-2. Andere String-Schlüssel in der Reihenfolge ihrer Erstellung
+1. Nicht-negative ganzzahlige Indizes in aufsteigender numerischer Reihenfolge (aber als Zeichenfolgen)
+2. Andere Zeichenfolgen-Schlüssel in der Reihenfolge ihrer Erstellung
 3. Symbol-Schlüssel in der Reihenfolge ihrer Erstellung.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn `target` kein Objekt ist.
+  - : Wird ausgelöst, wenn `target` kein Objekt ist.
 
 ## Beschreibung
 
-`Reflect.ownKeys()` liefert die reflektive Semantik zum Abrufen aller Eigenschaften-Schlüssel eines Objekts. Es ist der einzige Weg, um alle eigenen Eigenschaften – sowohl aufzählbare als auch nicht aufzählbare, Strings und Symbole – in einem Aufruf zu erhalten, ohne zusätzliche Filterlogik zu verwenden. Zum Beispiel nimmt {{jsxref("Object.getOwnPropertyNames()")}} den Rückgabewert von `Reflect.ownKeys()` und filtert nur String-Werte heraus, während {{jsxref("Object.getOwnPropertySymbols()")}} nur Symbolwerte herausfiltert. Da normale Objekte `[[OwnPropertyKeys]]` implementieren, um alle String-Schlüssel vor den Symbol-Schlüsseln zurückzugeben, ist `Reflect.ownKeys(target)` normalerweise gleichbedeutend mit `Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target))`. Wenn das Objekt jedoch eine benutzerdefinierte `[[OwnPropertyKeys]]`-Methode hat (z. B. durch den [`ownKeys`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/ownKeys)-Handler eines Proxys), kann die Reihenfolge der Schlüssel abweichen.
+`Reflect.ownKeys()` bietet die reflektive Semantik, um alle Eigenschaftsschlüssel eines Objekts abzurufen. Es ist der einzige Weg, um alle eigenen Eigenschaften – aufzählbare und nicht aufzählbare, Zeichenfolgen und Symbole – in einem Aufruf abzurufen, ohne zusätzliche Filterlogik. Beispielsweise nimmt {{jsxref("Object.getOwnPropertyNames()")}} den Rückgabewert von `Reflect.ownKeys()` und filtert nur Zeichenfolgenwerte, während {{jsxref("Object.getOwnPropertySymbols()")}} nur Symbolwerte filtert. Da normale Objekte `[[OwnPropertyKeys]]` implementieren, um alle Zeichenfolgen-Schlüssel vor Symbol-Schlüsseln zurückzugeben, ist `Reflect.ownKeys(target)` normalerweise äquivalent zu `Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target))`. Wenn das Objekt jedoch über eine benutzerdefinierte `[[OwnPropertyKeys]]`-Methode verfügt (wie zum Beispiel durch einen Proxy-Handler [`ownKeys`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/ownKeys)), kann die Reihenfolge der Schlüssel unterschiedlich sein.
 
-`Reflect.ownKeys()` ruft die `[[OwnPropertyKeys]]` [interne Methode eines Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.ownKeys()` ruft die `[[OwnPropertyKeys]]`-Methode [interne Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
 ## Beispiele
 
@@ -94,6 +94,7 @@ Reflect.ownKeys(obj);
 ## Siehe auch
 
 - [Polyfill von `Reflect.ownKeys` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
+- [es-shims polyfill von `Reflect.ownKeys`](https://www.npmjs.com/package/reflect.ownkeys)
 - {{jsxref("Reflect")}}
 - {{jsxref("Object.getOwnPropertyNames()")}}
 - {{jsxref("Object.getOwnPropertySymbols()")}}

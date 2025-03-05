@@ -2,15 +2,15 @@
 title: String.prototype.italics()
 slug: Web/JavaScript/Reference/Global_Objects/String/italics
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`italics()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("i")}}-Element (`<i>str</i>`) einbettet, wodurch dieser String kursiv angezeigt wird.
+Die **`italics()`** Methode von {{jsxref("String")}} Werten erstellt einen String, der diesen String in einem {{HTMLElement("i")}}-Element (`<i>str</i>`) einbettet, was dazu führt, dass dieser String kursiv angezeigt wird.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Alle [HTML-Einfügemethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 
 ## Syntax
 
@@ -24,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<i>`-Start-Tag beginnt, dann den Text `str` enthält und dann mit einem `</i>`-End-Tag endet.
+Ein String, der mit einem `<i>` Start-Tag beginnt, gefolgt von dem Text `str`, und dann einem `</i>` End-Tag.
 
 ## Beispiele
 
 ### Verwendung von italics()
 
-Der folgende Code erstellt einen HTML-String und ersetzt dann den Inhalt des Dokuments mit ihm:
+Der untenstehende Code erstellt einen HTML-String und ersetzt damit den Körper des Dokuments:
 
 ```js
 const contentString = "Hello, world";
@@ -38,7 +38,7 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.italics();
 ```
 
-Dies erzeugt das folgende HTML:
+Dies wird das folgende HTML erzeugen:
 
 ```html
 <i>Hello, world</i>
@@ -64,5 +64,6 @@ document.body.appendChild(elem);
 ## Siehe auch
 
 - [Polyfill von `String.prototype.italics` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
+- [es-shims Polyfill von `String.prototype.italics`](https://www.npmjs.com/package/es-string-html-methods)
+- [HTML-Einfügemethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("i")}}

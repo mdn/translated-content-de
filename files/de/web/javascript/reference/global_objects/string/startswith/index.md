@@ -2,12 +2,12 @@
 title: String.prototype.startsWith()
 slug: Web/JavaScript/Reference/Global_Objects/String/startsWith
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die Methode **`startsWith()`** von {{jsxref("String")}}-Werten bestimmt, ob dieser String mit den Zeichen eines angegebenen Strings beginnt, und gibt entsprechend `true` oder `false` zurück.
+Die **`startsWith()`**-Methode von {{jsxref("String")}}-Werten bestimmt, ob dieser String mit den Zeichen eines angegebenen Strings beginnt, und gibt entsprechend `true` oder `false` zurück.
 
 {{InteractiveExample("JavaScript Demo: String.startsWith()")}}
 
@@ -31,22 +31,22 @@ startsWith(searchString, position)
 ### Parameter
 
 - `searchString`
-  - : Die Zeichen, nach denen am Anfang dieses Strings gesucht werden soll. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexe sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `startsWith()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
+  - : Die Zeichen, die am Anfang dieses Strings gesucht werden sollen. Kann kein [Regulärer Ausdruck](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes) sein. Alle Werte, die keine regulären Ausdrücke sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), sodass das Weglassen dieses Parameters oder das Übergeben von `undefined` dazu führt, dass `startsWith()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
 - `position` {{optional_inline}}
-  - : Die Startposition, an der `searchString` erwartet wird (der Index des ersten Zeichens von `searchString`). Der Standardwert ist `0`.
+  - : Die Startposition, an der `searchString` erwartet wird (der Index des ersten Zeichens von `searchString`). Standardmäßig `0`.
 
 ### Rückgabewert
 
-**`true`**, wenn die angegebenen Zeichen am Anfang des Strings gefunden werden, auch wenn `searchString` ein leerer String ist; andernfalls **`false`**.
+**`true`**, wenn die angegebenen Zeichen am Anfang des Strings gefunden werden, einschließlich wenn `searchString` ein leerer String ist; andernfalls **`false`**.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `searchString` [ein Regex ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
+  - : Wird ausgelöst, wenn `searchString` [ein Regulärer Ausdruck ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
 
 ## Beschreibung
 
-Diese Methode ermöglicht es Ihnen zu bestimmen, ob ein String mit einem anderen String beginnt. Diese Methode ist groß-/kleinschreibungssensitiv.
+Diese Methode ermöglicht es Ihnen zu bestimmen, ob ein String mit einem anderen String beginnt. Diese Methode ist case-sensitiv.
 
 ## Beispiele
 
@@ -71,6 +71,7 @@ console.log(str.startsWith("not to be", 10)); // true
 ## Siehe auch
 
 - [Polyfill von `String.prototype.startsWith` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [es-shims Polyfill von `String.prototype.startsWith`](https://www.npmjs.com/package/string.prototype.startswith)
 - {{jsxref("String.prototype.endsWith()")}}
 - {{jsxref("String.prototype.includes()")}}
 - {{jsxref("String.prototype.indexOf()")}}

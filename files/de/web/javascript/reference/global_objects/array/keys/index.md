@@ -2,12 +2,12 @@
 title: Array.prototype.keys()
 slug: Web/JavaScript/Reference/Global_Objects/Array/keys
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`keys()`**-Methode von {{jsxref("Array")}}-Instanzen gibt ein neues _[Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Schlüssel für jedes Index im Array enthält.
+Die **`keys()`**-Methode von {{jsxref("Array")}} Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das die Schlüssel für jeden Index im Array enthält.
 
 {{InteractiveExample("JavaScript Demo: Array.keys()")}}
 
@@ -40,15 +40,15 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 
 ## Beschreibung
 
-Wenn sie auf [sparse Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) angewendet wird, iteriert die `keys()`-Methode über leere Stellen, als ob sie den Wert `undefined` hätten.
+Bei der Verwendung auf [sparse Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) durchläuft die `keys()`-Methode leere Slots, als ob sie den Wert `undefined` hätten.
 
-Die `keys()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und integerbasierte Schlüssel-Eigenschaften hat.
+Die `keys()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-beschlüsselte Eigenschaften hat.
 
 ## Beispiele
 
-### Verwendung von keys() bei sparse Arrays
+### Verwendung von keys() auf sparsamen Arrays
 
-Im Gegensatz zu {{jsxref("Object.keys()")}}, das nur Schlüssel einschließt, die tatsächlich im Array existieren, ignoriert der `keys()`-Iterator keine Lücken, die fehlende Eigenschaften repräsentieren.
+Anders als {{jsxref("Object.keys()")}}, das nur Schlüssel einschließt, die tatsächlich im Array vorhanden sind, ignoriert der `keys()`-Iterator keine Lücken, die fehlende Eigenschaften darstellen.
 
 ```js
 const arr = ["a", , "c"];
@@ -58,9 +58,9 @@ console.log(sparseKeys); // ['0', '2']
 console.log(denseKeys); // [0, 1, 2]
 ```
 
-### Aufruf von keys() bei Nicht-Array-Objekten
+### Aufrufen von keys() auf Nicht-Array-Objekten
 
-Die `keys()`-Methode liest die `length`-Eigenschaft von `this` aus und liefert dann alle ganzzahligen Indizes zwischen 0 und `length - 1`. Es erfolgt kein tatsächlicher Zugriff auf Indizes.
+Die `keys()`-Methode liest die `length`-Eigenschaft von `this` und liefert alle Ganzzahlindizes zwischen 0 und `length - 1`. Es erfolgt kein tatsächlicher Indexzugriff.
 
 ```js
 const arrayLike = {
@@ -85,6 +85,7 @@ for (const entry of Array.prototype.keys.call(arrayLike)) {
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.keys` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
+- [es-shims Polyfill von `Array.prototype.keys`](https://www.npmjs.com/package/array.prototype.keys)
 - [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.entries()")}}

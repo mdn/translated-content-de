@@ -2,12 +2,12 @@
 title: Number.prototype.toExponential()
 slug: Web/JavaScript/Reference/Global_Objects/Number/toExponential
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`toExponential()`**-Methode von {{jsxref("Number")}}-Werten gibt einen String zurück, der diese Zahl in exponentieller Notation darstellt.
+Die **`toExponential()`**-Methode von {{jsxref("Number")}}-Werten gibt eine Zeichenkette zurück, die diese Zahl in Exponentialschreibweise darstellt.
 
 {{InteractiveExample("JavaScript Demo: Number.toExponential()")}}
 
@@ -36,27 +36,26 @@ toExponential(fractionDigits)
 ### Parameter
 
 - `fractionDigits` {{optional_inline}}
-  - : Optional. Eine ganze Zahl, die die Anzahl der Stellen nach dem Dezimalpunkt angibt.
-    Standardmäßig wird so viele Stellen wie nötig verwendet, um die Zahl darzustellen.
+  - : Optional. Eine Ganzzahl, die die Anzahl der Nachkommastellen angibt. Standardmäßig wird so viele Nachkommastellen verwendet, wie nötig sind, um die Zahl eindeutig darzustellen.
 
 ### Rückgabewert
 
-Ein String, der das gegebene {{jsxref("Number")}}-Objekt in exponentieller Notation darstellt, mit einer Ziffer vor dem Dezimalpunkt, gerundet auf `fractionDigits` Stellen nach dem Dezimalpunkt.
+Eine Zeichenkette, die das gegebene {{jsxref("Number")}}-Objekt in Exponentialschreibweise darstellt, mit einer Ziffer vor dem Dezimalpunkt, gerundet auf `fractionDigits` Nachkommastellen.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wirft einen Fehler, wenn `fractionDigits` nicht zwischen `0` und `100` (einschließlich) liegt.
+  - : Wird ausgelöst, wenn `fractionDigits` nicht zwischen `0` und `100` liegt (einschließlich).
 - {{jsxref("TypeError")}}
-  - : Wirft einen Fehler, wenn diese Methode auf ein Objekt angewendet wird, das kein {{jsxref("Number")}} ist.
+  - : Wird ausgelöst, wenn diese Methode auf einem Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
 
 ## Beschreibung
 
-Falls das `fractionDigits`-Argument weggelassen wird, entspricht die Anzahl der Stellen nach dem Dezimalpunkt der Anzahl, die erforderlich ist, um den Wert eindeutig darzustellen.
+Wenn das `fractionDigits`-Argument weggelassen wird, entspricht die Anzahl der Nachkommastellen der Anzahl der Stellen, die erforderlich sind, um den Wert eindeutig darzustellen.
 
-Wenn Sie die `toExponential()`-Methode für einen numerischen Literal verwenden und dieser keinen Exponenten und keinen Dezimalpunkt hat, lassen Sie Leerzeichen vor dem Punkt, der dem Methodenaufruf vorausgeht, um zu verhindern, dass dieser Punkt als Dezimalpunkt interpretiert wird.
+Wenn Sie die `toExponential()`-Methode für ein numerisches Literal verwenden und das numerische Literal keinen Exponenten und keinen Dezimalpunkt hat, lassen Sie Leerzeichen vor dem Punkt, der dem Methodenaufruf vorangeht, um zu verhindern, dass der Punkt als Dezimalpunkt interpretiert wird.
 
-Falls eine Zahl mehr Stellen hat, als durch den `fractionDigits`-Parameter angegeben, wird die Zahl auf die nächste durch `fractionDigits` Stellen repräsentierte Zahl gerundet. Siehe die Diskussion über das Runden in der Beschreibung der {{jsxref("Number/toFixed", "toFixed()")}}-Methode, die auch für `toExponential()` gilt.
+Wenn eine Zahl mehr Stellen hat als durch den `fractionDigits`-Parameter angefordert, wird die Zahl auf die nächstgelegene Zahl gerundet, die mit `fractionDigits`-Stellen dargestellt wird. Siehe die Diskussion über Rundung in der Beschreibung der {{jsxref("Number/toFixed", "toFixed()")}}-Methode, die auch für `toExponential()` gilt.
 
 ## Beispiele
 
@@ -83,6 +82,7 @@ console.log((77).toExponential()); // 7.7e+1
 ## Siehe auch
 
 - [Polyfill von `Number.prototype.toExponential` mit vielen Fehlerbehebungen in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
+- [es-shims Polyfill von `Number.prototype.toExponential`](https://www.npmjs.com/package/number.prototype.toexponential)
 - {{jsxref("Number.prototype.toFixed()")}}
 - {{jsxref("Number.prototype.toPrecision()")}}
 - {{jsxref("Number.prototype.toString()")}}

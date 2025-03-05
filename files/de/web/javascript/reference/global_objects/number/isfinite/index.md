@@ -2,12 +2,12 @@
 title: Number.isFinite()
 slug: Web/JavaScript/Reference/Global_Objects/Number/isFinite
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Number.isFinite()`** bestimmt, ob der übergebene Wert eine endliche Zahl ist – das heißt, sie überprüft, ob ein gegebener Wert eine Zahl ist und ob diese Zahl weder positives {{jsxref("Infinity")}}, negatives `Infinity` noch {{jsxref("NaN")}} ist.
+Die statische Methode **`Number.isFinite()`** bestimmt, ob der übergebene Wert eine endliche Zahl ist — das heißt, sie überprüft, ob ein gegebener Wert eine Zahl ist und die Zahl weder positiv {{jsxref("Infinity")}}, negativ `Infinity` noch {{jsxref("NaN")}} ist.
 
 {{InteractiveExample("JavaScript Demo: Number.isFinite()")}}
 
@@ -31,11 +31,11 @@ Number.isFinite(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der auf Endlichkeit überprüft werden soll.
+  - : Der Wert, der auf Endlichkeit getestet werden soll.
 
 ### Rückgabewert
 
-Der boolesche Wert `true`, wenn der übergebene Wert eine endliche Zahl ist. Andernfalls `false`.
+Der boolesche Wert `true`, wenn der gegebene Wert eine endliche Zahl ist. Andernfalls `false`.
 
 ## Beispiele
 
@@ -52,7 +52,7 @@ Number.isFinite(2e64); // true
 
 ### Unterschied zwischen Number.isFinite() und global isFinite()
 
-Im Vergleich zur globalen {{jsxref("isFinite()")}}-Funktion wandelt diese Methode den Parameter nicht zuerst in eine Zahl um. Das bedeutet, dass nur Werte vom Typ Zahl _und_ die endlich sind, `true` zurückgeben. Nicht-Zahlen geben immer `false` zurück.
+Im Vergleich zur globalen Funktion {{jsxref("isFinite()")}} konvertiert diese Methode den Parameter nicht zuerst in eine Zahl. Dies bedeutet, dass nur Werte des Typs Zahl _und_ die endlich sind, `true` zurückgeben, und Nicht-Zahlen immer `false` zurückgeben.
 
 ```js
 isFinite("0"); // true; coerced to number 0
@@ -72,5 +72,6 @@ Number.isFinite(null); // false
 ## Siehe auch
 
 - [Polyfill von `Number.isFinite` in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
+- [es-shims Polyfill von `Number.isFinite`](https://www.npmjs.com/package/number.isfinite)
 - {{jsxref("Number")}}
 - {{jsxref("isFinite()")}}

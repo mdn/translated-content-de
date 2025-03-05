@@ -2,12 +2,12 @@
 title: Get Window Rect
 slug: Web/WebDriver/Reference/Commands/GetWindowRect
 l10n:
-  sourceCommit: 57b855a52a2d2e8914a30e3a47567bff0806ae23
+  sourceCommit: 394a1aff10d20ba51dbd00252ce481769298001c
 ---
 
-Der Befehl _Get Window Rect_ des [WebDriver](/de/docs/Web/WebDriver) API gibt die Größe und Position des angegebenen [`WebElement`](/de/docs/Web/WebDriver/WebElement) zurück. Viele [WebDriver-Clients](/de/docs/Web/WebDriver/Clients) bieten separate API-Methoden zum Abrufen des Standorts und der Abmessungen eines Elements an, verwenden jedoch zur Optimierung beide dieses primitive Kommando.
+Der _Get Window Rect_ [Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API gibt die Größe und Position des angegebenen [`WebElement`](/de/docs/Web/WebDriver/WebElement) zurück. Viele [WebDriver-Clients](/de/docs/Web/WebDriver/Clients) bieten separate API-Methoden zum Abrufen der Position und der Dimensionen eines Elements an, aber als Optimierung verwenden beide dieses primitive Kommando.
 
-Der Befehl arbeitet mit dem aktuell ausgewählten Fenster und gibt die Größe und Position des Betriebssystemfensters zurück. Das zurückgegebene [`WindowRect`](/de/docs/Web/WebDriver/WindowRect) kann als Eingabe für den Befehl [Set Window Rect](/de/docs/Web/WebDriver/SetWindowRect) verwendet werden, der zur Manipulation der Position und Abmessungen eines Fensters dient.
+Der Befehl operiert auf dem aktuell ausgewählten Fenster und gibt die Größe und Position des Betriebssystemfensters zurück. Das zurückgegebene [`WindowRect`](/de/docs/Web/WebDriver/WindowRect) kann als Eingabe für den [Set Window Rect](/de/docs/Web/WebDriver/SetWindowRect) Befehl verwendet werden, der zur Manipulation der Position und Dimensionen eines Fensters dient.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ Der Befehl arbeitet mit dem aktuell ausgewählten Fenster und gibt die Größe u
 ### URL-Parameter
 
 - `session id`
-  - : Bezeichner der Sitzung.
+  - : Identifikator der Sitzung.
 
 ### Antwort
 
@@ -37,8 +37,8 @@ Die Antwortnutzlast ist ein [`WindowRect`](/de/docs/Web/WebDriver/WebWindow):
 
 - [Ungültige Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
   - : Sitzung existiert nicht.
-- [Unerwartete Alarmmeldung geöffnet](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Ein Benutzeraufforderung, wie [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
+- [Unerwartetes Alert geöffnet](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzeraufforderung, wie [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
 
 ## Spezifikationen
 

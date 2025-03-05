@@ -2,12 +2,12 @@
 title: String.prototype.repeat()
 slug: Web/JavaScript/Reference/Global_Objects/String/repeat
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten erstellt und gibt einen neuen String zurück, der die angegebene Anzahl von Kopien dieses Strings enthält, zusammengefügt zu einem String.
+Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten konstruiert und gibt einen neuen String zurück, der die angegebene Anzahl von Kopien dieses Strings enthält, zusammengefügt.
 
 {{InteractiveExample("JavaScript Demo: String.repeat()", "shorter")}}
 
@@ -27,8 +27,7 @@ repeat(count)
 ### Parameter
 
 - `count`
-  - : Eine Ganzzahl zwischen `0` und
-    {{jsxref("Number/POSITIVE_INFINITY", "+Infinity")}}, die angibt, wie oft der String wiederholt werden soll.
+  - : Eine ganze Zahl zwischen `0` und {{jsxref("Number/POSITIVE_INFINITY", "+Infinity")}}, die angibt, wie oft der String wiederholt werden soll.
 
 ### Rückgabewert
 
@@ -41,7 +40,7 @@ Ein neuer String, der die angegebene Anzahl von Kopien des gegebenen Strings ent
 
 ## Beispiele
 
-### Verwendung von repeat()
+### Nutzung von repeat()
 
 ```js
 "abc".repeat(-1); // RangeError
@@ -66,4 +65,5 @@ Ein neuer String, der die angegebene Anzahl von Kopien des gegebenen Strings ent
 ## Siehe auch
 
 - [Polyfill von `String.prototype.repeat` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [es-shims Polyfill von `String.prototype.repeat`](https://www.npmjs.com/package/string.prototype.repeat)
 - {{jsxref("String.prototype.concat()")}}

@@ -2,12 +2,12 @@
 title: String.prototype.includes()
 slug: Web/JavaScript/Reference/Global_Objects/String/includes
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die Methode **`includes()`** von {{jsxref("String")}}-Werten führt eine Groß-/Kleinschreibung beachtende Suche durch, um festzustellen, ob eine bestimmte Zeichenfolge innerhalb dieser Zeichenfolge gefunden werden kann, und gibt entsprechend `true` oder `false` zurück.
+Die **`includes()`**-Methode von {{jsxref("String")}}-Werten führt eine Groß- und Kleinschreibung berücksichtigende Suche durch, um festzustellen, ob ein gegebener String innerhalb dieses Strings gefunden werden kann. Sie gibt `true` oder `false` zurück, je nachdem.
 
 {{InteractiveExample("JavaScript Demo: String.includes()", "shorter")}}
 
@@ -34,13 +34,13 @@ includes(searchString, position)
 ### Parameter
 
 - `searchString`
-  - : Eine Zeichenfolge, die in `str` gesucht wird. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexes sind, werden [zu Zeichenfolgen umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `includes()` nach der Zeichenfolge `"undefined"` sucht, was selten gewünscht ist.
+  - : Ein String, nach dem in `str` gesucht werden soll. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexe sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Auslassen oder das Übergeben von `undefined` dazu, dass `includes()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
 - `position` {{optional_inline}}
-  - : Die Position innerhalb der Zeichenfolge, an der begonnen werden soll, nach `searchString` zu suchen. (Standard ist `0`.)
+  - : Die Position innerhalb des Strings, an der die Suche nach `searchString` beginnen soll. (Standard ist `0`.)
 
 ### Rückgabewert
 
-**`true`**, wenn die Suchzeichenfolge irgendwo in der angegebenen Zeichenfolge gefunden wird, einschließlich der Fälle, in denen `searchString` eine leere Zeichenfolge ist; andernfalls **`false`**.
+**`true`**, wenn der Suchstring irgendwo innerhalb des gegebenen Strings gefunden wird, einschließlich wenn `searchString` ein leerer String ist; andernfalls **`false`**.
 
 ### Ausnahmen
 
@@ -49,17 +49,17 @@ includes(searchString, position)
 
 ## Beschreibung
 
-Mit dieser Methode können Sie feststellen, ob eine Zeichenfolge eine andere Zeichenfolge enthält oder nicht.
+Diese Methode ermöglicht es Ihnen zu bestimmen, ob ein String einen anderen String enthält.
 
-### Groß-/Kleinschreibung
+### Groß- und Kleinschreibung
 
-Die Methode `includes()` unterscheidet zwischen Groß- und Kleinschreibung. Zum Beispiel ergibt der folgende Ausdruck `false`:
+Die `includes()`-Methode ist groß- und kleinschreibungssensitiv. Zum Beispiel gibt der folgende Ausdruck `false` zurück:
 
 ```js
 "Blue Whale".includes("blue"); // returns false
 ```
 
-Dieses Verhalten können Sie umgehen, indem Sie sowohl die ursprüngliche Zeichenfolge als auch die Suchzeichenfolge in Kleinbuchstaben umwandeln:
+Sie können diesen Umstand umgehen, indem Sie sowohl den Originalstring als auch den Suchstring in Kleinbuchstaben umwandeln:
 
 ```js
 "Blue Whale".toLowerCase().includes("blue"); // returns true
@@ -91,6 +91,7 @@ console.log(str.includes("")); // true
 ## Siehe auch
 
 - [Polyfill von `String.prototype.includes` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [es-shims Polyfill von `String.prototype.includes`](https://www.npmjs.com/package/string.prototype.includes)
 - {{jsxref("Array.prototype.includes()")}}
 - {{jsxref("TypedArray.prototype.includes()")}}
 - {{jsxref("String.prototype.indexOf()")}}

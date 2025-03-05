@@ -2,12 +2,12 @@
 title: Array.prototype.toSpliced()
 slug: Web/JavaScript/Reference/Global_Objects/Array/toSpliced
 l10n:
-  sourceCommit: 85d7482697cc2bf407c58e809a2a754180d6714c
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`toSpliced()`**-Methode von {{jsxref("Array")}}-Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der {{jsxref("Array/splice", "splice()")}}-Methode. Sie gibt ein neues Array zurück, bei dem einige Elemente an einem bestimmten Index entfernt und/oder ersetzt werden.
+Die **`toSpliced()`** Methode von {{jsxref("Array")}} Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der {{jsxref("Array/splice", "splice()")}} Methode. Sie gibt ein neues Array zurück, bei dem einige Elemente an einem bestimmten Index entfernt und/oder ersetzt wurden.
 
 ## Syntax
 
@@ -23,23 +23,23 @@ toSpliced(start, deleteCount, item1, item2, /* …, */ itemN)
 
 - `start`
 
-  - : Nullbasierter Index, ab dem das Array geändert wird, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt rückwärts vom Ende des Arrays — wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
+  - : Nullbasierter Index, ab dem das Array geändert werden soll, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt von Ende des Arrays zurück — wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
     - Wenn `start < -array.length` oder `start` weggelassen wird, wird `0` verwendet.
-    - Wenn `start >= array.length`, wird kein Element gelöscht, aber die Methode verhält sich wie eine Hinzufügen-Funktion, die so viele Elemente hinzufügt, wie bereitgestellt werden.
+    - Wenn `start >= array.length`, wird kein Element gelöscht, sondern die Methode verhält sich als Hinzufügemethode und fügt so viele Elemente hinzu, wie angegeben sind.
 
 - `deleteCount` {{optional_inline}}
 
-  - : Eine Ganzzahl, die die Anzahl der Elemente im Array angibt, die ab `start` entfernt werden sollen.
+  - : Eine ganze Zahl, die die Anzahl der zu entfernenden Elemente ab `start` im Array angibt.
 
-    Wenn `deleteCount` weggelassen wird oder sein Wert größer oder gleich der Anzahl der Elemente nach der durch `start` angegebenen Position ist, werden alle Elemente von `start` bis zum Ende des Arrays gelöscht. Wenn Sie jedoch einen `itemN`-Parameter übergeben möchten, sollten Sie `Infinity` als `deleteCount` übergeben, um alle Elemente nach `start` zu löschen, da ein explizites `undefined` [in `0` umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) wird.
+    Wenn `deleteCount` weggelassen wird oder wenn sein Wert größer oder gleich der Anzahl der Elemente nach der durch `start` angegebenen Position ist, werden alle Elemente von `start` bis zum Ende des Arrays gelöscht. Wenn Sie jedoch einen `itemN` Parameter übergeben möchten, sollten Sie `Infinity` als `deleteCount` übergeben, um alle Elemente nach `start` zu löschen, da ein explizites `undefined` in `0` [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) wird.
 
     Wenn `deleteCount` `0` oder negativ ist, werden keine Elemente entfernt.
     In diesem Fall sollten Sie mindestens ein neues Element angeben (siehe unten).
 
 - `item1`, …, `itemN` {{optional_inline}}
 
-  - : Die Elemente, die zum Array ab `start` hinzugefügt werden sollen.
+  - : Die Elemente, die ab `start` zum Array hinzugefügt werden sollen.
 
     Wenn Sie keine Elemente angeben, wird `toSpliced()` nur Elemente aus dem Array entfernen.
 
@@ -49,17 +49,17 @@ Ein neues Array, das aus allen Elementen vor `start`, `item1`, `item2`, …, `it
 
 ## Beschreibung
 
-Die `toSpliced()`-Methode entfernt wie `splice()` mehrere Elemente gleichzeitig: Sie entfernt die gegebene Anzahl von Elementen aus dem Array, beginnend an einem bestimmten Index, und fügt dann die angegebenen Elemente am selben Index hinzu. Allerdings gibt sie ein neues Array zurück, anstatt das ursprüngliche Array zu ändern. Die gelöschten Elemente werden daher von dieser Methode nicht zurückgegeben.
+Die `toSpliced()` Methode, ähnlich wie `splice()`, führt mehrere Aufgaben auf einmal aus: Sie entfernt die angegebene Anzahl von Elementen aus dem Array, beginnend an einem bestimmten Index, und fügt dann die angegebenen Elemente an derselben Stelle ein. Sie gibt jedoch ein neues Array zurück, anstatt das ursprüngliche Array zu verändern. Die gelöschten Elemente werden daher nicht durch diese Methode zurückgegeben.
 
-Die `toSpliced()`-Methode erzeugt niemals ein [spärliches Array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays). Wenn das Quellarray spärlich ist, werden die leeren Plätze im neuen Array durch `undefined` ersetzt.
+Die `toSpliced()` Methode erzeugt niemals ein [dünn besetztes Array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays). Wenn das Quellarray dünn besetzt ist, werden die leeren Plätze im neuen Array durch `undefined` ersetzt.
 
-Die `toSpliced()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-gekennzeichnete Eigenschaften hat.
+Die `toSpliced()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this` Wert eine `length` Eigenschaft und integerbasierte Eigenschaften hat.
 
 ## Beispiele
 
 ### Löschen, Hinzufügen und Ersetzen von Elementen
 
-Sie können `toSpliced()` verwenden, um Elemente in einem Array zu löschen, hinzuzufügen und zu ersetzen und ein neues Array effizienter als mit `slice()` und `concat()` zu erstellen.
+Sie können `toSpliced()` verwenden, um Elemente in einem Array zu löschen, hinzuzufügen und zu ersetzen und dabei ein neues Array effizienter als mit `slice()` und `concat()` zu erstellen.
 
 ```js
 const months = ["Jan", "Mar", "Apr", "May"];
@@ -80,18 +80,18 @@ console.log(months4); // ["Jan", "Feb", "Mar", "May"]
 console.log(months); // ["Jan", "Mar", "Apr", "May"]
 ```
 
-### Verwendung von `toSpliced()` auf spärlichen Arrays
+### Verwendung von toSpliced() auf dünn besetzten Arrays
 
-Die `toSpliced()`-Methode erzeugt immer ein dichtes Array.
+Die `toSpliced()` Methode erstellt immer ein dicht besetztes Array.
 
 ```js
 const arr = [1, , 3, 4, , 6];
 console.log(arr.toSpliced(1, 2)); // [1, 4, undefined, 6]
 ```
 
-### Aufrufen von `toSpliced()` auf Nicht-Array-Objekten
+### Aufruf von toSpliced() auf Nicht-Array-Objekten
 
-Die `toSpliced()`-Methode liest die `length`-Eigenschaft von `this`. Sie liest dann die benötigten integer-gekennzeichneten Eigenschaften und schreibt sie in das neue Array.
+Die `toSpliced()` Methode liest die `length` Eigenschaft von `this`. Sie liest dann die benötigten integerbasierten Eigenschaften und schreibt sie in das neue Array.
 
 ```js
 const arrayLike = {
@@ -115,6 +115,7 @@ console.log(Array.prototype.toSpliced.call(arrayLike, 0, 1, 2, 3));
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.toSpliced` in `core-js`](https://github.com/zloirock/core-js#change-array-by-copy)
+- [es-shims Polyfill von `Array.prototype.toSpliced`](https://www.npmjs.com/package/array.prototype.tospliced)
 - {{jsxref("Array.prototype.splice()")}}
 - {{jsxref("Array.prototype.toReversed()")}}
 - {{jsxref("Array.prototype.toSorted()")}}

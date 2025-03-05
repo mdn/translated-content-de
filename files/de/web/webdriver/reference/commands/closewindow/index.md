@@ -2,10 +2,10 @@
 title: Fenster schließen
 slug: Web/WebDriver/Reference/Commands/CloseWindow
 l10n:
-  sourceCommit: 57b855a52a2d2e8914a30e3a47567bff0806ae23
+  sourceCommit: 394a1aff10d20ba51dbd00252ce481769298001c
 ---
 
-Der _Close Window_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API schließt den aktuellen obersten Browsing-Kontext (Fenster oder Tab) und gibt die Liste der derzeit geöffneten [`WebWindow`](/de/docs/Web/WebDriver/WebWindow)s zurück. Wenn es das letzte Fenster ist, das geschlossen wird, wird die WebDriver-Sitzung implizit gelöscht. Nachfolgende Befehle nach Beendigung der Sitzung führen daher zu [ungültigen Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID) Fehlern.
+Der Befehl _Close Window_ der [WebDriver](/de/docs/Web/WebDriver) API schließt den aktuellen Browser-Kontext auf oberster Ebene (Fenster oder Tab) und gibt eine Liste der aktuell geöffneten [`WebWindow`](/de/docs/Web/WebDriver/WebWindow)s zurück. Wenn es sich um das letzte Fenster handelt, das geschlossen wird, wird die WebDriver-Sitzung implizit gelöscht. Nachfolgende Befehle nach dem Ende der Sitzung führen daher zu [ungültigen Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)-Fehlern.
 
 ## Syntax
 
@@ -16,14 +16,14 @@ Der _Close Window_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/
 ### URL-Parameter
 
 - `session id`
-  - : Bezeichner der Sitzung.
+  - : Kennung der Sitzung.
 
 ### Fehler
 
 - [Ungültige Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
   - : Sitzung existiert nicht.
-- [Unerwartetes geöffnetes Dialogfeld](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Ein Benutzerdialog, wie beispielsweise [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis er behandelt wird.
+- [Unerwartetes geöffnetes Dialogfenster](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
+  - : Ein Benutzerdialog, wie z.B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis er behandelt wird.
 
 ## Beispiel
 
@@ -76,6 +76,6 @@ namespace MDNWebDriverExamples
 
 ## Siehe auch
 
-- [Zu Fenster wechseln](/de/docs/Web/WebDriver/Commands/SwitchToWindow) Befehl
-- [Fenster-Handle erhalten](/de/docs/Web/WebDriver/Commands/GetWindowHandle) Befehl
-- [Fenster-Handles erhalten](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandles) Befehl
+- Befehl [Switch To Window](/de/docs/Web/WebDriver/Commands/SwitchToWindow)
+- Befehl [Get Window Handle](/de/docs/Web/WebDriver/Commands/GetWindowHandle)
+- Befehl [Get Window Handles](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandles)

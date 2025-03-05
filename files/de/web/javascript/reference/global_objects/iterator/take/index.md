@@ -2,12 +2,12 @@
 title: Iterator.prototype.take()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/take
 l10n:
-  sourceCommit: 9066facc8584580afa066ddc3f23cff820e20b8f
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`take()`**-Methode von {{jsxref("Iterator")}}-Instanzen gibt ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das die angegebene Anzahl von Elementen in diesem Iterator liefert und dann terminiert.
+Die **`take()`** Methode von {{jsxref("Iterator")}} Instanzen gibt ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das die angegebene Anzahl von Elementen in diesem Iterator liefert und dann beendet.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ take(limit)
 ### Parameter
 
 - `limit`
-  - : Die Anzahl der Elemente, die vom Anfang der Iteration genommen werden sollen.
+  - : Die Anzahl der Elemente, die vom Beginn der Iteration an genommen werden sollen.
 
 ### Rückgabewert
 
-Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Der zurückgegebene Iterator-Helfer liefert die Elemente im ursprünglichen Iterator einzeln und vervollständigt dann (die `next()`-Methode erzeugt `{ value: undefined, done: true }`), sobald `limit` Elemente geliefert wurden oder wenn der ursprüngliche Iterator erschöpft ist, je nachdem, was zuerst eintritt.
+Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Der zurückgegebene Iterator-Helfer liefert die Elemente im ursprünglichen Iterator nacheinander und schließt dann ab (die `next()` Methode produziert `{ value: undefined, done: true }`), sobald `limit` Elemente geliefert wurden oder wenn der ursprüngliche Iterator erschöpft ist, je nachdem, was zuerst eintritt.
 
 ### Ausnahmen
 
@@ -33,7 +33,7 @@ Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Object
 
 ### Verwendung von take()
 
-Das folgende Beispiel erstellt einen Iterator, der Terme in der Fibonacci-Folge liefert, und gibt dann die ersten drei Terme aus:
+Das folgende Beispiel erstellt einen Iterator, der Terme in der Fibonacci-Sequenz liefert und protokolliert dann die ersten drei Terme:
 
 ```js
 function* fibonacci() {
@@ -54,7 +54,7 @@ console.log(seq.next().value); // undefined
 
 ### Verwendung von take() mit einer for...of Schleife
 
-`take()` ist am bequemsten, wenn Sie den Iterator nicht manuell erstellen. Da Iteratoren auch iterierbar sind, können Sie den zurückgegebenen Helfer mit einer {{jsxref("Statements/for...of", "for...of")}}-Schleife iterieren:
+`take()` ist am praktischsten, wenn Sie den Iterator nicht manuell schreiben. Da Iteratoren auch iterierbar sind, können Sie den zurückgegebenen Helfer mit einer {{jsxref("Statements/for...of", "for...of")}} Schleife durchlaufen:
 
 ```js
 for (const n of fibonacci().take(5)) {
@@ -69,7 +69,7 @@ for (const n of fibonacci().take(5)) {
 // 5
 ```
 
-Da `fibonacci()` ein unendlicher Iterator ist, würde die Verwendung einer `for`-Schleife ohne irgendeine Logik, die ein frühes Beenden ermöglicht (wie z.B. eine {{jsxref("Statements/break", "break")}}-Anweisung), zu einer Endlosschleife führen.
+Da `fibonacci()` ein endloser Iterator ist, würde die Verwendung einer `for` Schleife zum Durchlaufen ohne irgendeine Logik, um frühzeitig zu beenden (wie eine {{jsxref("Statements/break", "break")}} Anweisung), zu einer Endlosschleife führen.
 
 ### Kombinieren von drop() mit take()
 
@@ -97,16 +97,16 @@ for (const n of fibonacci().take(5).drop(2)) {
 // 5
 ```
 
-### Untere und obere Grenzen des take-Zählers
+### Untere und obere Grenzen der take-Zählung
 
-Wenn `limit` negativ oder {{jsxref("NaN")}} ist, wird ein {{jsxref("RangeError")}} ausgelöst:
+Wenn das `limit` negativ oder {{jsxref("NaN")}} ist, wird ein {{jsxref("RangeError")}} ausgelöst:
 
 ```js
 fibonacci().take(-1); // RangeError: -1 must be positive
 fibonacci().take(undefined); // RangeError: undefined must be positive
 ```
 
-Wenn `limit` größer ist als die Gesamtzahl der Elemente, die der Iterator erzeugen kann (wie z.B. {{jsxref("Infinity")}}), hat der zurückgegebene Iterator-Helfer im Wesentlichen dasselbe Verhalten wie der ursprüngliche Iterator:
+Wenn das `limit` größer ist als die Gesamtanzahl der Elemente, die der Iterator erzeugen kann (wie {{jsxref("Infinity")}}), hat der zurückgegebene Iterator-Helfer im Wesentlichen das gleiche Verhalten wie der ursprüngliche Iterator:
 
 ```js
 for (const n of new Set([1, 2, 3]).values().take(Infinity)) {
@@ -130,5 +130,6 @@ for (const n of new Set([1, 2, 3]).values().take(Infinity)) {
 ## Siehe auch
 
 - [Polyfill von `Iterator.prototype.take` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
+- [es-shims Polyfill von `Iterator.prototype.take`](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.prototype.drop()")}}

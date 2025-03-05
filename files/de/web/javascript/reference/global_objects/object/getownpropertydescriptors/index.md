@@ -2,12 +2,12 @@
 title: Object.getOwnPropertyDescriptors()
 slug: Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Object.getOwnPropertyDescriptors()`** gibt alle eigenen Property-Deskriptoren eines gegebenen Objekts zurück.
+Die statische Methode **`Object.getOwnPropertyDescriptors()`** gibt alle eigenen Property Deskriptoren eines gegebenen Objekts zurück.
 
 {{InteractiveExample("JavaScript Demo: Object.getOwnPropertyDescriptors()")}}
 
@@ -34,30 +34,30 @@ Object.getOwnPropertyDescriptors(obj)
 ### Parameter
 
 - `obj`
-  - : Das Objekt, für das alle eigenen Property-Deskriptoren abgerufen werden sollen.
+  - : Das Objekt, für das alle eigenen Property Deskriptoren abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein Objekt, das alle eigenen Property-Deskriptoren des Objekts enthält. Es kann ein leeres Objekt sein, wenn keine Eigenschaften vorhanden sind.
+Ein Objekt, das alle eigenen Property Deskriptoren eines Objekts enthält. Könnte ein leeres Objekt sein, wenn es keine Eigenschaften gibt.
 
 ## Beschreibung
 
-Diese Methode ermöglicht die genaue Untersuchung der Beschreibung aller eigenen Eigenschaften eines Objekts. Eine _Eigenschaft_ in JavaScript besteht entweder aus einem string-basierten Namen oder einem {{jsxref("Symbol")}} und einem Property-Deskriptor. Weitere Informationen über die Typen und Attribute von Property-Deskriptoren finden Sie in {{jsxref("Object.defineProperty()")}}.
+Diese Methode ermöglicht die Untersuchung der genauen Beschreibung aller eigenen Eigenschaften eines Objekts. Eine _Eigenschaft_ in JavaScript besteht entweder aus einem Zeichenfolgenwertnamen oder einem {{jsxref("Symbol")}} und einem Property Deskriptor. Weitere Informationen über Property Deskriptor Arten und deren Attribute finden Sie in {{jsxref("Object.defineProperty()")}}.
 
-Ein _Property-Deskriptor_ ist ein Datensatz mit einigen der folgenden Attribute:
+Ein _Property Deskriptor_ ist ein Datensatz mit einigen der folgenden Attribute:
 
 - `value`
-  - : Der mit der Eigenschaft verknüpfte Wert (nur Daten-Deskriptoren).
+  - : Der mit der Eigenschaft verbundene Wert (nur Datendeskriptoren).
 - `writable`
-  - : `true`, wenn und nur wenn der Wert, der mit der Eigenschaft verknüpft ist, geändert werden kann (nur Daten-Deskriptoren).
+  - : `true` genau dann, wenn der mit der Eigenschaft verbundene Wert geändert werden darf (nur Datendeskriptoren).
 - `get`
-  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn kein Getter vorhanden ist (nur Accessor-Deskriptoren).
+  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Getter gibt (nur Zugriffsbeschreibungen).
 - `set`
-  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn kein Setter vorhanden ist (nur Accessor-Deskriptoren).
+  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn es keinen Setter gibt (nur Zugriffsbeschreibungen).
 - `configurable`
-  - : `true`, wenn und nur wenn der Typ dieses Property-Deskriptors geändert werden kann und die Eigenschaft aus dem entsprechenden Objekt gelöscht werden kann.
+  - : `true` genau dann, wenn der Typ dieses Property Deskriptors geändert werden darf und die Eigenschaft aus dem entsprechenden Objekt gelöscht werden kann.
 - `enumerable`
-  - : `true`, wenn und nur wenn diese Eigenschaft bei der Aufzählung der Eigenschaften des entsprechenden Objekts angezeigt wird.
+  - : `true` genau dann, wenn diese Eigenschaft während der Aufzählung der Eigenschaften auf dem entsprechenden Objekt erscheint.
 
 ## Beispiele
 
@@ -74,7 +74,7 @@ Object.create(
 
 ### Erstellen einer Unterklasse
 
-Ein typischer Weg, eine Unterklasse zu erstellen, besteht darin, die Unterklasse zu definieren, ihren Prototyp auf eine Instanz der Oberklasse zu setzen und dann Eigenschaften auf dieser Instanz zu definieren. Dies kann insbesondere bei Gettern und Settern umständlich werden. Stattdessen können Sie diesen Code verwenden, um den Prototyp festzulegen:
+Eine übliche Methode zur Erstellung einer Unterklasse besteht darin, die Unterklasse zu definieren, ihr Prototyp auf eine Instanz der Oberklasse zu setzen und dann Eigenschaften auf dieser Instanz zu definieren. Dies kann besonders bei Gettern und Settern umständlich werden. Stattdessen können Sie diesen Code verwenden, um den Prototypen festzulegen:
 
 ```js
 function superclass() {}
@@ -98,5 +98,6 @@ subclass.prototype = Object.create(superclass.prototype, {
 ## Siehe auch
 
 - [Polyfill von `Object.getOwnPropertyDescriptors` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
+- [es-shims Polyfill von `Object.getOwnPropertyDescriptors`](https://www.npmjs.com/package/object.getownpropertydescriptors)
 - {{jsxref("Object.getOwnPropertyDescriptor()")}}
 - {{jsxref("Object.defineProperty()")}}

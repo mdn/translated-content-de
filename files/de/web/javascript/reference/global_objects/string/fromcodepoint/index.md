@@ -2,7 +2,7 @@
 title: String.fromCodePoint()
 slug: Web/JavaScript/Reference/Global_Objects/String/fromCodePoint
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
@@ -28,28 +28,28 @@ String.fromCodePoint(num1, num2, /* …, */ numN)
 ### Parameter
 
 - `num1`, …, `numN`
-  - : Eine Ganzzahl zwischen `0` und `0x10FFFF` (einschließlich), die einen Unicode-Codepunkt repräsentiert.
+  - : Eine Ganzzahl zwischen `0` und `0x10FFFF` (einschließlich), die einen Unicode-Codepunkt darstellt.
 
 ### Rückgabewert
 
-Ein String, der durch die angegebene Sequenz von Codepunkten erstellt wird.
+Ein String, der unter Verwendung der angegebenen Sequenz von Codepunkten erstellt wurde.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `numN` keine Ganzzahl ist, kleiner als `0` ist oder größer als `0x10FFFF`, nachdem sie in eine Zahl umgewandelt wurde.
+  - : Wird ausgelöst, wenn `numN` keine Ganzzahl ist, kleiner als `0` ist oder größer als `0x10FFFF` ist, nachdem sie in eine Zahl umgewandelt wurde.
 
 ## Beschreibung
 
-Da `fromCodePoint()` eine statische Methode von `String` ist, wird sie immer als `String.fromCodePoint()` verwendet, und nicht als Methode eines erzeugten `String`-Wertes.
+Da `fromCodePoint()` eine statische Methode von `String` ist, verwendet man sie immer als `String.fromCodePoint()`, anstatt als Methode eines erstellten `String`-Wertes.
 
-Unicode-Codepunkte reichen von `0` bis `1114111` (`0x10FFFF`). In UTF-16 ist jeder String-Index eine Codeeinheit mit einem Wert zwischen `0` und `65535`. Höhere Codepunkte werden durch _ein Paar_ 16-Bit-Surrogat-Pseudoz'eichen dargestellt. Daher kann `fromCodePoint()` einen String zurückgeben, dessen [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length) (in UTF-16-Codeeinheiten) größer ist als die Anzahl der übergebenen Argumente. Weitere Informationen zu Unicode finden Sie unter [UTF-16-Zeichen, Unicode-Codepunkte und Graphemcluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters).
+Unicode-Codepunkte reichen von `0` bis `1114111` (`0x10FFFF`). In UTF-16 ist jeder String-Index eine Codeeinheit mit einem Wert von `0` – `65535`. Höhere Codepunkte werden durch _ein Paar_ von 16-Bit-Surrogat-Pseudozahlen dargestellt. Daher kann `fromCodePoint()` einen String zurückgeben, dessen [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length) (in UTF-16-Codeeinheiten) größer ist als die Anzahl der übergebenen Argumente. Für Informationen über Unicode, siehe [UTF-16-Zeichen, Unicode-Codepunkte und Graphem-Cluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters).
 
 ## Beispiele
 
 ### Verwendung von fromCodePoint()
 
-Gültige Eingaben:
+Gültige Eingabe:
 
 ```js
 String.fromCodePoint(42); // "*"
@@ -60,7 +60,7 @@ String.fromCodePoint(194564); // "\uD87E\uDC04"
 String.fromCodePoint(0x1d306, 0x61, 0x1d307); // "\uD834\uDF06a\uD834\uDF07"
 ```
 
-Ungültige Eingaben:
+Ungültige Eingabe:
 
 ```js
 String.fromCodePoint("_"); // RangeError
@@ -71,16 +71,16 @@ String.fromCodePoint(3e-2); // RangeError
 String.fromCodePoint(NaN); // RangeError
 ```
 
-### Vergleich zu fromCharCode()
+### Vergleich mit fromCharCode()
 
-{{jsxref("String.fromCharCode()")}}) kann keine ergänzenden Zeichen (d.h. Codepunkte `0x010000` – `0x10FFFF`) zurückgeben, indem deren Codepunkt angegeben wird. Stattdessen erfordert es das UTF-16-Surrogatpaar, um ein ergänzendes Zeichen zurückzugeben:
+{{jsxref("String.fromCharCode()")}} kann keine zusätzlichen Zeichen (d. h. Codepunkte `0x010000` – `0x10FFFF`) durch Angabe ihres Codepunkts zurückgeben. Stattdessen erfordert es das UTF-16-Surrogatpaar, um ein zusätzliches Zeichen zurückzugeben:
 
 ```js
 String.fromCharCode(0xd83c, 0xdf03); // Code Point U+1F303 "Night with
 String.fromCharCode(55356, 57091); // Stars" === "\uD83C\uDF03"
 ```
 
-`String.fromCodePoint()` hingegen kann 4-Byte zusätzliche Zeichen sowie häufigere 2-Byte-BMP-Zeichen zurückgeben, indem deren Codepunkt angegeben wird (dies entspricht der UTF-32-Codeeinheit):
+`String.fromCodePoint()` hingegen kann 4-Byte-Zusatzzeichen sowie die häufigeren 2-Byte-BMP-Zeichen durch Angabe ihres Codepunkts (was einer UTF-32-Codeeinheit entspricht) zurückgeben:
 
 ```js
 String.fromCodePoint(0x1f303); // or 127747 in decimal
@@ -97,6 +97,7 @@ String.fromCodePoint(0x1f303); // or 127747 in decimal
 ## Siehe auch
 
 - [Polyfill von `String.fromCodePoint` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [es-shims Polyfill von `String.fromCodePoint`](https://www.npmjs.com/package/string.fromcodepoint)
 - {{jsxref("String.fromCharCode()")}}
 - {{jsxref("String.prototype.charAt()")}}
 - {{jsxref("String.prototype.codePointAt()")}}

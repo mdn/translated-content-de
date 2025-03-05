@@ -2,14 +2,14 @@
 title: Number.MAX_SAFE_INTEGER
 slug: Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Number.MAX_SAFE_INTEGER`** stellt die maximale sichere Ganzzahl in JavaScript dar (2<sup>53</sup> – 1).
+Die statische Dateneigenschaft **`Number.MAX_SAFE_INTEGER`** repräsentiert die maximale sichere Ganzzahl in JavaScript (2<sup>53</sup> – 1).
 
-Für größere Ganzzahlen sollten Sie {{jsxref("BigInt")}} in Betracht ziehen.
+Bei größeren Ganzzahlen sollten Sie {{jsxref("BigInt")}} in Betracht ziehen.
 
 {{InteractiveExample("JavaScript Demo: Number.MAX_SAFE_INTEGER")}}
 
@@ -35,9 +35,9 @@ console.log(x === y);
 
 ## Beschreibung
 
-Das [Doppelpräzisions-Gleitkommaformat](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) hat nur 52 Bits zur Darstellung der [Mantisse](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding), sodass es Ganzzahlen nur sicher zwischen -(2<sup>53</sup> – 1) und 2<sup>53</sup> – 1 darstellen kann. „Sicher“ bedeutet in diesem Kontext, dass Ganzzahlen genau dargestellt und korrekt verglichen werden können. Zum Beispiel wird `Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2` als wahr ausgewertet, was mathematisch falsch ist. Weitere Informationen finden Sie unter {{jsxref("Number.isSafeInteger()")}}.
+Das [Double-Precision-Floating-Point-Format](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) hat nur 52 Bits zur Darstellung der [Mantisse](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding), sodass es nur sicher Ganzzahlen zwischen -(2<sup>53</sup> – 1) und 2<sup>53</sup> – 1 darstellen kann. "Sicher" bedeutet hier die Fähigkeit, Ganzzahlen genau darzustellen und sie korrekt zu vergleichen. Zum Beispiel wird `Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2` als wahr ausgewertet, was mathematisch inkorrekt ist. Siehe {{jsxref("Number.isSafeInteger()")}} für weitere Informationen.
 
-Da `MAX_SAFE_INTEGER` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie sie immer als `Number.MAX_SAFE_INTEGER`, anstatt sie als Eigenschaft eines Zahlenwertes zu verwenden.
+Da `MAX_SAFE_INTEGER` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie sie immer als `Number.MAX_SAFE_INTEGER` und nicht als eine Eigenschaft eines Zahlenwertes.
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ Number.MAX_SAFE_INTEGER; // 9007199254740991
 
 ### Beziehung zwischen MAX_SAFE_INTEGER und EPSILON
 
-{{jsxref("Number.EPSILON")}} ist 2<sup>-52</sup>, während `MAX_SAFE_INTEGER` 2<sup>53</sup> – 1 ist — beide Werte leiten sich von der Breite der Mantisse ab, die 53 Bits beträgt (mit dem höchsten Bit, das immer 1 ist). Multipliziert man diese beiden Werte, erhält man einen Wert, der sehr nahe, aber nicht gleich 2 ist.
+{{jsxref("Number.EPSILON")}} ist 2<sup>-52</sup>, während `MAX_SAFE_INTEGER` 2<sup>53</sup> – 1 ist — beide leiten sich von der Breite der Mantisse ab, die 53 Bits beträgt (mit dem höchsten Bit, das immer 1 ist). Ihre Multiplikation ergibt einen Wert, der sehr nahe — aber nicht gleich — 2 ist.
 
 ```js
 Number.MAX_SAFE_INTEGER * Number.EPSILON; // 1.9999999999999998
@@ -66,6 +66,7 @@ Number.MAX_SAFE_INTEGER * Number.EPSILON; // 1.9999999999999998
 ## Siehe auch
 
 - [Polyfill von `Number.MAX_SAFE_INTEGER` in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
+- [es-shims Polyfill von `Number.MAX_SAFE_INTEGER`](https://www.npmjs.com/package/es-constants)
 - {{jsxref("Number.MIN_SAFE_INTEGER")}}
 - {{jsxref("Number.isSafeInteger()")}}
 - {{jsxref("BigInt")}}

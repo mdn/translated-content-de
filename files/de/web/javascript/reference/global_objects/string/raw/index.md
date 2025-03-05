@@ -2,12 +2,12 @@
 title: String.raw()
 slug: Web/JavaScript/Reference/Global_Objects/String/raw
 l10n:
-  sourceCommit: 5f196157779961a38236b925d916992ba4cdb730
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die statische Methode **`String.raw()`** ist eine Tag-Funktion von [Template-Literalen](/de/docs/Web/JavaScript/Reference/Template_literals). Sie ist ähnlich wie der `r`-Präfix in Python oder der `@`-Präfix in C# für String-Literale. Sie wird verwendet, um die rohe String-Form von Template-Literalen zu erhalten – das heißt, Substitutionen (z. B. `${foo}`) werden verarbeitet, aber Escape-Sequenzen (z. B. `\n`) werden nicht verarbeitet.
+Die statische Methode **`String.raw()`** ist eine Tag-Funktion von [Template-Literalen](/de/docs/Web/JavaScript/Reference/Template_literals). Dies ist vergleichbar mit dem Präfix `r` in Python oder dem Präfix `@` in C# für Zeichenfolgenliterale. Sie wird verwendet, um die rohe Zeichenfolgenform von Template-Literalen zu erhalten — das heißt, Ersetzungen (z.B. `${foo}`) werden verarbeitet, aber Escape-Sequenzen (z.B. `\n`) nicht.
 
 {{InteractiveExample("JavaScript Demo: String.raw()")}}
 
@@ -34,15 +34,15 @@ String.raw`templateString`
 ### Parameter
 
 - `strings`
-  - : Wohlgeformtes Template-Literal-Array-Objekt, wie `{ raw: ['foo', 'bar', 'baz'] }`. Es sollte sich um ein Objekt mit einer `raw`-Eigenschaft handeln, deren Wert ein array-ähnliches Objekt von Strings ist.
+  - : Gut geformtes Array-Objekt für Template-Literale, wie `{ raw: ['foo', 'bar', 'baz'] }`. Es sollte sich um ein Objekt mit einer `raw`-Eigenschaft handeln, deren Wert ein arrays-ähnliches Objekt von Zeichenfolgen ist.
 - `sub1`, …, `subN`
-  - : Enthält Substitutionswerte.
+  - : Enthält Ersetzungswerte.
 - `templateString`
-  - : Ein [Template-Literal](/de/docs/Web/JavaScript/Reference/Template_literals), optional mit Substitutionen (`${...}`).
+  - : Ein [Template-Literal](/de/docs/Web/JavaScript/Reference/Template_literals), optional mit Ersetzungen (`${...}`).
 
 ### Rückgabewert
 
-Die rohe String-Form eines gegebenen Template-Literals.
+Die rohe Zeichenfolgenform eines gegebenen Template-Literals.
 
 ### Ausnahmen
 
@@ -51,14 +51,14 @@ Die rohe String-Form eines gegebenen Template-Literals.
 
 ## Beschreibung
 
-In den meisten Fällen wird `String.raw()` mit Template-Literalen verwendet. Die oben erwähnte erste Syntax wird nur selten genutzt, da die JavaScript-Engine dies mit den richtigen Argumenten für Sie aufruft (genauso wie bei anderen [Tag-Funktionen](/de/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)).
+In den meisten Fällen wird `String.raw()` mit Template-Literalen verwendet. Die zuerst genannte Syntax wird nur selten verwendet, da die JavaScript-Engine dies mit den richtigen Argumenten für Sie aufruft (ähnlich wie bei anderen [Tag-Funktionen](/de/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)).
 
-`String.raw()` ist der einzige eingebaute Template-Literal-Tag. Es hat eine enge Semantik zu einem nicht getaggten Literal, da es alle Argumente verkettet und einen String zurückgibt. Sie können es sogar mit normalem JavaScript-Code neu implementieren.
+`String.raw()` ist das einzige eingebaute Template-Literal-Tag. Es hat ähnliche Semantiken wie ein ungetaggtes Literal, da es alle Argumente verkettet und eine Zeichenfolge zurückgibt. Sie können es sogar mit normalem JavaScript-Code neu implementieren.
 
 > [!WARNING]
-> Sie sollten `String.raw` nicht direkt als Tag zur "Identität" verwenden. Siehe [Erstellen eines Identitätstages](#erstellen_eines_identitätstages) für die Implementierung.
+> Sie sollten `String.raw` nicht direkt als "Identity"-Tag verwenden. Siehe [Building an identity tag](#aufbau_eines_identity-tags) für Informationen zur Implementierung.
 
-Wenn `String.raw()` mit einem Objekt aufgerufen wird, dessen `raw`-Eigenschaft keine `length`-Eigenschaft oder eine nicht positive `length` besitzt, wird ein leerer String `""` zurückgegeben. Wenn `substitutions.length < strings.raw.length - 1` (d. h., es gibt nicht genügend Substitutionen, um die Platzhalter zu füllen – was in einem gut geformten getaggten Template-Literal nicht passieren kann), werden die restlichen Platzhalter mit leeren Strings gefüllt.
+Wenn `String.raw()` mit einem Objekt aufgerufen wird, dessen `raw`-Eigenschaft keine `length`-Eigenschaft hat oder eine nicht-positive `length`, gibt es eine leere Zeichenfolge `""` zurück. Wenn `substitutions.length < strings.raw.length - 1` (d.h. es gibt nicht genug Ersetzungen, um die Platzhalter zu füllen — was bei einem gut geformten getaggten Template-Literal nicht passieren kann), werden die restlichen Platzhalter mit leeren Zeichenfolgen gefüllt.
 
 ## Beispiele
 
@@ -88,7 +88,7 @@ String.raw`Hi \${name}!`;
 
 ### Verwendung von String.raw mit RegExp
 
-Die Kombination eines `String.raw`-Template-Literals mit dem {{jsxref("RegExp/RegExp", "RegExp()")}}-Konstruktor ermöglicht es, reguläre Ausdrücke mit dynamischen Teilen zu erstellen (was mit Regex-Literalen nicht möglich ist), ohne reguläre Ausdrucks-Escape-Sequenzen doppelt zu maskieren (`\\`) (was mit normalen String-Literalen nicht möglich ist). Dies ist auch bei Strings mit vielen Schrägstrichen, wie Dateipfaden oder URLs, wertvoll.
+Die Kombination eines `String.raw`-Template-Literals mit dem {{jsxref("RegExp/RegExp", "RegExp()")}}-Konstruktor ermöglicht die Erstellung regulärer Ausdrücke mit dynamischen Teilen (was mit regulären Ausdrücken-Literalen nicht möglich ist), ohne dass reguläre Ausdrucks-Escape-Sequenzen (`\\`) doppelt maskiert werden müssen (was mit normalen Zeichenfolgenliteralen nicht möglich ist). Dies ist auch in Zeichenfolgen wertvoll, die viele Schrägstriche enthalten, wie Dateipfade oder URLs.
 
 ```js
 // A String.raw template allows a fairly readable regular expression matching a URL:
@@ -116,9 +116,9 @@ const reDynamic = makeURLRegExp("en-US/docs/Web/JavaScript/Reference/");
 const reWildcard = makeURLRegExp(".*");
 ```
 
-### Erstellen eines Identitätstages
+### Aufbau eines Identity-Tags
 
-Viele Tools behandeln Literale, die mit einem bestimmten Namen getaggt wurden, auf besondere Weise.
+Viele Werkzeuge behandeln Literale, die mit einem bestimmten Namen getaggt sind, speziell.
 
 ```js
 // Some formatters will format this literal's content as HTML
@@ -133,20 +133,20 @@ const doc = html`<!doctype html>
   </html>`;
 ```
 
-Man könnte naiv den `html`-Tag folgendermaßen implementieren:
+Man könnte naiv das `html`-Tag so implementieren:
 
 ```js
 const html = String.raw;
 ```
 
-Dies funktioniert tatsächlich für den obigen Fall. Da `String.raw` jedoch die _rohen_ String-Literale statt der "gekochten" zusammenfügt, würden Escape-Sequenzen nicht verarbeitet.
+Dies funktioniert tatsächlich für den oben genannten Fall. Da jedoch `String.raw` die _rohen_ Zeichenfolgenliterale anstelle der "gecooked"-Literale verkettet, würden Escape-Sequenzen nicht verarbeitet.
 
 ```js-nolint
 const doc = html`<canvas>\n</canvas>`;
 // "<canvas>\\n</canvas>"
 ```
 
-Dies ist möglicherweise nicht das, was Sie für einen "echten Identitäts"-Tag möchten, bei dem der Tag rein zur Markierung dient und den Wert des Literals nicht verändert. In diesem Fall können Sie einen benutzerdefinierten Tag erstellen und das "gekochte" (d. h. Escape-Sequenzen werden verarbeitet) Literal-Array an `String.raw` übergeben, wobei Sie vortäuschen, dass sie rohe Strings sind.
+Dies ist möglicherweise nicht das, was Sie für ein "echtes Identity"-Tag möchten, bei dem das Tag rein für Markup ist und den Wert des Literals nicht verändert. In diesem Fall können Sie ein benutzerdefiniertes Tag erstellen und das Array mit den "gecooked"-Literalen (d.h. Escape-Sequenzen werden verarbeitet) an `String.raw` übergeben, indem Sie vortäuschen, dass es sich um rohe Zeichenfolgen handelt.
 
 ```js-nolint
 const html = (strings, ...values) => String.raw({ raw: strings }, ...values);
@@ -155,7 +155,7 @@ const doc = html`<canvas>\n</canvas>`;
 // "<canvas>\n</canvas>"; the "\n" becomes a line break
 ```
 
-Beachten Sie, dass das erste Argument ein Objekt mit einer `raw`-Eigenschaft ist, dessen Wert ein array-ähnliches Objekt (mit einer `length`-Eigenschaft und ganzzahligen Indizes) darstellt, das die getrennten Strings im Template-Literal repräsentiert. Die restlichen Argumente sind die Substitutionen. Da der `raw`-Wert jedes array-ähnliche Objekt sein kann, kann es sogar ein String sein! Zum Beispiel wird `'test'` als `['t', 'e', 's', 't']` behandelt. Folgendes ist äquivalent zu `` `t${0}e${1}s${2}t` ``:
+Beachten Sie, dass das erste Argument ein Objekt mit einer `raw`-Eigenschaft ist, dessen Wert ein arrays-ähnliches Objekt (mit einer `length`-Eigenschaft und ganzzahligen Indizes) darstellt, das die getrennten Zeichenfolgen im Template-Literal repräsentiert. Die restlichen Argumente sind die Ersetzungen. Da der `raw`-Wert jedes arrays-ähnliche Objekt sein kann, kann es sogar eine Zeichenfolge sein! Zum Beispiel wird `'test'` als `['t', 'e', 's', 't']` behandelt. Das Folgende ist äquivalent zu `` `t${0}e${1}s${2}t` ``:
 
 ```js
 String.raw({ raw: "test" }, 0, 1, 2); // 't0e1s2t'
@@ -171,7 +171,8 @@ String.raw({ raw: "test" }, 0, 1, 2); // 't0e1s2t'
 
 ## Siehe auch
 
-- [Polyfill für `String.raw` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [Polyfill von `String.raw` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [es-shims Polyfill von `String.raw`](https://www.npmjs.com/package/string.raw)
 - [Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals)
 - {{jsxref("String")}}
 - [Lexikalische Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar)

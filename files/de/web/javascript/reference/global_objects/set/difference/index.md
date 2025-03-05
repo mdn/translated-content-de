@@ -2,12 +2,12 @@
 title: Set.prototype.difference()
 slug: Web/JavaScript/Reference/Global_Objects/Set/difference
 l10n:
-  sourceCommit: 50d5e7cdb972c64a8f02a34a229bbc5ed7305c24
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`difference()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt eine neue Menge zurück, die Elemente enthält, die in dieser Menge, aber nicht in der angegebenen Menge vorhanden sind.
+Die **`difference()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt eine neue Menge zurück, die Elemente enthält, die sich in dieser Menge befinden, aber nicht in der angegebenen Menge.
 
 ## Syntax
 
@@ -22,27 +22,27 @@ difference(other)
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Set")}}-Objekt, das Elemente enthält, die in dieser Menge, aber nicht in der `other`-Menge vorhanden sind.
+Ein neues {{jsxref("Set")}}-Objekt, das Elemente enthält, die sich in dieser Menge befinden, aber nicht in der `other`-Menge.
 
 ## Beschreibung
 
-In mathematischer Notation ist _Differenz_ definiert als:
+In mathematischer Notation wird _Differenz_ definiert als:
 
-<!-- Hinweis: die {} müssen doppelt maskiert werden, einmal für Yari -->
+<!-- Beachten: die {} müssen doppeltescapet werden, einmal für Yari -->
 <!-- prettier-ignore-start -->
 <math display="block">
   <semantics><mrow><mi>A</mi><mo>∖</mo><mi>B</mi><mo>=</mo><mo stretchy="false">{</mo><mi>x</mi><mo>∊</mo><mi>A</mi><mo>∣</mo><mi>x</mi><mo>∉</mo><mi>B</mi><mo stretchy="false">}</mo></mrow><annotation encoding="TeX">A\setminus B = \\{x\in A\mid x\notin B\\}</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
-Und mit einem Venn-Diagramm dargestellt:
+Und mit einem Venn-Diagramm:
 
-![Ein Venn-Diagramm, bei dem sich zwei Kreise überschneiden. Die Differenz von A und B ist der Teil von A, der sich nicht mit B überschneidet.](diagram.svg)
+![Ein Venn-Diagramm, in dem sich zwei Kreise überlappen. Die Differenz von A und B ist der Teil von A, der nicht mit B überlappt.](diagram.svg)
 
-`difference()` akzeptiert [mengenähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es direkt auf die zugrunde liegenden Daten von `this` zugreift, ohne benutzerdefinierten Code aufzurufen. Dann hängt sein Verhalten von den Größen von `this` und `other` ab:
+`difference()` akzeptiert [mengenähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als den `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es direkt auf die zugrunde liegenden Daten in `this` zugreift, ohne benutzerdefinierten Code auszuführen. Dann hängt sein Verhalten von den Größen von `this` und `other` ab:
 
-- Wenn `this` mehr Elemente als `other.size` hat, iteriert es über `other`, indem es dessen `keys()`-Methode aufruft, und erstellt eine neue Menge mit allen Elementen in `this`, die nicht in `other` vorhanden sind.
-- Andernfalls iteriert es über die Elemente in `this` und erstellt eine neue Menge mit allen Elementen `e` in `this`, für die `other.has(e)` einen {{Glossary("Falsy", "falsy")}} Wert zurückgibt.
+- Wenn es mehr Elemente in `this` als `other.size` gibt, iteriert es über `other`, indem es seine `keys()`-Methode aufruft, und erstellt eine neue Menge mit allen Elementen in `this`, die nicht in `other` gefunden werden.
+- Andernfalls iteriert es über die Elemente in `this` und erstellt eine neue Menge mit allen Elementen `e` in `this`, die dazu führen, dass `other.has(e)` einen {{Glossary("Falsy", "falsy")}}-Wert zurückgibt.
 
 Die Reihenfolge der Elemente in der zurückgegebenen Menge entspricht der in `this`.
 
@@ -50,7 +50,7 @@ Die Reihenfolge der Elemente in der zurückgegebenen Menge entspricht der in `th
 
 ### Verwendung von difference()
 
-Das folgende Beispiel berechnet die Differenz zwischen der Menge der ungeraden Zahlen (<10) und der Menge der perfekten Quadrate (<10). Das Ergebnis ist die Menge der ungeraden Zahlen, die keine perfekten Quadrate sind.
+Das folgende Beispiel berechnet die Differenz zwischen der Menge der ungeraden Zahlen (<10) und der Menge der perfekten Quadrate (<10). Das Ergebnis ist die Menge ungerader Zahlen, die keine perfekten Quadrate sind.
 
 ```js
 const odds = new Set([1, 3, 5, 7, 9]);
@@ -69,6 +69,7 @@ console.log(odds.difference(squares)); // Set(3) { 3, 5, 7 }
 ## Siehe auch
 
 - [Polyfill von `Set.prototype.difference` in `core-js`](https://github.com/zloirock/core-js#new-set-methods)
+- [es-shims Polyfill von `Set.prototype.difference`](https://www.npmjs.com/package/set.prototype.difference)
 - {{jsxref("Set.prototype.intersection()")}}
 - {{jsxref("Set.prototype.isDisjointFrom()")}}
 - {{jsxref("Set.prototype.isSubsetOf()")}}

@@ -2,10 +2,10 @@
 title: Attribut eines Elements abrufen
 slug: Web/WebDriver/Reference/Commands/GetElementAttribute
 l10n:
-  sourceCommit: 57b855a52a2d2e8914a30e3a47567bff0806ae23
+  sourceCommit: 394a1aff10d20ba51dbd00252ce481769298001c
 ---
 
-Der Befehl _Attribut eines Elements abrufen_ der [WebDriver](/de/docs/Web/WebDriver)-API gibt das Attribut des referenzierten [Webelements](/de/docs/Web/WebDriver/WebElement) zurück. Wenn das Element zum Beispiel ein {{HTMLElement("img")}} ist, wird das Attribut `"//TODO"` zurückgegeben, was dem Aufruf von [`Element.getAttribute`](/de/docs/Web/API/Element/getAttribute) auf dem Element entspricht. Bei XML/XHTML-Dokumenten kann es anders großgeschrieben sein.
+Der _Attribut eines Elements abrufen_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt das Attribut des referenzierten [Webelements](/de/docs/Web/WebDriver/WebElement) zurück. Wenn zum Beispiel das Element ein {{HTMLElement("img")}} ist, lautet das zurückgegebene Attribut `"//TODO"`, was dem Aufruf von [`Element.getAttribute`](/de/docs/Web/API/Element/getAttribute) für das Element entspricht. Bei XML/XHTML-Dokumenten kann es anders formatiert sein.
 
 ## Syntax
 
@@ -16,11 +16,11 @@ Der Befehl _Attribut eines Elements abrufen_ der [WebDriver](/de/docs/Web/WebDri
 ### URL-Parameter
 
 - `session id`
-  - : Kennung der Sitzung.
+  - : Bezeichner der Sitzung.
 - `element id`
-  - : Kennung des [Webelements](/de/docs/Web/WebDriver/WebElement), dessen Tag-Name abgerufen werden soll.
+  - : Bezeichner des [Webelements](/de/docs/Web/WebDriver/WebElement), dessen Tag-Name abgerufen werden soll.
 - `name`
-  - : Kennung des Attributs des [Webelements](/de/docs/Web/WebDriver/WebElement), das abgerufen werden soll.
+  - : Bezeichner des Attributs des [Webelements](/de/docs/Web/WebDriver/WebElement), das abgerufen werden soll.
 
 ### Fehler
 
@@ -29,7 +29,7 @@ Der Befehl _Attribut eines Elements abrufen_ der [WebDriver](/de/docs/Web/WebDri
 - [Kein solches Fenster](/de/docs/Web/WebDriver/Errors/NoSuchWindow)
   - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass der Tab oder das Fenster geschlossen wurde.
 - [Unerwartetes Alert geöffnet](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzeraufforderung, wie [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
+  - : Eine Benutzeraufforderung, wie zum Beispiel [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
 
 ## Beispiele
 

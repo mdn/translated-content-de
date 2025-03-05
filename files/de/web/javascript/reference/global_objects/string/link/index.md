@@ -2,15 +2,15 @@
 title: String.prototype.link()
 slug: Web/JavaScript/Reference/Global_Objects/String/link
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`link()`**-Methode von {{jsxref("String")}}-Werten erstellt eine Zeichenkette, die diese Zeichenkette in einem {{HTMLElement("a")}}-Element (`<a href="...">str</a>`) einbettet, um sie als Hypertext-Link zu einer anderen URL zu verwenden.
+Die **`link()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("a")}}-Element (`<a href="...">str</a>`) einbettet, um ihn als Hypertext-Link zu einer anderen URL zu verwenden.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur für Kompatibilitätszwecke standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 
 ## Syntax
 
@@ -21,17 +21,17 @@ link(url)
 ### Parameter
 
 - `url`
-  - : Jede Zeichenkette, die das `href`-Attribut des `<a>`-Elements angibt; es sollte sich um eine gültige URL (relativ oder absolut) handeln, wobei alle `&`-Zeichen als `&amp;` maskiert sind.
+  - : Ein beliebiger String, der das `href`-Attribut des `<a>`-Elements angibt; er sollte eine gültige URL (relativ oder absolut) sein, wobei alle `&`-Zeichen als `&amp;` maskiert werden.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die mit einem `<a href="url">`-Start-Tag beginnt (doppelte Anführungszeichen in `url` werden durch `&quot;` ersetzt), gefolgt vom Text `str` und dann einem `</a>`-End-Tag.
+Ein String, der mit einem `<a href="url">`-Start-Tag beginnt (doppelte Anführungszeichen in `url` werden durch `&quot;` ersetzt), gefolgt vom Text `str` und dann einem `</a>`-End-Tag.
 
 ## Beispiele
 
 ### Verwendung von link()
 
-Der folgende Code erstellt eine HTML-Zeichenkette und ersetzt dann den Body des Dokuments damit:
+Der folgende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
 
 ```js
 const contentString = "MDN Web Docs";
@@ -66,5 +66,6 @@ document.body.appendChild(elem);
 ## Siehe auch
 
 - [Polyfill von `String.prototype.link` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [es-shims Polyfill von `String.prototype.link`](https://www.npmjs.com/package/es-string-html-methods)
 - [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("a")}}

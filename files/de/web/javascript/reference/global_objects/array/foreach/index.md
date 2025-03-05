@@ -2,12 +2,12 @@
 title: Array.prototype.forEach()
 slug: Web/JavaScript/Reference/Global_Objects/Array/forEach
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`forEach()`**-Methode von {{jsxref("Array")}}-Instanzen führt eine bereitgestellte Funktion einmal für jedes Element des Arrays aus.
+Die **`forEach()`**-Methode von {{jsxref("Array")}}-Instanzen führt eine bereitgestellte Funktion einmal für jedes Array-Element aus.
 
 {{InteractiveExample("JavaScript Demo: Array.forEach()")}}
 
@@ -31,7 +31,7 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element des Arrays ausgeführt wird. Der Rückgabewert wird verworfen. Die Funktion wird mit folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Der Rückgabewert wird ignoriert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
@@ -39,7 +39,7 @@ forEach(callbackFn, thisArg)
     - `array`
       - : Das Array, auf dem `forEach()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet werden soll. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
@@ -47,17 +47,17 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Die `forEach()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn`-Funktion in aufsteigender Indexreihenfolge einmal für jedes Element in einem Array auf. Im Gegensatz zu {{jsxref("Array/map", "map()")}} gibt `forEach()` immer {{jsxref("undefined")}} zurück und ist nicht kaskadierbar. Ein typischer Anwendungsfall besteht darin, Nebenwirkungen am Ende einer Kette auszuführen. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), um mehr darüber zu erfahren, wie diese Methoden im Allgemeinen funktionieren.
+Die `forEach()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn`-Funktion einmal für jedes Element in einem Array in aufsteigender Reihenfolge der Indizes auf. Anders als {{jsxref("Array/map", "map()")}} gibt `forEach()` immer {{jsxref("undefined")}} zurück und ist nicht verkettenbar. Der typische Anwendungsfall ist das Ausführen von Seiteneffekten am Ende einer Kette. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für mehr Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
 
-`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen wurden. Sie wird nicht für leere Stellen in [sparsely arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ausgeführt.
+`callbackFn` wird nur für Array-Indizes aufgerufen, denen Werte zugewiesen wurden. Es wird nicht für leere Stellen in [dünn besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
 
-Die `forEach()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert über eine `length`-Eigenschaft und integerbasierte Schlüssel-Eigenschaften verfügt.
+Die `forEach()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlige Schlüssel-Eigenschaften hat.
 
-Es gibt keine Möglichkeit, eine `forEach()`-Schleife zu stoppen oder zu unterbrechen, außer durch das Werfen einer Ausnahme. Wenn Sie ein solches Verhalten benötigen, ist die `forEach()`-Methode das falsche Werkzeug.
+Es gibt keine Möglichkeit, eine `forEach()`-Schleife zu stoppen oder zu unterbrechen, außer indem man eine Ausnahme wirft. Wenn Sie ein solches Verhalten benötigen, ist die `forEach()`-Methode das falsche Werkzeug.
 
-Ein vorzeitiger Abbruch kann durch Schleifenanweisungen wie [`for`](/de/docs/Web/JavaScript/Reference/Statements/for), [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) und [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) erreicht werden. Array-Methoden wie {{jsxref("Array/every", "every()")}}, {{jsxref("Array/some", "some()")}}, {{jsxref("Array/find", "find()")}} und {{jsxref("Array/findIndex", "findIndex()")}} stoppen ebenfalls die Iteration sofort, wenn eine weitere Iteration nicht erforderlich ist.
+Ein vorzeitiger Abbruch kann mit Schleifenausdrücken wie [`for`](/de/docs/Web/JavaScript/Reference/Statements/for), [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) und [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) erreicht werden. Array-Methoden wie {{jsxref("Array/every", "every()")}}, {{jsxref("Array/some", "some()")}}, {{jsxref("Array/find", "find()")}}, und {{jsxref("Array/findIndex", "findIndex()")}} stoppen ebenfalls die Iteration sofort, wenn eine weitere Iteration nicht notwendig ist.
 
-`forEach()` erwartet eine synchrone Funktion — es wartet nicht auf Promises. Stellen Sie sicher, dass Sie die Konsequenzen kennen, wenn Sie Promises (oder asynchrone Funktionen) als `forEach`-Callbacks verwenden.
+`forEach()` erwartet eine synchrone Funktion — es wartet nicht auf Promises. Stellen Sie sicher, dass Sie die Implikationen kennen, wenn Sie Promises (oder asynchrone Funktionen) als `forEach`-Rückrufe verwenden.
 
 ```js
 const ratings = [5, 4, 5];
@@ -74,11 +74,11 @@ console.log(sum);
 // Actual output: 0
 ```
 
-Um eine Reihe von asynchronen Operationen sequenziell oder gleichzeit auszuführen, siehe [Promise-Zusammensetzung](/de/docs/Web/JavaScript/Guide/Using_promises#composition).
+Um eine Reihe von asynchronen Operationen sequentiell oder gleichzeitig auszuführen, siehe [Promise-Komposition](/de/docs/Web/JavaScript/Guide/Using_promises#composition).
 
 ## Beispiele
 
-### Eine Schleife durch forEach ersetzen
+### Eine for-Schleife in eine forEach-Schleife umwandeln
 
 ```js
 const items = ["item1", "item2", "item3"];
@@ -98,14 +98,11 @@ items.forEach((item) => {
 ### Den Inhalt eines Arrays ausgeben
 
 > [!NOTE]
-> Um den Inhalt eines Arrays in der Konsole anzuzeigen,
-> können Sie [`console.table()`](/de/docs/Web/API/Console/table_static) verwenden, das eine
-> formatierte Version des Arrays ausgibt.
+> Um den Inhalt eines Arrays in der Konsole anzuzeigen, können Sie [`console.table()`](/de/docs/Web/API/Console/table_static) verwenden, das eine formatierte Version des Arrays ausgibt.
 >
-> Das folgende Beispiel zeigt einen alternativen Ansatz,
-> der die `forEach()`-Methode verwendet.
+> Das folgende Beispiel zeigt einen alternativen Ansatz unter Verwendung von `forEach()`.
 
-Das folgende Codebeispiel protokolliert (loggt) eine Zeile für jedes Element in einem Array:
+Der folgende Code protokolliert eine Zeile für jedes Element in einem Array:
 
 ```js
 const logArrayElements = (element, index /*, array */) => {
@@ -123,7 +120,7 @@ const logArrayElements = (element, index /*, array */) => {
 
 ### Verwendung von thisArg
 
-Das folgende (konstruiertes) Beispiel aktualisiert die Eigenschaften eines Objekts basierend auf jedem Eintrag im Array:
+Das folgende (konstruierte) Beispiel aktualisiert die Eigenschaften eines Objekts aus jedem Eintrag im Array:
 
 ```js
 class Counter {
@@ -146,19 +143,20 @@ console.log(obj.count); // 3
 console.log(obj.sum); // 16
 ```
 
-Da der Parameter `thisArg` (`this`) an `forEach()` übergeben wird, wird er jedes Mal, wenn die Callback-Funktion ausgeführt wird, dieser als `this`-Wert übergeben.
+Da der `thisArg`-Parameter (`this`) an `forEach()` übergeben wird, wird er jedes Mal, wenn `callback` aufgerufen wird, übergeben. Der Rückruf verwendet ihn als seinen `this`-Wert.
 
 > [!NOTE]
-> Wenn die Callback-Funktion als
-> [Arrow Function Expression](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) übergeben wird,
-> könnte der `thisArg`-Parameter ausgelassen werden,
-> da alle Arrow-Funktionen den {{jsxref("Operators/this", "this")}}-Wert lexikalisch binden.
+> Wenn die Rückruf-Funktion als
+> [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) übergeben wird,
+> könnte der `thisArg`-Parameter weggelassen werden,
+> da alle Pfeilfunktionen die {{jsxref("Operators/this", "this")}}-
+> Wert lexikalisch binden.
 
-### Eine Funktion zum Kopieren von Objekten
+### Eine Objekt-Kopierfunktion
 
 Der folgende Code erstellt eine Kopie eines gegebenen Objekts.
 
-Es gibt unterschiedliche Möglichkeiten, eine Kopie eines Objekts zu erstellen. Die folgende Methode wird hier nur zur Veranschaulichung der Arbeitsweise von `Array.prototype.forEach()` mittels Nutzung der `Object.*`-Utility-Funktionen präsentiert.
+Es gibt verschiedene Methoden, um eine Kopie eines Objekts zu erstellen. Der folgende ist nur eine Möglichkeit und wird vorgestellt, um zu erklären, wie `Array.prototype.forEach()` funktioniert, indem `Object.*`-Hilfsfunktionen verwendet werden.
 
 ```js
 const copy = (obj) => {
@@ -177,7 +175,7 @@ const obj2 = copy(obj1); // obj2 looks like obj1 now
 
 ### Ein Array abflachen
 
-Das folgende Beispiel ist nur zu Lernzwecken gedacht. Wenn Sie ein Array mit eingebauten Methoden abflachen möchten, können Sie {{jsxref("Array.prototype.flat()")}} verwenden.
+Das folgende Beispiel dient nur Lernzwecken. Wenn Sie ein Array mit eingebauten Methoden abflachen möchten, können Sie {{jsxref("Array.prototype.flat()")}} verwenden.
 
 ```js
 const flatten = (arr) => {
@@ -199,7 +197,7 @@ console.log(flatten(nested)); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 ### Verwenden des dritten Arguments von callbackFn
 
-Das `array`-Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn Sie keine vorhandene Variable haben, die auf das Array verweist. Im folgenden Beispiel wird zunächst `filter()` verwendet, um die positiven Werte zu extrahieren, und dann `forEach()`, um die Nachbarn zu protokollieren.
+Das `array`-Argument ist nützlich, wenn Sie auf ein anderes Element im Array zugreifen möchten, insbesondere wenn Sie keine vorhandene Variable haben, die auf das Array verweist. Das folgende Beispiel verwendet zuerst `filter()`, um die positiven Werte herauszufiltern, und dann `forEach()`, um seine Nachbarn zu protokollieren.
 
 ```js
 const numbers = [3, -1, 1, 4, 1, 5];
@@ -217,7 +215,7 @@ numbers
 // 1 5 undefined
 ```
 
-### Verwendung von forEach() in sparsen Arrays
+### Verwendung von forEach() bei dünn besetzten Arrays
 
 ```js-nolint
 const arraySparse = [1, 3, /* empty */, 7];
@@ -236,11 +234,11 @@ console.log({ numCallbackRuns });
 // { numCallbackRuns: 3 }
 ```
 
-Die Callback-Funktion wird nicht für den fehlenden Wert an Index 2 aufgerufen.
+Die Rückruffunktion wird für den fehlenden Wert bei Index 2 nicht aufgerufen.
 
-### Aufrufen von forEach() auf Nicht-Array-Objekten
+### Aufrufen von forEach() bei Nicht-Array-Objekten
 
-Die `forEach()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative ganze Zahl kleiner als `length` ist.
+Die `forEach()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative ganze Zahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -267,7 +265,8 @@ Array.prototype.forEach.call(arrayLike, (x) => console.log(x));
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.forEach` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [Indexed Collections](/de/docs/Web/JavaScript/Guide/Indexed_collections)-Leitfaden
+- [es-shims Polyfill von `Array.prototype.forEach`](https://www.npmjs.com/package/array.prototype.foreach)
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.find()")}}
 - {{jsxref("Array.prototype.map()")}}

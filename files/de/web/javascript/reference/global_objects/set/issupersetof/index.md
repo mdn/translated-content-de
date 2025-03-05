@@ -2,12 +2,12 @@
 title: Set.prototype.isSupersetOf()
 slug: Web/JavaScript/Reference/Global_Objects/Set/isSupersetOf
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`isSupersetOf()`** Methode von {{jsxref("Set")}} Instanzen nimmt eine Menge und gibt einen booleschen Wert zurück, der angibt, ob alle Elemente der gegebenen Menge in dieser Menge enthalten sind.
+Die **`isSupersetOf()`** Methode von {{jsxref("Set")}} Instanzen nimmt eine Menge und gibt einen boolean zurück, der angibt, ob alle Elemente der gegebenen Menge in dieser Menge vorhanden sind.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ isSupersetOf(other)
 ### Parameter
 
 - `other`
-  - : Ein {{jsxref("Set")}} Objekt oder ein [mengenähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
+  - : Ein {{jsxref("Set")}} Objekt oder ein [mengenartiges Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects).
 
 ### Rückgabewert
 
@@ -26,7 +26,7 @@ isSupersetOf(other)
 
 ## Beschreibung
 
-In mathematischer Notation ist _Obermenge_ definiert als:
+In mathematischer Notation wird _Superset_ definiert als:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -34,23 +34,23 @@ In mathematischer Notation ist _Obermenge_ definiert als:
 </math>
 <!-- prettier-ignore-end -->
 
-Und mit einem Venn-Diagramm dargestellt:
+Und unter Verwendung eines Venn-Diagramms:
 
-![Ein Venn-Diagramm mit zwei Kreisen. A ist eine Obermenge von B, weil B vollständig in A enthalten ist.](diagram.svg)
+![Ein Venn-Diagramm mit zwei Kreisen. A ist ein Superset von B, da B vollständig in A enthalten ist.](diagram.svg)
 
 > [!NOTE]
-> Die _Obermenge_ Beziehung ist keine _echte Obermenge_, was bedeutet, dass `isSupersetOf()` `true` zurückgibt, wenn `this` und `other` die gleichen Elemente enthalten.
+> Die _Superset_-Beziehung ist kein _echtes Superset_, was bedeutet, dass `isSupersetOf()` `true` zurückgibt, wenn `this` und `other` die gleichen Elemente enthalten.
 
-`isSupersetOf()` akzeptiert [mengenähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als den `other` Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}} Instanz ist, weil es direkt die zugrunde liegenden Daten in `this` abruft, ohne Benutzer-Code aufzurufen. Dann hängt sein Verhalten von der Größe von `this` und `other` ab:
+`isSupersetOf()` akzeptiert [mengenartige Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) als den `other` Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}} Instanz ist, da es direkt die zugrundeliegenden Daten abruft, die in `this` gespeichert sind, ohne Benutzercode auszuführen. Danach hängt das Verhalten von den Größen von `this` und `other` ab:
 
-- Wenn es in `this` weniger Elemente gibt als `other.size`, dann gibt es direkt `false` zurück.
-- Andernfalls iteriert es über `other`, indem es dessen `keys()` Methode aufruft und wenn ein beliebiges Element in `other` nicht in `this` vorhanden ist, gibt es `false` zurück (und schließt den `keys()` Iterator, indem es dessen `return()` Methode aufruft). Andernfalls gibt es `true` zurück.
+- Wenn es weniger Elemente in `this` als in `other.size` gibt, wird direkt `false` zurückgegeben.
+- Andernfalls iteriert es über `other`, indem es seine `keys()` Methode aufruft. Wenn ein Element in `other` nicht in `this` vorhanden ist, gibt es `false` zurück (und schließt den `keys()` Iterator, indem es seine `return()` Methode aufruft). Andernfalls gibt es `true` zurück.
 
 ## Beispiele
 
 ### Verwendung von isSupersetOf()
 
-Die Menge der geraden Zahlen (<20) ist eine Obermenge der Vielfachen von 4 (<20):
+Die Menge der geraden Zahlen (<20) ist ein Superset der Vielfachen von 4 (<20):
 
 ```js
 const evens = new Set([2, 4, 6, 8, 10, 12, 14, 16, 18]);
@@ -58,7 +58,7 @@ const fours = new Set([4, 8, 12, 16]);
 console.log(evens.isSupersetOf(fours)); // true
 ```
 
-Die Menge aller ungeraden Zahlen (<20) ist keine Obermenge der Primzahlen (<20), weil 2 eine Primzahl, aber nicht ungerade ist:
+Die Menge aller ungeraden Zahlen (<20) ist kein Superset der Primzahlen (<20), da 2 eine Primzahl ist, aber nicht ungerade:
 
 ```js
 const primes = new Set([2, 3, 5, 7, 11, 13, 17, 19]);
@@ -66,7 +66,7 @@ const odds = new Set([3, 5, 7, 9, 11, 13, 15, 17, 19]);
 console.log(odds.isSupersetOf(primes)); // false
 ```
 
-Äquivalente Mengen sind Obermengen voneinander:
+Gleiche Mengen sind Supersets voneinander:
 
 ```js
 const set1 = new Set([1, 2, 3]);
@@ -86,6 +86,7 @@ console.log(set2.isSupersetOf(set1)); // true
 ## Siehe auch
 
 - [Polyfill von `Set.prototype.isSupersetOf` in `core-js`](https://github.com/zloirock/core-js#new-set-methods)
+- [es-shims Polyfill von `Set.prototype.isSupersetOf`](https://www.npmjs.com/package/set.prototype.issupersetof)
 - {{jsxref("Set.prototype.difference()")}}
 - {{jsxref("Set.prototype.intersection()")}}
 - {{jsxref("Set.prototype.isDisjointFrom()")}}

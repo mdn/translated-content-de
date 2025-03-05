@@ -2,12 +2,12 @@
 title: Array.prototype.with()
 slug: Web/JavaScript/Reference/Global_Objects/Array/with
 l10n:
-  sourceCommit: 85d7482697cc2bf407c58e809a2a754180d6714c
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die **`with()`**-Methode von {{jsxref("Array")}} Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der Nutzung der [Klammernnotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation), um den Wert eines bestimmten Index zu ändern. Sie gibt ein neues Array zurück, bei dem das Element am angegebenen Index durch den angegebenen Wert ersetzt wird.
+Die **`with()`**-Methode von {{jsxref("Array")}}-Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der Nutzung der [Klammer-Notation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation), um den Wert eines bestimmten Indexes zu ändern. Sie gibt ein neues Array zurück, bei dem das Element am angegebenen Index durch den angegebenen Wert ersetzt wurde.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ arrayInstance.with(index, value)
 ### Parameter
 
 - `index`
-  - : Nullbasierter Index, an dem das Array geändert wird, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Null-basierter Index, an dem das Array geändert werden soll, [in eine Ganzzahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
     - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= index < 0`, wird `index + array.length` verwendet.
     - Wenn der Index nach der Normalisierung außerhalb der Grenzen liegt, wird ein {{jsxref("RangeError")}} ausgelöst.
 - `value`
-  - : Jeder Wert, der dem angegebenen Index zugewiesen wird.
+  - : Ein beliebiger Wert, der dem gegebenen Index zugewiesen werden soll.
 
 ### Rückgabewert
 
-Ein neues Array, bei dem das Element an `index` durch `value` ersetzt wird.
+Ein neues Array mit dem Element am `index`, das durch `value` ersetzt wurde.
 
 ### Ausnahmen
 
@@ -35,13 +35,13 @@ Ein neues Array, bei dem das Element an `index` durch `value` ersetzt wird.
 
 ## Beschreibung
 
-Die `with()`-Methode ändert den Wert eines bestimmten Index im Array und gibt ein neues Array zurück, bei dem das Element am angegebenen Index durch den angegebenen Wert ersetzt wird. Das ursprüngliche Array wird nicht verändert. Dies ermöglicht es Ihnen, Array-Methoden während der Manipulationen zu verketten.
+Die `with()`-Methode ändert den Wert eines bestimmten Indexes im Array und gibt ein neues Array zurück, bei dem das Element am angegebenen Index durch den angegebenen Wert ersetzt wurde. Das ursprüngliche Array wird nicht verändert. Dies ermöglicht das Verkettung von Array-Methoden bei Manipulationen.
 
-Durch das Kombinieren von `with()` mit {{jsxref("Array/at", "at()")}} können Sie ein Array sowohl mit negativen Indizes schreiben als auch lesen (jeweils).
+Durch die Kombination von `with()` mit {{jsxref("Array/at", "at()")}}, können Sie sowohl mit negativen Indizes auf ein Array schreiben als auch lesen.
 
-Die `with()`-Methode erzeugt niemals ein [lückenhaftes Array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays). Wenn das Quellarray lückenhaft ist, werden die leeren Plätze im neuen Array durch `undefined` ersetzt.
+Die `with()`-Methode erzeugt niemals ein [dünn besetztes Array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays). Wenn das Quellarray dünn besetzt ist, werden die leeren Plätze im neuen Array mit `undefined` ersetzt.
 
-Die `with()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length` Eigenschaft hat und integerbasierte Schlüsselwerteigenschaften.
+Die `with()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-indexierte Eigenschaften hat.
 
 ## Beispiele
 
@@ -55,25 +55,25 @@ console.log(arr); // [1, 2, 3, 4, 5]
 
 ### Verkettung von Array-Methoden
 
-Mit der `with()`-Methode können Sie ein einzelnes Element in einem Array aktualisieren und dann andere Array-Methoden anwenden.
+Mit der `with()`-Methode können Sie ein einzelnes Element in einem Array aktualisieren und anschließend andere Array-Methoden anwenden.
 
 ```js
 const arr = [1, 2, 3, 4, 5];
 console.log(arr.with(2, 6).map((x) => x ** 2)); // [1, 4, 36, 16, 25]
 ```
 
-### Verwendung von with() auf lückenhaften Arrays
+### Verwendung von with() auf dünn besetzten Arrays
 
-Die `with()`-Methode erzeugt immer ein dichtes Array.
+Die `with()`-Methode erzeugt immer ein dicht besetztes Array.
 
 ```js
 const arr = [1, , 3, 4, , 6];
 console.log(arr.with(0, 2)); // [2, undefined, 3, 4, undefined, 6]
 ```
 
-### Aufruf von with() bei Nicht-Array-Objekten
+### Aufrufen von with() auf Nicht-Array-Objekten
 
-Die `with()`-Methode erstellt und gibt ein neues Array zurück. Sie liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht negative Ganzzahl ist, die kleiner als `length` ist. Während jede Eigenschaft von `this` zugegriffen wird, wird das Array-Element, dessen Index gleich dem Schlüssel der Eigenschaft ist, auf den Wert der Eigenschaft gesetzt. Schließlich wird der Array-Wert bei `index` auf `value` gesetzt.
+Die `with()`-Methode erstellt und gibt ein neues Array zurück. Sie liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative Ganzzahl kleiner als `length` ist. Während auf jede Eigenschaft von `this` zugegriffen wird, wird das Array-Element mit einem Index, der dem Schlüssel der Eigenschaft entspricht, auf den Wert der Eigenschaft gesetzt. Schließlich wird der Array-Wert bei `index` auf `value` gesetzt.
 
 ```js
 const arrayLike = {
@@ -98,7 +98,8 @@ console.log(Array.prototype.with.call(arrayLike, 0, 1));
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.with` in `core-js`](https://github.com/zloirock/core-js#change-array-by-copy)
-- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [es-shims Polyfill von `Array.prototype.with`](https://www.npmjs.com/package/array.prototype.with)
+- [Indexed collections](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array.prototype.toReversed()")}}
 - {{jsxref("Array.prototype.toSorted()")}}
 - {{jsxref("Array.prototype.toSpliced()")}}

@@ -2,7 +2,7 @@
 title: AggregateError() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/AggregateError/AggregateError
 l10n:
-  sourceCommit: 5c3c25fd4f2fbd7a5f01727a65c2f70d73f1880a
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
@@ -21,19 +21,19 @@ AggregateError(errors, message)
 AggregateError(errors, message, options)
 ```
 
-> **Note:** `AggregateError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erstellen eine neue Instanz von `AggregateError`.
+> **Hinweis:** `AggregateError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `AggregateError` Instanz.
 
 ### Parameter
 
 - `errors`
-  - : Ein Iterable von Fehlern, die möglicherweise keine {{jsxref("Error")}} Instanzen sind.
+  - : Ein iterierbares Objekt von Fehlern, die möglicherweise nicht wirklich {{jsxref("Error")}} Instanzen sind.
 - `message` {{optional_inline}}
-  - : Eine optionale, lesbare Beschreibung des Aggregatfehlers.
+  - : Eine optionale, für Menschen lesbare Beschreibung des aggregierten Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften hat:
+  - : Ein Objekt mit folgenden Eigenschaften:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
+        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 
 ## Beispiele
 
@@ -61,4 +61,5 @@ try {
 ## Siehe auch
 
 - [Polyfill von `AggregateError` in `core-js`](https://github.com/zloirock/core-js#ecmascript-promise)
+- [es-shims Polyfill von `AggregateError`](https://www.npmjs.com/package/es-aggregate-error)
 - {{jsxref("Promise.any")}}

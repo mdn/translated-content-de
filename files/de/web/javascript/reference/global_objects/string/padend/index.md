@@ -2,12 +2,14 @@
 title: String.prototype.padEnd()
 slug: Web/JavaScript/Reference/Global_Objects/String/padEnd
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
 ---
 
 {{JSRef}}
 
-Die Methode **`padEnd()`** von {{jsxref("String")}}-Werten füllt diese Zeichenkette mit einer angegebenen Zeichenkette (bei Bedarf wiederholt) auf, sodass die resultierende Zeichenkette eine bestimmte Länge erreicht. Die Auffüllung erfolgt vom Ende dieser Zeichenkette aus.
+Die **`padEnd()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen
+String (bei Bedarf wiederholt) auf, sodass der resultierende String eine bestimmte Länge erreicht. Das
+Auffüllen wird vom Ende dieses Strings aus angewendet.
 
 {{InteractiveExample("JavaScript Demo: String.padEnd()")}}
 
@@ -33,13 +35,20 @@ padEnd(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge der resultierenden Zeichenkette, nachdem die aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird die aktuelle Zeichenkette unverändert zurückgegeben.
+  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird der
+    aktuelle String unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Die Zeichenkette, mit der die aktuelle `str` aufgefüllt wird. Falls `padString` zu lang ist, um innerhalb von `targetLength` zu bleiben, wird sie abgeschnitten: Für Links-nach-Rechts-Sprachen wird der linke Teil und für Rechts-nach-Links-Sprachen der rechte Teil angewendet. Der Standardwert für diesen Parameter ist " " (`U+0020`).
+  - : Der String, mit dem der aktuelle `str` aufgefüllt wird. Wenn
+    `padString` zu lang ist, um innerhalb
+    `targetLength` zu bleiben, wird er abgeschnitten: Für von links nach rechts
+    geschriebene Sprachen wird der linkeste Teil angewendet und für von rechts nach links geschriebene Sprachen der rechteste Teil. Der Standardwert für diesen Parameter ist " "
+    (`U+0020`).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der spezifizierten `targetLength` mit der `padString`, die am Ende der aktuellen `str` angewendet wurde.
+Ein {{jsxref("String")}} der angegebenen `targetLength` mit dem
+`padString`, der am Ende des aktuellen
+`str` angewendet wurde.
 
 ## Beispiele
 
@@ -63,4 +72,5 @@ Ein {{jsxref("String")}} der spezifizierten `targetLength` mit der `padString`, 
 ## Siehe auch
 
 - [Polyfill von `String.prototype.padEnd` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [es-shims Polyfill von `String.prototype.padEnd`](https://www.npmjs.com/package/string.prototype.padend)
 - {{jsxref("String.prototype.padStart()")}}
