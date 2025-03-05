@@ -1,15 +1,46 @@
 ---
-title: :placeholder-shown
+title: ":placeholder-shown"
 slug: Web/CSS/:placeholder-shown
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element, das derzeit [Platzhaltertext](/de/docs/Web/HTML/Element/input#placeholder) anzeigt.
+Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein beliebiges {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element, das derzeit [Platzhaltertext](/de/docs/Web/HTML/Element/input#placeholder) anzeigt.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-placeholder-shown.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :placeholder-shown", "tabbed-shorter")}}
+
+```css interactive-example
+label {
+  display: block;
+  margin-top: 1em;
+}
+
+input:placeholder-shown {
+  background-color: ivory;
+  border: 2px solid darkorange;
+  border-radius: 5px;
+}
+```
+
+```html interactive-example
+<form>
+  <label for="name">Full Name:</label>
+  <input id="name" name="name" type="text" />
+
+  <label for="email">Email Address:</label>
+  <input id="email" name="email" type="email" placeholder="name@example.com" />
+
+  <label for="age">Your age:</label>
+  <input
+    id="age"
+    name="age"
+    type="number"
+    value="18"
+    placeholder="You must be 18+" />
+</form>
+```
 
 ## Syntax
 
@@ -23,7 +54,7 @@ Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web
 
 ### Einfaches Beispiel
 
-Dieses Beispiel wendet besondere Schrift- und Rahmenstile an, wenn der Platzhalter angezeigt wird.
+Dieses Beispiel wendet spezielle Schrift- und Rahmenstile an, wenn der Platzhalter angezeigt wird.
 
 #### HTML
 
@@ -52,7 +83,7 @@ input:placeholder-shown {
 
 ### Überlaufender Text
 
-Wenn Formularfelder zu klein sind, kann Platzhaltertext auf eine unerwünschte Weise abgeschnitten werden. Sie können die Eigenschaft {{cssxref("text-overflow")}} verwenden, um zu ändern, wie überlaufender Text angezeigt wird.
+Wenn Formularfelder zu klein sind, kann Platzhaltertext auf unerwünschte Weise abgeschnitten werden. Sie können die {{cssxref("text-overflow")}} Eigenschaft verwenden, um die Anzeige von überlaufendem Text zu ändern.
 
 #### HTML
 
@@ -73,9 +104,9 @@ Wenn Formularfelder zu klein sind, kann Platzhaltertext auf eine unerwünschte W
 
 {{EmbedLiveSample("Overflowing_text", 200, 80)}}
 
-### Angepasstes Eingabefeld
+### Anpassungsfeld für Eingaben
 
-Das folgende Beispiel hebt das Feld für die Studentenausweisnummer mit einem individuellen Stil hervor.
+Das folgende Beispiel hebt das Feld für die Studentenausweisnummer mit einem benutzerdefinierten Stil hervor.
 
 #### HTML
 
@@ -132,6 +163,6 @@ input.student-id:placeholder-shown {
 
 ## Siehe auch
 
-- Das {{CSSxRef("::placeholder")}}-Pseudoelement gestaltet den Platzhalter _selbst_.
+- Das {{CSSxRef("::placeholder")}} Pseudoelement gestaltet den Platzhalter _selbst_.
 - Verwandte HTML-Elemente: {{HTMLElement("input")}}, {{HTMLElement("textarea")}}
 - [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)

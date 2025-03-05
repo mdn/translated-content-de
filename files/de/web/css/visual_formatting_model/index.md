@@ -2,52 +2,52 @@
 title: Visuelles Formatierungsmodell
 slug: Web/CSS/Visual_formatting_model
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 93f54a9e0ceb65880b951986cc47bee87336f156
 ---
 
 {{CSSRef}}
 
-Im CSS beschreibt das **visuelle Formatierungsmodell**, wie Benutzeragenten den Dokumentbaum aufnehmen, verarbeiten und für visuelle Medien darstellen. Dies schließt {{Glossary("continuous_media", "kontinuierliche Medien")}} wie einen Computerbildschirm sowie [Seitenmedien](/de/docs/Web/CSS/CSS_paged_media) wie ein Buch oder ein durch Browser-Druckfunktionen gedrucktes Dokument ein. Die meisten Informationen gelten sowohl für kontinuierliche als auch für Seitenmedien.
+In CSS beschreibt das **visuelle Formatierungsmodell**, wie Benutzeragenten den Dokumentbaum aufnehmen und für visuelle Medien verarbeiten und darstellen. Dazu gehören {{Glossary("continuous_media", "kontinuierliche Medien")}} wie ein Computerbildschirm und [Seitenmedien](/de/docs/Web/CSS/CSS_paged_media) wie ein Buch oder Dokument, das über die Druckfunktionen des Browsers gedruckt wird. Ein Großteil der Informationen gilt gleichermaßen für kontinuierliche und Seitenmedien.
 
-Im visuellen Formatierungsmodell generiert jedes Element im Dokumentbaum null oder mehr Boxen entsprechend dem Box-Modell. Die Anordnung dieser Boxen wird geregelt durch:
+Im visuellen Formatierungsmodell erzeugt jedes Element im Dokumentbaum null oder mehr Boxen gemäß dem Box-Modell. Das Layout dieser Boxen wird bestimmt durch:
 
-- Box-Dimensionen und Typ.
+- Box-Dimensionen und -Typ.
 - Positionierungsschema (normaler Fluss, Float und absolute Positionierung).
 - Beziehungen zwischen Elementen im Dokumentbaum.
-- Externe Informationen (z. B. Viewport-Größe, intrinsische Dimensionen von Bildern usw.).
+- Externe Informationen (z.B. Ansichtsfenstergröße, intrinsische Dimensionen von Bildern usw.).
 
-Der größte Teil der Informationen über das visuelle Formatierungsmodell ist in CSS2 definiert, jedoch haben verschiedene CSS-Layout-Module diese Informationen erweitert. Beim Lesen von Spezifikationen finden Sie häufig Verweise auf das in CSS2 definierte Modell. Daher ist es wertvoll, das Modell und die Begriffe, die in CSS2 verwendet werden, zu verstehen, wenn Sie andere Layout-Spezifikationen lesen.
+Vieles über das visuelle Formatierungsmodell wird in CSS2 definiert, jedoch haben verschiedene CSS-Layout-Module diese Informationen erweitert. Beim Lesen von Spezifikationen werden Sie häufig auf Verweise auf das Modell stoßen, wie es in CSS2 definiert ist. Ein Verständnis des Modells und der in CSS2 verwendeten Begriffe ist daher wertvoll, wenn Sie andere Layout-Spezifikationen lesen.
 
-In diesem Dokument definieren wir das Modell, führen einige verwandte Begriffe und Konzepte ein und verweisen auf spezifische Seiten für weitere Details.
+In diesem Dokument definieren wir das Modell und stellen einige der damit verbundenen Begriffe und Konzepte vor, mit Verweisen auf spezifischere Seiten für weitere Details.
 
-## Die Rolle des Viewports
+## Die Rolle des Ansichtsfensters
 
-In kontinuierlichen Medien ist der {{Glossary("viewport", "Viewport")}} der sichtbare Bereich des Browserfensters. Benutzeragenten können das Layout der Seite ändern, wenn sich die Größe des Viewports ändert – zum Beispiel, wenn Sie das Fenster ändern oder die Ausrichtung eines mobilen Geräts wechseln.
+In kontinuierlichen Medien ist das {{Glossary("viewport", "Ansichtsfenster")}} der Anzeigebereich des Browserfensters. Benutzeragenten können das Layout der Seite ändern, wenn sich die Größe des Ansichtsfensters ändert – beispielsweise wenn Sie Ihr Fenster vergrößern oder verkleinern oder die Ausrichtung eines mobilen Geräts ändern.
 
-Wenn der Viewport kleiner ist als die Größe des Dokuments, muss der Benutzeragent eine Möglichkeit bieten, zu den nicht angezeigten Teilen des Dokuments zu scrollen. Dies wird meistens als vertikales Scrollen in der **Block-Dimension** gesehen – vertikal in einer horizontal, von oben nach unten ausgerichteten Sprache. Dennoch könnten Sie auch etwas entwerfen, das in der **Inline-Dimension** gescrollt werden muss.
+Ist das Ansichtsfenster kleiner als die Größe des Dokuments, muss der Benutzeragent eine Möglichkeit bieten, zu den nicht angezeigten Teilen des Dokuments zu scrollen. Dies sehen wir meist als vertikales Scrollen in einer horizontalen, von oben nach unten verlaufenden Sprache. Allerdings können Sie auch etwas entwerfen, das Scrollen in der **Inline-Dimension** erfordert.
 
 ## Box-Erzeugung
 
-**Box-Erzeugung** ist der Teil des visuellen CSS-Formatierungsmodells, der Boxen aus den Elementen des Dokuments erstellt. Generierte Boxen haben unterschiedliche Typen, die ihr visuelles Format bestimmen. Der Typ der generierten Box hängt vom Wert der CSS-Eigenschaft {{cssxref("display")}} ab.
+Die **Box-Erzeugung** ist der Teil des visuellen CSS-Formatierungsmodells, der Boxen aus den Elementen des Dokuments erstellt. Erzeugte Boxen haben verschiedene Typen, die ihre visuelle Formatierung beeinflussen. Der Typ der erzeugten Box hängt vom Wert der CSS-Eigenschaft {{cssxref("display")}} ab.
 
-Ursprünglich in CSS2 definiert, wurde die `display`-Eigenschaft im [CSS Display Module Level 3](https://www.w3.org/TR/css-display-3/) erweitert. Außerdem wurden einige der Terminologien rund um die Anzeige im Laufe der Jahre seit CSS2 aktualisiert und geklärt.
+Ursprünglich in CSS2 definiert, wurde die `display`-Eigenschaft in den [CSS-Display](/de/docs/Web/CSS/CSS_display)-, [CSS-Flexibel-Layout](/de/docs/Web/CSS/CSS_flexible_layout)-, [CSS-Gitterlayout](/de/docs/Web/CSS/CSS_grid_layout)- und [CSS-Ruby-Layout](/de/docs/Web/CSS/CSS_ruby)-Modulen erweitert. Darüber hinaus wurden einige der Begriffe rund um die Anzeige im Laufe der Jahre seit CSS2 aktualisiert und klargestellt.
 
-CSS nimmt Ihr Quelldokument und rendert es auf eine Leinwand. Dazu generiert es eine Zwischenstruktur, den **Box-Baum**, der die Formatierungsstruktur des gerenderten Dokuments darstellt. Jede Box im Box-Baum repräsentiert ihr entsprechendes Element (oder Pseudo-Element) im Raum und/oder in der Zeit auf der Leinwand, während jeder Textrun im Box-Baum ebenfalls den Inhalt seiner entsprechenden Textknoten repräsentiert.
+CSS nimmt Ihr Quelldokument und rendert es auf eine Leinwand. Dazu generiert es eine Zwischenstruktur, den **Box-Baum**, der die Formatierungsstruktur des gerenderten Dokuments darstellt. Jede Box im Box-Baum repräsentiert ihr entsprechendes Element (oder Pseudoelement) im Raum und/oder in der Zeit auf der Leinwand, während jeder Textlauf im Box-Baum den Inhalt seiner entsprechenden Textknoten darstellt.
 
-Für jedes Element generiert CSS dann null oder mehr Boxen, wie durch den `display`-Eigenschaftswert dieses Elements angegeben.
+Anschließend generiert CSS für jedes Element null oder mehr Boxen gemäß dem Wert der `display`-Eigenschaft dieses Elements.
 
 > [!NOTE]
-> Boxen werden oft anhand ihres Display-Typs bezeichnet – z. B. wird eine Box, die von einem Element mit `display: block` generiert wird, als „Block-Box“ oder einfach „Block“ bezeichnet. Beachten Sie jedoch, dass Block-Boxen, Block-Level-Boxen und Box-Container subtil unterschiedlich sind; siehe den Abschnitt [Block-Boxen](#block-boxen) unten für weitere Details.
+> Boxen werden oft nach ihrem Anzeigetyp benannt – z.B. wird eine Box, die von einem Element mit `display: block` erzeugt wurde, als "Block-Box" oder einfach "Block" bezeichnet. Beachten Sie jedoch, dass Block-Boxen, Block-Level-Boxen und Box-Container alle leicht unterschiedlich sind; siehe den Abschnitt [Block-Boxen](#blockboxen) unten für mehr Details.
 
 ### Die Hauptbox
 
-Wenn ein Element eine oder mehrere Boxen generiert, ist eine davon die **Hauptbox**, die die Nachkommenboxen und generierten Inhalte im Box-Baum enthält und auch die Box ist, die an jedem Positionierungsschema beteiligt ist.
+Wenn ein Element eine oder mehrere Boxen erzeugt, ist eine davon die **Hauptbox**, die ihre Nachfahren-Boxen und generierten Inhalte im Box-Baum enthält und auch die Box ist, die in ein beliebiges Positionierungsschema eingebunden ist.
 
-Einige Elemente können zusätzliche Boxen neben der Hauptbox generieren, zum Beispiel erzeugt `display: list-item` mehr als eine Box (z. B. eine **Hauptblockbox** und eine **Kindmarkierungsbox**). Und einige Werte (wie `none` oder `contents`) bewirken, dass das Element und/oder seine Nachkommen überhaupt keine Boxen generieren.
+Einige Elemente können zusätzlich zur Hauptbox weitere Boxen erzeugen, z.B. erzeugt `display: list-item` mehr als eine Box (z.B. eine **Haupt-Block-Box** und eine **Kind-Marker-Box**). Und einige Werte (wie `none` oder `contents`) bewirken, dass das Element und/oder seine Nachfahren überhaupt keine Boxen erzeugen.
 
 ### Anonyme Boxen
 
-Eine **anonyme Box** wird erstellt, wenn es kein HTML-Element gibt, das für die Box verwendet werden kann. Dies geschieht beispielsweise, wenn Sie `display: flex` auf ein Elternelement anwenden und direkt darin ein Textlauf enthalten ist, der nicht in ein anderes Element eingebettet ist. Um den Box-Baum zu reparieren, wird eine anonyme Box um diesen Textlauf erstellt. Sie wird sich dann wie ein Flex-Element verhalten, kann jedoch nicht wie eine reguläre Box gezielt angesprochen und gestylt werden, da kein Element vorhanden ist, auf das sie abzielen könnte.
+Eine **anonyme Box** wird erstellt, wenn kein HTML-Element für die Box verwendet werden kann. Diese Situation tritt auf, wenn Sie z.B. `display: flex` auf ein übergeordnetes Element anwenden und sich direkt darin ein Textlauf befindet, der in keinem anderen Element enthalten ist. Um den Box-Baum zu korrigieren, wird eine anonyme Box um diesen Textlauf erstellt. Diese verhält sich dann wie ein Flex-Item, kann jedoch nicht wie eine reguläre Box anvisiert und gestylt werden, da es kein Element gibt, das anvisiert werden kann.
 
 ```html live-sample___anonymous-flex
 <div class="flex">
@@ -75,7 +75,7 @@ body {
 
 {{EmbedLiveSample("anonymous-flex")}}
 
-Das Gleiche passiert, wenn Sie Textruns mit Block-Elementen durchsetzt haben. Im nächsten Beispiel habe ich eine Zeichenkette in einem `<div>`; in der Mitte meiner Zeichenkette befindet sich ein `<p>`-Element, das einen Teil des Textes enthält.
+Das Gleiche passiert, wenn Sie Textläufe mit Block-Elementen durchsetzt haben. Im nächsten Beispiel habe ich einen String in einem `<div>`; in der Mitte meines Strings befindet sich ein `<p>`-Element, das einen Teil des Textes enthält.
 
 ```html live-sample___anonymous-block
 <div class="example">
@@ -99,19 +99,19 @@ body {
 
 {{EmbedLiveSample("anonymous-block")}}
 
-Die Zeichenkette wird im Box-Baum in drei Boxen aufgeteilt. Der Teil der Zeichenkette vor dem Absatz-Element wird in einer anonymen Box eingeschlossen, dann haben wir das `<p>`, das eine Box generiert, und schließlich eine weitere anonyme Box.
+Der String wird im Box-Baum in drei Boxen aufgeteilt. Der Teil des Strings vor dem Paragraf-Element wird in eine anonyme Box eingebettet, dann haben wir das `<p>`, das eine Box erzeugt, und dann noch eine anonyme Box.
 
-Beachten Sie bei diesen anonymen Boxen, dass sie die Stile ihres direkten Elternteils erben, Sie jedoch ihr Erscheinungsbild nicht durch gezielte Ansprache der anonymen Box ändern können. In meinen Beispielen verwende ich einen direkten Kindselektor, um die Kinder des Containers anzusprechen. Dies ändert die anonymen Boxen nicht, da sie keine tatsächlichen „Elemente“ sind.
+Etwas, das bei diesen anonymen Boxen zu beachten ist, ist, dass sie Stile von ihrem direkten Elternteil erben, aber Sie können nicht ändern, wie sie aussehen, indem Sie die anonyme Box gezielt ansprechen. In meinen Beispielen verwende ich einen direkten Kind-Selektor, um die Kinder des Containers gezielt anzusprechen. Dies ändert die anonymen Boxen nicht, da sie keine "Elemente" im eigentlichen Sinne sind.
 
-**Inline-anonyme Boxen** werden erstellt, wenn eine Zeichenkette durch ein Inline-Element getrennt wird, beispielsweise ein Satz, der einen Abschnitt enthält, der mit `<em></em>` eingeschlossen ist. Dies teilt den Satz in drei Inline-Boxen – eine anonyme Inline-Box vor dem hervorgehobenen Abschnitt, den Abschnitt, der im `<em>`-Element eingeschlossen ist, und dann eine abschließende anonyme Inline-Box. Wie bei den anonymen Block-Boxen können diese anonymen Inline-Boxen nicht unabhängig gestaltet werden wie das `<em>`; sie erben einfach die Stile ihres Containers.
+**Inline-anonyme Boxen** werden erstellt, wenn ein String durch ein Inline-Element unterbrochen wird, z.B. ein Satz, der einen Abschnitt enthält, der mit `<em></em>` umschlossen ist. Dies teilt den Satz in drei Inline-Boxen – eine anonyme Inline-Box vor dem hervorgehobenen Abschnitt, den Abschnitt, der im `<em>`-Element enthalten ist, und dann eine letzte anonyme Inline-Box. Wie bei den anonymen Block-Boxen können diese anonymen Inline-Boxen nicht unabhängig gestylt werden, wie das `<em>` kann; sie erben einfach die Stile ihres Containers.
 
-Andere Formatierungskontexte erstellen ebenfalls anonyme Boxen. [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) verhält sich ähnlich wie das [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout)-Beispiel oben, indem Textzeichenketten in ein Gitterelement mit einer anonymen Box umgewandelt werden. [Mehrspalten-Layouts](/de/docs/Web/CSS/CSS_multicol_layout) erstellen anonyme Spaltenboxen um die Spalten; auch diese können weder gestaltet noch anderweitig angesprochen werden. [Tabellen-Layouts](/de/docs/Web/CSS/CSS_table) fügen anonyme Boxen hinzu, um eine korrekte Tabellenstruktur zu erstellen – z. B. eine anonyme Tabellenzeile –, falls keine Box mit `display: table-row` vorhanden ist.
+Andere Formatierungskontexte erstellen ebenfalls anonyme Boxen. [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) verhält sich genauso wie das obige [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout)-Beispiel und verwandelt Textstrings in einem Gitter-Item mit einer anonymen Box. [Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout) erstellt anonyme Spaltenboxen um die Spalten; auch diese können nicht gestylt oder anderweitig gezielt angesprochen werden. [Tabellenlayout](/de/docs/Web/CSS/CSS_table) fügt anonyme Boxen hinzu, um eine ordnungsgemäße Tabellenstruktur zu erstellen – z.B. durch Hinzufügen einer anonymen Tabellenzeile – wenn keine Box mit `display: table-row` vorhanden war.
 
 ### Zeilenboxen
 
-**Zeilenboxen** sind die Boxen, die jede Textzeile umhüllen. Sie können den Unterschied zwischen Zeilenboxen und ihrem enthaltenden Block sehen, wenn Sie ein Element floaten und dann einen Block mit einer Hintergrundfarbe folgen lassen.
+**Zeilenboxen** sind die Boxen, die jede Textzeile umschließen. Sie können den Unterschied zwischen Zeilenboxen und ihrem enthaltenen Block sehen, wenn Sie ein Element floaten und danach einen Block mit einer Hintergrundfarbe platzieren.
 
-Im folgenden Beispiel werden die Zeilenboxen nach dem gefloateten `<div>` verkürzt, um es zu umschließen. Der Hintergrund der Box läuft hinter dem Float her, da das gefloatete Element aus dem Fluss entfernt wurde.
+Im folgenden Beispiel werden die Zeilenboxen hinter dem gefloateten `<div>` verkürzt, um das Float zu umschließen. Der Hintergrund der Box läuft hinter dem Float entlang, da das gefloatete Element aus dem Fluss genommen wurde.
 
 ```html live-sample___line-boxes
 <div class="float"></div>
@@ -142,55 +142,55 @@ body {
 
 {{EmbedLiveSample("line-boxes", "", "250px")}}
 
-## Positionierungsschemata und Elemente im oder außerhalb des Flusses
+## Positionierungsschemata und im Fluss und aus dem Fluss befindliche Elemente
 
-Im CSS kann eine Box gemäß drei Positionierungsschemata angeordnet werden – **normaler Fluss**, **Floats** oder **absolute Positionierung**.
+In CSS kann eine Box nach drei Positionierungsschemata angeordnet werden – **normaler Fluss**, **Floats** oder **absolute Positionierung**.
 
 ### Normaler Fluss
 
-Im CSS umfasst der normale Fluss die Block-Ebene-Formatierung von Block-Boxen, die Inline-Ebene-Formatierung von Inline-Boxen sowie die relative und sticky Positionierung von Block- und Inline-Boxen.
+In CSS umfasst der normale Fluss die blockbasierte Formatierung von Block-Boxen, die Inline-Formatierung von Inline-Boxen und auch die relative und sticky Positionierung von Block-Level- und Inline-Level-Boxen.
 
-Lesen Sie mehr über den [Fluss-Layout](/de/docs/Web/CSS/CSS_display/flow_layout)-Leitfaden in CSS.
+Lesen Sie mehr über das [Flusslayout](/de/docs/Web/CSS/CSS_display/flow_layout) in CSS.
 
 ### Floats
 
-Im Float-Modell wird eine Box zunächst gemäß dem normalen Fluss angeordnet, dann aus dem Fluss entfernt und positioniert, typischerweise links oder rechts. Inhalte können entlang der Seite eines Floats fließen.
+Im Float-Modell wird eine Box zunächst gemäß dem normalen Fluss angeordnet und dann aus dem Fluss herausgenommen und positioniert, typischerweise nach links oder rechts. Inhalte können entlang der Seite eines Floats verlaufen.
 
 Erfahren Sie mehr über [Floats](/de/docs/Learn_web_development/Core/CSS_layout/Floats).
 
 ### Absolute Positionierung
 
-Im Modell der absoluten Positionierung (zu dem auch `fixed` Positionierung gehört) wird eine Box vollständig aus dem normalen Fluss entfernt und relativ zu einem enthaltenden Block positioniert (der im Fall der Fixierung der Viewport ist) oder zu einem oder mehreren Ankerelementen in der [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning).
+Im Modell der absoluten Positionierung (das auch die `fixed` Positionierung umfasst) wird eine Box vollständig aus dem normalen Fluss entfernt und einem bestimmten Element relativ zu einem enthaltenden Block (das im Fall der festen Positionierung das Ansichtsfenster ist) oder zu einem oder mehreren Ankerelementen im [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) zugewiesen.
 
-Ein Element wird als **außerhalb des Flusses** bezeichnet, wenn es gefloatet, absolut positioniert oder das Root-Element ist. Ein Element wird als **im Fluss** bezeichnet, wenn es nicht außerhalb des Flusses ist.
+Ein Element wird als **außerhalb des Flusses** bezeichnet, wenn es gefloatet, absolut positioniert oder das Wurzelselement ist. Ein Element wird als **im Fluss befindlich** bezeichnet, wenn es nicht außerhalb des Flusses ist.
 
-Lesen Sie mehr über das [CSS-positionierte Layout](/de/docs/Web/CSS/CSS_positioned_layout).
+Lesen Sie über [CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout).
 
-## Formatierungskontexte und die `display`-Eigenschaft
+## Formatierungskontexte und die Display-Eigenschaft
 
-Boxen können als eine **äußere Anzeigeart** beschrieben werden, die entweder `block` oder `inline` ist. Diese äußere Anzeigeart bezieht sich darauf, wie sich die Box im Bezug zu anderen Elementen auf der Seite verhält.
+Boxen können als eine **äußere Display-Art** beschrieben werden, die `block` oder `inline` ist. Diese äußere Display-Art bezieht sich darauf, wie sich die Box im Zusammenhang mit anderen Elementen auf der Seite verhält.
 
-Boxen haben ebenfalls eine innere Anzeigeart, die bestimmt, wie sich ihre Kinder verhalten. Für normales Block- und Inline-Layout oder normalen Fluss ist diese Anzeigeart `flow`. Das bedeutet, dass auch die Kindelemente entweder `block` oder `inline` sein werden.
+Boxen haben auch eine innere Display-Art, die bestimmt, wie sich ihre Kinder verhalten. Für normales Block- und Inline-Layout oder normalen Fluss ist dieser Anzeigetyp `flow`. Das bedeutet, dass die Kindelemente entweder `block` oder `inline` sein werden.
 
-Jedoch könnte die innere Anzeigeart so etwas wie `grid` oder `flex` sein, für solche Fälle wird das Element als das Erstellen eines Gitters oder Flex-Formatierungskontexts bezeichnet. In vielerlei Hinsicht ist dies einem Block-Formatierungskontext ähnlich, allerdings verhalten sich die Kinder wie Flex- oder Gitter-Elemente anstelle von normalen Flusselementen.
+Allerdings könnte die innere Display-Art etwas wie `grid` oder `flex` sein, in welchem Fall die direkten Kinder als ein Gitter oder Flex-Items angezeigt werden. In einem solchen Fall wird das Element als Erstellen eines Gitter- oder Flex-[Formatierungskontexts](/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts) beschrieben. In vielerlei Hinsicht ähnelt dies einem Block-Formatierungskontext, jedoch verhalten sich die Kinder als Flex- oder Gitter-Items anstelle von Items im normalen Fluss.
 
-Die Interaktionen zwischen Block-Level- und Inline-Level-Boxen werden in der Referenz der {{cssxref("display")}}-Eigenschaft beschrieben.
+Die Interaktionen zwischen Block-Level- und Inline-Level-Boxen sind in der {{cssxref("display")}}-Eigenschaftsreferenz beschrieben.
 
-Die Spezifikationen spezifischer Display-Werte erklären zudem, wie diese Formatierungskontexte hinsichtlich der Box-Layouts funktionieren.
+Außerdem erklären die Referenzen für spezifische Werte der Anzeige, wie diese Formatierungskontexte im Hinblick auf das Box-Layout funktionieren.
 
-- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout)-Modul
-- [CSS-Flexible-Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout)-Modul
-- [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout)-Modul
+- [CSS-Gitterlayout](/de/docs/Web/CSS/CSS_grid_layout)-Modul
+- [CSS-Flexibler-Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout)-Modul
+- [CSS-Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout)-Modul
 - [CSS-Tabelle](/de/docs/Web/CSS/CSS_table)-Modul
-- [CSS-Listen und -Zähler](/de/docs/Web/CSS/CSS_lists)-Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists)-Modul
 
 ### Unabhängige Formatierungskontexte
 
-Elemente nehmen entweder am Formatierungskontext ihres enthaltenden Blocks teil oder etablieren einen unabhängigen Formatierungskontext. Ein Grid-Container beispielsweise etabliert einen neuen **Grid-Formatierungskontext** für seine Kinder.
+Elemente nehmen entweder am Formatierungskontext ihres enthaltenden Blocks teil oder erstellen einen unabhängigen Formatierungskontext. Ein Gittercontainer beispielsweise erstellt einen neuen **Gitterformatierungskontext** für seine Kinder.
 
-**Unabhängige Formatierungskontexte** enthalten Floats, und Margen kollabieren nicht über Formatierungskontextgrenzen hinweg. Daher kann das Erstellen eines neuen Block-Formatierungskontexts sicherstellen, dass Floats und Margen innerhalb einer Box bleiben. Um dies zu tun, fügen Sie `display: flow-root` der Box hinzu, auf die Sie einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) anwenden möchten.
+**Unabhängige Formatierungskontexte** enthalten Floats, und Ränder kollabieren nicht über Formatierungskontextgrenzen hinweg. Daher kann das Erstellen eines neuen Block-Formatierungskontexts sicherstellen, dass Floats und Ränder in einer Box bleiben. Um dies zu tun, fügen Sie `display: flow-root` zur Box hinzu, für die Sie einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) erstellen möchten.
 
-Das folgende Beispiel zeigt die Wirkung von `display: flow-root`. Die Box mit dem schwarzen Hintergrund scheint das gefloatete Element und den Text zu umschließen. Wenn Sie `display: flow-root` entfernen, ragt das gefloatete Element aus der Unterseite der Box heraus, da es nicht mehr enthalten ist.
+Das folgende Beispiel zeigt die Wirkung von `display: flow-root`. Die Box mit dem schwarzen Hintergrund scheint sich um das gefloatete Element und den Text zu wickeln. Wenn Sie `display: flow-root` entfernen, ragt das gefloatete Element aus der unteren Box heraus, da es nicht mehr enthalten ist.
 
 ```html live-sample___block-flow-root
 <div class="container">
@@ -232,21 +232,21 @@ body {
 
 {{EmbedLiveSample("block-flow-root", "", "250px")}}
 
-### Block-Boxen
+### Blockboxen
 
-In Spezifikationen werden Block-Boxen, Block-Level-Boxen und Block-Container in einigen Fällen alle als **Block-Boxen** bezeichnet. Diese Begriffe sind jedoch etwas unterschiedlich, und der Begriff Block-Box sollte nur verwendet werden, wenn keine Mehrdeutigkeit besteht.
+In Spezifikationen werden Blockboxen, Block-Level-Boxen und Block-Container an bestimmten Stellen als **Blockboxen** bezeichnet. Diese Dinge sind etwas unterschiedlich und der Begriff Blockbox sollte nur verwendet werden, wenn keine Mehrdeutigkeit besteht.
 
 #### Block-Container
 
-Ein **Block-Container** enthält entweder nur Inline-Level-Boxen, die an einem Inline-Formatierungskontext teilnehmen, oder nur Block-Level-Boxen, die an einem Block-Formatierungskontext teilnehmen. Aus diesem Grund sehen wir das oben beschriebene Verhalten, bei dem anonyme Boxen erstellt werden, um sicherzustellen, dass alle Elemente an einem Block- oder Inline-Formatierungskontext teilnehmen können. Ein Element ist nur dann ein Block-Container, wenn es Block-Level- oder Inline-Level-Boxen enthält.
+Ein **Block-Container** enthält entweder nur Inline-Level-Boxen, die an einem Inline-Formatierungskontext teilnehmen, oder nur Block-Level-Boxen, die an einem Block-Formatierungskontext teilnehmen. Aus diesem Grund sehen wir das oben erklärte Verhalten, bei dem anonyme Boxen eingeführt werden, um sicherzustellen, dass alle Elemente an einem Block- oder Inline-Formatierungskontext teilnehmen können. Ein Element ist nur dann ein Block-Container, wenn es Block-Level- oder Inline-Level-Boxen enthält.
 
 #### Inline-Level- und Block-Level-Boxen
 
-Dies sind die Boxen, die sich innerhalb des Block-Containers befinden und die an Inline- oder Block-Layouts teilnehmen.
+Dies sind die Boxen, die innerhalb des Block-Containers enthalten sind und entweder an einem Inline- oder Block-Layout teilnehmen.
 
-#### Block-Boxen
+#### Blockboxen
 
-Eine Block-Box ist eine Block-Level-Box, die zugleich ein Block-Container ist. Wie in `display` beschrieben, kann eine Box eine Block-Level-Box sein, jedoch kein Block-Container (z. B. könnte sie ein Flex- oder Grid-Container sein).
+Eine Blockbox ist eine Block-Level-Box, die auch ein Block-Container ist. Wie in CSS `display` beschrieben, kann eine Box eine Block-Level-Box sein, aber nicht auch ein Block-Container (sie könnte zum Beispiel ein Flex- oder Gittercontainer sein).
 
 ## Siehe auch
 
@@ -257,8 +257,8 @@ Eine Block-Box ist eine Block-Level-Box, die zugleich ein Block-Container ist. W
 - [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context)
 - [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
 - [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [Layout-Modi](/de/docs/Web/CSS/Layout_mode)
-- [Margin Collapsing](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+- [Layoutmodi](/de/docs/Web/CSS/Layout_mode)
+- [Randkollaps](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
 - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)
 - [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle
 - {{Glossary("Scroll_container", "Scroll-Container")}}

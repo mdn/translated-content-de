@@ -2,12 +2,31 @@
 title: Quadratwurzel
 slug: WebAssembly/Reference/Numeric/Square_root
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-Die **`sqrt`**-Anweisungen, kurz für _square root_, werden verwendet, um die Quadratwurzel einer Zahl zu berechnen.
+Die **`sqrt`**-Instruktionen, kurz für _square root_, werden verwendet, um die Quadratwurzel einer Zahl zu berechnen.
 
-{{EmbedInteractiveExample("pages/wat/sqrt.html", "tabbed-standard")}}
+{{InteractiveExample("Wat Demo: sqrt", "tabbed-standard")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param f32)))
+  (func $main
+
+    f32.const 2 ;; load a number onto the stack
+    f32.sqrt ;; calculate the square root
+    call $log ;; log the result
+
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 
@@ -21,7 +40,7 @@ f32.sqrt
 ;; the top item on the stack will now be 17
 ```
 
-| Anweisung  | Binärer Opcode |
-| ---------- | -------------- |
-| `f32.sqrt` | `0x91`         |
-| `f64.sqrt` | `0x9f`         |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `f32.sqrt`  | `0x91`         |
+| `f64.sqrt`  | `0x9f`         |

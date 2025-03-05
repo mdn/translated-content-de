@@ -1,29 +1,49 @@
 ---
-title: ::marker
+title: "::marker"
 slug: Web/CSS/::marker
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Das **`::marker`**-[CSS](/de/docs/Web/CSS)-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wählt das Marker-Kästchen eines Listenelements aus, das typischerweise ein Aufzählungszeichen oder eine Zahl enthält. Es funktioniert bei jedem Element oder Pseudo-Element, das auf [`display: list-item`](/de/docs/Web/CSS/display) gesetzt ist, wie z. B. den {{HTMLElement("li")}}- und {{HTMLElement("summary")}}-Elementen.
+Das **`::marker`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wählt das Marker-Feld eines Listenelements aus, das typischerweise ein Aufzählungszeichen oder eine Nummer enthält. Es funktioniert bei jedem Element oder Pseudo-Element, das auf [`display: list-item`](/de/docs/Web/CSS/display) gesetzt ist, wie den {{HTMLElement("li")}} und {{HTMLElement("summary")}} Elementen.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-element-marker.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: ::marker", "tabbed-shorter")}}
+
+```css interactive-example
+li::marker {
+  content: "✝ ";
+  font-size: 1.2em;
+}
+```
+
+```html interactive-example
+<p>Group known as Mercury Seven:</p>
+<ul>
+  <li>Malcolm Scott Carpenter</li>
+  <li>Leroy Gordon (Gordo) Cooper Jr.</li>
+  <li>John Herschel Glenn Jr.</li>
+  <li>Virgil Ivan (Gus) Grissom</li>
+  <li>Walter Marty (Wally) Schirra Jr.</li>
+  <li>Alan Bartlett Shepard Jr.</li>
+  <li>Donald Kent (Deke) Slayton</li>
+</ul>
+```
 
 ## Zulässige Eigenschaften
 
-Das `::marker`-Pseudo-Element unterstützt eine begrenzte Anzahl von CSS-Eigenschaften, darunter:
+Das `::marker` Pseudo-Element unterstützt eine begrenzte Anzahl von CSS-Eigenschaften, einschließlich:
 
-- Alle [Schrifteigenschaften](/de/docs/Web/CSS/CSS_fonts)
-- Die {{CSSxRef("white-space")}}-Eigenschaft
+- Alle [Schriftarten-Eigenschaften](/de/docs/Web/CSS/CSS_fonts)
+- Die {{CSSxRef("white-space")}} Eigenschaft
 - {{CSSxRef("color")}}
-- Die Eigenschaften {{CSSxRef("text-combine-upright")}}, {{CSSxRef("unicode-bidi")}} und {{CSSxRef("direction")}}
-- Die {{CSSxRef("content")}}-Eigenschaft
-- Alle [Animationen](/de/docs/Web/CSS/CSS_animations#properties) und [Transitions](/de/docs/Web/CSS/CSS_transitions#properties)-Eigenschaften
+- {{CSSxRef("text-combine-upright")}}, {{CSSxRef("unicode-bidi")}}, und {{CSSxRef("direction")}} Eigenschaften
+- Die {{CSSxRef("content")}} Eigenschaft
+- Alle [Animation](/de/docs/Web/CSS/CSS_animations#properties) und [Übergangs](/de/docs/Web/CSS/CSS_transitions#properties) Eigenschaften
 
 > [!NOTE]
-> Die Spezifikation gibt an, dass in Zukunft zusätzliche CSS-Eigenschaften unterstützt werden können.
+> Die Spezifikation gibt an, dass in Zukunft möglicherweise zusätzliche CSS-Eigenschaften unterstützt werden.
 
 ## Syntax
 
@@ -68,7 +88,7 @@ ul li::marker {
 
 ## Siehe auch
 
-- HTML-Elemente, die standardmäßig Marker-Kästchen besitzen: {{HTMLElement("ol")}}, {{HTMLElement("li")}}, {{HTMLElement("summary")}}
-- [CSS generated content](/de/docs/Web/CSS/CSS_generated_content)-Modul
-- [CSS lists and counters](/de/docs/Web/CSS/CSS_lists)-Modul
-- [CSS counter styles](/de/docs/Web/CSS/CSS_counter_styles)-Modul
+- HTML-Elemente, die standardmäßig Marker-Felder haben: {{HTMLElement("ol")}}, {{HTMLElement("li")}}, {{HTMLElement("summary")}}
+- [CSS generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content) Modul
+- [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul

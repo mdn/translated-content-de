@@ -2,67 +2,67 @@
 title: FileSystemChangeRecord
 slug: Web/API/FileSystemChangeRecord
 l10n:
-  sourceCommit: 328a7843ffd9e0afb4d21822d058bb08b17d3445
+  sourceCommit: b6dacb9087010826a5a7d5b2d7c428e89d8135cf
 ---
 
 {{APIRef("File System API")}}
 
 Das **`FileSystemChangeRecord`**-Wörterbuch der [File System API](/de/docs/Web/API/File_System_API) enthält Details zu einer einzelnen Änderung, die von einem [`FileSystemObserver`](/de/docs/Web/API/FileSystemObserver) beobachtet wurde.
 
-Das `records`-Argument, das an die Rückruffunktion des Konstruktors von [`FileSystemObserver()`](/de/docs/Web/API/FileSystemObserver/FileSystemObserver) übergeben wird, ist ein Array von `FileSystemChangeRecord`-Objekten.
+Das `records`-Argument, das an die Rückruffunktion des Konstruktors [`FileSystemObserver()`](/de/docs/Web/API/FileSystemObserver/FileSystemObserver) übergeben wird, ist ein Array von `FileSystemChangeRecord`-Objekten.
 
 ## Instanzeigenschaften
 
 - `changedHandle`
 
-  - : Eine Referenz auf das Dateisystem-Handle, bei dem die Änderung beobachtet wurde.
+  - : Ein Verweis auf den Dateisystem-Handle, bei dem die Änderung beobachtet wurde.
 
-    - Für das benutzerbeobachtbare Dateisystem kann dies ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) sein.
+    - Für das für den Benutzer sichtbare Dateisystem kann dies ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) sein.
     - Für das [Origin Private File System](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) kann es sich um ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle), ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) oder ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) handeln.
 
-    Diese Eigenschaft wird `null` sein für Aufzeichnungen mit einem Typ `"disappeared"`, `"errored"` oder `"unknown"`.
+    Diese Eigenschaft wird `null` sein für Datensätze mit einem Typ `"disappeared"`, `"errored"` oder `"unknown"`.
 
 - `relativePathComponents`
-  - : Ein Array, das die Pfadkomponenten enthält, die den relativen Dateipfad vom `root` zum `changedHandle` ausmachen, einschließlich des `changedHandle`-Dateinamens.
+  - : Ein Array, das die Pfadkomponenten enthält, die den relativen Dateipfad vom `root` zum `changedHandle` bilden, einschließlich des `changedHandle`-Dateinamens.
 - `relativePathMovedFrom`
-  - : Ein Array, das die Pfadkomponenten enthält, die den relativen Dateipfad vom `root` zum früheren Standort des `changedHandle` ausmachen, im Fall von Beobachtungen mit einem Typ `"moved"`. Wenn der Typ nicht `"moved"` ist, wird diese Eigenschaft `null` sein.
+  - : Ein Array, das die Pfadkomponenten enthält, die den relativen Dateipfad vom `root` zur vorherigen Position des `changedHandle` bilden, im Falle von Beobachtungen mit einem Typ `"moved"`. Wenn der Typ nicht `"moved"` ist, wird diese Eigenschaft `null` sein.
 - `root`
-  - : Eine Referenz auf das Wurzel-Dateisystem-Handle, also das, welches an den `observe()`-Aufruf übergeben wurde, der die Beobachtung gestartet hat. Auch hierbei kann es sich um ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle), [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) oder [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) handeln.
+  - : Ein Verweis auf den Root-Dateisystem-Handle, das heißt, auf den, der zur Methode `observe()` übergeben wurde, die die Beobachtung gestartet hat. Auch hier kann es sich um ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle), ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) oder ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) handeln.
 - `type`
-  - : Ein String, der den Typ der beobachteten Änderung darstellt. Mögliche Werte sind:
+  - : Ein String, der den beobachteten Änderungstyp darstellt. Mögliche Werte sind:
     - `appeared`
       - : Die Datei oder das Verzeichnis wurde erstellt oder in die `root`-Dateistruktur verschoben.
     - `disappeared`
       - : Die Datei oder das Verzeichnis wurde gelöscht oder aus der `root`-Dateistruktur verschoben. Um herauszufinden, welche Datei oder welches Verzeichnis verschwunden ist, können Sie die Eigenschaft `relativePathComponents` abfragen.
     - `errored`
-      - : Ein Fehlerzustand trat im beobachteten Verzeichnis auf. Dies kann passieren, wenn:
-        - Die Beobachtung nicht mehr gültig ist. Dies kann auftreten, wenn das beobachtete Handle (also das `root` der Beobachtung) gelöscht oder verschoben wird. In diesem Fall wird eine `"disappeared"`-Beobachtung aufgezeichnet, gefolgt von einer `"errored"`-Beobachtung. In solchen Fällen möchten Sie möglicherweise die Beobachtung des Dateisystems mit [`FileSystemObserver.disconnect()`](/de/docs/Web/API/FileSystemObserver/disconnect) beenden.
-        - Das Maximum an Beobachtungen pro Origin erreicht ist. Diese Grenze hängt vom Betriebssystem ab und ist im Voraus nicht bekannt. Wenn dies passiert, kann die Website versuchen, es erneut zu versuchen, obwohl es keine Garantie gibt, dass das Betriebssystem genug Ressourcen freigegeben hat.
-        - Die Berechtigung zum Zugriff auf das Verzeichnis oder das Dateihandle entfernt wird.
+      - : Ein Fehlerzustand ist im beobachteten Verzeichnis aufgetreten. Dies kann passieren, wenn:
+        - Die Beobachtung nicht mehr gültig ist. Das kann passieren, wenn der beobachtete Handle (das heißt, das `root` der Beobachtung) gelöscht oder verschoben wird. In diesem Fall wird eine `"disappeared"`-Beobachtung aufgezeichnet, gefolgt von einer `"errored"`-Beobachtung. In solchen Fällen könnten Sie in Erwägung ziehen, die Beobachtung des Dateisystems mit [`FileSystemObserver.disconnect()`](/de/docs/Web/API/FileSystemObserver/disconnect) zu stoppen.
+        - Das Maximum an Beobachtungen pro Ursprung erreicht ist. Dieses Limit ist abhängig vom Betriebssystem und vorher nicht bekannt. Wenn dies geschieht, könnte die Website entscheiden, es erneut zu versuchen, obwohl nicht garantiert ist, dass das Betriebssystem genügend Ressourcen freigegeben hat.
+        - Die Berechtigung, auf das Verzeichnis- oder Datei-Handle zuzugreifen, entfernt wurde.
     - `modified`
-      - : Die Datei oder das Verzeichnis wurde geändert.
+      - : Die Datei oder das Verzeichnis wurde modifiziert.
     - `moved`
-      - : Die Datei oder das Verzeichnis wurde innerhalb der Wurzel-Dateistruktur verschoben.
+      - : Die Datei oder das Verzeichnis wurde innerhalb der `root`-Dateistruktur verschoben.
         > [!NOTE]
-        > Unter Windows werden `"moved"`-Beobachtungen zwischen Verzeichnissen nicht unterstützt. Sie werden als `"disappeared"`-Beobachtungen im Quellverzeichnis und als `"appeared"`-Beobachtungen im Zielverzeichnis gemeldet.
+        > Unter Windows werden `"moved"`-Beobachtungen zwischen Verzeichnissen nicht unterstützt. Sie werden als `"disappeared"`-Beobachtung im Quellverzeichnis und als `"appeared"`-Beobachtung im Zielverzeichnis gemeldet.
     - `unknown`
-      - : Gibt an, dass einige Beobachtungen verpasst wurden. Wenn Sie Informationen darüber wünschen, was sich in den verpassten Beobachtungen geändert hat, könnten Sie auf eine Abfrage des beobachteten Verzeichnisses zurückgreifen.
+      - : Zeigt an, dass einige Beobachtungen verpasst wurden. Wenn Sie Informationen über die verpassten Beobachtungsänderungen herausfinden möchten, könnten Sie auf das Abfragen des beobachteten Verzeichnisses zurückgreifen.
 
-Je nach Betriebssystem werden nicht alle Beobachtungen mit dem gleichen Detailgrad gemeldet, zum Beispiel wenn sich der Inhalt eines Verzeichnisses rekursiv ändert. Im besten Fall erhält die Website einen detaillierten Änderungsdatensatz, der den Typ der Änderung und ein Handle zum betroffenen Pfad enthält. Im schlimmsten Fall erhält die Website einen allgemeineren Änderungsdatensatz (also einen Typ `"unknown"`), der trotzdem eine Durchsuchung des Verzeichnisses erfordert, um herauszufinden, welches Handle sich geändert hat.
+Abhängig vom Betriebssystem werden nicht alle Beobachtungen mit dem gleichen Detaillierungsgrad gemeldet, beispielsweise wenn der Inhalt eines Verzeichnisses rekursiv verändert wird. Im besten Fall erhält die Website einen detaillierten Änderungsdatensatz, der den Typ der Änderung und einen Handle zum betroffenen Pfad enthält. Im schlimmsten Fall erhält die Website einen allgemeineren Änderungsdatensatz (das heißt, einen `"unknown"`-Typ), der dennoch erfordert, dass das Verzeichnis enumeriert wird, um herauszufinden, welcher Handle geändert wurde.
 
-Dies ist dennoch eine Verbesserung gegenüber einer regelmäßigen Abfrage, da die Verzeichniserfassung bedarfsgerecht aus der Rückruffunktion gestartet werden kann, anstatt regelmäßig auf Änderungen zu prüfen.
+Dies ist immer noch eine Verbesserung gegenüber dem Abfragen, da die Verzeichniseinrichtung nach Bedarf aus der Rückruffunktion heraus gestartet werden kann, anstatt regelmäßig auf Änderungen abfragen zu müssen.
 
 ## Beispiele
 
 ### Einen `FileSystemObserver` initialisieren
 
-Bevor Sie mit der Beobachtung von Datei- oder Verzeichnisänderungen beginnen können, müssen Sie einen `FileSystemObserver` initialisieren, um die Beobachtungen zu verwalten. Dies wird mit dem [`FileSystemObserver()`](/de/docs/Web/API/FileSystemObserver/FileSystemObserver)-Konstruktor durchgeführt, der eine Rückruffunktion als Argument nimmt:
+Bevor Sie mit der Beobachtung von Datei- oder Verzeichnisänderungen beginnen können, müssen Sie einen `FileSystemObserver` initialisieren, um die Beobachtungen zu behandeln. Dies geschieht mit dem Konstruktor [`FileSystemObserver()`](/de/docs/Web/API/FileSystemObserver/FileSystemObserver), der eine Rückruffunktion als Argument annimmt:
 
 ```js
 const observer = new FileSystemObserver(callback);
 ```
 
-Der [Körper der Rückruffunktion](/de/docs/Web/API/FileSystemObserver/FileSystemObserver#callback) kann so spezifiziert werden, dass er Dateiänderungsbeobachtungen auf jede gewünschte Weise zurückgibt und verarbeitet. Jedes Objekt innerhalb des `records`-Arrays ist ein `FileSystemChangeRecord`-Objekt:
+Der [Rückruffunktionskörper](/de/docs/Web/API/FileSystemObserver/FileSystemObserver#callback) kann so spezifiziert werden, dass er Dateisänderungsbeobachtungen auf beliebige Weise zurückgibt und verarbeitet. Jedes Objekt im `records`-Array ist ein `FileSystemChangeRecord`-Objekt:
 
 ```js
 const callback = (records, observer) => {
@@ -78,10 +78,10 @@ const callback = (records, observer) => {
 
 ## Spezifikationen
 
-Derzeit nicht Teil einer Spezifikation. Siehe [https://github.com/whatwg/fs/pull/165](https://github.com/whatwg/fs/pull/165) für die relevante Spezifikations-PR.
+Derzeit nicht Teil einer Spezifikation. Siehe [https://github.com/whatwg/fs/pull/165](https://github.com/whatwg/fs/pull/165) für den relevanten Spezifikations-PR.
 
 ## Siehe auch
 
-- [`FileSystemObserver()`](/de/docs/Web/API/FileSystemObserver/FileSystemObserver)-Konstruktor
+- [`FileSystemObserver()`](/de/docs/Web/API/FileSystemObserver/FileSystemObserver) Konstruktor
 - [File System API](/de/docs/Web/API/File_System_API)
-- [Die Origin-Testphase der File System Observer API](https://developer.chrome.com/blog/file-system-observer#stop-observing-the-file-system) auf developer.chrome.com (2024)
+- [Der File System Observer API Origin Trial](https://developer.chrome.com/blog/file-system-observer#stop-observing-the-file-system) auf developer.chrome.com (2024)

@@ -2,16 +2,35 @@
 title: Truncate (float zu float)
 slug: WebAssembly/Reference/Numeric/Truncate_float_to_float
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
 Die **`trunc`**-Anweisungen, kurz für _truncate_, werden verwendet, um den Wert einer Zahl ohne ihren Bruchteil zu erhalten.
 
-**`trunc`** unterscheidet sich von **`floor`** bei der Verwendung mit negativen Zahlen. **`floor`** rundet in diesen Fällen ab, während **`trunc`** nach oben rundet.
+**`trunc`** unterscheidet sich von **`floor`**, wenn es bei negativen Zahlen eingesetzt wird. **`floor`** wird in diesen Fällen abrunden, während **`trunc`** aufrunden wird.
 
-Es gibt eine andere [**`trunc`**](/de/docs/WebAssembly/Reference/Numeric/Truncate_float_to_int)-Anweisung, die den Bruchteil eines Gleitkommazahl abschneidet und in einen Integer umwandelt.
+Es gibt eine weitere [**`trunc`**](/de/docs/WebAssembly/Reference/Numeric/Truncate_float_to_int)-Anweisung, die den Bruchteil eines Gleitkommawerts abschneidet und in eine ganze Zahl umwandelt.
 
-{{EmbedInteractiveExample("pages/wat/trunc_float_to_float.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: trunc_float_to_float", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param f32)))
+  (func $main
+
+    f32.const -2.7 ;; load a number onto the stack
+    f32.trunc ;; discard everything after the decimal point
+    call $log ;; log the result
+
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 
@@ -25,7 +44,7 @@ f32.trunc
 ;; the top item on the stack will now be 2
 ```
 
-| Anweisung   | Binäre Opcode |
-| ----------- | ------------- |
-| `f32.trunc` | `0x8f`        |
-| `f64.trunc` | `0x9d`        |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `f32.trunc` | `0x8f`         |
+| `f64.trunc` | `0x9d`         |

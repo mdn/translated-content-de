@@ -1,17 +1,50 @@
 ---
-title: :valid
+title: ":valid"
 slug: Web/CSS/:valid
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:valid`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}} oder andere {{HTMLElement("form")}}-Element, dessen Inhalt erfolgreich [validiert](/de/docs/Web/HTML/Constraint_validation) wurde. Dadurch können gültige Felder leicht eine Erscheinung annehmen, die dem Benutzer hilft, zu bestätigen, dass ihre Daten korrekt formatiert sind.
+Die **`:valid`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}} oder andere {{HTMLElement("form")}}-Element, dessen Inhalt erfolgreich [validiert](/de/docs/Web/HTML/Constraint_validation) wurde. Dies ermöglicht es, gültigen Feldern ein Erscheinungsbild zu geben, das dem Benutzer hilft zu bestätigen, dass seine Daten richtig formatiert sind.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-valid.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :valid", "tabbed-shorter")}}
 
-Diese Pseudoklasse ist nützlich, um dem Benutzer korrekte Felder hervorzuheben.
+```css interactive-example
+label {
+  display: block;
+  margin-top: 1em;
+}
+
+input:valid {
+  background-color: ivory;
+  border: none;
+  outline: 2px solid deepskyblue;
+  border-radius: 5px;
+  accent-color: gold;
+}
+```
+
+```html interactive-example
+<form>
+  <label for="email">Email Address:</label>
+  <input id="email" name="email" type="email" value="na@me@example.com" />
+
+  <label for="secret">Secret Code: (lower case letters)</label>
+  <input id="secret" name="secret" type="text" value="test" pattern="[a-z]+" />
+
+  <label for="age">Your age: (18+)</label>
+  <input id="age" name="age" type="number" value="5" min="18" />
+
+  <label
+    ><input name="tos" type="checkbox" required checked /> - Do you agree to
+    ToS?</label
+  >
+</form>
+```
+
+Diese Pseudoklasse ist nützlich, um korrekte Felder für den Benutzer hervorzuheben.
 
 ## Syntax
 
@@ -23,16 +56,16 @@ Diese Pseudoklasse ist nützlich, um dem Benutzer korrekte Felder hervorzuheben.
 
 ## Barrierefreiheit
 
-Die Farbe Grün wird häufig verwendet, um gültige Eingaben anzuzeigen. Menschen mit bestimmten Arten von Farbblindheit können den Status der Eingabe nicht erkennen, es sei denn, es gibt ein zusätzliches Indikatorzeichen, das nicht auf Farbe angewiesen ist, um die Bedeutung zu vermitteln. Typischerweise werden beschreibender Text und/oder ein Symbol verwendet.
+Die Farbe Grün wird häufig verwendet, um gültige Eingaben anzuzeigen. Personen mit bestimmten Arten von Farbenblindheit können den Status der Eingabe nicht erkennen, wenn er nicht von einem zusätzlichen Hinweis begleitet wird, der keine Farbe nutzt, um Bedeutung zu vermitteln. Normalerweise werden beschreibender Text und/oder ein Symbol verwendet.
 
-- [MDN-Verständnis von WCAG, Erläuterungen zur Richtlinie 1.4](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [MDN erläutert WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
 - [Verständnis des Erfolgskriteriums 1.4.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
 
 ## Beispiele
 
-### Gültige und ungültige Formularfelder anzeigen
+### Anzeige gültiger und ungültiger Formularfelder
 
-In diesem Beispiel verwenden wir Strukturen wie diese, die zusätzliche `<span>`-Elemente enthalten, um Inhalte zu generieren; diese verwenden wir, um Indikatoren für gültige/ungültige Daten bereitzustellen:
+In diesem Beispiel verwenden wir Strukturen wie diese, die zusätzliche `<span>`s enthalten, um Inhalte zu generieren; wir werden diese nutzen, um Indikatoren für gültige/ungültige Daten bereitzustellen:
 
 ```html
 <div>
@@ -70,16 +103,16 @@ input:valid + span::before {
 }
 ```
 
-Wir setzen die `<span>`-Elemente auf `position: relative`, damit wir den generierten Inhalt relativ zu ihnen positionieren können. Wir positionieren dann absolut unterschiedlichen generierten Inhalt, je nachdem, ob die Formulardaten gültig oder ungültig sind — ein grüner Haken oder ein rotes Kreuz. Um den ungültigen Daten zusätzliche Dringlichkeit zu verleihen, haben wir den Eingaben bei Ungültigkeit auch eine dicke rote Umrandung hinzugefügt.
+Wir setzen die `<span>`s auf `position: relative`, damit wir den generierten Inhalt relativ zu ihnen positionieren können. Wir positionieren dann je nach Gültigkeit oder Ungültigkeit der Formulardaten unterschiedlich erzeugte Inhalte absolut — ein grüner Haken oder ein rotes Kreuz. Um ungültigen Daten eine gewisse Dringlichkeit zu verleihen, haben wir den Eingaben auch einen dicken roten Rand gegeben, wenn sie ungültig sind.
 
 > [!NOTE]
-> Wir haben `::before` verwendet, um diese Labels hinzuzufügen, da wir `::after` bereits für die "erforderlich"-Labels verwendet haben.
+> Wir haben `::before` verwendet, um diese Labels hinzuzufügen, da wir `::after` bereits für die "erforderlich"-Labels nutzen.
 
-Probieren Sie es unten aus:
+Sie können es unten ausprobieren:
 
 {{EmbedGHLiveSample("learning-area/html/forms/pseudo-classes/valid-invalid.html", '100%', 430)}}
 
-Beachten Sie, dass die erforderlichen Texteingaben ungültig sind, wenn sie leer sind, aber gültig, wenn etwas eingegeben ist. Das E-Mail-Eingabefeld ist hingegen gültig, wenn es leer ist, da es nicht erforderlich ist, aber ungültig, wenn es etwas enthält, das keine korrekte E-Mail-Adresse ist.
+Beachten Sie, wie die erforderlichen Textfelder ungültig sind, wenn sie leer sind, aber gültig, wenn sie ausgefüllt sind. Das E-Mail-Feld hingegen ist gültig, wenn es leer ist, da es nicht erforderlich ist, aber ungültig, wenn es etwas enthält, das keine korrekte E-Mail-Adresse ist.
 
 ## Spezifikationen
 
@@ -92,5 +125,5 @@ Beachten Sie, dass die erforderlichen Texteingaben ungültig sind, wenn sie leer
 ## Siehe auch
 
 - Andere validierungsbezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":optional") }}, {{ cssxref(":invalid") }}
-- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- Zugriff auf den [validity state](/de/docs/Web/API/ValidityState) mit JavaScript
+- [Validierung von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- Zugriff auf den [Validitätsstatus](/de/docs/Web/API/ValidityState) mit JavaScript

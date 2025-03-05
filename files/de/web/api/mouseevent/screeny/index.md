@@ -3,18 +3,18 @@ title: "MouseEvent: screenY-Eigenschaft"
 short-title: screenY
 slug: Web/API/MouseEvent/screenY
 l10n:
-  sourceCommit: f452e53438ee1fc54baa7bf4eac147c354615702
+  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
 ---
 
 {{APIRef("UI Events")}}
 
-Die **`screenY`** schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces gibt die vertikale Koordinate (Offset) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen) an.
+Die **`screenY`** schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interface liefert die vertikale Koordinate (Versatz) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
 
 ## Wert
 
 Ein `double`-Gleitkommawert in Pixeln.
 
-Frühere Versionen der Spezifikation definierten dies als ganze Zahl, die sich auf die Anzahl der Pixel bezieht.
+Frühere Versionen der Spezifikation definierten dies als eine ganze Zahl, die sich auf die Anzahl der Pixel bezieht.
 
 ## Beispiele
 

@@ -2,16 +2,16 @@
 title: scroll-margin-block
 slug: Web/CSS/scroll-margin-block
 l10n:
-  sourceCommit: 2b112aef57df0649462db5d9f47d782a7aa1f25c
+  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
 ---
 
 {{CSSRef}}
 
-Die `scroll-margin-block`-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Scroll-Margen eines Elements in der Block-Dimension fest.
+Die CSS-Eigenschaft `scroll-margin-block` als [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt die Scrollabstände eines Elements in der Block-Dimension.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-block.html")}}
 
-## Bestandteil-Eigenschaften
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -36,11 +36,11 @@ scroll-margin-block: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Versatz vom entsprechenden Rand des Scroll-Containers.
+  - : Ein Abstand vom entsprechenden Rand des Scroll-Containers.
 
 ## Beschreibung
 
-Die scroll-margin-Werte stellen Versätze dar, die den Scroll-Snap-Bereich definieren, der zum Einrasten dieser Box in den {{Glossary("Scroll_snap#snapport", "Snapport")}} verwendet wird. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Rahmenbox genommen und ihre rechteckige Begrenzungsbox gefunden wird (achsenbündig im Koordinatenraum des Scroll-Containers), und dann die angegebenen Versätze hinzugefügt werden.
+Die Werte von `scroll-margin` stellen Abstände dar, die den Scroll-Snap-Bereich definieren, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Snap-Bereich wird ermittelt, indem das transformierte Border-Box genommen wird, seine rechteckige Begrenzungsbox (achsenbündig im Koordinatenraum des Scroll-Containers) gefunden wird und dann die angegebenen Abstände hinzugefügt werden.
 
 ## Formale Definition
 

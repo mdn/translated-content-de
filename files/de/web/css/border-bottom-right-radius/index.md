@@ -2,23 +2,23 @@
 title: border-bottom-right-radius
 slug: Web/CSS/border-bottom-right-radius
 l10n:
-  sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
+  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
 ---
 
 {{CSSRef}}
 
-Die **`border-bottom-right-radius`** [CSS](/de/docs/Web/CSS) Eigenschaft rundet die untere rechte Ecke eines Elements ab, indem sie den Radius (oder den Radius der Haupt- und Nebenachsen) der Ellipse angibt, die die Krümmung der Ecke bestimmt.
+Die **`border-bottom-right-radius`** [CSS](/de/docs/Web/CSS) Eigenschaft rundet die untere rechte Ecke eines Elements ab, indem der Radius (oder der Radius der Haupt- und Nebenachse) der Ellipse, die die Krümmung der Ecke definiert, angegeben wird.
 
 {{EmbedInteractiveExample("pages/css/border-bottom-right-radius.html")}}
 
-Die Abrundung kann ein Kreis oder eine Ellipse sein, oder wenn einer der Werte `0` ist, wird keine Abrundung vorgenommen und die Ecke ist quadratisch.
+Die Abrundung kann ein Kreis oder eine Ellipse sein, oder wenn einer der Werte `0` ist, wird keine Abrundung durchgeführt und die Ecke ist rechtwinklig.
 
 ![border-bottom-right-radius.png](border-bottom-right-radius.png)
 
-Ein Hintergrund, sei es ein Bild oder eine Farbe, wird an der Grenze abgeschnitten, selbst bei einer abgerundeten; der genaue Ort des Abschneidens wird durch den Wert der {{cssxref("background-clip")}} Eigenschaft definiert.
+Ein Hintergrund, sei es ein Bild oder eine Farbe, wird am Rand abgeschnitten, sogar ein abgerundeter; der genaue Ort des Abschneidens wird durch den Wert der {{cssxref("background-clip")}} Eigenschaft definiert.
 
 > [!NOTE]
-> Wenn der Wert dieser Eigenschaft nicht in einer {{cssxref("border-radius")}} Kurzschreibweise festgelegt ist, die auf das Element nach der `border-bottom-right-radius` CSS-Eigenschaft angewendet wird, wird der Wert dieser Eigenschaft dann auf seinen ursprünglichen Wert durch die [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) zurückgesetzt.
+> Wenn der Wert dieser Eigenschaft nicht in einer {{cssxref("border-radius")}} Kurzform-Eigenschaft gesetzt ist, die nach der `border-bottom-right-radius` CSS-Eigenschaft auf das Element angewendet wird, wird der Wert dieser Eigenschaft durch die [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) auf seinen Anfangswert zurückgesetzt.
 
 ## Syntax
 
@@ -46,17 +46,17 @@ border-bottom-right-radius: unset;
 
 Mit einem Wert:
 
-- der Wert ist eine {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}} und bezeichnet den Radius des Kreises, der für die Grenze in dieser Ecke verwendet werden soll.
+- Der Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der den Radius des zu verwendenden Kreises für den Rand in dieser Ecke angibt.
 
 Mit zwei Werten:
 
-- der erste Wert ist eine {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}} und bezeichnet die horizontale Hauptachse der Ellipse, die für die Grenze in der Ecke verwendet werden soll.
-- der zweite Wert ist eine {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}} und bezeichnet die vertikale Hauptachse der Ellipse, die für die Grenze in der Ecke verwendet werden soll.
+- Der erste Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der die horizontale Halbachse der zu verwendenden Ellipse für den Rand in dieser Ecke angibt.
+- Der zweite Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der die vertikale Halbachse der zu verwendenden Ellipse für den Rand in dieser Ecke angibt.
 
 ### Werte
 
 - `<length-percentage>`
-  - : Bezeichnet die Größe des Kreisradius oder der Haupt- und Nebenachsen der Ellipse. Als absolute Länge kann sie in jeder vom CSS {{cssxref("&lt;length&gt;")}} Datentyp zugelassenen Einheit ausgedrückt werden. Prozentsätze für die horizontale Achse beziehen sich auf die Breite des Kastens, Prozentsätze für die vertikale Achse beziehen sich auf die Höhe des Kastens. Negative Werte sind ungültig.
+  - : Gibt die Größe des Kreisradius oder der Haupt- und Nebenachsen der Ellipse an. Als absolute Länge kann es in jeder von den CSS {{cssxref("&lt;length&gt;")}} Datentyp erlaubten Einheit ausgedrückt werden. Prozentsätze für die horizontale Achse beziehen sich auf die Breite des Kastens, Prozentsätze für die vertikale Achse beziehen sich auf die Höhe des Kastens. Negative Werte sind ungültig.
 
 ## Formale Definition
 
@@ -68,9 +68,9 @@ Mit zwei Werten:
 
 ## Beispiele
 
-### Bogen eines Kreises
+### Kreisbogen
 
-Ein einzelner `<length>` Wert erzeugt einen Bogen eines Kreises.
+Ein einzelner `<length>` Wert erzeugt einen Kreisbogen.
 
 ```html hidden
 <div></div>
@@ -88,9 +88,9 @@ div {
 
 {{EmbedLiveSample("Arc_of_a_circle")}}
 
-### Bogen einer Ellipse
+### Ellipsenbogen
 
-Zwei unterschiedliche `<length>` Werte erzeugen einen Bogen einer Ellipse.
+Zwei verschiedene `<length>` Werte erzeugen einen Ellipsenbogen.
 
 ```html hidden
 <div></div>
@@ -108,9 +108,9 @@ div {
 
 {{EmbedLiveSample("Arc_of_an_ellipse")}}
 
-### Quadratisches Element mit prozentualem Radius
+### Rechteckiges Element mit prozentualem Radius
 
-Ein quadratisches Element mit einem einzigen `<percentage>` Wert erzeugt einen Bogen eines Kreises.
+Ein rechteckiges Element mit einem einzigen `<percentage>` Wert erzeugt einen Kreisbogen.
 
 ```html hidden
 <div></div>
@@ -128,9 +128,9 @@ div {
 
 {{EmbedLiveSample("Square_element_with_percentage_radius")}}
 
-### Nicht-quadratisches Element mit prozentualem Radius
+### Nicht-rechteckiges Element mit prozentualem Radius
 
-Ein nicht-quadratisches Element mit einem einzigen `<percentage>` Wert erzeugt einen Bogen einer Ellipse.
+Ein nicht-rechteckiges Element mit einem einzigen `<percentage>` Wert erzeugt einen Ellipsenbogen.
 
 ```html hidden
 <div></div>
@@ -158,5 +158,5 @@ div {
 
 ## Siehe auch
 
-- {{cssxref("border-radius")}} Kurzschreibweise
+- {{cssxref("border-radius")}} Kurzform-Eigenschaft
 - {{cssxref("border-top-right-radius")}}, {{cssxref("border-bottom-left-radius")}}, und {{cssxref("border-top-left-radius")}}

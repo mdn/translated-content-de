@@ -1,22 +1,61 @@
 ---
-title: :nth-child()
+title: ":nth-child()"
 slug: Web/CSS/:nth-child
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:nth-child()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf den Indizes der Elemente in der Kindliste ihrer Eltern aus. Mit anderen Worten wählt der `:nth-child()`-Selektor Kindelemente entsprechend ihrer Position unter allen Geschwisterelementen innerhalb eines Elternelements aus.
+Die **`:nth-child()`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente basierend auf den Indizes der Elemente in der Kindliste ihrer Eltern aus. Mit anderen Worten: Der `:nth-child()`-Selektor wählt Kindelemente entsprechend ihrer Position unter allen Geschwisterelementen innerhalb eines Elternelements aus.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-nth-child.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :nth-child", "tabbed-shorter")}}
+
+```css interactive-example
+p {
+  font-weight: bold;
+}
+
+li:nth-child(-n + 3) {
+  border: 2px solid orange;
+  margin-bottom: 1px;
+}
+
+li:nth-child(even) {
+  background-color: lightyellow;
+}
+```
+
+```html interactive-example
+<p>Track &amp; field champions:</p>
+<ul>
+  <li>Adhemar da Silva</li>
+  <li>Wang Junxia</li>
+  <li>Wilma Rudolph</li>
+  <li>Babe Didrikson-Zaharias</li>
+  <li>Betty Cuthbert</li>
+  <li>Fanny Blankers-Koen</li>
+  <li>Florence Griffith-Joyner</li>
+  <li>Irena Szewinska</li>
+  <li>Jackie Joyner-Kersee</li>
+  <li>Shirley Strickland</li>
+  <li>Carl Lewis</li>
+  <li>Emil Zatopek</li>
+  <li>Haile Gebrselassie</li>
+  <li>Jesse Owens</li>
+  <li>Jim Thorpe</li>
+  <li>Paavo Nurmi</li>
+  <li>Sergei Bubka</li>
+  <li>Usain Bolt</li>
+</ul>
+```
 
 > [!NOTE]
-> Im `element:nth-child()`-Syntax wird die Kinderzählung um alle Geschwisterkinder eines beliebigen Elementtyps erweitert; es wird jedoch nur dann als Übereinstimmung angesehen, wenn das Element _an dieser Kinderposition_ mit den anderen Komponenten des Selektors übereinstimmt.
+> Im `element:nth-child()`-Syntax inkludiert die Kinderzählung Geschwisterkinder jedes Elementtyps, aber es gilt nur als Übereinstimmung, wenn das Element _an dieser Kind-Position_ mit den anderen Komponenten des Selektors übereinstimmt.
 
 ## Syntax
 
-`:nth-child()` nimmt ein einziges Argument, das ein Muster für die Übereinstimmung von Elementindizes in einer Liste von Geschwistern beschreibt. Elementindizes beginnen bei 1.
+`:nth-child()` nimmt ein einzelnes Argument, das ein Muster beschreibt, um Elementindizes in einer Liste von Geschwistern zu finden. Elementindizes basieren auf 1.
 
 ```css-nolint
 :nth-child(<nth> [of <complex-selector-list>]?) {
@@ -31,28 +70,28 @@ Die **`:nth-child()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/P
 - `even`
   - : Repräsentiert Elemente, deren numerische Position in einer Serie von Geschwistern gerade ist: 2, 4, 6, usw.
 
-### Funktionale Notation
+### Funktionsnotation
 
 - `<An+B>`
 
-  - : Repräsentiert Elemente, deren numerische Position in einer Serie von Geschwistern dem Muster `An+B` entspricht, für jeden positiven Integer oder Nullwert von `n`, wobei:
+  - : Repräsentiert Elemente, deren numerische Position in einer Serie von Geschwistern dem Muster `An+B` entspricht, für jeden positiven ganzzahligen Wert oder Nullwert von `n`, wobei:
 
     - `A` eine ganzzahlige Schrittgröße ist,
-    - `B` ein ganzzahliger Versatz ist,
-    - `n` alle nichtnegativen Integer sind, beginnend bei 0.
+    - `B` ein ganzzahliger Offset ist,
+    - `n` alle nichtnegativen ganzen Zahlen sind, beginnend bei 0.
 
-    Es kann als das `An+B`-te Element einer Liste gelesen werden. Sowohl `A` als auch `B` müssen {{cssxref("&lt;integer&gt;")}} Werte haben.
+    Es kann als das `An+B`-te Element einer Liste gelesen werden. `A` und `B` müssen beide {{cssxref("&lt;integer&gt;")}} Werte haben.
 
 ### Die `of <selector>`-Syntax
 
-Durch Übergabe eines Selektor-Arguments können wir das **n-te** Element auswählen, das mit diesem Selektor übereinstimmt. Zum Beispiel wählt der folgende Selektor die ersten drei Listenelemente aus, die mit `class="important"` versehen sind.
+Durch die Übergabe eines Selektor-Arguments können wir das **n-te** Element auswählen, das mit diesem Selektor übereinstimmt. Zum Beispiel wählt der folgende Selektor die ersten drei Listenelemente aus, die `class="important"` gesetzt haben.
 
 ```css
 :nth-child(-n + 3 of li.important) {
 }
 ```
 
-Dies ist anders, als den Selektor außerhalb der Funktion zu verschieben, wie:
+Dies unterscheidet sich davon, den Selektor außerhalb der Funktion zu platzieren, wie:
 
 ```css
 li.important:nth-child(-n + 3) {
@@ -63,7 +102,7 @@ Dieser Selektor wählt Listenelemente aus, wenn sie zu den ersten drei Kindern g
 
 ## Beispiele
 
-### Beispiel-Selektoren
+### Beispielselektoren
 
 - `tr:nth-child(odd)` oder `tr:nth-child(2n+1)`
   - : Repräsentiert die ungeraden Zeilen einer HTML-Tabelle: 1, 3, 5, usw.
@@ -72,17 +111,17 @@ Dieser Selektor wählt Listenelemente aus, wenn sie zu den ersten drei Kindern g
 - `:nth-child(7)`
   - : Repräsentiert das siebte Element.
 - `:nth-child(5n)`
-  - : Repräsentiert Elemente **5** \[=5×1], **10** \[=5×2], **15** \[=5×3], **usw.** Das erste Element, das als Ergebnis der Formel zurückgegeben wird, ist **0** \[=5×0], was zu keiner Übereinstimmung führt, da Elemente ab 1 indiziert werden, während `n` ab 0 beginnt. Dies mag anfangs merkwürdig erscheinen, ergibt jedoch mehr Sinn, wenn der `B`-Teil der Formel `>0` ist, wie im nächsten Beispiel.
+  - : Repräsentiert Elemente **5** \[=5×1], **10** \[=5×2], **15** \[=5×3], **usw.** Das erste, das als Ergebnis der Formel zurückgegeben wird, ist **0** \[=5x0], was zu keiner Übereinstimmung führt, da die Elemente von 1 indiziert werden, während `n` bei 0 beginnt. Dies erscheint möglicherweise zuerst seltsam, aber es macht mehr Sinn, wenn der `B`-Teil der Formel `>0` ist, wie im nächsten Beispiel.
 - `:nth-child(n+7)`
-  - : Repräsentiert das siebte und alle nachfolgenden Elemente: **7** \[=0+7], **8** \[=1+7], **9** \[=2+7], **usw.**
+  - : Repräsentiert das siebte und alle folgenden Elemente: **7** \[=0+7], **8** \[=1+7], **9** \[=2+7], **usw.**
 - `:nth-child(3n+4)`
   - : Repräsentiert Elemente **4** \[=(3×0)+4], **7** \[=(3×1)+4], **10** \[=(3×2)+4], **13** \[=(3×3)+4], **usw.**
 - `:nth-child(-n+3)`
   - : Repräsentiert die ersten drei Elemente. \[=-0+3, -1+3, -2+3]
 - `p:nth-child(n)`
-  - : Repräsentiert jedes `<p>`-Element in einer Gruppe von Geschwistern. Dies wählt dieselben Elemente wie ein einfacher `p`-Selektor aus (obwohl mit einer höheren Spezifität).
+  - : Repräsentiert jedes `<p>`-Element in einer Gruppe von Geschwistern. Dies wählt dieselben Elemente wie ein einfacher `p`-Selektor aus (wenn auch mit höherer Spezifität).
 - `p:nth-child(1)` oder `p:nth-child(0n+1)`
-  - : Repräsentiert jedes `<p>`, das das erste Element in einer Gruppe von Geschwistern ist. Dies entspricht dem {{cssxref(":first-child")}}-Selektor (und hat dieselbe Spezifität).
+  - : Repräsentiert jedes `<p>`, das das erste Element in einer Gruppe von Geschwistern ist. Dies ist das gleiche wie der {{cssxref(":first-child")}}-Selektor (und hat die gleiche Spezifität).
 - `p:nth-child(n+8):nth-child(-n+15)`
   - : Repräsentiert das achte bis fünfzehnte `<p>`-Element einer Gruppe von Geschwistern.
 
@@ -183,7 +222,7 @@ div em {
 
 ### Verwendung von 'of &lt;selector&gt;'
 
-In diesem Beispiel gibt es eine ungeordnete Liste von Namen, von denen einige mit `class="noted"` markiert wurden. Diese wurden mit einem dicken unteren Rahmen hervorgehoben.
+In diesem Beispiel gibt es eine ungeordnete Liste von Namen, einige von ihnen wurden als **notiert** mit `class="noted"` markiert. Diese wurden mit einem dicken unteren Rand hervorgehoben.
 
 #### HTML
 
@@ -241,7 +280,7 @@ li {
 }
 ```
 
-Im folgenden CSS zielen wir auf die **geraden** Listenelemente ab, die mit `class="noted"` markiert sind.
+Im folgenden CSS richten wir uns an die **geraden** Listenelemente, die mit `class="noted"` markiert sind.
 
 ```css
 li:nth-child(even of .noted) {
@@ -252,13 +291,13 @@ li:nth-child(even of .noted) {
 
 #### Ergebnis
 
-Elemente mit `class="noted"` haben einen dicken unteren Rahmen, und Elemente 3, 10 und 17 haben einen durchgehenden Hintergrund, da sie die _geraden_ Listenelemente mit `class="noted"` sind.
+Elemente mit `class="noted"` haben einen dicken unteren Rand und die Elemente 3, 10 und 17 haben eine feste Hintergrundfarbe, da sie die _geraden_ Listenelemente mit `class="noted"` sind.
 
 {{EmbedLiveSample('of_selector_syntax_example', 550, 120)}}
 
 ### of-Selektor-Syntax vs Selektor nth-child
 
-In diesem Beispiel gibt es zwei ungeordnete Listen von Namen. Die erste Liste zeigt die Wirkung von `li:nth-child(-n + 3 of .noted)` und die zweite Liste zeigt die Wirkung von `li.noted:nth-child(-n + 3)`.
+In diesem Beispiel gibt es zwei ungeordnete Listen von Namen. Die erste Liste zeigt die Auswirkung von `li:nth-child(-n + 3 of .noted)` und die zweite Liste zeigt die Auswirkung von `li.noted:nth-child(-n + 3)`.
 
 #### HTML
 
@@ -332,15 +371,15 @@ ul.two > li.noted:nth-child(-n + 3) {
 
 #### Ergebnis
 
-Im ersten Fall wird ein Stil auf die ersten drei Listenelemente mit `class="noted"` angewendet, unabhängig davon, ob sie die ersten drei Elemente in der Liste sind.
+Der erste Fall wendet einen Stil auf die ersten drei Listenelemente mit `class="noted"` an, unabhängig davon, ob sie die ersten drei Elemente in der Liste sind.
 
-Im zweiten Fall wird ein Stil auf die Elemente mit `class="noted"` angewendet, wenn sie innerhalb der ersten drei Elemente in der Liste sind.
+Der zweite Fall wendet einen Stil auf die Elemente mit `class="noted"` an, wenn sie innerhalb der ersten 3 Elemente in der Liste sind.
 
 {{EmbedLiveSample('of_selector_syntax_vs_selector_nth-child', 550, 150)}}
 
-### Verwendung des of-Selektors zur Korrektur von gestreiften Tabellen
+### Verwendung des Selektors zur Korrektur gestreifter Tabellen
 
-Eine übliche Praxis für Tabellen ist die Verwendung von _Zebra-Streifen_, bei denen helle und dunkle Hintergrundfarben für Zeilen wechseln, um Tabellen leichter lesbar und zugänglicher zu machen. Wenn eine Zeile versteckt ist, erscheinen die Streifen zusammengeführt und beeinträchtigen den gewünschten Effekt. In diesem Beispiel können Sie zwei Tabellen mit einer `versteckten` Zeile sehen. Die zweite Tabelle handhabt versteckte Zeilen mit `of :not([hidden])`.
+Eine gängige Praxis für Tabellen ist die Verwendung von _Zebra-Streifen_, die zwischen hellen und dunklen Hintergrundfarben für Zeilen wechseln, wodurch Tabellen leichter lesbar und zugänglicher werden. Wenn eine Zeile ausgeblendet ist, erscheinen die Streifen verschmolzen und verändern den gewünschten Effekt. In diesem Beispiel sehen Sie zwei Tabellen mit einer `hidden`-Zeile. Die zweite Tabelle behandelt ausgeblendete Zeilen mit `of :not([hidden])`.
 
 #### HTML
 
@@ -407,17 +446,17 @@ td {
 
 #### Ergebnis
 
-In der ersten Tabelle wird nur `:nth-child(even)` verwendet. Die dritte Zeile hat das Attribut `hidden` angewendet. In diesem Fall ist die 3. Zeile nicht sichtbar und die 2. und 4. Zeilen werden als gerade gezählt, was technisch korrekt ist, aber optisch nicht.
+In der ersten Tabelle wird lediglich `:nth-child(even)` verwendet. Die dritte Zeile hat das `hidden`-Attribut angewandt. In diesem Fall ist die 3. Zeile nicht sichtbar und die 2. & 4. Zeilen werden als gerade gezählt, was sie technisch sind, aber visuell sind sie es nicht.
 
-In der zweiten Tabelle wird die _of-Syntax_ verwendet, um nur die `tr`s zu markieren, die **nicht** versteckt sind, unter Verwendung von `:nth-child(even of :not([hidden]))`.
+In der zweiten Tabelle wird die _of-Syntax_ verwendet, um nur die `tr` zu berücksichtigen, die **nicht** versteckt sind, indem `:nth-child(even of :not([hidden]))` verwendet wird.
 
 {{EmbedLiveSample('Using_of_selector_to_fix_striped_tables', 550, 180)}}
 
 ### Styling einer Tabellenspalte
 
-Um eine Tabellenspalte zu stylen, können Sie den Stil nicht auf das {{HTMLElement("col")}}-Element setzen, da Tabellenzellen keine Kinder des Elements sind (wie Sie es bei der Zeilenebene {{HTMLElement("tr")}} tun können). Pseudoklassen wie `:nth-child()` sind praktisch, um die Spaltenzellen auszuwählen.
+Um eine Tabellenspalte zu stylen, können Sie nicht den Stil auf das {{HTMLElement("col")}}-Element setzen, da Tabellenzellen keine Kinder davon sind (wie Sie es mit dem Zeilenelement, {{HTMLElement("tr")}}, können). Pseudo-Klassen wie `:nth-child()` sind praktisch, um die Spaltenzellen auszuwählen.
 
-In diesem Beispiel wenden wir unterschiedliche Stile für jede der Spalten an.
+In diesem Beispiel setzen wir unterschiedliche Stile für jede der Spalten.
 
 #### HTML
 
@@ -483,6 +522,6 @@ tbody tr :nth-child(3) {
 
 - {{ Cssxref(":nth-of-type", ":nth-of-type()") }}
 - {{ Cssxref(":nth-last-child", ":nth-last-child()") }}
-- {{ Cssxref(":has", ":has()") }}: Pseudoklasse zum Auswählen eines Elternelements
-- [Baumstruktur-Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes)
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)-Modul
+- {{ Cssxref(":has", ":has()") }}: Pseudo-Klasse zur Auswahl des Elternelements
+- [Baum-strukturelle Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes)
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul

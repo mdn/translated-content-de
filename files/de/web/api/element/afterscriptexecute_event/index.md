@@ -3,23 +3,23 @@ title: "Element: afterscriptexecute-Ereignis"
 short-title: afterscriptexecute
 slug: Web/API/Element/afterscriptexecute_event
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: c15dc43c147bba7bdbaf2754831c59e5f44b98d2
 ---
 
-{{APIRef}}{{Non-standard_header}}
+{{APIRef}}{{Non-standard_header}}{{deprecated_header}}
 
 > [!WARNING]
 > Dieses Ereignis war ein Vorschlag in einer frühen Version der Spezifikation. Verlassen Sie sich nicht darauf.
 
 Das **`afterscriptexecute`**-Ereignis wird ausgelöst, nachdem ein Skript ausgeführt wurde.
 
-Es ist ein proprietäres Ereignis, das spezifisch für Gecko (Firefox) ist.
+Es handelt sich um ein proprietäres Ereignis, das spezifisch für Gecko (Firefox) ist.
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("afterscriptexecute", (event) => {});
@@ -33,7 +33,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Spezifikationen
 
-Nicht Teil einer Spezifikation.
+Nicht Teil irgendeiner Spezifikation.
 
 ## Browser-Kompatibilität
 

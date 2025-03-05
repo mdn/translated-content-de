@@ -2,76 +2,76 @@
 title: Koordinatensysteme
 slug: Web/CSS/CSSOM_view/Coordinate_systems
 l10n:
-  sourceCommit: 6ae8ff64d2c8d312be49c76dfbcc4e5c7a550b45
+  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
 ---
 
 {{CSSRef}}
 
-Wenn Sie die Position eines Pixels in einem Grafikzusammenhang angeben (genau wie bei der Angabe von Koordinatensystemen in der [Algebra](https://en.wikipedia.org/wiki/Algebra)), wird seine Position relativ zu einem festen Punkt im Kontext definiert. Dieser feste Punkt wird als [Ursprung](<https://en.wikipedia.org/wiki/Origin_(mathematics)>) bezeichnet. Die Position wird als die Anzahl der Pixel angegeben, die in jede Dimension des Kontextes vom Ursprung aus versetzt sind.
+Beim Angeben des Standorts eines Pixels in einem Grafik-Kontext (genauso wie beim Festlegen von Koordinatensystemen in der [Algebra](https://en.wikipedia.org/wiki/Algebra)) wird seine Position relativ zu einem festen Punkt innerhalb des Kontexts definiert. Dieser feste Punkt wird der [Ursprung](<https://en.wikipedia.org/wiki/Origin_(mathematics)>) genannt. Die Position wird als die Anzahl von Pixeln angegeben, die vom Ursprung entlang jeder Dimension des Kontexts versetzt sind.
 
-Dieser Leitfaden beschreibt die standardmäßigen Koordinatensysteme, die vom CSS-Objektmodell verwendet werden. Diese unterscheiden sich im Allgemeinen nur darin, wo ihr Ursprung liegt.
+Dieser Leitfaden beschreibt die standardmäßigen Koordinatensysteme, die vom CSS-Objektmodell verwendet werden. Diese unterscheiden sich im Allgemeinen nur darin, wo sich ihr Ursprung befindet.
 
 ## Dimensionen
 
-In den von Webtechnologien verwendeten Koordinatensystemen sieht die Konvention vor, dass der horizontale Versatz als _x-Koordinate_ bezeichnet wird, wobei ein negativer Wert eine Position links vom Ursprung und ein positiver Wert eine Position rechts vom Ursprung anzeigt. Die _y-Koordinate_ gibt den vertikalen Versatz an, wobei ein negativer Wert über dem Ursprung und ein positiver Wert unter dem Ursprung liegt.
+In den von Web-Technologien verwendeten Koordinatensystemen wird der horizontale Versatz als _x-Koordinate_ bezeichnet, wobei ein negativer Wert eine Position links vom Ursprung und ein positiver Wert rechts vom Ursprung angibt. Die _y-Koordinate_ gibt den vertikalen Versatz an, wobei ein negativer Wert oberhalb des Ursprungs und ein positiver Wert unterhalb des Ursprungs liegt.
 
-Im Web ist der Standardursprung die _obere_-linke Ecke eines bestimmten Kontexts (wobei positive y-Koordinatenwerte unterhalb des Ursprungs liegen). Beachten Sie, dass dies im Gegensatz zu den meisten mathematischen Modellen steht, bei denen der Ursprung in der _unteren_-linken Ecke liegt und positive y-Koordinatenwerte über dem Ursprung liegen.
+Im Web ist der Standardursprung die _obere_-linke Ecke eines gegebenen Kontexts (wobei positive y-Koordinatenwerte unterhalb des Ursprungs liegen). Beachten Sie, dass dies im Gegensatz zu den meisten mathematischen Modellen steht, bei denen der Ursprung in der _unteren_-linken Ecke liegt, und positive y-Koordinatenwerte oberhalb des Ursprungs liegen.
 
-Wenn die dritte Dimension verwendet wird, um Objekte von vorne nach hinten zu schichten, verwenden wir die z-Achse. Die z-Achse verläuft vom Betrachter zur Oberfläche des Bildschirms. Das CSS-Attribut z-index beeinflusst, wo positionierte Elemente auf dieser Achse sitzen, wodurch der Effekt entsteht, dass sie sich vom Betrachter weg oder zu ihm hin bewegen.
+Wenn die dritte Dimension verwendet wird, um Objekte von vorne nach hinten zu schichten, wird die **z-Achse** genutzt. Die z-Achse verläuft vom Betrachter zur Bildschirmoberfläche. Der CSS-Wert der {{cssxref("z-index")}}-Eigenschaft beeinflusst, wo positionierte Elemente auf dieser Achse platziert werden, was den Effekt hat, dass sie sich vom Betrachter weg oder auf ihn zu bewegen.
 
 > [!NOTE]
-> Es ist tatsächlich möglich, die Definitionen und Ausrichtungen dieser Koordinatensysteme mit CSS-Eigenschaften wie {{cssxref("transform")}} zu ändern. Wir werden jedoch zunächst nur über das standardmäßige Koordinatensystem sprechen.
+> Es ist möglich, die Definitionen und Ausrichtungen dieser Koordinatensysteme mit CSS-Eigenschaften wie {{cssxref("transform")}} zu ändern. Allerdings sprechen wir vorerst nur über das Standardkoordinatensystem.
 
-## Standard-CSSOM-Koordinatensysteme
+## Standard CSSOM Koordinatensysteme
 
-Es gibt vier Standard-Koordinatensysteme, die vom CSS-Objektmodell verwendet werden.
-Um die wichtigsten Systeme zu visualisieren, zeigt das folgende Diagramm einen Monitor mit einem Browserfenster, das Inhalt enthält, der außerhalb des Viewports gescrollt wurde.
-Seiteninhalt, der außerhalb des Viewports gescrollt wurde, wird halbtransparent oberhalb des Browserfensters angezeigt, um zu zeigen, wo der Ursprung für "Seiten"-Koordinaten wäre.
+Es gibt vier standardmäßige Koordinatensysteme, die vom CSS-Objektmodell verwendet werden.
+Um die Hauptsysteme zu visualisieren, zeigt das folgende Diagramm einen Monitor mit einem Browserfenster, das Inhalte enthält, die außerhalb des {{Glossary("viewport", "Viewports")}} gescrollt wurden.
+Seiteninhalte, die außerhalb des Viewports gescrollt wurden, werden halbtransparent über dem Browserfenster angezeigt, um anzuzeigen, wo der Ursprung für "Seiten"-Koordinaten wäre.
 Die Ursprünge der "Client"-, "Seiten"- und "Viewport"-Koordinatensysteme sind hervorgehoben.
 
-![Diagramm eines Computermonitors mit einem Browserfenster, das Inhalte außerhalb des Viewports enthält. Beschriftungen zeigen den Ursprung für Seiten-, Bildschirm- und Viewport-Koordinaten.](css-coords.svg)
+![Ein großer Bildschirm mit einem kleineren Browserfenster, das die untere Hälfte einer Webseite rendert; die obere Hälfte wird als außerhalb des Browser-Viewports gescrollt angezeigt. Die oberen linken Ecken des Bildschirms, der Seite und des Viewports sind alle mit Koordinaten von 0,0 beschriftet.](css-coords.svg)
 
 ### Offset
 
-Koordinaten, die mit dem "Offset"-Modell angegeben werden, verwenden die obere linke Ecke des untersuchten Elements oder auf dem ein Ereignis aufgetreten ist.
+Koordinaten, die mit dem "Offset"-Modell angegeben werden, verwenden die obere linke Ecke des zu untersuchenden Elements oder des Elements, auf dem ein Ereignis stattgefunden hat.
 
-Wenn beispielsweise ein [Mausereignis](/de/docs/Web/API/MouseEvent) auftritt, wird die Position der Maus, wie in den Eigenschaften [`offsetX`](/de/docs/Web/API/MouseEvent/offsetX) und [`offsetY`](/de/docs/Web/API/MouseEvent/offsetY) des Ereignisses angegeben, relativ zur oberen linken Ecke des Knotens angegeben, an den das Ereignis übermittelt wurde. Der Ursprung ist durch `padding-edge` versetzt, also die Kante zwischen dem Padding-Bereich und dem Randbereich.
+Zum Beispiel, wenn ein [`Mouse Event`](/de/docs/Web/API/MouseEvent) auftritt, wird die Position der Maus, wie in den [`offsetX`](/de/docs/Web/API/MouseEvent/offsetX) und [`offsetY`](/de/docs/Web/API/MouseEvent/offsetY) Eigenschaften des Ereignisses angegeben, relativ zu der oberen linken Ecke des Knotens angegeben, an den das Ereignis geliefert wurde. Der Ursprung liegt am _Padding-Rand_, dem Rand zwischen dem Füllbereich und dem Randbereich.
 
 ### Viewport
 
-Das "Viewport"- (oder "Client"-)Koordinatensystem verwendet als Ursprung die obere linke Ecke des Viewports oder Browsing-Kontexts, in dem das Ereignis aufgetreten ist. Dies ist der gesamte Anzeigebereich, in dem das Dokument präsentiert wird.
+Das "Viewport"- (oder "Client")-Koordinatensystem verwendet als Ursprung die obere linke Ecke des Viewports oder Browsing-Kontexts, in dem das Ereignis auftrat. Dies ist der gesamte Anzeigebereich, in dem das Dokument präsentiert wird.
 
-Auf einem Desktop-Computer geben beispielsweise die Eigenschaften [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) und [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY) die Position des Mauszeigers an dem Moment an, in dem das Ereignis aufgetreten ist, relativ zur oberen linken Ecke des [`window`](/de/docs/Web/API/Window).
-Beim Verwenden eines Stifts oder Zeigers sind die Koordinaten [`Touch.clientX`](/de/docs/Web/API/Touch/clientX) und [`Touch.clientY`](/de/docs/Web/API/Touch/clientY) in einem [Touch-Ereignis](/de/docs/Web/API/TouchEvent) relativ zum selben Ursprung.
+Auf einem Desktop-Computer zum Beispiel geben die [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) und [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY) Eigenschaften die Position des Mauszeigers zum Zeitpunkt des Ereignisses relativ zur oberen linken Ecke des [`window`](/de/docs/Web/API/Window) an.
+Wenn ein Stift oder ein Zeiger verwendet wird, sind die [`Touch.clientX`](/de/docs/Web/API/Touch/clientX) und [`Touch.clientY`](/de/docs/Web/API/Touch/clientY) Koordinaten in einem [Touch-Event](/de/docs/Web/API/TouchEvent) relativ zum gleichen Ursprung.
 
-Die obere linke Ecke des Fensters ist immer (0, 0), unabhängig vom Inhalt des Dokuments oder etwaigem Scrollen, das vorgenommen wurde. Mit anderen Worten: Das Scrollen des Dokuments ändert die Viewport-Koordinaten einer bestimmten Position innerhalb des Dokuments.
+Die obere linke Ecke des Fensters ist immer `(0, 0)`, unabhängig vom Inhalt des Dokuments oder von jeglichem Scrollen, das möglicherweise durchgeführt wurde. Das bedeutet, dass das Scrollen des Dokuments die Viewport-Koordinaten einer bestimmten Position innerhalb des Dokuments ändert.
 
-### Page
+### Seite
 
-Das "Seiten"-Koordinatensystem gibt die Position eines Pixels relativ zur oberen linken Ecke des gesamten gerenderten [`Document`](/de/docs/Web/API/Document) an.
-Das bedeutet, dass ein Punkt in einem Element innerhalb des Dokuments dieselben Koordinaten behält, nachdem der Benutzer horizontal oder vertikal im Dokument gescrollt hat, es sei denn, das Element bewegt sich durch Layoutänderungen.
+Das "Seiten"-Koordinatensystem gibt die Position eines Pixels relativ zur oberen linken Ecke des gesamten gerenderten [`Dokuments`](/de/docs/Web/API/Document) an.
+Das bedeutet, dass ein Punkt in einem Element innerhalb des Dokuments die gleichen Koordinaten hat, nachdem der Benutzer horizontal oder vertikal im Dokument gescrollt hat, es sei denn, das Element wird durch Layout-Änderungen verschoben.
 
-Die Eigenschaften [`pageX`](/de/docs/Web/API/MouseEvent/pageX) und [`pageY`](/de/docs/Web/API/MouseEvent/pageY) von Mausklicks liefern die Position der Maus zu dem Zeitpunkt, zu dem das Ereignis generiert wurde, relativ zur oberen linken Ecke des Dokuments.
-Die Koordinaten [`Touch.pageX`](/de/docs/Web/API/Touch/pageX) und [`Touch.pageY`](/de/docs/Web/API/Touch/pageY) in einem [Touch-Ereignis](/de/docs/Web/API/TouchEvent) sind relativ zum gleichen Ursprung.
+Die [`pageX`](/de/docs/Web/API/MouseEvent/pageX) und [`pageY`](/de/docs/Web/API/MouseEvent/pageY) Eigenschaften von Mausereignissen geben die Position der Maus zum Zeitpunkt der Ereigniserstellung relativ zur oberen linken Ecke des Dokuments an.
+[`Touch.pageX`](/de/docs/Web/API/Touch/pageX) und [`Touch.pageY`](/de/docs/Web/API/Touch/pageY) Koordinaten in einem [Touch-Event](/de/docs/Web/API/TouchEvent) sind relativ zum gleichen Ursprung.
 
-### Screen
+### Bildschirm
 
-Schließlich kommen wir zum "Screen"-Modell, bei dem der Ursprung die obere linke Ecke des Bildschirms des Benutzers ist.
-Jeder Punkt in diesem Koordinatensystem stellt ein einzelnes logisches Pixel dar, sodass Werte entlang jeder Achse um ganze Zahlen erhöht oder verringert werden.
-Die Position eines bestimmten Punktes innerhalb eines Dokuments ändert sich, wenn beispielsweise das enthaltende Fenster verschoben wird oder wenn sich die Bildschirmanordnung des Benutzers ändert (durch Ändern der Anzeigeauflösung oder durch Hinzufügen oder Entfernen von Monitoren zum System).
+Schließlich kommen wir zum "Bildschirm"-Modell, bei dem der Ursprung die obere linke Ecke des Bildschirmbereichs des Nutzers ist.
+Jeder Punkt in diesem Koordinatensystem stellt ein einzelnes logisches Pixel dar, und so steigen und fallen die Werte in ganzen Zahlenwerten entlang jeder Achse.
+Die Position eines gegebenen Punkts innerhalb eines Dokuments ändert sich, wenn beispielsweise das Fenster verschoben wird oder wenn sich die Bildschirmgeometrie des Nutzers ändert (durch Ändern der Bildschirmauflösung oder Hinzufügen/Entfernen von Monitoren zu ihrem System).
 
-Die Eigenschaften [`MouseEvent.screenX`](/de/docs/Web/API/MouseEvent/screenX) und [`MouseEvent.screenY`](/de/docs/Web/API/MouseEvent/screenY) geben die Koordinaten der Position eines Mausklicks relativ zum Ursprung des Bildschirms an.
-Die Koordinaten [`Touch.screenX`](/de/docs/Web/API/Touch/screenX) und [`Touch.screenY`](/de/docs/Web/API/Touch/screenY) in einem [Touch-Ereignis](/de/docs/Web/API/TouchEvent) sind relativ zum gleichen Ursprung.
+Die [`MouseEvent.screenX`](/de/docs/Web/API/MouseEvent/screenX) und [`MouseEvent.screenY`](/de/docs/Web/API/MouseEvent/screenY) Eigenschaften geben die Koordinaten der Position eines Mausereignisses relativ zum Ursprung des Bildschirms an.
+[`Touch.screenX`](/de/docs/Web/API/Touch/screenX) und [`Touch.screenY`](/de/docs/Web/API/Touch/screenY) Koordinaten in einem [Touch-Event](/de/docs/Web/API/TouchEvent) sind relativ zum gleichen Ursprung.
 
 ## Beispiel
 
-Schauen wir uns ein Beispiel an, das Mauskoordinaten in einem Element protokolliert.
-Immer wenn die Maus das innere Feld betritt, sich darin bewegt oder es verlässt, werden die Ereignisse durch Protokollieren der aktuellen Mauskoordinaten in jedem der vier verfügbaren Systeme behandelt.
+Werfen wir einen Blick auf ein Beispiel, das Mauskoordinaten in einem Element protokolliert.
+Immer wenn die Maus das innere Feld betritt, sich darin bewegt oder es verlässt, werden die Ereignisse durch Protokollierung der aktuellen Mauskoordinaten in jedem der vier verfügbaren Systeme behandelt.
 
 ### JavaScript
 
-Für das JavaScript setzt der Code die Ereignishandler im inneren Feld auf, indem er [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) für jeden der Typen [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event), [`mousemove`](/de/docs/Web/API/Element/mousemove_event) und [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event) aufruft.
-Für jedes der Ereignisse rufen wir die Funktion `setCoords()` auf, die den inneren Text des `<p>`-Elements mit den Koordinaten für jedes System setzt.
+Für das JavaScript wird der Code die Event-Handler auf dem inneren Feld einrichten, indem er [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) für jeden der Typen [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event), [`mousemove`](/de/docs/Web/API/Element/mousemove_event) und [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event) aufruft.
+Bei jedem der Ereignisse wird die `setCoords()`-Funktion aufgerufen, die den inneren Text des `<p>`-Elements mit den Koordinaten für jedes System festlegt.
 
 ```js
 const log = document.querySelector(".log");
@@ -92,7 +92,7 @@ inner.addEventListener("mouseleave", setCoords);
 
 ### HTML
 
-Das HTML enthält ein `<p>` mit der Klasse `"log"`, das die Daten der Mausereignisse anzeigt.
+Das HTML enthält ein `<p>` mit der `"log"`-Klasse, welche die Daten der Mausereignisse anzeigt.
 
 ```html
 <div class="outer">
@@ -104,8 +104,8 @@ Das HTML enthält ein `<p>` mit der Klasse `"log"`, das die Daten der Mausereign
 
 ### CSS
 
-Die Klasse `"outer"` für das umgebende Feld ist absichtlich zu breit geraten, um die Auswirkungen der Mauskoordinaten zu sehen, wenn der Inhalt gescrollt wird.
-Der `"inner"` Absatz ist, wo Mausereignisse verfolgt und protokolliert werden.
+Die Klasse `"outer"` für das umgebende Feld ist bewusst zu breit, um die Auswirkungen der Mauskoordinaten zu sehen, wenn die Inhalte gescrollt werden.
+Der `"inner"`-Absatz ist der Ort, an dem Mausereignisse verfolgt und protokolliert werden.
 
 ```css
 .outer {
@@ -134,13 +134,14 @@ Der `"inner"` Absatz ist, wo Mausereignisse verfolgt und protokolliert werden.
 
 ### Ergebnis
 
-Hier können Sie die Ergebnisse in Aktion sehen. Wenn Sie mit der Maus über das blaue Feld fahren, beobachten Sie, wie sich die Werte der X- und Y-Koordinaten der Maus in den verschiedenen Koordinatensystemen ändern.
+Hier können Sie die Ergebnisse in Aktion sehen. Wenn Sie die Maus in und um das blaue Feld bewegen, beobachten Sie, wie sich die Werte der X- und Y-Koordinaten der Maus in den verschiedenen Koordinatensystemen ändern.
 
 {{EmbedLiveSample("Example", 600, 250)}}
 
 ## Siehe auch
 
-- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms): wie man ein Koordinatensystem ändert
+- [Viewport-Konzepte](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
+- [Verwenden von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms): wie man ein Koordinatensystem verändert
 - Koordinaten eines [`MouseEvent`](/de/docs/Web/API/MouseEvent):
 
   - [`MouseEvent.offsetX`](/de/docs/Web/API/MouseEvent/offsetX) und [`MouseEvent.offsetY`](/de/docs/Web/API/MouseEvent/offsetY)

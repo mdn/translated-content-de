@@ -1,15 +1,35 @@
 ---
-title: Local tee
+title: Lokale tee
 slug: WebAssembly/Reference/Variables/Local_tee
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
 Die **`local.tee`**-Anweisung setzt den Wert einer lokalen Variable und lädt den Wert auf den Stapel.
 
-Die Anweisung ist nach dem T-Stück benannt, das in der Klempnerei verwendet wird.
+Die Anweisung ist nach dem T-Abzweigstück aus der Klempnerei benannt.
 
-{{EmbedInteractiveExample("pages/wat/local_tee.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: local_tee", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param i32)))
+  (func $main
+
+    (local $var i32) ;; create a local variable named $var
+    (i32.const 10) ;; load `10` onto the stack
+    local.tee $var ;; set the $var to `10` and keep `10` on the stack
+    call $log ;; log the top item on the stack (10)
+
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 

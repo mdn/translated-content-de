@@ -522,7 +522,7 @@
 /de/docs/CSS/Replaced_element	/de/docs/Web/CSS/Replaced_element
 /de/docs/CSS/Scaling_background_images	/de/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images
 /de/docs/CSS/Scaling_of_SVG_backgrounds	/de/docs/Web/CSS/Scaling_of_SVG_backgrounds
-/de/docs/CSS/Shorthand_properties	/de/docs/Web/CSS/Shorthand_properties
+/de/docs/CSS/Shorthand_properties	/de/docs/Web/CSS/CSS_cascade/Shorthand_properties
 /de/docs/CSS/Specificity	/de/docs/Web/CSS/CSS_cascade/Specificity
 /de/docs/CSS/Syntax	/de/docs/Web/CSS/CSS_syntax/Syntax
 /de/docs/CSS/Text-overflow_TEST	/de/docs/Web/CSS/text-overflow
@@ -3618,7 +3618,7 @@
 /de/docs/Glossary/l10n	/de/docs/Glossary/Localization
 /de/docs/Glossary/q_values	/de/docs/Glossary/Quality_values
 /de/docs/Glossarybandwidth	/de/docs/Glossary/Bandwidth
-/de/docs/Guide_to_Shorthand_CSS	/de/docs/Web/CSS/Shorthand_properties
+/de/docs/Guide_to_Shorthand_CSS	/de/docs/Web/CSS/CSS_cascade/Shorthand_properties
 /de/docs/HTM/Attribute	/de/docs/Web/HTML/Attributes
 /de/docs/HTML	/de/docs/Web/HTML
 /de/docs/HTML/Attributes	/de/docs/Web/HTML/Attributes
@@ -11827,6 +11827,7 @@
 /de/docs/Web/CSS/All_About_The_Containing_Block	/de/docs/Web/CSS/CSS_display/Containing_block
 /de/docs/Web/CSS/Alternative_style_sheets	/de/docs/Web/HTML/Attributes/rel/alternate_stylesheet
 /de/docs/Web/CSS/At-rule	/de/docs/Web/CSS/CSS_syntax/At-rule
+/de/docs/Web/CSS/At-rule-functions	/de/docs/Web/CSS/CSS_syntax/At-rule_functions
 /de/docs/Web/CSS/Aural	/de/docs/Web/CSS/@media/aural
 /de/docs/Web/CSS/Block_formatting_context	/de/docs/Web/CSS/CSS_display/Block_formatting_context
 /de/docs/Web/CSS/CSS3_Columns	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
@@ -11853,7 +11854,7 @@
 /de/docs/Web/CSS/CSS_Columns/Using_multi-column_layouts	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
 /de/docs/Web/CSS/CSS_Columns/Using_multicol_layouts	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
 /de/docs/Web/CSS/CSS_Device_Adaptation	/de/docs/Web/CSS
-/de/docs/Web/CSS/CSS_Device_Adaptation/Viewport_Concepts	/de/docs/Web/CSS/Viewport_concepts
+/de/docs/Web/CSS/CSS_Device_Adaptation/Viewport_Concepts	/de/docs/Web/CSS/CSSOM_view/Viewport_concepts
 /de/docs/Web/CSS/CSS_Flexible_Box_Layout/Advanced_layouts_with_flexbox	/de/docs/Glossary/Flexbox
 /de/docs/Web/CSS/CSS_Flexible_Box_Layout/Box_Alignment_in_Flexbox	/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox
 /de/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax	/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis
@@ -11993,6 +11994,7 @@
 /de/docs/Web/CSS/Reference/object-position	/de/docs/Web/CSS/object-position
 /de/docs/Web/CSS/Selector_lists	/de/docs/Web/CSS/Selector_list
 /de/docs/Web/CSS/Selectors	/de/docs/Web/CSS/CSS_selectors
+/de/docs/Web/CSS/Shorthand_properties	/de/docs/Web/CSS/CSS_cascade/Shorthand_properties
 /de/docs/Web/CSS/Specificity	/de/docs/Web/CSS/CSS_cascade/Specificity
 /de/docs/Web/CSS/Syntax	/de/docs/Web/CSS/CSS_syntax/Syntax
 /de/docs/Web/CSS/Text-overflow_TEST	/de/docs/Web/CSS/text-overflow
@@ -12016,6 +12018,7 @@
 /de/docs/Web/CSS/Using_media_queries_from_code	/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries
 /de/docs/Web/CSS/Using_the_CSS_multi-column_layout	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
 /de/docs/Web/CSS/Value_definition_syntax	/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax
+/de/docs/Web/CSS/Viewport_concepts	/de/docs/Web/CSS/CSSOM_view/Viewport_concepts
 /de/docs/Web/CSS/_image	/de/docs/Web/CSS/image/image
 /de/docs/Web/CSS/abs()	/de/docs/Web/CSS/abs
 /de/docs/Web/CSS/actual_value	/de/docs/Web/CSS/CSS_cascade/actual_value

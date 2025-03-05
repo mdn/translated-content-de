@@ -1,18 +1,18 @@
 ---
-title: "Document: afterscriptexecute Ereignis"
+title: "Dokumentation: `afterscriptexecute`-Ereignis"
 short-title: afterscriptexecute
 slug: Web/API/Document/afterscriptexecute_event
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: c15dc43c147bba7bdbaf2754831c59e5f44b98d2
 ---
 
-{{APIRef}}{{non-standard_header}}
+{{APIRef}}{{non-standard_header}}{{deprecated_header}}
 
-Das `afterscriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element das Ausführen seines Skripts abgeschlossen hat. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, wie beispielsweise mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
+Das `afterscriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element mit der Ausführung seines Skripts fertig ist. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, zum Beispiel mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("afterscriptexecute", (event) => {});
@@ -20,7 +20,7 @@ addEventListener("afterscriptexecute", (event) => {});
 onafterscriptexecute = (event) => {};
 ```
 
-## Ereignistyp
+## Ereignisart
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
@@ -36,11 +36,11 @@ document.addEventListener("afterscriptexecute", finished, true);
 document.onafterscriptexecute = finished;
 ```
 
-[Beispiel Live anzeigen](https://mdn.dev/archives/media/samples/html/currentScript.html)
+[Live-Beispiel anzeigen](https://mdn.dev/archives/media/samples/html/currentScript.html)
 
 ## Spezifikationen
 
-Teil keiner Spezifikation.
+Kein Bestandteil einer Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -48,5 +48,5 @@ Teil keiner Spezifikation.
 
 ## Siehe auch
 
-- [`beforescriptexecute`](/de/docs/Web/API/Document/beforescriptexecute_event) Ereignis von `Document`
+- [`beforescriptexecute`](/de/docs/Web/API/Document/beforescriptexecute_event)-Ereignis von `Document`
 - [`Document.currentScript`](/de/docs/Web/API/Document/currentScript)

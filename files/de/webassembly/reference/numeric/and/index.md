@@ -2,12 +2,44 @@
 title: AND
 slug: WebAssembly/Reference/Numeric/AND
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-Die **`and`**-Anweisungen werden verwendet, um eine bitweise UND-Operation durchzuführen, ähnlich dem **`&`**-Operator in anderen Sprachen.
+Die **`and`**-Anweisungen werden verwendet, um eine Bitweise-UND-Operation durchzuführen, ähnlich dem **`&`**-Operator in anderen Programmiersprachen.
 
-{{EmbedInteractiveExample("pages/wat/and.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: and", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+
+  (func (export "and") (param $a i32) (param $b i32) (result i32)
+    ;; load both numbers onto the stack
+    local.get $a
+    local.get $b
+
+    ;; `and` both numbers and return the result
+    i32.and
+  )
+
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console }).then(
+  (result) => {
+    const and = result.instance.exports.and;
+
+    const res = and(0b10000010, 0b01101111);
+    console.log(numToBin(res));
+    // Expected output: "00000010"
+  },
+);
+
+function numToBin(num) {
+  return (num >>> 0).toString(2).padStart(8, "0");
+}
+```
 
 ## Syntax
 

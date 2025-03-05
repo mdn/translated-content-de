@@ -1,15 +1,41 @@
 ---
-title: :only-child
+title: ":only-child"
 slug: Web/CSS/:only-child
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:only-child`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element ohne Geschwister. Dies entspricht `:first-child:last-child` oder `:nth-child(1):nth-last-child(1)`, jedoch mit einer geringeren Spezifität.
+Die **`:only-child`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element ohne Geschwister. Dies ist dasselbe wie `:first-child:last-child` oder `:nth-child(1):nth-last-child(1)`, jedoch mit einer geringeren Spezifität.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-only-child.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :only-child", "tabbed-shorter")}}
+
+```css interactive-example
+li:only-child {
+  color: fuchsia;
+}
+
+b:only-child {
+  text-decoration: underline;
+}
+```
+
+```html interactive-example
+<p>Stars expected to attend:</p>
+<ol>
+  <li>Robert Downey, Jr.</li>
+</ol>
+
+<p>Stars yet to confirm:</p>
+<ol>
+  <li>Scarlett Johansson</li>
+  <li>Samuel L. Jackson</li>
+  <li>Chris Pratt</li>
+</ol>
+
+<p>The ceremony is going to be held in <b>The Dolby Theatre</b>.</p>
+```
 
 ## Syntax
 
@@ -21,7 +47,7 @@ Die **`:only-child`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) reprä
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
 #### HTML
 
@@ -58,7 +84,7 @@ div {
 
 {{EmbedLiveSample('Basic_example','100%',180)}}
 
-### Ein Listenbeispiel
+### Ein Listen-Beispiel
 
 #### HTML
 

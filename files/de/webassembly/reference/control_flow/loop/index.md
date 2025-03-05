@@ -2,14 +2,53 @@
 title: loop
 slug: WebAssembly/Reference/Control_flow/loop
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-Die **`loop`**-Anweisung erstellt ein Label, zu dem später mit einem `br` verzweigt werden kann. Die `loop`-Anweisung selbst führt keine Schleife aus; Sie müssen zu ihr verzweigen, um tatsächlich eine Schleife zu erstellen.
+Die **`loop`**-Anweisung erstellt ein Label, zu dem später mit `br` verzweigt werden kann. Die Schleifeninstruktion läuft nicht von selbst; Sie müssen dorthin verzweigen, um tatsächlich eine Schleife zu erstellen.
 
-Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, da beim Verzweigen zu einer `loop` zum Anfang der Schleife gesprungen wird, während beim Verzweigen zu einem `block` zum Ende des Blocks gesprungen wird, also aus dem Block heraus.
+Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, dass beim Verzweigen zu einer `loop` zum Anfang der Schleife gesprungen wird, während beim Verzweigen zu einem `block` zum Ende des Blocks gesprungen wird, das heißt, aus dem Block heraus.
 
-{{EmbedInteractiveExample("pages/wat/loop.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: loop", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  ;; import the browser console object, you'll need to pass this in from JavaScript
+  (import "console" "log" (func $log (param i32)))
+
+  (func
+    ;; create a local variable and initialize it to 0
+    (local $i i32)
+
+    (loop $my_loop
+
+      ;; add one to $i
+      local.get $i
+      i32.const 1
+      i32.add
+      local.set $i
+
+      ;; log the current value of $i
+      local.get $i
+      call $log
+
+      ;; if $i is less than 10 branch to loop
+      local.get $i
+      i32.const 10
+      i32.lt_s
+      br_if $my_loop
+
+    )
+  )
+
+  (start 1) ;; run the first function automatically
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 

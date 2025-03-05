@@ -2,34 +2,34 @@
 title: border-left
 slug: Web/CSS/border-left
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
 ---
 
 {{CSSRef}}
 
-Die **`border-left`** [Shorthand](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des linken [Randes](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-left`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft legt alle Eigenschaften des linken [Rands](/de/docs/Web/CSS/border) eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/border-left.html")}}
 
-Wie bei allen Shorthand-Eigenschaften, setzt `border-left` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt diejenigen, die nicht spezifiziert sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Shorthand-Eigenschaften setzt `border-left` immer die Werte aller Eigenschaften, die es setzen kann, selbst wenn sie nicht angegeben sind. Nicht angegebene Werte werden auf ihre Standardwerte gesetzt. Betrachten Sie folgenden Code:
 
 ```css
 border-left-style: dotted;
 border-left: thick green;
 ```
 
-Dieser ist eigentlich derselbe wie dieser hier:
+Dieser ist eigentlich derselbe wie dieser:
 
 ```css
 border-left-style: dotted;
 border-left: none thick green;
 ```
 
-Der vorher gegebene Wert von {{cssxref("border-left-style")}} vor `border-left` wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Weglassen des `border-style`-Teils zu keinem Rand.
+Der Wert von {{cssxref("border-left-style")}}, der vor `border-left` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Nicht-Angeben des `border-style`-Teils zu keinem Rand.
 
-## Zusammengesetzte Eigenschaften
+## Zugehörige Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist ein Shorthand für folgende CSS-Eigenschaften:
 
 - {{cssxref("border-left-color")}}
 - {{cssxref("border-left-style")}}

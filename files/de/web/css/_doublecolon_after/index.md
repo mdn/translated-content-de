@@ -1,18 +1,51 @@
 ---
-title: ::after
+title: "::after"
 slug: Web/CSS/::after
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Im CSS erstellt **`::after`** ein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements), das das letzte Kind des ausgewählten Elements ist. Es wird häufig verwendet, um ein Element mit der {{CSSxRef("content")}}-Eigenschaft kosmetisch zu ergänzen. Standardmäßig ist es inline.
+Im CSS erzeugt **`::after`** ein [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements), das das letzte Kind des ausgewählten Elements ist. Es wird häufig verwendet, um mithilfe der {{CSSxRef("content")}}-Eigenschaft kosmetischen Inhalt zu einem Element hinzuzufügen. Standardmäßig ist es inline.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-element-after.html", "tabbed-standard")}}
+{{InteractiveExample("CSS Demo: ::after", "tabbed-standard")}}
+
+```css interactive-example
+a::after {
+  content: " (" attr(href) ")";
+}
+
+.dead-link {
+  text-decoration: line-through;
+}
+
+.dead-link::after {
+  content: url("/shared-assets/images/examples/warning.svg");
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+}
+```
+
+```html interactive-example
+<p>
+  The sailfish is named for its sail-like dorsal fin and is widely considered
+  the fastest fish in the ocean.
+  <a href="https://en.wikipedia.org/wiki/Sailfish"
+    >You can read more about it here</a
+  >.
+</p>
+
+<p>
+  The red lionfish is a predatory scorpionfish that lives on coral reefs of the
+  Indo-Pacific Ocean and more recently in the western Atlantic.
+  <a href="" class="dead-link">You can read more about it here</a>.
+</p>
+```
 
 > [!NOTE]
-> Die durch `::before` und `::after` erzeugten Pseudoelemente sind Inline-Boxen, die so generiert werden, als wären sie unmittelbare Kinder des Elements, auf das sie angewendet werden, des sogenannten "auslösenden Elements". Daher können sie nicht auf _[ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)_ wie {{htmlelement("img")}} angewendet werden, deren Inhalte ersetzt und nicht durch die Stile des aktuellen Dokuments beeinflusst werden.
+> Die durch `::before` und `::after` generierten Pseudo-Elemente sind inline Boxen, die erstellt werden, als ob sie unmittelbare Kinder des Elements wären, auf das sie angewendet werden, oder des "ursprünglichen Elements", und daher können sie nicht auf _[ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)_ angewendet werden, wie z.B. {{htmlelement("img")}}, deren Inhalte ersetzt werden und nicht von den Stilen des aktuellen Dokuments betroffen sind.
 
 ## Syntax
 
@@ -23,20 +56,20 @@ Im CSS erstellt **`::after`** ein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elemen
 }
 ```
 
-Wenn die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht angegeben ist, einen ungültigen Wert hat oder `normal` oder `none` als Wert enthält, wird das `::after`-Pseudoelement nicht gerendert. Es verhält sich so, als wäre `display: none` gesetzt.
+Falls die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht spezifiziert ist, einen ungültigen Wert hat, oder `normal` oder `none` als Wert aufweist, wird das `::after` Pseudo-Element nicht gerendert. Es verhält sich so, als wäre `display: none` gesetzt.
 
 > [!NOTE]
-> CSS führte die Notation `::after` (mit zwei Doppelpunkten) ein, um [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudoelementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Aus Gründen der Rückwärtskompatibilität akzeptieren Browser auch die ältere Syntax `:after`.
+> CSS führte die `::after`-Notation (mit zwei Doppelpunkten) ein, um [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Aus Gründen der Abwärtskompatibilität akzeptieren Browser auch `:after`, das früher eingeführt wurde.
 
 ## Barrierefreiheit
 
-Die Verwendung eines `::after`-Pseudoelements zur Inhaltsergänzung wird nicht empfohlen, da der Inhalt für Screenreader nicht zuverlässig zugänglich ist.
+Die Verwendung eines `::after` Pseudo-Elements, um Inhalt hinzuzufügen, wird nicht empfohlen, da es für Screenreader nicht zuverlässig zugänglich ist.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Lassen Sie uns zwei Klassen erstellen: eine für langweilige Absätze und eine für aufregende. Diese Klassen können verwendet werden, um Pseudoelemente an das Ende von Absätzen hinzuzufügen.
+Lassen Sie uns zwei Klassen erstellen: eine für langweilige Absätze und eine für spannende. Diese Klassen können verwendet werden, um Pseudo-Elemente am Ende von Absätzen hinzuzufügen.
 
 #### HTML
 
@@ -68,7 +101,7 @@ Lassen Sie uns zwei Klassen erstellen: eine für langweilige Absätze und eine f
 
 ### Dekoratives Beispiel
 
-Wir können Texte oder Bilder in der {{CSSxRef("content")}}-Eigenschaft nahezu beliebig gestalten.
+Wir können Text oder Bilder in der {{CSSxRef("content")}}-Eigenschaft fast beliebig gestalten.
 
 #### HTML
 
@@ -97,9 +130,9 @@ Wir können Texte oder Bilder in der {{CSSxRef("content")}}-Eigenschaft nahezu b
 
 ### Tooltips
 
-In diesem Beispiel wird `::after` zusammen mit dem [`attr()`](/de/docs/Web/CSS/attr)-CSS-Ausdruck und einem `data-descr`-[benutzerdefinierten Datenattribut](/de/docs/Web/HTML/Global_attributes/data-*), zur Erstellung von Tooltips verwendet. Es wird kein JavaScript benötigt!
+Dieses Beispiel verwendet `::after` zusammen mit dem [`attr()`](/de/docs/Web/CSS/attr)-CSS-Ausdruck und einem `data-descr` [benutzerdefinierten Datensattribut](/de/docs/Web/HTML/Global_attributes/data-*), um Tooltips zu erstellen. Kein JavaScript erforderlich!
 
-Wir können auch Tastaturnutzer mit dieser Technik unterstützen, indem wir ein `tabindex` von `0` hinzufügen, um jedes `span` per Tastatur fokussierbar zu machen, und einen CSS-`:focus`-Selektor verwenden. Dies zeigt die Flexibilität von `::before` und `::after`, obwohl für die zugänglichste Erfahrung ein semantisches Offenlegungs-Widget, das auf eine andere Weise erstellt wurde (z. B. mit [details- und summary-](/de/docs/Web/HTML/Element/details)-Elementen), wahrscheinlich angemessener ist.
+Wir können auch Tastaturnutzern mit dieser Technik helfen, indem wir einen `tabindex` von `0` hinzufügen, um jedes `span` tastaturfokussierbar zu machen, und einen CSS `:focus`-Selektor verwenden. Dies zeigt, wie flexibel `::before` und `::after` sein können, jedoch ist für die barrierefreiste Erfahrung ein semantisches Offenlegungs-Widget, das auf andere Weise erstellt wurde (z.B. mit [details und summary](/de/docs/Web/HTML/Element/details)-Elementen) wahrscheinlich besser geeignet.
 
 #### HTML
 

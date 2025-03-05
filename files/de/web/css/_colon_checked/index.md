@@ -1,20 +1,56 @@
 ---
-title: :checked
+title: ":checked"
 slug: Web/CSS/:checked
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes **Radio** ([`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)), **Checkbox** ([`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)) oder **Option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}) Element, das ausgewählt oder in einem `on`-Zustand ist.
+Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes **Radio** ([`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)), **Checkbox** ([`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)) oder **Option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}) Element, das aktiviert oder auf `on` gestellt ist.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-checked.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :checked", "tabbed-shorter")}}
 
-Der Benutzer kann diesen Zustand aktivieren, indem er ein Element auswählt, oder deaktivieren, indem er die Auswahl des Elements aufhebt.
+```css interactive-example
+label,
+input[type="submit"] {
+  display: block;
+  margin-top: 1em;
+}
+
+input:checked {
+  border: none;
+  outline: 2px solid deeppink;
+}
+```
+
+```html interactive-example
+<form>
+  <p>How did you find out about us?</p>
+  <label
+    ><input name="origin" type="radio" value="google" checked /> Google</label
+  >
+  <label><input name="origin" type="radio" value="facebook" /> Facebook</label>
+  <p>Please agree to our terms:</p>
+
+  <label
+    ><input name="newsletter" type="checkbox" checked /> I want to subscribe to
+    a personalized newsletter.</label
+  >
+
+  <label
+    ><input name="privacy" type="checkbox" /> I have read and I agree to the
+    Privacy Policy.</label
+  >
+
+  <input type="submit" value="Submit form" />
+</form>
+```
+
+Der Benutzer kann diesen Zustand durch Auswählen des Elements aktivieren oder durch Abwählen des Elements deaktivieren.
 
 > [!NOTE]
-> Da Browser `<option>`s oft als [ersetzte Elemente](/de/docs/Web/CSS/Replaced_element) behandeln, variiert der Umfang, in dem sie mit der `:checked`-Pseudoklasse gestylt werden können, von Browser zu Browser.
+> Da Browser `<option>`s oft als [ersetzte Elemente](/de/docs/Web/CSS/Replaced_element) behandeln, variiert das Ausmaß, in dem sie mit der `:checked` Pseudoklasse gestylt werden können, je nach Browser.
 
 ## Syntax
 
@@ -87,7 +123,7 @@ option:checked {
 
 ### Umschalten von Elementen mit einer versteckten Checkbox
 
-Dieses Beispiel verwendet die `:checked`-Pseudoklasse, um dem Benutzer das Umschalten von Inhalten basierend auf dem Zustand einer Checkbox zu ermöglichen – alles ohne [JavaScript](/de/docs/Web/JavaScript) zu verwenden.
+Dieses Beispiel nutzt die `:checked` Pseudoklasse, um dem Benutzer das Umschalten von Inhalten basierend auf dem Zustand einer Checkbox zu ermöglichen, und zwar ganz ohne die Verwendung von [JavaScript](/de/docs/Web/JavaScript).
 
 #### HTML
 
@@ -184,6 +220,6 @@ Dieses Beispiel verwendet die `:checked`-Pseudoklasse, um dem Benutzer das Umsch
 ## Siehe auch
 
 - [Webformulare — Arbeiten mit Benutzerdaten](/de/docs/Learn_web_development/Extensions/Forms)
-- [Webformulare stilisieren](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
-- Verwandte HTML-Elemente: [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), {{HTMLElement("select")}} und {{HTMLElement("option")}}
+- [Styling von Webformularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
+- Verwandte HTML-Elemente: [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), {{HTMLElement("select")}}, und {{HTMLElement("option")}}
 - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)

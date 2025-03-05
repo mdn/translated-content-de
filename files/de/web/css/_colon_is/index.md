@@ -1,22 +1,65 @@
 ---
-title: :is()
+title: ":is()"
 slug: Web/CSS/:is
 l10n:
-  sourceCommit: a29769d6d10261f771321eb60f3990029c160924
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:is()`** [CSS](/de/docs/Web/CSS)-[Pseudoklassenfunktion](/de/docs/Web/CSS/Pseudo-classes) nimmt eine Selektorliste als Argument und wählt jedes Element aus, das von einem der Selektoren in dieser Liste ausgewählt werden kann. Dies ist nützlich, um große Selektoren in einer kompakteren Form zu schreiben.
+Die **`:is()`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Funktion nimmt eine Selektorenliste als Argument an und wählt jedes Element aus, das von einem der Selektoren in dieser Liste ausgewählt werden kann. Dies ist nützlich, um große Selektoren in einer kompakteren Form zu schreiben.
 
 > [!NOTE]
-> Ursprünglich als `:matches()` (und `:any()`) bezeichnet, wurde dieser Selektor in [CSSWG Issue #3258](https://github.com/w3c/csswg-drafts/issues/3258) in `:is()` umbenannt.
+> Ursprünglich als `:matches()` (und `:any()`) bezeichnet, wurde dieser Selektor in [CSSWG issue #3258](https://github.com/w3c/csswg-drafts/issues/3258) in `:is()` umbenannt.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-is.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :is", "tabbed-shorter")}}
+
+```css interactive-example
+ol {
+  list-style-type: upper-alpha;
+  color: darkblue;
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+:is(ol, ul, menu:unsupported) :is(ol, ul) {
+  color: green;
+}
+
+:is(ol, ul) :is(ol, ul) ol {
+  list-style-type: lower-greek;
+  color: chocolate;
+}
+```
+
+```html interactive-example
+<ol>
+  <li>Saturn</li>
+  <li>
+    <ul>
+      <li>Mimas</li>
+      <li>Enceladus</li>
+      <li>
+        <ol>
+          <li>Voyager</li>
+          <li>Cassini</li>
+        </ol>
+      </li>
+      <li>Tethys</li>
+    </ul>
+  </li>
+  <li>Uranus</li>
+  <li>
+    <ol>
+      <li>Titania</li>
+      <li>Oberon</li>
+    </ol>
+  </li>
+</ol>
+```
 
 ## Syntax
 
-Die Pseudoklasse `:is()` erfordert eine [Selektorliste](/de/docs/Web/CSS/CSS_selectors/Selector_structure#selector_list), eine kommaseparierte Liste aus einem oder mehreren Selektoren als Argument. Die Liste darf keine [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) enthalten, aber alle anderen einfachen, zusammengesetzten und komplexen Selektoren sind erlaubt.
+Die `:is()` Pseudoklasse erfordert eine [Selektorenliste](/de/docs/Web/CSS/CSS_selectors/Selector_structure#selector_list), eine durch Kommas getrennte Liste von einem oder mehreren Selektoren als Argument. Die Liste darf kein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) enthalten, aber alle anderen einfachen, zusammengesetzten und komplexen Selektoren sind erlaubt.
 
 ```css-nolint
 :is(<forgiving-selector-list>) {
@@ -26,13 +69,13 @@ Die Pseudoklasse `:is()` erfordert eine [Selektorliste](/de/docs/Web/CSS/CSS_sel
 
 ### Unterschied zwischen :is() und :where()
 
-Der Unterschied zwischen beiden liegt darin, dass `:is()` zur Spezifität des gesamten Selektors beiträgt (es nimmt die Spezifität seines spezifischsten Arguments an), während [`:where()`](/de/docs/Web/CSS/:where) einen Spezifitätswert von 0 hat. Dies wird im [Beispiel auf der Referenzseite von `:where()`](/de/docs/Web/CSS/:where#examples) demonstriert.
+Der Unterschied zwischen den beiden ist, dass `:is()` zur Spezifität des gesamten Selektors beiträgt (es nimmt die Spezifität seines spezifischsten Arguments), während [`:where()`](/de/docs/Web/CSS/:where) einen Spezifitätswert von 0 hat. Dies wird durch das [Beispiel auf der `:where()` Referenzseite](/de/docs/Web/CSS/:where#examples) veranschaulicht.
 
-### Tolerante Selektoranalyse
+### Nachgiebige Selektoren-Analyse
 
-Die Spezifikation definiert `:is()` und `:where()` als akzeptierend für eine [tolerante Selektorliste](https://drafts.csswg.org/selectors-4/#typedef-forgiving-selector-list).
+Die Spezifikation definiert `:is()` und `:where()` als akzeptierend eine [nachgiebige Selektorenliste](https://drafts.csswg.org/selectors-4/#typedef-forgiving-selector-list).
 
-In CSS wird bei der Verwendung einer Selektorliste die gesamte Liste als ungültig betrachtet, wenn einer der Selektoren ungültig ist. Bei der Verwendung von `:is()` oder `:where()` hingegen wird nicht die gesamte Liste der Selektoren als ungültig betrachtet, wenn einer davon nicht analysiert werden kann; der falsche oder nicht unterstützte Selektor wird ignoriert, während die anderen verwendet werden.
+In CSS, wenn eine Selektorenliste verwendet wird und einer der Selektoren ungültig ist, wird die gesamte Liste als ungültig angesehen. Bei der Verwendung von `:is()` oder `:where()`, anstatt dass die gesamte Selektorenliste als ungültig angesehen wird, wenn einer nicht analysiert werden kann, wird der fehlerhafte oder nicht unterstützte Selektor ignoriert und die anderen werden verwendet.
 
 ```css
 :is(:valid, :unsupported) {
@@ -40,7 +83,7 @@ In CSS wird bei der Verwendung einer Selektorliste die gesamte Liste als ungült
 }
 ```
 
-Wird weiterhin korrekt analysiert und passt zu `:valid`, selbst in Browsern, die `:unsupported` nicht unterstützen, während:
+Wird immer noch korrekt analysiert und `:valid` auch in Browsern übereinstimmen, die `:unsupported` nicht unterstützen, wohingegen:
 
 ```css
 :valid,
@@ -49,13 +92,13 @@ Wird weiterhin korrekt analysiert und passt zu `:valid`, selbst in Browsern, die
 }
 ```
 
-In Browsern, die `:unsupported` nicht unterstützen, ignoriert wird, selbst wenn sie `:valid` unterstützen.
+In Browsern ignoriert wird, die `:unsupported` nicht unterstützen, selbst wenn sie `:valid` unterstützen.
 
 ## Beispiele
 
 ### Vereinfachung von Listenselektoren
 
-Die Pseudoklasse `:is()` kann Ihre CSS-Selektoren erheblich vereinfachen. Zum Beispiel diese CSS-Regeln:
+Die `:is()` Pseudoklasse kann Ihre CSS-Selektoren erheblich vereinfachen. Zum Beispiel nehmen Sie das folgende CSS:
 
 ```css
 /* 3-deep (or more) unordered lists use a square */
@@ -111,7 +154,7 @@ dir dir dir {
 }
 ```
 
-können durch diese ersetzt werden:
+Sie können es ersetzen mit:
 
 ```css
 /* 3-deep (or more) unordered lists use a square */
@@ -120,11 +163,11 @@ können durch diese ersetzt werden:
 }
 ```
 
-### Vereinfachung von Bereichsselektoren
+### Vereinfachung von Abschnittsselektoren
 
-Die Pseudoklasse `:is()` ist besonders nützlich, wenn man mit HTML-[Bereichen und Überschriften](/de/docs/Web/HTML/Element/Heading_Elements) arbeitet. Da {{HTMLElement("section")}}, {{HTMLElement("article")}}, {{HTMLElement("aside")}} und {{HTMLElement("nav")}} häufig zusammen verschachtelt werden, kann es ohne `:is()` schwierig sein, sie gemeinsam zu stylen.
+Die `:is()` Pseudoklasse ist besonders nützlich im Umgang mit HTML [Sektionen und Überschriften](/de/docs/Web/HTML/Element/Heading_Elements). Da {{HTMLElement("section")}}, {{HTMLElement("article")}}, {{HTMLElement("aside")}} und {{HTMLElement("nav")}} häufig zusammen verschachtelt sind, kann das Stylen dieser Elemente ohne `:is()` schwierig sein.
 
-Zum Beispiel, ohne `:is()` könnte das Styling aller {{HTMLElement("Heading_Elements", "h1")}}-Elemente in verschiedenen Tiefen sehr kompliziert werden:
+Zum Beispiel könnte ohne `:is()` das Stylen aller {{HTMLElement("Heading_Elements", "h1")}} Elemente auf verschiedenen Ebenen sehr kompliziert sein:
 
 ```css
 /* Level 0 */
@@ -164,7 +207,7 @@ nav nav h1 {
 /* don't even think about it! */
 ```
 
-Mit `:is()` wird es jedoch viel einfacher:
+Mit `:is()` ist es jedoch viel einfacher:
 
 ```css
 /* Level 0 */
@@ -190,7 +233,7 @@ h1 {
 
 ### :is() wählt keine Pseudoelemente aus
 
-Die Pseudoklasse `:is()` stimmt nicht mit Pseudoelementen überein. Stattdessen sollten Sie Folgendes tun:
+Die `:is()` Pseudoklasse stimmt nicht mit Pseudoelementen überein. Anstatt dies zu tun:
 
 ```css example-bad
 some-element:is(::before, ::after) {
@@ -198,7 +241,7 @@ some-element:is(::before, ::after) {
 }
 ```
 
-oder Folgendes:
+oder dies:
 
 ```css example-bad
 :is(some-element::before, some-element::after) {
@@ -206,7 +249,7 @@ oder Folgendes:
 }
 ```
 
-Stattdessen:
+tun Sie stattdessen:
 
 ```css example-good
 some-element::before,
@@ -225,6 +268,6 @@ some-element::after {
 
 ## Siehe auch
 
-- {{CSSxRef(":where", ":where()")}} - Wie `:is()`, aber mit einer [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) von 0.
-- [Selektorliste](/de/docs/Web/CSS/Selector_list)
-- [Webkomponenten](/de/docs/Web/API/Web_components)
+- {{CSSxRef(":where", ":where()")}} - Wie `:is()`, aber mit 0 [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity).
+- [Selektorenliste](/de/docs/Web/CSS/Selector_list)
+- [Web-Komponenten](/de/docs/Web/API/Web_components)

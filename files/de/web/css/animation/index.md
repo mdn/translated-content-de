@@ -2,18 +2,18 @@
 title: animation
 slug: Web/CSS/animation
 l10n:
-  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
+  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
 ---
 
 {{CSSRef}}
 
-Die **`animation`** [Shorthand-](/de/docs/Web/CSS/Shorthand_properties) [CSS-](/de/docs/Web/CSS) Eigenschaft wendet eine Animation zwischen Stilen an. Sie ist eine Kurzform für {{cssxref("animation-name")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-timing-function")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-play-state")}} und {{cssxref("animation-timeline")}}.
+Die **`animation`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft wendet eine Animation zwischen Stilen an. Es ist eine Kurzschreibweise für {{cssxref("animation-name")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-timing-function")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-play-state")}}, und {{cssxref("animation-timeline")}}.
 
 {{EmbedInteractiveExample("pages/css/animation.html")}}
 
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - [`animation-delay`](/de/docs/Web/CSS/animation-delay)
 - [`animation-direction`](/de/docs/Web/CSS/animation-direction)
@@ -41,13 +41,13 @@ animation:
   3s ease-out 5s slide-out;
 ```
 
-Die `animation`-Eigenschaft wird als eine oder mehrere einzelne Animationen angegeben, getrennt durch Kommas.
+Die `animation`-Eigenschaft wird als eine oder mehrere einzelne Animationen angegeben, die durch Kommas getrennt sind.
 
-Jede einzelne Animation wird wie folgt spezifiziert:
+Jede einzelne Animation wird wie folgt angegeben:
 
-- null, eine oder zwei Vorkommen des {{cssxref("&lt;time&gt;")}} Wertes
+- Null, eine oder zwei Vorkommen des {{cssxref("&lt;time&gt;")}}-Wertes
 
-- null oder ein Vorkommen der folgenden Werte:
+- Null oder ein Vorkommen der folgenden Werte:
 
   - [`<single-easing-function>`](#single-easing-function)
   - [`<single-animation-iteration-count>`](#single-animation-iteration-count)
@@ -55,46 +55,46 @@ Jede einzelne Animation wird wie folgt spezifiziert:
   - [`<single-animation-fill-mode>`](#single-animation-fill-mode)
   - [`<single-animation-play-state>`](#single-animation-play-state)
 
-- ein optionaler Name für die Animation, der `none`, ein {{cssxref("&lt;custom-ident&gt;")}} oder ein {{cssxref("&lt;string&gt;")}} sein kann
+- Ein optionaler Name für die Animation, der `none`, ein {{cssxref("&lt;custom-ident&gt;")}}, oder ein {{cssxref("&lt;string&gt;")}} sein kann.
 
-> **Note:** {{cssxref("animation-timeline")}}, {{cssxref("animation-range-start")}} und {{cssxref("animation-range-end")}} sind derzeit nicht in dieser Liste enthalten, da aktuelle Implementierungen nur zurückgesetzt werden können. Das bedeutet, dass das Einschließen von `animation` einen zuvor deklarierten `animation-timeline` Wert auf `auto` und zuvor deklarierte `animation-range-start` und `animation-range-end` Werte auf `normal` zurücksetzt, aber diese Eigenschaften können nicht über `animation` gesetzt werden. Wenn Sie [scroll-gesteuerte CSS-Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) erstellen, müssen Sie diese Eigenschaften nach der Deklaration einer `animation`-Kurzform deklarieren, damit sie wirksam wird.
+> **Note:** {{cssxref("animation-timeline")}}, {{cssxref("animation-range-start")}}, und {{cssxref("animation-range-end")}} sind derzeit nicht in dieser Liste enthalten, da aktuelle Implementierungen nur zurückgesetzt werden können. Das bedeutet, dass bei der Einbeziehung von `animation` ein zuvor deklariertes `animation-timeline` auf `auto` und zuvor deklarierte `animation-range-start` und `animation-range-end` Werte auf `normal` zurückgesetzt werden, aber diese Eigenschaften können nicht über `animation` festgelegt werden. Bei der Erstellung von [CSS scroll-driven animations](/de/docs/Web/CSS/CSS_scroll-driven_animations) müssen Sie diese Eigenschaften nach der Deklaration einer `animation`-Kurzschreibweise deklarieren, damit sie wirksam werden.
 
 ### Werte
 
 - `<single-easing-function>`
   - : Bestimmt die Art des Übergangs. Der Wert muss einer der in {{cssxref("easing-function")}} verfügbaren sein.
 - `<single-animation-iteration-count>`
-  - : Die Anzahl der Durchläufe der Animation. Der Wert muss einer der in {{cssxref("animation-iteration-count")}} verfügbaren sein.
+  - : Die Anzahl der Wiederholungen der Animation. Der Wert muss einer der in {{cssxref("animation-iteration-count")}} verfügbaren sein.
 - `<single-animation-direction>`
-  - : Die Richtung, in die die Animation abgespielt wird. Der Wert muss einer der in {{cssxref("animation-direction")}} verfügbaren sein.
+  - : Die Richtung, in der die Animation abgespielt wird. Der Wert muss einer der in {{cssxref("animation-direction")}} verfügbaren sein.
 - `<single-animation-fill-mode>`
-  - : Bestimmt, wie Stile vor und nach der Ausführung auf das Ziel der Animation angewendet werden sollen. Der Wert muss einer der in {{cssxref("animation-fill-mode")}} verfügbaren sein.
+  - : Bestimmt, wie Stile auf das Ziel der Animation vor und nach deren Ausführung angewendet werden sollen. Der Wert muss einer der in {{cssxref("animation-fill-mode")}} verfügbaren sein.
 - `<single-animation-play-state>`
   - : Bestimmt, ob die Animation abgespielt wird oder nicht. Der Wert muss einer der in {{cssxref("animation-play-state")}} verfügbaren sein.
 
 ## Beschreibung
 
-Die Reihenfolge der Zeitwerte innerhalb jeder Animationsdefinition ist wichtig: Der erste Wert, der als {{cssxref("&lt;time&gt;")}} analysiert werden kann, wird dem {{cssxref("animation-duration")}} zugewiesen, und der zweite dem {{cssxref("animation-delay")}}.
+Die Reihenfolge der Zeitwerte innerhalb jeder Animationsdefinition ist wichtig: Der erste Wert, der als {{cssxref("&lt;time&gt;")}} geparst werden kann, wird der {{cssxref("animation-duration")}} zugewiesen, und der zweite der {{cssxref("animation-delay")}}.
 
-Die Reihenfolge der anderen Werte innerhalb jeder Animationsdefinition ist ebenfalls wichtig, um einen {{cssxref("animation-name")}} Wert von anderen Werten zu unterscheiden. Wenn ein Wert in der `animation`-Kurzform als Wert für eine Animations-Eigenschaft außer `animation-name` analysiert werden kann, wird der Wert zuerst auf diese Eigenschaft und nicht auf `animation-name` angewendet. Aus diesem Grund wird empfohlen, den Wert für `animation-name` als letzten Wert in einer Liste von Werten anzugeben, wenn Sie die `animation`-Kurzform verwenden; dies gilt auch, wenn Sie mehrere, durch Kommas getrennte Animationen mit der `animation`-Kurzform angeben.
+Die Reihenfolge anderer Werte innerhalb jeder Animationsdefinition ist ebenfalls wichtig, um einen {{cssxref("animation-name")}} Wert von anderen Werten zu unterscheiden. Wenn ein Wert in der `animation`-Kurzschreibweise als Wert für eine andere Animationseigenschaft als `animation-name` geparst werden kann, wird der Wert zuerst dieser Eigenschaft zugewiesen und nicht `animation-name`. Aus diesem Grund wird empfohlen, einen Wert für `animation-name` als letzten Wert in einer Liste von Werten anzugeben, wenn die `animation`-Kurzschreibweise verwendet wird; dies gilt auch dann, wenn Sie mehrere, durch Kommas getrennte Animationen mit der `animation`-Kurzschreibweise angeben.
 
-Obwohl ein Animationsname festgelegt werden muss, damit eine Animation angewendet wird, sind alle Werte der `animation`-Kurzform optional und standardmäßig auf den Anfangswert für jede Langform `animation`-Komponente. Der Anfangswert von `animation-name` ist `none`, was bedeutet, dass, wenn kein `animation-name` Wert in der `animation`-Kurzform-Eigenschaft deklariert wird, keine Animation auf eine der Eigenschaften angewendet wird.
+Obwohl für die Anwendung einer Animation ein Animationsname festgelegt werden muss, sind alle Werte der `animation`-Kurzschreibweise optional und standardmäßig auf den Anfangswert für jede Komponenten-Eigenschaft festgelegt. Der Anfangswert von `animation-name` ist `none`, was bedeutet, dass, wenn kein `animation-name`-Wert in der `animation`-Kurzschreibweise deklariert wird, keine Animation auf irgendeine der Eigenschaften angewendet wird.
 
-Wenn der `animation-duration` Wert in der `animation`-Kurzform-Eigenschaft weggelassen wird, wird der Wert für diese Eigenschaft auf `0s` standardisiert. In diesem Fall wird die Animation dennoch erfolgen (die [`animationStart`](/de/docs/Web/API/Element/animationstart_event) und [`animationEnd`](/de/docs/Web/API/Element/animationend_event) Ereignisse werden ausgelöst), aber keine Animation wird sichtbar sein.
+Wenn der `animation-duration`-Wert in der `animation`-Kurzschreibweise weggelassen wird, ist der Wert für diese Eigenschaft standardmäßig auf `0s` gesetzt. In diesem Fall tritt die Animation dennoch auf (die [`animationStart`](/de/docs/Web/API/Element/animationstart_event) und [`animationEnd`](/de/docs/Web/API/Element/animationend_event) Ereignisse werden ausgelöst), aber es wird keine sichtbare Animation geben.
 
-Im Falle des `animation-fill-mode` [forwards](/de/docs/Web/CSS/animation-fill-mode#forwards) Wertes verhalten sich animierte Eigenschaften so, als ob sie in einem gesetzten [`will-change`](/de/docs/Web/CSS/will-change) Eigenschaftswert enthalten wären. Wenn während der Animation ein neuer Stapelkontext erstellt wird, behält das Ziel-Element den Stapelkontext nach dem Abschluss der Animation bei.
+Im Fall des `animation-fill-mode` [forwards](/de/docs/Web/CSS/animation-fill-mode#forwards) Wertes verhalten sich animierte Eigenschaften, als ob sie in einen [`will-change`](/de/docs/Web/CSS/will-change) Eigenschaftswert eingeschlossen wären. Wenn während der Animation ein neuer Stacking-Kontext erstellt wird, behält das Zielelement den Stacking-Kontext bei, nachdem die Animation beendet ist.
 
 ## Barrierefreiheit
 
-Blinkende und aufflackernde Animationen können problematisch für Menschen mit kognitiven Anliegen wie Aufmerksamkeitsdefizit-/Hyperaktivitätsstörung (ADHS) sein. Darüber hinaus können bestimmte Arten von Bewegungen ein Auslöser für vestibuläre Störungen, Epilepsie und Migräne sowie fototoxische Empfindlichkeit sein.
+Blinkende und flackernde Animationen können problematisch für Menschen mit kognitiven Beeinträchtigungen wie Aufmerksamkeitsdefizit-/Hyperaktivitätsstörung (ADHS) sein. Darüber hinaus können bestimmte Bewegungsarten ein Auslöser für vestibuläre Störungen, Epilepsie und Migräne sowie skotopische Empfindlichkeit sein.
 
-Überlegen Sie, eine Möglichkeit zum Anhalten oder Deaktivieren von Animationen bereitzustellen sowie die [Reduced Motion Media Query](/de/docs/Web/CSS/@media/prefers-reduced-motion) zu verwenden, um eine ergänzende Erfahrung für Benutzer zu schaffen, die eine Präferenz für reduzierte Animationen geäußert haben.
+Erwägen Sie, eine Möglichkeit zum Anhalten oder Deaktivieren der Animation bereitzustellen sowie die [Reduced Motion Media Query](/de/docs/Web/CSS/@media/prefers-reduced-motion) zu verwenden, um ein komplementäres Erlebnis für Benutzer zu schaffen, die eine Präferenz für reduzierte animierte Erlebnisse ausgedrückt haben.
 
-- [Designing Safer Web Animation For Motion Sensitivity · Ein Artikel von A List Apart](https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/)
-- [Eine Einführung in die Reduced Motion Media Query | CSS-Tricks](https://css-tricks.com/introduction-reduced-motion-media-query/)
-- [Responsive Design für Bewegungen | WebKit](https://webkit.org/blog/7551/responsive-design-for-motion/)
-- [MDN Understanding WCAG, Leitfaden 2.2 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%e2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content)
-- [Verstehen des Erfolgskriteriums 2.2.2 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html)
+- [Designing Safer Web Animation For Motion Sensitivity · An A List Apart Article](https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/)
+- [An Introduction to the Reduced Motion Media Query | CSS-Tricks](https://css-tricks.com/introduction-reduced-motion-media-query/)
+- [Responsive Design for Motion | WebKit](https://webkit.org/blog/7551/responsive-design-for-motion/)
+- [MDN Understanding WCAG, Guideline 2.2 explanations](/de/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%e2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content)
+- [Understanding Success Criterion 2.2.2 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html)
 
 ## Formale Definition
 
@@ -107,12 +107,12 @@ Blinkende und aufflackernde Animationen können problematisch für Menschen mit 
 ## Beispiele
 
 > [!NOTE]
-> Die Animation von [CSS Box Model](/de/docs/Web/CSS/CSS_box_model) Eigenschaften wird nicht empfohlen. Das Animieren einer Box-Model-Eigenschaft ist von Natur aus CPU-intensiv; überlegen Sie, stattdessen die [transform](/de/docs/Web/CSS/transform) Eigenschaft zu animieren.
+> Das Animieren von [CSS Box Model](/de/docs/Web/CSS/CSS_box_model) Eigenschaften wird nicht empfohlen. Das Animieren jeglicher Box Model Eigenschaft ist von Natur aus CPU-intensiv; überlegen Sie, stattdessen die [transform](/de/docs/Web/CSS/transform) Eigenschaft zu animieren.
 
 ### Sonnenaufgang
 
-Hier animieren wir eine gelbe Sonne über einen hellblauen Himmel. Die Sonne erhebt
-sich zur Mitte der Ansicht und fällt dann aus dem Blickfeld.
+Hier animieren wir eine gelbe Sonne über einen hellblauen Himmel. Die Sonne steigt
+in die Mitte des Viewports und fällt dann aus dem Sichtfeld.
 
 ```html
 <div class="sun"></div>
@@ -150,7 +150,7 @@ sich zur Mitte der Ansicht und fällt dann aus dem Blickfeld.
 
 ### Mehrere Eigenschaften animieren
 
-Aufbauend auf die Sonnenanimation im vorherigen Beispiel fügen wir eine zweite Animation hinzu, die die Farbe der Sonne beim Auf- und Untergang ändert. Die Sonne beginnt dunkelrot, wenn sie unter dem Horizont ist, und wechselt zu einem hellen Orange, wenn sie den höchsten Punkt erreicht.
+Aufbauend auf der Sonnenanimation im vorherigen Beispiel fügen wir eine zweite Animation hinzu, die die Farbe der Sonne beim Auf- und Untergang ändert. Die Sonne beginnt dunkelrot, wenn sie unter dem Horizont ist, und wechselt zu einem hellen Orange, wenn sie den Gipfel erreicht.
 
 ```html
 <div class="sun"></div>
@@ -191,9 +191,8 @@ Aufbauend auf die Sonnenanimation im vorherigen Beispiel fügen wir eine zweite 
 
 ### Mehrere Animationen anwenden
 
-Hier ist eine Sonne, die auf einem hellblauen Hintergrund auf- und untergeht. Die Sonne
-rotiert allmählich durch ein Regenbogenspektrum. Die Timing von
-Position und Farbe der Sonne sind unabhängig.
+Hier ist eine Sonne, die auf einem hellblauen Hintergrund aufsteigt und fällt. Die Sonne
+dreht sich allmählich durch ein Regenbogen von Farben. Das Timing der Position und Farbe der Sonne sind unabhängig.
 
 ```html
 <div class="sun"></div>
@@ -239,12 +238,10 @@ Position und Farbe der Sonne sind unabhängig.
 
 {{EmbedLiveSample('Applying Multiple Animations')}}
 
-### Überlappende mehrere Animationen
+### Mehrere Animationen kaskadieren lassen
 
-Hier ist eine gelbe Sonne auf einem hellblauen Hintergrund. Die Sonne prallt zwischen den
-linken und rechten Seiten des Ansichtsfensters. Die Sonne bleibt im Ansichtsfenster, obwohl
-eine Aufstiegsanimation definiert ist. Die Transform-Eigenschaft der Aufstiegsanimation
-wird von der Bounce-Animation 'überschrieben'.
+Hier ist eine gelbe Sonne auf einem hellblauen Hintergrund. Die Sonne springt zwischen den
+linken und rechten Seiten des Viewports hin und her. Die Sonne bleibt im Viewport, obwohl eine Aufstiegsanimation definiert ist. Die Transformations-Eigenschaft der Aufstiegsanimation wird von der Sprunganimation "überschrieben".
 
 ```html
 <div class="sun"></div>
@@ -294,7 +291,7 @@ wird von der Bounce-Animation 'überschrieben'.
 
 {{EmbedLiveSample('Cascading Multiple Animations')}}
 
-Weitere Beispiele finden Sie unter [CSS-Animationen verwenden](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#examples).
+Sehen Sie [Using CSS animations](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#examples) für zusätzliche Beispiele.
 
 ## Spezifikationen
 
@@ -306,5 +303,5 @@ Weitere Beispiele finden Sie unter [CSS-Animationen verwenden](/de/docs/Web/CSS/
 
 ## Siehe auch
 
-- [CSS-Animationen verwenden](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [Using CSS animations](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
 - JavaScript [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) API

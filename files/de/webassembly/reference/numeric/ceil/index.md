@@ -2,12 +2,31 @@
 title: Ceil
 slug: WebAssembly/Reference/Numeric/Ceil
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-Die **`ceil`** Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, die auf die nächste ganze Zahl aufgerundet wird.
+Die **`ceil`**-Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, der auf die nächste ganze Zahl aufgerundet ist.
 
-{{EmbedInteractiveExample("pages/wat/ceil.html", "tabbed-standard")}}
+{{InteractiveExample("Wat Demo: ceil", "tabbed-standard")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param f32)))
+  (func $main
+
+    f32.const 2.7 ;; load a number onto the stack
+    f32.ceil ;; round up
+    call $log ;; log the result
+
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 

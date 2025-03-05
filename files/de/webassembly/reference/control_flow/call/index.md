@@ -2,20 +2,81 @@
 title: call
 slug: WebAssembly/Reference/Control_flow/call
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-`call` ruft eine Funktion auf, wobei `return_call` die Tail-Call-Version davon ist. `call_indirect` ruft eine Funktion in einer Tabelle auf, wobei `return_call_indirect` die Tail-Call-Version davon ist.
+**`call`** ruft eine Funktion auf, wobei `return_call` die Tail-Call-Version davon ist. `call_indirect` ruft eine Funktion in einer Tabelle auf, wobei `return_call_indirect` ebenfalls als Tail-Call-Version dient.
 
 ## Beispiele
 
-Aufrufen der `greet`-Funktion, die aus JavaScript mit `call` importiert wurde:
+Aufrufen der `greet`-Funktion, die aus JavaScript importiert wurde, unter Verwendung von `call`:
 
-{{EmbedInteractiveExample("pages/wat/call.html", "tabbed-standard")}}
+{{InteractiveExample("Wat Demo: call", "tabbed-standard")}}
 
-Berechnen der Fakultät für eine Zahl mit `return_call` und Protokollierung des Ergebnisses mit der exportierten `fac`-Funktion:
+```wat interactive-example
+(module
+  ;; Import the `greet` function from the environment
+  (import "env" "greet" (func $greet))
 
-{{EmbedInteractiveExample("pages/wat/return_call.html", "tabbed-standard")}}
+  (func
+    ;; Call the imported `greet` function
+    call $greet
+  )
+
+  ;; Automatically run the first function when the module starts
+  (start 1)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), {
+  env: {
+    greet: function () {
+      console.log("Hello");
+      // Expected output: "Hello"
+    },
+  },
+});
+```
+
+Berechnen der Fakultät einer Zahl unter Verwendung von `return_call` und Protokollierung des Ergebnisses mit der exportierten `fac`-Funktion:
+
+{{InteractiveExample("Wat Demo: return_call", "tabbed-standard")}}
+
+```wat interactive-example
+(module
+  ;; Calculate the factorial of a number
+  (func $fac (export "fac") (param $x i64) (result i64)
+    ;; Call the `fac-aux` function with $x and 1 parameters
+    (return_call $fac-aux (local.get $x) (i64.const 1))
+  )
+
+  ;; Perform the factorial calculation
+  (func $fac-aux (param $x i64) (param $r i64) (result i64)
+    ;; If $x is zero, return the accumulated result $r
+    (if (result i64) (i64.eqz (local.get $x))
+      (then (return (local.get $r)))
+      (else
+        ;; Otherwise, recursively call `fac-aux` with $x-1 and $x*$r
+        (return_call $fac-aux
+          (i64.sub (local.get $x) (i64.const 1))
+          (i64.mul (local.get $x) (local.get $r))
+        )
+      )
+    )
+  )
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+const { instance } = await WebAssembly.instantiateStreaming(fetch(url));
+const result = instance.exports.fac(5n);
+
+console.log(result);
+// Expected output: 120n
+```
 
 ## Syntax
 
@@ -32,5 +93,5 @@ call $greet
 
 ## Siehe auch
 
-- [Überblick über den Vorschlag zur Tail Call-Erweiterung](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
-- [V8 zu WebAssembly-Tail-Call-Unterstützung](https://v8.dev/blog/wasm-tail-call)
+- [Überblick über den Tail Call Extension Vorschlag](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
+- [V8 zur Unterstützung von WebAssembly Tail-Calls](https://v8.dev/blog/wasm-tail-call)

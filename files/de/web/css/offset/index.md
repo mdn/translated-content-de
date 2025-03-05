@@ -2,15 +2,15 @@
 title: offset
 slug: Web/CSS/offset
 l10n:
-  sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
+  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
 ---
 
 {{CSSRef}}
 
-Die **`offset`** CSS [Kurzschreibweiseigenschaft](/de/docs/Web/CSS/Shorthand_properties) setzt alle erforderlichen Eigenschaften, um ein Element entlang eines definierten Pfades zu animieren. Die `offset`-Eigenschaften zusammen helfen, eine _offset-Transformation_ zu definieren, eine [Transformation](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms), die einen Punkt in einem Element ([offset-anchor](/de/docs/Web/CSS/offset-anchor)) in Übereinstimmung mit einer _offset-Position_ ([offset-position](/de/docs/Web/CSS/offset-position)) auf einem Pfad ([offset-path](/de/docs/Web/CSS/offset-path)) an verschiedenen Punkten entlang des Pfades ([offset-distance](/de/docs/Web/CSS/offset-distance)) ausrichtet und optional das Element dreht ([offset-rotate](/de/docs/Web/CSS/offset-rotate)), um der Richtung des Pfades zu folgen.
+Die **`offset`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt alle erforderlichen Eigenschaften fest, um ein Element entlang eines definierten Pfads zu animieren. Die Offset-Eigenschaften zusammen helfen dabei, eine _Offset-Transformation_ zu definieren, eine [Transformation](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms), die einen Punkt in einem Element ([offset-anchor](/de/docs/Web/CSS/offset-anchor)) mit einer _Offset-Position_ ([offset-position](/de/docs/Web/CSS/offset-position)) auf einem Pfad ([offset-path](/de/docs/Web/CSS/offset-path)) an verschiedenen Punkten entlang des Pfades ([offset-distance](/de/docs/Web/CSS/offset-distance)) ausrichtet und optional das Element dreht ([offset-rotate](/de/docs/Web/CSS/offset-rotate)), um der Richtung des Pfades zu folgen.
 
 > [!NOTE]
-> Frühere Versionen der Spezifikation nannten diese Eigenschaft `motion`.
+> Frühe Versionen der Spezifikation nannten diese Eigenschaft `motion`.
 
 {{EmbedInteractiveExample("pages/css/offset.html")}}
 
@@ -66,7 +66,7 @@ offset: unset;
 
 ## Beispiele
 
-### Ein Element entlang eines Pfades animieren
+### Animation eines Elements entlang eines Pfads
 
 #### HTML
 

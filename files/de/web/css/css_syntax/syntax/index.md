@@ -2,76 +2,76 @@
 title: Syntax
 slug: Web/CSS/CSS_syntax/Syntax
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
 ---
 
 {{CSSRef}}
 
-Das Hauptziel der Cascading Stylesheet ([CSS](/de/docs/Web/CSS))-Sprache ist es, einer Browser-Engine zu ermöglichen, Elemente der Seite mit bestimmten Eigenschaften zu gestalten, wie Farben, Positionierung oder Dekorationen. Die _CSS-Syntax_ spiegelt dieses Ziel wider und ihre grundlegenden Bausteine sind:
+Das grundlegende Ziel der Cascading Stylesheet ([CSS](/de/docs/Web/CSS))-Sprache ist es, eine Browser-Engine zu ermöglichen, Elemente der Seite mit spezifischen Merkmalen wie Farben, Positionierung oder Dekorationen zu versehen. Die _CSS-Syntax_ spiegelt dieses Ziel wider, und ihre grundlegenden Bausteine sind:
 
-- Die **Eigenschaft**, ein Bezeichner, der einen menschenlesbaren _Namen_ darstellt und definiert, welches Merkmal betrachtet wird.
-- Der **Wert**, der beschreibt, wie das Merkmal von der Engine gehandhabt werden muss. Jede Eigenschaft hat eine Menge gültiger Werte, die durch eine formale Grammatik definiert sind, sowie eine semantische Bedeutung, die von der Browser-Engine implementiert wird.
+- Die **Eigenschaft**, ein Bezeichner, der ein für Menschen lesbarer _Name_ ist und definiert, welches Merkmal berücksichtigt wird.
+- Der **Wert**, der beschreibt, wie das Merkmal von der Engine gehandhabt werden muss. Jede Eigenschaft hat eine Menge gültiger Werte, definiert durch eine formale Grammatik, sowie eine semantische Bedeutung, die von der Browser-Engine implementiert wird.
 
 ## CSS-Deklarationen
 
-Das Setzen von CSS-Eigenschaften auf bestimmte Werte ist die Kernfunktion der CSS-Sprache. Ein Paar aus Eigenschaft und Wert wird als **Deklaration** bezeichnet, und jede CSS-Engine berechnet, welche Deklarationen auf jedes einzelne Element einer Seite anzuwenden sind, um es angemessen zu gestalten und anzuordnen.
+Das Festlegen von CSS-Eigenschaften auf spezifische Werte ist die Kernfunktion der CSS-Sprache. Ein Paar aus Eigenschaft und Wert wird als **Deklaration** bezeichnet, und jede CSS-Engine berechnet, welche Deklarationen auf jedes einzelne Element einer Seite angewendet werden, um es entsprechend zu layouten und zu gestalten.
 
-In CSS sind sowohl Eigenschaften als auch Werte standardmäßig nicht case-sensitiv. Das Paar wird durch einen Doppelpunkt, `:` (U+003A COLON), getrennt und Leerzeichen vor, zwischen und nach Eigenschaften und Werten, jedoch nicht unbedingt innerhalb, werden ignoriert.
+Sowohl Eigenschaften als auch Werte sind standardmäßig in CSS nicht case-sensitiv. Das Paar wird durch einen Doppelpunkt, `:` (U+003A COLON), getrennt, und Leerzeichen vor, dazwischen und nach Eigenschaften und Werten, jedoch nicht notwendigerweise innerhalb, werden ignoriert.
 
-![Eine CSS-Deklaration ist ein Eigenschaft-Wert-Paar, mit einem Doppelpunkt, der die beiden Einheiten trennt, und einem Semikolon, das die Deklaration abschließt.](css_syntax_-_declaration.png)
+![Eine CSS-Deklaration ist ein Paar aus Eigenschaft und Wert, mit einem Doppelpunkt, der die beiden Entitäten trennt, und einem Semikolon, das die Deklaration abschließt.](css_syntax_-_declaration.png)
 
-Es gibt [Hunderte verschiedener Eigenschaften](/de/docs/Web/CSS/Reference) in CSS und eine praktisch endlose Anzahl unterschiedlicher Werte. Nicht alle Paare von Eigenschaften und Werten sind erlaubt, und jede Eigenschaft definiert, welche Werte gültig sind. Wenn ein Wert für eine bestimmte Eigenschaft nicht gültig ist, wird die Deklaration als _ungültig_ betrachtet und von der CSS-Engine vollständig ignoriert.
+Es gibt [Hunderte verschiedener Eigenschaften](/de/docs/Web/CSS/Reference) in CSS und eine praktisch endlose Anzahl verschiedener Werte. Nicht alle Paare aus Eigenschaften und Werten sind erlaubt, und jede Eigenschaft definiert, welche Werte gültig sind. Wenn ein Wert für eine gegebene Eigenschaft nicht gültig ist, wird die Deklaration als _ungültig_ angesehen und von der CSS-Engine vollständig ignoriert.
 
 ## CSS-Deklarationsblöcke
 
-Deklarationen werden in **Blöcken** gruppiert, die von einer öffnenden Klammer, `{` (U+007B LEFT CURLY BRACKET), und einer schließenden Klammer, `}` (U+007D RIGHT CURLY BRACKET), begrenzt werden. Diese Blöcke können manchmal verschachtelt sein, daher müssen öffnende und schließende Klammern zusammenpassen.
+Deklarationen werden in **Blöcken** gruppiert, das heißt in einer Struktur, die durch eine öffnende Klammer, `{` (U+007B LEFT CURLY BRACKET), und eine schließende, `}` (U+007D RIGHT CURLY BRACKET) begrenzt wird. Blöcke können manchmal verschachtelt werden, daher müssen öffnende und schließende Klammern übereinstimmen.
 
-![Zwei Klammern begrenzen den Anfang und das Ende eines CSS-Blocks, mit CSS-Inhalt oder keinem Inhalt zwischen den Klammern.](css_syntax_-_block.png)
+![Zwei Klammern begrenzen den Anfang und das Ende eines CSS-Blocks, mit CSS-Inhalten oder ohne Inhalte zwischen den Klammern.](css_syntax_-_block.png)
 
-Solche Blöcke werden natürlicherweise als **Deklarationsblöcke** bezeichnet, und Deklarationen innerhalb dieser werden durch ein Semikolon, `;` (U+003B SEMICOLON), getrennt. Ein Deklarationsblock kann leer sein, d.h. keine Deklaration enthalten. Leerzeichen um Deklarationen herum werden ignoriert. Die letzte Deklaration eines Blocks muss nicht mit einem Semikolon abgeschlossen werden, obwohl es oft als _guter Stil_ angesehen wird, dies zu tun, da es das Vergessen verhindert, es hinzuzufügen, wenn der Block um eine weitere Deklaration erweitert wird.
+Solche Blöcke werden natürlich als **Deklarationsblöcke** bezeichnet, und die Deklarationen innerhalb von ihnen werden durch ein Semikolon, `;` (U+003B SEMICOLON), getrennt. Ein Deklarationsblock kann leer sein, das heißt, dass er keine Deklarationen enthält. Leerzeichen um Deklarationen werden ignoriert. Die letzte Deklaration eines Blocks muss nicht durch ein Semikolon abgeschlossen werden, obwohl es oft als _guter Stil_ angesehen wird, dies zu tun, da es verhindert, dass man vergisst, es hinzuzufügen, wenn der Block um eine weitere Deklaration erweitert wird.
 
 Ein CSS-Deklarationsblock wird im folgenden Diagramm dargestellt.
 
-![Innerhalb eines CSS-Blocks, der in Klammern eingeschlossen ist, trennen Semikolons die Deklarationen, wobei das letzte Semikolon optional, aber als gute Praxis empfohlen ist.](declaration-block.png)
+![Innerhalb eines CSS-Blocks, umschlossen von Klammern, trennen Semikolons Deklarationen, wobei das abschließende Semikolon optional, aber als gute Praxis empfohlen wird.](declaration-block.png)
 
 > [!NOTE]
-> Der Inhalt eines CSS-Deklarationsblocks, d.h. eine Liste von durch Semikolon getrennten Deklarationen, ohne die einleitenden und schließenden Klammern, kann innerhalb eines HTML-[`style`](/de/docs/Web/HTML/Global_attributes/style)-Attributs platziert werden.
+> Der Inhalt eines CSS-Deklarationsblocks, das heißt eine Liste von mit Semikolon getrennten Deklarationen ohne die anfänglichen und schließenden Klammern, kann in ein HTML-Attribut [`style`](/de/docs/Web/HTML/Global_attributes/style) eingefügt werden.
 
 ## CSS-Regelsätze
 
 Wenn Stylesheets nur eine Deklaration auf jedes Element einer Webseite anwenden könnten, wären sie ziemlich nutzlos. Das eigentliche Ziel ist es, unterschiedliche Deklarationen auf verschiedene Teile des Dokuments anzuwenden.
 
-CSS ermöglicht dies, indem Deklarationsblöcken Bedingungen zugeordnet werden. Jeder (gültige) Deklarationsblock wird von einem oder mehreren durch Komma getrennten [**Selektoren**](/de/docs/Web/CSS/CSS_selectors) vorangegangen, die Bedingungen darstellen, um einige Elemente der Seite auszuwählen. Eine [Selektorliste](/de/docs/Web/CSS/Selector_list) und ein zugehöriger Deklarationsblock zusammen werden als **Regelsatz** oder oft als **Regel** bezeichnet.
+CSS ermöglicht dies, indem Bedingungen mit Deklarationsblöcken verknüpft werden. Jeder (gültige) Deklarationsblock wird von einem oder mehreren durch Kommas getrennten [**Selektoren**](/de/docs/Web/CSS/CSS_selectors) vorangestellt, die Bedingungen darstellen, die einige Elemente der Seite auswählen. Eine [Selektorliste](/de/docs/Web/CSS/Selector_list) und ein zugehöriger Deklarationsblock werden zusammen als **Regelsatz** oder oft als **Regel** bezeichnet.
 
-Ein CSS-Regelsatz (oder Regel) wird in dem folgenden Diagramm dargestellt.
+Ein CSS-Regelsatz (oder eine Regel) wird im folgenden Diagramm dargestellt.
 
-![Eine Gruppe von durch Komma getrennten Selektoren geht dem durch Klammern begrenzten Deklarationsblock voraus, der mehrere Deklarationen enthält, die mit Semikolons enden.](ruleset.png)
+![Eine Gruppe von durch Kommas getrennten Selektoren steht vor dem durch Klammern begrenzten Deklarationsblock, der mehrere in Semikolons endende Deklarationen enthält.](ruleset.png)
 
-Da ein Element der Seite von mehreren Selektoren und damit von mehreren Regeln potenziell mehrfach mit einer gegebenen Eigenschaft, aber unterschiedlichen Werten, übereinstimmen kann, definiert der CSS-Standard, welche Eigenschaft Vorrang hat und angewendet werden muss: Dies wird als Kaskadenalgorithmus bezeichnet (siehe [Konflikte behandeln](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)).
+Da ein Element der Seite möglicherweise von mehreren Selektoren ausgewählt wird und daher durch mehrere Regeln, die möglicherweise eine gegebene Eigenschaft mehrmals mit unterschiedlichen Werten enthalten, definiert der CSS-Standard, welche von ihnen Vorrang hat und angewendet werden muss: dies wird als Kaskadenalgorithmus bezeichnet (siehe [Konfliktbehandlung](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)).
 
 > [!NOTE]
-> Es ist wichtig zu beachten, dass selbst wenn ein Regelsatz, der durch eine Gruppe von Selektoren gekennzeichnet ist, eine Art Abkürzung ersetzt, die Regeln mit jeweils einem einzigen Selektor ersetzt, dies nicht für die Gültigkeit des Regelsatzes selbst gilt.
+> Es ist wichtig zu beachten, dass selbst wenn ein Regelsatz, der durch eine Gruppe von Selektoren gekennzeichnet ist, eine Art Abkürzung ist, die Regeln mit jeweils einem einzelnen Selektor ersetzt, dies nicht für die Gültigkeit des Regelsatzes selbst gilt.
 >
-> Dies führt zu einer wichtigen Konsequenz: Wenn ein einzelner Basisselektor ungültig ist, wie bei der Verwendung eines unbekannten Pseudo-Elements oder einer Pseudo-Klasse, ist der gesamte _Selektor_ ungültig und daher wird die gesamte Regel als ungültig ignoriert.
+> Dies führt zu einer wichtigen Konsequenz: Wenn ein einziger Basisselektor ungültig ist, z. B. bei der Verwendung eines unbekannten Pseudoelements oder einer Pseudoklasse, ist der gesamte _Selektor_ ungültig und daher wird die gesamte Regel (ebenfalls als ungültig) ignoriert.
 
 ## CSS-Anweisungen
 
-Regelsätze sind die Hauptbausteine eines Stylesheets, das oft nur eine große Liste von ihnen besteht. Aber es gibt andere Informationen, die ein Webautor im Stylesheet vermitteln möchte, wie den Zeichensatz, andere zu importierende externe Stylesheets, Schriftschnitt- oder Listenbeschreibungen und vieles mehr. Dafür werden andere und spezifische Arten von Anweisungen verwendet.
+Regelsätze sind die Hauptbausteine eines Stylesheets, das oft nur aus einer großen Liste von ihnen besteht. Aber es gibt andere Informationen, die ein Webautor im Stylesheet vermitteln möchte, wie das Zeichensatz, andere externe Stylesheets zum Importieren, Schriftarten oder Zählerbeschreibungen und viele mehr. Dazu werden andere und spezifische Arten von Anweisungen verwendet.
 
-Eine **Anweisung** ist ein Baustein, der mit einem beliebigen Nicht-Leerzeichen-Zeichen beginnt und am ersten schließenden Klammer oder Semikolon endet (außerhalb eines Strings, nicht-escaped und nicht in ein anderes {}, () oder \[] Paar eingeschlossen).
+Eine **Anweisung** ist ein Baustein, der mit beliebigen Nicht-Leerzeichen-Zeichen beginnt und beim ersten schließenden Klammer oder Semikolon (außerhalb eines Strings, nicht maskiert und nicht in einem anderen {}, () oder \[] Paar enthalten) endet.
 
-![Ein Venn-Diagramm von Anweisungen, das zeigt, dass alle Regelsätze verschachtelte Anweisungen sind, während einige At-Rules verschachtelte Anweisungen sind, aber die meisten nicht. Alles, was kein At-Rule oder verschachtelt ist, ist ungültig.](css_syntax_-_statements_venn_diag.png)
+![Ein Venn-Diagramm der Anweisungen, das zeigt, dass alle Regelsätze geschachtelte Anweisungen sind, während einige At-Regeln geschachtelte Anweisungen sind, die meisten jedoch nicht. Alles, was keine At-Regel oder geschachtelt ist, ist ungültig.](css_syntax_-_statements_venn_diag.png)
 
 Es gibt zwei Arten von Anweisungen:
 
-- **Regelsätze** (oder _Regeln_), die, wie gesehen, eine Sammlung von CSS-Deklarationen mit einer Bedingung assoziieren, die von einem [Selektor](/de/docs/Web/CSS/CSS_selectors) beschrieben wird.
-- **At-Rules**, die mit einem At-Zeichen beginnen, `@` (U+0040 COMMERCIAL AT), gefolgt von einem Bezeichner und dann bis zum Ende der Anweisung fortgesetzt werden, also bis zum nächsten Semikolon (;) außerhalb eines Blocks oder dem Ende des nächsten Blocks. Jede Art von [At-Rules](/de/docs/Web/CSS/CSS_syntax/At-rule), die durch den Bezeichner definiert wird, kann ihre eigene interne Syntax und Semantik haben. Sie werden verwendet, um Metadateninformationen zu übermitteln (wie {{ cssxref("@layer") }} oder {{ cssxref("@import") }}), bedingte Informationen (wie {{ cssxref("@media") }} oder {{ cssxref("@document") }}), oder beschreibende Informationen (wie {{ cssxref("@font-face") }}).
+- **Regelsätze** (oder _Regeln_), die, wie gesehen, eine Sammlung von CSS-Deklarationen mit einer durch einen [Selektor](/de/docs/Web/CSS/CSS_selectors) beschriebenen Bedingung verknüpfen.
+- **At-Regeln**, die mit einem At-Zeichen, `@` (U+0040 COMMERCIAL AT), beginnen, gefolgt von einem Bezeichner und dann weiter bis zum Ende der Anweisung, das heißt bis zum nächsten Semikolon (;) außerhalb eines Blocks oder dem Ende des nächsten Blocks. Jeder Typ von [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule), definiert durch den Bezeichner, kann seine eigene interne Syntax und Semantik haben. Sie werden verwendet, um Metadaten-Informationen zu übermitteln (wie {{ cssxref("@layer") }} oder {{ cssxref("@import") }}), bedingte Informationen (wie {{ cssxref("@media") }} oder {{ cssxref("@document") }}), oder beschreibende Informationen (wie {{ cssxref("@font-face") }}).
 
-Jede Anweisung, die weder ein Regelsatz noch ein At-Rule ist, ist ungültig und wird ignoriert.
+Jede Anweisung, die kein Regelsatz oder eine At-Regel ist, ist ungültig und wird ignoriert.
 
-### Verschachtelte Anweisungen
+### Geschachtelte Anweisungen
 
-Es gibt eine andere Gruppe von Anweisungen – die **verschachtelten Anweisungen**. Diese sind Anweisungen, die in einem bestimmten Unterbereich von At-Rules verwendet werden können – den _Bedingungsgruppenregeln_. Diese Anweisungen gelten nur, wenn eine bestimmte Bedingung erfüllt ist: Der Inhalt der `@media`-At-Rule wird nur angewendet, wenn das Gerät, auf dem der Browser läuft, die ausgedrückte Bedingung erfüllt; der `@document`-At-Rule-Inhalt wird nur angewendet, wenn die aktuelle Seite einige Bedingungen erfüllt, und so weiter. In CSS1 und CSS2.1 konnten innerhalb von Bedingungsgruppenregeln nur _Regelsätze_ verwendet werden. Das war sehr einschränkend und diese Einschränkung wurde in [_CSS Conditionals Level 3_](/de/docs/Web/CSS/CSS_conditional_rules) aufgehoben. Jetzt, obwohl noch experimentell und nicht von jedem Browser unterstützt, können Bedingungsgruppenregeln eine breitere Auswahl an Inhalten enthalten: Regelsätze, aber auch einige, aber nicht alle, At-Rules.
+Es gibt eine andere Gruppe von Anweisungen – die **geschachtelten Anweisungen**. Diese sind Anweisungen, die in einem spezifischen Teilmengen von At-Regeln, den _bedingten Gruppenregeln_, verwendet werden können. Diese Anweisungen werden nur angewendet, wenn eine spezifische Bedingung erfüllt ist: der `@media` At-Regel-Inhalt wird nur angewendet, wenn das Gerät, auf dem der Browser läuft, die ausgedrückte Bedingung erfüllt; der `@document` At-Regel-Inhalt wird nur angewendet, wenn die aktuelle Seite einige Bedingungen erfüllt, und so weiter. In CSS1 und CSS2.1 konnten nur _Regelsätze_ innerhalb bedingter Gruppenregeln verwendet werden. Das war sehr einschränkend und diese Einschränkung wurde in [_CSS Bedingte Regeln Level 3_](/de/docs/Web/CSS/CSS_conditional_rules) aufgehoben. Jetzt können, obwohl immer noch experimentell und nicht von jedem Browser unterstützt, bedingte Gruppenregeln eine breitere Palette von Inhalten enthalten: Regelsätze, aber auch einige, aber nicht alle, At-Regeln.
 
 ## Siehe auch
 
@@ -84,8 +84,8 @@ Es gibt eine andere Gruppe von Anweisungen – die **verschachtelten Anweisungen
 - [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade)
 - [Wertedefinitionssyntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
 - Werte
-  - [Initialwerte](/de/docs/Web/CSS/CSS_cascade/initial_value)
+  - [Anfangswerte](/de/docs/Web/CSS/CSS_cascade/initial_value)
   - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/computed_value)
   - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/used_value)
   - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/actual_value)
-- [Shorthand-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
+- [Kurzschreibweise-Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)

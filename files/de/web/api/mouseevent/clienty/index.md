@@ -3,14 +3,14 @@ title: "MouseEvent: clientY-Eigenschaft"
 short-title: clientY
 slug: Web/API/MouseEvent/clientY
 l10n:
-  sourceCommit: f452e53438ee1fc54baa7bf4eac147c354615702
+  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
 ---
 
 {{APIRef("UI Events")}}
 
-Die **`clientY`**-Schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces bietet die vertikale Koordinate innerhalb des {{Glossary("viewport", "Viewports")}} der Anwendung, an der das Ereignis aufgetreten ist (im Gegensatz zur Koordinate innerhalb der Seite).
+Die **`clientY`**-Eigenschaft (nur lesbar) des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die vertikale Koordinate innerhalb des {{Glossary("viewport", "Viewports")}} der Anwendung, an der das Ereignis auftrat (im Gegensatz zur Koordinate innerhalb der Seite).
 
-Zum Beispiel wird ein Klick auf den oberen Rand des Viewports immer ein Mausereignis mit einem `clientY`-Wert von `0` ergeben, unabhängig davon, ob die Seite vertikal gescrollt ist oder nicht.
+Wenn Sie zum Beispiel auf den oberen Rand des Viewports klicken, ergibt dies immer ein Mausereignis mit einem `clientY`-Wert von `0`, unabhängig davon, ob die Seite vertikal gescrollt wurde.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein `double`-Gleitkommawert in Pixeln.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Koordinaten Ihrer Maus an, wann immer Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
+Dieses Beispiel zeigt die Koordinaten Ihrer Maus an, wenn Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
 
 ### HTML
 

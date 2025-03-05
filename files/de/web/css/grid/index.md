@@ -2,21 +2,21 @@
 title: grid
 slug: Web/CSS/grid
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
 ---
 
 {{CSSRef}}
 
-Die **`grid`** [CSS](/de/docs/Web/CSS)-Eigenschaft ist eine [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties), die alle expliziten und impliziten Grid-Eigenschaften in einer einzigen Deklaration setzt.
+Die **`grid`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties), die alle expliziten und impliziten Gittereigenschaften in einer einzigen Deklaration festlegt.
 
-Mit `grid` können Sie eine Achse mit {{cssxref("grid-template-rows")}} oder {{cssxref("grid-template-columns")}} spezifizieren und dann festlegen, wie der Inhalt auf der anderen Achse automatisch wiederholt werden soll, indem Sie die impliziten Gittereigenschaften verwenden: {{cssxref("grid-auto-rows")}}, {{cssxref("grid-auto-columns")}} und {{cssxref("grid-auto-flow")}}.
+Mit `grid` geben Sie eine Achse unter Verwendung von {{cssxref("grid-template-rows")}} oder {{cssxref("grid-template-columns")}} an, und dann spezifizieren Sie, wie der Inhalt auf der anderen Achse automatisch wiederholt werden soll, indem Sie die impliziten Gittereigenschaften verwenden: {{cssxref("grid-auto-rows")}}, {{cssxref("grid-auto-columns")}} und {{cssxref("grid-auto-flow")}}.
 
 {{EmbedInteractiveExample("pages/css/grid.html")}}
 
 > [!NOTE]
-> Die Teil-Eigenschaften, die Sie nicht angeben, werden auf ihren Initialwert gesetzt, wie es bei Kurzschreibweisen üblich ist. Auch die Gutter-Eigenschaften werden durch diese Kurzschreibweise NICHT zurückgesetzt.
+> Die Teil-Eigenschaften, die Sie nicht spezifizieren, werden auf ihren Initialwert gesetzt, wie es bei Kurzschreibweisen üblich ist. Außerdem werden die Zwischenraum-Eigenschaften von dieser Kurzschreibweise NICHT zurückgesetzt.
 
-## Teil-Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -64,18 +64,18 @@ grid: unset;
 ### Werte
 
 - `<'grid-template'>`
-  - : Definiert die {{cssxref("grid-template")}}, einschließlich {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-areas")}}.
+  - : Definiert das {{cssxref("grid-template")}} einschließlich {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-areas")}}.
 - `<'grid-template-rows'> / [ auto-flow && dense? ] <'grid-auto-columns'>?`
 
-  - : Richtet einen Auto-Flow ein, indem die Reihen-Tracks explizit über die Eigenschaft {{cssxref("grid-template-rows")}} (und die Eigenschaft {{cssxref("grid-template-columns")}} auf `none`) gesetzt werden und festgelegt wird, wie die Spalten-Tracks über {{cssxref("grid-auto-columns")}} automatisch wiederholt werden (und {{cssxref("grid-auto-rows")}} auf `auto` setzen). Ebenso wird {{cssxref("grid-auto-flow")}} entsprechend auf `column` gesetzt, mit `dense`, falls es angegeben ist.
+  - : Richtet einen automatischen Fluss ein, indem die Zeilen mit der {{cssxref("grid-template-rows")}} Eigenschaft explizit festgelegt werden (und die {{cssxref("grid-template-columns")}} Eigenschaft auf `none` gesetzt wird) und spezifiziert, wie die Spalten mit {{cssxref("grid-auto-columns")}} automatisch wiederholt werden sollen (und {{cssxref("grid-auto-rows")}} auf `auto` gesetzt wird). Auch {{cssxref("grid-auto-flow")}} wird entsprechend auf `column` gesetzt, mit `dense`, falls es angegeben wird.
 
-    Alle anderen `grid`-Teil-Eigenschaften werden auf ihre Initialwerte zurückgesetzt.
+    Alle anderen `grid` Teil-Eigenschaften werden auf ihre Initialwerte zurückgesetzt.
 
 - `[ auto-flow && dense? ] <'grid-auto-rows'>? / <'grid-template-columns'>`
 
-  - : Richtet einen Auto-Flow ein, indem die Spalten-Tracks explizit über die Eigenschaft {{cssxref("grid-template-columns")}} (und die Eigenschaft {{cssxref("grid-template-rows")}} auf `none`) gesetzt werden und festgelegt wird, wie die Reihen-Tracks über {{cssxref("grid-auto-rows")}} automatisch wiederholt werden (und {{cssxref("grid-auto-columns")}} auf `auto` setzen). Ebenso wird {{cssxref("grid-auto-flow")}} entsprechend auf `row` gesetzt, mit `dense`, falls es angegeben ist.
+  - : Richtet einen automatischen Fluss ein, indem die Spalten mit der {{cssxref("grid-template-columns")}} Eigenschaft explizit festgelegt werden (und die {{cssxref("grid-template-rows")}} Eigenschaft auf `none` gesetzt wird) und spezifiziert, wie die Zeilen mit {{cssxref("grid-auto-rows")}} automatisch wiederholt werden sollen (und {{cssxref("grid-auto-columns")}} auf `auto` gesetzt wird). Auch {{cssxref("grid-auto-flow")}} wird entsprechend auf `row` gesetzt, mit `dense`, falls es angegeben wird.
 
-    Alle anderen `grid`-Teil-Eigenschaften werden auf ihre Initialwerte zurückgesetzt.
+    Alle anderen `grid` Teil-Eigenschaften werden auf ihre Initialwerte zurückgesetzt.
 
 ## Formale Definition
 
@@ -141,4 +141,4 @@ grid: unset;
 - {{cssxref("grid-auto-rows")}}
 - {{cssxref("grid-auto-flow")}}
 - [Linienbasierte Platzierung mit CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- [Grid-Template-Bereiche: Grid-Definition-Kurzschreibweisen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)
+- [Grid-Template-Bereiche: Definition von Kurzschreibweisen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)

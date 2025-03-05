@@ -3,18 +3,18 @@ title: "MouseEvent: offsetX-Eigenschaft"
 short-title: offsetX
 slug: Web/API/MouseEvent/offsetX
 l10n:
-  sourceCommit: f452e53438ee1fc54baa7bf4eac147c354615702
+  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
 ---
 
 {{APIRef("UI Events")}}
 
-Die **`offsetX`**-Eigenschaft der [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Schnittstelle gibt den Versatz der X-Koordinate des Mauszeigers zwischen diesem Ereignis und dem Padding-Rand des Zielknotens an.
+Die schreibgeschützte **`offsetX`**-Eigenschaft der [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Schnittstelle liefert den Versatz in der X-Koordinate des Mauszeigers zwischen diesem Ereignis und dem Padding-Rand des Zielknotens.
 
 ## Wert
 
 Ein `double` Gleitkommawert in Pixeln.
 
-Frühere Versionen der Spezifikation definierten dies als Ganzzahl.
+Frühere Versionen der Spezifikation definierten dies als einen Integer.
 
 ## Spezifikationen
 

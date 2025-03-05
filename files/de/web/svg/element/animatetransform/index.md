@@ -2,12 +2,12 @@
 title: <animateTransform>
 slug: Web/SVG/Element/animateTransform
 l10n:
-  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
+  sourceCommit: 8f131f122c32f6c04ad071b77d91e3deee00f2f6
 ---
 
 {{SVGRef}}
 
-Das **`<animateTransform>`** [SVG](/de/docs/Web/SVG)-Element animiert ein Transformationsattribut auf seinem Zielelement und ermöglicht so Animationen, die Translation, Skalierung, Rotation und/oder Scherung steuern.
+Das **`<animateTransform>`** [SVG](/de/docs/Web/SVG) Element animiert ein Transformationsattribut auf seinem Zielelement, wodurch Animationen die Steuerung von Übersetzung, Skalierung, Rotation und/oder Schrägstellung ermöglichen.
 
 ## Verwendungskontext
 
@@ -45,7 +45,7 @@ Das **`<animateTransform>`** [SVG](/de/docs/Web/SVG)-Element animiert ein Transf
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGAnimateTransformElement`](/de/docs/Web/API/SVGAnimateTransformElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGAnimateTransformElement`](/de/docs/Web/API/SVGAnimateTransformElement) Schnittstelle.
 
 ## Spezifikationen
 
@@ -54,3 +54,7 @@ Dieses Element implementiert die [`SVGAnimateTransformElement`](/de/docs/Web/API
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- {{SVGElement("discard")}}

@@ -1,15 +1,46 @@
 ---
-title: :read-write
+title: ":read-write"
 slug: Web/CSS/:read-write
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
 Die **`:read-write`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element (wie `input` oder `textarea`), das vom Benutzer bearbeitet werden kann.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-read-write.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :read-write", "tabbed-shorter")}}
+
+```css interactive-example
+label,
+input[type="submit"] {
+  display: block;
+  margin-top: 1em;
+}
+
+*:read-write {
+  background-color: ivory;
+  border: 2px solid darkorange;
+  border-radius: 5px;
+}
+```
+
+```html interactive-example
+<p>Please fill in your details:</p>
+
+<form>
+  <label for="email">Email Address:</label>
+  <input id="email" name="email" type="email" value="test@example.com" />
+
+  <label for="note">Short note about yourself:</label>
+  <textarea id="note" name="note">Don't be shy</textarea>
+
+  <label for="pic">Your picture:</label>
+  <input id="pic" name="pic" type="file" />
+
+  <input type="submit" value="Submit form" />
+</form>
+```
 
 ## Syntax
 
@@ -21,11 +52,11 @@ Die **`:read-write`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Ps
 
 ## Beispiele
 
-### Formularinformationen in schreibgeschützten/schreibbaren Feldern bestätigen
+### Bestätigung von Formularinformationen in schreibgeschützten/schreibfähigen Steuerungen
 
-Eine Verwendung von schreibgeschützten Formularfeldern ist es, dem Benutzer zu ermöglichen, Informationen zu überprüfen und zu bestätigen, die er möglicherweise in einem früheren Formular eingegeben hat (z. B. Versanddetails), während er dennoch diese Informationen zusammen mit dem Rest des Formulars senden kann. Genau das wird im untenstehenden Beispiel gemacht.
+Eine Verwendung von `readonly` Formularsteuerungen besteht darin, dem Benutzer zu ermöglichen, Informationen zu überprüfen und zu bestätigen, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Versanddetails), während er weiterhin in der Lage ist, die Informationen zusammen mit dem Rest des Formulars zu übermitteln. Im folgenden Beispiel tun wir genau das.
 
-Die `:read-only`-Pseudoklasse wird verwendet, um alle Stile zu entfernen, die die Eingabefelder wie anklickbare Felder aussehen lassen, wodurch sie eher wie schreibgeschützte Absätze wirken. Die `:read-write`-Pseudoklasse hingegen wird verwendet, um der bearbeitbaren `<textarea>` ein ansprechenderes Styling zu verleihen.
+Die Pseudoklasse `:read-only` wird verwendet, um das gesamte Styling zu entfernen, das die Eingabefelder wie anklickbare Felder aussehen lässt, damit sie mehr wie schreibgeschützte Absätze erscheinen. Die Pseudoklasse `:read-write` dagegen wird genutzt, um dem bearbeitbaren `<textarea>` ein ansprechenderes Styling zu geben.
 
 ```css
 input:-moz-read-only,
@@ -44,13 +75,13 @@ textarea:read-write {
 }
 ```
 
-Den vollständigen Quellcode können Sie unter [readonly-confirmation.html](https://github.com/mdn/learning-area/blob/main/html/forms/pseudo-classes/readonly-confirmation.html) finden; er wird wie folgt dargestellt:
+Sie können den vollständigen Quellcode unter [readonly-confirmation.html](https://github.com/mdn/learning-area/blob/main/html/forms/pseudo-classes/readonly-confirmation.html) finden; dies wird folgendermaßen gerendert:
 
 {{EmbedGHLiveSample("learning-area/html/forms/pseudo-classes/readonly-confirmation.html", '100%', 660)}}
 
-### Styling von schreibbaren Nicht-Formular-Steuerelementen
+### Stilierung von schreibfähigen Nicht-Formularsteuerungen
 
-Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}}-Elemente aus — er wählt _jedes_ Element aus, das vom Benutzer bearbeitet werden kann, wie z. B. ein {{htmlelement("p")}}-Element mit [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable), das darauf gesetzt ist.
+Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}} Elemente aus — er wählt _jedes_ Element, das vom Benutzer bearbeitet werden kann, wie ein {{htmlelement("p")}} Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut.
 
 ```html
 <p contenteditable>This paragraph is editable; it is read-write.</p>
@@ -88,4 +119,4 @@ p:read-write {
 ## Siehe auch
 
 - {{cssxref(":read-only")}}
-- HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)
+- HTML [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut

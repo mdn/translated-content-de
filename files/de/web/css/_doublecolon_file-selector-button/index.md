@@ -2,14 +2,34 @@
 title: "::file-selector-button"
 slug: Web/CSS/::file-selector-button
 l10n:
-  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Das **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die Schaltfläche eines {{HTMLElement("input") }} mit [`type="file"`](/de/docs/Web/HTML/Element/input/file).
+Das **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den Knopf eines {{HTMLElement("input") }}-Elements vom [`type="file"`](/de/docs/Web/HTML/Element/input/file).
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-element-file-selector-button.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: ::file-selector-button", "tabbed-shorter")}}
+
+```css interactive-example
+input {
+  margin-top: 1rem;
+}
+
+input::file-selector-button {
+  font-weight: bold;
+  color: dodgerblue;
+  padding: 0.5em;
+  border: thin solid grey;
+  border-radius: 3px;
+}
+```
+
+```html interactive-example
+<label for="avatar">Choose a profile picture:</label><br />
+
+<input id="avatar" type="file" name="avatar" accept="image/png, image/jpeg" />
+```
 
 ## Syntax
 
@@ -59,9 +79,9 @@ input[type="file"]::file-selector-button:hover {
 
 {{EmbedLiveSample("Basic_example", "100%", 150)}}
 
-Beachten Sie, dass `::file-selector-button` ein vollständiges Element ist und somit die Regeln aus dem UA-Stylesheet berücksichtigt. Insbesondere Schriftarten und Farben werden nicht unbedingt vom `input`-Element vererbt.
+Beachten Sie, dass `::file-selector-button` ein ganzes Element darstellt und daher den Regeln des UA-Stylesheets folgt. Insbesondere werden Schriftarten und Farben nicht unbedingt vom `input`-Element geerbt.
 
-### Fallback-Beispiel
+### Rückfallbeispiel
 
 #### HTML
 
@@ -121,6 +141,6 @@ input[type="file"]::file-selector-button:hover {
 
 ## Siehe auch
 
-- [WebKit-CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)
+- [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)

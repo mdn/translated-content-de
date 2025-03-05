@@ -1,20 +1,55 @@
 ---
-title: :optional
+title: ":optional"
 slug: Web/CSS/:optional
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:optional`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}} Element, das nicht das Attribut [`required`](/de/docs/Web/HTML/Element/input#required) gesetzt hat.
+Die **`:optional`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}} Element, das nicht das [`required`](/de/docs/Web/HTML/Element/input#required) Attribut gesetzt hat.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-optional.html", "tabbed-standard")}}
+{{InteractiveExample("CSS Demo: :optional", "tabbed-standard")}}
 
-Diese Pseudoklasse ist hilfreich, um Felder zu gestalten, die nicht erforderlich sind, um ein Formular abzusenden.
+```css interactive-example
+label {
+  display: block;
+  margin-top: 1em;
+}
+
+.req {
+  color: red;
+}
+
+*:optional {
+  background-color: palegreen;
+}
+```
+
+```html interactive-example
+<form>
+  <label for="name">Name: <span class="req">*</span></label>
+  <input id="name" name="name" type="text" required />
+
+  <label for="birth">Date of Birth:</label>
+  <input id="birth" name="birth" type="date" />
+
+  <label for="origin"
+    >How did you find out about us? <span class="req">*</span></label
+  >
+  <select id="origin" name="origin" required>
+    <option>Google</option>
+    <option>Facebook</option>
+    <option>Advertisement</option>
+  </select>
+  <p><span class="req">*</span> - Required field</p>
+</form>
+```
+
+Diese Pseudoklasse ist nützlich, um Felder zu stylen, die nicht erforderlich sind, um ein Formular abzusenden.
 
 > [!NOTE]
-> Die {{cssxref(":required")}}-Pseudoklasse wählt _erforderliche_ Formularfelder aus.
+> Die {{cssxref(":required")}} Pseudoklasse wählt _erforderliche_ Formularfelder aus.
 
 ## Syntax
 
@@ -26,12 +61,12 @@ Diese Pseudoklasse ist hilfreich, um Felder zu gestalten, die nicht erforderlich
 
 ## Barrierefreiheit
 
-Wenn ein [Formular](/de/docs/Web/HTML/Element/form) optionale {{htmlelement("input")}}s enthält, sollten erforderliche Eingabefelder mit dem Attribut [`required`](/de/docs/Web/HTML/Element/input#required) gekennzeichnet werden. Dies stellt sicher, dass Personen, die mit unterstützender Technologie wie einem Screenreader navigieren, verstehen können, welche Eingaben erforderlich sind, um eine erfolgreiche Formularübermittlung zu gewährleisten.
+Wenn ein [Formular](/de/docs/Web/HTML/Element/form) optionale {{htmlelement("input")}}s enthält, sollten erforderliche Eingaben durch das [`required`](/de/docs/Web/HTML/Element/input#required) Attribut angegeben werden. Dies stellt sicher, dass Menschen, die mit unterstützender Technologie, wie einem Bildschirmlesegerät, navigieren, verstehen können, welche Eingaben gültige Inhalte benötigen, um eine erfolgreiche Formularübermittlung zu gewährleisten.
 
-Erforderliche Eingaben sollten auch visuell hervorgehoben werden, dabei jedoch nicht ausschließlich auf Farbe setzen, um Bedeutung zu vermitteln. Typischerweise wird beschreibender Text und/oder ein Symbol verwendet.
+Erforderliche Eingaben sollten auch visuell hervorgehoben werden, wobei eine Behandlung verwendet wird, die sich nicht ausschließlich auf Farbe verlässt, um Bedeutung zu vermitteln. In der Regel werden beschreibender Text und/oder ein Symbol verwendet.
 
-- [MDN Verständnis der WCAG, Erklärung zu Richtlinie 3.3](/de/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes)
-- [Verständnis des Erfolgskriteriums 3.3.2 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
+- [MDN Verständnis von WCAG, Erklärung der Richtlinie 3.3](/de/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes)
+- [Verständnis des Erfolgskriteriums 3.3.2 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
 
 ## Beispiele
 
@@ -87,5 +122,5 @@ input:optional {
 
 ## Siehe auch
 
-- Andere Validierungsbezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":invalid") }}, {{ cssxref(":valid") }}
-- [Formulardaten-Validierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- Andere Validierungs-bezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":invalid") }}, {{ cssxref(":valid") }}
+- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

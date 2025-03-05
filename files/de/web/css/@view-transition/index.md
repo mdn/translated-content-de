@@ -2,14 +2,14 @@
 title: "@view-transition"
 slug: Web/CSS/@view-transition
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: d50c6b04f0e0cb20eca8a5f0e643e435ee8ac6ff
 ---
 
 {{CSSRef}}
 
-Die **`@view-transition`**- [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) wird verwendet, um sowohl das aktuelle als auch das Zieldokument für eine [View-Transition](/de/docs/Web/API/View_Transition_API) bei einer Navigation zwischen Dokumenten zu aktivieren.
+Die **`@view-transition`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) wird verwendet, um die aktuellen und Ziel-Dokumente für eine [View-Transition](/de/docs/Web/API/View_Transition_API) im Falle einer dokumentübergreifenden Navigation zu aktivieren.
 
-Damit eine View-Transition zwischen Dokumenten funktioniert, müssen sich das aktuelle und das Zieldokument der Navigation ebenfalls auf demselben Ursprung befinden.
+Damit eine dokumentübergreifende View-Transition funktioniert, müssen sich die aktuellen und Ziel-Dokumente der Navigation auch im gleichen Ursprung befinden.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ Damit eine View-Transition zwischen Dokumenten funktioniert, müssen sich das ak
 
 - `navigation`
 
-  - : Gibt den Effekt an, den diese At-Regel auf das Verhalten der View-Transition des Dokuments hat. Mögliche Werte sind:
+  - : Gibt an, welche Wirkung diese At-Regel auf das View-Transition-Verhalten des Dokuments haben wird. Mögliche Werte sind:
 
-    - `auto`: Das Dokument führt eine View-Transition durch, wenn es Teil einer Navigation ist, vorausgesetzt, die Navigation ist gleichursprünglich, ohne Cross-Origin-Weiterleitungen, und ihr [`navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) ist `traverse`, `push` oder `replace`. Im Fall von `push` oder `replace` muss die Navigation durch eine Benutzerinteraktion mit dem Seiteninhalt initiiert werden, nicht durch eine Funktion der Browser-Benutzeroberfläche.
+    - `auto`: Das Dokument wird eine View-Transition durchlaufen, wenn es an einer Navigation teilnimmt, vorausgesetzt, die Navigation erfolgt vom gleichen Ursprung, ohne ursprungsübergreifende Weiterleitungen, und der [`navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) ist `traverse`, `push` oder `replace`. Im Falle von `push` oder `replace` muss die Navigation durch eine Benutzerinteraktion mit dem Seiteninhalt und nicht durch eine Browser-UI-Funktion eingeleitet werden.
 
-    - `none`: Das Dokument führt keine View-Transition durch.
+    - `none`: Das Dokument wird keine View-Transition durchlaufen.
 
 ## Formale Syntax
 
@@ -37,11 +37,11 @@ Damit eine View-Transition zwischen Dokumenten funktioniert, müssen sich das ak
 
 ### Übergang der Seitenansicht
 
-Die folgenden Codebeispiele zeigen Schlüsselkonzepte, die in einer Demo zu Seitenübergängen verwendet werden.
-Die Demo nutzt View-Transitions zwischen Dokumenten: ein halbe Sekunde dauernder Übergang, der beim Navigieren zwischen zwei Seiten einer Website auftritt.
-Für die vollständige Demo, siehe [View transitions multi-page app demo](https://mdn.github.io/dom-examples/view-transitions/mpa/).
+Die folgenden Code-Snippets zeigen Schlüsselkonzepte, die in einem Seitenübergang-Demo verwendet werden.
+Das Demo verwendet dokumentübergreifende View-Transitions; einen halben Sekunden dauernden Übergang, der beim Navigieren zwischen zwei Seiten einer Website auftritt.
+Für das vollständige Demo, sehen Sie das [View Transitions Multi-Page App Demo](https://mdn.github.io/dom-examples/view-transitions/mpa/).
 
-Die At-Regel `@view-transition` wird sowohl im CSS für das aktuelle als auch im CSS für das Zieldokument der Navigation angegeben, um beide für die View-Transition zu aktivieren:
+Die `@view-transition` At-Regel wird im CSS sowohl für das aktuelle als auch für das Ziel-Dokument einer Navigation spezifiziert, um beide für die View-Transition zu aktivieren:
 
 ```css
 @view-transition {
@@ -49,7 +49,7 @@ Die At-Regel `@view-transition` wird sowohl im CSS für das aktuelle als auch im
 }
 ```
 
-Zusätzlich zur At-Regel `@view-transition` verwenden wir die {{cssxref("@keyframes")}}-At-Regel, um zwei Keyframe-Animationen zu definieren, und die Kurzform-Eigenschaft {{cssxref("animation")}}, um diese Keyframe-Animationen auf die Elemente der Ausgangsseite ({{cssxref("::view-transition-old()")}}) und der Zielseite ({{cssxref("::view-transition-new()")}}) anzuwenden, die wir animieren wollen.
+Zusätzlich zur `@view-transition` At-Regel verwenden wir die {{cssxref("@keyframes")}} At-Regel, um zwei Keyframe-Animationen zu definieren, und verwenden die {{cssxref("animation")}} Kurzform-Eigenschaft, um diese Keyframe-Animationen auf die Elemente der ausgehenden ({{cssxref("::view-transition-old()")}}) und eingehenden ({{cssxref("::view-transition-new()")}}) Seiten anzuwenden, die wir animieren wollen.
 
 ```css
 /* Create a custom animation */
@@ -83,7 +83,7 @@ Zusätzlich zur At-Regel `@view-transition` verwenden wir die {{cssxref("@keyfra
 }
 ```
 
-Sehen Sie sich diese [Transitions Multi-Page App](https://mdn.github.io/dom-examples/view-transitions/mpa/)-Demo live an.
+Sehen Sie sich dieses [Übergänge Multi-Page App](https://mdn.github.io/dom-examples/view-transitions/mpa/) Demo live an.
 
 ## Spezifikationen
 
@@ -102,4 +102,4 @@ Sehen Sie sich diese [Transitions Multi-Page App](https://mdn.github.io/dom-exam
 - {{cssxref("::view-transition-image-pair", "::view-transition-image-pair()")}}
 - [View Transition API](/de/docs/Web/API/View_Transition_API)
 - [CSS At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
-- [CSS At-Regel-Funktionen](/de/docs/Web/CSS/At-rule-functions)
+- [CSS At-Regel-Funktionen](/de/docs/Web/CSS/CSS_syntax/At-rule_functions)

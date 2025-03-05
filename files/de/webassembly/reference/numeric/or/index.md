@@ -2,12 +2,44 @@
 title: OR
 slug: WebAssembly/Reference/Numeric/OR
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-Die **`or`**-Anweisungen werden verwendet, um ein bitweises OR durchzuführen, ähnlich dem **`|`**-Operator in anderen Programmiersprachen.
+Die **`or`**-Anweisungen werden zum Durchführen eines bitweisen Oder verwendet, ähnlich dem **`|`**-Operator in anderen Sprachen.
 
-{{EmbedInteractiveExample("pages/wat/or.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: or", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+
+  (func (export "or") (param $a i32) (param $b i32) (result i32)
+    ;; load both numbers onto the stack
+    local.get $a
+    local.get $b
+
+    ;; `or` both numbers and return the result
+    i32.or
+  )
+
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console }).then(
+  (result) => {
+    const or = result.instance.exports.or;
+
+    const res = or(0b10000010, 0b01101111);
+    console.log(numToBin(res));
+    // Expected output: "11101111"
+  },
+);
+
+function numToBin(num) {
+  return (num >>> 0).toString(2).padStart(8, "0");
+}
+```
 
 ## Syntax
 

@@ -2,14 +2,33 @@
 title: "::details-content"
 slug: Web/CSS/::details-content
 l10n:
-  sourceCommit: 624bbdcb7d9beace299a4fa0d3ddcd8f6732cd90
+  sourceCommit: b7d66867262bcc6a7097d54afd95765d5a43c6c0
 ---
 
 {{CSSRef}}
 
-Das **`::details-content`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den erweiterbaren/zusammenklappbaren Inhalt eines {{HTMLElement("details")}} Elements.
+Das **`::details-content`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den erweiterbaren/einklappbaren Inhalt eines {{HTMLElement("details")}} Elements.
 
-[//]: # '{{EmbedInteractiveExample("pages/tabbed/pseudo-element-details-content.html", "tabbed-shorter")}}'
+{{InteractiveExample("CSS Demo: ::details-content", "tabbed-shorter")}}
+
+```css interactive-example
+details[open]::details-content {
+  color: dodgerblue;
+  padding: 0.5em;
+  border: thin solid grey;
+}
+```
+
+```html interactive-example
+<details open>
+  <summary>Example summary</summary>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  <p>
+    Architecto cupiditate ea optio modi quas sequi, esse libero asperiores
+    debitis eveniet commodi hic ad.
+  </p>
+</details>
+```
 
 ## Syntax
 
@@ -21,7 +40,7 @@ selector::details-content
 
 ### Einfaches Beispiel
 
-In diesem Beispiel wird das `::details-content` Pseudo-Element verwendet, um die {{cssxref("background-color")}} des Inhalts des {{HTMLElement("details")}} Elements festzulegen.
+In diesem Beispiel wird das `::details-content` Pseudo-Element verwendet, um eine {{cssxref("background-color")}} auf den Inhalt des {{HTMLElement("details")}} Elements zu setzen.
 
 #### HTML
 
@@ -46,10 +65,10 @@ details::details-content {
 
 ### Übergangsbeispiel
 
-In diesem Beispiel wird das `::details-content` Pseudo-Element verwendet, um eine {{cssxref("transition")}} auf den Inhalt des {{HTMLElement("details")}} Elements anzuwenden, sodass es sanft in den Vordergrund tritt, wenn es erweitert wird, und wieder ausblendet, wenn es zusammenklappt. Um dies zu erreichen, werden zwei separate Übergänge innerhalb der `transition` Kurznotation spezifiziert:
+In diesem Beispiel wird das `::details-content` Pseudo-Element verwendet, um eine {{cssxref("transition")}} auf den Inhalt des {{HTMLElement("details")}} Elements zu setzen, sodass es beim Erweitern sanft eingeblendet und beim Einklappen wieder ausgeblendet wird. Um dies zu erreichen, werden zwei separate Übergänge innerhalb der `transition` Kurzform-Eigenschaft festgelegt:
 
-- Die {{cssxref("opacity")}} Eigenschaft erhält einen einfachen Übergang über `600ms`, um den Ein- und Ausblendeffekt zu erzeugen.
-- Die {{cssxref("content-visibility")}} Eigenschaft (die zwischen `hidden` und `visible` umgeschaltet wird, wenn der `<details>` Inhalt erweitert/zurückgezogen wird) erhält ebenfalls einen einfachen `600ms` Übergang, jedoch mit dem {{cssxref("transition-behavior")}} Wert `allow-discrete` angegeben. Dies ermöglicht es dem Browser, einen Übergang auf `content-visibility` zu starten, dessen Animationsverhalten [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete) ist. Der Effekt ist, dass der Inhalt während der gesamten Dauer des Übergangs sichtbar bleibt, wodurch andere Übergänge sichtbar sind. Würde dieser Übergang nicht hinzugefügt, würde der Inhalt sofort verschwinden, wenn der `<details>` Inhalt zurückgezogen wird — der sanfte Ausblendeffekt wäre nicht sichtbar.
+- Die {{cssxref("opacity")}} Eigenschaft erhält einen einfachen Übergang über `600ms`, um den Ein-/Ausblendeffekt zu erzeugen.
+- Die {{cssxref("content-visibility")}} Eigenschaft (die zwischen `hidden` und `visible` umgeschaltet wird, wenn der `<details>` Inhalt erweitert/eingeklappt wird) erhält ebenfalls einen einfachen `600ms` Übergang, jedoch mit dem {{cssxref("transition-behavior")}} Wert `allow-discrete`. Dies ermöglicht dem Browser, einen Übergang bei `content-visibility` zu starten, dessen Animationsverhalten [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete) ist. Der Effekt ist, dass der Inhalt für die gesamte Dauer des Übergangs sichtbar ist, sodass andere Übergänge sichtbar sind. Wenn dieser Übergang nicht enthalten wäre, würde der Inhalt sofort verschwinden, wenn der `<details>` Inhalt eingeklappt wird – man würde das sanfte Ausblenden nicht sehen.
 
 #### HTML
 

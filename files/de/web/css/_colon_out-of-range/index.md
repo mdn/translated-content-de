@@ -1,20 +1,50 @@
 ---
-title: :out-of-range
+title: ":out-of-range"
 slug: Web/CSS/:out-of-range
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:out-of-range`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert außerhalb der durch die [`min`](/de/docs/Web/HTML/Element/input#min)- und [`max`](/de/docs/Web/HTML/Element/input#max)-Attribute festgelegten Bereichsgrenzen liegt.
+Die **`:out-of-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert außerhalb der durch die [`min`](/de/docs/Web/HTML/Element/input#min)- und [`max`](/de/docs/Web/HTML/Element/input#max)-Attribute angegebenen Bereichsgrenzen liegt.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-out-of-range.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :out-of-range", "tabbed-shorter")}}
 
-Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes außerhalb der zulässigen Grenzen liegt.
+```css interactive-example
+label {
+  display: block;
+  margin-top: 1em;
+}
+
+input:out-of-range {
+  background-color: orangered;
+}
+```
+
+```html interactive-example
+<form>
+  <label for="amount">How many tickets? (You can buy 2-6 tickets)</label>
+  <input id="amount" name="amount" type="number" min="2" max="6" value="4" />
+
+  <label for="dep">Departure Date: (Whole year 2022 is acceptable)</label>
+  <input
+    id="dep"
+    name="dep"
+    type="date"
+    min="2022-01-01"
+    max="2022-12-31"
+    value="2025-05-05" />
+
+  <label for="ret">Return Date: (Whole year 2022 is acceptable)</label>
+  <input id="ret" name="ret" type="date" min="2022-01-01" max="2022-12-31" />
+</form>
+```
+
+Diese Pseudoklasse ist nützlich, um dem Benutzer einen visuellen Hinweis darauf zu geben, dass der aktuelle Wert eines Feldes außerhalb der zulässigen Grenzen liegt.
 
 > [!NOTE]
-> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichsbegrenzung haben (und diese übernehmen können). Ohne eine solche Begrenzung kann ein Element weder "in-range" noch "out-of-range" sein.
+> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichsbeschränkung haben (und annehmen können). In Abwesenheit einer solchen Beschränkung kann das Element weder "in-range" noch "out-of-range" sein.
 
 ## Syntax
 
@@ -92,4 +122,4 @@ input:out-of-range + label::after {
 ## Siehe auch
 
 - {{cssxref(":in-range")}}
-- [Formular-Datenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

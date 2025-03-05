@@ -1,31 +1,31 @@
 ---
-title: Beherrschung des Kollabierens von Rändern
+title: Beherrschung der Margen-Kollaps
 slug: Web/CSS/CSS_box_model/Mastering_margin_collapsing
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 93f54a9e0ceb65880b951986cc47bee87336f156
 ---
 
 {{CSSRef}}
 
-Die [oberen](/de/docs/Web/CSS/margin-top) und [unteren](/de/docs/Web/CSS/margin-bottom) Ränder von Blöcken werden manchmal zu einem einzigen Rand kombiniert (kollabiert), dessen Größe der größte der individuellen Ränder ist (oder nur einer von ihnen, wenn sie gleich sind), ein Verhalten, das als **Kollabieren von Rändern** bekannt ist. Beachten Sie, dass die Ränder von [schwebenden](/de/docs/Web/CSS/float) und [absolut positionierten](/de/docs/Web/CSS/position#types_of_positioning) Elementen niemals kollabieren.
+Die [oberen](/de/docs/Web/CSS/margin-top) und [unteren](/de/docs/Web/CSS/margin-bottom) Ränder von Blöcken werden manchmal zu einem einzigen Rand kombiniert (kollabiert), dessen Größe der größte der einzelnen Ränder ist (oder nur einer von ihnen, wenn sie gleich sind), ein Verhalten, das als **Margen-Kollaps** bekannt ist. Beachten Sie, dass die Ränder von [schwebenden](/de/docs/Web/CSS/float) und [absolut positionierten](/de/docs/Web/CSS/position#types_of_positioning) Elementen niemals kollabieren.
 
-Das Kollabieren von Rändern tritt in drei grundlegenden Fällen auf:
+Margen-Kollaps tritt in drei grundlegenden Fällen auf:
 
-- Benachbarte Geschwister
-  - : Die Ränder benachbarter Geschwister werden kollabiert (außer wenn das spätere Geschwisterelement an Schwebeflächen vorbei [gelöscht](/de/docs/Web/CSS/clear) werden muss).
-- Kein Inhalt zwischen Elternteil und Nachkommen
-  - : Wenn es keine Umrandung, kein Padding, keinen Inline-Teil, keinen [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) gibt, der erstellt wird, oder kein _[Abstand](/de/docs/Web/CSS/clear)_, um das {{cssxref("margin-top")}} eines Blocks vom {{cssxref("margin-top")}} eines oder mehrerer seiner Nachkommenblöcke zu trennen; oder keine Umrandung, kein Padding, kein Inline-Inhalt, keine {{cssxref("height")}}, oder {{cssxref("min-height")}}, um das {{cssxref("margin-bottom")}} eines Blocks vom {{cssxref("margin-bottom")}} eines oder mehrerer seiner Nachkommenblöcke zu trennen, dann kollabieren diese Ränder. Der kollabierte Rand landet außerhalb des Elternteils.
+- Angrenzende Geschwister
+  - : Die Ränder von angrenzenden Geschwistern werden kollabiert (außer wenn das nachfolgende Geschwister [gecleart](/de/docs/Web/CSS/clear) werden muss, um an Floats vorbeizukommen).
+- Kein Inhalt zwischen Eltern und Nachkommen
+  - : Wenn es keine Grenze, kein Padding, keinen Inline-Teil, keinen [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) oder _[clearance](/de/docs/Web/CSS/clear)_ gibt, um den {{cssxref("margin-top")}} eines Blocks von dem {{cssxref("margin-top")}} eines oder mehrerer seiner Nachkommen-Blöcke zu trennen; oder keine Grenze, kein Padding, kein Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}}, um den {{cssxref("margin-bottom")}} eines Blocks von dem {{cssxref("margin-bottom")}} eines oder mehrerer seiner Nachkommen-Blöcke zu trennen, dann kollabieren diese Ränder. Der kollabierte Rand endet außerhalb des Elternteils.
 - Leere Blöcke
-  - : Wenn es keine Umrandung, kein Padding, keinen Inline-Inhalt, keine {{cssxref("height")}}, oder {{cssxref("min-height")}} gibt, um das {{cssxref("margin-top")}} eines Blocks von seinem {{cssxref("margin-bottom")}} zu trennen, dann kollabieren seine oberen und unteren Ränder.
+  - : Wenn es keine Grenze, kein Padding, keinen Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}} gibt, um den {{cssxref("margin-top")}} eines Blocks von seinem {{cssxref("margin-bottom")}} zu trennen, dann kollabieren seine oberen und unteren Ränder.
 
-Einige Dinge, die zu beachten sind:
+Einige Anmerkungen:
 
-- Komplexeres Kollabieren von Rändern (mehr als zwei Ränder) tritt auf, wenn die obigen Fälle kombiniert werden.
-- Diese Regeln gelten sogar für Ränder, die null sind, sodass der Rand eines Nachkommen außerhalb seines Elternteils (gemäß den obigen Regeln) endet, unabhängig davon, ob der Rand des Elternteils null ist oder nicht.
+- Komplexere Margen-Kollaps (von mehr als zwei Rändern) treten auf, wenn die oben genannten Fälle kombiniert werden.
+- Diese Regeln gelten auch für Ränder, die null sind, sodass der Rand eines Nachkommen außerhalb seines Elternteils endet (gemäß den oben genannten Regeln), unabhängig davon, ob der Rand des Elternteils null ist oder nicht.
 - Wenn negative Ränder beteiligt sind, ist die Größe des kollabierten Randes die Summe des größten positiven Randes und des kleinsten (negativsten) negativen Randes.
-- Wenn alle Ränder negativ sind, ist die Größe des kollabierten Randes der kleinste (negativste) Rand. Dies gilt sowohl für benachbarte als auch für verschachtelte Elemente.
+- Wenn alle Ränder negativ sind, ist die Größe des kollabierten Randes der kleinste (negativste) Rand. Dies gilt sowohl für benachbarte als auch verschachtelte Elemente.
 - Das Kollabieren von Rändern ist nur in der vertikalen Richtung relevant.
-- Ränder kollabieren nicht in einem Container mit `display` auf `flex` oder `grid` gesetzt.
+- Ränder kollabieren nicht in einem Container mit `display`, der auf `flex` oder `grid` gesetzt ist.
 
 ## Beispiele
 
@@ -81,12 +81,12 @@ p {
   - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
   - [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
   - [Layout-Modi](/de/docs/Web/CSS/Layout_mode)
-  - [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/Visual_formatting_model)
+  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Visual_formatting_model)
   - Werte
     - [Anfangswerte](/de/docs/Web/CSS/CSS_cascade/initial_value)
     - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/computed_value)
     - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/used_value)
     - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/actual_value)
-  - [Wertedefinitionssyntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
-  - [Kurzform-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
+  - [Wertedefinitions-Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
+  - [Kurzschreib-Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
   - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)

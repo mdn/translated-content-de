@@ -2,14 +2,63 @@
 title: block
 slug: WebAssembly/Reference/Control_flow/block
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-Die **`block`**-Anweisung erstellt ein Label, aus dem später mit einem `br` heraus verzweigt werden kann.
+Die **`block`**-Anweisung erstellt ein Label, das später mit einem `br` angesprungen werden kann.
 
-Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, insofern, dass beim Verzweigen zu einem `loop` zum Anfang der Schleife gesprungen wird, während beim Verzweigen zu einem `block` zum Ende des Blocks gesprungen wird; das heißt, heraus aus dem Block.
+Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, da das Springen zu einer `loop`-Anweisung zum Anfang der Schleife führt, während das Springen zu einer `block`-Anweisung zum Ende des Blocks führt; das heißt, aus dem Block heraus.
 
-{{EmbedInteractiveExample("pages/wat/block.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: block", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  ;; import the browser console object, you'll need to pass this in from JavaScript
+  (import "console" "log" (func $log (param i32)))
+
+  ;; create a function that takes in a number as a param,
+  ;; and logs that number if it's not equal to 100.
+  (func (export "log_if_not_100") (param $num i32)
+    (block $my_block
+
+      ;; $num is equal to 100
+      local.get $num
+      i32.const 100
+      i32.eq
+
+      (if
+        (then
+
+          ;; branch to the end of the block
+          br $my_block
+
+        )
+      )
+
+      ;; not reachable when $num is 100
+      local.get $num
+      call $log
+
+    )
+  )
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console }).then(
+  (result) => {
+    const log_if_not_100 = result.instance.exports.log_if_not_100;
+
+    log_if_not_100(99);
+    // Expected output: 99
+    log_if_not_100(100);
+    // Should not log anything
+    log_if_not_100(101);
+    // Expected output: 101
+  },
+);
+```
 
 ## Syntax
 

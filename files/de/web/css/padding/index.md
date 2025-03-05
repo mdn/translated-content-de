@@ -2,22 +2,23 @@
 title: padding
 slug: Web/CSS/padding
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
 ---
 
 {{CSSRef}}
 
-Die **`padding`**-[CSS](/de/docs/Web/CSS)-[Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) legt den [Abstandsbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) auf allen vier Seiten eines Elements gleichzeitig fest.
+Die **`padding`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt den [Padding-Bereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) auf allen vier Seiten eines Elements gleichzeitig.
 
 {{EmbedInteractiveExample("pages/css/padding.html")}}
 
-Der Abstandsbereich (`padding area`) eines Elements ist der Raum zwischen seinem Inhalt und seiner Umrandung (`border`).
+Der Padding-Bereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
 
-> [!NOTE] > **Padding** erzeugt zusätzlichen Platz innerhalb eines Elements. Im Gegensatz dazu erzeugt {{cssxref("margin")}} zusätzlichen Platz _um_ ein Element herum.
+> [!NOTE]
+> Padding schafft zusätzlichen Raum innerhalb eines Elements. Im Gegensatz dazu schafft {{cssxref("margin")}} zusätzlichen Raum _um_ ein Element herum.
 
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("padding-top")}}
 - {{cssxref("padding-right")}}
@@ -47,19 +48,19 @@ padding: revert-layer;
 padding: unset;
 ```
 
-Die `padding`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist entweder ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}. Negative Werte sind ungültig.
+Die `padding`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist eine {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}. Negative Werte sind ungültig.
 
-- Wenn **ein** Wert angegeben wird, gilt das gleiche Padding für **alle vier Seiten**.
-- Wenn **zwei** Werte angegeben werden, gilt das erste Padding für **oben und unten**, das zweite für **links und rechts**.
-- Wenn **drei** Werte angegeben werden, gilt das erste Padding für **oben**, das zweite für **rechts und links**, das dritte für **unten**.
-- Wenn **vier** Werte angegeben werden, gelten die Paddings in der Reihenfolge **oben**, **rechts**, **unten** und **links** (im Uhrzeigersinn).
+- Wenn **ein** Wert angegeben wird, gilt derselbe Padding für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben werden, gilt der erste Padding für **oben und unten**, der zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben werden, gilt der erste Padding für **oben**, der zweite für **rechts und links**, der dritte für **unten**.
+- Wenn **vier** Werte angegeben werden, gelten die Paddings für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Paddings als ein fester Wert.
+  - : Die Größe des Paddings als fester Wert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Paddings als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
+  - : Die Größe des Paddings als Prozentwert, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
 
 ## Formale Definition
 
@@ -71,7 +72,7 @@ Die `padding`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben 
 
 ## Beispiele
 
-### Padding mit Pixeln festlegen
+### Padding mit Pixeln setzen
 
 #### HTML
 
@@ -98,7 +99,7 @@ h3 {
 
 {{EmbedLiveSample('Setting_padding_with_pixels', '100%', 300)}}
 
-### Padding mit Pixeln und Prozentsätzen festlegen
+### Padding mit Pixeln und Prozentwerten setzen
 
 ```css
 padding: 5%; /* All sides: 5% padding */
@@ -130,6 +131,6 @@ padding: 1em 3px 30px 5px; /* top:    1em padding  */
 
 - {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
-- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzformen
+- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzschreibweisen
 - [Einführung in das grundlegende CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model)-Modul
+- Modul [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model)

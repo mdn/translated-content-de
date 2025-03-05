@@ -2,12 +2,32 @@
 title: Max
 slug: WebAssembly/Reference/Numeric/Max
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-Die **`max`** Anweisungen werden verwendet, um die höhere von zwei Zahlen zu erhalten.
+Die **`max`** Anweisungen werden verwendet, um die höhere der beiden Zahlen zu erhalten.
 
-{{EmbedInteractiveExample("pages/wat/max.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: max", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param f32)))
+  (func $main
+    ;; load `10` and `2` onto the stack
+    f32.const 10
+    f32.const 2
+
+    f32.max ;; calculate the higher number
+    call $log ;; log the result
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 

@@ -1,21 +1,21 @@
 ---
-title: Ursprungswert
+title: Anfangswert
 slug: Web/CSS/CSS_cascade/initial_value
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 93f54a9e0ceb65880b951986cc47bee87336f156
 ---
 
 {{CSSRef}}
 
-Der **Ursprungswert** einer [CSS](/de/docs/Web/CSS)-Eigenschaft ist ihr Standardwert, wie er in der Definitionstabelle in der Spezifikation aufgeführt ist. Die Nutzung des Ursprungswerts hängt davon ab, ob eine Eigenschaft vererbt wird oder nicht:
+Der **Anfangswert** einer [CSS](/de/docs/Web/CSS)-Eigenschaft ist ihr Standardwert, wie er in der Definitionstabelle der Spezifikation aufgeführt ist. Die Verwendung des Anfangswerts hängt davon ab, ob eine Eigenschaft vererbt wird oder nicht:
 
-- Bei [vererbten Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Inheritance#inherited_properties) wird der Ursprungswert nur auf das _Root-Element_ angewendet, sofern kein [spezifizierter Wert](/de/docs/Web/CSS/CSS_cascade/specified_value) angegeben ist.
-- Bei [nicht vererbten Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Inheritance#non-inherited_properties) wird der Ursprungswert auf _alle Elemente_ angewendet, sofern kein [spezifizierter Wert](/de/docs/Web/CSS/CSS_cascade/specified_value) angegeben ist.
+- Für [vererbte Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Inheritance#inherited_properties) wird der Anfangswert nur auf das _Wurzelelement_ angewendet, solange kein [spezifizierter Wert](/de/docs/Web/CSS/CSS_cascade/specified_value) bereitgestellt wird.
+- Für [nicht vererbte Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Inheritance#non-inherited_properties) wird der Anfangswert auf _alle Elemente_ angewendet, solange kein [spezifizierter Wert](/de/docs/Web/CSS/CSS_cascade/specified_value) bereitgestellt wird.
 
-Sie können den Ursprungswert explizit mit dem {{cssxref("initial")}} Schlüsselwort angeben.
+Sie können den Anfangswert explizit angeben, indem Sie das {{cssxref("initial")}} Schlüsselwort verwenden.
 
 > [!NOTE]
-> Der Ursprungswert sollte nicht mit dem Wert verwechselt werden, der im Stylesheet des Browsers angegeben ist.
+> Der Anfangswert sollte nicht mit dem Wert verwechselt werden, der durch das Stylesheet des Browsers festgelegt wird.
 
 ## Spezifikationen
 
@@ -24,21 +24,21 @@ Sie können den Ursprungswert explizit mit dem {{cssxref("initial")}} Schlüssel
 ## Siehe auch
 
 - {{cssxref("initial")}}
-- Wichtige CSS-Konzepte:
+- Schlüsselkonzepte von CSS:
   - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-  - [At-Rules](/de/docs/Web/CSS/CSS_syntax/At-rule)
+  - [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
   - [Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
   - [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
   - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
   - [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-  - [Layoutmodi](/de/docs/Web/CSS/Layout_mode)
-  - [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/Visual_formatting_model)
-  - [Margin Collapse](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+  - [Layout-Modi](/de/docs/Web/CSS/Layout_mode)
+  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Visual_formatting_model)
+  - [Rand-Zusammenfall](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
   - Werte
     - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/computed_value)
     - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/used_value)
     - [Aufgelöste Werte](/de/docs/Web/CSS/resolved_value)
     - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/actual_value)
-  - [Syntax zur Wertedefinition](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
-  - [Kurzschreibweise-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
+  - [Wertdefinition-Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
+  - [Kurzschlüssige Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
   - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)

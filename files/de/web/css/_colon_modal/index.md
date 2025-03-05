@@ -1,15 +1,57 @@
 ---
-title: :modal
+title: ":modal"
 slug: Web/CSS/:modal
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:modal`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) wählt ein Element aus, das sich in einem Zustand befindet, in dem es jegliche Interaktion mit Elementen außerhalb dieses Zustands ausschließt, bis die Interaktion beendet wird. Mehrere Elemente können gleichzeitig von der `:modal` Pseudo-Klasse ausgewählt werden, jedoch wird nur eines davon aktiv sein und Eingaben empfangen können.
+Die **`:modal`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt ein Element aus, das sich in einem Zustand befindet, in dem es alle Interaktionen mit Elementen außerhalb von ihm ausschließt, bis die Interaktion beendet wurde. Mehrere Elemente können gleichzeitig von der `:modal` Pseudoklasse ausgewählt werden, aber nur eines von ihnen wird aktiv sein und Eingaben empfangen können.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-modal.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :modal", "tabbed-shorter")}}
+
+```css interactive-example
+button {
+  display: block;
+  margin: auto;
+  width: 10rem;
+  height: 2rem;
+}
+
+:modal {
+  background-color: beige;
+  border: 2px solid burlywood;
+  border-radius: 5px;
+}
+
+p {
+  color: black;
+}
+```
+
+```html interactive-example
+<p>Would you like to see a new random number?</p>
+<button id="showNumber">Show me</button>
+
+<dialog id="favDialog">
+  <form method="dialog">
+    <p>Lucky number is: <strong id="number"></strong></p>
+    <button>Close dialog</button>
+  </form>
+</dialog>
+```
+
+```js interactive-example
+const showNumber = document.getElementById("showNumber");
+const favDialog = document.getElementById("favDialog");
+const number = document.getElementById("number");
+
+showNumber.addEventListener("click", () => {
+  number.innerText = Math.floor(Math.random() * 1000);
+  favDialog.showModal();
+});
+```
 
 ## Syntax
 
@@ -19,18 +61,18 @@ Die **`:modal`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo
 }
 ```
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
-Beispiele für Elemente, die Interaktionen des Benutzers mit dem Rest der Seite verhindern und von der `:modal` Pseudo-Klasse ausgewählt werden, umfassen:
+Beispiele von Elementen, die die Benutzerinteraktion mit dem Rest der Seite verhindern und von der `:modal` Pseudoklasse ausgewählt werden, sind:
 
-- Das [`dialog`](/de/docs/Web/HTML/Element/dialog)-Element, das mit der `showModal()` API geöffnet wird.
-- Das Element, das durch die [`:fullscreen`](/de/docs/Web/CSS/:fullscreen) Pseudo-Klasse ausgewählt wird, wenn es mit der `requestFullscreen()` API geöffnet wird.
+- Das [`dialog`](/de/docs/Web/HTML/Element/dialog)-Element, das mit der `showModal()` API geöffnet wurde.
+- Das Element, das von der [`:fullscreen`](/de/docs/Web/CSS/:fullscreen) Pseudoklasse ausgewählt wurde, wenn es mit der `requestFullscreen()` API geöffnet wurde.
 
 ## Beispiele
 
-### Stil eines modalen Dialogs
+### Styling eines modalen Dialogs
 
-Dieses Beispiel stylt einen modalen Dialog, der geöffnet wird, wenn die Schaltfläche „Details aktualisieren“ aktiviert wird. Dieses Beispiel basiert auf dem {{HTMLElement("dialog")}}-Element-[Beispiel](/de/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog).
+Dieses Beispiel gestaltet einen modalen Dialog, der sich öffnet, wenn die Schaltfläche "Details aktualisieren" aktiviert wird. Dieses Beispiel wurde auf dem {{HTMLElement("dialog")}}-Element [Beispiel](/de/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog) aufgebaut.
 
 ```html hidden
 <!-- Basic modal dialog containing a form -->
@@ -117,5 +159,5 @@ favDialog.addEventListener("close", () => {
 ## Siehe auch
 
 - [`dialog`](/de/docs/Web/HTML/Element/dialog)-Element
-- Andere Pseudo-Klassen für Anzeigezustände von Elementen: {{CSSxRef(":fullscreen")}} und {{CSSxRef(":picture-in-picture")}}
-- Vollständige Liste der [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes)
+- Andere Element-Anzeigestatus-Pseudoklassen: {{CSSxRef(":fullscreen")}} und {{CSSxRef(":picture-in-picture")}}
+- Vollständige Liste der [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)

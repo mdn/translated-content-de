@@ -1,15 +1,43 @@
 ---
-title: :last-of-type
+title: ":last-of-type"
 slug: Web/CSS/:last-of-type
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:last-of-type`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element seines Typs innerhalb einer Gruppe von Geschwisterelementen.
+Die **`:last-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element seines Typs in einer Gruppe von Geschwisterelementen.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-last-of-type.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :last-of-type", "tabbed-shorter")}}
+
+```css interactive-example
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 3px;
+}
+
+dd:last-of-type {
+  border: 2px solid orange;
+}
+```
+
+```html interactive-example
+<dl>
+  <dt>Vegetables:</dt>
+  <dd>1. Tomatoes</dd>
+  <dd>2. Cucumbers</dd>
+  <dd>3. Mushrooms</dd>
+  <dt>Fruits:</dt>
+  <dd>4. Apples</dd>
+  <dd>5. Mangos</dd>
+  <dd>6. Pears</dd>
+  <dd>7. Oranges</dd>
+</dl>
+```
 
 ## Syntax
 
@@ -21,7 +49,7 @@ Die **`:last-of-type`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/
 
 ## Beispiele
 
-### Das letzte Absatz-Element stylen
+### Das letzte Absatz element stylen
 
 #### HTML
 
@@ -46,7 +74,7 @@ p:last-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie auch verschachtelte Elemente gezielt angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Universal_selectors) (`*`) implizit ist, wenn kein einfacher Selektor geschrieben wird.
+Dieses Beispiel zeigt, wie auch verschachtelte Elemente angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert ist, wenn kein einfacher Selektor geschrieben wird.
 
 #### HTML
 
@@ -118,7 +146,7 @@ p:last-of-type {
 
 {{EmbedLiveSample('Multiple_selectors_elements', 500)}}
 
-Das letzte `<div>` und das letzte `<p>` sind sowohl rot als auch fett formatiert, da `.item:last-of-type` das letzte Element jedes Typs auswählt, wenn dieses letzte Element ebenfalls die Klasse `item` besitzt.
+Das letzte `<div>` und das letzte `<p>` sind beide rot und fett, da `.item:last-of-type` das letzte jedes Typs auswählt, sofern dieses letzte Element auch die Klasse `item` hat.
 
 ## Spezifikationen
 

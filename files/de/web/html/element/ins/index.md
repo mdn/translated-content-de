@@ -2,12 +2,12 @@
 title: "<ins>: Das eingefügte Textelement"
 slug: Web/HTML/Element/ins
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: b6dacb9087010826a5a7d5b2d7c428e89d8135cf
 ---
 
 {{HTMLSidebar}}
 
-Das **`<ins>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Bereich von Text, der in ein Dokument eingefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um einen Bereich von Text darzustellen, der aus dem Dokument gelöscht wurde.
+Das **`<ins>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert einen Textbereich, der zu einem Dokument hinzugefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um ähnlich einen Textbereich zu repräsentieren, der aus dem Dokument gelöscht wurde.
 
 {{InteractiveExample("HTML Demo: &lt;ins&gt;", "tabbed-standard")}}
 
@@ -16,7 +16,7 @@ Das **`<ins>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Bereich v
 <del>
   <p>&ldquo;I apologize for the delay.&rdquo;</p>
 </del>
-<ins cite="../howtobeawizard.html" datetime="2018-05">
+<ins cite="../how-to-be-a-wizard.html" datetime="2018-05">
   <p>&ldquo;A wizard is never late &hellip;&rdquo;</p>
 </ins>
 ```
@@ -61,16 +61,16 @@ p {
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `cite`
-  - : Dieses Attribut definiert die URI einer Ressource, die die Änderung erklärt, wie zum Beispiel einen Link zu Besprechungsnotizen oder ein Ticket in einem Fehlerbehebungssystem.
+  - : Dieses Attribut definiert die URI einer Ressource, die die Änderung erklärt, wie z.B. einen Link zu Sitzungsprotokollen oder ein Ticket in einem Problemlösungssystem.
 - `datetime`
-  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit optionaler Zeitzeichenkette sein. Wenn der Wert nicht als Datum mit optionaler Zeitzeichenkette geparst werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format der Zeichenkette ohne Zeit siehe [Format einer gültigen Datumszeichenkette](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format der Zeichenkette, wenn sie sowohl Datum als auch Zeit enthält, wird im [Format einer gültigen lokalen Datums- und Zeitzeichenkette](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) behandelt.
+  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit einer optionalen Zeitangabe sein. Wenn der Wert nicht als Datum mit optionaler Zeitangabe geparst werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format des Strings ohne Zeit siehe [Format eines gültigen Datumsstrings](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format des Strings, wenn es sowohl Datum als auch Zeit umfasst, wird in [Format eines gültigen lokalen Datums- und Zeitstrings](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) behandelt.
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `<ins>`-Elements wird von den meisten Bildschirmlesetechnologien in ihrer Standardkonfiguration nicht angekündigt. Es kann angekündigt werden, indem die CSS-Eigenschaft {{cssxref("content")}} zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} verwendet wird.
+Das Vorhandensein des `<ins>`-Elements wird von den meisten Bildschirmlese-Technologien in ihrer Standardkonfiguration nicht angekündigt. Es kann angekündigt werden, indem die CSS-{{cssxref("content")}}-Eigenschaft zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} verwendet wird.
 
 ```css
 ins::before,
@@ -93,7 +93,7 @@ ins::after {
 }
 ```
 
-Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ankündigen von Inhalten, die zusätzliche Wortfülle erzeugen. Daher ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen, dass Inhalt eingefügt wurde, das Verständnis negativ beeinflussen würde.
+Einige Personen, die Bildschirmleser verwenden, deaktivieren bewusst das Ankündigen von Inhalten, das zusätzliche Wortfülle schafft. Daher ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen es das Verständnis erheblich beeinträchtigen würde, wenn der eingefügte Inhalt nicht bekannt wäre.
 
 - [Short note on making your mark (more accessible) | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
 - [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
@@ -108,7 +108,7 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ank
 
 {{EmbedLiveSample("Examples")}}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -120,7 +120,7 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ank
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Inline-Inhalt</a
+          >Phraseninhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
@@ -138,14 +138,14 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ank
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl Start- als auch End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind notwendig.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Inline-Inhalt</a
+          >Phraseninhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -153,7 +153,7 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ank
       <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">insertion</a
+          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">Einfügung</a
           ></code
         >
       </td>
@@ -179,4 +179,4 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ank
 
 ## Siehe auch
 
-- {{HTMLElement("del")}}-Element für die Markierung von Löschungen in einem Dokument
+- {{HTMLElement("del")}}-Element zum Markieren von Löschungen in einem Dokument

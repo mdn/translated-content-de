@@ -2,12 +2,32 @@
 title: Subtraktion
 slug: WebAssembly/Reference/Numeric/Subtraction
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-Die **`sub`**-Befehle, kurz für _Subtraktion_, werden verwendet, um eine Zahl von einer anderen Zahl zu subtrahieren, ähnlich wie der **`-`**-Operator in anderen Sprachen.
+Die **`sub`** Anweisungen, kurz für _Subtraktion_, werden verwendet, um eine Zahl von einer anderen zu subtrahieren, ähnlich dem **`-`** Operator in anderen Sprachen.
 
-{{EmbedInteractiveExample("pages/wat/sub.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: sub", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param i32)))
+  (func $main
+    ;; load `10` and `3` onto the stack
+    i32.const 10
+    i32.const 3
+
+    i32.sub ;; subtract on number from the other
+    call $log ;; log the result
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 
@@ -22,9 +42,9 @@ i32.sub
 ;; the top item on the stack will now be 7 (10 - 3 = 7)
 ```
 
-| Anleitung | Binärer Opcode |
-| --------- | -------------- |
-| `i32.sub` | `0x6b`         |
-| `i64.sub` | `0x7d`         |
-| `f32.sub` | `0x93`         |
-| `f64.sub` | `0xa1`         |
+| Anweisung | Binary-Opcode |
+| --------- | ------------- |
+| `i32.sub` | `0x6b`        |
+| `i64.sub` | `0x7d`        |
+| `f32.sub` | `0x93`        |
+| `f64.sub` | `0xa1`        |

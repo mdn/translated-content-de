@@ -1,15 +1,47 @@
 ---
-title: :disabled
+title: ":disabled"
 slug: Web/CSS/:disabled
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:disabled`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes deaktivierte Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, hineingeschrieben usw.) oder in den Fokus genommen werden kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert werden oder den Fokus erhalten kann.
+Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes deaktivierte Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, hinein getippt, etc.) oder fokussiert werden kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert oder fokussiert werden kann.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-disabled.html", "tabbed-standard")}}
+{{InteractiveExample("CSS Demo: :disabled", "tabbed-standard")}}
+
+```css interactive-example
+label {
+  display: block;
+  margin-top: 1em;
+}
+
+*:disabled {
+  background-color: dimgrey;
+  color: linen;
+  opacity: 1;
+}
+```
+
+```html interactive-example
+<form>
+  <label for="name">Name:</label>
+  <input id="name" name="name" type="text" />
+
+  <label for="emp">Employed:</label>
+  <select id="emp" name="emp" disabled>
+    <option>No</option>
+    <option>Yes</option>
+  </select>
+
+  <label for="empDate">Employment Date:</label>
+  <input id="empDate" name="empDate" type="date" disabled />
+
+  <label for="resume">Resume:</label>
+  <input id="resume" name="resume" type="file" />
+</form>
+```
 
 ## Syntax
 
@@ -21,7 +53,7 @@ Die **`:disabled`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseu
 
 ## Beispiele
 
-Dieses Beispiel zeigt ein grundlegendes Versandformular. Es verwendet das [JavaScript](/de/docs/Web/JavaScript)-[`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis, um dem Benutzer zu ermöglichen, die Felder für die Rechnungsadresse zu aktivieren/deaktivieren.
+Dieses Beispiel zeigt ein einfaches Versandformular. Es nutzt das [JavaScript](/de/docs/Web/JavaScript) [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignis, um dem Benutzer das Aktivieren/Deaktivieren der Abrechnungsfelder zu ermöglichen.
 
 ### HTML
 
@@ -56,7 +88,7 @@ input[type="text"]:disabled {
 
 ### JavaScript
 
-Deaktivieren/Aktivieren der Eingabefelder, wenn das Kontrollkästchen angeklickt wird.
+Deaktivieren Sie die Eingabefelder, wenn das Kontrollkästchen angeklickt wird
 
 ```js
 const checkbox = document.querySelector("#billing-checkbox");
@@ -71,7 +103,7 @@ checkbox.addEventListener("change", () => {
 
 ### Ergebnis
 
-Markieren/Entmarkieren Sie das Kontrollkästchen, um das Styling der Felder für die Rechnungsadresse zu ändern.
+Aktivieren/Deaktivieren Sie das Kontrollkästchen, um das Styling der Abrechnungsfelder zu ändern.
 
 {{EmbedLiveSample('Examples', 300, 250)}}
 

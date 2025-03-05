@@ -2,14 +2,42 @@
 title: Weniger oder gleich
 slug: WebAssembly/Reference/Numeric/Less_or_equal
 l10n:
-  sourceCommit: 916104c5348505f0921811af34d3f7499e9ac9f6
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-Die **`le`** Anweisungen, Abkürzung für _less or equal_, prüfen, ob eine Zahl kleiner oder gleich einer anderen Zahl ist. Wenn die erste Zahl kleiner oder gleich der zweiten Zahl ist, wird `1` auf den Stack geschoben, andernfalls wird `0` auf den Stack geschoben.
+Die **`le`**-Anweisungen, kurz für _weniger oder gleich_, überprüfen, ob eine Zahl kleiner oder gleich einer anderen Zahl ist. Wenn die erste Zahl kleiner oder gleich der zweiten Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
 
-Die Ganzzahltypen haben separate Anweisungen für weniger oder gleich bei vorzeichenbehafteten (**`le_s`**) und vorzeichenlosen (**`le_u`**) Zahlen.
+Die Ganzzahltypen haben separate Anweisungen für weniger oder gleich für vorzeichenbehaftete (**`le_s`**) und vorzeichenlose (**`le_u`**) Zahlen.
 
-{{EmbedInteractiveExample("pages/wat/le.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: le", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "env" "log_bool" (func $log_bool (param i32)))
+  (func $main
+    ;; load `10` and `2` onto the stack
+    i32.const 10
+    i32.const 2
+
+    i32.le_u ;; check if `10` is  less than or equal to '2'
+    call $log_bool ;; log the result
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+
+function log_bool(value) {
+  console.log(Boolean(value));
+  // Expected output: false
+}
+
+await WebAssembly.instantiateStreaming(fetch(url), {
+  env: { log_bool },
+});
+```
 
 ## Syntax
 

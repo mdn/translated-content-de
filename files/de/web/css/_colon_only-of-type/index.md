@@ -1,15 +1,45 @@
 ---
-title: :only-of-type
+title: ":only-of-type"
 slug: Web/CSS/:only-of-type
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:only-of-type`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das keine Geschwister desselben Typs hat.
+Die **`:only-of-type`** CSS-[Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das keine Geschwister vom gleichen Typ hat.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-only-of-type.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :only-of-type", "tabbed-shorter")}}
+
+```css interactive-example
+a:only-of-type {
+  color: fuchsia;
+}
+
+dd:only-of-type {
+  background-color: bisque;
+}
+```
+
+```html interactive-example
+<p>
+  To find out more about <b>QUIC</b>, check <a href="#">RFC 9000</a> and
+  <a href="#">RFC 9114</a>.
+</p>
+
+<dl>
+  <dt>Published</dt>
+  <dd>2021</dd>
+  <dd>2022</dd>
+</dl>
+
+<p>Details about <b>QPACK</b> can be found in <a href="#">RFC 9204</a>.</p>
+
+<dl>
+  <dt>Published</dt>
+  <dd>2022</dd>
+</dl>
+```
 
 ## Syntax
 
@@ -21,7 +51,7 @@ Die **`:only-of-type`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repr
 
 ## Beispiele
 
-### Elemente ohne Geschwister desselben Typs stylen
+### Styling von Elementen ohne Geschwister vom gleichen Typ
 
 #### HTML
 

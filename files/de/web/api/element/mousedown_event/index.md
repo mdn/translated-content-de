@@ -1,22 +1,22 @@
 ---
-title: "Element: mousedown-Ereignis"
+title: "Element: mousedown Ereignis"
 short-title: mousedown
 slug: Web/API/Element/mousedown_event
 l10n:
-  sourceCommit: 6e5b16aa29efee13cc7ec2fdc5512f0b3d275377
+  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
 ---
 
 {{APIRef}}
 
-Das **`mousedown`**-Ereignis wird auf einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn eine Taste eines Zeigegeräts gedrückt wird, während sich der Zeiger innerhalb des Elements befindet.
+Das **`mousedown`** Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn eine Taste eines Zeigegeräts gedrückt wird, während sich der Zeiger innerhalb des Elements befindet.
 
-Dies unterscheidet sich vom [`click`](/de/docs/Web/API/Element/click_event)-Ereignis, da `click` nach einem vollständigen Klickvorgang ausgelöst wird; das heißt, die Maustaste wird gedrückt und wieder losgelassen, während sich der Zeiger weiterhin innerhalb desselben Elements befindet. `mousedown` wird in dem Moment ausgelöst, in dem die Taste zunächst gedrückt wird.
+Dies unterscheidet sich vom [`click`](/de/docs/Web/API/Element/click_event) Ereignis, da `click` ausgelöst wird, nachdem ein vollständiger Klickvorgang stattgefunden hat; das heißt, die Maustaste wird gedrückt und losgelassen, während der Zeiger innerhalb desselben Elements bleibt. `mousedown` wird in dem Moment ausgelöst, in dem die Taste zunächst gedrückt wird.
 
-Dieses Verhalten ist anders als bei [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignissen. Bei der Verwendung einer physischen Maus werden `mousedown`-Ereignisse immer dann ausgelöst, wenn eine beliebige Taste einer Maus gedrückt wird. `pointerdown`-Ereignisse werden nur bei der ersten Tastenbetätigung ausgelöst; nachfolgende Tastenbetätigungen lösen keine weiteren `pointerdown`-Ereignisse aus.
+Dieses Verhalten unterscheidet sich von [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event) Ereignissen. Beim Verwenden einer physischen Maus werden `mousedown` Ereignisse ausgelöst, wann immer eine Taste an einer Maus gedrückt wird. `pointerdown` Ereignisse werden nur beim ersten Drücken einer Taste ausgelöst; nachfolgende Tastendrücke lösen keine `pointerdown` Ereignisse aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("mousedown", (event) => {});
@@ -32,14 +32,14 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften ihrer Elternklassen: [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`MouseEvent.altKey`](/de/docs/Web/API/MouseEvent/altKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>alt</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) {{ReadOnlyInline}}
   - : Die Nummer der Taste, die gedrückt wurde (falls zutreffend), als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent/buttons) {{ReadOnlyInline}}
-  - : Die Tasten, die gedrückt wurden (falls vorhanden), als das Mausereignis ausgelöst wurde.
+  - : Die Tasten, die gedrückt werden (falls vorhanden), als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
 - [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY) {{ReadOnlyInline}}
@@ -53,13 +53,13 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Elternklassen: [`UIEvent`](/d
 - [`MouseEvent.metaKey`](/de/docs/Web/API/MouseEvent/metaKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>meta</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.movementX`](/de/docs/Web/API/MouseEvent/movementX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
 - [`MouseEvent.movementY`](/de/docs/Web/API/MouseEvent/movementY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
 - [`MouseEvent.offsetX`](/de/docs/Web/API/MouseEvent/offsetX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position des Innenrands des Zielknotens.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position des Polsterrandes des Zielknotens.
 - [`MouseEvent.offsetY`](/de/docs/Web/API/MouseEvent/offsetY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position des Innenrands des Zielknotens.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position des Polsterrandes des Zielknotens.
 - [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers relativ zum gesamten Dokument.
 - [`MouseEvent.pageY`](/de/docs/Web/API/MouseEvent/pageY) {{ReadOnlyInline}}
@@ -73,10 +73,10 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Elternklassen: [`UIEvent`](/d
 - [`MouseEvent.shiftKey`](/de/docs/Web/API/MouseEvent/shiftKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>shift</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.mozInputSource`](/de/docs/Web/API/MouseEvent/mozInputSource) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Typ des Geräts, das das Ereignis generiert hat (einer der `MOZ_SOURCE_*`-Konstanten).
-    Dies ermöglicht es Ihnen beispielsweise herauszufinden, ob ein Mausereignis durch eine tatsächliche Maus oder durch ein Touch-Ereignis generiert wurde (was die Genauigkeit bei der Interpretation der mit dem Ereignis verbundenen Koordinaten beeinflussen könnte).
+  - : Der Typ des Geräts, das das Ereignis erzeugt hat (einer der `MOZ_SOURCE_*` Konstanten).
+    Damit können Sie beispielsweise feststellen, ob ein Mausereignis durch eine tatsächliche Maus oder durch ein Touch-Ereignis erzeugt wurde (was die Genauigkeit bei der Interpretation der mit dem Ereignis verbundenen Koordinaten beeinflussen kann).
 - [`MouseEvent.webkitForce`](/de/docs/Web/API/MouseEvent/webkitForce) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Druck, der beim Klicken ausgeübt wurde.
+  - : Der Druckbetrag, der beim Klicken ausgeübt wurde.
 - [`MouseEvent.x`](/de/docs/Web/API/MouseEvent/x) {{ReadOnlyInline}}
   - : Alias für [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX).
 - [`MouseEvent.y`](/de/docs/Web/API/MouseEvent/y) {{ReadOnlyInline}}
@@ -84,7 +84,7 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Elternklassen: [`UIEvent`](/d
 
 ## Beispiele
 
-Siehe [`mousemove`-Ereignis](/de/docs/Web/API/Element/mousemove_event#examples) für Beispielcode.
+Siehe [`mousemove` Ereignis](/de/docs/Web/API/Element/mousemove_event#examples) für Beispielcode.
 
 ## Spezifikationen
 
@@ -96,7 +96,7 @@ Siehe [`mousemove`-Ereignis](/de/docs/Web/API/Element/mousemove_event#examples) 
 
 ## Siehe auch
 
-- [Lernen: Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events)
+- [Learn: Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events)
 - [`mouseup`](/de/docs/Web/API/Element/mouseup_event)
 - [`mousemove`](/de/docs/Web/API/Element/mousemove_event)
 - [`click`](/de/docs/Web/API/Element/click_event)

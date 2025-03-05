@@ -1,20 +1,50 @@
 ---
-title: :in-range
+title: ":in-range"
 slug: Web/CSS/:in-range
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
 ---
 
 {{CSSRef}}
 
-Die **`:in-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert innerhalb der durch die Attribute [`min`](/de/docs/Web/HTML/Element/input#min) und [`max`](/de/docs/Web/HTML/Element/input#max) festgelegten Bereichsgrenzen liegt.
+Die **`:in-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert innerhalb der durch die [`min`](/de/docs/Web/HTML/Element/input#min)- und [`max`](/de/docs/Web/HTML/Element/input#max)-Attribute angegebenen Bereichsgrenzen liegt.
 
-{{EmbedInteractiveExample("pages/tabbed/pseudo-class-in-range.html", "tabbed-shorter")}}
+{{InteractiveExample("CSS Demo: :in-range", "tabbed-shorter")}}
 
-Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes innerhalb der zulässigen Grenzen liegt.
+```css interactive-example
+label {
+  display: block;
+  margin-top: 1em;
+}
+
+input:in-range {
+  background-color: palegreen;
+}
+```
+
+```html interactive-example
+<form>
+  <label for="amount">How many tickets? (You can buy 2-6 tickets)</label>
+  <input id="amount" name="amount" type="number" min="2" max="6" value="4" />
+
+  <label for="dep">Departure Date: (Whole year 2022 is acceptable)</label>
+  <input
+    id="dep"
+    name="dep"
+    type="date"
+    min="2022-01-01"
+    max="2022-12-31"
+    value="2025-05-05" />
+
+  <label for="ret">Return Date: (Whole year 2022 is acceptable)</label>
+  <input id="ret" name="ret" type="date" min="2022-01-01" max="2022-12-31" />
+</form>
+```
+
+Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass sich der aktuelle Wert eines Feldes innerhalb der erlaubten Grenzen befindet.
 
 > [!NOTE]
-> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichseinschränkung aufweisen (und diese annehmen können). Ohne eine solche Einschränkung kann das Element weder "in-range" noch "out-of-range" sein.
+> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichsbeschränkung haben (und übernehmen können). In Abwesenheit einer solchen Beschränkung kann das Element weder "in-range" noch "out-of-range" sein.
 
 ## Syntax
 
@@ -83,7 +113,7 @@ input:out-of-range + label::after {
 {{EmbedLiveSample('Examples', 600, 140)}}
 
 > [!NOTE]
-> Ein leeres `<input>` wird nicht als außerhalb des Bereichs betrachtet und kann nicht mit dem `:out-of-range`-Pseudoklassen-Selektor ausgewählt werden. Die [`:blank`](/de/docs/Web/CSS/:blank)-Pseudoklasse existiert, um leere Eingaben auszuwählen. Zum Zeitpunkt der Erstellung dieses Dokuments ist diese jedoch experimentell und nicht gut unterstützt. Sie könnten auch das `required`-Attribut und die [`:invalid`](/de/docs/Web/CSS/:invalid)-Pseudoklasse verwenden, um allgemeinere Logik und Stilvorgaben für Pflichtfelder anzuwenden (`:invalid` wird sowohl leere _als auch_ außerhalb des Bereichs liegende Eingaben stylen).
+> Ein leeres `<input>` zählt nicht als außerhalb des Bereichs und wird nicht mit dem `:out-of-range`-Pseudoklassen-Selektor ausgewählt. Die [`:blank`](/de/docs/Web/CSS/:blank) Pseudoklasse existiert, um leere Eingaben auszuwählen, obwohl sie zum Zeitpunkt der Erstellung dieses Textes experimentell und nicht gut unterstützt ist. Sie könnten auch das `required`-Attribut und die [`:invalid`](/de/docs/Web/CSS/:invalid) Pseudoklasse verwenden, um allgemeinere Logik und Gestaltung für Pflichtfelder bereitzustellen (`:invalid` wird sowohl leere als auch außerhalb des Bereichs liegende Eingaben stylen).
 
 ## Spezifikationen
 
@@ -96,4 +126,4 @@ input:out-of-range + label::after {
 ## Siehe auch
 
 - {{cssxref(":out-of-range")}}
-- [Formulardatenüberprüfung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

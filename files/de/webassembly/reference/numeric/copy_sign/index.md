@@ -1,13 +1,33 @@
 ---
-title: Kopiere Vorzeichen
+title: Vorzeichen kopieren
 slug: WebAssembly/Reference/Numeric/Copy_sign
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-Die **`copysign`** Anweisungen werden verwendet, um nur das Vorzeichenbit von einer Zahl auf eine andere zu kopieren.
+Die **`copysign`**-Anweisungen werden verwendet, um nur das Vorzeichenbit von einer Zahl auf eine andere zu kopieren.
 
-{{EmbedInteractiveExample("pages/wat/copysign.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: copysign", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param f32)))
+  (func $main
+    ;; load `10` and a negative number onto the stack
+    f32.const 10
+    f32.const -2
+
+    f32.copysign ;; copy just the sing bit from second to the first number
+    call $log ;; log the result
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 

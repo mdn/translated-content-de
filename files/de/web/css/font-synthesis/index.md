@@ -2,18 +2,18 @@
 title: font-synthesis
 slug: Web/CSS/font-synthesis
 l10n:
-  sourceCommit: ec64bbd66dab1ce079768708b5da8c50abc4a957
+  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
 ---
 
 {{CSSRef}}
 
-Die **`font-synthesis`** [Shorthand](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, festzulegen, ob der Browser Kursiv-, Fettdruck-, Kapitälchen- und/oder Tief- und Hochstellungen synthetisieren darf, wenn diese in der angegebenen Schriftfamilie fehlen.
+Die **`font-synthesis`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft erlaubt Ihnen, festzulegen, ob der Browser die fettgedruckten, kursiven, Kapitälchen- und/oder Tief- und Hochstellungsschriftarten synthetisieren darf, wenn sie in der angegebenen Schriftfamilie fehlen.
 
 {{EmbedInteractiveExample("pages/css/font-synthesis.html")}}
 
-## Bestandteileigenschaften
+## Bestandteile
 
-Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist ein Shorthand für die folgenden CSS-Eigenschaften:
 
 - [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight)
 - [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style)
@@ -42,21 +42,21 @@ font-synthesis: unset;
 ### Werte
 
 - `none`
-  - : Gibt an, dass kein fetter, kursiver oder Kapitälchen-Schriftstil vom Browser synthetisiert werden darf.
+  - : Gibt an, dass keine fettgedruckte, kursiven oder Kapitälchen-Schriftarten vom Browser synthetisiert werden dürfen.
 - `weight`
-  - : Gibt an, dass der fehlende fette Schriftstil bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass die fehlende fettgedruckte Schriftart bei Bedarf vom Browser synthetisiert werden darf.
 - `style`
-  - : Gibt an, dass der kursive Schriftstil bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass die kursive Schriftart bei Bedarf vom Browser synthetisiert werden darf.
 - `small-caps`
-  - : Gibt an, dass der Kapitälchen-Schriftstil bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass die Kapitälchen-Schriftart bei Bedarf vom Browser synthetisiert werden darf.
 - `position`
-  - : Gibt an, dass der Tief- und Hochstellungsschriftstil bei Bedarf vom Browser synthetisiert werden darf, wenn {{cssxref("font-variant-position")}} verwendet wird.
+  - : Gibt an, dass die Tief- und Hochstellungsschriftarten bei Bedarf vom Browser synthetisiert werden dürfen, wenn {{cssxref("font-variant-position")}} verwendet wird.
 
 ## Beschreibung
 
-Die meisten standardmäßigen westlichen Schriftarten beinhalten kursiv und fett Varianten, und einige Schriftarten beinhalten Varianten für Kapitälchen und Tief-/Hochstellung. Viele Schriftarten jedoch nicht. Schriftarten für Chinesisch, Japanisch, Koreanisch und andere logographische Schriften neigen dazu, diese Varianten nicht zu beinhalten und das Synthetisieren könnte die Lesbarkeit beeinträchtigen oder die Bedeutung des Textes verändern. In diesen Fällen kann es wünschenswert sein, die standardmäßige Font-Synthese des Browsers auszuschalten.
+Die meisten standardmäßigen westlichen Schriftarten beinhalten kursiven und fettgedruckte Varianten, einige Schriftarten beinhalten Kapitälchen- und Tief- und Hochstellung-Varianten. Allerdings tun viele Schriftarten dies nicht. Schriftarten, die für Chinesisch, Japanisch, Koreanisch und andere logografische Schriftsysteme verwendet werden, enthalten diese Varianten tendenziell nicht, und die Synthese könnte die Lesbarkeit beeinträchtigen oder die Bedeutung des Textes verändern. In diesen Fällen kann es wünschenswert sein, die Standardschrift-Synthese des Browsers auszuschalten.
 
-Zum Beispiel, durch Verwendung der [:lang()](/de/docs/Web/CSS/:lang) Pseudo-Klasse, können Sie den Browser daran hindern, fette und kursive Zeichen für eine Sprache zu synthetisieren, in diesem Fall Arabisch:
+Beispielsweise können Sie mit der Pseudo-Klasse [:lang()](/de/docs/Web/CSS/:lang) den Browser daran hindern, fettgedruckte und kursive Zeichen für eine Sprache zu synthetisieren, in diesem Fall Arabisch:
 
 ```css
 *:lang(ar) {
@@ -64,39 +64,39 @@ Zum Beispiel, durch Verwendung der [:lang()](/de/docs/Web/CSS/:lang) Pseudo-Klas
 }
 ```
 
-Die folgende Tabelle zeigt, wie ein Wert der Shorthand-Eigenschaft `font-synthesis` auf die zugehörigen Langen-Eigenschaften abgebildet wird.
+Die folgende Tabelle zeigt, wie ein Wert der Shorthand-Eigenschaft `font-synthesis` auf die zugehörigen Langform-Eigenschaften abgebildet wird.
 
-| Verwenden Sie diesen Wert bei `font-synthesis` | Wert von [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight) | Wert von [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style) | Wert von [font-synthesis-small-caps](/de/docs/Web/CSS/font-synthesis-small-caps) | Wert von [font-synthesis-position](/de/docs/Web/CSS/font-synthesis-position) |
-| :--------------------------------------------- | :----------------------------------------------------------------------- | :--------------------------------------------------------------------- | :------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- |
-| `none`                                         | `none`                                                                   | `none`                                                                 | `none`                                                                           | `none`                                                                       |
-| `weight`                                       | `auto`                                                                   | `none`                                                                 | `none`                                                                           | `none`                                                                       |
-| `style`                                        | `none`                                                                   | `auto`                                                                 | `none`                                                                           | `none`                                                                       |
-| `small-caps`                                   | `none`                                                                   | `none`                                                                 | `auto`                                                                           | `none`                                                                       |
-| `position`                                     | `none`                                                                   | `none`                                                                 | `none`                                                                           | `auto`                                                                       |
-| `weight style`                                 | `auto`                                                                   | `auto`                                                                 | `none`                                                                           | `none`                                                                       |
-| `weight small-caps`                            | `auto`                                                                   | `none`                                                                 | `auto`                                                                           | `none`                                                                       |
-| `weight position`                              | `auto`                                                                   | `none`                                                                 | `none`                                                                           | `auto`                                                                       |
-| `style small-caps`                             | `none`                                                                   | `auto`                                                                 | `auto`                                                                           | `none`                                                                       |
-| `style position`                               | `none`                                                                   | `auto`                                                                 | `none`                                                                           | `auto`                                                                       |
-| `weight style small-caps`                      | `auto`                                                                   | `auto`                                                                 | `auto`                                                                           | `none`                                                                       |
-| `weight style position`                        | `auto`                                                                   | `auto`                                                                 | `none`                                                                           | `auto`                                                                       |
-| `weight small-caps position`                   | `auto`                                                                   | `none`                                                                 | `auto`                                                                           | `auto`                                                                       |
-| `style small-caps position`                    | `none`                                                                   | `auto`                                                                 | `auto`                                                                           | `auto`                                                                       |
-| `weight style small-caps position`             | `auto`                                                                   | `auto`                                                                 | `auto`                                                                           | `auto`                                                                       |
+| Wert von font-synthesis            | Wert von [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight) | Wert von [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style) | Wert von [font-synthesis-small-caps](/de/docs/Web/CSS/font-synthesis-small-caps) | Wert von [font-synthesis-position](/de/docs/Web/CSS/font-synthesis-position) |
+| :--------------------------------- | :----------------------------------------------------------------------- | :--------------------------------------------------------------------- | :------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- |
+| `none`                             | `none`                                                                   | `none`                                                                 | `none`                                                                           | `none`                                                                       |
+| `weight`                           | `auto`                                                                   | `none`                                                                 | `none`                                                                           | `none`                                                                       |
+| `style`                            | `none`                                                                   | `auto`                                                                 | `none`                                                                           | `none`                                                                       |
+| `small-caps`                       | `none`                                                                   | `none`                                                                 | `auto`                                                                           | `none`                                                                       |
+| `position`                         | `none`                                                                   | `none`                                                                 | `none`                                                                           | `auto`                                                                       |
+| `weight style`                     | `auto`                                                                   | `auto`                                                                 | `none`                                                                           | `none`                                                                       |
+| `weight small-caps`                | `auto`                                                                   | `none`                                                                 | `auto`                                                                           | `none`                                                                       |
+| `weight position`                  | `auto`                                                                   | `none`                                                                 | `none`                                                                           | `auto`                                                                       |
+| `style small-caps`                 | `none`                                                                   | `auto`                                                                 | `auto`                                                                           | `none`                                                                       |
+| `style position`                   | `none`                                                                   | `auto`                                                                 | `none`                                                                           | `auto`                                                                       |
+| `weight style small-caps`          | `auto`                                                                   | `auto`                                                                 | `auto`                                                                           | `none`                                                                       |
+| `weight style position`            | `auto`                                                                   | `auto`                                                                 | `none`                                                                           | `auto`                                                                       |
+| `weight small-caps position`       | `auto`                                                                   | `none`                                                                 | `auto`                                                                           | `auto`                                                                       |
+| `style small-caps position`        | `none`                                                                   | `auto`                                                                 | `auto`                                                                           | `auto`                                                                       |
+| `weight style small-caps position` | `auto`                                                                   | `auto`                                                                 | `auto`                                                                           | `auto`                                                                       |
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Deaktivierung der Schriftart-Synthese
+### Deaktivierung der Schriftarten-Synthese
 
-Dieses Beispiel zeigt das standardmäßige Verhalten der Schriftart-Synthese des Browsers und vergleicht es, wenn das Syntheseverhalten ausgeschaltet ist. Beachten Sie, dass im Beispiel zwei importierte Schriften verwendet werden, um dieses Verhalten zu demonstrieren. Möglicherweise können Sie das Ausschalten der Schriftart-Synthese bei Schriftarten, die standardmäßig auf Ihrem Betriebssystem verfügbar sind, nicht replizieren.
+Dieses Beispiel zeigt das standardmäßige Verhalten der Schriftarten-Synthese des Browsers und vergleicht es mit dem Verhalten, wenn die Synthese ausgeschaltet ist. Beachten Sie, dass im Beispiel zwei importierte Schriftarten verwendet werden, um dieses Verhalten zu demonstrieren. Möglicherweise können Sie die Deaktivierung der Schriftarten-Synthese bei Schriftarten, die standardmäßig auf Ihrem Betriebssystem verfügbar sind, nicht replizieren.
 
 #### HTML
 
@@ -144,7 +144,7 @@ Dieses Beispiel zeigt das standardmäßige Verhalten der Schriftart-Synthese des
 
 #### Ergebnis
 
-{{EmbedLiveSample('Deaktivierung der Schriftart-Synthese', '', '400')}}
+{{EmbedLiveSample('Disabling font synthesis', '', '400')}}
 
 ## Spezifikationen
 

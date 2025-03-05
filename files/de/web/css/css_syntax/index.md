@@ -2,41 +2,41 @@
 title: CSS-Syntax
 slug: Web/CSS/CSS_syntax
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: d50c6b04f0e0cb20eca8a5f0e643e435ee8ac6ff
 ---
 
 {{CSSRef}}
 
-Das **CSS-Syntax-Modul** beschreibt im Allgemeinen die Struktur und Syntax von Cascading Stylesheets, oder CSS. Es definiert CSS als die Sprache zur Beschreibung der Darstellung von strukturierten Dokumenten (wie HTML und XML) im Web und anderswo.
+Das **CSS-Syntax**-Modul beschreibt im Allgemeinen die Struktur und Syntax von Cascading Stylesheets, oder CSS. Es definiert CSS als die Sprache zur Beschreibung der Darstellung von strukturierten Dokumenten (wie HTML und XML) im Web und anderswo.
 
-Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types), [Funktionen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) oder [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule). Vielmehr erläutert es, wie all diese Funktionen definiert werden sollten und wie Benutzeragenten CSS parsen sollten.
+Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types), [Funktionen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) oder [at-rules](/de/docs/Web/CSS/CSS_syntax/At-rule). Vielmehr wird ausgeführt, wie all diese Funktionen definiert werden sollten und wie User Agents CSS parsen sollten.
 
-## At-Regeln
+## At-rules
 
-- keine
+- Keine
 
 > [!NOTE]
-> Das Modul erklärt explizit, dass {{cssxref("@charset")}} keine tatsächliche At-Regel ist, sondern eine nicht erkannte Altkregel, die bei der Grammatikprüfung eines Stylesheets weggelassen werden sollte. Die einzige gültige Verwendung von `@charset` ist ganz am Anfang eines Stylesheets, wo es als spezielle Byte-Sequenz interpretiert wird, die vor der Verarbeitung des Inhalts entfernt wird.
+> Das Modul erklärt ausdrücklich, dass {{cssxref("@charset")}} keine tatsächliche At-Regel ist, sondern eine nicht erkannte Legacy-Regel, die weggelassen werden sollte, wenn ein Stylesheet grammatikalisch überprüft wird. Die einzige gültige Verwendung von `@charset` befindet sich ganz am Anfang eines Stylesheets, wo es als spezielle Byte-Sequenz interpretiert wird, die vor der Verarbeitung des Inhalts entfernt wird.
 
 ## Referenz
 
-### Hauptkonzepte
+### Schlüsselkonzepte
 
 - {{cssxref("at-rule")}}
-- [Zeichenescaping](/de/docs/Web/CSS/custom-ident#escaping_characters)
+- [Zeichen-Escaping](/de/docs/Web/CSS/custom-ident#escaping_characters)
 - [CSS-Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
 - [CSS-Deklaration](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration)
 - [CSS-Deklarationsblock](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration_Block)
 - [CSS-Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions)
-- [ungültig](/de/docs/Web/CSS/CSS_syntax/Error_handling)
+- [Ungültig](/de/docs/Web/CSS/CSS_syntax/Error_handling)
 - [Stilregel](/de/docs/Web/API/CSSStyleRule)
 
 ### Glossarbegriffe
 
 - {{Glossary("CSS_Descriptor", "CSS-Deskriptor")}}
-- {{Glossary("parse", "Parsen")}}
+- {{Glossary("parse", "parsen")}}
 - {{Glossary("stylesheet", "Stylesheet")}}
-- {{Glossary("whitespace", "Leerraum")}}
+- {{Glossary("whitespace", "Leerzeichen")}}
 
 ## Leitfäden
 
@@ -46,13 +46,13 @@ Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Va
 
 - [Wertdefinition-Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
 
-  - : Erklärt die formale Grammatik zur Definition gültiger Werte für CSS-Eigenschaften und Funktionen sowie semantische Einschränkungen. Ein Leitfaden zum Verständnis von CSS-Komponentenwerttypen, Kombinatoren und Multiplikatoren.
+  - : Erklärt die formale Grammatik zur Definition gültiger Werte für CSS-Eigenschaften und Funktionen sowie semantische Einschränkungen. Ein Leitfaden zum Verständnis von CSS-Komponenten-Wertetypen, Kombinatoren und Multiplikatoren.
 
-- [CSS-Syntax-Fehlerbehandlung](/de/docs/Web/CSS/CSS_syntax/Error_handling)
+- [Fehlerbehandlung der CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Error_handling)
 
-  - : Überblick, wie der Benutzeragent ungültiges CSS behandelt.
+  - : Überblick, wie der User Agent ungültiges CSS behandelt.
 
-- [CSS Lernen Erste Schritte: CSS-Syntax](/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS#css_syntax_basics)
+- [CSS lernen: Erste Schritte - CSS-Syntax](/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS#css_syntax_basics)
 
   - : Einführung in CSS, einschließlich einer Einführung in die CSS-Syntax.
 
@@ -66,7 +66,7 @@ Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Va
 
 - {{cssxref("@import")}} At-Regel
 - {{cssxref("important")}} Flag
-- [Anfangswerte](/de/docs/Web/CSS/CSS_cascade/initial_value)
+- [Initialwerte](/de/docs/Web/CSS/CSS_cascade/initial_value)
 - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/computed_value)
 - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/used_value)
 - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/actual_value)
@@ -102,5 +102,6 @@ Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Va
 
 ## Siehe auch
 
+- [CSS At-Regel-Funktionen](/de/docs/Web/CSS/CSS_syntax/At-rule_functions)
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
 - [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul

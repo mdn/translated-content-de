@@ -1,13 +1,35 @@
 ---
-title: Reinterpret
+title: Neuinterpretieren
 slug: WebAssembly/Reference/Numeric/Reinterpret
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
 Die **`reinterpret`** Anweisungen werden verwendet, um die Bits einer Zahl als einen anderen Typ neu zu interpretieren.
 
-{{EmbedInteractiveExample("pages/wat/reinterpret.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: reinterpret", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param i32)))
+  (func $main
+    ;; the value `10000000_00000000_00000000_00000000` in binary
+    ;; maps to `-0` as a floating point and to `-2147483648` as an integer.
+
+    f32.const -0 ;; push an f32 onto the stack
+
+    i32.reinterpret_f32 ;; reinterpret the bytes of the f32 as i32
+
+    call $log ;; log the result
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 

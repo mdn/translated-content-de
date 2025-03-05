@@ -2,12 +2,30 @@
 title: Const
 slug: WebAssembly/Reference/Numeric/Const
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
 ---
 
-Die Anweisung **`const`** wird verwendet, um Zahlen zu deklarieren.
+Die **`const`** Anweisungen werden verwendet, um Zahlen zu deklarieren.
 
-{{EmbedInteractiveExample("pages/wat/const.html", "tabbed-standard")}}
+{{InteractiveExample("Wat Demo: const", "tabbed-standard")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param i32)))
+  (func $main
+
+    i32.const 10 ;; load a number onto the stack
+    call $log ;; log the number
+
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 
