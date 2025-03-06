@@ -3,20 +3,20 @@ title: "Element: ariaRowSpan-Eigenschaft"
 short-title: ariaRowSpan
 slug: Web/API/Element/ariaRowSpan
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaRowSpan`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowspan)-Attributs wider, welches die Anzahl der von einer Zelle oder Gitterzelle in einer Tabelle, einem Raster oder einem Baumgitter überspannten Zeilen definiert.
+Die **`ariaRowSpan`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowspan)-Attributs wider. Dieses Attribut definiert die Anzahl der Zeilen, die von einer Zelle oder Gitterzelle innerhalb einer Tabelle, eines Gitters oder Baumgitters überspannt werden.
 
 ## Wert
 
-Ein String, der eine ganze Zahl enthält.
+Ein String, der eine Ganzzahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-rowspan`-Attribut des Elements mit der ID `spanning-heading` auf "3" gesetzt. Mithilfe von `ariaRowSpan` aktualisieren wir den Wert auf "2".
+In diesem Beispiel wird das `aria-rowspan`-Attribut des Elements mit der ID `spanning-heading` auf "3" gesetzt. Mit `ariaRowSpan` aktualisieren wir den Wert auf "2".
 
 ```html
 <table>
@@ -50,4 +50,4 @@ console.log(el.ariaRowSpan);
 
 ## Siehe auch
 
-- [ARIA: Tabellenrolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: Tabelle Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)

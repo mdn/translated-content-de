@@ -1,18 +1,18 @@
 ---
-title: <title> — das SVG-Element für zugängliche Namen
+title: <title> — das SVG-Element für den zugänglichen Namen
 slug: Web/SVG/Element/title
 l10n:
-  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{SVGRef}}
 
-Das **`<title>`** [SVG](/de/docs/Web/SVG) Element bietet eine zugängliche, kurztextliche Beschreibung eines SVG-[Container-Elements](/de/docs/Web/SVG/Element#container_elements) oder eines [Grafik-Elements](/de/docs/Web/SVG/Element#graphics_elements).
+Das **`<title>`** [SVG](/de/docs/Web/SVG)-Element bietet eine zugängliche Kurzbeschreibung für jedes SVG-[Container-Element](/de/docs/Web/SVG/Element#container_elements) oder [Grafik-Element](/de/docs/Web/SVG/Element#graphics_elements).
 
-Text in einem `<title>` Element wird nicht als Teil der Grafik dargestellt, aber Browser zeigen ihn normalerweise als Tooltip an. Wenn ein Element durch sichtbaren Text beschrieben werden kann, wird empfohlen, diesen Text mit einem [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) Attribut zu referenzieren, anstatt das `<title>` Element zu verwenden.
+Der Text in einem `<title>`-Element wird nicht als Teil der Grafik gerendert, aber Browser zeigen ihn normalerweise als Tooltip an. Wenn ein Element durch sichtbaren Text beschrieben werden kann, wird empfohlen, diesen Text mit einem [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attribut zu referenzieren, anstatt das `<title>`-Element zu verwenden.
 
 > [!NOTE]
-> Aus Gründen der Abwärtskompatibilität mit SVG 1.1 sollten `<title>` Elemente das erste Kindelement ihres übergeordneten Elements sein.
+> Für die Rückwärtskompatibilität mit SVG 1.1 sollten `<title>`-Elemente das erste Kindelement ihres Elternteils sein.
 
 ## Beispiel
 
@@ -40,7 +40,7 @@ svg {
 
 ## Attribute
 
-Dieses Element enthält nur globale Attribute.
+Dieses Element beinhaltet nur globale Attribute
 
 ## Verwendungskontext
 

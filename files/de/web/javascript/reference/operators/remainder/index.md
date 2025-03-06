@@ -1,13 +1,13 @@
 ---
-title: Rest (%)
+title: Rest (`%`)
 slug: Web/JavaScript/Reference/Operators/Remainder
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Rest (`%`)**-Operator gibt den Rest zurück, der übrig bleibt, wenn ein Operand durch einen zweiten Operanden dividiert wird. Er übernimmt stets das Vorzeichen des Dividenden.
+Der **Rest (`%`)** Operator gibt den Rest zurück, der übrig bleibt, wenn ein Operand durch einen zweiten Operand dividiert wird. Er nimmt immer das Vorzeichen des Dividenden an.
 
 {{InteractiveExample("JavaScript Demo: Expressions - Remainder operator")}}
 
@@ -33,19 +33,19 @@ x % y
 
 ## Beschreibung
 
-Der `%`-Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [erzwingt zunächst, dass beide Operanden in numerische Werte umgewandelt werden](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und prüft dann deren Typen. Wenn beide Operanden zu BigInts werden, führt er eine BigInt-Restoperation durch; andernfalls wird eine Zahl-Restoperation ausgeführt. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand ein BigInt wird, der andere jedoch eine Zahl.
+Der `%` Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [erzwingt zuerst die Umwandlung beider Operanden in numerische Werte](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft die Typen von ihnen. Er führt eine BigInt-Restoperation aus, wenn beide Operanden zu BigInts werden; andernfalls führt er eine Zahl-Restoperation aus. Ein {{jsxref("TypeError")}} wird ausgelöst, falls ein Operand zu einem BigInt, der andere jedoch zu einer Zahl wird.
 
-Bei der Operation `n % d` wird `n` als Dividend und `d` als Divisor bezeichnet. Die Operation gibt `NaN` zurück, wenn einer der Operanden `NaN` ist, `n` ±Infinity ist oder wenn `d` ±0 ist. Andernfalls, wenn `d` ±Infinity ist oder wenn `n` ±0 ist, wird der Dividend `n` zurückgegeben.
+Für die Operation `n % d` wird `n` Dividende und `d` Divisor genannt. Die Operation gibt `NaN` zurück, wenn einer der Operanden `NaN`, `n` ±Unendlich ist oder wenn `d` ±0 ist. Ansonsten, wenn `d` ±Unendlich oder `n` ±0 ist, wird die Dividende `n` zurückgegeben.
 
-Wenn beide Operanden nicht null und endlich sind, wird der Rest `r` berechnet als `r := n - d * q`, wobei `q` die ganze Zahl ist, sodass `r` dasselbe Vorzeichen wie der Dividend `n` hat und so nah wie möglich an 0 liegt.
+Wenn beide Operanden ungleich null und endlich sind, wird der Rest `r` als `r := n - d * q` berechnet, wobei `q` die ganze Zahl ist, so dass `r` das gleiche Vorzeichen wie die Dividende `n` hat, während es so nahe wie möglich bei 0 liegt.
 
-Beachten Sie, dass in den meisten Sprachen `%` ein Rest-Operator ist, in einigen (z. B. [Python, Perl](https://en.wikipedia.org/wiki/Modulo_operation#In_programming_languages)) jedoch ein Modulo-Operator. Modulo wird definiert als `k := n - d * q`, wobei `q` die ganze Zahl ist, sodass `k` dasselbe Vorzeichen wie der Divisor `d` hat und so nah wie möglich an 0 liegt. Für zwei gleichartige Vorzeichen sind beide gleichwertig, aber wenn die Operanden unterschiedliche Vorzeichen haben, hat das Modulo-Ergebnis immer dasselbe Vorzeichen wie der _Divisor_, während der Rest dasselbe Vorzeichen wie der _Dividend_ hat, was dazu führen kann, dass sie sich um eine Einheit von `d` unterscheiden. Um ein Modulo in JavaScript zu erhalten, verwenden Sie anstelle von `n % d` die Operation `((n % d) + d) % d`. In JavaScript wird die Modulo-Operation (die keinen dedizierten Operator hat) verwendet, um den zweiten Operanden von Bit-Shift-Operatoren ([`<<`](/de/docs/Web/JavaScript/Reference/Operators/Left_shift), [`>>`](/de/docs/Web/JavaScript/Reference/Operators/Right_shift) etc.) zu normalisieren, sodass der Offset stets einen positiven Wert hat.
+Beachten Sie, dass in den meisten Sprachen '%' ein Restoperator ist, in einigen (z.B. [Python, Perl](https://en.wikipedia.org/wiki/Modulo_operation#In_programming_languages)) jedoch ein Modulo-Operator ist. Modulo ist definiert als `k := n - d * q`, wobei `q` die ganze Zahl ist, so dass `k` das gleiche Vorzeichen wie der Divisor `d` hat, während es so nahe wie möglich bei 0 liegt. Für zwei Werte mit demselben Vorzeichen sind beide gleichwertig, aber wenn die Operanden unterschiedliche Vorzeichen haben, hat das Modulo-Ergebnis immer das gleiche Vorzeichen wie der _Divisor_, während der Rest das gleiche Vorzeichen wie die _Dividende_ hat, was zu einer Differenz von einer Einheit von `d` führen kann. Um ein Modulo in JavaScript zu erhalten, anstelle von `n % d`, verwenden Sie `((n % d) + d) % d`. In JavaScript wird die Modulo-Operation (die keinen eigenen Operator hat) verwendet, um den zweiten Operanden von Bitweise-Schiebeoperatoren ([`<<`](/de/docs/Web/JavaScript/Reference/Operators/Left_shift), [`>>`](/de/docs/Web/JavaScript/Reference/Operators/Right_shift), etc.) zu normalisieren, wodurch die Verschiebung immer einen positiven Wert hat.
 
-Bei der BigInt-Division wird ein {{jsxref("RangeError")}} ausgelöst, wenn der Divisor `y` `0n` ist. Der Rest einer Zahl durch Null liefert `NaN`, aber BigInt kennt kein Konzept von `NaN`.
+Bei der BigInt-Division wird ein {{jsxref("RangeError")}} ausgelöst, wenn der Divisor `y` `0n` ist. Dies liegt daran, dass der Rest durch null `NaN` zurückgibt, aber BigInt kein Konzept von `NaN` hat.
 
 ## Beispiele
 
-### Rest mit positivem Dividend
+### Rest mit positiver Dividende
 
 ```js
 13 % 5; // 3
@@ -57,7 +57,7 @@ Bei der BigInt-Division wird ein {{jsxref("RangeError")}} ausgelöst, wenn der D
 3n % 2n; // 1n
 ```
 
-### Rest mit negativem Dividend
+### Rest mit negativer Dividende
 
 ```js
 -13 % 5; // -3
@@ -73,7 +73,7 @@ Bei der BigInt-Division wird ein {{jsxref("RangeError")}} ausgelöst, wenn der D
 NaN % 2; // NaN
 ```
 
-### Rest mit Infinity
+### Rest mit Unendlichkeit
 
 ```js
 Infinity % 2; // NaN
@@ -102,4 +102,4 @@ Infinity % Infinity; // NaN
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
 - [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)
-- [Rest-Operator vs. Modulo-Operator](https://2ality.com/2019/08/remainder-vs-modulo.html) von Dr. Axel Rauschmayer (2019)
+- [Restoperator vs. Modulo-Operator](https://2ality.com/2019/08/remainder-vs-modulo.html) von Dr. Axel Rauschmayer (2019)

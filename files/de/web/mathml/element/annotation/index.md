@@ -2,15 +2,15 @@
 title: <annotation>
 slug: Web/MathML/Element/annotation
 l10n:
-  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{MathMLRef}}
 
-Das **`<annotation>`** [MathML](/de/docs/Web/MathML) Element enthält eine Annotation zur MathML-Ausdruck in einem textuellen Format, zum Beispiel [LaTeX](https://www.latex-project.org/).
+Das **`<annotation>`** [MathML](/de/docs/Web/MathML) Element enthält eine Annotation der MathML-Ausdruck in einem textuellen Format, zum Beispiel [LaTeX](https://www.latex-project.org/).
 
 > [!NOTE]
-> Annotationen sollen nicht von Browsern dargestellt werden und sind standardmäßig versteckt. Allerdings rendern Firefox und Safari einige Annotationsformate, wenn das erste Kind des {{mathmlelement("semantics")}} Elements Fehler enthält oder fehlt.
+> Annotationen sind nicht dazu gedacht, von Browsern dargestellt zu werden und sind standardmäßig verborgen. Allerdings rendern Firefox und Safari einige Annotationformate, falls das erste Kind des {{mathmlelement("semantics")}} Elements Fehler enthält oder fehlt.
 
 ## Attribute
 
@@ -62,7 +62,7 @@ body {
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizierte ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizite ARIA-Rolle</a>
     </th>
     <td>
       Keine

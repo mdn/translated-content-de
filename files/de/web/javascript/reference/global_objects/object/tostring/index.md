@@ -2,12 +2,12 @@
 title: Object.prototype.toString()
 slug: Web/JavaScript/Reference/Global_Objects/Object/toString
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{JSRef}}
 
-Die **`toString()`**-Methode von {{jsxref("Object")}}-Instanzen gibt eine Zeichenkette zurück, die dieses Objekt repräsentiert. Diese Methode ist dazu gedacht, von abgeleiteten Objekten für benutzerdefinierte [Typkonvertierungslogik](/de/docs/Web/JavaScript/Data_structures#type_coercion) überschrieben zu werden.
+Die **`toString()`** Methode von {{jsxref("Object")}} Instanzen gibt einen String zurück, der dieses Objekt repräsentiert. Diese Methode soll von abgeleiteten Objekten für eigene Logik der [Typumwandlung](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion) überschrieben werden.
 
 {{InteractiveExample("JavaScript Demo: Object.prototype.toString()")}}
 
@@ -34,21 +34,21 @@ toString()
 
 ### Parameter
 
-Standardmäßig nimmt `toString()` keine Parameter entgegen. Allerdings können Objekte, die von `Object` erben, sie mit eigenen Implementierungen überschreiben, die Parameter entgegennehmen. Zum Beispiel akzeptieren die Methoden [`Number.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) und [`BigInt.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/toString) einen optionalen `radix`-Parameter.
+Standardmäßig nimmt `toString()` keine Parameter. Objekte, die von `Object` erben, können es jedoch mit eigenen Implementierungen überschreiben, die Parameter akzeptieren. Zum Beispiel nehmen die Methoden [`Number.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) und [`BigInt.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/toString) einen optionalen `radix`-Parameter.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die das Objekt repräsentiert.
+Ein String, der das Objekt repräsentiert.
 
 ## Beschreibung
 
-JavaScript ruft die Methode `toString` auf, um [ein Objekt in einen primitiven Wert zu konvertieren](/de/docs/Web/JavaScript/Data_structures#type_coercion). Sie müssen die Methode `toString` selten selbst aufrufen; JavaScript ruft sie automatisch auf, wenn ein Objekt in einem Kontext verwendet wird, in dem ein primitiver Wert erwartet wird.
+JavaScript ruft die `toString` Methode auf, um [ein Objekt in einen primitiven Wert umzuwandeln](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion). Normalerweise muss die `toString` Methode nicht direkt aufgerufen werden; JavaScript ruft sie automatisch auf, wenn es auf ein Objekt trifft, wo ein primitiver Wert erwartet wird.
 
-Diese Methode wird bei der [Zeichenkettenkonvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) priorisiert aufgerufen, während [numerische Konvertierung](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und [primitive Konvertierung](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) zuerst `valueOf()` aufrufen. Da die Basis-Methode [`valueOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf) jedoch ein Objekt zurückgibt, wird meist die Methode `toString()` aufgerufen, es sei denn, das Objekt überschreibt `valueOf()`. Zum Beispiel gibt `+[1]` den Wert `1` zurück, da die Methode [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/toString) `"1"` zurückgibt, das dann in eine Zahl umgewandelt wird.
+Diese Methode wird vorrangig durch die [String-Konvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) aufgerufen; jedoch rufen die [numerische Konvertierung](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und die [primitiven Konvertierung](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) `valueOf()` vorrangig auf. Da jedoch die Basismethode [`valueOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf) ein Objekt zurückgibt, wird in der Regel `toString()` am Ende aufgerufen, es sei denn, das Objekt überschreibt `valueOf()`. Zum Beispiel gibt `+[1]` den Wert `1` zurück, weil seine [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/toString) Methode den Wert `"1"` zurückgibt, der dann in eine Zahl konvertiert wird.
 
-Alle Objekte, die von `Object.prototype` erben (das heißt, alle außer [`null`-Prototyp-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)), erben die Methode `toString()`. Wenn Sie ein benutzerdefiniertes Objekt erstellen, können Sie `toString()` überschreiben, um eine benutzerdefinierte Methode aufzurufen, sodass Ihr benutzerdefiniertes Objekt in einen Zeichenkettenwert konvertiert werden kann. Alternativ können Sie eine Methode [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) hinzufügen, die noch mehr Kontrolle über den Konvertierungsprozess bietet und bei jeder Typkonvertierung gegenüber `valueOf` oder `toString` bevorzugt wird.
+Alle Objekte, die von `Object.prototype` erben (also alle außer [`null`-Prototype-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)), erben die `toString()` Methode. Wenn Sie ein benutzerdefiniertes Objekt erstellen, können Sie `toString()` überschreiben, um eine eigene Methode aufzurufen, damit Ihr benutzerdefiniertes Objekt in einen String-Wert konvertiert werden kann. Alternativ können Sie eine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) Methode hinzufügen, die noch mehr Kontrolle über den Konvertierungsprozess ermöglicht und bei jeder Typumwandlung immer `valueOf` oder `toString` vorgezogen wird.
 
-Um die Basis-Methode `Object.prototype.toString()` mit einem Objekt zu verwenden, das sie überschrieben hat (oder um sie auf `null` oder `undefined` anzuwenden), müssen Sie {{jsxref("Function.prototype.call()")}} oder {{jsxref("Function.prototype.apply()")}} aufrufen und das zu untersuchende Objekt als ersten Parameter (genannt `thisArg`) übergeben.
+Um die Basis `Object.prototype.toString()` mit einem Objekt zu verwenden, das es überschrieben hat (oder um es auf `null` oder `undefined` aufzurufen), müssen Sie {{jsxref("Function.prototype.call()")}} oder {{jsxref("Function.prototype.apply()")}} darauf aufrufen und das Objekt, das Sie inspizieren möchten, als ersten Parameter (genannt `thisArg`) übergeben.
 
 ```js
 const arr = [1, 2, 3];
@@ -57,7 +57,7 @@ arr.toString(); // "1,2,3"
 Object.prototype.toString.call(arr); // "[object Array]"
 ```
 
-`Object.prototype.toString()` gibt `"[object Type]"` zurück, wobei `Type` dem Objekttyp entspricht. Falls das Objekt eine [`Symbol.toStringTag`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft hat, deren Wert eine Zeichenkette ist, wird dieser Wert als `Type` verwendet. Viele eingebaute Objekte, einschließlich [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) und [`Symbol`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), verfügen über ein `Symbol.toStringTag`. Einige Objekte, die vor ES6 definiert wurden, besitzen kein `Symbol.toStringTag`, haben aber trotzdem einen speziellen Tag. Dazu gehören (der Tag ist derselbe wie der unten angegebene Typname):
+`Object.prototype.toString()` gibt `"[object Type]"` zurück, wobei `Type` der Objekttyp ist. Wenn das Objekt eine [`Symbol.toStringTag`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft hat, deren Wert ein String ist, wird dieser Wert als `Type` verwendet. Viele eingebaute Objekte, einschließlich [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) und [`Symbol`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), haben ein `Symbol.toStringTag`. Einige Objekte, die ältere ECMAScript-Versionen vor ES6 nutzen, haben kein `Symbol.toStringTag`, aber dennoch einen speziellen Tag. Dazu gehören (der Tag ist derselbe wie der unten angegebene Typname):
 
 - [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - [`Function`](/de/docs/Web/JavaScript/Reference/Functions) (alles, dessen [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof) `"function"` zurückgibt)
@@ -68,15 +68,15 @@ Object.prototype.toString.call(arr); // "[object Array]"
 - [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date)
 - [`RegExp`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
 
-Das [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)-Objekt gibt `"[object Arguments]"` zurück. Alles andere, einschließlich benutzerdefinierter Klassen, gibt `"[object Object]"` zurück, es sei denn, es besitzt ein benutzerdefiniertes `Symbol.toStringTag`.
+Das [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) Objekt gibt `"[object Arguments]"` zurück. Alles andere, einschließlich benutzerdefinierter Klassen, wird, sofern es keinen benutzerdefinierten `Symbol.toStringTag` hat, `"[object Object]"` zurückgeben.
 
-`Object.prototype.toString()`, angewendet auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und {{jsxref("undefined")}}, gibt `[object Null]` bzw. `[object Undefined]` zurück.
+`Object.prototype.toString()` aufgerufen auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und {{jsxref("undefined")}} gibt `[object Null]` beziehungsweise `[object Undefined]` zurück.
 
 ## Beispiele
 
 ### Überschreiben von toString für benutzerdefinierte Objekte
 
-Sie können eine Funktion erstellen, die anstelle der Standard-`toString()`-Methode aufgerufen wird. Die von Ihnen erstellte `toString()`-Funktion sollte eine Zeichenkette zurückgeben. Wenn sie ein Objekt zurückgibt und die Methode implizit während einer [Typkonvertierung](/de/docs/Web/JavaScript/Data_structures#type_coercion) aufgerufen wird, wird das Ergebnis ignoriert, und der Wert einer verwandten Methode, {{jsxref("Object/valueOf", "valueOf()")}}, wird verwendet, oder ein `TypeError` wird ausgelöst, wenn keine dieser Methoden einen primitiven Wert zurückgibt.
+Sie können eine Funktion erstellen, die anstelle der Standard-`toString()`-Methode aufgerufen wird. Die von Ihnen erstellte `toString()`-Funktion sollte einen String-Wert zurückgeben. Gibt sie ein Objekt zurück und wird die Methode implizit während der [Typkonvertierung](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion) aufgerufen, wird ihr Ergebnis ignoriert und der Wert einer verwandten Methode, {{jsxref("Object/valueOf", "valueOf()")}}, wird stattdessen verwendet, oder es wird ein `TypeError` ausgelöst, wenn keine dieser Methoden einen primitiven Wert zurückgibt.
 
 Der folgende Code definiert eine `Dog`-Klasse.
 
@@ -91,7 +91,7 @@ class Dog {
 }
 ```
 
-Ruft man die `toString()`-Methode auf einer Instanz von `Dog` auf, entweder explizit oder implizit, gibt sie den Standardwert zurück, der von {{jsxref("Object")}} geerbt wurde:
+Wenn Sie die `toString()`-Methode, entweder explizit oder implizit, auf einer Instanz von `Dog` aufrufen, gibt sie den Standardwert zurück, der von {{jsxref("Object")}} geerbt wird:
 
 ```js
 const theDog = new Dog("Gabby", "Lab", "chocolate", "female");
@@ -100,7 +100,7 @@ theDog.toString(); // "[object Object]"
 `${theDog}`; // "[object Object]"
 ```
 
-Der folgende Code überschreibt die Standard-`toString()`-Methode. Diese Methode generiert eine Zeichenkette, die den `name`, `breed`, `color` und `sex` des Objekts enthält.
+Der folgende Code überschreibt die Standard-`toString()`-Methode. Diese Methode erzeugt einen String, der den `name`, `breed`, `color` und `sex` des Objekts enthält.
 
 ```js
 class Dog {
@@ -116,7 +116,7 @@ class Dog {
 }
 ```
 
-Mit dem oben genannten Code ruft JavaScript jedes Mal, wenn eine `Dog`-Instanz in einem Zeichenketten-Kontext verwendet wird, automatisch die `toString()`-Methode auf.
+Mit dem obigen Code wird jedes Mal, wenn eine Instanz von `Dog` in einem String-Kontext verwendet wird, die `toString()` Methode von JavaScript automatisch aufgerufen.
 
 ```js
 const theDog = new Dog("Gabby", "Lab", "chocolate", "female");
@@ -126,7 +126,7 @@ const theDog = new Dog("Gabby", "Lab", "chocolate", "female");
 
 ### Verwendung von toString() zur Erkennung der Objektklasse
 
-`toString()` kann mit jedem Objekt verwendet werden und erlaubt es standardmäßig, dessen Klasse zu bestimmen.
+`toString()` kann mit jedem Objekt verwendet werden und erlaubt es Ihnen (standardmäßig), dessen Klasse zu erhalten.
 
 ```js
 const toString = Object.prototype.toString;
@@ -140,7 +140,7 @@ toString.call(undefined); // [object Undefined]
 toString.call(null); // [object Null]
 ```
 
-Die Verwendung von `toString()` auf diese Weise ist unzuverlässig; Objekte können das Verhalten von `Object.prototype.toString()` durch die Definition einer {{jsxref("Symbol.toStringTag")}}-Eigenschaft ändern, was zu unerwarteten Ergebnissen führen kann. Zum Beispiel:
+Die Verwendung von `toString()` auf diese Weise ist unzuverlässig; Objekte können das Verhalten von `Object.prototype.toString()` verändern, indem sie eine {{jsxref("Symbol.toStringTag")}} Eigenschaft definieren, was zu unerwarteten Ergebnissen führen kann. Zum Beispiel:
 
 ```js
 const myDate = new Date();
@@ -163,7 +163,7 @@ Object.prototype.toString.call(new Date()); // [object prototype polluted]
 
 ## Siehe auch
 
-- [Polyfill von `Object.prototype.toString` mit Unterstützung für `Symbol.toStringTag` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
+- [Polyfill von `Object.prototype.toString` mit `Symbol.toStringTag` Unterstützung in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
 - {{jsxref("Object.prototype.valueOf()")}}
 - {{jsxref("Number.prototype.toString()")}}
 - {{jsxref("Symbol.toPrimitive")}}

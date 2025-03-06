@@ -3,23 +3,23 @@ title: "ElementInternals: ariaRoleDescription-Eigenschaft"
 short-title: ariaRoleDescription
 slug: Web/API/ElementInternals/ariaRoleDescription
 l10n:
-  sourceCommit: 0eeaa04378b34bce70e618ee20434e1193cdec17
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaRoleDescription`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-roledescription)-Attributs wider, welches eine für Menschen lesbare und vom Autor lokalisierte Beschreibung der Rolle eines Elements definiert.
+Die **`ariaRoleDescription`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-roledescription)-Attributs wider, welches eine für Menschen lesbare und vom Autor lokalisierte Beschreibung der Rolle eines Elements definiert.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantik für ein benutzerdefiniertes Element festzulegen. Diese können von vom Autor definierten Attributen überschrieben werden, sichern jedoch, dass die Standardsemantik erhalten bleibt, sollten die Autoren diese Attribute löschen oder sie überhaupt nicht hinzufügen. Weitere Informationen finden Sie im [Accessibility Object Model-Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantik beibehalten wird, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model-Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
-Ein String.
+Ein string.
 
 ## Beispiele
 
-In diesem Beispiel wird der Wert von `ariaRoleDescription` auf "My custom widget" gesetzt.
+In diesem Beispiel wird der Wert von `ariaRoleDescription` auf "Mein benutzerdefiniertes Widget" gesetzt.
 
 ```js
 this.internals_.ariaRoleDescription = "My custom widget";
@@ -35,4 +35,4 @@ this.internals_.ariaRoleDescription = "My custom widget";
 
 ## Siehe auch
 
-- [ARIA: Rollenbeschreibung für Anwendungen](/de/docs/Web/Accessibility/ARIA/Roles/application_role)
+- [ARIA: application role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role)

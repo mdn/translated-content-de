@@ -1,13 +1,13 @@
 ---
-title: "<tbody>: Das Table Body Element"
+title: "<tbody>: Das Table-Body-Element"
 slug: Web/HTML/Element/tbody
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<tbody>`** [HTML](/de/docs/Web/HTML)-Element kapselt eine Reihe von Tabellenzeilen ({{HTMLElement("tr")}}-Elemente) ein und gibt an, dass sie den Hauptteil der (Haupt-)Daten einer Tabelle bilden.
+Das **`<tbody>`** [HTML](/de/docs/Web/HTML)-Element kapselt eine Gruppe von Tabellenzeilen ({{HTMLElement("tr")}}-Elemente) ein und kennzeichnet damit, dass sie den Hauptteil der Daten einer Tabelle bilden.
 
 {{InteractiveExample("HTML Demo: &lt;tbody&gt;", "tabbed-taller")}}
 
@@ -78,52 +78,52 @@ td {
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ### Veraltete Attribute
 
-Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind hier dokumentiert, um beim Aktualisieren vorhandenen Codes zu helfen und aus historischem Interesse.
+Die folgenden Attribute sind veraltet und sollten nicht mehr verwendet werden. Sie werden hier zu Referenzzwecken bei der Aktualisierung von bestehendem Code und aus historischem Interesse dokumentiert.
 
 - `align` {{deprecated_inline}}
 
-  - : Gibt die horizontale Ausrichtung jeder Tabellenzelle an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn der Wert `char` unterstützt wird, richtet er den Textinhalt am in dem [`char`](#char)-Attribut definierten Zeichen und an dem im [`charoff`](#charoff)-Attribut definierten Offset aus. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die horizontale Ausrichtung jeder Tabellenzelle an. Die möglichen {{Glossary("enumerated", "numerierten")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der Wert `char` den Textinhalt am Zeichen aus, das im [`char`](#char)-Attribut definiert ist, und am durch das [`charoff`](#charoff)-Attribut definierten Offset. Verwenden Sie die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `bgcolor` {{deprecated_inline}}
 
-  - : Definiert die Hintergrundfarbe jeder Tabellenzelle. Der Wert ist eine HTML-Farbe; entweder ein [6-stelliges hexadezimales RGB-Code](/de/docs/Web/CSS/hex-color), vorangestellt von einem `#`, oder ein [Farbkeyword](/de/docs/Web/CSS/named-color). Andere CSS {{cssxref("color_value", "&lt;color&gt")}}-Werte werden nicht unterstützt. Verwenden Sie stattdessen die {{cssxref("background-color")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Definiert die Hintergrundfarbe jeder Tabellenzelle. Der Wert ist eine HTML-Farbe; entweder ein [6-stelliger hexadezimaler RGB-Code](/de/docs/Web/CSS/hex-color), der mit einem `#` vorausgeht, oder ein [Farbname](/de/docs/Web/CSS/named-color). Andere CSS {{cssxref("color_value", "&lt;color&gt")}} Werte werden nicht unterstützt. Verwenden Sie die {{cssxref("background-color")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `char` {{deprecated_inline}}
 
-  - : Gibt die Ausrichtung des Inhalts auf ein Zeichen jeder Tabellenzelle an. Typische Werte hierfür sind ein Punkt (`.`), wenn versucht wird, Zahlen oder Geldwerte auszurichten. Wenn [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert.
+  - : Gibt die Ausrichtung des Inhalts an einem Zeichen in jeder Tabellenzelle an. Typische Werte hierfür sind ein Punkt (`.`), wenn versucht wird, Zahlen oder Geldwerte auszurichten. Wenn [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert.
 
 - `charoff` {{deprecated_inline}}
 
-  - : Gibt die Anzahl der Zeichen an, um die der Tabellenzelleninhalt vom Ausrichtungszeichen, das durch das [`char`](#char)-Attribut festgelegt wurde, versetzt werden soll.
+  - : Gibt die Anzahl der Zeichen an, um wie viele der Tabellenzelleninhalt vom Ausrichtungszeichen, das durch das [`char`](#char)-Attribut angegeben ist, versetzt wird.
 
 - `valign` {{deprecated_inline}}
 
-  - : Gibt die vertikale Ausrichtung jeder Tabellenzelle an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die vertikale Ausrichtung jeder Tabellenzelle an. Die möglichen {{Glossary("enumerated", "numerierten")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
-## Nutzungshinweise
+## Verwendungsnotizen
 
 - Das `<tbody>` wird nach allen {{HTMLElement("caption")}}, {{HTMLElement("colgroup")}} und {{HTMLElement("thead")}}-Elementen platziert.
-- Falls {{HTMLElement("tr")}}-Elemente als direkte Kinder des {{HTMLElement("table")}}-Elements spezifiziert sind (siehe "Tag-Auslassung" in der [technischen Übersicht](#technische_übersicht) für eine Beschreibung, wann dies gültig ist), wird das vom Browser generierte Markup ein `<tbody>`-Element enthalten, das sie kapselt. Infolgedessen werden CSS-Selektoren wie `table > tr` diese Elemente nicht auswählen. Siehe auch das Beispiel [Körperelement nicht spezifizieren](#körperelement_nicht_spezifizieren).
-- Es ist erlaubt, mehr als ein `<tbody>` pro Tabelle zu verwenden, solange sie alle aufeinanderfolgend sind. Dies ermöglicht es, die Zeilen ({{HTMLElement("tr")}}-Elemente) in großen Tabellen in Abschnitte zu unterteilen, von denen jede bei Bedarf separat formatiert werden kann. Wenn sie nicht als aufeinanderfolgende Elemente markiert sind, korrigieren Browser diesen Autorenfehler, indem sie sicherstellen, dass alle {{HTMLElement("thead")}}- und {{HTMLElement("tfoot")}}-Elemente als das erste und letzte Element der Tabelle dargestellt werden.
-- Zusammen mit den verwandten {{HTMLElement("thead")}}- und {{HTMLElement("tfoot")}}-Elementen bietet das `<tbody>`-Element nützliche {{Glossary("semantics", "semantische")}} Informationen und kann beim Rendern sowohl für Bildschirm- als auch für Druckausgaben verwendet werden. Das Spezifizieren solcher Tabelleninhaltsgruppen bietet auch wertvolle kontextuelle Informationen für unterstützende Technologien, einschließlich Bildschirmlesern und Suchmaschinen.
-- Beim Drucken eines Dokuments, im Fall einer mehrseitigen Tabelle, geben die {{HTMLElement("thead")}}- und {{htmlelement("tfoot")}}-Elemente normalerweise Informationen an, die auf jeder Seite gleich bleiben oder zumindest sehr ähnlich sind, während der Inhalt des `<tbody>`-Elements von Seite zu Seite in der Regel unterschiedlich ist.
-- Wenn eine Tabelle in einem Bildschirmkontext präsentiert wird (wie ein Fenster), das nicht groß genug ist, um die gesamte Tabelle anzuzeigen, kann der {{Glossary("user_agent", "Benutzeragent")}} dem Benutzer erlauben, den Inhalt der {{HTMLElement("thead")}}, `<tbody>`, {{htmlelement("tfoot")}} und {{HTMLElement("caption")}} Blöcke unabhängig voneinander für dasselbe übergeordnete {{htmlelement("table")}} zu scrollen.
+- Wenn {{HTMLElement("tr")}}-Elemente als direkte Kinder des {{HTMLElement("table")}}-Elements angegeben sind (siehe "Tag-Auslassung" in der [technischen Zusammenfassung](#technische_zusammenfassung) für eine Beschreibung, wann dies zulässig ist), wird das von dem Browser generierte Markup ein `<tbody>`-Element enthalten, das sie einkapselt. Infolgedessen werden CSS-Selektoren wie `table > tr` diese Elemente nicht auswählen. Siehe auch das Beispiel [Kein Körper angegeben](#kein_körper_angegeben).
+- Es ist erlaubt, mehr als ein `<tbody>` pro Tabelle zu verwenden, solange sie alle aufeinander folgen. Dies ermöglicht es, die Zeilen ({{HTMLElement("tr")}}-Elemente) in großen Tabellen in Abschnitte zu unterteilen, von denen jeder separat formatiert werden kann, falls gewünscht. Wenn sie nicht als aufeinanderfolgende Elemente markiert sind, werden Browser diesen Autorenfehler korrigieren, indem sie sicherstellen, dass alle {{HTMLElement("thead")}}- und {{HTMLElement("tfoot")}}-Elemente als erste bzw. letzte Elemente der Tabelle gerendert werden.
+- Zusammen mit den verwandten {{HTMLElement("thead")}}- und {{HTMLElement("tfoot")}}-Elementen bietet das `<tbody>`-Element nützliche {{Glossary("semantics", "semantische")}} Informationen und kann sowohl bei der Darstellung auf dem Bildschirm als auch beim Drucken verwendet werden. Das Angeben solcher Tabellengruppen bietet auch wertvolle kontextuelle Informationen für unterstützende Technologien, einschließlich Bildschirmlesern und Suchmaschinen.
+- Beim Drucken eines Dokuments geben die {{HTMLElement("thead")}}- und {{htmlelement("tfoot")}}-Elemente im Fall einer mehrseitigen Tabelle üblicherweise Informationen an, die auf jeder Seite gleich bleiben – oder zumindest sehr ähnlich sind –, während der Inhalt des `<tbody>`-Elements von Seite zu Seite in der Regel unterschiedlich ist.
+- Wenn eine Tabelle in einem Bildschirmkontext (z.B. ein Fenster), der nicht groß genug ist, um die gesamte Tabelle anzuzeigen, präsentiert wird, kann es ein {{Glossary("user_agent", "User-Agent")}} ermöglichen, dass der Benutzer die Inhalte der {{HTMLElement("thead")}}, `<tbody>`, {{htmlelement("tfoot")}}, und {{HTMLElement("caption")}}-Blöcke unabhängig voneinander scrollen kann, wenn sie sich im selben übergeordneten {{htmlelement("table")}} befinden.
 
 ## Beispiele
 
 Siehe {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel, das gängige Standards und bewährte Praktiken einführt.
 
-### Körperelement nicht spezifizieren
+### Kein Körper angegeben
 
-Dieses Beispiel zeigt, dass der Browser {{HTMLElement("tr")}}-Elemente automatisch in einem `<tbody>`-Element kapselt, wenn die Zeilen nicht in einem Tabellengruppierungselement (`<tbody>`, `<tfoot>` oder `<thead>`) verschachtelt sind und, wie in diesem Beispiel, die direkten Kinder des {{HTMLElement("table")}}-Elements sind.
+Dieses Beispiel zeigt, dass der Browser {{HTMLElement("tr")}}-Elemente innerhalb eines `<tbody>`-Elements automatisch einkapselt, wenn die Zeilen nicht innerhalb eines Tabellengruppierungs-Elements (`<tbody>`, `<tfoot>`, oder `<thead>`) verschachtelt sind und, wie in diesem Beispiel, die direkten Kinder des {{HTMLElement("table")}}-Elements sind.
 
 #### HTML
 
-Hier wird eine sehr einfache Tabelle mit einigen Tabellenzeilen ({{HTMLElement("tr")}}-Elemente) erstellt, die Daten ({{HTMLElement("td")}}-Elemente) über Studenten enthalten.
+Hier wird eine sehr grundlegende Tabelle erstellt, die einige Tabellenzeilen ({{HTMLElement("tr")}}-Elemente) enthält, die Daten ({{HTMLElement("td")}}-Elemente) über Studenten enthalten.
 
 ```html
 <table>
@@ -150,7 +150,7 @@ Hier wird eine sehr einfache Tabelle mit einigen Tabellenzeilen ({{HTMLElement("
 
 #### CSS
 
-Beachten Sie das CSS im Beispiel, bei dem eine {{cssxref("background-color")}} für das `<tbody>`-Element angegeben wird und `tbody` als Teil eines zusätzlichen {{Glossary("css_selector", "CSS-Selektors")}} verwendet wird. Alternativ können {{Glossary("developer_tools", "Entwicklertools für den Browser")}} verwendet werden, um die Präsenz des `<tbody>`-Elements im {{Glossary("dom", "DOM")}} zu überprüfen.
+Beachten Sie das CSS im Beispiel, wo eine {{cssxref("background-color")}} für das `<tbody>`-Element festgelegt ist und `tbody` als Teil eines zusätzlichen {{Glossary("css_selector", "CSS-Selektors")}} verwendet wird. Alternativ können {{Glossary("developer_tools", "Entwicklertools für den Browser")}} verwendet werden, um das Vorhandensein des `<tbody>`-Elements im {{Glossary("dom", "DOM")}} zu überprüfen.
 
 ```css
 tbody {
@@ -184,13 +184,13 @@ td {
 
 ### Grundlegende Körperstruktur
 
-Dieses Beispiel erweitert und verbessert die einfache Tabelle aus dem [vorherigen Beispiel](#körperelement_nicht_spezifizieren).
+Dieses Beispiel erweitert und verbessert die grundlegende Tabelle aus dem [vorherigen Beispiel](#kein_körper_angegeben).
 
 #### HTML
 
-Wir führen einen Tabellenkopf ({{HTMLElement("thead")}}-Element) ein und verwenden explizit ein `<tbody>`-Element, um die Tabelle in {{Glossary("semantics", "semantische")}} Abschnitte zu gliedern. Der Tabellenkopf enthält die Spaltenüberschriften ({{HTMLElement("th")}}-Elemente). Das `<tbody>`-Element repräsentiert den Hauptteil der Tabelle, der eine Anzahl von Zeilen ({{HTMLElement("tr")}}-Elemente) mit den Hauptdaten der Tabelle enthält, was die Daten jedes Schülers sind.
+Wir fügen den Tabellenkopf ({{HTMLElement("thead")}}-Element) hinzu und verwenden explizit ein `<tbody>`-Element, um die Tabelle in {{Glossary("semantics", "semantische")}} Abschnitte zu strukturieren. Der Tabellenkopf enthält die Spaltenüberschriften ({{HTMLElement("th")}}-Elemente). Das `<tbody>`-Element repräsentiert den Hauptbereich der Tabelle, der aus mehreren Zeilen ({{HTMLElement("tr")}}-Elemente) mit den Hauptdaten der Tabelle besteht, die die Daten jedes Studenten sind.
 
-Die Verwendung solcher Tabelleninhaltsgruppen und {{Glossary("semantics", "semantischen")}} Markups ist nicht nur nützlich für die visuelle Präsentation (via CSS-Styling) und kontextuelle Informationen für unterstützende Technologien; zudem hilft die explizite Verwendung des `<tbody>`-Elements dem Browser, die gewünschte Tabellenstruktur zu erstellen und unerwünschte Ergebnisse zu vermeiden.
+Die Verwendung solcher Tabellengruppen und {{Glossary("semantics", "semantisches Markup")}} ist nicht nur nützlich für die visuelle Darstellung (über CSS-Styling) und kontextuelle Informationen für unterstützende Technologien; zudem hilft die explizite Verwendung des `<tbody>`-Elements dem Browser, die gewünschte Tabellenstruktur zu erstellen und unerwünschte Ergebnisse zu vermeiden.
 
 ```html
 <table>
@@ -227,7 +227,7 @@ Die Verwendung solcher Tabelleninhaltsgruppen und {{Glossary("semantics", "seman
 
 #### CSS
 
-Das CSS ist fast unverändert gegenüber dem [vorherigen Beispiel](#körperelement_nicht_spezifizieren), abgesehen von einigen grundlegenden Stilen, um den Tabellenkopf hervorzuheben, sodass die Überschriften der Spalten von den Daten im Tabellenkörper auffallen. Wie im [obigen Beispiel](#körperelement_nicht_spezifizieren) wird der `tbody`- [Typselektor](/de/docs/Web/CSS/Type_selectors) verwendet, um die Tabellenzellen zu stylen.
+Das CSS ist fast unverändert gegenüber dem [vorherigen Beispiel](#kein_körper_angegeben), außer dass grundlegendes Styling hinzugefügt wird, um den Tabellenkopf hervorzuheben, damit die Überschriften der Spalten sich vom Dateninhalt im Tabellenkörper abheben. Wie im [obigen Beispiel](#kein_körper_angegeben) wird der `tbody`-[Typ-Selektor](/de/docs/Web/CSS/Type_selectors) verwendet, um die Körperzellen zu stylen.
 
 ```css
 tbody {
@@ -267,13 +267,13 @@ td {
 
 ### Mehrere Körper
 
-Dieses Beispiel erweitert und verbessert die Tabelle aus dem [obigen Beispiel](#grundlegende_körperstruktur) noch mehr, indem mehrere Körperabschnitte eingeführt werden.
+Dieses Beispiel erweitert und verbessert die Tabelle aus dem [obigen Beispiel](#grundlegende_körperstruktur) noch weiter durch die Einführung mehrerer Körperabschnitte.
 
-Die Verwendung mehrerer `<tbody>`-Elemente ermöglicht die Erstellung von Zeilengruppen innerhalb einer Tabelle. Jeder Tabellenkörper kann potenziell seine eigene Kopfzeile oder Kopfzeilen haben; jedoch _darf es nur ein {{HTMLElement("thead")}}-Element pro Tabelle geben_! Deshalb können {{HTMLElement("tr")}} mit {{HTMLElement("th")}}-Elementen verwendet werden, um Überschriften innerhalb jedes `<tbody>` zu erstellen.
+Das Verwenden mehrerer `<tbody>`-Elemente ermöglicht es, Zeilengruppen innerhalb einer Tabelle zu erstellen. Jeder Tabellenkörper kann potenziell seine eigene Kopfzeile oder mehrere Kopfzeilen haben; jedoch _darf es nur ein {{HTMLElement("thead")}}-Element pro Tabelle geben_! Aufgrund dessen können {{HTMLElement("tr")}}-Elemente mit {{HTMLElement("th")}}-Elementen verwendet werden, um Überschriften innerhalb jedes `<tbody>` zu erstellen.
 
 #### HTML
 
-Aufbauend auf der Tabelle im [vorherigen Grundbeispiel](#grundlegende_körperstruktur), werden mehr Studenten hinzugefügt und anstatt das Hauptfach jedes Schülers in jeder Zeile aufzulisten, werden die Schüler nach Hauptfach gruppiert. Beachten Sie, dass jedes Hauptfach in seinem eigenen `<tbody>`-Block eingeschlossen ist, wobei die erste Zeile ({{HTMLElement("tr")}}-Element) als Kopfzeile des Blocks dient und den Haupttitel innerhalb eines {{HTMLElement("th")}}-Elements anzeigt, das das [`colspan`](/de/docs/Web/HTML/Element/th#colspan)-Attribut verwendet, um die Kopfzeile über alle drei Spalten der Tabelle zu erstrecken. Jede verbleibende Zeile innerhalb jedes Hauptfachs `<tbody>` repräsentiert einen Schüler.
+Anknüpfend an die Tabelle im [vorherigen Basisebeispiel](#grundlegende_körperstruktur), werden weitere Studenten hinzugefügt und anstatt das Fach jedes Studenten in jeder Zeile aufzuführen, werden die Studenten nach Fach gruppiert. Beachten Sie, dass jedes Fach innerhalb eines eigenen `<tbody>`-Blocks eingeschlossen ist, wobei die erste Zeile ({{HTMLElement("tr")}}-Element) als Kopf des Blocks dient und den Fach-Titel innerhalb eines {{HTMLElement("th")}}-Elements anzeigt, das das [`colspan`](/de/docs/Web/HTML/Element/th#colspan)-Attribut verwendet, um die Überschrift über alle drei Spalten der Tabelle zu erstrecken. Jede verbleibende Zeile innerhalb jedes `<tbody>`-Blocks eines Fachs repräsentiert einen Studenten.
 
 ```html
 <table>
@@ -334,7 +334,7 @@ Aufbauend auf der Tabelle im [vorherigen Grundbeispiel](#grundlegende_körperstr
 
 #### CSS
 
-Der größte Teil des CSS bleibt unverändert. Jedoch wird ein etwas subtilerer Stil für die Header-Zellen hinzugefügt, die sich direkt in einem `<tbody>` befinden (im Gegensatz zu denen, die in {{HTMLElement("thead")}} sind). Dies wird für die Header verwendet, die das jeweilige Hauptfach des Tabellenabschnitts angeben.
+Die meisten CSS-Regeln bleiben unverändert. Allerdings wird ein etwas subtilerer Stil für Kopfzellen hinzugefügt, die sich direkt in einem `<tbody>` befinden (im Gegensatz zu denen im {{HTMLElement("thead")}}). Dies wird für die Überschriften verwendet, die jeweils die großen Bereiche der Tabelle anzeigen.
 
 ```css
 tbody > tr > th {
@@ -379,7 +379,7 @@ tbody > tr > td:last-of-type {
 
 {{EmbedLiveSample("Multiple_bodies", 650, 300)}}
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
@@ -398,29 +398,31 @@ tbody > tr > td:last-of-type {
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag eines <code>&lt;tbody&gt;</code>-Elements kann weggelassen werden, wenn das erste Element innerhalb des <code>&lt;tbody&gt;</code>-Elements ein {{HTMLElement("tr")}}-Element ist und wenn das Element nicht unmittelbar von einem <code>&lt;tbody&gt;</code>, {{HTMLElement("thead")}}, oder {{HTMLElement("tfoot")}}-Element, dessen End-Tag weggelassen wurde, vorausgeht. (Es kann nicht weggelassen werden, wenn das Element leer ist.)
-        Das End-Tag eines <code>&lt;tbody&gt;</code>-Elements kann weggelassen werden, wenn das <code>&lt;tbody&gt;</code>-Element unmittelbar von einem <code>&lt;tbody&gt;</code> oder {{HTMLElement("tfoot")}}-Element gefolgt wird oder wenn kein Inhalt mehr im übergeordneten Element vorhanden ist.
+        Das Start-Tag eines <code>&lt;tbody&gt;</code>-Elements kann ausgelassen werden, wenn das erste Element innerhalb des <code>&lt;tbody&gt;</code>-Elements ein {{HTMLElement("tr")}}-Element ist und wenn das Element nicht direkt von einem <code>&lt;tbody&gt;</code>-, {{HTMLElement("thead")}}- oder {{HTMLElement("tfoot")}}-Element mit ausgelassenem End-Tag gefolgt wird. (Es kann nicht ausgelassen werden, wenn das Element leer ist.)
+        Das End-Tag eines <code>&lt;tbody&gt;</code>-Elements kann ausgelassen werden, wenn das <code>&lt;tbody&gt;</code>-Element direkt von einem <code>&lt;tbody&gt;</code>- oder {{HTMLElement("tfoot")}}-Element gefolgt wird oder wenn kein weiterer Inhalt im übergeordneten Element vorhanden ist.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
-        Innerhalb des erforderlichen übergeordneten {{ HTMLElement("table") }}-Elements kann das <code>&lt;tbody&gt;</code>-Element nach allen {{ HTMLElement("caption") }}, {{HTMLElement("colgroup") }}, und {{ HTMLElement("thead") }}-Elementen hinzugefügt werden.
+        Innerhalb des erforderlichen Eltern-{{ HTMLElement("table") }}-Elements
+        kann das <code>&lt;tbody&gt;</code>-Element nach allen
+        {{ HTMLElement("caption") }}-, {{HTMLElement("colgroup") }}- und {{ HTMLElement("thead") }}-Elementen hinzugefügt werden.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/rowgroup_role"
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role"
             >rowgroup</a
           ></code
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Zugelassene ARIA-Rollen</th>
+      <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -439,9 +441,9 @@ tbody > tr > td:last-of-type {
 
 ## Siehe auch
 
-- [Erfahren: HTML-Tabellen-Grundlagen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
-- {{HTMLElement("caption")}}, {{HTMLElement("col")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("table")}}, {{HTMLElement("td")}}, {{HTMLElement("tfoot")}}, {{HTMLElement("th")}}, {{HTMLElement("thead")}}, {{HTMLElement("tr")}}: Andere tabellenbezogene Elemente
-- {{cssxref("background-color")}}: CSS-Eigenschaft, um die Hintergrundfarbe jeder Tabellenzelle festzulegen
-- {{cssxref("border")}}: CSS-Eigenschaft, um die Ränder von Tabellenzellen zu steuern
-- {{cssxref("text-align")}}: CSS-Eigenschaft, um den Inhalt jeder Tabellenzelle horizontal auszurichten
-- {{cssxref("vertical-align")}}: CSS-Eigenschaft, um den Inhalt jeder Tabellenzelle vertikal auszurichten
+- [Lernen: HTML-Tabellen-Grundlagen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
+- {{HTMLElement("caption")}}, {{HTMLElement("col")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("table")}}, {{HTMLElement("td")}}, {{HTMLElement("tfoot")}}, {{HTMLElement("th")}}, {{HTMLElement("thead")}}, {{HTMLElement("tr")}}: Weitere tabellenbezogene Elemente
+- {{cssxref("background-color")}}: CSS-Eigenschaft, um die Hintergrundfarbe jeder Zelle festzulegen
+- {{cssxref("border")}}: CSS-Eigenschaft, um die Rahmen von Zellen zu steuern
+- {{cssxref("text-align")}}: CSS-Eigenschaft zur horizontalen Ausrichtung des Inhalts jeder Tabellenzelle
+- {{cssxref("vertical-align")}}: CSS-Eigenschaft zur vertikalen Ausrichtung des Inhalts jeder Tabellenzelle

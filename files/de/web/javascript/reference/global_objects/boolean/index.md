@@ -2,20 +2,20 @@
 title: Boolean
 slug: Web/JavaScript/Reference/Global_Objects/Boolean
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{JSRef}}
 
-**`Boolean`**-Werte können einen von zwei Werten haben: `true` oder `false`, die den Wahrheitswert eines logischen Satzes darstellen.
+**`Boolean`**-Werte können einen von zwei Werten haben: `true` oder `false`, die den Wahrheitswert eines logischen Ausdrucks darstellen.
 
 ## Beschreibung
 
-Boolean-Werte werden typischerweise von [Relationsoperatoren](/de/docs/Web/JavaScript/Reference/Operators#relational_operators), [Gleichheitsoperatoren](/de/docs/Web/JavaScript/Reference/Operators#equality_operators) und dem [logischen NICHT (`!`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_NOT) erzeugt. Sie können auch durch Funktionen erzeugt werden, die Bedingungen repräsentieren, wie z.B. {{jsxref("Array.isArray()")}}. Beachten Sie, dass [binäre logische Operatoren](/de/docs/Web/JavaScript/Reference/Operators#binary_logical_operators) wie `&&` und `||` die Werte der Operanden zurückgeben, die möglicherweise keine Boolean-Werte sind.
+Boolean-Werte werden typischerweise von [Relationsoperatoren](/de/docs/Web/JavaScript/Reference/Operators#relational_operators), [Vergleichsoperatoren](/de/docs/Web/JavaScript/Reference/Operators#equality_operators) und [logischem NICHT (`!`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_NOT) erzeugt. Sie können auch von Funktionen erzeugt werden, die Bedingungen repräsentieren, wie z.B. {{jsxref("Array.isArray()")}}. Beachten Sie, dass [binäre logische Operatoren](/de/docs/Web/JavaScript/Reference/Operators#binary_logical_operators) wie `&&` und `||` die Werte der Operanden zurückgeben, die möglicherweise keine booleschen Werte sind.
 
-Boolean-Werte werden typischerweise in Bedingungstests verwendet, wie z.B. in der Bedingung der {{jsxref("Statements/if...else", "if...else")}}- und {{jsxref("Statements/while", "while")}}-Anweisungen, dem [bedingten Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator) (`? :`), oder dem Prädikatrückgabewert von {{jsxref("Array.prototype.filter()")}}.
+Boolean-Werte werden typischerweise in bedingten Prüfungen verwendet, wie etwa bei der Bedingung für {{jsxref("Statements/if...else", "if...else")}} und {{jsxref("Statements/while", "while")}} Anweisungen, beim [bedingten Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator) (`? :`) oder dem Rückgabewert von Prädikaten wie {{jsxref("Array.prototype.filter()")}}.
 
-Es ist selten notwendig, etwas explizit in einen Boolean-Wert umzuwandeln, da JavaScript dies automatisch in Boolean-Kontexten tut, sodass Sie jeden Wert so verwenden können, als ob er ein Boolean wäre, basierend auf seiner [Wahrhaftigkeit](#boolean_umwandlung). Es wird empfohlen, möglichst `if (condition)` und `if (!condition)` anstelle von `if (condition === true)` oder `if (condition === false)` in Ihrem eigenen Code zu verwenden, um diesen Konvention nutzen zu können. Dennoch kann es hilfreich sein, sicherzustellen, dass Werte, die Bedingungen darstellen, immer Booleans sind, um die Absicht Ihres Codes zu verdeutlichen.
+Sie müssen selten etwas explizit in einen booleschen Wert umwandeln, da JavaScript dies in booleschen Kontexten automatisch tut, sodass Sie jeden Wert so verwenden können, als wäre er ein boolescher Wert, basierend auf seiner [Truthiness](#boolean-koerzierung). Es wird auch empfohlen, `if (condition)` und `if (!condition)` anstelle von `if (condition === true)` oder `if (condition === false)` in Ihrem eigenen Code zu verwenden, um von dieser Konvention zu profitieren. Allerdings kann es hilfreich sein, sicherzustellen, dass Werte, die Bedingungen repräsentieren, immer Booleans sind, um die Absicht Ihres Codes zu verdeutlichen.
 
 ```js
 // Do this:
@@ -35,7 +35,7 @@ const isObject = (obj) => obj && typeof obj === "object";
 
 ### Boolean-Primitiven und Boolean-Objekte
 
-Um Nicht-Boolean-Werte in Boolean-Werte umzuwandeln, verwenden Sie `Boolean` als Funktion oder den [doppelten NICHT](/de/docs/Web/JavaScript/Reference/Operators/Logical_NOT#double_not_!!) Operator. Verwenden Sie nicht `Boolean()`-Konstruktor mit `new`.
+Um Nicht-Boolean-Werte in Boolean-Werte umzuwandeln, verwenden Sie `Boolean` als Funktion oder verwenden Sie den [doppelten NICHT](/de/docs/Web/JavaScript/Reference/Operators/Logical_NOT#double_not_!!) Operator. Verwenden Sie nicht den `Boolean()` Konstruktor mit `new`.
 
 ```js example-good
 const good = Boolean(expression);
@@ -46,7 +46,7 @@ const good2 = !!expression;
 const bad = new Boolean(expression); // don't use this!
 ```
 
-Dies liegt daran, dass _alle_ Objekte, einschließlich eines `Boolean`-Objekts, dessen umschlossener Wert `false` ist, {{Glossary("truthy", "wahrheitsgemäß")}} sind und in Fällen wie bedingten Anweisungen zu `true` ausgewertet werden. (Siehe auch den Abschnitt [boolean coercion](#boolean_umwandlung) unten.)
+Dies liegt daran, dass _alle_ Objekte, einschließlich eines `Boolean`-Objekts, dessen eingeschlossener Wert `false` ist, {{Glossary("truthy", "wahrhaftig")}} sind und in Bereichen wie bedingten Anweisungen zu `true` ausgewertet werden. (Siehe auch den Abschnitt [Boolean-Koerzierung](#boolean-koerzierung) weiter unten.)
 
 ```js
 if (new Boolean(true)) {
@@ -64,35 +64,35 @@ const s = Boolean(myString); // s is true
 ```
 
 > [!WARNING]
-> Sie sollten selten `Boolean` als Konstruktor verwenden.
+> Sie sollten selten den `Boolean` als Konstruktor verwenden.
 
-### Boolean Umwandlung
+### Boolean-Koerzierung
 
-Viele eingebaute Operationen, die Booleans erwarten, wandeln ihre Argumente zuerst in Booleans um. [Die Operation](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-toboolean) kann wie folgt zusammengefasst werden:
+Viele eingebaute Operationen, die Booleans erwarten, erzwingen zuerst die Umwandlung ihrer Argumente zu Booleans. [Die Operation](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-toboolean) lässt sich wie folgt zusammenfassen:
 
 - Booleans werden unverändert zurückgegeben.
-- [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) wird zu `false`.
-- [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) wird zu `false`.
-- `0`, `-0` und `NaN` werden zu `false`; andere Zahlen werden zu `true`.
-- `0n` wird zu `false`; andere [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) werden zu `true`.
-- Der leere String `""` wird zu `false`; andere Strings werden zu `true`.
-- [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) werden zu `true`.
-- Alle Objekte werden `true`.
+- [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) wird in `false` umgewandelt.
+- [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) wird in `false` umgewandelt.
+- `0`, `-0` und `NaN` werden in `false` umgewandelt; andere Zahlen in `true`.
+- `0n` wird in `false` umgewandelt; andere [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) werden in `true` umgewandelt.
+- Der leere String `""` wird in `false` umgewandelt; andere Strings in `true`.
+- [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) werden in `true` umgewandelt.
+- Alle Objekte werden zu `true`.
 
 > [!NOTE]
 > Ein Legacy-Verhalten sorgt dafür, dass [`document.all`](/de/docs/Web/API/Document/all) `false` zurückgibt, wenn es als Boolean verwendet wird, obwohl es ein Objekt ist. Diese Eigenschaft ist veraltet und nicht standardisiert und sollte nicht verwendet werden.
 
 > [!NOTE]
-> Anders als bei anderen Typumwandlungen wie [String-Umwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) oder [Zahl-Umwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), versucht die Boolean-Umwandlung nicht, [Objekte in Primitiven umzuwandeln](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) durch den Aufruf von Benutzerfunktionen.
+> Im Gegensatz zu anderen Typumwandlungen, wie [String-Koerzierung](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) oder [Nummern-Koerzierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), versucht die Boolean-Koerzierung nicht, [Objekte durch Aufrufen von Benutzermethoden in primitive Typen umzuwandeln](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion).
 
-Mit anderen Worten, es gibt nur wenige Werte, die zu `false` umgewandelt werden - diese werden als {{Glossary("Falsy", "falsy")}} bezeichnet. Alle anderen Werte werden als {{Glossary("Truthy", "truthy")}} bezeichnet. Die Wahrhaftigkeit eines Wertes ist wichtig, wenn sie mit logischen Operatoren, bedingten Anweisungen oder in einem Boolean-Kontext verwendet wird.
+Mit anderen Worten, es gibt nur eine Handvoll von Werten, die in `false` umgewandelt werden — diese werden als {{Glossary("Falsy", "falsy")}} Werte bezeichnet. Alle anderen Werte werden als {{Glossary("Truthy", "truthy")}} Werte bezeichnet. Die Wahrheit eines Wertes ist wichtig, wenn er mit logischen Operatoren, bedingten Anweisungen oder einem beliebigen booleschen Kontext verwendet wird.
 
 Es gibt zwei Möglichkeiten, denselben Effekt in JavaScript zu erzielen.
 
-- [Doppelter NICHT](/de/docs/Web/JavaScript/Reference/Operators/Logical_NOT#double_not_!!): `!!x` negiert `x` zweimal, was `x` anhand des oben genannten Algorithmus in einen Boolean umwandelt.
-- Die [`Boolean()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean/Boolean) Funktion: `Boolean(x)` verwendet den gleichen Algorithmus wie oben, um `x` zu konvertieren.
+- [Doppelter NICHT](/de/docs/Web/JavaScript/Reference/Operators/Logical_NOT#double_not_!!): `!!x` negiert `x` zweimal, was `x` in einen booleschen Wert konvertiert, basierend auf dem oben genannten Algorithmus.
+- Die [`Boolean()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean/Boolean) Funktion: `Boolean(x)` verwendet denselben Algorithmus, um `x` zu konvertieren.
 
-Beachten Sie, dass Wahrhaftigkeit nicht dasselbe ist wie die [lose Gleichheit](/de/docs/Web/JavaScript/Reference/Operators/Equality) zu `true` oder `false`.
+Beachten Sie, dass Truthiness nicht dasselbe ist wie die [lose Gleichheit](/de/docs/Web/JavaScript/Reference/Operators/Equality) mit `true` oder `false`.
 
 ```js
 if ([]) {
@@ -105,22 +105,22 @@ if ([] == false) {
 // [] == false
 ```
 
-`[]` ist wahrheitsgemäß, aber es ist auch lose gleich `false`. Es ist wahrheitsgemäß, weil alle Objekte wahrheitsgemäß sind. Beim Vergleich mit `false`, das ein Primitive ist, wird `[]` auch in ein Primitive umgewandelt, das über {{jsxref("Array.prototype.toString()")}} `""` ergibt. Beim Vergleich von Strings und Booleans werden beide in Zahlen [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), und beide werden zu `0`, so dass `[] == false` `true` ist. Allgemein unterscheiden sich Falschheit und `== false` in den folgenden Fällen:
+`[]` ist wahrhaftig, aber es ist auch lose gleich `false`. Es ist wahrhaftig, weil alle Objekte wahrhaftig sind. Wenn jedoch mit `false` verglichen wird, das ein primitiver Wert ist, wird `[]` auch in einen primitiven Wert umgewandelt, was `""` über {{jsxref("Array.prototype.toString()")}} entspricht. Wenn Strings und Booleans verglichen werden, werden beide [in Zahlen umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), und sie werden beide zu `0`, sodass `[] == false` `true` ist. Im Allgemeinen unterscheiden sich Falschheit und `== false` in den folgenden Fällen:
 
-- `NaN`, `undefined` und `null` sind falsch, aber nicht lose gleich `false`.
-- `"0"` (und andere String-Literale, die nicht `""` sind, aber [zu 0 umgewandelt werden](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion)) sind wahrheitsgemäß, aber lose gleich `false`.
-- Objekte sind immer wahrheitsgemäß, aber ihre primitive Repräsentation kann lose gleich `false` sein.
+- `NaN`, `undefined` und `null` sind falsy, aber nicht lose gleich `false`.
+- `"0"` (und andere Stringliterale, die nicht `""` sind, aber [zu 0 umgewandelt werden](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion)) sind wahrhaftig, aber lose gleich `false`.
+- Objekte sind immer wahrhaftig, aber ihre primitive Darstellung kann lose gleich `false` sein.
 
-Wahrheitsgemäße Werte sind sogar noch weniger wahrscheinlich, lose gleich `true` zu sein. Alle Werte sind entweder wahrheitsgemäß oder falsch, aber die meisten Werte sind lose weder `true` noch `false` gleich.
+Truthy-Werte sind noch unwahrscheinlicher lose gleich `true`. Alle Werte sind entweder wahrhaftig oder falsy, aber die meisten Werte sind lose weder gleich `true` noch `false`.
 
 ## Konstruktor
 
 - {{jsxref("Boolean/Boolean", "Boolean()")}}
-  - : Erstellt `Boolean`-Objekte. Bei einem Funktionsaufruf gibt er primitive Werte des Typs Boolean zurück.
+  - : Erstellt `Boolean`-Objekte. Wenn sie als Funktion aufgerufen wird, gibt sie primitive Werte des Typs Boolean zurück.
 
 ## Instanzeigenschaften
 
-Diese Eigenschaften sind auf `Boolean.prototype` definiert und werden von allen `Boolean`-Instanzen gemeinsam genutzt.
+Diese Eigenschaften sind auf `Boolean.prototype` definiert und werden von allen `Boolean`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Boolean.prototype.constructor")}}
   - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Boolean`-Instanzen ist der Anfangswert der {{jsxref("Boolean/Boolean", "Boolean")}}-Konstruktor.
@@ -128,9 +128,9 @@ Diese Eigenschaften sind auf `Boolean.prototype` definiert und werden von allen 
 ## Instanzmethoden
 
 - {{jsxref("Boolean.prototype.toString()")}}
-  - : Gibt einen String mit entweder `true` oder `false` zurück, abhängig vom Wert des Objekts. Überschreibt die {{jsxref("Object.prototype.toString()")}} Methode.
+  - : Gibt einen String von entweder `true` oder `false` zurück, je nach Wert des Objekts. Überschreibt die {{jsxref("Object.prototype.toString()")}}-Methode.
 - {{jsxref("Boolean.prototype.valueOf()")}}
-  - : Gibt den primitiven Wert des `Boolean`-Objekts zurück. Überschreibt die {{jsxref("Object.prototype.valueOf()")}} Methode.
+  - : Gibt den primitiven Wert des `Boolean`-Objekts zurück. Überschreibt die {{jsxref("Object.prototype.valueOf()")}}-Methode.
 
 ## Beispiele
 
@@ -166,5 +166,5 @@ const bObjProto = Boolean({});
 ## Siehe auch
 
 - {{Glossary("Boolean", "Boolean")}}
-- [Boolean-Primitiven](/de/docs/Web/JavaScript/Data_structures#boolean_type)
+- [Boolean-Primitiven](/de/docs/Web/JavaScript/Guide/Data_structures#boolean_type)
 - [Boolean-Datentyp](https://en.wikipedia.org/wiki/Boolean_data_type) auf Wikipedia

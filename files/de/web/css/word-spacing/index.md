@@ -2,12 +2,12 @@
 title: word-spacing
 slug: Web/CSS/word-spacing
 l10n:
-  sourceCommit: b1392b60ee71b9f09c0123694a494a71d0dbbb8a
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{CSSRef}}
 
-Die **`word-spacing`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die Länge des Abstands zwischen Wörtern und zwischen Tags fest.
+Die **`word-spacing`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die Länge des Zwischenraums zwischen Wörtern und zwischen Tags fest.
 
 {{EmbedInteractiveExample("pages/css/word-spacing.html")}}
 
@@ -32,18 +32,18 @@ word-spacing: unset;
 ### Werte
 
 - `normal`
-  - : Der normale Wortzwischenraum, wie er durch die aktuelle Schriftart und/oder den Browser definiert ist.
+  - : Der normale Zwischenraum zwischen Wörtern, wie er durch die aktuelle Schriftart und/oder den Browser definiert ist.
 - {{cssxref("length")}}
-  - : Gibt zusätzlichen Abstand an, der zum intrinsischen Wortzwischenraum der Schriftart hinzugefügt wird.
+  - : Gibt zusätzlichen Abstand an, zusätzlich zu dem intrinsischen Zwischenraum, der durch die Schriftart definiert ist.
 
 ## Barrierefreiheit
 
-Ein großer positiver oder negativer `word-spacing`-Wert macht die mit diesem Stil versehenen Sätze unleserlich. Bei Text, der mit einem sehr großen positiven Wert gestylt ist, sind die Wörter so weit voneinander entfernt, dass sie nicht mehr als Satz erkennbar sind. Bei Text mit einem großen negativen Wert überlappen sich die Wörter so stark, dass der Anfang und das Ende jedes Wortes nicht mehr erkennbar sind.
+Ein großer positiver oder negativer `word-spacing`-Wert macht die Sätze, auf die das Styling angewendet wird, unlesbar. Bei Texten mit einem sehr großen positiven Wert sind die Wörter so weit auseinander, dass es nicht mehr als Satz erscheint. Bei Texten mit einem großen negativen Wert überlappen sich die Wörter so sehr, dass der Anfang und das Ende jedes Wortes nicht mehr erkennbar sind.
 
-Lesbare `word-spacing`-Werte müssen von Fall zu Fall bestimmt werden, da verschiedene Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen einzigen Wert, der für alle Schriftfamilien automatisch die Lesbarkeit sicherstellt.
+Die lesbare `word-spacing`-Werte müssen fallweise bestimmt werden, da verschiedene Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen Wert, der sicherstellt, dass alle Schriftfamilien automatisch ihre Lesbarkeit behalten.
 
-- [MDN Leitfaden zu WCAG, Erklärung zu Richtlinie 1.4](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Erklärung Erfolgskriterium 1.4.8 | W3C Explanation WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN-Verständnis von WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
 ## Beispiele
 
@@ -87,4 +87,4 @@ Lesbare `word-spacing`-Werte müssen von Fall zu Fall bestimmt werden, da versch
 ## Siehe auch
 
 - {{cssxref("letter-spacing")}}
-- SVG {{SVGAttr("word-spacing")}} Attribut
+- SVG-{{SVGAttr("word-spacing")}}-Attribut

@@ -3,30 +3,25 @@ title: "HTMLElement: tabIndex-Eigenschaft"
 short-title: tabIndex
 slug: Web/API/HTMLElement/tabIndex
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`tabIndex`**-Eigenschaft des
-[`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces repräsentiert die Tab-Reihenfolge des aktuellen Elements.
+Die **`tabIndex`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle repräsentiert die Tab-Reihenfolge des aktuellen Elements.
 
-Die Tab-Reihenfolge verläuft wie folgt:
+Die Tab-Reihenfolge ist wie folgt:
 
-1. Elemente mit einem positiven `tabIndex`. Elemente mit identischen
-   `tabIndex`-Werten sollten in der Reihenfolge navigiert werden, in der sie erscheinen. Die Navigation
-   erfolgt vom niedrigsten `tabIndex` zum höchsten `tabIndex`.
-2. Elemente, die das `tabIndex`-Attribut nicht unterstützen oder es unterstützen und
-   `tabIndex` auf `0` setzen, in der Reihenfolge ihres Erscheinens.
+1. Elemente mit einem positiven `tabIndex`. Elemente mit identischen `tabIndex`-Werten sollten in der Reihenfolge, in der sie erscheinen, navigiert werden. Die Navigation erfolgt vom niedrigsten `tabIndex` zum höchsten `tabIndex`.
+2. Elemente, die das `tabIndex`-Attribut nicht unterstützen oder es unterstützen und `tabIndex` auf `0` setzen, in der Reihenfolge, in der sie erscheinen.
 
-Deaktivierte Elemente nehmen nicht an der Tab-Reihenfolge teil.
+Elemente, die deaktiviert sind, nehmen nicht an der Tab-Reihenfolge teil.
 
-Die Werte müssen nicht sequentiell sein, noch müssen sie mit einem bestimmten Wert beginnen. Sie
-können sogar negativ sein, obwohl jeder Browser sehr große Werte trimmt.
+Werte müssen nicht sequentiell sein, noch müssen sie mit einem bestimmten Wert beginnen. Sie können sogar negativ sein, obwohl jeder Browser sehr große Werte kürzt.
 
 ## Wert
 
-Ein Integer.
+Eine Ganzzahl.
 
 ## Beispiele
 
@@ -46,7 +41,5 @@ b1.tabIndex = 1;
 
 ## Siehe auch
 
-- [Zugänglichkeit von tastaturnavigierbaren JavaScript-Widgets](/de/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets)
-- Das HTML
-  [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex)
-  globale Attribut.
+- [Barrierefreiheit von über die Tastatur navigierbaren JavaScript-Widgets](/de/docs/Web/Accessibility/Guides/Keyboard-navigable_JavaScript_widgets)
+- Das HTML [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex) globale Attribut.

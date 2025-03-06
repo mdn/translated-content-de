@@ -2,7 +2,7 @@
 title: ":optional"
 slug: Web/CSS/:optional
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{CSSRef}}
@@ -46,7 +46,7 @@ label {
 </form>
 ```
 
-Diese Pseudoklasse ist nützlich, um Felder zu stylen, die nicht erforderlich sind, um ein Formular abzusenden.
+Diese Pseudoklasse ist nützlich für das Styling von Feldern, die nicht erforderlich sind, um ein Formular abzusenden.
 
 > [!NOTE]
 > Die {{cssxref(":required")}} Pseudoklasse wählt _erforderliche_ Formularfelder aus.
@@ -61,12 +61,12 @@ Diese Pseudoklasse ist nützlich, um Felder zu stylen, die nicht erforderlich si
 
 ## Barrierefreiheit
 
-Wenn ein [Formular](/de/docs/Web/HTML/Element/form) optionale {{htmlelement("input")}}s enthält, sollten erforderliche Eingaben durch das [`required`](/de/docs/Web/HTML/Element/input#required) Attribut angegeben werden. Dies stellt sicher, dass Menschen, die mit unterstützender Technologie, wie einem Bildschirmlesegerät, navigieren, verstehen können, welche Eingaben gültige Inhalte benötigen, um eine erfolgreiche Formularübermittlung zu gewährleisten.
+Wenn ein [Formular](/de/docs/Web/HTML/Element/form) optionale {{htmlelement("input")}}-Elemente enthält, sollten erforderliche Eingaben mit dem [`required`](/de/docs/Web/HTML/Element/input#required) Attribut gekennzeichnet werden. Dies stellt sicher, dass Personen, die mit Hilfe von unterstützender Technologie wie einem Screenreader navigieren, verstehen können, welche Eingaben gültige Inhalte benötigen, um eine erfolgreiche Formularübermittlung zu gewährleisten.
 
-Erforderliche Eingaben sollten auch visuell hervorgehoben werden, wobei eine Behandlung verwendet wird, die sich nicht ausschließlich auf Farbe verlässt, um Bedeutung zu vermitteln. In der Regel werden beschreibender Text und/oder ein Symbol verwendet.
+Erforderliche Eingaben sollten auch visuell hervorgehoben werden, mit einer Darstellung, die sich nicht ausschließlich auf Farbe zur Bedeutungsvermittlung verlässt. Typischerweise werden beschreibende Texte und/oder ein Symbol verwendet.
 
-- [MDN Verständnis von WCAG, Erklärung der Richtlinie 3.3](/de/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes)
-- [Verständnis des Erfolgskriteriums 3.3.2 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
+- [MDN Verständnis von WCAG, Richtlinie 3.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes)
+- [Verständnis des Erfolgskriteriums 3.3.2 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
 
 ## Beispiele
 
@@ -122,5 +122,5 @@ input:optional {
 
 ## Siehe auch
 
-- Andere Validierungs-bezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":invalid") }}, {{ cssxref(":valid") }}
+- Andere validierungsbezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":invalid") }}, {{ cssxref(":valid") }}
 - [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

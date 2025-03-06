@@ -1,15 +1,15 @@
 ---
-title: "<p>: Das Absatzelement"
+title: "<p>: Das Paragraf-Element"
 slug: Web/HTML/Element/p
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<p>`**-Element von [HTML](/de/docs/Web/HTML) repräsentiert einen Absatz. In visuellen Medien werden Absätze normalerweise als Textblöcke dargestellt, die durch Leerzeilen und/oder Einrückungen der ersten Zeile von benachbarten Blöcken getrennt sind. HTML-Absätze können jedoch jede strukturelle Gruppierung verwandter Inhalte sein, wie Bilder oder Formularfelder.
+Das **`<p>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Absatz. Absätze werden in visuellen Medien normalerweise als Textblöcke dargestellt, die durch Leerzeilen und/oder Einrückung der ersten Zeile von angrenzenden Blöcken getrennt sind. HTML-Absätze können jedoch jede strukturelle Gruppierung von zusammengehörenden Inhalten darstellen, wie z.B. Bilder oder Formularelemente.
 
-Absätze sind {{Glossary("Block-level_content", "Block-Elemente")}} und schließen sich bemerkenswerterweise automatisch, wenn ein anderes Block-Element vor dem schließenden `</p>`-Tag geparst wird. Siehe "Tag-Auslassung" unten.
+Absätze sind {{Glossary("Block-level_content", "Block-Elemente")}} und schließen sich automatisch, wenn ein anderes Block-Element vor dem schließenden `</p>`-Tag geparst wird. Siehe "Tag-Auslassung" unten.
 
 {{InteractiveExample("HTML Demo: &lt;p&gt;", "tabbed-standard")}}
 
@@ -42,11 +42,11 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Barrierefreiheit
 
-Das Aufteilen von Inhalten in Absätze trägt dazu bei, eine Seite zugänglicher zu machen. Bildschirmlesegeräte und andere unterstützende Technologien bieten Abkürzungen, mit denen Benutzer direkt zum nächsten oder vorherigen Absatz springen können, sodass sie Inhalte überfliegen können, ähnlich wie visuelle Benutzer durch Leerraum navigieren können.
+Das Aufteilen des Inhalts in Absätze trägt dazu bei, eine Seite zugänglicher zu machen. Screenreader und andere unterstützende Technologien bieten Abkürzungen, um ihren Benutzern zu ermöglichen, zum nächsten oder vorherigen Absatz zu springen, sodass sie den Inhalt überfliegen können, ähnlich wie Leerzeichen es visuellen Benutzern ermöglichen, sich zu orientieren.
 
-Die Verwendung leerer `<p>`-Elemente, um Abstand zwischen Absätzen zu schaffen, ist problematisch für Personen, die mit Bildschirmlesetechnologie navigieren. Bildschirmleser können das Vorhandensein des Absatzes ankündigen, aber nicht die darin enthaltenen Inhalte, da keine vorhanden sind. Dies kann die Person, die den Bildschirmleser benutzt, verwirren und frustrieren.
+Das Verwenden von leeren `<p>`-Elementen, um Platz zwischen Absätzen zu schaffen, ist problematisch für Personen, die mit Screenreadern navigieren. Screenreader können die Anwesenheit des Absatzes ankündigen, aber nicht dessen Inhalt — weil kein Inhalt vorhanden ist. Dies kann die Person, die den Screenreader verwendet, verwirren und frustrieren.
 
-Wenn zusätzlicher Raum gewünscht ist, verwenden Sie {{Glossary("CSS", "CSS")}}-Eigenschaften wie {{cssxref("margin")}}, um den Effekt zu erzielen:
+Wenn zusätzlicher Platz gewünscht wird, verwenden Sie {{Glossary("CSS", "CSS")}}-Eigenschaften wie {{cssxref("margin")}}, um den Effekt zu erzielen:
 
 ```css
 p {
@@ -73,9 +73,9 @@ p {
 
 {{EmbedLiveSample('Examples')}}
 
-## Stilierung von Absätzen
+## Absätze stylen
 
-Standardmäßig trennen Browser Absätze mit einer einzelnen Leerzeile. Alternative Trennmethoden, wie die Einrückung der ersten Zeile, können mit {{Glossary("CSS", "CSS")}} erreicht werden:
+In der Standardeinstellung trennen Browser Absätze mit einer einzelnen Leerzeile. Alternative Trennmethoden, wie z.B. Einrückung der ersten Zeile, können mit {{Glossary("CSS", "CSS")}} erreicht werden:
 
 ### HTML
 
@@ -154,22 +154,20 @@ document.querySelector("button").addEventListener("click", (event) => {
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluss-Inhalt</a
-        >, greifbarer Inhalt.
+          >Flussinhalt</a>, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungs-Inhalt</a
-        >.
+          >Satzbau-Inhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das öffnende Tag ist erforderlich. Das schließende Tag kann weggelassen werden, wenn das
+        Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn das
         <code>&lt;p&gt;</code>-Element unmittelbar gefolgt wird von einem
         {{HTMLElement("address")}},
         {{HTMLElement("article")}}, {{HTMLElement("aside")}},
@@ -184,32 +182,33 @@ document.querySelector("button").addEventListener("click", (event) => {
         {{HTMLElement("main")}}, {{HTMLElement("menu")}}, {{HTMLElement("nav")}},
         {{HTMLElement("ol")}}, {{HTMLElement("pre")}}, {{HTMLElement("search")}},
         {{HTMLElement("section")}}, {{HTMLElement("table")}},
-        {{HTMLElement("ul")}} oder einem anderen <code>&lt;p&gt;</code>-Element oder wenn es keine weiteren Inhalte im Elternelement gibt und das Elternelement kein {{HTMLElement("a")}}, {{HTMLElement("audio")}},
+        {{HTMLElement("ul")}} oder einem weiteren <code>&lt;p&gt;</code>-Element, oder wenn es keinen weiteren Inhalt im übergeordneten Element gibt und das übergeordnete Element kein {{HTMLElement("a")}}, {{HTMLElement("audio")}},
         {{HTMLElement("del")}}, {{HTMLElement("ins")}}, {{HTMLElement("map")}},
         {{HTMLElement("noscript")}} oder {{HTMLElement("video")}}-Element,
         oder ein autonomes benutzerdefiniertes Element ist.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluss-Inhalt</a
-        > akzeptiert.
+          >Flussinhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles"
-          >paragraph</a
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles"
+          >Absatz</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

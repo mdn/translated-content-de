@@ -1,13 +1,13 @@
 ---
-title: "TypeError: kann Prototyp nicht setzen: würde einen Prototyp-Kettenzyklus verursachen"
+title: "TypeError: can't set prototype: it would cause a prototype chain cycle"
 slug: Web/JavaScript/Reference/Errors/Cyclic_prototype
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Ausnahmefehler "TypeError: kann Prototyp nicht setzen: würde einen Prototyp-Kettenzyklus verursachen" tritt auf, wenn das Prototyp eines Objekts so gesetzt wird, dass die [Prototyp-Kette](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_prototypes#the_prototype_chain) zirkulär wird (`a` und `b` haben jeweils den anderen in ihren Prototyp-Ketten).
+Der JavaScript-Ausnahmefehler "TypeError: can't set prototype: it would cause a prototype chain cycle" tritt auf, wenn das Prototyp eines Objekts so gesetzt wird, dass die [Prototypkette](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_prototypes#the_prototype_chain) zirkulär wird (`a` und `b` haben gegenseitig in ihren Prototypketten).
 
 ## Nachricht
 
@@ -23,9 +23,9 @@ TypeError: cyclic __proto__ value (Safari)
 
 ## Was ist schiefgelaufen?
 
-Ein Zyklus, auch Schleife genannt, wurde in eine Prototyp-Kette eingeführt. Das bedeutet, dass beim Durchlaufen dieser Prototyp-Kette derselbe Ort immer wieder aufgerufen würde, anstatt schließlich `null` zu erreichen.
+Eine Schleife, auch Zyklus genannt, wurde in eine Prototypkette eingeführt. Das bedeutet, dass beim Durchlaufen dieser Prototypkette immer wieder derselbe Punkt erreicht wird, anstatt schließlich `null` zu erreichen.
 
-Dieser Fehler wird beim Setzen des Prototyps ausgelöst. In einer Operation wie `Object.setPrototypeOf(a, b)` wird dieser Fehler ausgegeben, wenn `a` bereits in der Prototyp-Kette von `b` existiert.
+Dieser Fehler wird beim Setzen des Prototyps ausgelöst. In einer Operation wie `Object.setPrototypeOf(a, b)`, wenn `a` bereits in der Prototypkette von `b` existiert, wird dieser Fehler ausgelöst.
 
 ## Beispiele
 
@@ -45,7 +45,7 @@ Object.setPrototypeOf(c, a);
 // TypeError: can't set prototype: it would cause a prototype chain cycle
 ```
 
-## Siehe auch
+## Weitere Informationen
 
-- [Objekt-Prototypen](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_prototypes)
-- [Vererbung und die Prototyp-Kette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+- [Objektprototypen](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_prototypes)
+- [Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)

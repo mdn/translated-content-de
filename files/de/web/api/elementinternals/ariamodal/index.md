@@ -3,15 +3,15 @@ title: "ElementInternals: ariaModal-Eigenschaft"
 short-title: ariaModal
 slug: Web/API/ElementInternals/ariaModal
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaModal`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-modal`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-modal)-Attributes wider, welches angibt, ob ein Element modal angezeigt wird.
+Die **`ariaModal`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-modal`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal)-Attributs wider, welches angibt, ob ein Element modalen Charakter hat, wenn es angezeigt wird.
 
 > [!NOTE]
-> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, standardmäßige Semantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken beibehalten werden, falls der Autor diese Attribute löscht oder gar nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantik für ein benutzerdefiniertes Element festzulegen. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantik erhalten bleibt, falls der Autor diese Attribute löscht oder gar nicht erst hinzufügt. Für weitere Informationen siehe den [Accessibility Object Model Erklärungsartikel](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -40,4 +40,4 @@ this.internals_.ariaModal = "true";
 
 ## Siehe auch
 
-- [ARIA: dialog role](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role)
+- [ARIA: dialog role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)

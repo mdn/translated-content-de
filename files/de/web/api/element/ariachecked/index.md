@@ -3,15 +3,15 @@ title: "Element: ariaChecked-Eigenschaft"
 short-title: ariaChecked
 slug: Web/API/Element/ariaChecked
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaChecked`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked)-Attributs wider, das den aktuellen "checked"-Zustand von Checkboxen, Radio-Buttons und anderen Widgets, die einen checked-Zustand haben, anzeigt.
+Die **`ariaChecked`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)-Attributs wider, das den aktuellen "checked"-Status von Kontrollkästchen, Optionsfeldern und anderen Widgets mit einem überprüfbaren Status angibt.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="checkbox"`, da dieses Element eingebaute Semantik hat und keine ARIA-Attribute benötigt.
+> Verwenden Sie, wenn möglich, ein HTML-{{htmlelement("input")}}-Element mit `type="checkbox"`, da dieses Element eingebaute Semantik hat und keine ARIA-Attribute benötigt.
 
 ## Wert
 
@@ -20,11 +20,11 @@ Ein String mit einem der folgenden Werte:
 - `"true"`
   - : Das Element ist aktiviert.
 - `"mixed"`
-  - : Gibt einen gemischten Moduswert für ein Drei-Zustands-Checkbox oder ein Menüeintrags-Checkbox an.
+  - : Gibt einen Mischmoduswert für ein Dreiweg-Kontrollkästchen oder Menüelement-Kontrollkästchen an.
 - `"false"`
-  - : Das Element unterstützt das Aktiviertsein, ist aber derzeit nicht aktiviert.
+  - : Das Element unterstützt den überprüften Status, ist jedoch derzeit nicht aktiviert.
 - `"undefined"`
-  - : Das Element unterstützt das Aktiviertsein nicht.
+  - : Das Element unterstützt keinen überprüften Status.
 
 ## Beispiele
 
@@ -58,4 +58,4 @@ console.log(el.ariaChecked); // "true"
 
 ## Siehe auch
 
-- [ARIA: checkbox-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role)
+- [ARIA: checkbox role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role)

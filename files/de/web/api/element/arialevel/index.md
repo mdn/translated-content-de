@@ -3,15 +3,15 @@ title: "Element: ariaLevel-Eigenschaft"
 short-title: ariaLevel
 slug: Web/API/Element/ariaLevel
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaLevel`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des `aria-level`-Attributs wider, welches die hierarchische Ebene eines Elements innerhalb einer Struktur definiert.
+Die **`ariaLevel`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des `aria-level`-Attributs wider, das die hierarchische Ebene eines Elements innerhalb einer Struktur definiert.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML {{htmlelement("Heading_Elements", "h1")}} oder eine andere korrekte Überschriftenebene, da diese eingebaute Semantik besitzen und keine ARIA-Attribute erfordern.
+> Verwenden Sie, wenn möglich, ein HTML {{htmlelement("Heading_Elements", "h1")}} oder eine andere korrekte Überschriftenebene, da diese eingebaute Semantik haben und keine ARIA-Attribute erfordern.
 
 ## Wert
 
@@ -44,4 +44,4 @@ console.log(el.ariaLevel); // "2"
 
 ## Siehe auch
 
-- [ARIA: heading role](/de/docs/Web/Accessibility/ARIA/Roles/heading_role)
+- [ARIA: heading role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/heading_role)

@@ -2,15 +2,15 @@
 title: ElementInternals.ariaRowIndexText
 slug: Web/API/ElementInternals/ariaRowIndexText
 l10n:
-  sourceCommit: 8b920a5e7567dcc9d642dfbd704b0ddbe2005d30
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaRowIndexText`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-rowindextext`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindextext)-Attributs wider, das eine für Menschen lesbare Textalternative zu aria-rowindex definiert.
+Die **`ariaRowIndexText`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-rowindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindextext)-Attributs wider, das eine für Menschen lesbare Textalternative zu aria-rowindex definiert.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standard-Semantik auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standard-Semantik erhalten bleibt, falls der Autor diese Attribute löscht oder sie gar nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Durch das Setzen von Aria-Attributen auf `ElementInternals` können Standardsemantiken für ein benutzerdefiniertes Element definiert werden. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantik erhalten bleibt, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärungsdokument](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -34,4 +34,4 @@ this.internals_.ariaRowIndexText = "Heading row";
 
 ## Siehe auch
 
-- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)

@@ -2,12 +2,12 @@
 title: return
 slug: Web/JavaScript/Reference/Statements/return
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("Statements")}}
 
-Die **`return`**-Anweisung beendet die Ausführung einer Funktion und gibt einen Wert zurück an den Aufrufer dieser Funktion.
+Die **`return`**-Anweisung beendet die Ausführung einer Funktion und gibt einen Wert an den Funktionsaufrufer zurück.
 
 {{InteractiveExample("JavaScript Demo: Statement - Return")}}
 
@@ -34,18 +34,18 @@ return expression;
 ```
 
 - `expression` {{optional_inline}}
-  - : Der Ausdruck, dessen Wert zurückgegeben werden soll. Wenn dieser weggelassen wird, wird `undefined` zurückgegeben.
+  - : Der Ausdruck, dessen Wert zurückgegeben werden soll. Wenn weggelassen, wird `undefined` zurückgegeben.
 
 ## Beschreibung
 
-Die `return`-Anweisung kann nur innerhalb von Funktionskörpern verwendet werden. Wenn eine `return`-Anweisung in einem Funktionskörper verwendet wird, wird die Ausführung der Funktion abgebrochen. Die `return`-Anweisung hat unterschiedliche Auswirkungen in verschiedenen Funktionen:
+Die `return`-Anweisung kann nur innerhalb von Funktionskörpern verwendet werden. Wenn eine `return`-Anweisung in einem Funktionskörper verwendet wird, wird die Ausführung der Funktion gestoppt. Die `return`-Anweisung hat unterschiedliche Auswirkungen, je nachdem, in welcher Art von Funktion sie platziert ist:
 
-- In einer einfachen Funktion wird der Funktionsaufruf mit dem Rückgabewert ausgewertet.
-- In einer asynchronen Funktion (`async function`) wird die daraus resultierende Promise mit dem zurückgegebenen Wert aufgelöst.
-- In einer Generatorfunktion gibt die Methode `next()` des erzeugten Generator-Objekts `{ done: true, value: returnedValue }` zurück.
-- In einer asynchronen Generatorfunktion (`async generator function`) gibt die Methode `next()` des erzeugten asynchronen Generator-Objekts ein Promise zurück, das mit `{ done: true, value: returnedValue }` erfüllt wird.
+- In einer normalen Funktion führt der Aufruf der Funktion zur Rückgabe des Wertes.
+- In einer asynchronen Funktion wird das erzeugte Promise mit dem zurückgegebenen Wert aufgelöst.
+- In einer Generator-Funktion gibt die `next()`-Methode des erzeugten Generator-Objekts `{ done: true, value: returnedValue }` zurück.
+- In einer asynchronen Generator-Funktion gibt die `next()`-Methode des erzeugten asynchronen Generator-Objekts ein Promise zurück, das mit `{ done: true, value: returnedValue }` erfüllt wird.
 
-Wenn eine `return`-Anweisung innerhalb eines {{jsxref("Statements/try...catch", "try")}}-Blocks ausgeführt wird, wird, falls vorhanden, zunächst der zugehörige `finally`-Block ausgeführt, bevor der Wert tatsächlich zurückgegeben wird.
+Wenn eine `return`-Anweisung innerhalb eines {{jsxref("Statements/try...catch", "try")}}-Blocks ausgeführt wird, wird zuerst der `finally`-Block, sofern vorhanden, ausgeführt, bevor der Wert tatsächlich zurückgegeben wird.
 
 ### Automatische Semikolon-Einfügung
 
@@ -56,16 +56,16 @@ return
 a + b;
 ```
 
-Der obige Code wird durch [automatische Semikolon-Einfügung (ASI)](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) wie folgt interpretiert:
+Der obige Code wird durch die [automatische Semikolon-Einfügung (ASI)](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) in:
 
 ```js-nolint
 return;
 a + b;
 ```
 
-Dies führt dazu, dass die Funktion `undefined` zurückgibt und der Ausdruck `a + b` nie ausgewertet wird. Dies könnte [eine Warnung in der Konsole erzeugen](/de/docs/Web/JavaScript/Reference/Errors/Stmt_after_return).
+Dies führt dazu, dass die Funktion `undefined` zurückgibt und der Ausdruck `a + b` niemals ausgewertet wird. Dies kann [eine Warnung in der Konsole erzeugen](/de/docs/Web/JavaScript/Reference/Errors/Stmt_after_return).
 
-Um dieses Problem zu vermeiden (und ASI vorzubeugen), könnten Sie Klammern verwenden:
+Um dieses Problem zu vermeiden (um ASI zu verhindern), könnten Sie Klammern verwenden:
 
 ```js-nolint
 return (
@@ -75,9 +75,9 @@ return (
 
 ## Beispiele
 
-### Funktion unterbrechen
+### Eine Funktion unterbrechen
 
-Eine Funktion stoppt sofort an der Stelle, an der `return` aufgerufen wird.
+Eine Funktion wird sofort an dem Punkt gestoppt, an dem `return` aufgerufen wird.
 
 ```js
 function counter() {
@@ -108,7 +108,7 @@ counter();
 
 ### Eine Funktion zurückgeben
 
-Siehe dazu auch den Artikel über [Closures](/de/docs/Web/JavaScript/Closures).
+Siehe auch den Artikel über [Closures](/de/docs/Web/JavaScript/Guide/Closures).
 
 ```js
 function magic() {
@@ -131,5 +131,5 @@ answer(1337); // 56154
 
 ## Siehe auch
 
-- [Functions](/de/docs/Web/JavaScript/Reference/Functions)
-- [Closures](/de/docs/Web/JavaScript/Closures)
+- [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
+- [Closures](/de/docs/Web/JavaScript/Guide/Closures)

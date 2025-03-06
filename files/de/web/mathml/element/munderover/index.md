@@ -2,7 +2,7 @@
 title: <munderover>
 slug: Web/MathML/Element/munderover
 l10n:
-  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{MathMLRef}}
@@ -16,9 +16,9 @@ Es verwendet die folgende Syntax: `<munderover> base underscript overscript </mu
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
 
 - `accent`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), der angibt, ob das oberskript als Akzent behandelt werden soll (d.h. größer und näher an den Basis-Ausdruck gezeichnet).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types) Wert, der angibt, ob das obere Skript als Akzent behandelt werden soll (d.h. größer und näher an dem Basisausdruck gezeichnet werden soll).
 - `accentunder`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), der angibt, ob das unterscript als Akzent behandelt werden soll (d.h. größer und näher an den Basis-Ausdruck gezeichnet).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types) Wert, der angibt, ob das untere Skript als Akzent behandelt werden soll (d.h. größer und näher an dem Basisausdruck gezeichnet werden soll).
 
 ## Beispiele
 
@@ -41,12 +41,12 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 {{ EmbedLiveSample('munderover_example', 700, 200, "", "") }}
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizite ARIA-Rolle</a>
     </th>
     <td>
       Keine
@@ -64,5 +64,5 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 ## Siehe auch
 
-- {{ MathMLElement("munder") }} (Unterscript)
-- {{ MathMLElement("mover") }} (Oberscript)
+- {{ MathMLElement("munder") }} (Unterskript)
+- {{ MathMLElement("mover") }} (Oberskript)

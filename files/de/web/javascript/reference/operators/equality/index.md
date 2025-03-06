@@ -2,13 +2,12 @@
 title: Gleichheit (==)
 slug: Web/JavaScript/Reference/Operators/Equality
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Gleichheitsoperator (`==`)** überprüft, ob seine beiden Operanden gleich sind, und gibt ein Boolean-Ergebnis zurück.
-Im Gegensatz zum [strikten Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) versucht er, Operanden, die unterschiedliche Typen haben, zu konvertieren und zu vergleichen.
+Der **Gleichheitsoperator (`==`)** überprüft, ob seine beiden Operanden gleich sind und gibt ein boolesches Ergebnis zurück. Im Gegensatz zum [strikten Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) versucht er, Operanden, die unterschiedliche Typen haben, zu konvertieren und zu vergleichen.
 
 {{InteractiveExample("JavaScript Demo: Expressions - Equality operator")}}
 
@@ -34,30 +33,30 @@ x == y
 
 ## Beschreibung
 
-Die Gleichheitsoperatoren (`==` und `!=`) verwenden die [IsLooselyEqual](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#loose_equality_using)-Semantik. Diese kann grob wie folgt zusammengefasst werden:
+Die Gleichheitsoperatoren (`==` und `!=`) stellen die [IsLooselyEqual](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#loose_equality_using) Semantik bereit. Dies kann grob wie folgt zusammengefasst werden:
 
-1. Haben die Operanden denselben Typ, werden sie wie folgt verglichen:
-   - Object: Es wird nur `true` zurückgegeben, wenn beide Operanden auf dasselbe Objekt verweisen.
-   - String: Es wird nur `true` zurückgegeben, wenn beide Operanden dieselben Zeichen in derselben Reihenfolge enthalten.
-   - Number: Es wird nur `true` zurückgegeben, wenn beide Operanden denselben Wert haben. `+0` und `-0` werden als derselbe Wert behandelt. Wenn einer der Operanden `NaN` ist, wird `false` zurückgegeben; daher ist `NaN` niemals gleich `NaN`.
-   - Boolean: Es wird nur `true` zurückgegeben, wenn beide Operanden entweder `true` oder `false` sind.
-   - BigInt: Es wird nur `true` zurückgegeben, wenn beide Operanden denselben Wert haben.
-   - Symbol: Es wird nur `true` zurückgegeben, wenn beide Operanden auf dasselbe Symbol verweisen.
-2. Ist einer der Operanden `null` oder `undefined`, muss auch der andere `null` oder `undefined` sein, um `true` zurückzugeben. Ansonsten wird `false` zurückgegeben.
-3. Ist einer der Operanden ein Object und der andere ein primitiver Wert, wird [das Objekt in einen primitiven Wert umgewandelt](/de/docs/Web/JavaScript/Data_structures#primitive_coercion).
-4. In diesem Schritt werden beide Operanden zu primitiven Werten (einem von String, Number, Boolean, Symbol oder BigInt) konvertiert. Die weitere Konvertierung erfolgt fallweise.
-   - Sind sie vom selben Typ, werden sie gemäß Schritt 1 verglichen.
-   - Wenn einer der Operanden ein Symbol ist, der andere jedoch nicht, wird `false` zurückgegeben.
-   - Wenn einer der Operanden ein Boolean-Wert ist, der andere jedoch nicht, wird [der Boolean-Wert in eine Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion): `true` wird zu 1 und `false` wird zu 0. Anschließend werden die beiden Operanden erneut locker verglichen.
-   - Number zu String: [der String wird in eine Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). Führt die Konvertierung zu einem Fehler, entsteht `NaN`, wodurch die Gleichheit garantiert `false` ist.
-   - Number zu BigInt: Vergleich nach mathematischem Wert. Ist die Zahl ±Infinity oder `NaN`, wird `false` zurückgegeben.
-   - String zu BigInt: Der String wird unter Verwendung derselben Algorithmus wie vom [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt)-Konstruktor in ein BigInt umgewandelt. Scheitert die Umwandlung, wird `false` zurückgegeben.
+1. Wenn die Operanden den gleichen Typ haben, werden sie wie folgt verglichen:
+   - Objekt: Gibt `true` zurück, nur wenn beide Operanden auf dasselbe Objekt verweisen.
+   - String: Gibt `true` zurück, nur wenn beide Operanden die gleichen Zeichen in derselben Reihenfolge haben.
+   - Number: Gibt `true` zurück, nur wenn beide Operanden denselben Wert haben. `+0` und `-0` werden als derselbe Wert behandelt. Wenn ein Operand `NaN` ist, wird `false` zurückgegeben; `NaN` ist also nie gleich `NaN`.
+   - Boolean: Gibt `true` zurück, nur wenn beide Operanden entweder `true` oder beide `false` sind.
+   - BigInt: Gibt `true` zurück, nur wenn beide Operanden denselben Wert haben.
+   - Symbol: Gibt `true` zurück, nur wenn beide Operanden auf dasselbe Symbol verweisen.
+2. Wenn einer der Operanden `null` oder `undefined` ist, muss der andere ebenfalls `null` oder `undefined` sein, um `true` zurückzugeben. Andernfalls wird `false` zurückgegeben.
+3. Wenn einer der Operanden ein Objekt ist und der andere ein primitiver Wert ist, [konvertieren Sie das Objekt in einen primitiven Wert](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion).
+4. An diesem Punkt werden beide Operanden in primitive Werte konvertiert (einer von String, Number, Boolean, Symbol und BigInt). Der restliche Konvertierungsprozess erfolgt fallweise.
+   - Wenn sie vom gleichen Typ sind, vergleichen Sie sie mit Schritt 1.
+   - Wenn einer der Operanden ein Symbol ist, aber der andere nicht, geben Sie `false` zurück.
+   - Wenn einer der Operanden ein Boolean ist, aber der andere nicht, [konvertieren Sie das Boolean in eine Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion): `true` wird zu 1 konvertiert, und `false` wird zu 0 konvertiert. Vergleichen Sie dann die beiden Operanden erneut locker.
+   - Zahl zu String: [konvertieren Sie das String in eine Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). Ein Konvertierungsfehler führt zu `NaN`, was garantiert, dass die Gleichheit `false` ist.
+   - Number zu BigInt: Vergleichen Sie anhand ihres mathematischen Wertes. Wenn die Zahl ±Infinity oder `NaN` ist, geben Sie `false` zurück.
+   - String zu BigInt: Konvertieren Sie das String in ein BigInt unter Verwendung des gleichen Algorithmus wie der [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) Konstruktor. Wenn die Konvertierung fehlschlägt, geben Sie `false` zurück.
 
-Lose Gleichheit ist _symmetrisch_: `A == B` hat immer dieselbe Semantik wie `B == A` für beliebige Werte von `A` und `B` (außer bei der Reihenfolge der angewandten Konvertierungen).
+Lockere Gleichheit ist _symmetrisch_: `A == B` hat immer die gleichen Semantiken wie `B == A` für beliebige Werte von `A` und `B` (außer für die Reihenfolge der angewendeten Konvertierungen).
 
-Der bemerkenswerteste Unterschied zwischen diesem Operator und dem [strikten Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) (`===`) ist, dass der strikte Gleichheitsoperator keine Typkonvertierung durchführt. Stattdessen betrachtet der strikte Gleichheitsoperator Operanden unterschiedlicher Typen immer als unterschiedlich. Der strikte Gleichheitsoperator führt im Wesentlichen nur Schritt 1 durch und gibt in allen anderen Fällen `false` zurück.
+Der bemerkenswerteste Unterschied zwischen diesem Operator und dem [strikten Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) (`===`) ist, dass der strikte Gleichheitsoperator keine Typkonvertierung versucht. Stattdessen betrachtet der strikte Gleichheitsoperator immer Operanden unterschiedlicher Typen als verschieden. Der strikte Gleichheitsoperator führt im Wesentlichen nur Schritt 1 durch und gibt dann für alle anderen Fälle `false` zurück.
 
-Es gibt eine "bewusste Verletzung" des oben genannten Algorithmus: Wenn einer der Operanden [`document.all`](/de/docs/Web/API/Document/all) ist, wird er so behandelt, als wäre er `undefined`. Das bedeutet, dass `document.all == null` `true` ist, aber `document.all === undefined && document.all === null` `false` ist.
+Es gibt eine "vorsätzliche Verletzung" des obigen Algorithmus: Wenn einer der Operanden [`document.all`](/de/docs/Web/API/Document/all) ist, wird er so behandelt, als wäre er `undefined`. Das bedeutet, dass `document.all == null` `true` ist, aber `document.all === undefined && document.all === null` `false` ist.
 
 ## Beispiele
 
@@ -103,7 +102,7 @@ console.log(object1 == object1); // true
 
 ### Vergleich von Strings und String-Objekten
 
-Beachten Sie, dass Strings, die mit `new String()` erstellt wurden, Objekte sind. Wenn Sie eines dieser Objekte mit einem String-Literal vergleichen, wird das `String`-Objekt in ein String-Literal umgewandelt und die Inhalte werden verglichen. Wenn jedoch beide Operanden `String`-Objekte sind, werden sie als Objekte verglichen, und es muss sich um dasselbe Objekt handeln, damit der Vergleich erfolgreich ist:
+Beachten Sie, dass Strings, die mit `new String()` erstellt wurden, Objekte sind. Wenn Sie einen dieser Strings mit einem String-Literal vergleichen, wird das `String`-Objekt in ein String-Literal konvertiert und die Inhalte werden verglichen. Wenn jedoch beide Operanden `String`-Objekte sind, werden sie als Objekte verglichen und müssen dasselbe Objekt referenzieren, damit der Vergleich erfolgreich ist:
 
 ```js
 const string1 = "hello";
@@ -118,7 +117,7 @@ console.log(string3 == string4); // false
 console.log(string4 == string4); // true
 ```
 
-### Vergleich von Datum und Strings
+### Vergleich von Daten und Strings
 
 ```js
 const d = new Date("1995-12-17T03:24:00");

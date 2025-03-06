@@ -3,27 +3,27 @@ title: "Element: ariaLive-Eigenschaft"
 short-title: ariaLive
 slug: Web/API/Element/ariaLive
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaLive`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-live`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-live)-Attributs wider. Dieses Attribut zeigt an, dass ein Element aktualisiert wird und beschreibt die Art der Aktualisierungen, die von Benutzeragenten, Unterstützungssoftware und Benutzern in der [Live-Region](/de/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) erwartet werden können.
+Die **`ariaLive`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live)-Attributs wider, das angibt, dass ein Element aktualisiert wird, und die Arten von Updates beschreibt, die Benutzeragenten, unterstützende Technologien und der Benutzer von der [Live-Region](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) erwarten können.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"assertive"`
-  - : Gibt an, dass Aktualisierungen der Region höchste Priorität haben und dem Benutzer sofort präsentiert werden sollten.
+  - : Gibt an, dass Updates in dieser Region höchste Priorität haben und dem Benutzer sofort präsentiert werden sollten.
 - `"off"`
-  - : Gibt an, dass Aktualisierungen der Region dem Benutzer nicht präsentiert werden sollten, es sei denn, der Benutzer fokussiert sich gerade auf diese Region.
+  - : Gibt an, dass Updates in dieser Region dem Benutzer nur präsentiert werden sollten, wenn der Benutzer gerade auf diese Region fokussiert ist.
 - `"polite"`
-  - : Gibt an, dass Aktualisierungen der Region bei der nächsten passender Gelegenheit präsentiert werden sollten, z.B. am Ende des aktuellen Satzes oder wenn der Benutzer das Tippen unterbricht.
+  - : Gibt an, dass Updates in dieser Region dem Benutzer bei der nächsten günstigen Gelegenheit präsentiert werden sollten, z.B. am Ende des aktuellen Satzes oder wenn der Benutzer eine Pause beim Tippen macht.
 
 ## Beispiele
 
-In diesem Beispiel wird das [`aria-live`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-live)-Attribut des Elements mit der ID `planetInfo` auf `"polite"` gesetzt. Anschließend ändern wir den Wert auf `"assertive"`.
+In diesem Beispiel wird das [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live)-Attribut auf dem Element mit der ID `planetInfo` auf `"polite"` gesetzt. Wir ändern dann den Wert auf `"assertive"`.
 
 ```html
 <div role="region" id="planetInfo" aria-live="polite">

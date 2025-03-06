@@ -2,14 +2,14 @@
 title: Iteratoren und Generatoren
 slug: Web/JavaScript/Guide/Iterators_and_generators
 l10n:
-  sourceCommit: c16a0ee78e5142b3bfcdaf57d595add3ce825f13
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Typed_arrays", "Web/JavaScript/Guide/Internationalization")}}
 
-Iteratoren und Generatoren bringen das Konzept der Iteration direkt in die Kernsprache ein und bieten einen Mechanismus zur Anpassung des Verhaltens von {{jsxref("Statements/for...of", "for...of")}} Schleifen.
+Iteratoren und Generatoren bringen das Konzept der Iteration direkt in die Kernsprache und bieten einen Mechanismus zur Anpassung des Verhaltens von {{jsxref("Statements/for...of", "for...of")}}-Schleifen.
 
-Siehe auch für Details:
+Weitere Details finden Sie auch hier:
 
 - [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
 - {{jsxref("Statements/for...of", "for...of")}}
@@ -18,22 +18,22 @@ Siehe auch für Details:
 
 ## Iteratoren
 
-In JavaScript ist ein **Iterator** ein Objekt, das eine Sequenz definiert und möglicherweise einen Rückgabewert bei seiner Beendigung liefert.
+Ein **Iterator** in JavaScript ist ein Objekt, das eine Sequenz definiert und möglicherweise einen Rückgabewert bei seiner Beendigung liefert.
 
-Genauer gesagt ist ein Iterator jedes Objekt, das das [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) implementiert, indem es eine `next()` Methode hat, die ein Objekt mit zwei Eigenschaften zurückgibt:
+Konkret ist ein Iterator jedes Objekt, das das [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) implementiert, indem es eine `next()`-Methode hat, die ein Objekt mit zwei Eigenschaften zurückgibt:
 
 - `value`
   - : Der nächste Wert in der Iterationssequenz.
 - `done`
-  - : Dies ist `true`, wenn der letzte Wert in der Sequenz bereits konsumiert wurde. Wenn `value` zusammen mit `done` vorhanden ist, ist es der Rückgabewert des Iterators.
+  - : Dies ist `true`, wenn der letzte Wert in der Sequenz bereits verbraucht wurde. Wenn `value` neben `done` vorhanden ist, ist dies der Rückgabewert des Iterators.
 
-Einmal erstellt, kann ein Iterator-Objekt explizit durch wiederholtes Aufrufen von `next()` durchlaufen werden. Das Durchlaufen eines Iterators wird als Konsumieren des Iterators bezeichnet, da dies im Allgemeinen nur einmal möglich ist. Nachdem ein Endwert ausgegeben wurde, sollten zusätzliche Aufrufe von `next()` weiterhin `{done: true}` zurückgeben.
+Nachdem ein Iterator-Objekt erstellt wurde, kann es explizit durch wiederholtes Aufrufen von `next()` iteriert werden. Das Iterieren über einen Iterator verbraucht diesen, da dies im Allgemeinen nur einmal möglich ist. Nachdem ein Endwert ausgegeben wurde, sollten weitere Aufrufe von `next()` weiterhin `{done: true}` zurückgeben.
 
-Der häufigste Iterator in JavaScript ist der Array-Iterator, der jeden Wert im zugehörigen Array in der Reihenfolge zurückgibt.
+Der häufigste Iterator in JavaScript ist der Array-Iterator, der jeden Wert im zugehörigen Array in Sequenz zurückgibt.
 
-Während es einfach vorstellbar ist, dass alle Iteratoren als Arrays ausgedrückt werden könnten, ist das nicht der Fall. Arrays müssen vollständig zugewiesen werden, aber Iteratoren werden nur nach Bedarf konsumiert. Aus diesem Grund können Iteratoren Sequenzen von unbegrenzter Größe ausdrücken, wie etwa den Bereich von Ganzzahlen zwischen `0` und {{jsxref("Infinity")}}.
+Obwohl es leicht vorstellbar ist, dass alle Iteratoren als Arrays ausgedrückt werden könnten, ist dies nicht der Fall. Arrays müssen vollständig zugewiesen werden, aber Iteratoren werden nur bei Bedarf konsumiert. Aufgrund dessen können Iteratoren Sequenzen unbegrenzter Größe ausdrücken, wie z.B. den Bereich der ganzen Zahlen zwischen `0` und {{jsxref("Infinity")}}.
 
-Hier ist ein Beispiel, das genau das tun kann. Es ermöglicht die Erstellung eines Bereichs-Iterators, der eine Sequenz von Ganzzahlen von `start` (einschließlich) bis `end` (ausschließlich) mit einem Abstand von `step` definiert. Sein endgültiger Rückgabewert ist die Größe der erzeugten Sequenz, verfolgt durch die Variable `iterationCount`.
+Hier ist ein Beispiel, das genau dies tun kann. Es ermöglicht die Erstellung eines Bereichsiterators, der eine Sequenz von ganzen Zahlen von `start` (einschließlich) bis `end` (ausschließlich) definiert, die `step` auseinander liegen. Sein endgültiger Rückgabewert ist die Größe der erstellten Sequenz, verfolgt durch die Variable `iterationCount`.
 
 ```js
 function makeRangeIterator(start = 0, end = Infinity, step = 1) {
@@ -71,15 +71,15 @@ console.log("Iterated over sequence of size:", result.value); // [5 numbers retu
 ```
 
 > [!NOTE]
-> Es ist nicht möglich, reflektierend zu wissen, ob ein bestimmtes Objekt ein Iterator ist. Wenn Sie dies tun müssen, verwenden Sie [Iterables](#iterables).
+> Es ist nicht möglich, reflexiv zu wissen, ob ein bestimmtes Objekt ein Iterator ist. Wenn Sie dies tun müssen, verwenden Sie [Iterables](#iterables).
 
-## Generator-Funktionen
+## Generatorfunktionen
 
-Während benutzerdefinierte Iteratoren ein nützliches Werkzeug sind, erfordert ihre Erstellung sorgfältige Programmierung aufgrund der Notwendigkeit, ihren internen Zustand explizit zu verwalten. **Generator-Funktionen** bieten eine leistungsstarke Alternative: Sie ermöglichen es Ihnen, einen iterativen Algorithmus zu definieren, indem Sie eine einzige Funktion schreiben, deren Ausführung nicht kontinuierlich erfolgt. Generator-Funktionen werden mit der {{jsxref("Statements/function*", "function*")}} Syntax geschrieben.
+Obwohl benutzerdefinierte Iteratoren ein nützliches Werkzeug sind, erfordert deren Erstellung sorgfältige Programmierung, da deren interner Zustand explizit verwaltet werden muss. **Generatorfunktionen** bieten eine leistungsfähige Alternative: Sie ermöglichen Ihnen, einen iterativen Algorithmus zu definieren, indem Sie eine einzelne Funktion schreiben, deren Ausführung nicht kontinuierlich ist. Generatorfunktionen werden mit der {{jsxref("Statements/function*", "function*")}}-Syntax geschrieben.
 
-Wenn sie aufgerufen werden, führen Generator-Funktionen ihren Code nicht sofort aus. Stattdessen geben sie einen speziellen Typ von Iterator zurück, einen **Generator**. Wenn ein Wert konsumiert wird, indem die `next` Methode des Generators aufgerufen wird, führt die Generator-Funktion ihren Code aus, bis sie auf das `yield` Schlüsselwort stößt.
+Beim Aufruf führen Generatorfunktionen ihren Code nicht sofort aus. Stattdessen geben sie einen speziellen Typ von Iterator zurück, der als **Generator** bezeichnet wird. Wenn ein Wert durch Aufrufen der `next`-Methode des Generators konsumiert wird, führt die Generatorfunktion aus, bis sie auf das `yield`-Schlüsselwort stößt.
 
-Die Funktion kann beliebig oft aufgerufen werden und gibt jedes Mal einen neuen Generator zurück. Jeder Generator kann nur einmal durchlaufen werden.
+Die Funktion kann beliebig oft aufgerufen werden und gibt jedes Mal einen neuen Generator zurück. Jeder Generator kann nur einmal iteriert werden.
 
 Wir können nun das obige Beispiel anpassen. Das Verhalten dieses Codes ist identisch, aber die Implementierung ist viel einfacher zu schreiben und zu lesen.
 
@@ -96,13 +96,13 @@ function* makeRangeIterator(start = 0, end = Infinity, step = 1) {
 
 ## Iterables
 
-Ein Objekt ist **iterierbar**, wenn es sein Iterationsverhalten definiert, z. B. welche Werte in einem {{jsxref("Statements/for...of", "for...of")}} Konstrukt durchlaufen werden. Einige eingebaute Typen, wie {{jsxref("Array")}} oder {{jsxref("Map")}}, haben ein Standard-Iterationsverhalten, während andere Typen (wie {{jsxref("Object")}}) dies nicht tun.
+Ein Objekt ist **iterierbar**, wenn es sein Iterationsverhalten definiert, z. B. welche Werte in einer {{jsxref("Statements/for...of", "for...of")}}-Konstruktion überlaufen werden. Einige integrierte Typen, wie {{jsxref("Array")}} oder {{jsxref("Map")}}, haben ein Standard-Iterationsverhalten, während andere Typen (wie {{jsxref("Object")}}) dies nicht tun.
 
-Um **iterierbar** zu sein, muss ein Objekt die `[Symbol.iterator]()` Methode implementieren. Das bedeutet, dass das Objekt (oder eines der Objekte in seiner [Prototypkette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)) eine Eigenschaft mit einem {{jsxref("Symbol.iterator")}} Schlüssel haben muss.
+Um **iterierbar** zu sein, muss ein Objekt die Methode `[Symbol.iterator]()` implementieren. Das bedeutet, dass das Objekt (oder eines der Objekte in seiner [Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)) eine Eigenschaft mit einem {{jsxref("Symbol.iterator")}}-Schlüssel haben muss.
 
-Es kann möglich sein, ein iterierbares Objekt mehr als einmal oder nur einmal zu durchlaufen. Es liegt in der Verantwortung des Programmierers zu wissen, welches der Fall ist.
+Es kann möglich sein, mehr als einmal über ein iterierbares Objekt zu iterieren, oder nur einmal. Es liegt am Programmierer zu wissen, welcher Fall zutrifft.
 
-Iterables, die nur einmal durchlaufbar sind (wie Generatoren), geben von ihrer `[Symbol.iterator]()` Methode üblicherweise `this` zurück, während Iterables, die viele Male durchlaufen werden können, bei jeder Aufruf von `[Symbol.iterator]()` einen neuen Iterator zurückgeben müssen.
+Iterables, die nur einmal iteriert werden können (wie Generatoren), geben üblicherweise `this` von ihrer `[Symbol.iterator]()`-Methode zurück, während Iterables, die viele Male iteriert werden können, bei jedem Aufruf von `[Symbol.iterator]()` einen neuen Iterator zurückgeben müssen.
 
 ```js
 function* makeIterator() {
@@ -134,7 +134,7 @@ iter[Symbol.iterator] = function* () {
 
 ### Benutzerdefinierte Iterables
 
-Sie können Ihre eigenen Iterables so erstellen:
+Sie können Ihre eigenen Iterables wie folgt erstellen:
 
 ```js
 const myIterable = {
@@ -146,7 +146,7 @@ const myIterable = {
 };
 ```
 
-Benutzerdefinierte Iterables können wie gewohnt in `for...of` Schleifen oder der Spread-Syntax verwendet werden.
+Benutzerdefinierte Iterables können wie gewohnt in `for...of`-Schleifen oder der Spread-Syntax verwendet werden.
 
 ```js
 for (const value of myIterable) {
@@ -161,11 +161,11 @@ for (const value of myIterable) {
 
 ### Eingebaute Iterables
 
-{{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("TypedArray")}}, {{jsxref("Map")}} und {{jsxref("Set")}} sind alle eingebaute Iterables, da ihre Prototyp-Objekte alle eine {{jsxref("Symbol.iterator")}} Methode haben.
+{{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("TypedArray")}}, {{jsxref("Map")}} und {{jsxref("Set")}} sind alle eingebaute Iterables, da ihre Prototyp-Objekte alle eine {{jsxref("Symbol.iterator")}}-Methode haben.
 
 ### Syntaxen, die Iterables erwarten
 
-Einige Anweisungen und Ausdrücke erwarten Iterables. Zum Beispiel: die {{jsxref("Statements/for...of", "for...of")}} Schleifen, {{jsxref("Operators/Spread_syntax", "Spread-Syntax", "", 1)}}, {{jsxref("Operators/yield*", "yield*")}}, und {{jsxref("Operators/Destructuring_assignment", "Destrukturierung", "", 1)}} Syntax.
+Einige Anweisungen und Ausdrücke erwarten Iterables. Zum Beispiel: die {{jsxref("Statements/for...of", "for...of")}}-Schleifen, {{jsxref("Operators/Spread_syntax", "Spread-Syntax", "", 1)}}, {{jsxref("Operators/yield*", "yield*")}}, und {{jsxref("Operators/Destructuring_assignment", "Destrukturierung", "", 1)}}-Syntax.
 
 ```js
 for (const value of ["a", "b", "c"]) {
@@ -190,11 +190,11 @@ a;
 // "a"
 ```
 
-## Erweiterte Generatoren
+## Fortgeschrittene Generatoren
 
-Generatoren berechnen ihre `yield`-Werte _auf Abruf_, was es ihnen ermöglicht, effizient Sequenzen darzustellen, die teuer zu berechnen sind (oder sogar unendliche Sequenzen, wie oben gezeigt).
+Generatoren berechnen ihre `yield`-Werte _bei Bedarf_, was es ihnen ermöglicht, Sequenzen darzustellen, die aufwendig zu berechnen sind (oder sogar unendliche Sequenzen, wie oben demonstriert).
 
-Die {{jsxref("Generator/next", "next()")}} Methode akzeptiert auch einen Wert, der verwendet werden kann, um den internen Zustand des Generators zu ändern. Ein an `next()` übergebener Wert wird von `yield` empfangen.
+Die {{jsxref("Generator/next", "next()")}}-Methode akzeptiert auch einen Wert, der verwendet werden kann, um den internen Zustand des Generators zu ändern. Ein Wert, der an `next()` übergeben wird, wird von `yield` empfangen.
 
 > [!NOTE]
 > Ein Wert, der bei der _ersten_ Ausführung von `next()` übergeben wird, wird immer ignoriert.
@@ -229,10 +229,10 @@ console.log(sequence.next().value); // 1
 console.log(sequence.next().value); // 2
 ```
 
-Sie können einen Generator zwingen, eine Ausnahme auszulösen, indem Sie seine {{jsxref("Generator/throw", "throw()")}} Methode aufrufen und den Ausnahmewert übergeben, den er werfen soll. Diese Ausnahme wird aus dem aktuell angehaltenen Kontext des Generators ausgelöst, als ob das derzeit angehaltene `yield` stattdessen eine `throw value` Anweisung wäre.
+Sie können einen Generator zwingen, eine Ausnahme auszulösen, indem Sie seine {{jsxref("Generator/throw", "throw()")}}-Methode aufrufen und den Ausnahme-Wert übergeben, den er auslösen soll. Diese Ausnahme wird aus dem aktuell angehaltenen Kontext des Generators ausgelöst, als ob das derzeit angehaltene `yield`-Statement stattdessen ein `throw value`-Statement wäre.
 
-Wenn die Ausnahme nicht innerhalb des Generators abgefangen wird, wird sie durch den Aufruf von `throw()` nach oben propagiert, und nachfolgende Aufrufe von `next()` führen dazu, dass die `done` Eigenschaft `true` ist.
+Wenn die Ausnahme nicht innerhalb des Generators abgefangen wird, wird sie durch den Aufruf von `throw()` hoch eskaliert, und nachfolgende Aufrufe von `next()` führen dazu, dass die `done`-Eigenschaft `true` ist.
 
-Generatoren haben eine {{jsxref("Generator/return", "return()")}} Methode, die den angegebenen Wert zurückgibt und den Generator selbst beendet.
+Generatoren haben eine {{jsxref("Generator/return", "return()")}}-Methode, die den angegebenen Wert zurückgibt und den Generator selbst beendet.
 
 {{PreviousNext("Web/JavaScript/Guide/Typed_arrays", "Web/JavaScript/Guide/Internationalization")}}

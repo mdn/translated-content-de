@@ -2,12 +2,12 @@
 title: "<br>: Das Zeilenumbruch-Element"
 slug: Web/HTML/Element/br
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<br>`** [HTML](/de/docs/Web/HTML) Element erzeugt einen Zeilenumbruch im Text (Carriage-Return). Es ist nützlich für das Schreiben eines Gedichts oder einer Adresse, wo die Aufteilung in Zeilen wichtig ist.
+Das **`<br>`** [HTML](/de/docs/Web/HTML) Element erzeugt einen Zeilenumbruch im Text (Carriage-Return). Es ist nützlich beim Schreiben von Gedichten oder Adressen, bei denen die Zeileneinteilung wichtig ist.
 
 {{InteractiveExample("HTML Demo: &lt;br&gt;", "tabbed-standard")}}
 
@@ -32,14 +32,14 @@ p {
 }
 ```
 
-Wie Sie im obigen Beispiel sehen können, wird ein `<br>` Element an jeder Stelle eingefügt, an der wir möchten, dass der Text umgebrochen wird. Der Text nach dem `<br>` beginnt wieder am Anfang der nächsten Zeile des Textblocks.
+Wie Sie im obigen Beispiel sehen, wird ein `<br>`-Element an jedem Punkt eingefügt, an dem der Text umgebrochen werden soll. Der Text nach dem `<br>` beginnt wieder am Anfang der nächsten Zeile des Textblocks.
 
 > [!NOTE]
-> Verwenden Sie `<br>` nicht, um Abstände zwischen Absätzen zu erzeugen; umschließen Sie sie in {{htmlelement("p")}} Elementen und verwenden Sie die [CSS](/de/docs/Web/CSS) {{cssxref('margin')}}-Eigenschaft, um deren Größe zu steuern.
+> Verwenden Sie `<br>` nicht, um Abstände zwischen Absätzen zu erstellen; umgeben Sie sie mit {{htmlelement("p")}}-Elementen und verwenden Sie die [CSS](/de/docs/Web/CSS) {{cssxref('margin')}}-Eigenschaft, um deren Größe zu steuern.
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ### Veraltete Attribute
 
@@ -48,21 +48,21 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 ## Styling mit CSS
 
-Das `<br>` Element hat einen einzigen, gut definierten Zweck — es erzeugt einen Zeilenumbruch in einem Textblock. Daher hat es keine eigenen Abmessungen oder visuelle Ausgabe, und es gibt sehr wenig, was Sie daran gestalten können.
+Das `<br>`-Element hat einen einzigen, gut definierten Zweck — es erzeugt einen Zeilenumbruch in einem Textblock. Daher hat es weder Dimensionen noch eine eigene visuelle Ausgabe, und es gibt sehr wenig, was Sie daran stylen können.
 
-Sie können auf `<br>` Elementen selbst ein {{cssxref("margin")}} setzen, um den Abstand zwischen den Textzeilen im Block zu vergrößern, aber dies ist eine schlechte Praxis — Sie sollten die {{cssxref("line-height")}}-Eigenschaft verwenden, die dafür ausgelegt ist.
+Sie können ein {{cssxref("margin")}} auf `<br>`-Elementen selbst setzen, um den Abstand zwischen den Zeilen des Textblocks zu erhöhen, aber dies ist eine schlechte Praxis — Sie sollten die dafür vorgesehene {{cssxref("line-height")}}-Eigenschaft verwenden.
 
 ## Barrierefreiheit
 
-Das Erstellen separater Textabsätze mit `<br>` ist nicht nur eine schlechte Praxis, es ist problematisch für Personen, die mit Hilfe von Bildschirmlesetechnologie navigieren. Bildschirmlesegeräte können das Vorhandensein des Elements ankündigen, jedoch nicht den Inhalt innerhalb von `<br>`s. Dies kann eine verwirrende und frustrierende Erfahrung für die Person darstellen, die den Bildschirmleser verwendet.
+Getrennte Textabsätze mit `<br>` zu erstellen ist nicht nur schlechte Praxis, es ist auch problematisch für Menschen, die mit Hilfe von Bildschirmlesetechnologien navigieren. Screenreader könnten die Anwesenheit des Elements ankündigen, aber keinen Inhalt, der in `<br>`s enthalten ist. Dies kann für die Person, die den Screenreader benutzt, eine verwirrende und frustrierende Erfahrung sein.
 
-Verwenden Sie `<p>` Elemente und verwenden Sie CSS-Eigenschaften wie {{cssxref("margin")}}, um deren Abstände zu steuern.
+Verwenden Sie `<p>`-Elemente und nutzen Sie CSS-Eigenschaften wie {{cssxref("margin")}}, um deren Abstände zu steuern.
 
 ## Beispiele
 
 ### Einfaches br
 
-Im folgenden Beispiel verwenden wir `<br>` Elemente, um Zeilenumbrüche zwischen den verschiedenen Zeilen einer Postadresse zu erzeugen:
+Im folgenden Beispiel verwenden wir `<br>`-Elemente, um Zeilenumbrüche zwischen den verschiedenen Zeilen einer Postadresse zu erstellen:
 
 ```html
 Mozilla<br />
@@ -88,21 +88,21 @@ USA<br />
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierter Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "void-Element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Muss ein Start-Tag haben und darf keinen End-Tag haben. In XHTML-Dokumenten schreiben Sie dieses Element als <code>&#x3C;br /></code>.
+        Muss einen Start-Tag haben und darf keinen End-Tag haben. In XHTML-Dokumenten schreiben Sie dieses Element als <code>&#x3C;br /></code>.
       </td>
     </tr>
     <tr>
@@ -110,12 +110,12 @@ USA<br />
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >phrasierten Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -125,7 +125,7 @@ USA<br />
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a>
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a>
       </td>
     </tr>
     <tr>
@@ -145,6 +145,6 @@ USA<br />
 
 ## Siehe auch
 
-- {{HTMLElement("address")}} Element
-- {{HTMLElement("p")}} Element
-- {{HTMLElement("wbr")}} Element
+- {{HTMLElement("address")}}-Element
+- {{HTMLElement("p")}}-Element
+- {{HTMLElement("wbr")}}-Element

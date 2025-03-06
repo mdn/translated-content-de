@@ -2,12 +2,12 @@
 title: "::selection"
 slug: Web/CSS/::selection
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{CSSRef}}
 
-Das **`::selection`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf den Teil eines Dokuments an, der vom Benutzer hervorgehoben wurde (zum Beispiel durch Klicken und Ziehen mit der Maus über den Text).
+Das **`::selection`** CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf den Teil eines Dokuments an, der vom Benutzer hervorgehoben wurde (z. B. durch Klicken und Ziehen der Maus über Text).
 
 {{InteractiveExample("CSS Demo: ::selection", "tabbed-shorter")}}
 
@@ -30,7 +30,7 @@ Nur bestimmte CSS-Eigenschaften können mit `::selection` verwendet werden:
 
 - {{CSSxRef("color")}}
 - {{CSSxRef("background-color")}}
-- {{CSSxRef("text-decoration")}} und dessen zugehörige Eigenschaften
+- {{CSSxRef("text-decoration")}} und die damit verbundenen Eigenschaften
 - {{CSSxRef("text-shadow")}}
 - {{CSSxRef("-webkit-text-stroke-color")}}, {{CSSxRef("-webkit-text-fill-color")}} und {{CSSxRef("-webkit-text-stroke-width")}}
 
@@ -46,15 +46,15 @@ Insbesondere wird {{CSSxRef("background-image")}} ignoriert.
 
 ## Barrierefreiheit
 
-**Überschreiben Sie nicht die Stile des ausgewählten Textes aus rein ästhetischen Gründen** — Benutzer können sie an ihre Bedürfnisse anpassen. Für Menschen mit kognitiven Einschränkungen oder weniger technologischem Verständnis können unerwartete Änderungen der Auswahlstile das Verständnis der Funktionalität beeinträchtigen.
+**Überschreiben Sie nicht die Auswahlstile aus rein ästhetischen Gründen** — Benutzer können diese an ihre Bedürfnisse anpassen. Für Personen mit kognitiven Einschränkungen oder geringerer technologischer Kompetenz können unerwartete Änderungen der Auswahldarstellungen das Verständnis der Funktionalität beeinträchtigen.
 
-Wenn überschrieben, ist es wichtig sicherzustellen, dass das **Kontrastverhältnis** zwischen dem Text und den Hintergrundfarben der Auswahl hoch genug ist, damit Menschen mit Sehbehinderungen es lesen können.
+Wenn überschrieben, ist es wichtig sicherzustellen, dass das **Kontrastverhältnis** zwischen den Text- und Hintergrundfarben der Auswahl hoch genug ist, damit Menschen mit Sehbehinderungen es lesen können.
 
-Das Farbkontrastverhältnis wird durch den Vergleich der Leuchtkraft des ausgewählten Textes und der Hintergrundfarben des ausgewählten Textes gefunden. Um die aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, muss der Textinhalt ein Kontrastverhältnis von **4,5:1** aufweisen oder 3:1 für größeren Text wie Überschriften. (WCAG definiert großen Text als zwischen `18.66px` und `24px` und [fett](/de/docs/Web/CSS/font-weight), oder `24px` oder größer.)
+Das Farbkontrastverhältnis wird ermittelt, indem die Leuchtkraft des ausgewählten Textes und der Hintergrundfarben des ausgewählten Textes verglichen wird. Um die aktuellen [Richtlinien für barrierefreie Webinhalte (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, muss Textinhalt ein Kontrastverhältnis von **4,5:1** aufweisen, oder 3:1 für größeren Text wie Überschriften. (WCAG definiert großen Text als zwischen `18.66px` und `24px` und [fett](/de/docs/Web/CSS/font-weight), oder `24px` oder größer.)
 
 - [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
-- [MDN Understanding WCAG, Guideline 1.4 explanations](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Understanding Success Criterion 1.4.3 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [MDN Verständnis der WCAG, Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
 ## Beispiele
 
@@ -107,4 +107,4 @@ p::selection {
 
 ## Siehe auch
 
-- {{cssxref("pointer-events")}} - kontrollieren, welche Ereignisse auf dem Element aktiv sind
+- {{cssxref("pointer-events")}} - steuern, welche Ereignisse auf dem Element aktiv sind

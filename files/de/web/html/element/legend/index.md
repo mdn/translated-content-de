@@ -1,13 +1,13 @@
 ---
-title: "<legend>: Das Field Set Legend-Element"
+title: "<legend>: Das Feldset-Überschrift-Element"
 slug: Web/HTML/Element/legend
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<legend>`** [HTML](/de/docs/Web/HTML)-Element stellt eine Beschriftung für den Inhalt seines übergeordneten {{HTMLElement("fieldset")}} dar.
+Das **`<legend>`** [HTML](/de/docs/Web/HTML)-Element stellt eine Beschriftung für den Inhalt des übergeordneten {{HTMLElement("fieldset")}} dar.
 
 {{InteractiveExample("HTML Demo: &lt;legend&gt;", "tabbed-standard")}}
 
@@ -40,7 +40,7 @@ input {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
@@ -62,7 +62,7 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Textinhalt</a
         >
         und
         <a href="/de/docs/Web/HTML/Element/Heading_Elements">Überschriften</a>
@@ -71,7 +71,7 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -81,7 +81,7 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -109,4 +109,4 @@ Siehe {{HTMLElement("form")}} für Beispiele zu `<legend>`.
 
 ## Siehe auch
 
-- [ARIA: Formularrolle](/de/docs/Web/Accessibility/ARIA/Roles/form_role)
+- [ARIA: Formularrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/form_role)

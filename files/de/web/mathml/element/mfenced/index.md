@@ -2,26 +2,26 @@
 title: <mfenced>
 slug: Web/MathML/Element/mfenced
 l10n:
-  sourceCommit: 1053ac81eea471efe2f59f7056af830e422abb52
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{MathMLRef}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Das **`<mfenced>`** [MathML](/de/docs/Web/MathML)-Element bietet die Möglichkeit, benutzerdefinierte Öffnungs- und Schließklammern (wie Klammern) und Trennzeichen (wie Kommas oder Semikolons) zu einem Ausdruck hinzuzufügen.
+Das **`<mfenced>`** [MathML](/de/docs/Web/MathML) Element bietet die Möglichkeit, benutzerdefinierte öffnende und schließende Klammern (wie runde Klammern) und Trennzeichen (wie Kommas oder Semikolons) zu einem Ausdruck hinzuzufügen.
 
 > [!NOTE]
-> Historisch gesehen wurde das `<mfenced>`-Element als Abkürzung für die Darstellung von umgrenzten Ausdrücken definiert und war gleichwertig mit einer erweiterten Form, die die Elemente {{MathMLElement("mrow")}} und {{MathMLElement("mo")}} beinhaltete. Heutzutage wird empfohlen, diese erweiterte Form zu verwenden.
+> Historisch gesehen wurde das `<mfenced>` Element als Abkürzung für in Klammern gesetzte Ausdrücke definiert und war einer erweiterten Form, die {{MathMLElement("mrow")}} und {{MathMLElement("mo")}} Elemente beinhaltet, gleichwertig. Heute wird empfohlen, stattdessen diese erweiterte Form zu verwenden.
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes).
+Die Attribute dieses Elements beinhalten die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes).
 
 - `close`
-  - : Ein String für den Schließ-Delimiter. Der Standardwert ist `")"` und alle Leerzeichen werden entfernt.
+  - : Ein String für das schließende Trennzeichen. Der Standardwert ist `")"` und jeglicher Leerraum wird entfernt.
 - `open`
-  - : Ein String für den Öffnungs-Delimiter. Der Standardwert ist `"("` und alle Leerzeichen werden entfernt.
+  - : Ein String für das öffnende Trennzeichen. Der Standardwert ist `"("` und jeglicher Leerraum wird entfernt.
 - `separators`
-  - : Eine Folge von null oder mehr Zeichen, die für verschiedene Trennzeichen verwendet werden, optional getrennt durch Leerzeichen, die ignoriert werden. Der Standardwert ist ",". Durch das Angeben von mehr als einem Zeichen ist es möglich, verschiedene Trennzeichen für jedes Argument im Ausdruck festzulegen. Gibt es zu viele Trennzeichen, wird der gesamte Überschuss ignoriert. Sind zu wenige Trennzeichen im Ausdruck vorhanden, wird das zuletzt angegebene Trennzeichen wiederholt.
+  - : Eine Sequenz von null oder mehr Zeichen, die für verschiedene Trennzeichen verwendet werden, optional durch Leerraum getrennt, der ignoriert wird. Der Standardwert ist ",". Durch das Angeben von mehr als einem Zeichen ist es möglich, unterschiedliche Trennzeichen für jedes Argument im Ausdruck festzulegen. Wenn es zu viele Trennzeichen gibt, werden alle Überschüssigen ignoriert. Wenn es zu wenige Trennzeichen im Ausdruck gibt, wird das zuletzt angegebene Trennzeichen wiederholt.
 
 ## Beispiele
 
@@ -60,7 +60,7 @@ Darstellung in Ihrem Browser:
 
 {{ EmbedLiveSample('mfenced_example1', 700, 200, "", "") }}
 
-### Der gesamte Überschuss wird ignoriert (`,`)
+### Alle Überschüssigen werden ignoriert (`,`)
 
 ```css hidden
 html,
@@ -100,7 +100,7 @@ Darstellung in Ihrem Browser:
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizite ARIA-Rolle</a>
     </th>
     <td>
       Keine
@@ -110,7 +110,7 @@ Darstellung in Ihrem Browser:
 
 ## Spezifikationen
 
-Das `<mfenced>`-Element ist in keiner browserorientierten Spezifikation definiert, aber Sie können eine Beschreibung in [MathML 4](https://w3c.github.io/mathml/#presm_mfenced) finden.
+Das `<mfenced>` Element ist in keiner browserorientierten Spezifikation definiert, aber Sie können eine Beschreibung in [MathML 4](https://w3c.github.io/mathml/#presm_mfenced) finden.
 
 ## Browser-Kompatibilität
 

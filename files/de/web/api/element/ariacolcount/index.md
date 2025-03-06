@@ -3,12 +3,12 @@ title: "Element: ariaColCount-Eigenschaft"
 short-title: ariaColCount
 slug: Web/API/Element/ariaColCount
 l10n:
-  sourceCommit: 0eeaa04378b34bce70e618ee20434e1193cdec17
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaColCount`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colcount)-Attributs wider, das die Anzahl der Spalten in einer Tabelle, einem Raster oder einem Baumraster definiert.
+Die **`ariaColCount`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount)-Attributs wider, welches die Anzahl der Spalten in einer Tabelle, einem Raster oder einem Baumraster definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-colcount`-Attribut des Elements mit der ID `semantic-table` auf "2" gesetzt. Mit `ariaColCount` aktualisieren wir den Wert auf "3".
+In diesem Beispiel wird das `aria-colcount`-Attribut des Elements mit der ID `semantic-table` auf "2" gesetzt. Mithilfe von `ariaColCount` aktualisieren wir den Wert auf "3".
 
 ```html
 <table
@@ -75,4 +75,4 @@ console.log(el.ariaColCount); // 3
 
 ## Siehe auch
 
-- [ARIA: table-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)

@@ -2,16 +2,16 @@
 title: <ms>
 slug: Web/MathML/Element/ms
 l10n:
-  sourceCommit: eca69f5c4e847794f000d52c8e55d7c3b1073c91
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{MathMLRef}}
 
-Das **`<ms>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert ein **string** Literal, das von Programmiersprachen und Computer-Algebra-Systemen interpretiert werden soll.
+Das **`<ms>`** [MathML](/de/docs/Web/MathML) Element repräsentiert einen **String**-Literal, der von Programmiersprachen und Computeralgebrasystemen interpretiert werden soll.
 
 ## Attribute
 
-Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes).
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes).
 
 ## Beispiele
 
@@ -25,7 +25,7 @@ Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/d
 
 {{ EmbedLiveSample('default_rendering', 700, 200, "", "") }}
 
-### Alte Quotenattribute
+### Legacy-Zitat-Attribute
 
 ```html
 <math display="block">
@@ -40,7 +40,7 @@ Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/d
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizite ARIA-Rolle</a>
     </th>
     <td>
       Keine

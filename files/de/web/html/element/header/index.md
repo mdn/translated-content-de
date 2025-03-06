@@ -2,12 +2,12 @@
 title: "<header>: Das Header-Element"
 slug: Web/HTML/Element/header
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<header>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einführenden Inhalt, typischerweise eine Gruppe von einführenden oder navigierenden Hilfsmitteln. Es kann einige Überschriftselemente enthalten, aber auch ein Logo, ein Suchformular, einen Autorennamen und andere Elemente.
+Das **`<header>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einführende Inhalte, typischerweise eine Gruppe von Einführungs- oder Navigationselementen. Es kann einige Überschriftelemente enthalten, aber auch ein Logo, ein Suchformular, einen Autorennamen und andere Elemente.
 
 {{InteractiveExample("HTML Demo: &lt;header&gt;", "tabbed-standard")}}
 
@@ -52,25 +52,25 @@ header > time {
 }
 ```
 
-## Verwendungshinweise
+## Verwendungsnotizen
 
-Das `<header>`-Element hat die gleiche Bedeutung wie die seitenweite [`banner`](/de/docs/Web/Accessibility/ARIA/Roles/banner_role)-Landmarke, es sei denn, es ist innerhalb von Abschnitts-Inhalten verschachtelt. Dann ist das `<header>`-Element keine Landmarke.
+Das `<header>` Element hat eine identische Bedeutung zur seitenweiten [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role) Landmarke, es sei denn, es wird in schachtelnden Inhalten verwendet. Dann ist das `<header>` Element keine Landmarke.
 
-Das `<header>`-Element kann ein globales Seiten-Header definieren, das in der Barrierefreiheitsstruktur als `banner` beschrieben wird. Es enthält üblicherweise ein Logo, den Firmennamen, die Suchfunktion und möglicherweise die globale Navigation oder einen Slogan. Es befindet sich in der Regel am oberen Rand der Seite.
+Das `<header>` Element kann ein globales Seiten-Header definieren, das im Barrierefreiheitsbaum als `banner` beschrieben wird. Es enthält normalerweise ein Logo, den Firmennamen, eine Suchfunktion und möglicherweise die globale Navigation oder ein Motto. Es befindet sich in der Regel oben auf der Seite.
 
-Andernfalls ist es ein `section` in der Barrierefreiheitsstruktur und enthält üblicherweise die Überschrift des umgebenden Abschnitts (ein `h1` – `h6` Element) und eine optionale Unterüberschrift, aber dies ist **nicht** erforderlich.
+Andernfalls ist es ein `section` im Barrierefreiheitsbaum und enthält in der Regel die Überschrift (ein `h1` – `h6` Element) der umgebenden Sektion und eine optionale Unterüberschrift, dies ist jedoch **nicht** zwingend erforderlich.
 
 ### Historische Verwendung
 
-Das `<header>`-Element existierte ursprünglich ganz am Anfang von HTML für Überschriften. Es ist auf [der allerersten Website](https://info.cern.ch/) zu sehen. Irgendwann wurden Überschriften zu [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements), was `<header>` die Freiheit gab, eine andere Rolle zu spielen.
+Das `<header>` Element existierte ursprünglich bereits zu Beginn von HTML für Überschriften. Es ist auf [der allerersten Website](https://info.cern.ch/) zu sehen. An einem bestimmten Punkt wurden Überschriften zu [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements), wodurch `<header>` für eine andere Rolle frei wurde.
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Barrierefreiheit
 
-Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA/Roles/banner_role)-Landmarke, wenn sein Kontext das {{HTMLElement('body')}}-Element ist. Das HTML-Header-Element wird nicht als Banner-Landmarke angesehen, wenn es ein Nachfahre eines {{HTMLElement('article')}}, {{HTMLElement('aside')}}, {{HTMLElement('main')}}, {{HTMLElement('nav')}} oder {{HTMLElement('section')}}-Elements ist.
+Das `<header>` Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role) Landmarke, wenn sein Kontext das {{HTMLElement('body')}} Element ist. Das HTML `header` Element wird nicht als Banner-Landmarke betrachtet, wenn es ein Nachkomme eines {{HTMLElement('article')}}, {{HTMLElement('aside')}}, {{HTMLElement('main')}}, {{HTMLElement('nav')}} oder {{HTMLElement('section')}} Elements ist.
 
 ## Beispiele
 
@@ -115,56 +115,92 @@ Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flow content</a>,
-        <a href="/de/docs/Web/HTML/Content_categories#palpable_content">palpable content</a>.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >Flussinhalt</a
+        >,
+        <a href="/de/docs/Web/HTML/Content_categories#palpable_content"
+          >spürbarer Inhalt</a
+        >.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flow content</a>, aber ohne <code>&#x3C;header></code> oder
-        {{HTMLElement("footer")}} als Nachfahren.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >Flussinhalt</a
+        >, jedoch ohne <code>&#x3C;header></code> oder
+        {{HTMLElement("footer")}} als Nachkommen.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das öffnende als auch das schließende Tag sind zwingend erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das Endtag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flow content</a> akzeptiert. Beachten Sie, dass ein <code>&#x3C;header></code>-Element kein Nachfahre eines {{HTMLElement("address")}}, {{HTMLElement("footer")}} oder eines anderen <code>&lt;header&gt;</code>-Elements sein darf.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >Flussinhalt</a
+        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;header></code>
+        Element kein Nachkomme eines {{HTMLElement("address")}},
+        {{HTMLElement("footer")}} oder eines anderen
+        <code>&lt;header&gt;</code> Elements sein darf.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/banner_role">banner</a>, oder
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role">generic</a>
-        wenn ein Nachfahre eines
-        <code><a href="/de/docs/Web/HTML/Element/article">article</a></code>,
-        <code><a href="/de/docs/Web/HTML/Element/aside">aside</a></code>,
-        <code><a href="/de/docs/Web/HTML/Element/main">main</a></code>,
-        <code><a href="/de/docs/Web/HTML/Element/nav">nav</a></code> oder
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role">banner</a
+        >, oder
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
+          >generic</a
+        >
+        wenn ein Nachkomme eines
+        <code><a href="/de/docs/Web/HTML/Element/article">article</a></code
+        >, <code><a href="/de/docs/Web/HTML/Element/aside">aside</a></code
+        >, <code><a href="/de/docs/Web/HTML/Element/main">main</a></code
+        >, <code><a href="/de/docs/Web/HTML/Element/nav">nav</a></code> oder
         <code><a href="/de/docs/Web/HTML/Element/section">section</a></code>
         Elements oder eines Elements mit
-        <code>role=<a href="/de/docs/Web/Accessibility/ARIA/Roles/article_role">article</a></code>,
-        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/complementary_role">complementary</a></code>,
-        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/main_role">main</a></code>,
-        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/navigation_role">navigation</a></code>
+        <code
+          >role=<a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/article_role"
+            >article</a
+          ></code
+        >,
+        <code
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role"
+            >complementary</a
+          ></code
+        >,
+        <code
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/main_role"
+            >main</a
+          ></code
+        >,
+        <code
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/navigation_role"
+            >navigation</a
+          ></code
+        >
         oder
-        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/region_role">region</a></code>.
+        <code
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/region_role"
+            >region</a
+          ></code
+        >
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role"><code>group</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a> oder
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a> oder
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>
       </td>
     </tr>
     <tr>

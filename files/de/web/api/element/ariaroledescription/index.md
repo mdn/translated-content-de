@@ -3,12 +3,12 @@ title: "Element: ariaRoleDescription-Eigenschaft"
 short-title: ariaRoleDescription
 slug: Web/API/Element/ariaRoleDescription
 l10n:
-  sourceCommit: 0eeaa04378b34bce70e618ee20434e1193cdec17
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaRoleDescription`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-roledescription)-Attributs wider, das eine menschenlesbare, vom Autor lokalisierte Beschreibung der Rolle eines Elements definiert.
+Die **`ariaRoleDescription`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-roledescription)-Attributs wider, welches eine menschenlesbare, vom Autor lokalisierte Beschreibung für die Rolle eines Elements definiert.
 
 ## Wert
 
@@ -44,4 +44,4 @@ console.log(el.ariaRoleDescription); // "an updated description of this widget"
 
 ## Siehe auch
 
-- [ARIA: application role](/de/docs/Web/Accessibility/ARIA/Roles/application_role)
+- [ARIA: Anwendungsrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role)

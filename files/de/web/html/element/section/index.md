@@ -2,12 +2,12 @@
 title: "<section>: Das generische Abschnittselement"
 slug: Web/HTML/Element/section
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<section>`**-[HTML](/de/docs/Web/HTML)-Element stellt einen generischen eigenständigen Abschnitt eines Dokuments dar, der kein spezifischeres semantisches Element zur Darstellung hat. Abschnitte sollten immer eine Überschrift haben, mit sehr wenigen Ausnahmen.
+Das **`<section>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen generischen eigenständigen Abschnitt eines Dokuments, der kein spezifischeres semantisches Element hat, um ihn zu repräsentieren. Abschnitte sollten immer eine Überschrift haben, mit sehr wenigen Ausnahmen.
 
 {{InteractiveExample("HTML Demo: &lt;section&gt;", "tabbed-standard")}}
 
@@ -41,22 +41,22 @@ h2 {
 
 Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Verwendungshinweise
+## Anwendungshinweise
 
-Wie oben erwähnt, ist `<section>` ein generisches Abschnittselement und sollte nur verwendet werden, wenn es kein spezifischeres Element gibt, das es darstellt. Zum Beispiel sollte ein Navigationsmenü in ein {{htmlelement("nav")}}-Element eingebunden werden, aber eine Liste von Suchergebnissen oder eine Kartenanzeige mit Steuerungselementen haben keine spezifischen Elemente und könnten in ein `<section>` eingebunden werden.
+Wie oben erwähnt, ist `<section>` ein generisches Abschnittselement und sollte nur verwendet werden, wenn es kein spezifischeres Element gibt, um es zu repräsentieren. Ein Navigationsmenü sollte beispielsweise in ein {{htmlelement("nav")}}-Element eingeschlossen werden, aber eine Liste von Suchergebnissen oder eine Kartendarstellung und deren Steuerungen haben keine spezifischen Elemente und könnten in einem `<section>` platziert werden.
 
 Berücksichtigen Sie auch diese Fälle:
 
-- Wenn der Inhalt des Elements eine eigenständige, atomare Einheit von Inhalten darstellt, die als eigenständiges Stück sinnvoll syndiziert werden können (z. B. ein Blogbeitrag oder -kommentar oder ein Zeitungsartikel), wäre das {{HTMLElement("article")}}-Element die bessere Wahl.
-- Wenn die Inhalte nützliche, tangentiale Informationen darstellen, die neben den Hauptinhalten funktionieren, aber nicht direkt Teil davon sind (wie verwandte Links oder eine Autorenbiografie), verwenden Sie ein {{HTMLElement("aside")}}.
-- Wenn die Inhalte den Hauptinhaltsbereich eines Dokuments darstellen, verwenden Sie {{HTMLElement("main")}}.
-- Wenn Sie das Element nur als Stil-Wrapper verwenden, verwenden Sie stattdessen {{HTMLElement("div")}}.
+- Wenn die Inhalte des Elements eine eigenständige, atomare Einheit von Inhalten darstellen, die als eigenständiges Stück syndiziert sinnvoll sind (z.B. ein Blog-Beitrag oder Blog-Kommentar oder ein Zeitungsartikel), wäre das {{HTMLElement("article")}}-Element eine bessere Wahl.
+- Wenn die Inhalte nützliche, tangentiale Informationen darstellen, die neben dem Hauptinhalt funktionieren, aber nicht direkt Teil davon sind (wie verwandte Links oder eine Autorenbiografie), verwenden Sie ein {{HTMLElement("aside")}}.
+- Wenn die Inhalte den Hauptinhalt eines Dokuments repräsentieren, verwenden Sie {{HTMLElement("main")}}.
+- Wenn Sie das Element nur als Styling-Wrapper verwenden, verwenden Sie stattdessen ein {{HTMLElement("div")}}.
 
-Um es zu wiederholen, jedes `<section>` sollte identifiziert werden, in der Regel durch die Einbeziehung einer Überschrift ({{HTMLElement("Heading_Elements", "h1")}} - {{HTMLElement("Heading_Elements", "h6")}} Element) als Kindelelement des `<section>`-Elements, wann immer möglich. Siehe unten für Beispiele, wo Sie ein `<section>` ohne Überschrift sehen könnten.
+Um es noch einmal zu wiederholen: Jedes `<section>` sollte identifiziert werden, typischerweise durch das Einfügen einer Überschrift ({{HTMLElement("Heading_Elements", "h1")}} - {{HTMLElement("Heading_Elements", "h6")}}-Element) als untergeordnetes Element des `<section>`-Elements, wann immer möglich. Siehe unten Beispiele, in denen Sie ein `<section>` ohne Überschrift sehen könnten.
 
 ## Beispiele
 
-### Einfaches Nutzungsbeispiel
+### Grundlegendes Nutzungsbeispiel
 
 #### Vorher
 
@@ -84,11 +84,11 @@ Um es zu wiederholen, jedes `<section>` sollte identifiziert werden, in der Rege
 
 {{EmbedLiveSample('After')}}
 
-### Nutzung eines Abschnitts ohne Überschrift
+### Verwendung eines Abschnitts ohne Überschrift
 
-Umstände, in denen Sie `<section>` ohne eine Überschrift sehen, finden sich typischerweise in Webanwendungen/UI-Bereichen statt in traditionellen Dokumentstrukturen. In einem Dokument macht es keinen wirklichen Sinn, einen separaten Abschnitt von Inhalten ohne eine Überschrift zu haben, die dessen Inhalt beschreibt. Solche Überschriften sind für alle Leser nützlich, besonders aber für Benutzer von assistiven Technologien wie Screenreadern, und sie sind auch gut für SEO.
+Fälle, in denen Sie `<section>` ohne eine Überschrift sehen könnten, finden sich typischerweise in Webanwendungen/UI-Sektionen, anstatt in traditionellen Dokumentstrukturen. In einem Dokument ergibt es keinen wirklichen Sinn, einen separaten Abschnitt von Inhalten ohne eine Überschrift zu haben, um seine Inhalte zu beschreiben. Solche Überschriften sind für alle Leser nützlich, aber besonders für Benutzer von unterstützenden Technologien wie Bildschirmlesern sind sie hilfreich, und sie sind auch gut für SEO.
 
-Betrachten Sie jedoch einen sekundären Navigationsmechanismus. Wenn die globale Navigation bereits in einem `<nav>`-Element eingebunden ist, könnten Sie sich vorstellen, ein vorheriges/nächstes Menü in ein `<section>` zu verpacken:
+Erwägen Sie jedoch einen sekundären Navigationsmechanismus. Wenn die globale Navigation bereits in ein `<nav>`-Element eingeschlossen ist, könnten Sie ein vorheriges/nächstes Menü in ein `<section>` einwickeln:
 
 ```html
 <section>
@@ -97,7 +97,7 @@ Betrachten Sie jedoch einen sekundären Navigationsmechanismus. Wenn die globale
 </section>
 ```
 
-Oder was ist mit einer Art Schaltflächenleiste zur Steuerung Ihrer App? Diese möchten möglicherweise nicht unbedingt eine Überschrift, aber es ist immer noch ein eigenständiger Abschnitt des Dokuments:
+Oder wie wäre es mit einer Art Button-Leiste zur Steuerung Ihrer App? Diese könnte nicht unbedingt eine Überschrift benötigen, wäre aber dennoch ein eigenständiger Abschnitt des Dokuments:
 
 ```html
 <section>
@@ -112,7 +112,7 @@ Oder was ist mit einer Art Schaltflächenleiste zur Steuerung Ihrer App? Diese m
 
 {{EmbedLiveSample('Using a section without a heading')}}
 
-Abhängig vom Inhalt könnte das Hinzufügen einer Überschrift auch gut für SEO sein, daher ist es eine Option, die in Betracht gezogen werden sollte.
+Je nach Inhalt könnte das Hinzufügen einer Überschrift auch für SEO vorteilhaft sein, daher ist es eine Option, die Sie in Betracht ziehen sollten.
 
 ## Technische Zusammenfassung
 
@@ -126,32 +126,32 @@ Abhängig vom Inhalt könnte das Hinzufügen einer Überschrift auch gut für SE
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließende Inhalte</a
         >,
         <a
           href="/de/docs/Web/HTML/Content_categories#sectioning_content"
-          >Abschnittsinhalte</a
-        >, <a href="/de/docs/Web/HTML/Content_categories#palpable_content">fühlbare Inhalte</a>.
+          >Abschnittsinhalt</a
+        >, <a href="/de/docs/Web/HTML/Content_categories#palpable_content">fühlbarer Inhalt</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließende Inhalte</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das Endtag sind obligatorisch.</td>
+      <th scope="row">Tag-Weglassung</th>
+      <td>Keine, sowohl der Anfangs- als auch der Endtag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >fließende Inhalte</a
         > akzeptiert. Beachten Sie, dass ein <code>&#x3C;section></code>-Element kein Nachkomme eines {{HTMLElement("address")}}-Elements sein darf.
       </td>
     </tr>
@@ -159,18 +159,18 @@ Abhängig vom Inhalt könnte das Hinzufügen einer Überschrift auch gut für SE
       <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/region_role"
-            >Region</a
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/region_role"
+            >region</a
           ></code
         >
-        wenn das Element einen
+        , wenn das Element einen
         <a
           href="/de/docs/Glossary/Accessible_name"
           >zugänglichen Namen</a
         > hat, andernfalls
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generisch</a
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
+            >generic</a
           ></code
         >
       </td>
@@ -178,16 +178,16 @@ Abhängig vom Inhalt könnte das Hinzufügen einer Überschrift auch gut für SE
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/alert_role"><code>alert</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/alertdialog_role"><code>alertdialog</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/application_role"><code>application</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/banner_role"><code>banner</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/complementary_role"><code>complementary</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/contentinfo_role"><code>contentinfo</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/dialog_role"><code>dialog</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/document_role"><code>document</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/feed_role"><code>feed</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/log_role"><code>log</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/main_role"><code>main</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/marquee_role"><code>marquee</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/navigation_role"><code>navigation</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/note_role"><code>note</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/search_role"><code>search</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/status_role"><code>status</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/tabpanel_role"><code>tabpanel</code></a>
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role"><code>alert</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role"><code>alertdialog</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role"><code>application</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role"><code>banner</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role"><code>complementary</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/contentinfo_role"><code>contentinfo</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role"><code>dialog</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/document_role"><code>document</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/feed_role"><code>feed</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/log_role"><code>log</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/main_role"><code>main</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/marquee_role"><code>marquee</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/navigation_role"><code>navigation</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/note_role"><code>note</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/search_role"><code>search</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/status_role"><code>status</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role"><code>tabpanel</code></a>
       </td>
     </tr>
     <tr>
@@ -208,6 +208,6 @@ Abhängig vom Inhalt könnte das Hinzufügen einer Überschrift auch gut für SE
 ## Siehe auch
 
 - Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("nav")}}, {{HTMLElement("article")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}}
-- [Verwendung von HTML-Abschnitten und Umrissen](/de/docs/Web/HTML/Element/Heading_Elements)
-- [ARIA: Region-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/region_role)
-- [Warum Sie lieber HTML5 article über section wählen sollten](https://www.smashingmagazine.com/2020/01/html5-article-section/), von Bruce Lawson
+- [Verwendung von HTML-Abschnitten und -Umrissen](/de/docs/Web/HTML/Element/Heading_Elements)
+- [ARIA: Regionsrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/region_role)
+- [Warum Sie HTML5-Artikel anstelle von Abschnitt wählen sollten](https://www.smashingmagazine.com/2020/01/html5-article-section/), von Bruce Lawson

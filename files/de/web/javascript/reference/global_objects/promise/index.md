@@ -2,18 +2,18 @@
 title: Promise
 slug: Web/JavaScript/Reference/Global_Objects/Promise
 l10n:
-  sourceCommit: 5cfbf8942d54015947b460fbad9f3480fa3b4d83
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{JSRef}}
 
-Das **`Promise`**-Objekt repräsentiert den zukünftigen Abschluss (oder das Scheitern) einer asynchronen Operation und deren resultierenden Wert.
+Das **`Promise`**-Objekt steht für den eventuellen Abschluss (oder das Scheitern) einer asynchronen Operation und dessen resultierenden Wert.
 
-Um zu erfahren, wie Promises funktionieren und wie Sie sie nutzen können, empfehlen wir Ihnen, zuerst [Using promises](/de/docs/Web/JavaScript/Guide/Using_promises) zu lesen.
+Um zu verstehen, wie `Promises` funktionieren und wie Sie sie verwenden können, empfehlen wir, dass Sie zuerst [Verwendung von Promises](/de/docs/Web/JavaScript/Guide/Using_promises) lesen.
 
 ## Beschreibung
 
-Ein `Promise` ist ein Stellvertreter für einen Wert, der möglicherweise nicht bekannt ist, wenn das Promise erstellt wird. Es ermöglicht Ihnen, Handler mit dem letztendlichen Erfolg oder dem Fehlschlag eines asynchronen Vorgangs zu verknüpfen. Dadurch können asynchrone Methoden Werte wie synchrone Methoden zurückgeben: Statt sofort den endgültigen Wert zurückzugeben, gibt die asynchrone Methode ein _Promise_ zurück, um den Wert zu einem späteren Zeitpunkt bereitzustellen.
+Ein `Promise` ist ein Stellvertreter für einen Wert, der möglicherweise beim Erstellen des Promises noch nicht bekannt ist. Es ermöglicht Ihnen, Handler mit dem eventuellen Erfolgswert oder Fehlgrund einer asynchronen Aktion zu verknüpfen. Dies ermöglicht, dass asynchrone Methoden ähnlich wie synchrone Methoden Werte zurückgeben: Anstatt sofort den endgültigen Wert zurückzugeben, gibt die asynchrone Methode ein _Promise_ zurück, das den Wert irgendwann in der Zukunft bereitstellen wird.
 
 Ein `Promise` befindet sich in einem dieser Zustände:
 
@@ -21,13 +21,13 @@ Ein `Promise` befindet sich in einem dieser Zustände:
 - _fulfilled_: bedeutet, dass die Operation erfolgreich abgeschlossen wurde.
 - _rejected_: bedeutet, dass die Operation fehlgeschlagen ist.
 
-Der _endgültige Zustand_ eines ausstehenden Promise kann entweder mit einem Wert _erfüllt_ oder mit einem Grund (Fehler) _abgelehnt_ werden. Wenn eine dieser Optionen eintritt, werden die in der Warteschlange befindlichen Handler, die durch die `then`-Methode eines Promise zugeordnet sind, aufgerufen. Wenn das Promise bereits erfüllt oder abgelehnt wurde, wenn ein entsprechender Handler angehängt wird, wird der Handler aufgerufen, sodass es keine Race-Condition gibt zwischen dem Abschluss eines asynchronen Vorgangs und dem Anhängen seiner Handler.
+Der _endgültige Zustand_ eines ausstehenden Promises kann entweder _fulfilled_ mit einem Wert oder _rejected_ mit einem Grund (Fehler) sein. Wenn eine dieser Optionen eintritt, werden die zu einem Promise gehörenden Handler, die durch die `then`-Methode in die Warteschlange gestellt wurden, aufgerufen. Wenn das Promise bereits erfüllt oder abgelehnt ist, wenn ein entsprechender Handler angehängt wird, wird dieser Handler aufgerufen, sodass es kein Wettlaufproblem zwischen dem Abschluss der asynchronen Operation und der Zuordnung von Handlern gibt.
 
-Ein Promise wird als _abgeschlossen_ bezeichnet, wenn es entweder erfüllt oder abgelehnt ist, aber nicht ausstehend.
+Ein Promise wird als _settled_ bezeichnet, wenn es entweder erfüllt oder abgelehnt ist, aber nicht mehr aussteht.
 
-![Flussdiagramm, das zeigt, wie der Promise-Zustand zwischen ausstehend, erfüllt und abgelehnt über then/catch-Handler wechselt. Ein ausstehendes Promise kann entweder erfüllt oder abgelehnt werden. Wenn erfüllt, wird der "on fulfillment"-Handler oder der erste Parameter der then()-Methode ausgeführt und weitere asynchrone Aktionen werden durchgeführt. Wenn abgelehnt, wird der Fehler-Handler, entweder als zweiter Parameter der then()-Methode oder als einziger Parameter der catch()-Methode übergeben, ausgeführt.](promises.png)
+![Flussdiagramm, das zeigt, wie sich der Zustand eines Promises zwischen pending, fulfilled und rejected durch then/catch-Handler ändert. Ein ausstehendes Promise kann entweder erfüllt oder abgelehnt werden. Wird es erfüllt, wird der "on fulfillment"-Handler oder das erste Argument der then()-Methode ausgeführt und trägt weitere asynchrone Aktionen aus. Wird es abgelehnt, wird der Fehler-Handler, entweder als zweites Argument der then()-Methode oder als einziges Argument der catch()-Methode übergeben, ausgeführt.](promises.png)
 
-Sie werden auch den Begriff _resolved_ in Verbindung mit Promises hören — das bedeutet, dass das Promise abgeschlossen oder "festgelegt" ist, um den endgültigen Zustand eines anderen Promise zu entsprechen, und ein weiteres Erfüllen oder Ablehnen hat keine Wirkung. Das Dokument [States and fates](https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md) aus dem ursprünglichen Promise-Vorschlag enthält weitere Details zur Promise-Terminologie. Umgangssprachlich sind "resolved" Promises oft gleichbedeutend mit "fulfilled" Promises, aber wie in "States and fates" gezeigt, können resolved Promises auch ausstehend oder abgelehnt sein. Beispielsweise:
+Sie werden auch den Begriff _resolved_ im Zusammenhang mit Promises hören – das bedeutet, dass das Promise abgeschlossen oder „festgelegt“ ist, um den endgültigen Zustand eines anderen Promises widerzuspiegeln, und weiteres Auflösen oder Ablehnen hat keine Wirkung mehr. Das Dokument [States and fates](https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md) aus dem ursprünglichen Promise-Vorschlag enthält weitere Details zu Promise-Terminologie. Im Sprachgebrauch sind „resolved“ Promises oft gleichbedeutend mit „fulfilled“ Promises, aber wie in „States and fates“ gezeigt, können resolved Promises auch pending oder rejected sein. Zum Beispiel:
 
 ```js
 new Promise((resolveOuter) => {
@@ -39,16 +39,16 @@ new Promise((resolveOuter) => {
 });
 ```
 
-Dieses Promise ist bereits _resolved_, wenn es erstellt wird (weil `resolveOuter` synchron aufgerufen wird), aber es wird mit einem anderen Promise aufgelöst und daher erst 1 Sekunde später _erfüllt_, wenn das innere Promise erfüllt wird. In der Praxis wird die "Auflösung" oft im Hintergrund und nicht beobachtbar durchgeführt, und nur ihre Erfüllung oder Ablehnung ist ersichtlich.
+Dieses Promise ist bereits _resolved_, wenn es erstellt wird (da `resolveOuter` synchron aufgerufen wird), aber es wird mit einem anderen Promise aufgelöst und wird daher erst nach einer Sekunde, wenn das innere Promise erfüllt wird, als _fulfilled_ angesehen. In der Praxis wird die „Auflösung“ oft im Hintergrund durchgeführt und ist nicht beobachtbar, nur die Erfüllung oder Ablehnung ist es.
 
 > [!NOTE]
-> Mehrere andere Sprachen haben Mechanismen für faule Auswertung und das Verschieben einer Berechnung, die sie ebenfalls "promises" nennen, z.B. Scheme. Promises in JavaScript repräsentieren Prozesse, die bereits stattfinden, und die mit Callback-Funktionen verkettet werden können. Wenn Sie einen Ausdruck faul auswerten möchten, erwägen Sie die Verwendung einer Funktion ohne Argumente, z.B. `f = () => expression`, um den faul ausgewerteten Ausdruck zu erstellen, und `f()`, um den Ausdruck sofort auszuwerten.
+> Einige andere Sprachen haben Mechanismen zur verzögerten Auswertung und Aufschiebung einer Berechnung, die sie ebenfalls „Promises“ nennen, z. B. Scheme. Promises in JavaScript repräsentieren Prozesse, die bereits ablaufen und mit Callback-Funktionen verknüpft werden können. Wenn Sie einen Ausdruck verzögert auswerten möchten, sollten Sie eine Funktion ohne Argumente verwenden, z. B. `f = () => expression`, um den verzögert ausgewerteten Ausdruck zu erstellen und `f()`, um den Ausdruck sofort zu evaluieren.
 
-`Promise` selbst hat kein erstklassiges Protokoll für die Stornierung, aber Sie können möglicherweise die zugrunde liegende asynchrone Operation direkt stornieren, typischerweise mithilfe von [`AbortController`](/de/docs/Web/API/AbortController).
+`Promise` selbst hat kein erstklassiges Protokoll zur Stornierung, aber Sie könnten in der Lage sein, die zugrunde liegende asynchrone Operation direkt zu stornieren, typischerweise durch die Verwendung von [`AbortController`](/de/docs/Web/API/AbortController).
 
-### Verkettete Promises
+### Verschachtelte Promises
 
-Die Promise-Methoden {{jsxref("Promise/then", "then()")}}, {{jsxref("Promise/catch", "catch()")}} und {{jsxref("Promise/finally", "finally()")}} werden verwendet, um eine weitere Aktion mit einem Promise zu verknüpfen, das abgeschlossen wird. Die `then()`-Methode nimmt bis zu zwei Argumente: das erste Argument ist eine Callback-Funktion für den Erfüllungsfall des Promise, und das zweite Argument ist eine Callback-Funktion für den Ablehnungsfall. Die `catch()` und `finally()`-Methoden rufen intern `then()` auf und machen die Fehlerbehandlung weniger verbos. Zum Beispiel ist ein `catch()` im Grunde nur ein `then()` ohne Übergabe des Erfüllungs-Handlers. Da diese Methoden Promises zurückgeben, können sie verkettet werden. Zum Beispiel:
+Die Promise-Methoden {{jsxref("Promise/then", "then()")}}, {{jsxref("Promise/catch", "catch()")}} und {{jsxref("Promise/finally", "finally()")}} werden verwendet, um eine weitere Aktion mit einem Promise zu verknüpfen, das abgeschlossen wird. Die `then()`-Methode nimmt bis zu zwei Argumente; das erste Argument ist eine Callback-Funktion für den erfüllten Fall des Promises und das zweite Argument ist eine Callback-Funktion für den abgelehnten Fall. Die Methoden `catch()` und `finally()` rufen intern `then()` auf und machen die Fehlerbehandlung weniger ausführlich. Beispielsweise ist ein `catch()` im Grunde nur ein `then()` ohne die Weitergabe des Erfüllungshandlers. Da diese Methoden Promises zurückgeben, können sie verkettet werden. Zum Beispiel:
 
 ```js
 const myPromise = new Promise((resolve, reject) => {
@@ -63,21 +63,21 @@ myPromise
   .then(handleFulfilledC, handleRejectedC);
 ```
 
-Wir werden die folgende Terminologie verwenden: _ursprüngliches Promise_ ist das Promise, auf dem `then` aufgerufen wird; _neues Promise_ ist das Promise, das von `then` zurückgegeben wird. Die beiden an `then` übergebenen Callbacks werden _Erfüllungshandler_ und _Ablehnungshandler_ genannt.
+Wir verwenden die folgende Terminologie: _initial promise_ ist das Promise, auf dem `then` aufgerufen wird; _new promise_ ist das Promise, das von `then` zurückgegeben wird. Die beiden an `then` übergebenen Callback-Funktionen werden jeweils als _fulfillment handler_ und _rejection handler_ bezeichnet.
 
-Der abgeschlossene Zustand des ursprünglichen Promise bestimmt, welchen Handler auszuführen ist.
+Der abgeschlossene Zustand des initialen Promises bestimmt, welcher Handler ausgeführt wird.
 
-- Wenn das ursprüngliche Promise erfüllt ist, wird der Erfüllungshandler mit dem Erfüllungswert aufgerufen.
-- Wenn das ursprüngliche Promise abgelehnt ist, wird der Ablehnungshandler mit dem Ablehnungsgrund aufgerufen.
+- Wenn das initiale Promise erfüllt ist, wird der Fulfillment-Handler mit dem Erfüllungswert aufgerufen.
+- Wenn das initiale Promise abgelehnt ist, wird der Rejection-Handler mit dem Ablehnungsgrund aufgerufen.
 
-Der Abschluss des Handlers bestimmt den abgeschlossenen Zustand des neuen Promise.
+Der Abschluss des Handlers bestimmt den abgeschlossenen Zustand des neuen Promises.
 
-- Wenn der Handler einen [thenable](#thenables) Wert zurückgibt, wird das neue Promise in demselben Zustand wie der zurückgegebene Wert abgeschlossen.
-- Wenn der Handler einen nicht-thenable Wert zurückgibt, wird das neue Promise mit dem zurückgegebenen Wert erfüllt.
+- Wenn der Handler einen [thenable](#thenables) Wert zurückgibt, wird das neue Promise im gleichen Zustand abgeschlossen wie der zurückgegebene Wert.
+- Wenn der Handler einen nicht-thenable-Wert zurückgibt, wird das neue Promise mit diesem Wert erfüllt.
 - Wenn der Handler einen Fehler wirft, wird das neue Promise mit dem geworfenen Fehler abgelehnt.
-- Wenn das ursprüngliche Promise keinen entsprechenden Handler angehängt hat, wird das neue Promise in demselben Zustand wie das ursprüngliche Promise abgeschlossen — das heißt, ohne Ablehnungshandler bleibt ein abgelehntes Promise mit demselben Grund abgelehnt.
+- Wenn dem initialen Promise kein entsprechender Handler zugeordnet ist, wird das neue Promise auf den gleichen Zustand wie das initiale Promise abgeschlossen — das heißt, ohne einen Ablehnungshandler bleibt ein abgelehntes Promise mit dem gleichen Grund abgelehnt.
 
-Zum Beispiel, im obigen Code, wenn `myPromise` ablehnt, wird `handleRejectedA` aufgerufen, und wenn `handleRejectedA` normal abschließt (ohne zu werfen oder ein abgelehntes Promise zurückzugeben), wird das von `then` zurückgegebene Promise erfüllt, anstatt abgelehnt zu bleiben. Daher, wenn ein Fehler sofort behandelt werden muss, aber der Fehlerzustand in der Kette beibehalten werden soll, müssen wir im Ablehnungshandler einen Fehler werfen. Andernfalls können wir die Fehlerbehandlung bis zum finalen `catch()`-Handler aufschieben, wenn kein unmittelbarer Bedarf besteht.
+Zum Beispiel, im obigen Code, wenn `myPromise` abgelehnt wird, wird `handleRejectedA` aufgerufen, und wenn `handleRejectedA` normal abgeschlossen wird (ohne zu werfen oder ein abgelehntes Promise zurückzugeben), wird das von der ersten `then` zurückgegebene Promise erfüllt, anstatt abgelehnt zu bleiben. Daher, wenn ein Fehler sofort behandelt werden muss, wir aber den Fehlerzustand in der Kette beibehalten möchten, müssen wir einen Fehler eines bestimmten Typs im Rejection-Handler werfen. Auf der anderen Seite, in Abwesenheit eines unmittelbaren Bedarfs, können wir die Fehlerbehandlung bis zum abschließenden `catch()`-Handler zurückstellen.
 
 ```js
 myPromise
@@ -87,7 +87,7 @@ myPromise
   .catch(handleRejectedAny);
 ```
 
-Mit [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) für die Callback-Funktionen könnte die Implementierung der Promise-Kette ungefähr so aussehen:
+Bei Verwendung von [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) für die Callback-Funktionen könnte die Implementierung der Promise-Kette so aussehen:
 
 ```js
 myPromise
@@ -104,11 +104,11 @@ myPromise
 ```
 
 > [!NOTE]
-> Für eine schnellere Ausführung sollten nach Möglichkeit alle synchronen Aktionen innerhalb eines Handlers durchgeführt werden, andernfalls würde es mehrere Abläufe dauern, bis alle Handler sequentiell ausgeführt werden.
+> Für schnellere Ausführung sollten alle synchronen Aktionen vorzugsweise innerhalb eines Handlers durchgeführt werden, da sonst mehrere Ticks benötigt würden, um alle Handler in Reihenfolge auszuführen.
 
-JavaScript unterhält eine [Job-Warteschlange](/de/docs/Web/JavaScript/Event_loop). Jedes Mal wählt JavaScript einen Job aus der Warteschlange aus und führt ihn vollständig aus. Die Jobs werden vom Executor des `Promise()`-Konstruktors, den an `then` übergebenen Handlern oder einer beliebigen Plattform-API, die ein Promise zurückgibt, definiert. Die Promises in einer Kette repräsentieren die Abhängigkeitsbeziehung zwischen diesen Jobs. Wenn ein Promise abgeschlossen wird, werden die jeweiligen damit verbundenen Handler am Ende der Job-Warteschlange hinzugefügt.
+JavaScript verwaltet eine [Job-Warteschlange](/de/docs/Web/JavaScript/Reference/Execution_model). Jedes Mal wählt JavaScript einen Job aus der Warteschlange und führt ihn vollständig aus. Die Jobs werden durch den Executor des `Promise()`-Konstruktors definiert, die an `then` übergebenen Handler oder jede Plattform-API, die ein Promise zurückgibt. Die Promises in einer Kette stellen die Abhängigkeitsbeziehung zwischen diesen Jobs dar. Wenn ein Promise abgeschlossen wird, werden die jeweiligen zugehörigen Handler am Ende der Job-Warteschlange hinzugefügt.
 
-Ein Promise kann an mehr als einer Kette teilnehmen. In dem folgenden Code führt die Erfüllung von `promiseA` dazu, dass sowohl `handleFulfilled1` als auch `handleFulfilled2` zur Job-Warteschlange hinzugefügt werden. Da `handleFulfilled1` zuerst registriert wird, wird es zuerst aufgerufen.
+Ein Promise kann an mehr als einer Kette teilnehmen. Im folgenden Code führt die Erfüllung von `promiseA` dazu, dass sowohl `handleFulfilled1` als auch `handleFulfilled2` am Ende der Job-Warteschlange hinzugefügt werden. Da `handleFulfilled1` zuerst registriert ist, wird es zuerst aufgerufen.
 
 ```js
 const promiseA = new Promise(myExecutorFunc);
@@ -116,7 +116,7 @@ const promiseB = promiseA.then(handleFulfilled1, handleRejected1);
 const promiseC = promiseA.then(handleFulfilled2, handleRejected2);
 ```
 
-Eine Aktion kann einem bereits abgeschlossenen Promise zugewiesen werden. In diesem Fall wird die Aktion sofort an das Ende der Job-Warteschlange hinzugefügt und ausgeführt, wenn alle vorhandenen Jobs abgeschlossen sind. Daher wird eine Aktion für ein bereits "abgeschlossenes" Promise erst ausgeführt, nachdem der aktuelle synchrone Code abgeschlossen ist und mindestens ein Schleifen-Tick vergangen ist. Dies garantiert, dass Promise-Aktionen asynchron sind.
+Eine Aktion kann einem bereits abgeschlossenen Promise zugewiesen werden. In diesem Fall wird die Aktion sofort am Ende der Job-Warteschlange hinzugefügt und wird ausgeführt, wenn alle bestehenden Jobs abgeschlossen sind. Daher wird eine Aktion für ein bereits "abgeschlossenes" Promise erst nach Abschluss des aktuellen synchronen Codes und nachdem mindestens ein Schleifen-Tick vergangen ist, ausgeführt. Dies garantiert, dass Promise-Aktionen asynchron sind.
 
 ```js
 const promiseA = new Promise((resolve, reject) => {
@@ -133,9 +133,9 @@ console.log("immediate logging");
 
 ### Thenables
 
-Das JavaScript-Ökosystem hatte viele Promise-Implementierungen lange bevor es Teil der Sprache wurde. Trotz unterschiedlicher interner Darstellung implementieren mindestens alle Promise-ähnlichen Objekte das _Thenable_-Interface. Ein Thenable implementiert die [`.then()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) Methode, die mit zwei Callbacks aufgerufen wird: einem für den Fall, dass das Promise erfüllt wird, und einem für den Fall, dass es abgelehnt wird. Promises sind auch Thenables.
+Das JavaScript-Ökosystem hat mehrere Promise-Implementierungen lange vor seiner Aufnahme in die Sprache entwickelt. Trotz unterschiedlicher interner Darstellung implementieren mindestens alle Promise-ähnlichen Objekte das _Thenable_-Interface. Ein Thenable implementiert die Methode [`.then()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then), die mit zwei Callback-Funktionen aufgerufen wird: eine für den Fall, dass das Promise erfüllt wird, eine für den Fall, dass es abgelehnt wird. Promises sind ebenfalls Thenables.
 
-Um mit bestehenden Promise-Implementierungen interoperieren zu können, erlaubt die Sprache die Verwendung von Thenables anstelle von Promises. Zum Beispiel, [`Promise.resolve`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) wird nicht nur Promises auflösen, sondern auch Thenables nachverfolgen.
+Um mit den bestehenden Promise-Implementierungen interoperieren zu können, erlaubt die Sprache die Verwendung von Thenables anstelle von Promises. Zum Beispiel wird [`Promise.resolve`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) nicht nur Promises auflösen, sondern auch Thenables verfolgen.
 
 ```js
 const aThenable = {
@@ -154,73 +154,74 @@ Promise.resolve(aThenable); // A promise fulfilled with 42
 
 ### Promise-Konkurrenz
 
-Die `Promise`-Klasse bietet vier statische Methoden zur Erleichterung von asynchronen Aufgaben [Konkurrenz](https://en.wikipedia.org/wiki/Concurrent_computing):
+Die `Promise`-Klasse bietet vier statische Methoden zur Erleichterung der asynchronen Aufgaben[Konkurrenz](https://en.wikipedia.org/wiki/Concurrent_computing):
 
 - {{jsxref("Promise.all()")}}
-  - : Erfüllt, wenn **alle** Promises erfüllt werden; lehnt ab, wenn **irgendeines** der Promises abgelehnt wird.
+  - : Erfüllt sich, wenn **alle** Promises erfüllt sind; lehnt ab, wenn **ein** der Promises abgelehnt wird.
 - {{jsxref("Promise.allSettled()")}}
-  - : Erfüllt, wenn **alle** Promises abgeschlossen sind.
+  - : Erfüllt sich, wenn **alle** Promises abgeschlossen sind.
 - {{jsxref("Promise.any()")}}
-  - : Erfüllt, wenn **eines** der Promises erfüllt wird; lehnt ab, wenn **alle** der Promises abgelehnt werden.
+  - : Erfüllt sich, wenn **ein** der Promises erfüllt ist; lehnt ab, wenn **alle** der Promises abgelehnt werden.
 - {{jsxref("Promise.race()")}}
-  - : Wird abgeschlossen, wenn **irgendeines** der Promises abgeschlossen ist. Mit anderen Worten, erfüllt, wenn eines der Promises erfüllt wird; lehnt ab, wenn eines der Promises abgelehnt wird.
+  - : Wird abgeschlossen, sobald **ein** der Promises abgeschlossen ist. Anders ausgedrückt, erfüllt sich, wenn eines der Promises erfüllt ist; lehnt ab, wenn eines der Promises abgelehnt wird.
 
-All diese Methoden nehmen ein [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) von Promises (genauer gesagt [Thenables](#thenables)) und geben ein neues Promise zurück. Sie unterstützen alle das Subclassing, was bedeutet, dass sie auf Subklassen von `Promise` aufgerufen werden können und das Ergebnis ein Promise des Subklassen-Typs sein wird. Dazu muss der Konstruktor der Subklasse dieselbe Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor implementieren — er muss eine einzelne `executor`-Funktion akzeptieren, die mit den `resolve`- und `reject`-Callbacks als Parameter aufgerufen werden kann. Die Subklasse muss auch eine `resolve`-statische Methode haben, die wie {{jsxref("Promise.resolve()")}} aufgerufen werden kann, um Werte in Promises umzuwandeln.
+Alle diese Methoden nehmen einen [iterativen](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) von Promises (genauer gesagt Thenables) und geben ein neues Promise zurück. Sie unterstützen alle Subklassenbildung, was bedeutet, dass sie auf Subklassen von `Promise` aufgerufen werden können und das Ergebnis ein Promise des Subklassen-Typs sein wird. Dazu muss der Konstruktor der Subklasse die gleiche Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) Konstruktor implementieren – eine einzelne `executor`-Funktion akzeptieren, die mit den Callbacks `resolve` und `reject` als Parameter aufgerufen werden kann. Die Subklasse muss auch über eine statische `resolve` Methode verfügen, die auf ähnliche Weise wie {{jsxref("Promise.resolve()")}} aufgerufen werden kann, um Werte in Promises aufzulösen.
 
-Beachten Sie, dass JavaScript von Natur aus {{Glossary("Thread", "eingleisig")}} ist, sodass zu einem bestimmten Zeitpunkt nur eine Aufgabe ausgeführt wird, obwohl die Kontrolle zwischen verschiedenen Promises wechseln kann, wodurch die Ausführung der Promises gleichzeitig erscheint. [Parallelausführung](https://en.wikipedia.org/wiki/Parallel_computing) in JavaScript kann nur durch [Worker-Threads](/de/docs/Web/API/Web_Workers_API) erreicht werden.
+Beachten Sie, dass JavaScript von Natur aus {{Glossary("Thread", "einzelner Thread")}} ist, sodass zu einem bestimmten Zeitpunkt nur eine Aufgabe ausgeführt wird, obwohl die Kontrolle zwischen verschiedenen Promises wechseln kann, wodurch die Ausführung der Promises scheinbar gleichzeitig erfolgt. Eine [parallele Ausführung](https://en.wikipedia.org/wiki/Parallel_computing) in JavaScript kann nur durch [Worker-Threads](/de/docs/Web/API/Web_Workers_API) erreicht werden.
 
 ## Konstruktor
 
 - {{jsxref("Promise/Promise", "Promise()")}}
-  - : Erstellt ein neues `Promise`-Objekt. Der Konstruktor wird hauptsächlich verwendet, um Funktionen zu ummanteln, die Promises nicht bereits unterstützen.
+  - : Erstellt ein neues `Promise`-Objekt. Der Konstruktor wird hauptsächlich verwendet, um Funktionen zu umschließen, die noch keine Promises unterstützen.
 
 ## Statische Eigenschaften
 
 - [`Promise[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Symbol.species)
-  - : Gibt den Konstruktor zurück, der verwendet wird, um Rückgabewerte von Promise-Methoden zu konstruieren.
+  - : Gibt den Konstruktor zurück, der verwendet wird, um Rückgabewerte aus Promise-Methoden zu konstruieren.
 
 ## Statische Methoden
 
 - {{jsxref("Promise.all()")}}
-  - : Nimmt ein Iterable von Promises als Eingabe und gibt ein einzelnes `Promise` zurück. Dieses zurückgegebene Promise wird erfüllt, wenn alle Promises des Inputs (einschließlich des Falles, wenn ein leeres Iterable übergeben wird) erfüllt werden, mit einem Array der Erfüllungswerte. Es lehnt ab, wenn eines der Eingabe-Promises mit dem ersten Grund der Ablehnung ablehnt.
+  - : Nimmt ein iterierbares von Promises als Eingabe und gibt ein einzelnes `Promise` zurück. Dieses zurückgegebene Promise erfüllt sich, wenn alle Eingabepromises erfüllt sind (einschließlich wenn ein leeres Iterables übergeben wird), mit einem Array der Erfüllungswerte. Es lehnt ab, wenn eines der Eingabepromises abgelehnt wird, mit diesem ersten Ablehnungsgrund.
 - {{jsxref("Promise.allSettled()")}}
-  - : Nimmt ein Iterable von Promises als Eingabe und gibt ein einzelnes `Promise` zurück. Dieses zurückgegebene Promise wird erfüllt, wenn alle Promises des Inputs (einschließlich des Falles, wenn ein leeres Iterable übergeben wird) abgeschlossen werden, mit einem Array von Objekten, die das Ergebnis jedes Promise beschreiben.
+  - : Nimmt ein iterierbares von Promises als Eingabe und gibt ein einzelnes `Promise` zurück. Dieses zurückgegebene Promise erfüllt sich, wenn alle Eingabepromises abgeschlossen sind (einschließlich wenn ein leeres Iterables übergeben wird), mit einem Array von Objekten, die das Ergebnis jedes Promises beschreiben.
 - {{jsxref("Promise.any()")}}
-  - : Nimmt ein Iterable von Promises als Eingabe und gibt ein einzelnes `Promise` zurück. Dieses zurückgegebene Promise wird erfüllt, wenn eines der Promises des Inputs erfüllt wird, mit diesem ersten Erfüllungswert. Es lehnt ab, wenn alle Promises des Inputs (einschließlich des Falles, wenn ein leeres Iterable übergeben wird) ablehnen, mit einem {{jsxref("AggregateError")}}, der ein Array von Ablehnungsgründen enthält.
+  - : Nimmt ein iterierbares von Promises als Eingabe und gibt ein einzelnes `Promise` zurück. Dieses zurückgegebene Promise erfüllt sich, wenn eines der Eingabepromises erfüllt ist, mit diesem ersten Erfüllungswert. Es lehnt ab, wenn alle Eingabepromises abgelehnt werden (einschließlich wenn ein leeres Iterables übergeben wird), mit einem {{jsxref("AggregateError")}}, das ein Array von Ablehnungsgründen enthält.
 - {{jsxref("Promise.race()")}}
-  - : Nimmt ein Iterable von Promises als Eingabe und gibt ein einzelnes `Promise` zurück. Dieses zurückgegebene Promise wird mit dem endgültigen Zustand des ersten Promise abgeschlossen, das abgeschlossen wird.
+  - : Nimmt ein iterierbares von Promises als Eingabe und gibt ein einzelnes `Promise` zurück. Dieses zurückgegebene Promise wird mit dem endgültigen Zustand des ersten abgeschlossenen Promises abgeschlossen.
 - {{jsxref("Promise.reject()")}}
   - : Gibt ein neues `Promise`-Objekt zurück, das mit dem angegebenen Grund abgelehnt wird.
 - {{jsxref("Promise.resolve()")}}
-  - : Gibt ein `Promise`-Objekt zurück, das mit dem angegebenen Wert aufgelöst wird. Wenn der Wert ein Thenable ist (d.h. eine `then`-Methode hat), wird das zurückgegebene Promise diesem Thenable "folgen" und seinen endgültigen Zustand übernehmen; ansonsten wird das zurückgegebene Promise mit dem Wert erfüllt.
+  - : Gibt ein `Promise`-Objekt zurück, das mit dem angegebenen Wert aufgelöst wird. Wenn der Wert ein Thenable ist (d. h. eine `then`-Methode hat), wird das zurückgegebene Promise diesem Thenable folgen und dessen endgültigen Zustand annehmen; ansonsten wird das zurückgegebene Promise mit dem Wert erfüllt.
 - {{jsxref("Promise.try()")}}
-  - : Nimmt einen Callback beliebiger Art (gibt zurück oder wirft, synchron oder asynchron) und ummantelt dessen Ergebnis in einem `Promise`.
+  - : Nimmt einen Callback jeglicher Art (gibt zurück oder wirft, synchron oder asynchron) an und umschließt dessen Ergebnis in einem `Promise`.
 - {{jsxref("Promise.withResolvers()")}}
-  - : Gibt ein Objekt zurück, das ein neues `Promise`-Objekt und zwei Funktionen zum Auflösen oder Ablehnen des Promise enthält, entsprechend den zwei Parametern, die an den Executor des {{jsxref("Promise/Promise", "Promise()")}}-Konstruktors übergeben werden.
+  - : Gibt ein Objekt zurück, das ein neues `Promise`-Objekt und zwei Funktionen zur Auflösung oder Ablehnung enthält, die den beiden Parametern des Executors des {{jsxref("Promise/Promise", "Promise()")}}-Konstruktors entsprechen.
 
 ## Instanz-Eigenschaften
 
 Diese Eigenschaften sind auf `Promise.prototype` definiert und werden von allen `Promise`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Promise.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Promise`-Instanzen ist der ursprüngliche Wert der {{jsxref("Promise/Promise", "Promise")}} Konstruktor.
+  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Promise`-Instanzen ist der anfängliche Wert der {{jsxref("Promise/Promise", "Promise")}}-Konstruktor.
 - `Promise.prototype[Symbol.toStringTag]`
-  - : Der anfängliche Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist die Zeichenkette `"Promise"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der anfängliche Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Promise"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
 ## Instanz-Methoden
 
 - {{jsxref("Promise.prototype.catch()")}}
-  - : Hängt einen Ablehnungshandler-Callback an das Promise an und gibt ein neues Promise zurück, das auf den Rückgabewert des Callbacks aufgelöst wird, wenn es aufgerufen wird, oder auf seinen ursprünglichen Erfüllungswert, wenn das Promise stattdessen erfüllt wird.
+  - : Fügt dem Promise einen Ablehnungs-Handler-Callback hinzu und gibt ein neues Promise zurück, das auf den Rückgabewert des Callbacks aufgelöst wird, wenn es aufgerufen wird, oder auf seinen ursprünglichen Erfüllungswert, wenn das Promise stattdessen erfüllt wird.
 - {{jsxref("Promise.prototype.finally()")}}
-  - : Hängt einen Handler an das Promise an und gibt ein neues Promise zurück, das aufgelöst wird, wenn das ursprüngliche Promise aufgelöst wird. Der Handler wird aufgerufen, wenn das Promise abgeschlossen wird, ob erfüllt oder abgelehnt.
+  - : Fügt dem Promise einen Handler hinzu und gibt ein neues Promise zurück, das aufgelöst wird, wenn das ursprüngliche Promise aufgelöst wird. Der Handler wird aufgerufen, wenn das Promise abgeschlossen ist, egal ob erfüllt oder abgelehnt.
 - {{jsxref("Promise.prototype.then()")}}
-  - : Hängt Erfüllungs- und Ablehnungshandler an das Promise an und gibt ein neues Promise zurück, das auf den Rückgabewert des aufgerufenen Handlers aufgelöst wird, oder auf dessen ursprünglichen abgeschlossenen Wert, wenn das Promise nicht behandelt wurde (d.h. wenn der relevante Handler `onFulfilled` oder `onRejected` keine Funktion ist).
+  - : Fügt dem Promise Fulfillment- und Rejection-Handler hinzu und gibt ein neues Promise zurück, das den Rückgabewert des aufgerufenen Handlers aufgelöst wird oder dessen ursprünglichen abgeschlossenen Wert, wenn das Promise nicht behandelt wurde (d. h. wenn der relevante Handler `onFulfilled` oder `onRejected` keine Funktion ist).
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
-In diesem Beispiel verwenden wir `setTimeout(...)` um asynchronen Code zu simulieren. In der Realität werden Sie wahrscheinlich etwas wie XHR oder eine HTML-API verwenden.
+In diesem Beispiel verwenden wir `setTimeout(...)` um asynchronen Code zu simulieren.
+In Wirklichkeit werden Sie wahrscheinlich etwas wie XHR oder eine HTML API verwenden.
 
 ```js
 const myFirstPromise = new Promise((resolve, reject) => {
@@ -240,13 +241,13 @@ myFirstPromise.then((successMessage) => {
 
 ### Beispiel mit verschiedenen Situationen
 
-Dieses Beispiel zeigt verschiedene Techniken zur Nutzung von Promise-Funktionalitäten und diverse Situationen, die auftreten können. Um dies zu verstehen, beginnen Sie am besten, den Promise-Chain unten im Codeblock zu betrachten. Nach der Bereitstellung eines anfänglichen Promise kann eine Kette von Promises folgen. Die Kette besteht aus `.then()`-Aufrufen und hat typischerweise (aber nicht unbedingt) ein einzelnes `.catch()` am Ende, gefolgt von `.finally()`. In diesem Beispiel wird die Promise-Kette durch ein selbstgeschriebenes `new Promise()`-Konstrukt initiiert; in der Praxis beginnen Promise-Ketten normalerweise mit einer API-Funktion (von jemand anderem geschrieben), die ein Promise zurückgibt.
+Dieses Beispiel zeigt verschiedene Techniken zur Nutzung der Promise-Fähigkeiten und verschiedene Situationen, die auftreten können. Um dies zu verstehen, beginnen Sie am besten, indem Sie zum Ende des Codeblocks scrollen und die Promise-Kette untersuchen. Bei Bereitstellung eines anfänglichen Promises kann eine Kette von Promises folgen. Die Kette besteht aus `.then()`-Aufrufen und hat typischerweise (aber nicht unbedingt) ein einzelnes `.catch()` am Ende, gefolgt von `.finally()` falls erforderlich. In diesem Beispiel wird die Promise-Kette durch einen benutzerdefinierten `new Promise()`-Aufbau initiiert; in der Praxis beginnen Promise-Ketten jedoch typischerweise mit einer API-Funktion (von jemand anderem geschrieben), die ein Promise zurückgibt.
 
-Die Beispielfunktion `tetheredGetNumber()` zeigt, dass ein Promise-Generator `reject()` sowohl während der Einrichtung eines asynchronen Aufrufs als auch innerhalb des Callbacks verwenden kann, oder beides. Die Funktion `promiseGetWord()` veranschaulicht, wie eine API-Funktion ein Promise auf eine selbstständige Weise generieren und zurückgeben könnte.
+Die Beispiel-Funktion `tetheredGetNumber()` zeigt, dass ein Promise-Generator `reject()` während des Einrichtens eines asynchronen Anrufs oder innerhalb des Callbacks oder beides verwenden wird. Die Funktion `promiseGetWord()` veranschaulicht, wie eine API-Funktion ein Promise auf selbstständige Weise generieren und zurückgeben könnte.
 
-Beachten Sie, dass die Funktion `troubleWithGetNumber()` mit einem `throw` endet. Das ist erzwungen, weil eine Promise-Kette durch alle `.then()` Promises geht, selbst nach einem Fehler, und ohne `throw` würde der Fehler als "behoben" erscheinen. Das ist lästig und deshalb ist es üblich, `onRejected` in der gesamten Kette der `.then()` Promises auszulassen und nur ein einziges `onRejected` im finalen `catch()` zu haben.
+Beachten Sie, dass die Funktion `troubleWithGetNumber()` mit einem `throw` endet. Das ist erzwungen, weil eine Promise-Kette alle `.then()`-Promises durchläuft, selbst nach einem Fehler, und ohne das `throw` würde der Fehler als „behoben“ erscheinen. Dies ist ein Ärgernis, und aus diesem Grund ist es üblich, `onRejected` in der ganzen `.then()`-Promise-Kette zu weglassen und stattdessen einen einzigen `onRejected` im endgültigen `catch()` zu haben.
 
-Dieser Code kann unter NodeJS ausgeführt werden. Das Verständnis wird durch das tatsächliche Eintreten der Fehler erleichtert. Um mehr Fehler zu erzwingen, ändern Sie die `threshold`-Werte.
+Dieser Code kann unter NodeJS ausgeführt werden. Das Verständnis wird verbessert, indem die Fehler tatsächlich auftreten gesehen werden. Um mehr Fehler zu erzwingen, ändern Sie die `threshold`-Werte.
 
 ```js
 // To experiment with error handling, "threshold" values cause errors randomly
@@ -306,11 +307,11 @@ new Promise(tetheredGetNumber)
 
 ### Fortgeschrittenes Beispiel
 
-Dieses kleine Beispiel zeigt den Mechanismus eines `Promise`. Die `testPromise()`-Methode wird jedes Mal aufgerufen, wenn der {{HTMLElement("button")}} geklickt wird. Sie erstellt ein Promise, das erfüllt wird, indem es mithilfe von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) mit der Promise-Anzahl (beginnend bei 1) alle 1-3 Sekunden zufällig aufgelöst wird. Der `Promise()`-Konstruktor wird verwendet, um das Promise zu erstellen.
+Dieses kleine Beispiel zeigt den Mechanismus eines `Promise`. Die Methode `testPromise()` wird jedes Mal aufgerufen, wenn der {{HTMLElement("button")}} angeklickt wird. Sie erstellt ein Promise, das mittels [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) alle 1-3 Sekunden (zufällig) auf die Promise-Zählung (eine Zahl, beginnend bei 1) erfüllt wird. Der Promise()-Konstruktor wird verwendet, um das Promise zu erstellen.
 
-Das Erfüllen des Promise wird protokolliert, über einen Erfüllungs-Callback, der mit {{jsxref("Promise/then", "p1.then()")}} gesetzt wird. Ein paar Protokolle zeigen, wie der synchrone Teil der Methode vom asynchronen Abschluss des Promise entkoppelt ist.
+Die Erfüllung des Promises wird protokolliert, über einen Erfüllungs-Callback, der mit {{jsxref("Promise/then", "p1.then()")}} gesetzt wurde. Ein paar Protokolle zeigen, wie der synchrone Teil der Methode vom asynchronen Abschluss des Promises entkoppelt ist.
 
-Durch mehrmaliges Klicken auf den Button in kurzer Zeit sehen Sie sogar, wie die verschiedenen Promises nacheinander erfüllt werden.
+Durch mehrmaliges Klicken auf die Schaltfläche in kurzer Zeit sehen Sie sogar, wie die verschiedenen Promises nacheinander erfüllt werden.
 
 #### HTML
 
@@ -373,7 +374,8 @@ btn.addEventListener("click", testPromise);
 
 ### Laden eines Bildes mit XHR
 
-Ein weiteres Beispiel, das `Promise` und [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) verwendet, um ein Bild zu laden, wird unten gezeigt. Jeder Schritt ist kommentiert, um die Promise- und XHR-Architektur genau zu verfolgen.
+Ein weiteres Beispiel, das `Promise` und [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) verwendet, um ein Bild zu laden, wird unten gezeigt.
+Jeder Schritt ist kommentiert und ermöglicht es Ihnen, die Promise- und XHR-Architektur genau zu verfolgen.
 
 ```html hidden live-sample___promises
 <h1>Promise example</h1>
@@ -435,13 +437,13 @@ imgLoad(imgUrl).then(
 
 {{embedlivesample("promises", "", "240px")}}
 
-### Nachverfolgung des aktiven Einstellungsobjekts
+### Verfolgung des Einstellungen-Objekts des Incumbent
 
-Ein Einstellungsobjekt ist eine [Umgebung](https://html.spec.whatwg.org/multipage/webappapis.html#environment-settings-object), die zusätzliche Informationen bereitstellt, wenn JavaScript-Code ausgeführt wird. Dies umfasst das Reich und die Modulkarte sowie HTML-spezifische Informationen wie den Ursprung. Das aktive Einstellungsobjekt wird verfolgt, um sicherzustellen, dass der Browser weiß, welches für ein bestimmtes Stück Benutzer-Code verwendet werden soll.
+Ein Einstellungen-Objekt ist eine [Umgebung](https://html.spec.whatwg.org/multipage/webappapis.html#environment-settings-object), die zusätzliche Informationen bereitstellt, wenn JavaScript-Code ausgeführt wird. Dies umfasst den Realm und die Modultabelle sowie HTML-spezifische Informationen wie den Ursprung. Das Einstellungen-Objekt des Incumbent wird verfolgt, um sicherzustellen, dass der Browser weiß, welches er für ein bestimmtes Stück Benutzer-Code verwenden soll.
 
-Um dies besser zu veranschaulichen, können wir uns genauer ansehen, wie das Reich ein Problem sein könnte. Ein **Reich** kann grob als das globale Objekt verstanden werden. Was Reiche einzigartig macht, ist, dass sie alle notwendigen Informationen zum Ausführen von JavaScript-Code enthalten. Dazu gehören Objekte wie [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) und [`Error`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error). Jedes Einstellungsobjekt hat seine eigene "Kopie" dieser Objekte und sie werden nicht geteilt. Das kann einige unerwartete Verhaltensweisen in Bezug auf Promises verursachen. Um dies zu umgehen, verfolgen wir etwas, das als **aktives Einstellungsobjekt** bezeichnet wird. Dies stellt Informationen dar, die spezifisch für den Kontext des Benutzer-Codes sind, der für einen bestimmten Funktionsaufruf verantwortlich ist.
+Um sich dies besser vorzustellen, können wir einen näheren Blick darauf werfen, wie der Realm ein Problem sein könnte. Ein **Realm** kann grob als das globale Objekt betrachtet werden. Was an Realms einzigartig ist, ist, dass sie alle notwendigen Informationen zum Ausführen von JavaScript-Code enthalten. Dies umfasst Objekte wie [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) und [`Error`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error). Jedes Einstellungen-Objekt hat seine eigene "Kopie" davon und sie werden nicht geteilt. Dies kann einige unerwartete Verhaltensweisen im Zusammenhang mit Promises verursachen. Um dies zu umgehen, verfolgen wir etwas, das als **Einstellungen-Objekt des Incumbent** bezeichnet wird. Dies steht für Informationen, die spezifisch für den Kontext des Benutzer-Codes sind, der für einen bestimmten Funktionsaufruf verantwortlich ist.
 
-Um dies noch weiter zu verdeutlichen, können wir uns ansehen, wie ein in ein Dokument eingebettetes [`<iframe>`](/de/docs/Web/HTML/Element/iframe) mit seinem Host kommuniziert. Da alle Web-APIs sich des aktiven Einstellungsobjekts bewusst sind, funktioniert Folgendes in allen Browsern:
+Um dies weiter zu verdeutlichen, können wir betrachten, wie ein innerhalb eines Dokuments eingebetteter [`<iframe>`](/de/docs/Web/HTML/Element/iframe) mit seinem Host kommuniziert. Da alle Web-APIs sich des Einstellungen-Objekts des Incumbent bewusst sind, funktioniert das Folgende in allen Browsern:
 
 ```html
 <!doctype html> <iframe></iframe>
@@ -457,7 +459,7 @@ Um dies noch weiter zu verdeutlichen, können wir uns ansehen, wie ein in ein Do
 </script>
 ```
 
-Dasselbe Konzept gilt für Promises. Wenn wir das obige Beispiel ein wenig modifizieren, erhalten wir dies:
+Dasselbe Konzept gilt für Promises. Wenn wir das obige Beispiel ein wenig modifizieren, erhalten wir folgendes:
 
 ```html
 <!doctype html> <iframe></iframe>
@@ -473,7 +475,7 @@ Dasselbe Konzept gilt für Promises. Wenn wir das obige Beispiel ein wenig modif
 </script>
 ```
 
-Wenn wir dies ändern, sodass das `<iframe>` im Dokument auf Postnachrichten hört, können wir den Effekt des aktiven Einstellungsobjekts beobachten:
+Wenn wir dies so ändern, dass das `<iframe>` im Dokument auf Post-Nachrichten hört, können wir die Wirkung des Einstellungen-Objekts des Incumbent beobachten:
 
 ```html
 <!-- y.html -->
@@ -501,10 +503,10 @@ Wenn wir dies ändern, sodass das `<iframe>` im Dokument auf Postnachrichten hö
 </script>
 ```
 
-Im obigen Beispiel wird der innere Text des `<iframe>` nur aktualisiert, wenn das aktive Einstellungsobjekt verfolgt wird. Dies liegt daran, dass ohne die Nachverfolgung des aktiven Objekts möglicherweise die falsche Umgebung verwendet wird, um die Nachricht zu senden.
+Im obigen Beispiel wird der innere Text des `<iframe>` nur aktualisiert, wenn das Einstellungen-Objekt des Incumbent verfolgt wird. Dies liegt daran, dass wir ohne die Verfolgung des Incumbent möglicherweise die falsche Umgebung verwenden, um die Nachricht zu senden.
 
 > [!NOTE]
-> Derzeit ist die Nachverfolgung des aktiven Reichs in Firefox vollständig implementiert und hat teilweise Implementierungen in Chrome und Safari.
+> Derzeit ist die Verfolgung des Incumbent-Realm voll in Firefox implementiert und hat teilweise Implementierungen in Chrome und Safari.
 
 ## Spezifikationen
 
@@ -517,7 +519,7 @@ Im obigen Beispiel wird der innere Text des `<iframe>` nur aktualisiert, wenn da
 ## Siehe auch
 
 - [Polyfill von `Promise` in `core-js`](https://github.com/zloirock/core-js#ecmascript-promise)
-- [Using promises](/de/docs/Web/JavaScript/Guide/Using_promises) Leitfaden
-- [Promises/A+ Spezifikation](https://promisesaplus.com/)
-- [Einführung in JavaScript Promises](https://web.dev/articles/promises) auf web.dev (2013)
-- [Rückrufe, Promises und Coroutines: Asynchrone Programmiermuster in JavaScript](https://www.slideshare.net/slideshow/callbacks-promises-and-coroutines-oh-my-the-evolution-of-asynchronicity-in-javascript/9953720) Präsentation von Domenic Denicola (2011)
+- [Verwendung von Promises](/de/docs/Web/JavaScript/Guide/Using_promises) Leitfaden
+- [Promises/A+-Spezifikation](https://promisesaplus.com/)
+- [JavaScript Promises: eine Einführung](https://web.dev/articles/promises) auf web.dev (2013)
+- [Callbacks, Promises, und Coroutines: Asynchrone Programmiermuster in JavaScript](https://www.slideshare.net/slideshow/callbacks-promises-and-coroutines-oh-my-the-evolution-of-asynchronicity-in-javascript/9953720) Präsentation von Domenic Denicola (2011)

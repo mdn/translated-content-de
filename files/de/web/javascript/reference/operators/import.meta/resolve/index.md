@@ -2,12 +2,12 @@
 title: import.meta.resolve()
 slug: Web/JavaScript/Reference/Operators/import.meta/resolve
 l10n:
-  sourceCommit: 940b352725f7e803b194af619702071630f3d6a6
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("Operators")}}
 
-**`import.meta.resolve()`** ist eine eingebaute Funktion, die auf dem [`import.meta`](/de/docs/Web/JavaScript/Reference/Operators/import.meta)-Objekt eines JavaScript-Moduls definiert ist und einen Modulspezifizierer zu einer URL auflöst, wobei die URL des aktuellen Moduls als Grundlage dient.
+**`import.meta.resolve()`** ist eine eingebaute Funktion, die auf dem [`import.meta`](/de/docs/Web/JavaScript/Reference/Operators/import.meta)-Objekt eines JavaScript-Moduls definiert ist und einen Modul-Spezifizierer zu einer URL auflöst, wobei die URL des aktuellen Moduls als Basis verwendet wird.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ import.meta.resolve(moduleName)
 ### Parameter
 
 - `moduleName`
-  - : Ein String, der ein potenziell importierbares Modul angibt. Dies kann ein relativer Pfad (wie `"./lib/helper.js"`), ein einfacher Name (wie `"my-module"`) oder eine absolute URL (wie `"https://example.com/lib/helper.js"`) sein.
+  - : Ein String, der ein potenziell importierbares Modul spezifiziert. Dies kann ein relativer Pfad sein (wie `"./lib/helper.js"`), ein einfacher Name (wie `"my-module"`) oder eine absolute URL (wie `"https://example.com/lib/helper.js"`).
 
 ### Rückgabewert
 
-Gibt einen String zurück, der dem Pfad entspricht, der importiert werden würde, wenn das Argument an [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import) übergeben wird.
+Gibt einen String zurück, der dem Pfad entspricht, der importiert würde, wenn das Argument an [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import) übergeben würde.
 
 ## Beschreibung
 
-`import.meta.resolve()` ermöglicht es einem Skript, auf den _Modulspezifizierer-Auflösungsalgorithmus_ für einen Namen zuzugreifen, wie folgt:
+`import.meta.resolve()` ermöglicht einem Skript den Zugriff auf den _Modul-Spezifizierer-Auflösungsalgorithmus_ für einen Namen, beispielsweise so:
 
 ```js
 // Script at https://example.com/main.js
@@ -35,9 +35,9 @@ const helperPath = import.meta.resolve("./lib/helper.js");
 console.log(helperPath); // "https://example.com/lib/helper.js"
 ```
 
-Beachten Sie, dass `import.meta.resolve()` nur die Auflösung durchführt und nicht versucht, den resultierenden Pfad zu laden oder zu importieren. Daher ist der Rückgabewert derselbe, _unabhängig davon, ob der zurückgegebene Pfad einer existierenden Datei entspricht und unabhängig davon, ob diese Datei gültigen Code für ein Modul enthält_. Dies ermöglicht, dass `import.meta.resolve()` eine _synchron_ ablaufende Operation ist.
+Beachten Sie, dass `import.meta.resolve()` nur die Auflösung durchführt und nicht versucht, den resultierenden Pfad zu laden oder zu importieren. Daher ist der Rückgabewert immer gleich, unabhängig davon, ob der zurückgegebene Pfad zu einer Datei gehört, die existiert, und unabhängig davon, ob diese Datei gültigen Code für ein Modul enthält. Dies erlaubt `import.meta.resolve()` eine _synchronisierte_ Operation zu sein.
 
-Es unterscheidet sich vom [dynamischen Import](/de/docs/Web/JavaScript/Reference/Operators/import), da, obwohl beide einen Modulspezifizierer als erstes Argument akzeptieren, `import.meta.resolve()` den Pfad zurückgibt, der _importiert werden würde_, ohne irgendeinen Versuch zu unternehmen, auf diesen Pfad zuzugreifen. Daher sind die folgenden beiden effektiv derselbe Code:
+Es unterscheidet sich vom [dynamischen Import](/de/docs/Web/JavaScript/Reference/Operators/import), denn obwohl beide einen Modul-Spezifizierer als erstes Argument akzeptieren, gibt `import.meta.resolve()` den Pfad zurück, der _importiert würde_, ohne einen Versuch zu unternehmen, auf diesen Pfad zuzugreifen. Daher sind die folgenden beiden im Wesentlichen derselbe Code:
 
 ```js
 // Approach 1
@@ -48,11 +48,11 @@ const helperPath = import.meta.resolve("./lib/helper.js");
 console.log(await import(helperPath));
 ```
 
-Auch wenn `"./lib/helper.js"` nicht erfolgreich importiert werden kann, wird das zweite Beispiel keinen Fehler verursachen, bis es versucht, den Import in Zeile 2 durchzuführen.
+Auch wenn `"./lib/helper.js"` nicht erfolgreich importiert werden kann, wird das zweite Code-Stück erst dann auf einen Fehler stoßen, wenn es versucht, den Import in Zeile 2 durchzuführen.
 
-### Einfache Modulnamen
+### Bare Modulnamen
 
-Sie können einen einfachen Modulnamen (auch als einfacher Modulspezifizierer bekannt) an `import.meta.resolve()` übergeben, solange die Modulauflösung für den Namen definiert ist. Beispielsweise können Sie dies mit einer [Import Map](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) innerhalb eines Browsers definieren:
+Sie können einen Bare Modulnamen (auch bekannt als Bare Modul-Spezifizierer) an `import.meta.resolve()` übergeben, solange die Modulauflösung für den Namen definiert ist. Zum Beispiel können Sie dies mit einer [Importkarte](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) innerhalb eines Browsers definieren:
 
 ```html
 <!-- index.html -->
@@ -70,38 +70,38 @@ Sie können einen einfachen Modulnamen (auch als einfacher Modulspezifizierer be
 </script>
 ```
 
-Da dieses Beispiel jedoch nicht versucht, `moduleEntryPath` zu importieren — das tut auch die Import Map nicht — wird die aufgelöste URL ausgegeben, unabhängig davon, ob `./modules/my-module/index.js` tatsächlich existiert.
+Da in diesem Code-Stück nicht versucht wird, `moduleEntryPath` zu importieren — ebenso wenig wie die Importkarte — wird die aufgelöste URL ausgegeben, unabhängig davon, ob `./modules/my-module/index.js` tatsächlich existiert.
 
 ### Vergleich mit neuem URL()
 
-Der [`URL()`](/de/docs/Web/API/URL/URL)-Konstruktor akzeptiert ein zweites Argument als _Basis-URL_. Wenn das erste Argument ein relativer Pfad ist und die Basis-URL [`import.meta.url`](/de/docs/Web/JavaScript/Reference/Operators/import.meta#value) ist, ist der Effekt ähnlich wie bei `import.meta.resolve()`.
+Der [`URL()`](/de/docs/Web/API/URL/URL)-Konstruktor akzeptiert ein zweites Argument als Basis-URL. Wenn das erste Argument ein relativer Pfad und die Basis-URL [`import.meta.url`](/de/docs/Web/JavaScript/Reference/Operators/import.meta#value) ist, ähnelt die Wirkung der von `import.meta.resolve()`.
 
 ```js
 const helperPath = new URL("./lib/helper.js", import.meta.url).href;
 console.log(helperPath);
 ```
 
-Dies ist auch eine nützliche Ersatzsyntax beim Anvisieren älterer Browser. Es gibt jedoch einige Unterschiede:
+Dies ist auch eine nützliche Ersetzungssyntax, wenn ältere Browser unterstützt werden sollen. Es gibt jedoch einige Unterschiede:
 
-- `import.meta.resolve()` gibt einen String zurück, während `new URL()` ein `URL`-Objekt zurückgibt. Es ist möglich, [`href`](/de/docs/Web/API/URL/href) oder [`toString()`](/de/docs/Web/API/URL/toString) auf der konstruierten `URL` zu verwenden, aber dies kann in einigen JavaScript-Umgebungen oder beim Einsatz von Tools wie Bundlern zur statischen Analyse des Codes möglicherweise nicht das genau gleiche Ergebnis liefern.
-- `import.meta.resolve()` ist sich zusätzlichen Auflösungskonfigurationen bewusst, wie zum Beispiel dem Auflösen einfacher Modulnamen mit Import Maps, wie oben beschrieben. `new URL()` ist sich Import Maps nicht bewusst und behandelt einfache Modulnamen als relative Pfade (d.h. `new URL("my-module", import.meta.url)` bedeutet `new URL("./my-module", import.meta.url)`).
+- `import.meta.resolve()` gibt einen String zurück, während `new URL()` ein `URL`-Objekt zurückgibt. Es ist möglich, [`href`](/de/docs/Web/API/URL/href) oder [`toString()`](/de/docs/Web/API/URL/toString) auf die konstruierte `URL` anzuwenden, aber das kann in einigen JavaScript-Umgebungen oder beim Einsatz von Tools wie Bundlern zur statischen Code-Analyse trotzdem nicht dasselbe Resultat produzieren.
+- `import.meta.resolve()` kennt zusätzliche Auflösungskonfigurationen, wie z.B. das Auflösen von Bare Modulnamen mithilfe von Importkarten, wie oben beschrieben. `new URL()` kennt Importkarten nicht und behandelt Bare Modulnamen als relative Pfade (d.h. `new URL("my-module", import.meta.url)` bedeutet `new URL("./my-module", import.meta.url)`).
 
-Einige Tools erkennen `new URL("./lib/helper.js", import.meta.url).href` als Abhängigkeit von `"./lib/helper.js"` (ähnlich wie ein Import) und berücksichtigen dies bei Funktionen wie Bündelung, Umschreiben von Importen bei verschobenen Dateien, "Gehe zur Quelle"-Funktionalität usw. Da `import.meta.resolve()` jedoch weniger mehrdeutig ist und speziell zur Anzeige einer Modulpfadauflösungsabhängigkeit entwickelt wurde, sollten Sie `import.meta.resolve(moduleName)` anstelle von `new URL(moduleName, import.meta.url)` für diese Anwendungsfälle nach Möglichkeit verwenden.
+Einige Tools erkennen `new URL("./lib/helper.js", import.meta.url).href` als Abhängigkeit von `"./lib/helper.js"` (ähnlich wie ein Import) und berücksichtigen dies für Funktionen wie Bündelung, Umschreiben von Importen bei verschobenen Dateien, Funktionalität wie "Zur Quelle gehen" usw. Da `import.meta.resolve()` jedoch weniger Mehrdeutigkeiten aufweist und speziell entwickelt wurde, um eine Abhängigkeit von der Modulpfadauflösung anzuzeigen, sollten Sie `import.meta.resolve(moduleName)` anstelle von `new URL(moduleName, import.meta.url)` für diese Anwendungsfälle wann immer möglich verwenden.
 
 ### Kein ECMAScript-Feature
 
-`import.meta.resolve()` ist nicht als Teil der [ECMAScript-Spezifikation](/de/docs/Web/JavaScript/JavaScript_technologies_overview#javascript_the_core_language_ecmascript) für JavaScript-Module spezifiziert oder dokumentiert. Stattdessen definiert die Spezifikation [das `import.meta`-Objekt](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#prod-ImportMeta), lässt jedoch [alle seine Eigenschaften als "hostdefiniert"](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-hostgetimportmetaproperties). Der WHATWG HTML-Standard nimmt den Faden dort auf, wo die ECMAScript-Spezifikation aufhört, und [definiert `import.meta.resolve`](https://html.spec.whatwg.org/multipage/webappapis.html#hostgetimportmetaproperties) mit seinem [Modulspezifizierer-Auflösungsalgorithmus](https://html.spec.whatwg.org/multipage/webappapis.html#resolve-a-module-specifier).
+`import.meta.resolve()` wird nicht als Teil der [ECMAScript-Spezifikation](/de/docs/Web/JavaScript/Reference/JavaScript_technologies_overview#javascript_the_core_language_ecmascript) für JavaScript-Module spezifiziert oder dokumentiert. Stattdessen definiert die Spezifikation [das `import.meta`-Objekt](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#prod-ImportMeta), lässt aber [alle seine Eigenschaften als "host-definiert"](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-hostgetimportmetaproperties). Der WHATWG HTML-Standard setzt da an, wo der ECMAScript-Standard aufhört, und [definiert `import.meta.resolve`](https://html.spec.whatwg.org/multipage/webappapis.html#hostgetimportmetaproperties) unter Verwendung seiner [Modul-Spezifizierer-Auflösung](https://html.spec.whatwg.org/multipage/webappapis.html#resolve-a-module-specifier).
 
-Das bedeutet, dass `import.meta.resolve()` nicht von allen konformen JavaScript-Implementierungen implementiert werden muss. `import.meta.resolve()` könnte jedoch auch in Nicht-Browser-Umgebungen verfügbar sein:
+Das bedeutet, dass `import.meta.resolve()` nicht von allen konformen JavaScript-Implementierungen implementiert werden muss. Dennoch kann `import.meta.resolve()` auch in Nicht-Browser-Umgebungen verfügbar sein:
 
-- Deno implementiert [Kompatibilität mit dem Verhalten des Browsers](https://docs.deno.com/runtime/reference/deno_namespace_apis/#import.meta).
-- Node.js implementiert auch [die `import.meta.resolve()`-Funktion](https://nodejs.org/docs/latest/api/esm.html#importmetaresolvespecifier), fügt jedoch einen zusätzlichen `parent`-Parameter hinzu, wenn Sie das `--experimental-import-meta-resolve`-Flag verwenden.
+- Deno implementiert [Kompatibilität mit dem Verhalten von Browsern](https://docs.deno.com/runtime/reference/deno_namespace_apis/#import.meta).
+- Node.js implementiert auch die [Funktion `import.meta.resolve()`](https://nodejs.org/docs/latest/api/esm.html#importmetaresolvespecifier), fügt aber einen zusätzlichen `parent`-Parameter hinzu, wenn Sie das Flag `--experimental-import-meta-resolve` verwenden.
 
 ## Beispiele
 
-### Einen Pfad für den Worker()-Konstruktor auflösen
+### Auflösung eines Pfades für den Worker()-Konstruktor
 
-`import.meta.resolve()` ist besonders wertvoll für APIs, die einen Pfad zu einer Skriptdatei als Argument verwenden, wie den [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor:
+`import.meta.resolve()` ist besonders wertvoll für APIs, die einen Pfad zu einer Skriptdatei als Argument benötigen, wie der [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor:
 
 ```js
 // main.js
@@ -115,7 +115,7 @@ worker.addEventListener("message", console.log);
 self.postMessage("hello!");
 ```
 
-Dies ist auch nützlich, um Pfade für andere Worker zu berechnen, wie [Service Workers](/de/docs/Web/API/ServiceWorker) und [Shared Workers](/de/docs/Web/API/SharedWorker). Beachten Sie jedoch, dass, wenn Sie einen relativen Pfad verwenden, um die URL eines Service Workers zu berechnen, das Verzeichnis des aufgelösten Pfades standardmäßig seinen [Registrierungsbereich](/de/docs/Web/API/ServiceWorkerRegistration/scope) bestimmt (obwohl während der Registrierung ein anderer Bereich angegeben werden kann [während der Registrierung](/de/docs/Web/API/ServiceWorkerContainer/register)).
+Dies ist auch nützlich, um Pfade für andere Worker zu berechnen, wie [Service-Worker](/de/docs/Web/API/ServiceWorker) und [Shared-Worker](/de/docs/Web/API/SharedWorker). Wenn Sie jedoch einen relativen Pfad verwenden, um die URL eines Service-Workers zu berechnen, bedenken Sie, dass das Verzeichnis des aufgelösten Pfads standardmäßig dessen [Registrierungsscope](/de/docs/Web/API/ServiceWorkerRegistration/scope) bestimmt (obwohl ein anderer Scope[während der Registrierung](/de/docs/Web/API/ServiceWorkerContainer/register) angegeben werden kann).
 
 ## Spezifikationen
 

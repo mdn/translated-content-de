@@ -2,12 +2,12 @@
 title: "TypeError: can't delete non-configurable array element"
 slug: Web/JavaScript/Reference/Errors/Non_configurable_array_element
 l10n:
-  sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme „can't delete non-configurable array element“ tritt auf, wenn versucht wurde, die [Länge eines Arrays zu verkürzen](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length#shortening_an_array), aber eines der Array-Elemente ist [nicht konfigurierbar](/de/docs/Web/JavaScript/Data_structures#properties).
+Die JavaScript-Ausnahme "can't delete non-configurable array element" tritt auf, wenn versucht wurde, die [Länge eines Arrays zu verkürzen](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length#shortening_an_array), aber eines der Elemente des Arrays ist [nicht konfigurierbar](/de/docs/Web/JavaScript/Guide/Data_structures#properties).
 
 ## Nachricht
 
@@ -17,23 +17,23 @@ TypeError: can't delete non-configurable array element (Firefox)
 TypeError: Unable to delete property. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("TypeError")}}
 
 ## Was ist schiefgelaufen?
 
-Es wurde versucht, die [Länge eines Arrays zu verkürzen](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length#shortening_an_array), aber eines der Array-Elemente ist [nicht konfigurierbar](/de/docs/Web/JavaScript/Data_structures#properties). Beim Verkürzen eines Arrays werden die Elemente, die über die neue Array-Länge hinausgehen, gelöscht, was in diesem Fall fehlschlug.
+Es wurde versucht, die [Länge eines Arrays zu verkürzen](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length#shortening_an_array), aber eines der Elemente des Arrays ist [nicht konfigurierbar](/de/docs/Web/JavaScript/Guide/Data_structures#properties). Beim Verkürzen eines Arrays werden die Elemente, die über die neue Array-Länge hinausgehen, gelöscht, was in diesem Fall fehlschlug.
 
-Das `configurable`-Attribut steuert, ob die Eigenschaft vom Objekt gelöscht werden kann und ob ihre Attribute (außer `writable`) geändert werden können.
+Das `configurable`-Attribut steuert, ob die Eigenschaft aus dem Objekt gelöscht werden kann und ob ihre Attribute (außer `writable`) geändert werden können.
 
-Normalerweise sind Eigenschaften in einem Objekt, das durch einen [Array-Initializer](/de/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals) erstellt wurde, konfigurierbar. Wenn jedoch zum Beispiel {{jsxref("Object.defineProperty()")}} verwendet wird, ist die Eigenschaft standardmäßig nicht konfigurierbar.
+Normalerweise sind Eigenschaften in einem durch einen [Array-Initializer](/de/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals) erstellten Objekt konfigurierbar. Wenn jedoch zum Beispiel {{jsxref("Object.defineProperty()")}} verwendet wird, ist die Eigenschaft standardmäßig nicht konfigurierbar.
 
 ## Beispiele
 
 ### Nicht konfigurierbare Eigenschaften, die durch Object.defineProperty erstellt wurden
 
-Die {{jsxref("Object.defineProperty()")}} erstellt standardmäßig nicht konfigurierbare Eigenschaften, sofern Sie sie nicht als konfigurierbar angegeben haben.
+Die {{jsxref("Object.defineProperty()")}} erstellt standardmäßig nicht konfigurierbare Eigenschaften, wenn Sie sie nicht als konfigurierbar angegeben haben.
 
 ```js example-bad
 "use strict";
@@ -69,7 +69,7 @@ arr.length = 1;
 // TypeError: can't delete non-configurable array element
 ```
 
-Sie müssen entweder den Aufruf von {{jsxref("Object.seal()")}} entfernen oder eine Kopie davon machen. Im Falle einer Kopie verändert das Verkürzen der Kopie des Arrays nicht die ursprüngliche Array-Länge.
+Sie müssen entweder den Aufruf von {{jsxref("Object.seal()")}} entfernen oder eine Kopie davon machen. Im Fall einer Kopie verändert das Verkürzen der Kopie des Arrays nicht die ursprüngliche Array-Länge.
 
 ```js example-good
 "use strict";
@@ -84,7 +84,7 @@ copy.length = 1;
 
 ## Siehe auch
 
-- [\[\[Configurable\]\]](/de/docs/Web/JavaScript/Data_structures#properties)
+- [\[\[Configurable\]\]](/de/docs/Web/JavaScript/Guide/Data_structures#properties)
 - {{jsxref("Array/length", "length")}}
 - {{jsxref("Object.defineProperty()")}}
 - {{jsxref("Object.seal()")}}

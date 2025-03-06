@@ -3,16 +3,16 @@ title: "HTMLInputElement: autocomplete-Eigenschaft"
 short-title: autocomplete
 slug: Web/API/HTMLInputElement/autocomplete
 l10n:
-  sourceCommit: a24234ea6552cbd126d20fbf61e8f2bb010e1f20
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`autocomplete`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt an, ob der Wert des Steuerungselements vom Browser automatisch vervollständigt werden kann. Sie spiegelt das [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)-Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`autocomplete`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt an, ob der Wert des Steuerelements automatisch vom Browser vervollständigt werden kann. Sie spiegelt das [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)-Attribut des {{htmlelement("input")}}-Elements wider.
 
 ## Wert
 
-Ein String; der Wert des `autocomplete`-Attributs (`"on"`, `"off"`, eine [`<token-list>`](/de/docs/Web/HTML/Attributes/autocomplete#token_list_tokens)), oder der leere String `""`, falls nicht festgelegt.
+Ein Zeichenfolgenwert; der Wert des `autocomplete`-Attributs (`"on"`, `"off"`, eine [`<token-list>`](/de/docs/Web/HTML/Attributes/autocomplete#token_list_tokens)), oder die leere Zeichenfolge `""`, wenn nicht angegeben.
 
 ## Beispiele
 
@@ -33,6 +33,6 @@ console.log(inputElement.autocomplete);
 
 - {{HTMLElement("input")}}
 - [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
-- HTML [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)-Attribut
-- ARIA [`aria-autocomplete`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete)-Attribut
+- HTML-Attribut [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)
+- ARIA-Attribut [`aria-autocomplete`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-autocomplete)
 - [Deaktivierung der automatischen Vervollständigung](/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion)

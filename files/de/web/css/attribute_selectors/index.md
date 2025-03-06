@@ -2,12 +2,12 @@
 title: Attributselektoren
 slug: Web/CSS/Attribute_selectors
 l10n:
-  sourceCommit: 333c924622d7ff78253a662f3d9d4e60263a93d9
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{CSSRef}}
 
-Der CSS **Attributselektor** wählt Elemente basierend darauf aus, dass ein bestimmtes Attribut explizit gesetzt ist. Es gibt Optionen, um einen Attributwert oder einen Teilstringwert festzulegen.
+Der CSS-**Attributselektor** wählt Elemente basierend darauf aus, dass das Element ein bestimmtes Attribut explizit gesetzt hat, mit Optionen zur Definition eines Attributwert- oder Teilstringwertabgleichs.
 
 ```css
 /* <a> elements with a title attribute */
@@ -40,38 +40,38 @@ a[class~="logo"] {
 ## Syntax
 
 - `[attr]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_.
+  - : Repräsentiert Elemente mit einem Attributnamen _attr_.
 - `[attr=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert genau _value_ ist.
+  - : Repräsentiert Elemente mit einem Attributnamen _attr_, dessen Wert genau _value_ ist.
 - `[attr~=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert eine durch Leerzeichen getrennte Liste von Wörtern ist, von denen eines genau _value_ ist.
+  - : Repräsentiert Elemente mit einem Attributnamen _attr_, dessen Wert eine durch Leerzeichen getrennte Liste von Wörtern ist, von denen eines genau _value_ ist.
 - `[attr|=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert genau _value_ sein kann oder mit _value_ beginnt, das unmittelbar von einem Bindestrich `-` (U+002D) gefolgt wird. Es wird oft für Sprachsubkode-Übereinstimmungen verwendet.
+  - : Repräsentiert Elemente mit einem Attributnamen _attr_, dessen Wert genau _value_ sein kann oder mit _value_ beginnt, gefolgt von einem Bindestrich, `-` (U+002D). Es wird oft für Sprachuntercode-Abgleiche verwendet.
 - `[attr^=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert mit _value_ beginnt.
+  - : Repräsentiert Elemente mit einem Attributnamen _attr_, dessen Wert mit _value_ beginnt.
 - `[attr$=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert mit _value_ endet.
+  - : Repräsentiert Elemente mit einem Attributnamen _attr_, dessen Wert auf _value_ endet.
 - `[attr*=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert mindestens eine Vorkommen von _value_ innerhalb des Strings enthält.
+  - : Repräsentiert Elemente mit einem Attributnamen _attr_, dessen Wert mindestens ein Vorkommen von _value_ innerhalb des Strings enthält.
 - `[attr operator value i]`
-  - : Das Hinzufügen eines `i` (oder `I`) vor der schließenden Klammer führt dazu, dass der Wert fallunempfindlich verglichen wird (für Zeichen innerhalb des {{Glossary("ASCII", "ASCII")}}-Bereichs).
+  - : Ein `i` (oder `I`) vor der schließenden Klammer sorgt dafür, dass der Wert ohne Berücksichtigung der Groß-/Kleinschreibung verglichen wird (für Zeichen innerhalb des {{Glossary("ASCII", "ASCII")}}-Bereichs).
 - `[attr operator value s]`
-  - : Das Hinzufügen eines `s` (oder `S`) vor der schließenden Klammer führt dazu, dass der Wert fallabhängig verglichen wird (für Zeichen innerhalb des {{Glossary("ASCII", "ASCII")}}-Bereichs).
+  - : Ein `s` (oder `S`) vor der schließenden Klammer sorgt dafür, dass der Wert unter Berücksichtigung der Groß-/Kleinschreibung verglichen wird (für Zeichen innerhalb des {{Glossary("ASCII", "ASCII")}}-Bereichs).
 
 ### Werte
 
 - `<attr>`
-  - : Ein {{cssxref("ident")}}, das heißt der unzitierte Name des Attributs. Dies kann jedes gültige sprachspezifische Attribut sein (SVG, HTML, XML, etc.), ein [`data-*` Attribut](/de/docs/Web/HTML/Global_attributes/data-*), oder ein benutzerdefiniertes Attribut.
+  - : Ein {{cssxref("ident")}}, also der nicht in Anführungszeichen gesetzte Name des Attributs. Dies kann jedes gültige, sprachspezifische Attribut sein (SVG, HTML, XML usw.), ein [`data-*` Attribut](/de/docs/Web/HTML/Global_attributes/data-*), oder ein vom Autor erstelltes Attribut.
 - `<value>`
-  - : Ein {{cssxref("ident")}} oder {{cssxref("string")}}, der den Attributwert repräsentiert. Der Wert muss zitiert werden, wenn er Leerzeichen oder Sonderzeichen enthält.
+  - : Ein {{cssxref("ident")}} oder {{cssxref("string")}}, der den Attributwert darstellt. Der Wert muss in Anführungszeichen gesetzt werden, wenn er Leerzeichen oder Sonderzeichen enthält.
 - `s` oder `i`
-  - : Flag für Fallabhängigkeit oder Fallunempfindlichkeit. Wenn es vor der schließenden Klammer (`]`) enthalten ist, macht es den Wert fallabhängig oder fallunempfindlich, unabhängig von der Auszeichnungssprache.
+  - : Flag für Groß-/Kleinschreibung. Wenn vor der schließenden Klammer (`]`) eingeschlossen, macht es den Wert groß-/kleinschreibungssensitiv oder insensitiv, unabhängig von der Auszeichnungssprache.
 
 ## Beschreibung
 
-Die Groß-/Kleinschreibung von Attributnamen und -werten hängt von der Dokumentensprache ab. In HTML sind Attributnamen fallunempfindlich, ebenso wie spektral definierte {{Glossary("enumerated", "enumerierten")}} Werte. Die [fallunempfindlichen HTML-Attributwerte](https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors) sind in der HTML-Spezifikation aufgeführt. Für diese Attribute ist der Attributwert im Selektor fallunempfindlich, unabhängig davon, ob der Wert ungültig ist oder das Attribut für das Element, auf dem es gesetzt ist, ungültig ist.
+Die Groß- und Kleinschreibung von Attributnamen und -werten hängt von der Dokumentsprache ab. In HTML sind Attributnamen groß-/kleinschreibungsinsensitiv, ebenso wie spezifizierte {{Glossary("enumerated", "enumerierte")}} Werte. Die [groß-/kleinschreibungsinsensitiven HTML-Attributwerte](https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors) sind in der HTML-Spezifikation aufgeführt. Für diese Attribute ist der Attributwert im Selektor groß-/kleinschreibungsinsensitiv, unabhängig davon, ob der Wert ungültig ist oder das Attribut für das Element, auf dem es gesetzt ist, ungültig ist.
 
-Wenn der Attributwert fallabhängig ist, wie bei den Attributen [`class`](/de/docs/Web/HTML/Global_attributes/class), [`id`](/de/docs/Web/HTML/Global_attributes/id) und [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*), ist der Wert des Attributselektors fallabhängig. Attribute, die außerhalb der HTML-Spezifikation definiert sind, wie [`role`](/de/docs/Web/Accessibility/ARIA/Roles) und [`aria-*`](/de/docs/Web/Accessibility/ARIA/Attributes) Attribute, sind ebenfalls fallabhängig. Fallabhängige Attributselektoren können durch Einfügen des fallunempfindlichen Modifikators (`i`) fallunempfindlich gemacht werden.
+Wenn der Attributwert groß-/kleinschreibungssensitiv ist, wie bei den Attributen [`class`](/de/docs/Web/HTML/Global_attributes/class), [`id`](/de/docs/Web/HTML/Global_attributes/id) und [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*), ist der Attributselektorwertabgleich groß-/kleinschreibungssensitiv. Attribute, die außerhalb der HTML-Spezifikation definiert sind, wie etwa [`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles) und [`aria-*`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes) Attribute, sind ebenfalls groß-/kleinschreibungssensitiv. Groß-/kleinschreibungssensitive Attributselektoren können durch die Hinzufügung des groß-/kleinschreibungsinsensitiven Modifikators (`i`) groß-/kleinschreibungsinsensitiv gemacht werden.
 
 ## Beispiele
 
@@ -188,9 +188,10 @@ div[data-lang="zh-Hant-TW"] {
 
 {{EmbedLiveSample("Languages")}}
 
-### HTML geordnete Listen
+### HTML nummerierte Listen
 
-Die HTML-Spezifikation erfordert, dass das [`type`](/de/docs/Web/HTML/Element/input#type) Attribut fallunempfindlich verglichen wird, da es hauptsächlich im {{HTMLElement("input")}} Element verwendet wird. Beachten Sie, dass, wenn ein Modifikator vom Benutzeragenten nicht unterstützt wird, der Selektor nicht übereinstimmt.
+Die HTML-Spezifikation erfordert, dass das [`type`](/de/docs/Web/HTML/Element/input#type) Attribut groß-/kleinschreibungsinsensitiv übereinstimmt, da es hauptsächlich im {{HTMLElement("input")}} Element verwendet wird.
+Beachten Sie, dass, wenn ein Modifikator von der Benutzerumgebung nicht unterstützt wird, der Selektor nicht übereinstimmen wird.
 
 #### CSS
 
@@ -253,6 +254,6 @@ ol[type="a" i] {
 ## Siehe auch
 
 - {{CSSxRef("attr")}}
-- Auswahl eines einzelnen Elements: [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector), [`DocumentFragment.querySelector()`](/de/docs/Web/API/DocumentFragment/querySelector) oder [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector)
-- Auswahl aller zutreffenden Elemente: [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll), [`DocumentFragment.querySelectorAll()`](/de/docs/Web/API/DocumentFragment/querySelectorAll) oder [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll)
-- [Fallunempfindliche Attributselektorwerte](https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors) auf WHATWG
+- Auswahl eines einzelnen Elements: [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector), [`DocumentFragment.querySelector()`](/de/docs/Web/API/DocumentFragment/querySelector), oder [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector)
+- Auswahl aller übereinstimmenden Elemente: [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll), [`DocumentFragment.querySelectorAll()`](/de/docs/Web/API/DocumentFragment/querySelectorAll), oder [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll)
+- [Groß-/kleinschreibungsinsensitive Attributselektorwerte](https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors) auf WHATWG

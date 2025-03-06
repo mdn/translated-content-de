@@ -3,15 +3,15 @@ title: "Element: ariaMultiLine-Eigenschaft"
 short-title: ariaMultiLine
 slug: Web/API/Element/ariaMultiLine
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaMultiLine`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-multiline`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiline)-Attributs wider, das angibt, ob ein Textfeld mehrere Zeilen der Eingabe akzeptiert oder nur eine einzelne Zeile.
+Die **`ariaMultiLine`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-multiline`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiline)-Attributs wider, welches angibt, ob ein Textfeld mehrere Eingabezeilen akzeptiert oder nur eine einzelne Zeile.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese eingebaute Semantik haben und keine ARIA-Attribute erfordern.
+> Wenn möglich, verwenden Sie ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese eingebaute Semantik haben und keine ARIA-Attribute benötigen.
 
 ## Wert
 
@@ -24,7 +24,7 @@ Ein String mit einem der folgenden Werte:
 
 ## Beispiele
 
-In diesem Beispiel ist das `aria-multiline`-Attribut des Elements mit der ID `txtBoxInput` auf "true" gesetzt, was anzeigt, dass dieses Feld mehrere Zeilen der Eingabe erlaubt. Mit `ariaMultiLine` aktualisieren wir den Wert auf "false".
+In diesem Beispiel wird das `aria-multiline`-Attribut des Elements mit der ID `txtBoxInput` auf "true" gesetzt, was anzeigt, dass dieses Feld mehrere Eingabezeilen zulässt. Mit `ariaMultiLine` ändern wir den Wert auf "false".
 
 ```html
 <div id="txtboxMultilineLabel">Enter the tags for the article</div>
@@ -54,4 +54,4 @@ console.log(el.ariaMultiLine); // "false"
 
 ## Siehe auch
 
-- [ARIA: Rolle textbox](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)
+- [ARIA: Rolle des Textfeldes](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role)

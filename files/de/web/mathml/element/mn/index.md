@@ -2,12 +2,12 @@
 title: <mn>
 slug: Web/MathML/Element/mn
 l10n:
-  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{MathMLRef}}
 
-Das **`<mn>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert ein **numerisches** Literal, das normalerweise eine Sequenz von Ziffern mit einem möglichen Trennzeichen (einem Punkt oder einem Komma) ist. Es ist jedoch auch erlaubt, beliebigen Text darin zu haben, der tatsächlich eine numerische Größe darstellt, zum Beispiel "elf".
+Das **`<mn>`** [MathML](/de/docs/Web/MathML) Element repräsentiert ein **numerisches** Literal, das normalerweise eine Folge von Ziffern mit einem möglichen Trennzeichen (einem Punkt oder einem Komma) ist. Es ist jedoch auch erlaubt, beliebigen Text zu haben, der tatsächlich eine numerische Größe darstellt, zum Beispiel "elf".
 
 ## Attribute
 
@@ -44,7 +44,7 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizite ARIA-Rolle</a>
     </th>
     <td>
       Keine

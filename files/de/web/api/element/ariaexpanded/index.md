@@ -3,12 +3,12 @@ title: "Element: ariaExpanded-Eigenschaft"
 short-title: ariaExpanded
 slug: Web/API/Element/ariaExpanded
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaExpanded`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)-Attributs wider, welches angibt, ob ein Gruppierungselement, das von diesem Element besessen oder kontrolliert wird, erweitert oder eingeklappt ist.
+Die **`ariaExpanded`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Attributs wider, das anzeigt, ob ein Gruppierungselement, das von diesem Element besitzt oder kontrolliert wird, erweitert oder eingeklappt ist.
 
 ## Wert
 
@@ -19,11 +19,11 @@ Ein String mit einem der folgenden Werte:
 - `"false"`
   - : Das Gruppierungselement, das dieses Element besitzt oder kontrolliert, ist eingeklappt.
 - `"undefined"`
-  - : Das Element besitzt oder kontrolliert kein Gruppierungselement, das erweiterbar ist.
+  - : Das Element besitzt oder kontrolliert kein erweiterbares Gruppierungselement.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-expanded`-Attribut beim Element mit der ID `animal` auf "false" gesetzt. Mit `ariaExpanded` aktualisieren wir den Wert auf "true".
+In diesem Beispiel wird das `aria-expanded`-Attribut auf dem Element mit der ID `animal` auf "false" gesetzt. Mit `ariaExpanded` aktualisieren wir den Wert auf "true".
 
 ```html
 <div class="animals-combobox">

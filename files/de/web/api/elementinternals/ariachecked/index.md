@@ -3,15 +3,15 @@ title: "ElementInternals: ariaChecked-Eigenschaft"
 short-title: ariaChecked
 slug: Web/API/ElementInternals/ariaChecked
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaChecked`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked)-Attributs wider, welches den aktuellen "checked"-Zustand von Kontrollkästchen, Optionsfeldern und anderen Widgets angibt, die einen geprüften Zustand haben.
+Die **`ariaChecked`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)-Attributs wider, welches den aktuellen "ausgewählten" Zustand von Kontrollkästchen, Radioknöpfen und anderen Widgets mit einem auswählbaren Zustand angibt.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantik beibehalten wird, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Für weitere Informationen siehe den [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, aber es wird sichergestellt, dass Standardsemantiken erhalten bleiben sollten, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Für weitere Informationen siehe den [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -20,11 +20,11 @@ Ein String mit einem der folgenden Werte:
 - `"true"`
   - : Das Element ist ausgewählt.
 - `"mixed"`
-  - : Gibt einen gemischten Moduswert für ein Drei-Zustand-Kontrollkästchen oder ein Menüpunktkontrollkästchen an.
+  - : Gibt einen gemischten Moduswert für ein Drei-Zustands-Kontrollkästchen oder Menüpunkt-Kontrollkästchen an.
 - `"false"`
-  - : Das Element unterstützt das ausgewählt sein, ist derzeit jedoch nicht ausgewählt.
+  - : Das Element unterstützt das Auswählen, ist aber derzeit nicht ausgewählt.
 - `"undefined"`
-  - : Das Element unterstützt das ausgewählt sein nicht.
+  - : Das Element unterstützt das Auswählen nicht.
 
 ## Beispiele
 
@@ -44,4 +44,4 @@ this.internals_.ariaChecked = "true";
 
 ## Siehe auch
 
-- [ARIA: checkbox role](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role)
+- [ARIA: Rolle des Kontrollkästchens](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role)

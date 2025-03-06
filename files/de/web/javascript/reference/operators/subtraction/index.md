@@ -2,12 +2,12 @@
 title: Subtraktion (-)
 slug: Web/JavaScript/Reference/Operators/Subtraction
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Subtraktionsoperator (`-`)** zieht den zweiten Operanden vom ersten ab und liefert deren Unterschied.
+Der **Subtraktionsoperator (`-`)** subtrahiert die beiden Operanden und erzeugt deren Differenz.
 
 {{InteractiveExample("JavaScript Demo: Expressions - Subtraction operator")}}
 
@@ -33,7 +33,7 @@ x - y
 
 ## Beschreibung
 
-Der `-`-Operator ist für zwei Arten von Operanden überladen: `number` und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Zuerst [wandelt er beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und überprüft ihre Typen. Wenn beide Operanden zu `BigInt` werden, führt er eine BigInt-Subtraktion aus; ansonsten erfolgt eine Subtraktion auf Basis von Zahlen. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem `BigInt` umgewandelt wird, der andere jedoch eine Zahl ist.
+Der `-` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt zuerst beide Operanden zu numerischen Werten](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und testet deren Typen. Er führt eine BigInt-Subtraktion durch, wenn beide Operanden BigInts werden; andernfalls führt er eine Zahlensubtraktion durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch eine Zahl bleibt.
 
 ## Beispiele
 
@@ -57,7 +57,7 @@ Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 2n - 1n; // 1n
 ```
 
-BigInt- und Zahl-Operanden können bei der Subtraktion nicht gemischt werden.
+Sie können BigInt- und Zahlenoperanden in der Subtraktion nicht mischen.
 
 ```js example-bad
 2n - 1; // TypeError: Cannot mix BigInt and other types, use explicit conversions
@@ -88,5 +88,5 @@ Number(2n) - 1; // 1
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

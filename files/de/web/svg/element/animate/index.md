@@ -2,12 +2,12 @@
 title: <animate>
 slug: Web/SVG/Element/animate
 l10n:
-  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{SVGRef}}
 
-Das **`<animate>`** [SVG](/de/docs/Web/SVG) Element bietet eine Möglichkeit, ein Attribut eines Elements im Laufe der Zeit zu animieren.
+Das **`<animate>`** [SVG](/de/docs/Web/SVG)-Element bietet eine Möglichkeit, ein Attribut eines Elements über die Zeit hinweg zu animieren.
 
 ## Beispiel
 
@@ -35,21 +35,21 @@ svg {
 
 {{EmbedLiveSample('Example', 150, '100%')}}
 
-## Nutzungshinweise
+## Anmerkungen zur Verwendung
 
-Dieses Element implementiert das [`SVGAnimateElement`](/de/docs/Web/API/SVGAnimateElement) Interface.
+Dieses Element implementiert das [`SVGAnimateElement`](/de/docs/Web/API/SVGAnimateElement)-Interface.
 
 ## Barrierefreiheit
 
-Blinkende und blitzende Animationen können problematisch für Menschen mit kognitiven Beeinträchtigungen wie Aufmerksamkeitsdefizit-/Hyperaktivitätsstörung (ADHS) sein. Darüber hinaus können bestimmte Bewegungsarten ein Auslöser für Vestibuläre Störungen, Epilepsie und Migräne sowie Skotopische Empfindlichkeit sein.
+Blinkende und flackernde Animationen können problematisch für Menschen mit kognitiven Beeinträchtigungen wie Aufmerksamkeitsdefizit-Hyperaktivitätsstörung (ADHS) sein. Darüber hinaus können bestimmte Arten von Bewegungen ein Auslöser für vestibuläre Störungen, Epilepsie, Migräne und skotopische Empfindlichkeit sein.
 
-Erwägen Sie, eine Mechanismus zum Anhalten oder Deaktivieren der Animation bereitzustellen, und verwenden Sie die [Reduced Motion Media Query](/de/docs/Web/CSS/@media/prefers-reduced-motion) oder das entsprechende [User Agent Client Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}}, um ein ergänzendes Erlebnis für Benutzer zu schaffen, die eine Präferenz für nicht animierte Erlebnisse ausgedrückt haben.
+Berücksichtigen Sie, einen Mechanismus zum Anhalten oder Deaktivieren von Animationen bereitzustellen, und verwenden Sie die [Reduced Motion Media Query](/de/docs/Web/CSS/@media/prefers-reduced-motion) oder das entsprechende [User Agent client hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}}, um eine ergänzende Erfahrung für Benutzer zu schaffen, die keine animierten Erlebnisse wünschen.
 
-- [Designing Safer Web Animation For Motion Sensitivity · An A List Apart Article](https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/)
-- [An Introduction to the Reduced Motion Media Query | CSS-Tricks](https://css-tricks.com/introduction-reduced-motion-media-query/)
-- [Responsive Design for Motion | WebKit](https://webkit.org/blog/7551/responsive-design-for-motion/)
-- [MDN Understanding WCAG, Guideline 2.2 explanations](/de/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%e2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content)
-- [Understanding Success Criterion 2.2.2 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html)
+- [Designing Safer Web Animation For Motion Sensitivity · Ein Artikel von A List Apart](https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/)
+- [Eine Einführung in die Reduced Motion Media Query | CSS-Tricks](https://css-tricks.com/introduction-reduced-motion-media-query/)
+- [Responsive Design für Bewegung | WebKit](https://webkit.org/blog/7551/responsive-design-for-motion/)
+- [MDN Verständnis von WCAG, Leitfaden 2.2 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.2_%e2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content)
+- [Verständnis des Erfolgs-Kriteriums 2.2.2 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html)
 
 ## Spezifikationen
 

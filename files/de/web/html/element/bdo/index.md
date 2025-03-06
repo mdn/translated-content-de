@@ -1,13 +1,13 @@
 ---
-title: "<bdo>: Das Bidirectional Text Override Element"
+title: "<bdo>: Das Bidirektionale Text-Override-Element"
 slug: Web/HTML/Element/bdo
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<bdo>`**-[HTML](/de/docs/Web/HTML) Element überschreibt die aktuelle Textausrichtung, sodass der Text innerhalb des Elements in einer anderen Richtung angezeigt wird.
+Das **`<bdo>`** [HTML](/de/docs/Web/HTML)-Element überschreibt die aktuelle Textausrichtung, sodass der Text innerhalb dieses Elements in einer anderen Richtung dargestellt wird.
 
 {{InteractiveExample("HTML Demo: &lt;bdo&gt;", "tabbed-standard")}}
 
@@ -37,7 +37,7 @@ bdo {
 }
 ```
 
-Die Zeichen des Textes werden vom Startpunkt in die angegebene Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird dabei nicht beeinflusst (z.B. werden Zeichen nicht rückwärts gezeichnet).
+Die Zeichen des Textes werden ab dem Startpunkt in der angegebenen Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird nicht beeinflusst (sodass Zeichen beispielsweise nicht rückwärts gezeichnet werden).
 
 ## Attribute
 
@@ -45,7 +45,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 - `dir`
 
-  - : Die Richtung, in die der Text in den Inhalten dieses Elements gerendert werden soll. Mögliche Werte sind:
+  - : Die Richtung, in der der Text innerhalb dieses Elements gerendert werden soll. Mögliche Werte sind:
 
     - `ltr`: Gibt an, dass der Text von links nach rechts verlaufen soll.
     - `rtl`: Gibt an, dass der Text von rechts nach links verlaufen soll.
@@ -64,7 +64,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 ## Anmerkungen
 
-Die HTML 4-Spezifikation spezifizierte keine Events für dieses Element; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
+Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
 
 ## Technische Zusammenfassung
 
@@ -81,38 +81,37 @@ Die HTML 4-Spezifikation spezifizierte keine Events für dieses Element; sie wur
           >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        >, fühlbarer Inhalt.
+          >Formulierungsinhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Formulierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Erlaubte Elternteile</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        >
-        akzeptiert.
+          >Formulierungsinhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generic</a
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
+            >generisch</a
           ></code
         >
       </td>
@@ -122,15 +121,15 @@ Die HTML 4-Spezifikation spezifizierte keine Events für dieses Element; sie wur
       <td>Beliebig</td>
     </tr>
     <tr>
-      <th scope="row">DOM-Interface</th>
+      <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox das
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox die
         <code
           ><a href="/de/docs/Web/API/HTMLSpanElement"
             >HTMLSpanElement</a
           ></code
         >
-        Interface für dieses Element.
+        Schnittstelle für dieses Element.
       </td>
     </tr>
   </tbody>

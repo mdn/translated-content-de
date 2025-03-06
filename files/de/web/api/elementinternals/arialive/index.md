@@ -3,26 +3,26 @@ title: "ElementInternals: ariaLive-Eigenschaft"
 short-title: ariaLive
 slug: Web/API/ElementInternals/ariaLive
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaLive`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-live`](/de/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)-Attributs wider, das angibt, dass ein Element aktualisiert wird und die Art der Updates beschreibt, die Benutzeragenten, unterstützende Technologien und der Benutzer von der Live-Region erwarten können.
+Die **`ariaLive`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-live`](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions)-Attributs wider, welches anzeigt, dass ein Element aktualisiert wird, und beschreibt die Arten von Aktualisierungen, die von den Benutzeragenten, unterstützenden Technologien und Benutzern von der Live-Region erwartet werden können.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass Standardsemantiken beibehalten werden, sollte der Autor diese Attribute löschen oder sie überhaupt nicht hinzufügen. Weitere Informationen finden Sie im [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Festlegen von aria-Attributen auf `ElementInternals` erlaubt es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, sichert jedoch, dass die Standardsemantiken beibehalten werden, falls der Autor diese Attribute löscht oder gar nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model erklärt](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"assertive"`
-  - : Gibt an, dass Updates am Bereich die höchste Priorität haben und dem Benutzer sofort präsentiert werden sollten.
+  - : Gibt an, dass Aktualisierungen der Region die höchste Priorität haben und dem Benutzer sofort präsentiert werden sollten.
 - `"off"`
-  - : Gibt an, dass Updates am Bereich dem Benutzer nicht präsentiert werden sollten, es sei denn, der Benutzer ist derzeit auf diesen Bereich fokussiert.
+  - : Gibt an, dass Aktualisierungen der Region dem Benutzer nicht präsentiert werden sollten, es sei denn, der Benutzer fokussiert momentan auf diese Region.
 - `"polite"`
-  - : Gibt an, dass Updates am Bereich bei der nächsten passenden Gelegenheit präsentiert werden sollten, z. B. am Ende eines gesprochenen Satzes oder wenn der Benutzer das Tippen unterbricht.
+  - : Gibt an, dass Aktualisierungen der Region bei der nächsten geeigneten Gelegenheit präsentiert werden sollten, beispielsweise am Ende eines gesprochenen Satzes oder wenn der Benutzer das Tippen unterbricht.
 
 ## Beispiele
 

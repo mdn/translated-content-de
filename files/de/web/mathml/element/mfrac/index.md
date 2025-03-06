@@ -2,12 +2,12 @@
 title: <mfrac>
 slug: Web/MathML/Element/mfrac
 l10n:
-  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{MathMLRef}}
 
-Das **`<mfrac>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Brüche darzustellen. Es kann auch verwendet werden, um bruchartige Objekte wie [binomiale Koeffizienten](https://en.wikipedia.org/wiki/Binomial_coefficient) und [Legendre-Symbole](https://en.wikipedia.org/wiki/Legendre_symbol) zu markieren.
+Das **`<mfrac>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um Brüche darzustellen. Es kann auch genutzt werden, um bruchähnliche Objekte wie [binomiale Koeffizienten](https://en.wikipedia.org/wiki/Binomial_coefficient) und [Legendresymbole](https://en.wikipedia.org/wiki/Legendre_symbol) zu markieren.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ Das **`<mfrac>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Brüc
 
 ## Attribute
 
-Dieses Element umfasst die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
 
 - `denomalign` {{deprecated_inline}} {{Non-standard_Inline}}
   - : Die Ausrichtung des Nenners unter dem Bruch. Mögliche Werte sind: `left`, `center` (Standard) und `right`.
@@ -27,13 +27,13 @@ Dieses Element umfasst die [globalen MathML-Attribute](/de/docs/Web/MathML/Globa
   - : Die Ausrichtung des Zählers über dem Bruch. Mögliche Werte sind: `left`, `center` (Standard) und `right`.
 
 > [!NOTE]
-> Für das `linethickness`-Attribut können einige Browser auch die veralteten Werte `medium`, `thin` und `thick` akzeptieren (deren genaue Interpretation den Implementierern überlassen wird) oder [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths).
+> Für das `linethickness`-Attribut akzeptieren einige Browser möglicherweise auch die veralteten Werte `medium`, `thin` und `thick` (deren genaue Interpretation den Implementierern überlassen ist) oder [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths).
 
 ## Beispiele
 
 ### Einfacher Bruch
 
-Der folgende MathML-Code sollte als ein Bruch mit dem Zähler "a + 2" und dem Nenner "3 − b" gerendert werden:
+Der folgende MathML-Code sollte als ein Bruch mit Zähler "a + 2" und Nenner "3 − b" dargestellt werden:
 
 ```html
 <math display="block">
@@ -56,7 +56,7 @@ Der folgende MathML-Code sollte als ein Bruch mit dem Zähler "a + 2" und dem Ne
 
 ### Bruch ohne Linie
 
-Der folgende MathML-Code sollte als ein [binomialer Koeffizient](https://en.wikipedia.org/wiki/Binomial_coefficient) gerendert werden:
+Der folgende MathML-Code sollte als ein [binomialer Koeffizient](https://en.wikipedia.org/wiki/Binomial_coefficient) dargestellt werden:
 
 ```html
 <math display="block">
@@ -73,12 +73,12 @@ Der folgende MathML-Code sollte als ein [binomialer Koeffizient](https://en.wiki
 
 {{ EmbedLiveSample('Fraction_without_bar', 700, 200, "", "") }}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizite ARIA-Rolle</a>
     </th>
     <td>
       Keine

@@ -2,24 +2,24 @@
 title: <annotation-xml>
 slug: Web/MathML/Element/annotation-xml
 l10n:
-  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{MathMLRef}}
 
-Das **`<annotation-xml>`** [MathML](/de/docs/Web/MathML)-Element enthält eine Annotation zur MathML-Ausdruck im {{Glossary("XML", "XML")}}-Format, zum Beispiel [Content MathML](https://en.wikipedia.org/wiki/MathML#Content_MathML) oder {{Glossary("SVG", "SVG")}}.
+Das **`<annotation-xml>`** [MathML](/de/docs/Web/MathML)-Element enthält eine Anmerkung zur MathML-Ausdruck in dem {{Glossary("XML", "XML")}}-Format, zum Beispiel [Content MathML](https://en.wikipedia.org/wiki/MathML#Content_MathML) oder {{Glossary("SVG", "SVG")}}.
 
 > [!NOTE]
-> Annotationen sollen nicht von Browsern gerendert werden und sind standardmäßig verborgen. Jedoch rendern Firefox und Safari einige Annotation-Formate, wenn das erste Kind des {{mathmlelement("semantics")}}-Elements Fehler enthält oder fehlt.
+> Anmerkungen sollen von Browsern nicht gerendert werden und sind standardmäßig verborgen. Allerdings rendern Firefox und Safari einige Anmerkungsformate, wenn das erste Kind des {{mathmlelement("semantics")}}-Elements Fehler enthält oder fehlt.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
 
 - `encoding`
-  - : Die Kodierung der semantischen Informationen in der Annotation (z.B. `"application/mathml+xml"`, `"application/mathml-presentation+xml"`, `"application/mathml-content+xml"`)
+  - : Die Kodierung der semantischen Informationen in der Anmerkung (z.B. `"application/mathml+xml"`, `"application/mathml-presentation+xml"`, `"application/mathml-content+xml"`)
 - `src` {{deprecated_inline}}
-  - : Der Ort einer externen Quelle für semantische Informationen.
+  - : Der Speicherort einer externen Quelle für semantische Informationen.
 
 ## Beispiel
 
@@ -84,7 +84,7 @@ body {
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizite ARIA-Rolle</a>
     </th>
     <td>
       Keine

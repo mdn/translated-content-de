@@ -2,29 +2,29 @@
 title: <mtd>
 slug: Web/MathML/Element/mtd
 l10n:
-  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{MathMLRef}}
 
-Das **`<mtd>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert eine Zelle in einer Tabelle oder einer Matrix. Es darf nur in einem {{ MathMLElement("mtr") }}-Element erscheinen. Dieses Element ist dem {{ HTMLElement("td") }}-Element von [HTML](/de/docs/Web/HTML) ähnlich.
+Das **`<mtd>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert eine Zelle in einer Tabelle oder einer Matrix. Es darf nur in einem {{ MathMLElement("mtr") }}-Element vorkommen. Dieses Element ist dem {{ HTMLElement("td") }}-Element von [HTML](/de/docs/Web/HTML) ähnlich.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
 
 - `columnspan`
-  - : Ein nicht-negativer Ganzzahlwert, der angibt, über wie viele Spalten sich die Zelle erstreckt.
+  - : Ein nicht-negativer ganzzahliger Wert, der angibt, über wie viele Spalten sich die Zelle erstreckt.
 - `rowspan`
-  - : Ein nicht-negativer Ganzzahlwert, der angibt, über wie viele Zeilen sich die Zelle erstreckt.
+  - : Ein nicht-negativer ganzzahliger Wert, der angibt, über wie viele Zeilen sich die Zelle erstreckt.
 
 Einige Browser unterstützen möglicherweise auch die folgenden Attribute:
 
 - `columnalign` {{Non-standard_Inline}}
-  - : Gibt die horizontale Ausrichtung dieser Zelle an und überschreibt Werte, die durch {{ MathMLElement("mtable") }} oder {{ MathMLElement("mtr") }} festgelegt sind.
+  - : Gibt die horizontale Ausrichtung dieser Zelle an und überschreibt die von {{ MathMLElement("mtable") }} oder {{ MathMLElement("mtr") }} festgelegten Werte.
     Mögliche Werte sind: `left`, `center` und `right`.
 - `rowalign` {{Non-standard_Inline}}
-  - : Gibt die vertikale Ausrichtung dieser Zelle an und überschreibt Werte, die durch {{ MathMLElement("mtable") }} oder {{ MathMLElement("mtr") }} festgelegt sind.
+  - : Gibt die vertikale Ausrichtung dieser Zelle an und überschreibt die von {{ MathMLElement("mtable") }} oder {{ MathMLElement("mtr") }} festgelegten Werte.
     Mögliche Werte sind: `axis`, `baseline`, `bottom`, `center` und `top`.
 
 ## Beispiele
@@ -69,7 +69,7 @@ Einige Browser unterstützen möglicherweise auch die folgenden Attribute:
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizierte ARIA-Rolle</a>
     </th>
     <td>
       Keine

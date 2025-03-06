@@ -2,12 +2,12 @@
 title: letter-spacing
 slug: Web/CSS/letter-spacing
 l10n:
-  sourceCommit: 64d85b74ce1cce6a24ae8979da4f3f4a01a47229
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{CSSRef}}
 
-Die **`letter-spacing`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt das horizontale Abstandverhalten zwischen Textzeichen fest. Dieser Wert wird dem natürlichen Abstand zwischen Zeichen beim Rendern des Textes hinzugefügt. Positive Werte von `letter-spacing` bewirken, dass Zeichen weiter auseinander rücken, während negative Werte von `letter-spacing` die Zeichen näher zusammenbringen.
+Die **`letter-spacing`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt das horizontale Abstandsverhalten zwischen Textzeichen fest. Dieser Wert wird der natürlichen Zeichensetzung beim Rendern des Textes hinzugefügt. Positive Werte von `letter-spacing` führen dazu, dass Zeichen weiter auseinander liegen, während negative Werte von `letter-spacing` Zeichen näher zusammenbringen.
 
 {{EmbedInteractiveExample("pages/css/letter-spacing.html")}}
 
@@ -33,22 +33,22 @@ letter-spacing: unset;
 ### Werte
 
 - `normal`
-  - : Der normale Zeichenabstand für die aktuelle Schriftart. Im Gegensatz zu einem Wert von `0` erlaubt dieses Schlüsselwort dem {{Glossary("user_agent", "User Agent")}}, den Abstand zwischen Zeichen zu ändern, um den Text zu rechtfertigen.
+  - : Der normale Buchstabenabstand für die aktuelle Schriftart. Im Gegensatz zu einem Wert von `0` ermöglicht dieses Schlüsselwort dem {{Glossary("user_agent", "Benutzeragenten")}}, den Abstand zwischen Zeichen zu ändern, um den Text auszurichten.
 - {{cssxref("&lt;length&gt;")}}
-  - : Gibt zusätzlichen Zwischenzeichenabstand _zusätzlich zu_ dem Standardabstand zwischen Zeichen an. Werte können negativ sein, aber es kann implementierungsspezifische Grenzen geben. User Agents dürfen den Zwischenzeichenabstand nicht weiter erhöhen oder verringern, um den Text zu rechtfertigen.
+  - : Gibt zusätzlichen Zeichenabstand _neben_ dem Standardabstand zwischen Zeichen an. Werte können negativ sein, es können jedoch implementierungsspezifische Grenzen bestehen. Benutzeragenten dürfen den Zeichenabstand nicht weiter erhöhen oder verringern, um den Text auszurichten.
 
 ## Barrierefreiheit
 
-Ein großer positiver oder negativer `letter-spacing`-Wert macht das Wort oder die Worte, auf die das Styling angewendet wird, unleserlich. Für Text, der mit einem sehr großen positiven Wert gestylt ist, werden die Buchstaben so weit auseinanderliegen, dass das Wort oder die Worte wie eine Reihe individueller, nicht verbundener Buchstaben erscheinen. Bei Text, der mit einem sehr großen negativen Wert gestylt ist, überlappen sich die Buchstaben so stark, dass das Wort oder die Worte möglicherweise nicht mehr erkennbar sind.
+Ein großer positiver oder negativer Wert von `letter-spacing` macht das/den Wort(e), auf das/die das Styling angewendet wird, unlesbar. Bei Text, der mit einem sehr großen positiven Wert gestylt ist, sind die Buchstaben so weit auseinander, dass das/die Wort(e) wie eine Reihe von einzelnen, unverbundenen Buchstaben erscheint. Bei Text, der mit einem sehr großen negativen Wert gestylt ist, überlappen sich die Buchstaben so stark, dass das/die Wort(e) möglicherweise unkenntlich wird/werden.
 
-Lesbare Zeichenabstände müssen im Einzelfall bestimmt werden, da verschiedene Schriftarten unterschiedliche Zeichenbreiten haben. Es gibt keinen einzigen Wert, der sicherstellen kann, dass alle Schriftarten automatisch ihre Lesbarkeit behalten.
+Lesbarer Buchstabenabstand muss von Fall zu Fall bestimmt werden, da verschiedene Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen Wert, der sicherstellt, dass alle Schriftfamilien automatisch ihre Lesbarkeit beibehalten.
 
-- [MDN Understanding WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis von Erfolgskriterium 1.4.8 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN Verständnis der WCAG, Erklärung der Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verstehen von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
-## Internationalisierungsanliegen
+## Internationalisierungsbelange
 
-In einigen Schriftsystemen sollte kein Zeichenabstand angewendet werden. Zum Beispiel erwarten Sprachen, die das arabische Schriftsystem verwenden, dass verbundene Buchstaben visuell verbunden bleiben, wie im folgenden Beispiel. Die Anwendung von Zeichenabstand würde dazu führen, dass der Text gebrochen aussieht.
+Bei einigen Schriftsystemen sollte kein Buchstabenabstand angewendet werden. Zum Beispiel erwarten Sprachen, die das arabische Schriftsystem verwenden, dass zusammenhängende Buchstaben visuell verbunden bleiben, wie im folgenden Beispiel. Die Anwendung von Buchstabenabstand würde dazu führen, dass der Text gebrochen aussieht.
 
 > <p lang="ar" dir="rtl">شسيبتنمك</p>
 
@@ -62,7 +62,7 @@ In einigen Schriftsystemen sollte kein Zeichenabstand angewendet werden. Zum Bei
 
 ## Beispiele
 
-### Zeichenabstand festlegen
+### Einstellung des Buchstabenabstands
 
 #### HTML
 

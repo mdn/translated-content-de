@@ -3,35 +3,35 @@ title: "Element: ariaCurrent-Eigenschaft"
 short-title: ariaCurrent
 slug: Web/API/Element/ariaCurrent
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaCurrent`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-current`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-current)-Attributs wider, welches das Element angibt, das das aktuelle Element innerhalb eines Containers oder einer Gruppe verwandter Elemente darstellt.
+Die **`ariaCurrent`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-current`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-current)-Attributs wider, das das Element kennzeichnet, das das aktuelle Element innerhalb eines Containers oder einer Reihe verwandter Elemente darstellt.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"page"`
-  - : Stellt die aktuelle Seite innerhalb eines Satzes von Seiten dar.
+  - : Stellt die aktuelle Seite innerhalb einer Reihe von Seiten dar.
 - `"step"`
   - : Stellt den aktuellen Schritt innerhalb eines Prozesses dar.
 - `"location"`
-  - : Stellt den aktuellen Standort dar, zum Beispiel die aktuelle Seite in einer Breadcrumbs-Hierarchie.
+  - : Stellt den aktuellen Ort dar, beispielsweise die aktuelle Seite in einer Breadcrumbs-Hierarchie.
 - `"date"`
   - : Stellt das aktuelle Datum innerhalb einer Sammlung von Daten dar.
 - `"time"`
-  - : Stellt die aktuelle Uhrzeit innerhalb eines Satzes von Zeiten dar.
+  - : Stellt die aktuelle Zeit innerhalb einer Reihe von Zeiten dar.
 - `"true"`
-  - : Stellt das aktuelle Element innerhalb einer Menge dar.
+  - : Stellt das aktuelle Element innerhalb einer Reihe dar.
 - `"false"`
-  - : Stellt das aktuelle Element innerhalb einer Menge nicht dar.
+  - : Stellt nicht das aktuelle Element innerhalb einer Reihe dar.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Satz von Links zur Navigation auf der Website verwendet. Das `aria-current`-Attribut gibt die aktuelle Seite an. Der Wert `page` wird in die Ausgabe des Screenreaders eingebaut. Mit `ariaCurrent` können wir diesen Wert aktualisieren.
+In diesem Beispiel wird eine Reihe von Links für die Navigation auf der Website verwendet. Das `aria-current`-Attribut kennzeichnet die aktuelle Seite. Der Wert `page` wird in die Screenreader-Ausgabe aufgenommen. Mit `ariaCurrent` können wir diesen Wert aktualisieren.
 
 ```html
 <nav>

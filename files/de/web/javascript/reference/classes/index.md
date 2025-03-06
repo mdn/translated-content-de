@@ -2,20 +2,20 @@
 title: Klassen
 slug: Web/JavaScript/Reference/Classes
 l10n:
-  sourceCommit: 1b2c87c20466d2a3eec9b3551c269f9aff8f5762
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("Classes")}}
 
-Klassen sind eine Vorlage zur Erstellung von Objekten. Sie kapseln Daten mit Code, um mit diesen Daten zu arbeiten. Klassen in JS basieren auf [Prototypen](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain), haben aber auch einige Syntax- und Semantikunterschiede, die einzigartig für Klassen sind.
+Klassen sind eine Vorlage zur Erstellung von Objekten. Sie kapseln Daten mit Code, um mit diesen Daten zu arbeiten. Klassen in JS basieren auf [Prototypen](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain), haben jedoch auch eine eigene Syntax und Semantik, die einzigartig für Klassen ist.
 
-Für weitere Beispiele und Erklärungen, siehe den [Verwendung von Klassen](/de/docs/Web/JavaScript/Guide/Using_classes)-Leitfaden.
+Weitere Beispiele und Erklärungen finden Sie im [Verwenden von Klassen](/de/docs/Web/JavaScript/Guide/Using_classes)-Leitfaden.
 
 ## Beschreibung
 
-### Klassen definieren
+### Definieren von Klassen
 
-Klassen sind in der Tat "spezielle [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)" und ebenso wie Sie [Funktionsausdrücke](/de/docs/Web/JavaScript/Reference/Operators/function) und [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function) definieren können, kann eine Klasse auf zwei Arten definiert werden: ein [Klassen-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/class) oder eine [Klassen-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/class).
+Klassen sind in der Tat "besondere [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)", und genauso wie Sie [Funktionsausdrücke](/de/docs/Web/JavaScript/Reference/Operators/function) und [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function) definieren können, kann eine Klasse auf zwei Arten definiert werden: über einen [Klassen-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/class) oder eine [Klassen-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/class).
 
 ```js
 // Declaration
@@ -43,21 +43,21 @@ const Rectangle = class Rectangle2 {
 };
 ```
 
-Wie Funktionsausdrücke können Klassenausdrücke anonym sein oder einen Namen haben, der sich von dem unterscheidet, der der Variablen zugewiesen ist. Im Gegensatz zu Funktionsdeklarationen haben Klassendeklarationen jedoch die gleichen Einschränkungen der [temporären Totzone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz) wie `let` oder `const` und verhalten sich, als ob sie [nicht gehoben](/de/docs/Web/JavaScript/Guide/Using_classes#class_declaration_hoisting) werden.
+Wie Funktionsausdrücke können Klassen-Ausdrücke anonym sein oder einen Namen haben, der sich von der Variable unterscheidet, der sie zugewiesen sind. Allerdings unterliegen Klassendeklarationen im Gegensatz zu Funktionsdeklarationen denselben [temporären Totzonen](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)-Einschränkungen wie `let` oder `const` und verhalten sich so, als ob sie [nicht gehoben](/de/docs/Web/JavaScript/Guide/Using_classes#class_declaration_hoisting) wären.
 
 ### Klassenkörper
 
-Der Körper einer Klasse ist der Teil, der in geschweifte Klammern `{}` eingeschlossen ist. Hier definieren Sie Klassenmitglieder wie Methoden oder Konstruktor.
+Der Körper einer Klasse ist der Teil, der in geschweifte Klammern `{}` eingeschlossen ist. Hier definieren Sie Klassenmitglieder, wie Methoden oder Konstruktoren.
 
-Der Körper einer Klasse wird im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ausgeführt, auch ohne die `"use strict"` Direktive.
+Der Körper einer Klasse wird im [Strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ausgeführt, auch ohne das `"use strict"`-Direktiv.
 
-Ein Klassenelement kann durch drei Aspekte charakterisiert werden:
+Ein Klasselement kann durch drei Aspekte charakterisiert werden:
 
 - Art: Getter, Setter, Methode oder Feld
 - Ort: Statisch oder Instanz
 - Sichtbarkeit: Öffentlich oder privat
 
-Zusammen ergeben sie 16 mögliche Kombinationen. Um die Referenz logischer zu gliedern und überlappende Inhalte zu vermeiden, werden die verschiedenen Elemente ausführlich auf verschiedenen Seiten vorgestellt:
+Zusammen ergeben sie 16 mögliche Kombinationen. Um die Referenz logischer zu unterteilen und überlappende Inhalte zu vermeiden, werden die verschiedenen Elemente detailliert auf verschiedenen Seiten vorgestellt:
 
 - [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions)
   - : Öffentliche Instanzmethode
@@ -73,15 +73,15 @@ Zusammen ergeben sie 16 mögliche Kombinationen. Um die Referenz logischer zu gl
   - : Alles, was privat ist
 
 > [!NOTE]
-> Private Eigenschaften haben die Einschränkung, dass alle Eigenschaftsnamen, die in derselben Klasse deklariert sind, einzigartig sein müssen. Alle anderen öffentlichen Eigenschaften unterliegen dieser Einschränkung nicht — Sie können mehrere öffentliche Eigenschaften mit demselben Namen haben, und die letzte überschreibt die anderen. Dies ist dasselbe Verhalten wie bei [Objektinitialisierern](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#duplicate_property_names).
+> Private Eigenschaften haben die Einschränkung, dass alle Eigenschaftsnamen in derselben Klasse eindeutig sein müssen. Alle anderen öffentlichen Eigenschaften unterliegen dieser Einschränkung nicht — Sie können mehrere öffentliche Eigenschaften mit demselben Namen haben, und die letzte überschreibt die anderen. Dies ist dasselbe Verhalten wie bei [Objektinitialisierern](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#duplicate_property_names).
 
-Darüber hinaus gibt es zwei spezielle Klassen-Elementsyntax: [`constructor`](#konstruktor) und [statische Initialisierungsblöcke](#statische_initialisierungsblöcke), mit ihren eigenen Referenzen.
+Zusätzlich gibt es zwei spezielle Syntaxen für Klasselemente: [`constructor`](#konstruktor) und [statische Initialisierungsblöcke](#statische_initialisierungsblöcke), mit ihren eigenen Referenzen.
 
 #### Konstruktor
 
-Die {{jsxref("Classes/constructor", "constructor")}} Methode ist eine spezielle Methode zur Erstellung und Initialisierung eines Objekts, das mit einer Klasse erstellt wurde. Es kann nur eine spezielle Methode mit dem Namen "constructor" in einer Klasse geben — ein {{jsxref("SyntaxError")}} wird ausgelöst, wenn die Klasse mehr als eine Vorkommen einer `constructor` Methode enthält.
+Die {{jsxref("Classes/constructor", "Konstruktor")}}-Methode ist eine spezielle Methode zur Erstellung und Initialisierung eines mit einer Klasse erstellten Objekts. Es kann nur eine spezielle Methode mit dem Namen "constructor" in einer Klasse geben — ein {{jsxref("SyntaxError")}} wird ausgelöst, wenn die Klasse mehr als eine Vorkommen einer `constructor`-Methode enthält.
 
-Ein Konstruktor kann das [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) Schlüsselwort verwenden, um den Konstruktor der Superklasse aufzurufen.
+Ein Konstruktor kann das [`super`](/de/docs/Web/JavaScript/Reference/Operators/super)-Schlüsselwort verwenden, um den Konstruktor der Superklasse aufzurufen.
 
 Sie können Instanzeigenschaften innerhalb des Konstruktors erstellen:
 
@@ -98,13 +98,13 @@ Alternativ, wenn die Werte Ihrer Instanzeigenschaften nicht von den Argumenten d
 
 #### Statische Initialisierungsblöcke
 
-[Statische Initialisierungsblöcke](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) erlauben flexible Initialisierung von [statischen Eigenschaften](#statische_methoden_und_felder), einschließlich der Auswertung von Anweisungen während der Initialisierung, während sie Zugang zum privaten Bereich gewähren.
+[Statische Initialisierungsblöcke](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) ermöglichen eine flexible Initialisierung von [statischen Eigenschaften](#statische_methoden_und_felder), einschließlich der Auswertung von Anweisungen während der Initialisierung, wobei der Zugriff auf den privaten Bereich gewährt wird.
 
-Mehrere statische Blöcke können deklariert werden, und diese können mit der Deklaration von statischen Feldern und Methoden durchmischt werden (alle statischen Elemente werden in Deklarationsreihenfolge ausgewertet).
+Mehrere statische Blöcke können erklärt werden, und diese können mit der Deklaration von statischen Feldern und Methoden durchmischt werden (alle statischen Elemente werden in Deklarationsreihenfolge ausgewertet).
 
 #### Methoden
 
-Methoden werden im Prototyp jeder Instanz einer Klasse definiert und von allen Instanzen gemeinsam genutzt. Methoden können einfache Funktionen, asynchrone Funktionen, Generatorfunktionen oder asynchrone Generatorfunktionen sein. Für mehr Informationen, siehe [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions).
+Methoden werden im Prototyp jeder Klasseninstanz definiert und von allen Instanzen geteilt. Methoden können einfache Funktionen, asynchrone Funktionen, Generatorfunktionen oder asynchrone Generatorfunktionen sein. Weitere Informationen finden Sie unter [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions).
 
 ```js
 class Rectangle {
@@ -136,7 +136,7 @@ console.log([...square.getSides()]); // [10, 10, 10, 10]
 
 #### Statische Methoden und Felder
 
-Das {{jsxref("Classes/static", "static")}} Schlüsselwort definiert eine statische Methode oder ein statisches Feld für eine Klasse. Statische Eigenschaften (Felder und Methoden) werden an der Klasse selbst statt bei jeder Instanz definiert. Statische Methoden werden oft genutzt, um Hilfsfunktionen für eine Anwendung zu erstellen, während statische Felder für Caches, feste Konfigurationen oder andere Daten nützlich sind, die nicht für jede Instanz repliziert werden müssen.
+Das {{jsxref("Classes/static", "static")}}-Schlüsselwort definiert eine statische Methode oder ein Feld für eine Klasse. Statische Eigenschaften (Felder und Methoden) werden auf der Klasse selbst anstelle jeder Instanz definiert. Statische Methoden werden oft verwendet, um Dienstprogrammfunktionen für eine Anwendung zu erstellen, während statische Felder nützlich für Caches, feste Konfigurationen oder andere Daten sind, die nicht über Instanzen hinweg repliziert werden müssen.
 
 ```js
 class Point {
@@ -167,7 +167,7 @@ console.log(Point.distance(p1, p2)); // 7.0710678118654755
 
 #### Felddeklarationen
 
-Mit der Klassenfelddeklarationssyntax kann das [Konstruktor](#konstruktor) Beispiel wie folgt geschrieben werden:
+Mit der Syntax der Klassenfelddeklaration kann das [Konstruktor](#konstruktor)-Beispiel wie folgt geschrieben werden:
 
 ```js
 class Rectangle {
@@ -180,15 +180,15 @@ class Rectangle {
 }
 ```
 
-Klassenfelder sind ähnlich wie Objekteigenschaften, nicht wie Variablen, sodass wir keine Schlüsselwörter wie `const` verwenden, um sie zu deklarieren. In JavaScript verwenden [private Eigenschaften](#private_properties_2) eine spezielle Identifikatursyntax, deshalb sollten auch keine Modifikatorschlüsselwörter wie `public` und `private` verwendet werden.
+Klassenfelder sind ähnlich wie Objekteigenschaften, nicht wie Variablen, daher verwenden wir Schlüsselwörter wie `const` nicht, um sie zu deklarieren. In JavaScript verwenden [private Eigenschaften](#private_properties_2) eine spezielle Identifikatorsyntax, deshalb sollten auch keine Modifikatorschlüsselwörter wie `public` und `private` verwendet werden.
 
-Wie oben gezeigt, können die Felder mit oder ohne einen Standardwert deklariert werden. Felder ohne Standardwerte haben per Standard `undefined`. Durch die Deklaration von Feldern im Voraus werden Klassendefinitionen selbstdokumentierender, und die Felder sind immer vorhanden, was bei Optimierungen hilft.
+Wie oben gezeigt, können Felder mit oder ohne Standardwert deklariert werden. Felder ohne Standardwerte haben standardmäßig den Wert `undefined`. Durch die Vorab-Deklaration von Feldern werden Klassendefinitionen selbstdokumentierender, und die Felder sind immer vorhanden, was bei Optimierungen hilft.
 
-Siehe [öffentliche Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) für mehr Informationen.
+Siehe [Öffentliche Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) für weitere Informationen.
 
 #### Private Eigenschaften
 
-Mit privaten Feldern kann die Definition wie folgt verfeinert werden.
+Unter Verwendung privater Felder kann die Definition wie unten verfeinert werden.
 
 ```js
 class Rectangle {
@@ -201,15 +201,15 @@ class Rectangle {
 }
 ```
 
-Es ist ein Fehler, auf private Felder von außerhalb der Klasse zuzugreifen; sie können nur innerhalb des Klassenkörpers gelesen oder geschrieben werden. Indem Sie Dinge definieren, die außerhalb der Klasse nicht sichtbar sind, stellen Sie sicher, dass Benutzer Ihrer Klassen nicht von internen Details abhängig sind, die sich von Version zu Version ändern könnten.
+Es ist ein Fehler, von außerhalb der Klasse auf private Felder zuzugreifen; sie können nur innerhalb des Klassenkörpers gelesen oder geschrieben werden. Indem Sie Dinge definieren, die außerhalb der Klasse nicht sichtbar sind, stellen Sie sicher, dass die Nutzer Ihrer Klassen sich nicht auf interne Details verlassen können, die sich von Version zu Version ändern können.
 
-Private Felder können nur im Voraus in einer Felddeklaration deklariert werden. Sie können nicht später durch Zuweisung zu ihnen erstellt werden, wie es bei normalen Eigenschaften der Fall ist.
+Private Felder können nur in einer Felderklärung im Voraus deklariert werden. Sie können nicht später durch Zuweisung erstellt werden, wie es bei normalen Eigenschaften möglich ist.
 
-Für mehr Informationen, siehe [private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties).
+Für weitere Informationen siehe [Private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties).
 
 ### Vererbung
 
-Das {{jsxref("Classes/extends", "extends")}} Schlüsselwort wird in _Klassendeklarationen_ oder _Klassen-Ausdrücken_ verwendet, um eine Klasse als Kind eines anderen Konstruktors (entweder einer Klasse oder einer Funktion) zu erstellen.
+Das {{jsxref("Classes/extends", "extends")}}-Schlüsselwort wird in _Klassendeklarationen_ oder _Klassen-Ausdrücken_ verwendet, um eine Klasse als Kind eines anderen Konstruktors zu erstellen (entweder einer Klasse oder einer Funktion).
 
 ```js
 class Animal {
@@ -236,7 +236,7 @@ const d = new Dog("Mitzie");
 d.speak(); // Mitzie barks.
 ```
 
-Wenn im Unterklasse ein Konstruktor vorhanden ist, muss er zunächst `super()` aufrufen, bevor `this` verwendet wird. Das {{jsxref("Operators/super", "super")}} Schlüsselwort kann auch verwendet werden, um entsprechende Methoden der Superklasse aufzurufen.
+Wenn im Unterklasse ein Konstruktor vorhanden ist, muss er zuerst `super()` aufrufen, bevor `this` verwendet wird. Das {{jsxref("Operators/super", "super")}}-Schlüsselwort kann auch verwendet werden, um die entsprechenden Methoden der Superklasse aufzurufen.
 
 ```js
 class Cat {
@@ -262,28 +262,28 @@ l.speak();
 // Fuzzy roars.
 ```
 
-### Auswertungsreihenfolge
+### Ausführungsreihenfolge
 
-Wenn eine [`class` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/class) oder ein [`class` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/class) ausgewertet wird, werden seine verschiedenen Komponenten in der folgenden Reihenfolge ausgewertet:
+Wenn eine [`class`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/class) oder ein [`class`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/class) ausgewertet wird, werden ihre verschiedenen Komponenten in folgender Reihenfolge ausgewertet:
 
-1. Der {{jsxref("Classes/extends", "extends")}} Satz, wenn vorhanden, wird zuerst ausgewertet. Er muss zu einer gültigen Konstruktorfunktion oder `null` ausgewertet werden, oder ein {{jsxref("TypeError")}} wird ausgelöst.
-2. Die {{jsxref("Classes/constructor", "constructor")}} Methode wird extrahiert, durch eine Standardimplementierung ersetzt, falls `constructor` nicht vorhanden ist. Da die `constructor` Definition jedoch nur eine Methodendefinition ist, ist dieser Schritt nicht beobachtbar.
-3. Die Schlüsseln der Klassenelemente werden in der Reihenfolge der Deklaration ausgewertet. Wenn der Schlüssel berechnet wird, wird der berechnete Ausdruck ausgewertet, wobei der `this` Wert auf den `this` Wert im umgebenden Kontext der Klasse (nicht die Klasse selbst) gesetzt wird. Keiner der Eigenschaftswerte wird zu diesem Zeitpunkt ausgewertet.
-4. Methoden und Zugriffsrechte werden in der Reihenfolge der Deklaration installiert. Instanzmethoden und Zugriffsmethoden werden im `prototype` der aktuellen Klasse installiert, und statische Methoden und Zugriffsmethoden werden in der Klasse selbst installiert. Private Instanzmethoden und Zugriffsmethoden werden gespeichert, um später direkt auf der Instanz installiert zu werden. Dieser Schritt ist nicht beobachtbar.
-5. Die Klasse ist jetzt mit dem durch `extends` spezifizierten Prototyp und der durch `constructor` spezifizierten Implementierung initialisiert. Für alle oben genannten Schritte, wenn ein ausgewerteter Ausdruck versucht, auf den Namen der Klasse zuzugreifen, wird ein {{jsxref("ReferenceError")}} ausgelöst, da die Klasse noch nicht initialisiert ist.
-6. Die Werte der Klassenelemente werden in der Reihenfolge der Deklaration ausgewertet:
-   - Für jedes [Instanzfeld](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) (öffentlich oder privat) wird der Initialisierungs-Ausdruck gespeichert. Der Initialisierer wird während der Erstellung der Instanz ausgewertet, zu Beginn des Konstruktors (für Basisklassen) oder unmittelbar bevor der `super()`-Aufruf zurückkehrt (für abgeleitete Klassen).
-   - Für jedes [statische Feld](/de/docs/Web/JavaScript/Reference/Classes/static) (öffentlich oder privat) wird der Initialisierer mit `this` auf die Klasse selbst gesetzt ausgewertet und die Eigenschaft auf der Klasse erstellt.
-   - [Statische Initialisierungsblöcke](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) werden mit `this` auf die Klasse selbst gesetzt ausgewertet.
-7. Die Klasse ist jetzt vollständig initialisiert und kann als Konstruktorfunktion verwendet werden.
+1. Die {{jsxref("Classes/extends", "extends")}}-Klausel, falls vorhanden, wird zuerst ausgewertet. Sie muss zu einer gültigen Konstruktorfunktion oder `null` ausgewertet werden, sonst wird ein {{jsxref("TypeError")}} ausgelöst.
+2. Die {{jsxref("Classes/constructor", "constructor")}}-Methode wird extrahiert und durch eine Standardimplementierung ersetzt, wenn `constructor` nicht vorhanden ist. Da die `constructor`-Definition jedoch nur eine Methodendefinition ist, ist dieser Schritt nicht beobachtbar.
+3. Die Eigenschaftsschlüssel der Klasselemente werden in der Deklarationsreihenfolge ausgewertet. Wenn der Eigenschaftsschlüssel berechnet ist, wird der berechnete Ausdruck ausgewertet, wobei der Wert von `this` auf den umgebenden Wert von `this` gesetzt wird (nicht die Klasse selbst). Keiner der Eigenschaftswerte wird zu diesem Zeitpunkt ausgewertet.
+4. Methoden und Zugriffsmethoden werden in der Deklarationsreihenfolge installiert. Instanzmethoden und Zugriffsmethoden werden auf der `prototype`-Eigenschaft der aktuellen Klasse installiert, und statische Methoden und Zugriffsmethoden werden auf der Klasse selbst installiert. Private Instanzmethoden und Zugriffsmethoden werden gespeichert, um später direkt auf der Instanz installiert zu werden. Dieser Schritt ist nicht beobachtbar.
+5. Die Klasse wird nun mit dem durch `extends` angegebenen Prototyp und der durch `constructor` spezifizierten Implementierung initialisiert. Für alle vorherigen Schritte, wenn ein ausgewerteter Ausdruck versucht, auf den Namen der Klasse zuzugreifen, wird ein {{jsxref("ReferenceError")}} ausgelöst, da die Klasse noch nicht initialisiert ist.
+6. Die Werte der Klasselemente werden in der Deklarationsreihenfolge ausgewertet:
+   - Für jedes [Instanzfeld](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) (öffentlich oder privat) wird sein Initialisierer-Ausdruck gespeichert. Der Initialisierer wird während der Instanzerstellung ausgewertet, zu Beginn des Konstruktors (für Basisklassen) oder unmittelbar bevor der `super()`-Aufruf zurückkehrt (für abgeleitete Klassen).
+   - Für jedes [statische Feld](/de/docs/Web/JavaScript/Reference/Classes/static) (öffentlich oder privat) wird sein Initialisierer mit `this` ausgewertet, das auf die Klasse selbst gesetzt ist, und die Eigenschaft wird auf der Klasse erstellt.
+   - [Statische Initialisierungsblöcke](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) werden mit `this` ausgewertet, das auf die Klasse selbst gesetzt ist.
+7. Die Klasse ist nun vollständig initialisiert und kann als Konstruktorfunktion verwendet werden.
 
-Wie Instanzen erstellt werden, siehe die {{jsxref("Classes/constructor", "constructor")}}-Referenz.
+Wie Instanzen erstellt werden, erfahren Sie in der {{jsxref("Classes/constructor", "constructor")}} Referenz.
 
 ## Beispiele
 
-### Binding von this mit Instanz- und statischen Methoden
+### Binden von this mit Instanz- und statischen Methoden
 
-Wenn eine statische oder Instanzmethode ohne einen Wert für {{jsxref("Operators/this", "this")}} aufgerufen wird, wie z. B. durch Zuweisung der Methode zu einer Variablen und sie dann aufzurufen, wird der `this` Wert innerhalb der Methode `undefined` sein. Dieses Verhalten ist dasselbe, auch wenn die [`"use strict"`](/de/docs/Web/JavaScript/Reference/Strict_mode) Direktive nicht vorhanden ist, da Code im `class` Körper immer im strikten Modus ausgeführt wird.
+Wenn eine statische oder Instanzmethode ohne Wert für {{jsxref("Operators/this", "this")}} aufgerufen wird, wie z.B. durch Zuweisung der Methode zu einer Variablen und dem anschließenden Aufruf, wird der `this`-Wert innerhalb der Methode `undefined` sein. Dieses Verhalten ist das gleiche, auch wenn das [`"use strict"`](/de/docs/Web/JavaScript/Reference/Strict_mode)-Direktiv nicht vorhanden ist, da der Code innerhalb des `class`-Körpers immer im strikten Modus ausgeführt wird.
 
 ```js
 class Animal {
@@ -305,7 +305,7 @@ const eat = Animal.eat;
 eat(); // undefined
 ```
 
-Wenn wir das Obige unter Verwendung der traditionellen, auf Funktionen basierenden Syntax im nicht-strikten Modus umschreiben, dann werden `this`-Methodenaufrufe automatisch an {{jsxref("globalThis")}} gebunden. Im strikten Modus bleibt der Wert von `this` jedoch `undefined`.
+Wenn wir das obige mit traditioneller funktionsbasierter Syntax im Nicht-Strikt-Modus umschreiben, werden dann `this`-Methodenaufrufe automatisch an {{jsxref("globalThis")}} gebunden. Im strikten Modus bleibt der Wert von `this` `undefined`.
 
 ```js
 function Animal() {}
@@ -336,8 +336,8 @@ eat(); // global object (in non-strict mode)
 
 ## Siehe auch
 
-- [Verwendung von Klassen](/de/docs/Web/JavaScript/Guide/Using_classes) Leitfaden
+- [Verwenden von Klassen](/de/docs/Web/JavaScript/Guide/Using_classes)-Leitfaden
 - [`class`](/de/docs/Web/JavaScript/Reference/Statements/class)
-- [`class` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/class)
+- [`class`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/class)
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
-- [ES6 In Depth: Classes](https://hacks.mozilla.org/2015/07/es6-in-depth-classes/) auf hacks.mozilla.org (2015)
+- [ES6 Im Detail: Klassen](https://hacks.mozilla.org/2015/07/es6-in-depth-classes/) auf hacks.mozilla.org (2015)

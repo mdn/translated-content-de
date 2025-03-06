@@ -1,13 +1,13 @@
 ---
-title: "<del>: Das Deleted Text Element"
+title: "<del>: Das Deleted Text-Element"
 slug: Web/HTML/Element/del
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<del>`**-[HTML](/de/docs/Web/HTML) Element repräsentiert einen Textbereich, der aus einem Dokument gelöscht wurde. Dies kann beispielsweise verwendet werden, um "Änderungen nachverfolgen" oder Quellcodedifferenzinformationen darzustellen. Das {{HTMLElement("ins")}} Element kann für den gegenteiligen Zweck verwendet werden: um Text anzugeben, der dem Dokument hinzugefügt wurde.
+Das **`<del>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert einen Textbereich, der aus einem Dokument gelöscht wurde. Dies kann verwendet werden, um beispielsweise "Änderungen verfolgen" oder Quellcode-Differenzinformationen darzustellen. Das {{HTMLElement("ins")}}-Element kann für den gegensätzlichen Zweck verwendet werden: um anzuzeigen, dass Text dem Dokument hinzugefügt wurde.
 
 {{InteractiveExample("HTML Demo: &lt;del&gt;", "tabbed-standard")}}
 
@@ -37,20 +37,20 @@ blockquote {
 }
 ```
 
-Dieses Element wird häufig (aber nicht zwingend) durch Anwenden eines Durchstreichstils auf den Text dargestellt.
+Dieses Element wird oft (aber nicht notwendigerweise) durch Anwenden eines Durchstreich-Stils auf den Text gerendert.
 
 ## Attribute
 
-Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `cite`
-  - : Eine URI für eine Ressource, die die Änderung erklärt (zum Beispiel Sitzungsprotokolle).
+  - : Ein URI für eine Ressource, die die Änderung erklärt (zum Beispiel Sitzungsprotokolle).
 - `datetime`
-  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss eine gültige Datumszeichenfolge mit optionaler Zeit sein. Wenn der Wert nicht als Datum mit optionaler Zeitzeichenfolge analysiert werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format der Zeichenfolge ohne Zeit siehe [Datumszeichenfolgen](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format der Zeichenfolge, falls es sowohl Datum als auch Zeit enthält, ist in [Lokale Datums- und Zeitzeichenfolgen](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) abgedeckt.
+  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss eine gültige Datumszeichenfolge mit optionaler Zeit sein. Wenn der Wert nicht als Datum mit optionaler Zeitzeichenfolge geparst werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format der Zeichenfolge ohne Zeit siehe [Date Strings](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format der Zeichenfolge, wenn sowohl Datum als auch Zeit enthalten sind, wird in [Lokale Datums- und Zeitzeichenfolgen](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) behandelt.
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `del`-Elements wird von den meisten Bildschirmlesetechnologien in ihrer Standardkonfiguration nicht angekündigt. Es kann durch die Verwendung der CSS {{cssxref("content")}}-Eigenschaft sowie der {{cssxref("::before")}} und {{cssxref("::after")}} Pseudo-Elemente angekündigt werden.
+Das Vorhandensein des `del`-Elements wird in der Standardkonfiguration von den meisten Bildschirmlesetechnologien nicht angekündigt. Es kann angekündigt werden, indem die CSS-{{cssxref("content")}}-Eigenschaft zusammen mit den {{cssxref("::before")}}- und {{cssxref("::after")}}-Pseudoelementen verwendet wird.
 
 ```css
 del::before,
@@ -73,7 +73,7 @@ del::after {
 }
 ```
 
-Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ankündigen von Inhalten, die zusätzliche Wortfülle erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen, dass Inhalt gelöscht wurde, das Verständnis negativ beeinflussen würde.
+Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren absichtlich das Ankündigen von Inhalten, die zusätzliche Wortfülle erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Unwissen über gelöschte Inhalte das Verständnis nachteilig beeinflussen würde.
 
 - [Short note on making your mark (more accessible) | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
 - [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
@@ -101,7 +101,7 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ank
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing content</a
+          >Phrasing Content</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flow Content</a
@@ -119,22 +119,22 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ank
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Anfangs- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing content</a
+          >Phrasing Content</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">deletion</a
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">deletion</a
           ></code
         >
       </td>
@@ -160,5 +160,5 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich das Ank
 
 ## Siehe auch
 
-- Das {{HTMLElement("ins")}} Element für Einfügungen in einen Text
-- Das {{HTMLElement("s")}} Element für Durchstreichung, getrennt von der Repräsentation der Löschung von Text
+- {{HTMLElement("ins")}}-Element für Einfügungen in einen Text
+- {{HTMLElement("s")}}-Element für Durchstreichung, die sich nicht auf die Löschung von Text bezieht

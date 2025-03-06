@@ -1,13 +1,13 @@
 ---
-title: "<samp>: Das Sample Output-Element"
+title: "<samp>: Das Sample-Output-Element"
 slug: Web/HTML/Element/samp
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<samp>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um Inline-Text, der Ausgabe eines Computerprogramms repräsentiert, einzuschließen. Die Inhalte werden typischerweise mit der Standardschriftart mit fester Breite des Browsers angezeigt (wie [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) oder Lucida Console).
+Das **`<samp>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um Inline-Text einzuschließen, der eine Ausgabe (oder ein Zitat) eines Computerprogramms darstellt. Der Inhalt wird typischerweise mit der Standardschriftart des Browsers für Monospace-Schriftarten gerendert (wie [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) oder Lucida Console).
 
 {{InteractiveExample("HTML Demo: &lt;samp&gt;", "tabbed-shorter")}}
 
@@ -27,11 +27,11 @@ samp {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Sie können eine CSS-Regel verwenden, um die Standardschriftart für das `<samp>`-Element im Browser zu überschreiben; es ist jedoch möglich, dass die Einstellungen des Browsers gegenüber den von Ihnen angegebenen CSS-Vorgaben den Vorrang haben.
+Sie können eine CSS-Regel verwenden, um die Standardschriftart des Browsers für das `<samp>`-Element zu überschreiben; es ist jedoch möglich, dass die Browsereinstellungen gegenüber den von Ihnen angegebenen CSS-Regeln Vorrang haben.
 
 Das CSS, um die Standardschriftart zu überschreiben, sieht folgendermaßen aus:
 
@@ -42,13 +42,13 @@ samp {
 ```
 
 > [!NOTE]
-> Wenn Sie ein Element benötigen, das als Container für die von Ihrem JavaScript-Code generierte Ausgabe Ihrer Website oder App dient, sollten Sie stattdessen das {{HTMLElement("output")}}-Element verwenden.
+> Wenn Sie ein Element benötigen, das als Container für die Ausgabe von JavaScript-Code Ihrer Website oder App dient, sollten Sie stattdessen das {{HTMLElement("output")}}-Element verwenden.
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
-In diesem einfachen Beispiel enthält ein Absatz ein Beispiel für die Ausgabe eines Programms.
+In diesem grundlegenden Beispiel enthält ein Absatz ein Beispiel der Ausgabe eines Programms.
 
 ```html
 <p>
@@ -62,9 +62,9 @@ In diesem einfachen Beispiel enthält ein Absatz ein Beispiel für die Ausgabe e
 
 {{EmbedLiveSample("Basic_example", 650, 100)}}
 
-### Beispielanzeige mit Benutzereingaben
+### Beispielausgabe einschließlich Benutzereingabe
 
-Sie können das {{HTMLElement("kbd")}}-Element innerhalb eines `<samp>`-Blocks verschachteln, um ein Beispiel zu präsentieren, das vom Benutzer eingegebenen Text enthält. Zum Beispiel, betrachten Sie diesen Text, der ein Protokoll einer Linux- (oder macOS-) Konsolensitzung präsentiert:
+Sie können das {{HTMLElement("kbd")}}-Element innerhalb eines `<samp>`-Blocks verschachteln, um ein Beispiel zu präsentieren, das vom Benutzer eingegebenen Text enthält. Zum Beispiel, betrachten Sie diesen Text, der ein Transkript einer Linux- (oder macOS-) Konsolensitzung präsentiert:
 
 #### HTML
 
@@ -76,11 +76,11 @@ MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
 <span class="prompt">mike@interwebz:~$</span> <span class="cursor">█</span></samp></pre>
 ```
 
-Beachten Sie die Verwendung von {{HTMLElement("span")}}, um die Darstellung spezifischer Teile des Beispieltextes wie die Shell-Eingabeaufforderungen und den Cursor anzupassen. Beachten Sie auch die Verwendung von `<kbd>`, um den Befehl darzustellen, den der Benutzer bei der Eingabeaufforderung im Beispieltext eingegeben hat.
+Beachten Sie die Verwendung von {{HTMLElement("span")}}, um das Aussehen spezifischer Teile des Beispieltexts wie die Shell-Prompts und den Cursor anzupassen. Beachten Sie auch die Verwendung von `<kbd>`, um den Befehl darzustellen, den der Benutzer bei der Aufforderung im Beispieltext eingegeben hat.
 
 #### CSS
 
-Das CSS, das das gewünschte Aussehen erzeugt, ist:
+Das CSS, das das gewünschte Erscheinungsbild erzeugt, ist:
 
 ```css
 .prompt {
@@ -96,11 +96,11 @@ samp > kbd {
 }
 ```
 
-Dies verleiht der Eingabeaufforderung und dem Cursor eine recht subtile Kolorierung und hebt die Tastatureingabe innerhalb des Beispieltextes hervor.
+Dies verleiht den Eingabeaufforderungen und dem Cursor eine eher dezente Farbgebung und hebt die Tastatureingabe innerhalb des Beispieltextes hervor.
 
 #### Ergebnis
 
-Die resultierende Ausgabe sieht folgendermaßen aus:
+Die resultierende Ausgabe ist diese:
 
 {{EmbedLiveSample("Sample_output_including_user_input", 650, 120)}}
 
@@ -116,40 +116,40 @@ Die resultierende Ausgabe sieht folgendermaßen aus:
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierender Inhalt</a
-        >, greifbarer Inhalt.
+          >Phraseninhalt</a
+        >, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierender Inhalt</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >phrasierenden Inhalt</a
+          >Phraseninhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generisch</a
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
+            >generic</a
           ></code
         >
       </td>
@@ -176,4 +176,4 @@ Die resultierende Ausgabe sieht folgendermaßen aus:
 ## Siehe auch
 
 - Verwandte Elemente: {{HTMLElement("kbd")}}, {{HTMLElement("code")}}, {{HTMLElement("pre")}}
-- Das {{HTMLElement("output")}}-Element: ein Container für durch Skripte generierte Ausgaben
+- Das {{HTMLElement("output")}}-Element: ein Container für skriptgenerierte Ausgaben

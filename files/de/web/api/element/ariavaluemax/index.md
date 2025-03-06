@@ -3,12 +3,12 @@ title: "Element: ariaValueMax-Eigenschaft"
 short-title: ariaValueMax
 slug: Web/API/Element/ariaValueMax
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaValueMax`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemax)-Attributs wider, das den maximal zulässigen Wert für ein Bereichs-Widget definiert.
+Die **`ariaValueMax`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax)-Attributs wider, das den maximal zulässigen Wert für ein Bereichs-Widget definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der eine Zahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemax)-Attribut auf dem Element mit der ID `slider` auf "7" gesetzt. Mit `ariaValueMax` aktualisieren wir den Wert auf "6".
+In diesem Beispiel wird das [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax)-Attribut auf dem Element mit der ID `slider` auf "7" gesetzt. Mit `ariaValueMax` aktualisieren wir den Wert auf "6".
 
 ```html
 <div

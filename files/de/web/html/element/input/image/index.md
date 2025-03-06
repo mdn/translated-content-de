@@ -2,12 +2,12 @@
 title: <input type="image">
 slug: Web/HTML/Element/input/image
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-{{HTMLElement("input")}}-Elemente vom Typ **`image`** werden verwendet, um grafische Absende-Buttons zu erstellen, d.h., Absende-Buttons, die in Form eines Bildes anstelle von Text erscheinen.
+{{HTMLElement("input")}}-Elemente des Typs **`image`** werden verwendet, um grafische Sende-Buttons zu erstellen, das heißt, Sende-Buttons, die in Form eines Bildes statt Text erscheinen.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;image&quot;&gt;", "tabbed-standard")}}
 
@@ -47,103 +47,103 @@ input[type="image"] {
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den von allen {{HTMLElement("input")}}-Elementen gemeinsam genutzten Attributen unterstützen `image`-Button-Eingaben die folgenden Attribute.
+Zusätzlich zu den Attributen, die von allen {{HTMLElement("input")}}-Elementen geteilt werden, unterstützen `image`-Button-Eingaben die folgenden Attribute.
 
 ### alt
 
-Das `alt`-Attribut liefert eine alternative Zeichenkette, die als Bezeichnung für den Button verwendet werden soll, falls das Bild nicht angezeigt werden kann (aufgrund eines Fehlers, eines {{Glossary("user_agent", "User-Agent")}}, der keine Bilder anzeigen kann oder so konfiguriert ist, dass er sie nicht anzeigt, oder wenn der Benutzer ein Bildschirmlesegerät verwendet). Wenn bereitgestellt, muss es eine nicht-leere Zeichenkette sein, die als Bezeichnung für den Button geeignet ist.
+Das `alt`-Attribut bietet einen alternativen Text, der als Bezeichnung des Buttons verwendet werden kann, wenn das Bild nicht angezeigt werden kann (aufgrund eines Fehlers, eines {{Glossary("user_agent", "User Agent")}}, der Bilder nicht anzeigen kann oder konfiguriert ist, keine Bilder zu zeigen, oder wenn der Benutzer ein Gerät zur Bildschirmlesung nutzt). Wenn vorhanden, muss es ein nicht-leerer String sein, der als Beschriftung des Buttons geeignet ist.
 
-Beispielsweise, wenn Sie einen grafischen Button haben, der ein Bild mit einem Icon und/oder Bildtext "Login Now" anzeigt, sollten Sie das `alt`-Attribut auf etwas wie `Login Now` setzen.
+Zum Beispiel, wenn Sie einen grafischen Button haben, der ein Bild mit einem Symbol und/oder Text "Jetzt anmelden" zeigt, sollten Sie auch das `alt`-Attribut auf etwas wie `Jetzt anmelden` setzen.
 
 > [!NOTE]
-> Obwohl das `alt`-Attribut technisch optional ist, sollten Sie immer eines einfügen, um die Benutzerfreundlichkeit Ihrer Inhalte zu maximieren.
+> Obwohl das `alt`-Attribut technisch optional ist, sollten Sie immer eines angeben, um die Nutzbarkeit Ihres Inhalts zu maximieren.
 
-Funktionell arbeitet das `alt`-Attribut des `<input type="image">`-Elements genauso wie das [`alt`](/de/docs/Web/HTML/Element/img#alt)-Attribut auf {{HTMLElement("img")}}-Elementen.
+In der Funktionalität arbeitet das `alt`-Attribut des `<input type="image">`-Elements genau wie das [`alt`](/de/docs/Web/HTML/Element/img#alt)-Attribut von {{HTMLElement("img")}}-Elementen.
 
 ### formaction
 
-Eine Zeichenkette, die die URL angibt, an die die Daten gesendet werden sollen. Diese hat Vorrang vor dem [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut auf dem {{HTMLElement("form")}}-Element, welches das {{HTMLElement("input")}} besitzt.
+Ein String, der die URL angibt, an die die Daten gesendet werden sollen. Dies hat Vorrang vor dem [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut des {{HTMLElement("form")}}-Elements, das das {{HTMLElement("input")}}-Element besitzt.
 
-Dieses Attribut ist auch auf [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) und {{HTMLElement("button")}}-Elementen verfügbar.
+Dieses Attribut ist auch bei [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) und {{HTMLElement("button")}}-Elementen verfügbar.
 
 ### formenctype
 
-Eine Zeichenkette, die die Kodierungsmethode identifiziert, die beim Absenden der Formular-Daten an den Server verwendet wird. Es sind drei erlaubte Werte:
+Ein String, der die Kodierungsmethode identifiziert, die beim Senden der Formulardaten an den Server verwendet werden soll. Es gibt drei zulässige Werte:
 
 - `application/x-www-form-urlencoded`
-  - : Dies, der Standardwert, sendet die Formulardaten als Zeichenkette, nachdem der Text mittels einer Algorithmus wie {{jsxref("encodeURI", "encodeURI()")}} {{Glossary("Percent-encoding", "prozentkodiert")}} wurde.
+  - : Dies ist der Standardwert und sendet die Formulardaten als String, nachdem der Text mit einem Algorithmus wie {{jsxref("encodeURI", "encodeURI()")}} {{Glossary("Percent-encoding", "percent-encoding")}} verwendet wurde.
 - `multipart/form-data`
-  - : Verwendet die [`FormData`](/de/docs/Web/API/FormData)-API zur Verwaltung der Daten, sodass Dateien an den Server gesendet werden können. Sie _müssen_ diesen Kodierungstyp verwenden, wenn Ihr Formular irgendwelche {{HTMLElement("input")}}-Elemente vom [`type`](/de/docs/Web/HTML/Element/input#type) `file` ([`<input type="file">`](/de/docs/Web/HTML/Element/input/file)) enthält.
+  - : Verwendet die [`FormData`](/de/docs/Web/API/FormData)-API zur Verwaltung der Daten, was es ermöglicht, Dateien an den Server zu senden. Diese Kodierung müssen Sie verwenden, wenn Ihr Formular irgendwelche {{HTMLElement("input")}}-Elemente des Typs [`file`](/de/docs/Web/HTML/Element/input#type) ([`<input type="file">`](/de/docs/Web/HTML/Element/input/file)) enthält.
 - `text/plain`
-  - : Klartext; hauptsächlich nützlich für das Debugging, damit Sie leicht sehen können, welche Daten gesendet werden sollen.
+  - : Reiner Text; hauptsächlich nützlich nur für Debugging-Zwecke, damit Sie die Daten, die gesendet werden sollen, leicht sehen können.
 
-Wenn angegeben, überschreibt der Wert des `formenctype`-Attributs das [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut des besitzenden Formulars.
+Wenn angegeben, überschreibt der Wert des `formenctype`-Attributs das [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut des zugehörigen Formulars.
 
-Dieses Attribut ist ebenfalls auf [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) und {{HTMLElement("button")}}-Elementen verfügbar.
+Dieses Attribut ist auch bei [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) und {{HTMLElement("button")}}-Elementen verfügbar.
 
 ### formmethod
 
-Eine Zeichenkette, die die HTTP-Methode angibt, die beim Absenden der Formulardaten verwendet werden soll; dieser Wert überschreibt jedes [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut des besitzenden Formulars. Erlaubte Werte sind:
+Ein String, der die HTTP-Methode angibt, die beim Versenden der Formulardaten verwendet werden soll; dieser Wert überschreibt jedes [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut, das im zugehörigen Formular angegeben ist. Zulässige Werte sind:
 
 - `get`
-  - : Eine URL wird konstruiert, indem mit der URL des `formaction` oder [`action`](/de/docs/Web/HTML/Element/form#action) Attributs begonnen wird, ein Fragezeichen ("?") angehängt wird, und dann die Formulardaten angefügt werden, wie durch `formenctype` oder das [`enctype`](/de/docs/Web/HTML/Element/form#enctype)-Attribut des Formulars beschrieben. Diese URL wird dann mit einer HTTP {{HTTPMethod("get")}} Anfrage an den Server gesendet. Diese Methode funktioniert gut für einfache Formulare, die nur {{Glossary("ASCII", "ASCII")}}-Zeichen enthalten und keine Seiteneffekte haben. Dies ist der Standardwert.
+  - : Eine URL wird erstellt, indem mit der URL begonnen wird, die durch das `formaction`- oder das [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut angegeben wurde. Ein Fragezeichen ("?") wird hinzugefügt und danach werden die Formulardaten, kodiert, wie im `formenctype`- oder im [`enctype`](/de/docs/Web/HTML/Element/form#enctype)-Attribut des Formulars beschrieben, hinzugefügt. Diese URL wird dann mit einer HTTP-{{HTTPMethod("get")}}-Anfrage an den Server gesendet. Diese Methode funktioniert gut für einfache Formulare, die nur {{Glossary("ASCII", "ASCII")}}-Zeichen enthalten und keine Nebeneffekte haben. Dies ist der Standardwert.
 - `post`
-  - : Die Formulardaten werden im Body der an die durch `formaction` oder [`action`](/de/docs/Web/HTML/Element/form#action) Attributs angegebenen URL zu sendenden Anfrage gesendet, mit einer HTTP {{HTTPMethod("post")}}-Anfrage. Diese Methode unterstützt komplexe Daten und Dateianhänge.
+  - : Die Formulardaten werden im Body der Anfrage enthalten, die an die URL gesendet wird, die durch das `formaction`- oder das [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut angegeben wurde, unter Verwendung einer HTTP-{{HTTPMethod("post")}}-Anfrage. Diese Methode unterstützt komplexe Daten und Dateianhänge.
 - `dialog`
-  - : Diese Methode wird verwendet, um anzugeben, dass der Button den Dialog schließt, mit dem das Eingabeelement verbunden ist, und die Formulardaten überhaupt nicht überträgt.
+  - : Diese Methode gibt an, dass der Button den Dialog schließt, mit dem die Eingabe verknüpft ist, und die Formulardaten überhaupt nicht überträgt.
 
-Dieses Attribut ist auch auf [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) und {{HTMLElement("button")}}-Elementen verfügbar.
+Dieses Attribut ist auch bei [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) und {{HTMLElement("button")}}-Elementen verfügbar.
 
 ### formnovalidate
 
-Ein Boolean-Attribut, das, wenn vorhanden, angibt, dass das Formular vor dem Absenden an den Server nicht überprüft werden soll. Dies überschreibt den Wert des [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate)-Attributs des besitzenden Formulars.
+Ein logisches Attribut, das, wenn es vorhanden ist, angibt, dass das Formular vor dem Senden an den Server nicht validiert werden sollte. Dies überschreibt den Wert des [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate)-Attributs des zugehörigen Formulars.
 
-Dieses Attribut ist auch auf [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) und {{HTMLElement("button")}}-Elementen verfügbar.
+Dieses Attribut ist auch bei [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) und {{HTMLElement("button")}}-Elementen verfügbar.
 
 ### formtarget
 
-Eine Zeichenkette, die einen Namen oder ein Schlüsselwort angibt, das angibt, wo die Antwort angezeigt werden soll, die nach dem Absenden des Formulars empfangen wird. Die Zeichenkette muss der Name eines **Browsing-Kontextes** sein (das heißt, ein Tab, Fenster oder {{HTMLElement("iframe")}}. Ein hier angegebener Wert überschreibt jedes durch das [`target`](/de/docs/Web/HTML/Element/form#target)-Attribut auf der {{HTMLElement("form")}} angegebenen Ziel des Eingabeelements.
+Ein String, der einen Namen oder ein Stichwort angibt, das festlegt, wo die Antwort, die nach dem Absenden des Formulars empfangen wird, angezeigt werden soll. Der String muss der Name eines **Browsing-Kontexts** sein (d.h. ein Tab, Fenster oder {{HTMLElement("iframe")}}). Ein hier angegebener Wert überschreibt jedes durch das [`target`](/de/docs/Web/HTML/Element/form#target)-Attribut des Formulars, das dieses Eingabeelement besitzt, angegebene Ziel.
 
 Zusätzlich zu den tatsächlichen Namen von Tabs, Fenstern oder Inline-Frames gibt es einige spezielle Schlüsselwörter, die verwendet werden können:
 
 - `_self`
-  - : Lädt die Antwort in denselben Browsing-Kontext wie den, der das Formular enthält. Dies ersetzt das aktuelle Dokument durch die empfangenen Daten. Dies ist der Standardwert, wenn keiner angegeben ist.
+  - : Lädt die Antwort in denselben Browsing-Kontext wie das Formular. Dies ersetzt das aktuelle Dokument mit den empfangenen Daten. Dies ist der Standardwert, der verwendet wird, wenn keiner angegeben ist.
 - `_blank`
-  - : Lädt die Antwort in einen neuen, unbenannten, Browsing-Kontext. Dies ist in der Regel ein neuer Tab im gleichen Fenster wie das aktuelle Dokument, kann jedoch abhängig von der Konfiguration des {{Glossary("user_agent", "User Agent")}} unterschiedlich sein.
+  - : Lädt die Antwort in einen neuen, unbenannten Browsing-Kontext. Dies ist typischerweise ein neuer Tab im selben Fenster wie das aktuelle Dokument, kann aber je nach Konfiguration des {{Glossary("user_agent", "User Agent")}} unterschiedlich sein.
 - `_parent`
-  - : Lädt die Antwort in den übergeordneten Browsing-Kontext des aktuellen. Wenn es keinen übergeordneten Kontext gibt, verhält sich dies wie `_self`.
+  - : Lädt die Antwort in den übergeordneten Browsing-Kontext des aktuellen. Wenn kein übergeordneter Kontext vorhanden ist, verhält sich dies genauso wie `_self`.
 - `_top`
-  - : Lädt die Antwort in den obersten/dachführenden Browsing-Kontext; dies ist der Browsing-Kontext, der der oberste Vorfahre des aktuellen Kontexts ist. Wenn der aktuelle Kontext der oberste Kontext ist, verhält sich dies wie `_self`.
+  - : Lädt die Antwort in den obersten Browsing-Kontext; dies ist der Browsing-Kontext, der der oberste Vorfahr des aktuellen Kontexts ist. Wenn der aktuelle Kontext der oberste Kontext ist, verhält sich dies genauso wie `_self`.
 
-Dieses Attribut ist auch auf [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) und {{HTMLElement("button")}}-Elementen verfügbar.
+Dieses Attribut ist auch bei [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) und {{HTMLElement("button")}}-Elementen verfügbar.
 
 ### height
 
-Eine Zahl, die die Höhe in CSS-Pixeln angibt, bei der das durch das `src`-Attribut spezifizierte Bild gezeichnet wird.
+Eine Zahl, die die Höhe in CSS-Pixeln angibt, in der das Bild, das durch das `src`-Attribut angegeben wird, gezeichnet werden soll.
 
 ### src
 
-Eine Zeichenkette, die die URL der Bilddatei angibt, die als grafischer Absende-Button angezeigt werden soll. Wenn der Benutzer mit dem Bild interagiert, wird die Eingabe wie jede andere Button-Eingabe behandelt.
+Ein String, der die URL der Bilddatei angibt, die angezeigt werden soll, um den grafischen Sende-Button darzustellen. Wenn der Benutzer mit dem Bild interagiert, wird die Eingabe wie jede andere Button-Eingabe behandelt.
 
 ### width
 
-Eine Zahl, die die Breite angibt, bei der das Bild in CSS-Pixeln gezeichnet wird.
+Eine Zahl, die die Breite angibt, in der das Bild in CSS-Pixeln dargestellt werden soll.
 
 ## Veraltete Attribute
 
-Das folgende Attribut wurde durch HTML 4 für `image`-Eingaben definiert, aber nicht von allen Browsern implementiert und ist seitdem veraltet.
+Das folgende Attribut wurde von HTML 4 für `image`-Eingaben definiert, wurde jedoch nicht von allen Browsern implementiert und ist mittlerweile veraltet.
 
 ### usemap
 
-Wenn `usemap` angegeben ist, muss es der Name eines Bildkarten-Elements {{HTMLElement("map")}} sein, das eine Bildkarte zur Verwendung mit dem Bild definiert. Diese Verwendung ist veraltet; Sie sollten zum Verwendung des {{HTMLElement("img")}}-Elements wechseln, wenn Sie Bildkarten verwenden möchten.
+Wenn `usemap` angegeben ist, muss es der Name eines Bildkarten-Elements sein, {{HTMLElement("map")}}, das eine Bildkarte definiert, die mit dem Bild verwendet werden soll. Diese Verwendung ist veraltet; Sie sollten zu der Verwendung des {{HTMLElement("img")}}-Elements wechseln, wenn Sie Bildkarten verwenden möchten.
 
-## Verwendung von Bild-Eingaben
+## Verwendung von Image-Eingaben
 
-Das `<input type="image">`-Element ist ein [ersetztes Element](/de/docs/Web/CSS/Replaced_element) (ein Element, dessen Inhalt nicht generiert oder direkt durch die CSS-Ebene verwaltet wird), das sich ähnlich wie ein reguläres {{htmlelement("img")}}-Element verhält, aber mit den Fähigkeiten eines [Absende-Buttons](/de/docs/Web/HTML/Element/input/submit).
+Das `<input type="image">`-Element ist ein [ersetztes Element](/de/docs/Web/CSS/Replaced_element) (ein Element, dessen Inhalt nicht durch die CSS-Schicht erzeugt oder direkt verwaltet wird) und verhält sich ähnlich wie ein normales {{HTMLElement("img")}}-Element, jedoch mit den Fähigkeiten eines [Sende-Buttons](/de/docs/Web/HTML/Element/input/submit).
 
-### Wesentliche Eigenschaften der Bild-Eingabe
+### Wesentliche Merkmale der Eingabe von Bildern
 
-Lassen Sie uns ein einfaches Beispiel betrachten, das alle wesentlichen Funktionen beinhaltet, die Sie verwenden müssten (Diese funktionieren genau so wie beim `<img>`-Element.):
+Schauen wir uns ein einfaches Beispiel an, das alle wesentlichen Funktionen enthält, die Sie verwenden müssten (diese funktionieren genauso wie bei dem `<img>`-Element):
 
 ```html
 <input
@@ -157,16 +157,16 @@ Lassen Sie uns ein einfaches Beispiel betrachten, das alle wesentlichen Funktion
 
 {{ EmbedLiveSample('Essential_image_input_features', 600, 50) }}
 
-- Das [`src`](/de/docs/Web/HTML/Element/input#src)-Attribut wird verwendet, um den Pfad zu dem Bild anzugeben, das im Button angezeigt werden soll.
-- Das [`alt`](/de/docs/Web/HTML/Element/input#alt)-Attribut bietet Alternativtext für das Bild, sodass Benutzer von Bildschirmlesegeräten eine bessere Vorstellung davon bekommen können, wofür der Button verwendet wird. Es wird auch angezeigt, wenn das Bild aus irgendeinem Grund nicht angezeigt werden kann (zum Beispiel, wenn der Pfad falsch geschrieben ist). Verwenden Sie nach Möglichkeit einen Text, der dem Label entspricht, das Sie verwenden würden, wenn Sie einen Standardabsende-Button verwenden würden.
-- Die [`width`](/de/docs/Web/HTML/Element/input#width)- und [`height`](/de/docs/Web/HTML/Element/input#height)-Attribute werden verwendet, um die Breite und Höhe anzugeben, in der das Bild in Pixeln angezeigt werden soll. Der Button hat die gleiche Größe wie das Bild; wenn Sie die Trefferfläche des Buttons größer als das Bild benötigen, müssen Sie CSS verwenden (z.B. {{cssxref("padding")}}). Auch wenn Sie nur eine Dimension angeben, wird die andere automatisch angepasst, sodass das Bild seine ursprüngliche {{Glossary("aspect_ratio", "Seitenverhältnis")}} beibehält.
+- Das [`src`](/de/docs/Web/HTML/Element/input#src)-Attribut wird verwendet, um den Pfad zum anzuzeigenden Bild im Button zu spezifizieren.
+- Das [`alt`](/de/docs/Web/HTML/Element/input#alt)-Attribut bietet einen Alternativtext für das Bild, damit Benutzer von Bildschirmlesegeräten besser verstehen, wofür der Button verwendet wird. Es wird auch angezeigt, wenn das Bild aus irgendeinem Grund nicht gezeigt werden kann (zum Beispiel, wenn der Pfad falsch geschrieben ist). Wenn möglich, verwenden Sie Text, der dem Label entspricht, das Sie verwenden würden, wenn Sie einen standardmäßigen Sende-Button verwenden würden.
+- Die [`width`](/de/docs/Web/HTML/Element/input#width)- und [`height`](/de/docs/Web/HTML/Element/input#height)-Attribute werden verwendet, um die Breite und Höhe anzugeben, in der das Bild angezeigt werden soll, in Pixeln. Der Button hat die gleiche Größe wie das Bild. Wenn Sie die Trefferfläche des Buttons größer als das Bild machen müssen, müssen Sie CSS verwenden (z.B. {{cssxref("padding")}}). Wenn Sie nur eine Dimension angeben, wird die andere automatisch so angepasst, dass das Bild sein originales {{Glossary("aspect_ratio", "Seitenverhältnis")}} beibehält.
 
-### Übersteuerung von Standardformular-Verhaltensweisen
+### Standardverhalten von Formularen überschreiben
 
-`<input type="image">`-Elemente — wie normale [Absende-Buttons](/de/docs/Web/HTML/Element/input/submit) — können eine Reihe von Attributen akzeptieren, die das Standardformular-Verhalten übersteuern:
+`<input type="image">`-Elemente — wie normale [Sende-Buttons](/de/docs/Web/HTML/Element/input/submit) — können eine Reihe von Attributen akzeptieren, die das Standardverhalten von Formularen überschreiben:
 
 - `formaction`
-  - : Die URI eines Programms, das die vom Eingabe-Element übermittelten Informationen verarbeitet; überschreibt das [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut des Formularbesitzers.
+  - : Die URI eines Programms, das die von dem Eingabeelement übermittelten Informationen verarbeitet; überschreibt das [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut des Formularbesitzers des Elements.
 - `formenctype`
 
   - : Gibt den Inhaltstyp an, der verwendet wird, um das Formular an den Server zu senden. Mögliche Werte sind:
@@ -174,45 +174,47 @@ Lassen Sie uns ein einfaches Beispiel betrachten, das alle wesentlichen Funktion
     - `application/x-www-form-urlencoded`: Der Standardwert, wenn das Attribut nicht angegeben ist.
     - `text/plain`.
 
-    Wenn dieses Attribut angegeben ist, überschreibt es das [`enctype`](/de/docs/Web/HTML/Element/form#enctype)-Attribut des Formularbesitzers.
+    Wenn dieses Attribut angegeben ist, überschreibt es das [`enctype`](/de/docs/Web/HTML/Element/form#enctype)-Attribut des Formularbesitzers des Elements.
 
 - `formmethod`
 
-  - : Gibt die HTTP-Methode an, die der Browser beim Absenden des Formulars verwendet. Mögliche Werte sind:
+  - : Gibt die HTTP-Methode an, die der Browser zum Senden des Formulars verwendet. Mögliche Werte sind:
 
-    - `post`: Die Daten aus dem Formular werden im Hauptteil des Formulars eingefügt und an den Server gesendet.
-    - `get`: Die Daten aus dem Formular werden an die **`form`** Attribut-URI angehängt, mit einem '?' als Trennzeichen, und die resultierende URI wird an den Server gesendet. Verwenden Sie diese Methode, wenn das Formular keine Seiteneffekte hat und nur ASCII-Zeichen enthält.
+    - `post`: Die Daten des Formulars werden im Body des Formulars enthalten und an den Server gesendet.
+    - `get`: Die Daten des Formulars werden an die **`form`**-Attribut-URI angehängt, mit einem '?' als Trennzeichen, und die resultierende URI wird an den Server gesendet. Verwenden Sie diese Methode, wenn das Formular keine Nebeneffekte hat und nur ASCII-Zeichen enthält.
 
-    Wenn angegeben, überschreibt dieses Attribut das [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut des Formularbesitzers.
+    Wenn angegeben, überschreibt dieses Attribut das [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut des Formularbesitzers des Elements.
 
 - `formnovalidate`
-  - : Ein Boolean-Attribut, das angibt, dass das Formular beim Absenden nicht überprüft werden soll. Wenn dieses Attribut angegeben ist, überschreibt es das [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate)-Attribut des Formularbesitzers.
+  - : Ein logisches Attribut, das angibt, dass das Formular nicht validiert werden soll, wenn es übermittelt wird. Wenn dieses Attribut angegeben ist, überschreibt es das [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate)-Attribut des Formularbesitzers des Elements.
 - `formtarget`
-  - : Ein Name oder Schlüsselwort, das angibt, wo die Antwort angezeigt werden soll, die nach dem Absenden des Formulars empfangen wird. Dies ist der Name oder Schlüsselwort für einen _Browsing-Kontext_ (zum Beispiel Tab, Fenster oder Inline-Frame). Wenn dieses Attribut angegeben ist, überschreibt es das [`target`](/de/docs/Web/HTML/Element/form#target)-Attribut des Formularbesitzers. Die folgenden Schlüsselwörter haben besondere Bedeutungen:
-    - `_self`: Lädt die Antwort in den gleichen Browsing-Kontext wie den aktuellen. Dieser Wert ist der Standard, wenn das Attribut nicht angegeben ist.
-    - `_blank`: Lädt die Antwort in einen neuen unbenannten Browsing-Kontext.
-    - `_parent`: Lädt die Antwort in den übergeordneten Browsing-Kontext des aktuellen. Wenn es keinen übergeordneten gibt, verhält sich diese Option wie `_self`.
-    - `_top`: Lädt die Antwort in den oberen Browsing-Kontext (das heißt, der Browsing-Kontext, der ein Vorfahre des aktuellen ist und keinen Elternteil hat). Wenn es keinen Elternteil gibt, verhält sich diese Option wie `_self`.
 
-### Verwendung der x- und y-Datenpunkte
+  - : Ein Name oder Stichwort, das angibt, wo die Antwort, die nach der Übermittlung des Formulars empfangen wird, angezeigt werden soll. Dies ist ein Name von oder ein Stichwort für einen _Browsing-Kontext_ (zum Beispiel, Tab, Fenster oder Inline-Frame). Wenn dieses Attribut angegeben ist, überschreibt es das [`target`](/de/docs/Web/HTML/Element/form#target)-Attribut des Formularbesitzers des Elements. Die folgenden Stichwörter haben besondere Bedeutungen:
 
-Wenn Sie ein Formular mit einem Button absenden, der mit `<input type="image">` erstellt wurde, werden vom Browser automatisch zwei zusätzliche Datenpunkte an den Server übermittelt — `x` und `y`. Sie können dies in unserem [X Y Koordinaten-Beispiel](https://mdn.github.io/learning-area/html/forms/image-type-example/xy-coordinates-example.html) sehen.
+    - `_self`: Laden Sie die Antwort in denselben Browsing-Kontext wie den aktuellen. Dieser Wert ist der Standardwert, wenn das Attribut nicht angegeben wird.
+    - `_blank`: Laden Sie die Antwort in einen neuen, unbenannten Browsing-Kontext.
+    - `_parent`: Laden Sie die Antwort in den übergeordneten Browsing-Kontext des aktuellen. Wenn es keinen übergeordneten gibt, verhält sich diese Option wie `_self`.
+    - `_top`: Laden Sie die Antwort in den obersten Browsing-Kontext (d.h. den Browsing-Kontext, der ein Vorfahr des aktuellen ist und keinen übergeordneten hat). Wenn es keinen übergeordneten gibt, verhält sich diese Option wie `_self`.
 
-Wenn Sie auf das Bild klicken, um das Formular abzusenden, werden Sie sehen, dass die Daten als Parameter an die URL angehängt werden, zum Beispiel `?x=52&y=55`. Wenn das Bild-Eingabefeld ein [`name`](/de/docs/Web/HTML/Element/input#name)-Attribut hat, dann beachten Sie, dass der angegebene Name jedem Attribut vorangestellt wird, so dass, wenn der `name` `position` ist, die zurückgegebenen Koordinaten in der URL als `?position.x=52&position.y=55` formatiert wären. Dies gilt natürlich auch für alle anderen Attribute.
+### Verwenden der x- und y-Datenpunkte
 
-Dies sind die X- und Y-Koordinaten des Bildes, auf die die Maus beim Absenden des Formulars geklickt hat, wobei (0,0) die oben links im Bild ist und der Standard, falls die Einreichung ohne Klick auf das Bild erfolgt. Diese können verwendet werden, wenn die Position, auf die das Bild geklickt wurde, von Bedeutung ist, zum Beispiel könnte man eine Karte haben, die beim Anklicken die Koordinaten, auf die geklickt wurde, an den Server sendet. Der Serverseitige Code bestimmt dann, welcher Ort angeklickt wurde und gibt Informationen über nahegelegene Orte zurück.
+Wenn Sie ein Formular mit einem Button absenden, der mit `<input type="image">` erstellt wurde, werden zwei zusätzliche Datenpunkte automatisch vom Browser an den Server übermittelt — `x` und `y`. Sie können dies in unserem [Beispiel zu den X Y-Koordinaten](https://mdn.github.io/learning-area/html/forms/image-type-example/xy-coordinates-example.html) in Aktion sehen.
 
-In unserem obigen Beispiel könnten wir serverseitigen Code schreiben, der ermittelt, auf welche Farbe durch die übermittelten Koordinaten geklickt wurde, und eine Statistik über die beliebtesten Farben erstellt, für die Personen abgestimmt haben.
+Wenn Sie auf das Bild klicken, um das Formular abzusenden, sehen Sie die Daten als Parameter an die URL angehängt, zum Beispiel `?x=52&y=55`. Wenn die Bildeingabe ein [`name`](/de/docs/Web/HTML/Element/input#name)-Attribut hat, dann beachten Sie, dass der angegebene Name jedem Attribut vorangestellt wird, sodass bei `name`= `position` die zurückgegebenen Koordinaten in der URL als `?position.x=52&position.y=55` formatiert würden. Dies gilt natürlich auch für alle anderen Attribute.
 
-### Anpassen der Position und des Skalierungsalgorithmus des Bildes
+Dies sind die X- und Y-Koordinaten des Bildes, auf das die Maus geklickt hat, um das Formular abzusenden, wobei (0,0) oben links im Bild liegt und der Standardfall ist, falls die Übermittlung ohne einen Klick auf das Bild erfolgt. Diese können verwendet werden, wenn die Position, auf die auf dem Bild geklickt wurde, von Bedeutung ist. Zum Beispiel könnten Sie eine Karte haben, die, wenn darauf geklickt wird, die angeklickten Koordinaten an den Server sendet. Der serverseitige Code ermittelt dann, welcher Ort angeklickt wurde, und gibt Informationen über nahegelegene Orte zurück.
 
-Sie können die {{cssxref("object-position")}}-Eigenschaft verwenden, um die Positionierung des Bildes innerhalb des Rahmen des `<input>`-Elements anzupassen, und die {{cssxref("object-fit")}}-Eigenschaft, um zu steuern, wie die Größe des Bildes angepasst wird, um in den Rahmen zu passen. Dies ermöglicht es Ihnen, einen Rahmen für das Bild mithilfe der `width`- und `height`-Attribute festzulegen, um Platz im Layout zu reservieren, und dann festzulegen, wo innerhalb dieses Raumes das Bild lokalisiert ist und wie (oder ob) es skaliert wird, um diesen Raum zu füllen.
+In unserem obigen Beispiel könnten wir serverseitigen Code schreiben, der ermittelt, auf welche Farbe durch die übermittelten Koordinaten geklickt wurde, und eine Statistik der Lieblingsfarben der Nutzer führt.
+
+### Anpassen der Bildposition und des Skalierungsalgorithmus
+
+Sie können die {{cssxref("object-position")}}-Eigenschaft verwenden, um die Positionierung des Bildes innerhalb des `<input>`-Elementrahmens anzupassen, und die {{cssxref("object-fit")}}-Eigenschaft, um zu steuern, wie die Bildgröße angepasst wird, um innerhalb des Rahmens zu passen. Dies ermöglicht es Ihnen, mithilfe der `width`- und `height`-Attribute Platz im Layout für das Bild zu reservieren und dann zu bestimmen, wo innerhalb dieses Bereichs das Bild positioniert wird und wie (oder ob) es skaliert wird, um diesen Raum zu füllen.
 
 ## Beispiele
 
-### Ein Login-Formular
+### Ein Anmeldeformular
 
-Das folgende Beispiel zeigt denselben Button wie zuvor, jedoch im Kontext eines typischen Login-Formulars.
+Das folgende Beispiel zeigt denselben Button wie zuvor, jedoch im Kontext eines typischen Anmeldeformulars.
 
 {{ EmbedLiveSample('A_login_form', 600, 170) }}
 
@@ -242,7 +244,7 @@ Das folgende Beispiel zeigt denselben Button wie zuvor, jedoch im Kontext eines 
 
 #### CSS
 
-Und nun etwas CSS, um die Grundelemente sauberer anzuordnen:
+Und nun etwas CSS, um die grundlegenden Elemente ordentlicher anzuordnen:
 
 ```css
 div {
@@ -259,7 +261,7 @@ label {
 
 ### Anpassung der Bildposition und Skalierung
 
-In diesem Beispiel passen wir das vorherige an, um mehr Platz für das Bild zu reservieren und dann die tatsächliche Bildgröße und Positionierung mithilfe von {{cssxref("object-fit")}} und {{cssxref("object-position")}} einzustellen.
+In diesem Beispiel passen wir das vorherige Beispiel an, um mehr Platz für das Bild zu reservieren und dann die tatsächliche Größe und Position des Bildes mithilfe von {{cssxref("object-fit")}} und {{cssxref("object-position")}} anzupassen.
 
 {{EmbedLiveSample("Adjusting_the_image_position_and_scaling", 600, 300)}}
 
@@ -309,7 +311,7 @@ label {
 }
 ```
 
-Hier wird `object-position` so konfiguriert, dass das Bild in der oberen rechten Ecke des Elements gezeichnet wird, während `object-fit` auf `contain` eingestellt ist, was angibt, dass das Bild in der größten Größe gezeichnet werden soll, die in den Rahmen des Elements passt, ohne das Seitenverhältnis zu ändern. Beachten Sie den sichtbar grauen Hintergrund des Elements, der in dem Bereich sichtbar ist, der nicht vom Bild abgedeckt wird.
+Hier ist `object-position` so konfiguriert, dass das Bild in der oberen rechten Ecke des Elements gezeichnet wird, während `object-fit` auf `contain` gesetzt ist, was angibt, dass das Bild in der größtmöglichen Größe innerhalb des Elements gezeichnet werden soll, ohne sein Seitenverhältnis zu verändern. Beachten Sie den sichtbaren grauen Hintergrund des Elements, der in dem Bereich noch sichtbar ist, der nicht vom Bild bedeckt wird.
 
 ## Technische Zusammenfassung
 
@@ -317,7 +319,7 @@ Hier wird `object-position` so konfiguriert, dass das Bild in der oberen rechten
   <tbody>
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
-      <td>Kein Wert — das <code>value</code>-Attribut sollte nicht angegeben werden.</td>
+      <td>Keiner — das <code>value</code>-Attribut sollte nicht angegeben werden.</td>
     </tr>
     <tr>
       <td><strong>Ereignisse</strong></td>
@@ -349,9 +351,9 @@ Hier wird `object-position` so konfiguriert, dass das Bild in der oberen rechten
       <td><strong>Methoden</strong></td>
       <td>Keine.</td>
     </tr>
-     <tr>
+    <tr>
       <td><strong>Implizierte ARIA-Rolle</strong></td>
-      <td><a href="/de/docs/Web/Accessibility/ARIA/Roles/button_role"><code>button</code></a></td>
+      <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role"><code>button</code></a></td>
     </tr>
   </tbody>
 </table>
@@ -366,6 +368,6 @@ Hier wird `object-position` so konfiguriert, dass das Bild in der oberen rechten
 
 ## Siehe auch
 
-- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle, die es implementiert.
-- Das HTML {{HTMLElement("img")}}-Element
+- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle, die es implementiert.
+- Das HTML-{{HTMLElement("img")}}-Element
 - Positionierung und Größenanpassung des Bildes innerhalb des `<input>`-Elementrahmens: {{cssxref("object-position")}} und {{cssxref("object-fit")}}

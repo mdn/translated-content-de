@@ -2,16 +2,16 @@
 title: "<dfn>: Das Definitionselement"
 slug: Web/HTML/Element/dfn
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<dfn>`** [HTML](/de/docs/Web/HTML)-Element kennzeichnet einen zu definierenden Begriff. Das `<dfn>`-Element sollte in einer vollständigen Definitionsaussage verwendet werden, bei der die vollständige Definition des Begriffs eine der folgenden sein kann:
+Das **`<dfn>`** [HTML](/de/docs/Web/HTML)-Element zeigt an, dass ein Begriff definiert werden soll. Das `<dfn>`-Element sollte in einem vollständigen Definitionssatz verwendet werden, bei dem die vollständige Definition des Begriffs eine der folgenden sein kann:
 
-- Der übergeordnete Absatz (ein Textblock, manchmal gekennzeichnet durch ein {{HTMLElement("p")}}-Element)
-- Die {{HTMLElement("dt")}}/{{HTMLElement("dd")}}-Paarung
-- Der nächste [Abschnitt](/de/docs/Web/HTML/Content_categories#sectioning_content), der Vorfahre des `<dfn>`-Elements ist
+- Der übergeordnete Absatz (ein Textblock, manchmal durch ein {{HTMLElement("p")}}-Element gekennzeichnet)
+- Das {{HTMLElement("dt")}}/{{HTMLElement("dd")}}-Paar
+- Der nächstgelegene [Abschnitt](/de/docs/Web/HTML/Content_categories#sectioning_content), der Vorfahre des `<dfn>`-Elements ist,
 
 {{InteractiveExample("HTML Demo: &lt;dfn&gt;", "tabbed-shorter")}}
 
@@ -30,20 +30,20 @@ dfn {
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-Das [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attribut hat eine besondere Bedeutung, wie unten erläutert.
+Das [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attribut hat eine besondere Bedeutung, wie unten angemerkt.
 
-## Anwendungsnotizen
+## Nutzungshinweise
 
-Es gibt einige nicht ganz offensichtliche Aspekte bei der Verwendung des `<dfn>`-Elements. Wir untersuchen diese hier.
+Es gibt einige nicht ganz offensichtliche Aspekte bei der Verwendung des `<dfn>`-Elements. Diese betrachten wir hier.
 
-### Festlegen des zu definierenden Begriffs
+### Definition des zu definierenden Begriffs
 
-Der zu definierende Begriff wird nach folgenden Regeln identifiziert:
+Der zu definierende Begriff wird anhand dieser Regeln identifiziert:
 
-1. Wenn das `<dfn>`-Element ein [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attribut hat, wird der Wert des `title`-Attributs als der zu definierende Begriff betrachtet. Das Element muss dennoch Text enthalten, aber dieser Text kann eine Abkürzung (vielleicht unter Verwendung von {{HTMLElement("abbr")}}) oder eine andere Form des Begriffs sein.
-2. Wenn das `<dfn>`-Element ein einzelnes Kindelement enthält und keinen eigenen Textinhalt hat und das Kindelement ein {{HTMLElement("abbr")}}-Element mit einem eigenen `title`-Attribut ist, dann ist der genaue Wert des `title`-Attributs des `<abbr>`-Elements der zu definierende Begriff.
+1. Wenn das `<dfn>`-Element ein [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attribut hat, wird der Wert des `title`-Attributs als der zu definierende Begriff angesehen. Das Element muss dennoch Text enthalten, dieser Text kann jedoch eine Abkürzung (vielleicht unter Verwendung von {{HTMLElement("abbr")}}) oder eine andere Form des Begriffs sein.
+2. Wenn das `<dfn>`-Element ein einzelnes Kindelement enthält und keinen eigenen Textinhalt hat, und das Kindelement ein {{HTMLElement("abbr")}}-Element mit einem eigenen `title`-Attribut ist, dann ist der exakte Wert des `title`-Attributs des `<abbr>`-Elements der zu definierende Begriff.
 3. Andernfalls ist der Textinhalt des `<dfn>`-Elements der zu definierende Begriff. Dies wird [im ersten Beispiel unten](#grundlegende_identifizierung_eines_begriffs) gezeigt.
 
 > [!NOTE]
@@ -51,17 +51,17 @@ Der zu definierende Begriff wird nach folgenden Regeln identifiziert:
 
 ### Links zu `<dfn>`-Elementen
 
-Wenn Sie einem `<dfn>`-Element ein [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut hinzufügen, können Sie mithilfe von {{HTMLElement("a")}}-Elementen darauf verlinken. Solche Links sollten Verwendungen des Begriffs sein, mit der Absicht, dass der Leser schnell zur Definition des Begriffs navigieren kann, wenn er sie nicht bereits kennt, indem er auf den Link des Begriffs klickt.
+Wenn Sie auf dem `<dfn>`-Element ein [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut hinzufügen, können Sie dann mit {{HTMLElement("a")}}-Elementen darauf verlinken. Solche Links sollten Verwendungen des Begriffs darstellen, mit der Absicht, dass der Leser schnell zur Definition des Begriffs navigieren kann, wenn er nicht bereits bekannt ist, indem er auf den Link des Begriffs klickt.
 
-Dies ist im Beispiel unter [Links zu Definitionen](#links_zu_definitionen) unten gezeigt.
+Dies wird im Beispiel unter [Links zu Definitionen](#links_zu_definitionen) unten gezeigt.
 
 ## Beispiele
 
-Werfen wir einen Blick auf einige Beispiele für verschiedene Anwendungsszenarien.
+Schauen wir uns einige Beispiele für verschiedene Nutzungsszenarien an.
 
 ### Grundlegende Identifizierung eines Begriffs
 
-Dieses Beispiel verwendet ein einfaches `<dfn>`-Element, um den Standort eines Begriffs innerhalb der Definition zu identifizieren.
+Dieses Beispiel verwendet ein einfaches `<dfn>`-Element, um die Position eines Begriffs innerhalb der Definition zu identifizieren.
 
 #### HTML
 
@@ -73,7 +73,7 @@ Dieses Beispiel verwendet ein einfaches `<dfn>`-Element, um den Standort eines B
 </p>
 ```
 
-Da das `<dfn>`-Element keine `title`-Eigenschaft hat, werden die Textinhalte des `<dfn>`-Elements selbst als der zu definierende Begriff verwendet.
+Da das `<dfn>`-Element kein `title` hat, werden die Textinhalte des `<dfn>`-Elements selbst als der zu definierende Begriff verwendet.
 
 #### Ergebnis
 
@@ -81,7 +81,7 @@ Da das `<dfn>`-Element keine `title`-Eigenschaft hat, werden die Textinhalte des
 
 ### Links zu Definitionen
 
-Um Links zu den Definitionen hinzuzufügen, erstellen Sie den Link wie gewohnt mit dem {{HTMLElement("a")}}-Element.
+Um Links zu den Definitionen hinzuzufügen, erstellen Sie den Link auf die gleiche Weise wie immer, mit dem {{HTMLElement("a")}}-Element.
 
 #### HTML
 
@@ -114,7 +114,7 @@ Hier sehen wir die Definition — jetzt mit einem [`id`](/de/docs/Web/HTML/Globa
 
 ### Verwendung von Abkürzungen und Definitionen zusammen
 
-In einigen Fällen möchten Sie möglicherweise eine Abkürzung für einen Begriff verwenden, wenn Sie ihn definieren. Dies kann durch die Verwendung der `<dfn>`- und {{HTMLElement("abbr")}}-Elemente zusammen erreicht werden, wie folgt:
+In einigen Fällen möchten Sie möglicherweise eine Abkürzung für einen Begriff verwenden, wenn Sie ihn definieren. Dies kann durch die Verwendung der `<dfn>`- und {{HTMLElement("abbr")}}-Elemente zusammen erfolgen, wie folgt:
 
 #### HTML
 
@@ -132,7 +132,7 @@ In einigen Fällen möchten Sie möglicherweise eine Abkürzung für einen Begri
 </p>
 ```
 
-Beachten Sie das `<abbr>`-Element, das innerhalb des `<dfn>` geschachtelt ist. Das erstere legt fest, dass der Begriff eine Abkürzung ist ("HST") und den vollständigen Begriff ("Hubble Space Telescope") in seinem `title`-Attribut spezifiziert. Das letztere zeigt an, dass der abgekürzte Begriff ein zu definierender Begriff ist.
+Beachten Sie das `<abbr>`-Element innerhalb des `<dfn>`. Das erstere stellt fest, dass der Begriff eine Abkürzung ("HST") ist und gibt den vollständigen Begriff ("Hubble Space Telescope") in seinem `title`-Attribut an. Das letztere zeigt an, dass der abgekürzte Begriff einen zu definierenden Begriff darstellt.
 
 #### Ergebnis
 
@@ -147,32 +147,32 @@ Beachten Sie das `<abbr>`-Element, das innerhalb des `<dfn>` geschachtelt ist. D
         <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flow-Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">phrasierender Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Content_categories#palpable_content">fühlbarer Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>,
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phraseninhalt</a>,
+        <a href="/de/docs/Web/HTML/Content_categories#palpable_content">spürbarer Inhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">phrasierender Inhalt</a>,
-        aber kein <code>&lt;dfn&gt;</code>-Element darf ein Nachfolger sein.
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phraseninhalt</a>,
+        aber kein <code>&lt;dfn&gt;</code>-Element darf ein Nachfahre sein.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <th scope="row">Tag-Ausslassung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">phrasierenden Inhalt</a> akzeptiert.
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phraseninhalt</a> akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizierte ARIA-Rolle</th>
-      <td><a href="/de/docs/Web/Accessibility/ARIA/Roles/term_role"><code>term</code></a></td>
+      <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/term_role"><code>term</code></a></td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
@@ -195,5 +195,5 @@ Beachten Sie das `<abbr>`-Element, das innerhalb des `<dfn>` geschachtelt ist. D
 
 ## Siehe auch
 
-- Elemente, die sich auf Definitionslisten beziehen: {{HTMLElement("dl")}}, {{HTMLElement("dt")}}, {{HTMLElement("dd")}}
+- Elemente im Zusammenhang mit Definitionslisten: {{HTMLElement("dl")}}, {{HTMLElement("dt")}}, {{HTMLElement("dd")}}
 - {{HTMLElement("abbr")}}

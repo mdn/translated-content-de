@@ -1,13 +1,13 @@
 ---
-title: "SyntaxError: Die Anwendung des 'delete'-Operators auf einen unqualifizierten Namen ist veraltet"
+title: "SyntaxError: Das Anwenden des 'delete'-Operators auf einen unqualifizierten Namen ist veraltet"
 slug: Web/JavaScript/Reference/Errors/Delete_in_strict_mode
 l10n:
-  sourceCommit: d71b141d2d18b96639547856714df19cefacfebf
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-[Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)-ausgelöste Ausnahme "Die Anwendung des 'delete'-Operators auf einen unqualifizierten Namen ist veraltet" tritt auf, wenn versucht wird, Variablen mit dem [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator zu löschen.
+Die Ausnahme "Das Anwenden des 'delete'-Operators auf einen unqualifizierten Namen ist veraltet" im JavaScript-[Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) tritt auf, wenn versucht wird, Variablen mit dem [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator zu löschen.
 
 ## Nachricht
 
@@ -23,19 +23,19 @@ SyntaxError: Cannot delete unqualified property 'a' in strict mode. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Normale Variablen in JavaScript können mit dem [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator nicht gelöscht werden. Im Strict-Modus führt der Versuch, eine Variable zu löschen, zu einem Fehler und ist nicht erlaubt.
+Normale Variablen in JavaScript können nicht mit dem [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator gelöscht werden. Im Strict-Modus wird beim Versuch, eine Variable zu löschen, ein Fehler ausgelöst und es ist nicht erlaubt.
 
 Der `delete`-Operator kann nur Eigenschaften eines Objekts löschen. Objekteigenschaften sind "qualifiziert", wenn sie konfigurierbar sind.
 
-Entgegen der weit verbreiteten Annahme hat der `delete`-Operator **nichts** direkt mit der Freigabe von Speicher zu tun. Die Speicherverwaltung erfolgt indirekt durch das Entfernen von Referenzen, siehe die Seite zur [Speicherverwaltung](/de/docs/Web/JavaScript/Memory_management) und die Seite zum [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator für weitere Details.
+Entgegen der weit verbreiteten Annahme hat der `delete`-Operator **nichts** mit dem direkten Freigeben von Speicher zu tun. Das Speichermanagement erfolgt indirekt durch das Aufheben von Referenzen, siehe die Seite zum [Speichermanagement](/de/docs/Web/JavaScript/Guide/Memory_management) und die Seite zum [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator für weitere Details.
 
-Dieser Fehler tritt nur im [Strict-Modus-Code](/de/docs/Web/JavaScript/Reference/Strict_mode) auf. In nicht-striktem Code gibt die Operation einfach `false` zurück.
+Dieser Fehler tritt nur im [Strict-Mode-Code](/de/docs/Web/JavaScript/Reference/Strict_mode) auf. In nicht-striktem Code gibt die Operation einfach `false` zurück.
 
 ## Beispiele
 
-### Den Inhalt einer Variable freigeben
+### Den Inhalt einer Variablen freigeben
 
-Der Versuch, eine einfache Variable im Strict-Modus zu löschen, führt zu einem Fehler:
+Der Versuch, eine einfache Variable im Strict-Modus zu löschen, wirft einen Fehler:
 
 ```js-nolint example-bad
 "use strict";
@@ -67,5 +67,5 @@ x = null;
 ## Siehe auch
 
 - [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)
-- [Speicherverwaltung](/de/docs/Web/JavaScript/Memory_management)
+- [Speichermanagement](/de/docs/Web/JavaScript/Guide/Memory_management)
 - [TypeError: property "x" is non-configurable and can't be deleted](/de/docs/Web/JavaScript/Reference/Errors/Cant_delete)

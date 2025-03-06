@@ -2,12 +2,12 @@
 title: <mprescripts>
 slug: Web/MathML/Element/mprescripts
 l10n:
-  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{MathMLRef}}
 
-Das **`<mprescripts>`** [MathML](/de/docs/Web/MathML)-Element wird innerhalb eines {{ MathMLElement("mmultiscripts") }}-Elements verwendet, um den Beginn der Pre-Scripts-Elemente anzuzeigen (Indices und Hochzahlen, die **vor** dem Basis-Ausdruck platziert werden).
+Das **`<mprescripts>`** [MathML](/de/docs/Web/MathML) Element wird innerhalb eines {{ MathMLElement("mmultiscripts") }} Elements verwendet, um den Beginn der Pre-Skript-Elemente anzuzeigen (Indizes und Hochzahlen, die **vor** dem Basisausdruck platziert werden).
 
 ## Attribute
 
@@ -15,7 +15,7 @@ Dieses Element unterstützt [globale MathML-Attribute](/de/docs/Web/MathML/Globa
 
 ## Beispiel
 
-Das erste `<mmultiscripts>`-Kinder-Element wird ein Basis-Ausdruck. Die restlichen Kinder werden standardmäßig zu Post-Scripts-Elementen (a, b). `<mprescripts>` dient als Trennzeichen, und Kinder danach werden Pre-Scripts-Elemente (c, d).
+Das erste `<mmultiscripts>` Kind-Element wird zum Basisausdruck. Die verbleibenden Kinder werden standardmäßig zu Post-Skript-Elementen (a, b). `<mprescripts>` fungiert als Trennzeichen, und Kinder danach werden zu Pre-Skript-Elementen (c, d).
 
 ```css hidden
 html,
@@ -50,7 +50,7 @@ body {
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizierte ARIA-Rolle</a>
     </th>
     <td>
       Keine
@@ -69,5 +69,5 @@ body {
 ## Siehe auch
 
 - {{ MathMLElement("msub") }} (Index)
-- {{ MathMLElement("msup") }} (Hochzahl)
-- {{ MathMLElement("msubsup") }} (Index-Hochzahl-Paar)
+- {{ MathMLElement("msup") }} (Hochstellung)
+- {{ MathMLElement("msubsup") }} (Index-Hochstellungs-Paar)

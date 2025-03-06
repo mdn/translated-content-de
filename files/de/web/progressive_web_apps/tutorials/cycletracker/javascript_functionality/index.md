@@ -3,51 +3,51 @@ title: "CycleTracker: JavaScript-Funktionalität"
 short-title: JavaScript functionality
 slug: Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{PWASidebar}}
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection", "Web/Progressive_web_apps/Tutorials/CycleTracker", "Web/Progressive_web_apps/Tutorials/CycleTracker")}}
 
-Im vorhergehenden Abschnitt haben wir das HTML und CSS für CycleTracker geschrieben und eine statische Version unserer Web-App erstellt. In diesem Abschnitt werden wir das benötigte JavaScript schreiben, um das statische HTML in eine voll funktionsfähige Webanwendung zu verwandeln.
+Im vorherigen Abschnitt haben wir das HTML und CSS für CycleTracker geschrieben und eine statische Version unserer Web-App erstellt. In diesem Abschnitt werden wir das JavaScript schreiben, das benötigt wird, um das statische HTML in eine voll funktionsfähige Webanwendung zu verwandeln.
 
-Wenn Sie dies noch nicht getan haben, kopieren Sie das [HTML](https://github.com/mdn/pwa-examples/blob/main/cycletracker/javascript_functionality/index.html) und [CSS](https://github.com/mdn/pwa-examples/blob/main/cycletracker/javascript_functionality/style.css) und speichern Sie sie in Dateien namens `index.html` und `style.css`.
+Falls Sie dies noch nicht getan haben, kopieren Sie den [HTML](https://github.com/mdn/pwa-examples/blob/main/cycletracker/javascript_functionality/index.html) und das [CSS](https://github.com/mdn/pwa-examples/blob/main/cycletracker/javascript_functionality/style.css) und speichern Sie sie in Dateien mit den Namen `index.html` und `style.css`.
 
-Die letzte Zeile in der HTML-Datei ruft die JavaScript-Datei `app.js` auf. Dies ist das Skript, das wir in diesem Abschnitt erstellen. In dieser Lektion schreiben wir clientseitigen JavaScript-Code, um Formularübermittlungen zu erfassen, die übermittelten Daten lokal zu speichern und den Abschnitt für vergangene Perioden auszufüllen.
+Die letzte Zeile in der HTML-Datei ruft die `app.js`-JavaScript-Datei auf. Dies ist das Skript, das wir in diesem Abschnitt erstellen. In dieser Lektion werden wir clientseitigen JavaScript-Code schreiben, um Formularübermittlungen zu erfassen, die übermittelten Daten lokal zu speichern und den Abschnitt vergangene Perioden zu füllen.
 
-Am Ende dieser Lektion haben Sie eine voll funktionsfähige App. In zukünftigen Lektionen werden wir die App schrittweise verbessern, um eine voll installierbare PWA zu erstellen, die auch funktioniert, wenn der Benutzer offline ist.
+Am Ende dieser Lektion haben Sie eine voll funktionsfähige App. In zukünftigen Lektionen werden wir die App schrittweise erweitern, um eine vollständig installierbare PWA zu erstellen, die auch funktioniert, wenn der Benutzer offline ist.
 
 ## JavaScript-Aufgabe
 
-Wenn ein Benutzer die Seite besucht, überprüfen wir, ob er bereits vorhandene Daten im lokalen Speicher hat. Beim ersten Besuch eines neuen Benutzers gibt es noch keine Daten. Wenn ein neuer Benutzer zwei Daten auswählt und das Formular absendet, müssen wir:
+Wenn ein Benutzer die Seite besucht, überprüfen wir, ob bereits Daten im lokalen Speicher gespeichert sind. Beim ersten Besuch eines Benutzers auf der Seite sind keine Daten vorhanden. Wenn ein neuer Benutzer zwei Daten auswählt und das Formular übermittelt, müssen wir:
 
-1. Eine `<h2>Vergangene Perioden</h2>` Überschrift erstellen
-2. Ein {{HTMLelement("ul")}} anlegen
-3. Das `<ul>` mit einem einzigen {{HTMLelement("li")}} füllen, das Informationen über diesen Zyklus enthält
+1. Einen `<h2>Past periods</h2>`-Header erstellen
+2. Ein {{HTMLelement("ul")}} erstellen
+3. Das `<ul>` mit einem {{HTMLelement("li")}} füllen, das Informationen über diesen Zyklus enthält
 4. Die Daten im lokalen Speicher speichern
 
-Für jede weitere Formularübermittlung müssen wir:
+Bei jeder weiteren Formularübermittlung müssen wir:
 
-1. Den neuen Menstruationszyklus zur aktuellen Liste hinzufügen
-2. Die Liste in chronologischer Reihenfolge sortieren
-3. Das `<ul>` mit der neuen Liste neu füllen, ein `<li>` pro Zyklus
-4. Die Daten in unserem gespeicherten lokalen Speicher anhängen
+1. Den neuen Menstruationszyklus der aktuellen Liste hinzufügen
+2. Die Liste nach Datum sortieren
+3. Das `<ul>` mit der neuen Liste erneut füllen, ein `<li>` pro Zyklus
+4. Die Daten an unseren gespeicherten lokalen Speicher anhängen
 
-Bestehende Benutzer haben bereits Daten im lokalen Speicher. Wenn ein Benutzer mit demselben Browser auf demselben Gerät zurückkehrt, müssen wir:
+Bestehende Benutzer haben bereits Daten im lokalen Speicher. Wenn ein Benutzer mit demselben Browser auf demselben Gerät zurück auf unsere Webseite kommt, müssen wir:
 
 1. Die Daten aus dem lokalen Speicher abrufen
-2. Eine `<h2>Vergangene Perioden</h2>` Überschrift erstellen
-3. Ein {{HTMLelement("ul")}} anlegen
+2. Einen `<h2>Past periods</h2>`-Header erstellen
+3. Ein {{HTMLelement("ul")}} erstellen
 4. Das `<ul>` mit einem {{HTMLelement("li")}} für jeden im lokalen Speicher gespeicherten Menstruationszyklus füllen.
 
-Dies ist eine Demonstrationsanwendung für Anfänger. Das Ziel ist es, die Grundlagen der Umwandlung einer Webanwendung in eine PWA zu vermitteln. Diese Anwendung enthält nicht notwendige Funktionen wie Formularvalidierung, Fehlertests, Bearbeitungs- oder Löschfunktionen usw. Sie sind herzlich eingeladen, die behandelten Funktionen zu erweitern und die Lektion und Anwendungen an Ihre Lernziele und Anwendungsanforderungen anzupassen.
+Dies ist eine Anwendungsdemonstration für Anfänger. Das Ziel ist, die Grundlagen der Umwandlung einer Webanwendung in eine PWA zu lehren. Diese Anwendung enthält nicht notwendige Funktionen wie Formularvalidierung, Fehlerüberprüfung, Bearbeitungs- oder Löschfunktionen etc. Sie sind eingeladen, die behandelten Funktionen zu erweitern und die Lektion sowie die Anwendungen an Ihre Lernziele und Anwendungsbedürfnisse anzupassen.
 
 ## Formularübermittlung
 
-Die Seite enthält ein {{HTMLelement("form")}} mit Datumsauswahlfeldern zum Auswählen der Start- und Enddaten jedes Menstruationszyklus. Die Datumsauswahlfelder sind {{HTMLelement("input")}} vom Typ {{HTMLelement("input/date", "date")}} mit der [`id`](/de/docs/Web/HTML/Global_attributes/id) von `start-date` und `end-date` bzw.
+Die Seite enthält ein {{HTMLelement("form")}} mit Datumsauswahlen zur Auswahl der Start- und Enddaten jedes Menstruationszyklus. Die Datumsauswahlen sind {{HTMLElement("input")}} vom Typ {{HTMLElement("input/date", "date")}} mit der [`id`](/de/docs/Web/HTML/Global_attributes/id) `start-date` und `end-date`.
 
-Das Formular hat keine Methode oder Aktion. Stattdessen fügen wir dem Formular einen Event-Listener mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzu. Wenn der Benutzer versucht, das Formular abzuschicken, verhindern wir die Übermittlung des Formulars, speichern den neuen Menstruationszyklus, rendern diesen Zeitraum zusammen mit früheren Perioden und setzen dann das Formular zurück.
+Das Formular hat keine Methode und keine Aktion. Stattdessen fügen wir dem Formular einen Ereignislistener mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzu. Wenn der Benutzer versucht, das Formular zu übermitteln, verhindern wir die Übermittlung, speichern den neuen Menstruationszyklus, rendern diese Periode zusammen mit den vorherigen und setzen dann das Formular zurück.
 
 ```js
 // create constants for the form and the form controls
@@ -82,16 +82,16 @@ newPeriodFormEl.addEventListener("submit", (event) => {
 });
 ```
 
-Nachdem wir die Formularübermittlung mit [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) verhindert haben:
+Nachdem wir die Formularübermittlung mit [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) verhindert haben, werden wir:
 
-1. [Validieren wir die Benutzereingabe](#benutzereingabe_validieren); Beenden, wenn ungültig,
-2. speichern wir die neue Periode, indem wir die Daten in localStorage [abrufen, analysieren, anhängen, sortieren, in eine Zeichenkette umwandeln und erneut speichern](#retrieve_append_sort_and_re-store_data),
-3. [rendern wir die Formulardaten](#daten_auf_dem_bildschirm_rendern) zusammen mit den Daten früherer Menstruationszyklen und einem Abschnittsüberschrift, und
-4. setzen wir das Formular mit der HTMLFormElement-Methode [`reset()`](/de/docs/Web/API/HTMLFormElement/reset) zurück
+1. [Benutzereingaben validieren](#benutzereingaben_validieren); beenden, wenn ungültig,
+2. die neue Periode speichern, indem wir [Daten im localStorage abrufen, parsen, anhängen, sortieren, serialisieren und erneut speichern](#retrieve_append_sort_and_re-store_data),
+3. [die Formulardaten rendern](#daten_auf_dem_bildschirm_rendern) zusammen mit den Daten der vergangenen Menstruationszyklen und einem Abschnittsüberschrift, und
+4. das Formular mit der Methode [`reset()`](/de/docs/Web/API/HTMLFormElement/reset) des HTMLFormElement-Objekts zurücksetzen.
 
-### Benutzereingabe validieren
+### Benutzereingaben validieren
 
-Wir prüfen, ob die Daten ungültig sind. Wir führen nur minimale Fehlertests durch. Wir stellen sicher, dass kein Datum null ist, was das `required`-Attribut verhindern sollte. Wir überprüfen auch, dass das Startdatum nicht später als das Enddatum ist. Wenn ein Fehler auftritt, löschen wir das Formular.
+Wir prüfen, ob die Daten ungültig sind. Wir führen nur minimale Fehlerprüfung durch. Wir stellen sicher, dass kein Datum null ist, was das `required`-Attribut verhindern sollte. Wir überprüfen auch, dass das Startdatum nicht größer als das Enddatum ist. Wenn ein Fehler vorliegt, löschen wir das Formular.
 
 ```js
 function checkDatesInvalid(startDate, endDate) {
@@ -112,26 +112,26 @@ function checkDatesInvalid(startDate, endDate) {
 }
 ```
 
-In einer robusteren Version dieser App würden wir mindestens Fehlermeldungen einschließen, um den Benutzer über den Fehler zu informieren. Eine gute Anwendung würde den Benutzer darüber informieren, was der Fehler ist, den Fokus auf das fehlerhafte Formularsteuerelement legen und [ARIA Live-Bereiche](/de/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) verwenden, um assistive Technologiebenutzer auf den Fehler hinzuweisen.
+In einer robusteren Version dieser App würden wir mindestens Fehlermeldungen einfügen, die den Benutzer darüber informieren, dass ein Fehler vorliegt. Eine gute Anwendung würde den Benutzer darüber informieren, worin der Fehler besteht, den Fokus auf das betroffene Formularelement legen und [ARIA-Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) verwenden, um Benutzer von unterstützenden Technologien auf den Fehler aufmerksam zu machen.
 
 ## Lokaler Speicher
 
-Wir verwenden die [Web Storage API](/de/docs/Web/API/Web_Storage_API), speziell [window.localStorage](/de/docs/Web/API/Window/localStorage), um Start- und Enddatenpaare in einem als JSON-String formatierten Objekt zu speichern.
+Wir verwenden die [Web Storage API](/de/docs/Web/API/Web_Storage_API), insbesondere [window.localStorage](/de/docs/Web/API/Window/localStorage), um Start- und Enddatumspaare in einem JSON-Objekt als Zeichenfolge zu speichern.
 
-[LocalStorage](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Client-side_storage#storing_simple_data_—_web_storage) hat mehrere Einschränkungen, aber es reicht für die Bedürfnisse unserer App aus. Wir verwenden localStorage, um es einfach und clientseitig zu halten. Das bedeutet, dass die Daten nur in einem Browser auf einem einzigen Gerät gespeichert werden. Das Löschen der Browserdaten führt dazu, dass alle lokal gespeicherten Perioden ebenfalls verloren gehen. Was bei vielen Anwendungen als Einschränkung erscheinen mag, kann in diesem Fall ein Vorteil sein, da Menstruationszyklusdaten persönlich sind und Benutzer einer solchen App verständlicherweise über die Privatsphäre besorgt sein können.
+[localStorage](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Client-side_storage#storing_simple_data_—_web_storage) hat mehrere Einschränkungen, reicht aber für die Bedürfnisse unserer App aus. Wir verwenden localStorage, um das Ganze einfach und nur clientseitig zu halten. Das bedeutet, dass die Daten nur in einem Browser auf einem einzigen Gerät gespeichert werden. Das Löschen der Browerdaten führt auch zum Verlust aller lokal gespeicherten Perioden. Was für viele Anwendungen wie eine Einschränkung erscheint, kann im Fall dieser Anwendung ein Vorteil sein, da Menstruationszyklusdaten persönlich sind und der Benutzer einer solchen App durchaus berechtigt besorgt über die Privatsphäre sein kann.
 
-Für eine robustere Anwendung bieten andere [Client-Seitenspeicher](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Client-side_storage) Optionen wie [IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB) (IDB) und, wie später besprochen, Service Worker, eine bessere Leistung.
+Für eine robustere Anwendung haben andere [clientseitige Speicheroptionen](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Client-side_storage) wie [IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB) (IDB) und, weiter unten besprochen, Service Worker eine bessere Leistung.
 
-Einschränkungen von `localStorage` sind:
+Einschränkungen von `localStorage` beinhalten:
 
-- Begrenzte Datenspeicherung: `localStorage` ist auf 5 MB Daten pro Ursprung begrenzt. Unsere Speicheranforderungen sind viel geringer.
-- Speichert nur Zeichenketten: `localStorage` speichert Daten als Schlüsselpaar und Wertpaar als Zeichenkette. Unsere Start- und Enddaten werden als JSON-Objekt gespeichert, das als Zeichenkette analysiert wird. Für komplexere Daten wäre ein robusteres Speichermedium wie IDB erforderlich.
-- Kann schlechte Leistung verursachen: Das Abrufen und Einfügen in und aus dem lokalen Speicher erfolgt synchron im Hauptthread. Wenn der Hauptthread beschäftigt ist, sind Apps nicht reaktionsschnell und erscheinen eingefroren. Bei der begrenzten Natur dieser App ist dieser kurze Moment einer schlechten Benutzererfahrung vernachlässigbar.
-- Nur für den Hauptthread verfügbar: Neben den Leistungsproblemen, die durch die Besetzung des Hauptthreads entstehen, haben Service Worker keinen Zugriff auf den Hauptthread, was bedeutet, dass der Service Worker nicht direkt auf die lokalen Speicherdaten zugreifen kann.
+- Begrenzter Datenspeicher: `localStorage` ist auf 5 MB Daten pro Ursprung begrenzt. Unser Speicherbedarf ist viel geringer.
+- Speichert nur Zeichenfolgen: `localStorage` speichert Daten als Zeichenfolgenpaare von Schlüsseln und Werten. Unsere Start- und Enddaten werden als JSON-Objekt in Form einer Zeichenfolge gespeichert. Bei komplexeren Daten wäre ein robusteres Speichersystem wie IDB erforderlich.
+- Kann schlechte Leistung verursachen: Das Abrufen und Festlegen von Daten aus und in den lokalen Speicher erfolgt synchron im Hauptthread. Wenn der Hauptthread besetzt ist, sind Anwendungen nicht reaktionsfähig und erscheinen eingefroren. Bei der eingeschränkten Natur dieser App ist dieser kurze Ausfall der Benutzererfahrung vernachlässigbar.
+- Nur für den Hauptthread verfügbar: Zusätzlich zu den Leistungsproblemen der Hauptthread-Besetzung haben Service Worker keinen Zugriff auf den Hauptthread, was bedeutet, dass der Service Worker nicht direkt auf die lokalen Speicherdaten zugreifen oder sie setzen kann.
 
-### Daten abrufen, hinzufügen, sortieren und neu speichern
+### Daten abrufen, anhängen, sortieren und erneut speichern
 
-Da wir localStorage verwenden, das aus einem einzelnen Zeichenkettenwert besteht, rufen wir die JSON-Zeichenkette der Daten aus dem lokalen Speicher ab, analysieren die JSON-Daten (falls vorhanden), fügen das neue Paar von Daten zum vorhandenen Array hinzu, sortieren die Daten, analysieren das JSON-Objekt zurück in eine Zeichenkette und speichern diese Zeichenkette zurück in `localStorage`.
+Da wir localStorage verwenden, das aus einem einzelnen String besteht, rufen wir den JSON-String der Daten aus dem lokalen Speicher ab, parsen die JSON-Daten (falls vorhanden), fügen das neue Paar von Daten dem bestehenden Array hinzu, sortieren die Daten, konvertieren das JSON-Objekt zurück in einen String und speichern diesen String wieder in `localStorage`.
 
 Dieser Prozess erfordert die Erstellung einiger Funktionen:
 
@@ -170,17 +170,17 @@ function getAllStoredPeriods() {
 
 ## Daten auf dem Bildschirm rendern
 
-Der letzte Schritt unserer Anwendung besteht darin, die Liste vergangener Perioden zusammen mit einer Überschrift auf dem Bildschirm zu rendern.
+Der letzte Schritt unserer Anwendung besteht darin, die Liste der vergangenen Perioden zusammen mit einer Überschrift auf den Bildschirm zu rendern.
 
-In unserem HTML haben wir einen Platzhalter `<section id="past-periods">` hinzugefügt, um die Überschrift und die Liste vergangener Perioden zu enthalten.
+In unserem HTML haben wir einen Platzhalter `<section id="past-periods">` hinzugefügt, um die Überschrift und Liste der vergangenen Perioden zu enthalten.
 
-Fügen Sie das Containerelement am Anfang Ihres Skripts zur Liste der Inhalte hinzu.
+Fügen Sie das Containerelement zur Inhaltsliste am Anfang Ihres Skripts hinzu.
 
 ```js
 const pastPeriodContainer = document.getElementById("past-periods");
 ```
 
-Wir rufen die analysierte Zeichenkette vergangener Perioden oder ein leeres Array ab. Wenn es leer ist, beenden wir. Wenn frühere Perioden vorhanden sind, löschen wir den aktuellen Inhalt aus dem vergangenen Periodencontainer. Wir erstellen eine Überschrift und eine ungeordnete Liste. Wir durchlaufen die vergangenen Perioden und fügen Listenelemente hinzu, die formatierte Start- und Enddaten enthalten.
+Wir rufen den geparsten String der vergangenen Perioden ab oder ein leeres Array. Wenn es leer ist, beenden wir. Wenn vergangene Perioden existieren, löschen wir die aktuellen Inhalte aus dem Container der vergangenen Perioden. Wir erstellen eine Überschrift und eine ungeordnete Liste. Wir durchlaufen die vergangenen Perioden und fügen Listenelemente hinzu, die formatierte Von- und Bis-Daten enthalten.
 
 ```js
 function renderPastPeriods() {
@@ -223,9 +223,9 @@ function formatDate(dateString) {
 }
 ```
 
-### Früheren Perioden beim Laden rendern
+### Vergangene Perioden beim Laden rendern
 
-Wenn das verschobene JavaScript beim Laden der Seite ausgeführt wird, rendern wir, falls vorhanden, vergangene Perioden.
+Wenn das verzögerte JavaScript beim Laden der Seite ausgeführt wird, rendern wir vergangene Perioden, falls vorhanden.
 
 ```js
 // Start the app by rendering the past periods.
@@ -234,7 +234,7 @@ renderPastPeriods();
 
 ## Vollständiges JavaScript
 
-Ihre `app.js` Datei sollte diesem JavaScript ähneln:
+Ihre `app.js`-Datei sollte so ähnlich aussehen wie dieses JavaScript:
 
 ```js
 const newPeriodFormEl = document.getElementsByTagName("form")[0];
@@ -312,12 +312,12 @@ function formatDate(dateString) {
 renderPastPeriods();
 ```
 
-Sie können die voll funktionsfähige [CycleTracker Menstruationszyklus-Tracking Web-App](https://mdn.github.io/pwa-examples/cycletracker/javascript_functionality/) ausprobieren und den [Web-App-Quellcode](https://github.com/mdn/pwa-examples/tree/main/cycletracker/javascript_functionality) auf GitHub ansehen. Ja, sie funktioniert, aber sie ist noch keine PWA.
+Sie können die voll funktionsfähige [CycleTracker-Periodenverfolgung-Web-App](https://mdn.github.io/pwa-examples/cycletracker/javascript_functionality/) ausprobieren und den [Quellcode der Web-App](https://github.com/mdn/pwa-examples/tree/main/cycletracker/javascript_functionality) auf GitHub ansehen. Ja, es funktioniert, aber es ist noch keine PWA.
 
 ## Als nächstes
 
-Im Kern ist eine PWA eine Webanwendung, die installiert werden kann und schrittweise verbessert wird, um offline zu funktionieren. Jetzt, da wir eine voll funktionsfähige Webanwendung haben, fügen wir die erforderlichen Funktionen hinzu, um sie in eine PWA zu konvertieren, einschließlich der [Manifestdatei](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file), [sichere Verbindung](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection) und [Service Worker](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers).
+Im Kern ist eine PWA eine Webanwendung, die installiert werden kann und schrittweise so verbessert wird, dass sie offline funktioniert. Da wir jetzt eine voll funktionsfähige Web-Anwendung haben, fügen wir die Funktionen hinzu, die erforderlich sind, um sie in eine PWA zu konvertieren, einschließlich der [manifest file](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file), [sichere Verbindung](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection) und [Service Worker](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers).
 
-Zuerst erstellen wir die [Manifestdatei von CycleTracker](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file), einschließlich der Identität, des Erscheinungsbildes und der Ikonographie für unsere CycleTracker PWA.
+Zuerst erstellen wir die [Manifestdatei von CycleTracker](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file), einschließlich der Identität, des Aussehens und der Ikonografie für unsere CycleTracker-PWA.
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/CycleTracker/HTML_and_CSS", "Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file", "Web/Progressive_web_apps/Tutorials/CycleTracker")}}

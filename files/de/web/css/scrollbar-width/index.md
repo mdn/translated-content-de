@@ -2,17 +2,17 @@
 title: scrollbar-width
 slug: Web/CSS/scrollbar-width
 l10n:
-  sourceCommit: 57cfc73ac05802d7e7bc78ceed4fe7a207323946
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{CSSRef}}
 
-Die **`scrollbar-width`** Eigenschaft ermöglicht es dem Autor, die gewünschte Dicke der Scrollleisten eines Elements festzulegen, wenn sie angezeigt werden.
+Die **`scrollbar-width`**-Eigenschaft ermöglicht es dem Autor, die gewünschte Dicke der Bildlaufleisten eines Elements festzulegen, wenn sie angezeigt werden.
 
-Der Zweck von `scrollbar-width` liegt darin, den von der Scrollleiste auf einer Seite oder einem Element eingenommenen Platz zu optimieren; das Ziel ist nicht mit dem Aussehen der Scrollleiste verbunden. Die vordefinierten Schlüsselwortwerte von `scrollbar-width` geben dem User-Agent an, ob eine normale oder kleinere Scrollleiste angezeigt werden soll. Vermeiden Sie die Verwendung von `none`, da das Ausblenden einer Scrollleiste sich negativ auf die [Zugänglichkeit](#zugänglichkeit) auswirkt.
+Der Zweck von `scrollbar-width` besteht darin, den von der Bildlaufleiste auf einer Seite oder einem Element belegten Platz zu optimieren; der Zweck ist nicht mit der Ästhetik der Bildlaufleiste verbunden. Die vordefinierten Schlüsselwortwerte von `scrollbar-width` geben dem Benutzeragenten an, ob eine normale oder kleinere Bildlaufleiste gerendert werden soll. Vermeiden Sie die Verwendung von `none`, da das Ausblenden einer Bildlaufleiste sich negativ auf die [Zugänglichkeit](#zugänglichkeit) auswirkt.
 
 > [!NOTE]
-> Für Elemente, die nur programmgesteuert und nicht durch direkte Benutzerinteraktion gescrollt werden können, verwenden Sie die {{cssxref("overflow")}}-Eigenschaft mit einem Wert von `hidden` anstelle von `scrollbar-width: none`.
+> Für Elemente, die nur über programmatische Mittel und nicht durch direkte Benutzerinteraktion scrollbar sind, verwenden Sie die {{cssxref("overflow")}}-Eigenschaft mit einem Wert von `hidden` anstelle von `scrollbar-width: none`.
 
 ## Syntax
 
@@ -33,25 +33,25 @@ scrollbar-width: unset;
 ### Werte
 
 - `auto`
-  - : Die Standardbreite der Scrollleiste für die Plattform.
+  - : Die standardmäßige Bildlaufleistenbreite für die Plattform.
 - `thin`
-  - : Eine dünne Scrollleistenvariante auf Plattformen, die diese Option unterstützen, oder eine dünnere Scrollleiste als die Standardplattformbreite.
+  - : Eine dünne Bildlaufleistenbreitenvariante auf Plattformen, die diese Option bieten, oder eine dünnere Bildlaufleiste als die standardmäßige Bildlaufleistenbreite der Plattform.
 - `none`
-  - : Keine Scrollleiste wird angezeigt, das Element bleibt jedoch scrollbar.
+  - : Keine Bildlaufleiste wird angezeigt, das Element bleibt jedoch scrollbar.
 
 > [!NOTE]
-> User Agents müssen jeden `scrollbar-width` Wert, der auf dem Root-Element gesetzt ist, auf den Viewport anwenden.
+> Benutzeragenten müssen jeden auf das Wurzelelement angewandten `scrollbar-width`-Wert auf das Ansichtsfenster anwenden.
 
 ## Zugänglichkeit
 
-Verwenden Sie diese Eigenschaft mit Vorsicht – das Setzen von `scrollbar-width` auf `thin` oder `none` kann das Scrollen von Inhalten erschweren oder unmöglich machen, wenn der Autor keinen alternativen Scroll-Mechanismus bereitstellt. Obwohl Wischgesten oder Mausräder das Scrollen solcher Inhalte ermöglichen können, haben einige Geräte keine alternative Scrolloption.
+Verwenden Sie diese Eigenschaft mit Vorsicht — das Setzen von `scrollbar-width` auf `thin` oder `none` kann es schwierig oder unmöglich machen, Inhalte zu scrollen, wenn der Autor keine alternative Scrollmethode bereitstellt. Während Wischgesten oder Mausräder das Scrollen solcher Inhalte ermöglichen können, haben einige Geräte keine alternative Scrollmöglichkeit.
 
-Das WCAG-Kriterium 2.1.1 (Tastatur) ist seit langem vorhanden, um auf grundlegende Tastaturzugänglichkeit hinzuweisen, und dies sollte das Scrollen von Inhaltsbereichen umfassen. Und eingeführt in WCAG 2.1, rät Kriterium 2.5.5 (Zielgröße), dass Berührungsziele mindestens 44px in Breite und Höhe betragen sollten (obwohl das Problem auf hochauflösenden Bildschirmen verstärkt wird; gründliche Tests werden empfohlen).
+Das WCAG-Kriterium 2.1.1 (Tastatur) gibt es schon lange, um auf grundlegende Tastaturzugänglichkeit hinzuweisen, und dies sollte auch das Scrollen von Inhaltsbereichen umfassen. Im WCAG 2.1 eingeführt, empfiehlt das Kriterium 2.5.5 (Zielgröße), dass Berührungsziele mindestens 44px breit und hoch sein sollten (obwohl das Problem auf hochauflösenden Bildschirmen verschärft wird; gründliches Testen wird empfohlen).
 
-- [MDN Verstehen von WCAG, Richtlinie 2.1 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.1_—_keyboard_accessible_make_all_functionality_available_from_a_keyboard)
-- [MDN Verstehen von WCAG, Richtlinie 2.5 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.5_input_modalities_make_it_easier_for_users_to_operate_functionality_through_various_inputs_beyond_keyboard)
-- [Verstehen des Erfolgskriteriums 2.1.1 | W3C Verständnis von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/keyboard)
-- [Verstehen des Erfolgskriteriums 2.5.5 | W3C Verständnis von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
+- [MDN Verständnis von WCAG, Erläuterungen zu Richtlinie 2.1](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.1_—_keyboard_accessible_make_all_functionality_available_from_a_keyboard)
+- [MDN Verständnis von WCAG, Erläuterungen zu Richtlinie 2.5](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.5_input_modalities_make_it_easier_for_users_to_operate_functionality_through_various_inputs_beyond_keyboard)
+- [Verständnis von Erfolgskriterium 2.1.1 | W3C Verständnis von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/keyboard)
+- [Verständnis von Erfolgskriterium 2.5.5 | W3C Verständnis von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
 
 ## Formale Definition
 
@@ -63,7 +63,7 @@ Das WCAG-Kriterium 2.1.1 (Tastatur) ist seit langem vorhanden, um auf grundlegen
 
 ## Beispiele
 
-### Größenanpassung von Überlauf-Scrollleisten
+### Größenanpassung von Überlauf-Bildlaufleisten
 
 #### CSS
 
@@ -102,8 +102,8 @@ Das WCAG-Kriterium 2.1.1 (Tastatur) ist seit langem vorhanden, um auf grundlegen
 
 ## Siehe auch
 
-- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Scrollleisten-Styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
+- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS Bildlaufleisten-Styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
 - {{CSSxRef("overflow")}}
 - {{CSSxRef("scrollbar-gutter")}}
 - {{CSSxRef("scrollbar-color")}}

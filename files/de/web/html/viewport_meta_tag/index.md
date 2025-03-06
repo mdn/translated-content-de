@@ -2,76 +2,76 @@
 title: Viewport-Meta-Tag
 slug: Web/HTML/Viewport_meta_tag
 l10n:
-  sourceCommit: f35733893f8c17dcbf8e9d5cf2551f6fb1cbecd5
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Dieser Artikel beschreibt, wie der "viewport" `<meta>`-Tag verwendet wird, um die Größe und Form des Viewports zu steuern.
+Dieser Artikel beschreibt, wie Sie das "viewport" `<meta>`-Tag verwenden, um die Größe und Form des Viewports zu steuern.
 
 ## Hintergrund
 
-Der {{Glossary("viewport", "Viewport")}} eines Browsers ist der Bereich des Fensters, in dem Webinhalte sichtbar sind. Dies entspricht oft nicht der Größe der gerenderten Seite, in welchem Fall der Browser Scrollleisten bereitstellt, damit der Benutzer umherschwenken und alle Inhalte zugänglich machen kann.
+Der {{Glossary("viewport", "Viewport")}} des Browsers ist der Bereich des Fensters, in dem Webinhalte sichtbar sind. Dieser ist oft nicht gleich groß wie die gerenderte Seite, in diesem Fall stellt der Browser Scrollleisten bereit, damit der Benutzer durch die Inhalte navigieren kann.
 
-Einige mobile Geräte und andere schmale Bildschirme rendern Seiten in einem virtuellen Fenster oder Viewport, das normalerweise breiter als der Bildschirm ist, und verkleinern dann das gerenderte Ergebnis, sodass alles auf einmal gesehen werden kann. Benutzer können dann zoomen und schwenken, um verschiedene Bereiche der Seite genauer zu betrachten. Beispielsweise, wenn ein Handybildschirm eine Breite von 640px hat, könnten Seiten mit einem virtuellen Viewport von 980px gerendert und dann auf den 640px Raum verkleinert werden.
+Einige mobile Geräte und andere schmale Bildschirme rendern Seiten in einem virtuellen Fenster oder Viewport, der in der Regel breiter als der Bildschirm ist, und verkleinern dann das gerenderte Ergebnis, damit alles auf einmal sichtbar ist. Benutzer können dann heranzoomen und den Inhalt genauer ansehen. Zum Beispiel, wenn ein mobiler Bildschirm eine Breite von 640px hat, könnten Seiten mit einem virtuellen Viewport von 980px gerendert werden, und dann wird es verkleinert, um in den 640px-Bereich zu passen.
 
-Dies geschieht, weil nicht alle Seiten für mobile Geräte optimiert sind und brechen (oder zumindest schlecht aussehen), wenn sie bei einer kleinen Viewport-Breite gerendert werden. Dieser virtuelle Viewport ist eine Möglichkeit, nicht für mobile Geräte optimierte Seiten auf Geräten mit schmalem Bildschirm besser aussehen zu lassen.
+Dies wird gemacht, weil nicht alle Seiten für mobile Geräte optimiert sind und brechen (oder zumindest schlecht aussehen), wenn sie bei einer kleinen Viewport-Breite gerendert werden. Dieser virtuelle Viewport ist eine Möglichkeit, nicht für Mobilgeräte optimierte Seiten allgemein auf schmalen Bildschirmen besser aussehen zu lassen.
 
-Dieser Mechanismus ist jedoch nicht sehr gut für Seiten, die mit [Media Queries](/de/docs/Web/CSS/CSS_media_queries) für schmale Bildschirme optimiert sind – wenn der virtuelle Viewport beispielsweise 980px beträgt, werden Media Queries, die bei 640px oder 480px oder weniger ausgelöst werden, nie verwendet, was die Effektivität solcher responsiven Designtechniken einschränkt. Das Viewport-`<meta>`-Element mildert dieses Problem des virtuellen Viewports auf Geräten mit schmalem Bildschirm.
+Dieses Verfahren ist jedoch nicht so gut für Seiten, die für schmale Bildschirme mit [Media Queries](/de/docs/Web/CSS/CSS_media_queries) optimiert sind — Wenn der virtuelle Viewport beispielsweise 980px beträgt, werden Media Queries, die bei 640px oder 480px oder weniger greifen, nie verwendet, was die Effektivität solcher responsiven Designtechniken einschränkt. Das Viewport-`<meta>`-Element mindert dieses Problem des virtuellen Viewports auf Geräten mit schmalen Bildschirmen.
 
-## Viewport-Grundlagen
+## Grundlagen des Viewports
 
-Der Viewport ist eine kommagetrennte Liste von Merkmal- und Wertpaaren. Eine typische mobile-optimierte Seite enthält etwa Folgendes:
+Der Viewport ist eine durch Kommas getrennte Liste von Funktions- und Wertpaaren. Eine typisch mobil optimierte Seite enthält etwa Folgendes:
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 ```
 
-Nicht alle Geräte sind gleich breit; Sie sollten sicherstellen, dass Ihre Seiten in einer großen Variation von Bildschirmgrößen und -orientierungen gut funktionieren.
+Nicht alle Geräte haben die gleiche Breite; Sie sollten sicherstellen, dass Ihre Seiten gut für eine große Bandbreite von Bildschirmgrößen und -orientierungen funktionieren.
 
 Die grundlegenden Attribute des "viewport"-`<meta>`-Elements umfassen:
 
 - `width`
-  - : Steuert die (Mindest-)Größe des Viewports (siehe [Viewport-Breite und Bildschirmbreite](#viewport-breite_und_bildschirmbreite)). Es kann auf eine bestimmte Anzahl von Pixeln wie `width=600` oder auf den speziellen Wert `device-width` gesetzt werden, was die physische Größe des Bildschirmgeräts in CSS-Pixeln ist. Dieser Wert legt den Wert der [`vw`](/de/docs/Web/CSS/length#relative_length_units_based_on_viewport)-Einheit fest. Minimum: `1`. Maximum: `10000`. Negative Werte: ignoriert.
+  - : Steuert die (Mindest-)Größe des Viewports (siehe [Viewport-Breite und Bildschirmbreite](#viewport-breite_und_bildschirmbreite)). Es kann auf eine bestimmte Anzahl von Pixeln wie `width=600` oder auf den speziellen Wert `device-width` gesetzt werden, was die physische Größe des Geräts in CSS-Pixeln darstellt. Dieser Wert bestimmt den Wert der [`vw`](/de/docs/Web/CSS/length#relative_length_units_based_on_viewport)-Einheit. Minimum: `1`. Maximum: `10000`. Negative Werte: ignoriert.
 - `height`
-  - : Steuert die (Mindest-)Größe des Viewports (siehe [Viewport-Breite und Bildschirmbreite](#viewport-breite_und_bildschirmbreite)). Es kann auf eine bestimmte Anzahl von Pixeln wie `height=400` oder auf den speziellen Wert `device-height` gesetzt werden, was die physische Größe des Bildschirmgeräts in CSS-Pixeln ist. Dieser Wert legt den Wert der [`vh`](/de/docs/Web/CSS/length#relative_length_units_based_on_viewport)-Einheit fest. Minimum: `1`. Maximum: `10000`. Negative Werte: ignoriert.
+  - : Steuert die (Mindest-)Größe des Viewports (siehe [Viewport-Breite und Bildschirmbreite](#viewport-breite_und_bildschirmbreite)). Es kann auf eine bestimmte Anzahl von Pixeln wie `height=400` oder auf den speziellen Wert `device-height` gesetzt werden, was die physische Größe des Geräts in CSS-Pixeln darstellt. Dieser Wert bestimmt den Wert der [`vh`](/de/docs/Web/CSS/length#relative_length_units_based_on_viewport)-Einheit. Minimum: `1`. Maximum: `10000`. Negative Werte: ignoriert.
 - `initial-scale`
-  - : Steuert den Zoomfaktor, wenn die Seite zuerst geladen wird. Minimum: `0.1`. Maximum: `10`. Standard: `1`. Negative Werte: ignoriert.
+  - : Steuert die Zoomstufe, wenn die Seite zum ersten Mal geladen wird. Minimum: `0.1`. Maximum: `10`. Standard: `1`. Negative Werte: ignoriert.
 - `minimum-scale`
-  - : Steuert, wie weit Herauszoomen auf der Seite erlaubt ist. Minimum: `0.1`. Maximum: `10`. Standard: `0.1`. Negative Werte: ignoriert.
+  - : Steuert, wie weit herausgezoomt auf der Seite erlaubt ist. Minimum: `0.1`. Maximum: `10`. Standard: `0.1`. Negative Werte: ignoriert.
 - `maximum-scale`
-  - : Steuert, wie weit Hineinzoomen auf der Seite erlaubt ist. Jeder Wert unter 3 erschwert die Barrierefreiheit. Minimum: `0.1`. Maximum: `10`. Standard: `10`. Negative Werte: ignoriert.
+  - : Steuert, wie weit hineingezoomt auf der Seite erlaubt ist. Jeder Wert unter 3 scheitert an Barrierefreiheit. Minimum: `0.1`. Maximum: `10`. Standard: `10`. Negative Werte: ignoriert.
 - `user-scalable`
-  - : Steuert, ob Zoomaktionen auf der Seite erlaubt sind. Gültige Werte: `0`, `1`, `yes`, oder `no`. Standard: `1`, was dasselbe wie `yes` ist. Einen Wert von `0` festzulegen, was dasselbe wie `no` ist, verstößt gegen die Web Content Accessibility Guidelines (WCAG).
+  - : Steuert, ob Aktionen zum Ein- und Auszoomen auf der Seite erlaubt sind. Gültige Werte: `0`, `1`, `yes`, oder `no`. Standard: `1`, was dem Wert `yes` entspricht. Den Wert `0` zu setzen, was dem Wert `no` entspricht, verstößt gegen die Web Content Accessibility Guidelines (WCAG).
 - `interactive-widget`
-  - : Gibt an, welche Auswirkungen interaktive UI-Widgets, wie z.B. eine virtuelle Tastatur, auf den Viewport der Seite haben. Gültige Werte: `resizes-visual`, `resizes-content`, oder `overlays-content`. Standard: `resizes-visual`.
+  - : Gibt den Effekt an, den interaktive UI-Widgets, wie z. B. eine virtuelle Tastatur, auf die Viewports der Seite haben. Gültige Werte: `resizes-visual`, `resizes-content`, oder `overlays-content`. Standard: `resizes-visual`.
 
 > [!WARNING]
-> Die Verwendung von `user-scalable=no` kann Barrierefreiheitsprobleme für Benutzer mit Sehbeeinträchtigungen wie geringer Sehschärfe verursachen. [WCAG](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) verlangt mindestens eine 2×-Vergrößerung; jedoch ist es am besten, eine 5×-Vergrößerung zu ermöglichen.
+> Die Nutzung von `user-scalable=no` kann Barriereprobleme für Benutzer mit Sehbehinderungen wie niedrigem Sehvermögen verursachen. [WCAG](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) erfordert ein Minimum von 2×-Skalierung; die beste Praxis ist jedoch, eine 5×-Vergrößerung zu ermöglichen.
 
 ## Bildschirmdichte
 
-Die Bildschirmauflösungen sind so weit gestiegen, dass einzelne Pixel mit dem menschlichen Auge nicht mehr zu unterscheiden sind. Smartphones haben beispielsweise oft kleine Bildschirme mit Auflösungen von mehr als 1920–1080 Pixeln (≈400dpi). Daher können viele Browser ihre Seiten in kleinerer physischer Größe anzeigen, indem sie mehrere Hardware-Pixel für jedes CSS-"Pixel" verwenden. Anfangs verursachte dies Nutzbarkeits- und Lesbarkeitsprobleme auf vielen Touch-optimierten Websites.
+Die Bildschirmauflösung ist mittlerweile so hoch, dass einzelne Pixel mit dem menschlichen Auge nicht mehr unterscheidbar sind. Smartphones haben oft kleine Bildschirme mit Auflösungen von über 1920–1080 Pixeln (≈400dpi). Aus diesem Grund können viele Browser ihre Seiten in einer kleineren physischen Größe anzeigen, indem sie mehrere Hardware-Pixel für jedes CSS-"Pixel" übersetzen. Anfangs verursachte dies Probleme mit der Benutzerfreundlichkeit und Lesbarkeit auf vielen touch-optimierten Websites.
 
-Auf Bildschirmen mit hoher DPI werden Seiten mit `initial-scale=1` effektiv von Browsern vergrößert. Ihr Text wird glatt und scharf sein, aber ihre Bitmap-Bilder nutzen möglicherweise nicht die volle Bildschirmauflösung. Um auf diesen Bildschirmen schärfere Bilder zu erhalten, möchten Webentwickler möglicherweise Bilder – oder ganze Layouts – in einem höheren Maßstab als ihre endgültige Größe entwerfen und sie dann mit CSS- oder Viewport-Eigenschaften verkleinern.
+Auf Bildschirmen mit hoher dpi werden Seiten mit `initial-scale=1` von Browsern effektiv vergrößert. Der Text ist glatt und scharf, aber ihre Bitmap-Bilder nutzen möglicherweise nicht die volle Bildschirmauflösung aus. Um schärfere Bilder auf diesen Bildschirmen zu erhalten, möchten Webentwickler möglicherweise Bilder – oder ganze Layouts – in einer höheren Skalierung als ihre endgültige Größe entwerfen und sie dann mit CSS oder Viewport-Eigenschaften verkleinern.
 
-Das Standard-Pixelverhältnis hängt von der Anzeigedichte ab. Bei einer Anzeige mit einer Dichte von weniger als 200dpi beträgt das Verhältnis 1.0. Bei Anzeigen mit Dichte zwischen 200 und 300dpi beträgt das Verhältnis 1.5. Bei Anzeigen mit einer Dichte von mehr als 300dpi beträgt das Verhältnis den gerundeten Boden (_Dichte_/150dpi). Beachten Sie, dass das Standard-Verhältnis nur dann zutrifft, wenn der Viewport-Skalierungsfaktor 1 beträgt. Andernfalls hängt die Beziehung zwischen CSS-Pixeln und {{Glossary("device_pixel", "Geräte-Pixeln")}} vom aktuellen Zoomlevel ab.
+Das Standard-Display-Verhältnis hängt von der Bildschirmdichte ab. Bei einem Display mit einer Dichte von weniger als 200dpi beträgt das Verhältnis 1,0. Bei Displays mit Dichte zwischen 200 und 300dpi beträgt das Verhältnis 1,5. Für Displays mit einer Dichte von über 300dpi beträgt das Verhältnis das nächste kleinere Ganzzahlverhältnis (_Dichte_/150dpi). Beachten Sie, dass das Standard-Verhältnis nur dann zutrifft, wenn die Viewport-Skalierung gleich 1 ist. Ansonsten hängt die Beziehung zwischen CSS-Pixeln und {{Glossary("device_pixel", "Geräte-Pixeln")}} vom aktuellen Zoomlevel ab.
 
 ## Viewport-Breite und Bildschirmbreite
 
-Seiten können ihren Viewport auf eine bestimmte Größe setzen. Zum Beispiel kann die Definition `"width=320, initial-scale=1"` verwendet werden, um genau auf eine kleine Handyanzeige im Hochformat zu passen. Dies kann Probleme verursachen, wenn der Browser eine Seite in einer größeren Größe rendert. Um dies zu beheben, erweitern Browser die Viewport-Breite bei Bedarf, um den Bildschirm bei der angeforderten Skalierung auszufüllen. Dies ist besonders nützlich auf Geräten mit großem Bildschirm.
+Websites können ihren Viewport auf eine bestimmte Größe setzen. Zum Beispiel kann die Definition `"width=320, initial-scale=1"` verwendet werden, um genau auf ein kleines Telefondisplay im Hochformat zu passen. Dies kann Probleme verursachen, wenn der Browser eine Seite in größerer Größe rendert. Um dies zu beheben, werden Browser die Viewport-Breite bei Bedarf erweitern, um den Bildschirm bei der gewünschten Skala zu füllen. Dies ist besonders nützlich auf Geräten mit großem Bildschirm.
 
-Für Seiten, die einen anfänglichen oder maximalen Skalierungswert setzen, bedeutet dies, dass die `width`-Eigenschaft tatsächlich in eine _minimale_ Viewport-Breite übersetzt wird. Wenn Ihr Layout beispielsweise mindestens 500 Pixel Breite benötigt, dann können Sie das folgende Markup verwenden. Wenn der Bildschirm mehr als 500 Pixel breit ist, erweitert der Browser den Viewport (anstatt hineinzuzoomen), um den Bildschirm auszufüllen:
+Für Seiten, die eine anfängliche oder maximale Skala festlegen, bedeutet dies, dass die `width`-Eigenschaft tatsächlich in eine \_Mindest-\_Viewport-Breite übersetzt. Zum Beispiel, wenn Ihr Layout mindestens 500 Pixel Breite benötigt, können Sie das folgende Markup verwenden. Wenn der Bildschirm mehr als 500 Pixel breit ist, wird der Browser den Viewport erweitern (anstatt heranzuzoomen), um den Bildschirm auszufüllen:
 
 ```html
 <meta name="viewport" content="width=500, initial-scale=1" />
 ```
 
-Andere [Attribute](/de/docs/Web/HTML/Element/meta#attributes), die verfügbar sind, sind `minimum-scale`, `maximum-scale` und `user-scalable`. Diese Eigenschaften beeinflussen die Anfangsskalierung und Breite sowie die Begrenzung der Änderungen des Zoomlevels.
+Andere [Attribute](/de/docs/Web/HTML/Element/meta#attributes), die verfügbar sind, sind `minimum-scale`, `maximum-scale` und `user-scalable`. Diese Eigenschaften beeinflussen die anfängliche Skalierung und Breite sowie die Begrenzung der Zoom-Ebene-Änderungen.
 
-## Die Auswirkung interaktiver UI-Widgets
+## Der Effekt von interaktiven UI-Widgets
 
-Interaktive UI-Widgets des Browsers können die Größe der Viewports einer Seite beeinflussen. Das häufigste dieser UI-Widgets ist eine virtuelle Tastatur. Um zu steuern, welches Verhaltensmodell der Browser verwenden soll, setzen Sie die `interactive-widget`-Eigenschaft.
+Interaktive UI-Widgets des Browsers können die Größe der Viewports der Seite beeinflussen. Das häufigste solcher UI-Widgets ist eine virtuelle Tastatur. Um zu steuern, welches Resize-Verhalten der Browser verwenden soll, setzen Sie die Eigenschaft `interactive-widget`.
 
 Erlaubte Werte sind:
 
@@ -86,11 +86,11 @@ Erlaubte Werte sind:
 <meta name="viewport" content="interactive-widget=resizes-content" />
 ```
 
-Wenn der {{Glossary("viewport", "Viewport")}} verändert wird, wird auch der anfängliche [containing block](/de/docs/Web/CSS/CSS_display/Containing_block) verändert, wodurch die berechnete Größe von [Viewport-Einheiten](/de/docs/Web/CSS/length#relative_length_units_based_on_viewport) beeinflusst wird.
+Wenn der {{Glossary("viewport", "Viewport")}} geändert wird, wird auch der anfängliche [umschließende Block](/de/docs/Web/CSS/CSS_display/Containing_block) geändert, was die berechnete Größe von [Viewport-Einheiten](/de/docs/Web/CSS/length#relative_length_units_based_on_viewport) beeinflusst.
 
-## Gängige Viewport-Größen für Mobilgeräte und Tablets
+## Übliche Viewport-Größen für Mobil- und Tablet-Geräte
 
-Wenn Sie wissen möchten, welche Mobilgeräte und Tablets welche Viewport-Breiten haben, gibt es eine umfassende Liste der [Viewport-Größen für Mobilgeräte und Tablets hier](https://experienceleague.adobe.com/en/docs/target/using/experiences/vec/mobile-viewports). Diese gibt Informationen wie Viewport-Breite in Hoch-und Querformat sowie physische Bildschirmgröße, Betriebssystem und die Pixeldichte des Geräts.
+Wenn Sie wissen möchten, welche mobilen und Tablet-Geräte welche Viewport-Breiten haben, gibt es eine umfassende Liste von [Viewport-Größen für Mobil- und Tablet-Geräte hier](https://experienceleague.adobe.com/en/docs/target/using/experiences/vec/mobile-viewports). Diese gibt Informationen wie Viewport-Breite im Hoch- und Querformat sowie physische Bildschirmgröße, Betriebssystem und die Pixeldichte des Geräts.
 
 ## Spezifikationen
 
@@ -98,4 +98,4 @@ Wenn Sie wissen möchten, welche Mobilgeräte und Tablets welche Viewport-Breite
 
 ## Siehe auch
 
-- Artikel: [Vorbereiten auf Änderungen des Viewport-Resize-Verhaltens in Chrome auf Android](https://developer.chrome.com/blog/viewport-resize-behavior/)
+- Artikel: [Bereiten Sie sich auf Änderungen des Viewport-Resize-Verhaltens im Chrome-Browser auf Android vor](https://developer.chrome.com/blog/viewport-resize-behavior/)

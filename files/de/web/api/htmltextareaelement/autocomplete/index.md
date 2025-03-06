@@ -1,18 +1,18 @@
 ---
-title: "HTMLTextAreaElement: autocomplete Eigenschaft"
+title: "HTMLTextAreaElement: autocomplete-Eigenschaft"
 short-title: autocomplete
 slug: Web/API/HTMLTextAreaElement/autocomplete
 l10n:
-  sourceCommit: 050bcdba594e759c0a4dde172de5d334f5a3b20f
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`autocomplete`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt an, ob der Wert des Steuerelements vom Browser automatisch vervollständigt werden kann. Sie spiegelt das [`autocomplete`](/de/docs/Web/HTML/Element/textarea#autocomplete)-Attribut des `<textarea>`-Elements wider.
+Die **`autocomplete`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt an, ob der Wert des Steuerungselements automatisch vom Browser vervollständigt werden kann. Sie spiegelt das `autocomplete`-Attribut des `<textarea>`-Elements wider.
 
 ## Wert
 
-Ein String, der den Wert des `autocomplete`-Attributs darstellt (`"on"`, `"off"` oder eine [`<token-list>`](/de/docs/Web/HTML/Attributes/autocomplete#token_list_tokens)) oder der leere String (`""`), wenn nicht angegeben.
+Ein String, der den Wert des `autocomplete`-Attributs darstellt (`"on"`, `"off"`, oder eine [`<token-list>`](/de/docs/Web/HTML/Attributes/autocomplete#token_list_tokens)) oder der leere String (`""`), wenn nicht spezifiziert.
 
 ## Beispiele
 
@@ -32,6 +32,6 @@ console.log(textArea.autocomplete);
 ## Siehe auch
 
 - {{HTMLElement("textarea")}}
-- HTML-Attribut [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)
-- ARIA-Attribut [`aria-autocomplete`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete)
-- [Deaktivierung der automatischen Vervollständigung](/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion)
+- HTML-`autocomplete`-Attribut
+- ARIA-`aria-autocomplete`-Attribut
+- [Deaktivierung von Autovervollständigung](/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion)

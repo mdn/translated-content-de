@@ -1,58 +1,58 @@
 ---
-title: Verwenden von Microtasks in JavaScript mit queueMicrotask()
+title: Verwendung von Microtasks in JavaScript mit queueMicrotask()
 slug: Web/API/HTML_DOM_API/Microtask_guide
 l10n:
-  sourceCommit: e5a5e115ca1fb1019884a78a919a10c191954e1d
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{DefaultAPISidebar("HTML DOM")}}
 
-Eine **Microtask** ist eine kurze Funktion, die ausgeführt wird, nachdem die Funktion oder das Programm, das sie erstellt hat, beendet ist _und_ nur, wenn der [JavaScript-Ausführungsstapel](/de/docs/Web/JavaScript/Event_loop#stack) leer ist, jedoch bevor die Kontrolle an die vom {{Glossary("user_agent", "User-Agent")}} verwendete Ereignisschleife zurückgegeben wird, die die Ausführungsumgebung des Skripts steuert.
+Ein **Microtask** ist eine kurze Funktion, die nach dem Verlassen der Funktion oder des Programms, das ihn erstellt hat, _und_ nur dann ausgeführt wird, wenn der [JavaScript-Ausführungsstapel](/de/docs/Web/JavaScript/Reference/Execution_model#stack) leer ist, aber bevor die Kontrolle an die Ereignisschleife zurückgegeben wird, die vom {{Glossary("user_agent", "User-Agent")}} zur Steuerung der Ausführungsumgebung des Skripts verwendet wird.
 
-Diese Ereignisschleife kann entweder die Hauptereignisschleife des Browsers oder die Ereignisschleife sein, die einen [Web Worker](/de/docs/Web/API/Web_Workers_API) antreibt. Dies ermöglicht es der gegebenen Funktion, auszuführen, ohne das Risiko einzugehen, die Ausführung eines anderen Skripts zu stören, und stellt gleichzeitig sicher, dass die Microtask ausgeführt wird, bevor der User-Agent die Gelegenheit hat, auf Aktionen zu reagieren, die von der Microtask durchgeführt wurden.
+Diese Ereignisschleife kann entweder die Hauptereignisschleife des Browsers oder die Ereignisschleife sein, die einen [Web Worker](/de/docs/Web/API/Web_Workers_API) treibt. Dies ermöglicht es der angegebenen Funktion, ohne das Risiko einer Beeinträchtigung der Ausführung eines anderen Skripts zu laufen, stellt jedoch auch sicher, dass der Microtask ausgeführt wird, bevor der User-Agent die Möglichkeit hat, auf Aktionen zu reagieren, die der Microtask vorgenommen hat.
 
-JavaScript-[Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) und die [Mutation Observer API](/de/docs/Web/API/MutationObserver) nutzen beide die Microtask-Warteschlange, um ihre Callback-Funktionen auszuführen. Es gibt jedoch auch andere Fälle, in denen es hilfreich ist, Arbeit aufzuschieben, bis der aktuelle Durchlauf der Ereignisschleife abgeschlossen ist. Um Microtasks auch Drittherstellern, Frameworks und Polyfills zugänglich zu machen, wird die Methode [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask) in den Schnittstellen [`Window`](/de/docs/Web/API/Window) und [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) bereitgestellt.
+JavaScript [Promisen](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) und die [Mutation Observer API](/de/docs/Web/API/MutationObserver) verwenden beide die Microtask-Warteschlange, um ihre Rückrufe auszuführen, aber es gibt andere Zeiten, in denen die Möglichkeit, Arbeit bis zum Abschluss des aktuellen Durchgangs der Ereignisschleife zu verschieben, hilfreich ist. Um es Drittanbieter-Bibliotheken, Frameworks und Polyfills zu ermöglichen, Microtasks zu verwenden, wird die Methode [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask) in den Schnittstellen [`Window`](/de/docs/Web/API/Window) und [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) bereitgestellt.
 
-## Tasks vs. Microtasks
+## Aufgaben vs. Microtasks
 
-Um Microtasks richtig zu diskutieren, ist es zunächst nützlich zu wissen, was eine JavaScript-Task ist und wie sich Microtasks von Tasks unterscheiden. Dies ist eine kurze, vereinfachte Erklärung. Für ausführlichere Informationen lesen Sie bitte den Artikel [Im Detail: Microtasks und die JavaScript-Laufzeitumgebung](/de/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth).
+Um Microtasks richtig zu diskutieren, ist es zunächst nützlich zu wissen, was eine JavaScript-Aufgabe ist und wie sich Microtasks von Aufgaben unterscheiden. Dies ist eine kurze, vereinfachte Erklärung, aber wenn Sie mehr Details wünschen, können Sie die Informationen im Artikel [Im Detail: Microtasks und die JavaScript-Ausführungsumgebung](/de/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) lesen.
 
-### Tasks
+### Aufgaben
 
-Eine **Task** ist alles, was durch Standardmechanismen ausgeführt werden soll, z. B. der anfängliche Start eines Programms, das asynchrone Versenden eines Ereignisses oder das Auslösen eines Intervalls oder einer Timeout-Funktion. All dies wird in die **Task-Warteschlange** eingereiht.
+Eine **Aufgabe** ist alles, was durch die Standardmechanismen geplant ist, wie das erste Starten eines Programms, das asynchrone Auslösen eines Ereignisses oder das Erreichen eines Zeitlimits oder Intervalls. All diese Dinge werden in der **Aufgabenwarteschlange** angesetzt.
 
-Beispiele dafür, wann Tasks zur Task-Warteschlange hinzugefügt werden:
+Beispielsweise werden Aufgaben zur Aufgabenwarteschlange hinzugefügt, wenn:
 
-- Ein neues JavaScript-Programm oder -Unterprogramm wird ausgeführt (z. B. von einer Konsole oder durch direktes Ausführen des Codes in einem {{HTMLElement("script")}}-Element).
-- Der Benutzer klickt auf ein Element. Eine Task wird erstellt, und alle Ereignis-Callbacks werden ausgeführt.
-- Ein Timeout oder Intervall, das mit [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) oder [`setInterval()`](/de/docs/Web/API/Window/setInterval) erstellt wurde, wird erreicht, wodurch der entsprechende Callback der Task-Warteschlange hinzugefügt wird.
+- Ein neues JavaScript-Programm oder Unterprogramm ausgeführt wird (z. B. von einer Konsole oder durch Ausführen des Codes in einem {{HTMLElement("script")}}-Element) direkt.
+- Der Benutzer auf ein Element klickt. Dann wird eine Aufgabe erstellt, die alle Ereignis-Rückrufe ausführt.
+- Ein Timeout oder Intervall, das mit [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) oder [`setInterval()`](/de/docs/Web/API/Window/setInterval) erstellt wurde, erreicht wird, wodurch der entsprechende Rückruf zur Aufgabenwarteschlange hinzugefügt wird.
 
-Die Ereignisschleife, die Ihren Code steuert, bearbeitet diese Tasks eine nach der anderen in der Reihenfolge, in der sie eingereiht wurden. Die älteste ausführbare Task in der Task-Warteschlange wird während eines einzelnen Durchlaufs der Ereignisschleife ausgeführt. Danach werden Microtasks ausgeführt, bis die Microtask-Warteschlange leer ist, und dann kann der Browser die Darstellung aktualisieren. Anschließend fährt der Browser mit der nächsten Iteration der Ereignisschleife fort.
+Die Ereignisschleife, die Ihren Code steuert, bearbeitet diese Aufgaben nacheinander in der Reihenfolge, in der sie in die Warteschlange eingereiht wurden. Die älteste ausführbare Aufgabe in der Aufgabenwarteschlange wird während einer einzelnen Iteration der Ereignisschleife ausgeführt. Danach werden Microtasks ausgeführt, bis die Microtask-Warteschlange leer ist, und dann kann der Browser entscheiden, die Darstellung zu aktualisieren. Dann wechselt der Browser zur nächsten Iteration der Ereignisschleife.
 
 ### Microtasks
 
-Zunächst erscheint der Unterschied zwischen Microtasks und Tasks gering. Und sie sind ähnlich; beide bestehen aus JavaScript-Code, der in eine Warteschlange eingereiht und zu einem geeigneten Zeitpunkt ausgeführt wird. Allerdings verarbeitet die Ereignisschleife die Microtask-Warteschlange sehr unterschiedlich im Vergleich zu der Art und Weise, wie Tasks bearbeitet werden.
+Zunächst scheint der Unterschied zwischen Microtasks und Aufgaben gering. Und sie sind ähnlich; beide bestehen aus JavaScript-Code, der in einer Warteschlange platziert wird und zu einem geeigneten Zeitpunkt ausgeführt wird. Während jedoch die Ereignisschleife nur die Aufgaben ausführt, die sich zu Beginn der Iteration in der Warteschlange befinden, bearbeitet sie die Microtask-Warteschlange ganz anders.
 
-Es gibt zwei Schlüsselunterschiede.
+Es gibt zwei wesentliche Unterschiede.
 
-Erstens prüft die Ereignisschleife jedes Mal, wenn eine Task beendet wird, ob die Task die Kontrolle an anderen JavaScript-Code zurückgibt. Wenn nicht, werden alle Microtasks in der Microtask-Warteschlange ausgeführt. Die Microtask-Warteschlange wird also mehrmals pro Iteration der Ereignisschleife verarbeitet, auch nach der Bearbeitung von Ereignissen und anderen Callbacks.
+Erstens überprüft die Ereignisschleife jedes Mal, wenn eine Aufgabe beendet ist, ob die Aufgabe die Kontrolle an anderen JavaScript-Code zurückgibt. Falls nicht, werden alle Microtasks in der Microtask-Warteschlange ausgeführt. Die Microtask-Warteschlange wird dann mehrmals pro Iteration der Ereignisschleife verarbeitet, einschließlich nach der Behandlung von Ereignissen und anderen Rückrufen.
 
-Zweitens, wenn eine Microtask durch Aufrufen von [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask) weitere Microtasks zur Warteschlange hinzufügt, werden diese neu hinzugefügten Microtasks _vor der nächsten Task ausgeführt_. Dies liegt daran, dass die Ereignisschleife weiterhin Microtasks aufruft, bis keine mehr in der Warteschlange sind, selbst wenn weiterhin neue hinzugefügt werden.
+Zweitens, wenn ein Microtask mehr Microtasks zur Warteschlange hinzufügt, indem er [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask) aufruft, werden diese neu hinzugefügten Microtasks _ausgeführt, bevor die nächste Aufgabe ausgeführt wird_. Denn die Ereignisschleife wird die Microtasks so lange aufrufen, bis keine mehr in der Warteschlange sind, selbst wenn mehr hinzugefügt werden.
 
 > [!WARNING]
-> Da Microtasks selbst weitere Microtasks in die Warteschlange einfügen können und die Ereignisschleife die Verarbeitung von Microtasks fortsetzt, bis die Warteschlange leer ist, besteht ein reales Risiko, dass die Ereignisschleife endlos Microtasks verarbeitet. Gehen Sie vorsichtig vor, wenn Sie rekursiv Microtasks hinzufügen.
+> Da Microtasks selbst weitere Microtasks in die Warteschlange einreihen können und die Ereignisschleife die Microtasks weiter bearbeitet, bis die Warteschlange leer ist, besteht die reale Gefahr, dass die Ereignisschleife endlos Microtasks verarbeitet. Seien Sie vorsichtig, wie Sie rekursiv weitere Microtasks hinzufügen.
 
 ## Verwendung von Microtasks
 
-Bevor wir weiter in das Thema eintauchen, ist es wichtig, noch einmal zu betonen, dass die Mehrheit der Entwickler Microtasks kaum oder gar nicht verwenden wird. Sie sind ein hochspezialisiertes Feature moderner, browserbasierter JavaScript-Entwicklung, das es ermöglicht, Code so zu planen, dass er wichtige Vorgänge priorisiert. Missbrauch dieser Funktion kann zu Leistungsproblemen führen.
+Bevor Sie tiefer in dieses Thema eintauchen, ist es wichtig, noch einmal darauf hinzuweisen, dass die meisten Entwickler Microtasks wenig, wenn überhaupt, verwenden werden. Sie sind ein hochspezialisiertes Feature der modernen browserbasierten JavaScript-Entwicklung, das es Ihnen ermöglicht, Code vor andere Dinge in der langen Reihe von Dingen zu schalten, die auf dem Computer des Benutzers ausgeführt werden sollen. Der Missbrauch dieser Fähigkeit führt zu Leistungsproblemen.
 
-### Microtasks einreihen
+### Einreihen von Microtasks
 
-Daher sollten Sie Microtasks in der Regel nur verwenden, wenn es keine andere Lösung gibt oder wenn Sie Frameworks oder Bibliotheken erstellen, die Microtasks benötigen, um die Funktionalität zu implementieren, die sie bereitstellen. In der Vergangenheit gab es Tricks, um Microtasks in die Warteschlange einzureihen (zum Beispiel durch das sofortige Auflösen eines Promises), aber die Einführung der Methode [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask) bietet eine standardisierte Möglichkeit, eine Microtask sicher und ohne Tricks einzuführen.
+Daher sollten Sie Microtasks in der Regel nur verwenden, wenn es keine andere Lösung gibt oder wenn Sie Frameworks oder Bibliotheken erstellen, die Microtasks verwenden müssen, um die von ihnen implementierte Funktionalität zu erzeugen. Während es in der Vergangenheit Tricks gab, die es ermöglichten, Microtasks einzureihen (zum Beispiel durch Erstellen einer sofort auflösbaren Promise), bietet die Einführung der Methode [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask) einen standardisierten Weg, um sicher und ohne Tricks einen Microtask einzuführen.
 
-Durch die Einführung von `queueMicrotask()` können die Eigenheiten umgangen werden, die beim Einsatz von Promises zur Erstellung von Microtasks auftreten. Zum Beispiel werden bei der Verwendung von Promises als Microtasks Ausnahmen, die vom Callback ausgelöst werden, als abgelehnte Promises gemeldet und nicht als Standardausnahmen. Außerdem erfordert das Erstellen und Zerstören von Promises zusätzlichen Aufwand sowohl in Bezug auf Zeit als auch Speicher, den eine Funktion, die Microtasks ordnungsgemäß einreiht, vermeidet.
+Durch die Einführung von `queueMicrotask()` können die Eigenheiten vermieden werden, die auftreten, wenn man sich Promises zunutze macht, um Microtasks zu erstellen. Beispielsweise werden beim Verwenden von Promises zur Erstellung von Microtasks Ausnahmen, die vom Rückruf geworfen werden, als zurückgewiesene Promises gemeldet, anstatt als Standard-Ausnahmen gemeldet zu werden. Außerdem bedeutet das Erstellen und Zerstören von Promises zusätzlichen Overhead sowohl in Bezug auf Zeit als auch Speicher, den eine Funktion vermeidet, die korrekt Microtasks einreiht.
 
-Übergeben Sie die JavaScript-{{jsxref("Function")}}, die innerhalb des Microtask-Kontexts aufgerufen werden soll, als Parameter an die Methode `queueMicrotask()`, die im globalen Kontext verfügbar ist, wie er entweder in der Schnittstelle [`Window`](/de/docs/Web/API/Window) oder [`Worker`](/de/docs/Web/API/Worker) definiert ist, je nach aktuellem Ausführungskontext.
+Übergeben Sie die JavaScript {{jsxref("Function")}}, die während des Handlings von Microtasks aufgerufen werden soll, in die Methode `queueMicrotask()`, die im globalen Kontext bereitgestellt wird, wie entweder durch die Schnittstelle [`Window`](/de/docs/Web/API/Window) oder [`Worker`](/de/docs/Web/API/Worker) definiert, abhängig vom aktuellen Ausführungskontext.
 
 ```js
 queueMicrotask(() => {
@@ -62,17 +62,17 @@ queueMicrotask(() => {
 
 Die Microtask-Funktion selbst nimmt keine Parameter an und gibt keinen Wert zurück.
 
-### Wann Microtasks verwendet werden sollten
+### Wann man Microtasks verwenden sollte
 
-In diesem Abschnitt betrachten wir Szenarien, in denen Microtasks besonders nützlich sind. Im Allgemeinen geht es darum, Ergebnisse zu erfassen oder zu überprüfen oder Bereinigungen durchzuführen, nachdem der Hauptteil des aktuellen JavaScript-Kontexts beendet ist, jedoch bevor Ereignishandler, Timeouts und Intervalle oder andere Callbacks verarbeitet werden.
+In diesem Abschnitt werfen wir einen Blick auf Szenarien, in denen Microtasks besonders nützlich sind. Im Allgemeinen geht es darum, Ergebnisse zu erfassen oder zu überprüfen oder Aufräumarbeiten durchzuführen, nachdem der Hauptteil eines JavaScript-Ausführungskontexts verlassen wird, jedoch bevor Ereignishandler, Zeitlimits und Intervalle oder andere Rückrufe verarbeitet werden.
 
 Wann ist das nützlich?
 
-Der Hauptgrund für die Verwendung von Microtasks ist: Konsistente Reihenfolge sicherzustellen, selbst wenn Ergebnisse oder Daten synchron verfügbar sind, und gleichzeitig das Risiko merklicher Verzögerungen in den Vorgängen zu verringern.
+Der Hauptgrund, um Microtasks zu verwenden, ist: um eine konsistente Reihenfolge der Aufgaben sicherzustellen, selbst wenn Ergebnisse oder Daten synchron verfügbar sind, und gleichzeitig das Risiko von für den Benutzer wahrnehmbaren Verzögerungen in den Operationen zu minimieren.
 
-#### Konsistenz bei der bedingten Nutzung von Promises sicherstellen
+#### Sicherstellung der Reihenfolge bei bedingter Verwendung von Promises
 
-Ein Szenario, in dem Microtasks verwendet werden können, um die Konsistenz der Ausführungsreihenfolge zu gewährleisten, ist, wenn Promises in einer Klausel einer `if...else`-Anweisung (oder einer anderen bedingten Anweisung) verwendet werden, aber nicht in der anderen. Betrachten Sie zum Beispiel folgenden Code:
+Eine Situation, in der Microtasks verwendet werden können, um sicherzustellen, dass die Ausführungsreihenfolge immer konsistent ist, ist, wenn Promises in einer Bedingung einer `if...else`-Anweisung (oder einer anderen Bedingungsanweisung) verwendet werden, aber nicht in der anderen Bedingung. Betrachten Sie Code wie diesen:
 
 ```js
 customElement.prototype.getData = function (url) {
@@ -91,7 +91,7 @@ customElement.prototype.getData = function (url) {
 };
 ```
 
-Das Problem hier ist, dass wir in einem Zweig der `if...else`-Anweisung (wenn das Bild im Cache verfügbar ist) eine Task verwenden und in der `else`-Klausel Promises verwenden, was zu einer Situation führt, in der die Reihenfolge der Operationen variieren kann, wie unten dargestellt.
+Das hier eingeführte Problem ist, dass durch die Verwendung einer Aufgabe in einem Zweig der `if...else`-Anweisung (in dem Fall, in dem das Bild im Cache verfügbar ist) und der Einbeziehung von Promises im `else`-Zweig, wir eine Situation haben, in der die Reihenfolge der Operationen variieren kann; zum Beispiel wie unten gezeigt.
 
 ```js
 element.addEventListener("load", () => console.log("Loaded data"));
@@ -100,7 +100,7 @@ element.getData();
 console.log("Data fetched");
 ```
 
-Wenn dieser Code zweimal nacheinander ausgeführt wird, ergeben sich folgende Ergebnisse:
+Die zweimal hintereinander ausgeführte Ausführung dieses Codes führt zu den folgenden Ergebnissen.
 
 Wenn die Daten nicht im Cache sind:
 
@@ -118,9 +118,9 @@ Loaded data
 Data fetched
 ```
 
-Noch schlimmer, manchmal wird die `data`-Eigenschaft des Elements gesetzt, und manchmal nicht, wenn dieser Code ausgeführt wird.
+Noch schlimmer, manchmal wird die `data`-Eigenschaft des Elements gesetzt und manchmal nicht, bis dieser Code ausgeführt wird.
 
-Wir können die Konsistenz der Reihenfolge dieser Vorgänge sicherstellen, indem wir im `if`-Zweig eine Microtask verwenden, um die beiden Zweige auszugleichen:
+Wir können sicherstellen, dass diese Operationen konsistent geordnet sind, indem wir im `if`-Zweig einen Microtask verwenden, um die beiden Zweige auszugleichen:
 
 ```js
 customElement.prototype.getData = function (url) {
@@ -141,13 +141,13 @@ customElement.prototype.getData = function (url) {
 };
 ```
 
-Dieser Ansatz gleicht die Zweige aus, indem beide Situationen so behandelt werden, dass das Setzen von `data` und das Auslösen des `load`-Events innerhalb einer Microtask erfolgt (im `if`-Zweig mit `queueMicrotask()` und im `else`-Zweig mit den Promises, die `fetch()` zurückgibt).
+Dies gleicht die Zweige aus, indem beide Situationen das Setzen von `data` und das Auslösen des `load`-Ereignisses innerhalb eines Microtasks handhaben (durch Verwendung von `queueMicrotask()` im `if`-Zweig und durch Verwendung der von [`fetch()`](/de/docs/Web/API/Window/fetch) verwendeten Promises im `else`-Zweig).
 
-#### Vorgänge bündeln
+#### Stapelverarbeitung von Operationen
 
-Sie können Microtasks auch verwenden, um mehrere Anforderungen aus verschiedenen Quellen in einem einzigen Batch zu bündeln und somit den möglichen Overhead zu vermeiden, der durch mehrere Aufrufe zur Bearbeitung derselben Art von Arbeit entsteht.
+Sie können Microtasks auch verwenden, um mehrere Anfragen aus verschiedenen Quellen in einem einzigen Stapel zu sammeln, wodurch der mögliche Overhead durch mehrere Anrufe zur Bearbeitung derselben Art von Arbeit vermieden wird.
 
-Das folgende Snippet erstellt eine Funktion, die mehrere Nachrichten in einem Array bündelt und eine Microtask nutzt, um sie als ein einzelnes Objekt zu senden, wenn der Kontext endet.
+Der unten stehende Schnipsel erstellt eine Funktion, die mehrere Nachrichten in einem Array stapelt und einen Microtask verwendet, um sie als einzelnes Objekt zu senden, wenn der Kontext beendet wird.
 
 ```js
 const messageQueue = [];
@@ -165,21 +165,21 @@ let sendMessage = (message) => {
 };
 ```
 
-Wenn `sendMessage()` aufgerufen wird, wird die angegebene Nachricht zunächst in das Nachrichten-Array eingefügt. Dann wird es interessant.
+Wenn `sendMessage()` aufgerufen wird, wird die angegebene Nachricht zuerst in das Nachrichtenwarteschlangen-Array geschoben. Dann wird es interessant.
 
-Wenn die gerade hinzugefügte Nachricht die erste im Array ist, wird eine Microtask eingereiht, die ein Batch senden wird. Die Microtask wird, wie immer, ausgeführt, wenn der JavaScript-Ausführungspfad das oberste Niveau erreicht, direkt bevor Callbacks ausgeführt werden. Das bedeutet, dass alle weiteren Aufrufe von `sendMessage()`, die in der Zwischenzeit gemacht werden, ihre Nachrichten zum Nachrichten-Array hinzufügen werden. Aufgrund der Array-Längenprüfung, bevor eine Microtask hinzugefügt wird, wird jedoch keine neue Microtask eingereiht.
+Wenn die Nachricht, die wir gerade zum Array hinzugefügt haben, die erste ist, reihen wir einen Microtask ein, der einen Stapel sendet. Der Microtask wird – wie immer – ausgeführt, wenn der JavaScript-Ausführungspfad die oberste Ebene erreicht, kurz bevor Rückrufe ausgeführt werden. Das bedeutet, dass alle weiteren Aufrufe von `sendMessage()`, die in der Zwischenzeit gemacht werden, ihre Nachrichten an die Nachrichtenwarteschlange anhängen, aber wegen der Array-Längenprüfung vor dem Hinzufügen eines Microtasks, wird kein neuer Microtask eingereiht.
 
-Wenn die Microtask ausgeführt wird, hat sie ein Array mit möglicherweise vielen Nachrichten, die darauf warten, verarbeitet zu werden. Sie beginnt damit, dieses Array als JSON mithilfe der Methode {{jsxref("JSON.stringify()")}} zu kodieren. Danach werden die Inhalte des Arrays nicht mehr benötigt, sodass wir das `messageQueue`-Array leeren. Schließlich nutzen wir die Methode [`fetch()`](/de/docs/Web/API/Window/fetch), um die JSON-Zeichenfolge an den Server zu senden.
+Wenn der Microtask dann ausgeführt wird, hat er ein Array mit möglicherweise vielen Nachrichten, die auf ihn warten. Zuerst wird es als JSON unter Verwendung der Methode {{jsxref("JSON.stringify()")}} kodiert. Danach werden die Inhalte des Arrays nicht mehr benötigt, also leeren wir das `messageQueue`-Array. Schließlich verwenden wir die Methode [`fetch()`](/de/docs/Web/API/Window/fetch), um die JSON-Zeichenfolge an den Server zu senden.
 
-Dies ermöglicht, dass jeder Aufruf von `sendMessage()`, der während derselben Iteration der Ereignisschleife gemacht wird, seine Nachrichten zur selben `fetch()`-Aktion hinzufügt, ohne dass andere Tasks wie Timeouts oder ähnliches die Übertragung verzögern könnten.
+Dies ermöglicht es jedem Aufruf von `sendMessage()`, der während derselben Iteration der Ereignisschleife gemacht wurde, ihre Nachrichten zur selben `fetch()`-Operation hinzuzufügen, ohne dass möglicherweise andere Aufgaben, wie Zeitlimits oder dergleichen, die Übertragung verzögern.
 
-Der Server wird die JSON-Zeichenfolge empfangen, diese dann möglicherweise dekodieren und die darin enthaltenen Nachrichten verarbeiten.
+Der Server erhält die JSON-Zeichenfolge und wird sie vermutlich decodieren und die Nachrichten im resultierenden Array verarbeiten.
 
 ## Beispiele
 
-### Einfaches Beispiel für eine Microtask
+### Einfaches Microtask-Beispiel
 
-In diesem einfachen Beispiel sehen wir, dass das Einreihen einer Microtask dazu führt, dass der Callback der Microtask ausgeführt wird, nachdem der Hauptteil dieses obersten Skripts abgeschlossen ist.
+In diesem einfachen Beispiel sehen wir, dass das Einreihen eines Microtasks dazu führt, dass der Rückruf des Microtasks ausgeführt wird, nachdem der Hauptteil dieses Top-Level-Skripts ausgeführt wurde.
 
 ```html hidden
 <pre id="log"></pre>
@@ -192,7 +192,7 @@ const logElem = document.getElementById("log");
 const log = (s) => (logElem.innerText += `${s}\n`);
 ```
 
-Im folgenden Code sehen wir einen Aufruf von [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask), um eine Microtask zu planen. Dieser Aufruf wird von Aufrufen der Funktion `log()` umrahmt, die Text auf dem Bildschirm ausgibt.
+Im folgenden Code sehen wir einen Aufruf von [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask), der einen Microtask zur Ausführung plant. Dieser Aufruf wird von Aufrufen von `log()`, einer benutzerdefinierten Funktion, die Text auf dem Bildschirm ausgibt, umrahmt.
 
 ```js
 log("Before enqueueing the microtask");
@@ -206,9 +206,9 @@ log("After enqueueing the microtask");
 
 {{EmbedLiveSample("Simple_microtask_example", 640, 80)}}
 
-### Beispiel mit Timeout und Microtask
+### Timeout- und Microtask-Beispiel
 
-In diesem Beispiel wird ein Timeout geplant, das nach null Millisekunden (oder „so bald wie möglich“) ausgelöst wird. Dies zeigt den Unterschied, was „so bald wie möglich“ bedeutet, wenn eine neue Task (z. B. durch Verwendung von `setTimeout()`) im Vergleich zu einer Microtask geplant wird.
+In diesem Beispiel wird ein Timeout auf null Millisekunden (oder "so schnell wie möglich") geplant. Dies zeigt den Unterschied zwischen dem, was "so schnell wie möglich" bedeutet, wenn man eine neue Aufgabe plant (wie z.B. durch die Verwendung von `setTimeout()`), im Vergleich zur Verwendung eines Microtasks.
 
 ```html hidden
 <pre id="log"></pre>
@@ -221,9 +221,9 @@ const logElem = document.getElementById("log");
 const log = (s) => (logElem.innerText += `${s}\n`);
 ```
 
-Im folgenden Code sehen wir einen Aufruf von [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask), um eine Microtask zu planen. Dieser Aufruf wird von Aufrufen der Funktion `log()` umrahmt, die Text auf dem Bildschirm ausgibt.
+Im folgenden Code sehen wir einen Aufruf von [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask), der einen Microtask zur Ausführung plant. Dieser Aufruf wird von Aufrufen von `log()`, einer benutzerdefinierten Funktion, die Text auf dem Bildschirm ausgibt, umrahmt.
 
-Der folgende Code plant ein Timeout, das in null Millisekunden ausgelöst wird, und reiht anschließend eine Microtask ein. Dieser Ablauf wird durch Aufrufe von `log()` unterbrochen, um zusätzliche Meldungen auszugeben.
+Der Code unten plant ein Timeout, das in null Millisekunden auftritt, und reiht dann einen Microtask ein. Dies wird von Aufrufen von `log()` umrahmt, um zusätzliche Nachrichten auszugeben.
 
 ```js
 const callback = () => log("Regular timeout callback has run");
@@ -240,11 +240,11 @@ log("Main program exiting");
 
 {{EmbedLiveSample("Timeout_and_microtask_example", 640, 100)}}
 
-Beachten Sie, dass die Ausgabe des Hauptprogramms zuerst erscheint, gefolgt von der Ausgabe der Microtask und schließlich dem Rückruf des Timeouts. Das liegt daran, dass, wenn die Task, die das Hauptprogramm ausführt, endet, die Microtask-Warteschlange vor der Task-Warteschlange, auf der sich der Timeout-Rückruf befindet, verarbeitet wird. Unterschiedliche Warteschlangen für Tasks und Microtasks und der Vorrang von Microtasks helfen, Missverständnisse zu vermeiden.
+Beachten Sie, dass die aus dem Hauptprogramm ausgestoßene Ausgabe zuerst erscheint, gefolgt von der Ausgabe des Microtasks und schließlich dem Rückruf des Timeouts. Das liegt daran, dass, wenn die Aufgabe, die die Ausführung des Hauptprogramms bearbeitet, beendet ist, die Microtask-Warteschlange verarbeitet wird, bevor die Aufgabenwarteschlange, auf der sich der Timeout-Rückruf befindet. Das Verständnis, dass Aufgaben und Microtasks in separaten Warteschlangen gehalten werden und dass Microtasks zuerst ausgeführt werden, hilft, dies zu verstehen.
 
 ### Microtask aus einer Funktion
 
-Dieses Beispiel erweitert das vorherige leicht, indem eine Funktion hinzugefügt wird, die einige Arbeiten ausführt. Diese Funktion verwendet `queueMicrotask()`, um eine Microtask zu planen. Wichtig dabei ist, dass die Microtask nicht beim Beenden der Funktion, sondern erst beim Beenden des Hauptprogramms verarbeitet wird.
+Dieses Beispiel erweitert das vorherige geringfügig, indem eine Funktion hinzugefügt wird, die einige Arbeiten ausführt. Diese Funktion verwendet `queueMicrotask()`, um einen Microtask zu planen. Wichtig hierbei ist, dass der Microtask nicht verarbeitet wird, wenn die Funktion beendet wird, sondern wenn das Hauptprogramm beendet wird.
 
 ```html hidden
 <pre id="log"></pre>
@@ -257,7 +257,7 @@ const logElem = document.getElementById("log");
 const log = (s) => (logElem.innerText += `${s}\n`);
 ```
 
-Die Hauptprogrammcode folgt. Die Funktion `doWork()` ruft hier `queueMicrotask()` auf, dennoch wird die Microtask erst ausgelöst, wenn das gesamte Programm beendet ist, da die Task dann endet und sich nichts anderes mehr im Ausführungsstapel befindet.
+Der Hauptprogrammcode folgt. Die Funktion `doWork()` ruft hier `queueMicrotask()` auf, trotzdem wird der Microtask immer noch nicht ausgeführt, bis das gesamte Programm beendet ist, da dies der Moment ist, in dem die Aufgabe beendet wird und nichts anderes mehr auf dem Ausführungsstapel ist.
 
 ```js
 const callback = () => log("Regular timeout callback has run");
@@ -287,8 +287,8 @@ log("Main program exiting");
 
 ## Siehe auch
 
-- [Im Detail: Microtasks und die JavaScript-Laufzeitumgebung](/de/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)
+- [Im Detail: Microtasks und die JavaScript-Ausführungsumgebung](/de/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)
 - [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask)
 - [Asynchrones JavaScript](/de/docs/Learn_web_development/Extensions/Async_JS)
   - [Einführung in asynchrones JavaScript](/de/docs/Learn_web_development/Extensions/Async_JS/Introducing)
-  - [Elegante asynchrone Programmierung mit Promises](/de/docs/Learn_web_development/Extensions/Async_JS/Promises)
+  - [Anmutige asynchrone Programmierung mit Promises](/de/docs/Learn_web_development/Extensions/Async_JS/Promises)

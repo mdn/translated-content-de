@@ -1,13 +1,13 @@
 ---
-title: "<figcaption>: Das Figure Caption-Element"
+title: "<figcaption>: Das Bildunterschrift-Element"
 slug: Web/HTML/Element/figcaption
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschriftung oder Legende, die den restlichen Inhalt seines übergeordneten {{HTMLElement("figure")}}-Elements beschreibt, und bietet dem `<figure>` eine {{Glossary("accessible_description", "zugängliche Beschreibung")}}.
+Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Bildunterschrift oder Legende, die den restlichen Inhalt des übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} liefert.
 
 {{InteractiveExample("HTML Demo: &lt;figcaption&gt;", "tabbed-shorter")}}
 
@@ -50,7 +50,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Beispiele
 
-Bitte sehen Sie sich die Seite des {{HTMLElement("figure")}}-Elements für Beispiele zu `<figcaption>` an.
+Bitte sehen Sie die Seite des {{HTMLElement("figure")}}-Elements für Beispiele zu `<figcaption>`.
 
 ## Technische Zusammenfassung
 
@@ -65,10 +65,10 @@ Bitte sehen Sie sich die Seite des {{HTMLElement("figure")}}-Elements für Beisp
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Fließender Inhalt</a
         >.
       </td>
     </tr>
@@ -80,7 +80,7 @@ Bitte sehen Sie sich die Seite des {{HTMLElement("figure")}}-Elements für Beisp
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Ein {{HTMLElement("figure")}}-Element; das
-        <code>&#x3C;figcaption></code>-Element muss sein erstes oder letztes Kind sein.
+        <code>&#x3C;figcaption></code>-Element muss das erste oder letzte Kind sein.
       </td>
     </tr>
     <tr>
@@ -94,8 +94,8 @@ Bitte sehen Sie sich die Seite des {{HTMLElement("figure")}}-Elements für Beisp
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role"><code>group</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a>
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a>
       </td>
     </tr>
     <tr>

@@ -2,12 +2,12 @@
 title: "<figure>: Das Figure-Element mit optionaler Beschriftung"
 slug: Web/HTML/Element/figure
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<figure>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert in sich geschlossene Inhalte, die möglicherweise mit einer optionalen Beschriftung versehen sind, welche mit dem {{HTMLElement("figcaption")}}-Element angegeben wird. Die Figur, ihre Beschriftung und ihre Inhalte werden als eine Einheit betrachtet.
+Das **`<figure>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eigenständigen Inhalt, möglicherweise mit einer optionalen Beschriftung, die mithilfe des {{HTMLElement("figcaption")}}-Elements angegeben wird. Die Figur, ihre Beschriftung und ihre Inhalte werden als eine Einheit betrachtet.
 
 {{InteractiveExample("HTML Demo: &lt;figure&gt;", "tabbed-shorter")}}
 
@@ -46,13 +46,13 @@ figcaption {
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Anwendungshinweise
+## Nutzungshinweise
 
-- Üblicherweise ist ein `<figure>` ein Bild, eine Illustration, ein Diagramm, ein Code-Snippet usw., das im Hauptverlauf eines Dokuments referenziert wird, aber verschoben werden kann, ohne den Hauptverlauf zu beeinflussen, z.B. in einen anderen Teil des Dokuments oder in einen Anhang.
-- Eine Beschriftung kann mit dem `<figure>`-Element verknüpft werden, indem innerhalb des Elements ein {{HTMLElement("figcaption")}} eingefügt wird (als erstes oder letztes Kind-Element). Das erste im `<figure>` gefundene `<figcaption>`-Element wird als Beschriftung der Figur angezeigt.
-- Das `<figcaption>` stellt den {{Glossary("accessible_name", "zugänglichen Namen")}} für das übergeordnete `<figure>` bereit.
+- In der Regel ist ein `<figure>` ein Bild, eine Illustration, ein Diagramm, ein Code-Snippet usw., das im Hauptfluss eines Dokuments referenziert wird, aber an eine andere Stelle des Dokuments oder in einen Anhang verschoben werden kann, ohne den Hauptfluss zu beeinflussen.
+- Eine Beschriftung kann dem `<figure>`-Element zugeordnet werden, indem ein {{HTMLElement("figcaption")}} innerhalb davon eingefügt wird (als erstes oder letztes Kind). Das erste im Figure-Element gefundene `<figcaption>`-Element wird als Beschriftung der Figur präsentiert.
+- Das `<figcaption>` liefert den {{Glossary("accessible_name", "zugänglichen Namen")}} für das übergeordnete `<figure>`.
 
 ## Beispiele
 
@@ -139,57 +139,46 @@ function NavigatorExample() {
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories"
-          >Inhaltskategorien</a
-        >
+        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
-        >,
-        <a href="/de/docs/Web/HTML/Content_categories#palpable_content"
-          >greifbare Inhalte</a
-        >.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließinhalten</a>,
+        <a href="/de/docs/Web/HTML/Content_categories#palpable_content">verfügbare Inhalte</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Inhalte</th>
       <td>
         Ein {{HTMLElement("figcaption")}}-Element, gefolgt von
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließenden Inhalten</a
-        >; oder fließende Inhalte, gefolgt von einem
-        {{HTMLElement("figcaption")}}-Element; oder fließende Inhalte.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließinhalten</a>;
+        oder Fließinhalte gefolgt von einem {{HTMLElement("figcaption")}}-Element;
+        oder Fließinhalte.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das öffnende als auch das schließende Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließende Inhalte</a
-        > akzeptiert.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließinhalte</a>
+        akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/figure_role"
-          >figure</a
-        >
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/figure_role">Abbildung</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         Ohne
-        <a href="/de/docs/Web/HTML/Element/figcaption">figcaption</a
-        >-Nachkomme:
-        <a href="https://www.w3.org/TR/html-aria/#dfn-any-role">jede</a>,
+        <a href="/de/docs/Web/HTML/Element/figcaption">figcaption</a>-Nachfahr:
+        <a href="https://www.w3.org/TR/html-aria/#dfn-any-role">beliebig</a>,
         sonst keine erlaubten Rollen
       </td>
     </tr>

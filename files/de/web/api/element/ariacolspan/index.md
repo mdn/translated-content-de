@@ -3,20 +3,20 @@ title: "Element: ariaColSpan-Eigenschaft"
 short-title: ariaColSpan
 slug: Web/API/Element/ariaColSpan
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaColSpan`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colspan)-Attributs wider, das die Anzahl der Spalten definiert, die von einer Zelle oder Rasterzelle innerhalb einer Tabelle, eines Rasters oder eines Baumrasters überspannt werden.
+Die **`ariaColSpan`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colspan)-Attributs wider, welches die Anzahl der Spalten definiert, die von einer Zelle oder Gridcell innerhalb einer Tabelle, eines Grids oder Treegrids überspannt werden.
 
 ## Wert
 
-Ein String, der eine ganze Zahl enthält.
+Ein String, der eine Ganzzahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel ist das `aria-colspan`-Attribut des Elements mit der ID `spanning-heading` auf "2" gesetzt. Mit `ariaColSpan` aktualisieren wir den Wert auf "3".
+In diesem Beispiel wird das `aria-colspan`-Attribut am Element mit der ID `spanning-heading` auf "2" gesetzt. Mit `ariaColSpan` aktualisieren wir den Wert auf "3".
 
 ```html
 <table>
@@ -49,4 +49,4 @@ console.log(el.ariaColSpan);
 
 ## Siehe auch
 
-- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: Tabellenrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)

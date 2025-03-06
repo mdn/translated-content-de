@@ -2,12 +2,16 @@
 title: Logisches NICHT (!)
 slug: Web/JavaScript/Reference/Operators/Logical_NOT
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **logische NICHT (`!`)**-Operator (logische Komplement- oder Negationsoperation) kehrt Wahrheit in Falschheit und umgekehrt um. Er wird typischerweise mit boolean (logischen) Werten verwendet. Wird er mit Nicht-Boolean-Werten verwendet, gibt er `false` zurück, wenn sein einzelner Operand in `true` umgewandelt werden kann; andernfalls gibt er `true` zurück.
+Der **logische NICHT (`!`)** (logische Ergänzung, Negation) Operator wandelt
+Wahrheit in Falschheit um und umgekehrt. Er wird typischerweise mit
+booleschen (logischen) Werten verwendet. Bei nicht-booleschen Werten gibt er
+`false` zurück, wenn sein einzelner Operand in `true` umgewandelt werden kann;
+ansonsten gibt er `true` zurück.
 
 {{InteractiveExample("JavaScript Demo: Expressions - Logical NOT", "shorter")}}
 
@@ -27,11 +31,13 @@ console.log(!(a > 0 || b > 0));
 
 ## Beschreibung
 
-Gibt `false` zurück, wenn sein einzelner Operand in `true` umgewandelt werden kann; andernfalls gibt er `true` zurück.
+Gibt `false` zurück, wenn sein einzelner Operand in `true` umgewandelt werden kann; ansonsten gibt er `true` zurück.
 
-Wenn ein Wert in `true` umgewandelt werden kann, wird der Wert als {{Glossary("truthy", "truthy")}} bezeichnet. Wenn ein Wert in `false` umgewandelt werden kann, wird der Wert als {{Glossary("falsy", "falsy")}} bezeichnet.
+Wenn ein Wert in `true` umgewandelt werden kann, wird der Wert
+{{Glossary("truthy", "truthy")}} genannt. Wenn ein Wert in `false` umgewandelt werden kann, wird der Wert
+{{Glossary("falsy", "falsy")}} genannt.
 
-Beispiele für Ausdrücke, die in `false` umgewandelt werden können, sind:
+Beispiele für Ausdrücke, die in false umgewandelt werden können, sind:
 
 - `null`;
 - `NaN`;
@@ -39,13 +45,13 @@ Beispiele für Ausdrücke, die in `false` umgewandelt werden können, sind:
 - leerer String (`""` oder `''` oder ` `` `);
 - `undefined`.
 
-Obwohl der `!`-Operator mit Operanden verwendet werden kann, die keine Boolean-Werte sind, kann er trotzdem als ein logischer Operator betrachtet werden, da sein Rückgabewert immer in einen [boolean-Primitivwert](/de/docs/Web/JavaScript/Data_structures#boolean_type) umgewandelt werden kann. Um den Rückgabewert (oder allgemein jeden Ausdruck) ausdrücklich in den entsprechenden Boolean-Wert umzuwandeln, verwenden Sie den doppelten NICHT-Operator (`!!`) oder den {{jsxref("Boolean/Boolean", "Boolean")}}-Konstruktor.
+Auch wenn der `!` Operator mit Operanden verwendet werden kann, die keine booleschen Werte sind, kann er dennoch als boolescher Operator betrachtet werden, da sein Rückgabewert immer in einen [booleschen primitiven Wert](/de/docs/Web/JavaScript/Guide/Data_structures#boolean_type) umgewandelt werden kann. Um seinen Rückgabewert (oder allgemein jeden Ausdruck) explizit in den entsprechenden booleschen Wert umzuwandeln, verwenden Sie einen doppelten NICHT-Operator (`!!`) oder den {{jsxref("Boolean/Boolean", "Boolean")}} Konstruktor.
 
 ## Beispiele
 
 ### Verwendung von NICHT
 
-Der folgende Code zeigt Beispiele für den `!`-Operator (logisches NICHT).
+Der folgende Code zeigt Beispiele des `!` (logisches NICHT) Operators.
 
 ```js
 !true; // !t returns false
@@ -56,9 +62,12 @@ Der folgende Code zeigt Beispiele für den `!`-Operator (logisches NICHT).
 
 ### Doppeltes NICHT (`!!`)
 
-Es ist möglich, eine Reihe von NICHT-Operatoren zu verwenden, um explizit die Umwandlung eines beliebigen Wertes in den entsprechenden [boolean-Primitivwert](/de/docs/Web/JavaScript/Data_structures#boolean_type) zu erzwingen. Die Umwandlung basiert auf der "Truthiness" oder "Falsiness" des Wertes (siehe {{Glossary("truthy", "truthy")}} und {{Glossary("falsy", "falsy")}}).
+Es ist möglich, einen doppelten NICHT-Operator zu verwenden, um die
+Konvertierung eines beliebigen Wertes in den entsprechenden [booleschen primitiven](/de/docs/Web/JavaScript/Guide/Data_structures#boolean_type) Wert explizit zu erzwingen.
+Die Umwandlung basiert auf der "Truthiness" oder "Falsiness" des Wertes (siehe
+{{Glossary("truthy", "truthy")}} und {{Glossary("falsy", "falsy")}}).
 
-Die gleiche Umwandlung kann durch die {{jsxref("Boolean/Boolean", "Boolean()")}}-Funktion durchgeführt werden.
+Die gleiche Umwandlung kann durch die {{jsxref("Boolean/Boolean", "Boolean()")}} Funktion erreicht werden.
 
 ```js
 !!true; // !!truthy returns true
@@ -69,9 +78,9 @@ Die gleiche Umwandlung kann durch die {{jsxref("Boolean/Boolean", "Boolean()")}}
 !!Boolean(false); // !!falsy returns false
 ```
 
-### Umwandlung zwischen NICHT-Operationen
+### Umwandeln zwischen NICHTs
 
-Die folgende Operation, die **booleans** beinhaltet:
+Die folgende Operation mit **booleschen** Werten:
 
 ```js-nolint
 !!bCondition

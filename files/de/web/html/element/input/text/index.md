@@ -2,7 +2,7 @@
 title: <input type="text">
 slug: Web/HTML/Element/input/text
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
@@ -40,87 +40,87 @@ label {
 
 ## Wert
 
-Das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut ist ein String, der den aktuellen Wert des in das Textfeld eingegebenen Textes enthält. Sie können diesen Wert mithilfe der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) `value`-Eigenschaft in JavaScript abrufen.
+Das Attribut [`value`](/de/docs/Web/HTML/Element/input#value) ist ein String, der den aktuellen Wert des in das Textfeld eingegebenen Textes enthält. Sie können diesen mit der `value`-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) in JavaScript abrufen.
 
 ```js
 let theText = myTextInput.value;
 ```
 
-Wenn keine Validierungsbeschränkungen für die Eingabe vorhanden sind (siehe [Validierung](#validierung) für weitere Details), kann der Wert ein leerer String (`""`) sein.
+Wenn keine Validierungseinschränkungen für die Eingabe gelten (siehe [Validierung](#validierung) für weitere Details), kann der Wert ein leerer String (`""`) sein.
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den [globalen Attributen](/de/docs/Web/HTML/Global_attributes) und Attributen, die auf alle {{HTMLElement("input")}}-Elemente unabhängig von ihrem Typ wirken, unterstützen Texteingaben die folgenden Attribute.
+Zusätzlich zu den [globalen Attributen](/de/docs/Web/HTML/Global_attributes) und den Attributen, die für alle {{HTMLElement("input")}}-Elemente unabhängig von ihrem Typ gelten, unterstützen Texteingaben die folgenden Attribute.
 
 ### `list`
 
-Der Wert des list-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das sich im selben Dokument befindet. Das {{HTMLElement("datalist")}} bietet eine Liste vordefinierter Werte, um dem Benutzer Vorschläge für diese Eingabe zu machen. Alle Werte in der Liste, die mit dem [`type`](/de/docs/Web/HTML/Element/input#type) nicht kompatibel sind, werden nicht in den vorgeschlagenen Optionen einbezogen. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste wählen oder einen anderen Wert angeben.
+Der Wert des List-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das im selben Dokument vorhanden ist. Das {{HTMLElement("datalist")}} bietet eine Liste von vordefinierten Werten, die dem Benutzer für diese Eingabe vorgeschlagen werden. Werte in der Liste, die nicht mit dem [`type`](/de/docs/Web/HTML/Element/input#type) kompatibel sind, werden nicht in die vorgeschlagenen Optionen aufgenommen. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert angeben.
 
 ### `maxlength`
 
-Die maximale Zeichenlänge (gemessen in UTF-16 Code-Einheiten), die der Benutzer in die `text`-Eingabe eingeben kann. Dies muss ein ganzzahliger Wert von 0 oder höher sein. Wenn kein `maxlength` angegeben oder ein ungültiger Wert angegeben ist, gibt es keine maximale Länge für die `text`-Eingabe. Dieser Wert muss auch größer oder gleich dem Wert von `minlength` sein.
+Die maximale Zeichenlänge (gemessen in UTF-16-Codeeinheiten), die der Benutzer in das `text`-Eingabefeld eingeben kann. Dieser Wert muss ein ganzzahliger Wert von 0 oder höher sein. Wenn kein `maxlength` angegeben ist oder ein ungültiger Wert angegeben wird, hat die Texteingabe keine maximale Länge. Dieser Wert muss auch größer oder gleich dem Wert von `minlength` sein.
 
-Die Eingabe wird die [Bescheidprüfungen](/de/docs/Web/HTML/Constraint_validation) nicht bestehen, wenn die Länge des Textwertes des Feldes größer ist als `maxlength` UTF-16 Code-Einheiten. Die Bescheidprüfungen werden nur angewendet, wenn der Wert vom Benutzer geändert wird.
+Die Eingabe wird die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) nicht bestehen, wenn die Länge des Textwertes des Feldes größer als `maxlength` UTF-16-Code-Einheiten ist. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
 
 ### `minlength`
 
-Die Mindestzeichenlänge (gemessen in UTF-16 Code-Einheiten), die der Benutzer in die `text`-Eingabe eingeben kann. Dies muss ein nicht-negativer, ganzzahliger Wert sein, der kleiner oder gleich dem von `maxlength` festgelegten Wert ist. Wenn kein `minlength` angegeben oder ein ungültiger Wert angegeben ist, hat die `text`-Eingabe keine Mindestlänge.
+Die minimale Zeichenlänge (gemessen in UTF-16-Codeeinheiten), die der Benutzer in die `text`-Eingabe eingeben kann. Dieser Wert muss ein nicht-negativer ganzzahliger Wert sein, der kleiner oder gleich dem durch `maxlength` angegebenen Wert ist. Wenn kein `minlength` angegeben ist oder ein ungültiger Wert angegeben wird, hat die Texteingabe keine Mindestlänge.
 
-Die Eingabe wird die [Bescheidprüfungen](/de/docs/Web/HTML/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes weniger als `minlength` UTF-16 Code-Einheiten lang ist. Die Bescheidprüfungen werden nur angewendet, wenn der Wert vom Benutzer geändert wird.
+Die Eingabe wird die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) nicht bestehen, wenn die Länge des eingegebenen Textes im Feld weniger als `minlength` UTF-16-Code-Einheiten beträgt. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
 
 ### `pattern`
 
-Das `pattern`-Attribut ist, wenn angegeben, ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe erfüllen muss, um die [Bescheidprüfungen](/de/docs/Web/HTML/Constraint_validation) zu bestehen. Es muss ein gültiger JavaScript-Regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, damit das Muster als Unicode-Codepunkte-Sequenz anstelle als {{Glossary("ASCII", "ASCII")}} behandelt wird. Es sollten keine Schrägstriche um den Mustertext angegeben werden.
+Das `pattern`-Attribut, falls angegeben, ist ein regulärer Ausdruck, den der `value` des Eingabefelds erfüllen muss, damit der Wert die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) besteht. Es muss ein gültiger regulärer JavaScript-Ausdruck sein, wie vom {{jsxref("RegExp")}}-Typ verwendet und in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, sodass das Muster als Sequenz von Unicode-Codepunkten und nicht als {{Glossary("ASCII", "ASCII")}} behandelt wird. Es sollten keine Schrägstriche um den Mustertext angegeben werden.
 
-Wenn das spezifizierte Muster nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollständig ignoriert.
+Wenn das angegebene Muster nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollständig ignoriert.
 
 > [!NOTE]
-> Verwenden Sie das [`title`](/de/docs/Web/HTML/Element/input#title)-Attribut, um Text anzugeben, der von den meisten Browsern als Tooltip angezeigt wird, um zu erklären, was die Anforderungen sind, um das Muster zu erfüllen. Sie sollten auch weiteren erklärenden Text in der Nähe einfügen.
+> Verwenden Sie das Attribut [`title`](/de/docs/Web/HTML/Element/input#title), um Text anzugeben, den die meisten Browser als Tooltip anzeigen, um zu erklären, was die Anforderungen sind, um das Muster zu erfüllen. Sie sollten auch anderen erklärenden Text in der Nähe einfügen.
 
-Siehe [Spezifizieren eines Musters](#ein_muster_festlegen) für weitere Details und ein Beispiel.
+Siehe [Festlegen eines Musters](#ein_muster_festlegen) für weitere Details und ein Beispiel.
 
 ### `placeholder`
 
-Das `placeholder`-Attribut ist ein String, der dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen im Feld erwartet werden. Es sollte ein Wort oder ein kurzer Satz sein, der den erwarteten Datentyp darstellt und keine erklärende Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
+Das `placeholder`-Attribut ist ein String, der dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Information im Feld erwartet wird. Es sollte ein Wort oder ein kurzer Satz sein, der den erwarteten Datentyp demonstriert, anstatt eine erklärende Nachricht. Der Text _darf_ keine Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn der Inhalt der Steuerung eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) aufweist, der Platzhalter jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie Unicode-Zweiweg-Algorithmus-Formatierungszeichen verwenden, um die Richtung im Platzhalter zu überschreiben; siehe [Wie man Unicode-Steuerungen für bidi-Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
+Wenn der Inhalt der Steuerung eine Ausrichtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, aber der Platzhalter in der entgegengesetzten Ausrichtung angezeigt werden muss, können Sie Unicode-Bidi-Formatierungszeichen verwenden, um die Ausrichtung des Platzhalters zu überschreiben; siehe [Wie man Unicode-Kontrollen für bidi-Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
 
 > [!NOTE]
-> Vermeiden Sie die Verwendung des `placeholder`-Attributs, wenn Sie können. Es ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>` Zugänglichkeit Bedenken](/de/docs/Web/HTML/Element/input#accessibility) für weitere Informationen.
+> Vermeiden Sie die Verwendung des `placeholder`-Attributs, wenn Sie können. Es ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Barrierefreiheitsbedenken](/de/docs/Web/HTML/Element/input#accessibility) für weitere Informationen.
 
 ### `readonly`
 
-Ein Boolesches Attribut, das, falls vorhanden, bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch weiterhin durch JavaScript-Code geändert werden, indem die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) `value`-Eigenschaft direkt festgelegt wird.
+Ein boolesches Attribut, das, falls vorhanden, bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch immer noch direkt durch JavaScript-Code, der die `value`-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) setzt, geändert werden.
 
 > [!NOTE]
-> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keine Auswirkung auf Eingaben mit dem ebenfalls angegebenen `readonly`-Attribut.
+> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keine Auswirkungen auf Eingaben mit dem `readonly`-Attribut.
 
 ### `size`
 
-Das `size`-Attribut ist ein numerischer Wert, der anzeigt, wie viele Zeichen breit das Eingabefeld sein soll. Der Wert muss eine Zahl größer als null sein, und der Standardwert ist 20. Da sich die Zeichenbreiten unterscheiden, kann dies genau oder nicht genau sein und sollte nicht als solche angenommen werden; die resultierende Eingabe kann schmaler oder breiter sein als die angegebene Anzahl von Zeichen, abhängig von den Zeichen und der Schriftart ({{cssxref("font")}}-Einstellungen).
+Das `size`-Attribut ist ein numerischer Wert, der angibt, wie viele Zeichen breit das Eingabefeld sein sollte. Der Wert muss eine Zahl größer als null sein, und der Standardwert ist 20. Da Zeichenbreiten variieren, kann dies mehr oder weniger genau sein und sollte nicht darauf verlassen werden, dass es so ist; das resultierende Eingabefeld kann schmaler oder breiter sein als die angegebene Anzahl von Zeichen, abhängig von den Zeichen und den Schriftart-Einstellungen ({{cssxref("font")}}).
 
-Dies setzt _keine_ Grenze, wie viele Zeichen der Benutzer in das Feld eingeben kann. Es gibt nur annähernd an, wie viele auf einmal angezeigt werden können. Um eine Obergrenze für die Länge der Eingabedaten festzulegen, verwenden Sie das [`maxlength`](#maxlength)-Attribut.
+Dies setzt _keine_ Grenze, wie viele Zeichen der Benutzer in das Feld eingeben kann. Es gibt nur an, wie viele Zeichen gleichzeitig ungefähr sichtbar sein können. Um eine Obergrenze für die Länge der Eingabedaten festzulegen, verwenden Sie das [`maxlength`](#maxlength)-Attribut.
 
 ### `spellcheck`
 
-Das [`spellcheck`](/de/docs/Web/HTML/Global_attributes/spellcheck) globale Attribut wird verwendet, um anzugeben, ob die Rechtschreibprüfung für ein Element aktiviert werden soll. Es kann auf jedem bearbeitbaren Inhalt verwendet werden, aber hier betrachten wir spezifische Details im Zusammenhang mit der Verwendung von `spellcheck`-Attributen auf {{HTMLElement("input")}}-Elementen. Die zulässigen Werte für `spellcheck` sind:
+Das globale Attribut [`spellcheck`](/de/docs/Web/HTML/Global_attributes/spellcheck) wird verwendet, um anzugeben, ob die Rechtschreibprüfung für ein Element aktiviert werden soll. Es kann auf jedem bearbeitbaren Inhalt verwendet werden, aber hier betrachten wir die Spezifika der Verwendung von `spellcheck` auf {{HTMLElement("input")}}-Elementen. Die erlaubten Werte für `spellcheck` sind:
 
 - `false`
-  - : Deaktiviert die Rechtschreibprüfung für dieses Element.
+  - : Deaktivieren Sie die Rechtschreibprüfung für dieses Element.
 - `true`
-  - : Aktiviert die Rechtschreibprüfung für dieses Element.
+  - : Aktivieren Sie die Rechtschreibprüfung für dieses Element.
 - `""` (leerer String) oder kein Wert
-  - : Folgt dem Standardverhalten des Elements für die Rechtschreibprüfung. Dies kann auf den `spellcheck`-Einstellungen eines übergeordneten Elements oder andere Faktoren basieren.
+  - : Folgen Sie dem Standardverhalten des Elements für die Rechtschreibprüfung. Dies kann basierend auf einer übergeordneten `spellcheck`-Einstellung oder anderen Faktoren erfolgen.
 
 Ein Eingabefeld kann die Rechtschreibprüfung aktiviert haben, wenn es nicht das [readonly](#readonly)-Attribut gesetzt hat und nicht deaktiviert ist.
 
-Der Wert, der durch das Lesen von `spellcheck` zurückgegeben wird, spiegelt möglicherweise nicht den tatsächlichen Zustand der Rechtschreibprüfung innerhalb einer Steuerung wider, wenn die Einstellungen des {{Glossary("user_agent", "Benutzeragenten")}} die Einstellung überschreiben.
+Der Wert, der durch das Lesen von `spellcheck` zurückgegeben wird, spiegelt möglicherweise nicht den tatsächlichen Zustand der Rechtschreibprüfung innerhalb einer Steuerung wider, wenn die Präferenzen des {{Glossary("user_agent", "Benutzeragenten")}} die Einstellung überschreiben.
 
 ## Verwendung von Texteingaben
 
-`<input>`-Elemente vom Typ `text` erstellen grundlegende, einzeilige Eingaben. Sie sollten diese verwenden, wann immer Sie möchten, dass der Benutzer einen einzeiligen Wert eingibt und kein spezifischerer Eingabetyp für das Erfassen dieses Wertes verfügbar ist (zum Beispiel, wenn es sich um ein [Datum](/de/docs/Web/HTML/Element/input/datetime-local), eine [URL](/de/docs/Web/HTML/Element/input/url), eine [E-Mail](/de/docs/Web/HTML/Element/input/email) oder einen [Suchbegriff](/de/docs/Web/HTML/Element/input/search) handelt, haben Sie bessere Optionen zur Verfügung).
+`<input>`-Elemente vom Typ `text` erstellen grundlegende, einzeilige Eingaben. Sie sollten sie überall verwenden, wo Sie möchten, dass der Benutzer einen einzeiligen Wert eingibt und kein spezifischerer Eingabetyp zum Sammeln dieses Wertes verfügbar ist (zum Beispiel, wenn es sich um ein [Datum](/de/docs/Web/HTML/Element/input/datetime-local), eine [URL](/de/docs/Web/HTML/Element/input/url), eine [E-Mail-Adresse](/de/docs/Web/HTML/Element/input/email) oder einen [Suchbegriff](/de/docs/Web/HTML/Element/input/search) handelt, stehen Ihnen bessere Optionen zur Verfügung).
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
 ```html
 <form>
@@ -134,15 +134,15 @@ Der Wert, der durch das Lesen von `spellcheck` zurückgegeben wird, spiegelt mö
 </form>
 ```
 
-Dies wird wie folgt dargestellt:
+Dies wird wie folgt angezeigt:
 
 {{EmbedLiveSample("Basic_example", 600, 80)}}
 
-Wenn das Formular übermittelt wird, wird das Daten Name/Wert-Paar an den Server gesendet, das `name=Chris` lautet (wenn "Chris" als Eingabewert vor der Einreichung eingegeben wurde). Sie müssen das [`name`](/de/docs/Web/HTML/Element/input#name)-Attribut im {{HTMLElement("input")}}-Element einfügen, sonst wird der Wert des Textfeldes nicht mit den übermittelten Daten eingeschlossen.
+Wenn das Formular gesendet wird, wird das Daten-Name/Wert-Paar, das an den Server gesendet wird, `name=Chris` sein (wenn "Chris" als der Eingabewert vor dem Senden eingegeben wurde). Sie müssen darauf achten, das Attribut [`name`](/de/docs/Web/HTML/Element/input#name) auf das {{HTMLElement("input")}}-Element einzuschließen, andernfalls wird der Wert des Textfelds nicht mit den gesendeten Daten aufgenommen.
 
 ### Platzhalter festlegen
 
-Sie können einen nützlichen Platzhalter innerhalb Ihrer Texteingabe bereitstellen, der einen Hinweis darauf geben kann, was eingegeben werden sollte, indem Sie das [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder)-Attribut einschließen. Schauen Sie sich das folgende Beispiel an:
+Sie können einen nützlichen Platzhalter innerhalb Ihrer Texteingabe bereitstellen, der einen Hinweis darauf geben kann, was eingegeben werden soll, indem Sie das Attribut [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder) verwenden. Sehen Sie sich das folgende Beispiel an:
 
 ```html
 <form>
@@ -160,15 +160,15 @@ Sie können einen nützlichen Platzhalter innerhalb Ihrer Texteingabe bereitstel
 </form>
 ```
 
-Sie können sehen, wie der Platzhalter unten dargestellt wird:
+Sie können sehen, wie der Platzhalter unten gerendert wird:
 
 {{EmbedLiveSample("Setting_placeholders", 600, 80)}}
 
-Der Platzhalter wird normalerweise in einer helleren Farbe als die Vordergrundfarbe des Elements gerendert und verschwindet automatisch, wenn der Benutzer beginnt, Text in das Feld einzugeben (oder wenn das Feld einen Wert durch Setzen seines `value`-Attributs programmatisch erhält).
+Der Platzhalter wird typischerweise in einer helleren Farbe als die Vordergrundfarbe des Elements dargestellt und verschwindet automatisch, wenn der Benutzer beginnt, Text in das Feld einzugeben (oder wenn das Feld programmgesteuert durch Setzen seines `value`-Attributs einen Wert erhält).
 
 ### Physische Größe des Eingabeelements
 
-Die physische Größe der Eingabebox kann durch das [`size`](/de/docs/Web/HTML/Element/input#size)-Attribut gesteuert werden. Damit können Sie die Anzahl der Zeichen angeben, die die Texteingabe gleichzeitig anzeigen kann. Dies beeinflusst die Breite des Elements und ermöglicht es Ihnen, die Breite in Bezug auf Zeichen anstelle von Pixeln zu spezifizieren. In diesem Beispiel ist die Eingabe beispielsweise 30 Zeichen breit:
+Die physische Größe des Eingabefelds kann mit dem Attribut [`size`](/de/docs/Web/HTML/Element/input#size) gesteuert werden. Damit können Sie die Anzahl der Zeichen angeben, die die Texteingabe gleichzeitig anzeigen kann. Dies beeinflusst die Breite des Elements, indem Sie die Breite in Zeichen anstelle von Pixeln angeben. In diesem Beispiel ist die Eingabe beispielsweise 30 Zeichen breit:
 
 ```html
 <form>
@@ -191,14 +191,14 @@ Die physische Größe der Eingabebox kann durch das [`size`](/de/docs/Web/HTML/E
 
 ## Validierung
 
-`<input>`-Elemente vom Typ `text` haben keine automatische Validierung, da eine grundlegende Texteingabe in der Lage sein muss, beliebige Zeichenfolgen zu akzeptieren. Es gibt jedoch einige Optionen für die clientseitige Validierung, die wir im Folgenden besprechen werden.
+`<input>`-Elemente vom Typ `text` haben keine automatische Validierung, die auf sie angewendet wird (da eine grundlegende Texteingabe in der Lage sein muss, jeden beliebigen String zu akzeptieren), aber es gibt einige Client-seitige Validierungsoptionen, die wir unten besprechen werden.
 
 > [!NOTE]
-> HTML-Formularvalidierung ist _kein_ Ersatz für Serverskripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format vorliegen. Es ist zu einfach, Anpassungen am HTML vorzunehmen, die es ermöglichen, die Validierung zu umgehen oder vollständig zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server sendet. Wenn Ihr serverseitiger Code die Daten, die er erhält, nicht validiert, könnte ein Desaster drohen, wenn unsachgemäß formatierte Daten (oder Daten, die zu groß sind, vom falschen Typ sind usw.) in Ihre Datenbank eingegeben werden.
+> Die HTML-Formularvalidierung ist _kein_ Ersatz für Serverskripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format vorliegen. Es ist viel zu einfach für jemanden, Änderungen am HTML vorzunehmen, die ihm ermöglichen, die Validierung zu umgehen, oder sie vollständig zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server übermittelt. Wenn Ihr Serverseiten-Code die empfangenen Daten nicht validiert, könnte es zu Problemen kommen, wenn unsachgemäß formatierte Daten (oder Daten, die zu groß sind, den falschen Typ haben usw.) in Ihre Datenbank eingegeben werden.
 
-### Hinweis zum Styling
+### Eine Anmerkung zum Styling
 
-Es gibt nützliche Pseudo-Klassen für das Styling von Formularelementen, um dem Benutzer anzuzeigen, wann ihre Werte gültig oder ungültig sind. Diese sind {{cssxref(":valid")}} und {{cssxref(":invalid")}}. In diesem Abschnitt verwenden wir die folgende CSS, die ein Häkchen (Tick) neben Eingaben mit gültigen Werten und ein Kreuz (X) neben Eingaben mit ungültigen Werten anzeigt.
+Es gibt nützliche Pseudoklassen, die zum Stylen von Formularelementen verfügbar sind, um dem Benutzer anzuzeigen, wann ihre Werte gültig oder ungültig sind. Diese sind {{cssxref(":valid")}} und {{cssxref(":invalid")}}. In diesem Abschnitt werden wir das folgende CSS verwenden, das ein Häkchen (tick) neben Eingaben mit gültigen Werten und ein Kreuz (X) neben Eingaben mit ungültigen Werten anzeigt.
 
 ```css
 div {
@@ -223,11 +223,11 @@ input:valid + span::after {
 }
 ```
 
-Die Technik erfordert auch ein {{htmlelement("span")}}-Element, das nach dem Formularelement platziert werden muss und als Halter für die Symbole fungiert. Dies war notwendig, da einige Eingabetypen in einigen Browsern die direkt nach ihnen platzierten Symbole nicht gut darstellen.
+Die Technik erfordert auch ein {{htmlelement("span")}}, das nach dem Formularelement platziert wird und als Halter für die Symbole dient. Dies war notwendig, weil einige Eingabetypen in manchen Browsern Symbole, die direkt nach ihnen platziert werden, nicht gut anzeigen.
 
-### Eingabe erforderlich machen
+### Eingabe als erforderlich markieren
 
-Sie können das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut verwenden, um das Eintragen eines Wertes vor der Formularübermittlung zur Pflicht zu machen:
+Sie können das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut verwenden, um das Eingeben eines Wertes vor der Formularübermittlung zu einer Pflicht zu machen:
 
 ```html
 <form>
@@ -262,17 +262,17 @@ input:valid + span::after {
 }
 ```
 
-Dies wird wie folgt dargestellt:
+Dies wird wie folgt angezeigt:
 
 {{EmbedLiveSample('Making_input_required', 600, 100)}}
 
-Wenn Sie versuchen, das Formular ohne eingegebenen Suchbegriff zu übermitteln, wird der Browser eine Fehlermeldung anzeigen.
+Wenn Sie versuchen, das Formular ohne eingegebenen Suchbegriff zu senden, wird der Browser eine Fehlermeldung anzeigen.
 
-### Eingabewertlänge
+### Länge des Eingabewerts
 
-Sie können eine Mindestlänge (in Zeichen) für den eingegebenen Wert mithilfe des [`minlength`](/de/docs/Web/HTML/Element/input#minlength)-Attributs festlegen; verwenden Sie ebenso [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength), um die maximale Länge des eingegebenen Wertes in Zeichen festzulegen.
+Sie können eine Mindestlänge (in Zeichen) für den eingegebenen Wert mit dem Attribut [`minlength`](/de/docs/Web/HTML/Element/input#minlength) festlegen; verwenden Sie in ähnlicher Weise [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength), um die maximale Länge des eingegebenen Wertes in Zeichen festzulegen.
 
-Das folgende Beispiel erfordert, dass der eingegebene Wert eine Länge von 4–8 Zeichen hat.
+Das Beispiel unten erfordert, dass der eingegebene Wert 4–8 Zeichen lang ist.
 
 ```html
 <form>
@@ -315,20 +315,20 @@ input:valid + span::after {
 }
 ```
 
-Dies wird wie folgt dargestellt:
+Dies wird wie folgt angezeigt:
 
 {{EmbedLiveSample('Input_value_length', 600, 100)}}
 
-Wenn Sie versuchen, das Formular mit weniger als 4 Zeichen zu übermitteln, erhalten Sie eine entsprechende Fehlermeldung (die sich je nach Browser unterscheidet). Wenn Sie versuchen, mehr als 8 Zeichen einzugeben, lässt der Browser dies nicht zu.
+Wenn Sie versuchen, das Formular mit weniger als 4 Zeichen zu übermitteln, wird Ihnen eine entsprechende Fehlermeldung angezeigt (die je nach Browser unterschiedlich ist). Wenn Sie versuchen, mehr als 8 Zeichen einzugeben, lässt der Browser dies nicht zu.
 
 > [!NOTE]
-> Wenn Sie ein `minlength` angeben, aber kein `required`, wird die Eingabe als gültig betrachtet, da der Benutzer nicht verpflichtet ist, einen Wert anzugeben.
+> Wenn Sie ein `minlength` angeben, aber kein `required`, wird die Eingabe als gültig angesehen, da der Benutzer keinen Wert angeben muss.
 
 ### Ein Muster festlegen
 
-Sie können das [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribut verwenden, um einen regulären Ausdruck anzugeben, dem der eingegebene Wert entsprechen muss, um als gültig betrachtet zu werden (siehe [Validierung durch einen regulären Ausdruck](/de/docs/Learn_web_development/Extensions/Forms/Form_validation#validating_against_a_regular_expression) für einen kurzen Kurs zur Verwendung von regulären Ausdrücken zur Validierung von Eingaben).
+Sie können das Attribut [`pattern`](/de/docs/Web/HTML/Element/input#pattern) verwenden, um einen regulären Ausdruck festzulegen, den der eingegebene Wert erfüllen muss, um als gültig zu gelten (siehe [Validierung gegen einen regulären Ausdruck](/de/docs/Learn_web_development/Extensions/Forms/Form_validation#validating_against_a_regular_expression) für einen Schnellkurs zur Verwendung regulärer Ausdrücke zur Validierung von Eingaben).
 
-Das folgende Beispiel beschränkt den Wert auf 4-8 Zeichen und erfordert, dass er nur aus Kleinbuchstaben besteht.
+Das Beispiel unten beschränkt den Wert auf 4–8 Zeichen und erfordert, dass er nur Kleinbuchstaben enthält.
 
 ```html
 <form>
@@ -378,13 +378,13 @@ input:valid + span::after {
 }
 ```
 
-Dies wird wie folgt dargestellt:
+Dies wird wie folgt angezeigt:
 
 {{EmbedLiveSample('Specifying_a_pattern', 600, 130)}}
 
 ## Beispiele
 
-Sie können gute Beispiele für Texteingaben im Kontext in unseren Artikeln [Ihr erstes HTML-Formular](/de/docs/Learn_web_development/Extensions/Forms/Your_first_form) und [Wie man ein HTML-Formular strukturiert](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form) sehen.
+Gute Beispiele für die Verwendung von Texteingaben im Kontext finden Sie in unseren Artikeln [Ihr erstes HTML-Formular](/de/docs/Learn_web_development/Extensions/Forms/Your_first_form) und [Anleitung zur Strukturierung eines HTML-Formulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
 
 ## Technische Zusammenfassung
 
@@ -393,12 +393,12 @@ Sie können gute Beispiele für Texteingaben im Kontext in unseren Artikeln [Ihr
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Ein String, der den Text im
-        Textfeld darstellt.
+        Ein String, der den Text enthält,
+        der im Textfeld enthalten ist.
       </td>
     </tr>
     <tr>
-      <td><strong>Events</strong></td>
+      <td><strong>Ereignisse</strong></td>
       <td>
         [`change`](/de/docs/Web/API/HTMLElement/change_event) und
         [`input`](/de/docs/Web/API/Element/input_event)
@@ -438,8 +438,8 @@ Sie können gute Beispiele für Texteingaben im Kontext in unseren Artikeln [Ihr
     <tr>
       <td><strong>Implizite ARIA-Rolle</strong></td>
       <td>ohne <code>list</code>-Attribut:
-                <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/textbox_role">textbox</a></code></td>
-      <td>mit <code>list</code>-Attribut: <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/combobox_role">combobox</a></code></td>
+                <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role">textbox</a></code></td>
+      <td>mit <code>list</code>-Attribut: <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role">combobox</a></code></td>
     </tr>
   </tbody>
 </table>
@@ -455,6 +455,6 @@ Sie können gute Beispiele für Texteingaben im Kontext in unseren Artikeln [Ihr
 ## Siehe auch
 
 - [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)
-- {{HTMLElement("input")}} und das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Interface, auf dem es basiert.
+- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle, auf der es basiert.
 - [`<input type="search">`](/de/docs/Web/HTML/Element/input/search)
 - {{HTMLElement("textarea")}}: Mehrzeilige Texteingabe

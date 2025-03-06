@@ -2,20 +2,20 @@
 title: JavaScript-Referenz
 slug: Web/JavaScript/Reference
 l10n:
-  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar}}
 
-Die JavaScript-Referenz dient als Repository für Fakten über die JavaScript-Sprache. Die gesamte Sprache wird hier im Detail beschrieben. Wenn Sie JavaScript-Code schreiben, werden Sie häufig auf diese Seiten verweisen (daher der Titel „JavaScript-Referenz“).
+Die JavaScript-Referenz dient als Sammlung von Informationen über die JavaScript-Sprache. Die gesamte Sprache wird hier ausführlich beschrieben. Während Sie JavaScript-Code schreiben, werden Sie häufig auf diese Seiten zurückgreifen (daher der Titel "JavaScript-Referenz").
 
-Die JavaScript-Sprache soll innerhalb einer größeren Umgebung verwendet werden, sei es in einem Browser, serverseitigen Skripten oder Ähnlichem. Diese Referenz versucht größtenteils, umgebungsneutral zu sein und zielt nicht auf eine Webbrowser-Umgebung ab.
+Die JavaScript-Sprache ist dazu gedacht, in einer größeren Umgebung verwendet zu werden, sei es ein Browser, serverseitige Skripte oder ähnliches. Größtenteils versucht diese Referenz, umgebungsneutral zu sein und sich nicht speziell an eine Webbrowser-Umgebung zu richten.
 
-Wenn Sie neu in JavaScript sind, beginnen Sie mit dem [Leitfaden](/de/docs/Web/JavaScript/Guide). Sobald Sie die Grundlagen verstanden haben, können Sie die Referenz nutzen, um mehr Details über einzelne Objekte und Sprachkonstrukte zu erfahren.
+Wenn Sie neu bei JavaScript sind, beginnen Sie mit dem [Leitfaden](/de/docs/Web/JavaScript/Guide). Sobald Sie die Grundlagen fest im Griff haben, können Sie die Referenz verwenden, um mehr Details zu einzelnen Objekten und Sprachkonstrukten zu erhalten.
 
 ## Eingebaute Objekte
 
-[JavaScript-Standard eingebaute Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects), zusammen mit ihren Methoden und Eigenschaften.
+[JavaScript Standard-Eingebaute Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects), zusammen mit ihren Methoden und Eigenschaften.
 
 ### Werteigenschaften
 
@@ -45,7 +45,7 @@ Wenn Sie neu in JavaScript sind, beginnen Sie mit dem [Leitfaden](/de/docs/Web/J
 - {{jsxref("Boolean")}}
 - {{jsxref("Symbol")}}
 
-### Fehlertypen
+### Fehlerobjekte
 
 - {{jsxref("Error")}}
 - {{jsxref("AggregateError")}}
@@ -86,7 +86,7 @@ Wenn Sie neu in JavaScript sind, beginnen Sie mit dem [Leitfaden](/de/docs/Web/J
 - {{jsxref("Float32Array")}}
 - {{jsxref("Float64Array")}}
 
-### Geordnete Sammlungen
+### Schlüssel-Sammlungen
 
 - {{jsxref("Map")}}
 - {{jsxref("Set")}}
@@ -101,7 +101,7 @@ Wenn Sie neu in JavaScript sind, beginnen Sie mit dem [Leitfaden](/de/docs/Web/J
 - {{jsxref("Atomics")}}
 - {{jsxref("JSON")}}
 
-### Speichermanagement
+### Speicherverwaltung
 
 - {{jsxref("WeakRef")}}
 - {{jsxref("FinalizationRegistry")}}
@@ -256,7 +256,7 @@ Wenn Sie neu in JavaScript sind, beginnen Sie mit dem [Leitfaden](/de/docs/Web/J
 - {{jsxref("Operators/Strict_equality", "===")}}
 - {{jsxref("Operators/Strict_inequality", "!==")}}
 
-### Bitweise Verschiebungsoperatoren
+### Bitweise Verschiebeoperatoren
 
 - {{jsxref("Operators/Left_shift", "&lt;&lt;")}}
 - {{jsxref("Operators/Right_shift", "&gt;&gt;")}}
@@ -274,7 +274,7 @@ Wenn Sie neu in JavaScript sind, beginnen Sie mit dem [Leitfaden](/de/docs/Web/J
 - {{jsxref("Operators/Logical_OR", "||")}}
 - {{jsxref("Operators/Nullish_coalescing", "??")}}
 
-### Bedingter (ternärer) Operator
+### Konditionaler (ternärer) Operator
 
 - {{jsxref("Operators/Conditional_operator", "(condition ? ifTrue : ifFalse)")}}
 
@@ -315,11 +315,11 @@ Wenn Sie neu in JavaScript sind, beginnen Sie mit dem [Leitfaden](/de/docs/Web/J
 
 [JavaScript-Funktionen.](/de/docs/Web/JavaScript/Reference/Functions)
 
-- {{jsxref("Functions/Arrow_functions", "Arrow Functions", "", 1)}}
-- {{jsxref("Functions/Default_parameters", "Default parameters", "", 1)}}
-- {{jsxref("Functions/rest_parameters", "Rest parameters", "", 1)}}
+- {{jsxref("Functions/Arrow_functions", "Arrow-Funktionen", "", 1)}}
+- {{jsxref("Functions/Default_parameters", "Standardparameter", "", 1)}}
+- {{jsxref("Functions/rest_parameters", "Rest-Parameter", "", 1)}}
 - {{jsxref("Functions/arguments", "arguments")}}
-- {{jsxref("Functions/Method_definitions", "Method definitions", "", 1)}}
+- {{jsxref("Functions/Method_definitions", "Methodendefinitionen", "", 1)}}
 - {{jsxref("Functions/get", "getter", "", 1)}}
 - {{jsxref("Functions/set", "setter", "", 1)}}
 
@@ -336,33 +336,34 @@ Wenn Sie neu in JavaScript sind, beginnen Sie mit dem [Leitfaden](/de/docs/Web/J
 
 ## Reguläre Ausdrücke
 
-[JavaScript-Reguläre Ausdrücke.](/de/docs/Web/JavaScript/Reference/Regular_expressions)
+[JavaScript Reguläre Ausdrücke.](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 
-- [Rückverweis: `\1`, `\2`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)
-- [Erfassungsgruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
+- [Backreference: `\1`, `\2`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)
+- [Capturing Group: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
 - [Zeichenklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
-- [Zeichenklassenmaskierung: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
-- [Zeichenschutz: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
+- [Zeichenklassen-Fluchtzeichen: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
+- [Zeichen-Fluchtzeichen: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
 - [Disjunktion: `|`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction)
-- [Eingangszeilenbegrenzung: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
-- [Literalzeichen: `a`, `b`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)
-- [Vorausschauen: `(?=...)`, `(?!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
-- [Zurückschauen: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)
+- [Eingabegrenzen-Assertion: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
+- [Literales Zeichen: `a`, `b`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)
+- [Lookahead-Assertion: `(?=...)`, `(?!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
+- [Lookbehind-Assertion: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)
 - [Modifikator: `(?ims-ims:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier)
-- [Benannter Rückverweis: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)
-- [Benannte Erfassungsgruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
-- [Nicht erfassende Gruppe: `(?:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group)
+- [Benanntes Backreference: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)
+- [Benannte Capture-Gruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
+- [Nicht-capturing Gruppe: `(?:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group)
 - [Quantifizierer: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)
-- [Unicode-Zeichenklassenmaskierung: `\p{...}`, `\P{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)
+- [Unicode-Zeichenklassen-Fluchtzeichen: `\p{...}`, `\P{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)
 - [Wildcard: `.`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard)
-- [Wortbegrenzung: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
+- [Wortgrenzen-Assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
 
 ## Zusätzliche Referenzseiten
 
+- [Ausführungsmodell](/de/docs/Web/JavaScript/Reference/Execution_model)
 - {{jsxref("Lexical_grammar", "Lexikalische Grammatik", "", 1)}}
-- [Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Data_structures)
+- [Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Guide/Data_structures)
 - [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
-- [Nachlaufende Kommata](/de/docs/Web/JavaScript/Reference/Trailing_commas)
+- [Abschließende Kommata](/de/docs/Web/JavaScript/Reference/Trailing_commas)
 - [Fehler](/de/docs/Web/JavaScript/Reference/Errors)
 - {{jsxref("Strict_mode", "Strikter Modus", "", 1)}}
 - {{jsxref("Deprecated_and_obsolete_features", "Veraltete Funktionen", "", 1)}}

@@ -1,13 +1,13 @@
 ---
-title: "<hr>: Das Thematische Trennelement (Horizontale Linie)"
+title: "<hr>: Das thematische Trennelement (horizontale Linie)"
 slug: Web/HTML/Element/hr
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<hr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen thematischen Bruch zwischen Absatzelementen: zum Beispiel einen Szenenwechsel in einer Geschichte oder ein Themenwechsel innerhalb eines Abschnitts.
+Das **`<hr>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen thematischen Bruch zwischen Elemente auf Absatzebene: zum Beispiel einen Szenenwechsel in einer Geschichte oder einen Themenwechsel innerhalb eines Abschnitts.
 
 {{InteractiveExample("HTML Demo: &lt;hr&gt;", "tabbed-shorter")}}
 
@@ -38,22 +38,22 @@ hr::after {
 }
 ```
 
-Historisch wurde dies als horizontale Linie dargestellt. Während es in visuellen Browsern immer noch als horizontale Linie angezeigt werden kann, wird dieses Element jetzt in semantischen statt presentationalen Begriffen definiert. Wenn Sie eine horizontale Linie zeichnen möchten, sollten Sie dies mit entsprechendem CSS tun.
+Historisch gesehen wurde dies als horizontale Linie dargestellt. Auch wenn es in visuellen Browsern immer noch als horizontale Linie angezeigt werden kann, wird dieses Element jetzt in semantischen anstatt in präsentationalen Begriffen definiert. Wenn Sie also eine horizontale Linie zeichnen möchten, sollten Sie dies mit entsprechendem CSS tun.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `align` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Bestimmt die Ausrichtung der Linie auf der Seite. Wenn kein Wert angegeben ist, ist der Standardwert `left`.
+  - : Legt die Ausrichtung der Linie auf der Seite fest. Wenn kein Wert angegeben wird, ist der Standardwert `left`.
 - `color` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Farbe der Linie durch Farbnamen oder hexadezimalen Wert.
+  - : Legt die Farbe der Linie durch Farbname oder hexadezimalen Wert fest.
 - `noshade` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Bestimmt, dass die Linie keine Schattierung hat.
+  - : Setzt die Linie so, dass sie keine Schattierung hat.
 - `size` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Definiert die Höhe der Linie in Pixeln.
+  - : Bestimmt die Höhe der Linie in Pixeln.
 - `width` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert.
+  - : Bestimmt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert.
 
 ## Beispiel
 
@@ -89,35 +89,35 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void_element", "void element")}}.</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
+      <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         <ul>
-          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">fließenden Inhalt</a> akzeptiert</li>
+          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a> akzeptiert</li>
           <li><a href="/de/docs/Web/HTML/Element/select"><code>&lt;select></code></a> Element</li>
         </ul>
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
-      <td><a href="/de/docs/Web/Accessibility/ARIA/Roles/separator_role"><code>separator</code></a></td>
+      <th scope="row">Implizierte ARIA-Rolle</th>
+      <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role"><code>separator</code></a></td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a> oder <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a> oder <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>
       </td>
     </tr>
     <tr>

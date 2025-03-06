@@ -3,16 +3,16 @@ title: "HTML-Attribut: max"
 short-title: max
 slug: Web/HTML/Attributes/max
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`max`**-Attribut definiert den maximal zulässigen Wert, der für das Eingabefeld mit dem Attribut akzeptabel und gültig ist. Wenn der [`value`](/de/docs/Web/HTML/Element/input#value) des Elements größer ist als dieser, schlägt die [Validierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) des Elements fehl. Dieser Wert muss größer oder gleich dem Wert des [`min`](/de/docs/Web/HTML/Attributes/min) Attributs sein. Wenn das `max`-Attribut vorhanden aber nicht angegeben oder ungültig ist, wird kein `max`-Wert angewendet. Falls das `max`-Attribut gültig ist und ein nicht leerer Wert größer ist als das Maximum, das durch das `max`-Attribut erlaubt ist, wird die Constraint-Validierung die Formularübermittlung verhindern.
+Das **`max`**-Attribut definiert den maximal akzeptablen und gültigen Wert für das Eingabefeld, das das Attribut enthält. Wenn der [`value`](/de/docs/Web/HTML/Element/input#value) des Elements größer ist als dieser Wert, schlägt das Element bei der [Validierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) fehl. Dieser Wert muss größer oder gleich dem Wert des [`min`](/de/docs/Web/HTML/Attributes/min)-Attributs sein. Wenn das `max`-Attribut vorhanden ist, aber nicht spezifiziert oder ungültig ist, wird kein `max`-Wert angewendet. Wenn das `max`-Attribut gültig ist und ein nicht-leerer Wert größer ist als der vom `max`-Attribut erlaubte, verhindert die Einschränkungsvalidierung die Formularübermittlung.
 
-Das max-Attribut ist für die numerischen Eingabetypten gültig, einschließlich der {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} Typen, und sowohl für die {{htmlelement('progress')}} als auch die {{htmlelement('meter')}} Elemente. Es ist eine Zahl, die den maximal positiven Wert angibt, den ein Formular-Steuerelement als gültig betrachtet.
+Das max-Attribut ist gültig für die numerischen Eingabetypen, einschließlich der {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} Typen sowie für die Elemente {{htmlelement('progress')}} und {{htmlelement('meter')}}. Es handelt sich um eine Zahl, die den positivsten Wert angibt, den ein Formularsteuerelement als gültig betrachtet.
 
-Wenn der Wert den maximal erlaubten Wert überschreitet, wird [`validityState.rangeOverflow`](/de/docs/Web/API/ValidityState/rangeOverflow) wahr sein, und das Steuerelement wird durch die {{cssxref(':out-of-range')}} und {{cssxref(':invalid')}} Pseudoklassen erfasst.
+Wenn der Wert den erlaubten Maximalwert überschreitet, wird [`validityState.rangeOverflow`](/de/docs/Web/API/ValidityState/rangeOverflow) wahr, und die Steuerung wird durch die Pseudoklassen {{cssxref(':out-of-range')}} und {{cssxref(':invalid')}} abgeglichen.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ Wenn der Wert den maximal erlaubten Wert überschreitet, wird [`validityState.ra
   <caption>
     Syntax für
     <code>max</code>
-    Werte je nach Eingabe-
+    Werte nach Eingabe
     <code>type</code>
   </caption>
   <thead>
@@ -78,11 +78,11 @@ Wenn der Wert den maximal erlaubten Wert überschreitet, wird [`validityState.ra
 </table>
 
 > [!NOTE]
-> Wenn die von den Benutzern eingegebenen Daten nicht dem festgelegten Maximalwert entsprechen, wird der Wert bei der Constraint-Validierung als ungültig betrachtet und entspricht den {{cssxref(':invalid')}} und {{cssxref(':out-of-range')}} Pseudoklassen.
+> Wenn die vom Benutzer eingegebenen Daten nicht dem festgelegten Maximalwert entsprechen, wird der Wert bei der Einschränkungsvalidierung als ungültig betrachtet und wird den Pseudoklassen {{cssxref(':invalid')}} und {{cssxref(':out-of-range')}} entsprechen.
 
-Weitere Informationen finden Sie unter [Client-side validation](/de/docs/Web/HTML/Constraint_validation) und [`rangeOverflow`](/de/docs/Web/API/ValidityState/rangeOverflow).
+Siehe [Client-seitige Validierung](/de/docs/Web/HTML/Constraint_validation) und [`rangeOverflow`](/de/docs/Web/API/ValidityState/rangeOverflow) für weitere Informationen.
 
-Für das {{htmlelement('progress')}}-Element beschreibt das `max`-Attribut, wie viel Arbeit die durch das `progress`-Element angezeigte Aufgabe erfordert. Falls vorhanden, muss es einen Wert größer als null haben und eine gültige Fließkommazahl sein. Für das {{htmlelement('meter')}}-Element definiert das `max`-Attribut die obere numerische Grenze des gemessenen Bereichs. Dieser muss größer sein als der Mindestwert ([`min`](/de/docs/Web/HTML/Attributes/min) Attribut), falls angegeben. In beiden Fällen, falls nicht angegeben, beträgt der Standardwert 1.
+Für das {{htmlelement('progress')}}-Element beschreibt das `max`-Attribut, wie viel Arbeit die von dem `progress`-Element angezeigte Aufgabe erfordert. Wenn vorhanden, muss es einen Wert größer als null haben und eine gültige Gleitkommazahl sein. Für das {{htmlelement('meter')}}-Element definiert das `max`-Attribut die obere numerische Grenze des gemessenen Bereichs. Dies muss größer als der minimale Wert ([`min`](/de/docs/Web/HTML/Attributes/min) Attribut) sein, falls angegeben. In beiden Fällen wird der Wert standardmäßig auf 1 gesetzt, wenn er weggelassen wird.
 
 <table class="no-markdown">
   <caption>
@@ -114,16 +114,16 @@ Für das {{htmlelement('progress')}}-Element beschreibt das `max`-Attribut, wie 
       <td>
         <code
           >&#x3C;meter id="fuel" min="0" max="100" low="33" high="66"
-          optimum="80" value="40"> bei 40/100&#x3C;/meter></code
+          optimum="80" value="40"> at 40/100&#x3C;/meter></code
         >
       </td>
     </tr>
   </tbody>
 </table>
 
-## Barrierefreiheitsbedenken
+## Barrierefreiheit
 
-Geben Sie Anweisungen, um den Benutzern zu helfen zu verstehen, wie man das Formular ausfüllt und einzelne Formularelemente verwendet. Geben Sie an, welche Eingaben erforderlich und optional sind, Datenformate und andere relevante Informationen. Wenn Sie das `max`-Attribut verwenden, stellen Sie sicher, dass dieses maximale Erfordernis vom Benutzer verstanden wird. Das Bereitstellen von Anweisungen innerhalb des {{htmlelement('label')}} kann ausreichend sein. Wenn Sie Anweisungen außerhalb von Labels bereitstellen, was eine flexiblere Positionierung und Gestaltung ermöglicht, sollten Sie erwägen, [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) oder [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) zu verwenden.
+Stellen Sie Anweisungen zur Verfügung, um den Benutzern zu helfen, das Formular auszufüllen und individuelle Formularelemente zu verwenden. Geben Sie alle erforderlichen und optionalen Eingaben, Datenformate und andere relevante Informationen an. Wenn Sie das `max`-Attribut verwenden, stellen Sie sicher, dass dieser Maximalwert vom Benutzer verstanden wird. Anweisungen innerhalb des {{htmlelement('label')}} können ausreichend sein. Wenn Anweisungen außerhalb der Labels bereitgestellt werden, was eine flexiblere Positionierung und Gestaltung ermöglicht, sollten Sie die Verwendung von [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) in Betracht ziehen.
 
 ## Spezifikationen
 
@@ -137,10 +137,10 @@ Geben Sie Anweisungen, um den Benutzern zu helfen zu verstehen, wie man das Form
 
 - [`step`](/de/docs/Web/HTML/Attributes/step)
 - [`min`](/de/docs/Web/HTML/Attributes/min)
-- andere meter-Attribute: [`low`](/de/docs/Web/HTML/Attributes/low), [`high`](/de/docs/Web/HTML/Attributes/high), [`optimum`](/de/docs/Web/HTML/Attributes/optimum)
-- [Constraint validation](/de/docs/Web/HTML/Constraint_validation)
-- [Form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- andere Meter-Attribute: [`low`](/de/docs/Web/HTML/Attributes/low), [`high`](/de/docs/Web/HTML/Attributes/high), [`optimum`](/de/docs/Web/HTML/Attributes/optimum)
+- [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
 - [`validityState.rangeOverflow`](/de/docs/Web/API/ValidityState/rangeOverflow)
 - {{cssxref(':out-of-range')}}
 - {{htmlelement('input')}}
-- {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} Typen, und die {{htmlelement('meter')}}
+- {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} Typen, und das {{htmlelement('meter')}}

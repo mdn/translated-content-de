@@ -2,12 +2,12 @@
 title: Temporal.Duration.prototype.valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/valueOf
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`valueOf()`** Methode von {{jsxref("Temporal.Duration")}} Instanzen wirft einen {{jsxref("TypeError")}}, was verhindert, dass `Temporal.Duration` Instanzen [implizit zu primitiven Werten konvertiert](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) werden, wenn sie in arithmetischen oder Vergleichsoperationen verwendet werden.
+Die **`valueOf()`** Methode von {{jsxref("Temporal.Duration")}} Instanzen wirft einen {{jsxref("TypeError")}}, der verhindert, dass `Temporal.Duration` Instanzen [implizit in primitive Typen umgewandelt werden](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion), wenn sie in arithmetischen oder Vergleichsoperationen verwendet werden.
 
 ## Syntax
 
@@ -30,13 +30,13 @@ Keine.
 
 ## Beschreibung
 
-Da sowohl die [primitive Konversion](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) als auch die [Zahlenkonversion](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würde, wenn `valueOf()` fehlt, ein Ausdruck wie `duration1 > duration2` sie implizit als Strings vergleichen, was unerwartete Ergebnisse wie `"PT3S" > "PT1M"` haben kann. Durch das Auslösen eines `TypeError` verhindern `Temporal.Duration` Instanzen solche impliziten Konversionen. Sie müssen sie explizit in Zahlen umwandeln, indem Sie {{jsxref("Temporal/Duration/total", "Temporal.Duration.prototype.total()")}} verwenden, oder die statische Methode {{jsxref("Temporal/Duration/compare", "Temporal.Duration.compare()")}} verwenden, um sie zu vergleichen.
+Da sowohl die [primitive Umwandlung](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) als auch die [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würden Ausdrücke wie `duration1 > duration2` die Instanzen implizit als Zeichenketten vergleichen, wenn `valueOf()` fehlt. Dies könnte zu unerwarteten Ergebnissen führen, wie etwa `"PT3S" > "PT1M"`. Durch das Werfen eines `TypeError` verhindern `Temporal.Duration` Instanzen solche impliziten Umwandlungen. Sie müssen sie explizit in Zahlen umwandeln, indem Sie {{jsxref("Temporal/Duration/total", "Temporal.Duration.prototype.total()")}} verwenden, oder die statische Methode {{jsxref("Temporal/Duration/compare", "Temporal.Duration.compare()")}} verwenden, um sie zu vergleichen.
 
 ## Beispiele
 
-### Arithmetische und Vergleichsoperationen auf Temporal.Duration
+### Arithmetische und Vergleichsoperationen bei Temporal.Duration
 
-Alle arithmetischen und Vergleichsoperationen auf `Temporal.Duration` Instanzen sollten die dedizierten Methoden verwenden oder sie explizit in primitive Werte konvertieren.
+Alle arithmetischen und Vergleichsoperationen bei `Temporal.Duration` Instanzen sollten die dafür vorgesehenen Methoden verwenden oder diese explizit in primitive Typen umwandeln.
 
 ```js
 const duration1 = Temporal.Duration.from({ seconds: 3 });

@@ -3,12 +3,12 @@ title: "Element: ariaValueText-Eigenschaft"
 short-title: ariaValueText
 slug: Web/API/Element/ariaValueText
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaValueText`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuetext)-Attributs wider, das den menschenlesbaren Text als Alternative zu `aria-valuenow` für ein Bereichs-Widget definiert.
+Die **`ariaValueText`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)-Attributs wider, welches den menschenlesbaren Text als Alternative zu aria-valuenow für ein Bereichs-Widget definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-valuetext`-Attribut des Elements mit der ID `slider` auf "Sunday" gesetzt, um einen menschenlesbaren Wert für den Bereich zu geben. Mithilfe von `ariaValueText` aktualisieren wir den Wert auf "Monday".
+In diesem Beispiel wird das `aria-valuetext`-Attribut des Elements mit der ID `slider` auf "Sunday" gesetzt, um einen menschenlesbaren Wert für den Bereich zu geben. Mit `ariaValueText` aktualisieren wir den Wert auf "Monday".
 
 ```html
 <div

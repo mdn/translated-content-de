@@ -1,13 +1,13 @@
 ---
-title: "<strong>: Das Element für starke Wichtigkeit"
+title: "<strong>: Das Strong Importance-Element"
 slug: Web/HTML/Element/strong
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<strong>`**-[HTML](/de/docs/Web/HTML)-Element zeigt an, dass sein Inhalt hohe Wichtigkeit, Ernsthaftigkeit oder Dringlichkeit besitzt. Browser rendern den Inhalt typischerweise in fetter Schrift.
+Das **`<strong>`** [HTML](/de/docs/Web/HTML)-Element zeigt an, dass sein Inhalt von großer Wichtigkeit, Ernsthaftigkeit oder Dringlichkeit ist. Browser stellen den Inhalt typischerweise in Fettdruck dar.
 
 {{InteractiveExample("HTML Demo: &lt;strong&gt;", "tabbed-shorter")}}
 
@@ -29,29 +29,29 @@ p {
 
 Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Das `<strong>`-Element wird für Inhalte verwendet, die von "starker Wichtigkeit" sind, einschließlich Dingen von großer Ernsthaftigkeit oder Dringlichkeit (wie Warnungen). Dies kann ein Satz sein, der für die gesamte Seite von großer Bedeutung ist, oder Sie könnten lediglich versuchen, darauf hinzuweisen, dass einige Wörter im Vergleich zu nahen Inhalten von größerer Bedeutung sind.
+Das `<strong>`-Element ist für Inhalte gedacht, die von "großer Wichtigkeit" sind, einschließlich Dinge von großer Ernsthaftigkeit oder Dringlichkeit (wie Warnungen). Dies könnte ein Satz sein, der für die gesamte Seite von großer Bedeutung ist, oder lediglich ein Versuch, darauf hinzuweisen, dass einige Wörter im Vergleich zu nahem Inhalt von größerer Bedeutung sind.
 
-Typischerweise wird dieses Element standardmäßig mit einer fetten Schriftart gerendert. Es sollte jedoch _nicht_ verwendet werden, um fette Darstellung anzuwenden; verwenden Sie dafür die CSS-Eigenschaft {{cssxref("font-weight")}}. Verwenden Sie das {{HTMLElement("b")}}-Element, um auf einen bestimmten Text aufmerksam zu machen, ohne ein höheres Maß an Wichtigkeit anzuzeigen. Verwenden Sie das {{HTMLElement("em")}}-Element, um Text zu markieren, der eine Betonung darstellt.
+Typischerweise wird dieses Element standardmäßig mit einer fetten Schriftart dargestellt. Es sollte jedoch _nicht_ verwendet werden, um fettgedrucktes Styling anzuwenden; nutzen Sie dafür die CSS-Eigenschaft {{cssxref("font-weight")}}. Verwenden Sie das {{HTMLElement("b")}}-Element, um auf bestimmten Text hinzuweisen, ohne ein höheres Maß an Bedeutung anzuzeigen. Verwenden Sie das {{HTMLElement("em")}}-Element, um Text zu markieren, der eine Betonung des Ausdrucks hat.
 
-Eine weitere akzeptierte Verwendung für `<strong>` ist die Kennzeichnung von Abschnitten, die Notizen oder Warnungen im Text einer Seite darstellen.
+Ein weiterer anerkannter Gebrauch für `<strong>` ist, Labels von Absätzen zu kennzeichnen, die Notizen oder Warnungen innerhalb des Textes einer Seite darstellen.
 
 ### \<b> vs. \<strong>
 
-Es ist für neue Entwickler oft verwirrend, warum es so viele Möglichkeiten gibt, dasselbe auf einer gerenderten Website auszudrücken. {{HTMLElement("b")}} und `<strong>` sind vielleicht eine der häufigsten Verwirrungsquellen, die Entwickler dazu bringen zu fragen: "Soll ich `<b>` oder `<strong>` verwenden? Machen sie nicht beide dasselbe?"
+Es ist für neue Entwickler oft verwirrend, warum es so viele Möglichkeiten gibt, dasselbe auf einer gerenderten Webseite auszudrücken. {{HTMLElement("b")}} und `<strong>` sind möglicherweise eine der häufigsten Verwirrungsquellen, die Entwickler dazu bringen zu fragen: "Soll ich `<b>` oder `<strong>` verwenden? Erfüllen sie nicht beide denselben Zweck?"
 
-Nicht genau. Das `<strong>`-Element ist für Inhalte, die von größerer Wichtigkeit sind, während das `<b>`-Element verwendet wird, um Text Aufmerksamkeit zu schenken, ohne anzuzeigen, dass er wichtiger ist.
+Nicht genau. Das `<strong>`-Element ist für Inhalte, die von größerer Bedeutung sind, während das `<b>`-Element verwendet wird, um die Aufmerksamkeit auf Text zu lenken, ohne anzuzeigen, dass er wichtiger ist.
 
-Es kann hilfreich sein zu verstehen, dass beide in HTML gültige und semantische Elemente sind und dass es ein Zufall ist, dass sie beide in den meisten Browsern die gleiche Standardformatierung (fett) haben (obwohl einige ältere Browser `<strong>` tatsächlich unterstrichen). Jedes Element ist für bestimmte Arten von Szenarien gedacht, und wenn Sie Text zur Dekoration fett formatieren möchten, sollten Sie stattdessen die CSS-Eigenschaft {{cssxref("font-weight")}} verwenden.
+Es kann helfen zu verstehen, dass beide gültige und semantische Elemente in HTML sind und dass es ein Zufall ist, dass sie beide in den meisten Browsern in der gleichen Standarddarstellung (Fettdruck) erscheinen (obwohl einige ältere Browser `<strong>` tatsächlich unterstreichen). Jedes Element ist dazu bestimmt, in bestimmten Szenarien verwendet zu werden, und wenn Sie Text zur Dekoration fett hervorheben möchten, sollten Sie stattdessen die CSS-Eigenschaft {{cssxref("font-weight")}} verwenden.
 
-Der beabsichtigte Sinn oder Zweck des eingeschlossenen Textes sollte bestimmen, welches Element Sie verwenden. Die Bedeutung zu kommunizieren, ist, worum es bei Semantik geht.
+Die beabsichtigte Bedeutung oder der Zweck des umschlossenen Textes sollte bestimmen, welches Element Sie verwenden. Die Bedeutung zu vermitteln ist das, worum es bei Semantik geht.
 
 ### \<em> vs. \<strong>
 
-Hinzu kommt die Verwirrung darüber, dass HTML 4 `<strong>` als Hinweis auf eine stärkere Betonung definierte, während HTML 5 `<strong>` als Darstellung von "starker Wichtigkeit für seinen Inhalt" definiert. Dies ist ein wichtiger Unterschied, den es zu beachten gilt.
+Zur Verwirrung trägt auch bei, dass während HTML 4 `<strong>` als stärkere Betonung definierte, HTML 5 `<strong>` als Darstellung "starker Wichtigkeit für seinen Inhalt" definiert. Dies ist ein wichtiger Unterschied.
 
-Während `<em>` verwendet wird, um die Bedeutung eines Satzes zu ändern, wie es bei gesprochener Betonung der Fall ist ("Ich _liebe_ Karotten" vs. "Ich liebe _Karotten_"), wird `<strong>` verwendet, um Sätzen eine zusätzliche Bedeutung zu geben (z.B. "**Warnung!** Dies ist **sehr gefährlich.**"). Sowohl `<strong>` als auch `<em>` können verschachtelt werden, um den relativen Grad der Wichtigkeit bzw. der Betonen zu steigern.
+Während `<em>` verwendet wird, um die Bedeutung eines Satzes zu ändern, so wie gesprochene Betonung dies tut ("Ich _liebe_ Möhren" vs. "Ich liebe _Möhren_"), wird `<strong>` verwendet, um Teilen eines Satzes mehr Bedeutung zu verleihen (z.B. "**Warnung!** Dies ist **sehr gefährlich.**"). Sowohl `<strong>` als auch `<em>` können verschachtelt werden, um den relativen Grad der Bedeutung oder Betonung zu erhöhen.
 
 ## Beispiele
 
@@ -67,7 +67,7 @@ Während `<em>` verwendet wird, um die Bedeutung eines Satzes zu ändern, wie es
 
 {{EmbedLiveSample("Basic_example", 650, 80)}}
 
-### Warnkennzeichnung
+### Warnhinweise etikettieren
 
 ```html
 <p>
@@ -92,34 +92,34 @@ Während `<em>` verwendet wird, um die Bedeutung eines Satzes zu ändern, wie es
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Fließinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasinhalte</a
-        >, fühlbare Inhalte.
+          >formulierungstypischer Inhalt</a
+        >, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasinhalte</a
+          >Formulierungstypischer Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine; muss sowohl ein Start- als auch ein End-Tag haben.</td>
+      <td>Keine; muss sowohl ein Anfangstag als auch ein Endtag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasinhalte</a
+          >formulierungstypischen Inhalt</a
         > akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließende Inhalte</a
+          >Fließinhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -127,14 +127,14 @@ Während `<em>` verwendet wird, um die Bedeutung eines Satzes zu ändern, wie es
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">strong</a
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">strong</a
           ></code
         >
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Jede</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

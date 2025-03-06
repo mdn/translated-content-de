@@ -2,12 +2,12 @@
 title: Bitweises NICHT (~)
 slug: Web/JavaScript/Reference/Operators/Bitwise_NOT
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **bitweise NICHT-Operator (`~`)** gibt eine Zahl oder ein `BigInt` zurück, deren binäre Darstellung in jeder Bitposition eine `1` hat, für die das entsprechende Bit des Operanden `0` ist, und andernfalls `0`.
+Der **bitweise NICHT-Operator (`~`)** liefert eine Zahl oder ein BigInt, deren binäre Darstellung an jeder Bitposition, bei der das entsprechende Bit des Operanden `0` ist, eine `1` aufweist, und sonst eine `0`.
 
 {{InteractiveExample("JavaScript Demo: Expressions - Bitwise NOT")}}
 
@@ -30,16 +30,16 @@ console.log(~b); // 00000000000000000000000000000010
 
 ## Beschreibung
 
-Der `~`-Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Für Zahlen gibt der Operator einen 32-Bit-Integer zurück. Für BigInts gibt der Operator ein BigInt zurück. Zuerst [erzwingt er die Umwandlung des Operanden in einen numerischen Wert](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und überprüft den Typ davon. Wenn der Operand zu einem BigInt wird, führt er ein BigInt-NICHT aus; andernfalls wird der Operand in einen [32-Bit-Integer](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) konvertiert und führt ein numerisches bitweises NICHT aus.
+Der `~`-Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Für Zahlen gibt der Operator eine 32-Bit-Ganzzahl zurück. Für BigInts gibt der Operator ein BigInt zurück. Er [erzwungen den Operanden zu einem numerischen Wert](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft den Typ davon. Er führt ein BigInt-NICHT aus, wenn der Operand zu einem BigInt wird; andernfalls konvertiert er den Operanden in eine [32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) und führt ein bitweises NICHT für Zahlen aus.
 
-Der Operator arbeitet auf der Bitdarstellung der Operanden im [Zweierkomplement](https://en.wikipedia.org/wiki/Two's_complement). Der Operator wird auf jedes Bit angewendet, und das Ergebnis wird bitweise zusammengesetzt.
+Der Operator arbeitet auf den Bitdarstellungen der Operanden im [Zweierkomplement](https://de.wikipedia.org/wiki/Zweierkomplement). Der Operator wird auf jedes Bit angewandt, und das Ergebnis wird bitweise konstruiert.
 
 Die Wahrheitstabelle für die NICHT-Operation ist:
 
-| x   | NOT x |
-| --- | ----- |
-| 0   | 1     |
-| 1   | 0     |
+| x   | NICHT x |
+| --- | ------- |
+| 0   | 1       |
+| 1   | 0       |
 
 ```plain
  9 (base 10) = 00000000000000000000000000001001 (base 2)
@@ -47,22 +47,22 @@ Die Wahrheitstabelle für die NICHT-Operation ist:
 ~9 (base 10) = 11111111111111111111111111110110 (base 2) = -10 (base 10)
 ```
 
-Zahlen mit mehr als 32 Bits haben ihre höchstwertigen Bits verworfen. Zum Beispiel wird die folgende Zahl mit mehr als 32 Bits in eine 32-Bit-Zahl konvertiert:
+Zahlen mit mehr als 32 Bits haben ihre bedeutendsten Bits verworfen. Zum Beispiel wird die folgende Ganzzahl mit mehr als 32 Bits in eine 32-Bit-Ganzzahl umgewandelt:
 
 ```plain
 Before: 11100110111110100000000000000110000000000001
 After:              10100000000000000110000000000001
 ```
 
-Für BigInts gibt es keine Verkürzung. Konzeptionell sind positive BigInts als mit einer unendlichen Anzahl von führenden `0`-Bits zu verstehen, und negative BigInts als mit einer unendlichen Anzahl von führenden `1`-Bits.
+Bei BigInts gibt es keine Trunkierung. Konzeptionell kann man sich positive BigInts als unendlich viele führende `0`-Bits und negative BigInts als unendlich viele führende `1`-Bits vorstellen.
 
-Das bitweise NICHT für jeden 32-Bit-Integer `x` ergibt `-(x + 1)`. Zum Beispiel ergibt `~-5` den Wert `4`.
+Das bitweise NICHT von jeder 32-Bit-Ganzzahl `x` ergibt `-(x + 1)`. Zum Beispiel ergibt `~-5` den Wert `4`.
 
-Das zweifache Anwenden des bitweisen NICHT auf jede Zahl `x` gibt `x` als 32-Bit-Integer zurück. Verwenden Sie nicht `~~x`, um Zahlen auf Integer zu verkürzen; verwenden Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers). Aufgrund der Verwendung der 32-Bit-Darstellung für Zahlen ergeben sowohl `~-1` als auch `~4294967295` (2<sup>32</sup> - 1) den Wert `0`.
+Das bitweise NICHT von jeder Zahl `x` zweimal angewandt, gibt `x`, konvertiert in eine 32-Bit-Ganzzahl, zurück. Verwenden Sie nicht `~~x`, um Zahlen auf Ganzzahlen zu beschränken; nutzen Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers). Aufgrund der Nutzung von 32-Bit-Darstellungen für Zahlen führen sowohl `~-1` als auch `~4294967295` (2<sup>32</sup> - 1) zu `0`.
 
 ## Beispiele
 
-### Verwendung von bitweises NICHT
+### Verwendung des bitweisen NICHT
 
 ```js
 ~0; // -1

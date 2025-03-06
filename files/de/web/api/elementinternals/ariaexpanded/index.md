@@ -1,28 +1,28 @@
 ---
-title: "ElementInternals: ariaExpanded Eigenschaft"
+title: "ElementInternals: ariaExpanded-Eigenschaft"
 short-title: ariaExpanded
 slug: Web/API/ElementInternals/ariaExpanded
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaExpanded`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)-Attributs wider, welches angibt, ob ein von diesem Element besessenes oder kontrolliertes Gruppierungselement erweitert oder eingeklappt ist.
+Die **`ariaExpanded`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Attributs wider, das angibt, ob ein von diesem Element besessenes oder gesteuertes Gruppierungselement erweitert oder eingeklappt ist.
 
 > [!NOTE]
-> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element festzulegen. Diese können durch autorendefinierte Attribute überschrieben werden, stellen jedoch sicher, dass Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` erlaubt es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken beibehalten werden, falls der Autor diese Attribute löscht oder nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"true"`
-  - : Das Gruppierungselement, das dieses Element besitzt oder kontrolliert, ist erweitert.
+  - : Das Gruppierungselement, das dieses Element besitzt oder steuert, ist erweitert.
 - `"false"`
-  - : Das Gruppierungselement, das dieses Element besitzt oder kontrolliert, ist eingeklappt.
+  - : Das Gruppierungselement, das dieses Element besitzt oder steuert, ist eingeklappt.
 - `"undefined"`
-  - : Das Element besitzt oder kontrolliert kein erweiterbares Gruppierungselement.
+  - : Das Element besitzt oder steuert kein erweiterbares Gruppierungselement.
 
 ## Beispiele
 

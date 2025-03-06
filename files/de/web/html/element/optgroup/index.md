@@ -2,7 +2,7 @@
 title: "<optgroup>: Das Option Group-Element"
 slug: Web/HTML/Element/optgroup
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
@@ -42,9 +42,9 @@ label {
 Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
-  - : Wenn dieses Boolean-Attribut gesetzt ist, kann keins der Elemente in dieser Optionsgruppe ausgewählt werden. Oft wird diese Steuerung in Browsern ausgegraut und erhält keine Browserevents, wie zum Beispiel Mausklicks oder Fokus-bezogene Ereignisse.
+  - : Wenn dieses Boolean-Attribut gesetzt ist, ist keines der Elemente in dieser Optionsgruppe auswählbar. Oftmals werden solche Steuerelemente von den Browsern ausgegraut und erhalten keine Browser-Ereignisse wie Mausklicks oder Fokus-bezogene Ereignisse.
 - `label`
-  - : Der Name der Optionsgruppe, den der Browser zur Beschriftung der Optionen in der Benutzeroberfläche verwenden kann. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
+  - : Der Name der Optionsgruppe, den der Browser bei der Beschriftung der Optionen in der Benutzeroberfläche verwenden kann. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
 
 ## Beispiele
 
@@ -88,7 +88,9 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist obligatorisch. Das End-Tag ist optional, wenn dieses Element direkt von einem anderen <code>&#x3C;optgroup></code>-Element gefolgt wird oder wenn das Elternelement keinen weiteren Inhalt hat.
+        Das Start-Tag ist obligatorisch. Das End-Tag ist optional, wenn dieses Element
+        unmittelbar von einem anderen <code>&#x3C;optgroup></code>-Element gefolgt wird oder
+        wenn das Elternelement keinen weiteren Inhalt hat.
       </td>
     </tr>
     <tr>
@@ -96,8 +98,8 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
       <td>Ein {{HTMLElement("select")}}-Element.</td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
-      <td><a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role"><code>group</code></a></td>
+      <th scope="row">Implizierte ARIA-Rolle</th>
+      <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a></td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>

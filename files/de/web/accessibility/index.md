@@ -2,52 +2,71 @@
 title: Barrierefreiheit
 slug: Web/Accessibility
 l10n:
-  sourceCommit: cdf5bebefe9bb292b3aa6c9e733ba06a8466016e
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
-{{AccessibilitySidebar}}
+**Barrierefreiheit** (oft abgekürzt als **A11y** — wie in "a", dann 11 Zeichen und dann "y") im Bereich der Webentwicklung bedeutet, möglichst vielen Menschen die Nutzung von Websites zu ermöglichen, auch wenn ihre Fähigkeiten in irgendeiner Weise eingeschränkt sind.
 
-**Barrierefreiheit** (häufig abgekürzt als **A11y** — das heißt, "a", dann 11 Zeichen, und dann "y") in der Webentwicklung bedeutet, dass möglichst viele Menschen Webseiten nutzen können, selbst wenn ihre Fähigkeiten in irgendeiner Weise eingeschränkt sind.
+Für viele Menschen macht Technologie Dinge einfacher. Für Menschen mit Behinderungen macht Technologie Dinge möglich. Barrierefreiheit bedeutet, Inhalte so zu entwickeln, dass sie für möglichst viele Menschen zugänglich sind, unabhängig von ihren physischen und kognitiven Fähigkeiten und der Art und Weise, wie sie auf das Web zugreifen.
 
-Für viele Menschen erleichtert Technologie die Dinge. Für Menschen mit Behinderungen macht Technologie viele Dinge überhaupt erst möglich. Barrierefreiheit bedeutet, Inhalte so zu entwickeln, dass sie unabhängig von den körperlichen und kognitiven Fähigkeiten einer Person sowie ihrer Art des Zugriffs auf das Web so zugänglich wie möglich sind.
+> **Das Web ist grundlegend darauf ausgelegt, für alle Menschen zu funktionieren**, unabhängig von Hardware, Software, Sprache, Standort oder Fähigkeit.
+> Wenn das Web dieses Ziel erreicht, ist es für Menschen mit einer Vielzahl von Hör-, Bewegungs-, Seh- und kognitiven Fähigkeiten zugänglich. \
+> – ([W3C - Accessibility](https://www.w3.org/standards/webdesign/accessibility))
 
-"**Das Web ist grundsätzlich so gestaltet, dass es für alle Menschen funktioniert**, unabhängig von ihrer Hardware, Software, Sprache, ihrem Standort oder ihrer Fähigkeit. Wenn das Web dieses Ziel erreicht, ist es für Menschen mit einer Vielzahl von Hör-, Bewegungs-, Seh- und kognitiven Fähigkeiten zugänglich." ([W3C - Accessibility](https://www.w3.org/standards/webdesign/accessibility))
+## Barrierefreiheit-Leitfäden
 
-## Zentrale Tutorials
+- [Barrierefreiheit-Informationen für Webautoren](/de/docs/Web/Accessibility/Guides/Information_for_Web_authors)
+  - : Dieses Dokument listet Richtlinien und Vorschriften, Anleitungen und Tools zur Überprüfung und Behebung von Barrierefreiheitsproblemen mit Websites auf.
+- [Personalisierung zur sicheren Nutzung](/de/docs/Web/Accessibility/Guides/Browsing_safely)
+  - : Dieser Artikel behandelt den Zugang zu Webinhalten für Menschen mit vestibulären Störungen und deren Unterstützer durch die Nutzung von Personalisierungs- und Barrierefreiheitseinstellungen, die in Betriebssystemen eingebaut sind.
+- [Barrierefreie Webanwendungen und Widgets](/de/docs/Web/Accessibility/Guides/Accessible_web_applications_and_widgets)
+  - : Die meisten JavaScript-Bibliotheken bieten eine Bibliothek von clientseitigen Widgets, die das Verhalten vertrauter Desktop-Oberflächen nachahmen.
+    Während dies zu einem Widget führt, das seinem Desktop-Pendant ähnelt, fehlt es normalerweise an ausreichenden semantischen Informationen im Markup, um von unterstützender Technologie genutzt zu werden.
+    Dieses Dokument beschreibt Techniken zur Verbesserung der Barrierefreiheit solcher Widgets.
+- [Tastaturnavigierbare JavaScript-Widgets](/de/docs/Web/Accessibility/Guides/Keyboard-navigable_JavaScript_widgets)
+  - : Bisher hatten Webentwickler, die ihre gestylten `<div>` und `<span>` basierten Widgets zugänglich machen wollten, keine geeigneten Techniken.
+    **Tastaturzugänglichkeit** ist Teil der Mindestanforderungen an die Barrierefreiheit, derer sich ein Entwickler bewusst sein sollte.
+    Dieses Dokument beschreibt Techniken, um JavaScript-Widgets mit der Tastatur zugänglich zu machen.
+- [Mobile Accessibility Checkliste](/de/docs/Web/Accessibility/Guides/Mobile_accessibility_checklist)
+  - : Dieses Dokument bietet eine prägnante Checkliste der Anforderungen an Barrierefreiheit für mobile App-Entwickler.
+- [Verständnis der Richtlinien zur Barrierefreiheit von Webinhalten (WCAG)](/de/docs/Web/Accessibility/Guides/Understanding_WCAG)
+  - : Eine Reihe von Artikeln, die schnelle Erklärungen bieten, um Ihnen zu helfen, die Schritte zu verstehen, die unternommen werden müssen, um den in den Richtlinien zur Barrierefreiheit von Webinhalten (WCAG) beschriebenen Empfehlungen zu entsprechen.
+- [Kognitive Barrierefreiheit](/de/docs/Web/Accessibility/Guides/Cognitive_accessibility)
+  - : Kognitive Barrierefreiheit umfasst Überlegungen zur Zugänglichkeit für Menschen mit kognitiven und Lernschwierigkeiten.
+    Dieses Dokument führt in das Thema kognitive Barrierefreiheit ein und verbessert die Zugänglichkeit des Webs für Menschen mit kognitiven und Lernunterschieden.
+- [Barrierefreiheit und räumliche Muster](/de/docs/Web/Accessibility/Guides/Accessibility_and_Spatial_Patterns)
+  - : Dieses Dokument beschreibt visuelle Muster, die körperliche Symptome hervorrufen können bei Menschen mit fotosensitiver Epilepsie, vestibulären Störungen oder anderen Wahrnehmungsproblemen.
+- [Web-Barrierefreiheit: Verständnis von Farben und Leuchtdichte](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
+  - : Während das Verständnis von Farbe, Leuchtdichte und Sättigung wichtig für Design und Lesbarkeit für alle sehenden Nutzer ist, sind sie essentiell für diejenigen mit eingeschränkter Sicht und farbenblinder Sicht sowie für diejenigen mit bestimmten neurologischen, kognitiven und anderen Beeinträchtigungen.
+- [Web-Barrierefreiheit für Anfälle und körperliche Reaktionen](/de/docs/Web/Accessibility/Guides/Seizure_disorders)
+  - : Manche Arten von visuellen Webinhalten können Anfälle bei Menschen mit bestimmten Hirnerkrankungen auslösen.
+    Dieser Artikel hilft Ihnen, die Arten von Inhalten zu verstehen, die problematisch sein können, sowie Werkzeuge und Strategien zu finden, um sie zu vermeiden.
+- [ARIA](/de/docs/Web/Accessibility/ARIA)
+  - : Dies ist eine Sammlung von Artikeln, die das Erlernen der Verwendung von Accessible Rich Internet Applications (ARIA) ermöglicht, um Ihre HTML-Dokumente zugänglicher zu machen.
 
-Der MDN [Barrierefreiheits-Bereich](/de/docs/Learn_web_development/Core/Accessibility) enthält moderne, aktuelle Tutorials, die die folgenden grundlegenden Themen der Barrierefreiheit abdecken:
+## Tutorials für Anfänger
+
+Der MDN [Accessibility Learning Bereich](/de/docs/Learn_web_development/Core/Accessibility) enthält moderne, aktualisierte Tutorials, die die folgenden wichtigen Aspekte der Barrierefreiheit abdecken:
 
 - [Was ist Barrierefreiheit?](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility)
-  - : Dieser Artikel startet das Modul mit einem genauen Blick darauf, was Barrierefreiheit tatsächlich ist — dazu gehört, welche Personengruppen wir berücksichtigen müssen und warum, welche Tools verschiedene Personen nutzen, um mit dem Web zu interagieren, und wie wir Barrierefreiheit in unseren Webentwicklungs-Workflow integrieren können.
+  - : Dieser Artikel beginnt das Modul mit einem guten Überblick darüber, was Barrierefreiheit tatsächlich ist — dazu gehört, welche Personengruppen wir berücksichtigen müssen und warum, welche Werkzeuge verschiedene Menschen verwenden, um mit dem Web zu interagieren, und wie wir Barrierefreiheit in unseren Webentwicklungs-Workflow integrieren können.
 - [HTML: Eine gute Grundlage für Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/HTML)
-  - : Ein großer Teil der Webinhalte kann barrierefrei gemacht werden, indem sichergestellt wird, dass die richtigen HTML-Elemente jederzeit für den richtigen Zweck verwendet werden. Dieser Artikel untersucht im Detail, wie HTML genutzt werden kann, um maximale Barrierefreiheit zu gewährleisten.
-- [Best Practices für CSS und JavaScript in der Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript)
-  - : Wenn richtig eingesetzt, können CSS und JavaScript auch barrierefreie Web-Erfahrungen ermöglichen. Werden sie jedoch falsch eingesetzt, können sie die Barrierefreiheit erheblich beeinträchtigen. Dieser Artikel skizziert einige Best Practices für CSS und JavaScript, die berücksichtigt werden sollten, um sicherzustellen, dass selbst komplexe Inhalte so barrierefrei wie möglich sind.
-- [Grundlagen von WAI-ARIA](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics)
-  - : Aufbauend auf dem vorherigen Artikel gibt es Situationen, in denen es schwierig ist, komplexe UI-Steuerelemente zu erstellen, die nicht-semantisches HTML und dynamisch aktualisierte JavaScript-Inhalte beinhalten. WAI-ARIA ist eine Technologie, die bei solchen Problemen helfen kann, indem sie zusätzliche Semantik hinzufügt, die von Browsern und unterstützenden Technologien erkannt werden können, um Nutzer über den aktuellen Status zu informieren. Hier wird gezeigt, wie Sie WAI-ARIA auf grundlegender Ebene einsetzen können, um die Barrierefreiheit zu verbessern.
+  - : Ein großer Teil der Webinhalte kann barrierefrei gemacht werden, indem einfach sichergestellt wird, dass die richtigen HTML-Elemente jederzeit für den richtigen Zweck verwendet werden. Dieser Artikel befasst sich ausführlich damit, wie HTML verwendet werden kann, um maximale Barrierefreiheit zu gewährleisten.
+- [Beste Praktiken für CSS und JavaScript in der Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript)
+  - : CSS und JavaScript können, wenn sie richtig eingesetzt werden, auch das Potenzial haben, barrierefreie Web-Erfahrungen zu ermöglichen. Bei unsachgemäßer Verwendung können sie die Barrierefreiheit erheblich beeinträchtigen. Dieser Artikel beschreibt einige der besten Praktiken für CSS und JavaScript, die berücksichtigt werden sollten, um sicherzustellen, dass sogar komplexe Inhalte so zugänglich wie möglich sind.
+- [WAI-ARIA Grundlagen](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics)
+  - : Aufbauend auf dem vorherigen Artikel kann es manchmal schwierig sein, komplexe UI-Steuerelemente, die nicht-semantisches HTML und dynamisch mit JavaScript aktualisierte Inhalte beinhalten, zu erstellen. WAI-ARIA ist eine Technologie, die bei solchen Problemen helfen kann, indem sie zusätzliche Semantik hinzufügt, die von Browsern und unterstützenden Technologien erkannt werden können und den Nutzern mitteilen, was vor sich geht. Hier zeigen wir, wie man es auf einfache Weise verwendet, um die Barrierefreiheit zu verbessern.
 - [Barrierefreie Multimedia-Inhalte](/de/docs/Learn_web_development/Core/Accessibility/Multimedia)
-  - : Eine weitere Kategorie von Inhalten, die Barrierefreiheit beeinträchtigen kann, sind Multimedia-Inhalte — Video-, Audio- und Bildinhalte müssen mit geeigneten textlichen Alternativen versehen werden, damit sie von unterstützenden Technologien und deren Nutzern verstanden werden können. Dieser Artikel zeigt, wie das gelingt.
-- [Barrierefreiheit für mobile Endgeräte](/de/docs/Learn_web_development/Core/Accessibility/Mobile)
-  - : Da der Zugriff auf das Web über mobile Geräte so populär ist und Plattformen wie iOS und Android vollständig entwickelte Barrierefreiheitstools bieten, ist es wichtig, die Barrierefreiheit Ihrer Webinhalte auf diesen Plattformen zu berücksichtigen. Dieser Artikel untersucht spezifische Überlegungen zur Barrierefreiheit auf mobilen Geräten.
+  - : Eine weitere Kategorie von Inhalten, die Barrierefreiheitsprobleme schaffen können, ist Multimedia — Video-, Audio- und Bildinhalte müssen richtige textuelle Alternativen erhalten, damit sie von unterstützenden Technologien und ihren Nutzern verstanden werden können. Dieser Artikel zeigt, wie das geht.
+- [Mobile Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/Mobile)
+  - : Da der Zugriff auf das Web über mobile Geräte so populär ist und beliebte Plattformen wie iOS und Android umfassende Barrierefreiheitstools bieten, ist es wichtig, die Barrierefreiheit Ihrer Webinhalte auf diesen Plattformen zu berücksichtigen. Dieser Artikel betrachtet spezifische Überlegungen zur mobilen Barrierefreiheit.
 
-## Weitere Dokumentation
+## Referenzen
 
-- [Verständnis der Web Content Accessibility Guidelines](/de/docs/Web/Accessibility/Understanding_WCAG)
-  - : Diese Artikelserie bietet schnelle Erklärungen, die Ihnen helfen, die Schritte zu verstehen, die erforderlich sind, um den Empfehlungen der W3C Web Content Accessibility Guidelines 2.0 (WCAG 2.0 oder einfach WCAG für dieses Dokument) zu entsprechen.
-- [Einführung in Farben und Barrierefreiheit](/de/docs/Web/Accessibility/Understanding_Colors_and_Luminance)
-  - : Dieser Artikel behandelt unsere Wahrnehmung von Licht und Farbe, bietet eine Grundlage für die Verwendung von Farben in barrierefreien Designs und zeigt Best Practices für visuelle und lesbare Inhalte.
-- [Tastaturnavigierbare JavaScript-Widgets](/de/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets)
-  - : Bisher fehlten Webentwicklern, die ihre gestylten `<div>`- und `<span>`-basierten Widgets barrierefrei gestalten wollten, geeignete Techniken. **Tastaturzugänglichkeit** gehört zu den Mindestanforderungen an Barrierefreiheit, die ein Entwickler kennen sollte.
-- [ARIA](/de/docs/Web/Accessibility/ARIA)
-  - : Dies ist eine Sammlung von Artikeln, um zu lernen, wie man Accessible Rich Internet Applications (ARIA) verwendet, um HTML-Dokumente barrierefreier zu machen.
-- [Checkliste für Barrierefreiheit auf mobilen Endgeräten](/de/docs/Web/Accessibility/Mobile_accessibility_checklist)
-  - : Dieser Artikel bietet eine prägnante Checkliste von Barrierefreiheitsanforderungen für Entwickler von mobilen Apps.
-- [Kognitive Barrierefreiheit](/de/docs/Web/Accessibility/Cognitive_accessibility)
-  - : Dieser Artikel erklärt, wie Sie sicherstellen können, dass die Webinhalte, die Sie erstellen, für Personen mit kognitiven Beeinträchtigungen zugänglich sind.
-- [Barrierefreiheit für Anfallsleiden](/de/docs/Web/Accessibility/Seizure_disorders)
-  - : Einige Arten von visuellen Webinhalten können bei Personen mit bestimmten Hirnerkrankungen Anfälle auslösen. Dieser Artikel hilft Ihnen, die potenziell problematischen Inhalte zu verstehen und Werkzeuge sowie Strategien zu finden, um sie zu vermeiden.
+- [ARIA Referenz](/de/docs/Web/Accessibility/ARIA/Reference)
+  - : Referenzdokumentation für Accessible Rich Internet Applications (ARIA) Attribute und Rollen.
 
 ## Siehe auch
 
-- [WAI-Interessensgruppe](https://www.w3.org/WAI/about/groups/waiig/)
 - [Entwickler-Leitfäden](/de/docs/MDN/Guides)
+- [WAI Interest Group](https://www.w3.org/WAI/about/groups/waiig/)

@@ -1,14 +1,14 @@
 ---
-title: "Element: ariaValueNow Eigenschaft"
+title: "Element: ariaValueNow-Eigenschaft"
 short-title: ariaValueNow
 slug: Web/API/Element/ariaValueNow
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaValueNow`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuenow)-Attributs wider, welches den aktuellen Wert für ein Bereichs-Widget definiert.
+Die **`ariaValueNow`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)-Attributs wider, das den aktuellen Wert für ein Bereichs-Widget definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der eine Zahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuenow)-Attribut des Elements mit der ID `slider` auf "1" gesetzt. Mit `ariaValueNow` aktualisieren wir den Wert auf "2".
+In diesem Beispiel wird das [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)-Attribut des Elements mit der ID `slider` auf "1" gesetzt. Mithilfe von `ariaValueNow` wird der Wert auf "2" aktualisiert.
 
 ```html
 <div

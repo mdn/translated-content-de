@@ -2,12 +2,12 @@
 title: <maction>
 slug: Web/MathML/Element/maction
 l10n:
-  sourceCommit: 288cd158cbbd76487d96646f0f9102aa39902536
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{MathMLRef}}{{Deprecated_Header}}
 
-Das **`<maction>`** [MathML](/de/docs/Web/MathML)-Element ermöglicht das Binden von Aktionen an mathematische Ausdrücke. Standardmäßig wird nur das erste Kind gerendert, aber einige Browser können die Attribute `actiontype` und `selection` berücksichtigen, um benutzerdefinierte Verhaltensweisen zu implementieren.
+Das **`<maction>`** [MathML](/de/docs/Web/MathML) Element ermöglicht es, Aktionen an mathematische Ausdrücke zu binden. Standardmäßig wird nur das erste Kind gerendert, aber einige Browser können die `actiontype`- und `selection`-Attribute berücksichtigen, um benutzerdefinierte Verhaltensweisen zu implementieren.
 
 > [!NOTE]
 > Historisch gesehen bot dieses Element einen Mechanismus, um MathML-Formeln interaktiv zu gestalten. Heutzutage wird empfohlen, sich auf [JavaScript](/de/docs/Web/JavaScript) und andere Webtechnologien zu verlassen, um diesen Anwendungsfall zu implementieren.
@@ -18,18 +18,17 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 - `actiontype` {{Deprecated_Inline}} {{Non-standard_Inline}}
 
-  - : Die Aktion, die bestimmt, was mit diesem Element geschieht. Spezielle Verhaltensweisen für die folgenden Werte wurden von einigen Browsern implementiert:
+  - : Die Aktion, die spezifiziert, was für dieses Element passiert. Spezielles Verhalten für die folgenden Werte wurde von einigen Browsern implementiert:
 
-    - `statusline`: Bei einem Klick auf den _Ausdruck_ oder wenn der Leser den Zeiger darüber bewegt, wird die _Nachricht_ an die Statusleiste des Browsers gesendet. Die Syntax lautet: `<maction actiontype="statusline"> Ausdruck Nachricht </maction>`.
-    - `toggle`: Bei einem Klick auf den Unterausdruck wechselt die Anzeige zwischen ausgewählten Unterausdrücken. Daher erhöht jeder Klick den `selection`-Wert.
-      Die Syntax lautet: `<maction actiontype="toggle" selection="positive-integer" > Ausdruck1 Ausdruck2 AusdruckN </maction>`.
+    - `statusline`: Wenn auf den _Ausdruck_ geklickt wird oder der Leser den Zeiger darüber bewegt, wird die _Nachricht_ an die Statuszeile des Browsers gesendet. Die Syntax lautet: `<maction actiontype="statusline"> Ausdruck Nachricht </maction>`.
+    - `toggle`: Bei einem Klick auf den Subausdruck wechselt die Darstellung zwischen ausgewählten Subausdrücken. Daher erhöht jeder Klick den `selection`-Wert. Die Syntax lautet: `<maction actiontype="toggle" selection="positive-integer" > Ausdruck1 Ausdruck2 AusdruckN </maction>`.
 
 - `selection` {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Das aktuell sichtbare Kindelement, das nur für `actiontype="toggle"` oder nicht standardmäßige `actiontype`-Werte berücksichtigt wird. Der Standardwert ist `1`, was das erste Kindelement ist.
+  - : Das aktuell sichtbare Kindelement, das nur bei `actiontype="toggle"` oder nicht standardmäßigen `actiontype`-Werten berücksichtigt wird. Der Standardwert ist `1`, was das erste Kindelement ist.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet den "toggle"-`actiontype`:
+Das folgende Beispiel verwendet den "toggle" `actiontype`:
 
 ```css hidden
 html,
@@ -84,7 +83,7 @@ maction {
 
 Beispiel-Rendering:
 
-![MathML-TOGGLE-Aktionsbeispiel](toggle.gif)
+![MathML Toggle-Aktionsbeispiel](toggle.gif)
 
 Rendering in Ihrem Browser:
 
@@ -95,7 +94,7 @@ Rendering in Ihrem Browser:
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizite ARIA-Rolle</a>
     </th>
     <td>
       Keine

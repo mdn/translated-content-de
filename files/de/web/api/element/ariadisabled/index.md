@@ -3,15 +3,15 @@ title: "Element: ariaDisabled-Eigenschaft"
 short-title: ariaDisabled
 slug: Web/API/Element/ariaDisabled
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaDisabled`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled)-Attributs wider, welches anzeigt, dass das Element zwar wahrnehmbar, aber deaktiviert ist, und somit nicht bearbeitbar oder anderweitig bedienbar ist.
+Die **`ariaDisabled`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-disabled)-Attributs wider, welches angibt, dass das Element wahrnehmbar, aber deaktiviert ist und daher nicht bearbeitet oder anderweitig bedienbar ist.
 
 > [!NOTE]
-> Wenn möglich, verwenden Sie das {{htmlelement("input")}}-Element mit `type="button"` oder das {{htmlelement("button")}}-Element — da diese Elemente über eingebaute Semantik verfügen und keine ARIA-Attribute benötigen.
+> Verwenden Sie nach Möglichkeit das {{htmlelement("input")}}-Element mit `type="button"` oder das {{htmlelement("button")}}-Element — da diese Elemente eingebaute Semantik haben und keine ARIA-Attribute erfordern.
 
 ## Wert
 
@@ -24,7 +24,7 @@ Ein String mit einem der folgenden Werte:
 
 ## Beispiele
 
-In diesem Beispiel ist das `aria-disabled`-Attribut des Elements mit der ID `saveChanges` auf "true" gesetzt, was anzeigt, dass diese Eingabe derzeit deaktiviert ist. Mit `ariaDisabled` aktualisieren wir den Wert auf "false".
+In diesem Beispiel wird das `aria-disabled`-Attribut des Elements mit der ID `saveChanges` auf "true" gesetzt, was darauf hinweist, dass diese Eingabe momentan deaktiviert ist. Mithilfe von `ariaDisabled` aktualisieren wir den Wert auf "false".
 
 ```html
 <div id="saveChanges" tabindex="0" role="button" aria-disabled="true">Save</div>

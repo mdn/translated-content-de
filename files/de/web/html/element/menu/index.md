@@ -2,12 +2,12 @@
 title: "<menu>: Das Menü-Element"
 slug: Web/HTML/Element/menu
 l10n:
-  sourceCommit: d6094dd7e70de3d1711b3bbef2dd5e5dd93114f3
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<menu>`**-[HTML](/de/docs/Web/HTML)-Element wird in der HTML-Spezifikation als eine semantische Alternative zu {{HTMLElement("ul")}} beschrieben, wird jedoch von Browsern (und durch den Accessibility-Tree) nicht anders als {{HTMLElement("ul")}} behandelt. Es repräsentiert eine ungeordnete Liste von Elementen (die durch {{HTMLElement("li")}}-Elemente dargestellt werden).
+Das **`<menu>`**-[HTML](/de/docs/Web/HTML)-Element wird in der HTML-Spezifikation als semantische Alternative zu {{HTMLElement("ul")}} beschrieben, aber von Browsern behandelt (und im Accessibility-Baum wie {{HTMLElement("ul")}} dargestellt). Es repräsentiert eine ungeordnete Liste von Elementen (die durch {{HTMLElement("li")}}-Elemente dargestellt werden).
 
 {{InteractiveExample("HTML Demo: &lt;menu&gt;", "tabbed-shorter")}}
 
@@ -39,20 +39,20 @@ menu {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Verwendungshinweise
+## Gebrauchshinweise
 
-Die `<menu>`- und {{HTMLElement("ul")}}-Elemente repräsentieren beide eine ungeordnete Liste von Elementen. Der Hauptunterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Anzeige enthält, während `<menu>` eine Symbolleiste darstellt, die Befehle enthält, die der Benutzer ausführen oder aktivieren kann.
+Die `<menu>`- und {{HTMLElement("ul")}}-Elemente stellen beide eine ungeordnete Liste von Elementen dar. Der Hauptunterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Anzeige enthält, während `<menu>` eine Symbolleiste darstellt, die Befehle enthält, die der Benutzer ausführen oder aktivieren kann.
 
 > [!NOTE]
-> In frühen Versionen der HTML-Spezifikation hatte das `<menu>`-Element einen zusätzlichen Anwendungsfall als Kontextmenü. Diese Funktionalität gilt als veraltet und ist nicht in der Spezifikation enthalten.
+> In frühen Versionen der HTML-Spezifikation hatte das `<menu>`-Element einen zusätzlichen Anwendungsfall als Kontextmenü. Diese Funktionalität gilt als veraltet und ist nicht mehr in der Spezifikation enthalten.
 
 ## Beispiele
 
-### Werkzeugleiste
+### Symbolleiste
 
-In diesem Beispiel wird ein `<menu>` verwendet, um eine Werkzeugleiste für eine Bearbeitungsanwendung zu erstellen.
+In diesem Beispiel wird ein `<menu>` verwendet, um eine Symbolleiste für eine Bearbeitungsanwendung zu erstellen.
 
 #### HTML
 
@@ -111,58 +111,60 @@ button {
       <td>
         <p>
           <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-            >Fließender Inhalt</a
-          >. Wenn die Kind-Elemente des Elements mindestens ein
+            >Fließinhalte</a
+          >. Wenn die Kinder des Elements mindestens ein
           {{HTMLElement("li")}}-Element enthalten:
           <a
             href="/de/docs/Web/HTML/Content_categories#palpable_content"
-            >Fühlbarer Inhalt</a
+            >Handfeste Inhalte</a
           >.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <p>
           Null oder mehr Vorkommen von {{HTMLElement("li")}},
-          {{HTMLElement("script")}}, und
-          {{HTMLElement("template")}}.
+          {{HTMLElement("script")}}, und {{HTMLElement("template")}}.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">fließende Inhalte</a> akzeptiert.
+        Jedes Element, das
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >Fließinhalte</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/list_role"
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role"
             >list</a
           ></code
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/directory_role"><code>directory</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role"><code>group</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/directory_role"><code>directory</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a>,
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/listbox_role"
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role"
             >listbox</a
           ></code
-        >, <a href="/de/docs/Web/Accessibility/ARIA/Roles/menu_role"><code>menu</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/menubar_role"><code>menubar</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/radiogroup_role"><code>radiogroup</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/tablist_role"><code>tablist</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/toolbar_role"><code>toolbar</code></a> oder <a href="/de/docs/Web/Accessibility/ARIA/Roles/tree_role"><code>tree</code></a>
+        >, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role"><code>menu</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role"><code>menubar</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role"><code>radiogroup</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role"><code>tablist</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role"><code>toolbar</code></a> oder <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role"><code>tree</code></a>
       </td>
     </tr>
     <tr>
@@ -182,4 +184,4 @@ button {
 
 ## Siehe auch
 
-- Andere HTML-Elemente in Bezug auf Listen: {{HTMLElement("ol")}}, {{HTMLElement("ul")}} und {{HTMLElement("li")}}.
+- Andere listenbezogene HTML-Elemente: {{HTMLElement("ol")}}, {{HTMLElement("ul")}}, und {{HTMLElement("li")}}.

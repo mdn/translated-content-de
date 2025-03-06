@@ -1,13 +1,13 @@
 ---
-title: "<aside>: Das Element Aside"
+title: "<aside>: Das Aside-Element"
 slug: Web/HTML/Element/aside
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<aside>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Teil eines Dokuments, dessen Inhalt nur indirekt mit dem Hauptinhalt des Dokuments in Verbindung steht. `Aside`-Elemente werden häufig als Seitenleisten oder hervorhebende Kästen dargestellt.
+Das **`<aside>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Abschnitt eines Dokuments, dessen Inhalt nur indirekt mit dem Hauptinhalt des Dokuments in Zusammenhang steht. Asides werden häufig als Seitenleisten oder hervorgehobene Boxen dargestellt.
 
 {{InteractiveExample("HTML Demo: &lt;aside&gt;", "tabbed-standard")}}
 
@@ -47,17 +47,17 @@ aside > p {
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-- Verwenden Sie das `<aside>`-Element nicht, um eingeklammerte Texte zu kennzeichnen, da dieser Text als Teil des Hauptflusses betrachtet wird.
+- Verwenden Sie das `<aside>`-Element nicht zum Markieren von eingeklammertem Text, da solche Texte als Teil des Hauptflusses gelten.
 
 ## Beispiele
 
 ### Verwendung von \<aside>
 
-Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markieren. Der Absatz ist nur indirekt mit dem Hauptinhalt des Artikels verbunden:
+In diesem Beispiel wird `<aside>` verwendet, um einen Absatz in einem Artikel zu kennzeichnen. Der Absatz steht nur indirekt im Zusammenhang mit dem Hauptinhalt des Artikels:
 
 ```html
 <article>
@@ -88,14 +88,14 @@ Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markier
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >,
         <a
           href="/de/docs/Web/HTML/Content_categories#sectioning_content"
-          >gliedernder Inhalt</a
+          >Abschnittsinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#palpable_content"
-          >wahrnehmbarer Inhalt</a
+          >fühlbarer Inhalt</a
         >.
       </td>
     </tr>
@@ -103,39 +103,39 @@ Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markier
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Weglassung von Tags</th>
-      <td>Keine, sowohl der Anfangs- als auch der Endtag sind obligatorisch.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl Start- als auch End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließenden Inhalt</a
-        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;aside></code>-Element kein Nachkomme eines {{HTMLElement("address")}}-Elements sein darf.
+          >Flussinhalt</a
+        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;aside></code>-Element kein Nachfahre eines {{HTMLElement("address")}}-Elements sein darf.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/complementary_role"
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role"
             >complementary</a
           ></code
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/feed_role"><code>feed</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/note_role"><code>note</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a>,
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/region_role"><code>region</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/search_role"><code>search</code></a>
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/feed_role"><code>feed</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/note_role"><code>note</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a>,
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/region_role"><code>region</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/search_role"><code>search</code></a>
       </td>
     </tr>
     <tr>
@@ -157,4 +157,4 @@ Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markier
 
 - Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("nav")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
 - [Verwendung von HTML-Sektionen und Gliederungen](/de/docs/Web/HTML/Element/Heading_Elements)
-- [ARIA: Complementary-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/complementary_role)
+- [ARIA: Complementary Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role)

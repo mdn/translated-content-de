@@ -2,7 +2,7 @@
 title: ":empty"
 slug: Web/CSS/:empty
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{CSSRef}}
@@ -30,7 +30,7 @@ div:empty {
 ```
 
 > [!NOTE]
-> In [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo) wurde die `:empty` Pseudoklasse geändert, um wie {{CSSxRef(":-moz-only-whitespace")}} zu agieren, aber bisher unterstützt kein Browser diese Änderung.
+> In [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo) wurde die `:empty` Pseudoklasse geändert, um wie {{CSSxRef(":-moz-only-whitespace")}} zu fungieren, aber kein Browser unterstützt dies derzeit.
 
 ## Syntax
 
@@ -42,14 +42,14 @@ div:empty {
 
 ## Barrierefreiheit
 
-Hilfstechnologien wie Bildschirmlesegeräte können interaktive Inhalte, die leer sind, nicht analysieren. Alle interaktiven Inhalte müssen einen zugänglichen Namen haben, der durch die Angabe eines Textwertes für das übergeordnete Element der interaktiven Steuerung ([Anker](/de/docs/Web/HTML/Element/a), [Buttons](/de/docs/Web/HTML/Element/button), etc.) erstellt wird. Zugängliche Namen machen die interaktive Steuerung für den [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) zugänglich, eine API, die Informationen übermittelt, die für Hilfstechnologien nützlich sind.
+Hilfstechnologien wie Bildschirmleser können interaktive Inhalte, die leer sind, nicht parsen. Alle interaktiven Inhalte müssen einen zugänglichen Namen haben, der durch Angabe eines Textwertes für das übergeordnete Element des interaktiven Steuerelements ([a](/de/docs/Web/HTML/Element/a), [button](/de/docs/Web/HTML/Element/button), etc.) erstellt wird. Zugängliche Namen machen das interaktive Steuerelement dem [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) zugänglich, einer API, die Informationen übermittelt, die für Hilfstechnologien nützlich sind.
 
-Der Text, der den zugänglichen Namen der interaktiven Steuerung bereitstellt, kann mit [einer Kombination von Eigenschaften](https://gomakethings.com/hidden-content-for-better-a11y/#hiding-the-link) verborgen werden, die ihn visuell vom Bildschirm entfernt, ihn jedoch für Hilfstechnologien analysierbar hält. Dies wird häufig für Buttons verwendet, die ausschließlich auf ein Symbol angewiesen sind, um ihre Funktion zu vermitteln.
+Der Text, der den zugänglichen Namen des interaktiven Steuerelements liefert, kann mit [einer Kombination von Eigenschaften](https://gomakethings.com/hidden-content-for-better-a11y/#hiding-the-link) versteckt werden, die ihn visuell vom Bildschirm entfernt, aber für Hilfstechnologien weiterhin parsbar hält. Dies wird häufig für Schaltflächen verwendet, die ausschließlich auf ein Symbol angewiesen sind, um ihren Zweck zu vermitteln.
 
 - [Was ist ein zugänglicher Name? | The Paciello Group](https://www.tpgi.com/what-is-an-accessible-name/)
-- [Verborgene Inhalte für besserer Barrierefreiheit | Go Make Things](https://gomakethings.com/hidden-content-for-better-a11y/)
-- [MDN Verständnis der WCAG, Erklärung der Richtlinie 2.4](/de/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.4_%e2%80%94_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
-- [Verständnis der Erfolgskriterien 2.4.4 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html)
+- [Versteckte Inhalte für bessere Barrierefreiheit | Go Make Things](https://gomakethings.com/hidden-content-for-better-a11y/)
+- [MDN Verständnis von WCAG, Richtlinie 2.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.4_%e2%80%94_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
+- [Verständnis der Erfolgskriterien 2.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html)
 
 ## Beispiele
 

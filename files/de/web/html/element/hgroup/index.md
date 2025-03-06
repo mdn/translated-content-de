@@ -1,13 +1,13 @@
 ---
-title: "<hgroup>: Das Heading Group Element"
+title: "<hgroup>: Das Heading Group-Element"
 slug: Web/HTML/Element/hgroup
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{HTMLSidebar}}
 
-Das **`<hgroup>`** [HTML](/de/docs/Web/HTML) Element repräsentiert eine Überschrift und verwandte Inhalte. Es gruppiert ein einzelnes [`<h1>–<h6>`](/de/docs/Web/HTML/Element/Heading_Elements) Element mit einem oder mehreren [`<p>`](/de/docs/Web/HTML/Element/p).
+Das **`<hgroup>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Überschrift und verwandten Inhalt. Es gruppiert ein einzelnes [`<h1>–<h6>`](/de/docs/Web/HTML/Element/Heading_Elements)-Element mit einem oder mehreren [`<p>`](/de/docs/Web/HTML/Element/p).
 
 {{InteractiveExample("HTML Demo: &lt;hgroup&gt;", "tabbed-standard")}}
 
@@ -45,11 +45,11 @@ hgroup p {
 
 Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Nutzungshinweise
+## Anwendungshinweise
 
-Das `<hgroup>` Element erlaubt die Gruppierung einer Überschrift mit jeglichem sekundären Inhalt, wie Untertitel, einem alternativen Titel oder Slogan. Jeder dieser Inhaltstypen wird als `<p>` Element innerhalb des `<hgroup>` repräsentiert.
+Das `<hgroup>`-Element ermöglicht die Gruppierung einer Überschrift mit sekundärem Inhalt, wie Unterüberschriften, einem alternativen Titel oder Untertiteln. Jeder dieser Inhaltstypen wird als `<p>`-Element innerhalb des `<hgroup>` dargestellt.
 
-Das `<hgroup>` selbst hat keine Auswirkung auf die Dokumentenstruktur einer Webseite. Vielmehr trägt die innerhalb des `<hgroup>` erlaubte Überschrift zur Dokumentenstruktur bei.
+Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentstruktur einer Webseite. Vielmehr trägt die einzige innerhalb des `<hgroup>` erlaubte Überschrift zur Dokumentstruktur bei.
 
 ## Beispiele
 
@@ -81,39 +81,47 @@ Das `<hgroup>` selbst hat keine Auswirkung auf die Dokumentenstruktur einer Webs
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließinhalte</a>,
-        Überschrifteninhalte, greifbare Inhalte.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >Flussinhalt</a
+        >, Überschrifteninhalt, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        Null oder mehr {{HTMLElement("p")}} Elemente, gefolgt von einem
+        Null oder mehr {{HTMLElement("p")}}-Elemente, gefolgt von einem
         {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}},
         {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}},
-        {{HTMLElement("Heading_Elements", "h5")}}, oder {{HTMLElement("Heading_Elements", "h6")}} Element,
-        gefolgt von null oder mehr {{HTMLElement("p")}} Elementen.
+        {{HTMLElement("Heading_Elements", "h5")}}, oder {{HTMLElement("Heading_Elements", "h6")}}-Element,
+        gefolgt von null oder mehr {{HTMLElement("p")}}-Elementen.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der startende als auch der endende Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließinhalte</a> akzeptiert.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >Flussinhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role">group</a></code>
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"
+            >group</a
+          ></code
+        >
       </td>
     </tr>
     <tr>
@@ -137,5 +145,5 @@ Das `<hgroup>` selbst hat keine Auswirkung auf die Dokumentenstruktur einer Webs
 
 ## Siehe auch
 
-- Weitere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
-- [Abschnitte und Strukturen eines HTML-Dokuments](/de/docs/Web/HTML/Element/Heading_Elements).
+- Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
+- [Sektionen und Umrisse eines HTML-Dokuments](/de/docs/Web/HTML/Element/Heading_Elements).

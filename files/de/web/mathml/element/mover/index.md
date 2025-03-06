@@ -2,19 +2,19 @@
 title: <mover>
 slug: Web/MathML/Element/mover
 l10n:
-  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{MathMLRef}}
 
-Das **`<mover>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einen Akzent oder eine Grenze über einem Ausdruck zu platzieren. Verwenden Sie die folgende Syntax: `<mover> base overscript </mover>`
+Das **`<mover>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um einen Akzent oder eine Grenze über einem Ausdruck anzubringen. Verwenden Sie die folgende Syntax: `<mover> base overscript </mover>`
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie folgendes Attribut:
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende Attribut:
 
 - `accent`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Overscript als Akzent behandelt werden soll (d.h. größer und näher zum Basisausdruck gezeichnet).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das anzeigt, ob das Overscript als Akzent behandelt werden soll (d.h. größer und näher an den Basisausdruck gezeichnet).
 
 ## Beispiele
 
@@ -40,7 +40,7 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizite ARIA-Rolle</a>
     </th>
     <td>
       Keine
@@ -58,5 +58,5 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 ## Siehe auch
 
-- {{ MathMLElement("munder") }} (Unterscript)
-- {{ MathMLElement("munderover") }} (Paar aus Unterscript und Overscript)
+- {{ MathMLElement("munder") }} (Unterskript)
+- {{ MathMLElement("munderover") }} (Unterskript-Overskript-Paar)

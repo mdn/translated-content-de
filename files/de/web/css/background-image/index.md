@@ -2,23 +2,23 @@
 title: background-image
 slug: Web/CSS/background-image
 l10n:
-  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{CSSRef}}
 
-Die **`background-image`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt ein oder mehrere Hintergrundbilder für ein Element fest.
+Die **`background-image`** [CSS](/de/docs/Web/CSS) Eigenschaft legt ein oder mehrere Hintergrundbilder für ein Element fest.
 
 {{EmbedInteractiveExample("pages/css/background-image.html")}}
 
-Die Hintergrundbilder werden auf Stapelebenen übereinander gezeichnet. Die erste angegebene Ebene wird so gezeichnet, als ob sie der Benutzerin oder dem Benutzer am nächsten wäre.
+Die Hintergrundbilder werden in Ebenen aufeinander gezeichnet, wobei die erste angegebene Ebene so gezeichnet wird, als wäre sie der Benutzerin am nächsten.
 
-Die [Ränder](/de/docs/Web/CSS/border) des Elements werden dann darauf gezeichnet, und die {{cssxref("background-color")}} wird darunter gezeichnet. Wie die Bilder relativ zur Box und zu deren Rändern gezeichnet werden, wird durch die CSS-Eigenschaften {{cssxref("background-clip")}} und {{cssxref("background-origin")}} definiert.
+Die [Rahmen](/de/docs/Web/CSS/border) des Elements werden dann darüber gezeichnet, und die {{cssxref("background-color")}} wird darunter gezeichnet. Wie die Bilder im Verhältnis zum Kasten und seinen Rahmen gezeichnet werden, wird durch die CSS-Eigenschaften {{cssxref("background-clip")}} und {{cssxref("background-origin")}} definiert.
 
-Wenn ein angegebenes Bild nicht gezeichnet werden kann (zum Beispiel, wenn die Datei, auf die durch die festgelegte URI verwiesen wird, nicht geladen werden kann), behandeln die Browser dies so, als wäre der Wert `none` angegeben.
+Wenn ein angegebenes Bild nicht gezeichnet werden kann (zum Beispiel, wenn die Datei, die durch die angegebene URI bezeichnet wird, nicht geladen werden kann), behandeln Browser es so, als wäre der Wert `none`.
 
 > [!NOTE]
-> Auch wenn die Bilder opak sind und die Farbe unter normalen Umständen nicht angezeigt wird, sollten Webentwicklerinnen und Webentwickler immer eine {{cssxref("background-color")}} festlegen. Wenn die Bilder nicht geladen werden können – beispielsweise, wenn das Netzwerk nicht verfügbar ist –, wird die Hintergrundfarbe als Fallback verwendet.
+> Auch wenn die Bilder undurchsichtig sind und die Farbe unter normalen Umständen nicht angezeigt wird, sollten Webentwickler immer eine {{cssxref("background-color")}} angeben. Wenn die Bilder nicht geladen werden können – zum Beispiel, wenn das Netzwerk ausgefallen ist – wird die Hintergrundfarbe als Fallback verwendet.
 
 ## Syntax
 
@@ -40,31 +40,31 @@ background-image: revert-layer;
 background-image: unset;
 ```
 
-Jedes Hintergrundbild wird entweder als das Schlüsselwort `none` oder als ein {{cssxref("&lt;image&gt;")}}-Wert angegeben.
+Jedes Hintergrundbild wird entweder als Schlüsselwort `none` oder als {{cssxref("&lt;image&gt;")}} Wert angegeben.
 
-Um mehrere Hintergrundbilder anzugeben, geben Sie mehrere Werte durch ein Komma getrennt an.
+Um mehrere Hintergrundbilder anzugeben, geben Sie mehrere Werte an, getrennt durch ein Komma.
 
 ### Werte
 
 - `none`
   - : Ist ein Schlüsselwort, das das Fehlen von Bildern bezeichnet.
 - `<image>`
-  - : Ist ein {{cssxref("&lt;image&gt;")}}, das das anzuzeigende Bild angibt. Es können mehrere davon durch Kommata getrennt angegeben werden, da [mehrere Hintergründe](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds) unterstützt werden.
+  - : Ist ein {{cssxref("&lt;image&gt;")}}, das das anzuzeigende Bild bezeichnet. Es können mehrere davon vorhanden sein, getrennt durch Kommas, da [mehrere Hintergründe](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds) unterstützt werden.
 
 ## Barrierefreiheit
 
-Browser stellen unterstützenden Technologien keine speziellen Informationen zu Hintergrundbildern bereit. Dies ist vor allem für Screenreader wichtig, da diese die Anwesenheit eines Bildes nicht verkünden und daher nichts an die Benutzerinnen und Benutzer weitergeben. Falls das Bild Informationen enthält, die für das Verständnis des Gesamtzwecks der Seite wichtig sind, ist es besser, diese semantisch im Dokument zu beschreiben.
+Browser stellen für Hintergrundbilder keine speziellen Informationen für unterstützende Technologien bereit. Dies ist vor allem für Screenreader wichtig, da ein Screenreader das Vorhandensein nicht ankündigen wird und somit den Benutzern keine Informationen vermittelt. Wenn das Bild Informationen enthält, die zum Verständnis des Gesamtkontexts der Seite entscheidend sind, ist es besser, dies semantisch im Dokument zu beschreiben.
 
-- [MDN Erklärung zur WCAG-Richtlinie 1.1](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Erklärung zu Erfolgskriterium 1.1.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+- [MDN Understanding WCAG, Guideline 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [Understanding Success Criterion 1.1.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 
-Zudem ist es wichtig sicherzustellen, dass der Kontrast zwischen dem Hintergrundbild und dem Vordergrundtext hoch genug ist, damit Personen mit eingeschränktem Sehvermögen den Seiteninhalt lesen können.
+Darüber hinaus ist es wichtig sicherzustellen, dass das Kontrastverhältnis zwischen dem Hintergrundbild und dem Vordergrundtext hoch genug ist, damit Menschen mit Sehbehinderungen die Seiteninhalte lesen können.
 
-Das Kontrastverhältnis wird bestimmt, indem die Helligkeitswerte von Text und Hintergrundfarbe verglichen werden. Um die [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, ist ein Verhältnis von 4,5:1 für Fließtext und 3:1 für größere Schriftarten wie Überschriften erforderlich. Große Schriftarten sind definiert als 24px oder größer oder [fett](/de/docs/Web/CSS/font-weight) mit mindestens 18,66px.
+Das Farbkontrastverhältnis wird durch den Vergleich der Leuchtdichte der Text- und Hintergrundfarbwerte ermittelt. Um die [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, ist ein Verhältnis von 4,5:1 für Fließtextinhalte und 3:1 für größeren Text, wie Überschriften, erforderlich. Großer Text wird als 24px oder größer definiert, oder [fettgedruckte](/de/docs/Web/CSS/font-weight) 18,66px oder größer.
 
-- [WebAIM: Farbkontrast-Prüfer](https://webaim.org/resources/contrastchecker/)
-- [MDN Erklärung zu WCAG-Richtlinie 1.4](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Erklärung zu Erfolgskriterium 1.4.3 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html), W3C (2023)
+- [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- [Understanding WCAG, Guideline 1.4 Erklärung](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Understanding Success Criterion 1.4.3 | Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html), W3C (2023)
 
 ## Formale Definition
 
@@ -76,9 +76,9 @@ Das Kontrastverhältnis wird bestimmt, indem die Helligkeitswerte von Text und H
 
 ## Beispiele
 
-### Überlagerung von Hintergrundbildern
+### Ebenen von Hintergrundbildern
 
-Beachten Sie, dass das Stern-Bild teilweise transparent ist und über das Katzen-Bild geschichtet wird.
+Beachten Sie, dass das Sternbild teilweise transparent ist und über dem Katzenbild liegt.
 
 #### HTML
 
@@ -136,11 +136,11 @@ div {
   - {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}
   - {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
   - {{cssxref("url_value", "&lt;url&gt;")}}
-- [CSS-Übergänge verwenden](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
-- [Bildsprites in CSS implementieren](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
-- [CSS-Bilder](/de/docs/Web/CSS/CSS_images)-Modul
+- [Verwendung von CSS-Gradients](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- [Verwendung von Bildsprites in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
+- [CSS-Bilder](/de/docs/Web/CSS/CSS_images) Modul
 
-- Hintergrundbezogene Eigenschaften:
+- Hintergrundbezogene Eigenschaften
   - {{cssxref("background-attachment")}}
   - {{cssxref("background-clip")}}
   - {{cssxref("background-color")}}
@@ -148,8 +148,8 @@ div {
   - {{cssxref("background-position")}}
   - {{cssxref("background-repeat")}}
   - {{cssxref("background-size")}}
-  - {{cssxref("background")}}-Kurzschreibweise
-- [Leitfaden: Hintergründe und Ränder](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+  - {{cssxref("background")}} Kurzform
+- [Lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
 - [Verwendung von mehreren Hintergründen](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)
-- [Hintergrundbilder skalieren](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images)
-- [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders)-Modul
+- [Größenänderung von Hintergrundbildern](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images)
+- [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul

@@ -2,12 +2,12 @@
 title: Object.is()
 slug: Web/JavaScript/Reference/Global_Objects/Object/is
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Object.is()`** bestimmt, ob zwei Werte [derselbe Wert](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value_equality_using_object.is) sind.
+Die statische Methode **`Object.is()`** bestimmt, ob zwei Werte [derselbe Wert](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value_equality_using_object.is) sind.
 
 {{InteractiveExample("JavaScript Demo: Object.is()")}}
 
@@ -35,23 +35,23 @@ Object.is(value1, value2)
 ### Parameter
 
 - `value1`
-  - : Der erste Wert, der verglichen werden soll.
+  - : Der erste Wert, der verglichen wird.
 - `value2`
-  - : Der zweite Wert, der verglichen werden soll.
+  - : Der zweite Wert, der verglichen wird.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der angibt, ob die beiden Argumente derselbe Wert sind.
+Ein boolescher Wert, der angibt, ob die beiden Argumente derselbe Wert sind oder nicht.
 
 ## Beschreibung
 
-`Object.is()` bestimmt, ob zwei Werte [derselbe Wert](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value_equality_using_object.is) sind. Zwei Werte sind gleich, wenn eine der folgenden Bedingungen erfüllt ist:
+`Object.is()` bestimmt, ob zwei Werte [derselbe Wert](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value_equality_using_object.is) sind. Zwei Werte sind gleich, wenn einer der folgenden Fälle zutrifft:
 
 - beide {{jsxref("undefined")}}
 - beide [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)
 - beide `true` oder beide `false`
-- beide Zeichenfolgen derselben Länge mit denselben Zeichen in derselben Reihenfolge
-- beide dasselbe Objekt (was bedeutet, dass beide Werte im Speicher auf dasselbe Objekt verweisen)
+- beide Strings von gleicher Länge mit denselben Zeichen in der gleichen Reihenfolge
+- beide dasselbe Objekt (bedeutet, dass beide Werte auf dasselbe Objekt im Speicher verweisen)
 - beide [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) mit demselben numerischen Wert
 - beide [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), die auf denselben Symbolwert verweisen
 - beide Zahlen und
@@ -59,11 +59,11 @@ Ein boolescher Wert, der angibt, ob die beiden Argumente derselbe Wert sind.
   - beide `+0`
   - beide `-0`
   - beide {{jsxref("NaN")}}
-  - oder beide ungleich null, nicht {{jsxref("NaN")}}, und haben denselben Wert
+  - oder beide ungleich null, nicht {{jsxref("NaN")}} und haben denselben Wert
 
-`Object.is()` ist nicht äquivalent zum [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality)-Operator. Der `==` Operator wendet verschiedene Typumwandlungen auf beide Seiten an (wenn sie nicht vom selben Typ sind) bevor er die Gleichheit prüft (was zu Verhalten wie `"" == false` als `true` führt), aber `Object.is()` erzwingt keine Typumwandlungen.
+`Object.is()` ist nicht gleichbedeutend mit dem [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality) Operator. Der `==` Operator wendet verschiedene Umwandlungen auf beide Seiten an (wenn sie nicht denselben Typ haben), bevor er auf Gleichheit testet (was zu einem Verhalten wie `"" == false`, das `true` ergibt, führt), aber `Object.is()` wandelt keinen der beiden Werte um.
 
-`Object.is()` ist auch _nicht_ äquivalent zum [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality)-Operator. Der einzige Unterschied zwischen `Object.is()` und `===` liegt in ihrem Umgang mit Vorzeichen-Nullen und `NaN`-Werten. Der `===`-Operator (und der `==`-Operator) behandelt die Zahlenwerte `-0` und `+0` als gleich, behandelt jedoch {{jsxref("NaN")}} als nicht gleich zueinander.
+`Object.is()` ist auch _nicht_ gleichbedeutend mit dem [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) Operator. Der einzige Unterschied zwischen `Object.is()` und `===` ist ihre Behandlung von Vorzeichen-Nullen und `NaN` Werten. Der `===` Operator (und der `==` Operator) behandelt die Zahlenwerte `-0` und `+0` als gleich, betrachtet jedoch {{jsxref("NaN")}} als ungleich zueinander.
 
 ## Beispiele
 
@@ -106,5 +106,5 @@ Object.is(NaN, Number.NaN); // true
 ## Siehe auch
 
 - [Polyfill von `Object.is` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
-- [es-shims polyfill von `Object.is`](https://www.npmjs.com/package/object.is)
-- [Gleichheitsvergleiche und Gleichheit](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+- [es-shims Polyfill von `Object.is`](https://www.npmjs.com/package/object.is)
+- [Vergleich von Gleichheit und Gleichheit](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness)

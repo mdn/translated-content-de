@@ -3,29 +3,29 @@ title: "SVGElement: tabIndex-Eigenschaft"
 short-title: tabIndex
 slug: Web/API/SVGElement/tabIndex
 l10n:
-  sourceCommit: 97dc5e941cca2f67ece5ff91d0c96674f210fef9
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("SVG")}}
 
-Die **`tabIndex`**-Eigenschaft des [`SVGElement`](/de/docs/Web/API/SVGElement)-Interfaces repräsentiert die Tabulatorreihenfolge des aktuellen SVG-Elements.
+Die **`tabIndex`**-Eigenschaft der [`SVGElement`](/de/docs/Web/API/SVGElement)-Schnittstelle repräsentiert die Tabulatorreihenfolge des aktuellen SVG-Elements.
 
 Die Tabulatorreihenfolge ist wie folgt:
 
-1. Elemente mit einem positiven `tabIndex`. Elemente mit identischen
-   `tabIndex`-Werten sollten in der Reihenfolge navigiert werden, in der sie erscheinen. Die Navigation
+1. Elemente mit einem positiven `tabIndex`. Elemente, die denselben
+   `tabIndex`-Wert haben, sollten in der Reihenfolge navigiert werden, in der sie erscheinen. Die Navigation
    erfolgt vom niedrigsten zum höchsten `tabIndex`.
 2. Elemente, die das `tabIndex`-Attribut nicht unterstützen oder es unterstützen und
    `tabIndex` auf `0` setzen, in der Reihenfolge, in der sie erscheinen.
 
-Deaktivierte Elemente nehmen nicht an der Tabulatorreihenfolge teil.
+Elemente, die deaktiviert sind, nehmen nicht an der Tabulatorreihenfolge teil.
 
-Werte müssen nicht sequenziell sein, noch müssen sie mit einem bestimmten Wert beginnen. Sie
-können sogar negativ sein, obwohl jeder Browser sehr große Werte kürzt.
+Die Werte müssen nicht sequentiell sein, noch müssen sie bei einem bestimmten Wert beginnen. Sie
+dürfen sogar negativ sein, obwohl jeder Browser sehr große Werte beschneidet.
 
 ## Wert
 
-Ein ganzzahliger Wert.
+Ein Integer.
 
 ## Beispiele
 
@@ -63,8 +63,8 @@ svg1.focus(); // Works, even though it is not in the tabbing order
 
 ## Siehe auch
 
-- [`HTMLElement.tabIndex`](/de/docs/Web/API/HTMLElement/tabIndex), eine ähnliche Methode für HTML-Elemente.
-- [Barrierefreiheit von tastaturnavigierbaren JavaScript-Widgets](/de/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets)
+- [`HTMLElement.tabIndex`](/de/docs/Web/API/HTMLElement/tabIndex) eine ähnliche Methode für HTML-Elemente.
+- [Barrierefreiheit von tastatur-navigierbaren JavaScript-Widgets](/de/docs/Web/Accessibility/Guides/Keyboard-navigable_JavaScript_widgets)
 - Das HTML
   [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex)
   globale Attribut.
