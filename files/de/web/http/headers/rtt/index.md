@@ -7,14 +7,14 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP **`RTT`** [Anforderungsheader](/de-DE/docs/Glossary/request_header) ist ein [Netzwerk-Client-Hinweis](/de-DE/docs/Web/HTTP/Client_hints#network_client_hints), der die ungefähre Round-Trip-Zeit auf der Anwendungsebene in Millisekunden angibt. Der `RTT`-Hinweis beinhaltet die Serververarbeitungszeit, im Gegensatz zur Round-Trip-Zeit der Transportschicht.
+Der HTTP **`RTT`** [Anforderungsheader](/de/docs/Glossary/request_header) ist ein [Netzwerk-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#network_client_hints), der die ungefähre Round-Trip-Zeit auf der Anwendungsebene in Millisekunden angibt. Der `RTT`-Hinweis beinhaltet die Serververarbeitungszeit, im Gegensatz zur Round-Trip-Zeit der Transportschicht.
 
-Der `RTT`-Wert wird auf die nächsten 25 Millisekunden gerundet, um [Fingerprinting](/de-DE/docs/Glossary/Fingerprinting) zu verhindern, obwohl es viele andere Mechanismen gibt, die ein Angreifer nutzen könnte, um ähnliche Round-Trip-Informationen zu erhalten.
+Der `RTT`-Wert wird auf die nächsten 25 Millisekunden gerundet, um [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu verhindern, obwohl es viele andere Mechanismen gibt, die ein Angreifer nutzen könnte, um ähnliche Round-Trip-Informationen zu erhalten.
 
 Der Hinweis ermöglicht es einem Server zu entscheiden, welche Informationen basierend auf der Netzwerkreaktionszeit/-latenz gesendet werden. Zum Beispiel könnte er entscheiden, weniger Ressourcen zu senden.
 
 > [!NOTE]
-> Der {{HTTPHeader("Vary")}}-Header wird in Antworten verwendet, um anzuzeigen, dass für jeden unterschiedlichen Wert des Headers eine andere Ressource gesendet wird (siehe [HTTP-Caching Vary](/de-DE/docs/Web/HTTP/Caching#vary)). Auch wenn `RTT` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, sollte man erwägen, es im {{HTTPHeader("Vary")}}-Header wegzulassen — es ist wahrscheinlich, dass es sich oft ändert, was effektiv macht, dass die Ressource nicht zwischengespeichert werden kann.
+> Der {{HTTPHeader("Vary")}}-Header wird in Antworten verwendet, um anzuzeigen, dass für jeden unterschiedlichen Wert des Headers eine andere Ressource gesendet wird (siehe [HTTP-Caching Vary](/de/docs/Web/HTTP/Caching#vary)). Auch wenn `RTT` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, sollte man erwägen, es im {{HTTPHeader("Vary")}}-Header wegzulassen — es ist wahrscheinlich, dass es sich oft ändert, was effektiv macht, dass die Ressource nicht zwischengespeichert werden kann.
 
 <table class="properties">
   <tbody>
@@ -22,7 +22,7 @@ Der Hinweis ermöglicht es einem Server zu entscheiden, welche Informationen bas
       <th scope="row">Header-Typ</th>
       <td>
         [Anforderungsheader](/de-DE/docs/Glossary/Request_header),
-        <a href="/de-DE/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
@@ -71,6 +71,6 @@ RTT: 125
 
 - {{HTTPHeader("Downlink")}}, {{HTTPHeader("ECT")}}, {{HTTPHeader("Save-Data")}} Netzwerk-Client-Hinweise
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching: Vary](/de-DE/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
-- [`NetworkInformation.effectiveType`](/de-DE/docs/Web/API/NetworkInformation/effectiveType)
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [`NetworkInformation.effectiveType`](/de/docs/Web/API/NetworkInformation/effectiveType)
 - [Verbesserung der Privatsphäre der Benutzer und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

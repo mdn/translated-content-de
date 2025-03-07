@@ -1,5 +1,5 @@
 ---
-title: ":last-of-type"
+title: :last-of-type
 slug: Web/CSS/:last-of-type
 l10n:
   sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048

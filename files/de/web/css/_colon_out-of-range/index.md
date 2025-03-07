@@ -1,5 +1,5 @@
 ---
-title: ":out-of-range"
+title: :out-of-range
 slug: Web/CSS/:out-of-range
 l10n:
   sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048

@@ -1,5 +1,5 @@
 ---
-title: ":read-write"
+title: :read-write
 slug: Web/CSS/:read-write
 l10n:
   sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048

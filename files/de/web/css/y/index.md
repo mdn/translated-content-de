@@ -1,5 +1,5 @@
 ---
-title: "y"
+title: y
 slug: Web/CSS/y
 l10n:
   sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
