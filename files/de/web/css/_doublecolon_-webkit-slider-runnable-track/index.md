@@ -1,5 +1,5 @@
 ---
-title: "::-webkit-slider-runnable-track"
+title: ::-webkit-slider-runnable-track
 slug: Web/CSS/::-webkit-slider-runnable-track
 l10n:
   sourceCommit: 624bbdcb7d9beace299a4fa0d3ddcd8f6732cd90

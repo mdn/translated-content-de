@@ -1,5 +1,5 @@
 ---
-title: ":popover-open"
+title: :popover-open
 slug: Web/CSS/:popover-open
 l10n:
   sourceCommit: 7b35cff797e29c66f364ece0fd64f4b2a3b2acf3

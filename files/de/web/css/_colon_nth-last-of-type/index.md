@@ -1,5 +1,5 @@
 ---
-title: ":nth-last-of-type()"
+title: :nth-last-of-type()
 slug: Web/CSS/:nth-last-of-type
 l10n:
   sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
