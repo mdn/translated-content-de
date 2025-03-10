@@ -2,14 +2,53 @@
 title: border-bottom-color
 slug: Web/CSS/border-bottom-color
 l10n:
-  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`border-bottom-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des unteren [Rahmens](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den Kurzschreibweise-CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-bottom")}} gesetzt werden.
+Die **`border-bottom-color`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die Farbe des unteren [Randes](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den Kurzschreib-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-bottom")}} gesetzt werden.
 
-{{EmbedInteractiveExample("pages/css/border-bottom-color.html")}}
+{{InteractiveExample("CSS Demo: border-bottom-color")}}
+
+```css interactive-example-choice
+border-bottom-color: red;
+```
+
+```css interactive-example-choice
+border-bottom-color: #32a1ce;
+```
+
+```css interactive-example-choice
+border-bottom-color: rgb(170, 50, 220, 0.6);
+```
+
+```css interactive-example-choice
+border-bottom-color: hsl(60, 90%, 50%, 0.8);
+```
+
+```css interactive-example-choice
+border-bottom-color: transparent;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with a border around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #eee;
+  color: #000;
+  border: 0.75em solid;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+}
+```
 
 ## Syntax
 
@@ -30,12 +69,12 @@ border-bottom-color: revert-layer;
 border-bottom-color: unset;
 ```
 
-Die `border-bottom-color` Eigenschaft wird als Einzelwert angegeben.
+Die `border-bottom-color`-Eigenschaft wird als ein einzelner Wert angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe des unteren Rahmens.
+  - : Die Farbe des unteren Randes.
 
 ## Formale Definition
 
@@ -47,7 +86,7 @@ Die `border-bottom-color` Eigenschaft wird als Einzelwert angegeben.
 
 ## Beispiele
 
-### Ein einfaches Div mit einem Rahmen
+### Ein einfaches div mit einem Rand
 
 #### HTML
 
@@ -88,7 +127,7 @@ Die `border-bottom-color` Eigenschaft wird als Einzelwert angegeben.
 
 ## Siehe auch
 
-- Die rahmenbezogenen CSS-Kurzschreibweise-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-bottom")}}, und {{Cssxref("border-color")}}.
+- Die Kurzschreib-Eigenschaften im Zusammenhang mit Rand-CSS: {{Cssxref("border")}}, {{Cssxref("border-bottom")}}, und {{Cssxref("border-color")}}.
 - Die farbbezogenen CSS-Eigenschaften für die anderen Ränder: {{Cssxref("border-right-color")}}, {{Cssxref("border-top-color")}}, und {{Cssxref("border-left-color")}}.
-- Die anderen rahmenbezogenen CSS-Eigenschaften, die auf denselben Rahmen angewendet werden: {{cssxref("border-bottom-style")}} und {{cssxref("border-bottom-width")}}.
-- Der Standardfarbwert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword).
+- Die anderen randbezogenen CSS-Eigenschaften, die auf denselben Rand angewendet werden: {{cssxref("border-bottom-style")}} und {{cssxref("border-bottom-width")}}.
+- Der Standardwert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword).

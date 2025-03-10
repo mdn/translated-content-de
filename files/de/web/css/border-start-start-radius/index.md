@@ -2,16 +2,56 @@
 title: border-start-start-radius
 slug: Web/CSS/border-start-start-radius
 l10n:
-  sourceCommit: 2adfb8760ac42c80966080e2e84211b14e43b589
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`border-start-start-radius`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert einen logischen Rahmenradius auf einem Element, der auf einen physischen Rahmenradius abgebildet wird, welcher von dem {{cssxref("writing-mode")}}, der {{cssxref("direction")}} und der {{cssxref("text-orientation")}} des Elements abhängt. Dies ist nützlich beim Erstellen von Stilvorlagen, die unabhängig von der [Textausrichtung](/de/docs/Web/CSS/text-orientation) und dem [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) funktionieren sollen.
+Die **`border-start-start-radius`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert einen logischen Rahmenradius auf einem Element, der einem physischen Rahmenradius zugeordnet wird, abhängig vom {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} des Elements. Dies ist nützlich beim Erstellen von Stilen, die unabhängig von der [Textorientierung](/de/docs/Web/CSS/text-orientation) und dem [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) funktionieren sollen.
 
-{{EmbedInteractiveExample("pages/css/border-start-start-radius.html")}}
+{{InteractiveExample("CSS Demo: border-start-start-radius")}}
 
-Diese Eigenschaft beeinflusst die Ecke zwischen den block-start und inline-start Seiten des Elements. Zum Beispiel entspricht es im Schreibmodus `horizontal-tb` mit `ltr` Richtung der {{CSSxRef("border-top-left-radius")}} Eigenschaft.
+```css interactive-example-choice
+border-start-start-radius: 80px 80px;
+```
+
+```css interactive-example-choice
+border-start-start-radius: 250px 100px;
+direction: rtl;
+```
+
+```css interactive-example-choice
+border-start-start-radius: 50%;
+writing-mode: vertical-lr;
+```
+
+```css interactive-example-choice
+border-start-start-radius: 50%;
+writing-mode: vertical-rl;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with a top left rounded corner.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #5b6dcd;
+  color: white;
+  padding: 10px;
+}
+```
+
+Diese Eigenschaft betrifft die Ecke zwischen den block-start und inline-start Seiten des Elements. Beispielsweise entspricht es in einem `horizontal-tb` Schreibmodus mit `ltr` Richtung der {{CSSxRef("border-top-left-radius")}} Eigenschaft.
 
 ## Syntax
 
@@ -35,7 +75,7 @@ border-start-start-radius: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Bezeichnet die Größe des Kreisradius oder die semi-major und semi-minor Achsen der Ellipse. Als absolute Länge kann es in jeder Einheit ausgedrückt werden, die vom CSS {{cssxref("&lt;length&gt;")}} Datentyp erlaubt ist. Prozentwerte für die horizontale Achse beziehen sich auf die Breite des Kastens, Prozentwerte für die vertikale Achse beziehen sich auf die Höhe des Kastens. Negative Werte sind ungültig.
+  - : Bezeichnet die Größe des Kreisradius oder der semi-major und semi-minor Achsen der Ellipse. Als absolute Länge kann dies in jeder Einheit ausgedrückt werden, die vom CSS {{cssxref("&lt;length&gt;")}} Datentyp erlaubt ist. Prozentsätze für die horizontale Achse beziehen sich auf die Breite der Box, Prozentsätze für die vertikale Achse beziehen sich auf die Höhe der Box. Negative Werte sind ungültig.
 
 ## Formale Definition
 
@@ -90,5 +130,5 @@ div {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Die abgebildete physische Eigenschaft: {{CSSxRef("border-top-left-radius")}}
+- Die zugeordnete physische Eigenschaft: {{CSSxRef("border-top-left-radius")}}
 - {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}}, {{CSSxRef("text-orientation")}}

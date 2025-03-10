@@ -2,19 +2,46 @@
 title: appearance
 slug: Web/CSS/appearance
 l10n:
-  sourceCommit: df624acd516ce43593e902d3e9ff0c8ed501ed08
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`appearance`**-Eigenschaft von [CSS](/de/docs/Web/CSS) wird verwendet, um UI-Elemente mit plattformspezifischem Styling darzustellen, basierend auf dem Thema des Betriebssystems.
+Die **`appearance`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um UI-Elemente mit plattform-spezifischem Styling basierend auf dem Theme des Betriebssystems darzustellen.
 
-{{EmbedInteractiveExample("pages/css/appearance.html")}}
+{{InteractiveExample("CSS Demo: appearance")}}
 
-Vor der Standardisierung ermöglichte diese Eigenschaft, Elemente als Widgets, wie Schaltflächen oder Kontrollkästchen, darzustellen. Dies wurde als Fehler angesehen, und Autoren werden ermutigt, nur noch standardisierte Schlüsselwörter zu verwenden.
+```css interactive-example-choice
+appearance: none;
+```
+
+```css interactive-example-choice
+appearance: auto;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="background">
+    <button id="example-element">button</button>
+  </div>
+</section>
+```
+
+```css interactive-example
+.background {
+  display: flex;
+  place-content: center;
+  place-items: center;
+  width: 150px;
+  height: 150px;
+  background-color: white;
+}
+```
+
+Vor der Standardisierung erlaubte diese Eigenschaft, dass Elemente als Widgets, wie Schaltflächen oder Kontrollkästchen, angezeigt werden. Es wurde als Missfeature betrachtet und Autoren wird empfohlen, jetzt nur standardisierte Schlüsselwörter zu verwenden.
 
 > [!NOTE]
-> Wenn Sie diese Eigenschaft auf Websites verwenden möchten, sollten Sie sie sehr sorgfältig testen. Obwohl sie in den meisten modernen Browsern unterstützt wird, variiert die Implementierung. In älteren Browsern hat sogar das Schlüsselwort `none` nicht die gleiche Wirkung auf alle Formularelemente in verschiedenen Browsern, und einige unterstützen es überhaupt nicht. Die Unterschiede sind in den neuesten Browsern kleiner.
+> Wenn Sie diese Eigenschaft auf Websites verwenden möchten, sollten Sie diese sehr sorgfältig testen. Obwohl sie in den meisten modernen Browsern unterstützt wird, variiert ihre Implementierung. In älteren Browsern hat sogar das Schlüsselwort `none` nicht die gleiche Wirkung auf alle Formularelemente in verschiedenen Browsern, und einige unterstützen es überhaupt nicht. Die Unterschiede sind in den neuesten Browsern geringer.
 
 ## Syntax
 
@@ -39,41 +66,41 @@ appearance: checkbox;
 
 ### Werte
 
-Für die folgenden Schlüsselwörter wählt der Benutzeragent das passende Styling basierend auf dem Element aus.
-Einige Beispiele werden bereitgestellt, aber die Liste ist nicht erschöpfend.
+Für die folgenden Schlüsselwörter wählt der User Agent das passende Styling basierend auf dem Element aus.
+Einige Beispiele sind angegeben, aber die Liste ist nicht erschöpfend.
 
 - `none`
 
-  - : Wenn das Element ein Widget (ein nativer Formsteuerelement) ist, wird es gezwungen, ein standardisiertes primitives Aussehen anstelle eines plattformnativen oder betriebssystemspezifischen Aussehens zu verwenden, wobei die üblichen CSS-Regeln unterstützt werden. Dieser Wert hat keine Auswirkungen auf Nicht-Widget-Elemente, einschließlich ersetzter Elemente wie {{htmlelement("img")}} und {{htmlelement("video")}}.
+  - : Wenn das Element ein Widget (native Formsteuerung) ist, wird er gezwungen, ein standardisiertes primitives Erscheinungsbild zu verwenden, anstelle eines plattformnativen oder betriebssystemspezifischen Erscheinungsbilds, wobei die üblichen CSS-Regeln unterstützt werden. Dieser Wert hat keine Auswirkungen auf Nicht-Widget-Elemente, einschließlich ersetzter Elemente wie {{htmlelement("img")}} und {{htmlelement("video")}}.
 
 - `auto`
 
-  - : Wirkt wie `none` bei Elementen ohne spezielles Styling.
+  - : Verhält sich wie `none` bei Elementen ohne spezielles Styling.
 
 - `<compat-special>`
 
-  - : Eines von `menulist-button` oder `textfield`.
-    Beide Werte sind bei Elementen ohne spezielles Styling gleichbedeutend mit `auto`.
+  - : Einer von `menulist-button` oder `textfield`.
+    Beide dieser Werte entsprechen `auto` bei Elementen ohne spezielles Styling.
 
 - `<compat-auto>`
 
   - : Mögliche Werte sind `button`, `checkbox`, `listbox`, `menulist`, `meter`, `progress-bar`, `push-button`, `radio`, `searchfield`, `slider-horizontal`, `square-button` und `textarea`.
-    Schlüsselwörter, die gleichbedeutend mit `auto` sind, um die Kompatibilität mit älteren Browsern zu erhalten.
+    Schlüsselwörter, die das Äquivalent von `auto` zur Aufrechterhaltung der Kompatibilität mit älteren Browsern sind.
 
 #### Nicht-standardisierte Werte
 
-Die folgenden Werte können in historischen Browserversionen mit dem Präfix **`-moz-appearance`** oder **`-webkit-appearance`** funktional sein, jedoch nicht mit der standardisierten **`appearance`**-Eigenschaft.
+Die folgenden Werte können in historischen Browser-Versionen mit dem **`-moz-appearance`** oder **`-webkit-appearance`**-Präfix funktionieren, jedoch nicht mit der standardisierten **`appearance`**-Eigenschaft.
 
 <details>
 <summary>Nicht-standardisierte Werte</summary>
 
-- Einträge von Firefox zeigen Unterstützung mit `-moz-appearance`.
-- Einträge von Chrome, Edge und Safari unten zeigen Versionsunterstützung für Werte, die mit der `-webkit-appearance`-Vender-Präfix-Eigenschaft verwendet werden.
+- Firefox-Einträge zeigen Unterstützung mit `-moz-appearance` an.
+- Chrome-, Edge- und Safari-Einträge unten geben die Release-Versionen an, die Werte unterstützen, die mit der `-webkit-appearance`-Vendor-Präfix-Eigenschaft verwendet werden.
 - Werte mit einem Sternchen (\*) haben klare Absichten zur Entfernung.
-- Für jede Zelle der Browserversion und Wert:
-  - `Y{version}`: gibt an, dass ein Wert bis einschließlich `{version}` unterstützt wird
+- Für jede Zelle der Browserversion und des Wertes:
+  - `Y{version}`: zeigt an, dass ein Wert bis einschließlich `{version}` unterstützt wird
   - `N{version}`: Unterstützung wurde in einer Version vor `{version}` entfernt
-  - eine leere Zelle zeigt an, dass die Unterstützung nie hinzugefügt wurde
+  - eine leere Zelle zeigt an, dass die Unterstützung niemals hinzugefügt wurde
 
 | Wert                                   | Safari  | Firefox | Chrome    | Edge   |
 | -------------------------------------- | ------- | ------- | --------- | ------ |
@@ -163,10 +190,10 @@ Die folgenden Werte können in historischen Browserversionen mit dem Präfix **`
 
 ## Beispiele
 
-### Individuelles Styling anwenden
+### Anwenden von benutzerdefiniertem Styling
 
-Das folgende Beispiel zeigt, wie das Standardstyling von einem Kontrollkästchen und einem Auswahl-Element entfernt und ein eigenes Styling angewendet wird.
-Das Aussehen des Kontrollkästchens wird zu einem Kreis geändert, und das Auswahl-Element zeigt, wie der Pfeil entfernt wird, der anzeigt, dass die Liste erweitert werden kann.
+Das folgende Beispiel zeigt, wie das Standardstyling von einem Kontrollkästchen und einem Auswahl-Element entfernt und benutzerdefiniertes Styling angewendet wird.
+Das Erscheinungsbild des Kontrollkästchens wird in einen Kreis geändert, und das Auswahl-Element zeigt, wie der Pfeil entfernt wird, der anzeigt, dass die Liste erweitert werden kann.
 
 #### HTML
 

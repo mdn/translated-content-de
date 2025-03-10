@@ -2,18 +2,58 @@
 title: text-decoration-style
 slug: Web/CSS/text-decoration-style
 l10n:
-  sourceCommit: 75326725db2daa924618e58ae31a43345c7a16dc
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`text-decoration-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Linien fest, die durch {{ cssxref("text-decoration-line") }} spezifiziert werden. Der Stil gilt für alle Linien, die mit `text-decoration-line` festgelegt werden.
+Die **`text-decoration-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Linien fest, die durch {{ cssxref("text-decoration-line") }} angegeben werden. Der Stil wird auf alle Linien angewendet, die mit `text-decoration-line` festgelegt sind.
 
-{{EmbedInteractiveExample("pages/css/text-decoration-style.html")}}
+{{InteractiveExample("CSS Demo: text-decoration-style")}}
 
-Wenn die angegebene Dekoration eine spezifische semantische Bedeutung hat, wie z. B. eine durchgestrichene Linie, die bedeutet, dass ein Text gelöscht wurde, werden Autoren dazu ermutigt, diese Bedeutung mit einem HTML-Tag zu kennzeichnen, wie {{ HTMLElement("del") }} oder {{ HTMLElement("s") }}. Da Browser in einigen Fällen das Styling deaktivieren können, verschwindet die semantische Bedeutung in einer solchen Situation nicht.
+```css interactive-example-choice
+text-decoration-style: solid;
+```
 
-Wenn mehrere Linienstil-Eigenschaften gleichzeitig gesetzt werden sollen, kann es praktischer sein, die Kurzschreibweise {{cssxref("text-decoration")}} zu verwenden.
+```css interactive-example-choice
+text-decoration-style: double;
+```
+
+```css interactive-example-choice
+text-decoration-style: dotted;
+```
+
+```css interactive-example-choice
+text-decoration-style: dashed;
+```
+
+```css interactive-example-choice
+text-decoration-style: wavy;
+```
+
+```html interactive-example
+<section id="default-example">
+  <p>
+    I'd far rather be
+    <span class="transition-all" id="example-element">happy than right</span>
+    any day.
+  </p>
+</section>
+```
+
+```css interactive-example
+p {
+  font: 1.5em sans-serif;
+}
+
+#example-element {
+  text-decoration-line: underline;
+}
+```
+
+Wenn die angegebene Dekoration eine spezifische semantische Bedeutung hat, wie beispielsweise eine Durchstreichungslinie, die bedeutet, dass ein Text gelöscht wurde, werden Autoren ermutigt, diese Bedeutung mit einem HTML-Tag wie {{ HTMLElement("del") }} oder {{ HTMLElement("s") }} darzustellen. Da Browser das Styling in manchen Fällen deaktivieren können, geht die semantische Bedeutung in einer solchen Situation nicht verloren.
+
+Beim gleichzeitigen Festlegen mehrerer Line-Dekorations-Eigenschaften kann es praktischer sein, die {{cssxref("text-decoration")}} Kurzschreibweise zu verwenden.
 
 ## Syntax
 
@@ -36,7 +76,7 @@ text-decoration-style: unset;
 ### Werte
 
 - solid
-  - : Zeichnet eine einzelne Linie.
+  - : Zeichnet eine einfache Linie.
 - double
   - : Zeichnet eine doppelte Linie.
 - dotted
@@ -44,7 +84,7 @@ text-decoration-style: unset;
 - dashed
   - : Zeichnet eine gestrichelte Linie.
 - wavy
-  - : Zeichnet eine wellenförmige Linie.
+  - : Zeichnet eine gewellte Linie.
 - \-moz-none
   - : Zeichnet keine Linie. Verwenden Sie stattdessen {{cssxref("text-decoration-line", "text-decoration-line: none")}}.
 
@@ -58,9 +98,9 @@ text-decoration-style: unset;
 
 ## Beispiele
 
-### Eine wellenförmige Unterstreichung einstellen
+### Setzen einer gewellten Unterstreichung
 
-Das folgende Beispiel erstellt eine rote, wellenförmige Unterstreichung:
+Das folgende Beispiel erstellt eine rote gewellte Unterstreichung:
 
 #### CSS
 
@@ -92,7 +132,7 @@ Das folgende Beispiel erstellt eine rote, wellenförmige Unterstreichung:
 
 ## Siehe auch
 
-- Wenn mehrere Linienstil-Eigenschaften gleichzeitig gesetzt werden sollen, kann es praktischer sein, die Kurzschreibweise {{cssxref("text-decoration")}} zu verwenden.
+- Beim gleichzeitigen Festlegen mehrerer Line-Dekorations-Eigenschaften kann es praktischer sein, die {{cssxref("text-decoration")}} Kurzschreibweise zu verwenden.
 - {{cssxref("text-decoration-line")}}
 - {{cssxref("text-decoration-color")}}
 - {{cssxref("text-decoration-thickness")}}

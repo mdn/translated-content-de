@@ -2,14 +2,45 @@
 title: outline-offset
 slug: Web/CSS/outline-offset
 l10n:
-  sourceCommit: aa714bb37625b21b0f40db1f1ea557e773456fa2
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`outline-offset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Menge an Raum zwischen einem [Kontur](/de/docs/Web/CSS/outline) und dem Rand oder der Grenze eines Elements fest.
+Die **`outline-offset`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt den Abstand zwischen einem [Umriss (outline)](/de/docs/Web/CSS/outline) und dem Rand oder der Begrenzung eines Elements.
 
-{{EmbedInteractiveExample("pages/css/outline-offset.html")}}
+{{InteractiveExample("CSS Demo: outline-offset")}}
+
+```css interactive-example-choice
+outline-offset: 4px;
+```
+
+```css interactive-example-choice
+outline-offset: 0.6rem;
+```
+
+```css interactive-example-choice
+outline-offset: 12px;
+outline: 5px dashed blue;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with an outline around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 2px solid crimson;
+  outline: 0.75em solid;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+}
+```
 
 ## Syntax
 
@@ -29,11 +60,11 @@ outline-offset: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Breite des Raums zwischen dem Element und seiner Kontur. Ein negativer Wert platziert die Kontur innerhalb des Elements. Ein Wert von `0` platziert die Kontur so, dass kein Raum zwischen ihr und dem Element besteht.
+  - : Die Breite des Raums zwischen dem Element und seinem Umriss. Ein negativer Wert platziert den Umriss innerhalb des Elements. Ein Wert von `0` platziert den Umriss so, dass kein Raum zwischen ihm und dem Element ist.
 
 ## Beschreibung
 
-Eine Kontur ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb der Randlinie. Der Raum zwischen einem Element und seiner Kontur ist transparent. Mit anderen Worten, er ist derselbe wie der des Elternelements Hintergrund.
+Ein Umriss ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des Randbereichs. Der Raum zwischen einem Element und seinem Umriss ist transparent. Mit anderen Worten, er ist wie der Hintergrund des Elternelements.
 
 ## Formale Definition
 
@@ -45,7 +76,7 @@ Eine Kontur ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb
 
 ## Beispiele
 
-### Festlegen des Outline-Offsets in Pixeln
+### Festlegen des outline-offset in Pixeln
 
 #### HTML
 

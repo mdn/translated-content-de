@@ -2,16 +2,60 @@
 title: row-gap
 slug: Web/CSS/row-gap
 l10n:
-  sourceCommit: fb409b8972e7c03d7eb284466433a28efb850ef5
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`row-gap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe des Abstands ({{Glossary("gutters", "Rinne")}}) zwischen den Zeilen eines Elements fest.
+Die **`row-gap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe des Abstands ({{Glossary("gutters", "Rinnen")}}) zwischen den Zeilen eines Elements fest.
 
-In den frühen Versionen der Spezifikation wurde diese Eigenschaft `grid-row-gap` genannt, und um die Kompatibilität mit älteren Websites zu gewährleisten, akzeptieren Browser weiterhin `grid-row-gap` als Alias für `row-gap`.
+Frühere Versionen der Spezifikation nannten diese Eigenschaft `grid-row-gap`, und zur Kompatibilität mit älteren Websites akzeptieren Browser weiterhin `grid-row-gap` als Alias für `row-gap`.
 
-{{EmbedInteractiveExample("pages/css/row-gap.html")}}
+{{InteractiveExample("CSS Demo: row-gap")}}
+
+```css interactive-example-choice
+row-gap: 0;
+```
+
+```css interactive-example-choice
+row-gap: 1ch;
+```
+
+```css interactive-example-choice
+row-gap: 1em;
+```
+
+```css interactive-example-choice
+row-gap: 20px;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="example-container">
+    <div class="transition-all" id="example-element">
+      <div>One</div>
+      <div>Two</div>
+      <div>Three</div>
+      <div>Four</div>
+      <div>Five</div>
+    </div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 1px solid #c5c5c5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 200px;
+}
+
+#example-element > div {
+  background-color: rgba(0, 0, 255, 0.2);
+  border: 3px solid blue;
+}
+```
 
 ## Syntax
 
@@ -134,4 +178,4 @@ row-gap: unset;
 
 - {{CSSxRef("column-gap")}}
 - {{CSSxRef("gap")}}
-- [Grundkonzepte des Grid-Layouts: Rinnen](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#gutters)
+- [Grundlegende Konzepte des Grid-Layouts: Rinnen](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#gutters)

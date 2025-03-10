@@ -2,14 +2,85 @@
 title: break-after
 slug: Web/CSS/break-after
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`break-after`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Seiten-, Spalten- oder Regionenumbrüche nach einer generierten Box verhalten sollen. Wenn keine generierte Box vorhanden ist, wird die Eigenschaft ignoriert.
+Die **`break-after`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Seiten-, Spalten- oder Regionsumbrüche nach einer generierten Box verhalten sollen. Wenn keine generierte Box vorhanden ist, wird die Eigenschaft ignoriert.
 
-{{EmbedInteractiveExample("pages/css/break-after.html")}}
+{{InteractiveExample("CSS Demo: break-after")}}
+
+```css interactive-example-choice
+break-after: auto;
+```
+
+```css interactive-example-choice
+break-after: page;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div>
+    <p>
+      The effect of this property can be noticed when the document is being
+      printed or a preview of a print is displayed.
+    </p>
+    <button id="print-btn">Show Print Preview</button>
+    <div class="box-container">
+      <div class="box">Content before the property</div>
+      <div class="box" id="example-element">Content with 'break-after'</div>
+      <div class="box">Content after the property</div>
+    </div>
+  </div>
+</section>
+```
+
+```css interactive-example
+.box {
+  border: solid #5b6dcd 5px;
+  background-color: #5b6dcd;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+#example-element {
+  border: solid 5px #ffc129;
+  background-color: #ffc129;
+  color: black;
+}
+
+.hide-element {
+  display: none;
+}
+```
+
+```js interactive-example
+const btn = document.getElementById("print-btn");
+const editorContainer = document.getElementsByClassName(
+  "css-editor-container",
+)[0];
+const exampleHTMLElement = document.getElementById("default-example");
+
+const printableSection = document.createElement("div");
+printableSection.setAttribute("id", "printable-section");
+printableSection.classList.add("hide-element");
+document.body.appendChild(printableSection);
+
+btn.addEventListener("click", () => {
+  const exampleContent = exampleHTMLElement.innerHTML;
+
+  editorContainer.classList.add("hide-element");
+  printableSection.innerHTML = exampleContent;
+  printableSection.classList.remove("hide-element");
+
+  window.print();
+
+  printableSection.classList.add("hide-element");
+  printableSection.innerHTML = "";
+  editorContainer.classList.remove("hide-element");
+});
+```
 
 ## Syntax
 
@@ -44,27 +115,27 @@ break-after: revert-layer;
 break-after: unset;
 ```
 
-Jeder mögliche Umbruchspunkt (mit anderen Worten, jede Elementgrenze) wird von drei Eigenschaften beeinflusst: dem `break-after` Wert des vorherigen Elements, dem {{cssxref("break-before")}} Wert des nächsten Elements und dem {{cssxref("break-inside")}} Wert des enthaltenen Elements.
+Jeder mögliche Umbruchspunkt (mit anderen Worten, jede Elementgrenze) wird von drei Eigenschaften beeinflusst: dem `break-after`-Wert des vorherigen Elements, dem {{cssxref("break-before")}}-Wert des nächsten Elements und dem {{cssxref("break-inside")}}-Wert des umgebenden Elements.
 
-Um festzustellen, ob ein Umbruch erfolgen muss, gelten die folgenden Regeln:
+Um zu bestimmen, ob ein Umbruch erfolgen muss, werden die folgenden Regeln angewendet:
 
-1. Wenn einer der drei betroffenen Werte ein _erzwungener Umbruchwert_ ist (`always`, `left`, `right`, `page`, `column` oder `region`), hat dieser Vorrang. Wenn mehr als einer dieser Umbrüche vorliegt, wird der des Elements, das zuletzt im Fluss erscheint, genommen (d. h., der Wert von `break-before` hat Vorrang vor dem Wert von `break-after`, welcher wiederum Vorrang vor dem Wert von `break-inside` hat).
-2. Wenn einer der drei betroffenen Werte ein _vermeidender Umbruchwert_ ist (`avoid`, `avoid-page`, `avoid-region` oder `avoid-column`), wird an dieser Stelle kein solcher Umbruch angewendet.
+1. Wenn einer der drei betroffenen Werte ein _erzwungener Umbruchwert_ (`always`, `left`, `right`, `page`, `column`, oder `region`) ist, hat dieser Vorrang. Wenn mehr als einer dieser Umbrüche vorhanden ist, wird der Umbruch des zuletzt im Fluss erscheinenden Elements genommen (d. h. der `break-before`-Wert hat Vorrang vor dem `break-after`-Wert, der wiederum Vorrang vor dem `break-inside`-Wert hat).
+2. Wenn einer der drei Werte ein _Vermeidungswert_ ist (`avoid`, `avoid-page`, `avoid-region`, oder `avoid-column`), wird an diesem Punkt kein solcher Umbruch angewendet.
 
-Sobald erzwungene Umbrüche angewendet wurden, können bei Bedarf weiche Umbrüche hinzugefügt werden, jedoch nicht an Elementgrenzen, die sich zu einem entsprechenden `avoid`-Wert auflösen.
+Sobald erzwungene Umbrüche angewendet wurden, können bei Bedarf weiche Umbrüche hinzugefügt werden, jedoch nicht an Elementgrenzen, die in einem entsprechenden `avoid`-Wert aufgelöst werden.
 
 ### Werte
 
 #### Generische Umbruchwerte
 
 - `auto`
-  - : Erlaubt, erzwingt aber keinen Umbruch (Seite, Spalte oder Region) direkt nach der Hauptbox.
+  - : Erlaubt, aber erzwingt keinen Umbruch (Seite, Spalte oder Region) direkt nach der Hauptbox.
 - `avoid`
   - : Vermeidet jeden Umbruch (Seite, Spalte oder Region) direkt nach der Hauptbox.
 - `always`
-  - : Erzwingt einen Seitenumbruch direkt nach der Hauptbox. Der Typ dieses Umbruchs ist der des unmittelbar umgebenden Fragmentierungskontextes. Befinden wir uns in einem Mehrspalten-Container, erzwingt dies einen Spaltenumbruch; in paginierten Medien (aber nicht innerhalb eines Mehrspalten-Containers) einen Seitenumbruch.
+  - : Erzwingt einen Seitenumbruch direkt nach der Hauptbox. Der Typ dieses Umbruchs entspricht dem des unmittelbar umschließenden Fragmentierungskontexts. Befinden wir uns in einem Mehrspalten-Container, erzwingt dies einen Spaltenumbruch. In Seitendrucken (aber nicht in einem Mehrspalten-Container) einen Seitenumbruch.
 - `all`
-  - : Erzwingt einen Seitenumbruch direkt nach der Hauptbox. Bricht durch alle möglichen Fragmentierungskontexte. Ein Umbruch in einem Mehrspalten-Container, der sich in einem Seitencontainer befand, würde einen Spalten- und Seitenumbruch erzwingen.
+  - : Erzwingt einen Seitenumbruch direkt nach der Hauptbox und durchbricht alle möglichen Fragmentierungskontexte. Ein Umbruch in einem Mehrspaltencontainer, der sich in einem Seitencontainer befindet, würde einen Spalten- und Seitenumbruch erzwingen.
 
 #### Seitenumbruchwerte
 
@@ -73,13 +144,13 @@ Sobald erzwungene Umbrüche angewendet wurden, können bei Bedarf weiche Umbrüc
 - `page`
   - : Erzwingt einen Seitenumbruch direkt nach der Hauptbox.
 - `left`
-  - : Erzwingt ein oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer linken Seite macht. Es ist die Seite, die auf der linken Seite des Buchrückens platziert ist, oder die Rückseite der Seite beim Duplexdruck.
+  - : Erzwingt einen oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer linken Seite macht. Es ist die Seite, die auf der linken Seite des Buchrückens platziert wird oder die Rückseite der Seite im Duplexdruck.
 - `right`
-  - : Erzwingt ein oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer rechten Seite macht. Es ist die Seite, die auf der rechten Seite des Buchrückens platziert ist, oder die Vorderseite der Seite beim Duplexdruck.
+  - : Erzwingt einen oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer rechten Seite macht. Es ist die Seite, die auf der rechten Seite des Buchrückens platziert wird oder die Vorderseite der Seite im Duplexdruck.
 - `recto`
-  - : Erzwingt ein oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer recto-Seite macht. (Eine recto-Seite ist eine rechte Seite in einer links-nach-rechts-Doppelseite oder eine linke Seite in einer rechts-nach-links-Doppelseite.)
+  - : Erzwingt einen oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer Recto-Seite macht. (Eine Recto-Seite ist eine rechte Seite in einem von links nach rechts verlaufenden Spread oder eine linke Seite in einem von rechts nach links verlaufenden Spread.)
 - `verso`
-  - : Erzwingt ein oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer verso-Seite macht. (Eine verso-Seite ist eine linke Seite in einer links-nach-rechts-Doppelseite oder eine rechte Seite in einer rechts-nach-links-Doppelseite.)
+  - : Erzwingt einen oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer Verso-Seite macht. (Eine Verso-Seite ist eine linke Seite in einem von links nach rechts verlaufenden Spread oder eine rechte Seite in einem von rechts nach links verlaufenden Spread.)
 
 #### Spaltenumbruchwerte
 
@@ -88,16 +159,16 @@ Sobald erzwungene Umbrüche angewendet wurden, können bei Bedarf weiche Umbrüc
 - `column`
   - : Erzwingt einen Spaltenumbruch direkt nach der Hauptbox.
 
-#### Regionen-Umbruchwerte
+#### Regionsumbruchwerte
 
 - `avoid-region`
-  - : Vermeidet jeden Regionen-Umbruch direkt nach der Hauptbox.
+  - : Vermeidet jeden Regionsumbruch direkt nach der Hauptbox.
 - `region`
-  - : Erzwingt einen Regionen-Umbruch direkt nach der Hauptbox.
+  - : Erzwingt einen Regionsumbruch direkt nach der Hauptbox.
 
-## Alias für Seitenumbruch
+## Seitenumbruch Aliase
 
-Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-after")}} Eigenschaft von Browsern als Alias für `break-after` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-after` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Alias behandelt werden:
+Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-after")}} Eigenschaft von Browsern als Alias für `break-after` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-after` verwenden, weiterhin wie beabsichtigt funktionieren. Ein Teil der Werte sollte wie folgt als Alias verwendet werden:
 
 | page-break-after | break-after |
 | ---------------- | ----------- |
@@ -108,7 +179,7 @@ Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-after")}
 | `always`         | `page`      |
 
 > [!NOTE]
-> Der Wert `always` von `page-break-*` wurde von den Browsern als Seitenumbruch implementiert und nicht als Spaltenumbruch. Daher wird die Aliasing als `page` vorgenommen, anstatt des Werts `always` in der Level-4-Spezifikation.
+> Der `always` Wert von `page-break-*` wurde von Browsern als Seitenumbruch und nicht als Spaltenumbruch implementiert. Daher bezieht sich das Aliasing auf `page`, anstatt auf den `always` Wert in der Level 4 Spezifikation.
 
 ## Formale Definition
 
@@ -120,11 +191,11 @@ Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-after")}
 
 ## Beispiele
 
-### Aufbrechen in ordentliche Spalten
+### Aufteilen in ordentliche Spalten
 
-Im folgenden Beispiel haben wir einen Container, der eine `<h1>` enthält, die sich über alle Spalten erstreckt (erreicht durch `column-span: all`) und eine Reihe von `<h2>`s und Absätzen, die in mehreren Spalten mit `column-width: 200px` angeordnet sind.
+Im folgenden Beispiel haben wir einen Container, der eine `<h1>`-Überschrift enthält, die sich über alle Spalten erstreckt (erreicht durch `column-span: all`) und eine Reihe von `<h2>`-Überschriften und Absätzen, die in mehreren Spalten mit `column-width: 200px` angeordnet sind.
 
-Standardmäßig wurden die Unterüberschriften und Absätze eher unordentlich angeordnet, da die Überschriften nicht an einer einheitlichen Stelle waren. Wir haben jedoch `break-after: column` auf die `<p>` Elemente angewendet, um einen Spaltenumbruch nach jedem zu erzwingen, was bedeutet, dass Sie ein `<h2>` ordentlich oben in jeder Spalte erhalten.
+Standardmäßig waren die Unterüberschriften und Absätze eher unordentlich angeordnet, da die Überschriften nicht an einem einheitlichen Ort waren. Wir haben jedoch `break-after: column` auf den `<p>`-Elementen angewendet, um einen Spaltenumbruch nach jedem zu erzwingen, was bedeutet, dass Sie ein `<h2>` ordentlich am oberen Rand jeder Spalte finden.
 
 #### HTML
 
@@ -215,5 +286,5 @@ article {
 
 ## Siehe auch
 
-- [Leitfaden: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
-- [Boxen mit CSS-Fragmentierung brechen](https://www.smashingmagazine.com/2019/02/css-fragmentation/)
+- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Boxen aufbrechen mit CSS-Fragmentierung](https://www.smashingmagazine.com/2019/02/css-fragmentation/)

@@ -2,14 +2,95 @@
 title: animation-direction
 slug: Web/CSS/animation-direction
 l10n:
-  sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`animation-direction`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob eine Animation vorwärts, rückwärts oder abwechselnd vorwärts und rückwärts gespielt werden soll.
+Die **`animation-direction`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob eine Animation vorwärts, rückwärts oder im Wechsel vorwärts und rückwärts abgespielt werden soll.
 
-{{EmbedInteractiveExample("pages/css/animation-direction.html")}}
+{{InteractiveExample("CSS Demo: animation-direction")}}
+
+```css interactive-example-choice
+animation-direction: normal;
+```
+
+```css interactive-example-choice
+animation-direction: reverse;
+```
+
+```css interactive-example-choice
+animation-direction: alternate;
+```
+
+```css interactive-example-choice
+animation-direction: alternate-reverse;
+```
+
+```html interactive-example
+<section class="flex-column" id="default-example">
+  <div id="example-element"></div>
+  <button id="play-pause">Play</button>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-name: slide;
+  animation-play-state: paused;
+  animation-timing-function: ease-in;
+  background-color: #1766aa;
+  border-radius: 50%;
+  border: 5px solid #333;
+  color: white;
+  height: 150px;
+  margin: auto;
+  margin-left: 0;
+  width: 150px;
+}
+
+#example-element.running {
+  animation-play-state: running;
+}
+
+#play-pause {
+  font-size: 2rem;
+}
+
+@keyframes slide {
+  from {
+    background-color: orange;
+    color: black;
+    margin-left: 0;
+  }
+  to {
+    background-color: orange;
+    color: black;
+    margin-left: 80%;
+  }
+}
+```
+
+```js interactive-example
+"use strict";
+
+window.addEventListener("load", () => {
+  const el = document.getElementById("example-element");
+  const button = document.getElementById("play-pause");
+
+  button.addEventListener("click", () => {
+    if (el.classList.contains("running")) {
+      el.classList.remove("running");
+      button.textContent = "Play";
+    } else {
+      el.classList.add("running");
+      button.textContent = "Pause";
+    }
+  });
+});
+```
 
 Es ist oft praktisch, die Kurzschreibweise {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
 
@@ -37,19 +118,19 @@ animation-direction: unset;
 ### Werte
 
 - `normal`
-  - : Die Animation wird _vorwärts_ bei jedem Zyklus abgespielt. Mit anderen Worten, jedes Mal, wenn der Animationszyklus neu beginnt, wird die Animation auf den Anfangszustand zurückgesetzt und beginnt von vorne. Dies ist der Standardwert.
+  - : Die Animation wird bei jedem Zyklus _vorwärts_ abgespielt. Das bedeutet, dass die Animation bei jedem Zyklus auf den Anfangszustand zurückgesetzt wird und neu beginnt. Dies ist der Standardwert.
 - `reverse`
-  - : Die Animation wird _rückwärts_ bei jedem Zyklus abgespielt. Mit anderen Worten, jedes Mal, wenn der Animationszyklus neu beginnt, wird die Animation auf den Endzustand zurückgesetzt und beginnt von vorne. Die Animationsschritte werden rückwärts ausgeführt, und auch die Easing-Funktionen werden umgekehrt. Beispielsweise wird eine `ease-in` Easing-Funktion zu `ease-out`.
+  - : Die Animation wird bei jedem Zyklus _rückwärts_ abgespielt. Das bedeutet, dass die Animation bei jedem Zyklus auf den Endzustand zurückgesetzt wird und neu beginnt. Animationsschritte werden rückwärts ausgeführt, und auch die Funktionen für das Zeitverhalten werden umgekehrt. Beispielsweise wird eine `ease-in` Funktion zu `ease-out`.
 - `alternate`
-  - : Die Animation wechselt mit jedem Zyklus die Richtung, wobei die erste Iteration _vorwärts_ abgespielt wird. Die Zählung, um zu bestimmen, ob ein Zyklus gerade oder ungerade ist, beginnt bei eins.
+  - : Die Animation wechselt bei jedem Zyklus die Richtung, wobei die erste Iteration _vorwärts_ gespielt wird. Die Zählung, um festzustellen, ob ein Zyklus gerade oder ungerade ist, beginnt bei eins.
 - `alternate-reverse`
-  - : Die Animation wechselt mit jedem Zyklus die Richtung, wobei die erste Iteration _rückwärts_ abgespielt wird. Die Zählung, um zu bestimmen, ob ein Zyklus gerade oder ungerade ist, beginnt bei eins.
+  - : Die Animation wechselt bei jedem Zyklus die Richtung, wobei die erste Iteration _rückwärts_ gespielt wird. Die Zählung, um festzustellen, ob ein Zyklus gerade oder ungerade ist, beginnt bei eins.
 
 > [!NOTE]
-> Wenn Sie mehrere kommagetrennte Werte auf einer `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Fälle, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animationsproperty-Werte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte bei einer `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und die `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animationswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 > [!NOTE]
-> Bei der Erstellung von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) funktioniert die Angabe einer `animation-direction` wie erwartet, zum Beispiel bewirkt `reverse`, dass die Animation im Verlauf des Fortschritts der Zeitachse rückwärts läuft. Ein Wert von `alternate` (kombiniert mit einer {{cssxref("animation-iteration-count")}}) bewirkt, dass die Animation vorwärts und rückwärts verläuft, während die Zeitachse fortschreitet.
+> Beim Erstellen von [CSS-Scroll-basierten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) funktioniert die Angabe einer `animation-direction` wie erwartet, z. B. bewirkt `reverse`, dass die Animation rückwärts im Verlauf der Zeitachse abläuft. Ein Wert von `alternate` (kombiniert mit einer {{cssxref("animation-iteration-count")}}) bewirkt, dass die Animation vorwärts und rückwärts verläuft, während die Zeitachse fortschreitet.
 
 ## Formale Definition
 
@@ -111,6 +192,6 @@ Siehe [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) f�
 
 ## Siehe auch
 
-- [Verwenden von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
 - JavaScript [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) API
-- Weitere verwandte Animationseigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}
+- Andere verwandte Animationseigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}

@@ -2,14 +2,48 @@
 title: line-break
 slug: Web/CSS/line-break
 l10n:
-  sourceCommit: 42d7bb6c3ed8e7e51cd71aa17165c28b58f5c4e7
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`line-break`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Zeilen chinesischen, japanischen oder koreanischen (CJK) Textes beim Arbeiten mit Satzzeichen und Symbolen umbrochen werden.
+Die **`line-break`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Zeilen von Chinesisch, Japanisch oder Koreanisch (CJK) Text bei der Arbeit mit Satzzeichen und Symbolen umbrochen werden.
 
-{{EmbedInteractiveExample("pages/css/line-break.html")}}
+{{InteractiveExample("CSS Demo: line-break")}}
+
+```css interactive-example-choice
+line-break: auto;
+```
+
+```css interactive-example-choice
+line-break: anywhere;
+```
+
+```css interactive-example-choice
+line-break: normal;
+```
+
+```css interactive-example-choice
+line-break: loose;
+```
+
+```html interactive-example
+<section id="default-example">
+  <p id="example-element">
+    この喫茶店は、いつでもコーヒーの香りを漂わせています。<br />彼女はこの喫茶店で働いて、着々と実力をつけていきました。<br />今では知る人ぞ知る、名人です。
+  </p>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  font-family: "Yu Gothic", YuGothic, Meiryo, "ＭＳ ゴシック", sans-serif;
+  border: 2px dashed #999;
+  text-align: left;
+  width: 240px;
+  font-size: 16px;
+}
+```
 
 ## Syntax
 
@@ -32,15 +66,15 @@ line-break: unset;
 ### Werte
 
 - `auto`
-  - : Bricht Text mit der Standardregel für Zeilenumbrüche um.
+  - : Text mit der standardmäßigen Zeilenumbruchregel umbrechen.
 - `loose`
-  - : Bricht Text mit der am wenigsten restriktiven Regel für Zeilenumbrüche um. Typischerweise verwendet für kurze Zeilen, wie z.B. in Zeitungen.
+  - : Text mit der am wenigsten restriktiven Zeilenumbruchregel umbrechen. Typischerweise für kurze Zeilen verwendet, wie zum Beispiel in Zeitungen.
 - `normal`
-  - : Bricht Text mit der häufigsten Regel für Zeilenumbrüche um.
+  - : Text mit der am häufigsten verwendeten Zeilenumbruchregel umbrechen.
 - `strict`
-  - : Bricht Text mit der strengsten Regel für Zeilenumbrüche um.
+  - : Text mit der strengsten Zeilenumbruchregel umbrechen.
 - `anywhere`
-  - : Es gibt eine weiche Umbruchmöglichkeit um jede typografische Zeicheneinheit, einschließlich um beliebige Satzzeichen oder erhaltene Leerzeichen, oder in der Mitte von Wörtern, ohne Beachtung von Verboten gegen Zeilenumbrüche, selbst solche, die durch Zeichen der GL-, WJ- oder ZWJ-Zeichenklasse eingeführt wurden oder durch die {{cssxref("word-break")}} Eigenschaft auferlegt sind. Die verschiedenen Umbruchmöglichkeiten dürfen nicht priorisiert werden. Silbentrennung wird nicht angewendet.
+  - : Es gibt eine weiche Umbruchsmöglichkeit um jede typografische Zeicheneinheit, einschließlich um jedes Satzzeichen oder erhaltene Leerzeichen, oder mitten in Wörtern, ohne Rücksicht auf ein Verbot gegen Zeilenumbrüche, auch nicht die, die durch Zeichen mit der GL-, WJ- oder ZWJ-Zeichenklasse eingeführt werden oder durch die {{cssxref("word-break")}} Eigenschaft vorgeschrieben sind. Die verschiedenen Umbruchmöglichkeiten dürfen nicht priorisiert werden. Silbentrennung wird nicht angewendet.
 
 ## Formale Definition
 
@@ -54,7 +88,7 @@ line-break: unset;
 
 ### Textumbruch einstellen
 
-Sehen Sie, ob der Text vor "々", "ぁ" und "。" umbrochen wird.
+Überprüfen Sie, ob der Text vor "々", "ぁ" und "。" umgebrochen wird.
 
 #### HTML
 
@@ -119,4 +153,4 @@ Sehen Sie, ob der Text vor "々", "ぁ" und "。" umbrochen wird.
 
 ## Siehe auch
 
-- [CSS und internationaler Text](https://www.w3.org/International/articles/css3-text/) auf W3C
+- [CSS and international text](https://www.w3.org/International/articles/css3-text/) auf W3C

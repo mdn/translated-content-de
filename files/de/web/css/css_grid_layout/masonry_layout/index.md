@@ -2,21 +2,21 @@
 title: Masonry-Layout
 slug: Web/CSS/CSS_grid_layout/Masonry_layout
 l10n:
-  sourceCommit: bf69d21a66ea3d757afaf5b04dcf279ddbbfc140
+  sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c
 ---
 
 {{CSSRef}} {{SeeCompatTable}}
 
-Level 3 der [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout)-Spezifikation beinhaltet einen `masonry`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden erklärt, was ein Masonry-Layout ist und wie es verwendet wird.
+Level 3 der [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout)-Spezifikation umfasst einen `masonry`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden erläutert, was ein Masonry-Layout ist und wie es verwendet wird.
 
-Ein Masonry-Layout ist eine Layoutmethode, bei der eine Achse ein typisches strenges Grid-Layout verwendet, meist Spalten, und die andere eine Masonry-Layout-Methode anwendet. Auf der Masonry-Achse wird anstelle eines strengen Rasters mit Freiräumen nach kürzeren Elementen die nächste Zeile so verschoben, dass diese Lücken vollständig gefüllt werden.
+Ein Masonry-Layout ist eine Layout-Methode, bei der eine Achse ein typisches strenges Rasterlayout verwendet, meist die Spalten, und die andere eine Masonry-Anordnung. Auf der Masonry-Achse bleiben die Elemente in der nächsten Zeile nicht mehr in einem strengen Raster mit Lücken nach kürzeren Elementen, sondern steigen auf, um die Lücken vollständig zu füllen.
 
-## Erstellung eines Masonry-Layouts
+## Erstellen eines Masonry-Layouts
 
-Um das häufigste Masonry-Layout zu erstellen, werden Ihre Spalten die Grid-Achse und die Zeilen die Masonry-Achse, definiert mit `grid-template-columns` und `grid-template-rows`.
-Die Kind-Elemente dieses Containers werden nun Element für Element entlang der Zeilen angeordnet, wie sie es auch bei der automatischen Platzierung eines regulären Grid-Layouts tun würden.
+Um das gebräuchlichste Masonry-Layout zu erstellen, werden Ihre Spalten die Rasterachse und die Reihen die Masonry-Achse, definiert mit `grid-template-columns` und `grid-template-rows`.
+Die Kindelemente dieses Containers werden nun Element für Element entlang der Zeilen ausgelegt, so wie sie es auch bei der automatischen Platzierung des regulären Grid-Layouts tun würden.
 
-Wenn die Elemente auf neue Zeilen gelangen, werden sie entsprechend dem Masonry-Algorithmus angezeigt. Elemente werden in die Spalte mit dem meisten Platz geladen, wodurch ein dicht gepacktes Layout ohne strikte Zeilenraster entsteht.
+Während die Elemente in neue Zeilen übergehen, werden sie entsprechend dem Masonry-Algorithmus angezeigt. Elemente werden in die Spalte mit dem meisten Platz geladen, was zu einem dicht gepackten Layout ohne strenge Zeilenraster führt.
 
 ```css hidden live-sample___block-axis
 * {
@@ -64,7 +64,7 @@ Wenn die Elemente auf neue Zeilen gelangen, werden sie entsprechend dem Masonry-
 
 {{EmbedLiveSample("block-axis", "", "250px")}}
 
-Es ist auch möglich, ein Masonry-Layout zu erstellen, bei dem die Elemente in Zeilen geladen werden.
+Es ist auch möglich, ein Masonry-Layout mit in Reihen geladenen Elementen zu erstellen.
 
 ```html hidden live-sample___inline-axis
 <div class="grid">
@@ -112,13 +112,13 @@ Es ist auch möglich, ein Masonry-Layout zu erstellen, bei dem die Elemente in Z
 
 {{EmbedLiveSample("inline-axis", "", "450px")}}
 
-## Steuerung der Grid-Achse
+## Steuerung der Rasterachse
 
-Auf der Grid-Achse funktionieren Dinge genau so, wie Sie es von einem Grid-Layout erwarten würden. Sie können Elemente mit dem Schlüsselwort `span` über mehrere Rasterschritte hinweg spannen lassen, während sie in der automatischen Platzierung bleiben. Elemente können auch mit zeilenbasierten Positionierungen platziert werden.
+Auf der Rasterachse funktionieren die Dinge genau so, wie Sie es im Grid-Layout erwarten. Sie können Elemente dazu bringen, mehrere Tracks zu überspannen, während sie sich in der automatischen Platzierung befinden, indem Sie das Schlüsselwort `span` verwenden. Elemente können auch mithilfe der linienbasierten Positionierung positioniert werden.
 
-### Masonry-Layout mit überlappenden Elementen
+### Masonry-Layout mit überspannenden Elementen
 
-In diesem Beispiel spannen zwei der Elemente über zwei Rasterschritte, und die Masonry-Elemente ordnen sich um diese herum an.
+In diesem Beispiel überspannen zwei der Elemente zwei Tracks, und die Masonry-Elemente arbeiten um sie herum.
 
 ```html live-sample___spanners
 <div class="grid">
@@ -166,7 +166,7 @@ In diesem Beispiel spannen zwei der Elemente über zwei Rasterschritte, und die 
 
 {{EmbedLiveSample("spanners", "", "270px")}}
 
-Dieses Beispiel enthält ein Element, das für Spalten positioniert ist. Elemente mit definierter Platzierung werden positioniert, bevor das Masonry-Layout durchgeführt wird.
+Dieses Beispiel enthält ein Element, das für Spalten positioniert ist. Elemente mit einer festen Platzierung werden positioniert, bevor das Masonry-Layout erfolgt.
 
 ```html live-sample___positioned
 <div class="grid">
@@ -223,9 +223,13 @@ body {
 
 {{EmbedLiveSample("positioned", "", "290px")}}
 
-## Fallbacks für Masonry-Layout
+## Fallbacks für das Masonry-Layout
 
-In Browsern, [die Masonry nicht unterstützen](#browser-kompatibilität), wird stattdessen die reguläre automatische Grid-Platzierung verwendet.
+In Browsern, [die Masonry nicht unterstützen](#browser-kompatibilität), wird stattdessen die reguläre automatische Rasterplatzierung verwendet.
+
+## Spezifikationen
+
+{{Specifications}}
 
 ## Browser-Kompatibilität
 
@@ -233,5 +237,5 @@ In Browsern, [die Masonry nicht unterstützen](#browser-kompatibilität), wird s
 
 ## Siehe auch
 
-- {{cssxref("grid-auto-flow")}} zum Steuern der automatischen Grid-Platzierung
-- [Native CSS masonry layout in CSS grid](https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/) via Smashing Magazine (2020)
+- {{cssxref("grid-auto-flow")}} zur Steuerung der automatischen Raster-Platzierung
+- [Native CSS Masonry Layout im CSS Grid](https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/) über Smashing Magazine (2020)

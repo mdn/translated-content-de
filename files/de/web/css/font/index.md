@@ -2,20 +2,81 @@
 title: font
 slug: Web/CSS/font
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`font`** CSS-[Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle verschiedenen Eigenschaften der Schrift eines Elements. Alternativ setzt sie die Schrift eines Elements auf eine Systemschrift.
+Die **`font`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle verschiedenen Eigenschaften eines Font-Elements. Alternativ setzt sie den Font eines Elements auf einen Systemfont.
 
-{{EmbedInteractiveExample("pages/css/font.html")}}
+{{InteractiveExample("CSS Demo: font")}}
 
-Wie bei jeder Kurzform-Eigenschaft wird jeder einzelne Wert, der nicht angegeben wird, auf seinen entsprechenden Anfangswert gesetzt (möglicherweise überschreibt er zuvor mit Nicht-Kurzform-Eigenschaften gesetzte Werte). Obwohl nicht direkt durch `font` einstellbar, werden die Langformen {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} ebenfalls auf ihre Anfangswerte zurückgesetzt.
+```css interactive-example-choice
+font:
+  1.2rem "Fira Sans",
+  sans-serif;
+```
 
-## Zusätzliche Eigenschaften
+```css interactive-example-choice
+font:
+  italic 1.2rem "Fira Sans",
+  serif;
+```
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+```css interactive-example-choice
+font: italic small-caps bold 16px/2 cursive;
+```
+
+```css interactive-example-choice
+font: small-caps bold 24px/1 sans-serif;
+```
+
+```css interactive-example-choice
+font: caption;
+```
+
+```html interactive-example
+<section id="default-example">
+  <p id="example-element">
+    London. Michaelmas term lately over, and the Lord Chancellor sitting in
+    Lincoln's Inn Hall. Implacable November weather. As much mud in the streets
+    as if the waters had but newly retired from the face of the earth, and it
+    would not be wonderful to meet a Megalosaurus, forty feet long or so,
+    waddling like an elephantine lizard up Holborn Hill.
+  </p>
+</section>
+```
+
+```css interactive-example
+@font-face {
+  font-family: "Fira Sans";
+  src:
+    local("FiraSans-Regular"),
+    url("/shared-assets/fonts/FiraSans-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Sans";
+  src:
+    local("FiraSans-Italic"),
+    url("/shared-assets/fonts/FiraSans-Italic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
+section {
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+```
+
+Wie bei jeder Kurzschreibweise wird jeder individuelle Wert, der nicht spezifiziert ist, auf seinen entsprechenden Anfangswert gesetzt (möglicherweise werden Werte überschrieben, die zuvor mit Nicht-Kurzschreibweise-Eigenschaften gesetzt wurden). Obwohl nicht direkt durch `font` einstellbar, werden die Langformen {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} ebenfalls auf ihre Anfangswerte zurückgesetzt.
+
+## Bestandteileigenschaften
+
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("font-family")}}
 - {{cssxref("font-size")}}
@@ -44,18 +105,18 @@ font: ultra-condensed small-caps 1.2em "Fira Sans", sans-serif;
 font: caption;
 ```
 
-Die `font`-Eigenschaft kann entweder als einzelnes Schlüsselwort angegeben werden, das eine Systemschrift auswählt, oder als Kurzform für verschiedene schriftbezogene Eigenschaften.
+Die `font`-Eigenschaft kann entweder als ein einziges Schlüsselwort, das einen Systemfont auswählt, oder als eine Kurzschreibweise für verschiedene font-bezogene Eigenschaften angegeben werden.
 
-Wenn `font` als System-Schlüsselwort spezifiziert ist, muss es eines der folgenden sein: `caption`, `icon`, `menu`, `message-box`, `small-caption`, `status-bar`.
+Wenn `font` als Systemschlüsselwort angegeben wird, muss es eines der folgenden sein: `caption`, `icon`, `menu`, `message-box`, `small-caption`, `status-bar`.
 
-Wenn `font` als Kurzform für mehrere schriftbezogene Eigenschaften angegeben wird, dann:
+Wenn `font` als Kurzschreibweise für mehrere font-bezogene Eigenschaften angegeben wird, dann:
 
-- muss es Werte für folgende Eigenschaften enthalten:
+- muss es Werte für folgende enthalten:
 
   - {{cssxref("&lt;font-size&gt;")}}
   - {{cssxref("&lt;font-family&gt;")}}
 
-- kann es optional Werte für folgende Eigenschaften enthalten:
+- kann es optional Werte für folgende enthalten:
 
   - {{cssxref("&lt;font-style&gt;")}}
   - {{cssxref("&lt;font-variant&gt;")}}
@@ -64,10 +125,10 @@ Wenn `font` als Kurzform für mehrere schriftbezogene Eigenschaften angegeben wi
   - {{cssxref("&lt;line-height&gt;")}}
 
 - `font-style`, `font-variant` und `font-weight` müssen `font-size` vorausgehen.
-- `font-variant` darf nur die in CSS 2.1 definierten Werte angeben, das heißt `normal` und `small-caps`.
-- `font-stretch` darf nur einen einzelnen Schlüsselwortwert haben.
-- `line-height` muss unmittelbar nach `font-size` folgen, getrennt durch "/", so: `16px/3`.
-- `font-family` muss der letzte angegebene Wert sein.
+- `font-variant` darf nur die in CSS 2.1 definierten Werte spezifizieren, das heißt `normal` und `small-caps`.
+- `font-stretch` darf nur einen einzelnen Schlüsselwortwert darstellen.
+- `line-height` muss unmittelbar auf `font-size` folgen, vorangestellt von "/", wie folgt: `16px/3`.
+- `font-family` muss als letzter Wert angegeben werden.
 
 ### Werte
 
@@ -86,22 +147,22 @@ Wenn `font` als Kurzform für mehrere schriftbezogene Eigenschaften angegeben wi
 - `<'font-family'>`
   - : Siehe die {{cssxref("font-family")}} CSS-Eigenschaft.
 
-#### System-Schriftwerte
+#### Systemfont-Werte
 
 - `caption`
-  - : Die für beschriftete Steuerelemente verwendete Systemschrift (z.B. Schaltflächen, Dropdowns usw.).
+  - : Der Systemfont, der für beschriftete Steuerelemente verwendet wird (z. B. Schaltflächen, Dropdowns usw.).
 - `icon`
-  - : Die für das Beschriften von Symbolen verwendete Systemschrift.
+  - : Der Systemfont, der zur Beschriftung von Symbolen verwendet wird.
 - `menu`
-  - : Die in Menüs (z.B. Dropdown-Menüs und Menüliste) verwendete Systemschrift.
+  - : Der Systemfont, der in Menüs verwendet wird (z. B. Dropdown-Menüs und Menüliste).
 - `message-box`
-  - : Die in Dialogfeldern verwendete Systemschrift.
+  - : Der Systemfont, der in Dialogfeldern verwendet wird.
 - `small-caption`
-  - : Die für das Beschriften kleiner Steuerelemente verwendete Systemschrift.
+  - : Der Systemfont, der zur Beschriftung kleiner Steuerelemente verwendet wird.
 - `status-bar`
-  - : Die in Fensterstatusleisten verwendete Systemschrift.
-- Mit Präfix versehene System-Schrift-Schlüsselwörter
-  - : Browser implementieren häufig weitere, mit Präfix versehene Schlüsselwörter: Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list` und `-moz-field`.
+  - : Der Systemfont, der in Fensterstatusleisten verwendet wird.
+- Präfixierte Systemfont-Schlüsselwörter
+  - : Browser implementieren oft mehrere, präfixierte Schlüsselwörter: Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list` und `-moz-field`.
 
 ## Formale Definition
 
@@ -113,7 +174,7 @@ Wenn `font` als Kurzform für mehrere schriftbezogene Eigenschaften angegeben wi
 
 ## Beispiele
 
-### Schrift-Eigenschaften einstellen
+### Font-Eigenschaften einstellen
 
 ```css
 /* Set the font size to 12px and the line height to 14px.
@@ -504,4 +565,4 @@ setCss();
 
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
-- [Lernen: Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Lernen: Grundlegende Text- und Fontgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

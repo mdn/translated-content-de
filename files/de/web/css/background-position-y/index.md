@@ -2,18 +2,53 @@
 title: background-position-y
 slug: Web/CSS/background-position-y
 l10n:
-  sourceCommit: b90786a572bd01af9063ac5e515850c6bb5ddb89
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`background-position-y`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche vertikale Position für jedes Hintergrundbild fest. Die Position bezieht sich auf die Positionsebene, die durch {{cssxref("background-origin")}} festgelegt wird.
+Die **`background-position-y`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche vertikale Position für jedes Hintergrundbild fest. Die Position ist relativ zur Positionsschicht, die durch {{cssxref("background-origin")}} festgelegt wird.
 
-{{EmbedInteractiveExample("pages/css/background-position-y.html")}}
+{{InteractiveExample("CSS Demo: background-position-y")}}
 
-<!-- Der Quellcode für dieses interaktive Beispiel wird in einem GitHub-Repository gespeichert. Wenn Sie zum Projekt der interaktiven Beispiele beitragen möchten, klonen Sie bitte https://github.com/mdn/interactive-examples und senden Sie uns einen Pull-Request. -->
+```css interactive-example-choice
+background-position-y: top;
+```
 
-Der Wert dieser Eigenschaft wird durch jede Deklaration der {{cssxref("background")}} oder {{cssxref("background-position")}} Kurzschreibweise, die dem Element danach zugewiesen wird, überschrieben.
+```css interactive-example-choice
+background-position-y: center;
+```
+
+```css interactive-example-choice
+background-position-y: 25%;
+```
+
+```css interactive-example-choice
+background-position-y: 2rem;
+```
+
+```css interactive-example-choice
+background-position-y: bottom 32px;
+```
+
+```html interactive-example
+<section class="display-block" id="default-example">
+  <div class="transition-all" id="example-element"></div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: navajowhite;
+  background-image: url("/shared-assets/images/examples/star.png");
+  background-repeat: no-repeat;
+  height: 100%;
+}
+```
+
+<!-- Der Quellcode für dieses interaktive Beispiel wird in einem GitHub-Repository gespeichert. Wenn Sie zum Projekt der interaktiven Beispiele beitragen möchten, klonen Sie bitte https://github.com/mdn/interactive-examples und senden Sie uns eine Pull-Anfrage. -->
+
+Der Wert dieser Eigenschaft wird von jeder Deklaration der Kurzschreibweiseigenschaften {{cssxref("background")}} oder {{cssxref("background-position")}}, die nachträglich auf das Element angewendet werden, überschrieben.
 
 ## Syntax
 
@@ -51,15 +86,15 @@ Die `background-position-y` Eigenschaft wird als ein oder mehrere Werte angegebe
 ### Werte
 
 - `top`
-  - : Richtet die obere Kante des Hintergrundbildes mit der oberen Kante der Hintergrundpositionsebene aus.
+  - : Richtet die obere Kante des Hintergrundbildes an der oberen Kante der Hintergrundpositionsschicht aus.
 - `center`
-  - : Richtet die vertikale Mitte des Hintergrundbildes mit der vertikalen Mitte der Hintergrundpositionsebene aus.
+  - : Richtet das vertikale Zentrum des Hintergrundbildes am vertikalen Zentrum der Hintergrundpositionsschicht aus.
 - `bottom`
-  - : Richtet die untere Kante des Hintergrundbildes mit der unteren Kante der Hintergrundpositionsebene aus.
+  - : Richtet die untere Kante des Hintergrundbildes an der unteren Kante der Hintergrundpositionsschicht aus.
 - {{cssxref("&lt;length&gt;")}}
-  - : Der Versatz der angegebenen horizontalen Kante des Hintergrundbildes von der entsprechenden oberen horizontalen Kante der Hintergrundpositionsebene. (Einige Browser erlauben die Zuweisung der unteren Kante für den Versatz).
+  - : Der Versatz der gegebenen horizontalen Kante des Hintergrundbildes von der entsprechenden oberen horizontalen Kante der Hintergrundpositionsschicht. (Einige Browser erlauben die Zuordnung der unteren Kante für den Versatz).
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Der Versatz der vertikalen Position des angegebenen Hintergrundbildes relativ zum Container. Ein Wert von 0% bedeutet, dass die obere Kante des Hintergrundbildes mit der oberen Kante des Containers ausgerichtet ist, und ein Wert von 100% bedeutet, dass die _untere_ Kante des Hintergrundbildes mit der _unteren_ Kante des Containers ausgerichtet ist, so dass ein Wert von 50% das Hintergrundbild vertikal zentriert.
+  - : Der Versatz der vertikalen Position des gegebenen Hintergrundbildes relativ zum Container. Ein Wert von 0% bedeutet, dass die obere Kante des Hintergrundbildes mit der oberen Kante des Containers ausgerichtet ist, und ein Wert von 100% bedeutet, dass die _untere_ Kante des Hintergrundbildes mit der _unteren_ Kante des Containers ausgerichtet ist, sodass ein Wert von 50% das Hintergrundbild vertikal zentriert.
 
 ## Formale Definition
 
@@ -73,7 +108,7 @@ Die `background-position-y` Eigenschaft wird als ein oder mehrere Werte angegebe
 
 ### Einfaches Beispiel
 
-Das folgende Beispiel zeigt eine einfache Implementierung eines Hintergrundbildes, bei der `background-position-x` und `background-position-y` verwendet werden, um die horizontalen und vertikalen Positionen des Bildes separat zu definieren.
+Das folgende Beispiel zeigt eine einfache Implementierung eines Hintergrundbildes, bei dem background-position-x und background-position-y verwendet werden, um die horizontalen und vertikalen Positionen des Bildes separat zu definieren.
 
 #### HTML
 
@@ -99,9 +134,9 @@ div {
 
 {{EmbedLiveSample('Basic_example', '100%', 300)}}
 
-### Seitrelationale Werte
+### Seiten-relativer Werte
 
-Das folgende Beispiel zeigt die Unterstützung der seitrelationale Versatzsyntax, die es dem Entwickler ermöglicht, den Hintergrund von jeder Kante aus zu versetzen.
+Das folgende Beispiel zeigt die Unterstützung für die Syntax seiten-relativer Versätze, die es dem Entwickler ermöglicht, den Hintergrund von jedem Rand aus zu versetzen.
 
 #### HTML
 

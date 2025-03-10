@@ -2,19 +2,78 @@
 title: list-style-image
 slug: Web/CSS/list-style-image
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`list-style-image`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt ein Bild als Listenmarkierung.
+Die **`list-style-image`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt ein Bild fest, das als Listen-Element-Marker verwendet wird.
 
-Es ist oft bequemer, die Kurzform {{ cssxref("list-style") }} zu verwenden.
+Es ist oft praktischer, die Kurzschreibweise {{ cssxref("list-style") }} zu verwenden.
 
-{{EmbedInteractiveExample("pages/css/list-style-image.html")}}
+{{InteractiveExample("CSS Demo: list-style-image")}}
+
+```css interactive-example-choice
+list-style-image: url("/shared-assets/images/examples/rocket.svg");
+```
+
+```css interactive-example-choice
+list-style-image: none;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div>
+    <p>NASA Notable Missions</p>
+    <ul class="transition-all unhighlighted" id="example-element">
+      <li>Apollo</li>
+      <li>Hubble</li>
+      <li>Chandra</li>
+      <li>Cassini-Huygens</li>
+      <li>Spitzer</li>
+    </ul>
+  </div>
+</section>
+```
+
+```css interactive-example
+.default-example {
+  font-size: 1.2rem;
+}
+
+#example-element {
+  width: 100%;
+  background: #be094b;
+  color: white;
+}
+
+section {
+  text-align: left;
+  flex-direction: column;
+}
+
+hr {
+  width: 50%;
+  color: lightgray;
+  margin: 0.5em;
+}
+
+.note {
+  font-size: 0.8rem;
+}
+
+.note a {
+  color: #009e5f;
+}
+
+@counter-style space-counter {
+  symbols: "\1F680" "\1F6F8" "\1F6F0" "\1F52D";
+  suffix: " ";
+}
+```
 
 > [!NOTE]
-> Diese Eigenschaft wird auf Listenelemente angewendet, d.h. Elemente mit `{{cssxref("display")}}: list-item;` [standardmäßig](https://html.spec.whatwg.org/multipage/rendering.html#lists) schließt dies {{HTMLElement("li")}} Elemente ein. Da diese Eigenschaft vererbt wird, kann sie auf das Elternelement (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) gesetzt werden, um sie auf alle Listenelemente anzuwenden.
+> Diese Eigenschaft wird auf Listenelemente angewendet, d.h. auf Elemente mit `{{cssxref("display")}}: list-item;` [standardmäßig](https://html.spec.whatwg.org/multipage/rendering.html#lists) umfasst dies {{HTMLElement("li")}}-Elemente. Da diese Eigenschaft vererbt wird, kann sie auf das übergeordnete Element gesetzt werden (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}), um sie auf alle Listenelemente anzuwenden.
 
 ## Syntax
 
@@ -39,9 +98,9 @@ list-style-image: unset;
 ### Werte
 
 - {{cssxref("&lt;image&gt;")}}
-  - : Ein gültiges Bild, das als Markierung verwendet werden soll.
+  - : Ein gültiges Bild, das als Marker verwendet werden soll.
 - `none`
-  - : Gibt an, dass kein Bild als Markierung verwendet wird. Wenn dieser Wert gesetzt ist, wird stattdessen die in {{ Cssxref("list-style-type") }} definierte Markierung verwendet. Dies ist der Standardwert für {{cssxref("list-style")}}.
+  - : Gibt an, dass kein Bild als Marker verwendet wird. Wenn dieser Wert gesetzt ist, wird stattdessen der in {{ Cssxref("list-style-type") }} definierte Marker verwendet. Dies ist der Standardwert für {{cssxref("list-style")}}.
 
 ## Formale Definition
 
@@ -53,9 +112,9 @@ list-style-image: unset;
 
 ## Beispiele
 
-### Verwendung eines URL-Werts
+### Verwendung eines URL-Wertes
 
-Dieses Beispiel hat einen Stern als Markierung, den wir mit der {{cssxref("url_value", "&lt;url&gt;")}} Bildfunktion einfügen.
+Dieses Beispiel hat einen Stern als Marker, den wir mit der {{cssxref("url_value", "&lt;url&gt;")}}-Bildfunktion einfügen.
 
 #### HTML
 
@@ -80,7 +139,7 @@ ul {
 
 ### Verwendung eines Gradienten
 
-Dieses Beispiel hat einen [CSS-Gradienten](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients) als Markierung, den wir mit der {{cssxref("gradient/linear-gradient", "linear-gradient()")}} Bildfunktion erstellen.
+Dieses Beispiel hat einen [CSS-Gradienten](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients) als Marker, den wir mit der {{cssxref("gradient/linear-gradient", "linear-gradient()")}}-Bildfunktion erstellen.
 
 #### HTML
 
@@ -114,9 +173,9 @@ ul {
 
 ## Siehe auch
 
-- {{Cssxref("list-style")}} Kurzform
+- {{Cssxref("list-style")}} Kurzschreibweise
 - {{Cssxref("list-style-type")}} Eigenschaft
 - {{Cssxref("list-style-position")}} Eigenschaft
-- {{cssxref("::marker")}} Pseudoelement
-- [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
-- [CSS Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- {{cssxref("::marker")}} Pseudo-Element
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul

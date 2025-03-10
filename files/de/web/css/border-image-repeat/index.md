@@ -2,14 +2,57 @@
 title: border-image-repeat
 slug: Web/CSS/border-image-repeat
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`border-image-repeat`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, wie die [Randbereiche](/de/docs/Web/CSS/border-image-slice#edge-regions) und der [Mittelbereich](/de/docs/Web/CSS/border-image-slice#middle-region) eines Quellbildes angepasst werden, um die Dimensionen des [Randbildes](/de/docs/Web/CSS/border-image) eines Elements zu füllen. Der Mittelbereich kann angezeigt werden, indem das Schlüsselwort "fill" in der {{cssxref("border-image-slice")}} Eigenschaft verwendet wird.
+Die CSS-Eigenschaft **`border-image-repeat`** definiert, wie die [Kantenbereiche](/de/docs/Web/CSS/border-image-slice#edge-regions) und der [Mittelbereich](/de/docs/Web/CSS/border-image-slice#middle-region) eines Quellbilds angepasst werden, um die Dimensionen eines Elements als [Border-Image](/de/docs/Web/CSS/border-image) zu erfüllen. Der Mittelbereich kann angezeigt werden, indem das Schlüsselwort "fill" in der {{cssxref("border-image-slice")}}-Eigenschaft verwendet wird.
 
-{{EmbedInteractiveExample("pages/css/border-image-repeat.html")}}
+{{InteractiveExample("CSS Demo: border-image-repeat")}}
+
+```css interactive-example-choice
+border-image-repeat: stretch;
+```
+
+```css interactive-example-choice
+border-image-repeat: repeat;
+```
+
+```css interactive-example-choice
+border-image-repeat: round;
+```
+
+```css interactive-example-choice
+border-image-repeat: space;
+```
+
+```css interactive-example-choice
+border-image-repeat: round stretch;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element">This is a box with a border around it.</div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background: #fff3d4;
+  color: #000;
+  border: 30px solid;
+  border-image: url("/shared-assets/images/examples/border-diamonds.png") 30
+    round;
+  font-size: 1.2em;
+}
+```
 
 ## Syntax
 
@@ -31,21 +74,21 @@ border-image-repeat: revert-layer;
 border-image-repeat: unset;
 ```
 
-Die `border-image-repeat` Eigenschaft kann mit einem oder zwei Werten aus der unten stehenden Liste spezifiziert werden.
+Die `border-image-repeat`-Eigenschaft kann mit einem oder zwei Werten aus der unten stehenden Liste angegeben werden.
 
-- Wenn **ein** Wert angegeben ist, wird das gleiche Verhalten auf **alle vier Seiten** angewendet.
-- Wenn **zwei** Werte angegeben sind, gilt der erste für den **oberen, mittleren und unteren** Bereich, der zweite für den **linken und rechten** Bereich.
+- Wird **ein** Wert angegeben, so gilt dasselbe Verhalten für **alle vier Seiten**.
+- Werden **zwei** Werte angegeben, so gilt der erste für **oben, Mitte und unten**, der zweite für **links und rechts**.
 
 ### Werte
 
 - `stretch`
-  - : Die Randbereiche des Quellbildes werden gestreckt, um die Lücke zwischen jedem Rand zu füllen.
+  - : Die Kantenbereiche des Quellbilds werden gestreckt, um die Lücke zwischen jeder Grenze zu füllen.
 - `repeat`
-  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rand zu füllen. Kacheln können beschnitten werden, um die richtige Passform zu erreichen.
+  - : Die Kantenbereiche des Quellbilds werden gekachelt (wiederholt), um die Lücke zwischen jeder Grenze zu füllen. Kacheln können zugeschnitten werden, um die richtige Passform zu erreichen.
 - `round`
-  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rand zu füllen. Kacheln können gestreckt werden, um die richtige Passform zu erreichen.
+  - : Die Kantenbereiche des Quellbilds werden gekachelt (wiederholt), um die Lücke zwischen jeder Grenze zu füllen. Kacheln können gestreckt werden, um die richtige Passform zu erreichen.
 - `space`
-  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rand zu füllen. Zusätzlicher Platz wird zwischen den Kacheln verteilt, um die richtige Passform zu erreichen.
+  - : Die Kantenbereiche des Quellbilds werden gekachelt (wiederholt), um die Lücke zwischen jeder Grenze zu füllen. Der zusätzliche Raum wird zwischen den Kacheln verteilt, um die richtige Passform zu erreichen.
 
 ## Formale Definition
 
@@ -57,7 +100,7 @@ Die `border-image-repeat` Eigenschaft kann mit einem oder zwei Werten aus der un
 
 ## Beispiele
 
-### Wiederholende Randbilder
+### Wiederholende Border-Images
 
 #### CSS
 
@@ -109,4 +152,4 @@ repetition.addEventListener("change", (evt) => {
 
 - [Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
 - [CSS lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
-- [Randbilder in CSS: Ein Schlüsselbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)
+- [Rahmenbilder in CSS: Ein Schwerpunktbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)

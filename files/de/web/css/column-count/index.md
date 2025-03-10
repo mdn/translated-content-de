@@ -2,14 +2,50 @@
 title: column-count
 slug: Web/CSS/column-count
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`column-count`** [CSS](/de/docs/Web/CSS) Eigenschaft teilt den Inhalt eines Elements in die angegebene Anzahl von Spalten auf.
+Die **`column-count`** [CSS](/de/docs/Web/CSS)-Eigenschaft teilt den Inhalt eines Elements in die angegebene Anzahl von Spalten auf.
 
-{{EmbedInteractiveExample("pages/css/column-count.html")}}
+{{InteractiveExample("CSS Demo: column-count")}}
+
+```css interactive-example-choice
+column-count: 2;
+```
+
+```css interactive-example-choice
+column-count: 3;
+```
+
+```css interactive-example-choice
+column-count: 4;
+```
+
+```css interactive-example-choice
+column-count: auto;
+column-width: 8rem;
+```
+
+```html interactive-example
+<section id="default-example">
+  <p id="example-element">
+    London. Michaelmas term lately over, and the Lord Chancellor sitting in
+    Lincoln's Inn Hall. Implacable November weather. As much mud in the streets
+    as if the waters had but newly retired from the face of the earth, and it
+    would not be wonderful to meet a Megalosaurus, forty feet long or so,
+    waddling like an elephantine lizard up Holborn Hill.
+  </p>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  width: 100%;
+  text-align: left;
+}
+```
 
 ## Syntax
 
@@ -33,7 +69,7 @@ column-count: unset;
 - `auto`
   - : Die Anzahl der Spalten wird durch andere CSS-Eigenschaften bestimmt, wie z.B. {{cssxref("column-width")}}.
 - {{cssxref("&lt;integer&gt;")}}
-  - : Ist eine strikt positive {{cssxref("&lt;integer&gt;")}}, die die ideale Anzahl der Spalten beschreibt, in die der Inhalt des Elements aufgeteilt wird. Wenn auch {{cssxref("column-width")}} auf einen anderen Wert als `auto` gesetzt ist, gibt es lediglich die maximal erlaubte Anzahl von Spalten an.
+  - : Ist ein strikt positives {{cssxref("&lt;integer&gt;")}}, das die ideale Anzahl von Spalten beschreibt, in die der Inhalt des Elements aufgeteilt wird. Wenn die {{cssxref("column-width")}} ebenfalls auf einen Wert ungleich `auto` gesetzt ist, gibt sie lediglich die maximal erlaubte Anzahl von Spalten an.
 
 ## Formale Definition
 
@@ -45,7 +81,7 @@ column-count: unset;
 
 ## Beispiele
 
-### Einen Absatz in drei Spalten aufteilen
+### Aufteilen eines Absatzes in drei Spalten
 
 #### HTML
 
@@ -81,5 +117,5 @@ column-count: unset;
 
 - {{CSSXref("column-width")}}, {{CSSXref("columns")}} Kurzschreibweise
 - {{CSSXref("column-rule-color")}}, {{CSSXref("column-rule-style")}}, {{CSSXref("column-rule-width")}}, {{CSSXref("column-rule")}} Kurzschreibweise
-- [Erlernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Learn Layout)
-- [Grundkonzepte des Multicol](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)
+- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Lernen Layout)
+- [Grundkonzepte von Multicol](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)

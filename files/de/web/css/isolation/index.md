@@ -2,16 +2,52 @@
 title: isolation
 slug: Web/CSS/isolation
 l10n:
-  sourceCommit: 729754108952e0bac9fb6268fcdf24a63b3cbbf3
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`isolation`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, ob ein Element einen neuen {{Glossary("stacking_context", "Stacking-Kontext")}} erstellen muss.
+Die **`isolation`**-Eigenschaft von [CSS](/de/docs/Web/CSS) bestimmt, ob ein Element einen neuen {{Glossary("stacking_context", "Stacking-Kontext")}} erstellen muss.
 
-{{EmbedInteractiveExample("pages/css/isolation.html")}}
+{{InteractiveExample("CSS Demo: isolation")}}
 
-Diese Eigenschaft ist besonders nützlich im Zusammenhang mit {{cssxref("mix-blend-mode")}} und {{cssxref("z-index")}}.
+```css interactive-example-choice
+isolation: auto;
+```
+
+```css interactive-example-choice
+isolation: isolate;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="background-container">
+    <div id="example-element">
+      <img src="/shared-assets/images/examples/firefox-logo.svg" />
+      <p><code>mix-blend-mode: multiply;</code></p>
+    </div>
+  </div>
+</section>
+```
+
+```css interactive-example
+.background-container {
+  background-color: #f4f460;
+  width: 250px;
+}
+
+#example-element {
+  border: 1px solid black;
+  margin: 2em;
+}
+
+#example-element * {
+  mix-blend-mode: multiply;
+  color: #8245a3;
+}
+```
+
+Diese Eigenschaft ist besonders nützlich in Verbindung mit {{cssxref("mix-blend-mode")}} und {{cssxref("z-index")}}.
 
 ## Syntax
 
@@ -28,7 +64,7 @@ isolation: revert-layer;
 isolation: unset;
 ```
 
-Die `isolation` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `isolation`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 

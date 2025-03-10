@@ -2,16 +2,42 @@
 title: saturate()
 slug: Web/CSS/filter-function/saturate
 l10n:
-  sourceCommit: 9ca1b6d1fe5e69fc288ad18c6986b581afafc0a4
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`saturate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) erhöht die Sättigung oder entsättigt das Eingabebild. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`saturate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) super-saturiert oder entsättigt das Eingabebild. Ihr Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
-> **Note:** `saturate()` ist als Matrixoperation auf der RGB-Farbe spezifiziert. Es konvertiert die Farbe nicht tatsächlich in das HSL-Modell, welches eine nicht-lineare Operation ist. Daher kann es Farbton oder Helligkeit der Originalfarbe nicht beibehalten.
+> **Note:** `saturate()` ist als Matrixoperation auf der RGB-Farbe spezifiziert. Sie konvertiert die Farbe nicht tatsächlich in das HSL-Modell, was eine nicht-lineare Operation ist. Daher kann sie die Farbton- oder Helligkeitswerte der Originalfarbe nicht beibehalten.
 
-{{EmbedInteractiveExample("pages/css/function-saturate.html")}}
+{{InteractiveExample("CSS Demo: saturate()")}}
+
+```css interactive-example-choice
+filter: saturate(1);
+```
+
+```css interactive-example-choice
+filter: saturate(4);
+```
+
+```css interactive-example-choice
+filter: saturate(50%);
+```
+
+```css interactive-example-choice
+filter: saturate(0);
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/firefox-logo.svg"
+    width="200" />
+</section>
+```
 
 ## Syntax
 
@@ -22,7 +48,7 @@ saturate(amount)
 ### Parameter
 
 - `amount` {{Optional_Inline}}
-  - : Die Menge der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` entsättigt das Bild, während ein Wert über `100%` es übersättigt. Ein Wert von `0%` ist völlig ungesättigt, während ein Wert von `100%` das Eingabebild unverändert lässt. Der Startwert für die {{Glossary("interpolation", "Interpolation")}} ist `1`. Der Standardwert ist `1`.
+  - : Die Menge der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` entsättigt das Bild, während ein Wert über `100%` es super-saturiert. Ein Wert von `0%` ist komplett entsättigt, während ein Wert von `100%` die Eingabe unverändert lässt. Der initiale Wert für {{Glossary("interpolation", "Interpolierung")}} ist `1`. Der Standardwert ist `1`.
 
 ## Formale Syntax
 
@@ -42,7 +68,7 @@ saturate(200%)  /* Double saturation */
 
 ### saturate() bewahrt Farbton oder Helligkeit nicht
 
-Das Diagramm unten vergleicht zwei Farbverläufe mit `hsl(0 50% 50%)` als Mittelpunkt: Der erste wird mit `saturate()` erzeugt, und der zweite verwendet tatsächliche HSL-Farbwerte. Beachten Sie, wie der `saturate()`-Verlauf Unterschiede in Farbton und Helligkeit zu beiden Enden hin zeigt.
+Das folgende Diagramm vergleicht zwei Farbspektren mit `hsl(0 50% 50%)` als Mittelpunkt: das erste Spektrum wird unter Verwendung von `saturate()` erstellt und das zweite benutzt tatsächliche HSL-Farbwerte. Beachten Sie, wie das `saturate()`-Spektrum Unterschiede im Farbton und in der Helligkeit zu den beiden Enden hin zeigt.
 
 ```html
 <div>
@@ -97,7 +123,7 @@ for (let i = 0; i <= 200; i++) {
 
 ## Siehe auch
 
-Die anderen {{cssxref("&lt;filter-function&gt;")}}-Funktionen, die in Werten der {{cssxref("filter")}}- und {{cssxref("backdrop-filter")}}-Eigenschaften verwendet werden können, umfassen:
+Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
 
 - {{cssxref("filter-function/blur", "blur()")}}
 - {{cssxref("filter-function/brightness", "brightness()")}}

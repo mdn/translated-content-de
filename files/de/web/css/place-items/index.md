@@ -2,18 +2,62 @@
 title: place-items
 slug: Web/CSS/place-items
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die [CSS](/de/docs/Web/CSS) **`place-items`** [Kurzschrift-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) richtet Elemente sowohl in Block- als auch in Inline-Richtung gleichzeitig aus. Sie setzt die Werte der Eigenschaften {{CSSxRef("align-items")}} und {{CSSxRef("justify-items")}}. Wenn der zweite Wert nicht gesetzt ist, wird auch der erste Wert dafür verwendet.
+Die [CSS](/de/docs/Web/CSS) **`place-items`** [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) richtet Elemente gleichzeitig entlang der Block- und Inline-Richtung aus. Sie setzt die Werte der {{CSSxRef("align-items")}}- und {{CSSxRef("justify-items")}}-Eigenschaften. Wenn der zweite Wert nicht gesetzt ist, wird der erste Wert auch für diesen verwendet.
 
-{{EmbedInteractiveExample("pages/css/place-items.html")}}
+{{InteractiveExample("CSS Demo: place-items")}}
 
-## Bestandeigenschaften
+```css interactive-example-choice
+place-items: center stretch;
+```
 
-Diese Eigenschaft ist eine Kurzschrift für die folgenden CSS-Eigenschaften:
+```css interactive-example-choice
+place-items: center start;
+```
+
+```css interactive-example-choice
+place-items: start end;
+```
+
+```css interactive-example-choice
+place-items: end center;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="example-container">
+    <div class="transition-all" id="example-element">
+      <div>One</div>
+      <div>Two</div>
+      <div>Three</div>
+    </div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 1px solid #c5c5c5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 80px;
+  grid-gap: 10px;
+  width: 220px;
+}
+
+#example-element > div {
+  background-color: rgba(0, 0, 255, 0.2);
+  border: 3px solid blue;
+}
+```
+
+## Zusammengesetzte Eigenschaften
+
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`align-items`](/de/docs/Web/CSS/align-items)
 - [`justify-items`](/de/docs/Web/CSS/justify-items)
@@ -51,8 +95,8 @@ place-items: unset;
 
 Eine der folgenden Formen:
 
-- Ein einzelner {{cssxref("align-items")}}-Wert, der die Ausrichtung in beiden Richtungen, Block und Inline, festlegt.
-- Ein {{cssxref("align-items")}}-Wert, der die Ausrichtung in der Blockrichtung festlegt, gefolgt von einem {{cssxref("justify-items")}}-Wert, der die Ausrichtung in der Inlinerichtung festlegt.
+- Ein einzelner {{cssxref("align-items")}}-Wert, der zur Ausrichtung sowohl in der Block- als auch in der Inline-Richtung verwendet wird.
+- Ein {{cssxref("align-items")}}-Wert, der die Ausrichtung in der Block-Richtung setzt, gefolgt von einem {{cssxref("justify-items")}}-Wert, der die Ausrichtung in der Inline-Richtung festlegt.
 
 ## Formale Definition
 
@@ -66,7 +110,7 @@ Eine der folgenden Formen:
 
 ### Platzierung von Elementen in einem Flex-Container
 
-In Flexbox gelten {{cssxref("justify-self")}} oder {{cssxref("justify-items")}} nicht, da Elemente entlang der Hauptachse als Gruppe behandelt werden. Daher wird der zweite Wert ignoriert.
+In Flexbox gelten {{cssxref("justify-self")}} oder {{cssxref("justify-items")}} nicht, da auf der Hauptachse die Elemente als Gruppe behandelt werden. Daher wird der zweite Wert ignoriert.
 
 ```css hidden
 div > div {
@@ -180,7 +224,7 @@ values.addEventListener("change", (evt) => {
 
 ### Platzierung von Elementen in einem Grid-Container
 
-Der folgende Grid-Container enthält Elemente, die kleiner sind als die Rasterbereiche, in denen sie platziert sind. Daher wird `place-items` sie in den Block- und Inlinemaßen verschieben.
+Der folgende Grid-Container hat Elemente, die kleiner sind als die Gitterbereiche, in denen sie platziert sind. Daher wird `place-items` sie in den Block- und Inline-Dimensionen verschieben.
 
 ```css hidden
 div > div {
@@ -311,5 +355,5 @@ values.addEventListener("change", (evt) => {
 - {{CSSxRef("justify-self")}}
 - [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 - [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
+- [Ausrichtung von Boxen im Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
 - [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul

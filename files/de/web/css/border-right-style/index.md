@@ -2,17 +2,64 @@
 title: border-right-style
 slug: Web/CSS/border-right-style
 l10n:
-  sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
 Die **`border-right-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des rechten {{cssxref("border")}} eines Elements fest.
 
-{{EmbedInteractiveExample("pages/css/border-right-style.html")}}
+{{InteractiveExample("CSS Demo: border-right-style")}}
+
+```css interactive-example-choice
+border-right-style: none;
+```
+
+```css interactive-example-choice
+border-right-style: dotted;
+```
+
+```css interactive-example-choice
+border-right-style: dashed;
+```
+
+```css interactive-example-choice
+border-right-style: solid;
+```
+
+```css interactive-example-choice
+border-right-style: groove;
+```
+
+```css interactive-example-choice
+border-right-style: inset;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with a border around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #eee;
+  color: #000;
+  border: 0.75em solid;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+}
+
+body {
+  background-color: #fff;
+}
+```
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie Ränder unterschiedlicher Stile an den Ecken verbunden werden.
+> Die Spezifikation definiert nicht, wie sich Ränder unterschiedlicher Stile in den Ecken verbinden.
 
 ## Syntax
 
@@ -37,7 +84,7 @@ border-right-style: revert-layer;
 border-right-style: unset;
 ```
 
-Die Eigenschaft `border-right-style` wird als einzelnes {{cssxref("line-style")}} Schlüsselwortwert angegeben.
+Die `border-right-style` Eigenschaft wird als einzelner {{cssxref("line-style")}} Schlüsselwortwert angegeben.
 
 ## Formale Definition
 
@@ -135,4 +182,4 @@ td {
 ## Siehe auch
 
 - Die anderen stilbezogenen Rahmen-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-left-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
-- Die anderen mit dem rechten Rand zusammenhängenden Eigenschaften: {{Cssxref("border-right")}}, {{Cssxref("border-right-color")}}, und {{Cssxref("border-right-width")}}.
+- Die anderen rechten randbezogenen Eigenschaften: {{Cssxref("border-right")}}, {{Cssxref("border-right-color")}}, und {{Cssxref("border-right-width")}}.

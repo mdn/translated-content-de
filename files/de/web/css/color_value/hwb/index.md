@@ -2,14 +2,44 @@
 title: hwb()
 slug: Web/CSS/color_value/hwb
 l10n:
-  sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`hwb()`** funktionale Notation drückt eine Farbe im {{Glossary("RGB", "sRGB")}} {{Glossary("color_space", "Farbraum")}} gemäß ihrem Farbton, der Weißheit und der Schwärze aus. Ein optionaler Alpha-Wert repräsentiert die Transparenz der Farbe.
+Die **`hwb()`** Funktionsnotation drückt eine Farbe im {{Glossary("RGB", "sRGB")}} {{Glossary("color_space", "Farbraum")}} gemäß ihrem Farbton, Weißanteil und Schwarzanteil aus. Eine optionale Alpha-Komponente repräsentiert die Transparenz der Farbe.
 
-{{EmbedInteractiveExample("pages/css/function-hwb.html")}}
+{{InteractiveExample("CSS Demo: hwb()")}}
+
+```css interactive-example-choice
+background: hwb(12 50% 0%);
+```
+
+```css interactive-example-choice
+background: hwb(50deg 30% 40%);
+```
+
+```css interactive-example-choice
+background: hwb(0.5turn 10% 0% / 0.5);
+```
+
+```css interactive-example-choice
+background: hwb(0 100% 0% / 50%);
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="transition-all" id="example-element"></div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  min-width: 100%;
+  min-height: 100%;
+  padding: 10%;
+}
+```
 
 ## Syntax
 
@@ -26,19 +56,19 @@ hwb(from lch(40% 70 240deg) h w calc(b - 30))
 
 ## Beschreibung
 
-Diese Farb-Funktion im {{Glossary("Color_space#srgb", "`sRGB` Farbraum")}} wird durch einen {{CSSXref("&lt;hue&gt;")}} Winkelwert, einen Wert für die Weißheit, einen Wert für die Schwärze und optional einen Alpha-Wert definiert, der die Transparenz der Farbe repräsentiert.
+Diese Farb-Funktion im {{Glossary("Color_space#srgb", "`sRGB` Farbraum")}} wird durch einen {{CSSXref("&lt;hue&gt;")}} Winkelwert, einen Weißheitswert, einen Schwarzheitswert und optional einen Alphawert definiert, der die Transparenz der Farbe darstellt.
 
-Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich im sRGB (verwendet von {{CSSXref("color_value/hsl", "hsl()")}} und `hwb()`), CIELAB (verwendet von {{CSSXref("color_value/lch", "lch()")}}) und Oklab (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}) Farbräumen. `hwb()` befindet sich im gleichen Farbraum wie `hsl()` und hat daher die gleichen Farbton-Winkel. Weitere Details und Beispiele finden Sie auf der {{CSSXref("&lt;hue&gt;")}} Referenzseite, oder probieren Sie, die Farbtöne im [Farbwähler](/de/docs/Web/CSS/CSS_colors#colors_in_action) zu ändern, um es in Aktion zu sehen.
+Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich in den Farbräumen sRGB (verwendet von {{CSSXref("color_value/hsl", "hsl()")}} und `hwb()`), CIELAB (verwendet von {{CSSXref("color_value/lch", "lch()")}}) und Oklab (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}). `hwb()` befindet sich im gleichen Farbraum wie `hsl()` und hat daher die gleichen Farbtonwinkel. Weitere Details und Beispiele finden Sie auf der {{CSSXref("&lt;hue&gt;")}} Referenzseite, oder versuchen Sie, die Farbtöne im [Farbwähler](/de/docs/Web/CSS/CSS_colors#colors_in_action) zu ändern, um es in der Praxis zu sehen.
 
-Eine `hwb()` Farbe ist vollständig gesättigt, wenn sowohl der Weißheits- (`W`) als auch der Schwärze-Wert (`B`) `0` sind. Für jeden Farbwert `H` entspricht `hwb(H 0% 0%)` derselben Farbe wie `hsl(H 100% 50%)`. Ein erhöhter Weißheitswert hellt die Farbe auf. Ein erhöhter Schwärzewert verdunkelt die Farbe.
+Eine `hwb()`-Farbe ist vollständig gesättigt, wenn ihre Weißheit (`W`) und Schwarzheit (`B`) beide `0` sind. Für jeden Farbtonwert `H`, entspricht `hwb(H 0% 0%)` derselben Farbe wie `hsl(H 100% 50%)`. Erhöht man den Weißheitswert, wird die Farbe aufgehellt. Erhöht man die Schwarzheit, wird die Farbe abgedunkelt.
 
-Wenn sowohl der Schwärze- als auch der Weißheitswert größer als 0 sind, wird die Farbe gedämpft und tendiert zu Grau. Wenn die Summe der Weißheits- und Schwärzewerte gleich oder größer als 100% ist — also, wenn `W + B >= 100%`, definiert die Farbfunktion einen Grauton. Wenn die Summe beider Werte größer als 100% ist (`W + B > 100%`), werden die Weißheits- und Schwärzewerte der Graufarbe effektiv als `W / (W + B)` und `B / (W + B)` normalisiert.
+Wenn sowohl die Schwarzheit als auch die Weißheit größer als 0 sind, wird die Farbe gedämpft und tendiert zu Grau. Wenn die Summe von Weißheit und Schwarzheit gleich oder größer als 100 % ist — mit anderen Worten, wenn `W + B >= 100%`, definiert die Farb-Funktion einen Grauton. Wenn die Summe beider Werte größer als 100% ist (`W + B > 100%`), werden die Weiß- und Schwarzwerte des Grautons effektiv normalisiert als `W / (W + B)` und `B / (W + B)`.
 
 ## Werte
 
-Im Folgenden finden Sie Beschreibungen der zulässigen Werte für absolute und [relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors).
+Nachfolgend sind Beschreibungen der zulässigen Werte sowohl für absolute als auch [relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors) aufgeführt.
 
-### Absolute Wert-Syntax
+### Absolute Wertsyntax
 
 ```plain
 hwb(H W B[ / A])
@@ -48,27 +78,27 @@ Die Parameter sind wie folgt:
 
 - `H`
 
-  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}}, oder das Schlüsselwort `none` (entspricht in diesem Fall `0deg`), das den {{CSSXref("&lt;hue&gt;")}} Winkel der Farbe repräsentiert.
+  - : Ein {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}} oder das Schlüsselwort `none` (äquivalent zu `0deg` in diesem Fall), der den {{CSSXref("&lt;hue&gt;")}} Winkel der Farbe darstellt.
 
 - `W`
 
-  - : Ein {{CSSXref("&lt;percentage&gt;")}}, das die Weißheit der Farbe repräsentiert oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`), um es zu mischen. `0%` repräsentiert keine Weißheit. `100%` repräsentiert volle Weißheit, wenn `B` `0` ist, andernfalls werden sowohl die `W` als auch die `B` Werte normalisiert.
+  - : Ein {{CSSXref("&lt;percentage&gt;")}}, der die Weißheit der Farbe darstellt, oder das Schlüsselwort `none` (äquivalent zu `0%` in diesem Fall), um zu mischen. `0%` repräsentiert keine Weißheit. `100%` repräsentiert volle Weißheit, wenn `B` `0` ist, ansonsten werden die `W` und `B` Werte normalisiert.
 
 - `B`
 
-  - : Ein {{CSSXref("&lt;percentage&gt;")}}, das die Schwärze der Farbe repräsentiert oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`), um es zu mischen. `0%` repräsentiert keine Schwärze. `100%` repräsentiert volle Schwärze, wenn `W` `0` ist, andernfalls werden sowohl die `W` als auch die `B` Werte normalisiert.
+  - : Ein {{CSSXref("&lt;percentage&gt;")}}, der die Schwarzheit der Farbe darstellt, oder das Schlüsselwort `none` (äquivalent zu `0%` in diesem Fall), um zu mischen. `0%` repräsentiert keine Schwarzheit. `100%` repräsentiert volle Schwarzheit, wenn `W` `0` ist, ansonsten werden die `W` und `B` Werte normalisiert.
 
 - `A` {{optional_inline}}
 
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alpha-Kanal-Wert der Farbe repräsentiert, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig deckend) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alpha-Kanal anzugeben. Wenn der `A` Kanalwert nicht explizit angegeben wird, beträgt er standardmäßig 100%. Wenn er enthalten ist, wird der Wert von einem Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, der den Alphakanalwert der Farbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig opak) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um keinen Alphakanal explizit anzugeben. Wenn der `A` Kanalwert nicht explizit angegeben wird, standardmäßig 100%. Falls enthalten, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
 
 > [!NOTE]
-> Weitere Informationen über die Auswirkungen von `none` finden Sie unter [Fehlende Farbkomponenten](/de/docs/Web/CSS/color_value#missing_color_components).
+> Weitere Informationen zu den Auswirkungen von `none` finden Sie unter [Missing color components](/de/docs/Web/CSS/color_value#missing_color_components).
 
 > [!NOTE]
-> Absolute `hwb()` Farben werden zu {{CSSXref("color_value/rgb", "rgb()")}} Werten serialisiert. Die Werte der Komponenten Rot, Grün und Blau können bei der Serialisierung gerundet werden.
+> Absolute `hwb()` Farben werden als {{CSSXref("color_value/rgb", "rgb()")}} Werte serialisiert. Die Werte der roten, grünen und blauen Komponenten können bei der Serialisierung gerundet werden.
 
-### Relative Wert-Syntax
+### Relative Wertsyntax
 
 ```plain
 hwb(from <color> H W B[ / A])
@@ -78,53 +108,53 @@ Die Parameter sind wie folgt:
 
 - `from <color>`
 
-  - : Das Schlüsselwort `from` ist immer enthalten, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}} Wert, der die **Ursprungsfarbe** darstellt. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann _jede_ gültige {{cssxref("&lt;color&gt;")}} Syntax sein, einschließlich einer anderen relativen Farbe.
+  - : Das Schlüsselwort `from` wird immer verwendet, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}} Wert, der die **Ursprungsfarbe** repräsentiert. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann jede gültige {{cssxref("&lt;color&gt;")}} Syntax sein, einschließlich einer anderen relativen Farbe.
 
 - `H`
 
-  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}}, oder das Schlüsselwort `none` (entspricht in diesem Fall `0deg`), das den {{CSSXref("&lt;hue&gt;")}} Winkel der Ausgabefarbe repräsentiert.
+  - : Ein {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}} oder das Schlüsselwort `none` (äquivalent zu `0deg` in diesem Fall), der den Ausgabefarbtonwinkel der Farbe darstellt.
 
 - `W`
 
-  - : Ein {{CSSXref("&lt;percentage&gt;")}}, das die Weißheit der Farbe repräsentiert oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`), um es zu mischen. `0%` repräsentiert keine Weißheit. `100%` repräsentiert volle Weißheit, wenn `B` `0` ist, andernfalls werden sowohl die `W` als auch die `B` Werte normalisiert.
+  - : Ein {{CSSXref("&lt;percentage&gt;")}}, der die Weißheit der Farbe darstellt, oder das Schlüsselwort `none` (äquivalent zu `0%` in diesem Fall), um zu mischen. `0%` repräsentiert keine Weißheit. `100%` repräsentiert volle Weißheit, wenn `B` `0` ist, ansonsten werden die `W` und `B` Werte normalisiert.
 
 - `B`
 
-  - : Ein {{CSSXref("&lt;percentage&gt;")}}, das die Schwärze der Farbe repräsentiert oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`), um es zu mischen. `0%` repräsentiert keine Schwärze. `100%` repräsentiert volle Schwärze, wenn `W` `0` ist, andernfalls werden sowohl die `W` als auch die `B` Werte normalisiert.
+  - : Ein {{CSSXref("&lt;percentage&gt;")}}, der die Schwarzheit der Farbe darstellt, oder das Schlüsselwort `none` (äquivalent zu `0%` in diesem Fall), um zu mischen. `0%` repräsentiert keine Schwarzheit. `100%` repräsentiert volle Schwarzheit, wenn `W` `0` ist, ansonsten werden die `W` und `B` Werte normalisiert.
 
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alpha-Kanal-Wert der Ausgabefarbe repräsentiert, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig deckend) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alpha-Kanal anzugeben. Wenn der `A` Kanalwert nicht explizit angegeben wird, entspricht er standardmäßig dem Alpha-Kanalwert der Ursprungsfarbe. Wenn er enthalten ist, wird der Wert von einem Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, der den Alphakanalwert der Ausgabefarbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig opak) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um keinen Alphakanal explizit anzugeben. Wenn der `A` Kanalwert nicht explizit angegeben wird, entspricht er standardmäßig dem Alphakanalwert der Ursprungsfarbe. Falls enthalten, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
 
 > [!NOTE]
-> Um die vollständige Darstellung des sichtbaren Farbspektrums zu ermöglichen, wird die Ausgabe der relativen `hwb()` Farb-Funktionen zu `color(srgb)` serialisiert. Das bedeutet, dass die Abfrage des Ausgabefarbwerts über die [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) Eigenschaft oder die [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) Methode den Ausgabefarbwert als [`color(srgb ...)`](/de/docs/Web/CSS/color_value/color) Wert zurückgibt.
+> Um die Darstellung des gesamten sichtbaren Farbspektrums vollständig zu ermöglichen, wird die Ausgabe von relativen `hwb()` Farb-Funktionen zu `color(srgb)` serialisiert. Das bedeutet, dass beim Abfragen des Ausgabefarbwertes über die [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) Eigenschaft oder die [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) Methode die Ausgabefarbe als [`color(srgb ...)`](/de/docs/Web/CSS/color_value/color) Wert zurückgegeben wird.
 
-### Definition der Ausgabe der relativen Farbkanal-Komponenten
+### Definition der Kanalkomponenten des relativen Farboutputs
 
-Bei der Verwendung der relativen Farbsyntax innerhalb einer `hwb()` Funktion konvertiert der Browser die Ursprungsfarbe in eine äquivalente HWB-Farbe (wenn sie nicht bereits als solche spezifiziert ist). Die Farbe wird als drei unterscheidbare Farbkanalwerte definiert — `h` (Farbton), `w` (Weiß) und `b` (Schwarz) — plus einen Alpha-Kanalwert (`alpha`). Diese Kanalwerte sind innerhalb der Funktion verfügbar, um sie bei der Definition der Ausgabefarbkanalwerte zu verwenden:
+Bei der Verwendung der relativen Färbungssyntax in einer `hwb()`-Funktion konvertiert der Browser die Ursprungsfarbe in eine äquivalente HWB-Farbe (wenn sie nicht bereits so spezifiziert ist). Die Farbe wird als drei separate Farbkanalwerte definiert — `h` (Farbton), `w` (Weiß) und `b` (Schwarz) — plus ein Alphakanalwert (`alpha`). Diese Kanalwerte sind innerhalb der Funktion verfügbar und können zur Definition der Ausgabefarbkanalwerte verwendet werden:
 
-- Der `h` Kanalwert wird auf eine `<number>` zwischen `0` und `360` aufgelöst, inklusiv.
-- Die `w` und `b` Kanäle werden jeweils auf eine `<number>` zwischen `0` und `100` aufgelöst, inklusiv.
-- Der `alpha` Kanal wird auf eine `<number>` zwischen `0` und `1` aufgelöst, inklusiv.
+- Der `h` Kanalwert wird auf einen `<number>` zwischen `0` und `360`, inklusive, aufgelöst.
+- Die `w` und `b` Kanäle werden jeweils auf einen `<number>` zwischen `0` und `100`, inklusive, aufgelöst.
+- Der `alpha` Kanal wird auf einen `<number>` zwischen `0` und `1`, inklusive, aufgelöst.
 
-Bei der Definition einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf unterschiedliche Weise ausgedrückt werden. Im Folgenden werden einige Beispiele betrachtet, um diese zu veranschaulichen.
+Beim Definieren einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf mehrere verschiedene Arten ausgedrückt werden. Im Folgenden betrachten wir einige Beispiele, um diese zu veranschaulichen.
 
-In den ersten beiden Beispielen unten verwenden wir relative Farbsyntax. Jedoch gibt das erste Beispiel die gleiche Farbe wie die Ursprungsfarbe aus, und das zweite gibt eine Farbe aus, die überhaupt nicht auf der Ursprungsfarbe basiert. Sie erzeugen eigentlich keine relativen Farben! Sie würden diese Fälle wahrscheinlich nie in einem echten Codebase verwenden und stattdessen einfach einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt für das Lernen über die relative `hwb()` Syntax eingeschlossen.
+In den ersten beiden Beispielen unten verwenden wir die relative Färbungssyntax. Das erste gibt jedoch dieselbe Farbe wie die Ursprungsfarbe aus, und das zweite gibt eine Farbe aus, die überhaupt nicht auf der Ursprungsfarbe basiert. Sie erzeugen also eigentlich keine relativen Farben! In einem echten Codebasis würden Sie diese wahrscheinlich nie verwenden und stattdessen einfach einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt zum Lernen über die relative `hwb()` Syntax aufgenommen.
 
-Lassen Sie uns mit einer Ursprungsfarbe von `hsl(0 100% 50%)` (äquivalent zu `hwb(0 0% 0%)`) beginnen. Die folgende Funktion gibt die gleiche Farbe wie die Ursprungsfarbe aus — sie verwendet die `h`, `w` und `b` Kanalwerte (`0`, `0%` und `0%`) der Ursprungsfarbe als die Ausgabekanalwerte:
+Beginnen wir mit einer Ursprungsfarbe von `hsl(0 100% 50%)` (entspricht `hwb(0 0% 0%)`). Die folgende Funktion gibt dieselbe Farbe wie die Ursprungsfarbe aus — sie verwendet die `h`, `w` und `b` Kanalwerte der Ursprungsfarbe (`0`, `0%` und `0%`) als Ausgabekanalwerte:
 
 ```css
 hwb(from hsl(0 100% 50%) h w b)
 ```
 
-Die Ausgabe dieser Funktion ist das sRGB `color()` Äquivalent von `hwb(0 0% 0%)`: `color(srgb 1 0 0)`.
+Die Ausgabe dieser Funktion ist die sRGB `color()` Entsprechung von `hwb(0 0% 0%)`: `color(srgb 1 0 0)`.
 
-Die nächste Funktion verwendet absolute Werte für die Ausgabefarbkanalwerte und gibt eine vollständig andere Farbe aus, die nicht auf der Ursprungsfarbe basiert:
+Die nächste Funktion verwendet absolute Werte für die Ausgabekanalwerte und gibt eine völlig andere Farbe aus, die nicht auf der Ursprungsfarbe basiert:
 
 ```css
 hwb(from hsl(0 100% 50%) 240 52% 12%)
 ```
 
-Im obigen Fall ist die Ausgabefarbe das sRGB `color()` Äquivalent von `hwb(240 52% 12%)`: `color(srgb 0.52 0.52 0.88)`.
+In diesem Fall ist die Ausgabefarbe die sRGB `color()` Entsprechung von `hwb(240 52% 12%)`: `color(srgb 0.52 0.52 0.88)`.
 
 Die folgende Funktion erstellt eine relative Farbe basierend auf der Ursprungsfarbe:
 
@@ -134,18 +164,18 @@ hwb(from hsl(0 100% 50%) h 30% b)
 
 Dieses Beispiel:
 
-- Konvertiert die Ursprungsfarbe (`hsl(0 100% 50%)`) in ein äquivalentes `hwb()` (`hwb(0 0% 0%)`).
-- Setzt die `H` und `B` Kanalwerte für die Ausgabefarbe zu denen der Ursprungsfarbe `hwb()` äquivalenten `H` und `B` Kanalwerte — diese Werte sind `0` und `0%`, jeweils.
+- Wandelt die Ursprungsfarbe (`hsl(0 100% 50%)`) in eine äquivalente `hwb()` um (`hwb(0 0% 0%)`).
+- Setzt die `H` und `B` Kanalwerte für die Ausgabefarbe auf diejenigen der `hwb()` Entsprechung der Ursprungsfarbe — diese Werte sind `0` und `0%`, jeweils.
 - Setzt den `W` Kanalwert der Ausgabefarbe auf einen neuen Wert, der nicht auf der Ursprungsfarbe basiert: `30%`.
 
-Die endgültige Ausgabefarbe ist das Äquivalent von `hwb(0 30% 0%)` im sRGB Farbraum — `color(srgb 1 0.3 0.3)`.
+Die endgültige Ausgabefarbe ist die Entsprechung von `hwb(0 30% 0%)` im sRGB Farbraum — `color(srgb 1 0.3 0.3)`.
 
 > [!NOTE]
-> Wie oben erwähnt, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in das gleiche Modell oder den gleichen Raum wie die Ausgabefarbe konvertiert, damit sie auf eine Weise dargestellt werden kann, die kompatibel ist (d. h. unter Verwendung derselben Kanäle).
+> Wie oben erwähnt, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in dasselbe Modell oder den gleichen Raum wie die Ausgabefarbe konvertiert, so dass sie in einer kompatiblen Weise dargestellt werden kann (d.h. mit den gleichen Kanälen).
 
-In den Beispielen, die wir bisher in diesem Abschnitt gesehen haben, wurden die Alpha-Kanäle weder für die Ursprungs- noch für die Ausgabefarben explizit angegeben. Wenn der Alpha-Kanal der Ausgabefarbe nicht angegeben wird, entspricht er standardmäßig demselben Wert wie der Alpha-Kanal der Ursprungsfarbe. Wenn der Alpha-Kanal der Ursprungsfarbe nicht angegeben wird (und es sich nicht um eine relative Farbe handelt), ist er standardmäßig `1`. Daher sind die Ursprungs- und Ausgabewerte des Alpha-Kanals für die obigen Beispiele `1`.
+In den Beispielen, die wir bisher in diesem Abschnitt gesehen haben, wurden die Alphakanäle weder für die Ursprungs- noch für die Ausgabefarben explizit angegeben. Wenn der Alphakanal der Ausgabefarbe nicht spezifiziert ist, entspricht er standardmäßig dem Wert des Alphakanals der Ursprungsfarbe. Wenn der Alphakanal der Ursprungsfarbe nicht spezifiziert ist (und es sich nicht um eine relative Farbe handelt), ist er standardmäßig `1`. Daher sind die Ursprungs- und Ausgabealphakanäle in den obigen Beispielen `1`.
 
-Lassen Sie uns einige Beispiele ansehen, die Origin- und Ausgabe-Alpha-Kanal-Werte spezifizieren. Das erste spezifiziert den Ausgabe-Alpha-Kanal-Wert als gleich dem Ursprungs-Alpha-Kanal-Wert, während das zweite einen anderen Ausgabe-Alpha-Kanal-Wert spezifiziert, der nicht mit dem Ursprungs-Alpha-Kanal-Wert verwandt ist.
+Betrachten wir einige Beispiele, die die Ursprungs- und Ausgabealphakanalwerte angeben. Das erste gibt den Alphakanalwert der Ausgabefarbe an, der dem der Ursprungsfarbe entspricht, während das zweite einen anderen Ausgabefarb-Alphakanalwert angibt, der nicht mit dem der Ursprungsfarbe verwandt ist.
 
 ```css
 hwb(from hsl(0 100% 50% / 0.8) h w b / alpha)
@@ -155,14 +185,14 @@ hwb(from hsl(0 100% 50% / 0.8) h w b / 0.5)
 /* Computed output color: color(srgb 1 0 0 / 0.5) */
 ```
 
-Im folgenden Beispiel wird die `hsl()` Ursprungsfarbe erneut in eine `hwb()` Darstellung konvertiert — `hwb(0 0% 0%)`. {{cssxref("calc")}} Berechnungen werden auf die `H`, `W`, `B`, und `A` Werte angewendet, und die finale Ausgabefarbe ist das Äquivalent von `hwb(120 25% 10% / 0.9` im sRGB Farbraum: `color(srgb 0.25 0.9 0.25 / 0.9)`.
+Im folgenden Beispiel wird die `hsl()` Ursprungsfarbe erneut in eine `hwb()` Darstellung konvertiert — `hwb(0 0% 0%)`. {{cssxref("calc")}} Berechnungen werden auf die `H`, `W`, `B` und `A` Werte angewendet, und die endgültige Ausgabefarbe ist die Entsprechung von `hwb(120 25% 10% / 0.9` im sRGB Farbraum: `color(srgb 0.25 0.9 0.25 / 0.9)`.
 
 ```css
 hwb(from hsl(0 100% 50%) calc(h + 120) calc(w + 25) calc(b + 10) / calc(alpha - 0.1))
 ```
 
 > [!NOTE]
-> Da die Ursprungsfarbkanalwerte auf `<number>` Werte aufgelöst werden, müssen Sie Zahlen hinzufügen, wenn Sie sie in Berechnungen verwenden, selbst in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Werttypen akzeptieren würde. Das Hinzufügen eines `<percentage>` zu einer `<number>` funktioniert beispielsweise nicht.
+> Da die Ursprungsfarbenkanalwerte auf `<number>` Werte aufgelöst werden, müssen Sie bei der Verwendung in Berechnungen Zahlen zu ihnen hinzufügen, selbst in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Werttypen akzeptieren würde. Das Hinzufügen eines `<percentage>` zu einem `<number>` funktioniert beispielsweise nicht.
 
 ## Formale Syntax
 
@@ -172,9 +202,9 @@ hwb(from hsl(0 100% 50%) calc(h + 120) calc(w + 25) calc(b + 10) / calc(alpha - 
 
 ### Verwendung relativer Farben mit hwb()
 
-Dieses Beispiel stylt drei {{htmlelement("div")}} Elemente mit unterschiedlichen Hintergrundfarben. Das mittlere erhält die unmodifizierte `--base-color`, während die linken und rechten aufgehellte und abgedunkelte Varianten dieser `--base-color` erhalten.
+In diesem Beispiel werden drei {{htmlelement("div")}} Elemente mit unterschiedlichen Hintergrundfarben gestylt. Das mittlere erhält die unveränderte `--base-color`, während die linken und rechten aufgehellte und abgedunkelte Varianten dieser `--base-color` erhalten.
 
-Diese Varianten werden unter Verwendung relativer Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) wird in eine `hwb()` Funktion übergeben, und die Ausgabefarben haben ihre Weiß- und Schwarzkanäle modifiziert, um den gewünschten Effekt über eine `calc()` Funktion zu erzielen. Die aufgehellte Farbe hat 30% zum Weißkanal hinzugefügt, und die abgedunkelte Farbe hat 30% zum Schwarzk kanal hinzugefügt.
+Diese Varianten sind mit relativen Farben definiert — die [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) `--base-color` wird in eine `hwb()` Funktion übergeben, und die Ausgabefarben haben ihre Weiß- und Schwarzkanäle modifiziert, um den gewünschten Effekt über eine `calc()` Funktion zu erzielen. Die aufgehellte Farbe hat 30% dem Weißkanal hinzugefügt, und die abgedunkelte Farbe hat 30% dem Schwarzkanal hinzugefügt.
 
 ```html hidden
 <div id="container">
@@ -250,8 +280,8 @@ Die Ausgabe ist wie folgt:
 
 ## Siehe auch
 
-- {{CSSXref("&lt;color&gt;")}}: Für eine Liste aller Farbnotationen
-- [Farbwähler und Konvertierungswerkzeug](/de/docs/Web/CSS/CSS_colors/Color_picker_tool)
+- {{CSSXref("&lt;color&gt;")}}: Eine Liste aller Farbnationen
+- [Farbwähler- und Konvertierungswerkzeug](/de/docs/Web/CSS/CSS_colors/Color_picker_tool)
 - [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
-- {{CSSXref("&lt;hue&gt;")}}: der Datentyp, der einen Farbtonwinkel einer Farbe darstellt
+- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- {{CSSXref("&lt;hue&gt;")}}: Der Datentyp, der einen Farbtonwinkel einer Farbe darstellt

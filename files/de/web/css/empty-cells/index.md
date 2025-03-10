@@ -2,16 +2,59 @@
 title: empty-cells
 slug: Web/CSS/empty-cells
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`empty-cells`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Ränder und Hintergründe um {{htmlelement("table")}}-Zellen erscheinen, die keinen sichtbaren Inhalt haben.
+Die **`empty-cells`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Ränder und Hintergründe um {{htmlelement("table")}} Zellen erscheinen, die keinen sichtbaren Inhalt haben.
 
-{{EmbedInteractiveExample("pages/css/empty-cells.html")}}
+{{InteractiveExample("CSS Demo: empty-cells")}}
 
-Diese Eigenschaft hat nur dann eine Wirkung, wenn die {{cssxref("border-collapse")}} Eigenschaft auf `separate` gesetzt ist.
+```css interactive-example-choice
+empty-cells: show;
+```
+
+```css interactive-example-choice
+empty-cells: hide;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <table class="transition-all" id="example-element">
+    <tr>
+      <th>Client Name</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>Louise Q.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Owen B.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Stan L.</td>
+      <td>71</td>
+    </tr>
+  </table>
+</section>
+```
+
+```css interactive-example
+th,
+td {
+  border: 2px solid #a19;
+  padding: 0.25rem 0.5rem;
+}
+```
+
+Diese Eigenschaft hat nur dann eine Wirkung, wenn die Eigenschaft {{cssxref("border-collapse")}} auf `separate` gesetzt ist.
 
 ## Syntax
 
@@ -35,7 +78,7 @@ Die `empty-cells` Eigenschaft wird als einer der unten aufgeführten Schlüsselw
 - `show`
   - : Ränder und Hintergründe werden wie bei normalen Zellen gezeichnet.
 - `hide`
-  - : Keine Ränder oder Hintergründe werden gezeichnet.
+  - : Es werden keine Ränder oder Hintergründe gezeichnet.
 
 ## Formale Definition
 
@@ -109,4 +152,4 @@ th {
 
 - {{cssxref("border-collapse")}}
 - [Lernen: Tabellen gestalten](/de/docs/Learn_web_development/Core/Styling_basics/Tables)
-- [CSS-Tabellen](/de/docs/Web/CSS/CSS_table) Modul
+- [CSS-Tabelle](/de/docs/Web/CSS/CSS_table) Modul

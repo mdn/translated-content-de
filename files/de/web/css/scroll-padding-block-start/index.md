@@ -2,14 +2,74 @@
 title: scroll-padding-block-start
 slug: Web/CSS/scroll-padding-block-start
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-padding-block-start` definiert Versätze für den Startrand in der Blockdimension der _optimalen Anzeigeregion_ des Scrollports: die Region, die als Zielregion für die Platzierung von Elementen im Blickfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-block-start` definiert Abstände für die Startkante in der Blockdimension des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielbereich dient, um Inhalte in den Blick des Nutzers zu rücken. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fixierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
-{{EmbedInteractiveExample("pages/css/scroll-padding-block-start.html")}}
+{{InteractiveExample("CSS Demo: scroll-padding-block-start")}}
+
+```css interactive-example-choice
+scroll-padding-block-start: 0;
+```
+
+```css interactive-example-choice
+scroll-padding-block-start: 20px;
+```
+
+```css interactive-example-choice
+scroll-padding-block-start: 2em;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="scroller" id="example-element">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="info">Scroll »</div>
+</section>
+```
+
+```css interactive-example
+.default-example .info {
+  inline-size: 100%;
+  padding: 0.5em 0;
+  font-size: 90%;
+  writing-mode: vertical-rl;
+}
+
+.scroller {
+  text-align: left;
+  height: 250px;
+  width: 270px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid black;
+  scroll-snap-type: y mandatory;
+}
+
+.scroller > div {
+  flex: 0 0 250px;
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.scroller > div:nth-child(even) {
+  background-color: #fff;
+  color: rebeccapurple;
+}
+```
 
 ## Syntax
 
@@ -33,9 +93,9 @@ scroll-padding-block-start: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Versatz vom Blockstartrand des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Abstand von der Blockstartkante des Scrollports, angegeben als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dieser ist im Allgemeinen 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Wert ungleich Null angemessener ist.
+  - : Der Abstand wird vom Benutzeragenten bestimmt. Dieser beträgt generell 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
 
 ## Formale Definition
 

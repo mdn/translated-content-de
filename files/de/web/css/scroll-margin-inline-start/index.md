@@ -2,14 +2,77 @@
 title: scroll-margin-inline-start
 slug: Web/CSS/scroll-margin-inline-start
 l10n:
-  sourceCommit: 919d97a4bda8004f63f655d3f9576c27a82c8a2a
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-inline-start` definiert den Rand des "scroll snap"-Bereichs am Anfang der Inline-Dimension, der verwendet wird, um diese Box an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der "scroll snap"-Bereich wird bestimmt, indem die transformierte Border-Box genommen, deren rechteckige Begrenzungsbox (achsenbündig im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Abstände hinzugefügt werden.
+Die Eigenschaft `scroll-margin-inline-start` definiert den Rand des Scroll-Snap-Bereichs am Anfang der Inline-Dimension, der zum Einrasten dieses Box-Elements an den {{Glossary("Scroll_snap#snapport", "Snapport")}} verwendet wird. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmenrahmen des Elements genommen wird, sein rechteckiger Begrenzungsrahmen (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden wird und dann die angegebenen Außensätze hinzugefügt werden.
 
-{{EmbedInteractiveExample("pages/css/scroll-margin-inline-start.html")}}
+{{InteractiveExample("CSS Demo: scroll-margin-inline-start")}}
+
+```css interactive-example-choice
+scroll-margin-inline-start: 0;
+```
+
+```css interactive-example-choice
+scroll-margin-inline-start: 20px;
+```
+
+```css interactive-example-choice
+scroll-margin-inline-start: 2em;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="scroller">
+    <div>1</div>
+    <div id="example-element">2</div>
+    <div>3</div>
+  </div>
+  <div class="info">Scroll »</div>
+</section>
+```
+
+```css interactive-example
+.default-example {
+  flex-wrap: wrap;
+}
+
+.default-example .info {
+  width: 100%;
+  padding: 0.5em 0;
+  font-size: 90%;
+}
+
+.scroller {
+  text-align: left;
+  width: 250px;
+  height: 250px;
+  overflow-x: scroll;
+  display: flex;
+  box-sizing: border-box;
+  border: 1px solid black;
+  scroll-snap-type: x mandatory;
+}
+
+.scroller > div {
+  flex: 0 0 250px;
+  width: 250px;
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.scroller > div:nth-child(even) {
+  background-color: #fff;
+  color: rebeccapurple;
+}
+```
 
 ## Syntax
 
@@ -29,7 +92,7 @@ scroll-margin-inline-start: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Abstand vom Inline-Start des Scroll-Containers.
+  - : Ein Außensatz vom Inline-Start-Rand des Scroll-Containers.
 
 ## Formale Definition
 
@@ -43,13 +106,13 @@ scroll-margin-inline-start: unset;
 
 ### Grundlegende Demonstration
 
-Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, jedoch werden wir Ihnen hier erklären, wie es implementiert wird.
+Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, mit dem Unterschied, dass wir Ihnen hier erklären, wie es implementiert wird.
 
-Das Ziel hier ist es, vier horizontal scrollbare Blöcke zu erstellen, von denen der zweite und dritte an einer Stelle einrasten, die sich nah, aber nicht ganz links in jedem Block befindet.
+Das Ziel hier ist es, vier horizontal scrollbare Blöcke zu erstellen, von denen der zweite und dritte Block einrasten, nahe aber nicht ganz links von jedem Block.
 
 #### HTML
 
-Der HTML-Code enthält einen Scroller mit vier Kind-Elementen:
+Das HTML enthält einen Scroller mit vier Kindelementen:
 
 ```html
 <div class="scroller">
@@ -62,7 +125,7 @@ Der HTML-Code enthält einen Scroller mit vier Kind-Elementen:
 
 #### CSS
 
-Schauen wir uns den CSS-Code an. Der äußere Container ist wie folgt gestylt:
+Lassen Sie uns den CSS-Code durchgehen. Der äußere Container wird wie folgt gestylt:
 
 ```css
 .scroller {
@@ -77,9 +140,9 @@ Schauen wir uns den CSS-Code an. Der äußere Container ist wie folgt gestylt:
 }
 ```
 
-Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass der Inhalt gescrollt wird und nicht versteckt ist, und `scroll-snap-type: x mandatory`, was vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer an einem Snap-Punkt zum Stehen kommt.
+Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass die Inhalte scrollen und nicht versteckt werden, und `scroll-snap-type: x mandatory`, welches vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer an einem Einrastpunkt endet.
 
-Die Kindelemente sind wie folgt gestylt:
+Die Kindelemente werden wie folgt gestylt:
 
 ```css
 .scroller > div {
@@ -100,9 +163,9 @@ Die Kindelemente sind wie folgt gestylt:
 }
 ```
 
-Der relevanteste Teil hier ist `scroll-snap-align: start`, das angibt, dass die linken Kanten (die "Starts" entlang der x-Achse, in unserem Fall) die festgelegten Snap-Punkte sind.
+Der relevanteste Teil hier ist `scroll-snap-align: start`, welches angibt, dass die linken Kanten (die "Startpunkte" entlang der x-Achse, in unserem Fall) die vorgesehenen Einrastpunkte sind.
 
-Zuletzt spezifizieren wir die Scroll-Margin-Werte, verschiedene für das zweite und dritte Kindelement:
+Zuletzt spezifizieren wir die Werte für den Scroll-Rand, unterschiedlich für das zweite und dritte Kindelement:
 
 ```css
 .scroller > div:nth-child(2) {
@@ -114,7 +177,7 @@ Zuletzt spezifizieren wir die Scroll-Margin-Werte, verschiedene für das zweite 
 }
 ```
 
-Das bedeutet, dass beim Scrollen über die mittleren Kindelemente das Scrollen an `1rem` außerhalb der Inline-Startkante des zweiten `<div>` und `2rems` außerhalb der Inline-Startkante des dritten `<div>` einrastet.
+Dies bedeutet, dass beim Scrollen an den mittleren Kindelementen das Scrollen zu `1rem` außerhalb des Inline-Start-Randes des zweiten `<div>` und `2rem` außerhalb des Inline-Start-Randes des dritten `<div>` einrastet.
 
 #### Ergebnis
 
@@ -132,5 +195,5 @@ Probieren Sie es selbst aus:
 
 ## Siehe auch
 
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap)
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [Gut kontrolliertes Scrollen mit CSS-Scroll-Snap](https://web.dev/articles/css-scroll-snap)

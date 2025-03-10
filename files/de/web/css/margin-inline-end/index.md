@@ -2,14 +2,64 @@
 title: margin-inline-end
 slug: Web/CSS/margin-inline-end
 l10n:
-  sourceCommit: da659b5d4f75b66804d97c80ec7c89b8792d7389
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`margin-inline-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-End-Abstand eines Elements, der je nach dem Schreibmodus, der Richtung und der Textausrichtung des Elements auf einen physischen Abstand abgebildet wird. Mit anderen Worten, sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`margin-inline-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-Endrand eines Elements, der abhängig vom Schreibmodus, der Richtung und der Textorientierung des Elements auf einen physischen Rand abgebildet wird. Mit anderen Worten, sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
 
-{{EmbedInteractiveExample("pages/css/margin-inline-end.html")}}
+{{InteractiveExample("CSS Demo: margin-inline-end")}}
+
+```css interactive-example-choice
+margin-inline-end: 20px;
+writing-mode: horizontal-tb;
+```
+
+```css interactive-example-choice
+margin-inline-end: 20px;
+writing-mode: vertical-rl;
+```
+
+```css interactive-example-choice
+margin-inline-end: 20%;
+writing-mode: horizontal-tb;
+direction: rtl;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="container">
+    <div class="col">One</div>
+    <div class="col transition-all" id="example-element">Two</div>
+    <div class="col">Three</div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#container {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+.col {
+  width: 33.33%;
+  border: solid #ce7777 10px;
+  background-color: #2b3a55;
+  color: white;
+  flex-shrink: 0;
+}
+
+#example-element {
+  border: solid 10px #ffbf00;
+  background-color: #2b3a55;
+  unicode-bidi: bidi-override;
+}
+```
 
 ## Syntax
 
@@ -32,11 +82,11 @@ margin-inline-end: revert-layer;
 margin-inline-end: unset;
 ```
 
-Sie steht in Bezug zu {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}} und {{cssxref("margin-inline-start")}}, die die anderen Abstände des Elements definieren.
+Diese Eigenschaft steht in Beziehung zu {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, und {{cssxref("margin-inline-start")}}, die die anderen Ränder des Elements definieren.
 
 ### Werte
 
-Die Eigenschaft `margin-inline-end` nimmt die gleichen Werte an wie die {{cssxref("margin-left")}} Eigenschaft.
+Die `margin-inline-end` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("margin-left")}} Eigenschaft an.
 
 ## Formale Definition
 
@@ -48,7 +98,7 @@ Die Eigenschaft `margin-inline-end` nimmt die gleichen Werte an wie die {{cssxre
 
 ## Beispiele
 
-### Einstellung des Inline-End-Abstands
+### Einstellung des Inline-Endrands
 
 #### HTML
 
@@ -88,7 +138,7 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - {{cssxref("margin-inline-start")}}
 - Die zugeordneten physischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

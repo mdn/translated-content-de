@@ -1,24 +1,24 @@
 ---
-title: Web Authentication Erweiterungen
+title: Web-Authentifizierungs-Erweiterungen
 slug: Web/API/Web_Authentication_API/WebAuthn_extensions
 l10n:
-  sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
+  sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c
 ---
 
 {{DefaultAPISidebar("Web Authentication API")}}
 
-Die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) verfügt über ein System von Erweiterungen – zusätzliche Funktionalitäten, die während der Erstellung von Berechtigungsnachweisen ([`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create)) oder Authentifizierung ([`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)) angefordert werden können. Dieser Artikel erklärt, wie WebAuthn-Erweiterungen angefordert werden, wie Informationen über die Antworten auf diese Anfragen abgerufen werden und welche Erweiterungen verfügbar sind – einschließlich der Browser-Unterstützung und der erwarteten Ein- und Ausgaben.
+Die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) verfügt über ein System von Erweiterungen – zusätzliche Funktionalität, die während der Erstellung von Berechtigungsnachweisen ([`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create)) oder Authentifizierungsvorgängen ([`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)) angefordert werden kann. Dieser Artikel erklärt, wie man WebAuthn-Erweiterungen anfordert, Informationen über die Antworten von diesen Anfragen erhält und welche Erweiterungen verfügbar sind — einschließlich der Browser-Unterstützung und der erwarteten Eingaben und Ausgaben.
 
-## Anleitung zur Verwendung von WebAuthn-Erweiterungen
+## Anleitung zur Nutzung von WebAuthn-Erweiterungen
 
-Beim Aufruf von [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) oder [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) kann das `publicKey`-Objekt, das erforderlich ist, um einen WebAuthn-Fluss einzuleiten, eine `extensions`-Eigenschaft enthalten. Der Wert von `extensions` ist selbst ein Objekt, dessen Eigenschaften die Eingabewerte für alle Erweiterungen sind, die die vertrauende Partei in der aufgerufenen Methode verwenden möchte.
+Beim Aufrufen von [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) oder [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) kann das für den Start eines WebAuthn-Flows erforderliche `publicKey`-Objektparameter eine `extensions`-Eigenschaft enthalten. Der Wert von `extensions` ist selbst ein Objekt, dessen Eigenschaften die Eingabewerte für alle Erweiterungen sind, deren Nutzung die vertrauende Partei in der von Ihnen aufgerufenen Methode anfordern möchte.
 
-Hinter den Kulissen werden die Eingaben vom Benutzeragenten und/oder Authentifikator verarbeitet.
+Im Hintergrund werden die Eingaben vom Benutzeragenten und/oder dem Authentifizierungsgerät verarbeitet.
 
-Zum Beispiel möchten wir in einem `publicKey`-Objekt für einen `create()`-Aufruf die Verwendung von zwei Erweiterungen anfordern:
+Zum Beispiel könnten wir in einem `publicKey`-Objekt für einen `create()`-Aufruf die Nutzung von zwei Erweiterungen anfordern:
 
-1. Die `credProps`-Erweiterung. Vertrauende Parteien setzen `credProps`, um zu verlangen, dass der Browser der vertrauenden Partei mitteilt, ob das Berechtigungsnachweis nach der Registrierung ansässig/auffindbar ist. Dies ist nützlich, wenn `create()` mit `publicKey.authenticatorSelection.residentKey = "preferred"` aufgerufen wird. Um dies anzufordern, müssen Sie auch `publicKey.extensions.credProps = true` setzen, wenn der Browser einen Berechtigungsnachweis erstellt, und je nach verwendetem Authentifikator-Typ wird dieser auffindbar sein (zum Beispiel würde der FIDO2-Authentifikator ihn typischerweise auffindbar machen; ein FIDO1/U2F-Sicherheitsschlüssel wäre nicht auffindbar). `credProps` wird nur vom Benutzeragenten verarbeitet.
-2. Die `minPinLength`-Erweiterung ermöglicht es vertrauenden Parteien, die Mindestlänge der PIN des Authentifikators abzufragen. Dies erfordert, dass `extensions.minPinLength` auf `true` gesetzt wird. `minPinLength` wird vom Authentifikator verarbeitet, wobei der Benutzeragent nur dient, um die Eingabedaten weiterzugeben.
+1. Die Erweiterung `credProps`. Vertrauende Parteien setzen `credProps`, um den Browser zu bitten, der vertrauenden Partei mitzuteilen, ob das Berechtigungsnachweis ansässig/entdeckbar ist, nachdem es registriert wurde. Dies ist nützlich beim Aufrufen von `create()` mit `publicKey.authenticatorSelection.residentKey = "preferred"`. Um es anzufordern, müssen Sie auch `publicKey.extensions.credProps = true` setzen, wenn der Browser ein Berechtigungsnachweis erstellt und, abhängig vom verwendeten Authentifizierungsgerät, wird es entdeckbar sein (zum Beispiel würde das FIDO2-Authentifizierungsgerät es typischerweise entdeckbar machen; FIDO1/U2F-Sicherheitsschlüssel wäre nicht entdeckbar). `credProps` wird nur vom Benutzeragenten verarbeitet.
+2. Die Erweiterung `minPinLength` erlaubt es vertrauenden Parteien, die minimale PIN-Länge des Authentifizierungsgeräts anzufordern. Dies erfordert, dass `extensions.minPinLength` auf `true` gesetzt wird. `minPinLength` wird vom Authentifizierungsgerät verarbeitet, wobei der Benutzeragent nur dazu dient, die Eingabedaten an dieses weiterzugeben.
 
 ```js
 const publicKey = {
@@ -40,15 +40,15 @@ const publicKey = {
 }
 ```
 
-Wir können dann das `publicKey`-Objekt in einen `create()`-Aufruf übergeben, um den Berechtigungsnachweis-Erstellungsfluss zu starten:
+Wir können dann das `publicKey`-Objekt in einen `create()`-Aufruf übergeben, um den Erstellungsfluss des Berechtigungsnachweises zu starten:
 
 ```js
 navigator.credentials.create({ publicKey });
 ```
 
-## Abrufen der Ergebnisse der Erweiterungsanforderung
+## Abrufen von Ergebnissen von Erweiterungsanfragen
 
-Wenn erfolgreich, gibt der `create()`-Aufruf ein {{jsxref("Promise")}} zurück, das mit einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Objekt aufgelöst wird. Sobald die Erweiterungsverarbeitung abgeschlossen ist, werden die Ergebnisse der Verarbeitung in der Antwort kommuniziert (obwohl dies nicht in allen Fällen der Fall ist – es ist möglich, dass Erweiterungen keine Ausgabe haben).
+Bei Erfolg wird der `create()`-Aufruf ein {{jsxref("Promise")}} zurückgeben, das mit einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekt aufgelöst wird. Sobald die Erweiterungsverarbeitung abgeschlossen ist, werden die Ergebnisse der Verarbeitung in der Antwort mitgeteilt (obwohl nicht in allen Fällen – es ist möglich, dass Erweiterungen keine Ausgabe haben).
 
 ```js
 navigator.credentials
@@ -67,34 +67,34 @@ navigator.credentials
   });
 ```
 
-Wie das obige Code-Snippet zeigt, gibt es zwei verschiedene Stellen, an denen Sie die Ergebnisse Ihrer Erweiterungsausgabe finden können:
+Wie das obige Codebeispiel zeigt, gibt es zwei verschiedene Orte, um die Ausgabeergebnisse der Erweiterungsergebnisse zu finden:
 
-1. Sie können die Ergebnisse der Client- (Benutzeragenten-) Erweiterungsverarbeitung abrufen, indem Sie die Methode [`PublicKeyCredential.getClientExtensionResults()`](/de/docs/Web/API/PublicKeyCredential/getClientExtensionResults) aufrufen. Dies gibt eine {{jsxref("Map", "map")}} zurück, wobei jeder Eintrag ein Erweiterungskennzeichen-String als Schlüssel und die Ausgabe von der Verarbeitung der Erweiterung durch den Client als Wert ist. Im obigen Beispiel, wenn der Browser die `credProps`-Erweiterung unterstützt und sie korrekt verarbeitet wurde, würde das `myClientExtResults` Map-Objekt einen Eintrag `"credProps"` mit einem Wert von `{ rk: true }` enthalten. Dies würde bestätigen, dass das erstellte Berechtigungsnachweis tatsächlich auffindbar ist.
+1. Sie können die Ergebnisse der Benutzeragenten-Erweiterungsverarbeitung abrufen, indem Sie die Methode [`PublicKeyCredential.getClientExtensionResults()`](/de/docs/Web/API/PublicKeyCredential/getClientExtensionResults) aufrufen. Diese gibt eine {{jsxref("Map", "map")}} zurück, wobei jeder Eintrag eine Identifikator-Zeichenfolge der Erweiterungen als Schlüssel und die Ausgabe der Verarbeitung der Erweiterung durch den Client als Wert hat. In dem obigen Beispiel würde das `myClientExtResults`-Map-Objekt einen Eintrag, `"credProps"` enthalten, wobei der Wert `{ rk: true }` wäre, wenn der Browser die Erweiterung `credProps` unterstützt und korrekt verarbeitet hat. Dies würde bestätigen, dass das erstellte Berechtigungsnachweis tatsächlich entdeckbar ist.
 
-2. Sie können die Ergebnisse der Authentifikatorerweiterungsverarbeitung in den Authentifikatordaten für die Operation finden:
+2. Sie können die Ergebnisse der Authentifizierungsgerät-Erweiterungsverarbeitung in den Authentifizierungsgerätedaten für den Vorgang finden:
 
-   - Bei `PublicKeyCredential`s, die von erfolgreichen `create()`-Aufrufen zurückgegeben werden, kann dies über einen Aufruf von [`publicKeyCredential.response.getAuthenticatorData()`](/de/docs/Web/API/AuthenticatorAttestationResponse/getAuthenticatorData) zurückgegeben werden.
-   - Bei `PublicKeyCredential`s, die von erfolgreichen `get()`-Aufrufen zurückgegeben werden, kann dies in der [`publicKeyCredential.response.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) Eigenschaft gefunden werden.
+   - Im Fall von `PublicKeyCredential`s, die von erfolgreichen `create()`-Aufrufen zurückgegeben werden, kann dies über einen Aufruf zu [`publicKeyCredential.response.getAuthenticatorData()`](/de/docs/Web/API/AuthenticatorAttestationResponse/getAuthenticatorData) zurückgegeben werden.
+   - Im Fall von `PublicKeyCredential`s, die von erfolgreichen `get()`-Aufrufen zurückgegeben werden, kann dies in der [`publicKeyCredential.response.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData)-Eigenschaft gefunden werden.
 
-   Authentifikatordaten haben die Form eines {{jsxref("ArrayBuffer")}} mit einer konsistenten Struktur – siehe [authentifizierte Daten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data). Die Authentikor-Erweiterungsergebnisse werden immer in einem Abschnitt am Ende gefunden, als ein [CBOR-Map](https://cbor.io/), der die Ergebnisse darstellt. Siehe [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) für eine detaillierte Beschreibung der vollständigen Authentifikatordatenstruktur.
+   Authentifizierungsgerätedaten haben die Form eines {{jsxref("ArrayBuffer")}} mit einer konsistenten Struktur – siehe [authentifizierungsgerätedaten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data). Die Daten der Authentifizierungsgeräts-Erweiterungsergebnisse werden immer in einem Abschnitt am Ende, als [CBOR map](https://cbor.io/), die die Ergebnisse darstellt, gefunden. Siehe [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) für eine detaillierte Beschreibung der kompletten Authentifizierungsgerätedatenstruktur.
 
-   Zurück zu unserem Beispiel: Wenn die vertrauende Partei autorisiert ist, den Wert `minPinLength` zu erhalten, würden die Authentifikatordaten eine Darstellung davon in folgender Form enthalten: `"minPinLength": uint`.
+   Zurück zu unserem Beispiel, wenn die vertrauende Partei autorisiert ist, den `minPinLength`-Wert zu erhalten, würden die Authentifizierungsgerätedaten eine Darstellung davon in folgender Form enthalten: `"minPinLength": uint`.
 
 ## Verfügbare Erweiterungen
 
-Die unten aufgeführten Erweiterungen stellen keine vollständige Liste aller verfügbaren Erweiterungen dar. Wir haben uns entschieden, Erweiterungen zu dokumentieren, von denen wir wissen, dass sie standardisiert und von mindestens einer Rendering-Engine unterstützt werden.
+Die unten aufgeführten Erweiterungen stellen keine erschöpfende Liste aller verfügbaren Erweiterungen dar. Wir haben uns entschieden, Erweiterungen zu dokumentieren, von denen wir wissen, dass sie standardisiert sind und von mindestens einer Rendering-Engine unterstützt werden.
 
 ### `appid`
 
-- Verwendbar bei: Authentifizierung ([`get()`](/de/docs/Web/API/CredentialsContainer/get))
+- Nutzbar in: Authentifizierung ([`get()`](/de/docs/Web/API/CredentialsContainer/get))
 - Verarbeitet von: Benutzeragent
-- Spezifikation: [FIDO AppID Extension (appid)](https://w3c.github.io/webauthn/#sctn-appid-extension)
+- Spezifikation: [FIDO AppID-Erweiterung (appid)](https://w3c.github.io/webauthn/#sctn-appid-extension)
 
-Ermöglicht es einer vertrauenden Partei, eine Bestätigung für ein zuvor registriertes Berechtigungsnachweis unter Verwendung der Legacy-FIDO U2F JavaScript-API anzufordern, um die Neu-Registrierung des Berechtigungsnachweises zu vermeiden. Das `appid` ist das Äquivalent zu `rpId` in WebAuthn (aber bedenken Sie, dass `appid`s in Form von URLs und `rpId`s in Form von Domains vorliegen).
+Erlaubt es einer vertrauenden Partei, eine Bestätigung für ein Berechtigungsnachweis anzufordern, das zuvor mit der Legacy-FIDO U2F-JavaScript-API registriert wurde, um das lästige Neuregistrieren des Berechtigungsnachweises zu vermeiden. Die `appid` ist das Äquivalent der API zum `rpId` in WebAuthn (obwohl zu beachten ist, dass `appid`s in Form von URLs vorliegen, während `rpId`s in Form von Domains vorliegen).
 
 #### Eingabe
 
-Die `publicKey`'s `extensions` Eigenschaft muss eine `appid` Eigenschaft enthalten, deren Wert der Anwendungsbezeichner ist, der in der Legacy-API verwendet wurde. Zum Beispiel:
+Die `publicKey`-`extensions`-Eigenschaft muss eine `appid`-Eigenschaft enthalten, deren Wert der in der Legacy-API verwendete Anwendungsbezeichner ist. Zum Beispiel:
 
 ```js
 extensions: {
@@ -102,7 +102,7 @@ extensions: {
 }
 ```
 
-Sie müssen auch die FIDO U2F-Berechtigungsnachweis-IDs in der `publicKey`'s `allowCredentials`-Eigenschaft auflisten, zum Beispiel:
+Sie müssen auch die FIDO U2F-Berechtigungsnachweis-IDs in der `allowCredentials`-Eigenschaft von `publicKey` auflisten, zum Beispiel:
 
 ```js
 allowCredentials: {
@@ -116,19 +116,19 @@ allowCredentials: {
 
 #### Ausgabe
 
-Gibt `appid: true` aus, wenn `appid` für die Bestätigung erfolgreich verwendet wurde, oder `appid: false` andernfalls.
+Gibt `appid: true` aus, wenn die `appid` erfolgreich für die Bestätigung verwendet wurde, oder `appid: false` andernfalls.
 
 ### `appidExclude`
 
-- Verwendbar bei: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create))
+- Nutzbar in: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create))
 - Verarbeitet von: Benutzeragent
-- Spezifikation: [FIDO AppID Exclusion Extension (appidExclude)](https://w3c.github.io/webauthn/#sctn-appid-exclude-extension)
+- Spezifikation: [FIDO AppID-Ausschlusserweiterung (appidExclude)](https://w3c.github.io/webauthn/#sctn-appid-exclude-extension)
 
-Ermöglicht es einer vertrauenden Partei, Authentifikatoren auszuschließen, die bestimmte zuvor unter Verwendung der Legacy-FIDO U2F JavaScript-API registrierte Berechtigungsnachweise enthalten, während der Registrierung. Dies ist erforderlich, da standardmäßig der Inhalt des `excludeCredentials`-Feldes als WebAuthn-Berechtigungsnachweise angesehen wird. Beim Verwenden dieser Erweiterung können Sie Legacy-FIDO U2F-Berechtigungsnachweise innerhalb von `excludeCredentials` einfügen, und sie werden als solche erkannt.
+Erlaubt es einer vertrauenden Partei, Authentifizierungsgeräte in der Registrierung auszuschließen, die bestimmte Berechtigungsnachweise enthalten, die zuvor mit der Legacy-FIDO U2F-JavaScript-API registriert wurden. Dies ist erforderlich, da standardmäßig der Inhalt des `excludeCredentials`-Feldes als WebAuthn-Berechtigungsnachweise angenommen wird. Bei Verwendung dieser Erweiterung können Sie Legacy-FIDO U2F-Berechtigungsnachweise in `excludeCredentials` aufnehmen, und sie werden als solche erkannt.
 
 #### Eingabe
 
-Die `publicKey`'s `extensions`-Eigenschaft muss eine `appidExclude`-Eigenschaft enthalten, dessen Wert der Bezeichner der vertrauenden Partei ist, die die Authentifikatoren durch Legacy-FIDO U2F-Berechtigungsnachweise ausschließen möchte. Zum Beispiel:
+Die `publicKey`-`extensions`-Eigenschaft muss eine `appidExclude`-Eigenschaft enthalten, deren Wert der Bezeichner der vertrauenden Partei ist, die das Ausschließen von Authentifizierungsgeräten durch Legacy-FIDO U2F-Berechtigungsnachweise anfordert. Zum Beispiel:
 
 ```js
 extensions: {
@@ -136,7 +136,7 @@ extensions: {
 }
 ```
 
-Sie können dann die FIDO U2F-Berechtigungsnachweise in der `publicKey`'s `excludeCredentials`-Eigenschaft auflisten, zum Beispiel:
+Sie können dann FIDO U2F-Berechtigungsnachweise in der `publicKey`-`excludeCredentials`-Eigenschaft auflisten, zum Beispiel:
 
 ```js
 excludeCredentials: {
@@ -150,19 +150,19 @@ excludeCredentials: {
 
 #### Ausgabe
 
-Gibt `appidExclude: true` aus, wenn die Erweiterung durchgeführt wurde, oder `appidExclude: false` andernfalls.
+Gibt `appidExclude: true` aus, wenn die Erweiterung beachtet wurde, oder `appidExclude: false` andernfalls.
 
 ### `credProps`
 
-- Verwendbar bei: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create))
+- Nutzbar in: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create))
 - Verarbeitet von: Benutzeragent
 - Spezifikation: [Credential Properties Extension (credProps)](https://w3c.github.io/webauthn/#sctn-authenticator-credential-properties-extension)
 
-Ermöglicht es einer vertrauenden Partei, zusätzliche Informationen/Eigenschaften über das erstellte Berechtigungsnachweis anzufordern. Dies ist derzeit nur nützlich beim Aufrufen von `create()` mit `publicKey.authenticatorSelection.residentKey = "preferred"`; es fordert Informationen an, ob das erstellte Berechtigungsnachweis auffindbar ist.
+Erlaubt es einer vertrauenden Partei, zusätzliche Informationen/Eigenschaften über das erstellte Berechtigungsnachweis anzufordern. Dies ist derzeit nur nützlich, wenn `create()` mit `publicKey.authenticatorSelection.residentKey = "preferred"` aufgerufen wird; es fragt Informationen darüber an, ob das erstellte Berechtigungsnachweis entdeckbar ist.
 
 #### Eingabe
 
-Die `publicKey`'s `extensions`-Eigenschaft muss eine `credProps`-Eigenschaft mit einem Wert von `true` enthalten:
+Die `publicKey`-`extensions`-Eigenschaft muss eine `credProps`-Eigenschaft mit einem Wert von `true` enthalten:
 
 ```js
 extensions: {
@@ -180,7 +180,7 @@ authenticatorSelection: {
 
 #### Ausgabe
 
-Gibt Folgendes aus, wenn das registrierte [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) ein clientseitig auffindbares Berechtigungsnachweis ist:
+Gibt Folgendes aus, wenn das registrierte [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) ein clientseitig entdeckbares Berechtigungsnachweis ist:
 
 ```js
 credProps: {
@@ -188,19 +188,19 @@ credProps: {
 }
 ```
 
-Wenn `rk` im Output auf `false` gesetzt ist, handelt es sich um ein serverseitiges Berechtigungsnachweis. Wenn `rk` im Output nicht vorhanden ist, ist nicht bekannt, ob das Berechtigungsnachweis clientseitig auffindbar oder serverseitig ist.
+Wenn `rk` im Ausgabeergebnis auf `false` gesetzt ist, ist das Berechtigungsnachweis ein serverseitiges Berechtigungsnachweis. Wenn `rk` nicht im Ausgabeergebnis vorhanden ist, ist nicht bekannt, ob das Berechtigungsnachweis clientseitig entdeckbar oder serverseitig ist.
 
 ### `credProtect`
 
-- Verwendbar bei: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create))
+- Nutzbar in: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create))
 - Verarbeitet von: Authentifikator
 - Spezifikation: [Credential Protection (credProtect)](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#sctn-credProtect-extension)
 
-Ermöglicht es einer vertrauenden Partei, bei der Erstellung eines Berechtigungsnachweises eine minimale Berechtigungsschutzrichtlinie anzugeben.
+Erlaubt es einer vertrauenden Partei, eine minimale Schutzpolitik für Berechtigungsnachweise festzulegen, wenn ein Berechtigungsnachweis erstellt wird.
 
 #### Eingabe
 
-Die `publicKey`'s `extensions`-Eigenschaft muss eine `credentialProtectionPolicy`-Eigenschaft enthalten, die das Schutzniveau des zu erstellenden Berechtigungsnachweises angibt, und eine boolesche `enforceCredentialProtectionPolicy`-Eigenschaft, die angibt, ob der `create()`-Aufruf fehlschlagen soll, anstatt ein Berechtigungsnachweis zu erstellen, das nicht den angegebenen Richtlinien entspricht:
+Die `publicKey`-`extensions`-Eigenschaft muss eine `credentialProtectionPolicy`-Eigenschaft enthalten, die das Schutzniveau des zu erstellenden Berechtigungsnachweises festlegt, und eine boolesche `enforceCredentialProtectionPolicy`-Eigenschaft, die angibt, ob der `create()`-Aufruf scheitern soll, anstatt ein Berechtigungsnachweis zu erstellen, das nicht der angegebenen Politik entspricht:
 
 ```js
 extensions: {
@@ -212,24 +212,24 @@ extensions: {
 Die verfügbaren `credentialProtectionPolicy`-Werte sind wie folgt:
 
 - `"userVerificationOptional"` {{Experimental_Inline}}
-  - : Die Benutzerüberprüfung ist optional. Der äquivalente `credProtect`-Wert, der an den Authentifikator zur Verarbeitung gesendet wird, ist `0x01`.
+  - : Benutzerüberprüfung ist optional. Der äquivalente `credProtect`-Wert, der an den Authentifizierer zur Verarbeitung gesendet wird, ist `0x01`.
 - `"userVerificationOptionalWithCredentialIDList"`
-  - : Die Benutzerüberprüfung ist nur optional, wenn das Berechtigungsnachweis auffindbar ist (d.h. es ist clientseitig auffindbar). Der äquivalente `credProtect`-Wert, der an den Authentifikator zur Verarbeitung gesendet wird, ist `0x02`.
+  - : Benutzerüberprüfung ist nur dann optional, wenn das Berechtigungsnachweis entdeckbar ist (d. h., es ist clientseitig entdeckbar). Der äquivalente `credProtect`-Wert, der an den Authentifizierer zur Verarbeitung gesendet wird, ist `0x02`.
 - `"userVerificationRequired"`
-  - : Die Benutzerüberprüfung ist immer erforderlich. Der äquivalente `credProtect`-Wert, der an den Authentifikator zur Verarbeitung gesendet wird, ist `0x03`.
+  - : Benutzerüberprüfung ist immer erforderlich. Der äquivalente `credProtect`-Wert, der an den Authentifizierer zur Verarbeitung gesendet wird, ist `0x03`.
 
 > [!NOTE]
-> Chromium verwendet standardmäßig `userVerificationOptionalWithCredentialIDList` oder `userVerificationRequired`, abhängig von der Art der Anforderung:
+> Chromium wird standardmäßig `userVerificationOptionalWithCredentialIDList` oder `userVerificationRequired` verwenden, je nach Art der Anfrage:
 >
-> - Chromium fordert bei der Erstellung eines Berechtigungsnachweises ein Schutzniveau von `userVerificationOptionalWithCredentialIDList` an, wenn `residentKey` auf `preferred` oder `required` gesetzt ist. (Das Setzen von `requireResidentKey` wird genauso behandelt wie required.) Dies stellt sicher, dass der einfache Besitz eines Sicherheitsschlüssels nicht die Anwesenheit eines auffindbaren Berechtigungsnachweises für ein angegebenes `rpId` abfragt.
-> - Zusätzlich, wenn `residentKey` `required` ist und `userVerification` bevorzugt wird, wird das Schutzniveau auf `userVerificationRequired` erhöht. Dies stellt sicher, dass der physische Besitz eines Sicherheitsschlüssels nicht das Einloggen auf einer Seite zulässt, die keine Benutzerüberprüfung erfordert. (Dies ist nicht vollständiger Schutz; Websites sollten dennoch sorgfältig über die Sicherheit ihrer Nutzer nachdenken.)
-> - Wenn die Seite ein explizites `credProtect`-Niveau anfordert, wird dies diese Voreinstellungen überschreiben. Diese Voreinstellungen werden niemals dazu führen, dass das Schutzniveau niedriger ist als der Standard des Sicherheitsschlüssels, falls dieser höher ist.
+> - Chromium wird ein Schutzniveau von `userVerificationOptionalWithCredentialIDList` anfordern, wenn ein Berechtigungsnachweis erstellt wird, wenn `residentKey` auf `preferred` oder `required` gesetzt ist. (Das Setzen von `requireResidentKey` wird wie `required` behandelt.) Dies stellt sicher, dass allein der physische Besitz eines Sicherheitsschlüssels es nicht erlaubt, das Vorhandensein eines entdeckbaren Berechtigungsnachweises für ein gegebenes `rpId` zu überprüfen.
+> - Wenn `residentKey` `required` ist und `userVerification` bevorzugt wird, wird das Schutzniveau auf `userVerificationRequired` erhöht. Dies stellt sicher, dass der physische Besitz eines Sicherheitsschlüssels es nicht erlaubt, sich bei einer Website anzumelden, die keine Benutzerüberprüfung benötigt. (Dies ist kein vollständiger Schutz; Websites sollten immer noch sorgfältig die Sicherheit ihrer Benutzer berücksichtigen.)
+> - Wenn die Website ein explizites `credProtect`-Niveau anfordert, wird diese Voreinstellung überschrieben. Diese Voreinstellungen führen niemals dazu, dass das Schutzniveau niedriger ist als die Standardeinstellung des Sicherheitsschlüssels, falls diese höher ist.
 >
-> Angenommen, der Wert `enforceCredentialProtectionPolicy` ist `true`. In diesem Fall schlägt der `create()`-Aufruf fehl, wenn die Richtlinie nicht eingehalten werden kann (zum Beispiel, sie erfordert eine Benutzerüberprüfung, aber der Authentifikator unterstützt keine Benutzerüberprüfung). Wenn es `false` ist, wird das System den besten Versuch unternehmen, ein Berechtigungsnachweis zu erstellen, das den Richtlinien entspricht, aber es wird immer noch eines erstellen, das so nah wie möglich daran entspricht, wenn dies nicht möglich ist.
+> Wenn der Wert von `enforceCredentialProtectionPolicy` `true` ist, wird der `create()`-Aufruf scheitern, wenn die Politik nicht eingehalten werden kann (zum Beispiel, wenn eine Benutzerüberprüfung erforderlich ist, der Authentifizierer jedoch keine Benutzerüberprüfung unterstützt). Wenn es `false` ist, wird das System den besten Versuch unternehmen, ein Berechtigungsnachweis zu erstellen, das der Politik entspricht, aber es wird immer noch eines erstellen, das so nah wie möglich der Politik entspricht, wenn dies nicht möglich ist.
 
 #### Ausgabe
 
-Wenn der `create()`-Aufruf erfolgreich ist, werden die Authentifikatordaten eine Darstellung des `credProtect`-Werts enthalten, der die festgelegte Richtlinie in folgender Form darstellt:
+Wenn der `create()`-Aufruf erfolgreich ist, werden die Authentifizierungsgerätedaten eine Darstellung des `credProtect`-Wertes enthalten, die die festgelegte Politik in folgender Form widerspiegelt:
 
 ```js
 { "credProtect": 0x01 }
@@ -237,15 +237,15 @@ Wenn der `create()`-Aufruf erfolgreich ist, werden die Authentifikatordaten eine
 
 ### `largeBlob`
 
-- Verwendbar bei: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create)) und Authentifizierung ([`get()`](/de/docs/Web/API/CredentialsContainer/get))
+- Nutzbar in: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create)) und Authentifizierung ([`get()`](/de/docs/Web/API/CredentialsContainer/get))
 - Verarbeitet von: Benutzeragent
-- Spezifikation: [Großblob-Speichererweiterung (largeBlob)](https://w3c.github.io/webauthn/#sctn-large-blob-extension)
+- Spezifikation: [Large Blob Storage Extension (largeBlob)](https://w3c.github.io/webauthn/#sctn-large-blob-extension)
 
-Ermöglicht es einer vertrauenden Partei, Blobs im Zusammenhang mit einem Berechtigungsnachweis auf dem Authentifikator zu speichern – zum Beispiel könnte sie wünschen, Zertifikate direkt zu speichern, anstatt einen zentralen Authentifizierungsdienst auszuführen.
+Erlaubt es einer vertrauenden Partei, Blobs im Zusammenhang mit einem Berechtigungsnachweis auf dem Authentifizierungsgerät zu speichern – beispielsweise kann es direkt Zertifikate speichern, anstatt einen zentralen Authentifizierungsdienst auszuführen.
 
 #### Eingabe
 
-Während eines `create()`-Aufrufs muss die `publicKey`'s `extensions`-Eigenschaft eine `largeBlob`-Eigenschaft mit der folgenden Objektstruktur enthalten:
+Während eines `create()`-Aufrufs muss die `publicKey`-`extensions`-Eigenschaft eine `largeBlob`-Eigenschaft mit der folgenden Objektstruktur enthalten:
 
 ```js
 extensions: {
@@ -255,14 +255,14 @@ extensions: {
 }
 ```
 
-Der Wert der `support`-Eigenschaft ist ein String, der einer der folgenden sein kann:
+Der Wert der `support`-Eigenschaft ist eine Zeichenkette, die einen der folgenden Werte haben kann:
 
-- `"preferred"`: Das Berechtigungsnachweis wird mit einem Authentifikator erstellt, der Blobs speichern kann, wenn möglich, aber es wird immer noch eines erstellt, wenn nicht. Die Ausgabe-Eigenschaft „supported“ berichtet über die Fähigkeit des Authentifikators, Blobs zu speichern.
-- `"required"`: Das Berechtigungsnachweis wird mit einem Authentifikator erstellt, um Blobs zu speichern. Der `create()`-Aufruf schlägt fehl, wenn dies nicht möglich ist.
+- `"preferred"`: Das Berechtigungsnachweis wird mit einem Authentifikator erstellt, der Blobs speichern kann, wenn möglich, aber es wird immer noch eines erstellen, falls nicht. Die Ausgabeergebnis-'supported'-Eigenschaft berichtet über die Fähigkeit des Authentifikators, Blobs zu speichern.
+- `"required"`: Das Berechtigungsnachweis wird mit einem Authentifikator erstellt, um Blobs zu speichern. Der `create()`-Aufruf wird fehlschlagen, wenn dies nicht möglich ist.
 
-Während eines `get()`-Aufrufs muss die `publicKey`'s `extensions`-Eigenschaft eine `largeBlob`-Eigenschaft enthalten, die eine von zwei Untereigenschaften entweder `read` oder `write` enthält (`get()` schlägt fehl, wenn beide vorhanden sind):
+Während eines `get()`-Aufrufs muss die `publicKey`-`extensions`-Eigenschaft eine `largeBlob`-Eigenschaft mit einem von zwei Untereigenschaften enthalten – `read` oder `write` (`get()` schlägt fehl, wenn beide vorhanden sind):
 
-Die `read`-Eigenschaft ist ein boolescher Wert. Ein Wert von `true` gibt an, dass die vertrauende Partei ein zuvor geschriebenes Blob abrufen möchte, das mit dem behaupteten Berechtigungsnachweis verknüpft ist:
+Die `read`-Eigenschaft ist ein boolean. Ein Wert von `true` gibt an, dass die vertrauende Partei einen zuvor geschriebenen Blob im Zusammenhang mit dem bestätigten Berechtigungsnachweis abrufen möchte:
 
 ```js
 extensions: {
@@ -272,7 +272,7 @@ extensions: {
 }
 ```
 
-Die `write`-Eigenschaft nimmt einen Wert eines {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, oder {{jsxref("DataView")}} an, der ein Blob darstellt, das die vertrauende Partei alongside einem bestehenden Berechtigungsnachweis speichern möchte:
+Die `write`-Eigenschaft nimmt als Wert einen {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}} oder {{jsxref("DataView")}} an, der einen Blob darstellt, den die vertrauende Partei neben einem vorhandenen Berechtigungsnachweis speichern möchte:
 
 ```js
 extensions: {
@@ -283,7 +283,7 @@ extensions: {
 ```
 
 > [!NOTE]
-> Für einen erfolgreichen Schreibauthentifizierungsbetrieb muss `publicKey.allowCredentials` nur ein einzelnes Element enthalten, das das Berechtigungsnachweis darstellt, welches das Blob alongside gespeichert werden soll.
+> Damit ein Schreib-Authentifizierungsvorgang erfolgreich ist, muss `publicKey.allowCredentials` nur ein einziges Element enthalten, das das Berechtigungsnachweis darstellt, neben dem Sie den Blob speichern möchten.
 
 #### Ausgabe
 
@@ -295,7 +295,7 @@ largeBlob: {
 }
 ```
 
-Ein `get()`-Leseaufruf macht das Blob im Erweiterungsausgang als ein {{jsxref("ArrayBuffer")}} verfügbar, wenn erfolgreich:
+Ein `get()`-Lesen-Aufruf macht den Blob bei erfolgreichem Ausgang als {{jsxref("ArrayBuffer")}} in der Erweiterungsausgabe verfügbar:
 
 ```js
 largeBlob: {
@@ -304,9 +304,9 @@ largeBlob: {
 ```
 
 > [!NOTE]
-> Wenn nicht erfolgreich, wird das `largeBlob`-Objekt zurückgegeben, aber `blob` wird nicht vorhanden sein.
+> Wenn erfolglos, wird das `largeBlob`-Objekt zurückgegeben, aber `blob` wird nicht vorhanden sein.
 
-Ein `get()`-Schreibaufruf gibt an, ob der Schreibvorgang erfolgreich war, mit einem `written` booleschen Wert in der Erweiterungsausgabe. Ein Wert von `true` bedeutet, dass es erfolgreich auf den zugehörigen Authentifikator geschrieben wurde, und `false` bedeutet, dass es nicht erfolgreich war.
+Ein `get()`-Schreiben-Aufruf zeigt an, ob der Schreibvorgang erfolgreich war, mit einem `written`-boolean-Wert in der Erweiterungsausgabe. Ein Wert von `true` bedeutet, dass er erfolgreich auf dem zugeordneten Authentifizierungsgerät geschrieben wurde, und `false` bedeutet, dass er erfolglos war.
 
 ```js
 largeBlob: {
@@ -316,15 +316,15 @@ largeBlob: {
 
 ### `minPinLength`
 
-- Verwendbar bei: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create))
-- Verarbeitet von: Authentifikator
+- Nutzbar in: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create))
+- Verarbeitet von: Authentifizierer
 - Spezifikation: [Minimum PIN Length Extension (minPinLength)](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#sctn-minpinlength-extension)
 
-Ermöglicht es vertrauenden Parteien, die Mindest-PIN-Länge des Authentifikators abzufragen.
+Erlaubt vertrauenden Parteien, die minimale PIN-Länge des Authentifizierers anzufordern.
 
 #### Eingabe
 
-Die `publicKey`'s `extensions`-Eigenschaft muss eine `minPinLength`-Eigenschaft mit einem Wert von `true` enthalten:
+Die `publicKey`-`extensions`-Eigenschaft muss eine `minPinLength`-Eigenschaft mit dem Wert `true` enthalten:
 
 ```js
 extensions: {
@@ -334,40 +334,40 @@ extensions: {
 
 #### Ausgabe
 
-Wenn die vertrauende Partei autorisiert ist, den Wert `minPinLength` zu erhalten (wenn ihr `rpId` in der autorisierten vertrauenden Parteienliste des Authentifikators vorhanden ist), werden die Authentikatordaten eine Darstellung davon in folgender Form enthalten:
+Wenn die vertrauende Partei autorisiert ist, den `minPinLength`-Wert zu erhalten (wenn ihr `rpId` auf der autorisierten vertrauenden Parteienliste des Authentifizierers vorhanden ist), werden die Authentifizierungsgerätedaten eine Darstellung davon in der folgenden Form enthalten:
 
 ```js
 {"minPinLength": uint}
 ```
 
-Wenn die vertrauende Partei nicht autorisiert ist, wird die Erweiterung ignoriert und kein `"minPinLength"`-Outputwert bereitgestellt.
+Wenn die vertrauende Partei nicht autorisiert ist, wird die Erweiterung ignoriert und es wird kein `"minPinLength"`-Ausgabewert bereitgestellt.
 
 ### `payment`
 
-- Verwendbar bei: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create))
+- Nutzbar in: Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create))
 - Verarbeitet von: Benutzeragent
 - Spezifikation: [Secure Payment Confirmation](https://w3c.github.io/secure-payment-confirmation/)
 
-Ermöglicht es einer vertrauenden Partei, die Erstellung eines WebAuthn-Berechtigungsnachweises anzufordern, der möglicherweise – sowohl von der vertrauenden Partei als auch von anderen Parteien – mit der Secure Payment Confirmation genutzt werden kann; siehe [Secure Payment Confirmation verwenden](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation).
+Erlaubt einer vertrauenden Partei, die Erstellung eines WebAuthn-Berechtigungsnachweises anzufordern, das sowohl von der vertrauenden Partei als auch von anderen Parteien mit Secure Payment Confirmation genutzt werden kann; siehe [Using Secure Payment Confirmation](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation).
 
 #### Eingabe
 
-Die Eingaben für die `payment`-Erweiterung sind im [AuthenticationExtensionsPaymentInputs Wörterbuch](https://w3c.github.io/secure-payment-confirmation/#dictdef-authenticationextensionspaymentinputs) definiert.
+Die Eingaben für die `payment`-Erweiterung sind im [AuthenticationExtensionsPaymentInputs-Wörterbuch](https://w3c.github.io/secure-payment-confirmation/#dictdef-authenticationextensionspaymentinputs) definiert:
 
 - `isPayment`
-  - : Ein boolescher Wert, der anzeigt, dass die Erweiterung aktiv ist.
+  - : Ein boolean, der anzeigt, dass die Erweiterung aktiv ist.
 - `rpID`
-  - : Die [Vertrauende Partei](https://w3c.github.io/webauthn/#relying-party)-ID des zu verwendenden Berechtigungsnachweises. Nur bei der Authentifizierung verwendet; nicht bei der Registrierung.
+  - : Die [vertrauende Partei](https://w3c.github.io/webauthn/#relying-party)-ID der verwendeten Berechtigungsnachweise. Wird nur zum Zeitpunkt der Authentifizierung verwendet; nicht Registrierung.
 - `topOrigin`
-  - : Der Ursprung des Top-Level-Frames. Nur bei der Authentifizierung verwendet; nicht bei der Registrierung.
+  - : Der Ursprung des obersten Frames. Wird nur zum Zeitpunkt der Authentifizierung verwendet; nicht Registrierung.
 - `payeeName`
-  - : Der Name des Zahlungsempfängers, falls vorhanden, der dem Benutzer angezeigt wurde. Nur bei der Authentifizierung verwendet; nicht bei der Registrierung.
+  - : Der, falls vorhanden, an den Benutzer angezeigte Zahlungsempfängername. Wird nur zum Zeitpunkt der Authentifizierung verwendet; nicht Registrierung.
 - `payeeOrigin`
-  - : Der Ursprung des Zahlungsempfängers, falls vorhanden, der dem Benutzer angezeigt wurde. Nur bei der Authentifizierung verwendet; nicht bei der Registrierung.
+  - : Der, falls vorhanden, an den Benutzer angezeigte Zahlungsherkunftsort. Wird nur zum Zeitpunkt der Authentifizierung verwendet; nicht Registrierung.
 - `total`
-  - : Der Transaktionsbetrag, der dem Benutzer angezeigt wurde. Nur bei der Authentifizierung verwendet; nicht bei der Registrierung. Der Gesamtbetrag ist vom Typ [PaymentCurrencyAmount](https://w3c.github.io/payment-request/#dom-paymentcurrencyamount).
+  - : Der, falls vorhanden, an den Benutzer angezeigte Transaktionsbetrag. Wird nur zum Zeitpunkt der Authentifizierung verwendet; nicht Registrierung. Der Gesamtbetrag ist vom Typ [PaymentCurrencyAmount](https://w3c.github.io/payment-request/#dom-paymentcurrencyamount).
 - `instrument`
-  - : Die Instrumentendetails, die dem Benutzer angezeigt wurden. Nur bei der Authentifizierung verwendet; nicht bei der Registrierung. Das Instrument ist vom Typ [PaymentCredentialInstrument](https://w3c.github.io/secure-payment-confirmation/#dictdef-paymentcredentialinstrument).
+  - : Die, falls vorhanden, an den Benutzer angezeigten Instrumentendetails. Wird nur zum Zeitpunkt der Authentifizierung verwendet; nicht Registrierung. Das Instrument ist vom Typ [PaymentCredentialInstrument](https://w3c.github.io/secure-payment-confirmation/#dictdef-paymentcredentialinstrument).
 
 #### Ausgabe
 
@@ -375,15 +375,12 @@ Keine
 
 ## Spezifikationen
 
-Es gibt mehrere Orte, an denen WebAuthn-Erweiterungen spezifiziert sind. IANA's [WebAuthn Extension Identifiers](https://www.iana.org/assignments/webauthn/webauthn.xhtml#webauthn-extension-ids) bietet ein Register aller Erweiterungen, aber beachten Sie, dass einige möglicherweise veraltet sind.
+Es gibt mehrere Stellen, an denen WebAuthn-Erweiterungen spezifiziert sind. IANAs [WebAuthn Extension Identifiers](https://www.iana.org/assignments/webauthn/webauthn.xhtml#webauthn-extension-ids) bietet ein Register aller Erweiterungen, jedoch sind einige möglicherweise veraltet.
 
-Orte, an denen Erweiterungen spezifiziert sind:
-
-- [Web Authentication Level 3, Section 10: Defined extensions](https://w3c.github.io/webauthn/#sctn-defined-extensions)
-- [Client to Authenticator Protocol (CTAP) 2, Section 12: Defined Extensions](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#sctn-defined-extensions)
+{{Specifications}}
 
 ## Browser-Kompatibilität
 
-Die Kompatibilitätsdaten für WebAuthn-Erweiterungen wurden in zwei Tabellen aufgeteilt – Erweiterungen, die während der Registrierung von Berechtigungsnachweisen ([`create()`](/de/docs/Web/API/CredentialsContainer/create)) verwendet werden können, und Erweiterungen, die während der Authentifizierung ([`get()`](/de/docs/Web/API/CredentialsContainer/get)) verwendet werden können. Einige Erweiterungen sind bei beiden Vorgängen nutzbar.
+Die Kompatibilitätsdaten für WebAuthn-Erweiterungen wurden in zwei Tabellen unterteilt — Erweiterungen, die während der Berechtigungsnachweis-Registrierung ([`create()`](/de/docs/Web/API/CredentialsContainer/create)) verwendet werden können, und Erweiterungen, die während der Authentifizierung ([`get()`](/de/docs/Web/API/CredentialsContainer/get)) verwendet werden können. Einige Erweiterungen sind während beider Vorgänge nutzbar.
 
 {{Compat}}

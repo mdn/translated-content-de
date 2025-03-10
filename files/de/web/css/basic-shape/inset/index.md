@@ -2,14 +2,48 @@
 title: inset()
 slug: Web/CSS/basic-shape/inset
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`inset()`**-[CSS](/de/docs/Web/CSS)-Funktion definiert ein Rechteck in den angegebenen Abständen von jedem Rand der Referenzbox. Es handelt sich um eine grundlegende Formfunktion, die zum Definieren eines der {{cssxref("&lt;basic-shape&gt;")}}-[Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) verwendet wird.
+Die **`inset()`** [CSS](/de/docs/Web/CSS) Funktion definiert ein Rechteck mit den angegebenen Abständen vom Referenzrahmen. Es ist eine grundlegende Formfunktion, die verwendet wird, um einen der {{cssxref("&lt;basic-shape&gt;")}} [Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) zu definieren.
 
-{{EmbedInteractiveExample("pages/css/function-inset.html")}}
+{{InteractiveExample("CSS Demo: inset()")}}
+
+```css interactive-example-choice
+clip-path: inset(30px);
+```
+
+```css interactive-example-choice
+clip-path: inset(1rem 2rem 3rem 4rem);
+```
+
+```css interactive-example-choice
+clip-path: inset(20% 30% round 20px);
+```
+
+```css interactive-example-choice
+clip-path: inset(4rem 20% round 1rem 2rem 3rem 4rem);
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element"></div>
+</section>
+```
+
+```css interactive-example
+#default-example {
+  background: #fe9;
+}
+
+#example-element {
+  background: linear-gradient(to bottom right, #f52, #05f);
+  width: 100%;
+  height: 100%;
+}
+```
 
 ## Syntax
 
@@ -21,12 +55,12 @@ shape-outside: inset(20px 50px 10px 0 round 50px);
 
 - `<length-percentage>{1,4}`
 
-  - : Wenn alle vier Argumente angegeben sind, stellen sie die Abstände von oben, rechts, unten und links von der Referenzbox nach innen dar, die die Positionen der Kanten des inset-Rechtecks definieren. Diese Argumente folgen der Syntax der `margin`-Kurzschrift, wodurch Sie alle vier Inset-Werte mit einer, zwei oder vier Werten festlegen können.
+  - : Wenn alle vier Argumente angegeben sind, repräsentieren sie die oberen, rechten, unteren und linken Abstände vom Referenzrahmen nach innen, die die Positionen der Kanten des inset-Rechtecks definieren. Diese Argumente folgen der Syntax der margin-Kurzform, die es Ihnen ermöglicht, alle vier Abstände mit einem, zwei oder vier Werten festzulegen.
 
-    Wenn ein Paar von Insets für eine Dimension zusammen mehr als 100 % dieser Dimension ergibt, werden beide Werte proportional reduziert, sodass ihre Summe 100 % entspricht. Zum Beispiel hat der Wert `inset(90% 10% 60% 10%)` ein oberes Inset von `90%` und ein unteres Inset von `60%`. Diese Werte werden proportional auf `inset(60% 10% 40% 10%)` reduziert. Solche Formen, die keine Fläche einschließen und keinen {{cssxref("shape-margin")}} haben, beeinflussen das Umbrechen nicht.
+    Wenn ein Paar von Abständen für eine Dimension mehr als 100 % dieser Dimension ausmacht, werden beide Werte proportional verringert, sodass ihre Summe 100 % ergibt. Zum Beispiel hat der Wert `inset(90% 10% 60% 10%)` einen oberen Abstand von `90%` und einen unteren Abstand von `60%`. Diese Werte werden proportional auf `inset(60% 10% 40% 10%)` reduziert. Solche Formen, die keinen Bereich einschließen und keine {{cssxref("shape-margin")}} haben, beeinflussen den Textumfluss nicht.
 
 - `<border-radius>`
-  - : Die optionalen [`<border-radius>`](/de/docs/Web/CSS/border-radius)-Argumente definieren abgerundete Ecken für das inset-Rechteck mithilfe der `border-radius`-Kurzschriftsyntax.
+  - : Das optionale [`<border-radius>`](/de/docs/Web/CSS/border-radius) Argument(e) definiert abgerundete Ecken für das inset-Rechteck unter Verwendung der border-radius Kurzform-Syntax.
 
 ## Formale Syntax
 
@@ -34,9 +68,9 @@ shape-outside: inset(20px 50px 10px 0 round 50px);
 
 ## Beispiele
 
-### Basis-Beispiel für inset
+### Grundlegendes Beispiel für inset
 
-Im folgenden Beispiel verwenden wir eine `inset()`-Form, um Inhalte über das gefloatete Element zu ziehen. Ändern Sie die Offset-Werte, um zu sehen, wie sich die Form verändert.
+Im untenstehenden Beispiel haben wir eine `inset()` Form verwendet, um Inhalte über das gefloatete Element zu ziehen. Ändern Sie die Offset-Werte, um zu sehen, wie sich die Form ändert.
 
 ```html
 <div class="box">
@@ -87,5 +121,5 @@ Im folgenden Beispiel verwenden wir eine `inset()`-Form, um Inhalte über das ge
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("clip-path")}}, {{cssxref("shape-outside")}}
-- [CSS-Shapes](/de/docs/Web/CSS/CSS_shapes)-Modul
+- [CSS-Formen](/de/docs/Web/CSS/CSS_shapes) Modul
 - [Leitfaden zu grundlegenden Formen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)

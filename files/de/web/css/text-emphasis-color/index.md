@@ -2,14 +2,46 @@
 title: text-emphasis-color
 slug: Web/CSS/text-emphasis-color
 l10n:
-  sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`text-emphasis-color`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Farbe der Hervorhebungszeichen. Dieser Wert kann auch mit der {{cssxref("text-emphasis")}} Kurzform festgelegt werden.
+Die **`text-emphasis-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe von Hervorhebungszeichen fest. Dieser Wert kann auch mit der {{cssxref("text-emphasis")}} Kurzform festgelegt werden.
 
-{{EmbedInteractiveExample("pages/css/text-emphasis-color.html")}}
+{{InteractiveExample("CSS Demo: text-emphasis-color")}}
+
+```css interactive-example-choice
+text-emphasis-color: currentColor;
+```
+
+```css interactive-example-choice
+text-emphasis-color: red;
+```
+
+```css interactive-example-choice
+text-emphasis-color: rgba(90, 200, 160, 0.8);
+```
+
+```html interactive-example
+<section id="default-example">
+  <p>
+    I'd far rather be
+    <span class="transition-all" id="example-element">happy than right</span>
+    any day.
+  </p>
+</section>
+```
+
+```css interactive-example
+p {
+  font: 1.5em sans-serif;
+}
+
+#example-element {
+  text-emphasis: filled;
+}
+```
 
 ## Syntax
 
@@ -34,7 +66,7 @@ text-emphasis-color: unset;
 ### Werte
 
 - `<color>`
-  - : Definiert die Farbe der Hervorhebungszeichen. Wenn keine Farbe angegeben ist, wird `currentcolor` als Standard verwendet.
+  - : Definiert die Farbe der Hervorhebungszeichen. Wenn keine Farbe angegeben ist, wird standardmäßig `currentcolor` verwendet.
 
 ## Formale Definition
 

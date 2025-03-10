@@ -2,23 +2,23 @@
 title: PUT
 slug: Web/HTTP/Methods/PUT
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c
 ---
 
 {{HTTPSidebar}}
 
 Die **`PUT`** HTTP-Methode erstellt eine neue Ressource oder ersetzt eine Repräsentation der Zielressource mit dem Anforderungs-{{Glossary("HTTP_Content", "Inhalt")}}.
 
-Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} ist, dass `PUT` {{Glossary("idempotent", "idempotent")}} ist: es macht keinen Unterschied, ob man die Methode einmal oder mehrmals hintereinander aufruft (es gibt keine _Nebeneffekte_).
+Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} besteht darin, dass `PUT` {{Glossary("idempotent", "idempotent")}} ist: ein einziger Aufruf hat den gleichen Effekt wie mehrere aufeinanderfolgende Aufrufe (es gibt keine _Neben_ effekte).
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anfrage hat Inhalt</th>
+      <th scope="row">Anforderung hat einen Inhalt</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat Inhalt</th>
+      <th scope="row">Erfolgreiche Antwort hat einen Inhalt</th>
       <td>Kann</td>
     </tr>
     <tr>
@@ -30,7 +30,7 @@ Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} ist, dass `PUT` {{Glos
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Cacheable", "Zwischenspeicherbar")}}</th>
+      <th scope="row">{{Glossary("Cacheable", "Cache-fähig")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -49,17 +49,17 @@ PUT <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage in Kombination mit den Informationen, die im {{HTTPHeader("Host")}}-Header bereitgestellt werden.
-    Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) bei Anfragen an einen Ursprungs-Server und eine absolute URL bei Anfragen an Proxies (z.B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert die Zielressource der Anforderung in Kombination mit den im {{HTTPHeader("Host")}} Header bereitgestellten Informationen.
+    Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) bei Anfragen an einen Ursprungsserver und eine absolute URL bei Anfragen an Proxies (z. B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, die durch ein Fragezeichen `?` eingeleitet wird.
-    Wird oft verwendet, um identifizierende Informationen in Form von `key=value` Paaren zu transportieren.
+  - : Eine optionale Abfragekomponente, die von einem Fragezeichen `?` eingeleitet wird.
+    Wird häufig verwendet, um identifizierende Informationen in Form von `key=value` Paaren zu übertragen.
 
 ## Beispiele
 
-### Eine Ressource erfolgreich erstellen
+### Erfolgreiches Erstellen einer Ressource
 
-Die folgende `PUT`-Anfrage verlangt das Erstellen einer Ressource unter `example.com/new.html` mit dem Inhalt `<p>New File</p>`:
+Die folgende `PUT`-Anfrage fordert an, eine Ressource bei `example.com/new.html` mit dem Inhalt `<p>New File</p>` zu erstellen:
 
 ```http
 PUT /new.html HTTP/1.1
@@ -70,14 +70,14 @@ Content-length: 16
 <p>New File</p>
 ```
 
-Falls die Zielressource **keine** aktuelle Repräsentation hat und die `PUT`-Anfrage erfolgreich eine erstellt, muss der Ursprungs-Server eine {{HTTPStatus("201", "201 Created")}} Antwort senden:
+Falls die Zielressource **keine** aktuelle Repräsentation hat und die `PUT`-Anfrage erfolgreich eine erstellt, muss der Ursprungsserver eine {{HTTPStatus("201", "201 Created")}} Antwort senden:
 
 ```http
 HTTP/1.1 201 Created
 Content-Location: /new.html
 ```
 
-Falls die Zielressource **eine** aktuelle Repräsentation hat und diese erfolgreich mit dem Zustand der Anfrage modifiziert wird, muss der Ursprungs-Server entweder eine {{HTTPStatus("200", "200 OK")}} oder eine {{HTTPStatus("204", "204 No Content")}} senden, um den erfolgreichen Abschluss der Anfrage anzuzeigen:
+Wenn die Zielressource **eine** aktuelle Repräsentation hat und diese erfolgreich mit dem Zustand der Anfrage modifiziert wird, muss der Ursprungsserver entweder eine {{HTTPStatus("200", "200 OK")}} oder eine {{HTTPStatus("204", "204 No Content")}} senden, um den erfolgreichen Abschluss der Anfrage anzuzeigen:
 
 ```http
 HTTP/1.1 204 No Content
@@ -90,8 +90,8 @@ Content-Location: /existing.html
 
 ## Browser-Kompatibilität
 
-Der Browser verwendet die `PUT`-Methode nicht für durch den Benutzer initiierte Aktionen, daher gilt "Browser-Kompatibilität" nicht.
-Entwickler können diese Anforderungsmethode mit [`fetch()`](/de/docs/Web/API/Window/fetch) festlegen.
+Der Browser verwendet die `PUT`-Methode nicht für benutzerinitiierte Aktionen, daher gilt "Browser-Kompatibilität" nicht.
+Entwickler können diese Anfragemethode mit [`fetch()`](/de/docs/Web/API/Window/fetch) festlegen.
 
 ## Siehe auch
 

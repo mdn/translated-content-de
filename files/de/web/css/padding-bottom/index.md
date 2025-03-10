@@ -2,21 +2,64 @@
 title: padding-bottom
 slug: Web/CSS/padding-bottom
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`padding-bottom`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) legt die Höhe des [Abstandsbereichs (Padding Area)](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) am unteren Rand eines Elements fest.
+Die **`padding-bottom`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Höhe des [Abstandsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) am unteren Rand eines Elements fest.
 
-{{EmbedInteractiveExample("pages/css/padding-bottom.html")}}
+{{InteractiveExample("CSS Demo: padding-bottom")}}
 
-Der Abstand eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
+```css interactive-example-choice
+padding-bottom: 1em;
+```
 
-![Die Wirkung der CSS-Eigenschaft padding-bottom auf das Element-Box-Modell](padding-bottom.svg)
+```css interactive-example-choice
+padding-bottom: 10%;
+```
+
+```css interactive-example-choice
+padding-bottom: 20px;
+```
+
+```css interactive-example-choice
+padding-bottom: 1ch;
+```
+
+```css interactive-example-choice
+padding-bottom: 0;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="transition-all" id="example-element">
+    <div class="box">
+      Far out in the uncharted backwaters of the unfashionable end of the
+      western spiral arm of the Galaxy lies a small unregarded yellow sun.
+    </div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 10px solid #ffc129;
+  overflow: hidden;
+  text-align: left;
+}
+
+.box {
+  border: dashed 1px;
+}
+```
+
+Der Abstandbereich eines Elements ist der Raum zwischen seinem Inhalt und seiner Umrandung.
+
+![Die Wirkung der CSS-Eigenschaft padding-bottom auf das Element-Box](padding-bottom.svg)
 
 > [!NOTE]
-> Die {{cssxref("padding")}}-Eigenschaft kann verwendet werden, um mit einer einzigen Deklaration die Abstände an allen vier Seiten eines Elements festzulegen.
+> Die {{cssxref("padding")}} Eigenschaft kann verwendet werden, um mit einer einzigen Deklaration die Abstände auf allen vier Seiten eines Elements festzulegen.
 
 ## Syntax
 
@@ -37,14 +80,14 @@ padding-bottom: revert-layer;
 padding-bottom: unset;
 ```
 
-Die Eigenschaft `padding-bottom` wird als ein einzelner Wert angegeben, der aus der unten stehenden Liste ausgewählt wird. Im Gegensatz zu Rändern (margins) sind für Abstände (padding) negative Werte nicht erlaubt.
+Die `padding-bottom` Eigenschaft wird als einzelner Wert aus der untenstehenden Liste angegeben. Anders als bei Rändern sind negative Werte für Abstände nicht erlaubt.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
   - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als Prozentsatz relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz, bezogen auf die Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -56,7 +99,7 @@ Die Eigenschaft `padding-bottom` wird als ein einzelner Wert angegeben, der aus 
 
 ## Beispiele
 
-### Festlegen von padding-bottom mit Pixeln und Prozentsätzen
+### Abstand unten mit Pixeln und Prozentangaben festlegen
 
 ```css
 .content {
@@ -78,8 +121,8 @@ Die Eigenschaft `padding-bottom` wird als ein einzelner Wert angegeben, der aus 
 ## Siehe auch
 
 - {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, und {{cssxref("padding-left")}}
-- {{cssxref("padding")}} Kurzhandnotation
+- {{cssxref("padding")}} Kurznotation
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
-- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzhandnotationen
-- [Einführung in das grundlegende Box-Modell von CSS](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurznotationen
+- [Einführung in das grundlegende CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
 - [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul

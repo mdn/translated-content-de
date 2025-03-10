@@ -2,14 +2,76 @@
 title: scroll-snap-align
 slug: Web/CSS/scroll-snap-align
 l10n:
-  sourceCommit: 4c2bb5b17defb84cbeb79afe52e19043c3179fac
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-snap-align` legt die Schnapp-Position eines Kastens als Ausrichtung seines {{Glossary("Scroll_snap#snap_area", "Schnappbereichs")}} (als {{Glossary("alignment_subject", "Ausrichtungsgegenstand")}}) innerhalb des Schnapp-Ports des Schnapp-Containers (als {{Glossary("alignment_container", "Ausrichtungscontainer")}}) fest.
+Die Eigenschaft `scroll-snap-align` legt die Snap-Position eines Feldes als Ausrichtung seines {{Glossary("Scroll_snap#snap_area", "Snap-Bereichs")}} (als {{Glossary("alignment_subject", "Ausrichtungsobjekt")}}) innerhalb des Snap-Ports seines Snap-Containers (als {{Glossary("alignment_container", "Ausrichtungscontainer")}}) fest.
 
-{{EmbedInteractiveExample("pages/css/scroll-snap-align.html")}}
+{{InteractiveExample("CSS Demo: scroll-snap-align")}}
+
+```css interactive-example-choice
+scroll-snap-align: start;
+```
+
+```css interactive-example-choice
+scroll-snap-align: end;
+```
+
+```css interactive-example-choice
+scroll-snap-align: center;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div id="example-parent">
+    <div>1</div>
+    <div id="example-element">2</div>
+    <div>3</div>
+  </div>
+  <div class="info">Scroll »</div>
+</section>
+```
+
+```css interactive-example
+.default-example {
+  flex-wrap: wrap;
+}
+
+.default-example .info {
+  width: 100%;
+  padding: 0.5em 0;
+  font-size: 90%;
+}
+
+#example-parent {
+  text-align: left;
+  width: 250px;
+  height: 250px;
+  overflow-x: scroll;
+  display: flex;
+  box-sizing: border-box;
+  border: 1px solid black;
+  scroll-snap-type: x mandatory;
+}
+
+#example-parent > div {
+  flex: 0 0 66%;
+  width: 250px;
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#example-parent > div:nth-child(even) {
+  background-color: #fff;
+  color: rebeccapurple;
+}
+```
 
 ## Syntax
 
@@ -35,16 +97,16 @@ scroll-snap-align: unset;
 
 ### Werte
 
-Für die Eigenschaft `scroll-snap-align` können ein oder zwei Werte angegeben werden. Wenn ein Wert festgelegt ist, wird er auf beide Achsen (Block- und Inline-Achse) angewendet. Wenn zwei Werte festgelegt sind, steuert der erste Wert die Block-Achse und der zweite Wert die Inline-Achse.
+Für die Eigenschaft `scroll-snap-align` können ein oder zwei Werte angegeben werden. Wenn ein Wert festgelegt ist, wird er sowohl auf die Block- als auch auf die Inline-Achse angewendet. Wenn zwei Werte festgelegt sind, steuert der erste Wert die Block-Achse und der zweite Wert die Inline-Achse.
 
 - `none`
-  - : Der Kasten definiert keine Schnapp-Position in dieser Achse.
+  - : Das Feld definiert keine Snap-Position in dieser Achse.
 - `start`
-  - : Die Startausrichtung des Schnappbereichs dieses Kastens innerhalb des {{Glossary("Scroll_snap#snapport", "Schnappports")}} des Scroll-Containers ist eine Schnapp-Position in dieser Achse.
+  - : Die Startausrichtung des Snap-Bereichs dieses Feldes innerhalb des Snapports des Scroll-Containers ist eine Snap-Position in dieser Achse.
 - `end`
-  - : Die Endausrichtung des Schnappbereichs dieses Kastens innerhalb des Schnappports des Scroll-Containers ist eine Schnapp-Position in dieser Achse.
+  - : Die Endausrichtung des Snap-Bereichs dieses Feldes innerhalb des Snapports des Scroll-Containers ist eine Snap-Position in dieser Achse.
 - `center`
-  - : Die Zentrums-Ausrichtung des Schnappbereichs dieses Kastens innerhalb des Schnappports des Scroll-Containers ist eine Schnapp-Position in dieser Achse.
+  - : Die Zentrumausrichtung des Snap-Bereichs dieses Feldes innerhalb des Snapports des Scroll-Containers ist eine Snap-Position in dieser Achse.
 
 ## Formale Definition
 

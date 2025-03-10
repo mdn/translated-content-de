@@ -2,16 +2,54 @@
 title: block-size
 slug: Web/CSS/block-size
 l10n:
-  sourceCommit: 9591173963147e1996e3f40892b90dd9f691e15d
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`block-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die horizontale oder vertikale Größe eines Blockelements, abhängig von seinem Schreibmodus. Sie entspricht entweder der {{cssxref("width")}}- oder der {{cssxref("height")}}-Eigenschaft, abhängig vom Wert des {{cssxref("writing-mode")}}.
+Die **`block-size`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert die horizontale oder vertikale Größe eines Blockelements, abhängig von seinem Schreibmodus. Sie entspricht entweder der {{cssxref("width")}}- oder der {{cssxref("height")}}-Eigenschaft, abhängig vom Wert des {{cssxref("writing-mode")}}.
 
-Wenn der Schreibmodus vertikal orientiert ist, bezieht sich der Wert von `block-size` auf die Breite des Elements; andernfalls bezieht er sich auf die Höhe des Elements. Eine verwandte Eigenschaft ist {{cssxref("inline-size")}}, die die andere Dimension des Elements definiert.
+Wenn der Schreibmodus vertikal ausgerichtet ist, bezieht sich der Wert von `block-size` auf die Breite des Elements; andernfalls bezieht er sich auf die Höhe des Elements. Eine verwandte Eigenschaft ist {{cssxref("inline-size")}}, die die andere Dimension des Elements definiert.
 
-{{EmbedInteractiveExample("pages/css/block-size.html")}}
+{{InteractiveExample("CSS Demo: block-size")}}
+
+```css interactive-example-choice
+block-size: 150px;
+writing-mode: horizontal-tb;
+```
+
+```css interactive-example-choice
+block-size: 150px;
+writing-mode: vertical-rl;
+```
+
+```css interactive-example-choice
+block-size: auto;
+writing-mode: horizontal-tb;
+```
+
+```css interactive-example-choice
+block-size: auto;
+writing-mode: vertical-lr;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box where you can change the block-size.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  display: flex;
+  flex-direction: column;
+  background-color: #5b6dcd;
+  justify-content: center;
+  color: #ffffff;
+}
+```
 
 ## Syntax
 
@@ -42,9 +80,9 @@ block-size: unset;
 
 ### Werte
 
-Die `block-size`-Eigenschaft übernimmt die gleichen Werte wie die Eigenschaften {{cssxref("width")}} und {{cssxref("height")}}.
+Die `block-size`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("width")}}- und {{cssxref("height")}}-Eigenschaften an.
 
-## Formale Definition
+## Formaldefinition
 
 {{cssinfo}}
 
@@ -86,5 +124,5 @@ Die `block-size`-Eigenschaft übernimmt die gleichen Werte wie die Eigenschaften
 
 ## Siehe auch
 
-- Die zugeordneten physikalischen Eigenschaften: {{cssxref("width")}} und {{cssxref("height")}}
+- Die abgebildeten physischen Eigenschaften: {{cssxref("width")}} und {{cssxref("height")}}
 - {{cssxref("writing-mode")}}

@@ -2,17 +2,64 @@
 title: border-left-style
 slug: Web/CSS/border-left-style
 l10n:
-  sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
 Die **`border-left-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des linken {{cssxref("border")}} eines Elements fest.
 
-{{EmbedInteractiveExample("pages/css/border-left-style.html")}}
+{{InteractiveExample("CSS Demo: border-left-style")}}
+
+```css interactive-example-choice
+border-left-style: none;
+```
+
+```css interactive-example-choice
+border-left-style: dotted;
+```
+
+```css interactive-example-choice
+border-left-style: dashed;
+```
+
+```css interactive-example-choice
+border-left-style: solid;
+```
+
+```css interactive-example-choice
+border-left-style: groove;
+```
+
+```css interactive-example-choice
+border-left-style: inset;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with a border around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #eee;
+  color: #000;
+  border: 0.75em solid;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+}
+
+body {
+  background-color: #fff;
+}
+```
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Ränder unterschiedlicher Stile an den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie sich Rahmen mit unterschiedlichen Stilen an den Ecken verbinden.
 
 ## Syntax
 
@@ -134,5 +181,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Eigenschaften des Rahmens: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-right-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
-- Die anderen linksrahmenbezogenen Eigenschaften: {{Cssxref("border-left")}}, {{Cssxref("border-left-color")}}, und {{Cssxref("border-left-width")}}.
+- Die anderen stilbezogenen Rahmen-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-right-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
+- Die anderen linken Rahmen-bezogenen Eigenschaften: {{Cssxref("border-left")}}, {{Cssxref("border-left-color")}}, und {{Cssxref("border-left-width")}}.

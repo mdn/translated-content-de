@@ -2,16 +2,56 @@
 title: flex-wrap
 slug: Web/CSS/flex-wrap
 l10n:
-  sourceCommit: 1f12a4156d4aec63d8466c49a39b1ac76d8a5735
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`flex-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Flex-Elemente in einer Zeile erzwungen werden oder auf mehrere Zeilen umgebrochen werden können. Falls ein Umbruch erlaubt ist, legt sie die Richtung fest, in der die Zeilen gestapelt werden.
+Die **`flex-wrap`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob Flex-Elemente in eine einzige Zeile gezwungen oder auf mehrere Zeilen umgebrochen werden können. Wenn das Umbrechen erlaubt ist, wird die Richtung festgelegt, in der die Zeilen gestapelt werden.
 
-{{EmbedInteractiveExample("pages/css/flex-wrap.html")}}
+{{InteractiveExample("CSS Demo: flex-wrap")}}
 
-Die Kurzschrift-Eigenschaft {{cssxref("flex-flow")}} kann verwendet werden, um sowohl die Eigenschaften {{CSSXRef("flex-direction")}} als auch `flex-wrap` festzulegen, die jeweils die Haupt- und Querachsen des Flex-Containers definieren.
+```css interactive-example-choice
+flex-wrap: nowrap;
+```
+
+```css interactive-example-choice
+flex-wrap: wrap;
+```
+
+```css interactive-example-choice
+flex-wrap: wrap-reverse;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    <div>Item One</div>
+    <div>Item Two</div>
+    <div>Item Three</div>
+    <div>Item Four</div>
+    <div>Item Five</div>
+    <div>Item Six</div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 1px solid #c5c5c5;
+  width: 80%;
+  display: flex;
+}
+
+#example-element > div {
+  background-color: rgba(0, 0, 255, 0.2);
+  border: 3px solid blue;
+  width: 60px;
+  margin: 10px;
+}
+```
+
+Die Abkürzungseigenschaft {{cssxref("flex-flow")}} kann verwendet werden, um sowohl die Eigenschaften {{CSSXRef("flex-direction")}} als auch `flex-wrap` festzulegen, welche jeweils die Haupt- und Querachse des Flex-Containers definieren.
 
 ## Syntax
 
@@ -30,14 +70,14 @@ flex-wrap: unset;
 
 ### Werte
 
-Die Eigenschaft `flex-wrap` wird als ein einzelnes Schlüsselwort angegeben, das aus den folgenden Werten ausgewählt wird:
+Die `flex-wrap`-Eigenschaft wird als ein einzelnes Schlüsselwort festgelegt, das aus den folgenden Werten ausgewählt wird:
 
 - `nowrap`
-  - : Die Flex-Elemente sind in einer einzigen Zeile angeordnet, was dazu führen kann, dass der Flex-Container überfließt. Der Querstart entspricht {{Glossary("Flow_relative_values", "inline-start oder block-start")}}, abhängig vom Wert der {{cssxref("flex-direction")}}. Dies ist der Standardwert.
+  - : Die Flex-Elemente werden in einer einzigen Zeile angeordnet, was dazu führen kann, dass der Flex-Container überläuft. Der Cross-Start entspricht dem {{Glossary("Flow_relative_values", "inline-start oder block-start")}}, abhängig von dem Wert der {{cssxref("flex-direction")}}. Dies ist der Standardwert.
 - `wrap`
-  - : Die Flex-Elemente brechen in mehrere Zeilen um. Der Querstart entspricht {{Glossary("Flow_relative_values", "inline-start oder block-start")}}, abhängig vom aktuellen [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) und dem Wert der {{cssxref("flex-direction")}}.
+  - : Die Flex-Elemente brechen in mehrere Zeilen um. Der Cross-Start entspricht dem {{Glossary("Flow_relative_values", "inline-start oder block-start")}}, abhängig vom aktuellen [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) und dem Wert der {{cssxref("flex-direction")}}.
 - `wrap-reverse`
-  - : Verhält sich wie `wrap`, jedoch sind Querstart und Querende invertiert.
+  - : Verhält sich wie `wrap`, aber Cross-Start und Cross-Ende sind invertiert.
 
 ## Formale Definition
 
@@ -49,7 +89,7 @@ Die Eigenschaft `flex-wrap` wird als ein einzelnes Schlüsselwort angegeben, das
 
 ## Beispiele
 
-### Festlegen von Wrap-Werten für Flex-Container
+### Festlegen von Umbruchwerten für Flex-Container
 
 #### HTML
 
@@ -134,7 +174,7 @@ Die Eigenschaft `flex-wrap` wird als ein einzelnes Schlüsselwort angegeben, das
 ## Siehe auch
 
 - {{CSSXRef("flex-direction")}}
-- {{CSSXRef("flex-flow")}} Kurzschrift
-- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Beherrschen des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
-- [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- {{CSSXRef("flex-flow")}} Abkürzung
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Beherrschung des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
+- [CSS flexibler Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul

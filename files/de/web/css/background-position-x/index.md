@@ -2,18 +2,53 @@
 title: background-position-x
 slug: Web/CSS/background-position-x
 l10n:
-  sourceCommit: b90786a572bd01af9063ac5e515850c6bb5ddb89
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`background-position-x`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die anfängliche horizontale Position für jedes Hintergrundbild. Die Position ist relativ zur Positionsebene, die durch {{cssxref("background-origin")}} gesetzt wird.
+Die **`background-position-x`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche horizontale Position für jedes Hintergrundbild fest. Die Position ist relativ zur Positionsschicht, die durch {{cssxref("background-origin")}} festgelegt wird.
 
-{{EmbedInteractiveExample("pages/css/background-position-x.html")}}
+{{InteractiveExample("CSS Demo: background-position-x")}}
+
+```css interactive-example-choice
+background-position-x: left;
+```
+
+```css interactive-example-choice
+background-position-x: center;
+```
+
+```css interactive-example-choice
+background-position-x: 25%;
+```
+
+```css interactive-example-choice
+background-position-x: 2rem;
+```
+
+```css interactive-example-choice
+background-position-x: right 32px;
+```
+
+```html interactive-example
+<section class="display-block" id="default-example">
+  <div class="transition-all" id="example-element"></div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: navajowhite;
+  background-image: url("/shared-assets/images/examples/star.png");
+  background-repeat: no-repeat;
+  height: 100%;
+}
+```
 
 <!-- Der Quellcode für dieses interaktive Beispiel ist in einem GitHub-Repository gespeichert. Wenn Sie zum Projekt der interaktiven Beispiele beitragen möchten, klonen Sie bitte https://github.com/mdn/interactive-examples und senden Sie uns einen Pull-Request. -->
 
-Der Wert dieser Eigenschaft wird von jeder Deklaration der Kurzform-Eigenschaften {{cssxref("background")}} oder {{cssxref("background-position")}} außer Kraft gesetzt, wenn sie anschließend auf das Element angewendet werden.
+Der Wert dieser Eigenschaft wird durch jede Deklaration der {{cssxref("background")}} oder {{cssxref("background-position")}} Kurzschreibweise, die danach auf das Element angewendet wird, überschrieben.
 
 ## Syntax
 
@@ -51,15 +86,15 @@ Die `background-position-x` Eigenschaft wird als ein oder mehrere Werte angegebe
 ### Werte
 
 - `left`
-  - : Richtet den linken Rand des Hintergrundbildes am linken Rand der Hintergrundpositionsebene aus.
+  - : Richtet den linken Rand des Hintergrundbildes am linken Rand der Hintergrundpositionsschicht aus.
 - `center`
-  - : Richtet die Mitte des Hintergrundbildes an der Mitte der Hintergrundpositionsebene aus.
+  - : Richtet die Mitte des Hintergrundbildes an der Mitte der Hintergrundpositionsschicht aus.
 - `right`
-  - : Richtet den rechten Rand des Hintergrundbildes am rechten Rand der Hintergrundpositionsebene aus.
+  - : Richtet den rechten Rand des Hintergrundbildes am rechten Rand der Hintergrundpositionsschicht aus.
 - {{cssxref("&lt;length&gt;")}}
-  - : Der Versatz der linken vertikalen Kante des gegebenen Hintergrundbildes von der linken vertikalen Kante der Hintergrundpositionsebene. (Einige Browser erlauben die Zuweisung der rechten Kante zum Versatz).
+  - : Der Versatz der linken vertikalen Kante des angegebenen Hintergrundbildes von der linken vertikalen Kante der Hintergrundpositionsschicht. (Einige Browser erlauben das Zuweisen der rechten Kante für den Versatz).
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Der Versatz der horizontalen Position des gegebenen Hintergrundbildes relativ zum Container. Ein Wert von 0% bedeutet, dass der linke Rand des Hintergrundbildes mit dem linken Rand des Containers übereinstimmt, und ein Wert von 100% bedeutet, dass der _rechte_ Rand des Hintergrundbildes mit dem _rechten_ Rand des Containers übereinstimmt, daher zentriert ein Wert von 50% das Hintergrundbild horizontal.
+  - : Der Versatz der horizontalen Position des angegebenen Hintergrundbildes relativ zum Container. Ein Wert von 0% bedeutet, dass der linke Rand des Hintergrundbildes mit dem linken Rand des Containers übereinstimmt, und ein Wert von 100% bedeutet, dass der _rechte_ Rand des Hintergrundbildes mit dem _rechten_ Rand des Containers übereinstimmt, sodass ein Wert von 50% das Hintergrundbild horizontal zentriert.
 
 ## Formale Definition
 
@@ -73,7 +108,7 @@ Die `background-position-x` Eigenschaft wird als ein oder mehrere Werte angegebe
 
 ### Einfaches Beispiel
 
-Das folgende Beispiel zeigt eine einfache Implementierung eines Hintergrundbildes, wobei background-position-x und background-position-y verwendet werden, um die horizontale und vertikale Position des Bildes separat zu definieren.
+Das folgende Beispiel zeigt eine einfache Implementierung eines Hintergrundbildes, bei dem `background-position-x` und `background-position-y` verwendet werden, um die horizontale und vertikale Position des Bildes separat zu definieren.
 
 #### HTML
 
@@ -99,9 +134,9 @@ div {
 
 {{EmbedLiveSample('Basic_example', '100%', 300)}}
 
-### Kanten-relative Werte
+### Seitenabhängige Werte
 
-Das folgende Beispiel zeigt die Unterstützung der syntax-seitigen Versatzsyntax, die es dem Entwickler ermöglicht, den Hintergrund von jeder Kante zu versetzen.
+Das folgende Beispiel zeigt die Unterstützung für die syntax der seitenabhängigen Versätze, die es dem Entwickler ermöglicht, den Hintergrund von jedem Rand zu versetzen.
 
 #### HTML
 

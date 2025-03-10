@@ -2,22 +2,48 @@
 title: skew()
 slug: Web/CSS/transform-function/skew
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`skew()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element auf der 2D-Ebene schräg stellt. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`skew()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element auf der 2D-Ebene verzerrt. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
-{{EmbedInteractiveExample("pages/css/function-skew.html")}}
+{{InteractiveExample("CSS Demo: skew()")}}
 
-Diese Transformation ist eine Scherung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements um einen bestimmten Winkel in den horizontalen und vertikalen Richtungen verzerrt. Der Effekt ist, als ob Sie jede Ecke des Elements greifen und sie entlang eines bestimmten Winkels ziehen würden.
+```css interactive-example-choice
+transform: skew(0);
+```
 
-Die Koordinaten jedes Punktes werden um einen Wert geändert, der proportional zu dem angegebenen Winkel und der Entfernung zum Ursprung ist. Je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der hinzugefügte Wert.
+```css interactive-example-choice
+transform: skew(15deg, 15deg);
+```
+
+```css interactive-example-choice
+transform: skew(-0.06turn, 18deg);
+```
+
+```css interactive-example-choice
+transform: skew(0.312rad);
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/firefox-logo.svg"
+    width="200" />
+</section>
+```
+
+Diese Transformation ist eine Scherung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements in einem bestimmten Winkel in horizontaler und vertikaler Richtung verzerrt. Der Effekt ist, als hätten Sie jede Ecke des Elements ergriffen und sie in einem bestimmten Winkel gezogen.
+
+Die Koordinaten jedes Punktes werden um einen Wert geändert, der proportional zum angegebenen Winkel und dem Abstand zum Ursprung ist. Je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der hinzugefügte Wert.
 
 ## Syntax
 
-Die `skew()` Funktion wird mit entweder einem oder zwei Werten angegeben, die die Menge der Verzerrung in jeder Richtung darstellen, die angewendet werden soll. Wenn Sie nur einen Wert angeben, wird dieser für die x-Achse verwendet und es wird keine Verzerrung auf der y-Achse geben.
+Die `skew()` Funktion wird mit entweder einem oder zwei Werten angegeben, die die Verzerrung angeben, die in jeder Richtung angewendet werden soll. Wenn Sie nur einen Wert angeben, wird er für die x-Achse verwendet, und es wird keine Verzerrung auf der y-Achse vorgenommen.
 
 ```css
 skew(ax)
@@ -28,9 +54,9 @@ skew(ax, ay)
 ### Werte
 
 - `ax`
-  - : Ist ein {{cssxref("&lt;angle&gt;")}} der den Winkel darstellt, der verwendet wird, um das Element entlang der x-Achse zu verzerren.
+  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, der verwendet wird, um das Element entlang der x-Achse zu verzerren.
 - `ay`
-  - : Ist ein {{cssxref("&lt;angle&gt;")}} der den Winkel darstellt, der verwendet wird, um das Element entlang der y-Achse zu verzerren. Wenn nicht definiert, ist der Standardwert `0`, was zu einer rein horizontalen Verzerrung führt.
+  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, der verwendet wird, um das Element entlang der y-Achse zu verzerren. Wenn nicht definiert, ist der Standardwert `0`, was zu einer rein horizontalen Verzerrung führt.
 
 <table class="standard-table">
   <thead>
@@ -158,4 +184,4 @@ div {
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}
-  - Hinweis: Es gibt keine `skew` Eigenschaft
+  - Hinweis: Es gibt keine `skew`-Eigenschaft

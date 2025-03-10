@@ -2,19 +2,62 @@
 title: padding-left
 slug: Web/CSS/padding-left
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`padding-left`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite des [Padding-Bereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) links eines Elements fest.
+Die **`padding-left`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des [Abstandsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) links von einem Element fest.
 
-{{EmbedInteractiveExample("pages/css/padding-left.html")}}
+{{InteractiveExample("CSS Demo: padding-left")}}
 
-Der Padding-Bereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
+```css interactive-example-choice
+padding-left: 1.5em;
+```
+
+```css interactive-example-choice
+padding-left: 10%;
+```
+
+```css interactive-example-choice
+padding-left: 20px;
+```
+
+```css interactive-example-choice
+padding-left: 1ch;
+```
+
+```css interactive-example-choice
+padding-left: 0;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="transition-all" id="example-element">
+    <div class="box">
+      Far out in the uncharted backwaters of the unfashionable end of the
+      western spiral arm of the Galaxy lies a small unregarded yellow sun.
+    </div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 10px solid #ffc129;
+  overflow: hidden;
+  text-align: left;
+}
+
+.box {
+  border: dashed 1px;
+}
+```
+
+Der Abstand eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
 
 > [!NOTE]
-> Die {{cssxref("padding")}}-Eigenschaft kann verwendet werden, um das Padding auf allen vier Seiten eines Elements mit einer einzigen Deklaration festzulegen.
+> Die {{cssxref("padding")}} Eigenschaft kann verwendet werden, um Abstände auf allen vier Seiten eines Elements mit nur einer Deklaration festzulegen.
 
 ## Syntax
 
@@ -35,14 +78,14 @@ padding-left: revert-layer;
 padding-left: unset;
 ```
 
-Die `padding-left`-Eigenschaft wird als Einzelwert aus der unten angegebenen Liste festgelegt. Im Gegensatz zu Margins sind negative Werte für Padding nicht zulässig.
+Die `padding-left` Eigenschaft wird als einzelner Wert aus der unten stehenden Liste angegeben. Im Gegensatz zu Rändern sind negative Werte für Abstände nicht erlaubt.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Paddings als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Paddings als Prozentsatz, relativ zur Inline-Größe (_width_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umfassenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -54,7 +97,7 @@ Die `padding-left`-Eigenschaft wird als Einzelwert aus der unten angegebenen Lis
 
 ## Beispiele
 
-### Linkes Padding mit Pixeln und Prozentsätzen festlegen
+### Linken Abstand mit Pixeln und Prozentsätzen festlegen
 
 ```css
 .content {
@@ -76,8 +119,8 @@ Die `padding-left`-Eigenschaft wird als Einzelwert aus der unten angegebenen Lis
 ## Siehe auch
 
 - {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, und {{cssxref("padding-bottom")}}
-- {{cssxref("padding")}}-Kurzform
+- {{cssxref("padding")}} Kurzform
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
-- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}}-Kurzformen
-- [Einführung in das CSS-Basis-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model)-Modul
+- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzformen
+- [Einführung in das CSS Grundboxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul

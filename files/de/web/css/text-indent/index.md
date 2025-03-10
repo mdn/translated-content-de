@@ -2,16 +2,71 @@
 title: text-indent
 slug: Web/CSS/text-indent
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`text-indent`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Länge des leeren Raumes (Einrückung) fest, der vor Zeilen von Text in einem Block eingefügt wird.
+Die **`text-indent`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Länge des Leerraums (Einrückung) fest, der vor den Textzeilen in einem Block eingefügt wird.
 
-{{EmbedInteractiveExample("pages/css/text-indent.html")}}
+{{InteractiveExample("CSS Demo: text-indent")}}
 
-Der horizontale Abstand bezieht sich auf den linken (oder rechten, für von rechts nach links Layout) Rand der Inhaltsbox des umgebenden Block-Elements.
+```css interactive-example-choice
+text-indent: 0;
+```
+
+```css interactive-example-choice
+text-indent: 30%;
+```
+
+```css interactive-example-choice
+text-indent: -3em;
+```
+
+```css interactive-example-choice
+text-indent: 3em each-line;
+```
+
+```css interactive-example-choice
+text-indent: 3em hanging;
+```
+
+```css interactive-example-choice
+text-indent: 3em hanging each-line;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element">
+    <p>
+      This text is contained within a single paragraph. This paragraph is two
+      sentences long.
+    </p>
+    <p>
+      This is a new paragraph. There is a line break element
+      <code>&lt;br&gt;</code> after this sentence.<br />There it is! Notice how
+      it affects the indentation.
+    </p>
+  </div>
+</section>
+```
+
+```css interactive-example
+section {
+  font-size: 1.25em;
+  background-color: #483d8b;
+  align-items: start;
+}
+
+#example-element {
+  text-align: left;
+  margin: 0 0 0 3em;
+  background-color: #6a5acd;
+  color: white;
+}
+```
+
+Der horizontale Abstand bezieht sich auf den linken (oder rechten, bei von rechts nach links ausgerichtetem Layout) Rand des Inhaltskastens des umschließenden Block-Elementes.
 
 ## Syntax
 
@@ -40,11 +95,11 @@ text-indent: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Einrückung wird als absolute {{cssxref("&lt;length&gt;")}} angegeben. Negative Werte sind erlaubt. Siehe {{cssxref("&lt;length&gt;")}} Werte für mögliche Einheiten.
+  - : Die Einrückung wird als absoluter {{cssxref("&lt;length&gt;")}} angegeben. Negative Werte sind erlaubt. Siehe {{cssxref("&lt;length&gt;")}} Werte für mögliche Einheiten.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Einrückung ist ein {{cssxref("&lt;percentage&gt;")}} der Breite des umgebenden Blocks.
+  - : Die Einrückung beträgt einen {{cssxref("&lt;percentage&gt;")}} der Breite des umschließenden Blocks.
 - `each-line`
-  - : Die Einrückung betrifft die erste Zeile des Blockcontainers sowie jede Zeile nach einem _erzwungenen Zeilenumbruch_, beeinflusst jedoch nicht die Zeilen nach einem _weichen Zeilenumbruch_.
+  - : Die Einrückung betrifft die erste Zeile des Blockcontainers sowie jede Zeile nach einem _erzwungenen Zeilenumbruch_, wirkt sich jedoch nicht auf Zeilen nach einem _weichen Zeilenumbruch_ aus.
 - `hanging`
   - : Kehrt um, welche Zeilen eingerückt werden. Alle Zeilen _außer_ der ersten Zeile werden eingerückt.
 
@@ -88,9 +143,9 @@ p {
 
 ### Überspringen der Einrückung beim ersten Absatz
 
-Eine häufige typografische Praxis, wenn Absatzeinrückung vorhanden ist, besteht darin, die Einrückung für den ersten Absatz zu überspringen. Wie es im _The Chicago Manual of Style_ heißt: "die erste Zeile des Textes nach einer Zwischenüberschrift kann bündig links beginnen oder mit der üblichen Absatzeinrückung eingerückt sein."
+Eine häufige typografische Praxis, wenn Absatzeinrückungen vorhanden sind, ist das Überspringen der Einrückung für den ersten Absatz. Wie es _The Chicago Manual of Style_ formuliert, "kann die erste Textzeile nach einer Überschrift linksbündig beginnen oder die übliche Absatzeinrückung haben."
 
-Die Behandlung von ersten Absätzen unterschiedlich im Vergleich zu nachfolgenden Absätzen kann mithilfe des [nachfolgenden Geschwister-Kombinators](/de/docs/Web/CSS/Next-sibling_combinator) erfolgen, wie im folgenden Beispiel:
+Erste Absätze anders zu behandeln als nachfolgende Absätze kann mit dem [Geschwisterkombinator](/de/docs/Web/CSS/Next-sibling_combinator) erreicht werden, wie im folgenden Beispiel:
 
 #### HTML
 
@@ -191,7 +246,7 @@ p {
 
 ## Siehe auch
 
-- [Lernen Sie, HTML mit CSS zu stylen](/de/docs/Learn_web_development/Core/Styling_basics)
+- [Lernen Sie HTML mit CSS zu stylen](/de/docs/Learn_web_development/Core/Styling_basics)
 - Verwandte CSS-Eigenschaften:
 
   - [`text-justify`](/de/docs/Web/CSS/text-justify)

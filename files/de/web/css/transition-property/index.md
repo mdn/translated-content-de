@@ -2,16 +2,56 @@
 title: transition-property
 slug: Web/CSS/transition-property
 l10n:
-  sourceCommit: bed59f268d5e299beb538e435f08c4f4ce685980
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`transition-property`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt fest, auf welche CSS-Eigenschaften ein [Übergangseffekt](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) angewendet werden soll.
+Die **`transition-property`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, auf welche CSS-Eigenschaften ein [Übergangseffekt](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) angewendet werden soll.
 
-{{EmbedInteractiveExample("pages/css/transition-property.html")}}
+{{InteractiveExample("CSS Demo: transition-property")}}
 
-Wenn Sie eine Kurzschreibweise angeben (z. B. {{cssxref("background")}}), werden alle zugehörigen Langform-Untereigenschaften, die animiert werden können, berücksichtigt.
+```css interactive-example-choice
+transition-property: margin-right;
+```
+
+```css interactive-example-choice
+transition-property: margin-right, color;
+```
+
+```css interactive-example-choice
+transition-property: all;
+```
+
+```css interactive-example-choice
+transition-property: none;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element">Hover to see<br />the transition.</div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #e4f0f5;
+  color: #000;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font: 1em monospace;
+  width: 100%;
+  transition: margin-right 2s;
+}
+
+#default-example:hover > #example-element {
+  background-color: #909;
+  color: #fff;
+  margin-right: 40%;
+}
+```
+
+Wenn Sie eine Kurzschreibweise angeben (z.B. {{cssxref("background")}}), werden alle Untereigenschaften in Langform, die animiert werden können, ebenfalls animiert.
 
 ## Syntax
 
@@ -44,9 +84,9 @@ transition-property: unset;
 ### Werte
 
 - `none`
-  - : Keine Eigenschaften werden übergehen.
+  - : Es werden keine Eigenschaften überführt.
 - `all`
-  - : Alle Eigenschaften, die übergehen können, werden berücksichtigt.
+  - : Alle Eigenschaften, die überführt werden können, werden überführt.
 - {{cssxref("&lt;custom-ident&gt;")}}
   - : Ein String, der die Eigenschaft identifiziert, auf die ein Übergangseffekt angewendet werden soll, wenn sich ihr Wert ändert.
 
@@ -62,7 +102,7 @@ transition-property: unset;
 
 ### Einfaches Beispiel
 
-Wenn der Button fokussiert oder überfahren wird, durchläuft er einen einsekündigen Farbwechsel; die `transition-property` ist [`background-color`](/de/docs/Web/CSS/background-color).
+Wenn der Button fokussiert oder überfahren wird, durchläuft er eine einsekündige Farbüberblendung; die `transition-property` ist [`background-color`](/de/docs/Web/CSS/background-color).
 
 #### HTML
 

@@ -2,17 +2,64 @@
 title: border-top-style
 slug: Web/CSS/border-top-style
 l10n:
-  sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`border-top-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Linie des oberen {{CSSxRef("border")}} eines Elements fest.
+Die **`border-top-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des oberen {{CSSxRef("border")}} eines Elements fest.
 
-{{EmbedInteractiveExample("pages/css/border-top-style.html")}}
+{{InteractiveExample("CSS Demo: border-top-style")}}
+
+```css interactive-example-choice
+border-top-style: none;
+```
+
+```css interactive-example-choice
+border-top-style: dotted;
+```
+
+```css interactive-example-choice
+border-top-style: dashed;
+```
+
+```css interactive-example-choice
+border-top-style: solid;
+```
+
+```css interactive-example-choice
+border-top-style: groove;
+```
+
+```css interactive-example-choice
+border-top-style: inset;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with a border around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #eee;
+  color: #000;
+  border: 0.75em solid;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+}
+
+body {
+  background-color: #fff;
+}
+```
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Ränder unterschiedlicher Stile in den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie sich Rahmen mit verschiedenen Stilen in den Ecken verbinden.
 
 ## Syntax
 
@@ -37,7 +84,7 @@ border-top-style: revert-layer;
 border-top-style: unset;
 ```
 
-Die Eigenschaft `border-top-style` wird als einzelner {{cssxref("line-style")}} Schlüsselwortwert angegeben.
+Die `border-top-style` Eigenschaft wird als ein einzelner {{cssxref("line-style")}} Schlüsselwortwert angegeben.
 
 ## Formale Definition
 
@@ -49,7 +96,7 @@ Die Eigenschaft `border-top-style` wird als einzelner {{cssxref("line-style")}} 
 
 ## Beispiele
 
-### Festlegen von border-top-style
+### Festlegen des border-top-style
 
 #### HTML
 
@@ -134,5 +181,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Rand-Eigenschaften: {{CSSxRef("border-left-style")}}, {{CSSxRef("border-right-style")}}, {{CSSxRef("border-bottom-style")}}, und {{CSSxRef("border-style")}}.
-- Die anderen Eigenschaften, die sich auf den oberen Rand beziehen: {{CSSxRef("border-top")}}, {{CSSxRef("border-top-color")}}, und {{CSSxRef("border-top-width")}}.
+- Die anderen stilbezogenen Eigenschaften des Rahmens: {{CSSxRef("border-left-style")}}, {{CSSxRef("border-right-style")}}, {{CSSxRef("border-bottom-style")}}, und {{CSSxRef("border-style")}}.
+- Die anderen Eigenschaften, die sich auf den oberen Rahmen beziehen: {{CSSxRef("border-top")}}, {{CSSxRef("border-top-color")}}, und {{CSSxRef("border-top-width")}}.

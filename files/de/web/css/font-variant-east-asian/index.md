@@ -2,14 +2,49 @@
 title: font-variant-east-asian
 slug: Web/CSS/font-variant-east-asian
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`font-variant-east-asian`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung alternativer Glyphen für ostasiatische Schriften wie Japanisch und Chinesisch.
+Die **`font-variant-east-asian`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen Glyphen für ostasiatische Schriftsysteme, wie Japanisch und Chinesisch.
 
-{{EmbedInteractiveExample("pages/css/font-variant-east-asian.html")}}
+{{InteractiveExample("CSS Demo: font-variant-east-asian")}}
+
+```css interactive-example-choice
+font-variant-east-asian: normal;
+```
+
+```css interactive-example-choice
+font-variant-east-asian: ruby;
+```
+
+```css interactive-example-choice
+font-variant-east-asian: jis78;
+```
+
+```css interactive-example-choice
+font-variant-east-asian: proportional-width;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element">
+    <p>
+      JIS78とJIS83以降では、檜と桧、籠と篭など、一部の文字の入れ替えが行われている。また、「唖然」や「躯体」などの書体が変更されている。
+    </p>
+  </div>
+</section>
+```
+
+```css interactive-example
+section {
+  font-family:
+    "YuGothic Medium", YuGothic, "Yu Gothic Medium", "Yu Gothic", sans-serif;
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+```
 
 ## Syntax
 
@@ -37,12 +72,12 @@ font-variant-east-asian: unset;
 ### Werte
 
 - `normal`
-  - : Dieses Schlüsselwort führt zur Deaktivierung der Verwendung solcher alternativer Glyphen.
+  - : Dieses Schlüsselwort deaktiviert die Verwendung solcher alternativen Glyphen.
 - `ruby`
-  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für Rubyschriftzeichen. Da diese normalerweise kleiner sind, entwerfen Schriftgestalter oft spezifische Formen, die in der Regel leicht fett sind, um den Kontrast zu verbessern. Dieses Schlüsselwort entspricht den OpenType-Werten `ruby`.
+  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für Rubyschriftzeichen. Da diese normalerweise kleiner sind, gestalten Schriftgestalter oft spezifische Formen, die meist etwas fetter sind, um den Kontrast zu verbessern. Dieses Schlüsselwort entspricht den OpenType-Werten `ruby`.
 - `<east-asian-variant-values>`
 
-  - : Diese Werte spezifizieren eine Reihe von logografischen Glyphenvarianten, die für die Anzeige verwendet werden sollen. Mögliche Werte sind:
+  - : Diese Werte geben eine Menge logographischer Glyphenvarianten an, die zur Anzeige verwendet werden sollen. Mögliche Werte sind:
 
     | Schlüsselwort | Standard, der die Glyphen definiert                                         | OpenType-Äquivalent |
     | ------------- | --------------------------------------------------------------------------- | ------------------- |
@@ -50,15 +85,15 @@ font-variant-east-asian: unset;
     | `jis83`       | [JIS X 0208:1983](https://en.wikipedia.org/wiki/JIS_X_0208#Second_standard) | `jp83`              |
     | `jis90`       | [JIS X 0208:1990](https://en.wikipedia.org/wiki/JIS_X_0208#Third_standard)  | `jp90`              |
     | `jis04`       | [JIS X 0213:2004](https://en.wikipedia.org/wiki/JIS_X_0213)                 | `jp04`              |
-    | `simplified`  | Keiner, verwenden Sie die vereinfachten chinesischen Glyphen                | `smpl`              |
-    | `traditional` | Keiner, verwenden Sie die traditionellen chinesischen Glyphen               | `trad`              |
+    | `simplified`  | Keine, verwenden Sie die vereinfachten chinesischen Glyphen                 | `smpl`              |
+    | `traditional` | Keine, verwenden Sie die traditionellen chinesischen Glyphen                | `trad`              |
 
 - `<east-asian-width-values>`
 
-  - : Diese Werte steuern die Größeneinstellung der für ostasiatische Zeichen verwendeten Ziffern. Zwei Werte sind möglich:
+  - : Diese Werte steuern die Größenanpassung von Zeichen für ostasiatische Schriftzeichen. Zwei Werte sind möglich:
 
-    - `proportional-width` aktiviert das Set ostasiatischer Zeichen, die in der Breite variieren. Es entspricht den OpenType-Werten `pwid`.
-    - `full-width` aktiviert das Set ostasiatischer Zeichen, die alle die gleiche, ungefähr quadratische Breitenmetrik aufweisen. Es entspricht den OpenType-Werten `fwid`.
+    - `proportional-width`, welches die Menge ostasiatischer Schriftzeichen aktiviert, die in der Breite variieren. Es entspricht den OpenType-Werten `pwid`.
+    - `full-width`, welches die Menge ostasiatischer Schriftzeichen aktiviert, die alle dasselbe, ungefähr quadratische Breitenmaß haben. Es entspricht den OpenType-Werten `fwid`.
 
 ## Formale Definition
 
@@ -70,9 +105,9 @@ font-variant-east-asian: unset;
 
 ## Beispiele
 
-### Einstellung ostasiatischer Glyphenvarianten
+### Festlegung von ostasiatischen Glyphenvarianten
 
-Dieses Beispiel erfordert die im Betriebssystem installierte Schriftart "Yu Gothic", andere Schriftarten unterstützen möglicherweise keine OpenType-Features.
+Dieses Beispiel erfordert die Schriftart "Yu Gothic" auf Ihrem Betriebssystem, andere Schriftarten unterstützen möglicherweise keine OpenType-Funktionen.
 
 #### HTML
 

@@ -2,14 +2,57 @@
 title: font-optical-sizing
 slug: Web/CSS/font-optical-sizing
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`font-optical-sizing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Textdarstellung für die Ansicht in verschiedenen Größen optimiert wird.
+Die **`font-optical-sizing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Textrendering-Optimierung für unterschiedliche Größenansichten erfolgt.
 
-{{EmbedInteractiveExample("pages/css/font-optical-sizing.html")}}
+{{InteractiveExample("CSS Demo: font-optical-sizing")}}
+
+```css interactive-example-choice
+font-optical-sizing: auto;
+```
+
+```css interactive-example-choice
+font-optical-sizing: none;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element" style="font-optical-sizing: auto">
+    <h2>Chapter 3</h2>
+    <p>
+      On this particular Thursday, something was moving quietly through the
+      ionosphere many miles above the surface of the planet; several somethings
+      in fact, several dozen huge yellow chunky slablike somethings, huge as
+      office blocks, silent as birds.
+    </p>
+  </div>
+</section>
+```
+
+```css interactive-example
+@font-face {
+  src: url("/shared-assets/fonts/variable-fonts/AmstelvarAlpha-VF.ttf");
+  font-family: Amstelvar;
+  font-style: normal;
+}
+
+#example-element {
+  font-family: Amstelvar;
+  text-align: left;
+}
+
+#example-element h2 {
+  font-size: 36px;
+}
+
+#example-element p {
+  font-size: 12px;
+}
+```
 
 ## Syntax
 
@@ -29,15 +72,15 @@ font-optical-sizing: unset;
 ### Werte
 
 - none
-  - : Der Browser wird die Form der Glyphen nicht für eine optimale Ansicht ändern.
+  - : Der Browser wird die Form der Glyphen nicht zur optimalen Darstellung verändern.
 - auto
-  - : Der Browser wird die Form der Glyphen für eine optimale Ansicht ändern.
+  - : Der Browser wird die Form der Glyphen zur optimalen Darstellung verändern.
 
 ## Beschreibung
 
-Optische Größenanpassung ist standardmäßig für Schriftarten aktiviert, die eine Achse für optische Größenanpassung haben. Die Achse für optische Größenanpassung wird durch `opsz` in {{cssxref("font-variation-settings")}} dargestellt.
+Optische Größenanpassung ist standardmäßig für Schriftarten aktiviert, die eine optische Größenvariationsachse besitzen. Die optische Größenvariationsachse wird durch `opsz` in {{cssxref("font-variation-settings")}} dargestellt.
 
-Bei Verwendung von optischer Größenanpassung werden kleine Textgrößen oft mit dickeren Strichen und größeren Serifen gerendert, während größerer Text oft feiner gerendert wird, mit mehr Kontrast zwischen dickeren und dünneren Strichen.
+Wenn die optische Größenanpassung verwendet wird, werden kleine Textgrößen oft mit dickeren Strichen und größeren Serifen dargestellt, während größere Texte oft feiner dargestellt werden, mit mehr Kontrast zwischen dickeren und dünneren Strichen.
 
 ## Formale Definition
 
@@ -49,7 +92,7 @@ Bei Verwendung von optischer Größenanpassung werden kleine Textgrößen oft mi
 
 ## Beispiele
 
-### Deaktivierung der optischen Größenanpassung
+### Optische Größenanpassung deaktivieren
 
 ```html
 <p class="optical-sizing">
@@ -80,7 +123,7 @@ p {
 ```
 
 > [!NOTE]
-> Die oben erwähnte Schriftart — die optische Größenanpassung umfasst und frei lizenziert ist — eignet sich gut zum Testen. Sie können sie [auf GitHub herunterladen](https://github.com/googlefonts/amstelvar/releases).
+> Die oben referenzierte Schriftart — die eine optische Größenanpassung beinhaltet und frei lizenziert ist — eignet sich gut zum Testen. Sie können [sie auf GitHub herunterladen](https://github.com/googlefonts/amstelvar/releases).
 
 ## Spezifikationen
 
@@ -94,4 +137,4 @@ p {
 
 - {{cssxref("font-size")}}
 - {{cssxref("font-size-adjust")}}
-- [Lernen: Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Lernen: Grundlegendes Text- und Schriftstyling](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

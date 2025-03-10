@@ -2,14 +2,52 @@
 title: circle()
 slug: Web/CSS/basic-shape/circle
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`circle()`** CSS-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert einen Kreis unter Verwendung eines Radius und einer Position. Sie ist einer der {{cssxref("&lt;basic-shape&gt;")}} Datentypen.
+Die **`circle()`** CSS-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert einen Kreis mittels eines Radius und einer Position. Sie ist einer der {{cssxref("&lt;basic-shape&gt;")}} Datentypen.
 
-{{EmbedInteractiveExample("pages/css/function-circle.html")}}
+{{InteractiveExample("CSS Demo: circle()")}}
+
+```css interactive-example-choice
+clip-path: circle(50px);
+```
+
+```css interactive-example-choice
+clip-path: circle(6rem at right center);
+```
+
+```css interactive-example-choice
+clip-path: circle(10% at 2rem 90%);
+```
+
+```css interactive-example-choice
+clip-path: circle(closest-side at 5rem 6rem);
+```
+
+```css interactive-example-choice
+clip-path: circle(farthest-side);
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element"></div>
+</section>
+```
+
+```css interactive-example
+#default-example {
+  background: #fe9;
+}
+
+#example-element {
+  background: linear-gradient(to bottom right, #f52, #05f);
+  width: 100%;
+  height: 100%;
+}
+```
 
 ## Syntax
 
@@ -25,12 +63,12 @@ clip-path: circle(6rem at 12rem 8rem);
   - : Dies kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}}, oder die Werte `closest-side` und `farthest-side` sein.
 
     - `closest-side`
-      - : Verwendet die Länge vom Zentrum der Form zur nächstgelegenen Seite des Referenzrahmens. Bei Kreisen ist dies die näheste Seite in jeder Dimension.
+      - : Verwendet die Länge vom Mittelpunkt der Form zur nächsten Seite des Referenzrahmens. Für Kreise ist dies die nächste Seite in jeder Dimension.
     - `farthest-side`
-      - : Verwendet die Länge vom Zentrum der Form zur am weitesten entfernten Seite des Referenzrahmens. Bei Kreisen ist dies die am weitesten entfernte Seite in jeder Dimension.
+      - : Verwendet die Länge vom Mittelpunkt der Form zur entferntesten Seite des Referenzrahmens. Für Kreise ist dies die entfernteste Seite in jeder Dimension.
 
 - `<position>`
-  - : Bewegt das Zentrum des Kreises. Kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}}, oder ein Wert wie `left` sein. Der Wert `<position>` wird standardmäßig auf die Mitte gesetzt, wenn er weggelassen wird.
+  - : Bewegt das Zentrum des Kreises. Kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}}, oder ein Wert wie `left` sein. Der `<position>`-Wert wird standardmäßig auf die Mitte gesetzt, falls er weggelassen wird.
 
 ## Formale Syntax
 
@@ -38,9 +76,9 @@ clip-path: circle(6rem at 12rem 8rem);
 
 ## Beispiele
 
-### Grundlegender Kreis
+### Einfacher Kreis
 
-Im folgenden Beispiel hat die {{cssxref("shape-outside")}} Eigenschaft den Wert `circle(50%)`, der einen Kreis auf einem gefloateten Element definiert, um den der Text fließt.
+Im untenstehenden Beispiel hat die {{cssxref("shape-outside")}}-Eigenschaft den Wert `circle(50%)`, der einen Kreis auf einem gefloateten Element definiert, um den der Text fließen soll.
 
 ```html live-sample___circle
 <div class="box">
@@ -84,4 +122,4 @@ img {
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("clip-path")}}, {{cssxref("shape-outside")}}
-- [Leitfaden zu grundlegenden Formen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)
+- [Leitfaden zu Grundformen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)

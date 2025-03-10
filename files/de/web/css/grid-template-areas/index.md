@@ -2,16 +2,78 @@
 title: grid-template-areas
 slug: Web/CSS/grid-template-areas
 l10n:
-  sourceCommit: fb409b8972e7c03d7eb284466433a28efb850ef5
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS) Eigenschaft legt benannte {{Glossary("grid_areas", "Gitterbereiche")}} fest, indem sie die Zellen im Raster definiert und ihnen Namen zuweist.
+Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert benannte {{Glossary("grid_areas", "Grid-Bereiche")}}, etabliert die Zellen im Grid und weist ihnen Namen zu.
 
-{{EmbedInteractiveExample("pages/css/grid-template-areas.html")}}
+{{InteractiveExample("CSS Demo: grid-template-areas")}}
 
-Diese Bereiche sind nicht mit einem bestimmten Gitterelement verbunden, können jedoch über die Gitterplatzierungseigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} sowie deren Kurzschreibweisen {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
+```css interactive-example-choice
+grid-template-areas:
+  "a a a"
+  "b c c"
+  "b c c";
+```
+
+```css interactive-example-choice
+grid-template-areas:
+  "b b a"
+  "b b c"
+  "b b c";
+```
+
+```css interactive-example-choice
+grid-template-areas:
+  "a a ."
+  "a a ."
+  ". b c";
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="example-container">
+    <div class="transition-all" id="example-element">
+      <div>One (a)</div>
+      <div>Two (b)</div>
+      <div>Three (c)</div>
+    </div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 1px solid #c5c5c5;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, minmax(40px, auto));
+  grid-gap: 10px;
+  width: 200px;
+}
+
+#example-element :nth-child(1) {
+  background-color: rgba(0, 0, 255, 0.2);
+  border: 3px solid blue;
+  grid-area: a;
+}
+
+#example-element :nth-child(2) {
+  background-color: rgba(255, 0, 200, 0.2);
+  border: 3px solid rebeccapurple;
+  grid-area: b;
+}
+
+#example-element :nth-child(3) {
+  background-color: rgba(94, 255, 0, 0.2);
+  border: 3px solid green;
+  grid-area: c;
+}
+```
+
+Diese Bereiche sind nicht mit einem bestimmten Grid-Element verbunden, können jedoch durch die Grid-Platzierungseigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} und deren Kurzschreibweisen {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
 
 ## Syntax
 
@@ -36,12 +98,12 @@ grid-template-areas: unset;
 ### Werte
 
 - `none`
-  - : Der Gittercontainer definiert keine benannten Gitterbereiche.
+  - : Der Grid-Container definiert keine benannten Grid-Bereiche.
 - `{{cssxref("&lt;string&gt;")}}+`
 
-  - : Für jede angegebene Zeichenkette wird eine Zeile erstellt, und für jede Zelle in der Zeichenkette wird eine Spalte erstellt. Mehrere Zell-Tokens mit demselben Namen innerhalb und zwischen Zeilen erzeugen einen einzigen benannten Gitterbereich, der sich über die entsprechenden Gitterzellen erstreckt. Wenn diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
+  - : Eine Zeile wird für jede aufgelistete Zeichenfolge erstellt und eine Spalte wird für jede Zelle in der Zeichenfolge erstellt. Mehrere Zell-Token mit demselben Namen innerhalb und zwischen Zeilen erzeugen einen einzelnen benannten Grid-Bereich, der die entsprechenden Grid-Zellen überspannt. Wenn diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
 
-    Alle verbleibenden unbenannten Bereiche in einem Raster können mithilfe von _Null-Zell-Tokens_ referenziert werden. Ein Null-Zell-Token ist eine Folge von einem oder mehreren `.` (U+002E FULL STOP) Zeichen, z.B. `.`, `...` oder `.....` usw. Ein Null-Zell-Token kann verwendet werden, um leere Räume im Raster zu schaffen.
+    Alle verbleibenden unbenannten Bereiche in einem Grid können mit _Null-Zell-Token_ referenziert werden. Ein Null-Zell-Token ist eine Folge von einem oder mehreren `.` (U+002E FULL STOP) Zeichen, z.B. `.`, `...` oder `.....` etc. Ein Null-Zell-Token kann verwendet werden, um leere Bereiche im Grid zu erstellen.
 
 ## Formale Definition
 
@@ -53,7 +115,7 @@ grid-template-areas: unset;
 
 ## Beispiele
 
-### Benannte Gitterbereiche festlegen
+### Benannte Grid-Bereiche spezifizieren
 
 #### HTML
 
@@ -102,7 +164,7 @@ grid-template-areas: unset;
 }
 ```
 
-Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Gittercontainer zu erstellen, den wir genutzt haben, um einen leeren Raum in der unteren linken Ecke des Rasters zu schaffen.
+Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Grid-Container zu erstellen, den wir verwendet haben, um einen leeren Bereich in der unteren linken Ecke des Grids zu erzeugen.
 
 #### Ergebnis
 
@@ -121,5 +183,5 @@ Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereic
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template")}}
-- [Raster-Vorlagenbereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
+- [Grid-Bereiche vorlagen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
 - Video: [Grid template areas](https://gridbyexample.com/video/grid-template-areas/)

@@ -2,18 +2,57 @@
 title: border-block-start
 slug: Web/CSS/border-block-start
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`border-block-start`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Schreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) zum Festlegen der individuellen logischen Block-Start-Rand-Eigenschaftswerte an einer Stelle im Stylesheet.
+Die **`border-block-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft ist eine [Verkürzungseigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) zum Festlegen der einzelnen logischen Block-Start-Grenzwerte an einer einzigen Stelle im Stylesheet.
 
-{{EmbedInteractiveExample("pages/css/border-block-start.html")}}
+{{InteractiveExample("CSS Demo: border-block-start")}}
 
-## Zusammengesetzte Eigenschaften
+```css interactive-example-choice
+border-block-start: solid;
+writing-mode: horizontal-tb;
+```
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+```css interactive-example-choice
+border-block-start: dashed red;
+writing-mode: vertical-rl;
+```
+
+```css interactive-example-choice
+border-block-start: 1rem solid;
+writing-mode: horizontal-tb;
+```
+
+```css interactive-example-choice
+border-block-start: thick double #32a1ce;
+writing-mode: vertical-lr;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with a border around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #eee;
+  color: #8b008b;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+  unicode-bidi: bidi-override;
+}
+```
+
+## Bestandteileigenschaften
+
+Diese Eigenschaft ist eine Verkürzung für die folgenden CSS-Eigenschaften:
 
 - [`border-block-start-color`](/de/docs/Web/CSS/border-block-start-color)
 - [`border-block-start-style`](/de/docs/Web/CSS/border-block-start-style)
@@ -34,20 +73,20 @@ border-block-start: revert-layer;
 border-block-start: unset;
 ```
 
-`border-block-start` kann verwendet werden, um die Werte für eine oder mehrere der Eigenschaften {{cssxref("border-block-start-width")}}, {{cssxref("border-block-start-style")}} und {{cssxref("border-block-start-color")}} festzulegen. Der physische Rand, auf den es abbildet, hängt vom Schreibmodus, der Richtung und der Textorientierung des Elements ab. Es entspricht der Eigenschaft {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+`border-block-start` kann verwendet werden, um die Werte für eine oder mehrere der {{cssxref("border-block-start-width")}}, {{cssxref("border-block-start-style")}} und {{cssxref("border-block-start-color")}} festzulegen. Die physische Grenze, auf die es verweist, hängt vom Schreibmodus des Elements, der Richtung und der Textausrichtung ab. Es entspricht der {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}} Eigenschaft, je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Verwandte Eigenschaften sind {{cssxref("border-block-end")}}, {{cssxref("border-inline-start")}} und {{cssxref("border-inline-end")}}, die die anderen Randbereiche des Elements definieren.
+Verwandte Eigenschaften sind {{cssxref("border-block-end")}}, {{cssxref("border-inline-start")}} und {{cssxref("border-inline-end")}}, die die anderen Grenzen des Elements definieren.
 
 ### Werte
 
-Das `border-block-start` wird mit einem oder mehreren der folgenden Werte in beliebiger Reihenfolge angegeben:
+Die `border-block-start` wird mit einem oder mehreren der folgenden, in beliebiger Reihenfolge, angegeben:
 
 - `<'border-width'>`
-  - : Die Breite des Randes. Siehe {{cssxref("border-width")}}.
+  - : Die Breite der Grenze. Siehe {{cssxref("border-width")}}.
 - `<'border-style'>`
-  - : Der Linienstil des Randes. Siehe {{cssxref("border-style")}}.
+  - : Der Linienstil der Grenze. Siehe {{cssxref("border-style")}}.
 - {{CSSXref("&lt;color&gt;")}}
-  - : Die Farbe des Randes.
+  - : Die Farbe der Grenze.
 
 ## Formale Definition
 
@@ -59,7 +98,7 @@ Das `border-block-start` wird mit einem oder mehreren der folgenden Werte in bel
 
 ## Beispiele
 
-### Rahmen mit vertikalem Text
+### Grenze mit vertikalem Text
 
 #### HTML
 
@@ -97,5 +136,5 @@ div {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird einer der physischen Rand-Eigenschaften zugeordnet: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}}.
+- Diese Eigenschaft verweist auf eine der physikalischen Grenzeigenschaften: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}}, oder {{cssxref("border-left")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

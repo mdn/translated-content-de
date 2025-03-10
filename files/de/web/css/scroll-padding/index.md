@@ -2,20 +2,80 @@
 title: scroll-padding
 slug: Web/CSS/scroll-padding
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`scroll-padding`** [Kurzschrift-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt das Scroll-Padding auf allen Seiten eines Elements auf einmal, ähnlich wie die {{cssxref("padding")}} Eigenschaft das Padding auf einem Element definiert.
+Die **`scroll-padding`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt das Scroll-Polster auf allen Seiten eines Elements gleichzeitig, ähnlich wie die {{cssxref("padding")}}-Eigenschaft das Polster eines Elements setzt.
 
-{{EmbedInteractiveExample("pages/css/scroll-padding.html")}}
+{{InteractiveExample("CSS Demo: scroll-padding")}}
 
-Die `scroll-padding-*` Eigenschaften definieren Offsets für den _optimalen Betrachtungsbereich_ des Scrollports: den Bereich, der als Zielregion verwendet wird, um Dinge im Sichtfeld des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fixierte Toolbars oder Seitenleisten) verdeckt sind, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+```css interactive-example-choice
+scroll-padding: 0;
+```
 
-## Zusätzliche Eigenschaften
+```css interactive-example-choice
+scroll-padding: 20px;
+```
 
-Diese Eigenschaft ist eine Kurzschrift für die folgenden CSS-Eigenschaften:
+```css interactive-example-choice
+scroll-padding: 2em;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="scroller" id="example-element">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="info">Scroll »</div>
+</section>
+```
+
+```css interactive-example
+.default-example .info {
+  inline-size: 100%;
+  padding: 0.5em 0;
+  font-size: 90%;
+  writing-mode: vertical-rl;
+}
+
+.scroller {
+  text-align: left;
+  height: 250px;
+  width: 270px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid black;
+  scroll-snap-type: y mandatory;
+}
+
+.scroller > div {
+  flex: 0 0 250px;
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.scroller > div:nth-child(even) {
+  background-color: #fff;
+  color: rebeccapurple;
+}
+```
+
+Die `scroll-padding-*`-Eigenschaften definieren Abstände für den _optimalen Betrachtungsbereich_ des Scrollbereichs: den Bereich, der als Zielbereich verwendet wird, um Dinge in den Blick des Benutzers zu rücken. Dies ermöglicht es dem Autor, Bereiche des Scrollbereichs auszuschließen, die von anderem Inhalt verdeckt werden (wie z.B. fixierte Werkzeugleisten oder Seitenleisten), oder um mehr Raum zwischen einem angezielten Element und den Rändern des Scrollbereichs zu schaffen.
+
+## Zusammengesetzte Eigenschaften
+
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{CSSXref("scroll-padding-bottom")}}
 - {{CSSXref("scroll-padding-left")}}
@@ -44,9 +104,9 @@ scroll-padding: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein innerer Versatz vom entsprechenden Rand des Scrollports, in Form eines gültigen {{cssxref("&lt;length&gt;")}} oder eines {{cssxref("&lt;percentage&gt;")}}.
+  - : Ein nach innen gerichteter Abstand von der entsprechenden Kante des Scrollbereichs, als gültige {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies ist im Allgemeinen `0px`, aber der Benutzeragent kann etwas anderes feststellen und tun, wenn ein Wert ungleich null angemessener ist.
+  - : Der Abstand wird durch den User-Agent bestimmt. Dies ist in der Regel `0px`, jedoch kann der User-Agent auch etwas anderes bestimmen, wenn ein anderer Wert angemessener ist.
 
 ## Formale Definition
 
@@ -66,5 +126,5 @@ scroll-padding: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [Gut kontrolliertes Scrollen mit CSS-Scroll-Snap](https://web.dev/articles/css-scroll-snap)

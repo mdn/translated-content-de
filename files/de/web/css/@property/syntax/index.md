@@ -1,15 +1,13 @@
 ---
-title: syntax
+title: Syntax
 slug: Web/CSS/@property/syntax
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c
 ---
 
 {{CSSRef}}
 
-Der **`syntax`** Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) definiert die erlaubten Wertetypen für die registrierte [CSS Custom Property](/de/docs/Web/CSS/--*).
-Er steuert, wie der angegebene Wert der Eigenschaft verarbeitet wird, um den {{cssxref("computed_value", "berechneten Wert")}} zu erhalten.
-Es handelt sich um einen obligatorischen Deskriptor; wenn er fehlt oder ungültig ist, wird die gesamte `@property`-Regel als ungültig betrachtet und ignoriert.
+Der **`syntax`** Deskriptor der {{cssxref("@property")}} [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rule) definiert die zulässigen Wertetypen für die registrierte [CSS-Benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*). Er steuert, wie der angegebene Wert der Eigenschaft verarbeitet wird, um den [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/computed_value) zu bestimmen. Es ist ein erforderlicher Deskriptor; fehlt er oder ist er ungültig, ist die gesamte `@property` Regel ungültig und wird ignoriert.
 
 ## Syntax
 
@@ -38,55 +36,51 @@ syntax: "*";
 
 ### Werte
 
-Ein String (als Syntax-String bezeichnet), der die erlaubten Werte definiert.
-Es kann einer der folgenden Fälle sein:
+Ein Zeichenfolgenwert (bekannt als Syntax-String), der die zulässigen Werte definiert. Er kann einer der folgenden sein:
 
-- Einer oder mehrere Namen von Syntaxkomponenten, die sein können:
-  - Datentypnamen (geschrieben in spitzen Klammern, z. B. `<color>` oder `<length>`)
-  - Schlüsselwörter (geschrieben ohne spitze Klammern, z. B. `auto` oder `none`)
-- Die universelle Syntax `*`, die jeden gültigen CSS-Wert akzeptiert.
-  Sie kann nicht multipliziert oder mit anderen Syntaxkomponenten kombiniert werden.
+- Ein oder mehrere Syntaxkomponentennamen, die sein können:
+  - Datentypennamen (geschrieben in spitzen Klammern, wie `<color>` oder `<length>`)
+  - Schlüsselwörter (geschrieben ohne spitze Klammern, wie `auto` oder `none`)
+- Die universelle Syntax `*`, die jeden gültigen CSS-Wert akzeptiert. Sie kann nicht multipliziert oder mit anderen Syntaxkomponenten kombiniert werden.
 
-Die Namen der Syntaxkomponenten können allein verwendet oder in verschiedenen Formen multipliziert und kombiniert werden:
+Die Syntaxkomponentennamen können allein stehen oder multipliziert und auf verschiedene Weise kombiniert werden:
 
-- Die Multiplikatoren `+` (durch Leerzeichen getrennt) und `#` (durch Kommas getrennt) geben an, dass eine Liste von Werten erwartet wird.
-  Zum Beispiel bedeutet `<color>#`, dass eine kommagetrennte Liste von `<color>`-Werten die erwartete Syntax ist.
+- Die `+` (durch Leerzeichen getrennt) und `#` (durch Komma getrennt) Multiplikatoren zeigen an, dass eine Liste von Werten erwartet wird. Zum Beispiel bedeutet `<color>#`, dass eine durch Komma getrennte Liste von `<color>` Werten die erwartete Syntax ist.
 
-- Der vertikale Strich (`|`) als Kombinator kann "oder"-Bedingungen für die erwartete Syntax erstellen.
-  Zum Beispiel akzeptiert `<length> | auto` entweder `<length>` oder `auto`, und `<color># | <integer>#` erwartet eine kommagetrennte Liste von `<color>`-Werten oder eine kommagetrennte Liste von `<integer>`-Werten.
+- Der vertikale Strich (`|`) Kombinator kann "oder"-Bedingungen für die erwartete Syntax erstellen. Zum Beispiel akzeptiert `<length> | auto` `<length>` oder `auto`, und `<color># | <integer>#` erwartet eine durch Komma getrennte Liste von `<color>` Werten oder eine durch Komma getrennte Liste von `<integer>` Werten.
 
-Die folgenden Namen von Syntaxkomponenten werden unterstützt:
+Die folgenden Syntaxkomponentennamen werden unterstützt:
 
 - `"<angle>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;angle&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;angle&gt;")}} Wert.
 - `"<color>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;color&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;color&gt;")}} Wert.
 - `"<custom-ident>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;custom-ident&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;custom-ident&gt;")}} Wert.
 - `"<image>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;image&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;image&gt;")}} Wert.
 - `"<integer>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;integer&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;integer&gt;")}} Wert.
 - `"<length>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;length&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;length&gt;")}} Wert.
 - `"<length-percentage>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;length&gt;")}}- oder {{cssxref("&lt;percentage&gt;")}}-Wert sowie jede gültige {{cssxref("calc", "calc()")}}-Ausdruckskombination aus `<length>`- und `<percentage>`-Werten.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Wert und jeden gültigen {{cssxref("calc", "calc()")}} Ausdruck, der `<length>` und `<percentage>` Werte kombiniert.
 - `"<number>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;number&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;number&gt;")}} Wert.
 - `"<percentage>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;percentage&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;percentage&gt;")}} Wert.
 - `"<resolution>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;resolution&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;resolution&gt;")}} Wert.
 - `"<string>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;string&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;string&gt;")}} Wert.
 - `"<time>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;time&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;time&gt;")}} Wert.
 - `"<transform-function>"`
-  - : Akzeptiert jeden gültigen {{cssxref("&lt;transform-function&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("&lt;transform-function&gt;")}} Wert.
 - `"<transform-list>"`
-  - : Akzeptiert eine Liste gültiger {{cssxref("&lt;transform-function&gt;")}}-Werte. Dies ist gleichbedeutend mit `"<transform-function>+"`.
+  - : Akzeptiert eine Liste von gültigen {{cssxref("&lt;transform-function&gt;")}} Werten. Es ist äquivalent zu `"<transform-function>+"`.
 - `"<url>"`
-  - : Akzeptiert jeden gültigen {{cssxref("url_value", "&lt;url&gt;")}}-Wert.
+  - : Akzeptiert jeden gültigen {{cssxref("url_value", "&lt;url&gt;")}} Wert.
 
 ## Formale Definition
 
@@ -98,9 +92,9 @@ Die folgenden Namen von Syntaxkomponenten werden unterstützt:
 
 ## Beispiele
 
-### Registrieren einer benutzerdefinierten Eigenschaft mit Typüberprüfung
+### Eine benutzerdefinierte Eigenschaft mit Typüberprüfung registrieren
 
-Dieses Beispiel zeigt, wie eine benutzerdefinierte Eigenschaft `--my-color` definiert wird, die nur `<color>`-Werte erlaubt:
+Dieses Beispiel zeigt, wie Sie eine benutzerdefinierte Eigenschaft `--my-color` definieren, die nur `<color>` Werte zulässt:
 
 ```css
 @property --my-color {
@@ -131,7 +125,7 @@ window.CSS.registerProperty({
 
 ## Siehe auch
 
-- Andere {{cssxref("@property")}} Deskriptoren: {{cssxref("@property/inherits", "inherits")}} und {{cssxref("@property/initial-value", "initial-value")}}
+- Andere {{cssxref("@property")}} Deskriptoren: {{cssxref("@property/inherits","inherits")}} und {{cssxref("@property/initial-value", "initial-value")}}
 - [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API)
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
 - [CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API)

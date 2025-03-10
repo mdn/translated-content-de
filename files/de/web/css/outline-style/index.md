@@ -2,16 +2,53 @@
 title: outline-style
 slug: Web/CSS/outline-style
 l10n:
-  sourceCommit: aa714bb37625b21b0f40db1f1ea557e773456fa2
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`outline-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Umrandung eines Elements fest. Eine Umrandung ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des {{cssxref("border")}}.
+Die **`outline-style`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt den Stil der Umrandung eines Elements fest. Eine Umrandung ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb der {{cssxref("border")}}.
 
-{{EmbedInteractiveExample("pages/css/outline-style.html")}}
+{{InteractiveExample("CSS Demo: outline-style")}}
 
-Es ist oft praktischer, die Kurzschreibweiseigenschaft {{cssxref("outline")}} zu verwenden, wenn das Erscheinungsbild einer Umrandung definiert werden soll.
+```css interactive-example-choice
+outline-style: none;
+```
+
+```css interactive-example-choice
+outline-style: dotted;
+```
+
+```css interactive-example-choice
+outline-style: solid;
+```
+
+```css interactive-example-choice
+outline-style: groove;
+```
+
+```css interactive-example-choice
+outline-style: inset;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with an outline around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  outline: 0.75em solid;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+}
+```
+
+Es ist oft praktischer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, um das Erscheinungsbild einer Umrandung zu definieren.
 
 ## Syntax
 
@@ -36,26 +73,26 @@ outline-style: revert-layer;
 outline-style: unset;
 ```
 
-Die `outline-style` Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
+Die `outline-style`-Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
 
 ### Werte
 
 - `auto`
-  - : Ermöglicht dem User-Agent, einen benutzerdefinierten Umrandungsstil darzustellen.
+  - : Erlaubt es dem Benutzeragenten, einen benutzerdefinierten Umrandungsstil darzustellen.
 - `none`
-  - : Keine Umrandung wird verwendet. Die {{cssxref("outline-width")}} ist `0`.
+  - : Es wird keine Umrandung verwendet. Die {{cssxref("outline-width")}} ist `0`.
 - `dotted`
-  - : Die Umrandung ist eine Reihe von Punkten.
+  - : Die Umrandung besteht aus einer Reihe von Punkten.
 - `dashed`
-  - : Die Umrandung ist eine Reihe von kurzen Liniensegmenten.
+  - : Die Umrandung besteht aus einer Reihe kurzer Liniensegmente.
 - `solid`
-  - : Die Umrandung ist eine einzige Linie.
+  - : Die Umrandung ist eine durchgehende Linie.
 - `double`
-  - : Die Umrandung besteht aus zwei einzelnen Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und des Zwischenraums.
+  - : Die Umrandung besteht aus zwei durchgehenden Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und des Raums zwischen ihnen.
 - `groove`
-  - : Die Umrandung sieht aus, als wäre sie in die Seite geschnitzt.
+  - : Die Umrandung sieht aus, als wäre sie in die Seite eingraviert.
 - `ridge`
-  - : Das Gegenteil von `groove`: Die Umrandung sieht aus, als wäre sie aus der Seite herausgehoben.
+  - : Das Gegenteil von `groove`: Die Umrandung sieht aus, als wäre sie aus der Seite herausgedrückt.
 - `inset`
   - : Die Umrandung lässt die Box so aussehen, als wäre sie in die Seite eingebettet.
 - `outset`
@@ -73,7 +110,7 @@ Die `outline-style` Eigenschaft wird als einer der unten aufgeführten Werte ang
 
 ### Umrandungsstil auf auto setzen
 
-Der `auto`-Wert zeigt einen benutzerdefinierten Umrandungsstil an, der in [der Spezifikation](https://www.w3.org/TR/css-ui-3/#outline-style) beschrieben wird als "typischerweise ein Stil, der entweder ein Benutzeroberflächenstandard der Plattform ist oder vielleicht ein Stil, der reicher ist, als es in CSS im Detail beschrieben werden kann, z. B. eine Umrandung mit abgerundeten Kanten und halbtransluzenten äußeren Pixeln, die leuchtet".
+Der Wert `auto` gibt einen benutzerdefinierten Umrandungsstil an, der in [der Spezifikation](https://www.w3.org/TR/css-ui-3/#outline-style) beschrieben wird als "typischerweise ein Stil \[der] entweder ein Benutzeroberflächen-Standard für die Plattform ist oder möglicherweise ein Stil, der reicher ist, als in CSS im Detail beschrieben werden kann, z.B. eine Umrandung mit abgerundeten Kanten und halbtransluszenten äußeren Pixeln, die zu leuchten scheinen".
 
 #### HTML
 

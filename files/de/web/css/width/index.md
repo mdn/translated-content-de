@@ -2,22 +2,57 @@
 title: width
 slug: Web/CSS/width
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite eines Elements fest. Standardmäßig bestimmt sie die Breite des [Inhaltsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area), aber wenn {{cssxref("box-sizing")}} auf `border-box` gesetzt ist, bestimmt sie die Breite des [Randbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area).
+Die **`width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite eines Elements fest. Standardmäßig wird die Breite des [Inhaltsbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area) festgelegt. Wenn jedoch {{cssxref("box-sizing")}} auf `border-box` gesetzt ist, wird die Breite des [Randbereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area) festgelegt.
 
-{{EmbedInteractiveExample("pages/css/width.html")}}
+{{InteractiveExample("CSS Demo: width")}}
 
-Der angegebene Wert von `width` gilt für den Inhaltsbereich, solange der Wert innerhalb der durch {{cssxref("min-width")}} und {{cssxref("max-width")}} definierten Werte bleibt.
+```css interactive-example-choice
+width: 150px;
+```
 
-- Wenn der Wert für `width` kleiner ist als der Wert für `min-width`, dann überschreibt `min-width` die `width`.
-- Wenn der Wert für `width` größer ist als der Wert für `max-width`, dann überschreibt `max-width` die `width`.
+```css interactive-example-choice
+width: 20em;
+```
+
+```css interactive-example-choice
+width: 75%;
+```
+
+```css interactive-example-choice
+width: auto;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box where you can change the width.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  display: flex;
+  flex-direction: column;
+  background-color: #5b6dcd;
+  height: 80%;
+  justify-content: center;
+  color: #ffffff;
+}
+```
+
+Der angegebene Wert von `width` gilt für den Inhaltsbereich, solange sein Wert innerhalb der durch {{cssxref("min-width")}} und {{cssxref("max-width")}} definierten Werte bleibt.
+
+- Wenn der Wert für `width` kleiner ist als der Wert für `min-width`, dann überschreibt `min-width` `width`.
+- Wenn der Wert für `width` größer ist als der Wert für `max-width`, dann überschreibt `max-width` `width`.
 
 > [!NOTE]
-> Als geometrische Eigenschaft gilt `width` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}}, und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` für `<svg>` zu `100%` und für andere Elemente zu `0` aufgelöst wird und Prozentwerte relativ zur SVG-Ansichtsfensterbreite für `<rect>` sind. Der CSS-`width`-Eigenschaftswert überschreibt jeden SVG {{SVGAttr("width")}}-Attributwert, der auf dem SVG-Element gesetzt ist.
+> Als geometrische Eigenschaft gilt `width` auch für die SVG-Elemente {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}}, wobei `auto` sich auf `100%` für `<svg>` und `0` für andere Elemente auflöst und Prozentwerte relativ zur SVG-Ansichtsfensterbreite für `<rect>` sind. Der CSS `width` Eigenschaftswert überschreibt jeden SVG {{SVGAttr("width")}} Attributwert, der auf dem SVG-Element festgelegt ist.
 
 ## Syntax
 
@@ -52,7 +87,7 @@ width: unset;
 - {{cssxref("&lt;length&gt;")}}
   - : Definiert die Breite als Distanzwert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Definiert die Breite als Prozentsatz der Breite des [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
+  - : Definiert die Breite als Prozentsatz der Breite des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
 - `auto`
   - : Der Browser berechnet und wählt eine Breite für das angegebene Element aus.
 - `max-content`
@@ -60,22 +95,22 @@ width: unset;
 - `min-content`
   - : Die intrinsische Mindestbreite.
 - `fit-content`
-  - : Nutzt den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
+  - : Verwenden Sie den verfügbaren Platz, jedoch nicht mehr als [max-content](/de/docs/Web/CSS/max-content), also `min(max-content, max(min-content, stretch))`.
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
-  - : Verwendet die Fit-Content-Formel mit dem verfügbaren Raum, der durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, <length-percentage>))`.
+  - : Verwendet die Fit-Content-Formel mit dem verfügbaren Platz ersetzt durch das angegebene Argument, also `min(max-content, max(min-content, <length-percentage>))`.
 - `stretch`
 
-  - : Setzt die Breite des [Außenabstands](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, den Außenabstand so zu gestalten, dass er den verfügbaren Platz im umgebenden Block ausfüllt, so dass es sich in gewisser Weise ähnlich wie `100%` verhält, jedoch die resultierende Größe auf den Außenabstand anwendet, anstatt auf dem durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmten Block.
+  - : Stellt die Breite der [Rahmenbox](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block) ein. Es versucht, die Rahmenbox auf den verfügbaren Platz im umschließenden Block zu füllen, verhält sich also in gewisser Weise ähnlich wie `100%`, wendet die resultierende Größe jedoch auf die Rahmenbox anstatt auf die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box an.
 
     > [!NOTE]
-    > Um Aliasse zu überprüfen, die von Browsern für den `stretch`-Wert verwendet werden, und den Implementierungsstatus, siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
+    > Um die von Browsern verwendeten Aliase für den `stretch` Wert und dessen Implementierungsstatus zu überprüfen, siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass Elemente mit einer eingestellten `width` nicht abgeschnitten werden und/oder anderen Inhalt nicht verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
+Stellen Sie sicher, dass Elemente mit einer festgelegten `width` nicht abgeschnitten werden und/oder andere Inhalte nicht verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
 
-- [MDN Understanding WCAG, Guideline 1.4 Erläuterungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Understanding Success Criterion 1.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Verständnis von WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Erklärung des Erfolgskriteriums 1.4.4 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 
@@ -101,7 +136,7 @@ p.goldie {
 
 {{EmbedLiveSample('Default_width', '500px', '64px')}}
 
-### Beispiel unter Verwendung von Pixeln und Em
+### Beispiel mit Pixeln und Ems
 
 ```css
 .px_length {
@@ -126,7 +161,7 @@ p.goldie {
 
 {{EmbedLiveSample('Example using pixels and ems', '500px', '64px')}}
 
-### Beispiel mit Prozentsatz
+### Beispiel mit Prozentangabe
 
 ```css
 .percent {
@@ -188,5 +223,5 @@ p.min-blue {
 - {{cssxref("block-size")}}, {{cssxref("inline-size")}}
 - {{cssxref("anchor-size()")}}
 - SVG {{SVGAttr("width")}} Attribut
-- [Einführung in das CSS-Grundlagen-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [CSS Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul
+- [Einführung in das grundlegende CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [CSS-Box-Modul](/de/docs/Web/CSS/CSS_box_model) Modul

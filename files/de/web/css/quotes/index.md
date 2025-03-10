@@ -2,16 +2,51 @@
 title: quotes
 slug: Web/CSS/quotes
 l10n:
-  sourceCommit: c749deb4ccb647d792deee4807d4852104bedd9d
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die [CSS](/de/docs/Web/CSS) **`quotes`**-Eigenschaft legt fest, wie der Browser Anführungszeichen darstellen soll, die automatisch dem HTML-{{HTMLElement("q")}}-Element hinzugefügt werden oder die mit den Werten `open-quotes` oder `close-quotes` (oder weggelassen mit `no-open-quote` und `no-close-quote`) der CSS-[`content`](/de/docs/Web/CSS/content)-Eigenschaft hinzugefügt werden.
+Die [CSS](/de/docs/Web/CSS) **`quotes`**-Eigenschaft legt fest, wie der Browser Anführungszeichen rendern soll, die automatisch dem HTML-{{HTMLElement("q")}}-Element hinzugefügt werden oder mit den Werten `open-quotes` oder `close-quotes` (oder weggelassen mit `no-open-quote` und `no-close-quote`) der CSS-`[`content`](/de/docs/Web/CSS/content)`-Eigenschaft hinzugefügt werden.
 
-{{EmbedInteractiveExample("pages/css/quotes.html")}}
+{{InteractiveExample("CSS Demo: quotes")}}
 
-Browser fügen Anführungszeichen am Anfang und Ende von `<q>`-Elementen sowie für die Werte `open-quote` und `close-quote` der `content`-Eigenschaft ein. Jedes öffnende oder schließende Anführungszeichen wird durch eine der Zeichenfolgen aus dem Wert von `quotes` ersetzt, basierend auf der Verschachtelungstiefe, oder, wenn `quotes` ausdrücklich auf `auto` gesetzt oder anderweitig auf `auto` aufgelöst wird, sind die Anführungszeichen sprachabhängig.
+```css interactive-example-choice
+quotes: none;
+```
+
+```css interactive-example-choice
+quotes: initial;
+```
+
+```css interactive-example-choice
+quotes: "'" "'";
+```
+
+```css interactive-example-choice
+quotes: "„" "“" "‚" "‘";
+```
+
+```css interactive-example-choice
+quotes: "«" "»" "‹" "›";
+```
+
+```html interactive-example
+<section id="default-example">
+  <q id="example-element"
+    >Show us the wonder-working <q>Brothers,</q> let them come out publicly—and
+    we will believe in them!</q
+  >
+</section>
+```
+
+```css interactive-example
+q {
+  font-size: 1.2rem;
+}
+```
+
+Browser fügen Anführungszeichen am Anfang und Ende von `<q>`-Elementen und für die Werte `open-quote` und `close-quote` der `content`-Eigenschaft hinzu. Jedes öffnende oder schließende Anführungszeichen wird durch einen der Zeichenfolgen aus dem Wert von `quotes` ersetzt, basierend auf der Verschachtelungstiefe oder, wenn `quotes` explizit auf `auto` gesetzt wird oder sich darauf auflöst, sind die verwendeten Anführungszeichen sprachabhängig.
 
 ## Syntax
 
@@ -35,19 +70,19 @@ quotes: unset;
 ### Werte
 
 - `none`
-  - : Die `open-quote` und `close-quote` Werte der {{cssxref("content")}}-Eigenschaft erzeugen keine Anführungszeichen, als ob `no-open-quote` und `no-close-quote` gesetzt wären.
+  - : Die Werte `open-quote` und `close-quote` der {{cssxref("content")}}-Eigenschaft erzeugen keine Anführungszeichen, als ob `no-open-quote` und `no-close-quote` gesetzt wären.
 - `auto`
-  - : Anführungszeichen, die typografisch für die geerbte Sprache geeignet sind (d.h. über das [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Attribut, das am Eltern- oder anderem Vorfahren-Element gesetzt ist).
+  - : Anführungszeichen, die für die geerbte Sprache typografisch passend sind (d.h. über das [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Attribut, das am übergeordneten Element oder einem anderen Vorfahren gesetzt ist).
 - `[{{cssxref("&lt;string&gt;")}} <string>]+`
 
-  - : Definiert ein oder mehrere Paare von Anführungszeichenwerten für öffnende und schließende Zitate. Im ersten Paar jedes Zitatpaares werden die Werte für das `open-quote` und im zweiten des Paares für das `close-quote` verwendet.
+  - : Definiert ein oder mehrere Paare von Anführungszeichenwerten für öffnende und schließende Anführungszeichen. In jedem Paar werden das erste für `open-quote` und das zweite für `close-quote` verwendet.
 
-    Das erste Paar repräsentiert das äußere Zitatniveau. Das zweite Paar, falls vorhanden, repräsentiert das erste verschachtelte Niveau. Das nächste Paar wird für doppelt verschachtelte Ebenen verwendet und so weiter. Wenn die Tiefe der Zitatverschachtelung größer ist als die Anzahl der Paare, wird das letzte Paar im `quotes`-Wert wiederholt.
+    Das erste Paar stellt die äußere Ebene des Zitats dar. Das zweite Paar, falls vorhanden, stellt die erste verschachtelte Ebene dar. Das nächste Paar wird für doppelt verschachtelte Ebenen verwendet und so weiter. Wenn die Tiefe der Verschachtelung größer ist als die Anzahl der Paare, wird das letzte Paar im `quotes`-Wert wiederholt.
 
-    Welches Paar von Anführungszeichen verwendet wird, hängt von der Tiefe oder Verschachtelungsebene der Zitate ab: die Anzahl der Vorkommen von `<q>`-Zitaten oder `open-quote` (oder `no-open-quote`) in allen generierten Texten vor dem aktuellen Vorkommen, minus der Anzahl der Vorkommen von schließenden Zitaten, entweder als `</q>`, `close-quote` oder `no-close-quote`. Wenn die Tiefe 0 ist, wird das erste Paar verwendet, wenn die Tiefe 1 ist, wird das zweite Paar verwendet usw.
+    Welches Paar von Anführungszeichen verwendet wird, hängt von der Tiefe oder Verschachtelungsebene der Anführungszeichen ab: die Anzahl der Vorkommen von `<q>`-Anführungszeichen oder `open-quote` (oder `no-open-quote`) in allen generierten Texten vor dem aktuellen Vorkommen, minus die Anzahl der Vorkommen von schließenden Anführungszeichen, entweder als `</q>`, `close-quote` oder `no-close-quote`. Wenn die Tiefe 0 ist, wird das erste Paar verwendet, wenn die Tiefe 1 ist, wird das zweite Paar verwendet usw.
 
 > [!NOTE]
-> Der CSS `content` Eigenschaftswert `open-quote` erhöht und `no-close-quote` verringert die Zitatstufe, aber fügt keine Anführungszeichen ein.
+> Der CSS-`content`-Eigenschaftswert `open-quote` erhöht und `no-close-quote` verringert die Zitat-Ebene, fügt aber keine Anführungszeichen ein.
 
 ## Formale Definition
 
@@ -59,11 +94,11 @@ quotes: unset;
 
 ## Beispiele
 
-### Standardzitate und Überschreibungen
+### Standard-Anführungszeichen und Überschreibungen
 
-Dieses Beispiel vergleicht die Standardzitate, die durch das semantische HTML-Element `<q>` bereitgestellt werden, mit denen, die wir mit der CSS-Eigenschaft `quotes` definieren.
+Dieses Beispiel vergleicht die Standard-Anführungszeichen, die vom semantischen HTML-Element `<q>` bereitgestellt werden, mit denen, die wir mit der CSS-`quotes`-Eigenschaft definieren.
 
-Der Standardwert von `quotes` ist [`auto`](#auto). In diesem Beispiel hat das erste Listenelement `quotes: auto` gesetzt, sodass die Standardzitate für die angegebene Sprache erhalten werden; genauso, wie wenn keine `quotes`-Eigenschaft gesetzt wäre. Das zweite Listenelement definiert, welche Anführungszeichen für Zitate und verschachtelte Zitate verwendet werden sollen; diese Anführungszeichen werden für Nachkommen eines Elements mit der Klasse `specialQuotes` verwendet, unabhängig von der Sprache (wie alle `lang`-Attributwerte, die gesetzt sind).
+Der Standardwert von `quotes` ist [`auto`](#auto). In diesem Beispiel hat das erste Listenelement `quotes: auto` gesetzt, sodass die Standard-Anführungszeichen für die angegebene Sprache erhalten werden, als ob keine `quotes`-Eigenschaft gesetzt wäre. Das zweite Listenelement definiert, welche Anführungszeichen für Zitate und verschachtelte Zitate verwendet werden sollen; diese Anführungszeichen werden für Nachkommen eines Elements mit der Klasse `specialQuotes` verwendet, unabhängig von der Sprache (wie alle [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Attributwerte, die gesetzt sind).
 
 #### HTML
 
@@ -109,13 +144,13 @@ li {
 
 {{EmbedLiveSample('Overriding default quotes', "100%", 200)}}
 
-Standardmäßig stellt der Browser sprachspezifische Anführungszeichen bereit, wenn das `<q>`-Element verwendet wird. Wenn die `quotes`-Eigenschaft definiert ist, überschreiben die angegebenen Werte die Browserstandards. Beachten Sie, dass die Eigenschaft `quotes` vererbt wird. Die Eigenschaft `quotes` wird auf das `<li>` mit der Klasse `specialQuotes` gesetzt, aber die Anführungszeichen werden auf die `<q>`-Elemente angewendet.
+Standardmäßig stellen Browser sprachenabhängige Anführungszeichen bereit, wenn das `<q>`-Element verwendet wird. Wenn die `quotes`-Eigenschaft definiert ist, überschreiben die bereitgestellten Werte die Standardwerte des Browsers. Beachten Sie, dass die `quotes`-Eigenschaft vererbt wird. Die `quotes`-Eigenschaft ist auf dem `<li>` mit der Klasse `specialQuotes` gesetzt, aber die Anführungszeichen werden auf die `<q>`-Elemente angewendet.
 
-Beachten Sie, dass jedes `open-quote` und `close-quote` durch eine der Zeichenfolgen aus dem Wert von `quotes` ersetzt wird, basierend auf der Verschachtelungstiefe.
+Beachten Sie, dass jedes open-quote und close-quote durch eine der Zeichenfolgen aus dem Wert der quotes-Eigenschaft ersetzt wird, basierend auf der Verschachtelungstiefe.
 
-### Automatische Zitate
+### Automatische Anführungszeichen
 
-Der Standardwert von `quotes` ist `auto`. Dieses Beispiel funktioniert, ohne dass es explizit gesetzt wird.
+Der Standardwert von `quotes` ist `auto`. Dieses Beispiel funktioniert, ohne dass es explizit gesetzt ist.
 
 #### HTML
 
@@ -157,11 +192,11 @@ li {
 
 {{EmbedLiveSample('Auto_quotes', "100%", 200)}}
 
-Beachten Sie, dass das [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Attribut auf einen Vorfahren des `<q>` gesetzt wurde, nicht auf das `<q>` selbst. Wenn ein Zitat in einer anderen Sprache als dem umgebenden Text steht, ist es üblich, den Text mit den Anführungszeichen der Sprache des umgebenden Textes zu umgeben, nicht der Sprache des Zitats selbst.
+Beachten Sie, dass das [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Attribut auf einem Vorfahren des `<q>` platziert wurde, nicht auf dem `<q>` selbst. Wenn ein Zitat in einer anderen Sprache als dem umgebenden Text verfasst ist, ist es üblich, den Text mit den Anführungszeichen der Sprache des umgebenden Textes zu zitieren, nicht der Sprache des Zitats selbst.
 
 ### Mit generiertem Inhalt
 
-In diesem Beispiel fügen wir statt des `<q>`-Elements Anführungszeichen zu den {{cssxref("::before")}}- und {{cssxref("::after")}}-Pseudoelementen vor und nach dem Inhalt jedes Elements mit einem bestimmten Klassennamen hinzu.
+In diesem Beispiel verwenden wir statt des `<q>`-Elements die {{cssxref("::before")}} und {{cssxref("::after")}} Pseudoelemente, um Anführungszeichen vor und nach dem Inhalt jedes Elements mit einem bestimmten Klassennamen hinzuzufügen.
 
 #### HTML
 
@@ -193,9 +228,9 @@ In diesem Beispiel fügen wir statt des `<q>`-Elements Anführungszeichen zu den
 
 {{EmbedLiveSample('With generated content', "100%", 80)}}
 
-### Text als Zitate und leere Zitate
+### Text als Anführungszeichen und leere Anführungszeichen
 
-Dieses Beispiel zeigt die Verwendung von etwas anderem als Anführungszeichen als `<string>`-Werte. Das `open-quote` zeigt den Sprecher an und, da kein öffnendes Anführungszeichen vorhanden ist, ist das `close-quote` leer. (Das Mischen einer `<string>` mit einem aufgezählten Schlüsselwort zur Erstellung eines Paares wird nicht unterstützt). Wir setzen `auto` für die verschachtelten Zitate. Diese verschachtelten Zitate werden von dem umgeben, was die Sprache als normal für verschachtelte Zitate vorschreibt.
+Dieses Beispiel zeigt die Verwendung von etwas anderem als Anführungszeichen als `<string>`-Werte. Das open-quote gibt den Sprecher an und, da kein öffnendes Anführungszeichen vorhanden ist, ist das close-quote leer. (Das Mischen eines `<string>` mit einem aufgelisteten Schlüsselwort zur Erstellung eines Paares wird nicht unterstützt). Wir setzen `auto` für die verschachtelten Anführungszeichen. Diese verschachtelten Anführungszeichen werden von dem eingeschlossen, was die Sprache als normal für verschachtelte Anführungszeichen vorschreibt.
 
 #### HTML
 

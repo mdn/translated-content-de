@@ -2,17 +2,103 @@
 title: translate3d()
 slug: Web/CSS/transform-function/translate3d
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`translate3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) positioniert ein Element im 3D-Raum neu. Ihr Ergebnis ist ein
+Die **`translate3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) positioniert ein Element im 3D-Raum um. Ihr Ergebnis ist ein
 {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
-{{EmbedInteractiveExample("pages/css/function-translate3d.html")}}
+{{InteractiveExample("CSS Demo: translate3d()")}}
 
-Diese Transformation wird durch einen dreidimensionalen Vektor [tx, ty, tz] charakterisiert. Ihre Koordinaten definieren, wie weit sich das Element in jeder Richtung bewegt.
+```css interactive-example-choice
+transform: translate3d(0);
+```
+
+```css interactive-example-choice
+transform: translate3d(42px, -62px, -135px);
+```
+
+```css interactive-example-choice
+transform: translate3d(-2.7rem, 0, 1rem);
+```
+
+```css interactive-example-choice
+transform: translate3d(5ch, 0.4in, 5em);
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    <div class="face front">1</div>
+    <div class="face back">2</div>
+    <div class="face right">3</div>
+    <div class="face left">4</div>
+    <div class="face top">5</div>
+    <div class="face bottom">6</div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#default-example {
+  background: linear-gradient(skyblue, khaki);
+  perspective: 800px;
+  perspective-origin: 150% 150%;
+}
+
+#example-element {
+  width: 100px;
+  height: 100px;
+  perspective: 550px;
+  transform-style: preserve-3d;
+}
+
+.face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: inherit;
+  font-size: 60px;
+  color: white;
+}
+
+.front {
+  background: rgba(90, 90, 90, 0.7);
+  transform: translateZ(50px);
+}
+
+.back {
+  background: rgba(0, 210, 0, 0.7);
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+  background: rgba(210, 0, 0, 0.7);
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  background: rgba(0, 0, 210, 0.7);
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+  background: rgba(210, 210, 0, 0.7);
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  background: rgba(210, 0, 210, 0.7);
+  transform: rotateX(-90deg) translateZ(50px);
+}
+```
+
+Diese Transformation ist durch einen dreidimensionalen Vektor [tx, ty, tz] gekennzeichnet. Ihre Koordinaten definieren, wie weit sich das Element in jede Richtung bewegt.
 
 ## Syntax
 
@@ -23,14 +109,11 @@ translate3d(tx, ty, tz)
 ### Werte
 
 - `tx`
-  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Abszisse (horizontal, x-Komponente) des
-    Translationsvektors [tx, ty, tz] darstellt.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Abszisse (horizontale, x-Komponente) des Translationsvektors [tx, ty, tz] darstellt.
 - `ty`
-  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Ordinate (vertikal, y-Komponente) des
-    Translationsvektors [tx, ty, tz] darstellt.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Ordinate (vertikale, y-Komponente) des Translationsvektors [tx, ty, tz] darstellt.
 - `tz`
-  - : Ein {{cssxref("&lt;length&gt;")}}, das die z-Komponente des Translationsvektors darstellt. Es kann kein
-    {{cssxref("&lt;percentage&gt;")}} Wert sein; in diesem Fall wird die Eigenschaft, die die Transformation enthält, als ungültig betrachtet [tx, ty, tz].
+  - : Ist ein {{cssxref("&lt;length&gt;")}}, der die z-Komponente des Translationsvektors darstellt. Es kann kein {{cssxref("&lt;percentage&gt;")}} Wert sein; in diesem Fall wird die Eigenschaft, die die Transformation enthält, als ungültig betrachtet [tx, ty, tz].
 
 <table class="standard-table">
   <thead>
@@ -66,7 +149,7 @@ translate3d(tx, ty, tz)
 
 ## Beispiele
 
-### Verwenden einer Einzelachsen-Translation
+### Verwendung einer Translation entlang einer einzigen Achse
 
 #### HTML
 

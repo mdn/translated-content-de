@@ -2,14 +2,104 @@
 title: translate
 slug: Web/CSS/translate
 l10n:
-  sourceCommit: b82ff59aab7883b7bb2222cf9f9f9b6eed818e08
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`translate`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, Übersetzungstransformationen einzeln und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft zu spezifizieren. Dies passt besser zu typischer Benutzeroberflächennutzung und erspart das Erinnern der genauen Reihenfolge der Transformationsfunktionen, die im `transform`-Wert angegeben werden müssen.
+Die **`translate`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, Übersetzungstransformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft festzulegen. Dies entspricht besser der typischen Verwendung in Benutzeroberflächen und erspart Ihnen, sich die genaue Reihenfolge der Transformationsfunktionen zu merken, die im `transform`-Wert angegeben werden müssen.
 
-{{EmbedInteractiveExample("pages/css/translate.html")}}
+{{InteractiveExample("CSS Demo: translate")}}
+
+```css interactive-example-choice
+translate: none;
+```
+
+```css interactive-example-choice
+translate: 40px;
+```
+
+```css interactive-example-choice
+translate: 50% -40%;
+```
+
+```css interactive-example-choice
+translate: 20px 4rem;
+```
+
+```css interactive-example-choice
+translate: 20px 4rem 150px;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    <div class="face front">1</div>
+    <div class="face back">2</div>
+    <div class="face right">3</div>
+    <div class="face left">4</div>
+    <div class="face top">5</div>
+    <div class="face bottom">6</div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#default-example {
+  background: linear-gradient(skyblue, khaki);
+  perspective: 800px;
+  perspective-origin: 150% 150%;
+}
+
+#example-element {
+  width: 100px;
+  height: 100px;
+  perspective: 550px;
+  transform-style: preserve-3d;
+}
+
+.face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: inherit;
+  font-size: 60px;
+  color: white;
+}
+
+.front {
+  background: rgba(90, 90, 90, 0.7);
+  transform: translateZ(50px);
+}
+
+.back {
+  background: rgba(0, 210, 0, 0.7);
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+  background: rgba(210, 0, 0, 0.7);
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  background: rgba(0, 0, 210, 0.7);
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+  background: rgba(210, 210, 0, 0.7);
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  background: rgba(210, 0, 210, 0.7);
+  transform: rotateX(-90deg) translateZ(50px);
+}
+```
 
 ## Syntax
 
@@ -38,14 +128,14 @@ translate: unset;
 
 ### Werte
 
-- Einfache {{cssxref("&lt;length-percentage&gt;")}} Angabe
-  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das eine Übersetzung entlang der X-Achse spezifiziert. Entspricht einer `translate()`-Funktion (2D Translation) mit einem angegebenen Wert.
-- Zwei {{cssxref("&lt;length-percentage&gt;")}} Angaben
-  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die X- und Y-Achsen Übersetzungswerte (jeweils) einer 2D-Translation spezifizieren. Entspricht einer `translate()`-Funktion (2D Translation) mit zwei angegebenen Werten.
+- Einzelner {{cssxref("&lt;length-percentage&gt;")}} Wert
+  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das eine Übersetzung entlang der X-Achse angibt. Entspricht einer `translate()` (2D-Übersetzung) Funktion mit einem einzelnen Wert.
+- Zwei {{cssxref("&lt;length-percentage&gt;")}} Werte
+  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die X- und Y-Achsen-Übersetzungswerte (jeweils) einer 2D-Übersetzung angeben. Entspricht einer `translate()` (2D-Übersetzung) Funktion mit zwei angegebenen Werten.
 - Drei Werte
-  - : Zwei {{cssxref("&lt;length-percentage&gt;")}} und ein {{cssxref("&lt;length&gt;")}} Wert, die die X-, Y- und Z-Achsen Übersetzungswerte (jeweils) einer 3D-Translation spezifizieren. Entspricht einer `translate3d()`-Funktion (3D Translation).
+  - : Zwei {{cssxref("&lt;length-percentage&gt;")}} und ein einzelner {{cssxref("&lt;length&gt;")}} Wert, die die X-, Y- und Z-Achsen-Übersetzungswerte (jeweils) einer 3D-Übersetzung angeben. Entspricht einer `translate3d()` (3D-Übersetzung) Funktion.
 - `none`
-  - : Spezifiziert, dass keine Übersetzung angewendet werden soll.
+  - : Gibt an, dass keine Übersetzung angewendet werden soll.
 
 ## Formale Definition
 
@@ -57,9 +147,11 @@ translate: unset;
 
 ## Beispiele
 
-### Übersetzung eines Elements bei Hover
+### Übersetzen eines Elements beim Hover
 
-Dieses Beispiel zeigt, wie die `translate`-Eigenschaft verwendet wird, um ein Element in drei Achsen zu verschieben. Das erste Kästchen wird entlang der X-Achse verschoben und das zweite Kästchen wird entlang der X- und Y-Achsen verschoben. Das dritte Kästchen wird entlang der X-, Y- und Z-Achsen verschoben und erweckt den Eindruck, auf den Betrachter zuzubewegen, da dem Elternelement {{cssxref('perspective')}} hinzugefügt wurde.
+Dieses Beispiel zeigt, wie Sie die `translate`-Eigenschaft verwenden, um ein Element in drei Achsen zu bewegen.
+Das erste Kästchen wird entlang der X-Achse verschoben und das zweite Kästchen wird entlang der X- und Y-Achsen verschoben.
+Das dritte Kästchen wird entlang der X-, Y- und Z-Achsen verschoben und erscheint in Richtung des Betrachters zu bewegen, aufgrund der Hinzufügung von {{cssxref('perspective')}} zum Elternelement.
 
 #### HTML
 
@@ -117,4 +209,4 @@ Dieses Beispiel zeigt, wie die `translate`-Eigenschaft verwendet wird, um ein El
 - {{cssxref('rotate')}}
 - {{cssxref('transform')}}
 
-Note: skew ist kein unabhängiger Transformationswert
+Hinweis: skew ist kein unabhängiger Transformationswert.

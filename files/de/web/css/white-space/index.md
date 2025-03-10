@@ -2,22 +2,74 @@
 title: white-space
 slug: Web/CSS/white-space
 l10n:
-  sourceCommit: 4809e8217288dc7e1372d5c74140ca6661673206
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`white-space`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie {{Glossary("whitespace", "Leerraum")}} innerhalb eines Elements behandelt wird.
+Die **`white-space`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie {{Glossary("whitespace", "Weißraum")}} innerhalb eines Elements behandelt wird.
 
-{{EmbedInteractiveExample("pages/css/white-space.html")}}
+{{InteractiveExample("CSS Demo: white-space")}}
 
-Diese Eigenschaft legt zwei Dinge fest:
+```css interactive-example-choice
+white-space: normal;
+```
 
-- Ob und wie Leerraum [kollabiert](#kollabieren_von_leerraum).
+```css interactive-example-choice
+white-space: pre;
+```
+
+```css interactive-example-choice
+white-space: pre-wrap;
+```
+
+```css interactive-example-choice
+white-space: pre-line;
+```
+
+```css interactive-example-choice
+white-space: wrap;
+```
+
+```css interactive-example-choice
+white-space: collapse;
+```
+
+```css interactive-example-choice
+white-space: preserve nowrap;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div id="example-element">
+    <p>
+      But ere she from the church-door stepped She smiled and told us why: 'It
+      was a wicked woman's curse,' Quoth she, 'and what care I?' She smiled, and
+      smiled, and passed it off Ere from the door she stept—
+    </p>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  width: 16rem;
+}
+
+#example-element p {
+  border: 1px solid #c5c5c5;
+  padding: 0.75rem;
+  text-align: left;
+}
+```
+
+Diese Eigenschaft spezifiziert zwei Dinge:
+
+- Ob und wie Weißraum [kollabiert](#kollabieren_von_weißraum).
 - Ob und wie Zeilen umbrochen werden.
 
 > [!NOTE]
-> Um Wörter _innerhalb_ ihrer selbst zu trennen, verwenden Sie stattdessen {{CSSxRef("overflow-wrap")}}, {{CSSxRef("word-break")}}, oder {{CSSxRef("hyphens")}}.
+> Um Wörter _innerhalb ihrer selbst_ zu umbrechen, verwenden Sie stattdessen {{CSSxRef("overflow-wrap")}}, {{CSSxRef("word-break")}} oder {{CSSxRef("hyphens")}}.
 
 ## Syntax
 
@@ -43,18 +95,18 @@ white-space: unset;
 
 ### Werte
 
-Die Werte der `white-space`-Eigenschaft können als ein einzelnes Schlüsselwort aus der unten stehenden Liste oder als zwei Werte angegeben werden, die Kurzformen für die {{CSSxRef("white-space-collapse")}}- und {{cssxref("text-wrap-mode")}}-Eigenschaften darstellen.
+Die Werte der `white-space` Eigenschaft können als ein einziges Schlüsselwort aus der untenstehenden Liste von Werten angegeben werden, oder als zwei Werte, die als Kurzschrift für die Eigenschaften {{CSSxRef("white-space-collapse")}} und {{cssxref("text-wrap-mode")}} stehen.
 
 - `normal`
-  - : Folgen von Leerzeichen werden [kollabiert](#kollabieren_von_leerraum). Neue Zeilenzeichen im Quelltext werden genauso wie andere Leerzeichen behandelt. Zeilen werden nach Bedarf umbrochen, um Zeilenboxen zu füllen.
+  - : Sequenzen von Weißraum werden [kollabiert](#kollabieren_von_weißraum). Zeilenumbrüche im Quelltext werden wie andere Weißräume behandelt. Zeilen werden nach Bedarf umbrochen, um Zeilenboxen zu füllen.
 - `pre`
-  - : Folgen von Leerzeichen bleiben erhalten. Zeilen werden nur an neuen Zeilenzeichen im Quelltext und an {{HTMLElement("br")}}-Elementen umbrochen.
+  - : Weißraumsequenzen werden beibehalten. Zeilen werden nur an Zeilenumbrüchen im Quelltext und an {{HTMLElement("br")}} Elementen umbrochen.
 - `pre-wrap`
-  - : Folgen von Leerzeichen bleiben erhalten. Zeilen werden an neuen Zeilenzeichen, an {{HTMLElement("br")}} und nach Bedarf umbrochen, um Zeilenboxen zu füllen.
+  - : Weißraumsequenzen werden beibehalten. Zeilen werden an Zeilenumbrüchen, an {{HTMLElement("br")}} und nach Bedarf umbrochen, um Zeilenboxen zu füllen.
 - `pre-line`
-  - : Folgen von Leerzeichen werden [kollabiert](#kollabieren_von_leerraum). Zeilen werden an neuen Zeilenzeichen, an {{HTMLElement("br")}} und nach Bedarf umbrochen, um Zeilenboxen zu füllen.
+  - : Weißraumsequenzen werden [kollabiert](#kollabieren_von_weißraum). Zeilen werden an Zeilenumbrüchen, an {{HTMLElement("br")}} und nach Bedarf umbrochen, um Zeilenboxen zu füllen.
 
-Die folgende Tabelle fasst das Verhalten der verschiedenen `white-space`-Schlüsselwortwerte zusammen:
+Die folgende Tabelle fasst das Verhalten der verschiedenen `white-space` Schlüsselwort-Werte zusammen:
 
 <table class="standard-table">
   <thead>
@@ -63,7 +115,7 @@ Die folgende Tabelle fasst das Verhalten der verschiedenen `white-space`-Schlüs
       <th>Neue Zeilen</th>
       <th>Leerzeichen und Tabs</th>
       <th>Textumbruch</th>
-      <th>Ende-der-Zeile-Leerzeichen</th>
+      <th>Leerzeichen am Zeilenende</th>
       <th>Andere Leerzeichentrenner am Zeilenende</th>
     </tr>
   </thead>
@@ -103,21 +155,21 @@ Die folgende Tabelle fasst das Verhalten der verschiedenen `white-space`-Schlüs
   </tbody>
 </table>
 
-Ein Tabulator entspricht standardmäßig 8 Leerzeichen und kann mit der [`tab-size`](/de/docs/Web/CSS/tab-size)-Eigenschaft konfiguriert werden. Bei den Werten `normal`, `nowrap` und `pre-line` wird jeder Tabulator in ein Leerzeichen (U+0020) umgewandelt.
+Ein Tab ist standardmäßig auf 8 Leerzeichen eingestellt und kann mit der [`tab-size`](/de/docs/Web/CSS/tab-size) Eigenschaft konfiguriert werden. Bei den Werten `normal`, `nowrap` und `pre-line` wird jeder Tab in ein Leerzeichen (U+0020) Zeichen umgewandelt.
 
 > [!NOTE]
-> Es wird zwischen **Leerzeichen** und **anderen Leerzeichentrennern** unterschieden. Diese werden wie folgt definiert:
+> Es wird zwischen **Leerzeichen** und **anderen Leerzeichentrennern** unterschieden. Diese sind wie folgt definiert:
 >
 > - Leerzeichen
->   - : Leerzeichen (U+0020), Tabs (U+0009) und Segmentumbrüche (wie neue Zeilen).
+>   - : Leerzeichen (U+0020), Tabs (U+0009) und Segmentumbrüche (wie Zeilenumbrüche).
 > - andere Leerzeichentrenner
 >   - : Alle anderen in Unicode definierten Leerzeichentrenner, außer denen, die bereits als Leerzeichen definiert sind.
 >
-> Wo Leerraum gesagt wird zu _hängen_, kann dies die Größe der Box beeinflussen, wenn diese für intrinsische Größenmessung gemessen wird.
+> Wo Weißraum als _hängend_ bezeichnet wird, kann dies die Größe der Box beeinflussen, wenn sie zur intrinsischen Größenbestimmung gemessen wird.
 
-## Kollabieren von Leerraum
+## Kollabieren von Weißraum
 
-Die {{cssxref("white-space-collapse")}}-Eigenschaftsseite erklärt den [Browser-Algorithmus zum Kollabieren von Leerraum](/de/docs/Web/CSS/white-space-collapse#collapsing_of_white_space).
+Die Seite zur Eigenschaft {{cssxref("white-space-collapse")}} erklärt den [Browser-Algorithmus zum Kollabieren von Weißraum](/de/docs/Web/CSS/white-space-collapse#collapsing_of_white_space).
 
 ## Formale Definition
 
@@ -137,7 +189,7 @@ code {
 }
 ```
 
-### Zeilenumbrüche innerhalb von \<pre>-Elementen
+### Zeilenumbrüche in \<pre> Elementen
 
 ```css
 pre {
@@ -248,13 +300,13 @@ td {
 
 {{EmbedLiveSample('Controlling line wrapping in tables', "100%", "100%")}}
 
-### Mehrere Zeilen im SVG-Text-Element
+### Mehrere Zeilen in einem SVG-Textelement
 
-Die `white-space` CSS-Eigenschaft kann verwendet werden, um mehrere Zeilen in einem {{SVGElement("text")}}-Element zu erstellen, das standardmäßig nicht umbrecht.
+Die `white-space` CSS-Eigenschaft kann verwendet werden, um mehrere Zeilen in einem {{SVGElement("text")}} Element zu erstellen, welches standardmäßig nicht umbrechen kann.
 
 #### HTML
 
-Der Text innerhalb des `<text>`-Elements muss in mehrere Zeilen aufgeteilt werden, damit die neuen Zeilen erkannt werden. Nach der ersten Zeile müssen die Leerzeichen entfernt werden.
+Der Text innerhalb des `<text>` Elements muss in mehrere Zeilen aufgeteilt werden, damit die neuen Zeilen erkannt werden. Nach der ersten Zeile muss bei den restlichen der Weißraum entfernt werden.
 
 ```html-nolint
 <svg viewBox="0 0 320 150">
@@ -289,5 +341,5 @@ text {
 
 ## Siehe auch
 
-- Eigenschaften, die definieren, wie Wörter _innerhalb_ ihrer selbst getrennt werden: {{CSSxRef("overflow-wrap")}}, {{CSSxRef("word-break")}}, {{CSSxRef("hyphens")}}
+- Eigenschaften, die definieren, wie Wörter _innerhalb ihrer selbst_ umbrochen werden: {{CSSxRef("overflow-wrap")}}, {{CSSxRef("word-break")}}, {{CSSxRef("hyphens")}}
 - [`tab-size`](/de/docs/Web/CSS/tab-size)

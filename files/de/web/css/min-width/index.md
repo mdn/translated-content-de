@@ -2,16 +2,51 @@
 title: min-width
 slug: Web/CSS/min-width
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`min-width`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die minimale Breite eines Elements fest. Sie verhindert, dass der [genutzte Wert](/de/docs/Web/CSS/CSS_cascade/used_value) der {{cssxref("width")}}-Eigenschaft kleiner wird als der für `min-width` angegebene Wert.
+Die **`min-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Mindestbreite eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/CSS_cascade/used_value) der {{cssxref("width")}}-Eigenschaft kleiner wird als der für `min-width` angegebene Wert.
 
-{{EmbedInteractiveExample("pages/css/min-width.html")}}
+{{InteractiveExample("CSS Demo: min-width")}}
 
-Die Breite des Elements wird auf den Wert von `min-width` gesetzt, wenn `min-width` größer ist als {{Cssxref("max-width")}} oder {{Cssxref("width")}}.
+```css interactive-example-choice
+min-width: 150px;
+```
+
+```css interactive-example-choice
+min-width: 20em;
+```
+
+```css interactive-example-choice
+min-width: 75%;
+```
+
+```css interactive-example-choice
+min-width: 40ch;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    Change the minimum width.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  display: flex;
+  flex-direction: column;
+  background-color: #5b6dcd;
+  height: 80%;
+  justify-content: center;
+  color: #ffffff;
+}
+```
+
+Die Breite des Elements wird auf den Wert von `min-width` gesetzt, wann immer `min-width` größer ist als {{Cssxref("max-width")}} oder {{Cssxref("width")}}.
 
 ## Syntax
 
@@ -47,24 +82,24 @@ min-width: unset;
   - : Definiert die `min-width` als Prozentsatz der Breite des umgebenden Blocks.
 - `auto`
 
-  - : Der Standardwert. Die Quelle des automatischen Wertes für das angegebene Element hängt von dessen Anzeige-Wert ab. Für Block-Boxen, Inline-Boxen, Inline-Blöcke und alle Layout-Boxen von Tabellen wird `auto` zu `0` aufgelöst.
+  - : Der Standardwert. Die Quelle des automatischen Werts für das angegebene Element hängt von seinem Display-Wert ab. Für Block-Boxen, Inline-Boxen, Inline-Blöcke und alle Tabellenlayout-Boxen löst sich `auto` zu `0` auf.
 
-    Für {{Glossary("Flex_Item", "Flex-Elemente")}} und Grid-Elemente ist der Minimalbreitenwert entweder die angegebene vorgeschlagene Größe, wie der Wert der `width`-Eigenschaft, die übertragene Größe, berechnet, wenn das Element ein `aspect-ratio` festgelegt hat und die Höhe eine bestimmte Größe ist, andernfalls wird die `min-content`-Größe verwendet. Falls das Flex- oder Grid-Element ein {{Glossary("scroll_container", "Scroll-Container")}} ist oder ein Grid-Element mehr als eine flexible Spalte überspannt, liegt die automatische Mindestgröße bei `0`.
+    Für {{Glossary("Flex_Item", "Flex-Elemente")}} und Grid-Elemente ist der Mindestbreitenwert entweder die angegebene vorgeschlagene Größe, wie der Wert der `width`-Eigenschaft, die übertragene Größe, die berechnet wird, wenn das Element ein `aspect-ratio` gesetzt hat und die Höhe eine feste Größe ist, ansonsten wird die `min-content`-Größe verwendet. Wenn das Flex- oder Grid-Element ein {{Glossary("scroll_container", "Scroll-Container")}} ist oder ein Grid-Element sich über mehr als eine flexible Spaltenreihe erstreckt, ist die automatische Mindestgröße `0`.
 
 - `max-content`
   - : Die intrinsisch bevorzugte `min-width`.
 - `min-content`
-  - : Die intrinsisch minimale `min-width`.
+  - : Die intrinsische minimale `min-width`.
 - `fit-content`
-  - : Verwendet den verfügbaren Platz, aber nicht mehr als [`max-content`](/de/docs/Web/CSS/max-content), also `min(max-content, max(min-content, stretch))`.
+  - : Nutzt den verfügbaren Platz, aber nicht mehr als [`max-content`](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
-  - : Verwendet die `fit-content`-Formel, wobei der verfügbare Platz durch das angegebene Argument ersetzt wird, also `min(max-content, max(min-content, argument))`.
+  - : Verwendet die `fit-content`-Formel mit dem verfügbaren Raum, ersetzt durch das angegebene Argument, d.h. `min(max-content, max(min-content, argument))`.
 - `stretch`
 
-  - : Begrenzt die minimale Breite der [Margin-Box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die Margin-Box an den verfügbaren Platz im umgebenden Block anzupassen, verhält sich in gewisser Weise ähnlich wie `100%`, wendet die resultierende Größe jedoch auf die Margin-Box anstatt auf die Box an, die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmt wird.
+  - : Beschränkt die Mindestbreite des [margin box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) eines Elements auf die Breite seines [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die margin box so zu füllen, dass sie den verfügbaren Platz im umgebenden Block einnimmt, was in gewisser Weise ähnlich wie `100%` wirkt, aber die resultierende Größe auf die margin box anwendet und nicht auf die Box, die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmt wird.
 
     > [!NOTE]
-    > Um die von Browsern verwendeten Aliase für den `stretch`-Wert und dessen Implementierungsstatus zu überprüfen, sehen Sie sich den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) an.
+    > Um die von Browsern verwendeten Aliase für den `stretch`-Wert und dessen Implementierungsstatus zu überprüfen, sehen Sie sich den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) an.
 
 ## Formale Definition
 
@@ -76,7 +111,7 @@ min-width: unset;
 
 ## Beispiele
 
-### Minimale Elementbreite festlegen
+### Mindestbreite eines Elements setzen
 
 ```css
 table {
@@ -104,4 +139,4 @@ form {
 - {{cssxref("min-block-size")}}
 - {{cssxref("box-sizing")}}
 - [Einführung in das grundlegende CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model)-Modul
+- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul

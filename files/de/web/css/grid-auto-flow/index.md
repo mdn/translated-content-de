@@ -2,18 +2,68 @@
 title: grid-auto-flow
 slug: Web/CSS/grid-auto-flow
 l10n:
-  sourceCommit: 5ced6d0b9636a1b904474d1546674b305346daa0
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`grid-auto-flow`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie der Auto-Platzierungsalgorithmus arbeitet und legt fest, wie automatisch platzierte Elemente in das Grid eingefügt werden.
+Die **`grid-auto-flow`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie der Auto-Platzierungsalgorithmus funktioniert und gibt an, wie automatisch platzierte Elemente in das Raster eingefügt werden.
 
-{{EmbedInteractiveExample("pages/css/grid-auto-flow.html")}}
+{{InteractiveExample("CSS Demo: grid-auto-flow")}}
+
+```css interactive-example-choice
+grid-auto-flow: row;
+```
+
+```css interactive-example-choice
+grid-auto-flow: column;
+```
+
+```css interactive-example-choice
+grid-auto-flow: row dense;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="example-container">
+    <div class="transition-all" id="example-element">
+      <div>One</div>
+      <div>Two</div>
+      <div>Three</div>
+      <div>Four</div>
+      <div>Five</div>
+    </div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 1px solid #c5c5c5;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, minmax(40px, auto));
+  grid-gap: 10px;
+  width: 220px;
+}
+
+#example-element > div {
+  background-color: rgba(0, 0, 255, 0.2);
+  border: 3px solid blue;
+}
+
+#example-element > div:nth-child(1) {
+  grid-column: auto / span 2;
+}
+
+#example-element > div:nth-child(2) {
+  grid-column: auto / span 2;
+}
+```
 
 > [!NOTE]
-> Die Eigenschaft `masonry-auto-flow` wurde aus dem CSS [Masonry-Layout](/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout) zugunsten von `grid-auto-flow` entfernt.
-> Siehe [csswg-drafts #10231](https://github.com/w3c/csswg-drafts/issues/10231) für Details.
+> Die Eigenschaft `masonry-auto-flow` wurde zugunsten von `grid-auto-flow` aus dem CSS [Masonry Layout](/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout) entfernt.
+> Details finden Sie unter [csswg-drafts #10231](https://github.com/w3c/csswg-drafts/issues/10231).
 
 ## Syntax
 
@@ -33,22 +83,22 @@ grid-auto-flow: revert-layer;
 grid-auto-flow: unset;
 ```
 
-Diese Eigenschaft kann eine von zwei Formen annehmen:
+Diese Eigenschaft kann in zwei Formen vorliegen:
 
-- ein einzelnes Schlüsselwort: eines von `row`, `column` oder `dense`.
-- zwei Schlüsselwörter: `row dense` oder `column dense`.
+- Ein einzelnes Schlüsselwort: eines von `row`, `column` oder `dense`.
+- Zwei Schlüsselwörter: `row dense` oder `column dense`.
 
 ### Werte
 
 - `row`
-  - : Elemente werden durch das Auffüllen jeder Zeile nacheinander platziert, wobei bei Bedarf neue Zeilen hinzugefügt werden. Wenn weder `row` noch `column` angegeben sind, wird `row` angenommen.
+  - : Elemente werden platziert, indem jede Zeile der Reihe nach gefüllt wird, wobei neue Zeilen bei Bedarf hinzugefügt werden. Wenn weder `row` noch `column` angegeben ist, wird `row` angenommen.
 - `column`
-  - : Elemente werden durch das Auffüllen jeder Spalte nacheinander platziert, wobei bei Bedarf neue Spalten hinzugefügt werden.
+  - : Elemente werden platziert, indem jede Spalte der Reihe nach gefüllt wird, wobei neue Spalten bei Bedarf hinzugefügt werden.
 - `dense`
 
-  - : Der "dichte" Packungsalgorithmus versucht, Lücken früher im Grid zu füllen, wenn kleinere Elemente später auftauchen. Dies kann dazu führen, dass Elemente in einer anderen Reihenfolge erscheinen, wenn dadurch Lücken gefüllt werden können, die von größeren Elementen hinterlassen wurden.
+  - : Der "dichte" Verpackungsalgorithmus versucht, Lücken früher im Raster zu füllen, wenn später kleinere Elemente verfügbar werden. Dies kann dazu führen, dass Elemente außer der Reihenfolge erscheinen, wenn dadurch Lücken gefüllt werden, die von größeren Elementen hinterlassen wurden.
 
-    Wenn er weggelassen wird, wird ein "sparsamer" Algorithmus verwendet, bei dem der Platzierungsalgorithmus beim Platzieren von Elementen nur "vorwärts" im Grid bewegt und niemals zurückgeht, um Lücken zu füllen. Dies stellt sicher, dass alle automatisch platzierten Elemente "in der Reihenfolge" erscheinen, selbst wenn dadurch Lücken entstehen, die von späteren Elementen hätten gefüllt werden können.
+    Wird `dense` weggelassen, wird ein "spärlicher" Algorithmus verwendet, bei dem der Platzierungsalgorithmus beim Platzieren von Elementen im Raster nur "vorwärts" geht und niemals zurückgeht, um Lücken zu füllen. Dies stellt sicher, dass alle automatisch platzierten Elemente "in der Reihenfolge" erscheinen, auch wenn dadurch Lücken entstehen, die von späteren Elementen hätten ausgefüllt werden können.
 
 ## Formale Definition
 
@@ -60,7 +110,7 @@ Diese Eigenschaft kann eine von zwei Formen annehmen:
 
 ## Beispiele
 
-### Einstellen der automatischen Grid-Platzierung
+### Automatische Rasterplatzierung festlegen
 
 #### HTML
 
@@ -152,5 +202,5 @@ inputElem.addEventListener("change", changeGridAutoFlow);
 - {{cssxref("grid-auto-rows")}}
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid")}}
-- [Automatische Platzierung im Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout)
-- Video: [Introducing grid auto-placement and order](https://gridbyexample.com/video/series-auto-placement-order/)
+- [Automatische Platzierung im Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout)
+- Video: [Einführung in die automatische Rasterplatzierung und Reihenfolge](https://gridbyexample.com/video/series-auto-placement-order/)

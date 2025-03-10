@@ -2,16 +2,56 @@
 title: min-block-size
 slug: Web/CSS/min-block-size
 l10n:
-  sourceCommit: 9591173963147e1996e3f40892b90dd9f691e15d
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`min-block-size`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert die minimale horizontale oder vertikale Größe eines Blockelements, abhängig von seinem Schreibmodus. Sie entspricht entweder der {{cssxref("min-width")}}- oder der {{cssxref("min-height")}}-Eigenschaft, abhängig vom Wert des {{cssxref("writing-mode")}}.
+Die **`min-block-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die minimale horizontale oder vertikale Größe eines Blockelements, abhängig von dessen Schreibmodus. Sie entspricht entweder der Eigenschaft {{cssxref("min-width")}} oder {{cssxref("min-height")}}, abhängig vom Wert des {{cssxref("writing-mode")}}.
 
-Wenn der Schreibmodus vertikal orientiert ist, bezieht sich der Wert von `min-block-size` auf die Mindestbreite des Elements; andernfalls bezieht er sich auf die Mindesthöhe des Elements. Eine verwandte Eigenschaft ist {{cssxref("min-inline-size")}}, die die andere Dimension des Elements definiert.
+Wenn der Schreibmodus vertikal orientiert ist, bezieht sich der Wert von `min-block-size` auf die minimale Breite des Elements; andernfalls bezieht er sich auf die minimale Höhe des Elements. Eine verwandte Eigenschaft ist {{cssxref("min-inline-size")}}, die die andere Dimension des Elements definiert.
 
-{{EmbedInteractiveExample("pages/css/min-block-size.html")}}
+{{InteractiveExample("CSS Demo: min-block-size")}}
+
+```css interactive-example-choice
+min-block-size: 150px;
+writing-mode: horizontal-tb;
+```
+
+```css interactive-example-choice
+min-block-size: 150px;
+writing-mode: vertical-rl;
+```
+
+```css interactive-example-choice
+min-block-size: 20px;
+writing-mode: horizontal-tb;
+```
+
+```css interactive-example-choice
+min-block-size: 15em;
+writing-mode: vertical-lr;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box where you can change the minimum block size. <br />If there is
+    more content than the minimum the box will grow in the block dimension as
+    needed by the content.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  display: flex;
+  flex-direction: column;
+  background-color: #5b6dcd;
+  justify-content: center;
+  color: #ffffff;
+}
+```
 
 ## Syntax
 
@@ -40,7 +80,7 @@ min-block-size: unset;
 
 ### Werte
 
-Die `min-block-size`-Eigenschaft nimmt die gleichen Werte wie die Eigenschaften {{cssxref("min-width")}} und {{cssxref("min-height")}} an.
+Die Eigenschaft `min-block-size` nimmt die gleichen Werte wie die Eigenschaften {{cssxref("min-width")}} und {{cssxref("min-height")}} an.
 
 ## Formale Definition
 
@@ -52,7 +92,7 @@ Die `min-block-size`-Eigenschaft nimmt die gleichen Werte wie die Eigenschaften 
 
 ## Beispiele
 
-### Minimale Blockgröße für vertikalen Text festlegen
+### Mindestblockgröße für vertikalen Text festlegen
 
 #### HTML
 

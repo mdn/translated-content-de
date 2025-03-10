@@ -2,20 +2,56 @@
 title: text-wrap-mode
 slug: Web/CSS/text-wrap-mode
 l10n:
-  sourceCommit: 4809e8217288dc7e1372d5c74140ca6661673206
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`text-wrap-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, ob der Text innerhalb eines Elements umbrochen wird. Die verschiedenen Werte bieten alternative Möglichkeiten, den Inhalt eines Blockelements umzubrechen. Es kann auch über die {{CSSXRef("text-wrap")}}-Kurzform oder die {{CSSXRef("white-space")}}-Kurzform festgelegt und zurückgesetzt werden.
+Die **`text-wrap-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, ob der Text innerhalb eines Elements umbrochen wird. Die verschiedenen Werte bieten alternative Möglichkeiten, den Inhalt eines Blockelements zu umbrechen. Diese Eigenschaft kann auch mit der {{CSSXRef("text-wrap")}} oder {{CSSXRef("white-space")}} Kurzform gesetzt und zurückgesetzt werden.
 
 > [!NOTE]
-> Die Eigenschaften {{CSSxRef("white-space-collapse")}} und `text-wrap-mode` können gemeinsam mit der {{CSSxRef("white-space")}}-Kurzformeigenschaft deklariert werden.
+> Die Eigenschaften {{CSSxRef("white-space-collapse")}} und `text-wrap-mode` können gemeinsam mit der {{CSSxRef("white-space")}} Kurzform-Eigenschaft deklariert werden.
 
 > [!NOTE]
-> Der Name dieser Eigenschaft ist ein Platzhalter, bis die CSSWG einen besseren Namen findet.
+> Der Name dieser Eigenschaft ist ein Platzhalter, da die CSSWG einen besseren Namen sucht.
 
-{{EmbedInteractiveExample("pages/css/text-wrap-mode.html")}}
+{{InteractiveExample("CSS Demo: text-wrap-mode")}}
+
+```css interactive-example-choice
+text-wrap-mode: wrap;
+```
+
+```css interactive-example-choice
+text-wrap-mode: nowrap;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="whole-content-wrapper">
+    <p>Edit the text in the box:</p>
+    <div class="transition-all" id="example-element">
+      <p contenteditable="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem aut
+        cum eum id quos est.
+      </p>
+    </div>
+  </div>
+</section>
+```
+
+```css interactive-example
+.whole-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#example-element {
+  border: 1px solid #c5c5c5;
+  width: 250px;
+}
+```
 
 ## Syntax
 
@@ -34,12 +70,12 @@ text-wrap-mode: unset;
 
 ## Werte
 
-Diese Eigenschaft gibt an, ob Zeilen bei unbedingten weichen Umbruchmöglichkeiten umbrochen werden dürfen. Mögliche Werte:
+Diese Eigenschaft gibt an, ob Zeilen an nicht erzwungenen weichen Umbruchmöglichkeiten umbrechen dürfen. Mögliche Werte:
 
 - `wrap`
-  - : Text wird bei geeigneten Zeichen (zum Beispiel Leerzeichen in Sprachen wie Englisch, die Leerzeichen als Trennzeichen verwenden) umgebrochen, um Überflüssiges zu minimieren. Dies ist der Standardwert.
+  - : Der Text wird an geeigneten Zeichen (z. B. Leerzeichen, in Sprachen wie Englisch, die Leerzeichentrenner verwenden) umbrochen, um Überlauf zu minimieren. Dies ist der Standardwert.
 - `nowrap`
-  - : Text wird nicht über Zeilen umgebrochen. Er wird über das enthaltene Element hinausgehen, anstatt in eine neue Zeile umzubrechen.
+  - : Der Text wird nicht über Zeilen umbrochen. Er wird das enthaltende Element überlaufen, anstatt in eine neue Zeile zu wechseln.
 
 ## Formale Definition
 
@@ -53,7 +89,7 @@ Diese Eigenschaft gibt an, ob Zeilen bei unbedingten weichen Umbruchmöglichkeit
 
 ### Inhalt umbrechen
 
-Die Standardeinstellung ist, den Inhalt umzubrechen, sodass die `text-wrap-mode`-Eigenschaft nicht notwendig ist. In diesem Beispiel wird der Inhalt auf die nächste Zeile übergehen, sodass er in das Kästchen passt. Die letzte Zeile ist länger als das enthaltene Kästchen und überläuft daher.
+Die Standardeinstellung ist, den Inhalt umzubrechen, sodass die `text-wrap-mode`-Eigenschaft nicht notwendig ist. In diesem Beispiel fließt der Inhalt so über in die nächste Zeile, dass er in das Feld passt; die letzte Zeile ist länger als das enthaltende Feld und läuft über.
 
 #### HTML
 
@@ -82,7 +118,7 @@ Die Standardeinstellung ist, den Inhalt umzubrechen, sodass die `text-wrap-mode`
 
 ### Inhalt nicht umbrechen
 
-In diesem Beispiel wird der Inhalt **nicht** auf die nächste Zeile übergehen, damit er in das Kästchen passt, da dem Inhalt ausdrücklich mitgeteilt wurde, dass er nicht umbrochen werden soll mit `text-wrap-mode: nowrap;`, der Inhalt ist länger als das enthaltene Kästchen und läuft daher über.
+In diesem Beispiel wird der Inhalt **nicht** in die nächste Zeile umbrochen, sodass er in das Feld passt, da dem Inhalt ausdrücklich mitgeteilt wurde, nicht mit `text-wrap-mode: nowrap;` umbrochen zu werden. Der Inhalt ist länger als das enthaltende Feld und läuft über.
 
 #### HTML
 

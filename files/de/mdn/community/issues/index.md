@@ -2,61 +2,62 @@
 title: Erstellen und Bearbeiten von Issues
 slug: MDN/Community/Issues
 l10n:
-  sourceCommit: 269fa421f0a79b18f6000a26baebe30c74571b1f
+  sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c
 ---
 
-Als Beitragende können Sie [Issues melden](#richtlinien_für_das_melden_eines_issues) und [daran arbeiten](#richtlinien_für_die_bearbeitung_eines_issues).
-Nachdem Sie ein Issue erstellt haben, wird dieses triagiert. Die [Triagierung von Issues](#richtlinien_für_die_triagierung_von_issues) wird typischerweise von Personen durchgeführt, die als Maintainer oder Eigentümer benannt sind.
+Als Beitragende können Sie Issues [melden](#richtlinien_zum_melden_eines_issues) und an ihnen [arbeiten](#richtlinien_zur_bearbeitung_eines_issues).
+Nachdem Sie ein Issue gemeldet haben, wird es triagiert. Das [Triagieren von Issues](#richtlinien_für_das_triagieren_von_issues) wird in der Regel von Personen durchgeführt, die die Rolle eines Betreuers oder Eigentümers innehaben.
 
-## Allgemeine Richtlinien für Mitwirkung
+## Allgemeine Richtlinien für die Teilnahme
 
-Beim Melden eines Issues oder der Teilnahme an einer Diskussion in einem Issue sollten Sie stets darauf achten, dass Ihr Beitrag zum Fortschritt des Projekts beiträgt. Überlegen Sie, ob die von Ihnen eröffneten Issues und Ihre Kommentare konstruktiv und relevant sind und nicht nur für zusätzliche Unübersichtlichkeit sorgen.
+Stellen Sie beim Melden eines Issues oder bei der Teilnahme an einer Diskussion in einem Issue sicher, dass Ihre Beiträge zum Fortschritt des Projekts beitragen. Überlegen Sie, ob die von Ihnen eröffneten Issues und Ihre Kommentare konstruktiv und themenbezogen sind und nicht nur Lärm erzeugen.
 
-Folgendes sollten Sie tun:
+Tun Sie Folgendes:
 
-- Bevor Sie ein Issue einreichen, überlegen Sie, ob Sie dies [mit den Mitarbeitern/Gemeinschaft besprechen](/de/docs/MDN/Community/Communication_channels#chat_rooms) möchten. Diskussionen können helfen, unterschiedliche Standpunkte zu sammeln und sich auf eine Vorgehensweise zu einigen. Dadurch bleiben Issues fokussiert und produktiv.
-- Versuchen Sie nach dem Melden eines Issues, das Problem selbst zu beheben. Lesen Sie hierzu unseren [Leitfaden zur Beitragseinreichung](https://github.com/mdn/content/blob/main/CONTRIBUTING.md), um mehr zu erfahren.
-- Wenn Sie eine Frage haben, stellen Sie diese in den [MDN Web Docs Chats](/de/docs/MDN/Community/Communication_channels#chat_rooms) anstatt ein Issue zu eröffnen.
+- Bevor Sie ein Issue einreichen, überlegen Sie, ob Sie es mit dem Personal oder der Gemeinschaft [diskutieren](/de/docs/MDN/Community/Communication_channels#chat_rooms) müssen. Nutzen Sie Diskussionen, um verschiedene Standpunkte zu gewinnen und sich auf einen gemeinsamen Handlungsweg zu einigen. Dies hilft, Issues fokussiert und produktiv zu halten.
+- Versuchen Sie, das Problem selbst zu beheben, nachdem Sie ein Issue eingereicht haben. Lesen Sie unseren [Leitfaden für Beiträge](https://github.com/mdn/content/blob/main/CONTRIBUTING.md), um mehr zu erfahren.
+- Wenn Sie eine Frage haben, können Sie diese in den [MDN Web Docs Chatrooms](/de/docs/MDN/Community/Communication_channels#chat_rooms) stellen, anstatt ein Issue zu erstellen.
 
-Folgendes sollten Sie vermeiden:
+Vermeiden Sie Folgendes:
 
-- Issues durch Diskussion mehrerer Themen zu verkomplizieren oder abseits des Themas zu kommentieren.
-- Viele Issues zu eröffnen, die vage Fragen enthalten.
-- Fragen zu stellen, ohne vorher versucht zu haben, das Problem selbst zu lösen.
+- Probleme zu verkomplizieren, indem mehrere Themen diskutiert oder nicht themenbezogene Kommentare abgegeben werden.
+- Viele Issues zu eröffnen, die vage Fragen stellen.
+- Fragen zu stellen, ohne zuerst zu versuchen, das Problem selbst zu lösen.
 
-## Richtlinien für das Melden eines Issues
+## Richtlinien zum Melden eines Issues
 
-[Issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues) werden verwendet, um Fehler nachzuverfolgen. Ein Issue muss eine einzelne umsetzbare Aufgabe oder eine Sammlung zusammenhängender Aufgaben umfassen und sollte ein klares Ergebnis haben.
+[Issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues) werden verwendet, um Fehler zu verfolgen. Ein Issue muss eine einzelne umsetzbare Aufgabe oder eine Sammlung verwandter umsetzbarer Aufgaben sein und muss ein klares Ergebnis haben.
 
 ### Bevor Sie ein Issue einreichen
 
-Wenn Sie glauben, einen Fehler in den Inhalten der MDN Web Docs oder im Design der Website gefunden zu haben, durchsuchen Sie die offenen Issues im [relevanten Repository](/de/docs/MDN/Community/Our_repositories), um sicherzustellen, dass niemand das Problem bereits gemeldet hat.
+Wenn Sie denken, Sie haben einen Fehler im Inhalt der MDN Web Docs oder im Aussehen und Gefühl der Website gefunden, suchen Sie in den aktuellen offenen Issues im [relevanten Repository](/de/docs/MDN/Community/Our_repositories) und stellen Sie sicher, dass niemand anderes das Problem bereits gemeldet hat.
 
-### Einreichen eines Issues
+### Ein Issue melden
 
-Je nach Art des entdeckten Problems können Sie es melden, indem Sie ein Issue in einem der Haupt-[MDN GitHub Repositories](MDN/Community/Our_repositories) einreichen. Wenn die von Ihnen bereitgestellten Informationen unvollständig sind, könnten Sie während des [Triagierungsprozesses](#überprüfung_auf_vollständigkeit_der_informationen) um weitere Details gebeten werden.
+Abhängig vom Typ des entdeckten Problems können Sie es melden, indem Sie ein Issue in einem der Haupt-[MDN GitHub-Repositories](/de/docs/MDN/Community/Our_repositories) einreichen.
+Wenn die von Ihnen im Issue bereitgestellten Informationen unvollständig sind, werden Sie möglicherweise gebeten, während des [Triagierungsprozesses](#überprüfung_der_vollständigkeit_der_informationen_im_issue) mehr Details bereitzustellen.
 
-Hier einige Hinweise zum Erstellen von Issues:
+Hier sind einige Hinweise zum Öffnen von Issues:
 
-- Wählen Sie die passende Kategorie für das Issue. Zum Beispiel können Sie Fehler in Inhalten über die Vorlage [Content issue](https://github.com/mdn/content/issues/new?assignees=&labels=needs+triage&template=content-bug.yml) im Repository `mdn/content` melden.
-- Stellen Sie ausreichende Informationen bereit:
-  - **Titel des Issues** sollte prägnant die _erforderliche Aktion_ ausdrücken.
-  - **Beschreibung des Issues** sollte das Problem und die erforderliche Aktion zur Behebung deutlich beschreiben. Außerdem sollte sie die Aufgaben oder Unteraufgaben auflisten, die zur Lösung erforderlich sind. Zusätzliche Richtlinien:
-    - Verwenden Sie das Beschreibungsfeld, um den Status der Aufgabe oder Unteraufgaben mithilfe von Checklisten anzuzeigen.
-    - Aktualisieren Sie den Status einer Aufgabe in der Beschreibung des Issues anstatt in Kommentaren. Verwenden Sie [Aufgabenlisten](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) in der Beschreibung, wenn ein Issue mehrere Teile hat. Dies hilft anderen, die den Status nicht durch Kommentare verfolgen möchten.
-    - Kommentare in einem Issue sollten auf Details oder Kontexte begrenzt sein, die zur Lösung des Problems beitragen.
-- Zieht eine der folgenden Situationen ein, verlagern Sie die Diskussion zu [MDNs Diskussionen auf GitHub](https://github.com/orgs/mdn/discussions):
-  - Es muss eine Klärung für das Issue besprochen werden.
-  - Eine Diskussion beginnt nach Öffnen des Issues.
-  - Das Issue hat keinen klaren Konsens bezüglich der Lösung.
-  - Die Anforderungen zur Erledigung des Problems erweitern sich während der Bearbeitung oder die Arbeit bleibt unklar.
-- Bei kleineren Problemen können Sie [die Änderungen selbst vornehmen](#probleme_selbst_lösen) und einen Pull Request einreichen.
+- Wählen Sie die passende Kategorie aus, um das Issue zu melden. Um beispielsweise einen Inhaltsfehler zu melden, verwenden Sie das [Content Issue](https://github.com/mdn/content/issues/new?assignees=&labels=needs+triage&template=content-bug.yml) Template im `mdn/content` Repository.
+- Stellen Sie beim Melden des Issues genügend Informationen bereit:
+  - **Titel des Issues** muss die _erforderliche Aktion_ kurz und prägnant vermitteln.
+  - **Beschreibung des Issues** muss den Fehler klar beschreiben und die erforderliche Aktion zur Lösung des Problems angeben. Sie muss auch die Aufgabe oder Unteraufgaben auflisten, die abgeschlossen werden müssen, um das Problem zu lösen. Einige weitere Richtlinien umfassen:
+    - Verwenden Sie das Beschreibungsfeld, um den Status der Aufgabe oder Unteraufgaben anhand von Checklisten anzuzeigen.
+    - Aktualisieren Sie den Status einer Aufgabe in der Issues-Beschreibung anstatt in den Kommentaren des Issues. Verwenden Sie [Task-Listen](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) in der Beschreibung, wenn ein Issue mehrere Teile hat. Dies hilft anderen, die andernfalls durch Kommentare im Issue scrollen müssen, um den Status verschiedener Aufgaben zu bestimmen.
+    - Kommentare in einem Issue sollten sich auf Details oder Kontext beschränken, die bei der Lösung des Issues helfen.
+- Wenn Sie sich in einer der folgenden Situationen befinden, verlagern Sie die Konversation zu [MDNs Diskussionen auf GitHub](https://github.com/orgs/mdn/discussions):
+  - Eine Diskussion muss stattfinden, um ein Issue zu klären.
+  - Eine Diskussion beginnt nach dem Öffnen des Issues.
+  - Für das Issue besteht kein klarer Konsens über seine Lösung.
+  - Die Anforderungen zur Vervollständigung der Aufgabe erweitern sich, während sie gelöst wird, oder die Arbeit ist unklar.
+- Für kleinere Fehler können Sie [die Änderungen selbst vornehmen](#probleme_selbst_beheben) und einen Pull-Request einreichen.
 
-### Erstellen eines Aufgabenlisten-Issues
+### Ein Task-Listen-Issue erstellen
 
-Wenn das von Ihnen eröffnete Issue keine Fehleranzeige, sondern eine Liste von Aufgaben betrifft, können Sie das Issue als [Aufgabenliste](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) erstellen.
-Erläutern Sie den Kontext oder den Grund für das Ausführen der Aufgaben in der Beschreibung.
-Listen Sie sicher alle umsetzbaren Aufgaben als Checkliste auf.
+Wenn das von Ihnen eröffnete Issue nicht dazu dient, einen Fehler zu melden, sondern um eine Reihe von Aufgaben durchzuführen, können Sie das Issue als [Task-Liste](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) erstellen.
+Erklären Sie den Kontext oder Grund für die Durchführung der Aufgaben in der Beschreibung.
+Stellen Sie sicher, dass Sie alle umsetzbaren Aufgaben als Checkliste auflisten.
 
 Zum Beispiel:
 
@@ -76,117 +77,120 @@ The task list in this issue will be used to compare the documented CSS propertie
 - [ ] [letter-spacing](/en-US/docs/Web/CSS/letter-spacing) - open pull request to move `Accessibility concerns` and `Internationalization concerns` sections before the `Specifications` section.
 ```
 
-## Richtlinien für die Bearbeitung eines Issues
+## Richtlinien zur Bearbeitung eines Issues
 
-Wenn Sie sich ein Issue vornehmen, wird erwartet, dass die Aufgabe rechtzeitig abgeschlossen wird. Sollten Sie eine Woche nach Zuweisung keinen Fortschritt erzielen oder die Aufgabe nicht mehr erfüllen können, hinterlassen Sie einen Kommentar und lösen Sie die Zuweisung von sich selbst.
+Denken Sie daran, dass, wenn Sie ein Issue übernehmen, die Erwartung besteht, dass die Arbeit zeitnah abgeschlossen wird. Wenn Sie eine Woche nach der Zuweisung keinen Fortschritt machen können oder die erforderliche Aufgabe nicht mehr abschließen können, hinterlassen Sie einen Kommentar und weisen Sie sich von dem Issue ab.
 
-Schritte für die Bearbeitung eines Issues:
+Dies sind die allgemeinen Schritte zur Bearbeitung eines Issues:
 
-1. **Ein Issue finden:** Wenn Sie beitragen möchten, suchen Sie nach Issues mit den Labels [`good first issue`, `help wanted`](#andere_labels_hinzufügen) oder [`p3`](#setzen_eines_prioritätslabels). Die meisten Repositories haben Issues mit diesen Labels. Wählen Sie eines, das zu Ihren Fähigkeiten passt. Eine nützliche Ressource für Issues ist das [MDN Contributors Task Board](https://github.com/orgs/mdn/projects/25). Dort werden offene Issues aus mehreren Repositories aufgelistet. Sie können die Liste anhand von Themen (`Labels`-Spalte) filtern, die Sie interessieren. Eine Beschreibung einiger [Labels](#andere_labels_hinzufügen) wird während des Issue-Triage-Prozesses hinzugefügt.
+1. **Ein Issue finden:** Wenn Sie beitragen möchten, suchen Sie nach Issues mit dem Label [`good first issue`, `help wanted`](#weitere_labels_setzen) oder [`p3`](#ein_prioritätslabel_setzen). Die meisten Repositories haben Issues mit diesen Labels. Sie sind willkommen, ein Thema zu durchsuchen und zu wählen, das zu Ihrem Fähigkeitsniveau passt. Ein weiterer nützlicher Ort, um nach Issues zu suchen, an denen Sie arbeiten können, ist das [MDN Contributors Task Board](https://github.com/orgs/mdn/projects/25). Diese Projektansicht listet offene Issues aus mehreren Repositories auf. Sie können die Liste basierend auf den Themen (`Labels`-Spalte), die Sie interessieren, filtern. Siehe die Beschreibung einiger der [Labels](#weitere_labels_setzen), die während des Issues-Triage- Prozesses verwendet werden.
 
    > [!NOTE]
-   > Ein Issue mit dem Label `needs triage` zeigt an, dass das Kernteam der MDN Web Docs das Issue noch nicht überprüft hat. Beginnen Sie in diesem Fall noch nicht mit der Arbeit daran.
+   > Ein Issue mit dem Label `needs triage` bedeutet, dass das Kernteam der MDN Web Docs das Issue noch nicht überprüft hat, und Sie sollten noch nicht daran arbeiten.
 
-2. **Das Issue zuweisen:** Nachdem Sie ein Issue gefunden haben, prüfen Sie, ob es anderen zugewiesen ist. Hinterlassen Sie einen Kommentar mit Ihrer Absicht, daran zu arbeiten, und weisen Sie sich, falls möglich, [das Issue selber zu](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).
+2. **Weisen Sie sich das Issue zu:** Nachdem Sie ein Issue gefunden haben, an dem Sie arbeiten möchten, stellen Sie sicher, dass das Issue niemand anderem zugewiesen ist. Fügen Sie einen Kommentar hinzu, dass Sie an dem Issue arbeiten möchten, und falls möglich, [weisen Sie sich das Issue selbst zu](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).
 
-3. **Recherche betreiben:** Viele Issues erfordern eine Untersuchung vor Beginn der Arbeit.
+3. **Führen Sie die Recherche durch:** Die meisten Issues benötigen einige Untersuchungen, bevor mit der Arbeit begonnen werden kann.
 
-   - Klären Sie den Umfang der Arbeit. Wenn Sie Fragen haben, stellen Sie diese in den [MDN Web Docs Chats](/de/docs/MDN/Community/Communication_channels#chat_rooms).
-   - Ist das Issue klar beschrieben und die Arbeit offensichtlich, legen Sie los.
-   - Ist das Issue nicht gut beschrieben oder sind Sie unsicher, was benötigt wird, erwähnen Sie den Ersteller mit @ und fragen Sie nach weiteren Informationen.
+   - Umreißen Sie die Arbeit, die zu erledigen ist. Wenn Sie Fragen stellen müssen, stellen Sie diese in den [MDN Web Docs Chatrooms](/de/docs/MDN/Community/Communication_channels#chat_rooms).
+   - Wenn das Issue gut beschrieben ist und die Arbeit ziemlich offensichtlich ist, machen Sie einfach weiter.
+   - Wenn das Issue nicht gut beschrieben ist und/oder nicht klar ist, was benötigt wird, @erwähnen Sie den Verfasser und bitten Sie um weitere Informationen.
 
-4. **Die Änderungen vornehmen:** Forken und branchieren Sie das Repository. Arbeiten Sie und senden Sie einen [Pull Request](/de/docs/MDN/Community/Pull_requests). [Beziehen Sie das Issue ein](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue) in die Beschreibung des Pull Requests. Ein Reviewer wird je nach Art der Änderungen automatisch zugewiesen. (Teams pro Themenbereich sind in der Datei [CODEOWNERS](https://github.com/mdn/content/blob/main/.github/CODEOWNERS) definiert.)
+4. **Nehmen Sie die Änderungen vor:** Forken und verzweigen Sie das Repository. Führen Sie Ihre Arbeit durch und erstellen Sie einen [Pull-Request](/de/docs/MDN/Community/Pull_requests) im Repository. [Referenzieren Sie das Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue) in der Pull-Request-Beschreibung. Abhängig von den Dateien, die Sie im Pull-Request aktualisiert haben, wird automatisch ein Prüfer zu Ihrem Pull-Request zugewiesen. (Teams pro Themenbereich sind in der [CODEOWNERS](https://github.com/mdn/content/blob/main/.github/CODEOWNERS) Datei definiert).
 
-   Nach dem Erstellen des Pull Requests, aber vor Fertigstellung, geben Sie bitte rechtzeitig Bescheid, falls Sie keine Zeit mehr haben. So kann das Team den Beitrag an andere Interessierte weitergeben, um die Arbeit abzuschließen.
+   Nachdem Sie den Pull-Request erstellt haben, falls Sie feststellen, dass Sie keine Zeit mehr haben, Änderungen vorzunehmen oder Feedback zur Überprüfung einzubauen, informieren Sie das Team so schnell wie möglich in einem Kommentar im Pull-Request. Dies hilft dem Team, einen anderen interessierten Mitwirkenden zuzuweisen, um die Arbeit am Pull-Request abzuschließen und das verknüpfte Issue zu schließen.
 
-5. Sobald Ihr Pull Request überprüft und gemergt wurde, können Sie das zugehörige Issue schließen. Enthält der Pull Request den Satz `Fixes #<issue>`, wird das Issue automatisch nach dem Merge geschlossen.
+5. Nachdem Ihr Pull-Request überprüft und zusammengeführt wurde, können Sie das verknüpfte Issue als geschlossen markieren. Wenn Sie den Pull-Request mit der Verbatim-Darstellung `Fixes #<issue>` erstellt haben, wird das Issue automatisch geschlossen, wenn der Pull-Request zusammengeführt wird.
 
-### Probleme selbst lösen
+### Probleme selbst beheben
 
-Wenn Sie einen Fehler entdecken — sei es ein Problem mit dem Design der Webseite oder ein Fehler in der Dokumentation — können Sie versuchen, ihn selbst zu beheben. Lesen Sie unseren [Leitfaden zur Beitragseinreichung](https://github.com/mdn/content/blob/main/CONTRIBUTING.md), um zu erfahren, wie Sie beitragen können.
+Wenn Ihnen ein Fehler auffällt — sei es ein Problem mit dem Aussehen der Website oder ein Fehler in der Dokumentation — können Sie versuchen, ihn selbst zu beheben. Erfahren Sie mehr darüber, wie Sie beitragen können, indem Sie unseren [Beitragsleitfaden](https://github.com/mdn/content/blob/main/CONTRIBUTING.md) durchgehen.
 
-Wenn der Fehler klein ist, wie ein Typo oder eine geringfügige Verbesserung eines Satzes, oder eine unumstrittene Lösung vorliegt, reichen Sie einen Pull Request ein.
+Wenn der Fehler klein ist, wie z.B. ein Tippfehler oder eine kleinere Satzverbesserung, oder eine unstrittige Korrektur beinhaltet, erstellen Sie einen Pull-Request mit den Änderungen.
 
-Für alle anderen Fehler beginnen Sie mit dem [Eröffnen eines Issues](#richtlinien_für_das_melden_eines_issues). Kommentieren Sie Ihre Absicht, daran zu arbeiten, und beschreiben Sie maßgeblich mögliche Lösungsschritte. Warten Sie, bis das MDN-Team das Issue triagiert hat, um sicherzustellen, dass es legitim ist und Ihre Lösung genehmigt wurde.
+Für alle anderen Arten von Fehlern beginnen Sie damit, [das Issue zu öffnen](#richtlinien_zum_melden_eines_issues). Fügen Sie einen Kommentar zu Ihrer Absicht hinzu, an dem Issue zu arbeiten und beschreiben Sie, wenn möglich, Ihre vorgeschlagene Lösung oder die Schritte zur Behebung des Problems.
+Warten Sie, bis das Issue triagiert wurde, damit das MDN Web Docs Team das Problem überprüfen kann und Ihre vorgeschlagene Lösung genehmigt.
 
 > [!NOTE]
-> Wenn Sie vor der Triagierung einen Pull Request öffnen, könnte Ihre Arbeit verloren gehen, falls das Issue als ungültig bewertet wird oder die Lösung nicht den Erwartungen entspricht.
-> Nach der Triagierung weisen Sie sich das Issue zu.
+> Wenn Sie einen Pull-Request einreichen, bevor das Issue triagiert wurde, könnten Ihre Zeit und Mühe verschwendet werden, wenn das verknüpfte Issue als ungültig erachtet wird oder die Lösung nicht der von MDN Web Docs erwarteten entspricht.
+> Nachdem das Issue triagiert wurde, weisen Sie sich das Issue zu.
 
-Verwenden Sie die [Richtlinien zum Arbeiten an Issues](#richtlinien_für_die_bearbeitung_eines_issues), um das Problem zu lösen, indem Sie die entsprechende Quelle wie folgt aktualisieren:
+Unter Verwendung der [Richtlinien zur Bearbeitung eines Issues](#richtlinien_zur_bearbeitung_eines_issues) versuchen Sie das Problem zu lösen, indem Sie die geeignete Quelle aktualisieren, wie:
 
-- MDN Web Docs **Content** (auf Englisch) im [mdn/content](https://github.com/mdn/content) Repository
-- MDN Web Docs **übersetzte Inhalte** im [mdn/translated-content](https://github.com/mdn/translated-content) Repository
-- MDN Web Docs **Frontend** im [mdn/yari](https://github.com/mdn/yari) Repository
+- Der **Inhalt** der MDN Web Docs (in Englisch) im [mdn/content](https://github.com/mdn/content) Repository
+- Der **übersetzte Inhalt** der MDN Web Docs im [mdn/translated-content](https://github.com/mdn/translated-content) Repository
+- Das **Frontend** der MDN Web Docs im [mdn/yari](https://github.com/mdn/yari) Repository
 
-Jedes Repository enthält nützliche Informationen, um Sie anzuleiten.
-Für weitere Informationen siehe [unsere Hauptrepositories auf GitHub](/de/docs/MDN/Community/Our_repositories).
+Jedes Repository enthält nützliche Informationen, die Sie anleiten, wie Sie beitragen können.
+Weitere Informationen finden Sie in [unseren Haupt-GitHub-Repositories](/de/docs/MDN/Community/Our_repositories).
 
-## Richtlinien für die Triagierung von Issues
+## Richtlinien für das Triagieren von Issues
 
-Wenn Sie ein Maintainer oder Eigentümer in der MDN Web Docs GitHub-Organisation sind, sind Sie für die Triagierung von Issues in einem oder mehreren Repositories verantwortlich.
+Wenn Sie ein Betreuer oder Eigentümer in der MDN Web Docs GitHub-Organisation sind, sind Sie für das Triagieren von Issues in einem oder mehreren MDN Web Docs Repositories verantwortlich.
 
-Der allgemeine Triagierungsprozess umfasst [allgemeine Aufgaben](#allgemeine_triagierungsaufgaben) und [spezifische Issue-Triagierungstasks](#aufgaben_für_spezifische_issues).
+Der gesamte Prozess des Triagierens umfasst einige [allgemeine](#allgemeine_triagieraufgaben) und einige [issue-spezifische Aufgaben](#issue-spezifische_triagieraufgaben).
 
-### Allgemeine Triagierungsaufgaben
+### Allgemeine Triagieraufgaben
 
-- Wenn ein Issue geöffnet wird, erhält es automatisch das Label `needs triage`. Sie können per Suche nach diesem Label nach Issues suchen, die [triagiert werden müssen](#aufgaben_für_spezifische_issues). Andere Mitwirkende sollten daran nicht arbeiten, bevor die Triagierung abgeschlossen ist. (Triagierer erinnern sich daran, das Label `needs triage` nach der Triagierung zu entfernen.)
+- Wenn ein Issue eröffnet wird, wird das Label `needs triage` automatisch auf das Issue gesetzt. Sie können nach diesem Label suchen, um nach Issues zu suchen, die [triagiert werden müssen](#issue-spezifische_triagieraufgaben). Mitwirkende oder sonst jemand sollte nicht an dem Issue arbeiten, bevor es triagiert wurde. (Triager sollten daran denken, das `needs triage` Label nach dem Triagieren des Issues zu entfernen.)
 
-- Im [mdn/content Repository](https://github.com/mdn/content/issues) wird automatisch ein zusätzliches `Content:` Label, z. B. `Content:CSS` oder `Content:WebAPI`, auf Basis der im Issue genannten MDN URL gesetzt. Themen-spezifische Labels erleichtern die Suche in Ihrem Interessensgebiet.
+- Im [mdn/content Repository](https://github.com/mdn/content/issues) wird ein zusätzliches `Content:` Label wie `Content:CSS` oder `Content:WebAPI` automatisch auf das Issue gesetzt. Dieses Label wird basierend auf der MDN-URL gesetzt, die im Issue erwähnt wird. Sie können das auf Inhalte bezogene Label verwenden, um nach Issues zu suchen, die in Ihrem speziellen Themenbereich triagiert werden müssen.
 
-- Bei Issues zu aktiven nicht-en-US-Sprachen setzen Sie das entsprechende Label (`l10n-fr`, `l10n-zh`, `l10n-ja` etc.). Spezialteams für diese Sprachen werden diese triagieren.
+- Wenn ein Issue ein aktives, nicht-en-US-Gebietsschema betrifft, setzen Sie das entsprechende Label, wie z.B. `l10n-fr`, `l10n-zh` oder `l10n-ja`. Die Teams für diese Gebietsschemas werden diese Issues aufnehmen und triagieren.
 
-- Sie müssen nicht kontinuierlich Issues triagieren. Nehmen Sie sich z. B. einmal pro Woche 30 Minuten Zeit, um die Issues in Ihrem Verantwortungsbereich zu triagieren.
+- Sie müssen nicht immer aktiv Issues triagieren. Setzen Sie sich regelmäßig, zum Beispiel jede Woche 30 Minuten, Zeit, um Issues in Ihrem Verantwortungsbereich zu triagieren. Triagieren muss nicht als Teil eines synchronen Treffens oder zur gleichen Zeit wie alle anderen durchgeführt werden, aber es sollte regelmäßig getan werden, um sicherzustellen, dass der Rückstand an untriagierten Fehlern nicht zu hoch wird.
 
-- Neben dem regelmäßigen Triagieren neuer Issues prüfen Sie alte Bugs auf Stillstand, ob sie geschlossen werden müssen oder ob sie irrelevant sind. Das Label `idle` wird automatisch bei Inaktivität von 30 Tagen gesetzt.
-  - Überprüfen Sie zugewiesene Issues, die noch offen sind, auf Fortschritt. Bei mangelndem Fortschritt nach einer Woche fragen Sie nach. Bleibt die Situation nach einer weiteren Woche unverändert, heben Sie die Zuweisung auf und machen Sie das Issue für andere frei.
-  - Wenn ein Pull Request die Lösung bietet, aber nach einer Woche nicht geprüft wurde, lassen Sie dem Reviewer eine freundliche Erinnerung zukommen.
-  - Falls ein Pull Request nach Überprüfungsrückmeldungen stecken bleibt, fragen Sie beim Autor nach. Verstreichen zwei Wochen ohne Änderungen, lösen Sie entweder das Problem selbst oder schließen Sie den Pull Request und das Issue.
+- Neben dem wöchentlichen Triagieren eingehender Issues überprüfen Sie die Liste der alten Fehler, um zu sehen, ob es welche gibt, die ins Stocken geraten sind, geschlossen werden müssen oder nicht mehr relevant sind. Das `idle` Label wird automatisch auf Issues gesetzt, die 30 Tage lang keine Aktivität hatten.
+  - Überprüfen Sie zugewiesene Issues, die immer noch offen sind, um zu sehen, ob der Bearbeiter Fortschritte macht. Wenn nach einer Woche der Zuweisung kein Fortschritt erzielt wurde, fragen Sie sie, ob sie noch Zeit haben, an dem Issue zu arbeiten. Wenn noch eine Woche vergeht, ohne dass Fortschritte gemacht werden, heben Sie die Zuweisung auf und hinterlassen einen Kommentar, dass Sie das Issue für andere interessierte Mitwirkende verfügbar machen.
+  - Wenn ein Pull-Request zur Behebung des Issues eingereicht wurde, der jedoch seit einer Woche nicht mehr überprüft wurde, geben Sie dem Prüfer einen sanften Anstoß, um zu fragen, ob er ihn sich ansehen kann.
+  - Wenn ein Pull-Request zur Behebung des Issues auf die Bearbeitung von Überarbeitungskommentaren nach einer Woche wartet, dann fragen Sie den Autor, ob er auf seine Überarbeitung antworten kann. Wenn noch eine Woche vergeht, entweder die Überarbeitungskommentare selbst beheben, wenn Sie Zeit haben, oder den Pull-Request schließen und das zugehörige Issue abweisen.
 
-### Aufgaben für spezifische Issues
+### Issue-spezifische Triagieraufgaben
 
-Hier einige Richtlinien zur Triagierung von Issues.
+Dies sind die Richtlinien, die beim Triagieren jedes Issues zu befolgen sind.
 
-#### Überprüfung auf Gültigkeit
+#### Überprüfung, ob das Issue gültig ist
 
-Dies sind wichtige Punkte zur Beurteilung der Gültigkeit eines Issues:
+Dies sind einige der Dinge, die Sie beim Überprüfen der Gültigkeit eines Issues im Auge behalten sollten:
 
-- Prüfen Sie, ob das gemeldete Problem berechtigt ist und die Behebung die Inhalte oder die Website verbessert.
-- Bewerten Sie den Einfluss des Fixes, ob lokal oder seitenübergreifend.
-- Sofern Diskussionen erforderlich erscheinen, leiten Sie den Autor zu [GitHub Diskussionen](https://github.com/orgs/mdn/discussions).
-- Stellen Sie sicher, dass das Issue unseren [Schreibrichtlinien](/de/docs/MDN/Writing_guidelines/Writing_style_guide) und [Vorlagen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) entspricht.
-- Prüfen Sie, ob vorgeschlagene Links mit unserer [Policy für externe Links](/de/docs/MDN/Writing_guidelines/Writing_style_guide#external_links) übereinstimmen.
+- Prüfen Sie, ob das problematisch gemachte Issue gültig ist und ob die Behebung den Inhalt für die Leser und die Website verbessern wird.
+- Bewerten Sie, ob die Auswirkungen der Behebung klein oder site-weit sind.
+- Bewerten Sie, ob die Behebung des Issues zuerst eine Diskussion benötigt, in welchem Fall Sie den Autor darauf hinweisen, eine [Diskussion](https://github.com/orgs/mdn/discussions) zu eröffnen.
+- Überprüfen Sie, ob das Issue mit unseren [Schreibrichtlinien](/de/docs/MDN/Writing_guidelines/Writing_style_guide) und [Vorlagen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) übereinstimmt.
+- Überprüfen Sie, ob die Vorschläge zum Hinzufügen von Links mit unserer [Richtlinie für externe Links](/de/docs/MDN/Writing_guidelines/Writing_style_guide#external_links) übereinstimmen.
 
-#### Überprüfung auf Vollständigkeit der Informationen
+#### Überprüfung der Vollständigkeit der Informationen im Issue
 
-Vergleichen Sie jedes Issue mit der folgenden Checkliste, um sicherzustellen, dass alle notwendigen Informationen vorhanden sind:
+Überprüfen Sie jedes Issue anhand der folgenden Checkliste, um sicherzustellen, dass das Issue die beschriebenen Informationen enthält, damit jemand mit der Arbeit am Fehler beginnen kann:
 
-- URL der MDN Web Docs-Seite mit dem Problem oder Beispielsseite, falls das Problem mehrfach auftritt.
-- Der spezifische Abschnitt oder Titel, unter dem das Problem auftritt.
-- Eine klare Beschreibung der inkorrekten, unvollständigen oder fehlenden Inhalte.
+- URL der MDN Web Docs-Seite mit dem Problem oder URL einer Beispiel-MDN-Web-Docs-Seite, wenn das Problem auf mehreren Seiten besteht
+- Die spezifische Überschrift oder der Abschnitt auf der MDN-Web-Docs-Seite, in dem das Problem gefunden wurde
+- Eine klare Beschreibung der inkorrekten, unhilfreichen, unvollständigen oder fehlenden Informationen
 
-Fehlen diese Details, sollten Sie den Autor kontaktieren und das Label `needs info` setzen. Setzen Sie die Triagierung fort, sobald die Informationen vorliegen (dann das Label entfernen). Eine Woche ist angemessen, um auf eine Antwort zu warten.
+Wenn eine der oben genannten Informationen nicht vorhanden ist, sollten Sie den Autor des Issues bitten, diese Details bereitzustellen und das `needs info` Label auf das Issue setzen. Fahren Sie mit dem Triagieren des Issues erst fort, nachdem diese Details bereitgestellt wurden (nachdem Sie können Sie das `needs info` Label entfernen). Es ist in Ordnung, eine Woche zu warten, um eine Antwort vom Autor zu erhalten.
 
-#### Setzen eines Prioritätslabels
+#### Ein Prioritätslabel setzen
 
-Vergeben Sie ein Prioritätslabel basierend auf der Schwere des Issues:
+Setzen Sie für jeden Fehler ein Prioritätslabel basierend auf der Schwere des Issues, um Personen zu helfen, die an den wichtigsten Issues oder Bereichen arbeiten möchten.
 
-- Kritisches Issue: Sofortige Bearbeitung erforderlich, schwerwiegende Auswirkungen (z. B.: fehlerhafter Code mit Sicherheitsrisiken).
+- Kritisches Issue: Diese Art von Issue muss so schnell wie möglich behoben werden, unabhängig davon, wo es auf der Website erscheint. Diese Art von Issue könnte den Ruf von MDN schwer beschädigen und/oder den Nutzen von Nutzern stark beeinträchtigen. Beispiele für diese Art von Issue beinhalten ein falsches Codesnippet, das in der Produktion verwendet, ein schwerwiegendes Sicherheitsproblem hervorrufen könnte und unerwünschte Inhalte enthält wie Malware, Obszönitäten, Pornografie, Hassreden oder Links zu solchen Inhalten.
 
-  - Label: `p0` (sofortige Bearbeitung)
+  - Label: `p0` (wird sofort behandelt)
 
-- Wesentliches Issue: Starke Beeinträchtigung der Seitennützlichkeit (z. B.: veralteter Inhalt, defekte Beispiele etc.).
+- Großes Problem: Diese Art von Issue könnte die Nützlichkeit einer Seite stark beeinträchtigen. Zum Beispiel eine erhebliche Menge veralteter Informationen, ein komplexes und wichtiges Codebeispiel, das nicht funktioniert, erhebliche Mengen schwer verständlichen Prosa Textes oder eine große Anzahl defekter Links.
 
-  - Labels: `p1`, `p2` (relativ dringend)
+  - Labels: `p1` (wird bald behandelt) und `p2` (wird bald behandelt, aber vorrangigere Aufgaben haben Vorrang)
 
-- Geringfügiges Issue: Verbesserungen ohne einschneidende Auswirkung, ideal für erste Beiträge.
-  - Label: `p3` (Bearbeitungszeitpunkt unbestimmt)
+- Kleines Problem: Dies ist eine diese Art von Verbesserungs-Issue, die den vorhandenen Inhalt besser machen können aber nicht die Lernerfahrung beeinträchtigen oder nur einen kleinen Effekt auf das Lernen haben. Da diese Art von Issues nicht aktiv geplant werden, sind Beiträge von Mitwirkenden zur Behebung dieser Issues willkommen und sehr geschätzt. Die Behebung einiger dieser Issues kann auch den notwendigen Übungsbedarf für Anfängermitglieder bieten, die sich mit dem Prozess des Beitragens vertraut machen. Beispiele umfassen Tippfehler, schlechte Grammatik, einen defekten Link, eine kleine Menge veralteter Informationen oder schlecht geschriebener Prosa, oder ein Codesnippet, das nicht funktioniert.
+  - Labels: `p3` (keine Sicht darauf, wann das Problem behandelt wird)
 
-#### Hilfreiche Informationen hinzufügen
+Im Allgemeinen sollten kritische Issues sofort behoben werden und werden höchstwahrscheinlich von MDN Web Docs Mitarbeitern und Kollegen bearbeitet.
 
-Fügen Sie Informationen hinzu, die Beitragsleistenden bei der Bearbeitung helfen. Dies könnten Schritte, Links zu ähnlichen Issues oder Ressourcen sein. Ist das Issue als `good first issue` kategorisiert, ist ein gut durchdachter Plan besonders hilfreich, um Neulinge einzuarbeiten.
+#### Nützliche Informationen hinzufügen
 
-Ein Beispiel:
+Fügen Sie nach Möglichkeit Informationen hinzu, die Mitwirkenden helfen können, das Issue zu beheben. Die Informationen können in Form von Schritten, allgemeinen Ansätzen, Links zu anderen ähnlichen behobenen Issues oder Lesematerialien sein. Ein gut ausgearbeiteter Plan oder Schritte sind besonders erforderlich bei Issues, die mit `good first issue` gekennzeichnet sind und können neuen Mitwirkenden helfen, sich schnell zu orientieren. Sie können diese Aufgabe auf 5-10 Minuten zeitlich festlegen.
+
+Zum Beispiel können Sie als Triager die folgenden Informationen zum Issue hinzufügen, das Sie triagieren:
 
 ```md
 To whoever fixes this issue, it looks like the following is needed:
@@ -196,16 +200,16 @@ To whoever fixes this issue, it looks like the following is needed:
 - Update the compatibility data at Link-X
 ```
 
-#### Andere Labels hinzufügen
+#### Weitere Labels setzen
 
-Fügen Sie je nach Bedarf passende Labels hinzu:
+Legen Sie anschließend folgende Labels nach Bedarf fest:
 
-- `effort: small`, `effort: medium`, `effort: large`: Symptome den voraussichtlichen Aufwand.
-- `good first issue`: Einfache Probleme für Neulinge.
-- `help wanted`: Bedarf an Expertise.
-- `broken link external`: Externe defekte Links.
-- `document not written`: Fehlendes und notwendiges Dokument.
-- `needs content update`: Fix benötigt equivalent Update im `mdn/content` Repository.
+- `effort: small`, `effort: medium`, `effort: large`: Einige Mitwirkende suchen gerne nach Fehlern basierend auf der Zeit und dem Aufwand, die für die Behebung des Fehlers erforderlich sind. Wenn möglich, sollten Sie versuchen, einen Schätzbetrag des benötigten Aufwands bereitzustellen.
+- `good first issue`: Setzen Sie dieses Label auf das Issue, wenn die Behebung des Issues wirklich einfach ist und wenn die Behebung des Issues eine gute Praxis für einen Neuling darstellen würde, der sich mit dem Prozess vertraut macht.
+- `help wanted`: Setzen Sie dieses Label, wenn das Issue Unterstützung von jemandem erfordert, der das Thema kennt oder damit vertraut ist. Dies ist ein beliebtes Label und einige Mitwirkende verwenden es, um nach Issues zu suchen, an denen sie in Open-Source-Projekten in ihren Bereichen der Vertrautheit oder Expertise arbeiten können.
+- `broken link external`: Setzen Sie dieses Label, wenn das Issue einen defekten Link zu einer externen Seite umfasst.
+- `document not written`: Setzen Sie dieses Label, wenn das Issue ein notwendiges Dokument beinhaltet, das noch nicht geschrieben wurde, normalerweise weil ein Link darauf zeigt.
+- `needs content update`: Setzen Sie dieses Label, wenn die Fehlerbehebung in einem anderen Repository eine entsprechende Behebung im `mdn/content` Repository erfordert.
 
   > [!NOTE]
-  > Entfernen Sie nach Abschluss der Triagierung das Label `needs triage`.
+  > Nachdem der Triagierungsprozess abgeschlossen ist, entfernen Sie das `needs triage` Label.

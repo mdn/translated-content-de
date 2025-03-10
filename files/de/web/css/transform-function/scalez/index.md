@@ -2,20 +2,106 @@
 title: scaleZ()
 slug: Web/CSS/transform-function/scaleZ
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`scaleZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element entlang der z-Achse skaliert. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scaleZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element entlang der z-Achse in der Größe verändert. Das Resultat ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
-{{EmbedInteractiveExample("pages/css/function-scaleZ.html")}}
+{{InteractiveExample("CSS Demo: scaleZ()")}}
 
-Diese Skalierungstransformation verändert die z-Koordinate jedes Punktes des Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist. In diesem Fall handelt es sich um die Identitätstransformation. Die Skalierung ist nicht isotrop und die Winkel des Elements bleiben nicht erhalten. `scaleZ(-1)` definiert eine [achsensymmetrische] (https://en.wikipedia.org/wiki/Axial_symmetry) Transformation, wobei die z-Achse durch den Ursprung geht (wie durch die {{cssxref("transform-origin")}} Eigenschaft angegeben).
+```css interactive-example-choice
+transform: scaleZ(1);
+```
 
-In den obigen interaktiven Beispielen wurden [`perspective: 550px;`](/de/docs/Web/CSS/perspective) (um einen 3D-Raum zu schaffen) und [`transform-style: preserve-3d;`](/de/docs/Web/CSS/transform-style) (damit die Kinder, also die 6 Seiten des Würfels, ebenfalls im 3D-Raum positioniert sind) auf den Würfel angewendet.
+```css interactive-example-choice
+transform: scaleZ(1.4);
+```
 
-> **Hinweis:** `scaleZ(sz)` ist äquivalent zu `scale3d(1, 1, sz)`.
+```css interactive-example-choice
+transform: scaleZ(0.5);
+```
+
+```css interactive-example-choice
+transform: scaleZ(-1.4);
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    <div class="face front">1</div>
+    <div class="face back">2</div>
+    <div class="face right">3</div>
+    <div class="face left">4</div>
+    <div class="face top">5</div>
+    <div class="face bottom">6</div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#default-example {
+  background: linear-gradient(skyblue, khaki);
+  perspective: 800px;
+  perspective-origin: 150% 150%;
+}
+
+#example-element {
+  width: 100px;
+  height: 100px;
+  perspective: 550px;
+  transform-style: preserve-3d;
+}
+
+.face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: inherit;
+  font-size: 60px;
+  color: white;
+}
+
+.front {
+  background: rgba(90, 90, 90, 0.7);
+  transform: translateZ(50px);
+}
+
+.back {
+  background: rgba(0, 210, 0, 0.7);
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+  background: rgba(210, 0, 0, 0.7);
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  background: rgba(0, 0, 210, 0.7);
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+  background: rgba(210, 210, 0, 0.7);
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  background: rgba(210, 0, 210, 0.7);
+  transform: rotateX(-90deg) translateZ(50px);
+}
+```
+
+Diese Skalierungstransformation modifiziert die z-Koordinate jedes Punktes eines Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist, in welchem Fall die Funktion die Identitätstransformation ist. Die Skalierung ist nicht isotrop, und die Winkel des Elements bleiben nicht erhalten. `scaleZ(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), wobei die z-Achse durch den Ursprung verläuft (wie durch die Eigenschaft {{cssxref("transform-origin")}} festgelegt).
+
+In den obigen interaktiven Beispielen wurden [`perspective: 550px;`](/de/docs/Web/CSS/perspective) (um einen 3D-Raum zu schaffen) und [`transform-style: preserve-3d;`](/de/docs/Web/CSS/transform-style) (damit die Kinder, die 6 Seiten des Würfels, ebenfalls im 3D-Raum positioniert sind) auf dem Würfel gesetzt.
+
+> **Note:** `scaleZ(sz)` ist äquivalent zu `scale3d(1, 1, sz)`.
 
 ## Syntax
 
@@ -26,7 +112,7 @@ scaleZ(s)
 ### Werte
 
 - `s`
-  - : Ist ein {{cssxref("&lt;number&gt;")}}, der den Skalierungsfaktor darstellt, der auf die z-Koordinate jedes Punktes des Elements angewendet wird.
+  - : Ist ein {{cssxref("&lt;number&gt;")}}, das den Skalierungsfaktor darstellt, der auf die z-Koordinate jedes Punktes des Elements angewendet wird.
 
 <table class="standard-table">
   <thead>
@@ -40,7 +126,7 @@ scaleZ(s)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation wird im 3D-Raum angewendet und kann nicht auf der Ebene dargestellt werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
         <math display="block">
@@ -111,7 +197,7 @@ div {
 - {{cssxref("transform")}}
 - {{cssxref("&lt;transform-function&gt;")}}
 - {{cssxref("transform-origin")}}
-- Einzelne Transformations-Eigenschaften:
+- Individuelle Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

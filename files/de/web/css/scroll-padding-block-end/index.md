@@ -2,14 +2,74 @@
 title: scroll-padding-block-end
 slug: Web/CSS/scroll-padding-block-end
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-padding-block-end` definiert Versätze für den Endrand in der Blockdimension des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielbereich verwendet wird, um Dinge in die Sicht des Benutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie fest positionierte Werkzeugleisten oder Seitenleisten), oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-block-end` definiert Abstände für die Endkante in der Blockdimension der _optimalen Ansichtsregion_ des Scrollports: die Region, die als Zielregion zum Platzieren von Dingen im Blickfeld des Nutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Symbolleisten oder Seitenleisten) verdeckt sind, oder mehr Raum zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
-{{EmbedInteractiveExample("pages/css/scroll-padding-block-end.html")}}
+{{InteractiveExample("CSS Demo: scroll-padding-block-end")}}
+
+```css interactive-example-choice
+scroll-padding-block-end: 0;
+```
+
+```css interactive-example-choice
+scroll-padding-block-end: 20px;
+```
+
+```css interactive-example-choice
+scroll-padding-block-end: 2em;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="scroller" id="example-element">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="info">Scroll »</div>
+</section>
+```
+
+```css interactive-example
+.default-example .info {
+  inline-size: 100%;
+  padding: 0.5em 0;
+  font-size: 90%;
+  writing-mode: vertical-rl;
+}
+
+.scroller {
+  text-align: left;
+  height: 250px;
+  width: 270px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid black;
+  scroll-snap-type: y mandatory;
+}
+
+.scroller > div {
+  flex: 0 0 250px;
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: end;
+}
+
+.scroller > div:nth-child(even) {
+  background-color: #fff;
+  color: rebeccapurple;
+}
+```
 
 ## Syntax
 
@@ -33,9 +93,9 @@ scroll-padding-block-end: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz vom Blockendrand des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Abstand von der Blockendkante des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann etwas anderes tun, wenn ein nicht-null Wert angemessener ist.
+  - : Der Abstand wird durch den User-Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null besser geeignet ist.
 
 ## Formale Definition
 

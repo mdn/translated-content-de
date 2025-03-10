@@ -3,7 +3,7 @@ title: "BrowserCaptureMediaStreamTrack: restrictTo()-Methode"
 short-title: restrictTo()
 slug: Web/API/BrowserCaptureMediaStreamTrack/restrictTo
 l10n:
-  sourceCommit: 01e8b5077df6d79e52f2521dfbe734e0923d1fc4
+  sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c
 ---
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{securecontext_header}}
@@ -19,22 +19,22 @@ restrictTo(restrictionTarget)
 ### Parameter
 
 - `restrictionTarget`
-  - : Eine Instanz von [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget), die das Element repräsentiert, auf das der Stream beschränkt werden soll, oder `null`/`undefined`, in welchem Fall jegliche zuvor gesetzte Einschränkung von der Spur entfernt wird.
+  - : Eine Instanz von [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget), die das Element darstellt, auf das der Stream beschränkt werden soll, oder `null`/`undefined`, in diesem Fall wird jede zuvor gesetzte Einschränkung vom Track entfernt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu {{jsxref("undefined")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, der sich zu {{jsxref("undefined")}} auflöst.
 
 Das Promise wird abgelehnt, wenn:
 
-- Der [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) der Spur nicht `"video"` ist, oder ihr [`readyState`](/de/docs/Web/API/MediaStreamTrack/readyState) nicht `"live"` ist.
-- Das Ziel-Element der Einschränkung nicht mehr existiert.
-- Die eingeschränkte Spur keine Spur ist, die vom Bildschirm des Benutzers aufgenommen wurde.
+- Der Track [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) nicht `"video"` ist oder dessen [`readyState`](/de/docs/Web/API/MediaStreamTrack/readyState) nicht `"live"` ist.
+- Das Einschränkungsziel-Element nicht mehr existiert.
+- Der Track, der eingeschränkt wird, kein von dem Bildschirm des Benutzers aufgenommener Track ist.
 - `restrictionTarget` keine Instanz von [`RestrictionTarget`](/de/docs/Web/API/RestrictionTarget), `null` oder `undefined` ist.
-- `restrictionTarget` in einem anderen Tab erstellt wurde als dem, der aufgenommen wird.
+- `restrictionTarget` in einem anderen als dem aufgenommenen Tab erstellt wurde.
 
 > [!NOTE]
-> In Chromium wird ein Aufruf von `restrictTo()` abgelehnt, wenn eine Spur Klone hat (siehe [Chrome issue 41482026](https://issues.chromium.org/issues/41482026)).
+> In Chromium, wenn ein Track Klone hat, wird `restrictTo()` abgelehnt (siehe [Chrome issue 41482026](https://crbug.com/41482026)).
 
 ## Beispiele
 
@@ -62,11 +62,11 @@ await track.restrictTo(restrictionTarget);
 videoElem.srcObject = stream;
 ```
 
-Sehen Sie [Verwendung der Element-Capture- und Region-Capture-APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture) für Beispielcode im Kontext.
+Siehe [Verwendung der Elementaufnahme- und Bereichsaufnahme-APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture) für Beispielcode im Kontext.
 
 ### Beenden der Einschränkung
 
-Sie können die Einschränkung aufheben, indem Sie `restrictTo()` auf demselben Track aufrufen und `null` als Argument übergeben:
+Sie können die Einschränkung beenden, indem Sie einen Aufruf von `restrictTo()` auf demselben Track machen und dabei `null` als Argument übergeben:
 
 ```js
 // Stop restricting
@@ -84,4 +84,4 @@ await track.restrictTo(null);
 ## Siehe auch
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
-- [Verwendung der Element-Capture- und Region-Capture-APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture)
+- [Verwendung der Elementaufnahme- und Bereichsaufnahme-APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture)

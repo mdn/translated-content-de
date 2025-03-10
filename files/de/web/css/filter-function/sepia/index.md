@@ -2,14 +2,40 @@
 title: sepia()
 slug: Web/CSS/filter-function/sepia
 l10n:
-  sourceCommit: 9ca1b6d1fe5e69fc288ad18c6986b581afafc0a4
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`sepia()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) konvertiert das Eingabebild in Sepia und verleiht ihm ein wärmeres, gelblich/braunes Aussehen. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`sepia()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) konvertiert das Eingabebild in Sepia und verleiht ihm ein wärmeres, gelblich-braunes Erscheinungsbild. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
-{{EmbedInteractiveExample("pages/css/function-sepia.html")}}
+{{InteractiveExample("CSS Demo: sepia()")}}
+
+```css interactive-example-choice
+filter: sepia(0);
+```
+
+```css interactive-example-choice
+filter: sepia(0.2);
+```
+
+```css interactive-example-choice
+filter: sepia(60%);
+```
+
+```css interactive-example-choice
+filter: sepia(1);
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/firefox-logo.svg"
+    width="200" />
+</section>
+```
 
 ## Syntax
 
@@ -20,7 +46,7 @@ sepia(amount)
 ### Parameter
 
 - `amount` {{Optional_Inline}}
-  - : Der Grad der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `100%` ist komplett Sepia, während ein Wert von `0%` das Eingangssignal unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren des Effekts. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
+  - : Die Stärke der Konvertierung, angegeben als ein {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `100%` ist vollständig sepia, während ein Wert von `0%` die Eingabe unverändert lässt. Werte zwischen `0%` und `100%` wirken als lineare Multiplikatoren auf den Effekt. Der anfängliche Wert für {{Glossary("interpolation", "Interpolierung")}} ist `0`. Der Standardwert ist `1`.
 
 ## Formale Syntax
 
@@ -28,7 +54,7 @@ sepia(amount)
 
 ## Beispiele
 
-### Beispiele für korrekte Werte bei sepia()
+### Beispiele für korrekte Werte für sepia()
 
 ```css
 sepia(0)     /* No effect */

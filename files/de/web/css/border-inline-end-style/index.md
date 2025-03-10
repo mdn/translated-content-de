@@ -2,14 +2,50 @@
 title: border-inline-end-style
 slug: Web/CSS/border-inline-end-style
 l10n:
-  sourceCommit: 2adfb8760ac42c80966080e2e84211b14e43b589
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`border-inline-end-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil des logischen Endrandes in der Inline-Richtung eines Elements, der abhängig vom Schreibmodus, der Richtung und der Textorientierung des Elements einem physischen Randstil zugeordnet wird. Sie entspricht je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} der Eigenschaft {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}} oder {{cssxref("border-left-style")}}.
+Die **`border-inline-end-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil des logischen Inline-Endrandes eines Elements, der abhängig vom Schreibmodus, der Richtung und der Textorientierung des Elements auf einen physischen Rahmenstil abgebildet wird. Sie entspricht der Eigenschaft {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}} oder {{cssxref("border-left-style")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-{{EmbedInteractiveExample("pages/css/border-inline-end-style.html")}}
+{{InteractiveExample("CSS Demo: border-inline-end-style")}}
+
+```css interactive-example-choice
+border-inline-end-style: dotted;
+writing-mode: horizontal-tb;
+```
+
+```css interactive-example-choice
+border-inline-end-style: dotted;
+writing-mode: vertical-rl;
+```
+
+```css interactive-example-choice
+border-inline-end-style: groove;
+writing-mode: horizontal-tb;
+direction: rtl;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with a border around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #eee;
+  color: #000;
+  border: 0.75em solid;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+  unicode-bidi: bidi-override;
+}
+```
 
 ## Syntax
 
@@ -32,7 +68,7 @@ Verwandte Eigenschaften sind {{cssxref("border-block-start-style")}}, {{cssxref(
 ### Werte
 
 - `<'border-style'>`
-  - : Der Linienstil des Randes. Siehe {{ cssxref("border-style") }}.
+  - : Der Linienstil des Rahmens. Siehe {{ cssxref("border-style") }}.
 
 ## Formale Definition
 
@@ -44,7 +80,7 @@ Verwandte Eigenschaften sind {{cssxref("border-block-start-style")}}, {{cssxref(
 
 ## Beispiele
 
-### Einstellen des inline-end-style
+### Festlegen des inline-end-style
 
 #### HTML
 
@@ -85,5 +121,5 @@ div {
 ## Siehe auch
 
 - [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird einer der physischen Rahmen-Eigenschaften zugeordnet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
+- Diese Eigenschaft wird auf eine der physischen Rahmen-Eigenschaften abgebildet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}} oder {{cssxref("border-left-style")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

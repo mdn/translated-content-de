@@ -2,28 +2,53 @@
 title: rotateY()
 slug: Web/CSS/transform-function/rotateY
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`rotateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element um die y-Achse (vertikal) dreht, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`rotateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element um die y-Achse (vertikal) dreht, ohne es zu verformen. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
-{{EmbedInteractiveExample("pages/css/function-rotateY.html")}}
+{{InteractiveExample("CSS Demo: rotateY()")}}
 
-Die Drehachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert ist.
+```css interactive-example-choice
+transform: rotateY(0);
+```
 
-> **Hinweis:** `rotateY(a)` ist gleichbedeutend mit
+```css interactive-example-choice
+transform: rotateY(45deg);
+```
+
+```css interactive-example-choice
+transform: rotateY(-0.2turn);
+```
+
+```css interactive-example-choice
+transform: rotateY(3.142rad);
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/firefox-logo.svg"
+    width="200" />
+</section>
+```
+
+Die Rotationsachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert ist.
+
+> **Note:** `rotateY(a)` ist äquivalent zu
 > `rotate3d(0, 1, 0, a)`.
 
 > [!NOTE]
-> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht
-> kommutativ. Das bedeutet, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
+> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel
+> nicht kommutativ. Anders gesagt, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
 
 ## Syntax
 
-Die Drehung, die durch `rotateY()` erzeugt wird, wird durch ein {{cssxref("&lt;angle&gt;")}} angegeben. Bei einem
-positiven Wert erfolgt die Drehung im Uhrzeigersinn; bei einem negativen Wert gegen den Uhrzeigersinn.
+Der von `rotateY()` erzeugte Drehwinkel wird durch einen {{cssxref("&lt;angle&gt;")}} angegeben. Ist er positiv, erfolgt die Bewegung im Uhrzeigersinn; ist er negativ, erfolgt die Bewegung gegen den Uhrzeigersinn.
 
 ```css
 rotateY(a)
@@ -32,7 +57,7 @@ rotateY(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und stellt den Winkel der Drehung dar. Ein positiver Winkel bedeutet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine gegen den Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} der den Drehwinkel repräsentiert. Ein positiver Winkel steht für eine Drehung im Uhrzeigersinn, ein negativer Winkel für eine Drehung gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>
@@ -46,7 +71,7 @@ rotateY(a)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation wird auf den 3D-Raum angewendet und kann nicht auf die Ebene projiziert werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
         <math display="block">

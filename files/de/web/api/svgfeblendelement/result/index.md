@@ -1,21 +1,20 @@
 ---
-title: "SVGFEBlendElement: result Eigenschaft"
+title: "SVGFEBlendElement: result-Eigenschaft"
 short-title: result
 slug: Web/API/SVGFEBlendElement/result
 l10n:
-  sourceCommit: ebf665a2679f308eb8e4dc7330864b4661bcdb9c
+  sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c
 ---
 
 {{APIRef("SVG")}}
 
-Die **`result`** schreibgeschützte Eigenschaft der [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) Schnittstelle beschreibt den zugewiesenen Namen eines SVG-Filterprimitivs als [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString).
+Die **`result`**-Eigenschaft des [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) Interfaces ist eine schreibgeschützte Eigenschaft, die den zugewiesenen Namen eines SVG-Filterprimitivs als [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString) beschreibt.
 
-Sie spiegelt das {{SVGElement("feBlend")}} Elementattribut {{SVGAttr("result")}} wider.
-Das `<feBlend>` SVG-Filterelement kombiniert zwei Eingabebilder mit üblichen Bildbearbeitungssoftware-{{cssxref("blend-mode", "Mischmodi")}}.
+Sie spiegelt das {{SVGElement("feBlend")}} Element und dessen {{SVGAttr("result")}} Attribut wider. Das `<feBlend>` SVG-Filterelement mischt zwei Eingabebilder unter Verwendung von in Bildbearbeitungssoftware häufig benutzten [Mischmodi](/de/docs/Web/CSS/blend-mode).
 
-Der Attributwert ist ein {{cssxref("custom-ident")}}. Wenn angegeben, können Grafiken, die aus der Verarbeitung dieses Filterprimitivs resultieren, durch ein {{SVGAttr("in")}} Attribut auf einem nachfolgenden Filterprimitiv innerhalb desselben {{SVGElement("filter")}} Elements referenziert werden.
+Der Attributwert ist ein {{cssxref("custom-ident")}}. Wird dieser angegeben, können Grafiken, die aus der Verarbeitung dieses Filterprimitivs resultieren, von einem {{SVGAttr("in")}}-Attribut auf einem nachfolgenden Filterprimitiv innerhalb desselben {{SVGElement("filter")}} Elements referenziert werden.
 
-Wenn kein `result` Attribut definiert ist, sind `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen, und die Ausgabe des `<feBlend>` Filters wird nur als implizite Eingabe in das nächste Filterprimitiv wiederverwendbar sein, wenn dieses Filterprimitiv keinen Wert für sein `in` Attribut angibt.
+Wenn kein `result`-Attribut definiert ist, sind `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen, und die Ausgabe des `<feBlend>` Filters ist nur dann für die Wiederverwendung als implizite Eingabe in das nächste Filterprimitiv verfügbar, wenn dieses Filterprimitiv keinen Wert für sein `in`-Attribut bereitstellt.
 
 ## Wert
 

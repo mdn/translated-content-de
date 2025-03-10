@@ -2,18 +2,54 @@
 title: column-rule
 slug: Web/CSS/column-rule
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`column-rule`** [Shorthand]-[CSS]-Eigenschaft legt die Breite, den Stil und die Farbe der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
+Die **`column-rule`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) der [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite, den Stil und die Farbe der Linie fest, die zwischen Spalten in einem mehrspaltigen Layout gezogen wird.
 
-{{EmbedInteractiveExample("pages/css/column-rule.html")}}
+{{InteractiveExample("CSS Demo: column-rule")}}
 
-## Zusammengesetzte Eigenschaften
+```css interactive-example-choice
+column-rule: dotted;
+```
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+```css interactive-example-choice
+column-rule: solid 6px;
+```
+
+```css interactive-example-choice
+column-rule: solid blue;
+```
+
+```css interactive-example-choice
+column-rule: thick inset blue;
+```
+
+```html interactive-example
+<section id="default-example">
+  <p id="example-element">
+    London. Michaelmas term lately over, and the Lord Chancellor sitting in
+    Lincoln's Inn Hall. Implacable November weather. As much mud in the streets
+    as if the waters had but newly retired from the face of the earth, and it
+    would not be wonderful to meet a Megalosaurus, forty feet long or so,
+    waddling like an elephantine lizard up Holborn Hill.
+  </p>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  columns: 3;
+  column-rule: solid;
+  text-align: left;
+}
+```
+
+## Zusätzliche Eigenschaften
+
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{Cssxref("column-rule-color")}}
 - {{Cssxref("column-rule-style")}}
@@ -37,12 +73,12 @@ column-rule: unset;
 
 ### Werte
 
-Die `column-rule`-Eigenschaft wird als einer, zwei oder drei der unten aufgeführten Werte in beliebiger Reihenfolge angegeben.
+Die `column-rule`-Eigenschaft wird als ein, zwei oder drei der unten aufgelisteten Werte angegeben, in beliebiger Reihenfolge.
 
 - `<'column-rule-width'>`
-  - : Ist eine {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter `thin`, `medium` oder `thick`. Siehe {{cssxref("border-width")}} für Details.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter, `thin`, `medium` oder `thick`. Weitere Details finden Sie unter {{cssxref("border-width")}}.
 - `<'column-rule-style'>`
-  - : Siehe {{cssxref("border-style")}} für mögliche Werte und Details.
+  - : Weitere Details und mögliche Werte finden Sie unter {{cssxref("border-style")}}.
 - `<'column-rule-color'>`
   - : Ist ein {{cssxref("&lt;color&gt;")}}-Wert.
 
@@ -116,7 +152,7 @@ p.abc {
 
 ## Siehe auch
 
-- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Leitfaden: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule-style")}}
 - {{CSSXref("column-rule-width")}}
 - {{CSSXref("column-rule-color")}}

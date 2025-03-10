@@ -2,20 +2,69 @@
 title: inset-inline
 slug: Web/CSS/inset-inline
 l10n:
-  sourceCommit: da659b5d4f75b66804d97c80ec7c89b8792d7389
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`inset-inline`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die logischen Start- und Endversätze eines Elements in der Inline-Richtung. Diese werden je nach Schreibmodus, Richtung und Textausrichtung des Elements auf physische Versätze abgebildet. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}}, oder {{cssxref("right")}} und {{cssxref("left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`inset-inline`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die logischen Anfangs- und End-Offsets eines Elements in der Inline-Richtung, die je nach Schreibweise des Elements, der Ausrichtung und der Textorientierung auf physische Offsets abgebildet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}}, oder {{cssxref("right")}} und {{cssxref("left")}}, abhängig von den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese {{Glossary("inset_properties", "Einfügeeigenschaft")}} hat keine Auswirkungen auf unpositionierte Elemente.
+Diese {{Glossary("inset_properties", "Einfüge-Eigenschaft")}} hat keine Auswirkungen auf nicht positionierte Elemente.
 
-{{EmbedInteractiveExample("pages/css/inset-inline.html")}}
+{{InteractiveExample("CSS Demo: inset-inline")}}
 
-## Bestandteileigenschaften
+```css interactive-example-choice
+inset-inline: 5% 10%;
+writing-mode: horizontal-tb;
+```
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+```css interactive-example-choice
+inset-inline: 10px 40px;
+writing-mode: vertical-rl;
+```
+
+```css interactive-example-choice
+inset-inline: 5% 10%;
+writing-mode: horizontal-tb;
+direction: rtl;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="example-container">
+    <div id="example-element">I am absolutely positioned.</div>
+    <p>
+      As much mud in the streets as if the waters had but newly retired from the
+      face of the earth, and it would not be wonderful to meet a Megalosaurus,
+      forty feet long or so, waddling like an elephantine lizard up Holborn
+      Hill.
+    </p>
+  </div>
+</section>
+```
+
+```css interactive-example
+.example-container {
+  border: 0.75em solid #ad1457;
+  padding: 0.75em;
+  text-align: left;
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+}
+
+#example-element {
+  background-color: #07136c;
+  border: 6px solid #ffa000;
+  color: white;
+  position: absolute;
+  inset: 0;
+}
+```
+
+## Bestandeigenschaften
+
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("inset-inline-end")}}
 - {{cssxref("inset-inline-start")}}
@@ -46,7 +95,7 @@ inset-inline: unset;
 
 ### Werte
 
-Die `inset-inline` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("left")}} Eigenschaft.
+Die `inset-inline` Eigenschaft nimmt die gleichen Werte wie die Eigenschaft {{cssxref("left")}} an.
 
 ## Formale Definition
 
@@ -58,7 +107,7 @@ Die `inset-inline` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("le
 
 ## Beispiele
 
-### Festlegen von Inline-Start- und Endversätzen
+### Setzen der Inline-Anfangs- und End-Offsets
 
 #### HTML
 

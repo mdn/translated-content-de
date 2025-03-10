@@ -2,14 +2,74 @@
 title: scroll-padding-bottom
 slug: Web/CSS/scroll-padding-bottom
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-padding-bottom` definiert Offsets für den unteren Bereich der _optimalen Ansichtsregion_ des Scrollports: die Region, die als Zielregion für das Platzieren von Elementen im Sichtbereich des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Regionen des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (z. B. fest positionierte Symbolleisten oder Seitenleisten) oder mehr Raum zwischen einem gezielten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-bottom` definiert Offsets für den unteren Rand des _optimalen Anzeigebereichs_ des Scrollports: den Bereich, der als Zielregion verwendet wird, um Dinge im Sichtfeld des Nutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie z.B. fix positionierte Werkzeugleisten oder Seitenleisten) oder mehr Platz zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
-{{EmbedInteractiveExample("pages/css/scroll-padding-bottom.html")}}
+{{InteractiveExample("CSS Demo: scroll-padding-bottom")}}
+
+```css interactive-example-choice
+scroll-padding-bottom: 0;
+```
+
+```css interactive-example-choice
+scroll-padding-bottom: 20px;
+```
+
+```css interactive-example-choice
+scroll-padding-bottom: 2em;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="scroller" id="example-element">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="info">Scroll »</div>
+</section>
+```
+
+```css interactive-example
+.default-example .info {
+  inline-size: 100%;
+  padding: 0.5em 0;
+  font-size: 90%;
+  writing-mode: vertical-rl;
+}
+
+.scroller {
+  text-align: left;
+  height: 250px;
+  width: 270px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid black;
+  scroll-snap-type: y mandatory;
+}
+
+.scroller > div {
+  flex: 0 0 250px;
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: end;
+}
+
+.scroller > div:nth-child(even) {
+  background-color: #fff;
+  color: rebeccapurple;
+}
+```
 
 ## Syntax
 
@@ -33,9 +93,9 @@ scroll-padding-bottom: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Versatz vom unteren Rand des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Offset vom unteren Rand des Scrollports, in einer gültigen Länge oder einem Prozentwert.
 - `auto`
-  - : Der Versatz wird durch den Benutzeragenten bestimmt. Dies ist in der Regel 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
+  - : Der Offset wird vom User-Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User-Agent kann etwas anderes erkennen und tun, wenn ein Wert ungleich Null angemessener ist.
 
 ## Formale Definition
 

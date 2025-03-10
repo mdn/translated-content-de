@@ -2,25 +2,61 @@
 title: direction
 slug: Web/CSS/direction
 l10n:
-  sourceCommit: f528154c8bf518d104df5845ef229875a22ab25d
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
 > [!WARNING]
-> Wo möglich, wird Autoren empfohlen, die CSS-Eigenschaft `direction` zu vermeiden und stattdessen das globale Attribut [`dir`](/de/docs/Web/HTML/Global_attributes/dir) in HTML zu verwenden.
+> Wenn möglich, sollten Autoren die Verwendung der CSS-Eigenschaft `direction` vermeiden und stattdessen das globale HTML-Attribut [`dir`](/de/docs/Web/HTML/Global_attributes/dir) verwenden.
 
-Die **`direction`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die Textausrichtung, die Spaltenrichtung in Tabellen und Gittern sowie den horizontalen Überlauf fest. Verwenden Sie `rtl` für Sprachen, die von rechts nach links geschrieben werden (wie Hebräisch oder Arabisch), und `ltr` für Sprachen, die von links nach rechts geschrieben werden (wie Englisch und die meisten anderen Sprachen).
+Die **`direction`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt die Richtung von Text, Tabellen- und Rasterspalten sowie den horizontalen Überlauf fest. Verwenden Sie `rtl` für Sprachen, die von rechts nach links geschrieben werden (wie Hebräisch oder Arabisch), und `ltr` für Sprachen, die von links nach rechts geschrieben werden (wie Englisch und die meisten anderen Sprachen).
 
-{{EmbedInteractiveExample("pages/css/direction.html")}}
+{{InteractiveExample("CSS Demo: direction")}}
 
-Beachten Sie, dass die Textrichtung normalerweise innerhalb eines Dokuments definiert wird (z. B. mit dem [HTML-Attribut `dir`](/de/docs/Web/HTML/Global_attributes/dir)) und nicht direkt über die `direction`-Eigenschaft.
+```css interactive-example-choice
+direction: ltr;
+```
 
-Die Eigenschaft legt die Basistextrichtung von Blockelementen und die Richtung von Einbettungen fest, die durch die Eigenschaft {{Cssxref("unicode-bidi")}} erzeugt wurden. Sie setzt außerdem die Standardausrichtung von Text, Blockelementen und die Richtung, in die Zellen innerhalb einer Tabellen- oder Gitterreihe fließen.
+```css interactive-example-choice
+direction: rtl;
+```
 
-Anders als das `dir`-Attribut in HTML wird die `direction`-Eigenschaft nicht von Tabellenspalten auf Tabellenzellen vererbt, da die Vererbung von CSS der Dokumentstruktur folgt und Tabellenzellen Teil von Reihen, aber nicht von Spalten sind.
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+  </div>
+</section>
+```
 
-Die Eigenschaften `direction` und {{cssxref("unicode-bidi")}} sind die einzigen beiden Eigenschaften, die nicht von der Kurzform-Eigenschaft {{cssxref("all")}} beeinflusst werden.
+```css interactive-example
+#example-element {
+  border: 1px solid #c5c5c5;
+  padding: 0.75em;
+  width: 80%;
+  max-height: 300px;
+  display: flex;
+}
+
+#example-element > div {
+  background-color: rgba(0, 0, 255, 0.2);
+  border: 3px solid blue;
+  margin: 10px;
+  flex: 1;
+}
+```
+
+Beachten Sie, dass die Textrichtung normalerweise innerhalb eines Dokuments definiert wird (z. B. mit [HTMLs `dir`-Attribut](/de/docs/Web/HTML/Global_attributes/dir)) anstatt durch direkte Verwendung der `direction`-Eigenschaft.
+
+Die Eigenschaft legt die basale Textrichtung von Block-Elementen und die Richtung von Einbettungen fest, die durch die {{Cssxref("unicode-bidi")}}-Eigenschaft erstellt werden. Sie legt auch die Standardausrichtung von Text, Block-Elementen sowie die Fließrichtung von Zellen innerhalb einer Tabellen- oder Rasterzeile fest.
+
+Im Gegensatz zum `dir`-Attribut in HTML wird die `direction`-Eigenschaft nicht von Tabellenspalten auf Tabellenzellen vererbt, da die Vererbung in CSS dem Dokumentbaum folgt und Tabellenzellen innerhalb von Zeilen, aber nicht innerhalb von Spalten liegen.
+
+Die `direction`- und {{cssxref("unicode-bidi")}}-Eigenschaften sind die einzigen zwei Eigenschaften, die nicht von der {{cssxref("all")}} Kurzschreibweise betroffen sind.
 
 ## Syntax
 
@@ -40,11 +76,11 @@ direction: unset;
 ### Werte
 
 - `ltr`
-  - : Text und andere Elemente verlaufen von links nach rechts. Dies ist der Standardwert.
+  - : Text und andere Elemente gehen von links nach rechts. Dies ist der Standardwert.
 - `rtl`
-  - : Text und andere Elemente verlaufen von rechts nach links.
+  - : Text und andere Elemente gehen von rechts nach links.
 
-Damit die `direction`-Eigenschaft bei Inline-Elementen Wirkung zeigt, muss der Wert der Eigenschaft {{Cssxref("unicode-bidi")}} entweder `embed` oder `override` sein.
+Damit die `direction`-Eigenschaft Auswirkungen auf Inline-Elemente hat, muss der Wert der {{Cssxref("unicode-bidi")}}-Eigenschaft `embed` oder `override` sein.
 
 ## Formale Definition
 
@@ -56,9 +92,9 @@ Damit die `direction`-Eigenschaft bei Inline-Elementen Wirkung zeigt, muss der W
 
 ## Beispiele
 
-### Ausrichtung von rechts nach links setzen
+### Einstellung der Rechts-nach-Links-Richtung
 
-Im folgenden Beispiel werden zwei Textzeichenfolgen dargestellt, beide mit `direction: rtl`. Während der arabische Text mit dieser Einstellung korrekt angezeigt wird, befindet sich der Punkt im englischen Text an einer ungewöhnlichen Stelle.
+Im folgenden Beispiel gibt es zwei Textzeilen, die beide mit `direction: rtl` angezeigt werden. Während der arabische Text mit dieser Einstellung korrekt angezeigt wird, steht das Satzzeichen im englischen Text nun an ungewöhnlicher Stelle.
 
 ```css
 blockquote {
@@ -93,6 +129,6 @@ blockquote {
 
 - {{CSSxRef("unicode-bidi")}}
 - {{CSSxRef("writing-mode")}}
-- SVG-Attribut {{SVGAttr("direction")}}
+- SVG {{SVGAttr("direction")}} Attribut
 - Das globale HTML-Attribut [`dir`](/de/docs/Web/HTML/Global_attributes/dir)
-- [Vertikale Formularsteuerelemente erstellen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
+- [Erstellung vertikaler Formularsteuerelemente](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)

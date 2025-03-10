@@ -2,18 +2,78 @@
 title: scroll-padding-block
 slug: Web/CSS/scroll-padding-block
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die `scroll-padding-block`-[Kurzformeigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt den Scroll-Abstand eines Elements in der Block-Dimension.
+Die `scroll-padding-block` [Shorthand-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt das Scroll-Padding eines Elements in der Block-Dimension.
 
-{{EmbedInteractiveExample("pages/css/scroll-padding-block.html")}}
+{{InteractiveExample("CSS Demo: scroll-padding-block")}}
 
-Die Scroll-Abstandseigenschaften definieren Versätze für den _optimalen Sichtbereich_ des Scrollport: der Bereich, der als Zielregion für das Platzieren von Elementen im Sichtbereich des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollport auszuschließen, die von anderem Inhalt verdeckt werden (wie z.B. fixierte Werkzeugleisten oder Seitenleisten), oder mehr Freiraum zwischen einem anvisierten Element und den Kanten des Scrollport zu schaffen.
+```css interactive-example-choice
+scroll-padding-block: 0;
+```
 
-## Bestandteile der Eigenschaft
+```css interactive-example-choice
+scroll-padding-block: 20px;
+```
+
+```css interactive-example-choice
+scroll-padding-block: 2em;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="scroller" id="example-element">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="info">Scroll »</div>
+</section>
+```
+
+```css interactive-example
+.default-example .info {
+  inline-size: 100%;
+  padding: 0.5em 0;
+  font-size: 90%;
+  writing-mode: vertical-rl;
+}
+
+.scroller {
+  text-align: left;
+  height: 250px;
+  width: 270px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid black;
+  scroll-snap-type: y mandatory;
+}
+
+.scroller > div {
+  flex: 0 0 250px;
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.scroller > div:nth-child(even) {
+  background-color: #fff;
+  color: rebeccapurple;
+}
+```
+
+Die Scroll-Padding-Eigenschaften definieren Abstände für die _optimale Betrachtungsregion_ des Scrollports: die Region, die als Zielbereich verwendet wird, um Dinge im Blickfeld des Benutzers zu platzieren. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die durch andere Inhalte verdeckt sind (wie z.B. fest positionierte Werkzeugleisten oder Seitenleisten), oder er kann mehr Platz zwischen einem gezielten Element und den Rändern des Scrollports schaffen.
+
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -42,15 +102,15 @@ scroll-padding-block: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz von der entsprechenden Kante des Scrollport, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Abstand vom entsprechenden Rand des Scrollports, als gültige Länge oder ein Prozentsatz.
 - `auto`
-  - : Der Versatz wird durch den Benutzeragenten bestimmt. In der Regel wird dies 0px sein, ein Benutzeragent kann jedoch erkennen und etwas anderes tun, wenn ein von Null verschiedener Wert angemessener ist.
+  - : Der Abstand wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann etwas anderes erkennen und tun, wenn ein Wert ungleich null geeigneter ist.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
@@ -64,5 +124,5 @@ scroll-padding-block: unset;
 
 ## Siehe auch
 
-- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS-Scroll-Snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [Kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

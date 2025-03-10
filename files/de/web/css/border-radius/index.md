@@ -2,23 +2,68 @@
 title: border-radius
 slug: Web/CSS/border-radius
 l10n:
-  sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`border-radius`**-Eigenschaft [CSS](/de/docs/Web/CSS) rundet die Ecken des äußeren Randes eines Elements ab. Sie können einen einzelnen Radius festlegen, um kreisförmige Ecken zu erstellen, oder zwei Radien, um elliptische Ecken zu gestalten.
+Die **`border-radius`** [CSS](/de/docs/Web/CSS) Eigenschaft rundet die Ecken des äußeren Rahmenrandes eines Elements ab. Sie können einen einzelnen Radius festlegen, um kreisförmige Ecken zu erstellen, oder zwei Radien, um elliptische Ecken zu erzeugen.
 
-{{EmbedInteractiveExample("pages/css/border-radius.html")}}
+{{InteractiveExample("CSS Demo: border-radius")}}
 
-Der Radius wirkt sich auf den gesamten {{cssxref("background")}} aus, auch wenn das Element keinen Rand hat; die genaue Position des Zuschnitts wird durch die {{cssxref("background-clip")}}-Eigenschaft definiert.
+```css interactive-example-choice
+border-radius: 30px;
+```
 
-Die `border-radius`-Eigenschaft gilt nicht für Tabellenelemente, wenn {{cssxref("border-collapse")}} auf `collapse` gesetzt ist.
+```css interactive-example-choice
+border-radius: 25% 10%;
+```
+
+```css interactive-example-choice
+border-radius: 10% 30% 50% 70%;
+```
+
+```css interactive-example-choice
+border-radius: 10% / 50%;
+```
+
+```css interactive-example-choice
+border-radius: 10px 100px / 120px;
+```
+
+```css interactive-example-choice
+border-radius: 50% 20% / 10% 40%;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with rounded corners.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #5b6dcd;
+  color: white;
+  padding: 10px;
+}
+```
+
+Der Radius gilt für den gesamten {{cssxref("background")}}, selbst wenn das Element keinen Rahmen hat; die genaue Position des Ausschnitts wird durch die Eigenschaft {{cssxref("background-clip")}} definiert.
+
+Die Eigenschaft `border-radius` gilt nicht für Tabellenelemente, wenn {{cssxref("border-collapse")}} auf `collapse` gesetzt ist.
 
 > [!NOTE]
-> Wie bei jeder Kurzform-Eigenschaft können einzelne Untereigenschaften nicht erben, wie in `border-radius:0 0 inherit inherit`, was die vorhandenen Definitionen teilweise überschreiben würde. Stattdessen müssen die einzelnen Langform-Eigenschaften verwendet werden.
+> Wie bei jeder Kurzschreibweise können einzelne Untereigenschaften nicht erben, wie in `border-radius:0 0 inherit inherit`, was bestehende Definitionen teilweise überschreiben würde. Stattdessen müssen die einzelnen Langformen verwendet werden.
 
-## Bestandteile der Eigenschaften
+## Bestandeigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -64,10 +109,10 @@ border-radius: revert-layer;
 border-radius: unset;
 ```
 
-Die `border-radius`-Eigenschaft wird wie folgt angegeben:
+Die Eigenschaft `border-radius` wird wie folgt angegeben:
 
-- Ein oder zwei, drei oder vier {{cssxref("&lt;length&gt;")}}- oder {{cssxref("&lt;percentage&gt;")}}-Werte. Dies wird verwendet, um einen einzelnen Radius für die Ecken festzulegen.
-- Optional gefolgt von "/" und einem, zwei, drei oder vier `<length>`- oder `<percentage>`-Werten. Dies wird verwendet, um einen zusätzlichen Radius festzulegen, sodass Sie elliptische Ecken haben können.
+- ein, zwei, drei oder vier {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werte. Dies wird verwendet, um einen einzelnen Radius für die Ecken festzulegen.
+- optional gefolgt von "/" und einem, zwei, drei oder vier `<length>` oder `<percentage>` Werten. Dies wird verwendet, um einen zusätzlichen Radius einzustellen, sodass Sie elliptische Ecken haben können.
 
 ### Werte
 
@@ -78,7 +123,8 @@ Die `border-radius`-Eigenschaft wird wie folgt angegeben:
       <td><img alt="Ein hellblaues Rechteck mit einem hellgrauen Rand. Alle 4 Ecken sind abgerundet." src="all-corner.png" /></td>
       <td>
         Ist ein {{cssxref("&lt;length&gt;")}} oder ein
-        {{cssxref("&lt;percentage&gt;")}}, der einen zu verwendenden Radius für den Rand an jeder Ecke des Randes angibt. Es wird nur in der Ein-Wert-Syntax verwendet.
+        {{cssxref("&lt;percentage&gt;")}}, das einen Radius angibt,
+        der für den Rahmen in jeder Ecke des Rahmens verwendet werden soll. Es wird nur in der Ein-Wert-Syntax verwendet.
       </td>
     </tr>
     <tr>
@@ -88,7 +134,9 @@ Die `border-radius`-Eigenschaft wird wie folgt angegeben:
       </td>
       <td>
         Ist ein {{cssxref("&lt;length&gt;")}} oder ein
-        {{cssxref("&lt;percentage&gt;")}}, der einen zu verwendenden Radius für den Rand in den Ecken oben links und unten rechts der Box des Elements angibt. Es wird nur in der Zwei-Wert-Syntax verwendet.
+        {{cssxref("&lt;percentage&gt;")}}, das einen Radius angibt,
+        der für den Rahmen in den oben links und unten rechts Ecken des Elements
+        verwendet werden soll. Es wird nur in der Zwei-Werte-Syntax verwendet.
       </td>
     </tr>
     <tr>
@@ -98,7 +146,9 @@ Die `border-radius`-Eigenschaft wird wie folgt angegeben:
       </td>
       <td>
         Ist ein {{cssxref("&lt;length&gt;")}} oder ein
-        {{cssxref("&lt;percentage&gt;")}}, der einen zu verwendenden Radius für den Rand in den Ecken oben rechts und unten links der Box des Elements angibt. Es wird nur in der Zwei- und Drei-Wert-Syntax verwendet.
+        {{cssxref("&lt;percentage&gt;")}}, das einen Radius angibt,
+        der für den Rahmen in den oben rechts und unten links Ecken des Elements
+        verwendet werden soll. Es wird nur in der Zwei- und Drei-Werte-Syntax verwendet.
       </td>
     </tr>
     <tr>
@@ -106,7 +156,9 @@ Die `border-radius`-Eigenschaft wird wie folgt angegeben:
       <td><img alt="Ein hellblaues Rechteck mit einem hellgrauen Rand. Die Ecke oben links ist abgerundet." src="top-left.png" /></td>
       <td>
         Ist ein {{cssxref("&lt;length&gt;")}} oder ein
-        {{cssxref("&lt;percentage&gt;")}}, der einen zu verwendenden Radius für den Rand in der Ecke oben links der Box des Elements angibt. Es wird nur in der Drei- und Vier-Wert-Syntax verwendet.
+        {{cssxref("&lt;percentage&gt;")}}, das einen Radius angibt,
+        der für den Rahmen in der oben linken Ecke des Elements verwendet
+        werden soll. Es wird nur in der Drei- und Vier-Werte-Syntax verwendet.
       </td>
     </tr>
     <tr>
@@ -114,7 +166,9 @@ Die `border-radius`-Eigenschaft wird wie folgt angegeben:
       <td><img alt="Ein hellblaues Rechteck mit einem hellgrauen Rand. Die Ecke oben rechts ist abgerundet." src="top-right.png" /></td>
       <td>
         Ist ein {{cssxref("&lt;length&gt;")}} oder ein
-        {{cssxref("&lt;percentage&gt;")}}, der einen zu verwendenden Radius für den Rand in der Ecke oben rechts der Box des Elements angibt. Es wird nur in der Vier-Wert-Syntax verwendet.
+        {{cssxref("&lt;percentage&gt;")}}, das einen Radius angibt,
+        der für den Rahmen in der oben rechten Ecke des Elements verwendet
+        werden soll. Es wird nur in der Vier-Werte-Syntax verwendet.
       </td>
     </tr>
     <tr>
@@ -122,7 +176,9 @@ Die `border-radius`-Eigenschaft wird wie folgt angegeben:
       <td><img alt="Ein hellblaues Rechteck mit einem hellgrauen Rand. Die Ecke unten rechts ist abgerundet." src="bottom-right.png" /></td>
       <td>
         Ist ein {{cssxref("&lt;length&gt;")}} oder ein
-        {{cssxref("&lt;percentage&gt;")}}, der einen zu verwendenden Radius für den Rand in der Ecke unten rechts der Box des Elements angibt. Es wird nur in der Drei- und Vier-Wert-Syntax verwendet.
+        {{cssxref("&lt;percentage&gt;")}}, das einen Radius angibt,
+        der für den Rahmen in der unten rechten Ecke des Elements verwendet
+        werden soll. Es wird nur in der Drei- und Vier-Werte-Syntax verwendet.
       </td>
     </tr>
     <tr>
@@ -130,18 +186,20 @@ Die `border-radius`-Eigenschaft wird wie folgt angegeben:
       <td><img alt="Ein hellblaues Rechteck mit einem hellgrauen Rand. Die Ecke unten links ist abgerundet." src="bottom-left.png" /></td>
       <td>
         Ist ein {{cssxref("&lt;length&gt;")}} oder ein
-        {{cssxref("&lt;percentage&gt;")}}, der einen zu verwendenden Radius für den Rand in der Ecke unten links der Box des Elements angibt. Es wird nur in der Vier-Wert-Syntax verwendet.
+        {{cssxref("&lt;percentage&gt;")}}, das einen Radius angibt,
+        der für den Rahmen in der unten linken Ecke des Elements verwendet
+        werden soll. Es wird nur in der Vier-Werte-Syntax verwendet.
       </td>
     </tr>
   </tbody>
 </table>
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Gibt die Größe des Kreisradius oder die Haupt- und Nebenachsen der Ellipse unter Verwendung von Längenwerten an. Negative Werte sind ungültig.
+  - : Gibt die Größe des Kreisradius oder der Haupt- und Nebenachsen der Ellipse mit Längenwerten an. Negative Werte sind ungültig.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Gibt die Größe des Kreisradius oder die Haupt- und Nebenachsen der Ellipse unter Verwendung von Prozentwerten an. Prozentsätze für die horizontale Achse beziehen sich auf die Breite der Box; Prozentsätze für die vertikale Achse beziehen sich auf die Höhe der Box. Negative Werte sind ungültig.
+  - : Gibt die Größe des Kreisradius oder der Haupt- und Nebenachsen der Ellipse mit Prozentwerten an. Prozentsätze für die horizontale Achse beziehen sich auf die Breite der Box; Prozentsätze für die vertikale Achse beziehen sich auf die Höhe der Box. Negative Werte sind ungültig.
 
-Zum Beispiel:
+Beispielsweise:
 
 ```css
 border-radius: 1em/5em;
@@ -284,4 +342,4 @@ pre#example-7 {
 
 ## Siehe auch
 
-- Border-radius-bezogene CSS-Eigenschaften: {{cssxref("border-top-left-radius")}}, {{cssxref("border-top-right-radius")}}, {{cssxref("border-bottom-right-radius")}}, {{cssxref("border-bottom-left-radius")}}, {{cssxref("border-start-start-radius")}}, {{cssxref("border-start-end-radius")}}, {{cssxref("border-end-start-radius")}}, {{cssxref("border-end-end-radius")}}
+- Mit border-radius verwandte CSS-Eigenschaften: {{cssxref("border-top-left-radius")}}, {{cssxref("border-top-right-radius")}}, {{cssxref("border-bottom-right-radius")}}, {{cssxref("border-bottom-left-radius")}}, {{cssxref("border-start-start-radius")}}, {{cssxref("border-start-end-radius")}}, {{cssxref("border-end-start-radius")}}, {{cssxref("border-end-end-radius")}}

@@ -2,16 +2,60 @@
 title: transition-duration
 slug: Web/CSS/transition-duration
 l10n:
-  sourceCommit: 1608a85abb1d05dadc63f27c93fc3e4b7e630db0
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`transition-duration`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Dauer fest, die eine Übergangsanimation zur Fertigstellung benötigen soll. Standardmäßig ist der Wert `0s`, was bedeutet, dass keine Animation stattfindet.
+Die **`transition-duration`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Zeitspanne fest, die eine Übergangsanimation zur Vollendung benötigen soll. Standardmäßig ist der Wert `0s`, was bedeutet, dass keine Animation stattfinden wird.
 
-{{EmbedInteractiveExample("pages/css/transition-duration.html")}}
+{{InteractiveExample("CSS Demo: transition-duration")}}
 
-Sie können mehrere Dauern angeben; jede Dauer wird auf die entsprechende Eigenschaft angewendet, wie sie durch die {{ cssxref("transition-property") }} Eigenschaft, die als Hauptliste fungiert, spezifiziert ist. Wenn die Anzahl der angegebenen Dauern geringer ist als in der Hauptliste, wiederholt der Benutzeragent die Liste der Dauern. Wenn die Anzahl der angegebenen Dauern größer ist als in der Hauptliste, wird die Liste auf die richtige Größe gekürzt. In beiden Fällen bleibt die CSS-Deklaration valide.
+```css interactive-example-choice
+transition-duration: 500ms;
+transition-property: margin-right;
+```
+
+```css interactive-example-choice
+transition-duration: 2s;
+transition-property: background-color;
+```
+
+```css interactive-example-choice
+transition-duration: 2s;
+transition-property: margin-right, color;
+```
+
+```css interactive-example-choice
+transition-duration: 3s, 1s;
+transition-property: margin-right, color;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element">Hover to see<br />the transition.</div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #e4f0f5;
+  color: #000;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font: 1em monospace;
+  width: 100%;
+  transition: margin-right 2s;
+}
+
+#default-example:hover > #example-element {
+  background-color: #909;
+  color: #fff;
+  margin-right: 40%;
+}
+```
+
+Sie können mehrere Zeitspannen angeben; jede Zeitspanne wird auf die entsprechende Eigenschaft angewendet, wie sie von der {{ cssxref("transition-property") }} Eigenschaft spezifiziert ist, die als Masterliste fungiert. Wenn die Anzahl der angegebenen Zeitspannen kleiner als in der Masterliste ist, wiederholt der User-Agent die Liste der Zeitspannen. Ist die Anzahl der angegebenen Zeitspannen größer als in der Masterliste, wird die Liste auf die richtige Größe gekürzt. In beiden Fällen bleibt die CSS-Deklaration gültig.
 
 ## Syntax
 
@@ -33,7 +77,7 @@ transition-duration: unset;
 ### Werte
 
 - `<time>`
-  - : Ist ein {{cssxref("&lt;time&gt;")}}, der die Zeitdauer bestimmt, die der Übergang vom alten Wert einer Eigenschaft zum neuen Wert in Anspruch nehmen soll. Eine Zeit von `0s` bedeutet, dass kein Übergang stattfinden wird, das heißt, der Wechsel zwischen den beiden Zuständen erfolgt sofort. Ein negativer Wert für die Zeit macht die Deklaration ungültig.
+  - : Ist ein {{cssxref("&lt;time&gt;")}}, das die Dauer des Übergangs vom alten Wert einer Eigenschaft zum neuen Wert angibt. Eine Zeit von `0s` zeigt an, dass kein Übergang stattfindet, also der Wechsel zwischen den beiden Zuständen unmittelbar erfolgt. Ein negativer Wert für die Zeit macht die Deklaration ungültig.
 
 ## Formale Definition
 
@@ -45,7 +89,7 @@ transition-duration: unset;
 
 ## Beispiele
 
-### Beispiel, das verschiedene Dauern zeigt
+### Beispiel mit verschiedenen Zeitdauern
 
 #### HTML
 
@@ -124,7 +168,7 @@ changeButton.addEventListener("click", change);
 
 ## Siehe auch
 
-- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [Verwendung von CSS Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
 - {{cssxref('transition')}}
 - {{cssxref('transition-property')}}
 - {{cssxref('transition-timing-function')}}

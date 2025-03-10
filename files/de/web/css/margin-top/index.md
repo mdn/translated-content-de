@@ -2,16 +2,66 @@
 title: margin-top
 slug: Web/CSS/margin-top
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`margin-top`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt den [Außenabstand](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) oberhalb eines Elements fest. Ein positiver Wert vergrößert den Abstand zu benachbarten Elementen, während ein negativer Wert ihn verringert.
+Die **`margin-top`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den [Randbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) oben an einem Element fest. Ein positiver Wert platziert es weiter von seinen Nachbarn, während ein negativer Wert es näher platziert.
 
-{{EmbedInteractiveExample("pages/css/margin-top.html")}}
+{{InteractiveExample("CSS Demo: margin-top")}}
 
-Diese Eigenschaft hat keine Wirkung auf _nicht-[ersetzte](/de/docs/Web/CSS/Replaced_element)_ Inline-Elemente, wie {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
+```css interactive-example-choice
+margin-top: 1em;
+```
+
+```css interactive-example-choice
+margin-top: 10%;
+```
+
+```css interactive-example-choice
+margin-top: 10px;
+```
+
+```css interactive-example-choice
+margin-top: 0;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="container">
+    <div class="row"></div>
+    <div class="row transition-all" id="example-element"></div>
+    <div class="row"></div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#container {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.row {
+  height: 33.33%;
+  display: inline-block;
+  border: solid #ce7777 10px;
+  background-color: #2b3a55;
+  flex-shrink: 0;
+}
+
+#example-element {
+  border: solid 10px #ffbf00;
+  background-color: #2b3a55;
+}
+```
+
+Diese Eigenschaft hat keine Auswirkung auf _nicht-[ersetzte](/de/docs/Web/CSS/Replaced_element)_ Inline-Elemente, wie {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
 
 ## Syntax
 
@@ -34,18 +84,18 @@ margin-top: revert-layer;
 margin-top: unset;
 ```
 
-Die `margin-top`-Eigenschaft wird als Schlüsselwort `auto`, oder als `<length>`, bzw. `<percentage>` angegeben. Der Wert kann positiv, null oder negativ sein.
+Die `margin-top` Eigenschaft wird als das Schlüsselwort `auto`, als ein `<length>`, oder als ein `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
 
-  - : Die Größe des Außenabstands als fester Wert.
+  - : Die Größe des Randes als fester Wert.
 
-    - Für _ankerpositionierte Elemente_ wird die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Festlegen des Außenabstands eines Elements basierend auf der Ankergröße](/de/docs/Web/CSS/CSS_anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
+    - Für _anker-positionierte Elemente_ löst die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}} Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ auf (siehe [Festlegen des Elementrandes basierend auf der Ankergröße](/de/docs/Web/CSS/CSS_anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Außenabstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ bei einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
+  - : Die Größe des Randes als Prozentsatz relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
 - `auto`
   - : Der Browser wählt einen geeigneten Wert. Siehe {{cssxref("margin")}}.
 
@@ -59,7 +109,7 @@ Die `margin-top`-Eigenschaft wird als Schlüsselwort `auto`, oder als `<length>`
 
 ## Beispiele
 
-### Positive und negative obere Außenabstände festlegen
+### Festlegen positiver und negativer oberer Ränder
 
 ```css
 .content {
@@ -90,4 +140,4 @@ Die `margin-top`-Eigenschaft wird als Schlüsselwort `auto`, oder als `<length>`
 - {{cssxref("margin")}} Kurzschreibweise
 - {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}}
 - {{cssxref("margin-block")}} und {{cssxref("margin-inline")}} Kurzschreibweisen
-- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model)-Modul
+- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul

@@ -2,14 +2,104 @@
 title: scale
 slug: Web/CSS/scale
 l10n:
-  sourceCommit: 9428e6f9ac2fd4166b5cf245fb674123209787ff
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`scale`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, Skalentransformationen individuell und unabhängig von der {{CSSxRef("transform")}} Eigenschaft anzugeben. Dies passt besser zu typischen Benutzeroberflächenanwendungen und erspart es Ihnen, sich die genaue Reihenfolge der Transformationsfunktionen zu merken, die im `transform`-Wert angegeben werden müssen.
+Die **`scale`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, Skalentransformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft anzugeben. Dies passt besser zu typischem Benutzeroberflächengebrauch und erspart das Merken der genauen Reihenfolge der Transformationsfunktionen, die im `transform`-Wert angegeben werden müssen.
 
-{{EmbedInteractiveExample("pages/css/scale.html")}}
+{{InteractiveExample("CSS Demo: scale")}}
+
+```css interactive-example-choice
+scale: none;
+```
+
+```css interactive-example-choice
+scale: 1.5;
+```
+
+```css interactive-example-choice
+scale: 1.7 50%;
+```
+
+```css interactive-example-choice
+scale: 1 -1;
+```
+
+```css interactive-example-choice
+scale: 1.2 1.2 2;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    <div class="face front">1</div>
+    <div class="face back">2</div>
+    <div class="face right">3</div>
+    <div class="face left">4</div>
+    <div class="face top">5</div>
+    <div class="face bottom">6</div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#default-example {
+  background: linear-gradient(skyblue, khaki);
+  perspective: 800px;
+  perspective-origin: 150% 150%;
+}
+
+#example-element {
+  width: 100px;
+  height: 100px;
+  perspective: 550px;
+  transform-style: preserve-3d;
+}
+
+.face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: inherit;
+  font-size: 60px;
+  color: white;
+}
+
+.front {
+  background: rgba(90, 90, 90, 0.7);
+  transform: translateZ(50px);
+}
+
+.back {
+  background: rgba(0, 210, 0, 0.7);
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+  background: rgba(210, 0, 0, 0.7);
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  background: rgba(0, 0, 210, 0.7);
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+  background: rgba(210, 210, 0, 0.7);
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  background: rgba(210, 0, 210, 0.7);
+  transform: rotateX(-90deg) translateZ(50px);
+}
+```
 
 ## Syntax
 
@@ -39,8 +129,8 @@ scale: unset;
 
 ### Werte
 
-- Einzelwert
-  - : Ein {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das einen Skalierungsfaktor angibt, um das betroffene Element entlang sowohl der X- als auch der Y-Achse zu skalieren. Entspricht einer `scale()` (2D-Skalierung) Funktion mit einem einzigen angegebenen Wert.
+- Einzelner Wert
+  - : Ein {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der einen Skalierungsfaktor angibt, um das betroffene Element entlang beider Achsen X und Y um den gleichen Faktor zu skalieren. Entspricht einer `scale()` (2D-Skalierung) Funktion mit einem angegebenen Wert.
 - Zwei Werte
   - : Zwei {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werte, die die Skalierungswerte der X- und Y-Achse (jeweils) einer 2D-Skalierung angeben. Entspricht einer `scale()` (2D-Skalierung) Funktion mit zwei angegebenen Werten.
 - Drei Werte
@@ -58,11 +148,11 @@ scale: unset;
 
 ## Beispiele
 
-### Skalierung eines Elements beim Hover
+### Skalieren eines Elements beim Hover
 
-Das folgende Beispiel zeigt, wie ein Element beim Hover skaliert wird.
-Zwei Kästchen werden gezeigt, eines mit einem einzigen `scale`-Wert, der das Element entlang beider Achsen skaliert.
-Das zweite Kästchen hat zwei `scale`-Werte, die das Element unabhängig entlang der X- und Y-Achse skalieren.
+Das folgende Beispiel zeigt, wie ein Element beim Hover skaliert werden kann.
+Zwei Kästchen werden angezeigt, eines mit einem einzelnen `scale`-Wert, der das Element entlang beider Achsen skaliert.
+Das zweite Kästchen hat zwei `scale`-Werte, die das Element entlang der X- und Y-Achsen unabhängig skalieren.
 
 #### HTML
 
@@ -111,4 +201,4 @@ Das zweite Kästchen hat zwei `scale`-Werte, die das Element unabhängig entlang
 - {{cssxref('rotate')}}
 - {{cssxref('transform')}}
 
-Hinweis: skew ist kein unabhängiger Transformationswert
+Note: skew ist kein unabhängiger Transformationswert

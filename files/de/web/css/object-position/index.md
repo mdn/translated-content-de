@@ -2,16 +2,50 @@
 title: object-position
 slug: Web/CSS/object-position
 l10n:
-  sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`object-position`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Ausrichtung der Inhalte des ausgewählten [ersetzten Elements](/de/docs/Web/CSS/Replaced_element) innerhalb des Element-Box fest. Bereiche der Box, die nicht vom Objekt des ersetzten Elements abgedeckt werden, zeigen den Hintergrund des Elements.
+Die **`object-position`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Ausrichtung des Inhalts des ausgewählten [ersetzten Elements](/de/docs/Web/CSS/Replaced_element) innerhalb des Elementkastens an. Bereiche des Kastens, die nicht vom Objekt des ersetzten Elements abgedeckt werden, zeigen den Hintergrund des Elements.
 
-Sie können die Anpassung der intrinsischen Größe des Objekts des ersetzten Elements (also seine natürliche Größe) an die Box des Elements mit der Eigenschaft {{cssxref("object-fit")}} anpassen.
+Sie können die Anpassung der intrinsischen Größe (d. h. der natürlichen Größe) des Objekts des ersetzten Elements an den Elementkasten mit der {{cssxref("object-fit")}} Eigenschaft steuern.
 
-{{EmbedInteractiveExample("pages/css/object-position.html")}}
+{{InteractiveExample("CSS Demo: object-position")}}
+
+```css interactive-example-choice
+object-position: 50% 50%;
+```
+
+```css interactive-example-choice
+object-position: right top;
+```
+
+```css interactive-example-choice
+object-position: left bottom;
+```
+
+```css interactive-example-choice
+object-position: 250px 125px;
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/moon.jpg" />
+</section>
+```
+
+```css interactive-example
+#example-element {
+  height: 250px;
+  width: 250px;
+  object-fit: none;
+  border: 1px solid red;
+}
+```
 
 ## Syntax
 
@@ -47,10 +81,10 @@ object-position: unset;
 ### Werte
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Ein bis vier Werte, die die 2D-Position des Elements definieren. Relative oder absolute Verschiebungen können verwendet werden.
+  - : Ein bis vier Werte, die die 2D-Position des Elements definieren. Relative oder absolute Offsets können verwendet werden.
 
 > [!NOTE]
-> Die Position kann so eingestellt werden, dass das ersetzte Element außerhalb seiner Box gezeichnet wird.
+> Die Position kann so festgelegt werden, dass das ersetzte Element außerhalb seines Kastens gezeichnet wird.
 
 ## Formale Definition
 
@@ -66,7 +100,7 @@ object-position: unset;
 
 #### HTML
 
-Hier sehen wir HTML, das zwei {{HTMLElement("img")}}-Elemente enthält, die jeweils das MDN-Logo anzeigen.
+Hier sehen wir HTML, das zwei {{HTMLElement("img")}} Elemente enthält, die jeweils das MDN-Logo anzeigen.
 
 ```html
 <img id="object-position-1" src="mdn.svg" alt="MDN Logo" />
@@ -75,7 +109,7 @@ Hier sehen wir HTML, das zwei {{HTMLElement("img")}}-Elemente enthält, die jewe
 
 #### CSS
 
-Das CSS enthält Standardstile für das `<img>`-Element selbst sowie separate Stile für jedes der beiden Bilder.
+Das CSS enthält Standardstile für das `<img>` Element selbst sowie separate Stile für jedes der beiden Bilder.
 
 ```css
 img {
@@ -96,7 +130,7 @@ img {
 }
 ```
 
-Das erste Bild ist mit seinem linken Rand 10 Pixel vom linken Rand der Element-Box eingezogen. Das zweite Bild ist mit seinem rechten Rand bündig gegen den rechten Rand der Element-Box positioniert und befindet sich 10 % der Höhe der Element-Box nach unten.
+Das erste Bild ist so positioniert, dass seine linke Kante 10 Pixel von der linken Kante des Elementkastens zurückgesetzt ist. Das zweite Bild ist so positioniert, dass seine rechte Kante bündig mit der rechten Kante des Elementkastens ist und 10% des Weges nach unten in der Höhe des Elementkastens positioniert ist.
 
 #### Ergebnis
 
@@ -112,4 +146,4 @@ Das erste Bild ist mit seinem linken Rand 10 Pixel vom linken Rand der Element-B
 
 ## Siehe auch
 
-- Andere bildbezogene CSS-Eigenschaften: {{cssxref("object-fit")}}, {{cssxref("image-orientation")}}, {{cssxref("image-rendering")}}, {{cssxref("image-resolution")}}.
+- Andere CSS-Eigenschaften im Zusammenhang mit Bildern: {{cssxref("object-fit")}}, {{cssxref("image-orientation")}}, {{cssxref("image-rendering")}}, {{cssxref("image-resolution")}}.

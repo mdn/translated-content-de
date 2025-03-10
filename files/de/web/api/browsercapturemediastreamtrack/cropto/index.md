@@ -3,12 +3,12 @@ title: "BrowserCaptureMediaStreamTrack: cropTo()-Methode"
 short-title: cropTo()
 slug: Web/API/BrowserCaptureMediaStreamTrack/cropTo
 l10n:
-  sourceCommit: d9879ec9fe29b627ea1bde790d981dd13d602794
+  sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c
 ---
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`cropTo()`**-Methode der [`BrowserCaptureMediaStreamTrack`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack)-Schnittstelle beschneidet einen Selbstaufnahme-Stream auf den Bereich, in dem ein angegebenes DOM-Element gerendert wird.
+Die **`cropTo()`**-Methode des [`BrowserCaptureMediaStreamTrack`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack)-Interfaces schneidet einen Selbstaufnahme-Stream auf den Bereich zu, in dem ein bestimmtes DOM-Element gerendert wird.
 
 ## Syntax
 
@@ -19,26 +19,26 @@ cropTo(cropTarget)
 ### Parameter
 
 - `cropTarget`
-  - : Eine Instanz von [`CropTarget`](/de/docs/Web/API/CropTarget), die den Bereich des renderten Elements repräsentiert, auf den der Stream beschnitten werden soll, oder `null`/`undefined`. In diesem Fall wird ein zuvor festgelegtes Beschneiden vom Track entfernt.
+  - : Eine [`CropTarget`](/de/docs/Web/API/CropTarget)-Instanz, die den Elementrenderingbereich darstellt, auf den der Stream zugeschnitten werden soll, oder `null`/`undefined`, in welchem Fall ein zuvor eingestellter Zuschnitt vom Track entfernt wird.
 
 ### Rückgabewert
 
 Ein {{jsxref("Promise")}}, das zu {{jsxref("undefined")}} aufgelöst wird.
 
-Das Promise wird abgelehnt, wenn:
+Der Promise wird abgelehnt, wenn:
 
-- Der Track [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) nicht `"video"` ist oder dessen [`readyState`](/de/docs/Web/API/MediaStreamTrack/readyState) nicht `"live"` ist.
-- Das Element des Beschneidungsziels nicht mehr existiert.
-- Der zu beschneidende Track nicht von dem Bildschirm des Benutzers erfasst wurde.
-- `cropTarget` keine Instanz von [`CropTarget`](/de/docs/Web/API/CropTarget) ist, oder `null`/`undefined` ist.
-- `cropTarget` in einem anderen Tab erstellt wurde, als der, der erfasst wird.
+- Der Track [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) nicht `"video"` ist oder sein [`readyState`](/de/docs/Web/API/MediaStreamTrack/readyState) nicht `"live"` ist.
+- Das Ziel-Element für den Zuschnitt nicht mehr existiert.
+- Der zugeschnittene Track nicht von dem Bildschirm des Nutzers erfasst wurde.
+- `cropTarget` keine Instanz von [`CropTarget`](/de/docs/Web/API/CropTarget), `null` oder `undefined` ist.
+- `cropTarget` in einem anderen Tab als dem erfassten erstellt wurde.
 
 > [!NOTE]
-> In Chromium wird, falls ein Track Klone hat, `cropTo()` abgelehnt (siehe [Chrome-Issue 41482026](https://issues.chromium.org/issues/41482026)).
+> In Chromium wird `cropTo()` abgelehnt, wenn ein Track Klone hat (siehe [Chrome-Issue 41482026](https://crbug.com/41482026)).
 
 ## Beispiele
 
-### Einfaches Beispiel für das Beschneiden
+### Einfaches Beispiel für das Zuschneiden
 
 ```js
 // Options for getDisplayMedia()
@@ -62,11 +62,11 @@ await track.cropTo(cropTarget);
 videoElem.srcObject = stream;
 ```
 
-Siehe [Verwendung der Element Capture und Region Capture APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture) für Beispielcode im Kontext.
+Siehe [Verwendung der Element- und Region-Capture-APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture) für kontextbezogenen Beispielcode.
 
-### Beenden des Beschneidens
+### Das Zuschneiden stoppen
 
-Sie können das Beschneiden beenden, indem Sie einen Aufruf von `cropTo()` auf einen zuvor beschnittenen Track machen und ihm das Argument `null` übergeben:
+Sie können das Zuschneiden stoppen, indem Sie einen Aufruf von `cropTo()` auf einem zuvor zugeschnittenen Track tätigen und ihm das Argument `null` übergeben:
 
 ```js
 // Stop cropping
@@ -84,4 +84,4 @@ await track.cropTo(null);
 ## Siehe auch
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
-- [Verwendung der Element Capture und Region Capture APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture)
+- [Verwendung der Element- und Region-Capture-APIs](/de/docs/Web/API/Screen_Capture_API/Element_Region_Capture)

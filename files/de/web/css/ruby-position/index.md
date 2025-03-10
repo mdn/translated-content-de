@@ -2,14 +2,34 @@
 title: ruby-position
 slug: Web/CSS/ruby-position
 l10n:
-  sourceCommit: 5a40cb3c8f48b0911e228f1f397f7ba40746d1a5
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`ruby-position`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Position eines Ruby-Elements relativ zu seinem Basiselement. Es kann über dem Element (`over`), unter ihm (`under`) oder zwischen den Zeichen auf der rechten Seite (`inter-character`) positioniert werden.
+Die **`ruby-position`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Position eines Ruby-Elements relativ zu seinem Basiselement. Es kann über dem Element (`over`), unterhalb (`under`) oder zwischen den Zeichen auf ihrer rechten Seite (`inter-character`) positioniert werden.
 
-{{EmbedInteractiveExample("pages/css/ruby-position.html")}}
+{{InteractiveExample("CSS Demo: ruby-position")}}
+
+```css interactive-example-choice
+ruby-position: over;
+```
+
+```css interactive-example-choice
+ruby-position: under;
+```
+
+```html interactive-example
+<section id="default-example">
+  <ruby id="example-element"> 明日 <rp>(</rp><rt>Ashita</rt><rp>)</rp> </ruby>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  font-size: 2em;
+}
+```
 
 ## Syntax
 
@@ -34,14 +54,14 @@ ruby-position: unset;
 
 - `over`
   - : ![Over example](screen_shot_2015-03-04_at_13.02.20.png)
-    Ist ein Schlüsselwort, das angibt, dass das Ruby für horizontale Schriftarten über dem Haupttext und für vertikale Schriftarten rechts davon platziert werden muss.
+    Ist ein Schlüsselwort, das angibt, dass das Ruby oberhalb des Haupttextes für horizontale Schriften und rechts daneben für vertikale Schriften platziert werden muss.
 - `under`
   - : ![Under example](screen_shot_2015-03-04_at_13.02.07.png)
-    Ist ein Schlüsselwort, das angibt, dass das Ruby für horizontale Schriftarten unter dem Haupttext und für vertikale Schriftarten links davon platziert werden muss.
+    Ist ein Schlüsselwort, das angibt, dass das Ruby unterhalb des Haupttextes für horizontale Schriften und links daneben für vertikale Schriften platziert werden muss.
 - `alternate`
-  - : Ist ein Schlüsselwort, das angibt, dass das Ruby bei mehreren Annotationsebene zwischen `over` und `under` wechselt.
+  - : Ist ein Schlüsselwort, das angibt, dass das Ruby abwechselnd über und unter dem Text platziert wird, wenn es mehrere Annotationsebenen gibt.
 - `inter-character`
-  - : Wenn angegeben, verhält es sich wie `over` in vertikalen Schreibrichtungen. Andernfalls gibt es an, dass das Ruby zwischen den verschiedenen Zeichen platziert werden muss, erscheint auf der rechten Seite des Basiselements im horizontalen Text und erzwingt, dass die Kinder des Ruby-Anmerkungscontainers einen `vertical-rl` Schreibmodus haben.
+  - : Wenn angegeben, verhält es sich wie `over` in vertikalen Schreibmodi. Andernfalls gibt es an, dass das Ruby zwischen verschiedenen Zeichen platziert werden muss, rechts vom Basistext in horizontalem Text erscheint und die Kinder des Ruby-Annotation-Containers dazu zwingt, einen `vertical-rl` Schreibmodus zu haben.
 
 ## Formale Definition
 
@@ -133,5 +153,5 @@ ruby {
 
 ## Siehe auch
 
-- {{HTMLElement("ruby")}}, {{HTMLElement("rt")}}, {{HTMLElement("rp")}}, und {{HTMLElement("rtc")}} HTML-Elemente
+- {{HTMLElement("ruby")}}, {{HTMLElement("rt")}}, {{HTMLElement("rp")}}, und {{HTMLElement("rtc")}} HTML Elemente
 - {{cssxref("ruby-align")}}

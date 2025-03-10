@@ -2,14 +2,58 @@
 title: padding-block-end
 slug: Web/CSS/padding-block-end
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`padding-block-end`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) definiert den logischen Block-End-Abstand (`padding`) eines Elements. Dieser wird je nach Schreibrichtung, Richtung und Textorientierung des Elements einer physischen `padding`-Eigenschaft zugeordnet.
+Die **`padding-block-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die logische Block-Ende-Auffüllung eines Elements, die je nach Schreibmodus des Elements, Richtung und Textausrichtung einer physischen Auffüllung zugeordnet wird.
 
-{{EmbedInteractiveExample("pages/css/padding-block-end.html")}}
+{{InteractiveExample("CSS Demo: padding-block-end")}}
+
+```css interactive-example-choice
+padding-block-end: 20px;
+writing-mode: horizontal-tb;
+```
+
+```css interactive-example-choice
+padding-block-end: 20px;
+writing-mode: vertical-rl;
+```
+
+```css interactive-example-choice
+padding-block-end: 5em;
+writing-mode: horizontal-tb;
+```
+
+```css interactive-example-choice
+padding-block-end: 5em;
+writing-mode: vertical-lr;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="transition-all" id="example-element">
+    <div class="box">
+      Far out in the uncharted backwaters of the unfashionable end of the
+      western spiral arm of the Galaxy lies a small unregarded yellow sun.
+    </div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 10px solid #ffc129;
+  overflow: hidden;
+  text-align: left;
+}
+
+.box {
+  border: dashed 1px;
+  unicode-bidi: bidi-override;
+}
+```
 
 ## Syntax
 
@@ -32,15 +76,15 @@ padding-block-end: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des `padding` wird als fester Wert definiert. Muss nicht negativ sein.
+  - : Die Größe der Auffüllung als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des `padding` wird als Prozentwert definiert, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe der Auffüllung als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [enthältenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
 
 ## Beschreibung
 
-Die `padding-block-end`-Eigenschaft nimmt die gleichen Werte an wie physische `padding`-Eigenschaften wie z. B. {{cssxref("padding-top")}}. Sie kann jedoch je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} festgelegten Werten gleichwertig zu {{cssxref("padding-bottom")}}, `padding-top`, {{cssxref("padding-left")}} oder {{cssxref("padding-right")}} sein.
+Die `padding-block-end`-Eigenschaft nimmt die gleichen Werte an wie physische Auffüllungseigenschaften wie {{cssxref("padding-top")}}. Allerdings kann sie je nach den gesetzten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} äquivalent zu {{cssxref("padding-bottom")}}, `padding-top`, {{cssxref("padding-left")}} oder {{cssxref("padding-right")}} sein.
 
-Sie steht in Beziehung zu {{cssxref("padding-block-start")}}, {{cssxref("padding-inline-start")}} und {{cssxref("padding-inline-end")}}, die die anderen `padding`-Werte des Elements definieren.
+Sie steht in Zusammenhang mit {{cssxref("padding-block-start")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}, die die anderen Auffüllungswerte des Elements definieren.
 
 ## Formale Definition
 
@@ -52,7 +96,7 @@ Sie steht in Beziehung zu {{cssxref("padding-block-start")}}, {{cssxref("padding
 
 ## Beispiele
 
-### Block-End-`padding` für vertikalen Text setzen
+### Block-Ende-Auffüllung für vertikalen Text einstellen
 
 #### HTML
 
@@ -92,6 +136,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - Die zugeordneten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

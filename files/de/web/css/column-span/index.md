@@ -2,16 +2,60 @@
 title: column-span
 slug: Web/CSS/column-span
 l10n:
-  sourceCommit: c77cfcd17e85db6c1b93160c70668f2ff6c2809c
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`column-span`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es, dass ein Element über alle Spalten hinweg spannt, wenn ihr Wert auf `all` gesetzt ist.
+Die **`column-span`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es einem Element, sich über alle Spalten zu erstrecken, wenn ihr Wert auf `all` gesetzt ist.
 
-{{EmbedInteractiveExample("pages/css/column-span.html")}}
+{{InteractiveExample("CSS Demo: column-span")}}
 
-Ein Element, das über mehr als eine Spalte spannt, wird als **spannendes Element** bezeichnet.
+```css interactive-example-choice
+column-span: none;
+```
+
+```css interactive-example-choice
+column-span: all;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="multicol-element">
+    <p>
+      London. Michaelmas term lately over, and the Lord Chancellor sitting in
+      Lincoln's Inn Hall.
+    </p>
+    <div id="example-element">Spanner?</div>
+    <p>
+      Implacable November weather. As much mud in the streets as if the waters
+      had but newly retired from the face of the earth, and it would not be
+      wonderful to meet a Megalosaurus, forty feet long or so, waddling like an
+      elephantine lizard up Holborn Hill.
+    </p>
+  </div>
+</section>
+```
+
+```css interactive-example
+.multicol-element {
+  width: 100%;
+  text-align: left;
+  column-count: 3;
+}
+
+.multicol-element p {
+  margin: 0;
+}
+
+#example-element {
+  background-color: rebeccapurple;
+  padding: 10px;
+  color: #fff;
+}
+```
+
+Ein Element, das sich über mehr als eine Spalte erstreckt, wird als **überspannendes Element** bezeichnet.
 
 ## Syntax
 
@@ -28,14 +72,14 @@ column-span: revert-layer;
 column-span: unset;
 ```
 
-Die `column-span`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `column-span`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `none`
-  - : Das Element spannt nicht über mehrere Spalten.
+  - : Das Element erstreckt sich nicht über mehrere Spalten.
 - `all`
-  - : Das Element spannt über alle Spalten. Inhalt im normalen Fluss, der vor dem Element erscheint, wird automatisch über alle Spalten ausgeglichen, bevor das Element erscheint. Das Element etabliert einen neuen Blockformatierungskontext.
+  - : Das Element erstreckt sich über alle Spalten. Inhalt im normalen Fluss, der vor dem Element erscheint, wird automatisch über alle Spalten ausgeglichen, bevor das Element erscheint. Das Element etabliert einen neuen Block-Formatierungs-Kontext.
 
 ## Formale Definition
 
@@ -47,9 +91,9 @@ Die `column-span`-Eigenschaft wird als eines der unten aufgeführten Schlüsselw
 
 ## Beispiele
 
-### Einen Überschrift über Spalten spannen lassen
+### Ein Überschrift über Spalten erstrecken
 
-In diesem Beispiel wird die Überschrift so gestaltet, dass sie über alle Spalten des Artikels spannt.
+In diesem Beispiel wird die Überschrift so gestaltet, dass sie sich über alle Spalten des Artikels erstreckt.
 
 #### HTML
 
@@ -105,6 +149,6 @@ h2 {
 
 ## Siehe auch
 
-- [Spalten spannen und ausbalancieren](/de/docs/Web/CSS/CSS_multicol_layout/Spanning_balancing_columns)
-- {{Glossary("Inline-level_content", "Inline-Level-Elemente")}}
+- [Spanning and balancing columns](/de/docs/Web/CSS/CSS_multicol_layout/Spanning_balancing_columns)
+- {{Glossary("Inline-level_content", "Inline-level elements")}}
 - [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)

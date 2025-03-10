@@ -2,14 +2,42 @@
 title: tab-size
 slug: Web/CSS/tab-size
 l10n:
-  sourceCommit: 82877d5cf5a35e0a4d02b7c54aea0ce7d771d5cb
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
 Die **`tab-size`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
 
-{{EmbedInteractiveExample("pages/css/tab-size.html")}}
+{{InteractiveExample("CSS Demo: tab-size")}}
+
+```css interactive-example-choice
+tab-size: 10px;
+```
+
+```css interactive-example-choice
+tab-size: 16px;
+```
+
+```css interactive-example-choice
+tab-size: 24px;
+```
+
+```css interactive-example-choice
+tab-size: 4;
+```
+
+```html interactive-example
+<section id="default-example">
+  <pre id="example-element">  123</pre>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 1px solid;
+}
+```
 
 ## Syntax
 
@@ -33,9 +61,9 @@ tab-size: unset;
 ### Werte
 
 - {{CSSxRef("&lt;number&gt;")}}
-  - : Ein Vielfaches der Vorschubbreite des Leerzeichens (U+0020), die als Breite der Tabs verwendet werden soll. Muss nicht negativ sein. Die Vorschubbreite ist der Abstand, den ein Cursor oder ein Druckkopf zurücklegt, bevor er das nächste Zeichen druckt.
+  - : Ein Vielfaches der Vorlaufbreite des Leerzeichens (U+0020), die als Tabulatorbreite verwendet werden soll. Muss nicht-negativ sein. Die Vorlaufbreite bedeutet die Entfernung, die ein Cursor oder ein Druckkopf zurücklegt, bevor der nächste Buchstabe gedruckt wird.
 - {{CSSxRef("&lt;length&gt;")}}
-  - : Die Breite der Tabs. Muss nicht negativ sein.
+  - : Die Breite der Tabs. Muss nicht-negativ sein.
 
 ## Formale Definition
 
@@ -47,7 +75,7 @@ tab-size: unset;
 
 ## Beispiele
 
-### Erweiterung durch Zeichenanzahl
+### Erweiterung nach Zeichenanzahl
 
 ```css
 pre {
@@ -55,7 +83,7 @@ pre {
 }
 ```
 
-### Tabs kollabieren
+### Tabs zusammenführen
 
 ```css
 pre {
@@ -63,9 +91,9 @@ pre {
 }
 ```
 
-### Standard-Tabsgröße vs. benutzerdefinierte Größen
+### Standard-Tabgröße vs. benutzerdefinierte Größen
 
-Dieses Beispiel vergleicht eine Standard-Tabsgröße mit einer benutzerdefinierten Tabsgröße. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, um das Zusammenfallen der Tabs zu verhindern.
+Dieses Beispiel vergleicht eine Standard-Tabgröße mit einer benutzerdefinierten Tabgröße. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, um ein Zusammenfallen der Tabs zu verhindern.
 
 #### HTML
 

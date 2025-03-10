@@ -2,16 +2,55 @@
 title: max-inline-size
 slug: Web/CSS/max-inline-size
 l10n:
-  sourceCommit: 9591173963147e1996e3f40892b90dd9f691e15d
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`max-inline-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die horizontale oder vertikale Maximalgröße eines Blockelements, abhängig von dessen Schreibrichtung. Sie entspricht entweder der {{cssxref("max-width")}} oder der {{cssxref("max-height")}} Eigenschaft, abhängig vom Wert des {{cssxref("writing-mode")}}.
+Die **`max-inline-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die horizontale oder vertikale maximale Größe eines Blockelements, abhängig von dessen Schreibrichtung (writing mode). Sie entspricht entweder der Eigenschaft {{cssxref("max-width")}} oder der Eigenschaft {{cssxref("max-height")}}, abhängig vom Wert des {{cssxref("writing-mode")}}.
 
-Wenn der Schreibmodus vertikal orientiert ist, bezieht sich der Wert von `max-inline-size` auf die maximale Höhe des Elements; ansonsten bezieht er sich auf die maximale Breite des Elements. Eine verwandte Eigenschaft ist {{cssxref("max-block-size")}}, die die andere Dimension des Elements definiert.
+Wenn der Schreibmodus vertikal ausgerichtet ist, bezieht sich der Wert von `max-inline-size` auf die maximale Höhe des Elements; andernfalls bezieht er sich auf die maximale Breite des Elements. Eine verwandte Eigenschaft ist {{cssxref("max-block-size")}}, welche die andere Dimension des Elements definiert.
 
-{{EmbedInteractiveExample("pages/css/max-inline-size.html")}}
+{{InteractiveExample("CSS Demo: max-inline-size")}}
+
+```css interactive-example-choice
+max-inline-size: 150px;
+writing-mode: horizontal-tb;
+```
+
+```css interactive-example-choice
+max-inline-size: 150px;
+writing-mode: vertical-rl;
+```
+
+```css interactive-example-choice
+max-inline-size: 20px;
+writing-mode: horizontal-tb;
+```
+
+```css interactive-example-choice
+max-inline-size: 75%;
+writing-mode: vertical-lr;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box where you can change the max-inline-size.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  display: flex;
+  flex-direction: column;
+  background-color: #5b6dcd;
+  height: 80%;
+  justify-content: center;
+  color: #ffffff;
+}
+```
 
 ## Syntax
 
@@ -42,7 +81,7 @@ max-inline-size: unset;
 
 ### Werte
 
-Die `max-inline-size` Eigenschaft nimmt die gleichen Werte an wie die Eigenschaften {{cssxref("max-width")}} und {{cssxref("max-height")}}.
+Die Eigenschaft `max-inline-size` übernimmt die gleichen Werte wie die Eigenschaften {{cssxref("max-width")}} und {{cssxref("max-height")}}.
 
 ## Formale Definition
 
@@ -87,5 +126,5 @@ Die `max-inline-size` Eigenschaft nimmt die gleichen Werte an wie die Eigenschaf
 
 ## Siehe auch
 
-- Die zugeordneten physikalischen Eigenschaften: {{cssxref("max-width")}} und {{cssxref("max-height")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("max-width")}} und {{cssxref("max-height")}}
 - {{cssxref("writing-mode")}}

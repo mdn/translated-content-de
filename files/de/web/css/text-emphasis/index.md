@@ -2,24 +2,56 @@
 title: text-emphasis
 slug: Web/CSS/text-emphasis
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`text-emphasis`** [CSS](/de/docs/Web/CSS) Eigenschaft wendet Hervorhebungszeichen auf Text an (außer auf Leerzeichen und Steuerzeichen). Sie ist eine [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) für {{cssxref("text-emphasis-style")}} und {{cssxref("text-emphasis-color")}}.
+Die **`text-emphasis`** [CSS](/de/docs/Web/CSS) Eigenschaft wendet Betonungszeichen auf Text an (außer auf Leerzeichen und Steuerzeichen). Es handelt sich um eine [Kurznotation](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) für {{cssxref("text-emphasis-style")}} und {{cssxref("text-emphasis-color")}}.
 
-{{EmbedInteractiveExample("pages/css/text-emphasis.html")}}
+{{InteractiveExample("CSS Demo: text-emphasis")}}
 
-Die `text-emphasis` Eigenschaft unterscheidet sich erheblich von {{cssxref("text-decoration")}}. Während die `text-decoration` Eigenschaft nicht vererbt wird und die angegebene Dekoration auf das gesamte Element angewendet wird, wird `text-emphasis` vererbt. Das bedeutet, dass es möglich ist, die Hervorhebungszeichen für Nachfahren zu ändern.
+```css interactive-example-choice
+text-emphasis: none;
+```
 
-Die Größe des Hervorhebungssymbols, ähnlich wie Rubysymbole, beträgt etwa 50 % der Schriftgröße, und `text-emphasis` kann die Zeilenhöhe beeinflussen, wenn der aktuelle Zeilenvorsprung nicht ausreichend für die Zeichen ist.
+```css interactive-example-choice
+text-emphasis: filled red;
+```
 
-> **Note:** `text-emphasis` setzt den Wert von {{cssxref("text-emphasis-position")}} nicht zurück. Der Grund dafür ist, dass, wenn der Stil und die Farbe von Hervorhebungszeichen in einem Text variieren können, ihre Position sehr wahrscheinlich nicht variieren wird. In den äußerst seltenen Fällen, in denen dies erforderlich ist, verwenden Sie die Eigenschaft {{cssxref("text-emphasis-position")}}.
+```css interactive-example-choice
+text-emphasis: "x";
+```
 
-## Zuordnende Eigenschaften
+```css interactive-example-choice
+text-emphasis: filled double-circle #ffb703;
+```
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+```html interactive-example
+<section id="default-example">
+  <p>
+    I'd far rather be
+    <span class="transition-all" id="example-element">happy than right</span>
+    any day.
+  </p>
+</section>
+```
+
+```css interactive-example
+p {
+  font: 1.5em sans-serif;
+}
+```
+
+Die `text-emphasis`-Eigenschaft unterscheidet sich erheblich von {{cssxref("text-decoration")}}. Die `text-decoration`-Eigenschaft wird nicht vererbt, und die angegebene Dekoration wird auf das gesamte Element angewendet. `text-emphasis` wird jedoch vererbt, was bedeutet, dass es möglich ist, Betonungszeichen für Nachfahren zu ändern.
+
+Die Größe des Betonungssymbols ist ähnlich wie bei Ruby-Symbolen etwa 50 % der Schriftgröße, und `text-emphasis` kann die Zeilenhöhe beeinflussen, wenn der aktuelle Zeilenabstand nicht für die Zeichen ausreicht.
+
+> **Note:** `text-emphasis` setzt den Wert von {{cssxref("text-emphasis-position")}} nicht zurück. Dies liegt daran, dass es äußerst unwahrscheinlich ist, dass sich die Position von Betonungszeichen ändert, selbst wenn Stil und Farbe variieren. In den sehr seltenen Fällen, in denen dies erforderlich ist, verwenden Sie die Eigenschaft {{cssxref("text-emphasis-position")}}.
+
+## Bestehende Eigenschaften
+
+Diese Eigenschaft ist eine Kurznotation für die folgenden CSS-Eigenschaften:
 
 - [`text-emphasis-color`](/de/docs/Web/CSS/text-emphasis-color)
 - [`text-emphasis-style`](/de/docs/Web/CSS/text-emphasis-style)
@@ -57,25 +89,25 @@ text-emphasis: unset;
 ### Werte
 
 - `none`
-  - : Keine Hervorhebungszeichen.
+  - : Keine Betonungszeichen.
 - `filled`
-  - : Die Form ist mit einer Volltonfarbe gefüllt. Wenn weder `filled` noch `open` angegeben sind, ist dies der Standard.
+  - : Die Form ist mit einer Vollfarbe gefüllt. Wenn weder `filled` noch `open` vorhanden ist, ist dies der Standard.
 - `open`
   - : Die Form ist hohl.
 - `dot`
-  - : Kleine Kreise als Zeichen anzeigen. Der gefüllte Punkt ist `'•'` (`U+2022`), und der offene Punkt ist `'◦'` (`U+25E6`).
+  - : Kleine Kreise als Markierung anzeigen. Der gefüllte Punkt ist `'•'` (`U+2022`), und der offene Punkt ist `'◦'` (`U+25E6`).
 - `circle`
-  - : Große Kreise als Zeichen anzeigen. Der gefüllte Kreis ist `'●'` (`U+25CF`), und der offene Kreis ist `'○'` (`U+25CB`). Dies ist die Standardform in horizontalen Schreibmodi, wenn keine andere Form angegeben ist.
+  - : Große Kreise als Markierung anzeigen. Der gefüllte Kreis ist `'●'` (`U+25CF`), und der offene Kreis ist `'○'` (`U+25CB`). Dies ist die Standardform in horizontalen Schreibrichtungen, wenn keine andere Form angegeben ist.
 - `double-circle`
-  - : Doppelte Kreise als Zeichen anzeigen. Der gefüllte Doppelkreis ist `'◉'` (`U+25C9`), und der offene Doppelkreis ist `'◎'` (`U+25CE`).
+  - : Doppelte Kreise als Markierung anzeigen. Der gefüllte Doppelkreis ist `'◉'` (`U+25C9`), und der offene Doppelkreis ist `'◎'` (`U+25CE`).
 - `triangle`
-  - : Dreiecke als Zeichen anzeigen. Das gefüllte Dreieck ist `'▲'` (`U+25B2`), und das offene Dreieck ist `'△'` (`U+25B3`).
+  - : Dreiecke als Markierung anzeigen. Das gefüllte Dreieck ist `'▲'` (`U+25B2`), und das offene Dreieck ist `'△'` (`U+25B3`).
 - `sesame`
-  - : Sesamzeichen als Zeichen anzeigen. Der gefüllte Sesam ist `'﹅'` (`U+FE45`), und der offene Sesam ist `'﹆'` (`U+FE46`). Dies ist die Standardform in vertikalen Schreibmodi, wenn keine andere Form angegeben ist.
+  - : Sesamzeichen als Markierung anzeigen. Das gefüllte Sesamzeichen ist `'﹅'` (`U+FE45`), und das offene Sesamzeichen ist `'﹆'` (`U+FE46`). Dies ist die Standardform in vertikalen Schreibrichtungen, wenn keine andere Form angegeben ist.
 - `<string>`
-  - : Die angegebene Zeichenkette als Zeichen anzeigen. Autoren sollten nicht mehr als ein _Zeichen_ in `<string>` angeben. Der UA kann Zeichenketten abschneiden oder ignorieren, die aus mehr als einem Graphem-Cluster bestehen.
+  - : Die angegebene Zeichenkette als Markierung anzeigen. Autoren sollten nicht mehr als ein _Zeichen_ in `<string>` angeben. Der UA kann Zeichenketten, die aus mehr als einem Graphem-Cluster bestehen, abschneiden oder ignorieren.
 - `<color>`
-  - : Definiert die Farbe des Zeichens. Wenn keine Farbe angegeben ist, wird standardmäßig `currentcolor` verwendet.
+  - : Definiert die Farbe des Zeichens. Wenn keine Farbe angegeben ist, wird `currentcolor` als Standard verwendet.
 
 ## Formale Definition
 
@@ -87,9 +119,9 @@ text-emphasis: unset;
 
 ## Beispiele
 
-### Eine Überschrift mit Hervorhebungsform und -farbe
+### Eine Überschrift mit Betonungsform und Farbe
 
-Dieses Beispiel zeigt eine Überschrift mit Dreiecken, die zur Hervorhebung jedes Zeichens verwendet werden.
+Dieses Beispiel zeichnet eine Überschrift mit Dreiecken, um jedes Zeichen zu betonen.
 
 #### CSS
 
@@ -119,5 +151,5 @@ h2 {
 
 ## Siehe auch
 
-- Die Langform-Eigenschaften {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis-color')}}.
-- Die Eigenschaft {{cssxref('text-emphasis-position')}}, die es ermöglicht, die Position der Hervorhebungszeichen zu definieren.
+- Die Langnotateigenschaften {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis-color')}}.
+- Die {{cssxref('text-emphasis-position')}}-Eigenschaft, die erlaubt, die Position der Betonungszeichen zu definieren.

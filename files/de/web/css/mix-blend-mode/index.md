@@ -2,14 +2,47 @@
 title: mix-blend-mode
 slug: Web/CSS/mix-blend-mode
 l10n:
-  sourceCommit: b64538dc77e9a6181b882bd54bdbb307c1430ba8
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`mix-blend-mode`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements sowie dem Hintergrund des Elements gemischt werden soll.
+Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
 
-{{EmbedInteractiveExample("pages/css/mix-blend-mode.html")}}
+{{InteractiveExample("CSS Demo: mix-blend-mode")}}
+
+```css interactive-example-choice
+mix-blend-mode: normal;
+```
+
+```css interactive-example-choice
+mix-blend-mode: multiply;
+```
+
+```css interactive-example-choice
+mix-blend-mode: hard-light;
+```
+
+```css interactive-example-choice
+mix-blend-mode: difference;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="example-container">
+    <img
+      id="example-element"
+      src="/shared-assets/images/examples/firefox-logo.svg"
+      width="200" />
+  </div>
+</section>
+```
+
+```css interactive-example
+.example-container {
+  background-color: sandybrown;
+}
+```
 
 ## Syntax
 
@@ -47,9 +80,9 @@ mix-blend-mode: unset;
 - {{cssxref("&lt;blend-mode&gt;")}}
   - : Der anzuwendende Mischmodus.
 - `plus-darker`
-  - : Mischen mithilfe des [_plus-darker_-Compositing-Operators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
+  - : Vermischung unter Verwendung des [_plus-darker_ Kompositionsoperators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
 - `plus-lighter`
-  - : Mischen mithilfe des [_plus-lighter_-Compositing-Operators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Überblendungseffekte (verhindert unerwünschtes Flackern, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzten Richtungen animieren).
+  - : Vermischung unter Verwendung des [_plus-lighter_ Kompositionsoperators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Übergangseffekte (verhindert unerwünschtes Blinken, wenn zwei überlagerte Elemente ihre Opazität in entgegengesetzte Richtungen animieren).
 
 ## Formale Definition
 
@@ -61,7 +94,7 @@ mix-blend-mode: unset;
 
 ## Beispiele
 
-### Wirkung verschiedener mix-blend-mode-Werte
+### Effekt verschiedener mix-blend-mode-Werte
 
 ```html hidden
 <div class="grid">
@@ -780,7 +813,7 @@ circle {
 
 ### Verwendung von mix-blend-mode mit Text
 
-Dieses Beispiel verwendet `mix-blend-mode`, um die Schriftfarbe mit der Hintergrundfarbe des übergeordneten Elements zu mischen.
+Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu vermischen.
 
 #### HTML
 

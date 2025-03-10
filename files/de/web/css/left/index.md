@@ -2,14 +2,64 @@
 title: left
 slug: Web/CSS/left
 l10n:
-  sourceCommit: da659b5d4f75b66804d97c80ec7c89b8792d7389
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`left`** [CSS](/de/docs/Web/CSS) Eigenschaft beteiligt sich an der Spezifizierung der horizontalen Position eines [positionierten Elements](/de/docs/Web/CSS/position). Diese {{Glossary("inset_properties", "Einsatzeigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
+Die **`left`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ist an der Festlegung der horizontalen Position eines [positionierten Elements](/de/docs/Web/CSS/position) beteiligt. Diese {{Glossary("inset_properties", "Einsatzeigenschaft")}} hat keine Auswirkungen auf nicht positionierte Elemente.
 
-{{EmbedInteractiveExample("pages/css/left.html")}}
+{{InteractiveExample("CSS Demo: left")}}
+
+```css interactive-example-choice
+left: 0;
+```
+
+```css interactive-example-choice
+left: 4em;
+```
+
+```css interactive-example-choice
+left: 10%;
+```
+
+```css interactive-example-choice
+left: 20px;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="example-container">
+    <div id="example-element">I am absolutely positioned.</div>
+    <p>
+      As much mud in the streets as if the waters had but newly retired from the
+      face of the earth, and it would not be wonderful to meet a Megalosaurus,
+      forty feet long or so, waddling like an elephantine lizard up Holborn
+      Hill.
+    </p>
+  </div>
+</section>
+```
+
+```css interactive-example
+.example-container {
+  border: 0.75em solid;
+  padding: 0.75em;
+  text-align: left;
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+}
+
+#example-element {
+  background-color: #264653;
+  border: 4px solid #ffb500;
+  color: white;
+  position: absolute;
+  width: 140px;
+  height: 60px;
+}
+```
 
 ## Syntax
 
@@ -38,34 +88,34 @@ left: unset;
 
 - {{cssxref("&lt;length&gt;")}}
 
-  - : Ein negativer, null oder positiver {{cssxref("&lt;length&gt;")}}:
+  - : Ein negativer, nuller oder positiver {{cssxref("&lt;length&gt;")}}:
 
-    - für _absolut positionierte Elemente_ repräsentiert es die Entfernung zur linken Kante des umschließenden Blocks.
-    - für _ankergestützte positionierte Elemente_ löst die {{cssxref("anchor()")}} Funktion einen {{cssxref("&lt;length&gt;")}} Wert relativ zur Position der linken oder rechten Kante des zugehörigen _Ankerelements_ (siehe [Verwendung von Einsatzeigenschaften mit `anchor()` Funktionswerten](/de/docs/Web/CSS/CSS_anchor_positioning/Using#using_inset_properties_with_anchor_function_values)) und die {{cssxref("anchor-size()")}} Funktion löst einen {{cssxref("&lt;length&gt;")}} Wert relativ zur Breite oder Höhe des zugehörigen Ankerelements (siehe [Festlegung der Position des Elements basierend auf der Ankergröße](/de/docs/Web/CSS/CSS_anchor_positioning/Using#setting_element_position_based_on_anchor_size)).
-    - für _relativ positionierte Elemente_ repräsentiert es die Entfernung, um die das Element rechts von seiner normalen Position verschoben wird.
+    - für _absolut positionierte Elemente_ stellt er den Abstand zum linken Rand des umgebenden Blocks dar.
+    - für _ankerpositionierte Elemente_ löst die {{cssxref("anchor()")}}-Funktion einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Position des linken oder rechten Randes des zugehörigen _Ankerelements_ auf (siehe [Verwendung von Einsatzeigenschaften mit `anchor()`-Funktionswerten](/de/docs/Web/CSS/CSS_anchor_positioning/Using#using_inset_properties_with_anchor_function_values)), und die {{cssxref("anchor-size()")}}-Funktion löst einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen Ankerelements auf (siehe [Festlegen der Elementposition basierend auf Ankergröße](/de/docs/Web/CSS/CSS_anchor_positioning/Using#setting_element_position_based_on_anchor_size)).
+    - für _relativ positionierte Elemente_ stellt er den Abstand dar, um den das Element nach rechts von seiner normalen Position verschoben wird.
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ein {{cssxref("&lt;percentage&gt;")}} der Breite des umschließenden Blocks.
+  - : Ein {{cssxref("&lt;percentage&gt;")}} der Breite des umgebenden Blocks.
 - `auto`
 
   - : Gibt an, dass:
 
-    - für _absolut positionierte Elemente_ basiert die Position des Elements auf der {{Cssxref("right")}} Eigenschaft, während `width: auto` als eine auf dem Inhalt basierende Breite behandelt wird; oder wenn `right` ebenfalls `auto` ist, wird das Element dort positioniert, wo es horizontal positioniert wäre, wenn es ein statisches Element wäre.
-    - für _relativ positionierte Elemente_ basiert die Entfernung des Elements von seiner normalen Position auf der {{Cssxref("right")}} Eigenschaft; oder wenn `right` ebenfalls `auto` ist, wird das Element horizontal gar nicht verschoben.
+    - für _absolut positionierte Elemente_ die Position des Elements basierend auf der {{Cssxref("right")}}-Eigenschaft festgelegt wird, während `width: auto` als Breite basierend auf dem Inhalt behandelt wird; oder wenn `right` ebenfalls `auto` ist, wird das Element dort positioniert, wo es horizontal positioniert werden sollte, wenn es sich um ein statisches Element handeln würde.
+    - für _relativ positionierte Elemente_ basiert der Abstand des Elements von seiner normalen Position auf der {{Cssxref("right")}}-Eigenschaft; oder wenn `right` ebenfalls `auto` ist, wird das Element horizontal überhaupt nicht bewegt.
 
 - `inherit`
-  - : Gibt an, dass der Wert derselbe ist wie der berechnete Wert von seinem Elternelement (das möglicherweise nicht der umschließende Block ist). Dieser berechnete Wert wird dann behandelt, als wäre er ein {{cssxref("&lt;length&gt;")}}, {{cssxref("&lt;percentage&gt;")}}, oder das `auto` Schlüsselwort.
+  - : Gibt an, dass der Wert derselbe ist wie der berechnete Wert seines Elternelements (das möglicherweise nicht sein umgebender Block ist). Dieser berechnete Wert wird dann behandelt, als wäre er ein {{cssxref("&lt;length&gt;")}}, {{cssxref("&lt;percentage&gt;")}}, oder das `auto`-Schlüsselwort.
 
 ## Beschreibung
 
-Die Wirkung von `left` hängt davon ab, wie das Element positioniert ist (d. h. der Wert der {{cssxref("position")}} Eigenschaft):
+Die Wirkung von `left` hängt davon ab, wie das Element positioniert ist (d.h. der Wert der {{cssxref("position")}}-Eigenschaft):
 
-- Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `left` Eigenschaft die Entfernung zwischen dem äußeren Rand der linken Kante des Elements und dem inneren Rand der linken Kante seines umschließenden Blocks an. (Der umschließende Block ist der Vorfahr, zu dem das Element relativ positioniert ist.) Wenn das positionierte Element ein zugehöriges [_Ankerelement_](/de/docs/Web/CSS/CSS_anchor_positioning/Using) hat und der Eigenschaftswert eine {{cssxref("anchor()")}} Funktion enthält, positioniert `left` die linke Kante des positionierten Elements relativ zur Position der angegebenen [`<anchor-side>`](/de/docs/Web/CSS/anchor#anchor-side) Kante. Die `left` Eigenschaft ist [kompatibel](/de/docs/Web/CSS/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit den Werten `left`, `right`, `start`, `end`, `self-start`, `self-end`, `center` und `<percentage>`.
-- Wenn `position` auf `relative` gesetzt ist, gibt die `left` Eigenschaft die Entfernung an, um die die linke Kante des Elements von ihrer normalen Position nach rechts verschoben wird.
-- Wenn `position` auf `sticky` gesetzt ist, wird die `left` Eigenschaft zur Berechnung des Sticky-Beschränkungsrechtecks verwendet.
-- Wenn `position` auf `static` gesetzt ist, hat die `left` Eigenschaft _keine Wirkung_.
+- Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `left`-Eigenschaft den Abstand zwischen dem äußeren Rand des linken Randes des Elements und dem inneren Rand des linken Randes seines umgebenden Blocks an. (Der umgebende Block ist der Vorfahre, zu dem das Element relativ positioniert ist.) Wenn das positionierte Element ein zugehöriges [_Ankerelement_](/de/docs/Web/CSS/CSS_anchor_positioning/Using) hat und der Eigenschaftswert eine {{cssxref("anchor()")}}-Funktion enthält, positioniert `left` den linken Rand des positionierten Elements relativ zur Position des angegebenen [`<anchor-side>`](/de/docs/Web/CSS/anchor#anchor-side) Randes. Die `left`-Eigenschaft ist [kompatibel](/de/docs/Web/CSS/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit den Werten `left`, `right`, `start`, `end`, `self-start`, `self-end`, `center`, und `<percentage>`.
+- Wenn `position` auf `relative` gesetzt ist, gibt die `left`-Eigenschaft den Abstand an, um den der linke Rand des Elements von seiner normalen Position nach rechts verschoben wird.
+- Wenn `position` auf `sticky` gesetzt ist, wird die `left`-Eigenschaft zur Berechnung des klebrigen Beschränkungsrechtecks verwendet.
+- Wenn `position` auf `static` gesetzt ist, hat die `left`-Eigenschaft _keine Wirkung_.
 
-Wenn sowohl `left` als auch {{cssxref("right")}} definiert sind und Breitenbeschränkungen es nicht verhindern, dehnt sich das Element aus, um beide zu erfüllen. Wenn das Element nicht gedehnt werden kann, um beide zu erfüllen, ist die Position des Elements _überspezifiziert_. In diesem Fall hat der `left` Wert Vorrang, wenn das Container links-nach-rechts ist; der `right` Wert hat Vorrang, wenn das Container rechts-nach-links ist.
+Wenn sowohl `left` als auch {{cssxref("right")}} definiert sind und Breitenbeschränkungen dies nicht verhindern, wird das Element gestreckt, um beide zu erfüllen. Wenn das Element nicht gestreckt werden kann, um beide zu erfüllen, ist die Position des Elements _überspezifiziert_. In diesem Fall hat der `left`-Wert Vorrang, wenn das Container von links nach rechts ausgerichtet ist; der `right`-Wert hat Vorrang, wenn das Container von rechts nach links ausgerichtet ist.
 
 ## Formale Definition
 
@@ -213,4 +263,4 @@ pre {
 - {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
 - {{cssxref("inset-block")}} und {{cssxref("inset-inline")}} Kurzformen
 - {{cssxref("position")}}
-- [CSS Positionierte Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [CSS positionsbasiertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul

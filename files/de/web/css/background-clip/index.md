@@ -2,22 +2,57 @@
 title: background-clip
 slug: Web/CSS/background-clip
 l10n:
-  sourceCommit: 7cee2a2b7ce3a968bc09f2d9cc3b012befa146c6
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`background-clip`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob der Hintergrund eines Elements sich unterhalb seiner 'border box', 'padding box' oder 'content box' erstreckt.
+Die **`background-clip`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob der Hintergrund eines Elements sich unterhalb seiner Rahmenbox, Auffüllungsbox oder Inhaltsbox erstreckt.
 
-{{EmbedInteractiveExample("pages/css/background-clip.html")}}
+{{InteractiveExample("CSS Demo: background-clip")}}
 
-Der Hintergrund wird immer hinter dem Rahmen gezeichnet, daher hat `background-clip: border-box` nur eine visuelle Wirkung, wenn der Rahmen teilweise undurchsichtig oder transparente oder teilweise undurchsichtige Bereiche aufweist. Auch die Eigenschaft `background-clip: text` hat wenig bis keine visuelle Wirkung, wenn der Text vollständig oder teilweise undurchsichtig ist.
+```css interactive-example-choice
+background-clip: border-box;
+```
+
+```css interactive-example-choice
+background-clip: padding-box;
+```
+
+```css interactive-example-choice
+background-clip: content-box;
+```
+
+```css interactive-example-choice
+background-clip: text;
+color: transparent;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element">This is the content of the element.</div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-image: url("/shared-assets/images/examples/leopard.jpg");
+  color: #d73611;
+  text-shadow: 2px 2px black;
+  padding: 20px;
+  border: 10px dashed #333;
+  font-size: 2em;
+  font-weight: bold;
+}
+```
+
+Der Hintergrund wird immer hinter dem Rahmen gezeichnet, daher hat `background-clip: border-box` nur dann einen visuellen Effekt, wenn der Rahmen teilweise undurchsichtig ist oder transparente oder teilweise undurchsichtige Bereiche aufweist. Auch die Eigenschaft `background-clip: text` hat wenig bis gar keinen visuellen Effekt, wenn der Text vollständig oder teilweise undurchsichtig ist.
 
 > [!NOTE]
-> Da das [Wurzelelement](/de/docs/Web/HTML/Element/html) einen anderen Hintergrund-Malbereich hat, hat die Eigenschaft `background-clip` keine Wirkung, wenn sie für dieses angegeben wird. Siehe "[The backgrounds of special elements.](https://drafts.csswg.org/css-backgrounds-3/#special-backgrounds)"
+> Da das [Root-Element](/de/docs/Web/HTML/Element/html) einen anderen Hintergrund-Malbereich hat, hat die `background-clip` Eigenschaft keine Wirkung, wenn sie darauf angewendet wird. Siehe "[Die Hintergründe spezieller Elemente.](https://drafts.csswg.org/css-backgrounds-3/#special-backgrounds)"
 
 > [!NOTE]
-> Für Dokumente, deren [Wurzelelement](/de/docs/Web/HTML/Element/html) ein HTML-Element ist: Wenn der berechnete Wert von {{cssxref("background-image")}} auf dem Wurzelelement `none` ist und seine {{cssxref("background-color")}} `transparent` ist, müssen Benutzeragenten stattdessen die berechneten Werte der `background`-Eigenschaften von diesem Element auf das erste HTML {{HTMLElement("body")}} Kind-Element übertragen. Die tatsächlich verwendeten Werte der `background`-Eigenschaften dieses `<body>`-Elements sind ihre Initialwerte, und die übertragenen Werte werden so behandelt, als ob sie auf dem Wurzelelement angegeben wären. Es wird empfohlen, dass Autoren von HTML-Dokumenten den Canvas-Hintergrund für das `<body>`-Element anstelle des HTML-Elements angeben.
+> Bei Dokumenten, deren [Root-Element](/de/docs/Web/HTML/Element/html) ein HTML-Element ist: Wenn der berechnete Wert von {{cssxref("background-image")}} auf dem Root-Element `none` ist und dessen {{cssxref("background-color")}} `transparent` ist, müssen Benutzeragenten stattdessen die berechneten Werte der `background`-Eigenschaften vom ersten HTML {{HTMLElement("body")}} Kind-Element dieses Elements propagieren. Die verwendeten Werte der `background`-Eigenschaften jenes `<body>` Elements sind ihre Anfangswerte, und die propagierten Werte werden behandelt, als wären sie auf dem Root-Element spezifiziert. Es wird empfohlen, dass Autoren von HTML-Dokumenten den Hintergrund der Zeichenfläche für das `<body>` Element statt für das HTML-Element spezifizieren.
 
 ## Syntax
 
@@ -40,23 +75,23 @@ background-clip: unset;
 ### Werte
 
 - `border-box`
-  - : Der Hintergrund erstreckt sich bis zum äußeren Rand des Rahmens (aber unterhalb des Rahmens in der z-Ordnung).
+  - : Der Hintergrund erstreckt sich bis zur Außenkante des Rahmens (aber unter dem Rahmen in der Z-Ordnung).
 - `padding-box`
-  - : Der Hintergrund erstreckt sich bis zum äußeren Rand des Abstands. Kein Hintergrund wird unter dem Rahmen gezeichnet.
+  - : Der Hintergrund erstreckt sich bis zur Außenkante des Abstands. Kein Hintergrund wird unter dem Rahmen gezeichnet.
 - `content-box`
-  - : Der Hintergrund wird innerhalb der (zur Inhalt-Box beschnittenen) Inhalt-Box gemalt.
+  - : Der Hintergrund wird innerhalb der Inhaltsbox gezeichnet (dorthin beschränkt).
 - `text`
-  - : Der Hintergrund wird innerhalb des Vordergrundtexts gemalt (zum Text beschnitten).
+  - : Der Hintergrund wird innerhalb des Vordergrundtexts gezeichnet (dorthin beschränkt).
 - `border-area`
-  - : Der Hintergrund wird innerhalb des Bereichs gemalt, der durch den Rahmen bemalt wird, wobei {{Cssxref("border-width")}} und {{Cssxref("border-style")}} berücksichtigt werden, jedoch jede durch {{Cssxref("border-color")}} eingeführte Transparenz ignoriert wird.
+  - : Der Hintergrund wird innerhalb des durch den Rahmen gezeichneten Bereichs dargestellt (dorthin beschränkt), wobei {{Cssxref("border-width")}} und {{Cssxref("border-style")}} berücksichtigt werden, jedoch jegliche durch {{Cssxref("border-color")}} eingeführte Transparenz ignoriert wird.
 
 ## Barrierefreiheit
 
-Wenn Sie `background-clip: text` verwenden, überprüfen Sie, dass das Kontrastverhältnis zwischen der Hintergrundfarbe und der Farbe des darüberliegenden Textes hoch genug ist, damit Personen mit Sehbehinderungen den Inhalt der Seite lesen können.
+Bei der Verwendung von `background-clip: text` sollte sichergestellt werden, dass der Kontrast zwischen der Hintergrundfarbe und der darüber liegenden Textfarbe hoch genug ist, damit Menschen mit Sehbehinderungen den Inhalt der Seite lesen können.
 
-Wenn das Hintergrundbild nicht geladen wird, könnte dies auch dazu führen, dass der Text nicht lesbar ist. Fügen Sie eine Fallback-{{cssxref("background-color")}} hinzu, um dies zu verhindern, und testen Sie ohne das Bild.
+Wenn das Hintergrundbild nicht geladen wird, könnte dies auch dazu führen, dass der Text unlesbar wird. Fügen Sie eine Rückfall-{{cssxref("background-color")}} hinzu, um dies zu verhindern, und testen Sie ohne das Bild.
 
-Betrachten Sie die Verwendung von Feature-Abfragen mit {{cssxref("@supports")}}, um die Unterstützung von `background-clip: text` zu testen und eine barrierefreie Alternative bereitzustellen, wo sie nicht unterstützt wird.
+Erwägen Sie, Feature-Anfragen mit {{cssxref("@supports")}} zu verwenden, um die Unterstützung von `background-clip: text` zu testen und eine zugängliche Alternative bereitzustellen, wo sie nicht unterstützt wird.
 
 ## Formale Definition
 
@@ -132,6 +167,6 @@ p {
 
 ## Siehe auch
 
-- Die {{cssxref("clip-path")}} Eigenschaft erstellt eine Clip-Region, die definiert, welcher Teil eines _gesamten Elements_ angezeigt werden soll.
-- Hintergrund-Eigenschaften: {{cssxref("background")}}, {{cssxref("background-color")}}, {{cssxref("background-image")}}, {{cssxref("background-origin")}}
+- Die {{cssxref("clip-path")}} Eigenschaft erstellt eine Schnittregion, die definiert, welcher Teil eines _gesamten Elements_ angezeigt werden soll.
+- Hintergrundeigenschaften: {{cssxref("background")}}, {{cssxref("background-color")}}, {{cssxref("background-image")}}, {{cssxref("background-origin")}}
 - [Einführung in das CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)

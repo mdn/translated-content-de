@@ -2,14 +2,38 @@
 title: user-select
 slug: Web/CSS/user-select
 l10n:
-  sourceCommit: 6732005dce0503eebc227e4fb3cc1c72f21d9d81
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`user-select`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, ob der Benutzer Text auswählen kann. Dies hat keine Auswirkung auf Inhalte, die als Teil der Benutzeroberfläche eines Browsers geladen werden (sein {{Glossary("Chrome", "Chrome")}}), außer in Textfeldern.
+Die **`user-select`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, ob der Benutzer Text auswählen kann. Diese hat keine Auswirkungen auf Inhalte, die als Teil der Benutzeroberfläche eines Browsers geladen werden (sein {{Glossary("Chrome", "Chrome")}}), außer in Textfeldern.
 
-{{EmbedInteractiveExample("pages/css/user-select.html")}}
+{{InteractiveExample("CSS Demo: user-select")}}
+
+```css interactive-example-choice
+user-select: none;
+```
+
+```css interactive-example-choice
+user-select: text;
+```
+
+```css interactive-example-choice
+user-select: all;
+```
+
+```html interactive-example
+<section id="default-example">
+  <p id="example-element">Try to select this text</p>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  font-size: 1.5rem;
+}
+```
 
 ## Syntax
 
@@ -28,7 +52,7 @@ user-select: revert-layer;
 user-select: unset;
 ```
 
-> **Note:** `user-select` ist keine vererbte Eigenschaft, obwohl der anfängliche `auto`-Wert sie meistens wie eine geerbte Eigenschaft verhalten lässt. WebKit/Chromium-basierte Browser implementieren die Eigenschaft _als_ vererbt, was das im Standard beschriebene Verhalten verletzt und zu einigen Problemen führen wird. Bis jetzt hat Chromium beschlossen, [die Probleme zu beheben](https://chromium.googlesource.com/chromium/src/+/b01af0b296ecb855aac95c4ed335d188e6eac2de), um das endgültige Verhalten an die Spezifikationen anzupassen.
+> **Hinweis:** `user-select` ist keine vererbte Eigenschaft, obwohl der anfängliche Wert `auto` dazu führt, dass sie sich meistens wie vererbt verhält. WebKit/Chromium-basierte Browser _implementieren_ die Eigenschaft als vererbt, was das im Standard beschriebene Verhalten verletzt und zu einigen Problemen führt. Bis jetzt hat sich Chromium entschieden, [die Probleme zu beheben](https://chromium.googlesource.com/chromium/src/+/b01af0b296ecb855aac95c4ed335d188e6eac2de), um das endgültige Verhalten an die Spezifikationen anzupassen.
 
 ### Werte
 
@@ -38,20 +62,20 @@ user-select: unset;
 
   - : Der verwendete Wert von `auto` wird wie folgt bestimmt:
 
-    - Auf den `::before`- und `::after`-Pseudoelementen ist der verwendete Wert `none`
-    - Wenn der verwendete Wert von `user-select` des übergeordneten Elements `none` ist, ist der verwendete Wert `none`
-    - Andernfalls, wenn der verwendete Wert von `user-select` des übergeordneten Elements `all` ist, ist der verwendete Wert `all`
-    - Andernfalls ist der verwendete Wert `text`
+    - Bei den Pseudo-Elementen `::before` und `::after` ist der verwendete Wert `none`.
+    - Wenn der verwendete Wert von `user-select` beim Elternelement dieses Elements `none` ist, ist der verwendete Wert `none`.
+    - Andernfalls, wenn der verwendete Wert von `user-select` beim Elternelement dieses Elements `all` ist, ist der verwendete Wert `all`.
+    - Ansonsten ist der verwendete Wert `text`.
 
 - `text`
   - : Der Text kann vom Benutzer ausgewählt werden.
 - `all`
-  - : Der Inhalt des Elements soll atomar ausgewählt werden: Wenn eine Auswahl einen Teil des Elements enthalten würde, muss die Auswahl das gesamte Element einschließlich aller Nachkommen enthalten. Wenn ein Doppelklick oder Kontextklick in Unterelementen auftritt, wird der höchste Vorfahre mit diesem Wert ausgewählt.
+  - : Der Inhalt des Elements soll atomar ausgewählt werden: Wenn eine Auswahl einen Teil des Elements enthalten würde, muss die Auswahl das gesamte Element einschließlich aller Nachkommen enthalten. Wenn ein Doppelklick oder Kontextklick in Unterelementen aufgetreten ist, wird der höchste Vorfahre mit diesem Wert ausgewählt.
 
 > [!NOTE]
-> Das Modul [CSS basic user interface](/de/docs/Web/CSS/CSS_basic_user_interface) definiert einen `contain`-Wert für die `user-select`-Eigenschaft, um die Auswahl innerhalb des Elements zu starten und auf die Grenzen dieses Elements zu beschränken. Dies wird jedoch in keinem Browser unterstützt.
+> Das [CSS Basic User Interface](/de/docs/Web/CSS/CSS_basic_user_interface)-Modul definiert einen `contain`-Wert für die `user-select`-Eigenschaft, um die Auswahl zu ermöglichen, innerhalb des Elements zu beginnen, das durch die Grenzen dieses Elements eingeschlossen werden soll. Dies wird jedoch in keinem Browser unterstützt.
 
-## Formal Definition
+## Formale Definition
 
 {{CSSInfo}}
 
@@ -97,5 +121,5 @@ user-select: unset;
 
 ## Siehe auch
 
-- {{Cssxref("::selection")}} Pseudoelement
-- Das JavaScript [`Selection`](/de/docs/Web/API/Selection)-Objekt
+- {{Cssxref("::selection")}} Pseudo-Element
+- Das JavaScript [`Selection`](/de/docs/Web/API/Selection) Objekt

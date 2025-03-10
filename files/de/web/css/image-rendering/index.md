@@ -2,16 +2,48 @@
 title: image-rendering
 slug: Web/CSS/image-rendering
 l10n:
-  sourceCommit: 2a88f593fc1c4bc2fffb81d8cd8eaa4a5afff8e6
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`image-rendering`**-Eigenschaft von [CSS](/de/docs/Web/CSS) setzt einen Algorithmus zur Bildskalierung. Die Eigenschaft gilt für das Element selbst, für alle in seinen anderen Eigenschaften gesetzten Bilder und für seine Nachkommen.
+Die **`image-rendering`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt einen Bildskalierungsalgorithmus fest. Die Eigenschaft gilt für das Element selbst, für alle Bilder, die in seinen anderen Eigenschaften festgelegt sind, und für seine Nachkommen.
 
-{{EmbedInteractiveExample("pages/css/image-rendering.html")}}
+{{InteractiveExample("CSS Demo: image-rendering")}}
 
-Der {{Glossary("user_agent", "User Agent")}} skaliert ein Bild, wenn der Seitenautor Abmessungen angibt, die von seiner natürlichen Größe abweichen. Skalierung kann auch durch Benutzerinteraktionen (z.B. Zoomen) erfolgen. Zum Beispiel, wenn die natürliche Größe eines Bildes `100×100px` beträgt, aber seine tatsächlichen Abmessungen `200×200px` (oder `50×50px`) sind, wird das Bild mithilfe des durch `image-rendering` angegebenen Algorithmus hoch- oder herunterskaliert. Diese Eigenschaft hat keinen Effekt auf nicht skalierte Bilder.
+```css interactive-example-choice
+image-rendering: auto;
+```
+
+```css interactive-example-choice
+image-rendering: smooth;
+```
+
+```css interactive-example-choice
+image-rendering: crisp-edges;
+```
+
+```css interactive-example-choice
+image-rendering: pixelated;
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/lizard.png" />
+</section>
+```
+
+```css interactive-example
+#example-element {
+  height: 480px;
+  object-fit: cover;
+}
+```
+
+Der {{Glossary("user_agent", "User Agent")}} wird ein Bild skalieren, wenn der Seitenautor Abmessungen angibt, die von der natürlichen Größe abweichen. Skalierung kann auch durch Benutzerinteraktion (Zoomen) erfolgen. Zum Beispiel, wenn die natürliche Größe eines Bildes `100×100px` ist, aber seine tatsächlichen Abmessungen `200×200px` (oder `50×50px`) betragen, dann wird das Bild unter Verwendung des durch `image-rendering` festgelegten Algorithmus hoch- oder herunterskaliert. Diese Eigenschaft hat keinen Effekt auf nicht skalierte Bilder.
 
 ## Syntax
 
@@ -33,19 +65,19 @@ image-rendering: unset;
 ### Werte
 
 - `auto`
-  - : Der Skalierungsalgorithmus ist UA-abhängig. Ab Version 1.9 (Firefox 3.0) verwendet Gecko eine _bilineare_ Resampling-Methode (hohe Qualität).
+  - : Der Skalierungsalgorithmus ist vom UA abhängig. Seit Version 1.9 (Firefox 3.0) verwendet Gecko _bilineare_ Neuberechnung (hohe Qualität).
 - `smooth`
-  - : Das Bild sollte mit einem Algorithmus skaliert werden, der das Erscheinungsbild des Bildes maximiert. Insbesondere sind Skalierungsalgorithmen akzeptabel, die Farben "glätten", wie bilineare Interpolation. Dies ist für Bilder wie Fotos gedacht.
+  - : Das Bild sollte mit einem Algorithmus skaliert werden, der das Erscheinungsbild des Bildes maximiert. Insbesondere sind Skalierungsalgorithmen, die Farben "glätten", akzeptabel, wie bilineare Interpolation. Dies ist für Bilder wie Fotos gedacht.
 - `crisp-edges`
-  - : Das Bild wird mit einem Algorithmus wie "nächster Nachbar" skaliert, der Kontrast und Kanten im Bild erhält. Allgemein gedacht für Bilder wie Pixelkunst oder Liniendarstellungen, ohne Verwischung oder Farbschmierung.
+  - : Das Bild wird mit einem Algorithmus wie "Nearest Neighbor" skaliert, der den Kontrast und die Kanten im Bild erhält. Allgemein für Bilder wie Pixelkunst oder Linienzeichnungen gedacht; es erfolgt kein Verwischen oder Farbglättung.
 - `pixelated`
-  - : Das Bild wird mit dem "nächster Nachbar"-Algorithmus oder einem ähnlichen auf die nächste ganze Vielfache der ursprünglichen Bildgröße skaliert und dann mit glatter Interpolation auf die endgültige gewünschte Größe gebracht. Dies soll ein "verpixelt" Aussehen bewahren, ohne Skalierungsartefakte einzuführen, wenn die hochskalierte Auflösung kein ganzzahliges Vielfaches der ursprünglichen ist.
+  - : Das Bild wird mit dem "Nearest Neighbor" oder einem ähnlichen Algorithmus auf den nächsten ganzzahligen Vielfachen der ursprünglichen Bildgröße skaliert und dann mit glatter Interpolation auf die endgültige gewünschte Größe gebracht. Dies soll ein "pixeliges" Aussehen bewahren, ohne Skalierungsartefakte einzuführen, wenn die hochskalierte Auflösung kein ganzzahliges Vielfaches der ursprünglichen ist.
 
 > [!NOTE]
-> Die Werte `optimizeQuality` und `optimizeSpeed`, die in einem frühen Entwurf vorhanden sind (und von ihrem SVG-Pendant {{SVGAttr("image-rendering")}} stammen), sind als Synonyme für die Werte `smooth` bzw. `pixelated` definiert.
+> Die Werte `optimizeQuality` und `optimizeSpeed`, die in einem frühen Entwurf vorhanden waren (und vom SVG-Gegenstück {{SVGAttr("image-rendering")}} stammen), sind als Synonyme für die Werte `smooth` und `pixelated` definiert.
 
 > [!NOTE]
-> Das [CSS images](/de/docs/Web/CSS/CSS_images)-Modul definiert einen `high-quality`-Wert für die `image-rendering`-Eigenschaft, um eine Präferenz für höherwertige Skalierung bereitzustellen. Dieser wird jedoch in keinem Browser unterstützt.
+> Das [CSS images](/de/docs/Web/CSS/CSS_images)-Modul definiert einen `high-quality`-Wert für die `image-rendering`-Eigenschaft, um eine Präferenz für hochwertigere Skalierung bereitzustellen; dies wird jedoch in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -57,9 +89,9 @@ image-rendering: unset;
 
 ## Beispiele
 
-### Festlegen von Bildskalierungsalgorithmen
+### Bildskalierungsalgorithmen festlegen
 
-In diesem Beispiel wird ein Bild dreimal wiederholt, wobei jedem ein anderer `image-rendering`-Wert zugewiesen wird.
+In diesem Beispiel wird ein Bild dreimal wiederholt, wobei jedem eine andere `image-rendering`-Wert zugewiesen wird.
 
 ```html hidden
 <div>

@@ -2,34 +2,72 @@
 title: border-top
 slug: Web/CSS/border-top
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`border-top`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des oberen [Rands](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-top`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des oberen [Rands](/de/docs/Web/CSS/border) eines Elements.
 
-{{EmbedInteractiveExample("pages/css/border-top.html")}}
+{{InteractiveExample("CSS Demo: border-top")}}
 
-Wie bei allen Kurzschreibweisen setzt `border-top` immer die Werte aller Eigenschaften, die sie setzen kann, auch wenn sie nicht angegeben sind. Diejenigen, die nicht angegeben sind, werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
+```css interactive-example-choice
+border-top: solid;
+```
+
+```css interactive-example-choice
+border-top: dashed red;
+```
+
+```css interactive-example-choice
+border-top: 1rem solid;
+```
+
+```css interactive-example-choice
+border-top: thick double #32a1ce;
+```
+
+```css interactive-example-choice
+border-top: 4mm ridge rgba(211, 220, 50, 0.6);
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with a border around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #eee;
+  color: #8b008b;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+}
+```
+
+Wie bei allen Shorthand-Eigenschaften setzt `border-top` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt die nicht angegebenen auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-top-style: dotted;
 border-top: thick green;
 ```
 
-Dieser ist tatsächlich derselbe wie dieser hier:
+Dieser ist tatsächlich gleichbedeutend mit diesem:
 
 ```css
 border-top-style: dotted;
 border-top: none thick green;
 ```
 
-Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nicht-Angeben des `border-style`-Teils zu keinem Rand.
+Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nicht-Angaben des `border-style`-Teils zu keinem Rand.
 
-## Bestandteileigenschaften
+## Zugrunde liegende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
 
 - [`border-top-color`](/de/docs/Web/CSS/border-top-color)
 - [`border-top-style`](/de/docs/Web/CSS/border-top-style)
@@ -50,7 +88,7 @@ border-top: revert-layer;
 border-top: unset;
 ```
 
-Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen dürfen weggelassen werden.
 
 ### Werte
 
@@ -71,7 +109,7 @@ Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben 
 
 ## Beispiele
 
-### Anwenden eines oberen Rands
+### Anwendung eines oberen Rands
 
 #### HTML
 

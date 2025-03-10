@@ -2,14 +2,40 @@
 title: column-fill
 slug: Web/CSS/column-fill
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`column-fill`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie der Inhalt eines Elements ausgeglichen wird, wenn er in Spalten aufgeteilt wird.
+Die **`column-fill`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, wie der Inhalt eines Elements aufgeteilt wird, wenn er in Spalten gebrochen wird.
 
-{{EmbedInteractiveExample("pages/css/column-fill.html")}}
+{{InteractiveExample("CSS Demo: column-fill")}}
+
+```css interactive-example-choice
+column-fill: auto;
+```
+
+```css interactive-example-choice
+column-fill: balance;
+```
+
+```html interactive-example
+<section id="default-example">
+  <p id="example-element">
+    London. Michaelmas term lately over, and the Lord Chancellor sitting in
+    Lincoln's Inn Hall. Implacable November weather.
+  </p>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  width: 100%;
+  height: 90%;
+  columns: 3;
+  text-align: left;
+}
+```
 
 ## Syntax
 
@@ -26,16 +52,16 @@ column-fill: revert-layer;
 column-fill: unset;
 ```
 
-Die `column-fill` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben. Der Standardwert ist `balance`, sodass der Inhalt gleichmäßig auf die Spalten verteilt wird.
+Die `column-fill`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben. Der Anfangswert ist `balance`, sodass der Inhalt über die Spalten hinweg ausgeglichen wird.
 
 ### Werte
 
 - `auto`
-  - : Spalten werden der Reihe nach gefüllt. Der Inhalt nimmt nur so viel Platz ein, wie er benötigt, was möglicherweise dazu führt, dass einige Spalten leer bleiben.
+  - : Spalten werden nacheinander gefüllt. Der Inhalt nimmt nur den Platz ein, den er benötigt, was möglicherweise dazu führt, dass einige Spalten leer bleiben.
 - `balance`
-  - : Der Inhalt wird gleichmäßig zwischen den Spalten aufgeteilt. In fragmentierten Kontexten, wie [Paginierte Medien](/de/docs/Web/CSS/CSS_paged_media), wird nur das letzte Fragment ausgeglichen. Daher würde bei paginierten Medien nur die letzte Seite ausgeglichen.
+  - : Der Inhalt wird gleichmäßig zwischen den Spalten aufgeteilt. In fragmentierten Kontexten, wie z. B. [Paginierte Medien](/de/docs/Web/CSS/CSS_paged_media), wird nur das letzte Fragment ausgeglichen. Daher würde bei paginierten Medien nur die letzte Seite ausgeglichen.
 
-Die Spezifikation definiert einen `balance-all` Wert, bei dem der Inhalt in fragmentierten Kontexten, wie [Paginierte Medien](/de/docs/Web/CSS/CSS_paged_media), gleichmäßig zwischen den Spalten aufgeteilt wird. Dieser Wert wird derzeit von keinem Browser unterstützt.
+Die Spezifikation definiert einen Wert `balance-all`, bei dem der Inhalt in fragmentierten Kontexten, wie [Paginierte Medien](/de/docs/Web/CSS/CSS_paged_media), gleichmäßig zwischen den Spalten aufgeteilt wird. Dieser Wert wird derzeit in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -94,12 +120,12 @@ p.fill-balance {
 {{Compat}}
 
 > [!WARNING]
-> Es gibt einige Interoperabilitätsprobleme und Fehler mit `column-fill` über verschiedene Browser hinweg, aufgrund ungelöster Probleme in der Spezifikation.
+> Es gibt einige Interoperabilitätsprobleme und Fehler mit `column-fill` in verschiedenen Browsern, bedingt durch ungelöste Probleme in der Spezifikation.
 >
-> Insbesondere bei der Verwendung von `column-fill: auto`, um Spalten der Reihe nach zu füllen, wird Chrome diese Eigenschaft nur berücksichtigen, wenn der Multikolonnen-Container eine Größe in der Block-Dimension hat (z.B. Höhe in einem horizontalen Schreibmodus). Firefox wird diese Eigenschaft immer berücksichtigen und daher die erste Spalte mit dem gesamten Inhalt füllen, wenn keine Größe vorhanden ist.
+> Insbesondere wenn `column-fill: auto` verwendet wird, um die Spalten nacheinander zu füllen, wird Chrome diese Eigenschaft nur berücksichtigen, wenn der Multicol-Container eine Größe in der Blockdimension hat (z.B. Höhe in einem horizontalen Schreibmodus). Firefox wird diese Eigenschaft immer berücksichtigen und dadurch die erste Spalte mit dem gesamten Inhalt füllen, wenn keine Größe vorhanden ist.
 
 ## Siehe auch
 
-- [Lernen: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-count")}}
 - {{CSSXref("column-width")}}

@@ -2,14 +2,78 @@
 title: caption-side
 slug: Web/CSS/caption-side
 l10n:
-  sourceCommit: 8ae9de1b4c2562579812019be4542914236bc7c5
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`caption-side`** [CSS](/de/docs/Web/CSS) Eigenschaft platziert den Inhalt des {{HTMLElement("caption")}} einer Tabelle auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
+Die **`caption-side`** [CSS](/de/docs/Web/CSS) Eigenschaft positioniert den Inhalt eines {{HTMLElement("caption")}} Elements einer Tabelle an der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
 
-{{EmbedInteractiveExample("pages/css/caption-side.html")}}
+{{InteractiveExample("CSS Demo: caption-side")}}
+
+```css interactive-example-choice
+caption-side: top;
+```
+
+```css interactive-example-choice
+caption-side: bottom;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <table class="transition-all" id="example-element">
+    <caption>
+      Famous animals
+    </caption>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+    </tr>
+    <tr>
+      <td>Giraffe</td>
+      <td>Africa</td>
+    </tr>
+    <tr>
+      <td>Penguin</td>
+      <td>Antarctica</td>
+    </tr>
+    <tr>
+      <td>Sloth</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <td>Tiger</td>
+      <td>Asia</td>
+    </tr>
+  </table>
+</section>
+```
+
+```css interactive-example
+table {
+  font-size: 1.2rem;
+  text-align: left;
+  color: #000;
+}
+
+th,
+td {
+  padding: 0.2rem 1rem;
+}
+
+caption {
+  background: #fc3;
+  padding: 0.5rem 1rem;
+}
+
+tr {
+  background: #eee;
+}
+
+tr:nth-child(even) {
+  background: #ccc;
+}
+```
 
 ## Syntax
 
@@ -26,17 +90,17 @@ caption-side: revert-layer;
 caption-side: unset;
 ```
 
-Die `caption-side`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `caption-side` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `top`
-  - : Die Beschriftungsbox sollte an der Blockanfangsseite der Tabelle positioniert werden.
+  - : Das Caption-Element sollte am Blockstart der Tabelle positioniert werden.
 - `bottom`
-  - : Die Beschriftungsbox sollte an der Blockendseite der Tabelle positioniert werden.
+  - : Das Caption-Element sollte am Blockende der Tabelle positioniert werden.
 
 > [!NOTE]
-> Das [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul definiert zwei logische Werte, `inline-start` und `inline-end`, um die Beschriftungsbox am Inline-Anfangsrand bzw. am Inline-Endrand der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
+> Das Modul [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um das Caption-Element am Inline-Anfang und Inline-Ende der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -48,7 +112,7 @@ Die `caption-side`-Eigenschaft wird als einer der unten aufgeführten Schlüssel
 
 ## Beispiele
 
-### Beschriftungen oberhalb und unterhalb festlegen
+### Captions oben und unten setzen
 
 #### HTML
 
@@ -112,4 +176,4 @@ td {
 
 - {{HTMLelement("caption")}}
 - [CSS table](/de/docs/Web/CSS/CSS_table) Modul
-- [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
+- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul

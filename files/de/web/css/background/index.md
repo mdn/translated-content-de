@@ -1,19 +1,57 @@
 ---
-title: background
+title: Hintergrund
 slug: Web/CSS/background
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`background`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) der [CSS](/de/docs/Web/CSS)-Eigenschaft legt alle Hintergrundstil-Eigenschaften auf einmal fest, wie Farbe, Bild, Ursprung und Größe oder Wiederholungsmethode. Komponenten-Eigenschaften, die im Wert der `background`-Kurzschreibweise nicht festgelegt sind, werden auf ihre Standardwerte gesetzt.
+Die **`background`** [Kurzschrift](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Hintergrundstil-Eigenschaften auf einmal, wie Farbe, Bild, Ursprung und Größe oder Wiederholungsmethode. Eigenschaften, die in der `background` Kurzschrift-Eigenschaftswert-Deklaration nicht festgelegt sind, werden auf ihre Standardwerte gesetzt.
 
-{{EmbedInteractiveExample("pages/css/background.html")}}
+{{InteractiveExample("CSS Demo: background")}}
 
-## Bestandteile der Eigenschaften
+```css interactive-example-choice
+background: green;
+```
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+```css interactive-example-choice
+background: content-box radial-gradient(crimson, skyblue);
+```
+
+```css interactive-example-choice
+background: no-repeat url("/shared-assets/images/examples/lizard.png");
+```
+
+```css interactive-example-choice
+background: left 5% / 15% 60% repeat-x
+  url("/shared-assets/images/examples/star.png");
+```
+
+```css interactive-example-choice
+background:
+  center / contain no-repeat
+    url("/shared-assets/images/examples/firefox-logo.svg"),
+  #eee 35% url("/shared-assets/images/examples/lizard.png");
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element"></div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  min-width: 100%;
+  min-height: 100%;
+  padding: 10%;
+}
+```
+
+## Bestandteileigenschaften
+
+Diese Eigenschaft ist eine Kurzschrift für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("background-attachment")}}
 - {{cssxref("background-clip")}}
@@ -47,11 +85,11 @@ background: revert-layer;
 background: unset;
 ```
 
-Die `background`-Eigenschaft wird als eine oder mehrere Hintergrundebenen angegeben, die durch Kommata getrennt sind.
+Die `background` Eigenschaft wird als eine oder mehrere Hintergrundebenen angegeben, die durch Kommas getrennt sind.
 
 Die Syntax jeder Ebene ist wie folgt:
 
-- Jede Ebene kann null oder einmal die folgenden Werte enthalten:
+- Jede Ebene kann null oder eine Vorkommen von jedem der folgenden Werte enthalten:
 
   - `<attachment>`
   - `<bg-image>`
@@ -59,9 +97,9 @@ Die Syntax jeder Ebene ist wie folgt:
   - `<bg-size>`
   - `<repeat-style>`
 
-- Der `<bg-size>`-Wert darf nur direkt nach `<position>` enthalten sein, getrennt durch den '/'-Zeichnen, wie in: `center/80%`.
-- Der `<box>`-Wert kann null, einmal oder zweimal enthalten sein. Wenn er einmal enthalten ist, legt er sowohl {{cssxref("background-origin")}} als auch {{cssxref("background-clip")}} fest. Wenn er zweimal enthalten ist, legt das erste Vorkommen {{cssxref("background-origin")}} fest, und das zweite {{cssxref("background-clip")}}.
-- Der `<background-color>`-Wert darf nur in der zuletzt angegebenen Ebene enthalten sein.
+- Der `<bg-size>` Wert darf nur unmittelbar nach `<position>` aufgenommen werden, getrennt durch das '/' Zeichen, so: `center/80%`.
+- Der `<box>` Wert kann null-, einmal oder zweimal aufgenommen werden. Wenn einmal aufgenommen, setzt er sowohl {{cssxref("background-origin")}} als auch {{cssxref("background-clip")}}. Wenn er zweimal aufgenommen wird, setzt das erste Vorkommen {{cssxref("background-origin")}} und das zweite {{cssxref("background-clip")}}.
+- Der `<background-color>` Wert kann nur in der zuletzt angegebenen Ebene aufgenommen werden.
 
 ### Werte
 
@@ -80,7 +118,7 @@ Die Syntax jeder Ebene ist wie folgt:
 - `<bg-size>`
   - : Siehe {{cssxref("background-size")}}. Standard: `auto`.
 
-Die folgenden drei Zeilen CSS sind gleichwertig:
+Die folgenden drei CSS-Zeilen sind äquivalent:
 
 ```css
 background: none;
@@ -98,14 +136,14 @@ background: repeat scroll 0% 0% / auto padding-box border-box none transparent;
 
 ## Barrierefreiheit
 
-Browser bieten keine speziellen Informationen über Hintergrundbilder für unterstützende Technologien an. Das ist vor allem für Bildschirmleser wichtig, da ein Bildschirmleser deren Vorhandensein nicht mitteilt und somit den Benutzern nichts darüber vermittelt. Wenn das Bild Informationen enthält, die entscheidend für das Verständnis des Zwecks der Seite sind, ist es besser, es semantisch im Dokument zu beschreiben.
+Browser stellen keine speziellen Informationen zu Hintergrundbildern für unterstützende Technologien bereit. Dies ist vor allem für Screenreader wichtig, da ein Screenreader das Vorhandensein nicht ankündigt und daher dem Nutzer nichts vermittelt. Wenn das Bild Informationen enthält, die wichtig sind, um den Gesamtsinn der Seite zu verstehen, ist es besser, es semantisch im Dokument zu beschreiben.
 
-- [MDN Verständnis der WCAG, Erklärungen zu Richtlinie 1.1](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Verständnis des Erfolgskriteriums 1.1.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+- [MDN Verständnis von WCAG, Leitlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [Verständnis des Erfolgskriteriums 1.1.1 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 
 ## Beispiele
 
-### Hintergründe mit Farbschlüsselwörtern und Bildern festlegen
+### Hintergründe mit Farbschlüsselwörtern und Bildern setzen
 
 #### HTML
 
@@ -147,4 +185,4 @@ Browser bieten keine speziellen Informationen über Hintergrundbilder für unter
 
 - {{cssxref("box-decoration-break")}}
 - [Verwendung von Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
-- [Verwendung von mehreren Hintergründen](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)
+- [Verwendung mehrerer Hintergründe](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)

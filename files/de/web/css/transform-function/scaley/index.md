@@ -2,16 +2,42 @@
 title: scaleY()
 slug: Web/CSS/transform-function/scaleY
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`scaleY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element entlang der y-Achse (vertikal) skaliert. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scaleY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element entlang der y-Achse (vertikal) skaliert. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
-{{EmbedInteractiveExample("pages/css/function-scaleY.html")}}
+{{InteractiveExample("CSS Demo: scaleY()")}}
 
-Sie modifiziert die Ordinate (vertikale y-Koordinate) jedes Punktes des Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist, in diesem Fall ist die Funktion die Identitätstransformation. Das Skalieren ist nicht isotrop, und die Winkel des Elements bleiben nicht erhalten. `scaleY(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), mit einer horizontalen Achse, die durch den Ursprung verläuft (wie durch die {{cssxref("transform-origin")}}-Eigenschaft angegeben).
+```css interactive-example-choice
+transform: scaleY(1);
+```
+
+```css interactive-example-choice
+transform: scaleY(0.7);
+```
+
+```css interactive-example-choice
+transform: scaleY(1.3);
+```
+
+```css interactive-example-choice
+transform: scaleY(-0.5);
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/firefox-logo.svg"
+    width="200" />
+</section>
+```
+
+Diese Funktion modifiziert die Ordinate (vertikal, y-Koordinate) jedes Punktes eines Elements durch einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist, in diesem Fall ist die Funktion die Identitätstransformation. Die Skalierung ist nicht isotrop und die Winkel des Elements bleiben nicht erhalten. `scaleY(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry) mit einer horizontalen Achse, die durch den Ursprung verläuft (wie durch die {{cssxref("transform-origin")}} Eigenschaft angegeben).
 
 > **Note:** `scaleY(sy)` ist äquivalent zu
 > `scale(1, sy)` oder
@@ -28,7 +54,7 @@ scaleY(s)
 ### Werte
 
 - `s`
-  - : Ist eine {{cssxref("&lt;number&gt;")}}, die den Skalierungsfaktor darstellt, der auf die Ordinate (vertikale y-Koordinate) jedes Punktes des Elements angewendet wird.
+  - : Ein {{cssxref("&lt;number&gt;")}}, der den Skalierungsfaktor darstellt, der auf die Ordinate (vertikal, y-Koordinate) jedes Punktes des Elements angewendet wird.
 
 <table class="standard-table">
   <thead>

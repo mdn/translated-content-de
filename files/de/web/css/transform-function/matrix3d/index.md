@@ -2,18 +2,71 @@
 title: matrix3d()
 slug: Web/CSS/transform-function/matrix3d
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`matrix3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine 3D-Transformation als 4x4 homogene Matrix. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}}-Datentyp.
+Die **`matrix3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine 3D-Transformation als 4x4 homogene Matrix.
+Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
-{{EmbedInteractiveExample("pages/css/function-matrix3d.html")}}
+{{InteractiveExample("CSS Demo: matrix3d()")}}
+
+```css interactive-example-choice
+transform: matrix3d(
+  -0.6,
+  1.34788,
+  0,
+  0,
+  -2.34788,
+  -0.6,
+  0,
+  0,
+  0,
+  0,
+  1,
+  0,
+  0,
+  0,
+  10,
+  1
+);
+```
+
+```css interactive-example-choice
+transform: matrix3d(
+  0.5,
+  0,
+  -0.866025,
+  0,
+  0.595877,
+  1.2,
+  -1.03209,
+  0,
+  0.866025,
+  0,
+  0.5,
+  0,
+  25.9808,
+  0,
+  15,
+  1
+);
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/firefox-logo.svg"
+    width="200" />
+</section>
+```
 
 ## Syntax
 
-Die `matrix3d()`-Funktion wird mit 16 Werten angegeben. Sie sind in Spalten-Major-Reihenfolge beschrieben.
+Die `matrix3d()` Funktion wird mit 16 Werten angegeben. Sie werden in Spaltenmajor-Ordnung beschrieben.
 
 ```css
 matrix3d(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4)
@@ -23,9 +76,9 @@ matrix3d(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4)
 
 - _a1_ _b1_ _c1_ _d1_ _a2_ _b2_ _c2_ _d2_
   _a3_ _b3_ _c3_ _d3_
-  - : Sind {{cssxref("&lt;number&gt;")}}s, die die lineare Transformation beschreiben.
+  - : Sind {{cssxref("&lt;number&gt;")}}, die die lineare Transformation beschreiben.
 - _a4_ _b4_ _c4 d4_
-  - : Sind {{cssxref("&lt;number&gt;")}}s, die die anzuwendende Translation beschreiben.
+  - : Sind {{cssxref("&lt;number&gt;")}}, die die anzuwendende Translation beschreiben.
 
 <table class="standard-table">
   <thead>
@@ -42,7 +95,7 @@ matrix3d(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4)
         Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
-        Eine generische 3D-<a href="https://en.wikipedia.org/wiki/Affine_transformation">affine Transformation</a> kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden, da Translationen keine linearen Transformationen sind.
+        Eine generische 3D <a href="https://en.wikipedia.org/wiki/Affine_transformation">affine Transformation</a> kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden, da Translationen keine linearen Transformationen sind.
       </td>
       <td>
         <math display="block">
@@ -59,9 +112,9 @@ matrix3d(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4)
 
 ## Beispiele
 
-### Beispiel für Würfel-Komprimierung
+### Würfel-Quetschbeispiel
 
-Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transformationen erstellt wurde und der bei Hover/Fokus eine `matrix3d()`-Transformation anwendet.
+Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transformationen erstellt wurde und der beim Hover/Fokus ein `matrix3d()` Transform erhält.
 
 #### HTML
 
@@ -141,9 +194,9 @@ Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transfor
 
 {{EmbedLiveSample('Cube_squashing_example', '100%', '300px')}}
 
-### Beispiel für Matrix-Translation und Skalierung
+### Beispiel für Matrix-Translation und -Skalierung
 
-Ein weiteres Beispiel für `transform3d()`, das eine animierte Kombination aus Translation und Skalierung implementiert.
+Ein weiteres `transform3d()` Beispiel, das eine animierte kombinierte Translation und Skalierung implementiert.
 
 #### HTML
 
@@ -234,7 +287,7 @@ body {
 ## Siehe auch
 
 - {{cssxref("transform")}}
-- Individuelle Transformations-Eigenschaften:
+- Individuelle Transform-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

@@ -2,14 +2,55 @@
 title: backdrop-filter
 slug: Web/CSS/backdrop-filter
 l10n:
-  sourceCommit: 4030a3382d2f2ee9a2aa6232c1fbb5724a27cc8b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`backdrop-filter`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, grafische Effekte wie Unschärfe oder Farbverschiebung auf den Bereich hinter einem Element anzuwenden. Da sie auf alles _hinter_ dem Element wirkt, muss das Element oder dessen Hintergrund transparent oder teilweise transparent sein, um den Effekt zu sehen.
+Die **`backdrop-filter`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, grafische Effekte wie Unschärfe oder Farbverschiebungen auf den Bereich hinter einem Element anzuwenden. Da sie auf alles _hinter_ dem Element angewendet wird, muss das Element oder sein Hintergrund transparent oder teilweise transparent sein, um den Effekt zu sehen.
 
-{{EmbedInteractiveExample("pages/css/backdrop-filter.html")}}
+{{InteractiveExample("CSS Demo: backdrop-filter()")}}
+
+```css interactive-example-choice
+backdrop-filter: blur(10px);
+```
+
+```css interactive-example-choice
+backdrop-filter: invert(80%);
+```
+
+```css interactive-example-choice
+backdrop-filter: sepia(90%);
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="example-container">
+    <div id="example-element">Example</div>
+  </div>
+</section>
+```
+
+```css interactive-example
+.example-container {
+  background-image: url("/shared-assets/images/examples/balloon.jpg");
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+#example-element {
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+  padding: 20px 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+```
 
 ## Syntax
 
@@ -46,9 +87,9 @@ backdrop-filter: unset;
 ### Werte
 
 - `none`
-  - : Es wird kein Filter auf den Hintergrund angewendet.
+  - : Kein Filter wird auf den Hintergrund angewendet.
 - `<filter-value-list>`
-  - : Eine durch Leerzeichen getrennte Liste von {{cssxref("&lt;filter-function&gt;")}}s oder ein [SVG-Filter](/de/docs/Web/SVG/Element/filter), der auf den Hintergrund angewendet wird. Zu den CSS-`<filter-function>`s gehören {{CSSxRef("filter-function/blur", "blur()")}}, {{CSSxRef("filter-function/brightness", "brightness()")}}, {{CSSxRef("filter-function/contrast", "contrast()")}}, {{CSSxRef("filter-function/drop-shadow", "drop-shadow()")}}, {{CSSxRef("filter-function/grayscale", "grayscale()")}}, {{CSSxRef("filter-function/hue-rotate", "hue-rotate()")}}, {{CSSxRef("filter-function/invert", "invert()")}}, {{CSSxRef("filter-function/opacity", "opacity()")}}, {{CSSxRef("filter-function/saturate", "saturate()")}} und {{CSSxRef("filter-function/sepia", "sepia()")}}.
+  - : Eine durch Leerzeichen getrennte Liste von {{cssxref("&lt;filter-function&gt;")}}s oder ein [SVG-Filter](/de/docs/Web/SVG/Element/filter), der auf den Hintergrund angewendet wird. CSS `<filter-function>`s beinhalten {{CSSxRef("filter-function/blur", "blur()")}}, {{CSSxRef("filter-function/brightness", "brightness()")}}, {{CSSxRef("filter-function/contrast", "contrast()")}}, {{CSSxRef("filter-function/drop-shadow", "drop-shadow()")}}, {{CSSxRef("filter-function/grayscale", "grayscale()")}}, {{CSSxRef("filter-function/hue-rotate", "hue-rotate()")}}, {{CSSxRef("filter-function/invert", "invert()")}}, {{CSSxRef("filter-function/opacity", "opacity()")}}, {{CSSxRef("filter-function/saturate", "saturate()")}}, und {{CSSxRef("filter-function/sepia", "sepia()")}}.
 
 ## Formale Definition
 
@@ -125,5 +166,5 @@ body {
 - {{cssxref("filter")}}
 - {{cssxref("&lt;filter-function&gt;")}}
 - {{cssxref("background-blend-mode")}}, {{cssxref("mix-blend-mode")}}
-- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
-- [CSS Compositing und Blending](/de/docs/Web/CSS/CSS_compositing_and_blending)
+- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
+- [CSS Komposition und Überblendung](/de/docs/Web/CSS/CSS_compositing_and_blending)

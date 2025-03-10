@@ -2,21 +2,47 @@
 title: matrix()
 slug: Web/CSS/transform-function/matrix
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`matrix()`**-Funktion in [CSS](/de/docs/Web/CSS) definiert eine homogene 2D-Transformationsmatrix. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Daten-Typ.
+Die **`matrix()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine homogene 2D-Transformationsmatrix. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
-{{EmbedInteractiveExample("pages/css/function-matrix.html")}}
+{{InteractiveExample("CSS Demo: matrix()")}}
 
-> **Note:** `matrix(a, b, c, d, tx, ty)` ist eine Kurzschreibweise für
+```css interactive-example-choice
+transform: matrix(1.2, 0.2, -1, 0.9, 0, 20);
+```
+
+```css interactive-example-choice
+transform: matrix(0.4, 0, 0.5, 1.2, 60, 10);
+```
+
+```css interactive-example-choice
+transform: matrix(0, 1, 1, 0, 0, 0);
+```
+
+```css interactive-example-choice
+transform: matrix(0.1, 1, -0.3, 1, 0, 0);
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/firefox-logo.svg"
+    width="200" />
+</section>
+```
+
+> **Note:** `matrix(a, b, c, d, tx, ty)` ist eine Kurzform für
 > `matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)`.
 
 ## Syntax
 
-Die `matrix()`-Funktion wird mit sechs Werten festgelegt. Die konstanten Werte sind impliziert und werden nicht als Parameter übergeben; die anderen Parameter werden in der spaltenweisen Reihenfolge beschrieben.
+Die `matrix()` Funktion wird mit sechs Werten angegeben. Die konstanten Werte werden implizit berücksichtigt und nicht als Parameter übergeben; die anderen Parameter werden in spaltenweisem Format beschrieben.
 
 ```css
 matrix(a, b, c, d, tx, ty)
@@ -25,17 +51,17 @@ matrix(a, b, c, d, tx, ty)
 ### Werte
 
 - _a_ _b_ _c_ _d_
-  - : Sind {{cssxref("&lt;number&gt;")}}-Werte, die die lineare Transformation beschreiben.
+  - : Sind {{cssxref("&lt;number&gt;")}}s, die die lineare Transformation beschreiben.
 - _tx_ _ty_
-  - : Sind {{cssxref("&lt;number&gt;")}}-Werte, die die anzuwendende Translation beschreiben.
+  - : Sind {{cssxref("&lt;number&gt;")}}s, die die anzuwendende Translation beschreiben.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> im <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> im <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten im <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten im <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
+      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
@@ -113,7 +139,7 @@ div {
 ## Siehe auch
 
 - {{cssxref("transform")}}
-- Einzelne Transformations-Eigenschaften:
+- Individuelle Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

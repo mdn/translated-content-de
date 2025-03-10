@@ -2,16 +2,56 @@
 title: border-end-start-radius
 slug: Web/CSS/border-end-start-radius
 l10n:
-  sourceCommit: 2adfb8760ac42c80966080e2e84211b14e43b589
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`border-end-start-radius`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert einen logischen Border-Radius auf einem Element, der je nach {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} des Elements einem physischen Border-Radius zugeordnet wird. Dies ist nützlich, um Stile zu erstellen, die unabhängig von der [Textausrichtung](/de/docs/Web/CSS/text-orientation) und dem [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) funktionieren.
+Die **`border-end-start-radius`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert einen logischen Rahmenradius an einem Element, der je nach {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} des Elements auf einen physischen Rahmenradius abbildet. Dies ist nützlich beim Erstellen von Stilen, die unabhängig von der [Textausrichtung](/de/docs/Web/CSS/text-orientation) und dem [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) funktionieren sollen.
 
-{{EmbedInteractiveExample("pages/css/border-end-start-radius.html")}}
+{{InteractiveExample("CSS Demo: border-end-start-radius")}}
 
-Diese Eigenschaft beeinflusst die Ecke zwischen den Block-End- und Inline-Start-Seiten des Elements. Zum Beispiel entspricht sie in einem `horizontal-tb`-Schreibmodus mit `ltr`-Richtung der {{CSSxRef("border-bottom-left-radius")}}-Eigenschaft.
+```css interactive-example-choice
+border-end-start-radius: 80px 80px;
+```
+
+```css interactive-example-choice
+border-end-start-radius: 250px 100px;
+direction: rtl;
+```
+
+```css interactive-example-choice
+border-end-start-radius: 50%;
+writing-mode: vertical-lr;
+```
+
+```css interactive-example-choice
+border-end-start-radius: 50%;
+writing-mode: vertical-rl;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with a bottom left rounded corner.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #5b6dcd;
+  color: white;
+  padding: 10px;
+}
+```
+
+Diese Eigenschaft beeinflusst die Ecke zwischen dem Block-Ende und den Inline-Start-Seiten des Elements. Beispielsweise entspricht sie im `horizontal-tb`-Schreibmodus mit `ltr`-Richtung der {{CSSxRef("border-bottom-left-radius")}}-Eigenschaft.
 
 ## Syntax
 
@@ -35,7 +75,7 @@ border-end-start-radius: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Bezeichnet die Größe des Kreisradius oder die großen und kleinen Halbachsen der Ellipse. Als absolute Länge kann sie in jeder Einheit ausgedrückt werden, die vom CSS {{cssxref("&lt;length&gt;")}} Datentyp erlaubt ist. Prozentwerte für die horizontale Achse beziehen sich auf die Breite des Kastens, Prozentwerte für die vertikale Achse beziehen sich auf die Höhe des Kastens. Negative Werte sind ungültig.
+  - : Gibt die Größe des Kreisradius oder die Halbierungsachsen der Ellipse an. Als absolute Länge kann sie in jeder von der CSS {{cssxref("&lt;length&gt;")}} erlaubten Einheit ausgedrückt werden. Prozentsätze für die horizontale Achse beziehen sich auf die Breite des Kastens, Prozentsätze für die vertikale Achse auf die Höhe des Kastens. Negative Werte sind ungültig.
 
 ## Formale Definition
 
@@ -47,7 +87,7 @@ border-end-start-radius: unset;
 
 ## Beispiele
 
-### Border-Radius mit vertikalem Text
+### Rahmenradius mit vertikalem Text
 
 #### HTML
 
@@ -89,6 +129,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - Die zugeordnete physische Eigenschaft: {{CSSxRef("border-top-right-radius")}}
 - {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}}, {{CSSxRef("text-orientation")}}

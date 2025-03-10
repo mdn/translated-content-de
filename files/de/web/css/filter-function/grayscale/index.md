@@ -2,14 +2,40 @@
 title: grayscale()
 slug: Web/CSS/filter-function/grayscale
 l10n:
-  sourceCommit: 9ca1b6d1fe5e69fc288ad18c6986b581afafc0a4
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
 Die **`grayscale()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) konvertiert das Eingabebild in Graustufen. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
-{{EmbedInteractiveExample("pages/css/function-grayscale.html")}}
+{{InteractiveExample("CSS Demo: grayscale()")}}
+
+```css interactive-example-choice
+filter: grayscale(0);
+```
+
+```css interactive-example-choice
+filter: grayscale(0.2);
+```
+
+```css interactive-example-choice
+filter: grayscale(60%);
+```
+
+```css interactive-example-choice
+filter: grayscale(1);
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/firefox-logo.svg"
+    width="200" />
+</section>
+```
 
 ## Syntax
 
@@ -20,9 +46,9 @@ grayscale(amount)
 ### Parameter
 
 - `amount` {{Optional_Inline}}
-  - : Die Menge des Eingabebildes, die in Graustufen konvertiert wird. Sie wird als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} angegeben. Ein Wert von `100%` verändert das Eingabebild vollständig zu Graustufen, während ein Wert von `0%` das Eingabebild unverändert lässt. Werte zwischen `0%` und `100%` haben lineare Multiplikatoren auf den Effekt. Der Anfangswert, der für {{Glossary("interpolation", "Interpolation")}} verwendet wird, ist `0`. Der Standardwert ist `1`.
+  - : Der Anteil des Eingabebildes, der in Graustufen konvertiert wird. Dieser wird als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} angegeben. Ein Wert von `100%` ändert das Eingabebild vollständig in Graustufen, während ein Wert von `0%` das Eingabebild unverändert lässt. Werte zwischen `0%` und `100%` haben lineare Multiplikatoren auf den Effekt. Der anfängliche Wert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
 
-## Formaler Syntax
+## Formale Syntax
 
 {{CSSSyntax}}
 

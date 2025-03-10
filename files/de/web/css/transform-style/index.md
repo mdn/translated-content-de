@@ -2,16 +2,51 @@
 title: transform-style
 slug: Web/CSS/transform-style
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`transform-style`**- [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Nachfahren eines Elements im 3D-Raum positioniert werden oder ob sie in der Ebene des Elements abgeflacht werden.
+Die **`transform-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Kinder eines Elements im dreidimensionalen Raum positioniert oder in der Ebene des Elements abgeflacht werden.
 
-{{EmbedInteractiveExample("pages/css/transform-style.html")}}
+{{InteractiveExample("CSS Demo: transform-style")}}
 
-Falls abgeflacht, existieren die Nachfahren des Elements nicht eigenständig im 3D-Raum.
+```css interactive-example-choice
+transform-style: flat;
+```
+
+```css interactive-example-choice
+transform-style: preserve-3d;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all layer" id="example-element">
+    <p>Parent</p>
+    <div class="numeral"><code>rotate3d(1, 1, 1, 45deg)</code></div>
+  </div>
+</section>
+```
+
+```css interactive-example
+.layer {
+  background: #623e3f;
+  border-radius: 0.75rem;
+  color: white;
+  transform: perspective(200px) rotateY(30deg);
+}
+
+.numeral {
+  background-color: #ffba08;
+  border-radius: 0.2rem;
+  color: #000;
+  margin: 1rem;
+  padding: 0.2rem;
+  transform: rotate3d(1, 1, 1, 45deg);
+}
+```
+
+Wenn sie abgeflacht sind, existieren die Kinder des Elements nicht eigenständig im dreidimensionalen Raum.
 
 Da diese Eigenschaft nicht vererbt wird, muss sie für alle nicht-Blatt-Nachfahren des Elements festgelegt werden.
 
@@ -33,40 +68,40 @@ transform-style: unset;
 ### Werte
 
 - `flat`
-  - : Gibt an, dass die Nachfahren des Elements in der Ebene des Elements selbst liegen.
+  - : Gibt an, dass die Kinder des Elements in der Ebene des Elements selbst liegen.
 - `preserve-3d`
-  - : Gibt an, dass die Nachfahren des Elements im 3D-Raum positioniert werden sollen.
+  - : Gibt an, dass die Kinder des Elements im dreidimensionalen Raum positioniert werden sollen.
 
 ## Beschreibung
 
-Die Spezifikation listet einige [Gruppierungseigenschaftswerte](https://drafts.csswg.org/css-transforms-2/#grouping-property-values) auf, die den User-Agent zwingen, eine abgeflachte Darstellung der Nachfahrelemente zu erstellen, bevor sie angewendet werden können. Dies führt dazu, dass das Element einen [Used Value](/de/docs/Web/CSS/CSS_cascade/used_value) von `transform-style: flat` erhält, auch wenn `preserve-3d` angegeben wurde. Zu diesen Eigenschaftswerten gehören:
+Die Spezifikation listet einige [Gruppierungseigenschaftswerte](https://drafts.csswg.org/css-transforms-2/#grouping-property-values) auf, die den Benutzeragenten dazu zwingen, eine abgeflachte Darstellung der Nachfahr-Elemente zu erstellen, bevor sie angewendet werden können. Daher erzwingen sie, dass das Element einen [benutzten Wert](/de/docs/Web/CSS/CSS_cascade/used_value) von `transform-style: flat` hat, selbst wenn `preserve-3d` angegeben ist. Diese Eigenschaftswerte umfassen:
 
-- {{cssxref("overflow")}}: Jeder Wert außer `visible` oder `clip`.
-- {{cssxref("opacity")}}: Jeder Wert kleiner als `1`.
-- {{cssxref("filter")}}: Jeder Wert außer `none`.
-- {{cssxref("clip")}}: Jeder Wert außer `auto`.
-- {{cssxref("clip-path")}}: Jeder Wert außer `none`.
-- {{cssxref("isolation")}}: Used Value von `isolate`.
-- {{cssxref("mask-image")}}: Jeder Wert außer `none`.
-- {{cssxref("mask-border-source")}}: Jeder Wert außer `none`.
-- {{cssxref("mix-blend-mode")}}: Jeder Wert außer `normal`.
-- {{cssxref("contain")}}: `paint` und jede andere Eigenschaft/Wert-Kombination, die zu einer Mal-Kontainierung führt. Dies schließt jede Eigenschaft ein, die den Used Value der `contain`-Eigenschaft beeinflusst, wie z. B. `content-visibility: hidden`.
+- {{cssxref("overflow")}}: jeder Wert außer `visible` oder `clip`.
+- {{cssxref("opacity")}}: jeder Wert kleiner als `1`.
+- {{cssxref("filter")}}: jeder Wert außer `none`.
+- {{cssxref("clip")}}: jeder Wert außer `auto`.
+- {{cssxref("clip-path")}}: jeder Wert außer `none`.
+- {{cssxref("isolation")}}: benutzter Wert von `isolate`.
+- {{cssxref("mask-image")}}: jeder Wert außer `none`.
+- {{cssxref("mask-border-source")}}: jeder Wert außer `none`.
+- {{cssxref("mix-blend-mode")}}: jeder Wert außer `normal`.
+- {{cssxref("contain")}}: `paint` und jede andere Eigenschafts-/Wertkombination, die Mal-Kontainment verursacht. Dies schließt jede Eigenschaft ein, die den benutzten Wert der `contain`-Eigenschaft beeinflusst, wie z.B. `content-visibility: hidden`.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Demonstration der Transformationsstil-Eigenschaft
+### Demonstration der Transformationsstile
 
-In diesem Beispiel haben wir einen 3D-Würfel, der mithilfe von Transformationen erstellt wurde. Der übergeordnete Container der Würfelflächen hat standardmäßig `transform-style: preserve-3d` gesetzt, sodass er im 3D-Raum transformiert wird und Sie ihn wie vorgesehen sehen können.
+In diesem Beispiel haben wir einen 3D-Würfel, der mit Transformationen erstellt wurde. Der übergeordnete Container der Würfelseiten hat standardmäßig `transform-style: preserve-3d` gesetzt, sodass er im dreidimensionalen Raum transformiert wird und Sie ihn wie beabsichtigt sehen können.
 
-Es gibt auch ein Kontrollkästchen, mit dem Sie zwischen diesem Zustand und `transform-style: flat` umschalten können. Im alternativen Zustand werden die Würfelflächen alle auf die Ebene ihres übergeordneten Containers abgeflacht, und möglicherweise können Sie sie überhaupt nicht sehen, je nach verwendetem Browser.
+Wir bieten auch ein Kontrollkästchen an, mit dem Sie zwischen diesem und `transform-style: flat` umschalten können. In diesem alternativen Zustand sind die Würfelseiten alle in die Ebene ihres übergeordneten Elements abgeflacht, und Sie können sie möglicherweise gar nicht sehen, abhängig vom verwendeten Browser.
 
 #### HTML
 

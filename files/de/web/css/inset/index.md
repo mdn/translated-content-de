@@ -2,20 +2,73 @@
 title: inset
 slug: Web/CSS/inset
 l10n:
-  sourceCommit: da659b5d4f75b66804d97c80ec7c89b8792d7389
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`inset`**-Eigenschaft in [CSS](/de/docs/Web/CSS) ist eine Kurzform, die den Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und/oder {{cssxref("left")}} entspricht. Sie hat die gleiche Mehrwert-Syntax wie die Kurzform von {{cssxref("margin")}}.
+Die **`inset`** [CSS](/de/docs/Web/CSS)-Eigenschaft ist eine Kurzform, die den Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und/oder {{cssxref("left")}} entspricht. Sie hat dieselbe Mehrwert-Syntax wie die Kurzform von {{cssxref("margin")}}.
 
 Diese {{Glossary("inset_properties", "inset-Eigenschaften")}}, einschließlich `inset`, haben keine Wirkung auf nicht positionierte Elemente.
 
-{{EmbedInteractiveExample("pages/css/inset.html")}}
+{{InteractiveExample("CSS Demo: inset")}}
 
-Obwohl sie Teil des Moduls für [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) ist, definiert sie keine _logischen_ Versätze. Sie definiert _physische_ Versätze, unabhängig von der Schreibrichtung, Richtung und Textorientierung des Elements.
+```css interactive-example-choice
+inset: 1em;
+```
 
-## Bestandteil-Eigenschaften
+```css interactive-example-choice
+inset: 5% 0;
+```
+
+```css interactive-example-choice
+inset: 2em 50px 20px;
+```
+
+```css interactive-example-choice
+inset: 10px 30% 20px 0;
+```
+
+```css interactive-example-choice
+inset: 0;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="example-container">
+    <div id="example-element">I am absolutely positioned.</div>
+    <p>
+      As much mud in the streets as if the waters had but newly retired from the
+      face of the earth, and it would not be wonderful to meet a Megalosaurus,
+      forty feet long or so, waddling like an elephantine lizard up Holborn
+      Hill.
+    </p>
+  </div>
+</section>
+```
+
+```css interactive-example
+.example-container {
+  border: 0.75em solid #ad1457;
+  padding: 0.75em;
+  text-align: left;
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+}
+
+#example-element {
+  background-color: #07136c;
+  border: 6px solid #ffa000;
+  color: white;
+  position: absolute;
+  inset: 0;
+}
+```
+
+Obwohl es Teil des Moduls [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) ist, definiert es keine _logischen_ Offsets. Es definiert _physische_ Offsets, unabhängig vom Schreibmodus des Elements, der Ausrichtung und der Textausrichtung.
+
+## Teil-Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -52,7 +105,7 @@ inset: unset;
 
 ### Werte
 
-Die `inset`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}}-Eigenschaft an.
+Die `inset`-Eigenschaft nimmt dieselben Werte an wie die {{cssxref("left")}}-Eigenschaft.
 
 ## Formale Definition
 
@@ -64,7 +117,7 @@ Die `inset`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}}-Eig
 
 ## Beispiele
 
-### Versätze für ein Element festlegen
+### Festlegung von Offsets für ein Element
 
 #### HTML
 
@@ -109,5 +162,5 @@ div {
 - {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("inset-block")}} und {{cssxref("inset-inline")}}
 - {{cssxref("position")}}
-- [CSS Positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
-- [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS positioned layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values)

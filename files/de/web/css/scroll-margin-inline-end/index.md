@@ -2,14 +2,77 @@
 title: scroll-margin-inline-end
 slug: Web/CSS/scroll-margin-inline-end
 l10n:
-  sourceCommit: 919d97a4bda8004f63f655d3f9576c27a82c8a2a
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-inline-end` definiert den Rand des Scroll-Snapping-Bereichs am Ende der Inline-Dimension, die genutzt wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Bereich für das Scroll-Snapping wird ermittelt, indem die transformierte Umrandungsbox genutzt wird. Dazu wird deren rechteckige Begrenzungsbox (achsenbündig im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Erweiterungen hinzugefügt.
+Die Eigenschaft `scroll-margin-inline-end` definiert den Rand des Scroll-Snap-Bereichs am Ende der Inline-Dimension, der verwendet wird, um dieses Box-Element zum {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Snap-Bereich wird ermittelt, indem der transformierte Rahmen genommen, sein rechteckiges Begrenzungsfeld (achsenbündig im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Ausdehnungen hinzugefügt werden.
 
-{{EmbedInteractiveExample("pages/css/scroll-margin-inline-end.html")}}
+{{InteractiveExample("CSS Demo: scroll-margin-inline-end")}}
+
+```css interactive-example-choice
+scroll-margin-inline-end: 0;
+```
+
+```css interactive-example-choice
+scroll-margin-inline-end: 20px;
+```
+
+```css interactive-example-choice
+scroll-margin-inline-end: 2em;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="scroller">
+    <div>1</div>
+    <div id="example-element">2</div>
+    <div>3</div>
+  </div>
+  <div class="info">Scroll »</div>
+</section>
+```
+
+```css interactive-example
+.default-example {
+  flex-wrap: wrap;
+}
+
+.default-example .info {
+  width: 100%;
+  padding: 0.5em 0;
+  font-size: 90%;
+}
+
+.scroller {
+  text-align: left;
+  width: 250px;
+  height: 250px;
+  overflow-x: scroll;
+  display: flex;
+  box-sizing: border-box;
+  border: 1px solid black;
+  scroll-snap-type: x mandatory;
+}
+
+.scroller > div {
+  flex: 0 0 250px;
+  width: 250px;
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: end;
+}
+
+.scroller > div:nth-child(even) {
+  background-color: #fff;
+  color: rebeccapurple;
+}
+```
 
 ## Syntax
 
@@ -29,7 +92,7 @@ scroll-margin-inline-end: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Abstand ausgehend von der Inline-Endkante des Scroll-Containers.
+  - : Eine Ausdehnung vom Inline-Endrand des Scroll-Containers.
 
 ## Formale Definition
 
@@ -43,13 +106,13 @@ scroll-margin-inline-end: unset;
 
 ### Grundlegende Demonstration
 
-Dieses Beispiel implementiert etwas sehr Ähnliches wie das obenstehende interaktive Beispiel, allerdings erklären wir hier, wie es umgesetzt wird.
+Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, jedoch erklären wir Ihnen hier, wie es implementiert wird.
 
-Das Ziel ist es, vier horizontal scrollbare Blöcke zu erstellen, von denen die zweiten und dritten an einer Stelle einrasten, die etwas, aber nicht ganz am rechten Rand jedes Blocks liegt.
+Ziel ist es, vier horizontal scrollbare Blöcke zu erstellen, von denen der zweite und dritte einschnappen, in der Nähe, aber nicht ganz am rechten Rand jedes Blocks.
 
 #### HTML
 
-Das HTML enthält einen Scroller mit vier Kindern:
+Das HTML beinhaltet einen Scroller mit vier Kindern:
 
 ```html
 <div class="scroller">
@@ -62,7 +125,7 @@ Das HTML enthält einen Scroller mit vier Kindern:
 
 #### CSS
 
-Lassen Sie uns den CSS-Code durchgehen. Der äußere Container wird folgendermaßen gestaltet:
+Schauen wir uns das CSS an. Der äußere Container ist wie folgt gestylt:
 
 ```css
 .scroller {
@@ -77,9 +140,9 @@ Lassen Sie uns den CSS-Code durchgehen. Der äußere Container wird folgenderma�
 }
 ```
 
-Die Hauptbestandteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, welches sicherstellt, dass die Inhalte scrollen und nicht verborgen werden, und `scroll-snap-type: x mandatory`, welches vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrolling immer auf einem Snap-Punkt zur Ruhe kommt.
+Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, das sicherstellt, dass die Inhalte scrollen und nicht ausgeblendet werden, und `scroll-snap-type: x mandatory`, welches vorgibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrolling immer an einem Snap-Punkt zum Halten kommt.
 
-Die Kindelemente werden wie folgt gestylt:
+Die Kindelemente sind wie folgt gestylt:
 
 ```css
 .scroller > div {
@@ -100,9 +163,9 @@ Die Kindelemente werden wie folgt gestylt:
 }
 ```
 
-Der relevanteste Teil hier ist `scroll-snap-align: end`, welcher spezifiziert, dass die rechten Kanten (die "Enden" entlang der x-Achse, in unserem Fall) die vorgesehenen Snap-Punkte sind.
+Der wichtigste Teil hier ist `scroll-snap-align: end`, welches angibt, dass die rechten Kanten (die "Enden" entlang der x-Achse in unserem Fall) die vorgesehenen Snap-Punkte sind.
 
-Zuletzt spezifizieren wir die Scroll-Margin-Werte, wobei für das zweite und dritte Kindelement unterschiedliche Werte gesetzt werden:
+Zum Schluss geben wir die Scroll-Margin-Werte an, einen anderen für das zweite und dritte Kindelement:
 
 ```css
 .scroller > div:nth-child(2) {
@@ -114,7 +177,7 @@ Zuletzt spezifizieren wir die Scroll-Margin-Werte, wobei für das zweite und dri
 }
 ```
 
-Dies bedeutet, dass wenn man an den mittleren Kindelementen vorbeiscrollt, das Scrollen bei `1rem` außerhalb der Inline-Endkante des zweiten `<div>` einrastet und bei `2rems` außerhalb der Inline-Endkante des dritten `<div>`.
+Das bedeutet, dass beim Scrollen an den mittleren Kindelementen das Scrollen `1rem` außerhalb der Inline-Endkante des zweiten `<div>` und `2rems` außerhalb der Inline-Endkante des dritten `<div>` einschnappt.
 
 #### Ergebnis
 

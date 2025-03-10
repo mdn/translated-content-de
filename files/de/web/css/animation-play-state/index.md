@@ -2,16 +2,64 @@
 title: animation-play-state
 slug: Web/CSS/animation-play-state
 l10n:
-  sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
 Die **`animation-play-state`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob eine Animation läuft oder pausiert ist.
 
-{{EmbedInteractiveExample("pages/css/animation-play-state.html")}}
+{{InteractiveExample("CSS Demo: animation-play-state")}}
 
-Wenn eine pausierte Animation fortgesetzt wird, beginnt sie an der Stelle, an der sie pausiert wurde, und nicht von vorne in der Animationssequenz.
+```css interactive-example-choice
+animation-play-state: paused;
+```
+
+```css interactive-example-choice
+animation-play-state: running;
+```
+
+```html interactive-example
+<section class="flex-column" id="default-example">
+  <div class="animating" id="example-element"></div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #1766aa;
+  color: white;
+  margin: auto;
+  margin-left: 0;
+  border: 5px solid #333;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.animating {
+  animation-name: slide;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes slide {
+  from {
+    background-color: orange;
+    color: black;
+    margin-left: 0;
+  }
+  to {
+    background-color: orange;
+    color: black;
+    margin-left: 80%;
+  }
+}
+```
+
+Wenn eine pausierte Animation fortgesetzt wird, startet sie dort, wo sie beim Anhalten gestoppt wurde, und nicht von Anfang der Animationssequenz.
 
 ## Syntax
 
@@ -34,12 +82,12 @@ animation-play-state: unset;
 ### Werte
 
 - `running`
-  - : Die **Animation** ist momentan **aktiv**.
+  - : Die **Animation** wird aktuell **abgespielt**.
 - `paused`
-  - : Die **Animation** ist momentan **pausiert**.
+  - : Die **Animation** ist aktuell **pausiert**.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Kommas getrennte Werte für eine `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animationswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere kommagetrennte Werte für eine `animation-*`-Eigenschaft angeben, werden sie in der Reihenfolge der {{cssxref("animation-name")}}s auf die Animationen angewendet. Für Situationen, in denen die Anzahl der Animationen und die `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations­eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 ## Formale Definition
 
@@ -53,7 +101,7 @@ animation-play-state: unset;
 
 ### Eine Animation pausieren
 
-Diese Animation ist pausiert, wird aber ausgeführt, wenn Sie darüber fahren.
+Diese Animation ist pausiert, läuft aber, wenn Sie mit der Maus darüberfahren.
 
 #### HTML
 
@@ -95,7 +143,7 @@ Fahren Sie mit der Maus über das Rechteck, um die Animation abzuspielen.
 
 {{EmbedLiveSample("Pausing an animation","100%","250")}}
 
-Siehe [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für Beispiele.
+Weitere Beispiele finden Sie unter [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations).
 
 ## Spezifikationen
 
@@ -107,6 +155,6 @@ Siehe [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) f�
 
 ## Siehe auch
 
-- [CSS-Animationen verwenden](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
 - JavaScript [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) API
 - Andere verwandte Animationseigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}

@@ -2,16 +2,49 @@
 title: outline-width
 slug: Web/CSS/outline-width
 l10n:
-  sourceCommit: aa714bb37625b21b0f40db1f1ea557e773456fa2
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die [CSS](/de/docs/Web/CSS) **`outline-width`**-Eigenschaft legt die Dicke der Kontur eines Elements fest. Eine Kontur ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des {{cssxref("border")}}.
+Die [CSS](/de/docs/Web/CSS) **`outline-width`** Eigenschaft legt die Dicke der Umrandung eines Elements fest. Eine Umrandung ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des {{cssxref("border")}}.
 
-{{EmbedInteractiveExample("pages/css/outline-width.html")}}
+{{InteractiveExample("CSS Demo: outline-width")}}
 
-Es ist oft praktischer, die Kurzschreibweise {{cssxref("outline")}} zu verwenden, um das Erscheinungsbild einer Kontur zu definieren.
+```css interactive-example-choice
+outline-width: 12px;
+```
+
+```css interactive-example-choice
+outline-width: thin;
+```
+
+```css interactive-example-choice
+outline-width: medium;
+```
+
+```css interactive-example-choice
+outline-width: thick;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with an outline around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  outline: 0.75em solid;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+}
+```
+
+Es ist oft praktischer, die Kurzschreibweiseigenschaft {{cssxref("outline")}} zu verwenden, wenn das Aussehen einer Umrandung definiert wird.
 
 ## Syntax
 
@@ -33,18 +66,18 @@ outline-width: revert-layer;
 outline-width: unset;
 ```
 
-Die `outline-width`-Eigenschaft wird mit einem der unten aufgeführten Werte angegeben.
+Die `outline-width` Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Breite der Kontur, angegeben als `<length>`.
+  - : Die Breite der Umrandung, angegeben als ein `<length>`.
 - `thin`
-  - : Hängt vom Benutzeragenten ab. Typischerweise entspricht dies `1px` in Desktop-Browsern (einschließlich Firefox).
+  - : Hängt vom Benutzeragenten ab. Entspricht typischerweise `1px` in Desktop-Browsern (einschließlich Firefox).
 - `medium`
-  - : Hängt vom Benutzeragenten ab. Typischerweise entspricht dies `3px` in Desktop-Browsern (einschließlich Firefox).
+  - : Hängt vom Benutzeragenten ab. Entspricht typischerweise `3px` in Desktop-Browsern (einschließlich Firefox).
 - `thick`
-  - : Hängt vom Benutzeragenten ab. Typischerweise entspricht dies `5px` in Desktop-Browsern (einschließlich Firefox).
+  - : Hängt vom Benutzeragenten ab. Entspricht typischerweise `5px` in Desktop-Browsern (einschließlich Firefox).
 
 ## Formale Definition
 
@@ -56,7 +89,7 @@ Die `outline-width`-Eigenschaft wird mit einem der unten aufgeführten Werte ang
 
 ## Beispiele
 
-### Festlegen der Konturbreite eines Elements
+### Die Umrandungsbreite eines Elements festlegen
 
 #### HTML
 

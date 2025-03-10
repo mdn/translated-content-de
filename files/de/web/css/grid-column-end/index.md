@@ -2,14 +2,61 @@
 title: grid-column-end
 slug: Web/CSS/grid-column-end
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`grid-column-end`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Endposition eines Grid-Elements innerhalb der Grid-Spalte fest, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt, und damit die Block-Endkante seines {{Glossary("grid_areas", "Grid-Bereichs")}} spezifiziert.
+Die **`grid-column-end`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Endposition eines Grid-Items innerhalb der Rasterspalte an, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu seiner Rasterplatzierung beiträgt und dadurch die Block-Endkante seines {{Glossary("grid_areas", "Rasterbereichs")}} spezifiziert.
 
-{{EmbedInteractiveExample("pages/css/grid-column-end.html")}}
+{{InteractiveExample("CSS Demo: grid-column-end")}}
+
+```css interactive-example-choice
+grid-column-end: auto;
+```
+
+```css interactive-example-choice
+grid-column-end: 3;
+```
+
+```css interactive-example-choice
+grid-column-end: -1;
+```
+
+```css interactive-example-choice
+grid-column-end: span 3;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="example-container">
+    <div class="transition-all" id="example-element">One</div>
+    <div>Two</div>
+    <div>Three</div>
+  </div>
+</section>
+```
+
+```css interactive-example
+.example-container {
+  border: 1px solid #c5c5c5;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows: repeat(3, minmax(40px, auto));
+  grid-gap: 10px;
+  width: 200px;
+}
+
+.example-container > div {
+  background-color: rgba(0, 0, 255, 0.2);
+  border: 3px solid blue;
+}
+
+#example-element {
+  background-color: rgba(255, 0, 200, 0.2);
+  border: 3px solid rebeccapurple;
+}
+```
 
 ## Syntax
 
@@ -40,33 +87,33 @@ grid-column-end: unset;
 ### Werte
 
 - `auto`
-  - : Ist ein Schlüsselwort, das angibt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt, was auf eine automatische Platzierung, eine automatische Spanne oder eine Standardspanne von `1` hinweist.
+  - : Ist ein Schlüsselwort, das anzeigt, dass die Eigenschaft nichts zur Platzierung des Grid-Items beiträgt, was auf eine automatische Platzierung, eine automatische Spanne oder eine Standardspanne von `1` hindeutet.
 - `<custom-ident>`
 
-  - : Wenn es eine benannte Linie mit dem Namen '\<custom-ident>-end' gibt, wird die erste solche Linie zur Platzierung des Grid-Elements beigetragen.
+  - : Wenn es eine benannte Linie mit dem Namen '\<custom-ident>-end' gibt, trägt sie die erste dieser Linien zur Platzierung des Grid-Items bei.
 
     > [!NOTE]
-    > Benannte Grid-Bereiche erzeugen automatisch implizit benannte Linien dieser Form, sodass `grid-column-end: foo;` die Endkante jenes benannten Grid-Bereichs auswählen wird (es sei denn, eine andere Linie mit dem Namen `foo-end` wurde zuvor explizit angegeben).
+    > Benannte Rasterbereiche erzeugen automatisch implizite benannte Linien dieser Form, sodass die Angabe `grid-column-end: foo;` die Endkante dieses benannten Rasterbereichs wählt (es sei denn, eine andere Linie mit dem Namen `foo-end` wurde zuvor ausdrücklich angegeben).
 
-    Andernfalls wird dies behandelt, als ob die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben wurde.
+    Andernfalls wird dies so behandelt, als wäre die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben worden.
 
 - `<integer> && <custom-ident>?`
 
-  - : Trägt die n-te Grid-Linie zur Platzierung des Grid-Elements bei. Wenn eine negative Ganzzahl angegeben wird, wird rückwärts gezählt, beginnend von der Endkante des expliziten Grids.
+  - : Trägt die n-te Rasterlinie zur Platzierung des Grid-Items bei. Wenn eine negative Ganzzahl angegeben ist, wird stattdessen rückwärts gezählt, beginnend an der Endkante des expliziten Rasters.
 
-    Wenn ein Name als \<custom-ident> angegeben ist, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Grid-Linien für das Auffinden dieser Position diesen Namen haben.
+    Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird davon ausgegangen, dass alle impliziten Rasterlinien diesen Namen für die Positionsfindung haben.
 
-    Ein {{cssxref("integer")}}-Wert von `0` ist ungültig.
+    Ein {{cssxref("integer")}} Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
 
-  - : Trägt eine Grid-Spanne zur Platzierung des Grid-Elements bei, sodass die Spaltenendkante des Grid-Bereichs des Grid-Elements n Linien von der Startkante entfernt ist.
+  - : Trägt eine Rasterspanne zur Platzierung des Grid-Items bei, sodass die Spaltenendkante des Rasterbereichs des Grid-Items n Linien von der Startkante entfernt ist.
 
-    Wenn ein Name als \<custom-ident> angegeben ist, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Grid-Linien auf der Seite des expliziten Grids, die der Suchrichtung entspricht, diesen Namen zum Zweck der Zählung dieser Spanne haben.
+    Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird davon ausgegangen, dass alle impliziten Rasterlinien auf der Seite des expliziten Rasters, die der Suchrichtung entspricht, diesen Namen für die Zählung dieser Spanne haben.
 
-    Wenn die \<integer> weggelassen wird, beträgt der Standardwert `1`. Negative Ganzzahlen oder 0 sind ungültig.
+    Wenn die \<integer> weggelassen wird, lautet die Standardeinstellung `1`. Negative Ganzzahlen oder 0 sind ungültig.
 
-    Der `<custom-ident>` kann nicht den Wert `span` annehmen.
+    Das `<custom-ident>` kann nicht den `span` Wert annehmen.
 
 ## Formale Definition
 
@@ -78,7 +125,7 @@ grid-column-end: unset;
 
 ## Beispiele
 
-### Festlegen des Spaltenendes für ein Grid-Element
+### Spaltenende für ein Grid-Item festlegen
 
 #### HTML
 
@@ -161,5 +208,5 @@ grid-column-end: unset;
 - {{cssxref("grid-row-start")}}
 - {{cssxref("grid-row-end")}}
 - {{cssxref("grid-row")}}
-- [Linienbasierte Platzierung mit CSS Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+- [Linienbasierte Platzierung mit CSS Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
 - Video: [Linienbasierte Platzierung](https://gridbyexample.com/video/series-line-based-placement/)

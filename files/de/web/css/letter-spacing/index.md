@@ -2,14 +2,53 @@
 title: letter-spacing
 slug: Web/CSS/letter-spacing
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`letter-spacing`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt das horizontale Abstandsverhalten zwischen Textzeichen fest. Dieser Wert wird der natürlichen Zeichensetzung beim Rendern des Textes hinzugefügt. Positive Werte von `letter-spacing` führen dazu, dass Zeichen weiter auseinander liegen, während negative Werte von `letter-spacing` Zeichen näher zusammenbringen.
+Die **`letter-spacing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das horizontale Abstandsverhalten zwischen Textzeichen fest. Dieser Wert wird dem natürlichen Abstand zwischen Zeichen beim Rendern des Textes hinzugefügt. Positive Werte von `letter-spacing` führen dazu, dass Zeichen weiter auseinander liegen, während negative Werte von `letter-spacing` Zeichen näher zusammenbringen.
 
-{{EmbedInteractiveExample("pages/css/letter-spacing.html")}}
+{{InteractiveExample("CSS Demo: letter-spacing")}}
+
+```css interactive-example-choice
+letter-spacing: normal;
+```
+
+```css interactive-example-choice
+letter-spacing: 0.2rem;
+```
+
+```css interactive-example-choice
+letter-spacing: 1px;
+```
+
+```css interactive-example-choice
+letter-spacing: -1px;
+```
+
+```html interactive-example
+<section id="default-example">
+  <p id="example-element">
+    As much mud in the streets as if the waters had but newly retired from the
+    face of the earth, and it would not be wonderful to meet a Megalosaurus,
+    forty feet long or so, waddling like an elephantine lizard up Holborn Hill.
+  </p>
+</section>
+```
+
+```css interactive-example
+@font-face {
+  src: url("/shared-assets/fonts/variable-fonts/AmstelvarAlpha-VF.ttf");
+  font-family: Amstelvar;
+  font-style: normal;
+}
+
+section {
+  font-size: 1.2em;
+  font-family: Amstelvar;
+}
+```
 
 ## Syntax
 
@@ -33,22 +72,22 @@ letter-spacing: unset;
 ### Werte
 
 - `normal`
-  - : Der normale Buchstabenabstand für die aktuelle Schriftart. Im Gegensatz zu einem Wert von `0` ermöglicht dieses Schlüsselwort dem {{Glossary("user_agent", "Benutzeragenten")}}, den Abstand zwischen Zeichen zu ändern, um den Text auszurichten.
+  - : Der normale Zeichenabstand für die aktuelle Schriftart. Anders als ein Wert von `0` erlaubt dieses Schlüsselwort dem {{Glossary("user_agent", "User Agent")}}, den Abstand zwischen Zeichen zu ändern, um den Text auszurichten.
 - {{cssxref("&lt;length&gt;")}}
-  - : Gibt zusätzlichen Zeichenabstand _neben_ dem Standardabstand zwischen Zeichen an. Werte können negativ sein, es können jedoch implementierungsspezifische Grenzen bestehen. Benutzeragenten dürfen den Zeichenabstand nicht weiter erhöhen oder verringern, um den Text auszurichten.
+  - : Gibt zusätzlichen Abstand zwischen den Zeichen _zusätzlich zu_ dem Standardabstand zwischen Zeichen an. Die Werte können negativ sein, es können jedoch implementierungsspezifische Grenzen bestehen. User Agents dürfen den Abstand zwischen Zeichen nicht weiter erhöhen oder verringern, um Text auszurichten.
 
 ## Barrierefreiheit
 
-Ein großer positiver oder negativer Wert von `letter-spacing` macht das/den Wort(e), auf das/die das Styling angewendet wird, unlesbar. Bei Text, der mit einem sehr großen positiven Wert gestylt ist, sind die Buchstaben so weit auseinander, dass das/die Wort(e) wie eine Reihe von einzelnen, unverbundenen Buchstaben erscheint. Bei Text, der mit einem sehr großen negativen Wert gestylt ist, überlappen sich die Buchstaben so stark, dass das/die Wort(e) möglicherweise unkenntlich wird/werden.
+Ein großer positiver oder negativer `letter-spacing` Wert kann die Lesbarkeit der Worte beeinträchtigen, auf die das Styling angewendet wird. Bei Text mit einem sehr großen positiven Wert sind die Buchstaben so weit auseinander, dass die Worte wie eine Reihe einzelner, unverbundener Buchstaben erscheinen. Bei Text mit einem sehr großen negativen Wert überlappen sich die Buchstaben so stark, dass die Worte möglicherweise unkenntlich werden.
 
-Lesbarer Buchstabenabstand muss von Fall zu Fall bestimmt werden, da verschiedene Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen Wert, der sicherstellt, dass alle Schriftfamilien automatisch ihre Lesbarkeit beibehalten.
+Lesbarer Zeichenabstand muss fallweise bestimmt werden, da verschiedene Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen Wert, der automatisch alle Schriftfamilien lesbar hält.
 
-- [MDN Verständnis der WCAG, Erklärung der Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verstehen von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN Verständnis von WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
-## Internationalisierungsbelange
+## Internationalisierungsbedenken
 
-Bei einigen Schriftsystemen sollte kein Buchstabenabstand angewendet werden. Zum Beispiel erwarten Sprachen, die das arabische Schriftsystem verwenden, dass zusammenhängende Buchstaben visuell verbunden bleiben, wie im folgenden Beispiel. Die Anwendung von Buchstabenabstand würde dazu führen, dass der Text gebrochen aussieht.
+Einige Schriftsysteme sollten keinen Zeichenabstand haben. Zum Beispiel erwarten Sprachen, die das arabische Schriftsystem verwenden, dass verbundene Buchstaben visuell verbunden bleiben, wie im folgenden Beispiel. Die Anwendung von Zeichenabstand würde dazu führen, dass der Text gebrochen aussieht.
 
 > <p lang="ar" dir="rtl">شسيبتنمك</p>
 
@@ -62,7 +101,7 @@ Bei einigen Schriftsystemen sollte kein Buchstabenabstand angewendet werden. Zum
 
 ## Beispiele
 
-### Einstellung des Buchstabenabstands
+### Zeichenabstand einstellen
 
 #### HTML
 

@@ -2,17 +2,97 @@
 title: offset-rotate
 slug: Web/CSS/offset-rotate
 l10n:
-  sourceCommit: 75326725db2daa924618e58ae31a43345c7a16dc
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`offset-rotate`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Orientierung/Richtung des Elements, während es entlang des {{cssxref("offset-path")}} positioniert wird.
+Die **`offset-rotate`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Ausrichtung/den Richtung des Elements, während es entlang des {{cssxref("offset-path")}} positioniert wird.
 
-{{EmbedInteractiveExample("pages/css/offset-rotate.html")}}
+{{InteractiveExample("CSS Demo: offset-rotate")}}
+
+```css interactive-example-choice
+offset-rotate: auto;
+```
+
+```css interactive-example-choice
+offset-rotate: 90deg;
+```
+
+```css interactive-example-choice
+offset-rotate: auto 90deg;
+```
+
+```css interactive-example-choice
+offset-rotate: reverse;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element"></div>
+  <button id="playback" type="button">Play</button>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  width: 24px;
+  height: 24px;
+  background: #2bc4a2;
+  offset-path: path("M-70,-40 C-70,70 70,70 70,-40");
+  animation: distance 8000ms infinite linear;
+  animation-play-state: paused;
+  clip-path: polygon(0% 0%, 70% 0%, 100% 50%, 70% 100%, 0% 100%, 30% 50%);
+}
+
+#example-element.running {
+  animation-play-state: running;
+}
+
+#playback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1em;
+}
+
+@keyframes distance {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+/* Provides a reference image of what path the element is following */
+#default-example {
+  position: relative;
+  background-position: calc(50% - 12px) calc(50% + 14px);
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-75 -45 150 140" width="150" height="140"><path d="M-70,-40 C-70,70 70,70 70,-40" fill="none" stroke="lightgrey" stroke-width="2" stroke-dasharray="4.5"/></svg>');
+}
+```
+
+```js interactive-example
+window.addEventListener("load", () => {
+  const example = document.getElementById("example-element");
+  const button = document.getElementById("playback");
+
+  button.addEventListener("click", () => {
+    if (example.classList.contains("running")) {
+      example.classList.remove("running");
+      button.textContent = "Play";
+    } else {
+      example.classList.add("running");
+      button.textContent = "Pause";
+    }
+  });
+});
+```
 
 > [!NOTE]
-> Frühere Versionen der Spezifikation nannten diese Eigenschaft `motion-rotation`.
+> Frühe Versionen der Spezifikation nannten diese Eigenschaft `motion-rotation`.
 
 ## Syntax
 
@@ -37,13 +117,13 @@ offset-rotate: unset;
 ```
 
 - `auto`
-  - : Das Element wird um den Winkel der Richtung des {{cssxref("offset-path")}} relativ zur positiven x-Achse gedreht. Dies ist der Standardwert.
+  - : Das Element wird im Winkel der Richtung des {{cssxref("offset-path")}} im Verhältnis zur positiven x-Achse gedreht. Dies ist der Standardwert.
 - {{cssxref("&lt;angle&gt;")}}
-  - : Das Element hat eine konstante im Uhrzeigersinn Rotationstransformation, die durch den angegebenen Rotationswinkel angewendet wird.
+  - : Das Element erhält eine konstante, im Uhrzeigersinn gerichtete Rotationsumwandlung, die durch den angegebenen Rotationswinkel definiert ist.
 - `auto <angle>`
   - : Wenn `auto` von einem {{cssxref("&lt;angle&gt;")}} gefolgt wird, wird der berechnete Wert des Winkels zum berechneten Wert von `auto` hinzugefügt.
 - `reverse`
-  - : Das Element wird ähnlich wie bei `auto` gedreht, außer dass es in die entgegengesetzte Richtung zeigt. Es entspricht der Angabe eines Werts von `auto 180deg`.
+  - : Das Element wird ähnlich wie bei `auto` gedreht, jedoch zeigt es in die entgegengesetzte Richtung. Es entspricht dem Spezifizieren eines Wertes von `auto 180deg`.
 
 ## Formale Definition
 
@@ -55,7 +135,7 @@ offset-rotate: unset;
 
 ## Beispiele
 
-### Orientierung des Elements entlang seines Offset-Pfads festlegen
+### Elementorientierung entlang seines Offset-Pfades festlegen
 
 #### HTML
 

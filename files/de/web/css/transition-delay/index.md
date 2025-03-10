@@ -2,22 +2,66 @@
 title: transition-delay
 slug: Web/CSS/transition-delay
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`transition-delay`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Dauer an, die gewartet werden soll, bevor der Übergangseffekt einer Eigenschaft startet, wenn sich deren Wert ändert.
+Die **`transition-delay`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Dauer an, die gewartet werden soll, bevor der Übergangseffekt einer Eigenschaft beginnt, wenn sich ihr Wert ändert.
 
-{{EmbedInteractiveExample("pages/css/transition-delay.html")}}
+{{InteractiveExample("CSS Demo: transition-delay")}}
+
+```css interactive-example-choice
+transition-delay: 250ms;
+transition-property: margin-right;
+```
+
+```css interactive-example-choice
+transition-delay: 1s;
+transition-property: background-color;
+```
+
+```css interactive-example-choice
+transition-delay: 1s;
+transition-property: margin-right, color;
+```
+
+```css interactive-example-choice
+transition-delay: 1s, 250ms;
+transition-property: margin-right, color;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element">Hover to see<br />the transition.</div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #e4f0f5;
+  color: #000;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font: 1em monospace;
+  width: 100%;
+  transition: margin-right 2s;
+}
+
+#default-example:hover > #example-element {
+  background-color: #909;
+  color: #fff;
+  margin-right: 40%;
+}
+```
 
 Die Verzögerung kann null, positiv oder negativ sein:
 
 - Ein Wert von `0s` (oder `0ms`) lässt den Übergangseffekt sofort beginnen.
-- Ein positiver Wert veranlasst den Beginn des Übergangseffekts nach der angegebenen Zeit.
-- Ein negativer Wert beginnt den Übergangseffekt sofort und bereits teilweise im Effekt. Mit anderen Worten: Der Effekt wird animiert, als ob er bereits für die angegebene Zeit lief.
+- Ein positiver Wert verzögert den Beginn des Übergangseffekts um die angegebene Zeitdauer.
+- Ein negativer Wert lässt den Übergangseffekt sofort beginnen, und zwar mittendrin. Mit anderen Worten, der Effekt wird animiert, als ob er bereits für die angegebene Zeitdauer gelaufen wäre.
 
-Sie können mehrere Verzögerungen angeben, was nützlich ist, wenn mehrere Eigenschaften Übergänge durchlaufen. Jede Verzögerung wird auf die entsprechende Eigenschaft angewendet, wie durch die {{cssxref("transition-property")}} Eigenschaft angegeben, die als Master-Liste fungiert. Sind weniger Verzögerungen angegeben als in der Master-Liste, wird die Liste der Verzögerungswerte wiederholt, bis es genug sind. Gibt es mehr Verzögerungen, wird die Liste der Verzögerungswerte gekürzt, um der Anzahl der Eigenschaften zu entsprechen. In beiden Fällen bleibt die CSS-Deklaration gültig.
+Sie können mehrere Verzögerungen angeben, was nützlich ist, wenn mehrere Eigenschaften übergehen. Jede Verzögerung wird auf die entsprechende Eigenschaft angewendet, wie sie durch die {{cssxref("transition-property")}} Eigenschaft, die als Masterliste fungiert, spezifiziert ist. Wenn weniger Verzögerungen als in der Masterliste angegeben sind, wird die Liste der Verzögerungswerte wiederholt, bis es genug gibt. Wenn es mehr Verzögerungen gibt, wird die Liste der Verzögerungswerte gekürzt, um die Anzahl der Eigenschaften anzupassen. In beiden Fällen bleibt die CSS-Deklaration gültig.
 
 ## Syntax
 
@@ -37,7 +81,7 @@ transition-delay: unset;
 ### Werte
 
 - {{cssxref("&lt;time&gt;")}}
-  - : Gibt die Zeitspanne an, die zwischen der Änderung eines Eigenschaftswertes und dem Start des Übergangseffekts gewartet wird.
+  - : Bezeichnet die Zeitspanne, die gewartet werden soll, zwischen der Änderung eines Eigenschaftswertes und dem Beginn des Übergangseffekts.
 
 ## Formale Definition
 
@@ -49,7 +93,7 @@ transition-delay: unset;
 
 ## Beispiele
 
-### Beispiel, das verschiedene Verzögerungen zeigt
+### Beispiel mit verschiedenen Verzögerungen
 
 #### HTML
 
@@ -130,5 +174,5 @@ changeButton.addEventListener("click", change);
 
 ## Siehe auch
 
-- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [CSS-Übergänge verwenden](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
 - [`TransitionEvent`](/de/docs/Web/API/TransitionEvent) API

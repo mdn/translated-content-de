@@ -2,18 +2,44 @@
 title: scaleX()
 slug: Web/CSS/transform-function/scaleX
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`scaleX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element entlang der x-Achse (horizontal) skaliert. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scaleX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element entlang der x-Achse (horizontal) vergrößert oder verkleinert. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
-{{EmbedInteractiveExample("pages/css/function-scaleX.html")}}
+{{InteractiveExample("CSS Demo: scaleX()")}}
 
-Sie modifiziert die Abszisse (horizontal, x-Koordinate) jedes Punkts eines Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 beträgt, in welchem Fall die Funktion die Identitätstransformation ist. Die Skalierung ist nicht isotrop, und die Winkel des Elements werden im Allgemeinen nicht beibehalten, außer bei Vielfachen von 90 Grad. `scaleX(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), mit einer vertikalen Achse, die durch den Ursprung verläuft (wie durch die {{cssxref("transform-origin")}} Eigenschaft angegeben).
+```css interactive-example-choice
+transform: scaleX(1);
+```
 
-> **Note:** `scaleX(sx)` entspricht
+```css interactive-example-choice
+transform: scaleX(0.7);
+```
+
+```css interactive-example-choice
+transform: scaleX(1.3);
+```
+
+```css interactive-example-choice
+transform: scaleX(-0.5);
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/firefox-logo.svg"
+    width="200" />
+</section>
+```
+
+Sie verändert die Abszisse (horizontal, x-Koordinate) jedes Punktes eines Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist, in welchem Fall die Funktion die Identitätstransformation ist. Die Skalierung ist nicht isotrop und die Winkel des Elements bleiben im Allgemeinen nicht erhalten, außer bei Vielfachen von 90 Grad. `scaleX(-1)` definiert eine [Achsensymmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), mit einer vertikalen Achse, die durch den Ursprung verläuft (wie durch die Eigenschaft {{cssxref("transform-origin")}} angegeben).
+
+> **Note:** `scaleX(sx)` ist äquivalent zu
 > `scale(sx, 1)` oder
 > `scale3d(sx, 1, 1)`.
 
@@ -26,7 +52,8 @@ scaleX(s)
 ### Werte
 
 - `s`
-  - : Ist ein {{cssxref("&lt;number&gt;")}} der den Skalierungsfaktor repräsentiert, der auf die Abszisse (horizontal, x-Koordinate) jedes Punkts des Elements angewendet werden soll.
+  - : Ist eine {{cssxref("&lt;number&gt;")}} die den Skalierungsfaktor darstellt, der auf die Abszisse (horizontal, x-Koordinate) jedes Punktes des
+    Elements angewendet wird.
 
 <table class="standard-table">
   <thead>
@@ -114,7 +141,7 @@ div {
 - {{cssxref("scale")}}
 - {{cssxref("&lt;transform-function&gt;")}}
 - {{cssxref("transform-origin")}}
-- Andere einzelne Transformations-Eigenschaften:
+- Andere individuelle Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("rotate")}}
-  - Hinweis: Es gibt keine `skew` Eigenschaft
+  - Hinweis: es gibt keine `skew`-Eigenschaft

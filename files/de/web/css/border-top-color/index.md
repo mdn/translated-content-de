@@ -2,14 +2,53 @@
 title: border-top-color
 slug: Web/CSS/border-top-color
 l10n:
-  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`border-top-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des oberen [Rahmens](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den verkürzten CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-top")}} festgelegt werden.
+Die **`border-top-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des oberen [Rands](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den Kurzschreibweise-CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-top")}} gesetzt werden.
 
-{{EmbedInteractiveExample("pages/css/border-top-color.html")}}
+{{InteractiveExample("CSS Demo: border-top-color")}}
+
+```css interactive-example-choice
+border-top-color: red;
+```
+
+```css interactive-example-choice
+border-top-color: #32a1ce;
+```
+
+```css interactive-example-choice
+border-top-color: rgb(170, 50, 220, 0.6);
+```
+
+```css interactive-example-choice
+border-top-color: hsl(60, 90%, 50%, 0.8);
+```
+
+```css interactive-example-choice
+border-top-color: transparent;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with a border around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: #eee;
+  color: #000;
+  border: 0.75em solid;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+}
+```
 
 ## Syntax
 
@@ -30,12 +69,12 @@ border-top-color: revert-layer;
 border-top-color: unset;
 ```
 
-Die `border-top-color` Eigenschaft wird als einzelner Wert angegeben.
+Die `border-top-color` Eigenschaft wird als Einzelwert spezifiziert.
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe des oberen Rahmens.
+  - : Die Farbe des oberen Rands.
 
 ## Formale Definition
 
@@ -47,7 +86,7 @@ Die `border-top-color` Eigenschaft wird als einzelner Wert angegeben.
 
 ## Beispiele
 
-### Ein einfaches div mit einem Rahmen
+### Ein einfaches div mit einem Rand
 
 #### HTML
 
@@ -88,7 +127,7 @@ Die `border-top-color` Eigenschaft wird als einzelner Wert angegeben.
 
 ## Siehe auch
 
-- Die CSS-Verkürzungseigenschaften im Zusammenhang mit Rahmen: {{cssxref("border")}}, {{cssxref("border-top")}}, und {{cssxref("border-color")}}.
-- Die farbbezogenen CSS-Eigenschaften für die anderen Rahmen: {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, und {{cssxref("border-left-color")}}.
-- Die anderen rahmenbezogenen CSS-Eigenschaften, die auf denselben Rahmen angewendet werden: {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}.
-- Der Standardwert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) für die Farbe.
+- Die randbezogenen CSS-Kurzschreibweise-Eigenschaften: {{cssxref("border")}}, {{cssxref("border-top")}}, und {{cssxref("border-color")}}.
+- Die farbbezogenen CSS-Eigenschaften für die anderen Ränder: {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, und {{cssxref("border-left-color")}}.
+- Die anderen randbezogenen CSS-Eigenschaften, die auf denselben Rand angewendet werden: {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}.
+- Der Standardwert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) für Farbwerte.

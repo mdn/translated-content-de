@@ -2,16 +2,44 @@
 title: hyphenate-character
 slug: Web/CSS/hyphenate-character
 l10n:
-  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`hyphenate-character`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Zeichen (oder die Zeichenkette) fest, das am Ende einer Zeile vor einem Trennungsumbruch verwendet wird.
+Die **`hyphenate-character`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Zeichen (oder den Zeichenstring) fest, das am Ende einer Zeile vor einem Trennbruch verwendet wird.
 
-Sowohl automatische als auch bedingte Trennstriche werden entsprechend dem angegebenen `hyphenate-character`-Wert angezeigt.
+Sowohl automatische als auch weiche Trennungen werden gemäß dem angegebenen Wert von hyphenate-character angezeigt.
 
-{{EmbedInteractiveExample("pages/css/hyphenate-character.html")}}
+{{InteractiveExample("CSS Demo: hyphenate-character")}}
+
+```css interactive-example-choice
+hyphenate-character: auto;
+```
+
+```css interactive-example-choice
+hyphenate-character: "=";
+```
+
+```css interactive-example-choice
+hyphenate-character: "—";
+```
+
+```html interactive-example
+<section id="default-example">
+  <p id="example-element">An extra­ordinarily long English word!</p>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 2px dashed #999;
+  font-size: 1.5rem;
+  text-align: left;
+  width: 7rem;
+  hyphens: auto;
+}
+```
 
 ## Syntax
 
@@ -20,16 +48,16 @@ hyphenate-character: <string>;
 hyphenate-character: auto;
 ```
 
-Der Wert legt entweder die zu verwendende Zeichenkette anstelle eines Trennstrichs fest oder gibt an, dass der User-Agent eine geeignete Zeichenkette basierend auf den aktuellen typografischen Konventionen auswählen sollte (Standard).
+Der Wert legt entweder den zu verwendenden Zeichenstring anstelle eines Bindestrichs fest oder gibt an, dass der User-Agent basierend auf den aktuellen typografischen Konventionen eine geeignete Zeichenfolge auswählen soll (Standard).
 
 ### Werte
 
 - `<string>`
-  - : Die {{cssxref("&lt;string&gt;")}}, die am Ende der Zeile vor einem Trennungsumbruch verwendet werden soll.
+  - : Der {{cssxref("&lt;string&gt;")}} der am Ende der Zeile vor einem Trennbruch verwendet werden soll.
     Der User-Agent kann diesen Wert kürzen, wenn zu viele Zeichen verwendet werden.
 - `auto`
-  - : Der User-Agent wählt eine geeignete Zeichenkette basierend auf den typografischen Konventionen der Inhaltssprache aus.
-    Dies ist der Standardwert der Eigenschaft und muss nur explizit gesetzt werden, um einen anderen vererbten Wert zu überschreiben.
+  - : Der User-Agent wählt basierend auf den typografischen Konventionen der Inhaltssprache eine geeignete Zeichenfolge aus.
+    Dies ist der Standardwert der Eigenschaft und muss nur explizit festgelegt werden, um einen anderen geerbten Wert zu überschreiben.
 
 ## Formale Definition
 
@@ -41,9 +69,9 @@ Der Wert legt entweder die zu verwendende Zeichenkette anstelle eines Trennstric
 
 ## Beispiele
 
-Dieses Beispiel zeigt zwei identische Textblöcke, die {{cssxref("hyphens")}} gesetzt haben, um sicherzustellen, dass sie dort umgebrochen werden, wo es nötig ist, und bei bedingten Trennungen (erstellt mit `&shy;`).
+Dieses Beispiel zeigt zwei identische Textblöcke, bei denen {{cssxref("hyphens")}} so eingestellt ist, dass sie bei Bedarf gebrochen werden und auch bei weichen Trennungen (`&shy;`).
 Der erste Block hat den Wert des Trennzeichens auf das Gleichheitszeichen (`=`) geändert.
-Der zweite Block hat kein `hyphenate-character` gesetzt, was für User-Agents, die diese Eigenschaft unterstützen, gleichbedeutend mit `hyphenate-character: auto` ist.
+Der zweite Block hat kein hyphenate-character gesetzt, was `hyphenate-character: auto` entspricht, für User-Agents, die diese Eigenschaft unterstützen.
 
 ### HTML
 

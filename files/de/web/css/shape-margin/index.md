@@ -2,16 +2,65 @@
 title: shape-margin
 slug: Web/CSS/shape-margin
 l10n:
-  sourceCommit: fab1f9cef824066b3ce6a5b25f6c6db539f5d042
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
 Die **`shape-margin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt einen Abstand für eine CSS-Form fest, die mit {{cssxref("shape-outside")}} erstellt wurde.
 
-{{EmbedInteractiveExample("pages/css/shape-margin.html")}}
+{{InteractiveExample("CSS Demo: shape-margin")}}
 
-Der Abstand ermöglicht es Ihnen, den Abstand zwischen den Rändern der Form (dem **float-Element**) und dem umgebenden Inhalt anzupassen.
+```css interactive-example-choice
+shape-margin: 0;
+```
+
+```css interactive-example-choice
+shape-margin: 20px;
+```
+
+```css interactive-example-choice
+shape-margin: 1em;
+```
+
+```css interactive-example-choice
+shape-margin: 5%;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="example-container">
+    <div class="transition-all" id="example-element"></div>
+    We had agreed, my companion and I, that I should call for him at his house,
+    after dinner, not later than eleven o’clock. This athletic young Frenchman
+    belongs to a small set of Parisian sportsmen, who have taken up “ballooning”
+    as a pastime. After having exhausted all the sensations that are to be found
+    in ordinary sports, even those of “automobiling” at a breakneck speed, the
+    members of the “Aéro Club” now seek in the air, where they indulge in all
+    kinds of daring feats, the nerve-racking excitement that they have ceased to
+    find on earth.
+  </div>
+</section>
+```
+
+```css interactive-example
+.example-container {
+  text-align: left;
+  padding: 20px;
+}
+
+#example-element {
+  float: left;
+  margin: 20px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-color: rebeccapurple;
+  shape-outside: circle(50%);
+}
+```
+
+Der Abstand ermöglicht es Ihnen, den Abstand zwischen den Rändern der Form (dem **floated Element**) und dem umgebenden Inhalt anzupassen.
 
 ## Syntax
 
@@ -34,7 +83,7 @@ shape-margin: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Legt den Abstand der Form auf einen {{cssxref("&lt;length&gt;")}}-Wert oder auf einen {{cssxref("&lt;percentage&gt;")}} der Breite des enthaltenen Blocks des Elements fest.
+  - : Setzt den Abstand der Form auf einen {{cssxref("&lt;length&gt;")}}-Wert oder auf einen {{cssxref("&lt;percentage&gt;")}} der Breite des enthaltenden Blocks des Elements.
 
 ## Formale Definition
 

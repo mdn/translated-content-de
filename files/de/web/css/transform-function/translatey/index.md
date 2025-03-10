@@ -2,16 +2,58 @@
 title: translateY()
 slug: Web/CSS/transform-function/translateY
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`translateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) positioniert ein Element vertikal auf der 2D-Ebene neu. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`translateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) positioniert ein Element vertikal auf der 2D-Ebene um. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
-{{EmbedInteractiveExample("pages/css/function-translateY.html")}}
+{{InteractiveExample("CSS Demo: translateY()")}}
 
-> **Hinweis:** `translateY(ty)` ist gleichwertig mit
+```css interactive-example-choice
+transform: translateY(0);
+```
+
+```css interactive-example-choice
+transform: translateY(42px);
+```
+
+```css interactive-example-choice
+transform: translateY(-2.1rem);
+```
+
+```css interactive-example-choice
+transform: translateY(3ch);
+```
+
+```html interactive-example
+<section id="default-example">
+  <img
+    class="transition-all"
+    id="static-element"
+    src="/shared-assets/images/examples/firefox-logo.svg"
+    width="200" />
+  <img
+    class="transition-all"
+    id="example-element"
+    src="/shared-assets/images/examples/firefox-logo.svg"
+    width="200" />
+</section>
+```
+
+```css interactive-example
+#static-element {
+  opacity: 0.4;
+  position: absolute;
+}
+
+#example-element {
+  position: absolute;
+}
+```
+
+> **Note:** `translateY(ty)` entspricht
 > `translate(0, ty)` oder
 > `translate3d(0, ty, 0)`.
 
@@ -26,7 +68,7 @@ transform: translateY(50%);
 ### Werte
 
 - `<length-percentage>`
-  - : Der Wert ist eine {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die Ordinate (vertikal, y-Koordinate) des Übersetzungsvektors [0, ty] darstellt. Im [kartesischen Koordinatensystem](/de/docs/Web/CSS/transform-function#cartesian_coordinates) stellt es die Verschiebung entlang der y-Achse dar. Ein Prozentwert bezieht sich auf die Höhe des von der {{cssxref("transform-box")}} Eigenschaft definierten Referenzrahmens.
+  - : Der Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Ordinate (vertikal, y-Koordinate) des Translationsvektors [0, ty] darstellt. Im [kartesischen Koordinatensystem](/de/docs/Web/CSS/transform-function#cartesian_coordinates) stellt es die Verschiebung entlang der y-Achse dar. Ein Prozentwert bezieht sich auf die Höhe des durch die {{cssxref("transform-box")}} Eigenschaft definierten Referenzrahmens.
 
 <table class="standard-table">
   <thead>
@@ -41,7 +83,7 @@ transform: translateY(50%);
     <tr>
       <td rowspan="2">
         <p>
-          Eine Translation ist keine lineare Transformation in ℝ^2 und kann nicht mithilfe einer kartesischen Koordinaten-Matrix dargestellt werden.
+          Eine Translation ist keine lineare Transformation in ℝ^2 und kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden.
         </p>
       </td>
       <td>

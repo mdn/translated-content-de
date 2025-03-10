@@ -2,14 +2,35 @@
 title: text-orientation
 slug: Web/CSS/text-orientation
 l10n:
-  sourceCommit: fab1f9cef824066b3ce6a5b25f6c6db539f5d042
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`text-orientation`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Ausrichtung der Textzeichen in einer Zeile fest. Sie beeinflusst nur Text im vertikalen Modus (wenn {{cssxref("writing-mode")}} nicht `horizontal-tb` ist). Sie ist nützlich zur Steuerung der Anzeige von Sprachen, die vertikale Schriftarten verwenden, und auch für vertikale Tabellenüberschriften.
+Die **`text-orientation`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Ausrichtung der Textzeichen in einer Zeile fest. Sie betrifft nur Text im vertikalen Modus (wenn {{cssxref("writing-mode")}} nicht `horizontal-tb` ist). Sie ist nützlich zur Steuerung der Anzeige von Sprachen, die vertikale Schrift verwenden, und auch für die Erstellung vertikaler Tabellenüberschriften.
 
-{{EmbedInteractiveExample("pages/css/text-orientation.html")}}
+{{InteractiveExample("CSS Demo: text-orientation")}}
+
+```css interactive-example-choice
+writing-mode: vertical-rl;
+text-orientation: mixed;
+```
+
+```css interactive-example-choice
+writing-mode: vertical-rl;
+text-orientation: upright;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    <p>
+      In another moment down went Alice after it, never once considering how in
+      the world she was to get out again.
+    </p>
+  </div>
+</section>
+```
 
 ## Syntax
 
@@ -29,20 +50,20 @@ text-orientation: revert-layer;
 text-orientation: unset;
 ```
 
-Die Eigenschaft `text-orientation` wird als einzelnes Schlüsselwort aus der unten stehenden Liste spezifiziert.
+Die `text-orientation` Eigenschaft wird als ein einzelnes Schlüsselwort aus der folgenden Liste angegeben.
 
 ### Werte
 
 - `mixed`
-  - : Dreht die Zeichen horizontaler Skripte um 90° im Uhrzeigersinn. Stellt die Zeichen vertikaler Skripte natürlich dar. Standardwert.
+  - : Dreht die Zeichen horizontaler Scripts um 90° im Uhrzeigersinn. Legt die Zeichen von vertikalen Scripts natürlich aus. Standardwert.
 - `upright`
-  - : Stellt die Zeichen horizontaler Skripte natürlich (aufrecht) dar, ebenso wie die Glyphen für vertikale Skripte. Beachten Sie, dass dieses Schlüsselwort alle Zeichen als von links nach rechts betrachtet: der verwendete Wert von {{cssxref("direction")}} wird auf `ltr` erzwungen.
+  - : Legt die Zeichen von horizontalen Scripts natürlich (aufrecht) sowie die Glyphen für vertikale Scripts aus. Beachten Sie, dass dieses Schlüsselwort dazu führt, dass alle Zeichen als links-nach-rechts betrachtet werden: Der verwendete Wert von {{cssxref("direction")}} wird auf `ltr` festgelegt.
 - `sideways`
-  - : Führt dazu, dass Zeichen so angeordnet werden, wie sie es horizontal wären, jedoch mit der gesamten Zeile um 90° im Uhrzeigersinn gedreht.
+  - : Verursacht, dass Zeichen so ausgelegt werden, als wären sie horizontal, aber mit der ganzen Zeile um 90° im Uhrzeigersinn gedreht.
 - `sideways-right`
   - : Ein Alias für `sideways`, der aus Kompatibilitätsgründen beibehalten wird.
 - `use-glyph-orientation`
-  - : Bei SVG-Elementen führt dieses Schlüsselwort dazu, den Wert der veralteten SVG-Eigenschaften `glyph-orientation-vertical` und `glyph-orientation-horizontal` zu verwenden.
+  - : Bei SVG-Elementen führt dieses Schlüsselwort dazu, dass der Wert der veralteten SVG-Eigenschaften `glyph-orientation-vertical` und `glyph-orientation-horizontal` verwendet wird.
 
 ## Formale Definition
 
@@ -83,7 +104,7 @@ p {
 
 ## Siehe auch
 
-- Die anderen vertikalskriptbezogenen CSS-Eigenschaften: {{cssxref("writing-mode")}}, {{cssxref("text-combine-upright")}}, und {{cssxref("unicode-bidi")}}.
-- [CSS Logische Eigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- Die anderen CSS-Eigenschaften im Zusammenhang mit vertikalen Schriften: {{cssxref("writing-mode")}}, {{cssxref("text-combine-upright")}}, und {{cssxref("unicode-bidi")}}.
+- [CSS Logical properties](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - [Gestaltung von vertikalem Text (Chinesisch, Japanisch, Koreanisch und Mongolisch)](https://www.w3.org/International/articles/vertical-text/)
-- Umfangreiche Browser-Unterstützungstestergebnisse: <https://w3c.github.io/i18n-tests/results/horizontal-in-vertical.html#text_orientation>
+- Umfangreiche Testergebnisse der Browserunterstützung: <https://w3c.github.io/i18n-tests/results/horizontal-in-vertical.html#text_orientation>

@@ -2,14 +2,56 @@
 title: text-align
 slug: Web/CSS/text-align
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`text-align`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die horizontale Ausrichtung des Inline-Inhalts innerhalb eines Blockelements oder einer Tabellenzelle fest. Das bedeutet, dass sie ähnlich wie {{cssxref("vertical-align")}} arbeitet, jedoch in horizontaler Richtung.
+Die **`text-align`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die horizontale Ausrichtung des Inline-Inhalts innerhalb eines Blockelements oder einer Tabellenzellenbox fest. Das bedeutet, sie funktioniert ähnlich wie {{cssxref("vertical-align")}}, jedoch in horizontaler Richtung.
 
-{{EmbedInteractiveExample("pages/css/text-align.html")}}
+{{InteractiveExample("CSS Demo: text-align")}}
+
+```css interactive-example-choice
+text-align: start;
+```
+
+```css interactive-example-choice
+text-align: end;
+```
+
+```css interactive-example-choice
+text-align: center;
+```
+
+```css interactive-example-choice
+text-align: justify;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </p>
+  </div>
+</section>
+```
+
+```css interactive-example
+section {
+  font-size: 1.5em;
+}
+
+#default-example > div {
+  width: 250px;
+}
+```
 
 ## Syntax
 
@@ -50,28 +92,28 @@ Die `text-align` Eigenschaft wird als ein einzelnes Schlüsselwort aus der folge
 - `center`
   - : Der Inline-Inhalt wird innerhalb der Linienbox zentriert.
 - `justify`
-  - : Der Inline-Inhalt wird ausgerichtet. Der Inhalt wird so verteilt, dass seine linken und rechten Ränder mit den linken und rechten Rändern der Linienbox übereinstimmen, außer bei der letzten Zeile.
+  - : Der Inline-Inhalt wird ausgerichtet. Der Inhalt wird so verteilt, dass die linken und rechten Ränder an die linken und rechten Ränder der Linienbox angepasst werden, mit Ausnahme der letzten Zeile.
 - `match-parent`
-  - : Ähnlich wie `inherit`, jedoch werden die Werte `start` und `end` gemäß der {{cssxref("direction")}} des Elternelements berechnet und durch den passenden Wert `left` oder `right` ersetzt.
+  - : Ähnlich wie `inherit`, aber die Werte `start` und `end` werden gemäß der {{cssxref("direction")}} des übergeordneten Elements berechnet und durch den entsprechenden `left` oder `right` Wert ersetzt.
 
 ## Barrierefreiheit
 
-Der ungleichmäßige Abstand zwischen Wörtern, der durch ausgerichteten Text entsteht, kann problematisch für Menschen mit kognitiven Beeinträchtigungen wie Legasthenie sein.
+Der ungleichmäßige Abstand zwischen Wörtern, der durch ausgerichteten Text entsteht, kann für Personen mit kognitiven Einschränkungen wie Dyslexie problematisch sein.
 
-- [MDN Verständnis der WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.8 | Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN Verständlichkeit WCAG, Erklärung zur Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.8 | Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
-## Formelle Definition
+## Formale Definition
 
 {{CSSInfo}}
 
-## Formelle Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Startausrichtung
+### Start Ausrichtung
 
 #### HTML
 
@@ -146,14 +188,14 @@ Der ungleichmäßige Abstand zwischen Wörtern, der durch ausgerichteten Text en
 
 {{EmbedLiveSample('Example using "justify"',"100%","100%")}}
 
-### Tabellenausrichtung
+### Tabellen Ausrichtung
 
-Dieses Beispiel demonstriert die Verwendung von `text-align` auf {{htmlelement("table")}} Elementen:
+Dieses Beispiel zeigt die Verwendung von `text-align` auf {{htmlelement("table")}} Elementen:
 
 - Die {{htmlelement("caption")}} ist rechtsbündig ausgerichtet.
-- Die ersten beiden {{htmlelement("th")}}-Elemente erben die linke Ausrichtung von `text-align: left`, das auf {{htmlelement("thead")}} gesetzt ist, während das dritte rechtsbündig ausgerichtet ist.
-- Innerhalb des {{htmlelement("tbody")}}-Elements ist die erste Reihe rechtsbündig, die zweite zentriert und die dritte verwendet die Standardausrichtung (links).
-- Innerhalb jeder Reihe sind einige Zellen (c12, c31) so gesetzt, dass sie die Ausrichtung der Reihe überschreiben.
+- Die ersten beiden {{htmlelement("th")}} Elemente erben die linke Ausrichtung von `text-align: left`, das auf den {{htmlelement("thead")}} gesetzt ist, während das dritte rechtsbündig ist.
+- Innerhalb des {{htmlelement("tbody")}} Elements ist die erste Zeile rechtsbündig, die zweite zentriert, und die dritte verwendet die Standard (linke) Ausrichtung.
+- Innerhalb jeder Zeile sind einige Zellen (c12, c31) so gesetzt, dass sie die Ausrichtung der Zeile überschreiben.
 
 #### HTML
 

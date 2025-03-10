@@ -2,14 +2,47 @@
 title: background-origin
 slug: Web/CSS/background-origin
 l10n:
-  sourceCommit: b64538dc77e9a6181b882bd54bdbb307c1430ba8
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`background-origin`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt den Ursprung des Hintergrunds fest: vom Randanfang, innerhalb des Randes oder innerhalb des Paddings.
+Die **`background-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung des Hintergrundes fest: von Beginn des Randes, innerhalb des Randes oder innerhalb des Innenabstands.
 
-{{EmbedInteractiveExample("pages/css/background-origin.html")}}
+{{InteractiveExample("CSS Demo: background-origin")}}
+
+```css interactive-example-choice
+background-origin: border-box;
+background-repeat: no-repeat;
+```
+
+```css interactive-example-choice
+background-origin: padding-box;
+background-repeat: no-repeat;
+```
+
+```css interactive-example-choice
+background-origin: content-box;
+background-repeat: no-repeat;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div id="example-element">This is the content of the element.</div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-image: url("/shared-assets/images/examples/leopard.jpg");
+  color: #d73611;
+  text-shadow: 2px 2px black;
+  padding: 20px;
+  border: 10px dashed #333;
+  font-size: 2em;
+  font-weight: bold;
+}
+```
 
 Beachten Sie, dass `background-origin` ignoriert wird, wenn {{cssxref("background-attachment")}} auf `fixed` gesetzt ist.
 
@@ -29,16 +62,16 @@ background-origin: revert-layer;
 background-origin: unset;
 ```
 
-Die Eigenschaft `background-origin` wird mit einem der unten aufgelisteten Schl체sselwortwerte angegeben.
+Die `background-origin` Eigenschaft wird als eines der unten aufgef체hrten Schl체sselwort-Werte angegeben.
 
 ### Werte
 
 - `border-box`
-  - : Der Hintergrund wird relativ zur Border-Box positioniert.
+  - : Der Hintergrund wird relativ zur Randbox positioniert.
 - `padding-box`
-  - : Der Hintergrund wird relativ zur Padding-Box positioniert.
+  - : Der Hintergrund wird relativ zur Innenabstandsbox positioniert.
 - `content-box`
-  - : Der Hintergrund wird relativ zur Content-Box positioniert.
+  - : Der Hintergrund wird relativ zur Inhaltsbox positioniert.
 
 ## Formale Definition
 
@@ -50,7 +83,7 @@ Die Eigenschaft `background-origin` wird mit einem der unten aufgelisteten Schl�
 
 ## Beispiele
 
-### Hintergrundurspr체nge festlegen
+### Setzen der Hintergrund-Urspr체nge
 
 ```css
 .example {
@@ -83,9 +116,9 @@ div {
 }
 ```
 
-### Mit zwei Verl채ufen arbeiten
+### Verwendung von zwei Verl채ufen
 
-In diesem Beispiel hat die Box einen dicken, gepunkteten Rand. Der erste Verlauf verwendet die `padding-box` als `background-origin`, und daher liegt der Hintergrund innerhalb des Randes. Der zweite verwendet die `content-box` und wird somit nur hinter dem Inhalt angezeigt.
+In diesem Beispiel hat die Box einen dicken, gepunkteten Rand. Der erste Verlauf verwendet die `padding-box` als `background-origin`, und daher sitzt der Hintergrund innerhalb des Randes. Der zweite verwendet die `content-box` und wird daher nur hinter dem Inhalt angezeigt.
 
 ```css
 .box {

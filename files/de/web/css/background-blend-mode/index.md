@@ -2,16 +2,49 @@
 title: background-blend-mode
 slug: Web/CSS/background-blend-mode
 l10n:
-  sourceCommit: 42c1bb8c259f3f57de9f38600776cf273e3addda
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die CSS-Eigenschaft **`background-blend-mode`** legt fest, wie die Hintergrundbilder eines Elements miteinander und mit der Hintergrundfarbe des Elements gemischt werden sollen.
+Die **`background-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die Hintergrundbilder eines Elements miteinander und mit der Hintergrundfarbe des Elements gemischt werden sollen.
 
-{{EmbedInteractiveExample("pages/css/background-blend-mode.html")}}
+{{InteractiveExample("CSS Demo: background-blend-mode")}}
 
-Mischmodi sollten in derselben Reihenfolge definiert werden wie die Eigenschaft {{cssxref("background-image")}}. Wenn die Listenlängen der Mischmodi und Hintergrundbilder nicht gleich sind, wird sie wiederholt und/oder verkürzt, bis die Längen übereinstimmen.
+```css interactive-example-choice
+background-blend-mode: normal;
+```
+
+```css interactive-example-choice
+background-blend-mode: multiply;
+```
+
+```css interactive-example-choice
+background-blend-mode: hard-light;
+```
+
+```css interactive-example-choice
+background-blend-mode: difference;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="example-container">
+    <div class="transition-all" id="example-element"></div>
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: green;
+  background-image: url("/shared-assets/images/examples/balloon.jpg");
+  width: 250px;
+  height: 305px;
+}
+```
+
+Die Mischmodi sollten in der gleichen Reihenfolge definiert werden wie die {{cssxref("background-image")}} Eigenschaft. Wenn die Listenlängen von Mischmodi und Hintergrundbildern nicht gleich sind, werden sie wiederholt und/oder gekürzt, bis die Längen übereinstimmen.
 
 ## Syntax
 
@@ -33,7 +66,7 @@ background-blend-mode: unset;
 ### Werte
 
 - {{cssxref("&lt;blend-mode&gt;")}}
-  - : Der anzuwendende Mischmodus. Es können mehrere Werte, getrennt durch Kommata, angegeben werden.
+  - : Der anzuwendende Mischmodus. Es können mehrere Werte vorhanden sein, getrennt durch Kommas.
 
 ## Formale Definition
 
@@ -45,7 +78,7 @@ background-blend-mode: unset;
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
 ```css
 .item {
@@ -56,7 +89,7 @@ background-blend-mode: unset;
 }
 ```
 
-### Verschiedene Mischmodi ausprobieren
+### Probieren Sie verschiedene Mischmodi aus
 
 ```html hidden
 <div id="div"></div>

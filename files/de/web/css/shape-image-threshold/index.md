@@ -2,16 +2,82 @@
 title: shape-image-threshold
 slug: Web/CSS/shape-image-threshold
 l10n:
-  sourceCommit: fab1f9cef824066b3ce6a5b25f6c6db539f5d042
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Schwelle für den Alphakanal fest, die verwendet wird, um die Form mit einem Bild als Wert für {{cssxref("shape-outside")}} zu extrahieren.
+Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Alphakanal-Schwellenwert fest, der verwendet wird, um die Form zu extrahieren, indem ein Bild als Wert für {{cssxref("shape-outside")}} verwendet wird.
 
-{{EmbedInteractiveExample("pages/css/shape-image-threshold.html")}}
+{{InteractiveExample("CSS Demo: shape-image-threshold")}}
 
-Alle Pixel, deren Alpha-Komponente den Schwellenwert überschreitet, gelten als Teil der Form zur Bestimmung ihrer Grenzen. Zum Beispiel bedeutet ein Wert von `0.5`, dass die Form alle Pixel einschließt, die mehr als 50% undurchsichtig sind.
+```css interactive-example-choice
+shape-outside: linear-gradient(
+  50deg,
+  rgb(77, 26, 103),
+  transparent 80%,
+  transparent
+);
+shape-image-threshold: 0.2;
+```
+
+```css interactive-example-choice
+shape-outside: linear-gradient(
+  50deg,
+  rgb(77, 26, 103),
+  transparent 80%,
+  transparent
+);
+shape-image-threshold: 0.4;
+```
+
+```css interactive-example-choice
+shape-outside: linear-gradient(
+  50deg,
+  rgb(77, 26, 103),
+  transparent 80%,
+  transparent
+);
+shape-image-threshold: 0.6;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="example-container">
+    <div class="transition-all" id="example-element"></div>
+    We had agreed, my companion and I, that I should call for him at his house,
+    after dinner, not later than eleven o’clock. This athletic young Frenchman
+    belongs to a small set of Parisian sportsmen, who have taken up “ballooning”
+    as a pastime. After having exhausted all the sensations that are to be found
+    in ordinary sports, even those of “automobiling” at a breakneck speed, the
+    members of the “Aéro Club” now seek in the air, where they indulge in all
+    kinds of daring feats, the nerve-racking excitement that they have ceased to
+    find on earth.
+  </div>
+</section>
+```
+
+```css interactive-example
+.example-container {
+  text-align: left;
+  padding: 20px;
+}
+
+#example-element {
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+  background-image: linear-gradient(
+    50deg,
+    rgb(77, 26, 103),
+    transparent 80%,
+    transparent
+  );
+}
+```
+
+Alle Pixel, deren Alphakomponente einen höheren Wert als der Schwellenwert hat, werden als Teil der Form betrachtet, um deren Grenzen zu bestimmen. Zum Beispiel bedeutet ein Wert von `0.5`, dass die Form alle Pixel einschließt, die mehr als 50% undurchsichtig sind.
 
 ## Syntax
 
@@ -30,7 +96,7 @@ shape-image-threshold: unset;
 ### Werte
 
 - {{cssxref("&lt;alpha-value&gt;")}}
-  - : Legt die Schwelle fest, die zur Extraktion einer Form aus einem Bild verwendet wird. Die Form wird durch die Pixel definiert, deren Alphawert größer als die Schwelle ist. Werte außerhalb des Bereichs 0,0 (vollständig transparent) bis 1,0 (vollständig undurchsichtig) werden auf diesen Bereich begrenzt.
+  - : Setzt den Schwellenwert, der verwendet wird, um eine Form aus einem Bild zu extrahieren. Die Form wird durch die Pixel definiert, deren Alphawert höher als der Schwellenwert ist. Werte außerhalb des Bereichs von 0,0 (vollständig transparent) bis 1,0 (vollständig undurchsichtig) werden auf diesen Bereich begrenzt.
 
 ## Formale Definition
 
@@ -44,7 +110,7 @@ shape-image-threshold: unset;
 
 ### Text an einem Verlauf ausrichten
 
-Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Hintergrundbild-Verlauf. Der Verlauf wird als CSS-Form unter Verwendung von `shape-outside` festgelegt, so dass Pixel innerhalb des Verlaufs, die mindestens 20% undurchsichtig sind (das heißt, jene Pixel mit einer Alpha-Komponente größer als 0.2), als Teil der Form betrachtet werden.
+Dieses Beispiel erstellt einen {{HTMLElement("div")}}-Block mit einem Verlauf als Hintergrundbild. Der Verlauf wird als CSS-Form mit `shape-outside` festgelegt, sodass Pixel innerhalb des Verlaufs, die mindestens 20% undurchsichtig sind (also die Pixel mit einer Alphakomponente größer als 0,2), als Teil der Form betrachtet werden.
 
 #### HTML
 
@@ -78,9 +144,9 @@ Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Hintergrun
 }
 ```
 
-Die Form wird hier unter Verwendung von {{cssxref("background-image")}} mit einem linearen Verlauf anstelle einer Bilddatei erstellt. Derselbe Verlauf wird auch als das Bild verwendet, aus dem die Form zur Festlegung des Fließbereichs abgeleitet wird, unter Verwendung der {{cssxref("shape-outside")}} Eigenschaft.
+Die Form wird hier mit {{cssxref("background-image")}} unter Verwendung eines linearen Verlaufs anstelle einer Bilddatei festgelegt. Der gleiche Verlauf wird auch als das Bild verwendet, aus dem die Form für die Festlegung des Umflussbereichs mit der {{cssxref("shape-outside")}} Eigenschaft abgeleitet wird.
 
-Die 20% Opazitätsschwelle, um Verlaufs-Pixel als Teil der Form zu behandeln, wird dann unter Verwendung von `shape-image-threshold` mit einem Wert von `0.2` festgelegt.
+Der 20%ige Opazitätsschwellenwert, um Verlaufspixel als Teil der Form zu behandeln, wird dann mit `shape-image-threshold` und einem Wert von `0.2` festgelegt.
 
 #### Ergebnis
 

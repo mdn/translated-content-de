@@ -2,20 +2,82 @@
 title: scroll-snap-type
 slug: Web/CSS/scroll-snap-type
 l10n:
-  sourceCommit: fcbc9f9a687826bd41983e5ea558b6b830e23dec
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`scroll-snap-type`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird auf einem {{Glossary("scroll_container", "Scroll-Container")}} festgelegt, wodurch dieser in das Scroll-Snapping eintritt, indem die Richtung und Genauigkeit der Snap-Punkt-Durchsetzung innerhalb des {{Glossary("Scroll_snap#snapport", "Snap-Ports")}} bestimmt wird.
+Die **`scroll-snap-type`** [CSS](/de/docs/Web/CSS) Eigenschaft wird auf einen {{Glossary("scroll_container", "Scroll-Container")}} gesetzt, um ihn für das Scroll-Snapping zu aktivieren, indem die Richtung und die Strenge der Druckpunkteinbindung innerhalb des {{Glossary("Scroll_snap#snapport", "Snap-Ports")}} festgelegt werden.
 
-{{EmbedInteractiveExample("pages/css/scroll-snap-type.html")}}
+{{InteractiveExample("CSS Demo: scroll-snap-type")}}
 
-Wenn sich der Inhalt im Scroll-Port ändert – zum Beispiel, wenn Inhalte hinzugefügt, verschoben, gelöscht oder die Größe geändert werden – wird der Scroll-Container wieder auf den zuvor gesnappten Inhalt zurückspringen, sofern dieser Inhalt noch vorhanden ist.
+```css interactive-example-choice
+scroll-snap-type: none;
+```
 
-Wird der Wert einer scrollsnap-bezogenen Eigenschaft, wie `scroll-snap-type` oder {{cssxref("scroll-margin")}}, geändert, wird der Scroll-Container sich basierend auf dem aktuellen Wert von `scroll-snap-type` neu ausrichten.
+```css interactive-example-choice
+scroll-snap-type: x mandatory;
+```
 
-Die spezifizierten Animationen oder physikalischen Verhaltensweisen zur Umsetzung dieser Snap-Punkte sind nicht durch diese Eigenschaft abgedeckt, sondern dem Benutzeragenten überlassen.
+```css interactive-example-choice
+scroll-snap-type: x proximity;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div id="example-element">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="info">Scroll »</div>
+</section>
+```
+
+```css interactive-example
+.default-example {
+  flex-wrap: wrap;
+}
+
+.default-example .info {
+  width: 100%;
+  padding: 0.5em 0;
+  font-size: 90%;
+}
+
+#example-element {
+  text-align: left;
+  width: 250px;
+  height: 250px;
+  overflow-x: scroll;
+  display: flex;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+#example-element > div {
+  flex: 0 0 250px;
+  width: 250px;
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+#example-element > div:nth-child(even) {
+  background-color: #fff;
+  color: rebeccapurple;
+}
+```
+
+Wenn sich der Inhalt im Scroll-Port ändert — zum Beispiel, wenn Inhalt hinzugefügt, verschoben, gelöscht oder in der Größe geändert wird —, wird der Scroll-Container erneut den vorher festgelegten Inhalt einrasten, sofern dieser Inhalt noch vorhanden ist.
+
+Wenn der Wert einer scrollbezogenen Eigenschaft, wie `scroll-snap-type` oder {{cssxref("scroll-margin")}}, geändert wird, wird der Scroll-Container basierend auf dem aktuellen Wert von `scroll-snap-type` erneut einrasten.
+
+Das Spezifizieren von präzisen Animationen oder Physikmodellen, die verwendet werden, um diese Snap-Punkte durchzusetzen, wird nicht von dieser Eigenschaft abgedeckt, sondern dem Benutzeragenten überlassen.
 
 ## Syntax
 
@@ -47,21 +109,21 @@ scroll-snap-type: unset;
 ### Werte
 
 - `none`
-  - : Wenn der visuelle {{Glossary("viewport", "Viewport")}} dieses Scroll-Containers gescrollt wird, müssen Snap-Punkte ignoriert werden.
+  - : Wenn das visuelle {{Glossary("viewport", "Viewport")}} dieses Scroll-Containers gescrollt wird, muss es Snap-Punkte ignorieren.
 - `x`
-  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner horizontalen Achse.
+  - : Der Scroll-Container schnellt nur zu Snap-Positionen auf seiner horizontalen Achse.
 - `y`
-  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner vertikalen Achse.
+  - : Der Scroll-Container schnellt nur zu Snap-Positionen auf seiner vertikalen Achse.
 - `block`
-  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner Block-Achse.
+  - : Der Scroll-Container schnellt nur zu Snap-Positionen auf seiner Block-Achse.
 - `inline`
-  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner Inline-Achse.
+  - : Der Scroll-Container schnellt nur zu Snap-Positionen auf seiner Inline-Achse.
 - `both`
-  - : Der Scroll-Container schnappt unabhängig auf beiden Achsen zu Snap-Positionen (möglicherweise Schnappen zu unterschiedlichen Elementen auf jeder Achse).
+  - : Der Scroll-Container schnellt unabhängig zu Snap-Positionen auf beiden seiner Achsen (möglicherweise zu unterschiedlichen Elementen auf jeder Achse).
 - `mandatory`
-  - : Der visuelle Viewport dieses Scroll-Containers muss zu einer Snap-Position springen, wenn er nicht aktuell gescrollt wird.
+  - : Das visuelle Viewport dieses Scroll-Containers muss zu einer Snap-Position einrasten, wenn es derzeit nicht gescrollt ist.
 - `proximity`
-  - : Der visuelle Viewport dieses Scroll-Containers darf zu einer Snap-Position springen, wenn er nicht aktuell gescrollt wird. Der Benutzeragent entscheidet, ob gesprungen wird oder nicht, basierend auf den Scroll-Parametern. Dies ist die standardmäßige Snap-Strenge, wenn eine Snap-Achse angegeben ist.
+  - : Das visuelle Viewport dieses Scroll-Containers darf zu einer Snap-Position einrasten, wenn es derzeit nicht gescrollt ist. Der Benutzeragent entscheidet, ob er einrastet oder nicht, basierend auf Scroll-Parametern. Dies ist die standardmäßige Einraststrenge, wenn eine Snap-Achse angegeben ist.
 
 ## Formale Definition
 
@@ -73,7 +135,7 @@ scroll-snap-type: unset;
 
 ## Beispiele
 
-### Snapping auf verschiedenen Achsen
+### Einrasten in verschiedenen Achsen
 
 #### HTML
 
@@ -234,9 +296,9 @@ div:nth-child(odd) {
 
 ## Siehe auch
 
-- Weitere Eigenschaften des Scroll-Ports: {{cssxref("scroll-margin")}}, {{cssxref("scroll-padding")}}
-- Eigenschaften von Scroll-Childs: {{cssxref("scroll-snap-align")}}, {{cssxref("scroll-margin")}}, {{cssxref("scroll-snap-stop")}}
-- [Grundkonzepte von CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap/Basic_concepts)
+- Andere Scroll-Port-Eigenschaften: {{cssxref("scroll-margin")}}, {{cssxref("scroll-padding")}}
+- Eigenschaften von Scroll-Kindern: {{cssxref("scroll-snap-align")}}, {{cssxref("scroll-margin")}}, {{cssxref("scroll-snap-stop")}}
+- [Grundlegende Konzepte des CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap/Basic_concepts)
 - [Verwendung von Scroll-Snap-Ereignissen](/de/docs/Web/CSS/CSS_scroll_snap/Using_scroll_snap_events)
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

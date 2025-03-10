@@ -2,14 +2,74 @@
 title: scroll-margin-top
 slug: Web/CSS/scroll-margin-top
 l10n:
-  sourceCommit: 2b112aef57df0649462db5d9f47d782a7aa1f25c
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-top` definiert den oberen Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} anzuschnappen. Der Scroll-Snap-Bereich wird durch die Transformation des Rahmenkastens bestimmt, dann wird das rechteckige Begrenzungsfeld (achsenparallel im Koordinatenraum des Scroll-Containers) ermittelt, und schließlich werden die angegebenen Abstände hinzugefügt.
+Die Eigenschaft `scroll-margin-top` definiert den oberen Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an die {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem das transformierte Rahmenfeld genommen, seine rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Abstände hinzugefügt werden.
 
-{{EmbedInteractiveExample("pages/css/scroll-margin-top.html")}}
+{{InteractiveExample("CSS Demo: scroll-margin-top")}}
+
+```css interactive-example-choice
+scroll-margin-top: 0;
+```
+
+```css interactive-example-choice
+scroll-margin-top: 20px;
+```
+
+```css interactive-example-choice
+scroll-margin-top: 2em;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="scroller">
+    <div>1</div>
+    <div id="example-element">2</div>
+    <div>3</div>
+  </div>
+  <div class="info">Scroll »</div>
+</section>
+```
+
+```css interactive-example
+.default-example .info {
+  inline-size: 100%;
+  padding: 0.5em 0;
+  font-size: 90%;
+  writing-mode: vertical-rl;
+}
+
+.scroller {
+  text-align: left;
+  height: 250px;
+  width: 270px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid black;
+  scroll-snap-type: y mandatory;
+}
+
+.scroller > div {
+  flex: 0 0 250px;
+  background-color: rebeccapurple;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.scroller > div:nth-child(even) {
+  background-color: #fff;
+  color: rebeccapurple;
+}
+```
 
 ## Syntax
 

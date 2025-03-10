@@ -2,14 +2,53 @@
 title: border-right-width
 slug: Web/CSS/border-right-width
 l10n:
-  sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`border-right-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des rechten Rahmens eines Elements fest.
+Die **`border-right-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des rechten Rands eines Elements fest.
 
-{{EmbedInteractiveExample("pages/css/border-right-width.html")}}
+{{InteractiveExample("CSS Demo: border-right-width")}}
+
+```css interactive-example-choice
+border-right-width: thick;
+```
+
+```css interactive-example-choice
+border-right-width: 2em;
+```
+
+```css interactive-example-choice
+border-right-width: 4px;
+```
+
+```css interactive-example-choice
+border-right-width: 2ex;
+```
+
+```css interactive-example-choice
+border-right-width: 0;
+```
+
+```html interactive-example
+<section class="default-example" id="default-example">
+  <div class="transition-all" id="example-element">
+    This is a box with a border around it.
+  </div>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  background-color: palegreen;
+  color: #000;
+  border: 0 solid crimson;
+  padding: 0.75em;
+  width: 80%;
+  height: 100px;
+}
+```
 
 ## Syntax
 
@@ -36,14 +75,14 @@ border-right-width: unset;
 
 - `<line-width>`
 
-  - : Definiert die Breite des Rahmens, entweder als eine explizite, nicht negative {{cssxref("&lt;length&gt;")}} oder als ein Schlüsselwort. Wenn es sich um ein Schlüsselwort handelt, muss es einen der folgenden Werte haben:
+  - : Definiert die Breite des Rahmens, entweder als explizite nichtnegative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einer der folgenden Werte sein:
 
     - `thin`
     - `medium`
     - `thick`
 
 > [!NOTE]
-> Da die Spezifikation die genaue Stärke, die durch jedes Schlüsselwort bezeichnet wird, nicht definiert, ist das genaue Ergebnis bei der Verwendung eines von ihnen implementierungsspezifisch. Dennoch folgen sie immer dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines Dokuments konstant.
+> Da die Spezifikation die genaue Dicke, die durch jedes Schlüsselwort angegeben wird, nicht definiert, ist das genaue Ergebnis bei der Verwendung eines dieser Schlüsselwörter implementierungsspezifisch. Dennoch folgen sie immer dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines Dokuments konstant.
 
 ## Formale Definition
 
@@ -55,7 +94,7 @@ border-right-width: unset;
 
 ## Beispiele
 
-### Vergleich von Rahmenbreiten
+### Vergleich von Randbreiten
 
 #### HTML
 
@@ -94,5 +133,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Die anderen rahmenbreitenbezogenen CSS-Eigenschaften: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-top-width")}}, und {{Cssxref("border-width")}}.
-- Die anderen rechtsrahmenbezogenen CSS-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-right")}}, {{Cssxref("border-right-style")}}, und {{Cssxref("border-right-color")}}.
+- Die anderen CSS-Eigenschaften, die sich auf die Breite des Rahmens beziehen: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-top-width")}} und {{Cssxref("border-width")}}.
+- Die anderen CSS-Eigenschaften, die sich auf den rechten Rand beziehen: {{Cssxref("border")}}, {{Cssxref("border-right")}}, {{Cssxref("border-right-style")}} und {{Cssxref("border-right-color")}}.

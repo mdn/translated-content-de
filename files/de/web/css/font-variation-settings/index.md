@@ -2,14 +2,52 @@
 title: font-variation-settings
 slug: Web/CSS/font-variation-settings
 l10n:
-  sourceCommit: ad6eb6b52b4b3082397e8e011bd59a6d88a8f5f3
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`font-variation-settings`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht die granulare Kontrolle über die Eigenschaften von [variablen Schriftarten](/de/docs/Web/CSS/CSS_fonts/Variable_fonts_guide), indem Sie die vier Buchstaben der Achsenbezeichnungen der Eigenschaften, die Sie variieren möchten, zusammen mit ihren Werten angeben.
+Die **`font-variation-settings`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet eine niedrige Kontrollmöglichkeit über die Merkmale von [variablen Schriften](/de/docs/Web/CSS/CSS_fonts/Variable_fonts_guide), indem Sie die vier Buchstaben langen Achsennamen der Merkmale, die Sie variieren möchten, zusammen mit ihren Werten angeben.
 
-{{EmbedInteractiveExample("pages/css/font-variation-settings.html")}}
+{{InteractiveExample("CSS Demo: font-variation-settings")}}
+
+```css interactive-example-choice
+font-variation-settings: "wght" 50;
+```
+
+```css interactive-example-choice
+font-variation-settings: "wght" 850;
+```
+
+```css interactive-example-choice
+font-variation-settings: "wdth" 25;
+```
+
+```css interactive-example-choice
+font-variation-settings: "wdth" 75;
+```
+
+```html interactive-example
+<section id="default-example">
+  <p id="example-element">
+    ...it would not be wonderful to meet a Megalosaurus, forty feet long or so,
+    waddling like an elephantine lizard up Holborn Hill.
+  </p>
+</section>
+```
+
+```css interactive-example
+@font-face {
+  src: url("/shared-assets/fonts/variable-fonts/AmstelvarAlpha-VF.ttf");
+  font-family: Amstelvar;
+  font-style: normal;
+}
+
+p {
+  font-size: 1.5rem;
+  font-family: Amstelvar;
+}
+```
 
 ## Syntax
 
@@ -33,23 +71,23 @@ font-variation-settings: unset;
 Der Wert dieser Eigenschaft kann eine von zwei Formen annehmen:
 
 - `normal`
-  - : Text wird mit den Standardeinstellungen dargestellt.
+  - : Text wird mit Standardeinstellungen dargestellt.
 - `<string> <number>`
-  - : Beim Rendern von Text wird die Liste der Achsenbezeichnungen der variablen Schriftart an die Text-Layout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren. Jede Einstellung besteht immer aus einem oder mehreren Paaren, die aus einem {{cssxref("&lt;string&gt;")}} von 4 ASCII-Zeichen gefolgt von einer {{cssxref("number")}} bestehen, die den einzustellenden Achsenwert angibt. Wenn das `<string>` mehr oder weniger Zeichen hat oder Zeichen außerhalb des U+20 - U+7E Codebereichs enthält, ist die gesamte Eigenschaft ungültig. Die `<number>` kann je nach verfügbarem Wertebereich in Ihrer Schriftart, wie vom Schriftartendesigner definiert, gebrochen oder negativ sein.
+  - : Beim Rendern von Text wird die Liste der Achsennamen der variablen Schriftarten an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren. Jede Einstellung besteht immer aus einem oder mehreren Paaren, bestehend aus einem {{cssxref("&lt;string&gt;")}} mit 4 ASCII-Zeichen, gefolgt von einer {{cssxref("number")}} Angabe, die den Achsenwert bestimmt. Wenn das `<string>` mehr oder weniger Zeichen hat oder Zeichen außerhalb des U+20 - U+7E Codepunktbereichs enthält, ist die gesamte Eigenschaft ungültig. Die `<number>` kann je nach verfügbarem Wertebereich in Ihrer Schriftart, wie vom Schriftgestalter definiert, bruchteilhaft oder negativ sein.
 
 ## Beschreibung
 
-Diese Eigenschaft ist ein Mechanismus auf niedriger Ebene, um Merkmale variabler Schriftarten einzustellen, bei denen es keine andere Möglichkeit gibt, auf diese Funktionen zuzugreifen. Sie sollten sie nur verwenden, wenn keine grundlegenden Eigenschaften vorhanden sind, um diese Merkmale einzustellen (z.B. {{cssxref("font-weight")}}, {{cssxref("font-style")}}).
+Diese Eigenschaft ist ein Niedrig-Level-Mechanismus, um variable Schriftmerkmale zu setzen, wenn keine andere Möglichkeit existiert, um diese Merkmale zu aktivieren oder darauf zuzugreifen. Sie sollten sie nur verwenden, wenn keine grundlegenden Eigenschaften existieren, um diese Merkmale zu setzen (z.B. {{cssxref("font-weight")}}, {{cssxref("font-style")}}).
 
-Schriftmerkmale, die mit `font-variation-settings` gesetzt werden, überschreiben immer die mit den entsprechenden Basis-Schrifteigenschaften gesetzten, z.B. `font-weight`, unabhängig davon, wo sie in der Kaskade erscheinen. In einigen Browsern ist dies derzeit nur dann der Fall, wenn die {{cssxref("@font-face")}} Deklaration einen {{cssxref("@font-face/font-weight", "font-weight")}} Bereich enthält.
+Die mit `font-variation-settings` festgelegten Schriftmerkmale überschreiben immer die mit den entsprechenden grundlegenden Schriftarten-Eigenschaften festgelegten Merkmale, z.B. `font-weight`, unabhängig davon, wo sie im Cascade erscheinen. In einigen Browsern trifft dies derzeit nur zu, wenn die {{cssxref("@font-face")}}-Deklaration einen {{cssxref("@font-face/font-weight", "font-weight")}}-Bereich enthält.
 
 ### Registrierte und benutzerdefinierte Achsen
 
-Achsen in variablen Schriftarten gibt es in zwei Typen: **registriert** und **benutzerdefiniert**.
+Variable Schriftachsen gibt es in zwei Typen: **registrierte** und **benutzerdefinierte**.
 
-Registrierte Achsen sind die am häufigsten auftretenden – so häufig, dass die Autoren der Spezifikation meinten, sie lohnten sich zu standardisieren. Beachten Sie, dass dies nicht bedeutet, dass der Autor alle diese in seiner Schriftart aufnehmen muss.
+Registrierte Achsen sind die am häufigsten anzutreffenden — so häufig, dass die Autoren der Spezifikation sie für eine Standardisierung hielten. Beachten Sie, dass dies nicht bedeutet, dass der Autor alle in seiner Schriftart einbeziehen muss.
 
-Hier sind die registrierten Achsen zusammen mit ihren entsprechenden CSS-Eigenschaften:
+Hier sind die registrierten Achsen sowie ihre entsprechenden CSS-Eigenschaften:
 
 <table class="standard-table">
   <thead>
@@ -68,7 +106,7 @@ Hier sind die registrierten Achsen zusammen mit ihren entsprechenden CSS-Eigensc
       <td>{{cssxref("font-stretch")}}</td>
     </tr>
     <tr>
-      <td>"slnt" (slant)</td>
+      <td>"slnt" (schräg)</td>
       <td>{{cssxref("font-style")}}: <code>oblique + angle</code></td>
     </tr>
     <tr>
@@ -82,12 +120,12 @@ Hier sind die registrierten Achsen zusammen mit ihren entsprechenden CSS-Eigensc
   </tbody>
 </table>
 
-Benutzerdefinierte Achsen können alles sein, was der Schriftartendesigner in seiner Schriftart variieren möchte, z.B. die Höhe von Ober- oder Unterlängen, die Größe von Serifen oder alles andere, was ihm einfallen könnte. Jede Achse kann verwendet werden, solange sie eine einzigartige 4-Zeichen-Achse erhält. Einige werden häufiger vorkommen und könnten im Laufe der Zeit sogar registriert werden.
+Benutzerdefinierte Achsen können alles sein, was der Schriftgestalter in ihrer Schrift variieren möchte, beispielsweise Auf- oder Abstrichhöhen, die Größe der Serifen oder alles andere, was er sich vorstellen kann. Jede Achse kann verwendet werden, solange sie eine eindeutige 4-Zeichen Achsenbezeichnung erhält. Einige werden schließlich häufiger vorkommen und könnten sogar im Laufe der Zeit registriert werden.
 
 > [!NOTE]
-> Registrierte Achsen-Tags werden mit Kleinbuchstaben-Tags identifiziert, während benutzerdefinierte Achsen Großbuchstaben-Tags erhalten sollten. Beachten Sie, dass Schriftartendesigner gezwungen sind, sich nicht an diese Praxis zu halten, und einige werden es nicht tun. Wichtig ist hier, dass Achsen-Tags groß- und kleinschreibungssensitiv sind.
+> Registrierte Achsen-Tags werden mittels kleingeschriebener Tags identifiziert, während benutzerdefinierte Achsen Großbuchstaben-Tags erhalten sollten. Beachten Sie, dass Schriftgestalter nicht gezwungen sind, diese Praxis zu befolgen, und einige werden es nicht tun. Wichtig ist, dass Achsen-Tags groß-/kleinschreibungssensitiv sind.
 
-Um variable Schriftarten auf Ihrem Betriebssystem zu verwenden, müssen Sie sicherstellen, dass es auf dem neuesten Stand ist. Beispielsweise benötigen Linux-Betriebssysteme die neueste Linux Freetype-Version, und macOS vor Version 10.13 unterstützt keine variablen Schriftarten. Wenn Ihr Betriebssystem nicht auf dem neuesten Stand ist, können Sie keine variablen Schriftarten auf Webseiten oder in den Firefox Developer Tools verwenden.
+Um variable Schriftarten auf Ihrem Betriebssystem zu verwenden, müssen Sie sicherstellen, dass es auf dem neuesten Stand ist. Beispielsweise benötigen Linux-Betriebssysteme die neueste Linux Freetype-Version, und macOS vor 10.13 unterstützt keine variablen Schriftarten. Wenn Ihr Betriebssystem nicht aktuell ist, können Sie keine variablen Schriftarten auf Webseiten oder in den Firefox Developer Tools verwenden.
 
 ## Formale Definition
 
@@ -99,11 +137,11 @@ Um variable Schriftarten auf Ihrem Betriebssystem zu verwenden, müssen Sie sich
 
 ## Beispiele
 
-Sie finden eine Anzahl anderer Beispiele für variable Schriftarten in unserem [Leitfaden für variable Schriftarten](/de/docs/Web/CSS/CSS_fonts/Variable_fonts_guide).
+Sie finden eine Reihe weiterer Beispiele für variable Schriftarten in unserem [Leitfaden für variable Schriftarten](/de/docs/Web/CSS/CSS_fonts/Variable_fonts_guide).
 
-### Kontrolle des variablen Schriftgewichts (wght)
+### Variable Schriftstärke steuern (wght)
 
-Klicken Sie auf "Abspielen" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie das CSS, um mit verschiedenen Schriftgewichtswerten zu spielen. Sehen Sie, was passiert, wenn Sie einen Wert außerhalb des Gewichtsspektrums angeben.
+Klicken Sie auf "Play" in den folgenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie das CSS, um mit verschiedenen Schriftdickenwerten zu experimentieren. Beobachten Sie, was passiert, wenn Sie einen Wert außerhalb des Gewichtsbereichs angeben.
 
 ```html hidden live-sample___variable-fonts-weight-example
 <div>
@@ -186,9 +224,9 @@ angle.addEventListener("input", (e) => {
 
 {{EmbedLiveSample("variable-fonts-weight-example", "", "450px")}}
 
-### Kontrolle der variablen Schriftstilneigung (slnt)
+### Variable Schriftschräge steuern (slnt)
 
-Klicken Sie auf "Abspielen" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie das CSS, um mit verschiedenen Neigungs-/Kursivwerten zu spielen.
+Klicken Sie auf "Play" in den folgenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie das CSS, um mit verschiedenen Schriftneigungs-/kursiven Werten zu experimentieren.
 
 ```html hidden live-sample___variable-fonts-slant-example
 <div>
@@ -282,7 +320,7 @@ angle.addEventListener("input", (e) => {
 ## Siehe auch
 
 - [Leitfaden für variable Schriftarten](/de/docs/Web/CSS/CSS_fonts/Variable_fonts_guide)
-- [OpenType-Schriftvariationen Übersicht](https://learn.microsoft.com/en-us/typography/opentype/spec/otvaroverview) auf microsoft.com
-- [OpenType Design-Variation Achsen-Tag-Registrierung](https://learn.microsoft.com/en-us/typography/opentype/spec/dvaraxisreg) auf microsoft.com
+- [OpenType-Schriftvariationen-Übersicht](https://learn.microsoft.com/en-us/typography/opentype/spec/otvaroverview) auf microsoft.com
+- [OpenType Design-Variationsaxen-Tag-Register](https://learn.microsoft.com/en-us/typography/opentype/spec/dvaraxisreg) auf microsoft.com
 - [OpenType variable Schriftarten](https://www.axis-praxis.org/) auf axis-praxis.org
 - [Variable Schriftarten](https://v-fonts.com/) auf v-fonts.com

@@ -2,16 +2,69 @@
 title: scroll-behavior
 slug: Web/CSS/scroll-behavior
 l10n:
-  sourceCommit: a1596fe065b9c726f9412999d2218b7b6e256e30
+  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
 ---
 
 {{CSSRef}}
 
-Die **`scroll-behavior`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten für ein Scroll-Element fest, wenn das Scrollen durch die Navigation oder die CSSOM-Scrolling-APIs ausgelöst wird.
+Die **`scroll-behavior`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt das Verhalten für ein Scrollfeld fest, wenn das Scrollen durch die Navigation oder CSSOM-Scrolling-APIs ausgelöst wird.
 
-{{EmbedInteractiveExample("pages/css/scroll-behavior.html")}}
+{{InteractiveExample("CSS Demo: scroll-behavior")}}
 
-Beachten Sie, dass alle anderen Scrollvorgänge, wie z.B. vom Benutzer durchgeführte Scrolls, von dieser Eigenschaft nicht beeinflusst werden. Wenn diese Eigenschaft auf das Root-Element angewendet wird, gilt sie stattdessen für das Viewport. Diese Eigenschaft, die auf das `body`-Element angewendet wird, wird _nicht_ auf das Viewport übertragen.
+```css interactive-example-choice
+scroll-behavior: auto;
+```
+
+```css interactive-example-choice
+scroll-behavior: smooth;
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="container">
+    <p class="nav">
+      Scroll to:
+      <a href="#pageA">A</a>
+      <a href="#pageB">B</a>
+      <a href="#pageC">C</a>
+    </p>
+    <scroll-container id="example-element">
+      <scroll-page id="pageA">A</scroll-page>
+      <scroll-page id="pageB">B</scroll-page>
+      <scroll-page id="pageC">C</scroll-page>
+    </scroll-container>
+  </div>
+</section>
+```
+
+```css interactive-example
+/* stylelint-disable selector-type-no-unknown */
+.container {
+  flex-direction: column;
+}
+
+.nav a {
+  color: #009e5f;
+}
+
+scroll-container {
+  border: 1px solid black;
+  display: block;
+  height: 200px;
+  overflow-y: scroll;
+  width: 200px;
+}
+
+scroll-page {
+  align-items: center;
+  display: flex;
+  font-size: 5em;
+  height: 100%;
+  justify-content: center;
+}
+```
+
+Beachten Sie, dass andere Arten des Scrollings, wie zum Beispiel diejenigen, die vom Benutzer durchgeführt werden, von dieser Eigenschaft nicht beeinflusst werden. Wenn diese Eigenschaft auf dem Root-Element angegeben ist, gilt sie stattdessen für den Ansichtsbereich (viewport). Diese Eigenschaft, die auf dem `body`-Element angegeben ist, wird _nicht_ auf den Ansichtsbereich übertragen.
 
 Benutzeragenten dürfen diese Eigenschaft ignorieren.
 
@@ -30,14 +83,14 @@ scroll-behavior: revert-layer;
 scroll-behavior: unset;
 ```
 
-Die `scroll-behavior` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `scroll-behavior`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `auto`
-  - : Das Scroll-Element scrollt sofort.
+  - : Das Scrollfeld scrollt sofort.
 - `smooth`
-  - : Das Scroll-Element scrollt in einer sanften Weise unter Verwendung einer vom Benutzeragent definierten Abklingfunktion über einen vom Benutzeragent definierten Zeitraum. Benutzeragenten sollten, falls vorhanden, Plattformkonventionen folgen.
+  - : Das Scrollfeld scrollt auf sanfte Weise mit einer benutzerdefinierten Übergangsfunktion und über einen benutzerdefinierten Zeitraum. Benutzeragenten sollten, wenn vorhanden, den Plattformkonventionen folgen.
 
 ## Formale Definition
 
@@ -49,7 +102,7 @@ Die `scroll-behavior` Eigenschaft wird als einer der unten aufgeführten Schlüs
 
 ## Beispiele
 
-### Sanftes Scroll-Verhalten einstellen
+### Sanftes Scrollverhalten festlegen
 
 #### HTML
 
