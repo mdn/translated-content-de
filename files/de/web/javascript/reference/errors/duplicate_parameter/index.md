@@ -2,12 +2,12 @@
 title: "SyntaxError: doppeltes formales Argument x"
 slug: Web/JavaScript/Reference/Errors/Duplicate_parameter
 l10n:
-  sourceCommit: 38bd4d88564b9a1539fb4d1b4ba6fa04b0a10063
+  sourceCommit: 8cf6d8c10adf3ce5370f8a3f180bec11112d4d44
 ---
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "duplicate formal argument x" oder "duplicate argument names not allowed in this context" tritt auf, wenn eine Funktion zwei oder mehr Parameterbindungen mit demselben Namen erstellt und die Funktion keine [non-strict](/de/docs/Web/JavaScript/Reference/Strict_mode) Funktion mit nur einfachen Parametern ist.
+Der JavaScript-Fehler "duplicate formal argument x" oder "duplicate argument names not allowed in this context" tritt auf, wenn eine Funktion zwei oder mehr Parameterbindungen mit demselben Namen erstellt und die Funktion keine [nicht-strikte](/de/docs/Web/JavaScript/Reference/Strict_mode) Funktion mit einfachen Parametern ist.
 
 ## Meldung
 
@@ -21,13 +21,13 @@ SyntaxError: Duplicate parameter 'x' not allowed in function with a rest paramet
 SyntaxError: Duplicate parameter 'x' not allowed in function with destructuring parameters. (Safari)
 ```
 
-## Fehler-Typ
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Zwei formale Parameter mit demselben Namen zu haben, ist wahrscheinlich ein Fehler - das zweite Vorkommen würde das erste Vorkommen unzugänglich durch den Parameternamen machen. In legacy JavaScript war dies erlaubt. Um bestehende Codes nicht zu zerstören, ist dies nur ein Fehler, wenn der Code garantiert keine legacy ist - entweder weil er im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) ist oder moderne Parametersyntax verwendet ([rest](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [default](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters), oder [destructured](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) Parameter).
+Zwei formale Parameter mit demselben Namen zu haben, ist wahrscheinlich ein Fehler – das zweite Vorkommen würde dazu führen, dass das erste Vorkommen über den Parameternamen nicht zugänglich ist. In älteren JavaScript-Versionen war dies erlaubt. Um vorhandenen Code nicht zu beeinträchtigen, ist dies daher nur ein Fehler, wenn der Code garantiert nicht älter ist – entweder weil er im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ist oder moderne Parametersyntax (wie [rest](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [default](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) oder [destructured](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) Parameter) verwendet.
 
 ## Beispiele
 
@@ -63,5 +63,5 @@ function doSomething(name, user) {
 
 ## Siehe auch
 
-- [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
+- [Functions](/de/docs/Web/JavaScript/Reference/Functions)
 - [Strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)

@@ -1,12 +1,12 @@
 ---
-title: "SpeechGrammar: Gewicht-Eigenschaft"
+title: "SpeechGrammar: weight-Eigenschaft"
 short-title: weight
 slug: Web/API/SpeechGrammar/weight
 l10n:
-  sourceCommit: 23e1a97d50050a3b3518a4b2f67ccf42e5fd75b7
+  sourceCommit: 706cbf21987296c604cc96b7f95095ed7aba6bb8
 ---
 
-{{APIRef("Web Speech API")}}{{SeeCompatTable}}
+{{APIRef("Web Speech API")}}{{deprecated_header}}{{non-standard_header}}
 
 Die optionale **`weight`**-Eigenschaft des
 [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Interfaces legt das Gewicht des
@@ -14,7 +14,7 @@ Die optionale **`weight`**-Eigenschaft des
 
 ## Wert
 
-Ein Float, der das Gewicht der Grammatik darstellt, im Bereich von 0.0–1.0.
+Ein Float, der das Gewicht der Grammatik im Bereich von 0,0 bis 1,0 darstellt.
 
 ## Beispiele
 

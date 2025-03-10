@@ -1,53 +1,53 @@
 ---
-title: Einrichten von adaptiven Streaming-Mediaquellen
+title: Einrichten von adaptiven Streaming-Medienquellen
 slug: Web/Media/Guides/Audio_and_video_delivery/Setting_up_adaptive_streaming_media_sources
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: 226c823808b3ee9f2e48fd019ca92a7b51fc474f
 ---
 
-Angenommen, Sie möchten eine adaptive Streaming-Mediaquelle auf einem Server einrichten, die in einem HTML-Media-Element konsumiert werden soll. Wie würden Sie das tun? Dieser Artikel erklärt, wie es geht, und befasst sich mit zwei der gängigsten Formate: MPEG-DASH und HLS (HTTP Live Streaming).
+Angenommen, Sie möchten eine adaptive Streaming-Medienquelle auf einem Server einrichten, die in einem HTML-Medienelement konsumiert werden soll. Wie würden Sie das tun? Dieser Artikel erklärt, wie dies funktioniert und betrachtet dabei zwei der gängigsten Formate: MPEG-DASH und HLS (HTTP Live Streaming).
 
-## Auswahl der Formate
+## Formate auswählen
 
-Hinsichtlich der adaptiven Streaming-Formate gibt es viele zur Auswahl; wir haben uns für die folgenden zwei entschieden, da wir mit ihnen die meisten modernen Browser unterstützen können.
+In Bezug auf adaptive Streaming-Formate gibt es viele Auswahlmöglichkeiten; wir haben uns entschieden, die folgenden zwei auszuwählen, da wir damit die meisten modernen Browser unterstützen können.
 
 - MPEG-DASH
 - HLS (HTTP Live Streaming)
 
-Um Medien adaptiv zu streamen, müssen wir die Medien in Stücke teilen. Wir müssen mehrere verschiedene Qualitätsdateien über mehrere Zeitpunkte hinweg bereitstellen. Je mehr Qualitäten und Zeitpunkte es gibt, desto „adaptiver“ wird Ihr Stream sein, aber wir möchten normalerweise einen pragmatischen Kompromiss zwischen Größe, Codierungszeit und Anpassungsfähigkeit finden.
+Um Medien adaptiv zu streamen, müssen wir die Medien in Stücke aufteilen. Wir sind verpflichtet, mehrere verschiedene Qualitätsdateien bereitzustellen, die über mehrere Zeitpunkte verteilt sind. Je mehr Qualitäten und Zeitpunkte es gibt, desto 'adaptiver' wird Ihr Stream sein. In der Regel möchten wir jedoch einen pragmatischen Ausgleich zwischen Größe, Kodierungszeit und Adaptivität finden.
 
-Die gute Nachricht ist, dass wir, sobald wir unsere Medien im entsprechenden Format codiert haben, im Grunde einsatzbereit sind. Für adaptives Streaming über HTTP sind keine speziellen Serverkomponenten erforderlich.
+Die gute Nachricht ist, dass wir, sobald wir unsere Medien im richtigen Format kodiert haben, ziemlich gut loslegen können. Für adaptives Streaming über HTTP sind keine speziellen serverseitigen Komponenten erforderlich.
 
-Sowohl MPEG-DASH als auch HLS verwenden ein Playlist-Format, um die Komponentenstücke der Medien zu strukturieren, die die möglichen Streams bilden. Verschiedene Bitrate-Streams werden in Segmente aufgeteilt und in entsprechenden Serverordnern abgelegt — wir müssen unseren Mediaplayern einen Link zur Verfügung stellen, um Dateien oder Playlists zu suchen, die den Namen und den Speicherort dieser Stream-Ordner angeben.
+Sowohl MPEG-DASH als auch HLS verwenden ein Playlist-Format, um die Komponente des Mediumteils zu strukturieren, die die möglichen Streams bilden. Verschiedene Bitraten-Streams werden in Segmente unterteilt und in entsprechende Serverordner gelegt – wir müssen unseren Mediaplayern einen Link zur Verfügung stellen, um Dateien oder Playlists abzurufen, die den Namen und den Standort dieser Stream-Ordner angeben.
 
-## MPEG-DASH-Codierung
+## MPEG-DASH-Kodierung
 
-MPEG-DASH ist eine adaptive Bitrate-Streaming-Technik, die das Streaming von Medieninhalten über das Internet ermöglicht, die von herkömmlichen HTTP-Webservern bereitgestellt werden.
+MPEG-DASH ist eine adaptive Bitraten-Streaming-Technik, die das Streaming von Medieninhalten über das Internet ermöglicht, die von herkömmlichen HTTP-Webservern geliefert werden.
 
-Eine Media Presentation Description (MPD)-Datei wird verwendet, um die Informationen zu den verschiedenen Streams und den mit ihnen verbundenen Bandbreiten zu speichern. Im Videoquellenattribut (src) verweisen Sie auf die MPD, anstatt wie bei nicht-adaptiven Medien auf die Mediendatei zu verweisen.
+Eine Medienpräsentationsbeschreibung (MPD)-Datei wird verwendet, um die Informationen zu den verschiedenen Streams und den damit verbundenen Bandbreiten zu halten. In Ihrem Videoquellenattribut (src) verweisen Sie auf die MPD anstelle der Mediendatei, wie Sie es bei nicht-adaptiven Medien tun würden.
 
-Die MPD-Datei teilt dem Browser mit, wo sich die verschiedenen Medienstücke befinden. Sie enthält auch Metadaten wie mimeType und Codecs, und es gibt weitere Details wie Byte-Ranges darin - es handelt sich um ein XML-Dokument und wird in vielen Fällen für Sie generiert.
+Die MPD-Datei teilt dem Browser mit, wo sich die verschiedenen Medienstücke befinden. Sie enthält auch Metadaten wie mimeType und Codecs, und es gibt auch andere Details wie Byte-Ranges darin - es ist ein XML-Dokument und wird in vielen Fällen für Sie generiert.
 
-Es gibt einige Profile, die wir verwenden können. Wir werden uns das Ondemand-Profil für Video On Demand (VOD) und das LIVE-Profil ansehen.
+Es gibt ein paar Profile, die wir verwenden können. Wir werden uns das On-Demand-Profil für Video On Demand (VOD) und das LIVE-Profil ansehen.
 
-Für das Streaming von Live-Diensten ist das LIVE-Profil eine Voraussetzung. Die Stream-Umschaltfähigkeiten sind in den Profilen identisch.
+Für Live-Streaming-Dienste ist das LIVE-Profil eine Voraussetzung. Die Umschaltfähigkeiten der Streams sind zwischen den Profilen identisch.
 
-Weitere Gründe, warum das LIVE-Profil gegenüber dem Ondemand-Profil für VOD-Inhalte verwendet werden könnte, sind:
+Andere Gründe, das LIVE-Profil über On-Demand für VOD-Inhalte zu verwenden, könnten sein:
 
 1. Ihr Client oder Server unterstützt keine [Bereichsanfragen](/de/docs/Web/HTTP/Range_requests)
 2. Ihr Server kann Bereichsanfragen nicht effizient zwischenspeichern
-3. Ihr Server kann Bereichsanfragen nicht effizient vorab abfragen
-4. Das SIDX\* ist groß und das Laden verlangsamt den Start etwas
-5. Sie möchten die Originaldateien sowohl für DASH als auch für andere Formen der Bereitstellung (wie Microsoft Smooth Streaming) als Übergangsstrategie verwenden
-6. Sie können dieselben Mediendateien sowohl für die Live-Übertragung als auch für VOD zu einem späteren Zeitpunkt verwenden
+3. Ihr Server kann Bereichsanfragen nicht effizient im Voraus laden
+4. Der SIDX\* ist groß und das Laden dieser Datei verlangsamt den Start etwas
+5. Sie möchten die Originaldateien sowohl für DASH als auch für andere Lieferformen (wie Microsoft Smooth Streaming) als Übergangsstrategie verwenden
+6. Sie können dieselben Mediendateien sowohl für die Live-Übertragung als auch VOD zu einem späteren Zeitpunkt verwenden
 
-\*SIDX oder SegmentIndexBox ist eine Struktur, die ein Segment beschreibt, indem sie seine früheste Präsentationszeit und andere Metadaten angibt und oft einen großen Teil der MPD-Datei ausmachen kann.
+\*SIDX oder SegmentIndexBox ist eine Struktur, die ein Segment beschreibt, indem sie dessen früheste Präsentationszeit und andere Metadaten angibt und kann oft einen großen Teil der MPD-Datei ausmachen.
 
-### Ondemand-Profil
+### On-Demand-Profil
 
-Dieses Profil ermöglicht das Umschalten zwischen Streams „on demand“, das bedeutet, dass Sie nur eine Reihe zusammenhängender Dateien bereitstellen und die Bandbreite für jede angeben müssen und die entsprechende Datei automatisch ausgewählt wird.
+Dieses Profil ermöglicht das Umschalten zwischen Streams 'on demand' - das heißt, Sie müssen nur eine Reihe von zusammenhängenden Dateien bereitstellen und die Bandbreite für jede angeben, und die passende Datei wird automatisch ausgewählt.
 
-Hier ist ein Beispiel, das eine Audiotrack-Repräsentation und vier separate Videodarstellungen bietet.
+Hier ist ein Beispiel, das eine Audiospur-Darstellung und vier separate Videodarstellungen bereitstellt.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -86,7 +86,7 @@ Hier ist ein Beispiel, das eine Audiotrack-Repräsentation und vier separate Vid
 </MPD>
 ```
 
-Sobald Sie Ihre MPD-Datei erstellt haben, können Sie diese im Video-Tag referenzieren.
+Sobald Sie Ihre MPD-Datei generiert haben, können Sie diese innerhalb des Video-Tags referenzieren.
 
 ```html
 <video src="my.mpd" type="application/dash+xml"></video>
@@ -105,18 +105,18 @@ Es könnte ratsam sein, eine Rückfallebene für Browser bereitzustellen, die MP
 
 ### LIVE-Profil
 
-Ein nützliches Softwarestück im Umgang mit MPEG-DASH ist der [Dash Encoder](https://github.com/slederer/DASHEncoder). Dieser verwendet [MP4Box](https://github.com/gpac/gpac/wiki/mp4box-dash-opts), um Medien im MPEG-DASH-Format zu codieren.
+Ein nützliches Softwarestück beim Umgang mit MPEG-DASH ist [Dash Encoder](https://github.com/slederer/DASHEncoder). Dieser verwendet [MP4Box](https://github.com/gpac/gpac/wiki/mp4box-dash-opts), um Medien in das MPEG-DASH-Format zu kodieren.
 
 > [!NOTE]
-> Sie müssen mit Makefiles und der Installation von Abhängigkeiten vertraut sein, um diese Software zum Laufen zu bringen.
+> Sie sollten mit Make-Dateien und der Installation von Abhängigkeiten vertraut sein, um diese Software zum Laufen zu bringen.
 
 > [!NOTE]
-> Da die MPEG-DASH-Dekodierung teilweise mit JavaScript durchgeführt wird und MSE-Dateien oft mit XHR abgerufen werden, sollten Sie die Same-Origin-Regeln beachten.
+> Da die Decodierung von MPEG-DASH teilweise mit JavaScript erfolgt und MSE-Dateien häufig mit XHR abgerufen werden, sollten Sie die gleichen Ursprungsregeln beachten.
 
 > [!NOTE]
-> Wenn Sie WebM verwenden, können Sie die in diesem Tutorial gezeigten Methoden verwenden: [DASH Adaptive Streaming für HTML 5 Video](/de/docs/Web/Media/Guides/DASH_Adaptive_Streaming_for_HTML_5_Video).
+> Wenn Sie WebM verwenden, können Sie die in diesem Tutorial gezeigten Methoden [DASH Adaptive Streaming for HTML 5 Video](/de/docs/Web/API/Media_Source_Extensions_API/DASH_Adaptive_Streaming) verwenden.
 
-Nach der Codierung könnte Ihre Dateistruktur folgendermaßen aussehen:
+Nach der Kodierung könnte Ihre Dateistruktur folgendermaßen aussehen:
 
 ```plain
 play list ->                /segments/news.mp4.mpd
@@ -132,7 +132,7 @@ main segment folder ->      /segments/main/
 400 Kbps segment folder ->  /segments/main/news400 contains (1.m4s, 2.m4s, 3.m4s … )
 ```
 
-Die Playlist oder `.mpd`-Datei enthält XML, das explizit auflistet, wo sich alle verschiedenen Bitrate-Dateien befinden.
+Die Playlist- oder `.mpd`-Datei enthält XML, das explizit angibt, wo sich die verschiedenen Bitraten-Dateien befinden.
 
 ```xml
 <?xml version="1.0"?>
@@ -183,12 +183,12 @@ Die Playlist oder `.mpd`-Datei enthält XML, das explizit auflistet, wo sich all
   </MPD>
 ```
 
-Die MPD-Datei teilt dem Browser mit, wo sich die verschiedenen Medienstücke befinden. Sie enthält auch Metadaten wie mimeType und Codecs, und es gibt weitere Details wie Byte-Ranges darin. In der Regel werden diese Dateien für Sie generiert.
+Die MPD-Datei teilt dem Browser mit, wo sich die verschiedenen Medienstücke befinden. Sie enthält auch Metadaten wie mimeType und Codecs, und es gibt auch andere Details wie Byte-Ranges darin. Diese Dateien werden in der Regel für Sie generiert.
 
 > [!NOTE]
-> Sie können Ihre Audio- und Videoströme auch in separate Dateien aufteilen, die dann je nach Bandbreite priorisiert und getrennt bereitgestellt werden können.
+> Sie können Ihre Audio- und Videostreams auch in separate Dateien aufteilen, die je nach Bandbreite priorisiert und separat bereitgestellt werden können.
 
-Sobald Sie Ihre MPD-Datei erstellt haben, können Sie diese wie erwartet aus dem {{ htmlelement("video") }} Element referenzieren:
+Sobald Sie Ihre MPD-Datei generiert haben, können Sie diese wie erwartet innerhalb des {{ htmlelement("video") }}-Elements referenzieren:
 
 ```html
 <video src="my.mpd" type="application/dash+xml"></video>
@@ -206,27 +206,27 @@ Es könnte ratsam sein, eine Rückfallebene bereitzustellen:
 ```
 
 > [!NOTE]
-> Die MPEG-DASH-Wiedergabe basiert auf [dash.js](https://github.com/Dash-Industry-Forum/dash.js/) und der Browserunterstützung für [Media Source Extensions](https://w3c.github.io/media-source/). Sehen Sie sich den neuesten [dash.js Referenz-Player](https://reference.dashif.org/dash.js/v4.4.0/samples/dash-if-reference-player/index.html) an.
+> Die Wiedergabe von MPEG-DASH ist abhängig von [dash.js](https://github.com/Dash-Industry-Forum/dash.js/) und der Browserunterstützung für [Media Source Extensions](https://w3c.github.io/media-source/), siehe den neuesten [dash.js reference player](https://reference.dashif.org/dash.js/v4.4.0/samples/dash-if-reference-player/index.html).
 
-## HLS-Codierung
+## HLS-Kodierung
 
-HTTP Live Streaming (HLS) ist ein HTTP-basiertes Media-Streaming-Protokoll, das von Apple implementiert wurde. Es ist in iOS- und OSX-Plattformen integriert und funktioniert gut auf [mobilen und Desktop-Safari- und den meisten Android-Geräten mit einigen Einschränkungen](https://jwplayer.com/blog/http-live-streaming/).
+HTTP Live Streaming (HLS) ist ein auf HTTP basierendes Medien-Streaming-Protokoll, das von Apple implementiert wurde. Es ist in iOS- und OSX-Plattformen integriert und funktioniert gut auf [mobilen und Desktop-Safari und den meisten Android-Geräten mit einigen Vorbehalten](https://jwplayer.com/blog/http-live-streaming/).
 
-Medien werden normalerweise als MPEG-4 (H.264-Video und AAC-Audio) codiert und in einen MPEG-2-Transportstrom verpackt, der dann in Segmente aufgeteilt und als eine oder mehrere `.ts`-Mediendateien gespeichert wird. Apple bietet Tools zum Konvertieren von Mediendateien in das entsprechende Format.
+Medien werden normalerweise als MPEG-4 (H.264-Video und AAC-Audio) kodiert und in einen MPEG-2-Transportstream verpackt, der dann in Segmente aufgeteilt und als eine oder mehrere `.ts`-Mediendateien gespeichert wird. Apple bietet Tools an, um Mediendateien in das geeignete Format zu konvertieren.
 
-### HLS-Codierungstools
+### HLS-Kodierungstools
 
-Es gibt eine Reihe nützlicher Tools für die HLS-Codierung
+Es gibt eine Reihe von nützlichen Tools für die HLS-Kodierung
 
-- Der Stream Segmenter — von Apple für Mac-Plattformen bereitgestellt — nimmt einen Mediastream aus einem lokalen Netzwerk und teilt die Medien in gleich große Mediadateien zusammen mit einer Indexdatei.
-- Apple bietet auch einen File Segmenter für Mac an — der eine entsprechend codierte Datei nimmt, sie aufteilt und eine Indexdatei erzeugt, ähnlich wie der Stream Segmenter.
+- Der Stream Segmenter – von Apple für Mac-Plattformen bereitgestellt – nimmt einen Medienstream aus einem lokalen Netzwerk und teilt Medien in gleich große Mediendateien zusammen mit einer Indexdatei.
+- Apple bietet auch einen File Segmenter für Mac an – der eine geeignet kodierte Datei nimmt, sie aufteilt und eine Indexdatei erzeugt, ähnlich wie der Stream Segmenter.
 
 > [!NOTE]
 > Weitere Details zu diesen Tools finden Sie unter [Using HTTP Live Streaming](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/StreamingMediaGuide/UsingHTTPLiveStreaming/UsingHTTPLiveStreaming.html).
 
 ### Indexdateien (Playlists)
 
-Die HLS-Indexdatei (ähnlich wie die `.mpd`-Datei von MPEG-DASH) enthält die Informationen, wo sich alle Mediensegmente befinden, sowie andere Metadaten wie Bandbreitenanwendung. Apple verwendet das `.m3u8`-Format (eine Erweiterung seines `.m3u`-Playlist-Formats) für Indexdateien - siehe unten ein Beispiel:
+Die HLS-Indexdatei (ähnlich wie MPEG-DASHs `.mpd`-Datei) enthält die Informationen darüber, wo sich alle Mediensegmente befinden, sowie andere Metadaten wie Bandbreitenanwendung. Apple verwendet das `.m3u8`-Format (eine Erweiterung seines `.m3u`-Playlist-Formats) für Indexdateien – siehe unten für ein Beispiel:
 
 ```plain
 #EXT-X-VERSION:3
@@ -247,7 +247,7 @@ http://media.example.com/segment2.ts
 ```
 
 > [!NOTE]
-> Umfassende Informationen darüber, wie man Medien im HLS-Format von Apple codiert, finden Sie auf [Apples Entwicklerseiten](https://developer.apple.com/streaming/).
+> Umfassende Informationen darüber, wie Medien für Apples HLS-Format kodiert werden, finden Sie auf [Apples Entwickler-Seiten](https://developer.apple.com/streaming/).
 
 ## Siehe auch
 
@@ -255,19 +255,19 @@ Weitere Ressourcen zum adaptiven Streaming.
 
 ### Allgemeine Informationen
 
-- [Adaptives Streaming im Feld](https://www.streamingmedia.com/Articles/Editorial/Featured-Articles/Adaptive-Streaming-in-the-Field-73017.aspx)
+- [Adaptive Streaming in the Field](https://www.streamingmedia.com/Articles/Editorial/Featured-Articles/Adaptive-Streaming-in-the-Field-73017.aspx)
 
 ### HLS-Übersicht und Referenzen
 
 - [HTTP Live Streaming](https://developer.apple.com/streaming/)
-- [Was ist HLS (HTTP-Live-Streaming)?](<https://www.streamingmedia.com/Articles/Editorial/What-Is-.../What-is-HLS-(HTTP-Live-Streaming)-78221.aspx>)
-- [HTTP Live Streaming Übersicht](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/StreamingMediaGuide/Introduction/Introduction.html)
+- [What is HLS (HTTP-Live-Streaming)?](<https://www.streamingmedia.com/Articles/Editorial/What-Is-.../What-is-HLS-(HTTP-Live-Streaming)-78221.aspx>)
+- [HTTP Live Streaming Overview](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/StreamingMediaGuide/Introduction/Introduction.html)
 
 ### MPEG-DASH-Übersicht und Referenzen
 
-- [Dynamisches adaptives Streaming über HTTP-Dataset](https://www-itec.uni-klu.ac.at/bib/files/p89-lederer.pdf)
-- [DASH Adaptive Streaming für HTML 5 Video](/de/docs/Web/Media/Guides/DASH_Adaptive_Streaming_for_HTML_5_Video)
-- [Dynamisches adaptives Streaming über HTTP: Von der Erstellung bis zum Konsum](https://www.slideshare.net/slideshow/dynamic-adaptive-streaming-over-http-from-content-creation-to-consumption/14933566)
+- [Dynamic Adaptive Streaming over HTTP Dataset](https://www-itec.uni-klu.ac.at/bib/files/p89-lederer.pdf)
+- [DASH Adaptive Streaming for HTML 5 Video](/de/docs/Web/API/Media_Source_Extensions_API/DASH_Adaptive_Streaming)
+- [Dynamic Adaptive Streaming over HTTP: From Content Creation to Consumption](https://www.slideshare.net/slideshow/dynamic-adaptive-streaming-over-http-from-content-creation-to-consumption/14933566)
 
 ### MPEG-DASH-Tools
 
@@ -278,5 +278,5 @@ Weitere Ressourcen zum adaptiven Streaming.
 
 Beispiele für adaptives Streaming
 
-- [ITEC – Dynamisches adaptives Streaming über HTTP](https://dash.itec.aau.at/dash-dataset/)
+- [ITEC – Dynamic Adaptive Streaming over HTTP](https://dash.itec.aau.at/dash-dataset/)
 - [MPEG DASH Media Source Demo](https://web.archive.org/web/20170703160817/https://dash-mse-test.appspot.com/media.html)

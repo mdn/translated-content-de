@@ -2,19 +2,19 @@
 title: z-index
 slug: Web/CSS/z-index
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: 9b9086cf753e2d5721fe1229ff6f767ccf512f97
 ---
 
 {{CSSRef}}
 
-Die **`z-index`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Z-Ordnung eines [positionierten](/de/docs/Web/CSS/position) Elements und seiner Nachkommen oder von Flex- und Gitter-Elementen fest. Überlappende Elemente mit einem größeren z-index überdecken solche mit einem kleineren.
+Die **`z-index`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Z-Ordnung eines [positionierten](/de/docs/Web/CSS/position) Elements und seiner Nachkommen oder von Flex- und Gitterelementen fest. Überlappende Elemente mit einem größeren z-index überdecken diejenigen mit einem kleineren Wert.
 
 {{EmbedInteractiveExample("pages/css/z-index.html")}}
 
-Für ein positioniertes Feld (d.h. eines mit einer anderen `position` als `static`) gibt die `z-index`-Eigenschaft Folgendes an:
+Für ein positioniertes Feld (das heißt, eines mit einer anderen `position` als `static`), gibt die `z-index` Eigenschaft Folgendes an:
 
-1. Die Stapel-Ebene des Feldes im aktuellen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context).
-2. Ob das Feld einen lokalen Stacking-Kontext erstellt.
+1. Das Stapelniveau des Feldes im aktuellen [Stapelkonte­xt](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context).
+2. Ob das Feld einen lokalen Stapelkontext festlegt.
 
 ## Syntax
 
@@ -36,14 +36,14 @@ z-index: revert-layer;
 z-index: unset;
 ```
 
-Die `z-index`-Eigenschaft wird entweder als das Schlüsselwort `auto` oder als `<integer>` angegeben.
+Die `z-index` Eigenschaft wird entweder als das Schlüsselwort `auto` oder als ein `<integer>` angegeben.
 
 ### Werte
 
 - `auto`
-  - : Das Feld erstellt keinen neuen lokalen Stacking-Kontext. Die Stapel-Ebene des generierten Feldes im aktuellen Stacking-Kontext ist `0`.
+  - : Das Feld erstellt keinen neuen lokalen Stapelkontext. Das Stapelniveau des generierten Feldes im aktuellen Stapelkontext ist `0`.
 - `<integer>`
-  - : Dieses {{cssxref("&lt;integer&gt;")}} ist die Stapel-Ebene des generierten Feldes im aktuellen Stacking-Kontext. Das Feld erstellt auch einen lokalen Stacking-Kontext. Das bedeutet, dass die z-indexe der Nachkommen nicht mit den z-indexen der Elemente außerhalb dieses Elements verglichen werden.
+  - : Dieses {{cssxref("&lt;integer&gt;")}} ist das Stapelniveau des generierten Feldes im aktuellen Stapelkontext. Das Feld erstellt auch einen lokalen Stapelkontext. Dies bedeutet, dass die z-indexe der Nachkommen nicht mit den z-indexen von Elementen außerhalb dieses Elements verglichen werden.
 
 ## Formale Definition
 
@@ -55,7 +55,7 @@ Die `z-index`-Eigenschaft wird entweder als das Schlüsselwort `auto` oder als `
 
 ## Beispiele
 
-### Visuelle Schichtung von Elementen
+### Visuelles Schichten von Elementen
 
 #### HTML
 

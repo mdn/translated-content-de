@@ -2,22 +2,22 @@
 title: CSS-Bedingungsregeln
 slug: Web/CSS/CSS_conditional_rules
 l10n:
-  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
+  sourceCommit: a69f9903e7444d42adcf2432eaa511c05761c757
 ---
 
 {{CSSRef}}
 
-Das Modul **CSS-Bedingungsregeln** definiert CSS-Medien- und Support-Abfragen, die es Ihnen ermöglichen, Stile zu definieren, die nur angewendet werden, wenn bestimmte Bedingungen erfüllt sind. Die in diesem Modul definierten Bedingungsregeln basieren auf den Fähigkeiten von Gerät, Benutzeragent und Viewport. Mit Bedingungsregeln können Sie CSS-Stile basierend auf Abfragewerten oder Browser- und Gerätefunktionen gezielt anwenden, unabhängig vom gerenderten Dokument.
+Das **CSS-Bedingungsregeln**-Modul definiert CSS-Medien- und Support-Abfragen und ermöglicht es Ihnen, Stile zu definieren, die nur angewendet werden, wenn bestimmte Bedingungen erfüllt sind. Die in diesem Modul definierten Bedingungsregeln basieren auf Geräte-, Benutzeragent- und Viewport-Fähigkeiten. Mit Bedingungsregeln können Sie CSS-Stile basierend auf Abfragewerten oder Browser- und Gerätefunktionen anwenden, unabhängig von dem Dokument, das gerendert wird.
 
-Die ersten CSS-Bedingungsregeln waren [Medientypen](/de/docs/Web/CSS/@media#media_types), die das beabsichtigte Zielmedium für die verlinkten Stile spezifizierten, beispielsweise `screen` oder `print`. Diese wurden als Wert der `media`-Attribute der HTML-Elemente {{HTMLElement("link")}} und {{HTMLElement("style")}} gesetzt oder als kommagetrennte Liste von Medientypen innerhalb einer {{cssxref("@import")}}-Anweisung oder At-Regel. Die Möglichkeit, CSS-Regeln bedingt anzuwenden, wurde seit den Implementierungen von CSS 2.1 und HTML 4.01, die bedingte Abfragen auf wenige Medientypen beschränkten, erheblich erweitert.
+Die ersten CSS-Bedingungsregeln waren [Medientypen](/de/docs/Web/CSS/@media#media_types), die das vorgesehene Zielmedium für die verknüpften Stile spezifizierten, zum Beispiel `screen` oder `print`. Diese wurden als Wert der HTML {{HTMLElement("link")}} und {{HTMLElement("style")}} Elemente `media`-Attribute oder als eine durch Kommas getrennte Liste von Medientypen innerhalb einer {{cssxref("@import")}} Erklärung oder at-rule festgelegt. Die Möglichkeit, CSS-Regeln bedingt anzuwenden, wurde seit der CSS 2.1 und HTML 4.01 Implementierung, die bedingte Abfragen auf wenige Medientypen beschränkte, stark erweitert.
 
-CSS-Bedingungsregeln umfassen jetzt Feature-Abfragen; die `@supports`-At-Regel ermöglicht das gezielte Anwenden von CSS-Stilen basierend auf den CSS-Fähigkeiten eines Benutzeragents. Zusätzliche Bedingungen schließen ein, welcher Selektor, welche Schriftformatierungen und welche Schrifttechnologien unterstützt werden.
+CSS-Bedingungsregeln beinhalten jetzt Feature-Abfragen; die `@supports` at-rule ermöglicht das Anzielen von CSS-Stilen basierend auf den CSS-Fähigkeiten eines Benutzeragenten. Zusätzliche Bedingungen beinhalten, welche Selektoren, Schriftformate und Schrifttechnologien unterstützt werden.
 
-Das CSS-Bedingungsregel-Modul erweitert auch `@media`, um das Verschachteln von At-Regeln zu ermöglichen, wobei das verwandte [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) Modul ungenutzte Medientypen entfernt und viele Medienfunktionen und -bedingungen hinzufügt, die gezielt werden können.
+Das CSS-Bedingungsregeln-Modul erweitert auch `@media`, um das Verschachteln von at-rules zu ermöglichen, wobei das verwandte [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) Modul ungenutzte Medientypen entfernt und viele Medien-Features und Bedingungen hinzufügt, die gezielt angesprochen werden können.
 
-Das [CSS-Container-Abfragen-Modul](/de/docs/Web/CSS/CSS_containment/Container_queries) definiert ähnliche Bedingungsregeln, jedoch basierend auf dem Elternelement eines Elements und nicht auf dem Viewport.
+Das [CSS-Containerabfragen-Modul](/de/docs/Web/CSS/CSS_containment/Container_queries) definiert ähnliche Bedingungsregeln, jedoch basierend auf dem übergeordneten Element und nicht auf dem Viewport.
 
-Es gibt Pläne, die möglichen Abfragen weiter zu erweitern, indem die generalisierten Bedingungsregel `@when` und die verkettete Bedingungsregel `@else` hinzugefügt werden. Diese beiden At-Regeln werden derzeit nicht unterstützt.
+Es gibt Pläne, die möglichen Abfragen weiter zu erweitern, indem die allgemeine Bedingungsregel `@when` und die verkettete Bedingungsregel `@else` hinzugefügt werden. Diese beiden at-rules werden noch nicht unterstützt.
 
 ## Referenz
 
@@ -27,14 +27,14 @@ Es gibt Pläne, die möglichen Abfragen weiter zu erweitern, indem die generalis
 - {{cssxref("container-name")}}
 - {{cssxref("container-type")}}
 
-### At-Regeln
+### At-rules
 
 - {{cssxref("@container")}}
 - {{cssxref("@media")}}
 - {{cssxref("@supports")}}
 
 > [!NOTE]
-> Das CSS-Bedingungsregel-Modul führt zwei At-Regeln ein, die noch nicht implementiert wurden: `@else` und `@when`.
+> Das CSS-Bedingungsregeln-Modul führt zwei at-rules ein, die noch nicht implementiert wurden: `@else` und `@when`.
 
 ### Funktionen
 
@@ -45,13 +45,13 @@ Es gibt Pläne, die möglichen Abfragen weiter zu erweitern, indem die generalis
 - [`supports()`](/de/docs/Web/CSS/@import#supports-condition)
 
 > [!NOTE]
-> Das CSS-Bedingungsregel-Modul führt eine CSS-Funktion ein, die noch nicht implementiert wurde: `media()`.
+> Das CSS-Bedingungsregeln-Modul führt eine CSS-Funktion ein, die noch nicht implementiert wurde: `media()`.
 
 ### Datentypen
 
 - [`<container-name>`](/de/docs/Web/CSS/@container#values)
 - [`<style-feature>`](/de/docs/Web/CSS/@container#container_style_queries)
-- Container-relative `<length>` Einheiten](/de/docs/Web/CSS/length#container_query_length_units)
+- [Containerverwandte `<length>` Einheiten](/de/docs/Web/CSS/length#container_query_length_units)
 - [`<media-query>`](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#syntax)
 - [`<supports-condition>`](/de/docs/Web/CSS/@import#importing_css_rules_conditional_on_feature_support)
 - `<supports-feature>` (siehe [`supports()`](/de/docs/Web/CSS/@import#supports-condition))
@@ -66,31 +66,35 @@ Es gibt Pläne, die möglichen Abfragen weiter zu erweitern, indem die generalis
 ### Begriffe und Glossardefinitionen
 
 - {{Glossary("media/CSS", "Media")}}
-- Support-Abfrage (siehe [Feature-Abfrage](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries))
+- Unterstützungsabfrage (siehe [Feature-Abfrage](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries))
 
-## Leitfaden
+## Leitfäden
 
-- [Verwendung von CSS-Feature-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
+- [CSS-Feature-Abfragen verwenden](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
 
-  - : Selektives Anwenden von CSS-Regeln nach Überprüfung der Browserunterstützung für die angegebenen Eigenschaften und Werte mittels Feature-Abfragen.
+  - : Selektives Anwenden von CSS-Regeln nach Prüfung der Browser-Unterstützung für die angegebenen Eigenschaften und Werte über Feature-Abfragen.
 
-- [Verwendung von CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [CSS-Medienabfragen verwenden](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 
-  - : Einführung in Medienabfragen, ihre Syntax und die Operatoren und Medienfeatures, die verwendet werden, um Medienabfrage-Ausdrücke zu konstruieren.
+  - : Einführung in Medienabfragen, deren Syntax sowie die Operatoren und Medien-Features, die zur Erstellung von Medien-Abfrageausdrücken verwendet werden.
 
 - [Unterstützung älterer Browser: Feature-Abfragen](/de/docs/Learn_web_development/Core/CSS_layout/Supporting_Older_Browsers#feature_queries)
 
-  - : Wie man Feature-Abfragen nutzt, um CSS basierend auf dem Unterstützungsgrad des Browsers für Webfeatures zu zielen.
+  - : Anleitung zur Verwendung von Feature-Abfragen, um CSS basierend auf dem Unterstützungsniveau des Browsers für Web-Features anzusprechen.
 
 - [Browser-Feature-Erkennung: CSS `@supports`](/de/docs/Learn_web_development/Extensions/Testing/Feature_detection#supports)
 
-  - : Ein Blick auf JavaScript- und CSS-Feature-Erkennung einschließlich CSS `@supports`.
+  - : Ein Blick auf JavaScript- und CSS-Feature-Erkennung, einschließlich CSS `@supports`.
+
+- [Verwendung von Container-Scroll-Zustandsabfragen](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries)
+
+  - : Verwendung von Container-Scroll-Zustandsabfragen mit einem Beispiel für jeden Typ.
 
 ## Verwandte Konzepte
 
-- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [CSS Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
 
-  - {{cssxref("@import")}} At-Regel
+  - {{cssxref("@import")}} at-rule
 
 - [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) Modul
 
@@ -98,7 +102,7 @@ Es gibt Pläne, die möglichen Abfragen weiter zu erweitern, indem die generalis
   - [`<media-type>`](/de/docs/Web/CSS/@media#media_types)
   - [`<media-condition>`](/de/docs/Web/CSS/@media#logical_operators)
   - [`<media-query-list>`](/de/docs/Web/SVG/Attribute/media)
-  - [CSS logische Operatoren](/de/docs/Web/CSS/@media#logical_operators) (`not`, `or`, and `and`)
+  - [CSS logische Operatoren](/de/docs/Web/CSS/@media#logical_operators) (`not`, `or` und `and`)
 
 - [CSSOM-Ansicht](/de/docs/Web/CSS/CSSOM_view) Modul
 
@@ -114,12 +118,12 @@ Es gibt Pläne, die möglichen Abfragen weiter zu erweitern, indem die generalis
   - {{cssxref("@charset")}} Deklaration
   - {{cssxref("at-rule")}} Begriff
   - [`invalid`](/de/docs/Web/CSS/CSS_syntax/Error_handling) Begriff
-  - {{Glossary("parse", "parse")}} Begriff
+  - {{Glossary("parse", "parsen")}} Begriff
   - [Stilregel](/de/docs/Web/API/CSSStyleRule) Begriff
 
-- [CSS-Namespace](/de/docs/Web/CSS/CSS_namespaces) Modul
+- [CSS-Namensräume](/de/docs/Web/CSS/CSS_namespaces) Modul
 
-  - {{cssxref("@namespace")}} At-Regel
+  - {{cssxref("@namespace")}} at-rule
 
 ## Spezifikationen
 
@@ -127,6 +131,6 @@ Es gibt Pläne, die möglichen Abfragen weiter zu erweitern, indem die generalis
 
 ## Siehe auch
 
-- [CSS-Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries) Modul
+- [CSS-Containerabfragen](/de/docs/Web/CSS/CSS_containment/Container_queries) Modul
 - [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) Modul
-- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [CSS Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul

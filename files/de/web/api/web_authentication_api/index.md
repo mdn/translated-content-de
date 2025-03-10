@@ -2,47 +2,47 @@
 title: Web Authentication API
 slug: Web/API/Web_Authentication_API
 l10n:
-  sourceCommit: ede91f0ec9814b7cef9ff86f8bc80ed9d94cc5ee
+  sourceCommit: f731452fabde211bee55aedd39fc83d60c4e4918
 ---
 
 {{securecontext_header}}{{DefaultAPISidebar("Web Authentication API")}}
 
-Die Web Authentication API (WebAuthn) ist eine Erweiterung der [Credential Management API](/de/docs/Web/API/Credential_Management_API), die eine starke Authentifizierung durch öffentliche Schlüsselkryptographie ermöglicht und passwortlose Authentifizierung sowie sichere Multi-Faktor-Authentifizierung (MFA) ohne SMS-Nachrichten unterstützt.
+Die Web Authentication API (WebAuthn) ist eine Erweiterung der [Credential Management API](/de/docs/Web/API/Credential_Management_API), die eine starke Authentifizierung mit öffentlicher Schlüssel-Kryptographie ermöglicht. Sie erlaubt die passwortlose Authentifizierung und eine sichere Multi-Faktor-Authentifizierung (MFA) ohne SMS-Nachrichten.
 
-## WebAuthn-Konzepte und Nutzung
+## WebAuthn-Konzepte und Verwendung
 
-WebAuthn verwendet [asymmetrische (öffentlicher Schlüssel) Kryptographie](https://de.wikipedia.org/wiki/Public-Key-Kryptosysteme) anstelle von Passwörtern oder SMS-Nachrichten zur Registrierung, Authentifizierung und [Multi-Faktor-Authentifizierung](https://de.wikipedia.org/wiki/Mehrfaktor-Authentifizierung) mit Websites. Dies bietet einige Vorteile:
+WebAuthn verwendet [asymmetrische (öffentliche Schlüssel-) Kryptographie](https://en.wikipedia.org/wiki/Public-key_cryptography) anstelle von Passwörtern oder SMS-Nachrichten zur Registrierung, Authentifizierung und [Multi-Faktor-Authentifizierung](https://en.wikipedia.org/wiki/Multi-factor_authentication) mit Webseiten. Das bietet einige Vorteile:
 
-- **Schutz vor Phishing:** Ein Angreifer, der eine gefälschte Login-Website erstellt, kann sich nicht als Benutzer anmelden, da die Signatur sich mit dem {{Glossary("Origin", "Origin")}} der Website ändert.
-- **Verminderte Auswirkungen von Datenpannen:** Entwickler müssen den öffentlichen Schlüssel nicht hashen. Falls ein Angreifer Zugriff auf den öffentlichen Schlüssel erhält, der zur Authentifizierung verwendet wird, kann dieser ohne den privaten Schlüssel nicht authentifizieren.
-- **Unempfindlich gegenüber Passwortangriffen:** Einige Benutzer könnten Passwörter wiederverwenden, und ein Angreifer könnte das Passwort des Benutzers von einer anderen Website (z. B. durch eine Datenpanne) erhalten. Zudem sind Texteingabepasswörter viel einfacher zu brute-forcen als eine digitale Signatur.
+- **Schutz vor Phishing:** Ein Angreifer, der eine gefälschte Anmelde-Website erstellt, kann sich nicht als Benutzer anmelden, da sich die Signatur mit dem {{Glossary("Origin", "Origin")}} der Website ändert.
+- **Reduzierte Auswirkungen von Datenverletzungen:** Entwickler müssen den öffentlichen Schlüssel nicht hashen, und wenn ein Angreifer Zugang zum öffentlichen Schlüssel erhält, der zur Verifizierung der Authentifizierung verwendet wird, kann er sich nicht authentifizieren, da er den privaten Schlüssel benötigt.
+- **Unverwundbar gegen Passwortangriffe:** Einige Benutzer könnten Passwörter wiederverwenden, und ein Angreifer könnte das Passwort eines Benutzers für eine andere Website erlangen (z. B. durch eine Datenverletzung). Außerdem sind Textpasswörter viel leichter durch Brute-Force technisch aufzubrechen als eine digitale Signatur.
 
-Viele Websites haben bereits Seiten, die Benutzern erlauben, neue Konten zu registrieren oder sich in ein bestehendes Konto einzuloggen. WebAuthn ersetzt oder erweitert hierbei den Authentifizierungsteil des Systems. Es erweitert die [Credential Management API](/de/docs/Web/API/Credential_Management_API), abstrahiert die Kommunikation zwischen dem Benutzeragenten und einem Authentifikator und bietet folgende neue Funktionalitäten:
+Viele Websites verfügen bereits über Seiten, die es Benutzern ermöglichen, neue Konten zu registrieren oder sich bei einem bestehenden Konto anzumelden. WebAuthn fungiert als Ersatz oder Verbesserung des Authentifizierungsteils des Systems. Es erweitert die [Credential Management API](/de/docs/Web/API/Credential_Management_API), abstrahiert die Kommunikation zwischen dem Benutzeragenten und einem Authenticator und bietet die folgende neue Funktionalität:
 
-- Wenn [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) mit der `publicKey`-Option verwendet wird, erstellt der Benutzeragent über einen Authentifikator neue Zugangsdaten – entweder zur Registrierung eines neuen Kontos oder zum Verknüpfen eines neuen asymmetrischen Schlüsselpaares mit einem bestehenden Konto.
-  - Beim Registrieren eines neuen Kontos werden diese Zugangsdaten auf einem Server gespeichert (auch als Service oder [relying party](https://de.wikipedia.org/wiki/Vertrauenswürdige_Partei) bezeichnet) und können anschließend verwendet werden, um sich anzumelden.
-  - Das asymmetrische Schlüsselpaar wird im Authentifikator gespeichert, der dann benutzt werden kann, um einen Benutzer bei einer vertrauenden Partei zu authentifizieren, beispielsweise während der MFA. Der Authentifikator kann in den Benutzeragenten integriert sein, in ein Betriebssystem wie Windows Hello, oder eine physische Sicherheitskomponente sein, beispielsweise ein USB- oder Bluetooth-Sicherheitsschlüssel.
-- Wenn [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit der `publicKey`-Option verwendet wird, nutzt der Benutzeragent ein vorhandenes Set von Zugangsdaten, um sich bei einer vertrauenden Partei zu authentifizieren (entweder als primäres Login oder um eine zusätzliche Authentifizierungsstufe während der MFA bereitzustellen).
+- Wenn [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) mit der `publicKey`-Option verwendet wird, erstellt der Benutzeragent neue Anmeldeinformationen über einen Authenticator — entweder zur Registrierung eines neuen Kontos oder zur Verknüpfung eines neuen asymmetrischen Schlüsselpaares mit einem bestehenden Konto.
+  - Bei der Registrierung eines neuen Kontos werden diese Anmeldeinformationen auf einem Server gespeichert (auch als Dienst oder [verantwortliche Partei](https://en.wikipedia.org/wiki/Relying_party) bezeichnet) und können anschließend verwendet werden, um einen Benutzer anzumelden.
+  - Das asymmetrische Schlüsselpaar wird im Authenticator gespeichert, der dann zur Authentifizierung eines Benutzers mit einer verantwortlichen Partei verwendet werden kann, zum Beispiel während der MFA. Der Authenticator kann im Benutzeragenten, in einem Betriebssystem wie Windows Hello oder als physisches Token wie ein USB- oder Bluetooth-Sicherheitsschlüssel eingebettet sein.
+- Wenn [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit der `publicKey`-Option verwendet wird, verwendet der Benutzeragent ein bestehendes Satz von Anmeldeinformationen, um sich bei einer verantwortlichen Partei zu authentifizieren (entweder als primäre Anmeldung oder um einen zusätzlichen Faktor während der MFA bereitzustellen, wie oben beschrieben).
 
-In ihren einfachsten Formen empfangen die Methoden `create()` und `get()` eine sehr große Zufallszahl namens „Challenge“ vom Server und senden die vom privaten Schlüssel signierte Challenge zurück an den Server. Dies beweist dem Server, dass ein Benutzer den für die Authentifizierung erforderlichen privaten Schlüssel besitzt, ohne geheime Daten über das Netzwerk preiszugeben.
+In ihren grundlegendsten Formen empfangen sowohl `create()` als auch `get()` eine sehr große Zufallszahl, die "Challenge" genannt wird, vom Server und senden die von dem privaten Schlüssel signierte Challenge an den Server zurück. Dies beweist dem Server, dass ein Benutzer den privaten Schlüssel besitzt, der für die Authentifizierung erforderlich ist, ohne Geheimnisse über das Netzwerk preiszugeben.
 
 > [!NOTE]
-> Die „Challenge“ muss ein Puffer mit zufälligen Informationen sein, der mindestens 16 Bytes groß ist.
+> Die "Challenge" muss ein Puffer mit zufälligen Informationen von mindestens 16 Bytes Größe sein.
 
 ### Erstellen eines Schlüsselpaares und Registrieren eines Benutzers
 
-Um zu veranschaulichen, wie der Prozess der Zugangserstellung funktioniert, wird der typische Ablauf beschrieben, der eintritt, wenn ein Benutzer eine Zugangsdatenregistrierung bei einer vertrauenden Partei durchführen möchte:
+Um zu veranschaulichen, wie der Prozess der Anmeldeinformationsgenerierung funktioniert, beschreiben wir den typischen Ablauf, der auftritt, wenn ein Benutzer ein Anmeldeinformation bei einer verantwortlichen Partei registrieren möchte:
 
-1. Der Server der vertrauenden Partei sendet Benutzer- und vertrauende-Partei-Informationen über die Webanwendung, die für den Registrierungsprozess verantwortlich ist, zusammen mit der „Challenge“, über einen geeigneten sicheren Mechanismus (zum Beispiel [Fetch](/de/docs/Web/API/Fetch_API) oder [XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest)).
+1. Der Server der verantwortlichen Partei sendet Benutzer- und Informationen über die verantwortliche Partei zusammen mit der "Challenge" an die Webanwendung, die den Registrierungsprozess durchführt, unter Verwendung eines geeigneten sicheren Mechanismus (zum Beispiel [Fetch](/de/docs/Web/API/Fetch_API) oder [XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest)).
 
    > [!NOTE]
-   > Das Format für den Austausch von Informationen zwischen dem Server und der Webanwendung ist der Anwendung überlassen.
-   > Eine empfohlene Vorgehensweise ist der Austausch von {{Glossary("JSON_type_representation", "JSON-Typ-Repräsentationen")}} von Zugangsdaten und Zugangsoptionen.
-   > Für die Authentifizierungs-APIs wurden Komfortmethoden erstellt, um von JSON-Repräsentationen in das erforderliche Format zu konvertieren: [`parseCreationOptionsFromJSON()`](/de/docs/Web/API/PublicKeyCredential/parseCreationOptionsFromJSON_static), [`parseRequestOptionsFromJSON()`](/de/docs/Web/API/PublicKeyCredential/parseRequestOptionsFromJSON_static) und [`PublicKeyCredential.toJSON()`](/de/docs/Web/API/PublicKeyCredential/toJSON).
+   > Das Format zum Austausch der Informationen zwischen dem Server der verantwortlichen Partei und der Webanwendung obliegt der Anwendung.
+   > Ein empfohlener Ansatz ist der Austausch von {{Glossary("JSON_type_representation", "JSON-Typ-Repräsentationen")}} für Anmeldeinformationen und Anmeldeoptionen.
+   > In `PublicKeyCredential` wurden Komfortmethoden erstellt, um von den JSON-Repräsentationen zur Form zu konvertieren, die von den Authentifizierungs-APIs benötigt wird: [`parseCreationOptionsFromJSON()`](/de/docs/Web/API/PublicKeyCredential/parseCreationOptionsFromJSON_static), [`parseRequestOptionsFromJSON()`](/de/docs/Web/API/PublicKeyCredential/parseRequestOptionsFromJSON_static) und [`PublicKeyCredential.toJSON()`](/de/docs/Web/API/PublicKeyCredential/toJSON).
 
-2. Die Webanwendung initiiert die Erstellung eines neuen Zugangsdatenpaares über den Authentifikator im Namen der vertrauenden Partei durch einen Aufruf von [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create). Dieser Aufruf erhält eine `publicKey`-Option, die Geräteeigenschaften wie etwa die eigene Benutzerautorisierung des Geräts (zum Beispiel über Biometrie) angibt.
+2. Die Webanwendung initiiert die Generierung einer neuen Anmeldeinformation über den Authenticator im Namen der verantwortlichen Partei über einen Aufruf von [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create). Dieser Aufruf wird mit einer `publicKey`-Option übergeben, die die Gerätefunktionen angibt, z.B. ob das Gerät seine eigene Benutzer-Authentifizierung zur Verfügung stellt (zum Beispiel mit biometrischen Daten).
 
-   Ein typischer Aufruf von `create()` könnte folgendermaßen aussehen:
+   Ein typischer `create()`-Aufruf könnte wie folgt aussehen:
 
    ```js
    let credential = await navigator.credentials.create({
@@ -59,35 +59,35 @@ Um zu veranschaulichen, wie der Prozess der Zugangserstellung funktioniert, wird
    });
    ```
 
-   Die Parameter des `create()`-Aufrufs werden an den Authentifikator übergeben, zusammen mit einem SHA-256-Hash, der signiert wird, um sicherzustellen, dass dieser nicht manipuliert wurde.
+   Die Parameter des `create()`-Aufrufs werden an den Authenticator weitergegeben, zusammen mit einem SHA-256-Hash, der signiert wird, um sicherzustellen, dass er nicht manipuliert wurde.
 
-3. Nach Zustimmung des Benutzers generiert der Authentifikator ein Schlüsselpaar und gibt den öffentlichen Schlüssel sowie eine optional signierte Attestation an die Webanwendung zurück. Dies geschieht, wenn die {{jsxref("Promise")}}, die vom `create()`-Aufruf zurückgegeben wird, erfüllt wird, in Form eines [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekts (die [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft enthält die Attestationsinformationen).
+3. Nachdem der Authenticator die Zustimmung des Benutzers erhalten hat, generiert er ein Schlüsselpaar und gibt den öffentlichen Schlüssel und optional eine signierte Attestierung an die Webanwendung zurück. Dies wird bereitgestellt, wenn das durch den `create()`-Aufruf zurückgegebene {{jsxref("Promise")}} erfüllt wird, in Form eines [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objektinstanz (die [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft enthält die Attestierungsinformationen).
 
-4. Die Webanwendung leitet das [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) an den Server der vertrauenden Partei weiter, erneut über einen geeigneten Mechanismus.
+4. Die Webanwendung leitet das [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) erneut unter Verwendung eines geeigneten Mechanismus an den Server der verantwortlichen Partei weiter.
 
-5. Der Server der vertrauenden Partei speichert den öffentlichen Schlüssel zusammen mit der Benutzeridentität, um den Zugang für zukünftige Authentifizierungen zu behalten. Während dieses Prozesses werden eine Reihe von Prüfungen durchgeführt, um sicherzustellen, dass die Registrierung abgeschlossen und nicht manipuliert wurde. Dazu gehören:
+5. Der Server der verantwortlichen Partei speichert den öffentlichen Schlüssel, gekoppelt mit der Benutzeridentität, um sich die Anmeldeinformation für zukünftige Authentifizierungen zu merken. Während dieses Prozesses führt er eine Reihe von Prüfungen durch, um sicherzustellen, dass die Registrierung vollständig und nicht manipuliert wurde. Dazu gehören:
 
-   1. Überprüfung, dass die „Challenge“ dieselbe ist wie die gesendete.
-   2. Sicherstellung, dass das Origin das erwartete war.
-   3. Validierung, dass die Signatur und Attestation mit der korrekten Zertifikatskette für das spezifische Modell des Authentifikators erstellt wurden, das ursprünglich das Schlüsselpaar generiert hat.
+   1. Überprüfung, dass die Challenge dieselbe ist, die gesendet wurde.
+   2. Sicherstellung, dass der Origin der erwartete war.
+   3. Validierung, dass die Signatur und die Attestierung die richtige Zertifikatkette für das spezifische Modell des Authenticators verwenden, der das Schlüsselpaar ursprünglich generiert hat.
 
 > [!WARNING]
-> Die Attestation bietet der vertrauenden Partei eine Möglichkeit, die Herkunft des Authentifikators zu bestimmen. Vertrauende Parteien sollten keine Positivlisten mit Authentifikatoren pflegen.
+> Die Attestierung bietet eine Möglichkeit für eine verantwortliche Partei, die Herkunft eines Authenticators zu bestimmen. Verantwortliche Parteien sollten nicht versuchen, Whitelists von Authenticatoren zu führen.
 
-### Authentifizieren eines Benutzers
+### Authentifizierung eines Benutzers
 
-Nachdem sich ein Benutzer mit WebAuthn registriert hat, kann er sich (anmelden) mit dem Dienst authentifizieren. Der Authentifizierungsprozess ähnelt dem Registrierungsvorgang, wobei die Hauptunterschiede sind, dass die Authentifizierung:
+Nachdem ein Benutzer sich mit WebAuthn registriert hat, kann er sich (login) mit dem Dienst authentifizieren. Der Authentifizierungsablauf sieht ähnlich aus wie der Registrierungsablauf, die Hauptunterschiede bestehen darin, dass die Authentifizierung:
 
-1. Keine zusätzlichen Informationen vom Benutzer oder der vertrauenden Partei benötigt.
-2. Eine Assertion mit dem zuvor erstellten Schlüsselpaar für den Dienst erstellt, anstelle eines eigenen Schlüsselpaars des Authentifikators.
+1. Keine Benutzer- oder Informationen über die verantwortliche Partei erfordert
+2. Eine Bestätigung unter Verwendung des zuvor generierten Schlüsselpaares für den Dienst erstellt, anstelle des Schlüsselpaares des Authenticators.
 
-Der typische Authentifizierungsprozess lautet:
+Ein typischer Authentifizierungsablauf ist wie folgt:
 
-1. Die vertrauende Partei generiert eine „Challenge“ und sendet sie zusammen mit einer Liste von Zugangsdaten an den Benutzeragenten, wobei angegeben wird, wo die Zugangsdaten gesucht werden sollen (z. B. auf einem lokalen integrierten Authenticator oder externen Gerät über USB, BLE usw.).
+1. Die verantwortliche Partei generiert eine "Challenge" und sendet sie zusammen mit einer Liste von Anmeldeinformationen der verantwortlichen Partei und des Benutzers unter Verwendung eines geeigneten sicheren Mechanismus an den Benutzeragenten. Sie kann auch angeben, wo nach der Anmeldeinformation gesucht werden soll, z. B. auf einem lokalen eingebauten Authenticator oder auf einem externen über USB, BLE usw.
 
-2. Der Browser fordert den Authenticator auf, die „Challenge“ mithilfe eines [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufrufs zu signieren, wobei die Zugangsdaten in einer `publicKey`-Option übergeben werden.
+2. Der Browser fordert den Authenticator über einen [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf auf, die Challenge zu signieren, der die Anmeldeinformationen in einer `publicKey`-Option übergeben wird.
 
-   Ein typischer `get()`-Aufruf könnte so aussehen:
+   Ein typischer `get()`-Aufruf könnte wie folgt aussehen:
 
    ```js
    let credential = await navigator.credentials.get({
@@ -103,70 +103,72 @@ Der typische Authentifizierungsprozess lautet:
    });
    ```
 
-   Die Parameter des `get()`-Aufrufs werden an den Authentifikator zur Verarbeitung der Authentifizierung übergeben.
+   Die Parameter des `get()`-Aufrufs werden an den Authenticator zur Bearbeitung der Authentifizierung weitergegeben.
 
-3. Wenn der Authentifikator eines der angegebenen Zugangsdaten enthält und erfolgreich die Challenge signieren kann, wird die signierte Assertion nach Zustimmung des Benutzers an die Webanwendung zurückgegeben. Dies geschieht, wenn die {{jsxref("Promise")}}, die vom `get()`-Aufruf zurückgegeben wird, erfüllt ist, in Form eines [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekts (die [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft enthält die Assertion-Informationen).
+3. Wenn der Authenticator eine der angegebenen Anmeldeinformationen enthält und in der Lage ist, die Challenge erfolgreich zu signieren, gibt er nach Erhalt der Zustimmung des Benutzers eine signierte Bestätigung an die Webanwendung zurück. Dies wird bereitgestellt, wenn das durch den `get()`-Aufruf zurückgegebene {{jsxref("Promise")}} erfüllt wird, in Form eines [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objektinstanz (die [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft enthält die Bestätigungsinformationen).
 
-4. Die Webanwendung leitet die signierte Assertion zur Validierung an den Server der vertrauenden Partei weiter. Die Validierungsprüfungen beinhalten:
+4. Die Webanwendung leitet die signierte Bestätigung zur Validierung an den Server der verantwortlichen Partei weiter. Die Validierungsprüfungen umfassen:
 
-   1. Verwendung des während der Registrierung gespeicherten öffentlichen Schlüssels zur Validierung der Authentifikator-Signatur.
-   2. Sicherstellung, dass die vom Authentifikator signierte „Challenge“ mit der Challenge übereinstimmt, die vom Server generiert wurde.
-   3. Prüfung, dass die Relying Party ID mit der erwarteten ID für diesen Dienst übereinstimmt.
+   1. Verwendung des bei der Registrierungsanfrage gespeicherten öffentlichen Schlüssels zur Validierung der Signatur durch den Authenticator.
+   2. Sicherstellung, dass die Challenge, die der Authenticator signiert hat, mit der Challenge übereinstimmt, die vom Server generiert wurde.
+   3. Überprüfung, dass die ID der verantwortlichen Partei die erwartete ist.
 
-5. Wenn dies vom Server überprüft wurde, wird der Authentifizierungsprozess als erfolgreich betrachtet.
+5. Sobald die Prüfung durch den Server abgeschlossen ist, wird der Authentifizierungsablauf als erfolgreich betrachtet.
 
-### Discoverable Credentials und konditionale Mediation
+### Auffindbare Anmeldeinformationen und bedingte Vermittlung
 
-**Discoverable Credentials** werden von einem Authentifikator abgerufen – also vom Browser _entdeckt_ – und als Login-Optionen präsentiert, wenn sich der Benutzer in einer Webanwendung einer vertrauenden Partei anmeldet. Im Gegensatz dazu werden nicht auffindbare Zugangsdaten vom Server der vertrauenden Partei bereitgestellt, damit sie als Login-Optionen angezeigt werden können.
+**Auffindbare Anmeldeinformationen** werden von einem Authenticator abgerufen — vom Browser "gefunden" — um sie als Anmeldeoptionen anzubieten, wenn sich der Benutzer bei einer Web-App der verantwortlichen Partei anmeldet. Im Gegensatz dazu werden nicht auffindbare Anmeldeinformationen vom Server der verantwortlichen Partei bereitgestellt, damit der Browser sie als Anmeldeoptionen anbietet.
 
-Discoverable-Credential-IDs und zugehörige Metadaten wie [Benutzernamen](/de/docs/Web/API/PublicKeyCredentialCreationOptions#name_2) und [Anzeigenamen](/de/docs/Web/API/PublicKeyCredentialCreationOptions#displayname) werden in einem clientseitigen Authentifikator wie einem Browser-Passwortmanager, einer Authenticator-App oder einer hardwarebasierten Lösung wie einem YubiKey gespeichert. Diese Informationen im Authentifikator zu haben, ermöglicht es dem Benutzer, sich bequem anzumelden, ohne Zugangsdaten bereitzustellen, und die vertrauende Partei muss kein [`credentialId`](/de/docs/Web/API/PublicKeyCredentialRequestOptions#id) bei der Assertion bereitstellen (obwohl dies optional ist; wenn die Zugangsdaten von der vertrauenden Partei vorgegeben werden, wird der nicht auffindbare Workflow verfolgt).
+Auffindbare Anmeldeinformations-IDs und zugehörige Metadaten, wie [Benutzernamen](/de/docs/Web/API/PublicKeyCredentialCreationOptions#name_2) und [Anzeigenamen](/de/docs/Web/API/PublicKeyCredentialCreationOptions#displayname) werden in einem Client-seitigen Authenticator gespeichert, wie einem Passwortmanager im Browser, einer Authenticator-App oder einer Hardwarelösung wie einem YubiKey. Da diese Informationen im Authenticator verfügbar sind, kann sich der Benutzer bequem anmelden, ohne Anmeldeinformationen angeben zu müssen, und die verantwortliche Partei muss keine [`credentialId`](/de/docs/Web/API/PublicKeyCredentialRequestOptions#id) bereitstellen, wenn sie diese bestätigt (obwohl sie dies tun kann; wenn die Anmeldeinformation von der RP bestätigt wird, wird der nicht auffindbare Workflow befolgt).
 
-Ein auffindbares Zugangsdatenpaar wird durch einen [`create()`](/de/docs/Web/API/CredentialsContainer/create)-Aufruf mit einer angegebenen [`residentKey`](/de/docs/Web/API/PublicKeyCredentialCreationOptions#residentkey) erstellt. Das `credentialId`, die Benutzermetadaten und der öffentliche Schlüssel der neuen Zugangsdaten werden wie oben diskutiert im Authentifikator gespeichert, aber auch zur Webanwendung zurückgegeben und auf dem Server der vertrauenden Partei gespeichert.
+Eine auffindbare Anmeldeinformation wird über einen [`create()`](/de/docs/Web/API/CredentialsContainer/create)-Aufruf mit einem bestimmten [`residentKey`](/de/docs/Web/API/PublicKeyCredentialCreationOptions#residentkey) erstellt. Die `credentialId`, Benutzermetadaten und der öffentliche Schlüssel für die neue Anmeldeinformation werden dauerhaft wie oben diskutiert gespeichert, jedoch auch an die Web-App zurückgegeben und auf dem RP-Server gespeichert.
 
-Um sich zu authentifizieren, ruft der Server der vertrauenden Partei [`get()`](/de/docs/Web/API/CredentialsContainer/get) mit **konditionaler Mediation** auf, wobei [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation) auf `conditional`, eine leere [`allowCredentials`](/de/docs/Web/API/PublicKeyCredentialRequestOptions#allowcredentials)-Liste (was bedeutet, dass nur auffindbare Zugangsdaten angezeigt werden können) und eine Challenge festgelegt sind.
+Um sich zu authentifizieren, ruft der RP-Server [`get()`](/de/docs/Web/API/CredentialsContainer/get) mit **bedingter Vermittlung** auf, wobei [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation) auf `conditional` gesetzt ist, eine leere [`allowCredentials`](/de/docs/Web/API/PublicKeyCredentialRequestOptions#allowcredentials)-Liste (was bedeutet, dass nur auffindbare Anmeldeinformationen angezeigt werden können) und eine Challenge enthalten sind.
 
-Die konditionale Mediation führt dazu, dass auffindbare Zugangsdaten, die im Authentifikator gefunden werden, in einer nicht-modalen Benutzeroberfläche zusammen mit einem Hinweis auf den Ursprung angezeigt werden, der die Zugangsdaten angefordert hat, anstatt eines modalen Dialogfelds. In der Praxis bedeutet dies, dass verfügbare Zugangsdaten automatisch in Ihre Login-Formulare eingefügt werden. Die im auffindbaren Credential gespeicherten Metadaten können angezeigt werden, um Benutzern bei ihrer Auswahl zu helfen. Um auffindbare Zugangsdaten in Ihren Login-Formularen anzuzeigen, müssen Sie außerdem [`autocomplete="webauthn"`](/de/docs/Web/HTML/Attributes/autocomplete#webauthn) zu Ihren Formularfeldern hinzufügen.
+Die bedingte Vermittlung führt dazu, dass auffindbare Anmeldeinformationen, die im Authenticator gefunden wurden, dem Benutzer in einer nicht-modalen Benutzeroberfläche zusammen mit einem Hinweis auf den Ursprung, der Anmeldeinformationen anfordert, präsentiert werden, anstelle eines modalen Dialogs. In der Praxis bedeutet dies, dass verfügbare Anmeldeinformationen in Ihren Anmeldeformularen automatisch ausgefüllt werden. Die Metadaten, die in auffindbaren Anmeldeinformationen gespeichert sind, können angezeigt werden, um Benutzern bei der Auswahl einer Anmeldeinformation bei der Anmeldung zu helfen. Um auffindbare Anmeldeinformationen in Ihren Anmeldeformularen anzuzeigen, müssen Sie auch [`autocomplete="webauthn"`](/de/docs/Web/HTML/Attributes/autocomplete#webauthn) in Ihren Formularfeldern enthalten.
 
-Zusammengefasst: Die vertrauende Partei teilt dem Authentifikator nicht mit, welche Zugangsdaten dem Benutzer angeboten werden sollen – stattdessen liefert der Authentifikator die Liste verfügbarer Zugangsdaten. Sobald der Benutzer ein Credential ausgewählt hat, verwendet der Authentifikator dieses zur Signierung der Challenge mit dem zugehörigen privaten Schlüssel, und der Browser gibt die signierte Challenge und deren `credentialId` an den Server der vertrauenden Partei zurück.
+Um es nochmals zu betonen: Die verantwortliche Partei sagt dem Authenticator nicht, welche Anmeldeinformationen dem Benutzer angeboten werden sollen — stattdessen liefert der Authenticator die Liste, die er zur Verfügung hat. Sobald der Benutzer eine Anmeldeinformation auswählt, verwendet der Authenticator diese, um die Challenge mit dem zugehörigen privaten Schlüssel zu signieren, und der Browser gibt die signierte Challenge und ihre `credentialId` an den RP-Server zurück.
 
-Der nachfolgende Authentifizierungsprozess auf dem Server der vertrauenden Partei ist derselbe wie bei nicht auffindbaren Zugangsdaten.
-
-> [!NOTE]
-> Sie können überprüfen, ob konditionale Mediation bei einem bestimmten Benutzeragenten verfügbar ist, indem Sie die Methode [`PublicKeyCredential.isConditionalMediationAvailable()`](/de/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable) aufrufen.
-
-[Passkeys](https://passkeys.dev/) sind ein wichtiger Anwendungsfall für auffindbare Zugangsdaten. Weitere Informationen finden Sie unter [Erstellen eines Passkeys für passwortlose Logins](https://web.dev/articles/passkey-registration) und [Anmeldung mit einem Passkey über automatische Formularausfüllung](https://web.dev/articles/passkey-form-autofill). Für allgemeine Informationen zu auffindbaren Zugangsdaten siehe [Discoverable credentials deep dive](https://web.dev/articles/webauthn-discoverable-credentials).
-
-Wenn konditionale Mediation für die Authentifizierung verwendet wird, wird das Flag für „silent access verhindern“ (siehe [`CredentialsContainer.preventSilentAccess()`](/de/docs/Web/API/CredentialsContainer/preventSilentAccess)) immer als `true` behandelt, unabhängig von seinem tatsächlichen Wert: Das konditionale Verhalten involviert immer irgendeine Form der Benutzeraktion, wenn anwendbare Zugangsdaten gefunden werden.
+Der anschließende Authentifizierungsprozess auf dem RP-Server ist derselbe wie für nicht auffindbare Anmeldeinformationen.
 
 > [!NOTE]
-> Wenn keine Zugangsdaten gefunden werden, ist die nicht-modale Benutzeroberfläche nicht sichtbar, und der Benutzeragent kann den Benutzer dazu auffordern, abhängig vom Typ der Zugangsdaten Maßnahmen zu ergreifen (zum Beispiel ein Gerät einzufügen, das Zugangsdaten enthält).
+> Sie können überprüfen, ob bedingte Vermittlung auf einem bestimmten Benutzeragenten verfügbar ist, indem Sie die Methode [`PublicKeyCredential.isConditionalMediationAvailable()`](/de/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable) aufrufen.
 
-#### Synchronisierungsmethoden für auffindbare Zugangsdaten
+[Passkeys](https://passkeys.dev/) sind ein wichtiger Anwendungsfall für auffindbare Anmeldeinformationen; siehe [Create a passkey for passwordless logins](https://web.dev/articles/passkey-registration) und [Sign in with a passkey through form autofill](https://web.dev/articles/passkey-form-autofill) für Implementierungsdetails. Siehe auch [Discoverable credentials deep dive](https://web.dev/articles/webauthn-discoverable-credentials) für allgemeinere Informationen über auffindbare Anmeldeinformationen.
 
-Es ist möglich, dass die Informationen über auffindbare Zugangsdaten in einem Authentifikator eines Benutzers nicht mehr mit den Daten auf dem Server der vertrauenden Partei übereinstimmen. Dies könnte passieren, wenn der Benutzer ein Credential löscht oder seinen Benutzer-/Anzeigenamen in der Webanwendung der vertrauenden Partei ändert, ohne den Authentifikator zu aktualisieren.
+Wenn die bedingte Vermittlung zur Authentifizierung verwendet wird, wird die Verhinderung des stillen Zugriffs (siehe [`CredentialsContainer.preventSilentAccess()`](/de/docs/Web/API/CredentialsContainer/preventSilentAccess)) als `true` behandelt, unabhängig von seinem tatsächlichen Wert: Das bedingte Verhalten umfasst immer eine Benutzervermittlung irgendeiner Art, sofern zutreffende Anmeldeinformationen gefunden werden.
 
-Die API bietet Methoden, mit denen der Server der vertrauenden Partei Änderungen an den Authentifikator signalisieren kann, sodass dieser seine gespeicherten Zugangsdaten aktualisieren kann:
+> [!NOTE]
+> Wenn keine Anmeldeinformationen gefunden werden, wird der nicht-modale Dialog nicht sichtbar sein, und der Benutzeragent kann den Benutzer in einer Weise auffordern, die von der Art der Anmeldeinformationen abhängt (z.B. Einlegen eines Geräts, das Anmeldeinformationen enthält).
 
-- [`PublicKeyCredential.signalAllAcceptedCredentials()`](/de/docs/Web/API/PublicKeyCredential/signalAllAcceptedCredentials_static): Signalisiert dem Authentifikator alle gültigen `credentialId`s, die der Server der vertrauenden Partei für einen bestimmten Benutzer gespeichert hat.
-- [`PublicKeyCredential.signalCurrentUserDetails()`](/de/docs/Web/API/PublicKeyCredential/signalCurrentUserDetails_static): Signalisiert dem Authentifikator, dass ein bestimmter Benutzer seinen Benutzer- und/oder Anzeigenamen auf dem Server der vertrauenden Partei aktualisiert hat.
-- [`PublicKeyCredential.signalUnknownCredential()`](/de/docs/Web/API/PublicKeyCredential/signalUnknownCredential_static): Signalisiert dem Authentifikator, dass eine `credentialId` auf dem Server der vertrauenden Partei nicht erkannt wurde.
+#### Synchronisationsmethoden für auffindbare Anmeldeinformationen
 
-`signalUnknownCredential()` und `signalAllAcceptedCredentials()` scheinen für ähnliche Zwecke verwendet zu werden – wann sollten Sie welche Methode nutzen?
+Es ist möglich, dass die im Authenticator eines Benutzers gespeicherten Informationen über eine auffindbare Anmeldeinformation nicht mit dem Server der verantwortlichen Partei synchronisiert sind. Dies könnte passieren, wenn der Benutzer eine Anmeldeinformation löscht oder seinen Benutzer-/Anzeigenamen in der Web-App der RP ändert, ohne den Authenticator zu aktualisieren.
 
-- `signalAllAcceptedCredentials()` sollte nach jedem erfolgreichen Login und wenn der Benutzer eingeloggt ist, aufgerufen werden, um den Status seiner Zugangsdaten zu aktualisieren. Es darf nur verwendet werden, wenn ein Benutzer authentifiziert ist, da es die gesamte Liste von `credentialId`s für einen bestimmten Benutzer teilt, was ein Datenschutzleck bedeuten würde, wenn der Benutzer nicht authentifiziert ist.
-- `signalUnknownCredential()` sollte nach einem fehlgeschlagenen Login aufgerufen werden, um dem Authentifikator zu signalisieren, dass die `credentialId` des ausgewählten Credentials nicht validiert werden konnte und entfernt werden sollte. Die Methode kann sicher aufgerufen werden, wenn der Benutzer nicht authentifiziert ist, da sie nur eine einzelne `credentialId` an den Authentifikator übermittelt – diejenige, die der Client gerade zur Authentifizierung verwendet hat – und keine Benutzerinformationen.
+Die API bietet Methoden, um dem RP-Server zu ermöglichen, dem Authenticator Änderungen zu signalisieren, damit er seine gespeicherten Anmeldeinformationen aktualisieren kann:
 
-### Anpassung von Workflows basierend auf Client-Fähigkeiten
+- [`PublicKeyCredential.signalAllAcceptedCredentials()`](/de/docs/Web/API/PublicKeyCredential/signalAllAcceptedCredentials_static): Signalisiert dem Authenticator alle gültigen Anmeldeinformations-IDs, die der RP-Server noch für einen bestimmten Benutzer hält.
+- [`PublicKeyCredential.signalCurrentUserDetails()`](/de/docs/Web/API/PublicKeyCredential/signalCurrentUserDetails_static): Signalisiert dem Authenticator, dass ein bestimmter Benutzer seinen Benutzernamen und/oder Anzeigenamen auf dem RP-Server aktualisiert hat.
+- [`PublicKeyCredential.signalUnknownCredential()`](/de/docs/Web/API/PublicKeyCredential/signalUnknownCredential_static): Signalisiert dem Authenticator, dass eine Anmeldeinformations-ID vom RP-Server nicht erkannt wurde.
 
-Die Registrierungs- und Anmeldeworkflows können basierend auf den Fähigkeiten des WebAuthn-Clients (Browser) angepasst werden. Die statische Methode [`PublicKeyCredential.getClientCapabilities()`](/de/docs/Web/API/PublicKeyCredential/getClientCapabilities_static) kann verwendet werden, um diese Fähigkeiten abzufragen; sie gibt ein Objekt zurück, in dem jeder Schlüssel eine WebAuthn-Fähigkeit oder -Erweiterung darstellt, und jeder Wert ein Boolean ist, der die Unterstützung dieser Funktion angibt.
+Es mag scheinen, dass `signalUnknownCredential()` und `signalAllAcceptedCredentials()` ähnliche Zwecke haben, also in welcher Situation sollte jede verwendet werden?
 
-Diese Methode kann verwendet werden, um beispielsweise zu überprüfen:
+- `signalAllAcceptedCredentials()` sollte nach jedem erfolgreichen Anmelden aufgerufen werden und wenn der Benutzer angemeldet ist und Sie den Status seiner Anmeldeinformationen aktualisieren möchten. Es darf nur aufgerufen werden, wenn ein Benutzer authentifiziert ist, da es die gesamte Liste der `credentialId`s für einen bestimmten Benutzer teilt. Dies würde ein Datenschutzleck verursachen, wenn der Benutzer nicht authentifiziert ist.
+- `signalUnknownCredential()` sollte nach einem erfolglosen Login aufgerufen werden, um dem Authenticator zu signalisieren, dass die `credentialId` der ausgewählten Anmeldeinformation nicht validiert werden kann und entfernt werden sollte. Die Methode kann sicher aufgerufen werden, wenn der Benutzer nicht authentifiziert ist, da sie eine einzelne `credentialId` an den Authenticator übergibt — diejenige, mit der der Client gerade versucht hat, sich zu authentifizieren — und keine Benutzerinformationen.
 
-- Unterstützung des Clients für verschiedene Authenticatoren wie Passkeys oder biometrische Benutzerverifizierung.
-- Ob der Client [Methoden zur Synchronisierung von Zugangsdaten zwischen vertrauender Partei und Authentifikator unterstützt](/de/docs/Web/API/Web_Authentication_API#discoverable_credential_synchronization_methods).
-- Ob der Client die Nutzung eines einzigen Passkeys auf verschiedenen Websites mit demselben Origin ermöglicht.
+### Anpassen von Workflows basierend auf Client-Fähigkeiten
 
-Der untenstehende Code zeigt, wie Sie `getClientCapabilities()` verwenden können, um zu prüfen, ob der Client Authentifikatoren unterstützt, die eine biometrische Benutzerverifizierung anbieten. Beachten Sie, dass die tatsächlich durchgeführten Maßnahmen von Ihrer Website abhängen. Für Websites, die _biometrische Authentifizierung erfordern_, könnten Sie beispielsweise die Login-Benutzeroberfläche durch eine Nachricht ersetzen, die besagt, dass biometrische Authentifizierung erforderlich ist, und der Benutzer einen anderen Browser oder ein anderes Gerät verwenden sollte.
+Die Anmelde- und Login-Workflows können basierend auf den Fähigkeiten des WebAuthn-Clients (Browsers) angepasst werden. Die statische Methode [`PublicKeyCredential.getClientCapabilities()`](/de/docs/Web/API/PublicKeyCredential/getClientCapabilities_static) kann verwendet werden, um diese Fähigkeiten abzufragen; sie gibt ein Objekt zurück, bei dem jeder Schlüssel sich auf eine WebAuthn-Fähigkeit oder -Erweiterung bezieht, und jeder Wert ein Boolean ist, das die Unterstützung dieser Funktion anzeigt.
+
+Dies kann beispielsweise verwendet werden, um zu überprüfen:
+
+- Client-Unterstützung für verschiedene Authenticatoren wie Passkeys oder biometrische Benutzerverifizierung.
+- Ob der Client [Methoden zur Synchronisierung von Anmeldeinformationen der verantwortlichen Partei und des Authenticators unterstützt](#synchronisationsmethoden_für_auffindbare_anmeldeinformationen).
+- Ob der Client erlaubt, dass ein einzelner Passkey auf verschiedenen Websites mit demselben Origin verwendet wird.
+
+Der folgende Code zeigt, wie Sie `getClientCapabilities()` verwenden könnten, um zu überprüfen, ob der Client Authenticatoren unterstützt, die eine biometrische Benutzerverifizierung anbieten.
+Beachten Sie, dass die tatsächlich durchgeführten Maßnahmen von Ihrer Website abhängen.
+Für Websites, die _biometrische Authentifizierung erfordern_, könnten Sie die Anmeldeoberfläche durch eine Nachricht ersetzen, die darauf hinweist, dass biometrische Authentifizierung erforderlich ist und der Benutzer einen anderen Browser oder ein anderes Gerät versuchen sollte.
 
 ```js
 async function checkIsUserVerifyingPlatformAuthenticatorAvailable() {
@@ -180,34 +182,37 @@ async function checkIsUserVerifyingPlatformAuthenticatorAvailable() {
 }
 ```
 
-## Zugriffskontrolle für die API
+## Steuerung des Zugriffs auf die API
 
-Die Verfügbarkeit von WebAuthn kann durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) gesteuert werden, wobei insbesondere zwei Direktiven spezifiziert werden:
+Die Verfügbarkeit von WebAuthn kann mithilfe einer [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) gesteuert werden, wobei insbesondere zwei Direktiven spezifiziert werden:
 
 - {{httpheader("Permissions-Policy/publickey-credentials-create", "publickey-credentials-create")}}: Steuert die Verfügbarkeit von [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) mit der `publicKey`-Option.
 - {{httpheader("Permissions-Policy/publickey-credentials-get", "publickey-credentials-get")}}: Steuert die Verfügbarkeit von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit der `publicKey`-Option.
 
-Beide Direktiven haben standardmäßig den Wert `"self"`, was bedeutet, dass diese Methoden standardmäßig in obersten Dokumentkontexten verwendet werden können. Zusätzlich kann `get()` auch in verschachtelten Browsing-Kontexten verwendet werden, die vom selben Origin wie das oberste Dokument geladen werden. `get()` und `create()` können in verschachtelten Browsing-Kontexten geladen werden, deren Origin sich vom obersten Dokument unterscheidet (z. B. in Origins übergreifenden `<iframes>`), wenn die Direktiven [`publickey-credentials-get`](/de/docs/Web/HTTP/Headers/Permissions-Policy/publickey-credentials-get) und [`publickey-credentials-create`](/de/docs/Web/HTTP/Headers/Permissions-Policy/publickey-credentials-create) in der `Permission-Policy` dies erlauben. Für Origins übergreifende `create()`-Aufrufe, bei denen die Erlaubnis durch [`allow=` in einem iframe](/de/docs/Web/HTTP/Headers/Permissions-Policy#iframes) erteilt wird, muss das Frame ebenfalls über eine {{Glossary("Transient_activation", "flüchtige Aktivierung")}} verfügen.
+Beide Direktiven haben einen Standard-Wert von `"self"`, was bedeutet, dass diese Methoden standardmäßig in obersten Dokumentkontexten verwendet werden können.
+Zusätzlich kann `get()` in eingebetteten Browser-Kontexten verwendet werden, die vom selben Origin wie das oberste Dokument geladen sind.
+`get()` und `create()` können in eingebetteten Browser-Kontexten verwendet werden, die von anderen Origins als dem obersten Dokument geladen sind (d.h. in Cross-Origin-`<iframes>`), wenn dies durch die [`publickey-credentials-get`](/de/docs/Web/HTTP/Headers/Permissions-Policy/publickey-credentials-get) und [`publickey-credentials-create`](/de/docs/Web/HTTP/Headers/Permissions-Policy/publickey-credentials-create) `Permission-Policy`-Direktiven erlaubt ist.
+Bei Cross-Origin-`create()`-Aufrufen, bei denen die Berechtigung via [`allow=` auf einem iframe](/de/docs/Web/HTTP/Headers/Permissions-Policy#iframes) erteilt wurde, muss der Rahmen auch eine {{Glossary("Transient_activation", "transiente Aktivierung")}} haben.
 
 > [!NOTE]
-> Wenn eine Richtlinie die Nutzung dieser Methoden verbietet, wird die {{jsxref("Promise", "Promise", "", 1)}} der Methoden mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
+> Wo eine Richtlinie die Verwendung dieser Methoden verbietet, wird das von ihnen zurückgegebene {{jsxref("Promise", "promises", "", 1)}} mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
 
-### Grundlegende Zugriffskontrolle
+### Grundlagen der Zugriffskontrolle
 
-Falls Sie nur einem bestimmten Subdomain den Zugriff erlauben möchten, können Sie dieses Beispiel verwenden:
+Wenn Sie den Zugriff auf ein bestimmtes Subdomain erlauben möchten, könnten Sie es so angeben:
 
 ```http
 Permissions-Policy: publickey-credentials-get=("https://subdomain.example.com")
 Permissions-Policy: publickey-credentials-create=("https://subdomain.example.com")
 ```
 
-### Erlauben von eingebetteten `create`- und `get()`-Aufrufen in einem `<iframe>`
+### Erlauben eingebetteter `create`- und `get()`-Aufrufe in einem `<iframe>`
 
-Falls Sie `get()` oder `create()` in einem `<iframe>` nutzen möchten, sind folgende Schritte nötig:
+Wenn Sie sich mit `get()` oder `create()` in einem `<iframe>` authentifizieren möchten, gibt es einige Schritte zu befolgen:
 
-1. Die Seite, die die vertrauende Partei-Seite einbettet, muss die Erlaubnis über ein `allow`-Attribut bereitstellen:
+1. Die Seite, die die Seite der verantwortlichen Partei einbettet, muss über ein `allow`-Attribut die Erlaubnis erteilen:
 
-   - Wenn Sie `get()` verwenden:
+   - Wenn `get()` verwendet wird:
 
      ```html
      <iframe
@@ -216,7 +221,7 @@ Falls Sie `get()` oder `create()` in einem `<iframe>` nutzen möchten, sind folg
      </iframe>
      ```
 
-   - Wenn Sie `create()` verwenden:
+   - Wenn `create()` verwendet wird:
 
      ```html
      <iframe
@@ -225,16 +230,16 @@ Falls Sie `get()` oder `create()` in einem `<iframe>` nutzen möchten, sind folg
      </iframe>
      ```
 
-     Das `<iframe>` muss zudem über eine {{Glossary("Transient_activation", "flüchtige Aktivierung")}} verfügen, wenn `create()` Origins übergreifend aufgerufen wird.
+     Das `<iframe>` muss auch eine {{Glossary("Transient_activation", "transiente Aktivierung")}} haben, wenn `create()` Cross-Origin aufgerufen wird.
 
-2. Die vertrauende Partei-Seite muss die Erlaubnis für den obigen Zugriff über einen `Permissions-Policy`-Header bereitstellen:
+2. Die Website der verantwortlichen Partei muss die obige Zugriffserlaubnis über einen `Permissions-Policy`-Header bereitstellen:
 
    ```http
    Permissions-Policy: publickey-credentials-get=*
    Permissions-Policy: publickey-credentials-create=*
    ```
 
-   Oder um nur eine bestimmte URL zu erlauben, die Seite der vertrauenden Partei in einem `<iframe>` einzubetten:
+   Oder um nur einer bestimmten URL das Einbetten der Website der verantwortlichen Partei in ein `<iframe>` zu ermöglichen:
 
    ```http
    Permissions-Policy: publickey-credentials-get=("https://subdomain.example.com")
@@ -244,34 +249,34 @@ Falls Sie `get()` oder `create()` in einem `<iframe>` nutzen möchten, sind folg
 ## Schnittstellen
 
 - [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse)
-  - : Liefert den Nachweis an einen Dienst, dass ein Authentifikator das erforderliche Schlüsselpaar besitzt, um eine durch [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get) initiierte Authentifizierungsanfrage erfolgreich zu bearbeiten. Verfügbar in der [`response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Instanz, die zurückgegeben wird, wenn die `get()`-{{jsxref("Promise")}} erfüllt wird.
+  - : Liefert einem Dienst den Nachweis, dass ein Authenticator das notwendige Schlüsselpaar besitzt, um eine Authentifizierungsanfrage zu bearbeiten, die durch einen [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf initiiert wurde. Verfügbar in der [`response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Instanz, die erhalten wird, wenn das `get()`-{{jsxref("Promise")}} erfüllt wird.
 - [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)
-  - : Das Ergebnis einer WebAuthn-Zugangsdatenregistrierung (d. h. eines Aufrufs von [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create)). Sie enthält Informationen über die Zugangsdaten, die der Server benötigt, um WebAuthn-Assertionen zu machen, wie z. B. deren Credential ID und öffentlichen Schlüssel. Verfügbar in der [`response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Instanz, die zurückgegeben wird, wenn die `create()`-{{jsxref("Promise")}} erfüllt wird.
+  - : Das Ergebnis einer WebAuthn-Anmeldeinformationen-Registrierung (d.h. ein [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create)-Aufruf). Es enthält Informationen über die Anmeldeinformationen, die der Server benötigt, um WebAuthn-Bestätigungen durchzuführen, wie z.B. seine Anmeldeinformations-ID und den öffentlichen Schlüssel. Verfügbar in der [`response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Instanz, die erhalten wird, wenn das `create()`-{{jsxref("Promise")}} erfüllt wird.
 - [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse)
   - : Die Basisschnittstelle für [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) und [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse).
 - [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)
-  - : Liefert Informationen über ein Schlüsselpaar aus öffentlichem und privatem Schlüssel, das eine Credential zur Anmeldung bei einem Dienst bildet. Statt eines Passworts wird ein nicht-phishbares und gegen Datenpannen resistentes asymmetrisches Schlüsselpaar verwendet. Wird zurückgegeben, wenn die durch [`create()`](/de/docs/Web/API/CredentialsContainer/create) oder [`get()`](/de/docs/Web/API/CredentialsContainer/get) aufgerufene {{jsxref("Promise")}} erfüllt wird.
+  - : Bietet Informationen über ein öffentliches/privates Schlüsselpaar, das eine Anmeldeinformation für die Anmeldung bei einem Dienst mit einem nicht phishbaren und datenverletzungsresistenten asymmetrischen Schlüsselpaar anstelle eines Passwortes ist. Erhalten, wenn das durch einen [`create()`](/de/docs/Web/API/CredentialsContainer/create) oder [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf zurückgegebene {{jsxref("Promise")}} erfüllt wird.
 
-## Erweiterungen für andere Schnittstellen
+## Erweiterungen zu anderen Schnittstellen
 
 - [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create), die `publicKey`-Option
-  - : Ein Aufruf von `create()` mit einer `publicKey`-Option startet die Erstellung neuer asymmetrischer Schlüsselpaar-Zugangsdaten über einen Authentifikator, wie oben beschrieben.
+  - : Der Aufruf von `create()` mit einer `publicKey`-Option initiiert die Erstellung neuer asymmetrischer Schlüssel-Anmeldeinformationen über einen Authenticator, wie oben erläutert.
 - [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get), die `publicKey`-Option
-  - : Ein Aufruf von `get()` mit einer `publicKey`-Option weist den Benutzeragenten an, ein bestehendes Set von Zugangsdaten zu verwenden, um sich bei einer vertrauenden Partei zu authentifizieren.
+  - : Ein Aufruf von `get()` mit einer `publicKey`-Option weist den Benutzeragenten an, ein bestehendes Satz von Anmeldeinformationen zu verwenden, um sich bei einer verantwortlichen Partei zu authentifizieren.
 
 ## Beispiele
 
-### Demo-Seiten
+### Demoseiten
 
 - [Mozilla Demo](https://webauthn.bin.coffee/) Website und ihr [Quellcode](https://github.com/jcjones/webauthn.bin.coffee).
 - [Google Demo](https://try-webauthn.appspot.com/) Website und ihr [Quellcode](https://github.com/google/webauthndemo).
-- [WebAuthn.io Demo](https://webauthn.io/) Website und ihr [Quellcode](https://github.com/duo-labs/webauthn.io).
-- [github.com/webauthn-open-source](https://github.com/webauthn-open-source) und ihr [Client-Quellcode](https://github.com/webauthn-open-source/webauthn-simple-app) sowie [Server-Quellcode](https://github.com/webauthn-open-source/fido2-lib).
+- [WebAuthn.io demo](https://webauthn.io/) Website und ihr [Quellcode](https://github.com/duo-labs/webauthn.io).
+- [github.com/webauthn-open-source](https://github.com/webauthn-open-source) und ihr [Client-Quellcode](https://github.com/webauthn-open-source/webauthn-simple-app) und [Server-Quellcode](https://github.com/webauthn-open-source/fido2-lib)
 
-### Nutzungsbeispiel
+### Anwendungsbeispiel
 
 > [!NOTE]
-> Aus Sicherheitsgründen werden die Aufrufe der Web Authentication API ([`create()`](/de/docs/Web/API/CredentialsContainer/create) und [`get()`](/de/docs/Web/API/CredentialsContainer/get)) abgebrochen, wenn das Browserfenster den Fokus verliert, während auf die Fertigstellung des Aufrufs gewartet wird.
+> Aus Sicherheitsgründen werden die Aufrufe der Web Authentication API ([`create()`](/de/docs/Web/API/CredentialsContainer/create) und [`get()`](/de/docs/Web/API/CredentialsContainer/get)) abgebrochen, wenn das Browserfenster während eines ausstehenden Aufrufs den Fokus verliert.
 
 ```js
 // sample arguments for registration

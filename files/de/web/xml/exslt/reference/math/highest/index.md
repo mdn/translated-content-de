@@ -2,12 +2,12 @@
 title: math:highest()
 slug: Web/XML/EXSLT/Reference/math/highest
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: f731452fabde211bee55aedd39fc83d60c4e4918
 ---
 
-`math:highest()` gibt den Knoten in der angegebenen Node-Set mit dem höchsten Wert zurück (wobei der höchste Wert mit [`math:max()`](/de/docs/Web/XML/EXSLT/math/max) berechnet wird).
+`math:highest()` gibt den Knoten in der angegebenen Knotenmenge mit dem höchsten Wert zurück (wobei der höchste Wert mit [`math:max()`](/de/docs/Web/XML/EXSLT/Reference/math/max) berechnet wird).
 
-Ein Knoten hat diesen Maximalwert, wenn das Konvertieren seines String-Werts in eine Zahl dem Maximalwert entspricht.
+Ein Knoten hat diesen maximalen Wert, wenn die Umwandlung seines Zeichenfolgenwerts in eine Zahl dem maximalen Wert entspricht.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ math:highest(nodeSet)
 ### Parameter
 
 - `nodeSet`
-  - : Der Node-Set, dessen höchster Wert zurückgegeben werden soll.
+  - : Die Knotenmenge, deren höchster Wert zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein Ergebnisbaum-Fragment, das Kopien der durch [`math:max()`](/de/docs/Web/XML/EXSLT/math/max) zurückgegebenen Knoten enthält.
+Ein Ergebnisausschnitt, der aus Kopien der von [`math:max()`](/de/docs/Web/XML/EXSLT/Reference/math/max) zurückgegebenen Knoten besteht.
 
 ## Spezifikationen
 

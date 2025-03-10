@@ -1,14 +1,14 @@
 ---
-title: Stacking context
+title: Stacking-Kontext
 slug: Glossary/Stacking_context
 l10n:
-  sourceCommit: d267a8cb862c20277f81bbc223221b36b0c613e6
+  sourceCommit: 9b9086cf753e2d5721fe1229ff6f767ccf512f97
 ---
 
 {{GlossarySidebar}}
 
-Ein **Stacking context** bezieht sich darauf, wie Elemente auf einer Webseite scheinbar übereinander liegen, genauso wie Sie Karteikarten auf Ihrem Schreibtisch anordnen können, um sie nebeneinander zu legen oder sich zu überlappen.
+**Stacking-Kontext** bezieht sich darauf, wie Elemente auf einer Webseite so erscheinen, als ob sie übereinander liegen, ähnlich wie Sie Indexkarten auf Ihrem Schreibtisch nebeneinander oder übereinander anordnen können.
 
 ## Siehe auch
 
-- [Erklärung und Beispiel des Stacking Context](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context)
+- [Erklärung und Beispiel des Stacking-Kontexts](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)

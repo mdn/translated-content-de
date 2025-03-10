@@ -1,13 +1,13 @@
 ---
-title: CSS Ruby-Layout
+title: CSS-Ruby-Layout
 slug: Web/CSS/CSS_ruby_layout
 l10n:
-  sourceCommit: fd52806c8ce9c1d9d0c50d260ec73f8b8ec6b7bf
+  sourceCommit: f731452fabde211bee55aedd39fc83d60c4e4918
 ---
 
 {{CSSRef}}
 
-Das **CSS Ruby-Layout** Modul liefert das Rendering-Modell und Formatierungssteuerungen im Zusammenhang mit der Anzeige von Ruby-Annotationen. Ruby-Annotationen sind eine Form der Interlinear-Annotation, bestehend aus kurzen Textruns neben dem Basisteil des Textes. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um die Aussprache anzuzeigen oder die Bedeutung zu definieren.
+Das **CSS-Ruby-Layout** Modul bietet das Modell zur Darstellung und Formatierungssteuerungen im Zusammenhang mit der Anzeige von Ruby-Annotationen. Ruby-Annotationen sind eine Form der interlinearen Annotation, bestehend aus kurzen Textabschnitten neben dem Basistext. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um Aussprache anzuzeigen oder Bedeutung zu erklären.
 
 ## Referenz
 
@@ -17,11 +17,11 @@ Das **CSS Ruby-Layout** Modul liefert das Rendering-Modell und Formatierungssteu
 - {{cssxref("ruby-position")}}
 
 > [!NOTE]
-> Das CSS Ruby-Layout Modul führt zwei Eigenschaften ein, `ruby-merge` und `ruby-overhang`, die noch in keinem Browser implementiert wurden.
+> Das CSS-Ruby-Layout-Modul führt zwei Eigenschaften ein, `ruby-merge` und `ruby-overhang`, die noch in keinem Browser implementiert wurden.
 
 ### Display-Werte
 
-Das CSS Ruby-Layout Modul fügt der {{cssxref("display")}} Eigenschaft die folgenden Werte hinzu:
+Das CSS-Ruby-Layout-Modul fügt der {{cssxref("display")}} Eigenschaft folgende Werte hinzu:
 
 - `ruby`
 - `ruby-base`
@@ -35,10 +35,10 @@ Das CSS Ruby-Layout Modul fügt der {{cssxref("display")}} Eigenschaft die folge
 
 ## Verwandte Konzepte
 
-- [CSS Display](/de/docs/Web/CSS/CSS_Display) Modul
+- [CSS-Display](/de/docs/Web/CSS/CSS_display) Modul
   - {{cssxref("display")}}
   - {{CSSxRef("&lt;display-internal&gt;")}}
-- [CSS Textdekoration](/de/docs/Web/CSS/CSS_Text_Decoration) Modul
+- [CSS-Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul
   - {{cssxref("text-emphasis-color")}}
   - {{cssxref("text-emphasis-position")}}
   - {{cssxref("text-emphasis-style")}}

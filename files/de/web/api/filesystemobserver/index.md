@@ -2,12 +2,12 @@
 title: FileSystemObserver
 slug: Web/API/FileSystemObserver
 l10n:
-  sourceCommit: 9cc1f40340f37fa05d6573cc519c9844fa4940be
+  sourceCommit: 800e317d342b7ad0e5eca37d3d17e53bbcd1dc41
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`FileSystemObserver`**-Schnittstelle der [File System API](/de/docs/Web/API/File_System_API) bietet einen Mechanismus, um Änderungen am für den Benutzer sichtbaren Dateisystem und dem [Origin Private File System](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) zu überwachen. Dies bedeutet, dass Webanwendungen das Dateisystem nicht mehr ständig abfragen müssen, um Änderungen in der Struktur von Dateien oder Ordnern zu erkennen, was zeitaufwendig und ineffizient sein kann.
+Das **`FileSystemObserver`**-Interface der [File System API](/de/docs/Web/API/File_System_API) bietet einen Mechanismus, um Änderungen im für den Benutzer sichtbaren Dateisystem und dem [Origin Private File System](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) zu beobachten. Das bedeutet, dass Webanwendungen das Dateisystem nicht ständig abfragen müssen, um Änderungen in der Datei- oder Ordnerstruktur zu erkennen, was zeitaufwändig und ineffizient sein kann.
 
 ## Konstruktor
 
@@ -17,24 +17,24 @@ Die **`FileSystemObserver`**-Schnittstelle der [File System API](/de/docs/Web/AP
 ## Instanzmethoden
 
 - [`disconnect()`](/de/docs/Web/API/FileSystemObserver/disconnect) {{Experimental_Inline}} {{non-standard_inline}}
-  - : Beendet die Überwachung des Dateisystems.
+  - : Beendet die Beobachtung des Dateisystems.
 - [`observe()`](/de/docs/Web/API/FileSystemObserver/observe) {{Experimental_Inline}} {{non-standard_inline}}
-  - : Beginnt, Änderungen an einer bestimmten Datei oder einem Verzeichnis zu überwachen.
+  - : Beginnt mit der Beobachtung von Änderungen an einer bestimmten Datei oder einem Verzeichnis.
 
 ## Beispiele
 
 > [!NOTE]
-> Für ein vollständiges funktionierendes Beispiel, sehen Sie sich die [File System Observer Demo](https://file-system-observer.glitch.me/) an ([Quellcode](https://glitch.com/edit/#!/file-system-observer)).
+> Für ein vollständiges funktionierendes Beispiel schauen Sie sich die [File System Observer Demo](https://mdn.github.io/dom-examples/filesystemobserver/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/filesystemobserver)) an.
 
 ### Initialisieren eines `FileSystemObserver`
 
-Bevor Sie mit der Überwachung von Datei- oder Verzeichnisänderungen beginnen können, müssen Sie einen `FileSystemObserver` initialisieren, um die Beobachtungen zu verwalten. Dies wird durch den [`FileSystemObserver()`](/de/docs/Web/API/FileSystemObserver/FileSystemObserver)-Konstruktor durchgeführt, der eine Callback-Funktion als Argument benötigt:
+Bevor Sie mit der Beobachtung von Datei- oder Verzeichnisänderungen beginnen können, müssen Sie einen `FileSystemObserver` initialisieren, um die Beobachtungen zu verarbeiten. Dies geschieht mit dem [`FileSystemObserver()`](/de/docs/Web/API/FileSystemObserver/FileSystemObserver)-Konstruktor, der eine Callback-Funktion als Argument nimmt:
 
 ```js
 const observer = new FileSystemObserver(callback);
 ```
 
-Der [Callback-Funktions](/de/docs/Web/API/FileSystemObserver/FileSystemObserver#callback)-Körper kann spezifiziert werden, um die Beobachtungen von Dateiänderungen auf beliebige Weise zu verarbeiten und zurückzugeben:
+Der [Rückruffunktion](/de/docs/Web/API/FileSystemObserver/FileSystemObserver#callback)-Körper kann so definiert werden, dass er Dateienänderungsbeobachtungen in beliebiger Weise zurückgibt und verarbeitet:
 
 ```js
 const callback = (records, observer) => {
@@ -50,9 +50,9 @@ const callback = (records, observer) => {
 
 ### Beobachten einer Datei oder eines Verzeichnisses
 
-Sobald eine `FileSystemObserver`-Instanz verfügbar ist, können Sie Änderungen an einem Eintrag im Dateisystem beobachten, indem Sie die Methode [`FileSystemObserver.observe()`](/de/docs/Web/API/FileSystemObserver/observe) aufrufen.
+Sobald eine Instanz von `FileSystemObserver` verfügbar ist, können Sie mit der Beobachtung von Änderungen an einem Dateisystemeintrag beginnen, indem Sie die Methode [`FileSystemObserver.observe()`](/de/docs/Web/API/FileSystemObserver/observe) aufrufen.
 
-Sie können eine Datei oder ein Verzeichnis im für den Benutzer sichtbaren Dateisystem oder im [Origin Private File System](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) beobachten, indem Sie ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) an `observe()` übergeben. Instanzen dieser Objekte können zum Beispiel zurückgegeben werden, wenn Sie den Benutzer bitten, eine Datei oder ein Verzeichnis mit [`Window.showSaveFilePicker()`](/de/docs/Web/API/Window/showSaveFilePicker) oder [`Window.showDirectoryPicker()`](/de/docs/Web/API/Window/showDirectoryPicker) auszuwählen:
+Sie können eine Datei oder ein Verzeichnis im für den Benutzer sichtbaren Dateisystem oder im [Origin Private File System](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) beobachten, indem Sie `observe()` einen [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) übergeben. Instanzen dieser Objekte können beispielsweise zurückgegeben werden, wenn Sie den Benutzer bitten, eine Datei oder ein Verzeichnis mit [`Window.showSaveFilePicker()`](/de/docs/Web/API/Window/showSaveFilePicker) oder [`Window.showDirectoryPicker()`](/de/docs/Web/API/Window/showDirectoryPicker) auszuwählen:
 
 ```js
 // Observe a file
@@ -70,7 +70,7 @@ async function observeDirectory() {
 }
 ```
 
-Sie können auch Änderungen am OPFS überwachen, indem Sie ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) an `observe()` übergeben:
+Sie können auch Änderungen im OPFS beobachten, indem Sie `observe()` einen [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) übergeben:
 
 ```js
 // Observe an OPFS file system entry
@@ -83,9 +83,9 @@ async function observeOPFSFile() {
 }
 ```
 
-### Beenden der Überwachung des Dateisystems
+### Beenden der Beobachtung des Dateisystems
 
-Wenn Sie die Überwachung von Änderungen am Dateisystemeintrag beenden möchten, können Sie [`FileSystemObserver.disconnect()`](/de/docs/Web/API/FileSystemObserver/disconnect) aufrufen:
+Wenn Sie die Beobachtung von Änderungen an einem Dateisystemeintrag beenden möchten, können Sie [`FileSystemObserver.disconnect()`](/de/docs/Web/API/FileSystemObserver/disconnect) aufrufen:
 
 ```js
 observer.disconnect();
@@ -93,7 +93,7 @@ observer.disconnect();
 
 ## Spezifikationen
 
-Gehört derzeit nicht zu einer Spezifikation. Siehe [https://github.com/whatwg/fs/pull/165](https://github.com/whatwg/fs/pull/165) für den relevanten Spezifikations-PR.
+Derzeit nicht Teil einer Spezifikation. Siehe [https://github.com/whatwg/fs/pull/165](https://github.com/whatwg/fs/pull/165) für den relevanten Spezifikations-PR.
 
 ## Browser-Kompatibilität
 
@@ -102,4 +102,4 @@ Gehört derzeit nicht zu einer Spezifikation. Siehe [https://github.com/whatwg/f
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [Die File System Observer API Origin Trial](https://developer.chrome.com/blog/file-system-observer#stop-observing-the-file-system) auf developer.chrome.com (2024)
+- [The File System Observer API origin trial](https://developer.chrome.com/blog/file-system-observer#stop-observing-the-file-system) auf developer.chrome.com (2024)

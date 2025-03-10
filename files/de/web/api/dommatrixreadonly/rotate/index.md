@@ -1,16 +1,16 @@
 ---
-title: "DOMMatrixReadOnly: rotate() Methode"
+title: "DOMMatrixReadOnly: rotate()-Methode"
 short-title: rotate()
 slug: Web/API/DOMMatrixReadOnly/rotate
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: f731452fabde211bee55aedd39fc83d60c4e4918
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die `rotate()`-Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Interfaces gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Drehen der Quellmatrix um jede ihrer Achsen um die angegebene Anzahl von Grad erstellt wird. Die ursprüngliche Matrix wird nicht verändert.
+Die `rotate()`-Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Interfaces gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch das Rotieren der Ursprungsmatrix um jede ihrer Achsen um die angegebene Anzahl von Grad erstellt wurde. Die ursprüngliche Matrix wird nicht verändert.
 
-Um die Matrix während des Drehens zu verändern, siehe [`DOMMatrix.rotateSelf()`](/de/docs/Web/API/DOMMatrix/rotateSelf).
+Um die Matrix während der Rotation zu verändern, siehe [`DOMMatrix.rotateSelf()`](/de/docs/Web/API/DOMMatrix/rotateSelf).
 
 ## Syntax
 
@@ -24,13 +24,13 @@ rotate(rotX, rotY, rotZ)
 ### Parameter
 
 - `rotX`
-  - : Eine Zahl; die x-Koordinate des Vektors, der die Rotationsachse angibt. Wenn ungleich null, ist [`is2D`](/de/docs/Web/API/DOMMatrixReadonly/is2D) false.
+  - : Eine Zahl; die x-Koordinate des Vektors, der die Rotationsachse angibt. Wenn ungleich null, ist [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) falsch.
 - `rotY` {{optional_inline}}
-  - : Eine Zahl; die y-Koordinate des Vektors, der die Rotationsachse angibt. Wenn ungleich null, ist [`is2D`](/de/docs/Web/API/DOMMatrixReadonly/is2D) false.
+  - : Eine Zahl; die y-Koordinate des Vektors, der die Rotationsachse angibt. Wenn ungleich null, ist [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) falsch.
 - `rotZ` {{optional_inline}}
   - : Eine Zahl; die z-Koordinate des Vektors, der die Rotationsachse angibt.
 
-Wenn nur `rotX` übergeben wird, wird `rotX` als Wert für die z-Koordinate verwendet, und die x- und y-Koordinaten werden beide auf null gesetzt.
+Wenn nur `rotX` übergeben wird, wird `rotX` als Wert für die z-Koordinate verwendet, und die x- und y-Koordinate werden beide auf null gesetzt.
 
 ### Rückgabewert
 

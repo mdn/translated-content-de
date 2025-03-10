@@ -2,10 +2,10 @@
 title: str:tokenize()
 slug: Web/XML/EXSLT/Reference/str/tokenize
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: f731452fabde211bee55aedd39fc83d60c4e4918
 ---
 
-`str:tokenize()` teilt einen String mithilfe eines Satzes von Zeichen als Trennzeichen, die bestimmen, wo die Teilungen erfolgen sollen, und gibt eine Knotenmenge zurück, die die resultierenden Strings enthält.
+`str:tokenize()` teilt einen String mit einer Menge von Zeichen als Trennzeichen, die bestimmen, wo die Teilungen erfolgen sollen, und gibt eine Knotenmenge mit den resultierenden Strings zurück.
 
 ## Syntax
 
@@ -16,13 +16,13 @@ str:tokenize(string, delimiters)
 ### Parameter
 
 - `string`
-  - : Der zu tokenisierende String.
+  - : Der String, der tokenisiert werden soll.
 - `delimiters`
   - : Jedes Zeichen in diesem String wird beim Tokenisieren als Worttrenner verwendet.
 
 ### Rückgabewert
 
-Eine Knotenmenge von `token`-Elementen, von denen jedes ein Token aus dem `string` enthält.
+Eine Knotenmenge von `token`-Elementen, die jeweils ein Token aus dem `string` enthalten.
 
 ## Beispiel
 
@@ -47,4 +47,4 @@ Gibt eine Knotenmenge wie diese zurück:
 
 ## Siehe auch
 
-- [`str:split()`](/de/docs/Web/XML/EXSLT/str/split)
+- [`str:split()`](/de/docs/Web/XML/EXSLT/Reference/str/split)

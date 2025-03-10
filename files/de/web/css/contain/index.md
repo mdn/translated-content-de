@@ -2,26 +2,29 @@
 title: contain
 slug: Web/CSS/contain
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: 9b9086cf753e2d5721fe1229ff6f767ccf512f97
 ---
 
 {{CSSRef}}
 
-Die **`contain`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) gibt an, dass ein Element und dessen Inhalt so weit wie möglich unabhängig vom restlichen Dokumentenbaum sind.
-Eingrenzung ermöglicht die Isolierung eines Abschnitts des DOMs und bietet Leistungsverbesserungen, indem Berechnungen für Layout, Stil, Malen, Größe oder eine Kombination nur auf einen DOM-Teilbaum beschränkt werden, anstatt auf die gesamte Seite. Eingrenzung kann außerdem verwendet werden, um CSS-Zähler und Anführungszeichen zu begrenzen.
+Die **`contain`** [CSS](/de/docs/Web/CSS) Eigenschaft zeigt an, dass ein Element und dessen Inhalt so weit wie möglich unabhängig vom Rest des Dokumentbaums sind.
+Einschließung ermöglicht es, einen Abschnitt des DOM zu isolieren, wodurch Leistungsverbesserungen erzielt werden, indem Berechnungen von Layout, Stil, Malen, Größe oder einer Kombination auf einen DOM-Teilbaum beschränkt werden, anstatt auf die gesamte Seite. Einschließung kann auch verwendet werden, um CSS-Zähler und -Anführungszeichen zu beschränken.
 
 {{EmbedInteractiveExample("pages/css/contain.html")}}
 
-Es gibt vier Arten der CSS-Eingrenzung: Größe, Layout, Stil und Malen, die auf dem Container festgelegt werden können. Die Eigenschaft ist eine durch Leerzeichen getrennte Liste einer Untermenge der fünf Standardwerte oder einer der zwei Kurzschreibweisen. Änderungen an den eingeschlossenen Eigenschaften innerhalb des Containers werden nicht außerhalb des eingeschlossenen Elements auf den Rest der Seite übertragen. Der Hauptvorteil der Eingrenzung besteht darin, dass der Browser den DOM oder das Seitenlayout weniger häufig neu rendern muss, was zu kleinen Leistungssteigerungen bei statischen Seiten und größeren Vorteilen in dynamischeren Anwendungen führt.
+Es gibt vier Arten von CSS-Einschließung: Größe, Layout, Stil und Malen, die auf den Container angewendet werden.
+Die Eigenschaft ist eine durch Leerzeichen getrennte Liste eines Teils der fünf Standardwerte oder eines der beiden Kurzformwerte.
+Änderungen an den eingeschlossenen Eigenschaften innerhalb des Containers werden nicht außerhalb des eingeschlossenen Elements auf den Rest der Seite übertragen.
+Der Hauptvorteil der Einschließung besteht darin, dass der Browser das DOM oder das Seitenlayout nicht so oft neu rendern muss, was zu kleinen Leistungsverbesserungen beim Rendern statischer Seiten und zu größeren Leistungsverbesserungen bei dynamischeren Anwendungen führt.
 
-Die Verwendung der `contain`-Eigenschaft ist nützlich auf Seiten mit Gruppen von Elementen, die unabhängig sein sollen, da dies verhindert, dass interne Elemente Auswirkungen außerhalb ihrer Begrenzungsbox haben.
+Die Verwendung der `contain` Eigenschaft ist nützlich auf Seiten mit Gruppen von Elementen, die unabhängig sein sollen, da sie verhindern kann, dass interne Elemente Auswirkungen außerhalb ihrer Begrenzungsbox haben.
 
 > [!NOTE]
-> Die Verwendung der Werte `layout`, `paint`, `strict` oder `content` für diese Eigenschaft erstellt:
+> Die Verwendung der Werte `layout`, `paint`, `strict` oder `content` für diese Eigenschaft erzeugt:
 >
-> 1. Einen neuen [Containing Block](/de/docs/Web/CSS/CSS_display/Containing_block) (für die Nachkommen, deren {{cssxref("position")}}-Eigenschaft `absolute` oder `fixed` ist).
-> 2. Einen neuen [Stacking Context (Stapelkontext)](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context).
-> 3. Einen neuen [Block Formatting Context (Block-Formatierungs-Kontext)](/de/docs/Web/CSS/CSS_display/Block_formatting_context).
+> 1. Einen neuen [Containing Block](/de/docs/Web/CSS/CSS_display/Containing_block) (für die Nachkommen, deren {{cssxref("position")}} Eigenschaft `absolute` oder `fixed` ist).
+> 2. Einen neuen [Stacking Context](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context).
+> 3. Einen neuen [Block Formatting Context](/de/docs/Web/CSS/CSS_display/Block_formatting_context).
 
 ## Syntax
 
@@ -51,30 +54,30 @@ contain: unset;
 
 ### Werte
 
-Die `contain`-Eigenschaft kann die folgenden Werte haben:
+Die `contain` Eigenschaft kann einen der folgenden Werte haben:
 
 - Das Schlüsselwort `none` **oder**
-- Eines oder mehrere der durch Leerzeichen getrennten Schlüsselwörter `size` (oder `inline-size`), `layout`, `style` und `paint` in beliebiger Reihenfolge **oder**
-- Einer der Kurzschreibwerte `strict` oder `content`
+- Ein oder mehrere der durch Leerzeichen getrennten Schlüsselwörter `size` (oder `inline-size`), `layout`, `style` und `paint` in beliebiger Reihenfolge **oder**
+- Einer der Kurzformwerte `strict` oder `content`
 
 Die Schlüsselwörter haben die folgenden Bedeutungen:
 
 - `none`
-  - : Das Element wird normal dargestellt, ohne dass eine Eingrenzung erfolgt.
+  - : Das Element wird wie gewohnt gerendert, ohne dass eine Einschließung angewendet wird.
 - `strict`
-  - : Alle Eingrenzungsregeln werden auf das Element angewendet. Dies entspricht `contain: size layout paint style`.
+  - : Alle Einschließungsregeln werden auf das Element angewendet. Dies entspricht `contain: size layout paint style`.
 - `content`
-  - : Alle Eingrenzungsregeln außer `size` werden auf das Element angewendet. Dies entspricht `contain: layout paint style`.
+  - : Alle Einschließungsregeln außer `size` werden auf das Element angewendet. Dies entspricht `contain: layout paint style`.
 - `size`
-  - : Größeneingrenzung wird sowohl in Inline- als auch in Blockrichtung auf das Element angewandt. Die Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu berücksichtigen. Dieser Wert kann nicht mit `inline-size` kombiniert werden.
+  - : Größeneinschließung wird auf das Element sowohl in der Inline- als auch in der Blockrichtung angewendet. Die Größe des Elements kann isoliert berechnet werden, ohne die Kinderelemente zu berücksichtigen. Dieser Wert kann nicht mit `inline-size` kombiniert werden.
 - `inline-size`
-  - : Inline-Größeneingrenzung wird auf das Element angewandt. Die Inline-Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu berücksichtigen. Dieser Wert kann nicht mit `size` kombiniert werden.
+  - : Inline-Größeneinschließung wird auf das Element angewendet. Die Inline-Größe des Elements kann isoliert berechnet werden, ohne die Kinderelemente zu berücksichtigen. Dieser Wert kann nicht mit `size` kombiniert werden.
 - `layout`
-  - : Das interne Layout des Elements ist vom Rest der Seite isoliert. Dies bedeutet, dass nichts außerhalb des Elements sein internes Layout beeinflusst und umgekehrt.
+  - : Das interne Layout des Elements ist vom Rest der Seite isoliert. Das bedeutet, dass nichts außerhalb des Elements dessen internes Layout beeinflusst und umgekehrt.
 - `style`
-  - : Für Eigenschaften, die mehr als nur das Element und seine Nachkommen beeinflussen können, entweichen die Effekte nicht aus dem Eingrenzungselement. Zähler und Anführungszeichen sind auf das Element und seinen Inhalt beschränkt.
+  - : Für Eigenschaften, die mehr als nur ein Element und dessen Nachkommen beeinflussen können, entweichen die Effekte nicht dem enthaltenden Element. Zähler und Anführungszeichen sind auf das Element und dessen Inhalt beschränkt.
 - `paint`
-  - : Nachkommen des Elements werden nicht außerhalb der Grenzen des Elements angezeigt. Befindet sich der begrenzende Kasten außerhalb des sichtbaren Bereichs, muss der Browser dessen enthaltene Elemente nicht rendern – diese befinden sich ebenfalls außerhalb des sichtbaren Bereichs, da sie vollständig durch diesen Kasten eingeschlossen werden. Überschreitet ein Nachkomme die Grenzen des eingeschlossenen Elements, wird dieser Nachkomme an den Rand der Begrenzungsbox des Elements abgeschnitten.
+  - : Nachkommen des Elements werden nicht außerhalb seiner Grenzen angezeigt. Wenn das enthaltende Feld außerhalb des Bildschirms liegt, muss der Browser seine enthaltenen Elemente nicht zeichnen — diese müssen ebenfalls außerhalb des Bildschirms sein, da sie vollständig durch dieses Feld enthalten sind. Wenn ein Nachkomme die Grenzen des einschließenden Elements überschreitet, wird dieser Nachkomme an die Begrenzungsbox des enthaltenden Elements abgeschnitten.
 
 ## Formale Definition
 
@@ -86,9 +89,9 @@ Die Schlüsselwörter haben die folgenden Bedeutungen:
 
 ## Beispiele
 
-### Malereingrenzung
+### Mal-Einschließung
 
-Das folgende Beispiel zeigt, wie `contain: paint` verwendet wird, um zu verhindern, dass die Nachkommen eines Elements außerhalb seiner Grenzen gezeichnet werden.
+Das folgende Beispiel zeigt, wie `contain: paint` verwendet wird, um zu verhindern, dass Nachkommen eines Elements außerhalb seiner Grenzen gemalt werden.
 
 ```css
 div {
@@ -111,9 +114,9 @@ div {
 
 {{EmbedLiveSample("Paint_containment", "100%", 280)}}
 
-### Layouteingrenzung
+### Layout-Einschließung
 
-Betrachten Sie folgendes Beispiel, das zeigt, wie sich Elemente mit und ohne Layouteingrenzung verhalten:
+Betrachten Sie das folgende Beispiel, das zeigt, wie sich Elemente bei und ohne angewandte Layout-Einschließung verhalten:
 
 ```html
 <div class="card" style="contain: layout;">
@@ -171,28 +174,28 @@ div {
 }
 ```
 
-Die erste Karte hat Layouteingrenzung angewendet, und ihr Layout ist vom Rest der Seite isoliert.
-Wir können diese Karte an anderen Stellen der Seite wiederverwenden, ohne uns über Layout-Neuberechnungen anderer Elemente Sorgen machen zu müssen.
-Falls Floats die Kartengrenzen überlappen, werden Elemente im Rest der Seite nicht beeinflusst.
-Wenn der Browser das Subtree-Layout des eingeschlossenen Elements neu berechnet, wird nur dieses Element neu berechnet. Nichts außerhalb des eingeschlossenen Elements muss neu berechnet werden.
-Darüber hinaus verwendet das feste Kästchen die Karte als Layout-Container, um sich zu positionieren.
+Die erste Karte hat eine Layout-Einschließung angewendet und ihr Layout ist vom Rest der Seite isoliert.
+Wir können diese Karte an anderen Stellen auf der Seite erneut verwenden, ohne uns um die Neuberechnung des Layouts der anderen Elemente zu kümmern.
+Wenn Gleitblöcke die Kartengrenzen überlappen, sind die Elemente auf dem Rest der Seite nicht betroffen.
+Wenn der Browser den Teilbaum des enthaltenden Elements neu berechnet, wird nur dieses Element neu berechnet. Nichts außerhalb des enthaltenen Elements muss neu berechnet werden.
+Zusätzlich verwendet das feste Feld die Karte als Layout-Container, um sich zu positionieren.
 
-Die zweite und dritte Karte haben keine Eingrenzung.
-Der Layoutkontext für das feste Kästchen in der zweiten Karte ist das Root-Element, daher wird das feste Kästchen in der oberen rechten Ecke der Seite positioniert.
-Ein Float überlappt die Grenzen der zweiten Karte, was dazu führt, dass die dritte Karte eine unerwartete Layoutverschiebung aufweist, die sich im Positionieren des `<h2>`-Elements zeigt.
-Wenn eine Neuberechnung erfolgt, ist diese nicht auf einen Container beschränkt.
-Dies beeinträchtigt die Leistung und stört das restliche Seitenlayout.
+Die zweite und dritte Karte haben keine Einschließung.
+Der Layoutkontext für das feste Feld in der zweiten Karte ist das Wurzelelement, sodass das feste Feld in der oberen rechten Ecke der Seite positioniert wird.
+Ein Gleitblock überlappt die Grenzen der zweiten Karte und verursacht, dass die dritte Karte eine unerwartete Layout-Änderung aufweist, die in der Positionierung des `<h2>` Elements sichtbar wird.
+Wenn eine Neuberechnung erfolgt, ist sie nicht auf einen Container beschränkt.
+Dies wirkt sich auf die Leistung aus und stört das Layout des restlichen Seiteninhalts.
 
 {{EmbedLiveSample("Layout_containment", "100%", 350)}}
 
-### Stileingrenzung
+### Stil-Einschließung
 
-Stileingrenzung begrenzt [Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) und [Anführungszeichen](/de/docs/Web/CSS/quotes) auf das eingeschlossene Element.
-Für CSS-Zähler werden die Eigenschaften {{cssxref("counter-increment")}} und {{cssxref("counter-set")}} so eingeschränkt, als befände sich das Element an der Wurzel des Dokuments.
+Stil-Einschließung begrenzt [Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) und [Anführungszeichen](/de/docs/Web/CSS/quotes) auf das eingeschlossene Element.
+Für CSS-Zähler sind die Eigenschaften {{cssxref("counter-increment")}} und {{cssxref("counter-set")}} auf das Element beschränkt, als ob das Element die Wurzel des Dokuments wäre.
 
-#### Eingrenzung und Zähler
+#### Einschließung und Zähler
 
-Das folgende Beispiel zeigt, wie Zähler funktionieren, wenn Stileingrenzung angewendet wird:
+Das folgende Beispiel zeigt, wie Zähler funktionieren, wenn Stil-Einschließung angewendet wird:
 
 ```html
 <ul>
@@ -219,14 +222,14 @@ li::before {
 }
 ```
 
-Ohne Eingrenzung würde der Zähler für jedes Listenelement von 1 bis 5 hochzählen.
-Stileingrenzung bewirkt, dass die {{cssxref("counter-increment")}}-Eigenschaft auf den Teilbaum des Elements beschränkt wird und der Zähler erneut bei 1 beginnt:
+Ohne Einschließung würde der Zähler für jedes Listenelement von 1 bis 5 inkrementiert.
+Die Stil-Einschließung bewirkt, dass die {{cssxref("counter-increment")}} Eigenschaft auf den Teilbaum des Elements beschränkt ist und der Zähler erneut bei 1 beginnt:
 
 {{EmbedLiveSample('Containment_and_counters', '100%', 140)}}
 
-#### Eingrenzung und Anführungszeichen
+#### Einschließung und Anführungszeichen
 
-CSS-Anführungszeichen werden ähnlich beeinflusst, indem die [`content`](/de/docs/Web/CSS/content)-Werte in Bezug auf Anführungszeichen auf das Element begrenzt werden:
+CSS-Anführungszeichen sind ähnlich betroffen, da die [`content`](/de/docs/Web/CSS/content) Werte, die sich auf Anführungszeichen beziehen, auf das Element beschränkt sind:
 
 ```html
 <!-- With style containment -->
@@ -261,7 +264,7 @@ body {
 }
 ```
 
-Aufgrund der Eingrenzung ignoriert das erste schließende Anführungszeichen das innere `<span>` und verwendet stattdessen das abschließende Anführungszeichen des äußeren `<span>`:
+Aufgrund der Einschließung ignoriert das erste schließende Anführungszeichen das innere Span und verwendet stattdessen das schließende Anführungszeichen des äußeren Spans:
 
 {{EmbedLiveSample('Containment_and_quotes', '100%', 40)}}
 
@@ -275,7 +278,7 @@ Aufgrund der Eingrenzung ignoriert das erste schließende Anführungszeichen das
 
 ## Siehe auch
 
-- [CSS-Eingrenzung](/de/docs/Web/CSS/CSS_containment)
+- [CSS-Einschließung](/de/docs/Web/CSS/CSS_containment)
 - [CSS-Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- CSS-{{cssxref("content-visibility")}}-Eigenschaft
-- CSS-{{cssxref("position")}}-Eigenschaft
+- CSS {{cssxref("content-visibility")}} Eigenschaft
+- CSS {{cssxref("position")}} Eigenschaft
