@@ -1,5 +1,5 @@
 ---
-title: ":open"
+title: :open
 slug: Web/CSS/:open
 l10n:
   sourceCommit: 512842cd44a2c87972e49abc8371b035166609bc

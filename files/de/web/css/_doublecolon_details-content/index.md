@@ -1,5 +1,5 @@
 ---
-title: "::details-content"
+title: ::details-content
 slug: Web/CSS/::details-content
 l10n:
   sourceCommit: b7d66867262bcc6a7097d54afd95765d5a43c6c0

@@ -1,5 +1,5 @@
 ---
-title: "::target-text"
+title: ::target-text
 slug: Web/CSS/::target-text
 l10n:
   sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
