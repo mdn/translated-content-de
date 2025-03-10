@@ -2,7 +2,7 @@
 title: Workflows und Prozesse
 slug: Learn_web_development/Getting_started/Soft_skills/Workflows_and_processes
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 673746e15e5052c4fe39944f3d93d2e2d3227b3f
 ---
 
 {{LearnSidebar}}
@@ -10,35 +10,35 @@ l10n:
 {{PreviousMenuNext("Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork", "Learn_web_development/Getting_started/Soft_skills/Job_interviews", "Learn_web_development/Getting_started/Soft_skills")}}
 
 > [!NOTE]
-> Der Inhalt dieses Artikels ist derzeit unvollständig, wir bitten um Entschuldigung! Wir arbeiten hart daran, den MDN Web Development-Bereich zu verbessern und werden bald die als unvollständig markierten Teile ("TODO") fertigstellen.
+> Der Inhalt dieses Artikels ist derzeit unvollständig, entschuldigen Sie das bitte! Wir arbeiten hart daran, den MDN Learn Web Development-Bereich zu verbessern, und wir werden bald die als unvollständig ("TODO") markierten Stellen fertigstellen.
 
-Anfänger konzentrieren sich oft auf spezifische Einzelaspekte der Technologie, übersehen jedoch das Gesamtbild eines gesamten Projekts. Dieser Artikel bietet einige dieser übergeordneten Kontexte.
+Anfänger konzentrieren sich oft auf spezifische einzelne Aspekte der Technologie, verpassen jedoch das Gesamtbild eines Projekts. Dieser Artikel bietet einige dieser kontextuellen Informationen auf hoher Ebene.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        N/A
+        Nicht anwendbar
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernziele:</th>
+      <th scope="row">Lernergebnisse:</th>
       <td>
         <ul>
-          <li>Typische Technologie-Kombinationen und Anwendungsarchitekturen in gängigen Webprojekten.</li>
-          <li>Typische Prozesse für ein technisches Projekt, einschließlich, wo verschiedene Werkzeuge in diesen Prozessen verwendet werden.</li>
-          <li>Typische Berufsrollen und ihre Beteiligung an diesen Prozessen.</li>
-          <li>Gängige Arbeitsmanagementstile wie agil und Wasserfall.</li>
+          <li>Typische Technologiekombinationen und Anwendungsarchitekturen in gängigen Webprojekten.</li>
+          <li>Typische Prozesse für ein technisches Projekt, einschließlich der Verwendung verschiedener Werkzeuge in diesen Prozessen.</li>
+          <li>Typische Jobrollen und deren Beteiligung an diesen Prozessen.</li>
+          <li>Gängige Arbeitsmanagementstile, wie agil und Wasserfall.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-Ein wichtiger Aspekt von technischen Projekten, der Anfängern oft fehlt, ist die Vorstellung vom Gesamtbild eines Projekts. Sie könnten ein einzelnes Werkzeug oder eine Sprache lernen und verstehen, was sie tun müssen, aber sich der gesamten anderen Codebasen, Werkzeuge, Systeme und Berufsrollen, die zusammenwirken, um eine gesamte Webanwendung zu liefern, nicht bewusst sein. Die folgenden Abschnitte behandeln verschiedene Aspekte des Gesamtbildes.
+Ein wichtiger Aspekt technischer Projekte, den Anfänger oft übersehen, ist das Verständnis des größeren Projektbildes. Sie könnten ein einzelnes Werkzeug oder eine Sprache lernen und verstehen, was sie tun müssen, sind jedoch nicht über alle anderen Codebasen, Werkzeuge, Systeme und Jobrollen informiert, die zusammenarbeiten, um eine vollständige Webanwendung bereitzustellen. Die folgenden Abschnitte behandeln verschiedene Aspekte des Gesamtbildes.
 
-## Typische Technologie-Kombinationen und Anwendungsarchitekturen
+## Typische Technologiekombinationen und Anwendungsarchitekturen
 
 TODO
 
@@ -46,7 +46,7 @@ TODO
 
 TODO
 
-## Typische Berufsrollen
+## Typische Jobrollen
 
 TODO
 
@@ -56,7 +56,7 @@ TODO
 
 ## Siehe auch
 
-- [What is a Tech Stack and How Do They Work?](https://www.mongodb.com/basics/technology-stack), mongodb.com
+- [What is a Tech Stack and How Do They Work?](https://www.mongodb.com/resources/basics/technology-stack), mongodb.com
 - [Website development team structure: roles and processes](https://www.truemark.dev/blog/web-development-team-structure-role-process/), truemark.dev (2017)
 - [Waterfall vs. Agile vs. Kanban vs. Scrum: What's the difference?](https://asana.com/resources/waterfall-agile-kanban-scrum), Asana (2022)
 

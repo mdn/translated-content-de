@@ -1,20 +1,20 @@
 ---
-title: Toolbar-Button
+title: Werkzeugleistenschaltfläche
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button
 l10n:
-  sourceCommit: 33cada2d06f8d0cd009d9d5348de6e3165bba67f
+  sourceCommit: 673746e15e5052c4fe39944f3d93d2e2d3227b3f
 ---
 
 {{AddonSidebar}}
 
-Häufig als [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction) bezeichnet, ist diese Benutzeroberflächenoption ein Button, der zur Browser-Toolbar hinzugefügt wird. Benutzer klicken auf den Button, um mit Ihrer Erweiterung zu interagieren.
-![Ein benutzerdefiniertes Browser-Aktionssymbol in der Browser-Toolbar, das wie ein Pfotenabdruck aussieht.](toolbar_button.png)
+Allgemein als [Browser-Action](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction) bezeichnet, ist diese Benutzeroberflächenoption eine Schaltfläche, die der Browser-Werkzeugleiste hinzugefügt wird. Benutzer klicken auf die Schaltfläche, um mit Ihrer Erweiterung zu interagieren.
+![Ein benutzerdefiniertes Browser-Action-Symbol in der Browser-Werkzeugleiste, das wie ein Pfotenabdruck aussieht.](toolbar_button.png)
 
-Der Toolbar-Button (Browser-Aktion) ähnelt sehr dem Adressleisten-Button (Seitenaktion). Für die Unterschiede und Anleitungen, wann was verwendet wird, siehe [Seitenaktionen und Browser-Aktionen](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions#page_actions_and_browser_actions).
+Die Werkzeugleistenschaltfläche (Browser-Action) ähnelt sehr der Adressleistenschaltfläche (Seitenaktion). Für die Unterschiede und Anleitungen, wann Sie welche verwenden sollten, siehe [Seitenaktionen und Browser-Aktionen](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions#page_actions_and_browser_actions).
 
-## Spezifizieren der Browser-Aktion
+## Die Browser-Action festlegen
 
-Sie definieren die Eigenschaften der Browser-Aktion mithilfe des Schlüssels [`"browser_action"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) in der manifest.json:
+Sie definieren die Eigenschaften der Browser-Action mit dem Schlüssel [`"browser_action"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) in der manifest.json:
 
 ```json
 "browser_action": {
@@ -26,27 +26,27 @@ Sie definieren die Eigenschaften der Browser-Aktion mithilfe des Schlüssels [`"
 }
 ```
 
-Es gibt keine Pflichtfelder für diesen Schlüssel. Wenn Sie kein `"default_icon"` angeben, wird das Erweiterungssymbol verwendet, und das Standard-Web-Erweiterung-Puzzlesymbol wird verwendet, wenn die Erweiterung kein Symbol angibt. Wenn `"default_title"` nicht angegeben ist, wird der Erweiterungsname verwendet.
+Für diesen Schlüssel gibt es keine zwingenden Eigenschaften. Wenn Sie `"default_icon"` nicht angeben, wird das Erweiterungssymbol verwendet, und wenn die Erweiterung kein Symbol angibt, wird das Standard-Webextension-Puzzle-Symbol verwendet. Wenn `"default_title"` nicht angegeben ist, wird der Erweiterungsname verwendet.
 
-Es gibt zwei Möglichkeiten, eine Browser-Aktion anzugeben: mit oder ohne ein [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups). Wenn Sie kein Popup angeben, wird beim Klicken auf den Button ein Ereignis an die Erweiterung geschickt, auf das die Erweiterung mit [`browserAction.onClicked`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/onClicked) hört:
+Es gibt zwei Möglichkeiten, eine Browser-Action anzugeben: mit oder ohne ein [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups). Wenn Sie kein Popup angeben, wird beim Klicken auf die Schaltfläche ein Ereignis an die Erweiterung gesendet, das die Erweiterung mithilfe von [`browserAction.onClicked`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/onClicked) empfängt:
 
 ```js
 browser.browserAction.onClicked.addListener(handleClick);
 ```
 
-Wenn Sie ein Popup angeben, wird das Klickereignis nicht gesendet: Stattdessen wird das Popup angezeigt, wenn der Benutzer auf den Button klickt. Der Benutzer kann mit dem Popup interagieren, das automatisch geschlossen wird, wenn der Benutzer außerhalb davon klickt. Siehe den Artikel [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) für weitere Details zur Erstellung und Verwaltung von Popups.
+Wenn Sie ein Popup angeben, wird das Klickereignis nicht gesendet: Stattdessen wird das Popup angezeigt, wenn der Benutzer die Schaltfläche anklickt. Der Benutzer kann mit dem Popup interagieren, das automatisch geschlossen wird, wenn der Benutzer außerhalb des Popups klickt. Weitere Details zur Erstellung und Verwaltung von Popups finden Sie im Artikel [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups).
 
-Beachten Sie, dass Ihre Erweiterung nur eine Browser-Aktion haben kann.
+Beachten Sie, dass Ihre Erweiterung nur eine Browser-Action haben kann.
 
-Sie können viele der Eigenschaften der Browser-Aktion programmatisch mit der [`browserAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction) API ändern.
+Sie können viele der Eigenschaften der Browser-Action programmgesteuert über die [`browserAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction) API ändern.
 
 ## Symbole
 
-Weitere Informationen zum Erstellen von Symbolen, die mit Ihrer Browser-Aktion verwendet werden können, finden Sie in der [Iconography](https://acorn.firefox.com/latest/styles/iconography-q7JqGl5H) im [Acorn Design System](https://acorn.firefox.com/latest).
+Details zum Erstellen von Symbolen für Ihre Browser-Action finden Sie unter [Ikonographie](https://acorn.firefox.com/latest/styles/iconography/overview-QEDMXQqj) in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation.
 
 ## Beispiele
 
-Das [`webextensions-examples`](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält zwei Beispiele von Erweiterungen, die Browser-Aktionen implementieren:
+Das [`webextensions-examples`](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält zwei Beispiele für Erweiterungen, die Browser-Aktionen implementieren:
 
-- [bookmark-it](https://github.com/mdn/webextensions-examples/tree/main/bookmark-it) verwendet eine Browser-Aktion ohne Popup
-- [beastify](https://github.com/mdn/webextensions-examples/tree/main/beastify) verwendet eine Browser-Aktion mit Popup
+- [bookmark-it](https://github.com/mdn/webextensions-examples/tree/main/bookmark-it) verwendet eine Browser-Action ohne Popup
+- [beastify](https://github.com/mdn/webextensions-examples/tree/main/beastify) verwendet eine Browser-Action mit Popup

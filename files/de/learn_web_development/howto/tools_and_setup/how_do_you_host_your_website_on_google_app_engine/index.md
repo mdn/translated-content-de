@@ -1,44 +1,44 @@
 ---
-title: Wie hostet man seine Website auf Google App Engine?
+title: Wie hosten Sie Ihre Website mit Google App Engine?
 slug: Learn_web_development/Howto/Tools_and_setup/How_do_you_host_your_website_on_Google_App_Engine
 l10n:
-  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
+  sourceCommit: 673746e15e5052c4fe39944f3d93d2e2d3227b3f
 ---
 
 {{QuicklinksWithSubPages("/de/docs/Learn_web_development/Howto")}}
 
-[Google App Engine](https://cloud.google.com/appengine/) ist eine leistungsstarke Plattform, die es Ihnen ermöglicht, Anwendungen auf der Infrastruktur von Google zu entwickeln und auszuführen – sei es, um eine mehrstufige Webanwendung von Grund auf zu erstellen oder eine statische Website zu hosten. Hier finden Sie einen Schritt-für-Schritt-Leitfaden zum Hosten Ihrer Website auf Google App Engine.
+[Google App Engine](https://cloud.google.com/appengine) ist eine leistungsstarke Plattform, die es Ihnen ermöglicht, Anwendungen auf Googles Infrastruktur zu erstellen und auszuführen – egal ob Sie eine mehrschichtige Webanwendung von Grund auf neu erstellen oder eine statische Website hosten möchten. Hier ist ein Schritt-für-Schritt-Leitfaden, um Ihre Website auf Google App Engine zu hosten.
 
-## Erstellen eines Google Cloud Platform-Projekts
+## Ein Google Cloud Platform-Projekt erstellen
 
-Um die Google-Tools für Ihre eigene Website oder App zu nutzen, müssen Sie ein neues Projekt auf der Google Cloud Platform erstellen. Hierfür benötigen Sie ein Google-Konto.
+Um Googles Tools für Ihre eigene Website oder App zu nutzen, müssen Sie ein neues Projekt auf der Google Cloud Platform erstellen. Dazu benötigen Sie ein Google-Konto.
 
-1. Gehen Sie zum [App Engine-Dashboard](https://console.cloud.google.com/projectselector/appengine) auf der Google Cloud Platform Console und drücken Sie die _Erstellen_-Taste.
-2. Wenn Sie zuvor kein Projekt erstellt haben, müssen Sie auswählen, ob Sie E-Mail-Updates erhalten möchten oder nicht, den Nutzungsbedingungen zustimmen, und dann sollten Sie fortfahren können.
+1. Gehen Sie zum [App Engine Dashboard](https://console.cloud.google.com/projectselector/appengine) in der Google Cloud Platform Console und drücken Sie die Schaltfläche _Create_.
+2. Wenn Sie noch kein Projekt erstellt haben, müssen Sie auswählen, ob Sie E-Mail-Updates erhalten möchten oder nicht, den Nutzungsbedingungen zustimmen, und dann können Sie fortfahren.
 3. Geben Sie einen Namen für das Projekt ein, bearbeiten Sie Ihre Projekt-ID und notieren Sie diese. Für dieses Tutorial werden die folgenden Werte verwendet:
 
    - Projektname: _GAE Sample Site_
    - Projekt-ID: _gaesamplesite_
 
-4. Klicken Sie auf die Schaltfläche _Erstellen_, um Ihr Projekt zu erstellen.
+4. Klicken Sie auf die Schaltfläche _Create_, um Ihr Projekt zu erstellen.
 
-## Erstellen einer Anwendung
+## Eine Anwendung erstellen
 
 Jedes Cloud Platform-Projekt kann eine App Engine-Anwendung enthalten. Lassen Sie uns eine App für unser Projekt vorbereiten.
 
-1. Wir benötigen eine Beispielanwendung, um sie zu veröffentlichen. Wenn Sie keine zur Hand haben, laden Sie diese [Beispielanwendung](https://gaesamplesite.appspot.com/downloads.html) herunter und entpacken Sie sie.
-2. Werfen Sie einen Blick auf die Struktur der Beispielanwendung — der Ordner `website` enthält Ihre Website-Inhalte und `app.yaml` ist Ihre Anwendungskonfigurationsdatei.
+1. Wir benötigen eine Beispielanwendung zum Veröffentlichen. Wenn Sie keine haben, laden Sie diese [Beispielanwendung](https://gaesamplesite.appspot.com/downloads.html) herunter und entpacken Sie sie.
+2. Sehen Sie sich die Struktur der Beispielanwendung an – der `website`-Ordner enthält den Inhalt Ihrer Website und `app.yaml` ist Ihre Anwendungs-Konfigurationsdatei.
 
-   - Ihre Website-Inhalte müssen im `website`-Ordner sein, und die Startseite muss `index.html` heißen, aber abgesehen davon kann sie jede Form annehmen.
-   - Die Datei `app.yaml` ist eine Konfigurationsdatei, die App Engine mitteilt, wie URLs Ihren statischen Dateien zugeordnet werden. Sie müssen sie nicht bearbeiten.
+   - Der Inhalt Ihrer Website muss in den `website`-Ordner, und die Startseite muss `index.html` genannt werden. Abgesehen davon kann sie in beliebiger Form vorliegen.
+   - Die `app.yaml`-Datei ist eine Konfigurationsdatei, die App Engine mitteilt, wie URLs auf Ihre statischen Dateien abgebildet werden. Sie müssen sie nicht bearbeiten.
 
-## Veröffentlichen Ihrer Anwendung
+## Ihre Anwendung veröffentlichen
 
-Jetzt, da wir unser Projekt erstellt und die Beispiel-App-Dateien gesammelt haben, lassen Sie uns unsere App veröffentlichen.
+Nachdem wir unser Projekt erstellt und die Dateien der Beispiel-App gesammelt haben, veröffentlichen wir nun unsere App.
 
 1. Öffnen Sie [Google Cloud Shell](https://shell.cloud.google.com/).
-2. Ziehen Sie den Ordner `sample-app` in das linke Fenster des Code-Editors.
-3. Führen Sie das folgende Kommandozeilenkommando aus, um Ihr Projekt auszuwählen:
+2. Ziehen Sie den `sample-app`-Ordner in das linke Fenster des Code-Editors.
+3. Führen Sie das Folgende in der Befehlszeile aus, um Ihr Projekt auszuwählen:
 
    ```bash
    gcloud config set project gaesamplesite
@@ -50,16 +50,16 @@ Jetzt, da wir unser Projekt erstellt und die Beispiel-App-Dateien gesammelt habe
    cd sample-app
    ```
 
-5. Sie sind jetzt bereit, Ihre Anwendung bereitzustellen, d.h. Ihre App auf App Engine hochzuladen:
+5. Sie sind nun bereit, Ihre Anwendung zu bereitstellen, d. h. Ihre App in App Engine hochzuladen:
 
    ```bash
    gcloud app deploy
    ```
 
-6. Geben Sie eine Zahl ein, um die Region auszuwählen, in der Ihre Anwendung platziert werden soll.
+6. Geben Sie eine Zahl ein, um die Region auszuwählen, in der sich Ihre Anwendung befinden soll.
 7. Geben Sie `Y` ein, um zu bestätigen.
-8. Navigieren Sie nun in Ihrem Browser zu _Ihre-Projekt-ID_.appspot.com, um Ihre Website online zu sehen. Zum Beispiel, für die Projekt-ID _gaesamplesite_, gehen Sie zu [_gaesamplesite_.appspot.com](https://gaesamplesite.appspot.com/).
+8. Navigieren Sie jetzt mit Ihrem Browser zu _Ihr-Projekt-ID_.appspot.com, um Ihre Website online zu sehen. Für die Projekt-ID _gaesamplesite_ gehen Sie beispielsweise zu [_gaesamplesite_.appspot.com](https://gaesamplesite.appspot.com/).
 
 ## Siehe auch
 
-Um mehr zu erfahren, sehen Sie sich die [Google App Engine-Dokumentation](https://cloud.google.com/appengine/docs/) an.
+Um mehr zu erfahren, lesen Sie die [Google App Engine-Dokumentation](https://cloud.google.com/appengine/docs/).

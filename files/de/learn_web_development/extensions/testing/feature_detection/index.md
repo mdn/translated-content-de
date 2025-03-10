@@ -1,13 +1,13 @@
 ---
-title: Implementierung der Funktionsprüfung
+title: Implementierung von Feature-Erkennung
 slug: Learn_web_development/Extensions/Testing/Feature_detection
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 673746e15e5052c4fe39944f3d93d2e2d3227b3f
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Testing/HTML_and_CSS","Learn_web_development/Extensions/Testing/Automated_testing", "Learn_web_development/Extensions/Testing")}}
 
-Die Funktionsprüfung beinhaltet, herauszufinden, ob ein Browser einen bestimmten Codeblock unterstützt, und je nach Ergebnis unterschiedlichen Code auszuführen, sodass der Browser immer eine funktionierende Erfahrung bieten kann, anstatt in einigen Browsern abzustürzen/Fehler zu verursachen. Dieser Artikel erläutert, wie Sie Ihre eigene einfache Funktionsprüfung schreiben, wie Sie eine Bibliothek zur Beschleunigung der Implementierung verwenden und native Funktionen zur Funktionsprüfung wie `@supports`.
+Die Feature-Erkennung beinhaltet, herauszufinden, ob ein Browser einen bestimmten Codeblock unterstützt, und führt je nach Ergebnis unterschiedlichen Code aus, sodass der Browser immer eine funktionierende Erfahrung bieten kann, anstatt in einigen Browsern abzustürzen oder Fehlermeldungen zu erzeugen. Dieser Artikel erläutert, wie Sie Ihre eigene einfache Feature-Erkennung schreiben, wie Sie eine Bibliothek zur Beschleunigung der Implementierung verwenden und die nativen Funktionen zur Feature-Erkennung wie `@supports`.
 
 <table>
   <tbody>
@@ -16,29 +16,24 @@ Die Funktionsprüfung beinhaltet, herauszufinden, ob ein Browser einen bestimmte
       <td>
         Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>; ein Verständnis
-        der hochrangigen
-        <a
-          href="/de/docs/Learn_web_development/Extensions/Testing/Introduction"
-          >Prinzipien des Browser-übergreifenden Testens</a
-        >.
+        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>; eine Vorstellung von den
+        <a href="/de/docs/Learn_web_development/Extensions/Testing/Introduction">grundlegenden Prinzipien des Cross-Browser-Tests</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Zu verstehen, was das Konzept der Funktionsprüfung ist und in der Lage zu sein,
-        geeignete Lösungen in CSS und JavaScript zu implementieren.
+        Zu verstehen, was das Konzept der Feature-Erkennung ist, und in der Lage zu sein, geeignete Lösungen in CSS und JavaScript zu implementieren.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Das Konzept der Funktionsprüfung
+## Das Konzept der Feature-Erkennung
 
-Die Idee hinter der Funktionsprüfung ist, dass Sie einen Test ausführen können, um festzustellen, ob eine Funktion im aktuellen Browser unterstützt wird, und dann bedingt Code ausführen, um eine akzeptable Erfahrung sowohl in Browsern zu bieten, die die Funktion unterstützen, als auch in Browsern, die dies nicht tun. Wenn Sie dies nicht tun, können Browser, die die Funktionen, die Sie in Ihrem Code verwenden, nicht unterstützen, Ihre Websites möglicherweise nicht richtig anzeigen oder sogar vollständig versagen, was eine schlechte Benutzererfahrung schafft.
+Die Idee hinter der Feature-Erkennung ist, dass Sie einen Test durchführen können, um zu bestimmen, ob ein Feature im aktuellen Browser unterstützt wird, und dann bedingt Code ausführen, um sowohl in Browsern, die das Feature _unterstützen_, als auch in Browsern, die es _nicht unterstützen_, eine akzeptable Erfahrung zu bieten. Wenn Sie dies nicht tun, könnte es passieren, dass Browser, die die von Ihnen verwendeten Features nicht unterstützen, Ihre Seiten nicht richtig anzeigen oder komplett ausfallen, was eine schlechte Benutzererfahrung schafft.
 
-Lassen Sie uns rekapitulieren und das Beispiel betrachten, das wir in unserem Abschnitt [Behandlung häufiger JavaScript-Probleme](/de/docs/Learn_web_development/Core/Scripting/Debugging_JavaScript#feature_detection) angesprochen haben — die [Geolocation API](/de/docs/Web/API/Geolocation_API) (die verfügbare Standortdaten für das Gerät bereitstellt, auf dem der Webbrowser ausgeführt wird) hat als Haupteinstiegspunkt für ihre Nutzung eine `geolocation`-Eigenschaft, die auf dem globalen [Navigator](/de/docs/Web/API/Navigator)-Objekt verfügbar ist. Daher können Sie feststellen, ob der Browser Geolocation unterstützt oder nicht, indem Sie etwas wie das Folgende verwenden:
+Lassen Sie uns rekapitulieren und uns das Beispiel ansehen, das wir in unserem [Umgang mit häufigen JavaScript-Problemen](/de/docs/Learn_web_development/Core/Scripting/Debugging_JavaScript#feature_detection) behandelt haben — die [Geolocation API](/de/docs/Web/API/Geolocation_API) (die die Standortdaten des Geräts, auf dem der Webbrowser läuft, zugänglich macht), hat den Haupteinstiegspunkt für ihre Nutzung, eine `geolocation`-Eigenschaft, die im globalen [Navigator](/de/docs/Web/API/Navigator)-Objekt verfügbar ist. Daher können Sie feststellen, ob der Browser Geolocation unterstützt oder nicht, indem Sie etwas wie das Folgende verwenden:
 
 ```js
 if ("geolocation" in navigator) {
@@ -50,30 +45,30 @@ if ("geolocation" in navigator) {
 }
 ```
 
-Bevor wir weitermachen, möchten wir eine Sache im Voraus sagen — verwechseln Sie die Funktionsprüfung nicht mit **Browser-Sniffing** (Erkennung, welcher spezifische Browser auf die Website zugreift) — dies ist eine schreckliche Praxis, die unter allen Umständen vermieden werden sollte. Weitere Einzelheiten finden Sie unter [don't browser sniff](/de/docs/Learn_web_development/Core/Scripting/Debugging_JavaScript#dont_browser_sniff).
+Bevor wir weitermachen, möchten wir eine Sache vorweg sagen — verwechseln Sie die Feature-Erkennung nicht mit **Browser-Sniffing** (Erkennung, welcher spezifische Browser auf die Seite zugreift) — dies ist eine schreckliche Praxis, die unter allen Umständen vermieden werden sollte. Siehe [don't browser sniff](/de/docs/Learn_web_development/Core/Scripting/Debugging_JavaScript#dont_browser_sniff) für mehr Details.
 
-## Schreiben eigener Funktionsprüfungen
+## Eigene Feature-Erkennungstests schreiben
 
-In diesem Abschnitt sehen wir uns an, wie Sie Ihre eigenen Funktionsprüfungen in CSS und JavaScript implementieren.
+In diesem Abschnitt werden wir uns ansehen, wie Sie Ihre eigenen Feature-Erkennungstests sowohl in CSS als auch in JavaScript implementieren können.
 
 ### CSS
 
-Sie können Tests für CSS-Funktionen schreiben, indem Sie das Vorhandensein von _[element.style.property](/de/docs/Web/API/HTMLElement/style)_ (z. B. `paragraph.style.rotate`) in JavaScript testen.
+Sie können Tests für CSS-Features schreiben, indem Sie in JavaScript die Existenz von _[element.style.property](/de/docs/Web/API/HTMLElement/style)_ (z.B. `paragraph.style.rotate`) testen.
 
-Ein klassisches Beispiel wäre, die Unterstützung für [Subgrid](/de/docs/Web/CSS/CSS_grid_layout/Subgrid) in einem Browser zu testen; für Browser, die den `subgrid`-Wert für einen Subgrid-Wert für [`grid-template-columns`](/de/docs/Web/CSS/grid-template-columns) und [`grid-template-rows`](/de/docs/Web/CSS/grid-template-rows) unterstützen, können wir ein Subgrid in unserem Layout verwenden. Für Browser, die dies nicht tun, könnten wir ein reguläres Grid verwenden, das gut funktioniert, aber nicht so cool aussieht.
+Ein klassisches Beispiel könnte sein, die Unterstützung von [Subgrid](/de/docs/Web/CSS/CSS_grid_layout/Subgrid) in einem Browser zu testen; für Browser, die den `subgrid`-Wert für einen Subgrid-Wert für [`grid-template-columns`](/de/docs/Web/CSS/grid-template-columns) und [`grid-template-rows`](/de/docs/Web/CSS/grid-template-rows) unterstützen, können wir Subgrid in unserem Layout verwenden. Für Browser, die dies nicht tun, könnten wir ein reguläres Raster verwenden, das gut funktioniert, aber nicht so cool aussieht.
 
-Mithilfe dieses Beispiels könnten wir ein Subgrid-Stylesheet einbinden, wenn der Wert unterstützt wird, und ein reguläres Grid-Stylesheet, wenn nicht. Dazu können wir zwei Stylesheets im Head unserer HTML-Datei einfügen: eines für das gesamte Styling und eines, das das Standardlayout implementiert, wenn Subgrid nicht unterstützt wird:
+Als Beispiel könnten wir ein Subgrid-Stylesheet einfügen, wenn der Wert unterstützt wird, und ein reguläres Grid-Stylesheet, wenn nicht. Dazu könnten wir zwei Stylesheets im Kopf unserer HTML-Datei einbinden: eines für das gesamte Styling und eines, das das Standard-Layout implementiert, wenn Subgrid nicht unterstützt wird:
 
 ```html
 <link href="basic-styling.css" rel="stylesheet" />
 <link class="conditional" href="grid-layout.css" rel="stylesheet" />
 ```
 
-Hier behandelt `basic-styling.css` alle Styles, die wir jedem Browser geben möchten. Wir haben zwei zusätzliche CSS-Dateien, `grid-layout.css` und `subgrid-layout.css`, die das CSS enthalten, das wir je nach Unterstützungsniveau selektiv auf Browser anwenden möchten.
+Hier behandelt `basic-styling.css` das gesamte Styling, das wir jedem Browser geben möchten. Wir haben zwei zusätzliche CSS-Dateien, `grid-layout.css` und `subgrid-layout.css`, die das CSS enthalten, das wir abhängig von den Unterstützungsstufen selektiv auf Browser anwenden wollen.
 
-Wir verwenden JavaScript, um die Unterstützung für den Subgrid-Wert zu testen, und aktualisieren dann das `href` unseres bedingten Stylesheets basierend auf der Browser-Unterstützung.
+Wir verwenden JavaScript, um die Unterstützung für den Subgrid-Wert zu testen, und aktualisieren dann das `href` unseres konditionellen Stylesheets basierend auf der Unterstützung im Browser.
 
-Wir können ein `<script></script>` zu unserem Dokument hinzufügen, gefüllt mit folgendem JavaScript
+Wir können ein `<script></script>` in unser Dokument einfügen, gefüllt mit dem folgenden JavaScript:
 
 ```js
 const conditional = document.querySelector(".conditional");
@@ -86,7 +81,7 @@ In unserer bedingten Anweisung testen wir, ob die {{cssxref("grid-template-colum
 
 #### @supports
 
-CSS verfügt über einen nativen Mechanismus zur Funktionsprüfung: die {{cssxref("@supports")}}-At-Regel. Diese funktioniert ähnlich wie [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries), jedoch wird nicht selektiv CSS entsprechend einer Medienfunktion wie Auflösung, Bildschirmbreite oder {{Glossary("aspect_ratio", "Seitenverhältnis")}} angewendet, sondern basierend darauf, ob eine CSS-Funktion unterstützt wird, ähnlich wie `CSS.supports()`.
+CSS hat einen nativen Mechanismus zur Feature-Erkennung: die {{cssxref("@supports")}}-Regel. Diese funktioniert ähnlich wie [Media-Queries](/de/docs/Web/CSS/CSS_media_queries), außer dass sie nicht selektiv CSS je nach einer Media-Eigenschaft wie Auflösung, Bildschirmbreite oder {{Glossary("aspect_ratio", "Seitenverhältnis")}} anwendet, sondern selektiv CSS abhängig davon anwendet, ob ein CSS-Feature unterstützt wird, ähnlich wie `CSS.supports()`.
 
 Zum Beispiel könnten wir unser vorheriges Beispiel umschreiben, um `@supports` zu verwenden:
 
@@ -113,9 +108,9 @@ Zum Beispiel könnten wir unser vorheriges Beispiel umschreiben, um `@supports` 
 }
 ```
 
-Dieser At-Regel-Block wendet die darin enthaltene CSS-Regel nur an, wenn der aktuelle Browser die Deklaration `grid-template-columns: subgrid;` unterstützt. Damit eine Bedingung mit einem Wert funktioniert, müssen Sie eine vollständige Deklaration beinhalten (nicht nur einen Eigenschaftsnamen) und dürfen das Semikolon am Ende NICHT einschließen.
+Dieser Regelblock wendet die CSS-Regel nur dann an, wenn der aktuelle Browser die `grid-template-columns: subgrid;`-Deklaration unterstützt. Damit eine Bedingung mit einem Wert funktioniert, müssen Sie eine vollständige Deklaration (nicht nur einen Eigenschaftsnamen) einfügen und am Ende KEIN Semikolon hinzufügen.
 
-`@supports` bietet auch `AND`, `OR` und `NOT` Logik — der andere Block wendet das reguläre Grid-Layout an, wenn die Subgrid-Option nicht verfügbar ist:
+`@supports` bietet auch `AND`, `OR` und `NOT`-Logik — der andere Block wendet das reguläre Grid-Layout an, wenn die Subgrid-Option nicht verfügbar ist:
 
 ```css
 @supports not (grid-template-columns: subgrid) {
@@ -123,19 +118,19 @@ Dieser At-Regel-Block wendet die darin enthaltene CSS-Regel nur an, wenn der akt
 }
 ```
 
-Dies ist praktischer als das vorherige Beispiel — wir können all unsere Funktionsprüfungen in CSS durchführen, ohne dass JavaScript erforderlich ist, und wir können die gesamte Logik in einer einzigen CSS-Datei handhaben, wodurch HTTP-Anfragen reduziert werden. Aus diesem Grund ist es die bevorzugte Methode, um die Browser-Unterstützung für CSS-Funktionen zu bestimmen.
+Dies ist bequemer als das vorherige Beispiel — wir können unsere gesamte Feature-Erkennung in CSS durchführen, kein JavaScript erforderlich, und wir können die gesamte Logik in einer einzigen CSS-Datei behandeln, was die Anzahl der HTTP-Anfragen reduziert. Aus diesem Grund ist dies die bevorzugte Methode, um die Unterstützung für CSS-Features im Browser zu bestimmen.
 
 ### JavaScript
 
-Wir haben bereits ein Beispiel für eine JavaScript-Funktionsprüfung gesehen. Im Allgemeinen werden solche Tests über eines von wenigen gängigen Mustern durchgeführt.
+Wir haben zuvor ein Beispiel für einen JavaScript-Feature-Erkennungstest gesehen. Im Allgemeinen werden solche Tests nach einem der wenigen gängigen Muster durchgeführt.
 
-Gängige Muster für nachweisbare Funktionen umfassen:
+Gängige Muster für erkennbare Features umfassen:
 
-- Members of an object
+- Mitglieder eines Objekts
 
-  - : Prüfen Sie, ob eine bestimmte Methode oder Eigenschaft (typischerweise ein Einstiegspunkt zur Nutzung der API oder anderer Funktionen, die Sie erkennen) im übergeordneten `Object` existiert.
+  - : Prüfen Sie, ob eine bestimmte Methode oder Eigenschaft (typischerweise ein Einstiegspunkt zur Nutzung der API oder eines anderen Features, das Sie erkennen möchten) in ihrem übergeordneten `Object` existiert.
 
-    Unser früheres Beispiel verwendete dieses Muster, um die Unterstützung für [Geolocation](/de/docs/Web/API/Geolocation_API) durch Testen des [`navigator`](/de/docs/Web/API/Navigator)-Objekts auf ein `geolocation`-Element zu erkennen:
+    Unser früheres Beispiel verwendete dieses Muster, um die Unterstützung der [Geolocation](/de/docs/Web/API/Geolocation_API) zu erkennen, indem das [`navigator`](/de/docs/Web/API/Navigator)-Objekt auf ein `geolocation`-Mitglied getestet wurde:
 
     ```js
     if ("geolocation" in navigator) {
@@ -145,7 +140,7 @@ Gängige Muster für nachweisbare Funktionen umfassen:
 
 - Eigenschaften eines Elements
 
-  - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement) und prüfen Sie dann, ob eine Eigenschaft vorhanden ist.
+  - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement) und prüfen Sie, ob eine Eigenschaft darauf existiert.
 
     Dieses Beispiel zeigt eine Möglichkeit, die Unterstützung der [Canvas API](/de/docs/Web/API/Canvas_API) zu erkennen:
 
@@ -160,21 +155,21 @@ Gängige Muster für nachweisbare Funktionen umfassen:
     ```
 
     > [!NOTE]
-    > Das doppelte `NOT` im obigen Beispiel (`!!`) ist eine Möglichkeit, einen Rückgabewert zu einem „richtigen“ booleschen Wert zu machen, anstatt zu einem {{Glossary("Truthy", "Truthy")}}/{{Glossary("Falsy", "Falsy")}}-Wert, der die Ergebnisse verfälschen könnte.
+    > Das doppelte `NOT` im obigen Beispiel (`!!`) ist eine Möglichkeit, einen Rückgabewert in einen "richtigen" booleschen Wert zu zwingen, anstatt einen {{Glossary("Truthy", "Truthy")}}/{{Glossary("Falsy", "Falsy")}} Wert, der die Ergebnisse verfälschen könnte.
 
 - Spezifische Rückgabewerte einer Methode auf einem Element
 
-  - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement) und prüfen Sie dann, ob eine Methode darauf existiert. Wenn dies der Fall ist, prüfen Sie, welchen Wert sie zurückgibt. Siehe den Funktionstest in [Dive into HTML Video Format detection](https://diveinto.html5doctor.com/detect.html#video-formats) für ein Beispiel dieses Musters.
+  - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement) und prüfen Sie, ob eine Methode darauf existiert. Wenn ja, prüfen Sie, welchen Wert sie zurückgibt.
 
-- Beibehaltung eines zugewiesenen Eigenschaftswertes durch ein Element
+- Beibehaltung eines zugewiesenen Eigenschaftswerts durch ein Element
 
-  - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement), setzen Sie eine Eigenschaft auf einen bestimmten Wert und prüfen Sie dann, ob der Wert erhalten bleibt. Siehe den Funktionstest in [Dive into HTML `<input>` type detection](https://diveinto.html5doctor.com/detect.html#input-types) für ein Beispiel dieses Musters.
+  - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement), setzen Sie eine Eigenschaft auf einen bestimmten Wert, und prüfen Sie dann, ob der Wert beibehalten wird.
 
-Beachten Sie, dass einige Funktionen jedoch als nicht nachweisbar bekannt sind. In diesen Fällen müssen Sie einen anderen Ansatz verwenden, wie z.B. ein {{Glossary("Polyfill", "Polyfill")}} zu verwenden.
+Bedenken Sie, dass jedoch einige Features als nicht erkennbar bekannt sind. In diesen Fällen müssen Sie einen anderen Ansatz verwenden, wie z.B. die Verwendung eines {{Glossary("Polyfill", "Polyfills")}}.
 
 #### matchMedia
 
-Wir wollten an dieser Stelle auch die JavaScript-Funktion [`Window.matchMedia`](/de/docs/Web/API/Window/matchMedia) erwähnen. Dies ist eine Eigenschaft, die es Ihnen ermöglicht, Medienabfragen in JavaScript durchzuführen. Es sieht folgendermaßen aus:
+Wir wollten an dieser Stelle auch die JavaScript-Funktion [`Window.matchMedia`](/de/docs/Web/API/Window/matchMedia) erwähnen. Dies ist eine Eigenschaft, die es Ihnen erlaubt, Media-Query-Tests innerhalb von JavaScript durchzuführen. Es sieht so aus:
 
 ```js
 if (window.matchMedia("(max-width: 480px)").matches) {
@@ -182,7 +177,7 @@ if (window.matchMedia("(max-width: 480px)").matches) {
 }
 ```
 
-Als Beispiel verwendet unser [Snapshot](https://github.com/chrisdavidmills/snapshot)-Demo es, um selektiv die Brick-JavaScript-Bibliothek zu verwenden und damit das UI-Layout zu steuern, aber nur für das kleine Bildschirm-Layout (480px breit oder weniger). Zuerst verwenden wir das `media`-Attribut, um die Brick-CSS nur dann auf die Seite anzuwenden, wenn die Seitenbreite 480px oder weniger beträgt:
+Ein Beispiel: Unser [Snapshot](https://github.com/chrisdavidmills/snapshot) Demo nutzt dies, um selektiv die Brick JavaScript-Bibliothek anzuwenden und sie für das UI-Layout zu verwenden, aber nur für das Layout des kleinen Bildschirms (480px breit oder weniger). Zuerst verwenden wir das `media` Attribut, um das Brick CSS nur auf die Seite anzuwenden, wenn die Seitenbreite 480px oder weniger beträgt:
 
 ```html
 <link
@@ -191,7 +186,7 @@ Als Beispiel verwendet unser [Snapshot](https://github.com/chrisdavidmills/snaps
   media="all and (max-width: 480px)" />
 ```
 
-Wir verwenden dann `matchMedia()` mehrmals im JavaScript, um Brick-Navigationsfunktionen nur dann auszuführen, wenn wir uns im kleinen Bildschirm-Layout befinden (in größeren Bildschirm-Layouts kann alles auf einmal gesehen werden, sodass wir nicht zwischen verschiedenen Ansichten navigieren müssen).
+Dann verwenden wir `matchMedia()` mehrmals im JavaScript, um die Brick-Navigationsfunktionen nur dann auszuführen, wenn wir uns im kleinen Bildschirm-Layout befinden (in breiteren Bildschirm-Layouts kann alles auf einmal gesehen werden, sodass wir nicht zwischen verschiedenen Ansichten navigieren müssen).
 
 ```js
 if (window.matchMedia("(max-width: 480px)").matches) {
@@ -201,8 +196,8 @@ if (window.matchMedia("(max-width: 480px)").matches) {
 
 ## Zusammenfassung
 
-Dieser Artikel hat die Funktionsprüfung in angemessenem Detail behandelt, die wichtigsten Konzepte durchgegangen und gezeigt, wie Sie Ihre eigenen Funktionsprüfungen implementieren können.
+Dieser Artikel behandelte die Feature-Erkennung in einem angemessenen Detailgrad, ging durch die Hauptkonzepte und zeigte Ihnen, wie Sie Ihre eigenen Feature-Erkennungstests implementieren können.
 
-Als nächstes beginnen wir mit dem Blick auf automatisiertes Testen.
+Als nächstes werden wir uns mit automatisierten Tests befassen.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Testing/HTML_and_CSS","Learn_web_development/Extensions/Testing/Automated_testing", "Learn_web_development/Extensions/Testing")}}
