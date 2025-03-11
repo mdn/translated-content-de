@@ -1,23 +1,23 @@
 ---
-title: Stapelkontext Beispiel 2
+title: Stacking-Kontext Beispiel 2
 slug: Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_2
 l10n:
-  sourceCommit: 9b9086cf753e2d5721fe1229ff6f767ccf512f97
+  sourceCommit: b17ca921175c0a92d21c6c4effbc7fa3dc348a8e
 ---
 
 {{CSSRef}}
 
 ## Beschreibung
 
-Dies ist ein sehr einfaches Beispiel, aber es ist der Schlüssel zum Verständnis des Konzepts des _Stapelkontexts_. Es gibt dieselben vier DIVs wie im vorherigen Beispiel, aber jetzt sind `z-index` Eigenschaften auf beiden Hierarchieebenen zugewiesen.
+Dies ist ein einfaches Beispiel, aber es ist der Schlüssel zum Verständnis des Konzepts des _stacking context_. Es gibt die gleichen vier DIVs wie im vorherigen Beispiel, aber jetzt sind `z-index`-Eigenschaften auf beiden Hierarchieebenen zugewiesen.
 
-Sie können sehen, dass DIV #2 (`z-index`: 2) über DIV #3 (`z-index`: 1) liegt, weil sie beide zum selben Stapelkontext gehören (dem Wurzelkontext), sodass die `z-index` Werte bestimmen, wie die Elemente gestapelt werden.
+Sie können sehen, dass DIV #2 (`z-index`: 2) über DIV #3 (`z-index`: 1) liegt, da sie beide zum gleichen Stacking-Kontext (dem Wurzelkontext) gehören, sodass `z-index`-Werte bestimmen, wie Elemente gestapelt werden.
 
-Was als seltsam angesehen werden kann, ist, dass DIV #2 (`z-index`: 2) über DIV #4 (`z-index`: 10) liegt, trotz der `z-index` Werte. Der Grund dafür ist, dass sie nicht zum selben Stapelkontext gehören. DIV #4 gehört zum Stapelkontext, der von DIV #3 erstellt wird, und wie zuvor erklärt wurde, befindet sich DIV #3 (und sein gesamter Inhalt) unter DIV #2.
+Was als seltsam angesehen werden kann, ist, dass DIV #2 (`z-index`: 2) über DIV #4 (`z-index`: 10) liegt, trotz ihrer `z-index`-Werte. Der Grund ist, dass sie nicht zum selben Stacking-Kontext gehören. DIV #4 gehört zum Stacking-Kontext, der von DIV #3 erstellt wurde, und wie zuvor erklärt, liegt DIV #3 (und all sein Inhalt) unter DIV #2.
 
-Um die Situation besser zu verstehen, hier die Stapelkontext-Hierarchie:
+Um die Situation besser zu verstehen, hier die Stacking-Kontext-Hierarchie:
 
-- Wurzel-Stapelkontext
+- Wurzel-Stacking-Kontext
 
   - DIV #2 (`z-index`: 2)
   - DIV #3 (`z-index`: 1)
@@ -25,7 +25,7 @@ Um die Situation besser zu verstehen, hier die Stapelkontext-Hierarchie:
     - DIV #4 (`z-index`: 10)
 
 > [!NOTE]
-> Es ist erwähnenswert, dass die HTML-Hierarchie von der Stapelkontext-Hierarchie abweicht. In der Stapelkontext-Hierarchie werden Elemente, die keinen Stapelkontext erzeugen, auf ihren Elternteil reduziert.
+> Es ist wichtig, daran zu denken, dass die HTML-Hierarchie sich von der Stacking-Kontext-Hierarchie unterscheidet. In der Stacking-Kontext-Hierarchie werden Elemente, die keinen Stacking-Kontext erstellen, in ihrem Eltern-Element zusammengefasst.
 
 ## Beispiel
 
@@ -122,9 +122,9 @@ span.bold {
 
 ## Siehe auch
 
-- [Stapelung ohne die `z-index` Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index): Die Stapelregeln, die angewendet werden, wenn `z-index` nicht verwendet wird.
-- [Schwebende Elemente stapeln](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements): Wie schwebende Elemente mit Stapelung behandelt werden.
-- [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index): Anleitung zur Verwendung von `z-index`, um die Standard-Stapelung zu ändern.
-- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context): Hinweise zum Stapelkontext.
-- [Stapelkontext Beispiel 1](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_1): 2-Ebenen HTML-Hierarchie, `z-index` auf der letzten Ebene
-- [Stapelkontext Beispiel 3](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_3): 3-Ebenen HTML-Hierarchie, `z-index` auf der zweiten Ebene
+- [Stapel ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index): Die Stapelregeln, die gelten, wenn `z-index` nicht verwendet wird.
+- [Stapel von schwebenden Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements): Wie schwebende Elemente beim Stapeln behandelt werden.
+- [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index): Anleitung zur Verwendung von `z-index`, um die Standard-Stapelreihenfolge zu ändern.
+- [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context): Anmerkungen zum Stacking-Kontext.
+- [Stacking-Kontext Beispiel 1](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_1): 2-Ebenen-HTML-Hierarchie, `z-index` auf der letzten Ebene
+- [Stacking-Kontext Beispiel 3](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_3): 3-Ebenen-HTML-Hierarchie, `z-index` auf der zweiten Ebene

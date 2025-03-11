@@ -2,12 +2,12 @@
 title: margin
 slug: Web/CSS/margin
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: b17ca921175c0a92d21c6c4effbc7fa3dc348a8e
 ---
 
 {{CSSRef}}
 
-Die **`margin`** [CSS](/de/docs/Web/CSS) Kurzform-Eigenschaft setzt den [Außenabstand](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) auf allen vier Seiten eines Elements.
+Die **`margin`** [CSS](/de/docs/Web/CSS) Kurzschrift-Eigenschaft setzt den [Margin-Bereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) auf allen vier Seiten eines Elements.
 
 {{InteractiveExample("CSS Demo: margin")}}
 
@@ -65,7 +65,7 @@ margin: 0;
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Zusammensetzende Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -106,41 +106,41 @@ margin: revert-layer;
 margin: unset;
 ```
 
-Die `margin`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist ein {{cssxref("&lt;length&gt;")}}, ein {{cssxref("&lt;percentage&gt;")}} oder das Schlüsselwort `auto`. Negative Werte ziehen das Element näher an seine Nachbarn heran, als es standardmäßig wäre.
+Die `margin`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist ein {{cssxref("&lt;length&gt;")}}, ein {{cssxref("&lt;percentage&gt;")}}, oder das Schlüsselwort `auto`. Negative Werte ziehen das Element näher an seine Nachbarn heran, als es standardmäßig der Fall wäre.
 
-- Wenn **ein** Wert angegeben ist, wird derselbe Abstand auf **allen vier Seiten** angewendet.
-- Wenn **zwei** Werte angegeben sind, gilt der erste Abstand für **oben und unten**, der zweite für **links und rechts**.
-- Wenn **drei** Werte angegeben sind, gilt der erste Abstand für **oben**, der zweite für **rechts und links**, der dritte für **unten**.
-- Wenn **vier** Werte angegeben sind, gelten die Abstände für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
+- Wenn **ein** Wert angegeben wird, gilt derselbe Rand für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben werden, gilt der erste Rand für **oben und unten**, der zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben werden, gilt der erste Rand für **oben**, der zweite für **rechts und links**, der dritte für **unten**.
+- Wenn **vier** Werte angegeben werden, gelten die Ränder für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
 ### Werte
 
 - {{cssxref("length")}}
 
-  - : Die Größe des Abstands als fester Wert.
+  - : Die Größe des Rands als fester Wert.
 
-    - Für _ankerpositionierte Elemente_ löst die {{cssxref("anchor-size()")}} Funktion einen {{cssxref("&lt;length&gt;")}} Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ auf (siehe [Festlegen des Elementabstands basierend auf der Ankergröße](/de/docs/Web/CSS/CSS_anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
+    - Für _anchor-positionierte Elemente_ wird die {{cssxref("anchor-size()")}}-Funktion in einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Anker-Elements_ aufgelöst (siehe [Ran einstellen basierend auf der Ankergröße](/de/docs/Web/CSS/CSS_anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 
 - {{cssxref("percentage")}}
-  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [Umgebungsblocks](/de/docs/Web/CSS/CSS_display/Containing_block).
+  - : Die Größe des Rands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umfassenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
 - `auto`
-  - : Der Browser wählt einen geeigneten Abstand. Beispielsweise kann dieser Wert in bestimmten Fällen verwendet werden, um ein Element zu zentrieren.
+  - : Der Browser wählt einen passenden Rand aus. Beispielsweise kann dieser Wert in bestimmten Fällen verwendet werden, um ein Element zu zentrieren.
 
 ## Beschreibung
 
-Diese Eigenschaft kann verwendet werden, um einen Abstand auf allen vier Seiten eines Elements zu setzen. Abstände schaffen zusätzlichen Raum _um_ ein Element, im Gegensatz zu {{cssxref("padding")}}, das zusätzlichen Raum _innerhalb_ eines Elements schafft.
+Diese Eigenschaft kann verwendet werden, um auf allen vier Seiten eines Elements einen Rand festzulegen. Ränder schaffen zusätzlichen Raum _um_ ein Element herum, im Gegensatz zu {{cssxref("padding")}}, das zusätzlichen Raum _innerhalb_ eines Elements schafft.
 
-Die oberen und unteren Abstände haben keine Wirkung auf _nicht-[ersetzte](/de/docs/Web/CSS/Replaced_element)_ Inline-Elemente, wie {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
+Die oberen und unteren Ränder haben keinen Effekt auf _nicht-[ersetzte](/de/docs/Web/CSS/Replaced_element)_ Inline-Elemente, wie {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
 
 ### Horizontale Zentrierung
 
-Sie können ein Element innerhalb seines übergeordneten Elements horizontal zentrieren, indem Sie `margin: 0 auto;` festlegen.
+Sie können ein Element innerhalb seines Elternteils horizontal zentrieren, indem Sie `margin: 0 auto;` setzen.
 
-Eine häufigere Methode, ein Element horizontal zu zentrieren, besteht darin, `display: flex;` und [`justify-content: center;`](/de/docs/Web/CSS/justify-content) auf einem Container zu setzen, was die [Flex-Element-Kinder zentriert](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container).
+Eine häufigere Methode, um ein Element horizontal zu zentrieren, besteht darin, `display: flex;` und [`justify-content: center;`](/de/docs/Web/CSS/justify-content) auf einen Container zu setzen, der [seine Flex-Item-Kinder zentriert](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container).
 
-### Zusammenfallende Abstände
+### Rand-Zusammenbruch
 
-Die oberen und unteren Abstände von Elementen werden manchmal zu einem einzigen Abstand zusammengefasst, der gleich dem größeren der beiden Abstände ist. Siehe [Meistern des Zusammenfallens von Abständen](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) für weitere Informationen.
+Die oberen und unteren Ränder von Elementen werden manchmal zu einem einzigen Rand zusammengezogen, der dem größeren der beiden Ränder entspricht. Siehe [Beherrschen des Rand-Zusammenbruchs](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) für weitere Informationen.
 
 ## Formale Definition
 
@@ -178,7 +178,7 @@ Die oberen und unteren Abstände von Elementen werden manchmal zu einem einzigen
 }
 ```
 
-{{ EmbedLiveSample('Simple_example','100%',120) }}
+{{ EmbedLiveSample('Basic_example','100%',120) }}
 
 ### Weitere Beispiele
 
@@ -219,6 +219,6 @@ margin: auto; /* top and bottom: 0 margin     */
 - {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
 - {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}}
 - {{cssxref("margin-block")}} und {{cssxref("margin-inline")}} Kurzformen
-- [Meistern des Zusammenfallens von Abständen](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+- [Beherrschen des Rand-Zusammenbruchs](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
 - [Einführung in das grundlegende CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
 - [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul

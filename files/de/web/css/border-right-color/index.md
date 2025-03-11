@@ -2,12 +2,12 @@
 title: border-right-color
 slug: Web/CSS/border-right-color
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: b17ca921175c0a92d21c6c4effbc7fa3dc348a8e
 ---
 
 {{CSSRef}}
 
-Die **`border-right-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des rechten [Rahmens](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den zusammengesetzten CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-right")}} festgelegt werden.
+Die **`border-right-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des rechten [Rahmens](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den Kurzschreibweisen {{cssxref("border-color")}} oder {{cssxref("border-right")}} gesetzt werden.
 
 {{InteractiveExample("CSS Demo: border-right-color")}}
 
@@ -69,7 +69,7 @@ border-right-color: revert-layer;
 border-right-color: unset;
 ```
 
-Die `border-right-color` Eigenschaft wird als Einzelwert angegeben.
+Die `border-right-color` Eigenschaft wird als ein einzelner Wert angegeben.
 
 ### Werte
 
@@ -86,7 +86,7 @@ Die `border-right-color` Eigenschaft wird als Einzelwert angegeben.
 
 ## Beispiele
 
-### Ein einfaches div mit einem Rahmen
+### Ein Div mit einem Rahmen
 
 #### HTML
 
@@ -115,7 +115,7 @@ Die `border-right-color` Eigenschaft wird als Einzelwert angegeben.
 
 #### Ergebnis
 
-{{EmbedLiveSample('A_simple_div_with_a_border')}}
+{{EmbedLiveSample('A_div_with_a_border')}}
 
 ## Spezifikationen
 
@@ -127,7 +127,7 @@ Die `border-right-color` Eigenschaft wird als Einzelwert angegeben.
 
 ## Siehe auch
 
-- Die Border-bezogenen CSS-Kurzschreibweisen: {{cssxref("border")}}, {{cssxref("border-right")}} und {{cssxref("border-color")}}.
-- Die Farb-bezogenen CSS-Eigenschaften für die anderen Rahmen: {{cssxref("border-left-color")}}, {{cssxref("border-bottom-color")}} und {{cssxref("border-top-color")}}.
-- Die anderen Border-bezogenen CSS-Eigenschaften, die auf denselben Rahmen angewendet werden: {{cssxref("border-right-style")}} und {{cssxref("border-right-width")}}.
-- Der Standard-Color-Wert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword).
+- Die Rahmen-bezogenen CSS-Kurzschreibweisen: {{cssxref("border")}}, {{cssxref("border-right")}}, und {{cssxref("border-color")}}.
+- Die farbbezogenen CSS-Eigenschaften für die anderen Rahmen: {{cssxref("border-left-color")}}, {{cssxref("border-bottom-color")}}, und {{cssxref("border-top-color")}}.
+- Die anderen Rahmen-bezogenen CSS-Eigenschaften, die auf denselben Rahmen angewendet werden: {{cssxref("border-right-style")}} und {{cssxref("border-right-width")}}.
+- Der Standard [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) Farbwert.

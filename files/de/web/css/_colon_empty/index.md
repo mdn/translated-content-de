@@ -1,8 +1,8 @@
 ---
-title: :empty
+title: ":empty"
 slug: Web/CSS/:empty
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: b17ca921175c0a92d21c6c4effbc7fa3dc348a8e
 ---
 
 {{CSSRef}}
@@ -23,14 +23,14 @@ div:empty {
 <div></div>
 
 <p>Element with comment:</p>
-<div><!-- Simple Comment --></div>
+<div><!-- A comment --></div>
 
 <p>Element with nested empty element:</p>
 <div><p></p></div>
 ```
 
 > [!NOTE]
-> In [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo) wurde die `:empty` Pseudoklasse geändert, um wie {{CSSxRef(":-moz-only-whitespace")}} zu fungieren, aber kein Browser unterstützt dies derzeit.
+> In [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo) wurde die `:empty` Pseudoklasse so geändert, dass sie wie {{CSSxRef(":-moz-only-whitespace")}} funktioniert, aber derzeit unterstützt kein Browser dies.
 
 ## Syntax
 
@@ -42,14 +42,14 @@ div:empty {
 
 ## Barrierefreiheit
 
-Hilfstechnologien wie Bildschirmleser können interaktive Inhalte, die leer sind, nicht parsen. Alle interaktiven Inhalte müssen einen zugänglichen Namen haben, der durch Angabe eines Textwertes für das übergeordnete Element des interaktiven Steuerelements ([a](/de/docs/Web/HTML/Element/a), [button](/de/docs/Web/HTML/Element/button), etc.) erstellt wird. Zugängliche Namen machen das interaktive Steuerelement dem [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) zugänglich, einer API, die Informationen übermittelt, die für Hilfstechnologien nützlich sind.
+Assistive Technologien wie Screenreader können keine interaktiven Inhalte parsen, die leer sind. Alle interaktiven Inhalte müssen einen zugänglichen Namen haben, der erstellt wird, indem ein Textwert für das übergeordnete Element der interaktiven Steuerung bereitgestellt wird ([Anker](/de/docs/Web/HTML/Element/a), [Buttons](/de/docs/Web/HTML/Element/button) usw.). Zugängliche Namen machen die interaktive Steuerung dem [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) zugänglich, einer API, die Informationen bereitstellt, die für assistive Technologien nützlich sind.
 
-Der Text, der den zugänglichen Namen des interaktiven Steuerelements liefert, kann mit [einer Kombination von Eigenschaften](https://gomakethings.com/hidden-content-for-better-a11y/#hiding-the-link) versteckt werden, die ihn visuell vom Bildschirm entfernt, aber für Hilfstechnologien weiterhin parsbar hält. Dies wird häufig für Schaltflächen verwendet, die ausschließlich auf ein Symbol angewiesen sind, um ihren Zweck zu vermitteln.
+Der Text, der den zugänglichen Namen der interaktiven Steuerung bereitstellt, kann mit [einer Kombination von Eigenschaften](https://gomakethings.com/hidden-content-for-better-a11y/#hiding-the-link) versteckt werden, die ihn visuell vom Bildschirm entfernt, aber für assistive Technologien parsbar hält. Dies wird häufig bei Buttons verwendet, die ausschließlich auf ein Symbol zur Zweckvermittlung vertrauen.
 
 - [Was ist ein zugänglicher Name? | The Paciello Group](https://www.tpgi.com/what-is-an-accessible-name/)
 - [Versteckte Inhalte für bessere Barrierefreiheit | Go Make Things](https://gomakethings.com/hidden-content-for-better-a11y/)
-- [MDN Verständnis von WCAG, Richtlinie 2.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.4_%e2%80%94_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
-- [Verständnis der Erfolgskriterien 2.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html)
+- [MDN Verstehen der WCAG, Richtlinie 2.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.4_%e2%80%94_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
+- [Verstehen des Erfolgskriteriums 2.4.4 | W3C Verstehen der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html)
 
 ## Beispiele
 
@@ -103,5 +103,5 @@ body {
 
 ## Siehe auch
 
-- {{CSSxRef(":-moz-only-whitespace")}} – Die {{Glossary("Vendor_Prefix", "präfixierte")}} Implementierung der Änderungen in [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo)
+- {{CSSxRef(":-moz-only-whitespace")}} – Die {{Glossary("Vendor_Prefix", "Prefix")}} Implementierung der Änderungen in [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo)
 - {{CSSxRef(":blank")}}

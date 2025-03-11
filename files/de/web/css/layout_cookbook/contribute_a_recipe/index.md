@@ -1,36 +1,36 @@
 ---
-title: Einen Recipe-Beitrag leisten
+title: Einen Leitfaden beisteuern
 slug: Web/CSS/Layout_cookbook/Contribute_a_recipe
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: b17ca921175c0a92d21c6c4effbc7fa3dc348a8e
 ---
 
 {{CSSRef}}
 
-Wenn Sie ein Beispiel für das Layout-Kochbuch beitragen möchten, erklärt diese Seite die Schritte, die erforderlich sind, um Ihr Beispiel zu veröffentlichen.
+Wenn Sie ein Beispiel für das Layout-Kochbuch beisteuern möchten, erklärt diese Seite die Schritte, um Ihr Beispiel zu veröffentlichen.
 
-## Was macht ein gutes Recipe aus?
+## Was macht einen guten Leitfaden aus?
 
-**Die einfachstmögliche Version eines nützlichen Webdesign-Musters**. Jede Zeile CSS, die Sie einfügen, sollte dazu dienen, das Muster zu demonstrieren. Lassen Sie also alles weg, was nur dazu dient, das Beispiel hübsch aussehen zu lassen. Die Idee ist, dass jemand das Muster nehmen und es mit seinen eigenen Stilen in einer Website verwenden kann.
+**Die einfachste mögliche Version eines nützlichen Webdesign-Musters.** Jede Zeile von CSS, die Sie einfügen, sollte dazu dienen, das Muster zu demonstrieren. Lassen Sie alles weg, was nur dazu dient, das Beispiel hübsch aussehen zu lassen. Die Idee ist, dass jemand das Muster übernehmen und es mit eigenen Stilen auf einer Website verwenden kann.
 
-Ein Recipe besteht aus:
+Ein Leitfaden besteht aus:
 
-- Einem Live-Beispiel, das im [CSS Examples GitHub Repository](https://github.com/mdn/css-examples) gespeichert ist.
-- Einer herunterladbaren Version dieses Beispiels, ebenfalls im CSS Examples Repository gespeichert.
-- Einer Seite im Abschnitt des [CSS Layout-Kochbuchs](/de/docs/Web/CSS/Layout_cookbook) der Website, die die folgenden Komponenten enthalten sollte:
+- Einem Live-Beispiel, das im [CSS Examples GitHub-Repo](https://github.com/mdn/css-examples) gespeichert ist.
+- Einer herunterladbaren Version dieses Beispiels, ebenfalls gespeichert im CSS Examples Repo.
+- Einer Seite im [CSS Layout-Kochbuch](/de/docs/Web/CSS/Layout_cookbook) Abschnitt der Website, die folgende Komponenten enthalten sollte:
 
-  1. Einführung
+  1. Einleitung
   2. Anforderungen
-  3. Recipe
+  3. Rezept
   4. Entscheidungen
   5. Nützliche Fallbacks oder alternative Methoden (falls relevant)
-  6. Barrierefreiheitsaspekte
+  6. Barrierefreiheitsbedenken
   7. Browser-Kompatibilität (nur für CSS-Eigenschaften, die nicht vollständig unterstützt werden)
   8. Zusätzliche Ressourcen
 
-## Schritte, um ein Recipe zu veröffentlichen
+## Schritte zur Veröffentlichung eines Leitfadens
 
-Um ein Recipe zu erstellen und es dem CSS Layout-Kochbuch hinzuzufügen, folgen Sie diesen Schritten:
+Um einen Leitfaden zu erstellen und zum CSS Layout-Kochbuch hinzuzufügen, befolgen Sie diese Schritte:
 
 1. [Ein Muster erstellen](#1._ein_muster_erstellen)
 2. [Ein Live-Beispiel erstellen](#2._ein_live-beispiel_erstellen)
@@ -40,57 +40,57 @@ Um ein Recipe zu erstellen und es dem CSS Layout-Kochbuch hinzuzufügen, folgen 
 
 ### 1. Ein Muster erstellen
 
-Bevor Sie Ihr Beispiel in ein Recipe umwandeln, beginnen Sie damit, Ihr Muster als einfache HTML-Seite zu erstellen. Überlegen Sie, was Sie demonstrieren möchten, und halten Sie es so einfach wie möglich. Verwenden Sie beschreibende Wörter wie "container" oder "item", wenn Sie Klassennamen hinzufügen.
+Bevor Sie Ihr Beispiel in einen Leitfaden verwandeln, beginnen Sie damit, Ihr Muster als grundlegende HTML-Seite zu erstellen. Überlegen Sie, was Sie demonstrieren möchten, und halten Sie es so einfach wie möglich. Verwenden Sie beschreibende Wörter wie "container" oder "item", wenn Sie Klassennamen hinzufügen.
 
-Stellen Sie sicher, dass Sie das HTML und CSS in mehreren Browsern, bei unterschiedlichen Ansichtsgrößen und auf verschiedenen Geräten getestet haben. Stellen Sie außerdem sicher, dass jede CSS-Stilsetzung barrierefrei ist. Während es in Ordnung ist, CSS-Eigenschaften mit begrenzter Unterstützung zu verwenden, sollten Sie beim Erstellen der Seite unbedingt Informationen zur Browser-Kompatibilität hinzufügen, insbesondere im Bereich zur Browser-Kompatibilität. In einigen Fällen kann es hilfreich sein, eine zweite Version Ihres Beispiels mit Fallback-Unterstützung zu erstellen.
+Stellen Sie sicher, dass Sie die HTML und CSS in mehreren Browsern, mit unterschiedlichen Fenstergrößen und Geräten getestet haben. Stellen Sie außerdem sicher, dass jegliche CSS-Stilisierung Barrierefreiheitsrichtlinien folgt. Es ist in Ordnung, CSS-Eigenschaften mit eingeschränkter Unterstützung zu verwenden, achten Sie jedoch darauf, Browser-Support-Informationen hinzuzufügen, wenn Sie die Seite erstellen, insbesondere im Abschnitt zur Browser-Kompatibilität. In einigen Fällen kann es hilfreich sein, eine zweite Version Ihres Beispiels mit Fallback-Unterstützung zu erstellen.
 
 ### 2. Ein Live-Beispiel erstellen
 
-Die Live-Beispiele auf Kochbuchseiten, wie zum Beispiel für [das Zentrieren eines Elements](/de/docs/Web/CSS/Layout_cookbook/Center_an_element), und anderswo auf MDN ermöglichen es den Lesern, mit dem Code zu experimentieren und relevante Teile zu ändern, ohne von dem gesamten Code überwältigt zu werden. Ihr Recipe wird durch ein oder mehrere Beispiele veranschaulicht.
+Die Live-Beispiele auf Kochbuchseiten, wie zum Beispiel für [Zentrieren eines Elements](/de/docs/Web/CSS/Layout_cookbook/Center_an_element), und anderswo auf MDN ermöglichen es den Lesern, mit dem Code zu spielen und relevante Teile zu ändern, ohne von dem gesamten Code überwältigt zu werden. Ihr Leitfaden wird durch ein oder mehrere Beispiele veranschaulicht.
 
-Forken Sie das [CSS Examples Repository](https://github.com/mdn/css-examples) und werfen Sie einen Blick in den Ordner `css-cookbook`. Dort gibt es eine [cookbook-template.html](https://github.com/mdn/css-examples/blob/main/css-cookbook/cookbook-template.html) Vorlage. Kopieren Sie diese Datei und verwenden Sie sie als Ausgangspunkt. Speichern Sie sie im Verzeichnis `css-cookbook` mit einem Namen, der für Ihr Muster sinnvoll ist. Die Vorlage enthält Kommentare, die Sie beim Hinzufügen der verschiedenen Teile an den entsprechenden Stellen leiten.
+Forken Sie das [CSS Examples Repo](https://github.com/mdn/css-examples) und sehen Sie im `css-cookbook` Ordner nach. Es gibt eine [cookbook-template.html](https://github.com/mdn/css-examples/blob/main/css-cookbook/cookbook-template.html) Datei. Kopieren Sie diese Datei und verwenden Sie sie als Ausgangspunkt. Speichern Sie dies im `css-cookbook` Verzeichnis mit einem für Ihr Muster sinnvollen Namen. Die Vorlage enthält Kommentare, die Sie bei der Hinzufügung der verschiedenen Teile an den entsprechenden Stellen leiten.
 
-Die wichtigen Teile dieser Vorlage sind wie folgt:
+Die wichtigen Teile dieser Vorlage sind:
 
-- Es gibt ein Stylesheet für die Editor-Panels mit einigen grundlegenden Körperstilen und eine JavaScript-Datei für die Editor-Funktionalität. Lassen Sie diese Dateien unverändert.
+- Es gibt ein Stylesheet für die Editor-Panels mit einigen grundlegenden Body-Stilisierungen und eine JavaScript-Datei für die Editor-Funktionalität. Lassen Sie diese Dateien so, wie sie sind.
 
-- Der `<head>` enthält zwei Style-Blöcke. Der erste Style-Block ist für Elemente gedacht, die Leser nicht ändern müssen, um mit dem Beispiel zu experimentieren. Der zweite Style-Block enthält Elemente, die Leser möglicherweise spielen möchten. Normalerweise fügen wir unser gesamtes CSS in den ersten Block ein und wählen dann die Regeln aus, die in den zweiten Block verschoben werden sollen. Die Regeln im zweiten Block sollten diejenigen sein, die grundlegend für das Muster sind, vielleicht solche, bei denen ein Leser einen CSS-Wert ändern und das Update des Musters sehen kann.
+- Der `<head>` enthält zwei Stilblöcke. Der erste Stilblock ist für Elemente, die Leser nicht ändern müssen, um mit dem Beispiel zu spielen. Der zweite Stilblock enthält Elemente, die Leser möglicherweise ändern möchten. Wir fügen normalerweise alle unsere CSS-Regeln zum ersten Block hinzu und wählen dann die Regeln aus, die wir in den zweiten Block verschieben wollen. Die Regeln im zweiten Block sollten diejenigen sein, die grundlegend für das Muster sind, vielleicht diejenigen, bei denen ein Leser einen CSS-Wert ändern kann und das Muster eine Aktualisierung zeigt.
 
-- Sie müssen den HTML-Code für Ihre Komponente zweimal hinzufügen: zuerst innerhalb des Abschnitts mit der Klasse `preview` und dann innerhalb des `<textarea>` mit der Klasse `playable-html`.
+- Sie müssen das HTML für Ihre Komponente zweimal hinzufügen: zuerst im Abschnitt mit der Klasse `preview` und dann im `<textarea>` mit der Klasse `playable-html`.
 
-- Das bearbeitbare CSS aus dem zweiten `<head>` Block muss auch in den `playable-css` Abschnitt kopiert werden.
+- Das bearbeitbare CSS aus dem zweiten `<head>` Block muss ebenfalls in den `playable-css` Abschnitt kopiert werden.
 
-Ein einfaches Arbeitsbeispiel ist [center.html](https://github.com/mdn/css-examples/blob/main/css-cookbook/center.html), das auf der Seite [Center an element](/de/docs/Web/CSS/Layout_cookbook/Center_an_element) eingebettet ist. Sie können dieses Beispiel verwenden, um zu sehen, wie Sie die verschiedenen Teile korrekt hinzufügen.
+Ein funktionierendes Beispiel ist [center.html](https://github.com/mdn/css-examples/blob/main/css-cookbook/center.html), das auf der Seite [Zentrieren eines Elements](/de/docs/Web/CSS/Layout_cookbook/Center_an_element) eingebettet ist. Sie können dies verwenden, um zu sehen, wie Sie die verschiedenen Teile korrekt hinzufügen.
 
-Wenn Sie das Repository geforkt haben und unsere CSS- und JavaScript-Dateien mit Ihrem Beispiel haben, sollte das Öffnen Ihres Live-Beispiels in einem Browser alles genau so anzeigen, wie es auf einer MDN-Seite erscheinen würde.
+Wenn Sie das Repo geforkt haben und unsere CSS- und JavaScript-Dateien mit Ihrem Beispiel haben, sollte das Öffnen Ihres Live-Beispiels in einem Browser alles so anzeigen, wie es auf einer MDN-Seite erscheint.
 
 #### Nützliche Tipps
 
-- Lassen Sie das CSS und HTML in den Textbereichen nicht einrücken; richten Sie stattdessen den Code mit dem Anfang der Zeilen aus. Dies sieht besser aus, wenn es gerendert wird.
-- Wenn Bilder benötigt werden, legen Sie sie im Verzeichnis mit den Beispielen ab. Sie können gerne bereits vorhandene Bilder verwenden.
-- Sie können die Höhe der Textbereiche anpassen, indem Sie die Höhe in den Inline-Stilen ändern.
+- Richten Sie das CSS und HTML innerhalb der Textbereiche an den Zeilenanfängen aus, anstatt Einrückungen zu verwenden; es sieht besser aus, wenn es dargestellt wird.
+- Wenn Bilder benötigt werden, legen Sie sie im Verzeichnis mit den Beispielen ab. Sie dürfen gerne vorhandene Bilder verwenden.
+- Sie können die Höhe der Textbereiche anpassen, indem Sie die Höhe der Inline-Stile ändern.
 
 ### 3. Eine herunterladbare Version erstellen
 
-Da die Beispiele unseren gesamten Live-Beispielcode enthalten, wollen wir den Lesern nur den Code zur Verfügung stellen, den sie für ihr Beispiel benötigen, und unnötige Elemente weglassen. Erstellen Sie eine Kopie Ihres Live-Beispiels und fügen Sie `--download` zu seinem Namen hinzu. Zum Beispiel ist die Download-Version von `center.html` `center--download.html`. Diese Datei wird ähnlich wie Ihr ursprüngliches Beispiel sein. Es sollte eine grundlegende Version Ihres Musters als einzelne HTML-Seite sein.
+Da die Beispiele unseren gesamten Live-Beispielcode beinhalten, möchten wir den Lesern nur den Code zur Verfügung stellen, den sie für ihr Beispiel benötigen, ohne überflüssige Elemente. Erstellen Sie eine Kopie Ihres Live-Beispiels und fügen Sie `--download` zu dessen Namen hinzu. Beispiel: Die Download-Version von `center.html` ist `center--download.html`. Diese Datei wird Ihrem ursprünglichen Beispiel ähneln. Sie sollte eine grundlegende Version Ihres Musters als einzelne HTML-Seite sein.
 
-Es kann hilfreich sein, die CSS-Regeln für den Körper aus unserem enthaltenen Stylesheet einzubeziehen. Werfen Sie einen Blick auf [`cookbook-template--download.html`](https://github.com/mdn/css-examples/blob/main/css-cookbook/cookbook-template--download.html) als Anleitung; diese Regeln werden als Ausgangspunkt bereitgestellt.
+Es kann hilfreich sein, die CSS-Regeln des Body aus unserem enthaltenen Stylesheet einzufügen. Schauen Sie sich [`cookbook-template--download.html`](https://github.com/mdn/css-examples/blob/main/css-cookbook/cookbook-template--download.html) als Leitfaden an; diese Regeln werden als Ausgangspunkt bereitgestellt.
 
 ### 4. Einen Pull Request mit Ihrem Beispiel öffnen
 
-Öffnen Sie einen Pull Request (PR) im [CSS Examples Repository](https://github.com/mdn/css-examples/pulls). Auf diese Weise können wir Ihnen bei etwaigen Änderungen am Beispiel helfen, die möglicherweise vor der Erstellung Ihrer Seite erforderlich sind. Außerdem muss das Beispiel live sein, um eingeschlossen zu werden. Deshalb ist es sinnvoll, zuerst die Codebeispiele und dann die erklärende Anleitung zu erstellen. Erklären Sie in Ihrem PR das Muster und was Sie demonstrieren. Sehen Sie sich unsere [Richtlinien zum Öffnen eines Pull Requests](/de/docs/MDN/Community/Pull_requests#open_a_pull_request) an.
+Öffnen Sie einen Pull Request (PR) im [CSS Examples Repo](https://github.com/mdn/css-examples/pulls). Dies ermöglicht es uns, Ihnen bei eventuellen notwendigen Änderungen am Beispiel zu helfen, bevor Sie Ihre Seite erstellen. Außerdem muss das Beispiel live sein, um eingefügt zu werden. Deshalb macht es Sinn, zuerst die Codebeispiele zu erstellen und dann den erläuternden Leitfaden zu verfassen. Erklären Sie in Ihrem PR das Muster und was Sie demonstrieren. Sehen Sie sich unsere [Richtlinien zum Eröffnen eines Pull Requests](/de/docs/MDN/Community/Pull_requests#open_a_pull_request) an.
 
 ### 5. Ihre Seite erstellen
 
 Nachdem Ihr Beispiel-PR gemergt wurde, öffnen Sie einen Pull Request, um eine neue Seite im [Layout-Kochbuch-Verzeichnis](https://github.com/mdn/content/tree/main/files/en-us/web/css/layout_cookbook) zu erstellen.
-Verwenden Sie unsere [Vorlage für Cookbook-Seiten](https://github.com/mdn/content/blob/main/files/en-us/web/css/layout_cookbook/contribute_a_recipe/cookbook_template/index.md?plain=1).
-Die Vorlage erklärt die Anforderungen für jeden Abschnitt, und Sie können sich auf andere Kochbuch-Beispiele beziehen, um weitere Hilfe zu erhalten.
+Verwenden Sie unsere [Vorlage für Kochbuchseiten](https://github.com/mdn/content/blob/main/files/en-us/web/css/layout_cookbook/contribute_a_recipe/cookbook_template/index.md?plain=1).
+Die Vorlage erklärt die Anforderungen jeder Sektion, und Sie können sich für weitere Hilfe auf andere Kochbuch-Beispiele beziehen.
 
-Denken Sie daran, einen Link zu Ihrem neuen Recipe auf der Hauptseite des [Layout-Kochbuchs](/de/docs/Web/CSS/Layout_cookbook) hinzuzufügen.
+Denken Sie daran, auf der Hauptseite des [Layout-Kochbuchs](/de/docs/Web/CSS/Layout_cookbook) einen Link zu Ihrem neuen Leitfaden hinzuzufügen.
 
-Wenn Sie Fragen haben oder möchten, dass jemand einen Blick auf Ihre Seite wirft, setzen Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) mit uns in Verbindung.
+Wenn Sie Fragen haben oder möchten, dass jemand einen Blick auf Ihre Seite wirft, kontaktieren Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels).
 
 ## Siehe auch
 
-- [Vorlage für Cookbook-Seiten](/de/docs/Web/CSS/Layout_cookbook/Contribute_a_recipe/Cookbook_template)
-- [CSS Examples Repository](https://github.com/mdn/css-examples)
+- [Kochbuch-Seitenvorlage](/de/docs/Web/CSS/Layout_cookbook/Contribute_a_recipe/Cookbook_template)
+- [CSS Examples Repo](https://github.com/mdn/css-examples)

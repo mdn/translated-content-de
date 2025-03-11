@@ -1,19 +1,19 @@
 ---
-title: Verwenden der :target-Pseudoklasse in Selektoren
+title: Verwendung der Pseudoklasse :target in Selektoren
 slug: Web/CSS/CSS_selectors/Using_the_:target_pseudo-class_in_selectors
 l10n:
-  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
+  sourceCommit: b17ca921175c0a92d21c6c4effbc7fa3dc348a8e
 ---
 
 {{CSSRef}}
 
-Wenn eine URL auf einen spezifischen Abschnitt eines Dokuments mit einem [URL-Fragmentbezeichner](/de/docs/Web/URI/Reference/Fragment#fragment) verweist, kann es für den Nutzer schwierig sein, dies zu bemerken. Dieser Leitfaden erklärt, wie CSS verwendet werden kann, um die Aufmerksamkeit auf das Ziel einer URL zu lenken und die Benutzerfreundlichkeit zu verbessern.
+Wenn eine URL auf ein bestimmtes Teil eines Dokuments mit einem [URL-Fragmentbezeichner](/de/docs/Web/URI/Reference/Fragment#fragment) zeigt, kann es für den Benutzer schwierig sein, dies zu bemerken. Dieser Leitfaden behandelt die Verwendung von CSS, um die Aufmerksamkeit auf das Ziel einer URL zu lenken und somit die Benutzererfahrung zu verbessern.
 
-## Auswahl eines Ziels
+## Ein Ziel auswählen
 
-Die [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) {{cssxref(":target")}} wird verwendet, um das Ziel-Element des Dokuments zu stylen, das mit dem URL-Fragmentbezeichner identifiziert wird. Zum Beispiel enthält die URL `https://developer.mozilla.org/de/docs/Web/CSS#reference` den Fragmentbezeichner `#reference`. In HTML werden Bezeichner als Werte der Attribute `id` oder `name` gefunden, da beide denselben Namensraum teilen. Damit würde die Beispiel-URL auf das Element mit der id `reference` in diesem Dokument zeigen.
+Die [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) {{cssxref(":target")}} wird verwendet, um das Zielelement des Dokuments zu stylen, das durch den URL-Fragmentbezeichner identifiziert wird. Zum Beispiel enthält die URL `https://developer.mozilla.org/de/docs/Web/CSS#reference` den Fragmentbezeichner `#reference`. In HTML werden Bezeichner als Werte der `id`- oder `name`-Attribute gefunden, da beide denselben Namespace teilen. Die Beispiel-URL würde daher auf das Element verweisen, das in diesem Dokument die id `reference` hat.
 
-Angenommen, Sie möchten ein beliebiges `h2`-Element stylen, das das Ziel einer URL ist, ohne dass andere Elemente einen Zielstil bekommen. Dies ist einfach:
+Um ein beliebiges `h2`-Element zu stylen, das das Ziel einer URL ist, während keine anderen Arten von Elementen ein Zielstil erhalten, verwenden Sie die Pseudoklasse `:target` mit dem [Typ-Selektor](/de/docs/Web/CSS/Type_selectors):
 
 ```css
 h2:target {
@@ -21,7 +21,7 @@ h2:target {
 }
 ```
 
-Es ist auch möglich, Stile zu erstellen, die sich auf ein bestimmtes Fragment des Dokuments beziehen. Dies geschieht mit demselben Wert, der in der URI verwendet wird. Um zum Beispiel einer Hintergrundfarbe dem `#reference`-Fragment hinzuzufügen, schreiben wir:
+Es ist auch möglich, Stile zu erstellen, die spezifisch für ein bestimmtes Fragment des Dokuments sind. Dies geschieht mit demselben Identifikationswert, der in der URI zu finden ist. Um dem `#reference`-Fragment eine Hintergrundfarbe hinzuzufügen, würden wir folgendes schreiben:
 
 ```css
 #reference:target {
@@ -31,7 +31,7 @@ Es ist auch möglich, Stile zu erstellen, die sich auf ein bestimmtes Fragment d
 
 ## Alle Elemente anvisieren
 
-Wenn das Ziel darin besteht, einen „allumfassenden“ Stil zu erstellen, der auf alle Ziel-Elemente angewendet wird, dann ist der Universal-Selektor nützlich:
+Wenn beabsichtigt wird, einen allgemeinen Stil zu erstellen, der auf alle anvisierten Elemente angewendet wird, dann ist der universelle Selektor nützlich:
 
 ```css
 :target {
@@ -41,7 +41,7 @@ Wenn das Ziel darin besteht, einen „allumfassenden“ Stil zu erstellen, der a
 
 ## Beispiel
 
-Im folgenden Beispiel gibt es fünf Links, die auf Elemente im selben Dokument verweisen. Wenn beispielsweise der „First“-Link ausgewählt wird, wird `<h1 id="one">` zum Ziel-Element. Beachten Sie, dass das Dokument möglicherweise zu einer neuen Scrollposition springt, da Ziel-Elemente, soweit möglich, oben im Browserfenster positioniert werden.
+Im folgenden Beispiel gibt es fünf Links, die auf Elemente im selben Dokument zeigen. Wenn zum Beispiel der Link "First" ausgewählt wird, wird `<h1 id="one">` zum Zielelement. Beachten Sie, dass das Dokument möglicherweise zu einer neuen Scroll-Position springt, da Zielelemente nach Möglichkeit oben im Browserfenster platziert werden.
 
 ```html
 <h4 id="one">…</h4>
@@ -58,7 +58,7 @@ Im folgenden Beispiel gibt es fünf Links, die auf Elemente im selben Dokument v
 
 ## Fazit
 
-In Fällen, in denen ein Fragmentbezeichner auf einen Abschnitt des Dokuments verweist, kann es für Leser schwierig sein zu erkennen, welchen Teil des Dokuments sie lesen sollen. Durch das Stylen des Ziels einer URI kann diese Verwirrung bei den Lesern reduziert oder vollständig beseitigt werden.
+In Fällen, in denen ein Fragmentbezeichner auf einen Teil des Dokuments verweist, können Leser verwirrt darüber sein, welchen Teil des Dokuments sie lesen sollen. Durch das Styling des Ziels einer URI kann die Verwirrung der Leser verringert oder beseitigt werden.
 
 ## Siehe auch
 
