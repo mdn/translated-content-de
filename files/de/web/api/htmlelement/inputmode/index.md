@@ -1,47 +1,45 @@
 ---
-title: "HTMLElement: inputMode-Eigenschaft"
+title: "HTMLElement: inputMode Eigenschaft"
 short-title: inputMode
 slug: Web/API/HTMLElement/inputMode
 l10n:
-  sourceCommit: 816cc4d4a5a318a23222946b6981bb92b499aebb
+  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
 ---
 
 {{ APIRef("HTML DOM") }}
 
 Die [`HTMLElement`](/de/docs/Web/API/HTMLElement) Eigenschaft **`inputMode`** spiegelt den Wert des [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode) Attributs des Elements wider.
 
-Sie gibt einen Hinweis auf die Art der Daten, die der Benutzer möglicherweise eingeben wird, während er das Element oder dessen Inhalt bearbeitet. Dadurch kann der Browser eine geeignete virtuelle Tastatur anzeigen.
+Sie gibt einen Hinweis auf die Art der Daten, die der Benutzer möglicherweise eingibt, während das Element oder dessen Inhalt bearbeitet wird. Dies ermöglicht es dem Browser, eine geeignete virtuelle Tastatur anzuzeigen.
 
-Sie wird hauptsächlich bei {{HTMLElement("input")}} Elementen verwendet, kann aber bei jedem Element im [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Modus verwendet werden.
+Sie wird hauptsächlich bei {{HTMLElement("input")}}-Elementen verwendet, kann jedoch auf jedem Element im [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Modus verwendet werden.
 
 ## Wert
 
 Dieses Attribut kann einen der folgenden Werte haben:
 
 - `decimal`
-  - : Dezimalzahlen-Tastatur, die die Ziffern und das Dezimaltrennzeichen für das Benutzergebietsschema enthält (typischerweise <kbd>.</kbd> oder <kbd>,</kbd>).
+  - : Eine Tastatur für eine fraktionierte numerische Eingabe, die die Ziffern und das Dezimaltrennzeichen für das Gebietsschema des Benutzers enthält (typischerweise <kbd>.</kbd> oder <kbd>,</kbd>).
 - `email`
   - : Eine virtuelle Tastatur, die für die Eingabe von E-Mail-Adressen optimiert ist.
-    Typischerweise enthält sie das Zeichen <kbd>@</kbd> sowie andere Optimierungen.
+    Enthält typischerweise das <kbd>@</kbd>-Zeichen sowie andere Optimierungen.
 - `none`
   - : Keine virtuelle Tastatur. Dies wird verwendet, wenn die Seite ihre eigene Tastatureingabesteuerung implementiert.
 - `numeric`
-  - : Numerische Eingabetastatur, die nur die Ziffern 0–9 erfordert.
+  - : Eine numerische Eingabetastatur, die nur die Ziffern 0–9 erfordert.
     Geräte können möglicherweise eine Minustaste anzeigen oder nicht.
 - `search`
   - : Eine virtuelle Tastatur, die für Sucheingaben optimiert ist.
-    Zum Beispiel kann die [Return-/Abschlusstaste](https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-enterkeyhint-attribute) mit "Search" beschriftet sein.
+    Zum Beispiel kann die [Return/Submit-Taste](https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-enterkeyhint-attribute) mit "Suche" beschriftet sein.
 - `tel`
-  - : Eine Telefontastatur-Eingabe, die die Ziffern 0–9, das Sternchen (<kbd>\*</kbd>) und die Raute (<kbd>#</kbd>) beinhaltet.
+  - : Eine Telefontastatur-Eingabe, die die Ziffern 0–9, das Sternchen (<kbd>\*</kbd>) und die Raute (<kbd>#</kbd>) Taste umfasst.
 - `text`
-  - : Standard-Eingabetastatur für das aktuelle Benutzergebietsschema.
+  - : Standard-Eingabetastatur für das aktuelle Gebietsschema des Benutzers.
 - `url`
   - : Eine Tastatur, die für die Eingabe von URLs optimiert ist.
-    Diese kann z.B. die <kbd>/</kbd> Taste prominenter darstellen.
+    Diese kann zum Beispiel die <kbd>/</kbd>-Taste prominenter darstellen.
 
-Für Details zur Verwendung dieses Attributs, siehe die Seite für das [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode) HTML-Attribut, das diese Eigenschaft widerspiegelt.
-
-## Beispiele
+Für Details zur Verwendung dieses Attributs siehe die Seite zum [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode) HTML-Attribut, das diese Eigenschaft widerspiegelt.
 
 ## Spezifikationen
 

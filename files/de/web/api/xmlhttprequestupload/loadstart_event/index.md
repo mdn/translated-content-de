@@ -1,9 +1,9 @@
 ---
-title: "XMLHttpRequestUpload: loadstart-Ereignis"
+title: "XMLHttpRequestUpload: loadstart Event"
 short-title: loadstart
 slug: Web/API/XMLHttpRequestUpload/loadstart_event
 l10n:
-  sourceCommit: 9c78a44b9321fcd3fbe63d6f5b61ed749c2fa261
+  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
@@ -12,7 +12,7 @@ Das **`loadstart`**-Ereignis wird ausgelöst, wenn eine Anfrage begonnen hat, Da
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("loadstart", (event) => {});
@@ -28,20 +28,20 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Neben den unten aufgeführten Eigenschaften stehen auch Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) zur Verfügung._
 
 - [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, ob die gesamte zu erledigende Arbeit und die bereits geleistete Arbeit des zugrundeliegenden Prozesses berechenbar sind. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
+  - : Ein boolesches Flag, das anzeigt, ob die Gesamtarbeit, die zu erledigen ist, und die Menge der bereits erledigten Arbeit durch den zugrundeliegenden Prozess berechenbar sind. Anders ausgedrückt wird angezeigt, ob der Fortschritt messbar ist oder nicht.
 - [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integer, der die bereits vom zugrundeliegenden Prozess geleistete Arbeit angibt. Das Verhältnis der erledigten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Hauptteil der HTTP-Nachricht und schließt Header und andere Overhead nicht ein.
+  - : Ein 64-Bit-Unsigned-Integer-Wert, der die Menge der bereits durch den zugrundeliegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der erledigten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Hauptteil der HTTP-Nachricht und schließt Header und anderen Overhead nicht ein.
 - [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integer, der die Gesamtmenge an Arbeit darstellt, die der zugrundeliegende Prozess im Begriff ist zu leisten. Beim Herunterladen einer Ressource über HTTP entspricht dies dem `Content-Length` (der Größe des Hauptteils der Nachricht) und schließt die Header und anderen Overhead nicht ein.
+  - : Ein 64-Bit-Unsigned-Integer, der die gesamte Arbeit darstellt, die der zugrundeliegende Prozess gerade durchführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Hauptteils der Nachricht) und schließt die Header und anderen Overhead nicht ein.
 
 ## Beispiele
 
-## Verwenden des `loadstart`-Ereignisses
+### Verwendung des `loadstart`-Ereignisses
 
-Sie können das `loadstart`-Ereignis nutzen, um den Beginn eines Uploads zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige anzeigt, siehe die Hauptseite [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
+Sie können das `loadstart`-Ereignis verwenden, um den Beginn eines Uploads zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige zeigt, siehe die Hauptseite von [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
 
 ```js
 // When the upload starts, we display the progress bar

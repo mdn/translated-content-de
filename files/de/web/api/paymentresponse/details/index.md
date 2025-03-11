@@ -3,20 +3,20 @@ title: "PaymentResponse: details-Eigenschaft"
 short-title: details
 slug: Web/API/PaymentResponse/details
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
 ---
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die **`details`** schreibgeschützte Eigenschaft der [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) Schnittstelle gibt ein JSON-serialisierbares Objekt zurück, das eine zahlungsmethodenspezifische Nachricht bereitstellt, die vom Händler verwendet wird, um die Transaktion zu verarbeiten und einen erfolgreichen Geldtransfer zu bestimmen.
-
-Diese Daten werden von der Zahlungs-App zurückgegeben, die die Zahlungsanfrage erfüllt. Entwickler müssen mit demjenigen konsultieren, der die URL kontrolliert, um die erwartete Struktur des details-Objekts zu verstehen.
+Die **`details`**-Schreibgeschützte Eigenschaft des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces liefert ein JSON-serialisierbares Objekt, das eine zahlungsmethodenspezifische Nachricht bereitstellt, die vom Händler zur Abwicklung der Transaktion und zur Bestimmung eines erfolgreichen Geldtransfers verwendet wird.
 
 ## Wert
 
+Ein Objekt. Diese Daten werden von der Zahlungsanwendung zurückgegeben, die die Zahlungsanforderung erfüllt. Entwickler müssen mit demjenigen Rücksprache halten, der die URL kontrolliert, um die erwartete Struktur des Details-Objekts zu bestimmen.
+
 ## Beispiele
 
-Das folgende Beispiel extrahiert die Details aus dem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) Objekt zum Promise, das von [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) zurückgegeben wird. In einer realen Implementierung würden diese Daten dann an einen Zahlungsserver gesendet werden.
+Das folgende Beispiel extrahiert die Details aus dem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt zur Verwendung im von [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) zurückgegebenen Promise. In einer realen Implementierung würden diese Daten dann an einen Zahlungsserver gesendet werden.
 
 ```js
 payment.show().then((paymentResponse) => {
