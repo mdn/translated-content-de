@@ -2,26 +2,26 @@
 title: SpeechGrammar
 slug: Web/API/SpeechGrammar
 l10n:
-  sourceCommit: 706cbf21987296c604cc96b7f95095ed7aba6bb8
+  sourceCommit: 10313e7be178b2af803c902d4f91e4ccc31b09e7
 ---
 
 {{APIRef("Web Speech API")}}{{deprecated_header}}{{non-standard_header}}
 
-Das **`SpeechGrammar`** Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Menge von Wörtern oder Wortmustern, die wir möchten, dass der Erkennungsdienst erkennt.
+Das **`SpeechGrammar`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Menge von Wörtern oder Wortmustern, die der Erkennungsdienst erkennen soll.
 
-Grammatik wird mit dem [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert. Andere Formate könnten in der Zukunft ebenfalls unterstützt werden.
+Die Grammatik wird mit dem [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert. In Zukunft könnten auch andere Formate unterstützt werden.
 
 ## Konstruktor
 
 - [`SpeechGrammar()`](/de/docs/Web/API/SpeechGrammar/SpeechGrammar) {{Non-standard_Inline}} {{deprecated_inline}}
-  - : Erstellt ein neues `SpeechGrammar` Objekt.
+  - : Erstellt ein neues `SpeechGrammar`-Objekt.
 
 ## Instanz-Eigenschaften
 
-- [`SpeechGrammar.src`](/de/docs/Web/API/SpeechGrammar/src) {{deprecated_inline}}
-  - : Setzt und gibt einen String zurück, der die Grammatik enthält, innerhalb der `SpeechGrammar` Objektinstanz.
-- [`SpeechGrammar.weight`](/de/docs/Web/API/SpeechGrammar/weight) {{Optional_Inline}} {{deprecated_inline}}
-  - : Setzt und gibt das Gewicht des `SpeechGrammar` Objekts zurück.
+- [`SpeechGrammar.src`](/de/docs/Web/API/SpeechGrammar/src) {{deprecated_inline}} {{non-standard_inline}}
+  - : Setzt und gibt einen String zurück, der die Grammatik innerhalb der `SpeechGrammar`-Objektinstanz enthält.
+- [`SpeechGrammar.weight`](/de/docs/Web/API/SpeechGrammar/weight) {{Optional_Inline}} {{deprecated_inline}} {{non-standard_inline}}
+  - : Setzt und gibt das Gewicht des `SpeechGrammar`-Objekts zurück.
 
 ## Beispiele
 
