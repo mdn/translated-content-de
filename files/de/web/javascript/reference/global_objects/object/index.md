@@ -2,30 +2,30 @@
 title: Object
 slug: Web/JavaScript/Reference/Global_Objects/Object
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: d79694384ccc58726f27102dd9f32fcb1c8e28ad
 ---
 
 {{JSRef}}
 
-Der **`Object`**-Typ repräsentiert einen der [JavaScript-Datentypen](/de/docs/Web/JavaScript/Guide/Data_structures). Er wird verwendet, um verschiedene schlüsselbasierte Sammlungen und komplexere Entitäten zu speichern. Objekte können mit dem {{jsxref("Object/Object", "Object()")}}-Konstruktor oder der [Objektinitialisierung / Literalsyntax](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) erstellt werden.
+Der **`Object`**-Typ repräsentiert einen der [JavaScript-Datentypen](/de/docs/Web/JavaScript/Guide/Data_structures). Er wird verwendet, um verschiedene getastete Sammlungen und komplexere Entitäten zu speichern. Objekte können mit dem {{jsxref("Object/Object", "Object()")}}-Konstruktor oder der [Objekt-Initialisierer-/Literal-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) erstellt werden.
 
 ## Beschreibung
 
-Nahezu alle [Objekte](/de/docs/Web/JavaScript/Guide/Data_structures#objects) in JavaScript sind Instanzen von `Object`; ein typisches Objekt erbt Eigenschaften (einschließlich Methoden) von `Object.prototype`, obwohl diese Eigenschaften überschrieben werden können. Die einzigen Objekte, die nicht von `Object.prototype` erben, sind diejenigen mit [`null`-Prototypen](#null-prototyp-objekte) oder solche, die von anderen `null`-Prototyp-Objekten abstammen.
+Fast alle [Objekte](/de/docs/Web/JavaScript/Guide/Data_structures#objects) in JavaScript sind Instanzen von `Object`; ein typisches Objekt erbt Eigenschaften (einschließlich Methoden) von `Object.prototype`, obwohl diese Eigenschaften überschattet (sprich: überschrieben) werden können. Die einzigen Objekte, die nicht von `Object.prototype` erben, sind diejenigen mit [`null`-Prototyp](#null-prototyp-objekte) oder abgeleitet von anderen `null`-Prototyp-Objekten.
 
-Änderungen am `Object.prototype`-Objekt wirken sich auf **alle** Objekte durch die Prototypverkettung aus, es sei denn, die betroffenen Eigenschaften und Methoden werden weiter entlang der Prototypkette überschrieben. Dies bietet eine sehr leistungsfähige, wenn auch potenziell gefährliche Möglichkeit, das Verhalten von Objekten zu überschreiben oder zu erweitern. Um es sicherer zu machen, ist `Object.prototype` das einzige Objekt in der Kern-JavaScript-Sprache, das einen [unveränderlichen Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf#description) hat — der Prototyp von `Object.prototype` ist immer `null` und nicht veränderbar.
+Änderungen am `Object.prototype`-Objekt sind durch die Prototypverkettung bei **allen** Objekten sichtbar, es sei denn, die Eigenschaften und Methoden, die von diesen Änderungen betroffen sind, werden weiter entlang der Prototypenkette überschrieben. Dies bietet einen sehr mächtigen, jedoch potenziell gefährlichen Mechanismus, um das Verhalten von Objekten zu überschreiben oder zu erweitern. Um es sicherer zu machen, ist `Object.prototype` das einzige Objekt in der Kern-JavaScript-Sprache, das einen [unveränderbaren Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf#description) hat — der Prototyp von `Object.prototype` ist immer `null` und nicht veränderbar.
 
-### Objekt-Prototyp-Eigenschaften
+### Object Prototype-Eigenschaften
 
-Sie sollten vermeiden, Methoden des `Object.prototype` direkt von der Instanz aus aufzurufen, insbesondere diejenigen, die nicht polymorph sein sollen (d.h. nur ihr ursprüngliches Verhalten macht Sinn und kein absteigendes Objekt könnte es sinnvoll überschreiben). Alle von `Object.prototype` abstammenden Objekte können eine eigene benutzerdefinierte Eigenschaft definieren, die denselben Namen hat, aber völlig andere Semantik bietet als erwartet. Zudem werden diese Eigenschaften nicht von [`null`-Prototypobjekten](#null-prototyp-objekte) geerbt. Alle modernen JavaScript-Dienstprogramme für die Arbeit mit Objekten sind [statisch](#statische_methoden). Genauer gesagt:
+Sie sollten vermeiden, die `Object.prototype`-Methoden direkt von der Instanz aufzurufen, insbesondere diejenigen, die nicht dafür gedacht sind, polymorph zu sein (d.h. nur ihr anfängliches Verhalten ergibt Sinn und kein abgeleitetes Objekt könnte sie sinnvoll überschreiben). Alle Objekte, die von `Object.prototype` abgeleitet sind, können eine benutzerdefinierte Eigen-Eigenschaft definieren, die denselben Namen hat, jedoch mit völlig anderen Bedeutungen, als Sie erwarten. Darüber hinaus erben diese Eigenschaften nicht von [`null`-Prototyp-Objekten](#null-prototyp-objekte). Alle modernen JavaScript-Utensilien zur Arbeit mit Objekten sind [statisch](#statische_methoden). Genauer:
 
-- [`valueOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf), [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString), und [`toLocaleString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString) sind polymorph vorgesehen und Sie sollten erwarten, dass das Objekt seine eigene Implementierung mit sinnvollen Verhaltensweisen definiert, sodass Sie sie als Instanzmethoden aufrufen können. `valueOf()` und `toString()` werden jedoch normalerweise implizit durch [Typkonvertierung](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion) aufgerufen, sodass Sie sie in Ihrem Code nicht selbst aufrufen müssen.
-- [`__defineGetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__), [`__defineSetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__), [`__lookupGetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__), und [`__lookupSetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__) sind veraltet und sollten nicht verwendet werden. Verwenden Sie die statischen Alternativen {{jsxref("Object.defineProperty()")}} und {{jsxref("Object.getOwnPropertyDescriptor()")}} stattdessen.
-- Die [`__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)-Eigenschaft ist veraltet und sollte nicht verwendet werden. Die {{jsxref("Object.getPrototypeOf()")}} und {{jsxref("Object.setPrototypeOf()")}} Alternativen sind statische Methoden.
-- Die Methoden [`propertyIsEnumerable()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable) und [`hasOwnProperty()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) können durch die {{jsxref("Object.getOwnPropertyDescriptor()")}} und {{jsxref("Object.hasOwn()")}}-statischen Methoden ersetzt werden.
-- Die Methode [`isPrototypeOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf) kann normalerweise durch [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof) ersetzt werden, wenn Sie die `prototype`-Eigenschaft eines Konstruktors überprüfen.
+- [`valueOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf), [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) und [`toLocaleString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString) existieren, um polymorph zu sein, und Sie sollten erwarten, dass das Objekt seine eigene Implementierung mit sinnvollen Verhaltensweisen definiert, so dass Sie sie als Instanzmethoden aufrufen können. `valueOf()` und `toString()` werden jedoch in der Regel implizit durch [Typumwandlung](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion) aufgerufen, und Sie müssen sie nicht selbst in Ihrem Code aufrufen.
+- [`__defineGetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__), [`__defineSetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__), [`__lookupGetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__) und [`__lookupSetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__) sind veraltet und sollten nicht verwendet werden. Verwenden Sie stattdessen die statischen Alternativen {{jsxref("Object.defineProperty()")}} und {{jsxref("Object.getOwnPropertyDescriptor()")}}.
+- Die [`__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) Eigenschaft ist veraltet und sollte nicht verwendet werden. Die {{jsxref("Object.getPrototypeOf()")}} und {{jsxref("Object.setPrototypeOf()")}} Alternativen sind statische Methoden.
+- Die [`propertyIsEnumerable()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable) und [`hasOwnProperty()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) Methoden können durch die {{jsxref("Object.getOwnPropertyDescriptor()")}} und {{jsxref("Object.hasOwn()")}} statischen Methoden ersetzt werden.
+- Die [`isPrototypeOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf) Methode kann in der Regel durch [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof) ersetzt werden, wenn Sie die `prototype`-Eigenschaft eines Konstruktors überprüfen.
 
-In Fällen, in denen eine semantisch äquivalente statische Methode nicht existiert, oder wenn Sie wirklich die `Object.prototype`-Methode verwenden möchten, sollten Sie die `Object.prototype`-Methode direkt mit [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call) auf Ihrem Zielobjekt aufrufen, um zu verhindern, dass das Objekt eine überschreibende Eigenschaft hat, die unerwartete Ergebnisse liefert.
+Falls eine semantisch äquivalente statische Methode nicht existiert oder wenn Sie wirklich die `Object.prototype`-Methode verwenden möchten, sollten Sie die `Object.prototype`-Methode direkt mit [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call) auf Ihrem Zielobjekt aufrufen, um zu verhindern, dass das Objekt eine überschreibende Eigenschaft hat, die unerwartete Ergebnisse erzeugt.
 
 ```js
 const obj = {
@@ -42,22 +42,22 @@ obj.propertyIsEnumerable("foo"); // false; unexpected result
 Object.prototype.propertyIsEnumerable.call(obj, "foo"); // true; expected result
 ```
 
-### Löschen einer Eigenschaft aus einem Objekt
+### Löschen einer Eigenschaft von einem Objekt
 
-In einem Objekt selbst gibt es keine Methode, um seine eigenen Eigenschaften zu löschen (wie {{jsxref("Map.prototype.delete()")}}). Dazu muss der {{jsxref("Operators/delete", "delete")}}-Operator verwendet werden.
+Es gibt keine Methode in einem Objekt selbst, um seine eigenen Eigenschaften zu löschen (wie {{jsxref("Map.prototype.delete()")}}). Dazu muss der {{jsxref("Operators/delete", "delete")}}-Operator verwendet werden.
 
-### Null-Prototyp-Objekte
+### null-Prototyp-Objekte
 
-Fast alle Objekte in JavaScript erben letztlich von `Object.prototype` (siehe [Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)). Sie können jedoch `null`-Prototypobjekte mit [`Object.create(null)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/create) oder der [Objektinitialisierungssyntax](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) mit `__proto__: null` erstellen (Hinweis: Der `__proto__`-Schlüssel in Objektliteralen unterscheidet sich von der veralteten [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)-Eigenschaft). Sie können auch den Prototyp eines bestehenden Objekts in `null` ändern, indem Sie [`Object.setPrototypeOf(obj, null)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) aufrufen.
+Fast alle Objekte in JavaScript erben letztlich von `Object.prototype` (siehe [Vererbung und die Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)). Sie können jedoch `null`-Prototyp-Objekte mit [`Object.create(null)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/create) oder der [Objekt-Initialisierer-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) mit `__proto__: null` erstellen (Hinweis: der `__proto__` Schlüssel in Objektliteralen unterscheidet sich von der veralteten [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) Eigenschaft). Sie können auch den Prototyp eines vorhandenen Objekts durch Aufruf von [`Object.setPrototypeOf(obj, null)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) auf `null` ändern.
 
 ```js
 const obj = Object.create(null);
 const obj2 = { __proto__: null };
 ```
 
-Ein Objekt mit einem `null`-Prototyp kann sich in unerwarteter Weise verhalten, da es keine Objektmethoden von `Object.prototype` erbt. Dies ist besonders wahr beim Debuggen, da gängige Dienstprogramme für ObjektEigenschaften-Konvertierung/-Erkennung Fehler generieren können oder Informationen verlieren (besonders wenn stille Fehlerfallen verwendet werden, die Fehler ignorieren).
+Ein Objekt mit einem `null`-Prototyp kann sich unerwartet verhalten, da es keine Objektmethoden von `Object.prototype` erbt. Dies gilt besonders beim Debuggen, da gängige Objekt-Eigenschafts-Konvertierungs-/Erkennungs-Dienstprogramme Fehler generieren oder Informationen verlieren können (insbesondere bei stillen Fehlerfallen, die Fehler ignorieren).
 
-Zum Beispiel macht das Fehlen von [`Object.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) das Debuggen oft schwer nachvollziehbar:
+Zum Beispiel macht das Fehlen von [`Object.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) das Debuggen oft unmöglich:
 
 ```js
 const normalObj = {}; // create a normal object
@@ -70,7 +70,7 @@ alert(normalObj); // shows [object Object]
 alert(nullProtoObj); // throws error: Cannot convert object to primitive value
 ```
 
-Auch andere Methoden werden fehlschlagen.
+Andere Methoden werden ebenfalls fehlschlagen.
 
 ```js
 normalObj.valueOf(); // shows {}
@@ -83,7 +83,7 @@ normalObj.constructor; // shows "Object() { [native code] }"
 nullProtoObj.constructor; // shows "undefined"
 ```
 
-Wir können die `toString`-Methode zum `null`-Prototyp-Objekt hinzufügen, indem wir sie einfügen:
+Wir können die `toString`-Methode durch Zuweisung zu einem `null`-Prototyp-Objekt wieder hinzufügen:
 
 ```js
 nullProtoObj.toString = Object.prototype.toString; // since new object lacks toString, add the original generic one back
@@ -92,11 +92,11 @@ console.log(nullProtoObj.toString()); // shows "[object Object]"
 console.log(`nullProtoObj is: ${nullProtoObj}`); // shows "nullProtoObj is: [object Object]"
 ```
 
-Im Gegensatz zu normalen Objekten, bei denen `toString()` auf dem Prototyp des Objekts liegt, ist die `toString()`-Methode hier eine eigene Eigenschaft von `nullProtoObj`. Dies liegt daran, dass `nullProtoObj` keinen (`null`) Prototyp hat.
+Im Gegensatz zu normalen Objekten, bei denen `toString()` auf dem Prototyp des Objekts ist, ist die `toString()`-Methode hier eine eigene Eigenschaft von `nullProtoObj`. Dies liegt daran, dass `nullProtoObj` keinen (`null`) Prototyp hat.
 
-Sie können auch ein Null-Prototyp-Objekt in ein normales Objekt zurückverwandeln, indem Sie [`Object.setPrototypeOf(nullProtoObj, Object.prototype)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) verwenden.
+Sie können ein null-Prototyp-Objekt auch in ein gewöhnliches Objekt zurückversetzen, indem Sie [`Object.setPrototypeOf(nullProtoObj, Object.prototype)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) aufrufen.
 
-In der Praxis werden Objekte mit `null`-Prototyp meist als kostengünstiger Ersatz für [Maps](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) verwendet. Die Anwesenheit von `Object.prototype`-Eigenschaften kann einige Fehler verursachen:
+In der Praxis werden Objekte mit `null`-Prototypen üblicherweise als günstiger Ersatz für [Maps](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) verwendet. Die Anwesenheit von `Object.prototype`-Eigenschaften wird einige Fehler verursachen:
 
 ```js
 const ages = { alice: 18, bob: 27 };
@@ -113,7 +113,7 @@ hasPerson("hasOwnProperty"); // true
 getAge("toString"); // [Function: toString]
 ```
 
-Die Verwendung eines Null-Prototyp-Objekts beseitigt dieses Risiko, ohne der `hasPerson`- und `getAge`-Funktion zu viel Komplexität hinzuzufügen:
+Die Verwendung eines null-Prototyp-Objekts beseitigt dieses Risiko, ohne allzu viel Komplexität in die `hasPerson`- und `getAge`-Funktionen einzuführen:
 
 ```js
 const ages = Object.create(null, {
@@ -125,9 +125,9 @@ hasPerson("hasOwnProperty"); // false
 getAge("toString"); // undefined
 ```
 
-In einem solchen Fall sollte das Hinzufügen jeder Methode mit Vorsicht durchgeführt werden, da diese mit den anderen Schlüssel-Wert-Paaren, die als Daten gespeichert sind, verwechselt werden könnten.
+In solchen Fällen sollte die Hinzufügung jeglicher Methode mit Vorsicht erfolgen, da sie mit anderen als Daten gespeicherten Schlüssel-Wert-Paaren verwechselt werden können.
 
-Wenn Ihr Objekt nicht von `Object.prototype` erbt, verhindert dies auch Angriffe durch Prototyp-Verschmutzung. Wenn ein bösartiges Skript eine Eigenschaft zu `Object.prototype` hinzufügt, wird diese auf jedem Objekt in Ihrem Programm zugänglich sein, außer Objekten, die einen `null`-Prototyp haben.
+Wenn Sie Ihr Objekt nicht von `Object.prototype` erben lassen, verhindern Sie auch Prototypenverschmutzungsangriffe. Wenn ein bösartiges Skript eine Eigenschaft zu `Object.prototype` hinzufügt, wird diese in jedem Objekt in Ihrem Programm zugänglich sein, außer Objekten, die einen null-Prototyp haben.
 
 ```js
 const user = {};
@@ -141,38 +141,38 @@ if (user.authenticated) {
 }
 ```
 
-JavaScript hat auch eingebaute APIs, die `null`-Prototyp-Objekte erzeugen, insbesondere solche, die Objekte als ad hoc Schlüssel-Wert-Sammlungen verwenden. Zum Beispiel:
+JavaScript hat auch integrierte APIs, die `null`-Prototyp-Objekte erzeugen, insbesondere solche, die Objekte als ad-hoc Schlüssel-Wert-Sammlungen verwenden. Beispiele:
 
 - Der Rückgabewert von {{jsxref("Object.groupBy()")}}
-- Die `groups` und `indices.groups`-Eigenschaften des Ergebnisses von {{jsxref("RegExp.prototype.exec()")}}
-- [`Array.prototype[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.unscopables) (alle `[Symbol.unscopables]`-Objekte sollten `null`-Prototyp haben)
+- Die `groups` und `indices.groups` Eigenschaften des Ergebnisses von {{jsxref("RegExp.prototype.exec()")}}
+- [`Array.prototype[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.unscopables) (alle `[Symbol.unscopables]`-Objekte sollten einen `null`-Prototyp haben)
 - [`import.meta`](/de/docs/Web/JavaScript/Reference/Operators/import.meta)
-- Modul-Namensraum-Objekte, erhalten durch [`import * as ns from "module";`](/de/docs/Web/JavaScript/Reference/Statements/import#namespace_import) oder [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import)
+- Modul-Namespace-Objekte, erhalten durch [`import * as ns from "module";`](/de/docs/Web/JavaScript/Reference/Statements/import#namespace_import) oder [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import)
 
-Der Begriff "`null`-Prototypobjekt" schließt oft auch jedes Objekt ein, das `Object.prototype` nicht in seiner Prototypkette hat. Solche Objekte können mit [`extends null`](/de/docs/Web/JavaScript/Reference/Classes/extends#extending_null) bei der Verwendung von Klassen erstellt werden.
+Der Begriff "`null`-Prototyp-Objekt" schließt oft auch jedes Objekt ohne `Object.prototype` in seiner Prototypenkette ein. Solche Objekte können mit [`extends null`](/de/docs/Web/JavaScript/Reference/Classes/extends#extending_null) erstellt werden, wenn Klassen verwendet werden.
 
-### Objektumwandlung (Object Coercion)
+### Objektumwandlung
 
-Viele eingebaute Operationen, die Objekte erwarten, wandeln ihre Argumente erst in Objekte um. [Die Operation](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-toobject) lässt sich wie folgt zusammenfassen:
+Viele eingebaute Operationen, die Objekte erwarten, zwingen zuerst ihre Argumente in Objekte um. [Die Operation](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-toobject) kann wie folgt zusammengefasst werden:
 
 - Objekte werden unverändert zurückgegeben.
 - [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) werfen einen {{jsxref("TypeError")}}.
-- {{jsxref("Number")}}, {{jsxref("String")}}, {{jsxref("Boolean")}}, {{jsxref("Symbol")}}, {{jsxref("BigInt")}}-Primitive werden in ihre entsprechenden Objekt-Wrapper eingepackt.
+- {{jsxref("Number")}}, {{jsxref("String")}}, {{jsxref("Boolean")}}, {{jsxref("Symbol")}}, {{jsxref("BigInt")}}-Primitiven werden in ihre entsprechenden Objekt-Wrapper gehüllt.
 
-Es gibt zwei Möglichkeiten, nahezu denselben Effekt in JavaScript zu erzielen.
+Es gibt zwei Möglichkeiten, um in JavaScript nahezu denselben Effekt zu erzielen.
 
-- {{jsxref("Object.prototype.valueOf()")}}: `Object.prototype.valueOf.call(x)` führt genau die oben erklärten Objektumwandlungsschritte aus, um `x` zu konvertieren.
-- Die {{jsxref("Object/Object", "Object()")}}-Funktion: `Object(x)` verwendet denselben Algorithmus zur Konvertierung von `x`, außer dass `undefined` und `null` keinen {{jsxref("TypeError")}} werfen, sondern ein einfaches Objekt zurückgeben.
+- {{jsxref("Object.prototype.valueOf()")}}: `Object.prototype.valueOf.call(x)` führt genau die Objektumwandlungsschritte aus, die oben erklärt wurden, um `x` zu konvertieren.
+- Die {{jsxref("Object/Object", "Object()")}} Funktion: `Object(x)` verwendet denselben Algorithmus, um `x` zu konvertieren, außer dass `undefined` und `null` keinen {{jsxref("TypeError")}} werfen, sondern ein einfaches Objekt zurückgeben.
 
-Orte, die Objektumwandlung verwenden, beinhalten:
+Orte, die Objektumwandlung verwenden, sind:
 
-- Der `object`-Parameter in [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleifen.
-- Der `this`-Wert von {{jsxref("Array")}}-Methoden.
+- Der `object`-Parameter von [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) Schleifen.
+- Der `this`-Wert von {{jsxref("Array")}} Methoden.
 - Parameter von `Object`-Methoden wie {{jsxref("Object.keys()")}}.
-- Automatisches Boxing, wenn auf einen primitiven Wert eine Eigenschaft zugegriffen wird, da Primitive keine Eigenschaften haben.
-- Der [`this`](/de/docs/Web/JavaScript/Reference/Operators/this)-Wert beim Aufrufen einer nicht-strengen Funktion. Primitive werden verpackt, während `null` und `undefined` durch das {{Glossary("Global_object", "globale Objekt")}} ersetzt werden.
+- Auto-Boxing, wenn eine Eigenschaft auf einem primitiven Wert zugegriffen wird, da Primitive keine Eigenschaften haben.
+- Der [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) Wert beim Aufruf einer nicht-strikten Funktion. Primitive werden verpackt, während `null` und `undefined` durch das {{Glossary("Global_object", "globale Objekt")}} ersetzt werden.
 
-Im Gegensatz zur [Umwandlung in Primitive](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) ist der Objektumwandlungsprozess selbst auf keine Weise beobachtbar, da er keinen benutzerdefinierten Code wie `toString`- oder `valueOf`-Methoden aufruft.
+Im Gegensatz zur [Umwandlung in Primitive](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) ist der Objektumwandlungsprozess selbst in keiner Weise beobachtbar, da er keinen benutzerdefinierten Code wie `toString` oder `valueOf` Methoden aufruft.
 
 ## Konstruktor
 
@@ -182,51 +182,51 @@ Im Gegensatz zur [Umwandlung in Primitive](/de/docs/Web/JavaScript/Guide/Data_st
 ## Statische Methoden
 
 - {{jsxref("Object.assign()")}}
-  - : Kopiert die Werte aller aufzählbaren eigenen Eigenschaften von einem oder mehreren Quellobjekten zu einem Zielobjekt.
+  - : Kopiert die Werte aller eigenen aufzählbaren Eigenschaften von einem oder mehreren Quell-Objekten zu einem Ziel-Objekt.
 - {{jsxref("Object.create()")}}
   - : Erstellt ein neues Objekt mit dem angegebenen Prototypobjekt und Eigenschaften.
 - {{jsxref("Object.defineProperties()")}}
-  - : Fügt die beschriebenen benannten Eigenschaften zum gegebenen Objekt hinzu.
+  - : Fügt die angegebenen Eigenschaften, beschrieben durch die gegebenen Deskriptoren, einem Objekt hinzu.
 - {{jsxref("Object.defineProperty()")}}
-  - : Fügt eine benannte Eigenschaft, beschrieben durch einen gegebenen Deskriptor, zu einem Objekt hinzu.
+  - : Fügt die benannte Eigenschaft, beschrieben durch einen gegebenen Deskriptor, einem Objekt hinzu.
 - {{jsxref("Object.entries()")}}
-  - : Gibt ein Array zurück, das alle `[key, value]`-Paare der **eigenen** aufzählbaren String-Eigenschaften eines gegebenen Objekts enthält.
+  - : Gibt ein Array zurück, das alle `[key, value]` Paare der **eigenen** aufzählbaren Zeichenfolgeneigenschaften eines gegebenen Objekts enthält.
 - {{jsxref("Object.freeze()")}}
-  - : Friert ein Objekt ein. Andere Codes können dessen Eigenschaften nicht löschen oder verändern.
+  - : Friert ein Objekt ein. Anderer Code kann seine Eigenschaften nicht löschen oder ändern.
 - {{jsxref("Object.fromEntries()")}}
-  - : Gibt ein neues Objekt von einem iterierbaren Array von `[key, value]`-Paaren zurück. (Dies ist die Umkehrung von {{jsxref("Object.entries")}}).
+  - : Gibt ein neues Objekt von einem iterierbaren `[key, value]` Paar zurück. (Dies ist das Gegenteil von {{jsxref("Object.entries")}}).
 - {{jsxref("Object.getOwnPropertyDescriptor()")}}
   - : Gibt einen Eigenschaftsdeskriptor für eine benannte Eigenschaft auf einem Objekt zurück.
 - {{jsxref("Object.getOwnPropertyDescriptors()")}}
-  - : Gibt ein Objekt zurück, das alle eigenen Eigenschaftsdeskriptoren eines Objekts enthält.
+  - : Gibt ein Objekt zurück, das alle eigenen Eigenschaftsdeskriptoren für ein Objekt enthält.
 - {{jsxref("Object.getOwnPropertyNames()")}}
-  - : Gibt ein Array zurück, das die Namen aller **eigenen** aufzählbaren und nicht-auflistbaren Eigenschaften eines gegebenen Objekts enthält.
+  - : Gibt ein Array zurück, das die Namen aller **eigenen** aufzählbaren und nicht aufzählbaren Eigenschaften des gegebenen Objekts enthält.
 - {{jsxref("Object.getOwnPropertySymbols()")}}
   - : Gibt ein Array aller Symbol-Eigenschaften zurück, die direkt auf einem gegebenen Objekt gefunden wurden.
 - {{jsxref("Object.getPrototypeOf()")}}
   - : Gibt den Prototyp (interne `[[Prototype]]`-Eigenschaft) des angegebenen Objekts zurück.
 - {{jsxref("Object.groupBy()")}}
-  - : Gruppiert die Elemente eines gegebenen Iterables entsprechend den von einer bereitgestellten Callback-Funktion zurückgegebenen Stringwerten. Das zurückgegebene Objekt hat für jede Gruppe separate Eigenschaften, die Arrays mit den Elementen in der Gruppe enthalten.
+  - : Gruppiert die Elemente eines gegebenen Iterables gemäß der von einer bereitgestellten Callback-Funktion zurückgegebenen Zeichenfolgenwerte. Das zurückgegebene Objekt hat separate Eigenschaften für jede Gruppe, die Arrays mit den Elementen in der Gruppe enthalten.
 - {{jsxref("Object.hasOwn()")}}
-  - : Gibt `true` zurück, wenn das angegebene Objekt die angegebene Eigenschaft als **eigene** Eigenschaft hat, oder `false`, wenn die Eigenschaft vererbt ist oder nicht existiert.
+  - : Gibt `true` zurück, wenn das angegebene Objekt die genannte Eigenschaft als _eigene_ Eigenschaft hat, oder `false`, wenn die Eigenschaft vererbt wird oder nicht existiert.
 - {{jsxref("Object.is()")}}
-  - : Vergleicht, ob zwei Werte derselbe Wert sind. Setzt alle `NaN`-Werte gleich (was sich von `IsLooselyEqual` unterscheidet, das von [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality) verwendet wird, und `IsStrictlyEqual`, das von [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) verwendet wird).
+  - : Vergleicht, ob zwei Werte derselbe Wert sind. Gleichsetzt alle `NaN`-Werte (was sich von `IsLooselyEqual` unterscheidet, das von [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality) und `IsStrictlyEqual` verwendet wird, das von [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) verwendet wird).
 - {{jsxref("Object.isExtensible()")}}
-  - : Bestimmt, ob die Erweiterung eines Objekts zulässig ist.
+  - : Bestimmt, ob das Erweitern eines Objekts zulässig ist.
 - {{jsxref("Object.isFrozen()")}}
-  - : Bestimmt, ob ein Objekt eingefroren ist.
+  - : Bestimmt, ob ein Objekt eingefroren wurde.
 - {{jsxref("Object.isSealed()")}}
   - : Bestimmt, ob ein Objekt versiegelt ist.
 - {{jsxref("Object.keys()")}}
-  - : Gibt ein Array zurück, das die Namen aller **eigenen** aufzählbaren String-Eigenschaften eines gegebenen Objekts enthält.
+  - : Gibt ein Array zurück, das die Namen aller **eigenen** aufzählbaren Zeichenfolgeneigenschaften des gegebenen Objekts enthält.
 - {{jsxref("Object.preventExtensions()")}}
   - : Verhindert jegliche Erweiterungen eines Objekts.
 - {{jsxref("Object.seal()")}}
   - : Verhindert, dass anderer Code Eigenschaften eines Objekts löscht.
 - {{jsxref("Object.setPrototypeOf()")}}
-  - : Setzt den Prototyp des Objekts (seine interne `[[Prototype]]`-Eigenschaft).
+  - : Setzt den Prototyp (die interne `[[Prototype]]`-Eigenschaft) eines Objekts.
 - {{jsxref("Object.values()")}}
-  - : Gibt ein Array zurück, das die Werte enthält, die allen **eigenen** aufzählbaren String-Eigenschaften eines gegebenen Objekts entsprechen.
+  - : Gibt ein Array zurück, das die Werte enthält, die allen **eigenen** aufzählbaren Zeichenfolgeneigenschaften eines gegebenen Objekts entsprechen.
 
 ## Instanz-Eigenschaften
 
@@ -235,36 +235,36 @@ Diese Eigenschaften sind auf `Object.prototype` definiert und werden von allen `
 - [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) {{deprecated_inline}}
   - : Zeigt auf das Objekt, das als Prototyp verwendet wurde, als das Objekt instanziiert wurde.
 - {{jsxref("Object.prototype.constructor")}}
-  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Bei einfachen `Object`-Instanzen ist der Anfangswert der {{jsxref("Object/Object", "Object")}}-Konstruktor. Instanzen anderer Konstruktoren erben jeweils die `constructor`-Eigenschaft von ihrem jeweiligen `Constructor.prototype`-Objekt.
+  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für einfache `Object`-Instanzen ist der anfängliche Wert der {{jsxref("Object/Object", "Object")}}-Konstruktor. Instanzen anderer Konstruktoren erben jeweils die `constructor`-Eigenschaft vom jeweiligen `Constructor.prototype`-Objekt.
 
 ## Instanz-Methoden
 
 - [`Object.prototype.__defineGetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__) {{deprecated_inline}}
-  - : Verknüpft eine Funktion mit einer Eigenschaft, die bei Zugriff diese Funktion ausführt und ihren Rückgabewert liefert.
+  - : Ordnet eine Funktion einer Eigenschaft zu, die, wenn darauf zugegriffen wird, diese Funktion ausführt und ihren Rückgabewert zurückgibt.
 - [`Object.prototype.__defineSetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__) {{deprecated_inline}}
-  - : Verknüpft eine Funktion mit einer Eigenschaft, die bei Setzen dieser Eigenschaft diese Funktion ausführt, die die Eigenschaft verändert.
+  - : Ordnet eine Funktion einer Eigenschaft zu, die, wenn sie gesetzt wird, diese Funktion ausführt, die die Eigenschaft modifiziert.
 - [`Object.prototype.__lookupGetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__) {{deprecated_inline}}
-  - : Gibt die Funktion zurück, die als Getter mit der angegebenen Eigenschaft verbunden ist.
+  - : Gibt die Funktion zurück, die als Getter an die angegebene Eigenschaft gebunden ist.
 - [`Object.prototype.__lookupSetter__()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__) {{deprecated_inline}}
-  - : Gibt die Funktion zurück, die als Setter mit der angegebenen Eigenschaft verbunden ist.
+  - : Gibt die Funktion zurück, die als Setter an die angegebene Eigenschaft gebunden ist.
 - {{jsxref("Object.prototype.hasOwnProperty()")}}
-  - : Gibt einen Booleschen Wert zurück, der angibt, ob ein Objekt die angegebene Eigenschaft als direkte Eigenschaft dieses Objekts enthält und nicht durch die Prototypkette geerbt hat.
+  - : Gibt ein Boolean zurück, das angibt, ob ein Objekt die angegebene Eigenschaft als direkte Eigenschaft dieses Objekts enthält und nicht durch die Prototypenkette vererbt wird.
 - {{jsxref("Object.prototype.isPrototypeOf()")}}
-  - : Gibt einen Booleschen Wert zurück, der angibt, ob das Objekt, auf dem diese Methode aufgerufen wird, sich in der Prototypkette des angegebenen Objekts befindet.
+  - : Gibt ein Boolean zurück, das angibt, ob das Objekt, auf dem diese Methode aufgerufen wird, in der Prototypenkette des angegebenen Objekts liegt.
 - {{jsxref("Object.prototype.propertyIsEnumerable()")}}
-  - : Gibt einen Booleschen Wert zurück, der angibt, ob die angegebene Eigenschaft die [enumerable own](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)-Eigenschaft des Objekts ist.
+  - : Gibt ein Boolean zurück, das angibt, ob die angegebene Eigenschaft die [aufzählbare eigene](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties) Eigenschaft des Objekts ist.
 - {{jsxref("Object.prototype.toLocaleString()")}}
   - : Ruft {{jsxref("Object/toString", "toString()")}} auf.
 - {{jsxref("Object.prototype.toString()")}}
-  - : Gibt eine Stringdarstellung des Objekts zurück.
+  - : Gibt eine Zeichenfolgenrepräsentation des Objekts zurück.
 - {{jsxref("Object.prototype.valueOf()")}}
   - : Gibt den primitiven Wert des angegebenen Objekts zurück.
 
 ## Beispiele
 
-### Erstellen leerer Objekte
+### Leere Objekte konstruieren
 
-Das folgende Beispiel erstellt leere Objekte mit dem `new`-Schlüsselwort mit verschiedenen Argumenten:
+Das folgende Beispiel erstellt leere Objekte mit dem `new`-Schlüsselwort mit unterschiedlichen Argumenten:
 
 ```js
 const o1 = new Object();
@@ -272,11 +272,11 @@ const o2 = new Object(undefined);
 const o3 = new Object(null);
 ```
 
-### Konstruktor der Object() Funktion, um Primitive in ein Objekt ihres jeweiligen Typs zu verwandeln
+### Verwenden des Object()-Konstruktors, um Primitive in ein Objekt ihres jeweiligen Typs zu verwandeln
 
-Sie können den {{jsxref("Object/Object", "Object()")}}-Konstruktor verwenden, um einen Objekt-Wrapper eines primitiven Wertes zu erstellen.
+Sie können den {{jsxref("Object/Object", "Object()")}}-Konstruktor verwenden, um einen Objekt-Wrapper eines primitiven Werts zu erstellen.
 
-Die folgenden Beispiele erstellen die Variablen `o1` und `o2`, die Objekte mit {{jsxref("Boolean")}}- und {{jsxref("BigInt")}}-Werten sind:
+Die folgenden Beispiele erstellen die Variablen `o1` und `o2`, die Objekte speichern, die {{jsxref("Boolean")}}- und {{jsxref("BigInt")}}-Werte speichern:
 
 ```js
 // Equivalent to const o1 = new Boolean(true)
@@ -289,9 +289,9 @@ const o2 = new Object(1n);
 
 ### Objektprototypen
 
-Wenn Sie das Verhalten existierender `Object.prototype`-Methoden ändern, sollten Sie erwägen, Code durch das Einfügen von Erweiterungen vor oder nach der bestehenden Logik einzufügen. Zum Beispiel wird dieser (ungetestete) Code bei Bedingungseintritten eigene Logik vor der eingebauten Logik oder Erweiterung anderer ausführen.
+Wenn Sie das Verhalten vorhandener `Object.prototype`-Methoden ändern, ziehen Sie in Betracht, Code durch Einschleusen Ihrer Erweiterung vor oder nach der bestehenden Logik hinzuzufügen. Zum Beispiel wird dieser (ungetestete) Code vorbedingungsbedingte benutzerdefinierte Logik ausführen, bevor die eingebaute Logik oder jemandes andere Erweiterung ausgeführt wird.
 
-Beim Modifizieren von Prototypen mit Hooks übergeben Sie `this` und die Argumente (den Aufrufstatus) an das aktuelle Verhalten, indem Sie `apply()` auf der Funktion aufrufen. Dieses Muster kann für jeden Prototyp verwendet werden, wie z.B. `Node.prototype`, `Function.prototype`, etc.
+Beim Modifizieren von Prototypen mit Hooks übergeben Sie `this` und die Argumente (den Aufrufzustand) an das aktuelle Verhalten, indem Sie `apply()` auf der Funktion aufrufen. Dieses Muster kann für jeden Prototyp verwendet werden, wie `Node.prototype`, `Function.prototype`, etc.
 
 ```js
 const current = Object.prototype.valueOf;
@@ -312,9 +312,9 @@ Object.prototype.valueOf = function (...args) {
 ```
 
 > [!WARNING]
-> Das Modifizieren der `prototype`-Eigenschaft eines eingebauten Konstruktors wird als schlechte Praxis betrachtet und kann die zukunftssichere Kompatibilität riskieren.
+> Das Modifizieren der `prototype`-Eigenschaft eines eingebauten Konstruktors wird als schlechte Praxis angesehen und birgt Risiken für die Zukunftskompatibilität.
 
-Sie können mehr über Prototypen in [Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) lesen.
+Sie können mehr über Prototypen in [Vererbung und die Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) lesen.
 
 ## Spezifikationen
 
@@ -326,4 +326,4 @@ Sie können mehr über Prototypen in [Vererbung und die Prototypkette](/de/docs/
 
 ## Siehe auch
 
-- [Objektinitialisierung](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+- [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)

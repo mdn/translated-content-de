@@ -1,15 +1,15 @@
 ---
-title: Textbeschreibungen und Namen
+title: Textbeschriftungen und Namen
 slug: Web/Accessibility/Guides/Understanding_WCAG/Text_labels_and_names
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 8941e7636bfc91985ca5a486e7228b681e1aa272
 ---
 
-Es gibt viele Situationen, in denen einem Steuerelement, Dialogfenster oder einem anderen Website-Feature ein beschreibender Name oder ein Label zugewiesen werden sollte, um Nutzern von unterstützenden Technologien zu ermöglichen, dessen Zweck zu verstehen und korrekt zu bedienen. In dieser Kategorie gibt es verschiedene Arten von Problemen, die in unterschiedlichen Kontexten auftreten, und jedes hat seine eigene Lösung. Die verschiedenen Probleme und Lösungen werden in den folgenden Abschnitten besprochen.
+Es gibt viele Situationen, in denen einem Steuerelement, Dialogfeld oder einer anderen Website-Funktion ein beschreibender Name oder ein Label gegeben werden sollte, um Nutzern von unterstützenden Technologien zu ermöglichen, deren Zweck zu verstehen und sie korrekt zu bedienen. Es gibt verschiedene Problemarten in dieser Kategorie, die in unterschiedlichen Kontexten auftreten, und jede hat ihre eigene Lösung. Die verschiedenen Probleme und Lösungen werden in den folgenden Abschnitten besprochen.
 
-## Verwenden Sie das alt-Attribut, um Bereichselemente zu kennzeichnen, die das href-Attribut haben
+## Verwenden Sie das Alt-Attribut, um Bereichselemente zu beschriften, die das href-Attribut haben
 
-Bei Bildkarten geben Sie jedem {{htmlelement("area")}}-Element ein `alt`-Attribut, das einen Namen enthält, der beschreibt, auf welche Ressourcen die Bereiche verlinken. Unterlassen Sie dies, wird es für Benutzer von assistiven Technologien schwierig, eine Bildkarte zu verwenden — sie benötigen Alternativtext, um den Zweck eines Bildes zu verstehen.
+Geben Sie in Bildbereichen jedem {{htmlelement("area")}}-Element ein `alt`-Attribut, das einen Namen enthält, der beschreibt, wohin die Bereiche verlinken. Bei einem Versäumnis wird eine Bildkarte für Nutzer von unterstützenden Technologien schwer nutzbar — sie benötigen Alternativtext, um den Zweck eines Bildes verstehen zu können.
 
 ### Beispiele
 
@@ -31,22 +31,22 @@ more information on that area." />
 </map>
 ```
 
-Siehe die [Referenzseite des `<area>` Elements](/de/docs/Web/HTML/Element/area) für ein interaktives Live-Beispiel.
+Sehen Sie sich die Referenzseite zum [`<area>`-Element](/de/docs/Web/HTML/Element/area) für ein interaktives Live-Beispiel an.
 
 ### Siehe auch
 
 - {{htmlelement("area")}}
 - [H24: Bereitstellung von Textalternativen für die Bereichselemente von Bildkarten](https://www.w3.org/TR/WCAG20-TECHS/H24.html)
 
-## Dialogfelder sollten beschriftet werden
+## Dialoge sollten beschriftet sein
 
-Für jeden Container, dessen Inhalt als Dialogfeld fungiert (zum Beispiel ein modales Dialogfeld, das den Benutzer auffordert, eine Auswahl zu treffen oder auf eine Aktion zu reagieren), geben Sie ihm einen beschreibenden Namen oder ein Label, damit Benutzer von assistiven Technologien leicht erkennen können, was dessen Zweck ist.
+Geben Sie jedem Container, dessen Inhalt als Dialogfeld fungiert (zum Beispiel ein modaler Dialog, der den Benutzer auffordert, eine Wahl zu treffen oder auf eine Aktion zu reagieren), ein beschreibendes Label oder einen Namen, damit Nutzer von unterstützenden Technologien leicht entdecken können, was sein Zweck ist.
 
-Ein Dialogfeld wird im Allgemeinen durch eine ARIA [`role="dialog"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role) oder [`role="alertdialog"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role) angegeben; Sie können die Attribute [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) verwenden, um ein Label bereitzustellen.
+Ein Dialogfeld wird im Allgemeinen durch eine ARIA [`role="dialog"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role) oder [`role="alertdialog"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role) gekennzeichnet; Sie können die Attribute [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) verwenden, um eine Beschriftung bereitzustellen.
 
 ### Beispiele
 
-Das folgende Beispiel zeigt ein einfaches Dialogfeld, das als solches mit `role="dialog"` definiert und mit `aria-labelledby` beschriftet ist.
+Das folgende Beispiel zeigt ein Dialogfeld, das mit `role="dialog"` definiert und mit `aria-labelledby` beschriftet wurde.
 
 ```html
 <div
@@ -61,7 +61,7 @@ Das folgende Beispiel zeigt ein einfaches Dialogfeld, das als solches mit `role=
 </div>
 ```
 
-Wenn das Dialogfeld keine Überschrift hat, können Sie stattdessen `aria-label` verwenden, um den Labeltext zu enthalten:
+Wenn das Dialogfeld keine Überschrift hat, können Sie stattdessen `aria-label` verwenden, um den Beschriftungstext zu enthalten:
 
 ```html
 <div role="dialog" aria-label="Personal details updated confirmation">
@@ -79,12 +79,12 @@ Wenn das Dialogfeld keine Überschrift hat, können Sie stattdessen `aria-label`
 - [`role="alertdialog"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role)
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-- [WAI-ARIA: Dialog-Rolle](https://www.w3.org/TR/wai-aria-1.2/#dialog)
-- [Dialog-Autoringspraktiken](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
+- [WAI-ARIA: Dialogrolle](https://www.w3.org/TR/wai-aria-1.2/#dialog)
+- [Dialogverfasserpraktiken](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
 
 ## Dokumente müssen einen Titel haben
 
-Es ist wichtig, in jedem HTML-Dokument ein {{htmlelement("title")}} einzufügen, das den Zweck der Seite beschreibt. Eine übliche Navigationstechnik für Benutzer von unterstützenden Technologien ist, den Inhalt einer Seite zu erfassen, indem sie deren Titel lesen. Wenn der Titel nicht verfügbar ist, müssen sie die Seite navigieren, um deren Inhalt zu bestimmen, was ein zeitaufwändiger und potenziell verwirrender Prozess sein kann.
+Es ist wichtig, in jedes HTML-Dokument ein {{htmlelement("title")}} aufzunehmen, das den Zweck der Seite beschreibt. Eine übliche Navigationstechnik für Nutzer von unterstützenden Technologien besteht darin, den Inhalt einer Seite anhand ihres Titels zu erschließen. Wenn der Titel nicht verfügbar ist, müssen sie die Seite durchsuchen, um den Inhalt zu ermitteln, was ein zeitraubender und potenziell verwirrender Vorgang sein kann.
 
 ### Beispiele
 
@@ -97,13 +97,13 @@ Der Titel für den Referenzartikel über das {{htmlelement("title")}}-Element la
 </title>
 ```
 
-Ein weiteres Beispiel könnte folgendermaßen aussehen:
+Ein weiteres Beispiel könnte so aussehen:
 
 ```html
 <title>Fill in your details to register — myGov services</title>
 ```
 
-Um dem Benutzer zu helfen, können Sie den Seitentitelwert aktualisieren, um bedeutende Zustandsänderungen der Seite widerzuspiegeln (wie z.B. Probleme bei der Formularvalidierung):
+Um dem Benutzer zu helfen, können Sie den Seitentitel aktualisieren, um bedeutende Zustandsänderungen der Seite widerzuspiegeln (wie z. B. Probleme bei der Formularvalidierung):
 
 ```html
 <title>2 errors — Fill in your details to register — myGov services</title>
@@ -115,15 +115,15 @@ Um dem Benutzer zu helfen, können Sie den Seitentitelwert aktualisieren, um bed
 
 ## Eingebettete Inhalte müssen beschriftet werden
 
-Stellen Sie sicher, dass Elemente, die Inhalte einbetten, ein [title-Attribut](/de/docs/Web/HTML/Global_attributes/title) haben, das die eingebetteten Inhalte beschreibt. Dazu gehören die Elemente {{htmlelement("embed")}} und {{htmlelement("object")}}. Diese Elemente werden oft für grafische Inhalte verwendet, ähnlich wie das {{HTMLelement("img")}}-Element. Ein beschreibender Titel hilft Benutzern von assistiven Technologien zu verstehen, was das Element zeigt.
+Stellen Sie sicher, dass Elemente, die Inhalte einbetten, ein [title](/de/docs/Web/HTML/Global_attributes/title)-Attribut haben, das den eingebetteten Inhalt beschreibt. Dies schließt die {{htmlelement("embed")}}- und {{htmlelement("object")}}-Elemente ein. Diese Elemente werden häufig für graphische Inhalte verwendet, ähnlich wie das {{HTMLelement("img")}}-Element. Ein beschreibender Titel hilft Nutzern von unterstützenden Technologien, zu verstehen, was das Element anzeigt.
 
-## Abbildungen mit optionalen Bildunterschriften sollten beschriftet werden
+## Figuren mit optionalen Beschriftungen sollten beschriftet werden
 
-Für beste Zugänglichkeit fügen Sie innerhalb eines {{HTMLElement("figure")}}-Elements ein {{HTMLElement("figcaption")}} hinzu, auch wenn dies technisch optional ist. Die Bildunterschrift ergänzt jeden Alternativtext zu Bildern innerhalb der Abbildung. Die Bildunterschrift beschreibt den Zweck der Abbildung im Dokument, was sich von einer einfachen Beschreibung eines visuellen Elements unterscheiden kann, wie sie vom Alternativtext bereitgestellt wird.
+Für die beste Barrierefreiheit sollte innerhalb eines {{HTMLElement("figure")}}-Elements ein {{HTMLElement("figcaption")}} hinzugefügt werden, auch wenn das technisch gesehen optional ist. Die Beschriftung ergänzt alle alternativen Texte zu Bildern innerhalb der Figur. Die Beschriftung beschreibt den Zweck der Figur im Dokument, was sich von der Beschreibung eines visuellen Elements, wie sie der alternative Text bietet, unterscheiden kann.
 
 ### Beispiel
 
-Das folgende Beispiel zeigt den Code für eine Abbildung mit Bildunterschrift. Das `alt`-Attribut des {{htmlelement("img")}} beschreibt das Aussehen des Bildes; der {{htmlelement("figcaption")}} beschreibt es aus funktionaler Sicht (in diesem Fall den lateinischen Namen der Blume im Bild).
+Das folgende Beispiel zeigt den Code für eine Figur mit einer Beschriftung. Das `alt`-Attribut des {{htmlelement("img")}} beschreibt das Erscheinungsbild des Bildes; die {{htmlelement("figcaption")}} beschreibt es aus einer funktionalen Perspektive (in diesem Fall der lateinische Name der Blume im Bild).
 
 ```html
 <figure>
@@ -138,11 +138,11 @@ Das folgende Beispiel zeigt den Code für eine Abbildung mit Bildunterschrift. D
 
 Fieldset-Elemente müssen eine Textbeschreibung haben, ähnlich wie andere Formularelemente. Verwenden Sie das {{htmlelement("legend")}}-Element, um den Zweck eines Fieldsets zu beschreiben.
 
-## Verwenden Sie eine Legende, um ein Fieldset zu beschriften
+## Verwenden Sie ein Legende, um ein Fieldset zu beschriften
 
-Wenn Sie eine Gruppe von Formularelementen mit einem {{htmlelement("fieldset")}}-Element gruppieren, sollten Sie ein verschachteltes {{htmlelement("legend")}}-Element darin einfügen, das eine klare Beschreibung der Gruppe enthält.
+Wenn Sie eine Gruppe von Formularelementen mit einem {{htmlelement("fieldset")}}-Element zusammenfassen, sollten Sie ein eingebettetes {{htmlelement("legend")}}-Element innerhalb davon hinzufügen, das eine klare Beschreibung der Gruppe enthält.
 
-Benutzern von assistiven Technologien hilft diese Beschreibung, den Gesamtzweck der Gruppe zu erkennen. Ohne die Legende müssten sie die einzelnen Formularelemente in der Gruppe durchgehen, um den Gesamtzweck zu erschließen, was zu Verwirrung führen könnte.
+Nutzer von unterstützenden Technologien finden diese Beschreibung hilfreich, wenn sie versuchen herauszufinden, was der allgemeine Zweck der Gruppe ist. Ohne die Legende müssten sie um die einzelnen Kontrollelemente des Formulars in der Gruppe navigieren, um eine Vorstellung von dem allgemeinen Zweck zu bekommen, was zu Verwirrung führen könnte.
 
 ### Beispiele
 
@@ -163,7 +163,7 @@ Benutzern von assistiven Technologien hilft diese Beschreibung, den Gesamtzweck 
 </form>
 ```
 
-Sie können eine Live-Interaktive-Version dieses Beispiels auf der [`<fieldset>`-Referenzseite](/de/docs/Web/HTML/Element/fieldset) sehen.
+Sie können eine Live-, interaktive Version dieses Beispiels auf der [`<fieldset>`-Referenzseite](/de/docs/Web/HTML/Element/fieldset) sehen.
 
 ### Siehe auch
 
@@ -172,9 +172,9 @@ Sie können eine Live-Interaktive-Version dieses Beispiels auf der [`<fieldset>`
 
 ## Formularelemente müssen beschriftet werden
 
-Alle Elemente innerhalb eines Formulars müssen ein {{htmlelement("label")}} haben, das seinen Zweck identifiziert. Dies gilt für alle Arten von {{htmlelement("input")}}-Artikeln sowie {{htmlelement("button")}}, {{htmlelement("output")}}, {{htmlelement("select")}}, {{htmlelement("textarea")}}, {{htmlelement("progress")}} und {{htmlelement("meter")}}-Elementen sowie für jedes Element mit der [`switch` ARIA-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/switch_role).
+Alle Elemente innerhalb eines Formulars müssen ein {{htmlelement("label")}} haben, das deren Zweck identifiziert. Dies gilt für alle Arten von {{htmlelement("input")}}-Elementen sowie {{htmlelement("button")}}, {{htmlelement("output")}}, {{htmlelement("select")}}, {{htmlelement("textarea")}}, {{htmlelement("progress")}} und {{htmlelement("meter")}}-Elemente und jegliches Element mit der [`switch` ARIA-Role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/switch_role).
 
-Das Formularelement kann innerhalb des {{htmlelement("label")}}-Elements platziert werden, in welchem Fall die Verbindung zwischen dem Formularelement und dem Label aus der Struktur offensichtlich ist. Oder Sie können eine Verbindung zwischen einem {{htmlelement("label")}} und einem Formularelement herstellen, indem Sie das `id`-Wert des Formularelements als Wert des `for`-Attributs des Labels angeben.
+Das Formularelement kann innerhalb des {{htmlelement("label")}} platziert werden, in welchem Fall die Zuordnung zwischen dem Formularelement und dem Label aus der Struktur ersichtlich ist. Alternativ können Sie eine Zuordnung zwischen einem {{htmlelement("label")}} und einem Formularelement herstellen, indem Sie den `id`-Wert des Formularelements als Wert des `for`-Attributs des Labels angeben.
 
 ### Beispiel
 
@@ -190,15 +190,15 @@ Das Formularelement kann innerhalb des {{htmlelement("label")}}-Elements platzie
 
 ## Formularelemente sollten ein sichtbares Textlabel haben
 
-Zusätzlich zur Bereitstellung eines {{htmlelement("label")}} für jedes Formularelement sollten diese Labels sichtbar, nicht versteckt, sein. Sichtbare Labels helfen _allen_ Benutzern, den Zweck eines Formularelements zu verstehen. Verlassen Sie sich nicht auf Platzhaltertexte, da diese verschwinden, sobald der Benutzer mit der Eingabe beginnt.
+Neben einem {{htmlelement("label")}} für jedes Formularelement sollten diese Labels sichtbar sein, nicht versteckt. Sichtbare Labels helfen _allen_ Nutzern, den Zweck eines Formularelements zu verstehen. Verlassen Sie sich nicht auf Platzhaltertext, da dieser verschwindet, sobald der Benutzer zu tippen beginnt.
 
 ## Frame-Elemente müssen beschriftet werden
 
-Frame-Elemente, sowohl {{htmlelement("iframe")}} als auch das ältere, veraltete {{htmlelement("frame")}}, müssen einen Titel haben, der den Inhalt des Frames beschreibt. Verwenden Sie das `title`-Attribut, um ein Frame-Element zu beschriften. Ohne einen Titel müssen Benutzer von assistiven Technologien in den Frame navigieren, um zu verstehen, was er enthält, was schwierig und verwirrend sein kann.
+Frame-Elemente, sowohl {{htmlelement("iframe")}} als auch das ältere, obsolet gewordene {{htmlelement("frame")}}, müssen einen Titel haben, um den Inhalt des Frames zu beschreiben. Verwenden Sie das `title`-Attribut, um ein Frame-Element zu beschriften. Ohne einen Titel müssen Nutzer von unterstützenden Technologien in den Frame navigieren, um zu verstehen, was er enthält, was schwierig und verwirrend sein kann.
 
-Das {{HTMLElement('frame')}}-Element gehört nicht mehr zur HTML-Spezifikation. Die Unterstützung dafür könnte in Zukunft von Browsern eingestellt werden. Außerdem ist es für Screenreader schwierig, Seiten mit {{HTMLElement('frame')}}-Elementen zu navigieren. Für beste Zugänglichkeit und zukünftige Wartung sollten alle Seiten, die Frames verwenden, in CSS umgestaltet werden, um ein ähnliches Layout zu erreichen.
+Das {{HTMLElement('frame')}}-Element ist nicht mehr Teil der HTML-Spezifikation. Die Unterstützung dafür könnte in der Zukunft von Browsern entfernt werden. Darüber hinaus ist es für Screenreader schwierig, Seiten mit {{HTMLElement('frame')}}-Elementen zu navigieren. Für die beste Barrierefreiheit und zukünftige Wartung sollten Sie alle Seiten umgestalten, die Frames verwenden, um CSS zu verwenden, um ein ähnliches Layout zu erreichen.
 
-Als Best Practice sollten Sie auch ein {{htmlelement("title")}} für das Dokument bereitstellen, das im Frame enthalten ist, mit einem Inhalt, der dem `title`-Attribut des Frames entspricht. (Dies setzt voraus, dass das enthaltene Dokument unter Ihrer Kontrolle ist; falls nicht, versuchen Sie, das `title`-Attribut des Frames an den Titel des Dokuments anzupassen.) Einige Screenreader ersetzen den Inhalt des `title`-Attributs durch den Inhalt des im Dokument enthaltenen {{htmlelement("title")}}. Es ist am sichersten und am zugänglichsten, denselben Titel an beiden Stellen bereitzustellen.
+Als bewährte Praxis sollten Sie auch ein {{htmlelement("title")}} für das Dokument bereitstellen, das im Frame eingeschlossen ist, mit einem Inhalt, der mit dem `title`-Attribut des Frames identisch ist. (Dies setzt voraus, dass das eingeschlossene Dokument unter Ihrer Kontrolle steht; wenn nicht, versuchen Sie, das `title`-Attribut des Frames mit dem Titel des Dokuments abzustimmen.) Einige Screenreader ersetzen den Inhalt des `title`-Attributs durch den Inhalt des `title`-Elements des eingeschlossenen Dokuments. Es ist am sichersten und zugänglichsten, wenn in beiden Stellen derselbe Titel angegeben wird.
 
 ### Beispiel
 
@@ -213,23 +213,23 @@ Als Best Practice sollten Sie auch ein {{htmlelement("title")}} für das Dokumen
 
 ## Überschriften müssen beschriftet werden
 
-Stellen Sie sicher, dass Ihre Überschriften nicht leer sind und nicht versteckt werden, z.B. durch CSS `display:none` oder `aria-hidden=true`. Benutzer von Screenreadern verlassen sich auf Überschriften, um die Struktur und den Inhalt eines Dokuments zu verstehen.
+Stellen Sie sicher, dass Ihre Überschriften nicht leeren Text enthalten und nicht versteckt sind, etwa mit CSS `display:none` oder `aria-hidden=true`. Nutzern von Screenreadern verlassen sich auf Überschriften, um die Struktur und den Inhalt eines Dokuments zu verstehen.
 
-Stellen Sie außerdem sicher, dass Sie [Überschriftselemente](/de/docs/Web/HTML/Element/Heading_Elements) nur für tatsächliche Abschnittsüberschriften verwenden und nicht als Abkürzung, um Text hervorzuheben. Benutzer von Screenreadern „überfliegen“ typischerweise die Überschriften einer Seite, ähnlich wie sehende Benutzer; nicht-überschriftenmäßiger Text, der mit Überschriftselementen markiert ist, kann zu Verwirrung führen.
+Vergewissern Sie sich auch, dass Sie [Überschriftselemente](/de/docs/Web/HTML/Element/Heading_Elements) nur für tatsächliche Abschnittsüberschriften verwenden und nicht als Abkürzung, um Text hervorzuheben. Nutzer von Screenreadern "überfliegen" eine Seite typischerweise anhand ihrer Überschriften, ähnlich wie sehende Nutzer; Nicht-Überschriftstext, der mit Überschriftselementen ausgezeichnet ist, kann Verwirrung stiften.
 
-## Überschriften sollten sichtbaren Textinhalt haben
+## Überschriften sollten sichtbare Textinhalte haben
 
-Stellen Sie sicher, dass Ihre Überschriften nicht leer sind und nicht versteckt werden, z.B. durch CSS `display:none` oder `aria-hidden=true`. Benutzer von Screenreadern verlassen sich auf Überschriften, um die Struktur und den Inhalt eines Dokuments zu verstehen. Verwenden Sie keine Überschriftselemente, um Bilder oder andere grafische Inhalte zu markieren.
+Stellen Sie sicher, dass Ihre Überschriften nicht leeren Text enthalten und nicht versteckt sind, zum Beispiel mit CSS `display:none` oder `aria-hidden=true`. Nutzer von Screenreadern verlassen sich auf Überschriften, um die Struktur und den Inhalt eines Dokuments zu verstehen. Verwenden Sie keine Überschriftselemente, um Bilder oder andere grafische Inhalte auszuzeichnen.
 
-## Verwenden Sie das title-Attribut, um `<iframe>`-Inhalte zu beschreiben
+## Verwenden Sie das Title-Attribut, um `<iframe>`-Inhalt zu beschreiben
 
-Stellen Sie sicher, dass {{htmlelement("iframe")}}-Elemente ein `title`-Attribut haben, um den Inhalt des Frames zu beschreiben. Ohne einen Titel müssen Benutzer von assistiven Technologien in den Frame navigieren, um zu verstehen, was er enthält, was schwierig und verwirrend sein kann.
+Stellen Sie sicher, dass {{htmlelement("iframe")}}-Elemente ein `title`-Attribut haben, um den Inhalt des Frames zu beschreiben. Ohne einen Titel müssen Nutzer von unterstützenden Technologien in den Frame navigieren, um zu verstehen, was er enthält, was schwierig und verwirrend sein kann.
 
-Als Best Practice sollten Sie auch ein {{htmlelement("title")}} für das Dokument bereitstellen, das im Frame enthalten ist, mit einem Inhalt, der dem `title`-Attribut des Frames entspricht. (Dies setzt voraus, dass das enthaltene Dokument unter Ihrer Kontrolle ist; falls nicht, versuchen Sie, das `title`-Attribut des Frames an den Titel des Dokuments anzupassen.) Einige Screenreader ersetzen den Inhalt des `title`-Attributs durch den Inhalt des im Dokument enthaltenen {{htmlelement("title")}}. Es ist am sichersten und am zugänglichsten, denselben Titel an beiden Stellen bereitzustellen.
+Als bewährte Praxis sollten Sie auch ein {{htmlelement("title")}} für das Dokument bereitstellen, das im Frame eingeschlossen ist, mit einem Inhalt, der mit dem `title`-Attribut des Frames identisch ist. (Dies setzt voraus, dass das eingeschlossene Dokument unter Ihrer Kontrolle steht; wenn nicht, versuchen Sie, das `title`-Attribut des Frames mit dem Titel des Dokuments abzustimmen.) Einige Screenreader ersetzen den Inhalt des `title`-Attributs durch den Inhalt des `title`-Elements des eingeschlossenen Dokuments. Es ist am sichersten und zugänglichsten, wenn in beiden Stellen derselbe Titel angegeben wird.
 
-## Inhalte mit Bildern müssen beschriftet werden
+## Inhalt mit Bildern muss beschriftet werden
 
-Stellen Sie für alle inhaltsreichen (das heißt nicht dekorativen) Bilder und bildähnliche Elemente beschreibenden Text bereit. Dazu gehören SVG-Bilder, {{htmlelement("img")}}, {{htmlelement("canvas")}}, {{htmlelement("map")}} und {{htmlelement("area")}}-Elemente sowie {{htmlelement("input")}}-Elemente, bei denen `type=image` und {{htmlelement("object")}}-Elemente, bei denen der `type` mit `image/` beginnt. Der typische Weg, dies zu tun, ist mit dem `alt`-Attribut. Stellen Sie sicher, dass die Beschreibung vermittelt, was im Bild gezeigt wird.
+Stellen Sie beschreibenden Text für alle inhaltlichen (d. h. nicht dekorativen) Bilder und bildähnlichen Elemente bereit. Dies schließt SVG-Bilder, {{htmlelement("img")}}, {{htmlelement("canvas")}}, {{htmlelement("map")}} und {{htmlelement("area")}}-Elemente ein sowie {{htmlelement("input")}}-Elemente, bei denen `type=image` und {{htmlelement("object")}}-Elemente, bei denen der `type` mit `image/` beginnt. Die typische Methode hierfür ist das `alt`-Attribut. Stellen Sie sicher, dass die Beschreibung vermittelt, was im Bild gezeigt wird.
 
 ### Beispiel
 
@@ -241,15 +241,15 @@ Stellen Sie für alle inhaltsreichen (das heißt nicht dekorativen) Bilder und b
 
 ## Interaktive Elemente müssen beschriftet werden
 
-Wenn ein Element dazu gedacht ist, dass Benutzer damit interagieren, sollte es ein Label haben. Zu den interaktiven Elementen gehören Links ({{htmlelement("a")}}), Formularelemente, Schaltflächen und jedes Element, das einen Handler für Maus- oder Tastaturereignisse hat. Die Art und Weise, wie ein Element beschriftet wird, hängt von seinem Typ ab: Für Formularelemente verwenden Sie ein {{htmlelement("label")}}; für Links, Schaltflächen und klickbare Elemente bietet normalerweise der Textinhalt des Elements das Label. Wenn keine andere Option zur Beschriftung eines Elements besteht, verwenden Sie das [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) Attribut.
+Wenn ein Element für Benutzer gedacht ist, damit sie es nutzen, sollte es ein Label haben. Interaktive Elemente umfassen Links ({{htmlelement("a")}}), Formularelemente, Schaltflächen und alle Elemente, die einen Handler für Maus- oder Tastaturereignisse haben. Die Art der Beschriftung eines Elements hängt von seinem Typ ab: Für Formularelemente verwenden Sie ein {{htmlelement("label")}}; für Links, Schaltflächen und klickbare Elemente liefert typischerweise der Textinhalt des Elements das Label. Wenn keine andere Option existiert, um ein Element zu kennzeichnen, verwenden Sie das Attribut [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label).
 
-## Verwenden Sie das label-Attribut bei optgroup-Elementen
+## Verwenden Sie das Label-Attribut bei Optgroup-Elementen
 
-Verwenden Sie in einem {{htmlelement("optgroup")}}-Element das `label`-Attribut, um die Gruppe zu beschreiben, damit unterstützende Technologien darauf für ihre Benutzer zugreifen können.
+Verwenden Sie in einem {{htmlelement("optgroup")}}-Element das `label`-Attribut, um die Gruppe zu beschreiben, damit unterstützende Technologien darauf für ihre Nutzer zugreifen können.
 
 ### Beispiel
 
-In diesem Beispiel gibt das `label`-Attribut innerhalb der {{HTMLElement('optgroup')}}-Elemente einen Kategorienamen für die Optionsgruppe an.
+In diesem Beispiel gibt das `label`-Attribut an den {{HTMLElement('optgroup')}}-Elementen einen Kategorienamen für die Gruppe der Optionen.
 
 ```html
 <label for="dino-select">Choose a dinosaur:</label>
@@ -269,17 +269,17 @@ In diesem Beispiel gibt das `label`-Attribut innerhalb der {{HTMLElement('optgro
 
 ## Symbolleisten müssen beschriftet werden, wenn es mehr als eine Symbolleiste gibt
 
-Wenn Sie in einer Webanwendung mehr als eine Symbolleiste mit der ARIA `toolbar`-Rolle definieren, müssen Sie das [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) Attribut verwenden, um jede zu beschriften, damit sie von unterstützenden Technologien beschrieben werden können. Es ist eine gute Praxis, eine Symbolleiste zu beschriften, auch wenn es nur eine pro Seite gibt.
+Wenn Sie mehr als eine Symbolleiste in einer Webanwendung mit der ARIA `toolbar`-Rolle definieren, müssen Sie das Attribut [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) verwenden, um jede zu beschriften, sodass sie von unterstützenden Technologien beschrieben werden kann. Es ist eine gute Praxis, eine Symbolleiste zu beschriften, auch wenn nur eine pro Seite vorhanden ist.
 
 ### Siehe auch
 
-- [W3C ARIA Toolbar-Beispiel](https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/)
+- [W3C ARIA-Symbolleistenbeispiel](https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/)
 
 ## Verwandte WCAG-Erfolgskriterien
 
 - [1.1.1 Nicht-Text-Inhalt (A)](https://www.w3.org/TR/WCAG21/#non-text-content)
-  - : Alle nicht-textlichen Inhalte, die dem Benutzer präsentiert werden, haben eine Textalternative, die denselben Zweck erfüllt, außer in den oben aufgeführten Situationen.
-- [2.4.4 Link-Zweck (Im Kontext) (A)](https://www.w3.org/TR/WCAG21/#link-purpose-in-context)
-  - : Der Zweck jedes Links kann aus dem Linktext allein oder aus dem Linktext zusammen mit seinem programmatisch bestimmten Linkkontext ermittelt werden, es sei denn, der Zweck des Links wäre allgemein für Benutzer uneindeutig.
-- [2.4.9 Link-Zweck (Nur Link) (AAA)](https://www.w3.org/TR/WCAG21/#link-purpose-link-only)
-  - : Es ist ein Mechanismus verfügbar, um den Zweck jedes Links allein aus dem Linktext bestimmen zu können, es sei denn, der Zweck des Links wäre allgemein für Benutzer uneindeutig.
+  - : Alle nicht-textuellen Inhalte, die dem Benutzer präsentiert werden, haben ein textliches Äquivalent, das denselben Zweck erfüllt, außer den in dem obigen Link aufgelisteten Situationen.
+- [2.4.4 Linkzweck (im Kontext) (A)](https://www.w3.org/TR/WCAG21/#link-purpose-in-context)
+  - : Der Zweck jedes Links kann allein aus dem Linktext oder in Verbindung mit dem programmatisch ermittelbaren Link-Kontext bestimmt werden, außer dort, wo der Zweck des Links für Nutzer im Allgemeinen mehrdeutig wäre.
+- [2.4.9 Linkzweck (nur Link) (AAA)](https://www.w3.org/TR/WCAG21/#link-purpose-link-only)
+  - : Es steht ein Mechanismus zur Verfügung, der es ermöglicht, den Zweck jedes Links anhand des Linktexts allein zu identifizieren, außer wenn der Zweck des Links allgemein für Nutzer mehrdeutig wäre.

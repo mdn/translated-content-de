@@ -2,39 +2,39 @@
 title: aria-multiline
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-multiline
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 8941e7636bfc91985ca5a486e7228b681e1aa272
 ---
 
-Das Attribut `aria-multiline` gibt an, ob ein `textbox` mehrere Zeilen Eingaben akzeptiert oder nur eine einzelne Zeile.
+Das `aria-multiline` Attribut gibt an, ob ein `textbox` mehrere Zeilen Eingabe akzeptiert oder nur eine einzelne Zeile.
 
 ## Beschreibung
 
-Das Standardverhalten der <kbd>Enter</kbd>- oder <kbd>Return</kbd>-Taste unterscheidet sich zwischen einzeiligen und mehrzeiligen Textfeldern. Wenn der Benutzerfokus auf einem einzeiligen `{{htmlelement("input/text", '&lt;input type="text"&gt;')}}` liegt, führt ein <kbd>Enter</kbd>- oder <kbd>Return</kbd>-Tastendruck normalerweise dazu, dass das Formular übermittelt wird.
+Das Standardverhalten der Tasten <kbd>Enter</kbd> oder <kbd>Return</kbd> unterscheidet sich zwischen einzeiligen und mehrzeiligen Textfeldern. Wenn der Benutzerfokus in einem einzeiligen `{{htmlelement("input/text", '&lt;input type="text"&gt;')}}` liegt, führt ein Tastendruck auf <kbd>Enter</kbd> oder <kbd>Return</kbd> normalerweise dazu, dass das Formular gesendet wird.
 
-Wenn der Benutzerfokus auf einem mehrzeiligen {{HTMLElement('textarea')}} liegt, fügt der Tastendruck einen Zeilenumbruch ein. Nur relevant für Elemente, die die Rolle [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role) gesetzt haben, gibt das Attribut `aria-multiline` assistiven Technologien an, ob das Textfeld mehrere Zeilen Eingaben akzeptiert oder nur eine einzelne Zeile, wodurch Erwartungen darüber gesetzt werden, welche Art von Daten einzugeben sind und was diese Tastenanschläge bewirken.
+Wenn der Benutzerfokus in einem mehrzeiligen {{HTMLElement('textarea')}} liegt, fügt der Tastendruck einen Zeilenumbruch ein. Nur relevant für Elemente mit der gesetzten Rolle [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role), zeigt das `aria-multiline` Attribut unterstützenden Technologien an, ob dieses Textfeld mehrere Zeilen Eingabe akzeptiert oder nur eine einzelne Zeile. Dies setzt Erwartungen in Bezug auf die Art der einzugebenden Daten und das Verhalten bei Tastendrücken.
 
 > [!NOTE]
-> Wo möglich, verwenden Sie das HTML {{HTMLElement('input')}} oder die {{HTMLElement('textarea')}}, da diese eingebaute Semantik und Verhaltensweisen haben, keine ARIA-Attribute oder Skripte erfordern und über eine eingebaute Tastaturunterstützung verfügen.
+> Wenn möglich, verwenden Sie das HTML {{HTMLElement('input')}} oder das {{HTMLElement('textarea')}}, da diese integrierte Semantik und Verhaltensweisen haben, keine ARIA-Attribute oder Skripte erfordern und die Tastaturunterstützung eingebaut ist.
 
-Wenn `aria-multiline="true"` gesetzt ist, bedeutet dies, dass das Textfeld-Widget Zeilenumbrüche innerhalb der Eingabe akzeptiert, ähnlich wie das HTML {{HTMLElement('textarea')}}. Elemente mit der Rolle `textbox`, die das Attribut nicht haben oder deren Wert auf `false` gesetzt ist, sind einfache Textfelder.
+Wenn `aria-multiline="true"` gesetzt ist, bedeutet dies, dass das Textfeld-Widget Zeilenumbrüche innerhalb der Eingabe akzeptiert, ähnlich dem HTML {{HTMLElement('textarea')}}. Elemente mit der Rolle `textbox`, die das Attribut nicht haben oder deren Wert auf `false` gesetzt ist, sind einfache Textfelder.
 
-Seien Sie sich über Fokus und Tastenanschläge beim Entwerfen von Textfeldern bewusst. ARIA modifiziert nur den Accessibility-Baum und damit, wie assistive Technologie das Textfeld den Benutzern präsentiert. ARIA ändert nichts an der Standardfunktion oder dem Verhalten eines Elements. Wenn Sie keine semantischen HTML-Elemente für deren vorgesehenen Zweck und Standardfunktionalität verwenden, müssen Sie JavaScript verwenden, um das Verhalten und die Funktionalität zu verwalten, einschließlich der Reaktion auf Tastenanschlagsereignisse.
+Beachten Sie den Fokus und die Tastenanschläge beim Entwerfen von Textfeldern. ARIA ändert nur den Barrierefreiheitsbaum und damit, wie unterstützende Technologie das Textfeld Ihren Benutzern präsentiert. ARIA ändert nichts an der Standardfunktion oder dem Standardverhalten eines Elements. Wenn Sie keine semantischen HTML-Elemente für ihren vorgesehenen Zweck und die Standardfunktionen verwenden, müssen Sie JavaScript verwenden, um Verhalten und Funktionalität zu steuern, einschließlich der Reaktion auf Tastendruck-Ereignisse.
 
 ## Werte
 
 - `true`
 
-  - : Das Textfeld akzeptiert mehrere Zeilen Eingaben.
+  - : Das Textfeld akzeptiert mehrere Zeilen Eingabe.
 
 - `false`
-  - : Das Textfeld akzeptiert nur eine einzelne Zeile Eingaben.
+  - : Das Textfeld akzeptiert nur eine einzelne Zeile Eingabe.
 
 ## Zugehörige Schnittstellen
 
 - [`Element.ariaMultiLine`](/de/docs/Web/API/Element/ariaMultiLine)
-  - : Die [`ariaMultiLine`](/de/docs/Web/API/Element/ariaMultiLine)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des Attributs `aria-multiline` wider.
+  - : Die [`ariaMultiLine`](/de/docs/Web/API/Element/ariaMultiLine) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-multiline` Attributs wider.
 - [`ElementInternals.ariaMultiLine`](/de/docs/Web/API/ElementInternals/ariaMultiLine)
-  - : Die [`ariaMultiLine`](/de/docs/Web/API/ElementInternals/ariaMultiLine)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des Attributs `aria-multiline` wider.
+  - : Die [`ariaMultiLine`](/de/docs/Web/API/ElementInternals/ariaMultiLine) Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-multiline` Attributs wider.
 
 ## Zugehörige Rollen
 
@@ -42,7 +42,7 @@ Verwendet in Rollen:
 
 - [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role)
 
-Erbt in Rollen:
+Vererbt in Rollen:
 
 - [`searchbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role)
 
@@ -52,5 +52,5 @@ Erbt in Rollen:
 
 ## Siehe auch
 
-- ARIA [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role)-Rolle
-- ARIA [`searchbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role)-Rolle
+- ARIA [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role) Rolle
+- ARIA [`searchbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role) Rolle

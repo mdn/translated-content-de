@@ -1,29 +1,29 @@
 ---
-title: Standard-Metadaten-Namen
+title: Standardmetadaten-Namen
 slug: Web/HTML/Element/meta/name
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: c9dfe0dcc81a7414922637600bf318156bf83387
 ---
 
 {{HTMLSidebar}}
 
-Das {{htmlelement("meta")}}-Element kann verwendet werden, um Dokument-Metadaten in Form von Name-Wert-Paaren bereitzustellen, wobei das [`name`](/de/docs/Web/HTML/Element/meta#name)-Attribut den Metadaten-Namen und das [`content`](/de/docs/Web/HTML/Element/meta#content)-Attribut den Wert angibt.
+Das {{htmlelement("meta")}}-Element kann verwendet werden, um Dokumentmetadaten in Form von Name-Wert-Paaren bereitzustellen, wobei das [`name`](/de/docs/Web/HTML/Element/meta#name)-Attribut den Metadaten-Namen und das [`content`](/de/docs/Web/HTML/Element/meta#content)-Attribut den Wert angibt.
 
-### Standard-Metadaten-Namen, die in der HTML-Spezifikation definiert sind
+### Im HTML-Standard definierte Standardmetadaten-Namen
 
-Die HTML-Spezifikation definiert den folgenden Satz von Standard-Metadaten-Namen:
+Der HTML-Standard definiert die folgenden Standardmetadaten-Namen:
 
 - `application-name`: der Name der Anwendung, die auf der Webseite läuft.
 
   > [!NOTE]
   >
-  > - Browser können dies verwenden, um die Anwendung zu identifizieren. Es unterscheidet sich vom {{HTMLElement("title")}}-Element, das normalerweise den Anwendungsnamen enthält, aber auch Informationen wie den Dokumentennamen oder einen Status enthalten kann.
-  > - Einfache Webseiten sollten keinen Anwendung-Namen definieren.
+  > - Browser können dies verwenden, um die Anwendung zu identifizieren. Es ist unterschiedlich zum {{HTMLElement("title")}}-Element, das normalerweise den Anwendungsnamen enthält, aber auch Informationen wie den Dokumentnamen oder einen Status enthalten kann.
+  > - Einzelne Webseiten sollten keinen `application-name` definieren.
 
 - `author`: der Name des Autors des Dokuments.
-- `description`: eine kurze und präzise Zusammenfassung des Inhalts der Seite. Suchmaschinen wie [Google](https://developers.google.com/search/docs/appearance/snippet#meta-descriptions) können dieses Feld verwenden, um das Erscheinungsbild der Webseite in den Suchergebnissen zu steuern.
-- `generator`: der Identifikator der Software, die die Seite generiert hat.
-- `keywords`: für den Inhalt der Seite relevante Wörter, getrennt durch Kommas.
+- `description`: eine kurze und genaue Zusammenfassung des Seiteninhalts. Suchmaschinen wie [Google](https://developers.google.com/search/docs/appearance/snippet#meta-descriptions) können dieses Feld verwenden, um das Erscheinungsbild der Webseite in den Suchergebnissen zu steuern.
+- `generator`: die Kennung der Software, die die Seite erzeugt hat.
+- `keywords`: für den Seiteninhalt relevante Wörter, getrennt durch Kommas.
 - `referrer`: steuert den HTTP-{{httpheader("Referer")}}-Header von Anfragen, die vom Dokument gesendet werden:
 
   <table class="standard-table">
@@ -36,55 +36,58 @@ Die HTML-Spezifikation definiert den folgenden Satz von Standard-Metadaten-Namen
     <tbody>
       <tr>
         <td><code>no-referrer</code></td>
-        <td>Keinen HTTP-{{httpheader("Referer")}}-Header senden.</td>
+        <td>
+          Sendet keinen HTTP-{{httpheader("Referer")}}-Header.
+        </td>
       </tr>
       <tr>
         <td><code>origin</code></td>
-        <td>Die {{Glossary("origin", "Herkunft")}} des Dokuments senden.</td>
+        <td>Sendet den {{Glossary("origin", "origin")}} des Dokuments.</td>
       </tr>
       <tr>
         <td><code>no-referrer-when-downgrade</code></td>
         <td>
-          Die volle URL senden, wenn das Ziel mindestens so sicher ist wie die
-          aktuelle Seite (HTTP(S)→HTTPS), aber keinen Referrer senden, wenn es weniger sicher ist
-          (HTTPS→HTTP). Dies ist das Standardverhalten.
+          Sendet die vollständige URL, wenn das Ziel mindestens genauso sicher ist
+          wie die aktuelle Seite (HTTP(S)→HTTPS), sendet jedoch keinen Referrer,
+          wenn es weniger sicher ist (HTTPS→HTTP). Dies ist das Standardverhalten.
         </td>
       </tr>
       <tr>
         <td><code>origin-when-cross-origin</code></td>
         <td>
-          Die volle URL (ohne Parameter) für gleichoriginäre Anfragen senden, aber
-          nur die Herkunft für andere Fälle senden.
+          Sendet die vollständige URL (ohne Parameter) für Anfragen mit gleicher
+          Herkunft, sendet jedoch nur den Ursprung in anderen Fällen.
         </td>
       </tr>
       <tr>
         <td><code>same-origin</code></td>
         <td>
-          Die volle URL (ohne Parameter) für gleichoriginäre Anfragen senden.
-          Fremdherkunft-Anfragen werden keinen Referrer-Header enthalten.
+          Sendet die vollständige URL (ohne Parameter) für Anfragen mit gleicher
+          Herkunft. Fremde Herkunftsanfragen enthalten keinen Referrer-Header.
         </td>
       </tr>
       <tr>
         <td><code>strict-origin</code></td>
         <td>
-          Die Herkunft senden, wenn das Ziel mindestens so sicher ist wie die
-          aktuelle Seite (HTTP(S)→HTTPS), aber keinen Referrer senden, wenn es weniger sicher ist
-          (HTTPS→HTTP).
+          Sendet den Ursprung, wenn das Ziel mindestens genauso sicher ist wie die
+          aktuelle Seite (HTTP(S)→HTTPS), sendet jedoch keinen Referrer, wenn es
+          weniger sicher ist (HTTPS→HTTP).
         </td>
       </tr>
       <tr>
         <td><code>strict-origin-when-cross-origin</code></td>
         <td>
-          Die volle URL (ohne Parameter) für gleichoriginäre Anfragen senden.
-          Die Herkunft senden, wenn das Ziel mindestens so sicher ist wie die
-          aktuelle Seite (HTTP(S)→HTTPS). Andernfalls keinen Referrer senden.
+          Sendet die vollständige URL (ohne Parameter) für Anfragen mit gleicher
+          Herkunft. Sendet den Ursprung, wenn das Ziel mindestens genauso sicher ist
+          wie die aktuelle Seite (HTTP(S)→HTTPS). Andernfalls wird kein Referrer
+          gesendet.
         </td>
       </tr>
       <tr>
         <td><code>unsafe-URL</code></td>
         <td>
-          Die volle URL (ohne Parameter) für gleichoriginäre oder
-          fremdherkunft-Anfragen senden.
+          Sendet die vollständige URL (ohne Parameter) für Anfragen mit gleicher
+          oder fremder Herkunft.
         </td>
       </tr>
     </tbody>
@@ -93,35 +96,35 @@ Die HTML-Spezifikation definiert den folgenden Satz von Standard-Metadaten-Namen
   > [!NOTE]
   >
   > - Das dynamische Einfügen von `<meta name="referrer">` (mit [`document.write()`](/de/docs/Web/API/Document/write) oder [`appendChild()`](/de/docs/Web/API/Node/appendChild)) macht das Referrer-Verhalten unvorhersehbar.
-  > - Wenn mehrere widersprüchliche Richtlinien definiert sind, wird die `no-referrer`-Richtlinie angewendet.
+  > - Wenn mehrere widersprüchliche Richtlinien definiert sind, wird die `no-referrer`-Richtlinie angewandt.
 
-- [`theme-color`](/de/docs/Web/HTML/Element/meta/name/theme-color): gibt eine vorgeschlagene Farbe an, die Benutzeragenten verwenden sollten, um das Erscheinungsbild der Seite oder der umgebenden Benutzeroberfläche anzupassen. Das `content`-Attribut enthält eine gültige CSS-{{cssxref("&lt;color&gt;")}}. Das `media`-Attribut mit einer gültigen Media-Query-Liste kann aufgenommen werden, um festzulegen, auf welche Medien die Metadaten der Themenfarbe angewendet werden.
-- <a id="color-scheme" href="#color-scheme">`color-scheme`</a>: gibt eine oder mehrere Farbschemata an, mit denen das Dokument kompatibel ist.
+- [`theme-color`](/de/docs/Web/HTML/Element/meta/name/theme-color): gibt eine vorgeschlagene Farbe an, die Benutzeragenten verwenden sollten, um die Anzeige der Seite oder der umgebenden Benutzeroberfläche anzupassen. Das `content`-Attribut enthält einen gültigen CSS {{cssxref("&lt;color&gt;")}}. Das `media`-Attribut mit einer gültigen Medienabfragenliste kann eingeschlossen werden, um das Medium festzulegen, auf das sich die Metadaten zur Themafarbe beziehen.
+- <a id="color-scheme" href="#color-scheme">`color-scheme`</a>: gibt ein oder mehrere Farbdesigns an, mit denen das Dokument kompatibel ist.
 
-  Der Browser verwendet diese Information in Verbindung mit den Einstellungen des Browsers oder Geräts des Benutzers, um zu bestimmen, welche Farben für alles von Hintergründen und Vordergründen bis zu Formularelementen und Scrollbars verwendet werden sollen. Die Hauptverwendung von `<meta name="color-scheme">` ist die Angabe der Kompatibilität mit und der Präferenzreihenfolge für helle und dunkle Farbmodi.
+  Der Browser verwendet diese Informationen zusammen mit den Browser- oder Geräteeinstellungen des Benutzers, um zu bestimmen, welche Farben für alles verwendet werden, von Hintergründen und Vordergründen bis hin zu Formsteuerungen und Bildlaufleisten. Der Hauptzweck von `<meta name="color-scheme">` besteht darin, die Kompatibilität mit und die Präferenzreihenfolge für helle und dunkle Farbmodi anzugeben.
 
-  Der Wert der [`content`](/de/docs/Web/HTML/Element/meta#content)-Eigenschaft für `color-scheme` kann einer der folgenden sein:
+  Der Wert der `content`-Eigenschaft für `color-scheme` kann einer der folgenden sein:
 
   - `normal`
-    - : Das Dokument ist sich seiner Farbschemata nicht bewusst und sollte mit der Standardfarbenpalette gerendert werden.
+    - : Das Dokument kennt keine Farbdesigns und sollte mit der Standardfarbpalette gerendert werden.
   - `light`, `dark`, `light dark`, `dark light`
-    - : Ein oder mehrere vom Dokument unterstützte Farbschemata. Das gleiche Farbschema mehr als einmal anzugeben, hat denselben Effekt, als hätte man es nur einmal angegeben. Mehrere Farbschemata anzugeben bedeutet, dass das erste Schema vom Dokument bevorzugt wird, aber dass das zweite angegebene Schema akzeptabel ist, falls der Benutzer es bevorzugt.
+    - : Ein oder mehrere vom Dokument unterstützte Farbdesigns. Ein Farbdesign mehrmals anzugeben, hat den gleichen Effekt, als würde es nur einmal angegeben. Mehrere Farbdesigns anzugeben, bedeutet, dass das erste Design vom Dokument bevorzugt wird, aber dass das zweite angegebene Design akzeptabel ist, wenn der Benutzer es bevorzugt.
   - `only light`
-    - : Gibt an, dass das Dokument _nur_ den hellen Modus unterstützt, mit einem hellen Hintergrund und dunklen Vordergrundfarben. Laut Spezifikation ist `only dark` _nicht gültig_, da das Erzwingen eines Dokuments, im dunklen Modus zu rendern, wenn es nicht wirklich kompatibel damit ist, zu unlesbarem Inhalt führen kann; alle großen Browser verwenden standardmäßig den hellen Modus, wenn nicht anders konfiguriert.
+    - : Gibt an, dass das Dokument _nur_ den Lichtmodus unterstützt, mit einem hellen Hintergrund und dunklen Vordergrundfarben. Laut Spezifikation ist `only dark` _nicht gültig_, da die erzwungene Darstellung eines Dokuments im Dunkelmodus, wenn es nicht wirklich damit kompatibel ist, zu unlesbarem Inhalt führen kann; alle großen Browser arbeiten standardmäßig im Lichtmodus, wenn nicht anders konfiguriert.
 
-  Zum Beispiel, um anzuzeigen, dass ein Dokument den dunklen Modus bevorzugt, aber auch im hellen Modus funktional gerendert wird:
+  Zum Beispiel, um anzugeben, dass ein Dokument den Dunkelmodus bevorzugt, aber auch im Lichtmodus funktionell gerendert wird:
 
   ```html
   <meta name="color-scheme" content="dark light" />
   ```
 
-  Dies funktioniert auf Dokumentebene genauso wie die CSS-{{cssxref("color-scheme")}}-Eigenschaft es einzelnen Elementen ermöglicht, ihre bevorzugten und akzeptierten Farbschemata anzugeben. Ihre Styles können sich an das aktuelle Farbschema anpassen, indem die {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}-CSS-Media-Funktion verwendet wird.
+  Dies funktioniert auf Dokumentebene auf dieselbe Weise, wie die CSS-{{cssxref("color-scheme")}}-Eigenschaft es einzelnen Elementen ermöglicht, ihre bevorzugten und akzeptierten Farbdesigns anzugeben. Ihre Stile können sich dem aktuellen Farbschema mit dem CSS-Medienmerkmal {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}} anpassen.
 
-### Standard-Metadaten-Namen, die in anderen Spezifikationen definiert sind
+### Standardmetadaten-Namen, die in anderen Spezifikationen definiert sind
 
-Die CSS Device Adaptation-Spezifikation definiert den folgenden Metadaten-Namen:
+Die CSS Device Adaptation-Spezifikation definiert den folgenden Metadatennamen:
 
-- `viewport`: gibt Hinweise zur Größe der Anfangsgröße des {{Glossary("viewport", "Ansichtsfensters")}}.
+- `viewport`: gibt Hinweise zur Größe der Anfangsgröße des {{Glossary("viewport", "Sichtfelds")}}.
 
   <table class="fullwidth-table">
     <caption>
@@ -140,31 +143,32 @@ Die CSS Device Adaptation-Spezifikation definiert den folgenden Metadaten-Namen:
         <td><code>width</code></td>
         <td>Eine positive ganze Zahl oder der Text <code>device-width</code></td>
         <td>
-          Definiert die Pixelbreite des Ansichtsfensters, bei der Sie möchten,
-          dass die Webseite gerendert wird.
+          Definiert die Pixelbreite des Sichtfelds, bei der Sie möchten, dass die
+          Website gerendert wird.
         </td>
       </tr>
       <tr>
         <td><code>height</code></td>
         <td>Eine positive ganze Zahl oder der Text <code>device-height</code></td>
-        <td>Definiert die Höhe des Ansichtsfensters. Wird von keinem Browser verwendet.</td>
+        <td>Definiert die Höhe des Sichtfelds. Wird von keinem Browser verwendet.</td>
       </tr>
       <tr>
         <td><code>initial-scale</code></td>
         <td>Eine positive Zahl zwischen <code>0.0</code> und <code>10.0</code></td>
         <td>
-          Definiert das Verhältnis zwischen der Gerätebreite (<code>device-width</code> im
-          Hochformat oder <code>device-height</code> im Querformat) und der
-          Ansichtsfenstergröße.
+          Definiert das Verhältnis zwischen der Gerätebreite (<code>device-width</code>
+          im Hochformat oder <code>device-height</code> im Querformat) und der
+          Größe des Sichtfelds.
         </td>
       </tr>
       <tr>
         <td><code>maximum-scale</code></td>
         <td>Eine positive Zahl zwischen <code>0.0</code> und <code>10.0</code></td>
         <td>
-          Definiert den maximalen Zoomfaktor. Er muss größer oder gleich dem
-          <code>minimum-scale</code> sein, sonst ist das Verhalten nicht definiert.
-          Browsereinstellungen können diese Regel ignorieren und iOS10+ ignoriert sie standardmäßig.
+          Definiert das maximale Vergrößerungsverhältnis. Es muss größer oder gleich
+          dem <code>minimum-scale</code> sein, ansonsten ist das Verhalten undefiniert.
+          Browsereinstellungen können diese Regel ignorieren und iOS10+ ignoriert
+          sie standardmäßig.
         </td>
       </tr>
       <tr>
@@ -172,17 +176,18 @@ Die CSS Device Adaptation-Spezifikation definiert den folgenden Metadaten-Namen:
         <td>Eine positive Zahl zwischen <code>0.0</code> und <code>10.0</code></td>
         <td>
           Definiert das minimale Zoomniveau. Es muss kleiner oder gleich dem
-          <code>maximum-scale</code> sein, sonst ist das Verhalten nicht definiert.
-          Browsereinstellungen können diese Regel ignorieren und iOS10+ ignoriert sie standardmäßig.
+          <code>maximum-scale</code> sein, ansonsten ist das Verhalten undefiniert.
+          Browsereinstellungen können diese Regel ignorieren und iOS10+ ignoriert
+          sie standardmäßig.
         </td>
       </tr>
       <tr>
         <td><code>user-scalable</code></td>
         <td><code>yes</code> oder <code>no</code></td>
         <td>
-          Wenn auf <code>no</code> gesetzt, kann der Benutzer nicht in die Webseite hineinzoomen.
-          Die Standardeinstellung ist <code>yes</code>. Browsereinstellungen können diese Regel
-          ignorieren, und iOS10+ ignoriert sie standardmäßig.
+          Wenn auf <code>no</code> gesetzt, kann der Benutzer nicht in die Webseite
+          hineinzoomen. Der Standardwert ist <code>yes</code>. Browsereinstellungen
+          können diese Regel ignorieren, und iOS10+ ignoriert sie standardmäßig.
         </td>
       </tr>
       <tr>
@@ -190,19 +195,20 @@ Die CSS Device Adaptation-Spezifikation definiert den folgenden Metadaten-Namen:
         <td><code>auto</code>, <code>contain</code> oder <code>cover</code></td>
         <td>
           <p>
-            Der Wert <code>auto</code> beeinflusst das anfängliche Layout-
-            Ansichtsfenster nicht, und die gesamte Webseite wird angezeigt.
+            Der Wert <code>auto</code> beeinflusst das anfängliche Layout-Sichtfeld
+            nicht, und die gesamte Webseite ist sichtbar.
           </p>
           <p>
-            Der Wert <code>contain</code> bedeutet, dass das Ansichtsfenster auf
-            das größte in das Display eingeschriebene Rechteck skaliert wird.
+            Der Wert <code>contain</code> bedeutet, dass das Sichtfeld so skaliert
+            wird, dass es das größte innerhalb des Displays eingeschriebene Rechteck
+            einfügt.
           </p>
           <p>
-            Der Wert <code>cover</code> bedeutet, dass das Ansichtsfenster skaliert wird,
-            um das Display des Geräts auszufüllen. Es wird dringend empfohlen,
-            die <a href="/de/docs/Web/CSS/env">sicheren Bereich</a> Variablen
-            zu verwenden, um sicherzustellen, dass wichtiger Inhalt nicht außerhalb
-            des Displays endet.
+            Der Wert <code>cover</code> bedeutet, dass das Sichtfeld skaliert wird,
+            um das Anzeigegerät auszufüllen. Es wird dringend empfohlen, die
+            Variablen für den <a href="/de/docs/Web/CSS/env">sicheren Bereich</a>
+            zu verwenden, um sicherzustellen, dass wichtige Inhalte nicht außerhalb
+            der Anzeige landen.
           </p>
         </td>
       </tr>
@@ -211,47 +217,47 @@ Die CSS Device Adaptation-Spezifikation definiert den folgenden Metadaten-Namen:
 
   > [!WARNING]
   >
-  > Wenn Sie die Zoomfähigkeiten deaktivieren, indem Sie `user-scalable` auf einen Wert von `no` setzen, verhindern Sie, dass Menschen mit Sehbehinderungen in der Lage sind, den Seiteninhalt zu lesen und zu verstehen.
+  > Das Deaktivieren der Zoom-Funktionen durch Einstellen von `user-scalable` auf einen Wert von `no` verhindert, dass Menschen mit Sehbehinderungen den Seiteninhalt lesen und verstehen können.
   >
-  > - [MDN Verstehen WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-  > - [Verstehen des Erfolgskriteriums 1.4.4 | W3C Verstehen WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+  > - [MDN erklärt WCAG, Richtlinie 1.4-Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+  > - [Erläuterung des Erfolgskriteriums 1.4.4 | W3C erklärt WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ### Andere Metadaten-Namen
 
 #### Namen, die im WHATWG MetaExtensions-Wiki definiert sind
 
-Die [WHATWG Wiki MetaExtensions-Seite](https://wiki.whatwg.org/wiki/MetaExtensions) enthält eine große Menge an nicht standardisierten Metadaten-Namen, die noch nicht formell akzeptiert wurden; jedoch sind einige der dort enthaltenen Namen bereits recht gebräuchlich in der Praxis – einschließlich der folgenden:
+Die [WHATWG Wiki MetaExtensions Seite](https://wiki.whatwg.org/wiki/MetaExtensions) enthält eine große Anzahl nicht-standardmäßiger Metadaten-Namen, die bisher nicht formell angenommen wurden; jedoch werden einige der dort enthaltenen Namen bereits häufig in der Praxis verwendet – einschließlich der folgenden:
 
-- `creator`: der Name des Erstellers des Dokuments, wie z.B. eine Organisation oder Institution. Wenn es mehrere gibt, sollten mehrere {{HTMLElement("meta")}}-Elemente verwendet werden.
-- `googlebot`, ein Synonym für `robots`, wird nur vom Googlebot (dem Indexierungssystem für Google) befolgt.
-- `publisher`: der Name des Herausgebers des Dokuments.
-- `robots`: das Verhalten, das kooperative Crawler oder "Robots" mit der Seite verwenden sollten. Es ist eine kommagetrennte Liste der folgenden Werte:
+- `creator`: der Name des Schöpfers des Dokuments, wie eine Organisation oder Institution. Wenn es mehrere gibt, sollten mehrere {{HTMLElement("meta")}}-Elemente verwendet werden.
+- `googlebot`, ein Synonym von `robots`, wird nur von Googlebot befolgt (dem Indexierungscrawler für Google).
+- `publisher`: der Name des Verlegers des Dokuments.
+- `robots`: das Verhalten, das kooperative Crawler oder "Roboter" mit der Seite verwenden sollten. Es ist eine kommagetrennte Liste der unten stehenden Werte:
 
-  | Wert           | Beschreibung                                                                                  | Verwendet von                                                                                                                                                                                                                                            |
-  | -------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | `index`        | Erlaubt dem Robot, die Seite zu indexieren (Standard).                                        | Alle                                                                                                                                                                                                                                                     |
-  | `noindex`      | Fordert den Robot auf, die Seite nicht zu indexieren.                                         | Alle                                                                                                                                                                                                                                                     |
-  | `follow`       | Erlaubt dem Robot, den Links auf der Seite zu folgen (Standard).                              | Alle                                                                                                                                                                                                                                                     |
-  | `nofollow`     | Fordert den Robot auf, den Links auf der Seite nicht zu folgen.                               | Alle                                                                                                                                                                                                                                                     |
-  | `all`          | Entspricht `index, follow`                                                                    | [Google](https://developers.google.com/search/docs/crawling-indexing/special-tags?visit_id=637855965067987211-415685194&rd=1)                                                                                                                            |
-  | `none`         | Entspricht `noindex, nofollow`                                                                | [Google](https://developers.google.com/search/docs/crawling-indexing/special-tags?visit_id=637855965074074862-574753619&rd=1)                                                                                                                            |
-  | `noarchive`    | Fordert die Suchmaschine auf, den Seiteninhalt nicht zwischenzuspeichern.                     | [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag), [Yahoo](https://help.yahoo.com/kb/search-for-desktop/SLN2213.html), [Bing](https://www.bing.com/webmasters/help/which-robots-metatags-does-bing-support-5198d240) |
-  | `nosnippet`    | Verhindert die Anzeige einer Beschreibung der Seite in den Suchergebnissen.                   | [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag), [Bing](https://www.bing.com/webmasters/help/which-robots-metatags-does-bing-support-5198d240)                                                                     |
-  | `noimageindex` | Fordert auf, dass diese Seite nicht als verweisende Seite eines indexierten Bildes erscheint. | [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag)                                                                                                                                                                    |
-  | `nocache`      | Synonym für `noarchive`.                                                                      | [Bing](https://www.bing.com/webmasters/help/which-robots-metatags-does-bing-support-5198d240)                                                                                                                                                            |
+  | Wert           | Beschreibung                                                                                           | Verwendet von                                                                                                                                                                                                                                            |
+  | -------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `index`        | Erlaubt dem Roboter, die Seite zu indexieren (Standard).                                               | Alle                                                                                                                                                                                                                                                     |
+  | `noindex`      | Fordert den Roboter auf, die Seite nicht zu indexieren.                                                | Alle                                                                                                                                                                                                                                                     |
+  | `follow`       | Erlaubt dem Roboter, den Links auf der Seite zu folgen (Standard).                                     | Alle                                                                                                                                                                                                                                                     |
+  | `nofollow`     | Fordert den Roboter auf, den Links auf der Seite nicht zu folgen.                                      | Alle                                                                                                                                                                                                                                                     |
+  | `all`          | Entspricht `index, follow`                                                                             | [Google](https://developers.google.com/search/docs/crawling-indexing/special-tags?visit_id=637855965067987211-415685194&rd=1)                                                                                                                            |
+  | `none`         | Entspricht `noindex, nofollow`                                                                         | [Google](https://developers.google.com/search/docs/crawling-indexing/special-tags?visit_id=637855965074074862-574753619&rd=1)                                                                                                                            |
+  | `noarchive`    | Fordert die Suchmaschine auf, den Seiteninhalt nicht zu cachen.                                        | [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag), [Yahoo](https://help.yahoo.com/kb/search-for-desktop/SLN2213.html), [Bing](https://www.bing.com/webmasters/help/which-robots-metatags-does-bing-support-5198d240) |
+  | `nosnippet`    | Verhindert die Anzeige einer Beschreibung der Seite in den Suchmaschinenergebnissen.                   | [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag), [Bing](https://www.bing.com/webmasters/help/which-robots-metatags-does-bing-support-5198d240)                                                                     |
+  | `noimageindex` | Fordert diese Seite auf, nicht als die verweisende Seite eines indizierten Bildes angezeigt zu werden. | [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag)                                                                                                                                                                    |
+  | `nocache`      | Synonym von `noarchive`.                                                                               | [Bing](https://www.bing.com/webmasters/help/which-robots-metatags-does-bing-support-5198d240)                                                                                                                                                            |
 
   > [!NOTE]
   >
-  > - Nur kooperative Robots befolgen diese Regeln. Erwarten Sie nicht, dass Sie E-Mail-Sammler damit aufhalten können.
-  > - Der Robot muss die Seite dennoch aufrufen, um diese Regeln zu lesen. Um den Bandbreitenverbrauch zu vermeiden, überlegen Sie, ob die Verwendung einer _{{Glossary("robots.txt", "robots.txt")}}_-Datei besser geeignet ist.
-  > - Das `<meta name="robots">`-Element und die `robots.txt`-Datei dienen unterschiedlichen Zwecken: `robots.txt` steuert das Crawlen von Seiten und beeinflusst nicht das Indexieren oder anderes durch `robots`-Meta kontrolliertes Verhalten. Eine Seite, die nicht gecrawlt werden kann, kann dennoch indexiert werden, wenn sie von einem anderen Dokument referenziert wird.
-  > - Wenn Sie eine Seite entfernen möchten, funktioniert `noindex`, aber nur, nachdem der Robot die Seite erneut besucht. Stellen Sie sicher, dass die `robots.txt`-Datei erneute Besuche nicht verhindert.
-  > - Einige Werte schließen sich gegenseitig aus, wie `index` und `noindex` oder `follow` und `nofollow`. In diesen Fällen ist das Verhalten des Robots nicht definiert und kann zwischen ihnen variieren.
-  > - Einige Crawler-Robots, wie Google, Yahoo und Bing, unterstützen dieselben Werte für den HTTP-Header {{HTTPHeader("X-Robots-Tag")}}; dies ermöglicht es nicht-HTML-Dokumenten wie Bildern, diese Regeln zu verwenden.
+  > - Nur kooperative Roboter befolgen diese Regeln. Erwarten Sie nicht, dass Sie E-Mail-Erntewerkzeuge damit verhindern können.
+  > - Der Roboter muss die Seite dennoch abrufen, um diese Regeln zu lesen. Um Bandbreitenverbrauch zu vermeiden, ziehen Sie in Betracht, ob die Verwendung einer _{{Glossary("robots.txt", "robots.txt")}}_-Datei geeigneter ist.
+  > - Das `<meta name="robots">`-Element und die `robots.txt`-Datei dienen unterschiedlichen Zwecken: `robots.txt` steuert das Crawlen von Seiten und beeinflusst nicht das Indexieren oder anderes Verhalten, das vom `robots`-Meta gesteuert wird. Eine Seite, die nicht gecrawlt werden kann, kann dennoch indiziert werden, wenn sie von einem anderen Dokument referenziert wird.
+  > - Wenn Sie eine Seite entfernen möchten, funktioniert `noindex`, aber erst nachdem der Roboter die Seite erneut besucht hat. Stellen Sie sicher, dass die `robots.txt`-Datei keine erneuten Besuche verhindert.
+  > - Einige Werte schließen sich gegenseitig aus, wie `index` und `noindex` oder `follow` und `nofollow`. In diesen Fällen ist das Verhalten des Roboters undefiniert und kann zwischen ihnen variieren.
+  > - Einige Crawler-Roboter, wie Google, Yahoo und Bing, unterstützen dieselben Werte für den HTTP-Header {{HTTPHeader("X-Robots-Tag")}}; dies ermöglicht es auch Nicht-HTML-Dokumenten wie Bildern, diese Regeln zu verwenden.
 
 #### Andere Namen
 
-- `application-title`: Wird verwendet, um die Titelleiste einer App für Webanwendungen anzupassen, die als eigenständige Apps auf unterstützenden Desktop-Betriebssystemen installiert sind. Während der Textinhalt des {{HTMLElement("title")}}-Elements normalerweise in den Browser-Tabs angezeigt wird, wenn die App in einem Browser läuft, kann der `application-title`-Metadatenname verwendet werden, um einen anderen Titel für die Anwendung festzulegen, wenn sie als eigenständig installierte App läuft.
+- `application-title`: Wird verwendet, um die Titelleiste einer App für Webanwendungen anzupassen, die als eigenständige Apps auf unterstützenden Desktop-Betriebssystemen installiert sind. Während der Textinhalt des {{HTMLElement("title")}}-Elements normalerweise in Browser-Tabs angezeigt wird, wenn die App in einem Browser ausgeführt wird, kann der Metadatenname `application-title` verwendet werden, um einen anderen Titel für die Anwendung festzulegen, wenn sie als eigenständig installierte App ausgeführt wird.
 
 ## Spezifikationen
 
