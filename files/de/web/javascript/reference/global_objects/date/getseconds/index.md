@@ -2,14 +2,14 @@
 title: Date.prototype.getSeconds()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getSeconds
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die Methode **`getSeconds()`** von {{jsxref("Date")}}-Instanzen gibt die Sekunden für dieses Datum gemäß der lokalen Zeit zurück.
+Die **`getSeconds()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Sekunden für dieses Datum gemäß lokaler Zeit zurück.
 
-{{InteractiveExample("JavaScript Demo: Date.getSeconds()", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.getSeconds()", "shorter")}}
 
 ```js interactive-example
 const moonLanding = new Date("July 20, 69 00:20:18");
@@ -30,7 +30,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine Ganzzahl zwischen 0 und 59, die die Sekunden für das angegebene Datum gemäß der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Ein Integer-Wert zwischen 0 und 59, der die Sekunden für das angegebene Datum gemäß lokaler Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 

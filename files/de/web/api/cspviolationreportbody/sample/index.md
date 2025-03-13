@@ -3,36 +3,38 @@ title: "CSPViolationReportBody: sample-Eigenschaft"
 short-title: sample
 slug: Web/API/CSPViolationReportBody/sample
 l10n:
-  sourceCommit: 51b1250b1d51c2e0837c4d59798457a1261eb2af
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Reporting API")}}
 
-Die **`sample`**-Eigenschaft der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle ist eine schreibgeschützte Zeichenkette, die einen Teil der Ressource enthält, die gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) verstoßen hat.
+Die **`sample`**-Eigenschaft, die nur lesbar ist, des [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Interfaces ist ein String, der einen Teil der Ressource enthält, die gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verstoßen hat.
 
-Dieses Beispiel ist in der Regel die ersten 40 Zeichen des Inline-Skripts, des Ereignishandlers oder des Stils, der gegen eine CSP-Einschränkung verstoßen hat. Wenn es nicht ausgefüllt ist, ist es die leere Zeichenkette `""`.
+Dieses Sample ist normalerweise die ersten 40 Zeichen des Inline-Skripts, des Ereignishandlers oder des Stils, der gegen eine CSP-Einschränkung verstoßen hat.
+Wenn es nicht gefüllt ist, ist es der leere String `""`.
 
-Beachten Sie, dass dies nur ausgefüllt wird, wenn versucht wird, _inline_ Skripte, Ereignishandler oder Stile zu laden, die gegen CSP-`script-src*` und `style-src*`-Regeln verstoßen — externe Ressourcen, die gegen die CSP verstoßen, erzeugen kein Beispiel. Zusätzlich wird ein Beispiel nur enthalten, wenn die `Content-Security-Policy`-Direktive, gegen die verstoßen wurde, auch das Schlüsselwort [`'report-sample'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#report-sample) enthält.
+Beachten Sie, dass dies nur dann gefüllt ist, wenn versucht wird, _inline_ Skripte, Ereignishandler oder Stile zu laden, die gegen CSP [`script-src*`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#script-src) und [`style-src*`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#style-src) Regeln verstoßen — externe Ressourcen, die gegen die CSP verstoßen, erzeugen kein Sample.
+Zusätzlich wird ein Sample nur dann eingeschlossen, wenn die verletzte `Content-Security-Policy`-Direktive auch das Schlüsselwort [`'report-sample'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#report-sample) enthält.
 
-> [!NOTE] Verstoßberichte sollten als angreifergesteuerte Daten betrachtet werden.
-> Der Inhalt dieses Feldes _insbesondere_ sollte vor dem Speichern oder Anzeigen bereinigt werden.
+> [!NOTE] Verstoßberichte sollten als angreiferkontrollierte Daten betrachtet werden.
+> Der Inhalt dieses Feldes _insbesondere_ sollte bereinigt werden, bevor er gespeichert oder gerendert wird.
 
 ## Wert
 
-Eine Zeichenkette, die ein Beispiel der Inline-Ressource enthält, die gegen die CSP verstoßen hat, in der Regel die ersten 40 Zeichen oder die leere Zeichenkette.
+Ein String, der ein Sample der Inline-Ressource enthält, die gegen die CSP verstoßen hat, normalerweise die ersten 40 Zeichen, oder der leere String.
 
 ## Beispiele
 
-### CSP Inline-Skript-Verstoß
+### CSP Inline-Skriptverletzung
 
-Dieses Beispiel löst einen CSP-Verstoß mit einem Inline-Skript aus und meldet den Verstoß mithilfe eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
-Wir fügen auch `'report-sample'` zur CSP hinzu, um ein `sample` im Body zu generieren.
+Dieses Beispiel führt zu einer CSP-Verletzung durch ein Inline-Skript und meldet die Verletzung mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
+Wir ergänzen die CSP um `'report-sample'`, um ein `sample` im Body zu erzeugen.
 
 #### HTML
 
-Die folgende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `script-src-elem` auf `self` zu setzen, was es erlaubt, Skripte von der gleichen Domain zu laden, aber keine Inline-Skripte auszuführen.
-Wir fügen `'report-sample'` der Direktive hinzu, damit ein Beispiel generiert wird.
-Das Dokument enthält auch ein Inline-Skript, das einen CSP-Verstoß auslösen sollte.
+Die HTML-Datei unten verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um das {{httpheader('Content-Security-Policy')}} `script-src-elem` auf `self` zu setzen, was bedeutet, dass Skripte von derselben Domain geladen werden können, aber keine Inline-Skripte ausgeführt werden dürfen.
+Wir fügen `'report-sample'` in die Direktive ein, damit ein Sample generiert wird.
+Das Dokument enthält auch ein Inline-Skript, das eine CSP-Verletzung auslösen sollte.
 
 ```html
 <!doctype html>
@@ -55,11 +57,11 @@ Das Dokument enthält auch ein Inline-Skript, das einen CSP-Verstoß auslösen s
 
 #### JavaScript (main.js)
 
-Das oben beschriebene Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird.
-Da dies von der gleichen Domain wie das HTML geladen wird, wird es nicht von der CSP blockiert.
+Das oben angegebene Dokument lädt auch das externe Skript `main.js`, das unten angezeigt wird.
+Da es von derselben Domain wie das HTML geladen wird, wird es nicht durch die CSP blockiert.
 
-Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Inhaltsverletzungsberichte des Typs `"csp-violation"` zu beobachten.
-Jedes Mal, wenn die Rückruffunktion aufgerufen wird, erhalten wir den Body des ersten Eintrags des Berichtsarrays und verwenden ihn, um das Verstoß-`sample` in der Konsole zu protokollieren.
+Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten.
+Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Body des ersten Eintrags des Berichtsarrays und nutzen ihn, um das Verstoß-`sample` in der Konsole zu protokollieren.
 
 ```js
 // main.js
@@ -76,7 +78,7 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass, obwohl es mehrere Berichte im zurückgegebenen Array geben könnte, wir der Kürze halber nur die Werte des ersten Elements protokollieren.
+Beachten Sie, dass es mehrere Berichte im zurückgegebenen Array geben könnte, aber der Kürze halber protokollieren wir nur die Werte des ersten Elements.
 
 #### Ergebnisse
 
@@ -86,7 +88,7 @@ Die Konsolenausgabe für den obigen Code lautet:
 sample: const int = 4;
 ```
 
-In diesem Fall enthält das Beispiel den gesamten Inhalt des Inline-Skripts.
+In diesem Fall enthält das Sample den gesamten Inhalt des Inline-Skripts.
 
 ## Spezifikationen
 

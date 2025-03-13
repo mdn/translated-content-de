@@ -1,38 +1,38 @@
 ---
-title: Schreiben von WebSocket-Servern
+title: WebSocket-Server schreiben
 slug: Web/API/WebSockets_API/Writing_WebSocket_servers
 l10n:
-  sourceCommit: fec5ea2b4f7249f95ad3fb1fd1a555db3fe47c35
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{DefaultAPISidebar("WebSockets API")}}
 
-Ein WebSocket-Server ist nichts anderes als eine Anwendung, die auf einem beliebigen Port eines TCP-Servers lauscht und einem bestimmten Protokoll folgt. Einen benutzerdefinierten Server zu erstellen, kann überwältigend erscheinen, wenn Sie dies noch nie zuvor getan haben. Allerdings ist es tatsächlich recht einfach, einen grundlegenden WebSocket-Server auf der Plattform Ihrer Wahl zu implementieren.
+Ein WebSocket-Server ist nichts anderes als eine Anwendung, die an einem beliebigen Port eines TCP-Servers lauscht und einem bestimmten Protokoll folgt. Einen benutzerdefinierten Server zu erstellen, kann überwältigend erscheinen, wenn Sie es noch nie zuvor gemacht haben. Tatsächlich kann es jedoch recht einfach sein, einen grundlegenden WebSocket-Server auf Ihrer bevorzugten Plattform zu implementieren.
 
-Ein WebSocket-Server kann in jeder serverseitigen Programmiersprache geschrieben werden, die [Berkeley-Sockets](https://en.wikipedia.org/wiki/Berkeley_sockets) unterstützt, z. B. C(++), Python, {{Glossary("PHP", "PHP")}} oder [serverseitiges JavaScript](/de/docs/Learn_web_development/Extensions/Server-side/Node_server_without_framework). Dies ist kein Tutorial für eine spezifische Sprache, sondern dient als Leitfaden, um das Schreiben eines eigenen Servers zu erleichtern.
+Ein WebSocket-Server kann in jeder serverseitigen Programmiersprache geschrieben werden, die [Berkeley-Sockets](https://en.wikipedia.org/wiki/Berkeley_sockets) unterstützt, wie C(++), Python, {{Glossary("PHP", "PHP")}} oder [serverseitiges JavaScript](/de/docs/Learn_web_development/Extensions/Server-side/Node_server_without_framework). Dies ist kein Tutorial für eine bestimmte Sprache, sondern dient als Leitfaden, um das Schreiben Ihres eigenen Servers zu erleichtern.
 
-Dieser Artikel geht davon aus, dass Sie bereits mit der Funktionsweise von {{Glossary("HTTP", "HTTP")}} vertraut sind und über ein mittleres Maß an Programmiererfahrung verfügen. Je nach Sprachunterstützung kann Wissen über TCP-Sockets erforderlich sein. Der Umfang dieses Leitfadens besteht darin, das Mindestwissen zu vermitteln, das Sie zum Schreiben eines WebSocket-Servers benötigen.
+Dieser Artikel setzt voraus, dass Sie bereits damit vertraut sind, wie {{Glossary("HTTP", "HTTP")}} funktioniert, und dass Sie ein mittleres Niveau an Programmiererfahrung haben. Abhängig von der Sprachunterstützung kann Wissen über TCP-Sockets erforderlich sein. Der Umfang dieses Leitfadens besteht darin, das Mindestwissen zu präsentieren, das Sie benötigen, um einen WebSocket-Server zu schreiben.
 
 > [!NOTE]
-> Lesen Sie die neueste offizielle WebSocket-Spezifikation, [RFC 6455](https://datatracker.ietf.org/doc/rfc6455/?include_text=1). Abschnitte 1 und 4-7 sind besonders interessant für Server-Implementierer. Abschnitt 10 behandelt Sicherheitsfragen und sollte definitiv gelesen werden, bevor Sie Ihren Server veröffentlichen.
+> Lesen Sie die neueste offizielle WebSockets-Spezifikation, [RFC 6455](https://datatracker.ietf.org/doc/rfc6455/?include_text=1). Die Abschnitte 1 und 4-7 sind besonders interessant für Server-Implementierer. Abschnitt 10 behandelt Sicherheit, und Sie sollten ihn definitiv durchgehen, bevor Sie Ihren Server exponieren.
 
-Ein WebSocket-Server wird hier auf einer sehr grundlegenden Ebene erklärt. WebSocket-Server sind oft separate und spezialisierte Server (aus Gründen wie Lastenausgleich oder anderen praktischen Überlegungen), daher verwenden Sie häufig einen [Reverse Proxy](https://en.wikipedia.org/wiki/Reverse_proxy) (wie z. B. einen regulären HTTP-Server), um WebSocket-Handshake-Anfragen zu erkennen, sie vorzuverarbeiten und die entsprechenden Clients an einen echten WebSocket-Server weiterzuleiten. Das bedeutet, dass Sie Ihren Servercode nicht mit Cookie- und Authentifizierungs-Handlern (z. B.) überfrachten müssen.
+Ein WebSocket-Server wird hier auf einer sehr niedrigen Ebene erklärt. WebSocket-Server sind oft separate und spezialisierte Server (aus Gründen des Lastenausgleichs oder aus anderen praktischen Gründen), sodass Sie oft einen [Reverse Proxy](https://en.wikipedia.org/wiki/Reverse_proxy) (wie einen regulären HTTP-Server) verwenden, um WebSocket-Handshakes zu erkennen, sie vorzuverarbeiten und diese Clients an einen echten WebSocket-Server zu senden. Das bedeutet, dass Sie Ihren Servercode nicht mit Cookie- und Authentifizierungs-Handlern aufblähen müssen (zum Beispiel).
 
 ## Der WebSocket-Handshake
 
-Zunächst muss der Server über einen Standard-TCP-Socket auf eingehende Verbindungen lauschen. Je nach Plattform kann dies automatisch für Sie gehandhabt werden. Angenommen, Ihr Server lauscht auf `example.com`, Port 8000, und Ihr Socket-Server beantwortet {{HTTPMethod("GET")}}-Anfragen unter `example.com/chat`.
+Zuerst muss der Server mit einem Standard-TCP-Socket auf eingehende Socket-Verbindungen lauschen. Abhängig von Ihrer Plattform kann dies automatisch für Sie gehandhabt werden. Angenommen, Ihr Server lauscht auf `example.com`, Port 8000, und Ihr Socket-Server antwortet auf {{HTTPMethod("GET")}}-Anfragen unter `example.com/chat`.
 
 > [!WARNING]
-> Der Server kann auf jedem beliebigen Port lauschen, den er auswählt. Wenn er jedoch einen von 80 oder 443 abweichenden Port verwendet, kann es zu Problemen mit Firewalls und/oder Proxies kommen. Browser erfordern in der Regel eine sichere Verbindung für WebSockets, obwohl sie möglicherweise eine Ausnahme für lokale Geräte bieten.
+> Der Server kann an jedem beliebigen Port lauschen, den er wählt, aber wenn er einen anderen Port als 80 oder 443 wählt, kann er Probleme mit Firewalls und/oder Proxys haben. Browser erfordern im Allgemeinen eine sichere Verbindung für WebSockets, obwohl sie möglicherweise eine Ausnahme für lokale Geräte machen.
 
-Der Handshake ist das "Web" in WebSockets. Er ist die Brücke von HTTP zu WebSockets. Während des Handshakes werden Details der Verbindung ausgehandelt, und beide Parteien können den Prozess abbrechen, bevor er abgeschlossen ist, falls die Bedingungen ungünstig sind. Der Server muss sorgfältig alles verstehen, was der Client anfordert, da sonst Sicherheitsprobleme auftreten können.
+Der Handshake ist das "Web" in WebSockets. Es ist die Brücke von HTTP zu WebSockets. Im Handshake werden die Verbindungsdetails ausgehandelt, und jede Partei kann sich vor der Fertigstellung zurückziehen, wenn die Bedingungen ungünstig sind. Der Server muss sorgfältig alles verstehen, was der Client verlangt, da sonst Sicherheitsprobleme auftreten können.
 
 > [!NOTE]
-> Das `request-uri` (`/chat` hier) hat in der Spezifikation keine definierte Bedeutung. Daher nutzen viele es, um einen Server mit mehreren WebSocket-Anwendungen zu betreiben. Zum Beispiel könnte `example.com/chat` eine Multiuser-Chat-App aufrufen, während `/game` auf demselben Server ein Multiplayer-Spiel aufrufen könnte.
+> Die request-uri (`/chat` hier) hat in der Spezifikation keine festgelegte Bedeutung. Viele Leute verwenden sie daher, um einen Server mehrere WebSocket-Anwendungen handhaben zu lassen. Zum Beispiel könnte `example.com/chat` eine Multiuser-Chat-App aufrufen, während `/game` auf dem gleichen Server ein Multiplayer-Spiel aufrufen könnte.
 
-### Handshake-Anfrage des Clients
+### Client-Handshake-Anfrage
 
-Auch wenn Sie einen Server erstellen, muss ein Client den WebSocket-Handshake-Prozess starten, indem er den Server kontaktiert und eine WebSocket-Verbindung anfordert. Sie müssen also wissen, wie Sie die Anfrage des Clients interpretieren. Der **Client** wird eine ziemlich standardmäßige HTTP-Anfrage mit Headern senden, die ungefähr so aussieht (die HTTP-Version **muss** 1.1 oder höher sein, und die Methode **muss** `GET` sein):
+Obwohl Sie einen Server aufbauen, muss der Client immer noch den WebSocket-Handshake-Prozess starten, indem er den Server kontaktiert und eine WebSocket-Verbindung anfordert. Sie müssen also wissen, wie Sie die Anfrage des Clients interpretieren. Der **Client** sendet eine ziemlich standardisierte HTTP-Anfrage mit Headern, die so aussieht (die HTTP-Version **muss** 1.1 oder höher sein, und die Methode **muss** `GET` sein):
 
 ```http
 GET /chat HTTP/1.1
@@ -43,20 +43,20 @@ Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
 Sec-WebSocket-Version: 13
 ```
 
-Der Client kann hier Erweiterungen und/oder Subprotokolle anfordern; siehe [Verschiedenes](#verschiedenes) für Details. Außerdem können gängige Header wie {{HTTPHeader("User-Agent")}}, {{HTTPHeader("Referer")}}, {{HTTPHeader("Cookie")}} oder Authentifizierungs-Header ebenfalls vorhanden sein. Sie können damit tun, was Sie möchten; sie betreffen WebSockets nicht direkt und können sicher ignoriert werden. In vielen gängigen Setups hat ein Reverse Proxy diese bereits verarbeitet.
+Der Client kann hier Erweiterungen und/oder Subprotokolle anfordern; siehe [Verschiedenes](#verschiedenes) für Details. Auch gängige Header wie {{HTTPHeader("User-Agent")}}, {{HTTPHeader("Referer")}}, {{HTTPHeader("Cookie")}}, oder Authentifizierungsheader können ebenfalls vorhanden sein. Machen Sie mit diesen, was Sie möchten; sie betreffen nicht direkt den WebSocket. Es ist auch sicher, sie zu ignorieren. In vielen gängigen Setups hat ein Reverse Proxy diese bereits verarbeitet.
 
 > [!NOTE]
-> Alle **Browser** senden einen [`Origin`-Header](/de/docs/Web/HTTP/CORS#origin). Sie können diesen Header zu Sicherheitszwecken verwenden (z. B. zum Überprüfen auf "same origin", automatisches Erlauben oder Verweigern usw.) und einen [403 Forbidden](/de/docs/Web/HTTP/Status/403) senden, falls Ihnen der Inhalt nicht gefällt. Dies ist effektiv gegen [Cross Site WebSocket Hijacking (CSWH)](https://cwe.mitre.org/data/definitions/1385.html). Beachten Sie jedoch, dass Nicht-Browser-Agents einen gefälschten `Origin` senden können. Die meisten Anwendungen lehnen Anfragen ohne diesen Header ab.
+> Alle **Browser** senden einen [`Origin`-Header](/de/docs/Web/HTTP/Guides/CORS#origin). Sie können diesen Header aus Sicherheitsgründen verwenden (Überprüfung auf gleiche Herkunft, automatische Erlaubnis oder Ablehnung usw.) und einen [403 Forbidden](/de/docs/Web/HTTP/Reference/Status/403) senden, wenn Ihnen nicht gefällt, was Sie sehen. Dies ist wirksam gegen [Cross Site WebSocket Hijacking (CSWH)](https://cwe.mitre.org/data/definitions/1385.html). Seien Sie jedoch gewarnt, dass Nicht-Browser-Agents einen gefälschten `Origin` senden können. Die meisten Anwendungen lehnen Anfragen ohne diesen Header ab.
 
-Wenn ein Header nicht verstanden wird oder einen falschen Wert hat, sollte der Server eine {{HTTPStatus("400")}}-Antwort ("Bad Request") senden und den Socket sofort schließen. Wie üblich kann er auch den Grund für das Scheitern des Handshakes im HTTP-Antwortkörper angeben, aber die Nachricht wird möglicherweise nie angezeigt (Browser zeigen sie nicht an). Wenn der Server diese Version von WebSockets nicht versteht, sollte er einen {{HTTPHeader("Sec-WebSocket-Version")}}-Header zurücksenden, der die Version(en) enthält, die er versteht. Im obigen Beispiel gibt er Version 13 des WebSocket-Protokolls an.
+Wenn ein Header nicht verstanden wird oder einen falschen Wert hat, sollte der Server eine {{HTTPStatus("400")}} ("Bad Request")-Antwort senden und den Socket sofort schließen. Wie üblich kann er auch den Grund, warum der Handshake fehlgeschlagen ist, im HTTP-Antworttextkörper angeben, aber die Nachricht wird möglicherweise nie angezeigt (Browser zeigen sie nicht an). Wenn der Server diese Version von WebSockets nicht versteht, sollte er einen {{HTTPHeader("Sec-WebSocket-Version")}}-Header zurücksenden, der die Version(en) enthält, die er versteht. Im obigen Beispiel wird Version 13 des WebSocket-Protokolls angegeben.
 
-Der interessanteste Header hier ist {{HTTPHeader("Sec-WebSocket-Key")}}. Sehen wir uns den nächsten Schritt an.
+Der interessanteste Header hier ist {{HTTPHeader("Sec-WebSocket-Key")}}. Schauen wir uns das als nächstes an.
 
-> **Hinweis:** [Reguläre HTTP-Statuscodes](/de/docs/Web/HTTP/Status) können nur vor dem Handshake verwendet werden. Nach dem erfolgreichen Handshake müssen Sie eine andere Reihe von Codes verwenden (definiert in Abschnitt 7.4 der Spezifikation).
+> **Hinweis:** [Reguläre HTTP-Statuscodes](/de/docs/Web/HTTP/Reference/Status) können nur vor dem Handshake verwendet werden. Nach dem erfolgreichen Handshake müssen Sie eine andere Reihe von Codes verwenden (definiert in Abschnitt 7.4 der Spezifikation).
 
-### Antwort des Servers auf den Handshake
+### Server-Handshake-Antwort
 
-Wenn der **Server** die Handshake-Anfrage erhält, sollte er eine spezielle Antwort senden, die anzeigt, dass das Protokoll von HTTP auf WebSocket umgestellt wird. Dieser Header sieht etwa folgendermaßen aus (denken Sie daran, dass jede Header-Zeile mit `\r\n` endet und dass Sie ein zusätzliches `\r\n` hinter der letzten Zeile hinzufügen, um das Ende des Headers anzuzeigen):
+Wenn der **Server** die Handshake-Anfrage erhält, sollte er eine spezielle Antwort zurücksenden, die anzeigt, dass das Protokoll von HTTP zu WebSocket geändert wird. Dieser Header sieht ungefähr wie folgt aus (denken Sie daran, dass jede Headerzeile mit `\r\n` endet und setzen Sie ein zusätzliches `\r\n` nach der letzten Zeile, um das Ende des Headers anzuzeigen):
 
 ```http
 HTTP/1.1 101 Switching Protocols
@@ -65,29 +65,29 @@ Connection: Upgrade
 Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
 ```
 
-Zusätzlich kann der Server hier Entscheidungen zu Erweiterungs-/Subprotokoll-Anfragen treffen; siehe [Verschiedenes](#verschiedenes) für Details. Der Header `Sec-WebSocket-Accept` ist wichtig, da der Server diesen von dem `Sec-WebSocket-Key` ableiten muss, den der Client ihm gesendet hat. Um ihn zu erhalten, verbinden Sie den `Sec-WebSocket-Key` des Clients mit dem String `"258EAFA5-E914-47DA-95CA-C5AB0DC85B11"` (es handelt sich um einen "[Magic String](https://en.wikipedia.org/wiki/Magic_string)"), erstellen Sie den [SHA-1-Hash](https://en.wikipedia.org/wiki/SHA-1) des Ergebnisses und geben Sie die [Base64](https://en.wikipedia.org/wiki/Base64)-Codierung dieses Hashes zurück.
+Darüber hinaus kann der Server hier über Erweiterungs-/Subprotokollanforderungen entscheiden; siehe [Verschiedenes](#verschiedenes) für Details. Der `Sec-WebSocket-Accept`-Header ist wichtig, da der Server ihn aus dem {{HTTPHeader("Sec-WebSocket-Key")}} ableiten muss, den der Client ihm gesendet hat. Um ihn zu erhalten, verketten Sie den `Sec-WebSocket-Key` des Clients mit dem String `"258EAFA5-E914-47DA-95CA-C5AB0DC85B11"` (es ist ein "[magic string](https://en.wikipedia.org/wiki/Magic_string)"), bilden Sie den [SHA-1-Hash](https://en.wikipedia.org/wiki/SHA-1) des Ergebnisses und geben Sie die [base64](https://en.wikipedia.org/wiki/Base64)-Kodierung dieses Hashes zurück.
 
 > [!NOTE]
-> Dieser scheinbar überkomplizierte Prozess existiert, damit für den Client offensichtlich ist, ob der Server WebSockets unterstützt. Dies ist wichtig, da Sicherheitsprobleme auftreten können, wenn der Server eine WebSocket-Verbindung akzeptiert, die Daten aber als HTTP-Anfrage interpretiert.
+> Dieser scheinbar überkomplizierte Prozess existiert, damit es für den Client offensichtlich ist, ob der Server WebSockets unterstützt. Dies ist wichtig, da Sicherheitsprobleme auftreten können, wenn der Server eine WebSockets-Verbindung akzeptiert, die Daten jedoch als HTTP-Anfrage interpretiert.
 
-Wenn der Key zum Beispiel `"dGhlIHNhbXBsZSBub25jZQ=="` lautet, ist der Wert des Headers `Sec-WebSocket-Accept` `"s3pPLMBiTxaQ9kYGzzhZRbK+xOo="`. Sobald der Server diese Header sendet, ist der Handshake abgeschlossen, und Sie können anfangen, Daten auszutauschen!
+Wenn also der Key `"dGhlIHNhbXBsZSBub25jZQ=="` war, ist der Wert des `Sec-WebSocket-Accept`-Headers `"s3pPLMBiTxaQ9kYGzzhZRbK+xOo="`. Sobald der Server diese Header sendet, ist der Handshake abgeschlossen und Sie können beginnen, Daten auszutauschen!
 
 > [!NOTE]
-> Der Server kann andere Header wie {{HTTPHeader("Set-Cookie")}} senden oder Authentifizierung oder Weiterleitungen über andere Statuscodes anfordern, bevor die Antwort auf den Handshakeabschluss gesendet wird.
+> Der Server kann andere Header wie {{HTTPHeader("Set-Cookie")}} senden oder vor dem Antwort-Handshake über andere Statuscodes um Authentifizierung oder Umleitungen bitten.
 
-### Kundenverwaltung
+### Verfolgung von Clients
 
-Dies hat nicht direkt mit dem WebSocket-Protokoll zu tun, sollte aber hier erwähnt werden: Ihr Server muss die Sockets der Clients verfolgen, damit er nicht erneut mit Clients handshaken muss, die den Handshake bereits abgeschlossen haben. Dieselbe Client-IP-Adresse kann versuchen, sich mehrere Male zu verbinden. Der Server kann dies jedoch verweigern, wenn zu viele Verbindungsversuche auftreten, um sich selbst vor [Denial-of-Service-Angriffen](https://en.wikipedia.org/wiki/Denial_of_service) zu schützen.
+Dies steht nicht direkt im Zusammenhang mit dem WebSocket-Protokoll, es sei jedoch hier erwähnt: Ihr Server muss die Sockets der Clients im Auge behalten, damit Sie nicht mit Clients erneut den Handshake durchführen, die den Handshake bereits abgeschlossen haben. Dieselbe Client-IP-Adresse kann versuchen, mehrmals zu verbinden. Der Server kann sie jedoch ablehnen, wenn sie zu viele Verbindungen versuchen, um sich vor [Denial-of-Service-Angriffen](https://en.wikipedia.org/wiki/Denial_of_service) zu schützen.
 
-Zum Beispiel könnten Sie eine Tabelle mit Benutzernamen oder ID-Nummern zusammen mit dem entsprechenden [`WebSocket`](/de/docs/Web/API/WebSocket) und anderen Daten führen, die Sie mit dieser Verbindung verknüpfen müssen.
+Zum Beispiel könnten Sie eine Tabelle mit Benutzernamen oder ID-Nummern zusammen mit dem entsprechenden [`WebSocket`](/de/docs/Web/API/WebSocket) und anderen Daten, die Sie mit dieser Verbindung verknüpfen müssen, führen.
 
-## Austausch von Datenframes
+## Austausch von Datenrahmen
 
-Entweder der Client oder der Server kann jederzeit eine Nachricht senden — das ist die Magie von WebSockets. Das Extrahieren von Informationen aus diesen sogenannten "Frames" von Daten ist jedoch keine magische Erfahrung. Obwohl alle Frames demselben spezifischen Format folgen, werden Daten, die vom Client zum Server gesendet werden, mit einer [XOR-Verschlüsselung](https://en.wikipedia.org/wiki/XOR_cipher) (mit einem 32-Bit-Key) maskiert. Abschnitt 5 der Spezifikation beschreibt dies im Detail.
+Entweder der Client oder der Server kann jederzeit eine Nachricht senden — das ist die Magie von WebSockets. Das Extrahieren von Informationen aus diesen sogenannten "Frames" von Daten ist jedoch keine so magische Erfahrung. Obwohl alle Frames demselben spezifischen Format folgen, werden die Daten vom Client zum Server unter Verwendung der [XOR-Verschlüsselung](https://en.wikipedia.org/wiki/XOR_cipher) (mit einem 32-Bit-Schlüssel) maskiert. Abschnitt 5 der Spezifikation beschreibt dies im Detail.
 
 ### Format
 
-Jeder Datenframe (vom Client an den Server oder umgekehrt) folgt demselben Format:
+Jeder Daten-Frame (vom Client zum Server oder umgekehrt) folgt diesem Format:
 
 ```plain
 Data frame from the client to server (message length 0–125):
@@ -145,28 +145,28 @@ Data frame from the server to client (64-bit payload length):
 +---------------------------------------------------------------+
 ```
 
-Dies bedeutet, dass ein Frame die folgenden Bytes enthält:
+Das bedeutet, dass ein Rahmen die folgenden Bytes enthält:
 
 - Erstes Byte:
-  - Bit 0 FIN: Gibt an, ob dies die letzte Nachricht in einer Serie ist. Ist es 0, lauscht der Server weiterhin auf weitere Teile der Nachricht; andernfalls sollte der Server die Nachricht als übermittelt betrachten. Mehr dazu später.
-  - Bit 1–3 RSV1, RSV2, RSV3: Kann ignoriert werden, sie sind für Erweiterungen vorgesehen.
-  - Bits 4-7 OPCODE: Definiert, wie die Nutzdaten interpretiert werden: `0x0` für Fortsetzung, `0x1` für Text (immer in UTF-8 kodiert), `0x2` für Binärdaten, und andere sogenannte "Kontrollcodes", die später erläutert werden. In dieser Version von WebSockets haben `0x3` bis `0x7` und `0xB` bis `0xF` keine Bedeutung.
-- Bit 8 MASK: Gibt an, ob die Nachricht codiert ist. Nachrichten vom Client müssen maskiert sein, daher muss Ihr Server erwarten, dass dieses auf 1 gesetzt ist. (Tatsächlich sagt [Abschnitt 5.1 der Spezifikation](https://datatracker.ietf.org/doc/html/rfc6455#section-5.1), dass Ihr Server sich von einem Client trennen muss, wenn dieser eine unmaskierte Nachricht sendet.) Nachrichten vom Server an den Client sind nicht maskiert und haben dieses Bit auf 0 gesetzt. Wir erklären die Maskierung später in [Lesen und Demaskieren der Daten](#lesen_und_demaskieren_der_daten). _Hinweis: Sie müssen Nachrichten auch dann maskieren, wenn Sie einen sicheren Socket verwenden._
-- Bits 9–15: Nutzdatenlänge. Kann auch die folgenden 2 oder 8 Bytes beinhalten; siehe [Decodieren der Nutzdatenlänge](#decodieren_der_nutzdatenlänge).
-- Wenn eine Maskierung verwendet wird (immer bei Nachrichten vom Client an den Server der Fall), enthalten die nächsten 4 Bytes den Maskierungsschlüssel; siehe [Lesen und Demaskieren der Daten](#lesen_und_demaskieren_der_daten).
-- Alle weiteren Bytes sind Nutzdaten.
+  - Bit 0 FIN: gibt an, ob dies die letzte Nachricht in einer Serie ist. Wenn es 0 ist, lauscht der Server weiter auf weitere Teile der Nachricht; andernfalls sollte der Server die Nachricht als zugestellt betrachten. Mehr dazu später.
+  - Bit 1–3 RSV1, RSV2, RSV3: können ignoriert werden, sie sind für Erweiterungen.
+  - Bits 4-7 OPCODE: definiert, wie die Payload-Daten interpretiert werden sollen: `0x0` für Fortsetzung, `0x1` für Text (der immer in UTF-8 kodiert ist), `0x2` für binär und andere sogenannte "Kontrollcodes", die später besprochen werden. In dieser Version von WebSockets haben `0x3` bis `0x7` und `0xB` bis `0xF` keine Bedeutung.
+- Bit 8 MASK: sagt aus, ob die Nachricht kodiert ist. Nachrichten vom Client müssen maskiert sein, daher muss Ihr Server erwarten, dass dies 1 ist. (Tatsächlich sagt [Abschnitt 5.1 der Spezifikation](https://datatracker.ietf.org/doc/html/rfc6455#section-5.1), dass Ihr Server die Verbindung zu einem Client trennen muss, wenn dieser Client eine unmaskierte Nachricht sendet.) Nachrichten vom Server zum Client sind nicht maskiert und haben dieses Bit auf 0 gesetzt. Wir erklären das Maskieren später, im Abschnitt [Lesen und Entmaskieren der Daten](#lesen_und_entmaskieren_der_daten). _Hinweis: Sie müssen Nachrichten maskieren, selbst wenn Sie einen sicheren Socket verwenden._
+- Bits 9–15: Payload-Länge. Kann auch die folgenden 2 oder 8 Bytes enthalten; siehe [Dekodierung der Payload-Länge](#dekodierung_der_payload-länge).
+- Wenn Maskierung verwendet wird (immer wahr für Client-zu-Server-Nachrichten), enthalten die nächsten 4 Bytes den Maskierungsschlüssel; siehe [Lesen und Entmaskieren der Daten](#lesen_und_entmaskieren_der_daten).
+- Alle nachfolgenden Bytes sind Payload.
 
-### Decodieren der Nutzdatenlänge
+### Dekodierung der Payload-Länge
 
-Um die Nutzdaten zu lesen, müssen Sie wissen, wann Sie aufhören sollten. Deshalb ist die Nutzdatenlänge wichtig. Leider ist dies etwas kompliziert. Befolgen Sie diese Schritte:
+Um die Payload-Daten zu lesen, müssen Sie wissen, wann Sie aufhören müssen zu lesen. Deshalb ist es wichtig, die Payload-Länge zu kennen. Leider ist dies etwas kompliziert. Um es zu lesen, folgen Sie diesen Schritten:
 
-1. Lesen Sie Bits 9-15 (einschließlich) und interpretieren Sie diese als vorzeichenlose Ganzzahl. Wenn es 125 oder weniger ist, dann ist das die Länge; Sie sind **fertig**. Wenn es 126 ist, fahren Sie mit Schritt 2 fort. Wenn es 127 ist, fahren Sie mit Schritt 3 fort.
-2. Lesen Sie die nächsten 16 Bits und interpretieren Sie diese als vorzeichenlose Ganzzahl. Sie sind **fertig**.
-3. Lesen Sie die nächsten 64 Bits und interpretieren Sie diese als vorzeichenlose Ganzzahl. (Das höchstwertige Bit _muss_ 0 sein.) Sie sind **fertig**.
+1. Lesen Sie die Bits 9-15 (inklusiv) und interpretieren Sie diese als Ganzzahl ohne Vorzeichen. Wenn es 125 oder weniger ist, dann ist das die Länge; Sie sind **fertig**. Wenn es 126 ist, gehen Sie zu Schritt 2. Wenn es 127 ist, gehen Sie zu Schritt 3.
+2. Lesen Sie die nächsten 16 Bits und interpretieren Sie diese als Ganzzahl ohne Vorzeichen. Sie sind **fertig**.
+3. Lesen Sie die nächsten 64 Bits und interpretieren Sie diese als Ganzzahl ohne Vorzeichen. (Das höchstwertige Bit _muss_ 0 sein.) Sie sind **fertig**.
 
-### Lesen und Demaskieren der Daten
+### Lesen und Entmaskieren der Daten
 
-Wenn das MASK-Bit gesetzt war (was bei Nachrichten vom Client an den Server der Fall sein sollte), lesen Sie die nächsten 4 Oktette (32 Bits); dies ist der Maskierungsschlüssel. Sobald die Nutzdatenlänge und der Maskierungsschlüssel decodiert sind, können Sie diese Anzahl von Bytes vom Socket lesen. Nennen wir die Daten `ENCODED`, und den Schlüssel `MASK`. Um `DECODED` zu erhalten, gehen Sie durch die Oktette von `ENCODED` und XOR-en Sie das Oktett mit dem (i mod 4)-ten Oktett von `MASK`. Ein Beispiel in JavaScript:
+Wenn das MASK-Bit gesetzt war (und das sollte es bei Client-zu-Server-Nachrichten), lesen Sie die nächsten 4 Oktette (32 Bits); dies ist der Maskierungsschlüssel. Sobald die Payload-Länge und der Maskierungsschlüssel dekodiert sind, können Sie diese Anzahl von Bytes aus dem Socket lesen. Nennen wir die Daten `ENCODED` und den Schlüssel `MASK`. Um `DECODED` zu erhalten, durchlaufen Sie die Oktette von `ENCODED` und XOR das Oktett mit dem (i modulo 4)ten Oktett von `MASK`. Ein Beispiel in JavaScript:
 
 ```js
 // The function receives the frame as a Uint8Array.
@@ -198,19 +198,19 @@ const frame = Uint8Array.from([
 const decoded = getPayloadDecoded(frame, 2);
 ```
 
-Nun können Sie herausfinden, was `decoded` in Ihrer Anwendung bedeutet. Zum Beispiel können Sie es als UTF-8 [decodieren](/de/docs/Web/API/TextDecoder), wenn es sich um eine Textnachricht handelt.
+Nun können Sie herausfinden, was `decoded` bedeutet, abhängig von Ihrer Anwendung. Zum Beispiel können Sie es als UTF-8 [dekodieren](/de/docs/Web/API/TextDecoder), wenn es sich um eine Textnachricht handelt.
 
 ```js
 console.log(new TextDecoder().decode(decoded)); // "hello"
 ```
 
-Die Maskierung ist eine Sicherheitsmaßnahme, um böswillige Parteien daran zu hindern, die an den Server gesendeten Daten vorherzusagen. Der Client wird für jede Nachricht einen kryptografisch zufälligen Maskierungsschlüssel generieren.
+Das Maskieren ist eine Sicherheitsmaßnahme, um bösartige Parteien davon abzuhalten, die Daten vorherzusagen, die an den Server gesendet werden. Der Client erzeugt einen kryptografisch zufälligen Maskierungsschlüssel für jede Nachricht.
 
-### Nachrichtenfragmentierung
+### Nachrichten-Fragmentierung
 
-Die FIN- und OPCODE-Felder arbeiten zusammen, um eine Nachricht in getrennten Frames zu senden. Dies wird als Nachrichtenfragmentierung bezeichnet. Die Fragmentierung ist nur bei OPCODES `0x0` bis `0x2` verfügbar.
+Die FIN- und Opcode-Felder arbeiten zusammen, um eine Nachricht in separate Frames aufgeteilt zu senden. Dies wird Nachrichten-Fragmentierung genannt. Die Fragmentierung ist nur bei den Opcodes `0x0` bis `0x2` verfügbar.
 
-Denken Sie daran, dass der OPCODE angibt, was ein Frame tun soll. Wenn er `0x1` ist, sind die Nutzdaten Text. Wenn er `0x2` ist, handelt es sich um Binärdaten. Ist der OPCODE jedoch `0x0`, handelt es sich um einen Fortsetzungsframe; dies bedeutet, dass der Server die Nutzdaten des Frames mit dem letzten Frame verbinden soll, den er von diesem Client erhalten hat. Ein grober Entwurf dazu, wie ein Server auf Textnachrichten eines Clients reagiert, sieht wie folgt aus. Die erste Nachricht wird in einem einzelnen Frame gesendet, während die zweite Nachricht auf drei Frames verteilt wird. FIN- und OPCODE-Details werden nur für den Client gezeigt:
+Erinnern Sie sich daran, dass der Opcode angibt, was ein Rahmen tun soll. Wenn es `0x1` ist, ist die Payload Text. Wenn es `0x2` ist, sind es binäre Daten. Wenn es jedoch `0x0` ist, ist der Rahmen ein Fortsetzungsrahmen; dies bedeutet, dass der Server die Payload des Rahmens mit der letzten vom Client empfangenen Nachricht verkettet. Hier ist eine grobe Skizze, in der ein Server auf einen Client reagiert, der Textnachrichten sendet. Die erste Nachricht wird in einem einzigen Rahmen gesendet, während die zweite Nachricht über drei Rahmen gesendet wird. FIN- und Opcode-Details werden nur für den Client angezeigt:
 
 ```plain
 Client: FIN=1, opcode=0x1, msg="hello"
@@ -223,43 +223,43 @@ Client: FIN=1, opcode=0x0, msg="year!"
 Server: (process complete message) Happy new year to you too!
 ```
 
-Beachten Sie, dass der erste Frame eine vollständige Nachricht enthält (`FIN=1` und `opcode!=0x0`). Der Server kann diese verarbeiten oder darauf reagieren, wie er es für richtig hält. Der zweite Frame des Clients enthält Textnutzdaten (`opcode=0x1`), doch die gesamte Nachricht ist noch nicht angekommen (`FIN=0`). Alle verbleibenden Teile dieser Nachricht werden mit Fortsetzungsframes (`opcode=0x0`) gesendet, und der letzte Frame der Nachricht wird durch `FIN=1` markiert. [Abschnitt 5.4 der Spezifikation](https://datatracker.ietf.org/doc/html/rfc6455#section-5.4) beschreibt die Nachrichtenfragmentierung.
+Beachten Sie, dass der erste Rahmen eine vollständige Nachricht enthält (hat `FIN=1` und `opcode!=0x0`), so dass der Server sie nach Belieben verarbeiten oder darauf reagieren kann. Der zweite Rahmen, der vom Client gesendet wird, hat eine Text-Nutzlast (`opcode=0x1`), aber die gesamte Nachricht ist noch nicht angekommen (`FIN=0`). Alle restlichen Teile dieser Nachricht werden mit Fortsetzungsrahmen gesendet (`opcode=0x0`), und der letzte Rahmen der Nachricht wird durch `FIN=1` markiert. [Abschnitt 5.4 der Spezifikation](https://datatracker.ietf.org/doc/html/rfc6455#section-5.4) beschreibt die Nachrichten-Fragmentierung.
 
 ## Pings und Pongs: Der Herzschlag von WebSockets
 
-Nach dem Handshake kann der Client oder der Server jederzeit entscheiden, ein Ping an die jeweils andere Partei zu senden. Beim Empfang des Pings muss der Empfänger so schnell wie möglich ein Pong zurücksenden. Dies kann z. B. verwendet werden, um sicherzustellen, dass der Client noch verbunden ist.
+Zu jedem Zeitpunkt nach dem Handshake kann sowohl der Client als auch der Server wählen, einen Ping an die andere Partei zu senden. Wenn der Ping empfangen wird, muss der Empfänger so schnell wie möglich einen Pong zurücksenden. Sie können dies verwenden, um sicherzustellen, dass der Client noch verbunden ist, zum Beispiel.
 
-Ein Ping oder Pong ist einfach ein regulärer Frame, jedoch ein **Kontrollframe**. Pings haben einen OPCODE von `0x9`, und Pongs haben einen OPCODE von `0xA`. Wenn Sie ein Ping erhalten, senden Sie ein Pong mit denselben Nutzdaten so schnell wie möglich zurück (für Pings und Pongs beträgt die maximale Nutzdatenlänge 125). Sie könnten auch ein Pong erhalten, ohne jemals ein Ping gesendet zu haben; ignorieren Sie dies, falls es passiert.
+Ein Ping oder Pong ist einfach ein regulärer Rahmen, aber es ist ein **Kontrollrahmen**. Pings haben einen Opcode von `0x9`, und Pongs haben einen Opcode von `0xA`. Wenn Sie einen Ping erhalten, senden Sie einen Pong mit exakt denselben Payload-Daten wie der Ping zurück (für Pings und Pongs beträgt die maximale Payload-Länge 125). Sie könnten auch einen Pong erhalten, ohne jemals einen Ping gesendet zu haben; ignorieren Sie dies, wenn es passiert.
 
 > [!NOTE]
-> Wenn Sie mehr als einen Ping erhalten, bevor Sie ein Pong senden, senden Sie nur ein Pong.
+> Wenn Sie mehr als einen Ping erhalten haben, bevor Sie einen Pong senden können, senden Sie nur einen Pong.
 
 ## Schließen der Verbindung
 
-Um eine Verbindung zu schließen, kann entweder der Client oder der Server einen Kontrollframe mit Daten senden, die eine spezifische Kontrollsequenz enthalten, um den Schließ-Handshake zu starten (detailliert in [Abschnitt 5.5.1](https://datatracker.ietf.org/doc/html/rfc6455#section-5.5.1)). Nach dem Empfang eines solchen Frames sendet der andere Peer einen Close-Frame als Antwort. Der erste Peer schließt dann die Verbindung. Alle weiteren empfangenen Daten nach dem Schließen der Verbindung werden verworfen.
+Um eine Verbindung zu schließen, kann entweder der Client oder der Server einen Kontrollrahmen mit den Daten senden, die eine spezifizierte Kontrollsequenz enthalten, um den Schlusshandshake zu beginnen (detailliert in [Abschnitt 5.5.1](https://datatracker.ietf.org/doc/html/rfc6455#section-5.5.1)). Wenn ein solches Frame empfangen wird, sendet der andere Partner einen Close Frame als Antwort. Der erste Partner schließt dann die Verbindung. Alle weiteren Daten, die nach dem Schließen der Verbindung empfangen werden, werden verworfen.
 
 ## Verschiedenes
 
 > [!NOTE]
-> WebSocket-Codes, Erweiterungen, Subprotokolle usw. werden im [IANA WebSocket Protocol Registry](https://www.iana.org/assignments/websocket/websocket.xml) registriert.
+> WebSocket-Codes, Erweiterungen, Subprotokolle usw. sind im [IANA WebSocket Protocol Registry](https://www.iana.org/assignments/websocket/websocket.xml) registriert.
 
-WebSocket-Erweiterungen und Subprotokolle werden über Header während [des Handshakes](#der_websocket-handshake) ausgehandelt. Manchmal sind Erweiterungen und Subprotokolle sehr ähnlich, aber es gibt einen klaren Unterschied. Erweiterungen steuern die WebSocket-_Frames_ und _modifizieren_ die Nutzdaten, während Subprotokolle die WebSocket-_Nutzdaten_ strukturieren und _niemals_ etwas modifizieren. Erweiterungen sind optional und generalisiert (wie z. B. Komprimierung); Subprotokolle sind obligatorisch und lokalisiert (wie z. B. bei Chat- oder MMORPG-Spielen).
+WebSocket-Erweiterungen und Subprotokolle werden über Header während [des Handshakes](#der_websocket-handshake) ausgehandelt. Manchmal sind Erweiterungen und Subprotokolle sehr ähnlich, aber es gibt einen klaren Unterschied. Erweiterungen steuern das WebSocket-_Frame_ und _modifizieren_ die Nutzlast, während Subprotokolle die WebSocket-_Nutzlast_ strukturieren und _nichts modifizieren_. Erweiterungen sind optional und verallgemeinert (wie Kompression); Subprotokolle sind obligatorisch und lokalisiert (wie für Chat und für MMORPG-Spiele).
 
 ### Erweiterungen
 
-Stellen Sie sich eine Erweiterung wie das Komprimieren einer Datei vor, bevor Sie sie per E-Mail versenden. Egal, was Sie tun, Sie senden _dieselben_ Daten in unterschiedlichen Formen. Der Empfänger wird letztlich dieselben Daten wie Ihre lokale Kopie erhalten können, aber sie werden anders gesendet. Genau das macht eine Erweiterung. WebSockets definiert ein Protokoll und eine einfache Möglichkeit, Daten zu senden, aber eine Erweiterung wie Komprimierung könnte erlauben, dieselben Daten jedoch in kürzerer Form zu senden.
+Denken Sie an eine Erweiterung wie das Komprimieren einer Datei, bevor Sie sie jemandem per E-Mail senden. Was auch immer Sie tun, Sie senden die _gleichen_ Daten in verschiedenen Formen. Der Empfänger wird letztendlich in der Lage sein, dieselben Daten wie Ihre lokale Kopie zu erhalten, aber sie werden anders gesendet. Das tut eine Erweiterung. WebSockets definiert ein Protokoll und eine einfache Möglichkeit, Daten zu senden, aber eine Erweiterung wie die Kompression könnte das Senden der gleichen Daten in einem kürzeren Format ermöglichen.
 
 > [!NOTE]
-> Erweiterungen werden in den Abschnitten 5.8, 9, 11.3.2 und 11.4 der Spezifikation erklärt.
+> Erweiterungen sind in den Abschnitten 5.8, 9, 11.3.2 und 11.4 der Spezifikation erklärt.
 
 ### Subprotokolle
 
-Stellen Sie sich ein Subprotokoll wie ein benutzerdefiniertes [XML-Schema](https://en.wikipedia.org/wiki/XML_schema) oder eine [Doctype-Deklaration](https://en.wikipedia.org/wiki/Document_Type_Definition) vor. Sie verwenden immer noch XML und dessen Syntax, sind aber zusätzlich durch eine Struktur eingeschränkt, auf die Sie sich geeinigt haben. WebSocket-Subprotokolle sind genau so. Sie führen nichts Besonderes ein, sondern etablieren nur eine Struktur. Wie ein Doctype oder ein Schema müssen beide Parteien sich auf das Subprotokoll einigen; im Gegensatz zu einem Doctype oder Schema wird das Subprotokoll jedoch auf dem Server implementiert und kann vom Client nicht extern referenziert werden.
+Denken Sie an ein Subprotokoll als ein benutzerdefiniertes [XML-Schema](https://en.wikipedia.org/wiki/XML_schema) oder [Doctype-Deklaration](https://en.wikipedia.org/wiki/Document_Type_Definition). Sie verwenden immer noch XML und dessen Syntax, sind jedoch zusätzlich durch eine vereinbarte Struktur eingeschränkt. WebSocket-Subprotokolle sind genau so. Sie führen nichts Besonderes ein, sondern etablieren nur Struktur. Wie ein Doctype oder Schema müssen beide Parteien sich auf das Subprotokoll einigen; im Gegensatz zu einem Doctype oder Schema ist das Subprotokoll auf dem Server implementiert und kann nicht extern vom Client referenziert werden.
 
 > [!NOTE]
-> Subprotokolle werden in den Abschnitten 1.9, 4.2, 11.3.4 und 11.5 der Spezifikation erklärt.
+> Subprotokolle sind in den Abschnitten 1.9, 4.2, 11.3.4 und 11.5 der Spezifikation erklärt.
 
-Ein Client muss nach einem spezifischen Subprotokoll fragen. Um dies zu tun, wird er _als Teil des ursprünglichen Handshakes_ etwas Ähnliches senden:
+Ein Client muss ein spezifisches Subprotokoll anfordern. Dazu sendet er etwas wie dies _als Teil des ursprünglichen Handshakes_:
 
 ```http
 GET /chat HTTP/1.1
@@ -267,7 +267,7 @@ GET /chat HTTP/1.1
 Sec-WebSocket-Protocol: soap, wamp
 ```
 
-oder äquivalent:
+oder, gleichbedeutend:
 
 ```http
 ...
@@ -275,7 +275,7 @@ Sec-WebSocket-Protocol: soap
 Sec-WebSocket-Protocol: wamp
 ```
 
-Nun muss der Server eines der Protokolle auswählen, die der Client vorgeschlagen hat und die er unterstützt. Wenn es mehr als eines gibt, senden Sie das erste, das der Client gesendet hat. Stellen wir uns vor, unser Server kann sowohl `soap` als auch `wamp` verwenden. Dann sendet er im Antwort-Handshake:
+Nun muss der Server eines der Protokolle auswählen, die der Client vorgeschlagen und er unterstützt hat. Wenn es mehr als eins gibt, senden Sie das erste, das der Client gesendet hat. Nehmen wir an, unser Server kann sowohl `soap` als auch `wamp` verwenden. Dann sendet er im Antwort-Handshake:
 
 ```http
 Sec-WebSocket-Protocol: soap
@@ -283,15 +283,15 @@ Sec-WebSocket-Protocol: soap
 
 > [!WARNING]
 > Der Server kann nicht mehr als einen `Sec-WebSocket-Protocol`-Header senden.
-> Wenn der Server kein Subprotokoll verwenden möchte, **_sollte er keinen `Sec-WebSocket-Protocol`-Header senden_**. Das Senden eines leeren Headers ist falsch. Der Client kann die Verbindung schließen, wenn er nicht das gewünschte Subprotokoll erhält.
+> Wenn der Server kein Subprotokoll verwenden möchte, **_sollte er keinen `Sec-WebSocket-Protocol`-Header senden_**. Einen leeren Header zu senden, ist falsch. Der Client kann die Verbindung schließen, wenn er das gewünschte Subprotokoll nicht erhält.
 
-Wenn Sie möchten, dass Ihr Server bestimmten Subprotokollen folgt, dann benötigen Sie natürlich zusätzlichen Code auf dem Server. Stellen wir uns vor, wir verwenden ein Subprotokoll `json`. In diesem Subprotokoll werden alle Daten als [JSON](https://en.wikipedia.org/wiki/JSON) übermittelt. Wenn der Client dieses Protokoll wünscht und der Server es verwenden möchte, benötigt der Server einen JSON-Parser. Praktisch gesehen wird dies Teil einer Bibliothek sein, aber der Server muss die Daten entsprechend bearbeiten.
+Wenn Sie möchten, dass Ihr Server bestimmte Subprotokolle einhält, benötigen Sie naturgemäß zusätzlichen Code auf dem Server. Stellen Sie sich vor, wir verwenden das Subprotokoll `json`. In diesem Subprotokoll werden alle Daten als [JSON](https://en.wikipedia.org/wiki/JSON) weitergegeben. Wenn der Client dieses Protokoll anfordert und der Server es verwenden möchte, muss der Server einen JSON-Parser haben. Praktisch wird dies Teil einer Bibliothek sein, aber der Server muss die Daten weiterreichen.
 
 > [!NOTE]
-> Um Namenskonflikte zu vermeiden, wird empfohlen, Ihren Subprotokollnamen als Teil eines Domainstrings zu gestalten. Wenn Sie eine benutzerdefinierte Chat-App erstellen, die ein exklusives Format von Example Inc. verwendet, könnten Sie dies verwenden: `Sec-WebSocket-Protocol: chat.example.com`. Beachten Sie, dass dies nicht erforderlich ist, sondern lediglich eine optionale Konvention darstellt, und Sie können jeden beliebigen String verwenden.
+> Um Namenskonflikte zu vermeiden, wird empfohlen, Ihren Subprotokollnamen Teil einer Domänenzeichenfolge zu machen. Wenn Sie eine benutzerdefinierte Chat-App erstellen, die ein proprietäres Format verwendet, das exklusiv für Example Inc. ist, könnten Sie dies verwenden: `Sec-WebSocket-Protocol: chat.example.com`. Beachten Sie, dass dies nicht erforderlich ist, es handelt sich nur um eine optionale Konvention, und Sie können jeden gewünschten String verwenden.
 
-## Verwandt
+## Verwandtes
 
-- [WebSocket-Client-Anwendungen schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
+- [WebSocket-Clientanwendungen schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
 - [Tutorial: WebSocket-Server in C#](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_server)
 - [Tutorial: WebSocket-Server in Java](/de/docs/Web/API/WebSockets_API/Writing_a_WebSocket_server_in_Java)

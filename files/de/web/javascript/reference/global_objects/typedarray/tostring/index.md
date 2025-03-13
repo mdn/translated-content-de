@@ -2,14 +2,14 @@
 title: TypedArray.prototype.toString()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/toString
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`toString()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt einen String zurück, der das angegebene TypedArray und dessen Elemente repräsentiert. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
+Die **`toString()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt eine Zeichenkette zurück, die das angegebene Typed Array und dessen Elemente repräsentiert. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
 
-{{InteractiveExample("JavaScript Demo: TypedArray.toString()", "shorter")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.toString()", "shorter")}}
 
 ```js interactive-example
 const uint8 = new Uint8Array([10, 20, 30, 40, 50]);
@@ -32,15 +32,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der die Elemente des TypedArrays repräsentiert.
+Eine Zeichenkette, die die Elemente des Typed Arrays repräsentiert.
 
 ## Beschreibung
 
-Weitere Details siehe {{jsxref("Array.prototype.toString()")}}. Diese Methode ist nicht generisch und kann nur auf TypedArray-Instanzen angewendet werden.
+Siehe {{jsxref("Array.prototype.toString()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Typed Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Umwandlung eines TypedArrays in einen String
+### Konvertieren eines Typed Arrays in eine Zeichenkette
 
 ```js
 const uint8 = new Uint8Array([1, 2, 3]);
@@ -60,7 +60,7 @@ console.log(`${uint8}`); // 1,2,3
 
 ## Siehe auch
 
-- [JavaScript TypedArrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.join()")}}
 - {{jsxref("TypedArray.prototype.toLocaleString()")}}

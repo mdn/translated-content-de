@@ -2,14 +2,14 @@
 title: Restzuweisung (%=)
 slug: Web/JavaScript/Reference/Operators/Remainder_assignment
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Restzuweisungsoperator (`%=`)** führt die [Restoperation](/de/docs/Web/JavaScript/Reference/Operators/Remainder) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
+Der **Restzuweisungsoperator (`%=`)** führt die [Restoperation](/de/docs/Web/JavaScript/Reference/Operators/Remainder) auf den beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
 
-{{InteractiveExample("JavaScript Demo: Expressions - Remainder assignment operator")}}
+{{InteractiveExample("JavaScript Demo: Restzuweisungsoperator (%=)")}}
 
 ```js interactive-example
 let a = 3;
@@ -32,7 +32,7 @@ x %= y
 
 ## Beschreibung
 
-`x %= y` ist äquivalent zu `x = x % y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x %= y` ist gleichbedeutend mit `x = x % y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 

@@ -2,16 +2,14 @@
 title: String.prototype.padEnd()
 slug: Web/JavaScript/Reference/Global_Objects/String/padEnd
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`padEnd()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen
-String (bei Bedarf wiederholt) auf, sodass der resultierende String eine bestimmte Länge erreicht. Das
-Auffüllen wird vom Ende dieses Strings aus angewendet.
+Die **`padEnd()`**-Methode der {{jsxref("String")}}-Werte fügt diesem String eine angegebene Zeichenfolge hinzu (wenn nötig wiederholt), sodass die resultierende Zeichenfolge eine bestimmte Länge erreicht. Das Padding wird vom Ende dieses Strings angewendet.
 
-{{InteractiveExample("JavaScript Demo: String.padEnd()")}}
+{{InteractiveExample("JavaScript Demo: String.prototype.padEnd()")}}
 
 ```js interactive-example
 const str1 = "Breaded Mushrooms";
@@ -35,20 +33,13 @@ padEnd(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird der
-    aktuelle String unverändert zurückgegeben.
+  - : Die Länge der resultierenden Zeichenfolge, nachdem der aktuelle `str` gepolstert wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird der aktuelle String unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Der String, mit dem der aktuelle `str` aufgefüllt wird. Wenn
-    `padString` zu lang ist, um innerhalb
-    `targetLength` zu bleiben, wird er abgeschnitten: Für von links nach rechts
-    geschriebene Sprachen wird der linkeste Teil angewendet und für von rechts nach links geschriebene Sprachen der rechteste Teil. Der Standardwert für diesen Parameter ist " "
-    (`U+0020`).
+  - : Die Zeichenfolge, mit der der aktuelle `str` gefüllt werden soll. Wenn `padString` zu lang ist, um innerhalb `targetLength` zu bleiben, wird es gekürzt: Für von links nach rechts lesende Sprachen wird der linkste Teil angewendet und für von rechts nach links lesende Sprachen der rechtsste Teil. Der Standardwert für diesen Parameter ist " " (`U+0020`).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength` mit dem
-`padString`, der am Ende des aktuellen
-`str` angewendet wurde.
+Eine {{jsxref("String")}} der angegebenen `targetLength` mit dem `padString` am Ende des aktuellen `str`.
 
 ## Beispiele
 

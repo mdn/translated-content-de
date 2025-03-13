@@ -3,12 +3,12 @@ title: "HTMLSourceElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/HTMLSourceElement/type
 l10n:
-  sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft der [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Schnittstelle ist ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} der Medienressource repräsentiert.
+Die **`type`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} der Medienressource darstellt.
 
 Sie spiegelt das `type`-Attribut des {{HTMLElement("source")}}-Elements wider.
 
@@ -49,6 +49,6 @@ console.log(el.type); // Output: "video/webp"
 - {{htmlelement("picture")}}
 - {{htmlelement("audio")}}
 - {{htmlelement("video")}}
-- [Medientypen, die im Web zu finden sind](/de/docs/Web/Media/Guides/Formats)
-- [Wichtige MIME-Typen für Webentwickler](/de/docs/Web/HTTP/MIME_types#important_mime_types_for_web_developers)
+- [Medientypen im Web](/de/docs/Web/Media/Guides/Formats)
+- [Wichtige MIME-Typen für Webentwickler](/de/docs/Web/HTTP/Guides/MIME_types#important_mime_types_for_web_developers)
 - [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API)

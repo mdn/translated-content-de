@@ -2,16 +2,16 @@
 title: Antwort-Header
 slug: Glossary/Response_header
 l10n:
-  sourceCommit: baac7f2a43813a7930ff97b11d9c38b413f97c78
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{GlossarySidebar}}
 
-Ein **Antwort-Header** ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der in einer HTTP-Antwort verwendet werden kann und sich nicht auf den Inhalt der Nachricht bezieht. Antwort-Header wie {{HTTPHeader("Age")}}, {{HTTPHeader("Location")}} oder {{HTTPHeader("Server")}} werden verwendet, um einen detaillierteren Kontext der Antwort zu geben.
+Ein **Antwort-Header** ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der in einer HTTP-Antwort verwendet werden kann und der nicht den Inhalt der Nachricht betrifft. Antwort-Header wie {{HTTPHeader("Age")}}, {{HTTPHeader("Location")}} oder {{HTTPHeader("Server")}} werden verwendet, um einen detaillierteren Kontext der Antwort zu geben.
 
-Nicht alle Header, die in einer Antwort erscheinen, werden von der Spezifikation als _Antwort-Header_ kategorisiert. Zum Beispiel ist der {{HTTPHeader("Content-Type")}}-Header ein {{Glossary("representation_header", "Darstellungs-Header")}}, der den ursprünglichen Datentyp im Body der Antwortnachricht angibt (vor der Anwendung der Kodierung im {{HTTPHeader("Content-Encoding")}}-Darstellungs-Header). Dennoch werden „umgangssprachlich“ alle Header in einer Antwortnachricht üblicherweise als Antwort-Header bezeichnet.
+Nicht alle Header, die in einer Antwort erscheinen, werden von der Spezifikation als _Antwort-Header_ kategorisiert. Zum Beispiel ist der {{HTTPHeader("Content-Type")}} Header ein {{Glossary("representation_header", "Repräsentations-Header")}}, der den ursprünglichen Datentyp im Körper der Antwortnachricht angibt (vor der Kodierung im {{HTTPHeader("Content-Encoding")}} Repräsentations-Header angewendet wird). "Umgangssprachlich" werden jedoch in einer Antwortnachricht normalerweise alle Header als Antwort-Header bezeichnet.
 
-Das Folgende zeigt einige Antwort- und Darstellungs-Header nach einem {{HTTPMethod("GET")}}-Anfrage.
+Das Folgende zeigt einige Antwort- und Repräsentations-Header nach einer {{HTTPMethod("GET")}}-Anfrage.
 
 ```http
 200 OK
@@ -35,8 +35,8 @@ x-frame-options: DENY
 
 ## Siehe auch
 
-- [Liste aller HTTP-Header](/de/docs/Web/HTTP/Headers)
+- [Liste aller HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Representation_header", "Darstellungs-Header")}}
+  - {{Glossary("Representation_header", "Repräsentations-Header")}}
   - {{Glossary("HTTP_header", "HTTP-Header")}}
   - {{Glossary("Request_header", "Anfrage-Header")}}

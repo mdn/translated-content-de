@@ -2,14 +2,14 @@
 title: Intl.ListFormat.prototype.format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/format
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die Methode **`format()`** von {{jsxref("Intl.ListFormat")}}-Instanzen gibt eine Zeichenfolge mit einer sprachspezifischen Darstellung der Liste zurück.
+Die **`format()`**-Methode von {{jsxref("Intl.ListFormat")}} Instanzen gibt einen String mit einer sprachspezifischen Darstellung der Liste zurück.
 
-{{InteractiveExample("JavaScript Demo: Intl.ListFormat", "taller")}}
+{{InteractiveExample("JavaScript Demo: Intl.ListFormat.prototype.format()", "taller")}}
 
 ```js interactive-example
 const vehicles = ["Motorcycle", "Bus", "Car"];
@@ -42,20 +42,20 @@ format(list)
 ### Parameter
 
 - `list`
-  - : Ein iterierbares Objekt, wie ein Array, das Zeichenfolgen enthält. Wenn es weggelassen wird, wird ein leeres Array formatiert, was möglicherweise leicht verwirrend sein kann. Daher wird empfohlen, immer explizit eine Liste zu übergeben.
+  - : Ein iterierbares Objekt, wie ein Array, das Strings enthält. Wenn dieses weggelassen wird, führt das zur Formatierung eines leeren Arrays, was etwas verwirrend sein könnte; es ist daher ratsam, immer explizit eine Liste zu übergeben.
 
 ### Rückgabewert
 
-Eine sprachspezifisch formatierte Zeichenfolge, die die Elemente der Liste darstellt.
+Ein sprachspezifisch formatierter String, der die Elemente der Liste darstellt.
 
 > [!NOTE]
-> Meistens ist die von `format()` zurückgegebene Formatierung konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb derselben Spracheinstellung — Variationen in der Ausgabe sind durch das Design erlaubt und von der Spezifikation vorgeschrieben. Es kann auch sein, dass sie nicht Ihren Erwartungen entspricht. Zum Beispiel könnte die Zeichenfolge geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit festkodierten Konstanten vergleichen.
+> Meistens ist die Formatierung, die `format()` zurückgibt, konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb derselben Spracheinstellung — diese Variationen sind gewollt und durch die Spezifikation erlaubt. Es kann auch sein, dass die Ausgabe nicht der Erwartung entspricht. Zum Beispiel kann der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest codierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Verwendung von format
 
-Das folgende Beispiel zeigt, wie ein Listen-Formatter unter Verwendung der englischen Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie ein Listenformatter mit der englischen Sprache erstellt wird.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];

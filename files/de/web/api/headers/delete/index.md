@@ -1,16 +1,16 @@
 ---
-title: "Headers: delete()-Methode"
+title: "Headers: delete() Methode"
 short-title: delete()
 slug: Web/API/Headers/delete
 l10n:
-  sourceCommit: 442db82028668b17b888ee439468ae2ac9d589a5
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`delete()`**-Methode der [`Headers`](/de/docs/Web/API/Headers)-Schnittstelle entfernt einen Header aus dem aktuellen `Headers`-Objekt.
+Die **`delete()`** Methode des [`Headers`](/de/docs/Web/API/Headers)-Interfaces löscht einen Header aus dem aktuellen `Headers`-Objekt.
 
-Aus Sicherheitsgründen können einige Header nur durch den User-Agent gesteuert werden. Diese Header umfassen die {{Glossary("Forbidden_request_header", "verbotenen Anforderungs-Header")}} und {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Header-Namen")}}.
+Aus Sicherheitsgründen können einige Header nur vom User-Agent gesteuert werden. Diese Header umfassen die {{Glossary("Forbidden_request_header", "verbotenen Anforderungs-Header")}} und {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Headernamen")}}.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ delete(name)
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -59,6 +59,6 @@ myHeaders.get("Content-Type"); // Returns null, as it has been deleted
 
 ## Siehe auch
 
-- [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
+- [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
+- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

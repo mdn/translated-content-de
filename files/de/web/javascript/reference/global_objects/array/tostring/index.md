@@ -2,14 +2,14 @@
 title: Array.prototype.toString()
 slug: Web/JavaScript/Reference/Global_Objects/Array/toString
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`toString()`**-Methode von {{jsxref("Array")}}-Instanzen gibt eine Zeichenkette zurück, die das angegebene Array und seine Elemente repräsentiert.
+Die **`toString()`** Methode von {{jsxref("Array")}} Instanzen gibt eine Zeichenkette zurück, die das angegebene Array und seine Elemente repräsentiert.
 
-{{InteractiveExample("JavaScript Demo: Array.toString()", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Array.prototype.toString()", "shorter")}}
 
 ```js interactive-example
 const array1 = [1, 2, "a", "1a"];
@@ -34,7 +34,7 @@ Eine Zeichenkette, die die Elemente des Arrays repräsentiert.
 
 ## Beschreibung
 
-Das {{jsxref("Array")}}-Objekt überschreibt die `toString`-Methode von {{jsxref("Object")}}. Die `toString`-Methode von Arrays ruft intern [`join()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/join) auf, das das Array verbindet und eine Zeichenkette zurückgibt, die jedes Array-Element, getrennt durch Kommas, enthält. Wenn die `join`-Methode nicht verfügbar ist oder keine Funktion ist, wird [`Object.prototype.toString`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) stattdessen verwendet, was `[object Array]` zurückgibt.
+Das {{jsxref("Array")}} Objekt überschreibt die `toString` Methode von {{jsxref("Object")}}. Die `toString` Methode von Arrays ruft intern [`join()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/join) auf, das das Array verbindet und eine Zeichenkette zurückgibt, die jedes Array-Element durch Kommas getrennt enthält. Sollte die `join` Methode nicht verfügbar sein oder keine Funktion sein, wird [`Object.prototype.toString`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) anstelle dessen verwendet, was `[object Array]` zurückgibt.
 
 ```js
 const arr = [];
@@ -44,9 +44,9 @@ console.log(arr.toString()); // [object Array]
 console.log(Array.prototype.toString.call({ join: () => 1 })); // 1
 ```
 
-JavaScript ruft die `toString`-Methode automatisch auf, wenn ein Array als Textwert dargestellt werden soll oder wenn ein Array in einer Zeichenketten-Konkatenation verwendet wird.
+JavaScript ruft die `toString` Methode automatisch auf, wenn ein Array als Textwert dargestellt werden soll oder wenn auf ein Array in einer Zeichenkettenverkettung verwiesen wird.
 
-`Array.prototype.toString` konvertiert rekursiv jedes Element, einschließlich anderer Arrays, in Zeichenketten. Da die von `Array.prototype.toString` zurückgegebene Zeichenkette keine Trennzeichen enthält, sehen verschachtelte Arrays so aus, als wären sie abgeflacht.
+`Array.prototype.toString` konvertiert rekursiv jedes Element, einschließlich anderer Arrays, in Zeichenketten. Da die von `Array.prototype.toString` zurückgegebene Zeichenkette keine Trennzeichen hat, sehen verschachtelte Arrays aus, als wären sie flach dargestellt.
 
 ```js
 const matrix = [
@@ -58,7 +58,7 @@ const matrix = [
 console.log(matrix.toString()); // 1,2,3,4,5,6,7,8,9
 ```
 
-Wenn ein Array zyklisch ist (es enthält ein Element, das es selbst ist), verhindern Browser eine unendliche Rekursion, indem sie die zyklische Referenz ignorieren.
+Wenn ein Array zyklisch ist (es enthält ein Element, das es selbst ist), vermeiden Browser unendliche Rekursion, indem sie den zyklischen Verweis ignorieren.
 
 ```js
 const arr = [];
@@ -76,17 +76,17 @@ const array1 = [1, 2, "a", "1a"];
 console.log(array1.toString()); // "1,2,a,1a"
 ```
 
-### Verwendung von toString() bei dünn besetzten Arrays
+### Verwendung von toString() auf spärlichen Arrays
 
-Entsprechend dem Verhalten von `join()` behandelt `toString()` leere Plätze genauso wie `undefined` und erzeugt einen zusätzlichen Trennzeichen:
+Entsprechend dem Verhalten von `join()` behandelt `toString()` leere Slots genauso wie `undefined` und erzeugt einen zusätzlichen Trenner:
 
 ```js
 console.log([1, , 3].toString()); // '1,,3'
 ```
 
-### Aufruf von toString() auf Nicht-Array-Objekten
+### Aufruf von toString() bei Nicht-Array Objekten
 
-`toString()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Es erwartet, dass `this` eine `join()`-Methode besitzt; andernfalls wird `Object.prototype.toString()` verwendet.
+`toString()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Es erwartet, dass `this` eine `join()` Methode hat; andernfalls wird `Object.prototype.toString()` verwendet.
 
 ```js
 console.log(Array.prototype.toString.call({ join: () => 1 }));
@@ -107,7 +107,7 @@ console.log(Array.prototype.toString.call({ join: "not function" }));
 
 ## Siehe auch
 
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Indizierte Kollektionen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.join()")}}
 - {{jsxref("Array.prototype.toLocaleString()")}}

@@ -2,16 +2,16 @@
 title: Number.prototype.toLocaleString()
 slug: Web/JavaScript/Reference/Global_Objects/Number/toLocaleString
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`toLocaleString()`**-Methode von {{jsxref("Number")}}-Werten gibt eine Zeichenkette mit einer sprachenspezifischen Darstellung dieser Zahl zurück. In Implementierungen mit Unterstützung für die [`Intl.NumberFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) delegiert diese Methode an `Intl.NumberFormat`.
+Die **`toLocaleString()`** Methode von {{jsxref("Number")}}-Werten gibt eine Zeichenkette mit einer sprachsensitiven Darstellung dieser Zahl zurück. In Implementierungen mit Unterstützung der [`Intl.NumberFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) delegiert diese Methode an `Intl.NumberFormat`.
 
-Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank von Lokalisierungsstrings durchgeführt werden, was potenziell ineffizient ist. Wenn die Methode mit denselben Argumenten öfter aufgerufen werden soll, ist es besser, ein {{jsxref("Intl.NumberFormat")}}-Objekt zu erstellen und dessen {{jsxref("Intl/NumberFormat/format", "format()")}}-Methode zu verwenden. Ein `NumberFormat`-Objekt speichert die übergebenen Argumente und kann entscheiden, einen Teil der Datenbank zwischenzuspeichern, sodass zukünftige `format`-Aufrufe innerhalb eines eingeschränkteren Kontextes suchen können.
+Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank von Lokalisierungszeichenfolgen durchgeführt werden, was potenziell ineffizient ist. Wenn die Methode mit denselben Argumenten häufig aufgerufen wird, ist es besser, ein {{jsxref("Intl.NumberFormat")}}-Objekt zu erstellen und dessen {{jsxref("Intl/NumberFormat/format", "format()")}} Methode zu verwenden, da ein `NumberFormat`-Objekt die übergebenen Argumente speichert und möglicherweise einen Teil der Datenbank zwischenspeichert, sodass zukünftige `format`-Aufrufe Lokalisierungszeichenfolgen in einem enger begrenzten Kontext suchen können.
 
-{{InteractiveExample("JavaScript Demo: Number.toLocaleString()")}}
+{{InteractiveExample("JavaScript Demo: Number.prototype.toLocaleString()")}}
 
 ```js interactive-example
 function eArabic(x) {
@@ -40,36 +40,36 @@ toLocaleString(locales, options)
 
 Die Parameter `locales` und `options` passen das Verhalten der Funktion an und ermöglichen es Anwendungen, die Sprache anzugeben, deren Formatierungskonventionen verwendet werden sollen.
 
-In Implementierungen, die die [`Intl.NumberFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) unterstützen, entsprechen diese Parameter exakt den Parametern des [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat)-Konstruktors. Implementierungen ohne Unterstützung für `Intl.NumberFormat` ignorieren beide Parameter, sodass die verwendete Sprache und die Form der zurückgegebenen Zeichenkette vollständig von der jeweiligen Implementierung abhängen.
+In Implementierungen, die die [`Intl.NumberFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) unterstützen, entsprechen diese Parameter genau den Parametern des [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat) Konstruktors. Implementierungen ohne `Intl.NumberFormat`-Unterstützung werden gebeten, beide Parameter zu ignorieren, wodurch die verwendete Sprache und die Form der zurückgegebenen Zeichenkette vollständig von der Implementierung abhängen.
 
 - `locales` {{optional_inline}}
 
-  - : Eine Zeichenkette mit einem BCP 47-Sprach-Tag oder ein Array solcher Zeichenketten. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#locales)-Parameter des `Intl.NumberFormat()`-Konstruktors.
+  - : Ein String mit einem BCP 47-Sprach-Tag oder ein Array solcher Strings. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#locales) Parameter des `Intl.NumberFormat()` Konstruktors.
 
-    In Implementierungen ohne Unterstützung für `Intl.NumberFormat` wird dieser Parameter ignoriert und normalerweise die Sprache des Hosts verwendet.
+    In Implementierungen ohne `Intl.NumberFormat`-Unterstützung wird dieser Parameter ignoriert und üblicherweise die Sprache des Hosts verwendet.
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das die Ausgabeform anpasst. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options)-Parameter des `Intl.NumberFormat()`-Konstruktors.
+  - : Ein Objekt, das das Ausgabeformat anpasst. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options) Parameter des `Intl.NumberFormat()` Konstruktors.
 
-    In Implementierungen ohne Unterstützung für `Intl.NumberFormat` wird dieser Parameter ignoriert.
+    In Implementierungen ohne `Intl.NumberFormat`-Unterstützung wird dieser Parameter ignoriert.
 
-Details zu diesen Parametern und deren Verwendung finden Sie im [`Intl.NumberFormat()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
+Details zu diesen Parametern und deren Nutzung finden Sie im [`Intl.NumberFormat()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die gegebene Nummer gemäß den sprachspezifischen Konventionen darstellt.
+Eine Zeichenkette, die die angegebene Zahl gemäß sprachspezifischen Konventionen darstellt.
 
 In Implementierungen mit `Intl.NumberFormat` entspricht dies `new Intl.NumberFormat(locales, options).format(number)`.
 
 > [!NOTE]
-> Meistens ist die Formatierung, die von `toLocaleString()` zurückgegeben wird, konsistent. Allerdings kann die Ausgabe zwischen verschiedenen Implementierungen variieren, sogar innerhalb derselben Sprache — solche Variationen sind beabsichtigt und durch die Spezifikation erlaubt. Es könnte auch nicht das sein, was Sie erwarten. Beispielsweise könnte die Zeichenkette geschützte Leerzeichen oder bidirektionale Steuerzeichen enthalten. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit fest codierten Konstanten vergleichen.
+> Meistens ist die von `toLocaleString()` zurückgegebene Formatierung konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, selbst innerhalb derselben Sprache — Ausgabevariationen sind beabsichtigt und von der Spezifikation erlaubt. Sie entspricht möglicherweise auch nicht Ihren Erwartungen. Zum Beispiel könnte die Zeichenkette nicht brechende Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit fest codierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Verwendung von toLocaleString()
 
-Die grundsätzliche Verwendung dieser Methode ohne Angabe einer `locale` gibt eine formatierte Zeichenkette in der Standard-Lokale und mit Standardoptionen zurück.
+Die grundlegende Verwendung dieser Methode ohne Angabe einer `locale` gibt eine formatierte Zeichenkette in der Standardsprache und mit Standardoptionen zurück.
 
 ```js
 const number = 3500;
@@ -77,9 +77,9 @@ const number = 3500;
 console.log(number.toLocaleString()); // "3,500" if in U.S. English locale
 ```
 
-### Überprüfen der Unterstützung für die Parameter locales und options
+### Überprüfung der Unterstützung von locales- und options-Parametern
 
-Die Parameter `locales` und `options` werden möglicherweise nicht in allen Implementierungen unterstützt, da die Unterstützung der Internationalisierungs-API optional ist und einige Systeme nicht über die erforderlichen Daten verfügen. Bei Implementierungen ohne Unterstützung für Internationalisierung verwendet `toLocaleString()` immer die Sprache des Systems, was möglicherweise nicht das gewünschte Ergebnis ist. Da jede Implementierung, die die Parameter `locales` und `options` unterstützt, auch die {{jsxref("Intl")}}-API unterstützen muss, können Sie deren Existenz überprüfen, um die Unterstützung sicherzustellen:
+Die Parameter `locales` und `options` werden möglicherweise nicht in allen Implementierungen unterstützt, da die Unterstützung der Internationalisierungs-API optional ist und einige Systeme möglicherweise nicht über die erforderlichen Daten verfügen. Für Implementierungen ohne Internationalisierungsunterstützung verwendet `toLocaleString()` immer die Sprache des Systems, die möglicherweise nicht dem entspricht, was Sie wünschen. Da jede Implementierung, die die `locales`- und `options`-Parameter unterstützt, die {{jsxref("Intl")}} API unterstützen muss, können Sie deren Existenz zur Unterstützung überprüfen:
 
 ```js
 function toLocaleStringSupportsLocales() {
@@ -93,7 +93,7 @@ function toLocaleStringSupportsLocales() {
 
 ### Verwendung von locales
 
-Dieses Beispiel zeigt einige der Variationen in lokalisierten Zahlenformaten. Um das Format der Sprache zu erhalten, die in der Benutzeroberfläche Ihrer Anwendung verwendet wird, stellen Sie sicher, dass Sie diese Sprache (und möglicherweise einige Ersatzsprachen) mit dem Argument `locales` angeben:
+Dieses Beispiel zeigt einige der Variationen in lokalisierten Zahlenformaten. Um das Format der Sprache zu erhalten, die in der Benutzeroberfläche Ihrer Anwendung verwendet wird, sollten Sie sicherstellen, dass Sie diese Sprache (und möglicherweise einige Fallback-Sprachen) mit dem `locales`-Argument angeben:
 
 ```js
 const number = 123456.789;
@@ -122,7 +122,7 @@ console.log(number.toLocaleString(["ban", "id"]));
 
 ### Verwendung von options
 
-Die von `toLocaleString()` bereitgestellten Ergebnisse können mit dem Parameter `options` angepasst werden:
+Die von `toLocaleString()` bereitgestellten Ergebnisse können mit dem `options`-Parameter angepasst werden:
 
 ```js
 const number = 123456.789;

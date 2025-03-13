@@ -2,14 +2,14 @@
 title: Intl.RelativeTimeFormat.prototype.formatToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`formatToParts()`**-Methode von {{jsxref("Intl.RelativeTimeFormat")}}-Instanzen gibt ein Array von Objekten zurück, das jedes Teil des formatierten Strings repräsentiert, der von {{jsxref("Intl/RelativeTimeFormat/format", "format()")}} zurückgegeben würde. Diese Methode ist nützlich zum Erstellen von benutzerdefinierten Strings aus den lokalisierungsspezifischen Token.
+Die **`formatToParts()`**-Methode von {{jsxref("Intl.RelativeTimeFormat")}}-Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings repräsentieren, der von {{jsxref("Intl/RelativeTimeFormat/format", "format()")}} zurückgegeben würde. Dies ist nützlich, um benutzerdefinierte Strings aus den lokalespezifischen Tokens zu erstellen.
 
-{{InteractiveExample("JavaScript Demo: Intl.RelativeTimeFormat.prototype.formatToParts")}}
+{{InteractiveExample("JavaScript Demo: Intl.RelativeTimeFormat.prototype.formatToParts()")}}
 
 ```js interactive-example
 const rtf1 = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
@@ -40,9 +40,9 @@ formatToParts(value, unit)
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, das die formatierte relative Zeit in Teilen enthält. Jedes Objekt hat zwei oder drei Eigenschaften: `type`, `value` und optional `unit`, wobei jede Eigenschaft einen String enthält. Die String-Konkatenation von `value`, in der bereitgestellten Reihenfolge, ergibt denselben String wie {{jsxref("Intl/RelativeTimeFormat/format", "format()")}}. Die Teile können als direkt aus dem Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}} mit dem numerischen Wert gewonnen betrachtet werden, wobei nur die Option `numberingSystem` übergeben wird, und indem zusätzliche `type: "literal"`-Token wie `"in "`, `" days ago"` usw. hinzugefügt werden. Alle Token, die durch die `NumberFormat`-Methode erzeugt werden, haben eine zusätzliche Eigenschaft `unit`, die die Einzahlform des Eingabe-`unit` ist; dies dient der programmatischen Nutzung und ist nicht lokalisiert. Die lokalisierte Einheit wird als Teil eines Literal-Tokens ausgegeben.
+Ein {{jsxref("Array")}} von Objekten, das die formatierte relative Zeit in Teilen enthält. Jedes Objekt hat zwei oder drei Eigenschaften, `type`, `value` und optional `unit`, jeweils mit einem String. Die String-Verkettung von `value` in der angegebenen Reihenfolge ergibt denselben String wie {{jsxref("Intl/RelativeTimeFormat/format", "format()")}}. Die Teile können als direkt aus dem Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}} mit dem numerischen Wert betrachtet werden, indem nur die Option `numberingSystem` übergeben wird und dann zusätzliche `type: "literal"` Tokens hinzugefügt werden, wie `"in "`, `" days ago"`, usw. Alle Tokens, die vom `NumberFormat` erzeugt werden, haben eine zusätzliche `unit`-Eigenschaft, die die Singularform der Eingabe `unit` ist; dies ist für die programmatische Verwendung und ist nicht lokalisiert. Die lokalisierte Einheit wird als Teil eines Literal-Tokens ausgegeben.
 
-Wenn `options.numeric` auf `"auto"` gesetzt ist und es einen speziellen String für den Wert gibt, ist das zurückgegebene Array ein einzelnes Literal-Token.
+Wenn `options.numeric` auf `"auto"` gesetzt ist und es gibt einen speziellen String für den Wert, ist das zurückgegebene Array ein einzelnes Literal-Token.
 
 ## Beispiele
 

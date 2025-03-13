@@ -1,15 +1,15 @@
 ---
-title: Bitweises XOR-Zuweisungsoperator (^=)
+title: Bitweises XOR-Zuweisung (^=)
 slug: Web/JavaScript/Reference/Operators/Bitwise_XOR_assignment
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **bitweise XOR-Zuweisungsoperator (`^=`)** führt eine [bitweise XOR](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR)-Operation auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
+Der **bitweise XOR-Zuweisungsoperator (`^=`)** führt ein [bitweises XOR](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
 
-{{InteractiveExample("JavaScript Demo: Expressions - Bitwise XOR assignment", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Bitweises XOR-Zuweisungsoperator (^=)", "shorter")}}
 
 ```js interactive-example
 let a = 5; // 00000000000000000000000000000101
@@ -27,7 +27,7 @@ x ^= y
 
 ## Beschreibung
 
-`x ^= y` ist gleichbedeutend mit `x = x ^ y`, mit der Ausnahme, dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x ^= y` ist gleichbedeutend mit `x = x ^ y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
@@ -60,4 +60,4 @@ console.log(c); // 6n
 ## Siehe auch
 
 - [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
-- [Bitwise XOR (`^`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR)
+- [Bitweises XOR (`^`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR)

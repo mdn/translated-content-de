@@ -3,12 +3,12 @@ title: "PaymentRequest: PaymentRequest() Konstruktor"
 short-title: PaymentRequest()
 slug: Web/API/PaymentRequest/PaymentRequest
 l10n:
-  sourceCommit: 32f666e453bdb8c93d305075453b6e304cae94de
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Der **`PaymentRequest()`** Konstruktor erstellt ein neues [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) Objekt, das verwendet wird, um den Prozess zum Erstellen, Validieren und Absenden einer Zahlungsanforderung zu handhaben.
+Der **`PaymentRequest()`** Konstruktor erstellt ein neues [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt, das verwendet wird, um den Prozess der Erstellung, Validierung und Einreichung einer Zahlungsanforderung zu verwalten.
 
 ## Syntax
 
@@ -21,14 +21,14 @@ new PaymentRequest(methodData, details, options)
 
 - `methodData`
 
-  - : Enthält ein Array von Bezeichnern für die Zahlungsmethoden, die die Händler-Website akzeptiert, sowie alle zugehörigen zahlungsmethodenspezifischen Daten. Jedes Element im Array enthält die folgenden Felder:
+  - : Enthält ein Array von Bezeichnern für die Zahlungsmethoden, die die Händlerwebsite akzeptiert, sowie alle zugehörigen, zahlungsmethodenspezifischen Daten. Jedes Element im Array enthält die folgenden Felder:
 
     - `supportedMethods`
 
-      - : Ein String, der eine [Zahlungsmethoden-Bezeichner](/de/docs/Web/API/Payment_Request_API/Concepts#payment_method_identifiers) enthält. Dies ist entweder eine URL oder einer der [standardisierten Zahlungsmethoden-Bezeichner](/de/docs/Web/API/Payment_Request_API/Concepts#standardized_payment_method_identifiers). Der Wert und die Struktur des `data`-Feldes variieren je nach dem Wert im `supportedMethods`-Feld.
+      - : Ein String, der einen [Zahlungsmethoden-Bezeichner](/de/docs/Web/API/Payment_Request_API/Concepts#payment_method_identifiers) enthält. Dies ist entweder eine URL oder einer der [standardisierten Zahlungsmethoden-Bezeichner](/de/docs/Web/API/Payment_Request_API/Concepts#standardized_payment_method_identifiers). Der Wert und die Struktur des `data`-Feldes variieren je nach Wert des `supportedMethods`-Feldes.
 
     - `data`
-      - : Ein JSON-serialisierbares Objekt, das optionale Informationen bietet, die von den unterstützten Zahlungsmethoden benötigt werden könnten. Dies muss dem vom Zahlungshandler erwarteten Typ entsprechen, der durch `supportedMethods` angegeben wird. Entwickler müssen diejenigen konsultieren, die die Zahlungsmethoden kontrollieren, um die erwartete Struktur des Datenobjekts zu erfahren. Wenn `supportedMethods` `secure-payment-confirmation` ist, muss `data` dem [`SecurePaymentConfirmationRequest`](/de/docs/Web/API/SecurePaymentConfirmationRequest) Wörterbuch entsprechen.
+      - : Ein JSON-serialisierbares Objekt, das optionale Informationen bereitstellt, die von den unterstützten Zahlungsmethoden benötigt werden könnten. Dieses muss dem vom Zahlungshandler, der durch `supportedMethods` angegeben wird, erwarteten Typ entsprechen. Entwickler müssen sich an die zuständige Stelle der Zahlungsmethoden wenden, um das erwartete Format des Datenobjekts zu erfahren. Wenn `supportedMethods` `secure-payment-confirmation` ist, muss `data` dem [`SecurePaymentConfirmationRequest`](/de/docs/Web/API/SecurePaymentConfirmationRequest)-Wörterbuch entsprechen.
 
 - `details`
 
@@ -37,49 +37,49 @@ new PaymentRequest(methodData, details, options)
     - `total`
       - : Der Gesamtbetrag der Zahlungsanforderung.
     - `id` {{optional_inline}}
-      - : Ein frei gestaltbarer Bezeichner für diese Zahlungsanforderung. Wenn kein Wert angegeben wird, wird der Browser einen erstellen.
+      - : Ein frei formulierter Bezeichner für diese Zahlungsanforderung. Wenn kein Wert angegeben wird, erstellt der Browser einen.
     - `displayItems`
-      - : Ein Array von optionalen Positionen für die Zahlungsanforderung, die vom User-Agent angezeigt werden können, wie Produktdetails, Steuern und Versand.
+      - : Ein Array von optionalen Einzelposten für die Zahlungsanforderung, die der Benutzeragent anzeigen kann, wie z.B. Produktdetails, Steuern und Versand.
     - `shippingOptions`
-      - : Die Versandoptionen, die der Benutzer auswählen kann. Wenn diese Sequenz leer ist, zeigt dies an, dass der Händler nicht an die aktuelle Versandadresse liefern kann. Die Standardversandoption kann in dieser Sequenz angegeben werden.
+      - : Die Versandoptionen, die der Benutzer auswählen kann. Wenn diese Sequenz leer ist, bedeutet dies, dass der Händler an die aktuelle Versandadresse nicht liefern kann. Die Standardversandoption kann in dieser Sequenz angegeben werden.
     - `modifiers`
 
       - : Modifikatoren für spezifische Zahlungsmethoden; zum Beispiel, um den Gesamtbetrag basierend auf der Zahlungsmethode anzupassen. Dieser Parameter enthält die folgenden Felder:
 
         - `additionalDisplayItems`
-          - : Ein Array von Elementen, die an die Eigenschaft `details.displayItems` angehängt werden sollen. Diese Eigenschaft wird häufig verwendet, um eine Rabatt- oder Zuschlagposition hinzuzufügen, die den unterschiedlichen Betrag in `details.modifiers.total` anzeigt.
+          - : Ein Array von Elementen, das an die `details.displayItems`-Eigenschaft angehängt werden soll. Diese Eigenschaft wird häufig verwendet, um einen Rabatt oder eine zusätzliche Kostenlinie hinzuzufügen, die den unterschiedlichen Betrag in `details.modifiers.total` angibt.
         - `data`
-          - : Ein JSON-serialisierbares Objekt, das optionale Informationen bietet, die für die unterstützten Zahlungsmethoden benötigt werden könnten.
+          - : Ein JSON-serialisierbares Objekt, das optionale Informationen bereitstellt, die von den unterstützten Zahlungsmethoden benötigt werden könnten.
         - `total`
-          - : Ein Gesamtbetrag für die Zahlungsanforderung, der den Wert in `details.total` überschreibt. Dies wird typischerweise verwendet, wenn `details.modifiers.additionalItems` einen Rabatt oder einen Kauf zur Anforderung hinzufügt.
+          - : Ein Gesamtbetrag für die Zahlungsanforderung, der den Wert in `details.total` überschreibt. Dies wird typischerweise verwendet, wenn `details.modifiers.additionalItems` einen Rabatt oder einen Kauf zur Anfrage hinzufügt.
 
 - `options` {{optional_inline}}
 
-  - : Ermöglicht es Ihnen, Optionen einzustellen, die das Verhalten des User-Agent steuern. Dieser Parameter enthält die folgenden Felder:
+  - : Ermöglicht das Festlegen von Optionen, die das Verhalten des Benutzeragenten steuern. Dieser Parameter enthält die folgenden Felder:
 
     - `requestPayerName`
-      - : Ein Boolean, der angibt, ob der User-Agent den Namen des Zahlers sammeln und mit der Zahlungsanforderung einreichen soll. Der Standardwert ist `false`.
+      - : Ein Boolean, der angibt, ob der Benutzeragent den Namen des Zahlungspflichtigen erfassen und mit der Zahlungsanforderung übermitteln soll. Der Standardwert ist `false`.
     - `requestPayerEmail`
-      - : Ein Boolean, der angibt, ob der User-Agent die E-Mail-Adresse des Zahlers sammeln und mit der Zahlungsanforderung einreichen soll. Der Standardwert ist `false`.
+      - : Ein Boolean, der angibt, ob der Benutzeragent die E-Mail-Adresse des Zahlungspflichtigen erfassen und mit der Zahlungsanforderung übermitteln soll. Der Standardwert ist `false`.
     - `requestPayerPhone`
-      - : Ein Boolean, der angibt, ob der User-Agent die Telefonnummer des Zahlers sammeln und mit der Zahlungsanforderung einreichen soll. Der Standardwert ist `false`.
+      - : Ein Boolean, der angibt, ob der Benutzeragent die Telefonnummer des Zahlungspflichtigen erfassen und mit der Zahlungsanforderung übermitteln soll. Der Standardwert ist `false`.
     - `requestShipping`
-      - : Ein Boolean, der angibt, ob der User-Agent die Versandadresse des Zahlers sammeln und mit der Zahlungsanforderung einreichen soll. Wenn Sie diesen Wert auf `true` setzen, sollten Sie einen geeigneten `shippingType` auswählen. Der Standardwert ist `false`.
+      - : Ein Boolean, der angibt, ob der Benutzeragent die Versandadresse des Zahlungspflichtigen erfassen und mit der Zahlungsanforderung übermitteln soll. Wenn Sie diesen Typ auf true setzen, sollten Sie einen geeigneten `shippingType` auswählen. Der Standardwert ist `false`.
     - `shippingType`
-      - : Ermöglicht es Ihnen, zu spezifizieren, wie die Benutzeroberfläche auf den Versand Bezug nimmt, wenn das Wort 'Versand' nicht für Ihren Anwendungsfall geeignet ist. Zum Beispiel würde man in englischsprachigen Ländern "pizza delivery" und nicht "pizza shipping" sagen. Gültige Werte sind `"shipping"`, `"delivery"` und `"pickup"`. Anführungszeichen müssen eingeschlossen werden. Der Standardwert ist `"shipping"`.
+      - : Ermöglicht Ihnen anzugeben, wie die Benutzeroberfläche auf den Versand Bezug nimmt, wenn das Wort 'Versand' für Ihren Anwendungsfall nicht geeignet ist. Beispielsweise würde man in englischsprachigen Ländern "Pizza-Lieferung" statt "Pizza-Versand" sagen. Gültige Werte sind `"shipping"`, `"delivery"` und `"pickup"`. Anführungszeichen müssen enthalten sein. Der Standardwert ist `"shipping"`.
 
 ### Rückgabewert
 
-Ein neues [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) Objekt, das basierend auf den Eingabeparametern konfiguriert ist.
+Ein neues [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt, konfiguriert zur Verwendung gemäß den Eingabeparametern.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieses Features wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die minimale Funktionalität und konzentriert sich stattdessen darauf, den vollständigen Kontext der Instanziierung eines `PaymentRequest` Objekts zu zeigen.
+Das folgende Beispiel zeigt die minimale Funktionalität und konzentriert sich stattdessen darauf, den vollständigen Kontext der Instanziierung eines `PaymentRequest`-Objekts zu zeigen.
 
 ```js
 const supportedInstruments = [

@@ -2,14 +2,14 @@
 title: SharedArrayBuffer.prototype.byteLength
 slug: Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/byteLength
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`byteLength`** Accessor-Eigenschaft von Instanzen des {{jsxref("SharedArrayBuffer")}} gibt die Länge (in Bytes) dieses `SharedArrayBuffer` zurück.
+Die Zugriffs-Eigenschaft **`byteLength`** von {{jsxref("SharedArrayBuffer")}}-Instanzen gibt die Länge (in Bytes) dieses `SharedArrayBuffer` zurück.
 
-{{InteractiveExample("JavaScript Demo: SharedArrayBuffer.byteLength", "shorter")}}
+{{InteractiveExample("JavaScript Demo: SharedArrayBuffer.prototype.byteLength", "shorter")}}
 
 ```js interactive-example
 // Create a SharedArrayBuffer with a size in bytes
@@ -21,7 +21,7 @@ console.log(buffer.byteLength);
 
 ## Beschreibung
 
-Die Eigenschaft `byteLength` ist eine Accessor-Eigenschaft, deren Set-Accessor-Funktion auf `undefined` gesetzt ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des Shared Arrays festgelegt und kann nicht geändert werden.
+Die `byteLength`-Eigenschaft ist eine Zugriffs-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des Shared-Arrays festgelegt und kann nicht geändert werden.
 
 ## Beispiele
 

@@ -2,14 +2,14 @@
 title: Number.prototype.toPrecision()
 slug: Web/JavaScript/Reference/Global_Objects/Number/toPrecision
 l10n:
-  sourceCommit: 5ff3bd2c92afc2f1038c976ec2fa14d22b2f602d
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die Methode **`toPrecision()`** von {{jsxref("Number")}}-Werten gibt eine Zeichenkette zurück, die diese Zahl mit der angegebenen Anzahl von signifikanten Stellen darstellt.
+Die Methode **`toPrecision()`** von {{jsxref("Number")}}-Werten gibt eine Zeichenkette zurück, die diese Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt.
 
-{{InteractiveExample("JavaScript Demo: Number.toPrecision()")}}
+{{InteractiveExample("JavaScript Demo: Number.prototype.toPrecision()")}}
 
 ```js interactive-example
 function precise(x) {
@@ -36,18 +36,18 @@ toPrecision(precision)
 ### Parameter
 
 - `precision` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der die Anzahl der signifikanten Stellen angibt.
+  - : Eine ganze Zahl, die die Anzahl der signifikanten Stellen angibt.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die gegebene Zahl unter Verwendung der angegebenen Anzahl von signifikanten Stellen darstellt. Wissenschaftliche Notation wird verwendet, wenn der Exponent größer oder gleich `precision` oder kleiner als -6 ist. Hat dasselbe Verhalten wie {{jsxref("Number.prototype.toString()")}}, wenn das `precision`-Argument weggelassen wird.
+Eine Zeichenkette, die die gegebene Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt. Wissenschaftliche Notation wird verwendet, wenn der Exponent größer oder gleich `precision` oder kleiner als -6 ist. Hat das gleiche Verhalten wie {{jsxref("Number.prototype.toString()")}}, wenn das `precision`-Argument weggelassen wird.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Ausgelöst, wenn `precision` nicht zwischen `1` und `100` (einschließlich) liegt.
+  - : Wird ausgelöst, wenn `precision` nicht zwischen `1` und `100` (einschließlich) liegt.
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn diese Methode auf einem Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
+  - : Wird ausgelöst, wenn diese Methode auf einem Objekt angewendet wird, das keine {{jsxref("Number")}} ist.
 
 ## Beispiele
 

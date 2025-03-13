@@ -2,14 +2,14 @@
 title: Intl.Segmenter.prototype.segment()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`segment()`**-Methode von {{jsxref("Intl.Segmenter")}}-Instanzen teilt einen String gemäß der Lokalisierung und der Granularität dieses `Intl.Segmenter`-Objekts auf.
+Die **`segment()`** Methode von Instanzen des {{jsxref("Intl.Segmenter")}} segmentiert einen String entsprechend der Lokalisierung und Granularität dieses `Intl.Segmenter` Objekts.
 
-{{InteractiveExample("JavaScript Demo: Intl.Segmenter.prototype.segment")}}
+{{InteractiveExample("JavaScript Demo: Intl.Segmenter.prototype.segment()")}}
 
 ```js interactive-example
 const string1 = "Que ma joie demeure";
@@ -33,11 +33,11 @@ segment(input)
 ### Parameter
 
 - `input`
-  - : Der Text, der als String segmentiert werden soll.
+  - : Der als Zeichenkette zu segmentierende Text.
 
 ### Rückgabewert
 
-Ein neues iterierbares [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Objekt, das die Segmente des Eingabestrings enthält, basierend auf der Lokalisierung und Granularität des Segmenters.
+Ein neues iterierbares [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments) Objekt, das die Segmente der Eingabezeichenkette enthält, unter Verwendung der Lokalisierung und Granularität des Segmentierers.
 
 ## Beispiele
 

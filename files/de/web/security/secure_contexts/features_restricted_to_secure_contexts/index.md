@@ -2,12 +2,12 @@
 title: Funktionen, die auf sichere Kontexte beschränkt sind
 slug: Web/Security/Secure_Contexts/features_restricted_to_secure_contexts
 l10n:
-  sourceCommit: dea173f1ffb3e6bef851f2e328cf7562f1ef78ce
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Diese Referenz listet die Webplattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind – siehe [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) für eine Definition und weitere Details.
+Diese Referenz listet die Webplattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind — siehe [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) für eine Definition und weitere Details.
 
 ## Aktuelle Funktionen, die nur in sicheren Kontexten verfügbar sind
 
@@ -20,7 +20,7 @@ Dieser Abschnitt listet APIs auf, die gemäß Spezifikationen nur in sicheren Ko
 - [Badging API](/de/docs/Web/API/Badging_API)
 - [Barcode Detection API](/de/docs/Web/API/Barcode_Detection_API)
 - [Battery Status API](/de/docs/Web/API/Battery_Status_API)
-- [`Cache-Control: immutable`](/de/docs/Web/HTTP/Headers/Cache-Control)
+- [`Cache-Control: immutable`](/de/docs/Web/HTTP/Reference/Headers/Cache-Control)
 - [Contact Picker API](/de/docs/Web/API/Contact_Picker_API)
 - [Content Index API](/de/docs/Web/API/Content_Index_API)
 - [Cookie Store API](/de/docs/Web/API/Cookie_Store_API)
@@ -65,7 +65,7 @@ Dieser Abschnitt listet APIs auf, die gemäß Spezifikationen nur in sicheren Ko
 - [Web Share API](/de/docs/Web/API/Web_Share_API)
 - [Window Management API](/de/docs/Web/API/Window_Management_API)
 
-Zusätzlich erfordern die folgenden Methoden einen sicheren Kontext (auch wenn die zugehörige API dies nicht tut):
+Zusätzlich erfordern die folgenden Methoden einen sicheren Kontext (selbst wenn die zugehörige API dies nicht erfordert):
 
 - [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)
 - [`Navigator.registerProtocolHandler()`](/de/docs/Web/API/Navigator/registerProtocolHandler)
@@ -73,4 +73,4 @@ Zusätzlich erfordern die folgenden Methoden einen sicheren Kontext (auch wenn d
 ## Siehe auch
 
 - [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts)
-- ["secure context" Abfrage auf Chrome Platform Status](https://chromestatus.com/features#secure%20context)
+- ["secure context" Abfrage auf der Chrome Platform Status](https://chromestatus.com/features#secure%20context)

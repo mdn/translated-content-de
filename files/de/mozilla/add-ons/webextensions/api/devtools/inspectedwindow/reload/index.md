@@ -2,12 +2,12 @@
 title: devtools.inspectedWindow.reload()
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow/reload
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{AddonSidebar}}
 
-Lädt das Fenster neu, an das die Devtools angehängt sind.
+Lädt das Fenster neu, an das die DevTools angehängt sind.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ browser.devtools.inspectedWindow.reload(
   - : `object`. Optionen für die Funktion, wie folgt:
 
     - `ignoreCache` {{optional_inline}}
-      - : `boolean`. Wenn true, wird das Neuladen den Browser-Cache ignorieren (als ob der Benutzer Shift+Strg+R gedrückt hätte).
+      - : `boolean`. Wenn true, wird beim Neuladen der Browser-Cache ignoriert (wie wenn der Benutzer Shift+Strg+R gedrückt hätte).
     - `userAgent` {{optional_inline}}
-      - : `string`. Einen benutzerdefinierten User-Agent für die Seite festlegen. Der hier angegebene String wird im [User-Agent](/de/docs/Web/HTTP/Headers/User-Agent)-Header des Browsers gesendet und von Aufrufen an [`navigator.userAgent`](/de/docs/Web/API/Navigator/userAgent) zurückgegeben, die von auf der Seite ausgeführten Skripten gemacht werden.
+      - : `string`. Setzt einen benutzerdefinierten User-Agent für die Seite. Der hier angegebene String wird im [User-Agent](/de/docs/Web/HTTP/Reference/Headers/User-Agent)-Header des Browsers gesendet und bei Aufrufen von [`navigator.userAgent`](/de/docs/Web/API/Navigator/userAgent) zurückgegeben, die von in der Seite ausgeführten Skripten gemacht werden.
     - `injectedScript` {{optional_inline}}
-      - : `string`. Diese JavaScript-Ausdruck in alle Frames auf der Seite einfügen, bevor andere Skripte ausgeführt werden.
+      - : `string`. Injezieren Sie den angegebenen JavaScript-Ausdruck in alle Frames der Seite, bevor andere Skripte ausgeführt werden.
 
 ## Browser-Kompatibilität
 
@@ -36,7 +36,7 @@ browser.devtools.inspectedWindow.reload(
 
 ## Beispiele
 
-Laden Sie das inspizierte Fenster neu, setzen Sie den User-Agent und injizieren Sie ein Skript:
+Laden Sie das untersuchte Fenster neu, setzen Sie den User-Agent und injizieren Sie ein Skript:
 
 ```js
 const reloadButton = document.querySelector("#reload-button");
@@ -52,7 +52,7 @@ reloadButton.addEventListener("click", () => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.devtools`](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools) API.
+> Diese API basiert auf der [`chrome.devtools`](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

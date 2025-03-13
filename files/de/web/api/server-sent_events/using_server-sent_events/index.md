@@ -1,17 +1,17 @@
 ---
-title: Verwendung von server-sent events
+title: Verwendung von Server-Sent Events
 slug: Web/API/Server-sent_events/Using_server-sent_events
 l10n:
-  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{DefaultAPISidebar("Server Sent Events")}}
 
-Die Entwicklung einer Webanwendung, die [Server-sent events](/de/docs/Web/API/Server-sent_events) verwendet, ist unkompliziert. Sie benötigen ein wenig Code auf dem Server, um Ereignisse an das Front-End zu streamen, aber der Client-seitige Code funktioniert fast identisch mit [Websockets](/de/docs/Web/API/WebSockets_API) beim Umgang mit eingehenden Ereignissen. Dies ist eine Einbahnverbindung, sodass Sie keine Ereignisse von einem Client an einen Server senden können.
+Die Entwicklung einer Webanwendung, die [Server-Sent Events](/de/docs/Web/API/Server-sent_events) nutzt, ist unkompliziert. Sie benötigen etwas Code auf dem Server, um Ereignisse an das Front-End zu streamen, aber der Client-Seiten-Code funktioniert ähnlich wie [Websockets](/de/docs/Web/API/WebSockets_API), was das Handling eingehender Ereignisse betrifft. Dies ist eine Einweg-Verbindung, sodass Sie keine Ereignisse von einem Client an einen Server senden können.
 
 ## Empfang von Ereignissen vom Server
 
-Die server-sent event API ist in der [`EventSource`](/de/docs/Web/API/EventSource) Schnittstelle enthalten.
+Die API für Server-Sent Events ist in der [`EventSource`](/de/docs/Web/API/EventSource) Schnittstelle enthalten.
 
 ### Erstellen einer `EventSource`-Instanz
 
@@ -21,7 +21,7 @@ Um eine Verbindung zum Server zu öffnen und mit dem Empfang von Ereignissen zu 
 const evtSource = new EventSource("sse-demo.php");
 ```
 
-Wenn das Ereignis-Generator-Skript auf einem anderen Ursprung gehostet wird, sollte ein neues `EventSource`-Objekt mit sowohl der URL als auch einem Optionswörterbuch erstellt werden. Zum Beispiel, vorausgesetzt, das Client-Skript befindet sich auf `example.com`:
+Wenn das Ereignisgenerierungsskript auf einem anderen Ursprung gehostet wird, sollte ein neues `EventSource`-Objekt mit URL und einem Optionsdikt ausgestattet werden. Angenommen, das Client-Skript befindet sich auf `example.com`:
 
 ```js
 const evtSource = new EventSource("//api.example.com/sse-demo.php", {
@@ -31,7 +31,7 @@ const evtSource = new EventSource("//api.example.com/sse-demo.php", {
 
 ### Lauschen auf `message`-Ereignisse
 
-Nachrichten, die vom Server gesendet werden und kein [`event`](#event)-Feld haben, werden als `message`-Ereignisse empfangen. Um Nachrichtenereignisse zu empfangen, fügen Sie einen Handler für das [`message`](/de/docs/Web/API/EventSource/message_event)-Ereignis hinzu:
+Nachrichten, die vom Server gesendet werden und kein [`event`](#event)-Feld haben, werden als `message`-Ereignisse empfangen. Um Nachrichten-Ereignisse zu empfangen, fügen Sie einen Handler für das [`message`](/de/docs/Web/API/EventSource/message_event)-Ereignis hinzu:
 
 ```js
 evtSource.onmessage = (event) => {
@@ -47,7 +47,7 @@ Dieser Code lauscht auf eingehende Nachrichtenereignisse und fügt den Nachricht
 
 ### Lauschen auf benutzerdefinierte Ereignisse
 
-Nachrichten vom Server, die ein definiertes `event`-Feld haben, werden als Ereignisse mit dem Namen empfangen, der im `event` angegeben ist. Zum Beispiel:
+Nachrichten vom Server, die ein definiertes `event`-Feld haben, werden als Ereignisse mit dem im `event`-Feld angegebenen Namen empfangen. Zum Beispiel:
 
 ```js
 evtSource.addEventListener("ping", (event) => {
@@ -59,16 +59,16 @@ evtSource.addEventListener("ping", (event) => {
 });
 ```
 
-Dieser Code wird aufgerufen, wann immer der Server eine Nachricht mit dem `event`-Feld `ping` sendet; er analysiert dann das JSON im `data`-Feld und gibt diese Informationen aus.
+Dieser Code wird immer aufgerufen, wenn der Server eine Nachricht mit dem `event`-Feld auf `ping` gesetzt sendet; anschließend wird das JSON im `data`-Feld geparst und diese Information ausgegeben.
 
 > [!WARNING]
-> Wenn **nicht über HTTP/2 verwendet**, leidet SSE unter einer Begrenzung der maximalen Anzahl offener Verbindungen, was vor allem beim Öffnen mehrerer Registerkarten schmerzlich sein kann, da das Limit _pro Browser_ gilt und auf eine sehr niedrige Zahl (6) gesetzt ist. Das Problem wurde als "Wird nicht behoben" in [Chrome](https://crbug.com/275955) und [Firefox](https://bugzil.la/906896) markiert. Dieses Limit gilt pro Browser + Domain, was bedeutet, dass Sie 6 SSE-Verbindungen über alle Registerkarten zu `www.example1.com` und weitere 6 SSE-Verbindungen zu `www.example2.com` öffnen können (laut [Stack Overflow](https://stackoverflow.com/questions/5195452/websockets-vs-server-sent-events-eventsource/5326159)). Bei Verwendung von HTTP/2 wird die maximale Anzahl gleichzeitiger _HTTP-Streams_ zwischen Server und Client ausgehandelt (standardmäßig 100).
+> Wenn **nicht über HTTP/2 verwendet**, leidet SSE unter einer Beschränkung bezüglich der maximalen Anzahl offener Verbindungen, was besonders schmerzhaft sein kann, wenn mehrere Tabs geöffnet werden, da das Limit _pro Browser_ und sehr niedrig (6) eingestellt ist. Das Problem ist in [Chrome](https://crbug.com/275955) und [Firefox](https://bugzil.la/906896) als "Wird nicht behoben" markiert. Dieses Limit ist pro Browser + Domain, was bedeutet, dass Sie 6 SSE-Verbindungen über alle Tabs zu `www.example1.com` und weitere 6 SSE-Verbindungen zu `www.example2.com` öffnen können (pro [Stack Overflow](https://stackoverflow.com/questions/5195452/websockets-vs-server-sent-events-eventsource/5326159)). Bei Verwendung von HTTP/2 wird die maximale Anzahl gleichzeitiger _HTTP-Streams_ zwischen Server und Client ausgehandelt (Standardwert ist 100).
 
 ## Senden von Ereignissen vom Server
 
-Das serverseitige Skript, das Ereignisse sendet, muss mit dem MIME-Typ `text/event-stream` antworten. Jede Benachrichtigung wird als Textblock gesendet, der durch ein Paar von neuen Zeilen abgeschlossen wird. Einzelheiten zum Format des Ereignisstreams finden Sie unter [Event stream format](#event-stream-format).
+Das Server-Skript, das Ereignisse sendet, muss mit dem MIME-Typ `text/event-stream` antworten. Jede Benachrichtigung wird als Textblock gesendet, der durch ein Paar Leerzeilen abgeschlossen ist. Für Details zum Format des Ereignisstroms siehe [Event-Stream-Format](#event-stream-format).
 
-Der {{Glossary("PHP", "PHP")}}-Code für das hier verwendete Beispiel folgt:
+Der {{Glossary("PHP", "PHP")}}-Code für das hier verwendete Beispiel lautet:
 
 ```php
 date_default_timezone_set("America/New_York");
@@ -107,14 +107,14 @@ while (true) {
 }
 ```
 
-Der obige Code generiert jede Sekunde ein Ereignis mit dem Ereignistyp "ping". Die Daten jedes Ereignisses sind ein JSON-Objekt, das den ISO 8601-Zeitstempel enthält, der dem Zeitpunkt entspricht, zu dem das Ereignis generiert wurde. In zufälligen Abständen wird eine einfache Nachricht (ohne Ereignistyp) gesendet. Die Schleife wird unabhängig von der Verbindungsstatus weiterlaufen, weshalb eine Überprüfung enthalten ist, um die Schleife zu beenden, wenn die Verbindung geschlossen wurde (z.B. der Client schließt die Seite).
+Der obige Code generiert jede Sekunde ein Ereignis mit dem Ereignistyp "ping". Die Daten jedes Ereignisses sind ein JSON-Objekt, das den ISO 8601-Zeitstempel enthält, der dem Zeitpunkt entspricht, zu dem das Ereignis generiert wurde. In zufälligen Intervallen wird eine einfache Nachricht (ohne Ereignistyp) gesendet. Die Schleife wird unabhängig vom Verbindungsstatus weiterlaufen, daher ist eine Prüfung enthalten, um die Schleife zu unterbrechen, wenn die Verbindung geschlossen wurde (z. B. wenn der Client die Seite schließt).
 
 > [!NOTE]
-> Sie finden ein vollständiges Beispiel, das den in diesem Artikel gezeigten Code verwendet, auf GitHub — siehe [Simple SSE demo using PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
+> Ein vollständiges Beispiel, das den in diesem Artikel gezeigten Code verwendet, finden Sie auf GitHub — siehe [Einfaches SSE-Demo mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
 
 ## Fehlerbehandlung
 
-Wenn Probleme auftreten (wie ein Netzwerk-Timeout oder Probleme im Zusammenhang mit [Zugriffskontrolle](/de/docs/Web/HTTP/CORS)), wird ein Fehlerereignis generiert. Sie können darauf programmatisch reagieren, indem Sie die `onerror`-Callback-Funktion im `EventSource`-Objekt implementieren:
+Wenn Probleme auftreten (wie zum Beispiel ein Netzwerk-Timeout oder Probleme im Zusammenhang mit [Zugriffskontrolle](/de/docs/Web/HTTP/Guides/CORS)), wird ein Fehlerereignis generiert. Sie können programmgesteuert darauf reagieren, indem Sie den `onerror`-Callback im `EventSource`-Objekt implementieren:
 
 ```js
 evtSource.onerror = (err) => {
@@ -122,9 +122,9 @@ evtSource.onerror = (err) => {
 };
 ```
 
-## Schließen von Ereignisstreams
+## Schließen von Ereignisströmen
 
-Standardmäßig, wenn die Verbindung zwischen dem Client und dem Server geschlossen wird, wird die Verbindung neu gestartet. Die Verbindung wird mit der `.close()`-Methode beendet.
+Standardmäßig wird die Verbindung neu gestartet, wenn die Verbindung zwischen Client und Server geschlossen wird. Die Verbindung wird mit der `.close()`-Methode beendet.
 
 ```js
 evtSource.close();
@@ -132,38 +132,38 @@ evtSource.close();
 
 ## Event-Stream-Format
 
-Der Ereignisstream ist ein einfacher Textdatenstream, der mit {{Glossary("UTF-8", "UTF-8")}} codiert werden muss. Nachrichten im Ereignisstream sind durch ein Paar neue Zeilenzeichen getrennt. Ein Doppelpunkt als erstes Zeichen einer Zeile ist im Wesentlichen ein Kommentar und wird ignoriert.
+Der Ereignisstrom ist ein einfacher Strom von Textdaten, der mit {{Glossary("UTF-8", "UTF-8")}} codiert werden muss. Nachrichten im Ereignisstrom werden durch ein Paar neuer Zeilenzeichen getrennt. Ein Doppelpunkt als erstes Zeichen einer Zeile ist im Wesentlichen ein Kommentar und wird ignoriert.
 
 > [!NOTE]
-> Die Kommentarszeile kann verwendet werden, um das Timeout von Verbindungen zu verhindern; ein Server kann periodisch einen Kommentar senden, um die Verbindung aufrechtzuerhalten.
+> Die Kommentarszeile kann verwendet werden, um zu verhindern, dass Verbindungen ablaufen; ein Server kann regelmäßig einen Kommentar senden, um die Verbindung aufrechtzuerhalten.
 
-Jede Nachricht besteht aus einer oder mehreren Textzeilen, die die Felder für diese Nachricht auflisten. Jedes Feld wird durch den Feldnamen dargestellt, gefolgt von einem Doppelpunkt und den Textdaten für den Wert dieses Feldes.
+Jede Nachricht besteht aus einer oder mehreren Textzeilen, die die Felder für diese Nachricht auflisten. Jedes Feld wird durch den Feldnamen, gefolgt von einem Doppelpunkt und den Textdaten für den Wert dieses Feldes dargestellt.
 
 ### Felder
 
-Jede empfangene Nachricht hat eine Kombination der folgenden Felder, eines pro Zeile:
+Jede empfangene Nachricht weist eine Kombination der folgenden Felder auf, eines pro Zeile:
 
 - `event`
-  - : Ein String, der den Typ des beschriebenen Ereignisses identifiziert. Wenn dies angegeben ist, wird im Browser ein Ereignis an den Listener für den angegebenen Ereignisnamen gesendet; der Quellcode der Website sollte `addEventListener()` verwenden, um auf benannte Ereignisse zu lauschen. Der `onmessage`-Handler wird aufgerufen, wenn kein Ereignisname für eine Nachricht angegeben ist.
+  - : Ein String, der den Typ des beschriebenen Ereignisses identifiziert. Ist dies angegeben, wird ein Ereignis an den Browser an den Zuhörer für den angegebenen Ereignisnamen übermittelt; der Website-Quellcode sollte `addEventListener()` verwenden, um auf benannte Ereignisse zu lauschen. Der `onmessage`-Handler wird aufgerufen, wenn für eine Nachricht kein Ereignisname angegeben ist.
 - `data`
-  - : Das Datenfeld für die Nachricht. Wenn die `EventSource` mehrere aufeinanderfolgende Zeilen empfängt, die mit `data:` beginnen, [fasst sie diese zusammen](https://html.spec.whatwg.org/multipage/#dispatchMessage) und fügt dazwischen ein neues Zeilenzeichen ein. Nachgestellte neue Zeilen werden entfernt.
+  - : Das Datenfeld für die Nachricht. Wenn die `EventSource` mehrere aufeinanderfolgende Zeilen empfängt, die mit `data:` beginnen, [verknüpft sie diese](https://html.spec.whatwg.org/multipage/#dispatchMessage) und fügt jeweils ein neues Zeilenzeichen zwischen ihnen ein. Nachfolgende Leerzeilen werden entfernt.
 - `id`
-  - : Die Ereignis-ID, um den Wert der letzten Ereignis-ID des [`EventSource`](/de/docs/Web/API/EventSource)-Objekts festzulegen.
+  - : Die Ereignis-ID, um den letzten Ereignis-ID-Wert des [`EventSource`](/de/docs/Web/API/EventSource)-Objekts festzulegen.
 - `retry`
-  - : Die Wiederverbindungszeit. Wenn die Verbindung zum Server verloren geht, wartet der Browser die angegebene Zeit, bevor er versucht, die Verbindung wiederherzustellen. Dies muss eine ganze Zahl sein, die die Wiederverbindungszeit in Millisekunden angibt. Wenn ein nicht-ganzzahliger Wert angegeben ist, wird das Feld ignoriert.
+  - : Die Wiederverbindungszeit. Wenn die Verbindung zum Server verloren geht, wartet der Browser die angegebene Zeit, bevor er versucht, die Verbindung wiederherzustellen. Dies muss eine ganze Zahl sein, die die Wiederverbindungszeit in Millisekunden angibt. Wenn ein Nicht-Ganzzahlwert angegeben wird, wird das Feld ignoriert.
 
 Alle anderen Feldnamen werden ignoriert.
 
 > [!NOTE]
-> Wenn eine Zeile keine Doppelpunkte enthält, wird die gesamte Zeile als Feldname mit einer leeren Wertzeichenfolge behandelt.
+> Wenn eine Zeile keinen Doppelpunkt enthält, wird die gesamte Zeile als Feldname mit einem leeren Wertstring behandelt.
 
 ### Beispiele
 
 #### Nachrichten nur mit Daten
 
-Im folgenden Beispiel werden drei Nachrichten gesendet. Die erste ist nur ein Kommentar, da sie mit einem Doppelpunktzeichen beginnt. Wie bereits erwähnt, kann dies zweckmäßig als Mechanismus zur Standbyverbindung genutzt werden, wenn Nachrichten eventuell nicht regelmäßig gesendet werden.
+Im folgenden Beispiel werden drei Nachrichten gesendet. Die erste ist nur ein Kommentar, da sie mit einem Doppelpunktzeichen beginnt. Wie bereits erwähnt, kann dies als Mechanismus zur Verbindungshalte verwendet werden, wenn Nachrichten möglicherweise nicht regelmäßig gesendet werden.
 
-Die zweite Nachricht enthält ein Datenfeld mit dem Wert "some text". Die dritte Nachricht enthält ein Datenfeld mit dem Wert "another message\nwith two lines". Beachten Sie das spezielle neue Zeilenzeichen im Wert.
+Die zweite Nachricht enthält ein Datenfeld mit dem Wert "some text". Die dritte Nachricht enthält ein Datenfeld mit dem Wert "another message\nwith two lines". Beachten Sie das spezielle Neuzeichen im Wert.
 
 ```bash
 : this is a test stream
@@ -176,7 +176,7 @@ data: with two lines
 
 #### Benannte Ereignisse
 
-Dieses Beispiel sendet benannte Ereignisse. Jedes hat einen Ereignisnamen, der durch das `event`-Feld angegeben ist, und ein `data`-Feld, dessen Wert ein geeigneter JSON-String mit den Daten ist, die der Client zum Agieren auf das Ereignis benötigt. Das `data`-Feld könnte natürlich auch beliebige Stringdaten enthalten; es muss kein JSON sein.
+Dieses Beispiel sendet benannte Ereignisse. Jedes hat einen durch das `event`-Feld angegebenen Ereignisnamen und ein `data`-Feld, dessen Wert ein passender JSON-String mit den Daten ist, die der Client für die Verarbeitung des Ereignisses benötigt. Das `data`-Feld könnte natürlich auch beliebige Stringdaten enthalten; es muss kein JSON sein.
 
 ```bash
 event: userconnect
@@ -192,9 +192,9 @@ event: usermessage
 data: {"username": "sean", "time": "02:34:36", "text": "Bye, bobby."}
 ```
 
-#### Mischen und Kombinieren
+#### Vermischen und Anpassen
 
-Sie müssen nicht nur unbenannte Nachrichten oder typisierte Ereignisse verwenden; Sie können sie in einem einzigen Ereignisstream mischen.
+Sie müssen nicht nur unbenannte Nachrichten oder typisierte Ereignisse verwenden; Sie können sie in einem einzigen Ereignisstrom mischen.
 
 ```bash
 event: userconnect

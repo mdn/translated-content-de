@@ -2,14 +2,14 @@
 title: Date.prototype.valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Date/valueOf
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`valueOf()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Anzahl der Millisekunden für dieses Datum seit dem [Epoch-Zeitpunkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück, der als Mitternacht zu Beginn des 1. Januar 1970, UTC, definiert ist.
+Die **`valueOf()`** Methode von {{jsxref("Date")}} Instanzen gibt die Anzahl der Millisekunden seit dem [Epoch-Zeitpunkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) für dieses Datum zurück, wobei der Epoch-Zeitpunkt als Mitternacht des 1. Januar 1970, UTC, definiert ist.
 
-{{InteractiveExample("JavaScript Demo: Date.valueOf()")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.valueOf()")}}
 
 ```js interactive-example
 const date1 = new Date(Date.UTC(96, 1, 2, 3, 4, 5));
@@ -35,13 +35,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) in Millisekunden für dieses Datum darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) dieses Datums in Millisekunden darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-Die `valueOf()`-Methode ist Teil des [Typkonvertierungsprotokolls](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion). Da `Date` eine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/Symbol.toPrimitive)-Methode hat, hat diese Methode immer Vorrang vor `valueOf()`, wenn ein `Date`-Objekt implizit [in eine Zahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) wird. Dennoch ruft `Date.prototype[Symbol.toPrimitive]()` intern `this.valueOf()` auf.
+Die `valueOf()` Methode ist Teil des [Typumwandlungsprotokolls](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion). Da `Date` eine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/Symbol.toPrimitive) Methode hat, hat diese Methode immer Vorrang vor `valueOf()`, wenn ein `Date` Objekt implizit [in eine Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) wird. Allerdings ruft `Date.prototype[Symbol.toPrimitive]()` intern immer noch `this.valueOf()` auf.
 
-Das {{jsxref("Date")}}-Objekt überschreibt die {{jsxref("Object/valueOf", "valueOf()")}}-Methode von {{jsxref("Object")}}. `Date.prototype.valueOf()` gibt den Zeitstempel des Datums zurück, was funktional äquivalent zur {{jsxref("Date.prototype.getTime()")}}-Methode ist.
+Das {{jsxref("Date")}} Objekt überschreibt die {{jsxref("Object/valueOf", "valueOf()")}} Methode von {{jsxref("Object")}}. `Date.prototype.valueOf()` gibt den Zeitstempel des Datums zurück, was funktional äquivalent zur {{jsxref("Date.prototype.getTime()")}} Methode ist.
 
 ## Beispiele
 

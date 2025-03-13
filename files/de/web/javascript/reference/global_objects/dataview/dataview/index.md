@@ -1,15 +1,15 @@
 ---
-title: DataView() Konstruktor
+title: DataView()-Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/DataView/DataView
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
 Der **`DataView()`**-Konstruktor erstellt {{jsxref("DataView")}}-Objekte.
 
-{{InteractiveExample("JavaScript Demo: DataView Constructor")}}
+{{InteractiveExample("JavaScript Demo: DataView()-Konstruktor")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -32,16 +32,16 @@ new DataView(buffer, byteOffset)
 new DataView(buffer, byteOffset, byteLength)
 ```
 
-> **Note:** `DataView()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `DataView()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `buffer`
-  - : Ein existierender {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}, der als Speicher für das neue `DataView`-Objekt dient.
+  - : Ein bestehender {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}, der als Speicher für das neue `DataView`-Objekt genutzt wird.
 - `byteOffset` {{optional_inline}}
-  - : Der Offset, in Byte, zum ersten Byte im obigen Puffer, auf das die neue Ansicht referenziert. Wird er nicht angegeben, beginnt die Ansicht mit dem ersten Byte des Puffers.
+  - : Der Versatz in Bytes zum ersten Byte im obigen Puffer, auf das die neue Ansicht verweisen soll. Wenn nicht angegeben, beginnt die Pufferansicht beim ersten Byte.
 - `byteLength` {{optional_inline}}
-  - : Die Anzahl der Elemente im Byte-Array. Wird sie nicht angegeben, entspricht die Länge der Ansicht der Länge des Puffers.
+  - : Die Anzahl der Elemente im Byte-Array. Wenn nicht angegeben, entspricht die Länge der Ansicht der Länge des Puffers.
 
 ### Rückgabewert
 
@@ -50,7 +50,7 @@ Ein neues {{jsxref("DataView")}}-Objekt, das den angegebenen Datenpuffer darstel
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn die Werte der Parameter `byteOffset` oder `byteLength` dazu führen, dass die Ansicht über das Ende des Puffers hinausgeht. Mit anderen Worten, wenn `byteOffset + byteLength > buffer.byteLength`.
+  - : Wird ausgelöst, wenn die Werte der Parameter `byteOffset` oder `byteLength` dazu führen, dass die Ansicht über das Ende des Puffers hinausgeht. Mit anderen Worten, `byteOffset + byteLength > buffer.byteLength`.
 
 ## Beispiele
 

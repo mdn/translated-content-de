@@ -3,14 +3,14 @@ title: "Response: error() statische Methode"
 short-title: error()
 slug: Web/API/Response/error_static
 l10n:
-  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die statische Methode **`error()`** der [`Response`](/de/docs/Web/API/Response)-Schnittstelle gibt ein neues `Response`-Objekt zurück, das mit einem Netzwerkfehler verbunden ist.
+Die **`error()`** statische Methode der [`Response`](/de/docs/Web/API/Response)-Schnittstelle gibt ein neues `Response`-Objekt zurück, das mit einem Netzwerkfehler verbunden ist.
 
-Dies ist hauptsächlich nützlich beim Schreiben von Service-Workern: Es ermöglicht einem Service-Worker, eine Antwort von einem [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignishandler zu senden, die dazu führt, dass der [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf im Hauptanwendungscode das Versprechen ablehnt.
+Dies ist vor allem beim Schreiben von Service Workern nützlich: Es ermöglicht einem Service Worker, eine Antwort von einem [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignis-Handler zu senden, die den [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf im Hauptapp-Code dazu veranlasst, das Versprechen abzulehnen.
 
 Eine Fehlerantwort hat ihren [`type`](/de/docs/Web/API/Response/type) auf `error` gesetzt.
 
@@ -30,9 +30,9 @@ Ein [`Response`](/de/docs/Web/API/Response)-Objekt.
 
 ## Beispiele
 
-### Zurückgeben eines Netzwerkfehlers von einem Service-Worker
+### Zurückgeben eines Netzwerkfehlers von einem Service Worker
 
-Angenommen, eine Webanwendung hat einen Service-Worker, der den folgenden `fetch`-Ereignishandler enthält:
+Angenommen, eine Web-App hat einen Service Worker, der den folgenden `fetch`-Ereignis-Handler enthält:
 
 ```js
 // service-worker.js
@@ -45,7 +45,7 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Mit diesem Service-Worker werden alle Abrufe von der Anwendung durch den Service-Worker zum Netzwerk geleitet, außer Anfragen, um "salamander.jpg" abzurufen, die abgelehnt werden. Das bedeutet, dass der folgende Code im Hauptthread einen Fehler auslösen würde und der `catch`-Handler ausgeführt wird.
+Mit diesem Service Worker werden alle Fetch-Anfragen der App über den Service Worker zum Netzwerk geleitet, außer Anfragen zum Abrufen von "salamander.jpg", die abgelehnt werden. Dies bedeutet, dass der folgende Code im Hauptthread einen Fehler auslösen würde und der `catch`-Handler ausgeführt wird.
 
 ```js
 // main.js
@@ -72,6 +72,6 @@ try {
 
 ## Siehe auch
 
-- [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
+- [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API)
+- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

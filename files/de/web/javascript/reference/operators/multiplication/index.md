@@ -2,14 +2,14 @@
 title: Multiplikation (*)
 slug: Web/JavaScript/Reference/Operators/Multiplication
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Multiplikationsoperator (`*`)** erzeugt das Produkt der Operanden.
+Der **Multiplikations-Operator (`*`)** liefert das Produkt der Operanden.
 
-{{InteractiveExample("JavaScript Demo: Expressions - Multiplication operator")}}
+{{InteractiveExample("JavaScript Demo: Multiplikation (*) Operator")}}
 
 ```js interactive-example
 console.log(3 * 4);
@@ -33,7 +33,7 @@ x * y
 
 ## Beschreibung
 
-Der `*`-Operator ist für zwei Typen von Operanden überladen: number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [wandelt beide Operanden zuerst in numerische Werte um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und überprüft deren Typen. Er führt eine BigInt-Multiplikation durch, wenn beide Operanden zu BigInts werden. Andernfalls wird eine Zahl-Multiplikation durchgeführt. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere aber zu einer Zahl.
+Der `*` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er zwingt zunächst [beide Operanden zur numerischen Werteumwandlung](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft deren Typen. Er führt eine BigInt-Multiplikation durch, wenn beide Operanden zu BigInts werden; andernfalls führt er eine Zahlenmultiplikation durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand ein BigInt wird, der andere jedoch eine Zahl bleibt.
 
 ## Beispiele
 
@@ -61,7 +61,7 @@ Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 -2n * 2n; // -4n
 ```
 
-Sie können BigInt- und Zahl-Operanden in der Multiplikation nicht mischen.
+Sie können BigInt- und Zahlen-Operanden in der Multiplikation nicht mischen.
 
 ```js example-bad
 2n * 2; // TypeError: Cannot mix BigInt and other types, use explicit conversions

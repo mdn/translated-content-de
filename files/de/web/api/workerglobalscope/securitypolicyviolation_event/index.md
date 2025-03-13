@@ -3,18 +3,18 @@ title: "WorkerGlobalScope: securitypolicyviolation Ereignis"
 short-title: securitypolicyviolation
 slug: Web/API/WorkerGlobalScope/securitypolicyviolation_event
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef}}{{AvailableInWorkers("worker")}}
 
-Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/CSP) in einem Worker verletzt wird.
+Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) in einem Worker verletzt wird.
 
-Der Handler kann der `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft oder mithilfe der Methode [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zugewiesen werden.
+Der Handler kann über die `onsecuritypolicyviolation` Ereignishandler-Eigenschaft oder mit der Methode [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zugewiesen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("securitypolicyviolation", (event) => {});
@@ -30,7 +30,7 @@ Ein [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEve
 
 ## Beispiele
 
-Der folgende Code zeigt, wie Sie eine Ereignis-Handler-Funktion unter Verwendung der `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft hinzufügen oder die `addEventListener()` Methode aufrufen können.
+Der folgende Code zeigt, wie Sie eine Ereignishandler-Funktion mit der `onsecuritypolicyviolation` Ereignishandler-Eigenschaft hinzufügen oder die Methode `addEventListener()` aufrufen könnten.
 
 ```js
 self.onsecuritypolicyviolation = (e) => {
@@ -54,4 +54,4 @@ self.addEventListener("securitypolicyviolation", (e) => {
 
 - Das [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event) Ereignis der [`Document`](/de/docs/Web/API/Document) Schnittstelle
 - Das [`securitypolicyviolation`](/de/docs/Web/API/Element/securitypolicyviolation_event) Ereignis der [`Element`](/de/docs/Web/API/Element) Schnittstelle
-- [HTTP > Content Security Policy](/de/docs/Web/HTTP/CSP)
+- [HTTP > Content Security Policy](/de/docs/Web/HTTP/Guides/CSP)

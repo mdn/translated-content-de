@@ -1,15 +1,15 @@
 ---
-title: Nullish-Zusammenführungszuweisung (??=)
+title: Nullish-Zuweisungsoperator (??=)
 slug: Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment
 l10n:
-  sourceCommit: 8cf6d8c10adf3ce5370f8a3f180bec11112d4d44
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Nullish-Zusammenführungszuweisungsoperator (`??=`)**, auch bekannt als **logischer Nullish-Zuweisungsoperator**, wertet nur den rechten Operanden aus und weist dem linken Operanden zu, wenn der linke Operand {{Glossary("nullish", "nullish")}} (`null` oder `undefined`) ist.
+Der **Nullish-Zuweisungsoperator (`??=`)**, auch bekannt als **logischer Nullish-Zuweisungsoperator**, wertet nur den rechten Operand aus und weist diesen dem linken Operand zu, wenn der linke Operand {{Glossary("nullish", "nullish")}} (`null` oder `undefined`) ist.
 
-{{InteractiveExample("JavaScript Demo: Expressions - Nullish coalescing assignment")}}
+{{InteractiveExample("JavaScript Demo: Nullish-Zuweisungsoperator (??=)")}}
 
 ```js interactive-example
 const a = { duration: 50 };
@@ -31,16 +31,16 @@ x ??= y
 
 ## Beschreibung
 
-Die Nullish-Zusammenführungszuweisung [_short-circuitiert_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), was bedeutet, dass `x ??= y` gleichbedeutend ist mit `x ?? (x = y)`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+Die Nullish-Zuweisung _short-circuited_, was bedeutet, dass `x ??= y` gleichbedeutend ist mit `x ?? (x = y)`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
-Es erfolgt keine Zuweisung, wenn die linke Seite nicht nullish ist, aufgrund des Short-Circuitings des [Nullish-Zusammenführungsoperators](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing). Zum Beispiel wirft das Folgende keinen Fehler, obwohl `x` `const` ist:
+Es wird keine Zuweisung durchgeführt, wenn die linke Seite nicht nullish ist, aufgrund des Short-Circuitings des [Nullish-Zusammenführungsoperators](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing). Zum Beispiel wirft das folgende Beispiel keinen Fehler, obwohl `x` eine `const` ist:
 
 ```js
 const x = 1;
 x ??= 2;
 ```
 
-Auch das Folgende würde den Setter nicht auslösen:
+Auch das folgende Beispiel würde den Setter nicht auslösen:
 
 ```js
 const x = {
@@ -65,9 +65,9 @@ x ??= console.log("y evaluated");
 
 ## Beispiele
 
-### Verwendung der Nullish-Zusammenführungszuweisung
+### Verwendung des Nullish-Zuweisungsoperators
 
-Sie können den Nullish-Zusammenführungszuweisungsoperator verwenden, um Standardwerte auf Objekt-Eigenschaften anzuwenden. Im Vergleich zur Verwendung von Destructuring und [Standardwerte](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#default_value) wird bei `??=` auch der Standardwert angewendet, wenn die Eigenschaft den Wert `null` hat.
+Sie können den Nullish-Zuweisungsoperator verwenden, um Standardwerte auf Objekteigenschaften anzuwenden. Im Vergleich zur Verwendung von Destrukturierung und [Standardwerten](/de/docs/Web/JavaScript/Reference/Operators/Destructuring#default_value) wird durch `??=` der Standardwert auch angewendet, wenn die Eigenschaft den Wert `null` hat.
 
 ```js
 function config(options) {

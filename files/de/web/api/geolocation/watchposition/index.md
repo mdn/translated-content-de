@@ -3,17 +3,14 @@ title: "Geolocation: watchPosition() Methode"
 short-title: watchPosition()
 slug: Web/API/Geolocation/watchPosition
 l10n:
-  sourceCommit: 3fde60e07c74ad4954a0c77fdd80958c7d07f088
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{securecontext_header}}{{ APIref("Geolocation API") }}
 
-Die **`watchPosition()`**-Methode des [`Geolocation`](/de/docs/Web/API/Geolocation)-Interfaces wird verwendet, um eine Handler-Funktion zu registrieren, die automatisch aufgerufen wird, sobald sich die Position des Geräts ändert.
-Optional kann auch eine Fehlerbehandlungs-Callback-Funktion angegeben werden.
+Die **`watchPosition()`**-Methode der [`Geolocation`](/de/docs/Web/API/Geolocation)-Schnittstelle dient zur Registrierung einer Handlerfunktion, die automatisch aufgerufen wird, jedes Mal wenn sich die Position des Geräts ändert. Optional können Sie auch eine Fehlerbehandlungs-Callback-Funktion angeben.
 
-Beachten Sie, dass neben der Anforderung eines sicheren Kontexts diese Funktion möglicherweise durch die [`geolocation`](/de/docs/Web/HTTP/Headers/Permissions-Policy/geolocation)-`Permissions-Policy` blockiert wird und auch die ausdrückliche Erlaubnis des Benutzers erforderlich ist.
-Falls erforderlich, wird der Benutzer aufgefordert, wenn diese Methode aufgerufen wird.
-Der Berechtigungsstatus kann mithilfe der `geolocation`-Benutzerberechtigung in der [Permissions API](/de/docs/Web/API/Permissions_API) abgefragt werden.
+Beachten Sie, dass diese Funktion zusätzlich zu einem sicheren Kontext durch die [`geolocation`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/geolocation) `Permissions-Policy` blockiert werden kann und zudem die ausdrückliche Erlaubnis des Benutzers erforderlich ist. Falls nötig, wird der Benutzer aufgefordert, wenn diese Methode aufgerufen wird. Der Berechtigungsstatus kann mit der `geolocation`-Benutzerberechtigung in der [Permissions API](/de/docs/Web/API/Permissions_API) abgefragt werden.
 
 ## Syntax
 
@@ -30,13 +27,11 @@ watchPosition(success, error, options)
 - `error` {{optional_inline}}
   - : Eine optionale Callback-Funktion, die ein [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Objekt als Eingabeparameter akzeptiert.
 - `options` {{optional_inline}}
-  - : Ein optionales Objekt, das Konfigurationsoptionen für die Standortüberwachung bietet.
-    Siehe [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) für weitere Details zu möglichen Optionen.
+  - : Ein optionales Objekt, das Konfigurationsoptionen für das Positions-Tracking bereitstellt. Weitere Details zu möglichen Optionen finden Sie unter [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition).
 
 ### Rückgabewert
 
-Eine Ganzzahl-ID, die den registrierten Handler identifiziert.
-Die ID kann an [`Geolocation.clearWatch()`](/de/docs/Web/API/Geolocation/clearWatch) übergeben werden, um den Handler abzumelden.
+Eine ganzzahlige ID, die den registrierten Handler identifiziert. Diese ID kann an die [`Geolocation.clearWatch()`](/de/docs/Web/API/Geolocation/clearWatch) übergeben werden, um den Handler zu deregistrieren.
 
 ## Beispiele
 
@@ -82,8 +77,8 @@ id = navigator.geolocation.watchPosition(success, error, options);
 
 ## Siehe auch
 
-- [Die Geolocation API verwenden](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- Das Interface, zu dem sie gehört, [`Geolocation`](/de/docs/Web/API/Geolocation), und wie man darauf zugreift —
+- [Verwendung der Geolocation-API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- Die dazugehörige Schnittstelle, [`Geolocation`](/de/docs/Web/API/Geolocation), und der Zugriff darauf über
   [`Navigator.geolocation`](/de/docs/Web/API/Navigator/geolocation).
 - Die entgegengesetzte Operation: [`Geolocation.clearWatch()`](/de/docs/Web/API/Geolocation/clearWatch)
 - Eine ähnliche Methode: [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition)

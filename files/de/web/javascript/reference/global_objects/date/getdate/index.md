@@ -2,14 +2,14 @@
 title: Date.prototype.getDate()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getDate
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`getDate()`**-Methode von {{jsxref("Date")}}-Instanzen gibt den Tag des Monats für dieses Datum gemäß der lokalen Zeit zurück.
+Die **`getDate()`**-Methode von {{jsxref("Date")}}-Instanzen gibt den Tag des Monats für dieses Datum gemäß Ortszeit zurück.
 
-{{InteractiveExample("JavaScript Demo: Date.getDate()", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.getDate()", "shorter")}}
 
 ```js interactive-example
 const birthday = new Date("August 19, 1975 23:15:30");
@@ -31,7 +31,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine Ganzzahl, zwischen 1 und 31, die den Tag des Monats für das angegebene Datum gemäß der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl zwischen 1 und 31, die den Tag des Monats für das angegebene Datum gemäß Ortszeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 

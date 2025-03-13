@@ -1,31 +1,31 @@
 ---
-title: "Anforderung: integrity-Eigenschaft"
+title: "Anfrage: integrity-Eigenschaft"
 short-title: integrity
 slug: Web/API/Request/integrity
 l10n:
-  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`integrity`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die den [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Wert der Anforderung enthält.
+Die **`integrity`** schreibgeschützte Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält den [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Wert der Anfrage.
 
 ## Wert
 
-Der Wert, der als `options.integrity`-Argument bei der Erstellung der `Request` übergeben wurde.
+Der Wert, der als `options.integrity`-Argument beim Erstellen des `Request` übergeben wurde.
 
-Wenn keine Integrität angegeben wurde, gibt die Eigenschaft `''` zurück.
+Falls keine Integrität angegeben wurde, gibt die Eigenschaft `''` zurück.
 
 ## Beispiele
 
-Im folgenden Code-Snippet erstellen wir eine neue Anforderung mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und lesen dann die Integrität der Anforderung. Da die Anforderung ohne eine spezifische Integrität erstellt wurde, gibt die Eigenschaft einen leeren String zurück.
+Im folgenden Ausschnitt erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und lesen dann die Integrität der Anfrage. Da die Anfrage ohne spezifische Integrität erstellt wurde, gibt die Eigenschaft eine leere Zeichenfolge zurück.
 
 ```js
 const myRequest = new Request("flowers.jpg");
 console.log(myRequest.integrity); // ""
 ```
 
-Im unten stehenden Beispiel wurde die Anforderung mit einem bestimmten Integritätswert erstellt, daher gibt die Eigenschaft diesen Wert zurück. Beachten Sie, dass es keine Validierung des Integritätswertes gibt; die Eigenschaft gibt genau das zurück, was übergeben wurde.
+Im Beispiel unten wurde die Anfrage mit einem bestimmten Integritätswert erstellt, daher gibt die Eigenschaft diesen Wert zurück. Beachten Sie, dass keine Validierung des Integritätswerts erfolgt; die Eigenschaft gibt genau den Wert zurück, der übergeben wurde.
 
 ```js
 const myRequest = new Request("flowers.jpg", {
@@ -45,5 +45,5 @@ console.log(myRequest.integrity); // "sha256-abc123"
 ## Siehe auch
 
 - [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
+- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

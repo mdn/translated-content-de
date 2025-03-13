@@ -3,14 +3,14 @@ title: "Magnetometer: Magnetometer() Konstruktor"
 short-title: Magnetometer()
 slug: Web/API/Magnetometer/Magnetometer
 l10n:
-  sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
 Der **`Magnetometer()`** Konstruktor
-erstellt ein neues [`Magnetometer`](/de/docs/Web/API/Magnetometer)-Objekt, das Informationen über das
-Magnetfeld liefert, wie es vom primären Magnetometersensor eines Geräts erfasst wird.
+erstellt ein neues [`Magnetometer`](/de/docs/Web/API/Magnetometer) Objekt, das Informationen über das
+vom primären Magnetometersensor eines Geräts erfasste Magnetfeld liefert.
 
 ## Syntax
 
@@ -26,10 +26,7 @@ new Magnetometer(options)
   - : Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl der Abtastungen pro Sekunde, bedeutet die Anzahl der Male pro Sekunde, dass das
-        [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Eine ganze Zahl oder Dezimalzahl kann
-        verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz
-        hängt von der Gerätehardware ab und kann folglich geringer als gewünscht sein.
+      - : Die gewünschte Anzahl der Proben pro Sekunde, d.h. die Anzahl der Male pro Sekunde, dass das [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis ausgelöst wird. Es kann eine ganze Zahl oder Dezimalzahl verwendet werden, letztere für Frequenzen von weniger als einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Hardware des Geräts ab und kann daher geringer als angefordert sein.
     - `referenceFrame` {{optional_inline}}
       - : Entweder `'device'` oder
         `'screen'`. Der Standardwert ist `'device'`.
@@ -37,7 +34,7 @@ new Magnetometer(options)
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieses Features wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 

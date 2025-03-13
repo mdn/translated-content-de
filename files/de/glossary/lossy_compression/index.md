@@ -1,21 +1,21 @@
 ---
-title: Lossy compression
+title: Verlustbehaftete Kompression
 slug: Glossary/Lossy_compression
 l10n:
-  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{GlossarySidebar}}
 
-**Lossy-Kompression**, oder irreversible Kompression, ist eine Datenkompressionsmethode, die ungenaue Annäherungen und teilweise Datenverwerfung verwendet, um Inhalte darzustellen. Einfacher gesagt: Bei der verlustbehafteten Kompression gehen Daten aus der ursprünglichen Datei verloren, was möglicherweise eine Verschlechterung der Qualität zur Folge hat. Der Prozess einer solchen Kompression ist irreversibel; sobald die Inhalte verlustbehaftet komprimiert wurden, können sie nicht in ihren ursprünglichen Zustand zurückversetzt werden. Daher sollten Inhalte, die eine verlustbehaftete Kompression durchlaufen haben, im Allgemeinen nicht weiter bearbeitet werden.
+**Verlustbehaftete Kompression**, oder irreversible Kompression, ist eine Datenkompressionsmethode, die ungenaue Annäherungen und teilweise Datenverwerfung verwendet, um Inhalte darzustellen. Einfacher ausgedrückt: Verlustbehaftete Kompression führt dazu, dass Daten aus der ursprünglichen Datei verloren gehen, was möglicherweise zu einer Qualitätsminderung führt. Der Prozess einer solchen Kompression ist irreversibel; sobald eine verlustbehaftete Kompression des Inhalts durchgeführt wurde, kann der Inhalt nicht in seinen ursprünglichen Zustand zurückversetzt werden. Daher sollte Inhalt, der einer verlustbehafteten Kompression unterzogen wurde, im Allgemeinen nicht weiter bearbeitet werden.
 
-Lossy-Kompression wird häufig in Bildformaten wie {{Glossary("JPEG", "JPEG")}}, {{Glossary("WebP", "WebP")}} und Audio- und Videoformaten wie [MP3, MP4, H.264 und anderen](/de/docs/Web/HTTP/MIME_types/Common_types) verwendet. Kompressionsmethoden wie {{Glossary("WebP", "WebP")}} sind in der Lage, [sowohl verlustbehaftete als auch verlustfreie Kompression](https://developers.google.com/speed/webp/docs/compression) durchzuführen, abhängig vom Kompressionsgrad oder den Optionen, die Sie während der Kodierung verwenden möchten.
+Verlustbehaftete Kompression wird häufig in Bildformaten wie {{Glossary("JPEG", "JPEG")}}, {{Glossary("WebP", "WebP")}} und Audio- und Videoformaten wie [MP3, MP4, H.264 und anderen](/de/docs/Web/HTTP/Guides/MIME_types/Common_types) verwendet. Kompressionsmethoden wie {{Glossary("WebP", "WebP")}} sind in der Lage, [sowohl verlustbehaftete als auch verlustfreie Kompression](https://developers.google.com/speed/webp/docs/compression) je nach der gewählten Kompressionsstufe oder den Optionen, die Sie bei der Kodierung verwenden möchten, anzuwenden.
 
-![Lossy-Kompression Bild](2019-11-18.png)
+![Verlustbehaftete Kompression Bild](2019-11-18.png)
 
-Obwohl es keinen offensichtlichen Qualitätsunterschied zwischen den beiden Bildern oben gibt, wurde die Größe des zweiten Bildes durch verlustbehaftete Kompression erheblich reduziert.
+Obwohl es keinen offensichtlichen Qualitätsunterschied zwischen den beiden obigen Bildern gibt, wurde die Größe des zweiten Bildes durch verlustbehaftete Kompression erheblich reduziert.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Lossless_compression", "Lossless-Kompression")}}
+  - {{Glossary("Lossless_compression", "Verlustfreie Kompression")}}

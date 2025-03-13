@@ -1,23 +1,23 @@
 ---
-title: Reporting directive
+title: Reporting-Richtlinie
 slug: Glossary/Reporting_directive
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{GlossarySidebar}}
 
-**{{Glossary("CSP", "CSP")}} Reporting-Direktiven** werden in einem {{HTTPHeader("Content-Security-Policy")}} Header verwendet und steuern den Berichterstattungsprozess von CSP-Verletzungen.
+**{{Glossary("CSP", "CSP")}}-Reporting-Richtlinien** werden in einem {{HTTPHeader("Content-Security-Policy")}}-Header verwendet und steuern den Berichtsprozess von CSP-Verstößen.
 
-Siehe [Reporting directives](/de/docs/Web/HTTP/Headers/Content-Security-Policy#reporting_directives) für eine vollständige Liste.
+Eine vollständige Liste finden Sie unter [Reporting-Richtlinien](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#reporting_directives).
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
   - {{Glossary("CSP", "CSP")}}
-  - {{Glossary("Fetch_directive", "Fetch directive")}}
-  - {{Glossary("Document_directive", "Document directive")}}
-  - {{Glossary("Navigation_directive", "Navigation directive")}}
+  - {{Glossary("Fetch_directive", "Fetch-Richtlinie")}}
+  - {{Glossary("Document_directive", "Dokument-Richtlinie")}}
+  - {{Glossary("Navigation_directive", "Navigations-Richtlinie")}}
 - Referenz
   - <https://www.w3.org/TR/CSP/#directives-reporting>
   - {{HTTPHeader("Content-Security-Policy/upgrade-insecure-requests", "upgrade-insecure-requests")}}

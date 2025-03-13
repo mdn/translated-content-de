@@ -3,16 +3,14 @@ title: "MediaDevices: enumerateDevices() Methode"
 short-title: enumerateDevices()
 slug: Web/API/MediaDevices/enumerateDevices
 l10n:
-  sourceCommit: b2875dbaa70efb5850084b9802803b439db325f5
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Media Capture and Streams")}}{{SecureContext_Header}}
 
-Die **`enumerateDevices()`**-Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Schnittstelle fordert eine Liste der derzeit verfügbaren Medien-Ein- und -Ausgabegeräte an, wie Mikrofone, Kameras, Headsets usw.
-Das zurückgegebene {{jsxref("Promise")}} wird mit einem Array von [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekten aufgelöst, die die Geräte beschreiben.
+Die **`enumerateDevices()`** Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices) Schnittstelle fordert eine Liste der aktuell verfügbaren Medien-Eingangs- und Ausgangsgeräte an, wie Mikrofone, Kameras, Headsets und so weiter. Die zurückgegebene {{jsxref("Promise")}} wird mit einem Array von [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo) Objekten aufgelöst, die die Geräte beschreiben.
 
-Die zurückgegebene Liste wird alle Geräte auslassen, die durch die Dokument-[Berechtigungsrichtlinie](/de/docs/Web/HTTP/Headers/Permissions-Policy) blockiert sind: [`microphone`](/de/docs/Web/HTTP/Headers/Permissions-Policy/microphone), [`camera`](/de/docs/Web/HTTP/Headers/Permissions-Policy/camera), [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) (für Ausgabegeräte) usw.
-Der Zugriff auf bestimmte, nicht standardmäßige Geräte wird auch durch die [Permissions API](/de/docs/Web/API/Permissions_API) beschränkt, und die Liste wird Geräte auslassen, für die der Benutzer keine explizite Erlaubnis erteilt hat.
+Die zurückgegebene Liste wird alle Geräte auslassen, die durch die Dokumenten-[Permission Policy](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy) blockiert sind: [`microphone`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/microphone), [`camera`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/camera), [`speaker-selection`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/speaker-selection) (für Ausgabegeräte) und so weiter. Der Zugriff auf bestimmte Nicht-Standard-Geräte wird auch durch die [Permissions API](/de/docs/Web/API/Permissions_API) geregelt, und die Liste wird Geräte auslassen, für die der Benutzer keine explizite Erlaubnis erteilt hat.
 
 ## Syntax
 
@@ -26,26 +24,24 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array von [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekten erfüllt wird.
-Jedes Objekt im Array beschreibt eines der verfügbaren Medien-Ein- und -Ausgabegeräte.
-Die Reihenfolge ist signifikant — die Standardaufnahmegeräte werden zuerst aufgelistet.
+Eine {{jsxref("Promise")}}, die mit einem Array von [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo) Objekten erfüllt wird. Jedes Objekt im Array beschreibt eines der verfügbaren Medien-Eingangs- und Ausgangsgeräte. Die Reihenfolge ist bedeutend — die Standardaufnahmegeräte werden zuerst aufgelistet.
 
-Abgesehen von Standardgeräten sind nur Geräte verfügbar, für die Berechtigungen erteilt wurden.
+Abgesehen von Standardgeräten sind nur Geräte verfügbar, für die eine Erlaubnis erteilt wurde.
 
-Wenn das Mediengerät ein Eingabegerät ist, wird stattdessen ein [`InputDeviceInfo`](/de/docs/Web/API/InputDeviceInfo)-Objekt zurückgegeben.
+Wenn das Mediengerät ein Eingabegerät ist, wird ein [`InputDeviceInfo`](/de/docs/Web/API/InputDeviceInfo) Objekt zurückgegeben.
 
-Wenn die Aufzählung fehlschlägt, wird das Versprechen abgelehnt.
+Wenn die Aufzählung fehlschlägt, wird die Promise abgelehnt.
 
 ## Sicherheitsanforderungen
 
-Der Zugriff auf die API unterliegt folgenden Einschränkungen:
+Der Zugriff auf die API unterliegt den folgenden Einschränkungen:
 
 - Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
-- Das Dokument muss vollständig aktiv sein, und seine Sichtbarkeit muss "sichtbar" sein.
+- Das Dokument muss vollständig aktiv sein und seine Sichtbarkeit muss "visible" sein.
 
 ## Beispiele
 
-Hier ist ein Beispiel für die Verwendung von `enumerateDevices()`. Es gibt eine Liste der [Geräte-IDs](/de/docs/Web/API/MediaDeviceInfo/deviceId) mit ihren Labels aus, sofern verfügbar.
+Hier ist ein Beispiel für die Verwendung von `enumerateDevices()`. Es gibt eine Liste der [Geräte-IDs](/de/docs/Web/API/MediaDeviceInfo/deviceId) aus, mit ihren Bezeichnungen, falls verfügbar.
 
 ```js
 if (!navigator.mediaDevices?.enumerateDevices) {
@@ -65,7 +61,7 @@ if (!navigator.mediaDevices?.enumerateDevices) {
 }
 ```
 
-Dies könnte ergeben:
+Das könnte folgendes erzeugen:
 
 ```plain
 videoinput: id = csO9c0YpAf274OuCPUA53CNE0YHlIr2yXCi+SqfBZZ8=
@@ -93,6 +89,5 @@ audioinput: Built-in Microphone id=r2/xw1xUPIyZunfV1lGrKOma5wTOvCkWfZ368XCndm0=
 
 - [`MediaDevices.getUserMedia`](/de/docs/Web/API/MediaDevices/getUserMedia)
 - [WebRTC](/de/docs/Web/API/WebRTC_API) - die Einführungsseite zur API
-- [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) - die API für die Medienstrom-Objekte
-- [Webcam-Fotos aufnehmen](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos) - ein
-  Tutorial zur Verwendung von `getUserMedia()` zum Aufnehmen von Fotos anstelle von Videos.
+- [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) - die API für die Medienstream-Objekte
+- [Webcam-Fotos aufnehmen](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos) - ein Tutorial zur Verwendung von `getUserMedia()` zum Aufnehmen von Fotos anstelle von Videos.

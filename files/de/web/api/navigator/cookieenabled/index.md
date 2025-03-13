@@ -3,12 +3,12 @@ title: "Navigator: cookieEnabled-Eigenschaft"
 short-title: cookieEnabled
 slug: Web/API/Navigator/cookieEnabled
 l10n:
-  sourceCommit: 3fdf7ec9351f9ee8e62648146a7e73e7a6196d5f
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{ApiRef("HTML DOM")}}
 
-`navigator.cookieEnabled` gibt einen booleschen Wert zurück, der angibt, ob Cookies aktiviert sind oder nicht.
+`navigator.cookieEnabled` gibt einen booleschen Wert zurück, der anzeigt, ob Cookies aktiviert sind oder nicht.
 
 Die Eigenschaft ist schreibgeschützt.
 
@@ -17,7 +17,7 @@ Die Eigenschaft ist schreibgeschützt.
 Ein boolescher Wert.
 
 > [!NOTE]
-> Webbrowser können das Schreiben bestimmter Cookies in bestimmten Szenarien verhindern. Zum Beispiel erlauben Chrome-basierte Browser sowie einige experimentelle Versionen von Firefox nicht das Erstellen von Cookies mit dem Attribut [`SameSite=None`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value), es sei denn, sie werden über HTTPS und mit dem `Secure`-Attribut erstellt.
+> Webbrowser können in bestimmten Szenarien das Schreiben bestimmter Cookies verhindern. Zum Beispiel erlauben Chrome-basierte Browser sowie einige experimentelle Versionen von Firefox das Erstellen von Cookies mit dem [`SameSite=None`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Attribut nicht, es sei denn, sie werden über HTTPS und mit dem `Secure`-Attribut erstellt.
 
 ## Beispiele
 

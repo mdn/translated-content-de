@@ -2,14 +2,14 @@
 title: Date.prototype.getUTCMilliseconds()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getUTCMilliseconds
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die Methode **`getUTCMilliseconds()`** von {{jsxref("Date")}}-Instanzen gibt die Millisekunden für dieses Datum gemäß der koordinierten Weltzeit zurück.
+Die Methode **`getUTCMilliseconds()`** von {{jsxref("Date")}}-Instanzen gibt die Millisekunden dieses Datums entsprechend der Weltzeit zurück.
 
-{{InteractiveExample("JavaScript Demo: Date.getUTCMilliseconds()", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.getUTCMilliseconds()", "shorter")}}
 
 ```js interactive-example
 const exampleDate = new Date("2018-01-02T03:04:05.678Z"); // 2 January 2018, 03:04:05.678 (UTC)
@@ -30,7 +30,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl zwischen 0 und 999, die die Millisekunden für das angegebene Datum gemäß der koordinierten Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl zwischen 0 und 999, die die Millisekunden für das angegebene Datum entsprechend der Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 Nicht zu verwechseln mit dem Zeitstempel. Um die gesamten Millisekunden seit der Epoche zu erhalten, verwenden Sie die Methode [`getTime()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime).
 
@@ -38,7 +38,7 @@ Nicht zu verwechseln mit dem Zeitstempel. Um die gesamten Millisekunden seit der
 
 ### Verwendung von getUTCMilliseconds()
 
-Das folgende Beispiel weist den Millisekundenanteil der aktuellen Zeit der Variablen `milliseconds` zu.
+Das folgende Beispiel weist den Millisekundenteil der aktuellen Zeit der Variable `milliseconds` zu.
 
 ```js
 const today = new Date();

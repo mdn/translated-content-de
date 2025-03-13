@@ -2,14 +2,14 @@
 title: if...else
 slug: Web/JavaScript/Reference/Statements/if...else
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Statements")}}
 
-Die **`if...else`**-Anweisung führt eine Anweisung aus, wenn eine bestimmte Bedingung {{Glossary("truthy", "truthy")}} ist. Wenn die Bedingung {{Glossary("falsy", "falsy")}} ist, wird eine andere Anweisung im optionalen `else`-Abschnitt ausgeführt.
+Die **`if...else`** Anweisung führt eine Anweisung aus, wenn eine angegebene Bedingung {{Glossary("truthy", "truthy")}} ist. Wenn die Bedingung {{Glossary("falsy", "falsy")}} ist, wird eine andere Anweisung im optionalen `else` Zweig ausgeführt.
 
-{{InteractiveExample("JavaScript Demo: Statement - If...Else")}}
+{{InteractiveExample("JavaScript Demo: if...else statement")}}
 
 ```js interactive-example
 function testNum(a) {
@@ -40,15 +40,15 @@ else
 ```
 
 - `condition`
-  - : Ein Ausdruck, der als {{Glossary("truthy", "truthy")}} oder {{Glossary("falsy", "falsy")}} betrachtet wird.
+  - : Ein Ausdruck, der entweder als {{Glossary("truthy", "truthy")}} oder {{Glossary("falsy", "falsy")}} betrachtet wird.
 - `statement1`
-  - : Anweisung, die ausgeführt wird, wenn _condition_ {{Glossary("truthy", "truthy")}} ist. Kann jede Anweisung sein, einschließlich weiterer verschachtelter `if`-Anweisungen. Um mehrere Anweisungen auszuführen, verwenden Sie eine [Block](/de/docs/Web/JavaScript/Reference/Statements/block)-Anweisung (`{ /* ... */ }`), um diese Anweisungen zu gruppieren. Um keine Anweisungen auszuführen, nutzen Sie eine [leere](/de/docs/Web/JavaScript/Reference/Statements/Empty) Anweisung.
+  - : Anweisung, die ausgeführt wird, wenn _condition_ {{Glossary("truthy", "truthy")}} ist. Kann eine beliebige Anweisung sein, einschließlich weiter verschachtelter `if` Anweisungen. Um mehrere Anweisungen auszuführen, verwenden Sie eine [Block](/de/docs/Web/JavaScript/Reference/Statements/block) Anweisung (`{ /* ... */ }`), um diese Anweisungen zu gruppieren. Um keine Anweisungen auszuführen, verwenden Sie eine [leere](/de/docs/Web/JavaScript/Reference/Statements/Empty) Anweisung.
 - `statement2`
-  - : Anweisung, die ausgeführt wird, wenn `condition` {{Glossary("falsy", "falsy")}} ist und der `else`-Abschnitt existiert. Kann jede Anweisung sein, einschließlich Blockanweisungen und weiterer verschachtelter `if`-Anweisungen.
+  - : Anweisung, die ausgeführt wird, wenn `condition` {{Glossary("falsy", "falsy")}} ist und der `else` Zweig vorhanden ist. Kann eine beliebige Anweisung sein, einschließlich Blockanweisungen und weiter verschachtelter `if` Anweisungen.
 
 ## Beschreibung
 
-Mehrere `if...else`-Anweisungen können verschachtelt werden, um eine `else if`-Klausel zu erstellen. Beachten Sie, dass es in JavaScript kein `elseif`-Schlüsselwort (in einem Wort) gibt.
+Mehrere `if...else` Anweisungen können verschachtelt werden, um einen `else if` Zweig zu erstellen. Beachten Sie, dass es kein `elseif` (in einem Wort) Schlüsselwort in JavaScript gibt.
 
 ```js-nolint
 if (condition1)
@@ -62,7 +62,7 @@ else
   statementN
 ```
 
-Um zu sehen, wie dies funktioniert, folgt hier die Darstellung mit ordnungsgemäßer Einrückung:
+Um zu sehen, wie das funktioniert, sehen Sie hier, wie die Verschachtelung bei richtiger Einrückung aussehen würde:
 
 ```js-nolint
 if (condition1)
@@ -76,7 +76,7 @@ else
 // …
 ```
 
-Um mehrere Anweisungen innerhalb einer Klausel auszuführen, verwenden Sie eine Blockanweisung (`{ /* ... */ }`), um diese Anweisungen zu gruppieren.
+Um mehrere Anweisungen innerhalb eines Zweigs auszuführen, verwenden Sie eine Blockanweisung (`{ /* ... */ }`), um diese Anweisungen zu gruppieren.
 
 ```js-nolint
 if (condition) {
@@ -86,7 +86,7 @@ if (condition) {
 }
 ```
 
-Das Auslassen von Blöcken kann zu verwirrendem Verhalten führen, insbesondere wenn der Code manuell formatiert wird. Zum Beispiel:
+Das Nichtverwenden von Blöcken kann zu verwirrendem Verhalten führen, insbesondere wenn der Code manuell formatiert wird. Zum Beispiel:
 
 ```js-nolint example-bad
 function checkValue(a, b) {
@@ -98,7 +98,7 @@ function checkValue(a, b) {
 }
 ```
 
-Dieser Code sieht harmlos aus – jedoch wird bei der Ausführung von `checkValue(1, 3)` die Meldung "a is not 1" ausgegeben. Dies liegt daran, dass im Fall eines [dangling else](https://en.wikipedia.org/wiki/Dangling_else) der `else`-Abschnitt mit der nächstgelegenen `if`-Klausel verbunden wird. Der oben gezeigte Code würde bei ordnungsgemäßer Einrückung so aussehen:
+Dieser Code sieht unschuldig aus — dennoch wird das Ausführen von `checkValue(1, 3)` "a is not 1" protokollieren. Dies liegt daran, dass im Fall eines [dangling else](https://en.wikipedia.org/wiki/Dangling_else) der `else` Zweig mit dem nächsten `if` Zweig verbunden wird. Daher würde der obige Code, bei korrekter Einrückung, folgendermaßen aussehen:
 
 ```js-nolint
 function checkValue(a, b) {
@@ -110,7 +110,7 @@ function checkValue(a, b) {
 }
 ```
 
-Im Allgemeinen ist es eine gute Praxis, immer Blockanweisungen zu verwenden, insbesondere bei Code mit verschachtelten `if`-Anweisungen.
+Im Allgemeinen ist es eine gute Praxis, immer Blockanweisungen zu verwenden, insbesondere in Code, der verschachtelte `if` Anweisungen enthält.
 
 ```js example-good
 function checkValue(a, b) {
@@ -124,7 +124,7 @@ function checkValue(a, b) {
 }
 ```
 
-Verwechseln Sie nicht die primitiven Boolean-Werte `true` und `false` mit der Truthiness oder Falsiness des {{jsxref("Boolean")}}-Objekts. Jeder Wert, der nicht `false`, `undefined`, `null`, `0`, `-0`, `NaN` oder der leere String (`""`) ist und jedes Objekt, einschließlich eines Boolean-Objekts mit dem Wert `false`, wird als {{Glossary("truthy", "truthy")}} betrachtet, wenn es als Bedingung verwendet wird. Zum Beispiel:
+Verwechseln Sie nicht die primitiven booleschen Werte `true` und `false` mit dem Wahrheitswert oder Falschwert des {{jsxref("Boolean")}} Objekts. Jeder Wert, der nicht `false`, `undefined`, `null`, `0`, `-0`, `NaN` oder die leere Zeichenkette (`""`) ist, und jedes Objekt, einschließlich eines booleschen Objekts, dessen Wert `false` ist, wird als {{Glossary("truthy", "truthy")}} betrachtet, wenn es als Bedingung verwendet wird. Zum Beispiel:
 
 ```js
 const b = new Boolean(false);
@@ -148,7 +148,7 @@ if (cipherChar === fromChar) {
 
 ### Verwendung von else if
 
-Beachten Sie, dass es keine `elseif`-Syntax in JavaScript gibt. Sie können dies jedoch mit einem Leerzeichen zwischen `else` und `if` schreiben:
+Beachten Sie, dass es keine `elseif` Syntax in JavaScript gibt. Sie können es jedoch mit einem Leerzeichen zwischen `else` und `if` schreiben:
 
 ```js
 if (x > 50) {
@@ -162,7 +162,7 @@ if (x > 50) {
 
 ### Verwendung einer Zuweisung als Bedingung
 
-Sie sollten fast niemals eine `if...else`-Anweisung mit einer Zuweisung wie `x = y` als Bedingung verwenden:
+Sie sollten fast nie ein `if...else` mit einer Zuweisung wie `x = y` als Bedingung haben:
 
 ```js example-bad
 if ((x = y)) {
@@ -170,7 +170,7 @@ if ((x = y)) {
 }
 ```
 
-Denn im Gegensatz zu {{jsxref("Statements/while", "while")}}-Schleifen wird die Bedingung nur einmal ausgewertet, sodass die Zuweisung nur einmal erfolgt. Der obige Code ist gleichbedeutend mit:
+Da im Gegensatz zu {{jsxref("Statements/while", "while")}} Schleifen die Bedingung nur einmal ausgewertet wird, wird die Zuweisung nur einmal durchgeführt. Der obige Code ist äquivalent zu:
 
 ```js example-good
 x = y;
@@ -179,7 +179,7 @@ if (x) {
 }
 ```
 
-Was viel klarer ist. Sollten Sie jedoch in dem seltenen Fall eine solche Situation haben wollen, finden Sie in der Dokumentation der [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Schleife im Abschnitt [Verwendung einer Zuweisung als Bedingung](/de/docs/Web/JavaScript/Reference/Statements/while#using_an_assignment_as_a_condition) unsere Empfehlungen dazu.
+Was viel klarer ist. Wenn Sie sich jedoch in dem seltenen Fall befinden, in dem Sie so etwas tun möchten, hat die [`while`](/de/docs/Web/JavaScript/Reference/Statements/while) Dokumentation einen Abschnitt [Verwendung einer Zuweisung als Bedingung](/de/docs/Web/JavaScript/Reference/Statements/while#using_an_assignment_as_a_condition) mit unseren Empfehlungen.
 
 ## Spezifikationen
 
@@ -192,5 +192,5 @@ Was viel klarer ist. Sollten Sie jedoch in dem seltenen Fall eine solche Situati
 ## Siehe auch
 
 - {{jsxref("Statements/block", "Block")}}
-- {{jsxref("Statements/switch", "Switch")}}
+- {{jsxref("Statements/switch", "switch")}}
 - [Bedingter (ternärer) Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator)

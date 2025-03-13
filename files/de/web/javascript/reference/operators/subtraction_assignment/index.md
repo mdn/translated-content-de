@@ -2,14 +2,14 @@
 title: Subtraktionszuweisung (-=)
 slug: Web/JavaScript/Reference/Operators/Subtraction_assignment
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Subtraktionszuweisungsoperator (`-=`)** führt eine [Subtraktion](/de/docs/Web/JavaScript/Reference/Operators/Subtraction) auf den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der **Subtraktionszuweisungsoperator (`-=`)** führt die [Subtraktion](/de/docs/Web/JavaScript/Reference/Operators/Subtraction) für die beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
-{{InteractiveExample("JavaScript Demo: Expressions - Subtraction assignment operator")}}
+{{InteractiveExample("JavaScript Demo: Subtraction assignment (-=) operator")}}
 
 ```js interactive-example
 let a = 2;
@@ -29,11 +29,11 @@ x -= y
 
 ## Beschreibung
 
-`x -= y` ist äquivalent zu `x = x - y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x -= y` ist gleichbedeutend mit `x = x - y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Subtraktionszuweisung unter Verwendung von Zahlen
+### Subtraktionszuweisung mit Zahlen
 
 ```js
 let bar = 5;
@@ -41,13 +41,13 @@ let bar = 5;
 bar -= 2; // 3
 ```
 
-Andere nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 
 ```js
 bar -= "foo"; // NaN
 ```
 
-### Subtraktionszuweisung unter Verwendung von BigInts
+### Subtraktionszuweisung mit BigInts
 
 ```js
 let foo = 3n;

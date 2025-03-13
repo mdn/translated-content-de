@@ -1,14 +1,14 @@
 ---
-title: "Gyroscope: Gyroscope() Konstruktor"
+title: "Gyroscope: Gyroscope()-Konstruktor"
 short-title: Gyroscope()
 slug: Web/API/Gyroscope/Gyroscope
 l10n:
-  sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Der **`Gyroscope()`** Konstruktor erstellt ein neues [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Objekt, das bei jeder Messung die Winkelgeschwindigkeit des Geräts entlang aller drei Achsen bereitstellt.
+Der **`Gyroscope()`**-Konstruktor erstellt ein neues [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Objekt, das bei jeder Messung die Winkelgeschwindigkeit des Geräts entlang aller drei Achsen bereitstellt.
 
 ## Syntax
 
@@ -24,14 +24,14 @@ new Gyroscope(options)
   - : Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl von Malen pro Sekunde, die eine Probe genommen werden soll, was bedeutet, wie oft pro Sekunde das [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis aufgerufen wird. Eine ganze Zahl oder Dezimalzahl kann verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Hardware des Geräts ab und kann daher geringer sein als gewünscht.
+      - : Die gewünschte Anzahl von Messungen pro Sekunde, das bedeutet, wie oft das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis pro Sekunde aufgerufen wird. Es kann eine ganze Zahl oder ein Dezimalwert verwendet werden, letzterer für Frequenzen unter einer Sekunde. Die tatsächliche Messfrequenz hängt von der Gerätehardware ab und kann daher geringer sein als gewünscht.
     - `referenceFrame` {{optional_inline}}
-      - : Entweder `'device'` oder `'screen'`. Der Standard ist `'device'`.
+      - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 
@@ -43,4 +43,4 @@ new Gyroscope(options)
 
 ## Siehe auch
 
-- [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis
+- [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis

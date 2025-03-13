@@ -2,14 +2,14 @@
 title: TypedArray.prototype.reverse()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/reverse
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die Methode **`reverse()`** von {{jsxref("TypedArray")}}-Instanzen kehrt ein TypedArray _[an Ort und Stelle](https://de.wikipedia.org/wiki/In-place-Algorithmus)_ um und gibt die Referenz auf dasselbe TypedArray zurück, wobei das erste Element des TypedArrays jetzt das letzte wird und das letzte Element des TypedArrays das erste wird. Mit anderen Worten: Die Reihenfolge der Elemente im TypedArray wird in die entgegengesetzte Richtung gedreht. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.reverse()")}}.
+Die **`reverse()`**-Methode von {{jsxref("TypedArray")}}-Instanzen kehrt ein typisiertes Array _[vor Ort](https://en.wikipedia.org/wiki/In-place_algorithm)_ um und gibt die Referenz auf dasselbe typisierte Array zurück, wobei das erste Element des typisierten Arrays nun das letzte wird und das letzte Element das erste. Anders ausgedrückt wird die Reihenfolge der Elemente im typisierten Array in die entgegengesetzte Richtung gedreht. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.reverse()")}}.
 
-{{InteractiveExample("JavaScript Demo: TypedArray.reverse()", "shorter")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.reverse()", "shorter")}}
 
 ```js interactive-example
 const uint8 = new Uint8Array([1, 2, 3]);
@@ -31,11 +31,11 @@ Keine.
 
 ### Rückgabewert
 
-Die Referenz auf das ursprüngliche TypedArray, das nun umgekehrt wurde. Beachten Sie, dass das TypedArray _[an Ort und Stelle](https://de.wikipedia.org/wiki/In-place-Algorithmus)_ umgekehrt wird und keine Kopie angefertigt wird.
+Die Referenz auf das ursprüngliche, nun umgekehrte typisierte Array. Beachten Sie, dass das typisierte Array _[vor Ort](https://en.wikipedia.org/wiki/In-place_algorithm)_ umgekehrt wird und keine Kopie erstellt wird.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.reverse()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf TypedArray-Instanzen angewendet werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.reverse()")}}. Diese Methode ist nicht generisch und kann nur auf typisierte Array-Instanzen angewendet werden.
 
 ## Beispiele
 
@@ -59,7 +59,7 @@ console.log(uint8); // Uint8Array [3, 2, 1]
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.reverse` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript TypedArrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.join()")}}
 - {{jsxref("TypedArray.prototype.sort()")}}

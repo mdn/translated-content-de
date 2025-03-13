@@ -1,50 +1,50 @@
 ---
-title: Richtige Konfiguration der MIME-Typen des Servers
+title: Die korrekte Konfiguration von Server-MIME-Typen
 slug: Learn_web_development/Extensions/Server-side/Configuring_server_MIME_types
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{LearnSidebar}}
 
-MIME-Typen beschreiben den Medientyp von Inhalten, entweder in E-Mails oder die von Webservern bzw. Webanwendungen bereitgestellt werden. Sie sollen einen Hinweis geben, wie der Inhalt verarbeitet und angezeigt werden soll.
+MIME-Typen beschreiben den Medientyp von Inhalten, entweder in E-Mails oder die von Webservern oder Webanwendungen bereitgestellt werden. Sie sollen einen Hinweis darauf geben, wie der Inhalt verarbeitet und angezeigt werden soll.
 
 Beispiele für MIME-Typen:
 
 - `text/html` für HTML-Dokumente.
-- `text/plain` für einfachen Text.
+- `text/plain` für Klartext.
 - `text/css` für Cascading Style Sheets.
 - `text/javascript` für JavaScript-Dateien.
 - `text/markdown` für Markdown-Dateien.
-- `application/octet-stream` für Binärdateien, bei denen eine Benutzeraktion erwartet wird.
+- `application/octet-stream` für Binärdateien, bei denen eine Nutzeraktion erwartet wird.
 
-Die Standardeinstellungen von Servern variieren stark und setzen unterschiedliche _Standard_-MIME-Typ-Werte für Dateien ohne definierten Inhaltstyp.
+Standardkonfigurationen von Servern variieren stark und setzen unterschiedliche _Standard_-MIME-Typen für Dateien ohne definierten Inhaltstyp fest.
 
-Versionen des Apache-Webservers **vor 2.2.7** waren so konfiguriert, dass sie einen MIME-Typ von `text/plain` oder `application/octet-stream` für unbekannte Inhaltstypen berichteten. Moderne Versionen von Apache berichten `none` für Dateien mit unbekannten Inhaltstypen.
+Versionen des Apache-Webservers **vor 2.2.7** waren so konfiguriert, dass sie unbekannte Inhaltstypen mit einem MIME-Typ von `text/plain` oder `application/octet-stream` melden. Moderne Versionen von Apache melden `none` für Dateien mit unbekannten Inhaltstypen.
 
-[Nginx](https://nginx.org/) wird `text/plain` angeben, wenn Sie keinen Standard-Inhaltstyp definieren.
+[Nginx](https://nginx.org/) wird `text/plain` melden, wenn Sie keinen Standardinhaltstyp definieren.
 
-Wenn neue Inhaltstypen erfunden oder zu Webservern hinzugefügt werden, können Webadministratoren versäumen, die neuen MIME-Typen zur Konfiguration ihres Webservers hinzuzufügen. Dies ist eine Hauptquelle von Problemen für Benutzer von Browsern, die die von Webservern und -anwendungen berichteten MIME-Typen respektieren.
+Wenn neue Inhaltstypen erfunden oder zu den Webservern hinzugefügt werden, kann es vorkommen, dass Webadministratoren die neuen MIME-Typen nicht in die Konfiguration ihres Webservers aufnehmen. Dies ist eine Hauptquelle von Problemen für Benutzer von Browsern, die die von Webservern und Anwendungen gemeldeten MIME-Typen respektieren.
 
 ## Warum sind korrekte MIME-Typen wichtig?
 
-Wenn ein Webserver oder eine Anwendung einen falschen MIME-Typ für Inhalte (einschließlich eines "Standardtyps" für unbekannte Inhalte) meldet, hat ein Webbrowser keine Möglichkeit, die Absichten des Autors zu erkennen. Dies kann unerwartetes Verhalten verursachen.
+Wenn ein Webserver oder eine Anwendung einen falschen MIME-Typ für Inhalte meldet (einschließlich eines "Standardtyps" für unbekannte Inhalte), hat ein Webbrowser keine Möglichkeit, die Absichten des Autors zu kennen. Dies kann unerwartetes Verhalten verursachen.
 
-Einige Webbrowser können versuchen, den richtigen MIME-Typ zu _erraten_. Dies ermöglicht es falsch konfigurierten Webservern und -anwendungen, für diese Browser weiterhin zu funktionieren (jedoch nicht für andere Browser, die die Norm korrekt implementieren). Abgesehen davon, dass es gegen die HTTP-Spezifikation verstößt, ist dies aus einigen anderen wesentlichen Gründen eine schlechte Idee:
+Einige Webbrowser können versuchen, den korrekten MIME-Typ zu _erraten_. Dies ermöglicht es fehlkonfigurierten Webservern und Anwendungen, für diese Browser weiterhin zu funktionieren (aber nicht für andere Browser, die den Standard korrekt umsetzen). Abgesehen davon, dass dies gegen die HTTP-Spezifikation verstößt, ist es aus mehreren anderen wichtigen Gründen eine schlechte Idee:
 
-- Verlust der Kontrolle
+- Kontrollverlust
 
   - : Wenn der Browser den gemeldeten MIME-Typ ignoriert, haben Webadministratoren und Autoren keine Kontrolle mehr darüber, wie ihre Inhalte verarbeitet werden sollen.
 
-    Zum Beispiel könnte eine Website, die auf Webentwickler ausgerichtet ist, bestimmte Beispiel-HTML-Dokumente entweder als `text/html` oder `text/plain` senden wollen, um die Dokumente entweder als HTML verarbeiten und anzeigen zu lassen oder als Quellcode. Wenn der Browser den MIME-Typ errät, steht diese Option dem Autor nicht mehr zur Verfügung.
+    Zum Beispiel könnte eine Website, die sich an Webentwickler richtet, bestimmte Beispiel-HTML-Dokumente entweder als `text/html` oder `text/plain` senden wollen, um die Dokumente entweder als HTML verarbeitet und angezeigt oder als Quelltext dargestellt zu bekommen. Wenn der Browser den MIME-Typ erraten würde, steht diese Option dem Autor nicht mehr zur Verfügung.
 
 - Sicherheit
 
-  - : Einige Inhaltstypen, wie ausführbare Programme, sind von Natur aus unsicher. Aus diesem Grund sind diese MIME-Typen in der Regel in Bezug darauf, welche Aktionen ein Webbrowser ausführen wird, wenn er diesen Typ von Inhalt erhält, eingeschränkt. Ein ausführbares Programm sollte nicht auf dem Computer des Benutzers ausgeführt werden und sollte zumindest einen Dialog auslösen, **der den Benutzer fragt**, ob er die Datei herunterladen möchte.
+  - : Einige Inhaltstypen, wie ausführbare Programme, sind von Natur aus unsicher. Deshalb sind diese MIME-Typen in der Regel eingeschränkt, was die Aktionen betrifft, die ein Webbrowser bei diesem Inhaltstyp ausführen wird. Ein ausführbares Programm sollte nicht auf dem Computer des Nutzers ausgeführt werden und sollte mindestens einen Dialog erzeugen, der **den Nutzer fragt**, ob sie die Datei herunterladen möchten.
 
-## JavaScript veraltete MIME-Typen
+## JavaScript Legacy MIME-Typen
 
-Beim Suchen nach Informationen über JavaScript-MIME-Typen könnten Sie auf mehrere MIME-Typen stoßen, die JavaScript referenzieren. Einige dieser MIME-Typen umfassen:
+Wenn Sie nach Informationen über JavaScript MIME-Typen suchen, können Sie mehrere MIME-Typen begegnen, die auf JavaScript verweisen. Einige dieser MIME-Typen beinhalten:
 
 - `application/javascript`
 - `application/ecmascript`
@@ -60,56 +60,56 @@ Beim Suchen nach Informationen über JavaScript-MIME-Typen könnten Sie auf mehr
 - `text/x-ecmascript`
 - `text/x-javascript`
 
-Während Browser möglicherweise jeden, einige oder alle dieser alternativen MIME-Typen unterstützen, sollten Sie **nur** `text/javascript` verwenden, um den MIME-Typ von JavaScript-Dateien anzugeben.
+Obwohl Browser möglicherweise einige oder alle dieser alternativen MIME-Typen unterstützen, sollten Sie **nur** `text/javascript` verwenden, um den MIME-Typ von JavaScript-Dateien anzugeben.
 
 > [!NOTE]
-> Siehe [MIME-Typen (IANA Medientypen)](/de/docs/Web/HTTP/MIME_types) für weitere Informationen.
+> Weitere Informationen finden Sie unter [MIME types (IANA media types)](/de/docs/Web/HTTP/Guides/MIME_types).
 
 ## Anleitung zur Bestimmung des zu setzenden MIME-Typs
 
-Es gibt mehrere Möglichkeiten, den korrekten MIME-Typ-Wert zu bestimmen, der verwendet werden soll, um Ihre Inhalte bereitzustellen.
+Es gibt mehrere Möglichkeiten, den korrekten MIME-Typ-Wert zu bestimmen, der zum Bereitstellen Ihrer Inhalte verwendet werden soll.
 
-- Wenn Ihr Inhalt mit kommerzieller Software erstellt wurde, lesen Sie die Dokumentation des Anbieters, um zu erfahren, welche MIME-Typen für die Anwendung gemeldet werden sollen.
-- Schauen Sie im [MIME Media Types Registry](https://www.iana.org/assignments/media-types/media-types.xhtml) von IANA nach, das Informationen über alle registrierten MIME-Typen enthält.
-- Suchen Sie nach der Dateierweiterung in [FILExt](https://filext.com/) oder in der [Referenz für Dateierweiterungen](https://www.file-extensions.org/), um zu sehen, welche MIME-Typen mit dieser Erweiterung verbunden sind. Achten Sie darauf, da die Anwendung möglicherweise mehrere MIME-Typen hat, die sich nur um einen Buchstaben unterscheiden.
+- Wenn Ihr Inhalt mit kommerzieller Software erstellt wurde, lesen Sie die Dokumentation des Anbieters, um zu sehen, welche MIME-Typen für die Anwendung gemeldet werden sollten.
+- Schauen Sie im [MIME Media Types-Register](https://www.iana.org/assignments/media-types/media-types.xhtml) von IANA nach, das Informationen zu allen registrierten MIME-Typen enthält.
+- Suchen Sie die Dateierweiterung bei [FILExt](https://filext.com/) oder im [File extensions reference](https://www.file-extensions.org/), um zu sehen, welche MIME-Typen mit dieser Erweiterung verbunden sind. Achten Sie genau darauf, da die Anwendung möglicherweise mehrere MIME-Typen hat, die sich nur um einen Buchstaben unterscheiden.
 
-## Anleitung zur Prüfung des MIME-Typs von empfangenen Inhalten
+## Anleitung zur Überprüfung des MIME-Typs empfangener Inhalte
 
 - In Firefox
 
-  - Laden Sie die Datei und gehen Sie zu **Tools > Page Info**, um den Inhaltstyp der aufgerufenen Seite zu erhalten.
-  - Sie können auch zu **Tools > Web Developer > Network** gehen und die Seite neu laden. Der Anfragetab gibt Ihnen eine Liste aller Ressourcen, die die Seite geladen hat. Wenn Sie auf eine Ressource klicken, werden alle verfügbaren Informationen aufgelistet, einschließlich des [`Content-Type`](/de/docs/Web/HTTP/Headers/Content-Type)-Headers der Seite.
+  - Laden Sie die Datei und gehen Sie zu **Werkzeuge > Seiteninformationen**, um den Inhaltstyp für die von Ihnen aufgerufene Seite zu erhalten.
+  - Sie können auch zu **Werkzeuge > Web-Entwickler > Netzwerk** gehen und die Seite neu laden. Der Anfrage-Reiter gibt Ihnen eine Liste aller Ressourcen, die die Seite geladen hat. Wenn Sie auf eine Ressource klicken, werden alle verfügbaren Informationen aufgelistet, einschließlich des [`Content-Type`](/de/docs/Web/HTTP/Reference/Headers/Content-Type)-Headers der Seite.
 
 - In Chrome
 
-  - Laden Sie die Datei und gehen Sie zu **View > Developer > Developer Tools** und wählen Sie den _Network_-Tab. Laden Sie die Seite neu und wählen Sie die Ressource, die Sie prüfen möchten. Unter Headers suchen Sie nach `Content-Type`, und es wird der Inhaltstyp der Ressource gemeldet.
+  - Laden Sie die Datei und gehen Sie zu **Ansicht > Entwickler > Entwicklertools** und wählen Sie den _Netzwerk_-Tab. Laden Sie die Seite neu und wählen Sie die Ressource, die Sie inspizieren möchten. Unter Headers suchen Sie nach `Content-Type`, und dieser wird den Inhaltstyp der Ressource melden.
 
 - Suchen Sie nach einem `<meta>`-Element im Seitenquelltext, das den MIME-Typ angibt, zum Beispiel `<meta http-equiv="Content-Type" content="text/html">`.
 
-  - Laut den Standards sollte das `<meta>`-Element, das den MIME-Typ angibt, ignoriert werden, wenn ein Content-Type-Header verfügbar ist.
+  - Nach den Standards sollte das `<meta>`-Element, das den MIME-Typ angibt, ignoriert werden, wenn ein Content-Type-Header verfügbar ist.
 
-[IANA](https://www.iana.org/) führt eine Liste der registrierten [MIME Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml). Die [HTTP-Spezifikation](https://www.w3.org/Protocols/rfc2616/rfc2616.html) definiert eine Obermenge von MIME-Typen, die verwendet wird, um die Medientypen zu beschreiben, die im Web verwendet werden.
+[IANA](https://www.iana.org/) führt eine Liste der registrierten [MIME Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml). Die [HTTP-Spezifikation](https://www.w3.org/Protocols/rfc2616/rfc2616.html) definiert eine Obermenge von MIME-Typen, die zur Beschreibung der auf dem Web verwendeten Medientypen verwendet wird.
 
-## Anleitung zur Konfiguration des Servers zur Übermittlung der korrekten MIME-Typen
+## Anleitung zur Konfiguration Ihres Servers zur Übermittlung der korrekten MIME-Typen
 
 Das Ziel ist es, Ihren Server so zu konfigurieren, dass er den korrekten {{HTTPHeader("Content-Type")}}-Header für jedes Dokument sendet.
 
-- Wenn Sie den Apache-Webserver verwenden, schauen Sie im Abschnitt **_Medientypen und Zeichencodierungen_** der [Apache-Konfiguration: .htaccess](/de/docs/Learn_web_development/Extensions/Server-side/Apache_Configuration_htaccess) nach, um Beispiele für verschiedene Dokumenttypen und deren entsprechende MIME-Typen zu finden.
-- Wenn Sie Nginx verwenden, beachten Sie, dass Nginx kein Äquivalent zu `.htaccess` hat, daher gehen alle Änderungen in die Hauptkonfigurationsdatei.
-- Wenn Sie ein serverseitiges Skript oder Framework zur Generierung von Inhalten verwenden, hängt die Art des Inhaltstyps davon ab, welches Tool Sie verwenden. Überprüfen Sie die Dokumentation des Frameworks oder der Bibliothek.
+- Wenn Sie den Apache-Webserver verwenden, überprüfen Sie den Abschnitt **_Medientypen und Zeichencodierungen_** von [Apache Configuration: .htaccess](/de/docs/Learn_web_development/Extensions/Server-side/Apache_Configuration_htaccess) für Beispiele zu verschiedenen Dokumenttypen und ihren entsprechenden MIME-Typen.
+- Wenn Sie Nginx verwenden, beachten Sie, dass Nginx kein Äquivalent zu `.htaccess` hat, sodass alle Änderungen in die Hauptkonfigurationsdatei gehen müssen.
+- Wenn Sie ein serverseitiges Skript oder Framework zur Inhaltserzeugung verwenden, hängt die Art und Weise, wie Sie den Inhaltstyp bekanntgeben, vom verwendeten Tool ab. Überprüfen Sie die Dokumentation des Frameworks oder der Bibliothek.
 
-Unabhängig davon, welches Serversystem Sie verwenden, müssen Sie erreichen, dass ein Antwort-Header mit dem Namen {{httpheader("Content-Type")}} gesetzt wird, gefolgt von einem Doppelpunkt und einem Leerzeichen, gefolgt von einem MIME-Typ. Hochstufige Umgebungen erlauben oft, solche Header zu setzen, wenn die Seite generiert wird. In einer PHP-Umgebung könnten Sie beispielsweise den Antwort-Header für PDF-Ressourcen wie folgt setzen:
+Unabhängig davon, welches Serversystem Sie verwenden, müssen Sie erreichen, dass ein Antwortheader mit dem Namen {{HTTPHeader("Content-Type")}} gesetzt wird, gefolgt von einem Doppelpunkt und einem Leerzeichen, gefolgt von einem MIME-Typ. Hochstufige Umgebungen erlauben oft, solche Header beim Generieren der Seite zu setzen. Zum Beispiel könnten Sie in einer PHP-Umgebung den Antwortheader für PDF-Ressourcen wie folgt setzen:
 
 ```php
 header('Content-Type: application/pdf')
 ```
 
-Der Versuch, es stattdessen einfach mit `header('application/pdf')` zu setzen, wird nicht funktionieren.
+Der Versuch, ihn stattdessen nur mit `header('application/pdf')` zu setzen, wird nicht funktionieren.
 
 ## Verwandte Links
 
 - [IANA | MIME Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml)
 - [Hypertext Transfer Protocol — HTTP/1.1](https://www.w3.org/Protocols/rfc2616/rfc2616.html)
-- [MIME-Typen (IANA Medientypen)](/de/docs/Web/HTTP/MIME_types)
+- [MIME types (IANA media types)](/de/docs/Web/HTTP/Guides/MIME_types)
 - [Apache vs Nginx: Praktische Überlegungen](https://www.digitalocean.com/community/tutorials/apache-vs-nginx-practical-considerations)
-- [Apache .htaccess zu Nginx-Serverblock migrieren](https://barryvanveen.nl/articles/56-migrate-apache-htaccess-to-nginx-server-block/)
+- [Migrieren von Apache .htaccess zu Nginx-Serverblock](https://barryvanveen.nl/articles/56-migrate-apache-htaccess-to-nginx-server-block/)

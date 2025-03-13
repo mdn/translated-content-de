@@ -2,16 +2,16 @@
 title: Launch Handler API
 slug: Web/API/Launch_Handler_API
 l10n:
-  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Launch Handler API")}}
 
-Die **Launch Handler API** ermöglicht es Entwicklern zu steuern, wie eine [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) gestartet wird — zum Beispiel, ob sie ein bestehendes Fenster verwendet oder ein neues erstellt, und wie die Ziel-Start-URL der App behandelt wird.
+Die **Launch Handler API** ermöglicht es Entwicklern, zu steuern, wie eine [progressive Web-App](/de/docs/Web/Progressive_web_apps) (PWA) gestartet wird – beispielsweise, ob sie ein bestehendes Fenster verwendet oder ein neues erstellt und wie die Ziel-Launch-URL der App behandelt wird.
 
 ## Konzepte und Verwendung
 
-Sie können das Startverhalten Ihrer App festlegen, indem Sie das [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler)-Feld zu Ihrer Webapp-Manifestdatei hinzufügen. Dieses hat ein Unterfeld, `client_mode`, welches einen Zeichenfolgenwert enthält, der angibt, wie die App gestartet und navigiert werden soll. Zum Beispiel:
+Sie können das Startverhalten Ihrer App festlegen, indem Sie das Feld [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler) zu Ihrer Web-App-Manifestdatei hinzufügen. Dieses hat ein Unterfeld, `client_mode`, das einen Zeichenfolgenwert enthält, der angibt, wie die App gestartet und zu welchem Ziel navigiert werden soll. Zum Beispiel:
 
 ```json
 "launch_handler": {
@@ -19,18 +19,18 @@ Sie können das Startverhalten Ihrer App festlegen, indem Sie das [`launch_handl
 }
 ```
 
-Wenn nicht angegeben, ist der Standardwert von `client_mode` `auto`. Verfügbare Werte sind:
+Falls nicht angegeben, ist der Standardwert für `client_mode` `auto`. Verfügbare Werte sind:
 
 - `focus-existing`
-  - : Der zuletzt benutzte Browsing-Kontext in einem Web-App-Fenster wird ausgewählt, um den Start zu handhaben. Diese wird die Ziel-Start-URL in der [`targetURL`](/de/docs/Web/API/LaunchParams/targetURL)-Eigenschaft des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts füllen, das in die Rückruffunktion von [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) übergeben wird. Wie unten gezeigt, erlaubt dies die Einstellung einer benutzerdefinierten Startverwaltung für Ihre App.
+  - : Der zuletzt interagierte Browsing-Kontext in einem Web-App-Fenster wird gewählt, um den Start zu handhaben. Dies wird die Ziel-Launch-URL in der [`targetURL`](/de/docs/Web/API/LaunchParams/targetURL)-Eigenschaft des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts füllen, das in die Callback-Funktion von [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) übergeben wird. Wie Sie unten sehen werden, können Sie damit eine benutzerdefinierte Start-Handhabungsfunktionalität für Ihre App festlegen.
 - `navigate-existing`
-  - : Der zuletzt benutzte Browsing-Kontext in einem Web-App-Fenster wird zur Ziel-Start-URL navigiert. Die Ziel-URL wird weiterhin über [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) bereitgestellt, um zusätzliche benutzerdefinierte Startnavigations-Handhabung zu implementieren.
+  - : Der zuletzt interagierte Browsing-Kontext in einem Web-App-Fenster wird zur Ziel-Launch-URL navigiert. Die Ziel-URL bleibt über [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) verfügbar, um die Implementierung zusätzlicher benutzerdefinierter Starts und Navigations-Handhabung zu ermöglichen.
 - `navigate-new`
-  - : Ein neuer Browsing-Kontext wird in einem Web-App-Fenster erstellt, um die Ziel-Start-URL zu laden. Die Ziel-URL wird weiterhin über [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) bereitgestellt, um zusätzliche benutzerdefinierte Startnavigations-Handhabung zu implementieren.
+  - : Ein neuer Browsing-Kontext wird in einem Web-App-Fenster erstellt, um die Ziel-Launch-URL zu laden. Die Ziel-URL bleibt über [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) verfügbar, um die Implementierung zusätzlicher benutzerdefinierter Starts und Navigations-Handhabung zu ermöglichen.
 - `auto`
-  - : Der Benutzeragent entscheidet, was für die Plattform am besten funktioniert. Zum Beispiel könnte `navigate-existing` auf mobilen Geräten mehr Sinn machen, wo einzelne App-Instanzen üblich sind, während `navigate-new` eher im Desktop-Kontext sinnvoll wäre. Dies ist der Standardwert, der verwendet wird, wenn angegebene Werte ungültig sind.
+  - : Die Benutzer-Agent entscheidet, was am besten für die Plattform geeignet ist. Zum Beispiel könnte <code>navigate-existing</code> auf mobilen Geräten mehr Sinn machen, wo einzelne App-Instanzen üblich sind, während <code>navigate-new</code> mehr Sinn in einem Desktop-Kontext machen könnte. Dies ist der Standardwert, der verwendet wird, wenn angegebene Werte ungültig sind.
 
-Wenn `focus-existing` verwendet wird, können Sie Code innerhalb der Rückruffunktion von [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) einschließen, um eine benutzerdefinierte Handhabung der [`targetURL`](/de/docs/Web/API/LaunchParams/targetURL) anzubieten.
+Wenn `focus-existing` verwendet wird, können Sie Code innerhalb der Callback-Funktion von [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) einschließen, um eine benutzerdefinierte Handhabung der [`targetURL`](/de/docs/Web/API/LaunchParams/targetURL) zu ermöglichen.
 
 ```js
 window.launchQueue.setConsumer((launchParams) => {
@@ -38,19 +38,19 @@ window.launchQueue.setConsumer((launchParams) => {
 });
 ```
 
-> **Note:** [`LaunchParams`](/de/docs/Web/API/LaunchParams) hat auch eine [`LaunchParams.files`](/de/docs/Web/API/LaunchParams/files)-Eigenschaft, die ein schreibgeschütztes Array von [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Objekten zurückgibt, die Dateien darstellen, die zusammen mit der Startnavigation über die [`POST`](/de/docs/Web/HTTP/Methods/POST)-Methode übermittelt wurden. Dies erlaubt eine benutzerdefinierte Datei-Handhabung zu implementieren.
+> **Note:** [`LaunchParams`](/de/docs/Web/API/LaunchParams) hat auch eine [`LaunchParams.files`](/de/docs/Web/API/LaunchParams/files)-Eigenschaft, die ein schreibgeschütztes Array von [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Objekten zurückgibt, welche alle Dateien repräsentieren, die zusammen mit der Start-Navigation über die [`POST`](/de/docs/Web/HTTP/Reference/Methods/POST)-Methode übergeben wurden. Dies ermöglicht die Implementierung einer benutzerdefinierten Dateihandhabung.
 
 ## Schnittstellen
 
 - [`LaunchParams`](/de/docs/Web/API/LaunchParams)
-  - : Wird verwendet, wenn eine benutzerdefinierte Startnavigations-Handhabung in einer PWA implementiert wird. Wenn [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) aufgerufen wird, um die Startnavigations-Handhabungsfunktionalität einzurichten, wird der Rückruffunktion in `setConsumer()` eine `LaunchParams`-Objektinstanz übergeben.
+  - : Wird verwendet, wenn benutzerdefinierte Starts und Navigations-Handhabung in einer PWA implementiert werden. Wenn [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) aufgerufen wird, um die Start- und Navigations-Handhabungsfunktionalität einzurichten, wird der Callback-Funktion innerhalb von `setConsumer()` eine `LaunchParams`-Objektinstanz übergeben.
 - [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)
-  - : Wenn eine [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) mit einem [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler) `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wird, bietet `LaunchQueue` Zugriff auf Funktionalität, die eine benutzerdefinierte Startnavigations-Handhabung ermöglicht. Diese Funktionalität wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das in die Rückruffunktion von [`setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) übergeben wird.
+  - : Wenn eine [progressive Web-App](/de/docs/Web/Progressive_web_apps) (PWA) mit einem [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler) `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wird, bietet `LaunchQueue` Zugriff auf Funktionalitäten, die die Implementierung benutzerdefinierter Start- und Navigations-Handhabung in der PWA ermöglichen. Diese Funktionalität wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das an die Callback-Funktion [`setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) übergeben wird.
 
-## Erweiterungen für andere Schnittstellen
+## Erweiterungen zu anderen Schnittstellen
 
 - [`window.launchQueue`](/de/docs/Web/API/Window/launchQueue)
-  - : Bietet Zugriff auf die [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Klasse, die eine benutzerdefinierte Startnavigations-Handhabung in einer [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) ermöglicht, wobei der Handhabungskontext durch den [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler) Manifestfeld `client_mode`-Wert angezeigt wird.
+  - : Bietet Zugriff auf die [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Klasse, die es ermöglicht, eine benutzerdefinierte Start- und Navigations-Handhabung in einer [progressiven Web-App](/de/docs/Web/Progressive_web_apps) (PWA) zu implementieren, wobei der Handhabungskontext durch den `client_mode`-Wert des [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler)-Felds im Manifest signalisiert wird.
 
 ## Beispiele
 
@@ -72,9 +72,9 @@ if ("launchQueue" in window) {
 }
 ```
 
-Dieser Code ist in der PWA enthalten und wird beim Start der App ausgeführt. Die Rückruffunktion von [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) extrahiert das Suchparameter aus der [`LaunchParams.targetURL`](/de/docs/Web/API/LaunchParams/targetURL) und verwendet es, wenn es einen `track`-Parameter findet, um die `src` eines {{htmlelement("audio")}}-Elements zu setzen und den Audiotrack, auf den dies zeigt, abzuspielen.
+Dieser Code ist in der PWA enthalten und wird ausgeführt, wenn die App beim Start geladen wird. Die Callback-Funktion von [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) extrahiert das Suchparameter aus der [`LaunchParams.targetURL`](/de/docs/Web/API/LaunchParams/targetURL) und verwendet es, falls sie einen `track`-Parameter findet, um ein {{htmlelement("audio")}}-Element mit `src` zu füllen und den Audio-Track abzuspielen, auf den dieser zeigt.
 
-Sehen Sie sich die [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App für vollständigen funktionierenden Code an.
+Siehe die [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App für vollständigen, funktionierenden Code.
 
 ## Spezifikationen
 
@@ -86,5 +86,5 @@ Sehen Sie sich die [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App für
 
 ## Siehe auch
 
-- [Launch Handler API: Control how your app is launched](https://developer.chrome.com/docs/web-platform/launch-handler/)
+- [Launch Handler API: Steuerung darüber, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
 - [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App

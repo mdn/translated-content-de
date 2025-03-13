@@ -3,21 +3,21 @@ title: "SecurityPolicyViolationEvent: sample-Eigenschaft"
 short-title: sample
 slug: Web/API/SecurityPolicyViolationEvent/sample
 l10n:
-  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`sample`**-Eigenschaft der [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Schnittstelle ist ein String, der eine Probe der Ressource darstellt, die die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung verursacht hat.
+Die schreibgeschützte **`sample`**-Eigenschaft der [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Schnittstelle ist ein String, der ein Beispiel der Ressource darstellt, die die Verletzung der [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verursacht hat.
 
-Dies betrifft nur Verstöße gegen [`script-src*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#script-src) und [`style-src*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#style-src), wenn die entsprechende `Content-Security-Policy`-Direktive das Stichwort [`'report-sample'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#report-sample) enthält. Darüber hinaus wird dies nur ausgefüllt, wenn es sich bei der Ressource um ein Inline-Skript, einen Ereignis-Handler oder einen Stil handelt — externe Ressourcen, die eine Verletzung verursachen, generieren keine Probe.
+Dies betrifft nur Verstöße gegen [`script-src*`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#script-src) und [`style-src*`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#style-src), wenn die entsprechende `Content-Security-Policy`-Direktive das Schlüsselwort [`'report-sample'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#report-sample) enthält. Zudem wird dies nur gefüllt, wenn es sich bei der Ressource um ein Inline-Skript, einen Ereignishandler oder einen Stil handelt — externe Ressourcen, die eine Verletzung verursachen, generieren kein Beispiel.
 
-> [!NOTE] Verletzungsberichte sollten als angreifergesteuerte Daten betrachtet werden.
-> Der Inhalt dieses Feldes sollte bereinigt werden, bevor er gespeichert oder gerendert wird.
+> [!NOTE] Verletzungsberichte sollten als von Angreifern kontrollierte Daten betrachtet werden.
+> Der Inhalt dieses Feldes sollte vor dem Speichern oder Rendern bereinigt werden.
 
 ## Wert
 
-Ein String, der eine Probe der Ressource enthält, die den Verstoß verursacht hat, normalerweise die ersten 40 Zeichen oder der leere String.
+Ein String, der ein Beispiel der Ressource enthält, die die Verletzung verursacht hat, normalerweise die ersten 40 Zeichen, oder der leere String.
 
 ## Beispiele
 

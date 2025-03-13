@@ -1,16 +1,16 @@
 ---
-title: "WakeLock: request()-Methode"
+title: "WakeLock: request() Methode"
 short-title: request()
 slug: Web/API/WakeLock/request
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Screen Wake Lock API")}}{{SecureContext_Header}}
 
-Die **`request()`**-Methode der [`WakeLock`](/de/docs/Web/API/WakeLock)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Objekt erfüllt wird, wenn das System-Bildschirm-Aufwach-Sperre gewährt wird.
+Die **`request()`**-Methode der [`WakeLock`](/de/docs/Web/API/WakeLock)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Objekt erfüllt wird, wenn das System-Screen-Wake-Lock gewährt wird.
 
-Die Bildschirm-Aufwach-Sperre verhindert, dass die Bildschirme von Geräten gedimmt oder gesperrt werden, wenn eine Anwendung weiterlaufen muss.
+Das Screen-Wake-Lock verhindert, dass sich Gerätebildschirme dimmen oder sperren, wenn eine Anwendung weiter ausgeführt werden muss.
 
 ## Syntax
 
@@ -22,34 +22,33 @@ request(type)
 
 - `type` {{optional_inline}}
 
-  - : Ein String, der den Typ der Bildschirm-Aufwach-Sperre angibt, aus den folgenden aufgezählten Typen:
+  - : Ein String, der den Typ des Screen-Wake-Locks angibt. Folgende enumerierte Typen sind möglich:
 
     - `screen`
-      - : Verhindert das Ausschalten des Bildschirms.
-        Nur sichtbare Dokumente können die Bildschirm-Aufwach-Sperre erwerben.
+      - : Verhindert, dass der Bildschirm abschaltet.
+        Nur sichtbare Dokumente können das Screen-Wake-Lock erwerben.
 
 Wenn kein `type`-Parameter explizit angegeben wird, verwendet die `request()`-Methode standardmäßig den `screen`-Typ.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Objekt erfüllt wird.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn die Aufwach-Sperre nicht verfügbar ist, was folgende Gründe haben kann:
+  - : Wird ausgelöst, wenn das Wake-Lock nicht verfügbar ist, was aus folgenden Gründen passieren kann:
 
-    - Die Verwendung dieser Funktion ist durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+    - Die Nutzung dieser Funktion wird durch eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
     - Das Dokument ist nicht vollständig aktiv.
     - Der Sichtbarkeitsstatus des Dokuments ist `hidden`.
-    - Der {{Glossary("User_Agent", "User Agent")}} konnte die Aufwach-Sperre der Plattform nicht erwerben.
-      Dies könnte zum Beispiel passieren, wenn das Gerät wenig Akku hat.
+    - Der {{Glossary("User_Agent", "User Agent")}} konnte das plattformspezifische Wake-Lock nicht erwerben.
+      Dies kann zum Beispiel passieren, wenn das Gerät wenig Akkulaufzeit hat.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion fordert ein [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Objekt an.
-Die `request()`-Methode wird in einer `try...catch`-Anweisung eingeschlossen, um Fälle zu handhaben, in denen der Browser die Anfrage aus irgendeinem Grund ablehnt.
+Die folgende asynchrone Funktion fordert ein [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Objekt an. Die `request()`-Methode ist in eine `try...catch`-Anweisung eingebettet, um Fälle zu behandeln, in denen der Browser die Anfrage aus irgendeinem Grund ablehnt.
 
 ```js
 const requestWakeLock = async () => {
@@ -65,8 +64,7 @@ const requestWakeLock = async () => {
 requestWakeLock();
 ```
 
-Die Bildschirm-Aufwach-Sperre kann vom Gerät widerrufen werden, nachdem sie gewährt wurde.
-Das zurückgegebene [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) kann verwendet werden, um den Status der Sperre zu überprüfen und/oder eine gehaltene Bildschirm-Aufwach-Sperre manuell zu annullieren.
+Das Screen-Wake-Lock kann vom Gerät widerrufen werden, nachdem es gewährt wurde. Das zurückgegebene [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) kann verwendet werden, um den Status des Locks zu überprüfen und/oder das gehaltene Screen-Wake-Lock manuell zu beenden.
 
 ## Spezifikationen
 
@@ -78,4 +76,4 @@ Das zurückgegebene [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) kann
 
 ## Siehe auch
 
-- [Bleiben Sie wach mit der Screen Wake Lock API](https://developer.chrome.com/docs/capabilities/web-apis/wake-lock/)
+- [Wach bleiben mit der Screen Wake Lock API](https://developer.chrome.com/docs/capabilities/web-apis/wake-lock/)

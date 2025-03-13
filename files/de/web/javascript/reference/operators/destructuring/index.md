@@ -2,14 +2,14 @@
 title: Destructuring
 slug: Web/JavaScript/Reference/Operators/Destructuring
 l10n:
-  sourceCommit: 8cf6d8c10adf3ce5370f8a3f180bec11112d4d44
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Operators")}}
 
-Die **Destructuring**-Syntax ist eine JavaScript-Syntax, die es ermöglicht, Werte aus Arrays oder Eigenschaften aus Objekten in separate Variablen zu entpacken. Sie kann an Stellen verwendet werden, die Daten empfangen (z. B. die linke Seite einer Zuweisung oder überall dort, wo neue Bezeichnerbindungen erstellt werden).
+Die **Destructuring**-Syntax ist eine JavaScript-Syntax, die es ermöglicht, Werte aus Arrays oder Eigenschaften aus Objekten in separate Variablen zu entpacken. Sie kann an Stellen verwendet werden, die Daten empfangen (wie die linke Seite einer Zuweisung oder überall dort, wo neue Bezeichnerbindungen erstellt werden).
 
-{{InteractiveExample("JavaScript Demo: Expressions - Destructuring", "taller")}}
+{{InteractiveExample("JavaScript Demo: Destructuring", "taller")}}
 
 ```js interactive-example
 let a, b, rest;
@@ -63,13 +63,13 @@ let a, b, a1, b1, c, d, rest, pop, push;
 
 ## Beschreibung
 
-Die Objekt- und Array-Literal-Ausdrücke bieten eine einfache Möglichkeit, _ad hoc_-Pakete von Daten zu erstellen.
+Die Objekt- und Array-Literal-Ausdrücke bieten eine einfache Möglichkeit, _ad-hoc_ Datenpakete zu erstellen.
 
 ```js
 const arr = [a, b, c];
 ```
 
-Das Destructuring verwendet eine ähnliche Syntax, aber es wird stattdessen auf der linken Seite der Zuweisung verwendet. Es führt die Umkehrung einer Array-Deklaration durch, indem jedes Element in der Sammlung als separate Variable deklariert wird.
+Das Destructuring verwendet eine ähnliche Syntax, jedoch auf der linken Seite der Zuweisung. Es führt die umgekehrte Operation einer Array-Deklaration durch, indem es jedes Element in der Sammlung als separate Variable deklariert.
 
 ```js
 const arr = [1, 2, 3];
@@ -77,7 +77,7 @@ const [a, b, c] = arr;
 // a = 1, b = 2, c = 3
 ```
 
-Für Objekte vergleichen Sie die folgenden beiden Zeilenpaare und sehen Sie, wie es innerhalb jedes Paares eine direkte Entsprechung gibt.
+Betrachtet man Objekte, vergleicht die beiden Zeilenpaare unten und sieht, wie es innerhalb jedes Paares eine direkte Entsprechung gibt.
 
 ```js
 const obj = { a, b, c };
@@ -91,15 +91,15 @@ const { prop1: x, prop2: y, prop3: z } = obj;
 // const x = obj.prop1, y = obj.prop2, z = obj.prop3;
 ```
 
-Diese Fähigkeit ähnelt Funktionen, die in Sprachen wie Perl und Python vorhanden sind.
+Diese Fähigkeit ähnelt Funktionen, die in Sprachen wie Perl und Python existieren.
 
-Für spezifische Funktionen zum Array- oder Objekt-Destructuring, sehen Sie sich die einzelnen [Beispiele](#beispiele) unten an.
+Für spezifische Funktionen der Array- oder Objekt-Destructuring, siehe die einzelnen [Beispiele](#beispiele) unten.
 
 ### Bindung und Zuweisung
 
-Sowohl für das Objekt- als auch für das Array-Destructuring gibt es zwei Arten von Destructuring-Mustern: _{{Glossary("binding", "Bindungsmuster")}}_ und _Zuweisungsmuster_, mit leicht unterschiedlichen Syntaxen.
+Sowohl für Objekt- als auch für Array-Destructuring gibt es zwei Arten von Destructuring-Mustern: _{{Glossary("binding", "binding")}} pattern_ und _assignment pattern_, mit leicht unterschiedlichen Syntaxen.
 
-In Bindungsmustern beginnt das Muster mit einem Deklarationsschlüsselwort (`var`, `let` oder `const`). Dann muss jede einzelne Eigenschaft entweder an eine Variable gebunden oder weiter destrukturiert werden.
+In Bindungsmustern beginnt das Muster mit einem Deklarationsschlüsselwort (`var`, `let` oder `const`). Jede einzelne Eigenschaft muss entweder an eine Variable gebunden oder weiter zerlegt werden.
 
 ```js
 const obj = { a: 1, b: { c: 2 } };
@@ -110,7 +110,7 @@ const {
 // Two variables are bound: `a` and `d`
 ```
 
-Alle Variablen teilen sich die gleiche Deklaration, daher müssen Sie möglicherweise zweimal destrukturieren, einmal mit `let`, und einmal mit `const`, wenn Sie möchten, dass einige Variablen neu zuweisbar und andere schreibgeschützt sind.
+Alle Variablen teilen dieselbe Deklaration, daher müssen Sie möglicherweise zweimal Destructuring verwenden — einmal mit `let` und einmal mit `const`, wenn Sie einige Variablen neu zuweisbar und andere schreibgeschützt haben möchten.
 
 ```js
 const obj = { a: 1, b: { c: 2 } };
@@ -120,13 +120,13 @@ let {
 } = obj; // d is re-assignable
 ```
 
-In vielen anderen Syntaxen, in denen die Sprache eine Variable für Sie bindet, können Sie ein Bindungsdestructuring-Muster verwenden. Dazu gehören:
+In vielen anderen Syntaxen, in denen die Sprache eine Variable für Sie bindet, können Sie ein Bindungs-Destructuring-Muster verwenden. Diese beinhalten:
 
-- Die Schleifenvariable von [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in), [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) und [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of)-Schleifen;
-- [Funktions-](/de/docs/Web/JavaScript/Reference/Functions)parameter;
+- Die Schleifenvariable von [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) und [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of) Schleifen;
+- [Funktions](/de/docs/Web/JavaScript/Reference/Functions)parameter;
 - Die [`catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) Bindungsvariable.
 
-In Zuweisungsmustern beginnt das Muster nicht mit einem Schlüsselwort. Jede destrukturierte Eigenschaft wird einem Ziel der Zuweisung zugewiesen - das entweder vorher mit `var` oder `let` deklariert wurde, oder eine Eigenschaft eines anderen Objekts ist - im Allgemeinen alles, was auf der linken Seite eines Zuweisungsausdrucks erscheinen kann.
+In Zuweisungsmustern beginnt das Muster nicht mit einem Schlüsselwort. Jede zerlegte Eigenschaft wird einem Ziel der Zuweisung zugewiesen — das entweder zuvor mit `var` oder `let` deklariert wurde oder eine Eigenschaft eines anderen Objekts ist — im Allgemeinen alles, was auf der linken Seite eines Zuweisungsausdrucks erscheinen kann.
 
 ```js
 const numbers = [];
@@ -136,13 +136,13 @@ const obj = { a: 1, b: 2 };
 ```
 
 > [!NOTE]
-> Die Klammern `( ... )` um die Zuweisungsausdruck sind erforderlich, wenn Sie das Objektliteral-Destructuring ohne eine Deklaration verwenden.
+> Die Klammern `( ... )` um die Zuweisungserklärung sind erforderlich, wenn Sie Destructuring mit einem Objektliteral ohne Deklaration verwenden.
 >
-> `{ a, b } = { a: 1, b: 2 }` ist keine gültige eigenständige Syntax, da das `{ a, b }` auf der linken Seite als Block und nicht als Objektliteral gemäß den Regeln der [Ausdrucks-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) betrachtet wird. Jedoch ist `({ a, b } = { a: 1, b: 2 })` gültig, ebenso wie `const { a, b } = { a: 1, b: 2 }`.
+> `{ a, b } = { a: 1, b: 2 }` ist keine gültige Standalone-Syntax, da das `{ a, b }` auf der linken Seite als Block und nicht als Objektliteral entsprechend den Regeln der [Ausdrucks-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) betrachtet wird. `({ a, b } = { a: 1, b: 2 })` ist jedoch gültig, ebenso wie `const { a, b } = { a: 1, b: 2 }`.
 >
-> Falls Ihr Codierungsstil keine abschließenden Semikolons beinhaltet, muss der `( ... )` Ausdruck mit einem Semikolon vorangestellt werden, oder er kann verwendet werden, um eine Funktion auf der vorherigen Zeile auszuführen.
+> Wenn Ihr Codierungsstil keine abschließenden Semikolons beinhaltet, muss der `( ... )` Ausdruck durch ein Semikolon vorangestellt werden, oder er kann verwendet werden, um eine Funktion in der vorherigen Zeile auszuführen.
 
-Beachten Sie, dass das äquivalente _Bindungsmuster_ des obigen Codes keine gültige Syntax ist:
+Beachten Sie, dass das äquivalente _Bindungsmuster_ des obenstehenden Codes keine gültige Syntax ist:
 
 ```js-nolint example-bad
 const numbers = [];
@@ -155,11 +155,11 @@ const { a: numbers[0], b: numbers[1] } = obj;
 // Which definitely is not valid.
 ```
 
-Sie können Zuweisungsmuster nur als linke Seite des [Zuweisungs](/de/docs/Web/JavaScript/Reference/Operators/Assignment)-Operators verwenden. Sie können sie nicht mit zusammengesetzten Zuweisungsoperatoren wie `+=` oder `*=` verwenden.
+Sie können nur Zuweisungsmuster als die linke Seite des [Zuweisungs](/de/docs/Web/JavaScript/Reference/Operators/Assignment)-Operators verwenden. Sie können sie nicht mit zusammengesetzten Zuweisungsoperatoren wie `+=` oder `*=` verwenden.
 
 ### Standardwert
 
-Jede destrukturierte Eigenschaft kann einen _Standardwert_ haben. Der Standardwert wird verwendet, wenn die Eigenschaft nicht vorhanden ist oder den Wert `undefined` hat. Er wird nicht verwendet, wenn die Eigenschaft den Wert `null` hat.
+Jede zerlegte Eigenschaft kann einen _Standardwert_ haben. Der Standardwert wird verwendet, wenn die Eigenschaft nicht vorhanden ist oder den Wert `undefined` hat. Er wird nicht verwendet, wenn die Eigenschaft den Wert `null` hat.
 
 ```js
 const [a = 1] = []; // a is 1
@@ -167,7 +167,7 @@ const { b = 2 } = { b: undefined }; // b is 2
 const { c = 2 } = { c: null }; // c is null
 ```
 
-Der Standardwert kann beliebiger Ausdruck sein. Er wird nur ausgewertet, wenn es notwendig ist.
+Der Standardwert kann jeder Ausdruck sein. Er wird nur ausgewertet, wenn es notwendig ist.
 
 ```js
 const { b = console.log("hey") } = { b: 2 };
@@ -177,9 +177,9 @@ const { b = console.log("hey") } = { b: 2 };
 
 ### Rest-Eigenschaften und Rest-Elemente
 
-Sie können ein Destructuring-Muster mit einer Rest-Eigenschaft `...rest` abschließen. Für das Array-Destructuring sammelt es die verbleibenden Elemente des Iterables in einem neuen Array namens `rest` (oder einem beliebigen Namen, den Sie ihm geben). Für das Objekt-Destructuring kopiert es alle aufzählbaren eigenen Eigenschaften des Objekts, die nicht bereits vom Destructuring-Muster ausgewählt wurden, in ein neues Objekt namens `rest`.
+Sie können ein Destructuring-Muster mit einer Rest-Eigenschaft `...rest` abschließen. Für Array-Destructuring sammelt es die verbleibenden Elemente des Iterables in einem neuen Array namens `rest` (oder jedem Namen, den Sie ihm geben). Für Objekt-Destructuring kopiert es alle aufzählbaren eigenen Eigenschaften des Objekts, die nicht bereits vom Destructuring-Muster erfasst wurden, in ein neues Objekt namens `rest`.
 
-Formaler gesagt, wird die `...rest`-Syntax in Array-Destructuring "rest elements" genannt und in Objekt-Destructuring "rest properties", aber wir nennen sie oft einfach zusammen "Rest-Eigenschaft".
+Formal wird die `...rest`-Syntax als "Rest-Elemente" im Array-Destructuring und als "Rest-Eigenschaften" im Objekt-Destructuring bezeichnet, aber wir nennen sie häufig einfach "Rest-Eigenschaft".
 
 ```js
 const { a, ...others } = { a: 1, b: 2, c: 3 };
@@ -215,7 +215,7 @@ console.log(green); // "three"
 
 #### Destructuring mit mehr Elementen als die Quelle
 
-In einem Array-Destructuring von einem Array der Länge _N_, das auf der rechten Seite der Zuweisung angegeben ist, werden nur die ersten _N_ Variablen Werte zugewiesen, wenn die Anzahl der auf der linken Seiten der Zuweisung angegebenen Variablen größer als _N_ ist. Die Werte der restlichen Variablen bleiben undefiniert.
+In einem Array-Destructuring aus einem Array der Länge _N_, das auf der rechten Seite der Zuweisung angegeben ist, wenn die Anzahl der auf der linken Seite angegebenen Variablen größer ist als _N_, werden nur die ersten _N_ Variablen Werte zugewiesen. Die Werte der verbleibenden Variablen sind undefined.
 
 ```js
 const foo = ["one", "two"];
@@ -229,9 +229,9 @@ console.log(blue); // undefined
 
 #### Variablen tauschen
 
-Mit einem Destructuring-Ausdruck können die Werte zweier Variablen vertauscht werden.
+Zwei Variablenwerte können in einem Destructuring-Ausdruck getauscht werden.
 
-Ohne Destructuring erfordert das Vertauschen zweier Werte eine temporäre Variable (oder in einigen Low-Level-Sprachen den [XOR-Tauschtrick](https://en.wikipedia.org/wiki/XOR_swap_algorithm)).
+Ohne Destructuring erfordert das Tauschen zwei Werte eine temporäre Variable (oder in einigen Low-Level-Sprachen den [XOR-Swap-Trick](https://en.wikipedia.org/wiki/XOR_swap_algorithm)).
 
 ```js
 let a = 1;
@@ -246,11 +246,11 @@ const arr = [1, 2, 3];
 console.log(arr); // [1, 3, 2]
 ```
 
-#### Ein Array, das von einer Funktion zurückgegeben wird, parsen
+#### Ein Array von einer Funktion parsen
 
-Es war schon immer möglich, ein Array aus einer Funktion zurückzugeben. Destructuring kann die Arbeit mit einem Array-Rückgabewert prägnanter machen.
+Es war schon immer möglich, ein Array von einer Funktion zurückzugeben. Destructuring kann die Arbeit mit einem Array-Rückgabewert prägnanter machen.
 
-In diesem Beispiel gibt `f()` die Werte `[1, 2]` als Ausgabe zurück, die mit Destructuring in einer einzigen Zeile geparst werden können.
+In diesem Beispiel gibt `f()` die Werte `[1, 2]` als Ausgabe zurück, die in einer einzigen Linie mit Destructuring geparst werden können.
 
 ```js
 function f() {
@@ -262,7 +262,7 @@ console.log(a); // 1
 console.log(b); // 2
 ```
 
-#### Einige Rückgabewerte ignorieren
+#### Einige zurückgegebene Werte ignorieren
 
 Sie können Rückgabewerte ignorieren, an denen Sie nicht interessiert sind:
 
@@ -279,17 +279,17 @@ const [c] = f();
 console.log(c); // 1
 ```
 
-Sie können auch alle Rückgabewerte ignorieren:
+Sie können auch alle zurückgegebenen Werte ignorieren:
 
 ```js
 [, ,] = f();
 ```
 
-Allerdings ist es in diesem Fall wahrscheinlich klarer, einfach die Funktion aufzurufen und das Destructuring gar nicht zu verwenden. Sie müssen den Rückgabewert nicht verwenden.
+Obwohl in diesem Fall wahrscheinlich klarer ist, einfach die Funktion aufzurufen und Destructuring überhaupt nicht zu verwenden. Sie müssen den Rückgabewert nicht verwenden.
 
-#### Verwendung eines Bindungsmusters als Rest-Eigenschaft
+#### Ein Bindungsmuster als Resteigenschaft verwenden
 
-Die Rest-Eigenschaft des Array-Destructuring kann ein weiteres Array- oder Objekt-Bindungsmuster sein. Das innere Destructuring destrukturiert aus dem Array, das nach dem Sammeln der Rest-Elemente erstellt wurde, sodass Sie auf diese Weise nicht auf Eigenschaften zugreifen können, die im ursprünglichen Iterable vorhanden sind.
+Die Resteigenschaft des Array-Destructuring kann ein weiteres Array- oder Objektbindungsmuster sein. Das innere Destructuring destrukturiert von dem nach dem Sammeln der Restelemente erstellten Array, sodass Sie auf diese Weise nicht auf Eigenschaften des ursprünglichen Iterablen zugreifen können.
 
 ```js
 const [a, b, ...{ length }] = [1, 2, 3];
@@ -301,14 +301,14 @@ const [a, b, ...[c, d]] = [1, 2, 3, 4];
 console.log(a, b, c, d); // 1 2 3 4
 ```
 
-Diese Bindungsmuster können sogar geschachtelt sein, solange jede Rest-Eigenschaft die letzte in der Liste ist.
+Diese Bindungsmuster können sogar verschachtelt sein, solange jede Resteigenschaft die letzte in der Liste ist.
 
 ```js
 const [a, b, ...[c, d, ...[e, f]]] = [1, 2, 3, 4, 5, 6];
 console.log(a, b, c, d, e, f); // 1 2 3 4 5 6
 ```
 
-Andererseits kann das Objekt-Destructuring nur einen Bezeichner als Rest-Eigenschaft haben.
+Andererseits kann Objekt-Destructuring nur einen Bezeichner als Resteigenschaft haben.
 
 ```js-nolint example-bad
 const { a, ...{ b } } = { a: 1, b: 2 };
@@ -319,9 +319,9 @@ let a, b;
 // SyntaxError: `...` must be followed by an assignable reference in assignment contexts
 ```
 
-#### Werte aus einem regulären Ausdrucks-Match entpacken
+#### Werte von einem regulären Ausdrucks-Match auspacken
 
-Wenn die Methode [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) eines regulären Ausdrucks einen Treffer findet, gibt sie ein Array zurück, das zuerst den gesamten übereinstimmenden Abschnitt der Zeichenkette und dann die Abschnitte der Zeichenkette enthält, die jedes geklammerte Gruppenelement im regulären Ausdruck übereinstimmten. Destructuring ermöglicht es Ihnen, die Teile einfach aus diesem Array zu entpacken und die volle Übereinstimmung zu ignorieren, falls sie nicht benötigt wird.
+Wenn die Methode [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) einen Treffer findet, gibt sie ein Array zurück, das zuerst den gesamten übereinstimmenden Bereich der Zeichenkette und dann die Bereiche der Zeichenkette enthält, die jeder klammerausdrucksbezogenen Gruppe im regulären Ausdruck entsprechen. Destructuring ermöglicht es Ihnen, die Teile dieses Arrays einfach auszupacken, ohne die vollständige Übereinstimmung, wenn sie nicht benötigt wird.
 
 ```js
 function parseProtocol(url) {
@@ -343,9 +343,9 @@ console.log(
 // "https"
 ```
 
-#### Anwendung von Array-Destructuring auf beliebige Iterables
+#### Array-Destructuring bei jedem Iterabel verwenden
 
-Das Array-Destructuring ruft das [iterable protocol](/de/docs/Web/JavaScript/Reference/Iteration_protocols) der rechten Seite auf. Daher kann jedes iterable, nicht unbedingt Arrays, destrukturiert werden.
+Array-Destructuring ruft das [iterable-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) der rechten Seite auf. Daher kann jedes Iterable, nicht notwendigerweise Arrays, destructuriert werden.
 
 ```js
 const [a, b] = new Map([
@@ -355,7 +355,7 @@ const [a, b] = new Map([
 console.log(a, b); // [1, 2] [3, 4]
 ```
 
-Nicht-iterables können nicht als Arrays destrukturiert werden.
+Nicht-Iterables können nicht als Arrays destructuriert werden.
 
 ```js example-bad
 const obj = { 0: "a", 1: "b", length: 2 };
@@ -363,7 +363,7 @@ const [a, b] = obj;
 // TypeError: obj is not iterable
 ```
 
-Iterables werden nur bis alle Bindungen zugewiesen sind, iteriert.
+Iterables werden nur iteriert, bis alle Bindungen zugewiesen sind.
 
 ```js
 const obj = {
@@ -377,7 +377,7 @@ const obj = {
 const [a, b] = obj; // Only logs 0 and 1
 ```
 
-Das Rest-Bindung wird eifrig ausgewertet und erstellt ein neues Array, anstatt das alte Iterable zu verwenden.
+Das Restbinding wird bereitwillig ausgewertet und erstellt ein neues Array, anstatt das alte Iterable zu verwenden.
 
 ```js
 const obj = {
@@ -410,7 +410,7 @@ console.log(isVerified); // true
 
 #### Zuweisung zu neuen Variablennamen
 
-Eine Eigenschaft kann aus einem Objekt entpackt und einer Variablen mit einem anderen Namen als der Objekteigenschaft zugewiesen werden.
+Eine Eigenschaft kann aus einem Objekt entpackt und einer Variablen mit einem anderen Namen als die Objekteigenschaft zugewiesen werden.
 
 ```js
 const o = { p: 42, q: true };
@@ -422,7 +422,7 @@ console.log(bar); // true
 
 Hier zum Beispiel nimmt `const { p: foo } = o` aus dem Objekt `o` die Eigenschaft namens `p` und weist sie einer lokalen Variable namens `foo` zu.
 
-#### Zuweisung zu neuen Variablennamen und Angabe von Standardwerten
+#### Zuweisung zu neuen Variablennamen und Bereitstellung von Standardwerten
 
 Eine Eigenschaft kann sowohl
 
@@ -436,9 +436,10 @@ console.log(aa); // 3
 console.log(bb); // 5
 ```
 
-#### Eigenschaften aus Objekten, die als Funktionsparameter übergeben werden, entpacken
+#### Eigenschaften aus Objekten entpacken, die als Funktionsparameter übergeben werden
 
-Objekte, die als Funktionsparameter übergeben werden, können auch in Variablen entpackt werden, die dann im Funktionskörper verwendet werden können. Wie bei der Objektzuweisung erlaubt die Destructuring-Syntax, dass die neue Variable den gleichen Namen oder einen anderen Namen als die ursprüngliche Eigenschaft hat und Standardwerte angegeben werden können, falls die ursprüngliche Eigenschaft des Objekts nicht definiert ist.
+Objekte, die in Funktionsparameter übergeben werden, können auch in Variablen entpackt werden, auf die dann innerhalb des Funktionskörpers zugegriffen werden kann.
+Wie bei der Objektzuweisung erlaubt die Destructuring-Syntax, dass die neue Variable denselben Namen wie die ursprüngliche Eigenschaft oder einen anderen Namen hat, und Standardwerte zuweisen, für den Fall, dass das ursprüngliche Objekt die Eigenschaft nicht definiert.
 
 Betrachten Sie dieses Objekt, das Informationen über einen Benutzer enthält.
 
@@ -453,7 +454,8 @@ const user = {
 };
 ```
 
-Hier zeigen wir, wie man eine Eigenschaft des übergebenen Objekts in eine Variable mit dem gleichen Namen entpackt. Der Parameterwert `{ id }` gibt an, dass die `id`-Eigenschaft des Objekts, das an die Funktion übergeben wird, in eine Variable mit demselben Namen entpackt werden sollte, die dann in der Funktion verwendet werden kann.
+Hier wird gezeigt, wie eine Eigenschaft des übergebenen Objekts in eine Variable mit demselben Namen entpackt wird.
+Der Parameterwert `{ id }` gibt an, dass die `id`-Eigenschaft des an die Funktion übergebenen Objekts in eine Variable mit demselben Namen entpackt werden soll, die dann innerhalb der Funktion verwendet werden kann.
 
 ```js
 function userId({ id }) {
@@ -463,7 +465,8 @@ function userId({ id }) {
 console.log(userId(user)); // 42
 ```
 
-Sie können den Namen der entpackten Variable definieren. Hier entpacken wir die Eigenschaft `displayName` und benennen sie für die Verwendung im Funktionskörper in `dname` um.
+Sie können den Namen der entpackten Variablen definieren.
+Hier entpacken wir die Eigenschaft namens `displayName` und benennen sie für die Verwendung im Funktionskörper in `dname` um.
 
 ```js
 function userDisplayName({ displayName: dname }) {
@@ -473,7 +476,8 @@ function userDisplayName({ displayName: dname }) {
 console.log(userDisplayName(user)); // "jdoe"
 ```
 
-Verschachtelte Objekte können ebenfalls entpackt werden. Das folgende Beispiel zeigt, wie die Eigenschaft `fullname.firstName` in eine Variable namens `name` entpackt wird.
+Verschachtelte Objekte können auch entpackt werden.
+Das untenstehende Beispiel zeigt die Eigenschaft `fullname.firstName`, die in eine Variable namens `name` entpackt wird.
 
 ```js
 function whois({ displayName, fullName: { firstName: name } }) {
@@ -483,11 +487,11 @@ function whois({ displayName, fullName: { firstName: name } }) {
 console.log(whois(user)); // "jdoe is Jane"
 ```
 
-#### Standardwert eines Funktionsparameters festlegen
+#### Den Standardwert eines Funktionsparameters festlegen
 
-Standardwerte können mit `=` angegeben werden und werden als Variablenwerte verwendet, wenn eine angegebene Eigenschaft im übergebenen Objekt nicht existiert.
+Standardwerte können mit `=` festgelegt werden und werden als Variablenwerte verwendet, wenn eine angegebene Eigenschaft im übergebenen Objekt nicht existiert.
 
-Unten zeigen wir eine Funktion, bei der die Standard-Größe `'big'` ist, die Standard-Koordinaten `x: 0, y: 0` und der Standard-Radius 25.
+Unten zeigen wir eine Funktion, bei der die Standardgröße `'big'` ist, die Standardkoordinaten `x: 0, y: 0` und der Standardradius 25.
 
 ```js
 function drawChart({
@@ -505,13 +509,13 @@ drawChart({
 });
 ```
 
-Im Funktionssignature von `drawChart` oben hat die destrukturierte linke Seite einen Standardwert des leeren Objekts `= {}`.
+In der Funktionssignatur für `drawChart` oben hat die entpackte linke Seite einen Standardwert von einem leeren Objekt `= {}`.
 
-Sie könnten die Funktion auch ohne diesen Standardwert schreiben. Jedoch wird die Funktion mindestens ein Argument erwarten, wenn sie aufgerufen wird, falls Sie diesen Standardwert weglassen, während Sie in der aktuellen Form `drawChart()` können, ohne Parameter zu übergeben. Ansonsten müssten Sie zumindest ein leeres Objektliteral übergeben.
+Sie hätten die Funktion auch ohne diesen Standardwert schreiben können. Wenn Sie jedoch diesen Standardwert weglassen, sucht die Funktion nach mindestens einem zu liefernden Argument, während Sie in ihrer aktuellen Form `drawChart()` aufrufen können, ohne irgendwelche Parameter bereitzustellen. Andernfalls müssen Sie mindestens ein leeres Objektliteral bereitstellen.
 
-Für weitere Informationen siehe [Standardparameter > Destructured parameter with default value assignment](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters#destructured_parameter_with_default_value_assignment).
+Weitere Informationen finden Sie unter [Default parameters > Destructured parameter with default value assignment](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters#destructured_parameter_with_default_value_assignment).
 
-#### Verschachteltes Objekt- und Array-Destructuring
+#### Verschachteltes Objekt und Array-Destructuring
 
 ```js
 const metadata = {
@@ -576,7 +580,7 @@ for (const {
 // "Name: Tom Jones, Father: Richard Jones"
 ```
 
-#### Berechnete Objekteigenschaftennamen und Destructuring
+#### Berechnete Objekteigenschaftsnamen und Destructuring
 
 Berechnete Eigenschaftsnamen, wie bei [Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names), können mit Destructuring verwendet werden.
 
@@ -587,9 +591,9 @@ const { [key]: foo } = { z: "bar" };
 console.log(foo); // "bar"
 ```
 
-#### Ungültiger JavaScript-Bezeichner als Eigenschaftsname
+#### Ungültiger JavaScript-Identifikator als Eigenschaftsname
 
-Destructuring kann mit Eigenschaftsnamen verwendet werden, die keine gültigen JavaScript-{{Glossary("Identifier", "Bezeichner")}} sind, indem ein alternativer gültiger Bezeichner angegeben wird.
+Destructuring kann mit Eigenschaftsnamen verwendet werden, die keine gültigen JavaScript-{{Glossary("Identifier", "Identifikatoren")}} sind, indem ein alternativer, gültiger Bezeichner bereitgestellt wird.
 
 ```js
 const foo = { "fizz-buzz": true };
@@ -600,21 +604,21 @@ console.log(fizzBuzz); // true
 
 ### Destructuring von primitiven Werten
 
-Objekt-Destructuring ist fast gleichwertig zum [Eigenschaftszugriff](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Das bedeutet, dass wenn Sie versuchen, einen primitiven Wert zu destrukturieren, der Wert in das entsprechende Wrapper-Objekt eingewickelt wird und die Eigenschaft auf dem Wrapper-Objekt zugreift wird.
+Objekt-Destructuring ist fast gleichbedeutend mit [Eigenschaftszugriff](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Das bedeutet, wenn Sie versuchen, einen primitiven Wert zu destructurieren, wird der Wert in das entsprechende Wrapper-Objekt gewickelt und die Eigenschaft wird auf das Wrapper-Objekt zugegriffen.
 
 ```js
 const { a, toFixed } = 1;
 console.log(a, toFixed); // undefined ƒ toFixed() { [native code] }
 ```
 
-Wie beim Zugriff auf Eigenschaften, wird das Destructuring von `null` oder `undefined` einen {{jsxref("TypeError")}} werfen.
+So wie das Zugreifen auf Eigenschaften, ruft das Destructuring von `null` oder `undefined` einen {{jsxref("TypeError")}} hervor.
 
 ```js example-bad
 const { a } = undefined; // TypeError: Cannot destructure property 'a' of 'undefined' as it is undefined.
 const { b } = null; // TypeError: Cannot destructure property 'b' of 'null' as it is null.
 ```
 
-Dies passiert sogar, wenn das Muster leer ist.
+Das passiert auch dann, wenn das Muster leer ist.
 
 ```js example-bad
 const {} = null; // TypeError: Cannot destructure 'null' as it is null.
@@ -622,7 +626,7 @@ const {} = null; // TypeError: Cannot destructure 'null' as it is null.
 
 #### Kombiniertes Array- und Objekt-Destructuring
 
-Array- und Objekt-Destructuring kann kombiniert werden. Angenommen, Sie möchten das dritte Element im Array `props` unten und dann die Eigenschaft `name` im Objekt erhalten, können Sie Folgendes tun:
+Array- und Objekt-Destructuring können kombiniert werden. Angenommen, Sie möchten das dritte Element im Array `props` unten, und dann möchten Sie die `name`-Eigenschaft im Objekt, dann können Sie folgendes tun:
 
 ```js
 const props = [
@@ -636,9 +640,9 @@ const [, , { name }] = props;
 console.log(name); // "FizzBuzz"
 ```
 
-#### Die Prototypenkette wird nach oben durchsucht, wenn das Objekt dekonstruieren wird
+#### Die Prototypenkette wird aufgeschaut, wenn das Objekt dekonstruiert wird
 
-Beim Dekonstruieren eines Objekts, wenn eine Eigenschaft nicht in sich selbst zugegriffen wird, wird es weiterhin entlang der Prototypenkette aufwärts durchsucht.
+Beim Dekonstruieren eines Objekts, wenn eine Eigenschaft nicht in sich selbst zugegriffen wird, wird die Suche entlang der Prototypenkette fortgesetzt.
 
 ```js
 const obj = {
@@ -664,4 +668,4 @@ console.log(prot); // "456"
 ## Siehe auch
 
 - [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators#assignment_operators)
-- [ES6 in Depth: Destructuring](https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/) auf hacks.mozilla.org (2015)
+- [ES6 in der Tiefe: Destructuring](https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/) auf hacks.mozilla.org (2015)

@@ -2,14 +2,14 @@
 title: Infinity
 slug: Web/JavaScript/Reference/Global_Objects/Infinity
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Objects")}}
 
 Die **`Infinity`** globale Eigenschaft ist ein numerischer Wert, der die Unendlichkeit darstellt.
 
-{{InteractiveExample("JavaScript Demo: Standard built-in objects - infinity")}}
+{{InteractiveExample("JavaScript Demo: Infinity")}}
 
 ```js interactive-example
 const maxNumber = Math.pow(10, 1000); // Max positive number
@@ -31,11 +31,11 @@ Der gleiche Zahlenwert wie {{jsxref("Number.POSITIVE_INFINITY")}}.
 
 ## Beschreibung
 
-`Infinity` ist eine Eigenschaft des _globalen Objekts_. Mit anderen Worten, es ist eine Variable im globalen Geltungsbereich.
+`Infinity` ist eine Eigenschaft des _globalen Objekts_. Mit anderen Worten, es ist eine Variable im globalen Rahmen.
 
 Der Wert `Infinity` (positive Unendlichkeit) ist größer als jede andere Zahl.
 
-Dieser Wert verhält sich geringfügig anders als die mathematische Unendlichkeit; siehe {{jsxref("Number.POSITIVE_INFINITY")}} für Details.
+Dieser Wert verhält sich leicht anders als die mathematische Unendlichkeit; siehe {{jsxref("Number.POSITIVE_INFINITY")}} für Details.
 
 ## Beispiele
 

@@ -1,15 +1,15 @@
 ---
-title: Bitweiser OR (|)
+title: Bitwise OR (|)
 slug: Web/JavaScript/Reference/Operators/Bitwise_OR
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **bitweise OR (`|`)** Operator gibt eine Zahl oder BigInt zurück, deren binäre Darstellung eine `1` in jeder Bitposition hat, für die die entsprechenden Bits eines oder beider Operanden `1` sind.
+Der **bitweise OR (`|`)** Operator gibt eine Zahl oder BigInt zurück, deren binäre Darstellung eine `1` in jedem Bitposition hat, für die die entsprechenden Bits eines oder beider Operanden `1` sind.
 
-{{InteractiveExample("JavaScript Demo: Expressions - Bitwise OR", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Bitwise OR (|) operator", "shorter")}}
 
 ```js interactive-example
 const a = 5; // 00000000000000000000000000000101
@@ -27,9 +27,9 @@ x | y
 
 ## Beschreibung
 
-Der `|` Operator ist für zwei Arten von Operanden überladen: number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Für Zahlen gibt der Operator einen 32-Bit-Integer zurück. Für BigInts gibt der Operator einen BigInt zurück. Zuerst [wandelt er beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und testet deren Typen. Er führt BigInt OR aus, wenn beide Operanden zu BigInts werden; andernfalls konvertiert er beide Operanden in [32-Bit-Integer](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) und führt bitweises OR für Zahlen aus. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand ein BigInt wird, der andere jedoch eine Zahl wird.
+Der `|` Operator ist für zwei Typen von Operanden überladen: number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Für numbers gibt der Operator einen 32-Bit-Integer zurück. Für BigInts gibt der Operator einen BigInt zurück. Zuerst [wandelt er beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und überprüft deren Typen. Es wird BigInt OR durchgeführt, wenn beide Operanden zu BigInts werden; andernfalls werden beide Operanden in [32-Bit-Integer](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) konvertiert und ein bitweises OR durchgeführt. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer number.
 
-Der Operator arbeitet an den Bitdarstellungen der Operanden im [Zweierkomplement](https://en.wikipedia.org/wiki/Two's_complement). Jedes Bit im ersten Operanden wird mit dem entsprechenden Bit im zweiten Operanden gepaart: _erstes Bit_ zu _erstem Bit_, _zweites Bit_ zu _zweitem Bit_ und so weiter. Der Operator wird auf jedes Bitpaar angewendet, und das Ergebnis wird bitweise zusammengesetzt.
+Der Operator arbeitet an den Bitdarstellungen der Operanden im [Zweierkomplement](https://en.wikipedia.org/wiki/Two's_complement). Jedes Bit im ersten Operanden wird mit dem entsprechenden Bit im zweiten Operanden gepaart: _erstes Bit_ zu _erstem Bit_, _zweites Bit_ zu _zweitem Bit_ usw. Der Operator wird auf jedes Bitpaar angewandt, und das Ergebnis wird bitweise konstruiert.
 
 Die Wahrheitstabelle für die OR-Operation ist:
 
@@ -47,20 +47,20 @@ Die Wahrheitstabelle für die OR-Operation ist:
 14 | 9 (base 10) = 00000000000000000000000000001111 (base 2) = 15 (base 10)
 ```
 
-Zahlen mit mehr als 32 Bits haben ihre bedeutendsten Bits verworfen. Zum Beispiel wird die folgende Ganzzahl mit mehr als 32 Bits in einen 32-Bit-Integer umgewandelt:
+Zahlen mit mehr als 32 Bits werden zu einem 32-Bit-Integer gekürzt. Beispielsweise wird der folgende Integer mit mehr als 32 Bits in einen 32-Bit-Integer konvertiert:
 
 ```plain
 Before: 11100110111110100000000000000110000000000001
 After:              10100000000000000110000000000001
 ```
 
-Für BigInts gibt es keine Verkürzung. Konzeptionell verstehen Sie positive BigInts als haben eine unendliche Anzahl von führenden `0` Bits, und negative BigInts als haben eine unendliche Anzahl von führenden `1` Bits.
+Bei BigInts gibt es keine Kürzung. Konzeptionell sind positive BigInts als unendliche Anzahl führender `0`-Bits zu verstehen und negative BigInts als unendliche Anzahl führender `1`-Bits.
 
-Das Bitweise OR mit einer beliebigen Zahl `x` und `0` ergibt `x` konvertiert in einen 32-Bit-Integer. Verwenden Sie nicht `| 0` um Zahlen auf Ganzzahlen zu kürzen; verwenden Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers).
+Ein bitweises OR einer beliebigen Zahl `x` mit `0` gibt `x` als 32-Bit-Integer konvertiert zurück. Verwenden Sie nicht `| 0`, um Zahlen auf ganze Zahlen zu kürzen; nutzen Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers).
 
 ## Beispiele
 
-### Verwendung von bitweisem OR
+### Verwendung von Bitwise OR
 
 ```js
 // 9  (00000000000000000000000000001001)
@@ -83,4 +83,4 @@ Das Bitweise OR mit einer beliebigen Zahl `x` und `0` ergibt `x` konvertiert in 
 ## Siehe auch
 
 - [Bitweise Operatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#bitwise_operators)
-- [Bitweiser OR-Zuweisungsoperator (`|=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment)
+- [Bitweise OR-Zuweisung (`|=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment)

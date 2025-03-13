@@ -2,14 +2,14 @@
 title: Set.prototype.values()
 slug: Web/JavaScript/Reference/Global_Objects/Set/values
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`values()`**-Methode von {{jsxref("Set")}}-Instanzen gibt ein neues _[Set-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Werte für jedes Element in diesem Set in der Einfügereihenfolge enthält.
+Die **`values()`** Methode von {{jsxref("Set")}} Instanzen gibt ein neues _[Set-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das die Werte für jedes Element in diesem Set in der Reihenfolge der Einfügung enthält.
 
-{{InteractiveExample("JavaScript Demo: Set.prototype.values")}}
+{{InteractiveExample("JavaScript Demo: Set.prototype.values()")}}
 
 ```js interactive-example
 const set1 = new Set();

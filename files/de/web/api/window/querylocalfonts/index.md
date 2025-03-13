@@ -3,14 +3,14 @@ title: "Window: queryLocalFonts() Methode"
 short-title: queryLocalFonts()
 slug: Web/API/Window/queryLocalFonts
 l10n:
-  sourceCommit: d7143e171b5f18fb37a686a7d4947db417fd74f3
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Local Font Access API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`window.queryLocalFonts()`** Methode gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`FontData`](/de/docs/Web/API/FontData) Objekten erfüllt wird, die die lokal verfügbaren Schriftarten darstellen.
+Die **`window.queryLocalFonts()`** Methode gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`FontData`](/de/docs/Web/API/FontData)-Objekten erfüllt wird, die die lokal verfügbaren Schriftarten darstellen.
 
-Um diese Methode zu verwenden, muss der Benutzer die Berechtigung zum Zugriff auf `local-fonts` erteilen (der Berechtigungsstatus kann über die [Permissions API](/de/docs/Web/API/Permissions_API) abgefragt werden). Darüber hinaus kann diese Funktion durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden, die auf Ihrem Server festgelegt ist.
+Um diese Methode zu verwenden, muss der Benutzer die Berechtigung `local-fonts` erteilen (der Berechtigungsstatus kann über die [Permissions API](/de/docs/Web/API/Permissions_API) abgefragt werden). Zusätzlich kann dieses Feature durch eine auf Ihrem Server festgelegte [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden.
 
 ## Syntax
 
@@ -23,26 +23,26 @@ queryLocalFonts(options)
 - `options` {{optional_inline}}
   - : Enthält optionale Konfigurationsparameter. Derzeit ist nur eine Eigenschaft definiert:
     - `postscriptNames` {{optional_inline}}
-      - : Ein Array von PostScript-Namen der Schriften. Wenn dies angegeben ist, werden nur Schriftarten mit PostScript-Namen, die mit den Einträgen im Array übereinstimmen, in die Ergebnisse aufgenommen; andernfalls werden alle Schriftarten in die Ergebnisse aufgenommen.
+      - : Ein Array von Schrift-PostScript-Namen. Wenn dies angegeben ist, werden nur Schriften mit PostScript-Namen, die in dem Array übereinstimmen, in die Ergebnisse aufgenommen; andernfalls werden alle Schriften in die Ergebnisse aufgenommen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array von [`FontData`](/de/docs/Web/API/FontData) Objekten erfüllt wird, die die lokal verfügbaren Schriftarten darstellen.
+Ein {{jsxref("Promise")}}, das mit einem Array von [`FontData`](/de/docs/Web/API/FontData)-Objekten erfüllt wird, die die lokal verfügbaren Schriftarten darstellen.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der Benutzer hat sich entschieden, die Erlaubnis zur Nutzung dieser Funktion zu verweigern, als er beim ersten Aufruf der Methode mit der Berechtigungsaufforderung des Browsers konfrontiert wurde.
+  - : Der Benutzer hat die Erlaubnis zur Nutzung dieser Funktion in der Berechtigungsaufforderung des Browsers nach dem ersten Aufruf der Methode verweigert.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert, oder es wurde nicht durch eine Benutzerinteraktion wie einen Tastendruck aufgerufen, oder der aktuelle {{Glossary("origin", "Origin")}} ist ein undurchsichtiger Origin.
+  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert, oder sie wurde nicht durch eine Benutzerinteraktion wie einen Tastendruck aufgerufen, oder der aktuelle {{Glossary("origin", "origin")}} ist ein undurchsichtiger Ursprung.
 
 ## Beispiele
 
-Für eine funktionierende Live-Demo siehe [Schriftartenauswahl-Demo](https://local-font-access.glitch.me/demo/).
+Für eine funktionierende Live-Demo siehe [Font Select Demo](https://local-font-access.glitch.me/demo/).
 
-### Schriftarten-Aufzählung
+### Schriften aufzählen
 
-Das folgende Snippet wird alle verfügbaren Schriftarten abfragen und Metadaten protokollieren. Dies könnte beispielsweise verwendet werden, um ein Steuerungselement zur Schriftauswahl zu füllen.
+Das folgende Snippet fragt nach allen verfügbaren Schriften und protokolliert Metadaten. Dies könnte beispielsweise verwendet werden, um ein Schriftartenauswahl-Steuerelement zu füllen.
 
 ```js
 async function logFontData() {
@@ -62,7 +62,7 @@ async function logFontData() {
 
 ### Begrenzung der zurückgegebenen Ergebnisse
 
-Um die zurückgegebenen Schriftarten-Daten auf nur eine bestimmte Liste von Schriftarten zu beschränken, verwenden Sie die `postscriptNames` Option.
+Um die zurückgegebenen Schriftdaten auf nur eine bestimmte Liste von Schriftarten zu beschränken, verwenden Sie die Option `postscriptNames`.
 
 ```js
 async function returnSpecificFonts() {
@@ -74,9 +74,9 @@ async function returnSpecificFonts() {
 }
 ```
 
-### Zugriff auf Low-Level-Daten
+### Zugriff auf niedrigstufige Daten
 
-Die [`blob()`](/de/docs/Web/API/FontData/blob) Methode bietet Zugang zu Low-Level [SFNT](https://en.wikipedia.org/wiki/SFNT) Daten — dies ist ein Schriftdateiformat, das andere Schriftformate wie PostScript, TrueType, OpenType oder Web Open Font Format (WOFF) enthalten kann.
+Die [`blob()`](/de/docs/Web/API/FontData/blob)-Methode bietet Zugriff auf niedrigstufige [SFNT](https://en.wikipedia.org/wiki/SFNT)-Daten — dies ist ein Schriftdateiformat, das andere Schriftformate wie PostScript, TrueType, OpenType oder Web Open Font Format (WOFF) enthalten kann.
 
 ```js
 async function computeOutlineFormat() {
@@ -123,5 +123,5 @@ async function computeOutlineFormat() {
 ## Siehe auch
 
 - [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API)
-- [Verwenden Sie erweiterte Typografie mit lokalen Schriftarten](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
+- [Erweiterte Typografie mit lokalen Schriften verwenden](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
 - {{cssxref("@font-face")}}

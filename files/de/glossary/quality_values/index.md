@@ -2,14 +2,14 @@
 title: Qualitätswerte
 slug: Glossary/Quality_values
 l10n:
-  sourceCommit: a8f881645d776d1303a0a25bd884f95e1b2805e1
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{GlossarySidebar}}
 
-**Qualitätswerte**, auch _q-Werte_ und _q-Faktoren_, werden verwendet, um die Prioritätsreihenfolge von Werten in einer kommagetrennten Liste zu beschreiben. Es ist eine spezielle Syntax, die in einigen [HTTP-Headern](/de/docs/Web/HTTP/Headers) und in HTML erlaubt ist.
+**Qualitätswerte**, oder _q-Werte_ und _q-Faktoren_, werden verwendet, um die Prioritätsreihenfolge von Werten in einer kommagetrennten Liste zu beschreiben. Es ist eine spezielle Syntax, die in einigen [HTTP-Headern](/de/docs/Web/HTTP/Reference/Headers) und in HTML erlaubt ist.
 
-Die Wichtigkeit eines Wertes wird durch das Suffix `';q='` gekennzeichnet, gefolgt von einem Wert zwischen `0` und `1`, mit bis zu drei Dezimalstellen, wobei der höchste Wert die höchste Priorität kennzeichnet. Ist kein Wert angegeben, beträgt der Standardwert `1`.
+Die Bedeutung eines Wertes wird durch den Suffix `';q='` gekennzeichnet, der unmittelbar von einem Wert zwischen `0` und `1` inklusive, mit bis zu drei Dezimalstellen, gefolgt wird. Der höchste Wert kennzeichnet die höchste Priorität. Wenn nicht vorhanden, ist der Standardwert `1`.
 
 ## Beispiele
 
@@ -27,7 +27,7 @@ zeigt die Prioritätsreihenfolge an:
 | `application/xml`                       | `0.9`     |
 | `*/*`                                   | `0.8`     |
 
-Wenn für die ersten beiden Werte keine Priorität definiert ist, ist die Reihenfolge in der Liste irrelevant. Trotzdem haben bei gleicher Qualität spezifischere Werte Vorrang vor weniger spezifischen:
+Wenn für die ersten beiden Werte keine Priorität definiert ist, ist die Reihenfolge in der Liste unerheblich. Dennoch haben bei gleicher Qualität spezifischere Werte Vorrang vor weniger spezifischen:
 
 ```http
 text/html;q=0.8,text/*;q=0.8,*/*;q=0.8
@@ -43,5 +43,5 @@ Einige Syntaxen, wie die von {{HTTPHeader("Accept")}}, erlauben zusätzliche Spe
 
 ## Weitere Informationen
 
-- [HTTP-Header](/de/docs/Web/HTTP/Headers), die q-Werte in ihrer Syntax verwenden: {{HTTPHeader("Accept")}}, {{HTTPHeader("Accept-Encoding")}}, {{HTTPHeader("Accept-Language")}}, {{HTTPHeader("TE")}}.
-- [Definitionen der Header-Felder.](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)
+- [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers), die q-Werte in ihrer Syntax verwenden: {{HTTPHeader("Accept")}}, {{HTTPHeader("Accept-Encoding")}}, {{HTTPHeader("Accept-Language")}}, {{HTTPHeader("TE")}}.
+- [Definition der Header-Felder.](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)

@@ -2,14 +2,14 @@
 title: Division (/)
 slug: Web/JavaScript/Reference/Operators/Division
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Division-Operator (`/`)** erstellt den Quotienten seiner Operanden, wobei der linke Operand der Dividend und der rechte Operand der Divisor ist.
+Der **Divisionsoperator (`/`)** erzeugt den Quotienten seiner Operanden, wobei der linke Operand der Dividend und der rechte Operand der Divisor ist.
 
-{{InteractiveExample("JavaScript Demo: Expressions - Division operator")}}
+{{InteractiveExample("JavaScript Demo: Division (/) operator")}}
 
 ```js interactive-example
 console.log(12 / 2);
@@ -33,13 +33,13 @@ x / y
 
 ## Beschreibung
 
-Der `/` Operator ist für zwei Typen von Operanden überladen: number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Zuerst [wandelt er beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft deren Typen. Es wird eine BigInt-Division durchgeführt, wenn beide Operanden BigInts werden; andernfalls wird eine number-Division durchgeführt. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
+Der `/` Operator ist für zwei Typen von Operanden überladen: Nummer und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt zunächst beide Operanden in numerische Werte](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und überprüft die Typen von ihnen. Er führt eine BigInt-Division durch, wenn beide Operanden BigInts werden; andernfalls erfolgt eine Nummern-Division. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt und der andere zu einer Nummer wird.
 
-Bei der BigInt-Division ist das Ergebnis der Quotient der beiden Operanden, bei dem die Nachkommastellen Richtung Null abgeschnitten werden, und der Rest wird verworfen. Ein {{jsxref("RangeError")}} wird ausgelöst, wenn der Divisor `y` `0n` ist. Dies liegt daran, dass die Zahlendivision durch Null `Infinity` oder `-Infinity` zurückgibt, aber BigInt hat kein Konzept von Unendlichkeit.
+Bei der BigInt-Division ist das Ergebnis der Quotient der beiden Operanden, der gegen null abgerundet wird, wobei der Rest verworfen wird. Ein {{jsxref("RangeError")}} wird ausgelöst, wenn der Divisor `y` `0n` ist. Dies liegt daran, dass die Division durch null bei Nummern `Infinity` oder `-Infinity` ergibt, aber BigInt kein Konzept von Unendlichkeit hat.
 
 ## Beispiele
 
-### Division unter Verwendung von Zahlen
+### Division mit Zahlen
 
 ```js
 1 / 2; // 0.5
@@ -51,7 +51,7 @@ Math.floor(3 / 2); // 1
 2.0 / -0.0; // -Infinity
 ```
 
-Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere Nicht-BigInt-Werte werden zu Zahlen gezwungen:
 
 ```js
 5 / "2"; // 2.5
@@ -69,14 +69,14 @@ Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 2n / 0n; // RangeError: BigInt division by zero
 ```
 
-Sie können bei der Division BigInt- und number-Operanden nicht mischen.
+Sie können BigInt- und nummerische Operanden nicht in der Division mischen.
 
 ```js example-bad
 2n / 2; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 2 / 2n; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-Um eine Division mit einem BigInt und einem Nicht-BigInt durchzuführen, konvertieren Sie einen der Operanden:
+Um eine Division mit einem BigInt und einem Nicht-BigInt durchzuführen, konvertieren Sie entweder den einen oder den anderen Operanden:
 
 ```js
 2n / BigInt(2); // 1n
@@ -100,5 +100,5 @@ Number(2n) / 2; // 1
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
-- [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)
+- [Unary negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Unary plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

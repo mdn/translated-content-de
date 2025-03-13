@@ -3,27 +3,27 @@ title: "HTML-Attribut: crossorigin"
 short-title: crossorigin
 slug: Web/HTML/Attributes/crossorigin
 l10n:
-  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{HTMLSidebar}}
 
-Das **`crossorigin`** Attribut, gültig für die {{HTMLElement("audio")}}, {{HTMLElement("img")}}, {{HTMLElement("link")}}, {{HTMLElement("script")}}, und {{HTMLElement("video")}} Elemente, bietet Unterstützung für [CORS](/de/docs/Web/HTTP/CORS) und definiert, wie das Element mit Cross-Origin-Anfragen umgeht. Dadurch kann die Konfiguration der CORS-Anfragen für die vom Element abgerufenen Daten ermöglicht werden. Je nach Element kann das Attribut ein CORS-Einstellungsattribut sein.
+Das **`crossorigin`** Attribut, gültig für die {{HTMLElement("audio")}}, {{HTMLElement("img")}}, {{HTMLElement("link")}}, {{HTMLElement("script")}} und {{HTMLElement("video")}} Elemente, unterstützt [CORS](/de/docs/Web/HTTP/Guides/CORS) und bestimmt, wie das Element mit Cross-Origin-Anfragen umgeht, wodurch die Konfiguration von CORS-Anfragen für die abgerufenen Daten des Elements ermöglicht wird. Abhängig vom Element kann das Attribut ein CORS-Einstellungen-Attribut sein.
 
-Das `crossorigin` Inhaltsattribut bei Medienelementen ist ein CORS-Einstellungsattribut.
+Das `crossorigin` Inhaltsattribut bei Medienelementen ist ein CORS-Einstellungen-Attribut.
 
-Diese Attribute sind {{Glossary("Enumerated", "aufgezählt")}} und haben folgende mögliche Werte:
+Diese Attribute sind {{Glossary("Enumerated", "aufgezählt")}} und haben die folgenden möglichen Werte:
 
 - `anonymous`
-  - : Die Anfrage verwendet CORS-Header und das Credentials-Flag ist auf `'same-origin'` gesetzt. Es gibt keinen Austausch von **Benutzeranmeldeinformationen** über Cookies, Client-seitige TLS-Zertifikate oder HTTP-Authentifizierung, es sei denn, das Ziel ist derselbe Ursprung.
+  - : Die Anfrage verwendet CORS-Header und das Anmelde-Flag ist auf `'same-origin'` gesetzt. Es findet kein Austausch von **Benutzeranmeldedaten** über Cookies, clientseitige TLS-Zertifikate oder HTTP-Authentifizierung statt, es sei denn, das Ziel ist derselbe Ursprung.
 - `use-credentials`
-  - : Die Anfrage verwendet CORS-Header, das Credentials-Flag ist auf `'include'` gesetzt, und **Benutzeranmeldeinformationen** werden immer einbezogen.
+  - : Die Anfrage verwendet CORS-Header, das Anmelde-Flag ist auf `'include'` gesetzt und **Benutzeranmeldedaten** werden immer eingeschlossen.
 - `""`
-  - : Das Setzen des Attributnamens auf einen leeren Wert, wie `crossorigin` oder `crossorigin=""`, ist dasselbe wie `anonymous`.
+  - : Wenn der Attributname auf einen leeren Wert gesetzt wird, wie `crossorigin` oder `crossorigin=""`, entspricht dies `anonymous`.
 
-Ein ungültiges Schlüsselwort und ein leerer String werden als das Schlüsselwort `anonymous` behandelt.
+Ein ungültiges Schlüsselwort und ein leerer String werden als `anonymous` Schlüsselwort behandelt.
 
-Standardmäßig (d. h. wenn das Attribut nicht angegeben ist) wird CORS überhaupt nicht verwendet. Der Benutzeragent fragt nicht um Erlaubnis für den vollständigen Zugriff auf die Ressource, und im Falle einer Cross-Origin-Anfrage werden bestimmte Einschränkungen angewendet, abhängig vom betreffenden Elementtyp:
+Standardmäßig (d. h. wenn das Attribut nicht angegeben ist) wird CORS überhaupt nicht verwendet. Der Benutzeragent wird nicht um Erlaubnis für den vollen Zugriff auf die Ressource bitten und im Falle einer Cross-Origin-Anfrage werden bestimmte Einschränkungen basierend auf dem betreffenden Elementtyp angewendet:
 
 <table class="no-markdown">
   <tbody>
@@ -34,7 +34,7 @@ Standardmäßig (d. h. wenn das Attribut nicht angegeben ist) wird CORS überhau
     <tr>
       <td><code>img</code>, <code>audio</code>, <code>video</code></td>
       <td>
-        Wenn die Ressource in {{HTMLElement("canvas")}} platziert wird, wird das Element als <a href="/de/docs/Web/HTML/CORS_enabled_image#security_and_tainted_canvases"><em>verfälscht</em></a> markiert.
+        Wenn die Ressource in einem {{HTMLElement("canvas")}} platziert wird, wird das Element als <a href="/de/docs/Web/HTML/CORS_enabled_image#security_and_tainted_canvases"><em>verunreinigt</em></a> markiert.
       </td>
     </tr>
     <tr>
@@ -46,18 +46,18 @@ Standardmäßig (d. h. wenn das Attribut nicht angegeben ist) wird CORS überhau
     <tr>
       <td><code>link</code></td>
       <td>
-        Anfragen ohne passenden <code>crossorigin</code> Header können verworfen werden.
+        Anfragen ohne geeignetes <code>crossorigin</code> Header können verworfen werden.
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Das `crossorigin` Attribut wird bei [`rel="icon"`](/de/docs/Web/HTML/Attributes/rel#icon) in auf Chromium basierten Browsern nicht unterstützt. Siehe das [offene Chromium-Problem](https://crbug.com/1121645).
+> Das `crossorigin` Attribut wird für [`rel="icon"`](/de/docs/Web/HTML/Attributes/rel#icon) in Chromium-basierten Browsern nicht unterstützt. Siehe das [offene Chromium-Problem](https://crbug.com/1121645).
 
 ### Beispiel: `crossorigin` mit dem `<script>` Element
 
-Sie können das folgende {{HTMLElement("script")}} Element verwenden, um einem Browser mitzuteilen, das Skript `https://example.com/example-framework.js` auszuführen, ohne Benutzeranmeldeinformationen zu senden.
+Sie können das folgende {{HTMLElement("script")}} Element verwenden, um einem Browser mitzuteilen, das Skript `https://example.com/example-framework.js` auszuführen, ohne Benutzeranmeldedaten zu senden.
 
 ```html
 <script
@@ -65,9 +65,9 @@ Sie können das folgende {{HTMLElement("script")}} Element verwenden, um einem B
   crossorigin="anonymous"></script>
 ```
 
-### Beispiel: Web-Manifest mit Anmeldedaten
+### Beispiel: Webmanifest mit Anmeldedaten
 
-Der Wert `use-credentials` muss verwendet werden, wenn ein [Manifest](/de/docs/Web/Progressive_web_apps/Manifest) abgerufen wird, das Anmeldeinformationen erfordert, selbst wenn die Datei aus demselben Ursprung stammt.
+Der Wert `use-credentials` muss verwendet werden, wenn ein [Manifest](/de/docs/Web/Progressive_web_apps/Manifest) abgerufen wird, das Anmeldedaten erfordert, selbst wenn die Datei vom selben Ursprung stammt.
 
 ```html
 <link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials" />
@@ -83,7 +83,7 @@ Der Wert `use-credentials` muss verwendet werden, wenn ein [Manifest](/de/docs/W
 
 ## Siehe auch
 
-- [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/CORS)
+- [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTML-Attribut: `rel`](/de/docs/Web/HTML/Attributes/rel)
 
 {{QuickLinksWithSubpages("/de/docs/Web/HTML/")}}

@@ -2,14 +2,14 @@
 title: Leere Anweisung
 slug: Web/JavaScript/Reference/Statements/Empty
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Statements")}}
 
 Eine **leere Anweisung** wird verwendet, um keine Anweisung bereitzustellen, obwohl die JavaScript-Syntax eine erwarten würde.
 
-{{InteractiveExample("JavaScript Demo: Statement - Empty")}}
+{{InteractiveExample("JavaScript Demo: Empty statement")}}
 
 ```js interactive-example
 const array1 = [1, 2, 3];
@@ -31,13 +31,13 @@ console.log(array1);
 
 Die leere Anweisung ist ein Semikolon (`;`), das anzeigt, dass keine Anweisung ausgeführt wird, selbst wenn die JavaScript-Syntax eine erfordert.
 
-Das gegenteilige Verhalten, bei dem Sie mehrere Anweisungen möchten, JavaScript jedoch nur eine zulässt, ist mithilfe einer [Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/block) möglich, die mehrere Anweisungen zu einer einzigen kombiniert.
+Das gegenteilige Verhalten, bei dem Sie mehrere Anweisungen möchten, JavaScript jedoch nur eine erlaubt, ist mit einer [Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/block) möglich, die mehrere Anweisungen zu einer einzigen kombiniert.
 
 ## Beispiele
 
-### Leerer Schleifenrumpf
+### Leerer Schleifenkörper
 
-Die leere Anweisung wird manchmal in Verbindung mit Schleifenanweisungen verwendet. Siehe das folgende Beispiel mit einem leeren Schleifenrumpf:
+Die leere Anweisung wird manchmal mit Schleifenanweisungen verwendet. Sehen Sie sich das folgende Beispiel mit einem leeren Schleifenkörper an:
 
 ```js-nolint
 const arr = [1, 2, 3];
@@ -49,11 +49,11 @@ console.log(arr);
 // [0, 0, 0]
 ```
 
-### Unbeabsichtigte Verwendung
+### Unbeabsichtigte Nutzung
 
-Es ist eine gute Idee, die _beabsichtigte_ Verwendung der leeren Anweisung zu kommentieren, da sie sich nicht wirklich offensichtlich von einem normalen Semikolon unterscheiden lässt.
+Es ist eine gute Idee, die _beabsichtigte_ Verwendung der leeren Anweisung zu kommentieren, da sie sich nicht wirklich offensichtlich von einem normalen Semikolon unterscheidet.
 
-Im folgenden Beispiel ist die Verwendung wahrscheinlich nicht beabsichtigt:
+Im folgenden Beispiel ist die Nutzung wahrscheinlich nicht beabsichtigt:
 
 ```js-nolint example-bad
 if (condition);      // Caution, this "if" does nothing!

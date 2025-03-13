@@ -2,20 +2,20 @@
 title: Device Memory API
 slug: Web/API/Device_Memory_API
 l10n:
-  sourceCommit: ca577adc00ddc882765c131739ad2ed25edd2285
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{DefaultAPISidebar("Device Memory API")}}{{securecontext_header}}{{AvailableInWorkers}}
 
-Die Fähigkeiten eines Client-Geräts hängen maßgeblich von der verfügbaren RAM-Menge ab. Traditionell mussten Entwickler Heuristiken verwenden und entweder ein Gerät benchmarken oder die Geräteeigenschaften anhand anderer Faktoren wie dem Gerätehersteller oder den User-Agent-Strings ableiten.
+Die Fähigkeiten eines Client-Geräts hängen weitgehend von der verfügbaren Menge an RAM ab. Traditionell mussten Entwickler Heuristiken verwenden und entweder ein Gerät benchmarken oder die Fähigkeiten eines Geräts auf der Grundlage anderer Faktoren wie des Geräteherstellers oder der User-Agent-Strings ableiten.
 
 ## Bestimmung des Gerätespeichers
 
-Es gibt zwei Möglichkeiten, die ungefähre Menge an RAM zu bestimmen, die ein Gerät hat: Verwenden Sie die Device Memory JavaScript API oder akzeptieren Sie Client Hints.
+Es gibt zwei Möglichkeiten, die ungefähre Menge an RAM eines Geräts zu bestimmen: Verwenden Sie die Device Memory JavaScript-API oder akzeptieren Sie Client-Hints.
 
 ### JavaScript-API
 
-Sie können die ungefähre Menge an RAM abfragen, die ein Gerät hat, indem Sie [`Navigator.deviceMemory`](/de/docs/Web/API/Navigator/deviceMemory) oder [`WorkerNavigator.deviceMemory`](/de/docs/Web/API/WorkerNavigator/deviceMemory) abrufen.
+Sie können die ungefähre Menge an RAM eines Geräts abfragen, indem Sie [`Navigator.deviceMemory`](/de/docs/Web/API/Navigator/deviceMemory) oder [`WorkerNavigator.deviceMemory`](/de/docs/Web/API/WorkerNavigator/deviceMemory) abrufen.
 
 ```js
 const RAM = navigator.deviceMemory;
@@ -23,7 +23,7 @@ const RAM = navigator.deviceMemory;
 
 ### Client Hints
 
-Sie können auch den [Client Hints](/de/docs/Web/HTTP/Client_hints) HTTP-Header mit der `Device-Memory`-Richtlinie verwenden, um die gleiche ungefähre RAM-Kapazität abzurufen.
+Sie können auch den [Client Hints](/de/docs/Web/HTTP/Guides/Client_hints) HTTP-Header mit der `Device-Memory`-Direktive verwenden, um die gleiche ungefähre RAM-Kapazität abzurufen.
 
 ## Schnittstellen
 
@@ -44,4 +44,4 @@ Sie können auch den [Client Hints](/de/docs/Web/HTTP/Client_hints) HTTP-Header 
 
 ## Siehe auch
 
-- {{HTTPHeader("Device-Memory")}} Header
+- {{HTTPHeader("Device-Memory")}} header

@@ -2,14 +2,14 @@
 title: do...while
 slug: Web/JavaScript/Reference/Statements/do...while
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Statements")}}
 
-Die **`do...while`**-Anweisung erstellt eine Schleife, die eine angegebene Anweisung ausführt, solange die Testbedingung als `true` ausgewertet wird. Die Bedingung wird nach der Ausführung der Anweisung überprüft, was dazu führt, dass die angegebene Anweisung mindestens einmal ausgeführt wird.
+Die **`do...while`** Anweisung erstellt eine Schleife, die eine angegebene Anweisung so lange ausführt, wie die Testbedingung als wahr ausgewertet wird. Die Bedingung wird nach der Ausführung der Anweisung ausgewertet, was dazu führt, dass die angegebene Anweisung mindestens einmal ausgeführt wird.
 
-{{InteractiveExample("JavaScript Demo: Statement - Do...While")}}
+{{InteractiveExample("JavaScript Demo: do...while statement")}}
 
 ```js interactive-example
 let result = "";
@@ -33,24 +33,24 @@ while (condition);
 ```
 
 - `statement`
-  - : Eine Anweisung, die mindestens einmal ausgeführt und solange erneut ausgeführt wird, wie die Bedingung als `true` ausgewertet wird. Sie können eine [Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
+  - : Eine Anweisung, die mindestens einmal und erneut ausgeführt wird, solange die Bedingung als wahr ausgewertet wird. Sie können eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
 - `condition`
-  - : Ein Ausdruck, der _nach_ jedem Durchlauf der Schleife ausgewertet wird. Wenn diese Bedingung {{Glossary("Truthy", "als wahr ausgewertet")}} wird, wird `statement` erneut ausgeführt. Wenn die Bedingung {{Glossary("Falsy", "als falsch ausgewertet")}} wird, wird die Ausführung mit der Anweisung nach der `do...while`-Schleife fortgesetzt.
+  - : Ein Ausdruck, der _nach_ jedem Durchlauf der Schleife ausgewertet wird. Wenn diese Bedingung {{Glossary("Truthy", "als wahr ausgewertet wird")}}, wird `statement` erneut ausgeführt. Wenn die Bedingung {{Glossary("Falsy", "als falsch ausgewertet wird")}}, wird die Ausführung mit der Anweisung nach der `do...while` Schleife fortgesetzt.
 
 ## Beschreibung
 
-Wie bei anderen Schleifenanweisungen können Sie [Kontrollflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) innerhalb von `statement` verwenden:
+Wie bei anderen Schleifenanweisungen, können Sie [Steuerflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) innerhalb von `statement` verwenden:
 
-- {{jsxref("Statements/break", "break")}} stoppt die Ausführung von `statement` und fährt mit der ersten Anweisung nach der Schleife fort.
-- {{jsxref("Statements/continue", "continue")}} stoppt die Ausführung von `statement` und wertet die `condition` erneut aus.
+- {{jsxref("Statements/break", "break")}} stoppt die Ausführung von `statement` und wechselt zur ersten Anweisung nach der Schleife.
+- {{jsxref("Statements/continue", "continue")}} stoppt die Ausführung von `statement` und bewertet `condition` erneut.
 
-Die Syntax der `do...while`-Anweisung erfordert ein Semikolon am Ende, aber der Prozess der [automatischen Semikolon-Einfügung](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) kann eines einfügen, wenn das Fehlen eines Semikolons zu ungültiger Syntax führt.
+Die Syntax der `do...while` Anweisung erfordert ein Semikolon am Ende, aber der [Automatische Semikolon-Einfügungsprozess](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) kann eines einfügen, wenn das Fehlen eines Semikolons zu ungültiger Syntax führt.
 
 ## Beispiele
 
 ### Verwendung von do...while
 
-Im folgenden Beispiel iteriert die `do...while`-Schleife mindestens einmal und wiederholt sich, bis `i` nicht mehr kleiner als 5 ist.
+Im folgenden Beispiel durchläuft die `do...while` Schleife mindestens einmal und wiederholt sich, bis `i` nicht mehr kleiner als 5 ist.
 
 ```js
 let result = "";
@@ -64,9 +64,9 @@ do {
 console.log(result);
 ```
 
-### Verwendung von false als do...while-Bedingung
+### Verwendung von false als do...while Bedingung
 
-Da die Anweisung immer mindestens einmal ausgeführt wird, ist `do...while (false)` dasselbe wie die Anweisung selbst auszuführen. Dies ist ein gängiges Idiom in C-ähnlichen Sprachen, das es ermöglicht, mithilfe von `break` frühzeitig aus der Verzweigungslogik auszubrechen.
+Da die Anweisung immer einmal ausgeführt wird, ist `do...while (false)` dasselbe wie die Ausführung der Anweisung selbst. Dies ist ein gängiges Idiom in C-ähnlichen Sprachen, das es ermöglicht, `break` zu verwenden, um die verzweigte Logik frühzeitig zu verlassen.
 
 ```js
 do {
@@ -86,7 +86,7 @@ do {
 // The rest of code
 ```
 
-In JavaScript gibt es einige Alternativen, wie die Verwendung einer [bezeichneten Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/label) mit `break`:
+In JavaScript gibt es einige Alternativen, wie die Verwendung einer [gelabelten Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/label) mit `break`:
 
 ```js
 handleFriends: {
@@ -134,7 +134,7 @@ do {
 } while ((match = regexp.exec(str)));
 ```
 
-Wenn Sie dies tun, gibt es jedoch Nachteile in Bezug auf die Lesbarkeit. Die Dokumentation zur [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Schleife enthält einen Abschnitt [Verwendung einer Zuweisung als Bedingung](/de/docs/Web/JavaScript/Reference/Statements/while#using_an_assignment_as_a_condition) mit unseren Empfehlungen.
+Aber wenn Sie dies tun, gibt es Lesbarkeitseinbußen. Die [`while`](/de/docs/Web/JavaScript/Reference/Statements/while) Dokumentation hat einen Abschnitt zu [Verwendung einer Zuweisung als Bedingung](/de/docs/Web/JavaScript/Reference/Statements/while#using_an_assignment_as_a_condition) mit unseren Empfehlungen.
 
 ## Spezifikationen
 

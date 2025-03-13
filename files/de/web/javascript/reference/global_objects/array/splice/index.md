@@ -2,16 +2,16 @@
 title: Array.prototype.splice()
 slug: Web/JavaScript/Reference/Global_Objects/Array/splice
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`splice()`**-Methode von {{jsxref("Array")}}-Instanzen verändert den Inhalt eines Arrays, indem sie vorhandene Elemente entfernt, ersetzt und/oder neue Elemente [in-place](https://en.wikipedia.org/wiki/In-place_algorithm) hinzufügt.
+Die **`splice()`**-Methode von {{jsxref("Array")}}-Instanzen ändert den Inhalt eines Arrays, indem sie vorhandene Elemente entfernt oder ersetzt und/oder neue Elemente [in place](https://en.wikipedia.org/wiki/In-place_algorithm) hinzufügt.
 
-Um ein neues Array mit einem entfernten und/oder ersetzten Abschnitt zu erstellen, ohne das ursprüngliche Array zu verändern, verwenden Sie {{jsxref("Array/toSpliced", "toSpliced()")}}. Um auf einen Abschnitt eines Arrays zuzugreifen, ohne es zu modifizieren, sehen Sie {{jsxref("Array/slice", "slice()")}}.
+Um ein neues Array mit einem entfernten und/oder ersetzten Segment zu erstellen, ohne das ursprüngliche Array zu verändern, verwenden Sie {{jsxref("Array/toSpliced", "toSpliced()")}}. Um auf einen Teil eines Arrays zuzugreifen, ohne es zu verändern, siehe {{jsxref("Array/slice", "slice()")}}.
 
-{{InteractiveExample("JavaScript Demo: Array.splice()")}}
+{{InteractiveExample("JavaScript Demo: Array.prototype.splice()")}}
 
 ```js interactive-example
 const months = ["Jan", "March", "April", "June"];
@@ -40,30 +40,30 @@ splice(start, deleteCount, item1, item2, /* …, */ itemN)
 
 - `start`
 
-  - : Null-basierter Index, ab dem das Array geändert wird, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt rückwärts vom Ende des Arrays — wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
+  - : Der nullbasierte Index, an dem die Änderung des Arrays beginnt, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
     - Wenn `start < -array.length`, wird `0` verwendet.
-    - Wenn `start >= array.length`, wird kein Element gelöscht, aber die Methode verhält sich wie eine Hinzufügemethode und fügt so viele Elemente hinzu, wie angegeben werden.
+    - Wenn `start >= array.length`, wird kein Element gelöscht, aber die Methode funktioniert als Hinzufügungsfunktion, die so viele Elemente hinzufügt, wie angegeben.
     - Wenn `start` weggelassen wird (und `splice()` ohne Argumente aufgerufen wird), wird nichts gelöscht. Dies unterscheidet sich davon, `undefined` zu übergeben, was in `0` umgewandelt wird.
 
 - `deleteCount` {{optional_inline}}
 
-  - : Eine Ganzzahl, die die Anzahl der ab `start` zu entfernenden Elemente im Array angibt.
+  - : Eine ganze Zahl, die die Anzahl der Elemente im Array angibt, die ab `start` entfernt werden sollen.
 
-    Wenn `deleteCount` weggelassen wird oder wenn sein Wert größer oder gleich der Anzahl der Elemente nach der durch `start` angegebenen Position ist, werden alle Elemente von `start` bis zum Ende des Arrays gelöscht. Wenn Sie jedoch einen `itemN`-Parameter übergeben möchten, sollten Sie `Infinity` als `deleteCount` übergeben, um alle Elemente nach `start` zu löschen, da ein explizites `undefined` in [0 umgewandelt wird](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    Wenn `deleteCount` weggelassen wird oder sein Wert größer oder gleich der Anzahl der Elemente nach der durch `start` angegebenen Position ist, werden alle Elemente von `start` bis zum Ende des Arrays gelöscht. Wenn Sie jedoch einen `itemN`-Parameter übergeben möchten, sollten Sie `Infinity` als `deleteCount` übergeben, um alle Elemente nach `start` zu löschen, da ein explizites `undefined` [in 0 umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) wird.
 
     Wenn `deleteCount` `0` oder negativ ist, werden keine Elemente entfernt.
     In diesem Fall sollten Sie mindestens ein neues Element angeben (siehe unten).
 
 - `item1`, …, `itemN` {{optional_inline}}
 
-  - : Die Elemente, die ab `start` zum Array hinzugefügt werden.
+  - : Die Elemente, die dem Array ab `start` hinzugefügt werden sollen.
 
-    Wenn Sie keine Elemente angeben, entfernt `splice()` nur Elemente aus dem Array.
+    Wenn Sie keine Elemente angeben, wird `splice()` nur Elemente aus dem Array entfernen.
 
 ### Rückgabewert
 
-Ein Array, das die entfernten Elemente enthält.
+Ein Array, das die gelöschten Elemente enthält.
 
 Wenn nur ein Element entfernt wird, wird ein Array mit einem Element zurückgegeben.
 
@@ -71,11 +71,11 @@ Wenn keine Elemente entfernt werden, wird ein leeres Array zurückgegeben.
 
 ## Beschreibung
 
-Die `splice()`-Methode ist eine [mutierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie kann den Inhalt von `this` ändern. Wenn die Anzahl der einzufügenden Elemente von der Anzahl der zu entfernenden Elemente abweicht, wird die `length` des Arrays ebenfalls geändert. Gleichzeitig wird [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.species) verwendet, um eine neue Array-Instanz zu erstellen, die zurückgegeben wird.
+Die `splice()`-Methode ist eine [mutierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie kann den Inhalt von `this` ändern. Wenn die angegebene Anzahl der einzufügenden Elemente von der Anzahl der zu entfernenden Elemente abweicht, wird die `length` des Arrays ebenfalls geändert. Gleichzeitig verwendet sie [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.species), um eine neue Array-Instanz zu erstellen, die zurückgegeben wird.
 
-Wenn der entfernte Abschnitt [lückenhaft](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist, ist das von `splice()` zurückgegebene Array ebenfalls lückenhaft, mit entsprechenden leeren Indizes.
+Wenn der gelöschte Abschnitt [sparsam](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist, ist das Array, das von `splice()` zurückgegeben wird, ebenfalls spärlich, mit leeren Plätzen an den entsprechenden Indizes.
 
-Die `splice()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-basierte Schlüssel-Eigenschaften hat. Obwohl Zeichenketten ebenfalls array-ähnlich sind, ist diese Methode nicht geeignet, um sie anzuwenden, da Zeichenketten unveränderlich sind.
+Die `splice()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-indizierte Eigenschaften hat. Obwohl Strings auch array-ähnlich sind, ist diese Methode nicht geeignet, auf ihnen angewendet zu werden, da Strings unveränderlich sind.
 
 ## Beispiele
 
@@ -101,7 +101,7 @@ const removed = myFish.splice(2, 0, "drum", "guitar");
 
 ### Entfernen Sie 0 (null) Elemente bei Index 0 und fügen Sie "angel" ein
 
-`splice(0, 0, ...elements)` fügt Elemente am Anfang des Arrays ein, ähnlich wie {{jsxref("Array/unshift", "unshift()")}}.
+`splice(0, 0, ...elements)` fügt Elemente am Anfang des Arrays ein wie {{jsxref("Array/unshift", "unshift()")}}.
 
 ```js
 const myFish = ["clown", "mandarin", "sturgeon"];
@@ -113,7 +113,7 @@ const removed = myFish.splice(0, 0, "angel");
 
 ### Entfernen Sie 0 (null) Elemente beim letzten Index und fügen Sie "sturgeon" ein
 
-`splice(array.length, 0, ...elements)` fügt Elemente am Ende des Arrays ein, ähnlich wie {{jsxref("Array/push", "push()")}}.
+`splice(array.length, 0, ...elements)` fügt Elemente am Ende des Arrays ein wie {{jsxref("Array/push", "push()")}}.
 
 ```js
 const myFish = ["angel", "clown", "mandarin"];
@@ -153,7 +153,7 @@ const removed = myFish.splice(0, 2, "parrot", "anemone", "blue");
 // removed is ["angel", "clown"]
 ```
 
-### Entfernen Sie 2 Elemente ab Index 2
+### Entfernen Sie 2 Elemente, beginnend bei Index 2
 
 ```js
 const myFish = ["parrot", "anemone", "blue", "trumpet", "sturgeon"];
@@ -173,7 +173,7 @@ const removed = myFish.splice(-2, 1);
 // removed is ["mandarin"]
 ```
 
-### Entfernen Sie alle Elemente ab Index 2
+### Entfernen Sie alle Elemente, beginnend bei Index 2
 
 ```js
 const myFish = ["angel", "clown", "mandarin", "sturgeon"];
@@ -183,9 +183,9 @@ const removed = myFish.splice(2);
 // removed is ["mandarin", "sturgeon"]
 ```
 
-### Verwendung von splice() auf lückenhaften Arrays
+### Verwendung von splice() auf spärlichen Arrays
 
-Die `splice()`-Methode bewahrt die Lückenhaftigkeit des Arrays.
+Die `splice()`-Methode bewahrt die Sparsamkeit des Arrays.
 
 ```js
 const arr = [1, , 3, 4, , 6];
@@ -193,9 +193,9 @@ console.log(arr.splice(1, 2)); // [empty, 3]
 console.log(arr); // [1, 4, empty, 6]
 ```
 
-### Aufruf von splice() auf Nicht-Array-Objekten
+### Aufrufen von splice() auf Nicht-Array-Objekten
 
-Die `splice()`-Methode liest die `length`-Eigenschaft von `this`. Sie aktualisiert dann bei Bedarf die integer-basierten Schlüssel-Eigenschaften und die `length`-Eigenschaft.
+Die `splice()`-Methode liest die `length`-Eigenschaft von `this`. Sie aktualisiert dann die integer-indizierten Eigenschaften und die `length`-Eigenschaft nach Bedarf.
 
 ```js
 const arrayLike = {

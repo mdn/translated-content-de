@@ -2,14 +2,14 @@
 title: WebAssembly.compileStreaming()
 slug: WebAssembly/Reference/JavaScript_interface/compileStreaming_static
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
-Die statische Methode **`WebAssembly.compileStreaming()`** kompiliert ein [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module) direkt aus einer gestreamten zugrunde liegenden Quelle. Diese Funktion ist nützlich, wenn es notwendig ist, ein Modul zu kompilieren, bevor es instanziiert werden kann (ansonsten sollte die Funktion [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) verwendet werden).
+Die statische Methode **`WebAssembly.compileStreaming()`** kompiliert ein [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module) direkt aus einer gestreamten zugrunde liegenden Quelle. Diese Funktion ist nützlich, wenn ein Modul kompiliert werden muss, bevor es instanziiert werden kann (andernfalls sollte die Funktion [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) verwendet werden).
 
 > [!NOTE]
-> Webseiten, die eine strikte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) verwenden, könnten die Kompilierung und Ausführung von WebAssembly-Modulen blockieren.
-> Für weitere Informationen darüber, wie Sie die Kompilierung und Ausführung von WebAssembly erlauben, lesen Sie die [script-src CSP](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
+> Webseiten, die eine strikte [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) haben, könnten die Kompilierung und Ausführung von WebAssembly-Modulen blockieren.
+> Weitere Informationen darüber, wie Sie die Kompilierung und Ausführung von WebAssembly erlauben können, finden Sie unter [script-src CSP](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src).
 
 ## Syntax
 
@@ -21,30 +21,30 @@ WebAssembly.compileStreaming(source, compileOptions)
 ### Parameter
 
 - `source`
-  - : Ein [`Response`](/de/docs/Web/API/Response)-Objekt oder ein Promise, das mit einem solchen erfüllt wird und die zugrunde liegende Quelle eines Wasm-Moduls darstellt, das Sie streamen und kompilieren möchten.
+  - : Ein [`Response`](/de/docs/Web/API/Response)-Objekt oder ein Promise, das mit einem erfüllt wird, das die zugrunde liegende Quelle eines gestreamten und zu kompilierenden Wasm-Moduls darstellt.
 - `compileOptions` {{optional_inline}}
-  - : Ein Objekt, das Kompilierungsoptionen enthält. Eigenschaften können beinhalten:
+  - : Ein Objekt, das Kompilierungsoptionen enthält. Die Eigenschaften können enthalten:
     - `builtins` {{optional_inline}}
-      - : Ein Array von Strings, das die Verwendung von [JavaScript builtins](/de/docs/WebAssembly/Guides/JavaScript_builtins) im kompilierten Wasm-Modul ermöglicht. Die Strings definieren die builtins, die Sie aktivieren möchten. Derzeit ist der einzige verfügbare Wert `"js-string"`, der JavaScript String builtins aktiviert.
+      - : Ein Array von Strings, das die Verwendung von [JavaScript builtins](/de/docs/WebAssembly/Guides/JavaScript_builtins) im kompilierten Wasm-Modul ermöglicht. Die Strings definieren die builtins, die Sie aktivieren möchten. Derzeit ist der einzige verfügbare Wert `"js-string"`, der JavaScript-String-builtins aktiviert.
     - `importedStringConstants` {{optional_inline}}
-      - : Ein String, der einen Namensraum für [importierte globale String-Konstanten](/de/docs/WebAssembly/Guides/Imported_string_constants) angibt. Diese Eigenschaft muss angegeben werden, wenn Sie importierte globale String-Konstanten im Wasm-Modul verwenden möchten.
+      - : Ein String, der einen Namespace für [importierte globale Stringkonstanten](/de/docs/WebAssembly/Guides/Imported_string_constants) spezifiziert. Diese Eigenschaft muss angegeben werden, wenn Sie importierte globale Stringkonstanten im Wasm-Modul verwenden möchten.
 
 ### Rückgabewert
 
-Ein `Promise`, das zu einem [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt, das das kompilierte Modul darstellt, aufgelöst wird.
+Ein `Promise`, das sich zu einem [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt auflöst, das das kompilierte Modul darstellt.
 
 ### Ausnahmen
 
-- Wenn `source` weder ein [`Response`](/de/docs/Web/API/Response) noch ein `Promise`, das sich zu einem `Response` auflöst, ist, wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
+- Wenn `source` kein [`Response`](/de/docs/Web/API/Response)-Objekt oder ein Promise ist, das sich zu einem `Response` auflöst, wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
 - Wenn die Kompilierung fehlschlägt, wird das Promise mit einem [`WebAssembly.CompileError`](/de/docs/WebAssembly/Reference/JavaScript_interface/CompileError) abgelehnt.
-- Wenn die `source` ein `Promise` ist, das abgelehnt wird, wird das Promise mit dem Fehler abgelehnt.
-- Wenn das `Result` der `source` einen Fehler aufweist (z.B. ungültiger MIME-Typ), wird das Promise mit einem Fehler abgelehnt.
+- Wenn das `source` ein Promise ist, das abgelehnt wird, wird das Promise mit dem Fehler abgelehnt.
+- Wenn das `Result` der `source` einen Fehler hat (z.B. schlechter MIME-Typ), wird das Promise mit einem Fehler abgelehnt.
 
 ## Beispiele
 
-### Streaming kompilieren
+### Kompilierung im Stream
 
-Das folgende Beispiel (siehe unser [compile-streaming.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/compile-streaming.html) Demo auf GitHub, und [sehen Sie es live](https://mdn.github.io/webassembly-examples/js-api-examples/compile-streaming.html)) streamt direkt ein Wasm-Modul aus einer zugrunde liegenden Quelle und kompiliert es dann zu einem [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt. Da die Funktion `compileStreaming()` ein `Promise` für ein [`Response`](/de/docs/Web/API/Response)-Objekt akzeptiert, können Sie ihr direkt ein `Promise` von einem Aufruf von [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben, ohne auf die Erfüllung des Promises zu warten.
+Das folgende Beispiel (siehe unser [compile-streaming.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/compile-streaming.html)-Demo auf GitHub und [sehen Sie es live](https://mdn.github.io/webassembly-examples/js-api-examples/compile-streaming.html) auch) streamt ein Wasm-Modul direkt aus einer zugrunde liegenden Quelle und kompiliert es dann zu einem [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt. Da die `compileStreaming()`-Funktion ein Promise für ein [`Response`](/de/docs/Web/API/Response)-Objekt akzeptiert, können Sie ihr direkt ein `Promise` aus dem Aufruf von [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben, ohne darauf zu warten, dass das Promise erfüllt wird.
 
 ```js
 const importObject = {
@@ -56,11 +56,11 @@ WebAssembly.compileStreaming(fetch("simple.wasm"))
   .then((instance) => instance.exports.exported_func());
 ```
 
-Das resultierende Modulobjekt wird dann mit [`WebAssembly.instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static) instanziiert, und die exportierte Funktion wird aufgerufen.
+Das resultierende Modul wird dann mit [`WebAssembly.instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static) instanziiert, und die exportierte Funktion wird aufgerufen.
 
-### Aktivierung von JavaScript builtins und globalen String-Importen
+### JavaScript Builtins und globale String-Importe aktivieren
 
-Dieses Beispiel aktiviert JavaScript String builtins und importierte globale String-Konstanten, wenn das Wasm-Modul mit `compileStreaming()` kompiliert wird, bevor es mit [`instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static) instanziiert und dann die exportierte `main()`-Funktion ausgeführt wird (die `"hello world!"` in der Konsole protokolliert). [Siehe es live in Aktion](https://mdn.github.io/webassembly-examples/js-builtin-examples/compile-streaming/).
+Dieses Beispiel aktiviert JavaScript-String-builtins und importierte globale Stringkonstanten, wenn das Wasm-Modul mit `compileStreaming()` kompiliert wird, bevor es mit [`instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static) instanziiert und dann die exportierte Funktion `main()` ausgeführt wird (die `"hello world!"` in die Konsole schreibt). [Sehen Sie es live](https://mdn.github.io/webassembly-examples/js-builtin-examples/compile-streaming/).
 
 ```js
 const importObject = {
@@ -90,6 +90,6 @@ WebAssembly.compileStreaming(fetch("log-concat.wasm"), compileOptions)
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersichtseite
+- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)

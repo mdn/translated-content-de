@@ -2,14 +2,14 @@
 title: Intl.DisplayNames() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames/DisplayNames
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Der **`Intl.DisplayNames()`**-Konstruktor erstellt {{jsxref("Intl.DisplayNames")}}-Objekte.
+Der **`Intl.DisplayNames()`** Konstruktor erstellt {{jsxref("Intl.DisplayNames")}} Objekte.
 
-{{InteractiveExample("JavaScript Demo: Intl.DisplayNames")}}
+{{InteractiveExample("JavaScript Demo: Intl.DisplayNames() Konstruktor")}}
 
 ```js interactive-example
 const regionNamesInEnglish = new Intl.DisplayNames(["en"], { type: "region" });
@@ -30,54 +30,54 @@ console.log(regionNamesInTraditionalChinese.of("US"));
 new Intl.DisplayNames(locales, options)
 ```
 
-> **Note:** `Intl.DisplayNames()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) erstellt werden. Der Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Intl.DisplayNames()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `locales`
-  - : Ein String mit einem BCP 47-Sprach-Tag oder eine {{jsxref("Intl.Locale")}}-Instanz, oder ein Array solcher Locale-Bezeichner. Die Standardsprache des Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Locale-Bezeichner unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der Hauptseite von `Intl`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47 Sprach-Tag oder einer {{jsxref("Intl.Locale")}} Instanz, oder ein Array solcher Locale-Bezeichner. Die Standard-Locale der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder keiner der angegebenen Locale-Bezeichner unterstützt wird. Für die allgemeine Form und Interpretation des `locales` Arguments, siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options`
   - : Ein Objekt, das die folgenden Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden:
     - `localeMatcher` {{optional_inline}}
-      - : Der zu verwendende Algorithmus zur Sprachübereinstimmung. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Informationen zu dieser Option finden Sie unter [Sprachidentifikation und -negotiation](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der zu verwendende Locale-Abgleichsalgorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Informationen zu dieser Option finden Sie unter [Locale-Identifikation und Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `style` {{optional_inline}}
       - : Der zu verwendende Formatierungsstil. Mögliche Werte sind `"narrow"`, `"short"` und `"long"`; der Standardwert ist `"long"`.
     - `type`
-      - : Der Typ der Anzeigebezeichnungen, die von [`of()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames/of) zurückgegeben werden sollen. Mögliche Werte sind `"language"`, `"region"`, `"script"`, `"currency"`, `"calendar"` und `"dateTimeField"`.
+      - : Der Typ der aus [`of()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames/of) zurückzugebenden Anzeigennamen. Mögliche Werte sind `"language"`, `"region"`, `"script"`, `"currency"`, `"calendar"` und `"dateTimeField"`.
     - `fallback` {{optional_inline}}
-      - : Was von `of()` zurückgegeben werden soll, wenn die Eingabe strukturell gültig ist, es jedoch keinen entsprechenden Anzeigebezeichner gibt. Mögliche Werte sind:
+      - : Was von `of()` zurückgegeben wird, wenn die Eingabe strukturell gültig ist, aber es keinen passenden Anzeigennamen gibt. Mögliche Werte sind:
         - `"code"` (Standard)
           - : Gibt den Eingabecode selbst zurück.
         - `"none"`
           - : Gibt `undefined` zurück.
     - `languageDisplay` {{optional_inline}}
-      - : Wie Sprachbezeichnungen dargestellt werden sollen. Kann nur zusammen mit `type: "language"` verwendet werden. Mögliche Werte sind:
+      - : Wie Sprachbezeichnungen angezeigt werden sollen. Nur zusammen mit `type: "language"` verwendbar. Mögliche Werte sind:
         - `"dialect"` (Standard)
-          - : Zeigt spezielle regionale Dialekte mit ihrem eigenen Namen an. Z. B. wird `"nl-BE"` als `"Flämisch"` angezeigt.
+          - : Spezielle regionale Dialekte mit ihrem eigenen Namen anzeigen. Z.B. wird `"nl-BE"` als `"Flemish"` angezeigt.
         - `"standard"`
-          - : Zeigt alle Sprachen im Standardformat an. Z. B. wird `"nl-BE"` als `"Niederländisch (Belgien)"` angezeigt.
+          - : Alle Sprachen im Standardformat anzeigen. Z.B. wird `"nl-BE"` als `"Dutch (Belgium)"` angezeigt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn `options.type` nicht angegeben ist.
+  - : Wird ausgelöst, wenn `options.type` nicht bereitgestellt wird.
 - {{jsxref("RangeError")}}
-  - : Ausgelöst, wenn `locales` oder `options` ungültige Werte enthalten.
+  - : Wird ausgelöst, wenn `locales` oder `options` ungültige Werte enthalten.
 
 ## Beispiele
 
 ### Grundlegende Nutzung
 
-Bei der grundlegenden Verwendung ohne Angabe einer Locale wird ein formatierter String in der Standardsprache und mit Standardoptionen zurückgegeben.
+Bei der grundlegenden Nutzung ohne Angabe einer Locale wird ein formatierter String in der Standard-Locale und mit den Standardeinstellungen zurückgegeben.
 
 ```js
 console.log(new Intl.DisplayNames([], { type: "language" }).of("US"));
 // 'us'
 ```
 
-### Verwendung von `dateTimeField` als Typ
+### Verwendung des Typs `dateTimeField`
 
-Beispiel mit `dateTimeField` als Optionstyp, dies gibt lokalisierte Datums- und Zeitbezeichnungs-Strings zurück.
+Beispiel für die Verwendung von `dateTimeField` als Typoption, dies wird die lokalisierten Datumszeiten-Namen zurückgeben.
 
 ```js
 const dn = new Intl.DisplayNames("pt", { type: "dateTimeField" });
@@ -94,9 +94,9 @@ console.log(dn.of("minute")); // 'minuto'
 console.log(dn.of("second")); // 'segundo'
 ```
 
-### Verwendung von `calendar` als Typ
+### Verwendung des Typs `calendar`
 
-Beispiel mit `calendar` als Optionstyp, dies gibt lokalisierte Kalendernamen-Strings zurück.
+Beispiel für die Verwendung von `calendar` als Typoption, dies wird die lokalisierten Kalendernamen zurückgeben.
 
 ```js
 const dn = new Intl.DisplayNames("en", { type: "calendar" });
@@ -105,9 +105,9 @@ console.log(dn.of("gregory")); // 'Gregorian Calendar'
 console.log(dn.of("chinese")); // 'Chinese Calendar'
 ```
 
-### Verwendung von `language` mit `languageDisplay`
+### Verwendung des Typs `language` mit `languageDisplay`
 
-Beispiel für die Verwendung von `language` als Typ mit `languageDisplay`-Optionen.
+Beispiel für die Verwendung von `language` als Typ mit `languageDisplay` Optionen.
 
 ```js
 // Using `dialect` option

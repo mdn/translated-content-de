@@ -2,14 +2,14 @@
 title: Magnetometer
 slug: Web/API/Magnetometer
 l10n:
-  sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Das **`Magnetometer`**-Interface der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) liefert Informationen über das Magnetfeld, das vom primären Magnetometersensor des Geräts erfasst wird.
+Die **`Magnetometer`**-Schnittstelle der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) liefert Informationen über das Magnetfeld, wie es vom primären Magnetometersensor des Geräts erkannt wird.
 
-Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung zum Zugriff auf den `'magnetometer'`-Gerätesensor über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen. Darüber hinaus kann dieses Feature durch eine auf Ihrem Server festgelegte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
+Um diesen Sensor zu verwenden, muss der Benutzer über die [Permissions API](/de/docs/Web/API/Permissions_API) die Erlaubnis für den `'magnetometer'`-Gerätesensor erteilen. Darüber hinaus kann diese Funktion durch eine auf Ihrem Server festgelegte [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden.
 
 {{InheritanceDiagram}}
 
@@ -21,23 +21,23 @@ Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung zum Zugriff au
 ## Instanzeigenschaften
 
 - [`Magnetometer.x`](/de/docs/Web/API/Magnetometer/x) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein `double` zurück, das das Magnetfeld um die x-Achse des Geräts enthält.
+  - : Gibt ein Double zurück, das das Magnetfeld um die x-Achse des Geräts enthält.
 - [`Magnetometer.y`](/de/docs/Web/API/Magnetometer/y) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein `double` zurück, das das Magnetfeld um die y-Achse des Geräts enthält.
+  - : Gibt ein Double zurück, das das Magnetfeld um die y-Achse des Geräts enthält.
 - [`Magnetometer.z`](/de/docs/Web/API/Magnetometer/z) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein `double` zurück, das das Magnetfeld um die z-Achse des Geräts enthält.
+  - : Gibt ein Double zurück, das das Magnetfeld um die z-Achse des Geräts enthält.
 
 ## Instanzmethoden
 
-_Das `Magnetometer` hat keine eigenen Methoden. Es erbt jedoch Methoden von seinen übergeordneten Schnittstellen, [`Sensor`](/de/docs/Web/API/Sensor) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_`Magnetometer` besitzt keine eigenen Methoden. Allerdings erbt es Methoden von seinen übergeordneten Schnittstellen, [`Sensor`](/de/docs/Web/API/Sensor) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
-_Das `Magnetometer` hat keine eigenen Ereignisse. Es erbt jedoch Ereignisse von seiner übergeordneten Schnittstelle, [`Sensor`](/de/docs/Web/API/Sensor)._
+_`Magnetometer` besitzt keine eigenen Ereignisse. Allerdings erbt es Ereignisse von seiner übergeordneten Schnittstelle, [`Sensor`](/de/docs/Web/API/Sensor)._
 
 ## Beispiel
 
-Das Magnetometer wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback gelesen. Im untenstehenden Beispiel geschieht dies sechzig Mal pro Sekunde.
+Das Magnetometer wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im folgenden Beispiel geschieht dies sechzigmal pro Sekunde.
 
 ```js
 let magSensor = new Magnetometer({ frequency: 60 });

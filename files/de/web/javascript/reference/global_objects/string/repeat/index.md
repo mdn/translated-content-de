@@ -2,14 +2,14 @@
 title: String.prototype.repeat()
 slug: Web/JavaScript/Reference/Global_Objects/String/repeat
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten konstruiert und gibt einen neuen String zurück, der die angegebene Anzahl von Kopien dieses Strings enthält, zusammengefügt.
+Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten erstellt und gibt einen neuen String zurück, der die angegebene Anzahl von Kopien dieses Strings enthält, die zusammenkonkateniert sind.
 
-{{InteractiveExample("JavaScript Demo: String.repeat()", "shorter")}}
+{{InteractiveExample("JavaScript Demo: String.prototype.repeat()", "shorter")}}
 
 ```js interactive-example
 const mood = "Happy! ";
@@ -40,7 +40,7 @@ Ein neuer String, der die angegebene Anzahl von Kopien des gegebenen Strings ent
 
 ## Beispiele
 
-### Nutzung von repeat()
+### Verwendung von repeat()
 
 ```js
 "abc".repeat(-1); // RangeError

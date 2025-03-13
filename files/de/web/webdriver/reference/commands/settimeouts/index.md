@@ -2,36 +2,36 @@
 title: Set Timeouts
 slug: Web/WebDriver/Reference/Commands/SetTimeouts
 l10n:
-  sourceCommit: 394a1aff10d20ba51dbd00252ce481769298001c
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
-Der _Set Timeouts_ [Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API setzt die mit der aktuellen Sitzung verbundenen Zeitlimits. Die [Sitzungstimeouts](/de/docs/Web/WebDriver/Reference/Timeouts) steuern Verhaltensweisen wie Zeitlimits bei [Skriptinjektionen](/de/docs/Web/WebDriver/Reference/Timeouts#script), [Dokumentennavigation](/de/docs/Web/WebDriver/Reference/Timeouts#pageload) und [Elementabruf](/de/docs/Web/WebDriver/Reference/Timeouts#implicit).
+Der _Set Timeouts_-[Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API setzt die mit der aktuellen Sitzung verbundenen Zeitlimits. Die Dauer der [Sitzungs-Timeouts](/de/docs/Web/WebDriver/Reference/Timeouts) steuert Verhaltensweisen wie Zeitüberschreitungen bei der [Skriptinjektion](/de/docs/Web/WebDriver/Reference/Timeouts#script), [Dokumentnavigation](/de/docs/Web/WebDriver/Reference/Timeouts#pageload) und [Elementabfrage](/de/docs/Web/WebDriver/Reference/Timeouts#implicit).
 
 ## Syntax
 
-| Methode                                 | URI-Vorlage                      |
-| --------------------------------------- | -------------------------------- |
-| [`POST`](/de/docs/Web/HTTP/Methods/GET) | `/session/{session id}/timeouts` |
+| Methode                                           | URI-Vorlage                      |
+| ------------------------------------------------- | -------------------------------- |
+| [`POST`](/de/docs/Web/HTTP/Reference/Methods/GET) | `/session/{session id}/timeouts` |
 
 ### URL-Parameter
 
 - `session id`
-  - : Kennung der Sitzung.
+  - : Bezeichner der Sitzung.
 
 ### Nutzlast
 
-Die Eingabe ist ein [`Timeouts`](/de/docs/Web/WebDriver/Reference/Timeouts) Objekt:
+Die Eingabe ist ein [`Timeouts`](/de/docs/Web/WebDriver/Reference/Timeouts)-Objekt:
 
 - `implicit`
-  - : Zeit in Millisekunden, um die [Element-Lokalisierungsstrategie](/de/docs/Web/WebDriver/WebElement) erneut zu versuchen, wenn ein Element gefunden wird. Dies ist standardmäßig auf 0 gesetzt, was bedeutet, dass die Strategie nur einmal ausgeführt wird.
+  - : Zeit in Millisekunden, die die [Elementabfragestrategie](/de/docs/Web/WebDriver/WebElement) wiederholt wird, wenn ein Element gefunden wird. Standardmäßig ist dies 0, was bedeutet, dass die Strategie nur einmal ausgeführt wird.
 - `pageLoad`
-  - : Zeit in Millisekunden, um zu warten, bis das Dokument das Laden beendet hat. Standardmäßig wartet WebDriver fünf Minuten (oder 300.000 ms).
+  - : Zeit in Millisekunden, die gewartet wird, bis das Dokument fertig geladen ist. Standardmäßig wartet WebDriver fünf Minuten (oder 300.000 ms).
 - `script`
-  - : Skripte, die mit [Execute Script](/de/docs/Web/WebDriver/Commands/ExecuteScript) oder [Execute Async Script](/de/docs/Web/WebDriver/Commands/ExecuteAsyncScript) injiziert werden, laufen bis sie die Skript-Timeout-Dauer erreichen, die ebenfalls in Millisekunden angegeben wird. Die Skripte werden dann unterbrochen, und es wird ein [script timeout error](/de/docs/Web/WebDriver/Errors/ScriptTimeoutError) zurückgegeben. Standardmäßig 30 Sekunden (oder 30.000 ms).
+  - : Mit [Execute Script](/de/docs/Web/WebDriver/Commands/ExecuteScript) oder [Execute Async Script](/de/docs/Web/WebDriver/Commands/ExecuteAsyncScript) injizierte Skripte laufen, bis sie die Skript-Timeout-Dauer erreichen, die ebenfalls in Millisekunden angegeben wird. Die Skripte werden dann unterbrochen und ein [Skript-Timeout-Fehler](/de/docs/Web/WebDriver/Errors/ScriptTimeoutError) wird zurückgegeben. Standardmäßig beträgt das Timeout 30 Sekunden (oder 30.000 ms).
 
 ### Fehler
 
-- [Invalid session ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
+- [Ungültige Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
   - : Sitzung existiert nicht.
 
 ## Spezifikationen
@@ -44,5 +44,5 @@ Die Eingabe ist ein [`Timeouts`](/de/docs/Web/WebDriver/Reference/Timeouts) Obje
 
 ## Siehe auch
 
-- [`Timeouts`](/de/docs/Web/WebDriver/Reference/Timeouts) Objekt
+- [`Timeouts`](/de/docs/Web/WebDriver/Reference/Timeouts)-Objekt
 - [Liste der WebDriver-Befehle](/de/docs/Web/WebDriver/Reference/Commands)

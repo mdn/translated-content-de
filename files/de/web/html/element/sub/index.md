@@ -2,12 +2,12 @@
 title: "<sub>: Das Subskript-Element"
 slug: Web/HTML/Element/sub
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
 ---
 
 {{HTMLSidebar}}
 
-Das **`<sub>`** [HTML](/de/docs/Web/HTML)-Element spezifiziert Inline-Text, der aus rein typografischen Gründen als Subskript dargestellt werden soll. Subskripte werden typischerweise mit einer abgesenkten Grundlinie und kleineren Texten dargestellt.
+Das **`<sub>`** [HTML](/de/docs/Web/HTML) Element spezifiziert Inline-Text, der aus rein typografischen Gründen als Subskript angezeigt werden soll. Subskripte werden normalerweise mit einer abgesenkten Grundlinie unter Verwendung kleinerer Schrift gerendert.
 
 {{InteractiveExample("HTML Demo: &lt;sub&gt;", "tabbed-shorter")}}
 
@@ -29,25 +29,25 @@ p {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Anwendungshinweise
 
-Das `<sub>`-Element sollte nur aus typografischen Gründen verwendet werden, das heißt, um die Position des Textes entsprechend typografischen Konventionen oder Standards zu ändern, nicht nur für Präsentations- oder Erscheinungszwecke.
+Das `<sub>`-Element sollte nur aus typografischen Gründen verwendet werden, d. h. um die Position des Textes zu ändern, um typografischen Konventionen oder Standards zu entsprechen, und nicht nur aus Präsentations- oder Erscheinungsgründen.
 
-Zum Beispiel wäre es unpassend, `<sub>` zu verwenden, um den Namen eines Unternehmens zu stylen, das veränderte Grundlinien in seinem [Wortmarke](https://en.wikipedia.org/wiki/Wordmark) verwendet; stattdessen sollte CSS verwendet werden. Sie könnten beispielsweise die {{cssxref("vertical-align")}}-Eigenschaft mit einer Deklaration wie `vertical-align: sub` verwenden oder, um den Grundlinienversatz genauer zu kontrollieren, `vertical-align: -25%`.
+Zum Beispiel wäre es unangemessen, `<sub>` zu verwenden, um den Namen eines Unternehmens zu gestalten, das in seinem [Wortmarke](https://en.wikipedia.org/wiki/Wordmark) veränderte Baselines verwendet; stattdessen sollte CSS verwendet werden. Sie könnten zum Beispiel die Eigenschaft {{cssxref("vertical-align")}} mit einer Deklaration wie `vertical-align: sub` oder zur genaueren Kontrolle der Baseline-Verschiebung `vertical-align: -25%` verwenden.
 
-Angemessene Anwendungsfälle für `<sub>` umfassen (aber sind nicht notwendigerweise darauf beschränkt):
+Geeignete Anwendungsfälle für `<sub>` umfassen (sind aber nicht unbedingt beschränkt auf):
 
-- Die Auszeichnung von Fußnotennummern. Siehe [Fußnotennummern](#fußnotennummern) für ein Beispiel.
-- Die Auszeichnung von Subskripten in mathematischen Variablennummern (obwohl Sie auch in Erwägung ziehen könnten, eine [MathML](/de/docs/Web/MathML)-Formel dafür zu nutzen). Siehe [Variablesubscripte](#variablesubscripte).
-- Die Angabe der Anzahl der Atome eines bestimmten Elements innerhalb einer chemischen Formel (wie des besten Freundes jedes Entwicklers, C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>, auch bekannt als "Koffein"). Siehe [Chemische Formeln](#chemische_formeln).
+- Markierung von Fußnotennummern. Siehe [Fußnotennummern](#fußnotennummern) für ein Beispiel.
+- Markierung des Subskripts in mathematischen Variablennummern (Sie könnten dafür auch eine [MathML](/de/docs/Web/MathML) Formel verwenden). Siehe [Variable Subskripte](#variable_subskripte).
+- Angabe der Anzahl von Atomen eines bestimmten Elements innerhalb einer chemischen Formel (wie z.B. der beste Freund jedes Entwicklers, C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>, auch bekannt als "Koffein"). Siehe [Chemische Formeln](#chemische_formeln).
 
 ## Beispiele
 
 ### Fußnotennummern
 
-Traditionelle Fußnoten werden durch Zahlen gekennzeichnet, die im Subskript dargestellt werden. Dies ist ein häufiger Anwendungsfall für `<sub>`:
+Traditionelle Fußnoten werden durch Zahlen dargestellt, die im Subskript gerendert sind. Dies ist ein häufiger Anwendungsfall für `<sub>`:
 
 ```html
 <p>
@@ -60,9 +60,9 @@ Traditionelle Fußnoten werden durch Zahlen gekennzeichnet, die im Subskript dar
 
 {{EmbedLiveSample("Footnote_numbers", 650, 80)}}
 
-### Variablesubscripte
+### Variable Subskripte
 
-In der Mathematik werden Familien von Variablen, die mit demselben Konzept zusammenhängen (wie Entfernungen entlang derselben Achse), mit demselben Variablennamen und einem nachfolgenden Subskript dargestellt. Zum Beispiel:
+In der Mathematik werden Familien von Variablen, die sich auf dasselbe Konzept beziehen (wie Entfernungen entlang derselben Achse), durch denselben Variablennamen mit einem folgenden Subskript dargestellt. Zum Beispiel:
 
 ```html-nolint
 <p>
@@ -77,7 +77,7 @@ In der Mathematik werden Familien von Variablen, die mit demselben Konzept zusam
 
 ### Chemische Formeln
 
-Beim Schreiben einer chemischen Formel, wie H<sub>2</sub>O, wird die Anzahl der Atome eines bestimmten Elements innerhalb des beschriebenen Moleküls durch eine subskribierte Zahl dargestellt; im Fall von Wasser zeigt die subskribierte "2" an, dass es zwei Wasserstoffatome im Molekül gibt.
+Beim Schreiben einer chemischen Formel wie H<sub>2</sub>O wird die Anzahl der Atome eines bestimmten Elements innerhalb des beschriebenen Moleküls mit einer subskribierten Zahl dargestellt; im Falle von Wasser zeigt die subskribierte "2" an, dass es zwei Wasserstoffatome im Molekül gibt.
 
 Ein weiteres Beispiel:
 
@@ -108,28 +108,28 @@ Ein weiteres Beispiel:
           >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierter Inhalt</a
-        >, greifbarer Inhalt.
+          >Phrasing-Inhalt</a
+        >, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierter Inhalt</a
+          >Phrasing-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keiner, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <th scope="row">Tag-Aussparung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >phrasierter Inhalt</a
+          >Phrasing-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -137,7 +137,7 @@ Ein weiteres Beispiel:
       <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">Subskript</a
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">subscript</a
           ></code
         >
       </td>
@@ -163,6 +163,6 @@ Ein weiteres Beispiel:
 
 ## Siehe auch
 
-- Das {{HTMLElement("sup")}} HTML-Element, das einen Superskript erzeugt. Beachten Sie, dass Sie `sup` und `sub` nicht gleichzeitig verwenden können: Sie müssen [MathML](/de/docs/Web/MathML) verwenden, um sowohl einen Superskript direkt über einem Subskript neben dem chemischen Symbol eines Elements darzustellen, das seine Ordnungszahl und seine Kernzahl repräsentiert.
-- Die [`<msub>`](/de/docs/Web/MathML/Element/msub), [`<msup>`](/de/docs/Web/MathML/Element/msup) und [`<msubsup>`](/de/docs/Web/MathML/Element/msubsup) MathML-Elemente.
-- Die CSS-{{cssxref("vertical-align")}}-Eigenschaft.
+- Das {{HTMLElement("sup")}} HTML-Element, das Superscript erzeugt. Beachten Sie, dass Sie `sup` und `sub` nicht gleichzeitig verwenden können: Sie müssen [MathML](/de/docs/Web/MathML) verwenden, um ein Superscript direkt über einem Subscript neben dem chemischen Symbol eines Elements darzustellen, das seine Ordnungszahl und seine Kernladungszahl repräsentiert.
+- Die [`<msub>`](/de/docs/Web/MathML/Reference/Element/msub), [`<msup>`](/de/docs/Web/MathML/Reference/Element/msup) und [`<msubsup>`](/de/docs/Web/MathML/Reference/Element/msubsup) MathML-Elemente.
+- Die CSS-Eigenschaft {{cssxref("vertical-align")}}.

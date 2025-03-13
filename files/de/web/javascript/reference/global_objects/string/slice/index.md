@@ -2,14 +2,14 @@
 title: String.prototype.slice()
 slug: Web/JavaScript/Reference/Global_Objects/String/slice
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`slice()`**-Methode von {{jsxref("String")}}-Werten extrahiert einen Abschnitt des Strings und gibt ihn als neuen String zurück, ohne den ursprünglichen String zu verändern.
+Die **`slice()`** Methode der {{jsxref("String")}} Werte extrahiert einen Abschnitt dieses Strings und gibt ihn als neuen String zurück, ohne den ursprünglichen String zu ändern.
 
-{{InteractiveExample("JavaScript Demo: String.slice()", "taller")}}
+{{InteractiveExample("JavaScript Demo: String.prototype.slice()", "taller")}}
 
 ```js interactive-example
 const str = "The quick brown fox jumps over the lazy dog.";
@@ -39,17 +39,17 @@ slice(indexStart, indexEnd)
 - `indexStart`
   - : Der Index des ersten Zeichens, das im zurückgegebenen Teilstring enthalten sein soll.
 - `indexEnd` {{optional_inline}}
-  - : Der Index des ersten Zeichens, das vom zurückgegebenen Teilstring ausgeschlossen werden soll.
+  - : Der Index des ersten Zeichens, das im zurückgegebenen Teilstring ausgeschlossen sein soll.
 
 ### Rückgabewert
 
-Ein neuer String, der den extrahierten Abschnitt des ursprünglichen Strings enthält.
+Ein neuer String, der den extrahierten Abschnitt des Strings enthält.
 
 ## Beschreibung
 
 `slice()` extrahiert den Text aus einem String und gibt einen neuen String zurück.
 
-`slice()` extrahiert bis, aber nicht einschließlich `indexEnd`. Zum Beispiel extrahiert `str.slice(4, 8)` das fünfte bis achte Zeichen (Zeichen mit Index `4`, `5`, `6` und `7`):
+`slice()` extrahiert bis, aber nicht einschließlich `indexEnd`. Zum Beispiel extrahiert `str.slice(4, 8)` das fünfte Zeichen bis einschließlich das achte Zeichen (Zeichen mit den Indizes `4`, `5`, `6` und `7`):
 
 ```plain
               indexStart        indexEnd
@@ -64,17 +64,17 @@ Ein neuer String, der den extrahierten Abschnitt des ursprünglichen Strings ent
 ```
 
 - Wenn `indexStart >= str.length`, wird ein leerer String zurückgegeben.
-- Wenn `indexStart < 0` ist, wird der Index vom Ende des Strings aus gezählt. Formal beginnt in diesem Fall der Teilstring bei `max(indexStart + str.length, 0)`.
-- Wenn `indexStart` weggelassen, undefiniert ist oder nicht [in eine Zahl umgewandelt werden kann](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), wird er als `0` behandelt.
-- Wenn `indexEnd` weggelassen oder undefiniert ist oder `indexEnd >= str.length`, extrahiert `slice()` bis zum Ende des Strings.
-- Wenn `indexEnd < 0`, wird der Index vom Ende des Strings aus gezählt. Formal endet in diesem Fall der Teilstring bei `max(indexEnd + str.length, 0)`.
-- Wenn `indexEnd <= indexStart` nach Normalisierung negativer Werte (d. h. `indexEnd` repräsentiert ein Zeichen, das vor `indexStart` liegt), wird ein leerer String zurückgegeben.
+- Wenn `indexStart < 0`, wird der Index von Ende des Strings aus gezählt. Formal beginnt der Teilstring in diesem Fall bei `max(indexStart + str.length, 0)`.
+- Wenn `indexStart` weggelassen, undefined oder nicht [in eine Zahl konvertiert werden kann](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), wird es als `0` behandelt.
+- Wenn `indexEnd` weggelassen oder undefined ist, oder wenn `indexEnd >= str.length`, extrahiert `slice()` bis zum Ende des Strings.
+- Wenn `indexEnd < 0`, wird der Index vom Ende des Strings aus gezählt. Formal endet der Teilstring in diesem Fall bei `max(indexEnd + str.length, 0)`.
+- Wenn `indexEnd <= indexStart` nach Normalisierung der negativen Werte (d.h. wenn `indexEnd` ein Zeichen darstellt, das vor `indexStart` liegt), wird ein leerer String zurückgegeben.
 
 ## Beispiele
 
-### Die Verwendung von slice(), um einen neuen String zu erstellen
+### Verwendung von slice(), um einen neuen String zu erstellen
 
-Das folgende Beispiel zeigt, wie `slice()` verwendet wird, um einen neuen String zu erstellen.
+Das folgende Beispiel verwendet `slice()`, um einen neuen String zu erstellen.
 
 ```js
 const str1 = "The morning is upon us."; // The length of str1 is 23.
@@ -88,9 +88,9 @@ console.log(str4); // is upon us.
 console.log(str5); // ""
 ```
 
-### Die Verwendung von slice() mit negativen Indizes
+### Verwendung von slice() mit negativen Indizes
 
-Das folgende Beispiel zeigt die Verwendung von `slice()` mit negativen Indizes.
+Das folgende Beispiel verwendet `slice()` mit negativen Indizes.
 
 ```js
 const str = "The morning is upon us.";
@@ -100,19 +100,19 @@ str.slice(0, -1); // 'The morning is upon us'
 str.slice(4, -1); // 'morning is upon us'
 ```
 
-In diesem Beispiel wird vom Ende des Strings 11 Stellen rückwärts gezählt, um den Startindex zu finden, und vom Anfang des Strings 16 Stellen vorwärts gezählt, um den Endindex zu finden.
+Dieses Beispiel zählt rückwärts von Ende des Strings um `11`, um den Startindex zu finden und vorwärts vom Anfang des Strings um `16`, um den Endindex zu finden.
 
 ```js
 console.log(str.slice(-11, 16)); // "is u"
 ```
 
-Hier wird vom Anfang aus 11 Stellen vorwärts gezählt, um den Startindex zu finden, und vom Ende aus 7 Stellen rückwärts gezählt, um den Endindex zu finden.
+Hier zählt es vorwärts vom Anfang um `11`, um den Startindex zu finden und rückwärts von Ende um `7`, um den Endindex zu finden.
 
 ```js
 console.log(str.slice(11, -7)); // " is u"
 ```
 
-Diese Argumente zählen 5 Stellen rückwärts vom Ende, um den Startindex zu finden, und 1 Stelle rückwärts vom Ende, um den Endindex zu finden.
+Diese Argumente zählen rückwärts vom Ende um `5`, um den Startindex zu finden und rückwärts vom Ende um `1`, um den Endindex zu finden.
 
 ```js
 console.log(str.slice(-5, -1)); // "n us"

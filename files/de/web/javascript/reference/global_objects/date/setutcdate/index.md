@@ -2,14 +2,14 @@
 title: Date.prototype.setUTCDate()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setUTCDate
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`setUTCDate()`**-Methode von {{jsxref("Date")}}-Instanzen ändert den Tag des Monats für dieses Datum basierend auf der universellen Zeit.
+Die Methode **`setUTCDate()`** von {{jsxref("Date")}} Instanzen ändert den Tag des Monats für dieses Datum entsprechend der koordinierten Weltzeit.
 
-{{InteractiveExample("JavaScript Demo: Date.setUTCDate()")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.setUTCDate()")}}
 
 ```js interactive-example
 const event = new Date("August 19, 1975 23:15:30 GMT-3:00");
@@ -32,19 +32,19 @@ setUTCDate(dateValue)
 ### Parameter
 
 - `dateValue`
-  - : Eine Ganzzahl von 1 bis 31, die den Tag des Monats darstellt.
+  - : Eine ganze Zahl zwischen 1 und 31, die den Tag des Monats repräsentiert.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}}-Objekt direkt und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `dateValue` `NaN` ist (oder andere Werte, die zu `NaN` [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und es wird `NaN` zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt direkt und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `dateValue` `NaN` ist (oder andere Werte, die zu `NaN` [konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beschreibung
 
-Wenn der `dateValue` außerhalb des Bereichs der Datumswerte für den Monat liegt, aktualisiert `setDate()` das {{jsxref("Date")}}-Objekt entsprechend.
+Wenn `dateValue` außerhalb des Bereichs der Datumswerte für den Monat liegt, wird `setDate()` das {{jsxref("Date")}}-Objekt entsprechend aktualisieren.
 
-Zum Beispiel wird das Datum, wenn für `dateValue` der Wert 0 angegeben wird, auf den letzten Tag des vorherigen Monats gesetzt. Wenn Sie 40 für `dateValue` verwenden und der im {{jsxref("Date")}}-Objekt gespeicherte Monat Juni ist, wird der Tag auf den 10. geändert und der Monat auf Juli erhöht.
+Zum Beispiel, wenn 0 für `dateValue` angegeben ist, wird das Datum auf den letzten Tag des vorherigen Monats gesetzt. Wenn Sie 40 für `dateValue` verwenden und der im {{jsxref("Date")}}-Objekt gespeicherte Monat Juni ist, wird der Tag auf den 10. geändert und der Monat auf Juli erhöht.
 
-Wenn eine negative Zahl als `dateValue` angegeben wird, wird das Datum rückwärts vom letzten Tag des vorherigen Monats gezählt. -1 würde dazu führen, dass das Datum auf einen Tag vor dem letzten Tag des vorherigen Monats gesetzt wird.
+Wenn eine negative Zahl für `dateValue` angegeben wird, wird das Datum rückwärts vom letzten Tag des vorherigen Monats aus gezählt. -1 würde dazu führen, dass das Datum auf 1 Tag vor dem letzten Tag des vorherigen Monats eingestellt wird.
 
 ## Beispiele
 

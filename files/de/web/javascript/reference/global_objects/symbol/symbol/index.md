@@ -2,14 +2,14 @@
 title: Symbol() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/Symbol
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die Funktion **`Symbol()`** gibt primitive Werte des Typs Symbol zurück.
+Die **`Symbol()`** Funktion gibt primitive Werte des Typs Symbol zurück.
 
-{{InteractiveExample("JavaScript Demo: Symbol - Constructor", "taller")}}
+{{InteractiveExample("JavaScript Demo: Symbol() constructor", "taller")}}
 
 ```js interactive-example
 const symbol1 = Symbol();
@@ -36,18 +36,19 @@ Symbol()
 Symbol(description)
 ```
 
-> **Hinweis:** `Symbol()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Der Versuch, es mit `new` zu instanziieren, wirft einen {{jsxref("TypeError")}}.
+> **Note:** `Symbol()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Der Versuch, es mit `new` zu konstruieren, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `description` {{optional_inline}}
-  - : Ein String. Eine Beschreibung des Symbols, die für Debugging-Zwecke verwendet werden kann, aber nicht, um auf das Symbol selbst zuzugreifen.
+  - : Ein String. Eine Beschreibung des Symbols, die für das Debuggen verwendet werden kann, aber nicht, um das Symbol selbst zuzugreifen.
 
 ## Beispiele
 
 ### Symbole erstellen
 
-Um ein neues primitives Symbol zu erstellen, schreiben Sie `Symbol()` mit einem optionalen String als Beschreibung:
+Um ein neues primitives Symbol zu erstellen, schreiben Sie `Symbol()` mit einem optionalen
+String als Beschreibung:
 
 ```js
 const sym1 = Symbol();
@@ -55,7 +56,7 @@ const sym2 = Symbol("foo");
 const sym3 = Symbol("foo");
 ```
 
-Der obige Code erstellt drei neue Symbole. Beachten Sie, dass `Symbol("foo")` den String `"foo"` nicht in ein Symbol umwandelt. Es wird jedes Mal ein neues Symbol erstellt:
+Der obige Code erstellt drei neue Symbole. Beachten Sie, dass `Symbol("foo")` den String `"foo"` nicht in ein Symbol umwandelt. Es erstellt jedes Mal ein neues Symbol:
 
 ```js
 Symbol("foo") === Symbol("foo"); // false
@@ -63,15 +64,17 @@ Symbol("foo") === Symbol("foo"); // false
 
 ### new Symbol()
 
-Die folgende Syntax mit dem {{jsxref("Operators/new", "new")}}-Operator wird einen {{jsxref("TypeError")}} auslösen:
+Der folgende Syntax mit dem {{jsxref("Operators/new", "new")}} Operator wird einen
+{{jsxref("TypeError")}} auslösen:
 
 ```js example-bad
 const sym = new Symbol(); // TypeError
 ```
 
-Dies verhindert, dass Autoren ein explizites `Symbol`-Wrapper-Objekt anstelle eines neuen Symbolwertes erstellen, was überraschend sein könnte, da das Erstellen expliziter Wrapper-Objekte um primitive Datentypen im Allgemeinen möglich ist (zum Beispiel `new Boolean`, `new String` und `new Number`).
+Dies verhindert, dass Autoren ein explizites `Symbol` Wrapper-Objekt anstelle eines neuen Symbolwerts erstellen, was überraschend sein könnte, da das Erstellen expliziter Wrapper-Objekte um primitive Datentypen im Allgemeinen möglich ist (zum Beispiel, `new Boolean`, `new String` und `new Number`).
 
-Falls Sie wirklich ein `Symbol`-Wrapper-Objekt erstellen möchten, können Sie die Funktion `Object()` verwenden:
+Wenn Sie wirklich ein `Symbol` Wrapper-Objekt erstellen möchten, können Sie die
+`Object()` Funktion verwenden:
 
 ```js
 const sym = Symbol("foo");

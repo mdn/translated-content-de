@@ -2,48 +2,48 @@
 title: Arten von Angriffen
 slug: Web/Security/Types_of_attacks
 l10n:
-  sourceCommit: be3f184d89979d413204b8f9cbecfc8dd0e5ecf9
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Dieser Artikel beschreibt verschiedene Arten von Sicherheitsangriffen und Techniken zu deren Minderung.
+Dieser Artikel beschreibt verschiedene Arten von Sicherheitsangriffen und Techniken zu deren Abwehr.
 
 ## Clickjacking
 
-[Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) ist die Praxis, einen Benutzer dazu zu verleiten, auf einen Link, Knopf usw. zu klicken, der etwas anderes ist, als was der Benutzer denkt. Dies kann zum Beispiel dazu verwendet werden, Anmeldedaten zu stehlen oder die unwissentliche Erlaubnis des Benutzers zu erhalten, ein Stück Malware zu installieren. (Clickjacking wird manchmal als "Benutzeroberflächen-Manipulation" bezeichnet, obwohl dies eine falsche Verwendung des Begriffs "Manipulation" ist.)
+[Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) ist die Praxis, einen Benutzer dazu zu verleiten, auf einen Link, Button usw. zu klicken, das etwas anderes ist als das, was der Benutzer denkt. Dies kann beispielsweise verwendet werden, um Anmeldeinformationen zu stehlen oder um die unwissentliche Erlaubnis des Benutzers zu erlangen, ein Schadprogramm zu installieren. (Clickjacking wird manchmal als "Benutzeroberflächen-Neugestaltung" bezeichnet, obwohl dies ein Missbrauch des Begriffs "Neugestaltung" ist.)
 
 ## Cross-Site-Scripting (XSS)
 
-Cross-Site-Scripting (XSS) ist ein Sicherheitsangriff, der es einem Angreifer ermöglicht, in eine Webseite schädlichen clientseitigen Code einzuschleusen. Dieser Code wird von den Opfern ausgeführt und ermöglicht es Angreifern, Zugangskontrollen zu umgehen und Benutzer zu imitieren. Laut dem Open Web Application Security Project war XSS 2017 die [siebt häufigste Schwachstelle bei Webanwendungen](https://owasp.org/www-project-top-ten/2017/Top_10).
+Cross-Site-Scripting (XSS) ist ein Sicherheitsangriff, der es einem Angreifer ermöglicht, schädlichen clientseitigen Code in eine Website einzuschleusen. Dieser Code wird von den Opfern ausgeführt und ermöglicht den Angreifern, Zugriffskontrollen zu umgehen und Benutzer zu imitieren. Laut dem Open Web Application Security Project war XSS [die siebthäufigste Schwachstelle von Webanwendungen](https://owasp.org/www-project-top-ten/2017/Top_10) im Jahr 2017.
 
-Diese Angriffe sind erfolgreich, wenn die Webanwendung nicht genügend Validierung oder Kodierung verwendet. Der Browser des Benutzers kann das bösartige Skript nicht als unzuverlässig erkennen und ermöglicht ihm den Zugriff auf Cookies, Sitzungstokens oder andere sensible, sitzungsbezogene Informationen oder lässt das bösartige Skript das {{Glossary("HTML", "HTML")}}-Inhalt überschreiben.
+Diese Angriffe gelingen, wenn die Webanwendung nicht genügend Validierung oder Kodierung einsetzt. Der Browser des Benutzers kann das schädliche Skript nicht als unzuverlässig erkennen und gewährt ihm daher Zugriff auf alle Cookies, Sitzungstoken oder andere sensible, seitenbezogene Informationen oder erlaubt dem schädlichen Skript, den {{Glossary("HTML", "HTML")}}-Inhalt umzuschreiben.
 
-Cross-Site-Scripting-Angriffe treten normalerweise auf, wenn 1) Daten aus einer nicht vertrauenswürdigen Quelle (meistens eine Webanforderung) in eine Webanwendung gelangen oder 2) dynamische Inhalte an einen Webbenutzer gesendet werden, ohne auf bösartige Inhalte geprüft zu werden.
+Cross-Site-Scripting-Angriffe treten normalerweise auf, wenn 1) Daten über eine nicht vertrauenswürdige Quelle (meistens eine Webanfrage) in eine Webanwendung gelangen oder 2) dynamischer Inhalt an einen Webbenutzer gesendet wird, ohne auf schädlichen Inhalt überprüft zu werden.
 
-Der bösartige Inhalt umfasst oft {{Glossary("JavaScript", "JavaScript")}}, manchmal jedoch auch HTML, Flash oder anderen Code, den der Browser ausführen kann. Die Vielfalt der auf XSS basierenden Angriffe ist nahezu unbegrenzt, sie umfassen jedoch häufig das Übermitteln privater Daten wie Cookies oder anderer Sitzungsinformationen an den Angreifer, das Weiterleiten des Opfers zu einer von dem Angreifer kontrollierten Webseite oder das Durchführen anderer bösartiger Operationen auf dem Computer des Benutzers unter dem Deckmantel der verwundbaren Seite.
+Der schädliche Inhalt umfasst oft {{Glossary("JavaScript", "JavaScript")}}, aber manchmal auch HTML, Flash oder anderen Code, den der Browser ausführen kann. Die Vielzahl von Angriffen, die auf XSS basieren, ist nahezu unbegrenzt, aber sie umfassen häufig das Übertragen privater Daten wie Cookies oder anderer Sitzungsinformationen an den Angreifer, das Weiterleiten des Opfers zu einer vom Angreifer kontrollierten Webseite oder das Ausführen anderer schädlicher Operationen auf dem Rechner des Benutzers unter dem Deckmantel der verwundbaren Site.
 
-XSS-Angriffe können in drei Kategorien unterteilt werden: gespeichert (auch persistent genannt), reflektiert (auch nicht-persistent genannt) oder DOM-basiert.
+XSS-Angriffe können in drei Kategorien eingeteilt werden: gespeichert (auch persistent genannt), reflektiert (auch nicht permanent genannt) oder DOM-basiert.
 
 - Gespeicherte XSS-Angriffe
-  - : Das injizierte Skript wird dauerhaft auf den Zielservern gespeichert. Das Opfer ruft dieses bösartige Skript dann vom Server ab, wenn der Browser eine Anfrage nach Daten sendet.
+  - : Das eingespritzte Skript wird dauerhaft auf den Zielservern gespeichert. Das Opfer ruft dann dieses schädliche Skript vom Server ab, wenn der Browser eine Datenanfrage sendet.
 - Reflektierte XSS-Angriffe
-  - : Wenn ein Benutzer dazu verleitet wird, auf einen bösartigen Link zu klicken, ein speziell gestaltetes Formular abzuschicken oder eine bösartige Webseite zu besuchen, wird der injizierte Code an die verwundbare Webseite gesendet. Der Webserver spiegelt das injizierte Skript an den Browser des Benutzers zurück, beispielsweise in einer Fehlermeldung, einem Suchergebnis oder einer anderen Antwort, die die als Teil der Anfrage an den Server gesendeten Daten enthält. Der Browser führt den Code aus, da er annimmt, dass die Antwort von einem "vertrauenswürdigen" Server stammt, mit dem der Benutzer bereits interagiert hat.
+  - : Wenn ein Benutzer dazu verleitet wird, auf einen schädlichen Link zu klicken, ein speziell gestaltetes Formular abzusenden oder eine schädliche Website zu besuchen, gelangt der eingespritzte Code zur anfälligen Website. Der Webserver reflektiert das eingespritzte Skript zurück an den Browser des Benutzers, etwa in einer Fehlermeldung, einem Suchergebnis oder einer anderen Antwort, die Daten enthält, die als Teil der Anfrage an den Server gesendet wurden. Der Browser führt den Code aus, da er annimmt, dass die Antwort von einem "vertrauenswürdigen" Server stammt, mit dem der Benutzer bereits interagiert hat.
 - DOM-basierte XSS-Angriffe
-  - : Der Payload wird als Ergebnis der Änderung der DOM-Umgebung (im Browser des Opfers) ausgeführt, die vom ursprünglichen clientseitigen Skript verwendet wird. Das heißt, die Seite selbst ändert sich nicht, aber der in der Seite enthaltene clientseitige Code wird aufgrund der bösartigen Änderungen an der DOM-Umgebung auf unerwartete Weise ausgeführt.
+  - : Die Nutzlast wird als Ergebnis der Modifizierung der DOM-Umgebung (im Browser des Opfers) ausgeführt, die vom ursprünglichen clientseitigen Skript verwendet wird. Das bedeutet, dass sich die Seite selbst nicht ändert, aber der clientseitige Code, der in der Seite enthalten ist, aufgrund der schädlichen Änderungen an der DOM-Umgebung unerwartet ausgeführt wird.
 
 ## Cross-Site-Request-Forgery (CSRF)
 
-CSRF (manchmal auch XSRF genannt) ist eine verwandte Klasse von Angriffen. Der Angreifer veranlasst den Browser des Benutzers, eine Anfrage an das Backend der Website zu senden, ohne dass der Benutzer zustimmt oder davon Kenntnis hat. Ein Angreifer kann eine XSS-Nutzlast verwenden, um einen CSRF-Angriff auszuführen.
+CSRF (manchmal auch XSRF genannt) ist eine verwandte Klasse von Angriffen. Der Angreifer veranlasst den Browser des Benutzers, ohne dessen Zustimmung oder Wissen eine Anfrage an das Backend der Website zu senden. Ein Angreifer kann eine XSS-Nutzlast verwenden, um einen CSRF-Angriff zu starten.
 
-Wikipedia nennt ein gutes Beispiel für CSRF. In dieser Situation fügt jemand ein Bild ein, das kein echtes Bild ist (zum Beispiel in einem ungefilterten Chat oder Forum), sondern tatsächlich eine Anfrage an den Server Ihrer Bank ist, um Geld abzuheben:
+Wikipedia nennt ein gutes Beispiel für CSRF. In dieser Situation fügt jemand ein Bild ein, das eigentlich kein Bild ist (zum Beispiel in einem ungefilterten Chat oder Forum), sondern tatsächlich eine Anfrage an den Server Ihrer Bank zum Abheben von Geld ist:
 
 ```html
 <img
   src="https://bank.example.com/withdraw?account=bob&amount=1000000&for=mallory" />
 ```
 
-Nun, wenn Sie in Ihrem Bankkonto angemeldet sind und Ihre Cookies noch gültig sind (und es keine weitere Validierung gibt), werden Sie Geld überweisen, sobald Sie das HTML laden, das dieses Bild enthält. Für Endpunkte, die eine POST-Anfrage erfordern, ist es möglich, programmatisch ein `<form>`-Übermittlung auszulösen (vielleicht in einem unsichtbaren `<iframe>`), wenn die Seite geladen wird:
+Wenn Sie nun in Ihr Bankkonto eingeloggt sind und Ihre Cookies noch gültig sind (und keine andere Validierung erfolgt), überweisen Sie Geld, sobald Sie das HTML laden, das dieses Bild enthält. Für Endpunkte, die eine POST-Anfrage erfordern, ist es möglich, programmgesteuert einen \<form>-Submit auszulösen (vielleicht in einem unsichtbaren `<iframe>`), wenn die Seite geladen wird:
 
 ```html
 <form action="https://bank.example.com/withdraw" method="POST">
@@ -58,40 +58,40 @@ Nun, wenn Sie in Ihrem Bankkonto angemeldet sind und Ihre Cookies noch gültig s
 </script>
 ```
 
-Es gibt einige Techniken, die verwendet werden sollten, um dies zu verhindern:
+Es gibt einige Techniken, die eingesetzt werden sollten, um dies zu verhindern:
 
-- GET-Endpunkte sollten idempotent sein – Aktionen, die eine Änderung bewirken und keine Daten abrufen, sollten erfordern, dass eine POST- (oder andere HTTP-Methode) Anfrage gesendet wird. POST-Endpunkte sollten nicht austauschbar GET-Anfragen mit Parametern in der Abfragezeichenfolge akzeptieren.
-- Ein sitzungs-einzigartiger CSRF-Token sollte vom Server an den Browser bereitgestellt werden. Dieser Token kann dann immer dann eingeschlossen werden, wenn ein Formular vom Browser gesendet wird (in einem versteckten Eingabefeld im `<form>`-Element). Bei allen Nicht-GET-Anfragen, die potenziell eine Aktion ausführen können, vergleicht der Server den gesendeten Token mit seinem gespeicherten Wert für die Sitzung. Wenn es eine Abweichung gibt, wird die Anfrage abgebrochen.
-- Diese Schutzmethode beruht darauf, dass ein Angreifer den dem Benutzer zugewiesenen CSRF-Token nicht vorhersagen kann. Der Token sollte bei der Anmeldung neu generiert werden.
-- Cookies, die für sensible Aktionen verwendet werden (wie Sitzungscookies), sollten eine kurze Lebensdauer mit dem [`SameSite`-Attribut](/de/docs/Web/HTTP/Cookies#controlling_third-party_cookies_with_samesite) haben, das auf `Strict` oder `Lax` gesetzt ist. In unterstützenden Browsern stellt dies sicher, dass das Sitzungscookie nicht mit standortübergreifenden Anfragen gesendet wird und dass die Anfrage für den Anwendungsserver effektiv nicht authentifiziert ist.
-- Sowohl CSRF-Token als auch `SameSite`-Cookies sollten eingesetzt werden. Dies stellt sicher, dass alle Browser geschützt sind und bietet Schutz, wo `SameSite`-Cookies nicht helfen können (wie Angriffe von einer separaten Subdomain).
+- GET-Endpunkte sollten idempotent sein—Aktionen, die eine Änderung bewirken und keine Daten abrufen, sollten das Senden einer POST- (oder einer anderen HTTP-Methode-)Anfrage erfordern. POST-Endpunkte sollten nicht austauschbar GET-Anfragen mit Parametern im Query-String akzeptieren.
+- Ein sitzungs-eindeutiges CSRF-Token sollte vom Server an den Browser bereitgestellt werden. Dieses Token kann dann immer dann eingefügt werden, wenn ein Formular vom Browser gesendet wird (in einem versteckten Eingabefeld im `<form>`-Element). Für alle nicht-GET-Anfragen, die das Potenzial haben, eine Aktion auszuführen, vergleicht der Server das gesendete Token mit dem gespeicherten Wert für die Sitzung. Wenn es eine Diskrepanz gibt, wird die Anfrage abgebrochen.
+- Diese Methode des Schutzes beruht darauf, dass ein Angreifer das dem Benutzer zugewiesene CSRF-Token nicht vorhersagen kann. Das Token sollte bei der Anmeldung neu generiert werden.
+- Cookies, die für sensible Aktionen verwendet werden (wie Sitzungscookies), sollten eine kurze Lebensdauer mit dem [`SameSite`-Attribut](/de/docs/Web/HTTP/Guides/Cookies#controlling_third-party_cookies_with_samesite) haben, das auf `Strict` oder `Lax` gesetzt ist. In unterstützenden Browsern wird dies sicherstellen, dass das Sitzungscookie nicht mit standortübergreifenden Anfragen gesendet wird und die Anfrage effektiv nicht authentifiziert beim Anwendungsserver ist.
+- Sowohl CSRF-Tokens als auch `SameSite`-Cookies sollten eingesetzt werden. Dies stellt sicher, dass alle Browser geschützt sind und bietet Schutz in Situationen, in denen `SameSite`-Cookies nicht helfen können (wie bei Angriffen von einem separaten Subdomain).
 
-Weitere Präventionstipps finden Sie im OWASP CSRF-Präventionsleitfaden.
+Weitere Tipps zur Prävention finden Sie im OWASP CSRF Prevention Cheat Sheet.
 
-## Man-in-the-middle (MitM)
+## Man-in-the-Middle (MitM)
 
-Eine dritte Partei fängt den Datenverkehr zwischen einem Webserver und einem Client (Browser) ab und gibt vor, der Webserver zu sein, um Daten (wie Anmeldedaten oder Kreditkarteninformationen) zu erfassen. Der Datenverkehr wird durchgeleitet, möglicherweise mit Änderungen. Offene WLAN-Netzwerke sind typische Mittel zur Ausführung dieses Angriffs.
+Eine dritte Partei fängt den Datenverkehr zwischen einem Webserver und einem Client (Browser) ab und gibt sich als Webserver aus, um Daten (wie Login-Daten oder Kreditkarteninformationen) zu erfassen. Der Datenverkehr wird möglicherweise mit Änderungen weitergeleitet. Offene WLAN-Netzwerke sind typische Mittel zur Durchführung dieses Angriffs.
 
-## Sitzungs-Hijacking
+## Session Hijacking
 
-Sitzungs-Hijacking besteht darin, Zugriff auf die authentifizierte Sitzung eines Benutzers zu erlangen und diese zu missbrauchen. Dies kann durch Stehlen eines Cookies für eine bestehende Sitzung geschehen oder indem der Benutzer (oder sein Browser) dazu gebracht wird, ein Cookie mit einer vorherbestimmten Sitzungs-ID zu setzen.
+Session Hijacking besteht darin, Zugriff auf die authentifizierte Sitzung eines Benutzers zu erlangen und sie zu missbrauchen. Dies kann geschehen, indem ein Cookie für eine bestehende Sitzung gestohlen wird oder indem der Benutzer (oder sein Browser) dazu gebracht wird, ein Cookie mit einer vorher festgelegten Sitzungs-ID zu setzen.
 
-Die Möglichkeiten der Exfiltration können durch den Einsatz einer strengen Content-Security-Policy eingeschränkt werden.
+Exfiltrationswege können durch den Einsatz einer strikten Content-Security-Policy eingeschränkt werden.
 
-### Sitzungs-Fixierung
+### Session Fixation
 
-Eine dritte Partei kann den Sitzungsbezeichner eines Benutzers (d.h. durch das Lesen oder Setzen) bestimmen und daher mit dem Server als dieser Benutzer interagieren. Das Stehlen von Cookies ist eine Möglichkeit, dies zu tun.
+Eine dritte Partei kann die Sitzungskennung eines Benutzers bestimmen (d.h. durch Lesen oder Setzen) und daher mit dem Server als dieser Benutzer interagieren. Cookies zu stehlen, ist eine Möglichkeit, dies zu tun.
 
-Denken Sie daran, dass eine Subdomain wie application.example.com ein Cookie setzen kann, das mit Anfragen an example.com oder andere Subdomains gesendet wird, indem das `Domain`-Attribut festgelegt wird:
+Erinnern Sie sich daran, dass eine Subdomain wie application.example.com ein Cookie setzen kann, das mit Anfragen an example.com oder andere Subdomains gesendet wird, indem das `Domain`-Attribut gesetzt wird:
 
 ```http
 Set-Cookie: CSRF=e8b667; Secure; Domain=example.com
 ```
 
-Wenn eine anfällige Anwendung auf einer Subdomain verfügbar ist, kann dieser Mechanismus in einem Sitzungs-Fixierungsangriff missbraucht werden. Wenn der Benutzer eine Seite auf der Elterndomain (oder einer anderen Subdomain) besucht, kann die Anwendung den vorhandenen Wert im Cookie des Benutzers vertrauen. Dies könnte einem Angreifer erlauben, den CSRF-Schutz zu umgehen oder eine Sitzung zu kapern, nachdem der Benutzer sich angemeldet hat. Alternativ, wenn die Elterndomain kein {{Glossary("HSTS", "HTTP Strict-Transport-Security")}} mit `includeSubdomains` gesetzt verwendet, könnte ein Benutzer, der einem aktiven MitM (vielleicht verbunden mit einem offenen WLAN-Netzwerk) unterliegt, eine Antwort mit einem Set-Cookie-Header von einer nicht vorhandenen Subdomain erhalten. Das Endergebnis wäre ähnlich, mit dem Browser, der das illegitime Cookie speichert und es an alle anderen Seiten unter example.com sendet.
+Wenn eine verwundbare Anwendung auf einer Subdomain verfügbar ist, kann dieser Mechanismus bei einem Session Fixation-Angriff missbraucht werden. Wenn der Benutzer eine Seite auf der übergeordneten Domain (oder einer anderen Subdomain) besucht, kann die Anwendung den bestehenden Wert im Cookie des Benutzers vertrauen. Dies könnte einem Angreifer ermöglichen, CSRF-Schutz zu umgehen oder eine Sitzung zu kapern, nachdem der Benutzer sich anmeldet. Alternativ, wenn die übergeordnete Domain {{Glossary("HSTS", "HTTP Strict-Transport-Security")}} nicht verwendet und `includeSubdomains` gesetzt ist, könnte ein Benutzer, der einem aktiven MitM unterliegt (möglicherweise verbunden mit einem offenen WLAN-Netzwerk), eine Antwort mit einem Set-Cookie-Header von einer nicht existierenden Subdomain erhalten. Das Endergebnis wäre dasselbe, wobei der Browser das illegitime Cookie speichert und es an alle anderen Seiten unter example.com sendet.
 
-Sitzungs-Fixierung sollte hauptsächlich dadurch gemildert werden, dass die Werte der Sitzungscookies neu generiert werden, wenn der Benutzer authentifiziert wird (auch wenn ein Cookie bereits existiert) und indem ein CSRF-Token an den Benutzer gebunden wird.
+Session Fixation sollte in erster Linie durch Neugenerieren von Session-Cookie-Werten bei der Authentifizierung des Benutzers (selbst wenn bereits ein Cookie existiert) und durch das Verknüpfen eines CSRF-Tokens mit dem Benutzer verhindert werden.
 
-### Sitzung-Sidejacking
+### Session Side-Jacking
 
-### Browser-Hijacking-Malware
+### Browser Hijacking Malware

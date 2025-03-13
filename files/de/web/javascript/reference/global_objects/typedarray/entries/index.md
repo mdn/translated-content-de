@@ -2,14 +2,14 @@
 title: TypedArray.prototype.entries()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/entries
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`entries()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt ein neues _[Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Schlüssel-/Wert-Paare für jeden Index im typed array enthält. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.entries()")}}.
+Die **`entries()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das die Schlüssel/Werte-Paare für jeden Index im typisierten Array enthält. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.entries()")}}.
 
-{{InteractiveExample("JavaScript Demo: TypedArray.entries()")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.entries()")}}
 
 ```js interactive-example
 const uint8 = new Uint8Array([10, 20, 30, 40, 50]);
@@ -34,15 +34,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues [iterierbares Iteratorobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator).
+Ein neues [iterierendes Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator).
 
 ## Beschreibung
 
-Weitere Details finden Sie unter {{jsxref("Array.prototype.entries()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen von typed arrays aufgerufen werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.entries()")}}. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Iteration mit der for...of-Schleife
+### Iteration mit der for...of Schleife
 
 ```js
 const array = new Uint8Array([10, 20, 30, 40, 50]);
@@ -75,8 +75,8 @@ console.log(arrayEntries.next().value); // [4, 50]
 
 ## Siehe auch
 
-- [Polyfill der `TypedArray.prototype.entries` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-typed arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)-Leitfaden
+- [Polyfill von `TypedArray.prototype.entries` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.keys()")}}
 - {{jsxref("TypedArray.prototype.values()")}}

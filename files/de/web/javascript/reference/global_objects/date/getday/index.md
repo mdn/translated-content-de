@@ -2,14 +2,14 @@
 title: Date.prototype.getDay()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getDay
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die Methode **`getDay()`** von {{jsxref("Date")}}-Instanzen gibt den Wochentag für dieses Datum gemäß der lokalen Zeit zurück, wobei 0 für Sonntag steht. Für den Tag des Monats siehe {{jsxref("Date.prototype.getDate()")}}.
+Die **`getDay()`** Methode von {{jsxref("Date")}} Instanzen gibt den Wochentag für dieses Datum zurück, basierend auf der lokalen Zeit, wobei 0 für Sonntag steht. Für den Tag des Monats siehe {{jsxref("Date.prototype.getDate()")}}.
 
-{{InteractiveExample("JavaScript Demo: Date.getDay()", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.getDay()", "shorter")}}
 
 ```js interactive-example
 const birthday = new Date("August 19, 1975 23:15:30");
@@ -36,7 +36,7 @@ Eine ganze Zahl zwischen 0 und 6, die den Wochentag für das angegebene Datum ge
 
 ## Beschreibung
 
-Der Rückgabewert von `getDay()` ist nullbasiert, was nützlich ist, um beispielsweise auf Arrays von Wochentagen zuzugreifen:
+Der Rückgabewert von `getDay()` ist nullbasiert, was nützlich für das Indizieren von Arrays mit Tagen ist, zum Beispiel:
 
 ```js
 const valentines = new Date("1995-02-14");
@@ -46,7 +46,7 @@ const dayNames = ["Sunday", "Monday", "Tuesday" /* , … */];
 console.log(dayNames[day]); // "Monday"
 ```
 
-Für Internationalisierungszwecke sollten Sie jedoch bevorzugt {{jsxref("Intl.DateTimeFormat")}} mit dem Parameter `options` verwenden.
+Allerdings sollten Sie für Internationalisierungszwecke stattdessen {{jsxref("Intl.DateTimeFormat")}} mit dem `options`-Parameter bevorzugen.
 
 ```js
 const options = { weekday: "long" };
@@ -60,7 +60,7 @@ console.log(new Intl.DateTimeFormat("de-DE", options).format(valentines));
 
 ### Verwendung von getDay()
 
-Die Variable `weekday` hat den Wert `1`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`, da der 25. Dezember 1995 ein Montag ist.
+Die Variable `weekday` hat den Wert `1`, basierend auf dem Wert des {{jsxref("Date")}} Objekts `xmas95`, da der 25. Dezember 1995 ein Montag ist.
 
 ```js
 const xmas95 = new Date("1995-12-25T23:15:30");

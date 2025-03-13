@@ -1,224 +1,224 @@
 ---
-title: Datenschutz im Internet
+title: Datenschutz im Web
 slug: Web/Privacy
 l10n:
-  sourceCommit: 775df1c62a1cbe555c4374ff9122d4ef15bd6f60
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
-Menschen nutzen Websites für verschiedene wichtige Aufgaben wie Banking, Shopping, Unterhaltung und Steuerzahlungen. Dabei sind sie gezwungen, persönliche Informationen mit diesen Seiten zu teilen. Nutzer setzen ein gewisses Maß an Vertrauen in die Seiten, mit denen sie ihre Daten teilen. Wenn diese Informationen in die falschen Hände geraten, könnten sie genutzt werden, um Nutzer auszunutzen, beispielsweise durch Profiling, das gezielte Schalten unerwünschter Werbung oder sogar durch Identitäts- oder Geldraub.
+Menschen nutzen Websites für mehrere wichtige Aufgaben wie Bankgeschäfte, Einkäufe, Unterhaltung und das Bezahlen ihrer Steuern. Dabei sind sie verpflichtet, persönliche Informationen mit diesen Seiten zu teilen. Nutzer setzen ein gewisses Maß an Vertrauen in die Seiten, mit denen sie ihre Daten teilen. Wenn diese Informationen in die falschen Hände geraten würden, könnten sie ausgenutzt werden, beispielsweise durch Profilbildung, das Schalten unerwünschter Werbung oder sogar Identitäts- oder Gelddiebstahl.
 
-Moderne Browser verfügen bereits über zahlreiche Funktionen zum Schutz der Privatsphäre der Nutzer im Internet, aber das allein reicht nicht aus. Um eine vertrauensvolle und datenschutzfreundliche Erfahrung zu schaffen, müssen Entwickler ihre Seitenbenutzer über gute Praktiken aufklären (und diese durchsetzen). Entwickler sollten auch Websites erstellen, die so wenig Daten wie möglich von Nutzern sammeln, diese verantwortungsvoll nutzen und sicher transportieren und speichern.
+Moderne Browser bieten bereits eine Fülle von Funktionen, um die Privatsphäre der Nutzer im Web zu schützen, aber das allein reicht nicht aus. Um ein vertrauenswürdiges und datenschutzfreundliches Erlebnis zu schaffen, müssen Entwickler ihre Nutzer in guten Praktiken schulen (und diese durchsetzen). Entwickler sollten auch Webseiten erstellen, die so wenig Daten wie möglich von Nutzern sammeln, diese verantwortungsvoll nutzen und sie sicher übertragen und speichern.
 
 In diesem Artikel:
 
 - Definieren wir Datenschutz und wichtige verwandte Begriffe.
-- Untersuchen wir Browserfunktionen, die automatisch den Datenschutz der Benutzer schützen.
-- Schauen wir uns an, was Entwickler tun können, um datenschutzfreundliche Webinhalte zu erstellen, die das Risiko minimieren, dass persönliche Informationen/Daten von Benutzern unerwartet von Dritten erlangt werden.
+- Untersuchen wir Browserfunktionen, die automatisch den Datenschutz der Nutzer schützen.
+- Schauen wir uns an, was Entwickler tun können, um datenschutzfreundliche Webinhalte zu erstellen, die das Risiko minimieren, dass persönliche Informationen/Daten der Nutzer unerwartet von Dritten erfasst werden.
 
-## Definition von Datenschutzbegriffen und -konzepten
+## Definition von Datenschutzbegriffen und Konzepten
 
-Bevor wir uns mit den verschiedenen Datenschutz- und Sicherheitsfunktionen befassen, die im Internet verfügbar sind, lassen Sie uns einige wichtige Begriffe definieren.
+Bevor wir uns die verschiedenen Datenschutz- und Sicherheitsfunktionen anschauen, die im Web verwendet werden, definieren wir einige wichtige Begriffe.
 
 ### Datenschutz und seine Beziehung zur Sicherheit
 
-Es ist schwierig, über Datenschutz zu sprechen, ohne auch über Sicherheit zu sprechen – sie sind eng miteinander verbunden, und man kann wirklich keine datenschutzfreundlichen Websites erstellen, ohne gute Sicherheit zu haben. Deshalb werden wir beide definieren.
+Es ist schwer, über Datenschutz zu sprechen, ohne auch über Sicherheit zu sprechen — sie sind eng miteinander verbunden, und Sie können wirklich keine datenschutzfreundlichen Websites erstellen, ohne gute Sicherheit. Daher werden wir beide definieren.
 
-- **Datenschutz** bezieht sich auf das Recht der Nutzer, darüber zu kontrollieren, wie ihre Daten gesammelt, gespeichert und verwendet werden, und diese nicht unverantwortlich zu nutzen. Beispielsweise sollten Sie Ihren Nutzern klar kommunizieren, welche Daten Sie sammeln, mit wem sie geteilt werden und wie sie verwendet werden. Die Nutzer müssen die Möglichkeit haben, Ihren Nutzungsbedingungen für Daten zuzustimmen, Zugriff auf alle von Ihnen gespeicherten Daten zu haben und diese zu löschen, wenn sie nicht mehr wünschen, dass Sie sie haben. Sie müssen auch Ihre eigenen Bedingungen einhalten: Nichts unterminiert das Vertrauen der Nutzer so sehr wie eine Verwendung und Weitergabe ihrer Daten in einer Weise, der sie nie zugestimmt haben. Und das ist nicht nur ethisch falsch; es könnte auch gesetzeswidrig sein. In vielen Teilen der Welt gibt es mittlerweile Gesetze, die die Datenschutzrechte der Verbraucher schützen (zum Beispiel die EU-[DSGVO](https://gdpr.eu/)).
+- **Datenschutz** bedeutet, den Nutzern das Recht zu geben, zu kontrollieren, wie ihre Daten gesammelt, gespeichert und verwendet werden, und diese nicht verantwortungslos zu nutzen. Zum Beispiel sollten Sie Ihren Nutzern klar mitteilen, welche Daten Sie sammeln, mit wem sie geteilt werden und wie sie verwendet werden. Die Nutzer müssen die Möglichkeit haben, Ihren Nutzungsbedingungen für Daten zuzustimmen, Zugriff auf alle ihre von Ihnen gespeicherten Daten zu haben und diese zu löschen, wenn sie nicht mehr wünschen, dass Sie sie besitzen. Sie müssen auch Ihre eigenen Bedingungen einhalten: Nichts untergräbt das Vertrauen der Nutzer mehr, als ihre Daten auf eine Weise zu verwenden und zu teilen, der sie nie zugestimmt haben. Und das ist nicht nur ethisch falsch; es könnte auch gegen das Gesetz verstoßen. In vielen Teilen der Welt gibt es jetzt Gesetze, die die Datenschutzrechte der Verbraucher schützen (zum Beispiel die EU-[DSGVO](https://gdpr.eu/)).
 
-- **Sicherheit** bedeutet, private Daten und Systeme vor unbefugtem Zugriff zu schützen. Dies umfasst sowohl Unternehmensdaten (intern) als auch Benutzer- und Partnerdaten (extern). Es nützt wenig, eine solide Datenschutzrichtlinie zu haben, die Vertrauen bei den Nutzern schafft, wenn die Sicherheit schwach ist und bösartige Parteien dennoch ihre Daten stehlen können.
+- **Sicherheit** ist der Akt, private Daten und Systeme vor unbefugtem Zugriff zu schützen. Dies umfasst sowohl Unternehmens-(interne) Daten als auch Nutzer- und Partner-(externe) Daten. Es nützt nichts, eine robuste Datenschutzrichtlinie zu haben, die Ihre Nutzer Ihnen vertrauen lässt, wenn Ihre Sicherheit schwach ist und böswillige Parteien dennoch ihre Daten stehlen können.
 
-### Persönliche und private Informationen
+### Personenbezogene und private Informationen
 
-**Persönliche Informationen** sind Informationen, die einen Nutzer beschreiben. Beispiele hierfür sind:
+**Personenbezogene Informationen** sind alle Informationen, die einen Benutzer beschreiben. Beispiele beinhalten:
 
 - Postadresse, E-Mail-Adresse, Telefonnummer oder andere Kontaktinformationen
-- Passnummer, Bankkonto, Kreditkarte, Sozialversicherungsnummer oder andere offizielle Kennungen
+- Reisepassnummer, Bankkonto, Kreditkarte, Sozialversicherungsnummer oder andere offizielle Identifikatoren
 - Physische Merkmale wie Größe, Geschlechtsausdruck, Gewicht, Haarfarbe oder Alter
 - Gesundheitsinformationen wie Krankengeschichte, Allergien oder laufende Erkrankungen
-- Benutzernamen, wenn sie auf eine Einzelperson zurückgeführt werden können
+- Benutzernamen, wenn sie mit einer Person in Verbindung gebracht werden können
 - Hobbys, Interessen oder andere persönliche Vorlieben
-- Biometrische Daten wie Fingerabdrücke oder Gesichtserkennungsdaten
+- Biometrische Daten wie Fingerabdrücke oder Gesichts­erkennungsdaten
 
-**Private Informationen** sind Informationen, die Benutzer nicht öffentlich teilen möchten und die privat bleiben müssen (d. h. Informationen, die nur für eine bestimmte Gruppe autorisierter Benutzer zugänglich sind). Einige private Daten sind gesetzlich privat (zum Beispiel medizinische Daten), und einige sind eher aus persönlichen Vorlieben privat.
+**Private Informationen** sind alle Informationen, die Nutzer nicht öffentlich teilen möchten und die privat bleiben müssen (d. h. Informationen, die nur einer bestimmten Gruppe autorisierter Nutzer zugänglich sind). Einige private Daten sind gesetzlich geschützt (zum Beispiel medizinische Daten), und andere sind eher aus persönlichen Vorlieben privat.
 
-### Personenbezogene identifizierbare Informationen
+### Persönlich identifizierbare Informationen
 
-Anschließend an den obigen Abschnitt sind **personenbezogene identifizierbare Informationen** (PII) Informationen, die ganz oder teilweise verwendet werden können, um eine bestimmte Person zu verfolgen und/oder zu identifizieren. Zum Beispiel könnte ein böswilliger Akteur fast sicher die vollständigen Adressen der Benutzer herausfinden, wenn eine Site eine Liste mit Benutzer- und Postleitzahlen im Internet veröffentlicht. Selbst wenn kein vollständiges Leck auftritt, ist es immer noch möglich, Benutzer durch weniger offensichtliche Mittel zu identifizieren, z. B. die verwendeten Browser, die verwendeten Geräte, die installierten spezifischen Schriften usw.
+In Anlehnung an den obigen Abschnitt sind **persönlich identifizierbare Informationen** (PII) Informationen, die ganz oder teilweise verwendet werden können, um eine bestimmte Person aufzufinden und/oder zu identifizieren. Zum Beispiel könnte ein Bösewicht, wenn eine Seite eine Liste von Benutzernamen und Postleitzahlen online preisgibt, fast sicher diese Informationen nutzen, um ihre vollständigen Adressen zu ermitteln. Selbst wenn es nicht zu einem umfassenden Datenleck kommt, ist es dennoch möglich, Benutzer auf weniger offensichtliche Weise zu identifizieren, wie z. B. die Browser, die sie verwenden, die Geräte, die sie verwenden, spezifische Schriftarten, die sie installiert haben, und so weiter.
 
 ### Tracking
 
-**Tracking** bezeichnet den Prozess der Aufzeichnung der Aktivitäten eines Benutzers über viele verschiedene Websites hinweg. Dies kann auf verschiedene Weise geschehen, beispielsweise:
+**Tracking** bezieht sich auf den Prozess der Aufzeichnung der Aktivitäten eines Benutzers über viele verschiedene Websites hinweg. Dies kann auf verschiedene Weise geschehen, zum Beispiel:
 
-- Durch das Betrachten mehrerer [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies), die auf verschiedenen Websites gesetzt werden, auf denen Drittanbieter-Inhalte eingebettet sind, um verschiedene Informationspunkte über den Benutzer herauszufinden.
-- Durch das Betrachten des {{httpheader("Referer")}}-Headers, um zu sehen, von welcher Seite ein Benutzer navigiert ist.
-- Durch das Einfügen von Parametern in die URLs von Eingangslinks (zum Beispiel in eingebetteten Anzeigen, die auf Produktseiten verlinken, oder in Marketing-E-Mails), die der verlinkten Site offenbaren können, woher der Link stammt, zu welcher Marketingkampagne er gehört, die E-Mail-Adresse oder andere Kennungen des Benutzers, der darauf geklickt hat, usw. Dieser Vorgang wird als **Link-Dekoration** bezeichnet und führt zu Link-URLs, die folgendermaßen aussehen: `https://example.com/article/?id=62yhgt1a&campaign=902`.
-- Redirect-Tracking, bei dem Tracker den Benutzer vorübergehend (und unmerklich) auf ihre Website umleiten, um sie als First-Party-Speicher zu verwenden, um den Benutzer über Websites hinweg zu verfolgen. Dies ermöglicht es den Trackern, die Blockierung von Drittanbieter-Cookies zu umgehen. Beispielsweise, wenn Sie eine Produktbewertung gelesen haben und darauf klicken möchten, um sie zu kaufen, könnten Sie unwissentlich zuerst zum Redirect-Tracker navigieren und _dann_ zum Einzelhändler. Dies bedeutet, dass der Tracker als First-Party geladen wird und Tracking-Daten mit den Identifikatoren verknüpfen kann, die sie in ihren First-Party-Cookies gespeichert haben, bevor Sie zum Einzelhändler weitergeleitet werden.
+- Betrachtung mehrerer [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies), die über verschiedene Seiten hinweg gesetzt werden, auf denen Drittanbieter-Inhalte eingebettet sind, um verschiedene Informationen über den Nutzer zu ermitteln.
+- Betrachtung des {{httpheader("Referer")}}-Headers, um zu sehen, von wo ein Nutzer navigiert ist.
+- Einschluss von Parametern in den URLs eingehender Links (z. B. in eingebetteten Anzeigen, die auf Produktseiten verlinken, oder Marketing-E-Mails), die der verlinkten Seite verraten können, woher der Link stammt, zu welcher Marketingkampagne er gehört, die E-Mail-Adresse oder einen anderen Identifier des Benutzers, der darauf geklickt hat, usw. Dieser Prozess wird als **Link-Dekoration** bezeichnet und führt zu Link-URLs, die so aussehen: `https://example.com/article/?id=62yhgt1a&campaign=902`.
+- Redirect-Tracking, das beinhaltet, dass Tracker den Nutzer kurzzeitig (und unmerklich) auf ihre Website umleiten, um Speicher in der Erstanbieter-Domain zu verwenden, um diesen Nutzer über Websites hinweg zu verfolgen. Dies ermöglicht es Trackern, das Blockieren von Drittanbieter-Cookies zu umgehen. Zum Beispiel, wenn Sie eine Produktbewertung gelesen haben und darauf klicken möchten, um es zu kaufen, navigieren Sie möglicherweise unwissentlich zuerst zum Redirect-Tracker und _dann_ zum Einzelhändler. Dies bedeutet, dass der Tracker als Erstanbieter geladen wird und Tracking-Daten mit den Identifikatoren, die sie in ihren Erstanbieter-Cookies gespeichert haben, in Verbindung bringen kann, bevor er Sie zum Einzelhändler weiterleitet.
 
-Tracking-Daten können verwendet werden, um ein Profil eines Benutzers und seiner Interessen und Vorlieben zu erstellen, was typischerweise schlecht ist und ärgerlich sein kann. Zum Beispiel:
+Tracking-Daten können verwendet werden, um ein Profil eines Nutzers zu erstellen und seine Interessen und Vorlieben zu bestimmen, was normalerweise schlecht ist und in verschiedenen Graden störend sein kann. Zum Beispiel:
 
-- **Gezielte Anzeigen**: Jeder hat die unheimliche Erfahrung gemacht, Produkte auf einem Gerät zu recherchieren und dann plötzlich auf allen anderen Geräten durch Anzeigen für die gleichen Produkte bombardiert zu werden.
-- **Verkaufen oder Teilen von Daten**: Einige Drittanbieter sind dafür bekannt, Tracking-Daten zu sammeln und sie dann zu verkaufen oder mit anderen zu teilen, um sie für verschiedene Zwecke wie gezielte Werbung zu verwenden. Dies ist offensichtlich hochgradig unethisch und möglicherweise auch illegal, abhängig davon, wo auf der Welt es passiert.
-- **Vorurteile durch Daten**: Im schlimmsten Fall könnte das Teilen von Daten dazu führen, dass der Benutzer unfair benachteiligt wird. Stellen Sie sich beispielsweise vor, dass eine Versicherungsgesellschaft Datenpunkte über einen potenziellen Kunden herausfindet, die dieser nicht bereit war, zu teilen, und diese als Rechtfertigung für die Erhöhung der Versicherungsprämien verwendet.
+- **Gezielte Werbung**: Jeder hat schon die unheimliche Erfahrung gemacht, nach einigen Artikeln auf einem Gerät zu suchen und dann plötzlich von Anzeigen für dieselben Produkte auf all ihren anderen Geräten überschwemmt zu werden.
+- **Verkauf oder Weitergabe von Daten**: Einige Drittparteien sind bekannt dafür, Tracking-Daten zu sammeln und sie dann an andere weiterzuverkaufen oder zu teilen, um sie für verschiedene Zwecke zu nutzen, wie gezielte Werbung. Dies ist offensichtlich hochgradig unethisch und kann auch illegal sein, je nachdem, wo in der Welt es passiert.
+- **Vorurteile durch Daten**: Im schlimmsten Fall könnte das Teilen von Daten dazu führen, dass der Nutzer unfair benachteiligt wird. Stellen Sie sich zum Beispiel vor, eine Versicherungsgesellschaft findet heraus, dass ein potenzieller Kunde bestimmte Datenpunkte hat, die er nicht zum Teilen zugestimmt hat, und verwendet sie als Begründung, um die Versicherungsprämien zu erhöhen.
 
 ### Fingerprinting
 
-Ein Vorgang, der eng mit Tracking verbunden ist, ist das **Fingerprinting**: Dies bezieht sich speziell auf das _Identifizieren_ von Benutzern, indem eine Vielzahl von Datenpunkten über sie gesammelt wird, die sie von anderen Benutzern differenzieren. Dies könnte alles Mögliche sein, von Cookie-Inhalten über den verwendeten Browser bis hin zu den lokal installierten Schriftarten.
+Ein Prozess, der dem Tracking sehr ähnlich ist, ist **Fingerprinting**: Dies bezieht sich speziell darauf, Nutzer zu _identifizieren_, indem eine Sammlung von Datenpunkten über sie erstellt wird, die sie von anderen Nutzern unterscheiden. Dies könnte alles sein, von den Inhalten von Cookies bis hin zu dem, welchen Browser sie verwenden und welche Schriftarten sie lokal installiert haben.
 
-Moderne Browser ergreifen Maßnahmen, um Fingerprinting-basierte Angriffe zu verhindern, indem sie entweder den Zugriff auf Informationen nicht zulassen oder, wo Informationen verfügbar sein müssen, Variationen oder "Rauschen" einführen, die verhindern, dass sie zu Identifikationszwecken verwendet werden können.
+Moderne Browser ergreifen Maßnahmen, um Fingerprinting-basierte Angriffe zu verhindern, indem sie entweder den Zugriff auf Informationen nicht zulassen oder, wo die Informationen verfügbar gemacht werden müssen, Variationen oder "Rauschen" einführen, das verhindert, dass sie zu Identifikationszwecken verwendet werden können.
 
-Wenn beispielsweise eine Website den Browser eines Benutzers nach der abgelaufenen Zeit abfragt, könnte ein Vergleich dieser Zeit mit der von der Server gemeldeten Zeit als Faktor beim Fingerprinting nützlich sein. Da dies der Fall ist, führen Browser normalerweise eine kleine Menge Variabilität in die Timer ein, um sie weniger nützlich zu machen, um das System des Benutzers zu identifizieren.
+Zum Beispiel, wenn eine Website den Browser eines Nutzers nach der verstrichenen Zeit abfragt, könnte ein Vergleich dieser Zeit mit der vom Server gemeldeten Zeit als Faktor für Fingerprinting nützlich sein. Daher führen Browser typischerweise eine kleine Menge Variabilität in Zeitmesser ein, um sie weniger nützlich für die Identifikation des Systems des Nutzers zu machen.
 
 > [!NOTE]
-> Siehe [Fingerprinting](https://web.dev/learn/privacy/fingerprinting/) auf web.dev für zusätzliche nützliche Informationen.
+> Siehe [Fingerprinting](https://web.dev/learn/privacy/fingerprinting/) auf web.dev für weitere nützliche Informationen.
 
-## Datenschutzfunktionen, die von Browsern bereitgestellt werden
+## Von Browsern bereitgestellte Datenschutzfunktionen
 
-Browseranbieter sind sich der Notwendigkeit bewusst, den Datenschutz der Benutzer zu schützen und der negativen Auswirkungen von Tracking, Fingerprinting usw. auf die Benutzererfahrung entgegenzuwirken. Zu diesem Zweck haben sie verschiedene Funktionen implementiert, die den Datenschutz verbessern und/oder Bedrohungen abschwächen. In diesem Abschnitt betrachten wir verschiedene Kategorien von Datenschutzmaßnahmen, die Browser automatisch anwenden.
+Browseranbieter sind sich der Notwendigkeit bewusst, die Privatsphäre der Nutzer zu schützen und der negativen Auswirkungen von Tracking, Fingerprinting usw. auf die Nutzererfahrung. Zu diesem Zweck haben sie verschiedene Funktionen implementiert, die den Datenschutz verbessern und/oder Bedrohungen mildern. In diesem Abschnitt betrachten wir verschiedene Kategorien von Datenschutzmaßnahmen, die Browser automatisch anwenden.
 
 ### HTTPS standardmäßig
 
-[Transport Layer Security (TLS)](/de/docs/Web/Security/Transport_Layer_Security) bietet Sicherheit und Datenschutz, indem es Daten während des Transports über das Netzwerk verschlüsselt, und ist die Technologie hinter dem {{Glossary("HTTPS", "HTTPS")}}-Protokoll. TLS ist gut für die Privatsphäre, da es verhindert, dass Dritte übertragene Daten abfangen und sie böswillig verwenden können, beispielsweise für das Tracking.
+[Transport Layer Security (TLS)](/de/docs/Web/Security/Transport_Layer_Security) bietet Sicherheit und Datenschutz, indem es Daten während des Transports über das Netzwerk verschlüsselt. Es ist die Technologie hinter dem {{Glossary("HTTPS", "HTTPS")}}-Protokoll. TLS ist gut für den Datenschutz, da es verhindert, dass Dritte übertragene Daten abfangen und bösartig verwenden können, zum Beispiel zum Tracking.
 
-Alle Browser bewegen sich in Richtung eines standardmäßigen Einsatzes von HTTPS; dies ist praktisch schon der Fall, da man im Internet nicht viel tun kann ohne dieses Protokoll.
+Alle Browser bewegen sich darauf zu, HTTPS standardmäßig zu verlangen; dies ist praktisch schon der Fall, da Sie im Web nicht viel ohne dieses Protokoll tun können.
 
 Verwandte Themen sind wie folgt:
 
 - [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency)
-  - : Ein offener Standard für die Überwachung und Prüfung von Zertifikaten, der eine Datenbank öffentlicher Protokolle erstellt, die verwendet werden kann, um falsche oder böswillige Zertifikate zu identifizieren.
-- [HTTP Strict Transport Security (HSTS)](/de/docs/Web/HTTP/Headers/Strict-Transport-Security)
-  - : HSTS wird von Servern verwendet, um sich vor Protokoll-Downgrade- und Cookie-Entführungsangriffen zu schützen, indem sie Websites ermöglichen, den Clients mitzuteilen, dass sie nur HTTPS verwenden können, um mit dem Server zu kommunizieren.
+  - : Ein offener Standard zur Überwachung und Prüfung von Zertifikaten, die eine Datenbank öffentlicher Protokolle erstellen, die helfen kann, falsche oder bösartige Zertifikate zu identifizieren.
+- [HTTP Strict Transport Security (HSTS)](/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security)
+  - : HSTS wird von Servern verwendet, um sich vor Protokoll-Abstufungen und Cookie-Entführungen zu schützen, indem Websites den Clients mitteilen, dass sie nur HTTPS zur Kommunikation mit dem Server verwenden können.
 - {{Glossary("HTTP_2", "HTTP/2")}}
-  - : Während HTTP/2 technisch gesehen nicht <em>verschlüsseln</em> muss, unterstützen die meisten Browserentwickler es nur, wenn es mit HTTPS verwendet wird; in dieser Hinsicht kann es als Funktion zur Erhöhung der Sicherheit/Privatsphäre betrachtet werden.
+  - : Obwohl HTTP/2 technisch keine **Verschlüsselung** verwenden muss, unterstützen die meisten Browserentwickler es nur, wenn HTTPS verwendet wird; in dieser Hinsicht kann es als Funktion zur Verbesserung der Sicherheit/des Datenschutzes angesehen werden.
 
-### Opt-in für "leistungsstarke Funktionen"
+### Opt-in für "starke Funktionen"
 
-Die sogenannten "leistungsstarken" Web-API-Funktionen, die Zugriff auf potenziell sensible Daten und Operationen bieten, sind nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verfügbar, was im Wesentlichen HTTPS-only bedeutet. Nicht nur das, sondern diese Web-Funktionen sind durch ein System von Benutzerberechtigungen abgesichert. Benutzer müssen explizit in Funktionen wie das Erlauben von Benachrichtigungen, das Abrufen von Geolokationsdaten, das Vollbildmodus-Schalten des Browsers, das Zugreifen auf Medienstreams von Webcams, die Verwendung von Webzahlungen, usw. einwilligen.
+Die sogenannten "starken" Web-API-Funktionen, die Zugriff auf potenziell sensible Daten und Operationen bieten, sind nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verfügbar, was im Grunde HTTPS-only bedeutet. Nicht nur das, diese Webfunktionen sind hinter einem System von Benutzerberechtigungen gesichert. Benutzer müssen ausdrücklich in Funktionen wie das Zulassen von Benachrichtigungen, das Zugreifen auf Geolocation-Daten, das Wechseln in den Vollbildmodus, den Zugriff auf Mediastreams von Webcams, die Verwendung von Webzahlungen usw. einwilligen.
 
 ### Anti-Tracking-Technologie
 
-Browser haben verschiedene Anti-Tracking-Funktionen implementiert, die die Benutzerdatenschutz automatisch verbessern. Viele davon blockieren oder beschränken die Möglichkeit von Drittanbieter-Sites, die in {{htmlelement("iframe")}}s eingebettet sind, auf Cookies zuzugreifen, die auf der obersten Domain gesetzt werden, Tracking-Skripte auszuführen usw.
+Browser haben mehrere Anti-Tracking-Funktionen implementiert, die automatisch den Datenschutz ihrer Benutzer verbessern. Viele dieser Funktionen blockieren oder beschränken die Möglichkeit eingebetteter Drittanbieterseiten in {{htmlelement("iframe")}}s, auf Cookies zuzugreifen, die auf der Top-Level-Domain gesetzt wurden, Tracking-Skripte auszuführen usw.
 
-- Der {{httpheader("Set-Cookie")}}-Header [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value) Attributswert wurde auf den Standardwert `Lax` aktualisiert, um einen besseren Schutz gegen Tracking- und {{Glossary("CSRF", "CSRF")}}-Angriffe zu bieten. Weitere Informationen finden Sie unter [Controlling third-party cookies with `SameSite`](/de/docs/Web/HTTP/Cookies#controlling_third-party_cookies_with_samesite).
-- Browser haben begonnen, Drittanbieter-Cookies standardmäßig zu blockieren. Weitere Details finden Sie unter [How do browsers handle third-party cookies?](/de/docs/Web/Privacy/Guides/Third-party_cookies#how_do_browsers_handle_third-party_cookies).
-- Browser implementieren Technologien, um es Drittanbieter-Cookies nur unter bestimmten Umständen zu erlauben, die die Privatsphäre nicht beeinträchtigen, oder um gängige Anwendungsfälle, die derzeit Drittanbieter-Cookies erfordern, auf alternative Weise zu implementieren. Weitere Informationen finden Sie unter [Transitioning from third-party cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies#transitioning_from_third-party_cookies) und [Replacing third-party cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies#replacing_third-party_cookies).
-- Mehrere Browser entfernen bekannte Tracking-Parameter aus URLs — dazu gehören Firefox, Safari und Brave. Browsererweiterungen helfen auch dabei, z.B. [ClearURLs](https://addons.mozilla.org/en-GB/firefox/addon/clearurls/).
-- Browser haben [Redirect-Tracking-Schutz](/de/docs/Web/Privacy/Guides/Redirect_tracking_protection) implementiert.
+- Der Standardwert des Attributs ['SameSite'](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) des {{httpheader("Set-Cookie")}} Headers wurde auf `Lax` aktualisiert, um besseren Schutz vor Tracking und {{Glossary("CSRF", "CSRF")}}-Angriffen zu bieten. Siehe [Controlling third-party cookies with `SameSite`](/de/docs/Web/HTTP/Guides/Cookies#controlling_third-party_cookies_with_samesite) für weitere Informationen.
+- Alle Browser beginnen, Drittanbieter-Cookies standardmäßig zu blockieren. Siehe [How do browsers handle third-party cookies?](/de/docs/Web/Privacy/Guides/Third-party_cookies#how_do_browsers_handle_third-party_cookies) für weitere Einzelheiten.
+- Browser implementieren Technologien, die Drittanbieter-Cookies nur in bestimmten Situationen zulassen, die den Datenschutz nicht beeinträchtigen, oder gängige Anwendungsfälle, die derzeit Drittanbieter-Cookies erfordern, auf alternative Weise umzusetzen. Siehe [Transitioning from third-party cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies#transitioning_from_third-party_cookies) und [Replacing third-party cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies#replacing_third-party_cookies).
+- Einige Browser entfernen bekannte Tracking-Parameter aus URLs — dazu gehören Firefox, Safari und Brave. Browsererweiterungen helfen auch dabei, zum Beispiel [ClearURLs](https://addons.mozilla.org/en-GB/firefox/addon/clearurls/).
+- Browser haben [redirect tracking protection](/de/docs/Web/Privacy/Guides/Redirect_tracking_protection) implementiert.
 
-## Datenschutzüberlegungen für Client-seitige Entwickler
+## Datenschutzüberlegungen für clientseitige Entwickler
 
-Es gibt verschiedene Maßnahmen, die Webentwickler ergreifen können und sollten, um den Datenschutz für ihre Nutzer zu verbessern. Die folgenden Abschnitte diskutieren die wichtigsten davon. Einige der Kategorien sind nicht rein technische Aufgaben und erfordern die Zusammenarbeit mit anderen Teammitgliedern.
+Es gibt mehrere Schritte, die Webentwickler unternehmen können und sollten, um den Datenschutz ihrer Benutzer zu verbessern. Die unten stehenden Abschnitte erläutern die wichtigsten davon. Einige der Kategorien sind nicht rein technische Aufgaben und beinhalten die Zusammenarbeit mit anderen Teammitgliedern.
 
-## Sammeln Sie Daten ethisch
+## Daten ethisch sammeln
 
-Unternehmen sammeln viele verschiedene Daten von ihren Nutzern aus verschiedenen Gründen:
+Unternehmen sammeln eine Vielzahl unterschiedlicher Daten von ihren Nutzern zu einer Vielzahl unterschiedlicher Zwecke:
 
 - Benutzernamen, Passwörter, E-Mails usw. für Authentifizierungszwecke.
 - E-Mails, Postadressen und Telefonnummern für die Kommunikation.
-- Alter, Geschlecht, geografische Lage, Lieblingsbeschäftigungen und eine Reihe anderer PII für alles, vom Webseitenanpassungen bis zu Kundenumfragen.
-- Browsing-Gewohnheiten auf ihren und anderen Websites, um den Erfolg von Seiten und Funktionen zu messen.
-- Und noch vieles mehr.
+- Alter, Geschlecht, geografischer Standort, Lieblingsbeschäftigungen und zahlreiche andere PII für alles von der Anpassung der Website an den Benutzer bis hin zu Umfragen zur Kundenzufriedenheit.
+- Surfgewohnheiten auf ihren und anderen Websites, um den Erfolg von Seiten und Funktionen zu messen.
+- Und vieles mehr.
 
-Wenn Sie Daten von Ihren Kunden sammeln, haben Sie die Möglichkeit, sich integer zu verhalten, ihnen zu zeigen, dass Sie vertrauenswürdig sind, und eine gute Beziehung zu ihnen aufzubauen, was wiederum Ihre Marke verbessert und Ihre Erfolgschancen erhöht.
+Beim Sammeln von Daten von Ihren Kunden haben Sie die Möglichkeit, integer zu handeln, ihnen zu zeigen, dass Sie vertrauenswürdig sind, und eine großartige Beziehung zu ihnen aufzubauen, was im Gegenzug Ihre Marke verbessert und Ihre Erfolgschancen erhöht.
 
-Die Ethik der Datenerhebung kann in drei einfache Prinzipien unterteilt werden:
+Die Ethik der Datensammlung lässt sich in drei einfache Prinzipien zerlegen:
 
-- Sammeln Sie nicht mehr Daten, als Sie benötigen
+- Sammeln Sie nicht mehr Daten, als Sie brauchen
 - Kommunizieren Sie klar, wie Sie die gesammelten Daten verwenden werden
 - Löschen Sie die Daten, sobald Sie sie nicht mehr benötigen
 
 > [!NOTE]
-> Die unten gegebenen Tipps sorgen für eine bessere, datenschutzbewusstere Benutzererfahrung, aber viele von ihnen sind gesetzlich vorgeschrieben, um die Vorschriften einzuhalten, z.B. die [DSGVO](https://gdpr.eu/) in der EU. Sie sollten sicherstellen, dass Sie herausfinden, welche Vorschriften an Ihrem Standort für Sie gelten und was Sie tun müssen, um diese einzuhalten.
+> Die unten gegebenen Tipps tragen zu einer besseren, datenschutzbewussteren Nutzererfahrung bei, aber viele davon sind gesetzlich vorgeschrieben, um den Vorschriften zu entsprechen, beispielsweise der [DSGVO](https://gdpr.eu/) in der EU. Sie sollten sicherstellen, dass Sie herausfinden, welche Vorschriften in Ihrem lokalen Gebiet für Sie gelten und was Sie tun müssen, um ihnen gerecht zu werden.
 
-### Sammeln Sie nicht mehr Daten, als Sie benötigen
+### Sammeln Sie nicht mehr Daten, als Sie brauchen
 
-Es ist verlockend, von Ihren Benutzern viele Daten zu verlangen, weil Sie glauben, dass sie in Zukunft nützlich sein könnten. Jeder zusätzliche Datensatz, den Sie sammeln, birgt jedoch ein Risiko für die Privatsphäre Ihrer Benutzer und erhöht die Wahrscheinlichkeit, dass sie den Schritt, den sie gerade durchführen (sei es das Ausfüllen einer Umfrage oder die Anmeldung für einen Dienst), abbrechen.
+Es ist verlockend, viele Daten von Ihren Nutzern zu erfragen, weil Sie denken, dass sie in Zukunft nützlich sein könnten. Allerdings erhöht jedes zusätzliche Bit an Daten, das Sie sammeln, das Risiko für die Privatsphäre Ihrer Nutzer und erhöht die Wahrscheinlichkeit, dass sie den Vorgang, den sie gerade ausführen (sei es das Ausfüllen einer Umfrage oder das Anmelden bei einem Dienst), abbrechen.
 
-Es ist gut, Daten zu anonymisieren. Sie sollten auch in Betracht ziehen, ob Sie das, was Sie benötigen, durch weniger granulare Datenanforderungen erreichen können. Ein Beispiel wäre, statt die Lieblingsprodukte eines Benutzers abzufragen, könnten Sie ihn zwischen allgemeinereren Kategorien auswählen lassen.
+Es ist gut, Daten zu anonymisieren. Überlegen Sie auch, ob Sie das, was Sie brauchen, durch weniger detaillierte Datenanforderungen erhalten können. Statt beispielsweise einen Nutzer nach seinen Lieblingsprodukten zu fragen, könnten Sie ihn auffordern, zwischen allgemeineren Kategorien zu wählen.
 
-Die beste Art, den Datenschutz der Benutzer zu schützen, besteht jedoch darin, die gesammelten Daten zu minimieren. Beziehen Sie sich auf das vorherige Beispiel, Sie könnten die gleichen Daten durch Betrachtung der Kaufhistorie des Benutzers ableiten. Ein weiteres Beispiel: Benutzer schätzen es, Produkte anonym kaufen zu können. Sie sollten sie nicht dazu zwingen, ein Konto zu erstellen; wenn es für den Betrieb des Dienstes nicht erforderlich ist, sollte es ihre Entscheidung sein.
+Der beste Weg, die Privatsphäre der Nutzer zu schützen, besteht jedoch darin, die Daten, die Sie sammeln, auf ein Minimum zu beschränken. Im vorherigen Beispiel könnten Sie dieselben Daten durch die Analyse von Kaufhistorien der Nutzer ableiten. Ein weiteres Beispiel: Nutzer schätzen es, Produkte anonym kaufen zu können. Sie sollten sie nicht zwingen, sich für ein Konto anzumelden; wenn es nicht notwendig ist, damit der Dienst funktioniert, sollte es ihre Wahl sein.
 
 ### Kommunizieren Sie klar, wie Sie die gesammelten Daten verwenden werden
 
-Sobald Sie entschieden haben, welche Daten Sie sammeln werden, sollten Sie eine Datenschutzrichtlinie auf Ihrer Website veröffentlichen, die klar angibt:
+Sobald Sie entschieden haben, welche Daten Sie sammeln werden, sollten Sie auf Ihrer Website eine Datenschutzrichtlinie veröffentlichen, die klar darlegt:
 
-- Welche Daten Sie sammeln
-- Auf welche Weise Sie die Daten verwenden
-- Mit welchen Parteien Sie die Daten eventuell teilen, und eine Erklärung, dass Sie Benutzer um ihre Zustimmung bitten werden, bevor Sie teilen
+- Die Daten, die Sie sammeln
+- Wie Sie die Daten verwenden werden
+- Parteien, mit denen Sie die Daten teilen, falls überhaupt, und eine Erklärung, dass Sie um Zustimmung der Nutzer bitten werden, bevor Sie die Daten teilen
 - Die Dauer, für die Sie die Daten aufbewahren, bevor sie gelöscht werden
-- Möglichkeiten, wie Benutzer die von Ihnen gesammelten Daten einsehen und löschen können, wenn sie es wünschen
+- Wie Nutzer die von Ihnen gesammelten Daten einsehen und löschen können, wenn sie möchten
 
-Ihre Benutzer sollten die Möglichkeit haben, Ihre Datenschutzerklärung zu lesen und zuzustimmen, wenn sie Ihnen Daten geben. Sie sollten kontrollieren können, ob sie damit einverstanden sind und Ihren Bedingungen zustimmen. Und wie oben angegeben, sollten sie auch sehen können, welche Daten Sie über sie gesammelt haben, und sie löschen können, wenn sie es wünschen.
+Wenn Sie Ihnen Daten zur Verfügung stellen, sollten Ihre Nutzer die Möglichkeit haben, Ihre Datenschutzerklärung zu lesen und ihr zuzustimmen. Sie sollten in der Lage sein zu kontrollieren, ob sie damit einverstanden sind und Ihren Bedingungen zustimmen. Und wie oben erwähnt, sollten sie auch ihre von Ihnen gesammelten Daten einsehen und löschen können, wenn sie das wollen.
 
-Nachdem Sie Ihre Datenschutzerklärung veröffentlicht haben, müssen Sie sicherstellen, dass Sie sie einhalten — das Einhalten Ihrer Ankündigungen ist sehr wichtig, um das Vertrauen der Benutzer zu stärken. Sie sollten nur die Daten sammeln, die Sie sagen, dass Sie sammeln, und sie nur für den Zweck verwenden, den Sie angegeben haben. Wenn jemand in Ihrem Unternehmen eine clevere neue Verwendung vorhandener Daten entwickelt, ist dies nach den Bedingungen Ihrer Politik immer noch nicht in Ordnung, wenn nicht angegeben ist, dass Sie sie für diesen Zweck verwenden. Wenn Benutzer der Nutzung ihrer Daten für einen bestimmten Zweck zugestimmt haben und dieser Zweck ausgeweitet wird, müssen Sie möglicherweise in Betracht ziehen, eine neue Zustimmung einzuholen.
+Wenn Sie Ihre Datenschutzrichtlinie veröffentlicht haben, müssen Sie sicherstellen, dass Sie dieser nachkommen — das Einhalten dessen, was Sie sagen, ist sehr wichtig, um das Vertrauen der Nutzer zu gewinnen. Sie sollten nur die Daten sammeln, die Sie angeben, und sie nur für die Zwecke verwenden, die Sie angegeben haben. Wenn jemand in Ihrem Unternehmen mit einer cleveren neuen Möglichkeit kommt, vorhandene Daten zu nutzen, ist dies immer noch nicht in Ordnung unter den Bedingungen Ihrer Richtlinie, wenn nicht festgelegt ist, dass Sie sie für diesen Zweck verwenden. Wenn die Nutzer der Verwendung ihrer Daten für einen bestimmten Zweck zugestimmt haben und sich dieser Zweck erweitert, müssen Sie möglicherweise in Erwägung ziehen, neue Zustimmung einzuholen.
 
 ### Löschen Sie die Daten, sobald Sie sie nicht mehr benötigen
 
-Früher haben wir erwähnt, dass den Benutzern eine Möglichkeit gegeben werden sollte, zu sehen, welche Daten Sie über sie gesammelt haben, und sie zu löschen, wenn sie es wünschen. Sie könnten dies möglicherweise im Rahmen derselben Erfahrung bieten, die sie zur Löschung ihres Kontos verwenden können (ihre Daten gehen damit einher), oder sie zu zwei separaten Optionen machen. In jedem Fall sollten die Optionen leicht zu finden sein.
+Früher erwähnten wir, dass Sie den Nutzern eine Möglichkeit geben sollten, zu sehen, welche Daten von ihnen Sie gesammelt haben und diese löschen, wenn sie möchten. Sie könnten dies möglicherweise als Teil desselben Prozesses anbieten, mit dem sie auch ihr Konto löschen können (ihre Daten verschwinden mit diesem), oder sie zu zwei separaten Optionen machen. In jedem Fall sollten die Optionen leicht zu finden sein.
 
-Dem Benutzer die Möglichkeit zu geben, wann ein erheblicher Teil seiner Daten gelöscht wird, ist sehr ermächtigend und stärkt das Vertrauen, aber es kann einige Daten geben, deren Löschung Sie selbst in die Hand nehmen möchten. Zum Beispiel könnten einige Daten nur für ein paar Stunden oder Minuten verwendet und dann gelöscht werden, wie Daten, die während der Verwaltung einer Benutzersitzung verwendet werden, während der Benutzer eingeloggt ist.
-
-> [!NOTE]
-> Der {{httpheader("Clear-Site-Data")}} HTTP-Response-Header ist sehr nützlich, um kurzlebige Benutzerdaten zu löschen — er weist den Browser an, seinen Cache und/oder Cookies und/oder Speicher (z. B. [Web Storage](/de/docs/Web/API/Web_Storage_API) oder [IndexedDB](/de/docs/Web/API/IndexedDB_API) Daten) zu löschen. Zum Beispiel könnten Sie Ihren Server beauftragen, ihn zusammen mit einer "Ausloggen-Bestätigungsseite" zu senden, damit die Daten des Benutzers sicher entfernt werden, sobald er sich ausgeloggt hat.
-
-## Reduzieren Sie das Tracking
-
-Früher haben wir das Tracking diskutiert und einige der unethischen Zwecke, für die es verwendet wird. Wir brauchen nicht zu erläutern, wie solche Verwendungszwecke das Vertrauen der Benutzer unterminieren können; wo immer möglich, sollten Sie potenzielle Tracking-Mechanismen wie [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) nur für ethische Anwendungen verwenden, wie z. B. zur Übertragung von Anmeldestatus oder anderen Personalisierungsstatus zwischen Seiten.
-
-Erinnern Sie sich auch daran, dass Browser alle beginnen, Drittanbieter-Cookies standardmäßig zu blockieren, während sie alternative Technologien implementieren, um gängige Anwendungsfälle zu erreichen. Es ist eine gute Idee, sich darauf vorzubereiten, indem Sie die Menge der Tracking-Aktivitäten begrenzen, auf die Sie angewiesen sind, und/oder gewünschte Datenpersistenz auf andere Weise implementieren. Weitere Informationen finden Sie unter [Transitioning from third-party cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies#transitioning_from_third-party_cookies).
-
-## Verwalten Sie Drittanbieter-Ressourcen sorgfältig
-
-Natürlich wäre es einfach, den Datenschutz zu verwalten, wenn Sie sich nur auf Ressourcen konzentrieren müssten, die Sie selbst erstellt haben (Code, Cookies, Websites usw.). Die eigentliche Herausforderung liegt darin, dass Ihre Website wahrscheinlich Drittanbieter-Ressourcen nutzen wird. Dazu gehören eingebettete Drittanbieter-Inhalte in `<iframe>`s, Bibliotheken, Frameworks, APIs, extern gehostete Ressourcen wie Bilder und Videos usw.
-
-Drittanbieter-Ressourcen sind ein wesentlicher Bestandteil der modernen Webentwicklung und bieten viel Leistung. Dennoch hat jede Drittanbieter-Ressource, die Sie in Ihre Site aufnehmen, potenziell die gleichen Berechtigungen wie Ihre eigenen Ressourcen; es hängt alles davon ab, wie sie in Ihre Site eingebunden sind:
-
-- JavaScript, das innerhalb von Drittanbieter-Inhalten ausgeführt wird, die über ein `<iframe>` in Ihre Site eingebettet sind, ist durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) getrennt, was bedeutet, dass es keinen Zugriff auf andere Skripte und Daten im übergeordneten Browsing-Kontext hätte.
-- Ein Drittanbieter-Skript jedoch, das direkt über ein {{htmlelement("script")}}-Element in Ihre Seite eingebunden ist, _würde_ auf Ihre anderen Skripte und Daten zugreifen können, unabhängig davon, ob es auf Ihrer Site oder einer anderen gehostet wurde. Es wäre effektiv First-Party-Code. Ein böswilliges Script auf diese Weise könnte heimlich die Daten Ihrer Benutzer stehlen, indem es sie beispielsweise an einen Drittanbieter-Server sendet.
-
-Es ist wichtig, alle Drittanbieter-Ressourcen, die Sie auf Ihrer Site verwenden, zu prüfen. Stellen Sie sicher, dass Sie wissen, welche Daten sie sammeln, welche Anfragen sie stellen und an wen, und welche Datenschutzrichtlinien sie haben. Ihre sorgfältig gestaltete Datenschutzrichtlinie ist nutzlos, wenn Sie ein Drittanbieter-Skript verwenden, das sie verletzt.
+Den Nutzern die Wahl zu lassen, wann signifikante Teile ihrer Daten gelöscht werden, ist sehr ermächtigend und baut Vertrauen auf, aber es kann einige Daten geben, deren Löschung Sie selbst verwalten möchten. Zum Beispiel könnten einige Daten nur für einige Stunden oder Minuten verwendet und dann gelöscht werden, wie Daten, die während der Verwaltung der Sitzung eines Nutzers verwendet werden, wenn er angemeldet ist.
 
 > [!NOTE]
-> Es gibt verschiedene Tools, die Ihnen ein Bild davon geben können, welche Anfragen eine Website stellt, zum Beispiel den [Request Map Generator](https://requestmap.webperf.tools/).
+> Der {{httpheader("Clear-Site-Data")}} HTTP-Response-Header ist sehr nützlich zum Löschen von kurzlebigen Benutzerdaten — er weist den Browser an, seinen Cache und/oder seine Cookies und/oder den Speicher (z. B. [Web Storage](/de/docs/Web/API/Web_Storage_API) oder [IndexedDB](/de/docs/Web/API/IndexedDB_API) Daten) zu leeren. Zum Beispiel könnten Sie Ihren Server dazu bringen, ihn zusammen mit einer Seite mit der Bestätigung "Abgemeldet" zu senden, so dass, sobald der Nutzer abgemeldet ist, seine Daten sicher entfernt werden.
 
-Sobald Sie Ihre Drittanbieter-Ressourcen geprüft haben und verstehen, was sie tun, sollten Sie deren Nachteile als Trade-off für den Wert betrachten, den sie bieten. Wenn ein Drittanbieter-Skript kostenlos und wirklich nützlich ist, aber viele Benutzerdaten sammelt, könnten Sie:
+## Reduzieren Sie Tracking
 
-1. Diese Abwägung akzeptieren, Ihre Datenschutzrichtlinie mit Details dazu aktualisieren und hoffen, dass dies das Vertrauen Ihrer Benutzer nicht zu sehr beeinträchtigt.
-2. Nach einem Alternativtool suchen, das weniger datenhungrig ist.
-3. Ihr eigenes Tool entwickeln.
+Früher sprachen wir über Tracking und einige der unethischen Zwecke, für die es verwendet wird. Wir müssen nicht ausbuchstabieren, wie solche Verwendungen das Vertrauen der Nutzer erodieren können; wann immer möglich sollten Sie potenzielle Tracking-Mechanismen wie [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) nur für ethische Verwendungen nutzen, wie die Übertragung des Anmeldestatus oder anderer Personalisierungsinformationen über Websites hinweg.
 
-Die folgende Liste bietet einige Tipps, wie Sie Risiken für die Privatsphäre, die mit der Verwendung von Drittanbieter-Ressourcen verbunden sind, mindern können:
+Erinnern Sie sich auch daran, dass alle Browser beginnen, Drittanbieter-Cookies standardmäßig zu blockieren, während alternative Technologien implementiert werden, um übliche Anwendungsfälle zu realisieren. Es ist eine gute Idee, sich darauf vorzubereiten, indem Sie die Menge an Tracking-Aktivitäten, von denen Sie abhängen, begrenzen und/oder die gewünschte Informationspersistenz auf andere Weise umsetzen. Siehe [Transitioning from third-party cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies#transitioning_from_third-party_cookies) für weitere Informationen.
 
-- Wenn Sie Drittanbieter-Ressourcen einbetten, prüfen Sie, ob es eine Möglichkeit gibt, denselben oder einen ähnlichen Effekt mit weniger Datenschutzbeeinträchtigung zu erzielen. Zum Beispiel könnte es Spaß machen, einen Social-Media-Post-Viewer auf Ihrer Website einzubetten, aber ist er wirklich notwendig? Wäre ein Link auf Ihre Social-Media-Seite nicht ausreichend? Auch haben einige Drittanbieter-Dienste datenschutzerhöhende Optionen. Siehe beispielsweise YouTubes [Embed videos & playlists > Turn on privacy-enhanced mode](https://support.google.com/youtube/answer/171780).
-- Wo möglich sollten Sie Drittparteien daran hindern, einen {{httpheader("Referer")}}-Header zu erhalten, wenn Sie Anfragen an sie stellen. Dies kann in einer ziemlich granularen Weise geschehen, beispielsweise indem [rel="noreferrer"](/de/docs/Web/HTML/Attributes/rel/noreferrer) auf externen Links hinzugefügt wird. Oder Sie könnten dies globaler für die Seite oder Website festlegen, zum Beispiel durch Verwendung des {{httpheader("Referrer-Policy")}}-Headers.
+## Verwalten Sie Drittanbieterressourcen sorgfältig
+
+Natürlich wäre es einfach, die Privatsphäre zu verwalten, wenn Sie sich nur um die von Ihnen erstellten Ressourcen kümmern müssten (Code, Cookies, Websites usw.). Die echte Herausforderung besteht darin, dass Ihre Seite wahrscheinlich Drittanbieter-Ressourcen verwenden wird. Dies kann Drittanbieter-Inhalte umfassen, die in `<iframe>`s eingebettet sind, Bibliotheken, Frameworks, APIs, extern gehostete Ressourcen wie Bilder und Videos usw.
+
+Drittanbieter-Ressourcen sind ein wesentlicher Bestandteil der modernen Webentwicklung und bieten viel Leistung. Allerdings hat jede Drittanbieter-Ressource, die Sie auf Ihrer Seite zulassen, potenziell dieselben Berechtigungen wie Ihre eigenen Ressourcen; es hängt alles davon ab, wie sie auf Ihrer Seite eingebunden ist:
+
+- JavaScript, das in Drittanbieter-Inhalten ausgeführt wird, die über ein `<iframe>` in Ihre Seite eingebettet sind, ist durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) getrennt, was bedeutet, dass es keinen Zugriff auf andere Skripte und Daten in dem übergeordneten Browsing-Kontext hat.
+- Ein Drittanbieter-Skript, das direkt auf Ihrer Seite über ein {{htmlelement("script")}} Element eingebunden wird, hätte jedoch Zugriff auf Ihre anderen Skripte und Daten, unabhängig davon, ob es auf Ihrer Seite oder einer anderen gehostet wird. Es wäre im Wesentlichen Erstanbieter-Code. Ein auf diese Weise eingebundenes bösartiges Skript könnte heimlich die Daten Ihrer Nutzer stehlen, indem es sie zum Beispiel an einen Drittanbieter-Server sendet.
+
+Es ist wichtig, alle Drittanbieter-Ressourcen, die Sie auf Ihrer Seite verwenden, zu überprüfen. Stellen Sie sicher, dass Sie wissen, welche Daten sie sammeln, welche Anfragen sie stellen und an wen, und welche Datenschutzrichtlinien sie verfolgen. Ihre sorgfältig gestaltete Datenschutzrichtlinie ist nutzlos, wenn Sie ein Drittanbieter-Skript verwenden, das gegen sie verstößt.
+
+> [!NOTE]
+> Es gibt verschiedene Tools, die Ihnen helfen können, ein Bild davon zu erstellen, welche Anfragen eine Seite stellt, zum Beispiel den [Request Map Generator](https://requestmap.webperf.tools/).
+
+Sobald Sie Ihre Drittanbieter-Ressourcen geprüft und verstanden haben, was sie tun, sollten Sie deren Nachteile im Vergleich zu den Vorteilen, die sie bieten, abwägen. Wenn ein Drittanbieter-Skript kostenlos und wirklich nützlich ist, aber ziemlich viele Nutzerdaten sammelt, könnten Sie:
+
+1. Dies akzeptieren, Ihre Datenschutzrichtlinie aktualisieren, um Details dazu aufzunehmen, und hoffen, dass es das Vertrauen Ihrer Nutzer nicht allzu sehr beeinträchtigt.
+2. Nach einer alternativen, weniger datenhungrigen Drittanbieterlösung suchen.
+3. Ihr eigenes Tool erstellen.
+
+Die folgende Liste gibt einige Tipps, wie Sie die Datenschutzrisiken, die mit der Verwendung von Drittanbieter-Ressourcen verbunden sind, mindern können:
+
+- Wenn Sie Drittanbieter-Ressourcen einbinden, überlegen Sie, ob es eine Möglichkeit gibt, denselben oder einen ähnlichen Effekt mit weniger Auswirkungen auf die Privatsphäre zu erzielen. Zum Beispiel könnte es Spaß machen, einen Social-Media-Post-Viewer in Ihre Seite eingebunden zu haben, aber ist das wirklich notwendig? Würde nicht ein Link zu Ihrer Social-Media-Seite ausreichen? Auch bieten einige Drittanbieter-Dienste datenschutzerhöhende Optionen. Siehe zum Beispiel die [Videos & Playlists einbetten > Datenschutzmodus aktivieren](https://support.google.com/youtube/answer/171780) von YouTube.
+- Wo möglich, sollten Sie verhindern, dass Drittanbieter beim Aufrufen ihrer Seite den {{httpheader("Referer")}} Header erhalten. Dies kann auf ziemlich granulare Weise durchgeführt werden, zum Beispiel indem Sie [rel="noreferrer"](/de/docs/Web/HTML/Attributes/rel/noreferrer) auf externen Links verwenden. Oder Sie setzen dies global für die Seite oder Website, indem Sie den {{httpheader("Referrer-Policy")}} Header verwenden.
 
   > [!NOTE]
-  > Siehe auch [Referer-Header: Datenschutz- und Sicherheitsbedenken](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns).
+  > Siehe auch [Referer header: privacy and security concerns](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns).
 
-- Verwenden Sie den {{httpheader("Permissions-Policy")}}-HTTP-Header, um den Zugriff auf "leistungsstarke Funktionen" der API zu kontrollieren (z. B. Benachrichtigungen, Geolokationsdaten, Zugriff auf Medienstreams von Webcams usw.). Dies kann nützlich für den Datenschutz sein, da es verhindert, dass Drittparteien unerwartete Dinge mit diesen Funktionen tun, und Benutzer möchten nicht unnötig mit Berechtigungsaufforderungen bombardiert werden, die sie möglicherweise nicht verstehen. Sie können auch die Nutzung von "leistungsstarken Funktionen" innerhalb von Drittparteien steuern, die in {{htmlelement("iframe")}}-Elemente eingebettet sind, indem Berechtigungsrichtlinien in einem `allow`-Attribut direkt auf dem `<iframe>` spezifiziert werden.
+- Verwenden Sie den {{httpheader("Permissions-Policy")}} HTTP-Header, um den Zugriff auf API-"starke Funktionen" (wie Benachrichtigungen, Geolocation-Daten, Zugriff auf Mediastreams von Webcams usw.) zu kontrollieren. Dies kann nützlich für den Datenschutz sein, da es Drittanbieter-Seiten daran hindert, unerwartete Dinge mit diesen Funktionen zu tun, und die Nutzer nicht unnötigerweise mit Berechtigungsaufforderungen bombardiert werden wollen, die sie möglicherweise nicht verstehen. Sie können die Nutzung von "starken Funktionen" innerhalb von Drittanbieter-Seiten, die in {{htmlelement("iframe")}} Elementen eingebettet sind, auch kontrollieren, indem Sie Berechtigungsrichtlinien in einem `allow` Attribut auf dem `<iframe>` selbst angeben.
 
   > [!NOTE]
-  > Siehe auch unseren [Permissions-Policy-Leitfaden](/de/docs/Web/HTTP/Permissions_Policy) für weitere Informationen und Beispiele sowie [permissionspolicy.com](https://www.permissionspolicy.com/) für nützliche Tools, einschließlich eines Policy-Generators.
+  > Siehe auch unseren [Leitfaden zur Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) für weitere Informationen und Beispiele, und [permissionspolicy.com](https://www.permissionspolicy.com/) für nützliche Tools einschließlich eines Policy-Generators.
 
-- Verwenden Sie das `sandbox`-Attribut des {{htmlelement("iframe")}}, um die Nutzung bestimmter Funktionen innerhalb des eingebetteten Inhalts im `<iframe>` zu erlauben oder zu verbieten — dies umfasst Dinge wie Downloads, Formularübermittlungen, Modale und Skripting.
+- Verwenden Sie das {{htmlelement("iframe")}} `sandbox` Attribut, um die Nutzung bestimmter Funktionen innerhalb der Inhalte, die im `<iframe>` eingebettet sind, zu erlauben oder zu verbieten — dazu gehören Dinge wie Downloads, Formularübermittlungen, Modale und Skripting.
 
 > [!NOTE]
-> Siehe [Third parties](https://web.dev/learn/privacy/third-parties/) auf web.dev für weitere nützliche Informationen zur Prüfung und mehr.
+> Siehe [Third parties](https://web.dev/learn/privacy/third-parties/) auf web.dev für zusätzliche nützliche Informationen zur Prüfung und mehr.
 
-## Benutzerdaten schützen
+## Schutz von Benutzerdaten
 
-Sie müssen sicherstellen, dass Benutzerdaten sicher übertragen und gespeichert werden, sobald Sie sie gesammelt haben. Dies ist mehr ein [Sicherheits](/de/docs/Web/Security)-Thema, aber es ist erwähnenswert — eine gute Datenschutzrichtlinie ist nutzlos, wenn Ihre Sicherheit lax ist und Angreifer die Daten von Ihnen stehlen können.
+Sie müssen sicherstellen, dass Benutzerdaten sicher übertragen und gespeichert werden, wenn Sie sie gesammelt haben. Dies ist mehr ein [Sicherheits](/de/docs/Web/Security)-Thema, aber es ist es wert, hier erwähnt zu werden — eine gute Datenschutzrichtlinie ist nutzlos, wenn Ihre Sicherheit lax ist und Angreifer die Daten von Ihnen stehlen können.
 
 Die folgenden Tipps bieten einige Richtlinien zum Schutz der Daten Ihrer Benutzer:
 
-- Sicherheit ist schwer richtig zu machen. Wenn Sie eine sichere Lösung implementieren, die Daten erhebt — insbesondere wenn es sich um sensible Daten wie Anmeldeinformationen handelt — macht es Sinn, eine vertrauenswürdige Lösung von einem angesehenen Anbieter zu verwenden. Beispielsweise werden in jedem respektierten serverseitigen Framework integrierte Funktionen zum Schutz vor allgemeinen Schwachstellen vorhanden sein. Sie könnten auch in Betracht ziehen, ein spezielles Produkt für Ihren Zweck zu verwenden — zum Beispiel eine Identitätsanbieter-Lösung oder einen sicheren Online-Umfrage-Provider.
-- Wenn Sie Ihre eigene Lösung zum Sammeln von Benutzerdaten entwickeln möchten, stellen Sie sicher, dass Sie wissen, was Sie tun. Engagieren Sie einen erfahrenen serverseitigen Entwickler und/oder Sicherheitstechniker, um das System zu implementieren, und stellen Sie sicher, dass es gründlich getestet wird. Verwenden Sie Multifizierungs-Authentifizierung (MFA), um einen besseren Schutz zu bieten. Erwägen Sie den Einsatz einer dedizierten API, wie der [Web Authentication](/de/docs/Web/API/Web_Authentication_API) oder [Federated Credential Management](/de/docs/Web/API/FedCM_API), um den clientseitigen Teil der App zu optimieren.
-- Erzwingen Sie bei der Erhebung von Benutzeranmeldeinformationen starke Passwörter, damit die Kontodaten Ihrer Benutzer nicht leicht erraten werden können. Schwache Passwörter sind eine der Hauptursachen für Sicherheitsverletzungen. Ermutigen Sie Ihre Benutzer, einen Passwort-Manager zu verwenden, um komplexe Passwörter zu generieren und zu speichern; auf diese Weise müssen sie sich nicht darum kümmern, sich daran zu erinnern, oder ein Sicherheitsrisiko schaffen, indem sie sie aufschreiben.
-- Schließen Sie keine sensiblen Daten in URLs ein — wenn ein Dritter die URL abfängt (zum Beispiel über den {{httpheader("Referer")}}-Header), könnte er diese Informationen stehlen. Verwenden Sie `POST`-Anfragen anstelle von `GET`-Anfragen, um dies zu vermeiden.
-- Erwägen Sie die Verwendung von Tools wie [Content Security Policy](/de/docs/Web/HTTP/CSP) und [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy), um ein Set von Funktionsnutzungen auf Ihrer Site durchzusetzen, das es schwieriger macht, Schwachstellen einzuführen. Seien Sie dabei vorsichtig — wenn Sie die Nutzung einer Funktion blockieren, auf die ein Drittanbieter-Skript angewiesen ist, um zu funktionieren, könnten Sie am Ende die Funktionalität Ihrer Site beeinträchtigen. Das ist etwas, das Sie bei der Prüfung Ihrer Drittanbieter-Ressourcen (siehe [Verwalten Sie Drittanbieter-Ressourcen sorgfältig](#verwalten_sie_drittanbieter-ressourcen_sorgfältig)) untersuchen können.
+- Sicherheit ist schwer richtig zu machen. Wenn Sie eine sichere Lösung implementieren, die das Sammeln von Daten umfasst — insbesondere, wenn es sich um sensible Daten wie Anmeldeinformationen handelt — macht es Sinn, eine renommierte Lösung von einem angesehenen Anbieter zu verwenden. Jedes respektable serverseitige Framework wird eingebaute Funktionen haben, um gängigen Schwachstellen vorzubeugen. Sie könnten auch in Betracht ziehen, ein spezialisiertes Produkt für Ihren Zweck zu verwenden — zum Beispiel eine Lösungsanwendung für Identitätsanbieter oder eine sichere Online-Umfrage-Lösung.
+- Wenn Sie Ihre eigene Lösung zum Sammeln von Benutzerdaten bereitstellen möchten, stellen Sie sicher, dass Sie verstehen, was Sie tun. Engagieren Sie einen erfahrenen serverseitigen Entwickler und/oder Sicherheitstechniker, um das System zu implementieren, und stellen Sie sicher, dass es gründlich getestet wird. Verwenden Sie eine Mehrfaktor-Authentifizierung (MFA), um besseren Schutz zu bieten. Erwägen Sie, eine dedizierte API wie [Web Authentication](/de/docs/Web/API/Web_Authentication_API) oder [Federated Credential Management](/de/docs/Web/API/FedCM_API) zu verwenden, um die clientseitige Seite der App zu optimieren.
+- Wenn Sie Benutzeranmeldeinformationen sammeln, erzwingen Sie starke Passwörter, damit die Kontodaten Ihrer Benutzer nicht einfach erraten werden können. Schwache Passwörter sind eine der Hauptursachen für Sicherheitsverletzungen. Ermutigen Sie Ihre Nutzer, einen Passwort-Manager zu verwenden, um komplexe Passwörter zu generieren und zu speichern; auf diese Weise müssen sie sich keine Sorgen machen, sich diese zu merken, oder ein Sicherheitsrisiko verursachen, indem sie sie notieren.
+- Schließen Sie keine sensiblen Daten in URLs ein — wenn ein Dritter die URL abfangen würde (zum Beispiel über den {{httpheader("Referer")}} Header), könnten sie diese Informationen stehlen. Verwenden Sie `POST` Anfragen anstatt `GET` Anfragen, um dies zu vermeiden.
+- Erwägen Sie den Einsatz von Tools wie der [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) und der [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy), um festzulegen, welche Features auf Ihrer Seite verwendet werden können, um es schwieriger zu machen, Schwachstellen einzuführen. Seien Sie vorsichtig dabei — wenn Sie die Nutzung einer Funktion blockieren, auf die ein Drittanbieter-Skript angewiesen ist, um zu funktionieren, könnten Sie die Funktionalität Ihrer Seite beeinträchtigen. Dies ist etwas, das Sie bei der Überprüfung Ihrer Drittanbieter-Ressourcen berücksichtigen können (siehe [Verwalten Sie Drittanbieterressourcen sorgfältig](#verwalten_sie_drittanbieterressourcen_sorgfältig)).
 
 ## Siehe auch
 
 - [Web-Sicherheit](/de/docs/Web/Security)
-- [Learn Privacy](https://web.dev/learn/privacy/) auf web.dev
+- [Lernen Sie mehr über Datenschutz](https://web.dev/learn/privacy/) auf web.dev
 - [The Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com
 - [Lean Data Practices](https://www.mozilla.org/en-US/about/policy/lean-data/) auf mozilla.org

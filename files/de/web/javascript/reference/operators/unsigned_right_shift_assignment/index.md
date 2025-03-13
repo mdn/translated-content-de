@@ -2,14 +2,14 @@
 title: Unsigned Right Shift-Zuweisung (>>>=)
 slug: Web/JavaScript/Reference/Operators/Unsigned_right_shift_assignment
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Unsigned Right Shift-Zuweisungsoperator (`>>>=`)** führt einen [Unsigned Right Shift](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
+Der **unsigned right shift-Zuweisungsoperator (`>>>=`)** führt einen [unsigned right shift](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) auf die beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
-{{InteractiveExample("JavaScript Demo: Expressions - Unsigned right shift assignment operator")}}
+{{InteractiveExample("JavaScript Demo: Unsigned right shift-Zuweisungsoperator (>>>=)")}}
 
 ```js interactive-example
 let a = 5; //  00000000000000000000000000000101
@@ -33,11 +33,11 @@ x >>>= y
 
 ## Beschreibung
 
-`x >>>= y` ist gleichbedeutend mit `x = x >>> y`, mit der Ausnahme, dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x >>>= y` ist äquivalent zu `x = x >>> y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Unsigned Right Shift-Zuweisung verwenden
+### Verwendung der unsigned right shift-Zuweisung
 
 ```js
 let a = 5; // (00000000000000000000000000000101)

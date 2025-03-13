@@ -1,17 +1,17 @@
 ---
-title: Accelerometer
+title: Beschleunigungssensor
 slug: Web/API/Accelerometer
 l10n:
-  sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Das **`Accelerometer`**-Interface der [Sensor APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Messung die auf das Gerät wirkende Beschleunigung entlang aller drei Achsen.
+Das **`Accelerometer`**-Interface der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Messung die auf das Gerät wirkende Beschleunigung entlang aller drei Achsen.
 
-Um diesen Sensor zu verwenden, muss der Benutzer über die [Permissions API](/de/docs/Web/API/Permissions_API) die Berechtigung für den `'accelerometer'`-Gerätesensor erteilen.
+Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung für den `'accelerometer'`-Gerätesensor über die [Permissions API](/de/docs/Web/API/Permissions_API) gewähren.
 
-Diese Funktion kann durch eine auf Ihrem Server festgelegte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
+Diese Funktion kann durch eine auf Ihrem Server festgelegte [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden.
 
 {{InheritanceDiagram}}
 
@@ -25,11 +25,11 @@ Diese Funktion kann durch eine auf Ihrem Server festgelegte [Permissions Policy]
 _Zusätzlich zu den unten aufgeführten Eigenschaften erbt `Accelerometer` Eigenschaften von seinen übergeordneten Schnittstellen, [`Sensor`](/de/docs/Web/API/Sensor) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`Accelerometer.x`](/de/docs/Web/API/Accelerometer/x) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen Doppelwert zurück, der die Beschleunigung des Geräts entlang der x-Achse des Geräts enthält.
+  - : Gibt ein Double zurück, das die Beschleunigung des Geräts entlang der x-Achse des Geräts enthält.
 - [`Accelerometer.y`](/de/docs/Web/API/Accelerometer/y) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen Doppelwert zurück, der die Beschleunigung des Geräts entlang der y-Achse des Geräts enthält.
+  - : Gibt ein Double zurück, das die Beschleunigung des Geräts entlang der y-Achse des Geräts enthält.
 - [`Accelerometer.z`](/de/docs/Web/API/Accelerometer/z) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen Doppelwert zurück, der die Beschleunigung des Geräts entlang der z-Achse des Geräts enthält.
+  - : Gibt ein Double zurück, das die Beschleunigung des Geräts entlang der z-Achse des Geräts enthält.
 
 ## Instanz-Methoden
 
@@ -41,7 +41,7 @@ _`Accelerometer` hat keine eigenen Ereignisse. Es erbt jedoch Ereignisse von sei
 
 ## Beispiel
 
-Die Beschleunigung wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback gelesen. Im folgenden Beispiel geschieht dies sechzig Mal pro Sekunde.
+Die Beschleunigung wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback gelesen. Im folgenden Beispiel geschieht dies sechzigmal pro Sekunde.
 
 ```js
 const acl = new Accelerometer({ frequency: 60 });

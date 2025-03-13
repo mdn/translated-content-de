@@ -2,14 +2,14 @@
 title: get
 slug: Web/JavaScript/Reference/Functions/get
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Functions")}}
 
 Die **`get`**-Syntax bindet eine Objekteigenschaft an eine Funktion, die aufgerufen wird, wenn auf diese Eigenschaft zugegriffen wird. Sie kann auch in [Klassen](/de/docs/Web/JavaScript/Reference/Classes) verwendet werden.
 
-{{InteractiveExample("JavaScript Demo: Functions Getter")}}
+{{InteractiveExample("JavaScript Demo: Getter declaration")}}
 
 ```js interactive-example
 const obj = {
@@ -30,22 +30,22 @@ console.log(obj.latest);
 { get [expression]() { /* … */ } }
 ```
 
-Es gibt einige zusätzliche Syntaxeinschränkungen:
+Es gibt einige zusätzliche Syntax-Beschränkungen:
 
 - Ein Getter muss genau null Parameter haben.
 
 ### Parameter
 
 - `prop`
-  - : Der Name der Eigenschaft, die mit der angegebenen Funktion verknüpft werden soll. Ähnlich wie andere Eigenschaften in [Objektinitialisierern](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) kann es sich dabei um einen String-Literal, einen Zahlen-Literal oder einen Bezeichner handeln.
+  - : Der Name der Eigenschaft, die an die gegebene Funktion gebunden werden soll. Wie andere Eigenschaften in [Objektinitialisierungen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) kann es sich um ein String-Literal, ein Zahlen-Literal oder einen Bezeichner handeln.
 - `expression`
-  - : Sie können auch Ausdrücke für einen berechneten Eigenschaftsnamen verwenden, die mit der angegebenen Funktion verknüpft werden sollen.
+  - : Sie können auch Ausdrücke für einen berechneten Eigenschaftsnamen verwenden, um ihn an die gegebene Funktion zu binden.
 
 ## Beschreibung
 
-Manchmal ist es wünschenswert, Zugriff auf eine Eigenschaft zu erlauben, die einen dynamisch berechneten Wert zurückgibt, oder Sie möchten den Status einer internen Variablen widerspiegeln, ohne explizite Methodenaufrufe zu erfordern. In JavaScript kann dies mithilfe eines _Getters_ erreicht werden.
+Manchmal ist es wünschenswert, Zugriff auf eine Eigenschaft zu erlauben, die einen dynamisch berechneten Wert zurückgibt, oder Sie möchten den Status einer internen Variablen widerspiegeln, ohne explizite Methodenaufrufe verwenden zu müssen. In JavaScript kann dies mit der Verwendung eines _Getters_ erreicht werden.
 
-Eine Objekteigenschaft ist entweder eine Daten-Eigenschaft oder eine Accessor-Eigenschaft, kann jedoch nicht beides gleichzeitig sein. Lesen Sie {{jsxref("Object.defineProperty()")}} für weitere Informationen. Die Getter-Syntax erlaubt es, die Getter-Funktion in einem Objektinitialisierer zu spezifizieren.
+Eine Objekteigenschaft ist entweder eine Dateneigenschaft oder eine Zugriffseigenschaft, kann aber nicht beides gleichzeitig sein. Lesen Sie {{jsxref("Object.defineProperty()")}} für mehr Informationen. Die Getter-Syntax ermöglicht es Ihnen, die Getter-Funktion in einem Objekt-Initializer zu spezifizieren.
 
 ```js
 const obj = {
@@ -56,13 +56,13 @@ const obj = {
 };
 ```
 
-Eigenschaften, die mit dieser Syntax definiert werden, sind eigene Eigenschaften des erstellten Objekts und sind konfigurierbar und aufzählbar.
+Eigenschaften, die mit dieser Syntax definiert werden, sind eigene Eigenschaften des erstellten Objekts und sie sind konfigurierbar und aufzählbar.
 
 ## Beispiele
 
-### Definition eines Getters in neuen Objekten mit Objektinitialisierern
+### Definieren eines Getters bei neuen Objekten in Objektinitialisierungen
 
-Dies erstellt eine Pseudo-Eigenschaft `latest` für das Objekt `obj`, die das letzte Array-Element in `log` zurückgibt.
+Dies erzeugt eine Pseudo-Eigenschaft `latest` für das Objekt `obj`, die das letzte Array-Element in `log` zurückgibt.
 
 ```js
 const obj = {
@@ -74,11 +74,11 @@ const obj = {
 console.log(obj.latest); // "test"
 ```
 
-Beachten Sie, dass ein Versuch, einen Wert zu `latest` zuzuweisen, keinen Effekt hat.
+Beachten Sie, dass der Versuch, `latest` einen Wert zuzuweisen, diesen nicht ändert.
 
-### Verwendung von Gettern in Klassen
+### Verwendung von Getters in Klassen
 
-Sie können die gleiche Syntax verwenden, um öffentliche Instanz-Getter zu definieren, die in Klasseninstanzen verfügbar sind. In Klassen benötigen Sie kein Komma als Trennzeichen zwischen Methoden.
+Sie können die genau gleiche Syntax verwenden, um öffentliche Instanz-Getters zu definieren, die für Klasseninstanzen verfügbar sind. In Klassen benötigen Sie das Komma nicht als Trennzeichen zwischen den Methoden.
 
 ```js
 class ClassWithGetSet {
@@ -98,9 +98,9 @@ instance.msg = "cake";
 console.log(instance.msg); // "hello cake"
 ```
 
-Getter-Eigenschaften werden auf der `prototype`-Eigenschaft der Klasse definiert und sind daher von allen Instanzen der Klasse gemeinsam genutzt. Im Gegensatz zu Getter-Eigenschaften in Objektliteralen sind Getter-Eigenschaften in Klassen nicht aufzählbar.
+Getter-Eigenschaften sind auf der `prototype`-Eigenschaft der Klasse definiert und werden daher von allen Instanzen der Klasse geteilt. Im Gegensatz zu Getter-Eigenschaften in Objektliteralen sind Getter-Eigenschaften in Klassen nicht aufzählbar.
 
-Statische Getter und private Getter verwenden ähnliche Syntaxen, die auf den Seiten zu [`static`](/de/docs/Web/JavaScript/Reference/Classes/static) und [privaten Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) beschrieben werden.
+Statische Getter und private Getter verwenden ähnliche Syntaxen, die auf den Seiten [`static`](/de/docs/Web/JavaScript/Reference/Classes/static) und [private properties](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) beschrieben werden.
 
 ### Löschen eines Getters mit dem `delete`-Operator
 
@@ -110,9 +110,9 @@ Wenn Sie den Getter entfernen möchten, können Sie ihn einfach {{jsxref("Operat
 delete obj.latest;
 ```
 
-### Definition eines Getters auf bestehenden Objekten mit `defineProperty`
+### Definieren eines Getters bei bestehenden Objekten mit `defineProperty`
 
-Um einem bestehenden Objekt später jederzeit einen Getter hinzuzufügen, verwenden Sie {{jsxref("Object.defineProperty()")}}.
+Um einem bestehenden Objekt zu einem späteren Zeitpunkt einen Getter hinzuzufügen, verwenden Sie {{jsxref("Object.defineProperty()")}}.
 
 ```js
 const o = { a: 0 };
@@ -140,7 +140,7 @@ const obj = {
 console.log(obj.foo); // "bar"
 ```
 
-### Definition von statischen Gettern
+### Definieren von statischen Getters
 
 ```js
 class MyConstants {
@@ -154,22 +154,23 @@ MyConstants.foo = "bar";
 console.log(MyConstants.foo); // 'foo', a static getter's value cannot be changed
 ```
 
-### Intelligente / sich selbst überschreibende / verzögerte Getter
+### Intelligente / selbst-überschreibende / verzögerte Getters
 
-Getter bieten Ihnen die Möglichkeit, eine Eigenschaft eines Objekts zu _definieren_, berechnen jedoch den Wert der Eigenschaft erst, wenn darauf zugegriffen wird. Ein Getter verschiebt die Berechnungskosten des Werts, bis der Wert benötigt wird. Falls er nie benötigt wird, entstehen keine Kosten.
+Getters geben Ihnen die Möglichkeit, eine Eigenschaft eines Objekts zu _definieren_, aber sie _berechnen_ den Wert der Eigenschaft erst, wenn darauf zugegriffen wird. Ein Getter verschiebt die Kosten der Berechnung des Wertes, bis der Wert benötigt wird. Wenn er nie benötigt wird, entstehen keine Kosten.
 
-Eine zusätzliche Optimierungstechnik, um die Berechnung eines Eigenschaftswerts zu verzögern oder zu verzögern und ihn für späteren Zugriff zwischenzuspeichern, sind _intelligente_ (oder _[memoisierte](https://en.wikipedia.org/wiki/Memoization)_) Getter. Der Wert wird beim ersten Aufruf des Getters berechnet und anschließend zwischengespeichert, sodass nachfolgende Zugriffe auf den zwischengespeicherten Wert zurückgreifen, ohne ihn neu zu berechnen. Diese Technik ist in folgenden Situationen nützlich:
+Eine zusätzliche Optimierungstechnik, um die Berechnung eines Eigenschaftswerts zu verzögern oder zu verzögern und ihn für späteren Zugriff zu cachen, sind _intelligente_ (oder _[memoisierte](https://en.wikipedia.org/wiki/Memoization)_) Getters. Der Wert wird beim ersten Mal berechnet, wenn der Getter aufgerufen wird, und danach zwischengespeichert, sodass nachfolgende Zugriffe den zwischengespeicherten Wert zurückgeben, ohne ihn neu zu berechnen. Dies ist in den folgenden Situationen nützlich:
 
-- Wenn die Berechnung eines Eigenschaftswertes teuer ist (viel RAM oder CPU-Zeit benötigt, Worker-Threads startet, eine Remote-Datei abruft usw.).
-- Wenn der Wert jetzt nicht benötigt wird. Er wird später verwendet, oder in manchen Fällen wird er überhaupt nicht verwendet.
-- Wenn er verwendet wird, wird er mehrmals abgerufen, und es besteht keine Notwendigkeit, den unveränderlichen Wert neu zu berechnen.
+- Wenn die Berechnung eines Eigenschaftswerts teuer ist (viel RAM oder CPU-Zeit benötigt, Worker-Threads erzeugt, entfernte Dateien abruft usw.).
+- Wenn der Wert jetzt gerade nicht benötigt wird. Er wird später verwendet oder in einigen Fällen überhaupt nicht.
+- Wenn er verwendet wird, wird er mehrmals abgerufen und es besteht keine Notwendigkeit, den Wert erneut zu berechnen, da er sich nie ändern wird oder nicht geändert werden sollte.
 
 > [!NOTE]
-> Dies bedeutet, dass Sie keinen verzögerten Getter für eine Eigenschaft schreiben sollten, deren Wert Sie erwarten, dass er sich ändert. Ein verzögerter Getter berechnet den Wert nicht neu.
+> Das bedeutet, dass Sie keinen verzögerten Getter für eine Eigenschaft schreiben sollten, deren Wert Sie erwarten, dass er sich ändert, denn wenn der Getter verzögert ist, wird er den Wert nicht neu berechnen.
 >
-> Beachten Sie, dass Getter von Natur aus nicht „verzögert“ oder „memoisiert“ sind; Sie müssen diese Technik implementieren, wenn Sie dieses Verhalten wünschen.
+> Beachten Sie, dass Getters von Natur aus nicht "faul" oder "memoisiert" sind; Sie müssen diese Technik implementieren, wenn Sie dieses Verhalten wünschen.
 
-Im folgenden Beispiel hat das Objekt einen Getter als eigene Eigenschaft. Beim Abrufen der Eigenschaft wird die Eigenschaft aus dem Objekt entfernt und erneut hinzugefügt, diesmal jedoch implizit als Daten-Eigenschaft. Abschließend wird der Wert zurückgegeben.
+Im folgenden Beispiel hat das Objekt einen Getter als eigene Eigenschaft. Beim Abrufen der
+Eigenschaft wird die Eigenschaft aus dem Objekt entfernt und erneut hinzugefügt, aber diesmal implizit als Dateneigenschaft. Schließlich wird der Wert zurückgegeben.
 
 ```js
 const obj = {
@@ -183,9 +184,10 @@ const obj = {
 
 ### get vs. defineProperty
 
-Während die Verwendung des `get`-Schlüsselworts und {{jsxref("Object.defineProperty()")}} ähnliche Ergebnisse liefert, gibt es einen subtilen Unterschied zwischen den beiden, wenn sie auf {{jsxref("classes")}} angewendet werden.
+Obwohl die Verwendung des `get`-Schlüsselworts und von {{jsxref("Object.defineProperty()")}} ähnliche Ergebnisse liefert, gibt es einen subtilen Unterschied zwischen den beiden, wenn sie in
+{{jsxref("Klassen")}} verwendet werden.
 
-Bei der Verwendung von `get` wird die Eigenschaft auf dem Prototyp der Instanz definiert, während bei der Verwendung von {{jsxref("Object.defineProperty()")}} die Eigenschaft auf der Instanz selbst definiert wird, auf die sie angewendet wird.
+Bei der Verwendung von `get` wird die Eigenschaft auf dem Prototyp der Instanz definiert, während die Verwendung von {{jsxref("Object.defineProperty()")}} die Eigenschaft auf der Instanz definiert, auf die sie angewendet wird.
 
 ```js
 class Example {
@@ -217,12 +219,12 @@ console.log(
 
 ## Siehe auch
 
-- [Arbeiten mit Objekten](/de/docs/Web/JavaScript/Guide/Working_with_objects)-Leitfaden
+- [Leitfaden für den Umgang mit Objekten](/de/docs/Web/JavaScript/Guide/Working_with_objects)
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - [`set`](/de/docs/Web/JavaScript/Reference/Functions/set)
 - {{jsxref("Object.defineProperty()")}}
-- [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+- [Objekt-Initializer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)
 - {{jsxref("Statements/class", "class")}}
-- [Eigenschafts-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
-- [Inkompatible ES5-Änderung: literal getter and setter functions must now have exactly zero or one arguments](https://whereswalden.com/2010/08/22/incompatible-es5-change-literal-getter-and-setter-functions-must-now-have-exactly-zero-or-one-arguments/) von Jeff Walden (2010)
-- [Mehr SpiderMonkey-Änderungen: ancient, esoteric, very rarely used syntax for creating getters and setters is being removed](https://whereswalden.com/2010/04/16/more-spidermonkey-changes-ancient-esoteric-very-rarely-used-syntax-for-creating-getters-and-setters-is-being-removed/) von Jeff Walden (2010)
+- [Eigenschaftszugriffe](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
+- [Inkompatible ES5-Änderung: Literal-Getter- und Setter-Funktionen müssen nun genau null oder ein Argument haben](https://whereswalden.com/2010/08/22/incompatible-es5-change-literal-getter-and-setter-functions-must-now-have-exactly-zero-or-one-arguments/) von Jeff Walden (2010)
+- [Weitere SpiderMonkey-Änderungen: Antike, esoterische, sehr selten verwendete Syntax zum Erstellen von Gettern und Settern wird entfernt](https://whereswalden.com/2010/04/16/more-spidermonkey-changes-ancient-esoteric-very-rarely-used-syntax-for-creating-getters-and-setters-is-being-removed/) von Jeff Walden (2010)

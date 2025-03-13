@@ -2,16 +2,16 @@
 title: XPath-Snippets
 slug: Web/XML/XPath/Guides/Snippets
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 26e46f8c13ebea65dc65a6e99e51e8fa4d5d619d
 ---
 
-Dieser Artikel bietet einige XPath-Code-Snippets – einfache Beispiele für die Implementierung einiger grundlegender **Utility-Funktionen** basierend auf den Standard-Schnittstellen der [DOM Level 3 XPath-Spezifikation](https://www.w3.org/TR/DOM-Level-3-XPath/), die XPath-Funktionalität in JavaScript-Code verfügbar machen. Die Snippets sind Funktionen, die Sie in der Praxis in Ihrem eigenen Code verwenden können.
+Dieser Artikel bietet einige XPath-Code-Snippets — Beispiele für die Implementierung von **Hilfsfunktionen**. Diese Funktionen basieren auf standardisierten Schnittstellen der [DOM Level 3 XPath-Spezifikation](https://www.w3.org/TR/DOM-Level-3-XPath/), die XPath-Funktionalität für JavaScript-Code bereitstellen. Die Snippets sind Funktionen, die Sie in der Praxis in Ihrem eigenen Code verwenden können.
 
-### Node-spezifische Auswertungsfunktion
+### Knotenspezifische Bewertungsfunktion
 
-Die folgende benutzerdefinierte Utility-Funktion kann verwendet werden, um XPath-Ausdrücke für bestimmte XML-Knoten auszuwerten. Das erste Argument ist ein DOM-Knoten oder ein Dokumentobjekt, während das zweite ein String ist, der einen XPath-Ausdruck definiert.
+Die folgende benutzerdefinierte Hilfsfunktion kann verwendet werden, um XPath-Ausdrücke auf bestimmten XML-Knoten auszuwerten. Das erste Argument ist ein DOM-Knoten oder ein Dokumentenobjekt, während das zweite ein String ist, der einen XPath-Ausdruck definiert.
 
-#### Beispiel: Definition einer benutzerdefinierten node-spezifischen `evaluateXPath()`-Utility-Funktion
+#### Beispiel: Definierung einer benutzerdefinierten knotenspezifischen `evaluateXPath()` Hilfsfunktion
 
 ```js
 // Evaluate an XPath expression aExpression against a given DOM node
@@ -32,13 +32,13 @@ function evaluateXPath(aNode, aExpr) {
 }
 ```
 
-Beachten Sie, dass das `documentElement` nur verwendet werden sollte, wenn Sie sicher sind, dass die Namespace-Präfixe im XPath-Ausdruck mit denen im Dokument übereinstimmen, das Sie abfragen möchten (und kein Standard-Namespace verwendet wird). Andernfalls müssen Sie eine eigene Implementierung eines XPathNSResolvers bereitstellen.
+Beachten Sie, dass `documentElement` nur verwendet werden sollte, wenn Sie sicher sind, dass die Namespace-Präfixe im XPath-Ausdruck mit denen im Dokument, das Sie abfragen möchten, übereinstimmen (und dass kein Standard-Namensraum verwendet wird). Andernfalls müssen Sie Ihre eigene Implementierung von XPathNSResolver bereitstellen.
 
 #### Beispielverwendung
 
-Angenommen, wir haben folgendes XML-Dokument (siehe auch [XML analysieren und serialisieren](/de/docs/Web/XML/Guides/Parsing_and_serializing_XML)):
+Angenommen, wir haben das folgende XML-Dokument (siehe auch [Parsing und Serializing von XML](/de/docs/Web/XML/Guides/Parsing_and_serializing_XML)):
 
-##### Beispiel: Ein XML-Dokument zur Verwendung mit der benutzerdefinierten `evaluateXPath()`-Utility-Funktion
+##### Beispiel: Ein XML-Dokument zur Verwendung mit der benutzerdefinierten `evaluateXPath()` Hilfsfunktion
 
 ```xml
 <?xml version="1.0"?>
@@ -56,9 +56,9 @@ Angenommen, wir haben folgendes XML-Dokument (siehe auch [XML analysieren und se
 </people>
 ```
 
-Sie können das Dokument nun mit XPath-Ausdrücken "abfragen". Obwohl das Navigieren durch den DOM-Baum ähnliche Ergebnisse erzielen kann, sind XPath-Ausdrücke wesentlich schneller und leistungsfähiger. Wenn Sie sich auf `id`-Attribute verlassen können, ist `document.getElementById()` immer noch leistungsfähig, aber nicht annähernd so vielseitig wie XPath. Hier sind einige Beispiele.
+Sie können das Dokument nun mit XPath-Ausdrücken "abfragen". Obwohl das Durchlaufen des DOM-Baums ähnliche Ergebnisse erzielen kann, ist die Verwendung von XPath-Ausdrücken viel schneller und leistungsfähiger. Wenn Sie sich auf `id`-Attribute verlassen können, bleibt `document.getElementById()` zwar leistungsfähig, aber bei weitem nicht so mächtig wie XPath. Hier sind einige Beispiele.
 
-##### Beispiel: JavaScript-Code mit der benutzerdefinierten `evaluateXPath()`-Utility-Funktion
+##### Beispiel: JavaScript-Code mit der benutzerdefinierten `evaluateXPath()` Hilfsfunktion
 
 ```js
 // display the last names of all people in the doc
@@ -79,9 +79,9 @@ console.log(results.length);
 
 ### docEvaluateArray
 
-Das folgende ist eine Utility-Funktion, um (geordnete) XPath-Ergebnisse in ein Array zu bringen, unabhängig davon, ob spezielle Namespace-Resolver erforderlich sind oder nicht. Dadurch wird die komplexere Syntax von [`document.evaluate()`](/de/docs/Web/API/Document/evaluate) vermieden, wenn dies nicht notwendig ist, ebenso wie der Bedarf, spezielle Iteratoren auf [`XPathResult`](/de/docs/Web/API/XPathResult) zu verwenden (indem stattdessen ein Array zurückgegeben wird).
+Die folgende Hilfsfunktion dient dazu, (geordnete) XPath-Ergebnisse in ein Array zu übertragen, unabhängig davon, ob ein spezieller Bedarf an Namespace-Resolvern besteht oder nicht. Sie vermeidet die komplexere Syntax von [`document.evaluate()`](/de/docs/Web/API/Document/evaluate) für Fälle, in denen dies nicht erforderlich ist, sowie die Notwendigkeit, spezielle Iteratoren auf [`XPathResult`](/de/docs/Web/API/XPathResult) zu verwenden (indem statt dessen ein Array zurückgegeben wird).
 
-#### Beispiel: Definition einer einfachen `docEvaluateArray()`-Utility-Funktion
+#### Beispiel: Definierung einer `docEvaluateArray()` Hilfsfunktion
 
 ```js
 // Example usage:
@@ -111,9 +111,9 @@ function docEvaluateArray(expr, doc, context, resolver) {
 
 ### getXPathForElement
 
-Die folgende Funktion ermöglicht es, ein Element und ein XML-Dokument zu übergeben, um einen eindeutigen XPath-Ausdruck in Form eines Strings zu erhalten, der zu diesem Element zurückführt.
+Die folgende Funktion erlaubt es, ein Element und ein XML-Dokument zu übergeben, um einen eindeutigen stringbasierten XPath-Ausdruck zu finden, der zurück zu diesem Element führt.
 
-#### Beispiel: Definition einer `getXPathForElement()`-Utility-Funktion
+#### Beispiel: Definierung einer `getXPathForElement()` Hilfsfunktion
 
 ```js
 function getXPathForElement(el, xml) {
@@ -148,7 +148,7 @@ function getXPathForElement(el, xml) {
 ### Ressourcen
 
 - [XPath](/de/docs/Web/XML/XPath)
-- [Diskussion im Forum zu diesem Thema](https://forums.mozillazine.org/viewtopic.php?t=229106)
+- [Forum-Diskussion zu diesem Thema](https://forums.mozillazine.org/viewtopic.php?t=229106)
 
 ## Siehe auch
 

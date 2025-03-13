@@ -1,14 +1,14 @@
 ---
-title: "IdleDetector: start()-Methode"
+title: "IdleDetector: start() Methode"
 short-title: start()
 slug: Web/API/IdleDetector/start
 l10n:
-  sourceCommit: a28ce291736be0291feb822083b92c6f4385d57c
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`start()`**-Methode der [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Detektor mit dem Lauschen auf Änderungen des Leerlaufzustands des Benutzers beginnt. Diese Methode nimmt ein optionales `options`-Objekt mit dem `threshold` in Millisekunden, bei dem Inaktivität gemeldet werden soll, und `signal` für ein `AbortSignal`, um den Leerlaufdetektor abzubrechen.
+Die **`start()`** Methode der [`IdleDetector`](/de/docs/Web/API/IdleDetector) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Detektor beginnt, Änderungen im Ruhezustand des Benutzers zu überwachen. Diese Methode nimmt ein optionales `options` Objekt mit der `threshold` in Millisekunden, bei dem Inaktivität gemeldet werden soll, und `signal` für ein `AbortSignal`, um den Ruhedetektor abzubrechen.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ start(options)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `threshold`
-      - : Die minimale Anzahl von Leerlauf-Millisekunden, bevor die Meldung beginnen soll.
+      - : Die minimale Anzahl von Ruhemillisekunden, bevor die Berichterstattung beginnen sollte.
     - `signal`
-      - : Eine Referenz auf eine [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Instanz, die es Ihnen ermöglicht, die Leerlauferkennung abzubrechen.
+      - : Eine Referenz zu einer [`AbortSignal`](/de/docs/Web/API/AbortSignal) Instanz, die es Ihnen ermöglicht, die Ruheerkennung abzubrechen.
 
 ### Rückgabewert
 
@@ -33,11 +33,11 @@ Ein {{jsxref("Promise")}}.
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Verwendung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Verwendung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man die Leerlauferkennung mit dem `options`-Argument startet. Es wird eine Instanz von `AbortSignal` von einer Instanz von [`AbortController`](/de/docs/Web/API/AbortController) abgerufen.
+Das folgende Beispiel zeigt, wie die Ruheerkennung mit dem `options` Argument gestartet wird. Es ruft eine Instanz von `AbortSignal` von einer Instanz von [`AbortController`](/de/docs/Web/API/AbortController) ab.
 
 ```js
 const controller = new AbortController();

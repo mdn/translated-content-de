@@ -2,81 +2,81 @@
 title: Caching
 slug: Web/Progressive_web_apps/Guides/Caching
 l10n:
-  sourceCommit: 5c000c8621145c6915f3d545b505c216317bc64a
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{PWASidebar}}
 
-Wenn ein Benutzer eine Website öffnet und mit ihr interagiert, werden alle Ressourcen, die die Website benötigt, einschließlich HTML, JavaScript, CSS, Bilder, Schriften sowie alle vom App ausdrücklich angeforderten Daten, durch HTTP(S)-Anfragen abgerufen. Eine der grundlegendsten Funktionen einer PWA ist die Fähigkeit, einige der App-Ressourcen explizit auf dem Gerät zu cachen, was bedeutet, dass sie ohne eine Anfrage an das Netzwerk abgerufen werden können.
+Wenn ein Benutzer eine Website öffnet und mit ihr interagiert, werden alle Ressourcen, die die Website benötigt, einschließlich HTML, JavaScript, CSS, Bilder, Schriftarten sowie alle Daten, die explizit von der App angefordert werden, durch HTTP(S)-Anfragen abgerufen. Eine der grundlegendsten Funktionen einer PWA ist die Fähigkeit, einige Ressourcen der App explizit auf dem Gerät zu cachen, sodass sie abgerufen werden können, ohne eine Anfrage an das Netzwerk zu senden.
 
-Es gibt zwei Hauptvorteile des lokalen Cachings von Ressourcen: **Offline-Betrieb** und **Reaktionsfähigkeit**.
+Es gibt zwei Hauptvorteile, Ressourcen lokal zu cachen: **Offline-Betrieb** und **Reaktionsfähigkeit**.
 
-- **Offline-Betrieb**: Caching ermöglicht es einer PWA, in größerem oder geringerem Maße zu funktionieren, während das Gerät keine Netzwerkverbindung hat.
-- **Reaktionsfähigkeit**: Selbst wenn das Gerät online ist, wird eine PWA in der Regel viel reaktionsfähiger sein, wenn ihre Benutzeroberfläche aus dem Cache abgerufen wird, anstatt aus dem Netzwerk.
+- **Offline-Betrieb**: Caching ermöglicht es einer PWA, in gewissem Maße zu funktionieren, während das Gerät keine Netzwerkverbindung hat.
+- **Reaktionsfähigkeit**: Selbst wenn das Gerät online ist, wird eine PWA in der Regel viel reaktionsschneller sein, wenn ihre Benutzeroberfläche aus dem Cache abgerufen wird, anstatt aus dem Netzwerk.
 
-Der Hauptnachteil ist natürlich die **Aktualität**: Caching ist weniger geeignet für Ressourcen, die auf dem neuesten Stand sein müssen. Auch für einige Arten von Anfragen, wie [POST](/de/docs/Web/HTTP/Methods/POST)-Anfragen, ist Caching niemals geeignet.
+Der Hauptnachteil ist natürlich die **Aktualität**: Das Caching ist weniger geeignet für Ressourcen, die aktuell sein müssen. Für einige Arten von Anfragen, wie z.B. [POST](/de/docs/Web/HTTP/Reference/Methods/POST)-Anfragen, ist das Caching niemals geeignet.
 
-Dies bedeutet, dass es stark von der betreffenden Ressource abhängt, ob und wann Sie sie cachen sollten. Eine PWA wird in der Regel unterschiedliche Strategien für unterschiedliche Ressourcen anwenden. In diesem Leitfaden werden wir uns einige gängige Caching-Strategien für PWAs ansehen und herausfinden, welche Strategien für welche Ressourcen sinnvoll sind.
+Das bedeutet, dass die Frage, ob und wann Sie eine Ressource cachen sollten, stark von der jeweiligen Ressource abhängt, und eine PWA wird typischerweise unterschiedliche Strategien für unterschiedliche Ressourcen anwenden. In diesem Leitfaden betrachten wir einige gängige Caching-Strategien für PWAs und sehen, welche Strategien für welche Ressourcen sinnvoll sind.
 
-## Überblick über die Caching-Technologie
+## Überblick über Caching-Technologien
 
 Die Haupttechnologien, auf denen eine PWA eine Caching-Strategie aufbauen kann, sind die [Fetch API](/de/docs/Web/API/Fetch_API), die [Service Worker API](/de/docs/Web/API/Service_Worker_API) und die [Cache API](/de/docs/Web/API/Cache).
 
 ### Fetch API
 
-Die Fetch API definiert eine globale Funktion [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) zum Abrufen einer Netzwerkressource und die Schnittstellen [`Request`](/de/docs/Web/API/Request) und [`Response`](/de/docs/Web/API/Response), die Netzwerkanforderungen und -antworten darstellen. Die `fetch()`-Funktion nimmt einen `Request` oder eine URL als Argument und gibt ein {{jsxref("Promise")}} zurück, das in eine `Response` aufgelöst wird.
+Die Fetch API definiert eine globale Funktion [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) zum Abrufen einer Netzwerkressource sowie die [`Request`](/de/docs/Web/API/Request)- und [`Response`](/de/docs/Web/API/Response)-Schnittstellen, die Netzwerk-Anfragen und -Antworten darstellen. Die `fetch()`-Funktion nimmt eine `Request` oder eine URL als Argument und gibt ein {{jsxref("Promise")}} zurück, das zu einer `Response` aufgelöst wird.
 
-Die `fetch()`-Funktion ist sowohl für Service Worker als auch für den Haupt-App-Thread verfügbar.
+Die `fetch()`-Funktion steht sowohl Service Workern als auch dem Haupt-App-Thread zur Verfügung.
 
 ### Service Worker API
 
-Ein Service Worker ist ein Teil einer PWA: Er ist ein separates Skript, das in einem eigenen Thread ausgeführt wird, getrennt vom Haupt-Thread der App.
+Ein Service Worker ist ein Teil einer PWA: Es handelt sich um ein separates Skript, das in seinem eigenen Thread läuft, getrennt vom Haupt-Thread der App.
 
-Sobald der Service Worker aktiv ist, feuert der Browser, wenn die App eine vom Service Worker gesteuerte Netzwerkressource anfordert, ein Ereignis namens [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event) im globalen Scope des Service Workers ab. Dieses Ereignis wird nicht nur für explizite `fetch()`-Aufrufe aus dem Haupt-Thread ausgelöst, sondern auch für implizite Netzwerkanforderungen, um Seiten und Subressourcen (wie JavaScript, CSS und Bilder) zu laden, die der Browser nach der Seitennavigation macht.
+Sobald der Service Worker aktiv ist, löst der Browser ein Ereignis namens [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event) im globalen Bereich des Service Workers aus, wann immer die App eine vom Service Worker kontrollierte Netzwerkressource anfordert. Dieses Ereignis wird nicht nur für explizite `fetch()`-Aufrufe vom Haupt-Thread ausgelöst, sondern auch für implizite Netzwerkabrufe zum Laden von Seiten und Sub-Ressourcen (wie JavaScript, CSS und Bilder), die vom Browser nach einer Seitennavigation durchgeführt werden.
 
-Indem der Service Worker auf das `fetch`-Ereignis lauscht, kann er die Anforderung abfangen und eine angepasste `Response` zurückgeben. Insbesondere kann er eine lokal zwischengespeicherte Antwort zurückgeben, anstatt immer auf das Netzwerk zuzugreifen, oder eine lokal zwischengespeicherte Antwort zurückgeben, wenn das Gerät offline ist.
+Indem der Service Worker auf das `fetch`-Ereignis hört, kann er die Anfrage abfangen und eine angepasste `Response` zurückgeben. Insbesondere kann er eine lokal gecachte Antwort zurückgeben, anstatt immer auf das Netzwerk zuzugreifen, oder eine lokal gecachte Antwort zurückgeben, wenn das Gerät offline ist.
 
 ### Cache API
 
-Die [`Cache`](/de/docs/Web/API/Cache)-Schnittstelle bietet einen persistenten Speicher für `Request`/`Response`-Paare. Sie bietet Methoden zum Hinzufügen und Löschen von `Request`/`Response`-Paaren und zum Nachschlagen einer zwischengespeicherten `Response`, die einem bestimmten `Request` entspricht. Der Cache ist sowohl im Haupt-App-Thread als auch im Service Worker verfügbar: so ist es möglich, dass ein Thread dort eine Antwort hinzufügt und der andere sie abruft.
+Die [`Cache`](/de/docs/Web/API/Cache)-Schnittstelle bietet persistenten Speicher für `Request`/`Response`-Paare. Sie bietet Methoden, um `Request`/`Response`-Paare hinzuzufügen und zu löschen sowie eine gecachte `Response` abzurufen, die mit einer bestimmten `Request` übereinstimmt. Der Cache ist sowohl im Haupt-App-Thread als auch im Service Worker verfügbar: Es ist also möglich, dass ein Thread dort eine Antwort hinzufügt und der andere sie abruft.
 
-Am häufigsten wird der Service Worker Ressourcen in seinem `install` oder `fetch`-Ereignishandler zum Cache hinzufügen.
+Am häufigsten fügt der Service Worker in seinen `install`- oder `fetch`-Ereignishandlern Ressourcen zum Cache hinzu.
 
-## Wann Ressourcen gecacht werden sollten
+## Wann Ressourcen cachen
 
-Eine PWA kann Ressourcen jederzeit cachen, aber in der Praxis gibt es einige Zeitpunkte, zu denen die meisten PWAs sich dafür entscheiden werden, sie zu speichern:
+Eine PWA kann Ressourcen jederzeit cachen, aber in der Praxis gibt es einige Gelegenheiten, bei denen die meisten PWAs sie cachen werden:
 
-- **Im `install`-Ereignishandler des Service Workers (Vor-Caching)**: Wenn ein Service Worker installiert wird, löst der Browser ein Ereignis namens [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) im globalen Scope des Service Workers aus. Zu diesem Zeitpunkt kann der Service Worker Ressourcen _vor-cachen_, sie aus dem Netzwerk abrufen und im Cache speichern.
+- **Im `install`-Ereignishandler des Service Workers (Precaching)**: Wenn ein Service Worker installiert wird, löst der Browser ein Ereignis namens [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) im globalen Bereich des Service Workers aus. Zu diesem Zeitpunkt kann der Service Worker Ressourcen _vorcachen_, sie also aus dem Netzwerk abrufen und im Cache speichern.
 
   > [!NOTE]
-  > Die Installationszeit des Service Workers ist nicht dasselbe wie die Installationszeit der PWA. Das `install`-Ereignis eines Service Workers wird ausgelöst, sobald der Service Worker heruntergeladen und ausgeführt wird, was typischerweise passiert, sobald der Benutzer Ihre Seite besucht.
+  > Die Installationszeit des Service Workers ist nicht dieselbe wie die Installationszeit der PWA. Das `install`-Ereignis eines Service Workers löst aus, sobald der Service Worker heruntergeladen und ausgeführt wird, was in der Regel passiert, sobald der Benutzer Ihre Website besucht.
   >
-  > Selbst wenn der Benutzer Ihre Seite niemals als PWA installiert, wird dennoch der Service Worker installiert und aktiviert.
+  > Selbst wenn der Benutzer Ihre Website nie als PWA installiert, wird deren Service Worker installiert und aktiviert.
 
-- **Im `fetch`-Ereignishandler des Service Workers**: Wenn das `fetch`-Ereignis eines Service Workers ausgelöst wird, kann der Service Worker die Anfrage an das Netzwerk weiterleiten und die resultierende Antwort cachen, entweder wenn der Cache bereits keine Antwort enthält oder um die im Cache gespeicherte Antwort mit einer aktuelleren zu aktualisieren.
+- **Im `fetch`-Ereignishandler des Service Workers**: Wenn das `fetch`-Ereignis eines Service Workers ausgelöst wird, kann der Service Worker die Anfrage an das Netzwerk weiterleiten und die resultierende Antwort cachen, entweder wenn der Cache schon keine Antwort enthalten hat oder um die gecachte Antwort mit einer aktuelleren zu aktualisieren.
 
-- **Als Antwort auf eine Benutzeranfrage**: Eine PWA könnte den Benutzer ausdrücklich einladen, eine Ressource herunterzuladen, um sie später zu verwenden, wenn das Gerät möglicherweise offline ist. Ein Musik-Player könnte zum Beispiel den Benutzer einladen, Tracks herunterzuladen, um sie später abzuspielen. In diesem Fall könnte der Haupt-App-Thread die Ressource abrufen und die Antwort dem Cache hinzufügen. Besonders wenn die angeforderte Ressource groß ist, könnte die PWA die [Background Fetch API](/de/docs/Web/API/Background_Fetch_API) verwenden, und in diesem Fall wird die Antwort vom Service Worker behandelt, der sie dem Cache hinzufügt.
+- **Als Reaktion auf eine Benutzeranforderung**: Eine PWA könnte den Benutzer explizit einladen, eine Ressource herunterzuladen, um sie später zu verwenden, wenn das Gerät offline sein könnte. Zum Beispiel könnte ein Musik-Player den Benutzer einladen, Tracks herunterzuladen, um sie später abzuspielen. In diesem Fall könnte der Haupt-App-Thread die Ressource abrufen und die Antwort zum Cache hinzufügen. Besonders wenn die angeforderte Ressource groß ist, könnte die PWA die [Background Fetch API](/de/docs/Web/API/Background_Fetch_API) verwenden, und in diesem Fall wird die Antwort vom Service Worker behandelt, der sie zum Cache hinzufügen wird.
 
-- **Periodisch**: Mithilfe der [Web Periodic Background Sync API](/de/docs/Web/API/Web_Periodic_Background_Synchronization_API) könnte ein Service Worker regelmäßig Ressourcen abrufen und die Antworten cachen, um sicherzustellen, dass die PWA relativ aktuelle Antworten liefern kann, selbst wenn das Gerät offline ist.
+- **Periodisch**: Mit der [Periodic Background Sync API](/de/docs/Web/API/Web_Periodic_Background_Synchronization_API) könnte ein Service Worker regelmäßig Ressourcen abrufen und die Antworten cachen, um sicherzustellen, dass die PWA auch bei Offline-Betrieb relativ aktuelle Antworten bereitstellen kann.
 
 ## Caching-Strategien
 
-Eine Caching-Strategie ist ein Algorithmus dafür, wann eine Ressource gecacht werden soll, wann eine gecachte Ressource bereitgestellt werden soll und wann die Ressource aus dem Netzwerk geholt werden soll. In diesem Abschnitt werden einige gängige Strategien zusammengefasst.
+Eine Caching-Strategie ist ein Algorithmus dafür, wann eine Ressource gecacht werden soll, wann eine gecachte Ressource bereitgestellt werden soll und wann die Ressource aus dem Netzwerk abgerufen werden soll. In diesem Abschnitt fassen wir einige gängige Strategien zusammen.
 
-Dies ist keine vollständige Liste: Sie soll lediglich die Arten von Ansätzen veranschaulichen, die eine PWA verwenden kann.
+Dies ist keine vollständige Liste: Sie soll nur die Art der Ansätze illustrieren, die eine PWA verfolgen kann.
 
-Eine Caching-Strategie bringt Offline-Betrieb, Reaktionsfähigkeit und Aktualität in Einklang. Unterschiedliche Ressourcen haben hier unterschiedliche Anforderungen: Zum Beispiel wird die grundlegende Benutzeroberfläche der App wahrscheinlich relativ statisch sein, während es möglicherweise entscheidend wichtig ist, aktuelle Daten zu haben, wenn eine Produktliste angezeigt wird. Das bedeutet, dass eine PWA in der Regel verschiedene Strategien für verschiedene Ressourcen anwendet, und eine einzige PWA könnte alle hier beschriebenen Strategien verwenden.
+Eine Caching-Strategie balanciert Offline-Betrieb, Reaktionsfähigkeit und Aktualität aus. Unterschiedliche Ressourcen haben hier unterschiedliche Anforderungen: Beispielsweise ist die Grund-UI der App wahrscheinlich relativ statisch, während es beim Anzeigen einer Produktliste entscheidend sein kann, über aktuelle Daten zu verfügen. Das bedeutet, dass eine PWA in der Regel unterschiedliche Strategien für unterschiedliche Ressourcen anwendet und eine einzelne PWA alle hier beschriebenen Strategien nutzen könnte.
 
 ### Cache zuerst
 
-In dieser Strategie werden wir einige Ressourcen vor-cachen und dann eine "Cache zuerst"-Strategie nur für diese Ressourcen umsetzen. Das heißt:
+Bei dieser Strategie werden wir einige Ressourcen vorcachen und dann eine "Cache zuerst"-Strategie nur für diese Ressourcen implementieren. Das heißt:
 
 - Für die vorgecachten Ressourcen werden wir:
   - Im Cache nach der Ressource suchen und die Ressource zurückgeben, wenn sie gefunden wird.
-  - Andernfalls gehen wir ins Netzwerk. Wenn die Netzwerkabfrage erfolgreich ist, speichern wir die Ressource für das nächste Mal im Cache.
-- Für alle anderen Ressourcen werden wir immer ins Netzwerk gehen.
+  - Andernfalls ins Netzwerk gehen. Wenn die Netzwerk-Anfrage erfolgreich ist, die Ressource für das nächste Mal cachen.
+- Für alle anderen Ressourcen werden wir immer zum Netzwerk gehen.
 
-Precaching ist eine geeignete Strategie für Ressourcen, die die PWA sicher benötigt, die sich für diese Version der App nicht ändern werden und die so schnell wie möglich abgerufen werden müssen. Dazu gehört zum Beispiel die grundlegende Benutzeroberfläche der App. Wenn diese vorgecached ist, kann die Benutzeroberfläche der App beim Start gerendert werden, ohne dass Netzwerkabfragen erforderlich sind.
+Precaching ist eine geeignete Strategie für Ressourcen, die die PWA sicher benötigt, die sich in dieser Version der App nicht ändern werden und die so schnell wie möglich abgerufen werden müssen. Dazu gehört beispielsweise die grundlegende Benutzeroberfläche der App. Wenn diese vorgecacht ist, kann die UI der App beim Start gerendert werden, ohne dass Netzwerk-Anfragen erforderlich sind.
 
 Zuerst precacht der Service Worker statische Ressourcen in seinem `install`-Ereignishandler:
 
@@ -94,9 +94,9 @@ self.addEventListener("install", (event) => {
 });
 ```
 
-Im `install`-Ereignishandler geben wir das Ergebnis der Cache-Operation in die [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)-Methode des Ereignisses ein. Das bedeutet, dass wenn das Cachen aus irgendeinem Grund fehlschlägt, die Installation des Service Workers fehlschlägt: Im umgekehrten Fall, wenn die Installation erfolgreich war, kann der Service Worker sicher sein, dass die Ressource dem Cache hinzugefügt wurde.
+Im `install`-Ereignishandler übergeben wir das Ergebnis des Cachings in die Methode [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) des Ereignisses. Das bedeutet, dass, wenn das Caching aus irgendeinem Grund fehlschlägt, die Installation des Service Workers fehlschlägt: Umgekehrt, wenn die Installation erfolgreich war, kann der Service Worker sicher sein, dass die Ressource dem Cache hinzugefügt wurde.
 
-Der `fetch`-Ereignishandler sieht so aus:
+Der `fetch`-Ereignishandler sieht folgendermaßen aus:
 
 ```js
 async function cacheFirst(request) {
@@ -123,17 +123,17 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Wir geben die Ressource zurück, indem wir die [`respondWith()`](/de/docs/Web/API/FetchEvent/respondWith)-Methode des Ereignisses aufrufen. Wenn wir `respondWith()` für eine bestimmte Anfrage nicht aufrufen, wird die Anfrage an das Netzwerk gesendet, als hätte der Service Worker sie nicht abgefangen. Wenn eine Anfrage nicht vorgecached ist, geht sie einfach ins Netzwerk.
+Wir geben die Ressource zurück, indem wir die Methode [`respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) des Ereignisses aufrufen. Wenn wir `respondWith()` für eine gegebene Anfrage nicht aufrufen, wird die Anfrage so an das Netzwerk gesendet, als ob der Service Worker sie nicht abgefangen hätte. Wenn eine Anfrage also nicht vorgecacht ist, geht sie einfach ins Netzwerk.
 
-Wenn wir `networkResponse` zum Cache hinzufügen, müssen wir die Antwort klonen und die Kopie dem Cache hinzufügen, während wir das Original zurückgeben. Dies liegt daran, dass `Response`-Objekte streamfähig sind und daher nur einmal gelesen werden können.
+Wenn wir `networkResponse` zum Cache hinzufügen, müssen wir die Antwort klonen und die Kopie zum Cache hinzufügen, während wir das Original zurückgeben. Dies liegt daran, dass `Response`-Objekte streambar sind und daher möglicherweise nur einmal gelesen werden können.
 
-Sie könnten sich fragen, warum wir auf das Netzwerk zurückgreifen, wenn Ressourcen vorgecached sind. Wenn sie vorgecached sind, können wir dann nicht sicher sein, dass sie im Cache sind? Der Grund ist, dass es möglich ist, dass der Cache entweder vom Browser oder vom Benutzer gelöscht wird. Obwohl dies unwahrscheinlich ist, würde es die PWA unbrauchbar machen, wenn sie nicht auf das Netzwerk zurückgreifen kann. Siehe [Löschen von zwischengespeicherten Daten](#löschen_von_zwischengespeicherten_daten).
+Sie fragen sich vielleicht, warum wir auf das Netzwerk zurückgreifen, um vorgecachte Ressourcen zu erhalten. Wenn sie vorgecacht sind, können wir dann nicht sicher sein, dass sie im Cache sein werden? Der Grund ist, dass es möglich ist, dass der Cache entweder vom Browser oder vom Benutzer gelöscht wird. Obwohl dies unwahrscheinlich ist, wäre die PWA unbrauchbar, wenn sie nicht auf das Netzwerk zurückgreifen könnte. Siehe [Löschen gecachter Daten](#löschen_von_gecachten_daten).
 
 ### Cache zuerst mit Cache-Aktualisierung
 
-Der Nachteil von "Cache zuerst" ist, dass eine Antwort, sobald sie im Cache ist, niemals aktualisiert wird, bis eine neue Version des Service Workers installiert wird.
+Der Nachteil von "Cache zuerst" ist, dass eine Antwort im Cache nicht aktualisiert wird, bis eine neue Version des Service Workers installiert ist.
 
-Die "Cache zuerst mit Cache-Aktualisierung"-Strategie, auch bekannt als "stale while revalidate", ähnelt "Cache zuerst", mit dem Unterschied, dass wir die Anfrage immer an das Netzwerk senden, auch nach einem Cache-Treffer, und die Antwort verwenden, um den Cache zu aktualisieren. Das bedeutet, dass wir die Reaktionsfähigkeit von "Cache zuerst" erhalten, aber eine relativ aktuelle Antwort bekommen (solange die Anfrage häufig genug gemacht wird).
+Die Strategie "Cache zuerst mit Cache-Aktualisierung", auch bekannt als "Stale While Revalidate", ist ähnlich wie "Cache zuerst", außer dass wir die Anfrage immer an das Netzwerk senden, selbst nach einem Cache-Treffer, und die Antwort verwenden, um den Cache zu aktualisieren. Dies bedeutet, dass wir die Reaktionsfähigkeit von "Cache zuerst" erhalten, aber eine ziemlich aktuelle Antwort bekommen (solange die Anfrage relativ oft gestellt wird).
 
 Dies ist eine gute Wahl, wenn Reaktionsfähigkeit wichtig ist und Aktualität einigermaßen wichtig, aber nicht entscheidend ist.
 
@@ -164,15 +164,15 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Beachten Sie, dass wir den Cache asynchron aktualisieren (in einem `then()`-Handler), damit die App nicht auf den Empfang der Netzwerkantwort warten muss, bevor sie die zwischengespeicherte Antwort verwenden kann.
+Beachten Sie, dass wir den Cache asynchron aktualisieren (in einem `then()`-Handler), sodass die App nicht warten muss, bis die Netzwerk-Antwort empfangen wird, bevor sie die gecachte Antwort verwenden kann.
 
 ### Netzwerk zuerst
 
-Die letzte Strategie, die wir uns ansehen werden, "Netzwerk zuerst", ist das Gegenteil von "Cache zuerst": Wir versuchen, die Ressource aus dem Netzwerk abzurufen. Wenn die Netzwerkabfrage erfolgreich ist, geben wir die Antwort zurück und aktualisieren den Cache. Wenn sie fehlschlägt, versuchen wir den Cache.
+Die letzte Strategie, die wir betrachten, "Netzwerk zuerst", ist das Gegenteil von Cache zuerst: Wir versuchen, die Ressource aus dem Netzwerk abzurufen. Wenn die Netzwerk-Anfrage erfolgreich ist, geben wir die Antwort zurück und aktualisieren den Cache. Wenn sie fehlschlägt, versuchen wir es mit dem Cache.
 
-Dies ist nützlich für Anfragen, bei denen es wichtig ist, die aktuellste Antwort zu erhalten, aber bei denen eine zwischengespeicherte Ressource besser ist als nichts. Eine Messaging-App kann in diese Kategorie fallen, wenn es darum geht, die Liste der letzten Nachrichten anzuzeigen.
+Dies ist nützlich für Anfragen, bei denen es wichtig ist, die frischeste Antwort zu erhalten, aber bei denen eine gecachte Ressource besser als nichts ist. Eine Messaging-App mit einer Liste der letzten Nachrichten könnte in diese Kategorie fallen.
 
-Im unten stehenden Beispiel verwenden wir "Netzwerk zuerst" für Anfragen, um alle Ressourcen abzurufen, die sich im "Posteingang"-Pfad der App befinden.
+Im folgenden Beispiel verwenden wir "Netzwerk zuerst" für Anfragen, um alle Ressourcen unter dem "inbox"-Pfad der App abzurufen.
 
 ```js
 async function networkFirst(request) {
@@ -197,18 +197,18 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Es gibt immer noch Anfragen, bei denen keine Antwort besser ist als eine möglicherweise veraltete Antwort, und bei denen nur eine "nur Netzwerk"-Strategie geeignet ist. Wenn eine App beispielsweise die Liste der verfügbaren Produkte anzeigt, wird es frustrierend für Benutzer sein, wenn die Liste nicht auf dem neuesten Stand ist.
+Es gibt immer noch Anfragen, bei denen keine Antwort besser ist als eine möglicherweise veraltete Antwort, und bei denen nur eine "Nur Netzwerk"-Strategie angemessen ist. Beispielsweise wird es für Benutzer frustrierend sein, wenn eine App die Liste der verfügbaren Produkte anzeigt, diese aber veraltet ist.
 
-## Löschen von zwischengespeicherten Daten
+## Löschen von gecachten Daten
 
-Caches haben einen begrenzten Speicherplatz, und der Browser kann die zwischengespeicherten Daten einer App löschen, wenn das Limit überschritten wird. Die spezifischen Limits und das Verhalten sind browserspezifisch: Weitere Details finden Sie unter [Speicherquoten und Löschkriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria). In der Praxis ist die Löschung von zwischengespeicherten Daten ein sehr seltenes Ereignis. Der Benutzer kann auch jederzeit den Cache einer App löschen.
+Caches haben einen begrenzten Speicherplatz, und der Browser kann die gecachten Daten einer App löschen, wenn das Limit überschritten wird. Die spezifischen Limits und das Verhalten sind browserspezifisch: Weitere Informationen finden Sie unter [Speicher-Quoten und Auslöschkriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria). In der Praxis ist das Löschen von gecachten Daten ein sehr seltenes Ereignis. Der Benutzer kann den Cache einer App jedoch jederzeit löschen.
 
-Eine PWA sollte alte Versionen ihres Caches im [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event)-Ereignis des Service Workers bereinigen: Wenn dieses Ereignis ausgelöst wird, kann der Service Worker sicher sein, dass keine vorherigen Versionen des Service Workers ausgeführt werden, sodass alte zwischengespeicherte Daten nicht mehr benötigt werden.
+Eine PWA sollte im `activate`-Ereignis des Service Workers alle alten Versionen ihres Caches bereinigen: Wenn dieses Ereignis ausgelöst wird, kann der Service Worker sicher sein, dass keine vorherigen Versionen des Service Workers laufen, sodass alte gecachte Daten nicht mehr benötigt werden.
 
 ## Siehe auch
 
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 - [Fetch API](/de/docs/Web/API/Fetch_API)
-- [Speicherquoten und Löschkriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria)
-- [Strategien für das Caching von Service Workern](https://developer.chrome.com/docs/workbox/caching-strategies-overview) auf developer.chrome.com (2021)
-- [Das Offline-Kochbuch](https://web.dev/articles/offline-cookbook) auf web.dev (2020)
+- [Speicher-Quoten und Auslöschkriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria)
+- [Strategien für das Caching durch Service Worker](https://developer.chrome.com/docs/workbox/caching-strategies-overview) auf developer.chrome.com (2021)
+- [The Offline Cookbook](https://web.dev/articles/offline-cookbook) auf web.dev (2020)

@@ -1,18 +1,18 @@
 ---
-title: "Document: featurePolicy-Eigenschaft"
+title: "Dokument: featurePolicy-Eigenschaft"
 short-title: featurePolicy
 slug: Web/API/Document/featurePolicy
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Feature Policy")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`featurePolicy`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt die [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Schnittstelle zurück, welche eine einfache API zur Verfügung stellt, um die [Permissions Policies](/de/docs/Web/HTTP/Permissions_Policy) zu inspizieren, die auf ein bestimmtes Dokument angewendet werden.
+Die **`featurePolicy`**-Schreibgeschutzt-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt das [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interface zurück, das eine einfache API zum Überprüfen der auf ein bestimmtes Dokument angewandten [Permissions Policies](/de/docs/Web/HTTP/Guides/Permissions_Policy) bereitstellt.
 
 ## Wert
 
-Ein [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Objekt, das verwendet werden kann, um die auf das Dokument angewendeten Einstellungen der Permissions Policy zu inspizieren.
+Ein [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Objekt, das verwendet werden kann, um die auf das Dokument angewandten Permissions Policies-Einstellungen zu überprüfen.
 
 ## Spezifikationen
 

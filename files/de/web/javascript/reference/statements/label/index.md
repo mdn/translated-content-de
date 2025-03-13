@@ -1,15 +1,15 @@
 ---
-title: Markierte Anweisung
+title: Bezeichnete Anweisung
 slug: Web/JavaScript/Reference/Statements/label
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Statements")}}
 
-Eine **markierte Anweisung** ist eine beliebige [Anweisung](/de/docs/Web/JavaScript/Reference/Statements), die mit einem Bezeichner versehen ist. Sie können mithilfe einer {{jsxref("Statements/break", "break")}}- oder {{jsxref("Statements/continue", "continue")}}-Anweisung, die innerhalb der markierten Anweisung verschachtelt ist, zu dieser Markierung springen.
+Eine **bezeichnete Anweisung** ist jede [Anweisung](/de/docs/Web/JavaScript/Reference/Statements), die mit einem Bezeichner versehen ist. Sie können zu dieser Bezeichnung mit einer {{jsxref("Statements/break", "break")}}- oder {{jsxref("Statements/continue", "continue")}}-Anweisung springen, die in der bezeichneten Anweisung verschachtelt ist.
 
-{{InteractiveExample("JavaScript Demo: Statement - Label")}}
+{{InteractiveExample("JavaScript Demo: Labeled statement")}}
 
 ```js interactive-example
 let str = "";
@@ -33,25 +33,25 @@ label:
 ```
 
 - `label`
-  - : Ein beliebiger [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) in JavaScript, der kein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) ist.
+  - : Jeder JavaScript-[Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers), der kein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) ist.
 - `statement`
-  - : Eine JavaScript-Anweisung. `break` kann innerhalb jeder markierten Anweisung verwendet werden, und `continue` kann innerhalb markierter Schleifenanweisungen verwendet werden.
+  - : Eine JavaScript-Anweisung. `break` kann innerhalb jeder bezeichneten Anweisung verwendet werden und `continue` kann innerhalb von bezeichneten Schleifenanweisungen verwendet werden.
 
 ## Beschreibung
 
-Sie können eine Markierung verwenden, um eine Anweisung zu identifizieren und später mithilfe einer `break`- oder `continue`-Anweisung darauf zu verweisen. Beachten Sie, dass JavaScript _keine_ `goto`-Anweisung hat; Markierungen können nur mit `break` oder `continue` verwendet werden.
+Sie können eine Bezeichnung verwenden, um eine Anweisung zu identifizieren und später mit einer `break`- oder `continue`-Anweisung darauf zu verweisen. Beachten Sie, dass JavaScript _keine_ `goto`-Anweisung hat; Sie können Bezeichnungen nur mit `break` oder `continue` verwenden.
 
-Jede `break`- oder `continue`-Anweisung, die auf `label` verweist, muss sich innerhalb der `statement` befinden, die durch `label` markiert ist. Betrachten Sie `label` als eine Variable, die nur im Gültigkeitsbereich der `statement` verfügbar ist.
+Jede `break` oder `continue`, die sich auf `label` bezieht, muss innerhalb der `statement` sein, die durch `label` bezeichnet wird. Betrachten Sie `label` als eine Variable, die nur im Geltungsbereich von `statement` verfügbar ist.
 
-Wenn eine `break label;`-Anweisung beim Ausführen von `statement` auftritt, wird die Ausführung von `statement` beendet und die Ausführung wird mit der Anweisung unmittelbar nach der markierten Anweisung fortgesetzt.
+Wenn eine `break label;`-Anweisung bei der Ausführung von `statement` erreicht wird, wird die Ausführung von `statement` beendet und die Ausführung wird bei der Anweisung direkt nach der bezeichneten Anweisung fortgesetzt.
 
-`continue label;` kann nur verwendet werden, wenn `statement` eine der [Schleifenanweisungen](/de/docs/Web/JavaScript/Reference/Statements#iterations) ist. Wenn eine `continue label;`-Anweisung beim Ausführen von `statement` auftritt, wird die Ausführung von `statement` mit der nächsten Iteration der Schleife fortgesetzt. `continue;` ohne Markierung kann nur die innerste Schleife fortsetzen, während `continue label;` erlaubt, eine beliebige Schleife fortzusetzen, selbst wenn die Anweisung innerhalb anderer Schleifen verschachtelt ist.
+`continue label;` kann nur verwendet werden, wenn `statement` eine der [Schleifenanweisungen](/de/docs/Web/JavaScript/Reference/Statements#iterations) ist. Wenn eine `continue label;`-Anweisung bei der Ausführung von `statement` erreicht wird, wird die Ausführung von `statement` bei der nächsten Iteration der Schleife fortgesetzt. `continue;` ohne Bezeichnung kann nur die innerste Schleife fortsetzen, während `continue label;` das Fortsetzen einer beliebigen Schleife ermöglicht, selbst wenn die Anweisung in anderen Schleifen verschachtelt ist.
 
-Eine Anweisung kann mehrere Markierungen haben. In diesem Fall sind die Markierungen funktional gleichwertig.
+Eine Anweisung kann mehrere Bezeichnungen haben. In diesem Fall sind die Bezeichnungen funktional gleichwertig.
 
 ## Beispiele
 
-### Verwendung von markierten Continue-Anweisungen mit for-Schleifen
+### Verwendung eines bezeichneten continue mit for-Schleifen
 
 ```js
 // The first for statement is labeled "loop1"
@@ -77,7 +77,7 @@ loop1: for (let i = 0; i < 3; i++) {
 
 Beachten Sie, wie sowohl "i = 1, j = 1" als auch "i = 1, j = 2" übersprungen werden.
 
-### Verwendung von markierten Break-Anweisungen mit for-Schleifen
+### Verwendung eines bezeichneten break mit for-Schleifen
 
 ```js
 let i, j;
@@ -100,11 +100,11 @@ loop1: for (i = 0; i < 3; i++) {
 // i = 1, j = 0
 ```
 
-Beachten Sie den Unterschied zum vorherigen `continue`-Beispiel: Wenn `break loop1` auftritt, wird die Ausführung der äußeren Schleife beendet, sodass keine weiteren Protokolleinträge über "i = 1, j = 0" hinaus zu sehen sind. Wenn `continue loop1` auftritt, wird die Ausführung der äußeren Schleife mit der nächsten Iteration fortgesetzt, sodass nur "i = 1, j = 1" und "i = 1, j = 2" übersprungen werden.
+Beachten Sie den Unterschied zum vorherigen `continue`-Beispiel: Wenn `break loop1` erreicht wird, wird die Ausführung der äußeren Schleife beendet, sodass es keine weiteren Ausgaben über "i = 1, j = 0" hinaus gibt; wenn `continue loop1` erreicht wird, wird die Ausführung der äußeren Schleife bei der nächsten Iteration fortgesetzt, sodass nur "i = 1, j = 1" und "i = 1, j = 2" übersprungen werden.
 
-### Verwendung von markierten Continue-Anweisungen
+### Verwendung einer bezeichneten continue-Anweisung
 
-Angenommen, es gibt ein Array von Elementen und ein Array von Tests. Dieses Beispiel zählt die Anzahl der Elemente, die alle Tests bestehen.
+Angenommen, es gibt ein Array von Elementen und ein Array von Tests, zählt dieses Beispiel die Anzahl der Elemente, die alle Tests bestehen.
 
 ```js
 // Numbers from 1 to 100
@@ -127,7 +127,7 @@ itemIteration: for (const item of items) {
 }
 ```
 
-Beachten Sie, wie die `continue itemIteration;`-Anweisung den Rest der Tests für das aktuelle Element sowie die Anweisung, die den `itemsPassed`-Zähler aktualisiert, überspringt und mit dem nächsten Element fortfährt. Wenn Sie keine Markierung verwenden, müssten Sie stattdessen eine boolesche Variable verwenden.
+Beachten Sie, wie die `continue itemIteration;`-Anweisung den Rest der Tests für das aktuelle Element sowie die Anweisung, die den `itemsPassed`-Zähler aktualisiert, überspringt und mit dem nächsten Element fortfährt. Wenn Sie keine Bezeichnung verwenden, müssten Sie stattdessen eine boolesche Variable verwenden.
 
 ```js
 // Numbers from 1 to 100
@@ -153,9 +153,9 @@ for (const item of items) {
 }
 ```
 
-### Verwendung von markierten Break-Anweisungen
+### Verwendung einer bezeichneten break-Anweisung
 
-Angenommen, es gibt ein Array von Elementen und ein Array von Tests. Dieses Beispiel prüft, ob alle Elemente alle Tests bestehen.
+Angenommen, es gibt ein Array von Elementen und ein Array von Tests, bestimmt dieses Beispiel, ob alle Elemente alle Tests bestehen.
 
 ```js
 // Numbers from 1 to 100
@@ -177,7 +177,7 @@ itemIteration: for (const item of items) {
 }
 ```
 
-Auch hier müssten Sie, wenn Sie keine Markierung verwenden, stattdessen eine boolesche Variable verwenden.
+Erneut, wenn Sie keine Bezeichnung verwenden, müssten Sie stattdessen eine boolesche Variable verwenden.
 
 ```js
 // Numbers from 1 to 100
@@ -204,9 +204,9 @@ for (const item of items) {
 }
 ```
 
-### Verwendung eines markierten Blocks mit Break
+### Verwendung eines bezeichneten Blocks mit break
 
-Sie können andere Anweisungen als Schleifen, wie einfache Blöcke, markieren. Allerdings können nur `break`-Anweisungen auf nicht-Schleifen-Markierungen verweisen.
+Sie können auch andere Anweisungen als Schleifen kennzeichnen, wie einfache Blöcke, aber nur `break`-Anweisungen können sich auf nicht-Schleifen-Bezeichnungen beziehen.
 
 ```js
 foo: {
@@ -221,15 +221,15 @@ console.log("swap");
 // "swap"
 ```
 
-### Markierte Funktionsdeklarationen
+### Bezeichnete Funktionsdeklarationen
 
-Markierungen können nur auf [Anweisungen und nicht auf Deklarationen](/de/docs/Web/JavaScript/Reference/Statements#difference_between_statements_and_declarations) angewendet werden. Es gibt eine veraltete Grammatik, die es erlaubt, Funktionsdeklarationen in nicht-striktem Code zu markieren:
+Bezeichnungen können nur auf [Anweisungen, nicht auf Deklarationen](/de/docs/Web/JavaScript/Reference/Statements#difference_between_statements_and_declarations) angewendet werden. Es gibt eine veraltete Grammatik, die es erlaubt, Funktionsdeklarationen in nicht-striktem Code zu kennzeichnen:
 
 ```js
 L: function F() {}
 ```
 
-Im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-Code führt dies jedoch zu einem {{jsxref("SyntaxError")}}:
+In [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)-Code führt dies jedoch zu einem {{jsxref("SyntaxError")}}:
 
 ```js-nolint example-bad
 "use strict";
@@ -237,14 +237,14 @@ L: function F() {}
 // SyntaxError: functions cannot be labelled
 ```
 
-Nicht-standardmäßige Funktionen, wie [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*) und [Async-Funktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function), können weder im strikt noch im nicht-strikt Modus markiert werden:
+Nicht-einfache Funktionen, wie [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*) und [asynchrone Funktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function) können weder in strikt noch in nicht-striktem Code gekennzeichnet werden:
 
 ```js-nolint example-bad
 L: function* F() {}
 // SyntaxError: generator functions cannot be labelled
 ```
 
-Die Syntax für markierte Funktionsdeklarationen ist [veraltet](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features) und sollte auch im nicht-strikten Code nicht verwendet werden. Sie können innerhalb des Funktionskörpers tatsächlich nicht zu dieser Markierung springen.
+Die Syntax der bezeichneten Funktionsdeklaration ist [veraltet](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features) und sollte nicht verwendet werden, selbst in nicht-striktem Code. Sie können tatsächlich nicht innerhalb des Funktionskörpers zu dieser Bezeichnung springen.
 
 ## Spezifikationen
 

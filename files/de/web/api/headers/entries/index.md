@@ -3,12 +3,15 @@ title: "Headers: entries() Methode"
 short-title: entries()
 slug: Web/API/Headers/entries
 l10n:
-  sourceCommit: 2c641e08878722bf29fb784d58c61873ce4a133a
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`Headers.entries()`** Methode gibt einen {{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Schlüssel/Wert-Paare zu durchlaufen. Sowohl der Schlüssel als auch der Wert jedes Paares sind {{jsxref("String")}} Objekte.
+Die **`Headers.entries()`** Methode gibt einen
+{{jsxref("Iteration_protocols",'iterator')}} zurück, der es ermöglicht, alle Schlüssel/Wert-Paare
+in diesem Objekt zu durchlaufen. Sowohl der Schlüssel als auch der Wert jedes Paares sind
+{{jsxref("String")}} Objekte.
 
 ## Syntax
 
@@ -22,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
 
 ## Beispiele
 
@@ -52,5 +55,5 @@ vary: Accept-Language
 ## Siehe auch
 
 - [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
+- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

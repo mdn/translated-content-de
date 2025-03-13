@@ -3,12 +3,12 @@ title: "InstallEvent: addRoutes() Methode"
 short-title: addRoutes()
 slug: Web/API/InstallEvent/addRoutes
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Service Workers API")}}{{SeeCompatTable}}
 
-Die **`addRoutes()`**-Methode des [`InstallEvent`](/de/docs/Web/API/InstallEvent)-Interfaces legt eine oder mehrere statische Routen fest, die Regeln zum Abrufen bestimmter Ressourcen definieren, die bereits vor dem Start des Service-Workers verwendet werden. Dies ermöglicht es Ihnen beispielsweise, einen Service-Worker in Fällen zu umgehen, in denen Sie eine Ressource immer aus dem Netzwerk oder einem Browser-`Cache` abrufen möchten, und vermeidet den Leistungsaufwand unnötiger Service-Worker-Zyklen.
+Die **`addRoutes()`** Methode der [`InstallEvent`](/de/docs/Web/API/InstallEvent) Schnittstelle legt eine oder mehrere statische Routen fest, die Regeln zum Abrufen bestimmter Ressourcen definieren, welche auch vor dem Start des Service Workers verwendet werden. Damit können Sie zum Beispiel einen Service Worker umgehen, wenn Sie stets eine Ressource aus dem Netzwerk oder einem Browser-[`Cache`](/de/docs/Web/API/Cache) abrufen möchten, und vermeiden so den Leistungsaufwand unnötiger Service Worker-Zyklen.
 
 ## Syntax
 
@@ -20,40 +20,40 @@ addRoutes(routerRules)
 
 - `routerRules`
 
-  - : Ein einzelnes Objekt oder ein Array von einem oder mehreren Objekten, die Regeln dafür repräsentieren, wie bestimmte Ressourcen abgerufen werden sollen. Jedes `routerRules`-Objekt enthält die folgenden Eigenschaften:
+  - : Ein einzelnes Objekt oder ein Array von einem oder mehreren Objekten, die Regeln repräsentieren, wie bestimmte Ressourcen abgerufen werden sollen. Jedes `routerRules` Objekt enthält die folgenden Eigenschaften:
 
     - `condition`
 
-      - : Ein Objekt, das eine oder mehrere Bedingungen definiert, die spezifizieren, welche Ressourcen dieser Regel entsprechen sollen. Die folgenden Eigenschaften können enthalten sein; wenn mehrere Eigenschaften verwendet werden, muss eine Ressource alle angegebenen Bedingungen erfüllen, um der Regel zu entsprechen.
+      - : Ein Objekt, das eine oder mehrere Bedingungen definiert, welche spezifizieren, welche Ressourcen mit dieser Regel übereinstimmen sollen. Es können die folgenden Eigenschaften enthalten sein; wenn mehrere Eigenschaften verwendet werden, muss eine Ressource alle angegebenen Bedingungen erfüllen, um mit der Regel übereinzustimmen.
         - `not` {{optional_inline}}
-          - : Ein `condition`-Objekt, das Bedingungen definiert, die ausdrücklich **nicht** erfüllt sein müssen, um der Regel zu entsprechen. Bedingungen, die in einer `not`-Bedingung definiert sind, sind mit anderen Bedingungen gegenseitig ausschließend.
+          - : Ein `condition`-Objekt, das Bedingungen definiert, die ausdrücklich **nicht** erfüllt sein müssen, um mit der Regel übereinzustimmen. Bedingungen, die innerhalb einer `not`-Bedingung definiert sind, schließen sich gegenseitig mit anderen Bedingungen aus.
         - `or` {{optional_inline}}
-          - : Ein Array von `condition`-Objekten. Ein Satz dieser definierten Bedingungen muss erfüllt sein, um der Regel zu entsprechen. Bedingungen, die in einer `or`-Bedingung definiert sind, sind mit anderen Bedingungen gegenseitig ausschließend.
+          - : Ein Array von `condition`-Objekten. Eine Menge dieser definierten Bedingungen muss erfüllt sein, um mit der Regel übereinzustimmen. Bedingungen, die innerhalb einer `or`-Bedingung definiert sind, schließen sich gegenseitig mit anderen Bedingungen aus.
         - `requestMethod` {{optional_inline}}
-          - : Ein String, der die [HTTP-Methode](/de/docs/Web/HTTP/Methods) repräsentiert, mit der eine Anfrage gesendet werden soll, um der Regel zu entsprechen, wie zum Beispiel `"get"`, `"put"` oder `"head"`.
+          - : Ein Zeichenfolgenwert, der die [HTTP-Methode](/de/docs/Web/HTTP/Reference/Methods) beschreibt, mit der eine Anfrage gesendet werden soll, damit sie mit der Regel übereinstimmt, wie zum Beispiel `"get"`, `"put"` oder `"head"`.
         - `requestMode` {{optional_inline}}
-          - : Ein String, der den [Modus](/de/docs/Web/API/Request/mode) repräsentiert, den eine Anfrage haben soll, um der Regel zu entsprechen, zum Beispiel `"same-origin"`, `"no-cors"` oder `"cors"`.
+          - : Ein Zeichenfolgenwert, der den [Modus](/de/docs/Web/API/Request/mode) einer Anfrage beschreibt, damit sie mit der Regel übereinstimmt, zum Beispiel `"same-origin"`, `"no-cors"` oder `"cors"`.
         - `requestDestination` {{optional_inline}}
-          - : Ein String, der das [Ziel](/de/docs/Web/API/Request/destination) einer Anfrage repräsentiert, d.h. welcher Inhaltstyp angefordert werden soll, um der Regel zu entsprechen. Beispiele sind `"audio"`, `"document"`, `"script"` und `"worker"`.
+          - : Ein Zeichenfolgenwert, der das [Ziel](/de/docs/Web/API/Request/destination) einer Anfrage beschreibt, also welcher Inhaltstyp angefordert werden soll, damit sie mit der Regel übereinstimmt. Beispiele umfassen `"audio"`, `"document"`, `"script"` und `"worker"`.
         - `runningStatus` {{optional_inline}}
-          - : Ein enumerierter Wert, der den erforderlichen Ausführungsstatus des Service-Workers darstellt, damit eine Anfrage der Regel entspricht. Werte können `"running"` oder `"not-running"` sein.
+          - : Ein enumerierter Wert, der den geforderten Betriebsstatus des Service Workers repräsentiert, damit eine Anfrage mit der Regel übereinstimmt. Mögliche Werte sind `"running"` oder `"not-running"`.
         - `urlPattern` {{optional_inline}}
-          - : Eine [`URLPattern`](/de/docs/Web/API/URLPattern)-Instanz oder ein `URLPattern()`-Konstruktor-`input`-Muster, das die URLs darstellt, die der Regel entsprechen.
+          - : Eine [`URLPattern`](/de/docs/Web/API/URLPattern)-Instanz oder ein `URLPattern()`-Konstruktor [`input`](/de/docs/Web/API/URLPattern/URLPattern#input) Muster, das die URLs repräsentiert, die mit der Regel übereinstimmen.
 
     - `source`
 
-      - : Ein enumerierter Wert oder ein Objekt, das die Quelle angibt, aus der passende Ressourcen geladen werden. Mögliche enumerierte Werte sind:
+      - : Ein enumerierter Wert oder ein Objekt, das die Quelle spezifiziert, aus der passende Ressourcen geladen werden. Mögliche enumerierte Werte sind:
 
         - `"cache"`
-          - : Ressourcen werden aus einem Browser-`Cache` geladen.
+          - : Ressourcen werden aus einem Browser-[`Cache`](/de/docs/Web/API/Cache) geladen.
         - `"fetch-event"`
-          - : Ressourcen werden über den [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignishandler des Service-Workers geladen. Dies kann mit der `"runningStatus"`-Bedingung kombiniert werden, um Ressourcen aus einem Service-Worker zu laden, wenn er läuft, und auf eine statische Route im Netzwerk zurückzugreifen, wenn nicht.
+          - : Ressourcen werden über den [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignishandler des Service Workers geladen. Dies kann mit der `"runningStatus"`-Bedingung kombiniert werden, um Ressourcen von einem Service Worker zu laden, wenn er läuft, und auf eine statische Route im Netzwerk zurückzugreifen, wenn nicht.
         - `"network"`
           - : Ressourcen werden aus dem Netzwerk geladen.
         - `"race-network-and-fetch-handler"`
-          - : Es wird versucht, Ressourcen gleichzeitig aus dem Netzwerk und dem `fetch`-Ereignishandler des Service-Workers zu laden. Welche zuerst fertig ist, wird verwendet.
+          - : Es wird versucht, Ressourcen sowohl aus dem Netzwerk als auch über den [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignishandler des Service Workers gleichzeitig zu laden. Das zuerst abgeschlossene wird verwendet.
 
-        Der `source`-Wert kann auch auf ein Objekt gesetzt werden, das eine einzelne Eigenschaft, `cacheName`, enthält, deren Wert ein String ist, der den Namen eines Browser-`Cache` repräsentiert. Passende Ressourcen werden aus diesem speziellen benannten Cache geladen, falls dieser existiert.
+        Der `source` Wert kann auch auf ein Objekt gesetzt werden, das eine einzelne Eigenschaft, `cacheName`, enthält, deren Wert eine Zeichenfolge ist, die den Namen eines Browser-[`Cache`](/de/docs/Web/API/Cache) repräsentiert. Passende Ressourcen werden aus diesem spezifischen benannten Cache geladen, falls er existiert.
 
 ### Rückgabewert
 
@@ -62,13 +62,13 @@ Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 ### Ausnahmen
 
 - `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eines oder mehrere der Regelobjekte innerhalb `routerRules` ungültig sind oder einen `source`-Wert von `"fetch-event"` haben, wenn der zugehörige Service-Worker keinen [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignishandler hat. Wird auch ausgelöst, wenn Sie versuchen, `or` mit einem anderen Bedingungstyp zu kombinieren.
+  - : Wird ausgelöst, wenn eines oder mehrere der Regeln-Objekte innerhalb von `routerRules` ungültig sind oder einen `source` Wert von `"fetch-event"` haben, wenn der zugehörige Service Worker keinen [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignishandler hat. Wird auch ausgelöst, wenn Sie versuchen, `or` mit einem anderen Bedingungstyp zu kombinieren.
 
 ## Beispiele
 
-### Spezifische Anfragen an das Netzwerk weiterleiten, wenn der Service-Worker nicht aktiv ist
+### Bestimmte Anfragen zum Netzwerk leiten, wenn der Service Worker nicht läuft
 
-Im folgenden Beispiel werden URLs, die mit `/articles` beginnen, an das Netzwerk weitergeleitet, wenn der Service-Worker derzeit nicht läuft:
+Im folgenden Beispiel werden URLs, die mit `/articles` beginnen, zum Netzwerk geleitet, wenn der Service Worker derzeit nicht läuft:
 
 ```js
 addEventListener("install", (event) => {
@@ -82,9 +82,9 @@ addEventListener("install", (event) => {
 });
 ```
 
-### Formular-POST-Anfragen an das Netzwerk weiterleiten
+### Formular-POST-Anfragen zum Netzwerk leiten
 
-Im folgenden Beispiel werden [`POST`](/de/docs/Web/HTTP/Methods/POST)-Anfragen an ein Formular direkt an das Netzwerk gesendet und umgehen den Service-Worker:
+Im folgenden Beispiel werden [`POST`](/de/docs/Web/HTTP/Reference/Methods/POST)-Anfragen an ein Formular direkt an das Netzwerk gesendet und umgehen den Service Worker:
 
 ```js
 addEventListener("install", (event) => {
@@ -98,9 +98,9 @@ addEventListener("install", (event) => {
 });
 ```
 
-### Bestimmte Bildanfragen an einen benannten Cache weiterleiten
+### Bestimmte Bildanfragetypen zu einem benannten Cache leiten
 
-Im folgenden Beispiel wird der Browser-`Cache` namens `"pictures"` verwendet, um Dateien mit den Erweiterungen `.png` oder `.jpg` abzurufen:
+Im folgenden Beispiel wird der Browser-[`Cache`](/de/docs/Web/API/Cache) mit dem Namen `"pictures"` verwendet, um Dateien mit den Erweiterungen `.png` oder `.jpg` abzurufen:
 
 ```js
 addEventListener("install", (event) => {
@@ -116,9 +116,9 @@ addEventListener("install", (event) => {
 ```
 
 > [!NOTE]
-> Wenn der Cache nicht existiert, verwendet der Browser standardmäßig das Netzwerk, sodass die angeforderten Ressourcen dennoch bereitgestellt werden können, sofern das Netzwerk verfügbar ist.
+> Wenn der Cache nicht existiert, verwendet der Browser standardmäßig das Netzwerk, sodass die angeforderten Ressourcen weiterhin bezogen werden können, sofern das Netzwerk verfügbar ist.
 
-Sie können `or` nicht mit einer anderen Bedingung kombinieren – dies führt zu einem `TypeError`. Wenn Sie zum Beispiel Dateien mit den Erweiterungen `.png` oder `.jpg` nur dann abgleichen möchten, wenn `requestMethod` `get` ist, müssen Sie zwei separate Bedingungen angeben:
+Sie können `or` nicht mit einer anderen Bedingung kombinieren — dies führt zu einem `TypeError`. Wenn Sie beispielsweise Dateien mit den Erweiterungen `.png` oder `.jpg` abgleichen möchten, aber nur, wenn die `requestMethod` `get` ist, müssten Sie zwei separate Bedingungen angeben:
 
 ```js
 addEventListener("install", (event) => {
@@ -156,6 +156,6 @@ addEventListener("install", (event) => {
 ## Siehe auch
 
 - [`InstallEvent`](/de/docs/Web/API/InstallEvent)
-- [`install`-Ereignis](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)
+- [`install` Ereignis](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
-- [Verwendung der Service Worker Static Routing API, um den Service Worker für bestimmte Pfade zu umgehen](https://developer.chrome.com/blog/service-worker-static-routing) auf `developer.chrome.com` (2024)
+- [Verwenden Sie die Service Worker Static Routing API, um den Service Worker für bestimmte Pfade zu umgehen](https://developer.chrome.com/blog/service-worker-static-routing) auf `developer.chrome.com` (2024)

@@ -2,16 +2,16 @@
 title: String.prototype.substr()
 slug: Web/JavaScript/Reference/Global_Objects/String/substr
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die Methode **`substr()`** von {{jsxref("String")}}-Werten gibt einen Teil dieses Strings zurück, beginnend am angegebenen Index und fortgesetzt für eine bestimmte Anzahl von Zeichen danach.
+Die **`substr()`** Methode von {{jsxref("String")}}-Werten gibt einen Teil dieses Strings zurück, beginnend beim angegebenen Index und erstreckt sich über eine angegebene Anzahl von Zeichen danach.
 
-> **Hinweis:** `substr()` ist nicht Teil der Hauptspezifikation von ECMAScript — es ist in [Anhang B: Zusätzliche ECMAScript-Funktionen für Webbrowser](https://tc39.es/ecma262/multipage/additional-ecmascript-features-for-web-browsers.html) definiert, welches normativ optional für Nicht-Browser-Ausführungsumgebungen ist. Daher wird empfohlen, stattdessen die Standardmethoden [`String.prototype.substring()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/substring) und [`String.prototype.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/slice) zu verwenden, um den Code maximal plattformfreundlich zu gestalten. Die Seite zu [`String.prototype.substring()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/substring#the_difference_between_substring_and_substr) enthält einige Vergleiche zwischen den drei Methoden.
+> **Hinweis:** `substr()` ist nicht Teil der Haupt-ECMAScript-Spezifikation — es ist definiert in [Anhang B: Zusätzliche ECMAScript-Funktionen für Webbrowser](https://tc39.es/ecma262/multipage/additional-ecmascript-features-for-web-browsers.html), welcher normativ optional für Nicht-Browser-Laufzeiten ist. Daher wird empfohlen, stattdessen die standardmäßigen Methoden [`String.prototype.substring()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/substring) und [`String.prototype.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/slice) zu verwenden, um den Code maximal plattformfreundlich zu gestalten. Die Seite zu [`String.prototype.substring()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/substring#the_difference_between_substring_and_substr) enthält einige Vergleiche zwischen den drei Methoden.
 
-{{InteractiveExample("JavaScript Demo: String.substr()")}}
+{{InteractiveExample("JavaScript Demo: String.prototype.substr()")}}
 
 ```js interactive-example
 const str = "Mozilla";
@@ -33,9 +33,9 @@ substr(start, length)
 ### Parameter
 
 - `start`
-  - : Der Index des ersten Zeichens, das in die zurückgegebene Teilzeichenkette eingeschlossen werden soll.
+  - : Der Index des ersten Zeichens, das im zurückgegebenen Substring enthalten sein soll.
 - `length` {{optional_inline}}
-  - : Die Anzahl der zu extrahierenden Zeichen.
+  - : Die Anzahl der auszuziehenden Zeichen.
 
 ### Rückgabewert
 
@@ -43,16 +43,16 @@ Ein neuer String, der den angegebenen Teil des gegebenen Strings enthält.
 
 ## Beschreibung
 
-Die `substr()`-Methode eines Strings extrahiert `length` Zeichen aus dem String, ausgehend vom `start`-Index.
+Die `substr()`-Methode eines Strings extrahiert `length` Zeichen vom String, beginnend beim `start`-Index.
 
 - Wenn `start >= str.length`, wird ein leerer String zurückgegeben.
-- Wenn `start < 0`, beginnt der Index vom Ende des Strings zu zählen. Formal beginnt die Teilzeichenkette in diesem Fall bei `max(start + str.length, 0)`.
-- Wenn `start` ausgelassen oder {{jsxref("undefined")}} ist, wird es als `0` behandelt.
-- Wenn `length` ausgelassen oder {{jsxref("undefined")}} ist oder wenn `start + length >= str.length`, extrahiert `substr()` Zeichen bis zum Ende des Strings.
+- Wenn `start < 0`, beginnt der Index ab dem Ende des Strings. Formaler gesagt beginnt in diesem Fall der Substring bei `max(start + str.length, 0)`.
+- Wenn `start` weggelassen oder als {{jsxref("undefined")}} angegeben wird, wird es als `0` behandelt.
+- Wenn `length` weggelassen oder als {{jsxref("undefined")}} angegeben wird, oder wenn `start + length >= str.length`, extrahiert `substr()` Zeichen bis zum Ende des Strings.
 - Wenn `length < 0`, wird ein leerer String zurückgegeben.
-- Für sowohl `start` als auch `length` wird {{jsxref("NaN")}} als `0` behandelt.
+- Sowohl für `start` als auch `length` wird {{jsxref("NaN")}} als `0` behandelt.
 
-Obwohl empfohlen wird, `substr()` zu vermeiden, gibt es keinen trivialen Weg, `substr()` in Legacy-Code ohne im Wesentlichen Schreiben eines Polyfills für `substr()` auf `slice()` oder `substring()` zu migrieren. Zum Beispiel haben `str.substr(a, l)`, `str.slice(a, a + l)`, und `str.substring(a, a + l)` alle unterschiedliche Ergebnisse, wenn `str = "01234", a = 1, l = -2` — `substr()` gibt einen leeren String zurück, `slice()` gibt `"123"` zurück, während `substring()` `"0"` zurückgibt. Der eigentliche Refaktorierungsweg hängt vom Wissen über den Bereich von `a` und `l` ab.
+Obwohl es empfohlen wird, `substr()` zu vermeiden, gibt es keinen trivialen Weg, `substr()` in bestehendem Code auf `slice()` oder `substring()` umzustellen, ohne im Wesentlichen ein Polyfill für `substr()` zu schreiben. Zum Beispiel geben `str.substr(a, l)`, `str.slice(a, a + l)` und `str.substring(a, a + l)` unterschiedliche Ergebnisse, wenn `str = "01234", a = 1, l = -2` — `substr()` gibt einen leeren String zurück, `slice()` gibt `"123"` zurück, während `substring()` `"0"` ergibt. Der tatsächliche Refactoring-Weg hängt vom Wissen über den Bereich von `a` und `l` ab.
 
 ## Beispiele
 

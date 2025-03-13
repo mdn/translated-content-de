@@ -1,64 +1,64 @@
 ---
-title: Verhinderung von Clickjacking
+title: Schutz vor Clickjacking
 slug: Web/Security/Practical_implementation_guides/Clickjacking
 l10n:
-  sourceCommit: 9575597580f8e45b9d097d4bb0e3afa40f935338
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Die [Content Security Policy](/de/docs/Web/HTTP/CSP)-Direktive [`frame-ancestors`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) und der [`X-Frame-Options`](/de/docs/Web/HTTP/Headers/X-Frame-Options)-Header bieten Kontrolle darüber, wie Ihre Seite innerhalb eines {{htmlelement("iframe")}} auf einer anderen Seite eingebettet werden darf. Diese Funktionen helfen, Clickjacking zu verhindern.
+Die [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP)-Direktive [`frame-ancestors`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors) und der Header [`X-Frame-Options`](/de/docs/Web/HTTP/Reference/Headers/X-Frame-Options) bieten Kontrolle darüber, wie Ihre Website innerhalb eines {{htmlelement("iframe")}} auf einer anderen Seite eingebettet werden darf. Diese Funktionen helfen, Clickjacking zu verhindern.
 
 ## Problem
 
-Bei einem Clickjacking-Angriff täuscht ein Angreifer einen Benutzer dazu, mit einer vertrauenswürdigen Seite in einer Art und Weise zu interagieren, die nicht beabsichtigt war.
+Bei einem Clickjacking-Angriff täuscht ein Angreifer einen Benutzer dazu, mit einer vertrauenswürdigen Website auf eine Weise zu interagieren, die er nicht beabsichtigt hat.
 
-Typischerweise erstellt der Angreifer eine Lockvogel-Seite, die die vertrauenswürdige Seite des Benutzers in einem {{htmlelement("iframe")}}-Element einbettet. Die Seite des Angreifers verbirgt das `<iframe>` und richtet einige Lockvogel-Elemente so aus, dass sie an derselben Stelle erscheinen wie Elemente auf der vertrauenswürdigen Seite, die sensible Aktionen ausführen. Wenn der Benutzer versucht, mit den Lockvogel-Elementen zu interagieren, interagiert er stattdessen unbeabsichtigt mit der vertrauenswürdigen Seite und könnte dazu gebracht werden, Handlungen auf der vertrauenswürdigen Seite vorzunehmen, die er nicht beabsichtigt hatte.
+Typischerweise erstellt der Angreifer eine Scheinseite, die die vertrauenswürdige Seite des Benutzers innerhalb eines {{htmlelement("iframe")}}-Elements einbettet. Die Seite des Angreifers verbirgt das `<iframe>` und richtet einige Scheinelemente so aus, dass sie an derselben Stelle erscheinen wie Elemente auf der vertrauenswürdigen Seite, die sensible Aktionen ausführen. Wenn der Benutzer versucht, mit den Scheinelementen zu interagieren, interagiert er unwissentlich mit der vertrauenswürdigen Seite und kann dazu verleitet werden, ungewollte Aktionen auf der vertrauenswürdigen Seite auszuführen.
 
-Weitere Details finden Sie unter [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking).
+Siehe [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) für weitere Details.
 
 ## Lösung
 
-Die Hauptlösung gegen Clickjacking besteht darin, zu verhindern, dass die vertrauenswürdige Seite in einem `<iframe>` eingebettet wird. Dafür gibt es zwei Header:
+Die Hauptlösung gegen Clickjacking besteht darin, die Einbettung der vertrauenswürdigen Seite in ein `<iframe>` zu verhindern. Es gibt zwei Header, die dafür verwendet werden können:
 
-- `Content-Security-Policy: frame-ancestors` wird bevorzugt, da es eine feinere Kontrolle über das Einbetten von Seiten bietet. Es wird jedoch nicht in IE11 und früher, pre-Chromium-Versionen von Edge, Safari 9.1 (Desktop) und Safari 9.2 (iOS) unterstützt.
-- `X-Frame-Options` ist weniger granular, wird aber in der oben genannten älteren Browsergruppe unterstützt.
+- `Content-Security-Policy: frame-ancestors` ist vorzuziehen, da es eine feinere Kontrolle über die Einbettung der Seite bietet. Es wird jedoch nicht in IE11 und früheren Versionen, vor-Chromium-Versionen von Edge, Safari 9.1 (Desktop) und Safari 9.2 (iOS) unterstützt.
+- `X-Frame-Options` ist weniger granular, wird jedoch in den älteren oben genannten Browser-Versionen unterstützt.
 
-Es wird empfohlen, beide zu verwenden, es sei denn, Sie wissen, dass Sie die Unterstützung für die ältere Browsergruppe nicht benötigen.
+Es wird empfohlen, beide zu verwenden, es sei denn, Sie wissen, dass Sie die Unterstützung für die älteren Browser-Versionen nicht benötigen.
 
-Sie sollten alle Versuche, Ihre Seite einzubetten, ablehnen, es sei denn, dies ist unbedingt erforderlich. Wenn die Einbettung erforderlich ist, sollten Sie das minimale erforderliche Einbettungskontingent bereitstellen. Websites, die die Fähigkeit benötigen, in einem `<iframe>` eingebettet zu werden, müssen JavaScript-Verteidigungen und eine robuste {{HTTPHeader("Content-Security-Policy")}} verwenden, um Clickjacking von bösartigen Ursprungsorten zu verhindern. [`Window.confirm()`](/de/docs/Web/API/Window/confirm) kann als Teil Ihrer JavaScript-Verteidigungen verwendet werden, um den Benutzer über die Aktion zu informieren, die er ausführen möchte: Siehe [`window.confirm()` Protection](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html#windowconfirm-protection).
+Sie sollten alle Versuche, Ihre Seite einzubetten, ablehnen, es sei denn, es ist wirklich notwendig. Wenn eine Einbettung erforderlich ist, geben Sie das minimale erforderliche Einbettungsrecht vor. Websites, die die Fähigkeit benötigen, in ein `<iframe>` eingebettet zu werden, müssen JavaScript-Abwehrmechanismen und eine robuste {{HTTPHeader("Content-Security-Policy")}} einsetzen, um Clickjacking von bösartigen Quellen zu verhindern. [`Window.confirm()`](/de/docs/Web/API/Window/confirm) kann als Teil Ihrer JavaScript-Abwehrmechanismen verwendet werden, um den Benutzer über die Aktion zu informieren, die er auszuführen im Begriff ist: Siehe [`window.confirm()` Protection](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html#windowconfirm-protection).
 
-Die äquivalenten Optionen für jede Einstellung sind wie folgt:
+Die gleichwertigen Optionen für jede Einstellung sind wie folgt:
 
-| CSP-Wert                              | `X-Frame-Options`-Wert          | Beschreibung                                              |
-| ------------------------------------- | ------------------------------- | --------------------------------------------------------- |
-| `frame-ancestors 'none'`              | `DENY`                          | Alle Einbettungsversuche verweigern.                      |
-| `frame-ancestors 'self'`              | `SAMEORIGIN`                    | Nur gleichursprungsbasierte Einbettungsversuche zulassen. |
-| `frame-ancestors https://example.org` | `ALLOWFROM https://example.org` | Einbettungsversuche von der angegebenen Domain zulassen.  |
+| CSP-Wert                              | `X-Frame-Options`-Wert          | Beschreibung                                             |
+| ------------------------------------- | ------------------------------- | -------------------------------------------------------- |
+| `frame-ancestors 'none'`              | `DENY`                          | Alle Einbettungsversuche ablehnen.                       |
+| `frame-ancestors 'self'`              | `SAMEORIGIN`                    | Nur gleiche Ursprungs-Einbettungsversuche zulassen.      |
+| `frame-ancestors https://example.org` | `ALLOWFROM https://example.org` | Einbettungsversuche von der angegebenen Domäne zulassen. |
 
 > [!NOTE]
 > Die Syntax `X-Frame-Options: ALLOWFROM https://example.org` ist veraltet, und die meisten Browser ignorieren sie. Es wird empfohlen, in solchen Fällen `DENY` festzulegen und/oder sich auf das CSP-Äquivalent zu verlassen.
 
 > [!NOTE]
-> Das Setzen von Cookies mit der [`SameSite`](/de/docs/Web/Security/Practical_implementation_guides/Cookies#samesite)-Direktive ist auch in Clickjacking-Fällen nützlich, die davon abhängen, dass der Benutzer authentifiziert ist.
+> Das Setzen von Cookies mit der [`SameSite`](/de/docs/Web/Security/Practical_implementation_guides/Cookies#samesite)-Direktive ist ebenfalls nützlich in Clickjacking-Fällen, die davon abhängen, dass der Benutzer authentifiziert ist.
 
 ## Beispiele
 
-Blockieren Sie das Einbetten der Seite mit `X-Frame-Options` und CSP:
+Verhindern Sie, dass die Seite eingebettet wird, indem Sie `X-Frame-Options` und CSP verwenden:
 
 ```http
 Content-Security-Policy: frame-ancestors 'none'
 X-Frame-Options: DENY
 ```
 
-Erlauben Sie das Einbetten der Seite nur auf gleichursprungsbasierten Seiten:
+Zulassen, dass die Seite nur auf Seiten mit dem gleichen Ursprung eingebettet wird:
 
 ```http
 Content-Security-Policy: frame-ancestors 'self'
 X-Frame-Options: SAMEORIGIN
 ```
 
-Erlauben Sie nur `example.org`, die Seite einzubetten:
+Nur `example.org` darf die Seite einbetten:
 
 ```http
 Content-Security-Policy: frame-ancestors https://example.org
@@ -70,4 +70,4 @@ X-Frame-Options: DENY
 
 - [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking)
 - [Clickjacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html) auf `owasp.org`
-- [Clickjacking Attacks and How to Prevent Them](https://auth0.com/blog/preventing-clickjacking-attacks/) auf `auth0.com` (2020)
+- [Clickjacking-Angriffe und wie Sie sie verhindern können](https://auth0.com/blog/preventing-clickjacking-attacks/) auf `auth0.com` (2020)

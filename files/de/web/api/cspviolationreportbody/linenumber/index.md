@@ -3,30 +3,30 @@ title: "CSPViolationReportBody: lineNumber-Eigenschaft"
 short-title: lineNumber
 slug: Web/API/CSPViolationReportBody/lineNumber
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Reporting API")}}
 
-Die **`lineNumber`**-Schreibgeschützte Eigenschaft der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle gibt die Zeilennummer in der Quelldatei an, die die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung ausgelöst hat.
+Die schreibgeschützte **`lineNumber`**-Eigenschaft der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle gibt die Zeilennummer in der Quelldatei an, die den Verstoß gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verursacht hat.
 
-Bitte beachten Sie, dass der Browser den Wert aus dem _globalen Objekt_ der Datei extrahiert, die die Verletzung verursacht hat. Wenn die Ressource, die die CSP-Verletzung auslöst, nicht geladen wird, ist der Wert `null`. Weitere Informationen finden Sie unter [`CSPViolationReportBody.sourceFile`](/de/docs/Web/API/CSPViolationReportBody/sourceFile).
+Beachten Sie, dass der Browser den Wert aus _dem globalen Objekt_ der Datei extrahiert, die den Verstoß verursacht hat. Wenn die Ressource, die den CSP-Verstoß verursacht, nicht geladen wird, ist der Wert `null`. Siehe [`CSPViolationReportBody.sourceFile`](/de/docs/Web/API/CSPViolationReportBody/sourceFile) für weitere Informationen.
 
-Diese Eigenschaft ist besonders nützlich in Kombination mit [`CSPViolationReportBody.sourceFile`](/de/docs/Web/API/CSPViolationReportBody/sourceFile) und [`CSPViolationReportBody.columnNumber`](/de/docs/Web/API/CSPViolationReportBody/columnNumber), da sie den Standort der Zeile in der Datei und die Spalte, die zu einer Verletzung führte, liefert.
+Diese Eigenschaft ist besonders nützlich in Verbindung mit [`CSPViolationReportBody.sourceFile`](/de/docs/Web/API/CSPViolationReportBody/sourceFile) und [`CSPViolationReportBody.columnNumber`](/de/docs/Web/API/CSPViolationReportBody/columnNumber), da sie die Position der Zeile in dieser Datei und die Spalte, die zu einem Verstoß geführt hat, bereitstellt.
 
 ## Wert
 
-Ein Integer, der die Zeilennummer enthält, die die Verletzung verursacht hat, oder `null`.
+Ein Integer, der die Zeilennummer enthält, die den Verstoß verursacht hat, oder `null`.
 
 ## Beispiele
 
-### CSP Inline-Skriptverletzung
+### CSP Inline-Skript-Verstoß
 
-Dieses Beispiel löst eine CSP-Verletzung mit einem Inline-Skript aus und meldet die Verletzung mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
+Dieses Beispiel löst einen CSP-Verstoß mit einem Inline-Skript aus und meldet den Verstoß mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
 
 #### HTML
 
-Die untenstehende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen, wodurch Skripte und andere Ressourcen vom selben Ursprung geladen werden dürfen, aber keine Inline-Skripte ausgeführt werden können. Das Dokument beinhaltet auch ein Inline-Skript, das somit eine CSP-Verletzung auslösen sollte.
+Die HTML-Datei unten verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen, was das Laden von Skripten und anderen Ressourcen aus demselben Ursprung erlaubt, aber das Ausführen von Inline-Skripten nicht gestattet. Das Dokument enthält auch ein Inline-Skript, das daher einen CSP-Verstoß auslösen sollte.
 
 ```html
 <!doctype html>
@@ -52,9 +52,9 @@ Die untenstehende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/
 
 #### JavaScript (main.js)
 
-Das obige Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird. Da dies vom selben Domain wie das HTML geladen wird, wird es nicht durch die CSP blockiert.
+Das oben stehende Dokument lädt auch das externe Skript `main.js`, welches unten gezeigt wird. Da es vom selben Domain wie das HTML geladen wird, wird es nicht von der CSP blockiert.
 
-Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten. Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichts-Arrays und verwenden ihn, um die Datei, die Zeile und die Spalte der Verletzung in der Konsole zu protokollieren.
+Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverstöße des Typs `"csp-violation"` zu beobachten. Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Body des ersten Eintrags des Berichtsarrays und verwenden ihn, um die Datei, die Zeile und die Spalte des Verstoßes in der Konsole zu protokollieren.
 
 ```js
 // main.js
@@ -74,13 +74,13 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass es zwar mehrere Berichte im zurückgegebenen Array geben kann, wir der Kürze halber jedoch nur die Werte des ersten Elements protokollieren.
+Beachten Sie, dass, obwohl möglicherweise mehrere Berichte im zurückgegebenen Array vorhanden sind, wir der Übersichtlichkeit halber nur die Werte des ersten Elements protokollieren.
 
 #### Ergebnisse
 
 Sie können dies mit einem [lokalen Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) ausprobieren. Kopieren Sie den obigen Code in `test/index.html` und `test/main.js` und führen Sie den Server im Stammverzeichnis aus. Angenommen, die Adresse des lokalen Servers ist `http://127.0.0.1:9999`, können Sie dann die HTML-Datei von `http://127.0.0.1:9999/test/` (oder `http://127.0.0.1:9999/test/index.html`) laden.
 
-Mit dem obigen Setup ist die Ausgabe des Protokolls in Chrome:
+Mit der obigen Konfiguration ist die Ausgabe des Protokolls in Chrome:
 
 ```plain
 sourceFile: http://127.0.0.1:9999/test/
@@ -88,7 +88,7 @@ lineNumber: 15
 columnNumber: 0
 ```
 
-Das Ergebnis ist ähnlich für Firefox:
+Das Ergebnis ist ähnlich in Firefox:
 
 ```plain
 sourceFile: http://127.0.0.1:9999/test/

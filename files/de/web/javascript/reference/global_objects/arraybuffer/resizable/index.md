@@ -2,14 +2,14 @@
 title: ArrayBuffer.prototype.resizable
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/resizable
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`resizable`** Accessor-Eigenschaft von {{jsxref("ArrayBuffer")}}-Instanzen gibt zurück, ob dieser ArrayBuffer vergrößert bzw. verkleinert werden kann oder nicht.
+Die **`resizable`** Zugriffs-Eigenschaft von {{jsxref("ArrayBuffer")}}-Instanzen gibt zurück, ob dieser ArrayBuffer größenveränderbar ist oder nicht.
 
-{{InteractiveExample("JavaScript Demo: ArrayBuffer.resizable")}}
+{{InteractiveExample("JavaScript Demo: ArrayBuffer.prototype.resizable")}}
 
 ```js interactive-example
 const buffer1 = new ArrayBuffer(8, { maxByteLength: 16 });
@@ -24,13 +24,13 @@ console.log(buffer2.resizable);
 
 ## Beschreibung
 
-Die `resizable`-Eigenschaft ist eine Accessor-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird bei der Erstellung des Arrays festgelegt. Wenn die `maxByteLength`-Option im Konstruktor festgelegt wurde, gibt `resizable` `true` zurück; andernfalls gibt es `false` zurück.
+Die `resizable`-Eigenschaft ist eine Zugriffs-Eigenschaft, deren set-Zugriffs-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn der Array konstruiert wird. Wenn die `maxByteLength`-Option im Konstruktor gesetzt wurde, wird `resizable` `true` zurückgeben; wenn nicht, wird `false` zurückgegeben.
 
 ## Beispiele
 
 ### Verwendung von resizable
 
-In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes vergrößert werden kann, prüfen anschließend seine `resizable`-Eigenschaft und verändern seine Größe, falls `resizable` `true` zurückgibt:
+In diesem Beispiel erstellen wir einen 8-Byte-Buffer, der auf eine maximale Länge von 16 Bytes vergrößert werden kann, prüfen dann seine `resizable`-Eigenschaft und ändern seine Größe, wenn `resizable` `true` zurückgibt:
 
 ```js
 const buffer = new ArrayBuffer(8, { maxByteLength: 16 });

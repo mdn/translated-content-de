@@ -3,12 +3,12 @@ title: "Headers: Headers() Konstruktor"
 short-title: Headers()
 slug: Web/API/Headers/Headers
 l10n:
-  sourceCommit: 2c641e08878722bf29fb784d58c61873ce4a133a
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Der **`Headers()`** Konstruktor erstellt ein neues
+Der **`Headers()`**-Konstruktor erstellt ein neues
 [`Headers`](/de/docs/Web/API/Headers)-Objekt.
 
 ## Syntax
@@ -21,24 +21,24 @@ new Headers(init)
 ### Parameter
 
 - `init` {{optional_inline}}
-  - : Ein Objekt, das beliebige [HTTP-Header](/de/docs/Web/HTTP/Headers) enthält, mit denen Sie Ihr `Headers`-Objekt vorbelegen möchten. Dies kann ein einfaches Objektliteral mit {{jsxref("String")}}-Werten sein, ein Array von Namens-Wert-Paaren, wobei jedes Paar ein String-Array mit 2 Elementen ist, oder ein bestehendes `Headers`-Objekt. Im letzten Fall kopiert das neue `Headers`-Objekt seine Daten aus dem bestehenden `Headers`-Objekt.
+  - : Ein Objekt, das alle [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers) enthält, die Sie in Ihrem `Headers`-Objekt vorab einfügen möchten. Dies kann ein einfaches Objekt-Literal mit {{jsxref("String")}}-Werten, ein Array von Name-Wert-Paaren, bei dem jedes Paar ein String-Array mit 2 Elementen ist, oder ein bestehendes `Headers`-Objekt sein. Im letzten Fall kopiert das neue `Headers`-Objekt seine Daten aus dem vorhandenen `Headers`-Objekt.
 
 ## Beispiele
 
-Ein leeres `Headers`-Objekt zu erstellen ist einfach:
+Ein leeres `Headers`-Objekt zu erstellen, ist einfach:
 
 ```js
 const myHeaders = new Headers(); // Currently empty
 ```
 
-Sie könnten diesem mit [`Headers.append`](/de/docs/Web/API/Headers/append) einen Header hinzufügen:
+Sie können diesem ein Header hinzufügen, indem Sie [`Headers.append`](/de/docs/Web/API/Headers/append) verwenden:
 
 ```js
 myHeaders.append("Content-Type", "image/jpeg");
 myHeaders.get("Content-Type"); // Returns 'image/jpeg'
 ```
 
-Oder Sie können die gewünschten Header hinzufügen, während das `Headers`-Objekt erstellt wird. Im folgenden Snippet erstellen wir ein neues [`Headers`](/de/docs/Web/API/Headers)-Objekt und fügen einige Header hinzu, indem wir dem Konstruktor ein Init-Objekt als Argument übergeben:
+Oder Sie können die gewünschten Header hinzufügen, während das `Headers`-Objekt erstellt wird. Im folgenden Code-Schnipsel erstellen wir ein neues [`Headers`](/de/docs/Web/API/Headers)-Objekt und fügen einige Header hinzu, indem wir dem Konstruktor ein init-Objekt als Argument übergeben:
 
 ```js
 const httpHeaders = {
@@ -48,14 +48,15 @@ const httpHeaders = {
 const myHeaders = new Headers(httpHeaders);
 ```
 
-Sie können jetzt ein weiteres `Headers`-Objekt erstellen, indem Sie ihm das erste `Headers`-Objekt als Init-Objekt übergeben:
+Sie können nun ein weiteres `Headers`-Objekt erstellen, indem Sie ihm das erste
+`Headers`-Objekt als init-Objekt übergeben:
 
 ```js
 const secondHeadersObj = new Headers(myHeaders);
 secondHeadersObj.get("Content-Type"); // Would return 'image/jpeg' — it inherits it from the first headers object
 ```
 
-Sie können die gewünschten Header auch hinzufügen, während das `Headers`-Objekt erstellt wird, indem Sie ein zweidimensionales Array verwenden, um mehrere Header mit denselben Werten hinzuzufügen. Im folgenden Snippet erstellen wir ein neues [`Headers`](/de/docs/Web/API/Headers)-Objekt mit mehreren `Set-Cookie`-Headern, indem wir dem Konstruktor ein Init-Array als Argument übergeben:
+Sie können auch die gewünschten Header hinzufügen, während das `Headers`-Objekt erstellt wird, indem Sie ein zweidimensionales Array verwenden, um mehrere Header mit denselben Werten hinzuzufügen. Im folgenden Code-Schnipsel erstellen wir ein neues [`Headers`](/de/docs/Web/API/Headers)-Objekt mit mehreren `Set-Cookie`-Headern, indem wir dem Konstruktor ein init-Array als Argument übergeben:
 
 ```js
 const headers = [
@@ -76,5 +77,5 @@ const myHeaders = new Headers(headers);
 ## Siehe auch
 
 - [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
+- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

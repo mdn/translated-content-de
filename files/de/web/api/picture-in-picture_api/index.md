@@ -2,88 +2,88 @@
 title: Picture-in-Picture API
 slug: Web/API/Picture-in-Picture_API
 l10n:
-  sourceCommit: bb4d21e3c6e71db4e0ba983a450d6ed628e82670
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{DefaultAPISidebar("Picture-in-Picture API")}}
 
-Die **Picture-in-Picture-API** ermöglicht es Websites, ein schwebendes, immer im Vordergrund stehendes Videofenster zu erstellen. Dies erlaubt es den Benutzern, Medien weiter zu konsumieren, während sie mit anderen Seiten oder Anwendungen auf ihrem Gerät interagieren.
+Die **Bild-in-Bild-API** ermöglicht es Websites, ein schwebendes, immer im Vordergrund befindliches Videofenster zu erstellen. Dies erlaubt es den Nutzern, Medien weiter zu konsumieren, während sie mit anderen Websites oder Anwendungen auf ihrem Gerät interagieren.
 
 > [!NOTE]
-> Die [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) erweitert die Picture-in-Picture-API, um das immer im Vordergrund stehende Fenster mit beliebigem HTML-Inhalt zu füllen, nicht nur mit einem Video.
+> Die [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) erweitert die Bild-in-Bild-API, um das immer im Vordergrund befindliche Fenster mit beliebigem HTML-Inhalt zu füllen, nicht nur mit einem Video.
 
 ## Schnittstellen
 
 - [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow)
-  - : Repräsentiert das schwebende Videofenster; enthält die Eigenschaften [`width`](/de/docs/Web/API/PictureInPictureWindow/width) und [`height`](/de/docs/Web/API/PictureInPictureWindow/height) sowie eine [`onresize`](/de/docs/Web/API/PictureInPictureWindow/resize_event)-Ereignishandler-Eigenschaft.
+  - : Repräsentiert das schwebende Videofenster; enthält die Eigenschaften [`width`](/de/docs/Web/API/PictureInPictureWindow/width) und [`height`](/de/docs/Web/API/PictureInPictureWindow/height) sowie eine [`onresize`](/de/docs/Web/API/PictureInPictureWindow/resize_event)-Ereignisbehandlungseigenschaft.
 - [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent)
-  - : Repräsentiert ereignisse im Zusammenhang mit Picture-in-Picture, einschließlich [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event), [`leavepictureinpicture`](/de/docs/Web/API/HTMLVideoElement/leavepictureinpicture_event) und [`resize`](/de/docs/Web/API/PictureInPictureWindow/resize_event).
+  - : Repräsentiert ereignisbezogene Bild-in-Bild-Ereignisse, einschließlich [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event), [`leavepictureinpicture`](/de/docs/Web/API/HTMLVideoElement/leavepictureinpicture_event) und [`resize`](/de/docs/Web/API/PictureInPictureWindow/resize_event).
 
 ## Instanzmethoden
 
-Die Picture-in-Picture-API fügt Methoden zu den Schnittstellen [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) und [`Document`](/de/docs/Web/API/Document) hinzu, um das Umschalten des schwebenden Videofensters zu ermöglichen.
+Die Bild-in-Bild-API fügt den Schnittstellen [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) und [`Document`](/de/docs/Web/API/Document) Methoden hinzu, um das schwebende Videofenster ein- und auszuschalten.
 
 ### Instanzmethoden auf der HTMLVideoElement-Schnittstelle
 
 - [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture)
-  - : Fordert den Benutzeragenten auf, das Video in den Picture-in-Picture-Modus zu versetzen.
+  - : Fordert an, dass der Benutzeragent das Video in den Bild-in-Bild-Modus versetzt.
 
 ### Instanzmethoden auf der Document-Schnittstelle
 
 - [`Document.exitPictureInPicture()`](/de/docs/Web/API/Document/exitPictureInPicture)
-  - : Fordert den Benutzeragenten auf, das Element im Picture-in-Picture-Modus zurück in seinen ursprünglichen Bereich zu bringen.
+  - : Fordert an, dass der Benutzeragent das Element im Bild-in-Bild-Modus zurück in seine ursprüngliche Box bringt.
 
 ## Instanzeigenschaften
 
-Die Picture-in-Picture-API erweitert die Schnittstellen [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), [`Document`](/de/docs/Web/API/Document) und [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) mit Eigenschaften, die verwendet werden können, um festzustellen, ob der schwebende Videofenstermodus unterstützt und verfügbar ist, ob der Picture-in-Picture-Modus derzeit aktiv ist und welches Video schwebt.
+Die Bild-in-Bild-API erweitert die Schnittstellen [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), [`Document`](/de/docs/Web/API/Document) und [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) um Eigenschaften, die dazu verwendet werden können, um zu bestimmen, ob der schwebende Videofenstermodus unterstützt und verfügbar ist, ob der Bild-in-Bild-Modus momentan aktiv ist und welches Video schwebt.
 
 ### Instanzeigenschaften auf der HTMLVideoElement-Schnittstelle
 
 - [`HTMLVideoElement.disablePictureInPicture`](/de/docs/Web/API/HTMLVideoElement/disablePictureInPicture)
-  - : Die `disablePictureInPicture`-Eigenschaft gibt dem Benutzeragenten einen Hinweis, das Picture-in-Picture den Benutzern nicht vorzuschlagen oder es automatisch anzufordern.
+  - : Die `disablePictureInPicture`-Eigenschaft gibt dem Benutzeragent einen Hinweis, das Bild-in-Bild nicht den Benutzern vorzuschlagen oder es automatisch anzufordern.
 
 ### Instanzeigenschaften auf der Document-Schnittstelle
 
 - [`Document.pictureInPictureEnabled`](/de/docs/Web/API/Document/pictureInPictureEnabled)
-  - : Die `pictureInPictureEnabled`-Eigenschaft teilt Ihnen mit, ob es möglich ist, den Picture-in-Picture-Modus zu aktivieren. Dies ist `false`, wenn der Picture-in-Picture-Modus aus irgendeinem Grund nicht verfügbar ist (z.B. wenn die [`"picture-in-picture"`-Funktion](/de/docs/Web/HTTP/Headers/Permissions-Policy/picture-in-picture) nicht erlaubt wurde oder der Picture-in-Picture-Modus nicht unterstützt wird).
+  - : Die `pictureInPictureEnabled`-Eigenschaft gibt an, ob es möglich ist, den Bild-in-Bild-Modus zu aktivieren oder nicht. Dies ist `false`, wenn der Bild-in-Bild-Modus aus irgendeinem Grund nicht verfügbar ist (z.B. wurde die [`"picture-in-picture"`-Funktion](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/picture-in-picture) untersagt oder der Bild-in-Bild-Modus wird nicht unterstützt).
 
 ### Instanzeigenschaften auf den Document- oder ShadowRoot-Schnittstellen
 
 - [`Document.pictureInPictureElement`](/de/docs/Web/API/Document/pictureInPictureElement) / [`ShadowRoot.pictureInPictureElement`](/de/docs/Web/API/ShadowRoot/pictureInPictureElement)
-  - : Die `pictureInPictureElement`-Eigenschaft teilt Ihnen mit, welches [`Element`](/de/docs/Web/API/Element) derzeit im schwebenden Fenster angezeigt wird (oder im Shadow-DOM). Wenn dies `null` ist, hat das Dokument (oder das Shadow-DOM) derzeit keinen Knoten im Picture-in-Picture-Modus.
+  - : Die `pictureInPictureElement`-Eigenschaft gibt an, welches [`Element`](/de/docs/Web/API/Element) derzeit im schwebenden Fenster (oder im Shadow-DOM) angezeigt wird. Ist dieser Wert `null`, gibt es im Dokument (oder im Shadow-DOM) keinen Knoten im Bild-in-Bild-Modus.
 
 ## Ereignisse
 
-_Die Picture-in-Picture-API definiert drei Ereignisse, die verwendet werden können, um zu erkennen, wann der Picture-in-Picture-Modus umgeschaltet wird und wann das schwebende Videofenster seine Größe ändert._
+_Die Bild-in-Bild-API definiert drei Ereignisse, die verwendet werden können, um zu erkennen, wann der Bild-in-Bild-Modus umgeschaltet wird und wann das schwebende Videofenster die Größe ändert._
 
 - [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event)
-  - : Wird an ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) gesendet, wenn es in den Picture-in-Picture-Modus wechselt.
+  - : Wird an ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) gesendet, wenn es in den Bild-in-Bild-Modus wechselt.
 - [`leavepictureinpicture`](/de/docs/Web/API/HTMLVideoElement/leavepictureinpicture_event)
-  - : Wird an ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) gesendet, wenn es den Picture-in-Picture-Modus verlässt.
+  - : Wird an ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) gesendet, wenn es den Bild-in-Bild-Modus verlässt.
 - [`resize`](/de/docs/Web/API/PictureInPictureWindow/resize_event)
-  - : Wird an ein [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) gesendet, wenn sich seine Größe ändert.
+  - : Wird an ein [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) gesendet, wenn es die Größe ändert.
 
-## Hinzufügen von Steuerelementen
+## Steuerung hinzufügen
 
-Wenn Medienaktions-Handler über die [Media Session API](/de/docs/Web/API/Media_Session_API) festgelegt wurden, werden die entsprechenden Steuerelemente für diese Aktionen vom Browser zur Picture-in-Picture-Überlagerung hinzugefügt. Wenn beispielsweise eine `"nexttrack"`-Aktion festgelegt wurde, könnte ein Überspringen-Knopf im Picture-in-Picture-Modus angezeigt werden. Es gibt keine Unterstützung für das Hinzufügen benutzerdefinierter HTML-Schaltflächen oder Steuerelemente.
+Wenn Medienaktionshandler über die [Media Session API](/de/docs/Web/API/Media_Session_API) festgelegt wurden, dann fügt der Browser geeignete Steuerelemente für diese Aktionen dem Bild-in-Bild-Overlay hinzu. Zum Beispiel, wenn eine `"nexttrack"`-Aktion festgelegt wurde, könnte im Bild-in-Bild-Ansicht eine Schaltfläche zum Überspringen angezeigt werden. Es gibt keine Unterstützung für das Hinzufügen von benutzerdefinierten HTML-Schaltflächen oder -Steuerelementen.
 
-## Steuerung der Stilgebung
+## Styling steuern
 
-Die [`:picture-in-picture`](/de/docs/Web/CSS/:picture-in-picture) [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) entspricht dem Video-Element, das sich derzeit im Picture-in-Picture-Modus befindet, sodass Sie Ihre Stylesheets so konfigurieren können, dass Größe, Stil oder Layout von Inhalten automatisch angepasst werden, wenn ein Video zwischen dem Picture-in-Picture- und dem traditionellen Präsentationsmodus wechselt.
+Die [`:picture-in-picture`](/de/docs/Web/CSS/:picture-in-picture) [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) passt das Videoelement an, das aktuell im Bild-in-Bild-Modus ist, und ermöglicht es Ihnen, Ihre Stylesheets so zu konfigurieren, dass sie automatisch die Größe, den Stil oder das Layout von Inhalten anpassen, wenn ein Video zwischen Bild-in-Bild- und traditionellem Präsentationsmodus wechselt.
 
-## Kontrolle des Zugriffs
+## Zugriff steuern
 
-Die Verfügbarkeit des Picture-in-Picture-Modus kann mithilfe der [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) gesteuert werden. Die Picture-in-Picture-Modus-Funktion wird durch den String `"picture-in-picture"` identifiziert, mit einem Standard-Erlaubnislistenwert von `*`, was bedeutet, dass der Picture-in-Picture-Modus in Top-Level-Dokument-Kontexten sowie in geschachtelten Browsing-Kontexten, die von demselben Ursprung wie das oberste Dokument geladen werden, erlaubt ist.
+Die Verfügbarkeit des Bild-in-Bild-Modus kann mit [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesteuert werden. Die Bild-in-Bild-Modus-Funktion wird durch den String `"picture-in-picture"` identifiziert, mit einem Standarderlaubniswert von `*`, was bedeutet, dass der Bild-in-Bild-Modus sowohl im obersten Dokumentkontext als auch in verschachtelten Browsing-Kontexten erlaubt ist, die aus derselben Herkunft wie das oberste Dokument geladen werden.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Video auf einer Webseite präsentiert. Mit dem Klick auf die Schaltfläche unten kann der Benutzer das schwebende Videofenster umschalten.
+In diesem Beispiel wird ein Video auf einer Webseite präsentiert. Durch Klicken auf die Schaltfläche unten kann der Benutzer das schwebende Videofenster umschalten.
 
 {{EmbedGHLiveSample("dom-examples/picture-in-picture/index.html", '100%', 350)}}
 
-### Umschalten des Picture-in-Picture-Modus
+### Umschalten des Bild-in-Bild-Modus
 
-Dieser Code wird von einem Klick-Handler aufgerufen, wenn der Benutzer auf die Schaltfläche "Toggle Picture-in-Picture" klickt:
+Dieser Code wird von einem Klick-Handler aufgerufen, wenn der Benutzer auf die Schaltfläche "Bild-in-Bild umschalten" klickt:
 
 ```js
 function togglePictureInPicture() {
@@ -95,11 +95,11 @@ function togglePictureInPicture() {
 }
 ```
 
-Dieser Block beginnt damit, den Wert des Attributs `pictureInPictureElement` des [`document`](/de/docs/Web/API/Document) zu betrachten.
+Dieser Block beginnt damit, den Wert des Attributs `pictureInPictureElement` des [`document`](/de/docs/Web/API/Document) zu überprüfen.
 
-Wenn der Wert nicht `null` ist, ist es das Element, das sich derzeit im Picture-in-Picture-Modus befindet, also in einem schwebenden Fenster. Wir rufen [`document.exitPictureInPicture()`](/de/docs/Web/API/Document/exitPictureInPicture) auf, um das Video zurück in seinen ursprünglichen Bereich zu bringen.
+Wenn der Wert nicht `null` ist, ist es das Element, das sich derzeit im Bild-in-Bild-Modus befindet, also in einem schwebenden Fenster. Wir rufen [`document.exitPictureInPicture()`](/de/docs/Web/API/Document/exitPictureInPicture) auf, um das Video in seine ursprüngliche Box zurückzubringen.
 
-Wenn der Wert `null` ist, befindet sich kein Video im schwebenden Fenster. Daher können wir ein Video anfordern, in den Picture-in-Picture-Modus zu wechseln. Wir tun dies, indem wir [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) auf dem {{HTMLElement("video")}}-Element aufrufen.
+Wenn der Wert `null` ist, befindet sich kein Video im schwebenden Fenster. Daher können wir ein Video anfordern, in den Bild-in-Bild-Modus zu wechseln. Dies tun wir, indem wir [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) auf das {{HTMLElement("video")}}-Element aufrufen.
 
 ## Spezifikationen
 

@@ -2,14 +2,14 @@
 title: TypedArray.prototype.copyWithin()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/copyWithin
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die Methode **`copyWithin()`** von {{jsxref("TypedArray")}}-Instanzen kopiert oberflächlich einen Teil dieses typisierten Arrays an eine andere Position innerhalb desselben Arrays und gibt dieses typisierte Array zurück, ohne dessen Länge zu verändern. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.copyWithin()")}}.
+Die **`copyWithin()`** Methode von {{jsxref("TypedArray")}} Instanzen kopiert flach einen Teil dieses typisierten Arrays an eine andere Stelle im selben typisierten Array und gibt dieses zurück, ohne seine Länge zu ändern. Diese Methode verwendet den gleichen Algorithmus wie {{jsxref("Array.prototype.copyWithin()")}}.
 
-{{InteractiveExample("JavaScript Demo: TypedArray.copyWithin()")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.copyWithin()")}}
 
 ```js interactive-example
 const uint8 = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8]);
@@ -31,11 +31,11 @@ copyWithin(target, start, end)
 ### Parameter
 
 - `target`
-  - : Nullbasierter Index, an den die Sequenz kopiert wird, [konvertiert zu einer Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Dies entspricht der Position, an die das Element bei `start` kopiert wird, und alle Elemente zwischen `start` und `end` werden an aufeinanderfolgenden Indizes kopiert.
+  - : Nullbasierter Index, an den die Sequenz kopiert werden soll, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Dies entspricht dem Ort, an den das Element bei `start` kopiert wird, und alle Elemente zwischen `start` und `end` werden auf die nachfolgenden Indizes kopiert.
 - `start`
-  - : Nullbasierter Index, ab dem die Elemente kopiert werden, [konvertiert zu einer Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Nullbasierter Index, ab dem begonnen wird, Elemente zu kopieren, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 - `end` {{optional_inline}}
-  - : Nullbasierter Index, bis zu dem die Elemente kopiert werden, [konvertiert zu einer Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `copyWithin()` kopiert bis, aber nicht einschließlich `end`.
+  - : Nullbasierter Index, an dem das Kopieren der Elemente endet, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `copyWithin()` kopiert bis zu, aber nicht einschließlich `end`.
 
 ### Rückgabewert
 
@@ -43,7 +43,7 @@ Das modifizierte typisierte Array.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.copyWithin()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays angewendet werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.copyWithin()")}}. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
@@ -69,6 +69,6 @@ console.log(uint8); // Uint8Array [ 1, 2, 3, 1, 2, 3, 0, 0 ]
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.copyWithin` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("Array.prototype.copyWithin()")}}

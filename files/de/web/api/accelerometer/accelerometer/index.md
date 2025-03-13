@@ -1,14 +1,14 @@
 ---
-title: "Accelerometer: Accelerometer()-Konstruktor"
+title: "Accelerometer: Accelerometer() Konstruktor"
 short-title: Accelerometer()
 slug: Web/API/Accelerometer/Accelerometer
 l10n:
-  sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Der **`Accelerometer()`**-Konstruktor erstellt ein neues [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Objekt, das die Beschleunigung des Geräts entlang aller drei Achsen zu dem Zeitpunkt zurückgibt, zu dem es gelesen wird.
+Der **`Accelerometer()`** Konstruktor erstellt ein neues [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Objekt, das die Beschleunigung des Geräts entlang aller drei Achsen zum Zeitpunkt der Abfrage zurückgibt.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ new Accelerometer(options)
 
 - `options` {{optional_inline}}
 
-  - : Die Optionen sind wie folgt:
+  - : Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl von Messungen pro Sekunde, das bedeutet die Anzahl der Male pro Sekunde, die das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Eine ganze Zahl oder ein Dezimalwert kann verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Lese-Frequenz hängt von der Gerätehardware ab und kann daher geringer als angefordert sein.
+      - : Die gewünschte Anzahl von Abtastungen pro Sekunde, was bedeutet, wie oft pro Sekunde das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder Dezimalzahl verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Hardware des Geräts ab und kann daher niedriger sein als angefordert.
     - `referenceFrame` {{optional_inline}}
       - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Verwendung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 

@@ -2,14 +2,14 @@
 title: TypedArray.prototype.byteLength
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/byteLength
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`byteLength`** Accessor-Eigenschaft von {{jsxref("TypedArray")}}-Instanzen gibt die Länge (in Bytes) dieses Typed Arrays zurück.
+Die Zugriffseigenschaft **`byteLength`** von {{jsxref("TypedArray")}}-Instanzen gibt die Länge (in Bytes) dieses typisierten Arrays zurück.
 
-{{InteractiveExample("JavaScript Demo: TypedArray.byteLength", "shorter")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.byteLength", "shorter")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -22,11 +22,11 @@ console.log(uint8.byteLength);
 
 ## Beschreibung
 
-Die Eigenschaft `byteLength` ist eine Accessor-Eigenschaft, deren set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen eines _TypedArray_ festgelegt und kann nicht geändert werden. Wenn das _TypedArray_ keinen `byteOffset` oder eine `length` angibt, wird die `length` des referenzierten `ArrayBuffer` zurückgegeben. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
+Die Eigenschaft `byteLength` ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein _TypedArray_ konstruiert wird und kann nicht geändert werden. Wenn das _TypedArray_ keinen `byteOffset` oder eine `length` angibt, wird die `length` des referenzierten `ArrayBuffer` zurückgegeben. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
 
 ## Beispiele
 
-### Verwendung der Eigenschaft byteLength
+### Verwendung der byteLength-Eigenschaft
 
 ```js
 const buffer = new ArrayBuffer(8);
@@ -51,5 +51,5 @@ uint8offSet.byteLength; // 6 (due to the offset of the constructed Uint8Array)
 
 ## Siehe auch
 
-- [JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- Leitfaden zu [JavaScript-typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}

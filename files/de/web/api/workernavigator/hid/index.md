@@ -3,14 +3,14 @@ title: "WorkerNavigator: hid-Eigenschaft"
 short-title: hid
 slug: Web/API/WorkerNavigator/hid
 l10n:
-  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("WebHID API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`WorkerNavigator.hid`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die ein [`HID`](/de/docs/Web/API/HID)-Objekt zurückgibt. Dieses Objekt bietet Methoden zum Zugriff auf Verbindungen von HID-Geräten sowie Ereignisse, die ausgelöst werden, wenn der Benutzeragent eine Verbindung zu einem Gerät herstellt oder trennt.
+Die **`WorkerNavigator.hid`**-Eigenschaft ist schreibgeschützt und gibt ein [`HID`](/de/docs/Web/API/HID)-Objekt zurück, das Methoden für den Zugriff auf HID-Geräteverbindungen und Ereignisse bereitstellt, die ausgelöst werden, wenn der Benutzeragent eine Verbindung zu einem Gerät herstellt oder die Verbindung zu einem Gerät trennt.
 
-Wenn eine definierte [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) die Nutzung von WebHID blockiert, wird die `WorkerNavigator.hid`-Eigenschaft nicht verfügbar sein.
+Wenn eine definierte [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) die Nutzung von WebHID blockiert, steht die `WorkerNavigator.hid`-Eigenschaft nicht zur Verfügung.
 
 ## Wert
 

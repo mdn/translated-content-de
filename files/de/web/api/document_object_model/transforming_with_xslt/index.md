@@ -1,25 +1,25 @@
 ---
-title: Transformationen mit XSLT
+title: Transformation mit XSLT
 slug: Web/API/Document_Object_Model/Transforming_with_XSLT
 l10n:
-  sourceCommit: 914b6d3206dfaeb22617739e7baaf15e5ba3aa21
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{DefaultAPISidebar("DOM")}}
 
-Ein bemerkenswerter Trend in den W3C-Standards ist die Bemühung, Inhalte von der Gestaltung zu trennen. Dies ermöglicht es, dieselbe Gestaltung für mehrere Inhalte wiederzuverwenden, vereinfacht die Wartung und bietet eine schnelle Möglichkeit (nur eine Datei ändern), das Erscheinungsbild von Inhalten zu ändern.
+Ein bemerkbarer Trend in den W3C-Standards ist das Bestreben, Inhalt von Stil zu trennen. Dies würde ermöglichen, denselben Stil für mehrere Inhalte wiederzuverwenden, die Wartung zu vereinfachen und eine schnelle (nur eine Datei ändern) Möglichkeit bieten, das Aussehen des Inhalts zu ändern.
 
-CSS (Cascading Style Sheets) war eine der ersten vom W3C vorgeschlagenen Methoden. CSS ist eine Möglichkeit, Stilregeln auf ein Webdokument anzuwenden. Diese Stilregeln definieren, wie das Dokument (der Inhalt) dargestellt werden soll. Es gibt jedoch einige Einschränkungen, wie das Fehlen von Programmierstrukturen und die Fähigkeit, komplexe Layoutmodelle zu erstellen. CSS bietet auch nur begrenzte Unterstützung, um die Position eines Elements zu ändern.
+CSS (Cascading Style Sheets) war eine der ersten vom W3C vorgeschlagenen Methoden. CSS ist eine Möglichkeit, Stilregeln auf ein Webdokument anzuwenden. Diese Stilregeln definieren, wie das Dokument (der Inhalt) layoutet werden soll. Es hat jedoch mehrere Einschränkungen, wie das Fehlen von Programmiervorrichtungen und die Fähigkeit, komplexe Layout-Modelle zu erstellen. CSS hat auch begrenzte Unterstützung zur Änderung der Position eines Elements.
 
-XSL (Extensible Stylesheet Language) Transformations bestehen aus zwei Teilen: XSL-Elementen, die die Transformation eines XML-Baums in einen anderen Markup-Baum ermöglichen, und XPath, einer Abfragesprache für Bäume. XSLT nimmt ein XML-Dokument (den Inhalt) und erstellt ein völlig neues Dokument basierend auf den Regeln im XSL-Stylesheet. Dadurch kann XSLT Elemente aus dem ursprünglichen XML-Dokument hinzufügen, entfernen und reorganisieren, was eine fein abgestimmte Kontrolle über die Struktur des resultierenden Dokuments ermöglicht.
+XSL (Extensible Stylesheet Language) Transformationen bestehen aus zwei Teilen: XSL-Elemente, die die Transformation eines XML-Baums in einen anderen Markup-Baum ermöglichen, und XPath, eine Auswahlsprache für Bäume. XSLT nimmt ein XML-Dokument (den Inhalt) und erstellt ein völlig neues Dokument basierend auf den Regeln im XSL-Stylesheet. Dadurch kann XSLT Elemente aus dem ursprünglichen XML-Dokument hinzufügen, entfernen und neu organisieren und somit eine feinere Kontrolle über die Struktur des resultierenden Dokuments ermöglichen.
 
-Die Transformationen in XSLT basieren auf Regeln, die aus Templates bestehen. Jedes Template passt (mittels XPath) zu einem bestimmten Fragment des Eingabe-XML-Dokuments und wendet dann den Substitutionsteil auf dieses Fragment an, um das neue resultierende Dokument zu erstellen.
+Transformationen in XSLT basieren auf Regeln, die aus Vorlagen bestehen. Jede Vorlage passt (unter Verwendung von XPath) auf ein bestimmtes Fragment des Eingabe-XML-Dokuments und wendet dann den Substitutionsteil auf dieses Fragment an, um das neue resultierende Dokument zu erstellen.
 
 ## Einfaches Beispiel
 
-Dieses erste Beispiel zeigt die Grundlagen der Einrichtung einer XSLT-Transformation in einem Browser. Das Beispiel nimmt ein XML-Dokument, das Informationen über einen Artikel (Titel, Liste der Autoren und Haupttext) enthält, und stellt es in einer für Menschen lesbaren Form dar.
+Dieses erste Beispiel demonstriert die Grundlagen der Einrichtung einer XSLT-Transformation in einem Browser. Das Beispiel nimmt ein XML-Dokument, das Informationen über einen Artikel (Titel, Liste von Autoren und Textkörper) enthält, und präsentiert es in einer für Menschen lesbaren Form.
 
-Das XML-Dokument (**example.xml**) wird unten gezeigt.
+Das XML-Dokument (**example.xml**) ist unten gezeigt.
 
 ```xml
 <?xml version="1.0"?>
@@ -34,9 +34,9 @@ Das XML-Dokument (**example.xml**) wird unten gezeigt.
 </Article>
 ```
 
-Die `?xml-stylesheet`-Verarbeitungsanweisung in der XML-Datei gibt das anzuwendende XSLT-Stylesheet in ihrem Attribut `href` an.
+Die Verarbeitungsanweisung `?xml-stylesheet` im XML-Dokument gibt das anzuwendende XSLT-Stylesheet im `href`-Attribut an.
 
-Diese XSL-Stylesheet-Datei (**example.xsl**) wird unten gezeigt:
+Diese XSL-Stylesheet-Datei (**example.xsl**) ist unten gezeigt:
 
 ```xml
 <?xml version="1.0"?>
@@ -56,22 +56,19 @@ Diese XSL-Stylesheet-Datei (**example.xsl**) wird unten gezeigt:
 </xsl:stylesheet>
 ```
 
-Ein XSLT-Stylesheet beginnt mit dem `xsl:stylesheet`-Element, das alle _Templates_ enthält, die verwendet werden, um die endgültige Ausgabe zu erstellen.
-Das obige Beispiel hat zwei Templates – eines, das zum Wurzelknoten passt, und eines, das zu `Author`-Knoten passt.
-Das Template, das zum Wurzelknoten passt, gibt den Titel des Artikels aus und sagt dann, dass alle Templates (mittels `apply-templates`) verarbeitet werden sollen, die zu `Author`-Knoten passen, die Kinder des `Authors`-Knotens sind.
+Ein XSLT-Stylesheet beginnt mit dem `xsl:stylesheet`-Element, das alle _Vorlagen_ enthält, die zum Erstellen der endgültigen Ausgabe verwendet werden. Das obige Beispiel hat zwei Vorlagen - eine, die mit dem Wurzelknoten übereinstimmt, und eine, die mit `Author`-Knoten übereinstimmt. Die Vorlage, die mit dem Wurzelknoten übereinstimmt, gibt den Titel des Artikels aus und sagt dann, alle Vorlagen zu verarbeiten (über `apply-templates`), die mit `Author`-Knoten übereinstimmen, die Kinder des `Authors`-Knotens sind.
 
 Um das Beispiel auszuprobieren:
 
-1. Erstellen Sie ein Verzeichnis in Ihrem Dateisystem und legen Sie darin die Dateien `example.xml` und `example.xsl` aus der obigen Liste an.
-2. [Starten Sie einen lokalen Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server#running_a_simple_local_http_server) im Verzeichnis, das die Dateien enthält.
-   Dadurch können Sie die Dateien im Verzeichnis so durchsuchen, als wären sie im Internet gehostet.
+1. Erstellen Sie ein Verzeichnis auf Ihrem Dateisystem und erstellen Sie darin die Dateien `example.xml` und `example.xsl`, die oben aufgelistet sind.
+2. [Starten Sie einen lokalen Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server#running_a_simple_local_http_server) im Verzeichnis, das die Dateien enthält. Dies ermöglicht Ihnen, die Dateien im Verzeichnis so zu durchsuchen, als wären sie im Internet gehostet.
 
    > [!WARNING]
-   > Das direkte Öffnen der XML-Datei aus dem Dateisystem wird nicht funktionieren, da das Laden des Stylesheets vom Dateisystem eine [cross-origin request](/de/docs/Web/HTTP/CORS) darstellt, die standardmäßig nicht erlaubt ist.
-   > Das Hosten des XML und des Stylesheets auf demselben lokalen Server stellt sicher, dass sie denselben Ursprung haben.
+   > Das direkte Öffnen der XML-Datei vom Dateisystem wird nicht funktionieren, da das Laden des Stylesheets vom Dateisystem eine [Cross-Origin-Anfrage](/de/docs/Web/HTTP/Guides/CORS) ist und standardmäßig nicht erlaubt wird.
+   > Das Hosten der XML-Datei und des Stylesheets auf demselben lokalen Server stellt sicher, dass sie denselben Ursprung haben.
 
 3. Öffnen Sie **example.xml** im Browser.
-4. Die Browser-Ausgabe sieht dann wie folgt aus:
+4. Die Browserausgabe wird dann wie unten gezeigt:
 
    ```plain
    Browser Output :
@@ -82,11 +79,11 @@ Um das Beispiel auszuprobieren:
        - Mr. Bar
    ```
 
-## Generierung von HTML
+## HTML generieren
 
-Ein häufige Anwendung von XSLT im Browser ist die Transformation von XML in HTML auf der Client-Seite. Dieses Beispiel wird das Eingabedokument (example2.xml), das Informationen über einen Artikel enthält, in ein HTML-Dokument umwandeln.
+Eine gängige Anwendung von XSLT im Browser ist die Transformation von XML in HTML auf dem Client. Dieses Beispiel wird das Eingabedokument (example2.xml), das Informationen über einen Artikel enthält, in ein HTML-Dokument umwandeln.
 
-Das `<body>`-Element des Artikels enthält nun HTML-Elemente (ein `<b>` und ein `<u>` Tag). Das XML-Dokument enthält sowohl HTML- als auch XML-Elemente, aber es wird nur ein Namespace benötigt, und zwar für die XML-Elemente. Da es keinen HTML-Namespace gibt und die Verwendung des XHTML-Namespaces den XSL dazu zwingen würde, ein XML-Dokument zu erstellen, das sich nicht wie ein HTML-Dokument verhält, wird `xsl:output` im XSL-Stylesheet sicherstellen, dass das resultierende Dokument als HTML behandelt wird. Für die XML-Elemente benötigen wir einen eigenen Namespace, `http://devedge.netscape.com/2002/de`, der über das Präfix myNS `(xmlns:myNS="http://devedge.netscape.com/2002/de")` definiert wird.
+Das `<body>`-Element des Artikels enthält nun HTML-Elemente (ein `<b>`- und ein `<u>`-Tag). Das XML-Dokument enthält sowohl HTML-Elemente als auch XML-Elemente, aber nur ein Namespace wird benötigt, nämlich für die XML-Elemente. Da es keinen HTML-Namespace gibt und die Verwendung des XHTML-Namespaces das XSL dazu zwingen würde, ein XML-Dokument zu erstellen, das sich nicht wie ein HTML-Dokument verhält, wird `xsl:output` im XSL-Stylesheet sicherstellen, dass das resultierende Dokument als HTML behandelt wird. Für die XML-Elemente wird unser eigener Namespace benötigt, `http://devedge.netscape.com/2002/de`, und er wird mit dem Präfix myNS `(xmlns:myNS="http://devedge.netscape.com/2002/de")` angegeben.
 
 ### XML-Datei
 
@@ -105,7 +102,7 @@ Das `<body>`-Element des Artikels enthält nun HTML-Elemente (ein `<b>` und ein 
   </myNS:Article>
 ```
 
-Das verwendete XSL-Stylesheet benötigt zwei Namespaces – einen für die XSLT-Elemente und einen für die eigenen XML-Elemente im XML-Dokument. Die Ausgabe des XSL-Stylesheets wird auf `HTML` gesetzt, indem das `xsl:output`-Element verwendet wird. Durch das Festlegen der Ausgabe auf HTML und das Fehlen eines Namespaces für die resultierenden Elemente (in Blau dargestellt), werden diese Elemente als HTML-Elemente behandelt.
+Das verwendete XSL-Stylesheet benötigt zwei Namespaces - einen für die XSLT-Elemente und einen für unsere eigenen XML-Elemente, die im XML-Dokument verwendet werden. Die Ausgabe des XSL-Stylesheets wird auf `HTML` gesetzt, indem das `xsl:output`-Element verwendet wird. Durch das Setzen der Ausgabe auf HTML und das Fehlen eines Namespace auf den resultierenden Elementen (blau eingefärbt), werden diese Elemente als HTML-Elemente behandelt.
 
 ### XSL-Stylesheet mit 2 Namespaces
 
@@ -120,9 +117,9 @@ Das verwendete XSL-Stylesheet benötigt zwei Namespaces – einen für die XSLT-
 </xsl:stylesheet version="1.0">
 ```
 
-Ein Template, das zum Wurzelknoten des XML-Dokuments passt, wird erstellt und verwendet, um die Grundstruktur der HTML-Seite zu erstellen.
+Eine Vorlage, die mit dem Wurzelknoten des XML-Dokuments übereinstimmt, wird erstellt und verwendet, um die grundlegende Struktur der HTML-Seite zu erstellen.
 
-### Erstellen des grundlegenden HTML-Dokuments
+### Erstellung des grundlegenden HTML-Dokuments
 
 ```xml
 …
@@ -162,9 +159,9 @@ Ein Template, das zum Wurzelknoten des XML-Dokuments passt, wird erstellt und ve
 …
 ```
 
-Drei weitere `xsl:template` sind erforderlich, um das Beispiel abzuschließen. Das erste `xsl:template` wird für die Autor-Knoten verwendet, während das zweite den Haupttext-Knoten verarbeitet. Das dritte Template hat eine allgemeine Übereinstimmungsregel, die zu jedem Knoten und jedem Attribut passt. Es wird benötigt, um die HTML-Elemente im XML-Dokument beizubehalten, da es alle von ihnen erfasst und in das HTML-Dokument kopiert, das die Transformation erstellt.
+Drei weitere `xsl:template`'s werden benötigt, um das Beispiel zu vervollständigen. Die erste `xsl:template` wird für die Autor-Knoten verwendet, während die zweite den Knotenbody verarbeitet. Die dritte Vorlage hat eine allgemeine Übereinstimmungsregel, die auf jeden Knoten und jedes Attribut passt. Sie ist notwendig, um die HTML-Elemente im XML-Dokument zu erhalten, da sie alle von ihnen abgleicht und sie in das HTML-Dokument kopiert, das die Transformation erstellt.
 
-### Die letzten 3 Templates
+### Endgültige 3 Vorlagen
 
 ```xml
 …

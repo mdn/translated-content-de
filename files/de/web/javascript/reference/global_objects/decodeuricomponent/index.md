@@ -2,14 +2,14 @@
 title: decodeURIComponent()
 slug: Web/JavaScript/Reference/Global_Objects/decodeURIComponent
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Objects")}}
 
 Die Funktion **`decodeURIComponent()`** dekodiert eine zuvor durch {{jsxref("encodeURIComponent()")}} oder eine ähnliche Routine erstellte Komponente eines Uniform Resource Identifier (URI).
 
-{{InteractiveExample("JavaScript Demo: Standard built-in objects - decodeURIComponent()")}}
+{{InteractiveExample("JavaScript Demo: decodeURIComponent()")}}
 
 ```js interactive-example
 function containsEncodedComponents(x) {
@@ -37,18 +37,18 @@ decodeURIComponent(encodedURI)
 
 ### Rückgabewert
 
-Ein neuer String, der die dekodierte Version der angegebenen kodierten URI-Komponente darstellt.
+Ein neuer String, der die dekodierte Version der gegebenen kodierten Komponente des Uniform Resource Identifier (URI) darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("URIError")}}
-  - : Wird ausgelöst, wenn `encodedURI` ein `%` enthält, das nicht von zwei hexadezimalen Ziffern gefolgt wird, oder wenn die Escape-Sequenz kein gültiges UTF-8-Zeichen kodiert.
+  - : Wird ausgelöst, wenn `encodedURI` ein `%` enthält, dem nicht zwei hexadezimale Ziffern folgen, oder wenn die Escape-Sequenz kein gültiges UTF-8-Zeichen kodiert.
 
 ## Beschreibung
 
-`decodeURIComponent()` ist eine Funktions-Eigenschaft des globalen Objekts.
+`decodeURIComponent()` ist eine Funktionseigenschaft des globalen Objekts.
 
-`decodeURIComponent()` verwendet denselben Dekodierungsalgorithmus wie in {{jsxref("decodeURI()")}} beschrieben. Es dekodiert _alle_ Escape-Sequenzen, einschließlich solcher, die nicht durch {{jsxref("encodeURIComponent")}} erstellt wurden, wie `-.!~*'()`.
+`decodeURIComponent()` verwendet den gleichen Dekodierungsalgorithmus wie in {{jsxref("decodeURI()")}} beschrieben. Es dekodiert _alle_ Escape-Sequenzen, einschließlich derjenigen, die nicht durch {{jsxref("encodeURIComponent")}} erstellt wurden, wie `-.!~*'()`.
 
 ## Beispiele
 
@@ -59,7 +59,7 @@ decodeURIComponent("JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B");
 // "JavaScript_шеллы"
 ```
 
-### Abfangen von Fehlern
+### Fehler abfangen
 
 ```js
 try {
@@ -73,7 +73,7 @@ try {
 
 ### Dekodierung von Abfrageparametern aus einer URL
 
-`decodeURIComponent()` kann nicht direkt verwendet werden, um Abfrageparameter aus einer URL zu parsen. Es ist etwas Vorbereitung erforderlich.
+`decodeURIComponent()` kann nicht direkt verwendet werden, um Abfrageparameter aus einer URL zu parsen. Es bedarf einiger Vorbereitung.
 
 ```js
 function decodeQueryParam(p) {

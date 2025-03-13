@@ -2,14 +2,14 @@
 title: Subtraktion (-)
 slug: Web/JavaScript/Reference/Operators/Subtraction
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Subtraktionsoperator (`-`)** subtrahiert die beiden Operanden und erzeugt deren Differenz.
+Der **Subtraktionsoperator (`-`)** zieht den zweiten Operanden vom ersten ab und gibt die Differenz zurück.
 
-{{InteractiveExample("JavaScript Demo: Expressions - Subtraction operator")}}
+{{InteractiveExample("JavaScript Demo: Subtraktionsoperator (-)")}}
 
 ```js interactive-example
 console.log(5 - 3);
@@ -33,7 +33,7 @@ x - y
 
 ## Beschreibung
 
-Der `-` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt zuerst beide Operanden zu numerischen Werten](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und testet deren Typen. Er führt eine BigInt-Subtraktion durch, wenn beide Operanden BigInts werden; andernfalls führt er eine Zahlensubtraktion durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch eine Zahl bleibt.
+Der `-` Operator ist für zwei Arten von Operanden überladen: number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [wandelt zuerst beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und überprüft die Typen dieser. Er führt BigInt-Subtraktion durch, wenn beide Operanden zu BigInts werden; andernfalls führt er eine number Subtraktion durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere aber zu einer Zahl.
 
 ## Beispiele
 
@@ -57,7 +57,7 @@ Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 2n - 1n; // 1n
 ```
 
-Sie können BigInt- und Zahlenoperanden in der Subtraktion nicht mischen.
+Sie können BigInt- und number-Operanden in der Subtraktion nicht mischen.
 
 ```js example-bad
 2n - 1; // TypeError: Cannot mix BigInt and other types, use explicit conversions
@@ -88,5 +88,5 @@ Number(2n) - 1; // 1
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

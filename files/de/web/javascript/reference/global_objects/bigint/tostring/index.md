@@ -2,14 +2,14 @@
 title: BigInt.prototype.toString()
 slug: Web/JavaScript/Reference/Global_Objects/BigInt/toString
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`toString()`**-Methode von {{jsxref("BigInt")}}-Werten gibt einen String zurück, der den angegebenen {{jsxref("BigInt")}}-Wert darstellt. Das nachstehende "n" ist nicht Teil des Strings.
+Die **`toString()`**-Methode von {{jsxref("BigInt")}}-Werten gibt eine Zeichenkette zurück, die den angegebenen {{jsxref("BigInt")}}-Wert repräsentiert. Das abschließende "n" ist nicht Teil der Zeichenkette.
 
-{{InteractiveExample("JavaScript Demo: BigInt.toString()")}}
+{{InteractiveExample("JavaScript Demo: BigInt.prototype.toString()")}}
 
 ```js interactive-example
 console.log(1024n.toString());
@@ -32,11 +32,11 @@ toString(radix)
 ### Parameter
 
 - `radix` {{optional_inline}}
-  - : Ein ganzzahliger Wert im Bereich von 2 bis 36, der die Basis angibt, die für die Darstellung des BigInt-Wertes verwendet werden soll. Standardmäßig 10.
+  - : Ein ganzzahliger Wert im Bereich von 2 bis 36, der die Basis angibt, die zur Darstellung des BigInt-Wertes verwendet werden soll. Standardmäßig 10.
 
 ### Rückgabewert
 
-Ein String, der den angegebenen {{jsxref("BigInt")}}-Wert darstellt.
+Eine Zeichenkette, die den angegebenen {{jsxref("BigInt")}}-Wert repräsentiert.
 
 ### Ausnahmen
 
@@ -45,16 +45,15 @@ Ein String, der den angegebenen {{jsxref("BigInt")}}-Wert darstellt.
 
 ## Beschreibung
 
-Das {{jsxref("BigInt")}}-Objekt überschreibt die `toString`-Methode von {{jsxref("Object")}}; es erbt nicht von
-{{jsxref("Object.prototype.toString()")}}. Für {{jsxref("BigInt")}}-Werte gibt die `toString()`-Methode eine String-Darstellung des Wertes in der angegebenen Basis zurück.
+Das {{jsxref("BigInt")}}-Objekt überschreibt die `toString`-Methode von {{jsxref("Object")}}; es erbt nicht {{jsxref("Object.prototype.toString()")}}. Für {{jsxref("BigInt")}}-Werte gibt die `toString()`-Methode eine Zeichenkettenrepräsentation des Wertes in der angegebenen Basis zurück.
 
-Für Basen über 10 verwenden Buchstaben des Alphabets Ziffern, die größer als 9 sind. Zum Beispiel werden für hexadezimale Zahlen (Basis 16) `a` bis `f` verwendet.
+Für Basen über 10 stehen die Buchstaben des Alphabets für Ziffern größer als 9. Zum Beispiel werden für hexadezimale Zahlen (Basis 16) `a` bis `f` verwendet.
 
-Wenn der angegebene BigInt-Wert negativ ist, wird das Vorzeichen beibehalten. Dies ist auch der Fall, wenn die Basis 2 ist; der zurückgegebene String ist die positive binäre Darstellung des BigInt-Werts, der durch ein `-`-Zeichen vorangestellt wird, **nicht** das Zweierkomplement des BigInt-Werts.
+Wenn der angegebene BigInt-Wert negativ ist, bleibt das Vorzeichen erhalten. Dies ist auch dann der Fall, wenn die Basis 2 ist; die zurückgegebene Zeichenkette ist die positive binäre Darstellung des BigInt-Wertes, vorangestellt von einem `-`-Zeichen, **nicht** das Zweierkomplement des BigInt-Wertes.
 
-Die `toString()`-Methode erfordert, dass der `this`-Wert ein `BigInt`-Primitive oder Wrapper-Objekt ist. Sie löst einen {{jsxref("TypeError")}} aus, wenn andere `this`-Werte vorliegen, ohne zu versuchen, sie in BigInt-Werte zu konvertieren.
+Die `toString()`-Methode erfordert, dass ihr `this`-Wert ein `BigInt`-Primitive oder Wrapper-Objekt ist. Sie löst einen {{jsxref("TypeError")}} aus für andere `this`-Werte, ohne zu versuchen, diese in BigInt-Werte umzuwandeln.
 
-Da `BigInt` keine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)-Methode hat, ruft JavaScript die `toString()`-Methode automatisch auf, wenn ein `BigInt`-Objekt in einem Kontext verwendet wird, der einen String erwartet, wie in einem [Template-Literal](/de/docs/Web/JavaScript/Reference/Template_literals). BigInt-Primitive-Werte greifen jedoch nicht auf die `toString()`-Methode zurück, um [in Strings umgewandelt zu werden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) — sie werden direkt mit dem gleichen Algorithmus wie die anfängliche `toString()`-Implementierung konvertiert.
+Da `BigInt` keine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)-Methode hat, ruft JavaScript die `toString()`-Methode automatisch auf, wenn ein `BigInt`-_Objekt_ in einem Kontext verwendet wird, der eine Zeichenkette erwartet, wie in einem [Template-Literal](/de/docs/Web/JavaScript/Reference/Template_literals). BigInt-_Primitive_-Werte hingegen konsultieren nicht die `toString()`-Methode, um [in Zeichenketten umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) zu werden — sie werden direkt mit demselben Algorithmus wie die ursprüngliche `toString()`-Implementierung konvertiert.
 
 ```js
 BigInt.prototype.toString = () => "Overridden";
@@ -74,9 +73,9 @@ console.log(`${Object(1n)}`); // "Overridden"
 (-0xffn).toString(2); // "-11111111"
 ```
 
-### Negative-Null-BigInt
+### Negative-null BigInt
 
-Es gibt kein Negative-Null-`BigInt`, da es keine negativen Nullen bei ganzen Zahlen gibt. `-0.0` ist ein IEEE-Gleitkomma-Konzept, das nur im JavaScript-`Number`-Typ erscheint.
+Es gibt kein negativ-null `BigInt`, da es keine negativen Nullen in Ganzzahlen gibt. `-0.0` ist ein IEEE-Gleitkomma-Konzept, das nur im JavaScript [`Number`](/de/docs/Web/JavaScript/Guide/Data_structures#number_type)-Typ vorkommt.
 
 ```js
 (-0n).toString(); // "0"

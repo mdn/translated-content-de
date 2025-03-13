@@ -1,33 +1,33 @@
 ---
-title: Zeitüberschreitungen abrufen
+title: Get Timeouts
 slug: Web/WebDriver/Reference/Commands/GetTimeouts
 l10n:
-  sourceCommit: 394a1aff10d20ba51dbd00252ce481769298001c
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
-Der _Zeitüberschreitungen abrufen_ [Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API gibt die mit der aktuellen Sitzung verbundenen Zeitüberschreitungen zurück. Die [Sitzungs-Zeitüberschreitungs](/de/docs/Web/WebDriver/Reference/Timeouts) -Dauern steuern das Verhalten wie Zeitüberschreitungen bei [Skriptinjektion](/de/docs/Web/WebDriver/Reference/Timeouts#script), [Dokumentnavigation](/de/docs/Web/WebDriver/Reference/Timeouts#pageload) und [Elementwiederherstellung](/de/docs/Web/WebDriver/Reference/Timeouts#implicit).
+Der _Get Timeouts_ [Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API gibt die mit der aktuellen Sitzung verknüpften Timeouts zurück. Die [Sitzungstimeout](/de/docs/Web/WebDriver/Reference/Timeouts)-Dauern steuern das Verhalten für Timeouts bei [Skriptinjektion](/de/docs/Web/WebDriver/Reference/Timeouts#script), [Dokumentennavigation](/de/docs/Web/WebDriver/Reference/Timeouts#pageload) und [Elementsuche](/de/docs/Web/WebDriver/Reference/Timeouts#implicit).
 
 ## Syntax
 
-| Methode                                | URI-Vorlage                      |
-| -------------------------------------- | -------------------------------- |
-| [`GET`](/de/docs/Web/HTTP/Methods/GET) | `/session/{session id}/timeouts` |
+| Methode                                          | URI Template                     |
+| ------------------------------------------------ | -------------------------------- |
+| [`GET`](/de/docs/Web/HTTP/Reference/Methods/GET) | `/session/{session id}/timeouts` |
 
 ### URL-Parameter
 
 - `session id`
-  - : Bezeichner der Sitzung.
+  - : Kennung der Sitzung.
 
 ### Antwort
 
-Die Antwortnutzlast ist ein [`Timeouts`](/de/docs/Web/WebDriver/Reference/Timeouts) Objekt:
+Das Antwort-Payload ist ein [`Timeouts`](/de/docs/Web/WebDriver/Reference/Timeouts)-Objekt:
 
 - `implicit`
-  - : Zeit in Millisekunden, um die [Element-Findestrategie](/de/docs/Web/WebDriver/WebElement) bei der Suche nach einem Element erneut zu versuchen. Dies wird standardmäßig auf 0 gesetzt, was bedeutet, dass die Strategie nur einmal ausgeführt wird.
+  - : Zeit in Millisekunden zum erneuten Versuch der [Element-Suchstrategie](/de/docs/Web/WebDriver/WebElement) beim Auffinden eines Elements. Standardmäßig ist dieser Wert 0, was bedeutet, dass die Strategie nur einmal ausgeführt wird.
 - `pageLoad`
-  - : Zeit in Millisekunden, um auf das vollständige Laden des Dokuments zu warten. Standardmäßig wartet WebDriver fünf Minuten (oder 300.000 ms).
+  - : Zeit in Millisekunden, die gewartet wird, bis das Dokument das Laden abgeschlossen hat. Standardmäßig wartet WebDriver fünf Minuten (oder 300.000 ms).
 - `script`
-  - : Mit [Execute Script](/de/docs/Web/WebDriver/Commands/ExecuteScript) oder [Execute Async Script](/de/docs/Web/WebDriver/Commands/ExecuteAsyncScript) injizierte Skripte werden ausgeführt, bis sie die Skript-Zeitüberschreitungsdauer erreichen, die ebenfalls in Millisekunden angegeben ist. Die Skripte werden dann unterbrochen, und ein [Script-Timeout-Fehler](/de/docs/Web/WebDriver/Errors/ScriptTimeoutError) wird zurückgegeben. Standardwert ist 30 Sekunden (oder 30.000 ms).
+  - : Skripte, die mit [Execute Script](/de/docs/Web/WebDriver/Commands/ExecuteScript) oder [Execute Async Script](/de/docs/Web/WebDriver/Commands/ExecuteAsyncScript) injiziert werden, laufen, bis sie die Skript-Timeout-Dauer erreichen, die ebenfalls in Millisekunden angegeben wird. Die Skripte werden dann unterbrochen und ein [Skript-Timeout-Fehler](/de/docs/Web/WebDriver/Errors/ScriptTimeoutError) wird zurückgegeben. Standardmäßig sind dies 30 Sekunden (oder 30.000 ms).
 
 ### Fehler
 
@@ -44,6 +44,6 @@ Die Antwortnutzlast ist ein [`Timeouts`](/de/docs/Web/WebDriver/Reference/Timeou
 
 ## Siehe auch
 
-- [`Timeouts`](/de/docs/Web/WebDriver/Reference/Timeouts) Objekt
-- [Zeitüberschreitungen festlegen](/de/docs/Web/WebDriver/Reference/Commands/SetTimeouts) Befehl
+- [`Timeouts`](/de/docs/Web/WebDriver/Reference/Timeouts)-Objekt
+- [Set Timeouts](/de/docs/Web/WebDriver/Reference/Commands/SetTimeouts)-Befehl
 - [Liste der WebDriver-Befehle](/de/docs/Web/WebDriver/Reference/Commands)

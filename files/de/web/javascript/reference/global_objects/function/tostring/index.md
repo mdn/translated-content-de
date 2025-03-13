@@ -2,14 +2,14 @@
 title: Function.prototype.toString()
 slug: Web/JavaScript/Reference/Global_Objects/Function/toString
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`toString()`**-Methode von {{jsxref("Function")}}-Instanzen gibt einen String zurück, der den Quellcode dieser Funktion darstellt.
+Die **`toString()`**-Methode von {{jsxref("Function")}}-Instanzen gibt eine Zeichenkette zurück, die den Quellcode dieser Funktion darstellt.
 
-{{InteractiveExample("JavaScript Demo: Function.toString()")}}
+{{InteractiveExample("JavaScript Demo: Function.prototype.toString()")}}
 
 ```js interactive-example
 function sum(a, b) {
@@ -37,32 +37,32 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der den Quellcode der Funktion darstellt.
+Eine Zeichenkette, die den Quellcode der Funktion darstellt.
 
 ## Beschreibung
 
-Das {{jsxref("Function")}}-Objekt überschreibt die `toString()`-Methode, die von {{jsxref("Object")}} geerbt wird; es erbt nicht {{jsxref("Object.prototype.toString")}}. Für benutzerdefinierte `Function`-Objekte gibt die `toString`-Methode einen String zurück, der das Quelltextsegment enthält, das zur Definition der Funktion verwendet wurde.
+Das {{jsxref("Function")}}-Objekt überschreibt die `toString()`-Methode, die von {{jsxref("Object")}} geerbt wird; es erbt nicht {{jsxref("Object.prototype.toString")}}. Für benutzerdefinierte `Function`-Objekte gibt die `toString`-Methode eine Zeichenkette zurück, die das Quelltextsegment enthält, das zur Definition der Funktion verwendet wurde.
 
-JavaScript ruft die `toString`-Methode automatisch auf, wenn ein `Function`-Objekt als Textwert dargestellt werden soll, z. B. wenn eine Funktion mit einem String verkettet wird.
+JavaScript ruft die `toString`-Methode automatisch auf, wenn eine `Function` als Textwert dargestellt werden soll, z. B. wenn eine Funktion mit einer Zeichenkette verkettet wird.
 
-Die `toString()`-Methode wirft eine {{jsxref("TypeError")}}-Ausnahme ("Function.prototype.toString called on incompatible object"), wenn der `this`-Wert des Objekts kein `Function`-Objekt ist.
+Die `toString()`-Methode wirft eine {{jsxref("TypeError")}}-Ausnahme ("Function.prototype.toString called on incompatible object"), wenn das `this`-Wert-Objekt kein `Function`-Objekt ist.
 
 ```js example-bad
 Function.prototype.toString.call("foo"); // throws TypeError
 ```
 
-Wenn die `toString()`-Methode auf eingebaute Funktionsobjekte, eine Funktion, die mit {{jsxref("Function.prototype.bind()")}} erstellt wurde, oder andere Nicht-JavaScript-Funktionen angewendet wird, gibt `toString()` einen _nativen Funktions-String_ zurück, der wie folgt aussieht:
+Wenn die `toString()`-Methode auf eingebauten Funktionsobjekten, einer Funktion, die durch {{jsxref("Function.prototype.bind()")}} erstellt wurde, oder anderen Nicht-JavaScript-Funktionen aufgerufen wird, gibt `toString()` eine _native function string_ zurück, die folgendermaßen aussieht:
 
 ```plain
 function someName() { [native code] }
 ```
 
-Für Methoden und Funktionen von intrinsischen Objekten ist `someName` der ursprüngliche Name der Funktion; andernfalls kann der Inhalt implementationsspezifisch sein, aber er wird immer in der Syntax von Eigenschaftsnamen dargestellt, wie `[1 + 1]`, `someName` oder `1`.
+Für Methoden und Funktionen in intrinsischen Objekten ist `someName` der ursprüngliche Name der Funktion; andernfalls kann sein Inhalt implementierungsdefiniert sein, wird aber immer in der Eigenschaftsnamenssyntax wie `[1 + 1]`, `someName` oder `1` dargestellt.
 
 > [!NOTE]
-> Das bedeutet, dass die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) mit nativen Funktions-Strings garantiert zu einem Syntaxfehler führt.
+> Dies bedeutet, dass die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) auf native function strings einen garantierten Syntaxfehler darstellt.
 
-Wenn die `toString()`-Methode auf eine mit dem `Function`-Konstruktor erstellte Funktion angewendet wird, gibt `toString()` den Quellcode einer synthetisierten Funktionsdeklaration namens "anonymous" zurück, mit den übergebenen Parametern und dem Funktionskörper. Beispielsweise wird `Function("a", "b", "return a + b").toString()` Folgendes zurückgeben:
+Wenn die `toString()`-Methode auf einer Funktion aufgerufen wird, die durch den `Function`-Konstruktor erstellt wurde, gibt `toString()` den Quellcode einer synthetisierten Funktionsdeklaration mit dem Namen "anonymous" unter Verwendung der bereitgestellten Parameter und des Funktionskörpers zurück. Zum Beispiel wird `Function("a", "b", "return a + b").toString()` Folgendes zurückgeben:
 
 ```plain
 function anonymous(a,b
@@ -71,7 +71,7 @@ return a + b
 }
 ```
 
-Seit ES2018 verlangt die Spezifikation, dass der Rückgabewert von `toString()` exakt der Quellcode ist, wie er deklariert wurde, einschließlich Leerzeichen und/oder Kommentaren — oder, falls der Host den Quellcode aus irgendeinem Grund nicht verfügbar hat, eine Rückgabe eines nativen Funktions-Strings erfordert. Unterstützung für dieses überarbeitete Verhalten finden Sie in der [Kompatibilitätstabelle](#browser-kompatibilität).
+Seit ES2018 erfordert die Spezifikation, dass der Rückgabewert von `toString()` exakt der gleiche Quellcode ist, wie er deklariert wurde, einschließlich jeglichen Leerzeichens und/oder Kommentars – oder, wenn der Host aus irgendeinem Grund den Quellcode nicht zur Verfügung hat, die Rückgabe eines native function string erfordert. Unterstützung für dieses überarbeitete Verhalten finden Sie in der [Kompatibilitätstabelle](#browser-kompatibilität).
 
 ## Beispiele
 
@@ -102,11 +102,11 @@ test(function f() {}.bind(0)); // "function () { [native code] }"
 test(Function("a", "b")); // function anonymous(a\n) {\nb\n}
 ```
 
-Beachten Sie, dass ab der Überarbeitung von `Function.prototype.toString()` bei Aufruf von `toString()` Implementationen niemals den Quellcode einer Funktion synthetisieren dürfen, die nicht ein nativer Funktions-String ist. Die Methode gibt immer den exakten Quellcode zurück, der zur Erstellung der Funktion verwendet wurde — einschließlich der oben gezeigten [getter](/de/docs/Web/JavaScript/Reference/Functions/get)- und [setter](/de/docs/Web/JavaScript/Reference/Functions/set)-Beispiele. Der [`Function`](/de/docs/Web/JavaScript/Reference/Functions)-Konstruktor selbst hat die Fähigkeit, den Quellcode für die Funktion zu synthetisieren (und ist daher eine Form von implizitem [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval)).
+Beachten Sie, dass nach der Überarbeitung von `Function.prototype.toString()`, wenn `toString()` aufgerufen wird, Implementierungen niemals den Quellcode einer Funktion synthetisieren dürfen, der nicht ein native function string ist. Die Methode gibt immer den exakten Quellcode zurück, der zur Erstellung der Funktion verwendet wurde – einschließlich der [getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [setter](/de/docs/Web/JavaScript/Reference/Functions/set) Beispiele oben. Der [`Function`](/de/docs/Web/JavaScript/Reference/Functions) Konstruktor selbst hat die Fähigkeit, den Quellcode für die Funktion zu synthetisieren (und stellt daher eine Form von implizitem [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) dar).
 
-### Quelltext einer Funktion abrufen
+### Abrufen des Quelltextes einer Funktion
 
-Es ist möglich, den Quelltext einer Funktion zu erhalten, indem man sie in einen String umwandelt — beispielsweise durch das Einfügen in eine Template-Zeichenkette:
+Es ist möglich, den Quelltext einer Funktion zu erhalten, indem man sie in eine Zeichenkette umwandelt – zum Beispiel, indem man sie in einem Template-Literal umschließt:
 
 ```js
 function foo() {
@@ -118,7 +118,7 @@ console.log(`${foo}`);
 // }
 ```
 
-Dieser Quelltext ist _exakt_, einschließlich aller dazwischen eingefügten Kommentare (die sonst nicht in der internen Darstellung der Engine gespeichert werden).
+Dieser Quelltext ist _exakt_, einschließlich aller dazwischen gestreuten Kommentare (die sonst nicht in der internen Darstellung der Engine gespeichert würden).
 
 ```js
 function foo /* a comment */() {

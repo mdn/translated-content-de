@@ -3,18 +3,19 @@ title: "DataTransferItem: type-Eigenschaft"
 short-title: type
 slug: Web/API/DataTransferItem/type
 l10n:
-  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte **`DataTransferItem.type`**-Eigenschaft gibt den Typ (Format) des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekts zurück, das das Drag-Datenobjekt darstellt. Der `type` ist eine Unicode-Zeichenkette, die im Allgemeinen durch einen MIME-Typ angegeben wird, obwohl ein MIME-Typ nicht erforderlich ist.
+Die schreibgeschützte **`DataTransferItem.type`**-Eigenschaft gibt den Typ (Format) des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekts zurück, das das Drag-Daten-Element darstellt.
+Der `type` ist eine Unicode-Zeichenkette, die im Allgemeinen durch einen MIME-Typ angegeben wird, obwohl dies nicht erforderlich ist.
 
 Einige Beispieltypen sind: `text/plain` und `text/html`.
 
 ## Wert
 
-Ein String, der den Typ des Drag-Datenobjekts darstellt.
+Eine Zeichenkette, die den Typ des Drag-Daten-Elements darstellt.
 
 ## Beispiele
 
@@ -60,4 +61,4 @@ function dropHandler(ev) {
 ## Siehe auch
 
 - [`DataTransfer.types()`](/de/docs/Web/API/DataTransfer/types)
-- [Liste der üblichen MIME-Typen](/de/docs/Web/HTTP/MIME_types/Common_types)
+- [Liste der gebräuchlichen MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types/Common_types)

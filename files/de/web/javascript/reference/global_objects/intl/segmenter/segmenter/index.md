@@ -2,14 +2,14 @@
 title: Intl.Segmenter()-Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/Segmenter
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
 Der **`Intl.Segmenter()`**-Konstruktor erstellt {{jsxref("Intl.Segmenter")}}-Objekte.
 
-{{InteractiveExample("JavaScript Demo: Intl.Segmenter")}}
+{{InteractiveExample("JavaScript Demo: Intl.Segmenter() constructor")}}
 
 ```js interactive-example
 const segmenterFr = new Intl.Segmenter("fr", { granularity: "word" });
@@ -32,24 +32,24 @@ new Intl.Segmenter(locales)
 new Intl.Segmenter(locales, options)
 ```
 
-> **Note:** `Intl.Segmenter()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Hinweis:** `Intl.Segmenter()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47-Sprachtag oder einer {{jsxref("Intl.Locale")}}-Instanz, oder ein Array solcher Sprachkennungen. Die Standardlokalisierung der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder keiner der angegebenen Sprachkennungen unterstützt wird. Für die allgemeine Form und Interpretation des Arguments `locales` siehe [die Parameterbeschreibung auf der Hauptseite von `Intl`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47 Sprach-Tag oder eine {{jsxref("Intl.Locale")}} Instanz, oder ein Array solcher Sprach-Identifikatoren. Die Standard-Locale des Laufzeitsystems wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Sprach-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
+  - : Ein Objekt, das die folgenden Eigenschaften in der Reihenfolge ihrer Abfrage enthält (alle sind optional):
     - `localeMatcher`
-      - : Der zu verwendende Lokalisierungsmatching-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Weitere Informationen zu dieser Option finden Sie unter [Lokalisationserkennung und -verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der Locale-Vergleichsalgorithmus, der verwendet werden soll. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen zu dieser Option siehe [Locale-Erkennung und Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `granularity`
-      - : Wie granular die Eingabe aufgeteilt werden soll. Mögliche Werte sind:
+      - : Wie granular der Eingabetext aufgeteilt werden soll. Mögliche Werte sind:
         - `"grapheme"` (Standard)
-          - : Teilt die Eingabe an Grenzen von Graphem-Cluster (wahrgenommene Zeichen) auf, wie von der Lokalisierung bestimmt.
+          - : Teilt den Eingabetext an den Grenzen von Grapheme-Clustern (von Benutzern wahrgenommene Zeichen), wie durch die Locale bestimmt.
         - `"word"`
-          - : Teilt die Eingabe an Wortgrenzen auf, wie von der Lokalisierung bestimmt.
+          - : Teilt den Eingabetext an Wortgrenzen, wie durch die Locale bestimmt.
         - `"sentence"`
-          - : Teilt die Eingabe an Satzgrenzen auf, wie von der Lokalisierung bestimmt.
+          - : Teilt den Eingabetext an Satzgrenzen, wie durch die Locale bestimmt.
 
 ### Rückgabewert
 
@@ -62,9 +62,9 @@ Eine neue [`Intl.Segmenter`](/de/docs/Web/JavaScript/Reference/Global_Objects/In
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Das folgende Beispiel zeigt, wie man die Wörter in einem String unter Verwendung der japanischen Sprache zählt (wo die Aufteilung des Strings mittels der `String`-Methoden ein falsches Ergebnis geliefert hätte).
+Das folgende Beispiel zeigt, wie man mit der japanischen Sprache Wörter in einem String zählt (wobei das Aufteilen des Strings mit `String`-Methoden ein falsches Ergebnis geliefert hätte).
 
 ```js
 const text = "吾輩は猫である。名前はたぬき。";

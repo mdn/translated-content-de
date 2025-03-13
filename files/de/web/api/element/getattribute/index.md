@@ -3,16 +3,16 @@ title: "Element: getAttribute() Methode"
 short-title: getAttribute()
 slug: Web/API/Element/getAttribute
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("DOM")}}
 
-Die **`getAttribute()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces gibt den Wert eines angegebenen Attributs des Elements zurück.
+Die **`getAttribute()`** Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt den Wert eines angegebenen Attributs des Elements zurück.
 
-Wenn das angegebene Attribut nicht existiert, wird der zurückgegebene Wert `null` sein.
+Falls das angegebene Attribut nicht existiert, wird der Wert `null` zurückgegeben.
 
-Wenn Sie die Eigenschaften des [`Attr`](/de/docs/Web/API/Attr) Knotens untersuchen müssen, können Sie stattdessen die [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode) Methode verwenden.
+Wenn Sie die Eigenschaften des [`Attr`](/de/docs/Web/API/Attr)-Nodes untersuchen müssen, können Sie stattdessen die [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode)-Methode verwenden.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ getAttribute(attributeName)
 ### Parameter
 
 - `attributeName`
-  - : Der Name des Attributs, dessen Wert Sie abfragen möchten.
+  - : Der Name des Attributs, dessen Wert Sie abrufen möchten.
 
 ### Rückgabewert
 
-Ein String, der den Wert von `attributeName` enthält, wenn das Attribut existiert, andernfalls `null`.
+Ein String, der den Wert von `attributeName` enthält, falls das Attribut existiert, andernfalls `null`.
 
 ## Beispiele
 
@@ -52,18 +52,18 @@ const align = div1.getAttribute("align");
 
 ### Kleinschreibung
 
-Wenn es auf einem HTML-Element in einem DOM aufgerufen wird, das als HTML-Dokument markiert ist, wandelt `getAttribute()` sein Argument in Kleinbuchstaben um, bevor es fortfährt.
+Wenn `getAttribute()` bei einem HTML-Element in einem DOM, das als HTML-Dokument gekennzeichnet ist, aufgerufen wird, wandelt es sein Argument vor der Weiterverarbeitung in Kleinschreibung um.
 
 ### Abrufen von Nonce-Werten
 
-Aus Sicherheitsgründen sind [CSP](/de/docs/Web/HTTP/CSP)-Nonces aus Nicht-Skript-Quellen, wie z.B. CSS-Selektoren, und `.getAttribute("nonce")` Aufrufe versteckt.
+Aus Sicherheitsgründen werden [CSP](/de/docs/Web/HTTP/Guides/CSP) Nonces aus Nicht-Skript-Quellen, wie CSS-Selektoren, und `.getAttribute("nonce")` Aufrufe verborgen.
 
 ```js example-bad
 let nonce = script.getAttribute("nonce");
 // returns empty string
 ```
 
-Anstatt die Nonce vom Inhaltsattribut abzurufen, verwenden Sie die [`nonce`](/de/docs/Web/API/HTMLElement/nonce) Eigenschaft:
+Statt die Nonce aus dem content-Attribut abzurufen, verwenden Sie die [`nonce`](/de/docs/Web/API/HTMLElement/nonce)-Eigenschaft:
 
 ```js
 let nonce = script.nonce;

@@ -2,23 +2,23 @@
 title: Neues Fenster
 slug: Web/WebDriver/Reference/Commands/NewWindow
 l10n:
-  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
-Der _Neues Fenster_ [Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API öffnet einen neuen obersten Browsing-Kontext vom Typ _window_ oder _tab_ und gibt ein Wörterbuch zurück, das den _handle_ des neuen [WebWindow](/de/docs/Web/WebDriver/WebWindow) und den erstellten _Typ_ enthält. Wenn der angeforderte _Typ_ nicht vom Browser erstellt werden kann, wird versucht, den alternativen Typ zu erstellen.
+Der _Neues Fenster_ [Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API öffnet einen neuen obersten Browsing-Kontext vom Typ _window_ oder _tab_ und gibt ein Wörterbuch zurück, das den _handle_ des neuen [WebWindow](/de/docs/Web/WebDriver/WebWindow) und seinen erstellten _type_ enthält. Wenn der angeforderte _type_ vom Browser nicht erstellt werden kann, wird versucht, den alternativen Typ zu erstellen.
 
 ## Syntax
 
-| Methode                                    | URI-Vorlage                        |
-| ------------------------------------------ | ---------------------------------- |
-| [`POST`](/de/docs/Web/HTTP/Methods/DELETE) | `/session/{session id}/window/new` |
+| Methode                                              | URI-Vorlage                        |
+| ---------------------------------------------------- | ---------------------------------- |
+| [`POST`](/de/docs/Web/HTTP/Reference/Methods/DELETE) | `/session/{session id}/window/new` |
 
 ### URL-Parameter
 
 - `session id`
-  - : Bezeichnet den Sitzungs-Identifikator.
+  - : Bezeichner der Sitzung.
 
-### Nutzlast
+### Nutzdaten
 
 Die Eingabe ist ein Objekt:
 
@@ -27,7 +27,7 @@ Die Eingabe ist ein Objekt:
 
 ### Antwort
 
-Die Antwort-Nutzlast ist ein Objekt:
+Die Antwortnutzlast ist ein Objekt:
 
 - handle
   - : Der Handle des neuen [WebWindow](/de/docs/Web/WebDriver/WebWindow).
@@ -40,10 +40,10 @@ Die Antwort-Nutzlast ist ein Objekt:
   - : Sitzung existiert nicht.
 - [Kein solches Fenster](/de/docs/Web/WebDriver/Errors/NoSuchWindow)
   - : Wenn das [`window`](/de/docs/Web/API/Window) geschlossen wurde.
-- [Unerwartetes offenes Alert](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzeraufforderung, wie z. B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
+- [Unerwartetes offenes Dialogfeld](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzereingabeaufforderung, wie z.B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
 - [Nicht unterstützte Operation](/de/docs/Web/WebDriver/Errors/UnsupportedOperation)
-  - : Der Treiber oder Browser unterstützt den Befehl aus irgendeinem Grund nicht (z. B. wenn es nicht möglich ist, einen neuen Tab oder ein neues Fenster zu erstellen).
+  - : Der Treiber oder Browser unterstützt den Befehl aus irgendeinem Grund nicht (z.B. wenn es nicht möglich ist, einen neuen Tab oder ein Fenster zu erstellen).
 
 ## Spezifikationen
 
@@ -55,4 +55,4 @@ Die Antwort-Nutzlast ist ein Objekt:
 
 ## Siehe auch
 
-- [Fenster schließen](/de/docs/Web/WebDriver/Reference/Commands/CloseWindow) Befehl
+- Befehl [Fenster schließen](/de/docs/Web/WebDriver/Reference/Commands/CloseWindow)

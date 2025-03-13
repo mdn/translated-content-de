@@ -2,14 +2,14 @@
 title: Number.prototype.valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Number/valueOf
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`valueOf()`**-Methode von {{jsxref("Number")}}-Werten gibt den Wert dieser Zahl zurück.
+Die **`valueOf()`** Methode von {{jsxref("Number")}} Werten gibt den Wert dieser Zahl zurück.
 
-{{InteractiveExample("JavaScript Demo: Number.valueOf()")}}
+{{InteractiveExample("JavaScript Demo: Number.prototype.valueOf()")}}
 
 ```js interactive-example
 const numObj = new Number(42);
@@ -36,11 +36,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zahl, die den primitiven Wert des angegebenen {{jsxref("Number")}}-Objekts darstellt.
+Eine Zahl, die den primitiven Wert des angegebenen {{jsxref("Number")}} Objekts darstellt.
 
 ## Beschreibung
 
-Diese Methode wird normalerweise intern von JavaScript aufgerufen und nicht explizit im Webcode verwendet.
+Diese Methode wird normalerweise intern von JavaScript aufgerufen und nicht explizit im Webcode.
 
 ## Beispiele
 

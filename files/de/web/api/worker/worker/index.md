@@ -1,9 +1,9 @@
 ---
-title: "Worker: Worker()-Konstruktor"
+title: "Worker: Worker() Konstruktor"
 short-title: Worker()
 slug: Web/API/Worker/Worker
 l10n:
-  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
@@ -11,7 +11,7 @@ l10n:
 Der **`Worker()`**-Konstruktor erstellt ein [`Worker`](/de/docs/Web/API/Worker)-Objekt, das das Skript an der angegebenen URL ausführt. Dieses Skript muss die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) einhalten.
 
 > [!NOTE]
-> Es gibt Meinungsverschiedenheiten unter Browserherstellern darüber, ob eine Daten-URL denselben Ursprung hat oder nicht. Obwohl Firefox 10 und höher Daten-URLs akzeptieren, ist dies nicht bei allen anderen Browsern der Fall.
+> Es gibt eine Uneinigkeit unter den Browser-Herstellern darüber, ob eine Data-URL gleicher Herkunft ist oder nicht. Obwohl Firefox ab Version 10 Data-URLs akzeptiert, ist dies in allen anderen Browsern nicht der Fall.
 
 ## Syntax
 
@@ -24,35 +24,35 @@ new Worker(url, options)
 
 - `url`
 
-  - : Ein String, der die URL des Skripts darstellt, das der Worker ausführen wird. Es muss die Same-Origin-Policy einhalten. Die URL wird relativ zum aktuellen Speicherort der HTML-Seite aufgelöst.
+  - : Ein String, der die URL des Skripts darstellt, das der Worker ausführt. Es muss die Same-Origin-Policy einhalten. Die URL wird relativ zur aktuellen HTML-Seitenposition aufgelöst.
 
     > [!NOTE]
-    > Bundler, einschließlich [webpack](https://webpack.js.org/guides/web-workers/), [Vite](https://vite.dev/guide/features.html#web-workers) und [Parcel](https://parceljs.org/languages/javascript/#web-workers), empfehlen, URLs zu übergeben, die relativ zu [`import.meta.url`](/de/docs/Web/JavaScript/Reference/Operators/import.meta#url) sind, an den `Worker()`-Konstruktor. Zum Beispiel:
+    > Bundler, einschließlich [webpack](https://webpack.js.org/guides/web-workers/), [Vite](https://vite.dev/guide/features.html#web-workers), und [Parcel](https://parceljs.org/languages/javascript/#web-workers), empfehlen, URLs zu übergeben, die relativ zu [`import.meta.url`](/de/docs/Web/JavaScript/Reference/Operators/import.meta#url) an den `Worker()`-Konstruktor sind. Zum Beispiel:
     >
     > ```js
     > const myWorker = new Worker(new URL("worker.js", import.meta.url));
     > ```
     >
-    > Auf diese Weise ist der Pfad relativ zum aktuellen Skript und nicht zur aktuellen HTML-Seite, was dem Bundler ermöglicht, sicher Optimierungen wie das Umbenennen durchzuführen (da andernfalls die `worker.js`-URL auf eine Datei verweisen könnte, die nicht vom Bundler kontrolliert wird, und es keine Annahmen gemacht werden können).
+    > Auf diese Weise ist der Pfad relativ zum aktuellen Skript anstatt zur aktuellen HTML-Seite, was es dem Bundler erlaubt, sicher Optimierungen wie Umbenennungen durchzuführen (weil sonst die `worker.js`-URL auf eine Datei zeigen kann, die nicht vom Bundler kontrolliert wird, sodass er keine Annahmen machen kann).
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Options-Eigenschaften enthält, die beim Erstellen der Objektinstanz festgelegt werden können. Verfügbare Eigenschaften sind wie folgt:
+  - : Ein Objekt, das die Optionen enthält, die beim Erstellen der Objektinstanz gesetzt werden können. Verfügbare Eigenschaften sind:
 
     - `type`
-      - : Ein String, der den zu erstellenden Workertyp angibt. Der Wert kann `classic` oder `module` sein. Wenn nicht angegeben, wird standardmäßig `classic` verwendet.
+      - : Ein String, der den Typ des zu erstellenden Workers angibt. Der Wert kann `classic` oder `module` sein. Wenn nicht angegeben, wird standardmäßig `classic` verwendet.
     - `credentials`
-      - : Ein String, der den Typ der Anmeldeinformationen angibt, die der Worker verwenden soll. Der Wert kann `omit`, `same-origin` oder `include` sein. Wenn nicht angegeben oder wenn `type` `classic` ist, wird standardmäßig `same-origin` verwendet (nur Anmeldeinformationen für same-origin-Anfragen einfügen).
+      - : Ein String, der die Art der zu verwendenden Anmeldeinformationen für den Worker angibt. Der Wert kann `omit`, `same-origin` oder `include` sein. Wenn nicht angegeben oder wenn der Typ `classic` ist, wird standardmäßig `same-origin` verwendet (nur Anmeldeinformationen für same-origin-Anfragen einschließen).
     - `name`
-      - : Ein String, der einen identifizierenden Namen für den [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) angibt, der den Geltungsbereich des Workers repräsentiert, was hauptsächlich für Debugging-Zwecke nützlich ist.
+      - : Ein String, der einen identifizierenden Namen für den [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) angibt, der den Umfang des Workers darstellt und hauptsächlich für Debugging-Zwecke nützlich ist.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Dokument keine Genehmigung hat, Worker zu starten, z. B. wenn die URL eine ungültige Syntax hat oder die Same-Origin-Policy verletzt wird.
+  - : Wird ausgelöst, wenn das Dokument nicht berechtigt ist, Worker zu starten, z. B. wenn die URL eine ungültige Syntax hat oder die Same-Origin-Policy verletzt wird.
 - `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der MIME-Typ des Worker-Skripts inkorrekt ist. Es sollte immer `text/javascript` sein
-    (aus historischen Gründen können [andere JavaScript-MIME-Typen](/de/docs/Web/HTTP/MIME_types#legacy_javascript_mime_types) akzeptiert werden).
+  - : Wird ausgelöst, wenn der MIME-Typ des Worker-Skripts inkorrekt ist. Er _sollte_ immer `text/javascript` sein
+    (aus historischen Gründen können [andere JavaScript-MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types#legacy_javascript_mime_types) akzeptiert werden).
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn _aURL_ nicht geparst werden kann.
 
@@ -70,7 +70,7 @@ first.onchange = () => {
 };
 ```
 
-Für ein vollständiges Beispiel siehe unser [Einfaches Beispiel eines dedizierten Workers](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
+Für ein vollständiges Beispiel sehen Sie unser [Grundlegendes Beispiel für einen dedizierten Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
 
 ## Spezifikationen
 

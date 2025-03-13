@@ -2,16 +2,16 @@
 title: AbsoluteOrientationSensor
 slug: Web/API/AbsoluteOrientationSensor
 l10n:
-  sourceCommit: 7b01ac3a570c1c053d1fbc9325c94cde4e71aebe
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`AbsoluteOrientationSensor`**-Schnittstelle der [Sensor APIs](/de/docs/Web/API/Sensor_APIs) beschreibt die physische Ausrichtung des Geräts in Bezug auf das Erdkoordinatensystem.
+Das **`AbsoluteOrientationSensor`**-Interface der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) beschreibt die physische Ausrichtung des Geräts in Bezug auf das Erdkoordinatensystem.
 
 Um diesen Sensor zu verwenden, muss der Benutzer die Erlaubnis für die Gerätesensoren `'accelerometer'`, `'gyroscope'` und `'magnetometer'` über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen.
 
-Diese Funktion kann durch eine auf Ihrem Server festgelegte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
+Diese Funktion kann durch eine auf Ihrem Server festgelegte [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden.
 
 {{InheritanceDiagram}}
 
@@ -20,11 +20,11 @@ Diese Funktion kann durch eine auf Ihrem Server festgelegte [Permissions Policy]
 - [`AbsoluteOrientationSensor()`](/de/docs/Web/API/AbsoluteOrientationSensor/AbsoluteOrientationSensor)
   - : Erstellt ein neues `AbsoluteOrientationSensor`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Keine spezifischen Eigenschaften; erbt Eigenschaften von seinen Vorfahren [`OrientationSensor`](/de/docs/Web/API/OrientationSensor) und [`Sensor`](/de/docs/Web/API/Sensor)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Keine spezifischen Methoden; erbt Methoden von seinen Vorfahren [`OrientationSensor`](/de/docs/Web/API/OrientationSensor) und [`Sensor`](/de/docs/Web/API/Sensor)._
 
@@ -36,7 +36,7 @@ _Keine spezifischen Ereignisse; erbt Methoden von seinem Vorfahren, [`Sensor`](/
 
 ### Einfaches Beispiel
 
-Das folgende Beispiel, das lose auf [Intels Orientation Phone-Demo](https://intel.github.io/generic-sensor-demos/orientation-phone/) basiert, instanziiert einen `AbsoluteOrientationSensor` mit einer Frequenz von 60 Mal pro Sekunde. Bei jeder Ablesung wird [`OrientationSensor.quaternion`](/de/docs/Web/API/OrientationSensor/quaternion) verwendet, um ein visuelles Modell eines Telefons zu drehen.
+Das folgende Beispiel, das lose auf [Intels Orientation Phone Demo](https://intel.github.io/generic-sensor-demos/orientation-phone/) basiert, instanziiert einen `AbsoluteOrientationSensor` mit einer Frequenz von 60 Mal pro Sekunde. Bei jeder Lesung wird [`OrientationSensor.quaternion`](/de/docs/Web/API/OrientationSensor/quaternion) verwendet, um ein visuelles Modell eines Telefons zu drehen.
 
 ```js
 const options = { frequency: 60, referenceFrame: "device" };
@@ -54,9 +54,9 @@ sensor.addEventListener("error", (event) => {
 sensor.start();
 ```
 
-### Berechtigungsbeispiel
+### Berechtigungs-Beispiel
 
-Die Verwendung von Orientierungssensoren erfordert das Anfordern von Berechtigungen für mehrere Gerätesensoren. Da die [`Permissions`](/de/docs/Web/API/Permissions)-Schnittstelle Versprechen verwendet, ist es eine gute Methode, Berechtigungen mit {{jsxref('Promise.all')}} anzufordern.
+Die Verwendung von Orientierungssensoren erfordert das Anfordern von Berechtigungen für mehrere Gerätesensoren. Da das [`Permissions`](/de/docs/Web/API/Permissions)-Interface Versprechen (`promises`) verwendet, ist eine gute Methode, um Berechtigungen anzufordern, die Verwendung von {{jsxref('Promise.all')}}.
 
 ```js
 const sensor = new AbsoluteOrientationSensor();

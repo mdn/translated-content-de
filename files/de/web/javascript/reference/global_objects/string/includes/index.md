@@ -2,14 +2,14 @@
 title: String.prototype.includes()
 slug: Web/JavaScript/Reference/Global_Objects/String/includes
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`includes()`**-Methode von {{jsxref("String")}}-Werten führt eine Groß- und Kleinschreibung berücksichtigende Suche durch, um festzustellen, ob ein gegebener String innerhalb dieses Strings gefunden werden kann. Sie gibt `true` oder `false` zurück, je nachdem.
+Die **`includes()`**-Methode von {{jsxref("String")}}-Werten führt eine groß- und kleinschreibungssensitive Suche durch, um festzustellen, ob ein gegebener String in diesem String gefunden werden kann, und gibt entsprechend `true` oder `false` zurück.
 
-{{InteractiveExample("JavaScript Demo: String.includes()", "shorter")}}
+{{InteractiveExample("JavaScript Demo: String.prototype.includes()", "shorter")}}
 
 ```js interactive-example
 const sentence = "The quick brown fox jumps over the lazy dog.";
@@ -34,13 +34,13 @@ includes(searchString, position)
 ### Parameter
 
 - `searchString`
-  - : Ein String, nach dem in `str` gesucht werden soll. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexe sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Auslassen oder das Übergeben von `undefined` dazu, dass `includes()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
+  - : Ein String, der in `str` gesucht werden soll. Kann [kein Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexe sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `includes()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
 - `position` {{optional_inline}}
-  - : Die Position innerhalb des Strings, an der die Suche nach `searchString` beginnen soll. (Standard ist `0`.)
+  - : Die Position innerhalb des Strings, ab der nach `searchString` gesucht werden soll. (Standard ist `0`.)
 
 ### Rückgabewert
 
-**`true`**, wenn der Suchstring irgendwo innerhalb des gegebenen Strings gefunden wird, einschließlich wenn `searchString` ein leerer String ist; andernfalls **`false`**.
+**`true`** wenn der Suchstring irgendwo innerhalb des gegebenen Strings gefunden wird, einschließlich wenn `searchString` ein leerer String ist; andernfalls **`false`**.
 
 ### Ausnahmen
 
@@ -49,17 +49,17 @@ includes(searchString, position)
 
 ## Beschreibung
 
-Diese Methode ermöglicht es Ihnen zu bestimmen, ob ein String einen anderen String enthält.
+Diese Methode ermöglicht es Ihnen festzustellen, ob ein String einen anderen String einschließt.
 
 ### Groß- und Kleinschreibung
 
-Die `includes()`-Methode ist groß- und kleinschreibungssensitiv. Zum Beispiel gibt der folgende Ausdruck `false` zurück:
+Die `includes()`-Methode berücksichtigt die Groß- und Kleinschreibung. Zum Beispiel liefert der folgende Ausdruck `false` zurück:
 
 ```js
 "Blue Whale".includes("blue"); // returns false
 ```
 
-Sie können diesen Umstand umgehen, indem Sie sowohl den Originalstring als auch den Suchstring in Kleinbuchstaben umwandeln:
+Sie können dieses Problem umgehen, indem Sie sowohl den ursprünglichen String als auch den Suchstring in Kleinschreibung umwandeln:
 
 ```js
 "Blue Whale".toLowerCase().includes("blue"); // returns true

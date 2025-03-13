@@ -2,14 +2,14 @@
 title: TypedArray.prototype.indexOf()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/indexOf
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die Methode **`indexOf()`** von {{jsxref("TypedArray")}}-Instanzen gibt den ersten Index zurück, an dem ein bestimmtes Element im Typed Array gefunden werden kann, oder `-1`, wenn es nicht vorhanden ist. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.indexOf()")}}.
+Die **`indexOf()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt den ersten Index zurück, an dem ein gegebenes Element im Typed Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.indexOf()")}}.
 
-{{InteractiveExample("JavaScript Demo: TypedArray.indexOf()")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.indexOf()")}}
 
 ```js interactive-example
 const uint8 = new Uint8Array([10, 20, 30, 40, 50]);
@@ -35,9 +35,9 @@ indexOf(searchElement, fromIndex)
 ### Parameter
 
 - `searchElement`
-  - : Das zu suchende Element im Typed Array.
+  - : Element, das im Typed Array gefunden werden soll.
 - `fromIndex` {{optional_inline}}
-  - : Nullbasierter Index, bei dem die Suche beginnen soll, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Nullbasierter Index, ab dem die Suche beginnen soll, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 
 ### Rückgabewert
 
@@ -45,7 +45,7 @@ Der erste Index von `searchElement` im Typed Array; `-1`, wenn nicht gefunden.
 
 ## Beschreibung
 
-Weitere Details finden Sie unter {{jsxref("Array.prototype.indexOf()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen eines Typed Arrays aufgerufen werden.
+Siehe {{jsxref("Array.prototype.indexOf()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von Typed Arrays aufgerufen werden.
 
 ## Beispiele
 
@@ -71,7 +71,7 @@ uint8.indexOf(2, -3); // 0
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.indexOf` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}
 - {{jsxref("TypedArray.prototype.findLastIndex()")}}

@@ -2,14 +2,14 @@
 title: "Funktion: length"
 slug: Web/JavaScript/Reference/Global_Objects/Function/length
 l10n:
-  sourceCommit: 8cf6d8c10adf3ce5370f8a3f180bec11112d4d44
+  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
 ---
 
 {{JSRef}}
 
-Die **`length`** Dateneigenschaft einer {{jsxref("Function")}} Instanz gibt die Anzahl der vom Funktion erwarteten Parameter an.
+Die **`length`** Daten-Eigenschaft einer {{jsxref("Function")}} Instanz gibt die Anzahl der Parameter an, die von der Funktion erwartet werden.
 
-{{InteractiveExample("JavaScript Demo: Function.length")}}
+{{InteractiveExample("JavaScript Demo: Function: length")}}
 
 ```js interactive-example
 function func1() {}
@@ -31,17 +31,17 @@ Eine Zahl.
 
 ## Beschreibung
 
-Die `length` Eigenschaft eines {{jsxref("Function")}} Objekts gibt an, wie viele Argumente die Funktion erwartet, d.h. die Anzahl der formalen Parameter:
+Die `length`-Eigenschaft eines {{jsxref("Function")}}-Objekts gibt an, wie viele Argumente die Funktion erwartet, d.h. die Anzahl der formalen Parameter:
 
-- Es werden nur Parameter vor dem ersten mit einem [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) gezählt.
-- Ein [Destrukturierungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) zählt als ein einzelner Parameter.
-- Der [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) wird nicht berücksichtigt.
+- Es werden nur Parameter gezählt, die vor dem ersten mit einem [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) stehen.
+- Ein [Destructuring-Muster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) zählt als einzelner Parameter.
+- Der [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) wird ausgeschlossen.
 
-Im Gegensatz dazu ist {{jsxref("Functions/arguments/length", "arguments.length")}} lokal zu einer Funktion und gibt die Anzahl der tatsächlich übergebenen Argumente an die Funktion an.
+Im Gegensatz dazu ist {{jsxref("Functions/arguments/length", "arguments.length")}} lokal zu einer Funktion und gibt die tatsächlich an die Funktion übergebenen Argumente an.
 
-Der {{jsxref("Function")}} Konstruktor ist selbst ein `Function` Objekt. Seine `length` Dateneigenschaft hat den Wert `1`.
+Der {{jsxref("Function")}}-Konstruktor ist selbst ein `Function`-Objekt. Seine `length` Daten-Eigenschaft hat den Wert `1`.
 
-Aus historischen Gründen ist `Function.prototype` selbst ein aufrufbares Objekt. Die `length` Eigenschaft von `Function.prototype` hat den Wert `0`.
+Aus historischen Gründen ist `Function.prototype` selbst aufrufbar. Die `length`-Eigenschaft von `Function.prototype` hat den Wert `0`.
 
 ## Beispiele
 
