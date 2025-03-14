@@ -1,13 +1,13 @@
 ---
-title: ::after
+title: "::after"
 slug: Web/CSS/::after
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83
 ---
 
 {{CSSRef}}
 
-Im CSS erzeugt **`::after`** ein [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements), das das letzte Kind des ausgewählten Elements ist. Es wird häufig verwendet, um mithilfe der {{CSSxRef("content")}}-Eigenschaft kosmetischen Inhalt zu einem Element hinzuzufügen. Standardmäßig ist es inline.
+In CSS erstellt **`::after`** ein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements), das das letzte Kind des ausgewählten Elements ist. Es wird häufig verwendet, um mit der {{CSSxRef("content")}}-Eigenschaft kosmetische Inhalte zu einem Element hinzuzufügen. Es ist standardmäßig inline.
 
 {{InteractiveExample("CSS Demo: ::after", "tabbed-standard")}}
 
@@ -45,7 +45,7 @@ a::after {
 ```
 
 > [!NOTE]
-> Die durch `::before` und `::after` generierten Pseudo-Elemente sind inline Boxen, die erstellt werden, als ob sie unmittelbare Kinder des Elements wären, auf das sie angewendet werden, oder des "ursprünglichen Elements", und daher können sie nicht auf _[ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)_ angewendet werden, wie z.B. {{htmlelement("img")}}, deren Inhalte ersetzt werden und nicht von den Stilen des aktuellen Dokuments betroffen sind.
+> Die von `::before` und `::after` generierten Pseudoelemente sind Inline-Boxen, die so erzeugt werden, als wären sie unmittelbare Kinder des Elements, auf das sie angewendet werden, oder des "ursprünglichen Elements", und können daher nicht auf _{{Glossary("replaced_elements", "ersetzte Elemente")}}_, wie z.B. {{htmlelement("img")}}, angewendet werden, deren Inhalte ersetzt werden und nicht von den Stilen des aktuellen Dokuments betroffen sind.
 
 ## Syntax
 
@@ -56,20 +56,20 @@ a::after {
 }
 ```
 
-Falls die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht spezifiziert ist, einen ungültigen Wert hat, oder `normal` oder `none` als Wert aufweist, wird das `::after` Pseudo-Element nicht gerendert. Es verhält sich so, als wäre `display: none` gesetzt.
+Wenn die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht angegeben wird, einen ungültigen Wert hat oder `normal` oder `none` als Wert hat, dann wird das `::after`-Pseudoelement nicht gerendert. Es verhält sich, als ob `display: none` gesetzt ist.
 
 > [!NOTE]
-> CSS führte die `::after`-Notation (mit zwei Doppelpunkten) ein, um [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Aus Gründen der Abwärtskompatibilität akzeptieren Browser auch `:after`, das früher eingeführt wurde.
+> CSS führte die Notation `::after` (mit zwei Doppelpunkten) ein, um [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudoelementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Aus Gründen der Abwärtskompatibilität akzeptieren Browser auch `:after`, das früher eingeführt wurde.
 
 ## Barrierefreiheit
 
-Die Verwendung eines `::after` Pseudo-Elements, um Inhalt hinzuzufügen, wird nicht empfohlen, da es für Screenreader nicht zuverlässig zugänglich ist.
+Die Verwendung eines `::after` Pseudoelements zum Hinzufügen von Inhalten wird nicht empfohlen, da es nicht zuverlässig für Screenreader zugänglich ist.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Lassen Sie uns zwei Klassen erstellen: eine für langweilige Absätze und eine für spannende. Diese Klassen können verwendet werden, um Pseudo-Elemente am Ende von Absätzen hinzuzufügen.
+Lassen Sie uns zwei Klassen erstellen: Eine für langweilige Absätze und eine für aufregende. Wir können diese Klassen verwenden, um Pseudoelemente an das Ende von Absätzen hinzuzufügen.
 
 #### HTML
 
@@ -101,7 +101,7 @@ Lassen Sie uns zwei Klassen erstellen: eine für langweilige Absätze und eine f
 
 ### Dekoratives Beispiel
 
-Wir können Text oder Bilder in der {{CSSxRef("content")}}-Eigenschaft fast beliebig gestalten.
+Wir können Text oder Bilder in der {{CSSxRef("content")}}-Eigenschaft fast nach Belieben gestalten.
 
 #### HTML
 
@@ -130,9 +130,9 @@ Wir können Text oder Bilder in der {{CSSxRef("content")}}-Eigenschaft fast beli
 
 ### Tooltips
 
-Dieses Beispiel verwendet `::after` zusammen mit dem [`attr()`](/de/docs/Web/CSS/attr)-CSS-Ausdruck und einem `data-descr` [benutzerdefinierten Datensattribut](/de/docs/Web/HTML/Global_attributes/data-*), um Tooltips zu erstellen. Kein JavaScript erforderlich!
+Dieses Beispiel verwendet `::after` in Verbindung mit dem [`attr()`](/de/docs/Web/CSS/attr)-CSS-Ausdruck und einem `data-descr` [benutzerdefinierten Datenattribut](/de/docs/Web/HTML/Global_attributes/data-*), um Tooltips zu erstellen. Kein JavaScript erforderlich!
 
-Wir können auch Tastaturnutzern mit dieser Technik helfen, indem wir einen `tabindex` von `0` hinzufügen, um jedes `span` tastaturfokussierbar zu machen, und einen CSS `:focus`-Selektor verwenden. Dies zeigt, wie flexibel `::before` und `::after` sein können, jedoch ist für die barrierefreiste Erfahrung ein semantisches Offenlegungs-Widget, das auf andere Weise erstellt wurde (z.B. mit [details und summary](/de/docs/Web/HTML/Element/details)-Elementen) wahrscheinlich besser geeignet.
+Wir können auch Tastaturbenutzer mit dieser Technik unterstützen, indem wir ein `tabindex` von `0` hinzufügen, um jedes `span` über die Tastatur fokussierbar zu machen, und einen CSS `:focus`-Selektor verwenden. Dies zeigt, wie flexibel `::before` und `::after` sein können, auch wenn für das zugänglichste Erlebnis ein semantisches Disclosure-Widget, das auf andere Weise erstellt wurde (z.B. mit [details und summary](/de/docs/Web/HTML/Element/details)-Elementen), wahrscheinlich angemessener ist.
 
 #### HTML
 

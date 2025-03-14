@@ -2,14 +2,14 @@
 title: content
 slug: Web/CSS/content
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83
 ---
 
 {{CSSRef}}
 
-Die **`content`** [CSS](/de/docs/Web/CSS) Eigenschaft ersetzt Inhalte mit einem generierten Wert. Sie kann verwendet werden, um zu definieren, was innerhalb eines Elements oder Pseudo-Elements gerendert wird. Für Elemente gibt die `content`-Eigenschaft an, ob das Element normal (`normal` oder `none`) gerendert wird oder durch ein Bild (und den zugehörigen "alt"-Text) ersetzt wird. Für Pseudo-Elemente und Randboxen definiert `content` den Inhalt als Bilder, Text, beides oder nichts, was bestimmt, ob das Element überhaupt gerendert wird.
+Die **`content`**-Eigenschaft [CSS](/de/docs/Web/CSS) ersetzt Inhalt durch einen erzeugten Wert. Sie kann genutzt werden, um zu definieren, was innerhalb eines Elements oder Pseudo-Elements gerendert wird. Für Elemente spezifiziert die `content`-Eigenschaft, ob das Element normal gerendert wird (`normal` oder `none`) oder durch ein Bild (und zugehörigen "alt"-Text) ersetzt wird. Für Pseudo-Elemente und Randboxen definiert `content` den Inhalt als Bilder, Text, beides oder nichts, was bestimmt, ob das Element überhaupt gerendert wird.
 
-Objekte, die mit der Eigenschaft `content` eingefügt werden, sind **anonyme [ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)**.
+Objekte, die mit der `content`-Eigenschaft eingefügt werden, sind **anonyme {{Glossary("replaced_elements", "ersetzte Elemente")}}**.
 
 {{InteractiveExample("CSS Demo: content", "tabbed-shorter")}}
 
@@ -91,58 +91,58 @@ Der Wert kann sein:
 
 - Eines von zwei Schlüsselwörtern — `none` oder `normal`.
 - `<content-replacement>`, wenn ein DOM-Knoten ersetzt wird. `<content-replacement>` ist immer ein `<image>`.
-- Eine `<content-list>`, wenn Pseudo-Elemente und Randboxen ersetzt werden. Eine `<content-list>` ist eine Liste von einem oder mehreren anonymen Inline-Boxen, die in der angegebenen Reihenfolge erscheinen. Jedes Element der `<content-list>` ist vom Typ [`<string>`](#string), [`<image>`](#image), [`<counter>`](#counter), [`<quote>`](#quote), [`<target>`](#target) oder [`<leader()>`](#leader).
-- Ein optionaler Alternativtextwert eines `<string>` oder `<counter>`, vorangestellt durch einen Schrägstrich (`/`).
+- Eine `<content-list>`, wenn Pseudo-Elemente und Randboxen ersetzt werden. Eine `<content-list>` ist eine Liste von einem oder mehreren anonymen Inline-Boxen, die in der angegebenen Reihenfolge erscheinen. Jedes `<content-list>`-Element ist vom Typ [`<string>`](#string), [`<image>`](#image), [`<counter>`](#counter), [`<quote>`](#quote), [`<target>`](#target) oder [`<leader()>`](#leader).
+- Ein optionaler alternativer Textwert eines `<string>` oder `<counter>`, dem ein Schrägstrich (`/`) vorangestellt ist.
 
-Die oben erwähnten Schlüsselwörter und Datentypen werden unten ausführlicher beschrieben:
+Die oben genannten Schlüsselwörter und Datentypen werden unten ausführlicher beschrieben:
 
 - `none`
 
-  - : Wird ein Pseudo-Element angewendet, wird das Pseudo-Element nicht generiert.
+  - : Bei Anwendung auf ein Pseudo-Element wird das Pseudo-Element nicht erzeugt.
     Bei Anwendung auf ein Element hat der Wert keine Wirkung.
 
 - `normal`
 
-  - : Der Standardwert. Berechnet sich zu `none` für die {{cssxref("::before")}} und {{cssxref("::after")}} Pseudo-Elemente. Für andere Pseudo-Elemente wird der Inhalt der anfängliche (oder normale) Inhalt sein, der für das entsprechende {{cssxref("::marker")}}, {{cssxref("::placeholder")}} oder {{cssxref("::file-selector-button")}} erwartet wird. Für reguläre Elemente oder Seitenrandboxen berechnet sich dies zu den Nachfahren des Elements.
+  - : Der Standardwert. Wird für die {{cssxref("::before")}}- und {{cssxref("::after")}}-Pseudo-Elemente zu `none` berechnet. Bei anderen Pseudo-Elementen ist der Inhalt der initiale (oder normale) erwartete Inhalt für das {{cssxref("::marker")}}, {{cssxref("::placeholder")}} oder {{cssxref("::file-selector-button")}}. Für reguläre Elemente oder Randboxen der Seite entspricht dies den Nachkommen des Elements.
 
 - {{cssxref("&lt;string&gt;")}}
 
-  - : Eine Folge von Zeichen, die in passende einfache oder doppelte Anführungszeichen eingeschlossen sind. Mehrere String-Werte werden miteinander verkettet (es gibt keinen Verkettungsoperator in CSS).
+  - : Eine Abfolge von Zeichen in übereinstimmenden einfachen oder doppelten Anführungszeichen. Mehrere Zeichenfolgenwerte werden zusammengefügt (es gibt keinen Verkettungsoperator in CSS).
 
 - {{cssxref("&lt;image&gt;")}}
 
-  - : Ein {{cssxref("&lt;image&gt;")}}, das ein darzustellendes Bild darstellt. Dies kann einem {{cssxref("url_value", "&lt;url&gt;")}}, {{cssxref("image/image-set", "image-set()")}}, oder {{cssxref("&lt;gradient&gt;")}} Datentyp entsprechen oder ein Teil der Webseite selbst sein, definiert durch die {{cssxref("element", "element()")}} Funktion.
+  - : Ein {{cssxref("&lt;image&gt;")}}, das ein darzustellendes Bild repräsentiert. Dies kann einem {{cssxref("url_value", "&lt;url&gt;")}}, {{cssxref("image/image-set", "image-set()")}}, oder {{cssxref("&lt;gradient&gt;")}} Datentyp entsprechen oder einem Teil der Webseite selbst, definiert durch die {{cssxref("element", "element()")}}-Funktion.
 
 - `<counter>`
 
-  - : Der `<counter>`-Wert ist ein [CSS-Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters), in der Regel eine Zahl, die durch Berechnungen definiert wird, die durch die {{cssxref("&lt;counter-reset&gt;")}} und {{cssxref("&lt;counter-increment&gt;")}} Eigenschaften festgelegt sind. Er kann angezeigt werden, entweder durch die {{cssxref("counter", "counter()")}} oder {{cssxref("counters", "counters()")}} Funktion.
+  - : Der `<counter>`-Wert ist ein [CSS-Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters), im Allgemeinen eine Zahl, die durch Berechnungen, die durch die Eigenschaften {{cssxref("&lt;counter-reset&gt;")}} und {{cssxref("&lt;counter-increment&gt;")}} definiert sind, erzeugt wird. Er kann entweder mit der {{cssxref("counter", "counter()")}} oder der {{cssxref("counters", "counters()")}}-Funktion angezeigt werden.
     - {{cssxref("counter", "counter()")}}
-      - : Die {{cssxref("counter", "counter()")}} Funktion hat zwei Formen: 'counter(_name_)' oder 'counter(_name_, style)'. Der generierte Text ist der Wert des innersten Zählers des angegebenen Namens im Bereich des angegebenen Pseudo-Elements. Er wird im angegebenen {{cssxref("&lt;list-style-type&gt;")}} formatiert (`decimal` standardmäßig).
+      - : Die {{cssxref("counter", "counter()")}}-Funktion hat zwei Formen: 'counter(_name_)' oder 'counter(_name_, style)'. Der erzeugte Text ist der Wert des innersten Zählers des angegebenen Namens im Geltungsbereich des angegebenen Pseudo-Elements. Er wird im angegebenen {{cssxref("&lt;list-style-type&gt;")}} formatiert (`decimal` standardmäßig).
     - {{cssxref("counters", "counters()")}}
-      - : Die {{cssxref("counters", "counters()")}} Funktion hat ebenfalls zwei Formen: 'counters(_name_, _string_)' oder 'counters(_name_, _string_, _style_)'. Der erzeugte Text ist der Wert aller Zähler mit dem angegebenen Namen im Bereich des angegebenen Pseudo-Elements, von außen nach innen, getrennt durch die angegebene Zeichenfolge. Die Zähler werden in der angegebenen {{cssxref("&lt;list-style-type&gt;")}} gerendert (`decimal` standardmäßig).
+      - : Die {{cssxref("counters", "counters()")}}-Funktion hat ebenfalls zwei Formen: 'counters(_name_, _string_)' oder 'counters(_name_, _string_, _style_)'. Der erzeugte Text ist der Wert aller Zähler mit dem angegebenen Namen im Geltungsbereich des angegebenen Pseudo-Elements, von außen nach innen, getrennt durch die angegebene Zeichenfolge. Die Zähler werden im angegebenen {{cssxref("&lt;list-style-type&gt;")}} gerendert (`decimal` standardmäßig).
 
 - `<quote>`
 
   - : Der `<quote>`-Datentyp umfasst sprach- und positionsabhängige Schlüsselwörter:
     - `open-quote` und `close-quote`
-      - : Diese Werte werden durch den passenden String aus der {{cssxref("quotes")}} Eigenschaft ersetzt.
+      - : Diese Werte werden durch die entsprechende Zeichenfolge aus der {{cssxref("quotes")}}-Eigenschaft ersetzt.
     - `no-open-quote` und `no-close-quote`
-      - : Fügt keinen Inhalt ein, erhöht (verringert) aber die Verschachtelungsebene für Anführungszeichen.
+      - : Fügt keinen Inhalt hinzu, erhöht (verringert) jedoch die Verschachtelungsebene für Zitate.
 
 - `<target>`
 
-  - : Der `<target>`-Datentyp umfasst drei Ziel-Funktionen, `<target-counter()>`, `<target-counters()>` und `<target-text()>`, die Querverweise vom Zielende eines Links erstellen. Siehe [Formale Syntax](#formale_syntax).
+  - : Der `<target>`-Datentyp umfasst drei Ziel-Funktionen, `<target-counter()>`, `<target-counters()>`, und `<target-text()>`, die Querverweise erstellen, die vom Zielende eines Links bezogen werden. Siehe [Formale Syntax](#formale_syntax).
 
 - `<leader()>`
 
-  - : Der `<leader()>`-Datentyp umfasst eine Führungsfunktion: `leader( <leader-type> )`. Diese Funktion akzeptiert die Schlüsselwortwerte `dotted`, `solid` oder `space` (gleich `leader(".")`, `leader("_")` und `leader(" ")`), oder einen `<string>` als Parameter. Wenn unterstützt und als Wert für `content` verwendet, wird der angegebene Leader-Typ als wiederholendes Muster eingefügt, das Inhalt über eine horizontale Linie visuell verbindet.
+  - : Der `<leader()>`-Datentyp umfasst eine Führungsfunktion: `leader( <leader-type> )`. Diese Funktion akzeptiert die Schlüsselwortwerte `dotted`, `solid` oder `space` (gleichbedeutend mit `leader(".")`, `leader("_")`, und `leader(" ")`, jeweils), oder einen `<string>` als Parameter. Wenn unterstützt und als Wert für `content` verwendet, wird der angegebene Leader-Typ als wiederholtes Muster eingefügt, das den Inhalt visuell entlang einer horizontalen Linie verbindet.
 
 - `attr(x)`
 
-  - : Die `attr(x)` CSS-Funktion ruft den Wert eines Attributs des ausgewählten Elements oder des Ursprungs-Elements des Pseudo-Elements ab. Der Wert des Attributs `x` des Elements ist ein unanalysierter String, der den Namen des Attributs darstellt. Wenn es kein Attribut `x` gibt, wird ein leerer String zurückgegeben. Die Groß-/Kleinschreibung des Attributsnamens hängt von der Dokumentsprache ab.
+  - : Die `attr(x)` CSS-Funktion ruft den Wert eines Attributs des ausgewählten Elements oder des Herkunfts-Elements des Pseudo-Elements ab. Der Wert des Attributs `x` des Elements ist eine nicht geparste Zeichenfolge, die den Attributnamen darstellt. Wenn kein Attribut `x` vorhanden ist, wird eine leere Zeichenfolge zurückgegeben. Die Groß-/Kleinschreibung des Attributnamenparameters hängt von der Dokumentensprache ab.
 
-- Alternativer Text: `/ <string> | <counter>`
-  - : Ein Alternativtext kann für ein Bild oder beliebige `<content-list>`-Einträge angegeben werden, indem ein Schrägstrich und dann eine Textzeichenfolge oder ein Zähler hinzugefügt werden. Der Alternativtext ist für Sprachausgabe durch Screen-Reader vorgesehen, kann jedoch auch in einigen Browsern angezeigt werden. Beachten Sie, dass, wenn der Browser Alternativtext nicht unterstützt, die `content`-Deklaration als ungültig und ignoriert wird. Die {{cssxref("string", "/ &lt;string>")}} oder {{cssxref("counter", "/ &lt;counter>")}} Datentypen spezifizieren den "Alt-Text" für das Element.
+- alternativer Text: `/ <string> | <counter>`
+  - : Alternativer Text kann für ein Bild oder für beliebige `<content-list>`-Elemente angegeben werden, indem einem Schrägstrich eine Zeichenfolge oder ein Zähler angehängt wird. Der alternative Text ist für die Sprachausgabe durch Bildschirmlesegeräte vorgesehen, kann aber auch in einigen Browsern angezeigt werden. Beachten Sie, dass, wenn der Browser keinen alternativen Text unterstützt, die `content`-Deklaration als ungültig angesehen und ignoriert wird. Die {{cssxref("string", "/ &lt;string>")}} oder {{cssxref("counter", "/ &lt;counter>")}} Datentypen spezifizieren den "alt text" für das Element.
 
 ## Formale Definition
 
@@ -154,20 +154,20 @@ Die oben erwähnten Schlüsselwörter und Datentypen werden unten ausführlicher
 
 ## Barrierefreiheit
 
-Durch CSS generierter Inhalt ist nicht im [DOM](/de/docs/Web/API/Document_Object_Model/Introduction) enthalten. Daher wird er nicht im [Barrierefreiheit-Baum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) dargestellt und bestimmte Kombinationen aus Hilfstechnologie und Browser werden ihn nicht ankündigen. Wenn der Inhalt Informationen vermittelt, die entscheidend für das Verständnis des Zwecks der Seite sind, ist es besser, ihn im Hauptdokument einzuschließen.
+Von CSS generierter Inhalt ist nicht im [DOM](/de/docs/Web/API/Document_Object_Model/Introduction) enthalten. Aus diesem Grund wird er nicht im [Barrierefreiheit-Baum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) repräsentiert und bestimmte Kombinationen von Hilfstechnologien und Browsern werden ihn nicht ankündigen. Wenn der Inhalt Informationen enthält, die entscheidend für das Verständnis des Zwecks der Seite sind, ist es besser, ihn im Hauptdokument zu inkludieren.
 
-Wenn eingefügter Inhalt nicht dekorativ ist, stellen Sie sicher, dass die Informationen den unterstützenden Technologien bereitgestellt werden und auch verfügbar sind, wenn CSS abgeschaltet ist.
+Wenn eingefügter Inhalt nicht dekorativ ist, überprüfen Sie, dass die Informationen Hilfstechnologien zur Verfügung gestellt werden und auch verfügbar sind, wenn CSS deaktiviert ist.
 
-- [Barrierefreiheit von durch CSS generierten Inhalten – Tink](https://tink.uk/accessibility-support-for-css-generated-content/) (2015)
-- [WCAG, Leitfaden 1.3: Erstellen Sie Inhalte, die in unterschiedlichen Formen präsentiert werden können](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_—_create_content_that_can_be_presented_in_different_ways)
-- [Erklärung des Erfolgs-Kriteriums 1.3.1 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html)
-- [Verstoß gegen das Erfolgs-Kriterium 1.3.1: Einfügen von nicht-dekorativem generiertem Inhalt](https://www.w3.org/TR/WCAG20-TECHS/F87) Techniken für WCAG 2.0
+- [Accessibility support for CSS generated content – Tink](https://tink.uk/accessibility-support-for-css-generated-content/) (2015)
+- [WCAG, Richtlinie 1.3: Erstellen von Inhalten, die auf unterschiedliche Weise präsentiert werden können](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_—_create_content_that_can_be_presented_in_different_ways)
+- [Verständnis des Erfolgs-Kriteriums 1.3.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html)
+- [Fehler des Erfolgs-Kriteriums 1.3.1: Einfügen von nicht-dekorativem generiertem Inhalt](https://www.w3.org/TR/WCAG20-TECHS/F87) Techniken für WCAG 2.0
 
 ## Beispiele
 
-Die ersten fünf Beispiele erzeugen generierten Inhalt auf Pseudo-Elementen. Die letzten drei sind [Beispiele für den Ersatz von Elementen](#ersatz_von_elementen_mit_url).
+Die ersten fünf Beispiele erstellen generierten Inhalt auf Pseudo-Elementen. Die letzten drei sind [Beispiele für das Ersetzen von Elementen](#elementersetzung_mit_url).
 
-### Anfügen von Strings basierend auf einer Klassenname des Elements
+### Anfügen von Zeichenfolgen basierend auf einer Klassenkennung eines Elements
 
 Dieses Beispiel fügt generierten Text nach dem Text von Elementen ein, die einen bestimmten Klassennamen haben. Der Text wird rot gefärbt.
 
@@ -198,9 +198,9 @@ Dieses Beispiel fügt generierten Text nach dem Text von Elementen ein, die eine
 
 {{EmbedLiveSample('Appending_strings_based_on_an_elements_class', '100%', 160)}}
 
-### Anführungszeichen
+### Zitate
 
-Dieses Beispiel fügt verschiedenfarbige Anführungszeichen um Zitate ein.
+Dieses Beispiel fügt unterschiedlich gefärbte Anführungszeichen um Zitate herum ein.
 
 #### HTML
 
@@ -247,11 +247,11 @@ q::after {
 
 {{EmbedLiveSample('Quotes', '100%', 200)}}
 
-Beachten Sie, dass der [Typ der erzeugten Anführungszeichen](/de/docs/Web/CSS/quotes#auto_quotes) sprachbasiert ist. Browser fügen standardmäßig vor und nach {{HTMLElement("q")}}-Elementen Öffnungs- und Schlusszeichen hinzu, sodass die Anführungszeichen in diesem Beispiel auch ohne explizite Festlegung erscheinen würden. Sie könnten abgeschaltet werden, indem die entsprechenden `content`-Eigenschaftswerte auf `no-open-quote` und `no-close-quote` gesetzt werden, oder indem sie beide auf `none` gesetzt werden. Sie können auch abgeschaltet werden, indem die {{cssxref("quotes")}} Eigenschaft auf `none` gesetzt wird.
+Beachten Sie, dass die [Art der generierten Zitate](/de/docs/Web/CSS/quotes#auto_quotes) basierend auf der Sprache generiert wird. Browser fügen standardmäßig offene und geschlossene Anführungszeichen vor und nach {{HTMLElement("q")}}-Elementen ein, sodass die Zitate in diesem Beispiel auch ohne explizite Setzung erscheinen würden. Sie könnten durch die Einstellung der jeweiligen `content`-Eigenschaftswerte auf `no-open-quote` und `no-close-quote` oder durch das Setzen beider auf `none` ausgeschaltet werden. Sie können auch ausgeschaltet werden, indem die {{cssxref("quotes")}}-Eigenschaft auf `none` gesetzt wird.
 
-### Text zu Listenelement-Zählern hinzufügen
+### Hinzufügen von Text zu Listenelementzählern
 
-Dieses Beispiel kombiniert einen Zähler zwischen zwei `<string>`s, die allen Listenelementen vorangestellt sind, um einen detaillierteren Marker für Listenelemente ({{HTMLElement("li")}}) innerhalb ungeordneter Listen ({{HTMLElement("ol")}}) zu erstellen.
+Dieses Beispiel kombiniert einen Zähler, der zwischen zwei `<string>`s eingefügt wird, als Präfix für alle Listenelemente und erzeugt einen detaillierteren Marker für Listenelemente ({{HTMLElement("li")}}) innerhalb ungeordneter Listen ({{HTMLElement("ol")}}).
 
 #### HTML
 
@@ -290,11 +290,11 @@ li::marker {
 
 {{EmbedLiveSample('Adding_text_to_list_item_counters', '100%', 200)}}
 
-Der generierte Inhalt auf jedem Listenelement-Marker fügt den Text "item" als Präfix hinzu, einschließlich eines Leerzeichens, um das Präfix vom Zähler zu trennen, der gefolgt wird von ": ", einem Doppelpunkt und einem weiteren Leerzeichen. Die {{cssxref("counters", "counters()")}} Funktion definiert einen numerischen `items`-Zähler, bei dem die Nummern verschachtelter geordneter Listen in den meisten Browsern durch einen Punkt (`.`) getrennt sind.
+Der generierte Inhalt bei jedem Listenelement-Marker fügt den Text "item " als Präfix hinzu, einschließlich eines Leerzeichens, um das Präfix vom Zähler zu trennen, gefolgt von ": ", einem Doppelpunkt und einem zusätzlichen Leerzeichen. Die {{cssxref("counters", "counters()")}}-Funktion definiert einen numerischen `items`-Zähler, bei dem die Nummern verschachtelter geordneter Listen in den meisten Browsern durch einen Punkt (`.`) getrennt werden.
 
-### Strings mit Attributwerten
+### Zeichenfolgen mit Attributwerten
 
-Dieses Beispiel ist nützlich für Druck-Stylesheets. Es verwendet einen [Attribut-Selektor](/de/docs/Web/CSS/Attribute_selectors), um jeden vollständig qualifizierten sicheren Link auszuwählen und den Wert des `href`-Attributs nach dem Linktext als Inhalt des {{cssxref("::after")}} Pseudo-Elements hinzuzufügen.
+Dieses Beispiel ist nützlich für Druckstile. Es verwendet einen [Attribut-Selektor](/de/docs/Web/CSS/Attribute_selectors), um jeden vollständig qualifizierten sicheren Link auszuwählen und den Wert des `href`-Attributs nach dem Linktext als Inhalt des {{cssxref("::after")}}-Pseudo-Elements hinzuzufügen.
 
 #### HTML
 
@@ -320,11 +320,11 @@ a[href^="https://"]::after
 
 {{EmbedLiveSample('Strings_with_attribute_values', '100%', 200)}}
 
-Der generierte Inhalt ist der Wert des `href`-Attributs, vorangestellt von "URL: ", mit einem Leerzeichen, alles in Klammern.
+Der generierte Inhalt ist der Wert des `href`-Attributs, dem "URL: " vorangestellt ist, mit einem Leerzeichen, alles in Klammern.
 
-### Ein Bild mit Alternativtext hinzufügen
+### Hinzufügen eines Bildes mit alternativem Text
 
-Dieses Beispiel fügt vor allen Links ein Bild ein. Zwei `content`-Werte werden bereitgestellt. Der spätere `content`-Wert enthält ein Bild mit Alternativtext, den ein Screen-Reader als Sprache ausgeben kann. Wenn ein Browser keinen Alternativtext unterstützt, wird diese Deklaration als ungültig betrachtet, wobei der vorherige `content`-Wert angezeigt wird. Diese Ersatz-Content-Liste enthält ein Bild und die Nachricht " - alt text is not supported - ".
+Dieses Beispiel fügt vor allen Links ein Bild ein. Zwei `content`-Werte werden angegeben. Der spätere `content`-Wert enthält ein Bild mit einem alternativen Text, den ein Screenreader als Sprache ausgeben kann. Wenn ein Browser den alternativen Text nicht unterstützt, wird diese Deklaration als ungültig angesehen und der vorherige `content`-Wert angezeigt. Diese Fallback-Inhaltsliste enthält ein Bild und die Nachricht " - alt text is not supported - ".
 
 #### HTML
 
@@ -334,9 +334,9 @@ Dieses Beispiel fügt vor allen Links ein Bild ein. Zwei `content`-Werte werden 
 
 #### CSS
 
-Der CSS-Code, um das Bild anzuzeigen und den Alternativtext festzulegen, ist unten dargestellt.
-Dies setzt auch die Schriftart und Farbe für den Inhalt.
-Dies wird in Browsern verwendet, die den Alternativtext _anzeigen_ und in Browsern, die keinen Alternativtext unterstützen und den Ersatzwert `content` anzeigen.
+Der CSS-Code, um das Bild anzuzeigen und den alternativen Text zu setzen, wird unten gezeigt.
+Er setzt außerdem die Schriftart und Farbe für den Inhalt.
+Dieser wird in Browsern verwendet, die den alternativen Text _anzeigen_ und in Browsern, die den alternativen Text nicht unterstützen und den Fallback-`content`-Wert anzeigen.
 
 ```css
 a::before {
@@ -358,17 +358,17 @@ a::before {
 {{EmbedLiveSample('Adding_an_image_with_alternative_text', '100%', 60)}}
 
 > [!NOTE]
-> Wenn die Alternativtext-Syntax unterstützt wird, wird der Wert im Barrierefreiheit-Baum des Browsers sichtbar gemacht. Verweisen Sie auf den Abschnitt [Siehe auch](#siehe_auch) für browser-spezifische Barrierefreiheit-Panels.
+> Wenn die alternative Textersetzung unterstützt wird, wird der Wert im Barrierefreiheit-Baum des Browsers sichtbar sein. Siehe den [Siehe auch](#siehe_auch)-Bereich für browserspezifische Barrierefreiheitspanels.
 
-Wenn Sie einen Screen-Reader verwenden, sollte er das Wort "MOZILLA" sprechen, wenn er das Bild erreicht. Wenn unterstützt (wenn "alt text is not supported" nicht angezeigt wird), können Sie das `::before` Pseudo-Element mit Ihrem Entwicklertools-Auswahlwerkzeug auswählen und den {{Glossary("accessible_name", "zugänglichen Namen")}} im Barrierefreiheit-Panel betrachten.
+Beim Verwenden eines Screenreaders sollte er das Wort "MOZILLA" sprechen, wenn er das Bild erreicht. Wenn unterstützt (falls der "alt text is not supported" nicht angezeigt wird), können Sie das `::before`-Pseudo-Element mit Ihrem Entwickler-Werkzeug-Auswahlwerkzeug auswählen und den {{Glossary("accessible_name", "zugänglichen Namen")}} im Barrierefreiheitspanel sehen.
 
-In Browsern, die die Alternativtext-Syntax nicht unterstützen, ist die gesamte Deklaration, die den Alt-Text enthält, ungültig. In diesem Fall wird der vorherige `content`-Wert verwendet und das Bild und der Text "alt text is not supported" werden angezeigt.
+In Browsern, die die alternative Syntax nicht unterstützen, ist die gesamte Deklaration mit dem alternativen Text ungültig. In diesem Fall wird der vorherige `content`-Wert verwendet, der das Bild und den Text "alt text is not supported" anzeigt.
 
-### Ersatz von Elementen mit URL
+### Elementersetzung mit URL
 
-Dieses Beispiel ersetzt ein reguläres Element! Der Inhalt des Elements wird durch ein SVG mit dem {{cssxref("url_value", "&lt;url&gt;")}} Typ ersetzt.
+Dieses Beispiel ersetzt reguläres Element! Der Inhalt des Elements wird durch eine SVG mit dem {{cssxref("url_value", "&lt;url&gt;")}}-Typ ersetzt.
 
-Pseudo-Elemente werden bei ersetzten Elementen nicht gerendert. Da dieses Element ersetzt wird, werden alle übereinstimmenden `::after` oder `::before` nicht generiert oder angewendet. Um dies zu demonstrieren, haben wir einen `::after` Deklarationsblock eingefügt, der versucht, die `id` als generierten Inhalt hinzuzufügen. Dieses Pseudo-Element wird nicht generiert, da das Element ersetzt wird.
+Pseudo-Elemente werden auf ersetzten Elementen nicht gerendert. Da dieses Element ersetzt wird, werden entsprechende `::after`- oder `::before` nicht erzeugt oder angewendet. Um dies zu demonstrieren, fügen wir einen `::after`-Deklarationsblock hinzu, der versucht, die `id` als generierten Inhalt hinzuzufügen. Dieses Pseudo-Element wird nicht erzeugt, da das Element ersetzt wird.
 
 #### HTML
 
@@ -393,11 +393,11 @@ div::after {
 
 {{EmbedLiveSample('Element_replacement_with_url', '100%',400)}}
 
-Beim Generieren von Inhalten auf regulären Elementen (statt nur auf Pseudo-Elementen) wird das gesamte Element ersetzt. Das bedeutet, dass `::before` und `::after` Pseudo-Elemente nicht generiert werden.
+Beim Erzeugen von Inhalt auf regulären Elementen (anstatt nur auf Pseudo-Elementen) wird das gesamte Element ersetzt. Dies bedeutet, dass `::before`- und `::after`-Pseudo-Elemente nicht erzeugt werden.
 
-### Ersatz von Elementen mit `<gradient>`
+### Elementersetzung mit `<gradient>`
 
-Dieses Beispiel zeigt, wie die Inhalte eines Elements durch einen beliebigen Typ von `<image>`, in diesem Fall ein CSS-Gradient, ersetzt werden können. Die Inhalte des Elements werden durch einen {{cssxref("gradient/linear-gradient", "linear-gradient()")}} ersetzt. Mit {{cssxref("@supports")}} bieten wir Unterstützung für Alt-Text und einen {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}} für Browser, die Alt-Text mit Elementinhalt-Ersatz unterstützen.
+Dieses Beispiel zeigt, wie der Inhalt eines Elements durch jeden Typ von `<image>` ersetzt werden kann, in diesem Fall durch ein CSS-Gradient. Der Inhalt des Elements wird durch ein {{cssxref("gradient/linear-gradient", "linear-gradient()")}} ersetzt. Mit {{cssxref("@supports")}} bieten wir Unterstützung für alternativen Text und ein {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}} für Browser, die alternativen Text mit Elementinhaltsersetzung unterstützen.
 
 #### HTML
 
@@ -431,11 +431,11 @@ div {
 
 {{EmbedLiveSample('Element_replacement_with_gradient', '100%', 200)}}
 
-Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität). Alle Browser unterstützen Gradienten und alle Browser unterstützen das Ersetzen von Elementen mit Bildern, aber nicht alle Browser unterstützen Gradienten als `content`-Wert und nicht alle Browser unterstützen Alt-Text bei Ersetzungen. Wenn der Browser ein Kästchen ohne Gradient anzeigt, wird das Ersetzen von Elementen unterstützt, aber Gradienten werden nicht als Content-Ersatzwert unterstützt. Wenn das Element mit einem gestreiften Gradient ersetzt wird, unterstützt der Browser beides.
+Überprüfen Sie das [Browservergleich-Diagramm](#browser-kompatibilität). Alle Browser unterstützen Gradienten und alle Browser unterstützen das Ersetzen von Elementen mit Bildern, aber nicht alle Browser unterstützen Gradienten als `content`-Wert und nicht alle Browser unterstützen alternativen Text bei Ersetzungen. Wenn der Browser eine Box ohne Gradient anzeigt, wird das Ersetzen von Elementen unterstützt, aber Gradienten werden nicht als Inhaltsersetzungswert unterstützt. Wenn das Element durch einen gestreiften Gradient ersetzt wird, unterstützt der Browser beides.
 
-### Ersatz von Elementen mit `image-set()`
+### Elementersetzung mit `image-set()`
 
-Dieses Beispiel ersetzt den Inhalt eines Elements durch ein {{cssxref("image/image-set", "image-set()")}}. Wenn das Display des Nutzers eine normale Auflösung hat, wird das `1x.png` angezeigt. Bildschirme mit höherer Auflösung zeigen das `2x.png`-Bild.
+Dieses Beispiel ersetzt den Inhalt eines Elements mit einem {{cssxref("image/image-set", "image-set()")}}. Wenn das Display des Nutzers eine normale Auflösung hat, wird das `1x.png` angezeigt, Bildschirme mit höherer Auflösung zeigen das `2x.png` Bild.
 
 #### HTML
 
@@ -483,8 +483,8 @@ div {
 - {{cssxref("gradient", "&lt;gradient&gt;")}}
 - {{cssxref("image/image-set", "image-set()")}}
 - {{cssxref("url_value", "&lt;url&gt;")}}
-- [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)
-- [Durch CSS generierte Inhalte](/de/docs/Web/CSS/CSS_generated_content) Modul
-- [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- {{Glossary("Replaced_elements", "Ersatz-Elemente")}}
+- [CSS generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content) Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
 
-- Browser-Barrierefreiheitspanels: [Firefox Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/), [Chrome Accessibility Pane](https://developer.chrome.com/docs/devtools/accessibility/reference#pane), und [Safari Accessibility Tree](https://webflow.com/glossary/accessibility-tree#:~:text=To%20view%20a%20website%E2%80%99s%20accessibility%20tree%20in%20Safari)
+- Barrierefreiheit-Panels der Browser: [Firefox Accessibility inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/), [Chrome Accessibility pane](https://developer.chrome.com/docs/devtools/accessibility/reference#pane), und [Safari Accessibility tree](https://webflow.com/glossary/accessibility-tree#:~:text=To%20view%20a%20website%E2%80%99s%20accessibility%20tree%20in%20Safari)

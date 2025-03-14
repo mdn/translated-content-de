@@ -2,14 +2,14 @@
 title: Forschung und Lernen
 slug: Learn_web_development/Getting_started/Soft_skills/Research_and_learning
 l10n:
-  sourceCommit: 673746e15e5052c4fe39944f3d93d2e2d3227b3f
+  sourceCommit: 9cb5158a90dfff3140735af4dada772d00168e77
 ---
 
 {{LearnSidebar}}
 
 {{NextMenu("Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork", "Learn_web_development/Getting_started/Soft_skills")}}
 
-Es gibt viel zu wissen als Webentwickler, und Sie lernen ständig. Aber wie finden Sie am effektivsten heraus, was Sie wissen müssen? Dieser Artikel bietet nützliche Tipps zu Forschung und Lernen.
+Es gibt viel zu wissen als Webentwickler, und Sie lernen ständig dazu. Aber wie finden Sie am effektivsten heraus, was Sie wissen müssen? Dieser Artikel bietet nützliche Tipps zu Forschung und Lernen.
 
 <table>
   <tbody>
@@ -20,15 +20,15 @@ Es gibt viel zu wissen als Webentwickler, und Sie lernen ständig. Aber wie find
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernergebnisse:</th>
+      <th scope="row">Lernziele:</th>
       <td>
         <ul>
           <li>Effektive Forschungsmethoden.</li>
-          <li>Einen Lernplan erstellen.</li>
+          <li>Erstellung eines Lernplans.</li>
           <li>Motiviert bleiben.</li>
           <li>Rubber Ducking</li>
-          <li>Effektive Problemlösung.</li>
-          <li>Sich in die Denkweise des ständigen Lernens versetzen.</li>
+          <li>Effektive Problemlösungen.</li>
+          <li>In die Denkweise des ständigen Lernens kommen.</li>
         </ul>
       </td>
     </tr>
@@ -37,201 +37,203 @@ Es gibt viel zu wissen als Webentwickler, und Sie lernen ständig. Aber wie find
 
 ## Effektive Forschung
 
-Als Webentwickler werden Sie viel Zeit damit verbringen, nach Lösungen für Probleme zu suchen, die in Ihrer Arbeit auftreten — es wird nicht erwartet, dass Sie sich an alles erinnern! Professionelle Webentwickler nutzen Tools wie die MDN Web Docs, um Dinge nachzuschlagen, die sie vergessen haben. Wie Sie feststellen werden, geht es beim Lernen der Webentwicklung mehr um Problemlösung und Mustererkennung als um das Erlernen vieler Syntaxen.
+Als Webentwickler werden Sie viel Zeit damit verbringen, nach Lösungen für Probleme zu suchen, die in Ihrer Arbeit auftreten – es wird nicht erwartet, dass Sie sich alles merken! Professionelle Webentwickler verwenden Werkzeuge wie die MDN Web Docs, um Dinge nachzuschlagen, die sie vergessen haben. Wie Sie feststellen werden, geht es beim Lernen der Webentwicklung mehr um Problemlösung und Lernmuster, als um das Lernen vieler Syntaxen.
 
-Um dies zu erleichtern und selbstständiger zu werden, sollten Sie effektive Strategien zum Finden von Antworten lernen — wie in den unten stehenden Abschnitten besprochen — und wann Sie welche Strategie anwenden sollten. Zum Beispiel suchen Sie zuerst online nach Informationen und fragen Sie nur dann Ihren Mentor, Kommilitonen oder Senior Developer um Hilfe, wenn Sie wirklich feststecken.
+Um dies zu erleichtern und unabhängiger zu werden, sollten Sie effektive Strategien zum Finden von Antworten erlernen – wie in den unten stehenden Abschnitten erörtert – und wissen, wann welche Strategie verwendet werden sollte. Suchen Sie beispielsweise zuerst online nach Informationen und fragen Sie nur dann Ihren Mentor, Ihre Klassenkameraden oder einen Senior-Entwickler um Hilfe, wenn Sie wirklich feststecken.
 
-### Wählen Sie qualitativ hochwertige Ressourcen
+### Wählen Sie hochwertige Ressourcen
 
-Sie sollten sicherstellen, dass die Ressourcen, die Sie für die Forschung wählen, qualitativ hochwertig und seriös sind. Um herauszufinden, welche Ressourcen seriös sind, fragen Sie Ihren Lehrer oder erfahrenere Kollegen, was sie empfehlen würden, und machen Sie einige Webrecherchen, um herauszufinden, was andere Leute im Web empfehlen. MDN ist natürlich empfohlen; andere gute Beispiele sind:
+Sie sollten darauf achten, dass die Ressourcen, die Sie für Ihre Forschung wählen, von hoher Qualität und vertrauenswürdig sind. Um herauszufinden, welche Ressourcen vertrauenswürdig sind, fragen Sie Ihren Lehrer oder erfahrenere Kollegen, was sie empfehlen würden, und führen Sie einige Websuchen durch, um herauszufinden, was andere im Web empfehlen. MDN wird natürlich empfohlen; andere gute Beispiele sind:
 
 - [Stack Overflow](https://stackoverflow.com/)
-- [Scrimba](https://scrimba.com/?via=mdn) <sup>Kurspartner</sup>
+- [Scrimba](https://scrimba.com/?via=mdn) <sup>Kurs-Partner</sup>
 - [YouTube](https://www.youtube.com/)
 - [freeCodeCamp](https://www.freecodecamp.org/)
 - [Codecademy](https://www.codecademy.com)
 - [Dev.to](https://dev.to/)
 
-### Lernen Sie, welche Ressourcen wann zu verwenden sind
+### Lernen Sie, welche Ressourcen wann zu nutzen sind
 
-Dokumentation gibt es in verschiedenen Typen, und es ist nützlich zu wissen, wann jeder Typ nützlich ist. Die Terminologie variiert zwischen den Seiten, und es gibt oft einen gewissen Grad an Überschneidung, aber im Allgemeinen sind die häufigsten Typen:
+Dokumentationen gibt es in verschiedenen Formen, und es ist nützlich zu wissen, wann welche nützlich ist. Die Terminologie variiert zwischen den Websites, und es gibt oft einen gewissen Grad an Überschneidung, aber im Allgemeinen sind die häufigen Typen:
 
-- **Referenzen**: Ähnlich wie menschliche Sprachen Wörterbücher haben, die die Bedeutung jedes Wortes auflisten, haben Programmiersprachen Referenzen, die versuchen, alle möglichen Funktionen, die Entwickler verwenden werden, umfassend zu beschreiben, oft zusammen mit Beispielen für deren Verwendung. Referenzen konzentrieren sich darauf, _was_ eine Funktion tut, und nicht darauf, _wie_ man sie verwendet.
-- **Tutorials**: Ermöglichen es Entwicklern, _wie_ man neue Technologien verwendet, zu lernen. Tutorials sind oft schrittweise und auf Anfänger ausgerichtet.
-- **Leitfäden**/**Anleitungen**: Ebenfalls mit dem Lernen verbunden, jedoch meist weniger anfängergeeignet und oft darauf ausgerichtet, spezifische Probleme zu lösen.
-- **Erklärstücke**/**Konzepte**: Konzentrieren sich darauf, die hohen Konzepte und Anwendungsfälle hinter einer spezifischen Technologie zu erklären, anstatt sich mit den Details des Code-Niveaus zu beschäftigen.
-- **Q&A-Foren**: Websites, auf denen Menschen Fragen stellen und andere Antworten bereitstellen.
+- **Referenzen**: Ähnlich wie menschliche Sprachen über Wörterbücher verfügen, die die Bedeutung jedes Wortes auflisten, haben Programmiersprachen Referenzen, die versuchen, den Zweck und die Syntax aller möglichen Funktionen, die Entwickler nutzen werden, erschöpfend abzudecken, oft zusammen mit Anwendungsbeispielen. Referenzen konzentrieren sich darauf, _was_ eine Funktion tut, anstatt darauf, _wie_ sie verwendet wird.
+- **Tutorials**: Erlauben es Entwicklern, zu lernen, _wie_ neue Technologien verwendet werden. Tutorials sind oft schrittweise und richten sich an Anfänger.
+- **Leitfäden**/**Anleitungen**: Ebenfalls mit dem Lernen verbunden, aber in der Regel weniger anfängerorientiert und oft darauf ausgerichtet, spezifische Probleme zu lösen.
+- **Erklärungen**/**Konzepte**: Konzentrieren sich tendenziell darauf, die übergeordneten Konzepte und Anwendungsfälle hinter einer spezifischen Technologie zu erklären, anstatt sich mit den Details des Codes zu befassen.
+- **Q&A**/**Foren**: Websites, auf denen Menschen Fragen stellen und andere Antworten geben.
 
-Sie sollten sich verschiedene Websites ansehen, um zu sehen, welche Dokumentationsstile auf jeder vorherrschen, und darüber nachdenken, welche in verschiedenen Situationen nützlich sind. Zum Beispiel:
+Sie sollten verschiedene Websites konsultieren, sehen, welche Dokumentationsstile auf jeder vorherrschen, und darüber nachdenken, welche in verschiedenen Situationen nützlich sind. Beispielsweise:
 
-- MDN ist großartig zum Nachschlagen von Referenzdokumentationen zu verschiedenen HTML-, CSS- und JavaScript-Funktionen und enthält auch nützliche Leitfäden und Tutorials, von denen Sie neue Techniken lernen können.
-- Stack Overflow ist eine Q&A-Style-Seite, auf der sich Menschen gegenseitig helfen, Lösungen für spezifische Probleme zu finden.
+- MDN eignet sich hervorragend zum Nachschlagen von Referenzdokumentationen über verschiedene HTML-, CSS- und JavaScript-Funktionen und enthält auch nützliche Leitfäden und Tutorials, von denen Sie neue Techniken lernen können.
+- Stack Overflow ist eine Q&A-Website, auf der sich Menschen gegenseitig dabei helfen, Lösungen für spezifische Probleme zu finden.
 - Scrimba und Codecademy bieten schrittweise interaktive Tutorials. YouTube ist auch ein großartiger Ort, um Video-Tutorials zu finden.
 
-Vor allem sollten Sie herausfinden, welche Lernansätze für Sie am besten funktionieren. Unterschiedliche Menschen lernen auf unterschiedliche Weise. Realistischerweise werden Sie wahrscheinlich mehrere Ressourcen für Forschung und Lernen verwenden.
+Vor allem sollten Sie herausfinden, welche Lernansätze für Sie am besten funktionieren. Verschiedene Menschen lernen auf unterschiedliche Weise. Realistisch gesehen werden Sie wahrscheinlich mehrere Ressourcen für Forschung und Lernen nutzen.
 
 ### Effektiv suchen
 
-Wenn Sie auf Ihren bevorzugten Websites keine Lösung für Ihr Problem finden können, müssen Sie Ihre Suche auf den Rest des Webs ausweiten. Wir haben allgemeine Tipps für effektive Websuchen früher im Kurs behandelt (siehe [Informationen suchen](/de/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web#searching_for_information)); dieser Abschnitt bietet ein paar spezifische Hinweise und Tipps zum Auffinden qualitativ hochwertiger Informationen.
+Wenn Sie keine Lösung für Ihr Problem auf Ihren bevorzugten Seiten finden, müssen Sie Ihre Suche auf den Rest des Webs ausweiten. Wir haben allgemeine Tipps für effektive Websuchen früher im Kurs behandelt (siehe [Nach Informationen suchen](/de/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web#searching_for_information)); dieser Abschnitt bietet einige spezifische Hinweise und Tipps zum Aufsuchen qualitativ hochwertiger Informationen.
 
-- Wenn Sie ein Problem mit der Verwendung eines bestimmten Werkzeugs oder Produkts haben, konsultieren Sie die offizielle Dokumentation zuerst. Es ist überraschend, wie viele Leute nicht daran denken, dies zu tun; offizielle Dokumentationen sind oft auf Anfänger ausgerichtet, weshalb Menschen mit Erfahrung möglicherweise nicht daran denken, dass sie geeignet sind. Wenn das Produkt, das Sie verwenden, die Webplattform ist, ist die _inoffizielle_ offizielle Dokumentation MDN, also sind Sie hier genau richtig!
-- Überprüfen Sie die Daten der Ressourcen, die Sie finden. Sind sie kürzlich gepflegt oder seit einiger Zeit nicht mehr aktualisiert und daher möglicherweise veraltet? Seriöse Websites neigen dazu, Veröffentlichungs- und "Zuletzt aktualisiert"-Daten zu enthalten, damit Sie dies leicht überprüfen können. Idealerweise sollte ein Artikel von einer seriösen Website, der eine moderne Technologie oder Technik behandelt, nicht länger als ein paar Jahre (sagen wir 2–3) unwartet bleiben. Es ist durchaus möglich, dass ältere Dokumentationen, die eine ausgereifte Technologie betreffen (zum Beispiel grundlegende HTML- oder CSS-Funktionen), immer noch genau sind, aber Sie sollten dies im Hinterkopf behalten.
-- Aufbauend auf dem vorherigen Punkt können selbst neu veröffentlichte Ressourcen veraltete Informationen enthalten. Spricht ein Artikel über das Layout von CSS-Seiten über moderne Ansätze wie Grid und Flexbox, oder präsentiert er noch veraltete Techniken wie die Verwendung von Floats, um mehrspaltige Layouts zu erstellen?
-- Verlassen Sie sich nicht nur auf eine einzige Quelle. Überprüfen Sie verschiedene Quellen, insbesondere wenn Sie sich nicht sicher sind, ob eine Quelle vertrauenswürdig ist oder nicht.
-- Sie können auch versuchen, KI zur Hilfe bei Coding-Problemen zu verwenden (zum Beispiel [ChatGPT](https://openai.com/blog/chatgpt) oder [GitHub Copilot](https://resources.github.com/copilot-for-business/)). Sie sollten KI-Tools mit Vorsicht verwenden (besonders als Anfänger) und sich mit deren Stärken und Schwächen vertraut machen:
-  - Positiv ist, dass sie die Recherche/Suche enorm beschleunigen und bei der Strukturierung von Code und Text helfen können.
-  - Andererseits haben KI-Tools keine Argumentationsfähigkeiten und liefern häufig Antworten, die irreführend oder schlichtweg falsch sind. Sie sollten nicht einfach davon ausgehen, dass KI-Antworten korrekt sind — testen und überprüfen Sie sie mit anderen Quellen.
+- Wenn Sie ein Problem mit der Nutzung eines bestimmten Tools oder Produkts haben, konsultieren Sie zuerst die offizielle Dokumentation. Es ist überraschend, wie viele Menschen nicht daran denken; offizielle Dokus sind oft auf Anfänger ausgerichtet, sodass erfahrene Personen sie möglicherweise nicht als passend ansehen. Wenn das Produkt, das Sie verwenden, die Webplattform ist, dann ist die _inoffizielle_ offizielle Dokumentation MDN, also sind Sie hier richtig!
+- Überprüfen Sie die Daten auf den von Ihnen gefundenen Ressourcen. Sind sie kürzlich gepflegt oder nicht mehr aktualisiert und daher möglicherweise veraltet? Vertrauenswürdige Websites geben in der Regel Veröffentlichungs- und "zuletzt aktualisiert"-Daten an, genau damit Sie dies leicht überprüfen können. Idealerweise sollte ein Artikel von einer vertrauenswürdigen Website, die eine moderne Technologie oder Technik behandelt, nicht länger als ein paar Jahre (sagen wir 2–3) ungepflegt bleiben. Es ist durchaus möglich, dass ältere Dokumentationen, die eine etablierte Technologie behandeln (zum Beispiel grundlegende HTML- oder CSS-Funktionen), immer noch korrekt sind, aber Sie sollten dies im Kopf behalten.
+- Als Folge des vorherigen Punktes können selbst neu veröffentlichte Ressourcen veraltete Informationen enthalten. Beispielweise, behandelt ein Artikel zum CSS-Seitenlayout moderne Ansätze wie Grid und Flexbox oder stellt er immer noch veraltete Techniken wie die Verwendung von Floats zur Erstellung mehrspaltiger Layouts vor?
+- Verlassen Sie sich nicht nur auf eine einzige Wahrheitsquelle. Überprüfen Sie verschiedene Quellen, besonders wenn Sie sich nicht sicher sind, ob eine Quelle vertrauenswürdig ist oder nicht.
+- Sie können auch versuchen, KI zu verwenden, um bei Codierungsfragen zu helfen (zum Beispiel [ChatGPT](https://openai.com/blog/chatgpt) oder [GitHub Copilot](https://resources.github.com/copilot-for-business/)). Sie sollten KI-Tools mit Vorsicht verwenden (besonders als Anfänger) und sich mit deren Stärken und Schwächen vertraut machen:
+  - Positiv ist, dass sie die Forschung/Suchen enorm beschleunigen und bei der Strukturierung von Code und Text helfen können.
+  - Andererseits haben KI-Tools keine Fähigkeiten zum logischen Denken und liefern häufig Antworten, die irreführend oder einfach falsch sind. Sie sollten nicht einfach davon ausgehen, dass KI-Antworten korrekt sind — testen Sie sie und verifizieren Sie sie mit anderen Quellen.
 
-### Hinweise zum Kopieren und Einfügen von Code
+### Randbemerkung zu Kopieren und Einfügen von Code
 
-Egal, ob von einer KI generiert oder nicht, das Kopieren, Einfügen und Verwenden von Code, den Sie nicht geschrieben haben und nicht verstehen, wird unabhängig von Ihrem Kenntnisstand immer mit Vorsicht behandelt. Es erschwert die Behebung von Fehlern, und es können Sicherheits-, Leistungs- oder Zugänglichkeitsprobleme mit dem Code auftreten, oft aufgrund des Kontexts oder der Art und Weise, wie Sie ihn verwenden.
+Egal, ob er von einer KI generiert wurde oder nicht, das Kopieren, Einfügen und Verwenden von Code, den Sie nicht selbst geschrieben und verstanden haben, wird immer davon abgeraten, unabhängig von Ihrem Kenntnisstand. Es macht Fehler schwieriger zu beheben und es können Sicherheits-, Leistungs- oder Zugänglichkeitsprobleme mit dem Code vorliegen, die oft aus dem Kontext oder der Art und Weise resultieren, wie Sie ihn verwenden.
 
-Als Anfänger bedeutet das einfache Kopieren und Einfügen einer Lösung, dass Sie die Lerngelegenheit verpassen, etwas selbst zu tun, was der Schlüssel zum Einprägen von Fähigkeiten oder Konzepten ist.
+Als Anfänger bedeutet das bloße Kopieren und Einfügen einer Lösung, dass Sie die Lerngelegenheit verpassen, etwas selbst zu tun, was entscheidend dafür ist, sich Fähigkeiten oder Konzepte einzuprägen.
 
-Sie können auch auf Lizenzprobleme stoßen, wenn der Code urheberrechtlich geschützt ist und Sie keine Erlaubnis zur Nutzung haben.
+Sie können auch auf Lizenzprobleme stoßen, wenn der Code urheberrechtlich geschützt ist und Sie keine Erlaubnis haben, ihn zu verwenden.
 
-Der Rat hier lautet, dass, wenn Sie eine Lösung von woanders verwenden möchten, zumindest versuchen, zu verstehen, wie sie zuerst funktioniert, bevor Sie sie kopieren und einfügen. Idealerweise lernen Sie von der Lösung und schreiben dann Ihre eigene Version.
+Der Rat hier ist, dass Sie, wenn Sie eine Lösung von irgendwoher verwenden möchten, zumindest versuchen sollten zu verstehen, wie sie funktioniert, bevor Sie sie kopieren und einfügen. Idealerweise sollten Sie aus der Lösung lernen und dann Ihre eigene Version schreiben.
 
-### Ein Netzwerk von Kontakten aufbauen
+### Ein Kontaktnetzwerk aufbauen
 
-Wir haben genug über Websites gesprochen, also sprechen wir jetzt über Menschen. Und Websites.
+Wir haben genug über Websites gesprochen, jetzt sprechen wir über Menschen. Und Websites.
 
-Ein Netzwerk von Personen aufzubauen, mit denen Sie zusammenarbeiten können, ist ein wesentlicher Bestandteil der Arbeit als Webentwickler. Wir werden darüber ausführlicher in [Zusammenarbeit und Teamarbeit](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork) sprechen, aber fürs Erste konzentrieren wir uns speziell darauf, Ihr Netzwerk zu nutzen, um bei der Forschung zu helfen.
+Ein Netzwerk zur Zusammenarbeit mit anderen aufzubauen, ist ein wesentlicher Bestandteil, ein Webentwickler zu sein. Wir werden auch darüber in [Zusammenarbeit und Teamarbeit](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork#join_a_community_network) sprechen; hier konzentrieren wir uns speziell darauf, Ihr Netzwerk zur Unterstützung bei der Recherche zu nutzen.
 
-Ein effektives Forschungsnetzwerk besteht aus mehreren Gruppen von Menschen mit unterschiedlichen Kenntnisständen und Nähe zu Ihnen:
+Ein effektives Forschungsnetzwerk besteht aus mehreren Gruppen von Menschen mit unterschiedlichen Wissensständen und Ihrer Nähe zu Ihnen:
 
-- Gleichgestellte: Es ist nützlich, Informationen zu teilen und Fragen an Ihre unmittelbaren Kollegen zu stellen — das könnten Ihre Klassenkameraden oder Ihre Teamkollegen sein — da sie nützliche Einblicke teilen oder das Problem gemeinsam bearbeiten möchten. Sie könnten auch bereits an dem gleichen Problem gearbeitet haben und in der Lage sein, eine Antwort zu geben.
-- Lehrer oder erfahrene Kollegen: Wenn Ihre Kollegen nicht helfen können, ist der nächste Schritt normalerweise, einen erfahrenen Kollegen, Manager oder Lehrer zu fragen. Sie werden mehr Erfahrung haben als Ihre Kollegen, aber bedenken Sie, dass sie weniger freie Zeit haben werden. Sie werden bessere Ergebnisse erzielen und mehr Wertschätzung erfahren, wenn Sie zeigen, dass Sie bereits versucht haben, das Problem selbst zu lösen, und respektvoll mit ihrer Zeit umgehen. Um dies zu tun:
+- Gleichgestellte: Es ist nützlich, Informationen mit Ihren unmittelbaren Gleichgestellten zu teilen und Fragen zu stellen – dies könnten Ihre Klassenkameraden oder Teamkollegen sein – da sie möglicherweise nützliche Einblicke teilen oder mit Ihnen an dem Problem arbeiten möchten. Sie könnten auch zuvor an demselben Problem gearbeitet haben und eine Antwort bereitstellen.
+- Lehrer oder erfahrene Kollegen: Wenn Ihre Gleichgestellten Ihnen nicht helfen können, besteht der nächste Schritt normalerweise darin, einen erfahrenen Kollegen, Vorgesetzten oder Lehrer zu fragen. Sie werden mehr Erfahrung als Ihre Gleichgestellten haben, aber bedenken Sie, dass sie weniger freie Zeit haben werden. Sie erzielen bessere Ergebnisse und mehr Anerkennung, wenn Sie zeigen, dass Sie bereits versucht haben, das Problem selbst zu lösen, und respektvoll mit ihrer Zeit umgehen. Dazu:
 
-  - Führen Sie ein Protokoll darüber, was Sie bereits versucht haben. Was hat bereits nicht geklappt?
-  - Wenn das Forschungsthema ein spezifisches Codebeispiel oder eine Technik ist, die Sie nicht zum Laufen bringen können, erstellen Sie einen Online-Testfall, den Sie ihnen zeigen können, indem Sie eine Seite wie [Scrimba](https://scrimba.com/?via=mdn) <sup>Kurspartner</sup> oder [Glitch](https://glitch.com/) nutzen.
-  - Überlegen Sie sorgfältig, welche Fragen Sie ihnen stellen möchten — was genau ist das Problem? Wenn Sie mehrere Probleme haben, über die Sie sie fragen möchten, ordnen Sie sie der Priorität nach, um sicherzustellen, dass Sie die wichtigsten Punkte abdecken.
-  - Setzen Sie ein Ziel für die Sitzung, zum Beispiel "versuche, eine Lösung für das wichtigste Problem zu finden". Beachten Sie auch, dass die Lösung des größten Problems auch zu einer Lösung für andere Probleme führen kann.
-  - Fragen Sie sie, wie sie am liebsten mit Ihnen über das Problem kommunizieren möchten, um die Interaktion für sie so angenehm wie möglich zu gestalten.
-  - Wenn Sie ein Treffen vereinbaren, buchen Sie nicht mehr ihrer Zeit als nötig. Wenn Sie sich nicht sicher sind, wie lange Sie brauchen werden, begrenzen Sie die Sitzung auf beispielsweise 30 Minuten. Sie können immer in Zukunft um weitere Hilfe bitten.
+  - Führen Sie Buch darüber, was Sie bereits versucht haben zu tun. Was hat bereits nicht funktioniert?
+  - Wenn das Forschungsthema ein spezifisches Codebeispiel oder eine Technik ist, die Sie nicht zum Laufen bringen können, erstellen Sie einen Online-Testfall, den Sie ihnen zeigen können, indem Sie eine Seite wie [Scrimba](https://scrimba.com/?via=mdn) <sup>Kurs-Partner</sup> oder [Glitch](https://glitch.com/) verwenden.
+  - Denken Sie sorgfältig darüber nach, welche Fragen Sie ihnen stellen sollten – was genau ist das Problem? Wenn Sie mehrere Probleme haben, über die Sie sie fragen möchten, ordnen Sie sie nach Priorität, um sicherzustellen, dass Sie die wichtigsten Punkte abdecken.
+  - Setzen Sie sich ein Ziel für die Sitzung, zum Beispiel "eine Lösung für das prioritätshöchste Problem finden". Beachten Sie auch, dass das Lösen des größten Problems auch zur Lösung anderer Probleme führen kann.
+  - Fragen Sie sie, wie sie am liebsten mit Ihnen über das Problem kommunizieren würden, um die Interaktion für sie so angenehm wie möglich zu gestalten.
+  - Wenn Sie ein Treffen arrangieren, buchen Sie nicht mehr Zeit mit ihnen als nötig. Wenn Sie sich nicht sicher sind, wie lange Sie benötigen werden, begrenzen Sie die Sitzung auf zum Beispiel 30 Minuten. Sie können sich immer wieder an sie wenden, um weitere Hilfe zu erhalten.
 
-- Weiteres Netzwerk der Gemeinschaft: Dies könnte aus einer dedizierten Online-Community wie Foren oder Chat-Gruppen bestehen (zum Beispiel der [The MDN Web Docs discord](/discord) oder die [freeCodeCamp Foren](https://forum.freecodecamp.org/)), oder einem physischen Treffen, wie einer Konferenz oder einer Skillshare-Veranstaltung (Sie können Veranstaltungen über Websites wie [Meetup.com](https://www.meetup.com/) oder [Eventbrite](https://www.eventbrite.co.uk) suchen).
-- Globales Netzwerk: Manchmal haben Sie möglicherweise keine Optionen mehr, in diesem Fall könnten Sie versuchen, Ihre Frage an eine allgemeine globale Community wie ein soziales Netzwerk zu stellen. Manchmal können hilfreiche Antworten aus unerwarteten Orten kommen.
+- Erweitertes Community-Netzwerk: Dies könnte aus einer dedizierten Online-Community wie Foren oder Chat-Gruppen bestehen (z.B. der [The MDN Web Docs discord](/discord) oder die [freeCodeCamp-Foren](https://forum.freecodecamp.org/)), oder einem physischen Treffen, wie einer Konferenz oder einem Skillshare-Event.
+- Globales Netzwerk: Manchmal sind Ihnen vielleicht die Optionen ausgegangen, in diesem Fall könnten Sie versuchen, Ihre Frage in einer allgemeinen globalen Community wie einem sozialen Netzwerk zu stellen. Manchmal können hilfreiche Antworten aus unerwarteten Quellen kommen.
 
 > [!NOTE]
-> Es gibt definitiv ein Gleichgewicht, den richtigen Zeitpunkt zu finden, um um Hilfe zu bitten. Webentwickler sollten ihre Kollegen/Partner nicht ständig mit Fragen belästigen, aber ebenso sollten sie nicht so tun, als wüssten sie, was sie tun, wenn sie es nicht tun. Erwägen Sie den Wert, zur richtigen Zeit "Ich weiß nicht" zu sagen.
+> Es gibt definitiv ein Gleichgewicht, das richtige Timing zu finden, um um Hilfe zu bitten. Webentwickler sollten ihre Gleichgestellten/Kollegen nicht ständig belästigen, aber sie sollten sich nicht ebenfalls verstellen und so tun, als wüssten sie, was sie tun, wenn sie es nicht tun. Erwägen Sie den Wert, zur richtigen Zeit "Ich weiß nicht" zu sagen.
 
-Am wichtigsten ist, dass Sie zu allen Menschen, mit denen Sie interagieren, respektvoll und freundlich sind. Sie sollten auch lernen, ebenso zu geben wie zu nehmen; Webentwickler, die antworten und Hilfe anbieten, haben viel wahrscheinlicher starke Beziehungen und erhalten weiterhin Hilfe.
+Vor allem, stellen Sie sicher, dass Sie respektvoll und freundlich zu allen Personen sind, mit denen Sie interagieren. Lernen Sie auch, zurückzugeben sowie zu nehmen; Webentwickler, die reciprocierend sind und Hilfe leisten, bauen mit größerer Wahrscheinlichkeit starke Beziehungen auf und erhalten weiterhin Hilfe.
 
-## Machen Sie einen Lernplan
+## Erstellen Sie einen Lernplan
 
-Es ist eine gute Idee, einen Plan zu entwickeln, der Ihnen hilft, das zu lernen, was Sie lernen möchten.
+Es ist eine gute Idee, einen Plan zu erstellen, um Ihnen zu helfen, das zu lernen, was Sie lernen möchten.
 
-### Beginnen Sie mit einem Zielstatement
+### Beginnen Sie mit einer Zielstellung
 
-Es mag albern klingen, aber Sie sollten mit einem einzelnen Satz beginnen, der sagt, was Sie erreichen möchten. Sie sollten ehrgeizig, aber auch realistisch sein.
+Es mag albern klingen, aber Sie sollten mit einem einzigen Satz beginnen, der sagt, was Sie erreichen möchten. Sie sollten ehrgeizig, aber auch realistisch sein.
 
-Die folgenden haben unterschiedliche Umfänge, sind aber realistisch und erreichbar:
+Die folgenden haben unterschiedliche Reichweiten, sind aber alle realistisch und erreichbar:
 
-- Ich möchte in zwei Jahren ein professioneller Webentwickler werden.
+- Ich möchte in zwei Jahren professioneller Webentwickler werden.
 - Ich möchte genug lernen, um eine Website für meinen lokalen Amateur-Tennisclub zu erstellen.
-- Ich möchte HTML und CSS lernen, um meine Arbeitsaufgabe zu erweitern und unseren Unternehmenswebsite-Inhalt zu aktualisieren.
+- Ich möchte HTML und CSS lernen, damit ich meine Arbeitsaufgabe erweitern kann, um den Inhalt unserer Firmenwebsite zu aktualisieren.
 
 Die folgenden sind nicht ganz so realistisch:
 
-- Ich möchte innerhalb von drei Monaten vom völligen Anfänger zum Senior-Webentwickler werden.
-- Ich möchte mein eigenes Unternehmen gründen und ein soziales Netzwerk erstellen, das Facebook in zwei Jahren überflügeln wird.
+- Ich möchte von einem vollständigen Anfänger in nur drei Monaten ein Senior-Webentwickler werden.
+- Ich möchte mein eigenes Unternehmen gründen und ein soziales Netzwerk aufbauen, das Facebook in zwei Jahren übertreffen wird.
 
-### Definieren Sie, was Sie dazu benötigen
+### Definieren Sie, was Sie dafür benötigen
 
-Sobald Sie Ihr Ziel formuliert haben, ist es eine gute Idee, zu recherchieren, was Sie zum Erreichen des Ziels benötigen.
+Nachdem Sie Ihr Ziel erarbeitet haben, ist es eine gute Idee zu recherchieren, was Sie zur Erreichung des Zieles benötigen.
 
-Zum Beispiel:
+Beispielsweise:
 
-- Materialien, die ich benötige:
-  - Ein Computer
+- Materialien, die ich brauche:
+  - Einen Computer
   - Internetzugang
   - Stifte und Papier
-- Wissen, das ich benötige:
-  - Wie man HTML, CSS, JavaScript und zugehörige Tools und Best Practices verwendet, um Websites und Webanwendungen zu erstellen (wir können Ihnen dabei definitiv helfen!).
-  - Wie man eine Domain, Hosting bekommt und sie verwendet, um eine Website oder Anwendung online zu stellen.
-  - Wie betreibe ich ein kleines Unternehmen.
-  - Wie bewerbe ich mein Geschäft und ziehe Kunden an.
+- Wissen, das ich brauche:
+  - Wie man HTML, CSS, JavaScript und die damit verbundenen Werkzeuge und Best Practices verwendet, um Websites und Webanwendungen zu erstellen (wir können Ihnen definitiv dabei helfen!).
+  - Wie man eine Domain und Hosting erhält und sie verwendet, um eine Website oder eine Anwendung online zu stellen.
+  - Wie man ein kleines Unternehmen führt.
+  - Wie man mein Geschäft bewirbt und Kunden gewinnt.
 
-### Schätzen Sie, wie viel Zeit Sie benötigen
+### Schätzen Sie ab, wie viel Zeit Sie benötigen
 
-Als nächstes sollten Sie beginnen, einen Zeitplan zu schreiben, um Ihr Ziel zu erreichen. Es kann so einfach sein wie:
+Als nächstes sollten Sie beginnen, einen Zeitplan zu erstellen, um Ihr Ziel zu erreichen. Es kann so einfach sein wie:
 
-"Es wird mir etwa 500 Stunden dauern, das Wissen zu erlangen, das ich benötige, und ich habe ein Jahr Zeit, es zu tun. Wenn ich 2 Wochen Urlaub annehme, muss ich 10 Stunden pro Woche dafür arbeiten. Ich habe abends und an den Wochenenden Zeit, also werde ich meine Zeit darum herum planen."
+"Es wird mich etwa 500 Stunden kosten, um das zu lernen, was ich wissen muss, und ich habe ein Jahr Zeit, dies zu tun. Wenn ich zwei Wochen Urlaub annehme, werde ich 10 Stunden pro Woche daran arbeiten müssen. Ich habe abends und am Wochenende Zeit, also plane ich meine Zeit um diese herum."
 
-Sie müssen nicht darüber grübeln, wie genau der Plan ist. Eine grobe Schätzung reicht aus — es ist wichtiger, etwas zu haben, zu dem man hinarbeiten kann.
+Quälen Sie sich nicht darüber, wie genau der Plan ist. Eine grobe Schätzung reicht — es ist wichtiger, etwas niedergeschrieben zu haben, auf das Sie hinarbeiten können.
 
-Wie viel Zeit Sie darauf verwenden können, hängt natürlich von Ihren Umständen ab. Wenn Sie in der Schule sind, haben Sie viel mehr Freizeit als wenn Sie einen Job und Kinder haben, die Sie versorgen müssen. Es ist immer noch möglich, Ihre Ziele zu erreichen, aber Sie müssen realistisch sein, wie schnell Sie es tun können.
+Wie viel Zeit Sie darauf verwenden können, hängt natürlich von Ihren Umständen ab. Wenn Sie in der Schule sind, haben Sie viel mehr Freizeit, als wenn Sie einen Job und Kinder zu versorgen haben. Es ist immer noch möglich, Ihre Ziele zu erreichen, aber Sie müssen realistisch einschätzen, wie schnell Sie dies tun können.
 
-Wenn Sie einen Hochschulkurs besuchen, um Webentwicklung zu lernen, dann ist ein Großteil dieser Planung bereits für Sie erledigt — Glück gehabt!
+Wenn Sie einen Universitäts- oder Hochschulkurs absolvieren, um Webentwicklung zu lernen, dann ist das meiste dieser Planung für Sie erledigt — wie glücklich Sie sind!
 
-Es ist eine gute Idee, einige Unterziele unter Ihrem Hauptziel zu notieren, um den Überblick zu behalten, wo Sie sich einfacher befinden. Zum Beispiel:
+Es ist eine gute Idee, einige Teilziele unter Ihrem Hauptziel aufzuschreiben, um einfacher den Überblick zu behalten, wo Sie stehen. Zum Beispiel:
 
-- HTML- und CSS-Grundlagen bis zum Sommer gelernt
+- HTML- und CSS-Grundlagen bis Sommer gelernt
 - JavaScript-Grundlagen bis Dezember gelernt
-- Beispiel-Website-Projekt bis nächsten April erstellt
-- usw.
+- Beispiel-Website-Projekt bis nächsten April fertiggestellt
+- etc.
 
-Wenn Sie sich nicht sicher sind, welche Punkte Sie auf Ihrer Zielliste setzen sollten, kann Ihnen unser [Lehrplan](/en-US/curriculum/) helfen.
+Wenn Sie nicht sicher sind, welche Items Sie auf Ihre Zielliste setzen sollen, kann Ihnen unser [Lehrplan](/en-US/curriculum/) helfen.
 
-Wenn Sie einen wöchentlichen Zeitplan erstellt haben, sollten Sie festhalten, was Sie jede Woche schaffen in einer einfachen Tabelle oder sogar in einem Notizbuch! Denken Sie darüber nach, wie viel Fortschritt Sie machen, und passen Sie Ihren Plan bei Bedarf an.
+Wenn Sie einen wöchentlichen Zeitplan erstellt haben, sollten Sie festhalten, was Sie jede Woche schaffen, sei es in einer einfachen Tabelle oder sogar in einem Notizbuch! Denken Sie darüber nach, wie viel Fortschritt Sie machen, und passen Sie Ihren Plan bei Bedarf an.
 
-## Wie man motiviert bleibt
+## Motivation aufrechterhalten
 
-Es ist schwer, motiviert zu bleiben, besonders wenn man versucht, eine komplexe Fähigkeit wie Programmierung oder Webentwicklung zu lernen. Was folgt, sind einige Tipps, um motiviert zu bleiben und weiter zu lernen:
+Es ist schwer, motiviert zu bleiben, besonders wenn Sie versuchen, eine komplexe Fähigkeit wie Programmieren oder Webentwicklung zu lernen. Was folgt, sind einige Tipps, um motiviert zu bleiben und weiterzulernen:
 
-- **Versuchen Sie, Ihre Arbeitsumgebung so produktiv wie möglich zu gestalten**. Besorgen Sie sich einen bequemen Schreibtisch und Stuhl, um daran zu arbeiten, stellen Sie sicher, dass Sie genug Licht haben, um zu sehen, was Sie tun, und versuchen Sie, Dinge einzubeziehen, die Ihnen helfen, sich zu konzentrieren (zum Beispiel sanfte Musik, Düfte, was auch immer Sie brauchen). Versuchen Sie nicht, in einem Raum mit Ablenkungen zu arbeiten — zum Beispiel, ein eingeschalteter Fernseher, in dem Ihre Freunde Fußball schauen! Lassen Sie auch Ihr Mobiltelefon im Raum — die meisten Leute werden oft von ihrem Telefon abgelenkt, also sollten Sie es woanders hinlegen.
-- **Essen, trainieren und schlafen**. Ernähren Sie sich gesund, machen Sie regelmäßig Sport und sorgen Sie dafür, dass Sie genug Schlaf bekommen. Das klingt offensichtlich, aber es ist leicht zu vergessen, wenn man wirklich in das Codieren vertieft ist. Planen Sie diese zentralen Bestandteile in Ihren Zeitplan ein und stellen Sie sicher, dass Sie nicht mehr Lernzeit anstelle dieser Dinge einplanen.
-- **Belohnen Sie sich selbst**. Planen Sie angenehme Dinge nach jeder Lerneinheit ein, die Sie nur dann genießen, wenn das Lernen vorbei und abgeschlossen ist. Wenn Sie wirklich ins Gaming vertieft sind, gibt es etwas ziemlich Motivierendes, wenn man sagt: "Kein Gaming heute Abend, es sei denn, ich schaffe meine 3 Stunden Lernen". Jetzt brauchen Sie nur noch Willenskraft. Viel Glück!
-- **Co-Lernen und Vorzeigen**. Dies wird nicht für jeden eine Option sein, aber wenn es irgendwie möglich ist, versuchen Sie, mit anderen zu lernen. Wieder ist dies einfacher, wenn Sie einen Hochschulkurs in Webentwicklung machen, aber vielleicht können Sie einen Freund überreden, mit Ihnen zu lernen, oder jemand bei Ihrem lokalen Meetup? Es ist wirklich nützlich und motivierend, jemanden zu haben, um Ideen zu diskutieren und Hilfe zu erhalten, und Sie sollten auch Zeit zum Vorzeigen Ihrer Arbeit nehmen. Diese Rufe der Anerkennung werden Sie beflügeln.
+- **Versuchen Sie, Ihre Arbeitsumgebung so produktiv wie möglich zu gestalten**. Besorgen Sie sich einen bequemen Schreibtisch und Stuhl, um zu arbeiten, stellen Sie sicher, dass Sie genügend Licht haben, um zu sehen, was Sie tun, und versuchen Sie, Dinge einzubeziehen, die Ihnen helfen, sich zu konzentrieren (zum Beispiel ruhige Musik, Düfte, was auch immer Sie brauchen). Versuchen Sie nicht, in einem Raum mit Ablenkungen zu arbeiten — zum Beispiel mit einem eingeschalteten Fernseher, während Ihre Freunde Fußball schauen! Lassen Sie auch Ihr Handy aus dem Raum — die meisten Menschen werden durch ihr Handy oft abgelenkt, also sollten Sie es woanders lassen.
+- **Essen, Sport und Schlaf**. Ernähren Sie sich gesund, treiben Sie regelmäßig Sport und sorgen Sie dafür, dass Sie genug Schlaf bekommen. Das klingt offensichtlich, aber es ist leicht zu vergessen, wenn Sie wirklich ins Kodieren vertieft sind. Berücksichtigen Sie diese wesentlichen Elemente in Ihrem Zeitplan und planen Sie nicht mehr Lernzeit anstelle dieser Dinge.
+- **Belohnen Sie sich selbst**. Planen Sie nach jeder Lernsitzung unterhaltsame Dinge ein, die Sie nur als Belohnung bekommen, wenn das Lernen beendet und abgeschlossen ist. Wenn Sie wirklich ins Gaming vertieft sind, gibt es zum Beispiel etwas sehr Motivierendes daran zu sagen "Keine Spiele mehr heute Abend, es sei denn, ich schaffe meine 3 Stunden Lernen". Jetzt brauchen Sie nur noch Willenskraft. Viel Glück!
+- **Miteinander lernen und vorführen**. Das wird nicht für jeden möglich sein, aber wenn möglich, versuchen Sie, zusammen mit anderen zu lernen. Auch dies ist einfacher, wenn Sie einen Hochschulkurs über Webentwicklung absolvieren, aber vielleicht können Sie einen Freund davon überzeugen, zusammen mit Ihnen zu lernen, oder jemanden auf Ihrer lokalen Meetup-Gruppe? Es ist wirklich nützlich und motivierend, jemanden zu haben, mit dem Sie Ideen diskutieren und um Hilfe bitten können, und Sie sollten sich auch die Zeit nehmen, um Ihre Arbeit vorzuführen. Die Rufe der Anerkennung werden Sie weiter antreiben.
 
 ## Pausen einlegen und Rubber Ducking
 
-Wenn Sie Schwierigkeiten haben, die Antwort auf eine Frage oder ein Problem zu finden, oder sich auf Ihr Lernen zu konzentrieren, ist es nützlich, eine Pause zu machen. Machen Sie einen Spaziergang für 15 Minuten, machen Sie sich eine Tasse Tee oder hören Sie Musik. Oder kombinieren Sie alle drei!
+Wenn Sie Schwierigkeiten haben, die Antwort auf eine Frage oder ein Problem herauszufinden oder sich auf Ihr Lernen zu konzentrieren, ist es nützlich, eine Pause zu machen. Gehen Sie 15 Minuten spazieren, machen Sie sich eine Tasse Tee oder hören Sie etwas Musik. Oder kombinieren Sie alle drei!
 
-Es ist auch körperlich schlecht, zu lange ohne Pause zu arbeiten; zu lange auf einen Bildschirm zu schauen kann Ihre Augen schädigen, und zu langes Sitzen kann schlecht für Ihren Rücken oder Ihre Beine sein. Sie können das Risiko von Augenbelastung mit der "20-20-20" Regel senken; alle 20 Minuten, schauen Sie sich etwas 20 Meter entfernt für 20 Sekunden an. Wir empfehlen auch, alle ein bis anderthalb Stunden eine richtige 15-minütige Pause zu machen.
+Es ist auch physisch schlecht, zu lange ohne Pause zu arbeiten; zu lange auf einen Monitor zu schauen, kann Ihren Augen schaden, und zu langes Sitzen kann schlecht für Ihren Rücken oder Ihre Beine sein.
+Sie können das Risiko einer Augenüberanstrengung mit der "20-20-20"-Regel verringern; alle 20 Minuten, schauen Sie für 20 Sekunden auf etwas, das 20 Meter entfernt ist.
+Wir empfehlen auch, alle ein bis anderthalb Stunden eine richtige 15-minütige Pause einzulegen.
 
-Während Sie in Ihrer Pause sind, versuchen Sie, Ihr Problem mit einem Kollegen, Freund oder Familienmitglied zu besprechen. Auch wenn sie Ihnen nicht die Antwort geben können, besteht die Chance, dass Sie eine Lösung selbst finden, indem Sie das Problem in Ihrem eigenen Kopf durchdenken. Es funktioniert sogar, wenn Sie das Problem laut aussprechen, ob nun für sich selbst oder für einen unbelebten Gegenstand.
+Während Sie in Ihrer Pause sind, versuchen Sie, Ihr Problem mit einem Kollegen, Freund oder Familienmitglied zu besprechen. Selbst wenn sie Ihnen die Antwort nicht geben können, besteht die Chance, dass Sie in Ihrem eigenen Kopf eine Lösung finden, indem Sie das Problem logisch durchdenken. Es funktioniert sogar, wenn Sie das Problem laut, für sich selbst oder zu einem leblosen Objekt erklären.
 
-Diese Technik wird als [rubber duck debugging](https://rubberduckdebugging.com/) (oder [rubber ducking](https://en.wikipedia.org/wiki/Rubber_duck_debugging)) bezeichnet, benannt, weil traditionell die Idee war, dass Sie Ihr Codierungsproblem einer Gummiente erklären.
+Diese Technik ist bekannt als [rubber duck debugging](https://rubberduckdebugging.com/) (oder [rubber ducking](https://en.wikipedia.org/wiki/Rubber_duck_debugging)), so genannt, weil die Idee traditionell darin besteht, das Problem mit einer Gummiente zu besprechen.
 
 ## Effektive Problemlösung
 
-Es gibt keine einzige effektive Methode, um alle Probleme zu lösen (und alle Dinge zu lernen), die mit Webentwicklung verbunden sind, aber es gibt einige allgemeine Ratschläge, die Ihnen in den meisten Fällen gut dienen.
+Es gibt keinen wirksamen Weg, alle Probleme (und alle Dinge) zu lösen, die mit der Webentwicklung verbunden sind, aber es gibt einige allgemeine Ratschläge, die Ihnen in den meisten Fällen gut dienen werden.
 
 ### Probleme in Teile aufteilen
 
-Wenn Sie versuchen, etwas Spezielles zu implementieren und es wirklich schwer zu verstehen scheint, sollten Sie versuchen, es in mehrere kleinere Probleme oder Teile aufzuteilen.
+Wenn Sie versuchen etwas Konkretes zu implementieren und es Ihnen wirklich schwerfällt, sich um es zu kümmern, sollten Sie versuchen, es in mehrere kleinere Probleme oder Teile aufzuteilen.
 
-Zum Beispiel, wenn Sie eine Aufgabe haben, "Eine einfache zweispaltige Website erstellen", könnten Sie es wie folgt aufteilen:
+Zum Beispiel, wenn Sie die Aufgabe "Ein einfaches zweispaltiges Website-Layout erstellen" sehen, könnten Sie es folgendermaßen unterteilen:
 
-- Die HTML-Struktur erstellen.
-- Grundlegende Typografie der Website herausfinden.
-- Ein grundlegendes Farbschema erarbeiten.
-- Ein grobes Layout implementieren — Header, horizontale Navigationsleiste, Hauptinhaltsbereich mit Haupt- und Seitenkolumnen und Fußzeile.
-- Eine horizontale Navigationsleiste implementieren.
-- usw.
+- Erstellen Sie die HTML-Struktur.
+- Arbeiten Sie die grundlegende Typografie der Website aus.
+- Arbeiten Sie eine grundlegende Farbpalette aus.
+- Implementieren Sie ein grundlegendes Layout — Kopfzeile, horizontales Navigationsmenü, Hauptinhaltsbereich mit Haupt- und Seitenkolonnen und Fußzeile.
+- Implementieren Sie ein horizontales Navigationsmenü.
+- etc.
 
-Dann könnten Sie es weiter unterteilen. Zum Beispiel, "Eine horizontale Navigationsleiste implementieren" könnte wie folgt geschrieben werden:
+Dann könnten Sie es weiter unterteilen. Beispielsweise könnte "Implementieren Sie ein horizontales Navigationsmenü" so aufgeschrieben werden:
 
-- Eine Liste von Menüelementen markieren.
-- Die Menüelemente horizontal in einer Linie anordnen.
-- Unnötige Standardeinstellungen wie Listenabstände und Aufzählungspunkte entfernen.
-- Fokus/aktive Zustände der Menüelemente entsprechend gestalten.
-- Die Menüelemente gleichmäßig verteilen.
-- Den Menüelementen genügend vertikalen Abstand geben.
-- Text innerhalb jedes Menüelements zentrieren.
-- usw.
+- Markieren Sie eine Liste von Menüelementen.
+- Ordnen Sie die Menüelemente horizontal in einer Linie an.
+- Entfernen Sie unnötige Vorgaben wie Listenabstände und Aufzählungszeichen.
+- Stil Hover/Fokus/Aktive Zustände der Menüelemente entsprechend.
+- Platzieren Sie die Menüelemente gleichmäßig.
+- Geben Sie den Menüelementen ausreichend vertikalen Abstand.
+- Stellen Sie sicher, dass der Text innerhalb jedes Menüelements zentriert ist.
+- etc.
 
-Jedes dieser Probleme scheint nicht annähernd so schwer zu lösen wie das eine große Problem, das Sie anfangs hatten.
+Jedes dieser Probleme erscheint nicht annähernd so schwierig zu lösen, wie das eine große Problem, das Sie anfänglich hatten.
 
-### Lernen, Muster zu erkennen
+### Muster erkennen lernen
 
-Webentwicklung dreht sich größtenteils um Problemlösung und Mustererkennung.
+Webentwicklung dreht sich größtenteils um Problemlösung und Muster.
 
-Sobald Sie herausgefunden haben, was Sie tun müssen, um ein bestimmtes Problem zu lösen, können Sie anfangen, herauszufinden, welche technologischen Funktionen Sie verwenden müssen, um es zu lösen. Zum Beispiel haben professionelle Webentwickler viele horizontale Navigationsleisten erstellt, also würden sie sofort anfangen, an eine Lösung wie diese zu denken:
+Sobald Sie herausgeschrieben haben, was Sie tun müssen, um ein spezifisches Problem zu lösen, können Sie beginnen herauszufinden, welche technologischen Funktionen Sie verwenden, um es zu lösen. Beispielsweise haben professionelle Webentwickler viele horizontale Navigationsmenüs erstellt, sodass sie sofort anfangen würden, an eine Lösung wie diese zu denken:
 
-Ein Navigationselement wird normalerweise aus einer Liste von Links erstellt, so etwas wie:
+Ein Navigationsmenü wird normalerweise aus einer Liste von Links erstellt, etwa so:
 
 ```html
 <ul>
@@ -242,7 +244,7 @@ Ein Navigationselement wird normalerweise aus einer Liste von Links erstellt, so
 </ul>
 ```
 
-Um alle Elemente horizontal in einer Linie zu platzieren, ist die einfachste moderne Methode die Verwendung von Flexbox:
+Um alle Elemente horizontal auf einer Linie zu platzieren, ist der einfachste moderne Weg die Verwendung von Flexbox:
 
 ```css
 ul {
@@ -250,7 +252,7 @@ ul {
 }
 ```
 
-Um unnötige Abstände und Aufzählungspunkte zu entfernen, können wir dies tun:
+Um unnötige Abstände und Aufzählungszeichen zu entfernen, können wir dies tun:
 
 ```css
 ul {
@@ -259,25 +261,25 @@ ul {
 }
 ```
 
-usw.
+etc.
 
-Wie viel Recherche Sie durchführen müssen, um die Lösung zu finden, hängt davon ab, wie erfahren Sie sind und ob Sie etwas Ähnliches zuvor implementiert haben. Sie erkennen möglicherweise das Muster von einem vorherigen Projekt und müssen nur ein paar Teile der Syntax nachschlagen, die Sie seitdem vergessen haben.
+Wie viel Forschung Sie durchführen müssen, um die Lösung zu finden, hängt davon ab, wie erfahren Sie sind und ob Sie zuvor etwas Ähnliches implementiert haben. Vielleicht erkennen Sie das Muster von einem vorherigen Projekt wieder und müssen nur einige Teile der Syntax nachschlagen, die Sie seitdem vergessen haben.
 
-Wenn Sie Lösungen für solche Probleme finden, lohnt es sich, Notizen darüber zu machen, was Sie getan haben, und einige minimalistische Codebeispiele in einem Verzeichnis für spätere Referenzzwecke aufzubewahren.
+Wenn Sie Lösungen für solche Probleme finden, ist es wert, sich Notizen darüber zu machen, was Sie getan haben, und einige minimalistische Code-Beispiele in einem Verzeichnis irgendwo zu speichern, damit Sie auf frühere Arbeiten zurückblicken können.
 
-### Schauen Sie sich den Code anderer Leute an
+### Sehen Sie sich den Code anderer Leute an
 
-Das Web hat [Entwicklerwerkzeuge](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools), die es Ihnen ermöglichen, den Code anzuschauen, der zum Aufbau einer beliebigen Website verwendet wurde. Wenn Sie keine Lösung zur Hand haben, ist eine gute Forschungsmethode, Websites mit ähnlichen Funktionen in freier Wildbahn zu finden und zu sehen, wie sie es gemacht haben.
+Das Web verfügt über [Entwicklerwerkzeuge](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools), mit denen Sie den Code betrachten können, mit dem jede Website erstellt wurde. Wenn Sie keine Lösung zur Hand haben, ist eine gute Forschungsmethode, Websites mit ähnlichen Funktionen in freier Wildbahn zu finden und sich anzusehen, wie sie es gemacht haben.
 
 ## Denkweise des ständigen Lernens
 
-Sie sollten sich in die Denkweise des ständigen Lernens versetzen. Das Web entwickelt sich ständig weiter, und Technologien und Trends ändern sich ständig, und Sie müssen ständig Ihr Wissen aktualisieren, um Schritt zu halten. Sie werden nie alles lernen!
+Sie sollten sich in die Denkweise des ständigen Lernens versetzen. Das Web entwickelt sich ständig weiter und Technologien und Trends ändern sich immer, und Sie müssen Ihr Wissen ständig aktualisieren, um auf dem Laufenden zu bleiben. Sie werden nie alles lernen!
 
-Um es sich leichter zu machen:
+Um es sich selbst einfacher zu machen:
 
-- Seien Sie neugierig. Wenn Sie eine Website-Funktion sehen, die cool oder interessant aussieht und/oder die Sie nicht verstehen, recherchieren Sie, um herauszufinden, wie es gemacht wird. Es könnte die Grundlage für Ihr nächstes Forschungsprojekt oder Ihre nächste Lerneinheit bilden.
-- Sie sollten regelmäßig Leseaufgaben oder kleine Forschungsprojekte durchführen. Legen Sie bestimmte Lernzeiten fest, um neue Fähigkeiten zu erwerben.
-- Gewöhnen Sie sich an, regelmäßig technische Nachrichten, Blogs und Browser-Release-Notes zu lesen, um zu sehen, welche neuen Dinge auf Sie zukommen, die es zu lernen gibt.
-- Üben, üben, üben. Je öfter Sie ein Problem lösen, desto stärker sind die neuronalen Verbindungen in Ihrem Gehirn in diesem Bereich, desto einfacher ist es, sich die Details und die Logik dieses bestimmten Problems ins Gedächtnis zu rufen, und desto bequemer werden Sie beim Lernen über ähnliche Lösungen in der Zukunft.
+- Seien Sie neugierig. Wenn Sie eine Website-Funktion sehen, die cool, interessant aussieht und/oder die Sie nicht verstehen, recherchieren Sie, um herauszufinden, wie sie gemacht wurde. Es könnte die Basis Ihres nächsten Forschungsprojekts oder Ihrer nächsten Lerneinheit sein.
+- Sie sollten regelmäßig an Leseaufgaben teilnehmen oder kleine Forschungsprojekte durchführen. Planen Sie gezielt Lernzeit ein, um neue Fähigkeiten zu erwerben.
+- Gewöhnen Sie sich an, regelmäßig technische Nachrichten, Blogs und Browser-Release-Notes zu lesen, um zu sehen, welche Neuerungen auf Sie zukommen, über die Sie lernen können.
+- Üben Sie weiter. Je mehr Sie ein Problem lösen, desto stärker sind die neuronalen Verbindungen Ihres Gehirns in diesem Bereich, desto einfacher wird es, sich an die Details und die Logik dieses besonderen Problems zu erinnern, und desto wohler fühlen Sie sich bei ähnlichen Lösungen in der Zukunft.
 
 {{NextMenu("Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork", "Learn_web_development/Getting_started/Soft_skills")}}

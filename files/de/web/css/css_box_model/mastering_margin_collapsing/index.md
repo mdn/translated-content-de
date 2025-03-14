@@ -1,31 +1,31 @@
 ---
-title: Beherrschung der Margen-Kollaps
+title: Beherrschung des Zusammenfallens von Außenabständen
 slug: Web/CSS/CSS_box_model/Mastering_margin_collapsing
 l10n:
-  sourceCommit: 93f54a9e0ceb65880b951986cc47bee87336f156
+  sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83
 ---
 
 {{CSSRef}}
 
-Die [oberen](/de/docs/Web/CSS/margin-top) und [unteren](/de/docs/Web/CSS/margin-bottom) Ränder von Blöcken werden manchmal zu einem einzigen Rand kombiniert (kollabiert), dessen Größe der größte der einzelnen Ränder ist (oder nur einer von ihnen, wenn sie gleich sind), ein Verhalten, das als **Margen-Kollaps** bekannt ist. Beachten Sie, dass die Ränder von [schwebenden](/de/docs/Web/CSS/float) und [absolut positionierten](/de/docs/Web/CSS/position#types_of_positioning) Elementen niemals kollabieren.
+Die [oberen](/de/docs/Web/CSS/margin-top) und [unteren](/de/docs/Web/CSS/margin-bottom) Außenabstände von Blockelementen werden manchmal zu einem einzigen Abstand zusammengefasst (zusammengefallen), dessen Größe die größte der einzelnen Abstände ist (oder nur einer von ihnen, wenn sie gleich sind), ein Verhalten, das als **Zusammenfallen von Außenabständen** bekannt ist. Beachten Sie, dass die Abstände von [floatenden](/de/docs/Web/CSS/float) und [absolut positionierten](/de/docs/Web/CSS/position#types_of_positioning) Elementen niemals zusammenfallen.
 
-Margen-Kollaps tritt in drei grundlegenden Fällen auf:
+Das Zusammenfallen von Außenabständen tritt in drei grundlegenden Fällen auf:
 
-- Angrenzende Geschwister
-  - : Die Ränder von angrenzenden Geschwistern werden kollabiert (außer wenn das nachfolgende Geschwister [gecleart](/de/docs/Web/CSS/clear) werden muss, um an Floats vorbeizukommen).
+- Benachbarte Geschwister
+  - : Die Abstände benachbarter Geschwister fallen zusammen (außer wenn das nachfolgende Geschwister über Floats [geklärt](/de/docs/Web/CSS/clear) werden muss).
 - Kein Inhalt zwischen Eltern und Nachkommen
-  - : Wenn es keine Grenze, kein Padding, keinen Inline-Teil, keinen [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) oder _[clearance](/de/docs/Web/CSS/clear)_ gibt, um den {{cssxref("margin-top")}} eines Blocks von dem {{cssxref("margin-top")}} eines oder mehrerer seiner Nachkommen-Blöcke zu trennen; oder keine Grenze, kein Padding, kein Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}}, um den {{cssxref("margin-bottom")}} eines Blocks von dem {{cssxref("margin-bottom")}} eines oder mehrerer seiner Nachkommen-Blöcke zu trennen, dann kollabieren diese Ränder. Der kollabierte Rand endet außerhalb des Elternteils.
+  - : Wenn es keine Umrandung, Füllung, Inline-Element, [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) gibt oder keine _[Klärung](/de/docs/Web/CSS/clear)_, die den {{cssxref("margin-top")}} eines Blocks vom {{cssxref("margin-top")}} eines oder mehrerer seiner Nachkommen trennt; oder keine Umrandung, Füllung, Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}}, die den {{cssxref("margin-bottom")}} eines Blocks vom {{cssxref("margin-bottom")}} eines oder mehrerer seiner Nachkommen trennt, dann fallen diese Abstände zusammen. Der zusammengefallene Abstand befindet sich außerhalb des Elternteils.
 - Leere Blöcke
-  - : Wenn es keine Grenze, kein Padding, keinen Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}} gibt, um den {{cssxref("margin-top")}} eines Blocks von seinem {{cssxref("margin-bottom")}} zu trennen, dann kollabieren seine oberen und unteren Ränder.
+  - : Wenn es keine Umrandung, Füllung, Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}} gibt, die den {{cssxref("margin-top")}} eines Blocks von seinem {{cssxref("margin-bottom")}} trennt, dann fallen die oberen und unteren Abstände zusammen.
 
-Einige Anmerkungen:
+Einige Dinge zu beachten:
 
-- Komplexere Margen-Kollaps (von mehr als zwei Rändern) treten auf, wenn die oben genannten Fälle kombiniert werden.
-- Diese Regeln gelten auch für Ränder, die null sind, sodass der Rand eines Nachkommen außerhalb seines Elternteils endet (gemäß den oben genannten Regeln), unabhängig davon, ob der Rand des Elternteils null ist oder nicht.
-- Wenn negative Ränder beteiligt sind, ist die Größe des kollabierten Randes die Summe des größten positiven Randes und des kleinsten (negativsten) negativen Randes.
-- Wenn alle Ränder negativ sind, ist die Größe des kollabierten Randes der kleinste (negativste) Rand. Dies gilt sowohl für benachbarte als auch verschachtelte Elemente.
-- Das Kollabieren von Rändern ist nur in der vertikalen Richtung relevant.
-- Ränder kollabieren nicht in einem Container mit `display`, der auf `flex` oder `grid` gesetzt ist.
+- Ein komplexeres Zusammenfallen von Abständen (von mehr als zwei Abständen) tritt auf, wenn die obigen Fälle kombiniert werden.
+- Diese Regeln gelten sogar für Abstände, die null sind, sodass der Abstand eines Nachkommens außerhalb seines Elternteils endet (entsprechend den obigen Regeln), unabhängig davon, ob der Abstand des Elternteils null ist oder nicht.
+- Wenn negative Abstände beteiligt sind, ist die Größe des zusammengefallenen Abstands die Summe des größten positiven Abstands und des kleinsten (negativsten) negativen Abstands.
+- Wenn alle Abstände negativ sind, ist die Größe des zusammengefallenen Abstands der kleinste (negativste) Abstand. Dies gilt sowohl für benachbarte als auch für verschachtelte Elemente.
+- Das Zusammenfallen von Abständen ist nur in der vertikalen Richtung relevant.
+- Abstände fallen nicht in einem Container mit `display` auf `flex` oder `grid` zusammen.
 
 ## Beispiele
 
@@ -73,9 +73,9 @@ p {
 
 ## Siehe auch
 
-- CSS-Schlüsselkonzepte:
+- Wichtige CSS-Konzepte:
   - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-  - [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
+  - [At-Rules](/de/docs/Web/CSS/CSS_syntax/At-rule)
   - [Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
   - [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
   - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
@@ -83,10 +83,10 @@ p {
   - [Layout-Modi](/de/docs/Web/CSS/Layout_mode)
   - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Visual_formatting_model)
   - Werte
-    - [Anfangswerte](/de/docs/Web/CSS/CSS_cascade/initial_value)
+    - [Initialwerte](/de/docs/Web/CSS/CSS_cascade/initial_value)
     - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/computed_value)
     - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/used_value)
     - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/actual_value)
-  - [Wertedefinitions-Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
-  - [Kurzschreib-Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
-  - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)
+  - [Wertedefinitionssyntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
+  - [Kurzform-Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
+  - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

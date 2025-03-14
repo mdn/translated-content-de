@@ -2,14 +2,14 @@
 title: object-position
 slug: Web/CSS/object-position
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83
 ---
 
 {{CSSRef}}
 
-Die **`object-position`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Ausrichtung des Inhalts des ausgewählten [ersetzten Elements](/de/docs/Web/CSS/Replaced_element) innerhalb des Elementkastens an. Bereiche des Kastens, die nicht vom Objekt des ersetzten Elements abgedeckt werden, zeigen den Hintergrund des Elements.
+Die **`object-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Ausrichtung der Inhalte des ausgewählten {{Glossary("replaced_elements", "ersetzten Elements")}} innerhalb des Rahmens des Elements fest. Bereiche des Rahmens, die nicht vom Objekt des ersetzten Elements abgedeckt sind, zeigen den Hintergrund des Elements.
 
-Sie können die Anpassung der intrinsischen Größe (d. h. der natürlichen Größe) des Objekts des ersetzten Elements an den Elementkasten mit der {{cssxref("object-fit")}} Eigenschaft steuern.
+Sie können anpassen, wie die intrinsische Größe des Objekts des ersetzten Elements (d.h. seine natürliche Größe) innerhalb des Rahmens des Elements angepasst wird, indem Sie die {{cssxref("object-fit")}}-Eigenschaft verwenden.
 
 {{InteractiveExample("CSS Demo: object-position")}}
 
@@ -81,10 +81,10 @@ object-position: unset;
 ### Werte
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Ein bis vier Werte, die die 2D-Position des Elements definieren. Relative oder absolute Offsets können verwendet werden.
+  - : Ein bis vier Werte, die die 2D-Position des Elements definieren. Relative oder absolute Versätze können verwendet werden.
 
 > [!NOTE]
-> Die Position kann so festgelegt werden, dass das ersetzte Element außerhalb seines Kastens gezeichnet wird.
+> Die Position kann so eingestellt werden, dass das ersetzte Element außerhalb seines Rahmens gezeichnet wird.
 
 ## Formale Definition
 
@@ -100,7 +100,7 @@ object-position: unset;
 
 #### HTML
 
-Hier sehen wir HTML, das zwei {{HTMLElement("img")}} Elemente enthält, die jeweils das MDN-Logo anzeigen.
+Hier sehen wir HTML, das zwei {{HTMLElement("img")}}-Elemente enthält, die jeweils das MDN-Logo anzeigen.
 
 ```html
 <img id="object-position-1" src="mdn.svg" alt="MDN Logo" />
@@ -109,7 +109,7 @@ Hier sehen wir HTML, das zwei {{HTMLElement("img")}} Elemente enthält, die jewe
 
 #### CSS
 
-Das CSS enthält Standardstile für das `<img>` Element selbst sowie separate Stile für jedes der beiden Bilder.
+Das CSS enthält Standardstildefinitionen für das `<img>`-Element selbst sowie separate Stile für jedes der beiden Bilder.
 
 ```css
 img {
@@ -130,7 +130,7 @@ img {
 }
 ```
 
-Das erste Bild ist so positioniert, dass seine linke Kante 10 Pixel von der linken Kante des Elementkastens zurückgesetzt ist. Das zweite Bild ist so positioniert, dass seine rechte Kante bündig mit der rechten Kante des Elementkastens ist und 10% des Weges nach unten in der Höhe des Elementkastens positioniert ist.
+Das erste Bild ist mit seiner linken Kante 10 Pixel vom linken Rand des Rahmens des Elements eingestellt. Das zweite Bild ist mit seiner rechten Kante bündig gegen den rechten Rand des Rahmens des Elements eingestellt und befindet sich 10% von oben entlang der Höhe des Rahmens des Elements.
 
 #### Ergebnis
 
@@ -146,4 +146,4 @@ Das erste Bild ist so positioniert, dass seine linke Kante 10 Pixel von der link
 
 ## Siehe auch
 
-- Andere CSS-Eigenschaften im Zusammenhang mit Bildern: {{cssxref("object-fit")}}, {{cssxref("image-orientation")}}, {{cssxref("image-rendering")}}, {{cssxref("image-resolution")}}.
+- Andere bildbezogene CSS-Eigenschaften: {{cssxref("object-fit")}}, {{cssxref("image-orientation")}}, {{cssxref("image-rendering")}}, {{cssxref("image-resolution")}}.

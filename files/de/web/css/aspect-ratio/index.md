@@ -2,14 +2,14 @@
 title: aspect-ratio
 slug: Web/CSS/aspect-ratio
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83
 ---
 
 {{CSSRef}}
 
-Die **`aspect-ratio`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, das gewünschte Breiten-Höhen-Verhältnis eines Elementbox festzulegen. Das bedeutet, dass selbst wenn sich die Größe des übergeordneten Containers oder des Ansichtsfensters ändert, der Browser die Abmessungen des Elements anpasst, um das angegebene Breiten-Höhen-Verhältnis beizubehalten. Das angegebene {{Glossary("aspect_ratio", "Seitenverhältnis")}} wird bei der Berechnung automatischer Größen und einiger anderer Layout-Funktionen verwendet.
+Die **`aspect-ratio`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, das gewünschte Breiten-zu-Höhen-Verhältnis eines Elements zu definieren. Das bedeutet, dass selbst wenn sich die Größe des übergeordneten Containers oder des Ansichtsfensters ändert, der Browser die Dimensionen des Elements anpasst, um das angegebene Breiten-zu-Höhen-Verhältnis beizubehalten. Das angegebene {{Glossary("aspect_ratio", "Seitenverhältnis")}} wird bei der Berechnung von automatischen Größen und einigen anderen Layout-Funktionen verwendet.
 
-Mindestens eine der Box-Größen muss automatisch sein, damit `aspect-ratio` eine Wirkung hat. Wenn weder die Breite noch die Höhe eine automatische Größe ist, hat das angegebene Seitenverhältnis keinen Einfluss auf die bevorzugten Größen der Box.
+Mindestens eine der Größen des Kastens muss automatisch sein, damit `aspect-ratio` eine Wirkung hat. Wenn weder die Breite noch die Höhe eine automatische Größe ist, hat das angegebene Seitenverhältnis keine Auswirkung auf die bevorzugten Größen des Kastens.
 
 {{InteractiveExample("CSS Demo: aspect-ratio")}}
 
@@ -65,23 +65,23 @@ aspect-ratio: revert-layer;
 aspect-ratio: unset;
 ```
 
-Diese Eigenschaft wird als eines oder beides der Schlüsselwörter auto oder ein `<ratio>` angegeben. Wenn beides angegeben ist und das Element ein [ersetztes Element](/de/docs/Web/CSS/Replaced_element) ist, wie zum Beispiel ein [`<img>`](/de/docs/Web/HTML/Element/img), wird das angegebene Verhältnis verwendet, bis der Inhalt geladen ist. Nach dem Laden des Inhalts wird der `auto`-Wert angewendet, sodass das intrinsische Seitenverhältnis des geladenen Inhalts verwendet wird.
+Diese Eigenschaft wird als eines oder beide der Schlüsselwörter auto oder als ein `<ratio>` angegeben. Wenn beide gegeben sind und das Element ein {{Glossary("replaced_elements", "ersetztes Element")}} ist, wie beispielsweise ein [`<img>`](/de/docs/Web/HTML/Element/img), dann wird das angegebene Verhältnis verwendet, bis der Inhalt geladen ist. Nach dem Laden des Inhalts wird der `auto` Wert angewendet, wodurch das intrinsische Seitenverhältnis des geladenen Inhalts verwendet wird.
 
-Wenn das Element kein ersetztes Element ist, wird das angegebene `ratio` verwendet.
+Wenn das Element kein ersetztes Element ist, wird das angegebene `Verhältnis` verwendet.
 
 ### Werte
 
 - `auto`
 
-  - : [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element) mit einem intrinsischen Seitenverhältnis verwenden _dieses_ Seitenverhältnis, andernfalls hat die Box kein bevorzugtes Seitenverhältnis. Größenberechnungen, die das intrinsische Seitenverhältnis betreffen, arbeiten immer mit den Abmessungen des Inhaltfeldes.
+  - : {{Glossary("Replaced_elements", "Ersetzte Elemente")}} mit einem intrinsischen Seitenverhältnis verwenden _dieses_ Seitenverhältnis, andernfalls hat der Kasten kein bevorzugtes Seitenverhältnis. Größerechnungen, die ein intrinsisches Seitenverhältnis beinhalten, arbeiten immer mit den Dimensionen des Inhaltskastens.
 
 - {{cssxref("&lt;ratio&gt;")}}
 
-  - : Das bevorzugte Seitenverhältnis der Box ist das angegebene Verhältnis von `Breite`/`Höhe`. Wenn `Höhe` und das vorhergehende Schrägstrich-Zeichen weggelassen werden, ist die Standardeinstellung für `Höhe` `1`. Größenberechnungen, die auf das bevorzugte Seitenverhältnis basieren, arbeiten mit den durch `box-sizing` festgelegten Abmessungen der Box.
+  - : Das bevorzugte Seitenverhältnis des Kastens ist das angegebene Verhältnis von `width` / `height`. Wenn `height` und das vorangehende Schrägstrich-Zeichen ausgelassen werden, setzt `height` den Standardwert auf `1`. Größerechnungen, die ein bevorzugtes Seitenverhältnis beinhalten, arbeiten mit den durch `box-sizing` spezifizierten Dimensionen des Kastens.
 
 - `auto && <ratio>`
 
-  - : Wenn sowohl `auto` als auch ein `<ratio>` zusammen angegeben sind, wird `auto` verwendet, wenn das Element ein ersetztes Element mit einem natürlichen Seitenverhältnis ist, wie z.B. ein `<img>` Element. Andernfalls wird das angegebene Verhältnis von `Breite`/`Höhe` als bevorzugtes Seitenverhältnis verwendet.
+  - : Wenn sowohl `auto` als auch ein `<ratio>` zusammen angegeben sind, wird `auto` verwendet, wenn das Element ein ersetztes Element mit einem natürlichen Seitenverhältnis ist, wie ein `<img>`-Element. Andernfalls wird das angegebene Verhältnis von `width` / `height` als bevorzugtes Seitenverhältnis verwendet.
 
 ## Formale Definition
 
@@ -93,9 +93,9 @@ Wenn das Element kein ersetztes Element ist, wird das angegebene `ratio` verwend
 
 ## Beispiele
 
-### Untersuchen der Effekte des Seitenverhältnisses bei fester Breite
+### Erkundung der Auswirkungen des Seitenverhältnisses bei fester Breite
 
-In diesem Beispiel wurde die Breite der `<div>` Elemente auf `100px` gesetzt und die Höhe auf `auto`. Da der Breitenwert hier festgelegt ist, beeinflusst die Eigenschaft `aspect-ratio` nur die Höhe der `<div>` Elemente, um das angegebene Breiten-Höhen-Verhältnis beizubehalten.
+In diesem Beispiel ist die Breite der `<div>`-Elemente auf `100px` und die Höhe auf `auto` gesetzt. Da der Breitenwert hier festgelegt ist, wirkt sich die Eigenschaft `aspect-ratio` nur auf die Höhe der `<div>`-Elemente aus, um das angegebene Breiten-zu-Höhen-Verhältnis zu beibehalten.
 
 ```html hidden
 <div>1/1</div>
@@ -135,17 +135,17 @@ div:nth-child(5) {
 }
 ```
 
-{{EmbedLiveSample('Untersuchen der Effekte des Seitenverhältnisses bei fester Breite', '100%', '300px')}}
+{{EmbedLiveSample('Erkundung der Auswirkungen des Seitenverhältnisses bei fester Breite', '100%', '300px')}}
 
-### Rückgriff auf das natürliche Seitenverhältnis
+### Rückgriff auf natürliches Seitenverhältnis
 
-In diesem Beispiel verwenden wir zwei `<img>` Elemente. Das erste Element hat sein `src` Attribut nicht auf eine Bilddatei gesetzt.
+In diesem Beispiel verwenden wir zwei `<img>`-Elemente. Das erste Element hat sein `src`-Attribut nicht auf eine Bilddatei gesetzt.
 
 ```html
 <img src="" /> <img src="plumeria.jpg" />
 ```
 
-Der folgende Code setzt `3/2` als bevorzugtes Seitenverhältnis und `auto` als Rückfalloption.
+Der folgende Code setzt `3/2` als bevorzugtes Seitenverhältnis und `auto` als Rückgriff.
 
 ```css
 img {
@@ -159,9 +159,9 @@ img {
 }
 ```
 
-Beachten Sie, wie das erste Bild ohne ersetzten Inhalt das `3/2` Seitenverhältnis beibehält, während das zweite Bild nach dem Laden des Inhalts das natürliche Seitenverhältnis des Bildes verwendet.
+Beachten Sie, wie das erste Bild ohne ersetzten Inhalt das `3/2`-Seitenverhältnis beibehält, während das zweite Bild nach dem Laden des Inhalts das natürliche Seitenverhältnis des Bildes verwendet.
 
-{{EmbedLiveSample('Rückgriff auf das natürliche Seitenverhältnis', '100%', '300px')}}
+{{EmbedLiveSample('Rückgriff auf natürliches Seitenverhältnis', '100%', '300px')}}
 
 ## Spezifikationen
 
@@ -174,6 +174,6 @@ Beachten Sie, wie das erste Bild ohne ersetzten Inhalt das `3/2` Seitenverhältn
 ## Siehe auch
 
 - [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
-- [Bildseitenverhältnis: Jank verhindern](/de/docs/Learn_web_development/Extensions/Performance/Multimedia#rendering_strategy_preventing_jank_when_loading_images)
-- [Entwurf einer Einheit für das Seitenverhältnis in CSS](https://www.smashingmagazine.com/2019/03/aspect-ratio-unit-css/)
-- [Warum das Setzen von Höhe und Breite bei Bildern wieder wichtig ist](https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/)
+- [Bild-Seitenverhältnis: Ruckeln verhindern](/de/docs/Learn_web_development/Extensions/Performance/Multimedia#rendering_strategy_preventing_jank_when_loading_images)
+- [Entwicklung einer Seitenverhältniseinheit für CSS](https://www.smashingmagazine.com/2019/03/aspect-ratio-unit-css/)
+- [Das Festlegen von Höhe und Breite bei Bildern ist wieder wichtig geworden](https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/)

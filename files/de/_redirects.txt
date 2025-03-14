@@ -519,7 +519,7 @@
 /de/docs/CSS/Privacy_and_the_:visited_selector	/de/docs/Web/CSS/Privacy_and_the_:visited_selector
 /de/docs/CSS/Pseudo-classes	/de/docs/Web/CSS/Pseudo-classes
 /de/docs/CSS/Pseudo-elements	/de/docs/Web/CSS/Pseudo-elements
-/de/docs/CSS/Replaced_element	/de/docs/Web/CSS/Replaced_element
+/de/docs/CSS/Replaced_element	/de/docs/Web/CSS/CSS_images/Replaced_element_properties
 /de/docs/CSS/Scaling_background_images	/de/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images
 /de/docs/CSS/Scaling_of_SVG_backgrounds	/de/docs/Web/CSS/CSS_backgrounds_and_borders/Scaling_of_SVG_backgrounds
 /de/docs/CSS/Shorthand_properties	/de/docs/Web/CSS/CSS_cascade/Shorthand_properties
@@ -5779,6 +5779,7 @@
 /de/docs/Learn_web_development/Core/Styling_basics/The_box_model	/de/docs/Learn_web_development/Core/Styling_basics/Box_model
 /de/docs/Learn_web_development/Extensions/Forms/Property_compatibility_table_for_form_controls	/de/docs/Learn_web_development/Extensions/Forms
 /de/docs/Learn_web_development/Getting_started/Basic_setup	/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software
+/de/docs/Learn_web_development/Getting_started/Soft_skills/Job_interviews	/de/docs/Learn_web_development/Getting_started/Soft_skills/Finding_a_job
 /de/docs/Learn_web_development/Getting_started/Soft_skills/Learning_and_getting_help	/de/docs/Learn_web_development/Getting_started/Soft_skills/Research_and_learning
 /de/docs/Learn_web_development/Getting_started/Your_first_website/CSS_basics	/de/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content
 /de/docs/Learn_web_development/Getting_started/Your_first_website/HTML_basics	/de/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content
@@ -12167,6 +12168,7 @@
 /de/docs/Web/CSS/Reference/Mozilla_Extensions	/de/docs/Web/CSS/Mozilla_Extensions
 /de/docs/Web/CSS/Reference/Webkit_Extensions	/de/docs/Web/CSS/WebKit_Extensions
 /de/docs/Web/CSS/Reference/object-position	/de/docs/Web/CSS/object-position
+/de/docs/Web/CSS/Replaced_element	/de/docs/Web/CSS/CSS_images/Replaced_element_properties
 /de/docs/Web/CSS/Scaling_of_SVG_backgrounds	/de/docs/Web/CSS/CSS_backgrounds_and_borders/Scaling_of_SVG_backgrounds
 /de/docs/Web/CSS/Selector_lists	/de/docs/Web/CSS/Selector_list
 /de/docs/Web/CSS/Selectors	/de/docs/Web/CSS/CSS_selectors
