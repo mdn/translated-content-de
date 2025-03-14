@@ -1,18 +1,20 @@
 ---
-title: "CookieStore: getAll()-Methode"
+title: "CookieStore: getAll() Methode"
 short-title: getAll()
 slug: Web/API/CookieStore/getAll
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 372d2f15b56a753235002946c7775d0b38f6f3eb
 ---
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`getAll()`**-Methode des [`CookieStore`](/de/docs/Web/API/CookieStore)-Interfaces gibt eine Liste von Cookies zurück, die dem übergebenen `name` oder den `options` entsprechen. Werden keine Parameter übergeben, werden alle Cookies für den aktuellen Kontext zurückgegeben.
+Die **`getAll()`**-Methode der [`CookieStore`](/de/docs/Web/API/CookieStore)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das als Array von Cookies aufgelöst wird, die mit dem übergebenen `name` oder den `options` übereinstimmen.
+Ohne Parameter werden alle Cookies für den aktuellen Kontext zurückgegeben.
 
 ## Syntax
 
 ```js-nolint
+getAll()
 getAll(name)
 getAll(options)
 ```
@@ -20,87 +22,115 @@ getAll(options)
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : Ein String mit dem Namen eines Cookies.
+  - : Ein Zeichenfolgenwert mit dem Namen eines Cookies.
 
 Oder
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das folgende Eigenschaften enthält:
+  - : Ein Objekt, das Folgendes enthält:
 
     - `name`
-      - : Ein String mit dem Namen eines Cookies.
+      - : Ein Zeichenfolgenwert mit dem Namen eines Cookies.
     - `url`
-      - : Ein String mit der URL eines Cookies.
+      - : Eine Zeichenfolge mit der URL eines Cookies.
 
 > [!NOTE]
-> Die `url`-Option ermöglicht die Modifizierung eines Cookies, das unter einer bestimmten URL erfasst ist. Service-Arbeiter können Cookies abrufen, die an jede URL unter ihrem Geltungsbereich gesendet würden. Sie können in einem Dokument nur die Cookies an der aktuellen URL abrufen, sodass die einzige gültige URL in einem Dokumentkontext die URL des Dokuments ist.
+> Die `url`-Option ermöglicht die Modifikation eines Cookies, das unter einer bestimmten URL definiert ist. Service Worker können Cookies erhalten, die an jede URL unter ihrem Gültigkeitsbereich gesendet würden. Innerhalb eines Dokuments können Sie nur die Cookies an der aktuellen URL abrufen, daher ist die einzige gültige URL in einem Dokumentkontext die URL des Dokuments selbst.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array von Objekten aufgelöst wird, die Cookies darstellen, die dem angegebenen `name` oder `options` entsprechen.
+Ein {{jsxref("Promise")}}, das mit einem Array von Objekten aufgelöst wird, die Cookies darstellen, die dem gegebenen `name` oder den `options` entsprechen.
 
 Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `domain`
 
-  - : Ein String, der die Domain des Cookies enthält.
+  - : Eine Zeichenfolge, die die Domäne des Cookies enthält.
 
 - `expires`
 
-  - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
+  - : Ein Zeitstempel im {{Glossary("Unix_time", "Unix-Zeit")}}-Format in Millisekunden, der das Ablaufdatum des Cookies enthält.
 
 - `name`
 
-  - : Ein String, der den Namen des Cookies enthält.
+  - : Eine Zeichenfolge, die den Namen des Cookies enthält.
 
 - `partitioned`
 
-  - : Ein Boolean, der anzeigt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Siehe [Cookies mit unabhängigem partitioniertem Zustand (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) für weitere Informationen.
+  - : Ein boolescher Wert, der angibt, ob es sich um ein partitioniertes Cookie handelt (`true`) oder nicht (`false`). Siehe [Cookies mit unabhängiger partitionierter Zustandsverwaltung (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) für weitere Informationen.
 
 - `path`
 
-  - : Ein String, der den Pfad des Cookies enthält.
+  - : Eine Zeichenfolge, die den Pfad des Cookies enthält.
 
 - `sameSite`
 
-  - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) Werte:
-
-    - `"strict"`
-      - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht mit Anfragen von Drittanbieter-Websites.
-    - `"lax"`
-      - : Cookies werden bei normalen Cross-Site-Subrequests nicht gesendet (zum Beispiel, um Bilder oder Frames in eine Drittanbieter-Website zu laden), aber sie werden gesendet, wenn ein Benutzer innerhalb der Ursprungs-Website navigiert (d.h. beim Folgen eines Links).
-    - `"none"`
-      - : Cookies werden in allen Kontexten gesendet.
+  - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Werte: [`"strict"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#strict), [`"lax"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#lax) oder [`"none"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#none).
 
 - `secure`
 
-  - : Ein Boolean-Wert, der angibt, ob das Cookie nur in sicheren Kontexten verwendet werden soll (`true`) oder nicht (`false`).
+  - : Ein boolescher Wert, der angibt, ob das Cookie nur in sicheren Kontexten verwendet werden soll (`true`) oder nicht (`false`).
 
 - `value`
-  - : Ein String, der den Wert des Cookies enthält.
+  - : Eine Zeichenfolge, die den Wert des Cookies enthält.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der Ursprung nicht zu einer URL {{Glossary("Serialization", "serialisiert")}} werden kann.
+  - : Wird ausgelöst, wenn der Ursprung nicht zu einer URL {{Glossary("Serialization", "serialisiert")}} wird.
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn:
-    - Die `url`-Option vorhanden ist und nicht gleich der Erstellungs-URL ist, falls im Haupt-Thread.
-    - Die `url`-Option vorhanden ist und ihr Ursprung nicht mit dem Ursprung der Erstellungs-URL übereinstimmt.
-    - Das Abfragen von Cookies, die durch den gegebenen `name` oder `options` repräsentiert werden, fehlschlägt.
+  - : Wird ausgelöst, wenn:
+    - Die Methode im Hauptthread aufgerufen wird und die `url`-Option angegeben ist, aber nicht mit der URL des aktuellen Fensters übereinstimmt.
+    - Die Methode in einem Worker aufgerufen wird und die `url`-Option angegeben ist, aber nicht mit dem Ursprung des Workers übereinstimmt.
+    - Die Abfrage nach Cookies, die durch den angegebenen `name` oder die `options` dargestellt werden, fehlschlägt.
 
 ## Beispiele
 
-In diesem Beispiel verwenden wir `getAll()` ohne Parameter. Dies gibt alle Cookies für diesen Kontext als Array von Objekten zurück.
+<!-- Die Beispiele funktionieren nicht als Live-Beispiele in der MDN-Umgebung (aufgrund unbekannter Fehler) -->
+
+### Alle Cookies für diesen Kontext abrufen
+
+Dieses Beispiel zeigt, wie man alle Cookies im aktuellen Kontext erhält.
+
+Zuerst definieren wir `setTestCookies()`, die die Test-Cookies "cookie1" und "cookie2" erstellt und auftretende Fehler protokolliert.
 
 ```js
-const cookies = await cookieStore.getAll();
+async function setTestCookies() {
+  // Set two cookies
+  try {
+    await cookieStore.set("cookie1", "cookie1-value");
+  } catch (error) {
+    console.log(`Error setting cookie1: ${error}`);
+  }
 
-if (cookies.length > 0) {
-  console.log(cookies);
-} else {
-  console.log("Cookie not found");
+  try {
+    await cookieStore.set("cookie2", "cookie2-value");
+  } catch (error) {
+    console.log(`Error setting cookie2: ${error}`);
+  }
+}
+```
+
+Die `cookieTest()`-Methode ruft `setTestCookies()` auf und wartet anschließend auf `getAll()`.
+Dies gibt ein {{jsxref("Promise")}} zurück, das mit allen Cookies für diesen Kontext als Array von Objekten aufgelöst wird, oder mit einem leeren Array, wenn keine Cookies vorhanden sind.
+Wenn das zurückgegebene Promise mit einem Array, das Cookie-Informationen enthält, aufgelöst wird, iterieren wir durch das Array und protokollieren jedes Cookie ("cookie1" und "cookie2").
+
+```js
+async function cookieTest() {
+  // Set our test cookies
+  await setTestCookies();
+
+  // Get all cookies
+  const cookies = await cookieStore.getAll();
+
+  // Iterate the cookies, or log that none were found
+  if (cookies.length > 0) {
+    console.log(`Found cookies: ${cookies.length}:`);
+    cookies.forEach((cookie) => console.log(cookie));
+  } else {
+    console.log("Cookies not found");
+  }
 }
 ```
 

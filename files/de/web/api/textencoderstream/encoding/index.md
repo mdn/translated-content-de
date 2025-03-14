@@ -3,7 +3,7 @@ title: "TextEncoderStream: encoding-Eigenschaft"
 short-title: encoding
 slug: Web/API/TextEncoderStream/encoding
 l10n:
-  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
+  sourceCommit: 0f42b8ccf6bef96f27e678163954b3a363b9dcf6
 ---
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
@@ -16,10 +16,10 @@ Ein String, der `utf-8` kodierte Daten enthält.
 
 ## Beispiele
 
-Das folgende Beispiel demonstriert, wie die `encoding`-Eigenschaft von einem `TextEncoderStream`-Objekt zurückgegeben wird.
+Das folgende Beispiel zeigt, wie man `encoding` von einem `TextEncoderStream`-Objekt zurückgibt.
 
 ```js
-stream = new TextEncoderStream();
+const stream = new TextEncoderStream();
 console.log(stream.encoding);
 ```
 
