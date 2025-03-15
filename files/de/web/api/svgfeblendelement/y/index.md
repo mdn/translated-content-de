@@ -1,6 +1,6 @@
 ---
 title: "SVGFEBlendElement: y-Eigenschaft"
-short-title: "y"
+short-title: y
 slug: Web/API/SVGFEBlendElement/y
 l10n:
   sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c

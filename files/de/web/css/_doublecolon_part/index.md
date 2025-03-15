@@ -1,5 +1,5 @@
 ---
-title: "::part()"
+title: ::part()
 slug: Web/CSS/::part
 l10n:
   sourceCommit: e23bab554e32b2d59ff5b69c6eeba8291addf452

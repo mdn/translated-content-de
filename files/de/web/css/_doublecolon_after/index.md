@@ -1,5 +1,5 @@
 ---
-title: "::after"
+title: ::after
 slug: Web/CSS/::after
 l10n:
   sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83
