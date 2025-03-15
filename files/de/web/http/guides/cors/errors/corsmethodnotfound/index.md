@@ -28,7 +28,7 @@ Wird der Versuch, eine {{HTTPMethod("PUT")}}-Anfrage zu verwenden, mit diesem Fe
 Stellen Sie sicher, dass Ihr Code nur die erlaubten HTTP-Methoden verwendet, wenn Sie auf den Dienst zugreifen.
 
 > [!NOTE]
-> Wenn der Server unbekannte oder undefinierte Methodennamen in seinem `Access-Control-Allow-Methods`-Header enthält, tritt ein anderer Fehler auf: [Grund: ungültiges Token 'xyz' im CORS-Header 'Access-Control-Allow-Methods'](/en-US/docs/Web/HTTP/Guides/CORS/Errors/CORSInvalidAllowMethod).
+> Wenn der Server unbekannte oder undefinierte Methodennamen in seinem `Access-Control-Allow-Methods`-Header enthält, tritt ein anderer Fehler auf: [Grund: ungültiges Token 'xyz' im CORS-Header 'Access-Control-Allow-Methods'](/de/docs/Web/HTTP/Guides/CORS/Errors/CORSInvalidAllowMethod).
 
 ## Siehe auch
 

@@ -1,5 +1,5 @@
 ---
-title: ":checked"
+title: :checked
 slug: Web/CSS/:checked
 l10n:
   sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83

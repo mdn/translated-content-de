@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das Modul **CSS Compositing und Blending** definiert, wie die Hintergrundebenen eines Elements zusammen gemischt werden können, wie ein Element mit seinem Container gemischt werden kann und ob das Element einen neuen [stapelnden Kontext](/de-DE/docs/Web/CSS/CSS_positioned_layout/Stacking_context) erstellen muss.
+Das Modul **CSS Compositing und Blending** definiert, wie die Hintergrundebenen eines Elements zusammen gemischt werden können, wie ein Element mit seinem Container gemischt werden kann und ob das Element einen neuen [stapelnden Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) erstellen muss.
 
 Die Eigenschaften in diesem CSS-Modul können verwendet werden, um den Mischmodus zu definieren, der gegebenenfalls verwendet werden soll, um die Hintergrundbilder und -farben eines Elements zu einem einzigen Hintergrundbild zu mischen. Dieses Modul bietet 16 Mischmodi. Sie können auch definieren, wie die Ränder, der Hintergrund und der Inhalt eines Elements, einschließlich Text, Emojis und Bilder, mit dem Hintergrund seines Containers gemischt werden sollen.
 
@@ -99,7 +99,7 @@ Beachten Sie, wie der Hintergrund, der Rand und der Inhalt alle als Ergebnis des
 - {{cssxref("mask-composite")}} CSS-Eigenschaft
 - {{cssxref("background-color")}} CSS-Eigenschaft
 - {{cssxref("background-image")}} CSS-Eigenschaft
-- [stapelnder Kontext](/de-DE/docs/Glossary/stacking_context) Glossarbegriff
+- [stapelnder Kontext](/de/docs/Glossary/stacking_context) Glossarbegriff
 - {{ SVGElement("feBlend")}} SVG-Filter-Primitiv
 - {{ SVGElement("feComposite")}} SVG-Filter-Primitiv
 
@@ -109,7 +109,7 @@ Beachten Sie, wie der Hintergrund, der Rand und der Inhalt alle als Ergebnis des
 
 ## Siehe auch
 
-- Eigenschaften im Modul [CSS-Filtereffekte](/de-DE/docs/Web/CSS/CSS_filter_effects) ermöglichen das Anwenden von Filtereffekten, wie das Verwischen und Ändern der Farbintensität, auf Bilder, Hintergründe und Ränder.
+- Eigenschaften im Modul [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) ermöglichen das Anwenden von Filtereffekten, wie das Verwischen und Ändern der Farbintensität, auf Bilder, Hintergründe und Ränder.
 - [Compositing And Blending In CSS](https://www.sarasoueidan.com/blog/compositing-and-blending-in-css/) (2015)
 - [Bilder in CSS bearbeiten: Blend-Modi](https://webdesign.tutsplus.com/editing-images-in-css-blend-modes--cms-26058t) (2022)
 - [web.dev: Blend-Modi](https://web.dev/learn/css/blend-modes) (2021)
