@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Oktale Escape-Sequenzen können nicht in nicht-getaggten Vorlagenliteralen oder im Strict Mode-Code verwendet werden"
+title: "SyntaxError: Oktale Escape-Sequenzen nicht in nicht-getaggten Vorlagenliteralen oder im Strict Mode-Code verwendbar"
 slug: Web/JavaScript/Reference/Errors/Deprecated_octal_escape_sequence
 l10n:
   sourceCommit: 4e0349ec31c38bebd56e56782170666e11ae5ad3

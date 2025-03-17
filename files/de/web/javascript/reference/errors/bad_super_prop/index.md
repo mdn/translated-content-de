@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Verwendung von Super-Eigenschaften/-mitgliedern ist nur innerhalb von Methoden oder eval-Code innerhalb von Methoden gültig"
+title: "SyntaxError: Super-Eigenschaften/-mitgliedern nur innerhalb von Methoden oder eval-Code innerhalb von Methoden gültig"
 slug: Web/JavaScript/Reference/Errors/Bad_super_prop
 l10n:
   sourceCommit: b736420a8955d6e1ff513735944b3da6b92cf525

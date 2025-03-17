@@ -1,6 +1,6 @@
 ---
 title: "Mehrteilige Bezeichnungen: Verwenden von ARIA für Bezeichnungen mit eingebetteten Feldern"
-short-title: Verwenden von ARIA für Bezeichnungen mit eingebetteten Feldern
+short-title: ARIA für Bezeichnungen mit eingebetteten Feldern
 slug: Web/Accessibility/ARIA/Guides/Multipart_labels
 l10n:
   sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27

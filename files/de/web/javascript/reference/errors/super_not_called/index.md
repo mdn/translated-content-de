@@ -1,5 +1,5 @@
 ---
-title: "ReferenceError: 'super' Konstruktor muss vor der Verwendung von 'this' im Konstruktor der abgeleiteten Klasse aufgerufen werden"
+title: "ReferenceError: muss 'super' Konstruktor vor Verwendung von 'this' im Konstruktor der abgeleiteten Klasse aufrufen"
 slug: Web/JavaScript/Reference/Errors/Super_not_called
 l10n:
   sourceCommit: b736420a8955d6e1ff513735944b3da6b92cf525
