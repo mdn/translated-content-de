@@ -99,7 +99,7 @@ Oben wird das Tooltip im Standardzustand oder wenn die `hide-tooltip`-Klasse mit
 
 Wenn die Informationen wichtig genug für einen Tooltip sind, sind sie dann nicht wichtig genug, um immer sichtbar zu sein?
 
-Der Tooltip muss beim Überfahren offen bleiben, auch wenn das technisch bedeutet, dass die Maus aus dem besitzenden Element herausbewegt wird. Da Inhalt, der bei Hover erscheint, schwer oder unmöglich wahrzunehmen sein kann, wenn ein Benutzer gezwungen ist, den Mauszeiger über dem Auslöser zu halten, besagt [WCAG 1.4.13](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background), dass sichtbar gemachter Inhalt persistent sein sollte, d.h., er sollte nicht ohne Benutzeraktion verschwinden.
+Der Tooltip muss beim Überfahren offen bleiben, auch wenn das technisch bedeutet, dass die Maus aus dem besitzenden Element herausbewegt wird. Da Inhalt, der bei Hover erscheint, schwer oder unmöglich wahrzunehmen sein kann, wenn ein Benutzer gezwungen ist, den Mauszeiger über dem Auslöser zu halten, besagt [WCAG 1.4.13](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background), dass sichtbar gemachter Inhalt persistent sein sollte, d.h. er sollte nicht ohne Benutzeraktion verschwinden.
 
 ## Beste Praktiken
 

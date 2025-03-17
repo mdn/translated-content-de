@@ -42,7 +42,7 @@ Eine kubische Bézier-Kurve wird durch vier Punkte definiert: P0, P1, P2 und P3.
 
 ![Grafik des Eingangsfortschritts zum Ausgangsfortschritt, die eine S-förmige Linie zeigt, die vom Ursprung zu (1, 1) mit den Bézier-Kontrollpunkten P1(0.1, 0.6) und P2(0.7, 0.2) kurvt.](cubic-bezier.svg)
 
-Nicht alle kubischen Bézier-Kurven eignen sich als Easing-Funktionen, weil nicht alle [mathematische Funktionen](https://en.wikipedia.org/wiki/Function_%28mathematics%29) sind; d.h., Kurven, die für eine gegebene x-Achsen-Koordinate null oder einen Wert haben. Mit P0 und P3 festgelegt wie von CSS definiert, ist eine kubische Bézier-Kurve eine Funktion und daher gültig, wenn und nur wenn die x-Achsen-Koordinaten von P1 und P2 beide im Bereich `[0, 1]` liegen.
+Nicht alle kubischen Bézier-Kurven eignen sich als Easing-Funktionen, weil nicht alle [mathematische Funktionen](https://en.wikipedia.org/wiki/Function_%28mathematics%29) sind; d.h. Kurven, die für eine gegebene x-Achsen-Koordinate null oder einen Wert haben. Mit P0 und P3 festgelegt wie von CSS definiert, ist eine kubische Bézier-Kurve eine Funktion und daher gültig, wenn und nur wenn die x-Achsen-Koordinaten von P1 und P2 beide im Bereich `[0, 1]` liegen.
 
 Kubische Bézier-Kurven mit der Ordinate von P1 oder P2 außerhalb des Bereichs `[0, 1]` können dazu führen, dass der Wert über den Endzustand hinausgeht und dann zurückkehrt. In Animationen erzeugt dies eine Art "Spring"-Effekt.
 

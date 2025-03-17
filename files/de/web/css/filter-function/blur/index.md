@@ -44,7 +44,7 @@ blur(radius)
 ### Parameter
 
 - `radius` {{Optional_Inline}}
-  - : Der Radius des Weichzeichners, angegeben als {{cssxref("&lt;length&gt;")}}. Er definiert den Wert der Standardabweichung für die Gaußfunktion, d.h., wie viele Pixel auf dem Bildschirm ineinander übergehen; daher erzeugt ein größerer Wert mehr Weichzeichnung. Ein Wert von `0` lässt die Eingabe unverändert. Der anfängliche Wert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentwerte sind ungültig. Der Standardwert ist `0px`.
+  - : Der Radius des Weichzeichners, angegeben als {{cssxref("&lt;length&gt;")}}. Er definiert den Wert der Standardabweichung für die Gaußfunktion, d.h. wie viele Pixel auf dem Bildschirm ineinander übergehen; daher erzeugt ein größerer Wert mehr Weichzeichnung. Ein Wert von `0` lässt die Eingabe unverändert. Der anfängliche Wert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentwerte sind ungültig. Der Standardwert ist `0px`.
 
 ### Beispiele für Weichzeichnerwerte
 

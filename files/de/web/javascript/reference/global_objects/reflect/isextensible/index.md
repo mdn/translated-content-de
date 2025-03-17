@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.isExtensible()`** ähnelt {{jsxref("Object.isExtensible()")}}. Sie bestimmt, ob ein Objekt erweiterbar ist (d.h., ob neue Eigenschaften zu ihm hinzugefügt werden können).
+Die statische Methode **`Reflect.isExtensible()`** ähnelt {{jsxref("Object.isExtensible()")}}. Sie bestimmt, ob ein Objekt erweiterbar ist (d.h. ob neue Eigenschaften zu ihm hinzugefügt werden können).
 
 {{InteractiveExample("JavaScript Demo: Reflect.isExtensible()", "taller")}}
 

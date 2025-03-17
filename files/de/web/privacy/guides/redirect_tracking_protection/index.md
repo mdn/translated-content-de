@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 775df1c62a1cbe555c4374ff9122d4ef15bd6f60
 ---
 
-Seit Version 79 schützt Firefox Benutzer vor **Weiterleitungsverfolgung**, indem er regelmäßig Cookies und Website-Daten löscht, die von bekannten Trackern gesetzt wurden. Diese Daten werden nur dann aus dem Speicher gelöscht, wenn der Benutzer [Tracking-Cookies blockiert](/de/docs/Web/Privacy/Guides/Storage_Access_Policy) (d.h., die Voreinstellung `network.cookie.cookieBehavior` ist auf `4` gesetzt).
+Seit Version 79 schützt Firefox Benutzer vor **Weiterleitungsverfolgung**, indem er regelmäßig Cookies und Website-Daten löscht, die von bekannten Trackern gesetzt wurden. Diese Daten werden nur dann aus dem Speicher gelöscht, wenn der Benutzer [Tracking-Cookies blockiert](/de/docs/Web/Privacy/Guides/Storage_Access_Policy) (d.h. die Voreinstellung `network.cookie.cookieBehavior` ist auf `4` gesetzt).
 
 Die Unterstützung für andere Cookie-Richtlinien wird durch [Bug 1643045](https://bugzil.la/1643045) verfolgt.
 

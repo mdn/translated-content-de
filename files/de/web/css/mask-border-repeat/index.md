@@ -57,7 +57,7 @@ Die Eigenschaft `mask-border-repeat` kann mit einem oder zwei Werten aus der unt
 
 ### Grundlegende Nutzung
 
-Diese Eigenschaft scheint derzeit nirgends unterstützt zu werden. Wenn sie schließlich unterstützt wird, wird sie dazu dienen, zu definieren, wie der maskierte Rahmen-Slice sich wiederholen wird — d.h., ob er sich einfach wiederholt, leicht skaliert wird, sodass eine ganze Zahl von Slices passt, oder gestreckt wird, sodass ein Slice passt.
+Diese Eigenschaft scheint derzeit nirgends unterstützt zu werden. Wenn sie schließlich unterstützt wird, wird sie dazu dienen, zu definieren, wie der maskierte Rahmen-Slice sich wiederholen wird — d.h. ob er sich einfach wiederholt, leicht skaliert wird, sodass eine ganze Zahl von Slices passt, oder gestreckt wird, sodass ein Slice passt.
 
 ```css
 mask-border-repeat: round;

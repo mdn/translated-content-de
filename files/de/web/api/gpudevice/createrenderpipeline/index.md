@@ -44,7 +44,7 @@ Das `depthStencil` Objekt kann die folgenden Eigenschaften enthalten:
 - `depthBias` {{optional_inline}}
   - : Eine Zahl, die einen konstanten Tiefen-Bias darstellt, der jedem Fragment hinzugefügt wird. Wenn ausgelassen, beträgt der Standardwert für `depthBias` 0.
     > [!NOTE]
-    > Die Eigenschaften `depthBias`, `depthBiasClamp` und `depthBiasSlopeScale` müssen bei Topologien für Linien und Punkte auf `0` gesetzt sein, d.h., wenn [`topology`](#topology) auf `"line-list"`, `"line-strip"` oder `"point-list"` gesetzt ist. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und die zurückgegebene [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) ist ungültig.
+    > Die Eigenschaften `depthBias`, `depthBiasClamp` und `depthBiasSlopeScale` müssen bei Topologien für Linien und Punkte auf `0` gesetzt sein, d.h. wenn [`topology`](#topology) auf `"line-list"`, `"line-strip"` oder `"point-list"` gesetzt ist. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und die zurückgegebene [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) ist ungültig.
 - `depthBiasClamp` {{optional_inline}}
   - : Eine Zahl, die den maximalen Tiefen-Bias eines Fragments darstellt. Wenn ausgelassen, beträgt der Standardwert für `depthBiasClamp` 0.
 - `depthBiasSlopeScale` {{optional_inline}}
@@ -366,13 +366,13 @@ Die folgenden Kriterien müssen bei einem Aufruf von **`createRenderPipeline()`*
 
 - Für `depthStencil` Objekte:
   - `format` ist ein [`depth-or-stencil`](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format) Format.
-  - Die Eigenschaften [`depthBias`](#depthbias), [`depthBiasClamp`](#depthbiasclamp) und [`depthBiasSlopeScale`](#depthbiasslopescale) sind auf <code>0</code> für Linien- und Punkt-Topologien gesetzt, d.h., wenn [`topology`](#topology) auf `"line-list"`, `"line-strip"`, oder `"point-list"` gesetzt ist.
+  - Die Eigenschaften [`depthBias`](#depthbias), [`depthBiasClamp`](#depthbiasclamp) und [`depthBiasSlopeScale`](#depthbiasslopescale) sind auf <code>0</code> für Linien- und Punkt-Topologien gesetzt, d.h. wenn [`topology`](#topology) auf `"line-list"`, `"line-strip"`, oder `"point-list"` gesetzt ist.
   - Wenn `depthWriteEnabled` `true` ist oder `depthCompare` nicht `"always"`, hat `format` eine Tiefenkomponente.
   - Wenn die Eigenschaften von `stencilFront` oder `stencilBack` nicht auf ihren Standardwerten sind, hat `format` eine Stencil-Komponente.
 - Für `fragment` Objekte:
   - `targets.length` ist kleiner oder gleich dem [`GPUDevice`](/de/docs/Web/API/GPUDevice) `maxColorAttachments` [Limit](/de/docs/Web/API/GPUSupportedLimits).
   - Für jedes `target` ist das numerische Äquivalent von `writeMask` kleiner als 16.
-  - Wenn einer der verwendeten Blendfaktor-Operationen den Alpha-Kanal der Quelle verwendet (z.B. `"src-alpha-saturated"`), hat die Ausgabe einen Alpha-Kanal (d.h., es muss ein `vec4` sein).
+  - Wenn einer der verwendeten Blendfaktor-Operationen den Alpha-Kanal der Quelle verwendet (z.B. `"src-alpha-saturated"`), hat die Ausgabe einen Alpha-Kanal (d.h. es muss ein `vec4` sein).
   - Wenn die `src1`, `one-minus-src1`, `src1-alpha`, oder `one-minus-src1-alpha` Blendfaktor-Operationen verwendet werden, ist das `dual-source-blending` [Feature](/de/docs/Web/API/GPUSupportedFeatures) aktiviert.
   - Wenn die `entryPoint` Eigenschaft weggelassen wird, enthält der Shader-Code eine einzelne Fragment-Shader-Einstiegspunktfunktion, die der Browser als Standard-Einstiegspunkt verwenden kann.
 - Für `primitive` Objekte:

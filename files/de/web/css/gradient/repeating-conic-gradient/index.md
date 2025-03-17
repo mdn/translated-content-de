@@ -74,7 +74,7 @@ Beispiel für wiederholende konische Verläufe sind z.B. Strahlenmuster. Das Erg
 
 Wenn weder die ersten noch die letzten Farbstopps einen Farbwinkel größer als 0° oder kleiner als 360° haben, wird der konische Verlauf nicht wiederholt.
 
-Wie jeder Verlauf hat auch ein sich wiederholender konischer Verlauf [keine intrinsischen Dimensionen](/de/docs/Web/CSS/image#description); d.h., er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das er angewendet wird, oder der Größe, die das `<image>` hat, wenn diese anders als die des Elements festgelegt ist.
+Wie jeder Verlauf hat auch ein sich wiederholender konischer Verlauf [keine intrinsischen Dimensionen](/de/docs/Web/CSS/image#description); d.h. er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das er angewendet wird, oder der Größe, die das `<image>` hat, wenn diese anders als die des Elements festgelegt ist.
 
 Da `<gradient>`s zum `<image>`-Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `repeating-conic-gradient()` nicht auf {{CSSxRef("background-color")}} und anderen Eigenschaften, die den {{CSSxRef("&lt;color&gt;")}} Datentyp verwenden.
 

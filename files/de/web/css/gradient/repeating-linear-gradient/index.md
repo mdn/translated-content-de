@@ -44,7 +44,7 @@ background:
 
 Die Länge des sich wiederholenden Verlaufs ist der Abstand zwischen dem ersten und dem letzten Farbstopp. Wenn die erste Farbe keine color-stop-length hat, wird die Länge standardmäßig auf 0 gesetzt. Bei jeder Wiederholung werden die Positionen der Farbstopps um ein Vielfaches der Länge des grundlegenden linearen Verlaufs verschoben. Dadurch fällt die Position jedes Endfarbstopps mit einem Anfangsfarbstopp zusammen; wenn die Farbwerte unterschiedlich sind, führt dies zu einem scharfen Übergang. Dies kann geändert werden, indem die erste Farbe erneut als letzte Farbe wiederholt wird.
 
-Wie bei jedem Verlauf hat ein wiederholender linearer Verlauf [keine intrinsischen Abmessungen](/de/docs/Web/CSS/image#description); d.h., er hat keine natürliche oder bevorzugte Größe oder ein bevorzugtes Verhältnis. Seine feste Größe wird der Größe des Elements entsprechen, auf das er angewendet wird.
+Wie bei jedem Verlauf hat ein wiederholender linearer Verlauf [keine intrinsischen Abmessungen](/de/docs/Web/CSS/image#description); d.h. er hat keine natürliche oder bevorzugte Größe oder ein bevorzugtes Verhältnis. Seine feste Größe wird der Größe des Elements entsprechen, auf das er angewendet wird.
 
 Da `<gradient>`s zum `<image>` Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `repeating-linear-gradient()` nicht mit {{Cssxref("background-color")}} und anderen Eigenschaften, die den {{cssxref("&lt;color&gt;")}} Datentyp verwenden.
 

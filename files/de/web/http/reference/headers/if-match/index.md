@@ -45,7 +45,7 @@ If-Match: <etag_value>, <etag_value>, …
 - `<etag_value>`
   - : Entitätstags, die die angeforderten Ressourcen eindeutig repräsentieren.
     Sie sind eine Zeichenkette von {{Glossary("ASCII", "ASCII")}}-Zeichen, die in Anführungszeichen gesetzt sind (wie `"675af34563dc-tr34"`).
-    Sie können mit `W/` vorangestellt werden, um anzuzeigen, dass sie "schwach" sind, d.h., dass sie die Ressource semantisch, aber nicht byteweise repräsentieren.
+    Sie können mit `W/` vorangestellt werden, um anzuzeigen, dass sie "schwach" sind, d.h. dass sie die Ressource semantisch, aber nicht byteweise repräsentieren.
     In einem `If-Match`-Header werden schwache Entitätstags jedoch niemals übereinstimmen.
 - `*`
   - : Der Asterisk ist ein spezieller Wert, der jede Ressource repräsentiert.

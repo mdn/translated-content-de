@@ -146,7 +146,7 @@ const panner = new PannerNode(audioCtx, {
 
 ## Bewegung der Boombox
 
-Jetzt werden wir unsere Boombox in unserem "Raum" bewegen. Wir haben einige Steuerelemente eingerichtet, um dies zu tun. Wir können sie nach links und rechts, oben und unten, sowie vor und zurück bewegen; wir können sie auch drehen. Die Klangrichtung stammt von den Lautsprechern der Boombox vorne, sodass wir beim Drehen die Klangrichtung ändern können — d.h., die Klangrichtung nach hinten projizieren, wenn die Boombox um 180 Grad gedreht und uns abgewandt ist.
+Jetzt werden wir unsere Boombox in unserem "Raum" bewegen. Wir haben einige Steuerelemente eingerichtet, um dies zu tun. Wir können sie nach links und rechts, oben und unten, sowie vor und zurück bewegen; wir können sie auch drehen. Die Klangrichtung stammt von den Lautsprechern der Boombox vorne, sodass wir beim Drehen die Klangrichtung ändern können — d.h. die Klangrichtung nach hinten projizieren, wenn die Boombox um 180 Grad gedreht und uns abgewandt ist.
 
 Wir müssen einige Dinge für die Benutzeroberfläche einrichten. Zuerst holen wir uns die Referenzen zu den zu bewegenden Elementen, dann speichern wir die Referenzen zu den Werten, die wir ändern werden, wenn wir [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) einrichten, um die tatsächliche Bewegung durchzuführen. Schließlich legen wir einige Grenzen fest, damit sich unsere Boombox nicht zu weit in eine Richtung bewegt:
 

@@ -64,7 +64,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - `visible`
   - : Dieser Wert gibt an, dass das Element gezeichnet wird.
 - `hidden`
-  - : Dieser Wert gibt an, dass das Element nicht gezeichnet wird. Es ist jedoch weiterhin Teil des Rendering-Baums, d.h., es kann abhängig vom {{SVGAttr("pointer-events")}}-Attribut Zeigereignisse empfangen, abhängig vom {{SVGAttr("tabindex")}}-Attribut den Fokus erhalten, zu Berechnungen der Begrenzungsbox und Schnittwege beitragen und sich auf das Textlayout auswirken.
+  - : Dieser Wert gibt an, dass das Element nicht gezeichnet wird. Es ist jedoch weiterhin Teil des Rendering-Baums, d.h. es kann abhängig vom {{SVGAttr("pointer-events")}}-Attribut Zeigereignisse empfangen, abhängig vom {{SVGAttr("tabindex")}}-Attribut den Fokus erhalten, zu Berechnungen der Begrenzungsbox und Schnittwege beitragen und sich auf das Textlayout auswirken.
 - `collapse`
   - : Dieser Wert entspricht `hidden`.
 

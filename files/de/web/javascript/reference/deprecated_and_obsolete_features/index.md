@@ -35,7 +35,7 @@ console.log("b");
 // Logs "a" and "b"
 ```
 
-`<!--` und `-->` wirken beide wie `//`, d.h., sie starten Zeilenkommentare. `-->` ist nur am Zeilenanfang gültig (um Mehrdeutigkeiten mit einem postfaktischen Dekrement gefolgt von einem Größer-als-Operator zu vermeiden), während `<!--` überall in der Zeile vorkommen kann.
+`<!--` und `-->` wirken beide wie `//`, d.h. sie starten Zeilenkommentare. `-->` ist nur am Zeilenanfang gültig (um Mehrdeutigkeiten mit einem postfaktischen Dekrement gefolgt von einem Größer-als-Operator zu vermeiden), während `<!--` überall in der Zeile vorkommen kann.
 
 ### RegExp
 

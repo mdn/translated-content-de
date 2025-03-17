@@ -51,7 +51,7 @@ Der `commands`-Schlüssel ist ein Objekt, und jeder Shortcut ist eine Eigenschaf
 Der Wert jedes Shortcuts ist ein Objekt mit bis zu 2 Eigenschaften:
 
 1. `suggested_key` {{optional_inline}}: die Tastenkombination, die den Shortcut aktiviert.
-2. `description` {{optional_inline}}: ein String, der den Shortcut beschreibt, d.h., was er tut.
+2. `description` {{optional_inline}}: ein String, der den Shortcut beschreibt, d.h. was er tut.
 
 Die Eigenschaft `suggested_key` ist ein Objekt mit beliebigen oder keinen dieser Eigenschaften (alle Strings):
 

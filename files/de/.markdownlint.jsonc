@@ -235,7 +235,7 @@
       {
         "name": "normalize-d-h",
         "message": "Normalize \"d.h.\"",
-        "searchPattern": "/d\\. h\\.,?/g",
+        "searchPattern": "/d\\.( h\\.,?| ?h\\.,)/g",
         "replace": "d.h.",
         "searchScope": "text",
       },

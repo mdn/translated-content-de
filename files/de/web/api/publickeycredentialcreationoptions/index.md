@@ -62,7 +62,7 @@ Das **`PublicKeyCredentialCreationOptions`**-Wörterbuch repräsentiert das Obje
 
     - `residentKey` {{optional_inline}}
 
-      - : Ein String, der angibt, in welchem Maße die vertrauende Partei wünscht, ein clientseitiges [entdeckbares Zertifikat](/de/docs/Web/API/Web_Authentication_API#discoverable_credentials_and_conditional_mediation) zu erstellen (d.h., eines, das in Authentifizierungsanfragen verwendbar ist, bei denen die vertrauende Partei keine Zertifikats-IDs bereitstellt — [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) wird mit einem leeren `allowCredentials`-Wert aufgerufen). Die Alternative ist ein **serverseitiges Zertifikat**, bei dem die vertrauende Partei Zertifikats-IDs im `get()`-Wert `allowCredentials` bereitstellen muss.
+      - : Ein String, der angibt, in welchem Maße die vertrauende Partei wünscht, ein clientseitiges [entdeckbares Zertifikat](/de/docs/Web/API/Web_Authentication_API#discoverable_credentials_and_conditional_mediation) zu erstellen (d.h. eines, das in Authentifizierungsanfragen verwendbar ist, bei denen die vertrauende Partei keine Zertifikats-IDs bereitstellt — [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) wird mit einem leeren `allowCredentials`-Wert aufgerufen). Die Alternative ist ein **serverseitiges Zertifikat**, bei dem die vertrauende Partei Zertifikats-IDs im `get()`-Wert `allowCredentials` bereitstellen muss.
         Mögliche Werte sind:
 
         - `"discouraged"`

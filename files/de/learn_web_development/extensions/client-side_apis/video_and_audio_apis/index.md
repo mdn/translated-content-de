@@ -377,7 +377,7 @@ Es gibt viele Möglichkeiten, wie Sie Rückspul- und Vorspul-Funktionalität imp
 
    Lassen Sie uns erneut nur durch die erste dieser Funktionen gehen, da sie fast identisch funktionieren, allerdings in umgekehrter Richtung. In `windBackward()` machen wir Folgendes — beachten Sie, dass, wenn das Intervall aktiv ist, diese Funktion einmal alle 200 Millisekunden ausgeführt wird.
 
-   1. Wir beginnen mit einer `if`-Anweisung, die prüft, ob die aktuelle Zeit geringer als 3 Sekunden ist, d.h., ob das Zurückspulen um weitere 3 Sekunden es zurück vor den Anfang des Videos bringen würde. Dies würde zu seltsamem Verhalten führen, sodass wir in diesem Fall das Video mit einem Aufruf von `stopMedia()` stoppen, die `active`-Klasse vom Rückspul-Button entfernen und das `intervalRwd`-Intervall löschen, um das Rückspulen zu stoppen. Würden wir diesen letzten Schritt nicht tun, würde das Video unendlich lange zurückspulen.
+   1. Wir beginnen mit einer `if`-Anweisung, die prüft, ob die aktuelle Zeit geringer als 3 Sekunden ist, d.h. ob das Zurückspulen um weitere 3 Sekunden es zurück vor den Anfang des Videos bringen würde. Dies würde zu seltsamem Verhalten führen, sodass wir in diesem Fall das Video mit einem Aufruf von `stopMedia()` stoppen, die `active`-Klasse vom Rückspul-Button entfernen und das `intervalRwd`-Intervall löschen, um das Rückspulen zu stoppen. Würden wir diesen letzten Schritt nicht tun, würde das Video unendlich lange zurückspulen.
    2. Wenn die aktuelle Zeit nicht innerhalb von 3 Sekunden von Anfang des Videos ist, ziehen wir 3 Sekunden von der aktuellen Zeit ab, indem wir `media.currentTime -= 3` ausführen. In der Praxis spulen wir das Video somit alle 200 Millisekunden um 3 Sekunden zurück.
 
 #### Aktualisierung der verstrichenen Zeit

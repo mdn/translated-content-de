@@ -34,7 +34,7 @@ at(index)
 ### Parameter
 
 - `index`
-  - : Der Index (Position) des Zeichenkettenzeichens, das zurückgegeben werden soll. Unterstützt relatives Indexieren vom Ende der Zeichenkette, wenn ein negativer Index angegeben wird; d.h., wenn eine negative Zahl verwendet wird, wird das zurückgegebene Zeichen durch Zurückzählen vom Ende der Zeichenkette gefunden.
+  - : Der Index (Position) des Zeichenkettenzeichens, das zurückgegeben werden soll. Unterstützt relatives Indexieren vom Ende der Zeichenkette, wenn ein negativer Index angegeben wird; d.h. wenn eine negative Zahl verwendet wird, wird das zurückgegebene Zeichen durch Zurückzählen vom Ende der Zeichenkette gefunden.
 
 ### Rückgabewert
 

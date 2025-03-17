@@ -17,7 +17,7 @@ Für eine Technologie, die als **experimentell** gekennzeichnet ist, gelten eine
 
 - Sie ist in der Veröffentlichungsversion von **nur einem** modernen Hauptbrowser-Rendering-Engine implementiert und standardmäßig aktiviert.
 - Sie wird nur durch Konfigurationsänderungen wie Einstellungen oder Flags unterstützt, unabhängig von der Anzahl der unterstützten Rendering-Engines.
-- Ihre definierende Spezifikation wird wahrscheinlich in rückwärts inkompatibler Weise signifikant verändert werden (d.h., sie kann bestehenden Code, der von der Funktion abhängig ist, brechen).
+- Ihre definierende Spezifikation wird wahrscheinlich in rückwärts inkompatibler Weise signifikant verändert werden (d.h. sie kann bestehenden Code, der von der Funktion abhängig ist, brechen).
 
 > [!NOTE]
 > Eine Funktion, die nur in einer Rendering-Engine veröffentlicht ist, wird als experimentell betrachtet, selbst wenn sie in Vorschauversionen anderer Rendering-Engines verfügbar ist (oder durch Festlegen einer Einstellung oder eines Flags).

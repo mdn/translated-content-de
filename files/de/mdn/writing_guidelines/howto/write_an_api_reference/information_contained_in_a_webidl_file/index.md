@@ -270,7 +270,7 @@ partial interface Blob {
 
 Wenn die Semantik von WebIDL nicht befolgt wird, wird oft eine Ausnahme ausgelöst, selbst wenn `[SetterThrows]` oder `[GetterThrows]` nicht gesetzt sind. Beispielsweise, wenn wir versuchen, eine schreibgeschützte Eigenschaft auf einen neuen Wert zu setzen, das heißt der implizierte Setter wird aufgerufen, wird eine schreibgeschützte Eigenschaft in einem strikten Mode soweit geworfen.
 
-Meist aus Kompatibilitätszwecken, ist dieses Verhalten manchmal ärgerlich. Um dies zu verhindern, indem man einen Nicht-Operations-Setter erstellt (d.h., indem man jeden Versuch, die Eigenschaft auf einen neuen Wert zu setzen, stillschweigend ignoriert), kann die `[LenientSetter]` Annotation verwendet werden.
+Meist aus Kompatibilitätszwecken, ist dieses Verhalten manchmal ärgerlich. Um dies zu verhindern, indem man einen Nicht-Operations-Setter erstellt (d.h. indem man jeden Versuch, die Eigenschaft auf einen neuen Wert zu setzen, stillschweigend ignoriert), kann die `[LenientSetter]` Annotation verwendet werden.
 
 ```webidl
 partial interface Document {

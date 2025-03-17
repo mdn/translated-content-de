@@ -89,7 +89,7 @@ Ein radialer Verlauf wird durch Angabe des Zentrums des Verlaufs (wo sich die 0 
 
 ## Beschreibung
 
-Wie bei jedem Verlauf hat auch ein radialer Verlauf [keine intrinsischen Dimensionen](/de/docs/Web/CSS/image#description); d.h., er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das er angewendet wird.
+Wie bei jedem Verlauf hat auch ein radialer Verlauf [keine intrinsischen Dimensionen](/de/docs/Web/CSS/image#description); d.h. er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das er angewendet wird.
 
 Um einen sich wiederholenden radialen Verlauf zu erstellen, der seinen Behälter ausfüllt, verwenden Sie stattdessen die Funktion {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}.
 

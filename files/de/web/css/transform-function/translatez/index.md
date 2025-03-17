@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`translateZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) positioniert ein Element entlang der z-Achse im 3D-Raum neu, d.h., näher zum Betrachter hin oder weiter weg. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`translateZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) positioniert ein Element entlang der z-Achse im 3D-Raum neu, d.h. näher zum Betrachter hin oder weiter weg. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: translateZ()")}}
 

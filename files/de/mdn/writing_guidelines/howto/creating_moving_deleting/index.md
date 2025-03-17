@@ -55,7 +55,7 @@ yarn content move <from-slug> <to-slug> [locale]
 
 Sie müssen lediglich den Slug des bestehenden Dokuments, das Sie verschieben möchten, angeben (z.B. `Web/HTTP/Authentication`) sowie den Slug seines neuen Standorts (z.B. `Web/HTTP/Auth`), gefolgt von der Lokalisierung des bestehenden Dokuments, falls erforderlich (standardmäßig `en-US`).
 
-Wenn das bestehende Dokument, das Sie verschieben möchten, untergeordnete Dokumente hat (d.h., es repräsentiert einen Dokumentbaum), wird der Befehl `yarn content move` den gesamten Baum verschieben.
+Wenn das bestehende Dokument, das Sie verschieben möchten, untergeordnete Dokumente hat (d.h. es repräsentiert einen Dokumentbaum), wird der Befehl `yarn content move` den gesamten Baum verschieben.
 
 Zum Beispiel, wenn Sie den gesamten Baum `/en-US/Web/HTTP/Authentication` nach `/en-US/Web/HTTP/Auth` verschieben möchten, würden Sie folgende Schritte ausführen:
 
@@ -111,7 +111,7 @@ yarn content delete <document-slug> [locale]
 
 Sie müssen lediglich den Slug des bestehenden Dokuments, das Sie löschen möchten, angeben (z.B. `Web/HTTP/Authentication`), gefolgt von der Lokalisierung des bestehenden Dokuments, falls erforderlich (standardmäßig `en-US`).
 
-Wenn das bestehende Dokument, das Sie löschen möchten, untergeordnete Dokumente hat (d.h., es repräsentiert einen Dokumentbaum), müssen Sie auch die Option `-r, --recursive` angeben, andernfalls schlägt der Befehl fehl.
+Wenn das bestehende Dokument, das Sie löschen möchten, untergeordnete Dokumente hat (d.h. es repräsentiert einen Dokumentbaum), müssen Sie auch die Option `-r, --recursive` angeben, andernfalls schlägt der Befehl fehl.
 
 Zum Beispiel, wenn Sie den gesamten Baum `/en-US/Web/HTTP/Authentication` löschen möchten, würden Sie folgende Schritte ausführen:
 

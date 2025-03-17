@@ -33,7 +33,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - userSpaceOnUse
-  - : Dieser Wert gibt an, dass die Längenwerte innerhalb der Filterdefinitionen Werte im aktuellen Benutzer-Koordinatensystem darstellen, das zum Zeitpunkt der Referenzierung des {{SVGElement("filter")}}-Elements vorhanden ist (d.h., das Benutzer-Koordinatensystem für das Element, das das {{SVGElement("filter")}}-Element durch ein {{SVGAttr("filter")}}-Attribut referenziert).
+  - : Dieser Wert gibt an, dass die Längenwerte innerhalb der Filterdefinitionen Werte im aktuellen Benutzer-Koordinatensystem darstellen, das zum Zeitpunkt der Referenzierung des {{SVGElement("filter")}}-Elements vorhanden ist (d.h. das Benutzer-Koordinatensystem für das Element, das das {{SVGElement("filter")}}-Element durch ein {{SVGAttr("filter")}}-Attribut referenziert).
 - objectBoundingBox
   - : Dieser Wert gibt an, dass die Längenwerte innerhalb der Filterdefinitionen Bruchteile oder Prozentsätze des Begrenzungsrahmens des referenzierenden Elements darstellen.
 

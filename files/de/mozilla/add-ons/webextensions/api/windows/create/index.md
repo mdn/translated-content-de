@@ -38,7 +38,7 @@ let creating = browser.windows.create(
       - : `boolean`. Wenn das Fenster geöffnet wird, enthält es einen einzelnen Tab oder mehr als einen Tab, wenn `url` angegeben ist und ein Array mit mehr als einer URL enthält. Standardmäßig dürfen Skripte, die auf diesen Seiten ausgeführt werden, ihren Tab nicht mit [`window.close()`](/de/docs/Web/API/Window/close) schließen. Wenn Sie `allowScriptsToClose` hinzufügen und auf `true` setzen, wird dieses Standardverhalten geändert, sodass Skripte ihre Tabs schließen können. Beachten Sie, dass:
 
         - dies nur für die Tabs gilt, die beim Erstellen des Fensters geöffnet wurden. Wenn der Benutzer weitere Tabs in diesem Fenster öffnet, können Skripte diese neuen Tabs nicht schließen.
-        - wenn die in `url` angegebenen URLs auf [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) verweisen (d.h., sie sind Seiten, die mit dieser Erweiterung enthalten und mit dem "moz-extension:"-Protokoll geladen werden), dürfen Skripte diese Tabs standardmäßig schließen.
+        - wenn die in `url` angegebenen URLs auf [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) verweisen (d.h. sie sind Seiten, die mit dieser Erweiterung enthalten und mit dem "moz-extension:"-Protokoll geladen werden), dürfen Skripte diese Tabs standardmäßig schließen.
 
     - `cookieStoreId` {{optional_inline}}
       - : `integer`. Wenn vorhanden, gibt den `CookieStoreId` für alle Tabs an, die beim Öffnen des Fensters erstellt werden. Weitere Informationen zur Verwendung von `cookieStoreId` finden Sie unter [Mit kontextuellen Identitäten arbeiten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).

@@ -44,7 +44,7 @@ Ein {{jsxref("Promise")}}, das **asynchron abgeschlossen** wird mit dem endgült
 
 ## Beschreibung
 
-Die `Promise.race()`-Methode ist eine der Methoden für [Promise-Konkurrenz](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency). Sie ist nützlich, wenn Sie die erste asynchrone Aufgabe beenden möchten, sich jedoch nicht um deren endgültigen Status kümmern (d.h., sie kann entweder erfolgreich sein oder fehlschlagen).
+Die `Promise.race()`-Methode ist eine der Methoden für [Promise-Konkurrenz](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency). Sie ist nützlich, wenn Sie die erste asynchrone Aufgabe beenden möchten, sich jedoch nicht um deren endgültigen Status kümmern (d.h. sie kann entweder erfolgreich sein oder fehlschlagen).
 
 Wenn das `iterable` einen oder mehrere Nicht-Promise-Werte und/oder ein bereits abgeschlossenes Promise enthält, wird `Promise.race()` mit dem ersten dieser im `iterable` gefundenen Werte abgeschlossen.
 

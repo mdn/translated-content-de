@@ -179,7 +179,7 @@ Das `rel`-Attribut hat keinen Standardwert. Wenn das Attribut weggelassen wird o
 - `noreferrer`
   - : Relevant für {{htmlelement('form')}}, {{htmlelement('a')}} und {{htmlelement('area')}}; durch die Aufnahme dieses Wertes wird der Referrer unbekannt (kein `Referer`-Header wird hinzugefügt), und es wird ein eigenständiger Browsing-Kontext erstellt, als ob `noopener` auch gesetzt wäre.
 - `opener`
-  - : Erstellt einen Hilfs-Browsing-Kontext, wenn der Hyperlink andernfalls einen eigenständigen Browsing-Kontext erstellen würde, der kein Hilfs-Browsing-Kontext ist (d.h., hat `"_blank"` als `target`-Attributwert). Effektiv das Gegenteil von [noopener](#noopener).
+  - : Erstellt einen Hilfs-Browsing-Kontext, wenn der Hyperlink andernfalls einen eigenständigen Browsing-Kontext erstellen würde, der kein Hilfs-Browsing-Kontext ist (d.h. hat `"_blank"` als `target`-Attributwert). Effektiv das Gegenteil von [noopener](#noopener).
 - `pingback`
   - : Gibt die Adresse des Pingback-Servers an, der Pingbacks für das aktuelle Dokument verarbeitet. Siehe die [Pingback-Spezifikation](https://www.hixie.ch/specs/pingback/pingback).
 - `preconnect`

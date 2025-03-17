@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`show()`**-Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces zeigt das Dialogfeld modelless an, d.h., sie erlaubt weiterhin die Interaktion mit dem Inhalt außerhalb des Dialogs.
+Die **`show()`**-Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces zeigt das Dialogfeld modelless an, d.h. sie erlaubt weiterhin die Interaktion mit dem Inhalt außerhalb des Dialogs.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Dialogfeld bereits geöffnet ist und modal ist (d.h., wenn das Dialogfeld bereits mit [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet wurde).
+  - : Wird ausgelöst, wenn das Dialogfeld bereits geöffnet ist und modal ist (d.h. wenn das Dialogfeld bereits mit [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet wurde).
 
 ## Beispiele
 

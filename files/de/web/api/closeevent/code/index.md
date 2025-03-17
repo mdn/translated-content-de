@@ -61,7 +61,7 @@ Ein ganzzahliger [WebSocket-Verbindungsschlusscode](https://www.rfc-editor.org/r
     <tr>
       <td><code>1006</code></td>
       <td>Abnormale Schließung</td>
-      <td><strong>Reserviert.</strong> Zeigt an, dass eine Verbindung abnormal geschlossen wurde (d.h., ohne dass ein Schluss-Frame gesendet wurde), wenn ein Statuscode erwartet wird.</td>
+      <td><strong>Reserviert.</strong> Zeigt an, dass eine Verbindung abnormal geschlossen wurde (d.h. ohne dass ein Schluss-Frame gesendet wurde), wenn ein Statuscode erwartet wird.</td>
     </tr>
     <tr>
       <td><code>1007</code></td>

@@ -44,7 +44,7 @@ Ein `SVGLength`-Objekt kann als schreibgeschützt bezeichnet werden, was bedeute
       <td><code>SVG_LENGTHTYPE_NUMBER</code></td>
       <td><code>1</code></td>
       <td>
-        Es wurde kein Einheitstyp angegeben (d.h., ein wertloser Wert wurde angegeben), was
+        Es wurde kein Einheitstyp angegeben (d.h. ein wertloser Wert wurde angegeben), was
         einen Wert in Benutzereinheiten angibt.
       </td>
     </tr>

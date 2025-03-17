@@ -22,7 +22,7 @@ Es spiegelt den Wert des globalen HTML-Attributs [`autocapitalize`](/de/docs/Web
 Ein String, der das Großschreibungsverhalten für Benutzereingaben des Elements repräsentiert. Gültige Werte sind wie folgt:
 
 - `none` oder `off`
-  - : Es sollte keine automatische Großschreibung angewendet werden, d.h., alle Buchstaben sollten standardmäßig kleingeschrieben werden.
+  - : Es sollte keine automatische Großschreibung angewendet werden, d.h. alle Buchstaben sollten standardmäßig kleingeschrieben werden.
 - `sentences` oder `on`
   - : Der erste Buchstabe jedes Satzes sollte standardmäßig großgeschrieben werden; alle anderen Buchstaben sollten kleingeschrieben werden.
 - `words`

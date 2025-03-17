@@ -16,7 +16,7 @@ Diese Methode gibt ein [`CanvasGradient`](/de/docs/Web/API/CanvasGradient) zurü
 Verlauf zuerst den Eigenschaften [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden.
 
 > [!NOTE]
-> Verlaufkoordinaten sind global, d.h., relativ zum aktuellen
+> Verlaufkoordinaten sind global, d.h. relativ zum aktuellen
 > Koordinatenraum. Wenn sie auf eine Form angewendet werden, sind die Koordinaten NICHT relativ zu den
 > Koordinaten der Form.
 

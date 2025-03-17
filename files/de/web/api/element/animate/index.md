@@ -59,7 +59,7 @@ animate(keyframes, options)
           ```
 
     - `rangeStart` {{optional_inline}}
-      - : Gibt den Beginn des Anbindungsbereichs einer Animation entlang ihrer Zeitleiste an, d.h., wo entlang der Zeitleiste eine Animation beginnt. Das JavaScript-Pendant zur CSS-Eigenschaft {{cssxref("animation-range-start")}}. `rangeStart` kann die gleichen Wertetypen wie `rangeEnd` annehmen.
+      - : Gibt den Beginn des Anbindungsbereichs einer Animation entlang ihrer Zeitleiste an, d.h. wo entlang der Zeitleiste eine Animation beginnt. Das JavaScript-Pendant zur CSS-Eigenschaft {{cssxref("animation-range-start")}}. `rangeStart` kann die gleichen Wertetypen wie `rangeEnd` annehmen.
     - `timeline` {{optional_inline}}
       - : Eine für `animate()` einzigartige Eigenschaft: Die [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), die mit der Animation verknüpft wird. Standardmäßig ist dies [`Document.timeline`](/de/docs/Web/API/Document/timeline). Das JavaScript-Pendant zur CSS-Eigenschaft {{cssxref("animation-timeline")}}.
 

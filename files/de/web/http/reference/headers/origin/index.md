@@ -52,7 +52,7 @@ Er wird verwendet, um den Sicherheitskontext für die Ursprungsanforderung berei
 Im Allgemeinen fügen Benutzer-Agenten den `Origin`-Anforderungsheader hinzu zu:
 
 - {{Glossary("CORS", "Cross-Origin")}}-Anforderungen.
-- [Same-Origin](/de/docs/Web/Security/Same-origin_policy)-Anforderungen, außer für {{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anforderungen (d.h., sie werden zu Same-Origin {{HTTPMethod("POST")}}, {{HTTPMethod("OPTIONS")}}, {{HTTPMethod("PUT")}}, {{HTTPMethod("PATCH")}} und {{HTTPMethod("DELETE")}}-Anforderungen hinzugefügt).
+- [Same-Origin](/de/docs/Web/Security/Same-origin_policy)-Anforderungen, außer für {{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anforderungen (d.h. sie werden zu Same-Origin {{HTTPMethod("POST")}}, {{HTTPMethod("OPTIONS")}}, {{HTTPMethod("PUT")}}, {{HTTPMethod("PATCH")}} und {{HTTPMethod("DELETE")}}-Anforderungen hinzugefügt).
 
 Es gibt einige Ausnahmen zu den oben genannten Regeln; zum Beispiel, wenn eine Cross-Origin {{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anforderung im [keine-cors-Modus](/de/docs/Web/API/Request/mode#value) durchgeführt wird, wird der `Origin`-Header nicht hinzugefügt.
 

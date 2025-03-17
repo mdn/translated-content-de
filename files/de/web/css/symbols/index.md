@@ -9,7 +9,7 @@ l10n:
 
 Die **`symbols()`** CSS-Funktion ermöglicht es, Zählerstile direkt als Wert von Eigenschaften wie z.B. {{cssxref("list-style")}} inline zu definieren und bietet damit eine weniger mächtige, aber einfachere Alternative zur {{cssxref("@counter-style")}}-Methode der Definition eines Zählerstils.
 
-Im Gegensatz zu {{cssxref("@counter-style")}}, das einen wiederverwendbaren Zählerstil definiert, ist `symbols()` _anonym_ (d.h., es kann nur einmal verwendet werden). Diese Funktion akzeptiert Zeichenketten und Bilder als Werte. Im Vergleich dazu akzeptiert der [`symbols`](/de/docs/Web/CSS/@counter-style/symbols) Deskriptor von {{cssxref("@counter-style")}} auch Bezeichner.
+Im Gegensatz zu {{cssxref("@counter-style")}}, das einen wiederverwendbaren Zählerstil definiert, ist `symbols()` _anonym_ (d.h. es kann nur einmal verwendet werden). Diese Funktion akzeptiert Zeichenketten und Bilder als Werte. Im Vergleich dazu akzeptiert der [`symbols`](/de/docs/Web/CSS/@counter-style/symbols) Deskriptor von {{cssxref("@counter-style")}} auch Bezeichner.
 
 ## Syntax
 

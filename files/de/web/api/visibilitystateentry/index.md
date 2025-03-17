@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{seecompattable}}
 
-Das **`VisibilityStateEntry`**-Interface bietet Zeitmessungen für Änderungen des Sichtbarkeitsstatus einer Seite, d.h., wenn ein Tab vom Vordergrund in den Hintergrund wechselt oder umgekehrt.
+Das **`VisibilityStateEntry`**-Interface bietet Zeitmessungen für Änderungen des Sichtbarkeitsstatus einer Seite, d.h. wenn ein Tab vom Vordergrund in den Hintergrund wechselt oder umgekehrt.
 
 Dies kann verwendet werden, um Sichtbarkeitsänderungen auf der Performance-Zeitleiste zu lokalisieren und sie mit anderen Performance-Einträgen wie "first-contentful-paint" zu vergleichen (siehe [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)).
 

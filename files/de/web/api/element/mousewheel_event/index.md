@@ -71,13 +71,13 @@ Der `wheelDelta`-Attributwert ist ein abstrakter Wert, der angibt, wie weit das 
 
 IE und Opera (Presto) unterstützen nur das `wheelDelta`-Attribut und keinen horizontalen Bildlauf.
 
-Der `wheelDeltaX`-Attributwert gibt den `wheelDelta`-Attributwert entlang der horizontalen Achse an. Wenn ein Benutzer das Gerät zum Scrollen nach rechts verwendet, ist der Wert negativ. Andernfalls, d.h., wenn es nach links ist, ist der Wert positiv.
+Der `wheelDeltaX`-Attributwert gibt den `wheelDelta`-Attributwert entlang der horizontalen Achse an. Wenn ein Benutzer das Gerät zum Scrollen nach rechts verwendet, ist der Wert negativ. Andernfalls, d.h. wenn es nach links ist, ist der Wert positiv.
 
 Der `wheelDeltaY`-Attributwert gibt den `wheelDelta`-Attributwert entlang der vertikalen Achse an. Das Vorzeichen des Wertes ist dasselbe wie das des `wheelDelta`-Attributwerts.
 
 ### Chrome
 
-Unter Windows ist der Wert derselbe wie der Delta-Wert von `WM_MOUSEWHEEL` oder `WM_MOUSEHWHEEL`. Und außerdem ändert sich der Wert nicht, auch wenn die Scrollmenge in den Systemeinstellungen als Seiten-Scroll eingestellt ist, d.h., der Wert ist derselbe wie bei IE unter Windows.
+Unter Windows ist der Wert derselbe wie der Delta-Wert von `WM_MOUSEWHEEL` oder `WM_MOUSEHWHEEL`. Und außerdem ändert sich der Wert nicht, auch wenn die Scrollmenge in den Systemeinstellungen als Seiten-Scroll eingestellt ist, d.h. der Wert ist derselbe wie bei IE unter Windows.
 
 Unter Linux beträgt der Wert `120` oder `-120` pro nativem Wheel-Event. Dies führt zu demselben Verhalten wie bei IE und Chrome für Windows.
 

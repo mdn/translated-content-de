@@ -43,7 +43,7 @@ background: repeating-radial-gradient(
 
 Bei jeder Wiederholung werden die Positionen der Farbstopps um ein Vielfaches der Dimensionen des grundlegenden radialen Gradienten verschoben (dem Abstand zwischen dem letzten und dem ersten Farbpunkt). Daher fällt die Position jedes endenden Farbstopps mit einem Anfangsfarbstopp zusammen; wenn die Farbwerte unterschiedlich sind, führt dies zu einer scharfen visuellen Übergang, der durch Wiederholung der ersten Farbe als letzte Farbe gemildert werden kann.
 
-Wie bei jedem Gradienten hat ein sich wiederholender radialer Gradient [keine intrinsischen Abmessungen](/de/docs/Web/CSS/image#description); d.h., er hat keine natürliche oder bevorzugte Größe und kein bevorzugtes Verhältnis. Seine konkrete Größe wird der Größe des Elements entsprechen, auf das er angewendet wird.
+Wie bei jedem Gradienten hat ein sich wiederholender radialer Gradient [keine intrinsischen Abmessungen](/de/docs/Web/CSS/image#description); d.h. er hat keine natürliche oder bevorzugte Größe und kein bevorzugtes Verhältnis. Seine konkrete Größe wird der Größe des Elements entsprechen, auf das er angewendet wird.
 
 Da `<gradient>`s zum `<image>`-Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `repeating-radial-gradient()` nicht bei {{cssxref("background-color")}} und anderen Eigenschaften, die den {{cssxref("&lt;color&gt;")}}-Datentyp verwenden.
 

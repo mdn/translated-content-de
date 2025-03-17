@@ -562,7 +562,7 @@ Einige zusätzliche nicht standardmäßige Attribute sind nach den Beschreibunge
 
   - : Gültig für `text`, `search`, `url`, `tel`, `email`, und `password`, das `pattern`-Attribut wird verwendet, um ein reguläres Ausdrucksmuster zu kompilieren, das der `value` der Eingabe entsprechen muss, um die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) zu bestehen. Es muss ein gültiger JavaScript Regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}} Typ verwendet wird und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert. Keine Schrägstriche sollten um den Mustertext angegeben werden. Beim Kompilieren des regulären Ausdrucks:
 
-    1. wird das Muster implizit mit `^(?:` und `)$` umschlossen, sodass die Übereinstimmung gegen den _gesamten_ Eingabewert erforderlich ist, d.h., `^(?:<pattern>)$`.
+    1. wird das Muster implizit mit `^(?:` und `)$` umschlossen, sodass die Übereinstimmung gegen den _gesamten_ Eingabewert erforderlich ist, d.h. `^(?:<pattern>)$`.
     2. wird das `'v'` Flag angegeben, sodass das Muster als Sequenz von Unicode-Codepunkten, und nicht als {{Glossary("ASCII", "ASCII")}}, behandelt wird.
 
     Wenn das `pattern`-Attribut vorhanden, aber nicht spezifiziert oder ungültig ist, wird kein regulärer Ausdruck angewendet, und dieses Attribut wird vollständig ignoriert. Wenn das Musterattribut gültig ist und ein nicht leerer Wert nicht mit dem Muster übereinstimmt, wird die Einschränkungsvalidierung die Formulareinreichung verhindern. Wenn das [`multiple`](/de/docs/Web/HTML/Attributes/multiple) vorhanden ist, wird der kompilierte reguläre Ausdruck gegen jeden kommagetrennten Wert abgeglichen.

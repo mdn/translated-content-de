@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein lokaler Gültigkeitsbereich ist eine Eigenschaft von {{Glossary("variable", "Variablen")}}, die sie lokal macht (d.h., der Variablenname ist nur innerhalb eines Gültigkeitsbereichs an seinen {{Glossary("value", "Wert")}} gebunden, der nicht der {{Glossary("global_scope", "globale Gültigkeitsbereich")}} ist).
+Ein lokaler Gültigkeitsbereich ist eine Eigenschaft von {{Glossary("variable", "Variablen")}}, die sie lokal macht (d.h. der Variablenname ist nur innerhalb eines Gültigkeitsbereichs an seinen {{Glossary("value", "Wert")}} gebunden, der nicht der {{Glossary("global_scope", "globale Gültigkeitsbereich")}} ist).
 
 ## Siehe auch
 

@@ -48,7 +48,7 @@ Werfen wir einen Blick auf die kaskadierende Herkunft, bevor wir auf die Kaskade
 Der Kaskadenalgorithmus bestimmt, wie der Wert für jede Eigenschaft für jedes Dokumentelement gefunden wird. Die folgenden Schritte gelten für den Kaskadenalgorithmus:
 
 1. **Relevanz**: Zuerst filtert er alle Regeln aus verschiedenen Quellen, um nur die Regeln zu behalten, die auf ein bestimmtes Element zutreffen. Das bedeutet Regeln, deren Selektor mit dem gegebenen Element übereinstimmt und die Teil einer entsprechenden `media`-At-Regel sind.
-2. **Herkunft und Wichtigkeit**: Dann sortiert er diese Regeln nach ihrer Wichtigkeit, d.h., ob sie von `!important` gefolgt werden oder nicht, und nach ihrer Herkunft. Ignorieren wir für den Moment die Schichten, ist die Kaskadenreihenfolge wie folgt:
+2. **Herkunft und Wichtigkeit**: Dann sortiert er diese Regeln nach ihrer Wichtigkeit, d.h. ob sie von `!important` gefolgt werden oder nicht, und nach ihrer Herkunft. Ignorieren wir für den Moment die Schichten, ist die Kaskadenreihenfolge wie folgt:
 
    | Prioritätsreihenfolge (niedrig bis hoch) | Herkunft                  | Wichtigkeit  |
    | ---------------------------------------- | ------------------------- | ------------ |

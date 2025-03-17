@@ -10,7 +10,7 @@ l10n:
 
 Das **`scrollsnapchange`**-Ereignis des [`Window`](/de/docs/Web/API/Window)-Interfaces wird am `window` am Ende eines Scroll-Vorgangs ausgelöst, wenn ein neues Scroll-Snap-Ziel ausgewählt wird.
 
-Dieses Ereignis funktioniert ähnlich wie das [`Element`](/de/docs/Web/API/Element)-Interface-Ereignis [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event), außer dass das gesamte HTML-Dokument als Scroll-Snap-Container festgelegt werden muss (d.h., {{cssxref("scroll-snap-type")}} ist auf dem {{htmlelement("html")}}-Element gesetzt).
+Dieses Ereignis funktioniert ähnlich wie das [`Element`](/de/docs/Web/API/Element)-Interface-Ereignis [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event), außer dass das gesamte HTML-Dokument als Scroll-Snap-Container festgelegt werden muss (d.h. {{cssxref("scroll-snap-type")}} ist auf dem {{htmlelement("html")}}-Element gesetzt).
 
 ## Syntax
 

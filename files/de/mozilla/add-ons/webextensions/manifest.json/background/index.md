@@ -108,7 +108,7 @@ Der `background`-Schlüssel kann auch diese optionale Eigenschaft enthalten:
         <p>Wenn weggelassen, ist diese Eigenschaft standardmäßig <code>true</code> in Manifest V2 und <code>false</code> in Manifest V3. Eine Einstellung auf <code>true</code> in Manifest V3 führt zu einem Fehler.</p>
         <ul>
           <li>
-            <code>true</code> bedeutet, dass die Hintergrundseite im Speicher gehalten wird, vom Zeitpunkt, an dem die Erweiterung geladen oder der Browser gestartet wird, bis die Erweiterung entladen oder deaktiviert wird oder der Browser geschlossen wird (d.h., die Hintergrundseite ist persistent).
+            <code>true</code> bedeutet, dass die Hintergrundseite im Speicher gehalten wird, vom Zeitpunkt, an dem die Erweiterung geladen oder der Browser gestartet wird, bis die Erweiterung entladen oder deaktiviert wird oder der Browser geschlossen wird (d.h. die Hintergrundseite ist persistent).
           </li>
           <li>
             <code>false</code> bedeutet, dass die Hintergrundseite bei Inaktivität aus dem Speicher entladen und bei Bedarf neu erstellt werden kann. Solche Hintergrundseiten werden oft als Ereignisseiten bezeichnet, da sie in den Speicher geladen werden, damit die Hintergrundseite die Ereignisse behandeln kann, zu denen sie Listener hinzugefügt hat. Die Registrierung von Listeners ist persistent, wenn die Seite aus dem Speicher entladen wird, andere Werte jedoch nicht. Wenn Sie Daten persistent in einer Ereignisseite speichern möchten, sollten Sie die

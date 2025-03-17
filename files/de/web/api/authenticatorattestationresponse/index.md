@@ -27,7 +27,7 @@ _Erbt auch Eigenschaften von ihrem Elternteil, [`AuthenticatorResponse`](/de/doc
   - : Ein {{jsxref("ArrayBuffer")}}, das Authentifikator-Daten und eine Attestation-Erklärung für ein neues Schlüsselpaar enthält, das vom Authentifikator generiert wurde.
 
 - [`AuthenticatorResponse.clientDataJSON`](/de/docs/Web/API/AuthenticatorResponse/clientDataJSON) {{ReadOnlyInline}}
-  - : Von [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse) geerbt, enthält diese Eigenschaft die JSON-kompatible Serialisierung der Daten, die vom Browser an den Authentifikator übergeben werden, um diese Anmeldeinformationen zu generieren — d.h., wenn [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) mit einer `publicKey`-Option aufgerufen wird. Diese Daten enthalten einige Informationen aus den in den `create()`-Aufruf übergebenen Optionen und einige Informationen, die vom Browser kontrolliert werden.
+  - : Von [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse) geerbt, enthält diese Eigenschaft die JSON-kompatible Serialisierung der Daten, die vom Browser an den Authentifikator übergeben werden, um diese Anmeldeinformationen zu generieren — d.h. wenn [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) mit einer `publicKey`-Option aufgerufen wird. Diese Daten enthalten einige Informationen aus den in den `create()`-Aufruf übergebenen Optionen und einige Informationen, die vom Browser kontrolliert werden.
 
 ## Instanz-Methoden
 
