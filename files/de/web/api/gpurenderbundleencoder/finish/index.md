@@ -31,8 +31,8 @@ Eine Instanz des Objekts [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle).
 
 Die folgenden Kriterien müssen erfüllt sein, wenn **`finish()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) wird ungültig:
 
-- Der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) ist geöffnet (d. h. nicht bereits durch einen `finish()`-Aufruf beendet).
-- Der Debug-Stack für den aktuellen Render-Pass ist leer (d. h. es ist keine Render-Pass-Debug-Gruppe derzeit geöffnet, wie sie durch [`pushDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/pushDebugGroup) geöffnet wurde).
+- Der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) ist geöffnet (d.h. nicht bereits durch einen `finish()`-Aufruf beendet).
+- Der Debug-Stack für den aktuellen Render-Pass ist leer (d.h. es ist keine Render-Pass-Debug-Gruppe derzeit geöffnet, wie sie durch [`pushDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/pushDebugGroup) geöffnet wurde).
 
 ## Beispiele
 

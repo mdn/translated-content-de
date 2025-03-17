@@ -14,7 +14,7 @@ Für ein digitales Website-Zertifikat beinhaltet diese Information mindestens de
 Zertifizierungsstellen sind Teil der Internet-[Public-Key-Infrastruktur](https://en.wikipedia.org/wiki/Public_key_infrastructure), die es Browsern ermöglicht, die Identität von Websites zu überprüfen und sicher über TLS (und somit HTTPS) zu verbinden.
 
 > [!NOTE]
-> Webbrowser werden mit einer Liste von "Stammzertifikaten" vorinstalliert. Der Browser kann diese verwenden, um zuverlässig zu prüfen, dass das Website-Zertifikat von einer Zertifizierungsstelle signiert wurde, die auf das Stammzertifikat „zurückführt“ (d. h. sie wurde vom Inhaber des Stammzertifikats oder einer Zwischen-CA vertraut). Letztlich beruht dieser Prozess darauf, dass jede CA vor der Signierung eines Zertifikats angemessene Identitätsprüfungen durchführt!
+> Webbrowser werden mit einer Liste von "Stammzertifikaten" vorinstalliert. Der Browser kann diese verwenden, um zuverlässig zu prüfen, dass das Website-Zertifikat von einer Zertifizierungsstelle signiert wurde, die auf das Stammzertifikat „zurückführt“ (d.h. sie wurde vom Inhaber des Stammzertifikats oder einer Zwischen-CA vertraut). Letztlich beruht dieser Prozess darauf, dass jede CA vor der Signierung eines Zertifikats angemessene Identitätsprüfungen durchführt!
 
 ## Siehe auch
 

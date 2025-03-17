@@ -28,7 +28,7 @@ Keiner ({{jsxref("Undefined")}}).
 
 Die folgenden Kriterien müssen beim Aufruf von **`endOcclusionQuery()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Eine Okklusionsabfrage ist für diesen Render-Pass aktiv (d. h. durch einen vorherigen Aufruf von `beginOcclusionQuery()`).
+- Eine Okklusionsabfrage ist für diesen Render-Pass aktiv (d.h. durch einen vorherigen Aufruf von `beginOcclusionQuery()`).
 
 ## Beispiele
 

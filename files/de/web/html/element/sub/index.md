@@ -33,7 +33,7 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Anwendungshinweise
 
-Das `<sub>`-Element sollte nur aus typografischen Gründen verwendet werden, d. h. um die Position des Textes zu ändern, um typografischen Konventionen oder Standards zu entsprechen, und nicht nur aus Präsentations- oder Erscheinungsgründen.
+Das `<sub>`-Element sollte nur aus typografischen Gründen verwendet werden, d.h. um die Position des Textes zu ändern, um typografischen Konventionen oder Standards zu entsprechen, und nicht nur aus Präsentations- oder Erscheinungsgründen.
 
 Zum Beispiel wäre es unangemessen, `<sub>` zu verwenden, um den Namen eines Unternehmens zu gestalten, das in seinem [Wortmarke](https://en.wikipedia.org/wiki/Wordmark) veränderte Baselines verwendet; stattdessen sollte CSS verwendet werden. Sie könnten zum Beispiel die Eigenschaft {{cssxref("vertical-align")}} mit einer Deklaration wie `vertical-align: sub` oder zur genaueren Kontrolle der Baseline-Verschiebung `vertical-align: -25%` verwenden.
 

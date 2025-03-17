@@ -15,7 +15,7 @@ Ohne ordnungsgemäße MIME-Typ-Verifizierung könnten Browser fälschlicherweise
 
 ## Lösung
 
-Alle Websites müssen den `X-Content-Type-Options` Header mit einem Wert von `nosniff` setzen und geeignete MIME-Typen für die Dateien, die sie bereitstellen, festlegen (d. h. über den [`Content-Type`](/de/docs/Web/HTTP/Reference/Headers/Content-Type) Header).
+Alle Websites müssen den `X-Content-Type-Options` Header mit einem Wert von `nosniff` setzen und geeignete MIME-Typen für die Dateien, die sie bereitstellen, festlegen (d.h. über den [`Content-Type`](/de/docs/Web/HTTP/Reference/Headers/Content-Type) Header).
 
 `nosniff` blockiert eine Anfrage, wenn das Anforderungsziel:
 

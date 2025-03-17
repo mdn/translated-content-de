@@ -29,7 +29,7 @@ setBindGroup(index, bindGroup, dynamicOffsets, dynamicOffsetsStart,
 - `bindGroup`
   - : Die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die für nachfolgende Render-Bundle-Befehle verwendet wird, oder `null`, in diesem Fall wird eine zuvor gesetzte Bindegruppe in dem angegebenen Slot gelöscht.
 - `dynamicOffsets` {{optional_inline}}
-  - : Ein Wert, der den Versatz in Bytes für jeden Eintrag in `bindGroup` mit `hasDynamicOffset: true` angibt (d. h. in der Beschreibung des Aufrufs [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout), der das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt erstellt hat, auf dem die `bindGroup` basiert). Dieser Wert kann sein:
+  - : Ein Wert, der den Versatz in Bytes für jeden Eintrag in `bindGroup` mit `hasDynamicOffset: true` angibt (d.h. in der Beschreibung des Aufrufs [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout), der das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt erstellt hat, auf dem die `bindGroup` basiert). Dieser Wert kann sein:
     - Ein Array von Zahlen, das die unterschiedlichen Versätze angibt.
     - Ein {{jsxref("Uint32Array")}}, das Zahlen enthält, die die Versätze angeben.
 

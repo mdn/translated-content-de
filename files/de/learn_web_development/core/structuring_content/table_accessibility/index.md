@@ -267,7 +267,7 @@ Dies gibt Ihrer HTML-Tabelle eine explizite Definition der Position jeder Zelle 
 Schauen wir uns das Beispiel "Verkaufte Artikel, August 2016" wieder an. Wir können die Attribute `id` und `headers` wie folgt verwenden:
 
 1. Fügen Sie jedem `<th>`-Element in der Tabelle eine eindeutige `id` hinzu.
-2. Fügen Sie jedem `<th>`-Element eine `headers`-Attribut hinzu, das als Unterüberschrift fungiert, d. h. eine Überschrift darüber hat. Der Wert ist die `id` der Überschrift, die die Unterüberschriften definiert, welches in unserem Beispiel `"clothes"` für die Spaltenüberschriften und `"belgium"` für die Zeilenüberschrift ist.
+2. Fügen Sie jedem `<th>`-Element eine `headers`-Attribut hinzu, das als Unterüberschrift fungiert, d.h. eine Überschrift darüber hat. Der Wert ist die `id` der Überschrift, die die Unterüberschriften definiert, welches in unserem Beispiel `"clothes"` für die Spaltenüberschriften und `"belgium"` für die Zeilenüberschrift ist.
 3. Fügen Sie jedem `<td>`-Element ein `headers`-Attribut hinzu und geben Sie die `id`s der zugehörigen `<th>`-Elemente in Form einer durch Leerzeichen getrennten Liste an. Gehen Sie genauso vor wie in einer Tabellenkalkulation: Finden Sie die Datenzelle und suchen Sie die entsprechenden Überschriften für die Zeile und Spalte. Die Reihenfolge der angegebenen `id`s spielt keine Rolle, aber Sie sollten konsistent bleiben, um es organisiert zu halten.
 
 ```html

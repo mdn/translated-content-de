@@ -17,7 +17,7 @@ Für schwebende Elemente ist die Stapelreihenfolge etwas anders. Schwebende Elem
 Siehe [Arten der Positionierung](/de/docs/Web/CSS/position#types_of_positioning) für eine Erklärung von positionierten und nicht positionierten Elementen.
 
 > [!NOTE]
-> Wenn ein `opacity`-Wert auf ein nicht positioniertes Element angewendet wird (d. h. DIV #4 im unten stehenden Beispiel), passiert etwas Merkwürdiges: Der Hintergrund und die Ränder dieses Blocks erscheinen über den schwebenden Blöcken und den positionierten Blöcken. Dies liegt an einem merkwürdigen Teil der Spezifikation: Durch das Anwenden eines `opacity`-Wertes wird ein neuer Stapelkontext erstellt (siehe [Was Ihnen niemand über Z-Index erzählt hat](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)).
+> Wenn ein `opacity`-Wert auf ein nicht positioniertes Element angewendet wird (d.h. DIV #4 im unten stehenden Beispiel), passiert etwas Merkwürdiges: Der Hintergrund und die Ränder dieses Blocks erscheinen über den schwebenden Blöcken und den positionierten Blöcken. Dies liegt an einem merkwürdigen Teil der Spezifikation: Durch das Anwenden eines `opacity`-Wertes wird ein neuer Stapelkontext erstellt (siehe [Was Ihnen niemand über Z-Index erzählt hat](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)).
 
 ## Beispiel
 

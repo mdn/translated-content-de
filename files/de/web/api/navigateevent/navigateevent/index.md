@@ -31,7 +31,7 @@ new NavigateEvent(type, init)
     - `formData` {{optional_inline}}
       - : Das [`FormData`](/de/docs/Web/API/FormData)-Objekt, das die übermittelten Daten bei einer `POST`-Formularübermittlung repräsentiert. Standardwert ist `null`.
     - `hashChange` {{optional_inline}}
-      - : Ein Boolescher Wert, der definiert, ob es sich bei der Navigation um eine Fragment-Navigation handelt (d. h. zu einem Fragment-Identifier im selben Dokument). Standardwert ist `false`.
+      - : Ein Boolescher Wert, der definiert, ob es sich bei der Navigation um eine Fragment-Navigation handelt (d.h. zu einem Fragment-Identifier im selben Dokument). Standardwert ist `false`.
     - `hasUAVisualTransition` {{optional_inline}}
       - : Ein Boolescher Wert, der angibt, ob der User-Agent vor dem Auslösen dieses Ereignisses eine visuelle Transition für diese Navigation durchgeführt hat. Standardwert ist `false`.
     - `info` {{optional_inline}}

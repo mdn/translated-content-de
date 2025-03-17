@@ -16,7 +16,7 @@ Aufgrund der enormen Größe unkomprimierter Videodaten ist es notwendig, diese 
 
 Nicht nur der benötigte Speicherplatz ist enorm, sondern auch die Netzwerkbandbreite, die erforderlich ist, um ein solches unkomprimiertes Video zu übertragen, wäre enorm, bei 249 MB/s — ohne Ton und Begleitinformationen. Hier kommen Video-Codecs ins Spiel. Genau wie Audio-Codecs für die Klangausgabe, komprimieren Video-Codecs die Videodaten und kodieren sie in ein Format, das später dekodiert und abgespielt oder bearbeitet werden kann.
 
-Die meisten Video-Codecs sind **verlustbehaftet**, d. h. das dekodierte Video stimmt nicht genau mit der Quelle überein. Einige Details können verloren gehen; der Grad des Verlusts hängt vom Codec und seiner Konfiguration ab, aber als allgemeine Regel gilt: Je mehr Kompression Sie erreichen, desto mehr Detail- und Qualitätsverlust wird auftreten. Einige verlustfreie Codecs existieren, aber diese werden typischerweise für Archivierungs- und Speicherzwecke für die lokale Wiedergabe verwendet und nicht für den Einsatz im Netzwerk.
+Die meisten Video-Codecs sind **verlustbehaftet**, d.h. das dekodierte Video stimmt nicht genau mit der Quelle überein. Einige Details können verloren gehen; der Grad des Verlusts hängt vom Codec und seiner Konfiguration ab, aber als allgemeine Regel gilt: Je mehr Kompression Sie erreichen, desto mehr Detail- und Qualitätsverlust wird auftreten. Einige verlustfreie Codecs existieren, aber diese werden typischerweise für Archivierungs- und Speicherzwecke für die lokale Wiedergabe verwendet und nicht für den Einsatz im Netzwerk.
 
 ## Häufige Codecs
 

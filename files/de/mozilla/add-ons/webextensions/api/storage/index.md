@@ -12,7 +12,7 @@ Ermöglicht es Erweiterungen, Daten zu speichern und abzurufen sowie Änderungen
 Das Speichersystem basiert auf der [Web Storage API](/de/docs/Web/API/Web_Storage_API), weist jedoch einige Unterschiede auf. Unter anderem:
 
 - Es ist asynchron.
-- Werte sind auf die Erweiterung beschränkt, nicht auf eine spezifische Domäne (d. h. dasselbe Set von Schlüssel/Wert-Paaren ist für alle Skripte im Hintergrundkontext und in Inhalts-Skripten verfügbar).
+- Werte sind auf die Erweiterung beschränkt, nicht auf eine spezifische Domäne (d.h. dasselbe Set von Schlüssel/Wert-Paaren ist für alle Skripte im Hintergrundkontext und in Inhalts-Skripten verfügbar).
 - Die gespeicherten Werte können beliebige JSON-fähige Werte sein, nicht nur [`String`](/de/docs/Web/JavaScript/Reference/Global_Objects/String). Dazu gehören unter anderem: [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) und [`Object`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object), aber nur, wenn deren Inhalte als JSON darstellbar sind, was DOM-Knoten nicht einschließt. Sie müssen Ihre Werte nicht in JSON `Strings` umwandeln, bevor Sie sie speichern, aber intern werden sie als JSON dargestellt, daher die Anforderung, dass sie JSON-fähig sein müssen.
 - Mehrere Schlüssel/Wert-Paare können in demselben API-Aufruf gesetzt oder abgerufen werden.
 

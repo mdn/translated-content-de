@@ -64,7 +64,7 @@ Browservorrichtungen behandeln die Zusammenfassung von White space wie folgt:
 - Wenn Leerzeichen zusammengafasst werden sollen:
   - Leerzeichen oder Tabs vor oder nach Segmentumbruchzeichen werden entfernt.
   - Sequenzen von Leerzeichen werden in ein einziges Leerzeichen umgewandelt oder "zusammengefasst".
-- Wenn Leerzeichen beibehalten werden, werden Sequenzen von Leerzeichen als nicht-unterbrechend behandelt, außer dass sie am Ende jeder Sequenz weich umbrechen — d. h. die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Fall des Wertes `break-spaces` könnte ein weicher Umbruch jedoch potenziell nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnt.
+- Wenn Leerzeichen beibehalten werden, werden Sequenzen von Leerzeichen als nicht-unterbrechend behandelt, außer dass sie am Ende jeder Sequenz weich umbrechen — d.h. die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Fall des Wertes `break-spaces` könnte ein weicher Umbruch jedoch potenziell nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnt.
 
 ## Formale Definition
 

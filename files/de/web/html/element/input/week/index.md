@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-{{HTMLElement("input")}}-Elemente des Typs **`week`** erstellen Eingabefelder, die eine einfache Eingabe eines Jahres plus der [ISO 8601-Kalenderwoche](https://en.wikipedia.org/wiki/ISO_8601#Week_dates) während dieses Jahres (d. h. Woche 1 bis [52 oder 53](https://en.wikipedia.org/wiki/ISO_8601#Week_dates)) ermöglichen.
+{{HTMLElement("input")}}-Elemente des Typs **`week`** erstellen Eingabefelder, die eine einfache Eingabe eines Jahres plus der [ISO 8601-Kalenderwoche](https://en.wikipedia.org/wiki/ISO_8601#Week_dates) während dieses Jahres (d.h. Woche 1 bis [52 oder 53](https://en.wikipedia.org/wiki/ISO_8601#Week_dates)) ermöglichen.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;week&quot;&gt;", "tabbed-shorter")}}
 

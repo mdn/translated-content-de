@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@starting-style`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) wird verwendet, um Anfangswerte für Eigenschaften eines Elements zu definieren, von denen aus Sie eine Transition starten möchten, wenn das Element das erste Mal eine Stil-Änderung erfährt, d. h. wenn ein Element zum ersten Mal auf einer zuvor geladenen Seite angezeigt wird.
+Die **`@starting-style`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) wird verwendet, um Anfangswerte für Eigenschaften eines Elements zu definieren, von denen aus Sie eine Transition starten möchten, wenn das Element das erste Mal eine Stil-Änderung erfährt, d.h. wenn ein Element zum ersten Mal auf einer zuvor geladenen Seite angezeigt wird.
 
 ## Syntax
 
@@ -43,7 +43,7 @@ Um unerwartetes Verhalten zu vermeiden, werden [CSS-Transitions](/de/docs/Web/CS
 
 Es gibt zwei Möglichkeiten, `@starting-style` zu verwenden: als eigenständige Regel oder verschachtelt innerhalb eines Regelsets.
 
-Betrachten wir ein Szenario, in dem ein [Popover](/de/docs/Web/API/Popover_API) animiert wird, wenn es angezeigt wird (d. h., wenn es zur Top-Ebene hinzugefügt wird). Die "ursprüngliche Regel", die die Stile für das offene Popover definiert, könnte wie folgt aussehen (siehe das [Popover-Beispiel](#animation_eines_popovers) unten):
+Betrachten wir ein Szenario, in dem ein [Popover](/de/docs/Web/API/Popover_API) animiert wird, wenn es angezeigt wird (d.h. wenn es zur Top-Ebene hinzugefügt wird). Die "ursprüngliche Regel", die die Stile für das offene Popover definiert, könnte wie folgt aussehen (siehe das [Popover-Beispiel](#animation_eines_popovers) unten):
 
 ```css
 [popover]:popover-open {

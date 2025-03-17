@@ -132,7 +132,7 @@ Firefox 51 wurde am 24. Januar 2017 veröffentlicht. Dieser Artikel listet wicht
 
 ### Sicherheit
 
-- Wenn Anmeldeseiten (d. h. solche, die ein [`<input type="password">`](/de/docs/Web/HTML/Element/input/password)-Feld enthalten) so erstellt werden, dass sie unsicher übermittelt würden, zeigt Firefox ein durchgestrichenes Schloss-Symbol in der Adressleiste, um Benutzer zu warnen ([Firefox-Bug 1319119](https://bugzil.la/1319119)). Siehe [Insecure passwords](/de/docs/Web/Security/Insecure_passwords) für weitere Details.
+- Wenn Anmeldeseiten (d.h. solche, die ein [`<input type="password">`](/de/docs/Web/HTML/Element/input/password)-Feld enthalten) so erstellt werden, dass sie unsicher übermittelt würden, zeigt Firefox ein durchgestrichenes Schloss-Symbol in der Adressleiste, um Benutzer zu warnen ([Firefox-Bug 1319119](https://bugzil.la/1319119)). Siehe [Insecure passwords](/de/docs/Web/Security/Insecure_passwords) für weitere Details.
 
 ### Entfernungen
 

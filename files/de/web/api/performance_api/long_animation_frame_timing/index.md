@@ -98,12 +98,12 @@ Im Folgenden finden Sie eine JSON-Darstellung eines vollständigen `"long-animat
       - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), das die Gesamtzeit in Millisekunden angibt, die das Skript für das "Pausieren" synchroner Operationen aufgewendet hat (z. B. Aufrufe von [`Window.alert()`](/de/docs/Web/API/Window/alert) oder synchroner [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)s).
     - [`script.sourceCharPosition`](/de/docs/Web/API/PerformanceScriptTiming/sourceCharPosition), [`script.sourceFunctionName`](/de/docs/Web/API/PerformanceScriptTiming/sourceFunctionName), und [`script.sourceURL`](/de/docs/Web/API/PerformanceScriptTiming/sourceURL)
 
-      - : Werte, die die Skriptzeichenposition, den Funktionsnamen und die Skript-URL darstellen. Es ist wichtig zu beachten, dass der gemeldete Funktionsname der "Einstiegspunkt" des Skripts ist (d. h. die oberste Ebene des Stapels) und nicht eine spezifische langsame Subfunktion.
+      - : Werte, die die Skriptzeichenposition, den Funktionsnamen und die Skript-URL darstellen. Es ist wichtig zu beachten, dass der gemeldete Funktionsname der "Einstiegspunkt" des Skripts ist (d.h. die oberste Ebene des Stapels) und nicht eine spezifische langsame Subfunktion.
 
         Wenn beispielsweise ein Ereignishandler eine obere Funktion aufruft, die wiederum eine langsame Unterfunktion aufruft, werden die `source*` Felder den Namen und die Lage der oberen Funktion berichten und nicht der langsamen Unterfunktion. Dies geschieht aus Performancegründen — ein vollständiger Stack-Trace ist kostspielig.
 
     - [`script.windowAttribution`](/de/docs/Web/API/PerformanceScriptTiming/windowAttribution) und [`script.window`](/de/docs/Web/API/PerformanceScriptTiming/window)
-      - : Ein Aufzählungswert, der die Beziehung des Containers beschreibt (d. h. entweder das oberste Dokument oder ein {{htmlelement("iframe")}}), in dem dieses Skript ausgeführt wurde, zum obersten Dokument, sowie ein Verweis auf sein [`Window`](/de/docs/Web/API/Window) Objekt.
+      - : Ein Aufzählungswert, der die Beziehung des Containers beschreibt (d.h. entweder das oberste Dokument oder ein {{htmlelement("iframe")}}), in dem dieses Skript ausgeführt wurde, zum obersten Dokument, sowie ein Verweis auf sein [`Window`](/de/docs/Web/API/Window) Objekt.
 
     > [!NOTE]
     > Skript-Attribution wird nur für Skripte bereitgestellt, die im Hauptthread einer Seite ausgeführt werden, einschließlich gleichnamiger `<iframe>`s. Cross-Origin `<iframe>`s, [Web Worker](/de/docs/Web/API/Web_Workers_API), [Service Worker](/de/docs/Web/API/Service_Worker_API) und [Erweiterungs](/de/docs/Mozilla/Add-ons/WebExtensions)-Code werden jedoch keine Skript-Attribution in langen Animationsrahmen haben, auch wenn sie die Dauer eines solchen Rahmens beeinflussen.

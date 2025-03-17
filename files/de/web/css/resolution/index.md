@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<resolution>`** [CSS](/de/docs/Web/CSS)-[Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types), der zur Beschreibung von [Auflösungen](/de/docs/Web/CSS/@media/resolution) in [Media-Queries](/de/docs/Web/CSS/CSS_media_queries) verwendet wird, gibt die Pixeldichte eines Ausgabegeräts an, d. h., dessen Auflösung.
+Der **`<resolution>`** [CSS](/de/docs/Web/CSS)-[Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types), der zur Beschreibung von [Auflösungen](/de/docs/Web/CSS/@media/resolution) in [Media-Queries](/de/docs/Web/CSS/CSS_media_queries) verwendet wird, gibt die Pixeldichte eines Ausgabegeräts an, d.h. dessen Auflösung.
 
 Auf Bildschirmen beziehen sich die Einheiten auf _CSS_-Zoll, Zentimeter oder Pixel, nicht auf physikalische Werte.
 

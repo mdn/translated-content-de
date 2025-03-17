@@ -70,7 +70,7 @@ Attribution-Reporting-Register-Source: <json-string>
           > [!NOTE]
           > Wenn `"event_report_windows"` angegeben ist, kann `"event_report_window"` nicht angegeben werden, ansonsten schlägt die Quellregistrierung fehl.
     - `"expiry"` {{optional_inline}}
-      - : Ein String, der eine Ablaufzeit in Sekunden für die Attributionsquelle darstellt, nach der sie nicht mehr aktiv sein wird (d. h. nachfolgende Trigger können dieser Quelle nicht mehr zugeordnet werden). Die maximale zulässige Ablaufzeit beträgt 2592000 Sekunden (30 Tage), was auch der Standardwert ist, wenn `"expiry"` nicht explizit gesetzt ist.
+      - : Ein String, der eine Ablaufzeit in Sekunden für die Attributionsquelle darstellt, nach der sie nicht mehr aktiv sein wird (d.h. nachfolgende Trigger können dieser Quelle nicht mehr zugeordnet werden). Die maximale zulässige Ablaufzeit beträgt 2592000 Sekunden (30 Tage), was auch der Standardwert ist, wenn `"expiry"` nicht explizit gesetzt ist.
     - `"filter_data"` {{optional_inline}}
       - : Ein Objekt, das benutzerdefinierte Daten definiert, die verwendet werden können, um zu filtern, welche Konversionen Berichte erzeugen. Siehe [Filter](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#filters) für weitere Details.
     - `"max_event_level_reports"` {{optional_inline}}

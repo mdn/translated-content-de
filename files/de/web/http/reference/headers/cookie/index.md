@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP **`Cookie`** {{Glossary("request_header", "Request-Header")}} enthält gespeicherte [HTTP-Cookies](/de/docs/Web/HTTP/Guides/Cookies), die mit dem Server assoziiert sind (d. h. zuvor vom Server mit dem {{HTTPHeader("Set-Cookie")}}-Header gesendet oder in JavaScript mit [`Document.cookie`](/de/docs/Web/API/Document/cookie) gesetzt).
+Der HTTP **`Cookie`** {{Glossary("request_header", "Request-Header")}} enthält gespeicherte [HTTP-Cookies](/de/docs/Web/HTTP/Guides/Cookies), die mit dem Server assoziiert sind (d.h. zuvor vom Server mit dem {{HTTPHeader("Set-Cookie")}}-Header gesendet oder in JavaScript mit [`Document.cookie`](/de/docs/Web/API/Document/cookie) gesetzt).
 
 Der `Cookie`-Header ist optional und kann weggelassen werden, wenn beispielsweise die Datenschutzeinstellungen des Browsers Cookies blockieren.
 

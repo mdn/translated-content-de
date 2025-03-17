@@ -258,7 +258,7 @@ _Dieses Interface erbt auch von den Interfaces [`Node`](/de/docs/Web/API/Node) u
 - [`Document.replaceChildren()`](/de/docs/Web/API/Document/replaceChildren)
   - : Ersetzt die vorhandenen Kinder eines Dokuments durch eine angegebene neue Menge von Kindern.
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
-  - : Ermöglicht einem Dokument, das in einem Drittanbieterkontext geladen ist (d. h. eingebettet in einem {{htmlelement("iframe")}}), den Zugriff auf unpartitionierte Cookies zu beantragen, in Fällen, in denen Benutzeragenten standardmäßig den Zugriff auf unpartitionierte Cookies von Websites, die in einem Drittanbieterkontext geladen sind, sperren, um die Privatsphäre zu verbessern.
+  - : Ermöglicht einem Dokument, das in einem Drittanbieterkontext geladen ist (d.h. eingebettet in einem {{htmlelement("iframe")}}), den Zugriff auf unpartitionierte Cookies zu beantragen, in Fällen, in denen Benutzeragenten standardmäßig den Zugriff auf unpartitionierte Cookies von Websites, die in einem Drittanbieterkontext geladen sind, sperren, um die Privatsphäre zu verbessern.
 - [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor) {{experimental_inline}}
   - : Erlaubt Top-Level-Sites, den Drittanbieter-Cookie-Zugriff im Namen von eingebetteten Inhalten zu beantragen, die von einer anderen Website in demselben [zusammengehörigen Website-Set](/de/docs/Web/API/Storage_Access_API/Related_website_sets) stammen.
 - [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition)

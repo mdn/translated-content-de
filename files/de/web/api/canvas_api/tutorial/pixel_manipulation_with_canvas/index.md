@@ -20,7 +20,7 @@ Das [`ImageData`](/de/docs/Web/API/ImageData)-Objekt repräsentiert die zugrunde
 - `data`
   - : Ein {{jsxref("Uint8ClampedArray")}}, das ein eindimensionales Array darstellt, das die Daten in der RGBA-Reihenfolge enthält, mit ganzzahligen Werten zwischen `0` und `255` (einschließlich).
 
-Die Eigenschaft `data` gibt ein {{jsxref("Uint8ClampedArray")}} zurück, das auf die Roh-Pixeldaten zugreifen lässt; jedes Pixel wird durch vier Ein-Byte-Werte repräsentiert (Rot, Grün, Blau und Alpha, in dieser Reihenfolge; d. h. im "RGBA"-Format). Jede Farbkomponente wird durch eine ganze Zahl zwischen 0 und 255 dargestellt. Jede Komponente erhält einen fortlaufenden Index innerhalb des Arrays, beginnend mit der roten Komponente des Pixels oben links bei Index 0 im Array. Danach werden die Pixel von links nach rechts und von oben nach unten im Array fortgesetzt.
+Die Eigenschaft `data` gibt ein {{jsxref("Uint8ClampedArray")}} zurück, das auf die Roh-Pixeldaten zugreifen lässt; jedes Pixel wird durch vier Ein-Byte-Werte repräsentiert (Rot, Grün, Blau und Alpha, in dieser Reihenfolge; d.h. im "RGBA"-Format). Jede Farbkomponente wird durch eine ganze Zahl zwischen 0 und 255 dargestellt. Jede Komponente erhält einen fortlaufenden Index innerhalb des Arrays, beginnend mit der roten Komponente des Pixels oben links bei Index 0 im Array. Danach werden die Pixel von links nach rechts und von oben nach unten im Array fortgesetzt.
 
 Das {{jsxref("Uint8ClampedArray")}} enthält `height` × `width` × 4 Byte an Daten, mit Indexwerten von 0 bis (`height` × `width` × 4) - 1.
 
@@ -61,7 +61,7 @@ Um ein neues, leeres `ImageData`-Objekt zu erstellen, verwenden Sie die Methode 
 const myImageData = ctx.createImageData(width, height);
 ```
 
-Damit wird ein neues `ImageData`-Objekt mit den angegebenen Abmessungen erstellt. Alle Pixel sind auf transparentes Schwarz voreingestellt (alle Nullen, d. h. rgb(0 0 0 / 0%)).
+Damit wird ein neues `ImageData`-Objekt mit den angegebenen Abmessungen erstellt. Alle Pixel sind auf transparentes Schwarz voreingestellt (alle Nullen, d.h. rgb(0 0 0 / 0%)).
 
 Sie können auch ein neues `ImageData`-Objekt erstellen, das dieselben Abmessungen wie das von `anotherImageData` angegebene Objekt hat. Die Pixel des neuen Objekts sind alle auf transparentes Schwarz voreingestellt. **Dies kopiert die Bilddaten nicht!**
 

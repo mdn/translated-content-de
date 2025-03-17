@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Das **`Int8Array`** Typ-Array repräsentiert ein Array von 8-Bit vorzeichenbehafteten Ganzzahlen. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Nach der Erstellung können Sie auf Elemente im Array mit den Methoden des Objekts oder der Standard-Array-Index-Syntax (d. h. Verwendung der eckigen Klammern) zugreifen.
+Das **`Int8Array`** Typ-Array repräsentiert ein Array von 8-Bit vorzeichenbehafteten Ganzzahlen. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Nach der Erstellung können Sie auf Elemente im Array mit den Methoden des Objekts oder der Standard-Array-Index-Syntax (d.h. Verwendung der eckigen Klammern) zugreifen.
 
 `Int8Array` ist eine Unterklasse der verborgenen {{jsxref("TypedArray")}}-Klasse.
 

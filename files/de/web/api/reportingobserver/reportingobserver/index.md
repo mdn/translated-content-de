@@ -21,7 +21,7 @@ new ReportingObserver(callback, options)
 
 - `callback`
 
-  - : Eine Callback-Funktion, die ausgeführt wird, wenn der Observer beginnt, Berichte zu sammeln (d. h. über [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe)). Die Callback-Funktion erhält zwei Parameter:
+  - : Eine Callback-Funktion, die ausgeführt wird, wenn der Observer beginnt, Berichte zu sammeln (d.h. über [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe)). Die Callback-Funktion erhält zwei Parameter:
 
     - `reports`
       - : Eine Sequenz von [`Report`](/de/docs/Web/API/Report)-Objekten, die die im Berichtswarteschlangen des Observers gesammelten Berichte darstellen. Dies ist wahrscheinlich der häufigste Weg, um die Berichte abzurufen.

@@ -192,7 +192,7 @@ Beachten Sie, dass JavaScript von Natur aus {{Glossary("Thread", "einzelner Thre
 - {{jsxref("Promise.reject()")}}
   - : Gibt ein neues `Promise`-Objekt zurück, das mit dem angegebenen Grund abgelehnt wird.
 - {{jsxref("Promise.resolve()")}}
-  - : Gibt ein `Promise`-Objekt zurück, das mit dem angegebenen Wert aufgelöst wird. Wenn der Wert ein Thenable ist (d. h. eine `then`-Methode hat), wird das zurückgegebene Promise diesem Thenable folgen und dessen endgültigen Zustand annehmen; ansonsten wird das zurückgegebene Promise mit dem Wert erfüllt.
+  - : Gibt ein `Promise`-Objekt zurück, das mit dem angegebenen Wert aufgelöst wird. Wenn der Wert ein Thenable ist (d.h. eine `then`-Methode hat), wird das zurückgegebene Promise diesem Thenable folgen und dessen endgültigen Zustand annehmen; ansonsten wird das zurückgegebene Promise mit dem Wert erfüllt.
 - {{jsxref("Promise.try()")}}
   - : Nimmt einen Callback jeglicher Art (gibt zurück oder wirft, synchron oder asynchron) an und umschließt dessen Ergebnis in einem `Promise`.
 - {{jsxref("Promise.withResolvers()")}}
@@ -214,7 +214,7 @@ Diese Eigenschaften sind auf `Promise.prototype` definiert und werden von allen 
 - {{jsxref("Promise.prototype.finally()")}}
   - : Fügt dem Promise einen Handler hinzu und gibt ein neues Promise zurück, das aufgelöst wird, wenn das ursprüngliche Promise aufgelöst wird. Der Handler wird aufgerufen, wenn das Promise abgeschlossen ist, egal ob erfüllt oder abgelehnt.
 - {{jsxref("Promise.prototype.then()")}}
-  - : Fügt dem Promise Fulfillment- und Rejection-Handler hinzu und gibt ein neues Promise zurück, das den Rückgabewert des aufgerufenen Handlers aufgelöst wird oder dessen ursprünglichen abgeschlossenen Wert, wenn das Promise nicht behandelt wurde (d. h. wenn der relevante Handler `onFulfilled` oder `onRejected` keine Funktion ist).
+  - : Fügt dem Promise Fulfillment- und Rejection-Handler hinzu und gibt ein neues Promise zurück, das den Rückgabewert des aufgerufenen Handlers aufgelöst wird oder dessen ursprünglichen abgeschlossenen Wert, wenn das Promise nicht behandelt wurde (d.h. wenn der relevante Handler `onFulfilled` oder `onRejected` keine Funktion ist).
 
 ## Beispiele
 

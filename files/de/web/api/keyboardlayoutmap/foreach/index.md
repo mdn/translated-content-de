@@ -34,7 +34,7 @@ forEach(callbackFn, thisArg)
       - : Das KeyboardLayoutMap, auf dem `forEach()` aufgerufen wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Wert, der als **`this`** (d. h. die Referenz
+  - : Wert, der als **`this`** (d.h. die Referenz
     `Object`) beim Ausführen von `callback` verwendet wird.
 
 ### Rückgabewert

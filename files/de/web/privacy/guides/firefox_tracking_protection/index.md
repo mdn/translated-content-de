@@ -7,7 +7,7 @@ l10n:
 
 ## Was ist der Verfolgungsschutz?
 
-Firefox Desktop und Firefox für Android enthalten einen integrierten Verfolgungsschutz. In privaten Fenstern (Tabs bei Firefox für Android) blockiert Firefox Inhalte, die von Domains geladen werden, die Benutzer über Websites hinweg verfolgen (d. h. über [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies)).
+Firefox Desktop und Firefox für Android enthalten einen integrierten Verfolgungsschutz. In privaten Fenstern (Tabs bei Firefox für Android) blockiert Firefox Inhalte, die von Domains geladen werden, die Benutzer über Websites hinweg verfolgen (d.h. über [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies)).
 
 Wenn blockierte Inhalte Teil des Seitenlayouts sind, können Benutzer Layoutprobleme bemerken, wo Firefox diese Ladevorgänge blockiert hat. Manchmal bemerken Benutzer dies überhaupt nicht, wenn das Seitengitter so funktioniert, dass andere Seitenelemente in Löcher gleiten, die von blockierten Elementen hinterlassen wurden.
 

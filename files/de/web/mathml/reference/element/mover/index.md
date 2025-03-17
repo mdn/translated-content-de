@@ -12,7 +12,7 @@ Das **`<mover>`**-Element von [MathML](/de/docs/Web/MathML) wird verwendet, um e
 Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie das folgende Attribut:
 
 - `accent`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), das angibt, ob das Over-Script als Akzent behandelt werden soll (d. h. größer und näher zum Basisausdruck gezeichnet wird).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), das angibt, ob das Over-Script als Akzent behandelt werden soll (d.h. größer und näher zum Basisausdruck gezeichnet wird).
 
 ## Beispiele
 

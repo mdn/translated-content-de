@@ -18,7 +18,7 @@ Die [`Document`](/de/docs/Web/API/Document)-Eigenschaft `cookie` ermöglicht Ihn
 allCookies = document.cookie;
 ```
 
-Im obigen Code ist `allCookies` ein String, der eine durch Semikolons getrennte Liste aller Cookies (d. h. `key=value` Paare) enthält. Beachten Sie, dass jedes _key_ und _value_ von Leerzeichen (Leer- und Tabulatorzeichen) umgeben sein kann: Tatsächlich verlangt {{RFC(6265)}} ein einzelnes Leerzeichen nach jedem Semikolon, aber einige User Agents halten sich möglicherweise nicht daran.
+Im obigen Code ist `allCookies` ein String, der eine durch Semikolons getrennte Liste aller Cookies (d.h. `key=value` Paare) enthält. Beachten Sie, dass jedes _key_ und _value_ von Leerzeichen (Leer- und Tabulatorzeichen) umgeben sein kann: Tatsächlich verlangt {{RFC(6265)}} ein einzelnes Leerzeichen nach jedem Semikolon, aber einige User Agents halten sich möglicherweise nicht daran.
 
 ### Ein neues Cookie schreiben
 

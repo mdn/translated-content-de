@@ -50,7 +50,7 @@ Es ist sicherlich nicht erforderlich, dass alle Abkürzungen mit `<abbr>` ausgez
 
 ### Grammatikalische Überlegungen
 
-In Sprachen mit [grammatischem Numerus](https://de.wikipedia.org/wiki/Grammatischer_Numerus) (d. h. Sprachen, in denen die Anzahl der Elemente die Grammatik eines Satzes beeinflusst), verwenden Sie denselben grammatischen Numerus in Ihrem `title` Attribut wie im `<abbr>` Element. Dies ist besonders wichtig in Sprachen mit mehr als zwei Numeri wie Arabisch, aber auch relevant für Englisch.
+In Sprachen mit [grammatischem Numerus](https://de.wikipedia.org/wiki/Grammatischer_Numerus) (d.h. Sprachen, in denen die Anzahl der Elemente die Grammatik eines Satzes beeinflusst), verwenden Sie denselben grammatischen Numerus in Ihrem `title` Attribut wie im `<abbr>` Element. Dies ist besonders wichtig in Sprachen mit mehr als zwei Numeri wie Arabisch, aber auch relevant für Englisch.
 
 ## Standardstil
 

@@ -189,7 +189,7 @@ Obwohl `document.all` auch {{Glossary("Falsy", "falsch")}} und [locker gleich](/
 
 `typeof` ist sehr nützlich, aber nicht so vielseitig, wie man es sich wünschen könnte. Zum Beispiel ist `typeof []` `"object"`, ebenso wie `typeof new Date()`, `typeof /abc/`, usw.
 
-Für eine genauere Typüberprüfung präsentieren wir eine benutzerdefinierte `type(value)` Funktion, die größtenteils das Verhalten von `typeof` nachahmt, aber für Nicht-Primitiven (d. h. Objekte und Funktionen) gibt sie, wenn möglich, einen detaillierteren Typnamen zurück.
+Für eine genauere Typüberprüfung präsentieren wir eine benutzerdefinierte `type(value)` Funktion, die größtenteils das Verhalten von `typeof` nachahmt, aber für Nicht-Primitiven (d.h. Objekte und Funktionen) gibt sie, wenn möglich, einen detaillierteren Typnamen zurück.
 
 ```js
 function type(value) {

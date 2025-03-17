@@ -163,8 +163,8 @@ Das gesamte Unicode-Zeichensatz ist jedoch viel, viel größer als 65536. Die zu
 
 Ein "einsames Surrogat" ist eine 16-Bit-Codeeinheit, die eine der folgenden Voraussetzungen erfüllt:
 
-- Sie liegt im Bereich `0xD800`–`0xDBFF`, einschließlich (d. h. ist ein führendes Surrogat), aber sie ist die letzte Codeeinheit im String, oder die nächste Codeeinheit ist kein nachfolgendes Surrogat.
-- Sie liegt im Bereich `0xDC00`–`0xDFFF`, einschließlich (d. h. ist ein nachfolgendes Surrogat), aber sie ist die erste Codeeinheit im String, oder die vorherige Codeeinheit ist kein führendes Surrogat.
+- Sie liegt im Bereich `0xD800`–`0xDBFF`, einschließlich (d.h. ist ein führendes Surrogat), aber sie ist die letzte Codeeinheit im String, oder die nächste Codeeinheit ist kein nachfolgendes Surrogat.
+- Sie liegt im Bereich `0xDC00`–`0xDFFF`, einschließlich (d.h. ist ein nachfolgendes Surrogat), aber sie ist die erste Codeeinheit im String, oder die vorherige Codeeinheit ist kein führendes Surrogat.
 
 Einsame Surrogate repräsentieren kein Unicode-Zeichen. Obwohl die meisten eingebauten JavaScript-Methoden sie korrekt handhaben, da sie alle auf UTF-16-Codeeinheiten basieren, sind einsame Surrogate oft keine gültigen Werte beim Interagieren mit anderen Systemen – zum Beispiel wird [`encodeURI()`](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURI) einen {{jsxref("URIError")}} für einsame Surrogate auslösen, da die URI-Kodierung die UTF-8-Codierung verwendet, die keine Kodierung für einsame Surrogate hat. Strings, die keine einsamen Surrogate enthalten, werden als _wohlgeformte_ Strings bezeichnet und können sicher mit Funktionen verwendet werden, die nicht mit UTF-16 umgehen (wie `encodeURI()` oder [`TextEncoder`](/de/docs/Web/API/TextEncoder)). Sie können überprüfen, ob ein String wohlgeformt ist, mit der {{jsxref("String/isWellFormed", "isWellFormed()")}}-Methode oder einsame Surrogate mit der {{jsxref("String/toWellFormed", "toWellFormed()")}}-Methode bereinigen.
 

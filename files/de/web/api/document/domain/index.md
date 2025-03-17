@@ -90,8 +90,8 @@ Ein Beispiel für diesen letzten Fehlfall: Wenn versucht wird, `document.domain`
 
 Zusätzlich wird im Rahmen der Veraltung nichts mehr passieren, wenn es mit bestimmten modernen Isolationsfunktionen kombiniert wird:
 
-- Wenn es auf einer vollständig isolierten Seite verwendet wird, d. h. auf einer Seite, die die entsprechenden Werte für die {{httpheader("Cross-Origin-Opener-Policy")}} und {{httpheader("Cross-Origin-Embedder-Policy")}} HTTP-Header verwendet
-- Wenn es auf einer ursprungsisolierten Seite verwendet wird, d. h. auf einer Seite, die den {{httpheader("Origin-Agent-Cluster")}} {{experimental_inline}} HTTP-Header verwendet
+- Wenn es auf einer vollständig isolierten Seite verwendet wird, d.h. auf einer Seite, die die entsprechenden Werte für die {{httpheader("Cross-Origin-Opener-Policy")}} und {{httpheader("Cross-Origin-Embedder-Policy")}} HTTP-Header verwendet
+- Wenn es auf einer ursprungsisolierten Seite verwendet wird, d.h. auf einer Seite, die den {{httpheader("Origin-Agent-Cluster")}} {{experimental_inline}} HTTP-Header verwendet
 
 Schließlich ändert das Setzen von `document.domain` nicht den Ursprung, der für Ursprungs-Überprüfungen durch einige Web-APIs verwendet wird, was den Unterdomänenzugang über diesen Mechanismus verhindert. Betroffene APIs sind (unter anderem): [`Window.localStorage`](/de/docs/Web/API/Window/localStorage), [IndexDB API](/de/docs/Web/API/IndexedDB_API), [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), [`SharedWorker`](/de/docs/Web/API/SharedWorker).
 

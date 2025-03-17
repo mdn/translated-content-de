@@ -38,7 +38,7 @@ Entsprechende Ereignisse werden an das Medienelement selbst gesendet, während d
 
 - Wenn das Element bereits dabei ist, Medien zu laden, wird dieser Ladeprozess abgebrochen und das **[`abort`](/de/docs/Web/API/HTMLMediaElement/abort_event)**-Ereignis gesendet.
 - Wenn das Element bereits mit Medien initialisiert wurde, wird das **[`emptied`](/de/docs/Web/API/HTMLMediaElement/emptied_event)**-Ereignis gesendet.
-- Wenn das Zurücksetzen der Wiedergabeposition auf den Anfang des Mediums tatsächlich die Wiedergabeposition ändert (d. h., die Position war nicht bereits am Anfang), wird ein **[`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event)**-Ereignis gesendet.
+- Wenn das Zurücksetzen der Wiedergabeposition auf den Anfang des Mediums tatsächlich die Wiedergabeposition ändert (d.h. die Position war nicht bereits am Anfang), wird ein **[`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event)**-Ereignis gesendet.
 - Sobald Medien ausgewählt wurden und das Laden bereit ist zu beginnen, wird das **[`loadstart`](/de/docs/Web/API/HTMLMediaElement/loadstart_event)**-Ereignis ausgeliefert.
 - Von diesem Punkt an werden Ereignisse wie bei jedem Medienladen gesendet.
 

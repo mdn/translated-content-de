@@ -44,7 +44,7 @@ Ein Objekt, das das Segment der ursprünglichen Zeichenkette mit den folgenden E
 - `input`
   - : Die vollständige Eingabezeichenkette, die segmentiert wurde.
 - `isWordLike`
-  - : Ein boolescher Wert nur, wenn `granularity` `"word"` ist; andernfalls `undefined`. Wenn `granularity` `"word"` ist, dann ist `isWordLike` `true`, wenn das Segment einem Wort ähnelt (d. h. aus Buchstaben/Ziffern/Ideogrammen/usw. besteht); andernfalls `false`.
+  - : Ein boolescher Wert nur, wenn `granularity` `"word"` ist; andernfalls `undefined`. Wenn `granularity` `"word"` ist, dann ist `isWordLike` `true`, wenn das Segment einem Wort ähnelt (d.h. aus Buchstaben/Ziffern/Ideogrammen/usw. besteht); andernfalls `false`.
 
 ## Beispiele
 

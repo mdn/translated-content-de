@@ -72,7 +72,7 @@ for (let i = 0; i < 5; i++) {
 // [ 'a' ] 1
 ```
 
-Wenn der reguläre Ausdruck sticky und global ist, werden weiterhin sticky-Abgleiche durchgeführt — d. h., es werden keine Vorkommen über den `lastIndex` hinaus gefunden.
+Wenn der reguläre Ausdruck sticky und global ist, werden weiterhin sticky-Abgleiche durchgeführt — d.h. es werden keine Vorkommen über den `lastIndex` hinaus gefunden.
 
 ```js
 console.log("ab-c".match(/[abc]/gy)); // [ 'a', 'b' ]

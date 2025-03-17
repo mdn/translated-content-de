@@ -104,7 +104,7 @@ Safari und Chrome (im Gegensatz zu Firefox) fokussieren derzeit das Element, das
 
 ### Verhalten der Selection API in Bezug auf Fokusänderungen bei Bearbeitungshosts
 
-Die Selection API hat ein gemeinsames Verhalten (d. h. zwischen Browsern geteilt), das festlegt, wie sich das Fokusverhalten für _Bearbeitungshosts_ ändert, nachdem bestimmte Methoden aufgerufen wurden.
+Die Selection API hat ein gemeinsames Verhalten (d.h. zwischen Browsern geteilt), das festlegt, wie sich das Fokusverhalten für _Bearbeitungshosts_ ändert, nachdem bestimmte Methoden aufgerufen wurden.
 
 Das Verhalten ist wie folgt:
 

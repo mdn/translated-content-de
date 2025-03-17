@@ -22,7 +22,7 @@ Wir haben dies in diesem Kurs noch nicht ausdrücklich gelehrt, aber Sie haben e
 
 ## Schleifen 1
 
-Bei unserer ersten Aufgabe zur Schleifenprogrammierung möchten wir, dass Sie beginnen, indem Sie eine einfache Schleife erstellen, die alle Elemente im bereitgestellten `myArray` durchläuft und sie auf dem Bildschirm innerhalb von Listenelementen (d. h. [`<li>`](/de/docs/Web/HTML/Element/li)-Elementen) ausgibt, die der bereitgestellten `list` angefügt werden.
+Bei unserer ersten Aufgabe zur Schleifenprogrammierung möchten wir, dass Sie beginnen, indem Sie eine einfache Schleife erstellen, die alle Elemente im bereitgestellten `myArray` durchläuft und sie auf dem Bildschirm innerhalb von Listenelementen (d.h. [`<li>`](/de/docs/Web/HTML/Element/li)-Elementen) ausgibt, die der bereitgestellten `list` angefügt werden.
 
 > [!CALLOUT]
 >

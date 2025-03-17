@@ -93,7 +93,7 @@ Für {{SVGElement("feComposite")}} definiert `operator` die zu durchführende Zu
 
 ## feMorphology
 
-Für {{SVGElement("feMorphology")}} definiert `operator`, ob die Quellgrafik erodiert (d. h. verdünnt) oder dilatiert (verdickt) werden soll.
+Für {{SVGElement("feMorphology")}} definiert `operator`, ob die Quellgrafik erodiert (d.h. verdünnt) oder dilatiert (verdickt) werden soll.
 
 <table class="properties">
   <tbody>

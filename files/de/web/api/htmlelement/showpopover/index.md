@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Die **`showPopover()`**-Methode der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle zeigt ein [Popover](/de/docs/Web/API/Popover_API)-Element (d. h. eines mit einem gültigen [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut) an, indem es zur {{Glossary("top_layer", "Top-Ebene")}} hinzugefügt wird.
+Die **`showPopover()`**-Methode der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle zeigt ein [Popover](/de/docs/Web/API/Popover_API)-Element (d.h. eines mit einem gültigen [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut) an, indem es zur {{Glossary("top_layer", "Top-Ebene")}} hinzugefügt wird.
 
 Wenn `showPopover()` bei einem Element mit dem aktuell ausgeblendeten [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut aufgerufen wird, wird ein [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)-Ereignis ausgelöst. Danach wird das Popover angezeigt und dann das [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis. Wenn das Element bereits angezeigt wird, wird ein Fehler ausgelöst.
 

@@ -61,7 +61,7 @@ let creating = browser.tabs.create(
         - chrome: URLs
         - [javascript: URLs](/de/docs/Web/URI/Reference/Schemes/javascript)
         - [data: URLs](/de/docs/Web/URI/Reference/Schemes/data)
-        - file: URLs (d. h. Dateien im Dateisystem. Um eine Datei zu verwenden, die in die Erweiterung gepackt ist, siehe unten)
+        - file: URLs (d.h. Dateien im Dateisystem. Um eine Datei zu verwenden, die in die Erweiterung gepackt ist, siehe unten)
         - Privilegierte about: URLs (z. B. `about:config`, `about:addons`, `about:debugging`). Nicht-privilegierte URLs (z. B. `about:blank`) sind erlaubt.
         - Die Neue-Tab-Seite (`about:newtab`) kann geöffnet werden, wenn kein Wert für die URL angegeben wurde.
 

@@ -40,7 +40,7 @@ isPrototypeOf(object)
 
 ### Rückgabewert
 
-Ein Boolean, der angibt, ob das aufrufende Objekt (`this`) in der Prototypen-Kette von `object` liegt. Gibt direkt `false` zurück, wenn `object` kein Objekt ist (d. h. ein primitiver Wert).
+Ein Boolean, der angibt, ob das aufrufende Objekt (`this`) in der Prototypen-Kette von `object` liegt. Gibt direkt `false` zurück, wenn `object` kein Objekt ist (d.h. ein primitiver Wert).
 
 ### Ausnahmen
 
@@ -49,7 +49,7 @@ Ein Boolean, der angibt, ob das aufrufende Objekt (`this`) in der Prototypen-Ket
 
 ## Beschreibung
 
-Alle Objekte, die von `Object.prototype` erben (das heißt, alle außer [null-Prototyp-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)), erben die `isPrototypeOf()` Methode. Diese Methode ermöglicht es, zu überprüfen, ob das Objekt innerhalb der Prototypen-Kette eines anderen Objekts existiert. Wenn das als Parameter übergebene `object` kein Objekt ist (d. h. ein primitiver Wert), gibt die Methode direkt `false` zurück. Andernfalls wird der `this`-Wert [in ein Objekt konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion), und die Prototypen-Kette des `object` wird nach dem `this`-Wert durchsucht, bis das Ende der Kette erreicht ist oder der `this`-Wert gefunden wird.
+Alle Objekte, die von `Object.prototype` erben (das heißt, alle außer [null-Prototyp-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)), erben die `isPrototypeOf()` Methode. Diese Methode ermöglicht es, zu überprüfen, ob das Objekt innerhalb der Prototypen-Kette eines anderen Objekts existiert. Wenn das als Parameter übergebene `object` kein Objekt ist (d.h. ein primitiver Wert), gibt die Methode direkt `false` zurück. Andernfalls wird der `this`-Wert [in ein Objekt konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion), und die Prototypen-Kette des `object` wird nach dem `this`-Wert durchsucht, bis das Ende der Kette erreicht ist oder der `this`-Wert gefunden wird.
 
 ## Beispiele
 

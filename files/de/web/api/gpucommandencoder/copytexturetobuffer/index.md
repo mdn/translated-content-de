@@ -68,7 +68,7 @@ copyTextureToBuffer(source, destination, copySize)
     - `offset` {{optional_inline}}
       - : Der Offset in Bytes vom Beginn der `data` bis zur Startposition, an der die kopierten Daten geschrieben werden sollen. Wird `offset` weggelassen, wird es standardmäßig auf 0 gesetzt.
     - `bytesPerRow` {{optional_inline}}
-      - : Eine Zahl, die die Distanz in Bytes zwischen dem Beginn jeder Blockreihe (d. h. einer Reihe vollständiger Texelblöcke) und der darauf folgenden Blockreihe angibt. Dies ist erforderlich, wenn mehrere Blockreihen vorhanden sind (d. h. die Kopierhöhe oder -tiefe beträgt mehr als einen Block).
+      - : Eine Zahl, die die Distanz in Bytes zwischen dem Beginn jeder Blockreihe (d.h. einer Reihe vollständiger Texelblöcke) und der darauf folgenden Blockreihe angibt. Dies ist erforderlich, wenn mehrere Blockreihen vorhanden sind (d.h. die Kopierhöhe oder -tiefe beträgt mehr als einen Block).
     - `rowsPerImage` {{optional_inline}}
       - : Die Anzahl der Blockreihen pro einzelnes Bild innerhalb der Daten. `bytesPerRow` &times; `rowsPerImage` gibt Ihnen die Distanz in Bytes zwischen dem Beginn jedes vollständigen Bildes. Dies ist erforderlich, wenn mehrere Bilder kopiert werden sollen.
 

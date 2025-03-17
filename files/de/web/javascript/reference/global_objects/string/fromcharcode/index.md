@@ -55,7 +55,7 @@ String.fromCharCode(0x12014); // also returns "—"; the digit 1 is truncated an
 String.fromCharCode(8212); // also returns "—"; 8212 is the decimal form of 0x2014
 ```
 
-Zusätzliche Zeichen erfordern in UTF-16 zwei Code-Einheiten (d. h. ein Surrogat-Paar):
+Zusätzliche Zeichen erfordern in UTF-16 zwei Code-Einheiten (d.h. ein Surrogat-Paar):
 
 ```js
 String.fromCharCode(0xd83c, 0xdf03); // Code Point U+1F303 "Night with

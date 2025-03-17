@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`btoa()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle erstellt einen {{Glossary("Base64", "Base64")}}-codierten {{Glossary("ASCII", "ASCII")}}-String aus einem _binären String_ (d. h. einem String, in dem jedes Zeichen als Byte binärer Daten behandelt wird).
+Die **`btoa()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle erstellt einen {{Glossary("Base64", "Base64")}}-codierten {{Glossary("ASCII", "ASCII")}}-String aus einem _binären String_ (d.h. einem String, in dem jedes Zeichen als Byte binärer Daten behandelt wird).
 
 Sie können diese Methode verwenden, um Daten zu codieren, die ansonsten Kommunikationsprobleme verursachen könnten, diese zu übertragen und anschließend mit der [`Window.atob()`](/de/docs/Web/API/Window/atob)-Methode wieder zu decodieren. Beispielsweise können Sie Steuerzeichen wie ASCII-Werte von 0 bis 31 codieren.
 

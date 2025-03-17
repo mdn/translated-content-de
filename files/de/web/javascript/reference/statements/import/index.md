@@ -44,7 +44,7 @@ Der `"module-name"` kann von einer Reihe von [Import-Attributen](/de/docs/Web/Ja
 
 ## Beschreibung
 
-`import`-Deklarationen können nur in Modulen vorhanden sein und nur auf der obersten Ebene (d. h. nicht innerhalb von Blöcken, Funktionen, etc.). Wenn eine `import`-Deklaration in nicht-modularen Kontexten (z. B. `<script>`-Tags ohne `type="module"`, `eval`, `new Function`, die alle "Skript" oder "Funktionskörper" als Parsing-Ziele haben) gefunden wird, wird ein `SyntaxError` ausgelöst. Um Module in nicht-modularen Kontexten zu laden, verwenden Sie das [dynamische Import](/de/docs/Web/JavaScript/Reference/Operators/import)-Syntax anstelle davon.
+`import`-Deklarationen können nur in Modulen vorhanden sein und nur auf der obersten Ebene (d.h. nicht innerhalb von Blöcken, Funktionen, etc.). Wenn eine `import`-Deklaration in nicht-modularen Kontexten (z. B. `<script>`-Tags ohne `type="module"`, `eval`, `new Function`, die alle "Skript" oder "Funktionskörper" als Parsing-Ziele haben) gefunden wird, wird ein `SyntaxError` ausgelöst. Um Module in nicht-modularen Kontexten zu laden, verwenden Sie das [dynamische Import](/de/docs/Web/JavaScript/Reference/Operators/import)-Syntax anstelle davon.
 
 Alle importierten Bindings können nicht im gleichen Gültigkeitsbereich wie jede andere Deklaration, einschließlich {{jsxref("Statements/let", "let")}}, {{jsxref("Statements/const", "const")}}, {{jsxref("Statements/class", "class")}}, {{jsxref("Statements/function", "function")}}, {{jsxref("Statements/var", "var")}}, und `import`-Deklaration, erscheinen.
 

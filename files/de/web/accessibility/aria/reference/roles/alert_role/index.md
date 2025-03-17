@@ -61,7 +61,7 @@ document
 
 ### Beispiel 2: Dynamische Änderung des Inhalts innerhalb eines Elements mit einer alert-Rolle
 
-Mit JavaScript können Sie den Inhalt _innerhalb_ des Elements mit `role="alert"` dynamisch ändern. Beachten Sie, dass, wenn Sie denselben Alarm mehrfach auslösen müssen (d. h. der dynamisch eingefügte Inhalt ist derselbe wie zuvor), dies im Allgemeinen nicht als Änderung betrachtet wird und _nicht_ zu einer Ankündigung führt. Aus diesem Grund ist es normalerweise am besten, die Inhalte des Alarmcontainers kurz zu "leeren", bevor Sie dann die Alarmnachricht einfügen.
+Mit JavaScript können Sie den Inhalt _innerhalb_ des Elements mit `role="alert"` dynamisch ändern. Beachten Sie, dass, wenn Sie denselben Alarm mehrfach auslösen müssen (d.h. der dynamisch eingefügte Inhalt ist derselbe wie zuvor), dies im Allgemeinen nicht als Änderung betrachtet wird und _nicht_ zu einer Ankündigung führt. Aus diesem Grund ist es normalerweise am besten, die Inhalte des Alarmcontainers kurz zu "leeren", bevor Sie dann die Alarmnachricht einfügen.
 
 ```html
 <div id="alertContainer" role="alert"></div>

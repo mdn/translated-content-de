@@ -23,11 +23,11 @@ _Erbt Eigenschaften von ihrem Elternteil, [`EventTarget`](/de/docs/Web/API/Event
   - : Gibt ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt zurück, das Informationen über die letzte cross-document Navigation enthält, die dieses Dokument "aktiviert" hat.
 - [`canGoBack`](/de/docs/Web/API/Navigation/canGoBack) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt `true` zurück, wenn es möglich ist, rückwärts in der Navigationhistorie zu navigieren
-    (d. h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der erste in der Liste der Historieneinträge),
+    (d.h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der erste in der Liste der Historieneinträge),
     und `false`, wenn es nicht möglich ist.
 - [`canGoForward`](/de/docs/Web/API/Navigation/canGoForward) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt `true` zurück, wenn es möglich ist, vorwärts in der Navigationhistorie zu navigieren
-    (d. h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der letzte in der Liste der Historieneinträge),
+    (d.h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der letzte in der Liste der Historieneinträge),
     und `false`, wenn es nicht möglich ist.
 - [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt zurück, das den Ort repräsentiert, zu dem der Benutzer aktuell navigiert ist.

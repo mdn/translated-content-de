@@ -10,7 +10,7 @@ l10n:
 
 Die schreibgeschützte **`relatedAddress`**-Eigenschaft des **[`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)**-Interfaces ist ein String, der die **zugehörige Adresse** eines Relay- oder reflexiven Kandidaten angibt.
 
-Wenn der Kandidat ein Host-Kandidat ist (d. h., seine [`address`](/de/docs/Web/API/RTCIceCandidate/address) ist tatsächlich die echte IP-Adresse des entfernten Peers), ist `relatedAddress` `null`.
+Wenn der Kandidat ein Host-Kandidat ist (d.h. seine [`address`](/de/docs/Web/API/RTCIceCandidate/address) ist tatsächlich die echte IP-Adresse des entfernten Peers), ist `relatedAddress` `null`.
 
 Der Wert des Feldes `relatedAddress` wird aus dem `candidateInfo`-Optionsobjekt festgelegt, das an den [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)-Konstruktor übergeben wird. Sie können den Wert von `relatedAddress` nicht direkt im Optionsobjekt angeben, aber sein Wert wird automatisch aus der `candidate` a-line des Objekts extrahiert, wenn sie korrekt formatiert ist (das `rel-address`-Feld).
 

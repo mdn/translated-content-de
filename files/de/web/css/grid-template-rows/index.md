@@ -110,7 +110,7 @@ Diese Eigenschaft kann folgendermaßen angegeben werden:
 - {{cssxref("&lt;percentage&gt;")}}
   - : Ist ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}}-Wert, relativ zur Blockgröße des Gittercontainers. Wenn die Größe des Gittercontainers von der Größe seiner Tracks abhängt, muss der Prozentsatz für Zwecke der Berechnung der intrinsischen Größe des Gittercontainers als `auto` behandelt werden. Er muss dann gegen die resultierende Größe des Gittercontainers aufgelöst werden, um das Gitter und seine Elemente zu layouten. Die intrinsischen Größenbeiträge des Tracks können an die Größe des Gittercontainers angepasst werden und können die endgültige Größe des Tracks um den minimalen Betrag erhöhen, der erforderlich ist, um den Prozentsatz zu honorieren.
 - {{cssxref("&lt;flex_value&gt;","&lt;flex&gt;")}}
-  - : Ist eine nicht-negative Dimension mit der Einheit `fr`, die den Flexfaktor des Tracks angibt. Jeder `<flex>`-große Track nimmt einen Anteil des verbleibenden Raums im Verhältnis zu seinem Flexfaktor ein. Wenn er außerhalb einer `minmax()`-Notation erscheint, impliziert er ein automatisches Minimum (d. h. `minmax(auto, <flex>)`).
+  - : Ist eine nicht-negative Dimension mit der Einheit `fr`, die den Flexfaktor des Tracks angibt. Jeder `<flex>`-große Track nimmt einen Anteil des verbleibenden Raums im Verhältnis zu seinem Flexfaktor ein. Wenn er außerhalb einer `minmax()`-Notation erscheint, impliziert er ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
 - {{cssxref("max-content")}}
   - : Ist ein Schlüsselwort, das den größten maximalen Inhaltsbeitrag der Gitterelemente darstellt, die den Gittertrack besetzen.
 - {{cssxref("min-content")}}
@@ -128,7 +128,7 @@ Diese Eigenschaft kann folgendermaßen angegeben werden:
     > **Note:** `auto` Trackgrößen (und nur `auto` Trackgrößen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gestreckt werden. Daher nimmt ein automatisch bemessener Track standardmäßig jeden verbleibenden Raum im Gittercontainer ein.
 
 - {{cssxref("fit-content_function", "fit-content( [ &lt;length&gt; | &lt;percentage&gt; ] )")}}
-  - : Stellt die Formel `min(max-content, max(auto, argument))` dar, die ähnlich wie `auto` berechnet wird (d. h. `minmax(auto, max-content)`), außer dass die Trackgröße bei _argument_ begrenzt ist, wenn sie größer als das `auto`-Minimum ist.
+  - : Stellt die Formel `min(max-content, max(auto, argument))` dar, die ähnlich wie `auto` berechnet wird (d.h. `minmax(auto, max-content)`), außer dass die Trackgröße bei _argument_ begrenzt ist, wenn sie größer als das `auto`-Minimum ist.
 - {{cssxref("repeat", "repeat( [ &lt;positive-integer&gt; | auto-fill | auto-fit ] , &lt;track-list&gt; )")}}
   - : Stellt ein wiederholtes Fragment der Track-Liste dar und ermöglicht es, eine große Anzahl von Zeilen, die ein wiederkehrendes Muster aufweisen, in kompakter Form zu schreiben.
 - [`masonry`](/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout)

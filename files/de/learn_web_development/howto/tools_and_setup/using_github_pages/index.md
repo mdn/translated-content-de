@@ -25,7 +25,7 @@ Sie können jeden beliebigen Code in einem GitHub-Repository speichern, aber um 
 
 Bevor Sie weitermachen, müssen Sie Ihr Verzeichnis als Git-Repository initialisieren. Dazu:
 
-1. Zeigen Sie die Befehlszeile auf Ihr `test-site`-Verzeichnis (oder wie auch immer Sie das Verzeichnis genannt haben, das Ihre Website enthält). Verwenden Sie dafür den Befehl `cd` (d. h. "**c**hange **d**irectory"). Hier ist, was Sie eingeben würden, wenn Sie Ihre Website in einem Verzeichnis namens `test-site` auf Ihrem Desktop abgelegt haben:
+1. Zeigen Sie die Befehlszeile auf Ihr `test-site`-Verzeichnis (oder wie auch immer Sie das Verzeichnis genannt haben, das Ihre Website enthält). Verwenden Sie dafür den Befehl `cd` (d.h. "**c**hange **d**irectory"). Hier ist, was Sie eingeben würden, wenn Sie Ihre Website in einem Verzeichnis namens `test-site` auf Ihrem Desktop abgelegt haben:
 
    ```bash
    cd Desktop/test-site

@@ -22,7 +22,7 @@ atob(encodedData)
 ### Parameter
 
 - `encodedData`
-  - : Eine Binärzeichenkette (d. h. eine Zeichenkette, in der jedes Zeichen als Byte binärer Daten behandelt wird), die base64-kodierte Daten enthält.
+  - : Eine Binärzeichenkette (d.h. eine Zeichenkette, in der jedes Zeichen als Byte binärer Daten behandelt wird), die base64-kodierte Daten enthält.
 
 ### Rückgabewert
 

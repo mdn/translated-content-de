@@ -49,7 +49,7 @@ Eine `<easing-function>` kann einer der folgenden Typen sein:
 
     - `linear`
 
-      - : Gibt eine konstante Interpolationsrate an, ohne Änderungen in der Progressionsrate während der Dauer (d. h. keine Beschleunigung oder Verzögerung).
+      - : Gibt eine konstante Interpolationsrate an, ohne Änderungen in der Progressionsrate während der Dauer (d.h. keine Beschleunigung oder Verzögerung).
         Dieser Schlüsselwortwert entspricht `linear(0, 1)`.
         Er kann auch als `cubic-bezier(0, 0, 1, 1)` dargestellt werden.
 

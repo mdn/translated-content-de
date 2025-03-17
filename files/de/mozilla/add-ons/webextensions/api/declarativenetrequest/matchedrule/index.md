@@ -20,8 +20,8 @@ Werte dieses Typs sind Objekte. Sie enthalten folgende Eigenschaften:
 - `rulesetId`
   - : Ein `string`. Die ID des [Regelsatzes](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rulesets), zu dem diese Regel gehört. Der zurückgegebene Wert ist:
     - Für eine Regel, die aus dem Satz statischer Regeln stammt, der in dem "id"-Schlüssel des Regelsatzes in dem [`declarative_net_request.rule_resources` Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) angegebene Wert.
-    - Für eine Regel, die aus dem Satz dynamischer Regeln stammt, der in {{WebExtAPIRef("declarativeNetRequest.DYNAMIC_RULESET_ID")}} definierte Wert, d. h., `"_dynamic"`.
-    - Für eine Regel, die aus dem Satz von Sitzung-Regeln stammt, der in {{WebExtAPIRef("declarativeNetRequest.SESSION_RULESET_ID")}} definierte Wert, d. h., `"_session"`.
+    - Für eine Regel, die aus dem Satz dynamischer Regeln stammt, der in {{WebExtAPIRef("declarativeNetRequest.DYNAMIC_RULESET_ID")}} definierte Wert, d.h. `"_dynamic"`.
+    - Für eine Regel, die aus dem Satz von Sitzung-Regeln stammt, der in {{WebExtAPIRef("declarativeNetRequest.SESSION_RULESET_ID")}} definierte Wert, d.h. `"_session"`.
 
 {{WebExtExamples("h2")}}
 

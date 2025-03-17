@@ -45,7 +45,7 @@ async function signIn() {
 Die Eigenschaft `identity.providers` nimmt ein Array an, das ein einzelnes Objekt enthält, das den Pfad zu einer IdP-Konfigurationsdatei (`configURL`) und die dem RP vom IdP zugewiesene Clientkennung (`clientId`) spezifiziert.
 
 > [!NOTE]
-> Derzeit erlaubt FedCM nur, dass die API mit einem einzigen IdP aufgerufen wird, d. h. das `identity.providers`-Array muss eine Länge von 1 haben. Um Benutzern eine Auswahl an Identitätsanbietern zu bieten, muss das RP `get()` für jeden separat aufrufen. Dies kann sich in Zukunft ändern.
+> Derzeit erlaubt FedCM nur, dass die API mit einem einzigen IdP aufgerufen wird, d.h. das `identity.providers`-Array muss eine Länge von 1 haben. Um Benutzern eine Auswahl an Identitätsanbietern zu bieten, muss das RP `get()` für jeden separat aufrufen. Dies kann sich in Zukunft ändern.
 
 Das obige Beispiel enthält auch einige optionale Funktionen:
 
@@ -76,7 +76,7 @@ Der Fluss ist wie folgt:
 
 3. Der IdP antwortet mit der angeforderten bekannten Datei und den `config.json`-Dateien. Der Browser validiert die URL der Konfigurationsdatei im `get()`-Anruf gegen die Liste der gültigen Konfigurations-URLs in der bekannten Datei.
 
-4. Wenn der Browser den [Anmeldestatus des IdPs](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) auf `"logged-in"` gesetzt hat, macht er eine authentifizierte Anfrage (d. h. mit einem Cookie, das den angemeldeten Benutzer identifiziert) zum [`accounts_endpoint`](/de/docs/Web/API/FedCM_API/IDP_integration#the_accounts_list_endpoint) innerhalb der IdP-Konfigurationsdatei für die Kontodetails des Benutzers. Dies ist eine `GET`-Anfrage mit Cookies, aber ohne `client_id`-Parameter oder den {{httpheader("Origin")}} Header. Dies verhindert effektiv, dass der IdP erfährt, bei welchem RP sich der Benutzer anzumelden versucht. Als Ergebnis ist die Liste der zurückgegebenen Konten RP-unabhängig.
+4. Wenn der Browser den [Anmeldestatus des IdPs](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) auf `"logged-in"` gesetzt hat, macht er eine authentifizierte Anfrage (d.h. mit einem Cookie, das den angemeldeten Benutzer identifiziert) zum [`accounts_endpoint`](/de/docs/Web/API/FedCM_API/IDP_integration#the_accounts_list_endpoint) innerhalb der IdP-Konfigurationsdatei für die Kontodetails des Benutzers. Dies ist eine `GET`-Anfrage mit Cookies, aber ohne `client_id`-Parameter oder den {{httpheader("Origin")}} Header. Dies verhindert effektiv, dass der IdP erfährt, bei welchem RP sich der Benutzer anzumelden versucht. Als Ergebnis ist die Liste der zurückgegebenen Konten RP-unabhängig.
 
    > [!NOTE]
    > Wenn der Anmeldestatus des IdPs `"logged-out"` ist, lehnt der `get()`-Aufruf mit einem `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException) ab und macht keine Anfrage an den `accounts_endpoint` des IdPs. In diesem Fall ist es Aufgabe des Entwicklers, den Fluss zu handhaben, zum Beispiel indem er den Benutzer auffordert, sich bei einem geeigneten IdP anzumelden. Beachten Sie, dass es zu einer Verzögerung bei der Ablehnung kommen kann, um zu vermeiden, dass der Anmeldestatus des IdPs an das RP weitergegeben wird.
@@ -90,7 +90,7 @@ Der Fluss ist wie folgt:
 8. Der Browser verwendet die durch die vorherigen beiden Anfragen erhaltenen Informationen, um die Benutzeroberfläche zu erstellen, die den Benutzer auffordert, ein Konto auszuwählen, mit dem er sich beim RP anmelden möchte (im Fall, dass mehr als eines verfügbar ist). Die Benutzeroberfläche fragt den Benutzer auch um Erlaubnis, sich mit seinem ausgewählten föderierten IdP-Konto beim RP anzumelden.
 
    > [!NOTE]
-   > An diesem Punkt, wenn sich der Benutzer bereits in der aktuellen Browser-Sitzung mit einem föderierten RP-Konto authentifiziert hat (d. h. ein neues Konto beim RP erstellt oder sich mit einem bestehenden Konto auf der RP-Website angemeldet hat), könnte es möglich sein, dass er sich **automatisch erneut authentifiziert**, abhängig davon, was die Option [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation) im `get()`-Aufruf eingestellt ist. In diesem Fall wird der Benutzer automatisch angemeldet, ohne seine Anmeldedaten einzugeben, sobald `get()` aufgerufen wird. Siehe den Abschnitt [Automatische erneute Authentifizierung](#automatische_erneute_authentifizierung) für weitere Details.
+   > An diesem Punkt, wenn sich der Benutzer bereits in der aktuellen Browser-Sitzung mit einem föderierten RP-Konto authentifiziert hat (d.h. ein neues Konto beim RP erstellt oder sich mit einem bestehenden Konto auf der RP-Website angemeldet hat), könnte es möglich sein, dass er sich **automatisch erneut authentifiziert**, abhängig davon, was die Option [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation) im `get()`-Aufruf eingestellt ist. In diesem Fall wird der Benutzer automatisch angemeldet, ohne seine Anmeldedaten einzugeben, sobald `get()` aufgerufen wird. Siehe den Abschnitt [Automatische erneute Authentifizierung](#automatische_erneute_authentifizierung) für weitere Details.
 
 9. Falls der Benutzer die Erlaubnis erteilt, stellt der Browser eine authentifizierte Anfrage an den [`id_assertion_endpoint`](/de/docs/Web/API/FedCM_API/IDP_integration#the_id_assertion_endpoint), um ein Validierungstoken vom IdP für das ausgewählte Konto anzufordern.
 

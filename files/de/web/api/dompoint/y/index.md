@@ -14,7 +14,7 @@ Sofern keine Transformationen zur Änderung der Orientierung angewendet wurden, 
 
 ## Wert
 
-Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der _y_-Koordinate des Punktes angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein kann (d. h., sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
+Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der _y_-Koordinate des Punktes angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein kann (d.h. sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
 
 ## Spezifikationen
 

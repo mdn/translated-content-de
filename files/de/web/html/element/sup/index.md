@@ -35,7 +35,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Verwendungsnotizen
 
-Das `<sup>`-Element sollte nur aus typografischen Gründen verwendet werden, d. h. um die Position des Textes anzupassen, um typografischen Konventionen oder Standards zu entsprechen, und nicht ausschließlich für Präsentations- oder Darstellungszwecke.
+Das `<sup>`-Element sollte nur aus typografischen Gründen verwendet werden, d.h. um die Position des Textes anzupassen, um typografischen Konventionen oder Standards zu entsprechen, und nicht ausschließlich für Präsentations- oder Darstellungszwecke.
 
 Beispielsweise sollte das Gestalten des [Wortzeichens](https://en.wikipedia.org/wiki/Wordmark) eines Unternehmens oder Produkts, das eine angehobene Grundlinie verwendet, mithilfe von CSS (höchstwahrscheinlich {{cssxref("vertical-align")}}) und nicht mit `<sup>` erfolgen. Dies könnte mittels `vertical-align: super` zur Anpassung der Baseline oder um sie um 50% anzuheben mit `vertical-align: 50%` umgesetzt werden.
 

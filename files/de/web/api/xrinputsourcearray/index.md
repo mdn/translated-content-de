@@ -9,7 +9,7 @@ l10n:
 
 Das Interface **`XRInputSourceArray`** repräsentiert eine _dynamische_ Liste von WebXR-Eingabequellen und wird als Rückgabewert der [`XRSession`](/de/docs/Web/API/XRSession)-Eigenschaft [`inputSources`](/de/docs/Web/API/XRSession/inputSources) verwendet. Jeder Eintrag ist ein [`XRInputSource`](/de/docs/Web/API/XRInputSource), das ein mit dem WebXR-System verbundenes Eingabegerät darstellt.
 
-Zusätzlich zur Möglichkeit, auf die Eingabequellen in der Liste unter Verwendung der Standard-Array-Notation (d. h. mit Indexnummern in eckigen Klammern) zuzugreifen, stehen Methoden zur Verfügung, die die Verwendung von Iteratoren ermöglichen, und die [`forEach()`](/de/docs/Web/API/XRInputSourceArray/forEach)-Methode ist ebenfalls verfügbar.
+Zusätzlich zur Möglichkeit, auf die Eingabequellen in der Liste unter Verwendung der Standard-Array-Notation (d.h. mit Indexnummern in eckigen Klammern) zuzugreifen, stehen Methoden zur Verfügung, die die Verwendung von Iteratoren ermöglichen, und die [`forEach()`](/de/docs/Web/API/XRInputSourceArray/forEach)-Methode ist ebenfalls verfügbar.
 
 ## Instanz-Eigenschaften
 

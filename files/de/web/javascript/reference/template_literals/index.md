@@ -287,7 +287,7 @@ Array.from(str).join(",");
 // "H,i,\\,n,5,!"
 ```
 
-`String.raw` funktioniert wie ein "Identitäts"-Tag, wenn das Literal keine Escape-Sequenzen enthält. Falls Sie ein tatsächliches Identitäts-Tag möchten, das immer so funktioniert, als ob das Literal nicht getaggt wäre, können Sie eine benutzerdefinierte Funktion erstellen, die das "gekochte" (d. h. Escape-Sequenzen werden verarbeitet) Literal-Array an `String.raw` übergibt, als ob sie rohe Strings wären.
+`String.raw` funktioniert wie ein "Identitäts"-Tag, wenn das Literal keine Escape-Sequenzen enthält. Falls Sie ein tatsächliches Identitäts-Tag möchten, das immer so funktioniert, als ob das Literal nicht getaggt wäre, können Sie eine benutzerdefinierte Funktion erstellen, die das "gekochte" (d.h. Escape-Sequenzen werden verarbeitet) Literal-Array an `String.raw` übergibt, als ob sie rohe Strings wären.
 
 ```js
 const identity = (strings, ...values) =>

@@ -648,7 +648,7 @@ Dieses Thema bietet ein Verzeichnis der wichtigsten _Arten_ von Ereignissen, die
           <a href="/de/docs/Web/API/Touch_events">Touch Events API</a>.
         </p>
         <p>
-          Bietet Benachrichtigungsereignisse durch die Interaktion mit einem berührungsempfindlichen Bildschirm (d. h. mit einem Finger oder Stift). Nicht bezogen auf die
+          Bietet Benachrichtigungsereignisse durch die Interaktion mit einem berührungsempfindlichen Bildschirm (d.h. mit einem Finger oder Stift). Nicht bezogen auf die
           <a href="/de/docs/Web/API/Force_Touch_events#events"
             >Force Touch API</a
           >.

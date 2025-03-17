@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Headerdirektive `publickey-credentials-create` steuert, ob das aktuelle Dokument die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) verwenden darf, um neue WebAuthn-Anmeldeinformationen zu erstellen, d. h. über [`navigator.credentials.create({publicKey})`](/de/docs/Web/API/CredentialsContainer/create).
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Headerdirektive `publickey-credentials-create` steuert, ob das aktuelle Dokument die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) verwenden darf, um neue WebAuthn-Anmeldeinformationen zu erstellen, d.h. über [`navigator.credentials.create({publicKey})`](/de/docs/Web/API/CredentialsContainer/create).
 
 Insbesondere, wenn eine definierte Richtlinie die Verwendung dieses Features blockiert, wird das von `navigator.credentials.create({publicKey})` zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
 Wenn die Methode cross-origin aufgerufen wird, wird das {{jsxref("Promise")}} ebenfalls mit einem `NotAllowedError` abgelehnt, wenn das Feature durch [`allow=` auf einem iframe](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#iframes) gewährt wird und der Rahmen nicht auch über eine {{Glossary("Transient_activation", "transiente Aktivierung")}} verfügt.

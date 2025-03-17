@@ -267,7 +267,7 @@ console.log(moods.match(regexpEmoticons));
           <li>
             Für Zeichen, die normalerweise wörtlich behandelt werden, zeigt es an,
             dass das nächste Zeichen besonders ist und nicht wörtlich angesehen
-            werden soll. Zum Beispiel passt <code>/b/</code> das Zeichen "b". Durch das Setzen eines Backslashes vor "b", d. h. mit <code>/\b/</code>, wird das Zeichen speziell, um eine Wortgrenze zu markieren.
+            werden soll. Zum Beispiel passt <code>/b/</code> das Zeichen "b". Durch das Setzen eines Backslashes vor "b", d.h. mit <code>/\b/</code>, wird das Zeichen speziell, um eine Wortgrenze zu markieren.
           </li>
           <li>
             Für Zeichen, die normalerweise besonders behandelt werden, zeigt es an,
@@ -309,7 +309,7 @@ console.log(moods.match(regexpEmoticons));
 
 ### Eine Zahlenreihe suchen
 
-In diesem Beispiel suchen wir eine Sequenz aus 4 Ziffern mit `\d{4}`. `\b` zeigt eine [Wortgrenze](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) an (d. h. nicht innerhalb einer Zahlenreihe zu starten oder zu beenden).
+In diesem Beispiel suchen wir eine Sequenz aus 4 Ziffern mit `\d{4}`. `\b` zeigt eine [Wortgrenze](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) an (d.h. nicht innerhalb einer Zahlenreihe zu starten oder zu beenden).
 
 ```js
 const randomData = "015 354 8787 687351 3512 8735";
@@ -323,7 +323,7 @@ Weitere Beispiele finden Sie in der [Zeichenklassen-Escape](/de/docs/Web/JavaScr
 
 ### Ein Wort (aus dem lateinischen Alphabet) suchen, das mit A beginnt
 
-In diesem Beispiel suchen wir ein Wort, das mit dem Buchstaben A beginnt. `\b` zeigt eine [Wortgrenze](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) an (d. h. nicht in der Mitte eines Wortes zu starten). `[aA]` zeigt den Buchstaben "a" oder "A" an. `\w+` zeigt ein beliebiges Zeichen _aus dem lateinischen Alphabet_ mehrere Male an (`+` ist ein [Quantifizierer](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers)). Beachten Sie, dass, da wir bereits bis zu keinen weiteren Wortzeichen passen, eine abschließende `\b`-Grenze nicht erforderlich ist.
+In diesem Beispiel suchen wir ein Wort, das mit dem Buchstaben A beginnt. `\b` zeigt eine [Wortgrenze](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) an (d.h. nicht in der Mitte eines Wortes zu starten). `[aA]` zeigt den Buchstaben "a" oder "A" an. `\w+` zeigt ein beliebiges Zeichen _aus dem lateinischen Alphabet_ mehrere Male an (`+` ist ein [Quantifizierer](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers)). Beachten Sie, dass, da wir bereits bis zu keinen weiteren Wortzeichen passen, eine abschließende `\b`-Grenze nicht erforderlich ist.
 
 ```js
 const aliceExcerpt =

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`beginEvent`** Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement) Schnittstelle wird ausgelöst, wenn die lokale Zeitleiste des Elements zu spielen beginnt. Es wird jedes Mal ausgelöst, wenn das Element die aktive Dauer beginnt (d. h. wenn es neu startet, aber nicht bei Wiederholungen).
+Das **`beginEvent`** Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement) Schnittstelle wird ausgelöst, wenn die lokale Zeitleiste des Elements zu spielen beginnt. Es wird jedes Mal ausgelöst, wenn das Element die aktive Dauer beginnt (d.h. wenn es neu startet, aber nicht bei Wiederholungen).
 
-Es kann sowohl im Verlauf eines normalen (d. h. geplanten oder interaktiven) Zeitleisten-Spiels als auch im Fall, dass das Element mit einer DOM-Methode gestartet wurde, ausgelöst werden.
+Es kann sowohl im Verlauf eines normalen (d.h. geplanten oder interaktiven) Zeitleisten-Spiels als auch im Fall, dass das Element mit einer DOM-Methode gestartet wurde, ausgelöst werden.
 
 Dieses Ereignis ist nicht abbruchfähig und wird nicht an übergeordnete Elemente weitergeleitet.
 

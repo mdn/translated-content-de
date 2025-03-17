@@ -28,7 +28,7 @@ Eine der Hauptaufgaben von HTML ist es, Texten Struktur zu verleihen, damit ein 
         <ul>
           <li>Wie man eine gute Dokumentenstruktur mit Überschriften und Inhalten unter diesen Überschriften erstellt.</li>
           <li>Verwendung von semantischem statt präsentationellem HTML und warum das wichtig ist.</li>
-          <li>Die Notwendigkeit, Überschriftenebenen logisch zu verwenden, d. h. keine Ebenen zu überspringen oder sie willkürlich zu verwenden, nur weil man eine bestimmte Schriftgröße erreichen möchte (das ist die Aufgabe von CSS).</li>
+          <li>Die Notwendigkeit, Überschriftenebenen logisch zu verwenden, d.h. keine Ebenen zu überspringen oder sie willkürlich zu verwenden, nur weil man eine bestimmte Schriftgröße erreichen möchte (das ist die Aufgabe von CSS).</li>
           <li>SEO-Vorteile: Zum Beispiel werden Schlüsselwörter in Überschriften verstärkt.</li>
           <li>Barrierefreiheitsvorteile: Assistive Technologien (AT), wie Bildschirmleseprogramme, verwenden Überschriften (und andere Orientierungspunkte), um Inhalte zu navigieren. HTML-Dokumente sind ohne Überschriften für AT-Nutzer sehr schwierig zu verwenden.</li>
         </ul>

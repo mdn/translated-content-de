@@ -11,7 +11,7 @@ Das **`zoomAndPan`** Attribut gibt an, ob das SVG-Dokument vergrößert und vers
 
 Vergrößerung in diesem Zusammenhang bedeutet die Wirkung einer zusätzlichen Skalierungs- und Verschiebetransformation auf das äußerste SVG-Dokumentfragment.
 
-Verschiebung stellt eine Translation (d. h. eine Verschiebung) eines SVG-Dokumentfragments als Reaktion auf eine Benutzeroberflächenaktion dar.
+Verschiebung stellt eine Translation (d.h. eine Verschiebung) eines SVG-Dokumentfragments als Reaktion auf eine Benutzeroberflächenaktion dar.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 

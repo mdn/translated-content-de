@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die `getElementById()`-Methode der [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)-Schnittstelle durchsucht das SVG-Dokumentfragment (d. h. die Suche ist auf einen Teilbaum des Dokuments beschränkt) nach einem [`Element`](/de/docs/Web/API/Element), dessen `id`-Eigenschaft mit der angegebenen Zeichenkette übereinstimmt.
+Die `getElementById()`-Methode der [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)-Schnittstelle durchsucht das SVG-Dokumentfragment (d.h. die Suche ist auf einen Teilbaum des Dokuments beschränkt) nach einem [`Element`](/de/docs/Web/API/Element), dessen `id`-Eigenschaft mit der angegebenen Zeichenkette übereinstimmt.
 
 ## Syntax
 

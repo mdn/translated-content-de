@@ -61,7 +61,7 @@ margin-left: 0;
 
 Die vertikalen Ränder von zwei angrenzenden Boxen können verschmelzen. Dies wird [_Margin Collapsing_](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) genannt.
 
-In den seltenen Fällen, in denen die Breite überbeansprucht wird (d. h., wenn alle von `width`, `margin-left`, `border`, `padding`, der Inhaltsbereich und `margin-right` definiert sind), wird `margin-left` ignoriert und hat den gleichen berechneten Wert, als ob der Wert `auto` angegeben wäre.
+In den seltenen Fällen, in denen die Breite überbeansprucht wird (d.h. wenn alle von `width`, `margin-left`, `border`, `padding`, der Inhaltsbereich und `margin-right` definiert sind), wird `margin-left` ignoriert und hat den gleichen berechneten Wert, als ob der Wert `auto` angegeben wäre.
 
 ## Syntax
 

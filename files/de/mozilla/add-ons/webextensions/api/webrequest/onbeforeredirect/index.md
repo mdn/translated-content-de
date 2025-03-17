@@ -112,7 +112,7 @@ Ereignisse haben drei Funktionen:
 - `statusCode`
   - : `integer`. Standard-HTTP-Statuscode, der vom Server zurückgegeben wurde.
 - `statusLine`
-  - : `string`. HTTP-Statuszeile der Antwort oder der String 'HTTP/0.9 200 OK' für HTTP/0.9-Antworten (d. h., Antworten ohne Statuszeile) oder ein leerer String, wenn keine Header vorhanden sind.
+  - : `string`. HTTP-Statuszeile der Antwort oder der String 'HTTP/0.9 200 OK' für HTTP/0.9-Antworten (d.h. Antworten ohne Statuszeile) oder ein leerer String, wenn keine Header vorhanden sind.
 - `tabId`
   - : `integer`. Die ID des Tabs, in dem die Anfrage stattfindet. Setzt auf -1, wenn die Anfrage nicht mit einem Tab verknüpft ist.
 - `thirdParty`

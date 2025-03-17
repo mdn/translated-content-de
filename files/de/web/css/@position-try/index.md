@@ -25,7 +25,7 @@ Für detaillierte Informationen über Ankerfunktionen und die Verwendung von Fal
 
 ### Deskriptoren
 
-Die Deskriptoren definieren Eigenschaftswerte, die das Verhalten der benutzerdefinierten Positionsoption festlegen, d. h., wohin das positionierte Element platziert wird.
+Die Deskriptoren definieren Eigenschaftswerte, die das Verhalten der benutzerdefinierten Positionsoption festlegen, d.h. wohin das positionierte Element platziert wird.
 
 - `position-anchor`
   - : Gibt einen {{cssxref("position-anchor")}}-Eigenschaftswert an, der das Ankerelement definiert, an das das positionierte Element gebunden ist, indem ein {{cssxref("dashed-ident")}}-Wert angegeben wird, der dem {{cssxref("anchor-name")}}-Eigenschaftswert des Ankerelements entspricht.

@@ -10,7 +10,7 @@ l10n:
 
 Die **`CanvasRenderingContext2D.lineJoin`**-Eigenschaft der Canvas 2D API bestimmt die Form, die verwendet wird, um zwei Liniensegmente an ihrem Treffpunkt zu verbinden.
 
-Diese Eigenschaft hat keinen Effekt, wenn zwei verbundene Segmente die gleiche Richtung haben, da in diesem Fall kein Verbindungsbereich hinzugefügt wird. Degenerierte Segmente mit einer Länge von null (d. h. mit allen End- und Kontrollpunkten genau an derselben Position) werden ebenfalls ignoriert.
+Diese Eigenschaft hat keinen Effekt, wenn zwei verbundene Segmente die gleiche Richtung haben, da in diesem Fall kein Verbindungsbereich hinzugefügt wird. Degenerierte Segmente mit einer Länge von null (d.h. mit allen End- und Kontrollpunkten genau an derselben Position) werden ebenfalls ignoriert.
 
 > [!NOTE]
 > Linien können mit den

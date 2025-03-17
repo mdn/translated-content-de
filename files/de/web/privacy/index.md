@@ -39,7 +39,7 @@ Es ist schwer, über Datenschutz zu sprechen, ohne auch über Sicherheit zu spre
 - Hobbys, Interessen oder andere persönliche Vorlieben
 - Biometrische Daten wie Fingerabdrücke oder Gesichts­erkennungsdaten
 
-**Private Informationen** sind alle Informationen, die Nutzer nicht öffentlich teilen möchten und die privat bleiben müssen (d. h. Informationen, die nur einer bestimmten Gruppe autorisierter Nutzer zugänglich sind). Einige private Daten sind gesetzlich geschützt (zum Beispiel medizinische Daten), und andere sind eher aus persönlichen Vorlieben privat.
+**Private Informationen** sind alle Informationen, die Nutzer nicht öffentlich teilen möchten und die privat bleiben müssen (d.h. Informationen, die nur einer bestimmten Gruppe autorisierter Nutzer zugänglich sind). Einige private Daten sind gesetzlich geschützt (zum Beispiel medizinische Daten), und andere sind eher aus persönlichen Vorlieben privat.
 
 ### Persönlich identifizierbare Informationen
 

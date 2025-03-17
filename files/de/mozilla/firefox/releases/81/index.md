@@ -52,7 +52,7 @@ _Keine Änderungen._
 
 #### Workers/Service Workers
 
-- Strenge MIME-Typ-Prüfungen werden jetzt bei Worker- und Shared-Worker-Skripten durchgesetzt, d. h. Skripte, die von den Konstruktoren [`Worker()`](/de/docs/Web/API/Worker/Worker) und [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker) angesprochen werden, müssen jetzt mit `text/javascript` bereitgestellt werden ([Firefox Fehler 1569123](https://bugzil.la/1569123)).
+- Strenge MIME-Typ-Prüfungen werden jetzt bei Worker- und Shared-Worker-Skripten durchgesetzt, d.h. Skripte, die von den Konstruktoren [`Worker()`](/de/docs/Web/API/Worker/Worker) und [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker) angesprochen werden, müssen jetzt mit `text/javascript` bereitgestellt werden ([Firefox Fehler 1569123](https://bugzil.la/1569123)).
 
 ### WebDriver-Konformität (Marionette)
 

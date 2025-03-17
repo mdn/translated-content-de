@@ -53,7 +53,7 @@ Ein {{jsxref("Promise")}}, dessen Erfüllungshandler ein [`MediaStream`](/de/doc
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird geworfen, wenn eines oder mehrere der angeforderten Quellgeräte derzeit nicht verwendet werden können. Dies tritt auf, wenn der Browsing-Kontext unsicher ist (d. h. die Seite wurde mittels HTTP statt HTTPS geladen). Es passiert auch, wenn der Benutzer angegeben hat, dass die aktuelle Browsing-Instanz keinen Zugriff auf das Gerät haben soll, der Benutzer den Zugriff für die aktuelle Sitzung verweigert hat oder der Benutzer allen Zugriff auf Benutzermediengeräte global verweigert hat. Bei Browsern, die die Verwaltung von Medienberechtigungen mit [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) unterstützen, wird dieser Fehler zurückgegeben, wenn die Permissions Policy nicht so konfiguriert ist, dass sie Zugriff auf die Eingabequelle(n) gewährt.
+  - : Wird geworfen, wenn eines oder mehrere der angeforderten Quellgeräte derzeit nicht verwendet werden können. Dies tritt auf, wenn der Browsing-Kontext unsicher ist (d.h. die Seite wurde mittels HTTP statt HTTPS geladen). Es passiert auch, wenn der Benutzer angegeben hat, dass die aktuelle Browsing-Instanz keinen Zugriff auf das Gerät haben soll, der Benutzer den Zugriff für die aktuelle Sitzung verweigert hat oder der Benutzer allen Zugriff auf Benutzermediengeräte global verweigert hat. Bei Browsern, die die Verwaltung von Medienberechtigungen mit [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) unterstützen, wird dieser Fehler zurückgegeben, wenn die Permissions Policy nicht so konfiguriert ist, dass sie Zugriff auf die Eingabequelle(n) gewährt.
 
     > [!NOTE]
     > Ältere Versionen der Spezifikation verwendeten stattdessen `SecurityError`;
@@ -196,7 +196,7 @@ getUserMedia({
 
 Der Browser wird versuchen, dies zu berücksichtigen, kann jedoch andere Auflösungen zurückgeben, wenn eine genaue Übereinstimmung nicht verfügbar ist oder wenn der Benutzer sie überschreibt.
 
-Um eine Fähigkeit _zwingend_ zu verlangen, verwenden Sie die Schlüsselwörter `min`, `max` oder `exact` (d. h. `min === max`). Das Folgende erfordert eine Mindestauflösung von 1280x720:
+Um eine Fähigkeit _zwingend_ zu verlangen, verwenden Sie die Schlüsselwörter `min`, `max` oder `exact` (d.h. `min === max`). Das Folgende erfordert eine Mindestauflösung von 1280x720:
 
 ```js
 getUserMedia({

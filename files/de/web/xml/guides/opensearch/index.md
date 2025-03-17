@@ -51,7 +51,7 @@ Die XML-Datei, die eine Suchmaschine beschreibt, folgt der grundlegenden Vorlage
     Firefox speichert das Symbol als [base64](https://en.wikipedia.org/wiki/Base64)-`data:`-URL im Cache (Such-Plugins werden im Ordner `searchplugins/` des [Benutzerprofils](https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data) gespeichert). `http:`- und `https:`-URLs werden dabei in `data:`-URLs umgewandelt.
 
     > [!NOTE]
-    > Für Symbole, die remote geladen werden (d. h. von `https://`-URLs im Gegensatz zu `data:`-URLs), lehnt Firefox Symbole ab, die größer als **10 Kilobyte** sind.
+    > Für Symbole, die remote geladen werden (d.h. von `https://`-URLs im Gegensatz zu `data:`-URLs), lehnt Firefox Symbole ab, die größer als **10 Kilobyte** sind.
 
     ![Suchvorschläge von Google, die im Suchfeld von Firefox angezeigt werden](searchsuggestionsample.png)
 

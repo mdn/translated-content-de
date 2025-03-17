@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`features`**-Schreibgeschützte Eigenschaft der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle gibt ein [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)-Objekt zurück, das die zusätzliche Funktionalität beschreibt, die vom Gerät unterstützt wird. Nur die Funktionen, die während der Erstellung des Geräts angefordert wurden (d. h. wenn [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) aufgerufen wird), sind enthalten.
+Die **`features`**-Schreibgeschützte Eigenschaft der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle gibt ein [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)-Objekt zurück, das die zusätzliche Funktionalität beschreibt, die vom Gerät unterstützt wird. Nur die Funktionen, die während der Erstellung des Geräts angefordert wurden (d.h. wenn [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) aufgerufen wird), sind enthalten.
 
 > [!NOTE]
 > Nicht alle Funktionen werden in WebGPU in allen Browsern verfügbar sein, die es unterstützen, selbst wenn die Funktionen von der zugrunde liegenden Hardware unterstützt werden. Weitere Informationen finden Sie unter [`GPUAdapter.features`](/de/docs/Web/API/GPUAdapter/features).

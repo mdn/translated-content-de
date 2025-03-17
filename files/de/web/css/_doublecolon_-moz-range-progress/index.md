@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-moz-range-progress`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die den unteren Bereich der _Spur_ (d. h. der Nut) darstellt, in der der Indikator in einem {{HTMLElement("input")}} vom Typ `type="range"` verschoben wird. Dieser Bereich entspricht den Werten, die niedriger sind als der aktuell vom _Daumen_ (d. h. dem virtuellen Knopf) ausgewählte Wert.
+Das **`::-moz-range-progress`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die den unteren Bereich der _Spur_ (d.h. der Nut) darstellt, in der der Indikator in einem {{HTMLElement("input")}} vom Typ `type="range"` verschoben wird. Dieser Bereich entspricht den Werten, die niedriger sind als der aktuell vom _Daumen_ (d.h. dem virtuellen Knopf) ausgewählte Wert.
 
 > [!NOTE]
 > Die Verwendung von `::-moz-range-progress` mit allem außer einem `<input type="range">` führt zu keiner Übereinstimmung und hat keine Wirkung.

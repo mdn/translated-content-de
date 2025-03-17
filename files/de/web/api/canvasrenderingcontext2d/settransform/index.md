@@ -83,7 +83,7 @@ ctx.fillRect(0, 0, 100, 100);
 
 Im folgenden Beispiel haben wir zwei {{htmlelement("canvas")}}-Elemente. Wir wenden eine Transformation auf den Kontext des ersten an, indem wir den ersten Typ von `setTransform()` verwenden und ein Quadrat darauf zeichnen. Dann rufen wir die Matrix mit [`CanvasRenderingContext2D.getTransform()`](/de/docs/Web/API/CanvasRenderingContext2D/getTransform) von diesem ab.
 
-Wir wenden dann die abgerufene Matrix direkt auf den Kontext der zweiten Leinwand an, indem wir das `DOMMatrix`-Objekt direkt an `setTransform()` übergeben (d. h. den zweiten Typ) und zeichnen einen Kreis darauf.
+Wir wenden dann die abgerufene Matrix direkt auf den Kontext der zweiten Leinwand an, indem wir das `DOMMatrix`-Objekt direkt an `setTransform()` übergeben (d.h. den zweiten Typ) und zeichnen einen Kreis darauf.
 
 #### HTML
 

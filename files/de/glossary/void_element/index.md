@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Void-Element** ist ein {{Glossary("element", "Element")}} in HTML, das **keine** Kindknoten haben kann (d. h. keine verschachtelten Elemente oder Textknoten). Void-Elemente haben nur einen Start-Tag; End-Tags dürfen bei Void-Elementen nicht angegeben werden.
+Ein **Void-Element** ist ein {{Glossary("element", "Element")}} in HTML, das **keine** Kindknoten haben kann (d.h. keine verschachtelten Elemente oder Textknoten). Void-Elemente haben nur einen Start-Tag; End-Tags dürfen bei Void-Elementen nicht angegeben werden.
 
 In HTML darf ein Void-Element keinen End-Tag haben. Zum Beispiel ist `<input type="text"></input>` ungültiges HTML. Im Gegensatz dazu können SVG- oder MathML-Elemente, die keine Kindknoten haben können, einen End-Tag anstelle von XML-Selbstschließungstag-Syntax in ihrem Start-Tag verwenden.
 

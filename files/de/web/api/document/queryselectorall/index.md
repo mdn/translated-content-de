@@ -84,7 +84,7 @@ const matches = container.querySelectorAll("li[data-active='1']");
 ### Zugriff auf die Übereinstimmungen
 
 Sobald die [`NodeList`](/de/docs/Web/API/NodeList) der übereinstimmenden Elemente zurückgegeben wurde, können Sie sie
-wie jedes Array untersuchen. Ist das Array leer (d. h. seine `length`-Eigenschaft ist
+wie jedes Array untersuchen. Ist das Array leer (d.h. seine `length`-Eigenschaft ist
 0), wurden keine Übereinstimmungen gefunden.
 
 Andernfalls können Sie mit der Standard-Array-Notation auf die Inhalte der Liste zugreifen. Sie

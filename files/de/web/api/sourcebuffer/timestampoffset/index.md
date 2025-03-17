@@ -23,7 +23,7 @@ Die folgende Ausnahme kann auftreten, wenn ein neuer Wert für diese Eigenschaft
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eines oder mehrere der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte in
     [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) aktualisiert werden
-    (d. h. ihre [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft ist
+    (d.h. ihre [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft ist
     derzeit `true`), ein Mediensegment im
     `SourceBuffer` wird gerade analysiert oder dieser
     `SourceBuffer` wurde aus der [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt.

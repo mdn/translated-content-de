@@ -24,7 +24,7 @@ self.onmessage = () => {
 };
 ```
 
-Wenn der Ursprung kein Schema/Host/Port-Tupel ist (wenn Sie ihn z. B. lokal ausführen, d. h. über eine `file://`-URL), wird `origin` die Zeichenkette `"null"` zurückgeben.
+Wenn der Ursprung kein Schema/Host/Port-Tupel ist (wenn Sie ihn z. B. lokal ausführen, d.h. über eine `file://`-URL), wird `origin` die Zeichenkette `"null"` zurückgeben.
 
 ## Spezifikationen
 

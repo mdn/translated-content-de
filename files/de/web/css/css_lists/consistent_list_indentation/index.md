@@ -49,7 +49,7 @@ Die gestrichelte rote Umrandung stellt die äußeren Ränder des Inhaltsbereichs
 
 ### Listenelemente in einer Liste verschachtelt
 
-Nun umschließen wir diese mit einem übergeordneten Element; in diesem Fall umschließen wir sie mit einer ungeordneten Liste (d. h. `<ul>`). Laut dem CSS-Boxmodell müssen die Boxen der Listenelemente im Inhaltsbereich des übergeordneten Elements angezeigt werden.
+Nun umschließen wir diese mit einem übergeordneten Element; in diesem Fall umschließen wir sie mit einer ungeordneten Liste (d.h. `<ul>`). Laut dem CSS-Boxmodell müssen die Boxen der Listenelemente im Inhaltsbereich des übergeordneten Elements angezeigt werden.
 
 ```css
 ul {

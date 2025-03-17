@@ -44,7 +44,7 @@ sourceBuffer.addEventListener("updateend", (ev) => {
 sourceBuffer.appendBuffer(buf);
 ```
 
-Angenommen, nach dem Aufruf von `appendBuffer`, ABER bevor das `updateend`-Ereignis ausgelöst wird (d. h. ein Puffer wird angehängt, aber der Vorgang ist noch nicht abgeschlossen), "scrubbt" ein Benutzer das Video und sucht einen neuen Zeitpunkt. In diesem Fall sollten Sie manuell `abort()` auf dem Quellpuffer aufrufen, um das Dekodieren des aktuellen Puffers zu stoppen, dann das neu angeforderte Segment abrufen und anhängen, das sich auf die aktuelle neue Position des Videos bezieht.
+Angenommen, nach dem Aufruf von `appendBuffer`, ABER bevor das `updateend`-Ereignis ausgelöst wird (d.h. ein Puffer wird angehängt, aber der Vorgang ist noch nicht abgeschlossen), "scrubbt" ein Benutzer das Video und sucht einen neuen Zeitpunkt. In diesem Fall sollten Sie manuell `abort()` auf dem Quellpuffer aufrufen, um das Dekodieren des aktuellen Puffers zu stoppen, dann das neu angeforderte Segment abrufen und anhängen, das sich auf die aktuelle neue Position des Videos bezieht.
 
 ## Spezifikationen
 

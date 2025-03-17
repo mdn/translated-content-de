@@ -10,7 +10,7 @@ l10n:
 
 Das **`scrollsnapchange`**-Ereignis der [`Document`](/de/docs/Web/API/Document)-Schnittstelle wird am Ende einer Scroll-Operation auf dem Dokument-{{Glossary("Scroll_container", "Scroll-Container")}} ausgelöst, wenn ein neues Scroll-Snap-Ziel ausgewählt wird.
 
-Dieses Ereignis funktioniert ähnlich wie das [`Element`](/de/docs/Web/API/Element)-Schnittstellenereignis [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event), mit der Ausnahme, dass das gesamte HTML-Dokument als Scroll-Snap-Container festgelegt werden muss (d. h., {{cssxref("scroll-snap-type")}} wird auf dem {{htmlelement("html")}}-Element gesetzt).
+Dieses Ereignis funktioniert ähnlich wie das [`Element`](/de/docs/Web/API/Element)-Schnittstellenereignis [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event), mit der Ausnahme, dass das gesamte HTML-Dokument als Scroll-Snap-Container festgelegt werden muss (d.h. {{cssxref("scroll-snap-type")}} wird auf dem {{htmlelement("html")}}-Element gesetzt).
 
 ## Syntax
 

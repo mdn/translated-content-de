@@ -514,7 +514,7 @@ setupHelp();
 
 Wie bereits erwähnt, verwaltet jede Funktionsinstanz ihren eigenen Gültigkeitsbereich und ihr Closure. Daher ist es unklug, Funktionen unnötig innerhalb anderer Funktionen zu erstellen, wenn Closures für eine bestimmte Aufgabe nicht erforderlich sind, da dies die Skriptleistung sowohl in Bezug auf die Verarbeitungsgeschwindigkeit als auch auf den Speicherverbrauch negativ beeinflusst.
 
-Zum Beispiel sollten beim Erstellen eines neuen Objekts / einer neuen Klasse Methoden normalerweise dem Prototyp des Objekts zugeordnet und nicht in den Objektkonstruktor definiert werden. Der Grund ist, dass die Methoden bei jedem Aufruf des Konstruktors neu zugewiesen würden (d. h. für jede Objekterstellung).
+Zum Beispiel sollten beim Erstellen eines neuen Objekts / einer neuen Klasse Methoden normalerweise dem Prototyp des Objekts zugeordnet und nicht in den Objektkonstruktor definiert werden. Der Grund ist, dass die Methoden bei jedem Aufruf des Konstruktors neu zugewiesen würden (d.h. für jede Objekterstellung).
 
 Betrachten Sie den folgenden Fall:
 

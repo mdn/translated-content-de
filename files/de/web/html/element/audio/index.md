@@ -46,7 +46,7 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
 
 - `controlslist`
 
-  - : Das [`controlslist`](https://wicg.github.io/controls-list/explainer.html)-Attribut, wenn es angegeben wird, hilft dem Browser, auszuwählen, welche Steuerungen für das `audio`-Element angezeigt werden sollen, wann immer der Browser seine eigene Steuerelemente-Sammlung anzeigt (d. h., wenn das `controls`-Attribut angegeben ist).
+  - : Das [`controlslist`](https://wicg.github.io/controls-list/explainer.html)-Attribut, wenn es angegeben wird, hilft dem Browser, auszuwählen, welche Steuerungen für das `audio`-Element angezeigt werden sollen, wann immer der Browser seine eigene Steuerelemente-Sammlung anzeigt (d.h. wenn das `controls`-Attribut angegeben ist).
 
     Die erlaubten Werte sind `nodownload`, `nofullscreen` und `noremoteplayback`.
 
@@ -59,7 +59,7 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
     - `use-credentials`
       - : Sendet eine Cross-Origin-Anfrage mit einem Berechtigungsnachweis. Das bedeutet, es wird der `Origin:`-HTTP-Header mit einem Cookie, einem Zertifikat oder Durchführung der HTTP-Basisauthentifizierung gesendet. Wenn der Server der Ursprungsseite keine Berechtigungsnachweise gibt (durch den `Access-Control-Allow-Credentials:`-HTTP-Header), wird die Ressource _kontaminiert_ und ihre Verwendung eingeschränkt.
 
-    Wenn nicht vorhanden, wird die Ressource ohne eine CORS-Anfrage abgerufen (d. h., ohne den `Origin:`-HTTP-Header zu senden), was ihre nicht kontaminierte Verwendung in {{HTMLElement('canvas')}}-Elementen verhindert. Wenn ungültig, wird es behandelt, als ob das aufgezählte Schlüsselwort **anonymous** verwendet wurde. Siehe [CORS-Attribut zur Einstellung](/de/docs/Web/HTML/Attributes/crossorigin) für zusätzliche Informationen.
+    Wenn nicht vorhanden, wird die Ressource ohne eine CORS-Anfrage abgerufen (d.h. ohne den `Origin:`-HTTP-Header zu senden), was ihre nicht kontaminierte Verwendung in {{HTMLElement('canvas')}}-Elementen verhindert. Wenn ungültig, wird es behandelt, als ob das aufgezählte Schlüsselwort **anonymous** verwendet wurde. Siehe [CORS-Attribut zur Einstellung](/de/docs/Web/HTML/Attributes/crossorigin) für zusätzliche Informationen.
 
 - `disableremoteplayback`
 

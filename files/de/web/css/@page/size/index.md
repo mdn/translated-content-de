@@ -41,9 +41,9 @@ size: A4 portrait;
 - `auto`
   - : Der User-Agent entscheidet über die Größe der Seite. In den meisten Fällen werden die Abmessungen und die Ausrichtung des Zielblatts verwendet.
 - `landscape`
-  - : Der Inhalt der Seite wird im Querformat angezeigt (d. h. die längste Seite des Rahmens ist horizontal).
+  - : Der Inhalt der Seite wird im Querformat angezeigt (d.h. die längste Seite des Rahmens ist horizontal).
 - `portrait`
-  - : Der Inhalt der Seite wird im Hochformat angezeigt (d. h. die längste Seite des Rahmens ist vertikal). Dies ist die Standardausrichtung.
+  - : Der Inhalt der Seite wird im Hochformat angezeigt (d.h. die längste Seite des Rahmens ist vertikal). Dies ist die Standardausrichtung.
 - `<length>`
   - : Ein beliebiger Längenwert (siehe {{cssxref("&lt;length&gt;")}}). Der erste Wert entspricht der Breite des Seitenrahmens und der zweite Wert der Höhe. Wird nur ein Wert angegeben, so wird dieser sowohl für die Breite als auch für die Höhe verwendet.
 - `<page-size>`
@@ -65,11 +65,11 @@ size: A4 portrait;
     - JIS-B4
       - : Entspricht den JIS-Standardabmessungen: 257mm x 364mm.
     - letter
-      - : Dieses Schlüsselwort entspricht den Abmessungen von Letter-Papier in Nordamerika, d. h. 8,5in x 11in.
+      - : Dieses Schlüsselwort entspricht den Abmessungen von Letter-Papier in Nordamerika, d.h. 8,5in x 11in.
     - legal
-      - : Dieses Schlüsselwort entspricht den Abmessungen von Legal-Papier in Nordamerika, d. h. 8,5in x 14in.
+      - : Dieses Schlüsselwort entspricht den Abmessungen von Legal-Papier in Nordamerika, d.h. 8,5in x 14in.
     - ledger
-      - : Dieses Schlüsselwort entspricht den Abmessungen von Ledger-Seiten in Nordamerika, d. h. 11in x 17in.
+      - : Dieses Schlüsselwort entspricht den Abmessungen von Ledger-Seiten in Nordamerika, d.h. 11in x 17in.
 
 ## Formale Definition
 

@@ -51,7 +51,7 @@ Was hinter den Kulissen passiert, um Quellen zu registrieren und die Quelldaten 
        > [!NOTE]
        > Die Werte, die zur Darstellung jedes Ereignisses verwendet werden, und die Anzahl der Elemente im Array sind völlig beliebig und werden von Ihnen als Entwickler definiert. Das Array kann Werte enthalten, die nicht verwendet werden, aber Werte müssen im Array vorhanden sein, um vom Browser der Quelle zugeordnet zu werden, wenn ein Trigger registriert wird.
      - `"trigger_data_matching"`: Eine Zeichenfolge, die angibt, wie die `"trigger_data"` des Triggers mit der `"trigger_data"` der Quelle abgeglichen wird. `"exact"` ist der Wert, den Sie fast immer verwenden werden, der genaue Werte abgleicht.
-     - `"expiry"`: Eine Zeichenfolge, die eine Ablaufzeit in Sekunden für die Attribution-Quelle darstellt, nach deren Ablauf sie nicht mehr aktiv ist (d. h. nachfolgende Trigger sind dieser Quelle nicht mehr zuordenbar).
+     - `"expiry"`: Eine Zeichenfolge, die eine Ablaufzeit in Sekunden für die Attribution-Quelle darstellt, nach deren Ablauf sie nicht mehr aktiv ist (d.h. nachfolgende Trigger sind dieser Quelle nicht mehr zuordenbar).
      - `"priority"`: Eine Zeichenfolge, die einen Prioritätswert für die Attribution-Quelle darstellt. Siehe [Berichtsprioritäten und -grenzen](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#report_priorities_and_limits) für weitere Informationen.
      - `"debug_key"`: Eine Basis-10-formatierte 64-Bit-unsigned Integer, die einen Debug-Schlüssel darstellt. Setzen Sie dies, wenn Sie einen [Debug-Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#debug_reports) neben dem zugehörigen Attribution-Bericht generieren möchten.
      - `"event_report_window"`: Eine Zeichenfolge, die eine Zeit in Sekunden darstellt, nach deren Ablauf nachfolgende Trigger nicht mehr dieser Quelle für die Erstellung von Ereignis-Level-Berichten zugeordnet werden.
@@ -136,7 +136,7 @@ In diesem Fall erfolgt die Interaktion und der Browser speichert die Quelldaten,
 > Beim Einrichten eines [`click`](/de/docs/Web/API/Element/click_event)-Ereignisses wie im obigen Beispiel wird empfohlen, es auf ein Steuerelement zu setzen, bei dem ein Klick erwartet wird, wie ein {{htmlelement("button")}} oder {{htmlelement("a")}}-Element. Dies macht semantisch mehr Sinn und ist sowohl für Bildschirmleser als auch für Tastaturnutzer zugänglicher.
 
 > [!NOTE]
-> Um eine Attribution-Quelle über `open()` zu registrieren, muss sie mit {{Glossary("Transient_activation", "transient activation")}} aufgerufen werden (d. h. innerhalb eines Benutzerinteraktion-Ereignishandlers wie `click`) innerhalb von fünf Sekunden nach der Benutzerinteraktion.
+> Um eine Attribution-Quelle über `open()` zu registrieren, muss sie mit {{Glossary("Transient_activation", "transient activation")}} aufgerufen werden (d.h. innerhalb eines Benutzerinteraktion-Ereignishandlers wie `click`) innerhalb von fünf Sekunden nach der Benutzerinteraktion.
 
 ## Ereignisbasierte Attribution-Quellen
 
@@ -161,7 +161,7 @@ const imgElem = document.querySelector("img");
 imgElem.attributionSrc = "";
 ```
 
-Der Browser speichert die Attribution-Quelldaten, wenn der Browser die Antwort mit der Bilddatei erhält (d. h. wenn das `load`-Ereignis auftritt). Beachten Sie, dass Nutzer das Bild möglicherweise überhaupt nicht wahrnehmen können — es könnte sich um ein 1x1 transparentes Tracking-Pixel handeln, das nur für Attribution-Berichterstellung verwendet wird.
+Der Browser speichert die Attribution-Quelldaten, wenn der Browser die Antwort mit der Bilddatei erhält (d.h. wenn das `load`-Ereignis auftritt). Beachten Sie, dass Nutzer das Bild möglicherweise überhaupt nicht wahrnehmen können — es könnte sich um ein 1x1 transparentes Tracking-Pixel handeln, das nur für Attribution-Berichterstellung verwendet wird.
 
 Ein {{htmlelement("script")}}-Beispiel könnte so aussehen:
 
@@ -240,7 +240,7 @@ In diesem Fall erfolgt die Interaktion und der Browser speichert die Quelldaten,
 
 ## Angeben von URLs im attributionsrc
 
-Bisher war in allen gezeigten Beispielen das `attributionsrc`-Attribut/Feature oder die `attributionSrc`-Eigenschaft leer, mit dem Wert eines leeren Strings. Dies ist in Ordnung, wenn der Server, der die angeforderte Ressource beherbergt, derselbe Server ist, den Sie auch für die Registrierung verwenden möchten, d. h. den {{httpheader("Attribution-Reporting-Eligible")}}-Header erhalten und mit dem {{httpheader("Attribution-Reporting-Register-Source")}}-Header antworten.
+Bisher war in allen gezeigten Beispielen das `attributionsrc`-Attribut/Feature oder die `attributionSrc`-Eigenschaft leer, mit dem Wert eines leeren Strings. Dies ist in Ordnung, wenn der Server, der die angeforderte Ressource beherbergt, derselbe Server ist, den Sie auch für die Registrierung verwenden möchten, d.h. den {{httpheader("Attribution-Reporting-Eligible")}}-Header erhalten und mit dem {{httpheader("Attribution-Reporting-Register-Source")}}-Header antworten.
 
 Es könnte jedoch sein, dass die angeforderte Ressource nicht auf einem Server liegt, den Sie kontrollieren, oder Sie möchten die Registrierung der Attribution-Quelle auf einem anderen Server handhaben. In solchen Fällen können Sie eine oder mehrere URLs als Wert von `attributionsrc` angeben. Wenn die Ressourcenanforderung erfolgt, wird der {{httpheader("Attribution-Reporting-Eligible")}}-Header an die in `attributionsrc` angegebenen URL(s) zusätzlich zum Ursprungsserver der Ressource gesendet; diese URLs können dann mit dem {{httpheader("Attribution-Reporting-Register-Source")}} antworten, um die Quelle zu registrieren.
 

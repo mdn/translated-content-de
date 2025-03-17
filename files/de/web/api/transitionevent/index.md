@@ -34,7 +34,7 @@ _Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)
 - [`transitionend`](/de/docs/Web/API/Element/transitionend_event)
   - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn ein [CSS-Übergang](/de/docs/Web/CSS/CSS_transitions) abgeschlossen ist.
 - [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event)
-  - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn ein [CSS-Übergang](/de/docs/Web/CSS/CSS_transitions) erstellt wird (d. h., wenn er zu einem Satz von laufenden Übergängen hinzugefügt wird), jedoch nicht unbedingt gestartet wird.
+  - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn ein [CSS-Übergang](/de/docs/Web/CSS/CSS_transitions) erstellt wird (d.h. wenn er zu einem Satz von laufenden Übergängen hinzugefügt wird), jedoch nicht unbedingt gestartet wird.
 - [`transitionstart`](/de/docs/Web/API/Element/transitionstart_event)
   - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn ein [CSS-Übergang](/de/docs/Web/CSS/CSS_transitions) das Übergangsstadium erreicht.
 

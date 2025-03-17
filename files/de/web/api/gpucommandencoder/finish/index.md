@@ -32,7 +32,7 @@ Eine [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objektinstanz.
 
 Die folgenden Kriterien müssen erfüllt sein, wenn **`finish()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) wird ungültig:
 
-- Es gibt keine aktiven Debug-Gruppen (d. h. gestartet über [`pushDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/pushDebugGroup)).
+- Es gibt keine aktiven Debug-Gruppen (d.h. gestartet über [`pushDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/pushDebugGroup)).
 - Der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) befindet sich in einem offenen Zustand — das bedeutet, dass:
   - Keine untergeordneten [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) oder [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)s aktiv sind, die nicht beendet wurden (durch Aufruf von `end()`).
   - Der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) nicht bereits mit `finish()` aufgerufen wurde (in diesem Fall kann er nicht mehr zum Kodieren von Befehlen verwendet werden).

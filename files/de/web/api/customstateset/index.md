@@ -63,7 +63,7 @@ Die Zustände können innerhalb des benutzerdefinierten Elements verwendet werde
 
 Sie können ein benutzerdefiniertes Element, das sich in einem bestimmten Zustand befindet, mithilfe der [`:state()`](/de/docs/Web/CSS/:state) _benutzerdefinierte Zustands-Pseudoklasse_ auswählen.
 Das Format dieser Pseudoklasse ist `:state(my-state-name)`, wobei `my-state-name` der im Element definierte Zustand ist.
-Die benutzerdefinierte Zustands-Pseudoklasse stimmt mit dem benutzerdefinierten Element nur überein, wenn der Zustand `true` ist (d. h., wenn `my-state-name` im `CustomStateSet` vorhanden ist).
+Die benutzerdefinierte Zustands-Pseudoklasse stimmt mit dem benutzerdefinierten Element nur überein, wenn der Zustand `true` ist (d.h. wenn `my-state-name` im `CustomStateSet` vorhanden ist).
 
 Zum Beispiel stimmt das folgende CSS mit einem `labeled-checkbox` benutzerdefinierte Element überein, wenn das `CustomStateSet` des Elements den `checked` Zustand enthält, und wendet einen `solide` Rahmen auf das Kontrollkästchen an:
 

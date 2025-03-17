@@ -38,7 +38,7 @@ Ein {{jsxref("Promise")}}, der mit `undefined` aufgelöst wird.
 
   - : Das URL-Schema ist nicht `http` oder `https`.
 
-    Der Antwortstatus liegt nicht im 200-Bereich (d. h. keine erfolgreiche Antwort.) Dies tritt auf, wenn die Anfrage nicht erfolgreich zurückkehrt, aber auch, wenn es sich um eine _cross-origin no-cors_ Anfrage handelt (in diesem Fall wird der Status immer als 0 angegeben.)
+    Der Antwortstatus liegt nicht im 200-Bereich (d.h. keine erfolgreiche Antwort.) Dies tritt auf, wenn die Anfrage nicht erfolgreich zurückkehrt, aber auch, wenn es sich um eine _cross-origin no-cors_ Anfrage handelt (in diesem Fall wird der Status immer als 0 angegeben.)
 
 ## Beispiele
 

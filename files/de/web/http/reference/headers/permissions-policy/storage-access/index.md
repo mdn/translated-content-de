@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP {{HTTPHeader("Permissions-Policy")}}-Header-Direktive `storage-access` steuert, ob ein Dokument, das in einem Drittanbieter-Kontext geladen wurde (d. h. eingebettet in einem {{htmlelement("iframe")}}), die [Storage Access API](/de/docs/Web/API/Storage_Access_API) verwenden darf, um Zugriff auf nicht partionierte Cookies zu beantragen.
+Die HTTP {{HTTPHeader("Permissions-Policy")}}-Header-Direktive `storage-access` steuert, ob ein Dokument, das in einem Drittanbieter-Kontext geladen wurde (d.h. eingebettet in einem {{htmlelement("iframe")}}), die [Storage Access API](/de/docs/Web/API/Storage_Access_API) verwenden darf, um Zugriff auf nicht partionierte Cookies zu beantragen.
 
 Dies ist relevant für User Agents, die standardmäßig den Zugriff auf nicht partionierte Cookies von Websites blockieren, die in einem Drittanbieter-Kontext geladen werden, um die Privatsphäre zu verbessern (zum Beispiel, um Tracking zu verhindern).
 

@@ -214,7 +214,7 @@ Die verfügbaren `credentialProtectionPolicy`-Werte sind wie folgt:
 - `"userVerificationOptional"` {{Experimental_Inline}}
   - : Benutzerüberprüfung ist optional. Der äquivalente `credProtect`-Wert, der an den Authentifizierer zur Verarbeitung gesendet wird, ist `0x01`.
 - `"userVerificationOptionalWithCredentialIDList"`
-  - : Benutzerüberprüfung ist nur dann optional, wenn das Berechtigungsnachweis entdeckbar ist (d. h., es ist clientseitig entdeckbar). Der äquivalente `credProtect`-Wert, der an den Authentifizierer zur Verarbeitung gesendet wird, ist `0x02`.
+  - : Benutzerüberprüfung ist nur dann optional, wenn das Berechtigungsnachweis entdeckbar ist (d.h. es ist clientseitig entdeckbar). Der äquivalente `credProtect`-Wert, der an den Authentifizierer zur Verarbeitung gesendet wird, ist `0x02`.
 - `"userVerificationRequired"`
   - : Benutzerüberprüfung ist immer erforderlich. Der äquivalente `credProtect`-Wert, der an den Authentifizierer zur Verarbeitung gesendet wird, ist `0x03`.
 

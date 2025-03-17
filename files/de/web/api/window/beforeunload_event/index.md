@@ -75,7 +75,7 @@ Im folgenden Beispiel haben wir ein HTML-Text-{{htmlelement("input")}}, um einig
 
 Unser JavaScript hängt einen [`input`](/de/docs/Web/API/Element/input_event)-Ereignislistener an das `<input>`-Element an, der auf Änderungen des eingegebenen Wertes hört. Wenn der Wert auf einen nicht leeren Wert aktualisiert wird, wird ein `beforeunload`-Ereignislistener an das [`Window`](/de/docs/Web/API/Window)-Objekt angehängt.
 
-Wenn der Wert wieder eine leere Zeichenkette wird (d. h. der Wert gelöscht wird), wird der `beforeunload`-Ereignislistener wieder entfernt — wie oben in den [Hinweisen zur Verwendung](#hinweise_zur_verwendung) erwähnt, sollte der Listener entfernt werden, wenn es keine nicht gespeicherten Daten gibt, um darauf hinzuweisen.
+Wenn der Wert wieder eine leere Zeichenkette wird (d.h. der Wert gelöscht wird), wird der `beforeunload`-Ereignislistener wieder entfernt — wie oben in den [Hinweisen zur Verwendung](#hinweise_zur_verwendung) erwähnt, sollte der Listener entfernt werden, wenn es keine nicht gespeicherten Daten gibt, um darauf hinzuweisen.
 
 Die `beforeunload`-Ereignishandlerfunktion ruft `event.preventDefault()` auf, um den Warnungsdialog auszulösen, wenn der Benutzer den Tab schließt oder navigiert. Wir haben auch `event.returnValue = true` in der Handlerfunktion aufgenommen, damit der Demo auch auf Browsern, die den `event.preventDefault()`-Mechanismus nicht unterstützen, korrekt ausgeführt wird.
 

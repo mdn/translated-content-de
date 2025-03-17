@@ -37,7 +37,7 @@ Einer dieser Promises schlägt fehl, wenn die Navigation aus irgendeinem Grund f
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry)'s [`NavigationHistoryEntry.index`](/de/docs/Web/API/NavigationHistoryEntry/index)-Wert -1 oder [`navigation.entries().length - 1`](/de/docs/Web/API/Navigation/entries) ist, d. h. entweder das aktuelle [`Document`](/de/docs/Web/API/Document) ist noch nicht aktiv oder der aktuelle Verlaufs-Eintrag ist der letzte im Verlauf, was bedeutet, dass eine Vorwärtsnavigation nicht möglich ist, oder wenn das aktuelle [`Document`](/de/docs/Web/API/Document) entladen wird.
+  - : Wird ausgelöst, wenn der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry)'s [`NavigationHistoryEntry.index`](/de/docs/Web/API/NavigationHistoryEntry/index)-Wert -1 oder [`navigation.entries().length - 1`](/de/docs/Web/API/Navigation/entries) ist, d.h. entweder das aktuelle [`Document`](/de/docs/Web/API/Document) ist noch nicht aktiv oder der aktuelle Verlaufs-Eintrag ist der letzte im Verlauf, was bedeutet, dass eine Vorwärtsnavigation nicht möglich ist, oder wenn das aktuelle [`Document`](/de/docs/Web/API/Document) entladen wird.
 
 ## Beispiele
 

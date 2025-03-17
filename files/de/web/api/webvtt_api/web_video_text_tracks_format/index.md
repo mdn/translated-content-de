@@ -203,7 +203,7 @@ Cue-Einstellungen werden rechts von den Cue-Timings hinzugefügt. Es müssen ein
     - Eine Zeilennummer
       - : Die Position der ersten Zeile des Cues, wie sie im Video erscheint. Positive Zahlen werden von oben nach unten gezählt und negative Zahlen von unten nach oben.
     - Ein Prozentwert
-      - : Eine ganze Zahl (d. h. ohne Dezimalstellen) zwischen 0 und 100 einschließlich, die mit einem Prozentzeichen (%) folgen muss.
+      - : Eine ganze Zahl (d.h. ohne Dezimalstellen) zwischen 0 und 100 einschließlich, die mit einem Prozentzeichen (%) folgen muss.
 
     | Line        | `vertical` omitted | `vertical:rl` | `vertical:lr` |
     | ----------- | ------------------ | ------------- | ------------- |
@@ -327,7 +327,7 @@ Die folgenden Tags sind die HTML-Tags, die in einem Cue erlaubt sind, und benöt
 
 - Ruby-Tag (`<ruby></ruby>`)
 
-  - : Wird mit Ruby-Text-Tags verwendet, um [Ruby-Zeichen](https://en.wikipedia.org/wiki/Ruby_character) (d. h., kleine annotative Zeichen oberhalb anderer Zeichen) anzuzeigen.
+  - : Wird mit Ruby-Text-Tags verwendet, um [Ruby-Zeichen](https://en.wikipedia.org/wiki/Ruby_character) (d.h. kleine annotative Zeichen oberhalb anderer Zeichen) anzuzeigen.
 
     ```xml
     <ruby>WWW<rt>World Wide Web</rt>oui<rt>yes</rt></ruby>
@@ -335,7 +335,7 @@ Die folgenden Tags sind die HTML-Tags, die in einem Cue erlaubt sind, und benöt
 
 - Ruby-Text-Tag (`<rt></rt>`)
 
-  - : Wird mit Ruby-Tags verwendet, um [Ruby-Zeichen](https://en.wikipedia.org/wiki/Ruby_character) (d. h., kleine annotative Zeichen oberhalb anderer Zeichen) anzuzeigen.
+  - : Wird mit Ruby-Tags verwendet, um [Ruby-Zeichen](https://en.wikipedia.org/wiki/Ruby_character) (d.h. kleine annotative Zeichen oberhalb anderer Zeichen) anzuzeigen.
 
     ```xml
     <ruby>WWW<rt>World Wide Web</rt>oui<rt>yes</rt></ruby>

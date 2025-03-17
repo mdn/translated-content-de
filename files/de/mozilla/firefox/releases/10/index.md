@@ -125,7 +125,7 @@ Eine Übersicht über mögliche Probleme, die auftreten können, wenn Sie Ihr Ad
 ### Manifeste
 
 - Unterstützung für [`<em:strictCompatibility>`](/de/docs/Install_Manifests#strictcompatibility) wurde dem Installationsmanifest hinzugefügt. Diese erlaubt es Add-On-Autoren, das Maximum der Version ihrer Erweiterung zu überprüfen. Wenn auf `true` gesetzt, wird das Add-On deaktiviert, wenn die Anwendungs-Version größer ist als `<em:maxVersion>`. Firefox 10 setzt standardmäßig voraus, dass Add-Ons kompatibel sind, unabhängig von der angegebenen maximalen Version. Diese Einstellung überschreibt diese Präferenz. Sie sollten dies setzen, wenn Ihr Add-On Dinge tut, die wahrscheinlich durch Firefox-Updates beeinträchtigt werden, **aber nicht**, wenn Ihr Add-On eine binäre Komponente enthält, da solche Add-Ons immer strikter überprüft werden (denken Sie daran, dass binäre Komponenten immer für jede größere Firefox-Version neu kompiliert werden müssen).
-- Wenn Sie zum alten Verhalten zurückkehren möchten – d. h. zum strikten Kompatibilitäts-Check für alle Add-Ons, unabhängig vom Wert der `strictCompatibility`-Einstellung in ihren Manifesten, können Sie die Einstellung `extensions.strictCompatibility` auf `true` setzen.
+- Wenn Sie zum alten Verhalten zurückkehren möchten – d.h. zum strikten Kompatibilitäts-Check für alle Add-Ons, unabhängig vom Wert der `strictCompatibility`-Einstellung in ihren Manifesten, können Sie die Einstellung `extensions.strictCompatibility` auf `true` setzen.
 
 ### XUL
 

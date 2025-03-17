@@ -207,7 +207,7 @@ Versuchen Sie jetzt, das [Element Capture API Beispiel](https://mdn.github.io/do
 
 ### Einschränkungen der Element Capture API
 
-Um sicherzustellen, dass das Element **einschränkungsberechtigt** ist, d. h. es wird erfasst, wenn es als Einschränkungsziel-Element ausgewählt wird, muss es einen [Stacking-Context](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) bilden und in 3D-Raum abgeflacht werden.
+Um sicherzustellen, dass das Element **einschränkungsberechtigt** ist, d.h. es wird erfasst, wenn es als Einschränkungsziel-Element ausgewählt wird, muss es einen [Stacking-Context](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) bilden und in 3D-Raum abgeflacht werden.
 
 Um diese Einschränkungen zu handhaben, haben wir die folgende zusätzliche CSS-Regel erstellt, die auf das Demo-Containerelement abzielt:
 

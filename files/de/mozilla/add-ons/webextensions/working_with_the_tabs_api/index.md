@@ -367,7 +367,7 @@ In Firefox sind die Standardeinstellungen für den Zoom:
 
 - **Standard-Zoomlevel:** 100 %.
 - **Zoom-Modus:** automatisch (der Browser verwaltet, wie Zoomlevel gesetzt werden).
-- **Geltungsbereich der Zoomänderungen:** `"per-origin"`, d. h., wenn Sie eine Website erneut besuchen, wird das Zoomlevel angewendet, das beim letzten Besuch gesetzt wurde.
+- **Geltungsbereich der Zoomänderungen:** `"per-origin"`, d.h. wenn Sie eine Website erneut besuchen, wird das Zoomlevel angewendet, das beim letzten Besuch gesetzt wurde.
 
 ### Anleitung Beispiel
 

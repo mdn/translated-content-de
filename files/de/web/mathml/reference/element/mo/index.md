@@ -12,7 +12,7 @@ Das **`<mo>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert einen **Oper
 Zusätzlich zu den [globalen MathML-Attributen](/de/docs/Web/MathML/Reference/Global_attributes) akzeptiert dieses Element die folgenden Attribute [deren Standardwerte von der Form und dem Inhalt des Operators abhängen](https://w3c.github.io/mathml-core/#algorithm-for-determining-the-properties-of-an-embellished-operator):
 
 - `accent` {{Non-standard_Inline}}
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), der angibt, ob der Operator als Akzent behandelt werden soll, wenn er als [unter](/de/docs/Web/MathML/Reference/Element/munder)- oder [Überstrich](/de/docs/Web/MathML/Reference/Element/mover) verwendet wird (d. h. größer und näher an dem Basisausdruck gezeichnet wird).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), der angibt, ob der Operator als Akzent behandelt werden soll, wenn er als [unter](/de/docs/Web/MathML/Reference/Element/munder)- oder [Überstrich](/de/docs/Web/MathML/Reference/Element/mover) verwendet wird (d.h. größer und näher an dem Basisausdruck gezeichnet wird).
 - `fence`
   - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), der angibt, ob der Operator eine Begrenzung ist (wie Klammern). Für dieses Attribut gibt es keinen visuellen Effekt.
 - `form`

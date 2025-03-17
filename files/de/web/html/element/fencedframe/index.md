@@ -52,7 +52,7 @@ Derzeit sind diese Funktionen immer innerhalb von Fenced Frames aktiviert. In de
 
 ## Fokussieren über Fenced Frame Grenzen hinweg
 
-Die Fähigkeit, den aktiven Fokus des Dokuments über Fenced Frame Grenzen hinweg zu bewegen (d. h. von einem Element außerhalb des Fenced Frames zu einem innerhalb oder umgekehrt) ist eingeschränkt. Benutzerinitiierte Aktionen wie ein Klick oder ein Tab können dies tun, da hier kein Risiko des Fingerprintings besteht.
+Die Fähigkeit, den aktiven Fokus des Dokuments über Fenced Frame Grenzen hinweg zu bewegen (d.h. von einem Element außerhalb des Fenced Frames zu einem innerhalb oder umgekehrt) ist eingeschränkt. Benutzerinitiierte Aktionen wie ein Klick oder ein Tab können dies tun, da hier kein Risiko des Fingerprintings besteht.
 
 Jedoch wird der Versuch, die Grenze über einen API-Aufruf wie [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus) zu überqueren, verhindert — ein bösartiges Skript könnte eine Reihe solcher Aufrufe nutzen, um Informationen über die Grenze hinweg zu leaken.
 
@@ -63,7 +63,7 @@ Da es sich um ein {{Glossary("replaced_elements", "ersetzen Element")}} handelt,
 > [!NOTE]
 > Die {{cssxref("object-fit")}} Eigenschaft hat keine Auswirkungen auf `<fencedframe>` Elemente.
 
-Die Größe des eingebetteten Inhalts kann durch interne `contentWidth` und `contentHeight` Eigenschaften des `<fencedframe>` [`config`](/de/docs/Web/API/HTMLFencedFrameElement/config) Objekts festgelegt werden. In solchen Fällen verändert das Ändern der `width` oder `height` des `<fencedframe>` zwar die Größe des eingebetteten Containers auf der Seite, aber das Dokument innerhalb des Containers wird visuell skaliert, um zu passen. Die gemeldete Breite und Höhe des eingebetteten Dokuments (d. h. [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)) bleiben unverändert.
+Die Größe des eingebetteten Inhalts kann durch interne `contentWidth` und `contentHeight` Eigenschaften des `<fencedframe>` [`config`](/de/docs/Web/API/HTMLFencedFrameElement/config) Objekts festgelegt werden. In solchen Fällen verändert das Ändern der `width` oder `height` des `<fencedframe>` zwar die Größe des eingebetteten Containers auf der Seite, aber das Dokument innerhalb des Containers wird visuell skaliert, um zu passen. Die gemeldete Breite und Höhe des eingebetteten Dokuments (d.h. [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)) bleiben unverändert.
 
 ## Barrierefreiheit
 

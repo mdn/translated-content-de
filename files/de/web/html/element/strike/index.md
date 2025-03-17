@@ -10,7 +10,7 @@ l10n:
 Das **`<strike>`**-Element [HTML](/de/docs/Web/HTML) fügt einen Durchstreichungseffekt (horizontale Linie) über den Text ein.
 
 > [!WARNING]
-> Dieses Element ist in HTML 4 und XHTML 1 veraltet und im [HTML Living Standard](https://html.spec.whatwg.org/multipage/obsolete.html#strike) überflüssig geworden. Wenn es semantisch angemessen ist, d. h. wenn es _gelöschten_ Inhalt darstellt, verwenden Sie stattdessen {{HTMLElement("del")}}. In allen anderen Fällen verwenden Sie {{HTMLElement("s")}}.
+> Dieses Element ist in HTML 4 und XHTML 1 veraltet und im [HTML Living Standard](https://html.spec.whatwg.org/multipage/obsolete.html#strike) überflüssig geworden. Wenn es semantisch angemessen ist, d.h. wenn es _gelöschten_ Inhalt darstellt, verwenden Sie stattdessen {{HTMLElement("del")}}. In allen anderen Fällen verwenden Sie {{HTMLElement("s")}}.
 
 ## Attribute
 

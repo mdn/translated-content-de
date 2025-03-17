@@ -19,13 +19,13 @@ custom-element::part(foo) {
 
 Das globale [`part`](/de/docs/Web/HTML/Global_attributes/part)-Attribut macht ein Element des Shadow-Baums für sein übergeordnetes DOM sichtbar. Die mit dem `part`-Attribut deklarierten Teile werden als Parameter des `::part()`-Pseudoelements verwendet. Auf diese Weise können Sie CSS-Stile auf Elemente im Shadow-Baum von außerhalb anwenden.
 
-Teilnamen sind ähnlich wie CSS-Klassen: Mehrere Elemente können denselben Teilnamen haben, und ein einzelnes Element kann mehrere Teilnamen haben. Alle im `::part()`-Pseudoelement verwendeten Teilnamen müssen im `part`-Wert angegeben sein, der auf dem Shadow-Baum-Element deklariert wurde, aber die Reihenfolge der Teilnamen spielt keine Rolle, d. h. die Selektoren `::part(tab active)` und `::part(active tab)` sind gleich.
+Teilnamen sind ähnlich wie CSS-Klassen: Mehrere Elemente können denselben Teilnamen haben, und ein einzelnes Element kann mehrere Teilnamen haben. Alle im `::part()`-Pseudoelement verwendeten Teilnamen müssen im `part`-Wert angegeben sein, der auf dem Shadow-Baum-Element deklariert wurde, aber die Reihenfolge der Teilnamen spielt keine Rolle, d.h. die Selektoren `::part(tab active)` und `::part(active tab)` sind gleich.
 
 Das `::part()`-Pseudoelement ist nur für das übergeordnete DOM sichtbar. Das bedeutet, dass wenn ein Shadow-Baum verschachtelt ist, die Teile für keine anderen Vorfahren außer dem direkten Elternteil sichtbar sind. Das [`exportparts`](/de/docs/Web/HTML/Global_attributes/exportparts)-Attribut löst diese Einschränkung, indem es bereits definierte `part`-Namen explizit exportiert und sie global stilisierbar macht.
 
 [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) (wie `::part(label):hover`) können an den `::part()`-Selektor angehängt werden, aber [strukturelle Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes), die basierend auf Bauminformationen übereinstimmen, wie `:empty` und `:last-child`, können nicht angehängt werden.
 
-Zusätzliche Pseudoelemente, wie `::before`, können an den `::part()`-Selektor angehängt werden, aber zusätzliche `::part()`-Elemente können nicht angehängt werden. Zum Beispiel passt `::part(confirm-button)::part(active)` nie auf etwas, d. h. es ist nicht dasselbe wie `::part(confirm-button active)`. Dies liegt daran, dass dadurch mehr Strukturinformationen offengelegt würden, als beabsichtigt ist.
+Zusätzliche Pseudoelemente, wie `::before`, können an den `::part()`-Selektor angehängt werden, aber zusätzliche `::part()`-Elemente können nicht angehängt werden. Zum Beispiel passt `::part(confirm-button)::part(active)` nie auf etwas, d.h. es ist nicht dasselbe wie `::part(confirm-button active)`. Dies liegt daran, dass dadurch mehr Strukturinformationen offengelegt würden, als beabsichtigt ist.
 
 ## Syntax
 

@@ -13,7 +13,7 @@ Das **`PublicKeyCredentialCreationOptions`**-Wörterbuch repräsentiert das Obje
 
 - `attestation` {{optional_inline}}
 
-  - : Ein String, der die Präferenz der vertrauenden Partei dafür angibt, wie die Attestierungserklärung (d. h. die Bereitstellung von überprüfbaren Beweisen für die Authentizität des Authentikators und seiner Daten) während der Erstellung des Zertifikats übermittelt wird. Der Wert kann einer der folgenden sein:
+  - : Ein String, der die Präferenz der vertrauenden Partei dafür angibt, wie die Attestierungserklärung (d.h. die Bereitstellung von überprüfbaren Beweisen für die Authentizität des Authentikators und seiner Daten) während der Erstellung des Zertifikats übermittelt wird. Der Wert kann einer der folgenden sein:
 
     - `"none"`
 

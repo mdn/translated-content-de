@@ -80,7 +80,7 @@ border-spacing: unset;
 Die `border-spacing` Eigenschaft kann entweder mit einem oder zwei Werten angegeben werden.
 
 - Wenn **ein** `<length>` Wert angegeben wird, definiert er sowohl die horizontalen als auch die vertikalen Abstände zwischen den Zellen.
-- Wenn **zwei** `<length>` Werte angegeben werden, definiert der erste Wert den horizontalen Abstand zwischen den Zellen (d. h. den Abstand zwischen Zellen in benachbarten _Spalten_), und der zweite Wert definiert den vertikalen Abstand zwischen den Zellen (d. h. den Abstand zwischen Zellen in benachbarten _Zeilen_).
+- Wenn **zwei** `<length>` Werte angegeben werden, definiert der erste Wert den horizontalen Abstand zwischen den Zellen (d.h. den Abstand zwischen Zellen in benachbarten _Spalten_), und der zweite Wert definiert den vertikalen Abstand zwischen den Zellen (d.h. den Abstand zwischen Zellen in benachbarten _Zeilen_).
 
 ### Werte
 

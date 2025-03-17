@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.preventExtensions()`** ist vergleichbar mit {{jsxref("Object.preventExtensions()")}}. Sie verhindert, dass einem Objekt jemals neue Eigenschaften hinzugefügt werden können (d. h., sie verhindert zukünftig Erweiterungen des Objekts).
+Die statische Methode **`Reflect.preventExtensions()`** ist vergleichbar mit {{jsxref("Object.preventExtensions()")}}. Sie verhindert, dass einem Objekt jemals neue Eigenschaften hinzugefügt werden können (d.h. sie verhindert zukünftig Erweiterungen des Objekts).
 
 {{InteractiveExample("JavaScript Demo: Reflect.preventExtensions()")}}
 

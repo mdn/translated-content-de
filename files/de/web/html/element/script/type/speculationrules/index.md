@@ -151,7 +151,7 @@ Jedes Objekt kann die folgenden Eigenschaften enthalten:
     - `ruleset`
       - : URLs sollten relativ zur Datei gematcht werden, in der die Regeln festgelegt sind. Dies ist der Standardwert.
 
-    Diese Schlüsseleinstellung ist nur relevant für in einer externen Datei definierte Regeln (festgelegt unter Verwendung des {{httpheader("Speculation-Rules")}} Headers). Wenn Regeln innerhalb desselben Dokuments spezifiziert sind, für das sie gesetzt werden (d. h. in einem Inline-`<script>`-Element), macht es keinen Unterschied.
+    Diese Schlüsseleinstellung ist nur relevant für in einer externen Datei definierte Regeln (festgelegt unter Verwendung des {{httpheader("Speculation-Rules")}} Headers). Wenn Regeln innerhalb desselben Dokuments spezifiziert sind, für das sie gesetzt werden (d.h. in einem Inline-`<script>`-Element), macht es keinen Unterschied.
 
 - `"requires"` {{experimental_inline}}
 

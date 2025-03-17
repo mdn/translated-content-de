@@ -29,7 +29,7 @@ function square(number) {
 }
 ```
 
-Die Funktion `square` nimmt einen Parameter an, der `number` genannt wird. Die Funktion besteht aus einer Anweisung, die besagt, dass der Parameter der Funktion (d. h. `number`) mit sich selbst multipliziert zurückgegeben wird. Die [`return`](/de/docs/Web/JavaScript/Reference/Statements/return) Anweisung gibt den von der Funktion zurückgegebenen Wert an, welcher `number * number` ist.
+Die Funktion `square` nimmt einen Parameter an, der `number` genannt wird. Die Funktion besteht aus einer Anweisung, die besagt, dass der Parameter der Funktion (d.h. `number`) mit sich selbst multipliziert zurückgegeben wird. Die [`return`](/de/docs/Web/JavaScript/Reference/Statements/return) Anweisung gibt den von der Funktion zurückgegebenen Wert an, welcher `number * number` ist.
 
 Parameter werden im Wesentlichen **by value** an Funktionen übergeben — wenn der Code innerhalb des Funktionskörpers einem übergebenen Parameter einen völlig neuen Wert zuweist, **wird die Änderung weder global noch im Aufrufer der Funktion reflektiert**.
 
@@ -455,7 +455,7 @@ A(1); // Logs 6 (which is 1 + 2 + 3)
 
 In diesem Beispiel greift `C` auf `B`'s `y` und `A`'s `x` zu. Dies kann getan werden, weil:
 
-1. `B` bildet ein Closure, einschließlich `A` (d. h., `B` kann auf `A`'s Argumente und Variablen zugreifen).
+1. `B` bildet ein Closure, einschließlich `A` (d.h. `B` kann auf `A`'s Argumente und Variablen zugreifen).
 2. `C` bildet ein Closure, einschließlich `B`.
 3. Da `C`'s Closure `B` einschließt und `B`'s Closure `A` einschließt, schließt `C`'s Closure auch `A` ein. Das bedeutet, `C` kann auf _beide_ `B` _und_ `A`'s Argumente und Variablen zugreifen. Mit anderen Worten, `C` _verknüpft_ die Geltungsbereiche von `B` und `A`, _in dieser Reihenfolge_.
 

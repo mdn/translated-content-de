@@ -16,7 +16,7 @@ Es gibt zwei Arten von scrollbasierten Zeitleisten:
 
 Wenn eine dieser beiden Zeitleisten auf ein animiertes Element angewendet wird, bewegt sich die Animation entlang dieser Zeitleiste anstelle der standardmäßigen zeitbasierten Zeitleiste.
 
-Es ist möglich, die effektive Platzierung der Animation entlang der Scrollfortschritts- und Sichtbarkeits-Fortschritts-Zeitleisten anzupassen, d. h., Sie können die Position definieren, an der die Animation beginnt und endet. Dies kann auf verschiedene Weise erfolgen:
+Es ist möglich, die effektive Platzierung der Animation entlang der Scrollfortschritts- und Sichtbarkeits-Fortschritts-Zeitleisten anzupassen, d.h. Sie können die Position definieren, an der die Animation beginnt und endet. Dies kann auf verschiedene Weise erfolgen:
 
 - Start- und Endwerte des Animationsbereichs können auf die Animation angewendet werden, um die Position des Start- und Endpunkts der Animation entlang der Zeitleiste anzupassen.
 - Sichtbarkeits-Fortschritts-Zeitleisten können einen Start- und/oder End-Abstand (oder Vorsprung) aufweisen, der auf sie angewendet wird, um die Position des Scrollports (siehe {{Glossary("Scroll_container", "Scroll-Container")}} für weitere Details) anzupassen, in dem das Subjektelement als sichtbar betrachtet wird. Anders ausgedrückt können Sie Start- und/oder Endabstände definieren, die die Position der Zeitleiste selbst verschieben.
@@ -59,7 +59,7 @@ CSS-Scroll-Animationen ermöglichen es, `<timeline-range-name>`s in {{cssxref("@
 
 ### Funktionen
 
-Mögliche Werte der Eigenschaft {{cssxref("animation-timeline")}} zum Definieren von _anonymen Scroll-Fortschritts-Zeitleisten_ und _anonymen Sichtbarkeits-Fortschritts-Zeitleisten_ (d. h. implizit vom Browser definiert, anstatt ausdrücklich benannt und mit den `scroll-timeline-*`- und `view-timeline-*`-Eigenschaften definiert):
+Mögliche Werte der Eigenschaft {{cssxref("animation-timeline")}} zum Definieren von _anonymen Scroll-Fortschritts-Zeitleisten_ und _anonymen Sichtbarkeits-Fortschritts-Zeitleisten_ (d.h. implizit vom Browser definiert, anstatt ausdrücklich benannt und mit den `scroll-timeline-*`- und `view-timeline-*`-Eigenschaften definiert):
 
 - [`scroll()`](/de/docs/Web/CSS/animation-timeline/scroll)
 - [`view()`](/de/docs/Web/CSS/animation-timeline/view)

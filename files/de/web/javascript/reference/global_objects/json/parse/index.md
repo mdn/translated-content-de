@@ -131,7 +131,7 @@ JSON.parse('{"1": 1, "2": 2, "3": {"4": 4, "5": {"6": 6}}}', (key, value) => {
 
 ### Verwendung von reviver in Kombination mit dem replacer von JSON.stringify()
 
-Damit ein Wert korrekt "rundläuft" (d. h. er wird in dasselbe ursprüngliche Objekt deserialisiert), muss der Serialisierungsprozess die Typinformationen beibehalten. Zum Beispiel können Sie dafür den `replacer`-Parameter von {{jsxref("JSON.stringify()")}} verwenden:
+Damit ein Wert korrekt "rundläuft" (d.h. er wird in dasselbe ursprüngliche Objekt deserialisiert), muss der Serialisierungsprozess die Typinformationen beibehalten. Zum Beispiel können Sie dafür den `replacer`-Parameter von {{jsxref("JSON.stringify()")}} verwenden:
 
 ```js
 // Maps are normally serialized as objects with no properties.

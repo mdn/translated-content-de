@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-moz-range-track`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die die _Leiste_ (d. h. die Spur) repräsentiert, in der der Indikator in einem {{HTMLElement("input")}} mit `type="range"` gleitet.
+Das **`::-moz-range-track`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die die _Leiste_ (d.h. die Spur) repräsentiert, in der der Indikator in einem {{HTMLElement("input")}} mit `type="range"` gleitet.
 
 > [!NOTE]
 > Die Verwendung von `::-moz-range-track` mit einem anderen Element als `<input type="range">` stimmt mit nichts überein und hat keine Wirkung.

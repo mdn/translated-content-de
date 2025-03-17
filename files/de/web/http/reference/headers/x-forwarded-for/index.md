@@ -66,7 +66,7 @@ Für detaillierte Anleitungen zur Verwendung von `X-Forwarded-For`, siehe die Ab
 Dieser Header legt von Natur aus datenschutzsensible Informationen offen, wie zum Beispiel die IP-Adresse des Clients.
 Daher muss der Schutz der Privatsphäre des Benutzers beim Verwenden dieses Headers beachtet werden.
 
-Wenn Sie wissen, dass alle Proxies in der Anfragekette vertrauenswürdig sind (d. h. Sie kontrollieren sie) und ordnungsgemäß konfiguriert sind, können die von Ihren Proxies hinzugefügten Teile des Headers als vertrauenswürdig betrachtet werden.
+Wenn Sie wissen, dass alle Proxies in der Anfragekette vertrauenswürdig sind (d.h. Sie kontrollieren sie) und ordnungsgemäß konfiguriert sind, können die von Ihren Proxies hinzugefügten Teile des Headers als vertrauenswürdig betrachtet werden.
 Wenn ein Proxy böswillig oder fehlkonfiguriert ist, können alle Teile des Headers, die nicht von einem vertrauenswürdigen Proxy hinzugefügt wurden, gefälscht sein oder ein unerwartetes Format oder Inhalt haben.
 Wenn der Server direkt aus dem Internet erreichbar ist – auch wenn er sich hinter einem vertrauenswürdigen Reverse-Proxy befindet – kann **kein Teil** der `X-Forwarded-For`-IP-Liste als vertrauenswürdig oder sicher für sicherheitsrelevante Verwendungen angesehen werden.
 

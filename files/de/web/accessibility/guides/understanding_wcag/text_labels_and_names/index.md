@@ -229,7 +229,7 @@ Als bewährte Praxis sollten Sie auch ein {{htmlelement("title")}} für das Doku
 
 ## Inhalt mit Bildern muss beschriftet werden
 
-Stellen Sie beschreibenden Text für alle inhaltlichen (d. h. nicht dekorativen) Bilder und bildähnlichen Elemente bereit. Dies schließt SVG-Bilder, {{htmlelement("img")}}, {{htmlelement("canvas")}}, {{htmlelement("map")}} und {{htmlelement("area")}}-Elemente ein sowie {{htmlelement("input")}}-Elemente, bei denen `type=image` und {{htmlelement("object")}}-Elemente, bei denen der `type` mit `image/` beginnt. Die typische Methode hierfür ist das `alt`-Attribut. Stellen Sie sicher, dass die Beschreibung vermittelt, was im Bild gezeigt wird.
+Stellen Sie beschreibenden Text für alle inhaltlichen (d.h. nicht dekorativen) Bilder und bildähnlichen Elemente bereit. Dies schließt SVG-Bilder, {{htmlelement("img")}}, {{htmlelement("canvas")}}, {{htmlelement("map")}} und {{htmlelement("area")}}-Elemente ein sowie {{htmlelement("input")}}-Elemente, bei denen `type=image` und {{htmlelement("object")}}-Elemente, bei denen der `type` mit `image/` beginnt. Die typische Methode hierfür ist das `alt`-Attribut. Stellen Sie sicher, dass die Beschreibung vermittelt, was im Bild gezeigt wird.
 
 ### Beispiel
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`screenschange`**-Ereignis der [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Schnittstelle wird ausgelöst, wenn sich die Menge der dem System zur Verfügung stehenden Bildschirme geändert hat: d. h., ein neuer Bildschirm ist verfügbar geworden oder ein bestehender Bildschirm ist nicht mehr verfügbar. Dies wird durch eine Änderung im [`screens`](/de/docs/Web/API/ScreenDetails/screens)-Array widergespiegelt.
+Das **`screenschange`**-Ereignis der [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Schnittstelle wird ausgelöst, wenn sich die Menge der dem System zur Verfügung stehenden Bildschirme geändert hat: d.h. ein neuer Bildschirm ist verfügbar geworden oder ein bestehender Bildschirm ist nicht mehr verfügbar. Dies wird durch eine Änderung im [`screens`](/de/docs/Web/API/ScreenDetails/screens)-Array widergespiegelt.
 
 ## Syntax
 

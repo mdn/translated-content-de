@@ -46,7 +46,7 @@ svg {
 - {{SVGAttr("height")}}
   - : Die Höhe des `use`-Elements.<br/> _Werttyp_: [**`<length>`**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `0`; _Animierbar_: **ja**
 
-> **Hinweis:** `width` und `height` haben keine Wirkung auf `use`-Elemente, es sei denn, das referenzierte Element hat eine [viewBox](/de/docs/Web/SVG/Attribute/viewBox) – d. h. sie wirken sich nur aus, wenn `use` sich auf ein `svg`- oder `symbol`-Element bezieht.
+> **Hinweis:** `width` und `height` haben keine Wirkung auf `use`-Elemente, es sei denn, das referenzierte Element hat eine [viewBox](/de/docs/Web/SVG/Attribute/viewBox) – d.h. sie wirken sich nur aus, wenn `use` sich auf ein `svg`- oder `symbol`-Element bezieht.
 
 > [!NOTE]
 > Ab SVG2 sind `x`, `y`, `width` und `height` _Geometrie-Eigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`hashChange`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn es sich bei der Navigation um eine Fragmentnavigation handelt (d. h. zu einem Fragmentbezeichner im selben Dokument), andernfalls `false`.
+Die schreibgeschützte Eigenschaft **`hashChange`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn es sich bei der Navigation um eine Fragmentnavigation handelt (d.h. zu einem Fragmentbezeichner im selben Dokument), andernfalls `false`.
 
 ## Wert
 

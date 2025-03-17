@@ -44,7 +44,7 @@ console.log(top.innerHeight);
 Um die Größe eines Fensters zu ändern, siehe [`window.resizeBy()`](/de/docs/Web/API/Window/resizeBy) und
 [`window.resizeTo()`](/de/docs/Web/API/Window/resizeTo).
 
-Um die äußere Höhe eines Fensters, d. h. die Höhe des gesamten Browserfensters, zu ermitteln, siehe
+Um die äußere Höhe eines Fensters, d.h. die Höhe des gesamten Browserfensters, zu ermitteln, siehe
 [`window.outerHeight`](/de/docs/Web/API/Window/outerHeight).
 
 ### Grafisches Beispiel

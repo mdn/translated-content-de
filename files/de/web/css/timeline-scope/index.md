@@ -9,7 +9,7 @@ l10n:
 
 Die **`timeline-scope`** [CSS](/de/docs/Web/CSS)-Eigenschaft ändert den Geltungsbereich einer benannten Animationstimeline.
 
-Standardmäßig kann eine benannte Timeline (d. h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}) nur als kontrollierende Timeline eines direkten Nachfahrelements festgelegt werden (d. h. durch Festlegen von {{cssxref("animation-timeline")}} darauf mit dem Timelinenamen als Wert). Dies ist der standardmäßige "Geltungsbereich" der Timeline.
+Standardmäßig kann eine benannte Timeline (d.h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}) nur als kontrollierende Timeline eines direkten Nachfahrelements festgelegt werden (d.h. durch Festlegen von {{cssxref("animation-timeline")}} darauf mit dem Timelinenamen als Wert). Dies ist der standardmäßige "Geltungsbereich" der Timeline.
 
 `timeline-scope` erhält den Namen einer auf einem Nachfahrelement definierten Timeline; dies bewirkt, dass der Geltungsbereich der Timeline auf das Element erweitert wird, auf dem `timeline-scope` gesetzt ist, und auf alle dessen Nachfahren. Mit anderen Worten, dieses Element und alle seine Nachfahrelemente können nun mit dieser Timeline gesteuert werden.
 
@@ -31,7 +31,7 @@ Zulässige Werte für `timeline-scope` sind:
   - : Es gibt keine Änderung im Geltungsbereich der Timeline.
 - `<dashed-ident>`
 
-  - : Gibt den Namen einer vorhandenen benannten Timeline an (d. h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}), die auf einem Nachfahrelement definiert ist. Dies bewirkt, dass der Geltungsbereich der Timeline auf das Element erweitert wird, auf dem `timeline-scope` gesetzt ist, und auf alle dessen Nachfahren.
+  - : Gibt den Namen einer vorhandenen benannten Timeline an (d.h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}), die auf einem Nachfahrelement definiert ist. Dies bewirkt, dass der Geltungsbereich der Timeline auf das Element erweitert wird, auf dem `timeline-scope` gesetzt ist, und auf alle dessen Nachfahren.
 
     > **Hinweis:** [`<dashed-ident>`](/de/docs/Web/CSS/custom-ident)-Werte müssen mit `--` beginnen, um Namenskollisionen mit Standard-CSS-Schlüsselwörtern zu vermeiden.
 

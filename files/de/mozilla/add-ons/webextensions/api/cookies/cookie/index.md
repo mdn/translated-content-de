@@ -20,9 +20,9 @@ Werte dieses Typs sind Objekte, die folgende Eigenschaften enthalten können:
 - `firstPartyDomain`
   - : Ein `string`, der die Erstanbieterdomäne angibt, die mit dem Cookie verknüpft ist. Dies ist ein leerer String, wenn das Cookie gesetzt wurde, während die Erstanbieter-Isolation deaktiviert war. Siehe [First-party isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
 - `hostOnly`
-  - : Ein `boolean`, `true`, wenn das Cookie ein Host-Only-Cookie ist (d. h. der Host der Anfrage muss genau mit der Domäne des Cookies übereinstimmen), oder `false` andernfalls.
+  - : Ein `boolean`, `true`, wenn das Cookie ein Host-Only-Cookie ist (d.h. der Host der Anfrage muss genau mit der Domäne des Cookies übereinstimmen), oder `false` andernfalls.
 - `httpOnly`
-  - : Ein `boolean`, `true`, wenn das Cookie als HttpOnly markiert ist (d. h. das Cookie ist für clientseitige Skripte unzugänglich), oder `false` andernfalls.
+  - : Ein `boolean`, `true`, wenn das Cookie als HttpOnly markiert ist (d.h. das Cookie ist für clientseitige Skripte unzugänglich), oder `false` andernfalls.
 - `name`
   - : Ein `string`, der den Namen des Cookies darstellt.
 - `partitionKey` {{optional_inline}}
@@ -35,7 +35,7 @@ Werte dieses Typs sind Objekte, die folgende Eigenschaften enthalten können:
 - `path`
   - : Ein `string`, der den Pfad des Cookies darstellt.
 - `secure`
-  - : Ein `boolean`, `true`, wenn das Cookie als sicher markiert ist (d. h. sein Anwendungsbereich ist auf sichere Kanäle, typischerweise HTTPS, beschränkt), oder `false` andernfalls.
+  - : Ein `boolean`, `true`, wenn das Cookie als sicher markiert ist (d.h. sein Anwendungsbereich ist auf sichere Kanäle, typischerweise HTTPS, beschränkt), oder `false` andernfalls.
 - `session`
   - : Ein `boolean`, `true`, wenn das Cookie ein Sitzungscookie ist, oder `false`, wenn es ein dauerhaftes Cookie mit einem Ablaufdatum ist.
 - `sameSite`

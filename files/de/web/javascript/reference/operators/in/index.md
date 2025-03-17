@@ -45,7 +45,7 @@ prop in object
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `object` kein Objekt ist (d. h. ein primitiver Wert).
+  - : Wird ausgelöst, wenn `object` kein Objekt ist (d.h. ein primitiver Wert).
 
 ## Beschreibung
 

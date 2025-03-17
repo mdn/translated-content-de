@@ -87,7 +87,7 @@ Im folgenden Beispiel verwendet die Eigenschaft {{cssxref("offset-path")}} die F
 
 {{EmbedLiveSample("Creating offset-path using xywh", "100%", 600)}}
 
-- Das Rechteck des Pfads 1 ist um `20px` von den linken und oberen Kanten des umgebenden Blocks versetzt. Dieses Pfad-Rechteck hat die gleichen Dimensionen wie der umgebende Block, d. h. die Breite beträgt `100%` der Breite des umgebenden Blocks und die Höhe `100%` der Höhe des umgebenden Blocks. Beachten Sie, wie der Pfeil innerhalb des Blocks den `10%`-Kurven (definiert durch `round 10%`) an den rechteckigen Pfadecken folgt.
+- Das Rechteck des Pfads 1 ist um `20px` von den linken und oberen Kanten des umgebenden Blocks versetzt. Dieses Pfad-Rechteck hat die gleichen Dimensionen wie der umgebende Block, d.h. die Breite beträgt `100%` der Breite des umgebenden Blocks und die Höhe `100%` der Höhe des umgebenden Blocks. Beachten Sie, wie der Pfeil innerhalb des Blocks den `10%`-Kurven (definiert durch `round 10%`) an den rechteckigen Pfadecken folgt.
 - Da das obere Limit für Breite und Höhe in `xywh()` unendlich ist, erzeugt das Setzen der Höhe auf `200%` im Rechteck Pfad 2 ein Rechteck, das doppelt so hoch ist wie der umgebende Block. Beachten Sie, wie der Pfeil innerhalb des Blocks sich an den Ecken verhält, wenn kein `round <'border-radius'>` angegeben ist.
 
 ## Spezifikationen

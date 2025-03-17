@@ -46,7 +46,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `auto` {{deprecated_inline}}
-  - : Der Wert entspricht der "dominant-baseline" des Skripts, zu dem das Zeichen gehört – d. h. die "dominant-baseline" des Elternteils wird verwendet.
+  - : Der Wert entspricht der "dominant-baseline" des Skripts, zu dem das Zeichen gehört – d.h. die "dominant-baseline" des Elternteils wird verwendet.
 - `baseline`
   - : Verwendet die {{svgattr("dominant-baseline")}}-Auswahl des Elternteils. Stimmt die entsprechende {{Glossary("baseline/typography", "Basislinie")}} der Box mit der des Elternteils ab.
 - `before-edge` {{deprecated_inline}}

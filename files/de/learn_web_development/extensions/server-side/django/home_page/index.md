@@ -98,7 +98,7 @@ Die Funktion `path()` definiert Folgendes:
 - Ein URL-Muster, das ein leerer String ist: `''`. Wir werden URL-Muster im Detail besprechen, wenn wir an den anderen Ansichten arbeiten.
 - Eine Ansichtsfunktion, die aufgerufen wird, wenn das URL-Muster erkannt wird: `views.index`, die Funktion, die `index()` im **views.py**-Dateisystem genannt wird.
 
-Die Funktion `path()` gibt auch einen Parameter `name` an, der ein eindeutiger Bezeichner für _diese_ besondere URL-Abbildung ist. Sie können den Namen verwenden, um die Zuordnung „umzukehren“, d. h. dynamisch eine URL zu erstellen, die auf die Ressource verweist, die die Abbildung verarbeiten soll.
+Die Funktion `path()` gibt auch einen Parameter `name` an, der ein eindeutiger Bezeichner für _diese_ besondere URL-Abbildung ist. Sie können den Namen verwenden, um die Zuordnung „umzukehren“, d.h. dynamisch eine URL zu erstellen, die auf die Ressource verweist, die die Abbildung verarbeiten soll.
 Beispielsweise können wir den Name-Parameter verwenden, um von jeder anderen Seite auf unsere Startseite zu verlinken, indem wir den folgenden Link in einem Template hinzufügen:
 
 ```django

@@ -58,7 +58,7 @@ Das von der Methode zurückgegebene Versprechen wird unmittelbar vor der Einreih
 
 > [!NOTE]
 > Das Senden mehrerer Streams (RID) gleichzeitig wird "Simulcast" genannt.
-> Diese Funktion bietet einer [Middlebox](https://en.wikipedia.org/wiki/Middlebox) denselben Stream in mehreren Videoqualitätsstufen und ermöglicht es ihr, die Bandbreite zu verwalten, indem selektiv geeignete Ebenen an Teilnehmer übertragen werden und die Auflösung schnell umgeschaltet wird (d. h. Umschalten auf Weiterleitung von niedrigqualitativem Video für alle außer dem aktiven Sprecher).
+> Diese Funktion bietet einer [Middlebox](https://en.wikipedia.org/wiki/Middlebox) denselben Stream in mehreren Videoqualitätsstufen und ermöglicht es ihr, die Bandbreite zu verwalten, indem selektiv geeignete Ebenen an Teilnehmer übertragen werden und die Auflösung schnell umgeschaltet wird (d.h. Umschalten auf Weiterleitung von niedrigqualitativem Video für alle außer dem aktiven Sprecher).
 > Der Empfänger erhält immer nur einen Stream, weshalb die vergleichbare Empfängermethode [`RTCRtpScriptTransformer.sendKeyFrameRequest()`](/de/docs/Web/API/RTCRtpScriptTransformer/sendKeyFrameRequest) nicht erfordert, dass ein RID angegeben wird.
 
 ## Beispiele

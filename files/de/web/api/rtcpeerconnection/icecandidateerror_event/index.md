@@ -39,7 +39,7 @@ _Die `RTCPeerConnectionIceErrorEvent`-Schnittstelle umfasst die Eigenschaften, d
 - [`errorText`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent/errorText) {{ReadOnlyInline}}
   - : Ein String, der den STUN-Grundtext enthält, der vom STUN- oder TURN-Server zurückgegeben wird. Wenn die Kommunikation mit dem STUN- oder TURN-Server überhaupt nicht hergestellt werden konnte, enthält dieser String eine browserspezifische Zeichenfolge, die den Fehler erklärt.
 - [`port`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent/port) {{ReadOnlyInline}}
-  - : Ein nicht vorzeichenbehafteter Ganzzahlwert, der die Portnummer angibt, über die die Kommunikation mit dem STUN- oder TURN-Server erfolgt, unter Verwendung der in `address` angegebenen IP-Adresse. `null`, wenn die Verbindung nicht hergestellt wurde (d. h. wenn `address` `null` ist).
+  - : Ein nicht vorzeichenbehafteter Ganzzahlwert, der die Portnummer angibt, über die die Kommunikation mit dem STUN- oder TURN-Server erfolgt, unter Verwendung der in `address` angegebenen IP-Adresse. `null`, wenn die Verbindung nicht hergestellt wurde (d.h. wenn `address` `null` ist).
 - [`url`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent/url) {{ReadOnlyInline}}
   - : Ein String, der die URL des STUN- oder TURN-Servers angibt, mit dem der Fehler aufgetreten ist.
 

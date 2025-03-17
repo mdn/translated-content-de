@@ -226,7 +226,7 @@ Die Komponenten dieser Codec-Parameter-Zeichenfolge werden im Folgenden in der T
     <tr>
       <td><code>F</code></td>
       <td>
-        Eine einstellige Flagge, die angibt, ob die Farbe den gesamten Wertebereich verwenden darf (<code>1</code>) oder auf die Werte beschränkt werden sollte, die als rechtlich für die angegebene Farbkonfiguration angesehen werden (d. h. die <strong>Studio-Swing-Darstellung</strong>).
+        Eine einstellige Flagge, die angibt, ob die Farbe den gesamten Wertebereich verwenden darf (<code>1</code>) oder auf die Werte beschränkt werden sollte, die als rechtlich für die angegebene Farbkonfiguration angesehen werden (d.h. die <strong>Studio-Swing-Darstellung</strong>).
         Die Standardeinstellung ist 0 (Verwendung der Studio-Swing-Darstellung).
       </td>
     </tr>

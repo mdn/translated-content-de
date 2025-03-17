@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-**`Element`** ist die allgemeinste Basisklasse, von der alle Elementobjekte (d. h. Objekte, die Elemente darstellen) in einem [`Document`](/de/docs/Web/API/Document) erben. Sie verfügt nur über Methoden und Eigenschaften, die für alle Arten von Elementen gemeinsam sind. Spezifischere Klassen erben von `Element`.
+**`Element`** ist die allgemeinste Basisklasse, von der alle Elementobjekte (d.h. Objekte, die Elemente darstellen) in einem [`Document`](/de/docs/Web/API/Document) erben. Sie verfügt nur über Methoden und Eigenschaften, die für alle Arten von Elementen gemeinsam sind. Spezifischere Klassen erben von `Element`.
 
 Zum Beispiel ist das [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interface das Basis-Interface für HTML-Elemente. Ebenso ist das [`SVGElement`](/de/docs/Web/API/SVGElement) Interface die Basis für alle SVG-Elemente, und das [`MathMLElement`](/de/docs/Web/API/MathMLElement) Interface ist das Basis-Interface für MathML-Elemente. Die meisten Funktionalitäten sind weiter unten in der Klassenhierarchie spezifiziert.
 
@@ -65,7 +65,7 @@ _`Element` erbt Eigenschaften von seinem Eltern-Interface, [`Node`](/de/docs/Web
 - [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML)
   - : Ein String, der das Markup des Elements einschließlich seines Inhalts repräsentiert. Bei Verwendung als Setter wird das Element durch Knoten ersetzt, die aus dem angegebenen String analysiert wurden.
 - [`Element.part`](/de/docs/Web/API/Element/part)
-  - : Repräsentiert die Teilkennung(en) des Elements (d. h. festgelegt mit dem `part` Attribut), zurückgegeben als [`DOMTokenList`](/de/docs/Web/API/DOMTokenList).
+  - : Repräsentiert die Teilkennung(en) des Elements (d.h. festgelegt mit dem `part` Attribut), zurückgegeben als [`DOMTokenList`](/de/docs/Web/API/DOMTokenList).
 - [`Element.prefix`](/de/docs/Web/API/Element/prefix) {{ReadOnlyInline}}
   - : Ein String, der das Namespace-Präfix des Elements repräsentiert, oder `null`, wenn kein Präfix angegeben ist.
 - [`Element.previousElementSibling`](/de/docs/Web/API/Element/previousElementSibling) {{ReadOnlyInline}}

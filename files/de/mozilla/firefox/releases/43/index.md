@@ -109,7 +109,7 @@ _Keine Änderung._
 
 ## Sicherheit
 
-- Der Zugriff auf Webspeicher (d. h. `localStorage` und `sessionStorage`) aus Drittanbieter-IFrames wird jetzt verweigert, wenn der Benutzer [Drittanbieter-Cookies deaktiviert](https://support.mozilla.org/en-US/kb/third-party-cookies-firefox-tracking-protection) hat ([Firefox Bug 536509](https://bugzil.la/536509)).
+- Der Zugriff auf Webspeicher (d.h. `localStorage` und `sessionStorage`) aus Drittanbieter-IFrames wird jetzt verweigert, wenn der Benutzer [Drittanbieter-Cookies deaktiviert](https://support.mozilla.org/en-US/kb/third-party-cookies-firefox-tracking-protection) hat ([Firefox Bug 536509](https://bugzil.la/536509)).
 - Diese Whitelist wurde sogar in den Nightly- und Aurora/Dev Edition-Versionen des Browsers entfernt ([Firefox Bug 1201023](https://bugzil.la/1201023)). Es ist derzeit geplant, dass diese Entfernung bei der nächsten Version auch für Beta- und Release-Versionen erfolgt (Firefox 44).
 - Subressourcen-Integrität wurde für {{htmlelement("script")}} und {{htmlelement("link")}} implementiert, die auf Stylesheets verlinken ([Firefox Bug 992096](https://bugzil.la/992096)).
 

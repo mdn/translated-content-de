@@ -12,7 +12,7 @@ Das **`<munder>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um eine
 Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie das folgende Attribut:
 
 - `accentunder`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), das angibt, ob das Unter-Skript als Akzent behandelt werden soll (d. h. größer und näher an dem Basisausdruck gezeichnet).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), das angibt, ob das Unter-Skript als Akzent behandelt werden soll (d.h. größer und näher an dem Basisausdruck gezeichnet).
 
 ## Beispiele
 

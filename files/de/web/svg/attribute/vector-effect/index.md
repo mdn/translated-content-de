@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Die **`vector-effect`**-Eigenschaft legt den Vektoreffekt fest, der beim Zeichnen eines Objekts verwendet werden soll. Vektoreffekte werden vor allen anderen Kompositionsoperationen angewendet, d. h. Filtern, Masken und Clips.
+Die **`vector-effect`**-Eigenschaft legt den Vektoreffekt fest, der beim Zeichnen eines Objekts verwendet werden soll. Vektoreffekte werden vor allen anderen Kompositionsoperationen angewendet, d.h. Filtern, Masken und Clips.
 
 > [!NOTE]
 > Als Präsentationsattribut hat `vector-effect` auch ein entsprechendes CSS-Property: {{cssxref("vector-effect")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
@@ -54,7 +54,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `none`
-  - : Dieser Wert gibt an, dass kein Vektoreffekt angewendet wird, d. h. das Standard-Render-Verhalten wird verwendet, bei dem zuerst die Geometrie einer Form mit einer angegebenen Farbe gefüllt und anschließend die Kontur mit einer angegebenen Farbe gezeichnet wird.
+  - : Dieser Wert gibt an, dass kein Vektoreffekt angewendet wird, d.h. das Standard-Render-Verhalten wird verwendet, bei dem zuerst die Geometrie einer Form mit einer angegebenen Farbe gefüllt und anschließend die Kontur mit einer angegebenen Farbe gezeichnet wird.
 - `non-scaling-stroke`
   - : Dieser Wert modifiziert die Art und Weise, wie ein Objekt gestrichen wird. Normalerweise beinhaltet das Streichen das Berechnen der Kontur des Pfads der Form im aktuellen Benutzerkoordinatensystem und das Füllen dieser Kontur mit der Streichfarbe (Farbe oder Gradient). Der visuelle Effekt dieses Wertes besteht darin, dass die Strichbreite nicht von den Transformationen des Elements (einschließlich nicht-uniformer Skalierungen und Schertransformationen) und dem Zoomlevel abhängt.
 - `non-scaling-size`

@@ -12,7 +12,7 @@ Die **`overlay`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Element,
 Es ist wichtig zu beachten, dass `overlay` _nur_ vom Browser festgelegt werden kann — Autorenstile können den `overlay` Wert eines Elements nicht ändern. Sie können jedoch `overlay` zur [Liste der Übergangseigenschaften](/de/docs/Web/CSS/transition-property) hinzufügen, die auf ein Element gesetzt sind. Dies bewirkt, dass das Entfernen aus der oberen Schicht verzögert wird, sodass es animiert werden kann, anstatt sofort zu verschwinden.
 
 > [!NOTE]
-> Beim Übergang von `overlay` müssen Sie [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) auf dem Übergang setzen, damit es animiert wird. `overlay` Animationen unterscheiden sich von normalen [diskreten Animationen](/de/docs/Web/CSS/CSS_animated_properties#discrete) darin, dass der sichtbare (d. h. `auto`) Zustand während der gesamten Dauer des Übergangs angezeigt wird, unabhängig davon, ob es sich um den Start- oder Endzustand handelt.
+> Beim Übergang von `overlay` müssen Sie [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) auf dem Übergang setzen, damit es animiert wird. `overlay` Animationen unterscheiden sich von normalen [diskreten Animationen](/de/docs/Web/CSS/CSS_animated_properties#discrete) darin, dass der sichtbare (d.h. `auto`) Zustand während der gesamten Dauer des Übergangs angezeigt wird, unabhängig davon, ob es sich um den Start- oder Endzustand handelt.
 
 ## Syntax
 

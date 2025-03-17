@@ -189,7 +189,7 @@ Eine Abkürzung ist eine verkürzte Version eines längeren Wortes, während ein
   - **Richtig**: XUL
   - **Falsch**: X.U.L.; Xul
 
-- **Lateinische Abkürzungen**: Sie können gängige lateinische Abkürzungen (usw., d. h., z. B.) in Klammern und Anmerkungen verwenden. Verwenden Sie Punkte in diesen Abkürzungen, gefolgt von einem Komma oder einem anderen angemessenen Satzzeichen.
+- **Lateinische Abkürzungen**: Sie können gängige lateinische Abkürzungen (usw., d.h. z. B.) in Klammern und Anmerkungen verwenden. Verwenden Sie Punkte in diesen Abkürzungen, gefolgt von einem Komma oder einem anderen angemessenen Satzzeichen.
 
   - **Richtig**: Webbrowser (z. B. Firefox) können verwendet werden ...
   - **Falsch**: Webbrowser z.B. Firefox können verwendet werden ...
@@ -212,14 +212,14 @@ Eine Abkürzung ist eine verkürzte Version eines längeren Wortes, während ein
   | z. B. | _exempli gratia_ | for example              |
   | u. a. | _et alii_        | and others               |
   | usw.  | _et cetera_      | et cetera, und so weiter |
-  | d. h. | _id est_         | that is, in other words  |
+  | d.h.  | _id est_         | that is, in other words  |
   | NB    | _nota bene_      | note well                |
   | PS    | _post scriptum_  | postscript               |
 
   > [!NOTE]
   > Überlegen Sie immer, ob es wirklich vorteilhaft ist, eine lateinische Abkürzung zu verwenden. Einige davon sind so selten, dass viele Leser entweder verwirrt sind oder ihre Bedeutungen nicht verstehen.
   >
-  > Achten Sie auch darauf, dass _Sie_ sie korrekt verwenden, wenn Sie sich entscheiden, dies zu tun. Achten Sie zum Beispiel darauf, "z. B." nicht mit "d. h." zu verwechseln, was ein häufiger Fehler ist.
+  > Achten Sie auch darauf, dass _Sie_ sie korrekt verwenden, wenn Sie sich entscheiden, dies zu tun. Achten Sie zum Beispiel darauf, "z. B." nicht mit "d.h." zu verwechseln, was ein häufiger Fehler ist.
 
 - **Pluralformen von Abkürzungen und Akronymen**: Für Pluralformen von Abkürzungen und Akronymen fügen Sie _s_ hinzu. Verwenden Sie niemals einen Apostroph. Bitte.
 
@@ -537,7 +537,7 @@ Listen sollten konsistent auf allen Seiten formatiert und strukturiert werden.
 Einzelne Listenelemente sollten mit geeigneter Interpunktion geschrieben werden, unabhängig vom Listenformat.
 Je nach Art der Liste, die Sie erstellen, sollten Sie jedoch Ihren Schreibstil anpassen, wie in den folgenden Abschnitten beschrieben. In beiden Fällen fügen Sie einen einführenden Satz hinzu, der die Informationen in der Liste beschreibt.
 
-- **Aufzählungszeichen**: Aufzählungszeichen sollten verwendet werden, um verwandte und prägnante Informationen zu gruppieren. Jedes Element in der Liste sollte einer ähnlichen Satzstruktur folgen. Sätze und Phrasen (d. h. unvollständige Sätze ohne Verb oder Subjekt oder beides) in Listen mit Aufzählungszeichen sollten standardmäßige Interpunktion enthalten — Sätze enden mit Punkten, Phrasen nicht.
+- **Aufzählungszeichen**: Aufzählungszeichen sollten verwendet werden, um verwandte und prägnante Informationen zu gruppieren. Jedes Element in der Liste sollte einer ähnlichen Satzstruktur folgen. Sätze und Phrasen (d.h. unvollständige Sätze ohne Verb oder Subjekt oder beides) in Listen mit Aufzählungszeichen sollten standardmäßige Interpunktion enthalten — Sätze enden mit Punkten, Phrasen nicht.
 
   Wenn es mehrere Sätze in einem Listenelement gibt, muss am Ende jedes Satzes, einschließlich des letzten Satzes des Items, wie in einem Absatz, ein Punkt erscheinen. Dies ist ein Beispiel für eine korrekt strukturierte Liste mit Aufzählungspunkten:
 
@@ -657,7 +657,7 @@ Beachten Sie die folgenden Richtlinien, wenn Sie Titel schreiben:
   - **Halten Sie die Titel kurz**: Kürzere Titel sind im Text und im Inhaltsverzeichnis leichter zu scannen.
   - **Halten Sie die Titel spezifisch**: Verwenden Sie den Titel, um die spezifischen Informationen zu vermitteln, die im Abschnitt behandelt werden. Verwenden Sie beispielsweise "HTML-Elemente" für einen Abschnitt, der HTML-Elemente einführt, anstelle von „Einführung“ oder „Übersicht“.
   - **Halten Sie die Titel fokussiert**: Verwenden Sie den Titel, um ein Ziel zu vermitteln—eine einzelne Idee oder ein Konzept, das in diesem Abschnitt behandelt wird. So weit möglich, versuchen Sie nicht, die Verbindung "und" in einem Titel zu verwenden.
-  - **Parallele Konstruktion verwenden**: Verwenden Sie ähnliche Sprache für Titel auf derselben Überschriftsebene. Zum Beispiel, wenn ein Titel der Ebene `###` Gerundien verwendet, d. h. Wörter, die auf "-ing" enden, wie "Installieren", dann versuchen Sie, alle Titel auf dieser Überschriftsebene mit Gerundien zu schreiben. Wenn ein Titel mit einem Imperativverb beginnt, wie "Verwenden", "Konfigurieren", dann schreiben Sie alle Titel auf dieser Überschriftsebene mit einem Imperativverb.
+  - **Parallele Konstruktion verwenden**: Verwenden Sie ähnliche Sprache für Titel auf derselben Überschriftsebene. Zum Beispiel, wenn ein Titel der Ebene `###` Gerundien verwendet, d.h. Wörter, die auf "-ing" enden, wie "Installieren", dann versuchen Sie, alle Titel auf dieser Überschriftsebene mit Gerundien zu schreiben. Wenn ein Titel mit einem Imperativverb beginnt, wie "Verwenden", "Konfigurieren", dann schreiben Sie alle Titel auf dieser Überschriftsebene mit einem Imperativverb.
   - **Vermeiden Sie, einen häufigen Begriff in der untergeordneten Überschrift zu verwenden**: Wiederholen Sie im Titel einer untergeordneten Überschrift nicht den Text im Titel einer übergeordneten Überschrift. Zum Beispiel, in einem Abschnitt mit dem Titel "Kommata", benennen Sie den Titel eines Unterabschnitts "Nach einleitenden Sätzen" anstelle von "Kommata nach einleitenden Sätzen".
   - **Beginnen Sie nicht mit einem Artikel**: Vermeiden Sie es, Titel mit Artikeln „ein“, „eine“ oder „der“ zu beginnen.
   - **Fügen Sie einleitende Informationen hinzu**: Fügen Sie nach einem Titel einführende Texte hinzu, die erklären, was in dem Abschnitt behandelt wird.

@@ -51,6 +51,6 @@ Die aktuelle Zuordnung (für ein einzelnes Element oder das ganze Bild) von Benu
 
 Ein Zitat aus der SVG 1.1 Spezifikation veranschaulicht dies:
 
-> \[...] Angenommen, der Benutzeragent kann aus seiner Umgebung bestimmen, dass "1px" "0.2822222mm" entspricht (d. h., 90dpi). Dann gilt für die gesamte Verarbeitung von SVG-Inhalten: \[...] "1cm" entspricht "35.43307px" (und damit 35.43307 Benutzereinheiten).
+> \[...] Angenommen, der Benutzeragent kann aus seiner Umgebung bestimmen, dass "1px" "0.2822222mm" entspricht (d.h. 90dpi). Dann gilt für die gesamte Verarbeitung von SVG-Inhalten: \[...] "1cm" entspricht "35.43307px" (und damit 35.43307 Benutzereinheiten).
 
 {{ PreviousNext("Web/SVG/Tutorial/Getting_Started", "Web/SVG/Tutorial/Basic_Shapes") }}

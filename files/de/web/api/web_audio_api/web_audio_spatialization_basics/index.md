@@ -59,7 +59,7 @@ listener.upY.value = 1;
 listener.upZ.value = 0;
 ```
 
-Die Vorwärtseigenschaften repräsentieren die 3D-Koordinatenposition der Vorwärtsrichtung des Listeners (d. h. die Richtung, in die er blickt), während die Aufwärtseigenschaften die 3D-Koordinatenposition der Oberseite des Kopfes des Listeners darstellen. Diese beiden zusammen können die Richtung gut einstellen.
+Die Vorwärtseigenschaften repräsentieren die 3D-Koordinatenposition der Vorwärtsrichtung des Listeners (d.h. die Richtung, in die er blickt), während die Aufwärtseigenschaften die 3D-Koordinatenposition der Oberseite des Kopfes des Listeners darstellen. Diese beiden zusammen können die Richtung gut einstellen.
 
 ## Erstellen eines Panner-Knotens
 

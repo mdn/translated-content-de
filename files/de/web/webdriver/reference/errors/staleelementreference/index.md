@@ -9,7 +9,7 @@ Der **veraltete Elementverweis** Fehler ist ein [WebDriver-Fehler](/de/docs/Web/
 
 Jedes DOM-Element wird im WebDriver durch einen eindeutigen Identifikationsverweis repräsentiert, bekannt als ein _[Webelement](/de/docs/Web/WebDriver/WebElement)_. Der Webelement-Verweis ist ein {{Glossary("UUID", "UUID")}}, der verwendet wird, um Befehle auf bestimmte Elemente auszuführen, wie zum Beispiel das [Abrufen des Tag-Namens eines Elements](/de/docs/Web/WebDriver/Reference/Commands/GetElementTagName) und das [Abrufen einer Eigenschaft](/de/docs/Web/WebDriver/Reference/Commands/GetElementProperty) eines Elements.
 
-Wenn ein Element nicht mehr an das DOM gebunden ist, d. h., es wurde aus dem Dokument entfernt oder das Dokument hat sich geändert, spricht man davon, dass es _veraltet_ ist. Veralterung tritt beispielsweise auf, wenn Sie einen Webelement-Verweis haben und das Dokument, aus dem er abgerufen wurde, navigiert.
+Wenn ein Element nicht mehr an das DOM gebunden ist, d.h. es wurde aus dem Dokument entfernt oder das Dokument hat sich geändert, spricht man davon, dass es _veraltet_ ist. Veralterung tritt beispielsweise auf, wenn Sie einen Webelement-Verweis haben und das Dokument, aus dem er abgerufen wurde, navigiert.
 
 ## Beispiele
 

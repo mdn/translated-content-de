@@ -68,7 +68,7 @@ class BookListView(generic.ListView):
     model = Book
 ```
 
-Das war's! Die generische Ansicht wird die Datenbank abfragen, um alle Datensätze für das angegebene Modell (`Book`) abzurufen, und dann eine Vorlage rendern, die sich unter **/django-locallibrary-tutorial/catalog/templates/catalog/book_list.html** befindet (die wir unten erstellen werden). Innerhalb der Vorlage können Sie auf die Bücherliste mit der Template-Variable `object_list` ODER `book_list` zugreifen (d. h. generisch `<der Modellname>_list`).
+Das war's! Die generische Ansicht wird die Datenbank abfragen, um alle Datensätze für das angegebene Modell (`Book`) abzurufen, und dann eine Vorlage rendern, die sich unter **/django-locallibrary-tutorial/catalog/templates/catalog/book_list.html** befindet (die wir unten erstellen werden). Innerhalb der Vorlage können Sie auf die Bücherliste mit der Template-Variable `object_list` ODER `book_list` zugreifen (d.h. generisch `<der Modellname>_list`).
 
 > [!NOTE]
 > Dieser umständliche Pfad zur Vorlagenlokation ist kein Druckfehler — die generischen Ansichten suchen nach Vorlagen in `/application_name/the_model_name_list.html` (`catalog/book_list.html` in diesem Fall) innerhalb des `/application_name/templates/` Verzeichnisses der Anwendung (`/catalog/templates/`).
@@ -265,7 +265,7 @@ re_path(r'^book/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail
 
 _Reguläre Ausdrücke_ sind ein unglaublich mächtiges Werkzeug zur Mustererkennung. Sie sind, ehrlich gesagt, ziemlich unübersichtlich und können Anfänger einschüchtern. Unten finden Sie einen sehr kurzen Primer!
 
-Das erste, was Sie wissen müssen, ist, dass reguläre Ausdrücke normalerweise mit der Syntax für rohe Zeichenfolgenliterale deklariert werden sollten (d. h. sie werden wie gezeigt umfasst: **r'\<Ihr regulärer Ausdruckstext>'**).
+Das erste, was Sie wissen müssen, ist, dass reguläre Ausdrücke normalerweise mit der Syntax für rohe Zeichenfolgenliterale deklariert werden sollten (d.h. sie werden wie gezeigt umfasst: **r'\<Ihr regulärer Ausdruckstext>'**).
 
 Die Hauptteile der Syntax, die Sie wissen müssen, um die Musterübereinstimmungen zu deklarieren, sind:
 
@@ -426,7 +426,7 @@ class BookDetailView(generic.DetailView):
     model = Book
 ```
 
-Das war's! Alles, was Sie jetzt tun müssen, ist eine Vorlage namens **/django-locallibrary-tutorial/catalog/templates/catalog/book_detail.html** zu erstellen, und die Ansicht wird ihr die Datenbankinformationen für den spezifischen `Book`-Datensatz übergeben, der vom URL-Mapping extrahiert wurde. Innerhalb der Vorlage können Sie die Details des Buches mit der Template-Variable `object` ODER `book` (d. h. generisch `the_model_name`) zugreifen.
+Das war's! Alles, was Sie jetzt tun müssen, ist eine Vorlage namens **/django-locallibrary-tutorial/catalog/templates/catalog/book_detail.html** zu erstellen, und die Ansicht wird ihr die Datenbankinformationen für den spezifischen `Book`-Datensatz übergeben, der vom URL-Mapping extrahiert wurde. Innerhalb der Vorlage können Sie die Details des Buches mit der Template-Variable `object` ODER `book` (d.h. generisch `the_model_name`) zugreifen.
 
 Wenn nötig, können Sie die verwendete Vorlage und den Namen des Kontextobjekts, das in der Vorlage auf das Buch referenziert, ändern. Sie können auch Methoden überschreiben, z. B. um zusätzliche Informationen zum Kontext hinzuzufügen.
 
@@ -528,7 +528,7 @@ Das erste interessante, was wir bisher nicht gesehen haben, ist die Funktion `bo
 {% endfor %}
 ```
 
-Diese Methode ist notwendig, da Sie ein `ForeignKey` (eins-zu-viele) Feld nur auf der "viele" Seite der Beziehung deklarieren (der `BookInstance`). Da Sie nichts tun, um die Beziehung im anderen ("eins") Modell zu deklarieren, hat es (das `Book`) kein Feld, um die Menge der zugehörigen Datensätze abzurufen. Um dieses Problem zu umgehen, konstruiert Django eine angemessen benannte "Rückwärtssuche" Funktion, die Sie verwenden können. Der Name der Funktion wird durch Kleinschreiben des Modellnamens, bei dem das `ForeignKey` deklariert wurde, plus `_set` erstellt (d. h. die Funktion, die in `Book` erstellt wird, ist `bookinstance_set()`).
+Diese Methode ist notwendig, da Sie ein `ForeignKey` (eins-zu-viele) Feld nur auf der "viele" Seite der Beziehung deklarieren (der `BookInstance`). Da Sie nichts tun, um die Beziehung im anderen ("eins") Modell zu deklarieren, hat es (das `Book`) kein Feld, um die Menge der zugehörigen Datensätze abzurufen. Um dieses Problem zu umgehen, konstruiert Django eine angemessen benannte "Rückwärtssuche" Funktion, die Sie verwenden können. Der Name der Funktion wird durch Kleinschreiben des Modellnamens, bei dem das `ForeignKey` deklariert wurde, plus `_set` erstellt (d.h. die Funktion, die in `Book` erstellt wird, ist `bookinstance_set()`).
 
 > [!NOTE]
 > Hier verwenden wir `all()`, um alle Datensätze zu erhalten (der Standard). Obwohl Sie die `filter()` Methode im Code verwenden können, um eine Teilmenge von Datensätzen zu erhalten, können Sie dies nicht direkt in Vorlagen tun, da Sie keine Argumente für Funktionen spezifizieren können.

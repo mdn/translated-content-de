@@ -121,7 +121,7 @@ try {
 
 ### Unterscheidung zwischen ähnlichen Fehlern
 
-Manchmal kann ein Codeblock aus Gründen fehlschlagen, die eine unterschiedliche Handhabung erfordern, aber sehr ähnliche Fehler werfen (d. h. mit demselben Typ und derselben Nachricht).
+Manchmal kann ein Codeblock aus Gründen fehlschlagen, die eine unterschiedliche Handhabung erfordern, aber sehr ähnliche Fehler werfen (d.h. mit demselben Typ und derselben Nachricht).
 
 Wenn Sie keine Kontrolle über die ursprünglich geworfenen Fehler haben, ist eine Option, sie abzufangen und neue `Error`-Objekte zu werfen, die spezifischere Nachrichten haben. Der ursprüngliche Fehler sollte dem neuen `Error` im [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/Error#options)-Parameter des Konstruktors als `cause`-Eigenschaft übergeben werden. Dies stellt sicher, dass der ursprüngliche Fehler und die Stackverfolgung für höherstufige try/catch-Blöcke verfügbar sind.
 

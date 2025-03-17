@@ -11,7 +11,7 @@ l10n:
 Die **`kind`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs ist ein String, der angibt, ob der beschriebene {{Glossary("RTP", "RTP")}}-Stream Audio- oder Videomedien enthält.
 
 Dieser String wird immer gleich sein wie das [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) des von dem Stream übertragenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts.
-Er wird auch mit dem Medientyp des Codecs übereinstimmen, der mit diesen Statistikobjekten verbunden ist (d. h. dem MIME-Typ der zugehörigen [`RTCCodecStats.mimeType`](/de/docs/Web/API/RTCCodecStats/mimeType)-Eigenschaft des Codecs).
+Er wird auch mit dem Medientyp des Codecs übereinstimmen, der mit diesen Statistikobjekten verbunden ist (d.h. dem MIME-Typ der zugehörigen [`RTCCodecStats.mimeType`](/de/docs/Web/API/RTCCodecStats/mimeType)-Eigenschaft des Codecs).
 
 ## Wert
 

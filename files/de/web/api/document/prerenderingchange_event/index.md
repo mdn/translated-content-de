@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Speculation Rules API") }}{{seecompattable}}
 
-Das **`prerenderingchange`**-Ereignis wird bei einem vorab gerenderten Dokument ausgelöst, wenn es aktiviert wird (d. h. der Benutzer die Seite betrachtet).
+Das **`prerenderingchange`**-Ereignis wird bei einem vorab gerenderten Dokument ausgelöst, wenn es aktiviert wird (d.h. der Benutzer die Seite betrachtet).
 
 ## Syntax
 

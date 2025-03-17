@@ -13,7 +13,7 @@ Es gibt keinen strikten richtigen oder falschen Weg beim Schreiben kreativen Cod
 
 Es gibt vier Hauptmethoden, um Sound mit der Web Audio API zu laden, und es kann etwas verwirrend sein, welche Sie verwenden sollten.
 
-Wenn Sie mit Dateien arbeiten, betrachten Sie entweder das Abrufen der Datei von einem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) (d. h. ein {{htmlelement("audio")}}- oder {{htmlelement("video")}}-Element) oder Sie möchten die Datei abrufen und in einen Puffer dekodieren. Beide sind legitime Vorgehensweisen, allerdings wird die erster genannte Methode häufiger genutzt, wenn Sie mit vollständigen Tracks arbeiten, und die zweite Methode, wenn Sie mit kürzeren, eher sampleartigen Tracks arbeiten.
+Wenn Sie mit Dateien arbeiten, betrachten Sie entweder das Abrufen der Datei von einem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) (d.h. ein {{htmlelement("audio")}}- oder {{htmlelement("video")}}-Element) oder Sie möchten die Datei abrufen und in einen Puffer dekodieren. Beide sind legitime Vorgehensweisen, allerdings wird die erster genannte Methode häufiger genutzt, wenn Sie mit vollständigen Tracks arbeiten, und die zweite Methode, wenn Sie mit kürzeren, eher sampleartigen Tracks arbeiten.
 
 Medienelemente haben von Haus aus Streaming-Unterstützung. Das Audio wird zu spielen beginnen, wenn der Browser feststellt, dass er den Rest der Datei laden kann, bevor das Abspielen beendet ist. Ein Beispiel, wie man dies mit der Web Audio API verwendet, finden Sie in der [Web Audio API Anleitung](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API).
 

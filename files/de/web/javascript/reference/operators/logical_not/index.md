@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **logische NICHT (`!`)** (logische Ergänzung, Negation) Operator kehrt Wahrheitswerte um, d. h. er macht aus Wahrheit Falschheit und umgekehrt. Er wird typischerweise mit boolean (logischen) Werten verwendet. Bei der Verwendung mit nicht-Boolean Werten gibt er `false` zurück, wenn sein einzelner Operand in `true` umgewandelt werden kann; andernfalls gibt er `true` zurück.
+Der **logische NICHT (`!`)** (logische Ergänzung, Negation) Operator kehrt Wahrheitswerte um, d.h. er macht aus Wahrheit Falschheit und umgekehrt. Er wird typischerweise mit boolean (logischen) Werten verwendet. Bei der Verwendung mit nicht-Boolean Werten gibt er `false` zurück, wenn sein einzelner Operand in `true` umgewandelt werden kann; andernfalls gibt er `true` zurück.
 
 {{InteractiveExample("JavaScript Demo: Logical NOT (!) Operator", "shorter")}}
 

@@ -42,7 +42,7 @@ match(request, options)
     - `ignoreVary`
       - : Ein boolescher Wert, der, wenn auf
         `true` gesetzt, der Übereinstimmungsoperation mitteilt, kein `VARY`-
-        Header-Matching durchzuführen – d. h., wenn die URL übereinstimmt, erhalten Sie eine
+        Header-Matching durchzuführen – d.h. wenn die URL übereinstimmt, erhalten Sie eine
         Übereinstimmung, unabhängig davon, ob das [`Response`](/de/docs/Web/API/Response)-Objekt
         einen `VARY`-Header hat. Standardmäßig ist es `false`.
 
@@ -51,7 +51,7 @@ match(request, options)
 Ein {{jsxref("Promise")}}, das sich auf die erste [`Response`](/de/docs/Web/API/Response) auflöst, die der Anfrage entspricht, oder auf {{jsxref("undefined")}}, wenn keine Übereinstimmung gefunden wird.
 
 > **Note:** `Cache.match()` ist im Wesentlichen identisch mit
-> [`Cache.matchAll()`](/de/docs/Web/API/Cache/matchAll), außer dass es sich nicht mit einem Array aller übereinstimmenden Antworten auflöst, sondern nur mit der ersten übereinstimmenden Antwort (d. h.
+> [`Cache.matchAll()`](/de/docs/Web/API/Cache/matchAll), außer dass es sich nicht mit einem Array aller übereinstimmenden Antworten auflöst, sondern nur mit der ersten übereinstimmenden Antwort (d.h.
 > `response[0]`).
 
 ## Beispiele

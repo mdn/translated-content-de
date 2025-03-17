@@ -138,7 +138,7 @@ Unterstützung für Multi-Reporter wurde hinzugefügt; das sind Speicherreporter
 - `nsITelemetry` hat eine neue Methode, `nsITelemetry.getHistogramById()`, die ein Histogramm anhand seiner ID zurückgibt, und ein neues Attribut `canRecord`, das, wenn es auf `false` gesetzt ist, das Aufzeichnen von Telemetrie-Statistiken deaktiviert. Telemetrie-Statistiken werden nicht mehr im privaten Browsing-Modus aufgezeichnet (siehe [Firefox-Fehler 661574](https://bugzil.la/661574) und [Firefox-Fehler 661573](https://bugzil.la/661573)). Telemetrie-Histogramme, die mit `nsITelemetry.newHistogram()` definiert sind, werden im Telemetrie-Ping nicht gemeldet.
 - Die Schnittstelle `nsIMemoryReporter` wurde erheblich geändert; wenn Sie sie verwenden, müssen Sie einige Anpassungen an Ihrem Code vornehmen.
 - `nsIXMLHttpRequest`, Header, die mit `nsIXMLHttpRequest.setRequestHeader()` gesetzt werden, werden mit der Anfrage beim Folgen eines Redirects gesendet. Zuvor würden diese Header nicht gesendet werden.
-- `nsIDocShell` hat ein neues `allowWindowControl`-Attribut. Wenn `true`, darf der Inhalt der Docshell das Fenster steuern (d. h. das Fenster verschieben oder seine Größe ändern).
+- `nsIDocShell` hat ein neues `allowWindowControl`-Attribut. Wenn `true`, darf der Inhalt der Docshell das Fenster steuern (d.h. das Fenster verschieben oder seine Größe ändern).
 - Die Schnittstelle `nsIThreadInternal2` wurde in die `nsIThreadInternal`-Schnittstelle zusammengeführt.
 
 #### Neue Schnittstellen

@@ -433,7 +433,7 @@ Um zu verstehen, was hier passiert, sprechen wir mehr über den [Komponentenlebe
 
 ## Komponentenlebenszyklus und die `onMount()`-Funktion
 
-Wenn eine Komponente instanziiert wird, führt Svelte den Initialisierungscode (d. h. den `<script>`-Abschnitt der Komponente) aus. Aber in diesem Moment sind alle Knoten, die die Komponente ausmachen, noch nicht am DOM angebracht; tatsächlich existieren sie noch nicht einmal.
+Wenn eine Komponente instanziiert wird, führt Svelte den Initialisierungscode (d.h. den `<script>`-Abschnitt der Komponente) aus. Aber in diesem Moment sind alle Knoten, die die Komponente ausmachen, noch nicht am DOM angebracht; tatsächlich existieren sie noch nicht einmal.
 
 Also, wie können Sie wissen, wann die Komponente bereits erstellt und am DOM montiert ist? Die Antwort ist, dass jede Komponente einen Lebenszyklus hat, der beginnt, wenn sie erstellt wird, und endet, wenn sie zerstört wird. Es gibt eine Handvoll Funktionen, die es Ihnen ermöglichen, Code zu entscheidenden Momenten während dieses Lebenszyklus auszuführen.
 

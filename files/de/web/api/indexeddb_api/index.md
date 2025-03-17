@@ -26,7 +26,7 @@ Operationen, die mit IndexedDB durchgeführt werden, sind asynchron, um Anwendun
 
 ### Speicherkapazität und Räumungskriterien
 
-Es gibt mehrere Web-Technologien, die Daten in irgendeiner Form clientseitig (d. h. auf Ihrer lokalen Festplatte) speichern. IndexedDB wird am häufigsten erwähnt. Der Prozess, wie der Browser ermittelt, wie viel Speicherplatz den Web-Datenspeichern zugewiesen wird und was gelöscht werden soll, wenn dieses Limit erreicht ist, ist nicht einfach und unterscheidet sich zwischen den Browsern. [Browser-Speicherquoten und Räumungskriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria) versucht zu erklären, wie dies funktioniert, zumindest im Fall von Firefox.
+Es gibt mehrere Web-Technologien, die Daten in irgendeiner Form clientseitig (d.h. auf Ihrer lokalen Festplatte) speichern. IndexedDB wird am häufigsten erwähnt. Der Prozess, wie der Browser ermittelt, wie viel Speicherplatz den Web-Datenspeichern zugewiesen wird und was gelöscht werden soll, wenn dieses Limit erreicht ist, ist nicht einfach und unterscheidet sich zwischen den Browsern. [Browser-Speicherquoten und Räumungskriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria) versucht zu erklären, wie dies funktioniert, zumindest im Fall von Firefox.
 
 ## Schnittstellen
 

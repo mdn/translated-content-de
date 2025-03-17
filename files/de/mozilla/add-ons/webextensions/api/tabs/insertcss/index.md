@@ -14,7 +14,7 @@ Fügt CSS in eine Seite ein.
 
 Um diese API zu nutzen, müssen Sie die Berechtigung für die URL der Seite haben, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder durch die Verwendung der [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
 
-Sie können nur CSS in Seiten einfügen, deren URL durch ein [Match-Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) ausgedrückt werden kann, d. h., ihr Schema muss "http", "https" oder "file" sein. Das bedeutet, dass Sie kein CSS in die integrierten Seiten des Browsers einfügen können, wie etwa about:debugging, about:addons oder die Seite, die geöffnet wird, wenn Sie einen neuen leeren Tab öffnen.
+Sie können nur CSS in Seiten einfügen, deren URL durch ein [Match-Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) ausgedrückt werden kann, d.h. ihr Schema muss "http", "https" oder "file" sein. Das bedeutet, dass Sie kein CSS in die integrierten Seiten des Browsers einfügen können, wie etwa about:debugging, about:addons oder die Seite, die geöffnet wird, wenn Sie einen neuen leeren Tab öffnen.
 
 > [!NOTE]
 > Firefox löst URLs in eingefügten CSS-Dateien relativ zur CSS-Datei selbst auf, und nicht relativ zur Seite, in die sie eingefügt wird.

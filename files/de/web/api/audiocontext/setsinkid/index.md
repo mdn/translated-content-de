@@ -33,7 +33,7 @@ setSinkId(sinkId)
 
 Ein {{jsxref("Promise")}}, das mit einem Wert von `undefined` erfüllt wird.
 
-Der Versuch, die Sink-ID auf ihren bestehenden Wert (d. h. zurückgegeben von [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)) zu setzen, wirft keine Fehler, aber der Prozess wird sofort abgebrochen.
+Der Versuch, die Sink-ID auf ihren bestehenden Wert (d.h. zurückgegeben von [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)) zu setzen, wirft keine Fehler, aber der Prozess wird sofort abgebrochen.
 
 ### Ausnahmen
 

@@ -24,7 +24,7 @@ Viele Entwickler glauben, dass der umgebende Block eines Elements immer der Inha
 
 Bevor Sie lernen, was den umgebenden Block eines Elements bestimmt, ist es nützlich zu wissen, warum er überhaupt wichtig ist.
 
-Die Größe und Position eines Elements werden oft durch seinen umgebenden Block beeinflusst. Prozentwerte, die auf die Eigenschaften {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("padding")}}, {{cssxref("margin")}} und die Versatzeigenschaften eines absolut positionierten Elements angewendet werden (d. h. bei dem die {{cssxref("position")}} auf `absolute` oder `fixed` gesetzt ist), werden basierend auf dem umgebenden Block des Elements berechnet.
+Die Größe und Position eines Elements werden oft durch seinen umgebenden Block beeinflusst. Prozentwerte, die auf die Eigenschaften {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("padding")}}, {{cssxref("margin")}} und die Versatzeigenschaften eines absolut positionierten Elements angewendet werden (d.h. bei dem die {{cssxref("position")}} auf `absolute` oder `fixed` gesetzt ist), werden basierend auf dem umgebenden Block des Elements berechnet.
 
 ## Ermittlung des umgebenden Blocks
 

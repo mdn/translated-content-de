@@ -19,7 +19,7 @@ JavaScript-**`Date`**-Objekte repräsentieren einen einzelnen Moment in der Zeit
 Ein JavaScript-Datum wird grundsätzlich als die Zeit in Millisekunden angegeben, die seit der [Epoche](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-time-values-and-time-range) vergangen ist. Diese wird als die Mitternacht zu Beginn des 1. Januar 1970, UTC (entspricht der {{Glossary("Unix_time", "UNIX-Epoche")}}), definiert. Dieser Zeitstempel ist _zeitzonenunabhängig_ und definiert einen Moment in der Geschichte eindeutig.
 
 > [!NOTE]
-> Während der Zeitwert im Kern eines `Date`-Objekts UTC ist, arbeiten die grundlegenden Methoden zum Abrufen des Datums und der Zeit oder ihrer Komponenten alle in der lokalen Zeit (d. h. der Zeitzone und dem Offset des Host-Systems).
+> Während der Zeitwert im Kern eines `Date`-Objekts UTC ist, arbeiten die grundlegenden Methoden zum Abrufen des Datums und der Zeit oder ihrer Komponenten alle in der lokalen Zeit (d.h. der Zeitzone und dem Offset des Host-Systems).
 
 Der maximale Zeitstempel, der durch ein `Date`-Objekt darstellbar ist, ist etwas kleiner als die maximale sichere Ganzzahl ({{jsxref("Number.MAX_SAFE_INTEGER")}}, das sind 9.007.199.254.740.991). Ein `Date`-Objekt kann ein Maximum von ±8.640.000.000.000.000 Millisekunden oder ±100.000.000 (einhundert Millionen) Tage relativ zur Epoche repräsentieren. Dies ist der Bereich vom 20. April 271821 v. Chr. bis zum 13. September 275760 n. Chr. Jeder Versuch, eine Zeit außerhalb dieses Bereichs darzustellen, führt dazu, dass das `Date`-Objekt einen Zeitstempelwert von [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) hält, was ein "Ungültiges Datum" ist.
 
@@ -189,7 +189,7 @@ Siehe den Abschnitt [Formate der Rückgabewerte der toString-Methode](#formate_d
 - {{jsxref("Date.parse()")}}
   - : Analysiert eine Zeichenfolgenrepräsentation eines Datums und gibt die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC zurück, wobei Schaltsekunden ignoriert werden.
 - {{jsxref("Date.UTC()")}}
-  - : Akzeptiert die gleichen Parameter wie die längste Form des Konstruktors (d. h. 2 bis 7) und gibt die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC zurück, wobei Schaltsekunden ignoriert werden.
+  - : Akzeptiert die gleichen Parameter wie die längste Form des Konstruktors (d.h. 2 bis 7) und gibt die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC zurück, wobei Schaltsekunden ignoriert werden.
 
 ## Instanzeigenschaften
 

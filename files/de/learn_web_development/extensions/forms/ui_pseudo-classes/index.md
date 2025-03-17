@@ -324,7 +324,7 @@ Dies ist eine ähnliche Geschichte wie bei dem `:required` Beispiel zuvor, auße
 
 Es ist möglich, dass die Zahleneingabe sowohl erforderlich als auch außerhalb des Bereichs liegt, was passiert dann? Da die `:out-of-range` Regel später im Quellcode erscheint als die `:required` Regel, kommen die [Kaskadierungsregeln](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#understanding_the_cascade) zum Tragen, und die Nachricht für außerhalb des Bereichs wird gezeigt.
 
-Das funktioniert ziemlich gut — wenn die Seite das erste Mal geladen wird, wird "Erforderlich" angezeigt, zusammen mit einem roten Kreuz und Rand. Wenn Sie ein gültiges Alter eingegeben haben (d. h. im Bereich von 12-120), wird die Eingabe als gültig angenommen. Wenn Sie jedoch das Alter auf einen Wert ändern, der außerhalb des Bereichs liegt, wird die Nachricht "Außerhalb des zulässigen Wertebereichs" anstelle von "Erforderlich" angezeigt.
+Das funktioniert ziemlich gut — wenn die Seite das erste Mal geladen wird, wird "Erforderlich" angezeigt, zusammen mit einem roten Kreuz und Rand. Wenn Sie ein gültiges Alter eingegeben haben (d.h. im Bereich von 12-120), wird die Eingabe als gültig angenommen. Wenn Sie jedoch das Alter auf einen Wert ändern, der außerhalb des Bereichs liegt, wird die Nachricht "Außerhalb des zulässigen Wertebereichs" anstelle von "Erforderlich" angezeigt.
 
 > [!NOTE]
 > Um einen ungültigen/außerhalb des Bereichs liegenden Wert einzugeben, müssen Sie das Formular tatsächlich fokussieren und es mit der Tastatur eingeben. Die Drehknöpfe erlauben es nicht, den Wert außerhalb des zulässigen Bereichs zu inkrementieren/dekrementieren.
@@ -472,7 +472,7 @@ Das vollständige Beispiel sieht so aus:
 
 Wie wir in früheren Artikeln im Modul gesehen haben, können {{HTMLElement("input/radio", "Radiobuttons")}} und {{HTMLElement("input/checkbox", "Kontrollkästchen")}} markiert oder nicht markiert sein. Aber es gibt noch ein paar andere Zustände, die zu beachten sind:
 
-- {{cssxref(":default")}}: Passt auf Radios/Kontrollkästchen, die standardmäßig beim Laden der Seite markiert sind (d. h. durch Setzen des `checked` Attributs auf ihnen). Diese entsprechen der {{cssxref(":default")}} Pseudoklasse, auch wenn der Benutzer sie abwählt.
+- {{cssxref(":default")}}: Passt auf Radios/Kontrollkästchen, die standardmäßig beim Laden der Seite markiert sind (d.h. durch Setzen des `checked` Attributs auf ihnen). Diese entsprechen der {{cssxref(":default")}} Pseudoklasse, auch wenn der Benutzer sie abwählt.
 - {{cssxref(":indeterminate")}}: Wenn Radios/Kontrollkästchen weder markiert noch nicht markiert sind, gelten sie als _unbestimmt_ und entsprechen der {{cssxref(":indeterminate")}} Pseudoklasse. Mehr dazu unten.
 
 ### :checked
@@ -596,7 +596,7 @@ Es gibt eine Reihe von anderen Pseudoklassen von Interesse, und wir haben nicht 
 
 - Die {{cssxref(":focus-within")}} Pseudoklasse passt auf ein Element, das den Fokus erhalten hat oder ein Element _enthält_, das den Fokus erhalten hat. Dies ist nützlich, wenn Sie möchten, dass ein ganzes Formular in irgendeiner Weise hervorgehoben wird, wenn ein darin enthaltenes Eingabefeld fokussiert ist.
 - Die {{cssxref(":focus-visible")}} Pseudoklasse passt auf fokussierte Elemente, die den Fokus über eine Tastaturinteraktion (anstatt durch Berührung oder Maus) erhalten haben — nützlich, wenn Sie einen anderen Stil für die Tastaturfokussierung im Vergleich zur Maus (oder anderen) Fokussierung zeigen möchten.
-- Die {{cssxref(":placeholder-shown")}} Pseudoklasse passt auf {{htmlelement('input')}} und {{htmlelement('textarea')}} Elemente, die ihren Platzhalter anzeigen (d. h. die Inhalte des [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder) Attributs), weil der Wert des Elements leer ist.
+- Die {{cssxref(":placeholder-shown")}} Pseudoklasse passt auf {{htmlelement('input')}} und {{htmlelement('textarea')}} Elemente, die ihren Platzhalter anzeigen (d.h. die Inhalte des [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder) Attributs), weil der Wert des Elements leer ist.
 
 Die folgenden sind ebenfalls interessant, aber bisher nicht gut in Browsern unterstützt:
 

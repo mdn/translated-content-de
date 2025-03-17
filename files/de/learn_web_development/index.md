@@ -25,7 +25,7 @@ Willkommen bei MDN **Lernen Sie Webentwicklung** (auch bekannt als **Learn**). D
 ## Wissen Sie nicht, wo Sie anfangen sollen?
 
 - Noch nie programmiert?
-  - : Unsere [Einstiegsmodule](/de/docs/Learn_web_development/Getting_started) bieten Einrichtungs-Tutorials sowie grundlegende Konzepte und Hintergrundinformationen für komplette Anfänger. Sie sollten hier beginnen, wenn Sie ein völliger Anfänger sind (d. h. Sie haben noch keinen Code-Editor installiert oder Code geschrieben).
+  - : Unsere [Einstiegsmodule](/de/docs/Learn_web_development/Getting_started) bieten Einrichtungs-Tutorials sowie grundlegende Konzepte und Hintergrundinformationen für komplette Anfänger. Sie sollten hier beginnen, wenn Sie ein völliger Anfänger sind (d.h. Sie haben noch keinen Code-Editor installiert oder Code geschrieben).
 - Möchten Sie die Grundlagen meistern?
   - : Unsere [Kernmodule](/de/docs/Learn_web_development/Core) bieten eine strukturierte Reihe von Tutorials, die die wesentlichen Fähigkeiten und Praktiken für einen erfolgreichen Frontend-Entwickler vermitteln.
 - Über die Grundlagen hinaus?

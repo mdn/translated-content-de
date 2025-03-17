@@ -246,7 +246,7 @@ Eine bessere Methode ist die Verwendung der Methode [`Animation.commitStyles()`]
 
 ## Automatische Entfernung von füllenden Animationen
 
-Es ist möglich, eine große Anzahl von Animationen auf dasselbe Element auszulösen. Wenn diese Animationen unbefristet sind (d. h., `forwards` füllend), könnte dies zu einer langen Animationsliste führen, die möglicherweise ein Speicherleck hervorruft. Aus diesem Grund entfernen Browser automatisch füllende Animationen, nachdem sie durch neuere Animationen ersetzt wurden, es sei denn, der Entwickler gibt explizit an, dass sie beibehalten werden sollen.
+Es ist möglich, eine große Anzahl von Animationen auf dasselbe Element auszulösen. Wenn diese Animationen unbefristet sind (d.h. `forwards` füllend), könnte dies zu einer langen Animationsliste führen, die möglicherweise ein Speicherleck hervorruft. Aus diesem Grund entfernen Browser automatisch füllende Animationen, nachdem sie durch neuere Animationen ersetzt wurden, es sei denn, der Entwickler gibt explizit an, dass sie beibehalten werden sollen.
 
 Animationen werden entfernt, wenn alle folgenden Bedingungen erfüllt sind:
 

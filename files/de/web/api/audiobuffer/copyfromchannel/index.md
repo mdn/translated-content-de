@@ -35,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
   - : Einer der Eingabewerte hat einen Wert, der außerhalb des akzeptierten Bereichs liegt:
 
-    - Der Wert von `channelNumber` gibt eine Kanalnummer an, die nicht existiert (d. h. er ist größer oder gleich dem Wert von [`numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) auf dem Kanal).
+    - Der Wert von `channelNumber` gibt eine Kanalnummer an, die nicht existiert (d.h. er ist größer oder gleich dem Wert von [`numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) auf dem Kanal).
     - Der Wert von `startInChannel` liegt außerhalb des aktuellen Bereichs der bereits im Quellpuffer vorhandenen Proben; das heißt, er ist größer als dessen aktuelle [`length`](/de/docs/Web/API/AudioBuffer/length).
 
 ## Beispiele

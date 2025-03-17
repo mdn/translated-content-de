@@ -104,7 +104,7 @@ Es gibt zwei verschiedene Möglichkeiten, Keyframes zu formatieren:
 
 ### Implizite von/bis Keyframes
 
-In neueren Browserversionen können Sie nur einen Anfangs- oder Endzustand für eine Animation festlegen (d. h., ein einzelnes Keyframe), und der Browser wird das andere Ende der Animation ableiten, wenn er dazu in der Lage ist. Zum Beispiel, betrachten Sie [diese Animation](https://mdn.github.io/dom-examples/web-animations-api/implicit-keyframes.html) — das Keyframe-Objekt sieht so aus:
+In neueren Browserversionen können Sie nur einen Anfangs- oder Endzustand für eine Animation festlegen (d.h. ein einzelnes Keyframe), und der Browser wird das andere Ende der Animation ableiten, wenn er dazu in der Lage ist. Zum Beispiel, betrachten Sie [diese Animation](https://mdn.github.io/dom-examples/web-animations-api/implicit-keyframes.html) — das Keyframe-Objekt sieht so aus:
 
 ```js
 let rotate360 = [{ transform: "rotate(360deg)" }];

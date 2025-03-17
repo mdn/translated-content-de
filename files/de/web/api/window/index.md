@@ -120,7 +120,7 @@ Beachten Sie, dass Eigenschaften, die Objekte sind (z. B. zum Überschreiben des
 - [`Window.scrollMaxX`](/de/docs/Web/API/Window/scrollMaxX) {{Non-standard_Inline}} {{ReadOnlyInline}}
   - : Der maximale Versatz, auf den das Fenster horizontal verschoben werden kann, das heißt die Dokumentbreite minus der Ansichtsbereichbreite.
 - [`Window.scrollMaxY`](/de/docs/Web/API/Window/scrollMaxY) {{Non-standard_Inline}} {{ReadOnlyInline}}
-  - : Der maximale Versatz, auf den das Fenster vertikal verschoben werden kann (d. h. die Dokumenthöhe minus der Ansichtsbereichhöhe).
+  - : Der maximale Versatz, auf den das Fenster vertikal verschoben werden kann (d.h. die Dokumenthöhe minus der Ansichtsbereichhöhe).
 - [`Window.scrollX`](/de/docs/Web/API/Window/scrollX) {{ReadOnlyInline}}
   - : Gibt die Anzahl der Pixel zurück, um die das Dokument horizontal verschoben wurde.
 - [`Window.scrollY`](/de/docs/Web/API/Window/scrollY) {{ReadOnlyInline}}

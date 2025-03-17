@@ -92,7 +92,7 @@ document.getElementById("restart").addEventListener("click", (evt) => {
 - `always`
   - : Dieser Wert zeigt an, dass die Animation jederzeit neu gestartet werden kann.
 - `whenNotActive`
-  - : Dieser Wert zeigt an, dass die Animation nur neu gestartet werden kann, wenn sie nicht aktiv ist (d. h. nach dem aktiven Ende). Versuche, die Animation während ihrer aktiven Dauer neu zu starten, werden ignoriert.
+  - : Dieser Wert zeigt an, dass die Animation nur neu gestartet werden kann, wenn sie nicht aktiv ist (d.h. nach dem aktiven Ende). Versuche, die Animation während ihrer aktiven Dauer neu zu starten, werden ignoriert.
 - `never`
   - : Dieser Wert zeigt an, dass die Animation nicht neu gestartet werden kann.
 

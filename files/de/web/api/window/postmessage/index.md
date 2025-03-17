@@ -14,7 +14,7 @@ Normalerweise dürfen Skripte auf unterschiedlichen Seiten nur aufeinander zugre
 
 Darüber hinaus muss ein zugreifendes Skript das Fensterobjekt des zugegriffenen Dokuments zuvor erhalten haben. Dies kann durch Methoden wie [`window.open()`](/de/docs/Web/API/Window/open) für Pop-ups oder [`iframe.contentWindow`](/de/docs/Web/API/HTMLIFrameElement/contentWindow) für `iframe`s erfolgen.
 
-Grundsätzlich kann ein Fenster eine Referenz auf ein anderes Fenster erhalten (_z. B._ durch `targetWindow = window.opener`) und dann ein [`MessageEvent`](/de/docs/Web/API/MessageEvent) an dieses senden, indem es `targetWindow.postMessage()` verwendet. Das empfangende Fenster kann [dieses Ereignis](#das_ausgelöste_ereignis) nach Bedarf behandeln. Die Argumente, die an `window.postMessage()` übergeben werden (_d. h._ die "Nachricht"), [werden dem empfangenden Fenster durch das Ereignisobjekt zur Verfügung gestellt](#das_ausgelöste_ereignis).
+Grundsätzlich kann ein Fenster eine Referenz auf ein anderes Fenster erhalten (_z. B._ durch `targetWindow = window.opener`) und dann ein [`MessageEvent`](/de/docs/Web/API/MessageEvent) an dieses senden, indem es `targetWindow.postMessage()` verwendet. Das empfangende Fenster kann [dieses Ereignis](#das_ausgelöste_ereignis) nach Bedarf behandeln. Die Argumente, die an `window.postMessage()` übergeben werden (_d.h._ die "Nachricht"), [werden dem empfangenden Fenster durch das Ereignisobjekt zur Verfügung gestellt](#das_ausgelöste_ereignis).
 
 ## Syntax
 

@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Storage")}}
 
-Webentwickler können eine Reihe von Technologien verwenden, um Daten im Browser des Nutzers zu speichern (d. h. auf der lokalen Festplatte des Geräts, das der Nutzer verwendet, um die Website zu betrachten).
+Webentwickler können eine Reihe von Technologien verwenden, um Daten im Browser des Nutzers zu speichern (d.h. auf der lokalen Festplatte des Geräts, das der Nutzer verwendet, um die Website zu betrachten).
 
 Die Menge an Daten, die Browser Websites speichern lassen, und die Mechanismen, die sie zum Löschen von Daten verwenden, wenn dieses Limit erreicht ist, unterscheiden sich zwischen den Browsern.
 

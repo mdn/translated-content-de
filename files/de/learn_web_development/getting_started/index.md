@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Willkommen bei **Erste Schritte**! Wenn Sie ein kompletter Anfänger sind (d. h., Sie haben noch keinen Code-Editor installiert oder Code geschrieben), dann sind Sie hier genau richtig. Die Module "Erste Schritte" führen Sie durch die Installation der benötigten Software, den Umgang mit Ihrer Entwicklungsumgebung, den ersten Versuch, eine einfache Website zu erstellen, und das Verständnis einiger grundlegender Konzepte rund um die Webentwicklung.
+Willkommen bei **Erste Schritte**! Wenn Sie ein kompletter Anfänger sind (d.h. Sie haben noch keinen Code-Editor installiert oder Code geschrieben), dann sind Sie hier genau richtig. Die Module "Erste Schritte" führen Sie durch die Installation der benötigten Software, den Umgang mit Ihrer Entwicklungsumgebung, den ersten Versuch, eine einfache Website zu erstellen, und das Verständnis einiger grundlegender Konzepte rund um die Webentwicklung.
 
 ## Voraussetzungen
 

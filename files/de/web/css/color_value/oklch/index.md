@@ -137,7 +137,7 @@ Dieses Beispiel:
 Die endgültige Ausgabefarbe ist `oklch(0.8 0.4 29.2346)`.
 
 > [!NOTE]
-> Wie oben erwähnt, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in dasselbe Modell wie die Ausgabefarbe umgewandelt, um sie in einer Weise zu repräsentieren, die kompatibel ist (d. h. dieselben Kanäle verwendet).
+> Wie oben erwähnt, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in dasselbe Modell wie die Ausgabefarbe umgewandelt, um sie in einer Weise zu repräsentieren, die kompatibel ist (d.h. dieselben Kanäle verwendet).
 
 In den Beispielen, die wir bisher in diesem Abschnitt gesehen haben, wurden die Alphakanäle weder für die Ursprungs- noch für die Ausgabefarben explizit festgelegt. Wenn der Ausgabefarben-Alphakanal nicht angegeben ist, wird standardmäßig derselbe Wert wie der Ursprungsfarben-Alphakanal verwendet. Wenn der Ursprungsfarben-Alphakanal nicht angegeben ist (und es sich nicht um eine relative Farbe handelt), wird standardmäßig `1` verwendet. Daher sind die Ursprungs- und Ausgabewert der Alphakanäle in den obigen Beispielen `1`.
 

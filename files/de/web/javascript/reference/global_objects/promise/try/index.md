@@ -135,7 +135,7 @@ Promise.try = function (func) {
 };
 ```
 
-Aufgrund der Implementierung von `Promise.try()` (d. h. durch `try...catch`), können wir `Promise.try()` sicher mit seinem `this` auf einen beliebigen benutzerdefinierten Konstruktor setzen und es wird niemals synchron einen Fehler werfen.
+Aufgrund der Implementierung von `Promise.try()` (d.h. durch `try...catch`), können wir `Promise.try()` sicher mit seinem `this` auf einen beliebigen benutzerdefinierten Konstruktor setzen und es wird niemals synchron einen Fehler werfen.
 
 ```js
 class NotPromise {

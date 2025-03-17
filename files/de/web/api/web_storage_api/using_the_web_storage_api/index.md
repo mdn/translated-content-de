@@ -95,7 +95,7 @@ Wir haben auch eine [Ereignisausgabeseite](https://mdn.github.io/dom-examples/we
 
 ### Prüfen, ob Ihr Speicher gefüllt ist
 
-Zu Beginn testen wir in [main.js](https://github.com/mdn/dom-examples/blob/main/web-storage/main.js), ob das Storage-Objekt bereits gefüllt wurde (d. h. ob die Seite zuvor aufgerufen wurde):
+Zu Beginn testen wir in [main.js](https://github.com/mdn/dom-examples/blob/main/web-storage/main.js), ob das Storage-Objekt bereits gefüllt wurde (d.h. ob die Seite zuvor aufgerufen wurde):
 
 ```js
 if (!localStorage.getItem("bgcolor")) {

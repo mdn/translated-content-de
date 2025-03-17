@@ -351,7 +351,7 @@ Erweiterungen hosten häufig ihre Hauptfunktionalität im Hintergrundskript. Ein
 > Die in diesem Abschnitt diskutierten `getBackgroundPage()`-Methoden können in einer cross-browser Erweiterung nicht verwendet werden, da Manifest Version 3 Erweiterungen in Chrome keine Hintergrund- oder Ereignisseiten verwenden können.
 
 Wenn Ihre Erweiterung einen Verweis auf das `window` der Hintergrundseite benötigt, verwenden Sie {{WebExtAPIRef("runtime.getBackgroundPage")}} um sicherzustellen, dass die Ereignisseite ausgeführt wird.
-Falls der Aufruf optional ist (d. h. nur benötigt wird, wenn die Ereignisseite am Leben ist), verwenden Sie {{WebExtAPIRef("extension.getBackgroundPage")}}.
+Falls der Aufruf optional ist (d.h. nur benötigt wird, wenn die Ereignisseite am Leben ist), verwenden Sie {{WebExtAPIRef("extension.getBackgroundPage")}}.
 
 ```js example-bad
 document.getElementById("target").addEventListener("click", async () => {

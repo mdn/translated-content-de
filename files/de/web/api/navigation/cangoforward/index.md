@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`canGoForward`**-Eigenschaft des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt `true` zurück, wenn es möglich ist, in der Navigationshistorie vorwärts zu navigieren (d. h., der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der letzte in der Verlaufseintrag-Liste) und `false`, wenn dies nicht möglich ist.
+Die schreibgeschützte **`canGoForward`**-Eigenschaft des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt `true` zurück, wenn es möglich ist, in der Navigationshistorie vorwärts zu navigieren (d.h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der letzte in der Verlaufseintrag-Liste) und `false`, wenn dies nicht möglich ist.
 
 ## Wert
 

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}
 
-Das **`scrollsnapchanging`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird auf dem `window` ausgelöst, wenn der Browser feststellt, dass ein neues Ziel für den Scroll-Snap in Vorbereitung ist, d. h., es wird ausgewählt, wenn die aktuelle Scroll-Geste endet.
+Das **`scrollsnapchanging`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird auf dem `window` ausgelöst, wenn der Browser feststellt, dass ein neues Ziel für den Scroll-Snap in Vorbereitung ist, d.h. es wird ausgewählt, wenn die aktuelle Scroll-Geste endet.
 
-Dieses Ereignis funktioniert in ähnlicher Weise wie das [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignis der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, außer dass das gesamte HTML-Dokument als Scroll-Snap-Container festgelegt sein muss (d. h. {{cssxref("scroll-snap-type")}} ist auf dem {{htmlelement("html")}}-Element gesetzt).
+Dieses Ereignis funktioniert in ähnlicher Weise wie das [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignis der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, außer dass das gesamte HTML-Dokument als Scroll-Snap-Container festgelegt sein muss (d.h. {{cssxref("scroll-snap-type")}} ist auf dem {{htmlelement("html")}}-Element gesetzt).
 
 ## Syntax
 

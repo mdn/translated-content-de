@@ -113,7 +113,7 @@ const hex = "CAFEBABE";
 const bin = parseInt(hex, 16).toString(2); // "11001010111111101011101010111110"
 ```
 
-Seien Sie vorsichtig bei einem Verlust an Genauigkeit: Wenn der ursprüngliche Zahlenstring zu groß ist (zum Beispiel größer als [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER)), sollten Sie stattdessen ein [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) verwenden. Der `BigInt`-Konstruktor unterstützt jedoch nur Strings, die Zahlenliterale darstellen (d. h. Strings, die mit `0b`, `0o`, `0x` beginnen). Falls Ihre ursprüngliche Basis nicht binär, oktal, dezimal oder hexadezimal ist, müssen Sie möglicherweise Ihren eigenen Basis-Konverter schreiben oder eine Bibliothek verwenden.
+Seien Sie vorsichtig bei einem Verlust an Genauigkeit: Wenn der ursprüngliche Zahlenstring zu groß ist (zum Beispiel größer als [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER)), sollten Sie stattdessen ein [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) verwenden. Der `BigInt`-Konstruktor unterstützt jedoch nur Strings, die Zahlenliterale darstellen (d.h. Strings, die mit `0b`, `0o`, `0x` beginnen). Falls Ihre ursprüngliche Basis nicht binär, oktal, dezimal oder hexadezimal ist, müssen Sie möglicherweise Ihren eigenen Basis-Konverter schreiben oder eine Bibliothek verwenden.
 
 ## Spezifikationen
 

@@ -71,7 +71,7 @@ Browser-Caches:
 Netzwerkverbindungen:
 
 - [TLS-Sitzungen](https://wiki.mozilla.org/Security/Server_Side_TLS#Session_Resumption) werden nicht mit einem Sessions-Ticket fortgesetzt, wenn eine HTTPS-Verbindung zu einer eingebetteten Drittanbieter-Ressource hergestellt wird, die als Tracker klassifiziert ist.
-- [Wiederverwendung von HTTP-Verbindungen](/de/docs/Web/HTTP/Guides/Connection_management_in_HTTP_1.x#persistent_connections) durch Domains, die als Tracker klassifiziert sind, ist auf Anfragen beschränkt, die unter demselben Top-Level-Ursprung erfolgen. Zum Beispiel wird eine Anfrage nach Inhalten von `tracker.example` auf `news.example` keine HTTP-Verbindung mit einer Anfrage nach Inhalten von `tracker.example` auf `shopping.example` oder mit Anfragen, die auftreten, wenn `tracker.example` direkt besucht wird (d. h. als Erstanbieter), wiederverwenden.
+- [Wiederverwendung von HTTP-Verbindungen](/de/docs/Web/HTTP/Guides/Connection_management_in_HTTP_1.x#persistent_connections) durch Domains, die als Tracker klassifiziert sind, ist auf Anfragen beschränkt, die unter demselben Top-Level-Ursprung erfolgen. Zum Beispiel wird eine Anfrage nach Inhalten von `tracker.example` auf `news.example` keine HTTP-Verbindung mit einer Anfrage nach Inhalten von `tracker.example` auf `shopping.example` oder mit Anfragen, die auftreten, wenn `tracker.example` direkt besucht wird (d.h. als Erstanbieter), wiederverwenden.
 
 HTTP Referrer
 
@@ -97,7 +97,7 @@ Drittanbieter-Speicherzugriff kann Ressourcen gewährt werden, die als Tracking-
 
 - Dem Ursprung der Ressource, die zunächst im Pop-up-Fenster geladen wird, wird Speicherzugriff auf das Opener-Dokument gewährt, wenn dieser Ursprung innerhalb der letzten 30 Tage als Erstanbieter Benutzerinteraktion erhalten hat.
 - Nach dem Laden der ursprünglichen Ressource im Pop-up-Fenster kann das Fenster eine Reihe von Weiterleitungen zu anderen Hosts durchlaufen. Wenn ein Benutzer nach einer Weiterleitung mit dem Pop-up-Fenster interagiert, wird dem Ursprung des im Pop-up-Fenster geladenen Inhalts Speicherzugriff auf das Opener-Dokument gewährt.
-- Wenn es eine Top-Level-Weiterleitung von einem Tracking-Ursprung zu einem Nicht-Tracking-Ursprung gibt, erhält der Tracking-Ursprung kurzlebigen Speicherzugriff auf den Nicht-Tracking-Ursprung und alle anderen Nicht-Tracking-Ursprünge, die später in der Weiterleitungskette auftreten (d. h., wenn das Laden weiterhin umgeleitet wird). Der Tracking-Ursprung muss innerhalb der letzten 30 Tage Benutzerinteraktion als Erstanbieter erhalten haben, und die Speicherzugriffsberechtigung läuft nach 15 Minuten ab.
+- Wenn es eine Top-Level-Weiterleitung von einem Tracking-Ursprung zu einem Nicht-Tracking-Ursprung gibt, erhält der Tracking-Ursprung kurzlebigen Speicherzugriff auf den Nicht-Tracking-Ursprung und alle anderen Nicht-Tracking-Ursprünge, die später in der Weiterleitungskette auftreten (d.h. wenn das Laden weiterhin umgeleitet wird). Der Tracking-Ursprung muss innerhalb der letzten 30 Tage Benutzerinteraktion als Erstanbieter erhalten haben, und die Speicherzugriffsberechtigung läuft nach 15 Minuten ab.
 
 ### Umfang des Speicherzugriffs
 

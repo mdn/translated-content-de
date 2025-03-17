@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die Methode **`DataTransferItem.getAsString()`** ruft die gegebene Rückruffunktion mit den String-Daten des Drag-Datenobjekts als Argument auf, wenn der [`kind`](/de/docs/Web/API/DataTransferItem/kind) des Objekts eine _einfache Unicode-Zeichenkette_ ist (d. h. `kind` ist `string`).
+Die Methode **`DataTransferItem.getAsString()`** ruft die gegebene Rückruffunktion mit den String-Daten des Drag-Datenobjekts als Argument auf, wenn der [`kind`](/de/docs/Web/API/DataTransferItem/kind) des Objekts eine _einfache Unicode-Zeichenkette_ ist (d.h. `kind` ist `string`).
 
 ## Syntax
 

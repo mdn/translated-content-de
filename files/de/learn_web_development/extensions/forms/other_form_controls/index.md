@@ -41,7 +41,7 @@ Dies wird wie folgt gerendert:
 
 {{EmbedLiveSample("Multi-line_text_fields", 120, 160)}}
 
-Der Hauptunterschied zwischen einem `<textarea>` und einem normalen einzeiligen Textfeld besteht darin, dass Benutzer harte Zeilenumbrüche (d. h. Betätigung der Eingabetaste) einfügen dürfen, die beim Absenden der Daten enthalten werden.
+Der Hauptunterschied zwischen einem `<textarea>` und einem normalen einzeiligen Textfeld besteht darin, dass Benutzer harte Zeilenumbrüche (d.h. Betätigung der Eingabetaste) einfügen dürfen, die beim Absenden der Daten enthalten werden.
 
 `<textarea>` benötigt auch ein schließendes Tag; beliebiger Standardtext, den Sie enthalten möchten, sollte zwischen den öffnenden und schließenden Tags gesetzt werden. Im Gegensatz dazu ist {{HTMLElement("input")}} ein {{Glossary("void_element", "leeres Element")}} ohne Schlusstag – ein Standardwert wird innerhalb des [`value`](/de/docs/Web/HTML/Element/input#value)-Attributes gesetzt.
 

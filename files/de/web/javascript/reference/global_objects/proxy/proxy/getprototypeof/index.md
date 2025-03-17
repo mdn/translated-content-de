@@ -74,7 +74,7 @@ Oder jede andere Operation, die die `[[GetPrototypeOf]]` [interne Methode](/de/d
 Die `[[GetPrototypeOf]]`-Interne Methode des Proxies löst einen {{jsxref("TypeError")}} aus, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
 - Das Ergebnis muss entweder ein {{jsxref("Object")}} oder `null` sein.
-- Wenn das Zielobjekt nicht erweiterbar ist (d. h. {{jsxref("Reflect.isExtensible()")}} gibt `false` für `target` zurück), muss das Ergebnis dasselbe sein wie das Ergebnis von `Reflect.getPrototypeOf(target)`.
+- Wenn das Zielobjekt nicht erweiterbar ist (d.h. {{jsxref("Reflect.isExtensible()")}} gibt `false` für `target` zurück), muss das Ergebnis dasselbe sein wie das Ergebnis von `Reflect.getPrototypeOf(target)`.
 
 ## Beispiele
 

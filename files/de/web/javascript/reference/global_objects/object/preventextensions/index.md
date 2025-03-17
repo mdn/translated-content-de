@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Object.preventExtensions()`** statische Methode verhindert, dass neue Eigenschaften jemals zu einem Objekt hinzugefügt werden können (d. h. sie verhindert zukünftige Erweiterungen des Objekts). Sie verhindert auch, dass das Prototyp-Objekt neu zugewiesen wird.
+Die **`Object.preventExtensions()`** statische Methode verhindert, dass neue Eigenschaften jemals zu einem Objekt hinzugefügt werden können (d.h. sie verhindert zukünftige Erweiterungen des Objekts). Sie verhindert auch, dass das Prototyp-Objekt neu zugewiesen wird.
 
 {{InteractiveExample("JavaScript Demo: Object.preventExtensions()")}}
 

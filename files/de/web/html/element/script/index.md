@@ -20,7 +20,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
     Für [Modulskripte](/de/docs/Web/JavaScript/Guide/Modules): Wenn das `async`-Attribut vorhanden ist, werden die Skripte und alle ihre Abhängigkeiten parallel zum Parsen abgerufen und sofort ausgewertet, sobald sie verfügbar sind.
 
     > [!WARNING]
-    > Dieses Attribut darf nicht verwendet werden, wenn das `src`-Attribut fehlt (d. h. bei eingebetteten Skripten) bei klassischen Skripten, da es in diesem Fall keinen Effekt hätte.
+    > Dieses Attribut darf nicht verwendet werden, wenn das `src`-Attribut fehlt (d.h. bei eingebetteten Skripten) bei klassischen Skripten, da es in diesem Fall keinen Effekt hätte.
 
     Dieses Attribut ermöglicht die Eliminierung von **Parser-blockierendem JavaScript**, bei dem der Browser Skripte laden und auswerten müsste, bevor er mit dem Parsen fortfährt. `defer` hat in diesem Fall eine ähnliche Wirkung.
 
@@ -39,7 +39,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
 
     Es gibt zwei Versionen dieses Attributs, die Sie festlegen können:
 
-    - Boolescher Wert, d. h. nur der Name `attributionsrc`. Dies gibt an, dass Sie möchten, dass der {{httpheader("Attribution-Reporting-Eligible")}}-Header an denselben Server gesendet wird, auf den das `src`-Attribut verweist. Dies ist in Ordnung, wenn Sie die Registrierung der Attributionsquelle oder des Triggers auf demselben Server behandeln. Wenn Sie einen Attribution-Trigger registrieren, ist diese Eigenschaft optional, und ein leerer Zeichenfolgenwert wird verwendet, wenn sie weggelassen wird.
+    - Boolescher Wert, d.h. nur der Name `attributionsrc`. Dies gibt an, dass Sie möchten, dass der {{httpheader("Attribution-Reporting-Eligible")}}-Header an denselben Server gesendet wird, auf den das `src`-Attribut verweist. Dies ist in Ordnung, wenn Sie die Registrierung der Attributionsquelle oder des Triggers auf demselben Server behandeln. Wenn Sie einen Attribution-Trigger registrieren, ist diese Eigenschaft optional, und ein leerer Zeichenfolgenwert wird verwendet, wenn sie weggelassen wird.
     - Wert, der eine oder mehrere URLs enthält, zum Beispiel:
 
       ```html
@@ -69,7 +69,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
     Skripte mit dem `defer`-Attribut verhindern das Auslösen des `DOMContentLoaded`-Ereignisses, bis das Skript geladen und ausgewertet worden ist.
 
     > [!WARNING]
-    > Dieses Attribut darf nicht verwendet werden, wenn das `src`-Attribut fehlt (d. h. bei eingebetteten Skripten), da es in diesem Fall keinen Effekt hätte.
+    > Dieses Attribut darf nicht verwendet werden, wenn das `src`-Attribut fehlt (d.h. bei eingebetteten Skripten), da es in diesem Fall keinen Effekt hätte.
     >
     > Das `defer`-Attribut hat keine Wirkung bei [Modulskripten](/de/docs/Web/JavaScript/Guide/Modules) — sie werden standardmäßig verzögert.
 
@@ -115,7 +115,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
     - `unsafe-url`: Der Referrer wird den Ursprung _und_ den Pfad (aber nicht das [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder [Benutzername](/de/docs/Web/API/HTMLAnchorElement/username)) enthalten. **Dieser Wert ist unsicher**, da er Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge preisgibt.
 
     > [!NOTE]
-    > Ein leerer Zeichenfolgenwert (`""`) ist sowohl der Standardwert als auch ein Fallback-Wert, wenn `referrerpolicy` nicht unterstützt wird. Wenn `referrerpolicy` nicht explizit auf dem `<script>`-Element angegeben ist, übernimmt es eine höherstufige Referrer-Richtlinie, d. h. eine, die auf das gesamte Dokument oder die gesamte Domain angewendet wird. Wenn keine höherstufige Richtlinie verfügbar ist, wird der leere Zeichenfolgenwert als gleichwertig zu `strict-origin-when-cross-origin` behandelt.
+    > Ein leerer Zeichenfolgenwert (`""`) ist sowohl der Standardwert als auch ein Fallback-Wert, wenn `referrerpolicy` nicht unterstützt wird. Wenn `referrerpolicy` nicht explizit auf dem `<script>`-Element angegeben ist, übernimmt es eine höherstufige Referrer-Richtlinie, d.h. eine, die auf das gesamte Dokument oder die gesamte Domain angewendet wird. Wenn keine höherstufige Richtlinie verfügbar ist, wird der leere Zeichenfolgenwert als gleichwertig zu `strict-origin-when-cross-origin` behandelt.
 
 - `src`
   - : Dieses Attribut gibt die URI eines externen Skripts an; dies kann als Alternative zum Einbetten eines Skripts direkt in ein Dokument verwendet werden.

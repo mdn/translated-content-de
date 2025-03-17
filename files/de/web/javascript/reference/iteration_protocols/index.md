@@ -60,7 +60,7 @@ Optional kann der Iterator auch die Methoden **`return(value)`** und **`throw(ex
   - : Eine Funktion, die null oder ein Argument akzeptiert und ein Objekt zurückgibt, das dem `IteratorResult`-Interface entspricht, typischerweise mit `done` gleich `true`. Der Aufruf dieser Methode signalisiert dem Iterator, dass der Aufrufer einen Fehlerzustand erkennt, und `exception` ist typischerweise eine {{jsxref("Error")}}-Instanz. Kein eingebautes Sprachfeature ruft `throw()` für Aufräumzwecke auf — es ist eine spezielle Funktion von Generatoren zur Symmetrie von `return`/`throw`.
 
 > [!NOTE]
-> Es ist nicht möglich, durch Reflektion (d. h. ohne tatsächlich `next()` aufzurufen und das zurückgegebene Ergebnis zu validieren) zu wissen, ob ein bestimmtes Objekt das Iteratorprotokoll implementiert.
+> Es ist nicht möglich, durch Reflektion (d.h. ohne tatsächlich `next()` aufzurufen und das zurückgegebene Ergebnis zu validieren) zu wissen, ob ein bestimmtes Objekt das Iteratorprotokoll implementiert.
 
 Es ist sehr einfach, einen Iterator auch iterierbar zu machen: Implementieren Sie einfach eine `[Symbol.iterator]()`-Methode, die `this` zurückgibt.
 
@@ -194,7 +194,7 @@ console.log(gen().next()); // { value: "a", done: false }
 console.log(a); // "a"
 ```
 
-Wenn eingebaute Syntaxen einen Iterator durchlaufen und das letzte Ergebnis `done` `false` ist (d. h. der Iterator in der Lage ist, mehr Werte zu erzeugen), aber keine weiteren Werte benötigt werden, wird die `return`-Methode aufgerufen, wenn vorhanden. Dies kann zum Beispiel passieren, wenn ein `break` oder `return` in einer `for...of`-Schleife auftritt oder wenn alle Bezeichner in einem Array-Destructuring bereits gebunden sind.
+Wenn eingebaute Syntaxen einen Iterator durchlaufen und das letzte Ergebnis `done` `false` ist (d.h. der Iterator in der Lage ist, mehr Werte zu erzeugen), aber keine weiteren Werte benötigt werden, wird die `return`-Methode aufgerufen, wenn vorhanden. Dies kann zum Beispiel passieren, wenn ein `break` oder `return` in einer `for...of`-Schleife auftritt oder wenn alle Bezeichner in einem Array-Destructuring bereits gebunden sind.
 
 ```js
 const obj = {
@@ -234,7 +234,7 @@ for (const b of obj) {
 // Closing
 ```
 
-Die [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of)-Schleife und [`yield*`](/de/docs/Web/JavaScript/Reference/Operators/yield*) in [async-Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function*) (aber nicht in [synchronen Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*)) sind die einzigen Möglichkeiten, um mit asynchronen Iterables zu interagieren. Die Verwendung von `for...of`, Array-Spreading usw. auf einem asynchronen Iterable, das nicht auch ein synchrones Iterable ist (d. h. es hat `[Symbol.asyncIterator]()` aber kein `[Symbol.iterator]()`), wird einen TypeError: x is not iterable auslösen.
+Die [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of)-Schleife und [`yield*`](/de/docs/Web/JavaScript/Reference/Operators/yield*) in [async-Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function*) (aber nicht in [synchronen Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*)) sind die einzigen Möglichkeiten, um mit asynchronen Iterables zu interagieren. Die Verwendung von `for...of`, Array-Spreading usw. auf einem asynchronen Iterable, das nicht auch ein synchrones Iterable ist (d.h. es hat `[Symbol.asyncIterator]()` aber kein `[Symbol.iterator]()`), wird einen TypeError: x is not iterable auslösen.
 
 ## Fehlerbehandlung
 

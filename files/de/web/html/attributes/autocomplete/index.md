@@ -253,7 +253,7 @@ Wenn das Formularfeld keine Telefonnummer, E-Mail-Adresse oder Instant-Messaging
 Mit {{htmlelement("input")}} und {{htmlelement("textarea")}} kann das `webauthn`-Token zuletzt hinzugefügt werden, um anzugeben, dass der User-Agent öffentliche Schlüsselberechtigungen anzeigen sollte, wenn der Benutzer mit dem Steuerelement interagiert.
 
 - `webauthn`
-  - : Passkeys, die von der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) generiert werden, wie sie von einem konditionalen [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) Anruf angefordert werden (d. h., einem, der `mediation: 'conditional'` enthält). Falls enthalten, ist dies das letzte Token in der durch Leerzeichen getrennten Tokenliste. Weitere Details finden Sie unter [Anmeldung mit einem Passkey über Formular-Autovervollständigung](https://web.dev/articles/passkey-form-autofill).
+  - : Passkeys, die von der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) generiert werden, wie sie von einem konditionalen [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) Anruf angefordert werden (d.h. einem, der `mediation: 'conditional'` enthält). Falls enthalten, ist dies das letzte Token in der durch Leerzeichen getrennten Tokenliste. Weitere Details finden Sie unter [Anmeldung mit einem Passkey über Formular-Autovervollständigung](https://web.dev/articles/passkey-form-autofill).
 
 ## Beispiele
 

@@ -137,7 +137,7 @@ Dieses Beispiel:
 Die finale Ausgabefarbe ist `lch(70 150 40.856)`.
 
 > [!NOTE]
-> Wie oben beschrieben, wird, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungfarbe verwendet, die Ursprungfarbe im Hintergrund in dasselbe Modell wie die Ausgabefarbe umgewandelt, so dass sie kompatibel dargestellt werden kann (d. h. mit denselben Kanälen).
+> Wie oben beschrieben, wird, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungfarbe verwendet, die Ursprungfarbe im Hintergrund in dasselbe Modell wie die Ausgabefarbe umgewandelt, so dass sie kompatibel dargestellt werden kann (d.h. mit denselben Kanälen).
 
 In den bisher in diesem Abschnitt gezeigten Beispielen wurden die Alpha-Kanäle weder für die Ursprungs- noch für die Ausgabefarben explizit angegeben. Wenn der Alpha-Kanal der Ausgabefarbe nicht angegeben ist, übernimmt er den gleichen Wert wie der Alpha-Kanal der Ursprungfarbe. Wenn der Alpha-Kanal der Ursprungfarbe nicht angegeben ist (und es sich nicht um eine relative Farbe handelt), ist der Standardwert `1`. Daher sind die Ursprungs- und Ausgabe-Alpha-Kanalwerte in den obigen Beispielen `1`.
 

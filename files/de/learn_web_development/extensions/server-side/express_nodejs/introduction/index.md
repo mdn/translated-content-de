@@ -28,7 +28,7 @@ In diesem ersten Express-Artikel beantworten wir die Fragen „Was ist Node?“ 
 
 ## Einführung in Node
 
-[Node](https://nodejs.org/) (oder formell _Node.js_) ist eine quelloffene, plattformübergreifende Laufzeitumgebung, die Entwicklern ermöglicht, serverseitige Werkzeuge und Anwendungen aller Art in {{Glossary("JavaScript", "JavaScript")}} zu erstellen. Die Laufzeitumgebung ist für die Verwendung außerhalb eines Browser-Kontexts (d. h. direkt auf einem Computer oder Server-Betriebssystem) konzipiert. Daher verzichtet die Umgebung auf browser-spezifische JavaScript-APIs und bietet Unterstützung für traditionelle Betriebssystem-APIs einschließlich HTTP- und Dateisystembibliotheken.
+[Node](https://nodejs.org/) (oder formell _Node.js_) ist eine quelloffene, plattformübergreifende Laufzeitumgebung, die Entwicklern ermöglicht, serverseitige Werkzeuge und Anwendungen aller Art in {{Glossary("JavaScript", "JavaScript")}} zu erstellen. Die Laufzeitumgebung ist für die Verwendung außerhalb eines Browser-Kontexts (d.h. direkt auf einem Computer oder Server-Betriebssystem) konzipiert. Daher verzichtet die Umgebung auf browser-spezifische JavaScript-APIs und bietet Unterstützung für traditionelle Betriebssystem-APIs einschließlich HTTP- und Dateisystembibliotheken.
 
 Aus der Perspektive der Webserver-Entwicklung bietet Node eine Reihe von Vorteilen:
 

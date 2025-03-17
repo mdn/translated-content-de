@@ -12,7 +12,7 @@ Das **`resize`**-Ereignis wird ausgelöst, wenn die Dokumentansicht (Fenster) in
 
 Dieses Ereignis ist nicht abbruchbar und propagiert nicht.
 
-In einigen älteren Browsern war es möglich, `resize`-Ereignishandler auf jedem HTML-Element zu registrieren. Es ist weiterhin möglich, `onresize`-Attribute zu setzen oder [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zu verwenden, um einen Handler auf einem Element zu setzen. Allerdings werden `resize`-Ereignisse nur auf dem [`window`](/de/docs/Web/API/Window)-Objekt ausgelöst (d. h. zurückgegeben von [`document.defaultView`](/de/docs/Web/API/Document/defaultView)). Nur auf dem `window`-Objekt registrierte Handler erhalten `resize`-Ereignisse.
+In einigen älteren Browsern war es möglich, `resize`-Ereignishandler auf jedem HTML-Element zu registrieren. Es ist weiterhin möglich, `onresize`-Attribute zu setzen oder [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zu verwenden, um einen Handler auf einem Element zu setzen. Allerdings werden `resize`-Ereignisse nur auf dem [`window`](/de/docs/Web/API/Window)-Objekt ausgelöst (d.h. zurückgegeben von [`document.defaultView`](/de/docs/Web/API/Document/defaultView)). Nur auf dem `window`-Objekt registrierte Handler erhalten `resize`-Ereignisse.
 
 Während das `resize`-Ereignis heutzutage nur für das Fenster ausgelöst wird, können Sie Resize-Benachrichtigungen für andere Elemente mithilfe der [ResizeObserver](/de/docs/Web/API/ResizeObserver)-API erhalten.
 

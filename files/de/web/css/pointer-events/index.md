@@ -108,23 +108,23 @@ Die `pointer-events`-Eigenschaft wird als ein einzelnes Schlüsselwort angegeben
 #### Nur SVG (experimentell für HTML)
 
 - `visiblePainted`
-  - : Nur SVG (experimentell für HTML). Das Element kann nur dann das Ziel eines Zeigereignisses sein, wenn die Eigenschaft `visibility` auf `visible` gesetzt ist und z. B. wenn sich ein Mauszeiger über dem Inneren (d. h. 'fill') des Elements befindet und die Eigenschaft `fill` auf einen anderen Wert als `none` gesetzt ist, oder wenn sich ein Mauszeiger über dem Umfang (d. h. 'stroke') des Elements befindet und die Eigenschaft `stroke` auf einen Wert gesetzt ist, der nicht `none` ist.
+  - : Nur SVG (experimentell für HTML). Das Element kann nur dann das Ziel eines Zeigereignisses sein, wenn die Eigenschaft `visibility` auf `visible` gesetzt ist und z. B. wenn sich ein Mauszeiger über dem Inneren (d.h. 'fill') des Elements befindet und die Eigenschaft `fill` auf einen anderen Wert als `none` gesetzt ist, oder wenn sich ein Mauszeiger über dem Umfang (d.h. 'stroke') des Elements befindet und die Eigenschaft `stroke` auf einen Wert gesetzt ist, der nicht `none` ist.
 - `visibleFill`
-  - : Nur SVG. Das Element kann nur das Ziel eines Zeigereignisses sein, wenn die Eigenschaft `visibility` auf `visible` gesetzt ist und z. B. ein Mauszeiger sich über dem Inneren (d. h. dem 'fill') des Elements befindet. Der Wert der Eigenschaft `fill` beeinflusst die Ereignisverarbeitung nicht.
+  - : Nur SVG. Das Element kann nur das Ziel eines Zeigereignisses sein, wenn die Eigenschaft `visibility` auf `visible` gesetzt ist und z. B. ein Mauszeiger sich über dem Inneren (d.h. dem 'fill') des Elements befindet. Der Wert der Eigenschaft `fill` beeinflusst die Ereignisverarbeitung nicht.
 - `visibleStroke`
-  - : Nur SVG. Das Element kann nur das Ziel eines Zeigereignisses sein, wenn die Eigenschaft `visibility` auf `visible` gesetzt ist und z. B. wenn sich der Mauszeiger über dem Umfang (d. h. dem 'stroke') des Elements befindet. Der Wert der Eigenschaft `stroke` beeinflusst die Ereignisverarbeitung nicht.
+  - : Nur SVG. Das Element kann nur das Ziel eines Zeigereignisses sein, wenn die Eigenschaft `visibility` auf `visible` gesetzt ist und z. B. wenn sich der Mauszeiger über dem Umfang (d.h. dem 'stroke') des Elements befindet. Der Wert der Eigenschaft `stroke` beeinflusst die Ereignisverarbeitung nicht.
 - `visible`
-  - : Nur SVG (experimentell für HTML). Das Element kann das Ziel eines Zeigereignisses sein, wenn die Eigenschaft `visibility` auf `visible` gesetzt ist und z. B. der Mauszeiger entweder über dem Inneren (d. h. dem 'fill') oder dem Umfang (d. h. dem 'stroke') des Elements ist. Die Werte von `fill` und `stroke` beeinflussen die Ereignisverarbeitung nicht.
+  - : Nur SVG (experimentell für HTML). Das Element kann das Ziel eines Zeigereignisses sein, wenn die Eigenschaft `visibility` auf `visible` gesetzt ist und z. B. der Mauszeiger entweder über dem Inneren (d.h. dem 'fill') oder dem Umfang (d.h. dem 'stroke') des Elements ist. Die Werte von `fill` und `stroke` beeinflussen die Ereignisverarbeitung nicht.
 - `painted`
-  - : Nur SVG (experimentell für HTML). Das Element kann nur dann das Ziel eines Zeigereignisses sein, wenn sich z. B. der Mauszeiger über dem Inneren (d. h. dem 'fill') des Elements befindet und die `fill`-Eigenschaft nicht auf `none` gesetzt ist oder wenn sich der Mauszeiger über dem Umfang (d. h. dem 'stroke') des Elements befindet und die `stroke`-Eigenschaft nicht auf `none` gesetzt ist. Der Wert der `visibility`-Eigenschaft beeinflusst die Ereignisverarbeitung nicht.
+  - : Nur SVG (experimentell für HTML). Das Element kann nur dann das Ziel eines Zeigereignisses sein, wenn sich z. B. der Mauszeiger über dem Inneren (d.h. dem 'fill') des Elements befindet und die `fill`-Eigenschaft nicht auf `none` gesetzt ist oder wenn sich der Mauszeiger über dem Umfang (d.h. dem 'stroke') des Elements befindet und die `stroke`-Eigenschaft nicht auf `none` gesetzt ist. Der Wert der `visibility`-Eigenschaft beeinflusst die Ereignisverarbeitung nicht.
 - `fill`
-  - : Nur SVG. Das Element kann nur dann das Ziel eines Zeigereignisses sein, wenn sich der Zeiger über dem Inneren (d. h. dem 'fill') des Elements befindet. Die Werte der Eigenschaften `fill` und `visibility` beeinflussen die Ereignisverarbeitung nicht.
+  - : Nur SVG. Das Element kann nur dann das Ziel eines Zeigereignisses sein, wenn sich der Zeiger über dem Inneren (d.h. dem 'fill') des Elements befindet. Die Werte der Eigenschaften `fill` und `visibility` beeinflussen die Ereignisverarbeitung nicht.
 - `stroke`
-  - : Nur SVG. Das Element kann nur dann das Ziel eines Zeigereignisses sein, wenn sich der Zeiger über dem Umfang (d. h. dem 'stroke') des Elements befindet. Die Werte der Eigenschaften `stroke` und `visibility` beeinflussen die Ereignisverarbeitung nicht.
+  - : Nur SVG. Das Element kann nur dann das Ziel eines Zeigereignisses sein, wenn sich der Zeiger über dem Umfang (d.h. dem 'stroke') des Elements befindet. Die Werte der Eigenschaften `stroke` und `visibility` beeinflussen die Ereignisverarbeitung nicht.
 - `bounding-box`
   - : Nur SVG. Das Element kann nur dann das Ziel eines Zeigereignisses sein, wenn sich der Zeiger über der {{Glossary("Bounding_box", "begrenzenden Box")}} des Elements befindet.
 - `all`
-  - : Nur SVG (experimentell für HTML). Das Element kann nur das Ziel eines Zeigereignisses sein, wenn sich der Zeiger über dem Inneren (d. h. dem 'fill') oder dem Umfang (d. h. dem 'stroke') des Elements befindet. Die Werte der Eigenschaften `fill`, `stroke` und `visibility` beeinflussen die Ereignisverarbeitung nicht.
+  - : Nur SVG (experimentell für HTML). Das Element kann nur das Ziel eines Zeigereignisses sein, wenn sich der Zeiger über dem Inneren (d.h. dem 'fill') oder dem Umfang (d.h. dem 'stroke') des Elements befindet. Die Werte der Eigenschaften `fill`, `stroke` und `visibility` beeinflussen die Ereignisverarbeitung nicht.
 
 ## Beschreibung
 

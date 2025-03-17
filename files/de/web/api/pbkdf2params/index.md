@@ -26,7 +26,7 @@ Das **`Pbkdf2Params`**-Dictionary der [Web Crypto API](/de/docs/Web/API/Web_Cryp
 - `salt`
   - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder eine {{jsxref("DataView")}}. Dies sollte ein zufälliger oder pseudorandomisierter Wert mit mindestens 16 Bytes sein. Im Gegensatz zum Eingabematerial, das an [`deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) übergeben wird, muss `salt` nicht geheim gehalten werden.
 - `iterations`
-  - : Eine `Number`, die die Anzahl der Ausführungen der Hash-Funktion in `deriveKey()` darstellt. Dies bestimmt, wie rechenintensiv (d. h. langsam) der `deriveKey()`-Vorgang sein wird. In diesem Kontext ist langsam gut, da es für einen Angreifer teurer wird, einen {{Glossary("dictionary_attack", "Wörterbuchangriff")}} auf die Schlüssel auszuführen. Die allgemeine Empfehlung lautet hier, so viele Iterationen wie möglich zu verwenden, solange die Leistung Ihrer Anwendung akzeptabel bleibt.
+  - : Eine `Number`, die die Anzahl der Ausführungen der Hash-Funktion in `deriveKey()` darstellt. Dies bestimmt, wie rechenintensiv (d.h. langsam) der `deriveKey()`-Vorgang sein wird. In diesem Kontext ist langsam gut, da es für einen Angreifer teurer wird, einen {{Glossary("dictionary_attack", "Wörterbuchangriff")}} auf die Schlüssel auszuführen. Die allgemeine Empfehlung lautet hier, so viele Iterationen wie möglich zu verwenden, solange die Leistung Ihrer Anwendung akzeptabel bleibt.
 
 ## Beispiele
 

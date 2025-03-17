@@ -61,7 +61,7 @@ top: 20px;
 }
 ```
 
-Die Wirkung von `top` hängt davon ab, wie das Element positioniert ist (d. h. der Wert der {{cssxref("position")}} Eigenschaft):
+Die Wirkung von `top` hängt davon ab, wie das Element positioniert ist (d.h. der Wert der {{cssxref("position")}} Eigenschaft):
 
 - Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `top` Eigenschaft die Entfernung zwischen dem äußeren Rand der oberen Kante des Elements und dem inneren Rand der oberen Kante seines enthaltenden Blocks an oder – im Fall von [ankerpositionierten Elementen](/de/docs/Web/CSS/CSS_anchor_positioning/Using) bei Verwendung der Funktion {{cssxref("anchor()")}} im Wert – relativ zur angegebenen [`<anchor-side>`](/de/docs/Web/CSS/anchor#anchor-side) Kante. Die `top` Eigenschaft ist [kompatibel](/de/docs/Web/CSS/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit den Werten `top`, `bottom`, `start`, `end`, `self-start`, `self-end`, `center` und `<percentage>`.
 - Wenn `position` auf `relative` gesetzt ist, gibt die `top` Eigenschaft die Entfernung an, um die die obere Kante des Elements von ihrer normalen Position verschoben wird.

@@ -42,7 +42,7 @@ register(scriptURL, options)
 
     - `scope`
 
-      - : Ein String, der eine URL repräsentiert, die den Registrierungsbereich eines Service Workers definiert; d. h., welchen Bereich von URLs ein Service Worker kontrollieren kann.
+      - : Ein String, der eine URL repräsentiert, die den Registrierungsbereich eines Service Workers definiert; d.h. welchen Bereich von URLs ein Service Worker kontrollieren kann.
 
         Dies wird normalerweise als eine URL angegeben, die relativ zur Basis-URL der Website ist (z. B. `/some/path/`), sodass der aufgelöste Bereich derselbe ist, unabhängig davon, von welcher Seite aus der Registrierungscode aufgerufen wird.
         Der Standard-`Geltungsbereich` für eine Service-Worker-Registrierung ist das Verzeichnis, in dem sich das Service-Worker-Skript befindet (`./` gegen `scriptURL` aufgelöst).

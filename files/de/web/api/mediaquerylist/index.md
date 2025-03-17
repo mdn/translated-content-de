@@ -9,7 +9,7 @@ l10n:
 
 Ein **`MediaQueryList`** Objekt speichert Informationen zu einer [Media Query](/de/docs/Web/CSS/CSS_media_queries), die auf ein Dokument angewendet wird, mit Unterstützung sowohl für unmittelbare als auch ereignisgesteuerte Übereinstimmungen mit dem Status des Dokuments.
 
-Sie können eine `MediaQueryList` erstellen, indem Sie [`matchMedia()`](/de/docs/Web/API/Window/matchMedia) auf dem [`window`](/de/docs/Web/API/Window) Objekt aufrufen. Das resultierende Objekt übernimmt das Senden von Benachrichtigungen an Listener, wenn sich der Status der Media Query ändert (d. h. wenn der Test der Media Query beginnt oder aufhört, `true` zu ergeben).
+Sie können eine `MediaQueryList` erstellen, indem Sie [`matchMedia()`](/de/docs/Web/API/Window/matchMedia) auf dem [`window`](/de/docs/Web/API/Window) Objekt aufrufen. Das resultierende Objekt übernimmt das Senden von Benachrichtigungen an Listener, wenn sich der Status der Media Query ändert (d.h. wenn der Test der Media Query beginnt oder aufhört, `true` zu ergeben).
 
 Dies ist sehr nützlich für adaptives Design, da es möglich macht, ein Dokument zu beobachten, um zu erkennen, wann sich seine Media Queries ändern, anstatt die Werte periodisch abzufragen, und es erlaubt Ihnen, programmatisch Änderungen an einem Dokument basierend auf dem Status der Media Query vorzunehmen.
 

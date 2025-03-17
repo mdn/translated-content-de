@@ -16,7 +16,7 @@ Dieses Ereignis [blubbert](/de/docs/Learn_web_development/Core/Scripting/Event_b
 Es wird normalerweise von einem Ereignishandler beim [`Window`](/de/docs/Web/API/Window)- oder [`Document`](/de/docs/Web/API/Document)-Objekt behandelt.
 
 > [!NOTE]
-> Sie sollten den Handler für dieses Ereignis einem Top-Level-Objekt hinzufügen (d. h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
+> Sie sollten den Handler für dieses Ereignis einem Top-Level-Objekt hinzufügen (d.h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
 > Obwohl die Eigenschaft in HTML-Elementen vorhanden ist, können Sie keinen Handler der Eigenschaft zuweisen, bis die Elemente geladen sind, zu welchem Zeitpunkt dieses Ereignis bereits ausgelöst wurde.
 
 ## Syntax

@@ -43,7 +43,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<name>#`
-  - : Dieser Wert gibt eine durch Kommata getrennte Sequenz von Glyphennamen an (d. h. Werte, die mit {{SVGAttr("glyph-name")}}-Attributen auf {{SVGElement("glyph")}}-Elementen übereinstimmen), die eine Menge möglicher zweiter Glyphen im Kerning-Paar identifizieren.
+  - : Dieser Wert gibt eine durch Kommata getrennte Sequenz von Glyphennamen an (d.h. Werte, die mit {{SVGAttr("glyph-name")}}-Attributen auf {{SVGElement("glyph")}}-Elementen übereinstimmen), die eine Menge möglicher zweiter Glyphen im Kerning-Paar identifizieren.
 
 ## Spezifikationen
 

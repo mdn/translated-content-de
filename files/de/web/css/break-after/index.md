@@ -119,7 +119,7 @@ Jeder mögliche Umbruchspunkt (mit anderen Worten, jede Elementgrenze) wird von 
 
 Um zu bestimmen, ob ein Umbruch erfolgen muss, werden die folgenden Regeln angewendet:
 
-1. Wenn einer der drei betroffenen Werte ein _erzwungener Umbruchwert_ (`always`, `left`, `right`, `page`, `column`, oder `region`) ist, hat dieser Vorrang. Wenn mehr als einer dieser Umbrüche vorhanden ist, wird der Umbruch des zuletzt im Fluss erscheinenden Elements genommen (d. h. der `break-before`-Wert hat Vorrang vor dem `break-after`-Wert, der wiederum Vorrang vor dem `break-inside`-Wert hat).
+1. Wenn einer der drei betroffenen Werte ein _erzwungener Umbruchwert_ (`always`, `left`, `right`, `page`, `column`, oder `region`) ist, hat dieser Vorrang. Wenn mehr als einer dieser Umbrüche vorhanden ist, wird der Umbruch des zuletzt im Fluss erscheinenden Elements genommen (d.h. der `break-before`-Wert hat Vorrang vor dem `break-after`-Wert, der wiederum Vorrang vor dem `break-inside`-Wert hat).
 2. Wenn einer der drei Werte ein _Vermeidungswert_ ist (`avoid`, `avoid-page`, `avoid-region`, oder `avoid-column`), wird an diesem Punkt kein solcher Umbruch angewendet.
 
 Sobald erzwungene Umbrüche angewendet wurden, können bei Bedarf weiche Umbrüche hinzugefügt werden, jedoch nicht an Elementgrenzen, die in einem entsprechenden `avoid`-Wert aufgelöst werden.

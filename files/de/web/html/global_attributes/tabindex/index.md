@@ -44,7 +44,7 @@ div:focus {
 Es akzeptiert einen ganzzahligen Wert, mit unterschiedlichen Ergebnissen, abhängig vom Wert der Ganzzahl:
 
 > [!NOTE]
-> Wenn ein HTML-Element gerendert wird und ein `tabindex`-Attribut mit einem gültigen ganzzahligen Wert besitzt, kann das Element entweder mit JavaScript (durch Aufruf der [`focus()`](/de/docs/Web/API/HTMLElement/focus) Methode) oder visuell durch Klicken mit der Maus fokussiert werden. Der spezifische `tabindex`-Wert steuert, ob das Element `tabbable` (d. h. erreichbar über sequentielle Tastaturnavigation, normalerweise mit der <kbd>Tab</kbd>-Taste) ist.
+> Wenn ein HTML-Element gerendert wird und ein `tabindex`-Attribut mit einem gültigen ganzzahligen Wert besitzt, kann das Element entweder mit JavaScript (durch Aufruf der [`focus()`](/de/docs/Web/API/HTMLElement/focus) Methode) oder visuell durch Klicken mit der Maus fokussiert werden. Der spezifische `tabindex`-Wert steuert, ob das Element `tabbable` (d.h. erreichbar über sequentielle Tastaturnavigation, normalerweise mit der <kbd>Tab</kbd>-Taste) ist.
 
 - Ein _negativer Wert_ (der genaue negative Wert ist eigentlich egal, normalerweise `tabindex="-1"`) bedeutet, dass das Element nicht über sequenzielle Tastaturnavigation erreichbar ist.
 

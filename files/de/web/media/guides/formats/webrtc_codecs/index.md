@@ -116,7 +116,7 @@ Zus채tzlich zu den verpflichtenden Codecs unterst체tzen einige Browser auch zus�
 
 VP8, das wir [allgemein beschreiben](/de/docs/Web/Media/Guides/Formats/Video_codecs#vp8) im Haupt-[Leitfaden zu den auf dem Web verwendeten Video-Codecs](/de/docs/Web/Media/Guides/Formats/Video_codecs), hat einige spezifische Anforderungen, die befolgt werden m체ssen, wenn es verwendet wird, um einen Video-Track in einer WebRTC-Verbindung zu kodieren oder zu dekodieren.
 
-Sofern nicht anders signalisiert, verwendet VP8 quadratische Pixel (d. h. Pixel mit einem {{Glossary("aspect_ratio", "Seitenverh채ltnis")}} von 1:1).
+Sofern nicht anders signalisiert, verwendet VP8 quadratische Pixel (d.h. Pixel mit einem {{Glossary("aspect_ratio", "Seitenverh채ltnis")}} von 1:1).
 
 #### Weitere Hinweise
 

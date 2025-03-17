@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Das **`Uint8ClampedArray`** Typ-Array repräsentiert ein Array von 8-Bit-Ganzzahlen ohne Vorzeichen, die auf den Bereich 0–255 begrenzt sind. Die Inhalte sind auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Sobald das Array erstellt ist, können Sie auf die Elemente entweder über die Methoden des Objekts oder mit der standardmäßigen Array-Index-Syntax (d. h. mit Klammernotation) zugreifen.
+Das **`Uint8ClampedArray`** Typ-Array repräsentiert ein Array von 8-Bit-Ganzzahlen ohne Vorzeichen, die auf den Bereich 0–255 begrenzt sind. Die Inhalte sind auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Sobald das Array erstellt ist, können Sie auf die Elemente entweder über die Methoden des Objekts oder mit der standardmäßigen Array-Index-Syntax (d.h. mit Klammernotation) zugreifen.
 
 `Uint8ClampedArray` ist eine Unterklasse der verborgenen {{jsxref("TypedArray")}} Klasse.
 

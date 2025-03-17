@@ -16,7 +16,7 @@ Lange Animationsframes (LoAFs) sind die Rendering-Aktualisierungen, die um mehr 
 Die `PerformanceScriptTiming` Schnittstelle (Instanzen davon werden über die [`PerformanceLongAnimationFrameTiming.scripts`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/scripts) Eigenschaft abgerufen) bietet die folgende detaillierte Information über einzelne Skripte, die zu LoAFs beitragen und Entwicklern ermöglichen, deren Ursachen einzugrenzen:
 
 - Ein detaillierter Satz von Zeitstempeln für jedes Skript.
-- Die Identität und der Typ des Aufrufers, d. h. das Feature, das beim Aufruf das Skript ausführte.
+- Die Identität und der Typ des Aufrufers, d.h. das Feature, das beim Aufruf das Skript ausführte.
 - Detaillierte Informationen zu jeder Skriptquelle, einschließlich der URL, des Funktionsnamens und der Zeichenposition, die zum LoAF beigetragen haben.
 
 `PerformanceScriptTiming` erbt von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
@@ -55,9 +55,9 @@ Diese Schnittstelle unterstützt auch die folgenden Eigenschaften:
 - [`PerformanceScriptTiming.sourceURL`](/de/docs/Web/API/PerformanceScriptTiming/sourceURL) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt eine Zeichenkette zurück, die die URL des Skripts angibt.
 - [`PerformanceScriptTiming.window`](/de/docs/Web/API/PerformanceScriptTiming/window) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Referenz auf ein [`Window`](/de/docs/Web/API/Window) Objekt zurück, das das `window` des Containers (d. h. entweder das Dokument der obersten Ebene oder ein {{htmlelement("iframe")}}) darstellt, in dem das LoAF-verursachende Skript ausgeführt wurde.
+  - : Gibt eine Referenz auf ein [`Window`](/de/docs/Web/API/Window) Objekt zurück, das das `window` des Containers (d.h. entweder das Dokument der obersten Ebene oder ein {{htmlelement("iframe")}}) darstellt, in dem das LoAF-verursachende Skript ausgeführt wurde.
 - [`PerformanceScriptTiming.windowAttribution`](/de/docs/Web/API/PerformanceScriptTiming/windowAttribution) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen enumerierten Wert zurück, der die Beziehung des Containers (d. h. entweder das Dokument der obersten Ebene oder ein {{htmlelement("iframe")}}) beschreibt, in dem das LoAF-verursachende Skript ausgeführt wurde, relativ zu dem Fenster, das das aktuelle Dokument ausführt.
+  - : Gibt einen enumerierten Wert zurück, der die Beziehung des Containers (d.h. entweder das Dokument der obersten Ebene oder ein {{htmlelement("iframe")}}) beschreibt, in dem das LoAF-verursachende Skript ausgeführt wurde, relativ zu dem Fenster, das das aktuelle Dokument ausführt.
 
 ## Instanz-Methoden
 

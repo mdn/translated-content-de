@@ -50,7 +50,7 @@ Nachdem wir unser Projekt erstellt und die Dateien der Beispiel-App gesammelt ha
    cd sample-app
    ```
 
-5. Sie sind nun bereit, Ihre Anwendung zu bereitstellen, d. h. Ihre App in App Engine hochzuladen:
+5. Sie sind nun bereit, Ihre Anwendung zu bereitstellen, d.h. Ihre App in App Engine hochzuladen:
 
    ```bash
    gcloud app deploy

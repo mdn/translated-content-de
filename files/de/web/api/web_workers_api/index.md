@@ -44,7 +44,7 @@ Obwohl [`Window`](/de/docs/Web/API/Window) Arbeitern nicht direkt zur Verfügung
 - [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)
   - : Definiert den absoluten Speicherort des vom [`Worker`](/de/docs/Web/API/Worker) ausgeführten Skripts.
 - [`SharedWorker`](/de/docs/Web/API/SharedWorker)
-  - : Stellt einen speziellen Typ von Worker dar, der von mehreren {{Glossary("browsing_context", "Browsing-Kontexten")}} (d. h. Fenstern, Tabs oder IFrames) oder sogar anderen Workern genutzt werden kann.
+  - : Stellt einen speziellen Typ von Worker dar, der von mehreren {{Glossary("browsing_context", "Browsing-Kontexten")}} (d.h. Fenstern, Tabs oder IFrames) oder sogar anderen Workern genutzt werden kann.
 - [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
   - : Stellt den generischen Geltungsbereich eines jeden Workers dar (erfüllt die gleiche Rolle wie [`Window`](/de/docs/Web/API/Window) für normale Webinhalte). Verschiedene Workertypen haben Geltungsbereich-Objekte, die von diesem Interface erben und spezifischere Funktionen hinzufügen.
 - [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)

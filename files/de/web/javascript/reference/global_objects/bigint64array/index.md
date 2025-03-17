@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Das **`BigInt64Array`** typisierte Array repräsentiert ein Array von 64-Bit-Ganzzahlen im Vorzeichen mit der Byte-Reihenfolge der Plattform. Wenn eine Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0n` initialisiert, sofern keine Initialisierungsdaten explizit bereitgestellt werden. Sobald das Objekt erstellt ist, können Sie auf die Elemente im Array mithilfe der Methoden des Objekts oder mit der Standard-Array-Index-Syntax (d. h. mit Klammernotation) zugreifen.
+Das **`BigInt64Array`** typisierte Array repräsentiert ein Array von 64-Bit-Ganzzahlen im Vorzeichen mit der Byte-Reihenfolge der Plattform. Wenn eine Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0n` initialisiert, sofern keine Initialisierungsdaten explizit bereitgestellt werden. Sobald das Objekt erstellt ist, können Sie auf die Elemente im Array mithilfe der Methoden des Objekts oder mit der Standard-Array-Index-Syntax (d.h. mit Klammernotation) zugreifen.
 
 `BigInt64Array` ist eine Unterklasse der verborgenen {{jsxref("TypedArray")}} Klasse.
 

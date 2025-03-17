@@ -17,7 +17,7 @@ Ein `Promise`, das mit einem Objekt erfüllt wird, welches die folgenden Eigensc
 - `extensions`
   - : Ein Zeichenfolgenwert, der Erweiterungen darstellt, die auf den `WebSocketStream` angewendet wurden. Solche Erweiterungen sind derzeit nicht definiert, könnten aber in Zukunft existieren. Aktuell wird ein leerer String zurückgegeben.
 - `protocol`
-  - : Ein Zeichenfolgenwert, der das Subprotokoll darstellt, das verwendet wurde, um die aktuelle WebSocket-Verbindung zu öffnen (aus den im [`protocols`](/de/docs/Web/API/WebSocketStream/WebSocketStream#protocols)-Parameter des `WebSocketStream()`-Konstruktors festgelegten Optionen ausgewählt). Gibt einen leeren String zurück, wenn kein Subprotokoll verwendet wurde, um die Verbindung zu öffnen (d. h., wenn keine Subprotokoll-Optionen im Konstruktoraufruf enthalten waren).
+  - : Ein Zeichenfolgenwert, der das Subprotokoll darstellt, das verwendet wurde, um die aktuelle WebSocket-Verbindung zu öffnen (aus den im [`protocols`](/de/docs/Web/API/WebSocketStream/WebSocketStream#protocols)-Parameter des `WebSocketStream()`-Konstruktors festgelegten Optionen ausgewählt). Gibt einen leeren String zurück, wenn kein Subprotokoll verwendet wurde, um die Verbindung zu öffnen (d.h. wenn keine Subprotokoll-Optionen im Konstruktoraufruf enthalten waren).
 - `readable`
   - : Eine [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz. Rufen Sie [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) auf, um eine [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)-Instanz zu erhalten, die verwendet werden kann, um eingehende WebSocket-Daten zu lesen.
 - `writable`

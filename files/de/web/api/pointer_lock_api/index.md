@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Pointer Lock API")}}
 
-Die **Pointer Lock API** (früher _Mouse Lock API_ genannt) bietet Eingabemethoden basierend auf der Bewegung der Maus über die Zeit (d. h. Deltas), nicht nur der absoluten Position des Mauscursors im Ansichtsfenster. Sie bietet Zugriff auf rohe Mausbewegungen, sperrt das Ziel von Mausereignissen auf ein einzelnes Element, beseitigt Begrenzungen, wie weit Mausbewegungen in eine Richtung gehen können, und entfernt den Cursor aus dem Sichtfeld. Sie ist ideal für Ego-3D-Spiele, zum Beispiel.
+Die **Pointer Lock API** (früher _Mouse Lock API_ genannt) bietet Eingabemethoden basierend auf der Bewegung der Maus über die Zeit (d.h. Deltas), nicht nur der absoluten Position des Mauscursors im Ansichtsfenster. Sie bietet Zugriff auf rohe Mausbewegungen, sperrt das Ziel von Mausereignissen auf ein einzelnes Element, beseitigt Begrenzungen, wie weit Mausbewegungen in eine Richtung gehen können, und entfernt den Cursor aus dem Sichtfeld. Sie ist ideal für Ego-3D-Spiele, zum Beispiel.
 
 Darüber hinaus ist die API nützlich für Anwendungen, die erhebliche Mauskontrollen benötigen, um Bewegungen zu steuern, Objekte zu drehen und Eingaben zu ändern, z. B. um Benutzern zu ermöglichen, den Blickwinkel zu steuern, indem sie die Maus bewegen, ohne dabei irgendwelche Tasten zu klicken. Die Tasten sind dann für andere Aktionen frei. Weitere Beispiele sind Apps zur Betrachtung von Karten oder Satellitenbildern.
 

@@ -38,7 +38,7 @@ Ein neues [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackA
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der angegebene `context` kein [`AudioContext`](/de/docs/Web/API/AudioContext) ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) kein Audiotrack ist (d. h. dessen [`kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft nicht `audio` ist).
+  - : Wird ausgelöst, wenn der angegebene [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) kein Audiotrack ist (d.h. dessen [`kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft nicht `audio` ist).
 
 ## Beispiel
 

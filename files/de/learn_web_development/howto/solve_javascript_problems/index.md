@@ -52,7 +52,7 @@ myFunction();
 
 #### Funktionsbereich
 
-Denken Sie daran, dass [Funktionen ihren eigenen Gültigkeitsbereich haben](/de/docs/Learn_web_development/Core/Scripting/Functions#function_scope_and_conflicts) – Sie können von außerhalb der Funktion nicht auf eine innerhalb der Funktion gesetzte Variable zugreifen, es sei denn, Sie haben die Variable global deklariert (d. h. nicht innerhalb einer Funktion) oder [den Wert aus der Funktion zurückgegeben](/de/docs/Learn_web_development/Core/Scripting/Return_values).
+Denken Sie daran, dass [Funktionen ihren eigenen Gültigkeitsbereich haben](/de/docs/Learn_web_development/Core/Scripting/Functions#function_scope_and_conflicts) – Sie können von außerhalb der Funktion nicht auf eine innerhalb der Funktion gesetzte Variable zugreifen, es sei denn, Sie haben die Variable global deklariert (d.h. nicht innerhalb einer Funktion) oder [den Wert aus der Funktion zurückgegeben](/de/docs/Learn_web_development/Core/Scripting/Return_values).
 
 #### Ausführen von Code nach einer return-Anweisung
 

@@ -232,6 +232,13 @@
         "replace": "\\$1",
         "searchScope": "text",
       },
+      {
+        "name": "normalize-d-h",
+        "message": "Normalize \"d.h.\"",
+        "searchPattern": "/d\\. h\\.,?/g",
+        "replace": "d.h.",
+        "searchScope": "text",
+      },
     ],
   },
 }

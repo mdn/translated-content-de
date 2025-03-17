@@ -11,7 +11,7 @@ Das **`overflow`**-Attribut legt fest, was passiert, wenn der Inhalt eines Eleme
 
 Dieses Attribut hat die gleichen Parameterwerte und Bedeutungen wie die CSS-Eigenschaft {{cssxref("overflow")}}, jedoch gelten die folgenden zusätzlichen Punkte:
 
-- Wenn es den Wert `visible` hat, hat das Attribut keine Wirkung (d. h., es wird kein Clipping-Rechteck erstellt).
+- Wenn es den Wert `visible` hat, hat das Attribut keine Wirkung (d.h. es wird kein Clipping-Rechteck erstellt).
 - Wenn die `overflow`-Eigenschaft den Wert `hidden` oder `scroll` hat, wird ein Clip in der exakten Größe des SVG-Ansichtsfensters angewendet.
 - Wenn `scroll` für ein {{SVGElement("svg")}}-Element angegeben wird, wird normalerweise eine Bildlaufleiste oder ein Panner für das SVG-Ansichtsfenster angezeigt, unabhängig davon, ob ein Teil des Inhalts abgeschnitten ist oder nicht.
 - Innerhalb von SVG-Inhalten bedeutet der Wert `auto`, dass alle gerenderten Inhalte für Kindelemente sichtbar sein müssen, entweder durch einen Bildlaufmechanismus oder durch Rendering ohne Clip.

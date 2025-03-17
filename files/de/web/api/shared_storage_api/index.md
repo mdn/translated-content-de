@@ -7,7 +7,7 @@ l10n:
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Shared Storage API")}}
 
-Die **Shared Storage API** ist ein clientseitiger Speichermechanismus, der unpartitionierten, seitenübergreifenden Datenzugriff unter Wahrung der Privatsphäre ermöglicht (d. h. ohne auf Tracking-Cookies angewiesen zu sein).
+Die **Shared Storage API** ist ein clientseitiger Speichermechanismus, der unpartitionierten, seitenübergreifenden Datenzugriff unter Wahrung der Privatsphäre ermöglicht (d.h. ohne auf Tracking-Cookies angewiesen zu sein).
 
 ## Konzepte und Nutzung
 

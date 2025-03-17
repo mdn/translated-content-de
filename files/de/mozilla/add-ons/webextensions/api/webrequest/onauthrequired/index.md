@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Server einen `401` oder `407` Statuscode und einen `WWW-Authenticate`-Header mit dem `Basic`-Schema sendet (d. h., wenn der Server den Client auffordert, Authentifizierungsdaten wie Benutzername und Passwort bereitzustellen).
+Wird ausgelöst, wenn der Server einen `401` oder `407` Statuscode und einen `WWW-Authenticate`-Header mit dem `Basic`-Schema sendet (d.h. wenn der Server den Client auffordert, Authentifizierungsdaten wie Benutzername und Passwort bereitzustellen).
 
 Der Listener kann auf eine von vier Arten antworten:
 
@@ -171,7 +171,7 @@ Ereignisse haben drei Funktionen:
 - `statusCode`
   - : `integer`. Standard-HTTP-Statuscode, der vom Server zurückgegeben wird.
 - `statusLine`
-  - : `string`. HTTP-Statuszeile der Antwort, die `'HTTP/0.9 200 OK'`-Zeichenkette für HTTP/0.9-Antworten (d. h. Antworten, die keine Statuszeile enthalten) oder eine leere Zeichenkette, wenn keine Header vorhanden sind.
+  - : `string`. HTTP-Statuszeile der Antwort, die `'HTTP/0.9 200 OK'`-Zeichenkette für HTTP/0.9-Antworten (d.h. Antworten, die keine Statuszeile enthalten) oder eine leere Zeichenkette, wenn keine Header vorhanden sind.
 - `tabId`
   - : `integer`. ID des Tabs, in dem die Anfrage stattfindet. Auf `-1` gesetzt, wenn die Anfrage nicht mit einem Tab in Zusammenhang steht.
 - `thirdParty`

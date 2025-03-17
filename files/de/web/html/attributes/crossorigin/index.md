@@ -23,7 +23,7 @@ Diese Attribute sind {{Glossary("Enumerated", "aufgezählt")}} und haben die fol
 
 Ein ungültiges Schlüsselwort und ein leerer String werden als `anonymous` Schlüsselwort behandelt.
 
-Standardmäßig (d. h. wenn das Attribut nicht angegeben ist) wird CORS überhaupt nicht verwendet. Der Benutzeragent wird nicht um Erlaubnis für den vollen Zugriff auf die Ressource bitten und im Falle einer Cross-Origin-Anfrage werden bestimmte Einschränkungen basierend auf dem betreffenden Elementtyp angewendet:
+Standardmäßig (d.h. wenn das Attribut nicht angegeben ist) wird CORS überhaupt nicht verwendet. Der Benutzeragent wird nicht um Erlaubnis für den vollen Zugriff auf die Ressource bitten und im Falle einer Cross-Origin-Anfrage werden bestimmte Einschränkungen basierend auf dem betreffenden Elementtyp angewendet:
 
 <table class="no-markdown">
   <tbody>

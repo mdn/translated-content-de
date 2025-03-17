@@ -10,7 +10,7 @@ l10n:
 
 Das **`currentscreenchange`**-Ereignis der [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Schnittstelle wird ausgelöst, wenn sich der [`ScreenDetails.currentScreen`](/de/docs/Web/API/ScreenDetails/currentScreen) auf eine der folgenden Weisen ändert:
 
-- Der aktuelle Bildschirm wechselt zu einem anderen Bildschirm, d. h., das aktuelle Browserfenster wird auf einen anderen Bildschirm verschoben.
+- Der aktuelle Bildschirm wechselt zu einem anderen Bildschirm, d.h. das aktuelle Browserfenster wird auf einen anderen Bildschirm verschoben.
 - Eine oder mehrere der folgenden Eigenschaften des aktuellen Bildschirms ändern sich:
   - [`width`](/de/docs/Web/API/Screen/width)
   - [`height`](/de/docs/Web/API/Screen/height)

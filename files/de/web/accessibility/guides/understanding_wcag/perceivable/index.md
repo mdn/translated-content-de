@@ -55,7 +55,7 @@ Hierbei ist der entscheidende Punkt, dass Text in andere Formen umgewandelt werd
     </tr>
     <tr>
       <td>
-        Multimediainhalte (d. h. Audio oder Video) sollten zumindest eine
+        Multimediainhalte (d.h. Audio oder Video) sollten zumindest eine
         beschreibende Identifizierung haben, wie etwa eine Bildunterschrift oder
         Ähnliches.
       </td>
@@ -136,7 +136,7 @@ Zeitbasierte Medien beziehen sich auf Multimedia mit einer Dauer, wie Audio und 
   <tbody>
     <tr>
        <td>1.2.1 Bereitstellung von Alternativen für vorab aufgezeichnete Audio- und Video-Inhalte (A)</td>
-       <td>Ein Transkript sollte für vorab aufgezeichnete nur-Audio-Medien bereitgestellt werden, und ein Transkript oder eine Audiobeschreibung sollten für vorab aufgezeichnete nur-Video-Medien (d. h. stumme Videos) bereitgestellt werden.</td>
+       <td>Ein Transkript sollte für vorab aufgezeichnete nur-Audio-Medien bereitgestellt werden, und ein Transkript oder eine Audiobeschreibung sollten für vorab aufgezeichnete nur-Video-Medien (d.h. stumme Videos) bereitgestellt werden.</td>
        <td>Siehe <a href="/de/docs/Learn_web_development/Core/Accessibility/Multimedia#audio_transcripts">Audio-Transkripte</a> für Informationen zu Transkripten. Es steht noch kein Tutorial zur Audiobeschreibung zur Verfügung.</td>
     </tr>
     <tr>
@@ -548,7 +548,7 @@ Diese Richtlinie bezieht sich darauf, sicherzustellen, dass Hauptinhalte leicht 
       <td>1.4.9 Bilder von Text (Keine Ausnahme) (AAA)</td>
       <td>
         Text sollte nicht als Teil eines Bildes präsentiert werden, es sei denn,
-        er ist rein dekorativ (d. h., er vermittelt keine Inhalte) oder kann
+        er ist rein dekorativ (d.h. er vermittelt keine Inhalte) oder kann
         nicht auf andere Weise dargestellt werden.
       </td>
       <td></td>

@@ -73,7 +73,7 @@ String.fromCodePoint(NaN); // RangeError
 
 ### Vergleich mit fromCharCode()
 
-{{jsxref("String.fromCharCode()")}} kann keine zusätzlichen Zeichen (d. h. Codepunkte `0x010000` – `0x10FFFF`) durch Angabe ihres Codepunkts zurückgeben. Stattdessen erfordert es das UTF-16-Surrogatpaar, um ein zusätzliches Zeichen zurückzugeben:
+{{jsxref("String.fromCharCode()")}} kann keine zusätzlichen Zeichen (d.h. Codepunkte `0x010000` – `0x10FFFF`) durch Angabe ihres Codepunkts zurückgeben. Stattdessen erfordert es das UTF-16-Surrogatpaar, um ein zusätzliches Zeichen zurückzugeben:
 
 ```js
 String.fromCharCode(0xd83c, 0xdf03); // Code Point U+1F303 "Night with

@@ -30,7 +30,7 @@ Kein ({{jsxref("Undefined")}}).
 
 Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Der Debug-Stack des Render-Pass-Encoders ist nicht leer (d. h. es wurde zuvor mindestens eine Render-Pass-Debug-Gruppe mit [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) gestartet).
+- Der Debug-Stack des Render-Pass-Encoders ist nicht leer (d.h. es wurde zuvor mindestens eine Render-Pass-Debug-Gruppe mit [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) gestartet).
 
 ## Beispiele
 

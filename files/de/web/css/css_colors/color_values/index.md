@@ -133,7 +133,7 @@ colorPicker.addEventListener(
 );
 ```
 
-Das [`input`](/de/docs/Web/API/Element/input_event) Ereignis wird jedes Mal gesendet, wenn sich der Wert des Elements ändert, d. h. jedes Mal, wenn der Benutzer die Farbe im Farbauswahlwerkzeug anpasst. Jedes Mal, wenn dieses Ereignis eintrifft, setzen wir die Rahmenfarbe der Box so, dass sie dem aktuellen Wert des Farbauswahlwerkzeugs entspricht.
+Das [`input`](/de/docs/Web/API/Element/input_event) Ereignis wird jedes Mal gesendet, wenn sich der Wert des Elements ändert, d.h. jedes Mal, wenn der Benutzer die Farbe im Farbauswahlwerkzeug anpasst. Jedes Mal, wenn dieses Ereignis eintrifft, setzen wir die Rahmenfarbe der Box so, dass sie dem aktuellen Wert des Farbauswahlwerkzeugs entspricht.
 
 Das [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignis wird empfangen, wenn der Wert des Farbauswahlwerkzeugs finalisiert wird. Wir reagieren darauf, indem wir den Inhalt des `<output>` auf den Zeichenkettenwert der ausgewählten Farbe setzen.
 

@@ -12,7 +12,7 @@ Die **`getOutputTimestamp()`**-Methode des [`AudioContext`](/de/docs/Web/API/Aud
 
 Die beiden Werte sind wie folgt:
 
-- `AudioTimestamp.contextTime`: Die Zeit des Sample-Frames, das derzeit vom Audioausgabegerät wiedergegeben wird (d. h. Position des ausgegebenen Audiostreams), in denselben Einheiten und Ursprung wie die [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) des Kontextes. Grundsätzlich ist dies die Zeit nach der ersten Erstellung des audiellen Kontexts.
+- `AudioTimestamp.contextTime`: Die Zeit des Sample-Frames, das derzeit vom Audioausgabegerät wiedergegeben wird (d.h. Position des ausgegebenen Audiostreams), in denselben Einheiten und Ursprung wie die [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) des Kontextes. Grundsätzlich ist dies die Zeit nach der ersten Erstellung des audiellen Kontexts.
 - `AudioTimestamp.performanceTime`: Eine Schätzung des Moments, in dem das Sample-Frame, das dem gespeicherten `contextTime`-Wert entspricht, vom Audioausgabegerät wiedergegeben wurde, in denselben Einheiten und Ursprung wie [`performance.now()`](/de/docs/Web/API/Performance/now). Dies ist die Zeit, nachdem das Dokument, das den audiellen Kontext enthält, erstmals gerendert wurde.
 
 ## Syntax

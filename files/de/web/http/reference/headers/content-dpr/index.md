@@ -14,7 +14,7 @@ Der HTTP **`Content-DPR`** {{Glossary("response_header", "Antwort-Header")}} wir
 > Die [Responsive Image Client Hints](https://wicg.github.io/responsive-image-client-hints/)-Spezifikation schlägt vor, diesen Header zu ersetzen, indem die intrinsische Auflösung/Dimensionen in EXIF-Metadaten angegeben werden.
 
 Wenn der `DPR` Client-Hinweis verwendet wird, um ein Bild auszuwählen, muss der Server `Content-DPR` in der Antwort angeben.
-Wenn der Wert in `Content-DPR` von dem {{HTTPHeader("DPR")}}-Wert in der Anfrage abweicht (d. h., das Bild-DPR ist nicht das gleiche wie das Bildschirm-DPR), muss der Client das `Content-DPR` für die Bestimmung der intrinsischen Bildgröße und Skalierung des Bildes verwenden.
+Wenn der Wert in `Content-DPR` von dem {{HTTPHeader("DPR")}}-Wert in der Anfrage abweicht (d.h. das Bild-DPR ist nicht das gleiche wie das Bildschirm-DPR), muss der Client das `Content-DPR` für die Bestimmung der intrinsischen Bildgröße und Skalierung des Bildes verwenden.
 
 Wenn der `Content-DPR`-Header mehr als einmal in einer Nachricht erscheint, wird das letzte Vorkommen verwendet.
 

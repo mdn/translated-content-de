@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feImage>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ruft Bilddaten aus einer externen Quelle ab und stellt die Pixeldaten als Ausgabe bereit (d. h., wenn die externe Quelle ein SVG-Bild ist, wird es gerastert.)
+Das **`<feImage>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ruft Bilddaten aus einer externen Quelle ab und stellt die Pixeldaten als Ausgabe bereit (d.h. wenn die externe Quelle ein SVG-Bild ist, wird es gerastert.)
 
 ## Verwendungskontext
 

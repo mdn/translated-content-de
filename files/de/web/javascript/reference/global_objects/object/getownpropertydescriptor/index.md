@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Object.getOwnPropertyDescriptor()`** gibt ein Objekt zurück, das die Konfiguration einer bestimmten Eigenschaft eines gegebenen Objekts beschreibt (d. h. einer Eigenschaft, die direkt auf dem Objekt und nicht in dessen Prototyp-Kette vorhanden ist). Das zurückgegebene Objekt ist veränderbar, aber Änderungen daran haben keinen Einfluss auf die ursprüngliche Konfiguration der Eigenschaft.
+Die statische Methode **`Object.getOwnPropertyDescriptor()`** gibt ein Objekt zurück, das die Konfiguration einer bestimmten Eigenschaft eines gegebenen Objekts beschreibt (d.h. einer Eigenschaft, die direkt auf dem Objekt und nicht in dessen Prototyp-Kette vorhanden ist). Das zurückgegebene Objekt ist veränderbar, aber Änderungen daran haben keinen Einfluss auf die ursprüngliche Konfiguration der Eigenschaft.
 
 {{InteractiveExample("JavaScript Demo: Object.getOwnPropertyDescriptor()")}}
 

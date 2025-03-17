@@ -65,7 +65,7 @@ Lassen Sie uns dies auf unsere App anwenden, beginnend im `Form.jsx`-Komponenten
 
 ### Umgang mit der Formularübermittlung
 
-Erstellen Sie oben in der `Form()`-Komponentenfunktion (d. h. direkt unter der `function Form() {`-Zeile) eine Funktion namens `handleSubmit()`. Diese Funktion sollte das [Standardverhalten des `submit`-Ereignisses verhindern](/de/docs/Learn_web_development/Core/Scripting/Events#preventing_default_behavior). Danach sollte sie einen `alert()` auslösen, den Sie frei gestalten können. So sollte es in etwa aussehen:
+Erstellen Sie oben in der `Form()`-Komponentenfunktion (d.h. direkt unter der `function Form() {`-Zeile) eine Funktion namens `handleSubmit()`. Diese Funktion sollte das [Standardverhalten des `submit`-Ereignisses verhindern](/de/docs/Learn_web_development/Core/Scripting/Events#preventing_default_behavior). Danach sollte sie einen `alert()` auslösen, den Sie frei gestalten können. So sollte es in etwa aussehen:
 
 ```jsx
 function handleSubmit(event) {

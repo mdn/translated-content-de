@@ -17,9 +17,9 @@ Diese Ziele können sein:
 - Mengenbasiert (z. B. Anzahl der JS-Dateien/gesamte Bildgröße).
 - Regelbasiert (z. B. PageSpeed-Index, Lighthouse-Score).
 
-Ihr Hauptziel ist es, Rückschritte zu verhindern, sie können aber auch Einblicke liefern, um Trends vorherzusagen (d. h. Im September wurden 50 % des Budgets in einer Woche verbraucht).
+Ihr Hauptziel ist es, Rückschritte zu verhindern, sie können aber auch Einblicke liefern, um Trends vorherzusagen (d.h. Im September wurden 50 % des Budgets in einer Woche verbraucht).
 
-Zusätzlich kann es Entwicklungsbedürfnisse aufdecken (d. h. Eine große Bibliothek mit kleineren Alternativen wird oft gewählt, um ein häufiges Problem zu lösen).
+Zusätzlich kann es Entwicklungsbedürfnisse aufdecken (d.h. Eine große Bibliothek mit kleineren Alternativen wird oft gewählt, um ein häufiges Problem zu lösen).
 
 ## Wie definiere ich ein Leistungsbudget?
 
@@ -36,7 +36,7 @@ Um zu beginnen, müssen Sie zunächst die Geräte und Verbindungsgeschwindigkeit
 
 Ein Standardbaseline zur Reduzierung der Absprungrate ist es, [Time to Interactive unter 5 Sekunden in 3G/4G und unter 2 Sekunden für nachfolgende Ladevorgänge](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) zu erreichen. Basierend auf den spezifischen Zielen und Inhalten Ihrer Seite könnten Sie jedoch entscheiden, sich auf andere Metriken zu konzentrieren.
 
-Für eine textintensive Seite wie einen Blog oder eine Nachrichtenseite könnte die {{Glossary("First_contentful_paint", "First Contentful Paint")}} Metrik das Benutzerverhalten genauer widerspiegeln (d. h. Wie schnell können Benutzer mit dem Lesen beginnen), was Dateispezifische Budgets (z. B. Schriftgröße) und deren Optimierungen informiert. (z. B. Verwenden von [font-display](/de/docs/Web/CSS/@font-face/font-display), um die [wahrgenommene Leistung](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance) zu verbessern).
+Für eine textintensive Seite wie einen Blog oder eine Nachrichtenseite könnte die {{Glossary("First_contentful_paint", "First Contentful Paint")}} Metrik das Benutzerverhalten genauer widerspiegeln (d.h. Wie schnell können Benutzer mit dem Lesen beginnen), was Dateispezifische Budgets (z. B. Schriftgröße) und deren Optimierungen informiert. (z. B. Verwenden von [font-display](/de/docs/Web/CSS/@font-face/font-display), um die [wahrgenommene Leistung](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance) zu verbessern).
 
 Der letztendliche Wert eines Leistungsbudgets liegt darin, die Auswirkungen der Leistung auf Geschäfts- oder Produktziele zu korrelieren. Bei der Definition von Metriken sollten Sie sich auf die [Benutzererfahrung](https://extensionworkshop.com/documentation/develop/user-experience-best-practices/) konzentrieren, die nicht nur die Absprung- oder Konversionsrate bestimmt, sondern auch, wie wahrscheinlich es ist, dass ein Benutzer zurückkehrt.
 
@@ -57,7 +57,7 @@ Der [Lighthouse Bot](https://github.com/GoogleChromeLabs/lighthousebot) integrie
 
 Je früher Sie eine potenzielle Ergänzung identifizieren können, die das Budget überschreitet, desto besser können Sie den aktuellen Zustand Ihrer Seite analysieren und Optimierungen oder unnötigen Code identifizieren.
 
-Sie sollten jedoch mehrere Budgets haben und dynamisch sein. Sie sollen Ihre laufenden Ziele widerspiegeln, aber Risiken und Experimente zulassen. Zum Beispiel könnten Sie eine Funktion einführen, die die Gesamt-Ladezeit erhöht, aber versucht, die Benutzerbindung zu erhöhen. (d. h. Wie lange ein Benutzer auf einer Seite oder Website bleibt).
+Sie sollten jedoch mehrere Budgets haben und dynamisch sein. Sie sollen Ihre laufenden Ziele widerspiegeln, aber Risiken und Experimente zulassen. Zum Beispiel könnten Sie eine Funktion einführen, die die Gesamt-Ladezeit erhöht, aber versucht, die Benutzerbindung zu erhöhen. (d.h. Wie lange ein Benutzer auf einer Seite oder Website bleibt).
 
 Ein Leistungsbudget hilft Ihnen, optimales Verhalten für Ihre aktuellen Benutzer zu schützen, während Sie in neue Märkte vordringen und maßgeschneiderte Erlebnisse liefern können.
 
