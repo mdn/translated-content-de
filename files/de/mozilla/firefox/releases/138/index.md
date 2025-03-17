@@ -2,40 +2,40 @@
 title: Firefox 138 für Entwickler
 slug: Mozilla/Firefox/Releases/138
 l10n:
-  sourceCommit: 79be2656c0b4f807b1ab102f0bf96471183a03a3
+  sourceCommit: d670b020fd3e368585b2a6c29079b90d5efbeb37
 ---
 
 {{FirefoxSidebar}}
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 138, die Entwickler betreffen. Firefox 138 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [29. April 2025](https://whattrainisitnow.com/release/?version=138) veröffentlicht.
+Dieser Artikel bietet Informationen über die Änderungen in Firefox 138, die Entwickler betreffen. Firefox 138 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und erscheint am [29. April 2025](https://whattrainisitnow.com/release/?version=138).
 
-## Änderungen für Web-Entwickler
+## Änderungen für Webentwickler
 
 ### Entwickler-Tools
 
 ### HTML
 
-#### Entfernung
+#### Entfernungen
 
 ### CSS
 
-#### Entfernung
+#### Entfernungen
 
 ### JavaScript
 
-#### Entfernung
+#### Entfernungen
 
 ### SVG
 
-#### Entfernung
+#### Entfernungen
 
 ### HTTP
 
-#### Entfernung
+#### Entfernungen
 
 ### Sicherheit
 
-#### Entfernung
+#### Entfernungen
 
 ### APIs
 
@@ -43,11 +43,11 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 138, die En
 
 #### Medien, WebRTC und Web Audio
 
-#### Entfernung
+#### Entfernungen
 
 ### WebAssembly
 
-#### Entfernung
+#### Entfernungen
 
 ### WebDriver-Konformität (WebDriver BiDi, Marionette)
 
@@ -59,13 +59,15 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 138, die En
 
 ## Änderungen für Add-on-Entwickler
 
-### Entfernung
+- Die neue Manifest-V3-Version der {{WebExtAPIRef("userScripts")}} API ist nun auf Firefox für Android verfügbar. ([Firefox Bug 1949955](https://bugzil.la/1949955))
+
+### Entfernungen
 
 ### Sonstiges
 
 ## Experimentelle Web-Features
 
-Diese Features sind neu in Firefox 138 enthalten, aber standardmäßig deaktiviert. Um mit ihnen zu experimentieren, suchen Sie auf der `about:config` Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`. Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Features sind neu in Firefox 138 enthalten, aber standardmäßig deaktiviert. Um mit ihnen zu experimentieren, suchen Sie die entsprechende Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`. Weitere solcher Features finden Sie auf der [Seite für experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
 
 ## Ältere Versionen
 

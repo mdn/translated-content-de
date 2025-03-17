@@ -1,13 +1,13 @@
 ---
-title: :has()
+title: ":has()"
 slug: Web/CSS/:has
 l10n:
-  sourceCommit: a29769d6d10261f771321eb60f3990029c160924
+  sourceCommit: b3889ca5cc39bc857e9d1ca0cf35220e9a1db271
 ---
 
 {{CSSRef}}
 
-Die funktionale **`:has()`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, wenn eines der [relativen Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#relative_selector), die als Argument übergeben werden, mindestens ein Element findet, wenn es an diesem Element verankert ist. Diese Pseudoklasse bietet eine Möglichkeit, ein übergeordnetes Element oder ein vorheriges Geschwisterelement in Bezug auf ein Referenzelement auszuwählen, indem eine [relative Selektorliste](/de/docs/Web/CSS/Selector_list#relative_selector_list) als Argument verwendet wird.
+Die funktionale **`:has()`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, wenn eines der [relativen Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#relative_selector), die als Argument übergeben werden, mit mindestens einem Element übereinstimmt, wenn es an diesem Element verankert ist. Diese Pseudoklasse bietet eine Möglichkeit, ein Elternelement oder ein vorheriges Geschwisterelement in Bezug auf ein Referenzelement auszuwählen, indem sie eine [Liste relativer Selektoren](/de/docs/Web/CSS/Selector_list#relative_selector_list) als Argument annimmt.
 
 ```css
 /* Selects an h1 heading with a
@@ -18,7 +18,7 @@ h1:has(+ p) {
 }
 ```
 
-Die `:has()`-Pseudoklasse übernimmt die [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) des spezifischsten Selektors in ihren Argumenten auf die gleiche Weise wie {{CSSxRef(":is", ":is()")}} und {{CSSxRef(":not", ":not()")}}.
+Die `:has()`-Pseudoklasse übernimmt die [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) des spezifischsten Selektors in ihren Argumenten, genau wie {{CSSxRef(":is", ":is()")}} und {{CSSxRef(":not", ":not()")}}.
 
 ## Syntax
 
@@ -28,17 +28,17 @@ Die `:has()`-Pseudoklasse übernimmt die [Spezifität](/de/docs/Web/CSS/CSS_casc
 }
 ```
 
-Wenn die `:has()`-Pseudoklasse in einem Browser nicht unterstützt wird, schlägt der gesamte Selektorblock fehl, es sei denn, `:has()` befindet sich in einer toleranten Selektorliste, wie zum Beispiel in [`:is()`](/de/docs/Web/CSS/:is) und [`:where()`](/de/docs/Web/CSS/:where).
+Wenn die `:has()`-Pseudoklasse in einem Browser nicht unterstützt wird, schlägt der gesamte Selektorblock fehl, es sei denn, `:has()` befindet sich in einer toleranten Selektorliste, wie in [`:is()`](/de/docs/Web/CSS/:is) und [`:where()`](/de/docs/Web/CSS/:where).
 
-Die `:has()`-Pseudoklasse kann nicht in eine andere `:has()` eingebettet werden. Dies liegt daran, dass viele Pseudo-Elemente bedingt basierend auf dem Stil ihrer Vorfahren existieren, und wenn diese durch `:has()` abgefragt werden könnten, könnte dies zu zyklischen Abfragen führen.
+Die `:has()`-Pseudoklasse kann nicht innerhalb einer anderen `:has()` verschachtelt werden.
 
-Pseudo-Elemente sind außerdem keine gültigen Selektoren innerhalb von `:has()` und keine gültigen Anker für `:has()`.
+Pseudoelemente sind auch keine gültigen Selektoren innerhalb von `:has()`, und Pseudoelemente sind keine gültigen Anker für `:has()`. Dies liegt daran, dass viele Pseudoelemente bedingt basierend auf dem Styling ihrer Vorfahren existieren, und deren Abfrage durch `:has()` könnte zu zirkulären Abfragen führen.
 
 ## Beispiele
 
-### Mit dem Geschwister-Kombinator
+### Mit dem Geschwisterkombinator
 
-Die `:has()`-Stilregel im folgenden Beispiel passt den Abstand nach `<h1>`-Überschriften an, wenn sie direkt von einer `<h2>`-Überschrift gefolgt werden.
+Die `:has()`-Stildeklaration im folgenden Beispiel passt den Abstand nach `<h1>`-Überschriften an, wenn sie direkt von einer `<h2>`-Überschrift gefolgt werden.
 
 #### HTML
 
@@ -102,11 +102,11 @@ h1:has(+ h2) {
 
 {{EmbedLiveSample('With_the_sibling_combinator', 600, 150)}}
 
-Dieses Beispiel zeigt zwei ähnliche Texte nebeneinander zum Vergleich – der linke mit einer `H1`-Überschrift, gefolgt von einem Absatz, und der rechte mit einer `H1`-Überschrift, gefolgt von einer `H2`-Überschrift und dann einem Absatz. In dem Beispiel rechts hilft `:has()`, das `H1`-Element auszuwählen, das unmittelbar von einem `H2`-Element gefolgt wird (angegeben durch den Kombinator [`+`](/de/docs/Web/CSS/Next-sibling_combinator)), und die CSS-Regel reduziert den Abstand nach einem solchen `H1`-Element. Ohne die `:has()`-Pseudoklasse können Sie keine CSS-Selektoren verwenden, um ein vorheriges Geschwisterelement eines anderen Typs oder ein übergeordnetes Element auszuwählen.
+Dieses Beispiel zeigt zwei ähnliche Texte nebeneinander zum Vergleich – den linken mit einer `H1`-Überschrift gefolgt von einem Absatz und den rechten mit einer `H1`-Überschrift gefolgt von einer `H2`-Überschrift und dann einem Absatz. Im Beispiel auf der rechten Seite hilft `:has()`, das `H1`-Element auszuwählen, das direkt von einem `H2`-Element gefolgt wird (angezeigt durch den Geschwisterkombinator [`+`](/de/docs/Web/CSS/Next-sibling_combinator)), und die CSS-Regel verringert den Abstand nach einem solchen `H1`-Element. Ohne die `:has()`-Pseudoklasse können Sie keine CSS-Selektoren verwenden, um ein vorhergehendes Geschwisterelement eines anderen Typs oder ein Elternelement auszuwählen.
 
-### Mit der :is()-Pseudoklasse
+### Mit der :is() Pseudoklasse
 
-Dieses Beispiel baut auf dem vorherigen auf, um zu zeigen, wie mehrere Elemente mit `:has()` ausgewählt werden können.
+Dieses Beispiel baut auf dem vorherigen Beispiel auf, um zu zeigen, wie man mehrere Elemente mit `:has()` auswählt.
 
 #### HTML
 
@@ -177,9 +177,9 @@ h3 {
 
 {{EmbedLiveSample('With_the_:is()_pseudo-class', 600, 170)}}
 
-Hier wird die erste [`:is()`](/de/docs/Web/CSS/:is)-Pseudoklasse verwendet, um eines der Überschriftselemente in der Liste auszuwählen. Die zweite `:is()`-Pseudoklasse wird verwendet, um eine Liste von Geschwisterselektoren als Argument an `:has()` zu übergeben. Die `:has()`-Pseudoklasse hilft, jedes `H1`, `H2` oder `H3`-Element auszuwählen, das unmittelbar von einem (angezeigt durch [`+`](/de/docs/Web/CSS/Next-sibling_combinator)) `H2`, `H3` oder `H4`-Element gefolgt wird, und die CSS-Regel reduziert den Abstand nach solchen `H1`, `H2` oder `H3`-Elementen.
+Hier wird die erste [`:is()`](/de/docs/Web/CSS/:is)-Pseudoklasse verwendet, um eines der Überschriftselemente in der Liste auszuwählen. Die zweite `:is()`-Pseudoklasse wird verwendet, um eine Liste von Geschwisterselektoren als Argument an `:has()` zu übergeben. Die `:has()`-Pseudoklasse hilft, jedes `H1`, `H2` oder `H3`-Element auszuwählen, das direkt von einem `H2`, `H3` oder `H4`-Element gefolgt wird (angezeigt durch [`+`](/de/docs/Web/CSS/Next-sibling_combinator)), und die CSS-Regel verringert den Abstand nach solchen `H1`, `H2` oder `H3`-Elementen.
 
-Dieser Selektor hätte auch so geschrieben werden können:
+Dieser Selektor könnte auch wie folgt geschrieben werden:
 
 ```css
 :is(h1, h2, h3):has(+ h2, + h3, + h4) {
@@ -189,11 +189,11 @@ Dieser Selektor hätte auch so geschrieben werden können:
 
 ### Logische Operationen
 
-Der relationale Selektor `:has()` kann verwendet werden, um zu überprüfen, ob eines von mehreren Kriterien wahr ist, oder ob alle Kriterien wahr sind.
+Der `:has()` relationale Selektor kann verwendet werden, um zu überprüfen, ob eines der Merkmale wahr ist oder ob alle Merkmale wahr sind.
 
-Durch die Verwendung von durch Kommas getrennten Werten innerhalb des relationalen Selektors `:has()` prüfen Sie, ob eines der Parameter existiert. `x:has(a, b)` gestaltet `x`, wenn Nachkommen `a` ODER `b` existieren.
+Indem Sie durch Kommas getrennte Werte innerhalb des `:has()` relationalen Selektors verwenden, überprüfen Sie, ob eines der Parameter existiert. `x:has(a, b)` wird `x` stilisieren, wenn der Nachkomme `a` ODER `b` existiert.
 
-Wenn mehrere relationale Selektoren `:has()` verkettet werden, überprüfen Sie, ob alle Parameter existieren. `x:has(a):has(b)` gestaltet `x`, wenn Nachkommen `a` UND `b` existieren.
+Indem Sie mehrere `:has()` relationale Selektoren zusammenfügen, überprüfen Sie, ob alle Parameter existieren. `x:has(a):has(b)` wird `x` stilisieren, wenn der Nachkomme `a` UND `b` existieren.
 
 ```css
 body:has(video, audio) {
@@ -206,17 +206,17 @@ body:has(video):has(audio) {
 
 ## Analogie zwischen :has() und regulären Ausdrücken
 
-Interessanterweise können einige CSS-`:has()`-Konstrukte mit der [Lookahead-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) in regulären Ausdrücken verglichen werden, da beide es ermöglichen, Elemente (oder Zeichenfolgen bei regulären Ausdrücken) basierend auf einer Bedingung auszuwählen, ohne tatsächlich das die Bedingung erfüllende Element (oder die Zeichenfolge) selbst auszuwählen.
+Interessanterweise können wir einige CSS `:has()`-Konstrukte mit der [Lookahead-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) in regulären Ausdrücken in Verbindung bringen, da beide es ermöglichen, Elemente (oder Zeichenketten in regulären Ausdrücken) basierend auf einer Bedingung auszuwählen, ohne die Bedingung selbst als übereinstimmendes Element (oder Zeichenkette) auszuwählen.
 
-### Positive Lookahead (?=pattern)
+### Positiver Lookahead (?=pattern)
 
-Im regulären Ausdruck `abc(?=xyz)` wird die Zeichenfolge `abc` nur dann gematcht, wenn sie unmittelbar von der Zeichenfolge `xyz` gefolgt wird. Da es sich um eine Lookahead-Operation handelt, wird `xyz` nicht in den Match einbezogen.
+Im regulären Ausdruck `abc(?=xyz)` wird die Zeichenkette `abc` nur dann erkannt, wenn sie direkt von der Zeichenkette `xyz` gefolgt wird. Da es sich um eine Lookahead-Operation handelt, ist `xyz` nicht im Match enthalten.
 
-Das analoge Konstrukt in CSS wäre `.abc:has(+ .xyz)`: Es wählt das Element `.abc` nur dann aus, wenn ein direktes Geschwister `.xyz` vorhanden ist. Der Teil `:has(+ .xyz)` fungiert als Lookahead-Operation, da das Element `.abc` ausgewählt wird und nicht das Element `.xyz`.
+Das analoge Konstrukt in CSS wäre `.abc:has(+ .xyz)`: es wählt das Element `.abc` nur dann aus, wenn es ein nächstes Geschwister `.xyz` gibt. Der Part `:has(+ .xyz)` agiert als Lookahead-Operation, da das Element `.abc` ausgewählt wird und nicht das Element `.xyz`.
 
-### Negative Lookahead (?!pattern)
+### Negativer Lookahead (?!pattern)
 
-Ähnlich wird in dem regulären Ausdruck `abc(?!xyz)` die Zeichenfolge `abc` nur dann gematcht, wenn sie _nicht_ von `xyz` gefolgt wird. Das analoge CSS-Konstrukt `.abc:has(+ :not(.xyz))` wählt das Element `.abc` nicht aus, wenn das nächste Element `.xyz` ist.
+Ähnlich dazu wird im Fall der negativen Lookahead-Bedingung im regulären Ausdruck `abc(?!xyz)` die Zeichenkette `abc` nur dann erkannt, wenn sie _nicht_ von `xyz` gefolgt wird. Das analoge CSS-Konstrukt `.abc:has(+ :not(.xyz))` wählt das Element `.abc` nicht aus, wenn das nächste Element `.xyz` ist.
 
 ## Spezifikationen
 
@@ -232,5 +232,5 @@ Das analoge Konstrukt in CSS wäre `.abc:has(+ .xyz)`: Es wählt das Element `.a
 - [CSS-Selektoren und Kombinatoren](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators)
 - [CSS-Selektorstruktur](/de/docs/Web/CSS/CSS_selectors/Selector_structure)
 - [Selektorliste](/de/docs/Web/CSS/Selector_list)
-- [CSS-Selektormodul](/de/docs/Web/CSS/CSS_selectors)
-- [DOM-Elemente mit Selektoren finden](/de/docs/Web/API/Document_Object_Model/Locating_DOM_elements_using_selectors)
+- [CSS Selektormodul](/de/docs/Web/CSS/CSS_selectors)
+- [DOM-Elemente mit Selektoren lokalisieren](/de/docs/Web/API/Document_Object_Model/Locating_DOM_elements_using_selectors)

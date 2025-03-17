@@ -2,12 +2,12 @@
 title: text-decoration-line
 slug: Web/CSS/text-decoration-line
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: ce3d0ad5d83759e6551829b40da159fe2bb6bcfc
 ---
 
 {{CSSRef}}
 
-Die **`text-decoration-line`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Art der Dekoration fest, die auf Text in einem Element angewendet wird, wie zum Beispiel eine Unterstreichung oder ein Überstrich.
+Die **`text-decoration-line`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Art der Dekoration fest, die für Text in einem Element verwendet wird, wie zum Beispiel eine Unterstreichung oder Überstreichung.
 
 {{InteractiveExample("CSS Demo: text-decoration-line")}}
 
@@ -51,7 +51,7 @@ p {
 }
 ```
 
-Wenn mehrere Zeilendekorations-Eigenschaften auf einmal festgelegt werden, ist es möglicherweise praktischer, die Kurzform-Eigenschaft {{cssxref("text-decoration")}} zu verwenden.
+Wenn mehrere Dekorationseigenschaften auf einmal gesetzt werden sollen, ist es möglicherweise bequemer, die {{cssxref("text-decoration")}} Kurzform-Eigenschaft zu verwenden.
 
 ## Syntax
 
@@ -62,6 +62,8 @@ text-decoration-line: underline;
 text-decoration-line: overline;
 text-decoration-line: line-through;
 text-decoration-line: blink;
+text-decoration-line: spelling-error;
+text-decoration-line: grammar-error;
 
 /* Multiple keywords */
 text-decoration-line: underline overline; /* Two decoration lines */
@@ -75,20 +77,27 @@ text-decoration-line: revert-layer;
 text-decoration-line: unset;
 ```
 
-Die `text-decoration-line`-Eigenschaft wird entweder als `none` oder als **eine oder mehrere** der unten angegebenen, durch Leerzeichen getrennten Werte angegeben.
+Die `text-decoration-line` Eigenschaft wird als `none` oder **eines oder mehrere** aus der untenstehenden Liste durch Leerzeichen getrennte Werte angegeben.
 
 ### Werte
 
 - `none`
   - : Erzeugt keine Textdekoration.
 - `underline`
-  - : Jede Textzeile hat eine dekorative Linie unterhalb.
+  - : Jede Textzeile hat eine dekorative Linie darunter.
 - `overline`
-  - : Jede Textzeile hat eine dekorative Linie oberhalb.
+  - : Jede Textzeile hat eine dekorative Linie darüber.
 - `line-through`
   - : Jede Textzeile hat eine dekorative Linie, die durch die Mitte verläuft.
 - `blink`
-  - : Der Text blinkt (wechselt zwischen sichtbar und unsichtbar). Konforme Benutzeragenten dürfen den Text nicht blinken lassen. Dieser Wert ist zugunsten von [CSS-Animationen](/de/docs/Web/CSS/animation) **veraltet**.
+  - : Der Text blinkt (wechselt zwischen sichtbar und unsichtbar). Übereinstimmende User-Agents dürfen den Text nicht blinken lassen. Dieser Wert ist **veraltet** zugunsten von [CSS-Animationen](/de/docs/Web/CSS/animation).
+- `spelling-error`
+  - : Jede Textzeile verwendet die Methode des User-Agents zur Hervorhebung von Rechtschreibfehlern, was in den meisten Browsern eine gepunktete rote Linie ist.
+- `grammar-error`
+  - : Jede Textzeile verwendet die Methode des User-Agents zur Hervorhebung von Grammatikfehlern, was in den meisten Browsern eine gepunktete grüne Linie ist.
+
+> [!NOTE]
+> Bei Verwendung der Werte `spelling-error` und `grammar-error` ignoriert der Browser die anderen Eigenschaften in der {{cssxref("text-decoration")}} Kurzform (wie {{cssxref("text-underline-position")}}, `color` oder `stroke`).
 
 ## Formale Definition
 
@@ -119,7 +128,28 @@ Die `text-decoration-line`-Eigenschaft wird entweder als `none` oder als **eine 
 }
 ```
 
-{{EmbedLiveSample('Examples')}}
+{{EmbedLiveSample('basic_example',,90)}}
+
+### Fehlerbeispiel
+
+In diesem Beispiel enthält der erste Absatz einen Rechtschreibfehler und verwendet das Styling des Browsers für Rechtschreibfehler auf dem falsch geschriebenen Wort. Der zweite Absatz verwendet das Styling des Browsers für Grammatikfehler. In Browsern, die diese `text-decoration-line` Werte nicht unterstützen, erfolgt keine Stiländerung.
+
+```html
+<p>This text contains a <span class="spelling">speling</span> mistake.</p>
+<p class="grammar">This text contain grammatical errors.</p>
+```
+
+```css
+.spelling {
+  text-decoration-line: spelling-error;
+}
+
+.grammar {
+  text-decoration-line: grammar-error;
+}
+```
+
+{{EmbedLiveSample('errors_example',,90)}}
 
 ## Spezifikationen
 
@@ -131,8 +161,10 @@ Die `text-decoration-line`-Eigenschaft wird entweder als `none` oder als **eine 
 
 ## Siehe auch
 
-- Wenn mehrere Zeilendekorations-Eigenschaften auf einmal festgelegt werden, ist es möglicherweise praktischer, die Kurzform-Eigenschaft {{cssxref("text-decoration")}} zu verwenden, die auch Folgendes beinhaltet:
+- Wenn mehrere Dekorationseigenschaften auf einmal gesetzt werden sollen, ist es möglicherweise bequemer, die {{cssxref("text-decoration")}} Kurzform-Eigenschaft zu verwenden, die auch Folgendes umfasst:
   - {{cssxref("text-decoration-style")}}
   - {{cssxref("text-decoration-color")}}
   - {{cssxref("text-decoration-thickness")}}
 - {{cssxref("text-underline-offset")}}
+- {{cssxref("::spelling-error")}}
+- {{cssxref("::grammar-error")}}

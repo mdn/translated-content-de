@@ -2,19 +2,19 @@
 title: vector-effect
 slug: Web/SVG/Attribute/vector-effect
 l10n:
-  sourceCommit: 892a7fb41030e07dfd8daaa57d874239be1ecc8a
+  sourceCommit: 7ff7c5c9df45a707b616ae3c3ab1ba7ae7c249ec
 ---
 
 {{SVGRef}}
 
-Die **`vector-effect`**-Eigenschaft legt den Vektoreffekt fest, der beim Zeichnen eines Objekts verwendet werden soll. Vektoreffekte werden vor allen anderen Kompositionsoperationen angewendet, d.h. Filtern, Masken und Clips.
+Die **`vector-effect`**-Eigenschaft legt den Vektoreffekt fest, der beim Zeichnen eines Objekts verwendet werden soll. Vektoreffekte werden angewendet, bevor andere Compositing-Operationen wie Filter, Masken und Clips ausgeführt werden.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `vector-effect` auch ein entsprechendes CSS-Property: {{cssxref("vector-effect")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `vector-effect` auch ein entsprechendes CSS-Attribut: {{cssxref("vector-effect")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 ## Elemente
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("ellipse")}}
@@ -30,7 +30,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement("tspan")}}
 - {{SVGElement("use")}}
 
-## Nutzungsnotizen
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -54,19 +54,16 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `none`
-  - : Dieser Wert gibt an, dass kein Vektoreffekt angewendet wird, d.h. das Standard-Render-Verhalten wird verwendet, bei dem zuerst die Geometrie einer Form mit einer angegebenen Farbe gefüllt und anschließend die Kontur mit einer angegebenen Farbe gezeichnet wird.
+  - : Dieser Wert gibt an, dass kein Vektoreffekt angewendet werden soll, d.h. das Standard-Rendierungsverhalten wird verwendet, bei dem zunächst die Geometrie einer Form mit einer angegebenen Farbe gefüllt und dann die Umrisse mit einer angegebenen Farbe umrandet werden.
 - `non-scaling-stroke`
-  - : Dieser Wert modifiziert die Art und Weise, wie ein Objekt gestrichen wird. Normalerweise beinhaltet das Streichen das Berechnen der Kontur des Pfads der Form im aktuellen Benutzerkoordinatensystem und das Füllen dieser Kontur mit der Streichfarbe (Farbe oder Gradient). Der visuelle Effekt dieses Wertes besteht darin, dass die Strichbreite nicht von den Transformationen des Elements (einschließlich nicht-uniformer Skalierungen und Schertransformationen) und dem Zoomlevel abhängt.
-- `non-scaling-size`
-  - : Dieser Wert gibt ein spezielles Benutzerkoordinatensystem an, das von dem Element und seinen Nachkommen verwendet wird. Der Maßstab dieses Benutzerkoordinatensystems ändert sich nicht trotz möglicher Transformationsänderungen im Hostkoordinatensystem. Es wird jedoch nicht die Unterdrückung von Rotation oder Schrägung angegeben. Außerdem wird der Ursprung des Benutzerkoordinatensystems nicht festgelegt. Da dieser Wert die Skalierung des Benutzerkoordinatensystems unterdrückt, hat er auch die Eigenschaften von `non-scaling-stroke`.
-- `non-rotation`
-  - : Dieser Wert gibt ein spezielles Benutzerkoordinatensystem an, das von dem Element und seinen Nachkommen verwendet wird. Die Rotation und Schrägung dieses Benutzerkoordinatensystems wird trotz möglicher Transformationsänderungen im Hostkoordinatensystem unterdrückt. Es wird jedoch nicht die Unterdrückung der Skalierung angegeben. Außerdem wird der Ursprung des Benutzerkoordinatensystems nicht festgelegt.
-- `fixed-position`
-  - : Dieser Wert gibt ein spezielles Benutzerkoordinatensystem an, das von dem Element und seinen Nachkommen verwendet wird. Die Position des Benutzerkoordinatensystems bleibt fixiert, unabhängig von möglichen Transformationsänderungen im Hostkoordinatensystem. Es wird jedoch nicht die Unterdrückung von Rotation, Schrägung und Skalierung angegeben. Wenn dieser Vektoreffekt und die {{SVGAttr("transform")}}-Eigenschaft gleichzeitig definiert sind, wird diese Eigenschaft für diesen Effekt verwendet.
+  - : Dieser Wert ändert die Art und Weise, wie ein Objekt umrandet wird. Normalerweise umfasst das Umranden das Berechnen der Umrisse des Pfades der Form im aktuellen Benutzerkoordinatensystem und das Füllen dieser Umrisse mit der Umrandungsfarbe (Farbe oder Verlauf). Der resultierende visuelle Effekt dieses Wertes ist, dass die Strichbreite nicht von den Transformationen des Elements (einschließlich nicht-uniformer Skalierung und Scherung) und dem Zoomlevel abhängt.
+
+> [!NOTE]
+> Die Spezifikation definiert drei weitere Werte, `non-scaling-size`, `non-rotation` und `fixed-position`, aber diese haben keine Implementierungen und gelten als risikobehaftet.
 
 ## Beispiele
 
-### Festlegen von `vector-effect` als `non-scaling-stroke`
+### Setzen von `vector-effect` auf `non-scaling-stroke`
 
 ```html
 <svg viewBox="0 0 500 240">
@@ -110,4 +107,4 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## Siehe auch
 
-- CSS-{{cssxref("vector-effect")}}-Eigenschaft
+- CSS {{cssxref("vector-effect")}}-Eigenschaft

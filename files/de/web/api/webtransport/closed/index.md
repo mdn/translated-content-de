@@ -3,21 +3,25 @@ title: "WebTransport: closed-Eigenschaft"
 short-title: closed
 slug: Web/API/WebTransport/closed
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 584199ed3502f1a886fd1b074f48c81fcf519a73
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`closed`** Schreibgeschützte Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces gibt ein Promise zurück, das sich auflöst, wenn der Transport geschlossen wird.
+Die schreibgeschützte **`closed`**-Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces gibt ein Promise zurück, das aufgelöst wird, wenn der Transport geschlossen wird.
+
+Dieses Promise wird erstellt, wenn das `WebTransport`-Objekt erstellt wird und wird aufgelöst, wenn der Transport auf irgendeine Weise geschlossen wird, beispielsweise durch Aufruf der [`close()`](/de/docs/Web/API/WebTransport/close)-Methode, wenn die Verbindung fehlgeschlagen ist oder wenn die Verbindung vom Server geschlossen wird. Der Zugriff auf dieses Promise oder das Abwarten darauf löst keine Aktion aus; es ermöglicht lediglich Maßnahmen zu ergreifen, wenn der Transport geschlossen wird, ähnlich dem Lauschen auf ein Ereignis.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das sich zu einem Objekt auflöst, das die folgenden Eigenschaften enthält:
+Ein {{jsxref("Promise")}}, das auf ein Objekt mit den folgenden Eigenschaften aufgelöst wird:
 
 - `closeCode`
   - : Eine Zahl, die den Fehlercode für den Fehler darstellt.
 - `reason`
   - : Ein String, der den Grund für das Schließen des `WebTransport` darstellt.
+
+Oder, im Falle eines unerwarteten Schließens, wie bei einem Netzwerkfehler, wird das Promise mit einem Fehler abgelehnt.
 
 ## Beispiele
 
