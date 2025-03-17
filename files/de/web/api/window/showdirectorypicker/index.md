@@ -3,50 +3,53 @@ title: "Window: showDirectoryPicker() Methode"
 short-title: showDirectoryPicker()
 slug: Web/API/Window/showDirectoryPicker
 l10n:
-  sourceCommit: 8f93582ca9008d55db258a017552be486e372382
+  sourceCommit: b58a5b506fdc086f442104ccdee547b9df0cb6a7
 ---
 
 {{APIRef("File System API")}}{{Securecontext_Header}}{{SeeCompatTable}}
 
-Die **`showDirectoryPicker()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle öffnet ein Verzeichnis-Auswahlfenster, das es dem Benutzer ermöglicht, ein Verzeichnis auszuwählen.
+Die **`showDirectoryPicker()`**-Methode des
+[`Window`](/de/docs/Web/API/Window)-Interfaces zeigt einen Ordnerauswahldialog an, der es dem Benutzer ermöglicht, ein Verzeichnis auszuwählen.
 
 ## Syntax
 
 ```js-nolint
 showDirectoryPicker()
+showDirectoryPicker(options)
 ```
 
 ### Parameter
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt mit Optionen, die wie folgt definiert sind:
+  - : Ein Objekt, das Optionen enthält, die wie folgt sind:
 
     - `id` {{optional_inline}}
-      - : Durch die Angabe einer ID kann der Browser unterschiedliche Verzeichnisse für unterschiedliche IDs speichern. Wenn dieselbe ID für einen anderen Picker verwendet wird, öffnet sich der Picker im selben Verzeichnis.
+      - : Durch Angabe einer ID kann der Browser unterschiedliche Verzeichnisse für verschiedene IDs speichern. Wird dieselbe ID für einen anderen Picker verwendet, öffnet sich dieser im gleichen Verzeichnis.
     - `mode` {{optional_inline}}
-      - : Ein String, der standardmäßig auf `"read"` für nur Lesezugriff oder `"readwrite"` für Lese- und Schreibzugriff auf das Verzeichnis gesetzt ist.
+      - : Ein String, der standardmäßig auf `"read"` für Nur-Lese-Zugriff oder `"readwrite"` für Lese- und Schreibzugriff auf das Verzeichnis gesetzt ist.
     - `startIn` {{optional_inline}}
-      - : Ein [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle) oder ein bekanntes Verzeichnis (`"desktop"`, `"documents"`, `"downloads"`, `"music"`, `"pictures"`, oder `"videos"`) zum Öffnen des Dialogs in diesem Verzeichnis.
+      - : Ein [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle) oder ein bekanntes Verzeichnis (`"desktop"`, `"documents"`, `"downloads"`, `"music"`, `"pictures"`, oder `"videos"`), um den Dialog in diesem Verzeichnis zu öffnen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, dessen Fulfillment-Handler ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt erhält.
+Ein {{jsxref("Promise")}}, dessen Übernahmebehandler ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt erhält.
 
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Benutzer die Aufforderung schließt, ohne eine Auswahl zu treffen, oder wenn der Benutzer-Agent das ausgewählte Verzeichnis als zu sensibel oder gefährlich einstuft, oder wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für das ausgewählte Verzeichnis im angegebenen `mode` nicht `"granted"` ist.
+  - : Wird ausgelöst, wenn der Benutzer die Eingabeaufforderung ohne Auswahl schließt, oder wenn der User-Agent das ausgewählte Verzeichnis als zu sensibel oder gefährlich einstuft, oder wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für das ausgewählte Verzeichnis nicht `"granted"` im angegebenen `mode` ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) blockiert wurde oder er nicht durch eine Benutzerinteraktion wie das Drücken eines Buttons initiiert wurde.
+  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) blockiert wurde oder nicht durch eine Benutzerinteraktion wie einen Tastendruck aufgerufen wurde.
 
 ## Sicherheit
 
-[Transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Transient user activation](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
-Diese asynchrone Funktion zeigt einen Verzeichnis-Auswahl-Dialog und gibt ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) zurück, sobald ein Verzeichnis ausgewählt wurde.
+Diese asynchrone Funktion zeigt einen Ordnerauswahldialog und gibt ein
+[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) zurück, sobald ein Verzeichnis ausgewählt wurde.
 
 ```js
 async function getDir() {
@@ -67,4 +70,4 @@ async function getDir() {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Das File System Access API: Vereinfachung des Zugriffs auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

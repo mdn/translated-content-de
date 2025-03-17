@@ -3,14 +3,14 @@ title: "PublicKeyCredential: parseCreationOptionsFromJSON() statische Methode"
 short-title: parseCreationOptionsFromJSON()
 slug: Web/API/PublicKeyCredential/parseCreationOptionsFromJSON_static
 l10n:
-  sourceCommit: 307353ad05e16e99a5a1c8d1a665f5352f9b84ab
+  sourceCommit: dd49e9f6381aa1a35e9d582808f2fd1d4abfa813
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
 Die statische Methode **`parseCreationOptionsFromJSON()`** des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces erstellt ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt aus einer JSON-Darstellung seiner Eigenschaften.
 
-Die Methode ist eine Komfortfunktion, um Berechtigungsoptionsinformationen, die von einem Server für die vertrauende Partei bereitgestellt werden, in eine Form zu konvertieren, die eine Webanwendung verwenden kann, um [eine Berechtigung zu erstellen](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user).
+Die Methode ist eine Komfortfunktion zur Umwandlung von Anmeldeoptionsinformationen, die von einem vertrauenswürdigen Server bereitgestellt werden, in eine Form, die eine Webanwendung nutzen kann, um [ein Anmeldeinformation zu erstellen](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user).
 
 ## Syntax
 
@@ -31,21 +31,20 @@ Ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialC
 ### Ausnahmen
 
 - `EncodingError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das `options`-Objekt nicht in ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt konvertiert werden kann.
+  - : Wird ausgelöst, wenn das `options`-Objekt nicht in ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt umgewandelt werden kann.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die RP-Domain ist ungültig.
 
 ## Beschreibung
 
-Der Web-Authentifizierungsprozess zum [Erstellen eines Schlüsselpaares und Registrieren eines Benutzers](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user) beinhaltet, dass ein Server für die vertrauende Partei der Webanwendung die notwendige Information zur Erstellung einer Berechtigung sendet, einschließlich Details über die Benutzeridentität, die vertrauende Partei und eine "Herausforderung".
-Die Webanwendung übergibt diese Informationen an einen Authentifikator, um die Berechtigung zu erstellen, indem sie [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) mit einem [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt als Argument aufruft.
+Der Web-Authentifizierungsprozess zur [Erstellung eines Schlüsselpaares und der Registrierung eines Benutzers](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user) beinhaltet, dass ein vertrauenswürdiger Server der Webanwendung Informationen bereitstellt, die zum Erstellen einer Anmeldeinformation notwendig sind, einschließlich Details zur Benutzeridentität, der vertrauenswürdigen Partei und einer "Challenge".
+Die Webanwendung übergibt diese Informationen an einen Authenticator, um die Anmeldeinformation zu erstellen, indem sie [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) mit einem [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt als Argument aufruft.
 
-Die Spezifikation definiert nicht, wie die Informationen, die für die Erstellung einer Berechtigung benötigt werden, gesendet werden sollen.
-Ein praktischer Ansatz ist, dass der Server die Informationen in einer {{Glossary("JSON_type_representation", "JSON-Typ-Darstellung")}} des [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekts kapselt, das seine Struktur widerspiegelt, aber Puffer-Eigenschaften wie die `challenge` und `user.id` als {{Glossary("Base64", "base64url")}}-Zeichenfolgen kodiert.
-Dieses Objekt kann in eine {{Glossary("JSON", "JSON")}}-Zeichenfolge serialisiert, an die Webanwendung gesendet und deserialisiert werden und dann mit **`parseCreationOptionsFromJSON()`** in ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt konvertiert werden.
+Die Spezifikation definiert nicht, wie die Informationen zur Erstellung einer Anmeldeinformation gesendet werden. Ein praktischer Ansatz besteht darin, dass der Server die Informationen in einer {{Glossary("JSON_type_representation", "JSON-Darstellung")}} des [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekts kapselt, das dessen Struktur widerspiegelt, aber Puffer-Eigenschaften wie die `challenge` und `user.id` als {{Glossary("Base64", "base64url")}}-Zeichenfolgen kodiert. Dieses Objekt kann in eine {{Glossary("JSON", "JSON")}}-Zeichenfolge serialisiert, zur Webanwendung gesendet und deserialisiert und dann mithilfe von **`parseCreationOptionsFromJSON()`** in ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt umgewandelt werden.
 
 ## Beispiele
 
-Beim Registrieren eines neuen Benutzers wird ein Server für die vertrauende Partei Informationen zu den erwarteten Berechtigungen an die Webanwendung liefern.
-Der untenstehende Code definiert diese Informationen in der im [Parameter `options`](#options) beschriebenen Form (entnommen aus dem ["Abrufen einer AuthenticatorAttestationResponse"](/de/docs/Web/API/AuthenticatorResponse#getting_an_authenticatorattestationresponse) in `AuthenticatorResponse`):
+Beim Registrieren eines neuen Benutzers stellt ein vertrauenswürdiger Server der Webanwendung Informationen zu den erwarteten Anmeldeinformationen zur Verfügung. Der folgende Code definiert diese Informationen in der oben unter dem [`options`-Parameter](#options) beschriebenen Form (entnommen aus der ["Erfassung einer AuthenticatorAttestationResponse"](/de/docs/Web/API/AuthenticatorResponse#getting_an_authenticatorattestationresponse) in `AuthenticatorResponse`):
 
 ```js
 const createCredentialOptionsJSON = {
@@ -69,14 +68,13 @@ const createCredentialOptionsJSON = {
 };
 ```
 
-Da dieses Objekt nur JSON-Datentypen verwendet, kann es mit [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) in JSON serialisiert und an die Webanwendung gesendet werden.
+Da dieses Objekt nur JSON-Datentypen verwendet, kann es mithilfe von [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) zu JSON serialisiert und zur Webanwendung gesendet werden.
 
 ```js
 JSON.stringify(createCredentialOptionsJSON);
 ```
 
-Die Webanwendung kann die JSON-Zeichenfolge zurück in ein `createCredentialOptionsJSON`-Objekt deserialisieren (nicht gezeigt).
-Die Methode **`parseCreationOptionsFromJSON()`** wird verwendet, um dieses Objekt in die Form zu konvertieren, die in `navigator.credentials.create()` verwendet werden kann:
+Die Webanwendung kann die JSON-Zeichenfolge zurück in ein `createCredentialOptionsJSON`-Objekt deserialisieren (nicht gezeigt). Die **`parseCreationOptionsFromJSON()`**-Methode wird verwendet, um dieses Objekt in die Form zu konvertieren, die in `navigator.credentials.create()` verwendet werden kann:
 
 ```js
 // Convert options to form used by create()

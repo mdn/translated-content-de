@@ -3,21 +3,21 @@ title: "PublicKeyCredential: isUserVerifyingPlatformAuthenticatorAvailable() sta
 short-title: isUserVerifyingPlatformAuthenticatorAvailable()
 slug: Web/API/PublicKeyCredential/isUserVerifyingPlatformAuthenticatorAvailable_static
 l10n:
-  sourceCommit: f2088b8912ef205a737551441d54b73507bd3ac6
+  sourceCommit: dd49e9f6381aa1a35e9d582808f2fd1d4abfa813
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die statische Methode **`isUserVerifyingPlatformAuthenticatorAvailable()`** der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das zu `true` aufgelöst wird, wenn ein Nutzer-verifizierender Plattform-Authenticator vorhanden ist.
+Die **`isUserVerifyingPlatformAuthenticatorAvailable()`** statische Methode der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das zu `true` aufgelöst wird, wenn ein benutzerverifizierender Plattform-Authenticator vorhanden ist.
 
-Ein Nutzer-verifizierender Plattform-Authenticator ist eine Art Multi-Faktor-Authenticator, der Teil des Client-Geräts ist (in der Regel nicht abnehmbar) und eine Aktion des Nutzers erfordert, um ihn zu identifizieren. Häufige Nutzer-verifizierende Plattform-Authentifikatoren sind:
+Ein benutzerverifizierender Plattform-Authenticator ist eine Art von Multi-Faktor-Authenticator, der Teil des Client-Geräts ist (er ist in der Regel nicht entfernbar) und bei dem eine Aktion des Benutzers erforderlich ist, um ihn zu identifizieren. Zu den üblichen benutzerverifizierenden Plattform-Authenticatoren gehören:
 
 - Touch ID oder Face ID (macOS und iOS)
 - Windows Hello (Windows)
-- Gerätesperre (Fingerabdruck, Gesichtserkennung, PIN usw.) auf Android
+- Gerätesperre (Fingerabdruck, Gesicht, PIN, etc.) auf Android
 
 > [!NOTE]
-> Diese Methode kann nur in obersten Kontexten verwendet werden und wird beispielsweise in einem {{HTMLElement("iframe")}} nicht verfügbar sein.
+> Diese Methode kann nur in Top-Level-Kontexten verwendet werden und steht beispielsweise in einem {{HTMLElement("iframe")}} nicht zur Verfügung.
 
 ## Syntax
 
@@ -31,10 +31,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem booleschen Wert aufgelöst wird, der angibt, ob ein Nutzer-verifizierender Plattform-Authenticator verfügbar ist oder nicht.
+Ein {{jsxref("Promise")}}, das zu einem booleschen Wert aufgelöst wird, der angibt, ob ein benutzerverifizierender Plattform-Authenticator verfügbar ist oder nicht.
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation drückte der boolesche Wert auch die Zustimmung des Nutzers aus, einen solchen Authenticator offenzulegen.
+> In früheren Versionen der Spezifikation wurde mit dem booleschen Wert auch die Zustimmung des Benutzers zur Offenlegung eines solchen Authenticators vermittelt.
+
+### Ausnahmen
+
+Das zurückgegebene {{jsxref("Promise")}} kann mit den folgenden Werten abgelehnt werden:
+
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die RP-Domain ist nicht gültig.
 
 ## Beispiele
 
@@ -66,4 +73,4 @@ PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()
 ## Siehe auch
 
 - [Windows Hello](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/windows-hello)
-- [Web-Authentifizierung und Windows Hello – MSDN Leitfaden](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/) und insbesondere die [besonderen Überlegungen, die `isUserVerifyingPlatformAuthenticator()` erwähnen](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/#special-considerations-for-windows-hello)
+- [Web Authentication und Windows Hello - MSDN-Leitfaden](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/) und insbesondere die [besonderen Überlegungen, die `isUserVerifyingPlatformAuthenticator()` erwähnen](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/#special-considerations-for-windows-hello)
