@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP **`Origin-Agent-Cluster`** [Antwort-Header](/de-DE/docs/Glossary/response_header) wird verwendet, um anzufordern, dass das zugehörige [`Document`](/de-DE/docs/Web/API/Document) in einem **origin-gebundenen [Agent-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)** platziert werden soll. Das bedeutet, dass Betriebssystemressourcen (zum Beispiel der Betriebssystemprozess), die zur Ausführung des Dokuments verwendet werden, nur mit anderen Dokumenten vom selben [origin](/de-DE/docs/Glossary/origin) geteilt werden sollten.
+Der HTTP **`Origin-Agent-Cluster`** [Antwort-Header](/de/docs/Glossary/response_header) wird verwendet, um anzufordern, dass das zugehörige [`Document`](/de/docs/Web/API/Document) in einem **origin-gebundenen [Agent-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)** platziert werden soll. Das bedeutet, dass Betriebssystemressourcen (zum Beispiel der Betriebssystemprozess), die zur Ausführung des Dokuments verwendet werden, nur mit anderen Dokumenten vom selben [origin](/de/docs/Glossary/origin) geteilt werden sollten.
 
 Die Auswirkung davon ist, dass ein ressourcenintensives Dokument die Leistung von Dokumenten aus anderen Ursprüngen weniger beeinträchtigen wird.
 
@@ -33,14 +33,14 @@ Origin-Agent-Cluster: <boolean>
 ### Direktiven
 
 - `<boolean>`
-  - : `?1` gibt an, dass das zugehörige [`Document`](/de-DE/docs/Web/API/Document) in einem origin-gebundenen Agent-Cluster platziert werden soll.
+  - : `?1` gibt an, dass das zugehörige [`Document`](/de/docs/Web/API/Document) in einem origin-gebundenen Agent-Cluster platziert werden soll.
     Andere Werte als `?1` werden ignoriert (z.B. das `?0` strukturierte Feld für false).
 
 ## Beschreibung
 
 Moderne Webbrowser haben eine Multiprozess-Architektur, in der Seiten von verschiedenen Ursprüngen in verschiedenen Betriebssystemprozessen ausgeführt werden können. Dies ist wichtig für die Leistung, da es bedeutet, dass eine ressourcenintensive Seite nicht so stark auf andere Seiten Einfluss nimmt, die der Benutzer geöffnet hat.
 
-Allerdings können Browser nicht generell [same-site](/de-DE/docs/Glossary/site), [cross-origin](/de-DE/docs/Glossary/origin) Seiten in verschiedenen Prozessen ausführen, aufgrund bestimmter DOM-APIs, die von der Kommunikation zwischen same-site und cross-origin abhängen. Zum Beispiel werden standardmäßig Seiten von den folgenden zwei Ursprüngen die gleichen Betriebssystemressourcen teilen:
+Allerdings können Browser nicht generell [same-site](/de/docs/Glossary/site), [cross-origin](/de/docs/Glossary/origin) Seiten in verschiedenen Prozessen ausführen, aufgrund bestimmter DOM-APIs, die von der Kommunikation zwischen same-site und cross-origin abhängen. Zum Beispiel werden standardmäßig Seiten von den folgenden zwei Ursprüngen die gleichen Betriebssystemressourcen teilen:
 
 ```plain
 https://apples.example.org
@@ -49,11 +49,11 @@ https://oranges.example.org
 
 Durch das Setzen des `Origin-Agent-Cluster` Headers kann eine Seite anfordern, dass der Browser dedizierte Ressourcen für diesen Ursprung bereitstellt, die mit keinen anderen Ursprüngen geteilt werden.
 
-Der Browser ist nicht verpflichtet, der Anforderung nachzukommen. Wenn er dies tut, gibt die [`Window.originAgentCluster`](/de-DE/docs/Web/API/Window/originAgentCluster) Eigenschaft `true` zurück, und das Fenster ist nicht in der Lage, folgende Dinge zu tun, die alle von same-site, cross-origin Kommunikation abhängen:
+Der Browser ist nicht verpflichtet, der Anforderung nachzukommen. Wenn er dies tut, gibt die [`Window.originAgentCluster`](/de/docs/Web/API/Window/originAgentCluster) Eigenschaft `true` zurück, und das Fenster ist nicht in der Lage, folgende Dinge zu tun, die alle von same-site, cross-origin Kommunikation abhängen:
 
-- Verwendung von [`Document.domain`](/de-DE/docs/Web/API/Document/domain).
-- Senden von [`WebAssembly.Module`](/de-DE/docs/WebAssembly/Reference/JavaScript_interface/Module) Objekten an andere same-site cross-origin Seiten mittels [`postMessage()`](/de-DE/docs/Web/API/Window/postMessage).
-- Senden von {{jsxref("SharedArrayBuffer")}} oder [`WebAssembly.Memory`](/de-DE/docs/WebAssembly/Reference/JavaScript_interface/Memory) Objekten an andere same-site cross-origin Seiten.
+- Verwendung von [`Document.domain`](/de/docs/Web/API/Document/domain).
+- Senden von [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module) Objekten an andere same-site cross-origin Seiten mittels [`postMessage()`](/de/docs/Web/API/Window/postMessage).
+- Senden von {{jsxref("SharedArrayBuffer")}} oder [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) Objekten an andere same-site cross-origin Seiten.
 
 Origin-gebundene Agent-Cluster sollten nicht als Sicherheitsmerkmal angesehen werden: Browser können die Anforderung aus verschiedenen Gründen ignorieren oder sich entscheiden, sie auf eine Weise zu implementieren, die keinen Speicherschutz bietet (zum Beispiel durch die Verwendung separater Threads statt separater Prozesse). Stattdessen ist dieses Feature ein Hinweis darauf, dass die Benutzererfahrung verbessert würde, wenn diesem Ursprung dedizierte Ressourcen zugewiesen würden.
 
@@ -82,5 +82,5 @@ Origin-Agent-Cluster: ?1
 
 ## Siehe auch
 
-- [`Window.originAgentCluster`](/de-DE/docs/Web/API/Window/originAgentCluster)
+- [`Window.originAgentCluster`](/de/docs/Web/API/Window/originAgentCluster)
 - [Anforderung von Leistungsisolation mit dem Origin-Agent-Cluster-Header](https://web.dev/articles/origin-agent-cluster) auf web.dev
