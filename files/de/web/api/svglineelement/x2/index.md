@@ -3,22 +3,22 @@ title: "SVGLineElement: x2-Eigenschaft"
 short-title: x2
 slug: Web/API/SVGLineElement/x2
 l10n:
-  sourceCommit: 7c67beb9a8a6fe5c80fb06bdc39737c4d713487e
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`x2`**-Eigenschaft der [`SVGLineElement`](/de/docs/Web/API/SVGLineElement)-Schnittstelle beschreibt den x-Achsen-Koordinatenwert des Endes einer Linie als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt das {{SVGElement("line")}}-Element und das geometrische Attribut {{SVGAttr("x2")}} wider.
+Die **`x2`**-Eigenschaft ist eine schreibgeschützte Eigenschaft der [`SVGLineElement`](/de/docs/Web/API/SVGLineElement)-Schnittstelle, die den x-Achsen-Koordinatenwert des Endes einer Linie als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) beschreibt. Sie spiegelt das {{SVGElement("line")}}-Element und dessen geometrisches Attribut {{SVGAttr("x2")}} wider.
 
-Der Attributwert ist eine [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist diese Endposition entlang der x-Achse in Benutzereinheiten des Koordinatensystems.
+Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die Endposition entlang der x-Achse in Benutzereinheitensystem-Einheiten.
 
 ## Wert
 
-Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Das folgende SVG gegeben:
+Bei folgendem SVG:
 
 ```html
 <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@ Das folgende SVG gegeben:
 </svg>
 ```
 
-Wir können auf die berechneten Werte der `x2`-Attribute zugreifen:
+können wir auf die berechneten Werte der `x2`-Attribute zugreifen:
 
 ```js
 const lines = document.querySelectorAll("line");

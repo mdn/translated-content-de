@@ -1,16 +1,16 @@
 ---
-title: "SVGFEPointLightElement: z Eigenschaft"
+title: "SVGFEPointLightElement: z-Eigenschaft"
 short-title: z
 slug: Web/API/SVGFEPointLightElement/z
 l10n:
-  sourceCommit: 1c8ca24f56e08e13f079c97693c180ed616ac3ba
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`z`** des [`SVGFEPointLightElement`](/de/docs/Web/API/SVGFEPointLightElement)-Interfaces beschreibt den Z-Achsen-Wert der Position einer SVG-Filterprimitive als [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber). Eine positive Z-Achse zeigt in Richtung der Person, die den Inhalt betrachtet.
+Die **`z`** schreibgeschützte Eigenschaft des [`SVGFEPointLightElement`](/de/docs/Web/API/SVGFEPointLightElement)-Interfaces beschreibt den Z-Achsen-Wert der Position einer SVG-Filterprimitive als [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber). Eine positive Z-Achse kommt auf die Person zu, die den Inhalt betrachtet.
 
-Sie spiegelt das {{SVGAttr("z")}}-Attribut des {{SVGElement("fePointLight")}}-Elements wider, das verwendet werden kann, um die Lichtquelle in einem Punktlicht-Effekt zu definieren. Das Attribut ist ein [`<number>`](/de/docs/Web/SVG/Content_type#number). Der Standardwert ist `0`.
+Sie spiegelt das {{SVGAttr("z")}}-Attribut des {{SVGElement("fePointLight")}}-Elements wider, das verwendet werden kann, um die Lichtquelle in einem Punktlicht-Effekt zu definieren. Das Attribut ist ein [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der Standardwert ist `0`.
 
 ## Wert
 

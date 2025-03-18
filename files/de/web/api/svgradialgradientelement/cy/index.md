@@ -3,14 +3,14 @@ title: "SVGRadialGradientElement: cy-Eigenschaft"
 short-title: cy
 slug: Web/API/SVGRadialGradientElement/cy
 l10n:
-  sourceCommit: 40279617fd5bb8ab277d10bbf3637bfc3aa2b991
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`cy`** schreibgeschützte Eigenschaft des [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement)-Interfaces beschreibt die y-Achsen-Koordinate des Zentrums des radialen Gradienten als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("cy")}}-Attributs auf dem {{SVGElement("radialGradient")}}-Element wider.
+Die **`cy`**-Eigenschaft der [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement)-Schnittstelle, die nur lesbar ist, beschreibt die y-Achsen-Koordinate des Zentrums des radialen Verlaufs als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("cy")}}-Attributs auf dem {{SVGElement("radialGradient")}}-Element wider.
 
-Der Attributwert ist eine [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert der [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Zentrums des radialen Gradienten im Benutzerkoordinatensystem.
+Der Attributwert ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder eine [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Zentrums des radialen Verlaufs im Benutzerskoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Gegeben das folgende SVG:
+Angenommen, das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

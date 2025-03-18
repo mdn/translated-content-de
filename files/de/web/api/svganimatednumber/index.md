@@ -2,16 +2,16 @@
 title: SVGAnimatedNumber
 slug: Web/API/SVGAnimatedNumber
 l10n:
-  sourceCommit: 5f0dba0ef63c41d1361c50c14dc343031beedd09
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-## Schnittstelle SVGAnimatedNumber
+## Übersicht über die SVG-animierte Zahlenschnittstelle
 
-Die Schnittstelle `SVGAnimatedNumber` wird für Attribute des Basistyps [\<Number>](/de/docs/Web/SVG/Content_type#number) verwendet, die animiert werden können.
+Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute des Basisdatentyps [\<Number>](/de/docs/Web/SVG/Guides/Content_type#number) verwendet, die animiert werden können.
 
-### Übersicht der Schnittstelle
+### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
@@ -37,14 +37,14 @@ Die Schnittstelle `SVGAnimatedNumber` wird für Attribute des Basistyps [\<Numbe
       <td>
         <a
           href="https://www.w3.org/TR/SVG11/types.html#InterfaceSVGAnimatedNumber"
-          >SVG 1.1 (2. Ausgabe)</a
+          >SVG 1.1 (2. Auflage)</a
         >
       </td>
     </tr>
   </tbody>
 </table>
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 <table class="no-markdown">
   <thead>
@@ -66,18 +66,15 @@ Die Schnittstelle `SVGAnimatedNumber` wird für Attribute des Basistyps [\<Numbe
       <td><code>[`SVGAnimatedNumber.animVal`](/de/docs/Web/API/SVGAnimatedNumber/animVal)</code></td>
       <td>float</td>
       <td>
-        Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält es
-        den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das
-        angegebene Attribut oder die Eigenschaft nicht animiert wird, enthält es denselben
-        Wert wie <code>baseVal</code>.
+        Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält dies den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält dies denselben Wert wie <code>baseVal</code>.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Instanz-Methoden
+## Instanzmethoden
 
-Die Schnittstelle `SVGAnimatedNumber` stellt keine spezifischen Methoden bereit.
+Die `SVGAnimatedNumber`-Schnittstelle bietet keine spezifischen Methoden.
 
 ## Spezifikationen
 

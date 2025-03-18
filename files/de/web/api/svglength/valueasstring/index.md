@@ -3,14 +3,14 @@ title: "SVGLength: valueAsString-Eigenschaft"
 short-title: valueAsString
 slug: Web/API/SVGLength/valueAsString
 l10n:
-  sourceCommit: 59c2a6eb9c36970aaef347707c8dcf6fbcc14499
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die `valueAsString`-Eigenschaft der [`SVGLength`](/de/docs/Web/API/SVGLength)-Schnittstelle repräsentiert den Wert des [\<length>](/de/docs/Web/SVG/Content_type#length) als Zeichenkette, in den durch `unitType` ausgedrückten Einheiten.
+Die `valueAsString`-Eigenschaft der [`SVGLength`](/de/docs/Web/API/SVGLength)-Schnittstelle stellt den Wert des [\<length>](/de/docs/Web/SVG/Guides/Content_type#length) als Zeichenkette dar, in den Einheiten, die durch [`unitType`](/de/docs/Web/API/SVGLength/unitType) angegeben werden.
 
-Das Setzen dieses Attributs führt dazu, dass `value`, `valueInSpecifiedUnits` und `unitType` automatisch aktualisiert werden, um diese Einstellung zu reflektieren.
+Das Setzen dieses Attributs führt dazu, dass [`value`](/de/docs/Web/API/SVGLength/value), [`valueInSpecifiedUnits`](/de/docs/Web/API/SVGLength/valueInSpecifiedUnits) und [`unitType`](/de/docs/Web/API/SVGLength/unitType) automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine Zeichenkette.
 
 ## Beispiele
 
-### Setzen und Abrufen von `valueAsString`
+### `valueAsString` setzen und abrufen
 
 ```js
 // Create an SVGLength object
@@ -48,6 +48,6 @@ console.log(length.value); // Output: 100
 
 ## Siehe auch
 
-- [`<number>`](/de/docs/Web/SVG/Content_type#number)
-- [`<length>`](/de/docs/Web/SVG/Content_type#length)
+- [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number)
+- [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length)
 - [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)

@@ -3,14 +3,14 @@ title: "SVGForeignObjectElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/SVGForeignObjectElement/width
 l10n:
-  sourceCommit: 7f9a7b32e78673dcbf7b6a93856f5717c4cf0a12
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`width`**-Eigenschaft der schnittstelle [`SVGForeignObjectElement`](/de/docs/Web/API/SVGForeignObjectElement) beschreibt die Breite des `<foreignObject>`-Elements. Sie spiegelt den berechneten Wert des {{SVGAttr("width")}}-Attributs auf dem {{SVGElement("foreignObject")}}-Element wider.
+Die **`width`**-Eigenschaft der Schnittstelle [`SVGForeignObjectElement`](/de/docs/Web/API/SVGForeignObjectElement) beschreibt die Breite des `<foreignObject>`-Elements. Sie spiegelt den berechneten Wert des {{SVGAttr("width")}}-Attributs auf dem {{SVGElement("foreignObject")}}-Element wider.
 
-Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des `<foreignObject>`-Elements im Benutzerkoordinatensystem.
+Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des `<foreignObject>`-Elements im Benutzerskoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Für das folgende SVG:
+Angenommen, man hat das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@ Für das folgende SVG:
 </svg>
 ```
 
-können wir auf die berechneten Werte der `width`-Attribute zugreifen:
+Wir können auf die berechneten Werte der `width`-Attribute zugreifen:
 
 ```js
 const foreignObjects = document.querySelectorAll("foreignObject");

@@ -3,14 +3,14 @@ title: "SVGRadialGradientElement: cx-Eigenschaft"
 short-title: cx
 slug: Web/API/SVGRadialGradientElement/cx
 l10n:
-  sourceCommit: 40279617fd5bb8ab277d10bbf3637bfc3aa2b991
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`cx`**-Eigenschaft der [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement)-Schnittstelle beschreibt die x-Achsen-Koordinate des Zentrums des radialen Gradienten als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie gibt den berechneten Wert des {{SVGAttr("cx")}}-Attributs auf dem {{SVGElement("radialGradient")}}-Element wieder.
+Die schreibgeschützte **`cx`**-Eigenschaft der Schnittstelle [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement) beschreibt die x-Achsen-Koordinate des Zentrums des radialen Gradienten als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("cx")}}-Attributs auf dem {{SVGElement("radialGradient")}}-Element wider.
 
-Der Attributwert ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die x-Koordinate des Zentrums des radialen Gradienten im Benutzerkoordinatensystem.
+Der Attributwert ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage), oder [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die x-Koordinate des Zentrums des radialen Gradienten im Benutzerskoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Angenommen, folgendes SVG:
+Das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@ Angenommen, folgendes SVG:
 </svg>
 ```
 
-Wir können auf die berechneten Werte der `cx`-Attribute zugreifen:
+Die berechneten Werte der `cx`-Attribute können wie folgt abgerufen werden:
 
 ```js
 const radialGradients = document.querySelectorAll("radialGradient");

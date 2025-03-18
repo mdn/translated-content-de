@@ -3,14 +3,14 @@ title: "SVGFECompositeElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/SVGFECompositeElement/width
 l10n:
-  sourceCommit: a5395de76cd0066aed71cf351029eb6e342b73d1
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`width`**-Eigenschaft der Schnittstelle [`SVGFECompositeElement`](/de/docs/Web/API/SVGFECompositeElement) beschreibt die horizontale Größe einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`width`**-Eigenschaft der [`SVGFECompositeElement`](/de/docs/Web/API/SVGFECompositeElement)-Schnittstelle beschreibt die horizontale Größe eines SVG-Filterprimitivs als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGElement("feComposite")}}-Element und dessen {{SVGAttr("width")}}-Attribut der Filterprimitive wider. Die `<feComposite>` SVG-Filterprimitive kombiniert zwei Eingabebilder mit einer Porter-Duff-Kompositionsoperation. Das Attribut ist entweder ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) relativ zur Breite des Filterbereichs. Der Standardwert ist `100%`. Der Wert der Eigenschaft ist eine Länge in Einheiten des Benutzerkoordinatensystems.
+Sie spiegelt das {{SVGElement("feComposite")}}-Element mit dem Filterprimitiv-Attribut {{SVGAttr("width")}} wider. Das `<feComposite>` SVG-Filterprimitiv kombiniert zwei Eingabebilder unter Verwendung einer Porter-Duff-Kompositionsoperation. Das Attribut ist eine [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) relativ zur Breite des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheiten des Koordinatensystems.
 
 ## Wert
 

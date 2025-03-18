@@ -3,14 +3,14 @@ title: "SVGFilterElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/SVGFilterElement/width
 l10n:
-  sourceCommit: ed8d1fc9149b9b5987d1019b1a6e1c7216a5333b
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`width`** schreibgeschützte Eigenschaft der [`SVGFilterElement`](/de/docs/Web/API/SVGFilterElement)-Schnittstelle beschreibt die horizontale Größe einer SVG-Filterprimitive als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die schreibgeschützte **`width`**-Eigenschaft des [`SVGFilterElement`](/de/docs/Web/API/SVGFilterElement)-Interfaces beschreibt die horizontale Größe einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGAttr("width")}}-Attribut des {{SVGElement("filter")}}-Elements wider. Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) relativ zur Breite der Filterregion. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzersystemkoordinateneinheiten.
+Sie spiegelt das {{SVGAttr("width")}}-Attribut des {{SVGElement("filter")}}-Elements wider. Das Attribut ist entweder eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) relativ zur Breite des Filterbereichs. Der Standardwert ist `100%`. Der Wert der Eigenschaft ist eine Länge in Einheiten des Benutzerskoordinatensystems.
 
 ## Wert
 
@@ -34,7 +34,7 @@ console.log(horizontalSize.baseVal.value); // the `width` value
 
 ## Siehe auch
 
-- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
-- [SVG-Filterprimitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
-- CSS {{cssxref("blend-mode")}} Datentyp
-- CSS {{cssxref("mix-blend-mode")}} Eigenschaft
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Filterprimitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
+- CSS-Datentyp {{cssxref("blend-mode")}}
+- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}

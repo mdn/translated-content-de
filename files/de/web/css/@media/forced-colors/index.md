@@ -2,31 +2,31 @@
 title: forced-colors
 slug: Web/CSS/@media/forced-colors
 l10n:
-  sourceCommit: 4b465e22616ac4bc5aedb821453e15a9fea73e90
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{CSSRef}}
 
-Das **`forced-colors`** [CSS](/de/docs/Web/CSS) [Medienfeature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um festzustellen, ob der {{Glossary("user_agent", "Benutzeragent")}} einen Modus für erzwungene Farben aktiviert hat, bei dem eine vom Benutzer gewählte begrenzte Farbpalette auf der Seite erzwungen wird. Ein Beispiel für einen Modus für erzwungene Farben ist der Hochkontrastmodus von Windows.
+Das **`forced-colors`** [CSS](/de/docs/Web/CSS) [Medienfeature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob der {{Glossary("user_agent", "User Agent")}} einen Modus mit erzwungenen Farben aktiviert hat, bei dem eine vom Benutzer gewählte, beschränkte Farbpalette auf der Seite erzwungen wird. Ein Beispiel für einen Modus mit erzwungenen Farben ist der Windows High Contrast-Modus.
 
 ## Syntax
 
-Das Medienfeature `forced-colors` gibt an, ob der Browser sich derzeit im Modus für erzwungene Farben befindet.
+Das `forced-colors` Medienfeature gibt an, ob der Browser derzeit im Modus mit erzwungenen Farben ist.
 
 ### Werte
 
 - `none`
-  - : Der Modus für erzwungene Farben ist nicht aktiv; die Farben der Seite werden nicht in eine begrenzte Palette gezwungen.
+  - : Der Modus mit erzwungenen Farben ist nicht aktiv; die Farben der Seite werden nicht in eine beschränkte Palette gezwungen.
 - `active`
-  - : Zeigt an, dass der Modus für erzwungene Farben aktiv ist. Der Browser stellt den Autoren die Farbpalette über die [CSS-Systemfarben](/de/docs/Web/CSS/system-color) Schlüsselwörter zur Verfügung und löst, falls zutreffend, den entsprechenden Wert von [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) aus, damit Autoren die Seite anpassen können. Der Browser wählt den Wert für `prefers-color-scheme` basierend auf der Helligkeit der `Canvas`-Systemfarbe (siehe die [Spezifikation zur Farbkorrektur](https://www.w3.org/TR/css-color-adjust-1/#forced) für weitere Details).
+  - : Gibt an, dass der Modus mit erzwungenen Farben aktiv ist. Der Browser stellt den Autoren die Farbpalette über die Keywords der [CSS-Systemfarben](/de/docs/Web/CSS/system-color) zur Verfügung und löst, falls zutreffend, den entsprechenden Wert von [`prefers-color-scheme`](/de/docs/Web/CSS/@media/prefers-color-scheme) aus, damit Autoren die Seite anpassen können. Der Browser wählt den Wert für `prefers-color-scheme` basierend auf der Helligkeit der `Canvas`-Systemfarbe (siehe die [color adjust Spec](https://www.w3.org/TR/css-color-adjust-1/#forced) für weitere Details).
 
-## Anwendungshinweise
+## Nutzungshinweise
 
-### Eigenschaften, die vom Modus für erzwungene Farben betroffen sind
+### Eigenschaften, die vom Modus mit erzwungenen Farben betroffen sind
 
-Im Modus für erzwungene Farben werden die Werte der folgenden Eigenschaften so behandelt, als ob sie keine autorenspezifischen Werte angegeben hätten. Das heißt, es werden browserdefinierte Werte verwendet. Die browserdefinierten Werte beeinflussen nicht die Stil-Kaskade; die Werte werden stattdessen vom Browser zur Malzeit erzwungen.
+Im Modus mit erzwungenen Farben werden die Werte der folgenden Eigenschaften so behandelt, als ob sie keine Werte auf Autorenebene spezifiziert hätten. Das heißt, vom Browser spezifizierte Werte werden stattdessen verwendet. Die vom Browser spezifizierten Werte beeinflussen nicht die Stil-Kaskade; die Werte werden stattdessen vom Browser zur Malzeit erzwungen.
 
-Diese browserdefinierten Werte werden aus dem Satz von Systemfarben ausgewählt – dies gewährleistet einen konsistenten Kontrast für häufige UI-Elemente für Benutzer, die erzwungene Farben aktiviert haben.
+Diese vom Browser spezifizierten Werte werden aus dem Satz von Systemfarben ausgewählt — das stellt einen konsistenten Kontrast für allgemeine UI-Elemente sicher, wenn Benutzer erzwungene Farben aktiviert haben.
 
 - {{cssxref("color")}}
 - {{cssxref("background-color")}}
@@ -36,51 +36,51 @@ Diese browserdefinierten Werte werden aus dem Satz von Systemfarben ausgewählt 
 - {{cssxref("outline-color")}}
 - {{cssxref("column-rule-color")}}
 - {{cssxref("-webkit-tap-highlight-color")}}
-- [SVG fill Attribut](/de/docs/Web/SVG/Attribute/fill)
-- [SVG stroke Attribut](/de/docs/Web/SVG/Attribute/stroke)
+- [SVG fill-Attribut](/de/docs/Web/SVG/Reference/Attribute/fill)
+- [SVG stroke-Attribut](/de/docs/Web/SVG/Reference/Attribute/stroke)
 
-Zusätzlich haben die folgenden Eigenschaften ein besonderes Verhalten im Modus für erzwungene Farben:
+Zusätzlich haben die folgenden Eigenschaften ein spezielles Verhalten im Modus mit erzwungenen Farben:
 
-- {{cssxref("box-shadow")}} wird auf 'none' gesetzt
-- {{cssxref("text-shadow")}} wird auf 'none' gesetzt
-- {{cssxref("background-image")}} wird für Werte, die nicht auf URLs basieren, auf 'none' gesetzt
-- {{cssxref("color-scheme")}} wird auf 'light dark' gesetzt
-- {{cssxref("scrollbar-color")}} wird auf 'auto' gesetzt
+- {{cssxref("box-shadow")}} wird auf 'none' erzwungen
+- {{cssxref("text-shadow")}} wird auf 'none' erzwungen
+- {{cssxref("background-image")}} wird auf 'none' für Werte, die nicht URL-basiert sind, erzwungen
+- {{cssxref("color-scheme")}} wird auf 'light dark' erzwungen
+- {{cssxref("scrollbar-color")}} wird auf 'auto' erzwungen
 
-Die Systemfarben, die für die oben genannten Eigenschaften erzwungen werden, hängen vom Kontext des Elements ab. Zum Beispiel wird die {{cssxref("color")}}-Eigenschaft auf einem Button-Element auf `ButtonText` gesetzt. Bei normalem Text wird sie auf `CanvasText` gesetzt. Siehe die [Liste der Systemfarben](/de/docs/Web/CSS/system-color) für zusätzliche Details, wann welche Farben in verschiedenen UI-Kontexten angemessen sein könnten.
+Die Systemfar, die für die oben genannten Eigenschaften erzwungen wird, hängt vom Kontext des Elements ab. Zum Beispiel wird die {{cssxref("color")}} Eigenschaft auf einem Button-Element auf `ButtonText` erzwungen. Auf normalem Text wird es auf `CanvasText` erzwungen. Sehen Sie die [Liste der Systemfarben](/de/docs/Web/CSS/system-color) für weitere Details, wann welche in verschiedenen UI-Kontexten geeignet ist.
 
 > [!NOTE]
-> Benutzeragenten wählen Systemfarben basierend auf den nativen Element-Semantiken, _nicht_ auf hinzugefügten ARIA-Rollen.
-> Ein Beispiel: Das Hinzufügen von `role="button"` zu einem `div` wird **nicht** dazu führen, dass die Farbe eines Elements auf `ButtonText` erzwungen wird.
+> User Agents wählen Systemfarben basierend auf nativen Elementsemantiken, _nicht_ basierend auf hinzugefügten ARIA-Rollen.
+> Zum Beispiel wird das Hinzufügen von `role="button"` zu einem `div` **nicht** dazu führen, dass die Farbe eines Elements auf `ButtonText` erzwungen wird.
 
-Zusätzlich zu diesen Anpassungen helfen Browser dabei, die Lesbarkeit von Text zu gewährleisten, indem sie "Hintergrundplatten" hinter Text zeichnen. Dies ist besonders wichtig, um den Kontrast zu erhalten, wenn Text auf Bildern platziert wird.
+Zusätzlich zu diesen Anpassungen unterstützen Browser die Lesbarkeit von Text, indem sie "Rückplatten" hinter dem Text zeichnen. Dies ist besonders wichtig, um den Kontrast zu erhalten, wenn Text über Bildern platziert wird.
 
-Es gibt einige Fälle, in denen der Benutzeragent die Werte für die oben genannten Eigenschaften nicht erzwingt:
+Es gibt einige Fälle, in denen der User Agent die Werte für die oben genannten Eigenschaften nicht erzwingt:
 
-Wenn {{cssxref("forced-color-adjust")}} auf `none` für ein Element gesetzt ist, werden keine erzwungenen Farbwerte angewendet, und Autorenstile werden normal angewendet. Außerdem wird die Hintergrundplatte für Text deaktiviert.
+Wenn {{cssxref("forced-color-adjust")}} auf `none` für ein Element gesetzt ist, werden keine der erzwungenen Farbwerte angewendet, und Autorenstile werden wie gewohnt angewendet. Zusätzlich wird die Rückplatte für Text deaktiviert.
 
-Wenn {{cssxref("forced-color-adjust")}} auf `preserve-parent-color` für ein Element gesetzt ist und der {{cssxref("color")}}-Wert des Elements nicht von seinem Elternteil geerbt wird, dann wird das Element so behandelt, als ob `preserve-parent-color` auf `none` gesetzt wäre.
+Wenn {{cssxref("forced-color-adjust")}} auf `preserve-parent-color` auf einem Element gesetzt ist und der {{cssxref("color")}} Wert des Elements nicht von seinem Elternteil erbt, dann verhält sich das Element so, als wäre `preserve-parent-color` auf `none` gesetzt.
 
-Wenn eine [Systemfarbe](/de/docs/Web/CSS/system-color) angegeben ist, wird sie anstelle des Werts verwendet, der ansonsten erzwungen worden wäre.
+Wenn eine [Systemfarbe](/de/docs/Web/CSS/system-color) spezifiziert ist, wird sie anstelle des Wertes verwendet, der sonst erzwungen worden wäre.
 
-Sie können auch Systemfarben mit jeder _anderen_ Eigenschaft als denen, die oben aufgeführt sind, verwenden, um sicherzustellen, dass der Rest der Seite in die eingeschränkte Farbpalette im Modus für erzwungene Farben integriert wird.
+Sie können auch Systemfarben mit jeder anderen Eigenschaft _außer_ den oben aufgeführten verwenden, um sicherzustellen, dass der Rest der Seite mit der eingeschränkten Farbpalette im Modus mit erzwungenen Farben integriert wird.
 
-### Barrierefreiheit
+### Barrierefreiheitsaspekte
 
-Im Allgemeinen sollten Webautoren **nicht** das Medienfeature `forced-colors` verwenden, um ein separates Design für Benutzer mit aktivierter Funktion zu erstellen. Stattdessen ist es beabsichtigt, kleine Anpassungen vorzunehmen, um die Benutzerfreundlichkeit oder Lesbarkeit zu verbessern, wenn die standardmäßige Anwendung von erzwungenen Farben für einen bestimmten Teil einer Seite nicht gut funktioniert.
+Im Allgemeinen sollten Webautoren **nicht** das `forced-colors` Medienfeature verwenden, um ein separates Design für Benutzer mit dieser Funktion zu erstellen. Stattdessen soll es verwendet werden, um kleine Anpassungen vorzunehmen, um die Benutzerfreundlichkeit oder Lesbarkeit zu verbessern, wenn die Standardanwendung von erzwungenen Farben für einen bestimmten Teil einer Seite nicht gut funktioniert.
 
-Der hohe Kontrast, der durch die reduzierte Palette des Modus für erzwungene Farben und die Hintergrundplatten bereitgestellt wird, ist oft entscheidend dafür, dass manche Benutzer eine bestimmte Website lesen oder nutzen können. Daher sollten Anpassungen, die Inhalte betreffen, sorgfältig ausgewählt und auf Inhalte ausgerichtet werden, die ansonsten nicht lesbar sind.
+Der hohe Kontrast, den der Modus mit erzwungenen Farben durch die reduzierte Palette und Rückplatten hinter dem Text bietet, ist oft unerlässlich, damit einige Benutzer eine bestimmte Website lesen oder verwenden können, daher sollten Anpassungen, die Inhalte betreffen, sorgfältig ausgewählt und auf Inhalte ausgerichtet werden, die sonst nicht lesbar sind.
 
 ### Benutzerpräferenzen
 
-Dieses Medienfeature ist nur aktiv, wenn der Benutzer in seinem Betriebssystem Farbpräferenzen aktiviert hat. Ein Beispiel für eine solche Funktion ist der Hochkontrastmodus unter Windows.
+Dieses Medienfeature ist nur aktiv, wenn der Benutzer Farbschema-Präferenzen in seinem Betriebssystem aktiviert hat. Ein Beispiel für eine solche Funktion ist der High Contrast-Modus in Windows.
 
 ## Beispiele
 
 > [!NOTE]
-> Das untenstehende Beispiel funktioniert nur, wenn Sie einen Browser verwenden, der dieses Medienfeature unterstützt, und mit einer Präferenz wie dem Hochkontrastmodus in Ihrem Betriebssystem aktiviert.
+> Das untenstehende Beispiel funktioniert nur, wenn ein Browser verwendet wird, der dieses Medienfeature unterstützt und mit einer Präferenz wie dem High Contrast-Modus in Ihrem Betriebssystem aktiviert ist.
 
-Dieses Beispiel ist ein Button, der normalerweise seinen Kontrast über {{cssxref("box-shadow")}} erhält. Im Modus für erzwungene Farben wird `box-shadow` auf none gesetzt, daher verwendet das Beispiel das Medienfeature `forced-colors`, um sicherzustellen, dass ein Rand der entsprechenden Farbe vorhanden ist (in diesem Fall ButtonText).
+Dieses Beispiel ist ein Button, dessen Kontrast normalerweise über {{cssxref("box-shadow")}} erzielt wird. Im Modus mit erzwungenen Farben wird der Box-Shadow auf none erzwungen, daher verwendet das Beispiel das forced-colors Medienfeature, um sicherzustellen, dass ein Rand der entsprechenden Farbe (ButtonText in diesem Fall) vorhanden ist.
 
 ### HTML
 
@@ -122,5 +122,5 @@ Dieses Beispiel ist ein Button, der normalerweise seinen Kontrast über {{cssxre
 ## Siehe auch
 
 - [@media](/de/docs/Web/CSS/@media)
-- [Styling für Windows Hochkontrast mit Standards für erzwungene Farben.](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/)
+- [Styling für Windows High Contrast mit Standards für erzwungene Farben.](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/)
 - {{cssxref("forced-color-adjust")}}

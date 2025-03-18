@@ -3,14 +3,14 @@ title: "SVGEllipseElement: cy-Eigenschaft"
 short-title: cy
 slug: Web/API/SVGEllipseElement/cy
 l10n:
-  sourceCommit: 790d45bc5a147380bf7ae78e4e229038e5ce8b98
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`cy`**-Eigenschaft der Schnittstelle [`SVGEllipseElement`](/de/docs/Web/API/SVGEllipseElement) beschreibt die y-Achsen-Koordinate des Mittelpunkts der Ellipse als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("cy")}}-Attributs am {{SVGElement("ellipse")}}-Element wider.
+Die schreibgeschützte **`cy`**-Eigenschaft der [`SVGEllipseElement`](/de/docs/Web/API/SVGEllipseElement)-Schnittstelle beschreibt die y-Achsen-Koordinate des Mittelpunkts der Ellipse als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("cy")}}-Attributs auf dem {{SVGElement("ellipse")}}-Element wider.
 
-Der Attributwert ist eine [`\<length>`](/de/docs/Web/SVG/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage), oder [`\<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Mittelpunkts der Ellipse im Benutzerkoordinatensystem.
+Der Attributwert ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Mittelpunkts der Ellipse im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Angenommen, folgendes SVG:
+Angenommen, wir haben das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@ Angenommen, folgendes SVG:
 </svg>
 ```
 
-Wir können auf die berechneten Werte der `cy`-Attribute zugreifen:
+Wir können die berechneten Werte der `cy`-Attribute abrufen:
 
 ```js
 const ellipses = document.querySelectorAll("ellipse");

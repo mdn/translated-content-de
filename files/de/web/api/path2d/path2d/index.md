@@ -3,13 +3,14 @@ title: "Path2D: Path2D() Konstruktor"
 short-title: Path2D()
 slug: Web/API/Path2D/Path2D
 l10n:
-  sourceCommit: daeff1a2efaae366bcc8b6d911d86985646e665e
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
 Der **`Path2D()`** Konstruktor gibt ein neu instanziiertes
-`Path2D` Objekt zurück, optional mit einem anderen Pfad als Argument (erstellt eine Kopie) oder optional mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorial/Paths)-Daten besteht.
+`Path2D`-Objekt zurück, optional mit einem anderen Pfad als Argument (erstellt eine
+Kopie) oder optional mit einer Zeichenkette, die aus [SVG-Pfad-Daten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths) besteht.
 
 ## Syntax
 
@@ -22,17 +23,17 @@ new Path2D(d)
 ### Parameter
 
 - `path` {{optional_inline}}
-  - : Bei Aufruf mit einem anderen `Path2D` Objekt wird eine Kopie des
+  - : Wenn mit einem anderen `Path2D`-Objekt aufgerufen, wird eine Kopie des
     `path`-Arguments erstellt.
 - `d` {{optional_inline}}
-  - : Bei Aufruf mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorial/Paths)-Daten besteht, wird ein neuer Pfad
+  - : Wenn mit einer Zeichenkette, die aus [SVG-Pfad-Daten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths) besteht, aufgerufen, wird ein neuer Pfad
     aus dieser Beschreibung erstellt.
 
 ## Beispiele
 
 ### Erstellen und Kopieren von Pfaden
 
-Dieses Beispiel erstellt und kopiert einen `Path2D` Pfad.
+Dieses Beispiel erstellt und kopiert einen `Path2D`-Pfad.
 
 ```html hidden
 <canvas id="canvas"></canvas>
@@ -54,12 +55,11 @@ ctx.stroke(path2);
 
 {{ EmbedLiveSample('Creating_and_copying_paths', 700, 180) }}
 
-### Verwenden von SVG-Pfaden
+### Verwendung von SVG-Pfaden
 
-Dieses Beispiel erstellt einen `Path2D` Pfad unter Verwendung von [SVG-Pfad-Daten](/de/docs/Web/SVG/Tutorial/Paths). Der Pfad bewegt sich zu
-Punkt (`M10 10`) und dann 80 Punkte horizontal nach rechts
+Dieses Beispiel erstellt einen `Path2D`-Pfad unter Verwendung von [SVG-Pfad-Daten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths). Der Pfad wird zum Punkt (`M10 10`) bewegt und dann horizontal 80 Punkte nach rechts
 (`h 80`), dann 80 Punkte nach unten (`v 80`), dann 80 Punkte nach links
-(`h -80`) und schließlich zurück zum Start (`Z`).
+(`h -80`) und dann zurück zum Start (`Z`).
 
 ```html hidden
 <canvas id="canvas"></canvas>

@@ -1,16 +1,16 @@
 ---
 title: "SVGRectElement: y-Eigenschaft"
-short-title: y
+short-title: "y"
 slug: Web/API/SVGRectElement/y
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y`**-Eigenschaft (nur lesbar) des [`SVGRectElement`](/de/docs/Web/API/SVGRectElement)-Interfaces beschreibt die vertikale Koordinate der Position eines SVG-Rechtecks als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Das `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die die angegebene Entfernung vom Ursprung des Benutzerkoordinatensystems entlang der y-Achse darstellt. Die Syntax entspricht der für [`<length>`](/de/docs/Web/SVG/Content_type#length).
+Die **`y`** schreibgeschützte Eigenschaft der [`SVGRectElement`](/de/docs/Web/API/SVGRectElement)-Schnittstelle beschreibt die vertikale Koordinate der Position eines SVG-Rechtecks als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Das `<coordinate>` ist eine Länge im Benutzerskoordinatensystem, die den angegebenen Abstand vom Ursprung des Benutzerskoordinatensystems entlang der y-Achse darstellt. Seine Syntax ist dieselbe wie die für [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length).
 
-Sie spiegelt den geometrischen Attributwert {{SVGElement("rect")}}-Elements {{SVGAttr("y")}} wider. Die CSS-Eigenschaft {{cssxref("y")}} hat Vorrang vor dem SVG-`y`-Attribut. Daher spiegelt der Wert möglicherweise nicht das Erscheinungsbild des Elements wider. Der Standardwert ist `0`.
+Sie spiegelt den geometrischen Attributwert {{SVGElement("rect")}} des Elements {{SVGAttr("y")}} wider. Die CSS-Eigenschaft {{cssxref("y")}} hat Vorrang vor dem SVG-Attribut `y`, sodass der Wert möglicherweise nicht das Erscheinungsbild des Elements widerspiegelt. Der Standardwert ist `0`.
 
 ## Wert
 

@@ -2,21 +2,21 @@
 title: SVGAnimatedAngle
 slug: Web/API/SVGAnimatedAngle
 l10n:
-  sourceCommit: 6db682e5b5717b90a47135134434191c265970d8
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-## SVG-animierte Winkel-Schnittstelle
+## Überblick über die Schnittstelle
 
-Die `SVGAnimatedAngle`-Schnittstelle wird für Attribute des Basistyps [\<angle>](/de/docs/Web/SVG/Content_type#angle) verwendet, die animiert werden können.
+Die `SVGAnimatedAngle`-Schnittstelle wird für Attribute des Basistyps [\<angle>](/de/docs/Web/SVG/Guides/Content_type#angle) verwendet, die animiert werden können.
 
 ### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Ebenfalls implementiert</th>
+      <th scope="row">Implementiert auch</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -63,14 +63,19 @@ Die `SVGAnimatedAngle`-Schnittstelle wird für Attribute des Basistyps [\<angle>
       <td><code>[`SVGAnimatedAngle.baseVal`](/de/docs/Web/API/SVGAnimatedAngle/baseVal)</code></td>
       <td>[`SVGAngle`](/de/docs/Web/API/SVGAngle)</td>
       <td>
-        Der Basiswert des angegebenen Attributs, bevor Animationen angewendet werden.
+        Der Basiswert des gegebenen Attributs vor dem Anwenden von Animationen.
       </td>
     </tr>
     <tr>
       <td><code>[`SVGAnimatedAngle.animVal`](/de/docs/Web/API/SVGAnimatedAngle/animVal)</code></td>
       <td>[`SVGAngle`](/de/docs/Web/API/SVGAngle)</td>
       <td>
-        Ein schreibgeschützter [`SVGAngle`](/de/docs/Web/API/SVGAngle), der den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, hat der [`SVGAngle`](/de/docs/Web/API/SVGAngle) denselben Inhalt wie <code>baseVal</code>. Das von <code>animVal</code> referenzierte Objekt ist immer von demjenigen, das von <code>baseVal</code> referenziert wird, verschieden, selbst wenn das Attribut nicht animiert ist.
+        Ein schreibgeschützter [`SVGAngle`](/de/docs/Web/API/SVGAngle), der den aktuellen
+        animierten Wert des gegebenen Attributs darstellt. Wenn das gegebene Attribut derzeit
+        nicht animiert wird, hat der [`SVGAngle`](/de/docs/Web/API/SVGAngle) denselben Inhalt wie
+        <code>baseVal</code>. Das durch <code>animVal</code> referenzierte Objekt wird immer
+        vom durch <code>baseVal</code> referenzierten Objekt unterscheidbar sein, auch wenn
+        das Attribut nicht animiert ist.
       </td>
     </tr>
   </tbody>

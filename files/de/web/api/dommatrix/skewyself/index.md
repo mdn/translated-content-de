@@ -1,16 +1,16 @@
 ---
-title: "DOMMatrix: skewYSelf() Methode"
+title: "DOMMatrix: Methode skewYSelf()"
 short-title: skewYSelf()
 slug: Web/API/DOMMatrix/skewYSelf
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die `skewYSelf()`-Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Schnittstelle ist eine veränderbare Transformationsmethode, die eine Matrix modifiziert. Sie verzerrt die Quellmatrix, indem sie die angegebene Schrägungs-Transformation entlang der Y-Achse anwendet und die verzerrte Matrix zurückgibt.
+Die `skewYSelf()`-Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Schnittstelle ist eine veränderbare Transformationsmethode, die eine Matrix modifiziert. Sie verzerrt die Quellmatrix, indem sie die angegebene Schertransformation entlang der Y-Achse anwendet und die verzerrte Matrix zurückgibt.
 
-Um eine Matrix entlang der Y-Achse zu schrägen, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.skewY()`](/de/docs/Web/API/DOMMatrixReadOnly/skewY).
+Um eine Matrix entlang der Y-Achse zu verzerren, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.skewY()`](/de/docs/Web/API/DOMMatrixReadOnly/skewY).
 
 ## Syntax
 
@@ -22,11 +22,11 @@ skewYSelf(sY)
 ### Parameter
 
 - `sY`
-  - : Eine Zahl; der Winkel in Grad, um den die Matrix entlang der Y-Achse geschrägt werden soll.
+  - : Eine Zahl; der Winkel in Grad, um den die Matrix entlang der Y-Achse verzerrt wird.
 
 ### Rückgabewert
 
-Gibt sich selbst zurück; die [`DOMMatrix`](/de/docs/Web/API/DOMMatrix), die entlang der Y-Achse um den angegebenen Winkel geschrägt ist.
+Gibt sich selbst zurück; die entlang der Y-Achse um den gegebenen Winkel verzerrte [`DOMMatrix`](/de/docs/Web/API/DOMMatrix).
 
 ## Beispiele
 
@@ -48,14 +48,14 @@ console.log(matrix); // output: "matrix(1, -0.25, 0, 1, 0, 0)"
 ## Siehe auch
 
 - [`DOMMatrixReadOnly.skewY()`](/de/docs/Web/API/DOMMatrixReadOnly/skewY)
-- CSS-Eigenschaft {{cssxref("transform")}}
-- CSS-Funktionen {{cssxref("transform-function")}}
+- CSS {{cssxref("transform")}}-Eigenschaft
+- CSS {{cssxref("transform-function")}}-Funktionen
   - {{cssxref("transform-function/skew", "skew()")}}
   - {{cssxref("transform-function/skewX", "skewX()")}}
   - {{cssxref("transform-function/skewY", "skewY()")}}
   - {{cssxref("transform-function/skewZ", "skewZ()")}}
-- [CSS-Transforms](/de/docs/Web/CSS/CSS_transforms) Modul
-- SVG-Attribut [`transform`](/de/docs/Web/SVG/Attribute/transform)
+- Modul [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms)
+- SVG [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform)-Attribut
 - Methoden der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Schnittstelle
   - [`CanvasRenderingContext2D.transform()`](/de/docs/Web/API/CanvasRenderingContext2D/transform)
   - [`CanvasRenderingContext2D.setTransform()`](/de/docs/Web/API/CanvasRenderingContext2D/setTransform)

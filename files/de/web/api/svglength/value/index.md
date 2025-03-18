@@ -3,14 +3,14 @@ title: "SVGLength: value-Eigenschaft"
 short-title: value
 slug: Web/API/SVGLength/value
 l10n:
-  sourceCommit: 59c2a6eb9c36970aaef347707c8dcf6fbcc14499
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die `value`-Eigenschaft des [`SVGLength`](/de/docs/Web/API/SVGLength)-Interfaces repräsentiert den Gleitkommawert der [\<length>](/de/docs/Web/SVG/Content_type#length) in Benutzereinheiten.
+Die `value`-Eigenschaft des [`SVGLength`](/de/docs/Web/API/SVGLength)-Interface repräsentiert den Gleitkommawert der [\<length>](/de/docs/Web/SVG/Guides/Content_type#length) in Benutzereinheiten.
 
-Das Setzen dieses Attributs führt dazu, dass [`SVGLength.valueInSpecifiedUnits`](/de/docs/Web/API/SVGLength/valueInSpecifiedUnits) und [`SVGLength.valueAsString`](/de/docs/Web/API/SVGLength/valueAsString) automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
+Das Setzen dieses Attributs wird dazu führen, dass [`SVGLength.valueInSpecifiedUnits`](/de/docs/Web/API/SVGLength/valueInSpecifiedUnits) und [`SVGLength.valueAsString`](/de/docs/Web/API/SVGLength/valueAsString) automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
 
 ## Wert
 

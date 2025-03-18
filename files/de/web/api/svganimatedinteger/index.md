@@ -2,16 +2,16 @@
 title: SVGAnimatedInteger
 slug: Web/API/SVGAnimatedInteger
 l10n:
-  sourceCommit: bc7875d9a6c405e47c6ee166b5acc2174515129f
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-## Schnittstelle für animierte Ganzzahlen in SVG
+## SVG-Schnittstelle für animierte Ganzzahlen
 
-Die `SVGAnimatedInteger`-Schnittstelle wird für Attribute des Basistyps [\<integer>](/de/docs/Web/SVG/Content_type#integer) verwendet, die animiert werden können.
+Die `SVGAnimatedInteger`-Schnittstelle wird für Attribute des Basistyps [\<integer>](/de/docs/Web/SVG/Guides/Content_type#integer) verwendet, die animiert werden können.
 
-### Übersicht der Schnittstelle
+### Übersicht über die Schnittstelle
 
 <table class="no-markdown">
   <tbody>
@@ -59,7 +59,7 @@ Die `SVGAnimatedInteger`-Schnittstelle wird für Attribute des Basistyps [\<inte
       <td><code>[`baseVal`](/de/docs/Web/API/SVGAnimatedInteger/baseVal)</code></td>
       <td>long</td>
       <td>
-        Der Grundwert des angegebenen Attributs vor Anwendung von Animationen.
+        Der Basiswert des angegebenen Attributs vor der Anwendung von Animationen.
       </td>
     </tr>
     <tr>

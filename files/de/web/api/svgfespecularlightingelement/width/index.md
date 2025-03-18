@@ -3,14 +3,14 @@ title: "SVGFESpecularLightingElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/SVGFESpecularLightingElement/width
 l10n:
-  sourceCommit: fdd5a169978046c3905a65b85dbf597fffca1a25
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`width`**-Eigenschaft der [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement)-Schnittstelle beschreibt die horizontale Größe eines SVG-Filter-Primitivs als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`width`**-Schreibgeschützte Eigenschaft des [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement) Schnittstelle beschreibt die horizontale Größe eines SVG-Filterprimitivs als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGAttr("width")}}-Attribut des {{SVGElement("feSpecularLighting")}}-Elements wider, das eine Quellgrafik unter Verwendung des Alphakanals als Bump-Map beleuchtet. Das Attribut ist eine [`\<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage)-Wert relativ zur Breite des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheit-Koordinatensystemeinheiten.
+Sie entspricht dem {{SVGAttr("width")}} Attribut des {{SVGElement("feSpecularLighting")}} Elements, das eine Quellgrafik unter Verwendung des Alphakanals als Bump-Map beleuchtet. Das Attribut ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage), relativ zur Breite des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheitensystem-Einheiten.
 
 ## Wert
 
@@ -36,4 +36,4 @@ console.log(horizontalSize.baseVal.value); // the `width` value
 
 - [`SVGFESpecularLightingElement.height`](/de/docs/Web/API/SVGFESpecularLightingElement/height)
 - [`SVGFEDiffuseLightingElement`](/de/docs/Web/API/SVGFEDiffuseLightingElement)
-- CSS {{cssxref("lighting-color")}}-Eigenschaft
+- CSS {{cssxref("lighting-color")}} Eigenschaft

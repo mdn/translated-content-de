@@ -1,16 +1,16 @@
 ---
 title: "SVGForeignObjectElement: y-Eigenschaft"
-short-title: y
+short-title: "y"
 slug: Web/API/SVGForeignObjectElement/y
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y`**-Schreibgeschützte Eigenschaft der [`SVGForeignObjectElement`](/de/docs/Web/API/SVGForeignObjectElement)-Schnittstelle beschreibt die y-Achsen-Koordinate des `<foreignObject>`-Elements. Sie gibt den berechneten Wert des {{SVGAttr("y")}}-Attributs auf dem {{SVGElement("foreignObject")}}-Element wieder.
+Die **`y`**-Schreibgeschützte Eigenschaft der Schnittstelle [`SVGForeignObjectElement`](/de/docs/Web/API/SVGForeignObjectElement) beschreibt die y-Achsen-Koordinate des `<foreignObject>`-Elements. Sie spiegelt den berechneten Wert des {{SVGAttr("y")}}-Attributs auf dem {{SVGElement("foreignObject")}}-Element wider.
 
-Der Attributwert ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage), oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des `<foreignObject>`-Elements im Benutzervkoordinatensystem.
+Der Attributwert ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder eine [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des `<foreignObject>`-Elements im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Angenommen, das folgende SVG:
+Angenommen, das folgende SVG ist gegeben:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@ Angenommen, das folgende SVG:
 </svg>
 ```
 
-Wir können die berechneten Werte der `y`-Attribute abrufen:
+Wir können auf die berechneten Werte der `y`-Attribute zugreifen:
 
 ```js
 const foreignObjects = document.querySelectorAll("foreignObject");

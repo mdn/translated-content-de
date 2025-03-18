@@ -1,16 +1,16 @@
 ---
 title: "SVGTextPositioningElement: y-Eigenschaft"
-short-title: y
+short-title: "y"
 slug: Web/API/SVGTextPositioningElement/y
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y`**-schreibgeschützte Eigenschaft des [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)-Interfaces beschreibt die y-Achsen-Koordinate des [`SVGTextElement`](/de/docs/Web/API/SVGTextElement), [`SVGTSpanElement`](/de/docs/Web/API/SVGTSpanElement) oder [`SVGTRefElement`](/de/docs/Web/API/SVGTRefElement) als eine [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList). Sie spiegelt das {{SVGAttr("y")}}-Attribut wider, welches die vertikale Position der einzelnen Textglyphen im Benutzerkoordinatensystem angibt.
+Die **`y`**-Eigenschaft der [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)-Schnittstelle beschreibt die y-Achsen-Koordinate des [`SVGTextElement`](/de/docs/Web/API/SVGTextElement), [`SVGTSpanElement`](/de/docs/Web/API/SVGTSpanElement) oder [`SVGTRefElement`](/de/docs/Web/API/SVGTRefElement) als ein [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList). Sie spiegelt die vertikale Position des {{SVGAttr("y")}}-Attributs der einzelnen Textglyphen im Benutzerkoordinatensystem wider.
 
-Der Attributwert ist eine Liste aus [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Die numerischen Werte in der [`SVGAnimatedLengthList.baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) spiegeln die y-Koordinaten im Benutzerkoordinatensystem wider.
+Der Attributwert ist eine Liste von [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Die numerischen Werte in der [`SVGAnimatedLengthList.baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) spiegeln die y-Koordinaten im Benutzerkoordinatensystem wider.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList).
 
 ## Beispiele
 
-Gegeben sei das folgende SVG:
+Gegeben das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

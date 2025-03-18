@@ -3,14 +3,14 @@ title: "SVGEllipseElement: rx-Eigenschaft"
 short-title: rx
 slug: Web/API/SVGEllipseElement/rx
 l10n:
-  sourceCommit: 790d45bc5a147380bf7ae78e4e229038e5ce8b98
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`rx`** schreibgeschützte Eigenschaft des [`SVGEllipseElement`](/de/docs/Web/API/SVGEllipseElement)-Interfaces beschreibt den Radius der Ellipse entlang der x-Achse als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("rx")}}-Attributs auf dem {{SVGElement("ellipse")}}-Element wider.
+Die **`rx`**-Schreibgeschützte Eigenschaft der [`SVGEllipseElement`](/de/docs/Web/API/SVGEllipseElement)-Schnittstelle beschreibt den Radius der Ellipse entlang der x-Achse als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("rx")}}-Attributs auf dem {{SVGElement("ellipse")}}-Element wider.
 
-Der Attributwert ist entweder ein [`\<length>`](/de/docs/Web/SVG/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist der Radius der Ellipse entlang der x-Achse im Nutzerkoordinatensystem.
+Der Attributwert kann ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number) sein. Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist der Radius der Ellipse entlang der x-Achse im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Angenommen, folgendes SVG:
+Bei folgendem SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@ Angenommen, folgendes SVG:
 </svg>
 ```
 
-Wir können auf die berechneten Werte der `rx`-Attribute zugreifen:
+Können wir auf die berechneten Werte der `rx`-Attribute zugreifen:
 
 ```js
 const ellipses = document.querySelectorAll("ellipse");

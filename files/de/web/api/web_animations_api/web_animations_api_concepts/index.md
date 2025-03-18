@@ -2,70 +2,70 @@
 title: Konzepte der Web Animations API
 slug: Web/API/Web_Animations_API/Web_Animations_API_Concepts
 l10n:
-  sourceCommit: 4f0f7386262363103a3e9cf482bb348d8570b331
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{DefaultAPISidebar("Web Animations")}}
 
-Die Web Animations API (WAAPI) bietet JavaScript-Entwicklern Zugang zur Animations-Engine des Browsers und beschreibt, wie Animationen in verschiedenen Browsern implementiert werden sollten. Dieser Artikel führt Sie in die wichtigen Konzepte hinter der WAAPI ein und bietet Ihnen ein theoretisches Verständnis davon, wie sie funktioniert, damit Sie sie effektiv nutzen können. Um zu lernen, wie Sie die API anwenden, schauen Sie sich den Schwesterartikel [Die Web Animations API verwenden](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API) an.
+Die Web Animations API (WAAPI) bietet JavaScript-Entwicklern Zugriff auf die Animations-Engine des Browsers und beschreibt, wie Animationen in verschiedenen Browsern implementiert werden sollten. Dieser Artikel wird Ihnen die wichtigen Konzepte hinter der WAAPI vorstellen, sodass Sie ein theoretisches Verständnis dafür bekommen, wie sie funktioniert, um sie effektiv nutzen zu können. Um zu erfahren, wie Sie die API in der Praxis einsetzen können, lesen Sie den entsprechenden Artikel [Verwendung der Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API).
 
-Die Web Animations API schließt die Lücke zwischen deklarativen CSS-Animationen und -Übergängen sowie dynamischen JavaScript-Animationen. Dies bedeutet, dass wir sie nutzen können, um CSS-ähnliche Animationen zu erstellen und zu manipulieren, die von einem vordefinierten Zustand zu einem anderen übergehen, oder dass wir Variablen, Schleifen und Callback-Funktionen nutzen können, um interaktive Animationen zu erschaffen, die sich anpassen und auf sich ändernde Eingaben reagieren.
+Die Web Animations API überbrückt die Lücke zwischen deklarativen CSS-Animationen und -Übergängen sowie dynamischen JavaScript-Animationen. Dies bedeutet, dass wir sie verwenden können, um CSS-ähnliche Animationen zu erstellen und zu manipulieren, die von einem vordefinierten Zustand in einen anderen übergehen, oder wir können Variablen, Schleifen und Rückrufe verwenden, um interaktive Animationen zu erstellen, die auf sich ändernde Eingaben reagieren und sich anpassen.
 
 ## Geschichte
 
-Vor über einem Jahrzehnt brachte die [Synchronized Multimedia Integration Language, oder SMIL](/de/docs/Web/SVG/SVG_animation_with_SMIL) (ausgesprochen „Smile“) Animationen zu SVG. Damals war es die einzige Animations-Engine, um die sich Browser kümmern mussten. Während vier von fünf Browsern SMIL unterstützten, wurden nur SVG-Elemente animiert, und es konnte nicht aus CSS heraus verwendet werden, was oft zu inkonsistenten Implementierungen führte. Zehn Jahre später führte das Safari-Team die Spezifikationen für [CSS-Animationen](https://drafts.csswg.org/css-animations/) und [CSS-Übergänge](https://drafts.csswg.org/css-transitions/) ein.
+Vor über einem Jahrzehnt brachte [Synchronized Multimedia Integration Language, oder SMIL](/de/docs/Web/SVG/Guides/SVG_animation_with_SMIL) (ausgesprochen „smile“), Animationen zu SVG. Damals war es die einzige Animations-Engine, mit der sich Browser beschäftigen mussten. Während vier von fünf Browsern SMIL unterstützten, animierte es nur SVG-Elemente, konnte nicht von CSS aus verwendet werden, und war sehr komplex – was oft zu inkonsistenten Implementierungen führte. Zehn Jahre später führte das Safari-Team die Spezifikationen für [CSS-Animationen](https://drafts.csswg.org/css-animations/) und [CSS-Übergänge](https://drafts.csswg.org/css-transitions/) ein.
 
-Das Internet Explorer-Team forderte eine Animations-API, um die Animationsfunktionalität in allen Browsern zu konsolidieren und zu normalisieren, und so begannen die Bemühungen von Entwicklern bei Mozilla Firefox und Google Chrome, die eine alles umfassende Animationsspezifikation schaffen wollten: die Web Animations API. Jetzt haben wir die WAAPI, auf die zukünftige Animationsspezifikationen aufbauen können, sodass sie konsistent bleiben und gut zusammenspielen. Sie bietet auch einen Referenzpunkt, an den sich alle Browser mit den derzeit verfügbaren Spezifikationen halten können.
+Das Internet Explorer-Team stellte die Anfrage nach einer Animations-API, um Animationsfunktionen über alle Browser hinweg zu konsolidieren und zu normieren. So wurden ernsthafte Bemühungen unter den Entwicklern von Mozilla Firefox und Google Chrome unternommen, die eine Animationsspezifikation schaffen sollten: die Web Animations API. Jetzt haben wir die WAAPI für zukünftige Animationsspezifikationen, die darauf aufbauen können, sodass sie konsistent bleiben und gut zusammenarbeiten. Sie bietet auch einen Bezugspunkt, an den sich alle Browser mit den derzeit verfügbaren Spezifikationen halten können.
 
-![Eine Illustration, die zeigt, wie die Web Animations API über CSS-Übergängen und -Animationen regiert sowie eine dritte Kategorie darstellt, die zukünftige Animationsspezifikationen mit einem Fragezeichen repräsentiert.](waapi_diagram_white.png)
+![Eine Illustration, die zeigt, wie die Web Animations API über CSS-Übergängen und -Animationen sowie einer dritten Kategorie künftiger Animationsspezifikationen mit einem Fragezeichen steht.](waapi_diagram_white.png)
 
-## Die zwei Modelle: Timing und Animation
+## Die Zwei Modelle: Timing und Animation
 
-Die Web Animations API läuft auf zwei Modellen, eines, das die Zeit behandelt—Timing—und eines, das visuelle Änderungen über die Zeit behandelt—Animation. Das Timing-Modell verfolgt, wie weit ein bestimmter Zeitstrahl vorangeschritten ist. Das Animationsmodell bestimmt, wie das animierte Objekt zu jedem gegebenen Zeitpunkt aussehen soll.
+Die Web Animations API basiert auf zwei Modellen: einem, das sich mit der Zeit befasst – das Timing-Modell – und einem, das sich mit visuellen Änderungen im Laufe der Zeit befasst – das Animationsmodell. Das Timing-Modell verfolgt, wie weit wir auf einer festgelegten Zeitachse gekommen sind. Das Animationsmodell bestimmt, wie das animierte Objekt zu jedem Zeitpunkt aussehen sollte.
 
 ### Timing
 
-Das Timing-Modell ist das Rückgrat für die Arbeit mit der WAAPI. Jedes Dokument hat eine Master-Zeitleiste, [`Document.timeline`](/de/docs/Web/API/Document/timeline), die vom Moment des Ladens der Seite bis unendlich reicht—oder bis das Fenster geschlossen wird. Entlang dieser Zeitleiste, entsprechend ihrer Dauer, sind unsere Animationen verteilt. Jede Animation ist an einem Punkt in der Zeitleiste durch ihre [`startTime`](/de/docs/Web/API/Animation/startTime) verankert, die den Moment entlang der Dokumentzeitlinie darstellt, an dem die Animation beginnt abzuspielen.
+Das Timing-Modell ist das Rückgrat bei der Arbeit mit der WAAPI. Jedes Dokument hat eine master timeline, [`Document.timeline`](/de/docs/Web/API/Document/timeline), die sich von dem Moment an erstreckt, in dem die Seite geladen wird, bis ins Unendliche – oder bis das Fenster geschlossen wird. Entlang dieser Zeitachse sind unsere Animationen entsprechend ihrer Dauer verteilt. Jede Animation ist an einem Punkt in der Zeitachse durch ihre [`startTime`](/de/docs/Web/API/Animation/startTime) verankert, die den Moment in der Zeitachse des Dokuments darstellt, in dem die Animation beginnt.
 
-Die gesamte Wiedergabe der Animation stützt sich auf diese Zeitleiste: Das Suchen der Animation bewegt die Position der Animation entlang der Zeitleiste; das Verlangsamen oder Beschleunigen der Wiedergabegeschwindigkeit verdichtet oder erweitert ihre Verteilung entlang der Zeitleiste; das Wiederholen der Animation reiht zusätzliche Iterationen davon entlang der Zeitachse auf. In Zukunft könnten wir Zeitleisten basierend auf Gesten oder Scrollposition oder sogar Eltern- und Kinderzeitleisten haben. Die Web Animations API eröffnet so viele Möglichkeiten!
+Die Wiedergabe der Animationen basiert auf dieser Zeitachse: Eine Animation zu suchen, bewegt ihre Position auf der Zeitachse; das Verlangsamen oder Beschleunigen der Wiedergabegeschwindigkeit verkürzt oder verlängert ihre Verteilung auf der Zeitachse; das Wiederholen der Animation reiht zusätzliche Iterationen entlang der Zeitachse auf. In Zukunft könnten wir Zeitachsen basierend auf Gesten oder Bildlaufpositionen haben oder sogar übergeordnete und untergeordnete Zeitachsen. Die Web Animations API eröffnet so viele Möglichkeiten!
 
 ### Animation
 
-Das Animationsmodell kann als ein Array von Schnappschüssen betrachtet werden, die zeigen, wie die Animation zu jedem gegebenen Zeitpunkt aussehen könnte, entlang der Dauer der Animation aufgereiht.
+Das Animationsmodell kann als eine Reihe von Schnappschüssen dessen angesehen werden, wie die Animation zu jedem Zeitpunkt aussehen könnte, die entlang der Dauer der Animation aufgereiht sind.
 
-![Eine Illustration, die zeigt, wie das Animationsmodell als eine Serie von Schnappschüssen visualisiert werden kann, arrangiert entlang einer Zeitleiste. In diesem Fall Bilder der Grinsekatze von 0 (da) bis zu 8 Sekunden (nicht ganz da—nur ihr Lächeln ist übrig geblieben).](waapi_timing_diagram_white.png)
+![Eine Illustration, die zeigt, wie das Animationsmodell als eine Reihe von Schnappschüssen entlang einer Zeitachse visualisiert werden kann. In diesem Fall Bilder der Grinsekatze, die von 0 (vorhanden) bis 8 Sekunden (nicht mehr da – nur ihr Lächeln ist noch vorhanden) reicht.](waapi_timing_diagram_white.png)
 
 ## Kernkonzepte
 
-Web-Animationen bestehen aus Zeitleistenobjekten, Animationsobjekten und Animationseffektobjekten, die zusammenarbeiten. Indem wir diese unterschiedlichen Objekte zusammenführen, können wir eigene Animationen erstellen.
+Web-Animationen bestehen aus Zeitachsenobjekten, Animationsobjekten und Animationseffektobjekten, die zusammenarbeiten. Durch die Zusammensetzung dieser unterschiedlichen Objekte können wir unsere eigenen Animationen erstellen.
 
-### Zeitleiste
+### Zeitachse
 
-Zeitleistenobjekte bieten die nützliche Eigenschaft [`currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime), die uns zeigt, wie lange die Seite bereits geöffnet ist: es ist die "aktuelle Zeit" der Zeitleiste des Dokuments, die beim Öffnen der Seite startete. Zum Zeitpunkt des Schreibens gibt es nur eine Art von Zeitleistenobjekt: dasjenige, das auf der Zeitleiste des aktiven Dokuments basiert. In Zukunft könnten wir Zeitleistenobjekte sehen, die der Länge der Seite entsprechen, vielleicht eine `ScrollTimeline`, oder völlig andere Dinge.
+Zeitachsenobjekte bieten die nützliche Eigenschaft [`currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime), mit der wir sehen können, wie lange die Seite bereits geöffnet ist: Es ist die "aktueller Zeitpunkt" der Zeitachse des Dokuments, die beim Öffnen der Seite begann. Zum Zeitpunkt dieses Schreibens gibt es nur eine Art von Zeitachsenobjekt: dasjenige, das auf der Zeitachse des aktiven Dokuments basiert [`timeline`](/de/docs/Web/API/Document/timeline). In Zukunft könnten wir Zeitachsenobjekte sehen, die der Länge der Seite entsprechen, vielleicht eine `ScrollTimeline`, oder ganz andere Dinge.
 
 ### Animation
 
-[Animationsobjekte](/de/docs/Web/API/Animation) können als DVD-Player vorgestellt werden: Sie werden zur Steuerung der Medienwiedergabe verwendet, aber ohne Medien zum Abspielen tun sie nichts. Animationsobjekte akzeptieren Medien in Form von Animationseffekten, speziell Schlüsselbild-Effekte (dazu kommen wir gleich). Wie ein DVD-Player können wir die Methoden des Animationsobjekts verwenden, um [abzuspielen](/de/docs/Web/API/Animation/play), [anzuhalten](/de/docs/Web/API/Animation/pause), [zu suchen](/de/docs/Web/API/Animation/currentTime) und [die Abspielrichtung der Animation zu steuern](/de/docs/Web/API/Animation/reverse) sowie [die Geschwindigkeit](/de/docs/Web/API/Animation/playbackRate).
+[Animationsobjekte](/de/docs/Web/API/Animation) können als DVD-Player vorgestellt werden: Sie werden verwendet, um die Medienwiedergabe zu steuern, aber ohne Medien zum Abspielen tun sie nichts. Animationsobjekte akzeptieren Medien in Form von Animationseffekten, speziell Keyframe-Effekten (dazu kommen wir in einem Moment). Wie ein DVD-Player können wir die Methoden des Animationsobjekts verwenden, um [abzuspielen](/de/docs/Web/API/Animation/play), [anzuhalten](/de/docs/Web/API/Animation/pause), [zu suchen](/de/docs/Web/API/Animation/currentTime) und [die Wiedergaberichtung der Animation zu steuern](/de/docs/Web/API/Animation/reverse) sowie [die Geschwindigkeit](/de/docs/Web/API/Animation/playbackRate).
 
-![Eine Abbildung vergleicht, wie eine Animation einen KeyframeEffect abspielt, wie ein DVD-Player eine DVD abspielt.](waapi_player_diagram_white.png)
+![Eine Illustration, die zeigt, wie eine Animation einen KeyframeEffekt abspielt, vergleichbar mit einem DVD-Player, der eine DVD abspielt.](waapi_player_diagram_white.png)
 
-### Animation Effect
+### Animationseffekt
 
-Wenn Animationsobjekte DVD-Player sind, können wir Animationseffekte oder Keyframe-Effekte als DVDs betrachten. Keyframe-Effekte sind ein Bündel von Informationen, die mindestens eine Reihe von Schlüsselbildern und die Dauer, über die sie animiert werden müssen, enthalten. Das Animationsobjekt nimmt diese Informationen und bildet zusammen mit dem Zeitlinienobjekt eine abspielbare Animation, die wir betrachten und referenzieren können.
+Wenn Animationsobjekte DVD-Player sind, können wir Animationseffekte oder Keyframe-Effekte als DVDs betrachten. Keyframe-Effekte sind ein Bündel von Informationen, das mindestens einen Satz von Schlüsseln und die Dauer enthält, über die sie animiert werden müssen. Das Animationsobjekt nimmt diese Informationen und erstellt zusammen mit dem Zeitachsenobjekt eine abspielbare Animation, die wir ansehen und referenzieren können.
 
-Derzeit haben wir nur einen Typ von Animationseffekt zur Verfügung: [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect). Potenziell könnten wir alle Arten von Animationseffekten in der Zukunft haben—z.B. Effekte zum Gruppieren und Sequenzieren, ähnlich wie Funktionen, die wir in Flash hatten. Tatsächlich wurden Gruppeneffekte und Sequenzeffekte bereits im derzeit in Arbeit befindlichen Level-2-Spec der Web Animations API skizziert.
+Derzeit haben wir nur einen Animations-Effekt-Typ zur Verfügung: [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect). Möglicherweise können wir in Zukunft alle Arten von Animationseffekten haben – z.B. Effekte zum Gruppieren und Sequenzieren, ähnlich den Funktionen, die wir in Flash hatten. Tatsächlich sind Group Effects und Sequence Effects bereits im derzeit in Arbeit befindlichen Level-2-Spezifikation der Web Animations API skizziert.
 
-### Die Animation aus unterschiedlichen Teilen zusammenfügen
+### Zusammensetzen der Animation aus verschiedenen Teilen
 
-Wir können all diese Teile zusammenfügen, um eine funktionierende Animation mit dem [`Animation()` Konstruktor](/de/docs/Web/API/Animation/Animation) zu erstellen oder wir können die [`Element.animate()`](/de/docs/Web/API/Element/animate) Kurzfunktion verwenden. (Lesen Sie mehr darüber, wie Sie `Element.animate()` verwenden, in [Die Web Animations API verwenden](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API).)
+Wir können all diese Teile zusammenfügen, um mit dem [`Animation()` Konstruktor](/de/docs/Web/API/Animation/Animation) eine funktionierende Animation zu erstellen, oder wir können die [`Element.animate()`](/de/docs/Web/API/Element/animate) Abkürzungsfunktion verwenden. (Lesen Sie mehr darüber, wie Sie `Element.animate()` verwenden, in [Verwendung der Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API).)
 
 ## Anwendungen
 
-Die API ermöglicht die Erstellung dynamischer Animationen, die im laufenden Betrieb aktualisiert werden können, sowie einfacherer, deklarativer Animationen wie der von CSS erstellten. Sie kann in automatisierten Tests verwendet werden, um sicherzustellen, dass Ihre UI-Animationen korrekt ausgeführt werden. Sie öffnet die Rendering-Engine des Browsers für den Aufbau von Animationstools wie Zeitleisten. Sie ist auch eine leistungsstarke Basis, auf der eine benutzerdefinierte oder kommerzielle Animationsbibliothek aufgebaut werden kann. (Siehe [Animieren wie es Ihnen egal ist mit Element.animate](https://hacks.mozilla.org/2016/08/animating-like-you-just-dont-care-with-element-animate/).) In einigen Fällen könnte sie die Notwendigkeit für eine vollständig entwickelte Bibliothek ganz negieren, ähnlich wie Vanilla-JavaScript ohne jQuery für viele Zwecke verwendet werden kann.
+Die API ermöglicht die Erstellung dynamischer Animationen, die in Echtzeit aktualisiert werden können, sowie einfacher, deklarativer Animationen, wie sie CSS erstellt. Sie kann in automatisierten Tests verwendet werden, um sicherzustellen, dass Ihre Benutzeroberflächenanimationen korrekt funktionieren. Sie öffnet die Render-Engine des Browsers für den Aufbau von Animationsentwicklungstools wie Zeitachsen. Sie ist auch eine leistungsstarke Grundlage für den Aufbau einer benutzerdefinierten oder kommerziellen Animationsbibliothek. (Siehe [Animating like you just don't care with Element.animate](https://hacks.mozilla.org/2016/08/animating-like-you-just-dont-care-with-element-animate/).) In einigen Fällen kann sie den Bedarf an einer vollständig entwickelten Bibliothek vollständig überflüssig machen, ähnlich wie Vanilla JavaScript in vielen Fällen ohne jQuery verwendet werden kann.
 
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API) — Hauptseite
-- [Die Web Animations API verwenden](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API) — Leitfaden
-- Die [vollständige Sammlung von Alice im Wunderland-Demos](https://codepen.io/collection/nqNJvD) auf CodePen zum Spielen, Forken und Teilen
+- [Verwendung der Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API) — Leitfaden
+- Die [vollständige Sammlung von Alice im Wunderland Demos](https://codepen.io/collection/nqNJvD) auf CodePen zum Spielen, Forken und Teilen
 - [web-animations-js](https://github.com/web-animations/web-animations-js) — das Web Animations API Polyfill

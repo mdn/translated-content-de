@@ -1,16 +1,16 @@
 ---
-title: "SVGPatternElement: y-Eigenschaft"
-short-title: y
+title: "SVGPatternElement: Eigenschaft y"
+short-title: "y"
 slug: Web/API/SVGPatternElement/y
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y`** schreibgeschützte Eigenschaft der [`SVGPatternElement`](/de/docs/Web/API/SVGPatternElement)-Schnittstelle beschreibt die y-Achsen-Koordinate des Startpunkts des Musters als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("y")}}-Attributs im {{SVGElement("pattern")}}-Element wider.
+Die **`y`** schreibgeschützte Eigenschaft der [`SVGPatternElement`](/de/docs/Web/API/SVGPatternElement)-Schnittstelle beschreibt die y-Achsen-Koordinate des Startpunkts des Musters als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("y")}}-Attributs auf dem {{SVGElement("pattern")}}-Element wider.
 
-Der Attributwert kann ein [`<length>`](/de/docs/Web/SVG/Content_type#length) (Länge), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) (Prozentsatz) oder [`<number>`](/de/docs/Web/SVG/Content_type#number) (Zahl) sein. Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Startpunkts des Musters im Benutzerkoordinatensystem.
+Der Attributwert kann ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number) sein. Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Startpunkts des Musters im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Gegeben ist folgendes SVG:
+Angenommen, folgendes SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

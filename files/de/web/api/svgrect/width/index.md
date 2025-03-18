@@ -3,16 +3,16 @@ title: "SVGRect: width-Eigenschaft"
 short-title: width
 slug: Web/API/SVGRect/width
 l10n:
-  sourceCommit: a7444882eb1b18918f3c924d83eb3c78f245643a
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
 Die **`width`**-Eigenschaft der [`SVGRect`](/de/docs/Web/API/SVGRect)-Schnittstelle ist ein Alias für die [`DOMRect.width`](/de/docs/Web/API/DOMRect/width)-Eigenschaft. Sie beschreibt die horizontale Größe des Elements. Sie spiegelt das {{SVGattr("width")}}-Attribut des SVG-Elements und die CSS-{{cssxref("width")}}-Eigenschaft wider.
 
-Die Breite ist eine Länge; sie ist der Abstand von der linken Seite des Elements bis zur rechten Seite des Elements im Benutzerkoordinatensystem. Ihre Syntax entspricht der von [`<length>`](/de/docs/Web/SVG/Content_type#length).
+Die Breite ist eine Länge; sie ist der Abstand von der linken zur rechten Seite des Elements im Benutzerkoordinatensystem. Die Syntax entspricht der für [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length).
 
-## Nutzungskontext
+## Verwendungskontext
 
 <table>
   <thead>
@@ -26,19 +26,19 @@ Die Breite ist eine Länge; sie ist der Abstand von der linken Seite des Element
       <td>Wert</td>
       <td>
         <code>
-        <a href="/de/docs/Web/SVG/Content_type#length">&#x3C;length></a
-        > | <a href="/de/docs/Web/SVG/Content_type#percentage"
+        <a href="/de/docs/Web/SVG/Guides/Content_type#length">&#x3C;length></a
+        > | <a href="/de/docs/Web/SVG/Guides/Content_type#percentage"
           >&#x3C;percentage></a
         >
         </code>
       </td>
     </tr>
     <tr>
-      <td>Initial</td>
+      <td>Initialwert</td>
       <td>0</td>
     </tr>
     <tr>
-      <td>Anwendbar auf</td>
+      <td>Gilt für</td>
       <td>
         {{ SVGElement("mask") }},
         {{ SVGElement("svg") }},
@@ -52,7 +52,7 @@ Die Breite ist eine Länge; sie ist der Abstand von der linken Seite des Element
       <td>nein</td>
     </tr>
     <tr>
-      <td>Prozentangaben</td>
+      <td>Prozentsätze</td>
       <td>
         beziehen sich auf die Größe des SVG-Viewports
       </td>

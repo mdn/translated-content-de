@@ -1,20 +1,20 @@
 ---
-title: "SVGFEConvolveMatrixElement: Ergebnis-Eigenschaft"
+title: "SVGFEConvolveMatrixElement: result-Eigenschaft"
 short-title: result
 slug: Web/API/SVGFEConvolveMatrixElement/result
 l10n:
-  sourceCommit: e0bf626da04e5e1e21373fe4011e20fdcaae62a0
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`result`** des [`SVGFEConvolveMatrixElement`](/de/docs/Web/API/SVGFEConvolveMatrixElement)-Interfaces beschreibt den zugewiesenen Namen eines SVG-Filterprimitivs als [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString).
+Die **`result`** Schreibgeschützte Eigenschaft des [`SVGFEConvolveMatrixElement`](/de/docs/Web/API/SVGFEConvolveMatrixElement)-Interfaces beschreibt den zugewiesenen Namen eines SVG-Filterprimitives als [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString).
 
-Sie spiegelt das {{SVGElement("feConvolveMatrix")}}-Elementattribut {{SVGAttr("result")}} wider. Der `<feConvolveMatrix>`-Filter wendet einen Matrixkonvolutionseffekt an, der Pixel im Eingabebild mit benachbarten Pixeln kombiniert, um einen Konvolutionseffekt wie Weichzeichnen, Kantenerkennung, Schärfen, Prägen oder Abfasen zu erzeugen.
+Sie spiegelt das {{SVGElement("feConvolveMatrix")}}-Element und dessen {{SVGAttr("result")}}-Attribut wider. Der `<feConvolveMatrix>`-Filter wendet einen Matrixkonvolutionseffekt an, der Pixel im Eingangsbild mit benachbarten Pixeln kombiniert, um einen Konvolutionseffekt wie Weichzeichnung, Kantenerkennung, Schärfung, Prägen oder Abschrägen zu erzeugen.
 
-Der Attributwert ist ein {{cssxref("custom-ident")}}. Falls angegeben, können Grafiken, die aus der Verarbeitung dieses Filterprimitivs resultieren, durch ein {{SVGAttr("in")}}-Attribut auf einem nachfolgenden Filterprimitiv innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden.
+Der Attributwert ist ein {{cssxref("custom-ident")}}. Wenn angegeben, können Grafiken, die aus der Verarbeitung dieses Filterprimitives resultieren, von einem {{SVGAttr("in")}}-Attribut in einem nachfolgenden Filterprimitive innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden.
 
-Wenn kein `result`-Attribut definiert ist, sind `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen, und die Ausgabe des `<feConvolveMatrix>`-Filters kann nur als implizite Eingabe in das nächste Filterprimitiv wiederverwendet werden, wenn dieses Filterprimitiv keinen Wert für sein `in`-Attribut bereitstellt.
+Wenn kein `result`-Attribut definiert ist, sind `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen, und die Ausgabe des `<feConvolveMatrix>`-Filters steht nur zur Wiederverwendung als impliziter Input für das nächste Filterprimitive zur Verfügung, falls dieses Filterprimitive keinen Wert für sein `in`-Attribut angibt.
 
 ## Wert
 
@@ -39,7 +39,7 @@ console.log(filterName.baseVal); // the filter's assigned name
 ## Siehe auch
 
 - [`SVGFEConvolveMatrixElement.in1`](/de/docs/Web/API/SVGFEConvolveMatrixElement/in1)
-- {{cssxref("custom-ident")}}-Datentyp
+- {{cssxref("custom-ident")}} Datentyp
 - [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)-Modul
 - SVG {{SVGElement("filter")}}-Element, SVG {{SVGAttr("filter")}}-Attribut in [SVG](/de/docs/Web/SVG)
-- [Anwenden von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Applying_SVG_effects_to_HTML_content)
+- [Anwendung von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)

@@ -1,20 +1,20 @@
 ---
-title: "SVGFECompositeElement: x-Eigenschaft"
+title: "SVGFECompositeElement: x Eigenschaft"
 short-title: x
 slug: Web/API/SVGFECompositeElement/x
 l10n:
-  sourceCommit: a5395de76cd0066aed71cf351029eb6e342b73d1
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`x`**-Eigenschaft der [`SVGFECompositeElement`](/de/docs/Web/API/SVGFECompositeElement)-Schnittstelle beschreibt die horizontale Koordinate der Position eines SVG-Filterprimitives als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`x`** schreibgeschützte Eigenschaft der [`SVGFECompositeElement`](/de/docs/Web/API/SVGFECompositeElement)-Schnittstelle beschreibt die horizontale Koordinate der Position eines SVG-Filterprimitivs als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt den Wert des Filterprimitivattributs {{SVGAttr("x")}} des {{SVGElement("feComposite")}}-Elements wider. Das `<feComposite>` SVG-Filterprimitive kombiniert zwei Eingabebilder mittels einer Porter-Duff-Kompositionsoperation. Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzerkoordinatensystem und entspricht der angegebenen Entfernung vom Ursprung des Benutzerkoordinatensystems entlang der x-Achse. Wenn das `x`-Attribut einen Prozentwert aufweist, ist der Eigenschaftswert relativ zur Breite der Filterregion in Einheiten des Benutzerkoordinatensystems. Der Standardwert ist `0`.
+Sie reflektiert den Wert des Filterprimitivattributs {{SVGElement("feComposite")}} des Elements {{SVGAttr("x")}}. Das SVG-Filterprimitiv `<feComposite>` kombiniert zwei Eingabebilder mithilfe einer Porter-Duff-Kompositionsoperation. Das Attribut ist entweder ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die die gegebene Entfernung vom Ursprung des Benutzerkoordinatensystems entlang der x-Achse darstellt. Wenn das `x`-Attribut ein Prozentwert ist, ist der Eigenschaftswert relativ zur Breite der Filterregion in Einheiten des Benutzerkoordinatensystems. Der Standardwert ist `0`.
 
 ## Wert
 
-Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
@@ -35,5 +35,5 @@ console.log(leftPosition.baseVal.value); // the `x` value
 ## Siehe auch
 
 - [`SVGFECompositeElement.y`](/de/docs/Web/API/SVGFECompositeElement/y)
-- CSS-Datentyp {{cssxref("blend-mode")}}
-- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}
+- CSS {{cssxref("blend-mode")}} Datentyp
+- CSS {{cssxref("mix-blend-mode")}} Eigenschaft

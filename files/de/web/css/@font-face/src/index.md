@@ -2,12 +2,12 @@
 title: src
 slug: Web/CSS/@font-face/src
 l10n:
-  sourceCommit: 0326d9301650304ef67a56e88b542b160093042e
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{CSSRef}}
 
-Der **`src`** CSS-Deskriptor für die {{cssxref("@font-face")}} At-Regel gibt die Ressource mit den Font-Daten an. Er ist erforderlich, damit die `@font-face` Regel gültig ist.
+Der **`src`** CSS-Deskriptor für die {{cssxref("@font-face")}} At-Regel gibt die Ressource an, die Font-Daten enthält. Es ist erforderlich, damit die `@font-face`-Regel gültig ist.
 
 ## Syntax
 
@@ -47,57 +47,57 @@ src:
 
 - `url()`
 
-  - : Gibt einen externen Verweis an, bestehend aus einem {{cssxref("url_value", "&lt;url&gt;")}}, gefolgt von optionalen Hinweisen, die die `format()` und `tech()` Komponentenwerte verwenden. Diese geben das Format und die Schrifttechnologie der durch die URL referenzierten Ressource an. Die `format()` und `tech()` Komponenten sind eine kommagetrennte Liste von Zeichenfolgen bekannter [Schriftformate](#schriftformate) und Technologien. Wenn ein User-Agent die Schrifttechnologie oder -formate nicht unterstützt, wird die Schriftressource nicht heruntergeladen. Wenn keine Format- oder Technologiehinweise angegeben sind, wird die Schriftressource immer heruntergeladen.
+  - : Spezifiziert eine externe Referenz, bestehend aus einem {{cssxref("url_value", "&lt;url&gt;")}}, gefolgt von optionalen Hinweisen unter Verwendung der `format()` und `tech()` Komponentenwerte, die das Format und die Font-Technologie der durch die URL referenzierten Ressource spezifizieren. Die `format()` und `tech()` Komponenten sind eine durch Kommas getrennte Liste von Strings bekannter [Fontformate](#fontformate) und Technologien. Wenn ein Benutzeragent die Font-Technologie oder Formate nicht unterstützt, überspringt er das Herunterladen der Font-Ressource. Wenn keine Format- oder Technologiehinweise angegeben sind, wird die Font-Ressource immer heruntergeladen.
 
 - `format()`
-  - : Eine optionale Deklaration, die dem `url()` Wert folgt und einen Hinweis für den User-Agent über das Schriftformat gibt.
-    Wenn der Wert nicht unterstützt wird oder ungültig ist, lädt der Browser die Ressource möglicherweise nicht herunter, was Bandbreite sparen kann.
-    Wenn er weggelassen wird, lädt der Browser die Ressource herunter und erkennt dann das Format.
-    Wenn Sie eine Schriftquelle für die Abwärtskompatibilität enthalten, die nicht in der Liste der [definierten Stichwörter](#formale_syntax) enthalten ist, schließen Sie die Formatzeichenfolge in Anführungszeichen ein.
-    Mögliche Werte sind in der unten stehenden Sektion [Schriftformate](#schriftformate) beschrieben.
+  - : Eine optionale Deklaration, die dem `url()` Wert folgt und dem Benutzeragent einen Hinweis auf das Fontformat gibt.
+    Wird der Wert nicht unterstützt oder ist ungültig, kann der Browser die Ressource nicht herunterladen und somit Bandbreite sparen.
+    Wenn weggelassen, wird die Ressource heruntergeladen und dann das Format erkannt.
+    Wenn eine Font-Quelle für die Rückwärtskompatibilität enthalten ist, die nicht in der Liste der [definierten Schlüsselwörter](#formale_syntax) enthalten ist, umschließen Sie den Formatstring in Anführungszeichen.
+    Mögliche Werte werden im Abschnitt [Fontformate](#fontformate) unten beschrieben.
 - `tech()`
-  - : Eine optionale Deklaration, die dem `url()` Wert folgt und einen Hinweis für den User-Agent auf die Schrifttechnologie gibt.
-    Der Wert für `tech()` kann eines der in [Schrifttechnologien](#schrifttechnologien) beschriebenen Stichwörter sein.
+  - : Eine optionale Deklaration, die dem `url()` Wert folgt und dem Benutzeragent einen Hinweis auf die Font-Technologie gibt.
+    Der Wert für `tech()` kann eines der im Abschnitt [Fonttechnologien](#fonttechnologien) beschriebenen Schlüsselwörter sein.
 - `local(<font-face-name>)`
 
-  - : Gibt den Schriftartnamen an, wenn die Schriftart auf dem Gerät des Benutzers verfügbar ist.
-    Die Schriftartnamen in Anführungszeichen einzuschließen, ist optional.
+  - : Gibt an, dass der Font-Name verwendet werden soll, falls die Schriftart auf dem Gerät des Benutzers verfügbar ist.
+    Das Einschließen des Font-Namens in Anführungszeichen ist optional.
 
     > [!NOTE]
-    > Für OpenType- und TrueType-Schriften wird `<font-face-name>` verwendet, um entweder den Postscript-Namen oder den vollständigen Schriftartnamen in der Namensdatenbank der lokal verfügbaren Schriften zuzuordnen. Welcher Typ von Namen verwendet wird, variiert je nach Plattform und Schriftart. Sie sollten daher beide dieser Namen einbeziehen, um eine korrekte Zuordnung auf allen Plattformen sicherzustellen. Plattformersetzungen für einen bestimmten Schriftartnamen dürfen nicht verwendet werden.
+    > Für OpenType- und TrueType-Schriften wird `<font-face-name>` verwendet, um entweder den Postscript-Namen oder den vollständigen Font-Namen in der Name-Tabelle lokal verfügbarer Schriften zuzuordnen. Welcher Name verwendet wird, variiert je nach Plattform und Schriftart, daher sollten Sie beide dieser Namen angeben, um eine korrekte Zuordnung über Plattformen hinweg sicherzustellen. Plattformsubstitutionen für einen gegebenen Font-Namen dürfen nicht verwendet werden.
 
     > [!NOTE]
-    > Lokal verfügbare Schriftarten wurden möglicherweise auf dem Gerät des Benutzers vorinstalliert oder aktiv vom Benutzer installiert.
+    > Lokal verfügbare Fonts können auf dem Gerät des Benutzers vorinstalliert worden sein oder vom Benutzer aktiv installiert worden sein.
     >
-    > Während der Satz vorinstallierter Schriftarten wahrscheinlich für alle Benutzer eines bestimmten Geräts gleich ist, ist der Satz vom Benutzer installierter Schriftarten dies nicht. Durch das Erkennen des Satzes vom Benutzer installierter Schriftarten kann eine Website daher einen {{Glossary("fingerprinting", "Fingerabdruck")}} des Geräts erstellen, was der Website hilft, Benutzer im Web zu verfolgen.
+    > Während die Menge der vorinstallierten Schriftarten vermutlich bei allen Benutzern eines bestimmten Geräts gleich ist, ist die Menge der vom Benutzer installierten Schriftarten nicht gleich. Durch das Ermitteln der vom Benutzer installierten Schriftarten kann eine Website somit einen {{Glossary("fingerprinting", "Fingerabdruck")}} für das Gerät erstellen, was die Verfolgung der Benutzer im Web erleichtert.
     >
-    > Um dies zu verhindern, können User-Agents Benutzer-Schriftarten ignorieren, wenn `local()` verwendet wird.
+    > Um dies zu verhindern, können Benutzeragenten bei der Verwendung von `local()` Benutzerinstallierte Fonts ignorieren.
 
 - `<font-face-name>`
-  - : Gibt den vollständigen oder Postscript-Namen einer lokal installierten Schriftart mit dem `local()` Komponentenwert an, der eine einzelne Schriftart innerhalb einer größeren Familie eindeutig identifiziert.
-    Der Name kann optional in Anführungszeichen gesetzt werden. Der Schriftartname [ist nicht case-sensitive](https://drafts.csswg.org/css-fonts-3/#font-family-casing).
+  - : Gibt den vollständigen Namen oder Postscript-Namen einer lokal installierten Schriftart mit dem `local()` Komponentenwert an, der eine einzelne Schrift innerhalb einer größeren Familie eindeutig identifiziert.
+    Der Name kann optional in Anführungszeichen gesetzt werden. Der Schriftname [ist nicht case-sensitive](https://drafts.csswg.org/css-fonts-3/#font-family-casing).
 
 > [!NOTE]
-> Die [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API) kann verwendet werden, um die lokal installierten Schriftartdaten des Benutzers zuzugreifen — dies umfasst höherwertige Details wie Namen, Stile und Familien sowie die rohen Bytes der zugrundeliegenden Schriftsatzdateien.
+> Die [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API) kann verwendet werden, um auf die lokal installierten Font-Daten des Benutzers zuzugreifen - dies schließt höhere Details wie Namen, Stile und Familien ebenso ein wie die Rohdaten der zugrunde liegenden Font-Dateien.
 
 ## Beschreibung
 
-Der Wert dieses Deskriptors ist eine priorisierte, kommagetrennte Liste von externen Referenzen oder lokal installierten Schriftartnamen, wobei jede Ressource mit `url()` oder `local()` angegeben wird.
-Wenn eine Schriftart benötigt wird, iteriert der {{Glossary("user_agent", "User-Agent")}} über den Satz der aufgelisteten Referenzen und verwendet die erste, die er erfolgreich aktivieren kann.
-Schriftarten mit ungültigen Daten oder lokale Schriftarten, die nicht gefunden werden, werden ignoriert, und der User-Agent lädt die nächste Schriftart in der Liste.
+Der Wert dieses Deskriptors ist eine priorisierte, durch Kommas getrennte Liste externer Referenzen oder lokal installierter Font-Namen, wobei jede Ressource mit `url()` oder `local()` angegeben wird.
+Wenn eine Schriftart benötigt wird, iteriert der {{Glossary("user_agent", "Benutzeragent")}} über die Liste der angegebenen Referenzen und verwendet die erste, die er erfolgreich aktivieren kann.
+Schriften, die ungültige Daten enthalten, oder lokale Font-Namen, die nicht gefunden werden, werden ignoriert und der Benutzeragent lädt die nächste Schrift in der Liste.
 
-Wenn mehrere `src` Deskriptoren gesetzt sind, wird nur die zuletzt deklarierte Regel angewendet, die in der Lage ist, eine Ressource zu laden.
-Wenn der letzte `src` Deskriptor eine Ressource laden kann und keine `local()` Schriftart enthält, kann der Browser externe Schriftdateien herunterladen und die lokale Version ignorieren, auch wenn auf dem Gerät eine verfügbar ist.
+Wenn mehrere `src` Deskriptoren festgelegt sind, wird nur die zuletzt erklärte Regel angewendet, die in der Lage ist, eine Ressource zu laden.
+Wenn der letzte `src` Deskriptor eine Ressource laden kann und keine `local()` Schrift enthält, kann der Browser externe Schriftdateien herunterladen und die lokale Version ignorieren, selbst wenn eine auf dem Gerät verfügbar ist.
 
 > [!NOTE]
-> Werte innerhalb von Deskriptoren, die der Browser als ungültig ansieht, werden ignoriert.
-> Einige Browser ignorieren den gesamten Deskriptor, wenn ein einzelnes Element ungültig ist.
-> Dies kann das Design von Fallbacks beeinflussen.
-> Weitere Informationen finden Sie unter [Browser-Kompatibilität](#browser-kompatibilität).
+> Werte innerhalb von Deskriptoren, die der Browser als ungültig betrachtet, werden ignoriert.
+> Einige Browser ignorieren den gesamten Deskriptor, wenn ein einzelner Punkt ungültig ist, selbst wenn nur ein Punkt ungültig ist.
+> Dies kann das Design von Fallback-Lösungen beeinflussen.
+> Siehe [Browser-Kompatibilität](#browser-kompatibilität) für weitere Informationen.
 
-Wie bei anderen URLs in CSS kann die URL relativ sein, in diesem Fall wird sie relativ zum Speicherort des Stylesheets gelöst, das die `@font-face` Regel enthält. Im Fall von SVG-Schriften weist die URL auf ein Element innerhalb eines Dokuments mit SVG-Schriftdefinitionen. Wenn der Elementverweis weggelassen wird, wird ein Verweis auf die erste definierte Schriftart angenommen. Ähnlich laden Schriftcontainerformate, die mehr als eine Schriftart enthalten können, nur eine der Schriften für eine gegebene `@font-face` Regel. Fragmentkennungen werden verwendet, um anzugeben, welche Schriftart geladen werden soll. Wenn ein Containerformat kein definiertes Fragmentkennungsschema hat, wird ein auf 1 basierendes Nummerierungsschema (z.B. "font-collection#1" für die erste Schriftart, "font-collection#2" für die zweite Schriftart usw.) verwendet.
+Wie bei anderen URLs in CSS kann die URL relativ sein, in diesem Fall wird sie relativ zur Position des das `@font-face` enthaltenden Stylesheets aufgelöst. Im Fall von SVG-Schriften zeigt die URL auf ein Element innerhalb eines Dokuments mit SVG-Schriftdefinitionen. Wenn die Elementreferenz weggelassen wird, wird auf die erste definierte Schrift verwiesen. Ebenso laden Font-Containerformate, die mehr als eine Schrift enthalten können, nur eine der Schriften für eine gegebene `@font-face`-Regel. Fragment-Identifikatoren werden verwendet, um anzugeben, welche Schrift geladen werden soll. Wenn ein Containerformat kein definiertes Fragment-Identifier-Schema hat, wird ein 1-basiertes Indexierungsschema verwendet (z.B. "font-collection#1" für die erste Schrift, "font-collection#2" für die zweite Schrift usw.).
 
-Wenn die Schriftdatei ein Container für mehrere Schriftarten ist, wird eine Fragmentkennung eingefügt, um die Unter-Schriftart anzugeben, die verwendet werden soll, wie unten gezeigt:
+Wenn die Schriftdatei ein Container für mehrere Schriften ist, wird ein Fragment-Identifier enthalten, um die zu verwendende Unterschrift anzugeben, wie unten gezeigt:
 
 ```css
 /* WhichFont is the PostScript name of a font in the font file */
@@ -106,15 +106,15 @@ src: url(collection.otc#WhichFont);
 src: url(fonts.svg#WhichFont);
 ```
 
-### Schriftformate
+### Fontformate
 
-Die folgende Tabelle zeigt die gültigen Schriftstichwörter und die entsprechenden Schriftformate.
-Um zu überprüfen, ob ein Schriftformat von einem Browser innerhalb von CSS unterstützt wird, verwenden Sie die {{cssxref("@supports", "@supports")}} Regel.
+Die folgende Tabelle zeigt die gültigen Font-Schlüsselwörter und deren entsprechende Fontformate.
+Um zu überprüfen, ob ein Fontformat von einem Browser innerhalb von CSS unterstützt wird, verwenden Sie die {{cssxref("@supports", "@supports")}} Regel.
 
-| Stichwort           | Schriftformat          | Übliche Erweiterungen |
+| Keyword             | Fontformat             | Übliche Erweiterungen |
 | ------------------- | ---------------------- | --------------------- |
-| `collection`        | OpenType Collection    | .otc, .ttc            |
-| `embedded-opentype` | Embedded OpenType      | .eot                  |
+| `collection`        | OpenType-Kollektion    | .otc, .ttc            |
+| `embedded-opentype` | Eingebettetes OpenType | .eot                  |
 | `opentype`          | OpenType               | .otf, .ttf            |
 | `svg`               | SVG-Schrift (veraltet) | .svg, .svgz           |
 | `truetype`          | TrueType               | .ttf                  |
@@ -123,36 +123,36 @@ Um zu überprüfen, ob ein Schriftformat von einem Browser innerhalb von CSS unt
 
 > [!NOTE]
 >
-> - `format(svg)` steht für [SVG fonts](/de/docs/Web/SVG/Tutorial/SVG_fonts), und `tech(color-SVG)` steht für [OpenType fonts with SVG table](https://learn.microsoft.com/en-us/typography/opentype/spec/svg) (auch OpenType-SVG Farbenschriften genannt), die völlig verschieden sind.
-> - Die `opentype` und `truetype` Werte sind gleichwertig, unabhängig davon, ob die Schriftdatei kubische Bezierkurven (innerhalb der CFF/CFF2 Tabelle) oder quadratische Bezierkurven (innerhalb der Glyphe Tabelle) verwendet.
+> - `format(svg)` steht für [SVG-Schriften](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/SVG_fonts), und `tech(color-SVG)` steht für [OpenType-Schriften mit SVG-Tabelle](https://learn.microsoft.com/en-us/typography/opentype/spec/svg), auch OpenType-SVG-Farbenschriften genannt, die völlig unterschiedlich sind.
+> - Die `opentype` und `truetype` Werte sind gleichwertig, egal ob die Schriftdatei kubische Bézier-Kurven (innerhalb der CFF/CFF2-Tabelle) oder quadratische Bézier-Kurven (innerhalb der Glyph-Tabelle) verwendet.
 
-Ältere nicht normalisierte `format()` Werte haben die folgende gleichwertige Syntax; diese wird zu Kompatibilitätsgründen als Zeichenkette in Anführungszeichen bereitgestellt:
+Ältere nicht normalisierte `format()` Werte haben folgende äquivalente Syntax; aus Gründen der Rückwärtskompatibilität als String in Anführungszeichen angegeben:
 
-| Alte Syntax                     | Gleichwertige Syntax                |
+| Alte Syntax                     | Äquivalente Syntax                  |
 | ------------------------------- | ----------------------------------- |
 | `format("woff2-variations")`    | `format(woff2) tech(variations)`    |
 | `format("woff-variations")`     | `format(woff) tech(variations)`     |
 | `format("opentype-variations")` | `format(opentype) tech(variations)` |
 | `format("truetype-variations")` | `format(truetype) tech(variations)` |
 
-### Schrifttechnologien
+### Fonttechnologien
 
-Die folgende Tabelle zeigt gültige Werte für den `tech()` Deskriptor und die entsprechenden Schrifttechnologien.
-Um zu überprüfen, ob eine Schrifttechnologie von einem Browser innerhalb von CSS unterstützt wird, verwenden Sie die {{cssxref("@supports", "@supports")}} At-Regel.
+Die folgende Tabelle zeigt gültige Werte für den `tech()` Deskriptor und die entsprechenden Font-Technologien.
+Um zu überprüfen, ob eine Font-Technologie von einem Browser innerhalb von CSS unterstützt wird, verwenden Sie die {{cssxref("@supports", "@supports")}} At-Regel.
 
-| Stichwort           | Beschreibung                                                                                                 |
-| :------------------ | :----------------------------------------------------------------------------------------------------------- |
-| `color-cbdt`        | Farbbitmap-Datenbanken                                                                                       |
-| `color-colrv0`      | Mehrfarbige Glyphen über COLR Version 0 Tabelle                                                              |
-| `color-colrv1`      | Mehrfarbige Glyphen über COLR Version 1 Tabelle                                                              |
-| `color-sbix`        | Standard-Bitmap-Grafikbanken                                                                                 |
-| `color-svg`         | SVG mehrfarbige Tabellen                                                                                     |
-| `features-aat`      | TrueType `morx` und `kerx` Tabellen                                                                          |
-| `features-graphite` | Graphit-Merkmale, nämlich `Silf`, `Glat`, `Gloc`, `Feat` und `Sill` Tabellen                                 |
-| `features-opentype` | OpenType `GSUB` und `GPOS` Tabellen                                                                          |
-| `incremental`       | Inkrementelles Schriftartenladen                                                                             |
-| `palettes`          | Schriftpaletten mittels `font-palette`, um eine von vielen Farbpaletten in der Schrift auszuwählen           |
-| `variations`        | Schriftvariationen in TrueType- und OpenType-Schriften zur Steuerung der Schriftachse, -dicke, Glyphen, etc. |
+| Keyword             | Beschreibung                                                                                                       |
+| :------------------ | :----------------------------------------------------------------------------------------------------------------- |
+| `color-cbdt`        | Farb-Bitmap-Datentabellen                                                                                          |
+| `color-colrv0`      | Mehrfarbige Glyphen über die COLR Version 0 Tabelle                                                                |
+| `color-colrv1`      | Mehrfarbige Glyphen über die COLR Version 1 Tabelle                                                                |
+| `color-sbix`        | Standard-Bitmap-Grafik-Tabellen                                                                                    |
+| `color-svg`         | SVG-mehrfarbige Tabellen                                                                                           |
+| `features-aat`      | TrueType `morx` und `kerx` Tabellen                                                                                |
+| `features-graphite` | Graphite-Features, nämlich `Silf`, `Glat`, `Gloc`, `Feat`, und `Sill` Tabellen                                     |
+| `features-opentype` | OpenType `GSUB` und `GPOS` Tabellen                                                                                |
+| `incremental`       | Inkrementelles Font-Laden                                                                                          |
+| `palettes`          | Font-Paletten mittels `font-palette`, um eine der vielen Farbpaletten in der Schrift auszuwählen                   |
+| `variations`        | Schriftvariationen in TrueType und OpenType Schriften zur Steuerung der Schriftsachsen, Gewichtungen, Glyphen usw. |
 
 ## Formale Definition
 
@@ -177,7 +177,7 @@ local( <family-name> )
 
 ### Schriftressourcen mit url() und local() angeben
 
-Das folgende Beispiel zeigt, wie man zwei Schriftartgesichter mit derselben Schriftfamilie definiert. Die `font-family` ist `MainText` genannt. Das erste Schriftartgesicht hat eine normale Schrift, und das zweite eine fette Version derselben Schriftfamilie.
+Das folgende Beispiel zeigt, wie zwei Schriftarten mit derselben Schriftfamilie definiert werden. Die `font-family` wird `MainText` genannt. Die erste Schriftart hat eine reguläre Schrift, und die zweite ist eine fette Version derselben Schriftfamilie.
 
 ```css
 /* Defining a regular font face */
@@ -214,9 +214,9 @@ p.bold {
 
 ### Schriftressourcen mit tech() und format() Werten angeben
 
-Das folgende Beispiel zeigt, wie man die `tech()` und `format()` Werte verwendet, um Schriftressourcen anzugeben.
-Eine Schrift mit `color-colrv1` Technologie und `opentype` Format wird mit den `tech()` und `format()` Werten spezifiziert.
-Eine Farbenschrift wird aktiviert, wenn der User-Agent sie unterstützt, und ein `opentype` ohne Farbe wird als Fallback bereitgestellt.
+Das folgende Beispiel zeigt, wie die `tech()` und `format()` Werte verwendet werden, um Schriftressourcen anzugeben.
+Eine Schrift, die `color-colrv1` Technologie und `opentype` Format verwendet, wird mit den `tech()` und `format()` Werten spezifiziert.
+Eine Farbschrift wird aktiviert, wenn der Benutzeragent sie unterstützt, und eine non-color `opentype` wird als Fallback bereitgestellt.
 
 ```css
 @font-face {
@@ -234,10 +234,10 @@ p {
 
 ### Fallbacks für ältere Browser angeben
 
-Browser sollten eine `@font-face` mit einem einzigen `src` Deskriptor verwenden, der mögliche Quellen für die Schrift auflistet.
-Da der Browser die erste Ressource verwendet, die er laden kann, sollten die Einträge in der Reihenfolge Ihrer Präferenz für ihre Verwendung angegeben werden.
+Browser sollten einen `@font-face` mit einem einzigen `src` Deskriptor verwenden, der mögliche Quellen für die Schrift auflistet.
+Da der Browser die erste Ressource verwenden wird, die er laden kann, sollten die Elemente in der Reihenfolge Ihrer Präferenz für deren Nutzung angegeben werden.
 
-Das bedeutet im Allgemeinen, dass lokale Dateien vor Remote-Dateien erscheinen sollten und dass Ressourcen mit `format()` oder `tech()` Einschränkungen vor Ressourcen erscheinen sollten, die solche Einschränkungen nicht haben (ansonsten würde immer die weniger eingeschränkte Version ausgewählt).
+In der Regel bedeutet dies, dass lokale Dateien vor Remote-Dateien erscheinen sollten und dass Ressourcen mit `format()` oder `tech()`-Einschränkungen vor Ressourcen auftauchen sollten, die keine haben (sonst würde die weniger eingeschränkte Version immer ausgewählt werden).
 Zum Beispiel:
 
 ```css
@@ -249,11 +249,11 @@ Zum Beispiel:
 }
 ```
 
-Ein Browser, der `tech()` oben nicht unterstützt, sollte das erste Element ignorieren und versuchen, die zweite Ressource zu laden.
+Ein Browser, der `tech()` nicht unterstützt, sollte den ersten Punkt ignorieren und versuchen, die zweite Ressource zu laden.
 
-Einige Browser ignorieren [ungültige Elemente](#browser-kompatibilität) noch nicht und scheitern stattdessen an der gesamten `src` Deskriptor, wenn ein Wert ungültig ist.
+Einige Browser ignorieren noch keine [ungültigen Elemente](#browser-kompatibilität) und schlagen stattdessen den gesamten `src` Deskriptor fehl, wenn ein Wert ungültig ist.
 Wenn Sie mit diesen Browsern arbeiten, können Sie mehrere `src` Deskriptoren als Fallbacks angeben.
-Beachten Sie, dass mehrere `src` Deskriptoren in umgekehrter Reihenfolge versucht werden, sodass wir am Ende unseren normalen Deskriptor mit allen Elementen haben.
+Beachten Sie, dass mehrere `src` Deskriptoren in umgekehrter Reihenfolge ausprobiert werden, also haben wir am Ende unseren normalen Deskriptor mit allen Elementen.
 
 ```css
 @font-face {
@@ -266,10 +266,10 @@ Beachten Sie, dass mehrere `src` Deskriptoren in umgekehrter Reihenfolge versuch
 }
 ```
 
-### Überprüfung, ob der User-Agent eine Schrift unterstützt
+### Prüfen, ob der Benutzeragent eine Schriftart unterstützt
 
-Das folgende Beispiel zeigt, wie man überprüft, ob der User-Agent eine Schrifttechnologie mit der {{cssxref("@supports")}} Regel unterstützt.
-Der CSS -Block innerhalb `@supports` wird angewendet, wenn der User-Agent die `color-COLRv1` Technologie unterstützt.
+Das folgende Beispiel zeigt, wie Sie überprüfen können, ob der Benutzeragent eine Font-Technologie mit der {{cssxref("@supports")}} Regel unterstützt.
+Der Block von CSS innerhalb von `@supports` wird angewendet, wenn der Benutzeragent die `color-COLRv1` Technologie unterstützt.
 
 ```css
 @supports font-tech(color-COLRv1) {

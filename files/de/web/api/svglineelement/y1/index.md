@@ -3,22 +3,22 @@ title: "SVGLineElement: y1-Eigenschaft"
 short-title: y1
 slug: Web/API/SVGLineElement/y1
 l10n:
-  sourceCommit: 7c67beb9a8a6fe5c80fb06bdc39737c4d713487e
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`y1`**-Eigenschaft der [`SVGLineElement`](/de/docs/Web/API/SVGLineElement)-Schnittstelle beschreibt den Start der SVG-Linie entlang der y-Achse als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt das geometrische Attribut {{SVGElement("line")}} des {{SVGAttr("y1")}}-Elements wider.
+Die **`y1`** schreibgeschützte Eigenschaft des [`SVGLineElement`](/de/docs/Web/API/SVGLineElement)-Interfaces beschreibt den Startpunkt der SVG-Linie entlang der y-Achse als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt das {{SVGElement("line")}}-Element-Attribut {{SVGAttr("y1")}} wider.
 
-Der Attributwert ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der Zahlenwert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist diese Startposition als Länge entlang der y-Achse in Benutzereinzugskoordinateneinheiten.
+Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist diese Startposition als Länge entlang der y-Achse in Benutzereinheiten des Koordinatensystems.
 
 ## Wert
 
-Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Gegeben das folgende SVG:
+Für das folgende SVG:
 
 ```html
 <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@ Gegeben das folgende SVG:
 </svg>
 ```
 
-Wir können auf die berechneten Werte der `y1`-Attribute zugreifen:
+können wir auf die berechneten Werte der `y1`-Attribute zugreifen:
 
 ```js
 const lines = document.querySelectorAll("line");

@@ -3,14 +3,14 @@ title: "SVGFEConvolveMatrixElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGFEConvolveMatrixElement/height
 l10n:
-  sourceCommit: e0bf626da04e5e1e21373fe4011e20fdcaae62a0
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`height`**-Eigenschaft des [`SVGFEConvolveMatrixElement`](/de/docs/Web/API/SVGFEConvolveMatrixElement)-Interfaces beschreibt die vertikale Größe einer SVG-Filterprimitive als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`height`** Eigenschaft der [`SVGFEConvolveMatrixElement`](/de/docs/Web/API/SVGFEConvolveMatrixElement)-Schnittstelle beschreibt die vertikale Größe einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGElement("feConvolveMatrix")}}-Element wider, das Attribut {{SVGAttr("height")}} der Filterprimitive. Der `<feConvolveMatrix>`-Filter wendet einen Matrix-Faltungseffekt an, bei dem Pixel im Eingabebild mit benachbarten Pixeln kombiniert werden, um einen Faltungseffekt wie Weichzeichnen, Kantenerkennung, Schärfen, Prägen oder Abschrägen zu erzielen. Das Attribut ist eine [`<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) relativ zur Höhe der Filterregion. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzersystem-Koordinateneinheiten.
+Sie spiegelt das {{SVGElement("feConvolveMatrix")}}-Element und das {{SVGAttr("height")}}-Filterprimitive-Attribut wider. Das `<feConvolveMatrix>`-Filter wendet einen Matrixfaltungseffekt an, der die Pixel im Eingabebild mit benachbarten Pixeln kombiniert, um einen Faltungseffekt wie Weichzeichnen, Kantenerkennung, Schärfen, Prägen oder Abfasen zu erzeugen. Das Attribut ist entweder ein [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage), das sich auf die Höhe der Filterregion bezieht. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Einheiten des Benutzerkoordinatensystems.
 
 ## Wert
 
@@ -35,6 +35,6 @@ console.log(verticalSize.baseVal.value); // the `height` value
 ## Siehe auch
 
 - [`SVGFEConvolveMatrixElement.width`](/de/docs/Web/API/SVGFEConvolveMatrixElement/width)
-- Modul [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
+- CSS-Filtereffekte Modul [CSS filter effects](/de/docs/Web/CSS/CSS_filter_effects)
 - SVG {{SVGElement("filter")}}-Element, SVG {{SVGAttr("filter")}}-Attribut in [SVG](/de/docs/Web/SVG)
-- [Anwenden von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Applying_SVG_effects_to_HTML_content)
+- [Anwenden von SVG-Effekten auf HTML-Inhalt](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)

@@ -1,16 +1,16 @@
 ---
-title: "SVGUseElement: x Eigenschaft"
+title: "SVGUseElement: x-Eigenschaft"
 short-title: x
 slug: Web/API/SVGUseElement/x
 l10n:
-  sourceCommit: 6fbc4d2771113be094b8dd7181891a62096626cb
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`x`** schreibgeschützte Eigenschaft der [`SVGUseElement`](/de/docs/Web/API/SVGUseElement)-Schnittstelle beschreibt die x-Achsen-Koordinate des Startpunkts des referenzierten Elements als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("x")}} Attributs auf dem {{SVGElement("use")}} Element wider.
+Die schreibgeschützte **`x`**-Eigenschaft der Schnittstelle [`SVGUseElement`](/de/docs/Web/API/SVGUseElement) beschreibt die x-Achsen-Koordinate des Startpunkts des referenzierten Elements als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("x")}}-Attributs auf dem {{SVGElement("use")}}-Element wider.
 
-Der Attributwert ist entweder ein [`\<length>`](/de/docs/Web/SVG/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die x-Koordinate der oberen linken Ecke des referenzierten Elements im Benutzerkoordinatensystem.
+Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die x-Koordinate der oberen linken Ecke des referenzierten Elements im Benutzskoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiele
 
-Angenommen, Sie haben folgendes SVG:
+Gegeben das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +31,7 @@ Angenommen, Sie haben folgendes SVG:
 </svg>
 ```
 
-Wir können auf die berechneten Werte der `x` Attribute zugreifen:
+Wir können auf die berechneten Werte der `x`-Attribute zugreifen:
 
 ```js
 const uses = document.querySelectorAll("use");

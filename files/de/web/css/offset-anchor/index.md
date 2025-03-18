@@ -2,12 +2,12 @@
 title: offset-anchor
 slug: Web/CSS/offset-anchor
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{CSSRef}}
 
-Die **`offset-anchor`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Punkt innerhalb des Kastens eines Elements fest, das entlang eines {{cssxref("offset-path")}} reist und tatsächlich entlang des Pfades bewegt wird.
+Die **`offset-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt den Punkt innerhalb des Rahmens eines Elements an, das entlang eines {{cssxref("offset-path")}} verläuft und tatsächlich entlang des Pfads bewegt wird.
 
 {{InteractiveExample("CSS Demo: offset-anchor")}}
 
@@ -131,9 +131,9 @@ offset-anchor: unset;
 ### Werte
 
 - `auto`
-  - : `offset-anchor` erhält denselben Wert wie der {{cssxref("transform-origin")}} des Elements, es sei denn, {{cssxref("offset-path")}} ist `none`, in diesem Fall wird der Wert von {{cssxref("offset-position")}} übernommen.
+  - : `offset-anchor` erhält denselben Wert wie der {{cssxref("transform-origin")}} des Elements, es sei denn, {{cssxref("offset-path")}} ist `none`, in diesem Fall übernimmt es seinen Wert von {{cssxref("offset-position")}}.
 - `<position>`
-  - : Ein {{cssxref("&lt;position&gt;")}} definiert eine x/y-Koordinate, um ein Element relativ zu den Kanten des Kastens eines Elements zu platzieren. Es kann mit einem bis vier Werten definiert werden. Für weitere Details, siehe die Referenzseiten {{cssxref("&lt;position&gt;")}} und {{cssxref("background-position")}}. Beachten Sie, dass die 3-Wert-Positionssyntax für keine Verwendung von `<position>`, außer bei `background(-position)`, funktioniert.
+  - : Ein {{cssxref("&lt;position&gt;")}} definiert eine x/y-Koordinate, um ein Element relativ zu den Kanten des Rahmens eines Elements zu platzieren. Es kann mit einem bis vier Werten definiert werden. Für weitere Details siehe die Referenzseiten zu {{cssxref("&lt;position&gt;")}} und {{cssxref("background-position")}}. Beachten Sie, dass die 3-Werte-Position-Syntax für keine Verwendung von `<position>`, außer in `background(-position)`, funktioniert.
 
 ## Formale Definition
 
@@ -145,13 +145,13 @@ offset-anchor: unset;
 
 ## Beispiele
 
-### Verschiedene offset-anchor-Werte einstellen
+### Verschiedene offset-anchor Werte setzen
 
-Im folgenden Beispiel haben wir drei {{htmlelement("div")}}-Elemente, die in {{htmlelement("section")}}-Elementen verschachtelt sind. Jedem `<div>` wird derselbe {{cssxref("offset-path")}} (eine horizontale Linie, 200 Pixel lang) zugewiesen und animiert, sich entlang dieser zu bewegen. Die drei erhalten dann unterschiedliche {{cssxref("background-color")}} und `offset-anchor`-Werte.
+Im folgenden Beispiel haben wir drei {{htmlelement("div")}}-Elemente, die in {{htmlelement("section")}}-Elementen verschachtelt sind. Jedes `<div>` erhält denselben {{cssxref("offset-path")}} (eine horizontale Linie, die 200 Pixel lang ist) und wird animiert, sich entlang dieser zu bewegen. Die drei erhalten dann unterschiedliche {{cssxref("background-color")}} und `offset-anchor` Werte.
 
-Jedes `<section>` wurde mit einem linearen Verlauf gestaltet, um ihm eine horizontale Linie in seiner Mitte zu geben, was Ihnen eine visuelle Darstellung zeigt, wo die `<div>`-Offset-Pfade verlaufen.
+Jedes `<section>` wurde mit einem linearen Verlauf gestaltet, um eine horizontale Linie in der Mitte zu erzeugen, die Ihnen eine visuelle Anzeige darüber gibt, wo die Offset-Pfade des `<div>` verlaufen.
 
-Dies ermöglicht es Ihnen zu sehen, welchen Effekt die verschiedenen `offset-anchor`-Werte haben — der erste, `auto`, bewirkt, dass sich der Mittelpunkt des `<div>`s entlang des Pfades bewegt. Die anderen beiden bewirken, dass sich die Punkte oben rechts und unten links des `<div>`s entlang des Pfades bewegen.
+Damit können Sie sehen, welchen Effekt die verschiedenen `offset-anchor` Werte haben — der erste, `auto`, lässt den Mittelpunkt des `<div>` entlang des Pfads verlaufen. Die anderen beiden lassen die Punkte oben rechts und unten links des `<div>` jeweils entlang des Pfads verlaufen.
 
 #### HTML
 
@@ -232,4 +232,4 @@ section {
 - {{cssxref("offset")}}
 - {{cssxref("offset-distance")}}
 - {{cssxref("offset-rotate")}}
-- [SVG `<path>`](/de/docs/Web/SVG/Tutorial/Paths)
+- [SVG `<path>`](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths)

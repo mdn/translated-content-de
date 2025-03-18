@@ -3,14 +3,14 @@ title: "SVGAnimatedInteger: baseVal-Eigenschaft"
 short-title: baseVal
 slug: Web/API/SVGAnimatedInteger/baseVal
 l10n:
-  sourceCommit: bc7875d9a6c405e47c6ee166b5acc2174515129f
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`baseVal`**-Eigenschaft der [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger)-Schnittstelle repräsentiert den Basiswert (nicht animiert) eines animierbaren [`<integer>`](/de/docs/Web/SVG/Content_type#integer).
+Die **`baseVal`**-Eigenschaft der [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger)-Schnittstelle repräsentiert den Basiswert (nicht animiert) eines animierbaren [`<integer>`](/de/docs/Web/SVG/Guides/Content_type#integer).
 
-Einige Attribute, wie das {{SVGAttr("numOctaves")}}-Attribut des {{SVGElement("feTurbulence")}}-Elements oder das {{SVGAttr("order")}}-Attribut des {{SVGElement("feConvolveMatrix")}}, akzeptieren einen `long`-Integer als Wert. Diese Eigenschaft ermöglicht den Zugriff auf den statischen, nicht animierten Zustand des Attributs als Zahl.
+Einige Attribute, wie das {{SVGAttr("numOctaves")}}-Attribut des {{SVGElement("feTurbulence")}}-Elements oder das {{SVGAttr("order")}}-Attribut des {{SVGElement("feConvolveMatrix")}}-Elements, akzeptieren einen `long` Integer als Wert. Diese Eigenschaft bietet Zugriff auf den statischen, nicht animierten Zustand des Attributs als Zahl.
 
 ## Wert
 
@@ -47,6 +47,6 @@ console.log(feTurbulence.getAttribute("numOctaves")); // Output: "6"
 
 ## Siehe auch
 
-- [`<integer>`](/de/docs/Web/SVG/Content_type#integer)
+- [`<integer>`](/de/docs/Web/SVG/Guides/Content_type#integer)
 - {{SVGAttr("numOctaves")}}
 - {{SVGAttr("order")}}

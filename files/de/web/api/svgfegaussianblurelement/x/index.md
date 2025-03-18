@@ -3,14 +3,14 @@ title: "SVGFEGaussianBlurElement: x-Eigenschaft"
 short-title: x
 slug: Web/API/SVGFEGaussianBlurElement/x
 l10n:
-  sourceCommit: 94b32d908c0f13c1c2555996806454f7a0a48588
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`x`** schreibgeschützte Eigenschaft der Schnittstelle [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement) beschreibt die horizontale Koordinate der Position eines SVG-Filterprimitives als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`x`**-Schreibgeschützte Eigenschaft der Schnittstelle [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement) beschreibt die horizontale Koordinate der Position eines SVG-Filterprimitivs als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGAttr("x")}}-Attribut des {{SVGElement("feGaussianBlur")}}-Elements wider, das ein Eingabebild verwischt. Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Die `<coordinate>` ist eine Länge im Benutzersystemkoordinatensystem, die den angegebenen Abstand vom Ursprung des Benutzersystemkoordinatensystems entlang der x-Achse darstellt. Wenn das `x`-Attribut einen Prozentwert hat, ist der Eigenschaftswert relativ zur Breite des Filterbereichs in Benutzersystemkoordinateneinheiten. Der Standardwert ist `0`.
+Sie spiegelt das {{SVGAttr("x")}}-Attribut des {{SVGElement("feGaussianBlur")}}-Elements wider, welches ein Eingabebild unscharf macht. Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage). Das `<coordinate>` ist eine Länge im Nutzerkoordinatensystem, die die gegebene Entfernung von der Herkunft des Nutzerkoordinatensystems entlang der x-Achse darstellt. Wenn das `x`-Attribut ein Prozentwert ist, ist der Eigenschaftswert relativ zur Breite des Filterbereichs in Einheiten des Nutzerkoordinatensystems. Der Standardwert ist `0`.
 
 ## Wert
 
@@ -35,7 +35,7 @@ console.log(leftPosition.baseVal.value); // the `x` value
 ## Siehe auch
 
 - [`SVGFEGaussianBlurElement.y`](/de/docs/Web/API/SVGFEGaussianBlurElement/y)
-- [SVG-Filter-Tutorial](/de/docs/Web/SVG/Tutorial/SVG_Filters_Tutorial)
-- CSS {{cssxref("blend-mode")}} Datentyp
-- CSS {{cssxref("filter-function/blur", "blur()")}} Funktion
-- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul - CSS {{cssxref("mix-blend-mode")}} Eigenschaft
+- [SVG-Filter-Leitfaden](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/SVG_Filters_Tutorial)
+- CSS-Datentyp {{cssxref("blend-mode")}}
+- CSS-Funktion {{cssxref("filter-function/blur", "blur()")}}
+- [CSS-Filter-Effekte](/de/docs/Web/CSS/CSS_filter_effects)-Modul - CSS-Eigenschaft {{cssxref("mix-blend-mode")}}

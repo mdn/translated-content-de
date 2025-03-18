@@ -3,14 +3,14 @@ title: "SVGForeignObjectElement: x-Eigenschaft"
 short-title: x
 slug: Web/API/SVGForeignObjectElement/x
 l10n:
-  sourceCommit: 7f9a7b32e78673dcbf7b6a93856f5717c4cf0a12
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`x`**-Eigenschaft der [`SVGForeignObjectElement`](/de/docs/Web/API/SVGForeignObjectElement)-Schnittstelle beschreibt die x-Achsen-Koordinate des `<foreignObject>`-Elements. Sie spiegelt den berechneten Wert des {{SVGAttr("x")}}-Attributs auf dem {{SVGElement("foreignObject")}}-Element wider.
+Die **`x`**-Schreibgeschützte Eigenschaft des [`SVGForeignObjectElement`](/de/docs/Web/API/SVGForeignObjectElement)-Interfaces beschreibt die x-Achsen-Koordinate des `<foreignObject>`-Elements. Sie spiegelt den berechneten Wert des {{SVGAttr("x")}}-Attributs auf dem {{SVGElement("foreignObject")}}-Element wider.
 
-Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die x-Koordinate des `<foreignObject>`-Elements im Benutzerkoordinatensystem.
+Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die x-Koordinate des `<foreignObject>`-Elements im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Gegeben folgendes SVG:
+Angenommen, wir haben folgendes SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

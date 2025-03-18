@@ -3,14 +3,14 @@ title: "SVGLinearGradientElement: x2-Eigenschaft"
 short-title: x2
 slug: Web/API/SVGLinearGradientElement/x2
 l10n:
-  sourceCommit: 9db11220d8fc8863f94ddb1ccb7b353a8062e144
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`x2`** schreibgeschützte Eigenschaft des [`SVGLinearGradientElement`](/de/docs/Web/API/SVGLinearGradientElement)-Interfaces beschreibt die x-Achsen-Koordinate des Startpunkts des Farbverlaufs als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("x2")}}-Attributs auf dem {{SVGElement("linearGradient")}}-Element wider.
+Die **`x2`** schreibgeschützte Eigenschaft der [`SVGLinearGradientElement`](/de/docs/Web/API/SVGLinearGradientElement)-Schnittstelle beschreibt die x-Achsen-Koordinate des Startpunkts des Gradienten als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("x2")}}-Attributs auf dem {{SVGElement("linearGradient")}}-Element wider.
 
-Der Attributwert ist eine [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die x-Koordinate des Endpunkts des Farbverlaufs im Benutzerskoordinatensystem.
+Der Attributwert ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die x-Koordinate des Endpunkts des Gradienten im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Für das folgende SVG:
+Angenommen, das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@ Für das folgende SVG:
 </svg>
 ```
 
-Können wir auf die berechneten Werte der `x2`-Attribute zugreifen:
+Wir können auf die berechneten Werte der `x2`-Attribute zugreifen:
 
 ```js
 const linearGradients = document.querySelectorAll("linearGradient");

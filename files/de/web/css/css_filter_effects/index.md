@@ -1,17 +1,17 @@
 ---
-title: CSS filter effects
+title: CSS-Filtereffekte
 slug: Web/CSS/CSS_filter_effects
 l10n:
-  sourceCommit: ca6d4f6114d278926e183225a90fd2209802cfe9
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{CSSRef}}
 
-Die Eigenschaften im **CSS filter effects** Modul ermöglichen es Ihnen, eine Methode zu definieren, um das Rendering eines Elements zu verarbeiten, bevor das Element im Dokument angezeigt wird. Beispiele für solche Effekte sind das Weichzeichnen und das Ändern der Farbintensität eines Elements.
+Die Eigenschaften im **CSS-Filtereffekte**-Modul ermöglichen es Ihnen, eine Methode zur Verarbeitung der Darstellung eines Elements festzulegen, bevor das Element im Dokument angezeigt wird. Beispiele für solche Effekte sind das Weichzeichnen und Ändern der Farbintensität eines Elements.
 
 ### Filtereffekte in Aktion
 
-Probieren Sie die verschiedenen Schieberegler aus, um Filtereffekte auf das Bild unten anzuwenden.
+Spielen Sie mit den verschiedenen Schiebereglern, um die Filtereffekte auf das unten stehende Bild anzuwenden.
 
 ```html hidden live-sample___filters
 <article>
@@ -260,10 +260,10 @@ function sepia() {
 - {{cssxref("filter-function/saturate", "saturate()")}}
 - {{cssxref("filter-function/sepia", "sepia()")}}
 
-## Leitfaden
+## Leitfäden
 
-- [Verwendung von CSS-Filtereffekten](/de/docs/Web/CSS/CSS_filter_effects/Using_filter_effects)
-  - : Überblick über die Konzepte rund um CSS-Filtereffekte, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung der Filterwerte, der Quellreihenfolge und der Wertinteraktionen.
+- [Using CSS filter effects](/de/docs/Web/CSS/CSS_filter_effects/Using_filter_effects)
+  - : Überblick über die Konzepte rund um CSS-Filtereffekte, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung der Filterwerte, Quellreihenfolge und Wertinteraktionen.
 
 ## Verwandte Konzepte
 
@@ -276,7 +276,7 @@ function sepia() {
 
 - {{Glossary("interpolation", "Interpolation")}} Glossarbegriff
 
-- [`color-interpolation-filters`](/de/docs/Web/SVG/Attribute/color-interpolation-filters) SVG-Eigenschaft
+- [`color-interpolation-filters`](/de/docs/Web/SVG/Reference/Attribute/color-interpolation-filters) SVG-Eigenschaft
 
 ## Spezifikationen
 
@@ -284,5 +284,5 @@ function sepia() {
 
 ## Siehe auch
 
-- Eigenschaften im [CSS Compositing und Blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul ermöglichen das Mischen der Hintergrundebenen eines Elements und das Mischen eines Elements mit seinem Container
-- Das SVG {{SVGElement("filter")}} Element und die SVG-Filter-Primitiven: {{SVGElement("feSpotLight")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}
+- Eigenschaften im [CSS compositing and blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul ermöglichen das Mischen der Hintergrundebenen eines Elements miteinander und das Mischen eines Elements mit seinem Container.
+- Das SVG-Element {{SVGElement("filter")}} und die SVG-Filter-Primitiven: {{SVGElement("feSpotLight")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}

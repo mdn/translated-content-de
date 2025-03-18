@@ -3,14 +3,14 @@ title: "DOMMatrix: rotateFromVectorSelf()-Methode"
 short-title: rotateFromVectorSelf()
 slug: Web/API/DOMMatrix/rotateFromVectorSelf
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die `rotateFromVectorSelf()`-Methode des [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Interfaces ist eine veränderliche Transformationsmethode, die eine Matrix durch Rotation um den Winkel zwischen dem angegebenen Vektor und `(1, 0)` modifiziert. Der Drehwinkel wird durch den Winkel zwischen dem Vektor `(1,0)T` und `(x,y)T` im Uhrzeigersinn bestimmt, oder `(+/-)arctan(y/x)`. Wenn `x` und `y` beide `0` sind, wird der Winkel als `0` angegeben und die Matrix bleibt unverändert.
+Die `rotateFromVectorSelf()`-Methode des [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Interfaces ist eine veränderliche Transformationsmethode, die eine Matrix durch Drehung der Matrix um den Winkel zwischen dem angegebenen Vektor und `(1, 0)` modifiziert. Der Drehwinkel wird durch den Winkel zwischen dem Vektor `(1,0)T` und `(x,y)T` im Uhrzeigersinn bestimmt oder `(+/-)arctan(y/x)`. Wenn `x` und `y` beide `0` sind, wird der Winkel als `0` angegeben und die Matrix wird nicht verändert.
 
-Um eine Matrix aus einem Vektor zu drehen, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.rotateFromVector()`](/de/docs/Web/API/DOMMatrixReadOnly/rotateFromVector), die eine neue gedrehte Matrix erstellt, während die ursprüngliche unverändert bleibt.
+Um eine Matrix von einem Vektor zu drehen, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.rotateFromVector()`](/de/docs/Web/API/DOMMatrixReadOnly/rotateFromVector), die eine neue gedrehte Matrix erstellt und die ursprüngliche unverändert lässt.
 
 ## Syntax
 
@@ -23,9 +23,9 @@ rotateFromVectorSelf(rotX, rotY)
 ### Parameter
 
 - `rotX` {{optional_inline}}
-  - : Eine Zahl; Die x-Koordinate des x,y-Vektors, der den Drehwinkel bestimmt. Wenn nicht definiert, wird `0` verwendet.
+  - : Eine Zahl; Die x-Koordinate des x,y Vektors, der den Drehwinkel bestimmt. Wenn nicht definiert, wird `0` verwendet.
 - `rotY` {{optional_inline}}
-  - : Eine Zahl; Die y-Koordinate des x,y-Vektors, der den Drehwinkel bestimmt. Wenn nicht definiert, wird `0` verwendet.
+  - : Eine Zahl; Die y-Koordinate des x,y Vektors, der den Drehwinkel bestimmt. Wenn nicht definiert, wird `0` verwendet.
 
 ### Rückgabewert
 
@@ -56,8 +56,8 @@ console.log(matrix.toString());
 - [`DOMMatrixReadOnly.rotateFromVector()`](/de/docs/Web/API/DOMMatrixReadOnly/rotateFromVector)
 - [`DOMMatrix.rotateSelf()`](/de/docs/Web/API/DOMMatrix/rotateSelf)
 - [`DOMMatrix.rotateAxisAngleSelf()`](/de/docs/Web/API/DOMMatrix/rotateAxisAngleSelf)
-- CSS {{cssxref("transform")}}-Eigenschaft und {{cssxref("transform-function/rotate3d", "rotate3d()")}}-Funktion
-- CSS {{cssxref("rotate")}}-Eigenschaft
-- Modul [CSS transforms](/de/docs/Web/CSS/CSS_transforms)
-- SVG [`transform`](/de/docs/Web/SVG/Attribute/transform)-Attribut
-- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Schnittstelle und [`rotate()`](/de/docs/Web/API/CanvasRenderingContext2D/rotate)-Methode
+- CSS {{cssxref("transform")}} Eigenschaft und {{cssxref("transform-function/rotate3d", "rotate3d()")}} Funktion
+- CSS {{cssxref("rotate")}} Eigenschaft
+- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) Modul
+- SVG [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform) Attribut
+- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) Interface und [`rotate()`](/de/docs/Web/API/CanvasRenderingContext2D/rotate) Methode

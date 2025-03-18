@@ -1,16 +1,16 @@
 ---
-title: "SVGAnimatedBoolean: Eigenschaft baseVal"
+title: "SVGAnimatedBoolean: baseVal-Eigenschaft"
 short-title: baseVal
 slug: Web/API/SVGAnimatedBoolean/baseVal
 l10n:
-  sourceCommit: 53fd7ea4a4657b1b457ee582d7a28672319bf80a
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`baseVal`**-Eigenschaft des [`SVGAnimatedBoolean`](/de/docs/Web/API/SVGAnimatedBoolean)-Interfaces ist der Wert des zugehörigen anpassbaren booleschen SVG-Attributs in seinem Basiszustand (nicht animiert). Sie spiegelt den Wert des zugehörigen anpassbaren booleschen Attributs wider, wenn keine Animationen angewendet werden.
+Die **`baseVal`**-Eigenschaft des [`SVGAnimatedBoolean`](/de/docs/Web/API/SVGAnimatedBoolean)-Interfaces gibt den Wert des zugehörigen animierbaren booleschen SVG-Attributs in seinem Basiszustand (nicht animiert) an. Sie spiegelt den Wert des zugehörigen animierbaren booleschen Attributs wider, wenn keine Animationen angewendet werden.
 
-Einige boolesche SVG-Attribute, wie zum Beispiel [`preserveAlpha`](/de/docs/Web/SVG/Attribute/preserveAlpha), sind animierbar. In solchen Fällen ist die `SVGAnimatedBoolean.baseVal`-Eigenschaft `false`, wenn das Attribut auf `false` gesetzt ist, weggelassen wird und standardmäßig auf `false` gesetzt ist, oder vererbbar ist und `false` erbt. Andernfalls ist der Wert `true`.
+Einige boolesche SVG-Attribute, wie beispielsweise [`preserveAlpha`](/de/docs/Web/SVG/Reference/Attribute/preserveAlpha), sind animierbar. In solchen Fällen ist die `SVGAnimatedBoolean.baseVal`-Eigenschaft `false`, wenn das Attribut auf `false` gesetzt ist, weggelassen wird und standardmäßig `false` ist oder vererbbar ist und `false` erbt. Andernfalls ist der Wert `true`.
 
 ## Wert
 

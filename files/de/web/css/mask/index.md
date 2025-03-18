@@ -2,19 +2,19 @@
 title: mask
 slug: Web/CSS/mask
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{CSSRef}}
 
-Die **`mask`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) verbirgt ein Element (teilweise oder vollständig), indem sie das Bild an bestimmten Punkten maskiert oder zuschneidet.
+Die **`mask`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) versteckt ein Element (teilweise oder vollständig), indem sie das Bild an bestimmten Stellen maskiert oder ausschneidet.
 
 > [!NOTE]
-> Zusätzlich zu den unten aufgeführten Eigenschaften setzt die `mask`-Kurzform auch {{cssxref("mask-border")}} auf ihren Anfangswert zurück. Es wird daher empfohlen, die `mask`-Kurzform zu verwenden, anstatt andere Kurzformen oder die einzelnen Eigenschaften zu nutzen, um alle Maskeneinstellungen früher in der Kaskade zu überschreiben. Dadurch wird sichergestellt, dass `mask-border` ebenfalls zurückgesetzt wurde, um das Wirksamwerden der neuen Stile zu ermöglichen.
+> Zusätzlich zu den unten aufgeführten Eigenschaften setzt die `mask`-Kurzschreibweise auch {{cssxref("mask-border")}} auf seinen Anfangswert zurück. Daher wird empfohlen, die `mask`-Kurzschreibweise anstelle anderer Kurzschreibweisen oder einzelner Eigenschaften zu verwenden, um alle früher in der Cascade gesetzten Maskeneinstellungen zu überschreiben. Dies stellt sicher, dass `mask-border` ebenfalls zurückgesetzt wurde, um das Inkrafttreten der neuen Stile zu ermöglichen.
 
-## Zusammengesetzte Eigenschaften
+## Bestandteilende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - [`mask-clip`](/de/docs/Web/CSS/mask-clip)
 - [`mask-composite`](/de/docs/Web/CSS/mask-composite)
@@ -60,21 +60,21 @@ mask:
 ### Werte
 
 - `<mask-reference>`
-  - : Legt die Quelle des Maskenbildes fest. Siehe {{cssxref("mask-image")}}.
+  - : Legt die Quellbild der Maske fest. Siehe {{cssxref("mask-image")}}.
 - `<masking-mode>`
-  - : Legt den Maskierungsmodus des Maskenbildes fest. Siehe {{cssxref("mask-mode")}}.
+  - : Legt den Maskierungsmodus des Maskenbilds fest. Siehe {{cssxref("mask-mode")}}.
 - `<position>`
-  - : Legt die Position des Maskenbildes fest. Siehe {{cssxref("mask-position")}}.
+  - : Legt die Position des Maskenbilds fest. Siehe {{cssxref("mask-position")}}.
 - `<bg-size>`
-  - : Legt die Größe des Maskenbildes fest. Siehe {{cssxref("mask-size")}}.
+  - : Legt die Größe des Maskenbilds fest. Siehe {{cssxref("mask-size")}}.
 - `<repeat-style>`
-  - : Legt die Wiederholung des Maskenbildes fest. Siehe {{cssxref("mask-repeat")}}.
+  - : Legt die Wiederholung des Maskenbilds fest. Siehe {{cssxref("mask-repeat")}}.
 - `<geometry-box>`
-  - : Wenn nur ein `<geometry-box>`-Wert angegeben ist, legt er sowohl {{cssxref("mask-origin")}} als auch {{cssxref("mask-clip")}} fest. Wenn zwei `<geometry-box>`-Werte vorhanden sind, legt der erste {{cssxref("mask-origin")}} und der zweite {{cssxref("mask-clip")}} fest.
+  - : Wenn nur ein `<geometry-box>`-Wert angegeben ist, setzt er sowohl {{cssxref("mask-origin")}} als auch {{cssxref("mask-clip")}}. Bei zwei `<geometry-box>`-Werten setzt der erste {{cssxref("mask-origin")}} und der zweite {{cssxref("mask-clip")}}.
 - `<geometry-box> | no-clip`
-  - : Legt den Bereich fest, der vom Maskenbild betroffen ist. Siehe {{cssxref("mask-clip")}}.
+  - : Legt den Bereich fest, der von dem Maskenbild betroffen ist. Siehe {{cssxref("mask-clip")}}.
 - `<compositing-operator>`
-  - : Legt den Kompositionsvorgang fest, der auf die aktuelle Maskenschicht angewendet wird. Siehe {{cssxref("mask-composite")}}.
+  - : Legt den Kompositionsvorgang auf der aktuellen Maskenschicht fest. Siehe {{cssxref("mask-composite")}}.
 
 ## Formale Definition
 
@@ -86,7 +86,7 @@ mask:
 
 ## Beispiele
 
-### Eine Maske auf ein Bild anwenden
+### Maskieren eines Bildes
 
 ```css
 .target {
@@ -111,5 +111,5 @@ mask:
 - {{CSSxRef("clip-path")}}
 - {{CSSxRef("filter")}}
 - SVG {{SVGAttr("mask")}} Attribut
-- [CSS Shapes, Clipping und Masking – und deren Anwendung](https://hacks.mozilla.org/2017/06/css-shapes-clipping-and-masking/)
-- [Anwenden von SVG-Effekten auf HTML-Inhalt](/de/docs/Web/SVG/Applying_SVG_effects_to_HTML_content)
+- [CSS Shapes, Clipping und Masking – und wie man sie verwendet](https://hacks.mozilla.org/2017/06/css-shapes-clipping-and-masking/)
+- [Anwendung von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)

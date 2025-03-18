@@ -1,20 +1,20 @@
 ---
-title: "SVGAnimatedBoolean: animVal Eigenschaft"
+title: "SVGAnimatedBoolean: animVal-Eigenschaft"
 short-title: animVal
 slug: Web/API/SVGAnimatedBoolean/animVal
 l10n:
-  sourceCommit: 53fd7ea4a4657b1b457ee582d7a28672319bf80a
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`animVal`** der Schnittstelle [`SVGAnimatedBoolean`](/de/docs/Web/API/SVGAnimatedBoolean) repräsentiert den aktuellen animierten Wert des zugehörigen animierbaren booleschen SVG-Attributs. Wenn das Attribut nicht animiert ist, entspricht `animVal` dem Wert von [`SVGAnimatedBoolean.baseVal`](/de/docs/Web/API/SVGAnimatedBoolean/baseVal).
+Die **`animVal`**-Eigenschaft des [`SVGAnimatedBoolean`](/de/docs/Web/API/SVGAnimatedBoolean)-Interfaces ist eine schreibgeschützte Eigenschaft, die den aktuellen animierten Wert des zugehörigen animierbaren boolean SVG-Attributs darstellt. Wenn das Attribut nicht animiert ist, ist `animVal` dasselbe wie [`SVGAnimatedBoolean.baseVal`](/de/docs/Web/API/SVGAnimatedBoolean/baseVal).
 
-Einige boolesche SVG-Attribute, wie zum Beispiel [`preserveAlpha`](/de/docs/Web/SVG/Attribute/preserveAlpha), sind animierbar. In solchen Fällen ist die Eigenschaft `SVGAnimatedBoolean.animVal` `true`, wenn der Attributwert zu true aufgelöst wird. Andernfalls ist der Wert `false`.
+Einige boolean SVG-Attribute, wie zum Beispiel [`preserveAlpha`](/de/docs/Web/SVG/Reference/Attribute/preserveAlpha), sind animierbar. In solchen Fällen ist die `SVGAnimatedBoolean.animVal`-Eigenschaft `true`, wenn der Attributwert zu true aufgelöst wird. Andernfalls ist der Wert `false`.
 
 ## Wert
 
-Ein boolescher Wert; der Wert des animierbaren booleschen Attributs.
+Ein boolean; der Wert des animierbaren boolean Attributs.
 
 ## Spezifikationen
 

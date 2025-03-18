@@ -2,12 +2,12 @@
 title: clip-path
 slug: Web/CSS/clip-path
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{CSSRef}}
 
-Die **`clip-path`** [CSS](/de/docs/Web/CSS) Eigenschaft erstellt eine Clipping-Region, die festlegt, welcher Teil eines Elements angezeigt werden soll. Teile, die innerhalb der Region liegen, werden angezeigt, während diejenigen außerhalb ausgeblendet werden.
+Die **`clip-path`** [CSS](/de/docs/Web/CSS) Eigenschaft erstellt eine Clip-Region, die festlegt, welcher Teil eines Elements angezeigt werden soll. Teile, die sich innerhalb der Region befinden, werden angezeigt, während diejenigen außerhalb verborgen sind.
 
 {{InteractiveExample("CSS Demo: clip-path")}}
 
@@ -112,57 +112,57 @@ clip-path: revert-layer;
 clip-path: unset;
 ```
 
-Die `clip-path` Eigenschaft wird als ein oder eine Kombination der unten aufgeführten Werte angegeben.
+Die `clip-path` Eigenschaft wird als einer oder eine Kombination der unten aufgeführten Werte angegeben.
 
 ### Werte
 
 - `<clip-source>`
-  - : Eine {{cssxref("url_value", "&lt;url&gt;")}} die auf ein [SVG](/de/docs/Web/SVG) {{SVGElement("clipPath")}}-Element verweist.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, das auf ein [SVG](/de/docs/Web/SVG) {{SVGElement("clipPath")}} Element verweist.
 - {{cssxref("&lt;basic-shape&gt;")}}
 
-  - : Eine Form, deren Größe und Position durch den `<geometry-box>` Wert definiert wird. Wenn keine Geometriebox angegeben ist, wird die `border-box` als Referenzrahmen verwendet. Eine der folgenden:
+  - : Eine Form, deren Größe und Position durch den `<geometry-box>` Wert definiert ist. Wenn keine Geometrie-Box angegeben ist, wird die `border-box` als Referenz-Box verwendet. Eine der folgenden:
 
     - {{cssxref("basic-shape/inset","inset()")}}
-      - : Definiert ein eingelagertes Rechteck.
+      - : Definiert ein eingezogenes Rechteck.
     - {{cssxref("basic-shape/circle","circle()")}}
-      - : Definiert einen Kreis mit einem Radius und einer Position.
+      - : Definiert einen Kreis unter Verwendung eines Radius und einer Position.
     - {{cssxref("basic-shape/ellipse","ellipse()")}}
-      - : Definiert eine Ellipse mit zwei Radien und einer Position.
+      - : Definiert eine Ellipse unter Verwendung von zwei Radien und einer Position.
     - {{cssxref("basic-shape/polygon","polygon()")}}
-      - : Definiert ein Polygon mit einer SVG-Füllregel und einem Satz von Eckpunkten.
+      - : Definiert ein Polygon unter Verwendung einer SVG-Füllregel und einer Reihe von Eckpunkten.
     - {{cssxref("basic-shape/path","path()")}}
-      - : Definiert eine Form mit einer optionalen SVG-Füllregel und einer SVG-Pfaddeﬁnition.
+      - : Definiert eine Form unter Verwendung einer optionalen SVG-Füllregel und einer SVG-Pfaddeffinition.
     - {{cssxref("basic-shape/rect","rect()")}}
-      - : Definiert ein Rechteck mit den angegebenen Abständen von den Rändern der Referenzbox.
+      - : Definiert ein Rechteck unter Verwendung der angegebenen Abstände von den Rändern der Referenz-Box.
     - {{cssxref("basic-shape/shape","shape()")}}
-      - : Definiert eine Form mit einer optionalen SVG-Füllregel und Formbefehlen für Linien, Kurven und Bögen.
+      - : Definiert eine Form unter Verwendung einer optionalen SVG-Füllregel und Formbefehlen für Linien, Kurven und Bögen.
     - {{cssxref("basic-shape/xywh","xywh()")}}
-      - : Definiert ein Rechteck mit den angegebenen Abständen von den oberen und linken Rändern der Referenzbox sowie der angegebenen Breite und Höhe des Rechtecks.
+      - : Definiert ein Rechteck unter Verwendung der angegebenen Abstände von den oberen und linken Rändern der Referenz-Box sowie der angegebenen Breite und Höhe des Rechtecks.
 
 - `<geometry-box>`
 
-  - : Wird dieser Wert in Kombination mit einer `<basic-shape>` angegeben, definiert er den Referenzrahmen für die Grundform. Wenn er alleine angegeben wird, sorgen die Kanten der angegebenen Box, einschließlich jeglicher Eckformung (wie z.B. {{cssxref("border-radius")}}), dafür, dass sie der Clipping-Pfad sind. Der Geometrieraum kann einen der folgenden Werte haben:
+  - : Falls in Kombination mit einer `<basic-shape>` angegeben, definiert dieser Wert die Referenz-Box für die Grundform. Wenn es alleine angegeben wird, bewirkt es, dass die Kanten der angegebenen Box, einschließlich jeglicher Eckenformen (wie ein {{cssxref("border-radius")}}), der Clip-Pfad sind. Die Geometrie-Box kann einen der folgenden Werte annehmen:
 
     - `margin-box`
-      - : Verwendet die [Margin-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#margin-box) als Referenzrahmen.
+      - : Verwendet die [margin box](/de/docs/Web/CSS/CSS_shapes/From_box_values#margin-box) als Referenz-Box.
     - `border-box`
-      - : Verwendet die [Border-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#border-box) als Referenzrahmen.
+      - : Verwendet die [border box](/de/docs/Web/CSS/CSS_shapes/From_box_values#border-box) als Referenz-Box.
     - `padding-box`
-      - : Verwendet die [Padding-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#padding-box) als Referenzrahmen.
+      - : Verwendet die [padding box](/de/docs/Web/CSS/CSS_shapes/From_box_values#padding-box) als Referenz-Box.
     - `content-box`
-      - : Verwendet die [Content-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#content-box) als Referenzrahmen.
+      - : Verwendet die [content box](/de/docs/Web/CSS/CSS_shapes/From_box_values#content-box) als Referenz-Box.
     - `fill-box`
-      - : Verwendet die Objektbegrenzungsbox als Referenzrahmen.
+      - : Verwendet die Umrandungs-Box des Objekts als Referenz-Box.
     - `stroke-box`
-      - : Verwendet die Strichbegrenzungsbox als Referenzrahmen.
+      - : Verwendet die Umrandungs-Box der Linie als Referenz-Box.
     - `view-box`
-      - : Verwendet den nächstgelegenen SVG-Ansichtsbereich als Referenzrahmen. Wenn ein {{SVGAttr("viewBox")}}-Attribut für das Element angegeben ist, das den SVG-Ansichtsbereich erstellt, wird der Referenzrahmen am Ursprung des durch das `viewBox`-Attribut festgelegten Koordinatensystems positioniert und die Größe des Referenzrahmens auf die Breiten- und Höhenwerte des `viewBox`-Attributs gesetzt.
+      - : Verwendet den nächstgelegenen SVG-Viewport als Referenz-Box. Wenn ein {{SVGAttr("viewBox")}} Attribut für das Element, das den SVG-Viewport erstellt, angegeben ist, wird die Referenz-Box am Ursprung des Koordinatensystems positioniert, das durch das `viewBox` Attribut erstellt wird, und die Dimension der Größe der Referenz-Box wird auf die Breiten- und Höhenwerte des `viewBox` Attributs gesetzt.
 
 - `none`
-  - : Es wird kein Clipping-Pfad erstellt.
+  - : Es wird kein Clip-Pfad erstellt.
 
 > [!NOTE]
-> Ein berechneter Wert, der nicht **`none`** ist, führt zur Erstellung eines neuen [Stacking-Kontexts](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) auf die gleiche Weise, wie es CSS {{cssxref("opacity")}} für Werte ungleich `1` tut.
+> Ein berechneter Wert ungleich **`none`** führt zur Erstellung eines neuen [Stapelkontexts](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context), genauso wie CSS {{cssxref("opacity")}} für Werte ungleich `1`.
 
 ## Formale Definition
 
@@ -636,7 +636,7 @@ svg text.em {
 
 {{EmbedLiveSample("Comparison_of_HTML_and_SVG", "100%", "800px")}}
 
-### Vollständiges Beispiel
+### Komplettes Beispiel
 
 #### HTML
 
@@ -699,6 +699,6 @@ clipPathSelect.addEventListener("change", (evt) => {
 - {{CSSxRef("clip-rule")}}
 - {{CSSxRef("mask")}}
 - {{CSSxRef("filter")}}
-- SVG-{{SVGAttr("clip-path")}}-Attribut
-- [Formen in Clipping und Maskierung – und wie man sie verwendet](https://hacks.mozilla.org/2017/06/css-shapes-clipping-and-masking/)
-- [Anwenden von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Applying_SVG_effects_to_HTML_content)
+- SVG {{SVGAttr("clip-path")}} Attribut
+- [Formen beim Clipping und Masking – und wie man sie verwendet](https://hacks.mozilla.org/2017/06/css-shapes-clipping-and-masking/)
+- [Anwenden von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)

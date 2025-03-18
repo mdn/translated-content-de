@@ -3,14 +3,14 @@ title: "SVGRectElement: rx-Eigenschaft"
 short-title: rx
 slug: Web/API/SVGRectElement/rx
 l10n:
-  sourceCommit: 6d3af583b9bcc45f68bb65b273c44e8b7fc88e6e
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`rx`**-Eigenschaft der Schnittstelle [`SVGRectElement`](/de/docs/Web/API/SVGRectElement) beschreibt die horizontale Kurve der Ecken eines SVG-Rechtecks als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Die Länge wird in Einheiten des Benutzerskoordinatensystems entlang der x-Achse angegeben. Die Syntax ist die gleiche wie die für [`<length>`](/de/docs/Web/SVG/Content_type#length).
+Die **`rx`**-Eigenschaft des [`SVGRectElement`](/de/docs/Web/API/SVGRectElement)-Interfaces ist eine schreibgeschützte Eigenschaft, die die horizontale Kurve der Ecken eines SVG-Rechtecks als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) beschreibt. Die Länge wird in Benutzerkoordinateneinheiten entlang der x-Achse angegeben. Ihre Syntax entspricht der für [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length).
 
-Sie spiegelt das Präsentationsattribut {{SVGElement("rect")}}-Element {{SVGAttr("rx")}} wider. Die CSS-Eigenschaft {{cssxref("rx")}} hat Vorrang vor dem SVG-Präsentationsattribut `rx`, daher könnte der Wert nicht die tatsächliche Größe der abgerundeten Ecken widerspiegeln. Der Standardwert ist `0`, was ein Rechteck mit rechtwinkligen Ecken zeichnet.
+Sie spiegelt das präsentationsbezogene Attribut {{SVGElement("rect")}} des Elements {{SVGAttr("rx")}} wider. Die CSS-Eigenschaft {{cssxref("rx")}} hat Vorrang vor dem SVG-`rx`-Attribut, sodass der Wert möglicherweise nicht die tatsächliche Größe der abgerundeten Ecken widerspiegelt. Der Standardwert ist `0`, was ein Rechteck mit rechtwinkligen Ecken zeichnet.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Für das folgende SVG:
+Gegeben das folgende SVG:
 
 ```html
 <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@ Für das folgende SVG:
 </svg>
 ```
 
-können wir die berechneten Werte der `rx`-Attribute abrufen:
+Können wir auf die berechneten Werte der `rx`-Attribute zugreifen:
 
 ```js
 const rectangles = document.querySelectorAll("rect");

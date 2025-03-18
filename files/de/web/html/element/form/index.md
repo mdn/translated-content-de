@@ -2,12 +2,12 @@
 title: "<form>: Das Formularelement"
 slug: Web/HTML/Element/form
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{HTMLSidebar}}
 
-Das **`<form>`**-Element [HTML](/de/docs/Web/HTML) repräsentiert einen Abschnitt eines Dokuments, der interaktive Steuerelemente zum Übermitteln von Informationen enthält.
+Das **`<form>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen Dokumentabschnitt, der interaktive Steuerungen zur Übermittlung von Informationen enthält.
 
 {{InteractiveExample("HTML Demo: &lt;form&gt;", "tabbed-standard")}}
 
@@ -47,7 +47,7 @@ label {
 }
 ```
 
-Es ist möglich, die {{cssxref(':valid')}} und {{cssxref(':invalid')}} CSS-[Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) zu verwenden, um ein `<form>`-Element basierend auf der Gültigkeit der [`elements`](/de/docs/Web/API/HTMLFormElement/elements) innerhalb des Formulars zu gestalten.
+Es ist möglich, die CSS [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes) {{cssxref(':valid')}} und {{cssxref(':invalid')}} zu verwenden, um ein `<form>` Element basierend darauf zu stylen, ob die [`elements`](/de/docs/Web/API/HTMLFormElement/elements) innerhalb des Formulars gültig sind.
 
 ## Attribute
 
@@ -55,73 +55,77 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
 
 - `accept` {{deprecated_inline}}
 
-  - : Durch Kommatas getrennte [Inhaltstypen](/de/docs/Web/SVG/Content_type), die der Server akzeptiert.
+  - : Komma-getrennte [Inhaltstypen](/de/docs/Web/SVG/Guides/Content_type), die der Server akzeptiert.
 
-    > **Note:** **Dieses Attribut ist veraltet und sollte nicht verwendet werden.** Verwenden Sie stattdessen das [`accept`](/de/docs/Web/HTML/Element/input#accept)-Attribut bei `<input type=file>`-Elementen.
+    > **Hinweis:** **Dieses Attribut wurde als veraltet erklärt und sollte nicht verwendet werden.** Stattdessen verwenden Sie das [`accept`](/de/docs/Web/HTML/Element/input#accept) Attribut in `<input type=file>` Elementen.
 
 - `accept-charset`
 
   - : Die vom Server akzeptierte {{Glossary("character_encoding", "Zeichenkodierung")}}.
-    Die Spezifikation erlaubt einen einzigen ge- und kleinschreibungsunabhängigen Wert von `"UTF-8"`, was die Allgegenwart dieser Kodierung widerspiegelt (historisch konnten mehrere Zeichenkodierungen als komma- oder leerzeichengetrennte Liste angegeben werden).
+    Die Spezifikation erlaubt einen einzelnen, nicht groß- und kleinschreibungsempfindlichen Wert von `"UTF-8"`, was die Allgegenwärtigkeit dieser Kodierung widerspiegelt (historisch konnten mehrere Zeichenkodierungen als Komma- oder Leerzeichen-getrennte Liste angegeben werden).
 
 - `autocapitalize`
 
-  - : Steuert, ob eingegebener Text automatisch großgeschrieben wird und, wenn ja, auf welche Weise. Weitere Informationen finden Sie auf der Seite zum [`autocapitalize`](/de/docs/Web/HTML/Global_attributes/autocapitalize)-Globalattribut.
+  - : Bestimmt, ob eingegebener Text automatisch großgeschrieben wird und in welcher Weise. Weitere Informationen finden Sie auf der Seite zum globalen Attribut [`autocapitalize`](/de/docs/Web/HTML/Global_attributes/autocapitalize).
 
 - [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)
 
-  - : Gibt an, ob Eingabeelemente standardmäßig automatisch vom Browser ihre Werte vervollständigen können. `autocomplete`-Attribute bei Formularelementen überschreiben dies bei `<form>`. Mögliche Werte:
+  - : Gibt an, ob Eingabeelemente standardmäßig automatisch durch den Browser vervollständigt werden können. `autocomplete` Attribute in Formularelementen überschreiben das im `<form>`. Mögliche Werte:
 
-    - `off`: Der Browser darf Einträge nicht automatisch vervollständigen. (Browser neigen dazu, dies bei vermuteten Anmeldeformularen zu ignorieren; siehe [Verwaltung der automatischen Vervollständigung für Anmeldefelder](/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion#managing_autofill_for_login_fields).)
+    - `off`: Der Browser darf Einträge nicht automatisch vervollständigen. (Browser neigen dazu, dies bei vermuteten Login-Formularen zu ignorieren; siehe [Verwalten von Autofill für Login-Felder](/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion#managing_autofill_for_login_fields).)
     - `on`: Der Browser darf Einträge automatisch vervollständigen.
 
 - `name`
 
-  - : Der Name des Formulars. Der Wert darf nicht die leere Zeichenfolge sein und muss einzigartig unter den `form`-Elementen in der Formularkollektion sein, in der es sich befindet, falls vorhanden.
+  - : Der Name des Formulars. Der Wert darf nicht der leere String sein und muss eindeutig innerhalb der `form` Elemente in der Formulareingebung sein, falls vorhanden.
 
 - [`rel`](/de/docs/Web/HTML/Attributes/rel)
-  - : Regelt die Anmerkungen und welche Arten von Links das Formular erstellt. Anmerkungen umfassen [`external`](/de/docs/Web/HTML/Attributes/rel#external), [`nofollow`](/de/docs/Web/HTML/Attributes/rel#nofollow), [`opener`](/de/docs/Web/HTML/Attributes/rel#opener), [`noopener`](/de/docs/Web/HTML/Attributes/rel#noopener) und [`noreferrer`](/de/docs/Web/HTML/Attributes/rel#noreferrer). Linktypen umfassen [`help`](/de/docs/Web/HTML/Attributes/rel#help), [`prev`](/de/docs/Web/HTML/Attributes/rel#prev), [`next`](/de/docs/Web/HTML/Attributes/rel#next), [`search`](/de/docs/Web/HTML/Attributes/rel#search) und [`license`](/de/docs/Web/HTML/Attributes/rel#license). Der [`rel`](/de/docs/Web/HTML/Attributes/rel)-Wert ist eine durch Leerzeichen getrennte Liste dieser aufgezählten Werte.
+  - : Bestimmt die Annotationen und welche Arten von Links das Formular erstellt. Annotationen umfassen [`external`](/de/docs/Web/HTML/Attributes/rel#external), [`nofollow`](/de/docs/Web/HTML/Attributes/rel#nofollow), [`opener`](/de/docs/Web/HTML/Attributes/rel#opener), [`noopener`](/de/docs/Web/HTML/Attributes/rel#noopener) und [`noreferrer`](/de/docs/Web/HTML/Attributes/rel#noreferrer). Linktypen umfassen [`help`](/de/docs/Web/HTML/Attributes/rel#help), [`prev`](/de/docs/Web/HTML/Attributes/rel#prev), [`next`](/de/docs/Web/HTML/Attributes/rel#next), [`search`](/de/docs/Web/HTML/Attributes/rel#search) und [`license`](/de/docs/Web/HTML/Attributes/rel#license). Der [`rel`](/de/docs/Web/HTML/Attributes/rel) Wert ist eine durch Leerzeichen getrennte Liste dieser enumerierten Werte.
 
-### Attribute für Formularübermittlung
+### Attribute für das Absenden des Formulars
 
-Die folgenden Attribute steuern das Verhalten während der Formularübermittlung.
+Die folgenden Attribute steuern das Verhalten beim Absenden des Formulars.
 
 - `action`
-  - : Die URL, die die Formularübermittlung verarbeitet. Dieser Wert kann durch ein [`formaction`](/de/docs/Web/HTML/Element/button#formaction)-Attribut bei einem {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit), oder [`<input type="image">`](/de/docs/Web/HTML/Element/input/image)-Element überschrieben werden. Dieses Attribut wird ignoriert, wenn `method="dialog"` gesetzt ist.
+
+  - : Die URL, die die Formularübermittlung verarbeitet. Dieser Wert kann von einem [`formaction`](/de/docs/Web/HTML/Element/button#formaction) Attribut in einem {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) oder [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) Element überschrieben werden. Dieses Attribut wird ignoriert, wenn `method="dialog"` gesetzt ist.
+
 - `enctype`
 
-  - : Wenn der Wert des `method`-Attributs `post` ist, ist `enctype` der [MIME-Typ](https://de.wikipedia.org/wiki/Mime_type) der Formularübermittlung. Mögliche Werte:
+  - : Wenn der Wert des `method` Attributs `post` ist, ist `enctype` der [MIME-Typ](https://en.wikipedia.org/wiki/Mime_type) der Formularübermittlung. Mögliche Werte:
 
     - `application/x-www-form-urlencoded`: Der Standardwert.
-    - `multipart/form-data`: Verwenden Sie dies, wenn das Formular {{HTMLElement("input")}}-Elemente mit `type=file` enthält.
-    - `text/plain`: Nützlich für Debugging-Zwecke.
+    - `multipart/form-data`: Verwenden Sie dies, wenn das Formular {{HTMLElement("input")}} Elemente mit `type=file` enthält.
+    - `text/plain`: Nützlich für Debug-Zwecke.
 
-    Dieser Wert kann durch [`formenctype`](/de/docs/Web/HTML/Element/button#formenctype)-Attribute bei {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit), oder [`<input type="image">`](/de/docs/Web/HTML/Element/input/image)-Elementen überschrieben werden.
+    Dieser Wert kann durch [`formenctype`](/de/docs/Web/HTML/Element/button#formenctype) Attribute in {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) oder [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) Elementen überschrieben werden.
 
 - `method`
 
-  - : Die [HTTP](/de/docs/Web/HTTP)-Methode, mit der das Formular übermittelt wird.
-    Die einzigen erlaubten Methoden/Werte sind (unabhängig von Groß- und Kleinschreibung):
+  - : Die [HTTP](/de/docs/Web/HTTP) Methode, mit der das Formular übermittelt wird.
+    Die einzig erlaubten Methoden/Werte sind (nicht groß- und kleinschreibungsempfindlich):
 
-    - `post`: Die {{HTTPMethod("POST")}}-Methode; Formulardaten werden als [Anfrageinhalt](/de/docs/Web/API/Request/body) gesendet.
-    - `get` (standardmäßig): Die {{HTTPMethod("GET")}}-Methode; Formulardaten werden an die `action`-URL mit einem `?`-Trennzeichen angehängt. Verwenden Sie diese Methode, wenn das Formular {{Glossary("Idempotent", "keine Nebeneffekte hat")}}.
-    - `dialog`: Wenn das Formular in einem {{HTMLElement("dialog")}} ist, wird der Dialog geschlossen und ein `submit`-Ereignis bei der Übermittlung ausgelöst, ohne Daten zu übermitteln oder das Formular zu leeren.
+    - `post`: Die {{HTTPMethod("POST")}} Methode; Formulardaten werden als [Anfrageinhalt](/de/docs/Web/API/Request/body) gesendet.
+    - `get` (Standard): Die {{HTTPMethod("GET")}} Methode; Formulardaten werden an die `action` URL mit einem `?` Separator angehängt. Verwenden Sie diese Methode, wenn das Formular {{Glossary("Idempotent", "keine Nebenwirkungen hat")}}.
+    - `dialog`: Wenn sich das Formular in einem {{HTMLElement("dialog")}} befindet, schließt das Dialog und löst ein `submit` Ereignis bei der Übermittlung aus, ohne Daten zu senden oder das Formular zu leeren.
 
-    Dieser Wert wird durch [`formmethod`](/de/docs/Web/HTML/Element/button#formmethod)-Attribute bei {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit), oder [`<input type="image">`](/de/docs/Web/HTML/Element/input/image)-Elementen überschrieben.
+    Dieser Wert wird durch [`formmethod`](/de/docs/Web/HTML/Element/button#formmethod) Attribute in {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) oder [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) Elementen überschrieben.
 
 - `novalidate`
-  - : Dieses boolesche Attribut gibt an, dass das Formular bei der Übermittlung nicht validiert werden soll. Wenn dieses Attribut nicht gesetzt ist (und das Formular daher validiert **wird**), kann es durch ein [`formnovalidate`](/de/docs/Web/HTML/Element/button#formnovalidate)-Attribut bei einem {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit), oder [`<input type="image">`](/de/docs/Web/HTML/Element/input/image)-Element, das zum Formular gehört, überschrieben werden.
+
+  - : Dieses boolesche Attribut gibt an, dass das Formular beim Absenden nicht validiert werden soll. Wenn dieses Attribut nicht gesetzt ist (und das Formular **_ist_** daher validiert), kann es durch ein [`formnovalidate`](/de/docs/Web/HTML/Element/button#formnovalidate) Attribut in einem {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) oder [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) Element, das zum Formular gehört, überschrieben werden.
+
 - `target`
 
-  - : Gibt an, wo die Antwort nach der Formularübermittlung angezeigt wird. Es ist ein Name oder Schlüsselwort für einen _Browsing-Kontext_ (z. B. Tab, Fenster oder iframe). Die folgenden Schlüsselwörter haben spezielle Bedeutungen:
+  - : Gibt an, wo die Antwort nach der Übermittlung des Formulars angezeigt werden soll. Es ist ein Name/Schlüsselwort für einen _Browsing-Kontext_ (z.B. Tab, Fenster, oder iframe). Die folgenden Schlüsselwörter haben spezielle Bedeutungen:
 
-    - `_self` (standardmäßig): In denselben Browsing-Kontext wie den aktuellen laden.
-    - `_blank`: In einem neuen, unbenannten Browsing-Kontext laden. Dies bietet dasselbe Verhalten wie das Setzen von [`rel="noopener"`](#rel), was [`window.opener`](/de/docs/Web/API/Window/opener) nicht setzt.
-    - `_parent`: In den übergeordneten Browsing-Kontext des aktuellen laden. Hat keine übergeordnete Ebene, verhält sich wie `_self`.
-    - `_top`: In den obersten Browsing-Kontext laden (d.h. den Browsing-Kontext, der ein Vorfahre des aktuellen ist und keinen Eltern hat). Hat keine übergeordnete Ebene, verhält sich wie `_self`.
-    - `_unfencedTop`: Lädt die Antwort eines Formulars in einem eingebetteten [fenced frame](/de/docs/Web/API/Fenced_frame_API) in den obersten Frame (d.h. über das Wurzelverzeichnis des eingerahmten Rahmen hinausgehend, im Gegensatz zu anderen reservierten Zielen). Nur verfügbar in eingerahmten Rahmen.
+    - `_self` (Standard): Lädt in denselben Browsing-Kontext wie der aktuelle.
+    - `_blank`: Lädt in einen neuen, unbenannten Browsing-Kontext. Dies bietet das gleiche Verhalten wie das Setzen von [`rel="noopener"`](#rel), das [`window.opener`](/de/docs/Web/API/Window/opener) nicht setzt.
+    - `_parent`: Lädt in den übergeordneten Browsing-Kontext des aktuellen. Wenn kein übergeordneter Kontext vorhanden ist, verhält es sich wie `_self`.
+    - `_top`: Lädt in den obersten Browsing-Kontext (d.h. den Browsing-Kontext, der ein Vorfahre des aktuellen ist und keinen übergeordneten Kontext hat). Wenn kein übergeordneter Kontext vorhanden ist, verhält es sich wie `_self`.
+    - `_unfencedTop`: Lädt die Antwort eines Formulars innerhalb eines eingebetteten [Eingezäunten Rahmens](/de/docs/Web/API/Fenced_frame_API) in den obersten Rahmen (d.h. über das Ende des eingegrenzten Rahmens hinaus, anders als bei anderen reservierten Zielen). Nur innerhalb von eingegrenzten Rahmen verfügbar.
 
-    Dieser Wert kann durch ein [`formtarget`](/de/docs/Web/HTML/Element/button#formtarget)-Attribut bei einem {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) oder [`<input type="image">`](/de/docs/Web/HTML/Element/input/image)-Element überschrieben werden.
+    Dieser Wert kann durch ein [`formtarget`](/de/docs/Web/HTML/Element/button#formtarget) Attribut in einem {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) oder [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) Element überschrieben werden.
 
 ## Beispiele
 
@@ -168,18 +172,18 @@ Die folgenden Attribute steuern das Verhalten während der Formularübermittlung
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Content_categories#palpable_content">greifbarer Inhalt</a>
+        <a href="/de/docs/Web/HTML/Content_categories#palpable_content">fühlbarer Inhalt</a>
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>, jedoch ohne <code>&#x3C;form></code>-Elemente
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>, jedoch ohne <code>&#x3C;form></code> Elemente
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl Start- als auch End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -219,8 +223,8 @@ Die folgenden Attribute steuern das Verhalten während der Formularübermittlung
 
 ## Siehe auch
 
-- [HTML-Formularleitfaden](/de/docs/Learn_web_development/Extensions/Forms)
+- [HTML-Formulare Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)
 - Andere Elemente, die beim Erstellen von Formularen verwendet werden: {{HTMLElement("button")}}, {{HTMLElement("datalist")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}}, {{HTMLElement("label")}}, {{HTMLElement("legend")}}, {{HTMLElement("meter")}}, {{HTMLElement("optgroup")}}, {{HTMLElement("option")}}, {{HTMLElement("output")}}, {{HTMLElement("progress")}}, {{HTMLElement("select")}}, {{HTMLElement("textarea")}}.
-- Eine Liste der Elemente im Formular abrufen: [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)
-- [ARIA: Formrole](/de/docs/Web/Accessibility/ARIA/Reference/Roles/form_role)
+- Abrufen einer Liste von Elementen im Formular: [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)
+- [ARIA: Form-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/form_role)
 - [ARIA: Suchrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/search_role)

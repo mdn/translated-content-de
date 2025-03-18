@@ -3,14 +3,14 @@ title: "SVGFETurbulenceElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGFETurbulenceElement/height
 l10n:
-  sourceCommit: ec48a043c5dbedef746b2d85f780f73cef59f332
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`height`**-Eigenschaft der Schnittstelle [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement) beschreibt die vertikale Größe eines SVG-Filterprimitivs als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Diese ist schreibgeschützt.
+Die schreibgeschützte **`height`**-Eigenschaft der [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement)-Schnittstelle beschreibt die vertikale Größe einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGAttr("height")}}-Attribut des {{SVGElement("feTurbulence")}}-Elements wider, welches die Synthese von künstlichen Texturen ermöglicht. Das Attribut ist ein [`\<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage) relativ zur Höhe des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheiten des Koordinatensystems.
+Sie spiegelt das {{SVGAttr("height")}}-Attribut des {{SVGElement("feTurbulence")}}-Elements wider, das die Synthese künstlicher Texturen ermöglicht. Das Attribut ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) relativ zur Höhe des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheitssystemeinheiten.
 
 ## Wert
 

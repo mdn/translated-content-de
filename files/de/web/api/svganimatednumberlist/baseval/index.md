@@ -3,14 +3,14 @@ title: "SVGAnimatedNumberList: baseVal-Eigenschaft"
 short-title: baseVal
 slug: Web/API/SVGAnimatedNumberList/baseVal
 l10n:
-  sourceCommit: ffe2fa2992962f5ccd47cb4566e047f14f1ea6d7
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`baseVal`**-Eigenschaft der [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList)-Schnittstelle repräsentiert den Basiswert (nicht animiert) eines animierbaren Attributs, das eine Liste von [`<number>`](/de/docs/Web/SVG/Content_type#number)-Werten akzeptiert.
+Die schreibgeschützte **`baseVal`**-Eigenschaft der Schnittstelle [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList) repräsentiert den Basiswert (nicht animiert) eines animierbaren Attributs, das eine Liste von [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number)-Werten akzeptiert.
 
-Diese Eigenschaft spiegelt das [`viewBox`](/de/docs/Web/SVG/Attribute/viewBox)-Attribut des [`<svg>`](/de/docs/Web/SVG/Element/svg)-Elements, das [`values`](/de/docs/Web/SVG/Attribute/values#fecolormatrix)-Attribut des [`feColorMatrix`](/de/docs/Web/SVG/Element/feColorMatrix)-Elements sowie das {{SVGAttr("points")}}-Attribut der {{SVGElement("rect")}}, {{SVGElement("polygon")}} oder {{SVGElement("polyline")}}-Elemente als ein schreibgeschützte [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) wider, die Zugriff auf eine statische Liste von durch das {{SVGAttr("points")}}-Attribut definierten Punkten bietet.
+Diese Eigenschaft spiegelt das [`viewBox`](/de/docs/Web/SVG/Reference/Attribute/viewBox)-Attribut des [`<svg>`](/de/docs/Web/SVG/Reference/Element/svg)-Elements, das [`values`](/de/docs/Web/SVG/Reference/Attribute/values#fecolormatrix)-Attribut des [`feColorMatrix`](/de/docs/Web/SVG/Reference/Element/feColorMatrix)-Elements und das {{SVGAttr("points")}}-Attribut des {{SVGElement("rect")}}, {{SVGElement("polygon")}} oder {{SVGElement("polyline")}}-Elements als ein schreibgeschütztes [`SVGNumberList`](/de/docs/Web/API/SVGNumberList), das den Zugriff auf eine statische Liste von Punkten ermöglicht, die durch das {{SVGAttr("points")}}-Attribut definiert werden.
 
 ## Wert
 

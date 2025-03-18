@@ -2,20 +2,21 @@
 title: 205 Reset Content
 slug: Web/HTTP/Reference/Status/205
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 74ab26a101ef2e4d5e5f25962033bc1042102677
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`205 Reset Content`** [Erfolgreiche Antwort](/de/docs/Web/HTTP/Reference/Status#successful_responses) zeigt an, dass die Anfrage erfolgreich verarbeitet wurde und der Client das Dokumenten-View zurücksetzen sollte.
+Der HTTP-Statuscode **`205 Reset Content`** [erfolgreiche Antwort](/de/docs/Web/HTTP/Reference/Status#successful_responses) zeigt an, dass die Anfrage erfolgreich verarbeitet wurde und der Client die Dokumentansicht zurücksetzen sollte.
 
-Diese Antwort soll Anwendungsfälle unterstützen, bei denen der Benutzer Inhalte erhält, die Dateneingabe unterstützen, benutzerbearbeitete Daten in einer Anfrage übermittelt und die Inhalte für die nächste Eingabe zurückgesetzt werden müssen. Die Anweisung zum "Zurücksetzen von Inhalten" kann das Löschen der Inhalte eines Formulars, das Zurücksetzen eines Canvas-Status oder das Auffrischen einer Benutzeroberfläche bedeuten; die Implementierung hängt vom Client ab.
+Diese Antwort ist für Anwendungsfälle vorgesehen, bei denen der Benutzer Inhalte erhält, die die Dateneingabe unterstützen, benutzerbearbeitete Daten in einer Anfrage übermittelt werden und der Inhalt für die nächste Eingabe zurückgesetzt werden muss. Die Anweisung zum "Zurücksetzen der Inhalte" kann das Löschen der Inhalte eines Formulars, das Zurücksetzen eines Canvas-Zustands oder das Aktualisieren einer Benutzeroberfläche bedeuten; die Implementierung hängt vom Client ab.
 
 > [!NOTE]
-> In Webanwendungen, die den `205`-Status verwenden, wird davon ausgegangen, dass der Client nach einer `205`-Antwort das Zurücksetzen der Inhalte übernimmt.
-> Dies wird in der Regel über JavaScript durchgeführt, da das Zurücksetzen von Inhalten wie Formularen nach einer `205`-Antwort von Browsern nicht nativ unterstützt wird.
+> In Webanwendungen, die den `205`-Status verwenden, wird davon ausgegangen, dass der Client nach einer `205`-Antwort den Inhalt zurücksetzt.
+> Dies wird typischerweise über JavaScript durchgeführt, da das Zurücksetzen von Inhalten wie Formularen nach einer `205`-Antwort nicht von den Browsern nativ unterstützt wird.
 
-Es darf kein Inhalt im Antwortkörper vorhanden sein, und dies kann durch den {{HTTPHeader("Content-Length", "Content-Length: 0")}}-Header oder den {{HTTPHeader("Transfer-Encoding", "Transfer-Encoding: chunked")}}-Header mit einem leeren Block angezeigt werden.
+Beachten Sie, dass die Antwort keinen Inhalt oder den {{HTTPHeader("Content-Length")}}-Header enthalten darf (Browser können Antworten ablehnen, die Inhalte enthalten).
+Die leere Antwort kann auch durch den {{HTTPHeader("Transfer-Encoding", "Transfer-Encoding: chunked")}}-Header mit einem leeren Chunk angezeigt werden.
 
 ## Status
 
@@ -25,9 +26,9 @@ Es darf kein Inhalt im Antwortkörper vorhanden sein, und dies kann durch den {{
 
 ## Beispiele
 
-### Zurücksetzen eines Formulars nach Erhalt einer `205 Reset Content`
+### Zurücksetzen eines Formulars nach Erhalt eines `205 Reset Content`
 
-Der Client in diesem Beispiel sendet eine `POST`-Anfrage, um ein Formular mit dem Kommentar `Hello!` abzusenden:
+Der Client in diesem Beispiel sendet eine `POST`-Anfrage, um ein Formular mit dem Kommentar `Hello!` zu übermitteln:
 
 ```http
 POST /submit HTTP/1.1
@@ -38,7 +39,7 @@ Content-Length: 15
 comment=Hello!
 ```
 
-Nach erfolgreicher Verarbeitung der Formularübertragung antwortet der Server mit der folgenden `205`-Antwort und gibt an, dass der Client das Formular zurücksetzen sollte.
+Nach der erfolgreichen Verarbeitung der Formularübermittlung antwortet der Server mit der folgenden `205`-Antwort, die angibt, dass der Client das Formular zurücksetzen sollte.
 
 ```http
 HTTP/1.1 205 Reset Content
@@ -50,11 +51,6 @@ Date: Wed, 26 Jun 2024 12:00:00 GMT
 ## Spezifikationen
 
 {{Specifications}}
-
-## Kompatibilitätsanmerkungen
-
-Das Verhalten der Browser unterscheidet sich, wenn diese Antwort fälschlicherweise einen Körper bei persistenten Verbindungen enthält.
-Siehe [Kompatibilitätsanmerkungen zu `204 No Content`](/de/docs/Web/HTTP/Reference/Status/204#compatibility_notes) für weitere Details.
 
 ## Siehe auch
 
