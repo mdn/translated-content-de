@@ -1,18 +1,25 @@
 ---
-title: "WebGL2RenderingContext: uniform[1234][uif][v]()-Methode"
+title: "WebGL2RenderingContext: uniform[1234][uif][v]() Methode"
 short-title: uniform[1234][uif][v]()
 slug: Web/API/WebGL2RenderingContext/uniform
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 4a0e5eff698db3e3f5f2fb1a95ba9c7207440681
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.uniform[1234][uif][v]()`**-Methoden der [WebGL API](/de/docs/Web/API/WebGL_API) legen die Werte der Uniform-Variablen fest.
+Die **`WebGL2RenderingContext.uniform[1234][uif][v]()`**
+Methoden der [WebGL API](/de/docs/Web/API/WebGL_API) legen Werte von Uniform-Variablen fest.
 
-> **Note:** `ui` steht für _unsigned integer_, `i` für _integer_, `f` für _float_ und `v` für _vector_.
-> Nicht alle Kombinationen sind gültig: `u` kann nicht mit `f` kombiniert werden.
-> Siehe die Syntax-Tabelle unten. Entsprechender Regex: `uniform[1234](u?i|f)v?`
+Die Namen dieser Methoden setzen sich zusammen aus:
+
+- Der Anzahl der Komponenten in der Uniform-Variable (1, 2, 3 oder 4).
+- Dem Typ der Uniform-Variable (`i` für Integer, `f` für Float, `ui` für Unsigned Integer).
+- Der Anwesenheit eines Vektorsuffixes (`v`) für Vektortypen.
+
+Sie können durch den regulären Ausdruck `uniform[1234](u?i|f)v?` gematcht werden.
+
+Die meisten dieser Signaturen sind vom [WebGL 1 API](/de/docs/Web/API/WebGLRenderingContext/uniform) geerbt. WebGL 2 fügt die Versionen für Unsigned Integer sowie die zusätzlichen `srcOffset`- und `srcLength`-Parameter zu den Vektormethoden hinzu.
 
 ## Syntax
 
@@ -74,16 +81,17 @@ uniform4uiv(location, data, srcOffset, srcLength)
 ### Parameter
 
 - `location`
-  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation)-Objekt, das die Position des zu ändernden Uniform-Attributs enthält.
+  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation)-Objekt, das den Ort des zu modifizierenden Uniform-Attributs enthält.
 - `data`, `v0`, `v1`, `v2`, `v3`
-
   - : Ein neuer Wert, der für die Uniform-Variable verwendet werden soll. Mögliche Typen:
-
-    - Eine {{jsxref("Number")}} für unsigned Integer-Werte (Methoden mit
-      `ui`), Integer-Werte (Methoden mit `i`) oder für Floats
-      (Methoden mit `f`).
-    - Ein {{jsxref("Uint32Array")}} für unsigned Integer-Vector-Methoden (Methoden mit
-      `uiv`).
+    - Eine {{jsxref("Number")}} für Unsigned Integer-Werte (Methoden mit `ui`), für Integer-Werte (Methoden mit `i`) oder für Float-Werte (Methoden mit `f`).
+    - Eine {{jsxref("Uint32Array")}} (oder ein {{jsxref("Array")}} von Unsigned Integer-Zahlen) für Methoden mit Unsigned Integer-Vektoren (Methoden mit `uiv`).
+    - Eine {{jsxref("Int32Array")}} (oder ein {{jsxref("Array")}} von Integer-Zahlen) für Methoden mit Integer-Vektoren (Methoden mit `iv`).
+    - Eine {{jsxref("Float32Array")}} (oder ein {{jsxref("Array")}} von Zahlen) für Methoden mit Gleitkomma-Vektoren (Methoden mit `fv`).
+- `srcOffset` {{optional_inline}}
+  - : Eine nicht-negative ganze Zahl, die den Index des ersten zu verwendenden Elements im `data`-Array angibt. Standard ist `0`.
+- `srcLength` {{optional_inline}}
+  - : Eine nicht-negative ganze Zahl, die die Anzahl der zu verwendenden Elemente im `data`-Array angibt. Standard ist `0`, was als `data.length - srcOffset` behandelt wird. `srcOffset + srcLength` muss kleiner oder gleich `data.length` sein.
 
 ### Rückgabewert
 
@@ -99,4 +107,4 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [`WebGLRenderingContext.uniform()`](/de/docs/Web/API/WebGLRenderingContext/uniform)
+- [`WebGLRenderingContext.uniform[1234][fi][v]()`](/de/docs/Web/API/WebGLRenderingContext/uniform)
