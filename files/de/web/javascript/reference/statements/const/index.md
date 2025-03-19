@@ -2,12 +2,12 @@
 title: const
 slug: Web/JavaScript/Reference/Statements/const
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 0e7eafea05cd771c86e77947639f3396e7a59b2b
 ---
 
 {{jsSidebar("Statements")}}
 
-Die **`const`**-Deklaration deklariert block-skopierte lokale Variablen. Der Wert einer Konstante kann nicht durch Zuweisung mit dem [Zuweisungsoperator](/de/docs/Web/JavaScript/Reference/Operators/Assignment) geändert werden, aber wenn eine Konstante ein [Objekt](/de/docs/Web/JavaScript/Guide/Data_structures#objects) ist, können ihre Eigenschaften hinzugefügt, aktualisiert oder entfernt werden.
+Die **`const`** Deklaration deklariert block-skopierte lokale Variablen. Der Wert einer Konstante kann nicht durch erneute Zuweisung mit dem [Zuweisungsoperator](/de/docs/Web/JavaScript/Reference/Operators/Assignment) geändert werden, aber wenn eine Konstante ein [Objekt](/de/docs/Web/JavaScript/Guide/Data_structures#objects) ist, können ihre Eigenschaften hinzugefügt, aktualisiert oder entfernt werden.
 
 {{InteractiveExample("JavaScript Demo: const declaration")}}
 
@@ -35,41 +35,41 @@ const name1 = value1, name2 = value2, /* …, */ nameN = valueN;
 ```
 
 - `nameN`
-  - : Der Name der zu deklarierenden Variablen. Jeder Name muss ein gültiger JavaScript-[Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Destrukturierungsbindungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) sein.
+  - : Der Name der zu deklarierenden Variablen. Jeder Name muss ein rechtmäßiges JavaScript-[Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) oder ein [Destrukturierungsbindungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) sein.
 - `valueN`
-  - : Anfangswert der Variablen. Es kann jeder gültige Ausdruck sein.
+  - : Anfangswert der Variablen. Es kann jeder legale Ausdruck sein.
 
 ## Beschreibung
 
-Die `const`-Deklaration ist der {{jsxref("Statements/let", "let")}}-Deklaration sehr ähnlich:
+Die `const` Deklaration ist der von {{jsxref("Statements/let", "let")}} sehr ähnlich:
 
-- `const`-Deklarationen sind sowohl auf Blöcke als auch auf Funktionen begrenzt.
-- `const`-Deklarationen können erst nach Erreichen des Deklarationsortes zugegriffen werden (siehe [zeitlicher toter Bereich](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)). Aus diesem Grund werden `const`-Deklarationen häufig als {{Glossary("Hoisting", "nicht-hoisted")}} angesehen.
-- `const`-Deklarationen erstellen keine Eigenschaften auf {{jsxref("globalThis")}}, wenn sie auf der obersten Ebene eines Scripts deklariert werden.
-- `const`-Deklarationen können nicht durch eine andere Deklaration im selben Gültigkeitsbereich [neu deklariert](/de/docs/Web/JavaScript/Reference/Statements/let#redeclarations) werden.
-- `const` beginnt [Deklarationen, nicht Anweisungen](/de/docs/Web/JavaScript/Reference/Statements#difference_between_statements_and_declarations). Das bedeutet, dass Sie keine alleinstehende `const`-Deklaration als Körper eines Blocks verwenden können (was sinnvoll ist, da es keinen Weg gibt, auf die Variable zuzugreifen).
+- `const` Deklarationen sind auf Blöcke sowie Funktionen beschränkt.
+- Auf `const` Deklarationen kann erst nach der Deklarationsstelle zugegriffen werden (siehe [temporal dead zone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)). Aus diesem Grund werden `const` Deklarationen häufig als {{Glossary("Hoisting", "nicht-hoisted")}} betrachtet.
+- `const` Deklarationen erstellen keine Eigenschaften auf {{jsxref("globalThis")}}, wenn sie im obersten Bereich eines Skripts deklariert werden.
+- `const` Deklarationen können nicht durch eine andere Deklaration im selben Geltungsbereich [neu deklariert](/de/docs/Web/JavaScript/Reference/Statements/let#redeclarations) werden.
+- `const` beginnt [_Deklarationen, keine \_Anweisungen_](/de/docs/Web/JavaScript/Reference/Statements#difference_between_statements_and_declarations). Das bedeutet, dass Sie eine einzelne `const` Deklaration nicht als Rumpf eines Blocks verwenden können (was sinnvoll ist, da es keine Möglichkeit gibt, auf die Variable zuzugreifen).
 
   ```js-nolint example-bad
   if (true) const a = 1; // SyntaxError: Lexical declaration cannot appear in a single-statement context
   ```
 
-Ein Initialisierer für eine Konstante ist erforderlich. Sie müssen ihren Wert in derselben Deklaration angeben. (Das ist sinnvoll, da sie später nicht geändert werden kann.)
+Ein Initialisierer für eine Konstante ist erforderlich. Sie müssen ihren Wert in derselben Deklaration angeben. (Das ist sinnvoll, da er später nicht geändert werden kann.)
 
 ```js-nolint example-bad
 const FOO; // SyntaxError: Missing initializer in const declaration
 ```
 
-Die `const`-Deklaration erstellt eine unveränderbare Referenz auf einen Wert. Sie bedeutet _nicht_, dass der Wert selbst unveränderlich ist — nur dass der Variablenbezeichner nicht neu zugewiesen werden kann. Wenn der Inhalt ein Objekt ist, bedeutet dies, dass die Inhalte des Objekts (z. B. seine Eigenschaften) verändert werden können. Sie sollten `const`-Deklarationen verstehen als "erstelle eine Variable, deren _Identität_ konstant bleibt", nicht "deren _Wert_ konstant bleibt" — oder "erstelle unveränderliche {{Glossary("binding", "Bindings")}}", nicht "unveränderliche Werte".
+Die `const` Deklaration erstellt eine unveränderliche Referenz auf einen Wert. Es bedeutet _nicht_, dass der Wert selbst unveränderlich ist — nur dass der Variablenbezeichner nicht neu zugewiesen werden kann. Wenn der Inhalt ein Objekt ist, bedeutet dies zum Beispiel, dass der Inhalt des Objekts (z.B. seine Eigenschaften) verändert werden kann. Sie sollten `const` Deklarationen als "eine Variable erstellen, deren _Identität_ konstant bleibt", verstehen, nicht "deren _Wert_ konstant bleibt" — oder, "unveränderliche {{Glossary("binding", "Bindings")}} erstellen", nicht "unveränderliche Werte".
 
-Viele Stilrichtlinien (einschließlich der [MDN-Richtlinien](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/JavaScript#variable_declarations)) empfehlen die Verwendung von `const` über {{jsxref("Statements/let", "let")}}, wann immer eine Variable in ihrem Gültigkeitsbereich nicht neu zugewiesen wird. Dies macht klar, dass der Typ (oder der Wert, im Falle einer primitiven Variable) einer Variablen sich niemals ändern kann. Andere bevorzugen möglicherweise `let` für nicht-primitives, das verändert wird.
+Viele Stilrichtlinien (einschließlich [MDN's](/de/docs/MDN/Writing_guidelines/Code_style_guide/JavaScript#variable_declarations)) empfehlen die Verwendung von `const` gegenüber {{jsxref("Statements/let", "let")}}, wann immer eine Variable in ihrem Bereich nicht neu zugewiesen wird. Das macht die Absicht klar, dass sich der Typ einer Variablen (oder im Fall eines primitiven Wertes der Wert) niemals ändern kann. Andere bevorzugen möglicherweise `let` für Nicht-Primitiven, die mutiert werden.
 
-Die Liste, die dem `const`-Schlüsselwort folgt, wird als _{{Glossary("binding", "Binding")}}-Liste_ bezeichnet und durch Kommata getrennt, wobei die Kommata _keine_ [Kommaoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) und die `=`-Zeichen _keine_ [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Assignment) sind. Initialisierer von späteren Variablen können sich auf frühere Variablen in der Liste beziehen.
+Die Liste, die dem `const`-Schlüsselwort folgt, wird _{{Glossary("binding", "Binding")}} Liste_ genannt und durch Kommas getrennt, wobei die Kommas _nicht_ [Komma-Operatoren](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) sind und die `=` Zeichen _nicht_ [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Assignment) sind. Initialisierer späterer Variablen können sich auf frühere Variablen in der Liste beziehen.
 
 ## Beispiele
 
-### Grundlegende Verwendung von const
+### Grundlegende const Verwendung
 
-Konstanten können mit Groß- oder Kleinbuchstaben deklariert werden, aber eine gängige Konvention ist die Verwendung von nur Großbuchstaben, besonders für Primitive, da sie wirklich unveränderlich sind.
+Konstanten können mit Groß- oder Kleinbuchstaben deklariert werden, aber eine gängige Konvention ist die Verwendung von Großbuchstaben, insbesondere für Primitive, da sie wirklich unveränderlich sind.
 
 ```js
 // define MY_FAV as a constant and give it the value 7
@@ -88,9 +88,9 @@ var MY_FAV = 20; // SyntaxError: Identifier 'MY_FAV' has already been declared
 let MY_FAV = 20; // SyntaxError: Identifier 'MY_FAV' has already been declared
 ```
 
-### Block-Skoping
+### Geltungsbereich von Blöcken
 
-Es ist wichtig, die Natur des Block-Skopings zu beachten.
+Es ist wichtig, die Natur des Blockscopings zu beachten.
 
 ```js-nolint
 const MY_FAV = 7;
@@ -109,14 +109,14 @@ console.log(MY_FAV); // 7
 
 ### const in Objekten und Arrays
 
-`const` funktioniert auch bei Objekten und Arrays. Der Versuch, das Objekt zu überschreiben, führt zu einem Fehler "Zuweisung an konstante Variable".
+`const` funktioniert auch auf Objekten und Arrays. Der Versuch, das Objekt zu überschreiben, wirft einen Fehler "Assignment to constant variable".
 
 ```js example-bad
 const MY_OBJECT = { key: "value" };
 MY_OBJECT = { OTHER_KEY: "value" };
 ```
 
-Allerdings sind Objektschlüssel nicht geschützt, sodass die folgende Anweisung ohne Probleme ausgeführt wird.
+Die Schlüssel von Objekten sind jedoch nicht geschützt, sodass die folgende Anweisung ohne Problem ausgeführt wird.
 
 ```js
 MY_OBJECT.key = "otherValue";
@@ -124,14 +124,14 @@ MY_OBJECT.key = "otherValue";
 
 Sie müssten {{jsxref("Object.freeze()")}} verwenden, um ein Objekt unveränderlich zu machen.
 
-Dasselbe gilt für Arrays. Die Zuweisung eines neuen Arrays zur Variablen führt zu einem Fehler "Zuweisung an konstante Variable".
+Das Gleiche gilt für Arrays. Das Zuweisen eines neuen Arrays zur Variablen wirft einen Fehler "Assignment to constant variable".
 
 ```js example-bad
 const MY_ARRAY = [];
 MY_ARRAY = ["B"];
 ```
 
-Es ist jedoch weiterhin möglich, Elemente in das Array zu pushen und es dadurch zu verändern.
+Es ist jedoch möglich, Elemente zum Array hinzuzufügen und es somit zu verändern.
 
 ```js
 MY_ARRAY.push("A"); // ["A"]
@@ -147,7 +147,7 @@ const [, a, b, c] = result;
 console.log(a, b, c); // "aaa" "b" "cc"
 ```
 
-Für weitere Informationen siehe [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
+Weitere Informationen finden Sie unter [Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
 
 ## Spezifikationen
 

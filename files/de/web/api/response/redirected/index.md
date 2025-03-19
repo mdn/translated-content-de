@@ -1,33 +1,33 @@
 ---
-title: "Response: redirected-Eigenschaft"
+title: "Response: redirected Eigenschaft"
 short-title: redirected
 slug: Web/API/Response/redirected
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 31a80a3156d2e93145ae172fdc97a82f6782de48
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`redirected`**-Eigenschaft des [`Response`](/de/docs/Web/API/Response)-Interfaces gibt an, ob die Antwort das Ergebnis einer von Ihnen gesendeten Anfrage ist, die umgeleitet wurde.
+Die schreibgeschützte Eigenschaft **`redirected`** des [`Response`](/de/docs/Web/API/Response) Interfaces zeigt an, ob die Antwort das Ergebnis einer von Ihnen durchgeführten Anfrage ist, die umgeleitet wurde.
 
 > [!NOTE]
-> Sich auf `redirected` zu verlassen, um Umleitungen herauszufiltern, kann dazu führen, dass eine gefälschte Umleitung verhindert, dass Ihr Inhalt wie erwartet funktioniert.
-> Stattdessen sollten Sie das Filtern durchführen, wenn Sie [`fetch()`](/de/docs/Web/API/Window/fetch) aufrufen.
-> Siehe das Beispiel [Umleitungen nicht erlauben](#umleitungen_nicht_erlauben), das zeigt, wie dies gemacht wird.
+> Es wird nicht empfohlen, `redirected` zu überprüfen, um Umleitungen zu verhindern, da die Umleitung bereits erfolgt ist, wenn eine Antwort empfangen wird, und Sie möglicherweise die Anfrage an ein unerwünschtes Ziel gesendet haben, wobei potenziell sensible Informationen übermittelt werden könnten.
+> Stattdessen sollten Sie die Filterung durchführen, wenn Sie [`fetch()`](/de/docs/Web/API/Window/fetch) aufrufen.
+> Siehe das Beispiel [Umleitungen verbieten](#umleitungen_verbieten), das dies zeigt.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn die Antwort anzeigt, dass Ihre Anfrage umgeleitet wurde.
+Ein boolescher Wert, der `true` ist, wenn die Antwort darauf hinweist, dass Ihre Anfrage umgeleitet wurde.
 
 ## Beispiele
 
-### Erkennen von Umleitungen
+### Umleitungen erkennen
 
-Zu überprüfen, ob die Antwort von einer umgeleiteten Anfrage stammt, ist so einfach wie das Überprüfen dieses Flags auf dem [`Response`](/de/docs/Web/API/Response)-Objekt.
-Im folgenden Code wird eine Textnachricht in ein Element eingefügt, wenn während der Fetch-Operation eine Umleitung auftritt.
-Beachten Sie jedoch, dass dies nicht so sicher ist wie das direkte Ablehnen von Umleitungen, wenn diese unerwartet sind, wie unten unter [Umleitungen nicht erlauben](#umleitungen_nicht_erlauben) beschrieben.
+Zu überprüfen, ob die Antwort auf eine umgeleitete Anfrage zurückzuführen ist, ist so einfach wie das Überprüfen dieses Flags auf dem [`Response`](/de/docs/Web/API/Response) Objekt.
+Im folgenden Code wird eine Textnachricht in ein Element eingefügt, wenn während der `fetch`-Operation eine Umleitung auftrat.
+Es ist jedoch zu beachten, dass dies nicht so sicher ist wie das vollständige Ablehnen von Umleitungen, wenn diese unerwartet sind, wie unten unter [Umleitungen verbieten](#umleitungen_verbieten) beschrieben.
 
-Die [`url`](/de/docs/Web/API/Response/url)-Eigenschaft gibt die endgültige URL nach Umleitungen zurück.
+Die [`url`](/de/docs/Web/API/Response/url) Eigenschaft gibt die endgültige URL nach Umleitungen zurück.
 
 ```js
 fetch("awesome-picture.jpg")
@@ -44,9 +44,9 @@ fetch("awesome-picture.jpg")
   });
 ```
 
-### Umleitungen nicht erlauben
+### Umleitungen verbieten
 
-Da die Verwendung von `redirected`, um Umleitungen manuell herauszufiltern, die Fälschung von Umleitungen ermöglichen kann, sollten Sie stattdessen den Redirect-Modus im `init`-Parameter beim Aufrufen von [`fetch()`](/de/docs/Web/API/Window/fetch) auf `"error"` setzen, wie folgt:
+Die Überprüfung von `redirected` ist eine schlechte Methode, um Umleitungen zu verhindern, da die Umleitung bereits erfolgt ist. Stattdessen sollten Sie den Umleitungsmodus auf `"error"` im `options` Parameter setzen, wenn Sie [`fetch()`](/de/docs/Web/API/Window/fetch) aufrufen, wie folgt:
 
 ```js
 fetch("awesome-picture.jpg", { redirect: "error" })
@@ -69,5 +69,5 @@ fetch("awesome-picture.jpg", { redirect: "error" })
 
 - [Fetch API](/de/docs/Web/API/Fetch_API)
 - [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffsteuerung (CORS)](/de/docs/Web/HTTP/Guides/CORS)
+- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)
