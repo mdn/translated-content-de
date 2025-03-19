@@ -1,22 +1,23 @@
 ---
 title: "Herausforderung: Eine cool aussehende Box"
+short-title: "Herausforderung: Schicke Box-Stile"
 slug: Learn_web_development/Core/Styling_basics/Cool-looking_box
 l10n:
-  sourceCommit: ca58132c5bef8bf0e40919325d0c5ed2c47972c7
+  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Fancy_letterheaded_paper", "Learn_web_development/Core/Text_styling", "Learn_web_development/Core/Styling_basics")}}
 
-In dieser Bewertung werden Sie sich weiter darin üben, cool aussehende Boxen zu erstellen, indem Sie versuchen, eine auffällige Box zu gestalten.
+In dieser Bewertung erhalten Sie weitere Übung im Erstellen cool aussehender Boxen, indem Sie versuchen, eine auffällige Box zu erstellen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Bevor Sie diese Bewertung in Angriff nehmen, sollten Sie alle Artikel in diesem Modul bearbeitet haben.
+        Bevor Sie diese Bewertung versuchen, sollten Sie alle Artikel in diesem Modul durchgearbeitet haben.
       </td>
     </tr>
     <tr>
@@ -30,7 +31,7 @@ In dieser Bewertung werden Sie sich weiter darin üben, cool aussehende Boxen zu
 
 ## Ausgangspunkt
 
-Um mit dieser Aufgabe zu beginnen, sollten Sie:
+Um diese Bewertung zu starten, sollten Sie:
 
 - Speichern Sie das unten gezeigte HTML und CSS als zwei separate Dateien — `index.html` und `style.css` — in einem neuen Verzeichnis.
 
@@ -61,14 +62,15 @@ html {
 /* Your CSS below here */
 ```
 
-Alternativ können Sie einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) verwenden. Sie können das HTML einfügen und das CSS in einen dieser Online-Editoren eintragen.
+Alternativ könnten Sie einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) verwenden.
+Sie könnten das HTML einfügen und das CSS in einen dieser Online-Editoren einfügen.
 
 > [!NOTE]
-> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie feststecken, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
-## Projektbriefing
+## Projektauftrag
 
-Ihre Aufgabe besteht darin, eine coole, schicke Box zu erstellen und den Spaß zu erkunden, den wir mit CSS haben können.
+Ihre Aufgabe ist es, eine coole, schicke Box zu erstellen und den Spaß zu erkunden, den wir mit CSS haben können.
 
 ### Allgemeine Aufgaben
 
@@ -76,28 +78,28 @@ Ihre Aufgabe besteht darin, eine coole, schicke Box zu erstellen und den Spaß z
 
 ### Die Box gestalten
 
-Wir möchten, dass Sie das bereitgestellte {{htmlelement("div")}} gestalten und ihm Folgendes geben:
+Wir möchten, dass Sie das bereitgestellte {{htmlelement("div")}} gestalten, indem Sie ihm folgendes geben:
 
 - Eine angemessene Breite für eine große Box, etwa um die 200 Pixel.
 - Eine angemessene Höhe für eine große Box, wobei der Text vertikal zentriert wird.
 - Zentrieren Sie die Box horizontal.
 - Zentrieren Sie den Text innerhalb der Box.
-- Eine leichte Erhöhung der Schriftgröße auf etwa 17-18 Pixel berechneter Stil. Verwenden Sie rems. Schreiben Sie einen Kommentar darüber, wie Sie den Wert ermittelt haben.
-- Eine Grundfarbe für das Design. Vergeben Sie diese Farbe als Hintergrundfarbe der Box.
+- Eine leichte Erhöhung der Schriftgröße auf etwa 17-18 Pixel im berechneten Stil. Verwenden Sie `rems`. Schreiben Sie einen Kommentar, wie Sie den Wert ermittelt haben.
+- Eine Grundfarbe für das Design. Geben Sie der Box diese Farbe als Hintergrundfarbe.
 - Eine kontrastierende Farbe für den Text und einen schwarzen Textschatten.
-- Einen ziemlich subtilen Randradius.
-- Eine ein-Pixel breite, durchgehende Linie an der Grenze mit einer Farbe ähnlich der Grundfarbe, jedoch in einem etwas dunkleren Farbton.
-- Ein linearer, halbtransparenter schwarzer Verlauf, der in die untere rechte Ecke verläuft. Machen Sie ihn am Anfang vollständig transparent, und er sollte entlang des Verlaufs bei 30% eine Opazität von etwa 0.2 erreichen und danach die gleiche Farbe bis zum Ende behalten.
-- Mehrere Box-Schatten. Verleihen Sie ihm einen Standard-Box-Schatten, um die Box leicht angehoben wirken zu lassen. Die anderen beiden sollten eingelassene Box-Schatten sein — ein halbtransparenter weißer Schatten nahe der oberen linken Ecke und ein halbtransparenter schwarzer Schatten nahe der unteren rechten Ecke —, um den schönen erhabenen 3D-Effekt der Box zu verstärken.
+- Ein recht subtiler Radius für die Ecken.
+- Eine 1-Pixel breite Volltonrand mit einer Farbe, die der Grundfarbe ähnlich ist, aber einen etwas dunkleren Farbton hat.
+- Einen linearen halbtransparenten schwarzen Verlauf, der in die untere rechte Ecke geht. Machen Sie ihn am Anfang vollständig transparent und graduell bis zu etwa einer Deckkraft von 0,2 bis 30% entlang und behalten Sie dieselbe Farbe bis zum Ende bei.
+- Mehrere Boxschatten. Geben Sie ihm einen Standard-Boxschatten, um die Box leicht von der Seite abgehoben erscheinen zu lassen. Die anderen zwei sollten eingesetzte Boxschatten sein — ein halbtransparenter weißer Schatten nahe der oberen linken Ecke und ein halbtransparenter schwarzer Schatten nahe der unteren rechten Ecke — um den schönen erhabenen 3D-Look der Box zu verstärken.
 
 ## Hinweise und Tipps
 
-- Verwenden Sie den [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), um Fehler in Ihrem CSS zu finden und zu beheben.
+- Nutzen Sie den [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), um Fehler in Ihrem CSS zu finden und zu beheben.
 
 ## Beispiel
 
 Der folgende Screenshot zeigt ein Beispiel, wie das fertige Design aussehen könnte:
 
-![Eine große rote Box mit abgerundeten Ecken. Weißer Text mit Schlagschatten zeigt 'this is a cool box'.](fancy-box2.png)
+![Eine große rote Box mit abgerundeten Ecken. Weißer Text mit einem Schlagschatten sagt 'this is a cool box'.](fancy-box2.png)
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Fancy_letterheaded_paper", "Learn_web_development/Core/Text_styling", "Learn_web_development/Core/Styling_basics")}}

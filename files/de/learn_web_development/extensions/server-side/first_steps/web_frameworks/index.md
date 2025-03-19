@@ -1,57 +1,57 @@
 ---
 title: Server-seitige Web-Frameworks
+short-title: Server-seitige Frameworks
 slug: Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview", "Learn_web_development/Extensions/Server-side/First_steps/Website_security", "Learn_web_development/Extensions/Server-side/First_steps")}}
 
-Der vorherige Artikel zeigte Ihnen, wie die Kommunikation zwischen Web-Clients und Servern aussieht, die Natur von HTTP-Anfragen und -Antworten sowie was eine serverseitige Webanwendung tun muss, um auf Anfragen eines Webbrowsers zu antworten. Mit diesem Wissen in unserem Repertoire ist es an der Zeit zu erkunden, wie Web-Frameworks diese Aufgaben vereinfachen können und Ihnen eine Vorstellung davon zu geben, wie Sie ein Framework für Ihre erste serverseitige Webanwendung auswählen würden.
+Der vorherige Artikel zeigte Ihnen, wie die Kommunikation zwischen Web-Clients und -Servern aussieht, die Natur von HTTP-Anfragen und -Antworten und was eine serverseitige Webanwendung tun muss, um auf Anfragen von einem Webbrowser zu reagieren. Mit diesem Wissen ist es nun an der Zeit zu erkunden, wie Web-Frameworks diese Aufgaben vereinfachen können und Ihnen eine Vorstellung davon zu geben, wie Sie ein Framework für Ihre erste serverseitige Webanwendung auswählen würden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegendes Verständnis davon, wie serverseitiger Code
-        HTTP-Anfragen verarbeitet und darauf reagiert (siehe <a
+        Grundlegendes Verständnis dafür, wie serverseitiger Code
+        HTTP-Anfragen verarbeitet und darauf antwortet (siehe <a
           href="/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview"
-          >Client-Server-Übersicht</a
+          >Client-Server-Überblick</a
         >).
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Verstehen, wie Web-Frameworks die Entwicklung/Wartung von
-        serverseitigem Code vereinfachen können und Leser dazu bringen,
-        über die Auswahl eines Frameworks für ihre eigene Entwicklung
-        nachzudenken.
+        Zu verstehen, wie Web-Frameworks die Entwicklung/Wartung von
+        serverseitigem Code vereinfachen können und die Leser dazu zu bringen,
+        darüber nachzudenken, ein Framework für ihre eigene Entwicklung auszuwählen.
       </td>
     </tr>
   </tbody>
 </table>
 
-Die folgenden Abschnitte veranschaulichen einige Punkte anhand von Codefragmenten aus echten Web-Frameworks. Machen Sie sich keine Sorgen, wenn nicht **alles** jetzt Sinn macht; wir werden Sie in unseren frameworkspezifischen Modulen durch den Code führen.
+Die folgenden Abschnitte veranschaulichen einige Punkte anhand von Codefragmenten aus realen Web-Frameworks. Seien Sie nicht beunruhigt, wenn jetzt nicht **alles** Sinn ergibt; wir werden Sie in unseren framework-spezifischen Modulen durch den Code führen.
 
-## Übersicht
+## Überblick
 
-Server-seitige Web-Frameworks (auch bekannt als "Webanwendungs-Frameworks") sind Software-Frameworks, die es einfacher machen, Webanwendungen zu schreiben, zu warten und zu skalieren. Sie bieten Werkzeuge und Bibliotheken, die typische Aufgaben der Webentwicklung vereinfachen, wie z. B. das Routing von URLs zu entsprechenden Handlern, die Interaktion mit Datenbanken, die Unterstützung von Sitzungen und Benutzerautorisierung, die Formatierung von Ausgaben (z. B. HTML, JSON, XML) und die Verbesserung der Sicherheit gegen Webangriffe.
+Server-seitige Web-Frameworks (auch bekannt als "Webanwendungs-Frameworks") sind Software-Frameworks, die es einfacher machen, Webanwendungen zu schreiben, zu warten und zu skalieren. Sie bieten Werkzeuge und Bibliotheken, die gängige Webentwicklungstätigkeiten vereinfachen, einschließlich der Zuordnung von URLs zu geeigneten Handlern, der Interaktion mit Datenbanken, Unterstützung von Sessions und Benutzerautorisierung, Formatierung von Ausgaben (z. B. HTML, JSON, XML) und der Verbesserung der Sicherheit gegen Webangriffe.
 
-Der nächste Abschnitt bietet etwas mehr Detail darüber, wie Web-Frameworks die Entwicklung von Webanwendungen erleichtern können. Danach erklären wir einige der Kriterien, die Sie bei der Auswahl eines Web-Frameworks verwenden können, und listen dann einige Ihrer Optionen auf.
+Im nächsten Abschnitt wird detaillierter erläutert, wie Web-Frameworks die Webanwendungsentwicklung erleichtern können. Danach erklären wir einige der Kriterien, die Sie bei der Auswahl eines Web-Frameworks verwenden können, und listen einige Ihrer Optionen auf.
 
 ## Was kann ein Web-Framework für Sie tun?
 
-Web-Frameworks bieten Werkzeuge und Bibliotheken, um übliche Webentwicklungsoperationen zu vereinfachen. Sie müssen kein serverseitiges Web-Framework verwenden, aber es wird dringend empfohlen — es wird Ihr Leben erheblich erleichtern.
+Web-Frameworks bieten Werkzeuge und Bibliotheken, um gängige Webentwicklungsoperationen zu vereinfachen. Sie müssen kein serverseitiges Web-Framework verwenden, aber es wird dringend empfohlen — es wird Ihnen das Leben erheblich erleichtern.
 
-Dieser Abschnitt behandelt einige der Funktionalitäten, die oft von Web-Frameworks bereitgestellt werden (nicht jedes Framework wird notwendigerweise alle diese Funktionen bieten!).
+In diesem Abschnitt werden einige der Funktionalitäten diskutiert, die häufig von Web-Frameworks bereitgestellt werden (nicht jedes Framework stellt notwendigerweise all diese Funktionen bereit!).
 
 ### Arbeiten Sie direkt mit HTTP-Anfragen und -Antworten
 
-Wie wir im letzten Artikel gesehen haben, kommunizieren Webserver und Browser über das HTTP-Protokoll — Server warten auf HTTP-Anfragen vom Browser und geben dann Informationen in HTTP-Antworten zurück. Web-Frameworks ermöglichen es Ihnen, vereinfachte Syntax zu schreiben, die serverseitigen Code generiert, um mit diesen Anfragen und Antworten zu arbeiten. Das bedeutet, dass Sie eine einfachere Aufgabe haben werden, mit einfacherer, höherstufigerem Code zu arbeiten, anstatt mit niederrangigen Netzwerkgrundlagen.
+Wie wir im letzten Artikel gesehen haben, kommunizieren Webserver und Browser über das HTTP-Protokoll — Server warten auf HTTP-Anfragen vom Browser und geben dann Informationen in HTTP-Antworten zurück. Web-Frameworks ermöglichen es Ihnen, eine vereinfachte Syntax zu schreiben, die serverseitigen Code generieren wird, um mit diesen Anfragen und Antworten zu arbeiten. Das bedeutet, dass Sie eine leichtere Aufgabe haben werden, indem Sie mit einer einfacheren, höherstufigen Codierung arbeiten, anstatt mit niedrigstufigen Netzwerktechniken.
 
-Das folgende Beispiel zeigt, wie dies im Django (Python) Web-Framework funktioniert. Jede "View"-Funktion (ein Anfrage-Handler) erhält ein `HttpRequest`-Objekt mit Anfrageninformationen und muss ein `HttpResponse`-Objekt mit der formatierten Ausgabe zurückgeben (in diesem Fall eine Zeichenkette).
+Das folgende Beispiel zeigt, wie dies im Django (Python) Web-Framework funktioniert. Jede "View"-Funktion (ein Anfrage-Handler) erhält ein `HttpRequest`-Objekt, das Anfrageninformationen enthält, und muss ein `HttpResponse`-Objekt mit der formatierten Ausgabe zurückgeben (in diesem Fall ein String).
 
 ```python
 # Django view function
@@ -66,9 +66,9 @@ def index(request):
 
 ### Leiten Sie Anfragen an den entsprechenden Handler weiter
 
-Die meisten Websites bieten eine Reihe unterschiedlicher Ressourcen an, die über verschiedene URLs zugänglich sind. All dies in einer Funktion zu handhaben, wäre schwer zu warten, daher bieten Web-Frameworks einfache Mechanismen, um URL-Muster bestimmten Handler-Funktionen zuzuordnen. Dieser Ansatz hat auch Vorteile in Bezug auf die Wartung, da Sie die URL ändern können, die verwendet wird, um eine bestimmte Funktion zu liefern, ohne den zugrunde liegenden Code ändern zu müssen.
+Die meisten Websites bieten eine Reihe unterschiedlicher Ressourcen, die über verschiedene URLs zugänglich sind. Alle diese in einer Funktion zu handhaben, wäre schwer wartbar, daher bieten Web-Frameworks einfache Mechanismen, um URL-Muster bestimmten Handler-Funktionen zuzuordnen. Dieser Ansatz hat auch Vorteile in Bezug auf die Wartung, da Sie die URL ändern können, die zur Bereitstellung einer bestimmten Funktion verwendet wird, ohne den zugrunde liegenden Code ändern zu müssen.
 
-Verschiedene Frameworks verwenden unterschiedliche Mechanismen für das Mapping. Zum Beispiel fügt das Flask (Python) Web-Framework Routen zu View-Funktionen über einen Dekorator hinzu.
+Verschiedene Frameworks verwenden unterschiedliche Mechanismen für die Zuordnung. Zum Beispiel fügt das Flask (Python) Web-Framework Routen zu View-Funktionen mithilfe eines Dekorators hinzu.
 
 ```python
 @app.route("/")
@@ -76,7 +76,7 @@ def hello():
     return "Hello World!"
 ```
 
-Während Django von Entwicklern erwartet, dass sie eine Liste von Zuordnungen zwischen einem URL-Muster und einer View-Funktion definieren.
+Während Django von Entwicklern erwartet, eine Liste von URL-Zuordnungen zwischen einem URL-Muster und einer View-Funktion zu definieren.
 
 ```python
 urlpatterns = [
@@ -86,24 +86,24 @@ urlpatterns = [
 ]
 ```
 
-### Erleichtert den Zugriff auf Daten in der Anfrage
+### Einfachen Zugriff auf Daten in der Anfrage ermöglichen
 
-Daten können in einer HTTP-Anfrage auf verschiedene Weise kodiert werden. Eine HTTP-`GET`-Anfrage, um Dateien oder Daten vom Server zu erhalten, kann erforderliche Daten in URL-Parametern oder innerhalb der URL-Struktur kodieren. Eine HTTP-`POST`-Anfrage, um eine Ressource auf dem Server zu aktualisieren, enthält stattdessen Aktualisierungsinformationen als "POST-Daten" im Anfragekörper. Die HTTP-Anfrage kann auch Informationen über die aktuelle Sitzung oder den Benutzer in einem Client-seitigen Cookie beinhalten.
+Daten können in einer HTTP-Anfrage auf verschiedene Weise codiert werden. Eine HTTP-`GET`-Anfrage, um Dateien oder Daten vom Server abzurufen, kann die erforderlichen Daten in URL-Parametern oder innerhalb der URL-Struktur codieren. Eine HTTP-`POST`-Anfrage, um eine Ressource auf dem Server zu aktualisieren, wird stattdessen die Aktualisierungsinformationen als "POST-Daten" im Hauptteil der Anfrage enthalten. Die HTTP-Anfrage kann auch Informationen über die aktuelle Session oder den Benutzer in einem clientseitigen Cookie enthalten.
 
-Web-Frameworks bieten programmgemäße Mechanismen, um auf diese Informationen zuzugreifen. Zum Beispiel enthält das `HttpRequest`-Objekt, das Django an jede View-Funktion übergibt, Methoden und Eigenschaften, um auf die Ziel-URL, den Anfragetyp (z. B. eine HTTP-`GET`-Anfrage), `GET`- oder `POST`-Parameter, Cookie- und Sitzungsdaten usw. zuzugreifen. Django kann auch Informationen kodieren, die in der Struktur der URL durch die Definition von "Capture Patterns" im URL-Mapping übergeben werden (siehe das letzte Codefragment im obigen Abschnitt).
+Web-Frameworks bieten programmsprache-geeignete Mechanismen, um auf diese Informationen zuzugreifen. Zum Beispiel enthält das `HttpRequest`-Objekt, das Django an jede View-Funktion weitergibt, Methoden und Eigenschaften, um auf die Ziel-URL, den Anfragetyp (z. B. ein HTTP-`GET`), `GET`- oder `POST`-Parameter, Cookie- und Sessiondaten usw. zuzugreifen. Django kann auch Informationen weitergeben, die in der Struktur der URL codiert sind, indem es "Erfassungsmuster" im URL-Mapping definiert (siehe das letzte Codefragment im obigen Abschnitt).
 
-### Abstrahieren und vereinfachen Sie den Datenbankzugriff
+### Datenbankzugriff abstrahieren und vereinfachen
 
-Websites verwenden Datenbanken, um Informationen sowohl mit Benutzern zu teilen als auch über Benutzer festzuhalten. Web-Frameworks bieten oft eine Datenbankschicht, die Lese-, Schreib-, Abfrage- und Löschoperationen der Datenbank abstrahiert. Diese Abstraktionsschicht wird als Object-Relational Mapper (ORM) bezeichnet.
+Websites verwenden Datenbanken, um Informationen sowohl mit Benutzern zu teilen als auch über Benutzer zu speichern. Web-Frameworks bieten oft eine Datenbankschicht, die Lese-, Schreib-, Abfrage- und Löschoperationen für Datenbanken abstrahiert. Diese Abstraktionsschicht wird als Object-Relational Mapper (ORM) bezeichnet.
 
-Die Verwendung eines ORM hat zwei Vorteile:
+Der Einsatz eines ORMs bietet zwei Vorteile:
 
-- Sie können die zugrunde liegende Datenbank ersetzen, ohne unbedingt den Code, der sie verwendet, ändern zu müssen. Dies ermöglicht es Entwicklern, basierend auf ihrem Einsatz die Eigenschaften verschiedener Datenbanken zu optimieren.
-- Grundlegende Validierung von Daten kann innerhalb des Frameworks umgesetzt werden. Dies erleichtert und sichert die Überprüfung, dass Daten im korrekten Typ von Datenbankfeld gespeichert sind, das richtige Format haben (z. B. eine E-Mail-Adresse) und in keiner Weise bösartig sind (Hacker können bestimmte Code-Muster verwenden, um schädliche Dinge zu tun, z. B. Datenbankdatensätze zu löschen).
+- Sie können die zugrunde liegende Datenbank ersetzen, ohne notwendigerweise den Code ändern zu müssen, der sie verwendet. Dies ermöglicht es Entwicklern, basierend auf ihrer Nutzung für die Eigenschaften verschiedener Datenbanken zu optimieren.
+- Grundlegende Datenvalidierung kann im Rahmen des Frameworks implementiert werden. Dadurch wird es einfacher und sicherer, zu überprüfen, ob Daten im korrekten Typ eines Datenbankfeldes gespeichert werden, das korrekte Format haben (z. B. eine E-Mail-Adresse) und auf keine Weise bösartig sind (Hacker können bestimmte Code-Muster verwenden, um schädliche Dinge wie das Löschen von Datenbankeinträgen zu tun).
 
-Zum Beispiel bietet das Django Web-Framework ein ORM und bezeichnet das Objekt, das verwendet wird, um die Struktur eines Datensatzes zu definieren, als _Model_. Das Model spezifiziert die zu speichernden Feld*typen*, was eine Validierung auf Feldebene bietet, welche Informationen gespeichert werden können (z. B. ein E-Mail-Feld würde nur gültige E-Mail-Adressen erlauben). Die Felddefinitionen können auch ihre maximale Größe, Standardwerte, Auswahlmöglichkeiten, Hilfetexte für Dokumentation, Textbezeichnungen für Formulare usw. angeben. Das Model sagt nichts über die zugrunde liegende Datenbank aus, da dies eine Konfigurationseinstellung ist, die separat von unserem Code geändert werden kann.
+Zum Beispiel bietet das Django Web Framework einen ORM und bezeichnet das Objekt, das verwendet wird, um die Struktur eines Eintrags zu definieren, als _Modell_. Das Modell gibt die Feldtypen an, die gespeichert werden sollen, was möglicherweise eine Validierung auf Feldebene darüber ermöglicht, welche Informationen gespeichert werden können (z. B. würde ein E-Mail-Feld nur gültige E-Mail-Adressen zulassen). Die Felddefinitionen können außerdem ihre maximale Größe, Standardwerte, Auswahlmöglichkeiten für Listen, Hilfetext für die Dokumentation, Beschriftungstext für Formulare usw. angeben. Das Modell macht keine Angaben zur zugrunde liegenden Datenbank, da dies eine Konfigurationseinstellung ist, die unabhängig von unserem Code geändert werden kann.
 
-Der erste Codeausschnitt unten zeigt ein sehr einfaches Django-Modell für ein `Team`-Objekt. Dies speichert den Teamnamen und die Teamstufe als Zeichenfelder und spezifiziert die maximale Anzahl an Zeichen, die für jeden Datensatz gespeichert werden sollen. Die `team_level` ist ein Auswahlfeld, daher bieten wir auch eine Zuordnung zwischen den anzuzeigenden Auswahlmöglichkeiten und zu speichernden Daten sowie einen Standardwert.
+Das erste Code-Fragment unten zeigt ein sehr einfaches Django-Modell für ein `Team`-Objekt. Dies speichert den Teamnamen und die Teamstufe als Zeichenfelder und gibt eine maximale Anzahl von Zeichen an, die für jeden Eintrag gespeichert werden sollen. Die `team_level` ist ein Auswahlelement, daher geben wir auch eine Zuordnung zwischen den anzuzeigenden und zu speichernden Auswahlmöglichkeiten, sowie einem Standardwert an.
 
 ```python
 #best/models.py
@@ -122,9 +122,9 @@ class Team(models.Model):
     team_level = models.CharField(max_length=3,choices=TEAM_LEVELS,default='U11')
 ```
 
-Das Django-Modell bietet eine einfache Abfrage-API zum Durchsuchen der Datenbank. Dies kann gegen eine Anzahl von Feldern gleichzeitig unter Verwendung verschiedener Kriterien (z. B. genau, groß-/kleinschreibungsunabhängig, größer als, etc.) abgleichen und kann komplexe Aussagen unterstützen (z. B. können Sie eine Suche nach U11-Teams angeben, deren Teamname mit "Fr" beginnt oder mit "al" endet).
+Das Django-Modell bietet eine einfache Abfrage-API zum Durchsuchen der Datenbank. Dies kann gegen eine Anzahl von Feldern gleichzeitig mithilfe verschiedener Kriterien (z. B. genau, groß-/kleinschreibungssensitiv, größer als usw.) abgleichen und kann komplexe Anweisungen unterstützen (zum Beispiel können Sie eine Suche auf U11-Teams spezifizieren, die einen Teamnamen haben, der mit "Fr" beginnt oder mit "al" endet).
 
-Der zweite Codeausschnitt zeigt eine View-Funktion (Ressourcen-Handler) zur Anzeige aller unserer U09-Teams. In diesem Fall geben wir an, dass wir alle Datensätze filtern möchten, bei denen das `team_level`-Feld genau den Text 'U09' hat (beachten Sie unten, wie dieses Kriterium an die `filter()`-Funktion als Argument mit Feldname und Abgleichstyp getrennt durch doppelte Unterstriche:**team_level\_\_exact** übergeben wird).
+Der zweite Code-Schnipsel zeigt eine View-Funktion (Ressourcen-Handler) zur Anzeige all unserer U09-Teams. In diesem Fall geben wir an, dass wir alle Einträge filtern möchten, bei denen das `team_level`-Feld genau den Text 'U09' hat (beachten Sie unten, wie dieses Kriterium an die `filter()`-Funktion als Argument mit Feldnamen und Übereinstimmungstyp über doppelte Unterstriche übergeben wird: **team_level\_\_exact**).
 
 ```python
 #best/views.py
@@ -140,16 +140,16 @@ def youngest(request):
 
 ### Daten rendern
 
-Web-Frameworks bieten oft Templating-Systeme. Diese ermöglichen es Ihnen, die Struktur eines Ausgabedokuments zu spezifizieren, indem Sie Platzhalter für Daten verwenden, die hinzugefügt werden, wenn eine Seite generiert wird. Templates werden oft verwendet, um HTML zu erstellen, können aber auch andere Arten von Dokumenten erstellen.
+Web-Frameworks bieten oft Vorlagensysteme. Diese ermöglichen es Ihnen, die Struktur eines Ausgabedokuments zu spezifizieren, indem Sie Platzhalter für Daten verwenden, die hinzugefügt werden, wenn eine Seite generiert wird. Vorlagen werden oft verwendet, um HTML zu erstellen, können aber auch andere Arten von Dokumenten erzeugen.
 
-Web-Frameworks bieten häufig einen Mechanismus, um die einfache Generierung anderer Formate aus gespeicherten Daten zu erleichtern, einschließlich {{Glossary("JSON", "JSON")}} und {{Glossary("XML", "XML")}}.
+Web-Frameworks bieten oft einen Mechanismus, um es einfach zu machen, andere Formate aus gespeicherten Daten zu generieren, einschließlich {{Glossary("JSON", "JSON")}} und {{Glossary("XML", "XML")}}.
 
-Zum Beispiel ermöglicht es das Django-Templating-System, Variablen mit einer "doppelten Klammer"-Syntax zu spezifizieren (z. B. `\{{ variable_name }}`), die durch Werte ersetzt werden, die von der View-Funktion übergeben werden, wenn eine Seite gerendert wird. Das Templating-System unterstützt auch Ausdrücke (mit Syntax: `{% expression %}`), die es Templates ermöglichen, einfache Operationen wie das Durchlaufen von Listenelementen durchzuführen, die in das Template übergeben werden.
+Zum Beispiel ermöglicht es das Django-Vorlagensystem, Variablen mithilfe einer "doppelten Griffklammer"-Syntax zu spezifizieren (z. B. `\{{ variable_name }}`), die beim Rendern einer Seite durch Werte ersetzt werden, die von der View-Funktion übergeben werden. Das Vorlagensystem bietet auch Unterstützung für Ausdrücke (mit dem Syntax: `{% expression %}`), die Vorlagen erlauben, einfache Operationen wie das Iterieren von Listenwerten, die in die Vorlage übergeben werden, durchzuführen.
 
 > [!NOTE]
-> Viele andere Templating-Systeme verwenden eine ähnliche Syntax, z. B.: Jinja2 (Python), Handlebars (JavaScript), Moustache (JavaScript) etc.
+> Viele andere Vorlagensysteme verwenden eine ähnliche Syntax, z. B.: Jinja2 (Python), handlebars (JavaScript), moustache (JavaScript) usw.
 
-Der folgende Codeausschnitt zeigt, wie dies funktioniert. In Fortsetzung des "jüngste Team"-Beispiels aus dem vorherigen Abschnitt wird dem HTML-Template eine Listenvariable namens `youngest_teams` von der View übergeben. Innerhalb des HTML-Skeletts haben wir einen Ausdruck, der zuerst prüft, ob die Variable `youngest_teams` existiert und dann in einer `for`-Schleife iteriert wird. Bei jeder Iteration zeigt das Template den `team_name`-Wert des Teams in einem Listeneintrag.
+Das unten stehende Codefragment zeigt, wie dies funktioniert. Im Anschluss an das Beispiel "jüngste Mannschaft" aus dem vorherigen Abschnitt, wird der HTML-Vorlage von der View eine Listenvariable namens `youngest_teams` übergeben. Innerhalb des HTML-Skeletts haben wir einen Ausdruck, der zuerst überprüft, ob die Variable `youngest_teams` existiert, und sie dann in einer `for`-Schleife iteriert. Bei jeder Iteration zeigt die Vorlage den `team_name`-Wert des Teams in einem Listenelement an.
 
 ```django
 #best/templates/best/index.html
@@ -172,155 +172,155 @@ Der folgende Codeausschnitt zeigt, wie dies funktioniert. In Fortsetzung des "j�
 
 ## Anleitung zur Auswahl eines Web-Frameworks
 
-Es gibt zahlreiche Web-Frameworks für fast jede Programmiersprache, die Sie verwenden möchten (wir listen einige der populäreren Frameworks im folgenden Abschnitt auf). Bei so vielen Auswahlmöglichkeiten kann es schwierig werden, herauszufinden, welches Framework den besten Ausgangspunkt für Ihre neue Webanwendung bietet.
+Zahlreiche Web-Frameworks existieren für fast jede Programmiersprache, die Sie möglicherweise verwenden möchten (wir listen einige der beliebteren Frameworks im folgenden Abschnitt auf). Bei so vielen Auswahlmöglichkeiten kann es schwierig werden herauszufinden, welches Framework den besten Ausgangspunkt für Ihre neue Webanwendung bietet.
 
 Einige der Faktoren, die Ihre Entscheidung beeinflussen können, sind:
 
-- **Lernaufwand:** Der Aufwand, ein Web-Framework zu erlernen, hängt davon ab, wie vertraut Sie mit der zugrunde liegenden Programmiersprache sind, der Konsistenz seiner API, der Qualität seiner Dokumentation und der Größe und Aktivität seiner Community. Wenn Sie absolut keine Programmiererfahrung haben, dann ziehen Sie Django in Betracht (es ist eines der am leichtesten zu erlernenden anhand der obigen Kriterien). Wenn Sie Teil eines Entwicklungsteams sind, das bereits erhebliche Erfahrung mit einem bestimmten Web-Framework oder einer Programmiersprache hat, macht es Sinn, dabei zu bleiben.
-- **Produktivität:** Produktivität ist ein Maß dafür, wie schnell Sie neue Funktionen erstellen können, sobald Sie mit dem Framework vertraut sind, und umfasst sowohl den Aufwand, Code zu schreiben als auch zu warten (da Sie keine neuen Funktionen schreiben können, während alte kaputt sind). Viele der Faktoren, die die Produktivität beeinflussen, ähneln denen für "Lernaufwand" — z. B. Dokumentation, Community, Programmerfahrung etc. — weitere Faktoren sind:
+- **Anstrengung zu lernen:** Der Aufwand, ein Web-Framework zu erlernen, hängt davon ab, wie vertraut Sie mit der zugrunde liegenden Programmiersprache sind, wie konsistent die API ist, die Qualität der Dokumentation und die Größe und Aktivität der Community. Wenn Sie absolut keine Programmiererfahrung haben, sollten Sie Django in Betracht ziehen (es ist eines der am einfachsten zu erlernenden basierend auf den oben genannten Kriterien). Wenn Sie Teil eines Entwicklungsteams sind, das bereits über umfangreiche Erfahrungen mit einem bestimmten Web-Framework oder einer Programmiersprache verfügt, macht es Sinn, dabei zu bleiben.
+- **Produktivität:** Produktivität ist ein Maß dafür, wie schnell Sie neue Funktionen erstellen können, sobald Sie mit dem Framework vertraut sind, und umfasst sowohl den Aufwand, Code zu schreiben als auch zu pflegen (da Sie keine neuen Funktionen schreiben können, solange alte kaputt sind). Viele der Faktoren, die die Produktivität beeinflussen, ähneln denen für den "Aufwand zu lernen" — z. B. Dokumentation, Community, Programmiererfahrung usw. — andere Faktoren sind:
 
-  - _Framework-Zweck/Ursprung_: Einige Web-Frameworks wurden ursprünglich erstellt, um bestimmte Arten von Problemen zu lösen, und sind weiterhin _besser_ beim Erstellen von Web-Apps mit ähnlichen Einschränkungen. Django wurde beispielsweise entwickelt, um die Entwicklung von Zeitungs-Websites zu unterstützen, daher ist es gut für Blogs und andere Seiten, die Dinge veröffentlichen. Im Gegensatz dazu ist Flask ein viel leichtergewichtiges Framework und eignet sich hervorragend für die Erstellung von Web-Apps, die auf eingebetteten Geräten laufen.
-  - _Meinungsbildend vs. unmeinungsbildend_: Ein meinungsbildendes Framework ist eines, bei dem es empfohlene "beste" Wege gibt, ein bestimmtes Problem zu lösen. Meinungsbildende Frameworks sind tendenziell produktiver, wenn Sie versuchen, allgemeine Probleme zu lösen, da sie Sie in die richtige Richtung führen, jedoch sind sie manchmal weniger flexibel.
-  - _Inklusive vs. selbst besorgen_: Einige Web-Frameworks enthalten standardmäßig Werkzeuge/Bibliotheken, die jedes Problem adressieren, das ihre Entwickler sich vorstellen können, während leichtere Frameworks erwarten, dass Webentwickler Lösungen für Probleme aus separaten Bibliotheken auswählen (Django ist ein Beispiel für ersteres, während Flask ein Beispiel für ein sehr leichtgewichtiges Framework ist). Frameworks, die alles beinhalten, sind oft leichter zu starten, da Sie bereits alles haben, was Sie benötigen, und die Wahrscheinlichkeit ist hoch, dass es gut integriert und gut dokumentiert ist. Wenn jedoch ein kleineres Framework alles hat, was Sie (jemals) benötigen, kann es in eingeschränkteren Umgebungen laufen und bietet eine kleinere und einfachere Menge an Dingen zu lernen.
-  - _Ob das Framework gute Entwicklungspraktiken fördert oder nicht_: Beispielsweise wird ein Framework, das eine {{Glossary("MVC", "Model-View-Controller")}}-Architektur fördert, um Code in logische Funktionen zu trennen, zu wartbarerem Code führen als eines, das keine Erwartungen an Entwickler hat. Ähnlich kann das Design des Frameworks einen großen Einfluss darauf haben, wie einfach es ist, Code zu testen und wiederzuverwenden.
+  - _Framework-Zweck/Ursprung_: Einige Web-Frameworks wurden ursprünglich geschaffen, um bestimmte Arten von Problemen zu lösen, und sind immer noch _besser_ darin, Web-Apps mit ähnlichen Einschränkungen zu erstellen. Zum Beispiel wurde Django zur Unterstützung der Entwicklung einer Zeitungswebsite geschaffen, sodass es gut für Blogs und andere Websites geeignet ist, die das Veröffentlichen von Dingen beinhalten. Im Gegensatz dazu ist Flask ein viel leichteres Framework und eignet sich hervorragend für die Erstellung von Web-Apps, die auf eingebetteten Geräten laufen.
+  - _Meinungsstark vs. unaufdringlich_: Ein meinungsstarkes Framework ist eines, bei dem es empfohlene "beste" Möglichkeiten gibt, ein bestimmtes Problem zu lösen. Meinungsstarke Frameworks sind in der Regel produktiver, wenn Sie versuchen, häufige Probleme zu lösen, da sie Sie in die richtige Richtung lenken, aber manchmal sind sie weniger flexibel.
+  - _Batterien inklusive vs. selbst beschaffen_: Einige Web-Frameworks enthalten standardmäßig Werkzeuge/Bibliotheken, die jedes Problem ihrer Entwickler ansprechen können, während leichtere Frameworks erwarten, dass Webentwickler Lösungen für Probleme aus separaten Bibliotheken auswählen (Django ist ein Beispiel für ersteres, während Flask ein Beispiel für ein sehr leichtgewichtiges Framework ist). Frameworks, die alles enthalten, sind oft einfacher zu starten, weil Sie bereits alles haben, was Sie brauchen, und die Chancen stehen gut, dass es gut integriert und gut dokumentiert ist. Wenn jedoch ein kleineres Framework alles hat, was Sie (je) benötigen, dann kann es in eingeschränkteren Umgebungen laufen und wird eine kleinere und einfachere Untermenge von Dingen zu lernen haben.
+  - _Ob das Framework gute Entwicklungspraktiken fördert oder nicht_: Zum Beispiel, ein Framework, das eine {{Glossary("MVC", "Model-View-Controller")}}-Architektur zur Trennung des Codes in logische Funktionen fördert, wird zu wartbarem Code führen als eines, das keine Erwartungen an die Entwickler hat. Ebenso kann das Design des Frameworks einen großen Einfluss darauf haben, wie einfach es ist, Code zu testen und wiederzuverwenden.
 
-- **Leistung des Frameworks/der Programmiersprache:** In der Regel ist "Geschwindigkeit" nicht der größte Faktor bei der Auswahl, da selbst relativ langsame Laufzeiten wie Python mehr als "gut genug" für mittelgroße Seiten sind, die auf moderater Hardware laufen. Die wahrgenommenen Geschwindigkeitsvorteile einer anderen Sprache, z. B. C++ oder JavaScript, können gut durch die Kosten für das Erlernen und Warten ausgeglichen werden.
-- **Caching-Unterstützung:** Wenn Ihr Website-Erfolg steigt, stellen Sie möglicherweise fest, dass sie die Anzahl der eingehenden Anfragen nicht mehr bewältigen kann. Zu diesem Zeitpunkt können Sie überlegen, Unterstützung für Caching hinzuzufügen. Caching ist eine Optimierung, bei der Sie die ganze oder einen Teil einer Webantwort speichern, sodass sie bei späteren Anfragen nicht neu berechnet werden muss. Das Zurückgeben einer gecachten Antwort ist viel schneller als das Berechnen einer neuen. Caching kann in Ihrem Code oder auf dem Server implementiert werden (siehe [Reverse Proxy](https://en.wikipedia.org/wiki/Reverse_proxy)). Web-Frameworks haben unterschiedliche Niveaus an Unterstützung für die Definition, welche Inhalte zwischengespeichert werden können.
-- **Skalierbarkeit:** Sobald Ihre Website fantastisch erfolgreich ist, werden Sie die Vorteile des Caching ausschöpfen und sogar die Grenzen der _vertikalen Skalierung_ (Betrieb Ihrer Webanwendung auf leistungsfähigerer Hardware) erreichen. Zu diesem Zeitpunkt müssen Sie _horizontal skalieren_ (die Last verteilen, indem Sie Ihre Site auf mehrere Webserver und Datenbanken verteilen) oder "geografisch" skalieren, da einige Ihrer Kunden weit entfernt von Ihrem Server ansässig sind. Das Web-Framework, das Sie wählen, kann einen großen Unterschied machen, wie einfach es ist, Ihre Site zu skalieren.
-- **Web-Sicherheit:** Einige Web-Frameworks bieten besseren Schutz gegen häufige Webangriffe. Django beispielsweise saniert sämtliche Nutzereingaben aus HTML-Templates, sodass eingetragener JavaScript-Code nicht ausgeführt werden kann. Andere Frameworks bieten ähnlichen Schutz, der jedoch nicht immer standardmäßig aktiviert ist.
+- **Leistung des Frameworks/der Programmiersprache:** Normalerweise ist "Geschwindigkeit" nicht der größte Faktor bei der Auswahl, da selbst relativ langsame Laufzeiten wie Python mehr als "gut genug" für mittelgroße Seiten sind, die auf moderater Hardware laufen. Die wahrgenommenen Geschwindigkeitsvorteile einer anderen Sprache, z. B. C++ oder JavaScript, können durchaus durch die Kosten des Lernens und der Wartung ausgeglichen werden.
+- **Caching-Unterstützung:** Wenn Ihre Website erfolgreicher wird, stellen Sie möglicherweise fest, dass sie mit der Anzahl der eingehenden Anfragen, die sie erhält, nicht mehr umgehen kann. Zu diesem Zeitpunkt sollten Sie in Betracht ziehen, Unterstützung für Caching hinzuzufügen. Caching ist eine Optimierung, bei der Sie eine ganze oder einen Teil einer Web-Antwort speichern, damit sie bei nachfolgenden Anfragen nicht neu berechnet werden muss. Das Zurückgeben einer zwischengespeicherten Antwort ist viel schneller, als eine neue zu berechnen. Caching kann in Ihrem Code oder auf dem Server implementiert werden (siehe [Reverse Proxy](https://de.wikipedia.org/wiki/Reverse_Proxy)). Web-Frameworks haben unterschiedliche Niveaus der Unterstützung dafür, zu definieren, welche Inhalte zwischengespeichert werden können.
+- **Skalierbarkeit:** Sobald Ihre Website fantastischen Erfolg hat, werden Sie die Vorteile des Cachings erschöpfen und sogar die Grenzen des _vertikalen Skalierens_ erreichen (Ihre Webanwendung auf leistungsfähigerer Hardware betreiben). An diesem Punkt müssen Sie möglicherweise _horizontal skalieren_ (die Last teilen, indem Sie Ihre Website auf eine Reihe von Webservern und Datenbanken verteilen) oder "geografisch" skalieren, weil einige Ihrer Kunden weit entfernt von Ihrem Server ansässig sind. Das Web-Framework, das Sie wählen, kann einen großen Unterschied machen, wie einfach es ist, Ihre Website zu skalieren.
+- **Websicherheit:** Einige Web-Frameworks bieten eine bessere Unterstützung für den Umgang mit häufigen Webangriffen. Django zum Beispiel bereinigt alle Benutzereingaben aus HTML-Vorlagen, damit vom Benutzer eingegebener JavaScript-Code nicht ausgeführt werden kann. Andere Frameworks bieten ähnliche Schutzmechanismen, diese sind jedoch nicht immer standardmäßig aktiviert.
 
-Es gibt viele andere mögliche Faktoren, einschließlich Lizenzierung, ob das Framework aktiv entwickelt wird oder nicht usw.
+Es gibt viele andere mögliche Faktoren, einschließlich der Lizenzierung, ob das Framework aktiv entwickelt wird, usw.
 
-Wenn Sie ein absoluter Anfänger in der Programmierung sind, werden Sie Ihr Framework wahrscheinlich basierend auf "Lernleichtigkeit" auswählen. Zusätzlich zur "Benutzerfreundlichkeit" der Sprache selbst sind qualitativ hochwertige Dokumentationen/Tutorials und eine aktive Community, die neuen Nutzern hilft, Ihre wertvollsten Ressourcen. Wir haben [Django](https://www.djangoproject.com/) (Python) und [Express](https://expressjs.com/) (Node/JavaScript) ausgewählt, um unsere Beispiele später im Kurs zu illustrieren, hauptsächlich weil sie leicht zu erlernen sind und gute Unterstützung bieten.
+Wenn Sie ein absoluter Anfänger in der Programmierung sind, werden Sie Ihr Framework wahrscheinlich basierend auf der "Einfachheit des Lernens" auswählen. Zusätzlich zur "Einfachheit der Nutzung" der Sprache selbst, sind hochwertige Dokumentation/Tutorials und eine aktive Community, die neuen Benutzern hilft, Ihre wertvollsten Ressourcen. Wir haben [Django](https://www.djangoproject.com/) (Python) und [Express](https://expressjs.com/) (Node/JavaScript) ausgewählt, um unsere Beispiele später im Kurs zu schreiben, hauptsächlich weil sie einfach zu erlernen sind und gute Unterstützung haben.
 
 > [!NOTE]
-> Lassen Sie uns die Hauptwebsites für [Django](https://www.djangoproject.com/) (Python) und [Express](https://expressjs.com/) (Node/JavaScript) besuchen und ihre Dokumentationen und Community überprüfen.
+> Besuchen Sie die Haupt-Websites von [Django](https://www.djangoproject.com/) (Python) und [Express](https://expressjs.com/) (Node/JavaScript) und prüfen Sie deren Dokumentation und Community.
 >
-> 1. Besuchen Sie die Hauptseiten (oben verlinkt).
+> 1. Navigieren Sie zu den Hauptseiten (oben verlinkt)
 >
->    - Klicken Sie auf die Dokumentationsmenüs (benannt wie "Documentation, Guide, API Reference, Getting Started" etc.).
->    - Können Sie Themen sehen, die zeigen, wie man URL-Routing, Templates und Datenbanken/Modelle einrichtet?
+>    - Klicken Sie auf die Dokumentations-Menülinks (mit Bezeichnungen wie "Documentation, Guide, API Reference, Getting Started", etc.).
+>    - Sehen Sie Themen, die zeigen, wie URL-Routing, Vorlagen und Datenbanken/Modelle eingerichtet werden?
 >    - Sind die Dokumente klar?
 >
-> 2. Besuchen Sie die Mailinglisten für jede Seite (zugänglich über Community-Links).
+> 2. Navigieren Sie zu den Mailinglisten für jede Seite (über die Community-Links zugänglich).
 >
->    - Wie viele Fragen wurden in den letzten Tagen gepostet?
->    - Wie viele haben Antworten?
+>    - Wie viele Fragen wurden in den letzten Tagen gestellt?
+>    - Wie viele davon haben Antworten?
 >    - Haben sie eine aktive Community?
 
 ## Einige gute Web-Frameworks?
 
-Lassen Sie uns nun fortfahren und einige spezifische serverseitige Web-Frameworks besprechen.
+Lassen Sie uns nun fortfahren und einige spezifische serverseitige Web-Frameworks diskutieren.
 
-Die unten aufgeführten serverseitigen Frameworks stellen _einige_ der zur Zeit des Schreibens populärsten Frameworks dar. Alle von ihnen haben alles, was Sie benötigen, um produktiv zu sein — sie sind Open Source, werden aktiv entwickelt, haben eine begeisterte Community, die Dokumentation erstellt und Benutzern in Diskussionsforen hilft, und werden auf einer großen Anzahl von hochkarätigen Websites eingesetzt. Es gibt viele andere großartige serverseitige Frameworks, die Sie durch eine einfache Internetsuche entdecken können.
+Die folgenden serverseitigen Frameworks stellen _einige_ der beliebtesten zum Zeitpunkt des Schreibens dar. Alle bieten alles, was Sie benötigen, um produktiv zu sein — sie sind Open Source, werden aktiv weiterentwickelt, haben begeisterte Communities, die Dokumentation erstellen und Benutzern in Diskussionsforen helfen, und werden in einer großen Anzahl hochkarätiger Websites eingesetzt. Es gibt viele andere großartige serverseitige Frameworks, die Sie mittels einer grundlegenden Internetrecherche entdecken können.
 
 > [!NOTE]
-> Die Beschreibungen kommen (teilweise) von den Framework-Websites!
+> Die Beschreibungen stammen (teilweise) von den Websites der Frameworks selbst!
 
 ### Django (Python)
 
-[Django](https://www.djangoproject.com/) ist ein hochrangiges Python-Web-Framework, das eine schnelle Entwicklung und ein sauberes, pragmatisches Design fördert. Es wurde von erfahrenen Entwicklern erstellt und nimmt Ihnen viel von den lästigen Aufgaben der Webentwicklung ab, sodass Sie sich darauf konzentrieren können, Ihre Anwendung zu schreiben, ohne das Rad neu erfinden zu müssen. Es ist kostenlos und Open Source.
+[Django](https://www.djangoproject.com/) ist ein hochentwickeltes Python-Web-Framework, das schnelle Entwicklung und sauberes, pragmatisches Design fördert. Es wurde von erfahrenen Entwicklern erstellt und nimmt Ihnen viele der mühsamen Aufgaben der Webentwicklung ab, so dass Sie sich auf das Schreiben Ihrer App konzentrieren können, ohne das Rad neu erfinden zu müssen. Es ist kostenlos und Open Source.
 
-Django folgt der Philosophie "Inklusive Batteries" und bietet fast alles, was die meisten Entwickler tun möchten, "aus der Box". Da alles enthalten ist, funktioniert alles zusammen, folgt einheitlichen Designprinzipien und hat umfangreiche und aktuelle Dokumentation. Es ist auch schnell, sicher und sehr skalierbar. Da es auf Python basiert, ist Django-Code leicht zu lesen und zu warten.
+Django folgt der "Batterien inklusive"-Philosophie und liefert fast alles, was die meisten Entwickler tun wollen, "out of the box". Da alles enthalten ist, funktioniert alles zusammen, folgt konsistenten Designprinzipien und hat eine umfangreiche und aktuelle Dokumentation. Es ist auch schnell, sicher und sehr skalierbar. Da es auf Python basiert, ist Django-Code einfach zu lesen und zu pflegen.
 
-Beliebte Sites, die Django verwenden (von der Django-Startseite), sind: Disqus, Instagram, Knight Foundation, MacArthur Foundation, Mozilla, National Geographic, Open Knowledge Foundation, Pinterest, Open Stack.
+Bekannte Seiten, die Django nutzen (von der Django-Homepage), sind unter anderem: Disqus, Instagram, Knight Foundation, MacArthur Foundation, Mozilla, National Geographic, Open Knowledge Foundation, Pinterest, Open Stack.
 
 ### Flask (Python)
 
 [Flask](https://flask.palletsprojects.com/) ist ein Mikroframework für Python.
 
-Obwohl minimalistisch, kann Flask aus der Box ernsthafte Websites erstellen. Es enthält einen Entwicklungsserver und einen Debugger und bietet Unterstützung für [Jinja2](https://github.com/pallets/jinja) Templating, sichere Cookies, [Unit Testing](https://en.wikipedia.org/wiki/Unit_testing) und [RESTful](https://restapitutorial.com/) Request-Dispatching. Es hat eine gute Dokumentation und eine aktive Community.
+Obwohl minimalist, kann Flask ernsthafte Websites aus dem Stand erstellen. Es enthält einen Entwicklungsserver und Debugger und bietet Unterstützung für [Jinja2](https://github.com/pallets/jinja) Templating, sichere Cookies, [Unit Testing](https://de.wikipedia.org/wiki/Unit_Testing) und [RESTful](https://restapitutorial.com/) Request-Dispatching. Es verfügt über eine gute Dokumentation und eine aktive Community.
 
-Flask ist besonders bei Entwicklern beliebt geworden, die Webdienste auf kleinen, ressourcenbeschränkten Systemen bereitstellen müssen (z. B. den Betrieb eines Webservers auf einem [Raspberry Pi](https://www.raspberrypi.org/), [Drohnensteuerungen](https://www.techuseful.com/drone-definitions-learning-the-drone-lingo/) etc.).
+Flask ist besonders bei Entwicklern beliebt geworden, die Webdienste auf kleinen, ressourcenbeschränkten Systemen bereitstellen müssen (z. B. den Betrieb eines Webservers auf einem [Raspberry Pi](https://www.raspberrypi.org/), [Drohnen-Controllern](https://www.techuseful.com/drone-definitions-learning-the-drone-lingo/) usw.).
 
 ### Express (Node.js/JavaScript)
 
-[Express](https://expressjs.com/) ist ein schnelles, unmeinungsbildendes, flexibles und minimalistisches Web-Framework für [Node.js](https://nodejs.org/en/) (Node ist eine browserlose Umgebung für die Ausführung von JavaScript). Es bietet eine robuste Suite von Funktionen für Web- und mobile Anwendungen und liefert nützliche HTTP-Dienstprogramme und {{Glossary("Middleware", "Middleware")}}.
+[Express](https://expressjs.com/) ist ein schnelles, unaufdringliches, flexibles und minimalistisches Web-Framework für [Node.js](https://nodejs.org/en/) (Node ist eine umgebung für das Ausführen von JavaScript ohne Browser). Es bietet eine robuste Reihe von Funktionen für Web- und Mobilanwendungen und liefert nützliche HTTP-Dienstprogrammmethoden und {{Glossary("Middleware", "Middleware")}}.
 
-Express ist extrem populär, teilweise weil es JavaScript-Webprogrammierern den Übergang zur Server-Programmierung erleichtert und teilweise weil es ressourcenschonend ist (die zugrunde liegende Node-Umgebung verwendet leichtgewichtige Multitasking-Ansätze innerhalb eines Threads, anstatt für jede neue Webanfrage separate Prozesse zu starten).
+Express ist extrem beliebt, teilweise weil es den Übergang von Client-seitigen JavaScript-Web-Programmierern zur serverseitigen Entwicklung erleichtert und teilweise, weil es ressourceneffizient ist (die zugrunde liegende Node-Umgebung nutzt leichtgewichtiges Multitasking innerhalb eines Threads, anstatt separate Prozesse für jede neue Webanfrage zu starten).
 
-Da Express ein minimalistisches Web-Framework ist, integriert es nicht jedes Komponenten, die Sie möglicherweise nutzen möchten (Beispielsweise werden Datenbankzugriff und Unterstützung für Benutzer und Sitzungen durch eigenständige Bibliotheken bereitgestellt). Es gibt viele exzellente unabhängige Komponenten, aber manchmal kann es schwierig sein, herauszufinden, welche die beste für einen bestimmten Zweck ist!
+Da Express ein minimalistisches Web-Framework ist, enthält es nicht alle Komponenten, die Sie möglicherweise verwenden möchten (zum Beispiel werden Datenbankzugriff und Unterstützung für Benutzer und Sitzungen durch unabhängige Bibliotheken bereitgestellt). Es gibt viele ausgezeichnete unabhängige Komponenten, aber manchmal kann es schwierig sein herauszufinden, welches für einen bestimmten Zweck am besten geeignet ist!
 
-Viele beliebte serverseitige und Full-Stack-Frameworks (die sowohl server- als auch clientseitige Frameworks umfassen) basieren auf Express, darunter [Feathers](https://feathersjs.com/), [ItemsAPI](https://itemsapi.com/), [KeystoneJS](https://keystonejs.com/), [Kraken](https://krakenjs.com/), [LoopBack](https://loopback.io/), [MEAN](https://github.com/linnovate/mean) und [Sails](https://sailsjs.com/).
+Viele beliebte serverseitige und Full-Stack-Frameworks (bestehend aus sowohl server- als auch clientseitigen Frameworks) basieren auf Express, darunter [Feathers](https://feathersjs.com/), [ItemsAPI](https://itemsapi.com/), [KeystoneJS](https://keystonejs.com/), [Kraken](https://krakenjs.com/), [LoopBack](https://loopback.io/), [MEAN](https://github.com/linnovate/mean) und [Sails](https://sailsjs.com/).
 
-Viele hochkarätige Unternehmen nutzen Express, darunter: Uber, Accenture, IBM usw.
+Viele bekannte Unternehmen nutzen Express, darunter: Uber, Accenture, IBM, usw.
 
 ### Deno (JavaScript)
 
-[Deno](https://deno.com/) ist ein einfaches, modernes und sicheres [JavaScript](/de/docs/Web/JavaScript)/TypeScript-Laufzeit- und Framework, das auf Chrome V8 und [Rust](https://www.rust-lang.org/) basiert.
+[Deno](https://deno.com/) ist ein einfaches, modernes und sicheres [JavaScript](/de/docs/Web/JavaScript)/TypeScript-Laufzeit- und Framework, das sich auf Chrome V8 und [Rust](https://www.rust-lang.org/) aufbaut.
 
-Deno wird von [Tokio](https://tokio.rs/) unterstützt — einer in Rust entwickelten asynchronen Laufzeit, die es ermöglicht, Webseiten schneller zu bedienen. Es hat auch interne Unterstützung für [WebAssembly](/de/docs/WebAssembly), was die Kompilierung von Binärcode zur Nutzung auf der Client-Seite ermöglicht. Deno zielt darauf ab, einige der Lücken in [Node.js](/de/docs/Learn_web_development/Extensions/Server-side/Node_server_without_framework) zu füllen, indem es einen Mechanismus bereitstellt, der eine bessere Sicherheit natürlicherweise aufrechterhält.
+Deno wird von [Tokio](https://tokio.rs/) betrieben — einem auf Rust basierenden asynchronen Laufzeit, die es ermöglicht, Webseiten schneller zu bedienen. Es bietet auch interne Unterstützung für [WebAssembly](/de/docs/WebAssembly), was es möglich macht, Binärcode für die Verwendung auf der Client-Seite zu kompilieren. Deno zielt darauf ab, einige der Schwachstellen in [Node.js](/de/docs/Learn_web_development/Extensions/Server-side/Node_server_without_framework) durch die Bereitstellung eines Mechanismus zu schließen, der natürlich eine bessere Sicherheit aufrechterhält.
 
-Features von Deno sind:
+Die Funktionen von Deno umfassen:
 
-- Standardmäßige Sicherheit. [Deno-Module beschränken Berechtigungen](https://docs.deno.com/runtime/fundamentals/security/) für **Datei**, **Netzwerk** oder **Umgebungs**zugriff, es sei denn, diese werden ausdrücklich erlaubt.
-- TypeScript-Unterstützung **von Haus aus**.
-- Erstrangiger `await` Mechanismus.
-- Eingebaute Test- und Codeformatierungseinrichtung (`deno fmt`).
-- (JavaScript) Browser-Kompatibilität: Deno-Programme, die vollständig in JavaScript geschrieben sind und den `Deno` Namespace ausgenommen (oder ihn testen), sollten direkt in allen modernen Browsern funktionieren.
-- Script-Bündelung in eine einzelne JavaScript-Datei.
+- Sicherheit standardmäßig. [Deno-Module beschränken Berechtigungen](https://docs.deno.com/runtime/fundamentals/security/) auf **Datei**, **Netzwerk** oder **Umgebungs**zugriff, es sei denn, diese werden ausdrücklich erlaubt.
+- TypeScript-Unterstützung **out-of-the-box**.
+- Mechanismus für erstklassige Wartezeiten.
+- Eingebaute Testeinrichtung und Code-Formatter (`deno fmt`).
+- (JavaScript) Browser-Kompatibilität: Deno-Programme, die vollständig in JavaScript ohne den `Deno`-Namespace geschrieben sind (oder darauf testen), sollten direkt in jedem modernen Browser funktionieren.
+- Skript-Bündelung in eine einzelne JavaScript-Datei.
 
-Deno bietet eine einfache und dennoch leistungsstarke Möglichkeit, JavaScript sowohl für die Programmierung auf Client- als auch auf Server-Seite zu nutzen.
+Deno bietet eine einfache, aber leistungsstarke Möglichkeit, JavaScript sowohl für Client- als auch für serverseitige Programmierung zu verwenden.
 
 ### Ruby on Rails (Ruby)
 
-[Rails](https://rubyonrails.org/) (oft als "Ruby on Rails" bezeichnet) ist ein Web-Framework, das für die Programmiersprache Ruby entwickelt wurde.
+[Rails](https://rubyonrails.org/) (in der Regel als "Ruby on Rails" bezeichnet) ist ein Web-Framework für die Ruby-Programmiersprache.
 
-Rails folgt einer sehr ähnlichen Designphilosophie wie Django. Wie Django stellt es Standardmechanismen für das Routing von URLs, den Zugriff auf Daten aus einer Datenbank, die Erzeugung von HTML aus Templates und die Formatierung von Daten als {{Glossary("JSON", "JSON")}} oder {{Glossary("XML", "XML")}} bereit. Es fördert auch die Verwendung von Designmustern wie DRY ("don't repeat yourself" — schreiben Sie Code nur einmal, wenn überhaupt möglich), MVC (Model-View-Controller) und mehreren anderen.
+Rails folgt einer sehr ähnlichen Designphilosophie wie Django. Wie Django bietet es standardisierte Mechanismen für das Routing von URLs, den Zugriff auf Daten aus einer Datenbank, die Erzeugung von HTML aus Vorlagen und die Formatierung von Daten als {{Glossary("JSON", "JSON")}} oder {{Glossary("XML", "XML")}}. Es fördert ebenso wie die Verwendung von Designpatterns wie DRY ("don't repeat yourself" — schreiben Sie Code nach Möglichkeit nur einmal), MVC (Model-View-Controller) und mehrere andere.
 
-Natürlich gibt es viele Unterschiede aufgrund spezifischer Entwurfsentscheidungen und der Natur der Sprachen.
+Es gibt natürlich viele Unterschiede aufgrund spezifischer Designentscheidungen und der Natur der Sprachen.
 
-Rails wurde für hochkarätige Sites verwendet, darunter: [Basecamp](https://basecamp.com/), [GitHub](https://github.com/), [Shopify](https://www.shopify.com/), [Airbnb](https://www.airbnb.com/), [Twitch](https://www.twitch.tv/), [SoundCloud](https://soundcloud.com/), [Hulu](https://www.hulu.com/welcome), [Zendesk](https://www.zendesk.com/), [Square](https://squareup.com/us/en), [Highrise](https://highrisehq.com/).
+Rails wurde für hochkarätige Websites verwendet, darunter: [Basecamp](https://basecamp.com/), [GitHub](https://github.com/), [Shopify](https://www.shopify.com/), [Airbnb](https://www.airbnb.com/), [Twitch](https://www.twitch.tv/), [SoundCloud](https://soundcloud.com/), [Hulu](https://www.hulu.com/welcome), [Zendesk](https://www.zendesk.com/), [Square](https://squareup.com/us/en), [Highrise](https://highrisehq.com/).
 
 ### Laravel (PHP)
 
-[Laravel](https://laravel.com/) ist ein Webanwendungs-Framework mit ausdrucksstarker, eleganter Syntax. Laravel versucht, die Entwicklung zu erleichtern, indem häufige Aufgaben, die in den meisten Webprojekten verwendet werden, erleichtert werden, wie z. B.:
+[Laravel](https://laravel.com/) ist ein Webanwendungs-Framework mit ausdrucksstarker, eleganter Syntax. Laravel versucht, den Schmerz aus der Entwicklung zu nehmen, indem es gängige Aufgaben erleichtert, die bei den meisten Webprojekten verwendet werden, wie zum Beispiel:
 
-- [Einfaches, schnelles Routing-Engine](https://laravel.com/docs/routing).
-- [Leistungsfähiger Dependency-Injection-Container](https://laravel.com/docs/container).
-- Mehrere Back-Ends für [Session](https://laravel.com/docs/session) und [Cache](https://laravel.com/docs/cache) Speicherung.
-- Ausdrückliches, intuitives [Datenbank-ORM](https://laravel.com/docs/eloquent).
+- [Einfacher, schneller Routing-Engine](https://laravel.com/docs/routing).
+- [Leistungsstarker Abhängigkeits-Injektionsbehälter](https://laravel.com/docs/container).
+- Mehrere Backends für [Session](https://laravel.com/docs/session) und [Cache](https://laravel.com/docs/cache) Speicherung.
+- Ausdrucksstarkes, intuitives [Datenbank-ORM](https://laravel.com/docs/eloquent).
 - Datenbankunabhängige [Schema-Migrationen](https://laravel.com/docs/migrations).
-- [Robuste Hintergrundauftragsverarbeitung](https://laravel.com/docs/queues).
-- [Echtzeitereignis-Übertragung](https://laravel.com/docs/broadcasting).
+- [Robuste Verarbeitung von Hintergrundjobs](https://laravel.com/docs/queues).
+- [Echtzeit-Ereignisübertragung](https://laravel.com/docs/broadcasting).
 
 Laravel ist zugänglich, aber leistungsstark und bietet die Werkzeuge, die für große, robuste Anwendungen benötigt werden.
 
 ### ASP.NET
 
-[ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet) ist ein Open Source Web-Framework, das von Microsoft entwickelt wurde, um moderne Webanwendungen und -dienste zu erstellen. Mit ASP.NET können Sie schnell Websites auf Basis von HTML, CSS und JavaScript erstellen, die für die Nutzung durch Millionen von Benutzern skaliert werden können, und problemlos komplexere Funktionen wie Web-APIs, Formulare über Daten oder Echtzeitkommunikation hinzufügen.
+[ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet) ist ein Open-Source-Web-Framework, das von Microsoft für den Bau moderner Webanwendungen und -dienste entwickelt wurde. Mit ASP.NET können Sie schnell Websites basierend auf HTML, CSS und JavaScript erstellen, sie für Millionen von Benutzern skalieren und leicht komplexere Funktionen wie Web-APIs, Formulare über Daten oder Echtzeit-Kommunikation hinzufügen.
 
-Ein Unterscheidungsmerkmal von ASP.NET ist, dass es auf der [Common Language Runtime](https://en.wikipedia.org/wiki/Common_Language_Runtime) (CLR) basiert, die es Programmierern ermöglicht, ASP.NET-Code mithilfe jeder unterstützten .NET-Sprache (C#, Visual Basic, etc.) zu schreiben. Wie viele Microsoft-Produkte profitiert es von ausgezeichneten Werkzeugen (oft kostenlos), einer aktiven Entwickler-Community und gut geschriebener Dokumentation.
+Einer der Unterscheidungsmerkmale von ASP.NET besteht darin, dass es auf dem [Common Language Runtime](https://de.wikipedia.org/wiki/Common_Language_Runtime) (CLR) aufgebaut ist, sodass Programmierer ASP.NET-Code mit jeder unterstützten .NET-Sprache (C#, Visual Basic usw.) schreiben können. Wie viele Microsoft-Produkte profitiert es von ausgezeichneten Werkzeugen (oft kostenlos), einer aktiven Entwickler-Community und gut geschriebener Dokumentation.
 
-ASP.NET wird von Microsoft, Xbox.com, Stack Overflow und vielen anderen genutzt.
+ASP.NET wird von Microsoft, Xbox.com, Stack Overflow und vielen anderen verwendet.
 
 ### Mojolicious (Perl)
 
-[Mojolicious](https://mojolicious.org/) ist ein Web-Framework der nächsten Generation für die Programmiersprache Perl.
+[Mojolicious](https://mojolicious.org/) ist ein Next-Generation-Web-Framework für die Perl-Programmiersprache.
 
-Zurück in den frühen Tagen des Webs haben viele Menschen Perl gelernt wegen einer wunderbaren Perl-Bibliothek namens [CGI](https://metacpan.org/pod/CGI). Es war einfach genug, um ohne viel Wissen über die Sprache zu beginnen, und mächtig genug, um Sie am Laufen zu halten. Mojolicious setzt diese Idee mit modernster Technologie um.
+In den frühen Tagen des Webs lernten viele Menschen Perl wegen einer wunderbaren Perl-Bibliothek namens [CGI](https://metacpan.org/pod/CGI). Es war einfach genug, um ohne viel Wissen über die Sprache zu beginnen, und mächtig genug, um Sie weiterzumachen. Mojolicious implementiert diese Idee mit modernsten Technologien.
 
-Einige der Funktionen, die Mojolicious bietet, sind:
+Einige der von Mojolicious angebotenen Funktionen sind:
 
-- Ein Echtzeit-Web-Framework, um leicht Ein-Datei-Prototypen in gut strukturierte MVC-Webanwendungen zu überführen.
-- RESTful-Routen, Plugins, Befehle, Perl-artige Templates, Inhaltsaushandlung, Sitzungsmanagement, Formularvalidierung, Test-Framework, statische Dateiserver, CGI/[PSGI](https://plackperl.org/) Erkennung, und erstklassige Unicode-Unterstützung.
-- Eine vollständige HTTP- und WebSocket und Client/Server-Implementierung mit IPv6, TLS, SNI, IDNA, HTTP/SOCKS5-Proxi, UNIX-Domain-Socket, Comet (Long Polling), Keep-Alive, Verbindungspooling, Timeout, Cookie, Multipart und Gzip-Kompressionsunterstützung.
+- Ein Echtzeit-Web-Framework, um leicht einprototypische Einzelfile in gut strukturierte MVC-Webanwendungen zu verwandeln.
+- RESTful-Routen, Plugins, Befehle, Perl-ähnliche Vorlagen, Inhaltsaushandlung, Sitzungsverwaltung, Formularvalidierung, Testframework, statischer Dateiserver, CGI/[PSGI](https://plackperl.org/) Erkennung und erstklassige Unicode-Unterstützung.
+- Eine Voll-Stack HTTP- und WebSocket-Client/Server-Implementierung mit IPv6, TLS, SNI, IDNA, HTTP/SOCKS5-Proxy, UNIX-Domain-Socket, Comet (Long Polling), Keep-Alive, Connection Pooling, Timeout, Cookie, Multipart und Gzip-Kompressionsunterstützung.
 - JSON- und HTML/XML-Parser und -Generatoren mit CSS-Selektor-Unterstützung.
-- Sehr saubere, portierbare und objektorientierte reine-Perl-API ohne versteckte Magie.
-- Frischer Code basierend auf jahrelanger Erfahrung, kostenlos und Open Source.
+- Sehr saubere, portable und objektorientierte reine-Perl-API ohne versteckte Magie.
+- Frischer Code, basierend auf jahrelanger Erfahrung, kostenlos und Open Source.
 
 ### Spring Boot (Java)
 
-[Spring Boot](https://spring.io/projects/spring-boot/) ist eines von mehreren Projekten, die von [Spring](https://spring.io/) bereitgestellt werden. Es ist ein guter Ausgangspunkt für die serverseitige Web-Entwicklung mit [Java](https://www.java.com/).
+[Spring Boot](https://spring.io/projects/spring-boot/) ist eines von mehreren Projekten, die von [Spring](https://spring.io/) bereitgestellt werden. Es ist ein guter Ausgangspunkt für die serverseitige Webentwicklung mit [Java](https://www.java.com/).
 
-Obwohl definitiv nicht das einzige Framework auf Basis von [Java](https://www.java.com/), ist es einfach zu verwenden, um eigenständige, produktionsreife, Spring-basierte Anwendungen zu erstellen, die Sie "einfach ausführen" können. Es ist eine meinungsbildende Ansicht der Spring-Plattform und Drittanbieter-Bibliotheken, erlaubt jedoch einen minimalen Aufwand beim Start.
+Obwohl definitiv nicht das einzige Framework, das auf [Java](https://www.java.com/) basiert, ist es einfach zu verwenden, um eigenständige, produktionsreife Spring-basierte Anwendungen zu erstellen, die Sie "einfach ausführen" können. Es ist eine meinungsstarke Sicht der Spring-Plattform und Drittanbieter-Bibliotheken, ermöglicht es jedoch, mit minimalem Aufwand und Konfiguration zu beginnen.
 
-Es kann für kleine Probleme verwendet werden, doch seine Stärke ist der Aufbau größerer Anwendungen, die auf einer Cloud-Architektur basieren. Normalerweise laufen mehrere Anwendungen parallel und kommunizieren miteinander, wobei einige die Benutzerinteraktion bereitstellen und andere Backend-Aufgaben ausführen (z. B. Zugriff auf Datenbanken oder andere Dienste). Lastenausgleicher helfen, Redundanz und Zuverlässigkeit zu gewährleisten oder geolokalisiertes Handling von Benutzeranfragen zu erlauben, um die Reaktionsfähigkeit sicherzustellen.
+Es kann für kleine Probleme verwendet werden, aber seine Stärke liegt im Aufbau größerer Anwendungen, die einen Cloud-Ansatz verwenden. Üblicherweise laufen mehrere Anwendungen parallel und sprechen miteinander, einige bieten Benutzerinteraktion, während andere Backend-Arbeiten ausführen (z. B. Zugriff auf Datenbanken oder andere Dienste). Load Balancer helfen, Redundanz und Zuverlässigkeit sicherzustellen oder ermöglichen eine geolokalisierte Bearbeitung von Benutzeranfragen, um die Reaktionsfähigkeit sicherzustellen.
 
 ## Zusammenfassung
 
-Dieser Artikel hat gezeigt, dass Web-Frameworks die Entwicklung und Wartung von serverseitigem Code erleichtern können. Er hat außerdem einen Überblick über einige beliebte Frameworks gegeben und Kriterien für die Auswahl eines Webanwendungsframeworks diskutiert. Sie sollten jetzt zumindest eine Vorstellung davon haben, wie Sie ein Web-Framework für Ihre eigene serverseitige Entwicklung auswählen. Wenn nicht, dann machen Sie sich keine Sorgen — später im Kurs werden wir Ihnen detaillierte Tutorials zu Django und Express geben, um Ihnen Erfahrung im tatsächlichen Arbeiten mit einem Web-Framework zu vermitteln.
+Dieser Artikel hat gezeigt, dass Web-Frameworks die Entwicklung und Wartung von serverseitigem Code erleichtern können. Er hat auch einen Überblick über einige beliebte Frameworks geboten und Kriterien für die Auswahl eines Webanwendungs-Frameworks diskutiert. Sie sollten jetzt zumindest eine Vorstellung davon haben, wie Sie ein Web-Framework für Ihre eigene serverseitige Entwicklung auswählen können. Falls nicht, dann machen Sie sich keine Sorgen — später im Kurs werden wir Ihnen detaillierte Tutorials zu Django und Express geben, um Ihnen einige Erfahrungen im tatsächlichen Arbeiten mit einem Web-Framework zu vermitteln.
 
-Für den nächsten Artikel in diesem Modul werden wir uns ein wenig in eine andere Richtung bewegen und die Web-Sicherheit betrachten.
+Für den nächsten Artikel in diesem Modul werden wir die Richtung leicht ändern und die Websicherheit betrachten.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview", "Learn_web_development/Extensions/Server-side/First_steps/Website_security", "Learn_web_development/Extensions/Server-side/First_steps")}}

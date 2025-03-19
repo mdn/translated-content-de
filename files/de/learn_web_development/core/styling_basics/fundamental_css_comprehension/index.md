@@ -1,77 +1,78 @@
 ---
-title: "Herausforderung: Grundlegendes CSS-Verständnis"
+title: "Herausforderung: Grundlegendes Verständnis von CSS"
+short-title: "Herausforderung: Visitenkarte"
 slug: Learn_web_development/Core/Styling_basics/Fundamental_CSS_comprehension
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Debugging_CSS", "Learn_web_development/Core/Styling_basics/Fancy_letterheaded_paper", "Learn_web_development/Core/Styling_basics")}}
 
-Diese Herausforderung bietet eine Reihe von verwandten Übungen, die abgeschlossen werden müssen, um das endgültige Design zu erstellen — eine Visitenkarte/Spielerkarte/Social-Media-Profil.
+Diese Herausforderung bietet eine Reihe von verwandten Übungen, die abgeschlossen werden müssen, um das endgültige Design — eine Visitenkarte / Gamer-Karte / Social-Media-Profil — zu erstellen.
 
 ## Ausgangspunkt
 
 Um diese Herausforderung zu starten, sollten Sie:
 
-- Holen Sie sich die [HTML-Datei für die Übung](https://github.com/mdn/learning-area/blob/main/css/introduction-to-css/fundamental-css-comprehension/index.html) und die [dazugehörige Bilddatei](https://github.com/mdn/learning-area/blob/main/css/introduction-to-css/fundamental-css-comprehension/chris.jpg) und speichern Sie sie in einem neuen Verzeichnis auf Ihrem lokalen Computer. Wenn Sie Ihr eigenes Bild verwenden und Ihren eigenen Namen einfügen möchten, können Sie dies tun — achten Sie nur darauf, dass das Bild quadratisch ist.
-- Laden Sie die [CSS-Ressourcen Textdatei](https://github.com/mdn/learning-area/blob/main/css/introduction-to-css/fundamental-css-comprehension/style-resources.txt) herunter — diese enthält eine Reihe von Rohselektoren und Regelsets, die Sie studieren und kombinieren müssen, um einen Teil dieser Herausforderung zu beantworten.
+- Die [HTML-Datei für die Übung](https://github.com/mdn/learning-area/blob/main/css/introduction-to-css/fundamental-css-comprehension/index.html) und die [zugehörige Bilddatei](https://github.com/mdn/learning-area/blob/main/css/introduction-to-css/fundamental-css-comprehension/chris.jpg) abrufen und in einem neuen Verzeichnis auf Ihrem lokalen Computer speichern. Wenn Sie Ihre eigene Bilddatei verwenden und Ihren eigenen Namen einfügen möchten, können Sie dies gerne tun — achten Sie nur darauf, dass das Bild quadratisch ist.
+- Die [CSS-Ressourcen-Textdatei](https://github.com/mdn/learning-area/blob/main/css/introduction-to-css/fundamental-css-comprehension/style-resources.txt) abrufen — diese enthält eine Reihe von Roh-Selektoren und Regelmengen, die Sie studieren und kombinieren müssen, um einen Teil dieser Herausforderung zu beantworten.
 
-Alternativ könnten Sie einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) verwenden. Sie könnten den HTML-Code einfügen und das CSS in einen dieser Online-Editoren übernehmen und diese [URL](https://mdn.github.io/learning-area/css/introduction-to-css/fundamental-css-comprehension/chris.jpg) verwenden, um das `<img>`-Element auf die Bilddatei zu verweisen.
+Alternativ können Sie einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) verwenden. Sie können das HTML einfügen und das CSS in einen dieser Online-Editoren ausfüllen und [diese URL](https://mdn.github.io/learning-area/css/introduction-to-css/fundamental-css-comprehension/chris.jpg) verwenden, um das `<img>`-Element auf die Bilddatei zu verweisen.
 
 > [!NOTE]
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Sollten Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
-## Projektbeschreibung
+## Projektauftrag
 
-Ihnen wurden einige Roh-HTML und ein Bild bereitgestellt, und Sie müssen das notwendige CSS schreiben, um daraus eine schicke kleine Online-Visitenkarte zu erstellen, die vielleicht auch als Spielerkarte oder Social-Media-Profil genutzt werden kann. Die folgenden Abschnitte beschreiben, was Sie tun müssen.
+Sie haben einige Roh-HTMLs und ein Bild erhalten und müssen das notwendige CSS schreiben, um dieses in eine schicke kleine Online-Visitenkarte zu stylen, die vielleicht auch als Gamer-Karte oder Social-Media-Profil verwendet werden kann. Die folgenden Abschnitte beschreiben, was Sie tun müssen.
 
 Grundlegende Einrichtung:
 
-- Erstellen Sie zunächst eine neue Datei im selben Verzeichnis wie Ihre HTML- und Bilddateien. Nennen Sie sie etwas wirklich Einfallsreiches wie `style.css`.
-- Verknüpfen Sie Ihr CSS mit Ihrer HTML-Datei über ein `<link>`-Element.
-- Die ersten beiden Regelsets in der CSS-Ressourcendatei gehören Ihnen KOSTENLOS! Nachdem Sie Ihr Glück fertig gefeiert haben, kopieren Sie sie und fügen Sie sie oben in Ihre neue CSS-Datei ein. Verwenden Sie sie als Test, um sicherzustellen, dass Ihr CSS richtig auf Ihr HTML angewendet wird.
-- Über den beiden Regeln fügen Sie einen CSS-Kommentar mit etwas Text ein, der anzeigt, dass dies eine Reihe von allgemeinen Stilen für die gesamte Seite ist. „Allgemeine Seitenstile“ wäre ausreichend. Fügen Sie auch am unteren Rand der CSS-Datei drei weitere Kommentare hinzu, um Stile anzugeben, die spezifisch für die Einrichtung des Kartencontainers, des Headers und Footers sowie der Hauptinhalte der Visitenkarte sind. Ab jetzt sollten nachfolgende Stile, die zum Stylesheet hinzugefügt werden, an einem geeigneten Ort organisiert werden.
+- Erstellen Sie zunächst eine neue Datei im selben Verzeichnis wie Ihre HTML- und Bilddateien. Nennen Sie sie etwas sehr einfallsreich wie `style.css`.
+- Verbinden Sie Ihr CSS mit Ihrer HTML-Datei über ein `<link>`-Element.
+- Die ersten beiden Regelmengen in der CSS-Ressourcendatei gehören Ihnen, KOSTENLOS! Nachdem Sie sich über Ihr Glück gefreut haben, kopieren Sie diese und fügen Sie sie an den Anfang Ihrer neuen CSS-Datei ein. Verwenden Sie sie als Test, um sicherzustellen, dass Ihr CSS korrekt auf Ihr HTML angewendet wird.
+- Fügen Sie über den beiden Regeln einen CSS-Kommentar mit etwas Text ein, der darauf hinweist, dass es sich um eine Sammlung von allgemeinen Stilen für die gesamte Seite handelt. „Allgemeine Seitenstile“ wäre geeignet. Fügen Sie auch drei weitere Kommentare am Ende der CSS-Datei hinzu, um Stile anzugeben, die sich speziell auf die Einrichtung des Kartencontainers, auf Stile beziehen, die speziell auf den Header und Footer bezogen sind, und auf Stile, die spezifisch für die Hauptinhalte der Visitenkarte sind. Ab sofort sollten alle weiteren Stile, die dem Stylesheet hinzugefügt werden, an einem geeigneten Ort organisiert werden.
 
-Umgang mit den Selektoren und Regelsets aus der CSS-Ressourcendatei:
+Umgang mit den in der CSS-Ressourcendatei bereitgestellten Selektoren und Regelmengen:
 
-- Als nächstes möchten wir, dass Sie sich die vier Selektoren ansehen und die Spezifität für jeden berechnen. Schreiben Sie diese irgendwo auf, wo sie später gefunden werden können, z. B. in einem Kommentar am Anfang Ihres CSS.
-- Jetzt ist es an der Zeit, den richtigen Selektor auf das richtige Regelset anzuwenden! Sie haben vier Paare von Selektor und Regelset, die Sie in Ihren CSS-Ressourcen zuordnen müssen. Machen Sie das jetzt und fügen Sie sie zu Ihrer CSS-Datei hinzu. Sie müssen:
+- Als Nächstes möchten wir, dass Sie sich die vier Selektoren ansehen und die Spezifität für jeden berechnen. Schreiben Sie diese irgendwo auf, wo sie später gefunden werden können, zum Beispiel in einem Kommentar am Anfang Ihrer CSS.
+- Nun ist es an der Zeit, den richtigen Selektor auf die richtige Regelmenge anzuwenden! Sie haben vier Paare von Selektor und Regelmenge, die in Ihren CSS-Ressourcen übereinstimmen. Machen Sie dies jetzt und fügen Sie sie zu Ihrer CSS-Datei hinzu. Sie müssen:
 
-  - Dem Hauptkartencontainer eine feste Breite/Höhe, eine einfarbige Hintergrundfarbe, einen Rahmen und einen Rahmenradius (abgerundete Ecken!) sowie andere Dinge geben.
-  - Dem Header einen Hintergrundverlauf geben, der von dunkler nach heller geht, sowie abgerundete Ecken, die zu den abgerundeten Ecken des Hauptkartencontainers passen.
-  - Dem Footer einen Hintergrundverlauf geben, der von heller nach dunkler geht, sowie abgerundete Ecken, die zu den abgerundeten Ecken des Hauptkartencontainers passen.
-  - Das Bild [floaten](/de/docs/Learn_web_development/Core/CSS_layout/Floats), sodass es an der rechten Seite des Hauptinhalts der Visitenkarte haftet, und ihm eine maximale Höhe von 100% geben (ein cleverer Trick, der sicherstellt, dass es wächst/schrumpft, um die gleiche Höhe wie sein übergeordnetes Element zu behalten, unabhängig davon, welche Höhe es erreicht.)
+  - Dem Hauptkartencontainer eine feste Breite/Höhe, eine einfarbige Hintergrundfarbe, einen Rahmen und eine Border-Radius (abgerundete Ecken!) und andere Dinge geben.
+  - Dem Header einen Hintergrundverlauf geben, der von dunkler nach heller geht, plus abgerundete Ecken, die zu den abgerundeten Ecken des Hauptkartencontainers passen.
+  - Dem Footer einen Hintergrundverlauf geben, der von heller nach dunkler geht, plus abgerundete Ecken, die zu den abgerundeten Ecken des Hauptkartencontainers passen.
+  - Das Bild [float](/de/docs/Learn_web_development/Core/CSS_layout/Floats) nach rechts setzen, damit es an der rechten Seite der Hauptinhalte der Visitenkarte haftet, und eine max-height von 100% geben (ein cleverer Trick, der sicherstellt, dass es wächst / schrumpft, um gleichermaßen hoch zu bleiben wie der übergeordnete Container, unabhängig davon, welche Höhe dieser erreicht.)
 
-- Achtung! Es gibt zwei Fehler in den bereitgestellten Regelsets. Verwenden Sie jede Technik, die Sie kennen, um diese zu finden und zu beheben, bevor Sie fortfahren.
+- Vorsicht! Es gibt zwei Fehler in den bereitgestellten Regelmengen. Verwenden Sie eine beliebige Technik, die Sie kennen, um diese zu finden und zu beheben, bevor Sie fortfahren.
 
-Neue Regelsets, die Sie schreiben müssen:
+Neue Regelmengen, die Sie schreiben müssen:
 
-- Schreiben Sie ein Regelset, das sowohl den Kartenheader als auch den Kartenfooter anspricht und ihnen beiden eine berechnete Gesamthöhe von 50px gibt (einschließlich einer Inhaltsgröße von 30px und eines Abstands von 10px auf allen Seiten). Drücken Sie es aber in `em` aus.
-- Der Standardabstand, der vom Browser auf die `<h2>`- und `<p>`-Elemente angewendet wird, wird unser Design beeinträchtigen, also schreiben Sie eine Regel, die alle diese Elemente anspricht und ihren Abstand auf 0 setzt.
-- Um zu verhindern, dass das Bild aus dem Hauptinhalt der Visitenkarte (dem `<article>`-Element) herausragt, müssen wir ihm eine spezifische Höhe geben. Setzen Sie die Höhe des `<article>` auf 120px, jedoch in `em` ausgedrückt. Geben Sie ihm auch eine Hintergrundfarbe von halbtransparentem Schwarz, was zu einem etwas dunkleren Farbton führt, der das Hintergrund-Rot auch ein wenig durchscheinen lässt.
-- Schreiben Sie ein Regelset, das das `<h2>`-Element mit einer effektiven Schriftgröße von 20px (aber in `em` ausgedrückt) und einer geeigneten Zeilenhöhe versieht, um es in der Mitte des Inhaltsblocks des Headers zu platzieren. Erinnern Sie sich daran, dass die Inhaltsgröße des Headers 30px betragen sollte — dies gibt Ihnen alle Zahlen, die Sie benötigen, um die Zeilenhöhe zu berechnen.
-- Schreiben Sie ein Regelset, das dem `<p>`-Element im Footer eine effektive Schriftgröße von 15px (aber in `em` ausgedrückt) und eine geeignete Zeilenhöhe gibt, um es in der Mitte des Inhaltsblocks des Footers zu platzieren. Erinnern Sie sich daran, dass die Inhaltsgröße des Footers 30px betragen sollte — dies gibt Ihnen alle Zahlen, die Sie benötigen, um die Zeilenhöhe zu berechnen.
-- Als kleines letztes Detail geben Sie dem Absatz im `<article>` einen passenden Innenabstand, sodass seine linke Kante mit dem `<h2>` und dem Footer-Absatz übereinstimmt, und setzen Sie seine Farbe auf einen ziemlich hellen Ton, damit er gut lesbar ist.
+- Schreiben Sie eine Regelmenge, die sowohl die Kartenüberschrift als auch den Kartenfußbereich anspricht und ihnen beide eine berechnete Gesamthöhe von 50 px gibt (einschließlich einer Inhaltsgröße von 30 px und einer Polsterung von 10 px an allen Seiten). Drücken Sie es jedoch in `em`s aus.
+- Der Standardrand, der von Browsern auf die `<h2>`- und `<p>`-Elemente angewendet wird, stört unser Design, daher schreiben Sie eine Regel, die alle diese Elemente anspricht und ihren Rand auf 0 setzt.
+- Um zu verhindern, dass das Bild aus den Hauptinhalten der Visitenkarte (dem `<article>`-Element) herausläuft, müssen wir ihm eine bestimmte Höhe geben. Stellen Sie die Höhe des `<article>` auf 120 px ein, jedoch in `em`s ausgedrückt. Geben Sie ihm auch eine Hintergrundfarbe von halbtransparentem Schwarz, was in einem etwas dunkleren Farbton resultiert, der es der Hintergrundfarbe Rot ermöglicht, auch durchzuscheinen.
+- Schreiben Sie eine Regelmenge, die dem `<h2>` eine effektive Schriftgröße von 20 px (aber in `em`s ausgedrückt) gibt und eine passende Zeilenhöhe, um es in der Mitte des Inhaltskastens des Headers zu platzieren. Erinnern Sie sich daran, dass die Höhe des Inhaltskastens 30 px sein sollte – dies gibt Ihnen alle notwendigen Zahlen, um die Zeilenhöhe zu berechnen.
+- Schreiben Sie eine Regelmenge, die dem `<p>` im Footer eine effektive Schriftgröße von 15 px (aber in `em`s ausgedrückt) gibt und eine passende Zeilenhöhe, um es in der Mitte des Inhaltskastens des Footers zu platzieren. Erinnern Sie sich daran, dass die Höhe des Inhaltskastens 30 px sein sollte – dies gibt Ihnen alle notwendigen Zahlen, um die Zeilenhöhe zu berechnen.
+- Als kleinen Touch geben Sie dem Absatz im `<article>` einen passenden Wert für die Polsterung, sodass seine linke Kante mit dem `<h2>` und dem Footer-Absatz ausgerichtet ist, und setzen dessen Farbe so, dass sie ziemlich hell ist, damit sie leicht lesbar ist.
 
 > [!NOTE]
-> Bedenken Sie, dass das zweite Regelset `font-size: 10px;` auf dem `<html>`-Element setzt — das bedeutet, dass für alle Nachkommen von `<html>` ein `em` 10px entspricht, statt standardmäßig 16px. (Dies gilt natürlich, sofern die betreffenden Nachkommen keine Vorfahren zwischen sich und `<html>` in der Hierarchie haben, bei denen eine andere `font-size` eingestellt ist. Dies könnte die benötigten Werte beeinflussen, obwohl dies in diesem einfachen Beispiel kein Problem darstellt.)
+> Bedenken Sie, dass die zweite Regelmenge `font-size: 10px;` auf das `<html>`-Element setzt — dies bedeutet, dass für Nachkommen von `<html>` ein `em` 10px entspricht, anstatt wie standardmäßig 16px. (Dies gilt natürlich, sofern die betreffenden Nachkommen keine Vorfahren haben, die zwischen ihnen und `<html>` in der Hierarchie sitzen und eine andere `font-size` auf sie gesetzt haben. Dies könnte die benötigten Werte beeinflussen, obwohl in diesem einfachen Beispiel dies kein Problem darstellt.)
 
-Andere Dinge, über die man nachdenken sollte:
+Andere Dinge zu beachten:
 
-- Sie erhalten Bonuspunkte, wenn Sie Ihr CSS für maximale Lesbarkeit schreiben, mit einer separaten Deklaration auf jeder Zeile.
-- Sie sollten `.card` am Anfang der Selektorkette in allen Ihren Regeln einfügen, damit diese Regeln nicht mit der Formatierung anderer Elemente in Konflikt geraten, falls die Visitenkarte auf einer Seite mit vielen anderen Inhalten platziert wird.
+- Sie erhalten Bonuspunkte, wenn Sie Ihr CSS für maximale Lesbarkeit schreiben, mit einer separaten Deklaration pro Zeile.
+- Sie sollten `.card` am Anfang der Selektorkette in all Ihren Regeln einbeziehen, damit diese Regeln nicht die Stile anderer Elemente beeinflussen, wenn die Visitenkarte auf einer Seite mit vielen anderen Inhalten platziert würde.
 
 ## Hinweise und Tipps
 
-- Sie müssen den HTML-Code in keiner Weise bearbeiten, außer um das CSS auf Ihr HTML anzuwenden.
-- Wenn Sie versuchen, den `em`-Wert zu ermitteln, den Sie benötigen, um eine bestimmte Pixel-Länge darzustellen, denken Sie darüber nach, welche Grundschriftgröße das Root-Element (`<html>`) hat und mit welchem Faktor es multipliziert werden muss, um den gewünschten Wert zu erreichen. Dadurch erhalten Sie Ihren `em`-Wert, zumindest in einem einfachen Fall wie diesem.
+- Sie müssen das HTML in keiner Weise bearbeiten, außer um das CSS auf Ihr HTML anzuwenden.
+- Wenn Sie versuchen, den `em`-Wert herauszufinden, den Sie benötigen, um eine bestimmte Pixellänge darzustellen, denken Sie darüber nach, welche Basis-Schriftgröße das Wurzel- (`<html>`) Element hat und mit was es multipliziert werden muss, um den gewünschten Wert zu erhalten. Das gibt Ihnen Ihren em-Wert, zumindest in einem einfachen Fall wie diesem.
 
 ## Beispiel
 
 Der folgende Screenshot zeigt ein Beispiel, wie das fertige Design aussehen sollte:
 
-![Eine Ansicht der fertigen Visitenkarte, die einen roten Header und Footer sowie ein dunkleres mittleres Panel mit den Hauptdetails und einem Bild zeigt.](business-card.png)
+![Ein Blick auf die fertige Visitenkarte, mit einem roten Header und Footer und einem dunkleren mittleren Bereich, der die Hauptdetails und das Bild enthält.](business-card.png)
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Debugging_CSS", "Learn_web_development/Core/Styling_basics/Fancy_letterheaded_paper", "Learn_web_development/Core/Styling_basics")}}

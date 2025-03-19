@@ -1,60 +1,61 @@
 ---
-title: "Django Tutorial Teil 10: Testen einer Django-Webanwendung"
+title: "Django-Tutorial Teil 10: Testen einer Django-Webanwendung"
+short-title: "10: Testen"
 slug: Learn_web_development/Extensions/Server-side/Django/Testing
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Forms", "Learn_web_development/Extensions/Server-side/Django/Deployment", "Learn_web_development/Extensions/Server-side/Django")}}
 
-Da Websites größer werden und schwieriger manuell zu testen sind, ergeben sich vermehrt Herausforderungen. Nicht nur gibt es mehr zu testen, sondern auch die Interaktionen zwischen den Komponenten werden komplexer. Eine kleine Änderung in einem Bereich kann andere Bereiche beeinflussen, was zu weiteren Änderungen führen muss, um sicherzustellen, dass alles weiterhin funktioniert und keine Fehler eingeführt werden, während weitere Änderungen vorgenommen werden. Eine Möglichkeit, diese Probleme zu mindern, ist das Schreiben automatisierter Tests, die bei jeder Änderung leicht und zuverlässig ausgeführt werden können. Dieses Tutorial zeigt, wie Sie das _Unit-Testing_ Ihrer Website mit dem Testframework von Django automatisieren können.
+Wenn Websites wachsen, werden sie schwieriger manuell zu testen. Nicht nur, dass mehr getestet werden muss, sondern auch, weil die Interaktionen zwischen Komponenten komplexer werden, kann eine kleine Änderung in einem Bereich andere Bereiche beeinflussen, sodass mehr Änderungen erforderlich sind, um sicherzustellen, dass alles weiterhin funktioniert und keine Fehler eingeführt werden, wenn mehr Änderungen vorgenommen werden. Eine Möglichkeit, diese Probleme zu mildern, besteht darin, automatisierte Tests zu schreiben, die einfach und zuverlässig jedes Mal ausgeführt werden können, wenn Sie eine Änderung vornehmen. Dieses Tutorial zeigt, wie Sie das _Unit Testing_ Ihrer Website mithilfe des Test-Frameworks von Django automatisieren können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Alle vorherigen Tutorial-Themen abschließen, einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Forms">Django Tutorial Teil 9: Arbeiten mit Formularen</a>.
+        Absolvieren Sie alle vorherigen Tutorial-Themen, einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Forms">Django-Tutorial Teil 9: Arbeiten mit Formularen</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Verstehen, wie man Unit-Tests für auf Django basierende Websites schreibt.</td>
+      <td>Verständnis, wie Unit-Tests für Django-basierte Websites geschrieben werden.</td>
     </tr>
   </tbody>
 </table>
 
 ## Überblick
 
-Die [Lokale Bibliothek](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) hat derzeit Seiten zum Anzeigen von Listen aller Bücher und Autoren, Detailansichten für `Book`- und `Author`-Elemente, eine Seite zum Erneuern von `BookInstance`-Elementen sowie Seiten zum Erstellen, Aktualisieren und Löschen von `Author`-Elementen (und auch `Book`-Datensätzen, wenn Sie die _Herausforderung_ im [Formular-Tutorial](/de/docs/Learn_web_development/Extensions/Server-side/Django/Forms) abgeschlossen haben). Selbst bei dieser relativ kleinen Website kann das manuelle Navigieren zu jeder Seite und das oberflächliche Überprüfen, ob alles erwartungsgemäß funktioniert, mehrere Minuten dauern. Je mehr Änderungen vorgenommen und die Website erweitert wird, desto mehr Zeit wird benötigt, um manuell zu überprüfen, dass alles "ordnungsgemäß" funktioniert. Wenn wir so weitermachen, würden wir schließlich den größten Teil unserer Zeit mit Testen verbringen und sehr wenig Zeit mit der Verbesserung unseres Codes.
+Die [Lokale Bibliothek](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) hat derzeit Seiten, um Listen aller Bücher und Autoren anzuzeigen, Detailansichten für `Book`- und `Author`-Einträge, eine Seite zum Erneuern von `BookInstance`-Einträgen und Seiten zum Erstellen, Aktualisieren und Löschen von `Author`-Einträgen (und auch `Book`-Datensätzen, wenn Sie die _Herausforderung_ im [Formular-Tutorial](/de/docs/Learn_web_development/Extensions/Server-side/Django/Forms) abgeschlossen haben). Selbst bei dieser relativ kleinen Seite kann das manuelle Navigieren zu jeder Seite und das _oberflächliche_ Überprüfen, ob alles wie erwartet funktioniert, mehrere Minuten dauern. Wenn wir Änderungen vornehmen und die Seite vergrößern, wird die Zeit, die erforderlich ist, um manuell zu überprüfen, ob alles „richtig“ funktioniert, nur noch zunehmen. Wenn wir so weitermachen wie bisher, würden wir irgendwann die meiste Zeit mit Testen verbringen und nur sehr wenig Zeit darauf verwenden, unseren Code zu verbessern.
 
-Automatisierte Tests können bei diesem Problem wirklich helfen! Die offensichtlichen Vorteile sind, dass sie viel schneller als manuelle Tests durchgeführt werden können, auf viel detaillierterer Ebene testen und jedes Mal genau dieselbe Funktionalität prüfen (menschliche Tester sind bei Weitem nicht so zuverlässig!). Da sie schnell sind, können automatisierte Tests regelmäßig ausgeführt werden, und wenn ein Test fehlschlägt, zeigen sie genau, wo der Code nicht wie erwartet funktioniert.
+Automatisierte Tests können bei diesem Problem wirklich helfen! Die offensichtlichen Vorteile sind, dass sie viel schneller als manuelle Tests durchgeführt werden können, sie testen mit einem viel geringeren Detailgrad und testen jedes Mal genau die gleiche Funktionalität (menschliche Tester sind bei weitem nicht so zuverlässig!) Da sie schnell sind, können automatisierte Tests regelmäßig ausgeführt werden, und falls ein Test fehlschlägt, zeigt er genau, wo der Code nicht wie erwartet funktioniert.
 
-Außerdem können automatisierte Tests als erster echter "Nutzer" Ihres Codes agieren und Sie zwingen, rigoros zu definieren und zu dokumentieren, wie Ihre Website funktionieren sollte. Oft sind sie die Basis für Ihre Codebeispiele und Dokumentation. Aus diesen Gründen beginnen einige Softwareentwicklungsmethoden mit der Definition und Implementierung von Tests, wonach der Code geschrieben wird, um das erforderliche Verhalten zu erfüllen (z.B. [testgetriebene](https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung) und [verhaltensgetriebene](https://de.wikipedia.org/wiki/Behaviour_Driven_Development) Entwicklung).
+Darüber hinaus können automatisierte Tests als erster echter „Benutzer“ Ihres Codes fungieren, der Sie dazu zwingt, rigoros zu definieren und zu dokumentieren, wie sich Ihre Website verhalten soll. Häufig sind sie die Grundlage für Ihre Code-Beispiele und Dokumentationen. Aus diesen Gründen beginnen einige Software-Entwicklungsprozesse mit der Testdefinition und Implementierung, wonach der Code geschrieben wird, um das erforderliche Verhalten widerzuspiegeln (z. B. [testgetrieben](https://en.wikipedia.org/wiki/Test-driven_development) und [verhaltensgetrieben](https://en.wikipedia.org/wiki/Behavior-driven_development) Entwicklung).
 
-Dieses Tutorial zeigt, wie man automatisierte Tests für Django schreibt, indem eine Reihe von Tests zur _LocalLibrary_-Website hinzugefügt wird.
+Dieses Tutorial zeigt, wie Sie automatisierte Tests für Django schreiben, indem Sie der _LocalLibrary_-Website eine Reihe von Tests hinzufügen.
 
 ### Arten des Testens
 
 Es gibt zahlreiche Arten, Ebenen und Klassifikationen von Tests und Testansätzen. Die wichtigsten automatisierten Tests sind:
 
 - Unit-Tests
-  - : Überprüfen das funktionale Verhalten einzelner Komponenten, oft bis zur Klassen- und Funktionsebene.
-- Regressions-Tests
-  - : Tests, die historische Bugs reproduzieren. Jeder Test wird zunächst ausgeführt, um zu überprüfen, ob der Bug behoben wurde, und dann erneut ausgeführt, um sicherzustellen, dass er nach späteren Änderungen am Code nicht wieder eingeführt wurde.
+  - : Überprüfen Sie das funktionale Verhalten einzelner Komponenten, oft auf Klassen- und Funktionsebene.
+- Regressionstests
+  - : Tests, die historische Fehler reproduzieren. Jeder Test wird zunächst durchgeführt, um zu überprüfen, ob der Fehler behoben wurde, und dann erneut ausgeführt, um sicherzustellen, dass er nach späteren Änderungen am Code nicht wieder eingeführt wurde.
 - Integrationstests
-  - : Überprüfen, wie Gruppierungen von Komponenten zusammenarbeiten, wenn sie gemeinsam verwendet werden. Integrationstests kennen die erforderlichen Interaktionen zwischen Komponenten, aber nicht notwendigerweise die internen Operationen jeder Komponente. Sie können von einfachen Gruppierungen von Komponenten bis hin zur gesamten Website reichen.
+  - : Überprüfen Sie, wie Gruppen von Komponenten zusammenarbeiten, wenn sie gemeinsam verwendet werden. Integrationstests berücksichtigen die erforderlichen Interaktionen zwischen Komponenten, jedoch nicht unbedingt die internen Operationen jeder Komponente. Sie können einfache Gruppierungen von Komponenten bis hin zur gesamten Website abdecken.
 
 > [!NOTE]
-> Weitere gängige Testarten sind Black-Box-, White-Box-, manuelle, automatisierte, Canary-, Smoke-, Konformitäts-, Akzeptanz-, Funktions-, System-, Leistungs-, Last- und Stresstests. Schauen Sie sie nach, um mehr Informationen zu erhalten.
+> Andere häufige Arten von Tests sind Black-Box-, White-Box-, manuelle, automatisierte, Kanarienvogel-, Rauch-, Konformitäts-, Akzeptanz-, funktionale, System-, Performance-, Last- und Stresstests. Suchen Sie danach, um mehr Informationen zu erhalten.
 
-### Was bietet Django für das Testen?
+### Was bietet Django zum Testen?
 
-Das Testen einer Website ist eine komplexe Aufgabe, da sie aus mehreren Logikschichten besteht – vom HTTP-Level-Anfragehandling über Modellabfragen bis hin zur Formularvalidierung und -verarbeitung sowie Template-Rendering.
+Das Testen einer Website ist eine komplexe Aufgabe, da sie aus mehreren Logikebenen besteht – von der HTTP-Anfrageverarbeitungsebene über Modellabfragen bis hin zur Formularvalidierung und -verarbeitung sowie der Vorlagenwiedergabe.
 
-Django bietet ein Testframework mit einer kleinen Hierarchie von Klassen, die auf der Python-Standardbibliothek [`unittest`](https://docs.python.org/3/library/unittest.html#module-unittest) aufbauen. Trotz des Namens ist dieses Testframework sowohl für Unit- als auch für Integrationstests geeignet. Das Django-Framework fügt API-Methoden und Tools hinzu, um das Testen von Web- und Django-spezifischem Verhalten zu erleichtern. Diese erlauben es Ihnen, Anfragen zu simulieren, Testdaten einzufügen und die Ausgabe Ihrer Anwendung zu inspizieren. Django stellt auch eine API ([LiveServerTestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#liveservertestcase)) und Tools zum [Verwenden verschiedener Testframeworks](https://docs.djangoproject.com/en/5.0/topics/testing/advanced/#other-testing-frameworks) zur Verfügung. Beispielsweise können Sie sich mit dem populären [Selenium](/de/docs/Learn_web_development/Extensions/Testing/Your_own_automation_environment)-Framework integrieren, um einen Benutzer zu simulieren, der mit einem Live-Browser interagiert.
+Django bietet ein Test-Framework mit einer kleinen Hierarchie von Klassen, die auf der Python-Standardbibliothek [`unittest`](https://docs.python.org/3/library/unittest.html#module-unittest) aufbauen. Trotz des Namens eignet sich dieses Test-Framework sowohl für Unit- als auch für Integrationstests. Das Django-Framework fügt API-Methoden und -Tools hinzu, die helfen, das Web- und Django-spezifische Verhalten zu testen. Diese ermöglichen es Ihnen, Anfragen zu simulieren, Testdaten einzufügen und die Ausgabe Ihrer Anwendung zu inspizieren. Django bietet auch eine API ([LiveServerTestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#liveservertestcase)) und Werkzeuge zur [Verwendung verschiedener Test-Frameworks](https://docs.djangoproject.com/en/5.0/topics/testing/advanced/#other-testing-frameworks). So können Sie z. B. das beliebte [Selenium](/de/docs/Learn_web_development/Extensions/Testing/Your_own_automation_environment)-Framework integrieren, um einen Benutzer zu simulieren, der mit einem Live-Browser interagiert.
 
-Um einen Test zu schreiben, leiten Sie von einer der Django- (oder _unittest_) Test-Basisklassen ([SimpleTestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#simpletestcase), [TransactionTestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#transactiontestcase), [TestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#testcase), [LiveServerTestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#liveservertestcase)) ab und schreiben dann separate Methoden, um zu überprüfen, ob bestimmte Funktionalitäten wie erwartet funktionieren (Tests verwenden "assert"-Methoden, um zu testen, ob Ausdrücke in `True` oder `False` Werte resultieren, oder ob zwei Werte gleich sind, etc.). Wenn Sie einen Testlauf starten, führt das Framework die ausgewählten Testmethoden in Ihren abgeleiteten Klassen aus. Die Testmethoden werden unabhängig voneinander ausgeführt, mit allgemeinem Setup- und/oder Tear-Down-Verhalten, das in der Klasse definiert ist, wie unten gezeigt.
+Um einen Test zu schreiben, leiten Sie von einer der Django- (oder _unittest_) Test-Basisklassen ([SimpleTestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#simpletestcase), [TransactionTestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#transactiontestcase), [TestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#testcase), [LiveServerTestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#liveservertestcase)) ab und schreiben dann separate Methoden, um zu überprüfen, dass bestimmte Funktionalitäten wie erwartet funktionieren (Tests verwenden „assert“-Methoden, um zu testen, dass Ausdrücke in `True` oder `False`-Werten resultieren oder dass zwei Werte gleich sind, etc.). Wenn Sie einen Testrun starten, führt das Framework die ausgewählten Testmethoden in Ihren abgeleiteten Klassen aus. Die Testmethoden werden unabhängig ausgeführt, mit allgemeinem Setup und/oder Tear-Down-Verhalten, das in der Klasse definiert ist, wie unten gezeigt.
 
 ```python
 class YourTestClass(TestCase):
@@ -73,18 +74,18 @@ class YourTestClass(TestCase):
         self.assertTrue(False)
 ```
 
-Die beste Basisklasse für die meisten Tests ist [django.test.TestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#testcase). Diese Testklasse erstellt vor dem Ausführen ihrer Tests eine saubere Datenbank und führt jede Testfunktion in ihrer eigenen Transaktion aus. Die Klasse besitzt auch einen Test-[Client](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.Client), den Sie verwenden können, um einen Benutzer zu simulieren, der auf der View-Ebene mit dem Code interagiert. In den folgenden Abschnitten konzentrieren wir uns auf Unit-Tests, die mit dieser [TestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#testcase)-Basisklasse erstellt werden.
+Die beste Basisklasse für die meisten Tests ist [django.test.TestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#testcase). Diese Testklasse erstellt eine saubere Datenbank, bevor ihre Tests ausgeführt werden, und führt jede Testfunktion in ihrer eigenen Transaktion aus. Die Klasse besitzt auch einen Test-[Client](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.Client), den Sie verwenden können, um einen Benutzer zu simulieren, der auf der Ansichtsebene mit dem Code interagiert. In den folgenden Abschnitten konzentrieren wir uns auf Unit-Tests, die mit dieser [TestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#testcase)-Basisklasse erstellt wurden.
 
 > [!NOTE]
-> Die Klasse [django.test.TestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#testcase) ist sehr praktisch, aber kann dazu führen, dass einige Tests langsamer sind, als sie sein müssten (nicht jeder Test wird seine eigene Datenbank einrichten oder die View-Interaktion simulieren müssen). Sobald Sie mit dem, was Sie mit dieser Klasse tun können, vertraut sind, möchten Sie vielleicht einige Ihrer Tests durch die verfügbaren einfacheren Testklassen ersetzen.
+> Die [django.test.TestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#testcase)-Klasse ist sehr bequem, kann jedoch dazu führen, dass einige Tests langsamer sind, als sie sein müssten (nicht jeder Test muss seine eigene Datenbank einrichten oder die Ansichtssimulation durchführen). Sobald Sie vertraut sind mit dem, was Sie mit dieser Klasse tun können, möchten Sie möglicherweise einige Ihrer Tests durch die verfügbaren einfacheren Testklassen ersetzen.
 
 ### Was sollten Sie testen?
 
-Sie sollten alle Aspekte Ihres eigenen Codes testen, aber nicht die Bibliotheken oder Funktionalitäten, die als Teil von Python oder Django bereitgestellt werden.
+Sie sollten alle Aspekte Ihres eigenen Codes testen, jedoch nicht Bibliotheken oder Funktionen, die als Teil von Python oder Django bereitgestellt werden.
 
-Nehmen Sie zum Beispiel das im Folgenden definierte `Author`-Modell. Sie müssen nicht explizit testen, dass `first_name` und `last_name` korrekt als `CharField` in der Datenbank gespeichert wurden, da dies von Django definiert ist (obwohl Sie diese Funktionalität in der Praxis wahrscheinlich während der Entwicklung testen werden). Ebenso müssen Sie nicht testen, dass das `date_of_birth` als Datumsfeld validiert wurde, da dies erneut von Django implementiert wird.
+Betrachten Sie zum Beispiel das unten definierte `Author`-Modell. Sie müssen nicht explizit testen, dass `first_name` und `last_name` korrekt als `CharField` in der Datenbank gespeichert wurden, weil das etwas ist, das von Django definiert wird (obwohl Sie in der Praxis diese Funktionalität während der Entwicklung zwangsläufig testen werden). Ebenso müssen Sie nicht testen, dass das `date_of_birth` als Datumsfeld validiert wurde, weil das wiederum etwas ist, das in Django implementiert ist.
 
-Sie sollten jedoch den Text testen, der für die Bezeichnungen verwendet wird (_First name, Last name, Date of birth, Died_), und die Größe des für den Text zugewiesenen Feldes (_100 Zeichen_), da diese Teil Ihres Designs sind und in Zukunft gebrochen/geändert werden könnten.
+Sie sollten jedoch den Text für die Labels (_First name, Last name, Date of birth, Died_) und die Feldgröße für den Text (_100 Zeichen_) überprüfen, da diese Teile Ihres Designs sind und in Zukunft gebrochen/geändert werden könnten.
 
 ```python
 class Author(models.Model):
@@ -100,19 +101,19 @@ class Author(models.Model):
         return '%s, %s' % (self.last_name, self.first_name)
 ```
 
-Ebenso sollten Sie sicherstellen, dass die benutzerdefinierten Methoden `get_absolute_url()` und `__str__()` wie erforderlich funktionieren, da sie Ihre eigene Code-/Geschäftslogik sind. Im Falle von `get_absolute_url()` können Sie darauf vertrauen, dass die Django-Methode `reverse()` richtig implementiert wurde, aber was Sie testen, ist, dass die zugehörige Ansicht tatsächlich definiert wurde.
+Ebenso sollten Sie überprüfen, ob die benutzerdefinierten Methoden `get_absolute_url()` und `__str__()` wie erforderlich funktionieren, da sie ihr Code/Geschäftslogik sind. Im Fall von `get_absolute_url()` können Sie darauf vertrauen, dass die Django-Methode `reverse()` korrekt implementiert wurde, sodass Sie testen, ob die zugehörige Ansicht tatsächlich definiert wurde.
 
 > [!NOTE]
-> Aufmerksame Leser könnten feststellen, dass wir auch das Geburts- und Sterbedatum auf sinnvolle Werte einschränken und sicherstellen möchten, dass der Tod nach der Geburt kommt.
-> In Django würde diese Einschränkung zu Ihren Formularklassen hinzugefügt werden (obwohl Sie Validierer für Modellfelder und Modellvalidierer definieren können, werden diese auf Formularebene nur verwendet, wenn sie von der `clean()`-Methode des Modells aufgerufen werden. Dies erfordert ein `ModelForm`, oder die `clean()`-Methode des Modells muss speziell aufgerufen werden.)
+> Aufmerksame Leser könnten anmerken, dass wir auch das Geburts- und Todesdatum auf sinnvolle Werte beschränken und überprüfen möchten, dass der Tod nach der Geburt liegt.
+> In Django würde diese Einschränkung in Ihre Formklassen eingebunden werden (obwohl Sie Validierer für Modellfelder und Modellvalidierer definieren können, werden diese nur auf der Formularebene verwendet, wenn sie von der `clean()`-Methode des Modells aufgerufen werden. Dies erfordert ein `ModelForm`, oder die `clean()`-Methode des Modells muss speziell aufgerufen werden.)
 
-Mit diesen Informationen im Hinterkopf, lassen Sie uns beginnen, wie man Tests definiert und ausführt.
+Mit diesem Hintergrund beginnen wir zu schauen, wie man Tests definiert und durchführt.
 
 ## Überblick über die Teststruktur
 
-Bevor wir ins Detail gehen, "was zu testen ist", werfen wir einen kurzen Blick darauf, _wo_ und _wie_ Tests definiert sind.
+Bevor wir ins Detail gehen, was getestet werden soll, lassen Sie uns zunächst kurz schauen, _wo_ und _wie_ Tests definiert sind.
 
-Django verwendet das [integrierte Test-Discovery](https://docs.python.org/3/library/unittest.html#unittest-test-discovery) des Unittest-Moduls, welches Tests im aktuellen Arbeitsverzeichnis in jeder Datei mit dem Muster **test\*.py** entdeckt. Vorausgesetzt, Sie benennen die Dateien entsprechend, können Sie jede beliebige Struktur verwenden. Wir empfehlen, ein Modul für Ihren Testcode zu erstellen und separate Dateien für Modelle, Ansichten, Formulare und jede andere Art von Code, den Sie testen müssen, zu haben. Zum Beispiel:
+Django verwendet die [eingebaute Testfindung](https://docs.python.org/3/library/unittest.html#unittest-test-discovery) des `unittest`-Moduls, die Tests unter dem aktuellen Arbeitsverzeichnis in jeder Datei mit dem Muster **test\*.py** findet. Vorausgesetzt, Sie benennen die Dateien entsprechend, können Sie jede beliebige Struktur verwenden. Wir empfehlen, ein Modul für Ihren Testcode zu erstellen und separate Dateien für Modelle, Ansichten, Formulare und andere zu testende Codearten zu verwenden. Zum Beispiel:
 
 ```plain
 catalog/
@@ -123,12 +124,12 @@ catalog/
     test_views.py
 ```
 
-Erstellen Sie eine Dateistruktur wie oben in Ihrem _LocalLibrary_-Projekt gezeigt. Die **\_\_init\_\_.py** sollte eine leere Datei sein (dies teilt Python mit, dass das Verzeichnis ein Paket ist). Sie können die drei Testdateien erstellen, indem Sie die Skelett-Testdatei **/catalog/tests.py** kopieren und umbenennen.
+Erstellen Sie eine Dateistruktur wie oben in Ihrem Projekt _LocalLibrary_. Die **\_\_init\_\_.py** sollte eine leere Datei sein (dies zeigt Python, dass das Verzeichnis ein Paket ist). Sie können die drei Testdateien erstellen, indem Sie die Skelettdatei **/catalog/tests.py** kopieren und umbenennen.
 
 > [!NOTE]
-> Die Skelett-Testdatei **/catalog/tests.py** wurde automatisch erstellt, als wir die [Django-Skelett-Website erstellt](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) haben. Es ist vollkommen "rechtlich", alle Ihre Tests darin zu platzieren, aber wenn Sie richtig testen, werden Sie schnell eine sehr große und unübersichtliche Testdatei erhalten.
+> Die Skelett-Testdatei **/catalog/tests.py** wurde automatisch erstellt, als wir die [Django-Skelett-Website erstellt haben](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website). Es ist völlig „legal“, alle Ihre Tests darin zu speichern, aber wenn Sie richtig testen, werden Sie schnell eine sehr große und unübersichtliche Testdatei haben.
 >
-> Löschen Sie die Skelett-Datei, da wir sie nicht benötigen werden.
+> Löschen Sie die Skelettdatei, da wir sie nicht benötigen werden.
 
 Öffnen Sie **/catalog/tests/test_models.py**. Die Datei sollte `django.test.TestCase` importieren, wie unten gezeigt:
 
@@ -138,9 +139,9 @@ from django.test import TestCase
 # Create your tests here.
 ```
 
-Oft werden Sie eine Testklasse für jedes Modell/View/Formular hinzufügen, das Sie testen möchten, mit einzelnen Methoden zum Testen spezifischer Funktionalitäten. In anderen Fällen möchten Sie möglicherweise eine separate Klasse zum Testen einer bestimmten Anwendungsfalles haben, mit individuellen Testfunktionen, die Aspekte dieses Anwendungsfalls testen (zum Beispiel eine Klasse, um zu prüfen, dass ein Modelfeld richtig validiert wird, mit Funktionen, die jedes der möglichen Fehlerfälle testen). Auch hier liegt die Struktur ganz bei Ihnen, aber es ist am besten, wenn Sie konsistent sind.
+Oft fügen Sie für jedes Modell/View/Formular, das Sie testen möchten, eine Testklasse mit individuellen Methoden hinzu, um spezifische Funktionalitäten zu testen. In anderen Fällen möchten Sie möglicherweise eine separate Klasse haben, um einen bestimmten Anwendungsfall zu testen, mit individuellen Testfunktionen, die Aspekte dieses Anwendungsfalls testen (zum Beispiel eine Klasse, die überprüft, ob ein Modellfeld ordnungsgemäß validiert wurde, mit Funktionen zum Testen jedes möglichen Fehlerszenarios). Wiederum ist die Struktur sehr Ihnen überlassen, aber es ist am besten, wenn Sie konsistent sind.
 
-Fügen Sie die Testklasse unten am Ende der Datei hinzu. Die Klasse demonstriert, wie man eine Testfallklasse durch Ableiten von `TestCase` erstellt.
+Fügen Sie die Testklasse unten am Ende der Datei hinzu. Die Klasse demonstriert, wie man eine Testfallklasse konstruiert, indem man von `TestCase` ableitet.
 
 ```python
 class YourTestClass(TestCase):
@@ -166,39 +167,39 @@ class YourTestClass(TestCase):
         self.assertEqual(1 + 1, 2)
 ```
 
-Die neue Klasse definiert zwei Methoden, die Sie für die Pre-Test-Konfiguration verwenden können (zum Beispiel, um alle Modelle oder andere Objekte zu erstellen, die Sie für den Test benötigen):
+Die neue Klasse definiert zwei Methoden, die Sie für die Vorkonfiguration von Tests verwenden können (zum Beispiel, um Modelle oder andere Objekte zu erstellen, die Sie für den Test benötigen):
 
-- `setUpTestData()` wird einmal zu Beginn des Testlaufs für die Einrichtung auf Klassenebene aufgerufen. Sie würden dies verwenden, um Objekte zu erstellen, die in keiner der Testmethoden geändert oder verändert werden.
-- `setUp()` wird vor jeder Testfunktion aufgerufen, um alle Objekte zu erstellen, die von dem Test verändert werden könnten (jede Testfunktion erhält eine "frische" Version dieser Objekte).
-
-> [!NOTE]
-> Die Testklassen haben auch eine `tearDown()`-Methode, die wir nicht verwendet haben. Diese Methode ist für Datenbanktests nicht besonders nützlich, da die `TestCase`-Basisklasse die Datenbank-Teardown für Sie übernimmt.
-
-Unterhalb dieser haben wir eine Reihe von Testmethoden, die `Assert`-Funktionen verwenden, um zu testen, ob Bedingungen wahr, falsch oder gleich sind (`AssertTrue`, `AssertFalse`, `AssertEqual`). Wenn die Bedingung nicht wie erwartet ausgewertet wird, schlägt der Test fehl und meldet den Fehler in Ihrer Konsole.
-
-Die `AssertTrue`, `AssertFalse`, `AssertEqual` sind standardmäßige Assertions, die von **unittest** bereitgestellt werden. Es gibt weitere standardmäßige Assertions im Framework und auch [Django-spezifische Assertions](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#assertions), um zu testen, ob eine View weiterleitet (`assertRedirects`) oder ob ein bestimmtes Template verwendet wurde (`assertTemplateUsed`), etc.
+- `setUpTestData()` wird einmal zu Beginn des Testruns für das Setup auf Klassenebene aufgerufen. Sie würden dies verwenden, um Objekte zu erstellen, die in keiner der Testmethoden modifiziert oder geändert werden.
+- `setUp()` wird vor jeder Testfunktion aufgerufen, um alle Objekte einzurichten, die möglicherweise durch den Test geändert werden (jede Testfunktion erhält eine „neue“ Version dieser Objekte).
 
 > [!NOTE]
-> Sie sollten normalerweise keine **print()**-Funktionen in Ihre Tests einfügen, wie oben gezeigt. Wir tun dies hier nur, damit Sie die Reihenfolge der Setup-Funktionen in der Konsole sehen können (im nächsten Abschnitt).
+> Die Testklassen haben auch eine `tearDown()`-Methode, die wir nicht verwendet haben. Diese Methode ist für Datenbanktests nicht besonders nützlich, da die `TestCase`-Basisklasse die Datenbank selbst abbaut.
+
+Unterhalb dieser haben wir eine Reihe von Testmethoden, die `Assert`-Funktionen verwenden, um zu überprüfen, ob Bedingungen wahr, falsch oder gleich sind (`AssertTrue`, `AssertFalse`, `AssertEqual`). Wenn die Bedingung nicht wie erwartet ausgewertet wird, schlägt der Test fehl und meldet den Fehler in Ihrer Konsole.
+
+Die `AssertTrue`, `AssertFalse`, `AssertEqual` sind Standardassertionen, die von **unittest** bereitgestellt werden. Es gibt andere Standardassertionen im Framework und auch [Django-spezifische Assertionen](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#assertions), um zu testen, ob eine Ansicht umleitet (`assertRedirects`), um zu testen, ob eine bestimmte Vorlage verwendet wurde (`assertTemplateUsed`), usw.
+
+> [!NOTE]
+> Sie sollten **normalerweise keine** **print()**-Funktionen in Ihren Tests enthalten, wie oben gezeigt. Wir tun dies hier nur, damit Sie die Reihenfolge sehen können, in der die Setup-Funktionen in der Konsole aufgerufen werden (im folgenden Abschnitt).
 
 ## Wie man die Tests ausführt
 
-Der einfachste Weg, alle Tests auszuführen, ist der Befehl:
+Der einfachste Weg, alle Tests auszuführen, besteht darin, den Befehl zu verwenden:
 
 ```bash
 python3 manage.py test
 ```
 
-Dieser entdeckt alle Dateien mit dem Muster **test\*.py** im aktuellen Verzeichnis und führt alle Tests aus, die mit den entsprechenden Basisklassen definiert sind (hier haben wir eine Reihe von Testdateien, aber nur **/catalog/tests/test_models.py** enthält aktuell Tests). Standardmäßig berichten die Tests individuell nur über Testfehler, gefolgt von einer Testzusammenfassung.
+Dies wird alle Dateien mit dem Muster **test\*.py** unter dem aktuellen Verzeichnis entdecken und alle Tests ausführen, die mit geeigneten Basisklassen definiert sind (hier haben wir eine Reihe von Testdateien, aber nur **/catalog/tests/test_models.py** enthält derzeit Tests). Standardmäßig berichten die Tests nur einzeln über Testfehler, gefolgt von einer Testzusammenfassung.
 
 > [!NOTE]
-> Wenn Sie Fehler erhalten, die ähnlich sind wie: `ValueError: Missing staticfiles manifest entry...`, könnte dies daran liegen, dass `collectstatic` standardmäßig bei Tests nicht ausgeführt wird und Ihre App eine Storage-Klasse verwendet, die dies erfordert (siehe [manifest_strict](https://docs.djangoproject.com/en/5.0/ref/contrib/staticfiles/#django.contrib.staticfiles.storage.ManifestStaticFilesStorage.manifest_strict) für weitere Informationen). Es gibt mehrere Möglichkeiten, wie Sie dieses Problem lösen können – der einfachste Weg ist, `collectstatic` auszuführen, bevor Sie die Tests ausführen:
+> Wenn Sie Fehler ähnlich wie `ValueError: Missing staticfiles manifest entry...` erhalten, könnte dies daran liegen, dass das Testen _collectstatic_ standardmäßig nicht ausführt und Ihre App eine Speicherklasse verwendet, die dies erfordert (siehe [manifest_strict](https://docs.djangoproject.com/en/5.0/ref/contrib/staticfiles/#django.contrib.staticfiles.storage.ManifestStaticFilesStorage.manifest_strict) für weitere Informationen). Es gibt eine Reihe von Möglichkeiten, dieses Problem zu überwinden – die einfachste ist, _collectstatic_ auszuführen, bevor Sie die Tests ausführen:
 >
 > ```bash
 > python3 manage.py collectstatic
 > ```
 
-Führen Sie die Tests im Stammverzeichnis der _LocalLibrary_ aus. Sie sollten eine Ausgabe ähnlich der untenstehenden sehen.
+Führen Sie die Tests im Stammverzeichnis der _LocalLibrary_ aus. Sie sollten eine Ausgabe wie die unten stehende sehen.
 
 ```bash
 > python3 manage.py test
@@ -227,29 +228,29 @@ FAILED (failures=1)
 Destroying test database for alias 'default'...
 ```
 
-Hier sehen wir, dass wir einen Testfehler hatten, und wir können genau sehen, welche Funktion fehlgeschlagen ist und warum (dieser Fehler wird erwartet, da `False` nicht `True` ist!).
+Hier sehen wir, dass wir einen Testfehler hatten und wir können genau sehen, welche Funktion fehlgeschlagen ist und warum (dieser Fehler ist erwartet, weil `False` nicht `True` ist!).
 
 > [!NOTE]
-> Das Wichtigste, was Sie aus der oben gezeigten Testausgabe lernen können, ist, dass es viel wertvoller ist, wenn Sie beschreibende/informative Namen für Ihre Objekte und Methoden verwenden.
+> Das wichtigste, was Sie aus der Testausgabe oben lernen sollten, ist, dass es viel wertvoller ist, wenn Sie beschreibende/informative Namen für Ihre Objekte und Methoden verwenden.
 
-Die Ausgabe der `print()`-Funktionen zeigt, wie die `setUpTestData()`-Methode einmal für die Klasse aufgerufen wird und `setUp()` vor jeder Methode aufgerufen wird.
-Erinnern Sie sich noch einmal daran, dass Sie normalerweise solche `print()`-Funktionen nicht in Ihre Tests einfügen würden.
+Die Ausgabe der Funktionen `print()` zeigt, wie die Methode `setUpTestData()` einmal für die Klasse und `setUp()` vor jeder Methode aufgerufen wird.
+Erneut sei daran erinnert, dass Sie normalerweise solche `print()`-Befehle nicht in Ihre Tests einfügen würden.
 
-Die nächsten Abschnitte zeigen, wie Sie bestimmte Tests ausführen können und wie Sie steuern, wie viele Informationen die Tests anzeigen.
+Die nächsten Abschnitte zeigen, wie Sie spezifische Tests ausführen und wie Sie steuern können, wie viele Informationen die Tests anzeigen.
 
 ### Mehr Testinformationen anzeigen
 
-Wenn Sie mehr Informationen über den Testlauf erhalten möchten, können Sie die _Verbosity_ ändern. Zum Beispiel, um die erfolgreichen Tests sowie die Fehler (und viele Informationen darüber, wie die Testdatenbank eingerichtet ist) aufzulisten, können Sie die Verbosity auf "2" setzen, wie gezeigt:
+Wenn Sie mehr Informationen über den Testrun erhalten möchten, können Sie die _Verbosity_ ändern. Zum Beispiel, um die Erfolge ebenso wie die Misserfolge aufzulisten (und eine Menge Informationen darüber, wie die Testdatenbank eingerichtet wird), können Sie die Verbosity auf "2" setzen, wie gezeigt:
 
 ```bash
 python3 manage.py test --verbosity 2
 ```
 
-Die erlaubten Verbosity-Level sind 0, 1, 2 und 3, wobei der Standard "1" ist.
+Die erlaubten Verbosity-Stufen sind 0, 1, 2 und 3, wobei die Standardeinstellung „1“ ist.
 
-### Dinge beschleunigen
+### Beschleunigung
 
-Wenn Ihre Tests unabhängig sind, können Sie diese auf einer Mehrkernmaschine erheblich beschleunigen, indem Sie sie parallel ausführen.
+Wenn Ihre Tests unabhängig sind, können Sie diese auf einem Multiprozessor-Rechner erheblich beschleunigen, indem Sie sie parallel ausführen.
 Die Verwendung von `--parallel auto` unten führt einen Testprozess pro verfügbarem Kern aus.
 Das `auto` ist optional, und Sie können auch eine bestimmte Anzahl von Kernen angeben, die verwendet werden sollen.
 
@@ -257,11 +258,11 @@ Das `auto` ist optional, und Sie können auch eine bestimmte Anzahl von Kernen a
 python3 manage.py test --parallel auto
 ```
 
-Für weitere Informationen, einschließlich, was zu tun ist, wenn Ihre Tests nicht unabhängig sind, siehe [DJANGO_TEST_PROCESSES](https://docs.djangoproject.com/en/5.0/ref/django-admin/#envvar-DJANGO_TEST_PROCESSES).
+Für weitere Informationen, einschließlich was zu tun ist, wenn Ihre Tests nicht unabhängig sind, siehe [DJANGO_TEST_PROCESSES](https://docs.djangoproject.com/en/5.0/ref/django-admin/#envvar-DJANGO_TEST_PROCESSES).
 
-### Bestimmte Tests ausführen
+### Spezifische Tests ausführen
 
-Wenn Sie einen Teil Ihrer Tests ausführen möchten, können Sie dies tun, indem Sie den vollständigen Punkt-Pfad zum/n Paket(en), Modul, `TestCase`-Unterklasse oder Methode angeben:
+Wenn Sie einen Teil Ihrer Tests ausführen möchten, können Sie dies tun, indem Sie den vollständigen Punktpfad zu den Paketen, dem Modul, der `TestCase`-Unterklasse oder der Methode angeben:
 
 ```bash
 # Run the specified module
@@ -277,23 +278,23 @@ python3 manage.py test catalog.tests.test_models.YourTestClass
 python3 manage.py test catalog.tests.test_models.YourTestClass.test_one_plus_one_equals_two
 ```
 
-### Andere Test Runner-Optionen
+### Andere Optionen des Test-Läufers
 
-Der Test-Runner bietet viele andere Optionen, einschließlich der Möglichkeit, Tests zu mischen (`--shuffle`), sie im Debug-Modus auszuführen (`--debug-mode`) und den Python-Logger zu verwenden, um die Ergebnisse zu erfassen.
-Für weitere Informationen siehe die Django [Test Runner](https://docs.djangoproject.com/en/5.0/ref/django-admin/#test)-Dokumentation.
+Der Test-Läufer bietet viele andere Optionen, einschließlich der Möglichkeit, Tests zu mischen (`--shuffle`), sie im Debug-Modus auszuführen (`--debug-mode`) und den Python-Logger zu verwenden, um die Ergebnisse aufzufangen.
+Weitere Informationen finden Sie in der Django-Dokumentation des [Test-Läufers](https://docs.djangoproject.com/en/5.0/ref/django-admin/#test).
 
-## LocalLibrary Tests
+## LocalLibrary-Tests
 
-Nun, da wir wissen, wie unsere Tests ausgeführt werden, und was für Dinge wir testen müssen, sehen wir uns einige praktische Beispiele an.
+Jetzt wissen wir, wie man unsere Tests ausführt und was wir testen müssen, lassen Sie uns einige praktische Beispiele betrachten.
 
 > [!NOTE]
-> Wir werden nicht jeden möglichen Test schreiben, aber das sollte Ihnen eine Vorstellung davon geben, wie Tests funktionieren und was mehr Sie tun können.
+> Wir werden nicht jeden möglichen Test schreiben, aber dies sollte Ihnen eine Vorstellung davon geben, wie Tests funktionieren und was Sie noch tun können.
 
 ### Modelle
 
-Wie oben besprochen, sollten Sie alles testen, was Teil Ihres Designs ist oder von Ihnen geschriebenem Code definiert wird, aber nicht die von Django oder dem Python-Entwicklungsteam bereitgestellten Bibliotheken/Code.
+Wie oben besprochen, sollten Sie alles testen, was Teil Ihres Designs ist oder von Code, den wir selbst geschrieben haben, definiert wird, aber nicht das Verhalten des zu Grunde liegenden Frameworks und anderer Drittanbieter-Bibliotheken.
 
-Betrachten Sie zum Beispiel das `Author`-Modell unten. Hier sollten wir die Labels für alle Felder testen, denn auch wenn wir nicht die meisten davon explizit spezifiziert haben, haben wir ein Design, das sagt, welche diese Werte sein sollten. Wenn wir die Werte nicht testen, wissen wir nicht, dass die Feldbezeichnungen ihre beabsichtigten Werte haben. Ebenso, während wir darauf vertrauen, dass Django ein Feld der angegebenen Länge erstellt, lohnt es sich, einen Test für diese Länge anzugeben, um sicherzustellen, dass er wie geplant implementiert wurde.
+Betrachten Sie zum Beispiel das `Author`-Modell unten. Hier sollten wir die Bezeichnungen für alle Felder testen, weil selbst wenn wir die meisten von ihnen nicht explizit angegeben haben, wir ein Design haben, das besagt, was diese Werte sein sollten. Wenn wir die Werte nicht testen, dann wissen wir nicht, dass die Feldbezeichnungen ihre beabsichtigten Werte haben. Ebenso vertrauen wir zwar darauf, dass Django ein Feld der angegebenen Länge erstellt, es ist jedoch sinnvoll, einen Test für diese Länge anzugeben, um sicherzustellen, dass es wie geplant implementiert wurde.
 
 ```python
 class Author(models.Model):
@@ -309,9 +310,9 @@ class Author(models.Model):
         return f'{self.last_name}, {self.first_name}'
 ```
 
-Öffnen Sie unsere **/catalog/tests/test_models.py**, und ersetzen Sie allen vorhandenen Code durch den folgenden Testcode für das `Author`-Modell.
+Öffnen Sie unser **/catalog/tests/test_models.py** und ersetzen Sie vorhandenen Code durch den folgenden Testcode für das Autor-Modell.
 
-Hier sehen Sie, dass wir zuerst `TestCase` importieren und unsere Testklasse (`AuthorModelTest`) davon ableiten, wobei wir einen beschreibenden Namen verwenden, damit wir fehlschlagende Tests in der Testausgabe leicht identifizieren können. Dann rufen wir `setUpTestData()` auf, um ein Autorenobjekt zu erstellen, das wir verwenden, aber in keinem der Tests modifizieren werden.
+Hier werden wir `TestCase` importieren und unsere Testklasse (`AuthorModelTest`) davon ableiten, einen beschreibenden Namen verwenden, damit wir fehlschlagende Tests in der Ausgabe leicht identifizieren können. Dann rufen wir `setUpTestData()` auf, um ein Autor-Objekt zu erstellen, das wir verwenden, aber in keinem der Tests ändern werden.
 
 ```python
 from django.test import TestCase
@@ -350,7 +351,7 @@ class AuthorModelTest(TestCase):
         self.assertEqual(author.get_absolute_url(), '/catalog/author/1')
 ```
 
-Die Feldtests überprüfen, ob die Werte der Feldlabels (`verbose_name`) und die Größe der Zeichenfelder wie erwartet sind. Diese Methoden haben alle beschreibende Namen und folgen demselben Muster:
+Die Feldtests überprüfen, ob die Werte der Feldbezeichnungen (`verbose_name`) und dass die Größe der Zeichenfelder wie erwartet sind. Diese Methoden haben alle beschreibende Namen und folgen demselben Muster:
 
 ```python
 # Get an author object to test
@@ -363,15 +364,15 @@ field_label = author._meta.get_field('first_name').verbose_name
 self.assertEqual(field_label, 'first name')
 ```
 
-Die interessanten Punkte sind:
+Die interessanten Dinge, die man beachten sollte, sind:
 
-- Wir können das `verbose_name` nicht direkt mit `author.first_name.verbose_name` erhalten, da `author.first_name` ein _String_ ist (kein Handle zum `first_name`-Objekt, mit dem wir auf seine Eigenschaften zugreifen können). Stattdessen müssen wir das `_meta`-Attribut des Autors verwenden, um eine Instanz des Feldes zu erhalten und damit die zusätzlichen Informationen abzufragen.
-- Wir haben uns entschieden, `assertEqual(field_label,'first name')` statt `assertTrue(field_label == 'first name')` zu verwenden. Der Grund dafür ist, dass, wenn der Test fehlschlägt, die Ausgabe für das erstere Ihnen sagt, was das Label tatsächlich war, was das Debuggen des Problems nur ein wenig einfacher macht.
+- Wir können den `verbose_name` nicht direkt mit `author.first_name.verbose_name` abrufen, weil `author.first_name` ein _String_ ist (kein Handle auf das `first_name`-Objekt, das wir verwenden können, um auf seine Eigenschaften zuzugreifen). Stattdessen müssen wir das Attribut `_meta` des Autors verwenden, um eine Instanz des Feldes zu erhalten und dieses zu verwenden, um nach den zusätzlichen Informationen zu fragen.
+- Wir entschieden uns, `assertEqual(field_label,'first name')` anstelle von `assertTrue(field_label == 'first name')` zu verwenden. Der Grund dafür ist, dass wenn der Test fehlschlägt, die Ausgabe des ersteren Ihnen sagt, was die Bezeichnung tatsächlich war, was das Debugging des Problems nur ein wenig erleichtert.
 
 > [!NOTE]
-> Tests für die `last_name`- und `date_of_birth`-Labels sowie der Test für die Länge des `last_name`-Feldes wurden weggelassen. Fügen Sie jetzt Ihre eigenen Versionen hinzu, indem Sie die Namenskonventionen und Ansätze hiervon verwenden.
+> Tests für die `last_name` und `date_of_birth` Labels und auch der Test für die Länge des `last_name`-Feldes wurden weggelassen. Fügen Sie jetzt Ihre eigenen Versionen hinzu, indem Sie den oben gezeigten Namenskonventionen und Ansätzen folgen.
 
-Wir müssen auch unsere benutzerdefinierten Methoden testen. Diese überprüfen im Wesentlichen nur, dass der Objektname im Format "Last Name", "First Name" wie erwartet konstruiert wurde und dass die URL, die wir für ein `Author`-Element erhalten, wie erwartet ist.
+Wir müssen auch unsere benutzerdefinierten Methoden testen. Diese überprüfen im Wesentlichen nur, ob der Objektname wie erwartet im Format "Nachname", "Vorname" konstruiert wurde und dass die URL, die wir für ein `Author`-Element erhalten, so ist, wie wir es erwarten würden.
 
 ```python
 def test_object_name_is_last_name_comma_first_name(self):
@@ -385,7 +386,7 @@ def test_get_absolute_url(self):
     self.assertEqual(author.get_absolute_url(), '/catalog/author/1')
 ```
 
-Führen Sie jetzt die Tests aus. Wenn Sie das Author-Modell wie im Models-Tutorial beschrieben erstellt haben, ist es sehr wahrscheinlich, dass Sie einen Fehler für das `date_of_death`-Label wie unten gezeigt erhalten. Der Test schlägt fehl, weil er geschrieben wurde und erwartet, dass die Labeldefinition Djangos Konvention folgt, den ersten Buchstaben des Labels nicht zu kapitalisieren (Django macht dies für Sie).
+Führen Sie jetzt die Tests aus. Wenn Sie das Autor-Modell so erstellt haben, wie wir es im Modelltutorial beschrieben haben, ist es sehr wahrscheinlich, dass Sie einen Fehler für die `date_of_death`-Bezeichnung, wie unten gezeigt, erhalten. Der Test schlägt fehl, weil er geschrieben wurde, in der Annahme, dass die Bezeichnungsdefinition der Django-Konvention folgt, den ersten Buchstaben der Bezeichnung nicht zu kapitalisieren (Django übernimmt das für Sie).
 
 ```bash
 ======================================================================
@@ -401,20 +402,20 @@ AssertionError: 'Died' != 'died'
 ? ^
 ```
 
-Dies ist ein sehr kleiner Bug, zeigt jedoch, wie das Schreiben von Tests dazu beitragen kann, dass alle Annahmen, die Sie möglicherweise gemacht haben, gründlicher überprüft werden.
+Dies ist ein sehr kleiner Fehler, aber er zeigt auf, wie das Schreiben von Tests jegliche Annahmen, die Sie möglicherweise gemacht haben, gründlicher überprüfen kann.
 
 > [!NOTE]
-> Ändern Sie das Label für das `date_of_death`-Feld (**/catalog/models.py**) in "died" und führen Sie die Tests erneut aus.
+> Ändern Sie die Bezeichnung für das `date_of_death`-Feld (**/catalog/models.py**) in "died" und führen Sie die Tests erneut aus.
 
-Die Muster für das Testen der anderen Modelle sind ähnlich, daher werden wir diese nicht weiter diskutieren. Fühlen Sie sich frei, Ihre eigenen Tests für unsere anderen Modelle zu erstellen.
+Die Muster für das Testen der anderen Modelle sind ähnlich, daher werden wir sie nicht weiter diskutieren. Fühlen Sie sich frei, Ihre eigenen Tests für unsere anderen Modelle zu erstellen.
 
 ### Formulare
 
-Die Philosophie für das Testen Ihrer Formulare ist dieselbe wie für das Testen Ihrer Modelle; Sie müssen alles testen, was Sie codiert haben oder was Ihr Design spezifiziert, aber nicht das Verhalten des zugrunde liegenden Frameworks und anderer Drittanbieter-Bibliotheken.
+Die Philosophie für das Testen Ihrer Formulare ist dieselbe wie für das Testen Ihrer Modelle; Sie müssen alles testen, was Sie kodiert haben oder was Ihr Design vorschreibt, aber nicht das Verhalten des zugrunde liegenden Frameworks und anderer Drittanbieter-Bibliotheken.
 
-Normalerweise bedeutet das, dass Sie überprüfen sollten, ob die Formulare die Felder haben, die Sie möchten, und dass diese mit geeigneten Labels und Hilfetexten angezeigt werden. Sie müssen nicht überprüfen, dass Django den Feldtyp korrekt validiert (es sei denn, Sie haben Ihr eigenes benutzerdefiniertes Feld und Validierung erstellt) — d.h. Sie müssen nicht testen, dass ein E-Mail-Feld nur E-Mails akzeptiert. Sie müssen jedoch alle zusätzlichen Validierungen testen, die Sie erwarten, dass sie für die Felder durchgeführt werden, und alle Nachrichten, die Ihr Code für Fehler generieren wird.
+In der Regel bedeutet dies, dass Sie testen sollten, dass die Formulare die Felder haben, die Sie möchten, und dass diese mit den entsprechenden Labels und Hilfetexten angezeigt werden. Sie müssen nicht überprüfen, dass Django den Feldtyp korrekt validiert (es sei denn, Sie haben Ihr eigenes benutzerdefiniertes Feld und die Validierung erstellt) – d.h. Sie müssen nicht testen, dass ein E-Mail-Feld nur E-Mails akzeptiert. Sie müssen jedoch jede zusätzliche Validierung testen, die Sie für die Felder erwarten und alle Nachrichten, die Ihr Code bei Fehlern generieren wird.
 
-Betrachten Sie unser Formular für die Verlängerung von Büchern. Dies hat nur ein Feld für das Erneuerungsdatum, das ein Label und Hilfetext haben wird, das wir überprüfen müssen.
+Betrachten Sie unser Formular zur Erneuerung von Büchern. Es hat nur ein Feld für das Erneuerungsdatum, das wir mit einem Label und einem Hilfetext anzeigen müssen, die wir überprüfen werden.
 
 ```python
 class RenewBookForm(forms.Form):
@@ -436,7 +437,7 @@ class RenewBookForm(forms.Form):
         return data
 ```
 
-Öffnen Sie unsere **/catalog/tests/test_forms.py**-Datei und ersetzen Sie allen vorhandenen Code durch den folgenden Testcode für das `RenewBookForm`-Formular. Wir beginnen, indem wir unser Formular und einige Python- und Django-Bibliotheken importieren, um Zeit-bezogene Funktionalität zu testen. Dann deklarieren wir unsere Formular-Testklasse auf dieselbe Weise, wie wir es für Modelle getan haben, unter Verwendung eines beschreibenden Namens für unsere `TestCase`-abgeleitete Testklasse.
+Öffnen Sie unsere Datei **/catalog/tests/test_forms.py** und ersetzen Sie vorhandenen Code durch den folgenden Testcode für das `RenewBookForm`-Formular. Wir beginnen, indem wir unser Formular und einige Python- und Django-Bibliotheken importieren, um zeitbezogene Funktionalität zu testen. Dann deklarieren wir unsere Testklasse auf die gleiche Weise wie bei den Modellen und verwenden einen beschreibenden Namen für unsere `TestCase`-abgeleitete Testklasse.
 
 ```python
 import datetime
@@ -476,25 +477,25 @@ class RenewBookFormTest(TestCase):
         self.assertTrue(form.is_valid())
 ```
 
-Die ersten beiden Funktionen testen, ob das `label` und der `help_text` des Feldes wie erwartet sind. Wir müssen auf das Feld über das Felder-Dictionary zugreifen (z.B. `form.fields['renewal_date']`). Beachten Sie hier, dass wir auch testen müssen, ob der Labelwert `None` ist, denn auch wenn Django das richtige Label rendert, gibt es `None` zurück, wenn der Wert nicht _explizit_ gesetzt ist.
+Die ersten beiden Funktionen testen, ob das `label` und der `help_text` des Feldes wie erwartet sind. Wir müssen auf das Feld über das Feld-Dictionary zugreifen (z. B. `form.fields['renewal_date']`). Beachten Sie hier, dass wir auch überprüfen müssen, ob der Labelwert `None` ist, weil Django zwar das korrekte Label rendert, aber `None` zurückgibt, wenn der Wert nicht _explizit_ gesetzt ist.
 
-Die restlichen Funktionen testen, ob das Formular für Erneuerungsdaten innerhalb des akzeptablen Bereichs gültig ist und für Werte außerhalb des Bereichs ungültig ist. Beachten Sie, wie wir Testdatumswerte um unser aktuelles Datum (`datetime.date.today()`) mit `datetime.timedelta()` konstruieren (in diesem Fall mit einer Anzahl von Tagen oder Wochen). Wir erstellen dann einfach das Formular, übergeben unsere Daten und testen, ob es gültig ist.
+Die restlichen Funktionen testen, ob das Formular für Erneuerungsdaten, die sich innerhalb des akzeptablen Bereichs befinden, gültig ist und für Werte außerhalb des Bereichs ungültig ist. Beachten Sie, wie wir Testdatumwerte um unser aktuelles Datum (`datetime.date.today()`) mithilfe von `datetime.timedelta()` (in diesem Fall durch Angabe einer Anzahl von Tagen oder Wochen) konstruieren. Dann erstellen wir einfach das Formular, indem wir unsere Daten übergeben und testen, ob es gültig ist.
 
 > [!NOTE]
-> Hier verwenden wir nicht tatsächlich die Datenbank oder den Testclient. Erwägen Sie, diese Tests zu ändern, um [SimpleTestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.SimpleTestCase) zu verwenden.
+> Hier verwenden wir weder die Datenbank noch den Testclient. Erwägen Sie, diese Tests zu ändern, um den [SimpleTestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.SimpleTestCase) zu verwenden.
 >
-> Wir müssen auch validieren, dass die richtigen Fehler ausgegeben werden, wenn das Formular ungültig ist. Dies wird jedoch normalerweise während der Verarbeitung der Ansicht durchgeführt, daher werden wir uns im nächsten Abschnitt damit befassen.
+> Wir müssen auch validieren, dass die korrekten Fehler erzeugt werden, wenn das Formular ungültig ist, jedoch wird dies normalerweise als Teil der Ansichtverarbeitung behandelt, sodass wir das im nächsten Abschnitt erledigen.
 
 > [!WARNING]
 > Wenn Sie die [ModelForm](/de/docs/Learn_web_development/Extensions/Server-side/Django/Forms#modelforms)-Klasse `RenewBookModelForm(forms.ModelForm)` anstelle der Klasse `RenewBookForm(forms.Form)` verwenden, dann wäre der Formularfeldname **'due_back'** statt **'renewal_date'**.
 
-Das war alles für die Formulare; wir haben noch einige andere, aber sie werden automatisch von unseren generischen klassenbasierten Bearbeitungsansichten erstellt und sollten dort getestet werden! Führen Sie die Tests aus und bestätigen Sie, dass unser Code weiterhin besteht!
+Das war's zu Formularen; wir haben einige andere, aber sie werden automatisch von unseren generischen klassenbasierten Bearbeitungsansichten erstellt und sollten dort getestet werden! Führen Sie die Tests durch und bestätigen Sie, dass unser Code immer noch erfolgreich ist!
 
 ### Ansichten
 
-Um unser View-Verhalten zu validieren, verwenden wir den Django Test-[Client](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.Client). Diese Klasse wirkt wie ein Dummy-Webbrowser, den wir verwenden können, um `GET`- und `POST`-Anfragen an eine URL zu simulieren und die Antwort zu beobachten. Wir können fast alles zur Antwort sehen, vom Low-Level-HTTP (Ergebnis-Header und Statuscodes) bis hin zum Template, das wir verwenden, um das HTML zu rendern und die übergebenen Kontextdaten. Wir können auch die Kette von Weiterleitungen (falls vorhanden) sehen und die URL und den Statuscode bei jedem Schritt überprüfen. Dies ermöglicht es uns zu überprüfen, ob jede Ansicht das tut, was erwartet wird.
+Um unser Anzeigeverhalten zu validieren, verwenden wir den Django-Test-[Client](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.Client). Diese Klasse fungiert wie ein Dummy-Webbrowser, den wir verwenden können, um `GET`- und `POST`-Anfragen zu einer URL zu simulieren und die Antwort zu beobachten. Wir können fast alles über die Antwort sehen, von niedrigstufigem HTTP (Ergebnisheader und Statuscodes) bis zur Vorlage, die wir verwenden, um das HTML zu rendern, und die Kontextdaten, die wir ihr übergeben. Wir können auch die Umleitungskette (falls vorhanden) sehen und die URL und den Statuscode an jedem Schritt überprüfen. Dies ermöglicht es uns, zu überprüfen, ob jede Ansicht das tut, was erwartet wird.
 
-Lassen Sie uns mit einer unserer einfachsten Ansichten beginnen, die eine Liste aller Autoren bereitstellt. Diese wird unter der URL **/catalog/authors/** angezeigt (eine URL, die im URL-Konfigurationsnamen 'authors' genannt wird).
+Lassen Sie uns mit einer unserer einfachsten Ansichten beginnen, die eine Liste aller Autoren bereitstellt. Diese wird bei der URL **/catalog/authors/** angezeigt (eine URL, die in der URL-Konfiguration als 'authors' bezeichnet wird).
 
 ```python
 class AuthorListView(generic.ListView):
@@ -502,9 +503,9 @@ class AuthorListView(generic.ListView):
     paginate_by = 10
 ```
 
-Da dies eine generische Listenansicht ist, wird fast alles von Django für uns getan. Man könnte argumentieren, dass, wenn Sie Django trauen, dass das Einzige, was Sie testen müssen, ist, ob die Ansicht unter der richtigen URL zugänglich ist und ob sie mit ihrem Namen aufgerufen werden kann. Wenn Sie jedoch einen testgesteuerten Entwicklungsprozess verwenden, beginnen Sie damit, Tests zu schreiben, die bestätigen, dass die Ansicht alle Autoren anzeigt und diese in Gruppen von 10 paginiert.
+Da dies eine generische Listenansicht ist, wird fast alles von Django für uns erledigt. Man könnte argumentieren, dass wenn Sie Django vertrauen, dann das Einzige, was Sie testen müssen, ist, dass die Ansicht unter der korrekten URL erreichbar ist und über ihren Namen aufgerufen werden kann. Wenn Sie jedoch einen testgetriebenen Entwicklungsprozess verwenden, beginnen Sie mit dem Schreiben von Tests, die bestätigen, dass die Ansicht alle Autoren anzeigt, sie in Abschnitten von 10 paginiert.
 
-Öffnen Sie die Datei **/catalog/tests/test_views.py** und ersetzen Sie jeden vorhandenen Text mit dem folgenden Testcode für `AuthorListView`. Wie zuvor importieren wir unser Modell und einige nützliche Klassen. In der `setUpTestData()`-Methode richten wir eine Anzahl von `Author`-Objekten ein, damit wir die Paginierung testen können.
+Öffnen Sie die Datei **/catalog/tests/test_views.py** und ersetzen Sie vorhandenen Text durch den folgenden Testcode für `AuthorListView`. Wie zuvor importieren wir unser Modell und einige nützliche Klassen. In der Methode `setUpTestData()` richten wir eine Anzahl von `Author`-Objekten ein, damit wir unsere Paginierung testen können.
 
 ```python
 from django.test import TestCase
@@ -553,28 +554,28 @@ class AuthorListViewTest(TestCase):
         self.assertEqual(len(response.context['author_list']), 3)
 ```
 
-Alle Tests verwenden den Client (der zur abgeleiteten Klasse unseres `TestCase` gehört), um eine `GET`-Anfrage zu simulieren und eine Antwort zu erhalten. Die erste Version überprüft eine spezifische URL (beachten Sie, nur den spezifischen Pfad ohne die Domain), während die zweite die URL aus ihrem Namen in der URL-Konfiguration generiert.
+Alle Tests verwenden den Client (der zu unserer von `TestCase` abgeleiteten Klasse gehört), um eine `GET`-Anfrage zu simulieren und eine Antwort zu erhalten. Die erste Version überprüft eine spezifische URL (nur der spezifische Pfad ohne die Domäne), während die zweite die URL aus dem Namen in der URL-Konfiguration generiert.
 
 ```python
 response = self.client.get('/catalog/authors/')
 response = self.client.get(reverse('authors'))
 ```
 
-Sobald wir die Antwort haben, fragen wir sie nach ihrem Statuscode, dem verwendetem Template, ob die Antwort paginiert ist, der Anzahl der zurückgegebenen Elemente und der Gesamtanzahl der Elemente ab.
+Sobald wir die Antwort haben, fragen wir sie nach ihrem Statuscode, der verwendeten Vorlage, ob die Antwort paginiert ist, die Anzahl der zurückgegebenen Elemente und die Gesamtanzahl der Elemente ab.
 
 > [!NOTE]
-> Wenn Sie die `paginate_by`-Variable in Ihrer **/catalog/views.py**-Datei auf eine andere Zahl als 10 gesetzt haben, stellen Sie sicher, dass Sie die Zeilen, die testen, dass die richtige Anzahl von Elementen in paginierten Templates angezeigt werden, oben und in den folgenden Abschnitten aktualisieren. Beispielsweise, wenn Sie die Variable für die Autorlisten-Seite auf 5 gesetzt haben, aktualisieren Sie die Zeile oben zu:
+> Wenn Sie die Variable `paginate_by` in Ihrer Datei **/catalog/views.py** auf eine andere Zahl als 10 gesetzt haben, stellen Sie sicher, die Zeilen zu aktualisieren, die testen, ob die korrekte Anzahl von Elementen in paginierten Vorlagen oben und in den folgenden Abschnitten angezeigt wird. Wenn Sie z. B. die Variable für die Autorenlistenseite auf 5 setzen, aktualisieren Sie die Zeile oben zu:
 >
 > ```python
 > self.assertTrue(len(response.context['author_list']) == 5)
 > ```
 
-Die interessanteste Variable, die wir oben demonstrieren, ist `response.context`, die die Kontextvariable ist, die von der Ansicht dem Template übergeben wird.
-Dies ist unglaublich nützlich für das Testen, denn es ermöglicht uns zu bestätigen, dass unser Template alle Daten bekommt, die es benötigt. Mit anderen Worten können wir überprüfen, dass wir das beabsichtigte Template verwenden und welche Daten das Template erhält, was einen großen Schritt zur Bestätigung darstellt, dass etwaige Renderprobleme allein auf das Template zurückzuführen sind.
+Die interessanteste Variable, die wir oben demonstrieren, ist `response.context`, die die Kontextvariable ist, die von der Ansicht an die Vorlage übergeben wird.
+Dies ist unglaublich nützlich für das Testen, weil es uns erlaubt zu bestätigen, dass unsere Vorlage alle Daten erhält, die sie benötigt. Mit anderen Worten, wir können überprüfen, ob wir die beabsichtigte Vorlage verwenden und welche Daten die Vorlage erhält, was einen großen Beitrag dazu leistet, sicherzustellen, dass alle Renderprobleme nur auf die Vorlage zurückzuführen sind.
 
-#### Ansichten, die auf angemeldete Benutzer beschränkt sind
+#### Ansichten, die auf eingeloggte Benutzer beschränkt sind
 
-In einigen Fällen werden Sie eine Ansicht testen wollen, die nur auf angemeldete Benutzer beschränkt ist. Zum Beispiel ist unsere `LoanedBooksByUserListView` unserer vorherigen Ansicht sehr ähnlich, aber nur für angemeldete Benutzer verfügbar, und zeigt nur `BookInstance`-Datensätze an, die vom aktuellen Benutzer ausgeliehen wurden, den Status "on loan" haben und in aufsteigender "ältester erster"-Reihenfolge angezeigt werden.
+In einigen Fällen möchten Sie eine Ansicht testen, die nur für eingeloggte Benutzer eingeschränkt ist. Zum Beispiel ist unsere `LoanedBooksByUserListView` sehr ähnlich zu unserer vorherigen Ansicht, aber nur für eingeloggte Benutzer zugänglich und zeigt nur `BookInstance`-Datensätze an, die vom aktuellen Benutzer ausgeliehen wurden, den Status „verliehen“ haben und „älteste zuerst“ geordnet sind.
 
 ```python
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -589,10 +590,10 @@ class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
         return BookInstance.objects.filter(borrower=self.request.user).filter(status__exact='o').order_by('due_back')
 ```
 
-Fügen Sie den folgenden Testcode zu **/catalog/tests/test_views.py** hinzu. Hier verwenden wir zuerst `SetUp()`, um einige Benutzerkonten und `BookInstance`-Objekte (zusammen mit ihren zugehörigen Büchern und anderen Datensätzen) zu erstellen, die wir später in den Tests verwenden werden. Die Hälfte der Bücher wird von jedem Testbenutzer ausgeliehen, aber wir haben zugleich den Status aller Bücher auf "maintenance" gesetzt. Wir haben `SetUp()` anstelle von `setUpTestData()` verwendet, da wir einige dieser Objekte später ändern werden.
+Fügen Sie den folgenden Testcode zu **/catalog/tests/test_views.py** hinzu. Hier verwenden wir zuerst `SetUp()`, um einige Benutzeranmeldekonten und `BookInstance`-Objekte (zusammen mit ihren zugehörigen Büchern und anderen Datensätzen) zu erstellen, die wir später in den Tests verwenden werden. Die Hälfte der Bücher ist von jedem Testbenutzer ausgeliehen, wir haben jedoch ursprünglich den Status aller Bücher auf „Wartung“ gesetzt. Wir haben `SetUp()` anstelle von `setUpTestData()` verwendet, weil wir einige dieser Objekte später ändern werden.
 
 > [!NOTE]
-> Der `setUp()`-Code unten erstellt ein Buch mit einer angegebenen `Language`, aber _Ihr_ Code enthält möglicherweise nicht das `Language`-Modell, da dies als _Herausforderung_ erstellt wurde. Kommentieren Sie in diesem Fall den Teil des Codes aus, der Language-Objekte erstellt oder importiert. Sie sollten dies auch im `RenewBookInstancesViewTest`-Abschnitt weiter unten tun.
+> Der `setUp()`-Code unten erstellt ein Buch mit einer bestimmten `Language`, aber _Ihr_ Code enthält möglicherweise nicht das `Language`-Modell, da dies als _Herausforderung_ erstellt wurde. Kommentieren Sie in diesem Fall die Teile des Codes aus, die Language-Objekte erstellen oder importieren. Sie sollten dies auch im Abschnitt `RenewBookInstancesViewTest` tun, der folgt.
 
 ```python
 import datetime
@@ -662,9 +663,9 @@ class LoanedBookInstancesByUserListViewTest(TestCase):
         self.assertTemplateUsed(response, 'catalog/bookinstance_list_borrowed_user.html')
 ```
 
-Um zu überprüfen, dass die Ansicht zu einer Login-Seite umleitet, wenn der Benutzer nicht angemeldet ist, verwenden wir `assertRedirects`, wie in `test_redirect_if_not_logged_in()` demonstriert. Um zu verifizieren, dass die Seite für einen angemeldeten Benutzer angezeigt wird, loggen wir zuerst unseren Testbenutzer ein und greifen dann erneut auf die Seite zu, um sicherzustellen, dass wir einen `status_code` von 200 (Erfolg) erhalten.
+Um zu überprüfen, ob die Ansicht auf eine Login-Seite umleitet, wenn der Benutzer nicht eingeloggt ist, verwenden wir `assertRedirects`, wie es in `test_redirect_if_not_logged_in()` gezeigt wird. Um zu überprüfen, ob die Seite für einen eingeloggt Nutzer angezeigt wird, loggen wir uns zuerst mit unserem Testbenutzer ein und greifen dann erneut auf die Seite zu und überprüfen, ob wir einen `status_code` von 200 (Erfolg) erhalten.
 
-Die restlichen Tests überprüfen, dass unsere Ansicht nur Bücher zurückgibt, die an unseren aktuellen Ausleiher ausgeliehen sind. Kopieren Sie den Code unten und fügen Sie ihn am Ende der obigen Testklasse ein.
+Der Rest der Tests überprüft, dass unsere Ansicht nur Bücher zurückgibt, die an unseren aktuellen Entleiher ausgeliehen sind. Kopieren Sie den unten stehenden Code und fügen Sie ihn am Ende der obigen Testklasse ein.
 
 ```python
     def test_only_borrowed_books_in_list(self):
@@ -727,13 +728,13 @@ Die restlichen Tests überprüfen, dass unsere Ansicht nur Bücher zurückgibt, 
                 last_date = book.due_back
 ```
 
-Sie könnten auch Paginierungstests hinzufügen, wenn Sie möchten!
+Sie könnten auch Paginierungstests hinzufügen, falls Sie dies wünschen!
 
-#### Testing von Ansichten mit Formularen
+#### Testen von Ansichten mit Formularen
 
-Das Testen von Ansichten mit Formularen ist etwas komplizierter als in den obigen Fällen, da Sie mehr Codepfade testen müssen: erste Anzeige, Anzeige, nachdem die Datenvalidierung fehlgeschlagen ist, und Anzeige, nachdem die Validierung erfolgreich war. Die gute Nachricht ist, dass wir den Client für das Testen fast genauso verwenden, wie wir es bei reinen Anzeigeansichten getan haben.
+Das Testen von Ansichten mit Formularen ist etwas komplizierter als in den obigen Fällen, weil Sie mehr Codepfade testen müssen: anfängliche Anzeige, Anzeige nach dem Fehlschlagen der Datenvalidierung und Anzeige nach erfolgreicher Validierung. Die gute Nachricht ist, dass wir den Client zum Testen fast genau auf die gleiche Weise wie bei reinen Anzeigeansichten verwenden.
 
-Zur Demonstration, lassen Sie uns einige Tests für die Ansicht schreiben, die zum Erneuern von Büchern verwendet wird (`renew_book_librarian()`):
+Um dies zu demonstrieren, lassen Sie uns einige Tests für die Ansicht zum Erneuern von Büchern (`renew_book_librarian()`) schreiben:
 
 ```python
 from catalog.forms import RenewBookForm
@@ -771,10 +772,10 @@ def renew_book_librarian(request, pk):
     return render(request, 'catalog/book_renew_librarian.html', context)
 ```
 
-Wir müssen sicherstellen, dass die Ansicht nur für Benutzer verfügbar ist, die die `can_mark_returned`-Berechtigung haben, und dass Benutzer zu einer HTTP 404-Fehlerseite weitergeleitet werden, wenn sie versuchen, ein `BookInstance` zu erneuern, das nicht existiert. Wir sollten überprüfen, dass der Initialwert des Formulars mit einem Datum in drei Wochen voraus vorgegeben ist, und dass, wenn die Validierung erfolgreich ist, wir zur Ansicht "alle ausgeliehenen Bücher" weitergeleitet werden. Im Rahmen der Überprüfung der Validierungsfehler-Tests werden wir auch prüfen, dass unser Formular die entsprechenden Fehlermeldungen sendet.
+Wir müssen testen, dass die Ansicht nur für Benutzer verfügbar ist, die die Berechtigung `can_mark_returned` haben, und dass Benutzer auf eine HTTP 404-Fehlerseite umgeleitet werden, wenn sie versuchen, einen nicht existierenden `BookInstance` zu erneuern. Wir sollten überprüfen, dass der anfängliche Wert des Formulars mit einem Datum in drei Wochen in der Zukunft vorbelegt ist, und dass wir, wenn die Validierung erfolgreich ist, zur Ansicht "alle ausgeliehenen Bücher" umgeleitet werden. Im Rahmen der Überprüfung der Validierungsfehler-Tests werden wir auch prüfen, ob unser Formular die entsprechenden Fehlermeldungen sendet.
 
-Fügen Sie den ersten Teil der Testklasse (unten gezeigt) an das Ende von **/catalog/tests/test_views.py** hinzu.
-Dieser erstellt zwei Benutzer und zwei Buchinstanzen, gewährt jedoch nur einem Benutzer die zum Zugreifen auf die Ansicht erforderlichen Berechtigungen.
+Fügen Sie den ersten Teil der Testklasse (wie unten gezeigt) unten in **/catalog/tests/test_views.py** hinzu.
+Dies erstellt zwei Benutzer und zwei Buchinstanzen, aber nur einem Benutzer wird die für den Zugriff auf die Ansicht erforderliche Berechtigung eingeräumt.
 
 ```python
 import uuid
@@ -833,7 +834,7 @@ class RenewBookInstancesViewTest(TestCase):
         )
 ```
 
-Fügen Sie die folgenden Tests am Ende der Testklasse hinzu. Diese überprüfen, dass nur Benutzer mit den richtigen Berechtigungen (_testuser2_) auf die Ansicht zugreifen können. Wir überprüfen alle Fälle: wenn der Benutzer nicht eingeloggt ist, wenn ein Benutzer eingeloggt ist, aber nicht die richtigen Berechtigungen hat, wenn der Benutzer Berechtigungen hat, aber nicht der Ausleiher ist (sollte Erfolg haben) und was passiert, wenn sie versuchen, auf ein nicht existierendes `BookInstance` zuzugreifen. Wir prüfen auch, dass das richtige Template verwendet wird.
+Fügen Sie die folgenden Tests unten in die Testklasse ein. Diese überprüfen, dass nur Benutzer mit den richtigen Berechtigungen (_testuser2_) auf die Ansicht zugreifen können. Wir überprüfen alle Fälle: den Fall, dass der Benutzer nicht eingeloggt ist, wenn ein Benutzer eingeloggt ist, aber nicht die richtigen Berechtigungen hat, wenn der Benutzer Berechtigungen hat, aber nicht der Entleiher ist (sollte erfolgreich sein) und was passiert, wenn sie versuchen, auf eine nicht existierende `BookInstance` zuzugreifen. Wir überprüfen auch, dass die richtige Vorlage verwendet wird.
 
 ```python
    def test_redirect_if_not_logged_in(self):
@@ -877,7 +878,7 @@ Fügen Sie die folgenden Tests am Ende der Testklasse hinzu. Diese überprüfen,
         self.assertTemplateUsed(response, 'catalog/book_renew_librarian.html')
 ```
 
-Fügen Sie die nächste Testmethode, wie unten gezeigt, hinzu. Diese prüft, ob das initiale Datum für das Formular drei Wochen in der Zukunft liegt. Beachten Sie, wie wir auf den Wert des Anfangswerts des Formularfeldes (`response.context['form'].initial['renewal_date']`) zugreifen können.
+Fügen Sie die nächste Testmethode hinzu, wie unten gezeigt. Diese überprüft, dass das Anfangsdatum des Formulars drei Wochen in der Zukunft liegt. Beachten Sie, wie wir den Wert der Anfangswerte des Formularfeldes (`response.context['form'].initial['renewal_date'])`) zugreifen können.
 
 ```python
     def test_form_renewal_date_initially_has_date_three_weeks_in_future(self):
@@ -889,7 +890,7 @@ Fügen Sie die nächste Testmethode, wie unten gezeigt, hinzu. Diese prüft, ob 
         self.assertEqual(response.context['form'].initial['renewal_date'], date_3_weeks_in_future)
 ```
 
-Der nächste Test (fügen Sie diesen auch in die Klasse ein) überprüft, dass die Ansicht zu einer Liste aller ausgeliehenen Bücher weiterleitet, wenn die Erneuerung erfolgreich ist. Was hier anders ist, ist, dass wir zum ersten Mal zeigen, wie Sie Daten unter Verwendung des Clients `POST`en können. Der _Data_ beim POST ist das zweite Argument der Post-Funktion und wird als Wörterbuch von Schlüssel/Werten angegeben.
+Der nächste Test (fügen Sie diesen auch zur Klasse hinzu) überprüft, dass die Ansicht zu einer Liste aller ausgeliehenen Bücher weiterleitet, wenn die Erneuerung erfolgreich ist. Was hier erstmals abweicht ist, dass wir zeigen, wie Sie mit dem Client daten _senden_ („POST“-Anfragen) können. Die _Daten_ des POST sind das zweite Argument der post-Funktion und werden als Verzeichnis von Schlüsseln/Werten angegeben.
 
 ```python
     def test_redirects_to_all_borrowed_book_list_on_success(self):
@@ -900,14 +901,14 @@ Der nächste Test (fügen Sie diesen auch in die Klasse ein) überprüft, dass d
 ```
 
 > [!WARNING]
-> Die _alle ausgeliehenen_ Ansicht wurde als _Herausforderung_ hinzugefügt, und Ihr Code leitet möglicherweise stattdessen zur Startseite '/' weiter. In diesem Fall ändern Sie die letzten zwei Zeilen des Testcodes so, dass sie wie der Code unten aussehen. Das `follow=True` im Antrag stellt sicher, dass die Anfrage die finale Ziel-URL zurückgibt (daher wird `/catalog/` anstelle von `/` geprüft).
+> Die _alle-ausgeliehenen_ Ansicht wurde als _Herausforderung_ hinzugefügt und Ihr Code könnte stattdessen zur Startseite '/' umleiten. Wenn das der Fall ist, passen Sie die letzten beiden Zeilen des Testcodes an, damit sie in etwa wie der untenstehende Code aussehen. Das `follow=True` in der Anfrage stellt sicher, dass die Anfrage die finale Ziel-URL zurückgibt (daher wird das Testen von `/catalog/` anstelle von `/`).
 >
 > ```python
 >  response = self.client.post(reverse('renew-book-librarian', kwargs={'pk':self.test_bookinstance1.pk,}), {'renewal_date':valid_date_in_future}, follow=True)
 >  self.assertRedirects(response, '/catalog/')
 > ```
 
-Kopieren Sie die letzten zwei Funktionen in die Klasse, wie unten gezeigt. Diese testen erneut `POST`-Anfragen, jedoch in diesem Fall mit ungültigen Erneuerungsdaten. Wir verwenden `assertFormError()`, um zu überprüfen, dass die Fehlermeldungen wie erwartet sind.
+Kopieren Sie die letzten beiden Funktionen in die Klasse, wie unten zu sehen. Diese werden von `POST`-Anfragen geprüft, jedoch in diesem Fall mit ungültigen Erneuerungsdaten. Wir verwenden `assertFormError()`, um zu überprüfen, dass die Fehlermeldungen wie erwartet sind.
 
 ```python
     def test_form_invalid_renewal_date_past(self):
@@ -925,24 +926,24 @@ Kopieren Sie die letzten zwei Funktionen in die Klasse, wie unten gezeigt. Diese
         self.assertFormError(response.context['form'], 'renewal_date', 'Invalid date - renewal more than 4 weeks ahead')
 ```
 
-Die gleichen Techniken können verwendet werden, um andere Ansichten zu testen.
+Die gleichen Arten von Techniken können verwendet werden, um die anderen Ansichten zu testen.
 
-### Templates
+### Vorlagen
 
-Django bietet Test-APIs, um zu überprüfen, ob das korrekte Template von Ihren Views aufgerufen wird, und um zu überprüfen, ob die korrekten Informationen gesendet werden. Es gibt jedoch keine spezifische Unterstützung für das Testen, ob Ihr HTML-Output wie erwartet gerendert wird.
+Django stellt Test-APIs bereit, um zu überprüfen, dass die korrekte Vorlage von Ihren Ansichten aufgerufen wird, und ermöglicht es Ihnen, zu überprüfen, dass die richtigen Informationen gesendet werden. Es gibt jedoch keine spezifische API-Unterstützung zum Testen in Django, um zu überprüfen, dass Ihr HTML-Output wie erwartet gerendert wird.
 
-## Andere empfohlene Testtools
+## Andere empfohlene Testwerkzeuge
 
-Das Testframework von Django kann Ihnen helfen, effektive Unit- und Integrationstests zu schreiben – wir haben nur die Oberfläche dessen berührt, was das zugrunde liegende **unittest**-Framework kann, geschweige denn Djangos Ergänzungen (zum Beispiel, sehen Sie sich an, wie Sie [unittest.mock](https://docs.python.org/3/library/unittest.mock-examples.html) verwenden können, um Drittanbieter-Bibliotheken zu patchen, damit Sie Ihren eigenen Code gründlicher testen können).
+Das Testframework von Django kann Ihnen helfen, effektive Unit- und Integrationstests zu schreiben – wir haben nur einen Eindruck davon vermittelt, was das zugrundeliegende **unittest**-Framework leisten kann, ganz zu schweigen von den Ergänzungen von Django (sehen Sie sich beispielsweise an, wie Sie [unittest.mock](https://docs.python.org/3/library/unittest.mock-examples.html) verwenden können, um Drittanbieter-Bibliotheken zu patchen, damit Sie Ihren eigenen Code gründlicher testen können).
 
-Während es zahlreiche andere Testtools gibt, die Sie verwenden können, werden wir nur zwei hervorheben:
+Es gibt zahlreiche weitere Testwerkzeuge, die Sie verwenden können, aber wir heben nur zwei hervor:
 
-- [Coverage](https://coverage.readthedocs.io/en/latest/): Dieses Python-Tool berichtet darüber, wie viel Ihres Codes tatsächlich von Ihren Tests ausgeführt wird. Es ist besonders nützlich, wenn Sie anfangen und herauszufinden versuchen, was genau Sie testen sollten.
-- [Selenium](/de/docs/Learn_web_development/Extensions/Testing/Your_own_automation_environment) ist ein Framework, um Tests in einem echten Browser zu automatisieren. Es ermöglicht Ihnen, einen echten Benutzer zu simulieren, der mit der Seite interagiert, und bietet ein großartiges Framework zum Systemtesten Ihrer Seite (der nächste Schritt nach Integrationstests).
+- [Coverage](https://coverage.readthedocs.io/en/latest/): Dieses Python-Tool berichtet darüber, wie viel Ihres Codes tatsächlich von Ihren Tests ausgeführt wird. Es ist besonders nützlich, wenn Sie gerade erst anfangen und versuchen, herauszufinden, was Sie testen sollten.
+- [Selenium](/de/docs/Learn_web_development/Extensions/Testing/Your_own_automation_environment) ist ein Framework, um das Testen in einem echten Browser zu automatisieren. Es ermöglicht Ihnen, einen echten Benutzer zu simulieren, der mit der Site interagiert, und bietet ein großartiges Framework für Systemtests Ihrer Site (der nächste Schritt nach den Integrationstests).
 
-## Fordern Sie sich heraus
+## Fordern Sie sich selbst heraus
 
-Es gibt viele weitere Modelle und Ansichten, die wir testen können. Versuchen Sie als Herausforderung, einen Testfall für die `AuthorCreate`-Ansicht zu erstellen.
+Es gibt noch viele weitere Modelle und Ansichten, die wir testen können. Versuchen Sie als Herausforderung, einen Testfall für die `AuthorCreate`-Ansicht zu erstellen.
 
 ```python
 class AuthorCreate(PermissionRequiredMixin, CreateView):
@@ -952,10 +953,10 @@ class AuthorCreate(PermissionRequiredMixin, CreateView):
     permission_required = 'catalog.add_author'
 ```
 
-Denken Sie daran, dass Sie alles, was Sie spezifizieren oder das Teil des Designs ist, überprüfen müssen.
-Dies umfasst, wer Zugriff hat, das Anfangsdatum, das verwendete Template und die Umleitung der Ansicht bei Erfolg.
+Denken Sie daran, dass Sie alles überprüfen müssen, was Sie spezifizieren oder das Teil des Designs ist.
+Dies wird beinhalten, wer Zugriff hat, das Anfangsdatum, die verwendete Vorlage und wohin die Ansicht bei Erfolg umleitet.
 
-Sie könnten den folgenden Code verwenden, um Ihren Test einzurichten und Ihrem Benutzer die entsprechende Berechtigung zuzuweisen.
+Sie könnten den folgenden Code verwenden, um Ihren Test einzurichten und Ihrem Benutzer die entsprechenden Berechtigungen zuzuweisen
 
 ```python
 class AuthorCreateViewTest(TestCase):
@@ -978,20 +979,20 @@ class AuthorCreateViewTest(TestCase):
 
 ## Zusammenfassung
 
-Das Schreiben von Testcode ist weder unterhaltsam noch glamourös und wird folglich oft zuletzt (oder gar nicht) bei der Erstellung einer Website vorgenommen. Es ist jedoch ein wesentlicher Teil, um sicherzustellen, dass Ihr Code nach Änderungen sicher freizugeben ist und kostengünstig zu warten ist.
+Das Schreiben von Testcode ist weder unterhaltsam noch glamourös und bleibt daher häufig beim Erstellen einer Website auf der Strecke (oder wird gar nicht gemacht). Es ist jedoch ein wesentlicher Bestandteil, um sicherzustellen, dass Ihr Code sicher ist, nachdem Änderungen vorgenommen wurden, und kosteneffektiv zu warten.
 
-In diesem Tutorial haben wir Ihnen gezeigt, wie Sie Tests für Ihre Modelle, Formulare und Ansichten schreiben und ausführen. Am wichtigsten ist, dass wir eine kurze Zusammenfassung dessen gegeben haben, was Sie testen sollten, was oft das Schwierigste zu ermitteln ist, wenn Sie anfangen. Es gibt noch viel mehr zu wissen, aber selbst mit dem, was Sie bereits gelernt haben, sollten Sie in der Lage sein, effektive Unit-Tests für Ihre Websites zu erstellen.
+In diesem Tutorial haben wir Ihnen gezeigt, wie Sie Tests für Ihre Modelle, Formulare und Ansichten schreiben und ausführen können. Am wichtigsten haben wir eine kurze Zusammenfassung gegeben, was Sie testen sollten, was oft das Schwierigste ist, herauszufinden, wenn Sie gerade erst anfangen. Es gibt viel mehr zu wissen, aber selbst mit dem, was Sie bereits gelernt haben, sollten Sie in der Lage sein, effektive Unit-Tests für Ihre Websites zu erstellen.
 
-Das nächste und letzte Tutorial zeigt, wie Sie Ihre wunderbare (und vollständig getestete!) Django-Website bereitstellen können.
+Das nächste und letzte Tutorial zeigt, wie Sie Ihre wundervolle (und vollständig getestete!) Django-Website bereitstellen können.
 
 ## Siehe auch
 
 - [Schreiben und Ausführen von Tests](https://docs.djangoproject.com/en/5.0/topics/testing/overview/) (Django-Dokumentation)
-- [Schreiben Ihrer ersten Django-App, Teil 5 > Einführung in automatisierte Tests](https://docs.djangoproject.com/en/5.0/intro/tutorial05/) (Django-Dokumentation)
-- [Referenz zu Testtools](https://docs.djangoproject.com/en/5.0/topics/testing/tools/) (Django-Dokumentation)
+- [Schreiben Ihrer ersten Django-App, Teil 5 > Einführung in automatisiertes Testen](https://docs.djangoproject.com/en/5.0/intro/tutorial05/) (Django-Dokumentation)
+- [Referenz zu Testwerkzeugen](https://docs.djangoproject.com/en/5.0/topics/testing/tools/) (Django-Dokumentation)
 - [Erweiterte Testthemen](https://docs.djangoproject.com/en/5.0/topics/testing/advanced/) (Django-Dokumentation)
-- [Ein Leitfaden für das Testen in Django](https://toastdriven.com/blog/2011/apr/09/guide-to-testing-in-django/) (Toast Driven Blog, 2011)
-- [Workshop: Testgetriebene Webentwicklung mit Django](https://test-driven-django-development.readthedocs.io/en/latest/index.html) (San Diego Python, 2014)
-- [Testen in Django (Teil 1) - Beste Praktiken und Beispiele](https://realpython.com/testing-in-django-part-1-best-practices-and-examples/) (RealPython, 2013)
+- [Ein Leitfaden zum Testen in Django](https://toastdriven.com/blog/2011/apr/09/guide-to-testing-in-django/) (Toast Driven Blog, 2011)
+- [Workshop: Test-Driven Web Development mit Django](https://test-driven-django-development.readthedocs.io/en/latest/index.html) (San Diego Python, 2014)
+- [Testing in Django (Teil 1) - Best Practices und Beispiele](https://realpython.com/testing-in-django-part-1-best-practices-and-examples/) (RealPython, 2013)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Forms", "Learn_web_development/Extensions/Server-side/Django/Deployment", "Learn_web_development/Extensions/Server-side/Django")}}

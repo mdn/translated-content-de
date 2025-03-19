@@ -1,28 +1,31 @@
 ---
-title: "React-Interaktivität: Ereignisse und Zustand"
+title: "Interaktivität in React: Ereignisse und Status"
+short-title: React-Ereignisse und Status
 slug: Learn_web_development/Core/Frameworks_libraries/React_interactivity_events_state
 l10n:
-  sourceCommit: 8cf6d8c10adf3ce5370f8a3f180bec11112d4d44
+  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/React_components","Learn_web_development/Core/Frameworks_libraries/React_interactivity_filtering_conditional_rendering", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Nachdem wir unseren Komponentenplan ausgearbeitet haben, ist es nun an der Zeit, unsere App von einer vollständig statischen Benutzeroberfläche zu einer interaktiven zu aktualisieren, die uns erlaubt, Dinge zu verändern. In diesem Artikel werden wir das tun, indem wir uns mit Ereignissen und Zustand befassen. Am Ende werden wir eine App haben, in der wir erfolgreich Aufgaben hinzufügen und löschen sowie Aufgaben als erledigt markieren können.
+Nachdem wir unseren Komponentenplan ausgearbeitet haben, ist es nun an der Zeit, unsere App von einer vollständig statischen Benutzeroberfläche zu einer zu aktualisieren, die uns tatsächlich erlaubt, zu interagieren und Dinge zu ändern. In diesem Artikel werden wir dies tun, indem wir uns mit Ereignissen und Status beschäftigen und letztendlich mit einer App enden, in der wir erfolgreich Aufgaben hinzufügen und löschen sowie Aufgaben als erledigt umschalten können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>, sowie mit dem <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal/der Kommandozeile</a>.
+        Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
+        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> sowie der <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal-/Kommandozeile</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
-        Umgang mit Ereignissen und Zustand in React und deren Nutzung, um die Studie-App interaktiv zu machen.
+        Umgang mit Ereignissen und Status in React und deren Verwendung, um die Fallstudien-App interaktiv zu gestalten.
       </td>
     </tr>
   </tbody>
@@ -30,13 +33,13 @@ Nachdem wir unseren Komponentenplan ausgearbeitet haben, ist es nun an der Zeit,
 
 ## Umgang mit Ereignissen
 
-Falls Sie bisher nur reines JavaScript geschrieben haben, sind Sie vielleicht daran gewöhnt, eine separate JavaScript-Datei zu haben, in der Sie einige DOM-Knoten abfragen und Listener an diese anhängen. Beispielsweise könnte eine HTML-Datei einen Button enthalten, wie dieser:
+Wenn Sie bisher nur Vanilla-JavaScript geschrieben haben, sind Sie möglicherweise gewohnt, eine separate JavaScript-Datei zu haben, in der Sie nach einigen DOM-Knoten suchen und Ereignislistener daran anfügen. Beispielsweise könnte eine HTML-Datei einen Button enthalten, wie dieser hier:
 
 ```html
 <button type="button">Say hi!</button>
 ```
 
-Und eine JavaScript-Datei könnte dann so aussehen:
+Und eine JavaScript-Datei könnte einen Code wie diesen enthalten:
 
 ```js
 const btn = document.querySelector("button");
@@ -46,7 +49,7 @@ btn.addEventListener("click", () => {
 });
 ```
 
-In JSX befindet sich der Code, der die Benutzeroberfläche beschreibt, direkt neben unseren Ereignis-Listenern:
+In JSX lebt der Code, der die Benutzeroberfläche beschreibt, direkt neben unseren Ereignis-Handlern:
 
 ```jsx
 <button type="button" onClick={() => alert("hi!")}>
@@ -54,18 +57,18 @@ In JSX befindet sich der Code, der die Benutzeroberfläche beschreibt, direkt ne
 </button>
 ```
 
-In diesem Beispiel fügen wir dem {{htmlelement("button")}}-Element ein `onClick`-Attribut hinzu. Der Wert dieses Attributs ist eine Funktion, die eine Benachrichtigung auslöst. Dies mag der bewährten Praxis, keine Listener in HTML zu schreiben, widersprechen, aber denken Sie daran: JSX ist nicht HTML.
+In diesem Beispiel fügen wir dem `<button>` Element ein `onClick`-Attribut hinzu. Der Wert dieses Attributs ist eine Funktion, die einen Alarm auslöst. Dies mag gegen den Rat der besten Praktiken erscheinen, keine Ereignis-Listener in HTML zu schreiben, aber denken Sie daran: JSX ist kein HTML.
 
-Das `onClick`-Attribut hat hier eine besondere Bedeutung: Es teilt React mit, eine bestimmte Funktion auszuführen, wenn der Benutzer auf den Button klickt. Dabei gibt es einige Dinge zu beachten:
+Das `onClick`-Attribut hat hier eine besondere Bedeutung: Es teilt React mit, eine bestimmte Funktion auszuführen, wenn der Benutzer auf den Button klickt. Es gibt einige andere Dinge zu beachten:
 
-- Die {{Glossary("camel_case", "camelCase-Schreibweise")}} von `onClick` ist wichtig — JSX erkennt `onclick` nicht (es wird bereits in JavaScript für einen bestimmten Zweck verwendet, der ähnlich, aber anders ist — die Standard-[`onclick`](/de/docs/Web/API/Element/click_event)-Handler-Eigenschaften).
-- Alle Browsereignisse folgen in JSX diesem Format – `on`, gefolgt vom Namen des Ereignisses.
+- Die {{Glossary("camel_case", "camelCase")}}-Natur von `onClick` ist wichtig — JSX erkennt `onclick` nicht (es wird bereits in JavaScript für einen spezifischen Zweck verwendet, der verwandt, aber anders ist — standardmäßige [`onclick`](/de/docs/Web/API/Element/click_event)-Handler-Eigenschaften).
+- Alle Browser-Ereignisse folgen diesem Format in JSX – `on` gefolgt vom Namen des Ereignisses.
 
-Lassen Sie uns dies auf unsere App anwenden, beginnend im `Form.jsx`-Komponenten.
+Wenden wir dies auf unsere App an, beginnend im `Form.jsx`-Komponente.
 
-### Umgang mit der Formularübermittlung
+### Umgang mit dem Absenden von Formularen
 
-Erstellen Sie oben in der `Form()`-Komponentenfunktion (d.h. direkt unter der `function Form() {`-Zeile) eine Funktion namens `handleSubmit()`. Diese Funktion sollte das [Standardverhalten des `submit`-Ereignisses verhindern](/de/docs/Learn_web_development/Core/Scripting/Events#preventing_default_behavior). Danach sollte sie einen `alert()` auslösen, den Sie frei gestalten können. So sollte es in etwa aussehen:
+Erstellen Sie am Anfang der `Form()`-Komponentenfunktion (d.h. direkt unter der Zeile `function Form() {`) eine Funktion mit dem Namen `handleSubmit()`. Diese Funktion sollte [das Standardverhalten des `submit`-Ereignisses verhindern](/de/docs/Learn_web_development/Core/Scripting/Events#preventing_default_behavior). Danach sollte sie einen `alert()` auslösen, der sagen kann, was Sie möchten. Es sollte folgendermaßen aussehen:
 
 ```jsx
 function handleSubmit(event) {
@@ -74,23 +77,23 @@ function handleSubmit(event) {
 }
 ```
 
-Um diese Funktion zu nutzen, fügen Sie dem `<form>`-Element ein `onSubmit`-Attribut hinzu und setzen dessen Wert auf die `handleSubmit`-Funktion:
+Um diese Funktion zu verwenden, fügen Sie dem [`<form>`](/de/docs/Web/HTML/Element/form)-Element ein `onSubmit`-Attribut hinzu und setzen Sie seinen Wert auf die `handleSubmit`-Funktion:
 
 ```jsx
 <form onSubmit={handleSubmit}>
 ```
 
-Wenn Sie jetzt wieder zu Ihrem Browser zurückkehren und auf den "Add"-Button klicken, zeigt Ihr Browser ein Benachrichtigungsdialog mit den Worten "Hello, world!" an – oder was auch immer Sie dort eingetragen haben.
+Wenn Sie jetzt in Ihren Browser zurückkehren und auf die Schaltfläche "Hinzufügen" klicken, zeigt Ihr Browser ein Dialogfeld mit der Nachricht "Hello, world!" an – oder was auch immer Sie dort geschrieben haben.
 
-## Callback-Props
+## Callback-Eigenschaften
 
-In React-Anwendungen ist Interaktivität selten auf nur eine Komponente beschränkt: Ereignisse, die in einer Komponente auftreten, wirken sich oft auf andere Teile der Anwendung aus. Wenn wir die Möglichkeit bekommen, neue Aufgaben zu erstellen, werden Ereignisse, die in der `<Form />`-Komponente auftreten, die Liste beeinflussen, die in `<App />` gerendert wird.
+In React-Anwendungen ist Interaktivität selten auf nur eine Komponente beschränkt: Ereignisse, die in einer Komponente passieren, beeinflussen andere Teile der App. Wenn wir beginnen, uns selbst die Möglichkeit zu geben, neue Aufgaben zu erstellen, werden Ereignisse, die in der `<Form />`-Komponente passieren, die Liste beeinflussen, die in `<App />` gerendert wird.
 
-Wir möchten, dass unsere `handleSubmit()`-Funktion letztendlich hilft, eine neue Aufgabe zu erstellen, also müssen wir einen Weg finden, Informationen von `<Form />` zu `<App />` zu übermitteln. Wir können Daten nicht von einem Kind- zu einem Elternelement auf die gleiche Weise weitergeben, wie wir Daten von einem Eltern- zu einem Kindelement mit Standard-Props weitergeben. Stattdessen können wir in `<App />` eine Funktion schreiben, die einige Daten unseres Formulars als Eingabe erwartet, und diese Funktion dann als Prop an `<Form />` übergeben. Diese Funktion-als-Prop wird **Callback-Prop** genannt. Sobald wir unsere Callback-Prop haben, können wir sie innerhalb von `<Form />` aufrufen, um die richtigen Daten an `<App />` zu senden.
+Wir möchten, dass unsere `handleSubmit()`-Funktion letztendlich hilft, eine neue Aufgabe zu erstellen, also benötigen wir eine Möglichkeit, Informationen von `<Form />` zu `<App />` zu übermitteln. Wir können Daten nicht von Kind- zu Eltern-Komponente auf die gleiche Weise übermitteln, wie wir Daten von Eltern- zu Kind-Komponente mit standardmäßigen Eigenschaften übermitteln. Stattdessen können wir eine Funktion in `<App />` schreiben, die einige Daten aus unserem Formular als Eingabe erwartet, und diese Funktion dann an `<Form />` als Eigenschaft übergeben. Diese Funktion-als-Eigenschaft wird als **Callback-Eigenschaft** bezeichnet. Sobald wir unsere Callback-Eigenschaft haben, können wir sie innerhalb von `<Form />` aufrufen, um die richtigen Daten an `<App />` zu senden.
 
-### Umgang mit der Formularübermittlung über Callback-Props
+### Umgang mit dem Absenden von Formularen über Callbacks
 
-In der `App()`-Funktion in `App.jsx`, erstellen Sie eine Funktion namens `addTask()`, die einen einzigen Parameter `name` hat:
+Erstellen Sie in der `App()`-Funktion in `App.jsx` eine Funktion mit dem Namen `addTask()`, die einen einzelnen Parameter `name` hat:
 
 ```jsx
 function addTask(name) {
@@ -98,13 +101,13 @@ function addTask(name) {
 }
 ```
 
-Als Nächstes übergeben Sie `addTask()` als Prop an `<Form />`. Das Prop kann jeden Namen haben, den Sie möchten, aber wählen Sie einen Namen, den Sie später verstehen werden. Etwas wie `addTask` funktioniert gut, weil es den Namen der Funktion und das, was die Funktion tun wird, wiedergibt. Der Aufruf der `<Form />`-Komponente sollte wie folgt aktualisiert werden:
+Als nächstes geben Sie `addTask()` als Eigenschaft in `<Form />` ein. Die Eigenschaft kann jeden beliebigen Namen haben, aber wählen Sie einen Namen, den Sie später verstehen werden. Etwas wie `addTask` funktioniert, weil es sowohl den Namen der Funktion als auch das, was die Funktion tun wird, beschreibt. Ihr `<Form />`-Komponentenaufruf sollte wie folgt aktualisiert werden:
 
 ```jsx
 <Form addTask={addTask} />
 ```
 
-Um dieses Prop zu verwenden, müssen wir die Signatur der `Form()`-Funktion in `Form.jsx` so ändern, dass sie `props` als Parameter akzeptiert:
+Um diese Eigenschaft zu verwenden, müssen wir die Signatur der `Form()`-Funktion in `Form.jsx` ändern, sodass sie `props` als Parameter akzeptiert:
 
 ```jsx
 function Form(props) {
@@ -112,7 +115,7 @@ function Form(props) {
 }
 ```
 
-Schließlich können wir dieses Prop innerhalb der `handleSubmit()`-Funktion in Ihrer `<Form />`-Komponente verwenden! Aktualisieren Sie es wie folgt:
+Schließlich können wir diese Eigenschaft innerhalb der `handleSubmit()`-Funktion in Ihrer `<Form />`-Komponente verwenden! Aktualisieren Sie sie wie folgt:
 
 ```jsx
 function handleSubmit(event) {
@@ -121,18 +124,18 @@ function handleSubmit(event) {
 }
 ```
 
-Wenn Sie im Browser auf den "Add"-Button klicken, wird bewiesen, dass die `addTask()`-Callback-Funktion funktioniert, aber es wäre schön, wenn wir die Benachrichtigung so gestalten könnten, dass sie uns zeigt, was wir in unser Eingabefeld eingeben! Das ist unser nächster Schritt.
+Das Klicken auf die "Hinzufügen"-Schaltfläche in Ihrem Browser wird beweisen, dass die `addTask()`-Callback-Funktion funktioniert, aber es wäre schön, wenn wir den Alarm zeigen könnten, was wir in unser Eingabefeld eingeben! Das werden wir als nächstes tun.
 
-### Hinweis: Eine Anmerkung zu Namenskonventionen
+### Abseits: eine Notiz zu Namenskonventionen
 
-Wir haben die `addTask()`-Funktion als das Prop `addTask` in die `<Form />`-Komponente übergeben, damit die Beziehung zwischen der `addTask()`-Funktion und dem `addTask`-Prop so klar wie möglich bleibt. Denken Sie jedoch daran, dass Prop-Namen nichts Bestimmtes sein **müssen**. Wir hätten `addTask()` unter einem beliebigen anderen Namen in `<Form />` übergeben können, zum Beispiel so:
+Wir haben die Funktion `addTask()` in die `<Form />`-Komponente als Eigenschaft `addTask` übergeben, damit die Beziehung zwischen der `addTask()`-Funktion und der `addTask`-Eigenschaft so klar wie möglich bleibt. Bedenken Sie jedoch, dass Eigenschaftsnamen nicht unbedingt etwas Bestimmtes sein müssen. Wir hätten `addTask()` unter einem anderen Namen, wie diesem, an `<Form />` übergeben können:
 
 ```diff
 - <Form addTask={addTask} />
 + <Form onSubmit={addTask} />
 ```
 
-Das würde die `addTask()`-Funktion in der `<Form />`-Komponente als `onSubmit`-Prop verfügbar machen. Dieses Prop könnte in `Form.jsx` so verwendet werden:
+Dies würde die Funktion `addTask()` der `<Form />`-Komponente als Eigenschaft `onSubmit` zur Verfügung stellen. Diese Eigenschaft könnte in `Form.jsx` wie folgt verwendet werden:
 
 ```diff
 function handleSubmit(event) {
@@ -142,49 +145,49 @@ function handleSubmit(event) {
 }
 ```
 
-Hier gibt uns das `on`-Präfix den Hinweis, dass das Prop eine Callback-Funktion ist; `Submit` ist unser Hinweis darauf, dass ein Submit-Ereignis diese Funktion auslösen wird.
+Hier gibt uns das `on`-Präfix den Hinweis darauf, dass die Eigenschaft eine Callback-Funktion ist; `Submit` deutet darauf hin, dass ein Übermittlungsereignis diese Funktion auslösen wird.
 
-Obwohl Callback-Props oft die Namen bekannter Ereignishandler wie `onSubmit` oder `onClick` widerspiegeln, können sie nach Belieben benannt werden, solange sie dabei helfen, ihre Bedeutung klarzumachen. Eine hypothetische `<Menu />`-Komponente könnte eine Callback-Funktion beinhalten, die beim Öffnen des Menüs ausgeführt wird, sowie eine separate Callback-Funktion, die beim Schließen des Menüs ausgeführt wird:
+Während Callback-Eigenschaften oft mit den Namen bekannter Ereignis-Handler wie `onSubmit` oder `onClick` übereinstimmen, können sie nahezu alles genannt werden, was hilft, ihre Bedeutung klarzumachen. Eine theoretische `<Menu />`-Komponente könnte eine Callback-Funktion beinhalten, die ausgeführt wird, wenn das Menü geöffnet wird, sowie eine separate Callback-Funktion, die ausgeführt wird, wenn es geschlossen wird:
 
 ```jsx
 <Menu onOpen={() => console.log("Hi!")} onClose={() => console.log("Bye!")} />
 ```
 
-Diese `on*`-Namenskonvention ist sehr verbreitet im React-Ökosystem, merken Sie sie sich während Sie weiter lernen. Zur Klarheit bleiben wir bei `addTask` und ähnlichen Prop-Namen für den Rest dieses Tutorials. Falls Sie während des Lesens dieses Abschnitts irgendwelche Prop-Namen geändert haben, stellen Sie sicher, dass Sie sie zurück ändern, bevor Sie fortfahren!
+Diese `on*`-Namenskonvention ist im React-Ökosystem sehr verbreitet, also behalten Sie sie im Hinterkopf, während Sie weiterlernen. Um der Klarheit willen werden wir im Rest dieses Tutorials bei `addTask` und ähnlichen Eigenschaftsnamen bleiben. Wenn Sie während des Lesens dieses Abschnitts Eigenschaftsnamen geändert haben, stellen Sie sicher, dass Sie sie ändern, bevor Sie fortfahren!
 
-## Daten mit Zustand beibehalten und ändern
+## Daten mit Zustand speichern und ändern
 
-Bisher haben wir Props verwendet, um Daten durch unsere Komponenten zu leiten, und das war für uns in Ordnung. Jetzt, da wir uns mit Interaktivität befassen, benötigen wir die Möglichkeit, neue Daten zu erstellen, sie zu behalten und später zu aktualisieren. Props sind dafür nicht das richtige Werkzeug, weil sie unveränderlich sind - eine Komponente kann ihre eigenen Props nicht ändern oder erstellen.
+Bisher haben wir Eigenschaften verwendet, um Daten durch unsere Komponenten zu übergeben, und das hat uns ganz gut gedient. Da wir jetzt mit Interaktivität zu tun haben, benötigen wir jedoch die Möglichkeit, neue Daten zu erstellen, sie beizubehalten und später zu aktualisieren. Eigenschaften sind nicht das richtige Werkzeug für diese Aufgabe, da sie unveränderlich sind – eine Komponente kann ihre eigenen Eigenschaften nicht ändern oder erstellen.
 
-Hier kommt der **Zustand** ins Spiel. Wenn wir Props als Kommunikationsmittel zwischen Komponenten sehen, können wir Zustand als eine Möglichkeit betrachten, Komponenten "Gedächtnis" zu geben – Informationen, die sie bei Bedarf behalten und aktualisieren können.
+Hier kommt der **Zustand** ins Spiel. Wenn wir Eigenschaften als Mittel zur Kommunikation zwischen Komponenten betrachten, können wir den Zustand als eine Möglichkeit betrachten, Komponenten ein "Gedächtnis" zu geben – Informationen, die sie bei Bedarf behalten und aktualisieren können.
 
-React bietet eine spezielle Funktion zur Einführung von Zustand in eine Komponente, passend `useState()` genannt.
+React bietet eine spezielle Funktion, um einer Komponente einen Zustand hinzuzufügen, treffend benannt `useState()`.
 
-> **Hinweis:** `useState()` gehört zu einer speziellen Kategorie von Funktionen, die als **Hooks** bezeichnet werden, von denen jede zur Erweiterung einer Komponente genutzt werden kann. Später erfahren wir mehr über andere Hooks.
+> **Hinweis:** `useState()` gehört zu einer speziellen Kategorie von Funktionen namens **Hooks**, von denen jede verwendet werden kann, um einer Komponente neue Funktionalität hinzuzufügen. Wir werden später mehr über andere Hooks lernen.
 
-Um `useState()` zu verwenden, müssen wir es aus dem React-Modul importieren. Fügen Sie die folgende Zeile an der Spitze Ihrer `Form.jsx`-Datei hinzu, über der `Form()`-Funktionsdefinition:
+Um `useState()` zu verwenden, müssen wir es aus dem React-Modul importieren. Fügen Sie die folgende Zeile oben in Ihrer `Form.jsx`-Datei, über der `Form()`-Funktionsdefinition hinzu:
 
 ```jsx
 import { useState } from "react";
 ```
 
-`useState()` nimmt ein einzelnes Argument entgegen, das den Anfangswert des Zustands bestimmt. Dieses Argument kann ein String, eine Zahl, ein Array, ein Objekt oder jeder andere JavaScript-Datentyp sein. `useState()` gibt ein Array mit zwei Elementen zurück. Das erste Element ist der aktuelle Wert des Zustands; das zweite Element ist eine Funktion, mit der der Zustand aktualisiert werden kann.
+`useState()` nimmt ein einzelnes Argument, das den anfänglichen Wert des Zustands bestimmt. Dieses Argument kann ein String, eine Zahl, ein Array, ein Objekt oder ein anderer JavaScript-Datentyp sein. `useState()` gibt ein Array zurück, das zwei Elemente enthält. Das erste Element ist der aktuelle Wert des Zustands, das zweite Element ist eine Funktion, die verwendet werden kann, um den Zustand zu aktualisieren.
 
-Erstellen wir einen `name`-Zustand. Schreiben Sie das Folgende über Ihre `handleSubmit()`-Funktion, innerhalb von `Form()`:
+Lassen Sie uns einen `name`-Zustand erstellen. Schreiben Sie das Folgende über Ihre `handleSubmit()`-Funktion, innerhalb von `Form()`:
 
 ```jsx
 const [name, setName] = useState("Learn React");
 ```
 
-In dieser Codezeile passiert Folgendes:
+Mehrere Dinge passieren in dieser Codezeile:
 
-- Wir definieren eine Konstante `name` mit dem Wert `"Learn React"`.
-- Wir definieren eine Funktion, deren Aufgabe es ist, `name` zu ändern, diese wird `setName()` genannt.
-- `useState()` gibt diese beiden Dinge in einem Array zurück, sodass wir [Array Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) verwenden, um sie in separaten Variablen zu erfassen.
+- Wir definieren eine `name`-Konstante mit dem Wert `"Learn React"`.
+- Wir definieren eine Funktion namens `setName()`, deren Aufgabe es ist, `name` zu ändern.
+- `useState()` gibt diese beiden Dinge in einem Array zurück, sodass wir [Destrukturierung von Arrays](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) verwenden, um sie beide in separaten Variablen zu erfassen.
 
-### Zustand auslesen
+### Zustand lesen
 
-Sie können den `name`-Zustand sofort in Aktion sehen. Fügen Sie ein `value`-Attribut zum Formular-Input hinzu und setzen Sie seinen Wert auf `name`. Ihr Browser wird "Learn React" im Eingabefeld rendern.
+Sie können den `name`-Zustand sofort in Aktion sehen. Fügen Sie dem Eingabefeld des Formulars ein `value`-Attribut hinzu und setzen Sie dessen Wert auf `name`. Ihr Browser wird "Learn React" im Eingabefeld rendern.
 
 ```jsx
 <input
@@ -197,15 +200,15 @@ Sie können den `name`-Zustand sofort in Aktion sehen. Fügen Sie ein `value`-At
 />
 ```
 
-Ändern Sie "Learn React" in einen leeren String, sobald Sie fertig sind; das ist unser gewünschter Anfangszustand:
+Ändern Sie "Learn React" in eine leere Zeichenkette, wenn Sie fertig sind; das ist es, was wir für unseren anfänglichen Zustand wollen:
 
 ```jsx
 const [name, setName] = useState("");
 ```
 
-### Benutzereingaben erfassen
+### Benutzereingaben lesen
 
-Bevor wir den Wert von `name` ändern können, müssen wir die Eingaben eines Benutzers erfassen, während er/sie tippt. Dafür können wir das `onChange`-Ereignis überwachen. Schreiben wir eine `handleChange()`-Funktion und hören Sie auf das `<input />`-Element.
+Bevor wir den Wert von `name` ändern können, müssen wir die Eingabe eines Benutzers erfassen, während er tippt. Dafür können wir das `onChange`-Ereignis überwachen. Lassen Sie uns eine Funktion `handleChange()` schreiben und sie auf dem `<input />`-Element belauschen.
 
 ```jsx
 // near the top of the `Form` component
@@ -227,11 +230,11 @@ function handleChange() {
 />;
 ```
 
-Derzeit wird sich der Wert des Eingabefelds nicht ändern, wenn Sie versuchen, darin zu tippen, aber Ihr Browser wird das Wort "Typing!" in die JavaScript-Konsole protokollieren, damit wir wissen, dass unser Ereignis-Listener an das Eingabefeld angeschlossen wurde.
+Derzeit wird sich der Wert unseres Eingabefeldes nicht ändern, wenn Sie versuchen, Text einzugeben, aber Ihr Browser wird das Wort "Typing!" in die JavaScript-Konsole protokollieren, damit wir wissen, dass unser Ereignis-Listener mit der Eingabe verbunden ist.
 
-Um die Tastenanschläge des Benutzers zu erfassen, müssen wir auf die `value`-Eigenschaft des Eingabefelds zugreifen. Dazu können wir das `event`-Objekt lesen, das `handleChange()` erhält, wenn es aufgerufen wird. `event` hat wiederum [eine Eigenschaft namens `target`](/de/docs/Web/API/Event/target), die das Element repräsentiert, das das `change`-Ereignis ausgelöst hat. Das ist unser Eingabefeld. Also ist `event.target.value` der Text innerhalb der Eingabe.
+Um die Tastenanschläge des Benutzers zu lesen, müssen wir auf die `value`-Eigenschaft der Eingabe zugreifen. Wir können dies tun, indem wir das `event`-Objekt lesen, das `handleChange()` erhält, wenn es aufgerufen wird. `event` wiederum hat [eine `target`-Eigenschaft](/de/docs/Web/API/Event/target), die das Element darstellt, das das `change`-Ereignis ausgelöst hat. Das ist unsere Eingabe. Daher ist `event.target.value` der Text in der Eingabe.
 
-Sie können `console.log()` verwenden, um diesen Wert in der Konsole Ihres Browsers zu sehen. Versuchen Sie, die `handleChange()`-Funktion wie folgt zu aktualisieren und tippen Sie in das Eingabefeld, um das Ergebnis in Ihrer Konsole zu sehen:
+Sie können diesen Wert mit `console.log()` anzeigen, um ihn in der Konsole Ihres Browsers zu sehen. Versuchen Sie, die `handleChange()`-Funktion wie folgt zu aktualisieren und in die Eingabe zu tippen, um das Ergebnis in Ihrer Konsole zu sehen:
 
 ```jsx
 function handleChange(event) {
@@ -241,7 +244,7 @@ function handleChange(event) {
 
 ### Zustand aktualisieren
 
-Protokollieren reicht nicht aus — wir möchten tatsächlich speichern, was der Benutzer tippt und es in der Eingabe rendern! Ändern Sie Ihren `console.log()`-Aufruf in `setName()`, wie unten gezeigt:
+Protokollieren allein reicht nicht aus – wir möchten tatsächlich speichern, was der Benutzer eingibt, und es in der Eingabe wiedergeben! Ändern Sie Ihren `console.log()`-Aufruf zu `setName()`, wie unten gezeigt:
 
 ```jsx
 function handleChange(event) {
@@ -249,9 +252,9 @@ function handleChange(event) {
 }
 ```
 
-Jetzt füllt sich das Eingabefeld bei der Eingabe Ihrer Tastenanschläge, wie man es erwarten würde.
+Jetzt, wenn Sie in die Eingabe tippen, werden Ihre Tastenanschläge die Eingabe ausfüllen, wie Sie erwarten würden.
 
-Wir haben noch einen weiteren Schritt: Wir müssen unsere `handleSubmit()`-Funktion so ändern, dass sie `props.addTask` mit `name` als Argument aufruft. Erinnern Sie sich an unser Callback-Prop? Dadurch wird die Aufgabe an die `App`-Komponente zurückgegeben, damit wir sie später in unsere Liste der Aufgaben aufnehmen können. Aus Gründen der guten Praxis sollten Sie die Eingabe löschen, nachdem Ihr Formular übermittelt wurde. Dafür rufen wir erneut `setName()` mit einem leeren String auf:
+Wir haben einen weiteren Schritt: Wir müssen unsere `handleSubmit()`-Funktion ändern, sodass sie `props.addTask` mit `name` als Argument aufruft. Erinnern Sie sich an unsere Callback-Eigenschaft? Dies wird dazu dienen, die Aufgabe an die `App`-Komponente zurückzusenden, damit wir sie zu einem späteren Zeitpunkt unserer Aufgabenliste hinzufügen können. Der gute Praxis halber sollten Sie die Eingabe nach dem Absenden Ihres Formulars leeren, sodass wir `setName()` erneut mit einer leeren Zeichenkette aufrufen, um dies zu tun:
 
 ```jsx
 function handleSubmit(event) {
@@ -261,9 +264,9 @@ function handleSubmit(event) {
 }
 ```
 
-Endlich können Sie etwas in das Eingabefeld im Browser eingeben und auf _Add_ klicken — was auch immer Sie eingegeben haben, erscheint in einem Benachrichtigungsfenster.
+Endlich können Sie etwas in das Eingabefeld in Ihrem Browser eingeben und auf _Hinzufügen_ klicken – was auch immer Sie eingegeben haben, erscheint in einem Dialogfeld.
 
-Ihre `Form.jsx`-Datei sollte jetzt so aussehen:
+Ihre `Form.jsx`-Datei sollte nun so aussehen:
 
 ```jsx
 import { useState } from "react";
@@ -308,27 +311,27 @@ export default Form;
 ```
 
 > [!NOTE]
-> Sie werden feststellen, dass Sie leere Aufgaben übermitteln können, indem Sie einfach auf die Schaltfläche `Add` klicken, ohne einen Aufgabennamen einzugeben. Können Sie sich eine Möglichkeit vorstellen, dies zu verhindern? Ein Hinweis: Sie müssen wahrscheinlich eine Art Überprüfung in die `handleSubmit()`-Funktion einfügen.
+> Ihnen wird auffallen, dass Sie leere Aufgaben einreichen können, indem Sie einfach die `Hinzufügen`-Taste drücken, ohne einen Aufgabennamen einzugeben. Können Sie sich eine Möglichkeit vorstellen, dies zu verhindern? Als Hinweis: Sie müssen wahrscheinlich irgendeine Art von Überprüfung in die `handleSubmit()`-Funktion einfügen.
 
-## Alles zusammenfügen: Hinzufügen einer Aufgabe
+## Alles zusammenfügen: Eine Aufgabe hinzufügen
 
-Jetzt, da wir mit Ereignissen, Callback-Props und Hooks geübt haben, sind wir bereit, die Funktionalität zu implementieren, die es einem Benutzer ermöglicht, eine neue Aufgabe von seinem/ihrem Browser aus hinzuzufügen.
+Jetzt, da wir mit Ereignissen, Callback-Eigenschaften und Hooks geübt haben, sind wir bereit, eine Funktionalität zu schreiben, die es einem Benutzer ermöglicht, eine neue Aufgabe von seinem Browser aus hinzuzufügen.
 
-### Aufgaben als Zustand
+### Aufgaben als Status
 
-Wir müssen `useState` in `App.jsx` importieren, damit wir unsere Aufgaben im Zustand speichern können. Fügen Sie Folgendes an der Spitze Ihrer `App.jsx`-Datei hinzu:
+Wir müssen `useState` in `App.jsx` importieren, damit wir unsere Aufgaben im Status speichern können. Fügen Sie das Folgende oben in Ihrer `App.jsx`-Datei hinzu:
 
 ```jsx
 import { useState } from "react";
 ```
 
-Wir möchten `props.tasks` in den `useState()`-Hook übergeben - dies wird seinen Anfangszustand bewahren. Fügen Sie Folgendes ganz oben in Ihrer `App()`-Funktionsdefinition hinzu:
+Wir möchten `props.tasks` in den `useState()`-Hook übergeben – das wird seinen Anfangszustand beibehalten. Fügen Sie das Folgende direkt am Anfang Ihrer `App()`-Funktionsdefinition hinzu:
 
 ```jsx
 const [tasks, setTasks] = useState(props.tasks);
 ```
 
-Nun können wir unser `taskList`-Mapping so ändern, dass es das Ergebnis des Mappings von `tasks` anstelle von `props.tasks` ist. Ihre `taskList`-Konstantendeklaration sollte jetzt so aussehen:
+Nun können wir unsere `taskList`-Abbildung so ändern, dass sie das Ergebnis der Abbildung von `tasks` anstelle von `props.tasks` ist. Ihre `taskList`-Konstantendeklaration sollte jetzt so aussehen:
 
 ```jsx
 const taskList = tasks?.map((task) => (
@@ -341,15 +344,15 @@ const taskList = tasks?.map((task) => (
 ));
 ```
 
-### Hinzufügen einer Aufgabe
+### Eine Aufgabe hinzufügen
 
-Wir haben jetzt einen `setTasks`-Hook, den wir in unserer `addTask()`-Funktion verwenden können, um unsere Aufgabenliste zu aktualisieren. Es gibt jedoch ein Problem: Wir können das `name`-Argument von `addTask()` nicht einfach an `setTasks` übergeben, da `tasks` ein Array von Objekten ist und `name` ein String. Würden wir dies versuchen, würde das Array durch den String ersetzt werden.
+Wir haben jetzt einen `setTasks`-Hook, den wir in unserer `addTask()`-Funktion verwenden können, um unsere Aufgabenliste zu aktualisieren. Es gibt jedoch ein Problem: Wir können das `name`-Argument von `addTask()` nicht einfach in `setTasks` übergeben, da `tasks` ein Array von Objekten ist und `name` eine Zeichenkette. Wenn wir versuchen würden, dies zu tun, würde das Array durch die Zeichenkette ersetzt werden.
 
-Zunächst müssen wir `name` in ein Objekt mit der gleichen Struktur wie unsere bestehenden Aufgaben einfügen. Innerhalb der `addTask()`-Funktion erstellen wir ein `newTask`-Objekt, das zum Array hinzugefügt wird.
+Zuerst müssen wir das `name` in ein Objekt umwandeln, das die gleiche Struktur wie unsere vorhandenen Aufgaben hat. Innerhalb der `addTask()`-Funktion erstellen wir ein `newTask`-Objekt, das dem Array hinzugefügt werden soll.
 
-Dann müssen wir ein neues Array mit dieser neuen Aufgabe erstellen und den Zustand der Aufgabendaten auf diesen neuen Zustand aktualisieren. Dazu können wir die Spread-Syntax verwenden, um [das bestehende Array zu kopieren](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax#copying_an_array), und unser Objekt am Ende hinzufügen. Diesen Array übergeben wir dann an `setTasks()`, um den Zustand zu aktualisieren.
+Dann müssen wir ein neues Array mit dieser neuen Aufgabe hinzufügen und dann den Status der Aufgabendaten auf diesen neuen Status aktualisieren. Um dies zu tun, können wir die Spread-Syntax verwenden, um [das vorhandene Array zu kopieren](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax#copying_an_array) und unser Objekt am Ende hinzufügen. Danach übergeben wir dieses Array in `setTasks()`, um den Status zu aktualisieren.
 
-Zusammengefasst sollte Ihre `addTask()`-Funktion nun so aussehen:
+Zusammengesetzt sollte Ihre `addTask()`-Funktion so aussehen:
 
 ```jsx
 function addTask(name) {
@@ -358,69 +361,69 @@ function addTask(name) {
 }
 ```
 
-Jetzt können Sie mit dem Browser eine Aufgabe zu unseren Daten hinzufügen! Tippen Sie etwas ins Formular und klicken Sie auf "Add" (oder drücken Sie die <kbd>Enter</kbd>-Taste) und Sie sehen Ihren neuen Todo-Eintrag in der Benutzeroberfläche!
+Jetzt können Sie den Browser verwenden, um eine Aufgabe zu unseren Daten hinzuzufügen! Geben Sie irgendetwas in das Formular ein und klicken auf "Hinzufügen" (oder drücken die <kbd>Enter</kbd>-Taste), und Sie werden sehen, wie Ihr neues Aufgaben-Element in der Benutzeroberfläche erscheint!
 
-**Allerdings haben wir ein weiteres Problem**: Unsere `addTask()`-Funktion gibt jeder Aufgabe die gleiche `id`. Das ist schlecht für die Barrierefreiheit und macht es unmöglich für React, zukünftige Aufgaben mit dem `key`-Prop auseinanderzuhalten. Tatsächlich wird Ihnen React in Ihrer DevTools-Konsole eine Warnung ausgeben — "Warning: Encountered two children with the same key…"
+**Allerdings haben wir ein weiteres Problem**: Unsere `addTask()`-Funktion gibt jeder Aufgabe die gleiche `id`. Das ist schlecht für die Barrierefreiheit und macht es unmöglich, dass React zukünftige Aufgaben mit der `key`-Eigenschaft unterscheidet. Tatsächlich wird React Ihnen eine Warnung in Ihrer DevTools-Konsole geben – "Warning: Encountered two children with the same key...".
 
-Wir müssen das beheben. Eindeutige Identifikatoren zu erstellen, ist ein schwieriges Problem – eines, für das die JavaScript-Gemeinschaft einige hilfreiche Bibliotheken geschrieben hat. Wir werden [nanoid](https://github.com/ai/nanoid) verwenden, weil es klein ist und funktioniert.
+Wir müssen dies beheben. Eindeutige Bezeichner zu erstellen ist ein schwieriges Problem, wofür die JavaScript-Community einige hilfreiche Bibliotheken geschrieben hat. Wir werden [nanoid](https://github.com/ai/nanoid) verwenden, weil es klein ist und funktioniert.
 
-Vergewissern Sie sich, dass Sie sich im Stammverzeichnis Ihrer Anwendung befinden, und führen Sie den folgenden Terminalbefehl aus:
+Stellen Sie sicher, dass Sie sich im Stammverzeichnis Ihrer Anwendung befinden, und führen Sie den folgenden Terminalbefehl aus:
 
 ```bash
 npm install nanoid
 ```
 
 > [!NOTE]
-> Falls Sie yarn verwenden, benötigen Sie stattdessen Folgendes: `yarn add nanoid`.
+> Wenn Sie Yarn verwenden, benötigen Sie stattdessen Folgendes: `yarn add nanoid`.
 
-Nun können wir `nanoid` verwenden, um eindeutige IDs für unsere neuen Aufgaben zu erstellen. Zuerst müssen wir es durch Einfügen der folgenden Zeile an der Spitze von `App.jsx` importieren:
+Nun können wir `nanoid` verwenden, um eindeutige IDs für unsere neuen Aufgaben zu erstellen. Zuerst importieren wir es, indem wir die folgende Zeile oben in `App.jsx` hinzufügen:
 
 ```jsx
 import { nanoid } from "nanoid";
 ```
 
-Aktualisieren wir nun `addTask()`, sodass jede Aufgaben-ID ein Präfix `todo-` und einen eindeutigen String enthält, der von nanoid generiert wird. Aktualisieren Sie Ihre `newTask`-Konstantendeklaration auf Folgendes:
+Lassen Sie uns nun `addTask()` so aktualisieren, dass jede Aufgaben-ID ein Präfix `todo-` sowie eine von nanoid generierte eindeutige Zeichenfolge erhält. Aktualisieren Sie Ihre `newTask`-Konstanten-Deklaration zu diesem:
 
 ```jsx
 const newTask = { id: `todo-${nanoid()}`, name, completed: false };
 ```
 
-Speichern Sie alles und testen Sie Ihre App erneut — nun können Sie Aufgaben ohne die Warnung über doppelte IDs hinzufügen.
+Speichern Sie alles und testen Sie Ihre App erneut – jetzt können Sie Aufgaben hinzufügen, ohne die Warnung über doppelte IDs zu erhalten.
 
-## Umweg: Aufgaben zählen
+## Exkurs: Aufgaben zählen
 
-Nun, da wir neue Aufgaben hinzufügen können, werden Sie vielleicht ein Problem bemerken: Unsere Überschrift lautet immer "3 tasks remaining", unabhängig davon, wie viele Aufgaben wir haben! Wir können das beheben, indem wir die Länge von `taskList` zählen und den Text unserer Überschrift entsprechend ändern.
+Jetzt, da wir neue Aufgaben hinzufügen können, werden Sie möglicherweise ein Problem bemerken: Unsere Überschrift zeigt "3 tasks remaining" an, egal wie viele Aufgaben wir haben! Wir können dies beheben, indem wir die Länge von `taskList` zählen und den Text unserer Überschrift dementsprechend ändern.
 
-Fügen Sie dies innerhalb Ihrer `App()`-Definition, vor der Rückgabeanweisung hinzu:
+Fügen Sie dies in Ihrer `App()`-Definition, bevor der Return-Anweisung hinzu:
 
 ```jsx
 const headingText = `${taskList.length} tasks remaining`;
 ```
 
-Das ist fast richtig, außer dass wenn unsere Liste jemals eine einzige Aufgabe enthält, die Überschrift dennoch das Wort "tasks" verwendet. Wir können dies ebenfalls in eine Variable aufnehmen. Aktualisieren Sie den Code, den Sie gerade hinzugefügt haben, wie folgt:
+Dies ist fast richtig, außer dass, wenn unsere Liste jemals nur eine Aufgabe enthält, die Überschrift weiterhin das Wort "tasks" verwenden wird. Wir können dies auch zu einer Variablen machen. Aktualisieren Sie den Code, den Sie gerade hinzugefügt haben, wie folgt:
 
 ```jsx
 const tasksNoun = taskList.length !== 1 ? "tasks" : "task";
 const headingText = `${taskList.length} ${tasksNoun} remaining`;
 ```
 
-Nun können Sie den Textinhalt der Listenüberschrift durch die `headingText`-Variable ersetzen. Aktualisieren Sie Ihr `<h2>` in etwa so:
+Nun können Sie den Textinhalt der Listenüberschrift mit der `headingText`-Variablen ersetzen. Aktualisieren Sie Ihr `<h2>`, wie folgt:
 
 ```jsx
 <h2 id="list-heading">{headingText}</h2>
 ```
 
-Speichern Sie die Datei, gehen Sie zurück zu Ihrem Browser und versuchen Sie, einige Aufgaben hinzuzufügen: Die Anzahl sollte nun wie erwartet aktualisiert werden.
+Speichern Sie die Datei, gehen Sie zurück zu Ihrem Browser und versuchen Sie, einige Aufgaben hinzuzufügen: Die Anzahl sollte jetzt wie erwartet aktualisiert werden.
 
-## Eine Aufgabe als erledigt markieren
+## Eine Aufgabe abschließen
 
-Sie haben vielleicht bemerkt, dass sich ein Kontrollkästchen aktiviert und deaktiviert, wenn Sie darauf klicken. Als Feature von HTML weiß der Browser, wie er sich merken kann, welche Kontrollkästchen aktiviert oder deaktiviert sind, ohne unsere Hilfe. Dieses Feature verbirgt jedoch ein Problem: Das Umschalten eines Kontrollkästchens ändert nicht den Zustand in unserer React-Anwendung. Das bedeutet, dass der Browser und unsere App nun nicht mehr synchron sind. Wir müssen unseren eigenen Code schreiben, um den Browser wieder mit unserer App zu synchronisieren.
+Vielleicht bemerken Sie, dass sich ein Kontrollkästchen, wenn Sie darauf klicken, angemessen an- und abmeldet. Als eine Funktion von HTML weiß der Browser, wie man speichert, welche Kontrollkästcheneingänge ohne unsere Hilfe ausgewählt oder nicht ausgewählt sind. Diese Funktion verbirgt jedoch ein Problem: das Umschalten eines Kontrollkästchens ändert nicht den Status in unserer React-Anwendung. Das bedeutet, dass der Browser und unsere App jetzt nicht mehr synchron sind. Wir müssen unseren eigenen Code schreiben, um den Browser und unsere App wieder zu synchronisieren.
 
-### Den Fehler nachweisen
+### Den Fehler beweisen
 
-Bevor wir das Problem beheben, lassen Sie uns beobachten, wie es passiert.
+Bevor wir das Problem beheben, lassen Sie es uns beobachten, wie es passiert.
 
-Wir beginnen, indem wir eine `toggleTaskCompleted()`-Funktion in unserer `App()`-Komponente schreiben. Diese Funktion wird einen `id`-Parameter haben, aber wir werden ihn noch nicht verwenden. Vorerst protokollieren wir die erste Aufgabe im Array in der Konsole – wir werden überprüfen, was passiert, wenn wir sie in unserem Browser aktivieren oder deaktivieren:
+Wir fangen an, indem wir eine Funktion `toggleTaskCompleted()` in unserer `App()`-Komponente schreiben. Diese Funktion wird einen `id`-Parameter haben, aber wir werden ihn vorerst nicht verwenden. Vorerst werden wir das erste Element im Array in der Konsole protokollieren – wir werden beobachten, was passiert, wenn wir es in unserem Browser an- oder abmarkieren:
 
 Fügen Sie dies direkt über Ihrer `taskList`-Konstantendeklaration hinzu:
 
@@ -430,7 +433,7 @@ function toggleTaskCompleted(id) {
 }
 ```
 
-Als Nächstes fügen wir `toggleTaskCompleted` zu den Props jeder gerenderten `<Todo />`-Komponente in unserem `taskList` hinzu; aktualisieren Sie es folgendermaßen:
+Als nächstes werden wir `toggleTaskCompleted` zu den Eigenschaften jeder `<Todo />`-Komponente, die innerhalb unserer `taskList` gerendert wird, hinzufügen; aktualisieren Sie es entsprechend:
 
 ```jsx
 const taskList = tasks.map((task) => (
@@ -444,7 +447,7 @@ const taskList = tasks.map((task) => (
 ));
 ```
 
-Gehen Sie nun in Ihre `Todo.jsx`-Komponente und fügen Sie Ihrem `<input />`-Element einen `onChange`-Handler hinzu, der eine anonyme Funktion verwendet, um `props.toggleTaskCompleted()` mit einem Parameter von `props.id` aufzurufen. Das `<input />` sollte nun so aussehen:
+Gehen Sie als nächstes zur `Todo.jsx`-Komponente und fügen Sie dem `<input />`-Element einen `onChange`-Handler hinzu, der eine anonyme Funktion verwendet, um `props.toggleTaskCompleted()` mit einem Parameter von `props.id` aufzurufen. Der `<input />` sollte nun so aussehen:
 
 ```jsx
 <input
@@ -455,19 +458,19 @@ Gehen Sie nun in Ihre `Todo.jsx`-Komponente und fügen Sie Ihrem `<input />`-Ele
 />
 ```
 
-Speichern Sie alles und kehren Sie zu Ihrem Browser zurück und bemerken Sie, dass unsere erste Aufgabe, "Eat", aktiviert ist. Öffnen Sie Ihre JavaScript-Konsole, und klicken Sie dann auf das Kontrollkästchen neben "Eat". Es wird deaktiviert, wie wir es erwarten. Ihre JavaScript-Konsole protokolliert jedoch so etwas wie:
+Speichern Sie alles, und gehen Sie zurück zu Ihrem Browser und bemerken Sie, dass unsere erste Aufgabe, Essen, aktiviert ist. Öffnen Sie Ihre JavaScript-Konsole und klicken Sie dann auf das Kontrollkästchen neben Essen. Es wird abgehakt, wie wir es erwarten. Ihre JavaScript-Konsole wird jedoch etwas wie dies protokollieren:
 
 ```plain
 Object { id: "task-0", name: "Eat", completed: true }
 ```
 
-Das Kontrollkästchen wird im Browser deaktiviert, aber unsere Konsole zeigt, dass "Eat" immer noch abgeschlossen ist. Das werden wir als Nächstes beheben!
+Das Kontrollkästchen im Browser wird deaktiviert, aber unsere Konsole sagt uns, dass Essen immer noch abgeschlossen ist. Wir werden das als nächstes beheben!
 
 ### Den Browser mit unseren Daten synchronisieren
 
-Schauen wir uns noch einmal unsere `toggleTaskCompleted()`-Funktion in `App.jsx` an. Wir möchten, dass sie die `completed`-Eigenschaft nur der Aufgabe ändert, die umgeschaltet wurde, und alle anderen unverändert lässt. Dazu werden wir über die Aufgabenliste `map()` verwenden und nur die ändern, die wir abgeschlossen haben.
+Lassen Sie uns unsere Funktion `toggleTaskCompleted()` in `App.jsx` erneut besuchen. Wir möchten, dass es die Eigenschaft `completed` nur der Aufgabe ändert, die umgeschaltet wurde, und alle anderen in Ruhe lässt. Dazu werden wir über die Aufgabenliste `map()` verwenden und nur die ändern, die wir abgeschlossen haben.
 
-Aktualisieren Sie Ihre `toggleTaskCompleted()`-Funktion wie folgt:
+Aktualisieren Sie Ihre Funktion `toggleTaskCompleted()` auf das Folgende:
 
 ```jsx
 function toggleTaskCompleted(id) {
@@ -484,17 +487,17 @@ function toggleTaskCompleted(id) {
 }
 ```
 
-Hier definieren wir eine `updatedTasks`-Konstante, die über das ursprüngliche `tasks`-Array abbildet. Wenn die `id`-Eigenschaft der Aufgabe mit der gegebenen `id` übereinstimmt, verwenden wir [Objekt-Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), um ein neues Objekt zu erstellen, und schalten die `completed`-Eigenschaft dieses Objekts um, bevor wir es zurückgeben. Wenn es nicht übereinstimmt, geben wir das ursprüngliche Objekt zurück.
+Hier definieren wir eine Konstante `updatedTasks`, die über das ursprüngliche `tasks`-Array mappt. Wenn die `id`-Eigenschaft der Aufgabe mit der `id` übereinstimmt, die der Funktion übergeben wurde, verwenden wir [das Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), um ein neues Objekt zu erstellen, und schalten die `completed`-Eigenschaft dieses Objekts um, bevor wir es zurückgeben. Wenn es nicht übereinstimmt, geben wir das ursprüngliche Objekt zurück.
 
-Dann rufen wir `setTasks()` mit diesem neuen Array auf, um unseren Zustand zu aktualisieren.
+Dann rufen wir `setTasks()` mit diesem neuen Array auf, um unseren Status zu aktualisieren.
 
 ## Eine Aufgabe löschen
 
-Das Löschen einer Aufgabe folgt einem ähnlichen Muster wie das Umschalten ihres abgeschlossenen Status: Wir müssen eine Funktion definieren, die unseren Zustand aktualisiert, und diese Funktion dann als Prop in `<Todo />` übergeben und aufrufen, wenn das richtige Ereignis eintritt.
+Das Löschen einer Aufgabe wird einem ähnlichen Muster wie das Umschalten ihres Abschlussstatus folgen: Wir müssen eine Funktion zum Aktualisieren unseres Status definieren und dann diese Funktion als Eigenschaft an `<Todo />` übergeben und sie aufrufen, wenn das richtige Ereignis eintritt.
 
-### Die `deleteTask`-Callback-Prop
+### Die `deleteTask`-Callback-Eigenschaft
 
-Hier beginnen wir, indem wir eine `deleteTask()`-Funktion in Ihrer `App`-Komponente schreiben. Wie `toggleTaskCompleted()` wird diese Funktion einen `id`-Parameter akzeptieren, und wir werden diesen `id` zunächst in der Konsole protokollieren. Fügen Sie Folgendes unter `toggleTaskCompleted()` hinzu:
+Hier beginnen wir mit dem Schreiben einer `deleteTask()`-Funktion in Ihrer `App`-Komponente. Wie `toggleTaskCompleted()` wird diese Funktion einen `id`-Parameter nehmen, und wir werden zu Beginn diese `id` in der Konsole protokollieren. Fügen Sie Folgendes unter `toggleTaskCompleted()` hinzu:
 
 ```jsx
 function deleteTask(id) {
@@ -502,7 +505,7 @@ function deleteTask(id) {
 }
 ```
 
-Fügen Sie dann unserem Array von `<Todo />`-Komponenten eine weitere Callback-Prop hinzu:
+Fügen Sie als nächstes eine weitere Callback-Eigenschaft zu unserem Array von `<Todo />`-Komponenten hinzu:
 
 ```jsx
 const taskList = tasks.map((task) => (
@@ -517,9 +520,9 @@ const taskList = tasks.map((task) => (
 ));
 ```
 
-In `Todo.jsx`, möchten wir `props.deleteTask()` aufrufen, wenn die "Delete"-Schaltfläche gedrückt wird. `deleteTask()` muss die ID der Aufgabe kennen, die ihn aufgerufen hat, damit sie die richtige Aufgabe aus dem Zustand löschen kann.
+In `Todo.jsx` möchten wir, dass `props.deleteTask()` aufgerufen wird, wenn die Schaltfläche "Löschen" gedrückt wird. `deleteTask()` muss die ID der Aufgabe kennen, die sie aufgerufen hat, damit die richtige Aufgabe aus dem Status gelöscht werden kann.
 
-Aktualisieren Sie die "Delete"-Schaltfläche in `Todo.jsx` so:
+Aktualisieren Sie die Schaltfläche "Löschen" in `Todo.jsx`, wie folgt:
 
 ```jsx
 <button
@@ -530,9 +533,9 @@ Aktualisieren Sie die "Delete"-Schaltfläche in `Todo.jsx` so:
 </button>
 ```
 
-Nun wird, wann immer Sie auf eine der "Delete"-Schaltflächen in der App klicken, die ID der zugehörigen Aufgabe in der Browser-Konsole protokolliert.
+Nun, wenn Sie auf eine der "Löschen"-Schaltflächen in der App klicken, sollte die Konsole Ihres Browsers die ID der zugehörigen Aufgabe protokollieren.
 
-An diesem Punkt sollte Ihre `Todo.jsx`-Datei wie folgt aussehen:
+An diesem Punkt sollte Ihre Datei `Todo.jsx` wie folgt aussehen:
 
 ```jsx
 function Todo(props) {
@@ -567,11 +570,11 @@ function Todo(props) {
 export default Todo;
 ```
 
-## Aufgaben aus Zustand und UI löschen
+## Aufgaben aus Status und UI löschen
 
-Jetzt, da wir wissen, dass `deleteTask()` korrekt ausgelöst wird, können wir unseren `setTasks()`-Hook in `deleteTask()` aufrufen, um die Aufgabe tatsächlich aus dem Zustand der App sowie visuell in der App-Benutzeroberfläche zu löschen. Da `setTasks()` ein Array als Argument erwartet, sollten wir ihm ein neues Array übergeben, das die bestehenden Aufgaben kopiert, _ausgenommen_ die Aufgabe, deren ID mit dem an `deleteTask()` übergebenen übereinstimmt.
+Jetzt, da wir wissen, dass `deleteTask()` korrekt aufgerufen wird, können wir unseren `setTasks()`-Hook in `deleteTask()` aufrufen, um diese Aufgabe aus dem Status der App sowie visuell in der App-Benutzeroberfläche tatsächlich zu löschen. Da `setTasks()` ein Array als Argument erwartet, sollten wir ihm ein neues Array übergeben, das die vorhandenen Aufgaben kopiert und die Aufgabe _ausschließt_, deren ID mit der in `deleteTask()` übergebenen ID übereinstimmt.
 
-Dies ist eine perfekte Gelegenheit, [`Array.prototype.filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) zu verwenden. Wir können jede Aufgabe überprüfen und eine Aufgabe aus dem neuen Array ausschließen, wenn ihre `id`-Eigenschaft mit der in `deleteTask()` übergebenen `id` übereinstimmt.
+Dies ist eine perfekte Gelegenheit, [`Array.prototype.filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) zu verwenden. Wir können jede Aufgabe testen und eine Aufgabe aus dem neuen Array ausschließen, wenn ihre `id`-Eigenschaft mit dem `id`-Argument übereinstimmt, das in `deleteTask()` übergeben wurde.
 
 Aktualisieren Sie die `deleteTask()`-Funktion in Ihrer `App.jsx`-Datei wie folgt:
 
@@ -582,7 +585,7 @@ function deleteTask(id) {
 }
 ```
 
-Probieren Sie Ihre App noch einmal aus. Jetzt sollten Sie in der Lage sein, eine Aufgabe aus Ihrer App zu löschen!
+Versuchen Sie Ihre App erneut. Jetzt sollten Sie in der Lage sein, eine Aufgabe aus Ihrer App zu löschen!
 
 An diesem Punkt sollte Ihre `App.jsx`-Datei wie folgt aussehen:
 
@@ -657,6 +660,6 @@ export default App;
 
 ## Zusammenfassung
 
-Das reicht für einen Artikel. Hier haben wir Ihnen eine umfassende Einführung gegeben, wie React mit Ereignissen umgeht und Zustand handhabt, und haben die Funktionalität zum Hinzufügen, Löschen und Umschalten von Aufgaben als erledigt implementiert. Wir sind fast am Ziel. Im nächsten Artikel implementieren wir die Funktionalität, um bestehende Aufgaben zu bearbeiten und die Liste der Aufgaben zwischen allen, erledigten und unerledigten Aufgaben zu filtern. Dabei werden wir einen Blick auf das konditionale UI-Rendering werfen.
+Das reicht für einen Artikel. Hier haben wir Ihnen das nötige Wissen vermittelt, wie React mit Ereignissen umgeht und den Zustand verwaltet, und Funktionalität implementiert, um Aufgaben hinzuzufügen, Aufgaben zu löschen und Aufgaben als erledigt umzuschalten. Wir sind fast am Ziel. Im nächsten Artikel werden wir Funktionalität implementieren, um vorhandene Aufgaben zu bearbeiten und die Liste der Aufgaben zwischen allen, erledigten und unerledigten Aufgaben zu filtern. Dabei werden wir uns mit der bedingten UI-Darstellung befassen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/React_components","Learn_web_development/Core/Frameworks_libraries/React_interactivity_filtering_conditional_rendering", "Learn_web_development/Core/Frameworks_libraries")}}

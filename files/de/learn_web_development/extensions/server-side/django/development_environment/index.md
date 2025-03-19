@@ -1,26 +1,27 @@
 ---
 title: Einrichten einer Django-Entwicklungsumgebung
+short-title: Einrichtung der Entwicklungsumgebung
 slug: Learn_web_development/Extensions/Server-side/Django/development_environment
 l10n:
-  sourceCommit: 2e3661d1b4b277983b2dd9a935ba2648e8f8a9b9
+  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Introduction", "Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website", "Learn_web_development/Extensions/Server-side/Django")}}
 
-Da Sie nun wissen, wofür Django geeignet ist, zeigen wir Ihnen, wie Sie eine Django-Entwicklungsumgebung auf Windows, Linux (Ubuntu) und macOS einrichten und testen können — unabhängig davon, welches gängige Betriebssystem Sie verwenden, sollte Ihnen dieser Artikel das nötige Wissen vermitteln, um mit der Entwicklung von Django-Apps zu beginnen.
+Nun, da Sie wissen, wofür Django verwendet wird, zeigen wir Ihnen, wie Sie eine Django-Entwicklungsumgebung auf Windows, Linux (Ubuntu) und macOS einrichten und testen können — unabhängig davon, welches gängige Betriebssystem Sie verwenden, dieser Artikel sollte Ihnen alles bieten, was Sie benötigen, um mit der Entwicklung von Django-Anwendungen zu beginnen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse im Umgang mit einem Terminal/der Befehlszeile und wie Sie Softwarepakete auf dem Betriebssystem Ihres Entwicklungsrechners installieren.
+        Grundkenntnisse im Umgang mit einem Terminal/einer Eingabeaufforderung und wie Sie Softwarepakete auf dem Betriebssystem Ihres Entwicklungscomputers installieren.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Eine Entwicklungsumgebung für Django (4.*) auf Ihrem Rechner lauffähig zu haben.
+        Eine Entwicklungsumgebung für Django (4.*) auf Ihrem Computer zum Laufen zu bringen.
       </td>
     </tr>
   </tbody>
@@ -28,123 +29,124 @@ Da Sie nun wissen, wofür Django geeignet ist, zeigen wir Ihnen, wie Sie eine Dj
 
 ## Überblick über die Django-Entwicklungsumgebung
 
-Django macht es sehr einfach, Ihren eigenen Rechner so einzurichten, dass Sie mit der Entwicklung von Webanwendungen beginnen können. Dieser Abschnitt erklärt, was Sie mit der Entwicklungsumgebung erhalten, und gibt einen Überblick über einige Ihrer Einrichtungs- und Konfigurationsoptionen. Der Rest des Artikels erklärt die _empfohlene_ Methode zur Installation der Django-Entwicklungsumgebung auf Ubuntu, macOS und Windows sowie deren Testmöglichkeiten.
+Django macht es sehr einfach, Ihren eigenen Computer so einzurichten, dass Sie mit der Entwicklung von Webanwendungen beginnen können. Dieser Abschnitt erklärt, was Sie mit der Entwicklungsumgebung erhalten, und gibt eine Übersicht über einige Ihrer Einrichtungs- und Konfigurationsoptionen. Der Rest des Artikels erklärt die _empfohlene_ Methode zur Installation der Django-Entwicklungsumgebung auf Ubuntu, macOS und Windows und wie Sie diese testen können.
 
 ### Was ist die Django-Entwicklungsumgebung?
 
-Die Entwicklungsumgebung ist eine Installation von Django auf Ihrem lokalen Computer, die Sie für die Entwicklung und das Testen von Django-Apps verwenden können, bevor Sie diese in einer Produktionsumgebung bereitstellen.
+Die Entwicklungsumgebung ist eine Installation von Django auf Ihrem lokalen Computer, die Sie zum Entwickeln und Testen von Django-Anwendungen verwenden können, bevor Sie sie in eine Produktionsumgebung überführen.
 
-Die wichtigsten Werkzeuge, die Django selbst bereitstellt, sind eine Reihe von Python-Skripten zum Erstellen und Arbeiten mit Django-Projekten sowie ein einfacher _Entwicklungs-Webserver_, mit dem Sie lokale (d.h. auf Ihrem Computer, nicht auf einem externen Webserver) Django-Webanwendungen im Webbrowser Ihres Computers testen können.
+Die Hauptwerkzeuge, die Django selbst bereitstellt, sind eine Reihe von Python-Skripten zum Erstellen und Arbeiten mit Django-Projekten, zusammen mit einem einfachen _Entwicklungs-Webserver_, den Sie verwenden können, um lokale (d.h. auf Ihrem Computer, nicht auf einem externen Webserver) Django-Webanwendungen im Webbrowser Ihres Computers zu testen.
 
-Es gibt weitere Hilfswerkzeuge, die oft Teil der Entwicklungsumgebung sind, die wir hier nicht behandeln werden. Dazu gehören Dinge wie [Texteditoren](/de/docs/Learn_web_development/Howto/Tools_and_setup/Available_text_editors) oder IDEs zum Bearbeiten von Code, Lintern zur automatischen Formatierung usw. Wir gehen davon aus, dass Sie bereits einen Texteditor installiert haben.
+Es gibt andere Peripheriewerkzeuge, die oft Teil der Entwicklungsumgebung sind, die wir hier nicht abdecken werden. Dazu gehören Dinge wie ein [Texteditor](/de/docs/Learn_web_development/Howto/Tools_and_setup/Available_text_editors) oder eine IDE zum Bearbeiten von Code, Linters zum automatischen Formatieren usw. Wir gehen davon aus, dass Sie bereits einen Texteditor installiert haben.
 
-### Welche Django-Einrichtungsoptionen gibt es?
+### Welche Django-Setup-Optionen gibt es?
 
 Django ist extrem flexibel in Bezug darauf, wie und wo es installiert und konfiguriert werden kann. Django kann:
 
 - Auf verschiedenen Betriebssystemen installiert werden.
-- Aus dem Quelltext, aus dem Python Package Index (PyPi) und in vielen Fällen über das Paketverwaltungsprogramm des Hostcomputers installiert werden.
-- So konfiguriert werden, dass es eine von mehreren Datenbanken verwendet, die möglicherweise ebenfalls separat installiert und konfiguriert werden müssen.
-- Im Hauptsystem-Python-Umgebung oder in separaten Python-Virtualumgebungen ausgeführt werden.
+- Aus dem Quellcode, vom Python-Paketindex (PyPi) und in vielen Fällen vom Paketmanager des Hostcomputers installiert werden.
+- So konfiguriert werden, dass es eine von mehreren Datenbanken verwendet, die möglicherweise auch separat installiert und konfiguriert werden müssen.
+- Im Hauptsystem-Python-Umfeld oder innerhalb separater Python-Virtualumgebungen ausgeführt werden.
 
-Jede dieser Optionen erfordert eine etwas andere Konfiguration und Einrichtung. Die folgenden Unterabschnitte erklären einige Ihrer Möglichkeiten. Für den Rest des Artikels zeigen wir Ihnen, wie Sie Django auf einer kleinen Anzahl an Betriebssystemen einrichten, und davon wird im Rest dieses Moduls ausgegangen.
+Jede dieser Optionen erfordert eine leicht unterschiedliche Konfiguration und Einrichtung. Die folgenden Abschnitte erklären einige Ihrer Wahlmöglichkeiten. Für den Rest des Artikels zeigen wir Ihnen, wie Sie Django auf einer kleinen Anzahl von Betriebssystemen einrichten, und diese Einrichtung wird in diesem Modul vorausgesetzt.
 
 > [!NOTE]
-> Weitere Installationsoptionen sind in der offiziellen Django-Dokumentation beschrieben. Wir verlinken auf die [entsprechenden Dokumente unten](#siehe_auch).
+> Andere mögliche Installationsoptionen werden in der offiziellen Django-Dokumentation behandelt. Wir verlinken auf die [entsprechenden Dokumente unten](#siehe_auch).
 
 #### Welche Betriebssysteme werden unterstützt?
 
-Django-Webanwendungen können auf fast jedem Rechner betrieben werden, der die Programmiersprache Python 3 ausführen kann: Windows, macOS, Linux/Unix, Solaris, um nur einige zu nennen. Fast jeder Computer sollte die notwendige Leistung haben, um Django während der Entwicklung auszuführen.
+Django-Webanwendungen können auf fast jedem Computer laufen, der die Programmiersprache Python 3 ausführen kann: Windows, macOS, Linux/Unix, Solaris, um nur einige zu nennen. Fast jeder Computer sollte die erforderliche Leistung haben, um Django während der Entwicklung auszuführen.
 
 In diesem Artikel geben wir Anweisungen für Windows, macOS und Linux/Unix.
 
-#### Welche Python-Version sollte verwendet werden?
+#### Welche Version von Python sollte verwendet werden?
 
-Sie können jede Python-Version verwenden, die von Ihrer Zielversion von Django unterstützt wird. Für Django 5.0 sind die zulässigen Versionen Python 3.10 bis 3.12 (siehe [FAQ:Installation](https://docs.djangoproject.com/en/5.0/faq/install/#what-python-version-can-i-use-with-django)).
+Sie können jede Python-Version verwenden, die von Ihrer Ziel-Django-Veröffentlichung unterstützt wird. Für Django 5.0 sind die zulässigen Versionen Python 3.10 bis 3.12 (siehe [FAQ:Installation](https://docs.djangoproject.com/en/5.0/faq/install/#what-python-version-can-i-use-with-django)).
 
-Das Django-Projekt _empfiehlt_ (und "unterstützt offiziell"), die neueste verfügbare Version der unterstützten Python-Version zu verwenden.
+Das Django-Projekt _empfiehlt_ (und "unterstützt offiziell"), die neueste verfügbare Version der unterstützten Python-Ausgabe zu verwenden.
 
 #### Wo können wir Django herunterladen?
 
 Es gibt drei Orte, an denen Sie Django herunterladen können:
 
-- Das Python Package Repository (PyPi) unter Verwendung des _pip_-Tools. Dies ist der beste Weg, um die neueste stabile Version von Django zu erhalten.
-- Verwenden Sie eine Version aus dem Paketmanager Ihres Computers. Mit Betriebssystemen gebündelte Django-Distributionen bieten einen vertrauten Installationsmechanismus. Beachten Sie jedoch, dass die gepackte Version möglicherweise ziemlich alt ist und nur in der System-Python-Umgebung installiert werden kann (was möglicherweise nicht das ist, was Sie möchten).
-- Aus dem Quelltext installieren. Sie können die neueste Vorabversion von Django aus dem Quelltext erhalten und installieren. Dies wird für Anfänger nicht empfohlen, ist jedoch erforderlich, wenn Sie bereit sind, selbst zu Django beizutragen.
+- Das Python-Paket-Repository (PyPi) mit dem _pip_-Werkzeug. Dies ist der beste Weg, um die neueste stabile Version von Django zu erhalten.
+- Eine Version von Ihrem Paketmanager des Computers verwenden. Distributionen von Django, die mit Betriebssystemen gebündelt sind, bieten einen vertrauten Installationsmechanismus. Beachten Sie jedoch, dass die verpackte Version möglicherweise recht alt ist und nur in der System-Python-Umgebung installiert werden kann (was möglicherweise nicht das ist, was Sie wollen).
+- Aus dem Quellcode installieren. Sie können die neueste, richtungsweisende Version von Django aus dem Quellcode beziehen und installieren. Dies wird für Anfänger nicht empfohlen, ist aber erforderlich, wenn Sie bereit sind, selbst zu Django beizutragen.
 
-Dieser Artikel zeigt, wie Sie Django aus PyPi installieren, um die neueste stabile Version zu erhalten.
+Dieser Artikel zeigt, wie man Django von PyPi installiert, um die neueste stabile Version zu erhalten.
 
 #### Welche Datenbank?
 
-Django unterstützt offiziell die Datenbanken PostgreSQL, MariaDB, MySQL, Oracle und SQLite, und es gibt Community-Bibliotheken, die unterschiedliche Unterstützung für andere beliebte SQL- und NoSQL-Datenbanken bieten. Wir empfehlen, dass Sie sowohl für die Produktion als auch für die Entwicklung dieselbe Datenbank auswählen (obwohl Django viele der Datenbankunterschiede mit seinem Objekt-Relationalen Mapper (ORM) abstrahiert, gibt es dennoch [potenzielle Probleme](https://docs.djangoproject.com/en/5.0/ref/databases/), die besser vermieden werden).
+Django unterstützt offiziell die PostgreSQL-, MariaDB-, MySQL-, Oracle- und SQLite-Datenbanken, und es gibt Community-Bibliotheken, die unterschiedliche Unterstützung für andere beliebte SQL- und NoSQL-Datenbanken bieten. Wir empfehlen, dass Sie dieselbe Datenbank für sowohl Produktion als auch Entwicklung auswählen (obwohl Django viele der Datenbankunterschiede über seinen objekt-relationalen Mapper (ORM) abstrahiert, gibt es immer noch [potenzielle Probleme](https://docs.djangoproject.com/en/5.0/ref/databases/), die besser vermieden werden sollen).
 
-Für diesen Artikel (und die meisten Module) verwenden wir die _SQLite_-Datenbank, die ihre Daten in einer Datei speichert. SQLite ist für den Einsatz als leichte Datenbank gedacht und kann kein hohes Maß an Parallelität unterstützen. Es ist jedoch eine ausgezeichnete Wahl für Anwendungen, die hauptsächlich schreibgeschützt sind.
+Für diesen Artikel (und die meisten dieses Moduls) werden wir die _SQLite_-Datenbank verwenden, die ihre Daten in einer Datei speichert. SQLite ist für die Verwendung als leichtgewichtige Datenbank gedacht und kann kein hohes Maß an Parallelität unterstützen. Es ist jedoch eine ausgezeichnete Wahl für Anwendungen, die hauptsächlich schreibgeschützt sind.
 
 > [!NOTE]
-> Django ist standardmäßig so konfiguriert, dass es SQLite verwendet, wenn Sie Ihr Website-Projekt mit den Standardwerkzeugen (_django-admin_) starten. Es ist eine großartige Wahl, wenn Sie gerade erst anfangen, weil es keine zusätzliche Konfiguration oder Einrichtung erfordert.
+> Django ist standardmäßig so konfiguriert, dass SQLite verwendet wird, wenn Sie Ihr Website-Projekt mit den Standardwerkzeugen (_django-admin_) starten. Es ist eine großartige Wahl, wenn Sie gerade erst anfangen, da keine zusätzliche Konfiguration oder Einrichtung erforderlich ist.
 
 #### Systemweit oder in einer Python-Virtualumgebung installieren?
 
-Wenn Sie Python3 installieren, erhalten Sie eine einzige globale Umgebung, die von allen Python3-Codes gemeinsam genutzt wird. Obwohl Sie in der Umgebung beliebige Python-Pakete installieren können, können Sie jeweils nur eine bestimmte Version jedes Pakets installieren.
+Wenn Sie Python3 installieren, erhalten Sie eine einzige globale Umgebung, die von allen Python3-Code verwendet wird. Obwohl Sie beliebige Python-Pakete in der Umgebung installieren können, können Sie jeweils nur eine bestimmte Version jedes Pakets installieren.
 
 > [!NOTE]
-> In die globale Umgebung installierte Python-Anwendungen können sich gegenseitig beeinträchtigen (d.h. wenn sie von verschiedenen Versionen desselben Pakets abhängen).
+> In der globalen Umgebung installierte Python-Anwendungen können potenziell miteinander in Konflikt geraten (d.h. wenn sie von verschiedenen Versionen desselben Pakets abhängen).
 
-Wenn Sie Django in der Standard-/globalen Umgebung installieren, können Sie auf dem Computer nur eine Version von Django anvisieren. Dies kann ein Problem darstellen, wenn Sie neue Websites erstellen möchten (unter Verwendung der neuesten Version von Django), während Sie gleichzeitig Websites warten, die auf älteren Versionen basieren.
+Wenn Sie Django in der Standard-/globalen Umgebung installieren, können Sie nur eine Version von Django auf dem Computer anvisieren. Dies kann ein Problem sein, wenn Sie neue Websites erstellen möchten (unter Verwendung der neuesten Version von Django), während Sie weiterhin Websites warten, die auf älteren Versionen basieren.
 
-Daher führen erfahrene Python/Django-Entwickler Python-Apps typischerweise in unabhängigen _Python-Virtualumgebungen_ aus. Dies ermöglicht mehrere verschiedene Django-Umgebungen auf einem einzigen Computer. Das Django-Entwicklerteam selbst empfiehlt, dass Sie Python-Virtualumgebungen verwenden!
+Aus diesem Grund führen erfahrene Python/Django-Entwickler Python-Apps typischerweise innerhalb unabhängiger _Python-Virtualumgebungen_ aus. Dies ermöglicht mehrere unterschiedliche Django-Umgebungen auf einem einzigen Computer. Das Django-Entwicklungsteam selbst empfiehlt, Python-Virtualumgebungen zu verwenden!
 
-In diesem Modul wird angenommen, dass Sie Django in einer virtuellen Umgebung installiert haben, und wir zeigen Ihnen unten, wie das geht.
+Dieses Modul geht davon aus, dass Sie Django in einer virtuellen Umgebung installiert haben, und wir zeigen Ihnen unten, wie das geht.
 
-## Python 3 installieren
+## Installation von Python 3
 
-Um Django nutzen zu können, müssen Sie Python 3 auf Ihrem Betriebssystem installiert haben. Sie benötigen außerdem das [Python Package Index](https://pypi.org/)-Tool — _pip3_ —, das zur Verwaltung (Installation, Aktualisierung und Entfernung) von Python-Paketen/Bibliotheken verwendet wird, die von Django und Ihren anderen Python-Apps verwendet werden.
+Um Django verwenden zu können, müssen Sie Python 3 auf Ihrem Betriebssystem haben. Sie benötigen auch das [Python-Paketindex](https://pypi.org/)-Werkzeug _pip3_, das verwendet wird, um Python-Pakete/-Bibliotheken zu verwalten (installieren, aktualisieren und entfernen), die von Django und Ihren anderen Python-Apps verwendet werden.
 
-Dieser Abschnitt erklärt kurz, wie Sie überprüfen können, welche Python-Versionen vorhanden sind, und bei Bedarf neue Versionen für Ubuntu Linux 20.04, macOS und Windows 10 installieren.
+Dieser Abschnitt erklärt kurz, wie Sie überprüfen können, welche Python-Versionen vorhanden sind, und bei Bedarf neue Versionen für Ubuntu Linux 20.04, macOS und Windows 10 installieren können.
 
 > [!NOTE]
-> Je nach Plattform können Sie möglicherweise auch Python/pip über den eigenen Paketmanager des Betriebssystems oder über andere Mechanismen installieren. Für die meisten Plattformen können Sie die erforderlichen Installationsdateien von <https://www.python.org/downloads/> herunterladen und mit der entsprechenden plattformspezifischen Methode installieren.
+> Je nach Plattform können Sie Python/pip möglicherweise auch vom Paketmanager des Betriebssystems oder über andere Mechanismen installieren. Für die meisten Plattformen können Sie die erforderlichen Installationsdateien von <https://www.python.org/downloads/> herunterladen und sie mithilfe der geeigneten plattformspezifischen Methode installieren.
 
 ### Ubuntu 22.04
 
-Ubuntu Linux 22.04 LTS enthält standardmäßig Python 3.10.12. Sie können dies bestätigen, indem Sie den folgenden Befehl im Bash-Terminal ausführen:
+Ubuntu Linux 22.04 LTS enthält standardmäßig Python 3.10.12. Sie können dies überprüfen, indem Sie den folgenden Befehl im Bash-Terminal ausführen:
 
 ```bash
 python3 -V
 # Output: Python 3.10.12
 ```
 
-Das Python Package Index Tool (_pip3_), das Sie zum Installieren von Paketen für Python 3 (einschließlich Django) benötigen, ist jedoch nicht standardmäßig verfügbar. Sie können _pip3_ im Bash-Terminal mit folgendem Befehl installieren:
+Allerdings ist das Python-Paketindexwerkzeug (_pip3_), das Sie benötigen, um Pakete für Python 3 (einschließlich Django) zu installieren, standardmäßig **nicht** verfügbar. Sie können _pip3_ im Bash-Terminal installieren mit:
 
 ```bash
 sudo apt install python3-pip
 ```
 
 > [!NOTE]
-> Python 3.10 ist die älteste Version, die [von Django 5.0 unterstützt](https://docs.djangoproject.com/en/5.0/faq/install/#what-python-version-can-i-use-with-django) wird. Sie benötigen nicht die neueste Python-Version für dieses Tutorial, aber wenn Sie möchten, gibt es Anweisungen im Internet.
+> Python 3.10 ist die älteste Version, die von [Django 5.0 unterstützt wird](https://docs.djangoproject.com/en/5.0/faq/install/#what-python-version-can-i-use-with-django). Sie müssen _nicht_ die neueste Version von Python für dieses Tutorial verwenden, aber wenn Sie möchten, gibt es Anweisungen im Internet.
 
 ### macOS
 
-macOS beinhaltet standardmäßig nicht Python 3 (Python 2 ist in älteren Versionen enthalten). Sie können dies bestätigen, indem Sie den folgenden Befehl im Terminal ausführen:
+macOS enthält standardmäßig nicht Python 3 (Python 2 ist auf älteren Versionen enthalten). Sie können dies überprüfen, indem Sie den folgenden Befehl im Terminal ausführen:
 
 ```bash
 python3 -V
 ```
 
-Dies zeigt entweder die Python-Versionsnummer an, was darauf hinweist, dass Python 3 installiert ist, oder `python3: command not found`, was darauf hinweist, dass Python 3 nicht gefunden wurde.
+Dies zeigt entweder die Python-Versionsnummer an, was darauf hinweist, dass Python 3 installiert ist, oder `python3: command not found`, was anzeigt, dass Python 3 nicht gefunden wurde.
 
-Sie können Python 3 (zusammen mit dem _pip3_-Tool) einfach von [python.org](https://www.python.org/) installieren:
+Sie können Python 3 (einschließlich des _pip3_-Werkzeugs) einfach von [python.org](https://www.python.org/) installieren:
 
 1. Laden Sie das erforderliche Installationsprogramm herunter:
 
-   1. Gehen Sie zu <https://www.python.org/downloads/macos/>.
-   2. Laden Sie die stabile Version der neuesten [unterstützten Version](https://docs.djangoproject.com/en/5.0/faq/install/#what-python-version-can-i-use-with-django) herunter, die mit Django 5.0 funktioniert. (Zum Zeitpunkt des Schreibens ist dies Python 3.11.8).
+   1. Gehen Sie zu <https://www.python.org/downloads/macos/>
+   2. Laden Sie die stabile Version der neuesten [unterstützten Version](https://docs.djangoproject.com/en/5.0/faq/install/#what-python-version-can-i-use-with-django) herunter, die mit Django 5.0 funktioniert.
+      (zum Zeitpunkt des Schreibens ist dies Python 3.11.8).
 
-2. Suchen Sie die Datei mit _Finder_ und doppelklicken Sie auf die Paketdatei. Befolgen Sie die Installationsanweisungen.
+2. Suchen Sie die Datei mithilfe des _Finders_ und doppelklicken Sie auf die Paketdatei. Folgen Sie den Installationsaufforderungen.
 
-Sie können die erfolgreiche Installation nun bestätigen, indem Sie erneut `python3 -V` ausführen und die Python-Versionsnummer überprüfen.
+Sie können jetzt bestätigen, dass die Installation erfolgreich war, indem Sie `python3 -V` erneut ausführen und nach der Python-Versionsnummer suchen.
 
-Sie können ähnlich überprüfen, ob _pip3_ installiert ist, indem Sie die verfügbaren Pakete auflisten:
+Ähnlich können Sie überprüfen, ob _pip3_ installiert ist, indem Sie die verfügbaren Pakete auflisten:
 
 ```bash
 pip3 list
@@ -152,15 +154,16 @@ pip3 list
 
 ### Windows 10 oder 11
 
-Windows beinhaltet standardmäßig kein Python, aber Sie können es (zusammen mit dem _pip3_-Tool) ganz einfach von [python.org](https://www.python.org/) installieren:
+Windows enthält standardmäßig nicht Python, aber Sie können es (einschließlich des _pip3_-Werkzeugs) einfach von [python.org](https://www.python.org/) installieren:
 
 1. Laden Sie das erforderliche Installationsprogramm herunter:
 
-   1. Gehen Sie zu <https://www.python.org/downloads/windows/>.
-   2. Laden Sie die stabile Version der neuesten [unterstützten Version](https://docs.djangoproject.com/en/5.0/faq/install/#what-python-version-can-i-use-with-django) herunter, die mit Django 5.0 funktioniert. (Zum Zeitpunkt des Schreibens ist dies Python 3.11.8).
+   1. Gehen Sie zu <https://www.python.org/downloads/windows/>
+   2. Laden Sie die stabile Version der neuesten [unterstützten Version](https://docs.djangoproject.com/en/5.0/faq/install/#what-python-version-can-i-use-with-django) herunter, die mit Django 5.0 funktioniert.
+      (zum Zeitpunkt des Schreibens ist dies Python 3.11.8).
 
-2. Installieren Sie Python, indem Sie auf die heruntergeladene Datei doppelklicken und den Installationsanweisungen folgen.
-3. Achten Sie darauf, das Kästchen "Python zum Pfad hinzufügen" auszuwählen.
+2. Installieren Sie Python, indem Sie auf die heruntergeladene Datei doppelklicken und den Installationsaufforderungen folgen
+3. Stellen Sie sicher, dass Sie das Kontrollkästchen "Add Python to PATH" aktivieren
 
 Sie können dann überprüfen, ob Python 3 installiert wurde, indem Sie den folgenden Text in die Eingabeaufforderung eingeben:
 
@@ -168,27 +171,27 @@ Sie können dann überprüfen, ob Python 3 installiert wurde, indem Sie den folg
 py -3 -V
 ```
 
-Der Windows-Installer umfasst _pip3_ (den Python-Paketmanager) standardmäßig. Sie können installierte Pakete wie gezeigt auflisten:
+Das Windows-Installationsprogramm enthält standardmäßig _pip3_ (den Python-Paketmanager). Sie können installierte Pakete wie folgt auflisten:
 
 ```bash
 py -3 -m pip list
 ```
 
 > [!NOTE]
-> Der Installer sollte alles einrichten, was Sie benötigen, damit der obige Befehl funktioniert. Wenn Sie jedoch eine Meldung erhalten, dass Python nicht gefunden werden kann, haben Sie möglicherweise vergessen, es zu Ihrem Systempfad hinzuzufügen. Sie können dies tun, indem Sie den Installer erneut ausführen, "Ändern" auswählen und das Kästchen "Python zu Umgebungsvariablen hinzufügen" auf der zweiten Seite aktivieren.
+> Das Installationsprogramm sollte alles einrichten, was Sie benötigen, damit der obige Befehl funktioniert. Wenn Sie jedoch eine Nachricht erhalten, dass Python nicht gefunden werden kann, haben Sie möglicherweise vergessen, es zu Ihrem Systempfad hinzuzufügen. Sie können dies tun, indem Sie das Installationsprogramm erneut ausführen, "Modify" auswählen und auf der zweiten Seite das Kontrollkästchen "Add Python to environment variables" aktivieren.
 
 ## Aufrufen von Python 3 und pip3
 
 Sie werden feststellen, dass wir in den vorherigen Abschnitten unterschiedliche Befehle verwenden, um Python 3 und pip auf verschiedenen Betriebssystemen aufzurufen.
 
-Wenn Sie nur Python 3 installiert haben (und nicht Python 2), können die einfachen Befehle `python` und `pip` im Allgemeinen verwendet werden, um Python und pip auf jedem Betriebssystem auszuführen. Wenn dies auf Ihrem System erlaubt ist, erhalten Sie einen "3"-Versionsstring, wenn Sie `-V` mit den einfachen Befehlen ausführen, wie gezeigt:
+Wenn Sie nur Python 3 installiert haben (und nicht Python 2), können die einfachen Befehle `python` und `pip` im Allgemeinen verwendet werden, um Python und pip auf jedem Betriebssystem auszuführen. Wenn dies auf Ihrem System zulässig ist, erhalten Sie beim Ausführen von `-V` mit den einfachen Befehlen eine Version "3"-Zeichenfolge, wie gezeigt:
 
 ```bash
 python -V
 pip -V
 ```
 
-Wenn Python 2 installiert ist, sollten Sie zur Verwendung von Version 3 Befehle mit `python3` und `pip3` auf Linux/macOS und `py -3` und `py -3 -m pip` auf Windows voranstellen:
+Wenn Python 2 installiert ist, sollten Sie zur Verwendung von Version 3 die Befehle mit `python3` und `pip3` auf Linux/macOS und `py -3` und `py -3 -m pip` auf Windows voranstellen:
 
 ```bash
 # Linux/macOS
@@ -200,25 +203,25 @@ py -3 -V
 py -3 -m pip list
 ```
 
-Die untenstehenden Anweisungen zeigen die plattformspezifischen Befehle, wie sie auf den meisten Systemen funktionieren.
+Die unten gezeigten Anweisungen zeigen die plattformspezifischen Befehle, da sie auf mehr Systemen funktionieren.
 
-## Verwendung von Django in einer Python-Virtualumgebung
+## Verwendung von Django innerhalb einer Python-Virtualumgebung
 
-Die Bibliotheken, die wir zur Erstellung unserer virtuellen Umgebungen verwenden, sind [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/index.html) (Linux und macOS) und [virtualenvwrapper-win](https://pypi.org/project/virtualenvwrapper-win/) (Windows), die beide das Tool [virtualenv](https://virtualenv.pypa.io/en/latest/) verwenden. Die Wrapper-Tools erstellen eine konsistente Schnittstelle zur Verwaltung von Schnittstellen auf allen Plattformen.
+Die Bibliotheken, die wir zur Erstellung unserer virtuellen Umgebungen verwenden, sind [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/index.html) (Linux und macOS) und [virtualenvwrapper-win](https://pypi.org/project/virtualenvwrapper-win/) (Windows), die beide wiederum das [virtualenv](https://virtualenv.pypa.io/en/latest/)-Werkzeug verwenden. Die Wrapper-Werkzeuge erstellen eine konsistente Schnittstelle zur Verwaltung von Schnittstellen auf allen Plattformen.
 
-### Installation der virtuellen Umgebung
+### Installation der Virtual Environment Software
 
-#### Einrichtung der virtuellen Umgebung auf Ubuntu
+#### Einrichtung der virtuellen Umgebung in Ubuntu
 
-Nachdem Sie Python und pip installiert haben, können Sie _virtualenvwrapper_ (das _virtualenv_ enthält) installieren. Die offizielle Installationsanleitung finden Sie [hier](https://virtualenvwrapper.readthedocs.io/en/latest/install.html), oder folgen Sie den Anweisungen unten.
+Nach der Installation von Python und pip können Sie _virtualenvwrapper_ (das _virtualenv_ beinhaltet) installieren. Die offizielle Installationsanleitung finden Sie [hier](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) oder folgen Sie den untenstehenden Anweisungen.
 
-Installieren Sie das Tool mit _pip3_:
+Installieren Sie das Werkzeug mit _pip3_:
 
 ```bash
 sudo pip3 install virtualenvwrapper
 ```
 
-Fügen Sie dann die folgenden Zeilen am Ende Ihrer Shell-Startdatei hinzu (diese befindet sich in Ihrem Home-Verzeichnis als versteckte Datei mit dem Namen **.bashrc**). Diese legen den Speicherort fest, an dem die virtuellen Umgebungen gespeichert werden sollen, den Speicherort Ihrer Entwicklungsprojektverzeichnisse und den Speicherort des mit diesem Paket installierten Skripts:
+Fügen Sie dann die folgenden Zeilen am Ende Ihrer Shell-Startdatei hinzu (dies ist eine versteckte Datei namens **.bashrc** in Ihrem Home-Verzeichnis). Diese legen den Speicherort fest, an dem die virtuellen Umgebungen gespeichert werden sollen, den Speicherort Ihrer Entwicklungsprojektverzeichnisse und den Speicherort des mit diesem Paket installierten Skripts:
 
 ```bash
 export WORKON_HOME=$HOME/.virtualenvs
@@ -229,9 +232,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 ```
 
 > [!NOTE]
-> Die Variablen `VIRTUALENVWRAPPER_PYTHON` und `VIRTUALENVWRAPPER_VIRTUALENV_ARGS` zeigen auf den normalen Installationsort für Python 3 und `source /usr/local/bin/virtualenvwrapper.sh` zeigt auf den normalen Ort des `virtualenvwrapper.sh`-Skripts. Wenn das _virtualenv_ nicht funktioniert, wenn Sie es testen, sollten Sie prüfen, ob Python und das Skript an der erwarteten Stelle sind (und dann die Startdatei entsprechend ändern).
+> Die Variablen `VIRTUALENVWRAPPER_PYTHON` und `VIRTUALENVWRAPPER_VIRTUALENV_ARGS` weisen auf den normalen Installationsort für Python 3 hin, und `source /usr/local/bin/virtualenvwrapper.sh` zeigt auf den normalen Speicherort des `virtualenvwrapper.sh`-Skripts. Wenn das _virtualenv_ nicht funktioniert, wenn Sie es testen, sollten Sie überprüfen, ob Python und das Skript an den erwarteten Stellen sind (und dann die Startdatei entsprechend ändern).
 >
-> Sie können die richtigen Standorte für Ihr System mit den Befehlen `which virtualenvwrapper.sh` und `which python3` herausfinden.
+> Sie können die korrekten Speicherorte für Ihr System mit den Befehlen `which virtualenvwrapper.sh` und `which python3` ermitteln.
 
 Laden Sie dann die Startdatei neu, indem Sie den folgenden Befehl im Terminal ausführen:
 
@@ -239,7 +242,7 @@ Laden Sie dann die Startdatei neu, indem Sie den folgenden Befehl im Terminal au
 source ~/.bashrc
 ```
 
-An diesem Punkt sollten Sie eine Reihe von Skripten sehen, die wie unten gezeigt ausgeführt werden:
+An diesem Punkt sollten Sie sehen, dass eine Menge Skripte wie unten gezeigt ausgeführt werden:
 
 ```bash
 virtualenvwrapper.user_scripts creating /home/ubuntu/.virtualenvs/premkproject
@@ -250,19 +253,19 @@ virtualenvwrapper.user_scripts creating /home/ubuntu/.virtualenvs/postactivate
 virtualenvwrapper.user_scripts creating /home/ubuntu/.virtualenvs/get_env_details
 ```
 
-Nun können Sie eine neue virtuelle Umgebung mit dem Befehl `mkvirtualenv` erstellen.
+Jetzt können Sie mit dem Befehl `mkvirtualenv` eine neue virtuelle Umgebung erstellen.
 
-#### Einrichtung der virtuellen Umgebung auf macOS
+#### Einrichtung der virtuellen Umgebung in macOS
 
-Das Einrichten von _virtualenvwrapper_ auf macOS ist fast genau dasselbe wie auf Ubuntu (auch hier können Sie den Anweisungen entweder aus der [offiziellen Installationsanleitung](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) oder unten folgen).
+Die Einrichtung von _virtualenvwrapper_ auf macOS ist fast genauso wie auf Ubuntu (wiederum können Sie den Anweisungen in der [offiziellen Installationsanleitung](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) oder unten folgen).
 
-Installieren Sie _virtualenvwrapper_ (und Bündelung von _virtualenv_) mit _pip_ wie gezeigt.
+Installieren Sie _virtualenvwrapper_ (inklusive _virtualenv_) mit _pip_ wie gezeigt.
 
 ```bash
 sudo pip3 install virtualenvwrapper
 ```
 
-Fügen Sie dann die folgenden Zeilen am Ende Ihrer Shell-Startdatei hinzu (dies sind die gleichen Zeilen wie für Ubuntu). Wenn Sie die _zsh shell_ verwenden, ist die Startdatei eine versteckte Datei namens **.zshrc** in Ihrem Home-Verzeichnis. Wenn Sie die _bash shell_ verwenden, ist es eine versteckte Datei namens **.bash_profile**. Sie müssen die Datei möglicherweise erstellen, wenn sie noch nicht vorhanden ist.
+Fügen Sie dann die folgenden Zeilen am Ende Ihrer Shell-Startdatei hinzu (diese sind dieselben Zeilen wie für Ubuntu). Wenn Sie die _zsh-Shell_ verwenden, befindet sich die Startdatei in einer versteckten Datei namens **.zshrc** in Ihrem Home-Verzeichnis. Wenn Sie die _bash-Shell_ verwenden, befindet sie sich in einer versteckten Datei namens **.bash_profile**. Möglicherweise müssen Sie die Datei erstellen, wenn sie noch nicht existiert.
 
 ```bash
 export WORKON_HOME=$HOME/.virtualenvs
@@ -272,9 +275,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 ```
 
 > [!NOTE]
-> Die Variable `VIRTUALENVWRAPPER_PYTHON` zeigt auf den normalen Installationsort für Python 3, und `source /usr/local/bin/virtualenvwrapper.sh` zeigt auf den normalen Ort des `virtualenvwrapper.sh`-Skripts. Wenn das _virtualenv_ nicht funktioniert, wenn Sie es testen, sollten Sie prüfen, ob Python und das Skript an der erwarteten Stelle sind (und dann die Startdatei entsprechend ändern).
+> Die Variable `VIRTUALENVWRAPPER_PYTHON` weist auf den normalen Installationsort für Python 3 hin, und `source /usr/local/bin/virtualenvwrapper.sh` zeigt auf den normalen Speicherort des `virtualenvwrapper.sh`-Skripts. Wenn das _virtualenv_ beim Testen nicht funktioniert, sollten Sie prüfen, ob Python und das Skript an den erwarteten Stellen sind (und dann die Startdatei entsprechend ändern).
 >
-> In einem Installationstest auf macOS wurden die folgenden Zeilen im Startup-Datei als notwendig erachtet:
+> Zum Beispiel ergab ein Installationstest auf macOS, dass folgende Zeilen in der Startdatei notwendig waren:
 >
 > ```bash
 > export WORKON_HOME=$HOME/.virtualenvs
@@ -283,44 +286,44 @@ source /usr/local/bin/virtualenvwrapper.sh
 > source /Library/Frameworks/Python.framework/Versions/3.7/bin/virtualenvwrapper.sh
 > ```
 >
-> Sie können die richtigen Standorte für Ihr System mit den Befehlen `which virtualenvwrapper.sh` und `which python3` herausfinden.
+> Sie können die korrekten Speicherorte für Ihr System mit den Befehlen `which virtualenvwrapper.sh` und `which python3` ermitteln.
 
-Laden Sie dann die Startdatei neu, indem Sie den folgenden Befehl im Terminal aufrufen:
+Laden Sie dann die Startdatei neu, indem Sie den folgenden Befehl im Terminal ausführen:
 
 ```bash
 source ~/.bash_profile
 ```
 
-An diesem Punkt können Sie möglicherweise eine Reihe von Skripten sehen, die ausgeführt werden (dieselben Skripte wie bei der Installation auf Ubuntu). Sie sollten jetzt in der Lage sein, eine neue virtuelle Umgebung mit dem Befehl `mkvirtualenv` zu erstellen.
+An diesem Punkt könnten Sie sehen, dass eine Menge Skripte ausgeführt werden (dieselben Skripte wie bei der Ubuntu-Installation). Sie sollten nun in der Lage sein, mit dem Befehl `mkvirtualenv` eine neue virtuelle Umgebung zu erstellen.
 
 > [!NOTE]
-> Wenn Sie die Startdatei zum Bearbeiten im Finder nicht finden können, können Sie diese auch im Terminal mit nano öffnen.
+> Wenn Sie die Startdatei nicht im Finder finden können, können Sie es auch im Terminal mit nano öffnen.
 >
-> Angenommen, Sie verwenden bash, sehen die Befehle ungefähr so aus:
+> Angenommen, Sie verwenden bash, sehen die Befehle in etwa so aus:
 >
 > ```bash
-> cd ~  # Wechseln Sie zu Ihrem Home-Verzeichnis
+> cd ~  # Navigieren Sie zu meinem Home-Verzeichnis
 > ls -la # Listen Sie den Inhalt des Verzeichnisses auf. Sie sollten .bash_profile sehen
-> nano .bash_profile # Öffnen Sie die Datei im nano-Texteditor innerhalb des Terminals
-> # Scrollen Sie zum Ende der Datei und fügen Sie die obigen Zeilen ein
-> # Verwenden Sie Strg + X, um nano zu beenden, und wählen Sie Y, um die Datei zu speichern.
+> nano .bash_profile # Öffnen Sie die Datei im nano Texteditor innerhalb des Terminals
+> # Scrollen Sie zum Ende der Datei und kopieren Sie die obigen Zeilen hinein
+> # Verwenden Sie Strg+X, um nano zu beenden, wählen Sie Y, um die Datei zu speichern.
 > ```
 
-#### Einrichtung der virtuellen Umgebung unter Windows
+#### Einrichtung der virtuellen Umgebung in Windows
 
-Die Installation von [virtualenvwrapper-win](https://pypi.org/project/virtualenvwrapper-win/) ist sogar noch einfacher als das Einrichten von _virtualenvwrapper_, da Sie nicht konfigurieren müssen, wo das Tool Informationen zu virtuellen Umgebungen speichert (es gibt einen Standardwert). Alles, was Sie tun müssen, ist, den folgenden Befehl in der Eingabeaufforderung auszuführen:
+Die Installation von [virtualenvwrapper-win](https://pypi.org/project/virtualenvwrapper-win/) ist noch einfacher als die Einrichtung von _virtualenvwrapper_, weil Sie nicht konfigurieren müssen, wo das Werkzeug Informationen zur virtuellen Umgebung speichert (es gibt einen Standardwert). Sie müssen nur den folgenden Befehl in der Eingabeaufforderung ausführen:
 
 ```bash
 py -3 -m pip install virtualenvwrapper-win
 ```
 
-Jetzt können Sie eine neue virtuelle Umgebung mit dem Befehl `mkvirtualenv` erstellen.
+Nun können Sie mit dem Befehl `mkvirtualenv` eine neue virtuelle Umgebung erstellen
 
 ### Erstellen einer virtuellen Umgebung
 
 Sobald Sie _virtualenvwrapper_ oder _virtualenvwrapper-win_ installiert haben, ist die Arbeit mit virtuellen Umgebungen auf allen Plattformen sehr ähnlich.
 
-Jetzt können Sie eine neue virtuelle Umgebung mit dem Befehl `mkvirtualenv` erstellen. Während dieses Befehls sehen Sie, wie die Umgebung eingerichtet wird (das, was Sie sehen, hängt leicht von der Plattform ab). Wenn der Befehl abgeschlossen ist, wird die neue virtuelle Umgebung aktiv sein — Sie können dies daran erkennen, dass am Anfang der Eingabeaufforderung der Name der Umgebung in Klammern angezeigt wird (unten zeigen wir dies für Ubuntu, aber die finale Zeile ist auf Windows/macOS ähnlich).
+Nun können Sie mit dem Befehl `mkvirtualenv` eine neue virtuelle Umgebung erstellen. Während dieser Befehl ausgeführt wird, sehen Sie, wie die Umgebung eingerichtet wird (was Sie sehen, ist leicht plattform-spezifisch). Wenn der Befehl abgeschlossen ist, ist die neue virtuelle Umgebung aktiv — Sie können dies daran erkennen, dass der Anfang des Prompts der Name der Umgebung in Klammern ist (unten zeigen wir dies für Ubuntu, aber die letzte Zeile ist ähnlich für Windows/macOS).
 
 ```bash
 mkvirtualenv my_django_environment
@@ -338,20 +341,20 @@ virtualenvwrapper.user_scripts creating /home/ubuntu/.virtualenvs/t_env7/bin/get
 Jetzt, da Sie sich in der virtuellen Umgebung befinden, können Sie Django installieren und mit der Entwicklung beginnen.
 
 > [!NOTE]
-> Ab diesem Zeitpunkt (und in der Tat in diesem Modul) wird davon ausgegangen, dass alle Befehle in einer Python-Virtualumgebung wie oben eingerichtet ausgeführt werden.
+> Ab jetzt in diesem Artikel (und tatsächlich im Modul) sollten Sie annehmen, dass alle Befehle innerhalb einer Python-Umgebung wie der oben eingerichteten ausgeführt werden.
 
 ### Verwendung einer virtuellen Umgebung
 
-Es gibt nur ein paar andere nützliche Befehle, die Sie kennen sollten (es gibt mehr in der Werkzeugdokumentation, aber dies sind die, die Sie regelmäßig verwenden werden):
+Es gibt nur ein paar andere nützliche Befehle, die Sie kennen sollten (es gibt mehr in der Werkzeugdokumentation, aber dies sind die Befehle, die Sie regelmäßig verwenden werden):
 
-- `deactivate` — Beenden Sie die aktuelle Python-Virtualumgebung
-- `workon` — Auflisten der verfügbaren virtuellen Umgebungen
-- `workon name_of_environment` — Aktivieren Sie die angegebene Python-Virtualumgebung
-- `rmvirtualenv name_of_environment` — Entfernen der angegebenen Umgebung.
+- `deactivate` — Schaltet die aktuelle Python-Umgebung aus
+- `workon` — Listet verfügbare virtuelle Umgebungen auf
+- `workon name_of_environment` — Aktiviert die angegebene Python-Umgebung
+- `rmvirtualenv name_of_environment` — Entfernt die angegebene Umgebung.
 
-## Django installieren
+## Installation von Django
 
-Sobald Sie eine virtuelle Umgebung erstellt haben und `workon` aufgerufen haben, um sie zu betreten, können Sie _pip3_ verwenden, um Django zu installieren.
+Sobald Sie eine virtuelle Umgebung erstellt und `workon` aufgerufen haben, um sie zu betreten, können Sie _pip3_ verwenden, um Django zu installieren.
 
 ```bash
 # Linux/macOS
@@ -361,7 +364,7 @@ python3 -m pip install django~=4.2
 py -3 -m pip install django~=4.2
 ```
 
-Sie können testen, ob Django installiert ist, indem Sie den folgenden Befehl ausführen (dies prüft nur, ob Python das Django-Modul finden kann):
+Sie können testen, ob Django installiert ist, indem Sie folgenden Befehl ausführen (dies testet nur, ob Python das Django-Modul finden kann):
 
 ```bash
 # Linux/macOS
@@ -372,55 +375,55 @@ py -3 -m django --version
 ```
 
 > [!NOTE]
-> Wenn der obige Windows-Befehl kein Django-Modul anzeigt, versuchen Sie:
+> Wenn der obige Windows-Befehl kein django-Modul anzeigt, versuchen Sie:
 >
 > ```bash
 > py -m django --version
 > ```
 >
-> In Windows werden _Python 3_-Skripte standardmäßig durch Voranstellen des Befehls mit `py -3` gestartet, obwohl dies je nach Ihrer speziellen Installation variieren kann. Versuchen Sie, den `-3`-Modifikator wegzulassen, wenn Sie Probleme mit den Befehlen haben. In Linux/macOS ist der Befehl `python3.`
+> In Windows werden _Python 3_-Skripte gestartet, indem der Befehl mit `py -3` vorangestellt wird, obwohl dies je nach Ihrer spezifischen Installation variieren kann. Versuchen Sie, den `-3`-Modifikator wegzulassen, wenn Sie auf Probleme mit Befehlen stoßen. In Linux/macOS lautet der Befehl `python3.`
 
 > [!WARNING]
-> Der Rest dieses **Moduls** verwendet den _Linux_-Befehl zum Aufrufen von Python 3 (`python3`). Wenn Sie auf _Windows_ arbeiten, ersetzen Sie diesen Präfix durch: `py -3`
+> Der Rest dieses **Moduls** verwendet den _Linux_-Befehl, um Python 3 aufzurufen (`python3`). Wenn Sie auf _Windows_ arbeiten, ersetzen Sie dieses Präfix mit: `py -3`
 
-## Versionsverwaltung mit Git und GitHub
+## Quellcodeverwaltung mit Git und GitHub
 
-Versionsverwaltung (SCM) und Versionierungstools ermöglichen es Ihnen, zuverlässige Versionen Ihres Quellcodes zu speichern und wiederherzustellen, Änderungen auszuprobieren und Code zwischen Ihren Experimenten und "bekanntem guten Code" bei Bedarf zu teilen.
+Quellcodeverwaltung (Source Code Management, SCM) und Versionierungswerkzeuge ermöglichen es Ihnen, Versionen Ihres Quellcodes zuverlässig zu speichern und wiederherzustellen, Änderungen auszuprobieren und Code zwischen Ihren Experimenten und "gültigem Code" zu teilen, wenn Sie ihn benötigen.
 
-Es gibt viele verschiedene SCM-Tools, darunter git, Mercurial, Perforce, SVN (Subversion), CVS (Concurrent Versions System) usw., und Cloud-SCM-Hostingquellen wie Bitbucket, GitHub und GitLab. Für dieses Tutorial hosten wir unseren Code auf [GitHub](https://github.com/), einem der beliebtesten cloudbasierten Dienste zum Hosten von Quellcode, und verwenden das **git**-Tool, um unseren Quellcode lokal zu verwalten und bei Bedarf an GitHub zu senden.
+Es gibt viele verschiedene SCM-Werkzeuge, darunter git, Mercurial, Perforce, SVN (Subversion), CVS (Concurrent Versions System) und Cloud-SCM-Hostingquellen wie Bitbucket, GitHub und GitLab. Für dieses Tutorial werden wir unseren Code auf [GitHub](https://github.com/), einem der beliebtesten cloudbasierten Quellcode-Hosting-Dienste, hosten und das **git**-Werkzeug verwenden, um unseren Quellcode lokal zu verwalten und bei Bedarf an GitHub zu senden.
 
 > [!NOTE]
-> Die Verwendung von SCM-Tools ist eine gute Softwareentwicklungspraxis! Diese Anweisungen bieten eine grundlegende Einführung in git und GitHub. Um mehr zu erfahren, siehe [Learning Git](https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources).
+> Die Verwendung von SCM-Werkzeugen ist gute Software-Entwicklungspraxis! Diese Anweisungen bieten eine grundlegende Einführung in git und GitHub. Um mehr zu erfahren, siehe [Git lernen](https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources).
 
-### Schlüsselkonzepte
+### Zentrale Konzepte
 
-Git (und GitHub) verwenden Repositories ("Repos") als oberste "Container" zum Speichern von Code, wobei jedes Repo normalerweise den Quellcode für nur eine Anwendung oder ein Modul enthält. Repositories können öffentlich sein, in diesem Fall ist der Code für jeden im Internet sichtbar, oder privat, in diesem Fall sind sie auf das Eigentümerkonto der Organisation oder des Benutzers beschränkt.
+Git (und GitHub) verwenden Repositories ("Repos") als das oberste "Behältnis" zur Speicherung von Code, wobei jedes Repo normalerweise den Quellcode für nur eine Anwendung oder ein Modul enthält. Repositories können öffentlich sein, in diesem Fall ist der Code für alle im Internet sichtbar, oder privat, in diesem Fall sind sie auf die besitzende Organisation oder das Benutzerkonto beschränkt.
 
-Alle Arbeiten werden an einem bestimmten "Zweig" des Codes in Ihrem Repo durchgeführt. Wenn Sie einige Änderungen an einem Zweig sichern möchten, können Sie ein "Commit" erstellen, das alle Änderungen seit Ihrem letzten Commit am aktuellen Zweig speichert.
+Alle Arbeiten werden an einem bestimmten "Zweig" des Codes in Ihrem Repo durchgeführt. Wenn Sie einige Änderungen an einem Zweig sichern möchten, können Sie einen "Commit" erstellen, der alle Änderungen seit Ihrem letzten Commit am aktuellen Zweig speichert.
 
-Das Repo wird mit einem Standardzweig mit dem Namen "main" erstellt. Sie können mit git andere Zweige von diesem abspalten, die zunächst alle Commits des ursprünglichen Zweigs enthalten. Sie können Zweige separat weiterentwickeln, indem Sie Commits hinzufügen und später auf GitHub eine "Pull Request" (PR) verwenden, um Änderungen von einem Zweig in einen anderen zu übernehmen. Sie können auch git verwenden, um zwischen Zweigen auf Ihrem lokalen Rechner zu wechseln, um beispielsweise verschiedene Dinge auszuprobieren.
+Das Repo wird mit einem Standardzweig namens "main" erstellt. Sie können andere Zweige davon mit git abspalten, die zunächst alle Commits des ursprünglichen Zweigs haben. Sie können Zweige separat durch Hinzufügen von Commits entwickeln und dann später mit einer "Pull Request" (PR) auf GitHub Änderungen von einem Zweig zu einem anderen zusammenführen. Sie können auch git verwenden, um zwischen Zweigen auf Ihrem lokalen Computer zu wechseln, um beispielsweise verschiedene Dinge auszuprobieren.
 
-Zusätzlich zu den Zweigen ist es möglich, `Tags` auf jedem Zweig zu erstellen und diesen Zweig später zu diesem Punkt wiederherzustellen.
+Neben Zweigen ist es möglich, `Tags` auf einem beliebigen Zweig zu erstellen und diesen Zweig später an diesem Punkt wiederherzustellen.
 
-### Erstellen eines Kontos und Repositories auf GitHub
+### Erstellen eines Kontos und eines Repositories auf GitHub
 
-Zuerst erstellen wir ein Konto auf GitHub (dies ist kostenlos). Dann erstellen und konfigurieren wir ein Repository mit dem Namen "django_local_library" zum Speichern der [Lokalen Bibliotheks-Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website), während wir sie im Rest dieses Tutorials weiterentwickeln.
+Zuerst erstellen wir ein Konto auf GitHub (dies ist kostenlos). Dann erstellen und konfigurieren wir ein Repository namens "django_local_library" zur Speicherung der [Lokalen Bibliothek Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website), während wir es im Rest dieses Tutorials entwickeln.
 
 Die Schritte sind:
 
 1. Besuchen Sie <https://github.com/> und erstellen Sie ein Konto.
-2. Sobald Sie angemeldet sind, klicken Sie auf den **+**-Link in der oberen Symbolleiste und wählen Sie **Neues Repository**.
-3. Füllen Sie alle Felder in diesem Formular aus. Obwohl diese nicht verpflichtend sind, werden sie dringend empfohlen.
+2. Sobald Sie eingeloggt sind, klicken Sie auf den **+**-Link in der oberen Symbolleiste und wählen **Neues Repository** aus.
+3. Füllen Sie alle Felder auf diesem Formular aus. Obwohl diese nicht obligatorisch sind, werden sie dringend empfohlen.
 
-   - Geben Sie einen Repositorienamen ein: "django_local_library".
-   - Geben Sie eine neue Repositorybeschreibung ein: "Lokale Bibliothekswebsite geschrieben in Django".
-   - Wählen Sie "Öffentlich" für das Repository (Standard).
+   - Geben Sie einen Repository-Namen ein: "django_local_library".
+   - Geben Sie eine neue Repository-Beschreibung ein: "Lokale Bibliothekswebsite geschrieben in Django".
+   - Wählen Sie "Öffentlich" für das Repository (die Standardeinstellung).
 
      > [!WARNING]
-     > Dadurch wird _der gesamte_ Quellcode sichtbar. Denken Sie daran, keine Anmeldedaten oder andere vertrauliche Materialien in Ihrem Repository zu speichern, es sei denn, es ist privat.
+     > Dies macht _alle_ Quellcodes sichtbar. Denken Sie daran, keine Anmeldeinformationen oder andere sensible Materialien in Ihrem Repo zu speichern, es sei denn, es ist privat.
 
-   - Wählen Sie **Python** in der Auswahlkabine _Add .gitignore_.
-   - Wählen Sie Ihre bevorzugte Lizenz in der Auswahlkabine _Add license_. MDN verwendet "Creative Commons Zero v1.0 Universal" für dieses Beispiel.
+   - Wählen Sie **Python** in der _Add .gitignore_ Auswahliste.
+   - Wählen Sie Ihre bevorzugte Lizenz in der _Add license_ Auswahliste aus. MDN verwendet für dieses Beispiel "Creative Commons Zero v1.0 Universal".
    - Aktivieren Sie **Initialize this repository with a README**.
 
 4. Drücken Sie **Repository erstellen**.
@@ -429,9 +432,9 @@ Die Schritte sind:
 
 ### Klonen des Repos auf Ihren lokalen Computer
 
-Jetzt, da das Repository ("Repo") auf GitHub erstellt wurde, möchten wir es auf unseren lokalen Computer klonen (kopieren):
+Sobald das Repository ("Repo") auf GitHub erstellt wurde, wollen wir es auf unseren lokalen Computer klonen (kopieren):
 
-1. Klicken Sie auf GitHub auf die grüne **Code**-Schaltfläche. Wählen Sie im Abschnitt "Klonen" die Registerkarte "HTTPS" und kopieren Sie die URL. Wenn Sie den Repositorynamen "django_local_library" verwendet haben, sollte die URL etwa so aussehen: `https://github.com/<Ihr_Git_Benutzer_ID>/django_local_library.git`.
+1. Klicken Sie auf GitHub auf die grüne **Code**-Schaltfläche. Im Abschnitt "Klonen" wählen Sie den "HTTPS"-Tab aus und kopieren die URL. Wenn Sie den Repository-Namen "django_local_library" verwendet haben, sollte die URL etwa so aussehen: `https://github.com/<your_git_user_id>/django_local_library.git`.
 
 2. Installieren Sie _git_ für Ihren lokalen Computer (Sie können Versionen für verschiedene Plattformen [hier](https://git-scm.com/downloads) finden).
 3. Öffnen Sie eine Eingabeaufforderung/Terminal und klonen Sie Ihr Repo mit der oben kopierten URL:
@@ -442,37 +445,37 @@ Jetzt, da das Repository ("Repo") auf GitHub erstellt wurde, möchten wir es auf
 
    Dadurch wird das Repository im aktuellen Verzeichnis erstellt.
 
-4. Wechseln Sie in den Repo-Ordner.
+4. Navigieren Sie in den Repo-Ordner.
 
    ```bash
    cd django_local_library
    ```
 
-### Ändern und synchronisieren von Änderungen
+### Änderungen modifizieren und synchronisieren
 
-Jetzt werden wir die `.gitignore`-Datei auf dem lokalen Computer ändern, die Änderung commiten und das Repository auf GitHub aktualisieren. Dies ist eine nützliche Änderung, hauptsächlich zeigen wir Ihnen jedoch, wie Sie Änderungen von GitHub abrufen, sie lokal vornehmen und dann an GitHub senden.
+Jetzt werden wir die `.gitignore`-Datei auf dem lokalen Computer ändern, die Änderung comitten und das Repository auf GitHub aktualisieren. Dies ist eine nützliche Änderung, hauptsächlich tun wir es jedoch, um Ihnen zu zeigen, wie Sie Änderungen von GitHub abrufen, lokal vornehmen und dann auf GitHub pushen.
 
-1. In der Eingabeaufforderung/Terminal erhalten wir zuerst die neuesten Quellversionen von GitHub und übernehmen sie dann in den aktuellen Zweig:
+1. In der Eingabeaufforderung/dem Terminal holen wir zuerst (holen) und ziehen dann (holen und in den aktuellen Zweig integrieren) die neueste Version des Quellcodes von GitHub:
 
    > [!NOTE]
-   > Dieser Schritt ist nicht unbedingt erforderlich, da wir den Quellcode gerade geklont haben und wissen, dass er auf dem neuesten Stand ist. Generell sollten Sie jedoch Ihre Quellen von GitHub aktualisieren, bevor Sie Änderungen vornehmen.
+   > Dieser Schritt ist nicht unbedingt notwendig, da wir gerade den Quellcode geklont haben und wissen, dass er auf dem neuesten Stand ist. Im Allgemeinen sollten Sie jedoch Ihre Quellen von GitHub aktualisieren, bevor Sie Änderungen vornehmen.
 
    ```bash
    git fetch origin main
    git pull origin main
    ```
 
-   Der "origin" ist ein _Remote_, das den Ort des Repos darstellt, an dem sich die Quelle befindet, und "main" ist der Zweig. Sie können überprüfen, dass "origin" unser Repo auf GitHub ist, indem Sie den Befehl verwenden: `git remote -v`.
+   Der "Ursprung" ist ein _Remote_, das den Standort des Repos repräsentiert, wo sich der Quellcode befindet, und "main" ist der Zweig. Sie können überprüfen, ob der Ursprung unser Repo auf GitHub ist, indem Sie den Befehl `git remote -v` verwenden.
 
-2. Als Nächstes erstellen wir einen neuen Zweig, um unsere Änderungen zu speichern:
+2. Als nächstes erstellen wir einen neuen Zweig, um unsere Änderungen zu speichern:
 
    ```bash
    git checkout -b update_gitignore
    ```
 
-   Der Befehl `checkout` wird verwendet, um einen bestimmten Zweig als aktuellen Arbeitszweig auszuwählen. Das `-b`-Flag zeigt an, dass wir die Absicht haben, einen neuen Zweig namens "update_gitignore" zu erstellen, anstatt einen bestehenden Zweig mit diesem Namen auszuwählen.
+   Der Befehl `checkout` wird verwendet, um einen Zweig als den aktuellen Zweig auszuwählen, an dem Sie arbeiten. Das `-b`-Flag zeigt an, dass wir beabsichtigen, einen neuen Zweig mit dem Namen "update_gitignore" zu erstellen, anstatt einen bestehenden Zweig mit diesem Namen auszuwählen.
 
-3. Öffnen Sie die Datei **.gitignore**, kopieren Sie die folgenden Zeilen am Ende dieser und speichern Sie:
+3. Öffnen Sie die Datei **.gitignore**, kopieren Sie die folgenden Zeilen an das Ende davon und speichern Sie es dann:
 
    ```plain
    # Text backup files
@@ -482,15 +485,15 @@ Jetzt werden wir die `.gitignore`-Datei auf dem lokalen Computer ändern, die Ä
    *.sqlite3
    ```
 
-   Beachten Sie, dass `.gitignore` verwendet wird, um Dateien anzugeben, die nicht automatisch von git gesichert werden sollen, wie temporäre Dateien und andere Build-Artefakte.
+   Beachten Sie, dass `.gitignore` verwendet wird, um Dateien zu kennzeichnen, die nicht automatisch von git gesichert werden sollen, z. B. temporäre Dateien und andere Build-Artefakte.
 
-4. Verwenden Sie den `add`-Befehl, um alle geänderten Dateien (die nicht von der **.gitignore**-Datei ignoriert werden) in den "Staging-Bereich" für den aktuellen Zweig hinzuzufügen.
+4. Verwenden Sie den Befehl `add`, um alle geänderten Dateien (die nicht von der **.gitignore**-Datei ignoriert werden) dem "Staging-Bereich" für den aktuellen Zweig hinzuzufügen.
 
    ```bash
    git add -A
    ```
 
-5. Verwenden Sie den `status`-Befehl, um zu überprüfen, ob alle Dateien korrekt sind, die Sie `commit` bereitstellen werden (Sie möchten Quelltexte, keine Binärdateien, temporären Dateien usw. einschließen). Es sollte ungefähr so aussehen:
+5. Verwenden Sie den Befehl `status`, um zu überprüfen, ob alle Dateien, die Sie `committen` möchten, korrekt sind (Sie möchten Quellcodedateien einbeziehen, keine Binärdateien, temporären Dateien usw.). Es sollte ein wenig wie die folgende Liste aussehen.
 
    ```bash
    > git status
@@ -502,53 +505,51 @@ Jetzt werden wir die `.gitignore`-Datei auf dem lokalen Computer ändern, die Ä
            modified:   .gitignore
    ```
 
-6. Wenn Sie zufrieden sind, machen Sie ein `commit` an die Dateien im lokalen Repo, wobei das `-m`-Flag verwendet wird, um eine prägnante, aber klare Commit-Nachricht anzugeben. Dies entspricht der Unterzeichnung der Änderungen und der offiziellen Aufnahme in das lokale Repo.
+6. Wenn Sie zufrieden sind, comitten Sie die Dateien in Ihr lokales Repo unter Verwendung des `-m`-Flags, um eine kurze aber klare Commit-Nachricht anzugeben. Dies entspricht dem Unterzeichnen der Änderungen und macht sie zu einem offiziellen Teil des lokalen Repos.
 
    ```bash
    git commit -m ".gitignore: add .bak and .sqlite3"
    ```
 
-7. Zu diesem Zeitpunkt wurde das Remote-Repository nicht geändert. Wir können den Zweig `update_gitignore` an das "origin"-Repository (GitHub) mit folgendem Befehl senden:
+7. Zu diesem Zeitpunkt wurde das Remote-Repo nicht geändert. Wir können den `update_gitignore`-Zweig in das "origin"-Repo (GitHub) mit dem folgenden Befehl pushen:
 
    ```bash
    git push origin update_gitignore
    ```
 
-8. Gehen Sie zurück zur Seite auf GitHub, auf der Sie Ihr Repository erstellt haben, und aktualisieren Sie die Seite.
+8. Gehen Sie zurück zur Seite auf GitHub, auf der Sie Ihr Repo erstellt haben, und aktualisieren Sie die Seite. Ein Banner sollte erscheinen, mit einer Schaltfläche, ob Sie den kürzlich hochgeladenen Zweig "vergleichen und eine Pull-Anfrage stellen" möchten. Wählen Sie die Schaltfläche und folgen Sie dann den Anweisungen, um eine Pull-Anfrage zu erstellen und dann zusammenzuführen.
 
-   Ein Banner sollte mit einer Schaltfläche erscheinen, die Sie drückt, wenn Sie den soeben hochgeladenen Zweig "Vergleichen und Pull Request" möchten. Wählen Sie die Schaltfläche und folgen Sie den Anweisungen, um ein Pull Request zu erstellen und dann zu mergen.
+   ![Banner, der fragt, ob der Benutzer kürzlich genehmigte Änderungen vergleichen und zusammenführen möchte](github_compare_and_pull_banner.png)
 
-   ![Banner, das fragt, ob der Benutzer kürzlich aktualisierte Zweige vergleichen und mergen möchte](github_compare_and_pull_banner.png)
+   Nach der Zusammenführung enthält der "Haupt"-Zweig im Repo auf GitHub Ihre Änderungen an `.gitignore`.
 
-   Nach dem Mergen enthält der "main"-Zweig im Repository auf GitHub Ihre Änderungen an `.gitignore`.
+9. Sie können Ihr lokales Repo weiterhin aktualisieren, während sich Dateien ändern, indem Sie diesen add/commit/push-Zyklus verwenden.
 
-9. Sie können Ihr lokales Repo weiterhin aktualisieren, wenn sich Dateien durch diesen Hinzufügs-/Commits-/Push-Zyklus ändern.
-
-Im nächsten Thema verwenden wir dieses Repo, um unseren lokalbibliotheksquellen Code zu speichern.
+Im nächsten Thema werden wir dieses Repo verwenden, um unseren lokalen Bibliotheks-Website-Quellcode zu speichern.
 
 ## Weitere Python-Tools
 
-Erfahrene Python-Entwickler installieren möglicherweise zusätzliche Tools, wie Linters (die helfen, häufige Fehler im Code zu erkennen).
+Erfahrene Python-Entwickler installieren möglicherweise zusätzliche Tools wie Linters (die helfen, häufige Fehler im Code zu erkennen).
 
-Beachten Sie, dass Sie einen Django-kompatiblen Linter wie [pylint-django](https://pypi.org/project/pylint-django/) verwenden sollten, da einige gängige Python-Linters (wie `pylint`) fälschlicherweise Fehler in den von Django generierten Standarddateien melden.
+Beachten Sie, dass Sie einen Django-fähigen Linter wie [pylint-django](https://pypi.org/project/pylint-django/) verwenden sollten, weil einige gängige Python-Linters (wie `pylint`) fälschlicherweise Fehler in den Standarddateien, die für Django generiert wurden, berichten.
 
 ## Testen Ihrer Installation
 
-Der obige Test funktioniert, macht aber nicht viel Spaß. Ein interessanterer Test besteht darin, ein Grundgerüstprojekt zu erstellen und zu sehen, wie es funktioniert. Gehen Sie dazu zunächst zu Ihrem Kommandozeile/Terminal, um den Ort zu bestimmen, an dem Sie Ihre Django-Apps speichern möchten. Erstellen Sie einen Ordner für Ihre Testsite und navigieren Sie hinein.
+Der obige Test funktioniert, aber er macht nicht sehr viel Spaß. Ein interessanterer Test ist es, ein Skelett-Projekt zu erstellen und es arbeiten zu sehen. Dazu navigieren Sie zuerst in Ihrem Eingabeaufforderung/Terminal zu dem Ort, an dem Sie Ihre Django-Apps speichern möchten. Erstellen Sie einen Ordner für Ihre Testseite und wechseln Sie in diesen.
 
 ```bash
 mkdir django_test
 cd django_test
 ```
 
-Sie können dann eine neue Grundgerüstsite namens "_mytestsite_" mit dem **django-admin**-Tool erstellen, wie gezeigt. Nach der Erstellung der Site können Sie in den Ordner navigieren, in dem sich das Hauptskript zur Verwaltung von Projekten befindet, namens **manage.py**.
+Dann können Sie eine neue Skelett-Site namens "_mytestsite_" mit dem **django-admin**-Werkzeug wie gezeigt erstellen. Nach dem Erstellen der Site können Sie in den Ordner navigieren, in dem Sie das Hauptskript zur Verwaltung von Projekten finden, genannt **manage.py**.
 
 ```bash
 django-admin startproject mytestsite
 cd mytestsite
 ```
 
-Wir können den _Entwicklungs-Webserver_ aus diesem Ordner mit **manage.py** und dem `runserver`-Befehl starten, wie gezeigt.
+Wir können den _Entwicklungs-Webserver_ innerhalb dieses Ordners unter Verwendung von **manage.py** und des `runserver`-Befehls ausführen, wie gezeigt.
 
 ```bash
 # Linux/macOS
@@ -559,22 +560,22 @@ py -3 manage.py runserver
 ```
 
 > [!NOTE]
-> Sie können die Warnungen über "nicht angewendete Migration(en)" an diesem Punkt ignorieren!
+> Sie können die Warnungen über "unzuverlässige Migration(en)" an dieser Stelle ignorieren!
 
-Sobald der Server läuft, können Sie die Site anzeigen, indem Sie zu der folgenden URL in Ihrem lokalen Webbrowser navigieren: `http://127.0.0.1:8000/`. Sie sollten eine Seite sehen, die so aussieht:
+Sobald der Server läuft, können Sie die Site anzeigen, indem Sie im lokalen Webbrowser zu folgender URL navigieren: `http://127.0.0.1:8000/`. Sie sollten eine Site sehen, die so aussieht:
 
-![Die Startseite der grundlegenden Django-App](django_skeleton_app_homepage_django_4_0.png)
+![Die Startseite der Skelett-Django-App](django_skeleton_app_homepage_django_4_0.png)
 
 ## Zusammenfassung
 
-Sie haben nun eine Django-Entwicklungsumgebung auf Ihrem Computer eingerichtet.
+Sie haben nun eine Django-Entwicklungsumgebung auf Ihrem Computer eingerichtet und betriebsbereit.
 
-Im Abschnitt zum Testen haben Sie auch kurz gesehen, wie wir eine neue Django-Website mit `django-admin startproject` erstellen und sie im Browser mit dem Entwicklungs-Webserver (`python3 manage.py runserver`) ausführen können. Im nächsten Artikel erweitern wir diesen Prozess und erstellen eine einfache, aber vollständige Webanwendung.
+Im Testabschnitt haben Sie außerdem kurz gesehen, wie wir mit `django-admin startproject` eine neue Django-Website erstellen und diese im Browser mit dem Entwicklungs-Webserver (`python3 manage.py runserver`) ausführen können. Im nächsten Artikel erweitern wir diesen Prozess, um eine einfache, aber vollständige Webanwendung zu erstellen.
 
 ## Siehe auch
 
-- [Kurzanleitung zur Installation](https://docs.djangoproject.com/en/5.0/intro/install/) (Django-Dokumentation)
-- [So installieren Sie Django — Vollständige Anleitung](https://docs.djangoproject.com/en/5.0/topics/install/) (Django-Dokumentation) — behandelt auch, wie Django entfernt wird
-- [So installieren Sie Django auf Windows](https://docs.djangoproject.com/en/5.0/howto/windows/) (Django-Dokumentation)
+- [Schnellanleitung zur Installation](https://docs.djangoproject.com/en/5.0/intro/install/) (Django-Dokumentation)
+- [Anleitung zur Installation von Django — Komplettanleitung](https://docs.djangoproject.com/en/5.0/topics/install/) (Django-Dokumentation) — behandelt auch, wie Django entfernt werden kann
+- [Wie man Django auf Windows installiert](https://docs.djangoproject.com/en/5.0/howto/windows/) (Django-Dokumentation)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Introduction", "Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website", "Learn_web_development/Extensions/Server-side/Django")}}
