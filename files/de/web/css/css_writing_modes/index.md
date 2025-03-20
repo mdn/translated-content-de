@@ -1,20 +1,19 @@
 ---
-title: CSS writing modes
+title: CSS-Schreibmodi
 slug: Web/CSS/CSS_writing_modes
 l10n:
-  sourceCommit: 0f4b28bdc51e89cd25d132b9db12e3e903a9c5aa
+  sourceCommit: d68cfd06575158736a37dcacc970cf909d009469
 ---
 
 {{CSSRef}}
 
-Das Modul **CSS writing modes** definiert verschiedene internationale Schreibrichtungen, wie zum Beispiel links-nach-rechts (z.B. verwendet von lateinischen und indischen Schriften), rechts-nach-links (z.B. verwendet von hebräischen oder arabischen Schriften), bidirektional (verwendet bei der Mischung von links-nach-rechts und rechts-nach-links Schriften) und vertikal (z.B. verwendet von einigen asiatischen Schriften).
+Das Modul **CSS-Schreibmodi** definiert verschiedene internationale Schreibmodi, wie z.B. von links nach rechts (z.B. verwendet von lateinischen und indischen Schriften), von rechts nach links (z.B. verwendet von hebräischen oder arabischen Schriften), bidirektional (verwendet beim Mischen von links-nach-rechts- und rechts-nach-links-Schriften) und vertikal (z.B. verwendet von einigen asiatischen Schriften).
 
 ## Referenz
 
 ### Eigenschaften
 
 - {{cssxref("direction")}}
-- {{cssxref("glyph-orientation-horizontal")}}
 - {{cssxref("text-combine-upright")}}
 - {{cssxref("text-orientation")}}
 - {{cssxref("unicode-bidi")}}
@@ -22,9 +21,13 @@ Das Modul **CSS writing modes** definiert verschiedene internationale Schreibric
 
 ## Leitfäden
 
-- [Erstellen von vertikalen Formularelementen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
-  - : Der Artikel erklärt, wie man die CSS-Eigenschaften {{cssxref("writing-mode")}} und {{cssxref("direction")}} verwendet, um vertikale Formularelemente zu erstellen und zu konfigurieren.
+- [Erstellen vertikaler Formularelemente](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
+  - : Der Artikel erklärt, wie die CSS-Eigenschaften {{cssxref("writing-mode")}} und {{cssxref("direction")}} verwendet werden, um vertikale Formularelemente zu erstellen und zu konfigurieren.
 
 ## Spezifikationen
 
 {{Specifications}}
+
+## Siehe auch
+
+- [Umgang mit verschiedenen Textrichtungen](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions)

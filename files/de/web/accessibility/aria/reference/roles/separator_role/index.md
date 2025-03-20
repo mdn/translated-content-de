@@ -1,21 +1,21 @@
 ---
-title: "ARIA: `separator`-Rolle"
+title: "ARIA: Rolle separator"
 slug: Web/Accessibility/ARIA/Reference/Roles/separator_role
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: b0736177eff7772fd771174d7f76adc0b94c0d5e
 ---
 
-Die `separator`-Rolle kennzeichnet das Element als Trennelement, das Sektionen von Inhalten oder Gruppen von Menüeinträgen voneinander trennt und unterscheidet. Die implizite ARIA-Rolle für das native thematische Unterbrechungselement {{HTMLElement('hr')}} ist `separator`.
+Die Rolle `separator` zeigt an, dass das Element ein Trenner ist, der Abschnitte von Inhalten oder Gruppen von Menüpunkten trennt und unterscheidet. Die implizite ARIA-Rolle des nativen thematischen Trennzeichens {{HTMLElement('hr')}} ist `separator`.
 
 ## Beschreibung
 
-Ein Separator ist ein Trennelement, das Sektionen von Inhalten oder Gruppen von Menüeinträgen voneinander trennt und unterscheidet. Es gibt zwei Arten von Separatoren: Eine statische Struktur, die eine sichtbare Abgrenzung bietet, identisch mit dem HTML-Element {{HTMLElement('hr')}}, und ein fokussierbares, bewegliches Widget.
+Ein Separator ist ein Trenner, der Abschnitte von Inhalten oder Gruppen von Menüpunkten trennt und unterscheidet. Es gibt zwei Arten von Separatoren: eine statische Struktur, die eine sichtbare Grenze darstellt, identisch mit dem HTML {{HTMLElement('hr')}} Element, und ein fokussierbares, bewegliches Widget.
 
-Elemente mit der Rolle `separator` haben einen impliziten [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation) Wert von `horizontal`.
+Elemente mit der Rolle `separator` haben implizit den [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation) Wert `horizontal`.
 
-### Nicht-fokussierbarer Separator
+### Nicht fokussierbarer Separator
 
-Ein nicht-fokussierbarer Separator ist ein statisches Strukturelement, das verwendet werden kann, um visuell zwei Gruppen von Menüelementen in einem Menü zu teilen oder um eine horizontale Linie zwischen zwei Abschnitten einer Seite bereitzustellen. Thematische Unterbrechungen, die nicht fokussierbar sind, können von einem Bildschirmleser-Benutzer wahrgenommen werden, wenn ein Lesecursor verwendet wird, der nicht von der Fokussierung abhängt.
+Ein nicht fokussierbarer Separator ist ein statisches Strukturelement, das verwendet werden kann, um visuell zwei Gruppen von Menüpunkten in einem Menü zu trennen oder um eine horizontale Linie zwischen zwei Abschnitten einer Seite bereitzustellen. Thematische Trennzeichen, die nicht fokussierbar sind, können dennoch von einem Bildschirmleser wahrgenommen werden, wenn ein Lesecursor verwendet wird, der nicht auf den Fokus angewiesen ist.
 
 ```html
 <h2>My first blog post</h2>
@@ -25,7 +25,7 @@ Ein nicht-fokussierbarer Separator ist ein statisches Strukturelement, das verwe
 …
 ```
 
-In dem Beispiel erzeugt ein Bild einen visuellen Trennelement zwischen zwei Blogeinträgen. Der Autor hätte ein semantisches thematisches Unterbrechungselement {{HTMLElement('hr')}} verwenden und es mit CSS stylen können, um es blau zu machen (und das Bild nicht ändern zu müssen, wenn er das Blog-Thema ändert), oder der Autor hätte jeden Beitrag im semantischen {{HTMLElement('article')}}-Element umschließen können, oder beides.
+Im Beispiel erstellt ein Bild einen visuellen Trenner zwischen zwei Blogposts. Der Autor hätte auch ein semantisches thematisches Trennzeichen {{HTMLElement('hr')}} verwenden und es mit CSS blau gestalten können (und das Bild nicht ändern müssen, wenn er das Thema des Blogs ändert), oder der Autor hätte jeden Beitrag im semantischen {{HTMLElement('article')}} Element einschließen können oder beides.
 
 ```html
 <section role="feed">
@@ -52,54 +52,67 @@ Ein zugänglicher Name ist nicht erforderlich.
 
 ### Fokussierbarer Separator
 
-Die `separator`-Rolle kann verwendet werden, um das Element als visuellen Trennelement zwischen Gruppen von Elementen innerhalb eines Menüs zu kennzeichnen, wie zum Beispiel Gruppen von `menuitemradio` oder `menuitemcheckbox`-Elementen.
+Die Rolle separator kann verwendet werden, um das Element als visuellen Trenner zwischen Gruppen von Elementen in einem Menü zu identifizieren, beispielsweise Gruppen von `menuitemradio` oder `menuitemcheckbox` Elementen.
 
-Wenn der Separator fokussierbar ist, indem er eine sichtbare Abgrenzung zwischen zwei Inhaltsabschnitten bietet und dem Benutzer ermöglicht, die relative Größe der getrennten Abschnitte zu ändern, indem er seine Position ändert, muss der Wert von [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) auf eine Zahl gesetzt werden, die die aktuelle Position des Separators widerspiegelt, und der Wert muss aktualisiert werden, wenn er sich ändert. Die [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) und [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) sollten ebenfalls enthalten sein, wenn sie nicht auf die Standardwerte von 0 bzw. 100 gesetzt sind.
+Wenn der Separator fokussierbar ist und eine sichtbare Grenze zwischen zwei Inhaltsabschnitten bietet und dem Benutzer ermöglicht, die relative Größe der Abschnitte durch Ändern seiner Position zu ändern, muss der Wert von [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) auf eine Zahl gesetzt werden, die die aktuelle Position des Separators widerspiegelt, und der Wert muss aktualisiert werden, wenn er sich ändert. Die Attribute [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) und [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) sollten ebenfalls enthalten sein, wenn sie nicht auf die Standardwerte 0 bzw. 100 gesetzt sind.
 
 Ein zugänglicher Name mit [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) sollte enthalten sein, wenn es mehr als einen fokussierbaren Separator gibt.
 
 ### Alle Nachfahren sind präsentational
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Accessibilitäts-API dargestellt werden, nur Text enthalten können. Accessibilitäts-APIs haben keine Möglichkeit, semantische Elemente darzustellen, die in einem `separator` enthalten sind. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die `presentation`-Rolle auf alle Nachfahren eines `separator`-Elements an, da es eine Rolle ist, die keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Barrierefreiheits-API dargestellt werden, nur Text enthalten können. Barrierefreiheits-APIs haben keine Möglichkeit, semantische Elemente innerhalb eines `separator` darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachfahrenelemente eines `separator` an, da es eine Rolle ist, die keine semantischen Kinder unterstützt.
 
-Betrachten Sie zum Beispiel das folgende `separator`-Element, das eine Überschrift enthält.
+Betrachten Sie zum Beispiel das folgende `separator` Element, das eine Überschrift enthält.
 
 ```html
 <div role="separator"><h3>Title of my separator</h3></div>
 ```
 
-Da Nachfahren von `separator` präsentational sind, ist der folgende Code gleichwertig:
+Da Nachfahren von `separator` präsentational sind, ist der folgende Code äquivalent:
 
 ```html
 <div role="separator"><h3 role="presentation">Title of my separator</h3></div>
 ```
 
-Aus Sicht der assistiven Technologie-Benutzer existiert die Überschrift nicht, da die vorherigen Codeausschnitte gleichwertig mit dem folgenden im {{Glossary("Accessibility_tree", "Barrierefreiheitsbaum")}} sind:
+Aus der Perspektive eines Benutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Code-Snippets äquivalent zu folgendem sind im {{Glossary("Accessibility_tree", "Barrierefreiheitsbaum")}}:
 
 ```html
 <div role="separator">Title of my separator</div>
 ```
 
-### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
 
-- [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation) (Standard ist horizontal für Separator)
+- [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation) (Standard ist horizontal für separator)
 
-  - : Standardmäßig wird angenommen, dass der Trennelement für `separator`-Rollen horizontal ist. Der Wert kann enthalten und auf horizontal, undefiniert (der Standard für andere Rollen, es sei denn, anders angegeben) oder vertikal gesetzt werden.
+  - : Standardmäßig wird der Trenner für die `separator` Rolle als horizontal angenommen. Der Wert kann eingeschlossen und auf horizontal, undefiniert (der Standard für andere Rollen, es sei denn, anders angegeben) oder vertikal gesetzt werden.
 
 - [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)
 
-  - : Wenn der Separator fokussierbar ist und einen bekannten Wert hat, definiert `aria-valuenow` den aktuellen Wert. Wenn nicht fokussierbar oder der Wert unbekannt ist, diesen Attribut nicht einschließen.
+  - : Wenn der Separator fokussierbar ist und einen bekannten Wert hat, definiert `aria-valuenow` den aktuellen Wert. Wenn nicht fokussierbar oder der Wert unbekannt ist, schließen Sie dieses Attribut nicht ein.
 
 - [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) (Standard ist 0)
 
-  - : Wenn der Separator fokussierbar ist und der Minimalwert nicht 0 beträgt, den Minimalwert mit `aria-valuemin` einschließen.
+  - : Wenn der Separator fokussierbar ist und der Mindestwert nicht 0 ist, schließen Sie den Mindestwert mit `aria-valuemin` ein.
 
 - [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) (Standard ist 100)
 
-  - : Wenn der Separator fokussierbar ist und der Maximalwert nicht 100 beträgt, `aria-valuemax` mit einem Wert gleich oder größer als `aria-valuemin` einschließen.
+  - : Wenn der Separator fokussierbar ist und der Höchstwert nicht 100 ist, schließen Sie `aria-valuemax` mit einem Wert gleich oder größer als `aria-valuemin` ein.
 
 - [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)
-  - : Wenn der Separator fokussierbar ist und der `aria-valuenow` nicht optimal darin ist, dem Benutzer verwertbare Informationen bereitzustellen, wird der Inhalt von `aria-valuetext` stattdessen vorgelesen.
+  - : Wenn der Separator fokussierbar ist und `aria-valuenow` dem Benutzer keine nützlichen Informationen bietet, wird der Inhalt von `aria-valuetext` anstelle des `aria-valuenow` Wertes vorgelesen.
+
+<!--
+### Tastaturinteraktionen
+
+### Erforderliche JavaScript-Funktionen
+
+## Beispiele
+
+## Bedenken zur Barrierefreiheit
+
+## Beste Praktiken
+
+### Bevorzugen Sie HTML -->
 
 ## Spezifikationen
 
@@ -107,5 +120,5 @@ Aus Sicht der assistiven Technologie-Benutzer existiert die Überschrift nicht, 
 
 ## Siehe auch
 
-- Der thematische Unterbrechungs-HMTL-{{HTMLElement('hr')}}-Element
-- [Beispiel-Separator in einer Menüleiste](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/)
+- Thematische Trennlinie HTML {{HTMLElement('hr')}}
+- [Beispiel eines Separators in einer Menüleiste](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/)

@@ -1,13 +1,13 @@
 ---
-title: ::first-letter
+title: "::first-letter"
 slug: Web/CSS/::first-letter
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: 6d55eec58e38583da60aa635d41393ad051d1c6d
 ---
 
 {{CSSRef}}
 
-Das **`::first-letter`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf den ersten Buchstaben der ersten Zeile eines [Blockcontainers](/de/docs/Web/CSS/Visual_formatting_model#block_containers) an, jedoch nur, wenn diesem kein anderer Inhalt wie Bilder oder Inline-Tabellen vorausgeht.
+Das **`::first-letter`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf den ersten Buchstaben der ersten Zeile eines [Block-Containers](/de/docs/Web/CSS/CSS_display/Visual_formatting_model#block_containers) an, jedoch nur, wenn diesem kein anderer Inhalt vorausgeht (wie Bilder oder Inline-Tabellen).
 
 {{InteractiveExample("CSS Demo: ::first-letter", "tabbed-shorter")}}
 
@@ -34,26 +34,26 @@ p::first-letter {
 
 Der erste Buchstabe eines Elements ist nicht immer leicht zu identifizieren:
 
-- Satzzeichen, die dem ersten Buchstaben vorangehen oder unmittelbar folgen, werden in das Matching einbezogen. Satzzeichen umfassen alle Unicode-Zeichen, die in den Klassen _open_ (Ps), _close_ (Pe), _initial quote_ (Pi), _final quote_ (Pf) und _other punctuation_ (Po) definiert sind.
-- Einige Sprachen haben Digraphen, die immer zusammen großgeschrieben werden, wie das `IJ` im Niederländischen. In diesen Fällen sollten beide Buchstaben des Digraphen durch das `::first-letter` Pseudoelement erfasst werden.
-- Eine Kombination aus dem {{ cssxref("::before") }} Pseudoelement und der {{ cssxref("content") }} Eigenschaft kann zu Beginn des Elements Text einfügen. In diesem Fall wird `::first-letter` den ersten Buchstaben dieses generierten Inhalts erfassen.
+- Satzzeichen, die dem ersten Buchstaben vorangehen oder diesem direkt folgen, werden in die Übereinstimmung einbezogen. Satzzeichen umfassen jedes Unicode-Zeichen, das in den Klassen _open_ (Ps), _close_ (Pe), _initial quote_ (Pi), _final quote_ (Pf) und _other punctuation_ (Po) definiert ist.
+- Einige Sprachen haben Ligaturen, die immer zusammen großgeschrieben werden, wie das `IJ` im Niederländischen. In diesen Fällen sollten beide Buchstaben der Ligatur vom `::first-letter` Pseudo-Element erfasst werden.
+- Eine Kombination des {{ cssxref("::before") }} Pseudo-Elements und der {{ cssxref("content") }} Eigenschaft kann am Anfang des Elements Text einfügen. In diesem Fall wird `::first-letter` den ersten Buchstaben dieses erzeugten Inhalts erfassen.
 
 > [!NOTE]
-> CSS hat die Notation `::first-letter` (mit zwei Doppelpunkten) eingeführt, um [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudoelementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Aus Gründen der Abwärtskompatibilität akzeptieren Browser auch `:first-letter`, das früher eingeführt wurde.
+> CSS führte die `::first-letter` Notation (mit zwei Doppelpunkten) ein, um [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Aus Gründen der Abwärtskompatibilität akzeptieren Browser auch `:first-letter`, das früher eingeführt wurde.
 >
-> Die Unterstützung von Digraphen wie `IJ` im Niederländischen ist schlecht. Überprüfen Sie die Kompatibilitätstabelle unten, um den aktuellen Stand der Unterstützung zu sehen.
+> Die Unterstützung von Ligaturen wie `IJ` im Niederländischen ist schlecht. Prüfen Sie die Kompatibilitätstabelle unten, um den aktuellen Stand der Unterstützung zu sehen.
 
 ## Zulässige Eigenschaften
 
-Nur eine kleine Teilmenge von CSS-Eigenschaften kann mit dem `::first-letter` Pseudoelement verwendet werden:
+Nur eine kleine Teilmenge von CSS-Eigenschaften kann mit dem `::first-letter` Pseudo-Element verwendet werden:
 
-- Alle Schriftart-Eigenschaften: {{ Cssxref("font") }}, {{ Cssxref("font-style") }}, {{cssxref("font-feature-settings")}}, {{cssxref("font-kerning")}}, {{cssxref("font-language-override")}}, {{cssxref("font-stretch")}}, {{cssxref("font-synthesis")}}, {{ Cssxref("font-variant") }}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-east-asian")}}, {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-numeric")}}, {{cssxref("font-variant-position")}}, {{ Cssxref("font-weight") }}, {{ Cssxref("font-size") }}, {{cssxref("font-size-adjust")}}, {{ Cssxref("line-height") }} und {{ Cssxref("font-family") }}
-- Alle Hintergrund-Eigenschaften: {{ Cssxref("background") }}, {{ Cssxref("background-color") }}, {{ Cssxref("background-image") }}, {{cssxref("background-clip")}}, {{cssxref("background-origin")}}, {{ Cssxref("background-position") }}, {{ Cssxref("background-repeat") }}, {{ cssxref("background-size") }}, {{ Cssxref("background-attachment") }}, und {{cssxref("background-blend-mode")}}
-- Alle Rand-Eigenschaften: {{ Cssxref("margin") }}, {{ Cssxref("margin-top") }}, {{ Cssxref("margin-right") }}, {{ Cssxref("margin-bottom") }}, {{ Cssxref("margin-left") }}
-- Alle Auffüllung-Eigenschaften: {{ Cssxref("padding") }}, {{ Cssxref("padding-top") }}, {{ Cssxref("padding-right") }}, {{ Cssxref("padding-bottom") }}, {{ Cssxref("padding-left") }}
-- Alle Rahmen-Eigenschaften: die Abkürzungen {{ Cssxref("border") }}, {{ Cssxref("border-style") }}, {{ Cssxref("border-color") }}, {{ cssxref("border-width") }}, {{ cssxref("border-radius") }}, {{cssxref("border-image")}}, und die Langformen-Eigenschaften
+- Alle Schriftarteigenschaften: {{ Cssxref("font") }}, {{ Cssxref("font-style") }}, {{cssxref("font-feature-settings")}}, {{cssxref("font-kerning")}}, {{cssxref("font-language-override")}}, {{cssxref("font-stretch")}}, {{cssxref("font-synthesis")}}, {{ Cssxref("font-variant") }}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-east-asian")}}, {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-numeric")}}, {{cssxref("font-variant-position")}}, {{ Cssxref("font-weight") }}, {{ Cssxref("font-size") }}, {{cssxref("font-size-adjust")}}, {{ Cssxref("line-height") }} und {{ Cssxref("font-family") }}
+- Alle Hintergrundeigenschaften: {{ Cssxref("background") }}, {{ Cssxref("background-color") }}, {{ Cssxref("background-image") }}, {{cssxref("background-clip")}}, {{cssxref("background-origin")}}, {{ Cssxref("background-position") }}, {{ Cssxref("background-repeat") }}, {{ cssxref("background-size") }}, {{ Cssxref("background-attachment") }}, und {{cssxref("background-blend-mode")}}
+- Alle Abstands-Eigenschaften: {{ Cssxref("margin") }}, {{ Cssxref("margin-top") }}, {{ Cssxref("margin-right") }}, {{ Cssxref("margin-bottom") }}, {{ Cssxref("margin-left") }}
+- Alle Polstereigenschaften: {{ Cssxref("padding") }}, {{ Cssxref("padding-top") }}, {{ Cssxref("padding-right") }}, {{ Cssxref("padding-bottom") }}, {{ Cssxref("padding-left") }}
+- Alle Rahmen-Eigenschaften: die Kurzschreibweisen {{ Cssxref("border") }}, {{ Cssxref("border-style") }}, {{ Cssxref("border-color") }}, {{ cssxref("border-width") }}, {{ cssxref("border-radius") }}, {{cssxref("border-image")}}, und die Langschreibweisen
 - Die {{ cssxref("color") }} Eigenschaft
-- Die CSS-Eigenschaften {{ cssxref("text-decoration") }}, {{cssxref("text-shadow")}}, {{ cssxref("text-transform") }}, {{ cssxref("letter-spacing") }}, {{ cssxref("word-spacing") }} (wenn angemessen), {{ cssxref("line-height") }}, {{cssxref("text-decoration-color")}}, {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-style")}}, {{cssxref("box-shadow")}}, {{ cssxref("float") }}, {{ cssxref("vertical-align") }} (nur wenn `float` `none` ist)
+- Die CSS-Eigenschaften {{ cssxref("text-decoration") }}, {{cssxref("text-shadow")}}, {{ cssxref("text-transform") }}, {{ cssxref("letter-spacing") }}, {{ cssxref("word-spacing") }} (wenn zutreffend), {{ cssxref("line-height") }}, {{cssxref("text-decoration-color")}}, {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-style")}}, {{cssxref("box-shadow")}}, {{ cssxref("float") }}, {{ cssxref("vertical-align") }} (nur wenn `float` auf `none` gesetzt ist)
 
 ## Syntax
 
@@ -67,7 +67,7 @@ Nur eine kleine Teilmenge von CSS-Eigenschaften kann mit dem `::first-letter` Ps
 
 ### Einfacher Initialbuchstabe
 
-In diesem Beispiel werden wir das `::first-letter` Pseudoelement verwenden, um einen Initialbuchstaben-Effekt auf den ersten Buchstaben des Absatzes direkt nach dem `<h2>` zu erzeugen.
+In diesem Beispiel verwenden wir das `::first-letter` Pseudo-Element, um einen Initialbuchstaben-Effekt auf den ersten Buchstaben des Absatzes direkt nach dem `<h2>` zu erstellen.
 
 #### HTML
 
@@ -144,12 +144,12 @@ p::first-letter {
 
 {{ EmbedLiveSample('Effect_on_special_punctuation_and_non-Latin_characters', '100%', 350) }}
 
-### Erstbuchstaben-Stil in SVG Textelement
+### Stil der ersten Buchstaben in einem SVG-Text-Element
 
-In diesem Beispiel verwenden wir das `::first-letter` Pseudoelement, um den Erstbuchstaben eines SVG {{SVGElement("text")}} Elements zu stylen.
+In diesem Beispiel verwenden wir das `::first-letter` Pseudo-Element, um den ersten Buchstaben eines SVG {{SVGElement("text")}} Elements zu gestalten.
 
 > [!NOTE]
-> Zum Zeitpunkt des Schreibens hat dieses Merkmal [eingeschränkte Unterstützung](#browser-kompatibilität).
+> Zum Zeitpunkt der Erstellung dieses Artikels ist diese Funktion [bedingt unterstützt](#browser-kompatibilität).
 
 #### HTML
 

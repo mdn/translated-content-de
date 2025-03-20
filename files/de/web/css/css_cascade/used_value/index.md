@@ -2,21 +2,21 @@
 title: Verwendeter Wert
 slug: Web/CSS/CSS_cascade/used_value
 l10n:
-  sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83
+  sourceCommit: 4e1bf706f08556292e02202486fae8b616cfc358
 ---
 
 {{CSSRef}}
 
-Der **verwendete Wert** einer [CSS](/de/docs/Web/CSS)-Eigenschaft ist deren Wert, nachdem alle Berechnungen zum [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/computed_value) durchgeführt wurden.
+Der **verwendete Wert** einer [CSS](/de/docs/Web/CSS)-Eigenschaft ist ihr Wert, nachdem alle Berechnungen auf dem [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/computed_value) durchgeführt wurden.
 
-Nachdem der {{Glossary("user_agent", "User Agent")}} seine Berechnungen abgeschlossen hat, hat jede CSS-Eigenschaft einen verwendeten Wert. Die verwendeten Werte von Dimensionen (z.B. {{cssxref("width")}}, {{cssxref("line-height")}}) sind in Pixeln. Die verwendeten Werte von Kurzschrift-Eigenschaften (z.B. {{cssxref("background")}}) sind konsistent mit denen ihrer Komponenten-Eigenschaften (z.B. {{cssxref("background-color")}} oder {{cssxref("background-size")}}) und mit {{cssxref("position")}} und {{cssxref("float")}}.
+Nachdem der {{Glossary("user_agent", "User-Agent")}} seine Berechnungen abgeschlossen hat, hat jede CSS-Eigenschaft einen verwendeten Wert. Die verwendeten Werte von Dimensionen (z.B. {{cssxref("width")}}, {{cssxref("line-height")}}) werden in Pixeln angegeben. Die verwendeten Werte von Kurzschreibweisen (z.B. {{cssxref("background")}}) sind konsistent mit denen ihrer Komponenteneigenschaften (z.B. {{cssxref("background-color")}} oder {{cssxref("background-size")}}) sowie mit {{cssxref("position")}} und {{cssxref("float")}}.
 
 > [!NOTE]
-> Die [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) DOM API gibt den [aufgelösten Wert](/de/docs/Web/CSS/resolved_value) zurück, der entweder der [berechnete Wert](/de/docs/Web/CSS/CSS_cascade/computed_value) oder der verwendete Wert sein kann, abhängig von der Eigenschaft.
+> Die [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) DOM-API gibt den [gelösten Wert](/de/docs/Web/CSS/resolved_value) zurück, der je nach Eigenschaft entweder der [berechnete Wert](/de/docs/Web/CSS/CSS_cascade/computed_value) oder der verwendete Wert sein kann.
 
 ## Beispiel
 
-Dieses Beispiel berechnet und zeigt den verwendeten `width`-Wert von drei Elementen an (Aktualisierungen bei Größenänderung):
+Dieses Beispiel berechnet und zeigt den verwendeten `width`-Wert von drei Elementen an (aktualisiert bei Größenänderung):
 
 ### HTML
 
@@ -85,7 +85,7 @@ window.addEventListener("resize", updateAllUsedWidths);
 
 ## Unterschied zum berechneten Wert
 
-CSS 2.0 definierte nur den _berechneten Wert_ als letzten Schritt bei der Berechnung einer Eigenschaft. Dann führte CSS 2.1 die eindeutige Definition des verwendeten Wertes ein. Ein Element konnte dann explizit eine Breite/Höhe eines übergeordneten Elements erben, dessen berechneter Wert ein Prozentsatz ist. Für CSS-Eigenschaften, die nicht von Layouts abhängen (z.B. `display`, `font-size` oder `line-height`), sind die berechneten Werte und die verwendeten Werte identisch. Folgende sind die CSS 2.1-Eigenschaften, die vom Layout abhängen und daher einen unterschiedlichen berechneten Wert und verwendeten Wert haben: (übernommen aus [CSS 2.1 Changes: Specified, computed, and actual values](https://www.w3.org/TR/CSS2/changes.html#q21.36)):
+CSS 2.0 definierte nur den _berechneten Wert_ als den letzten Schritt bei der Berechnung einer Eigenschaft. Dann führte CSS 2.1 die eigenständige Definition des verwendeten Wertes ein. Ein Element konnte dann explizit eine Breite/Höhe eines Elternteils erben, dessen berechneter Wert ein Prozentwert ist. Bei CSS-Eigenschaften, die nicht vom Layout abhängen (z.B. `display`, `font-size` oder `line-height`), sind die berechneten Werte und verwendeten Werte identisch. Die folgenden CSS 2.1-Eigenschaften hängen vom Layout ab und haben daher einen unterschiedlichen berechneten und verwendeten Wert: (entnommen aus [CSS 2.1 Changes: Specified, computed, and actual values](https://www.w3.org/TR/CSS2/changes.html#q21.36)):
 
 - `background-position`
 - `bottom`, `left`, `right`, `top`
@@ -102,20 +102,20 @@ CSS 2.0 definierte nur den _berechneten Wert_ als letzten Schritt bei der Berech
 ## Siehe auch
 
 - [`window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle)
-- Grundlegende CSS-Konzepte:
+- CSS-Schlüsselkonzepte:
   - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
   - [Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
   - [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
   - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
   - [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-  - [Layout-Modi](/de/docs/Web/CSS/Layout_mode)
-  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Visual_formatting_model)
-  - [Zusammenfallen von Rändern](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+  - {{Glossary("Layout_mode", "Layout-Modi")}}
+  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
+  - [Randüberlappung](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
   - Werte
     - [Initialwerte](/de/docs/Web/CSS/CSS_cascade/initial_value)
     - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/computed_value)
-    - [Aufgelöste Werte](/de/docs/Web/CSS/resolved_value)
+    - [Gelöste Werte](/de/docs/Web/CSS/resolved_value)
     - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/actual_value)
-  - [Wertedefinition Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
-  - [Kurzschrift-Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
+  - [Wertedefinitionssyntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
+  - [Kurzschreibweiseigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
   - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

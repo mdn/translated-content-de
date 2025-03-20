@@ -2,18 +2,17 @@
 title: translate3d()
 slug: Web/CSS/transform-function/translate3d
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 6d4cc8a3456ed6c0eba0d3ace7c14973137e93a5
 ---
 
 {{CSSRef}}
 
-Die **`translate3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) positioniert ein Element im 3D-Raum um. Ihr Ergebnis ist ein
-{{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`translate3d()`**-Funktion von [CSS](/de/docs/Web/CSS) [verlagert](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ein Element im 3D-Raum. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: translate3d()")}}
 
 ```css interactive-example-choice
-transform: translate3d(0);
+transform: translate3d(0, 0, 0);
 ```
 
 ```css interactive-example-choice
@@ -98,7 +97,7 @@ transform: translate3d(5ch, 0.4in, 5em);
 }
 ```
 
-Diese Transformation ist durch einen dreidimensionalen Vektor [tx, ty, tz] gekennzeichnet. Ihre Koordinaten definieren, wie weit sich das Element in jede Richtung bewegt.
+Diese Transformation ist durch einen dreidimensionalen Vektor [tx, ty, tz] gekennzeichnet. Seine Koordinaten definieren, wie viel sich das Element in jede Richtung bewegt.
 
 ## Syntax
 
@@ -109,11 +108,14 @@ translate3d(tx, ty, tz)
 ### Werte
 
 - `tx`
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Abszisse (horizontale, x-Komponente) des Translationsvektors [tx, ty, tz] darstellt.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Abszisse (horizontal, x-Komponente) des
+    Translationsvektors [tx, ty, tz] darstellt.
 - `ty`
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Ordinate (vertikale, y-Komponente) des Translationsvektors [tx, ty, tz] darstellt.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Ordinate (vertikal, y-Komponente) des
+    Translationsvektors [tx, ty, tz] darstellt.
 - `tz`
-  - : Ist ein {{cssxref("&lt;length&gt;")}}, der die z-Komponente des Translationsvektors darstellt. Es kann kein {{cssxref("&lt;percentage&gt;")}} Wert sein; in diesem Fall wird die Eigenschaft, die die Transformation enthält, als ungültig betrachtet [tx, ty, tz].
+  - : Ist ein {{cssxref("&lt;length&gt;")}}, der die z-Komponente des Translationsvektors darstellt. Es kann kein
+    {{cssxref("&lt;percentage&gt;")}}-Wert sein; in diesem Fall wird die Eigenschaft, die die Transformation enthält, als ungültig angesehen [tx, ty, tz].
 
 <table class="standard-table">
   <thead>
@@ -128,11 +130,11 @@ translate3d(tx, ty, tz)
     <tr>
       <td colspan="2">
         <p>
-          Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
+          Diese Transformation gilt für den 3D-Raum und kann nicht in der Ebene dargestellt werden.
         </p>
       </td>
       <td>
-        Eine Translation ist keine lineare Transformation in ℝ^3 und kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden.
+        Eine Translation ist keine lineare Transformation in ℝ^3 und kann nicht unter Verwendung einer kartesischen Koordinatenmatrix dargestellt werden.
       </td>
       <td>
         <math display="block">
@@ -149,7 +151,7 @@ translate3d(tx, ty, tz)
 
 ## Beispiele
 
-### Verwendung einer Translation entlang einer einzigen Achse
+### Verwendung einer Einzelachsen-Translation
 
 #### HTML
 

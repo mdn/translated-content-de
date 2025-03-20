@@ -177,8 +177,8 @@
 /de/docs/CSS-2_Quick_Reference/Units	/de/docs/Web/CSS/length
 /de/docs/CSS-2_Quick_Reference/User_interface	/de/docs/Web/CSS/Reference
 /de/docs/CSS-2_Quick_Reference/Visual_effects	/de/docs/Web/CSS/Reference
-/de/docs/CSS-2_Quick_Reference/Visual_formatting_details	/de/docs/Web/CSS/Visual_formatting_model
-/de/docs/CSS-2_Quick_Reference/Visual_formatting_model	/de/docs/Web/CSS/Visual_formatting_model
+/de/docs/CSS-2_Quick_Reference/Visual_formatting_details	/de/docs/Web/CSS/CSS_display/Visual_formatting_model
+/de/docs/CSS-2_Quick_Reference/Visual_formatting_model	/de/docs/Web/CSS/CSS_display/Visual_formatting_model
 /de/docs/CSS-2_Quick_Reference:All_in_a_page	/de/docs/Web/CSS/Reference
 /de/docs/CSS-2_Quick_Reference:Box_model	/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model
 /de/docs/CSS-2_Quick_Reference:Color_and_Background	/de/docs/Web/CSS/Reference
@@ -190,8 +190,8 @@
 /de/docs/CSS-2_Quick_Reference:Units	/de/docs/Web/CSS/length
 /de/docs/CSS-2_Quick_Reference:User_interface	/de/docs/Web/CSS/Reference
 /de/docs/CSS-2_Quick_Reference:Visual_effects	/de/docs/Web/CSS/Reference
-/de/docs/CSS-2_Quick_Reference:Visual_formatting_details	/de/docs/Web/CSS/Visual_formatting_model
-/de/docs/CSS-2_Quick_Reference:Visual_formatting_model	/de/docs/Web/CSS/Visual_formatting_model
+/de/docs/CSS-2_Quick_Reference:Visual_formatting_details	/de/docs/Web/CSS/CSS_display/Visual_formatting_model
+/de/docs/CSS-2_Quick_Reference:Visual_formatting_model	/de/docs/Web/CSS/CSS_display/Visual_formatting_model
 /de/docs/CSS-redirect-1	/de/docs/Web/CSS
 /de/docs/CSS-redirect-2	/de/docs/Web/CSS
 /de/docs/CSS/-epub-caption-side	/de/docs/Web/CSS/caption-side
@@ -506,7 +506,7 @@
 /de/docs/CSS/Getting_Started/Why_use_CSS?	/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS
 /de/docs/CSS/ID_selectors	/de/docs/Web/CSS/ID_selectors
 /de/docs/CSS/Interactive	/de/docs/Web/CSS/@media
-/de/docs/CSS/Layout_mode	/de/docs/Web/CSS/Layout_mode
+/de/docs/CSS/Layout_mode	/de/docs/Glossary/Layout_mode
 /de/docs/CSS/List_of_Proprietary_CSS_Features	/de/docs/Web/CSS/Reference
 /de/docs/CSS/Media/Bitmap	/de/docs/Web/CSS/@media
 /de/docs/CSS/Media/TV	/de/docs/Web/CSS/@media
@@ -516,7 +516,7 @@
 /de/docs/CSS/Multiple_backgrounds	/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds
 /de/docs/CSS/Other_Resources	/de/docs/Web/CSS
 /de/docs/CSS/Paged_Media	/de/docs/Web/CSS/CSS_paged_media
-/de/docs/CSS/Privacy_and_the_:visited_selector	/de/docs/Web/CSS/Privacy_and_the_:visited_selector
+/de/docs/CSS/Privacy_and_the_:visited_selector	/de/docs/Web/CSS/CSS_selectors/Privacy_and_the_visited_selector
 /de/docs/CSS/Pseudo-classes	/de/docs/Web/CSS/Pseudo-classes
 /de/docs/CSS/Pseudo-elements	/de/docs/Web/CSS/Pseudo-elements
 /de/docs/CSS/Replaced_element	/de/docs/Web/CSS/CSS_images/Replaced_element_properties
@@ -565,7 +565,7 @@
 /de/docs/CSS/Using_media_queries_from_code	/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries
 /de/docs/CSS/Using_the_CSS_multi-column_layout	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
 /de/docs/CSS/Value_definition_syntax	/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax
-/de/docs/CSS/Visual_formatting_model	/de/docs/Web/CSS/Visual_formatting_model
+/de/docs/CSS/Visual_formatting_model	/de/docs/Web/CSS/CSS_display/Visual_formatting_model
 /de/docs/CSS/actual_value	/de/docs/Web/CSS/CSS_cascade/actual_value
 /de/docs/CSS/align-content	/de/docs/Web/CSS/align-content
 /de/docs/CSS/align-items	/de/docs/Web/CSS/align-items
@@ -12161,8 +12161,10 @@
 /de/docs/Web/CSS/General_sibling_selectors	/de/docs/Web/CSS/Subsequent-sibling_combinator
 /de/docs/Web/CSS/Grouping_selectors	/de/docs/Web/CSS/Selector_list
 /de/docs/Web/CSS/Inheritance	/de/docs/Web/CSS/CSS_cascade/Inheritance
+/de/docs/Web/CSS/Inline_formatting_context	/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context
 /de/docs/Web/CSS/Interactive	/de/docs/Web/CSS/@media
 /de/docs/Web/CSS/Layout_cookbook/Recipe:_Media_Objects	/de/docs/Web/CSS/Layout_cookbook/Media_objects
+/de/docs/Web/CSS/Layout_mode	/de/docs/Glossary/Layout_mode
 /de/docs/Web/CSS/List_of_Proprietary_CSS_Features	/de/docs/Web/CSS/Reference
 /de/docs/Web/CSS/Media_Queries	/de/docs/Web/CSS/CSS_media_queries
 /de/docs/Web/CSS/Media_Queries/Testing_media_queries	/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries
@@ -12171,6 +12173,7 @@
 /de/docs/Web/CSS/Motion_Path	/de/docs/Web/CSS/CSS_motion_path
 /de/docs/Web/CSS/Other_Resources	/de/docs/Web/CSS
 /de/docs/Web/CSS/Paged_Media	/de/docs/Web/CSS/CSS_paged_media
+/de/docs/Web/CSS/Privacy_and_the_:visited_selector	/de/docs/Web/CSS/CSS_selectors/Privacy_and_the_visited_selector
 /de/docs/Web/CSS/Reference/Mozilla_Extensions	/de/docs/Web/CSS/Mozilla_Extensions
 /de/docs/Web/CSS/Reference/Webkit_Extensions	/de/docs/Web/CSS/WebKit_Extensions
 /de/docs/Web/CSS/Reference/object-position	/de/docs/Web/CSS/object-position
@@ -12203,6 +12206,7 @@
 /de/docs/Web/CSS/Using_the_CSS_multi-column_layout	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
 /de/docs/Web/CSS/Value_definition_syntax	/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax
 /de/docs/Web/CSS/Viewport_concepts	/de/docs/Web/CSS/CSSOM_view/Viewport_concepts
+/de/docs/Web/CSS/Visual_formatting_model	/de/docs/Web/CSS/CSS_display/Visual_formatting_model
 /de/docs/Web/CSS/_image	/de/docs/Web/CSS/image/image
 /de/docs/Web/CSS/abs()	/de/docs/Web/CSS/abs
 /de/docs/Web/CSS/actual_value	/de/docs/Web/CSS/CSS_cascade/actual_value
@@ -12324,6 +12328,7 @@
 /de/docs/Web/CSS/offset-inline-start	/de/docs/Web/CSS/inset-inline-start
 /de/docs/Web/CSS/offset-rotation	/de/docs/Web/CSS/offset-rotate
 /de/docs/Web/CSS/orient	/de/docs/Web/CSS/-moz-orient
+/de/docs/Web/CSS/overflow-anchor/Guide_to_scroll_anchoring	/de/docs/Web/CSS/CSS_scroll_anchoring/Scroll_anchoring
 /de/docs/Web/CSS/overflow-x2	/de/docs/Web/CSS/overflow-x
 /de/docs/Web/CSS/pad	/de/docs/Web/CSS/@counter-style/pad
 /de/docs/Web/CSS/paint	/de/docs/Web/CSS/image/paint
@@ -12752,7 +12757,7 @@
 /de/docs/Web/Guide/CSS/Using_multi-column_layouts	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
 /de/docs/Web/Guide/CSS/Using_multiple_backgrounds	/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds
 /de/docs/Web/Guide/CSS/Using_the_:target_selector	/de/docs/Web/CSS/CSS_selectors/Using_the_:target_pseudo-class_in_selectors
-/de/docs/Web/Guide/CSS/Visual_formatting_model	/de/docs/Web/CSS/Visual_formatting_model
+/de/docs/Web/Guide/CSS/Visual_formatting_model	/de/docs/Web/CSS/CSS_display/Visual_formatting_model
 /de/docs/Web/Guide/DOM	/de/docs/Web/API/Document_Object_Model
 /de/docs/Web/Guide/DOM/Events/Creating_and_triggering_events	/de/docs/Web/Events/Creating_and_triggering_events
 /de/docs/Web/Guide/DOM/Events/Event_dispatching_example	/de/docs/Web/Events/Creating_and_triggering_events

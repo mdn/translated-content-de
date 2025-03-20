@@ -2,14 +2,14 @@
 title: Floats
 slug: Learn_web_development/Core/CSS_layout/Floats
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 6d55eec58e38583da60aa635d41393ad051d1c6d
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Introduction", "Learn_web_development/Core/CSS_layout/Positioning", "Learn_web_development/Core/CSS_layout")}}
 
-Ursprünglich für das Einfügen von Bildern in Textblöcke entwickelt, wurde die {{cssxref("float")}}-Eigenschaft zu einem der am häufigsten verwendeten Werkzeuge für die Erstellung mehrspaltiger Layouts auf Webseiten. Mit der Einführung von `flexbox` und `grid` kehrt sie nun wieder zu ihrem ursprünglichen Zweck zurück, wie dieser Artikel erläutert.
+Ursprünglich für das Flottieren von Bildern innerhalb von Textblöcken entwickelt, wurde die {{cssxref("float")}}-Eigenschaft eines der am häufigsten verwendeten Werkzeuge, um mehrspaltige Layouts auf Webseiten zu erstellen. Mit dem Aufkommen von Flexbox und Grid ist die Eigenschaft nun zu ihrem ursprünglichen Zweck zurückgekehrt, wie dieser Artikel erklärt.
 
 <table>
   <tbody>
@@ -17,22 +17,21 @@ Ursprünglich für das Einfügen von Bildern in Textblöcke entwickelt, wurde di
       <th scope="row">Voraussetzungen:</th>
       <td>
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
-          >Strukturierung von Inhalten mit HTML</a
+          >Inhalte mit HTML strukturieren</a
         >,
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling Grundlagen</a>,
-        <a href="/de/docs/Learn_web_development/Core/Text_styling/Fundamentals">Grundlegende Text- und Schriftartgestaltung</a>,
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS-Grundlagen der Gestaltung</a>,
+        <a href="/de/docs/Learn_web_development/Core/Text_styling/Fundamentals">Grundlegende Text- und Schriftgestaltung</a>,
         Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/CSS_layout/Introduction">grundlegenden Konzepten des CSS-Layouts</a>.
       </td>
-    </tr>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verstehen Sie den Zweck von Floats — für schwebende Bilder innerhalb von Textspalten und andere Techniken wie Initialen und schwebende Informationseinblendungen.</li>
-          <li>Verstehen Sie, dass Floats früher für mehrspaltige Layouts verwendet wurden, dies aber nicht mehr der Fall ist, da es jetzt bessere Werkzeuge gibt.</li>
-          <li>Die <code>float</code>-Eigenschaft verwenden, um Floats zu erstellen.</li>
-          <li>Floats mit der Verwendung von <code>clear</code> und dem Wert <code>display: flow-root</code> aufzulösen.</li>
+          <li>Verstehen, wofür Floats gedacht sind — um Bilder innerhalb von Textspalten zu platzieren und für andere Techniken wie Initialen und schwebende Informationsboxen.</li>
+          <li>Verstehen, dass Floats früher für mehrspaltige Layouts verwendet wurden, dies aber nicht mehr der Fall ist, da jetzt bessere Werkzeuge verfügbar sind.</li>
+          <li>Verwendung der <code>float</code>-Eigenschaft, um Floats zu erstellen.</li>
+          <li>Floats mit <code>clear</code> und dem Wert <code>display: flow-root</code> bereinigen.</li>
         </ul>
       </td>
     </tr>
@@ -41,19 +40,19 @@ Ursprünglich für das Einfügen von Bildern in Textblöcke entwickelt, wurde di
 
 ## Der Hintergrund von Floats
 
-Die {{cssxref("float")}}-Eigenschaft wurde eingeführt, um Webentwicklern zu ermöglichen, Layouts zu implementieren, bei denen ein Bild innerhalb einer Textspalte schwebt und der Text links oder rechts darum herum fließt. Solche Layouts könnten beispielsweise in einer Zeitungsseite vorkommen.
+Die {{cssxref("float")}}-Eigenschaft wurde eingeführt, um Webentwicklern zu ermöglichen, Layouts mit einem Bild, das innerhalb einer Textspalte schwebt, zu erstellen, wobei der Text sich links oder rechts um das Bild legt. So etwas könnte man in einem Zeitungs-Layout finden.
 
-Webentwickler erkannten jedoch schnell, dass man nicht nur Bilder schweben lassen kann, und so erweiterte sich die Verwendung von `float`, beispielsweise für unterhaltsame Layouteffekte wie [Initialen](https://css-tricks.com/snippets/css/drop-caps/).
+Webentwickler erkannten jedoch schnell, dass man nicht nur Bilder, sondern alles schweben lassen kann, sodass die Verwendung von Floats erweitert wurde, z. B. für unterhaltsame Layouteffekte wie [Initialen](https://css-tricks.com/snippets/css/drop-caps/).
 
-Floats wurden häufig verwendet, um komplette Webseitenlayouts mit mehreren Spalten von Informationen zu erstellen, die so geschwebt sind, dass sie nebeneinander stehen (das Standardverhalten wäre, dass die Spalten untereinander in der Reihenfolge sitzen, in der sie im Quellcode erscheinen). Es gibt neuere, bessere Layouttechniken. Die Verwendung von Floats auf diese Weise sollte als veraltete Technik betrachtet werden.
+Floats wurden häufig verwendet, um komplette Webseiten-Layouts mit mehreren Spalten von Informationen zu erstellen, die so schwebend angeordnet sind, dass sie nebeneinander stehen (das Standardverhalten wäre, dass die Spalten untereinander in derselben Reihenfolge wie im Quelltext erscheinen). Es gibt neuere, bessere Layout-Techniken. Die Verwendung von Floats auf diese Weise sollte als veraltete Technik betrachtet werden.
 
-In diesem Artikel konzentrieren wir uns nur auf die korrekten Verwendungszwecke von Floats.
+In diesem Artikel konzentrieren wir uns nur auf die ordnungsgemäße Verwendung von Floats.
 
 ## Ein Float-Beispiel
 
-Lassen Sie uns die Verwendung von Floats erkunden. Wir beginnen mit einem Beispiel, bei dem ein Textblock um ein Element herum schwebt. Sie können mithilfe der Erstellung einer neuen `index.html`-Datei auf Ihrem Computer mit einem [HTML-Template](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) fortfahren und den nachstehenden Code an den entsprechenden Stellen einfügen. Am Ende des Abschnitts können Sie ein Live-Beispiel sehen, wie der endgültige Code aussehen sollte.
+Lassen Sie uns die Verwendung von Floats erkunden. Wir beginnen mit einem Beispiel, bei dem ein Textblock um ein Element herum schwebt. Sie können mitmachen, indem Sie eine neue `index.html`-Datei auf Ihrem Computer erstellen, sie mit einer [HTML-Vorlage](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) füllen und den untenstehenden Code an den entsprechenden Stellen einfügen. Am Ende des Abschnitts können Sie ein Live-Beispiel sehen, wie der endgültige Code aussehen sollte.
 
-Zunächst beginnen wir mit etwas HTML. Fügen Sie das folgende zu Ihrem HTML-Body hinzu und entfernen Sie dabei alles, was zuvor darin war:
+Zuerst beginnen wir mit etwas HTML. Fügen Sie das Folgende in den HTML-Body ein und entfernen Sie alles, was vorher darin war:
 
 ```html
 <h1>Float example</h1>
@@ -87,7 +86,7 @@ Zunächst beginnen wir mit etwas HTML. Fügen Sie das folgende zu Ihrem HTML-Bod
 </p>
 ```
 
-Wenden Sie nun das folgende CSS auf Ihr HTML an (verwenden Sie dazu ein {{htmlelement("style")}}-Element oder einen {{htmlelement("link")}} zu einer separaten `.css`-Datei — Ihrer Wahl):
+Wenden Sie nun das folgende CSS auf Ihr HTML an (unter Verwendung eines {{htmlelement("style")}}-Elements oder eines {{htmlelement("link")}} zu einer separaten `.css`-Datei – Ihre Wahl):
 
 ```css
 body {
@@ -109,11 +108,11 @@ body {
 }
 ```
 
-Wenn Sie speichern und aktualisieren, werden Sie etwas sehen, das Ihren Erwartungen entspricht: Die Box sitzt im normalen Fluss über dem Text.
+Wenn Sie speichern und aktualisieren, werden Sie etwas sehen, das ganz Ihrer Erwartung entspricht: Die Box sitzt über dem Text im normalen Fluss.
 
 ### Die Box schweben lassen
 
-Um die Box schweben zu lassen, fügen Sie die Eigenschaften {{cssxref("float")}} und {{cssxref("margin-right")}} zur `.`box-Regel hinzu:
+Um die Box schweben zu lassen, fügen Sie die Eigenschaften {{cssxref("float")}} und {{cssxref("margin-right")}} zur `.box`-Regel hinzu:
 
 ```html hidden
 <h1>Float example</h1>
@@ -159,19 +158,19 @@ Um die Box schweben zu lassen, fügen Sie die Eigenschaften {{cssxref("float")}}
 }
 ```
 
-Wenn Sie nun speichern und aktualisieren, sehen Sie etwa Folgendes:
+Wenn Sie jetzt speichern und aktualisieren, sehen Sie etwas Ähnliches wie das Folgende:
 
 {{EmbedLiveSample('Floating_the_box', '100%', 500)}}
 
-Lassen Sie uns über die Funktionsweise des Floats nachdenken. Das Element, auf dem das `float` gesetzt ist (in diesem Fall das {{htmlelement("div")}}-Element), wird aus dem normalen Layoutfluss des Dokuments herausgenommen und an der linken Seite des übergeordneten Containers ({{htmlelement("body")}}, in diesem Fall) fixiert. Jeglicher Inhalt, der im normalen Layoutfluss unterhalb des geschwebten Elements erscheinen würde, umfließt es nun stattdessen und füllt den Raum rechts davon bis nach oben zum geschwebten Element. Dort stoppt es.
+Lassen Sie uns darüber nachdenken, wie der Float funktioniert. Das Element, auf dem der Float gesetzt ist (in diesem Fall das {{htmlelement("div")}}-Element), wird aus dem normalen Layoutfluss des Dokuments herausgenommen und an die linke Seite seines übergeordneten Containers (in diesem Fall {{htmlelement("body")}}) festgeheftet. Jeder Inhalt, der im normalen Layoutfluss unterhalb des schwebenden Elements erscheinen würde, wird nun um es herum verlaufen und den Raum auf der rechten Seite ausfüllen, bis zur Oberseite des schwebenden Elements. Dort hört es auf.
 
-Das Schweben des Inhalts nach rechts hat genau denselben Effekt, nur umgekehrt: Das geschwebte Element wird rechts fixiert, und der Inhalt umfließt es nach links. Versuchen Sie, den `float`-Wert auf `right` zu ändern und ersetzen Sie {{cssxref("margin-right")}} durch {{cssxref("margin-left")}} in der letzten Regelsetzung, um zu sehen, was das Ergebnis ist.
+Das Schweben des Inhalts nach rechts hat genau den gleichen Effekt, jedoch umgekehrt: Das schwebende Element wird an die rechte Seite geheftet, und der Inhalt verläuft um es herum nach links. Versuchen Sie, den Float-Wert auf `right` zu ändern und {{cssxref("margin-right")}} in {{cssxref("margin-left")}} in der letzten Regel zu ersetzen, um zu sehen, was herauskommt.
 
 ### Den Float visualisieren
 
-Während wir ein `margin` zum Float hinzufügen können, um den Text wegzuschieben, können wir dem Text kein `margin` hinzufügen, um ihn vom Float wegzubewegen. Dies liegt daran, dass ein geschwebtes Element aus dem normalen Fluss herausgenommen wird und die Boxen der nachfolgenden Elemente tatsächlich hinter dem Float verlaufen. Sie können dies sehen, indem Sie einige Änderungen an Ihrem Beispiel vornehmen.
+Während wir einen Rand zum Float hinzufügen können, um den Text wegzudrücken, können wir dem Text keinen Rand hinzufügen, um ihn vom Float wegzubewegen. Dies liegt daran, dass ein schwebendes Element aus dem normalen Flow herausgenommen wird und die Boxen der folgenden Elemente tatsächlich hinter dem Float verlaufen. Sie können dies sehen, indem Sie einige Änderungen an Ihrem Beispiel vornehmen.
 
-Fügen Sie dem ersten Textabsatz, direkt nach der geschwebten Box, eine Klasse `special` hinzu und fügen Sie dann in Ihrem CSS die folgenden Regeln hinzu. Diese geben unserem nachfolgenden Absatz eine Hintergrundfarbe.
+Fügen Sie der ersten Textpassage, die sofort auf die schwebende Box folgt, eine Klasse `special` hinzu, und fügen Sie dann in Ihrem CSS die folgenden Regeln hinzu. Diese werden unserem folgenden Absatz eine Hintergrundfarbe geben.
 
 ```css
 .special {
@@ -181,7 +180,7 @@ Fügen Sie dem ersten Textabsatz, direkt nach der geschwebten Box, eine Klasse `
 }
 ```
 
-Um den Effekt leichter sichtbar zu machen, ändern Sie `margin-right` Ihres Floats auf `margin`, damit Sie Platz um den Float herum erhalten. Sie werden sehen können, dass der Hintergrund des Absatzes direkt unterhalb der geschwebten Box verläuft, wie im untenstehenden Beispiel.
+Um den Effekt besser sichtbar zu machen, ändern Sie den `margin-right` Ihres Floats zu `margin`, damit Sie rund um den Float Platz bekommen. Sie werden sehen können, dass der Hintergrund des Absatzes direkt unter der schwebenden Box verläuft, wie im folgenden Beispiel.
 
 ```html hidden
 <h1>Float example</h1>
@@ -239,13 +238,13 @@ body {
 
 {{EmbedLiveSample('Visualizing_the_float', '100%', 500)}}
 
-Die [Line-Boxes](/de/docs/Web/CSS/Visual_formatting_model#line_boxes) unseres nachfolgenden Elements wurden verkürzt, sodass der Text um den Float herum verlaufen kann, aber aufgrund des Floats, der aus dem normalen Fluss entfernt wurde, bleibt die Box um den Absatz weiterhin voll breit.
+Die [Zeilenboxen](/de/docs/Web/CSS/CSS_display/Visual_formatting_model#line_boxes) unseres folgenden Elements wurden verkürzt, sodass der Text um den Float verläuft. Aufgrund des Floats wird jedoch der ursprüngliche normale Flow des gesamten Boxmodells erhalten.
 
-## Floats auflösen
+## Floats bereinigen
 
-Wir haben gesehen, dass ein Float aus dem normalen Fluss entfernt wird und dass andere Elemente neben ihm angezeigt werden. Wenn wir verhindern möchten, dass das folgende Element aufrückt, müssen wir es _auflösen_; dies wird mit der Eigenschaft {{cssxref("clear")}} erreicht.
+Wir haben gesehen, dass ein Float aus dem normalen Flow herausgenommen wird und andere Elemente daneben angezeigt werden. Wenn wir das nachfolgende Element am Weiterwandern hindern wollen, müssen wir es _bereinigen_; dies wird mit der {{cssxref("clear")}}-Eigenschaft erreicht.
 
-Fügen Sie in Ihrem HTML aus dem vorherigen Beispiel der zweiten Zeile unter dem geschwebten Element eine Klasse `cleared` hinzu. Fügen Sie dann das Folgende zu Ihrem CSS hinzu:
+Fügen Sie Ihrem HTML aus dem vorherigen Beispiel eine Klasse `cleared` zum zweiten Absatz unterhalb des schwebenden Elements hinzu. Fügen Sie dann das Folgende zu Ihrem CSS hinzu:
 
 ```css
 .cleared {
@@ -319,19 +318,19 @@ body {
 
 {{EmbedLiveSample('Clearing_floats', '100%', 600)}}
 
-Sie sollten sehen, dass der zweite Absatz jetzt das geschwebte Element auflöst und nicht mehr daneben erscheint. Die `clear`-Eigenschaft akzeptiert die folgenden Werte:
+Sie sollten sehen, dass der zweite Absatz jetzt das schwebende Element bereinigt und nicht mehr daneben erscheint. Die `clear`-Eigenschaft akzeptiert die folgenden Werte:
 
-- `left`: Löst Elemente auf, die nach links geschwebt sind.
-- `right`: Löst Elemente auf, die nach rechts geschwebt sind.
-- `both`: Löst alle geschwebten Elemente, links oder rechts.
+- `left`: Elemente bereinigen, die nach links schweben.
+- `right`: Elemente bereinigen, die nach rechts schweben.
+- `both`: Jegliche schwebende Elemente, links oder rechts, bereinigen.
 
-## Boxen aufräumen, die um einen Float herumgewickelt sind
+## Boxen um einen Float herum bereinigen
 
-Sie wissen jetzt, wie man etwas auflöst, das einem geschwebten Element folgt, aber lassen Sie uns sehen, was passiert, wenn Sie einen hohen Float und einen kurzen Absatz haben, mit einer Box, die um _beide_ Elemente gewickelt ist.
+Sie wissen jetzt, wie Sie etwas nach einem schwebenden Element bereinigen können, aber sehen wir uns an, was passiert, wenn Sie einen hohen Float und einen kurzen Absatz haben, mit einer Box, die um _beide_ Elemente herum verläuft.
 
 ### Das Problem
 
-Ändern Sie Ihr Dokument so, dass der erste Absatz und die geschwebte Box gemeinsam mit einem {{htmlelement("div")}} umwickelt sind, das eine Klasse `wrapper` hat.
+Ändern Sie Ihr Dokument so, dass der erste Absatz und die schwebende Box gemeinsam mit einem {{htmlelement("div")}} umhüllt sind, das eine Klasse `wrapper` hat.
 
 ```html live-sample___the_problem
 <div class="wrapper">
@@ -346,7 +345,7 @@ Sie wissen jetzt, wie man etwas auflöst, das einem geschwebten Element folgt, a
 </div>
 ```
 
-Fügen Sie in Ihrem CSS die folgende Regel für die Klasse `.wrapper` hinzu und laden Sie die Seite dann erneut:
+Fügen Sie in Ihrem CSS die folgende Regel für die `.wrapper`-Klasse hinzu und laden Sie die Seite neu:
 
 ```css live-sample___the_problem
 .wrapper {
@@ -356,7 +355,7 @@ Fügen Sie in Ihrem CSS die folgende Regel für die Klasse `.wrapper` hinzu und 
 }
 ```
 
-Entfernen Sie außerdem die ursprüngliche `.`cleared-Klasse:
+Entfernen Sie zusätzlich die ursprüngliche `.cleared`-Klasse:
 
 ```css
 .cleared {
@@ -364,7 +363,7 @@ Entfernen Sie außerdem die ursprüngliche `.`cleared-Klasse:
 }
 ```
 
-Sie werden sehen, dass genau wie im Beispiel, in dem wir einen Hintergrund auf den Absatz gelegt haben, der Hintergrund hinter dem Float verläuft.
+Sie werden sehen, dass, genau wie im Beispiel, in dem wir eine Hintergrundfarbe auf dem Absatz hinzugefügt haben, die Hintergrundfarbe hinter dem Float verläuft.
 
 ```html hidden live-sample___the_problem
 <p>
@@ -412,11 +411,11 @@ body {
 
 {{EmbedLiveSample('the_problem', '100%', 600)}}
 
-Auch hier liegt es daran, dass der Float aus dem normalen Fluss herausgenommen wurde. Sie könnten erwarten, dass durch das Umwickeln der geschwebten Box und des Textes des ersten Absatzes, der um den Float herumfließt, das nachfolgende Material von der Box aufgelöst wird. Aber das ist nicht der Fall.
+Wieder einmal liegt dies daran, dass der Float aus dem normalen Fluss herausgenommen wurde. Sie könnten erwarten, dass, indem die schwebende Box und der Text des ersten Absatzes, der um den Float herum verläuft, zusammen umhüllt werden, der nachfolgende Inhalt von der Box bereinigt wird. Dies ist jedoch nicht der Fall.
 
 ### display: flow-root
 
-Um dieses Problem zu lösen, verwenden Sie den Wert `flow-root` der `display`-Eigenschaft. Dies existiert nur, um genau dieses Problem ohne den Einsatz von Hacks zu lösen — es gibt keine unbeabsichtigten Konsequenzen, wenn Sie es verwenden.
+Um dieses Problem zu lösen, verwenden Sie den Wert `flow-root` der `display`-Eigenschaft. Dies existiert nur, um dieses spezielle Problem ohne den Einsatz von Hacks zu lösen - es wird keine unbeabsichtigten Konsequenzen haben, wenn Sie es verwenden.
 
 ```css
 .wrapper {
@@ -484,12 +483,12 @@ body {
 
 {{EmbedLiveSample('display_flow-root', '100%', 600)}}
 
-## Testen Sie Ihre Kenntnisse!
+## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um sicherzustellen, dass Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Kenntnisse: Floats](/de/docs/Learn_web_development/Core/CSS_layout/Floats_skills).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, dass Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Floats](/de/docs/Learn_web_development/Core/CSS_layout/Floats_skills).
 
 ## Zusammenfassung
 
-Das ist alles, was Sie über Floats wissen müssen. Als Nächstes werden wir das Thema Positionierung im Detail erkunden.
+Das ist alles, was Sie über Floats wissen müssen. Als nächstes werden wir das Thema Positionierung im Detail erkunden.
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Introduction", "Learn_web_development/Core/CSS_layout/Positioning", "Learn_web_development/Core/CSS_layout")}}

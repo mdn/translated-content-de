@@ -2,14 +2,14 @@
 title: overflow-anchor
 slug: Web/CSS/overflow-anchor
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: a7335ef81c49b0f7604ee64240711456d0f29e6b
 ---
 
 {{CSSRef}}
 
-Die **`overflow-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet eine Möglichkeit, das Scroll-Ankerverhalten des Browsers zu deaktivieren, das die Scrollposition anpasst, um Inhaltsverschiebungen zu minimieren.
+Die **`overflow-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet eine Möglichkeit, das Scroll-Ankerverhalten des Browsers abzuwählen, welches die Scroll-Position anpasst, um Inhaltverschiebungen zu minimieren.
 
-Das Scroll-Ankerverhalten ist standardmäßig in jedem Browser aktiviert, der es unterstützt. Daher ist es in der Regel nur erforderlich, den Wert dieser Eigenschaft zu ändern, wenn Sie Probleme mit dem Scroll-Ankerverhalten in einem Dokument oder in einem Teil eines Dokuments haben und das Verhalten ausschalten müssen.
+Das Scroll-Ankerverhalten ist standardmäßig in jedem Browser aktiviert, der es unterstützt. Daher ist es normalerweise nur erforderlich, den Wert dieser Eigenschaft zu ändern, wenn Sie Probleme mit dem Scroll-Ankerverhalten in einem Dokument oder Teil eines Dokuments haben und dieses Verhalten deaktivieren müssen.
 
 {{InteractiveExample("CSS Demo: overflow-anchor")}}
 
@@ -121,7 +121,7 @@ overflow-anchor: unset;
 ### Werte
 
 - `auto`
-  - : Das Element wird zu einem potenziellen Anker, wenn die Scrollposition angepasst wird.
+  - : Das Element wird zu einem potenziellen Anker, wenn die Scroll-Position angepasst wird.
 - `none`
   - : Das Element wird nicht als potenzieller Anker ausgewählt.
 
@@ -135,9 +135,9 @@ overflow-anchor: unset;
 
 ## Beispiele
 
-### Scroll-Ankerverhalten verhindern
+### Verhindern von Scroll-Ankerung
 
-Um das Scroll-Ankerverhalten in einem Dokument zu verhindern, verwenden Sie die `overflow-anchor` Eigenschaft.
+Um die Scroll-Ankerung in einem Dokument zu verhindern, verwenden Sie die Eigenschaft `overflow-anchor`.
 
 ```css
 * {
@@ -155,4 +155,5 @@ Um das Scroll-Ankerverhalten in einem Dokument zu verhindern, verwenden Sie die 
 
 ## Siehe auch
 
-- [Leitfaden zum Scroll-Ankerverhalten](/de/docs/Web/CSS/overflow-anchor/Guide_to_scroll_anchoring)
+- [Verständnis des Scroll-Ankerverhaltens](/de/docs/Web/CSS/CSS_scroll_anchoring/Scroll_anchoring)
+- [CSS Scroll-Ankerung](/de/docs/Web/CSS/CSS_scroll_anchoring) Modul

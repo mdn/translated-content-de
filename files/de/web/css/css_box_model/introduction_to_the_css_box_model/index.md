@@ -2,62 +2,62 @@
 title: Einführung in das grundlegende CSS-Boxmodell
 slug: Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model
 l10n:
-  sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83
+  sourceCommit: 4e1bf706f08556292e02202486fae8b616cfc358
 ---
 
 {{CSSRef}}
 
-Beim Layout eines Dokuments stellt die Rendering-Engine des Browsers jedes Element als rechteckige Box gemäß dem Standard-**CSS-Basis-Boxmodell** dar. CSS bestimmt die Größe, Position und Eigenschaften (Farbe, Hintergrund, Randgröße usw.) dieser Boxen.
+Beim Layouten eines Dokuments stellt die Rendering-Engine des Browsers jedes Element als rechteckigen Kasten gemäß dem standardmäßigen **CSS-Boxmodell** dar. CSS bestimmt die Größe, Position und Eigenschaften (Farbe, Hintergrund, Rahmenstärke usw.) dieser Kästen.
 
-Jede Box besteht aus vier Teilen (oder _Bereichen_), die durch ihre jeweiligen Kanten definiert werden: die _Inhaltskante_, _Polsterkante_, _Randkante_ und _Innenkante_.
+Jeder Kasten besteht aus vier Teilen (oder _Bereichen_), die durch ihre jeweiligen Kanten definiert sind: die _Inhaltskante_, _Innenabstandskante_ (Padding), _Rahmenkante_ und _Randkante_ (Margin).
 
-![CSS-Boxmodell](boxmodel.png)
+![CSS Boxmodell](boxmodel.png)
 
 ## Inhaltsbereich
 
-Der **Inhaltsbereich**, begrenzt durch die Inhaltskante, enthält den "echten" Inhalt des Elements, wie Text, ein Bild oder einen Videoplayer. Seine Abmessungen sind die _Inhaltsbreite_ (oder _Inhaltsfeldbreite_) und die _Inhaltshöhe_ (oder _Inhaltsfeldhöhe_). Er hat oft eine Hintergrundfarbe oder ein Hintergrundbild.
+Der **Inhaltsbereich**, der durch die Inhaltskante begrenzt ist, enthält den "echten" Inhalt des Elements, wie Text, ein Bild oder einen Videoplayer. Seine Abmessungen sind die _Inhaltsbreite_ (oder _Content-Box-Breite_) und die _Inhaltshöhe_ (oder _Content-Box-Höhe_). Er hat oft eine Hintergrundfarbe oder ein Hintergrundbild.
 
-Wenn die Eigenschaft {{cssxref("box-sizing")}} auf `content-box` (Standard) gesetzt ist und wenn das Element ein Blockelement ist, kann die Größe des Inhaltsbereichs durch die Eigenschaften {{cssxref("width")}}, {{cssxref("min-width")}}, {{cssxref("max-width")}}, {{cssxref("height")}}, {{cssxref("min-height")}} und {{cssxref("max-height")}} explizit definiert werden.
+Wenn die {{cssxref("box-sizing")}}-Eigenschaft auf `content-box` (Standard) gesetzt ist und das Element ein Block-Element ist, kann die Größe des Inhaltsbereichs explizit mit den {{cssxref("width")}}, {{cssxref("min-width")}}, {{cssxref("max-width")}}, {{ cssxref("height") }}, {{cssxref("min-height")}} und {{cssxref("max-height")}}-Eigenschaften definiert werden.
 
-## Polsterbereich
+## Innenabstandsbereich (Padding)
 
-Der **Polsterbereich**, begrenzt durch die Polsterkante, erweitert den Inhaltsbereich, um die Polsterung des Elements einzuschließen. Seine Abmessungen sind die _Polsterfeldbreite_ und die _Polsterfeldhöhe_.
+Der **Innenabstandsbereich**, der durch die Innenabstandskante begrenzt ist, erweitert den Inhaltsbereich, um den Innenabstand (Padding) des Elements einzuschließen. Seine Abmessungen sind die _Padding-Box-Breite_ und die _Padding-Box-Höhe_.
 
-Die Dicke der Polsterung wird durch die Eigenschaften {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, {{cssxref("padding-left")}} und die Kurzschreibweise {{cssxref("padding")}} bestimmt.
+Die Stärke des Innenabstands wird durch die Eigenschaften {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, {{cssxref("padding-left")}} und die Kurzschrift {{cssxref("padding")}} bestimmt.
 
-## Randbereich
+## Rahmenbereich
 
-Der **Randbereich**, begrenzt durch die Randkante, erweitert den Polsterbereich, um die Ränder des Elements einzuschließen. Seine Abmessungen sind die _Randfeldbreite_ und die _Randfeldhöhe_.
+Der **Rahmenbereich**, der durch die Rahmenkante begrenzt ist, erweitert den Innenabstandsbereich, um die Rahmen des Elements einzuschließen. Seine Abmessungen sind die _Rahmen-Box-Breite_ und die _Rahmen-Box-Höhe_.
 
-Die Dicke der Ränder wird durch die Eigenschaften {{cssxref("border-width")}} und die Kurzschreibweise {{cssxref("border")}} bestimmt. Wenn die Eigenschaft {{cssxref("box-sizing")}} auf `border-box` gesetzt ist, kann die Größe des Randbereichs durch die Eigenschaften {{cssxref("width")}}, {{cssxref("min-width")}}, {{cssxref("max-width")}}, {{cssxref("height")}}, {{cssxref("min-height")}} und {{cssxref("max-height")}} explizit definiert werden. Wenn ein Hintergrund ({{cssxref("background-color")}} oder {{cssxref("background-image")}}) für eine Box festgelegt ist, erstreckt er sich bis zur äußeren Kante des Randes (d.h. er erstreckt sich unter dem Rand in der Z-Schicht). Dieses Standardverhalten kann mit der CSS-Eigenschaft {{cssxref("background-clip")}} geändert werden.
+Die Stärke der Rahmen wird durch die {{cssxref("border-width")}}-Eigenschaft und die Kurzschrift {{cssxref("border")}} bestimmt. Wenn die {{cssxref("box-sizing")}}-Eigenschaft auf `border-box` gesetzt ist, kann die Größe des Rahmenbereichs mit den {{cssxref("width")}}, {{cssxref("min-width")}}, {{cssxref("max-width")}}, {{ cssxref("height") }}, {{cssxref("min-height")}} und {{cssxref("max-height")}}-Eigenschaften explizit definiert werden. Wenn ein Hintergrund ({{cssxref("background-color")}} oder {{cssxref("background-image")}}) auf einen Kasten gesetzt ist, erstreckt er sich bis zur äußeren Kante des Rahmens (d.h. er erstreckt sich im Z-Index unter den Rahmen). Dieses Standardverhalten kann mit der {{cssxref("background-clip")}} CSS-Eigenschaft verändert werden.
 
-## Innenbereich
+## Randbereich (Margin)
 
-Der **Innenbereich**, begrenzt durch die Innenkante, erweitert den Randbereich, um einen leeren Bereich einzuschließen, der verwendet wird, um das Element von seinen Nachbarn zu trennen. Seine Abmessungen sind die _Innenfeldbreite_ und die _Innenfeldhöhe_.
+Der **Randbereich**, der durch die Randkante begrenzt ist, erweitert den Rahmenbereich, um einen leeren Bereich einzuschließen, der verwendet wird, um das Element von seinen Nachbarn zu trennen. Seine Abmessungen sind die _Rand-Box-Breite_ und die _Rand-Box-Höhe_.
 
-Die Größe des Innenbereichs wird durch die Eigenschaften {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, {{cssxref("margin-left")}} und die Kurzschreibweise {{cssxref("margin")}} bestimmt. Wenn das [Innenkollabieren](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) auftritt, ist der Innenbereich nicht klar definiert, da Innenbereiche zwischen Boxen geteilt werden.
+Die Größe des Randbereichs wird durch die {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, {{cssxref("margin-left")}} und die Kurzschrift {{cssxref("margin")}} bestimmt. Wenn [Randkollaps](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) auftritt, ist der Randbereich nicht klar definiert, da Ränder zwischen Kästen geteilt werden.
 
-Zum Schluss, beachten Sie, dass bei nicht ersetzten Inline-Elementen der Platzbedarf (der Beitrag zur Höhe der Zeile) durch die Eigenschaft {{cssxref('line-height')}} bestimmt wird, obwohl die Ränder und Polsterungen weiterhin um den Inhalt angezeigt werden.
+Beachten Sie schließlich, dass für nicht ersetzte Inline-Elemente die Menge des eingenommenen Raums (der Beitrag zur Höhe der Zeile) durch die {{cssxref('line-height')}}-Eigenschaft bestimmt wird, obwohl die Rahmen und Innenabstände immer noch um den Inhalt herum angezeigt werden.
 
 ## Siehe auch
 
 - [Layout und der enthaltende Block](/de/docs/Web/CSS/CSS_display/Containing_block)
 - [Einführung in den CSS-Cascade](/de/docs/Web/CSS/CSS_cascade/Cascade)
-- [Lernen: Konflikte behandeln](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
-- CSS-Schlüsselkonzepte:
+- [Lernen: Konfliktbewältigung](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
+- Wichtige CSS-Konzepte:
   - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-  - [Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
+  - [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
   - [Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
   - [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
   - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
-  - [Layout-Modi](/de/docs/Web/CSS/Layout_mode)
-  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Visual_formatting_model)
-  - [Innenkollabieren](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+  - {{Glossary("Layout_mode", "Layoutmodi")}}
+  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
+  - [Randkollaps](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
   - Werte
     - [Initialwerte](/de/docs/Web/CSS/CSS_cascade/initial_value)
     - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/computed_value)
     - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/used_value)
     - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/actual_value)
-  - [Wertdefinition Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
-  - [Kurzbefehls-Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
+  - [Wertesyntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
+  - [Kurzschrifteigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
   - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

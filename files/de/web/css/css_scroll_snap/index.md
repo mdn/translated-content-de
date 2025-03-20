@@ -2,18 +2,18 @@
 title: CSS scroll snap
 slug: Web/CSS/CSS_scroll_snap
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: a7335ef81c49b0f7604ee64240711456d0f29e6b
 ---
 
 {{CSSRef}}
 
-Das **CSS scroll snap**-Modul bietet Eigenschaften, mit denen Sie das Schwenk- und Scrollverhalten steuern können, indem Sie Schnapppositionen definieren. Inhalte können beim Scrollen durch überflutete Inhalte innerhalb eines {{Glossary("scroll_container", "Scroll-Containers")}} in Position geschnappt werden, wodurch ein Seitenumbruch und eine Scrollpositionierung ermöglicht werden.
+Das **CSS Scroll Snap**-Modul bietet Eigenschaften, mit denen Sie das Scroll- und Pan-Verhalten durch Definition von Snap-Positionen steuern können. Inhalte können in Position gebracht werden, wenn der Benutzer überlaufende Inhalte innerhalb eines {{Glossary("scroll_container", "Scrolling-Containers")}} scrollt, was Paging und Scrollpositionierung ermöglicht.
 
-Dieses Modul umfasst die Scroll-Container-Eigenschaften `scroll-padding`, um den optimalen Anzeigebereich beim Scrollen in den Ansichtsoperationen anzupassen. Es enthält auch `scroll-margin` und `scroll-alignment`, die auf die Kinder eines Scroll-Containers gesetzt werden, um den visuellen Bereich der Kinder anzupassen, wenn dieses Kind in den Ansichtsbereich gescrollt wird, sowie eine Eigenschaft, um das Scrollen an einzelnen Kindern zu stoppen.
+Dieses Modul umfasst die Scroll-Container-Eigenschaften `scroll-padding`, um die optimale Betrachtungsregion während der Scroll-into-View-Operationen einzustellen. Es enthält auch `scroll-margin` und `scroll-alignment`, die auf die Kinder des Scroll-Containers gesetzt werden, um den visuellen Bereich dieser Kinder anzupassen, wenn sie ins Blickfeld gescrollt werden, sowie eine Eigenschaft, um das Scrollen auf einzelne Kinder zu stoppen.
 
-## Scroll snap in Aktion
+## Scroll Snap in Aktion
 
-Um das Scroll-Snapping im folgenden Kasten zu sehen, scrollen Sie nach oben und unten sowie nach links und rechts durch das Raster der 45 nummerierten Kästchen im scrollbaren Ansichtsfenster. Klicken Sie auf "Abspielen" im folgenden Beispiel, um die Quelle im MDN Playground anzusehen oder zu bearbeiten:
+Um das Scroll-Snapping im folgenden Feld zu sehen, scrollen Sie nach oben und unten sowie nach links und rechts durch das Gitter von 45 nummerierten Kästchen in der scrollbaren Ansicht. Klicken Sie auf "Play" im folgenden Beispiel, um es zu betrachten oder den Quellcode im MDN Playground zu bearbeiten:
 
 ```js hidden live-sample___scroll_snap
 const positions = ["start", "center", "end"];
@@ -238,11 +238,11 @@ article.snapDisabled ul {
 
 {{EmbedLiveSample("scroll_snap", "", "250px")}}
 
-Mit Scroll Snap wird eines der nummerierten Kästchen, zu dem Sie scrollen, in den Mittelpunkt geschoben. Das anfängliche CSS lässt das nummerierte Kästchen in die Mitte des Ansichtsfensters schnappen. Verwenden Sie die Schieberegler, um die `block`- und `inline`-Schnapppositionen zu ändern.
+Mit Scroll Snap wird eines der nummerierten Kästchen, zu denen Sie scrollen, an Ort und Stelle geschnappt. Das anfängliche CSS bewirkt, dass das nummerierte Kästchen in die Mitte des Ansichtsfensters geschnappt wird. Verwenden Sie die Slider, um die Block- und Inline-Snap-Positionen zu ändern.
 
-Mit den Snap-Eigenschaften können Sie das Scrollen über ein Element hinaus erlauben oder blockieren, in diesem Fall ein nummeriertes Kästchen. Wählen Sie das Kontrollkästchen "Verhindern, dass über Kästen gescrollt wird", um alle Scrollaktionen auf das Scrollen zu einem angrenzenden Kasten zu begrenzen.
+Mithilfe von Snap-Eigenschaften können Sie das Scrollen an einem Element, in diesem Fall einem nummerierten Kästchen, erlauben oder blockieren. Wählen Sie das Kontrollkästchen "Scrolling über Kästchen verhindern", um alle Scrollaktionen darauf zu beschränken, zu einem benachbarten Kästchen zu scrollen.
 
-Um das Scroll-Snapping mit normalem Scrollen zu vergleichen, aktivieren Sie das Kontrollkästchen "Snapping deaktivieren" und versuchen Sie erneut zu scrollen.
+Um Scroll Snapping mit normalem Scrollen zu vergleichen, deaktivieren Sie das Kontrollkästchen "Snapping deaktivieren" und versuchen Sie erneut zu scrollen.
 
 ## Referenz
 
@@ -290,23 +290,23 @@ Um das Scroll-Snapping mit normalem Scrollen zu vergleichen, aktivieren Sie das 
 
 ## Leitfäden
 
-- [Grundlagen von CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap/Basic_concepts)
-  - : Ein Überblick und Beispiele der CSS Scroll Snap-Funktionen.
-- [Verwendung von Scroll-Snap-Ereignissen](/de/docs/Web/CSS/CSS_scroll_snap/Using_scroll_snap_events)
-  - : Ein Leitfaden zur Verwendung der `scrollsnapchanging`- und `scrollsnapchange`-Scroll-Snap-Ereignisse, die ausgelöst werden, wenn der Browser ein neues Schnappziel voraussieht oder auswählt.
+- [Grundkonzepte des CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap/Basic_concepts)
+  - : Ein Überblick und Beispiele zu den Funktionen von CSS Scroll Snap.
+- [Verwendung von Scroll Snap-Ereignissen](/de/docs/Web/CSS/CSS_scroll_snap/Using_scroll_snap_events)
+  - : Ein Leitfaden zur Verwendung der `scrollsnapchanging`- und `scrollsnapchange`-Scroll Snap-Ereignisse, die ausgelöst werden, wenn der Browser bestimmt, dass ein neues Snap-Ziel ansteht oder ausgewählt wurde.
 
 ## Verwandte Konzepte
 
 - {{cssxref(":target")}} Pseudo-Klasse
 - {{cssxref("overflow")}} CSS-Eigenschaft
-- Element `scroll()`-Methode
-- Element `scrollBy()`-Methode
-- Element `scrollIntoView()`-Methode
-- Element `scrollTo()`-Methode
-- Element `scroll`-Ereignis
-- Element `scrollend`-Ereignis
-- `scrollbar` ARIA-Rolle
-- {{Glossary("Scroll_container", "Scroll-Container")}} Glossarbegriff
+- Element-Methode [`scroll()`](/de/docs/Web/API/Element/scroll)
+- Element-Methode [`scrollBy()`](/de/docs/Web/API/Element/scrollBy)
+- Element-Methode [`scrollIntoView()`](/de/docs/Web/API/Element/scrollIntoView)
+- Element-Methode [`scrollTo()`](/de/docs/Web/API/Element/scrollTo)
+- Element-Ereignis [`scroll`](/de/docs/Web/API/Element/scroll_event)
+- Element-Ereignis [`scrollend`](/de/docs/Web/API/Element/scrollend_event)
+- [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role) ARIA-Rolle
+- {{Glossary("Scroll_container", "Scroll-Container")}}-Glossary-Begriff
 
 ## Spezifikationen
 
@@ -314,10 +314,11 @@ Um das Scroll-Snapping mit normalem Scrollen zu vergleichen, aktivieren Sie das 
 
 ## Siehe auch
 
-- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Scrollbars Styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
-- [Nur Keyboard-Scrollbereiche](https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html) auf adrianroselli.com (2022)
-- [Scroll Snap Beispiele](https://codepen.io/collection/KpqBGW) auf CodePen (2022)
+- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow)-Modul
+- [CSS Scrollbars Styling](/de/docs/Web/CSS/CSS_scrollbars_styling)-Modul
+- [CSS Scroll Anchoring](/de/docs/Web/CSS/CSS_scroll_anchoring)-Modul
+- [Nur-Tastatur-Scrollbereiche](https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html) auf adrianroselli.com (2022)
+- [Beispiele für Scroll Snap](https://codepen.io/collection/KpqBGW) auf CodePen (2022)
 - [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2021)
 - [Praktisches CSS Scroll Snapping](https://css-tricks.com/practical-css-scroll-snapping/) auf CSS-Tricks (2020)
-- [CSS scroll snap](https://12daysofweb.dev/2022/css-scroll-snap/) auf 12 Days of Web (2019)
+- [CSS Scroll Snap](https://12daysofweb.dev/2022/css-scroll-snap/) auf 12 Days of Web (2019)
