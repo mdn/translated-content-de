@@ -3,67 +3,67 @@ title: Richtlinien für das Schreiben von Codebeispielen
 short-title: Code style
 slug: MDN/Writing_guidelines/Code_style_guide
 l10n:
-  sourceCommit: 0e7eafea05cd771c86e77947639f3396e7a59b2b
+  sourceCommit: 3731c9a98d3c0971c08fb47da53fa4dd539428b4
 ---
 
-Die in diesem Artikel beschriebenen Richtlinien gelten für das Styling und die Formatierung von Codebeispielen, unabhängig von der Sprache. Richtlinien dazu, welchen Inhalt Sie beim Schreiben der Codebeispiele einbeziehen sollten, finden Sie im [Schreibstil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide#code_examples).
+Die in diesem Artikel beschriebenen Richtlinien gelten für das Styling und die Formatierung von Codebeispielen, unabhängig von der Programmiersprache. Für Richtlinien zu den Inhalten, die beim Schreiben von Codebeispielen enthalten sein sollten, siehe den [Schreibstil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide#code_examples).
 
-Technologiespezifische Richtlinien finden Sie in den folgenden Artikeln:
+Für technologie-spezifische Richtlinien siehe die folgenden Artikel:
 
 - [HTML-Richtlinien](/de/docs/MDN/Writing_guidelines/Code_style_guide/HTML)
 - [CSS-Richtlinien](/de/docs/MDN/Writing_guidelines/Code_style_guide/CSS)
 - [JavaScript-Richtlinien](/de/docs/MDN/Writing_guidelines/Code_style_guide/JavaScript)
 - [Shell-Prompt-Richtlinien](/de/docs/MDN/Writing_guidelines/Code_style_guide/Shell)
 
-## Allgemeine Best Practices
+## Allgemeine bewährte Praktiken
 
-Dieser Abschnitt bietet die Best Practices für das Erstellen eines verständlichen minimalen Codebeispiels zur Demonstration der Verwendung eines bestimmten Merkmals oder einer Funktion.
+Dieser Abschnitt bietet die besten Praktiken für die Erstellung eines verständlichen minimalen Codebeispiels zur Demonstration der Nutzung einer bestimmten Funktion oder eines bestimmten Merkmals.
 
-Die Codebeispiele, die Sie zu den MDN Web Docs hinzufügen, sollten:
+Codebeispiele, die Sie zu MDN Web Docs hinzufügen, sollten:
 
-- einfach genug sein, um verstanden zu werden, aber
-- komplex genug, um etwas Interessantes und vorzugsweise Nützliches zu tun.
+- einfach genug sein, um verständlich zu sein, aber
+- komplex genug, um etwas Interessantes und idealerweise Nützliches zu tun.
 
-Es gibt eine grundlegende Überlegung, die Sie im Hinterkopf behalten müssen: **Leser werden das Codebeispiel kopieren und einfügen und es möglicherweise in der Produktion verwenden.**
+Es gibt eine übergeordnete Überlegung, die Sie im Hinterkopf behalten müssen: **Leser werden das Codebeispiel kopieren und in ihren eigenen Code einfügen und möglicherweise in Produktion einsetzen.**
 
-Daher sollten Sie sicherstellen, dass das Codebeispiel verwendbar ist, allgemein anerkannten Best Practices folgt und **nichts** tut, was dazu führt, dass eine Anwendung unsicher, grob ineffizient, aufgebläht oder unzugänglich ist. Wenn das Codebeispiel nicht ausführbar oder produktionswürdig ist, sollten Sie eine Warnung in einem Code-Kommentar und im erläuternden Text hinzufügen; beispielsweise, wenn es nur ein Schnipsel und kein vollständiges Beispiel ist, machen Sie dies klar. Dies bedeutet auch, dass Sie **alle** Informationen bereitstellen sollten, die notwendig sind, um das Beispiel auszuführen, einschließlich aller Abhängigkeiten und Einrichtungshinweise.
+Daher sollten Sie sicherstellen, dass das Codebeispiel verwendbar ist, den allgemein anerkannten Best Practices folgt und **nicht** etwas tut, das eine Anwendung unsicher, grob ineffizient, überladen oder unzugänglich macht. Wenn das Codebeispiel nicht ausführbar oder nicht produktionsreif ist, fügen Sie unbedingt eine Warnung in einem Codekommentar und im erläuternden Text ein; zum Beispiel, wenn es nur ein Snippet und kein vollständiges Beispiel ist, machen Sie dies klar. Dies bedeutet auch, dass Sie **alle** notwendigen Informationen zum Ausführen des Beispiels bereitstellen, einschließlich aller Abhängigkeiten und Setup-Informationen.
 
-Codebeispiele sollten so autark und einfach verständlich wie möglich sein. Ziel ist es nicht unbedingt, effizienten, cleveren Code zu produzieren, der Experten beeindruckt und eine großartige Funktionalität hat, sondern reduzierte Arbeitsbeispiele zu erstellen, die so schnell wie möglich verstanden werden können.
+Codebeispiele sollten so eigenständig und verständlich wie möglich sein. Das Ziel ist es nicht unbedingt, effizienten, cleveren Code zu produzieren, der Experten beeindruckt und großartige Funktionalität hat, sondern eher, reduzierte Arbeitsbeispiele zu produzieren, die so schnell wie möglich verstanden werden können.
 
-Einige allgemeine Best Practices umfassen:
+Einige weitere allgemeine Best Practices umfassen:
 
-- Das Codebeispiel sollte kurz sein und idealerweise nur das Merkmal zeigen, das Sie unmittelbar interessiert.
-- **Nur** Code einbeziehen, der für das Beispiel wesentlich ist. Eine große Menge irrelevanter Code kann den Leser leicht ablenken oder verwirren. Wenn Sie ein vollständiges, längeres Beispiel bereitstellen möchten, stellen Sie es in eines unserer [GitHub-Repos](https://github.com/mdn/) (oder ein JS Bin, CodePen oder ähnliches) und bieten Sie dann den Link zur vollständigen Version über oder unter dem Beispiel an.
-- Keine unnötigen serverseitigen Codes, Bibliotheken, Frameworks, Präprozessoren und andere solche Abhängigkeiten einbeziehen. Sie machen den Code weniger portabel und schwerer lauffähig und verständlich. Verwenden Sie nach Möglichkeit Vanilla-Code.
-- Gehen Sie nicht vom Wissen der Leser über irgendwelche Bibliotheken, Frameworks, Präprozessoren oder andere nicht-native Merkmale aus. Verwenden Sie beispielsweise Klassennamen, die innerhalb des Beispiels Sinn ergeben, anstatt Klassennamen, die für BEM- oder Bootstrap-Benutzer verständlich sind.
+- Das Codebeispiel sollte kurz sein und idealerweise nur das Merkmal zeigen, das Sie gerade interessiert.
+- **Nur** Code inkludieren, der für das Beispiel wesentlich ist. Eine große Menge irrelevanten Codes kann den Leser leicht ablenken oder verwirren. Wenn Sie ein vollständiges, ausführlicheres Beispiel bereitstellen möchten, stellen Sie es in eines unserer [GitHub-Repos](https://github.com/mdn/) (oder ein JS Bin, CodePen oder ähnliches) und geben Sie dann den Link zur vollständigen Version oberhalb oder unterhalb des Beispiels an.
+- Fügen Sie keinen unnötigen serverseitigen Code, Bibliotheken, Frameworks, Präprozessoren und andere solche Abhängigkeiten hinzu. Sie machen den Code weniger portabel und schwieriger ausführbar und verständlich. Verwenden Sie, wo möglich, nativen Code.
+- Gehen Sie nicht von Kenntnissen der Leser über Bibliotheken, Frameworks, Präprozessoren oder andere nicht-native Funktionen aus. Verwenden Sie zum Beispiel Klassenamen, die innerhalb des Beispiels sinnvoll sind, anstatt Klassenamen, die für BEM- oder Bootstrap-Benutzer sinnvoll sind.
 - Schreiben Sie Ihren Code so sauber und verständlich wie möglich, auch wenn es nicht der effizienteste Weg ist, ihn zu schreiben.
-- Seien Sie in Ihren Codebeispielen inklusiv; berücksichtigen Sie, dass MDN-Leser aus der ganzen Welt kommen und vielfältig in ihrer Ethnizität, Religion, ihrem Alter, Geschlecht usw. sind. Stellen Sie sicher, dass der Text in den Codebeispielen diese Vielfalt widerspiegelt und alle Menschen einbezieht.
-- Verwenden Sie keine schlechten Praktiken aus Kürze (wie Präsentationselemente wie {{HTMLElement("big")}} oder [`document.write()`](/de/docs/Web/API/Document/write)); machen Sie es richtig.
-- Im Falle von API-Demos, wenn Sie mehrere APIs zusammen verwenden, weisen Sie darauf hin, welche APIs enthalten sind und welche Funktionen von wo kommen.
+- Seien Sie inklusiv in Ihren Codebeispielen; bedenken Sie, dass MDN-Leser aus der ganzen Welt kommen und vielfältig in ihren Ethnien, Religionen, Altersgruppen, Geschlechtern usw. sind. Stellen Sie sicher, dass der Text in den Codebeispielen diese Vielfalt widerspiegelt und alle Menschen einbezieht.
+- Verwenden Sie keine schlechten Praktiken der Kürze halber (wie Präsentationselemente wie {{HTMLElement("big")}} oder [`document.write()`](/de/docs/Web/API/Document/write)); machen Sie es richtig.
+- Im Falle von API-Demos, wenn Sie mehrere APIs zusammen verwenden, weisen Sie darauf hin, welche APIs enthalten sind und welche Funktionen von wo stammen.
 
 ## Richtlinien für die Formatierung
 
-Meinungen über korrekte Einrückungen, Leerzeichen und Zeilenlängen waren schon immer umstritten. Diskussionen über diese Themen lenken von der Erstellung und Pflege von Inhalten ab.
+Meinungen über korrekte Einrückung, Leerzeichen und Zeilenlängen waren schon immer umstritten. Diskussionen über diese Themen lenken von der Erstellung und Pflege von Inhalten ab.
 
-In den MDN Web Docs verwenden wir [Prettier](https://prettier.io/) als Code-Formatierer, um den Code-Stil konsistent zu halten (und um themenfremde Diskussionen zu vermeiden). Sie können unsere [Konfigurationsdatei](https://github.com/mdn/content/blob/main/.prettierrc.json) einsehen, um die aktuellen Regeln zu erfahren, und die [Prettier-Dokumentation](https://prettier.io/docs/index.html) lesen.
+Bei MDN Web Docs verwenden wir [Prettier](https://prettier.io/) als Code-Formatter, um den Code-Stil konsistent zu halten (und um themenfremde Diskussionen zu vermeiden). Sie können unsere [Konfigurationsdatei](https://github.com/mdn/content/blob/main/.prettierrc.json) konsultieren, um die aktuellen Regeln zu erfahren, und lesen Sie die [Prettier-Dokumentation](https://prettier.io/docs/index.html).
 
-Prettier formatiert den gesamten Code und hält den Stil konsistent. Nichtsdestotrotz gibt es einige zusätzliche Regeln, die Sie befolgen müssen.
+Prettier formatiert den gesamten Code und hält den Stil konsistent. Trotzdem gibt es einige zusätzliche Regeln, die Sie befolgen müssen.
 
-Diese Richtlinien der MDN Web Docs für die Formatierung von Codebeispielen sind auch gute Praktiken, wenn Sie selbst codieren.
+Diese MDN Web Docs-Richtlinien für die Formatierung von Codebeispielen sind auch gute Praktiken beim Kodieren.
 
-### Auswahl einer Syntaxsprache
+### Wahl einer Syntaxsprache
 
-Um die richtige Formatierung und Syntaxhervorhebung von Codeblöcken zu gewährleisten, müssen die Autoren die Sprache des Codeblocks angeben, in dem sie schreiben. Siehe [Beispiel-Codeblöcke in MDN Markdown](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#example_code_blocks) für eine Liste der von MDN unterstützten Sprachen sowie Details dazu, wie eine neue Sprache angefordert wird.
+Um sicherzustellen, dass Codeblöcke ordnungsgemäß formatiert und hervorgehoben werden, müssen Autoren die Sprache des Codeblocks, den sie schreiben, angeben. Siehe [Beispiel-Codeblöcke in MDN Markdown](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#example_code_blocks) für eine Liste der von MDN unterstützten Sprachen sowie Details zur Anforderung einer neuen Sprache.
 
-Wenn der Codeblock Pseudocode, die Ausgabe eines Befehls oder anderweitig keine Programmiersprache ist, setzen Sie die Sprache explizit auf `plain`.
+Wenn der Codeblock Pseudocode, die Ausgabe eines Befehls oder auf andere Weise keine Programmiersprache ist, setzen Sie die Sprache explizit auf `plain`.
 
 > [!WARNING]
-> Wenn die gewünschte Sprache von MDN noch nicht unterstützt wird, setzen Sie die Sprache eines Codeblocks **nicht** auf eine ähnliche Sprache, da dies unbeabsichtigte Nebeneffekte bei der Prettier-Formatierung und der Syntaxhervorhebung haben kann.
+> Wenn die gewünschte Sprache noch nicht von MDN unterstützt wird, setzen Sie die Sprache eines Codeblocks **nicht** auf eine ähnliche Sprache, da dies unbeabsichtigte Nebeneffekte mit Prettier-Formatierung und Syntaxhervorhebung haben kann.
 
-### Zeilenlänge im Code
+### Codezeilenlänge
 
-- Codezeilen sollten nicht so lang sein, dass sie horizontales Scrollen erfordern, um gelesen zu werden.
-- Brechen Sie lange Zeilen an natürlichen Punkten für die Lesbarkeit, aber nicht auf Kosten von Best Practices.
+- Codezeilen sollten nicht so lang sein, dass sie zum Lesen horizontales Scrollen erfordern.
+- Brechen Sie lange Zeilen an natürlichen Trennpunkten für eine bessere Lesbarkeit, aber nicht auf Kosten bewährter Praktiken.
 
 Zum Beispiel ist dies nicht ideal:
 
@@ -72,7 +72,7 @@ let tommyCat =
   "Said Tommy the Cat as he reeled back to clear whatever foreign matter may have nestled its way into his mighty throat. Many a fat alley rat had met its demise while staring point blank down the cavernous barrel of this awesome prowling machine.";
 ```
 
-Das ist besser, aber etwas umständlich:
+Das ist besser, aber etwas ungeschickt:
 
 ```js
 const tommyCat =
@@ -82,7 +82,7 @@ const tommyCat =
   "this awesome prowling machine.";
 ```
 
-Noch besser ist es, einen Template Literal zu verwenden:
+Noch besser ist die Verwendung eines Template-Literals:
 
 ```js example-good
 const tommyCat = `Said Tommy the Cat as he reeled back to clear whatever foreign
@@ -106,28 +106,28 @@ const toolkitProfileService = Components.classes[
 ].createInstance(Components.interfaces.nsIToolkitProfileService);
 ```
 
-### Höhe der Codeblöcke
+### Codeblock-Höhe
 
-Codeblöcke sollten so lang sein, wie sie sein müssen, aber nicht länger. Ideal ist es, auf etwas Kurzes abzuzielen, wie 15-25 Zeilen. Wenn ein Codeblock deutlich länger wird, ziehen Sie in Betracht, nur das nützlichste Snippet anzuzeigen, und verlinken Sie auf das vollständige Beispiel in einem GitHub-Repo oder auf CodePen.
+Codeblöcke sollten so lang sein, wie sie sein müssen, aber nicht länger. Idealerweise streben Sie etwas Kurzes wie 15-25 Zeilen an. Wenn ein Codeblock deutlich länger wird, ziehen Sie in Betracht, nur das nützlichste Snippet zu zeigen und auf das vollständige Beispiel in einem GitHub-Repo oder CodePen zu verweisen.
 
 #### Inline-Code-Formatierung
 
-Verwenden Sie die Syntax für Inline-Code (\`), um Funktionsnamen, Variablennamen und Methodennamen zu kennzeichnen. Zum Beispiel: "die Funktion `frenchText()`".
+Verwenden Sie das Inline-Code-Syntax (\`) für das Markieren von Funktionsnamen, Variablennamen und Methodennamen. Zum Beispiel: "die `frenchText()` Funktion".
 
-**Methodennamen sollten von einem Paar Klammern gefolgt sein**: Zum Beispiel `doSomethingUseful()`. Die Klammern helfen, Methoden von anderen Code-Begriffen zu unterscheiden.
+**Methodennamen sollten von einem Paar Klammern gefolgt werden**: zum Beispiel, `doSomethingUseful()`. Die Klammern helfen, Methoden von anderen Codebegriffen zu unterscheiden.
 
-## Richtlinien für die ordnungsgemäße Darstellung
+## Richtlinien für die richtige Anzeige
 
-Diese Richtlinien sollten befolgt werden, um sicherzustellen, dass die Codebeispiele, die Sie schreiben, korrekt auf den MDN Web Docs angezeigt werden. Sie sollten auch die Reaktionsfähigkeit in Betracht ziehen und Codebeispiele so schreiben, dass sie auch auf mobilen Geräten nützlich sind.
+Diese Richtlinien sollten befolgt werden, um sicherzustellen, dass die von Ihnen geschriebenen Codebeispiele ordnungsgemäß auf den MDN Web Docs angezeigt werden. Sie sollten auch die Reaktionsfähigkeit in Betracht ziehen, um Codebeispiele zu schreiben, die auch auf mobilen Geräten nützlich sind.
 
-### Größe des angezeigten Codebeispiels
+### Größe des dargestellten Codebeispiels
 
-- **Setzen Sie die Breite auf 100%**: Das Hauptinhaltspanel auf MDN Web Docs ist auf Desktops etwa 700px breit, sodass die eingebetteten Codebeispiele bei dieser Breite gut aussehen müssen.
-- **Setzen Sie die Höhe unter 700px**: Wir empfehlen, diese Höhe für die Anzeige des Codebeispiels beizubehalten, um die maximale Lesbarkeit auf dem Bildschirm zu gewährleisten.
+- **Setzen Sie die Breite auf 100%**: Die Hauptinhaltsansicht auf den MDN Web Docs ist auf dem Desktop etwa 700px breit, daher müssen die eingebetteten Codebeispiele bei dieser Breite gut aussehen.
+- **Setzen Sie die Höhe unter 700px**: Wir empfehlen, diese Höhe für die maximale Bildschirmlesbarkeit des dargestellten Codebeispiels beizubehalten.
 
-### Farbe im angezeigten Codebeispiel
+### Farbe im dargestellten Codebeispiel
 
-- Verwenden Sie Schlüsselwörter für primäre und andere "grundlegende" Farben, zum Beispiel:
+- Verwenden Sie Schlüsselwörter für Primär- und andere "grundlegende" Farben, zum Beispiel:
 
   ```css example-good
   color: black;
@@ -135,14 +135,14 @@ Diese Richtlinien sollten befolgt werden, um sicherzustellen, dass die Codebeisp
   color: red;
   ```
 
-- Verwenden Sie `rgb()` für komplexere Farben (einschließlich halbtransparenter):
+- Verwenden Sie `rgb()` für komplexere Farben (einschließlich halbtransparenter Farben):
 
   ```css example-good
   color: rgb(0 0 0 / 50%);
   color: rgb(248 242 230);
   ```
 
-- Verwenden Sie für Hex-Farben die Kurzform, wo relevant:
+- Für Hex-Farben verwenden Sie die Kurzform, wenn relevant:
 
   ```css example-good
   color: #058ed9;
@@ -156,13 +156,13 @@ Diese Richtlinien sollten befolgt werden, um sicherzustellen, dass die Codebeisp
   color: #ffbbffaa;
   ```
 
-### Markieren von angezeigten Beispielen als gut oder schlecht
+### Gekennzeichnete Beispiele als gut oder schlecht
 
-Sie werden auf dieser Seite bemerken, dass die Codeblöcke, die gute Praktiken darstellen, mit einem grünen Häkchen in der rechten Ecke angezeigt werden, und die Codeblöcke, die schlechte Praktiken demonstrieren, mit einem weißen Kreuz in einem roten Kreis dargestellt werden.
+An dieser Seite werden Ihnen auffallen, dass die Codeblöcke, die gute Praktiken darstellen, mit einem grünen Häkchen in der rechten Ecke dargestellt werden, und die Codeblöcke, die schlechte Praktiken zeigen, mit einem weißen Kreuz in einem roten Kreis angezeigt werden.
 
-Sie können denselben Stil beim Schreiben von Codebeispielen verwenden. Sie müssen diesen Stil nicht überall verwenden – nur auf Seiten, auf denen Sie speziell gute und schlechte Praktiken in Ihren Codebeispielen herausstellen möchten.
+Sie können denselben Stil beim Schreiben von Codebeispielen verwenden. Sie müssen diesen Stil nicht überall verwenden — nur auf Seiten, auf denen Sie speziell gute und schlechte Praktiken in Ihren Codebeispielen hervorheben möchten.
 
-Um diese Darstellung zu erhalten, verwenden Sie "Codezäune", um den Codeblock zu kennzeichnen, gefolgt von dem Sprachinfo-String. Zum Beispiel:
+Um diese Darstellung zu erzielen, verwenden Sie "Codezäune", um den Codeblock zu umrahmen und die Sprachinformation im String hinzuzufügen. Beispiel:
 
 ```js
 function myFunc() {
@@ -170,7 +170,7 @@ function myFunc() {
 }
 ```
 
-Um den Codeblock als gutes oder schlechtes Beispiel darzustellen, fügen Sie `example-good` oder `example-bad` nach dem Sprachinfo-String hinzu, etwa so:
+Um den Codeblock als gutes oder schlechtes Beispiel darzustellen, fügen Sie `example-good` oder `example-bad` nach dem Sprachstring hinzu, zum Beispiel:
 
 ````md
 ```html example-good
@@ -182,7 +182,7 @@ Um den Codeblock als gutes oder schlechtes Beispiel darzustellen, fügen Sie `ex
 ```
 ````
 
-Diese werden wie folgt angezeigt:
+Diese werden dargestellt als:
 
 ```html example-good
 <p class="brush: js example-good"></p>
@@ -191,3 +191,7 @@ Diese werden wie folgt angezeigt:
 ```html example-bad
 <p class="brush: js example-bad"></p>
 ```
+
+## Platzhaltertext
+
+Verwenden Sie den vom [lipsum.com](https://www.lipsum.com) generierten Platzhalter-Lorem-Ipsum-Text oder das [Lorem Ipsum](https://marketplace.visualstudio.com/items?itemName=Tyriar.lorem-ipsum) VS Code-Plugin.
