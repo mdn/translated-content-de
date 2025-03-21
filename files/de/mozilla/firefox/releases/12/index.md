@@ -63,7 +63,7 @@ Firefox 12 wurde am 24. April 2012 veröffentlicht. Diese Seite fasst die Änder
 
 ### Entwickler-Tools
 
-- Die [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) speichert jetzt Fehlermeldungen und Log-Einträge, die mit [`console.log()`](/de/docs/Web/API/Console/log_static) hinzugefügt wurden, wenn die Konsole derzeit nicht geöffnet ist, und zeigt sie an, wenn die Konsole geöffnet wird.
+- Die [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) speichert jetzt Fehlermeldungen und Log-Einträge, die mit [`console.log()`](/de/docs/Web/API/console/log_static) hinzugefügt wurden, wenn die Konsole derzeit nicht geöffnet ist, und zeigt sie an, wenn die Konsole geöffnet wird.
 - Sie können jetzt die Zoomstufe, das Schwenken und die Drehung in der [3D-Ansicht](https://firefox-source-docs.mozilla.org/devtools-user/3d_view/index.html) durch Drücken der Taste "r" zurücksetzen.
 - Sie können jetzt Knoten in der [3D-Ansicht](https://firefox-source-docs.mozilla.org/devtools-user/3d_view/index.html) ausblenden, indem Sie nach der Auswahl die Taste "x" drücken.
 - Der [Quell-Editor](https://firefox-source-docs.mozilla.org/devtools-user/keyboard_shortcuts/index.html#source-editor) hat mehrere neue Bearbeitungsfunktionen und Tastenkombinationen; siehe [Verwendung des Quell-Editors](https://firefox-source-docs.mozilla.org/devtools-user/keyboard_shortcuts/index.html#source-editor) für Details.

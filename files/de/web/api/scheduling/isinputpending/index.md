@@ -78,7 +78,7 @@ Dies ermöglicht es Ihnen, den Haupt-Thread nicht zu blockieren, wenn der Benutz
 ## Siehe auch
 
 - [`Scheduler`](/de/docs/Web/API/Scheduler)-Interface
-- [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_task_scheduling_api)
+- [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)
 - [Faster input events with Facebook's first browser API contribution](https://engineering.fb.com/2019/04/22/developer-tools/isinputpending-api/) auf engineering.fb.com (2019)
 - [Better JS scheduling with isInputPending()](https://developer.chrome.com/docs/capabilities/web-apis/isinputpending) auf developer.chrome.com (2020)
 - [Optimierung langer Aufgaben](https://web.dev/articles/optimize-long-tasks#yield_only_when_necessary) auf web.dev (2022)

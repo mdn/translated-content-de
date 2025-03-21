@@ -10,9 +10,9 @@ l10n:
 
 Die statische Methode **`console.profile()`** beginnt mit der Aufzeichnung eines Performance-Profils (zum Beispiel das [Firefox Performance Tool](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html)).
 
-Sie können optional ein Argument angeben, um dem Profil einen Namen zu geben. Dadurch können Sie nur dieses Profil stoppen, wenn mehrere Profile aufgezeichnet werden. Sehen Sie sich [`console.profileEnd()`](/de/docs/Web/API/Console/profileEnd_static) an, um zu erfahren, wie dieses Argument interpretiert wird.
+Sie können optional ein Argument angeben, um dem Profil einen Namen zu geben. Dadurch können Sie nur dieses Profil stoppen, wenn mehrere Profile aufgezeichnet werden. Sehen Sie sich [`console.profileEnd()`](/de/docs/Web/API/console/profileEnd_static) an, um zu erfahren, wie dieses Argument interpretiert wird.
 
-Um die Aufzeichnung zu stoppen, rufen Sie [`console.profileEnd()`](/de/docs/Web/API/Console/profileEnd_static) auf.
+Um die Aufzeichnung zu stoppen, rufen Sie [`console.profileEnd()`](/de/docs/Web/API/console/profileEnd_static) auf.
 
 ## Syntax
 
@@ -35,4 +35,4 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [`console.profileEnd()`](/de/docs/Web/API/Console/profileEnd_static)
+- [`console.profileEnd()`](/de/docs/Web/API/console/profileEnd_static)

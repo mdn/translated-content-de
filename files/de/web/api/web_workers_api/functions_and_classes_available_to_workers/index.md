@@ -68,7 +68,7 @@ Die folgenden Web-APIs sind in Workern verfügbar:
 - [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)
 - [Push API](/de/docs/Web/API/Push_API)
 - [Reporting API](/de/docs/Web/API/Reporting_API)
-- [Server-Sent Events](/de/docs/Web/API/Server-Sent_Events)
+- [Server-Sent Events](/de/docs/Web/API/Server-sent_events)
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 - [Streams API](/de/docs/Web/API/Streams_API)
 - [Trusted Types API](/de/docs/Web/API/Trusted_Types_API)

@@ -35,7 +35,7 @@ console.assert(assertion, msg, subst1, /* …, */ substN)
 - `subst1` … `substN`
   - : JavaScript-Werte, mit denen Ersetzungsstrings innerhalb von `msg` ersetzt werden sollen. Wenn es mehr Ersetzungswerte als Ersetzungsstrings gibt, werden die zusätzlichen Werte selbst nach der detaillierten Fehlermeldung in die Konsole geschrieben, auf dieselbe Weise wie wenn kein Formatstring vorhanden ist.
 
-Siehe [Text in die Konsole ausgeben](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
+Siehe [Text in die Konsole ausgeben](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/console) für weitere Details.
 
 ### Rückgabewert
 

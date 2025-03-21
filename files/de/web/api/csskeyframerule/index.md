@@ -58,4 +58,4 @@ console.log(keyframes[0]); // a CSSKeyframeRule representing an individual keyfr
 ## Siehe auch
 
 - {{cssxref("@keyframes")}}
-- [`CSSKeyFramesRule`](/de/docs/Web/API/CSSKeyFramesRule)
+- [`CSSKeyFramesRule`](/de/docs/Web/API/CSSKeyframesRule)

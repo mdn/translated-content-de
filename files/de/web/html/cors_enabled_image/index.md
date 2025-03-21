@@ -19,7 +19,7 @@ Sobald Sie Daten, die von einem anderen Ursprung ohne CORS-Genehmigung geladen w
 
 Wenn die Quelle des fremden Inhalts ein HTML {{HTMLElement("img")}}- oder SVG {{SVGElement("svg")}}-Element ist, ist der Versuch, den Inhalt des Canvas abzurufen, nicht erlaubt.
 
-Wenn der fremde Inhalt aus einem Bild stammt, das entweder als [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`ImageBitMap`](/de/docs/Web/API/ImageBitMap) erhalten wurde und die Bildquelle nicht die gleichen Ursprungsregeln erfüllt, werden Versuche, die Inhalte des Canvas zu lesen, blockiert.
+Wenn der fremde Inhalt aus einem Bild stammt, das entweder als [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`ImageBitMap`](/de/docs/Web/API/ImageBitmap) erhalten wurde und die Bildquelle nicht die gleichen Ursprungsregeln erfüllt, werden Versuche, die Inhalte des Canvas zu lesen, blockiert.
 
 Ein Aufruf einer der folgenden Methoden auf ein beeinträchtigtes Canvas führt zu einem Fehler:
 

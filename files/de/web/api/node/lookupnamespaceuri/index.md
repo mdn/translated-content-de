@@ -91,4 +91,4 @@ for (const prefix of ["xmlns", "xml", "html", "svg", "xlink", "", null]) {
 ## Siehe auch
 
 - [`Node.lookupPrefix`](/de/docs/Web/API/Node/lookupPrefix)
-- [`Node.isDefaultNameSpace`](/de/docs/Web/API/Node/isDefaultNameSpace)
+- [`Node.isDefaultNameSpace`](/de/docs/Web/API/Node/isDefaultNamespace)

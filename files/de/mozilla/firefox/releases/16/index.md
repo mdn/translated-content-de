@@ -46,7 +46,7 @@ Firefox 16 wurde am 9. Oktober 2012 veröffentlicht. Dieser Artikel listet wicht
 - Der `CSSRule.type` Wert, der mit [`CSSNamespaceRule`](/de/docs/Web/API/CSSNamespaceRule) assoziiert ist, wurde von `UNKNOWN_RULE` (`0`) auf `NAMESPACE_RULE` (`10`) aktualisiert ([Bug 765590](https://bugzil.la/765590)).
 - WebSMS API: `SmsRequest` wurde durch das allgemeinere `DOMRequest` ersetzt.
 - Die nicht standardisierten [`Element.scrollTopMax`](/de/docs/Web/API/Element/scrollTopMax) und [`Element.scrollLeftMax`](/de/docs/Web/API/Element/scrollLeftMax) lese-only Eigenschaften wurden hinzugefügt ([Firefox Bug 766937](https://bugzil.la/766937)).
-- Der zweite Parameter von [`Blob()`](/de/docs/Web/API/Blob/blob), wenn er auf `null` oder `undefined` gesetzt ist, wird jetzt als leeres Dictionary behandelt ([Firefox Bug 7691119](https://bugzil.la/7691119)).
+- Der zweite Parameter von [`Blob()`](/de/docs/Web/API/Blob/Blob), wenn er auf `null` oder `undefined` gesetzt ist, wird jetzt als leeres Dictionary behandelt ([Firefox Bug 7691119](https://bugzil.la/7691119)).
 
 ### JavaScript
 

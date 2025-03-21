@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("BroadCastChannel API")}} {{AvailableInWorkers}}
 
-Die **`name`**-Eigenschaft der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle ist eine schreibgeschützte Zeichenfolge, die den gegebenen Kanal eindeutig mit seinem Namen identifiziert. Dieser Name wird beim Erstellen an den [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadCastChannel)-Konstruktor übergeben und ist daher schreibgeschützt.
+Die **`name`**-Eigenschaft der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle ist eine schreibgeschützte Zeichenfolge, die den gegebenen Kanal eindeutig mit seinem Namen identifiziert. Dieser Name wird beim Erstellen an den [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadcastChannel)-Konstruktor übergeben und ist daher schreibgeschützt.
 
 ## Werte
 

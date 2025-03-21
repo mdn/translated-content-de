@@ -26,7 +26,7 @@ Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Browser melden WebGL-Fehler möglicherweise nicht standardmäßig. Die Fehlerberichterstattung von WebGL funktioniert durch Aufruf von [`getError()`](/de/docs/Web/API/WEBGLRenderingContext/getError) und Überprüfung auf Fehler. Die folgenden Ausnahmen können ausgelöst werden:
+Browser melden WebGL-Fehler möglicherweise nicht standardmäßig. Die Fehlerberichterstattung von WebGL funktioniert durch Aufruf von [`getError()`](/de/docs/Web/API/WebGLRenderingContext/getError) und Überprüfung auf Fehler. Die folgenden Ausnahmen können ausgelöst werden:
 
 - `INVALID_OPERATION`
   - : Wird ausgelöst, wenn der Kontext nicht verloren war.

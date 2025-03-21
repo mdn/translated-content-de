@@ -13,7 +13,7 @@ l10n:
 
 - Ein Box Model Hervorhebungswerkzeug wurde implementiert ([Firefox Bug 663778](https://bugzil.la/663778)).
 - Überall, wo ein DOM-Knoten in der Konsolenausgabe erscheint, wird er hervorgehoben, wenn Sie mit der Maus über diese Konsolenausgabe fahren ([Firefox Bug 757866](https://bugzil.la/757866)). Ähnlich werden alle JS-Funktionen und Objekte in der Konsolenausgabe hervorgehoben ([Firefox Bug 584733](https://bugzil.la/584733)). Mehr Informationen über die Verbesserung der Konsole finden Sie in diesem [Blogartikel](https://web.archive.org/web/20150427210606/http://mihai.sucan.ro/mihai/blog/web-console-improvements-episode-30).
-- Unterstützung für [`console.count()`](/de/docs/Web/API/Console/count_static) wurde hinzugefügt ([Firefox Bug 922208](https://bugzil.la/922208)).
+- Unterstützung für [`console.count()`](/de/docs/Web/API/console/count_static) wurde hinzugefügt ([Firefox Bug 922208](https://bugzil.la/922208)).
 
 ### CSS
 
@@ -47,7 +47,7 @@ _Keine Änderungen._
 - Die nicht standardisierten `ArchiveReader` und `ArchiveRequest` werden nicht mehr im Web bereitgestellt ([Firefox Bug 968883](https://bugzil.la/968883)).
 - [WebIDL-Konstruktoren](https://searchfox.org/mozilla-central/source/dom/webidl/) können nicht mehr als Funktionen aufgerufen werden. Sie müssen dem Schlüsselwort `new` vorausgehen. ([Firefox Bug 916644](https://bugzil.la/916644))
 - Unterstützung für einen neuen Wert (`alpha`) für den zweiten, optionalen, Parameter der Methode [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) wurde hinzugefügt, um festzulegen, ob Alpha-Blending in diesem Kontext gespeichert werden muss oder nicht. Wenn nicht, ist der Alpha-Wert pro Pixel in diesem Speicher immer `1.0`. Dies ermöglicht dem Backend die Implementierung eines Shortcuts. ([Firefox Bug 982480](https://bugzil.la/982480))
-- `WorkerGlobalScope.console` gibt jetzt die reguläre [`console`](/de/docs/Web/API/Console) zurück; `WorkerConsole` wurde entfernt ([Firefox Bug 965860](https://bugzil.la/965860)).
+- `WorkerGlobalScope.console` gibt jetzt die reguläre [`console`](/de/docs/Web/API/console) zurück; `WorkerConsole` wurde entfernt ([Firefox Bug 965860](https://bugzil.la/965860)).
 - Die [`WEBGL_debug_shaders`](/de/docs/Web/API/WEBGL_debug_shaders) WebGL-Erweiterung wurde implementiert ([Firefox Bug 968374](https://bugzil.la/968374)).
 
 ### MathML

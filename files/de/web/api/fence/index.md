@@ -7,7 +7,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Das **`Fence`**-Interface der [Fenced Frame API](/de/docs/Web/API/Fenced_Frame_API) enthält mehrere Funktionen, die für die Funktionalität von {{htmlelement("fencedframe")}} relevant sind.
+Das **`Fence`**-Interface der [Fenced Frame API](/de/docs/Web/API/Fenced_frame_API) enthält mehrere Funktionen, die für die Funktionalität von {{htmlelement("fencedframe")}} relevant sind.
 
 Auf `Fence`-Objekte wird über die [`Window.fence`](/de/docs/Web/API/Window/fence) Eigenschaft zugegriffen, sie stehen jedoch nur Dokumenten zur Verfügung, die innerhalb von {{htmlelement("fencedframe")}}s (geladen über [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)s) oder {{htmlelement("iframe")}}s (geladen über undurchsichtige URNs) eingebettet sind.
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die statische, schreibgeschützte **`highlights`**-Eigenschaft des [`CSS`](/de/docs/Web/API/CSS)-Interfaces ermöglicht den Zugriff auf das `HighlightRegistry`, das verwendet wird, um beliebige Textbereiche mit der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) zu stylen.
+Die statische, schreibgeschützte **`highlights`**-Eigenschaft des [`CSS`](/de/docs/Web/API/CSS)-Interfaces ermöglicht den Zugriff auf das `HighlightRegistry`, das verwendet wird, um beliebige Textbereiche mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) zu stylen.
 
 ## Wert
 
@@ -51,5 +51,5 @@ CSS.highlights.set("my-custom-highlight", myCustomHighlight);
 
 ## Siehe auch
 
-- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
 - [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

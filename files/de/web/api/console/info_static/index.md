@@ -28,7 +28,7 @@ console.info(msg, subst1, /* …, */ substN)
 - `subst1` … `substN`
   - : JavaScript-Werte, die Ersetzungsstrings innerhalb von `msg` ersetzen sollen. Wenn es mehr Ersatzwerte als Ersatzstrings gibt, werden die zusätzlichen Werte in gleicher Weise wie ohne Format-String nach dem detaillierten Assertionsnachricht ausgegeben.
 
-Weitere Einzelheiten finden Sie unter [Textausgabe auf der Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console).
+Weitere Einzelheiten finden Sie unter [Textausgabe auf der Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/console).
 
 ### Rückgabewert
 

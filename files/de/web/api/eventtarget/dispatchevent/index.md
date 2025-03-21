@@ -34,7 +34,7 @@ dispatchEvent(event)
 
 ### Ausnahmen
 
-- `InvalidStateError` [`DomException`](/de/docs/Web/API/DomException)
+- `InvalidStateError` [`DomException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Typ des Ereignisses während der Initialisierung des Ereignisses nicht angegeben wurde.
 
 > [!WARNING]

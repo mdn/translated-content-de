@@ -13,7 +13,7 @@ Die **`insertDebugMarker()`**-Methode der Schnittstelle [`GPURenderBundleEncoder
 Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwickler-Tools des Browsers oder anderen Diensten zur Unterstützung der Fehlersuche genutzt werden.
 
 > [!NOTE]
-> Diese Methode ist funktional identisch mit ihrem Äquivalent in [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`InsertDebugMarker()`](/de/docs/Web/API/GPURenderPassEncoder/InsertDebugMarker).
+> Diese Methode ist funktional identisch mit ihrem Äquivalent in [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`InsertDebugMarker()`](/de/docs/Web/API/GPURenderPassEncoder/insertDebugMarker).
 
 ## Syntax
 

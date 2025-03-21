@@ -12,7 +12,7 @@ Das **`CSS`**-Interface enthält nützliche CSS-bezogene Methoden. Es gibt keine
 ## Statische Eigenschaften
 
 - [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static)
-  - : Bietet Zugriff auf das `HighlightRegistry`, das verwendet wird, um beliebige Textbereiche mit der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) zu stylen.
+  - : Bietet Zugriff auf das `HighlightRegistry`, das verwendet wird, um beliebige Textbereiche mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) zu stylen.
 - [`CSS.paintWorklet`](/de/docs/Web/API/CSS/paintWorklet_static) {{Experimental_Inline}} {{SecureContext_Inline}}
   - : Bietet Zugriff auf das Worklet, das für alle Klassen verantwortlich ist, die mit dem Malen zu tun haben.
 

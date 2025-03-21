@@ -36,7 +36,7 @@ Das `object` wird direkt mit einer neuen eigenen Eigenschaft namens `stack` modi
 
 ### Verwendung von Error.captureStackTrace()
 
-Die Utility-Funktion `getStack()` liefert die aktuelle Stapelverfolgung an dem Punkt, an dem sie aufgerufen wird, und entfernt sich selbst aus dem Stapel. Dies dient demselben Debugging-Zweck wie [`console.trace()`](/de/docs/Web/API/Console/trace), erlaubt es Ihnen jedoch, den String an anderer Stelle auszugeben. Beachten Sie, dass dafür keine `Error`-Instanz erstellt wird, sondern `stack` auf ein einfaches Objekt installiert wird, was für unsere Zwecke effizienter ist. Normalerweise würden Sie `Error.captureStackTrace` auf Objekte anwenden, die als Fehler geworfen werden sollen, wie im nächsten Beispiel gezeigt.
+Die Utility-Funktion `getStack()` liefert die aktuelle Stapelverfolgung an dem Punkt, an dem sie aufgerufen wird, und entfernt sich selbst aus dem Stapel. Dies dient demselben Debugging-Zweck wie [`console.trace()`](/de/docs/Web/API/console/trace_static), erlaubt es Ihnen jedoch, den String an anderer Stelle auszugeben. Beachten Sie, dass dafür keine `Error`-Instanz erstellt wird, sondern `stack` auf ein einfaches Objekt installiert wird, was für unsere Zwecke effizienter ist. Normalerweise würden Sie `Error.captureStackTrace` auf Objekte anwenden, die als Fehler geworfen werden sollen, wie im nächsten Beispiel gezeigt.
 
 ```js
 function getStack() {

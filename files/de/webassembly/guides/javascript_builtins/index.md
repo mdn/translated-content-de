@@ -174,7 +174,7 @@ fetch("log-concat.wasm")
 
 Das JavaScript:
 
-- Definiert ein `importObject`, das eine Funktion `"log"` in einem Namespace `"m"` festlegt, die während der Instanziierung in das Wasm-Modul importiert wird. Es ist die [`console.log()`](/de/docs/Web/API/Console/log_static)-Funktion.
+- Definiert ein `importObject`, das eine Funktion `"log"` in einem Namespace `"m"` festlegt, die während der Instanziierung in das Wasm-Modul importiert wird. Es ist die [`console.log()`](/de/docs/Web/API/console/log_static)-Funktion.
 - Definiert ein `compileOptions`-Objekt, das enthält:
   - die `builtins`-Eigenschaft zur Aktivierung von Zeichenkettenbuiltin.
   - die `importedStringConstants`-Eigenschaft zur Aktivierung [importierter globaler Zeichenkettenkonstanten](/de/docs/WebAssembly/Guides/Imported_string_constants).

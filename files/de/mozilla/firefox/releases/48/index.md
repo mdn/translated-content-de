@@ -14,7 +14,7 @@ l10n:
 ### Entwicklerwerkzeuge
 
 - Die Position von Elementen kann nun innerhalb des Inhalts geändert werden ([Firefox Bug 1139187](https://bugzil.la/1139187)).
-- Implementiert [`console.clear()`](/de/docs/Web/API/Console/clear_static), um die Konsolenausgabe zu löschen ([Firefox Bug 659625](https://bugzil.la/659625)).
+- Implementiert [`console.clear()`](/de/docs/Web/API/console/clear_static), um die Konsolenausgabe zu löschen ([Firefox Bug 659625](https://bugzil.la/659625)).
 - [HTTP-Protokollinspektion zur Webkonsole hinzugefügt](https://firefox-source-docs.mozilla.org/devtools-user/web_console/console_messages/index.html#viewing-network-request-details) ([Firefox Bug 1211525](https://bugzil.la/1211525)).
 - Ein [Firebug-Theme](https://firefox-source-docs.mozilla.org/devtools-user/tools_toolbox/index.html#choose-devtools-theme) hinzugefügt ([Firefox Bug 1244054](https://bugzil.la/1244054)).
 - Der [DOM Inspector](https://firefox-source-docs.mozilla.org/devtools-user/dom_property_viewer/index.html) wurde hinzugefügt ([Firefox Bug 1201475](https://bugzil.la/1201475)).

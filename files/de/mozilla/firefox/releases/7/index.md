@@ -52,7 +52,7 @@ Firefox 7 wurde am 27. September 2011 veröffentlicht. Dieser Artikel bietet Inf
 
 - Die nicht-standardmäßigen Methoden `getAsBinary()`, `getAsDataURL()` und `getAsText()` der [`File`](/de/docs/Web/API/File)-Schnittstelle sowie die nicht-standardmäßigen Eigenschaften `fileName` und `fileSize` wurden entfernt ([Firefox-Fehler 661876](https://bugzil.la/661876)).
 - Die [`FormData`](/de/docs/Web/API/FormData)-Schnittstelle meldet den Dateinamen nicht mehr als leeren String, wenn der `Content-Disposition`-HTTP-Header gesendet wird, wenn die Daten mit einem [`Blob`](/de/docs/Web/API/Blob) gesetzt wurden. Dies behebt Fehler, die bei einigen Servern auftraten.
-- Die [`HTMLelement.dir`](/de/docs/Web/API/HTMLelement/dir)-Eigenschaft gibt jetzt immer ihr Ergebnis in Kleinbuchstaben zurück, wie es die HTML-Spezifikation erfordert.
+- Die [`HTMLelement.dir`](/de/docs/Web/API/HTMLElement/dir)-Eigenschaft gibt jetzt immer ihr Ergebnis in Kleinbuchstaben zurück, wie es die HTML-Spezifikation erfordert.
 - Die `readAsArrayBuffer()`-Methode des [`FileReader`](/de/docs/Web/API/FileReader) ist jetzt implementiert.
 - `Document.createEntityReference` wurde entfernt. Es wurde nie richtig implementiert und wird in den meisten anderen Browsern nicht implementiert.
 - `document.normalizeDocument` wurde entfernt. Verwenden Sie stattdessen [`Node.normalize`](/de/docs/Web/API/Node/normalize).

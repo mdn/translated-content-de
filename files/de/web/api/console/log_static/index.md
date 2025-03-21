@@ -28,7 +28,7 @@ console.log(msg, subst1, /* …, */ substN)
 - `subst1` … `substN`
   - : JavaScript-Werte, mit denen Ersetzungsstrings innerhalb von `msg` ersetzt werden. Wenn mehr Ersetzungswerte als Ersetzungsstrings vorhanden sind, werden die zusätzlichen Werte selbst nach der detaillierten Aussage in der Konsole geschrieben, und zwar auf dieselbe Weise wie bei fehlendem Formatstring.
 
-Siehe [Ausgabe von Text in der Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
+Siehe [Ausgabe von Text in der Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/console) für weitere Details.
 
 ### Rückgabewert
 

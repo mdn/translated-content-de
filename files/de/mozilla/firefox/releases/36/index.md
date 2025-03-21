@@ -77,7 +77,7 @@ Höhepunkte:
 - Unsere experimentelle Implementierung von WebGL 2.0 schreitet voran!
 
   - Die Schnittstelle [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) ist verfügbar ([Firefox-Bug 1048719](https://bugzil.la/1048719)).
-  - Die Methode [`WebGL2RenderingContext.invalidateFrameBuffer()`](/de/docs/Web/API/WebGL2RenderingContext/invalidateFrameBuffer) wurde implementiert ([Firefox-Bug 1076456](https://bugzil.la/1076456)).
+  - Die Methode [`WebGL2RenderingContext.invalidateFrameBuffer()`](/de/docs/Web/API/WebGL2RenderingContext/invalidateFramebuffer) wurde implementiert ([Firefox-Bug 1076456](https://bugzil.la/1076456)).
 
 - Die Schnittstelle [`MediaDevices`](/de/docs/Web/API/MediaDevices), die die {{jsxref("Promise")}}-basierte Version von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) enthält, wurde hinzugefügt. Sie ist über [`Navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices) verfügbar ([Firefox-Bug 1033885](https://bugzil.la/1033885)).
 - Die EME-bezogene Methode [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess), sowie das damit verbundene [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess), wird jetzt unterstützt ([Firefox-Bug 1095257](https://bugzil.la/1095257)).

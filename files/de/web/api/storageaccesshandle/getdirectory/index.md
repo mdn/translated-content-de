@@ -27,7 +27,7 @@ Ein {{jsxref("Promise")}}, das mit einem unpartitionierten [`FileSystemDirectory
 
 ### Ausnahmen
 
-- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
+- `SecurityError` [`DomException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
 Siehe [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory)

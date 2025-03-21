@@ -32,7 +32,7 @@ Ein vollständiges Beispiel finden Sie auf der Seite [`Scheduling.isInputPending
 ## Siehe auch
 
 - [`Scheduler`](/de/docs/Web/API/Scheduler)-Schnittstelle
-- [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_task_scheduling_api)
+- [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)
 - [Schnellere Eingabeereignisse mit Facebooks erstem API-Beitrag für Browser](https://engineering.fb.com/2019/04/22/developer-tools/isinputpending-api/) auf engineering.fb.com (2019)
 - [Besseres JS Scheduling mit isInputPending()](https://developer.chrome.com/docs/capabilities/web-apis/isinputpending) auf developer.chrome.com (2020)
 - [Optimierung langer Aufgaben](https://web.dev/articles/optimize-long-tasks) auf web.dev (2022)

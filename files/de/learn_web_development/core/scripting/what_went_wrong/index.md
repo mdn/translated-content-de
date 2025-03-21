@@ -119,7 +119,7 @@ Früher im Kurs haben wir Sie dazu gebracht, einige einfache JavaScript-Befehle 
    console.log(lowOrHi);
    ```
 
-   Dieser Code wird den Wert von `lowOrHi` nach der Zuweisung in Zeile 51 an die Konsole ausgeben. Weitere Informationen finden Sie unter [`console.log()`](/de/docs/Web/API/Console/log_static).
+   Dieser Code wird den Wert von `lowOrHi` nach der Zuweisung in Zeile 51 an die Konsole ausgeben. Weitere Informationen finden Sie unter [`console.log()`](/de/docs/Web/API/console/log_static).
 
 7. Speichern und aktualisieren Sie die Seite, und Sie sollten das `console.log()`-Ergebnis nun in Ihrer Konsole sehen. ![Screenshot der gleichen Demo. Eine Log-Anweisung ist in der Konsole sichtbar, der Wert lautet einfach "null".](console-log-output.png) Tatsächlich ist der Wert von `lowOrHi` an diesem Punkt `null`, was der Firefox-Fehlermeldung `lowOrHi is null` entspricht. Es liegt also definitiv ein Problem in Zeile 51 vor. Der Wert [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) bedeutet "nichts" oder "kein Wert". Unser Code, um `lowOrHi` auf ein Element zu setzen, funktioniert nicht richtig.
 

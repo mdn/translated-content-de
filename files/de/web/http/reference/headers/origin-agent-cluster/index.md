@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP **`Origin-Agent-Cluster`** [Antwort-Header](/de/docs/Glossary/response_header) wird verwendet, um anzufordern, dass das zugehörige [`Document`](/de/docs/Web/API/Document) in einem **origin-gebundenen [Agent-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)** platziert werden soll. Das bedeutet, dass Betriebssystemressourcen (zum Beispiel der Betriebssystemprozess), die zur Ausführung des Dokuments verwendet werden, nur mit anderen Dokumenten vom selben [origin](/de/docs/Glossary/origin) geteilt werden sollten.
+Der HTTP **`Origin-Agent-Cluster`** [Antwort-Header](/de/docs/Glossary/Response_header) wird verwendet, um anzufordern, dass das zugehörige [`Document`](/de/docs/Web/API/Document) in einem **origin-gebundenen [Agent-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)** platziert werden soll. Das bedeutet, dass Betriebssystemressourcen (zum Beispiel der Betriebssystemprozess), die zur Ausführung des Dokuments verwendet werden, nur mit anderen Dokumenten vom selben [origin](/de/docs/Glossary/Origin) geteilt werden sollten.
 
 Die Auswirkung davon ist, dass ein ressourcenintensives Dokument die Leistung von Dokumenten aus anderen Ursprüngen weniger beeinträchtigen wird.
 
@@ -40,7 +40,7 @@ Origin-Agent-Cluster: <boolean>
 
 Moderne Webbrowser haben eine Multiprozess-Architektur, in der Seiten von verschiedenen Ursprüngen in verschiedenen Betriebssystemprozessen ausgeführt werden können. Dies ist wichtig für die Leistung, da es bedeutet, dass eine ressourcenintensive Seite nicht so stark auf andere Seiten Einfluss nimmt, die der Benutzer geöffnet hat.
 
-Allerdings können Browser nicht generell [same-site](/de/docs/Glossary/site), [cross-origin](/de/docs/Glossary/origin) Seiten in verschiedenen Prozessen ausführen, aufgrund bestimmter DOM-APIs, die von der Kommunikation zwischen same-site und cross-origin abhängen. Zum Beispiel werden standardmäßig Seiten von den folgenden zwei Ursprüngen die gleichen Betriebssystemressourcen teilen:
+Allerdings können Browser nicht generell [same-site](/de/docs/Glossary/Site), [cross-origin](/de/docs/Glossary/Origin) Seiten in verschiedenen Prozessen ausführen, aufgrund bestimmter DOM-APIs, die von der Kommunikation zwischen same-site und cross-origin abhängen. Zum Beispiel werden standardmäßig Seiten von den folgenden zwei Ursprüngen die gleichen Betriebssystemressourcen teilen:
 
 ```plain
 https://apples.example.org

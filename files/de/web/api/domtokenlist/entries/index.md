@@ -64,4 +64,4 @@ Die Ausgabe sieht folgendermaßen aus:
 
 ## Siehe auch
 
-- [`DOMTokenList.foreach()`](/de/docs/Web/API/DOMTokenList/foreach), [`DOMTokenList.keys`](/de/docs/Web/API/DOMTokenList/keys) und [`DOMTokenList.values`](/de/docs/Web/API/DOMTokenList/values).
+- [`DOMTokenList.foreach()`](/de/docs/Web/API/DOMTokenList/forEach), [`DOMTokenList.keys`](/de/docs/Web/API/DOMTokenList/keys) und [`DOMTokenList.values`](/de/docs/Web/API/DOMTokenList/values).

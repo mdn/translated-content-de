@@ -99,7 +99,7 @@ Beachten Sie, wie der Hintergrund, der Rand und der Inhalt alle als Ergebnis des
 - {{cssxref("mask-composite")}} CSS-Eigenschaft
 - {{cssxref("background-color")}} CSS-Eigenschaft
 - {{cssxref("background-image")}} CSS-Eigenschaft
-- [stapelnder Kontext](/de/docs/Glossary/stacking_context) Glossarbegriff
+- [stapelnder Kontext](/de/docs/Glossary/Stacking_context) Glossarbegriff
 - {{ SVGElement("feBlend")}} SVG-Filter-Primitiv
 - {{ SVGElement("feComposite")}} SVG-Filter-Primitiv
 

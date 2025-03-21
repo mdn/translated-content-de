@@ -37,7 +37,7 @@ Keiner ({{jsxref("undefined")}}).
 ## Gebrauchshinweise
 
 Wenn das `endNode` ein [`Node`](/de/docs/Web/API/Node) des Typs [`Text`](/de/docs/Web/API/Text),
-[`Comment`](/de/docs/Web/API/Comment) oder [`CDataSection`](/de/docs/Web/API/CDataSection) ist, dann ist `endOffset`
+[`Comment`](/de/docs/Web/API/Comment) oder [`CDataSection`](/de/docs/Web/API/CDATASection) ist, dann ist `endOffset`
 die Anzahl der Zeichen vom Start von `endNode`. Für andere
 [`Node`](/de/docs/Web/API/Node)-Typen ist `endOffset` die Anzahl der Kindknoten zwischen
 dem Start des `endNode`.

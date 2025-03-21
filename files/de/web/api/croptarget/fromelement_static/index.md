@@ -31,7 +31,7 @@ CropTarget.fromElement(element)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der auf eine Instanz des [`CropTarget`](/de/docs/Web/API/CropTarget)-Objekts aufgelöst wird. Dieses Objekt kann dann an [`BrowserCaptureMediaStreamTrack.CropTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/CropTo) übergeben werden, um das im Track aufgenommene Video auf genau den Bereich zuzuschneiden, in dem das angegebene DOM-Element gerendert wird.
+Ein {{jsxref("Promise")}}, der auf eine Instanz des [`CropTarget`](/de/docs/Web/API/CropTarget)-Objekts aufgelöst wird. Dieses Objekt kann dann an [`BrowserCaptureMediaStreamTrack.CropTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/cropTo) übergeben werden, um das im Track aufgenommene Video auf genau den Bereich zuzuschneiden, in dem das angegebene DOM-Element gerendert wird.
 
 `CropTarget`-Objekte sind serialisierbar. Sie können mit Mechanismen wie [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) an ein anderes Dokument übergeben werden.
 

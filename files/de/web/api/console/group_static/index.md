@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die statische Methode **`console.group()`** erstellt eine neue inline Gruppe im [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) Log, wodurch alle nachfolgenden Konsolennachrichten um eine zusätzliche Ebene eingerückt werden, bis [`console.groupEnd()`](/de/docs/Web/API/Console/groupEnd_static) aufgerufen wird.
+Die statische Methode **`console.group()`** erstellt eine neue inline Gruppe im [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) Log, wodurch alle nachfolgenden Konsolennachrichten um eine zusätzliche Ebene eingerückt werden, bis [`console.groupEnd()`](/de/docs/Web/API/console/groupEnd_static) aufgerufen wird.
 
 ## Syntax
 
@@ -49,7 +49,7 @@ Die Ausgabe sieht so aus:
 
 ![Ein Screenshot von Nachrichten, die in der Konsolenausgabe verschachtelt sind.](nesting.png)
 
-Weitere Informationen finden Sie unter [Verwendung von Gruppen in der Konsole](/de/docs/Web/API/console#using_groups_in_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console).
+Weitere Informationen finden Sie unter [Verwendung von Gruppen in der Konsole](/de/docs/Web/API/console#using_groups_in_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/console).
 
 ## Spezifikationen
 
@@ -61,8 +61,8 @@ Weitere Informationen finden Sie unter [Verwendung von Gruppen in der Konsole](/
 
 ## Siehe auch
 
-- [`console.groupEnd()`](/de/docs/Web/API/Console/groupEnd_static)
-- [`console.groupCollapsed()`](/de/docs/Web/API/Console/groupCollapsed_static)
+- [`console.groupEnd()`](/de/docs/Web/API/console/groupEnd_static)
+- [`console.groupCollapsed()`](/de/docs/Web/API/console/groupCollapsed_static)
 - [Microsoft Edge-Dokumentation für `console.group()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#group)
 - [Node.js-Dokumentation für `console.group()`](https://nodejs.org/docs/latest/api/console.html#consolegrouplabel)
 - [Google Chrome-Dokumentation für `console.group()`](https://developer.chrome.com/docs/devtools/console/api/#group)

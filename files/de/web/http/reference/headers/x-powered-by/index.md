@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP **`X-Powered-By`** [Antwort-Header](/de/docs/Glossary/response_header) ist ein nicht-standardmäßiger Header, der die Anwendung oder das Framework identifiziert, das die Antwort generiert hat.
+Der HTTP **`X-Powered-By`** [Antwort-Header](/de/docs/Glossary/Response_header) ist ein nicht-standardmäßiger Header, der die Anwendung oder das Framework identifiziert, das die Antwort generiert hat.
 
 <table class="properties">
   <tbody>

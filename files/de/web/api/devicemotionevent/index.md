@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`DeviceMotionEvent`**-Schnittstelle der [Device Orientation Events](/de/docs/Web/API/Device_Orientation_Events) bietet Webentwicklern Informationen über die Geschwindigkeit der Änderungen der Position und Orientierung des Geräts.
+Die **`DeviceMotionEvent`**-Schnittstelle der [Device Orientation Events](/de/docs/Web/API/Device_orientation_events) bietet Webentwicklern Informationen über die Geschwindigkeit der Änderungen der Position und Orientierung des Geräts.
 
 > [!WARNING]
 > Derzeit behandeln Firefox und Chrome die Koordinaten nicht auf die gleiche Weise. Seien Sie vorsichtig bei der Verwendung.

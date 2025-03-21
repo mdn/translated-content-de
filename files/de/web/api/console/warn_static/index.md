@@ -28,7 +28,7 @@ console.warn(msg, subst1, /* …, */ substN)
 - `subst1` … `substN`
   - : JavaScript-Werte, die zur Ersetzung von Zeichenketten innerhalb von `msg` verwendet werden. Wenn es mehr Ersetzungswerte als Ersetzungszeichenketten gibt, werden die zusätzlichen Werte selbst nach der detaillierten Meldung ohne Formatierung auf dieselbe Weise in die Konsole geschrieben, wie wenn kein Formatstring vorhanden ist.
 
-Für weitere Details siehe [Ausgabe von Text in die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console).
+Für weitere Details siehe [Ausgabe von Text in die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/console).
 
 ### Rückgabewert
 

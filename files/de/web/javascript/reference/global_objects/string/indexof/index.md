@@ -125,7 +125,7 @@ console.log(str.indexOf("new")); // 6
 
 Das folgende Beispiel definiert zwei String-Variablen.
 
-Die Variablen enthalten denselben String, allerdings enthält der zweite String Großbuchstaben. Die erste [`console.log()`](/de/docs/Web/API/Console/log_static) Methode zeigt `19` an. Da jedoch die `indexOf()` Methode groß-/kleinschreibungssensitiv ist, wird der String `"cheddar"` in `myCapString` nicht gefunden, also zeigt die zweite `console.log()` Methode `-1` an.
+Die Variablen enthalten denselben String, allerdings enthält der zweite String Großbuchstaben. Die erste [`console.log()`](/de/docs/Web/API/console/log_static) Methode zeigt `19` an. Da jedoch die `indexOf()` Methode groß-/kleinschreibungssensitiv ist, wird der String `"cheddar"` in `myCapString` nicht gefunden, also zeigt die zweite `console.log()` Methode `-1` an.
 
 ```js
 const myString = "brie, pepper jack, cheddar";

@@ -30,7 +30,7 @@ getDirectory(path, options, successCallback, errorCallback)
 - `successCallback` {{optional_inline}}
   - : Eine Methode, die aufgerufen wird, sobald das [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) erstellt wurde. Die Methode erhält einen einzigen Parameter: das `FileSystemDirectoryEntry`-Objekt, das das betreffende Verzeichnis darstellt.
 - `errorCallback` {{optional_inline}}
-  - : Eine Methode, die aufgerufen wird, wenn ein Fehler auftritt. Sie erhält als einzigen Eingabeparameter ein [`DomException`](/de/docs/Web/API/DomException)-Objekt, das den aufgetretenen Fehler beschreibt.
+  - : Eine Methode, die aufgerufen wird, wenn ein Fehler auftritt. Sie erhält als einzigen Eingabeparameter ein [`DomException`](/de/docs/Web/API/DOMException)-Objekt, das den aufgetretenen Fehler beschreibt.
 
 #### Parameter `options`
 

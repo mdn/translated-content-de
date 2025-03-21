@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die **`findRule()`**-Methode der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Schnittstelle findet die [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule), die dem angegebenen Keyframe-Selektor entspricht.
+Die **`findRule()`**-Methode der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Schnittstelle findet die [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyframeRule), die dem angegebenen Keyframe-Selektor entspricht.
 
 ## Syntax
 

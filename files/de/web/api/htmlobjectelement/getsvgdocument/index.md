@@ -36,5 +36,5 @@ const svg = document.getElementById("el").getSVGDocument();
 
 ## Siehe auch
 
-- [`HTMLIFrameElement.getSVGDocument`](/de/docs/Web/API/HTMLIFrameElement/getSVGDocument)
+- [`HTMLIFrameElement.getSVGDocument`](/de/docs/Web/API/HTMLIframeElement/getSVGDocument)
 - [`HTMLEmbedElement.getSVGDocument`](/de/docs/Web/API/HTMLEmbedElement/getSVGDocument)

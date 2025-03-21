@@ -45,7 +45,7 @@ Beim Anschließen eines neuen WebUSB-kompatiblen Geräts zeigt der Browser eine 
   - : Bietet Informationen über eine Schnittstelle, die vom USB-Gerät bereitgestellt wird.
 - [`USBAlternateInterface`](/de/docs/Web/API/USBAlternateInterface)
   - : Bietet Informationen über eine bestimmte Konfiguration einer Schnittstelle, die vom USB-Gerät bereitgestellt wird.
-- [`USBEndPoint`](/de/docs/Web/API/USBEndPoint)
+- [`USBEndPoint`](/de/docs/Web/API/USBEndpoint)
   - : Bietet Informationen über einen Endpunkt, der vom USB-Gerät bereitgestellt wird.
 
 ## Beispiele
