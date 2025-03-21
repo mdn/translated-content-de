@@ -1,5 +1,5 @@
 ---
-title: ":visited"
+title: :visited
 slug: Web/CSS/:visited
 l10n:
   sourceCommit: 62f49419c2c97353749cf9d21df9e205a60ca62b
