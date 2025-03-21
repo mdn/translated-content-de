@@ -1,23 +1,23 @@
 ---
-title: Shorthand-Eigenschaften
+title: Kurzschreibweisen
 slug: Web/CSS/CSS_cascade/Shorthand_properties
 l10n:
-  sourceCommit: 6d55eec58e38583da60aa635d41393ad051d1c6d
+  sourceCommit: 95edea913e7f0726243aff3f47b85cfd6f02d995
 ---
 
 {{CSSRef}}
 
-**_Shorthand-Eigenschaften_** sind CSS-Eigenschaften, die es ermöglichen, die Werte mehrerer anderer CSS-Eigenschaften gleichzeitig festzulegen. Mit einer Shorthand-Eigenschaft können Sie prägnantere (und oft besser lesbare) Stylesheets schreiben und dabei Zeit und Energie sparen.
+**_Kurzschreibweisen_** sind CSS-Eigenschaften, die es Ihnen ermöglichen, die Werte mehrerer anderer CSS-Eigenschaften gleichzeitig festzulegen. Mit einer Kurzschreibweise können Sie kompaktere (und oft lesbarere) Stylesheets schreiben, was Zeit und Aufwand spart.
 
-Die CSS-Spezifikation definiert Shorthand-Eigenschaften zur Gruppierung der Definition von gemeinsamen Eigenschaften, die auf dasselbe Thema wirken. Zum Beispiel ist die CSS-{{cssxref("background")}}-Eigenschaft eine Shorthand-Eigenschaft, die die Werte von {{cssxref("background-color")}}, {{cssxref("background-image")}}, {{cssxref("background-repeat")}} und {{cssxref("background-position")}} festlegen kann. Ebenso können die gebräuchlichsten schriftbezogenen Eigenschaften mithilfe der Shorthand-{{cssxref("font")}} definiert werden, und die verschiedenen Abstände um eine Box können mit der {{cssxref("margin")}}-Shorthand definiert werden.
+Die CSS-Spezifikation definiert Kurzschreibweisen, um die Definition von gemeinsamen Eigenschaften zu gruppieren, die auf dasselbe Thema wirken. So ist beispielsweise die CSS-Eigenschaft {{cssxref("background")}} eine Kurzschreibweise, die in der Lage ist, die Werte von {{cssxref("background-color")}}, {{cssxref("background-image")}}, {{cssxref("background-repeat")}} und {{cssxref("background-position")}} zu definieren. Ebenso können die am häufigsten verwendeten schriftbezogenen Eigenschaften mithilfe der Kurzschreibweise {{cssxref("font")}} definiert werden, und die verschiedenen Ränder eines Kastens können mit der Kurzschreibweise {{cssxref("margin")}} definiert werden.
 
-## Knifflige Randfälle
+## Schwierige Sonderfälle
 
-Es gibt einige Randfälle, die bei der Verwendung von Shorthand-Eigenschaften zu beachten sind.
+Es gibt einige Sonderfälle, die zu beachten sind, wenn Sie Kurzschreibweisen verwenden.
 
 ### Eigenschaften weglassen
 
-Ein Wert, der nicht angegeben ist, wird auf seinen Anfangswert gesetzt. Das bedeutet, dass er zuvor festgelegte Werte **überschreibt**. Zum Beispiel:
+Ein Wert, der nicht angegeben wird, wird auf seinen Anfangswert gesetzt. Das bedeutet, dass er zuvor festgelegte Werte **überschreibt**. Zum Beispiel:
 
 ```css
 p {
@@ -26,46 +26,46 @@ p {
 }
 ```
 
-Dies wird die Farbe des Hintergrunds nicht auf `red` setzen, sondern auf den Standardwert für {{cssxref("background-color")}}, der `transparent` ist.
+Hierdurch wird die Hintergrundfarbe nicht auf `red` gesetzt, sondern auf den Standardwert für {{cssxref("background-color")}}, der `transparent` ist.
 
-Nur die Werte der individuellen Eigenschaften können vererbt werden. Da fehlende Werte durch ihren Anfangswert ersetzt werden, ist es unmöglich, eine Vererbung der einzelnen Eigenschaften zuzulassen, indem man sie weglässt. Das Schlüsselwort `inherit` kann auf eine Eigenschaft angewendet werden, aber nur als Ganzes, nicht als Schlüsselwort für einen bestimmten Wert. Das bedeutet, dass der einzige Weg, einen bestimmten Wert erben zu lassen, darin besteht, die Langform der Eigenschaft mit dem Schlüsselwort `inherit` zu verwenden.
+Nur die Einzelwerte von Eigenschaften können vererbt werden. Da fehlende Werte durch ihre Anfangswerte ersetzt werden, ist es unmöglich, das Vererben von Einzelwerten durch Weglassen zu erlauben. Das Schlüsselwort `inherit` kann auf eine Eigenschaft angewendet werden, aber nur als Ganzes, nicht als Schlüsselwort für einen bestimmten Wert oder einen anderen. Das bedeutet, dass die einzige Möglichkeit, einen bestimmten Wert erben zu lassen, darin besteht, die Einzelwert-Eigenschaft mit dem Schlüsselwort `inherit` zu verwenden.
 
 ### Reihenfolge der Eigenschaften
 
-Shorthand-Eigenschaften versuchen nicht, eine bestimmte Reihenfolge für die Werte der Eigenschaften, die sie ersetzen, zu erzwingen. Dies funktioniert gut, wenn diese Eigenschaften Werte unterschiedlichen Typs verwenden, da die Reihenfolge keine Bedeutung hat. Dies funktioniert jedoch nicht so einfach, wenn mehrere Eigenschaften identische Werte haben können.
+Kurzschreibweisen versuchen, keine bestimmte Reihenfolge für die Werte der ersetzten Eigenschaften zu erzwingen. Dies funktioniert gut, wenn diese Eigenschaften Werte unterschiedlichen Typs verwenden, da die Reihenfolge keine Bedeutung hat, aber es funktioniert nicht so einfach, wenn mehrere Eigenschaften identische Werte haben können.
 
-Zwei wichtige Fälle hierbei sind:
+Zwei wichtige Fälle sind hier:
 
-- Eigenschaften, die sich auf die Kanten einer Box beziehen, wie {{cssxref("border-style")}}, {{cssxref("margin")}} oder {{cssxref("padding")}}
-- Eigenschaften, die sich auf die Ecken einer Box beziehen, wie {{cssxref("border-radius")}}
+- Eigenschaften, die sich auf die Kanten eines Kastens beziehen, wie {{cssxref("border-style")}}, {{cssxref("margin")}} oder {{cssxref("padding")}}
+- Eigenschaften, die sich auf die Ecken eines Kastens beziehen, wie {{cssxref("border-radius")}}
 
-#### Kanten einer Box
+#### Kanten eines Kastens
 
-Shorthands, die Eigenschaften behandeln, die sich auf die Kanten einer Box beziehen, wie {{cssxref("border-style")}}, {{cssxref("margin")}} oder {{cssxref("padding")}}, verwenden immer eine konsistente 1-zu-4-Wert-Syntax zur Darstellung dieser Kanten:
+Kurzschreibweisen, die sich auf Eigenschaften beziehen, die die Kanten eines Kastens betreffen, wie {{cssxref("border-style")}}, {{cssxref("margin")}} oder {{cssxref("padding")}}, verwenden immer eine konsistente 1-bis-4-Werte-Syntax, die diese Kanten darstellt:
 
-- **1-Wert-Syntax:** `border-width: 1em` — Der Einzelwert repräsentiert alle Kanten: ![Box-Kanten mit Ein-Wert-Syntax](border1.png)
+- **1-Wert-Syntax:** `border-width: 1em` — Der einzelne Wert steht für alle Kanten: ![Kanten eines Kastens mit einer Wert-Syntax](border1.png)
 
-- **2-Wert-Syntax:** `border-width: 1em 2em` — Der erste Wert repräsentiert die vertikalen, also obere und untere Kanten, der zweite die horizontalen, also die linken und rechten: ![Box-Kanten mit Zwei-Wert-Syntax](border2.png)
+- **2-Wert-Syntax:** `border-width: 1em 2em` — Der erste Wert repräsentiert die vertikalen Kanten, das heißt obere und untere, der zweite die horizontalen, das heißt linke und rechte: ![Kanten eines Kastens mit zwei Wert-Syntax](border2.png)
 
-- **3-Wert-Syntax:** `border-width: 1em 2em 3em` — Der erste Wert repräsentiert die obere Kante, der zweite die horizontalen, also linke und rechte, und der dritte Wert die untere Kante: ![Box-Kanten mit Drei-Wert-Syntax](border3.png)
+- **3-Wert-Syntax:** `border-width: 1em 2em 3em` — Der erste Wert repräsentiert die obere Kante, der zweite die horizontalen, das heißt linke und rechte, und der dritte Wert die untere Kante: ![Kanten eines Kastens mit drei Wert-Syntax](border3.png)
 
-- **4-Wert-Syntax:** `border-width: 1em 2em 3em 4em` — Die vier Werte stehen für die obere, rechte, untere und linke Kante jeweils in dieser Reihenfolge, also im Uhrzeigersinn beginnend oben: ![Box-Kanten mit Vier-Wert-Syntax](border4.png) Der Anfangsbuchstabe von Oben-Rechts-Unten-Links entspricht der Reihenfolge der Konsonanten des Wortes _trouble_: TRBL. Man kann sich dies auch als die Reihenfolge vorstellen, in der die Zeiger einer Uhr rotieren würden: `1em` beginnt auf der 12-Uhr-Position, dann `2em` auf der 3-Uhr-Position, dann `3em` auf der 6-Uhr-Position, und `4em` auf der 9-Uhr-Position.
+- **4-Wert-Syntax:** `border-width: 1em 2em 3em 4em` — Die vier Werte repräsentieren die obere, rechte, untere und linke Kante in dieser Reihenfolge, das heißt im Uhrzeigersinn beginnend oben: ![Kanten eines Kastens mit vier Wert-Syntax](border4.png) Der Anfangsbuchstabe von Oben-Rechts-Unten-Links passt zur Reihenfolge der Konsonanten des Wortes _trouble_: TRBL. Sie können sich das auch als die Reihenfolge merken, in der die Zeiger einer Uhr rotieren würden: `1em` beginnt auf der 12-Uhr-Position, dann `2em` auf der 3-Uhr-Position, dann `3em` auf der 6-Uhr-Position, und `4em` auf der 9-Uhr-Position.
 
-#### Ecken einer Box
+#### Ecken eines Kastens
 
-Ebenso verwenden Shorthands, die Eigenschaften behandeln, die sich auf die Ecken einer Box beziehen, wie {{cssxref("border-radius")}}, immer eine konsistente 1-zu-4-Wert-Syntax zur Darstellung dieser Ecken:
+Ähnlich verwenden Kurzschreibweisen, die sich auf die Ecken eines Kastens beziehen, wie {{cssxref("border-radius")}}, immer eine konsistente 1-bis-4-Werte-Syntax, die diese Ecken darstellt:
 
-- **1-Wert-Syntax:** `border-radius: 1em` — Der Einzelwert repräsentiert alle Ecken: ![Box-Ecken mit Ein-Wert-Syntax](corner1.png)
+- **1-Wert-Syntax:** `border-radius: 1em` — Der einzelne Wert steht für alle Ecken: ![Ecken eines Kastens mit einer Wert-Syntax](corner1.png)
 
-- **2-Wert-Syntax:** `border-radius: 1em 2em` — Der erste Wert repräsentiert die obere linke und untere rechte Ecke, der zweite die obere rechte und untere linke Ecke: ![Box-Ecken mit Zwei-Wert-Syntax](corner2.png)
+- **2-Wert-Syntax:** `border-radius: 1em 2em` — Der erste Wert repräsentiert die obere linke und die untere rechte Ecke, der zweite die obere rechte und untere linke: ![Ecken eines Kastens mit zwei Wert-Syntax](corner2.png)
 
-- **3-Wert-Syntax:** `border-radius: 1em 2em 3em` — Der erste Wert repräsentiert die obere linke Ecke, der zweite die oberen rechten und unteren linken, und der dritte Wert die untere rechte Ecke: ![Box-Ecken mit Drei-Wert-Syntax](corner3.png)
+- **3-Wert-Syntax:** `border-radius: 1em 2em 3em` — Der erste Wert repräsentiert die obere linke Ecke, der zweite die obere rechte und untere linke, und der dritte Wert die untere rechte Ecke: ![Ecken eines Kastens mit drei Wert-Syntax](corner3.png)
 
-- **4-Wert-Syntax:** `border-radius: 1em 2em 3em 4em` — Die vier Werte repräsentieren die obere linke, obere rechte, untere rechte und untere linke Ecke jeweils in dieser Reihenfolge, also im Uhrzeigersinn beginnend bei der oberen linken Ecke: ![Box-Ecken mit Vier-Wert-Syntax](corner4.png)
+- **4-Wert-Syntax:** `border-radius: 1em 2em 3em 4em` — Die vier Werte repräsentieren die obere linke, obere rechte, untere rechte und untere linke Ecke in dieser Reihenfolge, das heißt im Uhrzeigersinn beginnend oben links: ![Ecken eines Kastens mit vier Wert-Syntax](corner4.png)
 
 ## Hintergrund-Eigenschaften
 
-Betrachten Sie einen Hintergrund mit den folgenden Eigenschaften:
+Betrachten Sie einen Hintergrund mit folgenden Eigenschaften
 
 ```css
 background-color: #000;
@@ -80,11 +80,11 @@ Diese vier Deklarationen können zu nur einer verkürzt werden:
 background: #000 url(images/bg.gif) no-repeat left top;
 ```
 
-(Die Shorthand-Form entspricht eigentlich den Langform-Eigenschaften oben plus `background-attachment: scroll` und, in CSS3, einigen zusätzlichen Eigenschaften.)
+(Die Kurzform ist tatsächlich das Äquivalent der Langform-Eigenschaften oben plus `background-attachment: scroll` und, in CSS3, einige zusätzliche Eigenschaften.)
 
-Siehe {{cssxref("background")}} für ausführlichere Informationen, einschließlich CSS3-Eigenschaften.
+Siehe {{cssxref("background")}} für detailliertere Informationen, einschließlich CSS3-Eigenschaften.
 
-## Schriftarten-Eigenschaften
+## Schrift-Eigenschaften
 
 Betrachten Sie die folgenden Deklarationen:
 
@@ -104,11 +104,11 @@ font:
   sans-serif;
 ```
 
-Diese Shorthand-Deklaration entspricht tatsächlich den Langform-Deklarationen oben plus `font-variant: normal`, `font-size-adjust: none` und `font-stretch: normal`.
+Diese Kurzform-Deklaration ist tatsächlich äquivalent zu den obigen Langform-Deklarationen plus `font-variant: normal`, `font-size-adjust: none` und `font-stretch: normal`.
 
 ## Rand-Eigenschaften
 
-Bei Rändern können Breite, Farbe und Stil in einer Deklaration vereinfacht werden. Zum Beispiel wird das folgende CSS:
+Bei Rändern können die Breite, Farbe und der Stil in eine Deklaration vereinfacht werden. Betrachten Sie zum Beispiel folgendes CSS:
 
 ```css
 border-width: 1px;
@@ -116,15 +116,15 @@ border-style: solid;
 border-color: #000;
 ```
 
-vereinfacht zu:
+Es kann vereinfacht werden zu:
 
 ```css
 border: 1px solid #000;
 ```
 
-## Rand- und Auffüllungs-Eigenschaften
+## Rand- und Abstands-Eigenschaften
 
-Shorthand-Versionen von Rand- und Auffüllungswerten funktionieren ähnlich; die Randeigenschaft erlaubt die Angabe von Shorthand-Werten unter Verwendung von einem, zwei, drei oder vier Werten. Betrachten Sie die folgenden CSS-Deklarationen:
+Kurzschreibweisen von Rand- und Abstandswerten funktionieren ähnlich; die Rand-Eigenschaft ermöglicht es, Kurzschriftwerte mit einem, zwei, drei oder vier Werten anzugeben. Betrachten Sie die folgenden CSS-Deklarationen:
 
 ```css
 margin-top: 10px;
@@ -133,22 +133,22 @@ margin-bottom: 10px;
 margin-left: 5px;
 ```
 
-Sie entsprechen der folgenden Deklaration mit der Vier-Wert-Shorthand. Beachten Sie, dass die Werte in Uhrzeigersinn-Reihenfolge sind, beginnend oben: oben, rechts, unten, dann links (TRBL, die Konsonanten in „trouble“).
+Sie sind dasselbe wie die folgende Deklaration mit der Vier-Wert-Kurzschrift. Beachten Sie, dass die Werte im Uhrzeigersinn angeordnet sind, beginnend oben: oben, rechts, unten, dann links (TRBL, die Konsonanten von "trouble").
 
 ```css
 margin: 10px 5px 10px 5px;
 ```
 
-Shorthand-Regeln für eine, zwei, drei und vier Wert Deklarationen bei Margin sind:
+Regeln für die Kurzschrift von Rändern bei einer, zwei, drei und vier Wert-Deklarationen sind:
 
-- Wenn **ein** Wert angegeben ist, gilt er als derselbe Margin für **alle vier Seiten**.
-- Wenn **zwei** Werte angegeben sind, gilt der erste Margin für **oben und unten**, der zweite für **links und rechts**.
-- Wenn **drei** Werte angegeben sind, gilt der erste Margin für **oben**, der zweite für **links und rechts**, der dritte für **unten**.
-- Wenn **vier** Werte angegeben sind, gelten die Margins für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
+- Wenn **ein** Wert angegeben ist, gilt der gleiche Rand für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben sind, gilt der erste Rand für **oben und unten**, der zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben sind, gilt der erste Rand für **oben**, der zweite für **links und rechts**, der dritte für **unten**.
+- Wenn **vier** Werte angegeben sind, gelten die Ränder für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
 ## Positions-Eigenschaften
 
-Mit Position können die Shorthand-Versionen von oben, rechts, unten und links in einer Deklaration vereinfacht werden. Zum Beispiel kann das folgende CSS:
+Bei Positionen können die Kurzschreibweisen von oben, rechts, unten und links in eine Deklaration vereinfacht werden. Betrachten Sie zum Beispiel folgendes CSS:
 
 ```css
 top: 0;
@@ -157,21 +157,21 @@ bottom: 0;
 left: 20px;
 ```
 
-vereinfacht werden zu:
+Es kann vereinfacht werden zu:
 
 ```css
 inset: 0 20px 0 20px;
 ```
 
-Genauso wie bei Margins und Paddings sind die Einsatzwerte im Uhrzeigersinn geordnet - oben, rechts, unten, dann links (TRBL).
+Genau wie bei Rändern und Abständen sind die Einfügewert in Uhrzeigersinn geordnet - oben, rechts, unten, dann links (TRBL).
 
-## Die universelle Shorthand-Eigenschaft
+## Die universelle Kurzschreibweise
 
-CSS bietet eine universelle Shorthand-Eigenschaft, {{cssxref("all")}}, die ihren Wert auf jede Eigenschaft im Dokument anwendet. Ihr Zweck ist es, das Vererbungsmodell der Eigenschaften zu ändern.
+CSS bietet eine universelle Kurzschreibweise, {{cssxref("all")}}, die ihren Wert auf jede Eigenschaft im Dokument anwendet. Ihr Zweck ist es, das Vererbungsmodell der Eigenschaften zu ändern.
 
-Siehe [Konflikte behandeln](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) oder [Einführung in den CSS-Cascade](/de/docs/Web/CSS/CSS_cascade/Cascade) für weitere Informationen darüber, wie Vererbung in CSS funktioniert.
+Siehe [Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) oder [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) für weitere Informationen darüber, wie Vererbung in CSS funktioniert.
 
-## Shorthand-Eigenschaften
+## Kurzschreibweisen
 
 - {{cssxref("all")}}
 - {{cssxref("animation")}}
@@ -247,13 +247,13 @@ Siehe [Konflikte behandeln](/de/docs/Learn_web_development/Core/Styling_basics/H
 ## Siehe auch
 
 - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-- [At-Rules](/de/docs/Web/CSS/CSS_syntax/At-rule)
+- [Anweisungen](/de/docs/Web/CSS/CSS_syntax/At-rule)
 - [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
 - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
-- [Einführung in den CSS-Cascade](/de/docs/Web/CSS/CSS_cascade/Cascade)
-- [Leitfaden: Konflikte behandeln](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
-- [Leitfaden: Kaskadenschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
-- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
-- [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
-- [Initiale](/de/docs/Web/CSS/CSS_cascade/initial_value), [berechnete](/de/docs/Web/CSS/CSS_cascade/computed_value), [verwendete](/de/docs/Web/CSS/CSS_cascade/used_value) und [tatsächliche](/de/docs/Web/CSS/CSS_cascade/actual_value) Werte
-- [Definitionssyntax von Werten](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
+- [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade)
+- [Lernen: Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
+- [Lernen: Kaskadierungsschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
+- [CSS Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [Visuelle Modell-Formatierung](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
+- [Anfangs-](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial-value), [berechnete](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed-value), [verwendete](/de/docs/Web/CSS/CSS_cascade/Value_processing#used-value) und [aktuelle](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual-value) Werte
+- [Wertedefinitions-Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)

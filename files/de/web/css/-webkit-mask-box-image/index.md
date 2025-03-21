@@ -1,26 +1,26 @@
 ---
-title: -webkit-mask-box-image
+title: "-webkit-mask-box-image"
 slug: Web/CSS/-webkit-mask-box-image
 l10n:
-  sourceCommit: 7526c9b4f29818bdca7505de41a4883f4ada2707
+  sourceCommit: 95edea913e7f0726243aff3f47b85cfd6f02d995
 ---
 
 {{CSSRef}} {{ Non-standard_header() }}
 
-Die nicht standardisierte, vorangestellte Eigenschaft **`-webkit-mask-box-image`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt das Maskenbild für den Randbereich eines Elements fest.
+Die nicht standardmäßige, mit Präfix versehene **`-webkit-mask-box-image`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt das Maskenbild für das Randfeld eines Elements.
 
 > [!NOTE]
-> Diese Eigenschaft ist nicht standardisiert und befindet sich nicht auf einem Standard-Track. Ziehen Sie stattdessen in Betracht, die Eigenschaft {{CSSXref("mask-border")}} zu verwenden.
+> Diese Eigenschaft ist nicht standardisiert und gehört zu keinem Standardtrack. Erwägen Sie stattdessen die Verwendung der {{CSSXref("mask-border")}} Eigenschaft.
 
-## Zusammengehörige Eigenschaften
+## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für folgende CSS-Eigenschaften:
 
 - [`-webkit-mask-box-image-source`](/de/docs/Web/CSS/mask-border-source)
 - [`-webkit-mask-box-image-outset`](/de/docs/Web/CSS/mask-border-outset)
 - [`-webkit-mask-box-image-repeat`](/de/docs/Web/CSS/mask-border-repeat)
 
-Die Werte umfassen das `<image>`, das als Maskenrahmen verwendet werden soll, und optional vier Maskenabstände und bis zu zwei Maskenwiederholungsstile.
+Die Werte umfassen das `<image>`, das als Maskenrand verwendet werden soll, und optional vier Randabstandswerte und bis zu zwei Randwiederholungsstile.
 
 ## Syntax
 
@@ -52,34 +52,34 @@ Die Werte umfassen das `<image>`, das als Maskenrahmen verwendet werden soll, un
 ### Werte
 
 - {{cssxref("&lt;image&gt;")}}
-  - : Der Speicherort der Bildressource, die als Maskenbild verwendet werden soll, {{cssxref("&lt;gradient&gt;")}} oder ein anderer {{cssxref("&lt;image&gt;")}}-Wert.
+  - : Der Ort der Bildressource, die als Maskenbild verwendet werden soll, {{cssxref("&lt;gradient&gt;")}}, oder ein anderer {{cssxref("&lt;image&gt;")}} Wert.
 - `none`
-  - : Wird verwendet, um anzugeben, dass ein Randbereich keine Maskenfelder haben soll.
+  - : Wird verwendet, um anzugeben, dass ein Randfeld kein Maskenbild haben soll.
 - {{cssxref("length")}}
-  - : Die Größe des Versatzes des Maskenbilds. Siehe {{cssxref("&lt;length&gt;")}} für mögliche Einheiten.
+  - : Die Größe des Versatzes des Maskenbildes. Siehe {{cssxref("&lt;length&gt;")}} für mögliche Einheiten.
 - {{cssxref("percentage")}}
-  - : Der Versatz des Maskenbilds hat einen Prozentwert relativ zur entsprechenden Dimension (Breite oder Höhe) des Rahmenbereichs.
+  - : Der Versatz des Maskenbildes hat einen Prozentwert relativ zur entsprechenden Dimension (Breite oder Höhe) des Randfelds.
 - {{cssxref("number")}}
-  - : Die Größe des Versatzes des Maskenbilds in Pixeln.
+  - : Die Größe des Versatzes des Maskenbildes in Pixeln.
 - `repeat`
-  - : Das Maskenbild wird so oft wie nötig wiederholt, um den Rahmenbereich zu überspannen. Kann ein Teilbild enthalten, wenn das Maskenbild nicht gleichmäßig in den Rahmenbereich passt.
+  - : Das Maskenbild wird so oft wiederholt, wie es nötig ist, um das Randfeld zu überspannen. Kann ein partielles Bild enthalten, wenn das Maskenbild nicht gleichmäßig in das Randfeld passt.
 - `stretch`
-  - : Das Maskenbild wird gestreckt, um den Rahmenbereich genau zu enthalten.
+  - : Das Maskenbild wird so gedehnt, dass es exakt in das Randfeld passt.
 - `round`
-  - : Das Maskenbild wird etwas gestreckt und wiederholt, sodass es am Ende des Rahmenbereichs kein Teilmaskenbild gibt.
+  - : Das Maskenbild wird etwas gedehnt und wiederholt, so dass es am Ende des Randfeldes kein partielles Maskenbild gibt.
 - `space`
-  - : Das Maskenbild wird so oft wie möglich ohne Strecken wiederholt. Es gibt kein Teilmaskenbild am Ende des Rahmenbereichs.
+  - : Das Maskenbild wird so oft wie möglich ohne Dehnung wiederholt. Es gibt kein partielles Maskenbild am Ende des Randfeldes.
 
-Die Voraussetzungswerte oder Randabstände definieren die Abstände von den oberen, rechten, unteren und linken Kanten des Bildes in dieser Reihenfolge. Die Werte können als {{cssxref("length")}}, {{cssxref("number")}} oder {{cssxref("percentage")}} festgelegt werden, wobei Zahlen als Pixellängen interpretiert werden.
+Die Versatzwerte oder Randabstandsversätze definieren die Abstände von den oberen, rechten, unteren und linken Rändern des Bildes in dieser Reihenfolge. Die Werte können als {{cssxref("length")}}, {{cssxref("number")}} oder {{cssxref("percentage")}} gesetzt werden, wobei Zahlen als Pixelangaben interpretiert werden.
 
-Wiederholungsstile von Rändern, wenn sie eingeschlossen sind, werden in der Reihenfolge `<repeat-x> <repeat-y>` interpretiert. Wenn nur ein Wert angegeben ist, gilt er für beide Achsen. Im Gegensatz zu {{cssxref("background-repeat")}} werden die Werte `cover` und `contain` nicht unterstützt.
+Randwiederholungsstile, falls einbezogen, werden in der Reihenfolge `<repeat-x> <repeat-y>` interpretiert. Wenn nur ein Wert deklariert wird, gilt dieser für beide Achsen. Im Gegensatz zu {{cssxref("background-repeat")}} werden die Werte `cover` und `contain` nicht unterstützt.
 
 ## Formale Definition
 
-- [Anfangswert](/de/docs/Web/CSS/CSS_cascade/initial_value): `none`
-- Anwendbar auf: alle Elemente
+- [Anfangswert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial-value): `none`
+- Gilt für: alle Elemente
 - [Vererbt](/de/docs/Web/CSS/CSS_cascade/Inheritance): nein
-- [Berechneter Wert](/de/docs/Web/CSS/CSS_cascade/computed_value): wie angegeben
+- [Berechneter Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed-value): wie angegeben
 
 ## Formale Syntax
 
@@ -97,7 +97,7 @@ Where:
 
 ## Beispiele
 
-### Festlegen eines Bildes
+### Ein Bild festlegen
 
 ```css
 .example-one {
@@ -105,7 +105,7 @@ Where:
 }
 ```
 
-### Versetzen und Füllen eines Bildes
+### Ein Bild versetzen und füllen
 
 ```css
 .example-two {
@@ -115,7 +115,7 @@ Where:
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keines Standards.
 
 ## Browser-Kompatibilität
 
@@ -125,4 +125,4 @@ Nicht Teil eines Standards.
 
 - CSS {{ cssxref("mask-border") }} Eigenschaft
 - CSS {{ cssxref("border-image") }} Eigenschaft
-- [Safari CSS-Referenz: `-webkit-mask-box-image`](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/doc/uid/TP30001266-SW14)
+- [Safari CSS Referenz: `-webkit-mask-box-image`](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/doc/uid/TP30001266-SW14)

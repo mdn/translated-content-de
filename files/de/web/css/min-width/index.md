@@ -2,12 +2,12 @@
 title: min-width
 slug: Web/CSS/min-width
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 95edea913e7f0726243aff3f47b85cfd6f02d995
 ---
 
 {{CSSRef}}
 
-Die **`min-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Mindestbreite eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/CSS_cascade/used_value) der {{cssxref("width")}}-Eigenschaft kleiner wird als der für `min-width` angegebene Wert.
+Die **`min-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Mindestbreite eines Elements fest. Sie verhindert, dass der [benutzte Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#used-value) der {{cssxref("width")}} Eigenschaft kleiner wird als der für `min-width` angegebene Wert.
 
 {{InteractiveExample("CSS Demo: min-width")}}
 
@@ -79,27 +79,27 @@ min-width: unset;
 - {{cssxref("&lt;length&gt;")}}
   - : Definiert die `min-width` als absoluten Wert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Definiert die `min-width` als Prozentsatz der Breite des umgebenden Blocks.
+  - : Definiert die `min-width` als Prozentsatz der Breite des umschließenden Blocks.
 - `auto`
 
-  - : Der Standardwert. Die Quelle des automatischen Werts für das angegebene Element hängt von seinem Display-Wert ab. Für Block-Boxen, Inline-Boxen, Inline-Blöcke und alle Tabellenlayout-Boxen löst sich `auto` zu `0` auf.
+  - : Der Standardwert. Die Quelle des automatischen Wertes für das angegebene Element hängt von seinem Anzeige-Wert ab. Für Blockboxen, Inline-Boxen, Inline-Blöcke und alle Tabellenlayout-Boxen wird `auto` zu `0` aufgelöst.
 
-    Für {{Glossary("Flex_Item", "Flex-Elemente")}} und Grid-Elemente ist der Mindestbreitenwert entweder die angegebene vorgeschlagene Größe, wie der Wert der `width`-Eigenschaft, die übertragene Größe, die berechnet wird, wenn das Element ein `aspect-ratio` gesetzt hat und die Höhe eine feste Größe ist, ansonsten wird die `min-content`-Größe verwendet. Wenn das Flex- oder Grid-Element ein {{Glossary("scroll_container", "Scroll-Container")}} ist oder ein Grid-Element sich über mehr als eine flexible Spaltenreihe erstreckt, ist die automatische Mindestgröße `0`.
+    Für {{Glossary("Flex_Item", "Flex-Elemente")}} und Grid-Elemente ist der minimale Breitenwert entweder die angegebene vorgeschlagene Größe, wie der Wert der `width` Eigenschaft, die übertragene Größe, berechnet, wenn das Element ein festgelegtes `aspect-ratio` hat und die Höhe eine definierte Größe ist, andernfalls wird die `min-content` Größe verwendet. Wenn das Flex- oder Grid-Element ein {{Glossary("scroll_container", "Scrollbehälter")}} ist oder wenn ein Grid-Element mehr als eine flexible Spaltenreihe überspannt, ist die automatische Mindestgröße `0`.
 
 - `max-content`
-  - : Die intrinsisch bevorzugte `min-width`.
+  - : Die intrinsische bevorzugte `min-width`.
 - `min-content`
   - : Die intrinsische minimale `min-width`.
 - `fit-content`
-  - : Nutzt den verfügbaren Platz, aber nicht mehr als [`max-content`](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
+  - : Verwendet den verfügbaren Platz, jedoch nicht mehr als [`max-content`](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
-  - : Verwendet die `fit-content`-Formel mit dem verfügbaren Raum, ersetzt durch das angegebene Argument, d.h. `min(max-content, max(min-content, argument))`.
+  - : Verwendet die `fit-content` Formel mit dem verfügbaren Raum ersetzt durch das angegebene Argument, d.h. `min(max-content, max(min-content, argument))`.
 - `stretch`
 
-  - : Beschränkt die Mindestbreite des [margin box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) eines Elements auf die Breite seines [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die margin box so zu füllen, dass sie den verfügbaren Platz im umgebenden Block einnimmt, was in gewisser Weise ähnlich wie `100%` wirkt, aber die resultierende Größe auf die margin box anwendet und nicht auf die Box, die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmt wird.
+  - : Beschränkt die Mindestbreite der [Randbox](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die Randbox so zu gestalten, dass sie den verfügbaren Platz im umschließenden Block ausfüllt, und verhält sich in gewisser Weise ähnlich wie `100%`, wobei die resultierende Größe auf die Randbox und nicht auf die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box angewendet wird.
 
     > [!NOTE]
-    > Um die von Browsern verwendeten Aliase für den `stretch`-Wert und dessen Implementierungsstatus zu überprüfen, sehen Sie sich den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) an.
+    > Um die von Browsern verwendeten Aliase für den `stretch`-Wert und dessen Implementierungsstatus zu überprüfen, lesen Sie den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Formale Definition
 
@@ -111,7 +111,7 @@ min-width: unset;
 
 ## Beispiele
 
-### Mindestbreite eines Elements setzen
+### Mindestbreite eines Elements festlegen
 
 ```css
 table {

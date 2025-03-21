@@ -1,37 +1,37 @@
 ---
-title: Zeichenreferenz
+title: Charakterreferenz
 slug: Glossary/Character_reference
 l10n:
-  sourceCommit: bd74b8a8222517dead9def675a499dcf1dc30328
+  sourceCommit: e7feb5cdac39783b0a600b79f08a9994ad8705df
 ---
 
 {{GlossarySidebar}}
 
-Eine {{Glossary("HTML", "HTML")}} **Zeichenreferenz** ist eine {{Glossary("escape_character", "Escape-Sequenz")}} von {{Glossary("character", "Zeichen")}}, die verwendet wird, um ein anderes Zeichen auf der gerenderten Webseite darzustellen.
+Eine {{Glossary("HTML", "HTML")}} **Charakterreferenz** ist eine {{Glossary("escape_character", "Escape-Sequenz")}} von {{Glossary("character", "Zeichen")}}, die verwendet wird, um ein anderes Zeichen auf der gerenderten Webseite darzustellen.
 
-Zeichenreferenzen werden als Ersatz für Zeichen verwendet, die in HTML reserviert sind, wie die Kleiner-als-Zeichen (`<`) und Größer-als-Zeichen (`>`), die vom HTML-Parser zur Identifizierung von Element-{{Glossary("tag", "Tags")}} verwendet werden, oder `"` oder `'` innerhalb von Attributen, die von diesen Zeichen eingeschlossen sein können. Sie können auch für unsichtbare Zeichen verwendet werden, die sonst unmöglich zu tippen wären, einschließlich geschützter Leerzeichen, Steuerzeichen wie Links-nach-rechts- und Rechts-nach-links-Markierungen und für Zeichen, die auf einer Standardtastatur schwer zu tippen sind.
+Charakterreferenzen werden als Ersatz für Zeichen verwendet, die in HTML reserviert sind, wie die Kleiner-als (`<`) und Größer-als (`>`) Symbole, die vom HTML-Parser zur Identifizierung von Element-{{Glossary("tag", "Tags")}} genutzt werden, oder `"` oder `'` innerhalb von Attributen, die von diesen Zeichen eingeschlossen werden können.
+Sie können auch für unsichtbare Zeichen verwendet werden, die sonst unmöglich zu tippen wären, einschließlich geschützter Leerzeichen, Steuerzeichen wie Links-nach-Rechts- und Rechts-nach-Links-Markierungen und für Zeichen, die auf einer Standardtastatur schwer zu tippen sind.
 
-Es gibt drei Arten von Zeichenreferenzen:
+Es gibt drei Arten von Charakterreferenzen:
 
-- **Benannte Zeichenreferenzen**
+- **Benannte Charakterreferenzen**
 
-  - : Diese verwenden einen Namensstring zwischen einem Kaufmanns-Und (`&`) und einem Semikolon (`;`), um auf das entsprechende Zeichen zu verweisen.
-    Zum Beispiel wird `&lt;` für das Kleiner-als-Zeichen (`<`) verwendet, und `&copy;` für das Copyright-Zeichen (`©`).
-    Der für die Referenz verwendete String ist oft eine {{Glossary("Camel_case", "Camel-Cased")}} Initialisierung oder eine Kontraktion des Zeichen-Namens.
+  - : Diese verwenden eine Namenszeichenfolge zwischen einem kaufmännischen Und-Zeichen (`&`) und einem Semikolon (`;`) zur Referenz auf das entsprechende Zeichen.
+    Zum Beispiel wird `&lt;` für das Kleiner-als (`<`) Symbol benutzt und `&copy;` für das Copyright-Symbol (`©`).
+    Die Zeichenfolge, die für die Referenz verwendet wird, ist oft eine {{Glossary("Camel_case", "Camel-Cased")}} Initialisierung oder Verkürzung des Zeichen-Namens.
 
-- **Dezimale numerische Zeichenreferenzen**
+- **Dezimalzahlen-Charakterreferenzen**
 
-  - : Diese Referenzen beginnen mit `&#`, gefolgt von einer oder mehreren ASCII-Ziffern, die die Ganzzahl im Basis-10 darstellen, die dem {{Glossary("Unicode", "Unicode")}}-{{Glossary("code_point", "Codepoint")}} des Zeichens entspricht, und enden mit `;`.
-    Zum Beispiel ist die dezimale Zeichenreferenz für `<` `&#60;`, da der Unicode-Codepoint für das Symbol `U+0003C` ist und `3C` hexadezimal 60 dezimal ist.
+  - : Diese Referenzen beginnen mit `&#`, gefolgt von einer oder mehreren ASCII-Ziffern, die die Basis-10-Ganzzahl darstellen, die dem {{Glossary("Unicode", "Unicode")}}-{{Glossary("code_point", "Codepunkt")}} des Zeichens entspricht, und enden mit `;`.
+    Zum Beispiel ist die dezimale Charakterreferenz für `<` `&#60;`, weil der Unicode-Codepunkt für das Symbol `U+0003C` ist und `3C` hexadezimal ist 60 dezimal.
 
-- **Hexadezimale numerische Zeichenreferenz**
+- **Hexadezimale Zahlen-Charakterreferenzen**
+  - : Diese Referenzen beginnen mit `&#x` oder `&#X`, gefolgt von einer oder mehreren ASCII-Hexadezimalziffern, die die hexadezimale Ganzzahl darstellen, die dem Unicode-Codepunkt des Zeichens entspricht, und enden mit `;`.
+    Zum Beispiel ist die hexadezimale Charakterreferenz für `<` `&#x3C;` oder `&#X3C;`, weil der Unicode-Codepunkt für das Symbol `U+0003C` ist.
 
-  - : Diese Referenzen beginnen mit `&#x` oder `&#X`, gefolgt von einer oder mehreren ASCII-Hexadezimalziffern, die die hexadezimale Ganzzahl darstellen, die dem Unicode-Codepoint des Zeichens entspricht, und enden mit `;`.
-    Zum Beispiel ist die hexadezimale Zeichenreferenz für `<` `&#x3C;` oder `&#X3C;`, da der Unicode-Codepoint für das Symbol `U+0003C` ist.
+Ein sehr kleiner Ausschnitt nützlicher benannter Charakterreferenzen zusammen mit ihren Unicode-Codepunkten ist unten aufgelistet.
 
-Ein sehr kleiner Teil nützlicher benannter Zeichenreferenzen zusammen mit ihren Unicode-Codepoints ist unten aufgeführt.
-
-| Zeichen | Benannte Referenz | Unicode-Codepoint |
+| Zeichen | Benannte Referenz | Unicode-Codepunkt |
 | ------- | ----------------- | ----------------- |
 | &       | `&amp;`           | U+00026           |
 | <       | `&lt;`            | U+0003C           |
@@ -50,12 +50,12 @@ Ein sehr kleiner Teil nützlicher benannter Zeichenreferenzen zusammen mit ihren
 | €       | `&euro;`          | U+020AC           |
 | °       | `&deg;`           | U+000B0           |
 
-Die vollständige Liste der HTML-benannten Zeichenreferenzen [finden Sie hier in der HTML-Spezifikation](https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references).
+Die vollständige Liste der HTML-benannten Charakterreferenzen [kann in der HTML-Spezifikation hier gefunden werden](https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references).
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
   - {{Glossary("Character", "Zeichen")}}
   - {{Glossary("Escape_character", "Escape-Zeichen")}}
-  - {{Glossary("Code_point", "Codepoint")}}
+  - {{Glossary("Code_point", "Codepunkt")}}
   - {{Glossary("Unicode", "Unicode")}}

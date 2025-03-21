@@ -3,12 +3,12 @@ title: "Window: getDefaultComputedStyle()-Methode"
 short-title: getDefaultComputedStyle()
 slug: Web/API/Window/getDefaultComputedStyle
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 95edea913e7f0726243aff3f47b85cfd6f02d995
 ---
 
 {{APIRef("CSSOM")}}{{Non-standard_Header}}
 
-Die **`getDefaultComputedStyle()`**-Methode liefert die standardmäßigen [berechneten Werte](/de/docs/Web/CSS/CSS_cascade/computed_value) aller CSS-Eigenschaften eines Elements, ohne Berücksichtigung des Autors. Das bedeutet, dass nur Benutzeragent- und Benutzerstile berücksichtigt werden.
+Die **`getDefaultComputedStyle()`**-Methode liefert die Standard-[berechneten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed-value) aller CSS-Eigenschaften eines Elements, unter Ignorieren der Autoren-Stile. Das bedeutet, dass nur Benutzeragenten- und Benutzerstile berücksichtigt werden.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ getDefaultComputedStyle(element, pseudoElt)
 ### Parameter
 
 - `element`
-  - : Das [`Element`](/de/docs/Web/API/Element), für das der berechnete Stil abgerufen werden soll.
+  - : Das [`Element`](/de/docs/Web/API/Element), für das die berechneten Stile abgerufen werden sollen.
 - `pseudoElt` {{optional_inline}}
-  - : Ein String, der das Pseudo-Element angibt, mit dem Übereinstimmung erzielt werden soll. Muss `null` sein (oder nicht spezifiziert), wenn es sich um reguläre Elemente handelt.
+  - : Ein String, der das zu matchende Pseudo-Element angibt. Muss `null` sein (oder nicht angegeben) für reguläre Elemente.
 
 ### Rückgabewert
 
-Der zurückgegebene `style` ist ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt. Das Objekt ist vom gleichen Typ wie das Objekt, das von [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) zurückgegeben wird, berücksichtigt jedoch nur Benutzeragent- und Benutzerregeln.
+Der zurückgegebene `style` ist ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt. Das Objekt ist vom gleichen Typ wie das Objekt, das von [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) zurückgegeben wird, berücksichtigt jedoch nur Benutzeragenten- und Benutzerregeln.
 
 ## Beispiele
 
@@ -61,7 +61,7 @@ const style = window.getDefaultComputedStyle(elem1);
 
 ### Verwendung mit Pseudo-Elementen
 
-Die Methode `getDefaultComputedStyle()` kann Stilinformationen von Pseudo-Elementen (z. B. {{cssxref("::before")}} oder {{cssxref("::after")}}) abrufen.
+Die `getDefaultComputedStyle()`-Methode kann Stilinformationen von Pseudo-Elementen abrufen (z.B. {{cssxref("::before")}} oder {{cssxref("::after")}}).
 
 ```html
 <style>
@@ -80,13 +80,13 @@ Die Methode `getDefaultComputedStyle()` kann Stilinformationen von Pseudo-Elemen
 </script>
 ```
 
-## Hinweise
+## Anmerkungen
 
-Der zurückgegebene Wert ist in bestimmten bekannten Fällen bewusst absichtlich falsch. Insbesondere, um das sogenannte CSS-History-Leak-Sicherheitsproblem zu vermeiden, können Browser absichtlich „lügen“ und immer Werte zurückgeben, als ob ein Benutzer die verlinkte Seite nie besucht hätte, und/oder die Stile einschränken, die mit dem Pseudo-Selektor `:visited` angewendet werden können. Details und Beispiele zur Implementierung finden Sie unter <https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/> und <https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/>.
+Der zurückgegebene Wert ist in bestimmten bekannten Fällen absichtlich falsch. Insbesondere, um das sogenannte CSS-History-Leak-Sicherheitsproblem zu vermeiden, können Browser absichtlich "lügen" über den verwendeten Wert für einen Link und immer so tun, als ob ein Benutzer die verlinkte Seite nie besucht hat, und/oder die Stile begrenzen, die mit dem `:visited` Pseudo-Selektor angewendet werden können. Details und Beispiele, wie dies umgesetzt wird, finden Sie unter <https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/> und <https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/>.
 
 ## Spezifikationen
 
-Vorgeschlagen für die CSS-Arbeitsgruppe.
+Vorgeschlagen an die CSS-Arbeitsgruppe.
 
 ## Browser-Kompatibilität
 

@@ -2,46 +2,46 @@
 title: Spezifität
 slug: Web/CSS/CSS_cascade/Specificity
 l10n:
-  sourceCommit: 891bc513a3349040a16c4896197d6a3a910ca42b
+  sourceCommit: 95edea913e7f0726243aff3f47b85cfd6f02d995
 ---
 
 {{CSSRef}}
 
-**Spezifität** ist der Algorithmus, den Browser verwenden, um festzustellen, welche [CSS-Deklaration](/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS#css_syntax_basics) für ein Element am relevantesten ist, was wiederum bestimmt, welcher Eigenschaftswert auf das Element angewendet wird. Der Spezifitätsalgorithmus berechnet das Gewicht eines [CSS-Selectors](/de/docs/Web/CSS/Reference#selectors), um zu bestimmen, welche Regel aus konkurrierenden CSS-Deklarationen auf ein Element angewendet wird.
+**Spezifität** ist der Algorithmus, den Browser verwenden, um die [CSS-Deklaration](/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS#css_syntax_basics) zu bestimmen, die für ein Element am relevantesten ist und somit den anzuwendenden Eigenschaftswert bestimmt. Der Spezifizitäts-Algorithmus berechnet das Gewicht eines [CSS-Selektors](/de/docs/Web/CSS/Reference#selectors), um festzulegen, welche Regel von konkurrierenden CSS-Deklarationen auf ein Element angewendet wird.
 
 > [!NOTE]
-> Browser berücksichtigen die Spezifität **nach** der Bestimmung von [Kaskade-Ursprung und Wichtigkeit](/de/docs/Web/CSS/CSS_cascade/Cascade). Mit anderen Worten, bei konkurrierenden Eigenschaftsdeklarationen ist die Spezifität nur dann relevant und vergleichbar, wenn die Selektoren aus dem einen [Kaskade-Ursprung und der Ebene](/de/docs/Web/CSS/@layer) stammen, die Vorrang für die Eigenschaft hat. [Scoping-Nähe](/de/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved) und Reihenfolge des Erscheinens werden relevant, wenn die Selektor-Spezifitäten der konkurrierenden Deklarationen in der Kaskadenschicht mit Vorrang gleich sind.
+> Browser berücksichtigen Spezifität **nachdem** sie den [Ursprung der Kaskade und Wichtigkeit](/de/docs/Web/CSS/CSS_cascade/Cascade) bestimmt haben. Mit anderen Worten, bei konkurrierenden Eigenschaftsdeklarationen ist Spezifität nur innerhalb von Selektoren aus einem Ursprungs- und Schicht der Kaskade relevant und wird verglichen, die für die Eigenschaft Vorrang hat. [Scoping-Nähe](/de/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved) und die Reihenfolge des Auftretens werden relevant, wenn die Selektorspezifitäten der konkurrierenden Deklarationen in der vorherrschenden Kaskadenschicht gleich sind.
 
 ## Wie wird die Spezifität berechnet?
 
-Spezifität ist ein Algorithmus, der das Gewicht berechnet, das auf eine gegebene CSS-Deklaration angewendet wird. Das Gewicht wird durch die Anzahl der [Selektoren jeder Gewichtskategorie](#selektor-gewichtskategorien) im Selektor bestimmt, der mit dem Element (oder Pseudo-Element) übereinstimmt. Wenn es zwei oder mehr Deklarationen gibt, die für dasselbe Element unterschiedliche Eigenschaftswerte bereitstellen, wird der Deklarationswert im Stilblock mit dem übereinstimmenden Selektor mit dem größten algorithmischen Gewicht angewendet.
+Die Spezifität ist ein Algorithmus, der das Gewicht berechnet, das auf eine gegebene CSS-Deklaration angewendet wird. Das Gewicht wird durch die Anzahl von [Selektoren jeder Gewichtskategorie](#selektor-gewichtskategorien) im Selektor bestimmt, der das Element (oder Pseudoelement) trifft. Wenn zwei oder mehr Deklarationen unterschiedliche Eigenschaftswerte für dasselbe Element liefern, wird der Deklarationswert im Stilblock mit dem passenden Selektor mit dem größten algorithmischen Gewicht angewendet.
 
-Der Spezifitätsalgorithmus ist im Grunde ein drei-spaltiger Wert von drei Kategorien oder Gewichten - ID, CLASS und TYPE - entsprechend den drei Typen von Selektoren. Der Wert repräsentiert die Anzahl der Selektorkomponenten in jeder Gewichtskategorie und wird als _ID - CLASS - TYPE_ geschrieben. Die drei Spalten werden erstellt, indem die Anzahl der Selektorkomponenten für jede Selektor-Gewichtskategorie in den Selektoren gezählt wird, die mit dem Element übereinstimmen.
+Der Spezifizitäts-Algorithmus ist im Wesentlichen ein dreispaltiger Wert aus drei Kategorien oder Gewichten – ID, CLASS und TYPE –, die den drei Typen von Selektoren entsprechen. Der Wert repräsentiert die Anzahl der Selektor-Komponenten in jeder Gewichtskategorie und wird als _ID - CLASS - TYPE_ geschrieben. Die drei Spalten werden erstellt, indem die Anzahl der Selektor-Komponenten für jede Selektor-Gewichtskategorie in den Selektoren gezählt wird, die das Element treffen.
 
 ### Selektor-Gewichtskategorien
 
-Die Selektor-Gewichtskategorien sind hier in der Reihenfolge abnehmender Spezifität aufgelistet:
+Die Selektor-Gewichtskategorien sind hier in abnehmender Spezifität aufgelistet:
 
 - ID-Spalte
-  - : Enthält nur [ID-Selektoren](/de/docs/Web/CSS/ID_selectors), wie `#example`. Für jede ID in einem übereinstimmenden Selektor, addieren Sie 1-0-0 zum Gewichtswert.
+  - : Enthält nur [ID-Selektoren](/de/docs/Web/CSS/ID_selectors), wie `#example`. Für jede ID in einem übereinstimmenden Selektor addieren Sie 1-0-0 zum Gewichtswert.
 - CLASS-Spalte
-  - : Beinhaltet [Klassen-Selektoren](/de/docs/Web/CSS/Class_selectors), wie `.myClass`, Attribut-Selektoren wie `[type="radio"]` und `[lang|="fr"]`, und Pseudo-Klassen, wie `:hover`, `:nth-of-type(3n)` und `:required`. Für jede Klasse, Attribut-Selektor oder Pseudo-Klasse in einem übereinstimmenden Selektor, addieren Sie 0-1-0 zum Gewichtswert.
+  - : Enthält [Klassenselektoren](/de/docs/Web/CSS/Class_selectors), wie `.myClass`, Attributselektoren wie `[type="radio"]` und `[lang|="fr"]`, und Pseudoklassen wie `:hover`, `:nth-of-type(3n)` und `:required`. Für jede Klasse, jeden Attributselektor oder jede Pseudoklasse in einem passenden Selektor, addieren Sie 0-1-0 zum Gewichtswert.
 - TYPE-Spalte
-  - : Enthält [Typ-Selektoren](/de/docs/Web/CSS/Type_selectors), wie `p`, `h1` und `td`, und Pseudo-Elemente wie `::before`, `::placeholder`, und alle anderen Selektoren mit Doppelpunkt-Notation. Für jeden Typ oder Pseudo-Element in einem übereinstimmenden Selektor, addieren Sie 0-0-1 zum Gewichtswert.
+  - : Enthält [Typselektoren](/de/docs/Web/CSS/Type_selectors), wie `p`, `h1` und `td`, und Pseudoelemente wie `::before`, `::placeholder`, und alle anderen Selektoren mit Doppelpunktnotation. Für jeden Typ oder jedes Pseudoelement in einem passenden Selektor, addieren Sie 0-0-1 zum Gewichtswert.
 - Kein Wert
-  - : Der universelle Selektor ({{CSSxRef("Universal_selectors", "*")}}) und die Pseudo-Klasse {{CSSxRef(":where", ":where()")}} und deren Parameter werden beim Berechnen des Gewichts nicht gezählt, sodass deren Wert 0-0-0 ist, aber sie passen zu Elementen. Diese Selektoren haben keinen Einfluss auf den Spezifitätsgewichtswert.
+  - : Der universelle Selektor ({{CSSxRef("Universal_selectors", "*")}}) und die Pseudoklasse {{CSSxRef(":where", ":where()")}} und deren Parameter werden bei der Gewichtung nicht gezählt, so dass ihr Wert 0-0-0 beträgt, aber sie treffen dennoch auf Elemente zu. Diese Selektoren haben keinen Einfluss auf den Spezifizitätswert.
 
-Kombinatoren, wie {{CSSxRef("Next-sibling_combinator", "+")}}, {{CSSxRef("Child_combinator", "&gt;")}}, {{CSSxRef("Subsequent-sibling_combinator", "~")}}, [" "](/de/docs/Web/CSS/Descendant_combinator), und {{CSSxRef("Column_combinator", "||")}}, können einen Selektor spezifischer in Bezug darauf machen, was ausgewählt wird, aber sie fügen dem Spezifitätsgewicht keinen Wert hinzu.
+Kombinatoren wie {{CSSxRef("Next-sibling_combinator", "+")}}, {{CSSxRef("Child_combinator", "&gt;")}}, {{CSSxRef("Subsequent-sibling_combinator", "~")}}, [" "](/de/docs/Web/CSS/Descendant_combinator) und {{CSSxRef("Column_combinator", "||")}} können einen Selektor spezifischer machen, in Bezug darauf, was ausgewählt wird, aber sie addieren keinen Wert zur Spezifitätsgewichtung.
 
-Der `&` Verschachtelungs-Kombinator fügt kein Spezifizitätsgewicht hinzu, aber verschachtelte Regeln tun dies. In Bezug auf Spezifität und Funktionalität ist das Verschachteln dem {{CSSxRef(":is", ":is()")}} Pseudo-Klasse sehr ähnlich.
+Der `&` Schachtelungs-Kombinator fügt kein Spezifizitätsgewicht hinzu, aber geschachtelte Regeln tun dies. In Bezug auf Spezifität und Funktionalität ist das Schachteln sehr ähnlich zur {{CSSxRef(":is", ":is()")}} Pseudoklasse.
 
-Wie beim Verschachteln fügen die {{CSSxRef(":is", ":is()")}}, {{CSSxRef(":has", ":has()")}}, und Negations-Pseudo-Klassen ({{CSSxRef(":not", ":not()")}}) selbst kein Gewicht hinzu. Die Parameter in diesen Selektoren jedoch schon. Das Spezifitätsgewicht jedes einzelnen kommt von dem Selektor-Parameter in der Liste der Selektoren mit der höchsten Spezifität. Ebenso wird bei verschachtelten Selektoren das Spezifitätsgewicht, das durch die verschachtelte Selektorkomponente hinzugefügt wird, durch den Selektor in der kommagetrennten Liste von verschachtelten Selektoren mit der höchsten Spezifität bestimmt.
+Wie das Schachteln fügen die Pseudoklassen {{CSSxRef(":is", ":is()")}}, {{CSSxRef(":has", ":has()")}} und Negation ({{CSSxRef(":not", ":not()")}}) selbst kein Gewicht hinzu. Die Parameter in diesen Selektoren hingegen schon. Die Spezifitätsgewichtung jedes dieser Selektoren ergibt sich aus dem Selektorparameter in der Liste von Selektoren mit der höchsten Spezifität. Ähnlich verhält es sich mit geschachtelten Selektoren: Das Spezifizitätsgewicht, das durch die geschachtelte Selektorkomponente hinzugefügt wird, ist der Selektor in der durch Kommata getrennten Liste von geschachtelten Selektoren mit der höchsten Spezifität.
 
-Die Ausnahmen [`:not()`, `:is()`, `:has()` und CSS-Verschachtelungen](#the_is_not_has_and_css_nesting_exceptions) werden unten erörtert.
+Die Ausnahmen [`:not()`, `:is()`, `:has()` und CSS-Schachtelung](#the_is_not_has_and_css_nesting_exceptions) werden unten erläutert.
 
 #### Übereinstimmender Selektor
 
-Das Spezifitätsgewicht kommt vom übereinstimmenden Selektor. Nehmen Sie diesen CSS-Selektor mit drei kommagetrennten Selektoren als Beispiel:
+Das Spezifizitätsgewicht kommt vom übereinstimmenden Selektor. Nehmen Sie diesen CSS-Selektor mit drei durch Kommata getrennten Selektoren als Beispiel:
 
 ```css
 [type="password"],
@@ -51,13 +51,13 @@ input:focus,
 }
 ```
 
-Der `[type="password"]`-Selektor in der obigen Selektorliste, mit einem Spezifitätsgewicht von `0-1-0`, wendet die `color: blue`-Deklaration auf alle Passworteingabetypen an.
+Der `[type="password"]` Selektor in der obigen Selektorliste mit einem Spezifizitätsgewicht von `0-1-0` wendet die `color: blue` Deklaration auf alle Passwort-Eingabetypen an.
 
-Alle Eingaben, unabhängig vom Typ, die den Fokus erhalten, passen zum zweiten Selektor in der Liste, `input:focus`, mit einem Spezifitätsgewicht von `0-1-1`; dieses Gewicht setzt sich aus der `:focus`-Pseudo-Klasse (0-1-0) und dem `input`-Typ (0-0-1) zusammen. Wenn die Passwort-Eingabe den Fokus hat, wird sie mit `input:focus` übereinstimmen, und das Spezifitätsgewicht für die `color: blue`-Stildeklaration wird `0-1-1` sein. Wenn dieses Passwort keinen Fokus hat, bleibt das Spezifitätsgewicht bei `0-1-0`.
+Alle Eingaben, egal welcher Typ, die den Fokus erhalten, entsprechen dem zweiten Selektor in der Liste, `input:focus`, mit einem Spezifizitätsgewicht von `0-1-1`; dieses Gewicht setzt sich zusammen aus der `:focus` Pseudoklasse (0-1-0) und dem `input` Typ (0-0-1). Hat das Passwortfeld den Fokus, entspricht es `input:focus`, und das Spezifizitätsgewicht für die `color: blue` Stil-Deklaration wird `0-1-1` sein. Hat das Passwort keinen Fokus, bleibt das Spezifizitätsgewicht bei `0-1-0`.
 
-Die Spezifität für die erforderliche Eingabe, die in einem Element mit dem Attribut `id="myApp"` verschachtelt ist, beträgt `1-2-1`, basierend auf einer ID, zwei Pseudo-Klassen und einem Elementtyp.
+Die Spezifizität für ein erforderliches Eingabefeld, das in einem Element mit dem Attribut `id="myApp"` geschachtelt ist, beträgt `1-2-1`, basierend auf einer ID, zwei Pseudoklassen und einem Elementtyp.
 
-Wenn der Passworteingabetyp mit `required` in ein Element mit `id="myApp"` verschachtelt ist, beträgt das Spezifitätsgewicht `1-2-1`, basierend auf einer ID, zwei Pseudo-Klassen und einem Elementtyp, unabhängig davon, ob er den Fokus hat oder nicht. Warum ist das Spezifitätsgewicht `1-2-1` anstelle von `0-1-1` oder `0-1-0` in diesem Fall? Weil das Spezifitätsgewicht vom übereinstimmenden Selektor mit dem größten Spezifitätsgewicht kommt. Das Gewicht wird durch den Vergleich der Werte in den drei Spalten, von links nach rechts, bestimmt.
+Wenn der Passwort-Eingabetyp mit `required` in einem Element mit `id="myApp"` geschachtelt ist, beträgt das Spezifizitätsgewicht `1-2-1`, basierend auf einer ID, zwei Pseudoklassen und einem Elementtyp, unabhängig davon, ob es den Fokus hat oder nicht. Warum ist das Spezifizitätsgewicht in diesem Fall `1-2-1` anstatt `0-1-1` oder `0-1-0`? Weil das Spezifizitätsgewicht vom übereinstimmenden Selektor mit dem größten Spezifizitätsgewicht stammt. Das Gewicht wird durch Vergleich der Werte in den drei Spalten, von links nach rechts, bestimmt.
 
 ```css
 [type="password"]             /* 0-1-0 */
@@ -65,9 +65,9 @@ input:focus                   /* 0-1-1 */
 :root #myApp input:required   /* 1-2-1 */
 ```
 
-### Drei-Spalten-Vergleich
+### Vergleich mit drei Spalten
 
-Sobald die Spezifitätswerte der relevanten Selektoren bestimmt sind, werden die Anzahl der Selektorkomponenten in jeder Spalte, von links nach rechts, verglichen.
+Sobald die Spezifizitätswerte der relevanten Selektoren bestimmt sind, werden die Anzahl der Selektorkomponenten in jeder Spalte von links nach rechts verglichen.
 
 ```css
 #myElement {
@@ -78,9 +78,9 @@ Sobald die Spezifitätswerte der relevanten Selektoren bestimmt sind, werden die
 }
 ```
 
-Die erste Spalte ist der Wert der _ID_-Komponente, welcher die Anzahl der IDs in jedem Selektor ist. Die Zahlen in den _ID_-Spalten der konkurrierenden Selektoren werden verglichen. Der Selektor mit dem größeren Wert in der _ID_-Spalte gewinnt, unabhängig davon, welche Werte in den anderen Spalten sind. Im obigen Beispiel, selbst wenn der gelbe Selektor mehr Komponenten insgesamt hat, zählt nur der Wert der ersten Spalte.
+Die erste Spalte ist der Wert der _ID_-Komponente, welche die Anzahl der IDs in jedem Selektor darstellt. Die Zahlen in den _ID_-Spalten der konkurrierenden Selektoren werden verglichen. Der Selektor mit dem höheren Wert in der _ID_-Spalte gewinnt, unabhängig von den Werten in den anderen Spalten. Im obigen Beispiel, obwohl der gelbe Selektor insgesamt mehr Komponenten hat, zählt nur der Wert der ersten Spalte.
 
-Wenn die Zahl in den _ID_-Spalten der konkurrierenden Selektoren gleich ist, wird die nächste Spalte, _CLASS_, verglichen, wie unten gezeigt.
+Wenn die Zahl in den _ID_-Spalten konkurrierender Selektoren gleich ist, wird die nächste Spalte, _CLASS_, verglichen, wie unten gezeigt.
 
 ```css
 #myElement {
@@ -91,7 +91,7 @@ Wenn die Zahl in den _ID_-Spalten der konkurrierenden Selektoren gleich ist, wir
 }
 ```
 
-Die _CLASS_-Spalte ist die Anzahl der Klassennamen, Attribut-Selektoren und Pseudo-Klassen im Selektor. Wenn der Wert der _ID_-Spalte gleich ist, gewinnt der Selektor mit dem größeren Wert in der _CLASS_-Spalte, unabhängig vom Wert in der _TYPE_-Spalte. Dies wird im folgenden Beispiel gezeigt.
+Die _CLASS_-Spalte ist die Anzahl der Klassennamen, Attributselektoren und Pseudoklassen im Selektor. Wenn der Wert in der _ID_-Spalte gleich ist, gewinnt der Selektor mit dem höheren Wert in der _CLASS_-Spalte, unabhängig vom Wert in der _TYPE_-Spalte. Dies wird im folgenden Beispiel gezeigt.
 
 ```css
 :root input {
@@ -102,9 +102,9 @@ html body main input {
 }
 ```
 
-Wenn die Zahlen in den _CLASS_- und _ID_-Spalten der konkurrierenden Selektoren gleich sind, wird die _TYPE_-Spalte relevant. Die _TYPE_-Spalte ist die Anzahl der Elementtypen und Pseudo-Elemente im Selektor. Wenn die ersten zwei Spalten den gleichen Wert haben, gewinnt der Selektor mit der größeren Zahl in der _TYPE_-Spalte.
+Wenn die Zahlen in den _CLASS_- und _ID_-Spalten der konkurrierenden Selektoren gleich sind, wird die _TYPE_-Spalte relevant. Die _TYPE_-Spalte ist die Anzahl der Elementtypen und Pseudoelemente im Selektor. Wenn die ersten beiden Spalten denselben Wert haben, gewinnt der Selektor mit der höheren Zahl in der _TYPE_-Spalte.
 
-Wenn die konkurrierenden Selektoren die gleichen Werte in allen drei Spalten haben, kommt die Näherungsregel zur Anwendung, bei der die zuletzt deklarierte Stilregel Vorrang hat.
+Wenn die konkurrierenden Selektoren die gleichen Werte in allen drei Spalten haben, tritt die Nähe-Regel in Kraft, wobei die zuletzt deklarierte Stilregel Vorrang hat.
 
 ```css
 input.myClass {
@@ -115,9 +115,9 @@ input.myClass {
 }
 ```
 
-### Die `:is()`, `:not()`, `:has()` und CSS-Verschachtelungs-Ausnahmen
+### Die Ausnahmen `:is()`, `:not()`, `:has()` und CSS-Schachtelung
 
-Die Pseudo-Klasse für beliebige Übereinstimmungen {{CSSxRef(":is", ":is()")}}, die relationale Pseudo-Klasse {{CSSxRef(":has", ":has()")}}, und die Negations-Pseudo-Klasse {{CSSxRef(":not", ":not()")}} werden _nicht_ als Pseudo-Klassen in der Spezifitätsgewicht-Berechnung betrachtet. Sie selbst fügen der Spezifitätsgleichung kein Gewicht hinzu. Jedoch sind die Selektor-Parameter, die in die Pseudo-Klassen-Klammern übergeben werden, Teil des Spezifitätsalgorithmus; das Gewicht der beliebigen Übereinstimmungen und der Negations-Pseudo-Klasse in der Spezifitätswert-Berechnung ist das Gewicht des Parameters [Gewicht](#selektor-gewichtskategorien).
+Die "matches-any" Pseudoklasse {{CSSxRef(":is", ":is()")}}, die relationale Pseudoklasse {{CSSxRef(":has", ":has()")}}, und die Negationspseudoklasse {{CSSxRef(":not", ":not()")}} werden _nicht_ als Pseudoklassen in der Spezifizitätsgewichtsberechnung betrachtet. Sie selbst fügen der Spezifizitätsrechnung kein Gewicht hinzu. Die Selektorparameter, die in die Klammern der Pseudoklasse eingefügt werden, sind jedoch Teil des Spezifizitätsalgorithmus; das Gewicht der "matches-any" und der Negationspseudoklasse in der Spezifizitätswertberechnung ist das Gewicht des Parameters [Gewicht](#selektor-gewichtskategorien).
 
 ```css
 p {
@@ -142,9 +142,9 @@ div:not(.inner) p {
 }
 ```
 
-Beachten Sie, dass im obigen CSS-Paar das Spezifitätsgewicht, das durch die `:is()`, `:has()` und `:not()`-Pseudo-Klassen bereitgestellt wird, der Wert des Selektor-Parameters und nicht der Pseudo-Klasse ist.
+Beachten Sie, dass im obigen CSS-Paaring das Spezifizitätsgewicht, das durch die Pseudoklassen `:is()`, `:has()` und `:not()` bereitgestellt wird, der Wert des Selektorparameters ist, nicht der der Pseudoklasse.
 
-Alle drei dieser Pseudo-Klassen akzeptieren komplexe Selektorlisten, eine Liste von kommagetrennten Selektoren, als Parameter. Diese Funktion kann genutzt werden, um die Spezifität eines Selektors zu erhöhen:
+Alle drei dieser Pseudoklassen akzeptieren komplexe Selektorlisten, eine Liste von durch Kommata getrennten Selektoren, als Parameter. Dieses Merkmal kann verwendet werden, um die Spezifität eines Selektors zu erhöhen:
 
 ```css
 :is(p, #fakeId) {
@@ -161,9 +161,9 @@ div:not(.inner, #fakeId) p {
 }
 ```
 
-Im obigen CSS-Codeblock haben wir `#fakeId` in die Selektoren aufgenommen. Dieses `#fakeId` fügt jedem Absatz `1-0-0` zum Spezifitätsgewicht hinzu.
+Im obigen CSS-Codeblock haben wir `#fakeId` in die Selektoren aufgenommen. Dieses `#fakeId` fügt `1-0-0` zum Spezifizitätsgewicht jedes Absatzes hinzu.
 
-Beim Erstellen komplexer Selektorlisten mit [CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting) verhält sich dies genauso wie die `:is()` Pseudo-Klasse.
+Beim Erstellen komplexer Selektorlisten mit [CSS-Schachtelung](/de/docs/Web/CSS/CSS_nesting) verhält sich dies genau wie die `:is()` Pseudoklasse.
 
 ```css
 p,
@@ -174,9 +174,9 @@ p,
 }
 ```
 
-Im obigen Codeblock wird die komplexe Selektor `p, #fakeId`. Die Spezifität wird von `#fakeId` und auch von `span` übernommen, sodass dies eine Spezifität von `1-0-1` für sowohl `p span` als auch `#fakeId span` schafft. Dies ist die äquivalente Spezifität wie der `:is(p, #fakeId) span` Selektor.
+Im obigen Codeblock ist der komplexe Selektor `p, #fakeId`, die Spezifizität wird aus `#fakeId` und auch dem `span` genommen, was eine Spezifizität von `1-0-1` für sowohl `p span` als auch `#fakeId span` ergibt. Dies ist die äquivalente Spezifizität wie der `:is(p, #fakeId) span` Selektor.
 
-Im Allgemeinen möchten Sie die Spezifität so gering wie möglich halten, aber wenn Sie die Spezifität eines Elements aus einem bestimmten Grund erhöhen müssen, können diese drei Pseudo-Klassen helfen.
+Allgemein möchten Sie Spezifizität auf ein Minimum reduzieren, aber wenn Sie die Spezifizität eines Elements aus einem bestimmten Grund erhöhen müssen, können diese drei Pseudoklassen helfen.
 
 ```css
 a:not(#fakeId#fakeId#fakeID) {
@@ -184,13 +184,13 @@ a:not(#fakeId#fakeId#fakeID) {
 }
 ```
 
-In diesem Beispiel sind alle Links blau, es sei denn, sie werden von einer Link-Deklaration mit 3 oder mehr IDs überschrieben, einem Farbwert, der mit einem `a`-Element übereinstimmt und das [`!important`-Flag](#the_!important_exception) enthält, oder wenn der Link eine [Inline-Stile](#inline-stile) Farbdeklaration hat. Wenn Sie eine solche Technik verwenden, fügen Sie einen Kommentar hinzu, um zu erklären, warum der Hack benötigt wurde.
+In diesem Beispiel sind alle Links blau, es sei denn, sie werden durch eine Link-Deklaration mit 3 oder mehr IDs, einem Farbwertausschluss mit einer `a` die das [`!important`-Flag](#the_!important_exception) enthält, oder wenn der Link eine [Inline-Stil](#inline-stile) Farbdarstellung hat, überschrieben. Wenn Sie eine solche Technik verwenden, fügen Sie einen Kommentar hinzu, der erklärt, warum der Hack benötigt wurde.
 
 ### Inline-Stile
 
-Inline-Stile, die einem Element hinzugefügt werden (z.B. `style="font-weight: bold;"`), überschreiben immer normale Stile in Autor-Stilblättern und können daher als mit der höchsten Spezifität angesehen werden. Denken Sie an Inline-Stile als hätten sie ein Spezifitätsgewicht von `1-0-0-0`.
+Inline-Stile, die einem Element hinzugefügt werden (z.B. `style="font-weight: bold;"`), überschreiben immer normale Stile in Autor-Stylesheets und können daher als die höchste Spezifizität angesehen werden. Betrachten Sie Inline-Stile mit einem Spezifizitätsgewicht von `1-0-0-0`.
 
-Der einzige Weg, Inline-Stile zu überschreiben, ist die Verwendung von `!important`.
+Der einzige Weg, Inline-Stile zu überschreiben, besteht darin, `!important` zu verwenden.
 
 Viele JavaScript-Frameworks und -Bibliotheken fügen Inline-Stile hinzu. Die Verwendung von `!important` mit einem sehr gezielten Selektor, wie einem Attributselektor, der den Inline-Stil verwendet, ist eine Möglichkeit, diese Inline-Stile zu überschreiben.
 
@@ -204,23 +204,23 @@ p[style*="purple"] {
 }
 ```
 
-Fügen Sie bei jeder Aufnahme des `important`-Flags unbedingt einen Kommentar hinzu, damit Codebetreuer verstehen, warum ein CSS-Anti-Pattern verwendet wurde.
+Stellen Sie sicher, dass Sie mit jeder Aufnahme des wichtigen Flags einen Kommentar hinzufügen, damit Code-Maintainer verstehen, warum ein CSS-Anti-Muster verwendet wurde.
 
-### Die `!important`-Ausnahme
+### Die Ausnahme `!important`
 
-CSS-Deklarationen, die als wichtig gekennzeichnet sind, überschreiben alle anderen Deklarationen innerhalb derselben Kaskadenschicht und desselben Ursprungs. Obwohl technisch [`!important`](/de/docs/Web/CSS/important) nichts mit Spezifität zu tun hat, interagiert es direkt mit Spezifität und der Kaskade. Es kehrt die [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) Reihenfolge von Stilblättern um.
+CSS-Deklarationen, die als wichtig markiert sind, überschreiben alle anderen Deklarationen innerhalb derselben Kaskadenschicht und desselben Ursprungs. Obwohl technisch gesehen [`!important`](/de/docs/Web/CSS/important) nichts mit Spezifität zu tun hat, interagiert es direkt mit Spezifität und der Kaskade. Es kehrt die [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) der Stylesheets um.
 
-Wenn Deklarationen aus demselben Ursprung und Kaskadenschicht in Konflikt stehen und einer Eigenschaftswert das `!important`-Flag gesetzt hat, wird die wichtige Deklaration angewendet, unabhängig von der Spezifität. Wenn in Konflikt stehende Deklarationen aus demselben Ursprung und Kaskadenschicht mit dem `!important`-Flag auf dasselbe Element angewendet werden, wird die Deklaration mit einer größeren Spezifität angewendet.
+Wenn Deklarationen vom selben Ursprung und Kaskadenschicht in Konflikt stehen und ein Eigenschaftswert das `!important`-Flag gesetzt hat, wird die wichtige Deklaration angewendet, unabhängig von der Spezifität. Wenn konkurrierende Deklarationen vom selben Ursprung und Kaskadenschicht mit dem `!important`-Flag auf dasselbe Element angewendet werden, wird die Deklaration mit der höheren Spezifität angewendet.
 
-Die Verwendung von `!important` zur Überschreibung der Spezifität wird als **schlechte Praxis** angesehen und sollte zu diesem Zweck vermieden werden. Das Verstehen und effektive Verwenden von Spezifität und der Kaskade kann jede Notwendigkeit für das `!important`-Flag beseitigen.
+Die Verwendung von `!important`, um Spezifität zu überschreiben, wird als **schlechte Praxis** angesehen und sollte zu diesem Zweck vermieden werden. Das Verständnis und der effektive Einsatz von Spezifität und der Kaskade können jeden Bedarf für das `!important`-Flag beseitigen.
 
-Anstelle von `!important`, um fremde CSS (von externen Bibliotheken, wie Bootstrap oder normalize.css) zu überschreiben, importieren Sie die Drittanbieter-Skripte direkt in [Kaskadeschichten](/de/docs/Web/CSS/@layer). Wenn Sie `!important` in Ihrem CSS verwenden müssen, kommentieren Sie Ihre Verwendung, damit zukünftige Codebetreuer wissen, warum die Deklaration als wichtig markiert wurde und wissen, dass sie es nicht überschreiben sollten. Verwenden Sie `!important` jedoch definitiv nicht, wenn Sie Plugins oder Frameworks schreiben, die andere Entwickler einbauen müssen, ohne sie kontrollieren zu können.
+Anstatt `!important` zu verwenden, um fremde CSS (von externen Bibliotheken, wie Bootstrap oder normalize.css) zu überschreiben, importieren Sie die Drittanbieter-Skripte direkt in [Kaskadenschichten](/de/docs/Web/CSS/@layer). Wenn Sie `!important` in Ihrem CSS verwenden müssen, kommentieren Sie Ihre Verwendung, damit zukünftige Code-Maintainer wissen, warum die Deklaration als wichtig gekennzeichnet wurde und es nicht überschreiben können. Verwenden Sie `!important` jedoch definitiv nicht, wenn Sie Plugins oder Frameworks schreiben, die andere Entwickler integrieren müssen, ohne sie kontrollieren zu können.
 
-### Die `:where()`-Ausnahme
+### Die Ausnahme `:where()`
 
-Die Spezifizitätsanpassungs-Pseudo-Klasse {{CSSxRef(":where", ":where()")}} wird immer mit null Spezifität ersetzt, `0-0-0`. Sie ermöglicht es, CSS-Selektoren sehr spezifisch in Bezug darauf zu machen, welches Element anvisiert wird, ohne dass es zu einer Erhöhung der Spezifität kommt.
+Die Spezifizitätsanpassungs-Pseudoklasse {{CSSxRef(":where", ":where()")}} hat immer ihre Spezifität durch Null ersetzt, `0-0-0`. Sie ermöglicht es, CSS-Selektoren sehr spezifisch zu machen, welche Elemente angesprochen werden sollen, ohne dass die Spezifität zunimmt.
 
-Beim Erstellen von Drittanbieter-CSS, das von Entwicklern verwendet wird, die keinen Zugriff auf das Bearbeiten Ihres CSS haben, wird es als gute Praxis angesehen, CSS mit der niedrigstmöglichen Spezifität zu erstellen. Zum Beispiel, wenn Ihr Thema das folgende CSS enthält:
+Wenn Sie Drittanbieter-CSS erstellen, das von Entwicklern verwendet werden soll, die keinen Zugriff auf das Bearbeiten Ihres CSS haben, gilt es als gute Praxis, CSS mit der geringstmöglichen Spezifität zu erstellen. Beispielsweise, wenn Ihr Thema das folgende CSS enthält:
 
 ```css
 :where(#defaultTheme) a {
@@ -229,7 +229,7 @@ Beim Erstellen von Drittanbieter-CSS, das von Entwicklern verwendet wird, die ke
 }
 ```
 
-Dann kann der Entwickler, der das Widget implementiert, die Linkfarbe leicht überschreiben, indem er nur Typselektoren verwendet.
+Dann kann der Entwickler, der das Widget implementiert, die Linkfarbe leicht mit nur Typselektoren überschreiben.
 
 ```css
 footer a {
@@ -238,9 +238,9 @@ footer a {
 }
 ```
 
-### Wie `@scope` Blöcke die Spezifität beeinflussen
+### Wie `@scope`-Blöcke die Spezifität beeinflussen
 
-Das Einfügen eines Regelsets in einen `@scope` Block beeinflusst die Spezifität seines Selektors nicht, unabhängig von den Selektoren, die innerhalb der Wurzel und Grenze des Scopes verwendet werden. Zum Beispiel:
+Die Einbeziehung eines Regelsatzes innerhalb eines `@scope`-Blocks beeinflusst nicht die Spezifität seines Selektors, unabhängig von den Selektoren, die innerhalb der Scoping-Root und des Limits verwendet werden. Zum Beispiel:
 
 ```css
 @scope (.article-body) {
@@ -249,7 +249,7 @@ Das Einfügen eines Regelsets in einen `@scope` Block beeinflusst die Spezifitä
 }
 ```
 
-Wenn Sie jedoch entscheiden, die `:scope` Pseudo-Klasse explizit Ihren gescopteten Selektoren voranzustellen, müssen Sie diese bei der Berechnung ihrer Spezifität berücksichtigen. `:scope`, wie alle regulären Pseudo-Klassen, hat eine Spezifität von 0-1-0. Zum Beispiel:
+Wenn Sie jedoch entscheiden, die `:scope`-Pseudoklasse explizit Ihren umfassten Selektoren voranzustellen, müssen Sie sie in die Berechnung ihrer Spezifität einbeziehen. `:scope`, wie alle regulären Pseudoklassen, hat eine Spezifität von 0-1-0. Zum Beispiel:
 
 ```css
 @scope (.article-body) {
@@ -258,7 +258,7 @@ Wenn Sie jedoch entscheiden, die `:scope` Pseudo-Klasse explizit Ihren gescoptet
 }
 ```
 
-Beim Verwenden des `&` Selektors in einem `@scope` Block repräsentiert `&` den Scope-Wurzel-Selektor; er wird intern als dieser Selektor, in einen {{CSSxRef(":is", ":is()")}} Selektor eingewickelt, umgeschrieben. Zum Beispiel:
+Wenn Sie den `&`-Selektor innerhalb eines `@scope`-Blocks verwenden, repräsentiert `&` den Selektor der Scoping-Root; er wird intern zu diesem Selektor umgeschrieben, eingeschlossen in einem {{CSSxRef(":is", ":is()")}}-Selektor. Also zum Beispiel, in:
 
 ```css
 @scope (figure, #primary) {
@@ -268,15 +268,15 @@ Beim Verwenden des `&` Selektors in einem `@scope` Block repräsentiert `&` den 
 
 `& img` ist gleichbedeutend mit `:is(figure, #primary) img`.
 
-Da `:is()` die Spezifität seines spezifischsten Arguments übernimmt (`#primary` in diesem Fall), beträgt die Spezifität des gescopten `& img` Selektors daher 1-0-0 + 0-0-1 = 1-0-1.
+Da `:is()` die Spezifität seines spezifischsten Arguments übernimmt (`#primary` in diesem Fall), beträgt die Spezifität des geordneten `& img`-Selectors daher 1-0-0 + 0-0-1 = 1-0-1.
 
-## Tipps zum Umgang mit Spezifitätsproblemen
+## Tipps zur Handhabung von Spezifitätsproblemen
 
-Anstelle von `!important` sollten Sie Kaskadeschichten verwenden und in Ihrem gesamten CSS eine niedrige Gewichtsspezifität verwenden, sodass Stile leicht mit etwas spezifischeren Regeln überschrieben werden können. Die Verwendung von semantischem HTML hilft, Anker zu bieten, von denen aus Stilisierungen angewendet werden können.
+Anstatt `!important` zu verwenden, ziehen Sie Kaskadenschichten in Betracht und verwenden Sie Spezifizität mit niedrigem Gewicht durch Ihr gesamtes CSS, damit Stile leicht mit etwas spezifischeren Regeln überschrieben werden können. Die Verwendung von semantischem HTML hilft, Anker für die Stilgebung zu bieten.
 
-### Selektoren spezifisch machen mit und ohne Spezifitätserhöhung
+### Selektoren spezifisch machen mit und ohne Erhöhung der Spezifität
 
-Indem Sie den Abschnitt des Dokuments angeben, den Sie stylen, bevor Sie das Element auswählen, wird die Regel spezifischer. Je nachdem, wie Sie es hinzufügen, können Sie etwas, viel oder gar keine Spezifität hinzufügen, wie unten gezeigt:
+Indem Sie den Abschnitt des Dokuments, den Sie gestalten, vor dem Element, das Sie auswählen, angeben, wird die Regel spezifischer. Je nachdem, wie Sie es hinzufügen, können Sie etwas, viel oder keine Spezifität hinzufügen, wie unten gezeigt:
 
 ```html
 <main id="myContent">
@@ -296,17 +296,17 @@ Indem Sie den Abschnitt des Dokuments angeben, den Sie stylen, bevor Sie das Ele
 }
 ```
 
-Unabhängig von der Reihenfolge wird die Überschrift grün sein, da diese Regel die spezifischste ist.
+Egal in welcher Reihenfolge, die Überschrift wird grün, weil diese Regel die spezifischste ist.
 
-#### IDspezifität reduzieren
+#### Reduzierung der ID-Spezifität
 
-Spezifität basiert auf der Form eines Selektors. Das Einbeziehen der ID eines Elements als Attributselektor anstelle eines ID-Selektors ist eine gute Möglichkeit, um ein Element spezifischer zu machen, ohne eine Überfülle an Spezifität hinzuzufügen. Im vorherigen Beispiel zählt der Selektor `[id="myContent"]` als Attributselektor zur Bestimmung der Spezifität des Selektors, obwohl er eine ID auswählt.
+Spezifität basiert auf der Form eines Selektors. Das Einschließen der `id` eines Elements als Attributselektor anstelle eines ID-Selektors ist eine gute Möglichkeit, ein Element spezifischer zu machen, ohne eine Überfülle an Spezifität hinzuzufügen. Im vorherigen Beispiel zählt der Selektor `[id="myContent"]` als Attributselektor für den Zweck der Bestimmung der Spezifizität des Selektors, obwohl er eine ID auswählt.
 
-Sie können die ID oder einen Teil eines Selektors auch als Parameter in der `:where()` Spezifizitätsanpassungs-Pseudo-Klasse einbeziehen, wenn Sie einen Selektor spezifischer machen möchten, aber gar keine Spezifität hinzufügen möchten.
+Sie können die `id` oder jeden Teil eines Selektors auch als Parameter in der `:where()` Spezifizitätsanpassungs-Pseudoklasse einschließen, wenn Sie einen Selektor spezifischer machen müssen, aber keine Spezifizität hinzufügen möchten.
 
-### Spezifität durch Duplizieren des Selektors erhöhen
+### Erhöhung der Spezifizität durch Vervielfältigung des Selektors
 
-Als Sonderfall zur Erhöhung der Spezifität können Sie Gewichte aus den _CLASS_ oder _ID_ Spalten duplizieren. Das Duplizieren von ID-, Klassen-, Pseudo-Klassen- oder Attributselektoren innerhalb eines zusammengesetzten Selektors wird die Spezifität erhöhen, wenn sehr spezifische Selektoren überschrieben werden, über die Sie keine Kontrolle haben.
+Als Sonderfall zur Erhöhung der Spezifizität können Sie die Gewichte aus den _CLASS_- oder _ID_-Spalten duplizieren. Das Duplizieren von ID-, Klassen-, Pseudoklassen- oder Attributselektoren innerhalb eines zusammengesetzten Selektors erhöht die Spezifizität, wenn Sie sehr spezifische Selektoren überschreiben müssen, über die Sie keine Kontrolle haben.
 
 ```css
 #myId#myId#myId span {
@@ -317,9 +317,9 @@ Als Sonderfall zur Erhöhung der Spezifität können Sie Gewichte aus den _CLASS
 }
 ```
 
-Verwenden Sie dies sparsam, wenn überhaupt. Wenn Sie Selektor-Duplikation verwenden, kommentieren Sie immer Ihr CSS.
+Verwenden Sie dies sparsam, wenn überhaupt. Wenn Sie Selektor-Duplizierung verwenden, kommentieren Sie unbedingt Ihr CSS.
 
-Durch die Verwendung von `:is()` und `:not()` (und auch `:has()`), können Sie die Spezifität erhöhen, auch wenn Sie einer Elternkomponente keine `id` hinzufügen können:
+Indem Sie `:is()` und `:not()` (und auch `:has()`) verwenden, können Sie die Spezifizität erhöhen, auch wenn Sie keine `id` zu einem Elternelement hinzufügen können:
 
 ```css
 :not(#fakeID#fakeId#fakeID) span {
@@ -330,13 +330,13 @@ Durch die Verwendung von `:is()` und `:not()` (und auch `:has()`), können Sie d
 }
 ```
 
-### Vorrang gegenüber Drittanbieter-CSS
+### Vorrang vor Drittanbieter-CSS
 
-Die Nutzung von Kaskadeschichten ist die Standardmethode, die es ermöglicht, dass ein Satz von Stilen Vorrang vor einem anderen Satz von Stilen hat; Kaskadeschichten ermöglichen dies ohne Verwendung von Spezifität! Normale (nicht wichtige) Autorenstile, die in Kaskadeschichten importiert werden, haben eine geringere Priorität als ungelayerte Autorenstile.
+Das Nutzen von Kaskadenschichten ist der standardmäßige Weg, um es einem Set von Stilen zu ermöglichen, Vorrang vor einem anderen Set von Stilen zu haben; Kaskadenschichten ermöglichen dies, ohne Spezifizität zu verwenden! Normale (nicht wichtige) Autorenstile, die in Kaskadenschichten importiert werden, haben eine geringere Priorität als nicht geschichtete Autorenstile.
 
-Wenn Stile von einem Stilblatt stammen, das Sie nicht bearbeiten können oder nicht verstehen und Sie Stile überschreiben müssen, ist eine Strategie, die Stile, die Sie nicht kontrollieren können, in eine Kaskadeschicht zu importieren. Stile in nachfolgenden deklarierten Schichten haben Vorrang, wobei ungelayerte Stile Vorrang vor allen gelayerten Stilen aus demselben Ursprung haben.
+Wenn Stile aus einem Stylesheet kommen, das Sie nicht bearbeiten oder nicht verstehen können, und Sie es überschreiben müssen, ist eine Strategie, die Styles, über die Sie keine Kontrolle haben, in eine Kaskadenschicht zu importieren. Stile in anschließend deklarierten Schichten haben Vorrang, wobei nicht geschichtete Stile Vorrang vor allen geschichteten Stilen aus dem gleichen Ursprung haben.
 
-Wenn zwei Selektoren aus verschiedenen Schichten dasselbe Element auswählen, haben Ursprung und Wichtigkeit Vorrang; die Spezifität des Selectors im verlierenden Stilblatt ist irrelevant.
+Wenn zwei Selektoren aus unterschiedlichen Schichten dasselbe Element treffen, steuern Ursprung und Wichtigkeit den Vorrang; die Spezifizität des Selektors im verlierenden Stylesheet ist irrelevant.
 
 ```html
 <style>
@@ -348,26 +348,26 @@ Wenn zwei Selektoren aus verschiedenen Schichten dasselbe Element auswählen, ha
 </style>
 ```
 
-Im obigen Beispiel wird der gesamte Absatztext, einschließlich des verschachtelten Inhalts, `1rem` sein, egal wie viele Klassennamen die Absätze haben, die mit dem TW-Stilblatt übereinstimmen.
+Im obigen Beispiel wird aller Absatztext, einschließlich des verschachtelten Inhalts, `1rem` sein, egal wie viele Klassennamen die Absätze haben, die das TW-Stylsheet treffen.
 
-### Vermeidung und Überschreibung von `!important`
+### Vermeidung und Überschreiben von `!important`
 
-Der beste Ansatz ist, `!important` nicht zu verwenden. Die oben genannten Erklärungen zur Spezifität sollten hilfreich sein, um die Verwendung der Flagge zu vermeiden und sie insgesamt zu entfernen, wenn sie auftritt.
+Der beste Ansatz ist, `!important` nicht zu verwenden. Die oben genannten Erklärungen zur Spezifizität sollten hilfreich sein, um das Flagg zu vermeiden und es gänzlich zu entfernen, wenn es auftritt.
 
-Um den vermeintlichen Bedarf an `!important` zu beseitigen, können Sie Folgendes tun:
+Um das wahrgenommene Bedürfnis nach `!important` zu beseitigen, können Sie eines der folgenden Dinge tun:
 
-- Erhöhen Sie die Spezifität des Selektors der ehemaligen `!important`-Deklaration, sodass sie größer ist als andere Deklarationen
-- Geben Sie ihm die gleiche Spezifität und platzieren Sie ihn nach der Deklaration, die er überschreiben soll
-- Verringern Sie die Spezifizität des Selektors, den Sie überschreiben möchten.
+- Erhöhen Sie die Spezifizität des Selektors der ehemals `!important`-Deklaration, sodass sie größer ist als andere Deklarationen
+- Geben Sie es mit derselben Spezifizität an und setzen Sie es nach der Deklaration an, die es überschreiben soll
+- Reduzieren Sie die Spezifizität des Selektors, den Sie überschreiben möchten.
 
-Alle diese Methoden werden in den vorangegangenen Abschnitten behandelt.
+All diese Methoden sind in den vorangegangenen Abschnitten behandelt.
 
-Wenn Sie `!important`-Flags aus einem Autoren-Stilblatt nicht entfernen können, ist die einzige Lösung, um die wichtigen Stile zu überschreiben, die Verwendung von `!important`. Die Erstellung einer [Kaskadeschicht](/de/docs/Web/CSS/@layer) von wichtigen Deklarationsüberschreibungen ist eine ausgezeichnete Lösung. Zwei Möglichkeiten, dies zu tun, schließen ein:
+Wenn Sie nicht in der Lage sind, `!important`-Flags aus einem Stylesheet eines Autors zu entfernen, ist die einzige Lösung zum Überschreiben der wichtigen Stile die Verwendung von `!important`. Das Erstellen einer [Kaskadenschicht](/de/docs/Web/CSS/@layer) von wichtigen Deklarationsüberschreibungen ist eine ausgezeichnete Lösung. Zwei Möglichkeiten dies zu tun sind:
 
 #### Methode 1
 
-1. Erstellen Sie ein separates, kurzes Stilblatt, das nur wichtige Deklarationen enthält, die speziell wichtige Deklarationen überschreiben, die Sie nicht entfernen konnten.
-2. Importieren Sie dieses Stilblatt als den ersten Import in Ihr CSS mit `layer()`, einschließlich der `@import`-Anweisung, bevor Sie andere Stilblätter verlinken. Dies stellt sicher, dass die wichtigen Überschreibungen als die erste Schicht importiert werden.
+1. Erstellen Sie ein separates kurzes Stylesheet, das nur wichtige Deklarationen enthält, die speziell alle wichtigen Deklarationen, die Sie nicht entfernen konnten, überschreiben.
+2. Importieren Sie dieses Stylesheet als den ersten Import in Ihrem CSS unter Verwendung von `layer()`, einschließlich der `@import`-Anweisung, bevor Sie andere Stylesheets verlinken. Dadurch wird sichergestellt, dass die wichtigen Überschreibungen als erste Schicht importiert werden.
 
 ```html
 <style>
@@ -377,13 +377,13 @@ Wenn Sie `!important`-Flags aus einem Autoren-Stilblatt nicht entfernen können,
 
 #### Methode 2
 
-1. Erstellen Sie am Anfang Ihrer Stilblatt-Deklarationen eine benannte Kaskadeschicht, wie folgt:
+1. Erstellen Sie am Anfang Ihrer Stylesheet-Deklarationen eine benannte Kaskadenschicht, wie folgt:
 
    ```css
    @layer importantOverrides;
    ```
 
-2. Jedes Mal, wenn Sie eine wichtige Deklaration überschreiben müssen, deklarieren Sie sie innerhalb der benannten Schicht. Erklären Sie nur wichtige Regeln innerhalb der Schicht.
+2. Jedes Mal, wenn Sie eine wichtige Deklaration überschreiben müssen, deklarieren Sie sie innerhalb der benannten Schicht. Deklarieren Sie nur wichtige Regeln innerhalb der Schicht.
 
    ```css
    [id="myElement"] p {
@@ -396,11 +396,11 @@ Wenn Sie `!important`-Flags aus einem Autoren-Stilblatt nicht entfernen können,
    }
    ```
 
-Die Spezifität des Selektors des wichtigen Stils innerhalb der Schicht kann niedrig sein, solange er das Element trifft, das Sie zu überschreiben versuchen. Normale Schichten sollten außerhalb der Schicht deklariert werden, da gelayerte Stile eine geringere Priorität als ungelayerte Stile haben.
+Die Spezifizität des Selektors der wichtigen Regel innerhalb der Schicht kann niedrig sein, solange er das Element, das Sie überschreiben möchten, trifft. Normale Schichten sollten außerhalb der Schicht deklariert werden, weil geschichtete Stile eine geringere Priorität als nicht geschichtete Stile haben.
 
-### Baum-Nähe-Ignoranz
+### Ignorieren der Baum-Nähe
 
-Die Nähe eines Elements zu anderen Elementen, die in einem gegebenen Selektor referenziert werden, hat keinen Einfluss auf die Spezifität.
+Die Nähe eines Elements zu anderen Elementen, die in einem gegebenen Selektor referenziert werden, hat keinen Einfluss auf die Spezifizität.
 
 ```css
 body h1 {
@@ -412,11 +412,11 @@ html h1 {
 }
 ```
 
-Die `<h1>` Elemente werden lila, weil bei Deklarationen mit der gleichen Spezifität der zuletzt erklärte Selektor Vorrang hat.
+Die `<h1>`-Elemente werden lila, denn wenn Deklarationen dieselbe Spezifizität haben, hat der zuletzt deklarierte Selektor Vorrang.
 
-### Direkt ausgerichtete Elemente vs. geerbte Stile
+### Direkt angesprochene Elemente vs. geerbte Stile
 
-Stile für ein direkt ausgerichtetes Element haben immer Vorrang gegenüber geerbten Stilen, unabhängig von der Spezifität der geerbten Regel. Angesichts des folgenden CSS und HTML:
+Stile für ein direkt angesprochenes Element haben immer Vorrang vor geerbten Stilen, unabhängig von der Spezifizität der geerbten Regel. Gegeben sind folgendes CSS und HTML:
 
 ```css
 #parent {
@@ -436,11 +436,11 @@ h1 {
 </html>
 ```
 
-Das `h1` wird lila, da der `h1`-Selektor das Element speziell anspricht, während das Grün vom `#parent` geerbt wird.
+Das `h1` wird lila, weil der `h1`-Selektor das Element direkt anspricht, während das Grün vom `#parent`-Deklarationen geerbt wird.
 
 ## Beispiele
 
-Im folgenden CSS haben wir drei Selektoren, die {{HTMLElement('input')}} Elemente anvisieren, um eine Farbe festzulegen. Für eine gegebene Eingabe ist das Spezifitätsgewicht der Farbdeklaration mit Vorrang der übereinstimmende Selektor mit dem größten Gewicht:
+Im folgenden CSS haben wir drei Selektoren, die {{HTMLElement('input')}}-Elemente ansprechen, um eine Farbe zu setzen. Für ein gegebenes `input` ist das Spezifizitätsgewicht der Farbdeklaration mit Vorrang die übereinstimmende Selektor mit dem größten Gewicht:
 
 ```css
 #myElement input.myClass {
@@ -454,11 +454,11 @@ html body main input {
 } /* 0-0-4 */
 ```
 
-Wenn die obigen Selektoren alle dasselbe Eingabeziel treffen, wird die Eingabe rot, da die erste Deklaration den höchsten Wert in der _ID_-Spalte hat.
+Wenn die obigen Selektoren alle dasselbe `input` treffen, wird das `input` rot sein, da die erste Deklaration den höchsten Wert in der _ID_-Spalte hat.
 
-Der letzte Selektor hat vier _TYPE_ Komponenten. Auch wenn er den höchsten ganzzahligen Wert hat, haben _TYPE_ Komponenten nie Vorrang über _CLASS_ Komponenten, egal wie viele Elemente und Pseudo-Elemente enthalten sind, selbst wenn es 150 wären. Die Spaltenwerte werden von links nach rechts verglichen, wenn die Spaltenwerte gleich sind.
+Der letzte Selektor hat vier _TYPE_-Komponenten. Während er den höchsten ganzzahligen Wert hat, haben _TYPE_-Komponenten niemals Priorität über _CLASS_-Komponenten, egal wie viele Elemente und Pseudoelemente eingeschlossen sind, selbst wenn es 150 wären. Die Spaltenwerte werden von links nach rechts verglichen, wenn die Spaltenwerte gleich sind.
 
-Hätten wir den ID-Selektor im obigen Beispielcode in einen Attributselektor umgewandelt, hätten die ersten beiden Selektoren die gleiche Spezifität, wie unten gezeigt:
+Hätten wir den ID-Selektor im obigen Beispielcode zu einem Attributselektor umgewandelt, hätten die ersten zwei Selektoren dieselbe Spezifizität, wie unten gezeigt wird:
 
 ```css
 [id="myElement"] input.myClass {
@@ -469,21 +469,21 @@ input[type="password"]:required {
 } /* 0-2-1 */
 ```
 
-Wenn mehrere Deklarationen die gleiche Spezifität haben, wird die letzte Deklaration in der CSS gefunden auf das Element angewendet. Wenn beide Selektoren dasselbe {{HTMLElement('input')}} treffen, wird die Farbe blau sein.
+Wenn mehrere Deklarationen dieselbe Spezifizität haben, wird die letzte Deklaration, die im CSS gefunden wurde, auf das Element angewendet. Wenn beide Selektoren denselben {{HTMLElement('input')}} treffen, wird die Farbe blau sein.
 
 ## Zusätzliche Hinweise
 
-Einige Dinge, die man sich über Spezifität merken sollte:
+Einige Dinge, die man über Spezifizität bedenken sollte:
 
-1. Spezifität gilt nur, wenn dasselbe Element von mehreren Deklarationen in derselben Kaskadenschicht oder Ursprung getroffen wird. Spezifität zählt nur für Deklarationen mit derselben Wichtigkeit und demselben Ursprung und [Kaskadenschicht](/de/docs/Web/CSS/@layer). Wenn übereinstimmende Selektoren in verschiedenen Ursprüngen sind, bestimmt die [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade), welche Deklaration Vorrang hat.
+1. Spezifizität gilt nur, wenn dasselbe Element von mehreren Deklarationen in derselben Kaskadenschicht oder Ursprung angesprochen wird. Spezifizität ist nur für Deklarationen mit derselben Wichtigkeit und demselben Ursprung und [Kaskadenschicht](/de/docs/Web/CSS/@layer) relevant. Wenn übereinstimmende Selektoren in unterschiedlichen Ursprüngen sind, bestimmt die [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade), welche Deklaration Vorrang hat.
 
-2. Wenn zwei Selektoren in derselben Kaskadenschicht und Ursprung die gleiche Spezifizität haben, wird dann die Umfangs-Nähe berechnet; das Regelset mit der niedrigsten Umfangs-Nähe gewinnt. Siehe [Wie `@scope` Konflikte gelöst werden](/de/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved) für weitere Details und ein Beispiel.
+2. Wenn zwei Selektoren in derselben Kaskadenschicht und Ursprung dieselbe Spezifizität haben, wird die Scoping-Nähe berechnet; der Regelsatz mit der niedrigsten Scoping-Nähe gewinnt. Siehe [Wie `@scope`-Konflikte gelöst werden](/de/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved) für mehr Details und ein Beispiel.
 
-3. Wenn die Umfangs-Nähe auch für beide Selektoren gleich ist, kommt dann die Quellreihenfolge ins Spiel. Wenn alles andere gleich ist, gewinnt der letzte Selektor.
+3. Wenn die Scope-Nähe für beide Selektoren ebenfalls gleich ist, tritt die Quellreihenfolge in Kraft. Wenn alles andere gleich ist, gewinnt der letzte Selektor.
 
-4. Laut CSS-Regeln werden [direkt ausgerichtete Elemente](#direkt_ausgerichtete_elemente_vs._geerbte_stile) immer Vorrang vor Regeln, die ein Element von seinem Vorfahren erbt, haben.
+4. Entsprechend den CSS-Regeln werden [direkt anvisierte Elemente](#direkt_angesprochene_elemente_vs._geerbte_stile) immer Vorrang vor Regeln haben, die ein Element von seinem Vorfahren erbt.
 
-5. [Nähe von Elementen](#baum-nähe-ignoranz) im Dokumentenbaum hat keinen Einfluss auf die Spezifität.
+5. [Die Nähe von Elementen](#ignorieren_der_baum-nähe) im Dokumentbaum hat keinen Einfluss auf die Spezifizität.
 
 ## Spezifikationen
 
@@ -491,18 +491,18 @@ Einige Dinge, die man sich über Spezifität merken sollte:
 
 ## Siehe auch
 
-- ["Spezifität" in "Umgang mit Konflikten"](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#specificity_2)
+- ["Spezifität" in "Konflikte handhaben"](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#specificity_2)
 - [SpeciFISHity](https://specifishity.com/)
-- [Specificity Calculator](https://specificity.keegan.st/): Eine interaktive Website, um Ihre eigenen CSS-Regeln zu testen und zu verstehen
-- [_ID-CLASS-TYPE_ Übung](https://estelle.github.io/CSS/selectors/exercises/specificity.html) ein Spezifitäts-Quiz
+- [Spezifitätskalkulator](https://specificity.keegan.st/): Eine interaktive Website zum Testen und Verstehen Ihrer eigenen CSS-Regeln
+- [_ID-CLASS-TYPE_ Übung](https://estelle.github.io/CSS/selectors/exercises/specificity.html) Ein Spezifizitätsquiz
 - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax) Leitfaden
 - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax) Modul
-- [CSS-Fehlerbehandlung](/de/docs/Web/CSS/CSS_syntax/Error_handling)
-- [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
+- [Fehlerbehandlung in CSS](/de/docs/Web/CSS/CSS_syntax/Error_handling)
+- [At-Rules](/de/docs/Web/CSS/CSS_syntax/At-rule)
 - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
-- [Initiale](/de/docs/Web/CSS/CSS_cascade/initial_value), [berechnete](/de/docs/Web/CSS/CSS_cascade/computed_value), [benutzte](/de/docs/Web/CSS/CSS_cascade/used_value) und [tatsächliche](/de/docs/Web/CSS/CSS_cascade/actual_value) Werte
-- [Werte Definition Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
-- [Lernen: Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
+- [Initialer](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial-value), [berechneter](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed-value), [verwendeter](/de/docs/Web/CSS/CSS_cascade/Value_processing#used-value) und [tatsächlicher](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual-value) Werte
+- [Wert-Definitionssyntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
+- [Lernen: Konflikte handhaben](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
 - [Lernen: Kaskadenschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
 - [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
-- [CSS-Verschachtelungsmodul](/de/docs/Web/CSS/CSS_nesting)
+- [CSS-Schachtelungsmodul](/de/docs/Web/CSS/CSS_nesting)
