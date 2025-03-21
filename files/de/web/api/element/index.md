@@ -135,7 +135,7 @@ _Das `Element` Interface enthält auch die folgenden Eigenschaften._
   - : Ein String, der das [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) Attribut widerspiegelt, das angibt, dass ein Element aktualisiert wird und die Arten von Updates beschreibt, die Benutzeragenten, unterstützende Technologien und Benutzer vom Live-Bereich erwarten können.
 - [`Element.ariaModal`](/de/docs/Web/API/Element/ariaModal)
   - : Ein String, der das [`aria-modal`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal) Attribut widerspiegelt, das angibt, ob ein Element modale ist, wenn es angezeigt wird.
-- [`Element.ariaMultiline`](/de/docs/Web/API/Element/ariaMultiline)
+- [`Element.ariaMultiline`](/de/docs/Web/API/Element/ariaMultiLine)
   - : Ein String, der das [`aria-multiline`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiline) Attribut widerspiegelt, das angibt, ob ein Textfeld mehrere Zeilen der Eingabe akzeptiert oder nur eine einzige Zeile.
 - [`Element.ariaMultiSelectable`](/de/docs/Web/API/Element/ariaMultiSelectable)
   - : Ein String, der das [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable) Attribut widerspiegelt, das angibt, dass der Benutzer mehr als ein Element von den aktuellen auswählbaren Nachfahren auswählen kann.

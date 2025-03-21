@@ -131,9 +131,9 @@ Sie werden feststellen, dass benutzerdefinierte Eigenschaften den Wert beibehalt
 
 Die Stärke des CSS Typed OM liegt darin, dass Werte getrennt von Einheiten sind; das Parsen und Konkatenieren von Stringwerten könnte der Vergangenheit angehören. Jede CSS-Eigenschaft in einer Style-Map hat einen Wert. Ist der Wert ein Schlüsselwort, wird ein [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Objekt zurückgegeben. Ist der Wert numerisch, wird ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) zurückgegeben.
 
-`CSSKeywordValue` ist eine Klasse, die Schlüsselwörter wie `inherit`, `initial`, `unset` und andere Nicht-quote-Zeichenfolgen wie `auto` und `grid` definiert. Diese Unterklasse gibt eine `value`-Eigenschaft über [`cssKeywordValue.value`](/de/docs/Web/API/CssKeywordValue/value) zurück.
+`CSSKeywordValue` ist eine Klasse, die Schlüsselwörter wie `inherit`, `initial`, `unset` und andere Nicht-quote-Zeichenfolgen wie `auto` und `grid` definiert. Diese Unterklasse gibt eine `value`-Eigenschaft über [`cssKeywordValue.value`](/de/docs/Web/API/CSSKeywordValue/value) zurück.
 
-`CSSUnitValue` wird zurückgegeben, wenn der Wert ein Einheitentyp ist. Es handelt sich um eine Klasse, die Zahlen mit Maßeinheiten wie `20px`, `40%`, `200ms` oder `7` definiert. Sie wird mit zwei Eigenschaften zurückgegeben: einem `value` und einer `unit`. Mit diesem Typ können wir auf den numerischen Wert zugreifen — [`cssUnitValue.value`](/de/docs/Web/API/CssUnitValue/value) — und auf seine Einheit — [`cssUnitValue.unit`](/de/docs/Web/API/CssUnitValue/unit).
+`CSSUnitValue` wird zurückgegeben, wenn der Wert ein Einheitentyp ist. Es handelt sich um eine Klasse, die Zahlen mit Maßeinheiten wie `20px`, `40%`, `200ms` oder `7` definiert. Sie wird mit zwei Eigenschaften zurückgegeben: einem `value` und einer `unit`. Mit diesem Typ können wir auf den numerischen Wert zugreifen — [`cssUnitValue.value`](/de/docs/Web/API/CSSUnitValue/value) — und auf seine Einheit — [`cssUnitValue.unit`](/de/docs/Web/API/CSSUnitValue/unit).
 
 Schreiben wir einen einfachen Absatz, wenden keine Stile an und untersuchen einige seiner CSS-Eigenschaften, indem wir eine Tabelle mit Einheit und Wert zurückgeben:
 
@@ -249,7 +249,7 @@ Sie verfügt über zwei Methoden:
 
 Wie oben erwähnt, gibt `StylePropertyMapReadOnly.get('--customProperty')` einen [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) zurück. Wir können Instanzen von `CSSUnparsedValue`-Objekten mit den geerbten Methoden [`CSSStyleValue.parse()`](/de/docs/Web/API/CSSStyleValue/parse_static) und [`CSSStyleValue.parseAll()`](/de/docs/Web/API/CSSStyleValue/parseAll_static) parsen.
 
-Lassen Sie uns ein CSS-Beispiel mit mehreren benutzerdefinierten Eigenschaften, Transformationen, `calc()`-Funktionen und anderen Features untersuchen. Wir werfen einen Blick darauf, welche Typen sie haben, indem wir kurze JavaScript-Ausschnitte verwenden, die in [`console.log()`](/de/docs/Web/API/Console/log_static) ausgeben:
+Lassen Sie uns ein CSS-Beispiel mit mehreren benutzerdefinierten Eigenschaften, Transformationen, `calc()`-Funktionen und anderen Features untersuchen. Wir werfen einen Blick darauf, welche Typen sie haben, indem wir kurze JavaScript-Ausschnitte verwenden, die in [`console.log()`](/de/docs/Web/API/console/log_static) ausgeben:
 
 ```css
 :root {

@@ -28,7 +28,7 @@ console.debug(msg, subst1, /* …, */ substN)
 - `subst1` … `substN`
   - : JavaScript-Werte, die Ersetzungszeichenfolgen innerhalb von `msg` ersetzen. Wenn es mehr Ersetzungswerte als Ersetzungszeichenfolgen gibt, werden die zusätzlichen Werte selbst nach der detaillierten Assertion-Nachricht auf die gleiche Weise wie bei fehlendem Formatstring auf der Konsole ausgegeben.
 
-Siehe [Ausgabe von Text auf der Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
+Siehe [Ausgabe von Text auf der Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/console) für weitere Details.
 
 ### Rückgabewert
 

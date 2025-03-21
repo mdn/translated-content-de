@@ -33,9 +33,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [`console.time()`](/de/docs/Web/API/Console/time_static)
-- [`console.timeLog()`](/de/docs/Web/API/Console/timeLog_static)
-- [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static)
+- [`console.time()`](/de/docs/Web/API/console/time_static)
+- [`console.timeLog()`](/de/docs/Web/API/console/timeLog_static)
+- [`console.timeEnd()`](/de/docs/Web/API/console/timeEnd_static)
 - [`performance.mark()`](/de/docs/Web/API/Performance/mark)
 - [`performance.measure()`](/de/docs/Web/API/Performance/measure)
 - [Markierungen mit der Konsole-API hinzufügen](https://web.archive.org/web/20211207010020/https://firefox-source-docs.mozilla.org/devtools-user/performance/waterfall/index.html#adding-markers-with-the-console-api)

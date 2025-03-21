@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die **`deleteRule()`** Methode des [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule) Interfaces löscht die [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule), die mit dem angegebenen Keyframe-Selektor übereinstimmt.
+Die **`deleteRule()`** Methode des [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule) Interfaces löscht die [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyframeRule), die mit dem angegebenen Keyframe-Selektor übereinstimmt.
 
 ## Syntax
 

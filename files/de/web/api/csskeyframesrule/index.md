@@ -84,4 +84,4 @@ for (let i = 0; i < keyframes.length; i++) {
 ## Siehe auch
 
 - {{cssxref("@keyframes")}}
-- [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule)
+- [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyframeRule)

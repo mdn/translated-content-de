@@ -112,7 +112,7 @@ Große Fortschritte wurden gemacht, um IndexedDB auf den neuesten Entwurf der Sp
 
 ### Entwicklertools
 
-- Das [`console`](/de/docs/Web/API/Console)-Objekt hat zwei neue Methoden: [`console.time()`](/de/docs/Web/API/Console/time_static) und [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static), mit denen Timer auf einer Seite gesetzt werden können.
+- Das [`console`](/de/docs/Web/API/console)-Objekt hat zwei neue Methoden: [`console.time()`](/de/docs/Web/API/console/time_static) und [`console.timeEnd()`](/de/docs/Web/API/console/timeEnd_static), mit denen Timer auf einer Seite gesetzt werden können.
 - Der neue [Page Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) wurde hinzugefügt. Er bietet eine hervorragende Möglichkeit, das HTML und CSS hinter Ihrem Inhalt zu untersuchen und zu manipulieren.
 
 ## Änderungen für Mozilla- und Add-On-Entwickler

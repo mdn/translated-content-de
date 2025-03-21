@@ -45,7 +45,7 @@ Die Statistiken können erhalten werden, indem der [`RTCStatsReport`](/de/docs/W
   - : Eine Ganzzahl, die angibt, wie oft der Empfänger einen Slice Loss Indication (SLI)-Frame an den Sender gesendet hat, um ihm mitzuteilen, dass ein oder mehrere aufeinander folgende (in Scan-Reihenfolge) Videomakroblöcke verloren gegangen oder beschädigt sind. Verfügbar nur für Videostreams.
 - `trackIdentifier`
   - : Ein String, der den [`id`](/de/docs/Web/API/MediaStreamTrack/id)-Wert des `MediaStreamTrack` enthält, der mit dem eingehenden Stream verknüpft ist.
-- [`trackId`](/de/docs/Web/API/RTCInboundRtpStreamStats/trackId) {{deprecated_inline}}
+- [`trackId`](/de/docs/Web/API/RTCInboundRtpStreamStats) {{deprecated_inline}}
   - : Ein String, der das Statistikobjekt identifiziert, das den Empfangstrack darstellt; dieses Objekt ist von einem der beiden Typen: [`RTCReceiverAudioTrackAttachmentStats`](/de/docs/Web/API/RTCReceiverAudioTrackAttachmentStats) oder [`RTCReceiverVideoTrackAttachmentStats`](/de/docs/Web/API/RTCReceiverVideoTrackAttachmentStats). Diese ID bleibt stabil über mehrere Aufrufe von `getStats()`.
 
 ### Statistiken, die am Empfänger eines RTP-Streams gemessen werden

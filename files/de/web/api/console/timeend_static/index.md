@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.timeEnd()`** statische Methode stoppt einen Timer, der zuvor durch Aufruf von [`console.time()`](/de/docs/Web/API/Console/time_static) gestartet wurde.
+Die **`console.timeEnd()`** statische Methode stoppt einen Timer, der zuvor durch Aufruf von [`console.time()`](/de/docs/Web/API/console/time_static) gestartet wurde.
 
 Siehe [Timer](/de/docs/Web/API/console#timers) in der Dokumentation für Details und Beispiele.
 
@@ -54,8 +54,8 @@ Beachten Sie, dass der Name des Timers angezeigt wird, wenn der Timer-Wert mit `
 
 ## Siehe auch
 
-- Siehe [`console.timeLog()`](/de/docs/Web/API/Console/timeLog_static) für zusätzliche Beispiele
-- [`console.time()`](/de/docs/Web/API/Console/time_static)
+- Siehe [`console.timeLog()`](/de/docs/Web/API/console/timeLog_static) für zusätzliche Beispiele
+- [`console.time()`](/de/docs/Web/API/console/time_static)
 - [Microsoft Edges Dokumentation für `console.timeEnd()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#timeend)
 - [Node.js Dokumentation für `console.timeEnd()`](https://nodejs.org/docs/latest/api/console.html#consoletimeendlabel)
 - [Google Chromes Dokumentation für `console.timeEnd()`](https://developer.chrome.com/docs/devtools/console/api/#timeend)

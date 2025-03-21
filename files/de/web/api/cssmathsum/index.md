@@ -33,7 +33,7 @@ _Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle [`CSSMathVal
 
 ## Beispiele
 
-Wir erstellen ein Element mit einer [`width`](/de/docs/Web/CSS/width), die mit einer [`calc()`](/de/docs/Web/CSS/calc)-Funktion bestimmt wird, und nutzen [`console.log()`](/de/docs/Web/API/Console/log_static), um den `operator` und die `values` auszugeben, und untersuchen die Werte etwas genauer.
+Wir erstellen ein Element mit einer [`width`](/de/docs/Web/CSS/width), die mit einer [`calc()`](/de/docs/Web/CSS/calc)-Funktion bestimmt wird, und nutzen [`console.log()`](/de/docs/Web/API/console/log_static), um den `operator` und die `values` auszugeben, und untersuchen die Werte etwas genauer.
 
 ```html
 <div>has width</div>

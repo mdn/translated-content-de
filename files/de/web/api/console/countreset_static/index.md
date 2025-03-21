@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die statische Methode **`console.countReset()`** setzt den Zähler zurück, der mit [`console.count()`](/de/docs/Web/API/Console/count_static) verwendet wird.
+Die statische Methode **`console.countReset()`** setzt den Zähler zurück, der mit [`console.count()`](/de/docs/Web/API/console/count_static) verwendet wird.
 
 ## Syntax
 

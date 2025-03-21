@@ -25,5 +25,5 @@ Eine Zahl, die die aktuelle Zeit in Millisekunden darstellt, oder `null`.
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [`AnimationPlayBackEvent`](/de/docs/Web/API/AnimationPlayBackEvent)
+- [`AnimationPlayBackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)
 - [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)

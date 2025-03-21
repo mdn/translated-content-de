@@ -114,7 +114,7 @@ dc.addEventListener(
 
 Das empfangene Ereignis liefert Details in einem [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das als [`error`](/de/docs/Web/API/RTCErrorEvent/error) bezeichnet wird; `RTCError` ist eine Erweiterung der [`DOMException`](/de/docs/Web/API/DOMException)-Schnittstelle. Der [`name`](/de/docs/Web/API/DOMException/name) des Fehlers ist `RTCError` und die [`message`](/de/docs/Web/API/DOMException/message) ist eine vom WebRTC-Layer angegebene Fehlermeldung.
 
-Fehlerinformationen werden mit [`console.error()`](/de/docs/Web/API/Console/error_static) an die Konsole ausgegeben. Die `message`-Zeichenfolge wird immer ausgegeben, ebenso Informationen über den Namen der Quelldatei, die Zeilennummer und die Spaltennummer, an denen der Fehler auftrat.
+Fehlerinformationen werden mit [`console.error()`](/de/docs/Web/API/console/error_static) an die Konsole ausgegeben. Die `message`-Zeichenfolge wird immer ausgegeben, ebenso Informationen über den Namen der Quelldatei, die Zeilennummer und die Spaltennummer, an denen der Fehler auftrat.
 
 Je nach Wert von [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) können jedoch zusätzlich Informationen ausgegeben werden. Jeder Fehlertyp hat unterschiedliche ausgegebene Informationen. Beispielsweise zeigt ein SDP-Syntaxfehler die Zeilennummer des Fehlers innerhalb des SDP an, und ein SCTP-Fehler zeigt eine Nachricht entsprechend dem SCTP-Ursachencode an. Andere Fehlertypen geben entsprechend passende Informationen aus.
 

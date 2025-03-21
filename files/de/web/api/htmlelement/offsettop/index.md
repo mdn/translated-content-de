@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.offsetTop`**-Eigenschaft (nur lesbar) gibt die Entfernung von der äußeren Grenze des aktuellen Elements (einschließlich seines Randes) bis zur oberen Innenkante des [`offsetParent`](/de/docs/Web/API/HTMLelement/offsetParent) zurück, dem _nächstgelegenen positionierten_ Vorfahrenelement.
+Die **`HTMLElement.offsetTop`**-Eigenschaft (nur lesbar) gibt die Entfernung von der äußeren Grenze des aktuellen Elements (einschließlich seines Randes) bis zur oberen Innenkante des [`offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent) zurück, dem _nächstgelegenen positionierten_ Vorfahrenelement.
 
 ## Wert
 

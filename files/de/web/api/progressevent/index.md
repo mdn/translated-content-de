@@ -33,7 +33,7 @@ _Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
-Das folgende Beispiel fügt einem neuen [`XMLHTTPRequest`](/de/docs/Web/API/XMLHTTPRequest) ein `ProgressEvent` hinzu und verwendet es, um den Status der Anfrage anzuzeigen.
+Das folgende Beispiel fügt einem neuen [`XMLHTTPRequest`](/de/docs/Web/API/XMLHttpRequest) ein `ProgressEvent` hinzu und verwendet es, um den Status der Anfrage anzuzeigen.
 
 ```js
 const progressBar = document.getElementById("p"),

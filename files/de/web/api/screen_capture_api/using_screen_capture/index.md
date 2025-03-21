@@ -212,7 +212,7 @@ stopElem.addEventListener(
 
 ##### Protokollierung von Inhalten
 
-Dieses Beispiel überschreibt bestimmte Methoden von [`console`](/de/docs/Web/API/Console), um deren Nachrichten im {{HTMLElement("pre")}}-Block auszugeben, dessen ID `log` ist.
+Dieses Beispiel überschreibt bestimmte Methoden von [`console`](/de/docs/Web/API/console), um deren Nachrichten im {{HTMLElement("pre")}}-Block auszugeben, dessen ID `log` ist.
 
 ```js
 console.log = (msg) => (logElem.textContent = `${logElem.textContent}\n${msg}`);
@@ -220,7 +220,7 @@ console.error = (msg) =>
   (logElem.textContent = `${logElem.textContent}\nError: ${msg}`);
 ```
 
-Dadurch können wir [`console.log()`](/de/docs/Web/API/Console/log_static) und [`console.error()`](/de/docs/Web/API/Console/error_static) verwenden, um Informationen in das Protokollfeld im Dokument zu schreiben.
+Dadurch können wir [`console.log()`](/de/docs/Web/API/console/log_static) und [`console.error()`](/de/docs/Web/API/console/error_static) verwenden, um Informationen in das Protokollfeld im Dokument zu schreiben.
 
 ##### Starten der Bildschirmaufnahme
 
@@ -307,7 +307,7 @@ Die wichtigsten Teile des HTML sind:
 1. Ein {{HTMLElement("button")}} mit der Aufschrift "Start Capture", das beim Klicken die Funktion `startCapture()` aufruft, um Zugriff auf die Bildschirm-Inhalte zu beantragen und die Aufnahme zu starten.
 2. Ein zweiter Button, "Stop Capture", der beim Klick `stopCapture()` aufruft, um die Aufnahme der Bildschirm-Inhalte zu beenden.
 3. Ein {{HTMLElement("video")}}, in das die aufgenommenen Bildschirm-Inhalte gestreamt werden.
-4. Ein {{HTMLElement("pre")}}-Block, in den durch die abgefangenen [`console`](/de/docs/Web/API/Console)-Methoden protokollierter Text ausgegeben wird.
+4. Ein {{HTMLElement("pre")}}-Block, in den durch die abgefangenen [`console`](/de/docs/Web/API/console)-Methoden protokollierter Text ausgegeben wird.
 
 #### CSS
 

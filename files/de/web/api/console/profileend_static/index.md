@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}}{{Non-standard_header}} {{AvailableInWorkers}}
 
-Die statische Methode **`console.profileEnd()`** stoppt die Aufzeichnung eines Profils, das zuvor mit [`console.profile()`](/de/docs/Web/API/Console/profile_static) gestartet wurde.
+Die statische Methode **`console.profileEnd()`** stoppt die Aufzeichnung eines Profils, das zuvor mit [`console.profile()`](/de/docs/Web/API/console/profile_static) gestartet wurde.
 
 Sie können optional ein Argument angeben, um dem Profil einen Namen zu geben. Auf diese Weise können Sie nur dieses Profil stoppen, wenn Sie mehrere Profile aufzeichnen.
 
@@ -37,4 +37,4 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [`console.profile()`](/de/docs/Web/API/Console/profile_static)
+- [`console.profile()`](/de/docs/Web/API/console/profile_static)

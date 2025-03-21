@@ -116,7 +116,7 @@ Neue Erweiterungen der [Web Audio API](/de/docs/Web/API/Web_Audio_API):
 
 #### Dev Tools
 
-- Die Eigenschaft [`console.timeStamp()`](/de/docs/Web/API/Console/timeStamp_static) wurde hinzugefügt ([Firefox Bug 922221](https://bugzil.la/922221)).
+- Die Eigenschaft [`console.timeStamp()`](/de/docs/Web/API/console/timeStamp_static) wurde hinzugefügt ([Firefox Bug 922221](https://bugzil.la/922221)).
 
 ### MathML
 

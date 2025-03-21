@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Optimizing_canvas")}}
 
-Herzlichen Glückwunsch! Sie haben das [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial/) abgeschlossen! Dieses Wissen wird Ihnen helfen, großartige 2D-Grafiken im Web zu erstellen.
+Herzlichen Glückwunsch! Sie haben das [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial) abgeschlossen! Dieses Wissen wird Ihnen helfen, großartige 2D-Grafiken im Web zu erstellen.
 
 ## Weitere Beispiele und Tutorials
 

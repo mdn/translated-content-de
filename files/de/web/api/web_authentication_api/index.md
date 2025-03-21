@@ -132,7 +132,7 @@ Um es noch einmal zu betonen: Die relying party teilt dem Authentifikator nicht 
 Der anschließende Authentifizierungsprozess auf dem RP-Server ist der gleiche wie bei nicht-entdeckbaren Anmeldedaten.
 
 > [!NOTE]
-> Sie können überprüfen, ob bedingte Mediation auf einem bestimmten Benutzeragenten verfügbar ist, indem Sie die Methode [`PublicKeyCredential.isConditionalMediationAvailable()`](/de/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable) aufrufen.
+> Sie können überprüfen, ob bedingte Mediation auf einem bestimmten Benutzeragenten verfügbar ist, indem Sie die Methode [`PublicKeyCredential.isConditionalMediationAvailable()`](/de/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable_static) aufrufen.
 
 [Passkeys](https://passkeys.dev/) sind ein bedeutender Anwendungsfall für entdeckbare Anmeldedaten; siehe [Create a passkey for passwordless logins](https://web.dev/articles/passkey-registration) und [Sign in with a passkey through form autofill](https://web.dev/articles/passkey-form-autofill) für Implementierungsdetails. Siehe auch [Discoverable credentials deep dive](https://web.dev/articles/webauthn-discoverable-credentials) für allgemeine Informationen zu entdeckbaren Anmeldedaten.
 

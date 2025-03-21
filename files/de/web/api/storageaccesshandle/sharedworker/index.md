@@ -36,7 +36,7 @@ Ein unpartitioniertes [`SharedWorker`](/de/docs/Web/API/SharedWorker) Objekt.
 
 ### Ausnahmen
 
-- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
+- `SecurityError` [`DomException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
 Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker)

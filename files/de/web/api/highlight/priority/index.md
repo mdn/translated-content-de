@@ -12,7 +12,7 @@ Es ist möglich, [`Range`](/de/docs/Web/API/Range)-Objekte zu erstellen, die sic
 
 Wenn sich überlappende Bereiche in mehreren verschiedenen [`Highlight`](/de/docs/Web/API/Highlight)-Objekten befinden und diese Hervorhebungen mit {{cssxref("::highlight")}}-Pseudo-Elementen gestylt werden, kann dies zu widersprüchlichen Stilen führen.
 
-Wenn zwei Textbereiche sich überlappen und beide mit der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) hervorgehoben werden, und wenn beide mit der `color`-CSS-Eigenschaft gestylt werden, muss der Browser entscheiden, welche Farbe zum Stylen des Textes im überlappenden Teil verwendet werden soll.
+Wenn zwei Textbereiche sich überlappen und beide mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) hervorgehoben werden, und wenn beide mit der `color`-CSS-Eigenschaft gestylt werden, muss der Browser entscheiden, welche Farbe zum Stylen des Textes im überlappenden Teil verwendet werden soll.
 
 Standardmäßig haben alle Hervorhebungen die gleiche Priorität und der Browser wählt die zuletzt registrierte Hervorhebung, um die überlappenden Teile zu stylen.
 
@@ -155,5 +155,5 @@ Wie unten zu sehen ist, wird standardmäßig der Teil des Textknotens, in dem si
 
 ## Siehe auch
 
-- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
 - [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

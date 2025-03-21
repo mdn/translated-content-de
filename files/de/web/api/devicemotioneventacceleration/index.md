@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`DeviceMotionEventAcceleration`**-Schnittstelle der [Device Orientation Events](/de/docs/Web/API/Device_Orientation_Events) liefert Informationen über die Menge der Beschleunigung, die das Gerät entlang aller drei Achsen erfährt.
+Die **`DeviceMotionEventAcceleration`**-Schnittstelle der [Device Orientation Events](/de/docs/Web/API/Device_orientation_events) liefert Informationen über die Menge der Beschleunigung, die das Gerät entlang aller drei Achsen erfährt.
 
 ## Instanzeigenschaften
 

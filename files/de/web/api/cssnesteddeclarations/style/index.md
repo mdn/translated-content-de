@@ -16,7 +16,7 @@ Ein Objekt.
 
 ## Beispiele
 
-Dieses Stylesheet enthält eine verschachtelte [`cssRules`](/de/docs/Web/API/CssRule).
+Dieses Stylesheet enthält eine verschachtelte [`cssRules`](/de/docs/Web/API/CSSRule).
 
 Das erste `console.log` zeigt den obersten `style`, das zweite zeigt die verschachtelte `@media`-Abfrage mit ihrem verschachtelten Stil und das letzte zeigt den verschachtelten Stil, der nach der `@media`-Abfrage deklariert wird.
 

@@ -48,7 +48,7 @@ some(callbackFn, thisArg)
 
 ### Rückgabewert
 
-`false`, es sei denn, `callbackFn` gibt einen [truthy](/de/docs/Glossary/truthy) Wert für ein Element des typisierten Arrays zurück, in welchem Fall `true` sofort zurückgegeben wird.
+`false`, es sei denn, `callbackFn` gibt einen [truthy](/de/docs/Glossary/Truthy) Wert für ein Element des typisierten Arrays zurück, in welchem Fall `true` sofort zurückgegeben wird.
 
 ## Beschreibung
 

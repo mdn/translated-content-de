@@ -113,7 +113,7 @@ Der folgende Codeausschnitt zeigt, wie man das `virtualkeyboardpolicy` Attribut 
 
 - [`Navigator.virtualKeyboard`](/de/docs/Web/API/Navigator/virtualKeyboard) {{ReadOnlyInline}} {{experimental_inline}}
   - : Gibt eine Referenz zur [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard) API zurück, um die Bildschirmtastatur zu steuern.
-- [`HTMLElement.virtualkeyboardpolicy`](/de/docs/Web/API/HTMLElement/virtualkeyboardpolicy) {{experimental_inline}}
+- [`HTMLElement.virtualkeyboardpolicy`](/de/docs/Web/API/HTMLElement/virtualKeyboardPolicy) {{experimental_inline}}
   - : Ein String, der angibt, ob die Standardpolitik des Browsers für das Anzeigen der virtuellen Tastatur verwendet werden soll, wenn das Element fokussiert ist, oder ob das Anzeigen der virtuellen Tastatur manuell gesteuert werden soll.
 
 ## Spezifikationen

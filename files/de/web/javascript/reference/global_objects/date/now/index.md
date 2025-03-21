@@ -92,5 +92,5 @@ Für komplexere Szenarien könnten Sie die [Performance API](/de/docs/Web/API/Pe
 
 - [Polyfill von `Date.now` in `core-js`](https://github.com/zloirock/core-js#ecmascript-date)
 - [`Performance.now()`](/de/docs/Web/API/Performance/now)
-- [`console.time()`](/de/docs/Web/API/Console/time_static)
-- [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static)
+- [`console.time()`](/de/docs/Web/API/console/time_static)
+- [`console.timeEnd()`](/de/docs/Web/API/console/timeEnd_static)

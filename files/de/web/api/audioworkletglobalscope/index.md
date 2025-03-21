@@ -71,7 +71,7 @@ console.log(usefulVariable);
 registerProcessor("test-processor", TestProcessor);
 ```
 
-Als Nächstes laden wir in unserer Hauptskriptdatei den Prozessor, erstellen eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) – indem wir den Namen des Prozessors übergeben – und verbinden den Knoten mit einem Audiographen. Wir sollten die Ausgabe der Aufrufe von [`console.log()`](/de/docs/Web/API/Console/log_static) in der Konsole sehen:
+Als Nächstes laden wir in unserer Hauptskriptdatei den Prozessor, erstellen eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) – indem wir den Namen des Prozessors übergeben – und verbinden den Knoten mit einem Audiographen. Wir sollten die Ausgabe der Aufrufe von [`console.log()`](/de/docs/Web/API/console/log_static) in der Konsole sehen:
 
 ```js
 const audioContext = new AudioContext();

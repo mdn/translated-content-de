@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`invertSelf()`** Methode des [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Interfaces invertiert die ursprüngliche Matrix. Wenn die Matrix nicht invertiert werden kann, werden die Komponenten der neuen Matrix alle auf `NaN` gesetzt und ihre [`is2D`](/de/docs/Web/API/DOMMatrixReadonly/is2D) Eigenschaft wird auf `false` gesetzt.
+Die **`invertSelf()`** Methode des [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Interfaces invertiert die ursprüngliche Matrix. Wenn die Matrix nicht invertiert werden kann, werden die Komponenten der neuen Matrix alle auf `NaN` gesetzt und ihre [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) Eigenschaft wird auf `false` gesetzt.
 
 Um eine Matrix zu invertieren, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.inverse()`](/de/docs/Web/API/DOMMatrixReadOnly/inverse).
 

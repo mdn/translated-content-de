@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`getSVGDocument()`**-Methode des [`HTMLIframeElement`](/de/docs/Web/API/HTMLIframeElement)-Interfaces gibt das [`Document`](/de/docs/Web/API/Document)-Objekt des eingebetteten SVG zurück.
+Die **`getSVGDocument()`**-Methode des [`HTMLIframeElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces gibt das [`Document`](/de/docs/Web/API/Document)-Objekt des eingebetteten SVG zurück.
 
 ## Syntax
 

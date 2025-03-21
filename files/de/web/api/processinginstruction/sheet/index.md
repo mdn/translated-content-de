@@ -15,7 +15,7 @@ Die `xml-stylesheet`-Verarbeitungsanweisung wird verwendet, um ein Stylesheet in
 
 ## Wert
 
-Das zugeordnete [`Stylesheet`](/de/docs/Web/API/Stylesheet)-Objekt oder `null`, wenn keines vorhanden ist.
+Das zugeordnete [`Stylesheet`](/de/docs/Web/API/StyleSheet)-Objekt oder `null`, wenn keines vorhanden ist.
 
 ## Beispiel
 

@@ -99,7 +99,7 @@ items.forEach((item) => {
 
 > [!NOTE]
 > Um den Inhalt eines Arrays in der Konsole anzuzeigen,
-> können Sie [`console.table()`](/de/docs/Web/API/Console/table_static) verwenden, was eine formatierte
+> können Sie [`console.table()`](/de/docs/Web/API/console/table_static) verwenden, was eine formatierte
 > Version des Arrays ausgibt.
 >
 > Das folgende Beispiel illustriert einen alternativen Ansatz, `forEach()` zu verwenden.

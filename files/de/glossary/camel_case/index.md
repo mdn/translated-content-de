@@ -9,7 +9,7 @@ l10n:
 
 **Camel case** ist eine Schreibweise von Ausdrücken ohne Leerzeichen, bei der der erste Buchstabe jedes Wortes großgeschrieben wird, mit Ausnahme des ersten Buchstabens des gesamten zusammengesetzten Wortes, der entweder groß oder klein sein kann. Der Name kommt von der Ähnlichkeit der Großbuchstaben mit den Höckern eines Kamelrückens. Oft wird es als "camelCase" stilisiert, um den Leser an sein Aussehen zu erinnern.
 
-Camel Case wird oft als Konvention zur Benennung von Variablen verwendet. Die folgenden Variablen sind im Camel Case: [`console`](/de/docs/Web/API/Console), {{jsxref("encodeURIComponent")}}, {{jsxref("ArrayBuffer")}} und [`HTMLElement`](/de/docs/Web/API/HTMLElement).
+Camel Case wird oft als Konvention zur Benennung von Variablen verwendet. Die folgenden Variablen sind im Camel Case: [`console`](/de/docs/Web/API/console), {{jsxref("encodeURIComponent")}}, {{jsxref("ArrayBuffer")}} und [`HTMLElement`](/de/docs/Web/API/HTMLElement).
 
 Beachten Sie, dass bei Ausdrücken, die Akronyme enthalten (wie `URI` und `HTML`), die Praktiken des Camel Case variieren. Einige ziehen es vor, alle davon großzuschreiben, wie `encodeURIComponent` oben. Dies kann manchmal zu Mehrdeutigkeiten mit mehreren aufeinanderfolgenden Akronymen führen, wie `XMLHTTPRequest`. Andere ziehen es vor, nur den ersten Buchstaben zu kapitalisieren, wie `XmlHttpRequest`. Die tatsächliche globale Variable, [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest), verwendet eine Mischung aus beidem.
 

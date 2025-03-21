@@ -66,7 +66,7 @@ _Erbt Eigenschaften von seinem Elterninterface, [`HTMLElement`](/de/docs/Web/API
 
 _Erbt auch Methoden von seinem Elterninterface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- [`HTMLIframeElement.getSVGDocument()`](/de/docs/Web/API/HTMLIFrameElement/getSVGDocument)
+- [`HTMLIframeElement.getSVGDocument()`](/de/docs/Web/API/HTMLIframeElement/getSVGDocument)
   - : Gibt das eingebettete SVG als [`Document`](/de/docs/Web/API/Document) zurück.
 
 ## Spezifikationen

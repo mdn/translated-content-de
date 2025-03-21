@@ -44,7 +44,7 @@ const end = textarea.selectionEnd;
 - [`HTMLTextAreaElement.selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart)
 - [`HTMLTextAreaElement.selectionDirection`](/de/docs/Web/API/HTMLTextAreaElement/selectionDirection)
 - [`HTMLTextAreaElement.textLength`](/de/docs/Web/API/HTMLTextAreaElement/textLength)
-- [`selectionChange`](/de/docs/Web/API/HTMLTextAreaElement/selectionChange_event) Ereignis
+- [`selectionChange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event) Ereignis
 - [`HTMLTextAreaElement.select()`](/de/docs/Web/API/HTMLTextAreaElement/select)
 - [`HTMLTextAreaElement.setSelectionRange()`](/de/docs/Web/API/HTMLTextAreaElement/setSelectionRange)
 - [`HTMLTextAreaElement.setRangeText()`](/de/docs/Web/API/HTMLTextAreaElement/setRangeText)

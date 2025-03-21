@@ -28,7 +28,7 @@ Ein nicht partitioniertes [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel
 
 ### Ausnahmen
 
-- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
+- `SecurityError` [`DomException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
 Siehe [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadcastChannel)

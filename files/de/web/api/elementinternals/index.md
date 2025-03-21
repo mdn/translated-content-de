@@ -75,7 +75,7 @@ Das `ElementInternals` Interface umfasst auch die folgenden Eigenschaften.
   - : Ein String, der das [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) Attribut widerspiegelt, das angibt, dass ein Element aktualisiert wird und die Arten von Updates beschreibt, die Benutzungsagenten, unterstützende Technologien und Benutzer von dem Live-Bereich erwarten können.
 - [`ElementInternals.ariaModal`](/de/docs/Web/API/ElementInternals/ariaModal)
   - : Ein String, der das [`aria-modal`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal) Attribut widerspiegelt, das angibt, ob ein Element modal angezeigt wird.
-- [`ElementInternals.ariaMultiline`](/de/docs/Web/API/ElementInternals/ariaMultiline)
+- [`ElementInternals.ariaMultiline`](/de/docs/Web/API/ElementInternals/ariaMultiLine)
   - : Ein String, der das [`aria-multiline`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiline) Attribut widerspiegelt, das angibt, ob ein Textfeld mehrere Zeilen Eingaben oder nur eine einzelne akzeptiert.
 - [`ElementInternals.ariaMultiSelectable`](/de/docs/Web/API/ElementInternals/ariaMultiSelectable)
   - : Ein String, der das [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable) Attribut widerspiegelt, das angibt, dass der Benutzer mehr als ein Element aus den aktuellen auswählbaren Nachkommen auswählen kann.

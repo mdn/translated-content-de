@@ -37,7 +37,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 93, die Ent
 ### APIs
 
 - [`ElementInternals.shadowRoot`](/de/docs/Web/API/ElementInternals/shadowRoot) und [`HTMLElement.attachInternals`](/de/docs/Web/API/HTMLElement/attachInternals) werden jetzt unterstützt ([Firefox-Bug 1723521](https://bugzil.la/1723521)).
-- Der Wert `device-pixel-content-box` wird jetzt für [`ResizeObserver.Observe()`](/de/docs/Web/API/ResizeObserver/Observe) unterstützt ([Firefox-Bug 1587973](https://bugzil.la/1587973)).
+- Der Wert `device-pixel-content-box` wird jetzt für [`ResizeObserver.Observe()`](/de/docs/Web/API/ResizeObserver/observe) unterstützt ([Firefox-Bug 1587973](https://bugzil.la/1587973)).
 - Die [`Window.reportError()`](/de/docs/Web/API/Window/reportError) und [`WorkerGlobalScope.reportError()`](/de/docs/Web/API/WorkerGlobalScope/reportError) wird jetzt unterstützt, was es Skripten ermöglicht, Fehler an die Konsole oder globale Ereignishandler zu melden und damit eine nicht abgefangene JavaScript-Ausnahme zu emulieren ([Firefox-Bug 1722448](https://bugzil.la/1722448)).
 
 #### Ereignisse

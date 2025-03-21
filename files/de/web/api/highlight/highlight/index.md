@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Der **`Highlight()`**-Konstruktor gibt ein neu erstelltes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück, das eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten enthalten kann, die mithilfe der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) gestylt werden sollen.
+Der **`Highlight()`**-Konstruktor gibt ein neu erstelltes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück, das eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten enthalten kann, die mithilfe der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) gestylt werden sollen.
 
 ## Syntax
 
@@ -53,5 +53,5 @@ const highlight = new Highlight(range1, range2);
 
 ## Siehe auch
 
-- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
 - [CSS Custom Highlight API: Die Zukunft der Texthervorhebung im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

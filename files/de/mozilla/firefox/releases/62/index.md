@@ -79,8 +79,8 @@ _Keine Änderungen._
 - Die Methode `Navigator.registerContentHandler()` wurde standardmäßig deaktiviert, um auf die vollständige Entfernung vorbereitet zu werden, da sie seit einiger Zeit veraltet ist ([Firefox Bug 1460481](https://bugzil.la/1460481)).
 - Der Konstruktor [`DataTransfer()`](/de/docs/Web/API/DataTransfer/DataTransfer) wurde implementiert ([Firefox Bug 1351193](https://bugzil.la/1351193)).
 - [`Document.domain`](/de/docs/Web/API/Document/domain) kann nicht mehr `null` zurückgeben ([Firefox Bug 819475](https://bugzil.la/819475)). Wenn die Domain nicht identifiziert werden kann, gibt `domain` statt `null` nun einen leeren String zurück.
-- Die Methode [`console.timeLog()`](/de/docs/Web/API/Console/timeLog_static) wurde hinzugefügt, um den aktuellen Wert eines Konsolentimers anzuzeigen, während die Zeit weiter verfolgt wird ([Firefox Bug 1458466](https://bugzil.la/1458466)).
-- Die Methode [`console.countReset()`](/de/docs/Web/API/Console/countReset_static) wurde hinzugefügt, um den Wert eines Konsolenzählers zurückzusetzen ([Firefox Bug 1459279](https://bugzil.la/1459279)).
+- Die Methode [`console.timeLog()`](/de/docs/Web/API/console/timeLog_static) wurde hinzugefügt, um den aktuellen Wert eines Konsolentimers anzuzeigen, während die Zeit weiter verfolgt wird ([Firefox Bug 1458466](https://bugzil.la/1458466)).
+- Die Methode [`console.countReset()`](/de/docs/Web/API/console/countReset_static) wurde hinzugefügt, um den Wert eines Konsolenzählers zurückzusetzen ([Firefox Bug 1459279](https://bugzil.la/1459279)).
 
 #### DOM-Ereignisse
 

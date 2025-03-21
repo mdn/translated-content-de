@@ -66,7 +66,7 @@ Hervorhebungen:
 
 - In Übereinstimmung mit der sich entwickelnden WebRTC-Spezifikation haben wir `RTCIceServer.url` zugunsten von `RTCIceServer.urls` abgelehnt, was es Ihnen ermöglicht, mehr als eine URL für einen bestimmten ICE-Server anzugeben.
 - Einige Tastenbezeichnungen von `KeyboardEvent.key` wurden geändert, um der neuesten DOM Level 3 Events Spezifikation zu entsprechen. Siehe [die Tabellen der `KeyboardEvent.key`-Werte auf MDN](/de/docs/Web/API/KeyboardEvent/key#key_values). Die grünen Zellen sind neue Werte. Und die lila Werte sind noch instabil. Seien Sie vorsichtig, wenn Sie sie verwenden (Meta-Bug für diese Änderungen ist [Firefox-Bug 900372](https://bugzil.la/900372)).
-- Die [`console`](/de/docs/Web/API/Console)-Schnittstelle funktioniert jetzt bei [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) und [`SharedWorker`](/de/docs/Web/API/SharedWorker). Sie war zuvor verfügbar, funktionierte aber nicht ([Firefox-Bug 1058644](https://bugzil.la/1058644)).
+- Die [`console`](/de/docs/Web/API/console)-Schnittstelle funktioniert jetzt bei [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) und [`SharedWorker`](/de/docs/Web/API/SharedWorker). Sie war zuvor verfügbar, funktionierte aber nicht ([Firefox-Bug 1058644](https://bugzil.la/1058644)).
 - Der Wert von [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) wurde fälschlicherweise als `"RomanCharacters"` berichtet, wenn die `英数` (`Eisu`) Taste gedrückt wurde. Jetzt wird korrekt `"Eisu"` zurückgegeben.
 
 ### MathML

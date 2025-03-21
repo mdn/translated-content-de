@@ -37,7 +37,7 @@ APIs, die transiente Aktivierung erfordern (nicht abschließend):
 - [`ContactsManager.select()`](/de/docs/Web/API/ContactsManager/select)
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
 - [`DocumentPictureInPicture.requestWindow()`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow)
-- [`Element.requestFullScreen()`](/de/docs/Web/API/Element/requestFullScreen)
+- [`Element.requestFullScreen()`](/de/docs/Web/API/Element/requestFullscreen)
 - [`Element.requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock)
 - [`EyeDropper.open()`](/de/docs/Web/API/EyeDropper/open)
 - [`HID.requestDevice()`](/de/docs/Web/API/HID/requestDevice)

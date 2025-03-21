@@ -348,4 +348,4 @@ const constraints = {
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API): Bildschirminhalt als [`MediaStream`](/de/docs/Web/API/MediaStream) erfassen
 - [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia): Einen Stream mit Bildschirminhalt erhalten
-- [Webcam-Fotos aufnehmen](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_Still_Photos): Ein Tutorial zur Verwendung von `getUserMedia()` für die Aufnahme von Standbildern anstelle von Videos
+- [Webcam-Fotos aufnehmen](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos): Ein Tutorial zur Verwendung von `getUserMedia()` für die Aufnahme von Standbildern anstelle von Videos

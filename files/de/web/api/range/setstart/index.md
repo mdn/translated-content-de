@@ -12,7 +12,7 @@ Die **`Range.setStart()`** Methode setzt die Startposition eines
 [`Range`](/de/docs/Web/API/Range).
 
 Wenn der `startNode` ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text),
-[`Comment`](/de/docs/Web/API/Comment) oder [`CDataSection`](/de/docs/Web/API/CDataSection) ist, dann ist `startOffset`
+[`Comment`](/de/docs/Web/API/Comment) oder [`CDataSection`](/de/docs/Web/API/CDATASection) ist, dann ist `startOffset`
 die Anzahl der Zeichen vom Beginn des `startNode`. Für andere
 `Node`-Typen ist `startOffset` die Anzahl der Kindknoten
 vom Anfang des `startNode`.

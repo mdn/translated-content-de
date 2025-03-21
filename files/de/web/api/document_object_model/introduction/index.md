@@ -50,7 +50,7 @@ Für weitere Informationen zu den Technologien, die beim Schreiben von JavaScrip
 
 Sie müssen nichts Besonderes tun, um das DOM zu nutzen. Sie verwenden die API direkt in JavaScript innerhalb eines sogenannten _Scripts_, einem Programm, das von einem Browser ausgeführt wird.
 
-Wenn Sie ein Skript erstellen, sei es inline in einem `<script>`-Element oder in die Webseite eingebunden, können Sie sofort beginnen, die API für die [`document`](/de/docs/Web/API/Document)- oder [`window`](/de/docs/Web/API/Window)-Objekte zu nutzen, um das Dokument selbst oder eines der verschiedenen Elemente auf der Webseite (die Nachfahrelemente des Dokuments) zu manipulieren. Ihre DOM-Programmierung könnte so einfach sein wie das folgende Beispiel, das eine Nachricht in der Konsole anzeigt, indem es die Funktion [`console.log()`](/de/docs/Web/API/Console/log_static) nutzt:
+Wenn Sie ein Skript erstellen, sei es inline in einem `<script>`-Element oder in die Webseite eingebunden, können Sie sofort beginnen, die API für die [`document`](/de/docs/Web/API/Document)- oder [`window`](/de/docs/Web/API/Window)-Objekte zu nutzen, um das Dokument selbst oder eines der verschiedenen Elemente auf der Webseite (die Nachfahrelemente des Dokuments) zu manipulieren. Ihre DOM-Programmierung könnte so einfach sein wie das folgende Beispiel, das eine Nachricht in der Konsole anzeigt, indem es die Funktion [`console.log()`](/de/docs/Web/API/console/log_static) nutzt:
 
 ```html
 <body onload="console.log('Welcome to my home page!');">

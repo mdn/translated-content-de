@@ -22,7 +22,7 @@ send(data, timestamp)
 - `data`
   - : Eine Sequenz von einem oder mehreren [gültigen MIDI-Nachrichten](https://midi.org/about-midi-part-3midi-messages). Jedes Element repräsentiert ein einzelnes Datenbyte.
 - `timestamp` {{optional_inline}}
-  - : Ein [`DOMHighResTimestamp`](/de/docs/Web/API/DOMHighResTimestamp), der die Zeit in Millisekunden angibt, wann die Nachricht gesendet werden soll (relativ zu [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)).
+  - : Ein [`DOMHighResTimestamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit in Millisekunden angibt, wann die Nachricht gesendet werden soll (relativ zu [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)).
 
 ### Rückgabewert
 

@@ -28,7 +28,7 @@ Kein ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
+- `SecurityError` [`DomException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
 Siehe [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static)
