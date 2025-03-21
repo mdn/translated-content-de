@@ -2,12 +2,12 @@
 title: <font>
 slug: Web/SVG/Reference/Element/font
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
 ---
 
 {{deprecated_header}}
 
-Das **`<font>`** [SVG](/de/docs/Web/SVG) Element definiert eine Schriftart, die für den Textsatz verwendet wird.
+Das **`<font>`** [SVG](/de/docs/Web/SVG)-Element definiert eine Schriftart, die für den Textsatz verwendet wird.
 
 ## Verwendungskontext
 
@@ -24,7 +24,7 @@ Das **`<font>`** [SVG](/de/docs/Web/SVG) Element definiert eine Schriftart, die 
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFontElement`](/de/docs/Web/API/SVGFontElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFontElement`](/de/docs/Web/API/SVGFontElement)-Schnittstelle.
 
 ## Spezifikationen
 
@@ -39,4 +39,4 @@ Dieses Element implementiert die [`SVGFontElement`](/de/docs/Web/API/SVGFontElem
 - {{SVGElement("font-face")}}
 - {{SVGElement("glyph")}}
 - {{SVGElement("text")}}
-- [SVG-Tutorial: SVG-Schriften](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/SVG_fonts)
+- [SVG-Tutorial: SVG-Schriftarten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Using_fonts)

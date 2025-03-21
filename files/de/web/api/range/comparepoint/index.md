@@ -1,16 +1,14 @@
 ---
-title: "Range: comparePoint()-Methode"
+title: "Range: comparePoint() Methode"
 short-title: comparePoint()
 slug: Web/API/Range/comparePoint
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: 2c0de98b0607ef262d9ef0877259ba41aaf53e6d
 ---
 
 {{ApiRef("DOM")}}
 
-Die **`Range.comparePoint()`**-Methode gibt `-1`, `0` oder `1` zurück, je nachdem, ob der `referenceNode` vor, gleich oder nach dem [`Range`](/de/docs/Web/API/Range) liegt.
-
-Wenn der _reference node_ ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment) oder [`CDATASection`](/de/docs/Web/API/CDATASection) ist, dann ist der Offset die Anzahl der Zeichen vom Anfang des _reference node_. Für andere [`Node`](/de/docs/Web/API/Node)-Typen ist der Offset die Anzahl der Kindknoten vom Anfang des _reference node_.
+Die **`comparePoint()`** Methode der [`Range`](/de/docs/Web/API/Range) Schnittstelle bestimmt, ob ein spezifizierter Punkt vor, innerhalb oder nach dem [`Range`](/de/docs/Web/API/Range) liegt. Der Punkt wird durch einen Referenzknoten und einen Offset innerhalb dieses Knotens spezifiziert.
 
 ## Syntax
 
@@ -21,20 +19,31 @@ comparePoint(referenceNode, offset)
 ### Parameter
 
 - `referenceNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem [`Range`](/de/docs/Web/API/Range) verglichen wird.
+  - : Der [`Node`](/de/docs/Web/API/Node), zu dem der `offset` relativ ist.
 - `offset`
-  - : Eine Ganzzahl größer oder gleich null, die den Versatz innerhalb des _referenceNode_ darstellt.
+  - : Eine natürliche Zahl größer oder gleich null, die die Position innerhalb von `referenceNode` des zu überprüfenden Punktes beschreibt. Wenn `referenceNode` ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment) oder [`CDATASection`](/de/docs/Web/API/CDATASection) ist, dann ist `offset` die Anzahl der Zeichen vom Anfang von `referenceNode`. Für andere [`Node`](/de/docs/Web/API/Node) Typen ist `offset` die Anzahl der Kindknoten vom Anfang des `referenceNode`.
 
 ### Rückgabewert
 
-Gibt `-1`, `0` oder `1` zurück.
+Eine Zahl.
+
+- `-1`, wenn der durch den `referenceNode` und `offset` spezifizierte Punkt vor dem Beginn dieses `Range` liegt.
+- `0`, wenn der durch den `referenceNode` und `offset` spezifizierte Punkt innerhalb dieses `Range` liegt (einschließlich der Start- und Endpunkte des Bereichs).
+- `1`, wenn der durch den `referenceNode` und `offset` spezifizierte Punkt nach dem Ende dieses `Range` liegt.
 
 ## Beispiele
 
 ```js
-range = document.createRange();
-range.selectNode(document.getElementsByTagName("div").item(0));
-returnValue = range.comparePoint(document.getElementsByTagName("p").item(0), 1);
+const text = new Text("0123456789");
+
+const thisRange = new Range();
+thisRange.setStart(text, 1);
+thisRange.setEnd(text, 6);
+
+thisRange.comparePoint(text, 3); // 0
+thisRange.comparePoint(text, 0); // -1
+thisRange.comparePoint(text, 6); // 0
+thisRange.comparePoint(text, 7); // 1
 ```
 
 ## Spezifikationen
@@ -47,4 +56,4 @@ returnValue = range.comparePoint(document.getElementsByTagName("p").item(0), 1);
 
 ## Siehe auch
 
-- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)

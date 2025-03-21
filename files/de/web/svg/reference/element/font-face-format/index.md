@@ -2,12 +2,12 @@
 title: <font-face-format>
 slug: Web/SVG/Reference/Element/font-face-format
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
 ---
 
 {{deprecated_header}}
 
-Das **`<font-face-format>`** [SVG](/de/docs/Web/SVG) Element beschreibt den Schriftartentyp, der von seinem Eltern-{{SVGElement("font-face-uri")}} referenziert wird.
+Das **`<font-face-format>`** [SVG](/de/docs/Web/SVG)-Element beschreibt den Typ der Schriftart, die von seinem übergeordneten {{SVGElement("font-face-uri")}} referenziert wird.
 
 ## Verwendungskontext
 
@@ -19,7 +19,7 @@ Das **`<font-face-format>`** [SVG](/de/docs/Web/SVG) Element beschreibt den Schr
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFontFaceFormatElement`](/de/docs/Web/API/SVGFontFaceFormatElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFontFaceFormatElement`](/de/docs/Web/API/SVGFontFaceFormatElement)-Schnittstelle.
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ Dieses Element implementiert die [`SVGFontFaceFormatElement`](/de/docs/Web/API/S
 ## Siehe auch
 
 - {{SVGElement("font-face-uri")}}
-- [SVG-Leitfaden: SVG-Schriften](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/SVG_fonts)
+- [SVG-Tutorial: SVG-Schriftarten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Using_fonts)

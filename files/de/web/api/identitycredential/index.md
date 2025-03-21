@@ -2,29 +2,29 @@
 title: IdentityCredential
 slug: Web/API/IdentityCredential
 l10n:
-  sourceCommit: b64f587034fbb610fe12ad819b0384f4f4ce1d4f
+  sourceCommit: 28da811a08240c53da000bfdd8319338290e3f0b
 ---
 
 {{APIRef("FedCM API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`IdentityCredential`**-Schnittstelle der [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) repräsentiert eine Benutzeridentitätsnachweis, der aus einer erfolgreichen föderierten Anmeldung resultiert.
+Das **`IdentityCredential`** Interface der [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) repräsentiert ein Benutzeridentitätsnachweis, der aus einem erfolgreichen föderierten Anmeldevorgang resultiert.
 
-Ein erfolgreicher Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get), der eine `identity`-Option beinhaltet, wird mit einer `IdentityCredential`-Instanz erfüllt.
+Ein erfolgreicher Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get), der eine `identity`-Option enthält, wird mit einer Instanz von `IdentityCredential` erfüllt.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Erbt Eigenschaften von seinem Vorfahren, [`Credential`](/de/docs/Web/API/Credential)._
 
-- [`IdentityCredential.isAutoSelected`](/de/docs/Web/API/IdentityCredential/isAutoSelected) {{ReadOnlyInline}} {{experimental_inline}} {{non-standard_inline}}
-  - : Ein boolescher Wert, der anzeigt, ob die föderierte Anmeldung mithilfe der [automatischen Wiederanmeldung](/de/docs/Web/API/FedCM_API/RP_sign-in#auto-reauthentication) (d.h. ohne Benutzermediation) durchgeführt wurde oder nicht.
+- [`IdentityCredential.isAutoSelected`](/de/docs/Web/API/IdentityCredential/isAutoSelected) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Ein boolescher Wert, der angibt, ob die föderierte Anmeldung mithilfe der [automatischen Wiederanmeldung](/de/docs/Web/API/FedCM_API/RP_sign-in#auto-reauthentication) (d.h. ohne Benutzervermittlung) durchgeführt wurde oder nicht.
 - [`IdentityCredential.token`](/de/docs/Web/API/IdentityCredential/token) {{experimental_inline}}
   - : Gibt das Token zurück, das zur Validierung der zugehörigen Anmeldung verwendet wird.
 
 ## Beispiele
 
-Vertrauenswürdige Parteien (RPs) können `navigator.credentials.get()` mit der Option `identity` aufrufen, um eine Anfrage zu stellen, damit sich Benutzer über einen Identitätsanbieter (IdP) mithilfe der Identitätsföderation beim RP anmelden. Eine typische Anfrage könnte so aussehen:
+Vertrauenswürdige Parteien (RPs) können `navigator.credentials.get()` mit der Option `identity` aufrufen, um eine Anfrage zu stellen, dass sich Benutzer über einen Identitätsanbieter (IdP) mithilfe von Identitätsföderation bei der RP anmelden. Eine typische Anfrage sieht folgendermaßen aus:
 
 ```js
 async function signIn() {
@@ -42,13 +42,13 @@ async function signIn() {
 }
 ```
 
-Bei Erfolg wird dieser Aufruf mit einer `IdentityCredential`-Instanz erfüllt. Aus dieser könnte man zum Beispiel den [`IdentityCredential.token`](/de/docs/Web/API/IdentityCredential/token)-Wert zurückgeben:
+Bei Erfolg wird dieser Aufruf mit einer Instanz von `IdentityCredential` erfüllt. Daraus könnten Sie zum Beispiel den Wert von [`IdentityCredential.token`](/de/docs/Web/API/IdentityCredential/token) zurückgeben:
 
 ```js
 console.log(identityCredential.token);
 ```
 
-Schauen Sie sich die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) für weitere Details an, wie dies funktioniert. Dieser Aufruf startet den im [FedCM-Anmeldevorgang](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschriebenen Anmeldevorgang.
+Schauen Sie sich die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) für weitere Details darüber an, wie dies funktioniert. Dieser Aufruf startet den Anmeldefluss, der im [FedCM Anmeldefluss](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschrieben wird.
 
 ## Spezifikationen
 

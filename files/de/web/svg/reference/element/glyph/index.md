@@ -2,12 +2,12 @@
 title: <glyph>
 slug: Web/SVG/Reference/Element/glyph
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
 ---
 
 {{deprecated_header}}
 
-Das **`<glyph>`** [SVG](/de/docs/Web/SVG) Element definiert ein einzelnes Glyph in einer SVG-Schriftart.
+Das **`<glyph>`** [SVG](/de/docs/Web/SVG)-Element definiert ein einzelnes Glyphen in einer SVG-Schriftart.
 
 ## Verwendungskontext
 
@@ -28,7 +28,7 @@ Das **`<glyph>`** [SVG](/de/docs/Web/SVG) Element definiert ein einzelnes Glyph 
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGGlyphElement`](/de/docs/Web/API/SVGGlyphElement) Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGGlyphElement`](/de/docs/Web/API/SVGGlyphElement).
 
 ## Beispiel
 
@@ -92,4 +92,4 @@ Dieses Element implementiert die [`SVGGlyphElement`](/de/docs/Web/API/SVGGlyphEl
 
 - {{SVGElement("font")}}
 - {{SVGElement("missing-glyph")}}
-- [SVG-Leitfaden: SVG-Schriftarten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/SVG_fonts)
+- [SVG-Tutorial: SVG-Schriftarten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Using_fonts)

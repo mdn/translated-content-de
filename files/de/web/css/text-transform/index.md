@@ -2,12 +2,12 @@
 title: text-transform
 slug: Web/CSS/text-transform
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
 ---
 
 {{CSSRef}}
 
-Die **`text-transform`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Text eines Elements zu kapitalisieren ist. Sie kann verwendet werden, um Text vollständig in Großbuchstaben oder Kleinbuchstaben darzustellen oder jeden Anfangsbuchstaben eines Wortes zu kapitalisieren. Sie kann auch die Lesbarkeit für Ruby verbessern.
+Die **`text-transform`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Text eines Elements zu kapitalisieren ist. Sie kann verwendet werden, um Text in Großbuchstaben oder Kleinbuchstaben erscheinen zu lassen oder jedes Wort zu kapitalisieren. Auch kann sie die Lesbarkeit von Ruby-Text verbessern.
 
 {{InteractiveExample("CSS Demo: text-transform")}}
 
@@ -61,18 +61,19 @@ text-transform: math-auto;
 }
 ```
 
-Die `text-transform` Eigenschaft berücksichtigt sprachspezifische Regeln zur Groß-/Kleinschreibung, wie zum Beispiel:
+Die `text-transform` Eigenschaft berücksichtigt sprachspezifische Groß- und Kleinschreibungsregeln, wie etwa die folgenden:
 
-- In Turksprachen wie Türkisch (`tr`), Aserbaidschanisch (`az`), Krimtatarisch (`crh`), Wolgatatarisch (`tt`) und Baschkirisch (`ba`) gibt es zwei Arten von `i`, mit und ohne Punkt, und zwei Paarungen: `i`/`İ` und `ı`/`I`.
-- Im Deutschen (`de`) wird das `ß` in Großbuchstaben zu `SS`.
-- Im Niederländischen (`nl`) wird das Digraph `ij` zu `IJ`, selbst bei `text-transform: capitalize`, was eigentlich nur den ersten Buchstaben eines Wortes in Großbuchstaben setzt.
-- Im Griechischen (`el`) verlieren Vokale ihren Akzent, wenn das ganze Wort in Großbuchstaben ist (`ά`/`Α`), außer bei dem disjunktiven Eta (`ή`/`Ή`). Auch Diphthonge mit einem Akzent auf dem ersten Vokal verlieren den Akzent und erhalten ein Trema auf dem zweiten Vokal (`άι`/`ΑΪ`).
-- Im Irischen (`ga`) bleiben gewisse vorangestellte Buchstaben klein, wenn der Basiskonsonant großgeschrieben wird, z. B. wird `ar aon tslí` mit `text-transform: uppercase` zu `AR AON tSLÍ` anstatt, wie man erwarten könnte, zu `AR AON TSLÍ` (nur Firefox). In einigen Fällen wird bei der Großschreibung auch ein Bindestrich entfernt: `an t-uisce` wird zu `AN tUISCE` (und der Bindestrich wird korrekt durch `text-transform: lowercase` wieder eingesetzt).
+- In türkischen Sprachen, wie Türkisch (`tr`), Aserbaidschanisch (`az`), Krimtatarisch (`crh`), Wolga-Tatarisch (`tt`) und Baschkirisch (`ba`), gibt es zwei Arten von `i`, mit und ohne Punkt, und zwei Großschreibungs-Paare: `i`/`İ` und `ı`/`I`.
+- Im Deutschen (`de`) wird `ß` in Großbuchstaben zu `SS`.
+- Im Niederländischen (`nl`) wird das `ij` Digraph zu `IJ`, selbst mit `text-transform: capitalize`, welches nur den ersten Buchstaben eines Wortes in Großbuchstaben umwandelt.
+- Im Griechischen (`el`) verlieren Vokale ihren Akzent, wenn das ganze Wort in Großbuchstaben ist (`ά`/`Α`), mit Ausnahme des disjunktiven Eta (`ή`/`Ή`). Auch verlieren Diphthonge mit einem Akzent auf dem ersten Vokal den Akzent und gewinnen ein Trema auf dem zweiten Vokal (`άι`/`ΑΪ`).
+- Im Griechischen (`el`) hat das kleine Sigma-Zeichen zwei Formen: `σ` und `ς`. `ς` wird nur verwendet, wenn Sigma ein Wort beendet. Beim Anwenden von `text-transform: lowercase` auf ein großes Sigma (`Σ`) muss der Browser die richtige Kleinbuchstabenform basierend auf dem Kontext wählen.
+- Im Irischen (`ga`) bleiben bestimmte vorangestellte Buchstaben klein, wenn der Basis-Anfangszeichen großgeschrieben wird, zum Beispiel `text-transform: uppercase` ändert `ar aon tslí` zu `AR AON tSLÍ` und nicht, wie man erwarten könnte, `AR AON TSLÍ` (nur Firefox). In einigen Fällen wird beim Großschreiben auch ein Bindestrich entfernt: `an t-uisce` wird zu `AN tUISCE` umgewandelt (und der Bindestrich wird durch `text-transform: lowercase` korrekt wieder eingesetzt).
 
-Die Sprache wird durch das [`lang`](/de/docs/Web/HTML/Global_attributes/lang) HTML-Attribut oder das [`xml:lang`](/de/docs/Web/SVG/Attribute/xml:lang) XML-Attribut festgelegt.
+Die Sprache wird durch das [`lang`](/de/docs/Web/HTML/Global_attributes/lang) HTML-Attribut oder das [`xml:lang`](/de/docs/Web/SVG/Reference/Attribute/xml:lang) XML-Attribut definiert.
 
 > [!NOTE]
-> Die Unterstützung für sprachspezifische Fälle variiert zwischen den Browsern, daher sollten Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) überprüfen.
+> Die Unterstützung für sprachspezifische Fälle variiert zwischen Browsern, daher überprüfen Sie die Tabelle zur [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Syntax
 
@@ -96,34 +97,34 @@ text-transform: unset;
 
 - `capitalize`
 
-  - : Ist ein Schlüsselwort, das den ersten _Buchstaben_ jedes Wortes in Großbuchstaben umwandelt. Andere Zeichen bleiben unverändert (sie behalten ihre ursprüngliche Schreibweise, wie sie im Text des Elements geschrieben sind). Ein Buchstabe ist als ein Zeichen definiert, das Teil von Unicodes Buchstaben- oder Zahlengruppen ist; Satzzeichen oder Symbole am Anfang eines Wortes werden ignoriert.
+  - : Ist ein Schlüsselwort, das den ersten _Buchstaben_ jedes Wortes in Großbuchstaben umwandelt. Andere Zeichen bleiben unverändert (sie behalten ihre ursprüngliche Schreibweise, wie sie im Text des Elements geschrieben sind). Ein Buchstabe wird definiert als ein Zeichen, das Teil der allgemeinen Unicode-Kategorien Buchstaben oder Zahlen ist; daher werden Satzzeichen oder Symbole am Anfang eines Wortes ignoriert.
 
     > [!NOTE]
-    > Autoren sollten nicht erwarten, dass `capitalize` sprachspezifische Titelkonventionen (wie das Auslassen von Artikeln im Englischen) folgt.
+    > Autoren sollten nicht erwarten, dass `capitalize` sprachspezifische Titelgebungs-Konventionen befolgt (wie das Überspringen von Artikeln im Englischen).
 
     > [!NOTE]
-    > Das `capitalize`-Schlüsselwort war in CSS 1 und CSS 2.1 ungenügend spezifiziert. Dies führte zu Unterschieden zwischen Browsern bei der Berechnung des ersten Buchstabens (Firefox betrachtete `-` und `_` als Buchstaben, andere Browser jedoch nicht. Sowohl WebKit als auch Gecko betrachteten fälschlicherweise buchstabenbasierte Symbole wie `ⓐ` als echte Buchstaben.) Durch die genaue Definition des korrekten Verhaltens bereinigt CSS Text Level 3 dieses Durcheinander. Die `capitalize`-Zeile in der Browser-Kompatibilitätstabelle enthält die Versionen, in denen die verschiedenen Engines dieses nun genau definierte Verhalten zu unterstützen begannen.
+    > Das `capitalize` Schlüsselwort war in CSS 1 und CSS 2.1 unzureichend spezifiziert, was zu Unterschieden zwischen Browsern in der Berechnung des ersten Buchstabens führte (Firefox betrachtete `-` und `_` als Buchstaben, andere Browser taten dies nicht. Sowohl WebKit als auch Gecko betrachteten fälschlicherweise symbolbasierte Buchstaben wie `ⓐ` als echte Buchstaben.) Durch die genaue Definition des korrekten Verhaltens räumt CSS Text Level 3 dieses Durcheinander auf. Die `capitalize` Zeile in der Tabelle zur Browser-Kompatibilität enthält die Version, ab der die verschiedenen Engines dieses nun präzise definierte Verhalten unterstützen.
 
 - `uppercase`
   - : Ist ein Schlüsselwort, das alle Zeichen in Großbuchstaben umwandelt.
 - `lowercase`
   - : Ist ein Schlüsselwort, das alle Zeichen in Kleinbuchstaben umwandelt.
 - `none`
-  - : Ist ein Schlüsselwort, das verhindert, dass die Schreibweise aller Zeichen geändert wird.
+  - : Ist ein Schlüsselwort, das verhindert, dass sich die Schreibweise aller Zeichen ändert.
 - `full-width`
-  - : Ist ein Schlüsselwort, das das Schreiben eines Zeichens — hauptsächlich Ideogramme und lateinische Schriften — in ein Quadrat erzwingt, sodass sie in den üblichen ostasiatischen Schriften (wie Chinesisch oder Japanisch) ausgerichtet werden können.
+  - : Ist ein Schlüsselwort, das das Schreiben eines Zeichens - hauptsächlich Ideogramme und lateinische Skripte - innerhalb eines Quadrats erzwingt, damit sie in den üblichen ostasiatischen Schriftzeichen (wie Chinesisch oder Japanisch) ausgerichtet werden können.
 - `full-size-kana`
-  - : Wird allgemein für {{htmlelement("ruby")}}-Anmerkungstext verwendet. Das Schlüsselwort wandelt alle kleinen Kana-Zeichen in die entsprechenden vollständigen Kanas um, um Lesbarkeitsprobleme bei den typischerweise bei Ruby verwendeten kleinen Schriftgrößen zu kompensieren.
+  - : Wird allgemein für {{htmlelement("ruby")}} Anmerkungstext verwendet. Das Schlüsselwort wandelt alle kleinen Kana-Zeichen in die entsprechenden Kana in voller Größe um, um Lesbarkeitsprobleme bei den typischerweise in Ruby verwendeten kleinen Schriftgrößen auszugleichen.
 - `math-auto`
-  - : Wird verwendet, um Text automatisch in mathematischen Kursivschrift zu rendern, wo es angebracht ist. Es transformiert lateinische und griechische Buchstaben sowie einige andere mathematisch verwandte Symbole in [kursive mathematische Symbole](https://www.unicode.org/charts/PDF/U1D400.pdf), jedoch nur, wenn es auf einen Textknoten angewendet wird, der ein einzelnes Zeichen enthält. Beispielsweise wird "x" zu "𝑥" (U+1D465), aber "exp" bleibt "exp".
-    Es wird hauptsächlich verwendet, um das Verhalten von {{mathmlelement("mi")}}-Elementen in MathML zu spezifizieren. Sie sollten im Allgemeinen MathML-Markup verwenden, das automatisch die richtige Formatierung anwendet.
+  - : Wird verwendet, um Text dort, wo es angebracht ist, automatisch in mathematischer Kursivschrift darzustellen. Es transformiert lateinische und griechische Buchstaben und einige andere mathematisch verwandte Symbole in [mathematische Kursivsymbole](https://www.unicode.org/charts/PDF/U1D400.pdf), jedoch nur, wenn es auf einen Textknoten angewendet wird, der ein einzelnes Zeichen enthält. Zum Beispiel wird "x" zu "𝑥" (U+1D465), aber "exp" bleibt "exp".
+    Es wird hauptsächlich verwendet, um das Verhalten von {{mathmlelement("mi")}} Elementen in MathML zu spezifizieren. Sie sollten im Allgemeinen MathML-Markup verwenden, welches automatisch das richtige Styling anwendet.
 
 ## Barrierefreiheit
 
-Große Abschnitte von Text, die mit einem `text-transform`-Wert von `uppercase` versehen sind, können für Personen mit kognitiven Beeinträchtigungen, wie z. B. Dyslexie, schwer lesbar sein.
+Große Abschnitte von Text, die mit einem `text-transform` Wert von `uppercase` gesetzt sind, können für Menschen mit kognitiven Beeinträchtigungen wie Legasthenie schwer zu lesen sein.
 
-- [MDN Erklärung zu WCAG, Anleitung 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [W3C Erklärung zu WCAG 2.1](https://www.w3.org/TR/WCAG21/#visual-presentation)
+- [MDN Verständnis WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [W3C Verständnis WCAG 2.1](https://www.w3.org/TR/WCAG21/#visual-presentation)
 
 ## Formale Definition
 
@@ -161,7 +162,7 @@ strong {
 }
 ```
 
-Dies demonstriert keine Texttransformation.
+Dies demonstriert keine Textumwandlung.
 
 {{ EmbedLiveSample('Example using "none"', '100%', '100px') }}
 
@@ -195,7 +196,7 @@ Dies demonstriert die Kapitalisierung von Text.
 
 {{ EmbedLiveSample('Example using "capitalize" (general)', '100%', '100px') }}
 
-### Beispiel mit "capitalize" (Interpunktion)
+### Beispiel mit "capitalize" (Zeichensetzung)
 
 ```html
 <p>
@@ -225,7 +226,7 @@ strong {
 }
 ```
 
-Dies zeigt, wie anfängliche Interpunktionen eines Wortes ignoriert werden. Das Schlüsselwort zielt auf den ersten Buchstaben ab, das heißt das erste Unicode-Zeichen, das Teil der Buchstaben- oder Zahlengruppen ist.
+Dies demonstriert, wie anfängliche Satzzeichen eines Wortes ignoriert werden. Das Schlüsselwort zielt auf den ersten Buchstaben ab, das ist das erste Unicode-Zeichen, welches Teil der Buchstaben- oder Zahlengeneral-Kategorie ist.
 
 {{ EmbedLiveSample('Example using "capitalize" (punctuation)', '100%', '100px') }}
 
@@ -251,11 +252,11 @@ strong {
 }
 ```
 
-Dies zeigt, wie anfängliche Symbole ignoriert werden. Das Schlüsselwort zielt auf den ersten Buchstaben ab, das heißt das erste Unicode-Zeichen, das Teil der Buchstaben- oder Zahlengruppen ist.
+Dies demonstriert, wie anfängliche Symbole ignoriert werden. Das Schlüsselwort zielt auf den ersten Buchstaben ab, das ist das erste Unicode-Zeichen, welches Teil der Buchstaben- oder Zahlengeneral-Kategorie ist.
 
 {{ EmbedLiveSample('Example using "capitalize" (symbols)', '100%', '100px') }}
 
-### Beispiel mit "capitalize" (Niederländisches ij-Digraph)
+### Beispiel mit "capitalize" (niederländische ij Ligatur)
 
 ```html
 <p>
@@ -281,7 +282,7 @@ strong {
 }
 ```
 
-Dies zeigt, wie das niederländische _ij_-Digraph wie ein einzelner Buchstabe behandelt werden muss.
+Dies demonstriert, wie das niederländische `ij`-Digraph als ein einzelner Buchstabe gehandhabt werden muss.
 
 {{ EmbedLiveSample('Example using "capitalize" (Dutch ij digraph)', '100%', '100px') }}
 
@@ -315,7 +316,7 @@ Dies demonstriert die Umwandlung des Textes in Großbuchstaben.
 
 {{ EmbedLiveSample('Example using "uppercase" (general)', '100%', '100px') }}
 
-### Beispiel mit "uppercase" (Griechische Vokale)
+### Beispiel mit "uppercase" (griechische Vokale)
 
 ```html
 <p>
@@ -339,7 +340,7 @@ strong {
 }
 ```
 
-Dies zeigt, wie griechische Vokale außer dem disjunktiven _Eta_ keinen Akzent haben sollten und der Akzent auf dem ersten Vokal eines Vokalpaares zu einem Trema auf dem zweiten Vokal wird.
+Dies demonstriert, wie griechische Vokale, außer das disjunktive _eta_, keinen Akzent haben sollten, und der Akzent auf dem ersten Vokal eines Vokalpaares ein Trema auf dem zweiten Vokal wird.
 
 {{ EmbedLiveSample('Example using "uppercase" (Greek vowels)', '100%', '100px') }}
 
@@ -373,7 +374,7 @@ Dies demonstriert die Umwandlung des Textes in Kleinbuchstaben.
 
 {{ EmbedLiveSample('Example using "lowercase" (general)', '100%', '100px') }}
 
-### Beispiel mit "lowercase" (Griechisches Σ)
+### Beispiel mit "lowercase" (griechisches Σ)
 
 ```html
 <p>
@@ -399,7 +400,7 @@ strong {
 }
 ```
 
-Dies zeigt, wie das griechische Zeichen Sigma (`Σ`) in das reguläre Kleinbuchstaben-Sigma (`σ`) oder die wortfinale Variante (`ς`) umgewandelt wird, abhängig vom Kontext.
+Dies demonstriert, wie das griechische Zeichen Sigma (`Σ`) zu dem regulären kleinen Sigma (`σ`) oder der wörtlichen Endform (`ς`) gemäß dem Kontext umgewandelt wird.
 
 {{ EmbedLiveSample('Example using "lowercase" (Greek Σ)', '100%', '100px') }}
 
@@ -425,7 +426,7 @@ strong {
 }
 ```
 
-Dies zeigt, wie die litauischen Buchstaben `Ĩ` und `J́` ihren Punkt behalten, wenn sie in Kleinbuchstaben umgewandelt werden.
+Dies demonstriert, wie die litauischen Buchstaben `Ĩ` und `J́` ihren Punkt behalten, wenn sie in Kleinbuchstaben umgewandelt werden.
 
 {{ EmbedLiveSample('Example using "lowercase" (Lithuanian)', '100%', '100px') }}
 
@@ -458,11 +459,11 @@ strong {
 }
 ```
 
-Einige Zeichen existieren in zwei Formaten: Normalbreite und Vollbreite, mit unterschiedlichen Unicode-Codepunkten. Die Vollbreitenversion wird verwendet, um sie fließend mit asiatischen ideographischen Zeichen zu mischen.
+Einige Zeichen existieren in zwei Formaten: normale Breite und volle Breite, mit unterschiedlichen Unicode-Codepunkten. Die Vollbreitenversion wird verwendet, um sie harmonisch mit asiatischen ideografischen Zeichen zu mischen.
 
 {{ EmbedLiveSample('Example using "full-width" (general)', '100%', '175px') }}
 
-### Beispiel mit "full-width" (Japanische Halbbreiten-Katakana)
+### Beispiel mit "full-width" (japanische Halbbreiten-Katakana)
 
 ```html
 <p>
@@ -485,7 +486,7 @@ strong {
 }
 ```
 
-In japanischen 8-Bit-Zeichencodes wurde die Halbbreiten-Katakana verwendet, um Katakana darzustellen. Im Gegensatz zu regulären (Vollbreiten-)Katakana-Zeichen wird ein Buchstabe mit Dakuten (Stimmzeichen) als zwei Codepunkten dargestellt: dem Körper des Buchstabens und Dakuten. Das `full-width` kombiniert diese zu einem einzigen Codepunkt, wenn diese Zeichen in Vollbreite konvertiert werden.
+Die japanische Halbbreiten-Katakana wurden verwendet, um Katakana in 8-Bit-Zeichencodes darzustellen. Im Gegensatz zu regulären (vollbreiten) Katakana-Zeichen wird ein Buchstabe mit Dakuten (Stimmzeichen) als zwei Codepunkte dargestellt, dem Körper des Buchstabens und dem Dakuten. Der `full-width`-Wert kombiniert diese zu einem einzelnen Codepunkt, wenn diese Zeichen in Vollbreite umgewandelt werden.
 
 {{ EmbedLiveSample('Example using "full-width" (Japanese half-width katakana)', '100%', '175px') }}
 
@@ -520,7 +521,7 @@ In diesem Beispiel verwenden wir reines HTML-Markup, um eine mathematische Forme
 </div>
 ```
 
-Wir geben jedem `.math-id` Element `text-transform: math-auto`. Beachten Sie jedoch, dass nur die `x`-Zeichen kursiv werden, während `sin` und `cos` unverändert bleiben.
+Wir geben jedem `.math-id` Element `text-transform: math-auto`. Beachten Sie jedoch, wie nur die `x` Zeichen kursiv werden, während die `sin` und `cos` unverändert bleiben.
 
 ```css
 .math-id {
@@ -530,7 +531,7 @@ Wir geben jedem `.math-id` Element `text-transform: math-auto`. Beachten Sie jed
 
 {{ EmbedLiveSample('Example using "math-auto"', '', '100px') }}
 
-Es wird jedoch empfohlen, [MathML](/de/docs/Web/MathML) für mathematische Formeln zu verwenden, da es eine robustere und zugänglichere Möglichkeit bietet, mathematischen Inhalt darzustellen. Hier ist die gleiche Formel mit MathML:
+Es wird jedoch empfohlen, [MathML](/de/docs/Web/MathML) für mathematische Formeln zu verwenden, da es eine robustere und zugänglichere Möglichkeit bietet, mathematische Inhalte darzustellen. Hier ist die gleiche Formel mit MathML:
 
 ```xml
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">

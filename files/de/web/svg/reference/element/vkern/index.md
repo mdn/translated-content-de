@@ -2,14 +2,14 @@
 title: <vkern>
 slug: Web/SVG/Reference/Element/vkern
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
 ---
 
 {{deprecated_header}}
 
-Das **`<vkern>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es, den vertikalen Abstand zwischen zwei Glyphen in vertikal gesetzten Schriften fein abzustimmen. Dieser Prozess ist als [Kerning](https://en.wikipedia.org/wiki/Kerning) bekannt.
+Das **`<vkern>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht die Feineinstellung des vertikalen Abstands zwischen zwei Glyphen in von oben nach unten verlaufenden Schriften. Dieser Prozess ist als [Kerning](https://en.wikipedia.org/wiki/Kerning) bekannt.
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -23,7 +23,7 @@ Das **`<vkern>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es, den vertikalen
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGVKernElement`](/de/docs/Web/API/SVGVKernElement)-Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGVKernElement`](/de/docs/Web/API/SVGVKernElement).
 
 ## Spezifikationen
 
@@ -38,4 +38,4 @@ Dieses Element implementiert die [`SVGVKernElement`](/de/docs/Web/API/SVGVKernEl
 - {{SVGElement("font")}}
 - {{SVGElement("glyph")}}
 - {{SVGElement("hkern")}}
-- [SVG-Tutorial: SVG fonts](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/SVG_fonts)
+- [SVG-Anleitung: SVG-Schriftarten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Using_fonts)

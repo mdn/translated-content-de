@@ -2,12 +2,12 @@
 title: <font-face-src>
 slug: Web/SVG/Reference/Element/font-face-src
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
 ---
 
 {{deprecated_header}}
 
-Das **`<font-face-src>`**-[SVG](/de/docs/Web/SVG)-Element entspricht dem Descriptor {{cssxref("@font-face/src", "src")}} in CSS-{{cssxref("@font-face")}}-Regeln. Es dient als Container für {{SVGElement("font-face-name")}}, das auf lokal installierte Kopien dieser Schriftart verweist, und {{SVGElement("font-face-uri")}}, das remote definierte Schriftarten nutzt.
+Das **`<font-face-src>`** [SVG](/de/docs/Web/SVG)-Element entspricht dem {{cssxref("@font-face/src", "src")}} Deskriptor in CSS {{cssxref("@font-face")}} Regeln. Es dient als Container für {{SVGElement("font-face-name")}}, das auf lokal installierte Kopien dieser Schriftart verweist, und {{SVGElement("font-face-uri")}}, welches remote definierte Schriften verwendet.
 
 ## Verwendungskontext
 
@@ -30,4 +30,4 @@ Dieses Element implementiert die [`SVGFontFaceSrcElement`](/de/docs/Web/API/SVGF
 - {{SVGElement("font-face")}}
 - {{SVGElement("font-face-name")}}
 - {{SVGElement("font-face-uri")}}
-- [SVG-Leitfaden: SVG-Schriften](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/SVG_fonts)
+- [SVG-Leitfaden: SVG-Schriften verwenden](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Using_fonts)

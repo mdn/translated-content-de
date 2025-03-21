@@ -2,12 +2,12 @@
 title: <font-face-uri>
 slug: Web/SVG/Reference/Element/font-face-uri
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
 ---
 
 {{deprecated_header}}
 
-Das **`<font-face-uri>`** [SVG](/de/docs/Web/SVG) Element verweist auf eine externe Definition der aktuellen Schriftart.
+Das **`<font-face-uri>`** [SVG](/de/docs/Web/SVG)-Element verweist auf eine entfernte Definition der aktuellen Schriftart.
 
 ## Verwendungskontext
 
@@ -19,7 +19,7 @@ Das **`<font-face-uri>`** [SVG](/de/docs/Web/SVG) Element verweist auf eine exte
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFontFaceUriElement`](/de/docs/Web/API/SVGFontFaceUriElement) Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGFontFaceUriElement`](/de/docs/Web/API/SVGFontFaceUriElement).
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ Dieses Element implementiert die [`SVGFontFaceUriElement`](/de/docs/Web/API/SVGF
 ## Siehe auch
 
 - {{SVGElement("font-face-src")}}
-- [SVG-Tutorial: SVG-Schriften](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/SVG_fonts)
+- [SVG Tutorial: SVG Fonts](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Using_fonts)

@@ -2,14 +2,14 @@
 title: <font-face>
 slug: Web/SVG/Reference/Element/font-face
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
 ---
 
 {{deprecated_header}}
 
-Das **`<font-face>`** [SVG](/de/docs/Web/SVG)-Element entspricht der CSS-Regel {{cssxref("@font-face")}}. Es definiert die äußeren Eigenschaften einer Schriftart.
+Das **`<font-face>`** [SVG](/de/docs/Web/SVG) Element entspricht der CSS-Regel {{cssxref("@font-face")}}. Es definiert die äußeren Eigenschaften einer Schriftart.
 
-## Verwendungszusammenhang
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -49,9 +49,9 @@ Das **`<font-face>`** [SVG](/de/docs/Web/SVG)-Element entspricht der CSS-Regel {
 - {{SVGAttr("overline-position")}} {{Deprecated_Inline}}
 - {{SVGAttr("overline-thickness")}} {{Deprecated_Inline}}
 
-## DOM-Schnittstelle
+## DOM-Interface
 
-Dieses Element implementiert die Schnittstelle [`SVGFontFaceElement`](/de/docs/Web/API/SVGFontFaceElement).
+Dieses Element implementiert das [`SVGFontFaceElement`](/de/docs/Web/API/SVGFontFaceElement) Interface.
 
 ## Spezifikationen
 
@@ -65,4 +65,4 @@ Dieses Element implementiert die Schnittstelle [`SVGFontFaceElement`](/de/docs/W
 
 - {{SVGElement("font")}}
 - {{SVGElement("font-face-src")}}
-- [SVG-Anleitung: SVG-Schriften](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/SVG_fonts)
+- [SVG Lehrgang: SVG Fonts](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Using_fonts)

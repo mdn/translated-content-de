@@ -2,12 +2,12 @@
 title: hyphens
 slug: Web/CSS/hyphens
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
 ---
 
 {{CSSRef}}
 
-Die **`hyphens`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Wörter bei Textumbrüchen über mehrere Zeilen getrennt werden sollen. Sie kann die Trennung vollständig verhindern, an manuell festgelegten Punkten innerhalb des Textes trennen oder dem Browser erlauben, automatisch Bindestriche an geeigneten Stellen einzufügen.
+Die **`hyphens`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert, wie Wörter beim Textumbruch über mehrere Zeilen hinweg getrennt werden sollen. Sie kann die Trennung vollständig verhindern, Trennungen an manuell festgelegten Stellen im Text vornehmen oder dem Browser erlauben, automatisch Bindestriche dort einzufügen, wo es angemessen ist.
 
 {{InteractiveExample("CSS Demo: hyphens")}}
 
@@ -39,14 +39,14 @@ hyphens: auto;
 ```
 
 > [!NOTE]
-> Im obigen Demo enthält der String "An extraordinarily long English word!" das versteckte `&shy;` (weicher Bindestrich) Zeichen: `An extra&shy;ordinarily long English word!`. Dieses Zeichen wird verwendet, um eine potenzielle Stelle für das Einfügen eines Bindestrichs anzugeben, wenn `hyphens: manual;` festgelegt ist.
+> Im obigen Demo enthält der String "An extraordinarily long English word!" das versteckte `&shy;` (soft hyphen) Zeichen: `An extra&shy;ordinarily long English word!`. Dieses Zeichen wird verwendet, um eine potenzielle Stelle für das Einfügen eines Bindestrichs anzugeben, wenn `hyphens: manual;` angegeben ist.
 
-Trennregeln sind sprachspezifisch. In HTML wird die Sprache durch das [`lang`](/de/docs/Web/HTML/Global_attributes/lang) Attribut bestimmt, und Browser trennen nur dann, wenn dieses Attribut vorhanden ist und das passende Trennungswörterbuch verfügbar ist. In XML muss das [`xml:lang`](/de/docs/Web/SVG/Attribute/xml:lang) Attribut benutzt werden.
+Die Trennungsregeln sind sprachspezifisch. In HTML wird die Sprache durch das [`lang`](/de/docs/Web/HTML/Global_attributes/lang) Attribut bestimmt, und Browser trennen nur dann, wenn dieses Attribut vorhanden ist und das entsprechende Trennungswörterbuch verfügbar ist. In XML muss das [`xml:lang`](/de/docs/Web/SVG/Reference/Attribute/xml:lang) Attribut verwendet werden.
 
 > [!NOTE]
-> Die Regeln, die definieren, wie Trennungen durchgeführt werden, sind nicht explizit durch die Spezifikation definiert, deshalb kann die genaue Trennung von Browser zu Browser variieren.
+> Die Regeln, die definieren, wie die Trennung durchgeführt wird, sind nicht explizit durch die Spezifikation definiert, sodass die genaue Trennung von Browser zu Browser variieren kann.
 
-Falls unterstützt, kann {{cssxref("hyphenate-character")}} verwendet werden, um ein alternatives Trennzeichen für das Zeilenende anzugeben.
+Wenn unterstützt, kann {{cssxref("hyphenate-character")}} verwendet werden, um ein alternatives Trennzeichen zu spezifizieren, das am Ende der umbrochenen Zeile verwendet wird.
 
 ## Syntax
 
@@ -64,31 +64,31 @@ hyphens: revert-layer;
 hyphens: unset;
 ```
 
-Die `hyphens` Eigenschaft wird als ein Schlüsselwortwert aus der untenstehenden Liste angegeben.
+Die `hyphens` Eigenschaft wird als ein einzelner Schlüsselwortwert spezifiziert, der aus der unten stehenden Liste ausgewählt wird.
 
 ### Werte
 
 - `none`
-  - : Wörter werden bei Zeilenumbrüchen nicht getrennt, selbst wenn Zeichen innerhalb der Wörter auf Trennungspunkte hinweisen. Zeilenumbrüche erfolgen nur bei Leerzeichen.
+  - : Wörter werden nicht an Zeilenumbrüchen getrennt, selbst wenn Zeichen innerhalb der Wörter auf mögliche Umbruchstellen hinweisen. Zeilen werden nur an Leerzeichen umbrochen.
 - `manual`
-  - : Standardwert. Wörter werden für Zeilenumbrüche nur dann getrennt, wenn Zeichen innerhalb des Wortes auf Möglichkeiten zur Trennung hinweisen. Siehe [Möglichkeiten zur Trennung vorschlagen](#möglichkeiten_zur_trennung_vorschlagen) unten für Details.
+  - : Standardwert. Wörter werden für Zeilenumbrüche nur dort getrennt, wo Zeichen innerhalb des Wortes Umbruchmöglichkeiten anzeigen. Siehe [Vorschlagen von Umbruchmöglichkeiten](#vorschlagen_von_umbruchmöglichkeiten) unten für Details.
 - `auto`
-  - : Der Browser kann Wörter an geeigneten Trennstellen automatisch brechen, nach welchen Regeln auch immer er wählt. Allerdings werden vorgeschlagene Möglichkeiten zur Trennung (siehe [Möglichkeiten zur Trennung vorschlagen](#möglichkeiten_zur_trennung_vorschlagen) unten) bei Vorhandensein automatisch über die Auswahl der Trennpunkte gesetzt.
+  - : Der Browser kann Wörter an geeigneten Trennungsstellen automatisch trennen, nach welchen Regeln er sich auch immer entscheidet. Vorgeschlagene Umbruchmöglichkeiten (siehe [Vorschlagen von Umbruchmöglichkeiten](#vorschlagen_von_umbruchmöglichkeiten) unten) überschreiben jedoch die automatische Auswahl von Umbruchstellen, wenn vorhanden.
 
 > [!NOTE]
-> Das Verhalten der `auto` Einstellung hängt davon ab, dass die Sprache korrekt markiert ist, um die passenden Trennungsregeln auszuwählen. Sie müssen eine Sprache mit dem `lang` HTML-Attribut angeben, um sicherzustellen, dass die automatische Trennung in dieser Sprache angewendet wird.
+> Das Verhalten der `auto` Einstellung hängt davon ab, dass die Sprache korrekt markiert ist, um die entsprechenden Trennungsregeln auszuwählen. Sie müssen eine Sprache mit dem `lang` HTML-Attribut angeben, um sicherzustellen, dass die automatische Trennung in dieser Sprache angewendet wird.
 
 > [!NOTE]
-> Wenn Sie [`word-break: break-all`](/de/docs/Web/CSS/word-break#break-all) anwenden, werden keine Bindestriche angezeigt, selbst wenn das Wort an einer Trennstelle gebrochen wird.
+> Wenn Sie [`word-break: break-all`](/de/docs/Web/CSS/word-break#break-all) anwenden, werden keine Bindestriche angezeigt, selbst wenn das Wort an einer Trennungsstelle umgebrochen wird.
 
-## Möglichkeiten zur Trennung vorschlagen
+## Vorschlagen von Umbruchmöglichkeiten
 
-Es gibt zwei Unicode-Zeichen, die verwendet werden, um manuell mögliche Trennpunkte innerhalb eines Textes anzugeben:
+Es gibt zwei Unicode-Zeichen, die verwendet werden, um manuell mögliche Umbruchstellen innerhalb des Textes anzugeben:
 
 - U+2010 (HYPHEN)
-  - : Das "harte" Bindestrichzeichen zeigt eine sichtbare Möglichkeit zur Trennung an. Selbst wenn die Zeile an dieser Stelle nicht tatsächlich gebrochen wird, wird der Bindestrich dennoch angezeigt.
+  - : Das "harte" Bindestrich-Zeichen zeigt eine sichtbare Umbruchmöglichkeit an. Auch wenn die Zeile an dieser Stelle tatsächlich nicht umbrochen wird, wird der Bindestrich dennoch dargestellt.
 - U+00AD (SHY)
-  - : Ein unsichtbarer "**s**oft" **hy**phen. Dieses Zeichen wird nicht sichtbar angezeigt; stattdessen markiert es eine Stelle, an der der Browser das Wort brechen sollte, wenn eine Trennung erforderlich ist. In HTML verwenden Sie `&shy;`, um einen weichen Bindestrich einzufügen.
+  - : Ein unsichtbarer, "**s**ofter" **hy**phen. Dieses Zeichen wird nicht sichtbar dargestellt; stattdessen markiert es eine Stelle, an der der Browser das Wort trennen sollte, wenn eine Trennung erforderlich ist. In HTML verwenden Sie `&shy;`, um einen weichen Bindestrich einzufügen.
 
 > [!NOTE]
 > Wenn das HTML [`<wbr>`](/de/docs/Web/HTML/Element/wbr) Element zu einem Zeilenumbruch führt, wird kein Bindestrich hinzugefügt.
@@ -103,7 +103,7 @@ Es gibt zwei Unicode-Zeichen, die verwendet werden, um manuell mögliche Trennpu
 
 ## Beispiele
 
-### Texttrennung spezifizieren
+### Spezifikation der Texttrennung
 
 Dieses Beispiel verwendet drei Klassen, eine für jede mögliche Konfiguration der `hyphens` Eigenschaft.
 
@@ -157,4 +157,4 @@ dd.auto {
 - {{cssxref("content")}}
 - {{cssxref("overflow-wrap")}} (ehemals `word-wrap`)
 - {{cssxref("word-break")}}
-- [Leitfaden zum Umbruch und zur Trennung von Texten](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
+- [Leitfaden für Umbruch und Trennung von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
