@@ -2,23 +2,23 @@
 title: Vererbung
 slug: Web/CSS/CSS_cascade/Inheritance
 l10n:
-  sourceCommit: 95edea913e7f0726243aff3f47b85cfd6f02d995
+  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
 ---
 
 {{CSSRef}}
 
-In CSS steuert die **Vererbung**, was passiert, wenn für eine Eigenschaft an einem Element kein Wert angegeben ist.
+In CSS steuert die **Vererbung**, was passiert, wenn für eine Eigenschaft bei einem Element kein Wert angegeben ist.
 
 CSS-Eigenschaften können in zwei Typen kategorisiert werden:
 
-- **Vererbte Eigenschaften**, die standardmäßig auf den [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed-value) des Elternelements gesetzt sind
-- **Nicht-vererbte Eigenschaften**, die standardmäßig auf den [Anfangswert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial-value) der Eigenschaft gesetzt sind
+- **Vererbte Eigenschaften**, die standardmäßig auf den [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) des übergeordneten Elements gesetzt werden
+- **Nicht-vererbte Eigenschaften**, die standardmäßig auf den [Initialwert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) der Eigenschaft gesetzt werden
 
-Verweisen Sie auf die Definition von [beliebigen CSS-Eigenschaften](/de/docs/Web/CSS/Reference#index), um zu sehen, ob eine bestimmte Eigenschaft standardmäßig vererbt wird ("Inherited: yes") oder nicht ("Inherited: no").
+Schauen Sie in die Definition [irgendeiner CSS-Eigenschaft](/de/docs/Web/CSS/Reference#index) nach, ob eine spezifische Eigenschaft standardmäßig vererbt wird ("Inherited: yes") oder nicht ("Inherited: no").
 
 ## Vererbte Eigenschaften
 
-Wenn für eine **vererbte Eigenschaft** an einem Element kein Wert spezifiziert wurde, erhält das Element den [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed-value) dieser Eigenschaft von seinem Elternelement. Nur das Wurzelelement des Dokuments erhält den in der Zusammenfassung der Eigenschaft gegebenen [Anfangswert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial-value).
+Wenn für eine **vererbte Eigenschaft** auf einem Element kein Wert angegeben wurde, erhält das Element den [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) dieser Eigenschaft von seinem übergeordneten Element. Nur das Wurzelelement des Dokuments erhält den [Initialwert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value), wie er in der Zusammenfassung der Eigenschaft angegeben ist.
 
 Ein typisches Beispiel für eine vererbte Eigenschaft ist die [`color`](/de/docs/Web/CSS/color)-Eigenschaft. Betrachten Sie die folgenden Stilregeln und das Markup:
 
@@ -32,15 +32,15 @@ p {
 <p>This paragraph has <em>emphasized text</em> in it.</p>
 ```
 
-{{EmbedLiveSample("Inherited properties","",40)}}
+{{EmbedLiveSample("Vererbte Eigenschaften","",40)}}
 
-Die Worte "emphasized text" werden grün angezeigt, da das `em`-Element den Wert der [`color`](/de/docs/Web/CSS/color)-Eigenschaft vom `p`-Element geerbt hat. Es erhält _nicht_ den Anfangswert der Eigenschaft (was die Farbe ist, die für das Wurzelelement verwendet wird, wenn die Seite keine Farbe angibt).
+Die Worte "hervorgehobener Text" erscheinen grün, da das `em`-Element den Wert der [`color`](/de/docs/Web/CSS/color)-Eigenschaft vom `p`-Element geerbt hat. Es erhält _nicht_ den Initialwert der Eigenschaft (welches die Farbe ist, die für das Wurzelelement verwendet wird, wenn die Seite keine Farbe angibt).
 
 ## Nicht-vererbte Eigenschaften
 
-Wenn für eine **nicht-vererbte Eigenschaft** an einem Element kein Wert spezifiziert wurde, erhält das Element den [Anfangswert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial-value) dieser Eigenschaft (wie in der Zusammenfassung der Eigenschaft angegeben).
+Wenn für eine **nicht-vererbte Eigenschaft** bei einem Element kein Wert angegeben wurde, erhält das Element den [Initialwert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) dieser Eigenschaft (wie in der Zusammenfassung der Eigenschaft angegeben).
 
-Ein typisches Beispiel für eine nicht-vererbte Eigenschaft ist die {{ Cssxref("border") }}-Eigenschaft. Betrachten Sie folgende Stilregeln und das Markup:
+Ein typisches Beispiel für eine nicht-vererbte Eigenschaft ist die {{ Cssxref("border") }}-Eigenschaft. Betrachten Sie die folgenden Stilregeln und das Markup:
 
 ```css
 p {
@@ -52,15 +52,15 @@ p {
 <p>This paragraph has <em>emphasized text</em> in it.</p>
 ```
 
-{{EmbedLiveSample("Non-inherited properties","",40)}}
+{{EmbedLiveSample("Nicht-vererbte Eigenschaften","",40)}}
 
-Die Worte "emphasized text" werden keinen weiteren Rahmen haben (da der Anfangswert von [`border-style`](/de/docs/Web/CSS/border-style) `none` ist).
+Die Worte "hervorgehobener Text" werden keinen zusätzlichen Rahmen haben (da der Initialwert von [`border-style`](/de/docs/Web/CSS/border-style) `none` ist).
 
 ## Anmerkungen
 
-Das [`inherit`](/de/docs/Web/CSS/inherit)-Schlüsselwort ermöglicht es Autoren, die Vererbung explizit zu spezifizieren. Es funktioniert sowohl bei vererbten als auch bei nicht-vererbten Eigenschaften.
+Das [`inherit`](/de/docs/Web/CSS/inherit)-Schlüsselwort erlaubt es Autoren, Vererbung explizit anzugeben. Es funktioniert sowohl bei vererbten als auch bei nicht-vererbten Eigenschaften.
 
-Sie können die Vererbung für alle Eigenschaften auf einmal mit der [`all`](/de/docs/Web/CSS/all)-Kurzschreibweise steuern, die ihren Wert auf alle Eigenschaften anwendet. Zum Beispiel:
+Sie können die Vererbung für alle Eigenschaften auf einmal mit der [`all`](/de/docs/Web/CSS/all)-Kurznotation steuern, die ihren Wert auf alle Eigenschaften anwendet. Zum Beispiel:
 
 ```css
 p {
@@ -70,11 +70,11 @@ p {
 }
 ```
 
-Dies setzt den Stil der [Absatz-`font`-Eigenschaft](/de/docs/Web/CSS/font) zurück auf den Standard des Benutzeragenten, es sei denn, es existiert ein Benutzer-Stylesheet, in diesem Fall wird dieses stattdessen verwendet. Dann wird die Schriftgröße verdoppelt und ein [`font-weight`](/de/docs/Web/CSS/font-weight) von `"bold"` angewendet.
+Dies setzt den Stil der [`font`](/de/docs/Web/CSS/font)-Eigenschaft der Absätze auf den Standard des Benutzer-Agents zurück, es sei denn, es existiert ein Benutzer-Stylesheet, in diesem Fall wird dieses verwendet. Dann verdoppelt es die Schriftgröße und wendet ein [`font-weight`](/de/docs/Web/CSS/font-weight) von `"bold"` an.
 
 ### Vererbung überschreiben, ein Beispiel
 
-Verwenden wir unser vorheriges Beispiel mit [`border`](/de/docs/Web/CSS/border), wenn wir die Vererbung explizit mit `inherit` festlegen, erhalten wir folgendes:
+Wenn wir unser vorheriges Beispiel mit [`border`](/de/docs/Web/CSS/border) nehmen und die Vererbung mit `inherit` explizit festsetzen, erhalten wir Folgendes:
 
 ```css
 p {
@@ -90,9 +90,9 @@ em {
 <p>This paragraph has <em>emphasized text</em> in it.</p>
 ```
 
-{{EmbedLiveSample("Overriding inheritance, an example","",40)}}
+{{EmbedLiveSample("Vererbung überschreiben, ein Beispiel","",40)}}
 
-Wir sehen hier einen weiteren Rahmen um das Wort "emphasized text".
+Hier sehen wir einen zusätzlichen Rahmen um das Wort "hervorgehobener Text".
 
 ## Spezifikationen
 
@@ -100,15 +100,15 @@ Wir sehen hier einen weiteren Rahmen um das Wort "emphasized text".
 
 ## Siehe auch
 
-- CSS-Werte zur Steuerung der Vererbung: [`inherit`](/de/docs/Web/CSS/inherit), [`initial`](/de/docs/Web/CSS/initial), [`revert`](/de/docs/Web/CSS/revert), [`revert-layer`](/de/docs/Web/CSS/revert-layer) und [`unset`](/de/docs/Web/CSS/unset)
+- CSS-Werte zur Steuerung der Vererbung: [`inherit`](/de/docs/Web/CSS/inherit), [`initial`](/de/docs/Web/CSS/initial), [`revert`](/de/docs/Web/CSS/revert), [`revert-layer`](/de/docs/Web/CSS/revert-layer), und [`unset`](/de/docs/Web/CSS/unset)
 - [CSS-Fehlerbehandlung](/de/docs/Web/CSS/CSS_syntax/Error_handling)
-- [Einführung in den CSS-Cascade](/de/docs/Web/CSS/CSS_cascade/Cascade)
-- [Lernen: Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
-- [Lernen: Kaskadenschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
-- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax) Leitfaden
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax) Modul
+- [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade)
+- [Lernen: Konflikte handhaben](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
+- [Lernen: Kaskadierungsschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
+- Modul der [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade)
+- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)-Leitfaden
+- Modul der [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)
 - [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
-- [Initial](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial-value), [berechnete](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed-value), [verwendete](/de/docs/Web/CSS/CSS_cascade/Value_processing#used-value) und [aktuelle](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual-value) Werte
+- [Initial](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value), [berechnet](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value), [verwendet](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value), und [tatsächliche](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value) Werte
 - [Wertedefinitionssyntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
-- [CSS-Nesting-Modul](/de/docs/Web/CSS/CSS_nesting)
+- [CSS-Verschachtelungsmodul](/de/docs/Web/CSS/CSS_nesting)

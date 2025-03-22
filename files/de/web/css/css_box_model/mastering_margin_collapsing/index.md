@@ -1,31 +1,31 @@
 ---
-title: Beherrschen des Zusammenfallens von Abständen
+title: Beherrschung der Margenzusammenführung
 slug: Web/CSS/CSS_box_model/Mastering_margin_collapsing
 l10n:
-  sourceCommit: 95edea913e7f0726243aff3f47b85cfd6f02d995
+  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
 ---
 
 {{CSSRef}}
 
-Die [oberen](/de/docs/Web/CSS/margin-top) und [unteren](/de/docs/Web/CSS/margin-bottom) Abstände von Blöcken werden manchmal zu einem einzigen Abstand kombiniert (zusammengefallen), dessen Größe die größte der einzelnen Abstände ist (oder einfach einer von ihnen, wenn sie gleich sind), ein Verhalten, das als **Zusammenfallen von Abständen** bekannt ist. Beachten Sie, dass die Abstände von [schwebenden](/de/docs/Web/CSS/float) und [absolut positionierten](/de/docs/Web/CSS/position#types_of_positioning) Elementen niemals zusammenfallen.
+Die [oberen](/de/docs/Web/CSS/margin-top) und [unteren](/de/docs/Web/CSS/margin-bottom) Ränder von Blöcken werden manchmal zu einem einzigen Rand zusammengefasst (zusammengeführt), dessen Größe die größte der individuellen Ränder ist (oder einfach einer von ihnen, wenn sie gleich sind). Dieses Verhalten wird als **Margenzusammenführung** bezeichnet. Beachten Sie, dass die Ränder von [schwebenden](/de/docs/Web/CSS/float) und [absolut positionierten](/de/docs/Web/CSS/position#types_of_positioning) Elementen niemals zusammengeführt werden.
 
-Das Zusammenfallen von Abständen tritt in drei grundlegenden Fällen auf:
+Die Margenzusammenführung tritt in drei grundlegenden Fällen auf:
 
 - Angrenzende Geschwister
-  - : Die Abstände von angrenzenden Geschwisterelementen fallen zusammen (außer wenn das letzte Geschwisterelement an den Schwebepunkten [vorbeigeräumt (cleared)](/de/docs/Web/CSS/clear) werden muss).
-- Kein Inhalt trennt Eltern und Nachkommen
-  - : Wenn es keine Umrandung, keine Auffüllung, keinen Inline-Teil, keinen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) erzeugt, oder keine _[Räumung (Clearance)](/de/docs/Web/CSS/clear)_ gibt, um den {{cssxref("margin-top")}} eines Blocks von dem {{cssxref("margin-top")}} eines oder mehrerer seiner Nachkommenblöcke zu trennen; oder keine Umrandung, Auffüllung, Inline-Inhalt, {{cssxref("height")}}, oder {{cssxref("min-height")}}, um den {{cssxref("margin-bottom")}} eines Blocks von dem {{cssxref("margin-bottom")}} eines oder mehrerer seiner Nachkommenblöcke zu trennen, dann fallen diese Abstände zusammen. Der zusammengefallene Abstand befindet sich außerhalb des Elternblocks.
+  - : Die Ränder von angrenzenden Geschwisterelementen werden zusammengeführt (außer wenn das nachfolgende Geschwisterelement an Fließobjekten [vorbeigeklärt](/de/docs/Web/CSS/clear) werden muss).
+- Kein Inhalt zwischen Eltern und Nachkommen
+  - : Wenn es keine Grenze, keinen Abstand, keinen Inline-Anteil, keinen [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) oder _[Klärung](/de/docs/Web/CSS/clear)_ gibt, um den {{cssxref("margin-top")}} eines Blocks von dem {{cssxref("margin-top")}} eines oder mehrerer seiner Nachkommen-Blöcke zu trennen; oder keine Grenze, kein Abstand, kein Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}} gibt, um den {{cssxref("margin-bottom")}} eines Blocks von dem {{cssxref("margin-bottom")}} eines oder mehrerer seiner Nachkommen-Blöcke zu trennen, dann werden diese Ränder zusammengeführt. Der zusammengeführte Rand befindet sich außerhalb des Elternteils.
 - Leere Blöcke
-  - : Wenn es keine Umrandung, Auffüllung, Inline-Inhalt, {{cssxref("height")}}, oder {{cssxref("min-height")}} gibt, um den {{cssxref("margin-top")}} eines Blocks von seinem {{cssxref("margin-bottom")}} zu trennen, dann fallen seine oberen und unteren Abstände zusammen.
+  - : Wenn es keine Grenze, keinen Abstand, keinen Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}} gibt, um den {{cssxref("margin-top")}} eines Blocks von seinem {{cssxref("margin-bottom")}} zu trennen, dann werden die oberen und unteren Ränder desselben Blocks zusammengeführt.
 
-Einige Dinge zu beachten:
+Einige Dinge, die zu beachten sind:
 
-- Komplexeres Zusammenfallen von Abständen (von mehr als zwei Abständen) tritt auf, wenn die oben genannten Fälle kombiniert werden.
-- Diese Regeln gelten auch für Abstände, die null sind, sodass der Abstand eines Nachkommen außerhalb seines Elternblocks endet (gemäß den oben genannten Regeln), unabhängig davon, ob der Abstand des Elternblocks null ist oder nicht.
-- Wenn negative Abstände involviert sind, ist die Größe des zusammengefallenen Abstands die Summe des größten positiven Abstands und des kleinsten (negativsten) negativen Abstands.
-- Wenn alle Abstände negativ sind, ist die Größe des zusammengefallenen Abstands der kleinste (negativste) Abstand. Dies gilt sowohl für benachbarte als auch für verschachtelte Elemente.
-- Zusammenfallende Abstände sind nur in der vertikalen Richtung relevant.
-- Abstände fallen nicht in einem Container zusammen, bei dem `display` auf `flex` oder `grid` gesetzt ist.
+- Eine komplexere Margenzusammenführung (von mehr als zwei Rändern) tritt auf, wenn die oben genannten Fälle kombiniert werden.
+- Diese Regeln gelten auch für Ränder, die null sind, sodass der Rand eines Nachkommen außerhalb seines Elternteils endet (gemäß den obigen Regeln), unabhängig davon, ob der Rand des Elternteils null ist.
+- Wenn negative Ränder im Spiel sind, ist die Größe des zusammengeführten Randes die Summe des größten positiven und des kleinsten (am meisten negativen) negativen Randes.
+- Wenn alle Ränder negativ sind, ist die Größe des zusammengeführten Randes der kleinste (am meisten negative) Rand. Dies gilt sowohl für angrenzende als auch für geschachtelte Elemente.
+- Die Margenzusammenführung ist nur in vertikaler Richtung relevant.
+- Ränder werden in einem Container mit `display` auf `flex` oder `grid` nicht zusammengeführt.
 
 ## Beispiele
 
@@ -73,7 +73,7 @@ p {
 
 ## Siehe auch
 
-- CSS-Schlüsselkonzepte:
+- Wichtige Konzepte von CSS:
   - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
   - [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
   - [Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
@@ -83,10 +83,10 @@ p {
   - {{Glossary("Layout_mode", "Layout-Modi")}}
   - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
   - Werte
-    - [Anfangswerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial-value)
-    - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed-value)
-    - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used-value)
-    - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual-value)
-  - [Wertedefinitions-Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
-  - [Kurzschreibweiseigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
+    - [Anfangswerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value)
+    - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value)
+    - [Genutzte Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value)
+    - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value)
+  - [Wertedefinitionssyntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
+  - [Kurzschreibweise für Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
   - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

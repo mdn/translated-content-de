@@ -2,12 +2,12 @@
 title: CSSOM View
 slug: Web/CSS/CSSOM_view
 l10n:
-  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
+  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
 ---
 
 {{CSSRef}}
 
-Das **CSSOM View**-Modul ermöglicht es Ihnen, die visuelle Ansicht eines Dokuments zu manipulieren, einschließlich des Abrufens der Position von Layout-Boxen von Elementen, der Ermittlung der Breite oder Höhe des Ansichtsfensters über ein Skript und auch des Scrollens eines Elements.
+Das **CSSOM View**-Modul ermöglicht Ihnen die Manipulation der visuellen Ansicht eines Dokuments, einschließlich des Abrufens der Position von Layout-Boxen von Elementen, der Ermittlung der Breite oder Höhe des Viewports durch ein Skript und auch des Scrollens eines Elements.
 
 ## Referenz
 
@@ -31,46 +31,20 @@ Das **CSSOM View**-Modul ermöglicht es Ihnen, die visuelle Ansicht eines Dokume
 ### Glossar
 
 - {{Glossary("Viewport", "Viewport")}}
-- {{Glossary("Layout_viewport", "Layout-Viewport")}}
-- {{Glossary("Visual_viewport", "Visuelles Viewport")}}
+- {{Glossary("Layout_viewport", "Layout viewport")}}
+- {{Glossary("Visual_viewport", "Visual viewport")}}
 
 ### Schnittstellen
 
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
-  - [`matches`](/de/docs/Web/API/MediaQueryList/matches)
-  - [`media`](/de/docs/Web/API/MediaQueryList/media)
-  - [`addListener()`](/de/docs/Web/API/MediaQueryList/addListener)
-  - [`removeListener()`](/de/docs/Web/API/MediaQueryList/removeListener)
-  - [`onchange`](/de/docs/Web/API/MediaQueryList/change_event)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)
-  - [`media`](/de/docs/Web/API/MediaQueryListEvent/media)
-  - [`matches`](/de/docs/Web/API/MediaQueryListEvent/matches)
 - [`Screen`](/de/docs/Web/API/Screen)
-  - [`availHeight`](/de/docs/Web/API/Screen/availHeight)
-  - [`availWidth`](/de/docs/Web/API/Screen/availWidth)
-  - [`colorDepth`](/de/docs/Web/API/Screen/colorDepth)
-  - [`height`](/de/docs/Web/API/Screen/height)
-  - [`pixelDepth`](/de/docs/Web/API/Screen/pixelDepth)
-  - [`width`](/de/docs/Web/API/Screen/width)
 - [`CaretPosition`](/de/docs/Web/API/CaretPosition)
-  - [`offsetNode`](/de/docs/Web/API/CaretPosition/offsetNode)
-  - [`offset`](/de/docs/Web/API/CaretPosition/offset)
-  - [`getClientRect()`](/de/docs/Web/API/CaretPosition/getClientRect)
 - [`VisualViewport`](/de/docs/Web/API/VisualViewport)
-  - [`height`](/de/docs/Web/API/VisualViewport/height)
-  - [`offsetLeft`](/de/docs/Web/API/VisualViewport/offsetLeft)
-  - [`offsetTop`](/de/docs/Web/API/VisualViewport/offsetTop)
-  - [`onresize`](/de/docs/Web/API/VisualViewport/resize_event)
-  - [`onscroll`](/de/docs/Web/API/VisualViewport/scroll_event)
-  - [`onscrollend`](/de/docs/Web/API/VisualViewport/onscrollend)
-  - [`pageLeft`](/de/docs/Web/API/VisualViewport/pageLeft)
-  - [`pageTop`](/de/docs/Web/API/VisualViewport/pageTop)
-  - [`scale`](/de/docs/Web/API/VisualViewport/scale)
-  - [`width`](/de/docs/Web/API/VisualViewport/width)
 
 ### Schnittstellenerweiterungen
 
-Dieses Modul fügt Schnittstellen, die in anderen Spezifikationen definiert sind, Eigenschaften und Methoden hinzu.
+Dieses Modul fügt Eigenschaften und Methoden zu Schnittstellen hinzu, die in anderen Spezifikationen definiert sind.
 
 - [`Window`](/de/docs/Web/API/Window)
   - [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio)
@@ -140,14 +114,14 @@ Dieses Modul fügt Schnittstellen, die in anderen Spezifikationen definiert sind
   - [`x`](/de/docs/Web/API/MouseEvent/x)
   - [`y`](/de/docs/Web/API/MouseEvent/y)
 
-Dieses Modul definiert geometrische Hilfsmethoden, die auf die Schnittstellen [`Text`](/de/docs/Web/API/Text), [`Element`](/de/docs/Web/API/Element), [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement) und [`Document`](/de/docs/Web/API/Document) angewendet werden. Diese `GeometryUtils`-Funktionen sind in keinem Browser implementiert.
+Dieses Modul definiert geometrische Hilfsmethoden, die auf die Schnittstellen [`Text`](/de/docs/Web/API/Text), [`Element`](/de/docs/Web/API/Element), [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement) und [`Document`](/de/docs/Web/API/Document) angewendet werden. Diese `GeometryUtils`-Funktionen sind in noch keinem Browser implementiert.
 
 ## Leitfäden
 
 - [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)
-  - : Die Koordinatensysteme, die verwendet werden, um eine Position in einem Anzeigezusammenhang wie einem Fenster auf einem Monitor, einem Viewport auf einem mobilen Gerät oder einer Position auf einem Blatt Papier beim Drucken anzugeben.
-- [Konzepte des Viewports](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
-  - : Das Konzept des Viewports — was es ist, seine Auswirkungen im Hinblick auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Viewport und dem Layout-Viewport.
+  - : Die Koordinatensysteme, die verwendet werden, um eine Position in einem Anzeigekontext wie einem Fenster auf einem Monitor, einem Viewport auf einem mobilen Gerät oder einer Position auf einem Blatt Papier beim Drucken anzugeben.
+- [Viewport-Konzepte](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
+  - : Das Konzept des Viewports — was er ist, seine Auswirkungen im Hinblick auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Viewport und dem Layout-Viewport.
 
 ## Verwandte Konzepte
 
@@ -164,6 +138,6 @@ Dieses Modul definiert geometrische Hilfsmethoden, die auf die Schnittstellen [`
 ## Siehe auch
 
 - [CSS Object Model (CSSOM)](/de/docs/Web/API/CSS_Object_Model) API
-- [CSS overflow](/de/docs/Web/CSS/CSS_overflow)-Modul
-- [CSS overscroll behavior](/de/docs/Web/CSS/CSS_overscroll_behavior)-Modul
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)-Modul
+- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS-Überscrollverhalten](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul

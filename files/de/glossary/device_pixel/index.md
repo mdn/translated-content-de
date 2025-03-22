@@ -1,19 +1,19 @@
 ---
-title: Gerät-Pixel
+title: Gerätepixel
 slug: Glossary/Device_pixel
 l10n:
-  sourceCommit: f35733893f8c17dcbf8e9d5cf2551f6fb1cbecd5
+  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
 ---
 
 {{GlossarySidebar}}
 
-Ein **Gerät-Pixel** ist die kleinste physische Anzeigeeinheit, die in der Lage ist, eine volle Farbe unabhängig von ihrem Nachbarn darzustellen. Es ist die kleinste physische Einheit eines Displays (wie eines Monitors oder eines Mobiltelefonbildschirms), auch bekannt als _Hardware-Pixel_ oder _physisches Pixel_. Jedes Gerät-Pixel ist ein einzelner Punkt, der die Bildschirmausgabe zusammensetzt. Gerät-Pixel sind fest und skalieren nicht basierend auf dem Ansichtsfenster oder CSS.
+Ein **Gerätepixel** ist die kleinste physische Anzeigeneinheit, die in der Lage ist, eine vollständige Farbe unabhängig von ihrem Nachbar anzuzeigen. Es ist die kleinste physische Einheit eines Displays (wie etwa ein Monitor oder ein Handybildschirm), auch bekannt als _Hardware-Pixel_ oder _physisches Pixel_. Jedes Gerätepixel ist ein individueller Punkt, der die Ausgabe des Displays zusammensetzt. Gerätepixel sind fest und skalieren nicht basierend auf dem Viewport oder CSS.
 
-Ein Gerät-Pixel ist dichteabhängig und variiert basierend auf der Display-Auflösung. Das _device-pixel-ratio_ ist das Verhältnis der Auflösung in physischen Gerät-Pixeln zur Auflösung in CSS-Pixeln für das Display. Es unterscheidet sich normalerweise von einem {{Glossary("CSS_pixel", "CSS-Pixel")}}, welches eine absolute Länge ist, die exakt 1/96 eines CSS-Zolls beträgt. Als Hi-DPI betrachtete Geräte haben mehr als ein Gerät-Pixel pro CSS-Pixel im gleichen physischen Bereich, während Geräte mit niedriger DPI weniger als ein 1-zu-1-Verhältnis haben.
+Ein Gerätepixel ist dichteabhängig und variiert je nach Bildschirmauflösung. Das _Geräte-Pixel-Verhältnis_ (device-pixel-ratio) ist das Verhältnis der Auflösung in physischen Gerätepixeln zur Auflösung in CSS-Pixeln für das Display. Es unterscheidet sich normalerweise von einem {{Glossary("CSS_pixel", "CSS-Pixel")}}, das als absolute Länge definiert ist und genau 1/96 eines CSS-Zolls beträgt. Geräte, die als Hi-DPI betrachtet werden, haben mehr als ein Gerätepixel pro CSS-Pixel im gleichen physischen Bereich, während Geräte mit geringer DPI ein Verhältnis von weniger als 1 zu 1 haben.
 
 ## Siehe auch
 
 - CSS {{cssxref("&lt;resolution&gt;")}} Datentyp
-- CSS {{cssxref("@media/resolution", "resolution")}} @media Funktion
+- CSS {{cssxref("@media/resolution", "resolution")}} @media-Funktion
 - CSS {{cssxref("image-resolution")}} Eigenschaft
-- [`devicePixelRatio`](/de/docs/Web/API/DevicePixelRatio) API
+- [`Window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) API

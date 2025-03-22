@@ -2,12 +2,12 @@
 title: outline
 slug: Web/CSS/outline
 l10n:
-  sourceCommit: 95edea913e7f0726243aff3f47b85cfd6f02d995
+  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
 ---
 
 {{CSSRef}}
 
-Die **`outline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt die meisten Outline-Eigenschaften in einer einzigen Deklaration fest.
+Die **`outline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt die meisten der Outline-Eigenschaften in einer einzigen Deklaration fest.
 
 {{InteractiveExample("CSS Demo: outline")}}
 
@@ -48,7 +48,7 @@ border-radius: 2rem;
 }
 ```
 
-## Zusammenhängende Eigenschaften
+## Ausführende Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -79,34 +79,34 @@ outline: revert-layer;
 outline: unset;
 ```
 
-Die `outline`-Eigenschaft kann mit einem, zwei oder drei der unten aufgeführten Werte angegeben werden. Die Reihenfolge der Werte spielt keine Rolle. Wie bei allen Kurzschreibweisen werden alle ausgelassenen Unterwerte auf ihren [Anfangswert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial-value) gesetzt.
+Die `outline`-Eigenschaft kann mit einem, zwei oder drei der unten aufgeführten Werte angegeben werden. Die Reihenfolge der Werte spielt keine Rolle. Wie bei allen Kurzschreibweisen werden ausgelassene Unterwerte auf ihren [Anfangswert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) gesetzt.
 
 > [!NOTE]
-> Die Outline wird für viele Elemente unsichtbar sein, wenn ihr Stil nicht definiert ist. Dies liegt daran, dass der Stil standardmäßig auf `none` gesetzt ist. Eine bemerkenswerte Ausnahme sind `input`-Elemente, die von den Browsern mit einer Standardgestaltung versehen werden.
+> Die Outline ist für viele Elemente unsichtbar, wenn ihr Stil nicht definiert ist. Dies liegt daran, dass der Stil standardmäßig `none` ist. Eine bemerkenswerte Ausnahme sind `input`-Elemente, denen von den Browsern ein Standardstil zugewiesen wird.
 
 ### Werte
 
 - `<'outline-width'>`
-  - : Legt die Dicke der Outline fest. Standard ist `medium`, wenn nicht angegeben. Siehe {{cssxref("outline-width")}}.
+  - : Legt die Dicke der Outline fest. Standardmäßig `medium`, wenn nicht angegeben. Siehe {{cssxref("outline-width")}}.
 - `<'outline-style'>`
-  - : Legt den Stil der Outline fest. Standard ist `none`, wenn nicht angegeben. Siehe {{cssxref("outline-style")}}.
+  - : Legt den Stil der Outline fest. Standardmäßig `none`, wenn nicht angegeben. Siehe {{cssxref("outline-style")}}.
 - `<'outline-color'>`
-  - : Legt die Farbe der Outline fest. Standard ist `invert` für unterstützende Browser, `currentcolor` für die anderen. Siehe {{cssxref("outline-color")}}.
+  - : Legt die Farbe der Outline fest. Standardmäßig `invert` für unterstützende Browser, `currentcolor` für andere. Siehe {{cssxref("outline-color")}}.
 
 ## Beschreibung
 
-Das Outline ist eine Linie außerhalb des [Randes](/de/docs/Web/CSS/border) eines Elements. Anders als andere Bereiche der Box nimmt das Outline keinen Platz ein und beeinflusst somit nicht das Layout des Dokuments.
+Ein Outline ist eine Linie außerhalb des [Rahmens](/de/docs/Web/CSS/border) eines Elements. Im Gegensatz zu anderen Bereichen der Box nimmt eine Outline keinen Raum ein und beeinflusst daher das Layout des Dokuments in keiner Weise.
 
-Es gibt einige Eigenschaften, die das Erscheinungsbild eines Outlines beeinflussen. Es ist möglich, den Stil, die Farbe und die Breite über die `outline`-Eigenschaft zu ändern, den Abstand zum Rand mit der {{cssxref("outline-offset")}}-Eigenschaft und die Eckenwinkel mit der {{cssxref("border-radius")}}-Eigenschaft.
+Es gibt einige Eigenschaften, die das Erscheinungsbild einer Outline beeinflussen. Es ist möglich, den Stil, die Farbe und die Breite mithilfe der `outline`-Eigenschaft zu ändern, den Abstand vom Rahmen mit der {{cssxref("outline-offset")}}-Eigenschaft und die Eckwinkel mit der {{cssxref("border-radius")}}-Eigenschaft.
 
-Ein Outline muss nicht rechteckig sein: Bei mehrzeiligem Text zeichnen einige Browser ein Outline für jede separate Zeilenbox, während andere den gesamten Text mit einem einzigen Outline umschließen.
+Eine Outline muss nicht rechteckig sein: Bei mehrzeiligem Text zeichnen einige Browser eine Outline für jede Zeilenbox separat, während andere den gesamten Text mit einer einzigen Outline umschließen.
 
 ## Barrierefreiheit
 
-Ein `outline`-Wert von `0` oder `none` entfernt den standardmäßigen Fokus-Stil des Browsers. Wenn ein Element interaktiv ist, muss es einen sichtbaren Fokus-Indikator haben. Sorgen Sie für eine offensichtliche Fokus-Gestaltung, wenn der Standardfokus-Stil entfernt wurde.
+Wenn `outline` auf einen Wert von `0` oder `none` gesetzt wird, wird der Standardfokusstil des Browsers entfernt. Wenn ein Element interaktiv ist, muss es einen sichtbaren Fokusanzeiger haben. Stellen Sie offensichtliche Fokusstile bereit, wenn der Standardfokusstil entfernt wird.
 
-- [How to Design Useful and Usable Focus Indicators](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
-- WCAG 2.1: [Understanding Success Criterion 2.4.7: Focus Visible](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html)
+- [Anleitung zur Gestaltung nützlicher und benutzbarer Fokusanzeigen](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
+- WCAG 2.1: [Verständnis des Erfolgskriteriums 2.4.7: Fokus sichtbar](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html)
 
 ## Formale Definition
 
@@ -118,7 +118,7 @@ Ein `outline`-Wert von `0` oder `none` entfernt den standardmäßigen Fokus-Stil
 
 ## Beispiele
 
-### Verwendung von Outline, um einen Fokus-Stil festzulegen
+### Verwendung von Outline, um einen Fokusstil festzulegen
 
 #### HTML
 

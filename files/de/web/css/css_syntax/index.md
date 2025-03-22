@@ -2,21 +2,21 @@
 title: CSS-Syntax
 slug: Web/CSS/CSS_syntax
 l10n:
-  sourceCommit: 95edea913e7f0726243aff3f47b85cfd6f02d995
+  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
 ---
 
 {{CSSRef}}
 
-Das **CSS-Syntax**-Modul beschreibt im Allgemeinen die Struktur und Syntax von Cascading Stylesheets, oder CSS. Es definiert CSS als die Sprache zur Beschreibung der Darstellung von strukturierten Dokumenten (wie HTML und XML) im Web und anderswo.
+Das **CSS-Syntax**-Modul beschreibt im Allgemeinen die Struktur und Syntax von Cascading Stylesheets oder CSS. Es definiert CSS als eine Sprache zur Beschreibung der Darstellung von strukturierten Dokumenten (wie HTML und XML) im Web und anderswo.
 
-Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types), [Funktionen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) oder [At-Rules](/de/docs/Web/CSS/CSS_syntax/At-rule). Vielmehr wird erläutert, wie all diese Funktionen definiert werden sollten und wie Benutzeragenten CSS analysieren sollten.
+Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types), [Funktionen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) oder [Regeln (at-rules)](/de/docs/Web/CSS/CSS_syntax/At-rule). Es erläutert vielmehr, wie all diese Funktionen definiert werden sollten und wie Benutzeragenten CSS parsen sollten.
 
-## At-Rules
+## At-Regeln
 
 - keine
 
 > [!NOTE]
-> Das Modul stellt ausdrücklich fest, dass {{cssxref("@charset")}} keine tatsächliche At-Rule ist, sondern eine nicht erkannte veraltete Regel, die weggelassen werden sollte, wenn ein Stylesheet auf Grammatik überprüft wird. Die einzige gültige Verwendung von `@charset` ist am Anfang eines Stylesheets, wo es als spezielle Byte-Sequenz interpretiert wird, die vor der Verarbeitung des Inhalts entfernt wird.
+> Das Modul erklärt ausdrücklich, dass {{cssxref("@charset")}} keine tatsächliche Regel (at-rule) ist, sondern eine nicht anerkannte Altrechtregel, die bei der Grammatikprüfung eines Stylesheets ausgelassen werden sollte. Die einzige gültige Verwendung von `@charset` ist am Anfang eines Stylesheets, wo es als spezielle Byte-Sequenz interpretiert wird, die vor der Verarbeitung des Inhalts entfernt wird.
 
 ## Referenz
 
@@ -28,13 +28,13 @@ Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Va
 - [CSS-Deklaration](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration)
 - [CSS-Deklarationsblock](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration_Block)
 - [CSS-Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions)
-- [ungültig](/de/docs/Web/CSS/CSS_syntax/Error_handling)
+- [Ungültig](/de/docs/Web/CSS/CSS_syntax/Error_handling)
 - [Stilregel](/de/docs/Web/API/CSSStyleRule)
 
 ### Glossarbegriffe
 
 - {{Glossary("CSS_Descriptor", "CSS-Deskriptor")}}
-- {{Glossary("parse", "parsen")}}
+- {{Glossary("parse", "Parsen")}}
 - {{Glossary("stylesheet", "Stylesheet")}}
 - {{Glossary("whitespace", "Leerzeichen")}}
 
@@ -42,46 +42,46 @@ Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Va
 
 - [Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
 
-  - : Überblick über die CSS-Syntax, einschließlich CSS-Deklarationen, Deklarationsblöcke, Regelmengen und Anweisungen.
+  - : Überblick über die CSS-Syntax, einschließlich CSS-Deklarationen, Deklarationsblöcke, Regelsätze und Anweisungen.
 
-- [Wertdefinition-Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
+- [Wertdefinition Syntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
 
-  - : Erklärt die formale Grammatik zur Definition gültiger Werte für CSS-Eigenschaften und -Funktionen sowie semantische Einschränkungen. Ein Leitfaden zum Verständnis von CSS-Komponentenwerttypen, Kombinatoren und Multiplikatoren.
+  - : Erläutert die formale Grammatik zur Definition gültiger Werte für CSS-Eigenschaften und Funktionen, zusammen mit semantischen Einschränkungen. Ein Leitfaden zum Verständnis der Komponentenwerttypen, Kombinatoren und Multiplikatoren in CSS.
 
-- [Fehlerbehandlung in der CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Error_handling)
+- [CSS-Syntax Fehlerbehandlung](/de/docs/Web/CSS/CSS_syntax/Error_handling)
 
   - : Überblick darüber, wie der Benutzeragent ungültiges CSS behandelt.
 
-- [CSS lernen – erste Schritte: CSS-Syntax](/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS#css_syntax_basics)
+- [CSS lernen: Erste Schritte zur CSS-Syntax](/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS#css_syntax_basics)
 
-  - : Einführung in CSS, einschließlich einer Einführung in die CSS-Syntax.
+  - : Einführender Leitfaden zu CSS, einschließlich einer Einführung in die CSS-Syntax.
 
 ## Verwandte Konzepte
 
-[CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)-Modul:
+[CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul:
 
 - [CSS-Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
 
-[CSS-Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade)-Modul:
+[CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul:
 
-- {{cssxref("@import")}} At-Rule
-- {{cssxref("important")}}-Flag
-- [Anfangswerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial-value)
-- [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed-value)
-- [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used-value)
-- [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual-value)
+- {{cssxref("@import")}} Regel (at-rule)
+- {{cssxref("important")}} Flag
+- [Initialwerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value)
+- [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value)
+- [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value)
+- [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value)
 - [CSS-Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
 - {{Glossary("Property/CSS", "CSS-Eigenschaft")}}
 
-[CSS-Benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables)-Modul:
+[CSS-Benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul:
 
 - [Benutzerdefinierte Eigenschaft (`--*`)](/de/docs/Web/CSS/--*)
-- {{cssxref("var")}}-Funktion
+- {{cssxref("var")}} Funktion
 
-[CSS-Bedingte Regeln](/de/docs/Web/CSS/CSS_conditional_rules)-Modul:
+[CSS-Bedingungsregeln](/de/docs/Web/CSS/CSS_conditional_rules) Modul:
 
-- {{cssxref("@media")}} At-Rule
-- {{cssxref("@supports")}} At-Rule
+- {{cssxref("@media")}} Regel (at-rule)
+- {{cssxref("@supports")}} Regel (at-rule)
 
 [CSS-Objektmodell (CSSOM)](/de/docs/Web/API/CSS_Object_Model) API:
 
@@ -91,10 +91,10 @@ Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Va
 
 {{Glossary("WHATWG", "WHATWG")}} Spezifikation:
 
-- {{HTMLElement("style")}}-Element
-- {{HTMLElement("link")}}-Element
-- [`class`](/de/docs/Web/HTML/Global_attributes/class)-Attribut
-- [`rel`](/de/docs/Web/HTML/Attributes/rel#stylesheet)-Attribut
+- {{HTMLElement("style")}} Element
+- {{HTMLElement("link")}} Element
+- [`class`](/de/docs/Web/HTML/Global_attributes/class) Attribut
+- [`rel`](/de/docs/Web/HTML/Attributes/rel#stylesheet) Attribut
 
 ## Spezifikationen
 
@@ -102,6 +102,6 @@ Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Va
 
 ## Siehe auch
 
-- [CSS-At-Rule-Funktionen](/de/docs/Web/CSS/CSS_syntax/At-rule_functions)
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)-Modul
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)-Modul
+- [CSS-Regelfunktionen (at-rule functions)](/de/docs/Web/CSS/CSS_syntax/At-rule_functions)
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
+- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul

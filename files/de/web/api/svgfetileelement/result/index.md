@@ -3,16 +3,16 @@ title: "SVGFETileElement: result-Eigenschaft"
 short-title: result
 slug: Web/API/SVGFETileElement/result
 l10n:
-  sourceCommit: f7c2436db777de600a4f999169ea8a4d88255f1d
+  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`result`**-Eigenschaft des [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement)-Interfaces beschreibt den zugewiesenen Namen eines SVG-Filter-Primitives als ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString).
+Die **`result`** Schreibgeschützte Eigenschaft der [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement) Schnittstelle beschreibt den zugewiesenen Namen eines SVG-Filterprimitivs als [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString).
 
-Sie spiegelt das {{SVGAttr("result")}}-Attribut des {{SVGElement("feTitle")}}-Elements wider, das ein Zielrechteck mit einem wiederholten, gekachelten Muster eines Eingabebildes füllt. Der Attributwert ist ein {{cssxref("custom-ident")}}. Wenn angegeben, können Grafiken, die aus der Verarbeitung dieses Filter-Primitives resultieren, durch ein {{SVGAttr("in")}}-Attribut auf einem nachfolgenden Filter-Primitive innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden.
+Sie spiegelt das {{SVGAttr("result")}} Attribut des {{SVGElement("feTile")}} Elements wider, welches ein Zielrechteck mit einem wiederholten, gekachelten Muster eines Eingabebildes füllt. Der Attributwert ist ein {{cssxref("custom-ident")}}. Wird es bereitgestellt, können Grafiken, die aus der Verarbeitung dieses Filterprimitivs resultieren, durch ein {{SVGAttr("in")}} Attribut auf einem nachfolgenden Filterprimitiv innerhalb desselben {{SVGElement("filter")}} Elements referenziert werden.
 
-Falls kein `result`-Attribut definiert ist, sind `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen, und die Ausgabe des `<feTile>`-Filters wird nur dann zur Wiederverwendung als impliziter Eingang in das nächste Filter-Primitiv verfügbar, wenn dieses Filter-Primitiv keinen Wert für sein `in`-Attribut bereitstellt.
+Wenn kein `result` Attribut definiert ist, sind `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen, und die Ausgabe des `<feTile>` Filters steht nur zur Wiederverwendung als implizite Eingabe in das nächste Filterprimitiv zur Verfügung, falls dieses Filterprimitiv keinen Wert für sein `in` Attribut angibt.
 
 ## Wert
 

@@ -1,32 +1,34 @@
 ---
-title: Gestaltung von Links
+title: Links stylen
 slug: Learn_web_development/Core/Text_styling/Styling_links
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Text_styling/Styling_lists", "Learn_web_development/Core/Text_styling/Web_fonts", "Learn_web_development/Core/Text_styling")}}
 
-Bei der Gestaltung von [Links](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links) ist es wichtig zu verstehen, warum die Standardlinkstile wichtig sind, wie man Pseudo-Klassen verwendet, um Linkzustände effektiv zu gestalten, und wie man Links für die Verwendung in häufig verwendeten Benutzeroberflächenelementen wie Navigationsmenüs und Registerkarten gestaltet. In diesem Artikel werden wir all diese Themen behandeln.
+Beim Stylen von [Links](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links) ist es wichtig zu verstehen, warum Standardlinkstile wichtig sind, wie man Pseudoklassen effektiv zur Stilierung von Linkzuständen verwendet und wie man Links für den Einsatz in häufig variierenden Schnittstellenfunktionen wie Navigationsmenüs und Tabs stylt. In diesem Artikel schauen wir uns all diese Themen an.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        <a href="/de/docs/Learn_web_development/Core/Structuring_content">Strukturierung von Inhalten mit HTML</a> und
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen der CSS-Gestaltung</a>.
+        <a href="/de/docs/Learn_web_development/Core/Structuring_content"
+          >Inhalte mit HTML strukturieren</a
+        > und
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling-Grundlagen</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verstehen, warum Standardlinkstile für die Benutzerfreundlichkeit im Web wichtig sind — sie sind vertraut und helfen Nutzern, Links zu erkennen.</li>
-          <li>Gestaltung von Linkzuständen: <code>:hover</code>, <code>:focus</code>, <code>:visited</code>, und <code>:active</code>.</li>
-          <li>Verstehen, warum Linkzustände für Barrierefreiheit und Benutzerfreundlichkeit erforderlich sind.</li>
+          <li>Verstehen, warum Standardlinkstile wichtig für die Benutzerfreundlichkeit im Web sind — sie sind vertraut und helfen Benutzern, Links zu erkennen.</li>
+          <li>Stylen von Linkzuständen: <code>:hover</code>, <code>:focus</code>, <code>:visited</code> und <code>:active</code>.</li>
+          <li>Verstehen, warum Linkzustände für Barrierefreiheit und Benutzerfreundlichkeit notwendig sind.</li>
           <li>Einfügen von Icons in Links.</li>
           <li>Erstellen eines Navigationsmenüs mit Listen und Links.</li>
         </ul>
@@ -37,25 +39,24 @@ Bei der Gestaltung von [Links](/de/docs/Learn_web_development/Core/Structuring_c
 
 ## Linkzustände
 
-Das Erste, was man verstehen muss, ist das Konzept von Linkzuständen — verschiedene Zustände, in denen Links existieren können. Diese können mithilfe verschiedener [Pseudo-Klassen](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors#pseudo-classes_and_pseudo-elements) gestaltet werden:
+Das erste, was zu verstehen ist, ist das Konzept der Linkzustände — verschiedene Zustände, in denen Links existieren können. Diese können mit verschiedenen [Pseudoklassen](/de/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements) gestylt werden:
 
-- **Link**: Ein Link, der ein Ziel hat (d.h. nicht nur ein benannter Anker), wird mit der {{cssxref(":link")}} Pseudo-Klasse gestaltet.
-- **Besucht**: Ein Link, der bereits besucht wurde (in der Browser-Historie existiert), wird mit der {{cssxref(":visited")}} Pseudo-Klasse gestaltet.
-- **Hover**: Ein Link, über den der Mauszeiger eines Nutzers schwebt, wird mit der {{cssxref(":hover")}} Pseudo-Klasse gestaltet.
-- **Fokus**: Ein Link, der fokussiert ist (z.B. von einem Tastaturnutzer mit der <kbd>Tab</kbd>-Taste oder ähnlichem erreicht wurde, oder programmgesteuert mit [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus) fokussiert wurde) — dieser wird mit der {{cssxref(":focus")}} Pseudo-Klasse gestaltet.
-- **Aktiv**: Ein Link, der aktiviert ist (z.B. angeklickt wurde), wird mit der {{cssxref(":active")}} Pseudo-Klasse gestaltet.
+- **Link**: Ein Link, der ein Ziel hat (d.h. nicht nur ein benannter Anker), wird mit der {{cssxref(":link")}} Pseudoklasse gestylt.
+- **Visited**: Ein Link, der bereits besucht wurde (im Verlauf des Browsers existiert), wird mit der {{cssxref(":visited")}} Pseudoklasse gestylt.
+- **Hover**: Ein Link, über den der Mauszeiger eines Benutzers schwebt, wird mit der {{cssxref(":hover")}} Pseudoklasse gestylt.
+- **Focus**: Ein Link, der fokussiert ist (z. B. durch einen Tastaturbenutzer mit der <kbd>Tab</kbd>-Taste oder ähnlichem, oder programmatisch mit [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus) fokussiert) — dieser wird mit der {{cssxref(":focus")}} Pseudoklasse gestylt.
+- **Active**: Ein Link, der aktiviert wird (z. B. angeklickt), wird mit der {{cssxref(":active")}} Pseudoklasse gestylt.
 
 ## Standardstile
 
-Das folgende Beispiel zeigt, wie ein Link standardmäßig aussieht und sich verhält; auch wenn das CSS den Text vergrößert und zentriert, um ihn hervorzuheben. Sie können das Erscheinungsbild und das Verhalten der Standardstile im Beispiel mit dem Aussehen und Verhalten anderer Links auf dieser Seite vergleichen, die mehr CSS-Stile haben. Standardlinks haben folgende Eigenschaften:
+Das folgende Beispiel zeigt, wie ein Link standardmäßig aussieht und sich verhält; obwohl das CSS den Text vergrößert und zentriert, um ihn hervorzuheben. Sie können das Aussehen und Verhalten der Standardstile im Beispiel mit dem Aussehen und Verhalten anderer Links auf dieser Seite vergleichen, die mehr CSS-Stile angewendet haben. Standard-Links haben die folgenden Eigenschaften:
 
 - Links sind unterstrichen.
 - Nicht besuchte Links sind blau.
 - Besuchte Links sind lila.
-- Wenn man mit der Maus über einen Link schwebt, ändert sich der Mauszeiger zu einem kleinen Hand-Symbol.
-- Fokussierte Links haben eine Umrandung — Sie sollten in der Lage sein, die Links auf dieser Seite mit der Tastatur zu fokussieren, indem Sie die Tabulatortaste drücken.
-
-- Aktive Links sind rot. Versuchen Sie, die Maustaste beim Klicken auf den Link gedrückt zu halten.
+- Wenn man über einen Link fährt, ändert sich der Mauszeiger zu einem kleinen Hand-Symbol.
+- Fokussierte Links haben eine Umrandung — Sie sollten die Links auf dieser Seite mit der Tastatur fokussieren können, indem Sie die Tabulatortaste drücken.
+- Aktive Links sind rot. Versuchen Sie, die Maustaste auf dem Link gedrückt zu halten, während Sie ihn anklicken.
 
 ```html
 <p><a href="#">A simple link</a></p>
@@ -71,27 +72,27 @@ p {
 {{ EmbedLiveSample('Default_styles', '100%', 130) }}
 
 > [!NOTE]
-> Alle Linkbeispiele auf dieser Seite verlinken zum oberen Rand ihres Fensters. Das leere Fragment (`href="#"`) wird verwendet, um einfache Beispiele zu erstellen und sicherzustellen, dass die Live-Beispiele, die sich jeweils in einem {{HTMLElement("iframe")}} befinden, nicht kaputtgehen.
+> Alle Linkbeispiele auf dieser Seite verlinken zum oberen Rand ihres Fensters. Das leere Fragment (`href="#"`) wird verwendet, um einfache Beispiele zu erstellen und sicherzustellen, dass die Live-Beispiele, die jeweils in einem {{HTMLElement("iframe")}} enthalten sind, nicht kaputt gehen.
 
-Interessanterweise sind diese Standardstile fast dieselben wie in den ersten Tagen der Browser in den mittleren 1990ern. Dies liegt daran, dass die Nutzer dieses Verhalten kennen und erwarten — wenn Links anders gestaltet werden, würde dies viele Menschen verwirren. Das bedeutet nicht, dass Sie Links nicht überhaupt gestalten sollten. Es bedeutet nur, dass Sie nicht zu weit vom erwarteten Verhalten abweichen sollten. Sie sollten zumindest:
+Interessanterweise sind diese Standardstile fast dieselben wie in den frühen Tagen der Browser in den mittleren 1990ern. Dies liegt daran, dass Benutzer dies kennen und erwarten — wenn Links anders gestylt würden, würde das viele Menschen verwirren. Das bedeutet nicht, dass Sie Links überhaupt nicht stylen sollten. Es bedeutet nur, dass Sie nicht zu weit vom erwarteten Verhalten abweichen sollten. Sie sollten zumindest:
 
-- Unterstreichen Sie Links, aber nicht andere Dinge. Wenn Sie Links nicht unterstreichen möchten, heben Sie sie zumindest auf andere Weise hervor.
-- Sorgen Sie dafür, dass sie auf irgendeine Weise reagieren, wenn sie geschwebt/fokussiert werden, und auf eine leicht andere Weise, wenn sie aktiviert werden.
+- Unterstreichungen für Links verwenden, aber nicht für andere Dinge. Wenn Sie keine Links unterstreichen möchten, sollten Sie sie zumindest auf eine andere Weise hervorheben.
+- Sie sollten in irgendeiner Weise reagieren, wenn sie überfahren/fokussiert werden, und auf eine leicht unterschiedliche Weise, wenn sie aktiviert werden.
 
-Die Standardstile können mit den folgenden CSS-Eigenschaften ausgeschaltet/verändert werden:
+Die Standardstile können mit den folgenden CSS-Eigenschaften abgeschaltet/geändert werden:
 
 - {{cssxref("color")}} für die Textfarbe.
-- {{cssxref("cursor")}} für den Stil des Mauszeigers — Sie sollten dies nicht deaktivieren, es sei denn, Sie haben einen sehr guten Grund.
-- {{cssxref("outline")}} für die Textumrandung. Eine Umrandung ist ähnlich wie ein Rahmen. Der einzige Unterschied besteht darin, dass ein Rahmen Platz im Kasten einnimmt und eine Umrandung nicht; sie sitzt einfach über dem Hintergrund. Die Umrandung ist eine nützliche Hilfe für die Barrierefreiheit und sollte nicht entfernt werden, ohne eine andere Methode hinzuzufügen, um den fokussierten Link anzuzeigen.
+- {{cssxref("cursor")}} für den Stil des Mauszeigers — Sie sollten dies nur ausschalten, wenn Sie einen sehr guten Grund haben.
+- {{cssxref("outline")}} für die Textumrandung. Eine Umrandung ist ähnlich wie ein Rahmen. Der einzige Unterschied ist, dass ein Rahmen Platz im Kästchen einnimmt und eine Umrandung nicht; sie sitzt nur über dem Hintergrund. Die Umrandung ist ein nützliches Hilfsmittel für Barrierefreiheit und sollte nicht entfernt werden, ohne eine andere Methode zur Anzeige des fokussierten Links zu verwenden.
 
 > [!NOTE]
-> Sie sind nicht nur auf die oben genannten Eigenschaften beschränkt, um Ihre Links zu gestalten — Sie können beliebige Eigenschaften verwenden, die Sie möchten.
+> Sie sind nicht nur auf die oben genannten Eigenschaften beschränkt, um Ihre Links zu stylen — Sie können alle gewünschten Eigenschaften verwenden.
 
-## Gestaltung von Links
+## Links stylen
 
-Nachdem wir nun die Standardzustände im Detail betrachtet haben, wollen wir uns ein typisches Set von Linkstilen ansehen.
+Nachdem wir uns die Standardzustände im Detail angeschaut haben, schauen wir uns nun ein typisches Set von Linkstilen an.
 
-Zu Beginn schreiben wir unsere leeren Regelsets aus:
+Um zu beginnen, schreiben wir unsere leeren Regelsets aus:
 
 ```css
 a {
@@ -113,9 +114,9 @@ a:active {
 }
 ```
 
-Diese Reihenfolge ist wichtig, da Linkstile aufeinander aufbauen. Beispielsweise gelten die Stile in der ersten Regel für alle nachfolgenden. Wenn ein Link aktiviert ist, wird normalerweise auch über ihn geschwebt. Wenn Sie diese in der falschen Reihenfolge anordnen und dieselben Eigenschaften in jedem Regelset ändern, funktionieren die Dinge nicht wie erwartet. Um sich die Reihenfolge zu merken, könnten Sie ein Merkwort wie **L**o**V**e **F**ears **HA**te verwenden.
+Diese Reihenfolge ist wichtig, weil Linkstile aufeinander aufbauen. Zum Beispiel gelten die Stile in der ersten Regel für alle nachfolgenden. Wenn ein Link aktiviert wird, wird er normalerweise auch überfahren. Wenn Sie diese in der falschen Reihenfolge angeben und dieselben Eigenschaften in jedem Regelset ändern, funktioniert es nicht wie erwartet. Um sich die Reihenfolge zu merken, können Sie sich ein Merkvers wie etwa **L**o**V**e **F**ears **HA**te merken.
 
-Jetzt fügen wir ein paar weitere Informationen hinzu, um dies richtig zu stylen:
+Nun fügen wir einige Informationen hinzu, damit dies ordnungsgemäß gestylt wird:
 
 ```css
 body {
@@ -157,7 +158,7 @@ a:active {
 }
 ```
 
-Wir bieten auch etwas Beispiel-HTML, auf das das CSS angewendet wird:
+Wir bieten auch ein Beispiel-HTML an, um das CSS anzuwenden:
 
 ```html
 <p>
@@ -166,23 +167,23 @@ Wir bieten auch etwas Beispiel-HTML, auf das das CSS angewendet wird:
 </p>
 ```
 
-Das Zusammenspiel beider ergibt folgendes Ergebnis:
+Zusammen ergibt dies folgendes Ergebnis:
 
 {{ EmbedLiveSample('Styling_some_links', '100%', 200) }}
 
-Was haben wir hier gemacht? Dies sieht definitiv anders aus als die Standardgestaltung, bietet aber dennoch ein vertrautes Erlebnis für die Nutzer:
+Was haben wir hier gemacht? Dies sieht sicherlich anders aus als die Standardstilierung, bietet jedoch immer noch eine vertraute Erfahrung für Benutzer, damit sie wissen, was vor sich geht:
 
-- Die ersten beiden Regeln sind in dieser Diskussion nicht so interessant.
-- Die dritte Regel verwendet den `a`-Selektor, um die Fokusumrandung zu entfernen (die sowieso je nach Browser variiert).
-- Als Nächstes verwenden wir die `a:link` und `a:visited` Selektoren, um einige Farbvariationen auf nicht besuchten und besuchten Links zu setzen, sodass sie erkennbar sind.
-- Die nächsten zwei Regeln verwenden `a:focus` und `a:hover`, um fokussierte und geschwebte Links ohne Unterstrich und mit unterschiedlichen Hintergrundfarben zu versehen.
-- Schließlich wird `a:active` verwendet, um den Links ein invertiertes Farbschema zu geben, während sie aktiviert werden, um deutlich zu machen, dass etwas Wichtiges passiert!
+- Die ersten beiden Regeln sind für diese Diskussion nicht so interessant.
+- Die dritte Regel verwendet den `a`-Selektor, um die Fokusumrandung loszuwerden (die sich in verschiedenen Browsern sowieso unterscheidet).
+- Als nächstes verwenden wir die `a:link`- und `a:visited`-Selektoren, um einige Farbvariationen auf nicht besuchte und besuchte Links anzuwenden, damit sie unterscheidbar sind.
+- Die nächsten beiden Regeln verwenden `a:focus` und `a:hover`, um fokussierte und überfahrene Links so einzustellen, dass sie keine Unterstreichung haben und andere Hintergrundfarben aufweisen.
+- Schließlich wird `a:active` verwendet, um den Links ein invertiertes Farbschema zu geben, während sie aktiviert werden, um klarzumachen, dass etwas Wichtiges passiert!
 
-## Aktives Lernen: Gestalten Sie Ihre eigenen Links
+## Aktives Lernen: Stylen Sie Ihre eigenen Links
 
-In dieser aktiven Lerneinheit möchten wir, dass Sie unser leeres Satz von Regeln verwenden und Ihre eigenen Deklarationen hinzufügen, um die Links wirklich cool aussehen zu lassen. Nutzen Sie Ihre Vorstellungskraft, lassen Sie Ihrer Kreativität freien Lauf. Wir sind sicher, dass Sie etwas Cooleres und ebenso Funktionales wie unser obiges Beispiel entwickeln können.
+In dieser aktiven Lerneinheit möchten wir, dass Sie unser leeres Set von Regeln nehmen und Ihre eigenen Deklarationen hinzufügen, um die Links wirklich cool aussehen zu lassen. Nutzen Sie Ihre Fantasie, seien Sie kreativ. Wir sind sicher, dass Sie etwas Cooleres und genauso Funktionales wie unser obiges Beispiel entwickeln können.
 
-Wenn Ihnen ein Fehler unterläuft, können Sie ihn jederzeit mit der _Zurücksetzen_-Taste zurücksetzen. Wenn Sie wirklich feststecken, drücken Sie die _Lösung anzeigen_-Taste, um das Beispiel einzufügen, das wir oben gezeigt haben.
+Wenn Ihnen ein Fehler unterläuft, können Sie ihn immer mit der _Zurücksetzen_-Taste zurücksetzen. Wenn Sie wirklich stecken bleiben, drücken Sie die _Lösung anzeigen_-Taste, um das oben gezeigte Beispiel einzufügen.
 
 ```html hidden
 <div
@@ -319,9 +320,9 @@ window.addEventListener("load", drawOutput);
 
 ## Icons in Links einfügen
 
-Ein häufig verwendeter Ansatz ist das Hinzufügen von Icons in Links, um mehr Hinweise darauf zu geben, zu welcher Art von Inhalt der Link führt. Schauen wir uns ein wirklich einfaches Beispiel an, das ein Icon zu externen Links hinzufügt (Links, die zu anderen Websites führen). Ein solches Icon sieht normalerweise wie ein kleiner Pfeil aus, der aus einem Kasten zeigt. Für dieses Beispiel verwenden wir das [externes Link-Icon von icons8.com](https://icons8.com/icon/741/external-link).
+Eine häufige Praxis ist es, Icons in Links einzufügen, um mehr einen Hinweis darauf zu geben, auf welche Art von Inhalt der Link verweist. Schauen wir uns ein wirklich einfaches Beispiel an, das ein Icon zu externen Links hinzufügt (Links, die auf andere Seiten führen). Solch ein Icon sieht normalerweise wie ein kleiner Pfeil aus, der aus einer Box herauszeigt. Für dieses Beispiel verwenden wir das [External Link Icon von icons8.com](https://icons8.com/icon/741/external-link).
 
-Schauen wir uns etwas HTML und CSS an, das den Effekt erzielt, den wir wünschen. Zuerst etwas einfaches HTML zum Stylen:
+Schauen wir uns etwas HTML und CSS an, die uns den gewünschten Effekt geben. Zuerst etwas einfaches HTML zum Stylen:
 
 ```html-nolint
 <p>
@@ -333,7 +334,7 @@ Schauen wir uns etwas HTML und CSS an, das den Effekt erzielt, den wir wünschen
 </p>
 ```
 
-Als Nächstes das CSS:
+Als nächstes das CSS:
 
 ```css
 body {
@@ -356,22 +357,22 @@ a[href^="http"]::after {
 
 {{ EmbedLiveSample('Including_icons_on_links', '100%', 150) }}
 
-Was passiert hier? Wir überspringen den größten Teil des CSS, da es sich um dieselben Informationen handelt, die Sie vorher angesehen haben. Die letzte Regel ist jedoch interessant: Wir verwenden das {{cssxref("::after")}} Pseudoelement. Das `0.8rem x 0.8rem` Pseudoelement wird nach dem Ankertext als ein Inline-Block eingefügt. Und das Icon wird als {{cssxref("background")}} des Pseudoelements dargestellt.
+Was passiert hier? Wir gehen über das meiste CSS hinweg, da es dieselben Informationen sind, die Sie bereits gesehen haben. Die letzte Regel ist jedoch interessant: Wir verwenden {{cssxref("::after")}} Pseudo-Element. Das `0.8rem x 0.8rem`-Pseudo-Element wird nach dem Ankertext als Inline-Block eingefügt. Und das Icon wird als {{cssxref("background")}} des Pseudo-Elements dargestellt.
 
-Wir haben eine [relative Einheit](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units) `em` verwendet. Es bemisst das Icon proportional zur Textgröße des Ankers. Wenn sich die Textgröße des Ankers ändert, passt sich die Icon-Größe entsprechend an.
+Wir haben eine [relative Einheit](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units) `em` verwendet. Sie passt die Größe des Icons proportional zur Textgröße des Ankers an. Wenn sich die Textgröße des Ankers ändert, passt sich auch die Größe des Icons entsprechend an.
 
-Ein abschließendes Wort: Wie haben wir nur externe Links ausgewählt? Nun, wenn Sie Ihre [HTML-Links](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links) korrekt schreiben, sollten Sie nur absolute URLs für externe Links verwenden — es ist effizienter, relative Links zu verwenden, um zu anderen Teilen Ihrer eigenen Website zu verlinken (wie beim ersten Link). Der Text "http" sollte daher nur in externen Links erscheinen (wie bei den zweiten und dritten), und wir können dies mit einem [Attributselektor](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors#attribute_selectors) auswählen: `a[href^="http"]` wählt {{htmlelement("a")}} Elemente aus, jedoch nur, wenn sie ein [`href`](/de/docs/Web/HTML/Element/a#href)-Attribut mit einem Wert haben, der mit "http" beginnt.
+Ein abschließendes Wort: Wie haben wir nur externe Links ausgewählt? Nun, wenn Sie Ihre [HTML-Links](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links) richtig schreiben, sollten Sie nur absolute URLs für externe Links verwenden — es ist effizienter, relative Links zu verwenden, um auf andere Teile Ihrer eigenen Seite zu verlinken (wie beim ersten Link). Der Text "http" sollte also nur bei externen Links erscheinen (wie den zweiten und dritten), und wir können dies mit einem [Attributselektor](/de/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors) auswählen: `a[href^="http"]` wählt {{htmlelement("a")}}-Elemente aus, aber nur, wenn sie ein [`href`](/de/docs/Web/HTML/Element/a#href) Attribut mit einem Wert haben, der mit "http" beginnt.
 
-Das ist alles. Versuchen Sie, zur aktiven Lerneinheit oben zurückzukehren und diese neue Technik auszuprobieren!
+Das war's. Versuchen Sie, den aktiven Lernebereich oben erneut zu besuchen und diese neue Technik auszuprobieren!
 
 > [!NOTE]
-> Machen Sie sich keine Sorgen, wenn Sie mit [Hintergründen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) und [responsivem Webdesign](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) noch nicht vertraut sind; diese werden an anderen Stellen erklärt.
+> Keine Sorge, wenn Sie noch nicht mit [Hintergründen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) und [responsivem Webdesign](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) vertraut sind; diese werden an anderen Orten erklärt.
 
-## Links als Schaltflächen gestalten
+## Links als Buttons stylen
 
-Die bisher in diesem Artikel erkundeten Werkzeuge können auch auf andere Weise verwendet werden. Beispielweise können Zustände wie Hover verwendet werden, um viele verschiedene Elemente zu gestalten, nicht nur Links — man könnte den Hover-Zustand von Absätzen, Listenelementen oder anderen Dingen gestalten.
+Die Tools, die Sie bisher in diesem Artikel erkundet haben, können auch auf andere Weise verwendet werden. Zum Beispiel können Zustände wie Hover verwendet werden, um viele verschiedene Elemente zu stylen, nicht nur Links — Sie möchten möglicherweise den Hover-Zustand von Absätzen, Listenelementen oder anderen Dingen stylen.
 
-Zusätzlich werden Links häufig so gestaltet, dass sie in bestimmten Umständen wie Schaltflächen aussehen und sich verhalten. Ein Navigationsmenü einer Website kann als ein Satz von Links formatiert werden, und dies kann so gestaltet werden, dass es wie eine Reihe von Steuerschaltflächen oder Registerkarten aussieht, die dem Nutzer Zugriff auf andere Teile der Website geben. Lassen Sie uns erkunden, wie das geht.
+Darüber hinaus werden Links ziemlich häufig so gestylt, dass sie in bestimmten Umständen wie Buttons aussehen und sich verhalten. Ein Website-Navigationsmenü kann als eine Menge von Links gekennzeichnet sein, und dies kann so gestylt werden, dass es wie eine Menge von Steuerelementbuttons oder Tabs aussieht, die dem Benutzer Zugang zu anderen Teilen der Seite geben. Lassen Sie uns erkunden, wie das geht.
 
 Zuerst etwas HTML:
 
@@ -385,7 +386,7 @@ Zuerst etwas HTML:
 </nav>
 ```
 
-Und jetzt unser CSS:
+Und nun unser CSS:
 
 ```css
 body,
@@ -425,24 +426,24 @@ a:active {
 }
 ```
 
-Das ergibt das folgende Ergebnis:
+Dies ergibt das folgende Ergebnis:
 
 {{ EmbedLiveSample('Styling_links_as_buttons', '100%', 120) }}
 
-Das HTML definiert ein {{HTMLElement("nav")}}-Element mit einer `"container"` Klasse. Das `<nav>` enthält unsere Links.
+Das HTML definiert ein {{HTMLElement("nav")}}-Element mit einer `"container"`-Klasse. Das `<nav>` enthält unsere Links.
 
-Das CSS beinhaltet die Gestaltung des Containers und der darin enthaltenen Links.
+Das CSS umfasst die Stilisierung des Containers und der enthaltenen Links.
 
 - Die zweite Regel besagt:
-  - Der Container ist ein [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox). Die enthaltenen Elemente — in diesem Fall die Links — werden _Flexitems_ sein.
-  - Der Abstand zwischen den Flexitems beträgt `0.625%` der Breite des Containers.
-- Die dritte Regel gestaltet die Links:
-  - Die erste Deklaration, `flex: 1`, bedeutet, dass die Breiten der Elemente so angepasst werden, dass sie den gesamten verfügbaren Platz des Containers nutzen.
-  - Als Nächstes schalten wir die Standard-{{cssxref("text-decoration")}} und {{cssxref("outline")}} ab — wir wollen nicht, dass diese unser Aussehen beeinträchtigen.
-  - Die letzten drei Deklarationen sind, um den Text innerhalb jedes Links zu zentrieren, die {{cssxref("line-height")}} auf 3 zu setzen, um den Schaltflächen etwas Höhe zu geben (was auch den Vorteil hat, den Text vertikal zu zentrieren), und die Textfarbe auf Schwarz zu setzen.
+  - Der Container ist ein [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox). Die darin enthaltenen Elemente — in diesem Fall die Links — werden _Flex-Elemente_ sein.
+  - Der Abstand zwischen den Flex-Elementen beträgt `0.625%` der Breite des Containers.
+- Die dritte Regel stilisiert die Links:
+  - Die erste Deklaration, `flex: 1`, bedeutet, dass die Breiten der Elemente so angepasst werden, dass sie den gesamten verfügbaren Platz im Container nutzen.
+  - Als nächstes schalten wir die Standard-{{cssxref("text-decoration")}} und {{cssxref("outline")}} aus — wir wollen nicht, dass diese unser Aussehen verderben.
+  - Die letzten drei Deklarationen zentrieren den Text in jedem Link, setzen die {{cssxref("line-height")}} auf 3, um den Buttons etwas Höhe zu geben (was zudem den Vorteil hat, den Text vertikal zu zentrieren), und setzen die Textfarbe auf schwarz.
 
 ## Zusammenfassung
 
-Wir hoffen, dass dieser Artikel Ihnen alles bietet, was Sie über Links wissen müssen — fürs Erste! Der letzte Artikel in unserem Modul zur Textgestaltung behandelt, wie Sie benutzerdefinierte Schriften auf Ihren Websites verwenden können (besser bekannt als Webschriften).
+Wir hoffen, dass dieser Artikel Ihnen alles vermittelt hat, was Sie über Links wissen müssen — zumindest für den Moment! Der letzte Artikel in unserem Styling-Textmodul beschreibt, wie Sie benutzerdefinierte Schriften auf Ihren Webseiten verwenden (oder Webfonts, wie sie besser bekannt sind).
 
 {{PreviousMenuNext("Learn_web_development/Core/Text_styling/Styling_lists", "Learn_web_development/Core/Text_styling/Web_fonts", "Learn_web_development/Core/Text_styling")}}
