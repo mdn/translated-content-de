@@ -2,14 +2,14 @@
 title: begin
 slug: Web/SVG/Reference/Attribute/begin
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 041cf35a6932dfc59c00df24eebe381ea252cd29
 ---
 
-Das **`begin`** Attribut definiert, wann das zugehörige Element aktiv wird. Bei einem Animationselement ist dies der Punkt, an dem die Animation beginnen sollte.
+Das **`begin`** Attribut definiert, wann das zugehörige Element aktiv wird. Für ein Animationselement ist dies der Zeitpunkt, an dem die Animation beginnen soll.
 
-Der Attributwert ist eine durch Semikolons getrennte Liste von Werten. Die Interpretation einer Liste von Startzeiten wird in der SMIL-Spezifikation unter ["Evaluation of begin and end time lists"](https://www.w3.org/TR/smil-animation/#Timing-EvaluationOfBeginEndTimeLists) beschrieben. Jeder einzelne Wert kann einer der folgenden sein: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` oder das Schlüsselwort `indefinite`.
+Der Attributwert ist eine durch Semikolon getrennte Liste von Werten. Die Interpretation einer Liste von Startzeiten wird in der SMIL-Spezifikation in ["Evaluation of begin and end time lists"](https://www.w3.org/TR/smil-animation/#Timing-EvaluationOfBeginEndTimeLists) beschrieben. Jeder einzelne Wert kann einer der folgenden sein: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` oder das Schlüsselwort `indefinite`.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -19,7 +19,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## animate, animateMotion, animateTransform, set
 
-Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}}, {{SVGElement("animateTransform")}} und {{SVGElement("set")}} definiert `begin`, wann das Element beginnen sollte, d.h. aktiv wird.
+Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}}, {{SVGElement("animateTransform")}} und {{SVGElement("set")}} definiert `begin`, wann das Element beginnen soll, d.h. aktiv werden soll.
 
 <table class="properties">
   <tbody>
@@ -38,21 +38,21 @@ Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}}, {{SVGElement("a
   </tbody>
 </table>
 
-Die `<begin-value-list>` ist eine durch Semikolons getrennte Liste von Werten. Jeder Wert kann einer der folgenden sein:
+Die `<begin-value-list>` ist eine durch Semikolon getrennte Liste von Werten. Jeder Wert kann einer der folgenden sein:
 
 - `<offset-value>`
   - : Dieser Wert definiert einen [clock-value](/de/docs/Web/SVG/Guides/Content_type#clock-value), der einen Zeitpunkt relativ zum Beginn des SVG-Dokuments darstellt (normalerweise das [`load`](/de/docs/Web/API/Window/load_event) oder [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) Ereignis). Negative Werte sind gültig.
 - `<syncbase-value>`
 
-  - : Dieser Wert definiert eine _Syncbase_ und einen optionalen Offset von dieser _Syncbase_. Die Startzeit der Animation des Elements wird relativ zum Beginn oder aktiven Ende einer anderen Animation definiert.
+  - : Dieser Wert definiert eine _syncbase_ und einen optionalen Offset von dieser _syncbase_. Die Startzeit der Elementanimation wird relativ zum Beginn oder aktiven Ende einer anderen Animation definiert.
 
-    Ein gültiger Syncbase-Wert besteht aus einer ID-Referenz zu einem anderen Animationselement, gefolgt von einem Punkt und entweder `begin` oder `end`, um zu identifizieren, ob mit dem Beginn oder Ende des referenzierten Animationselements synchronisiert werden soll. Ein optionaler Offset-Wert, wie in `<offset-value>` definiert, kann hinzugefügt werden.
+    Ein gültiger syncbase-Wert besteht aus einer ID-Referenz zu einem anderen Animationselement, gefolgt von einem Punkt und entweder `begin` oder `end`, um zu kennzeichnen, ob mit dem Beginn oder dem aktiven Ende des referenzierten Animationselements synchronisiert wird. Ein optionaler Offset-Wert, wie im `<offset-value>` definiert, kann angehängt werden.
 
 - `<event-value>`
 
-  - : Dieser Wert definiert ein Ereignis und einen optionalen Offset, der den Zeitpunkt bestimmt, zu dem die Animation des Elements beginnen soll. Die Startzeit der Animation wird relativ zum Zeitpunkt definiert, zu dem das angegebene Ereignis ausgelöst wird.
+  - : Dieser Wert definiert ein Ereignis und einen optionalen Offset, der den Zeitpunkt bestimmt, zu dem die Animation des Elements beginnen soll. Die Startzeit der Animation wird relativ zu dem Zeitpunkt definiert, zu dem das angegebene Ereignis ausgelöst wird.
 
-    Ein gültiger Ereignis-Wert besteht aus einer Element-ID, gefolgt von einem Punkt und einem der unterstützten Ereignisse für dieses Element. Alle gültigen Ereignisse (nicht unbedingt von allen Elementen unterstützt) werden durch die DOM- und HTML-Spezifikationen definiert. Diese sind:
+    Ein gültiger Event-Wert besteht aus einer Element-ID, gefolgt von einem Punkt und einem der unterstützten Ereignisse für dieses Element. Alle gültigen Ereignisse (nicht unbedingt von allen Elementen unterstützt) sind durch die DOM- und HTML-Spezifikationen definiert. Diese sind:
 
     - [`focus`](/de/docs/Web/API/Element/focus_event)
     - [`blur`](/de/docs/Web/API/Element/blur_event)
@@ -88,28 +88,28 @@ Die `<begin-value-list>` ist eine durch Semikolons getrennte Liste von Werten. J
     - [`endEvent`](/de/docs/Web/API/SVGAnimationElement/endEvent_event)
     - [`repeatEvent`](/de/docs/Web/API/SVGAnimationElement/repeatEvent_event)
 
-    Ein optionaler Offset-Wert, wie in `<offset-value>` definiert, kann hinzugefügt werden.
+    Ein optionaler Offset-Wert, wie im `<offset-value>` definiert, kann angehängt werden.
 
 - `<repeat-value>`
 
-  - : Dieser Wert definiert ein qualifiziertes Wiederholungsereignis. Die Startzeit der Elementanimation wird relativ zum Zeitpunkt definiert, an dem das Wiederholungsereignis mit dem angegebenen Iterationswert ausgelöst wird.
+  - : Dieser Wert definiert ein qualifiziertes Wiederholereignis. Die Startzeit der Elementanimation wird relativ zu dem Zeitpunkt definiert, an dem das Wiederholereignis mit dem angegebenen Iterationswert ausgelöst wird.
 
-    Ein gültiger Wiederholungswert besteht aus einer Element-ID, gefolgt von einem Punkt und der Funktion `repeat()` mit einem ganzzahligen Wert, der die Anzahl der Wiederholungen als Parameter angibt. Ein optionaler Offset-Wert, wie in `<offset-value>` definiert, kann hinzugefügt werden.
+    Ein gültiger Wiederholungswert besteht aus einer Element-ID, gefolgt von einem Punkt und der Funktion `repeat()` mit einem ganzzahligen Wert, der die Anzahl der Wiederholungen als Parameter angibt. Ein optionaler Offset-Wert, wie im `<offset-value>` definiert, kann angehängt werden.
 
 - `<accessKey-value>`
 
-  - : Dieser Wert definiert einen Zugriffsschlüssel, der die Animation auslösen soll. Die Animation des Elements beginnt, wenn der Benutzer die angegebene Taste drückt.
+  - : Dieser Wert definiert eine Zugrifftaste, die die Animation auslösen soll. Die Elementanimation beginnt, wenn der Benutzer die angegebene Taste drückt.
 
-    Ein gültiger accessKey-Wert besteht aus der Funktion `accessKey()` mit dem einzugebenden Zeichen als Parameter. Ein optionaler Offset-Wert, wie in `<offset-value>` definiert, kann hinzugefügt werden.
+    Ein gültiger accessKey-Wert besteht aus der Funktion `accessKey()` mit dem einzugebenden Zeichen als Parameter. Ein optionaler Offset-Wert, wie im `<offset-value>` definiert, kann angehängt werden.
 
 - `<wallclock-sync-value>`
 
-  - : Dieser Wert definiert die Startzeit der Animation als Echtzeituhrzeit.
+  - : Dieser Wert definiert die Startzeit der Animation als Echtzeit-Uhrzeit.
 
-    Ein gültiger Wallclock-Sync-Wert besteht aus der Funktion `wallclock()` mit einem Zeitwert als Parameter. Die Zeitsyntax basiert auf der in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) definierten Syntax.
+    Ein gültiger wallclock-sync-Wert besteht aus der Funktion `wallclock()` mit einem Zeitwert als Parameter. Die Zeitsyntax basiert auf der in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) definierten Syntax.
 
 - `indefinite`
-  - : Der Beginn der Animation wird durch einen `beginElement()`-Methodenaufruf oder einen Hyperlink, der auf das Element zielt, bestimmt.
+  - : Der Beginn der Animation wird durch einen `beginElement()`-Methodenaufruf oder einen Hyperlink, der auf das Element abzielt, bestimmt.
 
 ## Beispiele
 
@@ -358,7 +358,7 @@ Die `<begin-value-list>` ist eine durch Semikolons getrennte Liste von Werten. J
 
 [begin-4-repeat.svg](begin-4-repeat.svg)
 
-### Accesskey-Beispiel
+### Zugriffstasten-Beispiel
 
 ```html
 <svg
@@ -404,7 +404,7 @@ Die `<begin-value-list>` ist eine durch Semikolons getrennte Liste von Werten. J
 
 {{EmbedLiveSample('Accesskey_example', '100%', 130)}}
 
-_Dieses Beispiel ist in einem iFrame eingebettet. Wenn Sie die Tasteneingaben aktivieren möchten, müssen Sie zuerst darauf klicken._
+_Dieses Beispiel ist in einem iFrame eingebettet. Wenn Sie die Tastenereignisse aktivieren möchten, müssen Sie zuerst darauf klicken._
 
 [begin-5-accesskey.svg](begin-5-accesskey.svg)
 

@@ -6153,6 +6153,7 @@
 /de/docs/Mozilla/Add-ons/WebExtensions/Alternative_methods_of_installing_add-ons/Sideloading_add-ons	https://extensionworkshop.com/documentation/publish/distribute-sideloading/
 /de/docs/Mozilla/Add-ons/WebExtensions/Browser_action	/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button
 /de/docs/Mozilla/Add-ons/WebExtensions/Browser_actions	/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button
+/de/docs/Mozilla/Add-ons/WebExtensions/Browser_compatibility_for_manifest.json	/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json#browser_compatibility
 /de/docs/Mozilla/Add-ons/WebExtensions/Build_a_cross_browser_extension_	/de/docs/Mozilla/Add-ons/WebExtensions/Build_a_cross_browser_extension
 /de/docs/Mozilla/Add-ons/WebExtensions/Building_a_cross_browser_extension	/de/docs/Mozilla/Add-ons/WebExtensions/Build_a_cross_browser_extension
 /de/docs/Mozilla/Add-ons/WebExtensions/Context_menu_items	/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Context_menu_items
