@@ -2,10 +2,10 @@
 title: tabindex
 slug: Web/SVG/Reference/Attribute/tabindex
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 05617e872df6d1c5b5d480eaa1b11852c1ce39f1
 ---
 
-Das **`tabindex`**-Attribut ermöglicht es Ihnen, zu steuern, ob ein Element fokussierbar ist und die relative Reihenfolge des Elements für die Zwecke der sequentiellen Fokusnavigation zu definieren.
+Das **`tabindex`**-Attribut ermöglicht es Ihnen, zu steuern, ob ein Element fokussierbar ist und die relative Reihenfolge des Elements für die Zwecke der sequentiellen Fokussierung zu definieren.
 
 Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
@@ -22,16 +22,16 @@ svg {
 ```html
 <?xml version="1.0"?>
 <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="60" cy="60" r="15" tabindex="0" />
-  <circle cx="60" cy="160" r="30" tabindex="0" />
-  <circle cx="160" cy="60" r="30" tabindex="0" />
-  <circle cx="160" cy="160" r="60" tabindex="0" />
+  <circle r="10" tabindex="0" fill="green" cx="60" cy="60" />
+  <circle r="40" tabindex="0" fill="red" cx="60" cy="160" />
+  <circle r="60" tabindex="0" fill="blue" cx="160" cy="60" />
+  <circle r="20" tabindex="0" fill="black" cx="160" cy="160" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "260", "260")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -53,7 +53,7 @@ svg {
 </table>
 
 - gültige Ganzzahl
-  - : Relative Reihenfolge des Elements für die Zwecke der sequentiellen Fokusnavigation.
+  - : Relative Reihenfolge des Elements für die Zwecke der sequentiellen Fokussierung.
 
 ## Spezifikationen
 

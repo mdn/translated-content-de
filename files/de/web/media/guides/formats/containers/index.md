@@ -2,41 +2,29 @@
 title: Mediencontainerformate (Dateitypen)
 slug: Web/Media/Guides/Formats/Containers
 l10n:
-  sourceCommit: 2bacce4734138ecf6def75b00d948cf4be9a730f
+  sourceCommit: e58df624ccdc08f29a04d11b277239e230abd725
 ---
 
-Ein **Mediencontainer** ist ein Dateiformat, das einen oder mehrere Mediastreams (wie Audio oder Video) zusammen mit Metadaten encapsuliert, sodass sie gemeinsam gespeichert und wiedergegeben werden können.
-Das Format von Audio- und Videodateien wird durch mehrere Komponenten definiert, einschließlich der verwendeten Audio- und/oder Videocodecs, des Mediencontainerformats (oder Dateityps) und optional anderer Elemente wie Untertitel-Codecs oder Metadaten.
-In diesem Leitfaden werfen wir einen Blick auf die im Web am häufigsten verwendeten Containerformate und behandeln Grundlagen zu deren Spezifikationen sowie deren Vorteile, Einschränkungen und idealen Anwendungsfälle.
+Ein **Mediencontainer** ist ein Dateiformat, das einen oder mehrere Medienströme (wie Audio oder Video) zusammen mit Metadaten kapselt und es ermöglicht, diese gemeinsam zu speichern und wiederzugeben. Das Format von Audio- und Videodateien wird durch mehrere Komponenten definiert, einschließlich der verwendeten Audio- und/oder Videocodecs, des Mediencontainerformats (oder Dateityps) und optional anderer Elemente wie Untertitelcodecs oder Metadaten. In diesem Leitfaden betrachten wir die im Internet am häufigsten verwendeten Containerformate und decken Grundlagen zu deren Spezifikationen sowie deren Vorteile, Einschränkungen und idealen Anwendungsfällen ab.
 
-[WebRTC](/de/docs/Web/API/WebRTC_API) verwendet überhaupt keinen Container.
-Stattdessen streamt es die codierten Audio- und Videotracks direkt von einem Peer zum anderen, indem [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte verwendet werden, um jeden Track darzustellen.
-Weitere Informationen zu Codecs, die häufig für WebRTC-Anrufe verwendet werden, sowie zur Browser-Kompatibilität hinsichtlich der Codec-Unterstützung in WebRTC finden Sie unter [Codecs verwendet von WebRTC](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs).
+[WebRTC](/de/docs/Web/API/WebRTC_API) verwendet überhaupt keinen Container. Stattdessen streamt es die codierten Audio- und Videospuren direkt von einem Peer zum anderen, wobei [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte verwendet werden, um jede Spur darzustellen. Weitere Informationen zu den in der Regel für WebRTC-Anrufe verwendeten Codecs und zur "Browser-Kompatibilität" für die WebRTC-Codec-Unterstützung finden Sie unter [Codecs used by WebRTC](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs).
 
 ## Häufige Containerformate
 
-Während es eine Vielzahl von Mediencontainerformaten gibt, sind die unten aufgelisteten diejenigen, denen Sie am wahrscheinlichsten begegnen werden.
-Einige unterstützen nur Audio, während andere sowohl Audio als auch Video unterstützen.
-Die MIME-Typen und Erweiterungen für jedes werden aufgeführt. Die am häufigsten für Medien im Web verwendeten Container sind wahrscheinlich MPEG-4 (MP4), Web Media File (WEBM) und MP3-Format.
-Sie können jedoch auch Ogg, WAV, AVI, MOV und andere Formate antreffen.
-Nicht alle davon werden jedoch von Browsern breit unterstützt; einige Kombinationen aus Container und Codec erhalten manchmal aus Gründen der Bequemlichkeit oder aufgrund ihrer Allgegenwart eigene Dateierweiterungen und MIME-Typen.
-Zum Beispiel wird eine Ogg-Datei mit nur einem Opus-Audiotrack manchmal als Opus-Datei bezeichnet und könnte sogar die Erweiterung `.opus` haben.
-Es bleibt jedoch tatsächlich nur eine Ogg-Datei.
+Obwohl es eine große Anzahl von Mediencontainerformaten gibt, sind die unten aufgeführten diejenigen, die Sie höchstwahrscheinlich antreffen werden. Einige unterstützen nur Audio, während andere sowohl Audio als auch Video unterstützen. Die MIME-Typen und Erweiterungen für jedes sind aufgelistet. Die am häufigsten verwendeten Container für Medien im Web sind wahrscheinlich MPEG-4 Part-14 (MP4) und Web Media File (WEBM). Sie können jedoch auch Ogg, WAV, AVI, MOV und andere Formate antreffen. Nicht alle werden breit von Browsern unterstützt; einige Kombinationen von Container und Codec erhalten manchmal ihre eigenen Dateierweiterungen und MIME-Typen aus Gründen der Bequemlichkeit oder wegen ihrer Allgegenwärtigkeit. Beispielsweise wird eine Ogg-Datei mit nur einem Opus-Audiotrack manchmal als Opus-Datei bezeichnet und könnte sogar die Erweiterung `.opus` haben. Aber eigentlich ist es immer noch nur eine Ogg-Datei.
 
-In anderen Fällen ist ein bestimmter Codec, der in einem bestimmten Containertyp gespeichert ist, so allgegenwärtig, dass die Paarung auf einzigartige Weise behandelt wird.
-Ein gutes Beispiel dafür sind die MP3-Audiodateien, die tatsächlich ein MPEG-1-Container mit einem einzigen Audiotrack sind, der mit MPEG-1 Audio Layer III-Codierung codiert ist.
-Diese Dateien verwenden den `audio/mp3` MIME-Typ und die `.mp3` Erweiterung, obwohl ihre Container nur MPEG sind.
+In einigen Fällen wird die Verwendung eines bestimmten Codecs so allgegenwärtig, dass seine Nutzung als einzigartiges Format behandelt wird. Ein gutes Beispiel ist die MP3-Audiodatei, die nicht in einem konventionellen Container gespeichert wird. Stattdessen ist eine MP3-Datei im Wesentlichen ein Stream von MPEG-1 Audio Layer III-codierten Frames, oft begleitet von Metadaten wie ID3-Tags. Diese Dateien verwenden den `audio/mpeg` MIME-Typ und die `.mp3`-Erweiterung.
 
 ### Index der Mediencontainerformate (Dateitypen)
 
-Um mehr über ein bestimmtes Containerformat zu erfahren, finden Sie es in dieser Liste und klicken Sie durch zu den Details, die Informationen darüber enthalten, wofür der Container typischerweise nützlich ist, welche Codecs er unterstützt und welche Browser ihn unterstützen, unter anderem Spezifika.
+Um mehr über ein spezifisches Containerformat zu erfahren, finden Sie es in dieser Liste und klicken Sie auf die Details, die Informationen darüber enthalten, wofür der Container typischerweise nützlich ist, welche Codecs er unterstützt und welche Browser ihn unterstützen, unter anderem.
 
 <table class="standard-table">
   <thead>
     <tr>
       <th scope="row">Codec-Name (kurz)</th>
       <th scope="col">Vollständiger Codec-Name</th>
-      <th scope="col">Browser-Kompatibilität</th>
+      <th scope="col">"Browser-Kompatibilität"</th>
     </tr>
   </thead>
   <tbody>
@@ -50,7 +38,7 @@ Um mehr über ein bestimmtes Containerformat zu erfahren, finden Sie es in diese
       <td>Audio Data Transport Stream</td>
       <td>
         <p>Firefox</p>
-        <p>Verfügbar nur, wenn es auf dem Medien-Framework des zugrunde liegenden Betriebssystems verfügbar ist.
+        <p>Verfügbar nur, wenn sie im Medienframework des zugrunde liegenden Betriebssystems verfügbar ist.
         </p>
       </td>
     </tr>
@@ -76,8 +64,8 @@ Um mehr über ein bestimmtes Containerformat zu erfahren, finden Sie es in diese
     </tr>
     <tr>
       <th scope="row"><a href="#quicktime">QuickTime (MOV)</a></th>
-      <td>Apple QuickTime-Film</td>
-      <td>Nur ältere Versionen von Safari sowie andere Browser, die das QuickTime-Plugin von Apple unterstützten</td>
+      <td>Apple QuickTime movie</td>
+      <td>Nur ältere Versionen von Safari, plus andere Browser, die das QuickTime-Plugin von Apple unterstützten</td>
     </tr>
     <tr>
       <th scope="row"><a href="#webm">WebM</a></th>
@@ -87,17 +75,13 @@ Um mehr über ein bestimmtes Containerformat zu erfahren, finden Sie es in diese
   </tbody>
 </table>
 
-Sofern nicht anders angegeben, wird sowohl die mobile als auch die Desktop-Browser-Kompatibilität impliziert, wenn hier ein Browser aufgeführt ist.
-Die Unterstützung ist auch nur für den Container selbst impliziert, nicht für spezifische Codecs.
+Sofern nicht anders angegeben, ist sowohl die mobile als auch die Desktop-"Browser-Kompatibilität" impliziert, wenn ein Browser hier aufgelistet ist. Unterstützung wird nur für den Container selbst impliziert, nicht für spezifische Codecs.
 
 ### 3GP
 
-Der **3GP** oder **3GPP** Mediencontainer wird verwendet, um Audio und/oder Video zu encapsulieren, das speziell für die Übertragung über Mobilfunknetze zur Nutzung auf mobilen Geräten vorgesehen ist.
-Das Format wurde für die Verwendung auf 3G-Mobiltelefonen entwickelt, kann aber auch auf moderneren Telefonen und Netzwerken verwendet werden.
-Durch die verbesserte Bandbreitenverfügbarkeit und die höheren Datenlimits in den meisten Netzwerken hat das 3GP-Format jedoch an Bedeutung verloren.
-Dieses Format wird jedoch weiterhin für langsamere Netzwerke und für weniger leistungsfähige Telefone verwendet.
+Der **3GP**- oder **3GPP**-Mediencontainer wird verwendet, um Audio und/oder Video zu verkapseln, die speziell für die Übertragung über Mobilfunknetze zur Nutzung auf mobilen Geräten vorgesehen sind. Das Format wurde für die Verwendung auf 3G-Handys entwickelt, kann aber immer noch auf moderneren Handys und Netzwerken verwendet werden. Allerdings hat die verbesserte Bandbreitenverfügbarkeit und die erhöhten Datenlimits in den meisten Netzen die Notwendigkeit des 3GP-Formats verringert. Dennoch wird dieses Format weiterhin für langsamere Netzwerke und leistungsschwächere Handys verwendet.
 
-Dieses Mediencontainerformat ist abgeleitet vom ISO Base Media File Format sowie MPEG-4, jedoch speziell für Szenarien mit geringerer Bandbreite optimiert.
+Dieses Mediencontainerformat ist vom ISO Base Media File Format und MPEG-4 abgeleitet, wurde jedoch speziell für geringere Bandbreitenszenarien optimiert.
 
 | Audio         | Video         |
 | ------------- | ------------- |
@@ -105,18 +89,17 @@ Dieses Mediencontainerformat ist abgeleitet vom ISO Base Media File Format sowie
 | `audio/3gpp2` | `video/3gpp2` |
 | `audio/3gp2`  | `video/3gp2`  |
 
-Diese MIME-Typen sind die grundlegenden Typen für den 3GP-Mediencontainer; andere Typen können abhängig vom spezifischen Codec oder den Codecs, die verwendet werden, verwendet werden.
-Zusätzlich können Sie [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/Guides/Formats/codecs_parameter#iso_base_media_file_format_mp4_quicktime_and_3gp) zur MIME-Typ-Zeichenkette, um anzugeben, welche Codecs für die Audio- und/oder Videotracks verwendet werden, und optional Details zum Profil, Level und/oder anderen spezifischen Codec-Konfigurationen zu liefern.
+Diese MIME-Typen sind die fundamentalen Typen für den 3GP-Mediencontainer; andere Typen können je nach spezifischem Codec oder den verwendeten Codecs verwendet werden. Darüber hinaus können Sie den `codecs`-Parameter zum MIME-Typ-String hinzufügen, um anzugeben, welche Codecs für die Audio- und/oder Videospuren verwendet werden, und optional weitere Details über das Profil, die Stufe und/oder andere Codec-Konfigurationsspezifika bereitzustellen.
 
 <table class="standard-table">
   <caption>
-    Von 3GP unterstützte Videocodecs
+    Video-Codecs, die von 3GP unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -160,13 +143,13 @@ Zusätzlich können Sie [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/
 
 <table class="standard-table">
   <caption>
-    Von 3GP unterstützte Audiocodecs
+    Audio-Codecs, die von 3GP unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -231,27 +214,24 @@ Zusätzlich können Sie [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/
 
 ### ADTS
 
-**Audio Data Transport Stream** (**ADTS**) ist ein Containerformat, das von MPEG-4 Part 3 für Audiodaten spezifiziert wird, das für das Streaming von Audio vorgesehen ist, wie zum Beispiel für Internetradio.
-Es handelt sich im Wesentlichen um einen fast nackten Stream von AAC-Audiodaten, bestehend aus ADTS-Frames mit einem minimalen Header.
+**Audio Data Transport Stream** (**ADTS**) ist ein Containerformat, das von MPEG-4 Part 3 für Audiodaten spezifiziert wurde, um für gestreamtes Audio verwendet zu werden, wie zum Beispiel für Internetradio. Es handelt sich im Wesentlichen um einen nahezu nackten Stream von AAC-Audiodaten, der aus ADTS-Frames mit einem minimalen Header besteht.
 
 | Audio        |
 | ------------ |
 | `audio/aac`  |
 | `audio/mpeg` |
 
-Der MIME-Typ, der für ADTS verwendet wird, hängt von der Art der enthaltenen Audio-Frames ab.
-Wenn ADTS-Frames verwendet werden, sollte der `audio/aac` MIME-Typ verwendet werden.
-Wenn die Audio-Frames im MPEG-1/MPEG-2 Audio Layer I-, II- oder III-Format sind, sollte der MIME-Typ `audio/mpeg` sein.
+Der für ADTS verwendete MIME-Typ hängt davon ab, welche Art von Audioframes enthalten sind. Wenn ADTS-Frames verwendet werden, sollte der MIME-Typ `audio/aac` verwendet werden. Wenn die Audioframes im MPEG-1/MPEG-2 Audio Layer I, II oder III Format vorliegen, sollte der MIME-Typ `audio/mpeg` sein.
 
 <table class="standard-table">
   <caption>
-    Von ADTS unterstützte Audiocodecs
+    Audio-Codecs, die von ADTS unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -279,28 +259,26 @@ Wenn die Audio-Frames im MPEG-1/MPEG-2 Audio Layer I-, II- oder III-Format sind,
   </tbody>
 </table>
 
-Die Unterstützung von AAC in Firefox hängt von der Medieninfrastruktur des Betriebssystems ab, sodass es verfügbar ist, solange das Betriebssystem es unterstützt.
+Die Unterstützung von Firefox für AAC hängt von der Medieninfrastruktur des Betriebssystems ab und ist verfügbar, solange das Betriebssystem diese unterstützt.
 
 ### FLAC
 
-Der **Free Lossless Audio Codec** (**FLAC**) ist ein verlustfreier Audiocodec; es gibt auch ein zugehöriges Containerformat, das ebenfalls FLAC genannt wird und dieses Audio enthalten kann.
-Das Format ist nicht durch Patente belastet, sodass seine Verwendung von rechtlichen Einmischungen sicher ist.
-FLAC-Dateien können nur FLAC-Audiodaten enthalten.
+Der **Free Lossless Audio Codec** (**FLAC**) ist ein verlustfreier Audiocodec; es gibt auch ein zugehöriges Containerformat, ebenfalls FLAC genannt, das dieses Audio enthalten kann. Das Format ist frei von Patenten, sodass seine Verwendung vor Beeinträchtigungen sicher ist. FLAC-Dateien können nur FLAC-Audiodaten enthalten.
 
-| Audio                                 |
-| ------------------------------------- |
-| `audio/flac`                          |
-| `audio/x-flac` (nicht standardisiert) |
+| Audio                                  |
+| -------------------------------------- |
+| `audio/flac`                           |
+| `audio/x-flac` (nicht standardmäßiger) |
 
 <table class="standard-table">
   <caption>
-    Von FLAC unterstützte Audiocodecs
+    Audio-Codecs, die von FLAC unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -323,14 +301,11 @@ FLAC-Dateien können nur FLAC-Audiodaten enthalten.
 
 ### MPEG/MPEG-2
 
-Die **[MPEG-1](https://en.wikipedia.org/wiki/MPEG-1)** und **[MPEG-2](https://en.wikipedia.org/wiki/MPEG-2)** Dateiformate sind im Wesentlichen identisch.
-Erstellt von der Moving Picture Experts Group (MPEG), werden diese Formate häufig in physischen Medien verwendet, einschließlich als Format des Videos auf DVD-Medien.
+Die **[MPEG-1](https://en.wikipedia.org/wiki/MPEG-1)** und **[MPEG-2](https://en.wikipedia.org/wiki/MPEG-2)** Dateiformate sind im Wesentlichen identisch. Erstellt von der Moving Picture Experts Group (MPEG), werden diese Formate häufig in physischen Medien verwendet, einschließlich des Videoformats auf DVD-Medien.
 
-Im Internet ist die vielleicht häufigste Verwendung des MPEG-Dateiformats als Container für [Layer_III/MP3](https://en.wikipedia.org/wiki/MPEG-1)-Sounddaten; die resultierenden Dateien sind die weltweit beliebten MP3-Dateien, die von digitalen Musikgeräten auf der ganzen Welt verwendet werden.
-Andernfalls werden MPEG-1 und MPEG-2 nicht häufig in Webinhalten verwendet.
+Im Internet ist die wahrscheinlich häufigste Anwendung des MPEG-Standards für [MPEG-1 Audio Layer III](https://en.wikipedia.org/wiki/MPEG-1), allgemein bekannt als MP3, Audiodaten. Diese MP3-Dateien sind weltweit extrem beliebt bei digitalen Musikgeräten, obwohl MPEG-1 und MPEG-2 insgesamt auf anderen Webinhalten nicht weit verbreitet sind.
 
-Die Hauptunterschiede zwischen MPEG-1 und MPEG-2 liegen mehr in den Mediendatenformaten als im Containerformat.
-MPEG-1 wurde 1992 eingeführt; MPEG-2 wurde 1996 eingeführt.
+Die Hauptunterschiede zwischen MPEG-1 und MPEG-2 finden eher in den Mediendatenformaten als im Containerformat statt. MPEG-1 wurde 1992 eingeführt; MPEG-2 wurde 1996 eingeführt.
 
 | Audio        | Video        |
 | ------------ | ------------ |
@@ -338,13 +313,13 @@ MPEG-1 wurde 1992 eingeführt; MPEG-2 wurde 1996 eingeführt.
 
 <table class="standard-table">
   <caption>
-    Von MPEG-1 und MPEG-2 unterstützte Videocodecs
+    Video-Codecs, die von MPEG-1 und MPEG-2 unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -374,13 +349,13 @@ MPEG-1 wurde 1992 eingeführt; MPEG-2 wurde 1996 eingeführt.
 
 <table class="standard-table">
   <caption>
-    Von MPEG-1 und MPEG-2 unterstützte Audiocodecs
+    Audio-Codecs, die von MPEG-1 und MPEG-2 unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -417,31 +392,27 @@ MPEG-1 wurde 1992 eingeführt; MPEG-2 wurde 1996 eingeführt.
 
 ### MPEG-4 (MP4)
 
-**[MPEG-4](https://en.wikipedia.org/wiki/MPEG-4)** (**MP4**) ist die neueste Version des MPEG-Dateiformats.
-Es gibt zwei Versionen des Formats, die in den Teilen 1 und 14 der Spezifikation definiert sind.
-MP4 ist heute ein beliebter Container, da es mehrere der am häufigsten verwendeten Codecs unterstützt und breit unterstützt wird.
+**[MPEG-4](https://en.wikipedia.org/wiki/MPEG-4)** (**MP4**) ist die neueste Version des MPEG-Dateiformats. Es gibt zwei Versionen des Formats, die in den Teilen 1 und 14 der Spezifikation definiert sind. MP4 ist heute ein beliebtes Containerformat, da es mehrere der am häufigsten verwendeten Codecs unterstützt und breit unterstützt wird.
 
-Das ursprüngliche MPEG-4 Part 1-Dateiformat wurde 1999 eingeführt; das Version 2-Format, definiert in Part 14, wurde 2003 hinzugefügt.
-Das MP4-Dateiformat ist abgeleitet vom [ISO Base Media File Format](https://en.wikipedia.org/wiki/ISO_base_media_file_format), das direkt vom [QuickTime-Dateiformat](https://en.wikipedia.org/wiki/QuickTime_File_Format) abgeleitet ist, das von [Apple](https://www.apple.com/) entwickelt wurde.
+Das ursprüngliche MPEG-4 Teil 1 Dateiformat wurde 1999 eingeführt; das Version 2 Format, das in Teil 14 definiert ist, wurde 2003 hinzugefügt. Das MP4-Dateiformat ist vom [ISO base media file format](https://en.wikipedia.org/wiki/ISO_base_media_file_format) abgeleitet, das direkt vom [QuickTime file format](https://en.wikipedia.org/wiki/QuickTime_File_Format) abgeleitet ist, das von [Apple](https://www.apple.com/) entwickelt wurde.
 
-Wenn Sie den MPEG-4-Medientyp (`audio/mp4` oder `video/mp4`) angeben, können Sie [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/Guides/Formats/codecs_parameter#iso_base_media_file_format_mp4_quicktime_and_3gp) zur MIME-Typ-Zeichenkette, um anzugeben, welche Codecs für die Audio- und/oder Videotracks verwendet werden, und optional Details zum Profil, Level und/oder anderen spezifischen Codec-Konfigurationen zu liefern.
+Beim Spezifizieren des MPEG-4 Medientyps (`audio/mp4` oder `video/mp4`) können Sie den `codecs`-Parameter zum MIME-Typ-String hinzufügen, um anzugeben, welche Codecs für die Audio- und/oder Videospuren verwendet werden, und um optional Details über das Profil, die Stufe und/oder andere Codec-Konfigurationsspezifika bereitzustellen.
 
 | Audio       | Video       |
 | ----------- | ----------- |
 | `audio/mp4` | `video/mp4` |
 
-Diese MIME-Typen sind die grundlegenden Typen für den MPEG-4-Mediencontainer; andere MIME-Typen können abhängig vom spezifischen Codec oder den Codecs in Gebrauch innerhalb des Containers verwendet werden.
-Zusätzlich können Sie [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/Guides/Formats/codecs_parameter#iso_base_media_file_format_mp4_quicktime_and_3gp) zur MIME-Typ-Zeichenkette, um anzugeben, welche Codecs für die Audio- und/oder Videotracks verwendet werden, und optional Details zum Profil, Level und/oder anderen spezifischen Codec-Konfigurationen zu liefern.
+Diese MIME-Typen sind die fundamentalen Typen für den MPEG-4 Mediencontainer; andere MIME-Typen können je nach den spezifischen Codec oder den Codecs, die im Container verwendet werden, verwendet werden. Darüber hinaus können Sie den `codecs`-Parameter zum MIME-Typ-String hinzufügen, um anzugeben, welche Codecs für die Audio- und/oder Videospuren verwendet werden, und um optional Details über das Profil, die Stufe und/oder andere Codec-Konfigurationsspezifika bereitzustellen.
 
 <table class="standard-table">
   <caption>
-    Von MPEG-4 unterstützte Videocodecs
+    Video-Codecs, die von MPEG-4 unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -459,7 +430,7 @@ Zusätzlich können Sie [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/
       <td>
         <p>Ja</p>
         <p>
-          Die Unterstützung von H.264 in Firefox hängt von der Medieninfrastruktur des Betriebssystems ab, sodass es verfügbar ist, solange das Betriebssystem es unterstützt.
+          Die Unterstützung von Firefox für H.264 hängt von der Medieninfrastruktur des Betriebssystems ab und ist verfügbar, solange das Betriebssystem diese unterstützt.
         </p>
       </td>
       <td></td>
@@ -470,7 +441,7 @@ Zusätzlich können Sie [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/
       <td></td>
       <td>
         <p>Ja</p>
-        <p>Die Unterstützung von AV1 in Firefox ist auf Windows auf ARM deaktiviert (aktivieren, indem Sie die Einstellung <code>media.av1.enabled</code> auf <code>true</code> setzen).</p>
+        <p>Die Unterstützung von Firefox für AV1 ist auf Windows auf ARM deaktiviert (aktivieren Sie sie, indem Sie die Einstellung <code>media.av1.enabled</code> auf <code>true</code> setzen).</p>
       </td>
       <td></td>
     </tr>
@@ -500,13 +471,13 @@ Zusätzlich können Sie [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/
 
 <table class="standard-table">
   <caption>
-    Von MPEG-4 unterstützte Audiocodecs
+    Audio-Codecs, die von MPEG-4 unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -523,7 +494,7 @@ Zusätzlich können Sie [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/
       <td></td>
       <td>
         <p>Ja</p>
-        <p>Die Unterstützung von H.264 in Firefox hängt von der Medieninfrastruktur des Betriebssystems ab, sodass es verfügbar ist, solange das Betriebssystem es unterstützt.</p>
+        <p>Die Unterstützung von Firefox für H.264 hängt von der Medieninfrastruktur des Betriebssystems ab und ist verfügbar, solange das Betriebssystem diese unterstützt.</p>
       </td>
       <td></td>
     </tr>
@@ -553,34 +524,29 @@ Zusätzlich können Sie [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/
 
 ### Ogg
 
-Das [Ogg](https://en.wikipedia.org/wiki/Ogg) Containerformat ist ein freies und offenes Format, das von der [Xiph.org Foundation](https://www.xiph.org/) gepflegt wird.
-Der Ogg-Rahmen definiert auch patentfreie Mediendatenformate, wie den Theora-Videocodec und die Vorbis- und Opus-Audiocodecs.
-[Xiph.org-Dokumente über das Ogg-Format](https://xiph.org/ogg/) sind auf deren Webseite verfügbar.
+Das [Ogg](https://en.wikipedia.org/wiki/Ogg)-Containerformat ist ein freies und offenes Format, das von der [Xiph.org Foundation](https://www.xiph.org/) gepflegt wird. Das Ogg-Framework definiert auch patentfreie Mediendatenformate wie den Theora-Video-Codec und die Vorbis- und Opus-Audio-Codecs. [Xiph.org-Dokumente über das Ogg-Format](https://xiph.org/ogg/) sind auf ihrer Website verfügbar.
 
-Obwohl Ogg schon lange existiert, hat es nie die breite Unterstützung erlangt, die erforderlich ist, um es zu einer guten ersten Wahl für einen Mediencontainer zu machen.
-Normalerweise sind Sie besser dran mit der Verwendung von WebM, obwohl es Zeiten gibt, in denen Ogg nützlich ist, um es anzubieten, zum Beispiel wenn Sie ältere Versionen von Firefox und Chrome unterstützen möchten, die noch nicht WebM unterstützen.
-Zum Beispiel unterstützen Firefox 3.5 und 3.6 Ogg, nicht aber WebM.
+Während Ogg schon lange existiert, hat es nie die breite Unterstützung erhalten, die es zu einer guten ersten Wahl für einen Mediencontainer machen würde. Es ist in der Regel besser, WebM zu verwenden, obwohl Ogg in einigen Fällen nützlich sein kann, z. B. wenn Sie ältere Versionen von Firefox und Chrome unterstützen möchten, die WebM noch nicht unterstützen. Beispielsweise unterstützen Firefox 3.5 und 3.6 Ogg, aber nicht WebM.
 
-Sie können mehr Informationen über Ogg und seine Codecs im [Theora Cookbook](https://en.flossmanuals.net/ogg-theora/_full/) erhalten.
+Weitere Informationen zu Ogg und seinen Codecs finden Sie im [Theora Cookbook](https://en.flossmanuals.net/ogg-theora/_full/).
 
 | Audio       | Video       |
 | ----------- | ----------- |
 | `audio/ogg` | `video/ogg` |
 
-Der `application/ogg` MIME-Typ kann verwendet werden, wenn Sie nicht genau wissen, ob die Medien Audio oder Video enthalten.
-Wenn möglich, sollten Sie einen der spezifischen Typen verwenden, jedoch auf `application/ogg` zurückgreifen, wenn Sie das Format oder die Formate des Inhalts nicht kennen.
+Der `application/ogg` MIME-Typ kann verwendet werden, wenn Sie nicht unbedingt wissen, ob die Medien Audio oder Video enthalten. Wenn möglich, sollten Sie einen der spezifischen Typen verwenden, aber auf `application/ogg` zurückgreifen, wenn Sie das Inhaltsformat oder die Formate nicht kennen.
 
-Sie können auch [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/Guides/Formats/codecs_parameter) zur MIME-Typ-Zeichenkette, um anzugeben, welche Codecs für die Audio- und/oder Videotracks verwendet werden, und optional die Track-Medienformate weiter beschreiben.
+Sie können auch den `codecs`-Parameter zum MIME-Typ-String hinzufügen, um anzugeben, welche Codecs für die Audio- und/oder Videospuren verwendet werden, und um optional die Medienformate der Spuren weiter zu beschreiben.
 
 <table class="standard-table">
   <caption>
-    Von Ogg unterstützte Videocodecs
+    Video-Codecs, die von Ogg unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -617,13 +583,13 @@ Sie können auch [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/Guides/
 
 <table class="standard-table">
   <caption>
-    Von Ogg unterstützte Audiocodecs
+    Audio-Codecs, die von Ogg unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -659,46 +625,37 @@ Sie können auch [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/Guides/
 </table>
 
 > [!WARNING]
-> Ogg Opus-Audiodateien, die länger als 12 Stunden 35 Minuten 39 Sekunden sind, werden abgeschnitten und weisen Suchprobleme auf, wenn sie auf Firefox Linux 64 bit ([Firefox Fehler 1810378](https://bugzil.la/1810378)) abgespielt werden.
+> Ogg-Opus-Audiodateien, die länger als 12h 35m 39s sind, werden abgeschnitten und weisen Suchprobleme auf, wenn sie auf Firefox Linux 64 Bit ([Firefox-Fehler 1810378](https://bugzil.la/1810378)) abgespielt werden.
 
 ### QuickTime
 
-Das **QuickTime** Dateiformat (**QTFF**, **QT** oder **MOV**) wurde von Apple für die Verwendung durch das gleichnamige Medien-Framework erstellt.
-Die Erweiterung dieser Dateien, `.mov`, stammt aus der Tatsache, dass das Format ursprünglich für Filme verwendet wurde und gewöhnlich als "QuickTime movie" Format bezeichnet wurde.
-Während QTFF als Grundlage für das MPEG-4 Dateiformat diente, gibt es Unterschiede und die beiden sind nicht ganz austauschbar.
+Das **QuickTime**-Dateiformat (**QTFF**, **QT** oder **MOV**) wurde von Apple für den Einsatz in seinem gleichnamigen Medienframework entwickelt. Die Erweiterung dieser Dateien, `.mov`, kommt von der Tatsache, dass das Format ursprünglich für Filme verwendet wurde und in der Regel als "QuickTime-Movie"-Format bezeichnet wird. Während QTFF als Basis für das MPEG-4-Dateiformat diente, gibt es Unterschiede und die beiden sind nicht ganz austauschbar.
 
-QuickTime-Dateien unterstützen jede Art von zeitbasierten Daten, einschließlich Audio- und Videodaten, Texttracks und so weiter.
-QuickTime-Dateien werden hauptsächlich von macOS unterstützt, aber einige Jahre lang war für Windows QuickTime verfügbar, um auf Windows auf sie zugreifen zu können.
-QuickTime für Windows wird jedoch seit Anfang 2016 nicht mehr von Apple unterstützt und _sollte nicht verwendet werden_, da bekannte Sicherheitsbedenken bestehen.
-Der Windows Media Player unterstützt jedoch jetzt QuickTime Version 2.0 und frühere Dateien; die Unterstützung späterer Versionen von QuickTime erfordert Drittanbieter-Ergänzungen.
+QuickTime-Dateien unterstützen jede Art von zeitbasierten Daten, einschließlich Audio- und Video-Medien, Text-Tracks und so weiter. QuickTime-Dateien werden hauptsächlich von macOS unterstützt, aber für eine Anzahl von Jahren war QuickTime für Windows verfügbar, um darauf auf Windows zugreifen zu können. QuickTime für Windows wird jedoch seit Anfang 2016 von Apple nicht mehr unterstützt und _sollte nicht verwendet werden_, da es bekannte Sicherheitsprobleme gibt. Allerdings hat der Windows Media Player jetzt integrierte Unterstützung für QuickTime-Dateien bis Version 2.0; Unterstützung für spätere Versionen von QuickTime erfordert Drittanbietererweiterungen.
 
-Auf Mac OS unterstützte das QuickTime-Framework nicht nur QuickTime-Format-Filmdateien und Codecs, sondern auch eine Vielzahl von beliebten und speziellen Audio- und Videocodecs sowie Standbildformate.
-Durch QuickTime waren Mac-Anwendungen (einschließlich Webbrowser, durch das QuickTime-Plugin oder direkte QuickTime-Integration) in der Lage, Audioformate wie AAC, AIFF, MP3, PCM und Qualcomm PureVoice sowie Videoformate wie AVI, DV, Pixlet, ProRes, FLAC, Cinepak, 3GP, H.261 bis H.265, MJPEG, MPEG-1 und MPEG-4 Part 2, Sorenson und viele mehr zu lesen und zu schreiben.
+Auf Mac OS unterstützte das QuickTime-Framework nicht nur QuickTime-Format-Filmdaten und Codecs, sondern auch eine Vielzahl von beliebten und speziellen Audio- und Video-Codecs sowie Standbildformaten. Durch QuickTime konnten Mac-Anwendungen (einschließlich Webbrowser durch das QuickTime-Plugin oder direkte QuickTime-Integration) Audio-Formate wie AAC, AIFF, MP3, PCM und Qualcomm PureVoice sowie Videoformate wie AVI, DV, Pixlet, ProRes, FLAC, Cinepak, 3GP, H.261 bis H.265, MJPEG, MPEG-1 und MPEG-4 Part 2, Sorenson und viele mehr lesen und schreiben.
 
-Darüber hinaus sind eine Reihe von Drittanbieter-Komponenten für QuickTime verfügbar, von denen einige die Unterstützung für zusätzliche Codecs hinzufügen.
+Darüber hinaus sind eine Anzahl von Komponenten von Drittanbietern für QuickTime verfügbar, von denen einige Unterstützung für zusätzliche Codecs hinzufügen.
 
-Da QuickTime-Support im Grunde genommen hauptsächlich auf Apple-Geräten verfügbar ist, wird es nicht mehr weit verbreitet im Internet verwendet.
-Apple selbst verwendet jetzt im Allgemeinen MP4 für Video.
-Zudem ist das QuickTime-Framework auf dem Mac schon seit einiger Zeit veraltet und ist ab macOS 10.15 Catalina überhaupt nicht mehr verfügbar.
+Da QuickTime-Unterstützung im Wesentlichen primär auf Apple-Geräten verfügbar ist, wird es im Internet nicht mehr weit verbreitet verwendet. Apple selbst verwendet jetzt im Allgemeinen MP4 für Videos. Darüber hinaus wurde das QuickTime-Framework auf dem Mac schon seit einiger Zeit veraltet erklärt und ist ab macOS 10.15 Catalina überhaupt nicht mehr verfügbar.
 
 | Video             |
 | ----------------- |
 | `video/quicktime` |
 
-Der `video/quicktime` MIME-Typ ist der grundlegende Typ für den QuickTime-Mediencontainer.
-Es ist erwähnenswert, dass QuickTime (das Medien-Framework auf Mac-Betriebssystemen) eine Vielzahl von Containern und Codecs unterstützt, sodass es tatsächlich viele andere MIME-Typen unterstützt.
+Der `video/quicktime` MIME-Typ ist der grundlegende Typ für den QuickTime-Mediencontainer. Es ist anzumerken, dass QuickTime (das Medienframework auf Mac-Betriebssystemen) eine Vielzahl von Containern und Codecs unterstützt, daher unterstützt es tatsächlich viele andere MIME-Typen.
 
-Sie können [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/Guides/Formats/codecs_parameter#iso_base_media_file_format_mp4_quicktime_and_3gp) zur MIME-Typ-Zeichenkette, um anzugeben, welche Codecs für die Audio- und/oder Videotracks verwendet werden, und optional Details zum Profil, Level und/oder anderen spezifischen Codec-Konfigurationen zu liefern.
+Sie können den `codecs`-Parameter zum MIME-Typ-String hinzufügen, um anzugeben, welche Codecs für die Audio- und/oder Videospuren verwendet werden, und um optional Details über das Profil, die Stufe und/oder andere Codec-Konfigurationsspezifika bereitzustellen.
 
 <table class="standard-table">
   <caption>
-    Von QuickTime unterstützte Videocodecs
+    Video-Codecs, die von QuickTime unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -791,13 +748,13 @@ Sie können [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/Guides/Forma
 
 <table class="standard-table">
   <caption>
-    Von QuickTime unterstützte Audiocodecs
+    Audio-Codecs, die von QuickTime unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -862,12 +819,11 @@ Sie können [den `codecs` Parameter hinzufügen](/de/docs/Web/Media/Guides/Forma
 
 ### WAVE (WAV)
 
-Das **Waveform Audio File Format** (**WAVE**), gewöhnlich aufgrund der Dateierweiterung `.wav` als WAV bezeichnet, ist ein Format, das von Microsoft und IBM entwickelt wurde, um Audiobitstromdaten zu speichern.
+Das **Waveform Audio File Format** (**WAVE**), in der Regel aufgrund seiner Dateierweiterung `.wav` auch WAV genannt, ist ein Format, das von Microsoft und IBM zur Speicherung von Audio-Bitstream-Daten entwickelt wurde.
 
-Es ist vom Resource Interchange File Format (RIFF) abgeleitet und ähnelt daher anderen Formaten wie dem AIFF von Apple.
-Das WAV-Codec-Register ist unter {{RFC(2361)}} zu finden. Da jedoch fast alle WAV-Dateien lineares PCM verwenden, ist die Unterstützung für die anderen Codecs spärlich.
+Es ist vom Resource Interchange File Format (RIFF) abgeleitet und ist daher anderen Formaten wie Apples AIFF ähnlich. Das WAV-Codec-Register finden Sie unter {{RFC(2361)}}; jedoch verwenden fast alle WAV-Dateien lineares PCM, so dass die Unterstützung für die anderen Codecs spärlich ist.
 
-Das WAVE-Format wurde erstmals 1991 veröffentlicht.
+Das WAVE-Format wurde erstmals 1991 eingeführt.
 
 | Audio            |
 | ---------------- |
@@ -880,13 +836,13 @@ Der `audio/wave` MIME-Typ ist der Standardtyp und wird bevorzugt; jedoch wurden 
 
 <table class="standard-table">
   <caption>
-    Von WAVE unterstützte Audiocodecs
+    Audio-Codecs, die von WAVE unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -937,13 +893,9 @@ Der `audio/wave` MIME-Typ ist der Standardtyp und wird bevorzugt; jedoch wurden 
 
 ### WebM
 
-**[WebM](https://en.wikipedia.org/wiki/WebM)** (**Web Media**) ist ein auf [Matroska](https://en.wikipedia.org/wiki/Matroska) basierendes Format, das speziell für den Einsatz in modernen Webumgebungen entwickelt wurde.
-Es basiert ausschließlich auf freien und offenen Technologien und verwendet hauptsächlich Codecs, die ihrerseits frei und offen sind, obwohl einige Produkte auch andere Codecs in WebM-Containern unterstützen.
+**[WebM](https://en.wikipedia.org/wiki/WebM)** (**Web Media**) ist ein auf [Matroska](https://en.wikipedia.org/wiki/Matroska) basierendes Format, das speziell für den Einsatz in modernen Web-Umgebungen entwickelt wurde. Es basiert vollständig auf freien und offenen Technologien und verwendet hauptsächlich Codecs, die ebenfalls frei und offen sind, obwohl einige Produkte auch andere Codecs in WebM-Containern unterstützen.
 
-WebM wurde erstmals 2010 eingeführt und wird jetzt breit unterstützt.
-Konforme Implementierungen von WebM müssen die VP8- und VP9-Videocodecs sowie die Vorbis- und Opus-Audiocodecs unterstützen.
-Das WebM-Containerformat und seine erforderlichen Codecs sind alle unter offenen Lizenzen verfügbar.
-Alle anderen Codecs können eine Lizenz zur Nutzung erfordern.
+WebM wurde erstmals 2010 eingeführt und wird mittlerweile breit unterstützt. Konforme Implementierungen von WebM müssen die VP8- und VP9-Videocodecs sowie die Vorbis- und Opus-Audiocodecs unterstützen. Das WebM-Containerformat und seine erforderlichen Codecs stehen alle unter offenen Lizenzen zur Verfügung. Jegliche anderen Codecs können eine Lizenz zur Nutzung erfordern.
 
 | Audio        | Video        |
 | ------------ | ------------ |
@@ -951,13 +903,13 @@ Alle anderen Codecs können eine Lizenz zur Nutzung erfordern.
 
 <table class="standard-table">
   <caption>
-    Von WebM unterstützte Videocodecs
+    Video-Codecs, die von WebM unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -974,8 +926,8 @@ Alle anderen Codecs können eine Lizenz zur Nutzung erfordern.
       <td>Ja</td>
       <td>
         <p>Ja</p>
-        <p>Firefox-Unterstützung für AV1 wurde auf macOS in Firefox 66 hinzugefügt; für Windows in Firefox 67; und Firefox 68 auf Linux.
-          Firefox für Android unterstützt AV1 noch nicht; die Implementierung in Firefox ist so konzipiert, dass ein sicherer Prozess verwendet wird, der auf Android noch nicht unterstützt wird.
+        <p>Die Unterstützung von Firefox für AV1 wurde auf macOS in Firefox 66 hinzugefügt; für Windows in Firefox 67; und Firefox 68 auf Linux.
+          Firefox für Android unterstützt AV1 noch nicht; die Implementierung in Firefox ist darauf ausgelegt, einen gesicherten Prozess zu verwenden, der in Android noch nicht unterstützt wird.
         </p>
       </td>
       <td>Ja</td>
@@ -999,13 +951,13 @@ Alle anderen Codecs können eine Lizenz zur Nutzung erfordern.
 
 <table class="standard-table">
   <caption>
-    Von WebM unterstützte Audiocodecs
+    Audio-Codecs, die von WebM unterstützt werden
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">Codec</th>
       <th colspan="4" scope="col" style="text-align: center">
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
     <tr>
@@ -1033,70 +985,116 @@ Alle anderen Codecs können eine Lizenz zur Nutzung erfordern.
   </tbody>
 </table>
 
-## Auswahl des richtigen Containers
+## Die richtige Wahl des Containers
 
-Bei der Auswahl des besten Containers oder der besten Container für Ihre Medien sind einige Faktoren zu berücksichtigen.
-Die relative Wichtigkeit jedes Faktors hängt von Ihren Bedürfnissen, Ihren Lizenzanforderungen und den Kompatibilitätsanforderungen Ihrer Zielgruppe ab.
+Es gibt einige Faktoren, die bei der Auswahl des besten Containers oder der besten Container für Ihre Medien zu berücksichtigen sind. Die relative Wichtigkeit jedes Faktors hängt von Ihren Bedürfnissen, Ihren Lizenzanforderungen und den Kompatibilitätsanforderungen Ihres Zielpublikums ab.
 
 ### Richtlinien
 
-Die beste Wahl hängt auch davon ab, was Sie mit den Medien tun werden.
-Die Wiedergabe von Medien ist eine andere Sache als das Aufzeichnen und/oder Bearbeiten davon.
-Wenn Sie die Mediendaten manipulieren möchten, kann die Verwendung eines unkomprimierten Formats die Leistung verbessern, während die Verwendung eines verlustfreien komprimierten Formats zumindest die Ansammlung von Rauschen verhindert, da Kompressionsartefakte mit jeder erneuten Komprimierung multipliziert werden, die auftritt.
+Bei der Auswahl des geeigneten Medienformats sollte sich Ihre Entscheidung an Ihrer beabsichtigten Nutzung orientieren. Die Wiedergabe von Medien unterscheidet sich vom Aufnehmen oder Bearbeiten derselben. Für Manipulationen können unkomprimierte Formate die Leistung verbessern, während verlustfreie Kompression das Rauschen bei wiederholter Neukompression verhindert.
 
-- Wenn Ihre Zielgruppe wahrscheinlich Benutzer auf Mobilgeräten einschließt, insbesondere auf Geräten mit geringerem Leistungsniveaus oder in langsamen Netzwerken, sollten Sie in Betracht ziehen, eine Version Ihrer Medien in einem 3GP-Container mit angemessener Komprimierung bereitzustellen.
-- Wenn Sie spezielle Kodierungsanforderungen haben, stellen Sie sicher, dass der von Ihnen gewählte Container die entsprechenden Codecs unterstützt.
-- Wenn Sie Ihre Medien in einem nicht-proprietären, offenen Format haben möchten, sollten Sie eines der offenen Containerformate wie FLAC (für Audio) oder WebM (für Video) in Betracht ziehen.
-- Wenn Sie aus irgendeinem Grund nur in der Lage sind, Medien in einem einzigen Format bereitzustellen, wählen Sie ein Format, das auf der breitesten Auswahl an Geräten und Browsern verfügbar ist, wie MP3 (für Audio) oder MP4 (für Video und/oder Audio).
-- Wenn Ihre Medien nur aus Audio bestehen, macht es wahrscheinlich Sinn, ein nur auf Audio beschränktes Containerformat zu wählen.
-  Nachdem alle Patente abgelaufen sind, ist MP3 eine weit verbreitete und gute Wahl.
-  WAVE ist gut, aber unkomprimiert, daher sollten Sie sich dessen bewusst sein, bevor Sie es für große Audio-Proben verwenden.
-  FLAC ist eine sehr gute Wahl aufgrund seiner verlustfreien Kompression, wenn die Zielbrowser es alle unterstützen.
+- Wenn Ihr Zielpublikum wahrscheinlich Benutzer auf mobilen, insbesondere auf Geräten mit niedrigeren Endgeräten oder in langsamen Netzwerken umfasst, sollten Sie erwägen, eine Version Ihrer Medien in einem 3GP-Container mit geeigneter Komprimierung bereitzustellen.
+- Wenn Sie spezielle Codierungsanforderungen haben, stellen Sie sicher, dass der von Ihnen gewählte Container die entsprechenden Codecs unterstützt.
+- Wenn Sie möchten, dass Ihre Medien in einem nicht-proprietären, offenen Format vorliegen, sollten Sie eines der offenen Containerformate wie FLAC (für Audio) oder WebM (für Video) in Betracht ziehen.
+- Wenn Sie aus irgendeinem Grund Ihre Medien nur in einem einzigen Format bereitstellen können, wählen Sie ein Format, das auf den meisten Geräten und Browsern verfügbar ist, wie MP3 (für Audio) oder MP4 (für Video und/oder Audio).
+- Wenn Ihre Medien nur Audio enthalten, macht es wahrscheinlich Sinn, ein Format zu wählen, das nur Audio enthält. Siehe unten für einen Vergleich der verschiedenen Formate, die nur Audio enthalten.
 
-Leider sind keines der relativ wichtigen verlustfreien Kompressionsformate (FLAC und ALAC) universell unterstützt.
-FLAC wird breiter unterstützt, aber auf macOS ohne zusätzliche Software nicht unterstützt und auf iOS überhaupt nicht unterstützt.
-Wenn Sie verlustfreie Audio anbieten müssen, müssen Sie möglicherweise sowohl FLAC als auch ALAC bereitstellen, um eine nahezu universelle Kompatibilität zu erreichen.
+### Ratschläge zur Container-Auswahl
 
-### Empfehlungen zur Containerauswahl
+Die nachfolgenden Tabellen bieten Vorschläge, welche Container in verschiedenen Szenarien verwendet werden sollten. Dies sind nur Vorschläge. Stellen Sie sicher, dass Sie die Bedürfnisse Ihrer Anwendung und Ihrer Organisation berücksichtigen, bevor Sie ein Containerformat auswählen.
 
-Die folgenden Tabellen bieten empfohlene Container für die Verwendung in verschiedenen Szenarien.
-Dies sind nur Vorschläge.
-Stellen Sie sicher, dass Sie die Anforderungen Ihrer Anwendung und Ihrer Organisation berücksichtigen, bevor Sie ein Containerformat auswählen.
+#### Nur Audiodateien
 
-#### Nur Audio-Dateien
+<table>
+  <thead>
+    <tr>
+      <th>Bedarf</th>
+      <th>Format</th>
+      <th>Beschreibung</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Komprimierte Dateien für die allgemeine Wiedergabe</strong></td>
+      <td><strong>MP3 (MPEG-1 Audio Layer III)</strong></td>
+      <td>Weitgehend kompatibel und anerkannt; verwendet verlustbehaftete Kompression, um ein gutes Gleichgewicht zwischen Dateigröße und Audioqualität zu bieten.</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>Verlustfreie Kompression</strong></td>
+      <td><strong>FLAC (Free Lossless Audio Codec)</strong></td>
+      <td>Bietet verlustfreie Kompression, die sicherstellt, dass das Originalaudio intakt bleibt und gleichzeitig die Dateigröße reduziert wird.</td>
+    </tr>
+    <tr>
+      <td><strong>ALAC (Apple Lossless Audio Codec)</strong></td>
+      <td>Ähnlich wie FLAC, aber für Apple-Geräte konzipiert; es ist ein großartiger Rückgriff, wenn Sie innerhalb des Apple-Ökosystems arbeiten.</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>Unkomprimierte Dateien</strong></td>
+      <td><strong>WAV (Waveform Audio File Format)</strong></td>
+      <td>Enthält unkomprimiertes PCM-Audio, das höchste Qualität bei größeren Dateigrößen liefert.</td>
+    </tr>
+    <tr>
+      <td><strong>AIFF (Audio Interchange File Format)</strong></td>
+      <td>Vergleichbar mit WAV in Bezug auf Qualität und Dateigröße, wird jedoch häufig auf Apple-Plattformen bevorzugt.</td>
+    </tr>
+  </tbody>
+</table>
 
-| Wenn Sie… benötigen                            | Berücksichtigen Sie die Verwendung dieses Containerformats |
-| ---------------------------------------------- | ---------------------------------------------------------- |
-| Komprimierte Dateien für allgemeine Wiedergabe | MP3 (MPEG-1 Audio Layer III)                               |
-| Verlustfreie komprimierte Dateien              | FLAC mit ALAC-Fallback                                     |
-| Unkomprimierte Dateien                         | WAV                                                        |
+Da alle MP3-Patente abgelaufen sind, ist die Wahl des Audio-Dateiformats viel einfacher geworden. Es ist nicht mehr notwendig, zwischen der breiten Kompatibilität von MP3 und der Notwendigkeit, Lizenzgebühren für die Nutzung von MP3 zu bezahlen, zu wählen.
 
-Nachdem alle Patente von MP3 abgelaufen sind, ist die Wahl des Audio-Dateiformats viel einfacher geworden.
-Es ist nicht mehr notwendig, zwischen der breiten Kompatibilität von MP3 und der Notwendigkeit, Lizenzgebühren bei der Verwendung zu zahlen, zu wählen.
+Leider werden weder FLAC noch ALAC, die beiden relativ großen verlustfreien Komprimierungsformate, überall unterstützt. FLAC wird breiter unterstützt, aber auf macOS ohne zusätzliche Software nicht unterstützt und auf iOS gar nicht unterstützt. Wenn Sie verlustfreies Audio anbieten müssen, müssen Sie möglicherweise FLAC und ALAC bereitstellen, um annähernd universelle Kompatibilität zu erreichen.
 
 #### Videodateien
 
-| Wenn Sie… benötigen                                           | Berücksichtigen Sie die Verwendung dieses Containerformats |
-| ------------------------------------------------------------- | ---------------------------------------------------------- |
-| Allgemeiner Videoverbrauch, bevorzugt in einem offenen Format | WebM (idealerweise mit MP4-Fallback)                       |
-| Allgemeiner Videoverbrauch                                    | MP4 (idealerweise mit WebM oder Ogg-Fallback)              |
-| Hohe Kompression optimiert für langsame Verbindungen          | 3GP (idealerweise mit MP4-Fallback)                        |
-| Kompatibilität mit älteren Geräten/Browsers                   | QuickTime (idealerweise mit AVI und/oder MPEG-2-Fallback)  |
+<table>
+  <thead>
+    <tr>
+      <th>Bedarf</th>
+      <th>Format</th>
+      <th>Beschreibung</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Allzweck-Video (vorzugsweise offenes Format)</strong></td>
+      <td><strong>WebM</strong></td>
+      <td>
+        Für modernen Web-Einsatz konzipiert, ist WebM ein offener, gebührenfreier Container, der effiziente Komprimierung und native Unterstützung in den meisten Browsern bietet.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Allzweck-Video</strong></td>
+      <td><strong>MP4</strong></td>
+      <td>
+        MP4 ist der Industriestandard für Videoinhalte und wird auf Geräten und Browsern weitgehend unterstützt.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Hohe Kompression für langsame Verbindungen</strong></td>
+      <td><strong>3GP</strong></td>
+      <td>
+        Optimiert für mobile Geräte und Umgebungen mit niedriger Bandbreite, liefert 3GP akzeptable Videoqualität unter eingeschränkten Bedingungen.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Kompatibilität mit älteren Geräten/Browsern</strong></td>
+      <td><strong>QuickTime</strong></td>
+      <td>
+        QuickTime ist ein Legacy-Container, der ursprünglich auf Apple-Plattformen beliebt war. Er wird noch häufig von macOS-Videoaufnahmesoftware produziert.
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-Diese Vorschläge basieren auf mehreren Annahmen.
-Sie sollten die Optionen sorgfältig berücksichtigen, bevor Sie eine endgültige Entscheidung treffen, insbesondere wenn Sie viele Medien haben, die codiert werden müssen.
+Diese Vorschläge setzen eine Reihe von Annahmen voraus. Sie sollten die Optionen sorgfältig überlegen, bevor Sie eine endgültige Entscheidung treffen, insbesondere wenn Sie eine große Menge an Medien kodieren müssen. Sehr oft möchten Sie mehrere Fallback-Optionen für diese Formate bereitstellen – zum Beispiel MP4-Fallback für WebM oder 3GP oder AVI für QuickTime.
 
 ## Maximierung der Kompatibilität mit mehreren Containern
 
-Um die Kompatibilität zu optimieren, sollten Sie erwägen, mehr als eine Version von Mediendateien bereitzustellen, wobei das {{HTMLElement("source")}} Element verwendet wird, um jede Quelle innerhalb des {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Elements anzugeben.
-Zum Beispiel können Sie ein Ogg- oder WebM-Video als erste Wahl anbieten, mit einem Fallback im MP4-Format.
-Sie könnten sich sogar dafür entscheiden, einen Retro-ähnlichen QuickTime- oder AVI-Fallback der guten Maßnahme halber anzubieten.
+Um die Kompatibilität zu optimieren, lohnt es sich, mehr als eine Version von Mediendateien bereitstellen, indem das {{HTMLElement("source")}}-Element verwendet wird, um jede Quelle innerhalb des {{HTMLElement("audio")}} oder {{HTMLElement("video")}}-Elements anzugeben. Zum Beispiel können Sie ein Ogg- oder WebM-Video als erste Wahl anbieten, mit einem Fallback im MP4-Format. Sie könnten sogar in Betracht ziehen, als zusätzliche Absicherung ein QuickTime- oder AVI-Fallback im Retro-Stil anzubieten.
 
-Dazu erstellen Sie ein `<video>` (oder `<audio>`) Element ohne [`src`](/de/docs/Web/HTML/Element/video#src) Attribut.
-Fügen Sie dann untergeordnete {{HTMLElement("source")}} Elemente innerhalb des `<video>` Elements hinzu, eines für jede Version des von Ihnen angebotenen Videos.
-Dies kann verwendet werden, um verschiedene Versionen eines Videos anzubieten, die je nach Bandbreitenverfügbarkeit ausgewählt werden können, aber in unserem Fall werden wir es verwenden, um Formatoptionen anzubieten.
+Um dies zu tun, erstellen Sie ein `<video>` (oder `<audio>`)-Element ohne [`src`](/de/docs/Web/HTML/Element/video#src)-Attribut. Fügen Sie dann untergeordnete {{HTMLElement("source")}}-Elemente innerhalb des `<video>`-Elements hinzu, eines für jede Version des Videos, das Sie anbieten. Dies kann verwendet werden, um verschiedene Versionen eines Videos anzubieten, die je nach Bandbreitenverfügbarkeit ausgewählt werden können, aber in unserem Fall werden wir es verwenden, um Formatoptionen anzubieten.
 
-Im hier gezeigten Beispiel wird ein Video dem Browser in zwei Formaten angeboten: WebM und MP4.
+Im hier gezeigten Beispiel wird dem Browser ein Video in zwei Formaten angeboten: WebM und MP4.
 
 {{InteractiveExample("HTML Demo: &lt;source&gt;", "tabbed-standard")}}
 
@@ -1112,29 +1110,27 @@ Im hier gezeigten Beispiel wird ein Video dem Browser in zwei Formaten angeboten
 </video>
 ```
 
-Das Video wird zunächst im WebM-Format angeboten (mit dem [`type`](/de/docs/Web/HTML/Element/source#type) Attribut auf `video/webm` gesetzt).
-Wenn der {{Glossary("user_agent", "Benutzer-Agent")}} das nicht abspielen kann, wird zur nächsten Option weitergegangen, deren `type` als `video/mp4` angegeben ist.
-Wenn keine dieser Optionen abgespielt werden kann, wird der Text "Dieser Browser unterstützt das HTML-Videotag nicht." angezeigt.
+Das Video wird zuerst im WebM-Format angeboten (mit dem [`type`](/de/docs/Web/HTML/Element/source#type)-Attribut auf `video/webm` gesetzt). Wenn der {{Glossary("user_agent", "User-Agent")}} das nicht abspielen kann, wird zur nächsten Option gewechselt, deren `type` als `video/mp4` angegeben ist. Wenn keine dieser Optionen abgespielt werden kann, wird der Text "Dieser Browser unterstützt das HTML-Videoelement nicht." angezeigt.
 
 ## Spezifikationen
 
-| Spezifikation                                                                                                                                                | Kommentar                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| [ETSI 3GPP](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=1441)                                            | Definiert das 3GP-Containerformat                                                                                     |
-| [ISO/IEC 14496-3](https://www.iso.org/standard/53943.html) (MPEG-4 Part 3 Audio)                                                                             | Definiert MP4-Audio, einschließlich ADTS                                                                              |
-| [FLAC Format](https://xiph.org/flac/format.html)                                                                                                             | Die FLAC-Formatspezifikation                                                                                          |
-| [ISO/IEC 11172-1](https://www.iso.org/standard/19180.html) (MPEG-1 Part 1 Systems)                                                                           | Definiert das MPEG-1-Containerformat                                                                                  |
-| [ISO/IEC 13818-1](https://www.iso.org/standard/74427.html) (MPEG-2 Part 1 Systems)                                                                           | Definiert das MPEG-2-Containerformat                                                                                  |
-| [ISO/IEC 14496-14](https://www.iso.org/standard/75929.html) (MPEG-4 Part 14: MP4 file format)                                                                | Definiert das MPEG-4 (MP4) Version 2 Containerformat                                                                  |
-| [ISO/IEC 14496-1](https://www.iso.org/standard/55688.html) (MPEG-4 Part 1 Systems)                                                                           | Definiert das ursprüngliche MPEG-4 (MP4) Containerformat                                                              |
-| {{RFC(3533)}}                                                                                                                                                | Definiert das Ogg-Containerformat                                                                                     |
-| {{RFC(5334)}}                                                                                                                                                | Definiert die Ogg-Mediatypen und -Dateierweiterungen                                                                  |
-| [QuickTime File Format Specification](https://developer.apple.com/documentation/quicktime-file-format)                                                       | Definiert das QuickTime-Film (MOV) Format                                                                             |
-| [Multimedia Programming Interface and Data Specifications 1.0](https://web.archive.org/web/20090417165828/http://www.kk.iij4u.or.jp/~kondo/wave/mpidata.txt) | Das Offiziellste, was einer WAVE-Spezifikation nahekommt                                                              |
-| [Resource Interchange File Format](https://learn.microsoft.com/en-us/windows/win32/xaudio2/resource-interchange-file-format--riff-) (verwendet von WAV)      | Definiert das RIFF-Format; WAV-Dateien sind eine Form von RIFF                                                        |
-| [WebM Container Guidelines](https://www.webmproject.org/docs/container/)                                                                                     | Leitfaden zur Anpassung von Matroska für WebM                                                                         |
-| [Matroska Specifications](https://www.matroska.org/index.html)                                                                                               | Die Spezifikation für das Matroska-Containerformat, auf dem WebM basiert                                              |
-| [WebM Byte Stream Format](https://w3c.github.io/media-source/webm-byte-stream-format.html)                                                                   | WebM-Bytestream-Format für die Verwendung mit [Media Source Extensions](/de/docs/Web/API/Media_Source_Extensions_API) |
+| Spezifikation                                                                                                                                                | Kommentar                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| [ETSI 3GPP](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=1441)                                            | Definiert das 3GP-Containerformat                                                                                 |
+| [ISO/IEC 14496-3](https://www.iso.org/standard/53943.html) (MPEG-4 Part 3 Audio)                                                                             | Definiert MP4-Audio einschließlich ADTS                                                                           |
+| [FLAC Format](https://xiph.org/flac/format.html)                                                                                                             | Die FLAC-Formatspezifikation                                                                                      |
+| [ISO/IEC 11172-1](https://www.iso.org/standard/19180.html) (MPEG-1 Part 1 Systems)                                                                           | Definiert das MPEG-1-Containerformat                                                                              |
+| [ISO/IEC 13818-1](https://www.iso.org/standard/74427.html) (MPEG-2 Part 1 Systems)                                                                           | Definiert das MPEG-2-Containerformat                                                                              |
+| [ISO/IEC 14496-14](https://www.iso.org/standard/75929.html) (MPEG-4 Part 14: MP4 file format)                                                                | Definiert das MPEG-4 (MP4) Version 2-Containerformat                                                              |
+| [ISO/IEC 14496-1](https://www.iso.org/standard/55688.html) (MPEG-4 Part 1 Systems)                                                                           | Definiert das ursprüngliche MPEG-4 (MP4) Containerformat                                                          |
+| {{RFC(3533)}}                                                                                                                                                | Definiert das Ogg-Containerformat                                                                                 |
+| {{RFC(5334)}}                                                                                                                                                | Definiert die Ogg-Medientypen und Dateierweiterungen                                                              |
+| [QuickTime File Format Specification](https://developer.apple.com/documentation/quicktime-file-format)                                                       | Definiert das QuickTime-Movie (MOV)-Format                                                                        |
+| [Multimedia Programming Interface and Data Specifications 1.0](https://web.archive.org/web/20090417165828/http://www.kk.iij4u.or.jp/~kondo/wave/mpidata.txt) | Das Ähnlichste einer offiziellen WAVE-Spezifikation                                                               |
+| [Resource Interchange File Format](https://learn.microsoft.com/en-us/windows/win32/xaudio2/resource-interchange-file-format--riff-) (verwendet von WAV)      | Definiert das RIFF-Format; WAVE-Dateien sind eine Form von RIFF                                                   |
+| [WebM Container Guidelines](https://www.webmproject.org/docs/container/)                                                                                     | Leitfaden zur Anpassung von Matroska an WebM                                                                      |
+| [Matroska Specifications](https://www.matroska.org/index.html)                                                                                               | Die Spezifikation für das Matroska-Containerformat, auf dem WebM basiert                                          |
+| [WebM Byte Stream Format](https://w3c.github.io/media-source/webm-byte-stream-format.html)                                                                   | WebM Bytestream-Format zur Verwendung mit [Media Source Extensions](/de/docs/Web/API/Media_Source_Extensions_API) |
 
 ## Browser-Kompatibilität
 
@@ -1142,7 +1138,7 @@ Wenn keine dieser Optionen abgespielt werden kann, wird der Text "Dieser Browser
   <thead>
     <tr>
       <th rowspan="2" scope="row" style="vertical-align: bottom">
-        Containerformat-Name
+        Containerformatname
       </th>
       <th
         colspan="3"
@@ -1160,7 +1156,7 @@ Wenn keine dieser Optionen abgespielt werden kann, wird der Text "Dieser Browser
         scope="col"
         style="vertical-align: bottom; border-right: 2px solid #d4dde4"
       >
-        Browser-Support
+        Browser-Unterstützung
       </th>
       <th scope="col" style="vertical-align: bottom">MIME-Typ</th>
       <th scope="col" style="vertical-align: bottom">Erweiterung(en)</th>
@@ -1168,7 +1164,7 @@ Wenn keine dieser Optionen abgespielt werden kann, wird der Text "Dieser Browser
         scope="col"
         style="vertical-align: bottom; border-right: 2px solid #d4dde4"
       >
-        Browser-Support
+        Browser-Unterstützung
       </th>
     </tr>
   </thead>
