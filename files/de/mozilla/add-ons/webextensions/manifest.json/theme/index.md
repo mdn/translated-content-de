@@ -2,7 +2,7 @@
 title: theme
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/theme
 l10n:
-  sourceCommit: 9c9be5239fe7fb2907784e8cace339d4910eb103
+  sourceCommit: c4c42a1573a65a808f085999a4d8d97199e142d1
 ---
 
 {{AddonSidebar}}
@@ -40,30 +40,30 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie den Schlüssel `theme`, um ein statisches Thema zu definieren, das auf Firefox angewendet wird.
+Verwenden Sie den `theme`-Schlüssel, um ein statisches Theme zu definieren, das auf Firefox angewendet werden soll.
 
 > [!NOTE]
-> Wenn Sie ein Thema mit einer Erweiterung einbinden möchten, sehen Sie bitte die {{WebExtAPIRef("theme")}} API.
+> Wenn Sie ein Theme mit einer Erweiterung einbinden möchten, beachten Sie die {{WebExtAPIRef("theme")}} API.
 
 > [!NOTE]
-> Seit Mai 2019 müssen Themen signiert sein, um installiert werden zu können ([Firefox-Bug 1545109](https://bugzil.la/1545109)). Weitere Informationen finden Sie unter [Signieren und Verteilen Ihres Add-ons](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/#distributing-your-addon).
+> Seit Mai 2019 müssen Themes signiert sein, um installiert werden zu können ([Firefox Fehler 1545109](https://bugzil.la/1545109)). Weitere Einzelheiten finden Sie unter [Signing and distributing your add-on](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/#distributing-your-addon).
 
 > [!NOTE]
-> Eine neue Version von Firefox für Android, basierend auf GeckoView, befindet sich in der Entwicklung. Eine [Vorabversion](https://play.google.com/store/apps/details?id=org.mozilla.fenix) ist verfügbar. Die Vorabversion unterstützt keine Themen.
+> Eine neue Version von Firefox für Android, basierend auf GeckoView, wird derzeit entwickelt. Eine [Vorabversion](https://play.google.com/store/apps/details?id=org.mozilla.fenix) ist verfügbar. Die Vorabversion unterstützt keine Themes.
 
 ## Bildformate
 
-Die folgenden Bildformate werden in allen Theme-Bildeigenschaften unterstützt:
+Die folgenden Bildformate werden in allen Theme-Bild-Eigenschaften unterstützt:
 
 - JPEG
 - PNG
 - APNG
 - SVG (animiertes SVG wird ab Firefox 59 unterstützt)
-- GIF (animierte GIFs werden nicht unterstützt)
+- GIF (animiertes GIF wird nicht unterstützt)
 
 ## Syntax
 
-Der `theme`-Schlüssel ist ein Objekt, das die folgenden Eigenschaften annimmt:
+Der `theme`-Schlüssel ist ein Objekt, das die folgenden Eigenschaften enthält:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -78,12 +78,10 @@ Der `theme`-Schlüssel ist ein Objekt, das die folgenden Eigenschaften annimmt:
       <td><code>images</code></td>
       <td><code>Object</code></td>
       <td>
-        <p>Optional ab Firefox 60. Verpflichtend vor Firefox 60.</p>
+        <p>Optional ab Firefox 60. Vor Firefox 60 verpflichtend.</p>
         <p>
-          Ein JSON-Objekt, dessen Eigenschaften die anzuzeigenden Bilder in
-          verschiedenen Teilen des Browsers darstellen. Siehe
-          <code><a href="#images">images</a></code> für Details zu den
-          Eigenschaften, die dieses Objekt enthalten kann.
+          Ein JSON-Objekt, dessen Eigenschaften die Bilder darstellen, die in verschiedenen Teilen des Browsers angezeigt werden sollen. Siehe
+          <code><a href="#images">images</a></code> für Details zu den Eigenschaften, die dieses Objekt enthalten kann.
         </p>
       </td>
     </tr>
@@ -93,9 +91,7 @@ Der `theme`-Schlüssel ist ein Objekt, das die folgenden Eigenschaften annimmt:
       <td>
         <p>Verpflichtend.</p>
         <p>
-          Ein JSON-Objekt, dessen Eigenschaften die Farben verschiedener Teile
-          des Browsers darstellen. Siehe <code><a href="#colors">colors</a></code> für
-          Details zu den Eigenschaften, die dieses Objekt enthalten kann.
+          Ein JSON-Objekt, dessen Eigenschaften die Farben der verschiedenen Teile des Browsers repräsentieren. Siehe <code><a href="#colors">colors</a></code> für Details zu den Eigenschaften, die dieses Objekt enthalten kann.
         </p>
       </td>
     </tr>
@@ -105,7 +101,7 @@ Der `theme`-Schlüssel ist ein Objekt, das die folgenden Eigenschaften annimmt:
       <td>
         <p>Optional</p>
         <p>
-          Dieses Objekt hat Eigenschaften, die beeinflussen, wie die
+          Dieses Objekt besitzt Eigenschaften, die beeinflussen, wie die
           <code>"additional_backgrounds"</code>-Bilder angezeigt werden und Farbschemata angewendet werden. Siehe
           <code><a href="#properties">properties</a></code> für Details zu den Eigenschaften, die dieses Objekt enthalten kann.
         </p>
@@ -116,9 +112,9 @@ Der `theme`-Schlüssel ist ein Objekt, das die folgenden Eigenschaften annimmt:
 
 ### images
 
-Alle URLs sind relativ zur `manifest.json`-Datei und können nicht auf eine externe URL verweisen.
+Alle URLs sind relativ zur manifest.json-Datei und können keine externe URL referenzieren.
 
-Bilder sollten 200 Pixel hoch sein, um sicherzustellen, dass sie den Header-Bereich immer vertikal ausfüllen.
+Bilder sollten 200 Pixel hoch sein, um sicherzustellen, dass sie immer den gesamten Header-Bereich vertikal ausfüllen.
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -134,17 +130,15 @@ Bilder sollten 200 Pixel hoch sein, um sicherzustellen, dass sie den Header-Bere
       <td><code>String</code></td>
       <td>
         <p>
-          Die URL eines Vordergrundbildes, das dem Header-Bereich hinzugefügt und
-          an der oberen rechten Ecke des Headers verankert wird.
+          Die URL eines Vordergrundbildes, das dem Header-Bereich hinzugefügt und an der oberen rechten Ecke des Header-Bereichs verankert wird.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Chrome verankert das Bild am oberen linken Rand
-            des Headers und plattiert das Bild, wenn es den Header-Bereich nicht vollständig ausfüllt.
+            <strong>Hinweis:</strong> Chrome verankert das Bild an der oberen linken Seite des Headers. Wenn das Bild den Header-Bereich nicht ausfüllt, wird das Bild gekachelt.
           </p>
         </div>
         <p>
-          Optional in Desktop Firefox ab Version 60. Erforderlich in Firefox für Android.
+          Optional in Desktop-Firefox ab Version 60. Erforderlich in Firefox für Android.
         </p>
       </td>
     </tr>
@@ -154,23 +148,16 @@ Bilder sollten 200 Pixel hoch sein, um sicherzustellen, dass sie den Header-Bere
       <td>
         <div class="warning">
           <p>
-            <strong>Warnung:</strong> Die Eigenschaft
-            <code>additional_backgrounds</code> ist experimentell. Sie wird
-            derzeit in Freigabeversionen von Firefox akzeptiert, aber ihr Verhalten
-            kann sich ändern. Es wird in Firefox für Android nicht unterstützt.
+            <strong>Warnung:</strong> Die Eigenschaft <code>additional_backgrounds</code> ist experimentell. Sie wird derzeit in den Release-Versionen von Firefox akzeptiert, aber ihr Verhalten kann sich ändern. Sie wird nicht in Firefox für Android unterstützt.
           </p>
         </div>
         <p>
-          Ein Array von URLs für zusätzliche Hintergrundbilder, die dem
-          Header-Bereich hinzugefügt und hinter dem
-          <code>"theme_frame":</code>-Bild angezeigt werden. Diese Bilder legen das erste Bild
-          im Array oben an, das letzte Bild im Array unten.
+          Ein Array von URLs für zusätzliche Hintergrundbilder, die dem Header-Bereich hinzugefügt und hinter dem
+          <code>"theme_frame":</code>-Bild angezeigt werden. Diese Bilder schichten das erste Bild im Array oben und das letzte Bild im Array unten.
         </p>
         <p>Optional.</p>
         <p>
-          Standardmäßig sind alle Bilder an der oberen rechten Ecke des
-          Header-Bereichs verankert, aber ihre Ausrichtung und Wiederholung können durch Eigenschaften von
-          <code>"properties":</code> gesteuert werden.
+          Standardmäßig sind alle Bilder an der oberen rechten Ecke des Header-Bereichs verankert, aber ihre Ausrichtung und Wiederholungsverhalten kann durch Eigenschaften von <code>"properties":</code> gesteuert werden.
         </p>
       </td>
     </tr>
@@ -187,7 +174,7 @@ Diese Eigenschaften definieren die Farben, die für verschiedene Teile des Brows
       <td>
         <p>
           <img
-            alt="Übersicht der Farbeigenschaften und wie sie auf Firefox-Benutzeroberflächenkomponenten angewendet werden"
+            alt="Übersicht der Farbeigenschaften und wie sie auf die Firefox-Benutzeroberfläche angewendet werden"
             src="themes_components_annotations.png"
           />
         </p>
@@ -197,18 +184,18 @@ Diese Eigenschaften definieren die Farben, die für verschiedene Teile des Brows
 </table>
 
 > [!NOTE]
-> Wo ein Bauteil von mehreren Farbeigenschaften beeinflusst wird, sind die Eigenschaften in der Reihenfolge der Priorität aufgelistet.
+> Wenn ein Element von mehreren Farbeigenschaften beeinflusst wird, sind die Eigenschaften in der Reihenfolge der Priorität aufgelistet.
 
-Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen [CSS-Farbstring](/de/docs/Web/CSS/color_value) (einschließlich Hexadezimal) enthält, oder als RGB-Array angegeben werden, z.B. `"tab_background_text": [ 107 , 99 , 23 ]`.
+Alle diese Eigenschaften können entweder als String angegeben werden, der jeden gültigen [CSS Farb-String](/de/docs/Web/CSS/color_value) (einschließlich Hexadezimal) enthält, oder als RGB-Array, wie zum Beispiel `"tab_background_text": [107, 99, 23]`.
 
 > **Hinweis:** [In Chrome können Farben nur als RGB-Arrays angegeben werden](#chrome-kompatibilität).
 >
-> In Firefox für Android können Farben folgendermaßen angegeben werden:
+> In Firefox für Android können Farben angegeben werden als:
 >
-> - vollständige hexadezimale Notation, also nur #RRGGBB. _Alpha_ und verkürzte Syntax, wie in #RGB\[A], werden nicht unterstützt.
-> - [funktionale Notation](/de/docs/Web/CSS/color_value#rgb_syntax_variations) (RGB-Arrays) für Themen, die Firefox 68.2 oder später anvisieren.
+> - vollständige Hexadezimalnotation, das heißt nur #RRGGBB. _alpha_- und verkürzte Syntax wie #RGB\[A] werden nicht unterstützt.
+> - [Funktionale Notation](/de/docs/Web/CSS/color_value) (RGB-Arrays) für Themes, die Firefox 68.2 oder später anvisieren.
 >
-> Farben für Firefox für Android-Themen können nicht mit Farbnamen angegeben werden.
+> Farben für Themes von Firefox für Android können nicht mit Farbnamen angegeben werden.
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -222,22 +209,14 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
       <td><code>bookmark_text</code></td>
       <td>
         <p>
-          Die Farbe des Textes und der Symbole in den Lesezeichen- und Suchleisten. Außerdem, wenn
-          <code>tab_text</code> nicht definiert ist, legt es die Farbe des aktiven
-          Tab-Textes fest und wenn <code>icons</code> nicht definiert ist, die Farbe der
-          Toolbar-Symbole. Bereitgestellt als Chrome-kompatibler Alias für
-          <code>toolbar_text</code>.
+          Die Farbe von Text und Symbolen in den Lesezeichen- und Suchleisten. Außerdem wird, wenn <code>tab_text</code> nicht definiert ist, die Farbe des Texts des aktiven Tabs gesetzt und wenn <code>icons</code> nicht definiert ist, die Farbe der Symbolleistensymbole. Wird als Chrome-kompatibler Alias für <code>toolbar_text</code> bereitgestellt.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass jede verwendete Farbe gut kontrastiert mit
-            den Farben, die in <code>frame</code> und <code>frame_inactive</code> oder
-            <code>toolbar</code> verwendet werden, wenn Sie diese Eigenschaft verwenden.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass jede verwendete Farbe gut mit den in <code>frame</code> und <code>frame_inactive</code> oder <code>toolbar</code>, wenn Sie diese Eigenschaft verwenden, verwendeten Farben kontrastiert.
           </p>
           <p>
-            Wo <code>icons</code> nicht definiert ist, stellen Sie auch sicher, dass es einen guten Kontrast gibt
-            mit <code>button_background_active</code> und
-            <code>button_background_hover</code>.
+            Wenn <code>icons</code> nicht definiert ist, stellen Sie auch sicher, dass ein guter Kontrast zu <code>button_background_active</code> und <code>button_background_hover</code> besteht.
           </p>
         </div>
         <details open>
@@ -256,7 +235,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
         </details>
         <p>
           <img
-            alt="Das Firefox-Browserfenster ist schwarz. Die Tabs des Browsers sind schwarz mit weißem Text. Die URL-Leiste und die 'Seite suchen'-Leiste sind weiß mit schwarzem Text, aber alle Browser- und 'Seite suchen'-Leistensymbole sind rot."
+            alt="Browser Firefox ist schwarz. Der Tab des Browsers ist schwarz mit weißem Text. Die URL-Leiste und die Suchleiste auf der Seite sind weiß mit schwarzem Text, aber alle Symbole im Browser und die Suchleiste sind rot."
             src="theme-bookmark_text.png"
           />
         </p>
@@ -265,7 +244,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
     <tr>
       <td><code>button_background_active</code></td>
       <td>
-        <p>Farbe des Hintergrunds der gedrückten Toolbar-Schaltflächen.</p>
+        <p>Die Hintergrundfarbe der gedrückten Symbolleistenschaltflächen.</p>
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -278,13 +257,13 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind grau mit weißem Text. Das Anpassen der Toolbar-Symbole in der URL-Leiste in weiß mit einem roten Hintergrund ist gedrückt und ein Popup wird geöffnet, das eine kurze Liste von Elementen anzeigt, die zur Toolbar hinzugefügt werden können, wie die Bibliothek des Browsers und die Sidebars." src="theme-button_background_active.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind grau mit weißem Text. Das Symbol zum Anpassen der Symbolleiste in der URL-Leiste ist weiß mit rotem Hintergrund und gedrückt, ein Popup öffnet sich und zeigt eine kurze Liste von Dingen, die zur Symbolleiste hinzugefügt werden können, wie die Bibliothek des Browsers und die Seitenleisten." src="theme-button_background_active.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>button_background_hover</code></td>
       <td>
-        <p>Farbe des Hintergrunds der Toolbar-Schaltflächen beim Überfahren.</p>
+        <p>Die Hintergrundfarbe der Symbolleistenschaltflächen bei Hover.</p>
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -297,19 +276,16 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind grau mit weißem Text. Das Gehe-zurück-eine-Seite-Symbol ist weiß mit einem roten Kreis als Hintergrund." src="theme-button_background_hover.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind grau mit weißem Text. Das Symbol 'Einen Schritt zurückgehen' ist weiß mit einem roten Kreis im Hintergrund." src="theme-button_background_hover.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>icons</code></td>
       <td>
-        <p>Farbe der Toolbar-Symbole, mit Ausnahme der Symbole in der Suchleiste.</p>
+        <p>Die Farbe der Symbolleistensymbole, mit Ausnahme der in der Suchsymbolleiste.</p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            den Farben, die in <code>frame</code>, <code>frame_inactive</code>,
-            <code>button_background_active</code> und
-            <code>button_background_hover</code> verwendet werden.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit den in <code>frame</code>, <code>frame_inactive</code>, <code>button_background_active</code> und <code>button_background_hover</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -324,21 +300,18 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind grau mit weißem Text. Die URL-Leiste und 'neuen Tab öffnen'-Symbole sind rot. Die roten Symbole kontrastieren gut mit der schwarzen Hintergrundfarbe des Header-Bereichs." src="theme-icons.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind grau mit weißem Text. Die URL-Leiste und Öffnen einer neuen Tab-Symbole sind rot. Die roten Symbole kontrastieren gut mit der schwarzen Hintergrundfarbe des Kopfteils." src="theme-icons.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>icons_attention</code></td>
       <td>
         <p>
-          Farbe der Toolbar-Symbole im Aufmerksamkeitszustand, wie das Sterne-Lesezeichen-Symbol oder das Symbol für das abgeschlossene Herunterladen.
+          Die Farbe der Symbolleistensymbole im Zustand der Aufmerksamkeit, wie das Stern-Lesezeichensymbol oder das fertige Download-Symbol.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            den Farben, die in <code>frame</code>, <code>frame_inactive</code>,
-            <code>button_background_active</code> und
-            <code>button_background_hover</code> verwendet werden.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit den in <code>frame</code>, <code>frame_inactive</code>, <code>button_background_active</code> und <code>button_background_hover</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -353,16 +326,14 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind grau mit weißem Text. Das Dieses-Seite-Lesezeichen-Symbol ist rot und gedrückt, ein offenes Popup mit dem Namen 'Dieses Lesezeichen bearbeiten' wird angezeigt. Im Aufmerksamkeitszustand kontrastieren die Toolbar-Symbole gut mit dem schwarzen Hintergrund des Header-Bereichs." src="theme-icons_attention.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind grau mit weißem Text. Das Lesezeichen-diese-Seite-Symbol ist rot und gedrückt, ein offenes Popup namens 'Dieses Lesezeichen bearbeiten' wird angezeigt. Im Aufmerksamkeit-Zustand kontrastieren die Symbolleistensymbole gut mit dem schwarzen Hintergrund des Kopfteils." src="theme-icons_attention.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>frame</code></td>
       <td>
         <p>
-          Farbe des Hintergrunds des Header-Bereichs, angezeigt im Teil des
-          Headers, der nicht durch die in <code>"theme_frame"</code> und <code>"additional_backgrounds"</code>
-          angegebenen Bilder abgedeckt oder sichtbar ist.
+          Die Farbe des Hintergrunds des Headers, angezeigt in dem Teil des Headers, der nicht abgedeckt oder durch die in <code>"theme_frame"</code> und <code>"additional_backgrounds"</code> angegebenen Bilder sichtbar ist.
         </p>
         <details open>
           <summary>Beispiel ansehen</summary>
@@ -375,16 +346,14 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist rot mit weißem Text. Die Tabs des Browsers sind heller rot, ebenfalls mit weißem Text. Die URL-Leiste ist sehr hell rot mit schwarzem Text" src="theme-frame.png" /></p>
+        <p><img alt="Browser Firefox ist rot mit weißem Text. Die Tabs des Browsers sind hellrot, ebenfalls mit weißem Text. Die URL-Leiste ist sehr hellrot mit schwarzem Text." src="theme-frame.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>frame_inactive</code></td>
       <td>
         <p>
-          Farbe des Hintergrunds des Header-Bereichs, wenn das Browser-Fenster
-          inaktiv ist, angezeigt im Teil des Headers, der nicht durch die in <code>"theme_frame"</code> und
-          <code>"additional_backgrounds"</code> angegebenen Bilder abgedeckt oder sichtbar ist.
+          Die Farbe des Hintergrunds des Headers, wenn das Browserfenster inaktiv ist, angezeigt in dem Teil des Headers, der nicht abgedeckt oder durch die in <code>"theme_frame"</code> und <code>"additional_backgrounds"</code> angegebenen Bilder sichtbar ist.
         </p>
         <details open>
           <summary>Beispiel ansehen</summary>
@@ -400,7 +369,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
         </details>
         <p>
           <img
-            alt="Der Firefox-Browser ist grau. Die Tabs und die URL-Leiste des Browsers sind heller grau. Der Tab-Text ist weiß und die URL-Leisten-Symbole sind dunkler grau."
+            alt="Browser Firefox ist grau. Die Tabs und die URL-Leiste des Browsers sind hellgrau. Der Tab-Text ist weiß und die URL-Leisten-Symbole sind dunkler grau."
             src="theme-frame_inactive.png"
           />
         </p>
@@ -409,7 +378,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
     <tr>
       <td><code>ntp_background</code></td>
       <td>
-        <p>Die Hintergrundfarbe der neuen Tab-Seite.</p>
+        <p>Die Hintergrundfarbe der neuen Registerkarte-Seite.</p>
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -420,13 +389,13 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Firefox zeigt eine neue Tab-Seite an. Der Hintergrund der Seite ist rot." src="ntp-background.png" /></p>
+        <p><img alt="Firefox zeigt eine neue Registerkarte-Seite. Der Hintergrund der Seite ist rot." src="ntp-background.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>ntp_card_background</code></td>
       <td>
-        <p>Die Hintergrundfarbe der neuen Tab-Seitenkarte.</p>
+        <p>Die Hintergrundfarbe der neuen Registerkarte-Karte.</p>
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -437,17 +406,16 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Firefox zeigt eine neue Tab-Seite an. Auf der Seite ist der Hintergrund der Suchleiste und der Schnellzugriff-Buttons rot." src="ntp-card-background.png" /></p>
+        <p><img alt="Firefox zeigt eine neue Registerkarte-Seite. Auf der Seite ist der Hintergrund der Suchleiste und der Verknüpfungsschaltflächen rot." src="ntp-card-background.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>ntp_text</code></td>
       <td>
-        <p>Die Textfarbe der neuen Tab-Seite.</p>
+        <p>Die Textfarbe der neuen Registerkarte-Seite.</p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            jener, die in <code>ntp_background</code> und <code>ntp_card_background</code> verwendet wird.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit den in <code>ntp_background</code> und <code>ntp_card_background</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -460,15 +428,14 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Firefox zeigt eine neue Tab-Seite an. Auf der Seite ist der Text in Rot dargestellt." src="ntp-text.png" /></p>
+        <p><img alt="Firefox zeigt eine neue Registerkarte-Seite. Auf der Seite ist der Text in Rot." src="ntp-text.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>popup</code></td>
       <td>
         <p>
-          Die Hintergrundfarbe von Popups (z.B. das Dropdown der URL-Leiste und die
-          Pfeil-Panels).
+          Die Hintergrundfarbe von Popups (wie z.B. das Dropdown der URL-Leiste und die Pfeil-Panels).
         </p>
         <details open>
           <summary>Beispiel ansehen</summary>
@@ -482,7 +449,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind heller grau mit weißen Symbolen und Text. Das Symbol 'Diese Seite als Lesezeichen speichern' ist blau und gedrückt, ein offenes Popup mit dem Namen 'Dieses Lesezeichen bearbeiten' wird angezeigt, der Hintergrund ist rot. Die Hintergrundfarbe des Popups ist rot." src="theme-popup.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind hellgrau mit Symbolen und Text in weiß. Das Lesezeichen-diese-Seite-Symbol ist blau und gedrückt, ein offenes Popup mit dem Namen 'Dieses Lesezeichen bearbeiten' wird angezeigt mit einem roten Hintergrund. Die Hintergrundfarbe des Popups ist rot." src="theme-popup.png" /></p>
       </td>
     </tr>
     <tr>
@@ -503,20 +470,18 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind heller grau mit weißen Symbolen und Text. Das Symbol 'Diese Seite als Lesezeichen speichern' ist blau und gedrückt, ein offenes Popup mit dem Namen 'Dieses Lesezeichen bearbeiten' wird angezeigt mit rotem Rand und schwarzem Hintergrund. Der Rahmen des Popups ist rot." src="theme-popup_border.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind hellgrau mit Symbolen und Text in weiß. Das Lesezeichen-diese-Seite-Symbol ist blau und gedrückt, ein offenes Popup mit dem Namen 'Dieses Lesezeichen bearbeiten' wird angezeigt mit einem roten Rahmen und schwarzem Hintergrund. Der Rahmen des Popups ist rot." src="theme-popup_border.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>popup_highlight</code></td>
       <td>
         <p>
-          Die Hintergrundfarbe von Elementen, die innerhalb von Popups mit der
-          Tastatur hervorgehoben werden (z.B. das ausgewählte Dropdown-Element in der URL-Leiste).
+          Die Hintergrundfarbe von Elementen, die mit der Tastatur innerhalb von Popups hervorgehoben werden (wie das ausgewählte URL-Leisten-Dropdown-Element).
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Es wird empfohlen,
-            <code>popup_highlight_text</code> zu definieren, um die Standard-Browser-Textfarbe auf verschiedenen Plattformen zu überschreiben.
+            <strong>Hinweis:</strong> Es wird empfohlen, <code>popup_highlight_text</code> zu definieren, um die standardmäßige Textfarbe des Browsers auf verschiedenen Plattformen zu überschreiben.
           </p>
         </div>
         <details open>
@@ -532,7 +497,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="screenshot von firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind heller grau mit weißen Symbolen und Text. Ein Suchergebnis-Popup wird angezeigt mit einem hervorgehobenen Element in rotem Hintergrund. Der Hintergrund des hervorgehobenen Elements im Popup ist rot." src="theme-popup_highlight.png" /></p>
+        <p><img alt="Screenshot von Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind hellgrau mit Symbolen und Text in weiß. Ein Suchergebnis-Popup wird angezeigt mit einem hervorgehobenen Element, dessen Hintergrund rot ist. Die Hintergrundfarbe des hervorgehobenen Elements innerhalb des Popups ist rot." src="theme-popup_highlight.png" /></p>
       </td>
     </tr>
     <tr>
@@ -541,8 +506,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
         <p>Die Textfarbe von hervorgehobenen Elementen innerhalb von Popups.</p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            jener, die in <code>popup_highlight</code> verwendet wird.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit denen in <code>popup_highlight</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -558,7 +522,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind heller grau mit weißen Symbolen und Text. Ein Suchergebnis-Popup wird angezeigt mit einem hervorgehobenen Element mit rotem Text auf schwarzem Hintergrund. Die Textfarbe des hervorgehobenen Elements kontrastiert gut mit dem schwarzen Hintergrund dieses Elements." src="theme-popup_highlight_text.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind hellgrau mit Symbolen und Text in weiß. Ein Suchergebnis-Popup wird angezeigt mit einem hervorgehobenen Element, dessen Text in rot mit einem schwarzen Hintergrund ist. Die Textfarbe des hervorgehobenen Elements kontrastiert gut mit der schwarzen Hintergrundfarbe dieses Elements." src="theme-popup_highlight_text.png" /></p>
       </td>
     </tr>
     <tr>
@@ -567,8 +531,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
         <p>Die Textfarbe von Popups.</p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            jener, die in <code>popup</code> verwendet wird.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit denen in <code>popup</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -584,13 +547,13 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind heller grau mit weißen Symbolen und Text. Ein Suchergebnis-Popup wird angezeigt mit Text in Rot. Die Textfarbe kontrastiert gut mit dem schwarzen Hintergrund des Popups." src="popup_text.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind hellgrau mit Symbolen und Text in weiß. Ein Suchergebnis-Popup wird angezeigt mit Elementtexten in rot. Die Textfarbe kontrastiert gut mit der schwarzen Hintergrundfarbe des Popups." src="popup_text.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>sidebar</code></td>
       <td>
-        <p>Die Hintergrundfarbe der Sidebar.</p>
+        <p>Die Hintergrundfarbe der Seitenleiste.</p>
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -604,13 +567,13 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Nahaufnahme-Screenshot des offenen Sidebars eines Browserfensters. Die Hintergrundfarbe des Sidebars ist rot." src="sidebar-colors.png" /></p>
+        <p><img alt="Ein Nahaufnahme-Screenshot eines Browserfensters mit geöffneter Seitenleiste. Die Hintergrundfarbe der Seitenleiste ist rot." src="sidebar-colors.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>sidebar_border</code></td>
       <td>
-        <p>Die Rahmen- und Trennerfarbe der Browersidebar</p>
+        <p>Die Farbe der Rahmen und Trennlinien der Browser-Seitenleiste</p>
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -621,13 +584,13 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Nahaufnahme-Screenshot der Firefox-Browser-Lesezeichen-Sidebar mit einem roten horizontalen Trenner zwischen dem Sidebar-Titel und dem Sidebar-Menü. Die Rahmen- und Trennerfarbe der Sidebar ist rot." src="sidebar-border.png" /></p>
+        <p><img alt="Ein Nahaufnahme der Firefox-Browser-Lesezeichen-Seitenleiste mit einem roten horizontalen Separator zwischen dem Seitenleistentitel und dem Seitenleistenmenü. Die Farbe der Rahmen und Trennlinien der Seitenleiste ist rot." src="sidebar-border.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>sidebar_highlight</code></td>
       <td>
-        <p>Die Hintergrundfarbe von hervorgehobenen Zeilen in eingebauten Sidebars</p>
+        <p>Die Hintergrundfarbe hervorgehobener Zeilen in integrierten Seitenleisten</p>
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -639,17 +602,16 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Nahaufnahme-Screenshot der Firefox-Browser-Lesezeichen-Sidebar mit einem hervorgehobenen Element. Die Hintergrundfarbe einer hervorgehobenen Zeile in der Sidebar ist rot mit weißem Text." src="sidebar-highlight.png" /></p>
+        <p><img alt="Ein Nahaufnahme der Firefox-Browser-Lesezeichen-Seitenleiste mit einem hervorgehobenen Element. Die Hintergrundfarbe einer hervorgehobenen Zeile in der Seitenleiste ist rot mit weißem Text." src="sidebar-highlight.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>sidebar_highlight_text</code></td>
       <td>
-        <p>Die Textfarbe von hervorgehobenen Zeilen in Sidebars.</p>
+        <p>Die Textfarbe hervorgehobener Zeilen in Seitenleisten.</p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            jener, die in <code>sidebar_highlight</code> verwendet wird.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit denen in <code>sidebar_highlight</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -663,17 +625,16 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Nahaufnahme-Screenshot der Firefox-Browser-Lesezeichen-Sidebar mit einem hervorgehobenen Element. Die Farbe des Textes einer hervorgehobenen Zeile in der Sidebar ist rot. Die Textfarbe kontrastiert gut mit der pinken Hintergrundfarbe der hervorgehobenen Zeile." src="sidebar-highlight-text.png" /></p>
+        <p><img alt="Ein Nahaufnahme der Firefox-Browser-Lesezeichen-Seitenleiste mit einem hervorgehobenen Element. Die Farbe des Textes einer hervorgehobenen Zeile in der Seitenleiste ist rot. Die Textfarbe kontrastiert gut mit der pinkfarbenen Hintergrundfarbe der hervorgehobenen Zeile." src="sidebar-highlight-text.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>sidebar_text</code></td>
       <td>
-        <p>Die Textfarbe von Sidebars.</p>
+        <p>Die Textfarbe der Seitenleisten.</p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            jener, die in <code>sidebar</code> verwendet wird.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit denen in <code>sidebar</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -689,7 +650,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Nahaufnahme-Screenshot des offenen Sidebars eines Browserfensters. Die Farbe des Textes innerhalb des Sidebars ist weiß. Die Textfarbe kontrastiert gut mit dem roten Hintergrund des Sidebars." src="sidebar-colors.png" /></p>
+        <p><img alt="Ein Nahaufnahme-Screenshot eines Browserfensters mit geöffneter Seitenleiste. Die Farbe des Textes innerhalb der Seitenleiste ist weiß. Die Textfarbe kontrastiert gut mit dem roten Hintergrund der Seitenleiste." src="sidebar-colors.png" /></p>
       </td>
     </tr>
     <tr>
@@ -699,11 +660,10 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
       <td>
         <div class="notecard warning">
           <p>
-            <strong>Warnung:</strong> <code>tab_background_separator</code> wird
-            ab Firefox 89 nicht mehr unterstützt.
+            <strong>Warnung:</strong> <code>tab_background_separator</code> wird ab Firefox 89 nicht mehr unterstützt.
           </p>
         </div>
-        <p>Die Farbe des vertikalen Trenners der Hintergrund-Tabs.</p>
+        <p>Die Farbe des vertikalen Separators der Hintergrund-Tabs.</p>
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -718,7 +678,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
         </details>
         <p>
           <img
-            alt="Ein Nahaufnahme-Screenshot der Browser-Tabs, um den Separator hervorzuheben."
+            alt="Ein Nahaufnahme von Browser-Tabs zur Hervorhebung des Separators."
             src="theme-tab-background-separator.png"
           />
         </p>
@@ -728,15 +688,11 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
       <td><code>tab_background_text</code></td>
       <td>
         <p>
-          Die Farbe des Textes, der in den inaktiven Pagetabs angezeigt wird. Wenn
-          <code>tab_text</code> oder <code>bookmark_text</code> nicht spezifiziert ist,
-          gilt dies für den aktiven Tab-Text.
+          Die Farbe des Textes, der in den inaktiven Seitentabs angezeigt wird. Wenn <code>tab_text</code> oder <code>bookmark_text</code> nicht angegeben ist, wird auf den aktiven Tab-Text angewendet.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            den Farben, die in <code>tab_selected</code> oder <code>frame</code> und
-            <code>frame_inactive</code> verwendet werden.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit denen in <code>tab_selected</code> oder <code>frame</code> und <code>frame_inactive</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -751,7 +707,7 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind weiß mit roten Symbolen und rotem Text. Die Farbe des Textes im offenen Tab ist rot. Die Textfarbe kontrastiert gut mit der schwarzen Hintergrundfarbe des Tabs." src="theme-tab_background_text.png" /></p>
+        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind weiß mit roten Symbolen und rotem Text. Die Farbe des Textes im geöffneten Tab ist rot. Die Textfarbe kontrastiert gut mit der schwarzen Hintergrundfarbe des Tabs." src="theme-tab_background_text.png" /></p>
       </td>
     </tr>
     <tr>
@@ -770,13 +726,13 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind dunkler grau mit hellgrauen Symbolen und weißem Text. Der ausgewählte Tab hat eine rote Umrandung." src="theme-tab_line.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind dunkelgrau mit hellgrauen Symbolen und weißem Text. Der ausgewählte Tab hat eine rote Umrandung." src="theme-tab_line.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>tab_loading</code></td>
       <td>
-        <p>Die Farbe des Tabs-Ladeindikators und des Lade-Bursts.</p>
+        <p>Die Farbe des Ladeindikators des Tabs und des Tab-Ladebursts.</p>
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -789,15 +745,14 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind dunkler grau mit weißen Symbolen und Text. Im ausgewählten Tab ist ein animierter Ladeindikator rot." src="theme-tab_loading.gif" /></p>
+        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind dunkelgrau mit Symbolen und Text in weiß. Innerhalb des ausgewählten Tabs ist ein animierter Ladeindikator rot." src="theme-tab_loading.gif" /></p>
       </td>
     </tr>
     <tr>
       <td><code>tab_selected</code></td>
       <td>
         <p>
-          Die Hintergrundfarbe des ausgewählten Tabs. Wenn nicht verwendet, wird die ausgewählte Tab-Farbe durch <code>frame</code> und den
-          <code>frame_inactive</code> festgelegt.
+          Die Hintergrundfarbe des ausgewählten Tabs. Wenn nicht in Gebrauch, wird die ausgewählte Tab-Farbe von <code>frame</code> und <code>frame_inactive</code> gesetzt.
         </p>
         <details open>
           <summary>Beispiel ansehen</summary>
@@ -814,22 +769,18 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind dunkler grau mit weißen Symbolen und Text. Der ausgewählte Tab hat einen roten Hintergrund und weißen Text." src="theme-tab_selected.png" /></p>
+        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind dunkelgrau mit Symbolen und Text in weiß. Der ausgewählte Tab hat roten Hintergrund und weißen Text." src="theme-tab_selected.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>tab_text</code></td>
       <td>
         <p>
-          Ab Firefox 59 repräsentiert es die Textfarbe für den ausgewählten Tab. Wenn
-          <code>tab_line</code> nicht angegeben ist, definiert es auch die Farbe der
-          ausgewählten Tab-Linie.
+          Ab Firefox 59 repräsentiert es die Textfarbe des ausgewählten Tabs. Wenn <code>tab_line</code> nicht angegeben ist, definiert es auch die Farbe der ausgewählten Tab-Linie.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            den Farben, die in <code>tab_selected</code> oder <code>frame</code> und
-            <code>frame_inactive</code> verwendet werden.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit denen in <code>tab_selected</code> oder <code>frame</code> und <code>frame_inactive</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -848,17 +799,16 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser hat ein Insektenthema als Bild. Die URL-Leiste ist heller grau mit weißen Symbolen. Der Text des ausgewählten Tabs ist rot mit weißem Hintergrund." src="theme-tab_text.png" /></p>
+        <p><img alt="Browser Firefox hat ein Bild eines Insektthemas. Die URL-Leiste ist hellgrau mit weißen Symbolen. Der ausgewählte Tab-Text ist rot mit weißem Hintergrund." src="theme-tab_text.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>toolbar</code></td>
       <td>
         <p>
-          Die Hintergrundfarbe für die Navigationsleiste, die Lesezeichenleiste
-          und den ausgewählten Tab.
+          Die Hintergrundfarbe für die Navigationsleiste, die Lesezeichenleiste und den ausgewählten Tab.
         </p>
-        <p>Dies legt auch die Hintergrundfarbe der "Suchleiste" fest.</p>
+        <p>Dies setzt auch die Hintergrundfarbe der "Find"-Leiste.</p>
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -871,15 +821,14 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs, die Suchleiste und die URL-Leiste des Browsers sind rot mit weißen Symbolen und Text, mit Ausnahme der Suchleiste, bei der der Text und die Symbole schwarz sind." src="toolbar.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Der Tab, die Seite-find-in-Thema-Leiste und die URL-Leiste des Browsers sind rot mit weißem Text und Symbolen, mit Ausnahme der Seite-find-in-Leiste, wo der Text und das Symbol schwarz sind." src="toolbar.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>toolbar_bottom_separator</code></td>
       <td>
         <p>
-          Die Farbe der Linie, die den unteren Rand der Toolbar von der
-          darunterliegenden Region trennt.
+          Die Farbe der Linie, die den unteren Bereich der Symbolleiste vom darunterliegenden Bereich trennt.
         </p>
         <details open>
           <summary>Beispiel ansehen</summary>
@@ -893,17 +842,18 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind heller grau mit weißen Symbolen und Text. Eine horizontale rote Linie trennt den unteren Rand der Toolbar von der Anzeige der Webseite." src="theme-toolbar_bottom_separator.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind hellgrau mit weißem Text und Symbolen. Eine horizontale rote Linie trennt den unteren Bereich der Symbolleiste vom Beginn der Anzeige der Webseite." src="theme-toolbar_bottom_separator.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>toolbar_field</code></td>
       <td>
         <p>
-          Die Hintergrundfarbe für Felder in der Toolbar, wie die URL-Leiste.
+          Die Hintergrundfarbe für Felder in der Symbolleiste, wie die URL-Leiste.
         </p>
         <p>
-          Dies legt auch die Hintergrundfarbe des <strong>Suchens auf der Seite</strong>-Feldes fest.
+          Dies setzt auch die Hintergrundfarbe des
+          <strong>Finden in Seite</strong>-Feldes.
         </p>
         <details open>
           <summary>Beispiel ansehen</summary>
@@ -917,16 +867,16 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs, die Suchleiste und die URL-Leiste des Browsers sind heller grau mit weißen Symbolen und Text. Die Hintergrundfarbe der URL-Leiste ist rot. Die Suchleiste ist weiß mit schwarzem Text. Das Suchfeld hat roten Hintergrund mit schwarzem Text." src="toolbar-field.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Der Tab, die Seite-find-in-Thema-Leiste und die URL-Leiste des Browsers sind hellgrau mit weißem Text und Symbolen. Die Hintergrundfarbe der URL-Leiste ist rot. Die Seite-find-in-Thema-Leiste ist weiß mit schwarzem Text. Das Seite-find-in-Feld ist rot mit schwarzem Text." src="toolbar-field.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>toolbar_field_border</code></td>
       <td>
-        <p>Die Rahmenfarbe für Felder in der Toolbar.</p>
+        <p>Die Rahmenfarbe für Felder in der Symbolleiste.</p>
         <p>
-          Dies legt auch die Rahmenfarbe des
-          <strong>Suchens auf der Seite</strong>-Feldes fest.
+          Dies setzt auch die Rahmenfarbe des
+          <strong>Finden in Seite</strong>-Feldes.
         </p>
         <details open>
           <summary>Beispiel ansehen</summary>
@@ -943,13 +893,13 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs, der Suchleiste und die URL-Leiste des Browsers sind schwarz mit weißen Symbolen und Text. Die URL-Leiste und das Suchfeld sind rot umrandet." src="toolbar-field-border.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Der Tab, die Seite-find-in-Thema-Leiste und die URL-Leiste des Browsers sind schwarz mit weißem Text und Symbolen. Die URL-Leiste und das Seite-find-in-Feld sind in rot umrandet." src="toolbar-field-border.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>toolbar_field_border_focus</code></td>
       <td>
-        <p>Die Fokus-Rahmenfarbe für Felder in der Toolbar.</p>
+        <p>Die fokussierte Rahmenfarbe für Felder in der Symbolleiste.</p>
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -965,15 +915,14 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind schwarz mit weißen Symbolen und Text. Das URL-Feld ist fokussiert und rot umrandet." src="theme-toolbar_field_border_focus.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Der Tab und die URL-Leiste des Browsers sind schwarz mit weißem Text und Symbolen. Das URL-Leisten-Feld ist fokussiert und in rot umrandet." src="theme-toolbar_field_border_focus.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>toolbar_field_focus</code></td>
       <td>
         <p>
-          Die fokussierte Hintergrundfarbe für Felder in der Toolbar, wie die
-          URL-Leiste.
+          Die fokussierte Hintergrundfarbe für Felder in der Symbolleiste, wie die URL-Leiste.
         </p>
         <details open>
           <summary>Beispiel ansehen</summary>
@@ -990,14 +939,13 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Der Firefox-Browser ist schwarz. Die Tabs, die Suchleiste und die URL-Leiste des Browsers sind schwarz mit weißen Symbolen und Text. Die Hintergrundfarbe der fokussierten URL-Leiste ist rot und der Text ist weiß." src="theme-toolbar_field_focus.png" /></p>
+        <p><img alt="Browser Firefox ist schwarz. Der Tab, die Seite-find-in-Thema-Leiste und die URL-Leiste des Browsers sind schwarz mit weißem Text und Symbolen. Die Hintergrundfarbe der fokussierten URL-Leiste ist rot und der Text ist weiß." src="theme-toolbar_field_focus.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>toolbar_field_highlight</code></td>
       <td>
-        Die Hintergrundfarbe zur Anzeige der aktuellen Markierung von Text in
-        der URL-Leiste (und der Suchleiste, falls sie als separate Box konfiguriert ist).
+        Die Hintergrundfarbe, die verwendet wird, um die aktuelle Textauswahl in der URL-Leiste anzuzeigen (und der Suchleiste, wenn sie als separater Kasten konfiguriert ist).
         <details open>
           <summary>Beispiel ansehen</summary>
           <pre class="brush: json">
@@ -1013,14 +961,12 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
         </details>
         <p>
           <img
-            alt="Der Firefox-Browser ist weiß. Die Tabs und die URL-Leiste des Browsers sind weiß mit schwarzen Symbolen und Text. Das URL-Feld ist fokussiert und blau umrandet und der URL-Leistentext ist ausgewählt."
+            alt="Browser Firefox ist weiß. Die Tabs und die URL-Leiste des Browsers sind weiß mit Text und Symbolen in schwarz. Das URL-Leisten-Feld ist fokussiert und in blau umrahmt, und der Text in der URL-Leiste ist ausgewählt."
             src="toolbar_field_highlight.png"
           />
         </p>
         <p>
-          Hier gibt das <code>toolbar_field_highlight</code>-Feld an, dass
-          die Hervorhebungsfarbe ein helles Grün ist, während der Text auf ein
-          Dunkel- bis Mittelgrün mit <code>toolbar_field_highlight_text</code> gesetzt wird.
+          Hier gibt das <code>toolbar_field_highlight</code>-Feld an, dass die Hervorhebungsfarbe ein helles Grün ist, während der Text mit <code>toolbar_field_highlight_text</code> auf ein dunkles bis mittleres Grün gesetzt ist.
         </p>
       </td>
     </tr>
@@ -1028,13 +974,11 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
       <td><code>toolbar_field_highlight_text</code></td>
       <td>
         <p>
-          Die Farbe, die verwendet wird, um Text zu zeichnen, der aktuell in der URL-Leiste
-          (und der Suchleiste, falls sie als separate Box konfiguriert ist) ausgewählt ist.
+          Die Farbe, die verwendet wird, um Text zu zeichnen, der derzeit in der URL-Leiste (und der Suchleiste, falls sie als separater Kasten konfiguriert ist) ausgewählt ist.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            jener, die in <code>toolbar_field_highlight</code> verwendet wird.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit denen in <code>toolbar_field_highlight</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -1052,14 +996,12 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
         </details>
         <p>
           <img
-            alt="Der Firefox-Browser ist weiß. Die Tabs und die URL-Leiste des Browsers sind weiß mit schwarzen Symbolen und Text. Das URL-Feld ist fokussiert und blau umrandet und der URL-Leistentext ist ausgewählt."
+            alt="Browser Firefox ist weiß. Die Tabs und die URL-Leiste des Browsers sind weiß mit Text und Symbolen in schwarz. Das URL-Leisten-Feld ist fokussiert und in blau umrahmt, und der Text in der URL-Leiste ist ausgewählt."
             src="toolbar_field_highlight.png"
           />
         </p>
         <p>
-          Hier wird das <code>toolbar_field_highlight_text</code>-Feld verwendet, um
-          den Text auf ein dunkelmittleres Grün zu setzen, während die Hervorhebungsfarbe
-          ein helles Grün ist.
+          Hier wird das <code>toolbar_field_highlight_text</code>-Feld verwendet, um die Textfarbe auf ein mittel- bis dunkelgrün zu setzen, während die Hervorhebungsfarbe ein helles Grün ist.
         </p>
       </td>
     </tr>
@@ -1068,13 +1010,11 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
       <td>
         <div class="notecard warning">
           <p>
-            <strong>Warnung:</strong> <code>toolbar_field_separator</code> wird
-            ab Firefox 89 nicht mehr unterstützt.
+            <strong>Warnung:</strong> <code>toolbar_field_separator</code> wird ab Firefox 89 nicht mehr unterstützt.
           </p>
         </div>
         <p>
-          Die Farbe der Separatoren innerhalb der URL-Leiste. In Firefox 58 wurde dies
-          als <code>toolbar_vertical_separator</code> implementiert.
+          Die Farbe der Separatoren innerhalb der URL-Leiste. In Firefox 58 wurde dies als <code>toolbar_vertical_separator</code> implementiert.
         </p>
         <details open>
           <summary>Beispiel ansehen</summary>
@@ -1089,11 +1029,9 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Firefox-Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind schwarz mit weißen Symbolen und Text. Innerhalb der weißen URL-Leiste, nach dem Reader Mode-Symbol, eine rote vertikale Linie, die die anderen URL-Leisten-Symbole trennt. Die Farbe der vertikalen Trennlinie innerhalb der URL-Leiste ist rot." src="theme-toolbar_field_separator.png" /></p>
+        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Browser Firefox ist schwarz. Die Tabs und die URL-Leiste des Browsers sind schwarz mit Text und Symbolen in weiß. Innerhalb des weißen URL-Leisten-Feldes, nach dem Leser-Modus-Symbol, befindet sich eine rote vertikale Linie, die die restlichen URL-Leisten-Symbole trennt. Die Farbe der vertikalen Trennlinie innerhalb der URL-Leiste ist rot." src="theme-toolbar_field_separator.png" /></p>
         <p>
-          In diesem Screenshot ist <code>"toolbar_vertical_separator"</code> die
-          rote vertikale Linie in der URL-Leiste, die das Reader Mode-Symbol von den
-          anderen Symbolen trennt.
+          In diesem Screenshot ist <code>"toolbar_vertical_separator"</code> die rote vertikale Linie in der URL-Leiste, die das Leser-Modus-Symbol von den anderen Symbolen trennt.
         </p>
       </td>
     </tr>
@@ -1101,14 +1039,12 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
       <td><code>toolbar_field_text</code></td>
       <td>
         <p>
-          Die Farbe des Textes in den Feldern der Toolbar, wie der URL-Leiste. Dies
-          legt auch die Textfarbe im
-          <strong>Suchens auf der Seite</strong>-Feld fest.
+          Die Farbe des Textes in Feldern der Symbolleiste, wie der URL-Leiste. Dies setzt auch die Farbe des Textes im
+          <strong>Finden in Seite</strong>-Feld.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            den Farben, die in <code>toolbar_field</code> verwendet werden.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit denen in <code>toolbar_field</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -1125,19 +1061,18 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind schwarz mit weißen Symbolen und Text. Der Text in der URL-Leiste ist rot. Die Symbole und das Suchfeld haben roten Text mit schwarzem Hintergrund." src="toolbar-field-text.png" /></p>
+        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind schwarz mit weißem Text und Symbolen. Der Text in der URL-Leiste ist rot. Die Symbole und das Seite-find-in-Feld haben roten Text mit schwarzem Hintergrund." src="toolbar-field-text.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>toolbar_field_text_focus</code></td>
       <td>
         <p>
-          Die Farbe des Textes in fokussierten Feldern in der Toolbar, wie der URL-Leiste.
+          Die Farbe des Textes in fokussierten Feldern der Symbolleiste, wie der URL-Leiste.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut kontrastiert mit
-            den Farben, die in <code>toolbar_field_focus</code> verwendet werden.
+            <strong>Hinweis:</strong> Stellen Sie sicher, dass die verwendete Farbe gut mit denen in <code>toolbar_field_focus</code> verwendeten Farben kontrastiert.
           </p>
         </div>
         <details open>
@@ -1155,19 +1090,18 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Screenshot eines Browserfensters mit zwei offenen Tabs. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind schwarz mit weißen Symbolen und Text. Die URL-Leiste hat Fokus; der Text und die Symbole sind rot mit schwarzem Hintergrund." src="theme-toolbar_field_text_focus.png" /></p>
+        <p><img alt="Ein Screenshot eines Browserfensters mit zwei offenen Tabs. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind schwarz mit Text und Symbolen in weiß. Die URL-Leiste hat Fokus; der Text und die Symbole in der Leiste sind rot mit schwarzem Hintergrund." src="theme-toolbar_field_text_focus.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>toolbar_text</code></td>
       <td>
         <p>
-          Die Farbe des Toolbar-Textes. Dies legt auch die Farbe des Textes in der
-          "Suchleiste" fest.
+          Die Farbe des Symbolleistentextes. Dies setzt auch die Farbe des Textes in der "Find"-Leiste.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Für Kompatibilität mit Chrome verwenden Sie den Alias
+            <strong>Hinweis:</strong> Für die Kompatibilität mit Chrome verwenden Sie den Alias
             <code>bookmark_text</code>.
           </p>
         </div>
@@ -1184,15 +1118,14 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs, die Suchleiste und die URL-Leiste des Browsers sind schwarz mit rotem Text und Symbolen. Der Text innerhalb des aktiven Tabs, der Navigationsleiste und der Suchleisten ist rot." src="toolbar-text.png" /></p>
+        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Der Tab, die Seite-find-in-Thema-Leiste und die URL-Leiste des Browsers sind schwarz mit rotem Text und Symbolen. Der Text innerhalb des aktiven Tabs, der Navigationsleiste und der Suchleiste ist rot." src="toolbar-text.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>toolbar_top_separator</code></td>
       <td>
         <p>
-          Die Farbe der Linie, die den oberen Rand der Toolbar von der
-          darüberliegenden Region trennt.
+          Die Farbe der Linie, die die Oberseite der Symbolleiste vom darüberliegenden Bereich trennt.
         </p>
         <details open>
           <summary>Beispiel ansehen</summary>
@@ -1207,15 +1140,14 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind schwarz mit weißen Symbolen und Text. Eine rote Linie trennt den oberen Rand der URL-Leiste vom Browser." src="theme-toolbar_top_separator.png" /></p>
+        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Der Tab und die URL-Leiste des Browsers sind schwarz mit weißem Text und Symbolen. Eine rote Linie trennt die Oberseite der URL-Leiste vom Browser." src="theme-toolbar_top_separator.png" /></p>
       </td>
     </tr>
     <tr>
       <td><code>toolbar_vertical_separator</code></td>
       <td>
         <p>
-          Die Farbe des Separators in der Lesezeichenleiste. In Firefox 58 entspricht sie
-          der Farbe der Separatoren innerhalb der URL-Leiste.
+          Die Farbe des Separators in der Lesezeichen-Symbolleiste. In Firefox 58 entspricht es der Farbe der Separatoren innerhalb der URL-Leiste.
         </p>
         <details open>
           <summary>Beispiel ansehen</summary>
@@ -1230,15 +1162,15 @@ Alle diese Eigenschaften können entweder als Zeichenfolge, die einen gültigen 
 }</pre
           >
         </details>
-        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind schwarz mit weißen Symbolen und Text. Die Farbe der vertikalen Linie, die die Lesezeichenleiste von dem rechten Inhalt trennt, ist rot." src="theme-toolbar_vertical_separator.png" /></p>
+        <p><img alt="Ein Screenshot eines Browserfensters mit einem offenen Tab. Der Browser ist schwarz. Die Tabs und die URL-Leiste des Browsers sind schwarz mit Text und Symbolen in weiß. Die Farbe der vertikalen Linie, die die Lesezeichen-Symbolleiste vom Inhalt zur rechten Seite trennt, ist rot." src="theme-toolbar_vertical_separator.png" /></p>
       </td>
     </tr>
   </tbody>
 </table>
 
-#### Aliasse
+#### Aliase
 
-Zusätzlich akzeptiert dieser Schlüssel verschiedene Eigenschaften, die Aliasse für eine der oben genannten Eigenschaften sind. Diese werden zur Kompatibilität mit Chrome bereitgestellt. Wenn ein Alias angegeben ist und auch die Nicht-Alias-Version gegeben ist, wird der Wert von der Nicht-Alias-Version übernommen.
+Zusätzlich akzeptiert dieser Schlüssel verschiedene Eigenschaften, die Aliase einer der obigen Eigenschaften sind. Diese werden für die Kompatibilität mit Chrome bereitgestellt. Wenn ein Alias angegeben ist und die Version ohne Alias ebenfalls angegeben ist, wird der Wert von der Version ohne Alias übernommen.
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -1274,9 +1206,7 @@ Zusätzlich akzeptiert dieser Schlüssel verschiedene Eigenschaften, die Aliasse
       <td>
         <p>Optional</p>
         <p>
-          Ein Array von Enumerationswerten, die die Ausrichtung des
-          entsprechenden <code>"additional_backgrounds":</code>-Arrayelements definiert.<br />Die
-          Ausrichtungsoptionen umfassen:
+          Ein Array von Enumeration-Werten, die die Ausrichtung des entsprechenden <code>"additional_backgrounds":</code>-Array-Elements definieren.<br />Die Ausrichtungsoptionen umfassen:
         </p>
         <ul>
           <li><code>"bottom"</code></li>
@@ -1294,7 +1224,7 @@ Zusätzlich akzeptiert dieser Schlüssel verschiedene Eigenschaften, die Aliasse
           <li><code>"right center"</code></li>
           <li><code>"right top"</code>.</li>
         </ul>
-        <p>Wenn nicht angegeben, wird standardmäßig <code>"right top"</code> verwendet.</p>
+        <p>Wenn nicht angegeben, ist das Standardwert <code>"right top"</code>.</p>
       </td>
     </tr>
     <tr>
@@ -1305,9 +1235,7 @@ Zusätzlich akzeptiert dieser Schlüssel verschiedene Eigenschaften, die Aliasse
       <td>
         <p>Optional</p>
         <p>
-          Ein Array von Enumerationswerten, die definieren, wie das entsprechende
-          <code>"additional_backgrounds":</code>-Arrayelement wiederholt wird. Optionen
-          umfassen:
+          Ein Array von Enumeration-Werten, die definieren, wie das entsprechende <code>"additional_backgrounds":</code>-Array-Element wiederholt wird. Die Optionen umfassen:
         </p>
         <ul>
           <li><code>"no-repeat"</code></li>
@@ -1315,7 +1243,7 @@ Zusätzlich akzeptiert dieser Schlüssel verschiedene Eigenschaften, die Aliasse
           <li><code>"repeat-x"</code></li>
           <li><code>"repeat-y"</code></li>
         </ul>
-        <p>Wenn nicht angegeben, wird standardmäßig <code>"no-repeat"</code> verwendet.</p>
+        <p>Wenn nicht angegeben, ist das Standardwert <code>"no-repeat"</code>.</p>
       </td>
     </tr>
     <tr>
@@ -1326,17 +1254,15 @@ Zusätzlich akzeptiert dieser Schlüssel verschiedene Eigenschaften, die Aliasse
       <td>
         <p>Optional</p>
         <p>
-          Bestimmt, welches Farbschema auf Chrome (beispielsweise Kontextmenüs)
-          und Inhalt (beispielsweise integrierte Seiten und das bevorzugte Farbschema für Webseiten) angewendet wird.
-          Optionen umfassen:
+          Bestimmt, welches Farbschema auf das Chrome (z.B. Kontextmenüs) und den Inhalt (z.B. integrierte Seiten und das bevorzugte Farbschema für Webseiten) angewendet wird. Optionen umfassen:
         </p>
         <ul>
-          <li><code>"auto"</code> – ein helles oder dunkles Schema, das automatisch basierend auf dem Thema ausgewählt wird.</li>
+          <li><code>"auto"</code> – ein helles oder dunkles Schema, das automatisch basierend auf dem Theme gewählt wird.</li>
           <li><code>"light"</code> – ein helles Schema.</li>
           <li><code>"dark"</code> – ein dunkles Schema.</li>
           <li><code>"system"</code> – verwendet das System-Schema.</li>
         </ul>
-        <p>Wenn nicht angegeben, wird standardmäßig <code>"auto"</code> verwendet.</p>
+        <p>Wenn nicht angegeben, ist das Standardwert <code>"auto"</code>.</p>
       </td>
     </tr>
     <tr>
@@ -1347,17 +1273,15 @@ Zusätzlich akzeptiert dieser Schlüssel verschiedene Eigenschaften, die Aliasse
       <td>
         <p>Optional</p>
         <p>
-          Bestimmt, welches Farbschema auf den Inhalt angewendet wird (beispielsweise integrierte Seiten und das
-          bevorzugte Farbschema für Webseiten). Überschreibt <code>color_scheme</code>. Optionen
-          umfassen:
+          Bestimmt, welches Farbschema auf den Inhalt (z.B. integrierte Seiten und bevorzugtes Farbschema für Webseiten) angewendet wird. Überschreibt <code>color_scheme</code>. Optionen umfassen:
         </p>
         <ul>
-          <li><code>"auto"</code> – ein helles oder dunkles Schema, das automatisch basierend auf dem Thema ausgewählt wird.</li>
+          <li><code>"auto"</code> – ein helles oder dunkles Schema, das automatisch basierend auf dem Theme gewählt wird.</li>
           <li><code>"light"</code> – ein helles Schema.</li>
           <li><code>"dark"</code> – ein dunkles Schema.</li>
           <li><code>"system"</code> – das System-Schema.</li>
         </ul>
-        <p>Wenn nicht angegeben, wird standardmäßig <code>"auto"</code> verwendet.</p>
+        <p>Wenn nicht angegeben, ist das Standardwert <code>"auto"</code>.</p>
       </td>
     </tr>
   </tbody>
@@ -1365,7 +1289,7 @@ Zusätzlich akzeptiert dieser Schlüssel verschiedene Eigenschaften, die Aliasse
 
 ## Beispiele
 
-Ein grundlegendes Thema muss ein Bild definieren, das dem Header hinzugefügt wird, die Akzentfarbe, die im Header verwendet wird, und die Farbe des verwendeten Textes im Header:
+Ein grundlegendes Theme muss ein Bild definieren, das dem Header hinzugefügt wird, die Akzentfarbe, die im Header verwendet wird, und die Farbe des Texts im Header:
 
 ```json
  "theme": {
@@ -1379,7 +1303,7 @@ Ein grundlegendes Thema muss ein Bild definieren, das dem Header hinzugefügt wi
  }
 ```
 
-Mehrere Bilder können verwendet werden, um den Header zu füllen. Vor der Firefox-Version 60 verwenden Sie ein leeres oder transparentes Header-Bild, um die Platzierung jedes zusätzlichen Bildes steuern zu können:
+Mehrere Bilder können verwendet werden, um den Header zu füllen. Vor Firefox Version 60 verwenden Sie ein leeres oder transparentes Header-Bild, um die Platzierung jedes zusätzlichen Bildes zu steuern:
 
 ```json
  "theme": {
@@ -1396,7 +1320,7 @@ Mehrere Bilder können verwendet werden, um den Header zu füllen. Vor der Firef
  }
 ```
 
-Der Header kann auch mit einem wiederholten Bild oder Bildern gefüllt werden, in diesem Fall ein einzelnes Bild, das in der Mitte oben des Headers verankert ist und über den Rest des Headers wiederholt wird:
+Sie können den Header auch mit einem wiederholten Bild oder Bildern füllen, in diesem Fall mit einem einzelnen Bild, das in der Mitte, oben im Header verankert ist und über den Rest des Headers wiederholt wird:
 
 ```json
  "theme": {
@@ -1437,11 +1361,11 @@ Das folgende Beispiel verwendet die meisten der verschiedenen Werte für `theme.
   }
 ```
 
-Dies ergibt einen Browser, der so aussieht:
+Es wird Ihnen einen Browser geben, der so aussieht:
 
-![Ein Browserfenster mit zwei offenen Tabs und dunkelgrüner Hintergrundfarbe im Header-Bereich. Der inaktive Tab hat eine weiße Textfarbe. Der aktive Tab und die Toolbar haben eine blaue Hintergrundfarbe mit cyanfarbigen Text. Die URL-Leiste hat einen orangefarbenen Hintergrund mit weißen Rändern, eine grüne Textfarbe und eine weißgefärbte vertikale Linien-Separator. Eine rotgefärbte Linie wird verwendet, um die Tabs oben zu trennen und eine weiße Linie trennt die Tabs vom darunterliegendem Inhalt.](theme.png)
+![Ein Browserfenster mit zwei offenen Tabs und dunkelgrüner Hintergrundfarbe im Header-Bereich. Der inaktive Tab hat eine weiße Textfarbe. Der aktive Tab und die Symbolleiste haben eine blaue Hintergrundfarbe mit cyanfarbigem Text. Die URL-Leiste hat einen orangefarbenen Hintergrund mit weißen Rändern, eine grüne Textfarbe und eine weiße vertikale Linientrennung. Eine rote Linie wird verwendet, um die Tabs oben zu trennen, und eine weiße Linie, um die Tabs vom darunterliegenden Inhalt zu trennen.](theme.png)
 
-In diesem Screenshot ist `"toolbar_vertical_separator"` die weiße vertikale Linie in der URL-Leiste, die das Reader Mode-Symbol von den anderen Symbolen trennt.
+In diesem Screenshot ist `"toolbar_vertical_separator"` die weiße vertikale Linie in der URL-Leiste, die das Reader-Modus-Symbol von den anderen Symbolen trennt.
 
 ## Browser-Kompatibilität
 
@@ -1452,8 +1376,8 @@ In diesem Screenshot ist `"toolbar_vertical_separator"` die weiße vertikale Lin
 In Chrome:
 
 - `colors/toolbar_text` wird nicht verwendet, verwenden Sie stattdessen `colors/bookmark_text`.
-- `images/theme_frame` verankert das Bild am oberen linken Rand des Headers und wenn das Bild den Header-Bereich nicht vollständig ausfüllt, wird das Bild gekachelt.
-- alle Farben müssen als Array von RGB-Werten angegeben werden, wie hier:
+- `images/theme_frame` verankert das Bild an der oberen linken Seite des Headers. Wenn das Bild den Header-Bereich nicht ausfüllt, wird das Bild gekachelt.
+- alle Farben müssen als ein Array von RGB-Werten angegeben werden, so:
 
   ```json
   "theme": {
@@ -1465,4 +1389,4 @@ In Chrome:
   }
   ```
 
-  Ab Firefox 59 werden sowohl die Array-Form als auch die CSS-Farbform für alle Eigenschaften akzeptiert. Vorher erforderten `colors/frame` und `colors/tab_background_text` die Array-Form, während andere Eigenschaften die CSS-Farbform erforderten.
+Ab Firefox 59 werden sowohl die Array-Form als auch die CSS-Farbenform für alle Eigenschaften akzeptiert. Vorher erforderten `colors/frame` und `colors/tab_background_text` die Array-Form, während andere Eigenschaften die CSS-Farbenform erforderten.

@@ -3,12 +3,12 @@ title: "Profiler: stop()-Methode"
 short-title: stop()
 slug: Web/API/Profiler/stop
 l10n:
-  sourceCommit: 49f36838f402e87204234c21fa8a98002c7e7a42
+  sourceCommit: f06910b17bbf44908adc559a9b7b95bd70ae88cf
 ---
 
-{{APIRef("JS Self-Profiling API")}}
+{{APIRef("JS Self-Profiling API")}}{{SeeCompatTable}}
 
-Die **`stop()`**-Methode der [`Profiler`](/de/docs/Web/API/Profiler)-Schnittstelle stoppt den Profiler und gibt ein {{jsxref("Promise")}} zurück, das auf das Profil selbst aufgelöst wird.
+Die **`stop()`**-Methode der [`Profiler`](/de/docs/Web/API/Profiler)-Schnittstelle stoppt den Profiler und gibt ein {{jsxref("Promise")}} zurück, das das Profil selbst auflöst.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das in ein Objekt aufgelöst wird, welches die Profildaten enthält. Das Format und die Interpretation dieses Objekts werden in [Profilaufbau und Format](/de/docs/Web/API/JS_Self-Profiling_API/Profile_content_and_format) beschrieben.
+Ein {{jsxref("Promise")}}, das in ein Objekt aufgelöst wird, welches die Profildaten enthält. Das Format und die Interpretation dieses Objekts wird in [Profilaufbau und Format](/de/docs/Web/API/JS_Self-Profiling_API/Profile_content_and_format) beschrieben.
 
 ## Beispiele
 
-### Aufzeichnen eines Profils
+### Ein Profil aufzeichnen
 
-Der folgende Code zeichnet das `doWork()`-Vorgang auf und protokolliert das Ergebnis.
+Der folgende Code profiliert die `doWork()`-Operation und protokolliert das Ergebnis.
 
 ```js
 const profiler = new Profiler({ sampleInterval: 10, maxBufferSize: 10000 });

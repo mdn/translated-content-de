@@ -2,31 +2,31 @@
 title: Profiler
 slug: Web/API/Profiler
 l10n:
-  sourceCommit: 49f36838f402e87204234c21fa8a98002c7e7a42
+  sourceCommit: f06910b17bbf44908adc559a9b7b95bd70ae88cf
 ---
 
-{{APIRef("JS Self-Profiling API")}}
+{{APIRef("JS Self-Profiling API")}}{{SeeCompatTable}}
 
-Das **`Profiler`**-Interface der [JS Self-Profiling API](/de/docs/Web/API/JS_Self-Profiling_API) ermöglicht es Ihnen, ein [Profil](/de/docs/Web/API/JS_Self-Profiling_API/Profile_content_and_format) eines bestimmten Teils der Ausführung Ihrer Webanwendung zu erstellen.
+Das **`Profiler`**-Interface der [JS Self-Profiling API](/de/docs/Web/API/JS_Self-Profiling_API) ermöglicht es Ihnen, ein [Profil](/de/docs/Web/API/JS_Self-Profiling_API/Profile_content_and_format) eines Teils der Ausführung Ihrer Webanwendung zu erstellen.
 
 ## Konstruktor
 
-- [`Profiler()`](/de/docs/Web/API/Profiler/Profiler)
-  - : Erstellt ein neues `Profiler`-Objekt und beginnt mit dem Sammeln von Proben.
+- [`Profiler()`](/de/docs/Web/API/Profiler/Profiler) {{experimental_inline}}
+  - : Erstellt ein neues `Profiler`-Objekt und beginnt mit der Sammlung von Proben.
 
 ## Instanzmethoden
 
-- [`Profiler.stop()`](/de/docs/Web/API/Profiler/stop)
-  - : Stoppt den Profiler und gibt ein {{jsxref("Promise")}} zurück, das zu dem [Profil](/de/docs/Web/API/JS_Self-Profiling_API/Profile_content_and_format) aufgelöst wird.
+- [`Profiler.stop()`](/de/docs/Web/API/Profiler/stop) {{experimental_inline}}
+  - : Stoppt den Profiler und gibt ein {{jsxref("Promise")}} zurück, das sich in das [Profil](/de/docs/Web/API/JS_Self-Profiling_API/Profile_content_and_format) auflöst.
 
 ## Ereignisse
 
 - [`samplebufferfull`](/de/docs/Web/API/Profiler/samplebufferfull_event)
-  - : Wird ausgelöst, wenn das Profil ausreichend Proben aufgezeichnet hat, um seinen internen Puffer zu füllen.
+  - : Wird ausgelöst, wenn das Profil genügend Proben aufgenommen hat, um seinen internen Puffer zu füllen.
 
 ## Beispiele
 
-### Aufzeichnung eines Profils
+### Aufnahme eines Profils
 
 Der folgende Code profiliert die `doWork()`-Operation und protokolliert das Ergebnis.
 
@@ -39,7 +39,7 @@ const profile = await profiler.stop();
 console.log(JSON.stringify(profile));
 ```
 
-### Profilierung des Seitenladens
+### Profilieren des Seitenladevorgangs
 
 Der folgende Code profiliert die Zeit zwischen dem ersten Ausführen des Skripts und dem Auslösen des [`load`](/de/docs/Web/API/Window/load_event)-Ereignisses des Fensters.
 
