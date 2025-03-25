@@ -1,6 +1,6 @@
 ---
 title: "SVGFEMergeElement: y-Eigenschaft"
-short-title: "y"
+short-title: y
 slug: Web/API/SVGFEMergeElement/y
 l10n:
   sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
