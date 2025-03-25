@@ -2,12 +2,13 @@
 title: Beschreibung
 slug: Web/Progressive_web_apps/Manifest/Reference/description
 l10n:
-  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
+  sourceCommit: 2f6ddccbafddcea8f2b68eb4a78b9764892916b3
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Progressive_web_apps/Manifest/Reference")}}
 
-Das `description`-Manifestmitglied wird verwendet, um die Kernfunktionen oder die Funktionalität Ihrer Webanwendung zu erläutern. Dieser Text hilft den Benutzern, den Zweck Ihrer App zu verstehen, wenn sie diese in einem App-Store ansehen.
+Das `description`-Manifestmitglied wird verwendet, um die Kernfunktionen oder die Funktionalität Ihrer Webanwendung zu erläutern.
+Dieser Text hilft den Nutzern, den Zweck Ihrer App zu verstehen, wenn sie diese in einem App-Store betrachten.
 
 > [!NOTE]
 > Das `description`-Mitglied ist optional, und App-Stores verwenden diesen Text möglicherweise nicht, wenn sie Ihre App präsentieren.
@@ -21,17 +22,19 @@ Das `description`-Manifestmitglied wird verwendet, um die Kernfunktionen oder di
 ### Werte
 
 - `description`
-  - : Eine Zeichenfolge, die Ihre Web-App beschreibt.
+  - : Ein String, der Ihre Web-App beschreibt.
 
 ## Beschreibung
 
-Das `description`-Mitglied ist ergänzende Metadaten, die weder das Laufzeitverhalten der App noch die Darstellung der App in Browsern beeinflussen. Sein Wert wird in App-Stores und anderen Vertriebsplattformen verwendet, um den Benutzern zu helfen, zu verstehen, was Ihre App macht. Zusätzlich wird eine barrierefreie Beschreibung Ihrer installierten App bereitgestellt.
+Das `description`-Mitglied ist ergänzende Metadaten, die das Laufzeitverhalten der App oder die Darstellung durch Browser nicht beeinflussen.
+Sein Wert wird in App-Stores und anderen Vertriebsplattformen verwendet, um den Nutzern zu verdeutlichen, was Ihre App macht.
+Zusätzlich bietet es eine zugängliche Beschreibung Ihrer installierten App.
 
 ## Beispiele
 
-### Hinzufügen einer Beschreibung für eine Essensplanungs-Web-App
+### Hinzufügen einer Beschreibung für eine Mahlzeitenplanungs-Web-App
 
-Einfache `description` in Links-nach-Rechts-Sprache:
+Einfache `description` in einer von links nach rechts verlaufenden Sprache:
 
 ```json
 {

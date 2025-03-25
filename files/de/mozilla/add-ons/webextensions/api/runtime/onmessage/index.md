@@ -2,7 +2,7 @@
 title: runtime.onMessage
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onMessage
 l10n:
-  sourceCommit: c4c42a1573a65a808f085999a4d8d97199e142d1
+  sourceCommit: 5ebacde5e3e3500a851a2c49c7d02a7a5c6604ce
 ---
 
 {{AddonSidebar}}
@@ -11,34 +11,34 @@ Verwenden Sie dieses Ereignis, um Nachrichten von einem anderen Teil Ihrer Erwei
 
 Einige Anwendungsbeispiele sind:
 
-- **in einem [Inhalts-Skript](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#content_scripts)**, um Nachrichten von einem [Hintergrund-Skript](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) zu empfangen.
-- **in einem Hintergrund-Skript**, um Nachrichten von einem Inhalts-Skript zu empfangen.
-- **in einem [Optionenseite oder Popup](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#sidebars_popups_and_options_pages) Skript**, um Nachrichten von einem Hintergrund-Skript zu empfangen.
-- **in einem Hintergrund-Skript**, um Nachrichten von einer Optionenseite oder einem Popup-Skript zu empfangen.
+- **in einem [Content Script](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#content_scripts)**, um Nachrichten von einem [Hintergrundscript](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) zu empfangen.
+- **in einem Hintergrundscript**, um Nachrichten von einem Content Script zu empfangen.
+- **in einem [Optionenseite- oder Popup-Script](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#sidebars_popups_and_options_pages)**, um Nachrichten von einem Hintergrundscript zu empfangen.
+- **in einem Hintergrundscript**, um Nachrichten von einem Optionen- oder Popup-Script zu empfangen.
 
-Um eine Nachricht zu senden, die vom `onMessage()`-Listener empfangen wird, verwenden Sie {{WebExtAPIRef("runtime.sendMessage()")}} oder (um eine Nachricht an ein Inhalts-Skript zu senden) {{WebExtAPIRef("tabs.sendMessage()")}}.
+Um eine Nachricht zu senden, die vom `onMessage()`-Listener empfangen wird, verwenden Sie {{WebExtAPIRef("runtime.sendMessage()")}} oder (um eine Nachricht an ein Content Script zu senden) {{WebExtAPIRef("tabs.sendMessage()")}}.
 
 > [!NOTE]
-> Vermeiden Sie das Erstellen mehrerer `onMessage()`-Listener für den gleichen Nachrichtentyp, da die Reihenfolge, in der mehrere Listener ausgelöst werden, nicht garantiert ist.
+> Vermeiden Sie es, mehrere `onMessage()`-Listener für denselben Nachrichtentyp zu erstellen, da die Reihenfolge, in der mehrere Listener ausgelöst werden, nicht garantiert ist.
 >
-> Wenn Sie die Zustellung einer Nachricht an einen bestimmten Endpunkt garantieren möchten, verwenden Sie den [verbindungsbasierten Ansatz zum Nachrichtenaustausch](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#connection-based_messaging).
+> Wenn Sie die Zustellung einer Nachricht an einen bestimmten Endpunkt garantieren möchten, verwenden Sie die [verbindungsbasierte Methode, um Nachrichten auszutauschen](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#connection-based_messaging).
 
-Zusammen mit der Nachricht selbst wird dem Listener Folgendes übergeben:
+Zusammen mit der Nachricht selbst wird an den Listener übergeben:
 
-- ein `sender`-Objekt mit Details über den Nachrichtenabsender.
-- eine `sendResponse()`-Funktion, die verwendet werden kann, um eine Antwort an den Absender zu senden.
+- ein `sender`-Objekt mit Details zum Absender der Nachricht.
+- eine `sendResponse()`-Funktion, die verwendet werden kann, um dem Absender eine Antwort zurückzusenden.
 
-Sie können eine synchronisierte Antwort auf die Nachricht senden, indem Sie die `sendResponse()`-Funktion innerhalb Ihres Listeners aufrufen. Siehe das [Beispiel zum Senden einer synchronen Antwort](#senden_einer_synchronen_antwort).
+Sie können eine synchrone Antwort auf die Nachricht senden, indem Sie die `sendResponse()`-Funktion innerhalb Ihres Listeners aufrufen. Siehe das [Beispiel für das Senden einer synchronen Antwort](#senden_einer_synchronen_antwort).
 
-Um eine asynchrone Antwort zu senden, gibt es zwei Möglichkeiten:
+Um eine asynchrone Antwort zu senden, gibt es zwei Optionen:
 
-- Geben Sie `true` vom Ereignis-Listener zurück. Dies hält die `sendResponse()`-Funktion gültig, nachdem der Listener zurückkehrt, sodass Sie sie später aufrufen können. Siehe das [Beispiel zum Senden einer asynchronen Antwort mit `sendResponse`](#senden_einer_asynchronen_antwort_mithilfe_von_sendresponse).
+- Wahr zurückgeben vom Ereignislistener. Dies hält die `sendResponse()`-Funktion nach der Rückgabe des Listeners gültig, sodass Sie sie später aufrufen können. Siehe das [Beispiel für das Senden einer asynchronen Antwort mit `sendResponse`](#senden_einer_asynchronen_antwort_mit_sendresponse).
   > [!WARNING]
-  > Präpendieren Sie nicht `async` zur Funktion. Das Präpendieren von `async` ändert die Bedeutung in das [Senden einer asynchronen Antwort mit einem Versprechen (Promise)](#senden_einer_asynchronen_antwort_mit_einem_promise), was faktisch dasselbe ist wie `sendResponse(true)`.
-- Geben Sie ein `Promise` vom Ereignis-Listener zurück und lösen Sie es auf, wenn Sie die Antwort haben (oder lehnen Sie es im Falle eines Fehlers ab). [Siehe das [Beispiel zum Senden einer asynchronen Antwort mit einem Promise](#senden_einer_asynchronen_antwort_mit_einem_promise).
+  > Fügen Sie der Funktion kein `async` hinzu. Wenn Sie `async` hinzufügen, ändert sich die Bedeutung zum [Senden einer asynchronen Antwort mit einem Promise](#senden_einer_asynchronen_antwort_mit_einem_promise), was im Grunde dasselbe ist wie `sendResponse(true)`.
+- Zurückgeben eines `Promise` vom Ereignislistener und Auflösen, wenn Sie die Antwort haben (oder Ablehnen im Falle eines Fehlers). Siehe das Beispiel für das [Senden einer asynchronen Antwort mit einem Promise](#senden_einer_asynchronen_antwort_mit_einem_promise).
 
 > [!NOTE]
-> Sie können auch einen [verbindungsbasierten Ansatz zum Nachrichtenaustausch](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#connection-based_messaging) verwenden.
+> Sie können auch die [verbindungsbasierte Methode verwenden, um Nachrichten auszutauschen](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#connection-based_messaging).
 
 ## Syntax
 
@@ -48,12 +48,12 @@ browser.runtime.onMessage.removeListener(listener)
 browser.runtime.onMessage.hasListener(listener)
 ```
 
-Ereignisse haben drei Funktionen:
+Events haben drei Funktionen:
 
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Hören dieses Ereignisses. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob mindestens ein Listener für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
@@ -68,30 +68,30 @@ Ereignisse haben drei Funktionen:
     - `message`
       - : `object`. Die Nachricht. Dies ist ein serialisierbares Objekt (siehe [Datenklon-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)).
     - `sender`
-      - : Ein {{WebExtAPIRef('runtime.MessageSender')}}-Objekt, das den Absender der Nachricht repräsentiert.
+      - : Ein {{WebExtAPIRef('runtime.MessageSender')}}-Objekt, das den Absender der Nachricht darstellt.
     - `sendResponse`
 
-      - : Eine Funktion, die höchstens einmal aufgerufen wird, um eine Antwort auf die `message` zu senden. Die Funktion nimmt ein Argument: jedes serialisierbare Objekt (siehe [Datenklon-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)). Dieses Argument wird an den Nachrichtenabsender zurückgegeben.
+      - : Eine Funktion, die höchstens einmal aufgerufen wird, um eine Antwort auf die `message` zu senden. Die Funktion nimmt ein Argument: ein beliebiges serialisierbares Objekt (siehe [Datenklon-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)). Dieses Argument wird zurück an den Absender der Nachricht übergeben.
 
         Wenn Sie mehr als einen `onMessage()`-Listener im selben Dokument haben, kann nur einer eine Antwort senden.
 
-        Um eine Antwort synchron zu senden, rufen Sie `sendResponse()` auf, bevor die Listener-Funktion zurückkehrt.
+        Um eine Antwort synchron zu senden, rufen Sie `sendResponse()` auf, bevor die Listener-Funktion endet.
 
-        Um eine Antwort asynchron zu senden, verwenden Sie eine dieser Optionen:
+        Um eine Antwort asynchron zu senden, verwenden Sie eine der folgenden Optionen:
 
-        - Geben Sie ein {{jsxref("Promise")}} von der Listener-Funktion zurück und lösen Sie das Promise auf, wenn die Antwort bereit ist. Dies ist der bevorzugte Ansatz.
-        - Behalten Sie eine Referenz auf das `sendResponse()`-Argument und geben Sie `true` von der Listener-Funktion zurück. Sie rufen dann `sendResponse()` auf, nachdem die Listener-Funktion zurückgekehrt ist.
+        - Geben Sie ein {{jsxref("Promise")}} von der Listener-Funktion zurück und lösen Sie das Promise, wenn die Antwort bereit ist. Dies ist der bevorzugte Ansatz.
+        - Behalten Sie eine Referenz auf das `sendResponse()`-Argument und geben Sie `true` von der Listener-Funktion zurück. Sie können dann `sendResponse()` nach der Rückkehr der Listener-Funktion aufrufen.
 
           > [!NOTE]
-          > Promise als Rückgabewert wird in Chrome erst unterstützt, wenn [Chrome Fehler 1185241](https://crbug.com/1185241) behoben ist. Alternativ [return true and use sendResponse](#senden_einer_asynchronen_antwort_mithilfe_von_sendresponse).
+          > Promise als Rückgabewert wird in Chrome nicht unterstützt, bis [Chrome Bug 1185241](https://crbug.com/1185241) gelöst ist. Alternativ [geben Sie true zurück und verwenden Sie sendResponse](#senden_einer_asynchronen_antwort_mit_sendresponse).
 
-    Die `listener`-Funktion kann entweder ein Boolean oder ein {{jsxref("Promise")}} zurückgeben.
+    Die `listener`-Funktion kann entweder einen Boolean oder ein {{jsxref("Promise")}} zurückgeben.
 
     > [!NOTE]
-    > Wenn Sie eine asynchrone Funktion an `addListener()` übergeben, gibt der Listener für jede empfangene Nachricht ein Promise zurück, wodurch andere Listener am Antworten gehindert werden:
+    > Wenn Sie eine asynchrone Funktion an `addListener()` übergeben, gibt der Listener für jede empfangene Nachricht ein Promise zurück, was verhindert, dass andere Listener antworten:
     >
     > ```js example-bad
-    > // tun Sie dies nicht
+    > // nicht so machen
     > browser.runtime.onMessage.addListener(async (data, sender) => {
     >   if (data.type === "handle_me") {
     >     return "done";
@@ -99,7 +99,7 @@ Ereignisse haben drei Funktionen:
     > });
     > ```
     >
-    > Angenommen, Sie möchten, dass der Listener nur auf Nachrichten eines bestimmten Typs antwortet. In diesem Fall müssen Sie den Listener als nicht-asychrone Funktion definieren und nur für die Nachrichten, auf die der Listener antworten soll, ein Promise zurückgeben — und andernfalls false oder undefined zurückgeben:
+    > Wenn Sie möchten, dass der Listener nur auf Nachrichten eines bestimmten Typs antwortet, müssen Sie den Listener als nicht-asynchrone Funktion definieren und ein Promise nur für die Nachrichten zurückgeben, auf die der Listener antworten soll – und in anderen Fällen false oder undefined zurückgeben:
     >
     > ```js example-good
     > browser.runtime.onMessage.addListener((data, sender) => {
@@ -114,7 +114,7 @@ Ereignisse haben drei Funktionen:
 
 ### Einfaches Beispiel
 
-Dieses Inhalts-Skript hört auf Klick-Ereignisse auf der Webseite. Wenn der Klick auf einen Link erfolgt, sendet es eine Nachricht mit der Ziel-URL an die Hintergrund-Seite:
+Dieses Content Script hört auf Klickereignisse auf der Webseite. Wenn der Klick auf einen Link erfolgt, sendet es eine Nachricht an die Hintergrundseite mit der Ziel-URL:
 
 ```js
 // content-script.js
@@ -129,7 +129,7 @@ function notifyExtension(e) {
 }
 ```
 
-Das Hintergrund-Skript hört auf diese Nachrichten und zeigt eine Benachrichtigung mithilfe der [`notifications`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications)-API an:
+Das Hintergrundscript hört auf diese Nachrichten und zeigt eine Benachrichtigung über die [`notifications`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications) API an:
 
 ```js
 // background-script.js
@@ -148,7 +148,7 @@ function notify(message) {
 
 ### Senden einer synchronen Antwort
 
-Dieses Inhalts-Skript sendet eine Nachricht an das Hintergrund-Skript, wenn der Benutzer auf die Seite klickt. Es protokolliert auch jede Antwort, die vom Hintergrund-Skript gesendet wird:
+Dieses Content Script sendet eine Nachricht an das Hintergrundscript, wenn der Benutzer auf die Seite klickt. Es protokolliert auch alle Antworten, die vom Hintergrundscript gesendet werden:
 
 ```js
 // content-script.js
@@ -171,7 +171,7 @@ function sendMessage(e) {
 window.addEventListener("click", sendMessage);
 ```
 
-Hier ist eine Version des entsprechenden Hintergrund-Skripts, das eine Antwort synchron aus dem Listener sendet:
+Hier ist eine Version des entsprechenden Hintergrundscripts, das eine Antwort synchron von innerhalb des Listeners sendet:
 
 ```js
 // background-script.js
@@ -184,7 +184,7 @@ function handleMessage(request, sender, sendResponse) {
 browser.runtime.onMessage.addListener(handleMessage);
 ```
 
-Und hier ist eine weitere Version, die {{jsxref("Promise.resolve()")}} verwendet:
+Und hier ist eine andere Version, die {{jsxref("Promise.resolve()")}} verwendet:
 
 ```js
 // background-script.js
@@ -197,9 +197,9 @@ function handleMessage(request, sender, sendResponse) {
 browser.runtime.onMessage.addListener(handleMessage);
 ```
 
-### Senden einer asynchronen Antwort mithilfe von sendResponse
+### Senden einer asynchronen Antwort mit sendResponse
 
-Hier ist eine alternative Version des Hintergrund-Skripts aus dem vorherigen Beispiel. Es sendet eine Antwort asynchron, nachdem der Listener zurückkehrt. Beachten Sie `return true;` im Listener: Dies teilt dem Browser mit, dass Sie beabsichtigen, das `sendResponse`-Argument nach der Rückkehr des Listeners zu verwenden.
+Hier ist eine alternative Version des Hintergrundscripts aus dem vorherigen Beispiel. Es sendet eine Antwort asynchron, nachdem der Listener zurückkehrt. Beachten Sie `return true;` im Listener: Dies teilt dem Browser mit, dass Sie vorhaben, das `sendResponse`-Argument nach der Rückkehr des Listeners zu verwenden.
 
 ```js
 // background-script.js
@@ -216,14 +216,14 @@ browser.runtime.onMessage.addListener(handleMessage);
 ```
 
 > [!WARNING]
-> Präpendieren Sie nicht `async` zur Funktion. Das Präpendieren von `async` ändert die Bedeutung in das [Senden einer asynchronen Antwort mit einem Versprechen (Promise)](#senden_einer_asynchronen_antwort_mit_einem_promise), was faktisch dasselbe ist wie `sendResponse(true)`.
+> Fügen Sie der Funktion kein `async` hinzu. Wenn Sie `async` hinzufügen, ändert sich die Bedeutung zum [Senden einer asynchronen Antwort mit einem Promise](#senden_einer_asynchronen_antwort_mit_einem_promise), was im Grunde dasselbe ist wie `sendResponse(true)`.
 
 ### Senden einer asynchronen Antwort mit einem Promise
 
 > [!NOTE]
-> Promise als Rückgabewert wird in Chrome erst unterstützt, wenn [Chrome Fehler 1185241](https://crbug.com/1185241) behoben ist. Alternativ [return true und verwenden Sie `sendResponse`](#senden_einer_asynchronen_antwort_mithilfe_von_sendresponse).
+> Promise als Rückgabewert wird in Chrome nicht unterstützt, bis [Chrome Bug 1185241](https://crbug.com/1185241) gelöst ist. Alternativ [geben Sie true zurück und verwenden Sie `sendResponse`](#senden_einer_asynchronen_antwort_mit_sendresponse).
 
-Dieses Inhalts-Skript erfasst den ersten `<a>`-Link auf der Seite und sendet eine Nachricht, um zu fragen, ob der Standort des Links als Lesezeichen gespeichert ist. Es erwartet eine boolesche Antwort (`true`, wenn der Standort als Lesezeichen gespeichert ist, `false` andernfalls):
+Dieses Content Script holt den ersten `<a>`-Link auf der Seite und sendet eine Nachricht, um zu fragen, ob der Standort des Links als Lesezeichen gespeichert ist. Es erwartet eine Boolean-Antwort (`true`, wenn der Standort als Lesezeichen gespeichert ist, andernfalls `false`):
 
 ```js
 // content-script.js
@@ -243,7 +243,7 @@ browser.runtime
   .then(handleResponse);
 ```
 
-Hier ist das Hintergrund-Skript. Es verwendet `{{WebExtAPIRef("bookmarks.search()")}}`, um zu überprüfen, ob der Link als Lesezeichen gespeichert ist, was ein {{jsxref("Promise")}} zurückgibt:
+Hier ist das Hintergrundscript. Es verwendet {{WebExtAPIRef("bookmarks.search()")}}, um zu überprüfen, ob der Link als Lesezeichen gespeichert ist, was ein {{jsxref("Promise")}} zurückgibt:
 
 ```js
 // background-script.js
@@ -259,7 +259,7 @@ function isBookmarked(message, sender, response) {
 browser.runtime.onMessage.addListener(isBookmarked);
 ```
 
-Wenn der asynchrone Handler kein Promise zurückgibt, können Sie explizit ein Promise konstruieren. Dieses eher konstruierte Beispiel sendet eine Antwort nach einer Verzögerung von 1 Sekunde, unter Verwendung von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout):
+Wenn der asynchrone Handler kein Promise zurückgibt, können Sie explizit ein Promise erstellen. Dieses eher konstruierte Beispiel sendet eine Antwort nach einer 1-Sekunden-Verzögerung unter Verwendung von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout):
 
 ```js
 // background-script.js
@@ -282,7 +282,7 @@ browser.runtime.onMessage.addListener(handleMessage);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onMessage)-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onMessage) API von Chromium. Diese Dokumentation stammt von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

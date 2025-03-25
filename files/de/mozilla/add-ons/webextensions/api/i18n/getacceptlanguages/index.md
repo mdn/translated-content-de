@@ -2,16 +2,16 @@
 title: i18n.getAcceptLanguages()
 slug: Mozilla/Add-ons/WebExtensions/API/i18n/getAcceptLanguages
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 5ebacde5e3e3500a851a2c49c7d02a7a5c6604ce
 ---
 
 {{AddonSidebar}}
 
-Ermittelt die [accept-languages](/de/docs/Web/HTTP/Guides/Content_negotiation#the_accept-language_header) des Browsers. Dies unterscheidet sich von der vom Browser verwendeten Gebietsschema. Um das Gebietsschema zu erhalten, verwenden Sie {{WebExtAPIRef('i18n.getUILanguage')}}.
+Ermittelt die [accept-languages](/de/docs/Web/HTTP/Guides/Content_negotiation#the_accept-language_header) des Browsers. Dies unterscheidet sich von der vom Browser verwendeten Spracheinstellung. Um die Spracheinstellung zu erhalten, verwenden Sie {{WebExtAPIRef('i18n.getUILanguage')}}.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
-Siehe die Seite [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization) für einen Leitfaden zur Verwendung dieser Funktion.
+Sehen Sie auf der Seite [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization) nach einem Leitfaden zur Verwendung dieser Funktion.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `Array` von `{{WebExtAPIRef('i18n.LanguageCode')}}`-Objekten aufgelöst wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` von {{WebExtAPIRef('i18n.LanguageCode')}}-Objekten erfüllt wird.
 
 ## Browser-Kompatibilität
 
@@ -46,7 +46,7 @@ gettingAcceptLanguages.then(onGot);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-getAcceptLanguages)-API von Chromium. Diese Dokumentation ist abgeleitet von [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-getAcceptLanguages) API. Diese Dokumentation wurde aus [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

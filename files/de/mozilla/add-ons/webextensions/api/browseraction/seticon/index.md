@@ -2,18 +2,18 @@
 title: browserAction.setIcon()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/setIcon
 l10n:
-  sourceCommit: 53c832f09b5f55b2cbe040907bff8abfb7b57f72
+  sourceCommit: 5ebacde5e3e3500a851a2c49c7d02a7a5c6604ce
 ---
 
 {{AddonSidebar}}
 
 Setzt das Symbol für die Browser-Aktion.
 
-Sie können ein einzelnes Symbol angeben, entweder als Pfad zu einer Bilddatei oder als {{WebExtAPIRef('browserAction.ImageDataType')}}-Objekt.
+Sie können ein einzelnes Symbol entweder als Pfad zu einer Bilddatei oder als ein {{WebExtAPIRef('browserAction.ImageDataType')}} Objekt angeben.
 
 Sie können mehrere Symbole in verschiedenen Größen angeben, indem Sie ein Wörterbuch mit mehreren Pfaden oder `ImageData`-Objekten bereitstellen. Dies bedeutet, dass das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss.
 
-Tabs ohne ein spezifisches Symbol erben das globale Symbol, das standardmäßig das im Manifest angegebene [`default_icon`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) ist.
+Tabs ohne spezifisches Symbol erben das globale Symbol, das standardmäßig auf das im Manifest angegebene [`default_icon`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) gesetzt ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -33,9 +33,9 @@ let settingIcon = browser.browserAction.setIcon(
 
     - `imageData` {{optional_inline}}
 
-      - : `{{WebExtAPIRef('browserAction.ImageDataType')}}` oder `object`. Dies ist entweder ein einzelnes `ImageData`-Objekt oder ein Wörterbuchobjekt.
+      - : {{WebExtAPIRef('browserAction.ImageDataType')}} oder `object`. Dies ist entweder ein einzelnes `ImageData`-Objekt oder ein Wörterbuchobjekt.
 
-        Verwenden Sie ein Wörterbuchobjekt, um mehrere `ImageData`-Objekte in verschiedenen Größen anzugeben, sodass das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `imageData` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein `ImageData`-Objekt und dessen Name ist seine Größe, wie folgt:
+        Verwenden Sie ein Wörterbuchobjekt, um mehrere `ImageData`-Objekte in verschiedenen Größen anzugeben, sodass das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `imageData` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein `ImageData`-Objekt und sein Name ist seine Größe, wie folgt:
 
         ```js
         let settingIcon = browser.browserAction.setIcon({
@@ -46,13 +46,13 @@ let settingIcon = browser.browserAction.setIcon(
         });
         ```
 
-        Der Browser wird das zu verwendende Bild abhängig von der Pixeldichte des Bildschirms wählen. Siehe [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen.
+        Der Browser wählt das zu verwendende Bild abhängig von der Pixeldichte des Bildschirms. Siehe [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen dazu.
 
     - `path` {{optional_inline}}
 
-      - : `string` oder `object`. Dies ist entweder ein relativer Pfad zu einer Symboldatei oder ein Wörterbuchobjekt.
+      - : `string` oder `object`. Dies ist entweder ein relativer Pfad zu einer Symbol-Datei oder ein Wörterbuchobjekt.
 
-        Verwenden Sie ein Wörterbuchobjekt, um mehrere Symboldateien in verschiedenen Größen anzugeben, sodass das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `path` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein relativer Pfad und dessen Name ist seine Größe, wie folgt:
+        Verwenden Sie ein Wörterbuchobjekt, um mehrere Symboldateien in verschiedenen Größen anzugeben, sodass das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `path` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein relativer Pfad und sein Name ist seine Größe, wie folgt:
 
         ```js
         let settingIcon = browser.browserAction.setIcon({
@@ -63,23 +63,23 @@ let settingIcon = browser.browserAction.setIcon(
         });
         ```
 
-        Der Browser wird das zu verwendende Bild abhängig von der Pixeldichte des Bildschirms wählen. Siehe [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen.
+        Der Browser wählt das zu verwendende Bild abhängig von der Pixeldichte des Bildschirms. Siehe [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen dazu.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Setzt das Symbol nur für den angegebenen Tab. Das Symbol wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
+      - : `integer`. Setzt das Symbol nur für den angegebenen Tab. Das Symbol wird zurückgesetzt, wenn der Benutzer diesen Tab zu einer neuen Seite navigiert.
     - `windowId` {{optional_inline}}
       - : `integer`. Setzt das Symbol für das angegebene Fenster.
 
 <!---->
 
-- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl und das Symbol wird nicht gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und das Symbol wird nicht gesetzt.
 - Wenn `windowId` und `tabId` beide weggelassen werden, wird das globale Symbol gesetzt.
 
-Wenn `imageData` und `path` jeweils `undefined`, `null` oder ein leeres Objekt sind:
+Wenn jede von `imageData` und `path` eines von `undefined`, `null` oder leeren Objekt ist:
 
-- Wenn `tabId` angegeben ist und der Tab ein tabspezifisches Symbol hat, dann wird der Tab das Symbol des Fensters erben, zu dem er gehört.
-- Wenn `windowId` angegeben ist und das Fenster ein fensterspezifisches Symbol hat, dann wird das Fenster das globale Symbol erben.
-- Andernfalls wird das globale Symbol auf das Manifestsymbol zurückgesetzt.
+- Wenn `tabId` angegeben ist und der Tab ein tab-spezifisches Symbol gesetzt hat, dann wird der Tab das Symbol des Fensters erben, zu dem es gehört.
+- Wenn `windowId` angegeben ist und das Fenster ein fensterspezifisches Symbol gesetzt hat, dann wird das Fenster das globale Symbol erben.
+- Andernfalls wird das globale Symbol auf das Manifest-Symbol zurückgesetzt.
 
 ### Rückgabewert
 
@@ -91,7 +91,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Der untenstehende Code verwendet eine Browser-Aktion, um einen Listener für {{WebExtAPIRef("webRequest.onHeadersReceived")}} umzuschalten, und verwendet `setIcon()`, um anzuzeigen, ob das Zuhören aktiv ist oder nicht:
+Der folgende Code verwendet eine Browser-Aktion, um einen Listener für {{WebExtAPIRef("webRequest.onHeadersReceived")}} umzuschalten, und verwendet `setIcon()`, um anzuzeigen, ob das Abhören ein- oder ausgeschaltet ist:
 
 ```js
 function logResponseHeaders(requestDetails) {
@@ -141,7 +141,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Das folgende Snippet aktualisiert das Symbol, wenn der Benutzer darauf klickt, jedoch nur für den aktiven Tab:
+Das folgende Snippet aktualisiert das Symbol, wenn der Benutzer darauf klickt, aber nur für den aktiven Tab:
 
 ```js
 browser.browserAction.onClicked.addListener((tab) => {
@@ -155,7 +155,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setIcon)-API von Chromium. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setIcon)-API von Chromium. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

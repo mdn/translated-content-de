@@ -2,10 +2,10 @@
 title: "ARIA: img-Rolle"
 slug: Web/Accessibility/ARIA/Reference/Roles/img_role
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: ec98716dfe71c78db3f82ee3b1b9e7f68997fa19
 ---
 
-Die ARIA-`img`-Rolle kann verwendet werden, um mehrere Elemente im Seiteninhalt zu identifizieren, die als ein einzelnes Bild betrachtet werden sollten. Diese Elemente können Bilder, Codeausschnitte, Text, Emojis oder andere Inhalte sein, die kombiniert werden können, um Informationen visuell darzustellen.
+Die ARIA-`img`-Rolle kann verwendet werden, um mehrere Elemente innerhalb des Seiteninhalts zu identifizieren, die als ein einziges Bild betrachtet werden sollten. Diese Elemente könnten Bilder, Code-Snippets, Text, Emojis oder andere Inhalte sein, die kombiniert werden können, um Informationen visuell zu vermitteln.
 
 ```html
 <div role="img" aria-label="Description of the overall image">
@@ -16,9 +16,9 @@ Die ARIA-`img`-Rolle kann verwendet werden, um mehrere Elemente im Seiteninhalt 
 
 ## Beschreibung
 
-Jeder Satz von Inhalten, der als ein einzelnes Bild konsumiert werden sollte (der Bilder, Videos, Audio, Codeausschnitte, Emojis oder andere Inhalte umfassen könnte), kann durch `role="img"` identifiziert werden.
+Jeder Inhaltssatz, der als ein einziges Bild konsumiert werden sollte (dies könnte Bilder, Videos, Audio, Code-Snippets, Emojis oder andere Inhalte einschließen), kann durch `role="img"` identifiziert werden.
 
-Sie sollten sich nicht auf den Alternativtext einzelner Bilder verlassen, um assistierenden Technologien den Kontext zu vermitteln; die meisten Screenreader werden das Element mit `role="img"` als eine Art Black Box betrachten und die darin enthaltenen einzelnen Elemente nicht beachten. Daher sollte ein umfassender beschreibender Alternativtext für das Bild bereitgestellt werden, entweder im umgebenden Text oder durch Verwendung eines [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attributs, wobei `alt`-Attribute für Suchmaschinen oder sehende Benutzer auf der Seite geschrieben werden sollten, falls ein Bild ausfällt:
+Sie sollten sich nicht auf den Alternativtext einzelner Bilder verlassen, um assistiven Technologien Kontext zu vermitteln; die meisten Screenreader werden das Element mit `role="img"` als eine Art Blackbox betrachten und nicht auf die darin enthaltenen individuellen Elemente zugreifen. Daher sollten Sie einen umfassenden, allgemeinen beschreibenden Alternativtext für das Bild bereitstellen, entweder im umgebenden Text oder mithilfe eines [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attributs, wobei `alt`-Attribute für Suchmaschinen oder sehende Nutzer verwendet werden, die auf der Seite geschrieben werden sollten, falls ein Bild nicht angezeigt wird:
 
 ```html
 <div role="img" aria-label="Description of the overall image">
@@ -27,10 +27,10 @@ Sie sollten sich nicht auf den Alternativtext einzelner Bilder verlassen, um ass
 </div>
 ```
 
-Wenn Sie Ihrer Abbildung eine Bildunterschrift oder ein Etikett hinzufügen möchten, das auf der Seite sichtbar ist, können Sie dies tun mit:
+Wenn Sie Ihrem Bild eine Beschriftung oder ein Label hinzufügen möchten, das auf der Seite sichtbar ist, können Sie dies mit den folgenden Attributen tun:
 
-- [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), wenn der Text ein prägnantes Etikett ist.
-- [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby), wenn der Text eine längere Beschreibung ist.
+- [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) wenn der Text ein knappes Label ist.
+- [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) wenn der Text eine längere Beschreibung ist.
 
 Zum Beispiel:
 
@@ -41,11 +41,11 @@ Zum Beispiel:
 </div>
 ```
 
-Wenn ein Bild rein präsentational ist, sollten Sie die Verwendung der [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role)-Rolle in Betracht ziehen.
+Wenn ein Bild rein präsentativ ist, sollten Sie die [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role)-Rolle in Betracht ziehen.
 
 ### SVG und role="img"
 
-Wenn Sie eingebettete SVG-Bilder auf Ihrer Seite verwenden, ist es ratsam, `role="img"` auf das äußere {{SVGElement('svg')}}-Element zu setzen und ihm ein Etikett zu geben. Dies führt dazu, dass Screenreader es als einzelne Einheit betrachten und es mit dem Etikett beschreiben, anstatt zu versuchen, alle Knoten der Kinder zu lesen:
+Wenn Sie eingebettete SVG-Bilder in Ihrer Seite verwenden, ist es eine gute Idee, `role="img"` auf dem äußeren {{SVGElement('svg')}}-Element zu setzen und ihm ein Label zu geben. Dies führt dazu, dass Screenreader es nur als eine einzelne Einheit betrachten und es mit dem Label beschreiben, anstatt zu versuchen, alle Kindknoten auszulesen:
 
 ```html
 <svg role="img" aria-label="Description of your SVG image">
@@ -53,11 +53,11 @@ Wenn Sie eingebettete SVG-Bilder auf Ihrer Seite verwenden, ist es ratsam, `role
 </svg>
 ```
 
-### Verwenden von role="img", um Bedeutung zu vermitteln, die verdeckt oder impliziert ist
+### Verwendung von role="img" zum Vermitteln von Bedeutungen, die verschleiert oder impliziert sind
 
-In bestimmten Fällen können Nutzer assistiver Technologien die Bedeutung von Inhalten, die auf bestimmte Weise ausgedrückt werden, über bestimmte Medien oder auf bestimmte Weise impliziert sind, nicht erkennen. Dies ist im Falle von Bildern leicht zu beheben (Sie können das `alt`-Attribut verwenden), aber im Falle gemischter oder anderer bestimmter Inhalte ist es nicht so offensichtlich, und `role="img"` kann zum Einsatz kommen.
+In bestimmten Fällen können Benutzer assistiver Technologien die Bedeutung von Inhalten, die auf bestimmte Weise ausgedrückt, durch bestimmte Medien vermittelt oder in bestimmter Weise impliziert werden, nicht erkennen. Dies lässt sich im Falle von Bildern offensichtlich leicht beheben (Sie können das `alt`-Attribut verwenden), doch im Falle von gemischten oder anderen bestimmten Arten von Inhalten ist dies nicht so offensichtlich, und `role="img"` kann zum Einsatz kommen.
 
-Zum Beispiel, wenn Sie Emojis in Ihrem Text verwenden, könnte die Bedeutung für einen sehenden Benutzer offensichtlich sein, aber jemand, der einen Screenreader verwendet, könnte verwirrt sein, da die Emojis entweder keine Textdarstellung haben oder der alternative Text verwirrend ist und nicht mit dem Kontext übereinstimmt, in dem er verwendet wird. Zum Beispiel, nehmen Sie den folgenden Code:
+Zum Beispiel, wenn Sie Emojis in Ihrem Text verwenden, mag die Bedeutung für einen sehenden Benutzer offensichtlich sein, aber jemand, der einen Screenreader verwendet, könnte verwirrt sein, da die Emojis entweder gar keine Textdarstellung haben oder der Alternativtext verwirrend sein könnte und nicht dem Kontext entspricht, in dem sie verwendet werden. Nehmen wir zum Beispiel den folgenden Code:
 
 ```html
 <div role="img" aria-label="That cat is so cute">
@@ -65,11 +65,11 @@ Zum Beispiel, wenn Sie Emojis in Ihrem Text verwenden, könnte die Bedeutung fü
 </div>
 ```
 
-`&#x1F408; &#x1F602;`, 🐈 und 😂, sind Entitätsreferenzen für Emojis, die als "Katze" und "Gesicht mit Freudentränen" vorgelesen werden, aber das muss nicht unbedingt sinnvoll sein — die implizierte Bedeutung ist möglicherweise eher "Diese Katze ist so süß", also schließen wir das in ein `aria-label` zusammen mit `role="img"` ein.
+`&#x1F408; &#x1F602;`, 🐈 und 😂, sind Entitätsreferenzen für Emojis, die als "Katze" und "Gesicht mit Freudentränen" vorgelesen werden, was nicht unbedingt Sinn ergibt — die implizierte Bedeutung ist wahrscheinlich eher "Diese Katze ist so süß", daher fügen wir dies in ein `aria-label` zusammen mit `role="img"` ein.
 
-Dies scheint in einigen Browser-/Screenreader-Kombinationen gut zu funktionieren, aber einige von ihnen lesen das Label letztlich zweimal vor. Verwenden Sie dies mit Vorsicht und testen Sie es gründlich.
+Dies scheint in einigen Browser/Screenreader-Kombinationen gut zu funktionieren, aber einige von ihnen lesen das Label am Ende doppelt. Verwenden Sie dies mit Vorsicht und testen Sie es gründlich.
 
-Ein weiteres Beispiel, bei dem dies geeignet sein könnte, ist die Verwendung von {{Glossary("ASCII", "ASCII")}}-Emoji-Kombinationen, wie das legendäre "Tischflippen":
+Ein weiteres Beispiel, bei dem dies geeignet sein könnte, ist die Verwendung von {{Glossary("ASCII", "ASCII")}}-Emoji-Kombinationen, wie das legendäre "Table flip":
 
 ```html
 <div role="img" aria-label="Table flip">
@@ -77,34 +77,34 @@ Ein weiteres Beispiel, bei dem dies geeignet sein könnte, ist die Verwendung vo
 </div>
 ```
 
-Wenn `aria-labelledby` verwendet würde, würde der Screenreader es lesen. In diesem Fall wird nur der Inhalt des `aria-labels` den Nutzern von Screenreader vorgelesen, wodurch das Kauderwelsch der Zeichen verborgen wird, ohne dass nachkommende ARIA-Elemente verborgen werden müssen, aber auch potenzieller Inhalt ausgeblendet wird, der Teil des Bildes sein könnte.
+Wenn `aria-labelledby` verwendet würde, würde der Screenreader es vorlesen. In diesem Fall wird den Nutzern von Screenreadern nur der Inhalt des `aria-label` mitgeteilt, wodurch das Geschreibsel der Zeichen versteckt wird, ohne dass nachfolgende ARIA erforderlich ist, um Dinge zu verbergen, aber auch potenzielle Inhalte, die Teil des Bildes sein könnten, versteckt werden.
 
-### Alle Nachfahren sind präsentational
+### Alle Nachkommen sind präsentativ
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Accessibility-API dargestellt werden, nur Text enthalten können. Accessibility-APIs haben keine Möglichkeit, semantische Elemente in einem `img` darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachfahrnelemente eines `img`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzeroberflächenkomponenten, die bei Darstellung in einer Plattform-Zugänglichkeits-API nur Text enthalten können. Zugänglichkeits-APIs haben keine Möglichkeit, semantische Elemente darzustellen, die in einem `img` enthalten sind. Um mit dieser Einschränkung umzugehen, verwenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Unterelemente eines `img`-Elements, da es eine Rolle ist, die keine semantischen Kinder unterstützt.
 
-Zum Beispiel, betrachten Sie das folgende `img`-Element, das eine Überschrift enthält.
+Betrachten Sie zum Beispiel das folgende `img`-Element, das eine Überschrift enthält.
 
 ```html
 <div role="img"><h3>Title of my image</h3></div>
 ```
 
-Da die Nachkommen von `img` präsentational sind, ist der folgende Code äquivalent:
+Da Nachkommen von `img` präsentativ sind, entspricht der folgende Code dem:
 
 ```html
 <div role="img"><h3 role="presentation">Title of my image</h3></div>
 ```
 
-Aus der Perspektive eines assistiven Technologiebenutzers existiert die Überschrift nicht, da die vorherigen Code-Snippets dem folgenden im {{Glossary("Accessibility_tree", "Accessibility-Baum")}} gleichwertig sind:
+Aus der Perspektive von Benutzern assistiver Technologien existiert die Überschrift nicht, da die vorherigen Codeschnipsel dem folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}} entsprechen:
 
 ```html
 <div role="img">Title of my image</div>
 ```
 
-### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
 
 - `aria-label` oder `aria-labelledby`
-  - : Ein zugänglicher Name ist erforderlich. Für das HTML-{{HTMLElement('img')}}-Element verwenden Sie das `alt`-Attribut. Für alle anderen Elemente mit der `img`-Rolle verwenden Sie `aria-labelledby`, wenn ein sichtbares Etikett vorhanden ist, andernfalls verwenden Sie `aria-label`.
+  - : Ein zugänglicher Name ist erforderlich. Für das HTML {{HTMLElement('img')}}-Element verwenden Sie das `alt`-Attribut. Für alle anderen Elemente mit der `img`-Rolle verwenden Sie `aria-labelledby`, wenn ein sichtbares Label vorhanden ist, andernfalls verwenden Sie `aria-label`.
 
 ## Beispiele
 
@@ -129,6 +129,6 @@ Aus der Perspektive eines assistiven Technologiebenutzers existiert die Übersch
 - Das {{HTMLElement('picture')}}-Element
 - Das {{HTMLElement('audio')}}-Element
 - Das {{HTMLElement('video')}}-Element
-- [ARIA: `presentation`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role)
+- [ARIA: `presentation` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role)
 - [Accessibility Object Model](https://wicg.github.io/aom/spec/)
 - [ARIA in HTML](https://w3c.github.io/html-aria/)

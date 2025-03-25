@@ -2,12 +2,12 @@
 title: text-emphasis-position
 slug: Web/CSS/text-emphasis-position
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: e13b6ffe7c9cb05c6a89fcb3c8fcbc987eb05211
 ---
 
 {{CSSRef}}
 
-Die **`text-emphasis-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wo Hervorhebungszeichen gezeichnet werden. Ähnlich wie der Text, der vom HTML-Element [`<ruby>`](/de/docs/Web/HTML/Element/ruby) gerendert wird, wird die Zeilenhöhe erhöht, wenn nicht genügend Platz für Hervorhebungszeichen vorhanden ist.
+Die **`text-emphasis-position`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wo Hervorhebungszeichen gezeichnet werden. Ähnlich wie der Text, der durch das [`<ruby>`](/de/docs/Web/HTML/Element/ruby)-HTML-Element gerendert wird, wird die Zeilenhöhe erhöht, wenn nicht genügend Platz für Hervorhebungszeichen vorhanden ist.
 
 {{InteractiveExample("CSS Demo: text-emphasis-position")}}
 
@@ -88,37 +88,37 @@ text-emphasis-position: unset;
 
 ### Werte
 
-Die Eigenschaft akzeptiert einen oder zwei Werte:
+Die Eigenschaft akzeptiert ein oder zwei Werte:
 
-- Wenn nur ein Wert angegeben wird, kann dieser `auto`, `over` oder `under` sein. Wenn nur `over` oder `under` verwendet wird, wird `right` als Standardposition angenommen.
-- Wenn zwei Werte angegeben werden, müssen sie entweder `over` oder `under` und eines von `right` oder `left` enthalten. Die Reihenfolge spielt keine Rolle.
+- Wenn nur ein Wert angegeben ist, kann es `auto`, `over` oder `under` sein. Wenn nur `over` oder `under` verwendet wird, wird `right` als Standardposition angenommen.
+- Bei zwei angegebenen Werten muss einer `over` oder `under` und einer `right` oder `left` sein. Ihre Reihenfolge spielt keine Rolle.
 
 Die Werte umfassen:
 
 - `auto`
-  - : Zeichnet Zeichen über dem Text im horizontalen Schreibmodus und rechts vom Text im vertikalen Schreibmodus.
+  - : Zeichnet Markierungen über den Text im horizontalen Schreibmodus und rechts vom Text im vertikalen Schreibmodus.
 - `over`
-  - : Zeichnet Zeichen über dem Text im horizontalen Schreibmodus.
+  - : Zeichnet Markierungen über den Text im horizontalen Schreibmodus.
 - `under`
-  - : Zeichnet Zeichen unter dem Text im horizontalen Schreibmodus.
+  - : Zeichnet Markierungen unter dem Text im horizontalen Schreibmodus.
 - `right`
-  - : Zeichnet Zeichen rechts vom Text im vertikalen Schreibmodus.
+  - : Zeichnet Markierungen rechts vom Text im vertikalen Schreibmodus.
 - `left`
-  - : Zeichnet Zeichen links vom Text im vertikalen Schreibmodus.
+  - : Zeichnet Markierungen links vom Text im vertikalen Schreibmodus.
 
 ## Beschreibung
 
-Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im Japanischen ist zum Beispiel die bevorzugte Position `over right`. Im Chinesischen dagegen ist die bevorzugte Position `under right`. Die informative Tabelle unten fasst die bevorzugten Positionen der Hervorhebungszeichen für Chinesisch, Mongolisch und Japanisch zusammen:
+Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im Japanischen ist die bevorzugte Position beispielsweise `over right`. Im Chinesischen hingegen ist die bevorzugte Position `under right`. Die untenstehende informative Tabelle fasst die bevorzugten Hervorhebungszeichenpositionen für Chinesisch, Mongolisch und Japanisch zusammen:
 
 <table>
   <caption>
-    Bevorzugte Position von Hervorhebungszeichen und Ruby
+    Bevorzugte Hervorhebungs- und Ruby-Position
   </caption>
   <thead>
     <tr>
       <th rowspan="2" scope="col">Sprache</th>
       <th colspan="2" scope="col">Bevorzugte Position</th>
-      <th colspan="2" rowspan="2" scope="col">Abbildung</th>
+      <th colspan="2" rowspan="2" scope="col">Illustration</th>
     </tr>
     <tr>
       <th>Horizontal</th>
@@ -134,14 +134,14 @@ Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im J
         <img
           alt="Hervorhebungszeichen erscheinen über jedem hervorgehobenen Zeichen im horizontalen japanischen Text."
           src="text-emphasis-ja.png"
-          title="Hervorhebung (zur Verdeutlichung in Blau dargestellt) über einem Fragment des japanischen Texts angewendet"
+          title="Hervorhebung (zur Klarheit in Blau dargestellt) oberhalb eines Fragments von japanischem Text angewendet"
         />
       </td>
       <td rowspan="4">
         <img
           alt="Hervorhebungszeichen erscheinen rechts von jedem hervorgehobenen Zeichen im vertikalen japanischen Text."
           src="text-emphasis-v.gif"
-          title="Hervorhebung rechts von einem Fragment des japanischen Texts angewendet"
+          title="Hervorhebung rechts von einem Fragment von japanischem Text angewendet"
         />
       </td>
     </tr>
@@ -157,9 +157,9 @@ Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im J
       <td>right</td>
       <td>
         <img
-          alt="Hervorhebungszeichen erscheinen unter jedem hervorgehobenen Zeichen im horizontalen vereinfachten Chinesisch-Text."
+          alt="Hervorhebungszeichen erscheinen unter jedem hervorgehobenen Zeichen im horizontalen vereinfachten chinesischen Text."
           src="text-emphasis-zh.gif"
-          title="Hervorhebung (zur Verdeutlichung in Blau dargestellt) unter einem Fragment des chinesischen Texts angewendet"
+          title="Hervorhebung (zur Klarheit in Blau dargestellt) unterhalb eines Fragments von chinesischem Text angewendet"
         />
       </td>
     </tr>
@@ -167,7 +167,7 @@ Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im J
 </table>
 
 > [!NOTE]
-> Die `text-emphasis-position` kann nicht festgelegt und daher auch nicht zurückgesetzt werden, indem die {{cssxref("text-emphasis")}} Kurzschreibweise verwendet wird.
+> Die `text-emphasis-position` kann nicht gesetzt werden und wird daher auch nicht zurückgesetzt, wenn die {{cssxref("text-emphasis")}}-Kurzschreibweise verwendet wird.
 
 ## Formale Definition
 
@@ -179,9 +179,9 @@ Die bevorzugte Position von Hervorhebungszeichen hängt von der Sprache ab. Im J
 
 ## Beispiele
 
-### Hinzufügen von Hervorhebungsmarkierungspositionen
+### Hinzufügen von Hervorhebungszeichenpositionen
 
-Verwenden Sie das Dropdown-Menü, um die Position der Hervorhebungszeichen zu ändern. Dies wird die Klasse des `<section>` Elements ändern, was wiederum die Position der Hervorhebungszeichen im Text aktualisieren wird.
+Verwenden Sie das Dropdown-Menü, um die Position der Hervorhebungszeichen zu ändern. Dies wird die Klasse des `<section>`-Elements ändern, was wiederum die Position der Hervorhebungszeichen im Text aktualisieren wird.
 
 #### HTML
 
@@ -265,13 +265,13 @@ position.addEventListener("change", updateClass);
 
 #### Ergebnis
 
-Verwenden Sie das Dropdown-Menü "Emphasis position", um den Ort der Hervorhebungszeichen auszuwählen. Die Option `preferred` im Dropdown verwendet die bevorzugten Positionen, wie im Abschnitt [Beschreibung](#beschreibung) beschrieben.
+Verwenden Sie das Dropdown-Menü "Hervorhebungsposition", um den Ort der Hervorhebungszeichen auszuwählen. Die `bevorzugte` Option im Dropdown verwendet die bevorzugten Positionen, wie im Abschnitt [Beschreibung](#beschreibung) erläutert.
 
 {{EmbedLiveSample("Emphasis_mark_positions", 450, 250)}}
 
-### Bevorzugung von Ruby über Hervorhebungszeichen
+### Bevorzugung von Ruby gegenüber Hervorhebungszeichen
 
-Einige Editoren ziehen es vor, Hervorhebungszeichen auszublenden, wenn sie mit Ruby kollidieren. In HTML kann dies mit der folgenden Stilregel erreicht werden:
+Einige Editoren bevorzugen es, Hervorhebungszeichen auszublenden, wenn sie mit Ruby kollidieren. In HTML kann dies mit der folgenden Stilregel getan werden:
 
 ```css
 ruby {
@@ -279,9 +279,9 @@ ruby {
 }
 ```
 
-### Bevorzugung von Hervorhebungszeichen über Ruby
+### Bevorzugung von Hervorhebungszeichen gegenüber Ruby
 
-Andere Editoren ziehen es vor, Ruby auszublenden, wenn es mit Hervorhebungszeichen kollidiert. In HTML kann dies mit dem folgenden Muster erreicht werden:
+Andere Editoren bevorzugen es, Ruby auszublenden, wenn es mit Hervorhebungszeichen kollidiert. In HTML kann dies mit dem folgenden Muster getan werden:
 
 ```css
 em {

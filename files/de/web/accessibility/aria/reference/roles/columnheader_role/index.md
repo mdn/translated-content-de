@@ -1,28 +1,28 @@
 ---
-title: "ARIA: columnheader-Rolle"
+title: "ARIA: Rolle columnheader"
 slug: Web/Accessibility/ARIA/Reference/Roles/columnheader_role
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: ec98716dfe71c78db3f82ee3b1b9e7f68997fa19
 ---
 
-Der `columnheader`-Wert des ARIA role-Attributs identifiziert ein Element als eine Zelle in einer Zeile, die Kopfzeileninformationen für eine Spalte enthält, ähnlich dem nativen {{HTMLElement('th')}}-Element mit Spaltenscope.
+Der `columnheader`-Wert des ARIA-Rollenattributs identifiziert ein Element als eine Zelle in einer Zeile, die Kopfzeileninformationen für eine Spalte enthält, ähnlich dem nativen {{HTMLElement('th')}}-Element mit Spaltenbereich.
 
 ## Beschreibung
 
-Ein Element mit `role="columnheader"`, das als Nachfahre eines Elements mit `role="row"` verschachtelt ist, stellt eine statische tabellarische Struktur einer Spaltenkopfzeile in einem tabellarischen Container dar, sei es eine Tabelle, ein Raster oder ein anderes Diagramm, das Datenbeziehungen anzeigen muss. Um unterstützt zu werden, muss der `columnheader` in einem Element mit der [Rolle `row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) verschachtelt sein.
+Ein Element mit `role="columnheader"`, das als Nachfahre eines Elements mit `role="row"` verschachtelt ist, stellt eine statische tabellarische Struktur einer Spaltenkopfzelle in einem tabellarischen Container dar, sei es eine Tabelle, ein Raster oder ein anderes Diagramm, das Datenbeziehungen darstellen muss. Damit es unterstützt wird, muss das columnheader in einem Element mit der [Rolle `row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) verschachtelt sein.
 
-### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
 
-Alle Spaltenköpfe sollten innerhalb einer [Zeile](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) verschachtelt sein. Jede Zeile sollte wiederum innerhalb eines [Grids](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role), einer [Tabelle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role) oder eines [treegrid](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) verschachtelt sein, alternativ innerhalb eines [rowgroup](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role), das in einem der oben genannten enthalten ist.
+Alle Spaltenköpfe sollten innerhalb einer [row](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) verschachtelt sein. Jede Zeile wiederum sollte innerhalb eines [grid](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role), [table](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role) oder [treegrid](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) verschachtelt sein, alternativ innerhalb einer [rowgroup](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role), die in eines der oben genannten verschachtelt ist.
 
 - [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-sort)
-  - : Nur auf einen Spaltenkopf gleichzeitig anwendbar, falls überhaupt, gibt das `aria-sort`-Attribut an, ob eine Spalte in den drei Werten `ascending` oder `descending` sortiert ist oder `none`, wenn nicht sortiert.
+  - : Nur auf einen Spaltenkopf gleichzeitig anwendbar, sofern vorhanden. Das `aria-sort`-Attribut gibt an, ob eine Spalte in den drei Werten `ascending` oder `descending` oder `none` für nicht sortiert sortiert ist.
 
 ### Tastaturinteraktionen
 
-Diese Rolle unterstützt keine speziellen Tastaturinteraktionen.
+Diese Rolle unterstützt keine spezifische Tastaturinteraktion.
 
-### Erforderliche JavaScript-Funktionen
+### Erforderliche JavaScript-Features
 
 JavaScript ist nur erforderlich, wenn das `aria-sort`-Attribut verwendet wird.
 
@@ -52,17 +52,17 @@ JavaScript ist nur erforderlich, wenn das `aria-sort`-Attribut verwendet wird.
 </table>
 ```
 
-## Best Practices
+## Beste Praktiken
 
 Spaltenköpfe sollten einen Titel oder Kopfzeileninformationen für die Spalte enthalten.
 
-Die erste Regel von ARIA lautet: Wenn ein natives HTML-Element oder -Attribut die erforderlichen Semantiken und das Verhalten aufweist, verwenden Sie es anstelle der erneuten Zweckbestimmung eines Elements und dem Hinzufügen einer ARIA-Rolle, eines Zustands oder einer Eigenschaft, um es zugänglich zu machen. Es wird empfohlen, das native HTML-`<th>`-Element mit dem `scope`-Attribut `<th scope="col">` anstelle eines `<div>` oder eines anderen Elements zu verwenden. Wenn Sie das semantische HTML `<th scope="col">` verwenden, ist das role-Attribut nicht erforderlich, kann jedoch als Sicherung hinzugefügt werden, um sicherzustellen, dass die Tabelle ihre Semantik beibehält, falls die Standardsemantiken durch einen CSS-Darstellungswert entfernt werden.
+Die erste Regel von ARIA lautet: Wenn ein natives HTML-Element oder Attribut die erforderliche Semantik und das Verhalten bereitstellt, verwenden Sie es anstelle einer Anpassung eines Elements und der Hinzufügung einer ARIA-Rolle, eines Zustand oder einer Eigenschaft, um es zugänglich zu machen. Es wird empfohlen, das native HTML-Element `<th>` mit dem `scope`-Attribut `<th scope="col">` anstelle eines `<div>` oder eines anderen Elements zu verwenden. Wenn Sie das semantische HTML `<th scope="col">` verwenden, wird das Rollenattribut nicht benötigt, kann jedoch als Backup hinzugefügt werden, um sicherzustellen, dass die Tabelle ihre Semantik beibehält, falls die standardmäßigen Semantiken durch einen CSS-Anzeigenwert entfernt werden.
 
-Das `aria-sort`-Attribut kann einem `<th scope="col">` hinzugefügt werden, auch wenn das ARIA role-Attribut nicht angegeben ist.
+Das `aria-sort`-Attribut kann zu einem `<th scope="col">` hinzugefügt werden, auch wenn das ARIA-Rollenattribut nicht angegeben ist.
 
 ### Bevorzugen Sie HTML
 
-Columnheader hat die gleichen Semantiken `<th scope="col">`.
+Columnheader hat die gleiche Semantik wie `<th scope="col">`.
 
 ## Spezifikationen
 

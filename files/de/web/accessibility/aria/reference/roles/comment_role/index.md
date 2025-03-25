@@ -1,20 +1,20 @@
 ---
-title: "ARIA: comment role"
+title: "ARIA: Kommentarrolle"
 slug: Web/Accessibility/ARIA/Reference/Roles/comment_role
 l10n:
-  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
+  sourceCommit: ec98716dfe71c78db3f82ee3b1b9e7f68997fa19
 ---
 
-Die `comment`-Rolle bezeichnet semantisch einen Kommentar oder eine Reaktion auf einige Inhalte auf der Seite oder auf einen vorherigen Kommentar.
+Die `comment`-Rolle kennzeichnet semantisch einen Kommentar oder eine Reaktion zu einem Inhalt auf der Seite oder zu einem vorherigen Kommentar.
 
 > [!NOTE]
-> Die `comment`-Rolle wird in WAI-ARIA 1.3 vorgeschlagen ([Neuester ARIA-Entwurf](https://w3c.github.io/aria/)), der sich noch in der Entwurfsphase befindet.
+> Die Kommentarrolle wird in WAI-ARIA 1.3 vorgeschlagen ([Neuester ARIA-Entwurf](https://w3c.github.io/aria/)), welcher sich noch im Entwurfsstadium befindet.
 
 ## Beispiele
 
-Im folgenden Beispiel haben wir einen Dokumentabschnitt, der kommentiert wurde. Der kommentierte Abschnitt ist mit `<span role="mark">` ausgezeichnet.
+Im folgenden Beispiel haben wir einen Dokumentabschnitt, der kommentiert wurde. Der kommentierte Abschnitt wird mit `<span role="mark">` ausgezeichnet.
 
-Der zugehörige Kommentar ist mit einer HTML-Struktur ausgezeichnet, die in einem `<div>` mit `role="comment"` enthalten ist.
+Der zugehörige Kommentar wird mit einer HTML-Struktur markiert, die in einem `<div>` mit `role="comment"` enthalten ist.
 
 ```html
 <p>
@@ -34,7 +34,7 @@ Um den Kommentar mit dem kommentierten Text zu verknüpfen, müssen wir den komm
 
 ### Mehrere Kommentare
 
-Da `aria-details` jetzt mehrere IDs akzeptieren kann, können wir mehrere Kommentare mit derselben Anmerkung verknüpfen, wie folgt:
+Da `aria-details` jetzt mehrere IDs akzeptieren kann, können wir mehrere Kommentare mit derselben Annotation verknüpfen:
 
 ```html
 <p>
@@ -61,7 +61,7 @@ Da `aria-details` jetzt mehrere IDs akzeptieren kann, können wir mehrere Kommen
 
 ### Verschachtelte Kommentare
 
-Es ist möglich, Kommentare ineinander zu verschachteln, wie folgt:
+Es ist möglich, Kommentare ineinander zu verschachteln:
 
 ```html
 <div role="comment" id="thread-1" data-author="chris">
@@ -81,8 +81,8 @@ Es ist möglich, Kommentare ineinander zu verschachteln, wie folgt:
 
 ## Barrierefreiheitsbedenken
 
-Keine
+Keine.
 
 ## Spezifikationen
 
-Wird Teil von WAI-ARIA 1.3 sein, das sich noch in der Entwurfsphase befindet.
+Wird Teil von WAI-ARIA 1.3 werden, das sich noch im Entwurfsstadium befindet.

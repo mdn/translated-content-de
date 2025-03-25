@@ -3,19 +3,16 @@ title: "HTMLCanvasElement: toBlob() Methode"
 short-title: toBlob()
 slug: Web/API/HTMLCanvasElement/toBlob
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 7efdbbe04ee2ba39340fb22d7ee9b4aaa6269385
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`HTMLCanvasElement.toBlob()`** Methode erstellt ein [`Blob`](/de/docs/Web/API/Blob) Objekt, das das im Canvas enthaltene Bild darstellt.
-Diese Datei kann nach Ermessen des Benutzeragenten auf der Festplatte zwischengespeichert oder im Speicher gespeichert werden.
+Die **`HTMLCanvasElement.toBlob()`**-Methode erstellt ein [`Blob`](/de/docs/Web/API/Blob)-Objekt, das das im Canvas enthaltene Bild darstellt. Diese Datei kann nach Ermessen des Benutzeragenten auf der Festplatte zwischengespeichert oder im Speicher gespeichert werden.
 
-Das gewünschte Dateiformat und die Bildqualität können angegeben werden.
-Wenn das Dateiformat nicht angegeben ist oder das angegebene Format nicht unterstützt wird, werden die Daten als `image/png` exportiert.
-Browser müssen `image/png` unterstützen; viele unterstützen zusätzliche Formate, einschließlich `image/jpeg` und `image/webp`.
+Das gewünschte Dateiformat und die Bildqualität können spezifiziert werden. Wenn das Dateiformat nicht angegeben ist oder das angegebene Format nicht unterstützt wird, werden die Daten als `image/png` exportiert. Browser müssen `image/png` unterstützen; viele werden zusätzliche Formate wie `image/jpeg` und `image/webp` unterstützen.
 
-Das erstellte Bild hat eine Auflösung von 96dpi für Dateiformate, die das Kodieren von Auflösungsmetadaten unterstützen.
+Das erstellte Bild wird für Dateiformate, die die Kodierung von Auflösungsmetadaten unterstützen, eine Auflösung von 96dpi haben.
 
 ## Syntax
 
@@ -28,14 +25,11 @@ toBlob(callback, type, quality)
 ### Parameter
 
 - `callback`
-  - : Eine Callback-Funktion mit dem resultierenden [`Blob`](/de/docs/Web/API/Blob) Objekt als einziges Argument.
-    `null` kann übergeben werden, wenn das Bild aus irgendeinem Grund nicht erstellt werden kann.
+  - : Eine Callback-Funktion mit dem resultierenden [`Blob`](/de/docs/Web/API/Blob)-Objekt als einzigem Argument. `null` kann übergeben werden, wenn das Bild aus irgendeinem Grund nicht erstellt werden kann.
 - `type` {{optional_inline}}
-  - : Ein String, der das Bildformat angibt.
-    Der Standardtyp ist `image/png`; dieser Typ wird auch verwendet, wenn der angegebene Typ nicht unterstützt wird.
+  - : Ein String, der das Bildformat angibt. Der Standardtyp ist `image/png`; dieser Typ wird auch verwendet, wenn der angegebene Typ nicht unterstützt wird.
 - `quality` {{optional_inline}}
-  - : Ein {{jsxref("Number")}} zwischen `0` und `1`, der die Bildqualität angibt, die beim Erstellen von Bildern unter Verwendung von Dateiformaten, die verlustbehaftete Kompression unterstützen (wie `image/jpeg` oder `image/webp`), verwendet werden soll.
-    Ein Benutzeragent wird seinen Standardqualitätswert verwenden, wenn diese Option nicht angegeben ist oder wenn die Zahl außerhalb des zulässigen Bereichs liegt.
+  - : Eine {{jsxref("Number")}} zwischen `0` und `1`, die die Bildqualität angibt, die bei der Erstellung von Bildern mit Dateiformaten verwendet wird, die verlustbehaftete Komprimierung unterstützen (wie `image/jpeg` oder `image/webp`). Ein Benutzeragent wird seinen Standard-Qualitätswert verwenden, wenn diese Option nicht angegeben ist oder die Zahl außerhalb des zulässigen Bereichs liegt.
 
 ### Rückgabewert
 
@@ -44,14 +38,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `SecurityError`
-  - : Das Bitmap des Canvas ist nicht origin-clean; mindestens einige seiner Inhalte wurden oder könnten von einer anderen Website geladen worden sein, als von der, von der das Dokument selbst geladen wurde.
+  - : Das Bitmap des Canvas ist nicht origin-clean; mindestens ein Teil seines Inhalts wurde oder könnte von einer anderen Website als der geladen worden sein, von der das Dokument selbst stammt.
 
 ## Beispiele
 
-### Eine Datei erstellen, die das Canvas darstellt
+### Eine Datei darstellen, die das Canvas repräsentiert
 
-Sobald Sie Inhalte in ein Canvas gezeichnet haben, können Sie es in eine Datei eines beliebigen unterstützten Bildformats konvertieren.
-Der folgende Codeausschnitt nimmt das Bild im {{HTMLElement("canvas")}} Element mit der ID "canvas", erhält eine Kopie davon als PNG-Bild und fügt dann ein neues {{HTMLElement("img")}} Element zum Dokument hinzu, dessen Quellbild das mit dem Canvas erstellte ist.
+Sobald Sie Inhalte in ein Canvas gezeichnet haben, können Sie es in eine Datei eines unterstützten Bildformats konvertieren. Der unten stehende Codeausschnitt nimmt zum Beispiel das Bild im {{HTMLElement("canvas")}}-Element mit der ID "canvas", erhält eine Kopie davon als PNG-Bild und fügt dann ein neues {{HTMLElement("img")}}-Element zum Dokument hinzu, dessen Quellbild das mit dem Canvas erstellte Bild ist.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -60,18 +53,12 @@ canvas.toBlob((blob) => {
   const newImg = document.createElement("img");
   const url = URL.createObjectURL(blob);
 
-  newImg.onload = () => {
-    // no longer need to read the blob so it's revoked
-    URL.revokeObjectURL(url);
-  };
-
   newImg.src = url;
   document.body.appendChild(newImg);
 });
 ```
 
-Beachten Sie, dass wir hier ein PNG-Bild erstellen; wenn Sie einen zweiten Parameter zum `toBlob()` Aufruf hinzufügen, können Sie einen anderen vom Benutzeragenten unterstützten Bildtyp angeben.
-Zum Beispiel, um das Bild im JPEG-Format zu erhalten:
+Beachten Sie, dass wir hier ein PNG-Bild erstellen; wenn Sie einen zweiten Parameter beim `toBlob()`-Aufruf hinzufügen, können Sie einen anderen vom Benutzeragenten unterstützten Bildtyp angeben. Zum Beispiel, um das Bild im JPEG-Format zu erhalten:
 
 ```js
 canvas.toBlob(
@@ -83,11 +70,11 @@ canvas.toBlob(
 ); // JPEG at 95% quality
 ```
 
-### Ein Canvas in ein ico konvertieren (nur Mozilla)
+Beachten Sie, dass wir die Objekt-URL nicht sofort widerrufen, nachdem das Bild geladen wurde, da dies das Bild für Benutzerinteraktionen (wie Rechtsklick zum Speichern des Bildes oder Öffnen in einem neuen Tab) unbrauchbar machen würde. Für langlebige Anwendungen sollten Sie Objekt-URLs widerrufen, wenn sie nicht mehr benötigt werden (z. B. wenn das Bild aus dem DOM entfernt wird), um Speicherplatz freizugeben. Dazu rufen Sie die Methode [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) auf und übergeben den Objekt-URL-String.
 
-Dies verwendet `-moz-parse`, um das Canvas in ico zu konvertieren, und funktioniert daher nur in Firefox.
-Windows XP unterstützt nicht die Konvertierung von PNG zu ico, daher wird stattdessen bmp verwendet.
-Ein Download-Link wird erstellt, indem das Download-Attribut gesetzt wird. Der Wert des Download-Attributs wird als Dateiname verwendet.
+### Ein Canvas in ein ico konvertieren (Nur Mozilla)
+
+Dies verwendet `-moz-parse`, um das Canvas in ico zu konvertieren, und funktioniert daher nur in Firefox. Windows XP unterstützt nicht die Konvertierung von PNG in ico, daher wird stattdessen bmp verwendet. Ein Download-Link wird durch das Setzen des Download-Attributs erstellt. Der Wert des Download-Attributs ist der Name, der als Dateiname verwendet wird.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -118,10 +105,10 @@ canvas.toBlob(
 );
 ```
 
-### Speichern von toBlob auf die Festplatte mit OS.File (nur Chrome-/Add-on-Kontext)
+### Speichern von toBlob auf Festplatte mit OS.File (Nur im Chrome/Add-On-Kontext)
 
 > [!NOTE]
-> Diese Technik speichert es auf dem Desktop und ist nur im Firefox-Chrome-Kontext oder Add-on-Code nützlich, da OS-APIs auf Websites nicht vorhanden sind.
+> Diese Technik speichert es auf dem Desktop und ist nur im Firefox-Chrome-Kontext oder im Add-On-Code nützlich, da OS-APIs auf Websites nicht vorhanden sind.
 
 ```js
 const canvas = document.getElementById("canvas");

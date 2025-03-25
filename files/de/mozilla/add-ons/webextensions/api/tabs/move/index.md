@@ -2,14 +2,14 @@
 title: tabs.move()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/move
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 5ebacde5e3e3500a851a2c49c7d02a7a5c6604ce
 ---
 
 {{AddonSidebar}}
 
 Verschiebt einen oder mehrere Tabs an eine neue Position im selben Fenster oder in ein anderes Fenster.
 
-Sie können Tabs nur in und aus Fenstern verschieben, deren {{WebExtAPIRef('windows.WindowType', 'WindowType')}} `"normal"` ist.
+Sie können Tabs nur in oder aus Fenstern verschieben, deren {{WebExtAPIRef('windows.WindowType', 'WindowType')}} `"normal"` ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,28 +25,28 @@ let moving = browser.tabs.move(
 ### Parameter
 
 - `tabIds`
-  - : `integer` oder `array` von `integer`. ID des zu verschiebenden {{WebExtAPIRef('tabs.Tab', 'tab')}}, oder ein Array von Tab-IDs.
+  - : `integer` oder `array` von `integer`. ID des zu verschiebenden {{WebExtAPIRef('tabs.Tab', 'tab')}} oder ein Array von Tab-IDs.
 - `moveProperties`
 
-  - : `object`. Ein Objekt, das angibt, wohin der/die Tab(s) verschoben werden soll(en).
+  - : `object`. Ein Objekt, das angibt, wohin die Tabs verschoben werden sollen.
 
     - `windowId` {{optional_inline}}
-      - : `integer`. Die ID des Fensters, in das Sie den/die Tab(s) verschieben möchten. Wenn Sie dies weglassen, wird jeder Tab in `tabIds` an `index` in seinem aktuellen Fenster verschoben. Wenn Sie dies angeben und `tabIds` mehr als einen Tab enthält, wird der erste Tab in `tabIds` an `index` verschoben, und die anderen Tabs folgen ihm in der angegebenen Reihenfolge in `tabIds`.
+      - : `integer`. Die ID des Fensters, in das Sie die Tabs verschieben möchten. Wenn Sie dies weglassen, wird jeder Tab in `tabIds` an `index` in seinem aktuellen Fenster verschoben. Wenn Sie dies angeben und `tabIds` mehr als einen Tab enthält, wird der erste Tab in `tabIds` an `index` verschoben, und die anderen Tabs folgen ihm in der Reihenfolge, die in `tabIds` angegeben ist.
     - `index`
 
-      - : `integer`. Die Indexposition, an die der Tab verschoben werden soll, beginnend bei 0. Ein Wert von -1 platziert den Tab am Ende des Fensters.
+      - : `integer`. Die Indexposition, an die die Tabs verschoben werden sollen, beginnend bei 0. Ein Wert von -1 platziert den Tab am Ende des Fensters.
 
-        Wenn Sie einen Wert kleiner als -1 übergeben, wird die Funktion einen Fehler werfen.
+        Wenn Sie einen Wert kleiner als -1 übergeben, wird die Funktion einen Fehler auslösen.
 
-        Beachten Sie, dass Sie keine fixierten Tabs an eine Position hinter einem nicht fixierten Tab in einem Fenster verschieben können oder umgekehrt. Wenn Sie beispielsweise in dem Ziel-Fenster einen oder mehrere fixierte Tabs haben und `tabIds` auf einen nicht fixierten Tab verweist, können Sie hier nicht 0 angeben. Wenn Sie dies versuchen, schlägt die Funktion stillschweigend fehl (es wird kein Fehler geworfen).
+        Beachten Sie, dass Sie keine fixierten Tabs an eine Position nach nicht fixierten Tabs in einem Fenster verschieben können, oder nicht fixierte Tabs an eine Position vor fixierten Tabs. Wenn Sie beispielsweise ein oder mehrere fixierte Tabs im Ziel-Fenster haben und `tabIds` sich auf einen nicht fixierten Tab bezieht, können Sie hier nicht 0 übergeben. Wenn Sie dies versuchen, schlägt die Funktion stillschweigend fehl (es wird kein Fehler ausgelöst).
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `{{WebExtAPIRef('tabs.Tab')}}`-Objekt oder einem `array` von `{{WebExtAPIRef('tabs.Tab')}}`-Objekten erfüllt wird, das Details über die verschobenen Tabs enthält. Wenn keine Tabs verschoben wurden (zum Beispiel, weil Sie versucht haben, einen nicht fixierten Tab vor einen fixierten Tab zu verschieben), wird dies ein leeres Array sein. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt oder einem `array` von {{WebExtAPIRef('tabs.Tab')}}-Objekten erfüllt wird, das Details über die verschobenen Tabs enthält. Wenn keine Tabs verschoben wurden (zum Beispiel, weil Sie versucht haben, einen nicht fixierten Tab vor einen fixierten Tab zu verschieben), wird dies ein leeres Array sein. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Verschieben Sie den ersten Tab im aktuellen Fenster in die letzte Position im aktuellen Fenster:
+Verschieben Sie den ersten Tab im aktuellen Fenster an die letzte Position im aktuellen Fenster:
 
 ```js
 function onMoved(tab) {
@@ -71,7 +71,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bedient werden, an das Ende ihres Fensters:
+Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bedient werden, ans Ende ihres Fensters:
 
 ```js
 function onMoved(tab) {
