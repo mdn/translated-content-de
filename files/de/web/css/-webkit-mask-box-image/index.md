@@ -1,5 +1,5 @@
 ---
-title: "-webkit-mask-box-image"
+title: -webkit-mask-box-image
 slug: Web/CSS/-webkit-mask-box-image
 l10n:
   sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e

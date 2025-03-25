@@ -1,5 +1,5 @@
 ---
-title: "::first-line"
+title: ::first-line
 slug: Web/CSS/::first-line
 l10n:
   sourceCommit: 6d55eec58e38583da60aa635d41393ad051d1c6d

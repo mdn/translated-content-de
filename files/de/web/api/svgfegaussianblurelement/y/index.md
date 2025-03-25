@@ -1,6 +1,6 @@
 ---
 title: "SVGFEGaussianBlurElement: y-Eigenschaft"
-short-title: "y"
+short-title: y
 slug: Web/API/SVGFEGaussianBlurElement/y
 l10n:
   sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714

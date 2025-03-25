@@ -1,6 +1,6 @@
 ---
 title: "SVGFETileElement: y-Eigenschaft"
-short-title: "y"
+short-title: y
 slug: Web/API/SVGFETileElement/y
 l10n:
   sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
