@@ -2,39 +2,28 @@
 title: rel=modulepreload
 slug: Web/HTML/Attributes/rel/modulepreload
 l10n:
-  sourceCommit: 31ff21cf5f083a3258fc04267d54b1fb72224ff6
+  sourceCommit: 515d03ad8572b96e88916888156444626dcba193
 ---
 
 {{HTMLSidebar}}
 
-Das **`modulepreload`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut des {{HTMLElement("link")}} Elements bietet eine deklarative Möglichkeit, ein [Modulskript](/de/docs/Web/JavaScript/Guide/Modules) vorab abzurufen, zu parsen und zu kompilieren, und im Modul-Map des Dokuments zu speichern, um es später auszuführen.
+Das **`modulepreload`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Attributes/rel) Attribut des {{HTMLElement("link")}} Elements bietet eine deklarative Möglichkeit, ein [Moduls-Skript](/de/docs/Web/JavaScript/Guide/Modules) vorab abzurufen, zu parsen und zu kompilieren und es in der Modulkarte des Dokuments für eine spätere Ausführung zu speichern.
 
-Preloading ermöglicht es, Module und deren Abhängigkeiten frühzeitig herunterzuladen und kann auch die gesamte Download- und Verarbeitungszeit erheblich reduzieren.
-Dies liegt daran, dass es Seiten ermöglicht, Module parallel abzurufen, anstatt sie sequenziell zu verarbeiten, sobald jedes Modul verarbeitet und seine Abhängigkeiten entdeckt werden.
-Beachten Sie jedoch, dass Sie nicht einfach alles vorab laden können!
-Was Sie vorab laden, muss gegen andere Operationen abgewogen werden, die sonst möglicherweise Ressourcen knapp machen und die Benutzererfahrung negativ beeinflussen.
+Das Vorladen ermöglicht es, Module und deren Abhängigkeiten frühzeitig herunterzuladen und kann die gesamte Download- und Verarbeitungszeit erheblich reduzieren. Dies liegt daran, dass es Seiten ermöglicht, Module parallel abzurufen, anstatt sie nacheinander zu verarbeiten und die Abhängigkeiten dabei zu entdecken. Beachten Sie jedoch, dass Sie nicht einfach alles vorladen können! Was Sie vorladen, muss im Verhältnis zu anderen Vorgängen stehen, die möglicherweise dann ausgehungert werden, was die Benutzererfahrung negativ beeinflussen könnte.
 
-Links mit `rel="modulepreload"` sind denen mit [`rel="preload"`](/de/docs/Web/HTML/Attributes/rel/preload) ähnlich.
-Der Hauptunterschied besteht darin, dass `preload` nur die Datei herunterlädt und im Cache speichert, während `modulepreload` das Modul abruft, parst und kompiliert, und die Ergebnisse in die Modul-Map einspeichert, sodass es bereit zur Ausführung ist.
+Links mit `rel="modulepreload"` sind ähnlich wie solche mit [`rel="preload"`](/de/docs/Web/HTML/Attributes/rel/preload). Der Hauptunterschied besteht darin, dass `preload` die Datei nur herunterlädt und im Cache speichert, während `modulepreload` das Modul erhält, es parst und kompiliert und die Ergebnisse in die Modulkarte lädt, sodass es bereit zur Ausführung ist.
 
-Beim Verwenden von `modulepreload` ist der Abrufmodus der Anfrage immer [`cors`](/de/docs/Web/API/Request/mode#cors), und die [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)-Eigenschaft wird verwendet, um den Anfragemodus der [Anmeldeinformationen](/de/docs/Web/API/Request/credentials) zu bestimmen.
-Wenn `crossorigin` auf [`anonymous`](/de/docs/Web/HTML/Attributes/crossorigin#anonymous) oder [`""`](/de/docs/Web/HTML/Attributes/crossorigin#sect1) (Standard) gesetzt ist, dann ist der Anmeldeinformationenmodus [`same-origin`](/de/docs/Web/API/Request/credentials#same-origin), und Benutzeranmeldeinformationen wie Cookies und Authentifizierung werden nur für Anfragen mit `same-origin` gesendet.
-Wenn `crossorigin` auf [`use-credentials`](/de/docs/Web/HTML/Attributes/crossorigin#use-credentials) gesetzt ist, dann ist der Anmeldeinformationenmodus [`include`](/de/docs/Web/API/Request/credentials#include), und Benutzeranmeldeinformationen für sowohl Einzel- als auch Cross-Origin-Anfragen.
+Beim Einsatz von `modulepreload` ist der Abrufanforderungsmodus immer [`cors`](/de/docs/Web/API/Request/mode#cors), und die [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin) Eigenschaft wird verwendet, um den Anforderungs-[Zugangsmodus](/de/docs/Web/API/Request/credentials) zu bestimmen. Wenn `crossorigin` auf [`anonymous`](/de/docs/Web/HTML/Attributes/crossorigin#anonymous) oder [`""`](/de/docs/Web/HTML/Attributes/crossorigin#sect) (Standard) gesetzt ist, dann ist der Zugangsmodus [`same-origin`](/de/docs/Web/API/Request/credentials#same-origin), und Benutzeranmeldeinformationen wie Cookies und Authentifizierung werden nur für Anforderungen mit `same-origin` gesendet. Wenn `crossorigin` auf [`use-credentials`](/de/docs/Web/HTML/Attributes/crossorigin#use-credentials) gesetzt ist, dann ist der Zugangmodus [`include`](/de/docs/Web/API/Request/credentials#include), und Benutzeranmeldeinformationen werden sowohl für einzelne als auch für übergreifende Ursprungs-Anforderungen gesendet.
 
-Das [`as`](/de/docs/Web/HTML/Element/link#as)-Attribut ist optional für Links mit `rel="modulepreload"` und hat standardmäßig den Wert `"script"`.
-Es kann auf `"script"` oder ein skriptähnliches Ziel wie `"audioworklet"`, `"paintworklet"`, `"serviceworker"`, `"sharedworker"` oder `"worker"` gesetzt werden.
-Ein [`Event`](/de/docs/Web/API/Event/Event) namens "error" wird auf dem Element ausgelöst, wenn ein anderes Ziel verwendet wird.
+Das [`as`](/de/docs/Web/HTML/Element/link#as) Attribut ist optional für Links mit `rel="modulepreload"` und standardmäßig auf `"script"` gesetzt. Es kann auf `"script"` oder ein beliebiges skriptähnliches Ziel gesetzt werden, wie `"audioworklet"`, `"paintworklet"`, `"serviceworker"`, `"sharedworker"`, oder `"worker"`. Ein [`Event`](/de/docs/Web/API/Event/Event) namens "error" wird auf dem Element ausgelöst, wenn ein anderes Ziel verwendet wird.
 
-Ein Browser _kann_ zusätzlich auch wählen, automatisch Abhängigkeiten der Modulressource abzurufen.
-Beachten Sie jedoch, dass dies eine browserspezifische Optimierung ist — der einzige Ansatz, um sicherzustellen, dass alle Browser versuchen, die Abhängigkeiten eines Moduls vorab zu laden, besteht darin, sie einzeln anzugeben!
-Des Weiteren werden die Ereignisse `load` oder `error` unmittelbar nach Erfolg oder Misserfolg des Ladens der _angegebenen_ Ressourcen ausgelöst.
-Wenn Abhängigkeiten automatisch abgerufen werden, werden im Hauptthread keine zusätzlichen Ereignisse ausgelöst (obwohl Sie möglicherweise zusätzliche Anfragen in einem Service Worker oder auf dem Server überwachen).
+Ein Browser _kann_ zusätzlich auch beschließen, alle Abhängigkeiten der Modulressource automatisch abzurufen. Beachten Sie jedoch, dass dies eine browserspezifische Optimierung ist — der einzige Ansatz, um sicherzustellen, dass alle Browser versuchen, die Abhängigkeiten eines Moduls vorzuladen, besteht darin, sie einzeln anzugeben! Darüber hinaus werden die Ereignisse `load` oder `error` unmittelbar nach dem Erfolg oder Misserfolg des Ladens der _angegebenen_ Ressourcen ausgelöst. Wenn Abhängigkeiten automatisch abgerufen werden, werden keine zusätzlichen Ereignisse im Haupt-Thread ausgelöst (obwohl Sie möglicherweise zusätzliche Anfragen in einem Service Worker oder auf dem Server überwachen können).
 
 ## Beispiele
 
-Betrachten Sie das [basic-modules](https://github.com/mdn/js-examples/tree/main/module-examples/basic-modules) Beispiel ([Live-Version](https://mdn.github.io/js-examples/module-examples/basic-modules/)), eingeführt im [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules#basic_example_structure) Leitfaden.
+Betrachten Sie das [basic-modules](https://github.com/mdn/js-examples/tree/main/module-examples/basic-modules) Beispiel ([Live-Demo](https://mdn.github.io/js-examples/module-examples/basic-modules/)), das im [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules#basic_example_structure) Leitfaden eingeführt wurde.
 
-Dieses hat die unten gezeigte Dateistruktur, bestehend aus dem obersten Modul `main.js`, das mit der [`import` Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) zwei Abhängigkeitsmodule `modules/canvas.js` und `modules/square.js` statisch importiert.
+Es hat eine Dateistruktur, wie im Folgenden gezeigt, bestehend aus dem obersten Modul `main.js`, das statisch zwei abhängige Module `modules/canvas.js` und `modules/square.js` mit der [`import` Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) importiert.
 
 ```plain
 index.html
@@ -44,8 +33,7 @@ modules/
     square.js
 ```
 
-Der HTML-Code für das folgende Beispiel zeigt, wie `main.js` in einem `<script>`-Element abgerufen wird.
-Erst nachdem `main.js` geladen wurde, entdeckt der Browser die zwei Abhängigkeitsmodule und ruft sie ab.
+Das HTML des unten stehenden Beispiels zeigt, wie `main.js` in einem `<script>`-Element abgerufen wird. Erst nachdem `main.js` geladen wurde, entdeckt der Browser die beiden Abhängigkeitsmodule und ruft sie ab.
 
 ```html
 <!doctype html>
@@ -64,9 +52,7 @@ Erst nachdem `main.js` geladen wurde, entdeckt der Browser die zwei Abhängigkei
 </html>
 ```
 
-Der HTML-Code unten aktualisiert das Beispiel, indem `<link>`-Elemente mit `rel="modulepreload"` für die Hauptdatei und jedes der Abhängigkeitsmodule verwendet werden.
-Dies ist viel schneller, weil die drei Module alle asynchron und parallel herunterzuladen beginnen, bevor sie benötigt werden.
-Bis `main.js` geparst ist und seine Abhängigkeiten bekannt sind, wurden sie bereits abgerufen und heruntergeladen.
+Das untenstehende HTML aktualisiert das Beispiel, um `<link>`-Elemente mit `rel="modulepreload"` für die Hauptdatei und jedes der Abhängigkeitsmodule zu verwenden. Dies ist viel schneller, da die drei Module alle asynchron und parallel herunterzuladen beginnen, bevor sie benötigt werden. Zu dem Zeitpunkt, zu dem `main.js` analysiert wurde und seine Abhängigkeiten bekannt sind, wurden diese bereits abgerufen und heruntergeladen.
 
 ```html
 <!doctype html>
@@ -100,4 +86,4 @@ Bis `main.js` geparst ist und seine Abhängigkeiten bekannt sind, wurden sie ber
 ## Siehe auch
 
 - [Spekulatives Laden](/de/docs/Web/Performance/Guides/Speculative_loading) für einen Vergleich von `<link rel="modulepreload">` und anderen ähnlichen Leistungsverbesserungsfunktionen.
-- [Preloading modules](https://web.dev/articles/modulepreload) auf web.dev
+- [Module vorladen](https://web.dev/articles/modulepreload) auf web.dev

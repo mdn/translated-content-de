@@ -2,31 +2,31 @@
 title: prefers-color-scheme
 slug: Web/CSS/@media/prefers-color-scheme
 l10n:
-  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
+  sourceCommit: d8fbe1ea30dcc8fd707048a804f5070a729b57a7
 ---
 
 {{CSSRef}}
 
-Das **`prefers-color-scheme`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_features) wird verwendet, um zu erkennen, ob ein Benutzer helle oder dunkle Farbthemen angefordert hat. Ein Benutzer gibt seine Präferenz über eine Betriebssystemeinstellung (z.B. heller oder dunkler Modus) oder eine Benutzeragenteneinstellung an.
+Das **`prefers-color-scheme`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_features) wird verwendet, um zu erkennen, ob ein Benutzer helle oder dunkle Farbthemen angefordert hat. Ein Benutzer gibt seine Präferenz über eine Betriebssystemeinstellung (z. B. helles oder dunkles Modus) oder eine Benutzereinstellung im Browser an.
 
 ## Eingebettete Elemente
 
-Für SVG und iframes ermöglicht `prefers-color-scheme` das Festlegen eines CSS-Stils für das SVG oder iframe basierend auf dem [`color-scheme`](/de/docs/Web/CSS/color-scheme) des Elternelements auf der Webseite. SVGs müssen eingebettet verwendet werden (d.h. `<img src="circle.svg" alt="circle" />`) anstatt [inline in HTML](/de/docs/Web/SVG/Guides/SVG_in_HTML#basic_example) zu sein. Ein Beispiel für die Verwendung von `prefers-color-scheme` in SVGs finden Sie im Abschnitt ["Vererbtes Farbschema in eingebetteten Elementen"](#vererbtes_farbschema_in_eingebetteten_elementen).
+Für SVG und iframes ermöglicht `prefers-color-scheme`, einen CSS-Stil für die SVG oder das iframe basierend auf dem [`color-scheme`](/de/docs/Web/CSS/color-scheme) des Elternelements auf der Webseite festzulegen. SVGs müssen eingebettet verwendet werden (d.h. `<img src="circle.svg" alt="circle" />`) und nicht [inline in HTML](/de/docs/Web/SVG/Guides/SVG_in_HTML#basic_example). Ein Beispiel zur Verwendung von `prefers-color-scheme` in SVGs finden Sie im Abschnitt ["Geerbtes Farbschema in eingebetteten Elementen"](#geerbtes_farbschema_in_eingebetteten_elementen).
 
-Die Verwendung von `prefers-color-scheme` ist in [cross-origin](/de/docs/Web/Security/Same-origin_policy#cross-origin_network_access) `<svg>` und `<iframe>` Elementen erlaubt. Cross-Origin-Elemente sind Elemente, die von einem anderen Host als der Seite, die sie referenziert, abgerufen werden. Um mehr über SVGs zu erfahren, sehen Sie sich die [SVG-Dokumentation](/de/docs/Web/SVG) an und für mehr Informationen über iframes, sehen Sie sich die [iframe-Dokumentation](/de/docs/Web/HTML/Element/iframe) an.
+Die Verwendung von `prefers-color-scheme` ist in [cross-origin](/de/docs/Web/Security/Same-origin_policy#cross-origin_network_access) `<svg>` und `<iframe>`-Elementen erlaubt. Cross-origin-Elemente sind Elemente, die von einem anderen Host als die referenzierende Seite abgerufen werden. Um mehr über SVGs zu erfahren, konsultieren Sie die [SVG-Dokumentation](/de/docs/Web/SVG), und für weitere Informationen über iframes, siehe die [iframe-Dokumentation](/de/docs/Web/HTML/Element/iframe).
 
 ## Syntax
 
 - `light`
-  - : Gibt an, dass der Benutzer eine Schnittstelle bevorzugt, die ein helles Thema hat, oder keine aktive Präferenz ausgedrückt hat.
+  - : Gibt an, dass der Benutzer eine Oberfläche bevorzugt, die ein helles Thema hat, oder keine aktive Präferenz geäußert hat.
 - `dark`
-  - : Gibt an, dass der Benutzer eine Schnittstelle bevorzugt, die ein dunkles Thema hat.
+  - : Gibt an, dass der Benutzer eine Oberfläche bevorzugt, die ein dunkles Thema hat.
 
 ## Beispiele
 
-### Erkennung eines dunklen oder hellen Themas
+### Erkennen eines dunklen oder hellen Themas
 
-Ein häufiger Anwendungsfall ist, standardmäßig ein helles Farbschema zu verwenden und dann `prefers-color-scheme: dark` zu nutzen, um die Farben zu einem dunkleren Schema zu ändern. Es ist auch möglich, dies umgekehrt zu tun.
+Eine häufige Verwendung ist es, standardmäßig ein helles Farbschema zu verwenden und dann `prefers-color-scheme: dark`, um die Farben zu einer dunkleren Variante zu überschreiben. Es ist auch möglich, es umgekehrt zu machen.
 
 Dieses Beispiel zeigt beide Optionen: Thema A verwendet helle Farben, kann aber zu dunklen Farben überschrieben werden. Thema B verwendet dunkle Farben, kann aber zu hellen Farben überschrieben werden. Am Ende, wenn der Browser `prefers-color-scheme` unterstützt, werden beide Themen hell oder dunkel sein.
 
@@ -55,7 +55,7 @@ div.box {
 }
 ```
 
-Thema A (braun) verwendet standardmäßig ein helles Farbschema, wird aber je nach Medienabfrage in ein dunkles Schema wechseln:
+Thema A (braun) verwendet standardmäßig ein helles Farbschema, wechselt aber zu einem dunklen Schema basierend auf der Media-Abfrage:
 
 ```css
 .theme-a {
@@ -71,7 +71,7 @@ Thema A (braun) verwendet standardmäßig ein helles Farbschema, wird aber je na
 }
 ```
 
-Thema B (blau) verwendet standardmäßig ein dunkles Farbschema, wird aber je nach Medienabfrage in ein helles Schema wechseln:
+Thema B (blau) verwendet standardmäßig ein dunkles Farbschema, wechselt aber zu einem hellen Schema basierend auf der Media-Abfrage:
 
 ```css
 .theme-b {
@@ -89,17 +89,17 @@ Thema B (blau) verwendet standardmäßig ein dunkles Farbschema, wird aber je na
 
 #### Ergebnis
 
-Die linken Kästchen zeigen Thema A und Thema B, wie sie ohne die `prefers-color-scheme` Medienabfrage erscheinen würden. Die rechten Kästchen zeigen die gleichen Themen, aber eines von ihnen wird je nach aktivem Farbschema des Benutzers auf eine dunklere oder hellere Variante umgestellt. Der Umriss eines Kästchens wird gestrichelt oder gepunktet, wenn er basierend auf Ihren Browser- oder Betriebssystemeinstellungen geändert wurde.
+Die linken Boxen zeigen Thema A und Thema B, wie sie ohne die `prefers-color-scheme` Media-Abfrage erscheinen würden. Die rechten Boxen zeigen die gleichen Themen, aber eines davon wird basierend auf dem aktiven Farbschema des Benutzers zu einer dunkleren oder helleren Variante geändert werden. Die Umrandung einer Box wird gestrichelt oder gepunktet sein, wenn sie basierend auf Ihren Browser- oder Betriebssystemeinstellungen geändert wurde.
 
 {{EmbedLiveSample("Detecting_a_dark_or_light_theme", "100%", "200px")}}
 
-### Vererbtes Farbschema in eingebetteten Elementen
+### Geerbtes Farbschema in eingebetteten Elementen
 
-Das folgende Beispiel zeigt, wie das `prefers-color-scheme` Medienmerkmal in einem eingebetteten Element verwendet wird, um ein Farbschema von einem Elternelement zu erben. Ein Skript wird verwendet, um die Quelle der `<img>` Elemente und deren `alt` Attribute festzulegen. Normalerweise würde dies in HTML als `<img src="circle.svg" alt="circle" />` gemacht werden.
+Das folgende Beispiel zeigt, wie man das `prefers-color-scheme` Medienmerkmal in einem eingebetteten Element verwendet, um ein Farbschema von einem Elternelement zu erben. Ein Skript wird verwendet, um die Quelle der `<img>`-Elemente und deren `alt`-Attribute festzulegen. Normalerweise würde dies in HTML als `<img src="circle.svg" alt="circle" />` gemacht.
 
-Sie sollten drei Kreise sehen, wobei einer in einer anderen Farbe gezeichnet ist. Der erste Kreis erbt das `color-scheme` vom Betriebssystem und kann über den Themenswitcher des Systems umgeschaltet werden.
+Es sollten drei Kreise zu sehen sein, wobei einer in einer anderen Farbe gezeichnet ist. Der erste Kreis erbt das `color-scheme` vom Betriebssystem und kann über den Themenschalter des Systembetriebssystems umgeschaltet werden.
 
-Der zweite und dritte Kreis erben das `color-scheme` von dem einbettenden Element; die `@media` Abfrage ermöglicht es, Stile des SVG-Inhalts basierend auf dem `color-scheme` des Elternelements festzulegen. In diesem Fall ist das Elternelement mit einer `color-scheme` CSS-Eigenschaft ein `<div>`.
+Der zweite und dritte Kreis erben das `color-scheme` vom einbettenden Element; die `@media`-Abfrage ermöglicht das Festlegen von Styles des SVG-Inhalts basierend auf dem `color-scheme` des Elternelements. In diesem Fall ist das Elternelement mit einer `color-scheme` CSS-Eigenschaft ein `<div>`.
 
 ```html
 <div>
@@ -148,8 +148,8 @@ Der zweite und dritte Kreis erben das `color-scheme` von dem einbettenden Elemen
 
 - {{cssxref("color-scheme")}} Eigenschaft
 - [`<meta name="color-scheme">`](/de/docs/Web/HTML/Element/meta/name#color-scheme)
-- {{HTTPHeader("Sec-CH-Prefers-Color-Scheme")}} HTTP Header [User Agent Client Hint](/de/docs/Web/HTTP/Guides/Client_hints#user-agent_client_hints)
-- [Simulieren von prefers-color-scheme in Firefox](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html#view-media-rules-for-prefers-color-scheme)
-- [Video: Ein Dunkler Modus für Ihre Webseite codieren](https://www.youtube.com/watch?v=jmepqJ5UbuM)
-- [Neugestaltung Ihres Produkts und Ihrer Webseite für den Dunkelmodus](https://stuffandnonsense.co.uk/blog/redesigning-your-product-and-website-for-dark-mode)
-- Farbwechsel in [Windows](https://blogs.windows.com/windowsexperience/2019/04/01/windows-10-tip-dark-theme-in-file-explorer/), [macOS](https://developer.apple.com/design/human-interface-guidelines/dark-mode), [Android](https://www.theverge.com/2019/5/7/18530599/google-android-q-features-hands-on-dark-mode-gestures-accessibility-io-2019), oder [anderen Plattformen](https://support.mozilla.org/en-US/questions/1271928).
+- {{HTTPHeader("Sec-CH-Prefers-Color-Scheme")}} HTTP-Header [User Agent Client Hint](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints)
+- [Simuliere prefers-color-scheme in Firefox](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html#view-media-rules-for-prefers-color-scheme)
+- [Video: Coding a Dark Mode for your Website](https://www.youtube.com/watch?v=jmepqJ5UbuM)
+- [Redesigning your product and website for dark mode](https://stuffandnonsense.co.uk/blog/redesigning-your-product-and-website-for-dark-mode)
+- Ändern von Farbschemata in [Windows](https://blogs.windows.com/windowsexperience/2019/04/01/windows-10-tip-dark-theme-in-file-explorer/), [macOS](https://developer.apple.com/design/human-interface-guidelines/dark-mode), [Android](https://www.theverge.com/2019/5/7/18530599/google-android-q-features-hands-on-dark-mode-gestures-accessibility-io-2019) oder [anderen Plattformen](https://support.mozilla.org/en-US/questions/1271928).

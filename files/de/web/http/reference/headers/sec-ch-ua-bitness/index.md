@@ -2,26 +2,27 @@
 title: Sec-CH-UA-Bitness
 slug: Web/HTTP/Reference/Headers/Sec-CH-UA-Bitness
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: d8fbe1ea30dcc8fd707048a804f5070a729b57a7
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der HTTP **`Sec-CH-UA-Bitness`** {{Glossary("request_header", "Anforderungsheader")}} ist ein [Benutzeragent-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#user-agent_client_hints), der die "Bitness" der zugrunde liegenden CPU-Architektur des Benutzeragents angibt. Dies ist die Größe in Bits eines Integers oder einer Speicheradresse – typischerweise 64 oder 32 Bits.
+Der HTTP **`Sec-CH-UA-Bitness`** {{Glossary("request_header", "Anforderungs-Header")}} ist ein [User-Agent Client Hint](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints), der die "Bitness" der zugrunde liegenden CPU-Architektur des User-Agents bereitstellt.
+Dies ist die Größe in Bits eines Integers oder einer Speicheradresse – typischerweise 64 oder 32 Bit.
 
-Ein Server könnte dies verwenden, um beispielsweise das richtige binäre Format einer ausführbaren Datei zur Verfügung zu stellen, damit ein Benutzer sie herunterladen kann.
+Dies kann beispielsweise von einem Server verwendet werden, um das richtige Binärformat einer ausführbaren Datei auszuwählen und anzubieten, das ein Benutzer herunterladen soll.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Anforderungsheader")}},
-        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hinweis</a>
+        {{Glossary("Request_header", "Anforderungs-Header")}},
+        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Ja (<code>Sec-</code> Präfix)</td>
     </tr>
   </tbody>
@@ -36,20 +37,21 @@ Sec-CH-UA-Bitness: <bitness>
 ## Direktiven
 
 - `<bitness>`
-  - : Ein String, der die Bitness der zugrunde liegenden Plattform-Architektur angibt, wie: `"64"`, `"32"`.
+  - : Ein String, der die Bitness der zugrunde liegenden Plattformarchitektur angibt, wie z.B.: `"64"`, `"32"`.
 
 ## Beispiele
 
 ### Verwendung von Sec-CH-UA-Bitness
 
-Ein Server fordert den `Sec-CH-UA-Bitness`-Header an, indem er {{HTTPHeader("Accept-CH")}} in eine _Antwort_ auf eine beliebige Anforderung des Clients einfügt und den Namen des gewünschten Headers als Token verwendet:
+Ein Server fordert den `Sec-CH-UA-Bitness` Header an, indem er {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf eine Anfrage vom Client einfügt und den Namen des gewünschten Headers als Token verwendet:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Bitness
 ```
 
-Der Client kann sich entscheiden, den Hinweis bereitzustellen, und den `Sec-CH-UA-Bitness`-Header zu nachfolgenden Anfragen hinzufügen. Beispielsweise könnte der Client auf einem Windows-basierten 64-Bit-Computer den Header wie folgt hinzufügen:
+Der Client kann sich entscheiden, den Hinweis bereitzustellen, und den `Sec-CH-UA-Bitness` Header zu nachfolgenden Anfragen hinzufügen.
+Zum Beispiel kann auf einem Windows-basierten 64-Bit-Computer der Client den Header wie gezeigt hinzufügen:
 
 ```http
 GET /my/page HTTP/1.1
@@ -71,8 +73,8 @@ Sec-CH-UA-Bitness: "64"
 
 ## Siehe auch
 
-- [Client-Hinweise](/de/docs/Web/HTTP/Guides/Client_hints)
+- [Client Hints](/de/docs/Web/HTTP/Guides/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
 - {{HTTPHeader("Accept-CH")}}
 - [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}} Header
-- [Verbesserung der Benutzerprivatsphäre und Entwicklererfahrung mit User-Agent-Client-Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

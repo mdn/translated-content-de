@@ -3,38 +3,38 @@ title: "RTCOutboundRtpStreamStats: qualityLimitationDurations-Eigenschaft"
 short-title: qualityLimitationDurations
 slug: Web/API/RTCOutboundRtpStreamStats/qualityLimitationDurations
 l10n:
-  sourceCommit: 7f29fefe27ee8362a8b5f36255f942a2358cc8f8
+  sourceCommit: 515d03ad8572b96e88916888156444626dcba193
 ---
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`qualityLimitationDurations`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist eine Map mit den Gründen, aus denen die Qualität eines Medienstreams durch einen Codec während der Kodierung reduziert wurde, sowie der Zeitspanne, während der die Qualität aus jedem dieser Gründe reduziert wurde.
+Die **`qualityLimitationDurations`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist eine Karte der Gründe, warum die Qualität eines Medienstroms während der Kodierung durch einen Codec reduziert wurde, sowie der Zeit, in der die Qualität aus jedem Grund reduziert wurde.
 
-Diese Qualitätsreduzierung kann Änderungen wie eine reduzierte Bildrate oder Auflösung sowie eine Erhöhung des Kompressionsfaktors umfassen. Die Informationen können verwendet werden, um Durchsatzprobleme zu diagnostizieren und die Leistung zu optimieren.
+Diese Qualitätsreduzierung kann Änderungen wie eine reduzierte Bildrate oder Auflösung oder eine Erhöhung des Kompressionsfaktors umfassen. Die Informationen können verwendet werden, um Durchsatzprobleme zu diagnostizieren und die Leistung zu optimieren.
 
 > [!NOTE]
 > Diese Eigenschaft existiert nur für Videomedien.
 
 ## Wert
 
-Eine {{jsxref("Map")}} von Gründen der Qualitätsbegrenzung zu einer Zahl, welche die Zeit in Sekunden angibt, während der der Stream aus diesem Grund in der Qualität begrenzt wurde.
+Eine {{jsxref("Map")}} von Qualitätsbegrenzungsgründen zu einer Zahl, die die Zeit in Sekunden darstellt, während der der Stream aus diesem Grund qualitätsbegrenzt war.
 
-Die zulässigen Werte für die Gründe der Qualitätsbegrenzung sind die folgenden Strings:
+Die zulässigen Werte für Qualitätsbegrenzungsgründe sind die Zeichenfolgen:
 
 - `none`
   - : Die Qualität ist nicht begrenzt.
 - `cpu`
-  - : Die Qualität ist hauptsächlich durch CPU-Belastung begrenzt.
+  - : Die Qualität ist hauptsächlich aufgrund der CPU-Auslastung begrenzt.
 - `bandwidth`
-  - : Die Qualität ist hauptsächlich aufgrund von Überlastungsindikatoren bei der Bandbreitenschätzung begrenzt, wie z. B. Ankunftszeitabstand und Round-Trip-Time.
+  - : Die Qualität ist hauptsächlich aufgrund von Überlastungsindikatoren während der Bandbreitenschätzung begrenzt, wie z.B. Interarrivalzeit und Round-Trip-Zeit.
 - `other`
-  - : Die Qualität ist hauptsächlich aus einem anderen als den oben genannten Gründen begrenzt.
+  - : Die Qualität ist hauptsächlich aus einem anderen Grund als den oben genannten begrenzt.
 
 ## Beispiele
 
-### Die gesamte Zeit ermitteln, in der der Stream in der Qualität begrenzt wurde
+### Gesamte Zeit ermitteln, in der der Stream qualitätsbegrenzt war
 
-Die Summe aller Einträge außer `qualityLimitationDurations["none"]` ergibt die Gesamtzeit, während der der Stream in der Qualität begrenzt wurde.
+Die Summe aller Einträge außer `qualityLimitationDurations["none"]` ergibt die gesamte Zeit, die der Stream begrenzt wurde.
 
 ```js
 // Get the outbound RTP stream stats
@@ -66,7 +66,3 @@ pc.getStats().then((stats) => {
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [`RTCOutboundRtpStreamStats.qualityLimitationDurations`](/de/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationDurations)

@@ -2,12 +2,12 @@
 title: Sec-CH-UA-Platform-Version
 slug: Web/HTTP/Reference/Headers/Sec-CH-UA-Platform-Version
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: d8fbe1ea30dcc8fd707048a804f5070a729b57a7
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der HTTP **`Sec-CH-UA-Platform-Version`** {{Glossary("request_header", "Request-Header")}} ist ein [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#user-agent_client_hints), der die Version des Betriebssystems angibt, auf dem der User-Agent läuft.
+Der HTTP **`Sec-CH-UA-Platform-Version`** {{Glossary("request_header", "Request-Header")}} ist ein [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints), der die Version des Betriebssystems angibt, auf dem der User-Agent läuft.
 
 <table class="properties">
   <tbody>
@@ -20,7 +20,7 @@ Der HTTP **`Sec-CH-UA-Platform-Version`** {{Glossary("request_header", "Request-
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
-      <td>Ja (<code>Sec-</code>-Prefix)</td>
+      <td>Ja (<code>Sec-</code>-Präfix)</td>
     </tr>
   </tbody>
 </table>
@@ -34,22 +34,22 @@ Sec-CH-UA-Platform-Version: <version>
 ### Direktiven
 
 - `<version>`
-  - : Der Versionsstring enthält typischerweise die Betriebssystemversion in einem String aus Punkt-getrennten Haupt-, Minor- und Patch-Versionsnummern, zum Beispiel `"11.0.0"`.
+  - : Der Versionsstring enthält typischerweise die Betriebssystemversion in einem String, der aus Punkt-getrennten Haupt-, Neben- und Patch-Versionsnummern besteht, zum Beispiel `"11.0.0"`.
     Der Versionsstring auf Linux ist immer leer.
 
 ## Beispiele
 
 ### Verwendung von Sec-CH-UA-Platform-Version
 
-Ein Server fordert den `Sec-CH-UA-Platform-Version`-Header an, indem er den {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf eine Anfrage vom Client einfügt und den Namen des gewünschten Headers als Token verwendet:
+Ein Server fordert den `Sec-CH-UA-Platform-Version`-Header an, indem er das {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf jede Anfrage vom Client enthält und dabei den Namen des gewünschten Headers als Token verwendet:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Platform-Version
 ```
 
-Der Client kann sich entscheiden, den Hinweis bereitzustellen, und den `Sec-CH-UA-Platform-Version`-Header zu nachfolgenden Anfragen hinzufügen.
-Zum Beispiel könnten die folgenden Request-Header von einem Browser gesendet werden, der unter Windows 10 läuft.
+Der Client kann sich entscheiden, den Hinweis zu liefern, und fügt den `Sec-CH-UA-Platform-Version`-Header zu nachfolgenden Anfragen hinzu.
+Zum Beispiel könnten folgende Request-Header von einem Browser gesendet werden, der auf Windows 10 läuft.
 
 ```http
 GET /my/page HTTP/1.1
@@ -74,5 +74,5 @@ Sec-CH-UA-Platform-Version: "10.0.0"
 - [Client-Hinweise](/de/docs/Web/HTTP/Guides/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}}-Header
-- [Verbesserung des Benutzerdatenschutzes und der Entwicklererfahrung mit User-Agent Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}}-Header
+- [Verbesserung der Benutzerfreundlichkeit und Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

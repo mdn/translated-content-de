@@ -2,13 +2,13 @@
 title: stroke-width
 slug: Web/SVG/Reference/Attribute/stroke-width
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 515d03ad8572b96e88916888156444626dcba193
 ---
 
-Das **`stroke-width`** Attribut ist ein Präsentationsattribut, das die Breite des auf die Form anzuwendenden Strichs definiert. Es gilt für jede SVG-Form oder Textinhaltselement (siehe {{SVGAttr("stroke-width")}} für eine vollständige Liste), aber als vererbte Eigenschaft kann es auf Elemente wie {{SVGElement("g")}} angewendet werden und hat dennoch den beabsichtigten Effekt auf die Striche der Nachkommenelemente.
+Das **`stroke-width`** Attribut ist ein Präsentationsattribut, das die Breite des Strichs definiert, der auf die Form angewendet werden soll. Es kann auf jede SVG-Form oder Textinhalts-Element angewendet werden, aber als vererbte Eigenschaft kann es auf Elemente wie {{SVGElement("g")}} angewendet werden und dennoch die beabsichtigte Wirkung auf die Striche der Nachfahren-Elemente haben.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `stroke-width` auch ein entsprechendes CSS-Property: {{cssxref("stroke-width")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
+> Als Präsentationsattribut hat `stroke-width` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("stroke-width")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -49,7 +49,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -80,7 +80,7 @@ svg {
 </table>
 
 > [!NOTE]
-> Ein Prozentwert wird immer als Prozentsatz der normalisierten {{SVGAttr('viewBox')}}-Diagonallänge berechnet.
+> Ein Prozentwert wird immer als Prozentsatz der normalisierten {{SVGAttr('viewBox')}} Diagonallänge berechnet.
 
 ## Spezifikationen
 
