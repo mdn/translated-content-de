@@ -26,7 +26,7 @@ Ein Stapelkontext wird irgendwo im Dokument von jedem Element in den folgenden S
 - Element mit einem {{cssxref("position")}} Wert `fixed` oder `sticky`.
 - Element mit einem {{cssxref("container-type")}} Wert, der auf `size` oder `inline-size` gesetzt ist (siehe [Container-Anfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)).
 - Element, das ein [Flex-Item](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) ist mit einem {{cssxref("z-index")}} Wert, der nicht `auto` ist.
-- Element, das ein [Grid-Item](/de/docs/Web/CSS/CSS_Grid_Layout) ist mit einem {{cssxref("z-index")}} Wert, der nicht `auto` ist.
+- Element, das ein [Grid-Item](/de/docs/Web/CSS/CSS_grid_layout) ist mit einem {{cssxref("z-index")}} Wert, der nicht `auto` ist.
 - Element mit einem {{cssxref("opacity")}} Wert kleiner `1`.
 - Element mit einem {{cssxref("mix-blend-mode")}} Wert, der nicht `normal` ist.
 - Element mit einem der folgenden Eigenschaften mit einem Wert, der nicht `none` ist:
