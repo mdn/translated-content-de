@@ -1,14 +1,14 @@
 ---
-title: "SVGPathElement: getPathData()-Methode"
+title: "SVGPathElement: getPathData() Methode"
 short-title: getPathData()
 slug: Web/API/SVGPathElement/getPathData
 l10n:
-  sourceCommit: 515d03ad8572b96e88916888156444626dcba193
+  sourceCommit: 1eab2ca7fd2a7a1cf9e7aab058854c33326c8c40
 ---
 
-{{APIRef("SVG")}}
+{{APIRef("SVG")}}{{SeeCompatTable}}
 
-Die **`SVGPathElement.getPathData()`**-Methode gibt die Sequenz von Pfadsegmenten zurück, die den Pfaddaten entsprechen, wobei optional die Werte und Segmenttypen normalisiert werden.
+Die **`SVGPathElement.getPathData()`** Methode gibt die Sequenz von Pfadsegmenten zurück, die den Pfaddaten entspricht und optional die Werte und Segmenttypen normalisiert.
 
 ## Syntax
 
@@ -21,14 +21,14 @@ getPathData(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein optionales Objekt zur Steuerung der Aspekte des Pfaddatenabrufprozesses. Dieses Objekt kann die folgenden Eigenschaften enthalten:
+  - : Ein optionales Objekt zur Steuerung von Aspekten des Abrufprozesses der Pfaddaten. Dieses Objekt kann folgende Eigenschaften enthalten:
 
     - `normalize` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die zurückgegebene Sequenz von Pfadsegmenten in das Basis-Set der [absoluten Befehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) (`'M'`, `'L'`, `'C'` und `'Z'`) konvertiert wird, wobei die Werte entsprechend angepasst werden.
+      - : Ein boolescher Wert, der angibt, ob die zurückgegebene Sequenz von Pfadsegmenten in den Basissatz der [absoluten Befehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) (`'M'`, `'L'`, `'C'` und `'Z'`) umgewandelt wird, wobei die Werte entsprechend angepasst werden.
 
 ### Rückgabewert
 
-Ein Array von Pfadsegmenten, das den Pfaddaten entspricht. Wenn keine gültigen Pfaddaten existieren, wird eine leere Sequenz zurückgegeben.
+Ein Array von Pfadsegmenten, das den Pfaddaten entspricht. Wenn keine gültigen Pfaddaten vorhanden sind, wird eine leere Sequenz zurückgegeben.
 
 Jedes Pfadsegment ist ein Objekt mit den folgenden Eigenschaften:
 
@@ -42,7 +42,7 @@ Jedes Pfadsegment ist ein Objekt mit den folgenden Eigenschaften:
 
 ### Pfaddaten abrufen
 
-Betrachten Sie das folgende `<path>`-Element, das ein Quadrat zeichnet:
+Betrachten Sie das folgende `<path>` Element, das ein Quadrat zeichnet:
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
@@ -50,7 +50,7 @@ Betrachten Sie das folgende `<path>`-Element, das ein Quadrat zeichnet:
 </svg>
 ```
 
-Die Methode `getPathData()` gibt ein Array mit den rohen Pfaddaten zurück, so wie es im `d`-Attribut festgelegt ist. Mit gesetzter Option `normalize: true` gibt sie die Pfaddaten normalisiert auf das Basis-Set von Pfadbefehl zurück:
+Die `getPathData()` Methode wird ein Array mit den rohen Pfaddaten zurückgeben, genau so, wie es im `d` Attribut gesetzt ist. Mit der `normalize: true` Option eingestellt, wird es Pfaddaten zurückgeben, die auf den Basissatz der Pfadbefehl normalisiert sind:
 
 ```js
 const path = document.querySelector("path");

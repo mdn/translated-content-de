@@ -2,12 +2,12 @@
 title: Array.prototype.slice()
 slug: Web/JavaScript/Reference/Global_Objects/Array/slice
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 8166ab356cccb30af5e0ad912815d19100249e17
 ---
 
 {{JSRef}}
 
-Die **`slice()`** Methode von {{jsxref("Array")}} Instanzen gibt eine {{Glossary("Shallow_copy", "flache Kopie")}} eines Teils eines Arrays in ein neues Array-Objekt zurück, das von `start` bis `end` ausgewählt wird (`end` nicht inbegriffen), wobei `start` und `end` die Indizes der Elemente in diesem Array darstellen. Das ursprüngliche Array wird nicht verändert.
+Die **`slice()`** Methode von {{jsxref("Array")}} Instanzen gibt eine {{Glossary("Shallow_copy", "flache Kopie")}} eines Teils eines Arrays als neues Array-Objekt zurück, ausgewählt vom Index `start` bis `end` (`end` nicht eingeschlossen), wobei `start` und `end` den Index von Elementen in diesem Array darstellen. Das Original-Array wird nicht modifiziert.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.slice()", "taller")}}
 
@@ -44,16 +44,16 @@ slice(start, end)
 ### Parameter
 
 - `start` {{optional_inline}}
-  - : Nullbasierter Index, bei dem die Extraktion beginnt, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
+  - : Nullbasierter Index, ab dem die Extraktion beginnt, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt vom Ende des Arrays rückwärts — Wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
     - Wenn `start < -array.length` oder `start` weggelassen wird, wird `0` verwendet.
-    - Wenn `start >= array.length`, wird ein leeres Array zurückgegeben.
+    - Wenn `start >= array.length` ist, wird ein leeres Array zurückgegeben.
 - `end` {{optional_inline}}
-  - : Nullbasierter Index, bei dem die Extraktion endet, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `slice()` extrahiert bis, aber nicht einschließlich `end`.
-    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= end < 0`, wird `end + array.length` verwendet.
+  - : Nullbasierter Index, bei dem die Extraktion endet, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `slice()` extrahiert bis, aber nicht einschließlich `end`.
+    - Ein negativer Index zählt vom Ende des Arrays rückwärts — Wenn `-array.length <= end < 0`, wird `end + array.length` verwendet.
     - Wenn `end < -array.length`, wird `0` verwendet.
-    - Wenn `end >= array.length` oder `end` weggelassen wird, dann wird `array.length` verwendet, wodurch alle Elemente bis zum Ende extrahiert werden.
-    - Wenn `end` eine Position impliziert, die vor oder an der Position liegt, die `start` impliziert, wird ein leeres Array zurückgegeben.
+    - Wenn `end >= array.length` ist oder `end` weggelassen oder `undefined` ist, wird `array.length` verwendet, wodurch alle Elemente bis zum Ende extrahiert werden.
+    - Wenn `end` eine Position vor oder an der Position impliziert, die `start` impliziert, wird ein leeres Array zurückgegeben.
 
 ### Rückgabewert
 
@@ -61,11 +61,11 @@ Ein neues Array, das die extrahierten Elemente enthält.
 
 ## Beschreibung
 
-Die `slice()` Methode ist eine [Kopiervorgang-Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie verändert `this` nicht, sondern gibt stattdessen eine {{Glossary("Shallow_copy", "flache Kopie")}} zurück, die einige der gleichen Elemente wie die des Originalarrays enthält.
+Die `slice()` Methode ist eine [Kopiermethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie verändert `this` nicht, sondern gibt eine {{Glossary("Shallow_copy", "flache Kopie")}} zurück, die einige der gleichen Elemente wie die aus dem ursprünglichen Array enthält.
 
-Die `slice()` Methode erhält leere Slots bei. Wenn der geschnittene Teil [dünn besetzt](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist, ist das zurückgegebene Array ebenfalls dünn besetzt.
+Die `slice()` Methode bewahrt leere Plätze. Wenn der geschnittene Teil [spärlich](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist, ist auch das zurückgegebene Array spärlich.
 
-Die `slice()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und Ganzzahl-Index-Eigenschaften hat.
+Die `slice()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integer-basierte Schlüssel-Eigenschaften hat.
 
 ## Beispiele
 
@@ -79,9 +79,9 @@ const citrus = fruits.slice(1, 3);
 // citrus contains ['Orange','Lemon']
 ```
 
-In diesem Beispiel extrahiert `slice(1, 3)` Elemente von Index `1` bis, aber nicht einschließlich, Index `3`, was zu einem neuen Array `['Orange', 'Lemon']` führt.
+In diesem Beispiel extrahiert `slice(1, 3)` Elemente vom Index `1` bis, aber nicht einschließlich, Index `3`, was zu einem neuen Array `['Orange', 'Lemon']` führt.
 
-### Der Endparameter wird weggelassen
+### Den Endparameter weglassen
 
 ```js
 const fruits = ["Apple", "Banana", "Orange", "Mango", "Pineapple"];
@@ -92,7 +92,7 @@ console.log(tropical); // ['Orange', 'Mango', 'Pineapple']
 
 In diesem Beispiel extrahiert `slice(2)` Elemente vom Index `2` bis zum Ende des Arrays.
 
-### Verwendung negativer Indizes
+### Verwendung von negativen Indizes
 
 ```js
 const fruits = ["Apple", "Banana", "Orange", "Mango", "Pineapple"];
@@ -101,7 +101,7 @@ const lastTwo = fruits.slice(-2);
 console.log(lastTwo); // ['Mango', 'Pineapple']
 ```
 
-In diesem Beispiel extrahiert `slice(-2)` die letzten beiden Elemente des Arrays. Bei Verwendung eines negativen Indexes mit der `slice` Methode werden die negativen Indizes vom Ende des Arrays gezählt, beginnend bei `-1` für das letzte Element, `-2` für das vorletzte Element und so weiter. Der negative Index `-2` selbst wird einbezogen, da er der Ausgangspunkt der Extraktion ist.
+In diesem Beispiel extrahiert `slice(-2)` die letzten beiden Elemente des Arrays. Wenn Sie einen negativen Index mit der `slice` Methode verwenden, werden negative Indizes vom Ende des Arrays gezählt, beginnend bei `-1` für das letzte Element, `-2` für das vorletzte Element und so weiter. Der negative Index `-2` selbst wird einbezogen, da er der Ausgangspunkt der Extraktion ist.
 
 ```plain
 |     |     |     |     |     |
@@ -122,7 +122,7 @@ const sliceExample = fruits.slice(1, -1);
 console.log(sliceExample); // ['Banana', 'Orange', 'Mango']
 ```
 
-In diesem Beispiel beginnt `slice(1, -1)` ab Index `1` und geht bis, aber nicht einschließlich, des Elements bei Index `-1` (welches das letzte Element ist). Dies führt zu einem neuen Array mit `['Banana', 'Orange', 'Mango']`. Die `slice` Methode schließt immer das Element am letztgenannten Index aus, unabhängig davon, ob es positiv oder negativ ist.
+In diesem Beispiel beginnt `slice(1, -1)` mit der Extraktion von Index `1` und geht bis, aber nicht einschließlich, des Elements bei Index `-1` (welches das letzte Element ist). Dies führt zu einem neuen Array mit `['Banana', 'Orange', 'Mango']`. Die `slice` Methode schließt das Element am letzten angegebenen Index immer aus, unabhängig davon, ob er positiv oder negativ ist.
 
 ```plain
 read from start --->
@@ -136,9 +136,9 @@ read from start --->
 <--- read from reverse
 ```
 
-### Verwendung von slice mit Arrays von Objekten
+### Verwendung von slice bei Arrays von Objekten
 
-Im folgenden Beispiel erstellt `slice` ein neues Array, `newCar`, aus `myCar`. Beide enthalten eine Referenz zum Objekt `myHonda`. Wenn die Farbe von `myHonda` auf Lila geändert wird, spiegeln beide Arrays die Änderung wider.
+Im folgenden Beispiel erstellt `slice` ein neues Array, `newCar`, aus `myCar`. Beide enthalten einen Verweis auf das Objekt `myHonda`. Wenn die Farbe von `myHonda` auf lila geändert wird, reflektieren beide Arrays die Änderung.
 
 ```js
 // Using slice, create newCar from myCar.
@@ -180,9 +180,9 @@ myCar[0].color = purple
 newCar[0].color = purple
 ```
 
-### Aufrufen von slice() bei Nicht-Array-Objekten
+### Aufruf von slice() bei Nicht-Array-Objekten
 
-Die `slice()` Methode liest die `length` Eigenschaft von `this`. Sie liest dann die ganzzahlbasierten Eigenschaften vom `start` bis zum `end` und definiert sie in einem neu erstellten Array.
+Die `slice()` Methode liest die `length` Eigenschaft von `this`. Sie liest dann die integer-basierte Eigenschaft von `start` bis `end` und definiert sie auf einem neu erstellten Array.
 
 ```js
 const arrayLike = {
@@ -196,7 +196,7 @@ console.log(Array.prototype.slice.call(arrayLike, 1, 3));
 // [ 3, 4 ]
 ```
 
-### Verwendung von slice() zur Konvertierung von array-ähnlichen Objekten in Arrays
+### Verwendung von slice() zur Umwandlung von array-ähnlichen Objekten in Arrays
 
 Die `slice()` Methode wird häufig mit {{jsxref("Function/bind", "bind()")}} und {{jsxref("Function/call", "call()")}} verwendet, um eine Hilfsmethode zu erstellen, die ein array-ähnliches Objekt in ein Array umwandelt.
 
@@ -211,9 +211,9 @@ function list() {
 const list1 = list(1, 2, 3); // [1, 2, 3]
 ```
 
-### Verwendung von slice() auf dünn besetzten Arrays
+### Verwendung von slice() bei spärlichen Arrays
 
-Das von `slice()` zurückgegebene Array kann dünn besetzt sein, wenn die Quelle dünn besetzt ist.
+Das von `slice()` zurückgegebene Array kann spärlich sein, wenn die Quelle spärlich ist.
 
 ```js
 console.log([1, 2, , 4, 5].slice(1, 4)); // [2, empty, 4]
