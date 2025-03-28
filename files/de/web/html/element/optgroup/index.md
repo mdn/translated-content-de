@@ -1,13 +1,15 @@
 ---
-title: "<optgroup>: Das Option Group-Element"
+title: "<optgroup>: Das Optionsgruppen-Element"
 slug: Web/HTML/Element/optgroup
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 2595b22899b54f079721069704128fb7f0451995
 ---
 
 {{HTMLSidebar}}
 
 Das **`<optgroup>`** [HTML](/de/docs/Web/HTML)-Element erstellt eine Gruppierung von Optionen innerhalb eines {{HTMLElement("select")}}-Elements.
+
+In [anpassbaren `<select>`-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) ist das {{htmlelement("legend")}}-Element als Kind von `<optgroup>` erlaubt, um ein einfach zu zielendes und zu stylendes Label bereitzustellen. Dies ersetzt jeden Text, der im `label`-Attribut des `<optgroup>`-Elements gesetzt ist und hat die gleichen Semantiken.
 
 {{InteractiveExample("HTML Demo: &lt;optgroup&gt;", "tabbed-standard")}}
 
@@ -39,12 +41,12 @@ label {
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
-  - : Wenn dieses Boolean-Attribut gesetzt ist, ist keines der Elemente in dieser Optionsgruppe auswählbar. Oftmals werden solche Steuerelemente von den Browsern ausgegraut und erhalten keine Browser-Ereignisse wie Mausklicks oder Fokus-bezogene Ereignisse.
+  - : Wenn dieses boolesche Attribut gesetzt ist, ist keines der Elemente in dieser Optionsgruppe auswählbar. Oftmals blenden Browser solche Steuerungen aus und sie erhalten keine Browser-Ereignisse, wie Mausklicks oder Fokus-bezogene.
 - `label`
-  - : Der Name der Optionsgruppe, den der Browser bei der Beschriftung der Optionen in der Benutzeroberfläche verwenden kann. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
+  - : Der Name der Optionsgruppe, den der Browser verwenden kann, um die Optionen in der Benutzeroberfläche zu kennzeichnen. Dieses Attribut ist zwingend erforderlich, wenn dieses Element verwendet wird.
 
 ## Beispiele
 
@@ -83,12 +85,12 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Null oder mehr {{HTMLElement("option")}}-Elemente.</td>
+      <td>Null oder mehr {{HTMLElement("option")}}-Elemente. In <a href="/de/docs/Learn_web_development/Extensions/Forms/Customizable_select">anpassbaren Select-Elementen</a> ist ein {{htmlelement("legend")}}-Element als Kind von <code>&lt;optgroup&gt;</code> erlaubt.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist obligatorisch. Das End-Tag ist optional, wenn dieses Element
+        Das Start-Tag ist erforderlich. Das End-Tag ist optional, wenn dieses Element
         unmittelbar von einem anderen <code>&#x3C;optgroup></code>-Element gefolgt wird oder
         wenn das Elternelement keinen weiteren Inhalt hat.
       </td>
@@ -98,7 +100,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
       <td>Ein {{HTMLElement("select")}}-Element.</td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a></td>
     </tr>
     <tr>
@@ -123,3 +125,4 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
 ## Siehe auch
 
 - Andere formularbezogene Elemente: {{HTMLElement("form")}}, {{HTMLElement("legend")}}, {{HTMLElement("label")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("datalist")}}, {{HTMLElement("option")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("textarea")}}, {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("progress")}} und {{HTMLElement("meter")}}.
+- [Anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)

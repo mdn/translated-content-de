@@ -1,114 +1,113 @@
 ---
-title: Client-seitige Formularvalidierung
+title: Validierung von Formularen auf der Clientseite
 slug: Learn_web_development/Extensions/Forms/Form_validation
 l10n:
-  sourceCommit: 673746e15e5052c4fe39944f3d93d2e2d3227b3f
+  sourceCommit: 2595b22899b54f079721069704128fb7f0451995
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Forms/UI_pseudo-classes", "Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data", "Learn_web_development/Extensions/Forms")}}
 
-Es ist wichtig sicherzustellen, dass alle erforderlichen Formularsteuerungen ausgefüllt und im richtigen Format sind, bevor die vom Benutzer eingegebenen Formulardaten an den Server gesendet werden. Diese **Client-seitige Formularvalidierung** hilft sicherzustellen, dass die eingegebenen Daten den in den verschiedenen Formularsteuerungen festgelegten Anforderungen entsprechen.
+Es ist wichtig sicherzustellen, dass alle erforderlichen Formularsteuerelemente vor dem Absenden der vom Benutzer eingegebenen Formulardaten an den Server korrekt ausgefüllt sind. Diese **Validierung von Formularen auf der Clientseite** hilft sicherzustellen, dass die eingegebenen Daten den Anforderungen der verschiedenen Formularsteuerelemente entsprechen.
 
-Dieser Artikel führt Sie durch grundlegende Konzepte und Beispiele der Client-seitigen Formularvalidierung.
+Dieser Artikel führt Sie durch grundlegende Konzepte und Beispiele der Validierung von Formularen auf der Clientseite.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Computerkenntnisse, ein angemessenes Verständnis von
+        Computerkenntnisse, ein vernünftiges Verständnis von
         <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
         <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
+      <th scope="row">Ziel:</th>
       <td>
-        Verstehen, was eine Client-seitige Formularvalidierung ist, warum sie wichtig ist,
-        und wie man verschiedene Techniken zur Implementierung anwendet.
+        Verstehen, was die Validierung von Formularen auf der Clientseite ist, warum sie wichtig ist,
+        und wie verschiedene Techniken angewendet werden können, um sie zu implementieren.
       </td>
     </tr>
   </tbody>
 </table>
 
-Die Client-seitige Validierung ist ein erster Check und ein wichtiges Merkmal einer guten Benutzererfahrung; indem ungültige Daten auf der Client-Seite abgefangen werden, kann der Benutzer sie sofort korrigieren.
-Wenn die Daten erst zum Server gelangen und dann zurückgewiesen werden, entsteht durch die Hin- und Rückreise eine spürbare Verzögerung, um dem Benutzer mitzuteilen, dass seine Daten korrigiert werden müssen.
+Die Validierung auf der Clientseite ist eine anfängliche Überprüfung und ein wichtiges Merkmal einer guten Benutzererfahrung; durch das Erkennen ungültiger Daten auf der Clientseite kann der Benutzer sie sofort korrigieren. Wenn die Daten zum Server gelangen und dort abgelehnt werden, führt dies zu einer merklichen Verzögerung durch eine Rundreise zum Server und zurück zur Clientseite, um dem Benutzer mitzuteilen, dass er seine Daten korrigieren soll.
 
-Die Client-seitige Validierung _sollte jedoch nicht als_ umfassende Sicherheitsmaßnahme betrachtet werden! Ihre Apps sollten immer eine Validierung, einschließlich Sicherheitsüberprüfungen, der von einem Formular übermittelten Daten auf der _Server-Seite_ **sowie** auf der Client-Seite durchführen, da die Client-seitige Validierung zu leicht umgangen werden kann und böswillige Benutzer immer noch leicht fehlerhafte Daten an Ihren Server senden können.
+Allerdings sollte die Validierung auf der Clientseite _nicht als_ umfassende Sicherheitsmaßnahme betrachtet werden! Ihre Anwendungen sollten immer eine Validierung, einschließlich Sicherheitsüberprüfungen, für alle Formulardaten auf der _Serverseite_ **sowie** auf der Clientseite durchführen, weil die Validierung auf der Clientseite zu leicht umgangen werden kann, sodass böswillige Benutzer immer noch problemlos schlechte Daten an Ihren Server senden können.
 
 > [!NOTE]
-> Lesen Sie [Website-Sicherheit](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security) für eine Vorstellung davon, was _passieren könnte_; die Implementierung der Server-seitigen Validierung liegt etwas außerhalb des Umfangs dieses Moduls, sollte jedoch im Hinterkopf behalten werden.
+> Lesen Sie [Website-Sicherheit](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security), um eine Vorstellung davon zu bekommen, was _passieren könnte_; die Implementierung von Server-seitiger Validierung liegt etwas außerhalb des Umfangs dieses Moduls, aber Sie sollten dies im Hinterkopf behalten.
 
 ## Was ist Formularvalidierung?
 
-Gehen Sie auf eine beliebte Seite mit einem Registrierungsformular, und Sie werden feststellen, dass sie Feedback geben, wenn Sie Ihre Daten nicht im erwarteten Format eingeben.
+Besuchen Sie eine beliebte Website mit einem Anmeldeformular, und Sie werden feststellen, dass Sie eine Rückmeldung erhalten, wenn Sie Ihre Daten nicht in dem erwarteten Format eingeben.
 Sie erhalten Nachrichten wie:
 
-- "Dieses Feld ist erforderlich" (Dieses Feld darf nicht leer bleiben).
-- "Bitte geben Sie Ihre Telefonnummer im Format xxx-xxxx ein" (Ein spezifisches Datenformat ist erforderlich, damit es als gültig gilt).
-- "Bitte geben Sie eine gültige E-Mail-Adresse ein" (die Daten, die Sie eingegeben haben, sind nicht im richtigen Format).
-- "Ihr Passwort muss zwischen 8 und 30 Zeichen lang sein und einen Großbuchstaben, ein Symbol und eine Zahl enthalten." (Ein sehr spezifisches Datenformat ist erforderlich für Ihre Daten).
+- "Dieses Feld ist erforderlich" (Dieses Feld kann nicht leer gelassen werden).
+- "Bitte geben Sie Ihre Telefonnummer im Format xxx-xxxx ein" (Ein spezifisches Datenformat ist erforderlich, damit es als gültig betrachtet wird).
+- "Bitte geben Sie eine gültige E-Mail-Adresse ein" (Die von Ihnen eingegebenen Daten sind nicht im richtigen Format).
+- "Ihr Passwort muss zwischen 8 und 30 Zeichen lang sein und einen Großbuchstaben, ein Symbol und eine Zahl enthalten." (Ein sehr spezifisches Datenformat ist für Ihre Daten erforderlich).
 
 Dies wird als **Formularvalidierung** bezeichnet.
-Wenn Sie Daten eingeben, überprüfen der Browser (und der Webserver), ob die Daten im richtigen Format und innerhalb der von der Anwendung festgelegten Einschränkungen sind. Die im Browser durchgeführte Validierung wird als **Client-seitige** Validierung bezeichnet, während die auf dem Server durchgeführte Validierung als **Server-seitige** Validierung bezeichnet wird.
-In diesem Kapitel konzentrieren wir uns auf die Client-seitige Validierung.
+Beim Eingeben von Daten überprüft der Browser (und der Webserver), ob die Daten im richtigen Format und innerhalb der durch die Anwendung festgelegten Einschränkungen sind. Die Validierung, die im Browser durchgeführt wird, nennt man **Client-seitige** Validierung, während die auf dem Server durchgeführte Validierung als **Server-seitige** Validierung bezeichnet wird.
+In diesem Kapitel konzentrieren wir uns auf die Validierung auf der Clientseite.
 
-Wenn die Informationen korrekt formatiert sind, erlaubt die Anwendung, die Daten an den Server zu übermitteln und (in der Regel) in einer Datenbank zu speichern; wenn die Informationen nicht korrekt formatiert sind, gibt sie dem Benutzer eine Fehlermeldung, die erklärt, was korrigiert werden muss, und lässt ihn es erneut versuchen.
+Wenn die Informationen korrekt formatiert sind, erlaubt die Anwendung das Absenden der Daten an den Server und (üblicherweise) das Speichern in einer Datenbank; wenn die Informationen nicht korrekt formatiert sind, erhält der Benutzer eine Fehlermeldung, die beschreibt, was korrigiert werden muss, und er kann es erneut versuchen.
 
-Wir möchten das Ausfüllen von Webformularen so einfach wie möglich gestalten. Warum bestehen wir dann auf der Validierung unserer Formulare?
+Wir möchten das Ausfüllen von Webformularen so einfach wie möglich gestalten. Warum bestehen wir also darauf, unsere Formulare zu validieren?
 Es gibt drei Hauptgründe:
 
-- **Wir möchten die richtigen Daten im richtigen Format erhalten.** Unsere Anwendungen funktionieren nicht richtig, wenn die Daten unserer Benutzer im falschen Format gespeichert sind, falsch sind oder ganz fehlen.
-- **Wir möchten die Daten unserer Benutzer schützen**. Die Benutzer zu zwingen, sichere Passwörter einzugeben, macht es einfacher, ihre Kontoinformationen zu schützen.
-- **Wir möchten uns selbst schützen**. Es gibt viele Möglichkeiten, wie böswillige Benutzer ungeschützte Formulare missbrauchen können, um der Anwendung Schaden zuzufügen. Siehe [Website-Sicherheit](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security).
+- **Wir möchten die richtigen Daten im richtigen Format erhalten.** Unsere Anwendungen funktionieren nicht richtig, wenn die Daten unserer Benutzer im falschen Format gespeichert werden, falsch sind oder ganz fehlen.
+- **Wir möchten die Daten unserer Benutzer schützen.** Die Eingabe sicherer Passwörter zu erzwingen, erleichtert den Schutz ihrer Kontoinformationen.
+- **Wir möchten uns selbst schützen.** Es gibt viele Wege, wie böswillige Benutzer ungeschützte Formulare missbrauchen können, um der Anwendung zu schaden. Siehe [Website-Sicherheit](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security).
 
   > [!WARNING]
-  > Vertrauen Sie niemals Daten, die von der Client-Seite an Ihren Server gesendet werden. Selbst wenn Ihr Formular korrekt validiert wird und die Eingabe fehlerhaft ist, kann ein böswilliger Benutzer immer noch die Netzwerk-Anfrage ändern.
+  > Vertrauen Sie niemals Daten, die von der Clientseite an Ihren Server übermittelt werden. Selbst wenn Ihr Formular korrekt validiert und fehlerhafte Eingaben auf der Clientseite verhindert, kann ein böswilliger Benutzer dennoch die Netzwerkanforderung ändern.
 
-## Verschiedene Arten der Client-seitigen Validierung
+## Verschiedene Arten der Validierung auf der Clientseite
 
-Es gibt zwei verschiedene Arten der Client-seitigen Validierung, die Sie im Web antreffen werden:
+Sie werden auf zwei verschiedene Arten der Validierung auf der Clientseite im Web stoßen:
 
 - **HTML-Formularvalidierung**
-  HTML-Formularattribute können definieren, welche Formularsteuerungen erforderlich sind und in welchem Format die vom Benutzer eingegebenen Daten vorliegen müssen, um gültig zu sein.
+  HTML-Formularattribute können definieren, welche Formularsteuerelemente erforderlich sind und in welchem Format die vom Benutzer eingegebenen Daten vorliegen müssen, um gültig zu sein.
 - **JavaScript-Formularvalidierung**
-  JavaScript wird in der Regel hinzugefügt, um die HTML-Formularvalidierung zu verbessern oder anzupassen.
+  JavaScript wird im Allgemeinen verwendet, um die HTML-Formularvalidierung zu verbessern oder anzupassen.
 
-Client-seitige Validierung kann mit wenig bis keinem JavaScript durchgeführt werden. HTML-Validierung ist schneller als JavaScript, aber weniger anpassbar als JavaScript-Validierung. Es wird allgemein empfohlen, Ihre Formulare mit robusten HTML-Funktionen zu beginnen und dann die Benutzererfahrung mit JavaScript nach Bedarf zu verbessern.
+Die Validierung auf der Clientseite kann mit wenig bis gar keinem JavaScript erreicht werden. Die HTML-Validierung ist schneller als die JavaScript-Validierung, jedoch weniger anpassbar. Es wird empfohlen, Ihre Formulare mit robusten HTML-Funktionen zu starten und die Benutzererfahrung nach Bedarf mit JavaScript zu verbessern.
 
 ## Verwendung der integrierten Formularvalidierung
 
-Eine der bedeutendsten Funktionen von [Formularsteuerungen](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types) ist die Fähigkeit, die meisten Benutzerdaten zu validieren, ohne auf JavaScript angewiesen zu sein.
+Eine der bedeutendsten Funktionen von [Formularsteuerelementen](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types) ist die Fähigkeit, die meisten Benutzerdaten ohne JavaScript zu validieren.
 Dies geschieht durch die Verwendung von Validierungsattributen auf Formularelementen.
-Wir haben viele dieser Attribute früher im Kurs gesehen, hier zur Wiederholung:
+Wir haben viele davon bereits im Kurs gesehen, aber um es noch einmal zusammenzufassen:
 
-- [`required`](/de/docs/Web/HTML/Attributes/required): Gibt an, ob ein Formularfeld ausgefüllt werden muss, bevor das Formular eingereicht werden kann.
+- [`required`](/de/docs/Web/HTML/Attributes/required): Gibt an, ob ein Formularfeld ausgefüllt werden muss, bevor das Formular abgeschickt werden kann.
 - [`minlength`](/de/docs/Web/HTML/Attributes/minlength) und [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength): Gibt die minimale und maximale Länge von Textdaten (Zeichenfolgen) an.
-- [`min`](/de/docs/Web/HTML/Attributes/min), [`max`](/de/docs/Web/HTML/Attributes/max) und [`step`](/de/docs/Web/HTML/Attributes/step): Gibt die minimalen und maximalen Werte von numerischen Eingabetypen und die Schrittweite der Werte an, beginnend mit dem Minimum.
+- [`min`](/de/docs/Web/HTML/Attributes/min), [`max`](/de/docs/Web/HTML/Attributes/max) und [`step`](/de/docs/Web/HTML/Attributes/step): Gibt die minimalen und maximalen Werte von numerischen Eingabetypen sowie das Inkrement oder den Schritt für Werte beginnend mit dem Minimum an.
 - [`type`](/de/docs/Web/HTML/Element/input#input_types): Gibt an, ob die Daten eine Zahl, eine E-Mail-Adresse oder ein anderer spezifischer voreingestellter Typ sein müssen.
-- [`pattern`](/de/docs/Web/HTML/Attributes/pattern): Gibt einen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) an, der ein Muster definiert, dem die eingegebenen Daten folgen müssen.
+- [`pattern`](/de/docs/Web/HTML/Attributes/pattern): Gibt ein [reguläres Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) an, der ein Muster definiert, dem die eingegebenen Daten folgen müssen.
 
-Wenn die in einem Formularfeld eingegebenen Daten alle Regeln befolgen, die durch die auf das Feld angewendeten Attribute spezifiziert sind, wird es als gültig betrachtet. Andernfalls wird es als ungültig betrachtet.
+Wenn die in ein Formularfeld eingegebenen Daten allen durch die auf das Feld angewendeten Attribute festgelegten Regeln folgen, gelten sie als gültig. Andernfalls gelten sie als ungültig.
 
-Wenn ein Element gültig ist, gilt Folgendes:
+Wenn ein Element gültig ist, gelten die folgenden Dinge:
 
-- Das Element entspricht der {{cssxref(":valid")}} CSS-Pseudoklasse, die es Ihnen ermöglicht, einen bestimmten Stil auf gültige Elemente anzuwenden. Die Steuerung entspricht auch {{cssxref(":user-valid")}}, wenn der Benutzer mit der Steuerung interagiert hat und kann anderen UI-Pseudoklassen wie {{cssxref(":in-range")}} entsprechen, abhängig vom Eingabetyp und den Attributen.
-- Wenn der Benutzer versucht, die Daten zu senden, wird der Browser das Formular übermitteln, vorausgesetzt, es gibt nichts anderes, das es daran hindert (z. B. JavaScript).
+- Das Element entspricht der {{cssxref(":valid")}} CSS-Pseudoklasse, die es Ihnen ermöglicht, einen bestimmten Stil auf gültige Elemente anzuwenden. Das Steuerelement entspricht auch {{cssxref(":user-valid")}}, wenn der Benutzer mit dem Steuerelement interagiert hat, und es kann auch andere UI-Pseudoklassen wie {{cssxref(":in-range")}} entsprechen, abhängig vom Eingabetyp und den Attributen.
+- Wenn der Benutzer versucht, die Daten zu versenden, sendet der Browser das Formular, sofern nichts anderes dies verhindert (z. B. JavaScript).
 
-Wenn ein Element ungültig ist, gilt Folgendes:
+Wenn ein Element ungültig ist, gelten die folgenden Dinge:
 
-- Das Element entspricht der {{cssxref(":invalid")}} CSS-Pseudoklasse. Wenn der Benutzer mit der Steuerung interagiert hat, entspricht es auch der {{cssxref(":user-invalid")}} CSS-Pseudoklasse. Andere UI-Pseudoklassen können auch übereinstimmen, wie {{cssxref(":out-of-range")}}, abhängig vom Fehler. Diese ermöglichen es Ihnen, einen bestimmten Stil auf ungültige Elemente anzuwenden.
-- Wenn der Benutzer versucht, die Daten zu senden, blockiert der Browser die Formularübermittlung und zeigt eine Fehlermeldung an. Die Fehlermeldung unterscheidet sich je nach Fehlertyp. Die [Constraint Validation API](#die_constraint_validation_api) wird unten beschrieben.
+- Das Element entspricht der {{cssxref(":invalid")}} CSS-Pseudoklasse. Wenn der Benutzer mit dem Steuerelement interagiert hat, entspricht es auch der {{cssxref(":user-invalid")}} CSS-Pseudoklasse. Weitere UI-Pseudoklassen können ebenfalls zutreffen, wie {{cssxref(":out-of-range")}}, abhängig vom Fehler. Diese ermöglichen es Ihnen, einen bestimmten Stil auf ungültige Elemente anzuwenden.
+- Wenn der Benutzer versucht, die Daten zu senden, blockiert der Browser die Formularübermittlung und zeigt eine Fehlermeldung an. Die Fehlermeldung variiert je nach Art des Fehlers. Die weiter unten beschriebene [Constraint Validation API](#die_constraint_validation_api) wird beschrieben.
 
 ## Beispiele für integrierte Formularvalidierung
 
-In diesem Abschnitt werden wir einige der oben besprochenen Attribute testen.
+In diesem Abschnitt werden wir einige der oben diskutierten Attribute testen.
 
-### Einfaches Startbeispiel
+### Einfaches Startdatei
 
-Beginnen wir mit einem einfachen Beispiel: einer Eingabe, die es Ihnen ermöglicht, zu wählen, ob Sie lieber eine Banane oder eine Kirsche haben möchten.
-Dieses Beispiel beinhaltet eine einfache Text-{{HTMLElement("input")}} mit einem zugehörigen {{htmlelement("label")}} und einem Abschicken-{{htmlelement("button")}}.
+Beginnen wir mit einem einfachen Beispiel: einer Eingabe, die es Ihnen ermöglicht, zwischen einer Banane oder einer Kirsche zu wählen.
+Dieses Beispiel umfasst ein grundlegendes Text-{{HTMLElement("input")}} mit einem zugehörigen {{htmlelement("label")}} und einem {{htmlelement("button")}} zum Absenden.
 
 ```html
 <form>
@@ -130,21 +129,21 @@ input:valid {
 
 {{EmbedLiveSample("Simple_start_file", "100%", 80)}}
 
-Um zu beginnen, machen Sie eine Kopie der [`fruit-start.html`-Datei, die auf GitHub gefunden wurde](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-start.html) in einem neuen Verzeichnis auf Ihrer Festplatte.
+Beginnen Sie, indem Sie eine Kopie der [`fruit-start.html`-Datei auf GitHub](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-start.html) in einem neuen Verzeichnis auf Ihrem Laufwerk speichern.
 
 ### Das required-Attribut
 
-Eine häufige HTML-Validierungsfunktion ist das [`required`](/de/docs/Web/HTML/Attributes/required)-Attribut.
-Fügen Sie dieses Attribut zu einer Eingabe hinzu, um ein Element verpflichtend zu machen.
-Wenn dieses Attribut gesetzt ist, entspricht das Element der {{cssxref(':required')}} UI-Pseudoklasse und das Formular wird nicht abgeschickt, wobei eine Fehlermeldung bei der Absendung angezeigt wird, wenn die Eingabe leer ist.
-Während leer, wird die Eingabe auch als ungültig betrachtet, und entspricht der {{cssxref(':invalid')}} UI-Pseudoklasse.
+Ein häufiges HTML-Validierungsmerkmal ist das [`required`](/de/docs/Web/HTML/Attributes/required) Attribut.
+Fügen Sie dieses Attribut einer Eingabe hinzu, um ein Element obligatorisch zu machen.
+Wenn dieses Attribut gesetzt ist, entspricht das Element der {{cssxref(':required')}} UI-Pseudoklasse und das Formular wird nicht abgesendet, sondern stattdessen wird eine Fehlermeldung angezeigt, wenn die Eingabe fehlt.
+Solange die Eingabe leer ist, gilt sie ebenfalls als ungültig und entspricht der {{cssxref(':invalid')}} UI-Pseudoklasse.
 
-Wenn irgendein Radiobutton in einer gleichnamigen Gruppe das `required`-Attribut hat, muss einer der Radiobuttons in dieser Gruppe ausgewählt werden, damit die Gruppe gültig ist; der ausgewählte Radiobutton muss nicht derjenige mit dem gesetzten Attribut sein.
+Wenn eines der Radiobuttons einer gleichnamigen Gruppe das `required` Attribut hat, muss einer der Radiobuttons in dieser Gruppe ausgewählt sein, damit die Gruppe gültig ist; der ausgewählte Radiobutton muss nicht derjenige sein, für den das Attribut gesetzt ist.
 
 > [!NOTE]
-> Verlangen Sie von den Benutzern nur die Eingabe von Daten, die Sie benötigen: Ist es beispielsweise wirklich notwendig, das Geschlecht oder den Titel einer Person zu wissen?
+> Fordern Sie nur Daten an, die Sie benötigen: Beispielsweise ist es wirklich notwendig, das Geschlecht oder den Titel einer Person zu kennen?
 
-Fügen Sie Ihrer Eingabe ein `required`-Attribut hinzu, wie unten gezeigt.
+Fügen Sie Ihrem Eingabeelement ein `required` Attribut hinzu, wie unten gezeigt.
 
 ```html
 <form>
@@ -154,9 +153,9 @@ Fügen Sie Ihrer Eingabe ein `required`-Attribut hinzu, wie unten gezeigt.
 </form>
 ```
 
-Wir haben "(erforderlich)" zum {{htmlelement("label")}} hinzugefügt, um den Benutzer darüber zu informieren, dass das {{htmlelement("input")}} erforderlich ist. Den Benutzern anzugeben, wann Formulare erforderlich sind, ist nicht nur eine gute Benutzererfahrung, es wird auch von den WCAG-[Barrierefreiheitsrichtlinien](/de/docs/Learn_web_development/Core/Accessibility) gefordert.
+Wir haben "(erforderlich)" zum {{htmlelement("label")}} hinzugefügt, um den Benutzer darauf hinzuweisen, dass das {{htmlelement("input")}} erforderlich ist. Dem Benutzer mitzuteilen, wann Formularfelder erforderlich sind, ist nicht nur eine gute Benutzererfahrung, sondern wird auch von den WCAG [Barrierefreiheits](/de/docs/Learn_web_development/Core/Accessibility) Richtlinien gefordert.
 
-Wir fügen CSS-Stile hinzu, die basierend darauf angewendet werden, ob das Element erforderlich, gültig und ungültig ist:
+Wir fügen CSS-Stile hinzu, die je nachdem, ob das Element erforderlich, gültig oder ungültig ist, angewendet werden:
 
 ```css
 input:invalid {
@@ -172,33 +171,33 @@ input:valid {
 }
 ```
 
-Dieses CSS bewirkt, dass die Eingabe einen roten gestrichelten Rand hat, wenn sie ungültig ist, und einen subtileren schwarzen Rand, wenn sie gültig ist.
-Wir haben auch einen Hintergrundverlauf hinzugefügt, wenn die Eingabe erforderlich _und_ ungültig ist. Probieren Sie das neue Verhalten im folgenden Beispiel aus:
+Dieses CSS bewirkt, dass die Eingabe ein rotes getupftes Feld hat, wenn sie ungültig ist, und eine subtilere feste Umrandung in Schwarz, wenn sie gültig ist.
+Wir haben auch einen Hintergrundgradienten hinzugefügt, wenn die Eingabe erforderlich _und_ ungültig ist. Versuchen Sie das neue Verhalten im Beispiel unten:
 
 {{EmbedLiveSample("The_required_attribute", "100%", 80)}}
 
-Versuchen Sie, das Formular aus dem [Live `required` Beispiel](https://mdn.github.io/learning-area/html/forms/form-validation/fruit-required.html) ohne einen Wert zu senden. Beachten Sie, wie die ungültige Eingabe den Fokus erhält, eine Standard-Fehlermeldung ("Bitte füllen Sie dieses Feld aus") angezeigt wird und die Übermittlung des Formulars verhindert wird. Sie können auch den [Quellcode auf GitHub](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-required.html) sehen.
+Versuchen Sie, das Formular des [Live-`required`-Beispiels](https://mdn.github.io/learning-area/html/forms/form-validation/fruit-required.html) ohne einen Wert abzusenden. Beachten Sie, wie die ungültige Eingabe den Fokus erhält, eine Standardfehlermeldung ("Bitte füllen Sie dieses Feld aus") erscheint und das Formular daran gehindert wird, gesendet zu werden. Sie können auch den [Quellcode auf GitHub](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-required.html) sehen.
 
 ### Validierung gegen einen regulären Ausdruck
 
-Eine weitere nützliche Validierungsfunktion ist das [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut, das einen [Regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) als Wert erwartet.
-Ein regulärer Ausdruck (regexp) ist ein Muster, das verwendet werden kann, um Zeichenkombinationen in Textzeichenfolgen abzugleichen, sodass Regexps ideal für die Formularvalidierung sind und eine Vielzahl anderer Verwendungen in JavaScript haben.
+Ein weiteres nützliches Validierungsmerkmal ist das [`pattern`](/de/docs/Web/HTML/Attributes/pattern) Attribut, das einen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) als Wert erwartet.
+Ein regulärer Ausdruck (Regexp) ist ein Muster, das verwendet werden kann, um Zeichenkombinationen in Zeichenfolgen abzugleichen. Regexps sind ideal für die Formularvalidierung und dienen einer Vielzahl anderer Zwecke in JavaScript.
 
-Regexps sind ziemlich komplex, und wir beabsichtigen nicht, Ihnen in diesem Artikel eine umfassende Einführung zu geben.
-Hier sind einige Beispiele, um Ihnen eine grundlegende Vorstellung davon zu vermitteln, wie sie funktionieren.
+Regexps sind ziemlich komplex, und wir beabsichtigen nicht, sie in diesem Artikel erschöpfend zu lehren.
+Es folgen einige Beispiele, die Ihnen eine grundlegende Vorstellung davon geben sollen, wie sie funktionieren.
 
-- `a` — Stimmt mit einem Zeichen überein, das `a` ist (nicht `b`, nicht `aa` usw.).
-- `abc` — Stimmt mit `a`, gefolgt von `b`, gefolgt von `c`.
-- `ab?c` — Stimmt mit `a`, optional gefolgt von einem einzelnen `b`, gefolgt von `c`. (`ac` oder `abc`)
-- `ab*c` — Stimmt mit `a`, optional gefolgt von einer beliebigen Anzahl von `b`s, gefolgt von `c`. (`ac`, `abc`, `abbbbbc` usw.).
-- `a|b` — Stimmt mit einem Zeichen überein, das `a` oder `b` ist.
-- `abc|xyz` — Stimmt genau mit `abc` oder genau `xyz` überein (aber nicht `abcxyz` oder `a` oder `y` usw.).
+- `a` — Passt auf ein Zeichen, das `a` ist (nicht `b`, nicht `aa` usw.).
+- `abc` — Passt auf `a`, gefolgt von `b`, gefolgt von `c`.
+- `ab?c` — Passt auf `a`, optional gefolgt von einem einzelnen `b`, gefolgt von `c`. (`ac` oder `abc`)
+- `ab*c` — Passt auf `a`, gefolgt von beliebig vielen `b`s, gefolgt von `c`. (`ac`, `abc`, `abbbbbc` usw.).
+- `a|b` — Passt auf ein Zeichen, das `a` oder `b` ist.
+- `abc|xyz` — Passt genau auf `abc` oder genau auf `xyz` (aber nicht `abcxyz` oder `a` oder `y` usw.).
 
-Es gibt viele weitere Möglichkeiten, die wir hier nicht abdecken.
-Für eine vollständige Liste und viele Beispiele, konsultieren Sie unsere [Dokumentation zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions).
+Es gibt viele weitere Möglichkeiten, die wir hier nicht behandeln.
+Für eine vollständige Liste und viele Beispiele, konsultieren Sie unsere [Regulärerausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) Dokumentation.
 
 Lassen Sie uns ein Beispiel implementieren.
-Aktualisieren Sie Ihr HTML, um ein [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut hinzuzufügen, wie folgt:
+Aktualisieren Sie Ihr HTML, um ein [`pattern`](/de/docs/Web/HTML/Attributes/pattern) Attribut wie folgt hinzuzufügen:
 
 ```html
 <form>
@@ -218,45 +217,40 @@ input:valid {
 }
 ```
 
-Dies gibt uns das folgende Update — probieren Sie es aus:
+Dies ergibt das folgende Update — testen Sie es:
 
 {{EmbedLiveSample("Validating_against_a_regular_expression", "100%", 80)}}
 
-Sie können dieses [Beispiel live auf GitHub finden](https://mdn.github.io/learning-area/html/forms/form-validation/fruit-pattern.html) zusammen mit dem [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-pattern.html).
+Sie können dieses [Beispiel live auf GitHub](https://mdn.github.io/learning-area/html/forms/form-validation/fruit-pattern.html) zusammen mit dem [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-pattern.html) ausprobieren.
 
-In diesem Beispiel akzeptiert das {{HTMLElement("input")}}-Element einen von vier möglichen Werten: die Zeichenfolgen "banana", "Banana", "cherry" oder "Cherry". Reguläre Ausdrücke sind case-sensitive, aber wir haben es unterstützt, sowohl großgeschriebene als auch kleingeschriebene Versionen mit einem zusätzlichen "Aa"-Muster in eckigen Klammern zu unterstützen.
+In diesem Beispiel akzeptiert das {{HTMLElement("input")}} Element einen von vier möglichen Werten: die Zeichenfolgen "banana", "Banana", "cherry" oder "Cherry". Reguläre Ausdrücke sind case-sensitive, aber wir haben es so gestaltet, dass sowohl großgeschriebene als auch kleingeschriebene Versionen unterstützt werden, indem wir ein zusätzliches "Aa"-Muster in eckige Klammern gesetzt haben.
 
-Versuchen Sie an dieser Stelle, den Wert innerhalb des [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attributs zu ändern, um einigen der früher gesehenen Beispiele zu entsprechen, und sehen Sie, wie sich das auf die Werte auswirkt, die Sie eingeben können, um den Eingabewert gültig zu machen.
-Versuchen Sie, einige Ihrer eigenen zu schreiben, und sehen Sie, wie es läuft.
-Machen Sie sie nach Möglichkeit fruchtbezogen, damit Ihre Beispiele Sinn machen!
+Versuchen Sie an dieser Stelle, den Wert im [`pattern`](/de/docs/Web/HTML/Attributes/pattern) Attribut auf einige der zuvor gesehenen Beispiele einzustellen, und schauen Sie, wie sich das auf die Werte auswirkt, die Sie eingeben können, um den Eingabewert gültig zu machen. Schreiben Sie einige Ihrer eigenen, und sehen Sie, wie es geht. Gestalten Sie sie, wenn möglich, obstbezogen, damit Ihre Beispiele sinnvoll sind!
 
-Wenn ein nichtleerer Wert des {{HTMLElement("input")}} nicht dem Muster des regulären Ausdrucks entspricht, wird `input` der {{cssxref(':invalid')}} Pseudoklasse entsprechen. Wenn leer und das Element nicht erforderlich ist, wird es nicht als ungültig betrachtet.
+Wenn ein nicht leerer Wert des {{HTMLElement("input")}} nicht dem Muster des regulären Ausdrucks entspricht, ist die `input` als {{cssxref(':invalid')}} Pseudoklasse klassifiziert. Ist sie leer und das Element ist nicht erforderlich, wird sie nicht als ungültig betrachtet.
 
-Einige {{HTMLElement("input")}}-Elementtypen benötigen kein [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut, um gegen einen regulären Ausdruck validiert zu werden. Zum Beispiel validiert die Angabe des `email`-Typs den Wert der Eingaben gegen ein wohlgeformtes E-Mail-Adressmuster oder ein Muster, das einer durch Kommas getrennten Liste von E-Mail-Adressen entspricht, wenn es das [`multiple`](/de/docs/Web/HTML/Attributes/multiple)-Attribut hat.
+Einige {{HTMLElement("input")}} Elementtypen benötigen kein [`pattern`](/de/docs/Web/HTML/Attributes/pattern) Attribut, um gegen einen regulären Ausdruck validiert zu werden. Beispielsweise überprüft die Angabe des `email` Typs den Wert der Eingabe auf ein gut formatierter E-Mail-Adresse oder ein Muster, das eine kommagetrennte Liste von E-Mail-Adressen darstellt, wenn es das [`multiple`](/de/docs/Web/HTML/Attributes/multiple) Attribut hat.
 
 > [!NOTE]
-> Das {{HTMLElement("textarea")}}-Element unterstützt das [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut nicht.
+> Das {{HTMLElement("textarea")}} Element unterstützt das [`pattern`](/de/docs/Web/HTML/Attributes/pattern) Attribut nicht.
 
-### Einschränkung der Länge Ihrer Eingaben
+### Einschränken der Zeichenlänge Ihrer Einträge
 
-Sie können die Zeichenlänge aller durch {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} erstellten Textfelder über die [`minlength`](/de/docs/Web/HTML/Attributes/minlength)- und [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength)-Attribute einschränken.
-Ein Feld ist ungültig, wenn es einen Wert hat und dieser Wert weniger Zeichen hat als der [`minlength`](/de/docs/Web/HTML/Attributes/minlength)-Wert oder mehr als der [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength)-Wert.
+Sie können die Anzahl der Zeichen aller durch {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} erstellten Textfelder mit den Attributen [`minlength`](/de/docs/Web/HTML/Attributes/minlength) und [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength) einschränken. Ein Feld ist ungültig, wenn es einen Wert hat und dieser Wert weniger Zeichen als der [`minlength`](/de/docs/Web/HTML/Attributes/minlength) Wert oder mehr als der [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength) Wert hat.
 
-Browser lassen oft nicht zu, dass der Benutzer einen längeren Wert als erwartet in Textfelder eingibt. Eine bessere Benutzererfahrung als nur `maxlength` zu verwenden, besteht darin, auch eine Zeichenanzahl-Rückmeldung auf eine barrierefreie Weise zu bieten und dem Benutzer zu erlauben, seinen Inhalt bis zur Größe zu bearbeiten.
-Ein Beispiel hierfür ist die Zeichenbegrenzung beim Posten in sozialen Medien. JavaScript einschließlich [lösungen mit `maxlength`](https://github.com/mimo84/bootstrap-maxlength), kann verwendet werden, um dies zu bieten.
+Browser lassen den Benutzer oft nicht mehr Zeichen eingeben, als erwartet in Textfeldern. Eine bessere Benutzererfahrung als nur die Verwendung von `maxlength` ist es, auch eine Zeichenanzahl Rückmeldung auf zugängliche Weise zu geben und dem Benutzer zu erlauben, seine Inhalte zu bearbeiten, um sie zu verkleinern. Ein Beispiel hierfür ist das Zeichenlimit beim Posten in sozialen Medien. JavaScript, einschließlich [Lösungen, die `maxlength` verwenden](https://github.com/mimo84/bootstrap-maxlength), können hierfür verwendet werden.
 
 > [!NOTE]
-> Längenbeschränkungen werden nie berichtet, wenn der Wert programmiert gesetzt wird. Sie werden nur für benutzergelieferte Eingaben berichtet.
+> Längenbeschränkungen werden nie gemeldet, wenn der Wert programmgesteuert gesetzt wird. Sie werden nur für benutzereingabene Daten gemeldet.
 
-### Einschränkung der Werte Ihrer Eingaben
+### Einschränken der Werte Ihrer Eingaben
 
-Für numerische Felder, einschließlich [`<input type="number">`](/de/docs/Web/HTML/Element/input/number) und die verschiedenen Datumseingabetypen, können die [`min`](/de/docs/Web/HTML/Attributes/min)- und [`max`](/de/docs/Web/HTML/Attributes/max)-Attribute verwendet werden, um einen Bereich gültiger Werte anzugeben.
-Wenn das Feld einen Wert außerhalb dieses Bereichs enthält, wird es als ungültig betrachtet.
+Für numerische Felder, einschließlich [`<input type="number">`](/de/docs/Web/HTML/Element/input/number) und der verschiedenen Dateneingabetypen, können die [`min`](/de/docs/Web/HTML/Attributes/min) und [`max`](/de/docs/Web/HTML/Attributes/max) Attribute verwendet werden, um einen Bereich gültiger Werte zu definieren. Wenn das Feld einen Wert enthält, der außerhalb dieses Bereichs liegt, ist es ungültig.
 
 Sehen wir uns ein weiteres Beispiel an.
-Erstellen Sie eine neue Kopie der [fruit-start.html](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-start.html)-Datei.
+Erstellen Sie eine neue Kopie der [fruit-start.html](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-start.html) Datei.
 
-Löschen Sie nun den Inhalt des `<body>`-Elements und ersetzen Sie ihn durch das folgende:
+Löschen Sie jetzt den Inhalt des `<body>` Elements und ersetzen Sie ihn durch das Folgende:
 
 ```html
 <form>
@@ -280,11 +274,11 @@ Löschen Sie nun den Inhalt des `<body>`-Elements und ersetzen Sie ihn durch das
 </form>
 ```
 
-- Hier sehen Sie, dass wir dem Textfeld eine `minlength` und eine `maxlength` von sechs gegeben haben, was die gleiche Länge wie Banane und Kirsche ist.
-- Wir haben dem Zahlenfeld auch ein `min` von eins und ein `max` von zehn gegeben.
-  Eingegebene Zahlen außerhalb dieses Bereichs werden als ungültig angezeigt; Benutzer können die Inkrement-/Dekrementpfeile nicht verwenden, um den Wert außerhalb dieses Bereichs zu bewegen.
+- Sie werden hier sehen, dass wir dem `text` Feld eine `minlength` und `maxlength` von sechs gegeben haben, was die gleiche Länge wie Banane und Kirsche ist.
+- Wir haben dem `number` Feld auch ein `min` von eins und ein `max` von zehn gegeben.
+  Eingetragene Zahlen außerhalb dieses Bereichs werden als ungültig angezeigt; Benutzer können die Inkrement-/Dekrementpfeile nicht verwenden, um den Wert außerhalb dieses Bereichs zu verschieben.
   Wenn der Benutzer manuell eine Zahl außerhalb dieses Bereichs eingibt, sind die Daten ungültig.
-  Die Zahl ist nicht erforderlich, sodass das Entfernen des Wertes zu einem gültigen Wert führt.
+  Die Zahl ist nicht erforderlich, das Entfernen des Wertes führt daher zu einem gültigen Wert.
 
 ```css hidden
 input:invalid {
@@ -300,18 +294,18 @@ div {
 }
 ```
 
-Hier ist das Beispiel live ausführbar:
+Hier ist das Beispiel live:
 
 {{EmbedLiveSample("Constraining_the_values_of_your_entries", "100%", 100)}}
 
-Versuchen Sie dieses [Beispiel live auf GitHub](https://mdn.github.io/learning-area/html/forms/form-validation/fruit-length.html) zu sehen und den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-length.html) anzusehen.
+Versuchen Sie dieses [Beispiel live auf GitHub](https://mdn.github.io/learning-area/html/forms/form-validation/fruit-length.html) und schauen Sie sich den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-length.html) an.
 
-Numerische Eingabetypen, wie `number`, `range` und `date`, können auch das [`step`](/de/docs/Web/HTML/Attributes/step)-Attribut annehmen. Dieses Attribut gibt an, in welchem Schritt der Wert erhöht oder verringert wird, wenn die Eingabesteuerungen verwendet werden (wie die Auf- und Ab-Nummern-Buttons oder das Verschieben des Bereichsreglers). Das `step`-Attribut wird in unserem Beispiel weggelassen, daher ist der Wert standardmäßig `1`. Dies bedeutet, dass Fließkommazahlen, wie 3.2, auch als ungültig angezeigt werden.
+Numerische Eingabetypen wie `number`, `range` und `date` können auch das [`step`](/de/docs/Web/HTML/Attributes/step) Attribut aufnehmen. Dieses Attribut gibt an, um welchen Inkrementwert der Wert steigt oder fällt, wenn die Eingabesteuerelemente verwendet werden (z. B. die Auf- und Abzahlknöpfe oder beim Verschieben des Bereichs). In unserem Beispiel wird das `step` Attribut weggelassen, so dass der Wert standardmäßig auf `1` eingestellt ist. Dies bedeutet, dass Fließkommazahlen wie 3.2 ebenfalls als ungültig angezeigt werden.
 
 ### Vollständiges Beispiel
 
-Hier ist ein vollständiges Beispiel, um die Verwendung von HTML's eingebauten Validierungsfunktionen zu zeigen.
-Zuerst ein bisschen HTML:
+Hier ist ein vollständiges Beispiel, das die Verwendung der integrierten Validierungsfunktionen von HTML zeigt.
+Zuerst ein wenig HTML:
 
 ```html
 <form>
@@ -366,7 +360,7 @@ Zuerst ein bisschen HTML:
 </form>
 ```
 
-Und nun etwas CSS, um das HTML zu stylen:
+Und jetzt ein wenig CSS, um das HTML zu stylen:
 
 ```css
 form {
@@ -401,63 +395,62 @@ Dies wird wie folgt gerendert:
 
 {{EmbedLiveSample("Full_example", "100%", 420)}}
 
-Dieses [vollständige Beispiel ist live auf GitHub](https://mdn.github.io/learning-area/html/forms/form-validation/full-example.html) zusammen mit dem [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/full-example.html).
+Dieses [vollständige Beispiel live auf GitHub](https://mdn.github.io/learning-area/html/forms/form-validation/full-example.html) ist zusammen mit dem [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/full-example.html) verfügbar.
 
-Siehe [Validierungsbezogene Attribute](/de/docs/Web/HTML/Constraint_validation#validation-related_attributes) für eine vollständige Liste der Attribute, die verwendet werden können, um Eingabewerte einzuschränken und die Eingabetypen, die sie unterstützen.
+Sehen Sie sich die [validierungsbezogenen Attribute](/de/docs/Web/HTML/Constraint_validation#validation-related_attributes) für eine vollständige Liste von Attributen an, die verwendet werden können, um Eingabewerte zu beschränken, und die Eingabetypen, die sie unterstützen.
 
 ## Validierung von Formularen mit JavaScript
 
-Wenn Sie den Text der nativen Fehlermeldungen ändern möchten, ist JavaScript erforderlich.
-In diesem Abschnitt werden wir uns die verschiedenen Methoden ansehen, dies zu tun.
+Wenn Sie den Text der nativen Fehlermeldungen ändern möchten, wird JavaScript benötigt. In diesem Abschnitt werden wir uns die verschiedenen Möglichkeiten ansehen, dies zu tun.
 
 ### Die Constraint Validation API
 
-Die Constraint Validation API besteht aus einem Satz von Methoden und Eigenschaften, die auf den folgenden Formularelement DOM-Schnittstellen verfügbar sind:
+Die Constraint Validation API besteht aus einer Reihe von Methoden und Eigenschaften, die auf den folgenden Formularelement-DOM-Interfaces verfügbar sind:
 
-- [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) (repräsentiert ein [`<button>`](/de/docs/Web/HTML/Element/button)-Element)
-- [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement) (repräsentiert ein [`<fieldset>`](/de/docs/Web/HTML/Element/fieldset)-Element)
-- [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) (repräsentiert ein [`<input>`](/de/docs/Web/HTML/Element/input)-Element)
-- [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) (repräsentiert ein [`<output>`](/de/docs/Web/HTML/Element/output)-Element)
-- [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) (repräsentiert ein [`<select>`](/de/docs/Web/HTML/Element/select)-Element)
-- [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) (repräsentiert ein [`<textarea>`](/de/docs/Web/HTML/Element/textarea)-Element)
+- [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) (repräsentiert ein [`<button>`](/de/docs/Web/HTML/Element/button) Element)
+- [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement) (repräsentiert ein [`<fieldset>`](/de/docs/Web/HTML/Element/fieldset) Element)
+- [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) (repräsentiert ein [`<input>`](/de/docs/Web/HTML/Element/input) Element)
+- [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) (repräsentiert ein [`<output>`](/de/docs/Web/HTML/Element/output) Element)
+- [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) (repräsentiert ein [`<select>`](/de/docs/Web/HTML/Element/select) Element)
+- [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) (repräsentiert ein [`<textarea>`](/de/docs/Web/HTML/Element/textarea) Element)
 
-Die Constraint Validation API stellt die folgenden Eigenschaften auf den oben genannten Elementen zur Verfügung:
+Die Constraint Validation API stellt die folgenden Eigenschaften für die obigen Elemente bereit.
 
-- `validationMessage`: Gibt eine lokalisierte Nachricht zurück, die die Validierungseinschränkungen beschreibt, die das Steuerelement nicht erfüllt (falls vorhanden). Wenn das Steuerelement kein Kandidat für die Validierung von Einschränkungen ist (`willValidate` ist `false`) oder der Wert des Elements seine Einschränkungen erfüllt (gültig ist), wird dies eine leere Zeichenfolge zurückgeben.
-- `validity`: Gibt ein `ValidityState`-Objekt zurück, das mehrere Eigenschaften enthält, die den Gültigkeitszustand des Elements beschreiben. Sie finden vollständige Informationen zu allen verfügbaren Eigenschaften in der [`ValidityState`](/de/docs/Web/API/ValidityState)-Referenzseite; unten sind einige der häufigsten aufgelistet:
+- `validationMessage`: Gibt eine lokalisierte Nachricht zurück, die die Validierungseinschränkungen beschreibt, die das Steuerelement nicht erfüllt (falls vorhanden). Wenn das Steuerelement kein Kandidat für die Constraint-Validierung ist (`willValidate` ist `false`) oder der Wert des Elements seine Einschränkungen erfüllt (gültig ist), wird eine leere Zeichenfolge zurückgegeben.
+- `validity`: Gibt ein `ValidityState` Objekt zurück, das mehrere Eigenschaften enthält, die den Gültigkeitszustand des Elements beschreiben. Sie finden vollständige Details zu allen verfügbaren Eigenschaften auf der [`ValidityState`](/de/docs/Web/API/ValidityState) Referenzseite; im Folgenden sind einige der häufigeren aufgeführt:
 
-  - [`patternMismatch`](/de/docs/Web/API/ValidityState/patternMismatch): Gibt `true` zurück, wenn der Wert nicht dem angegebenen [`pattern`](/de/docs/Web/HTML/Element/input#pattern) entspricht, und `false`, wenn er übereinstimmt. Wenn `true`, erfüllt das Element die {{cssxref(":invalid")}} CSS-Pseudoklasse.
-  - [`tooLong`](/de/docs/Web/API/ValidityState/tooLong): Gibt `true` zurück, wenn der Wert länger ist als die durch das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength)-Attribut festgelegte maximale Länge oder `false`, wenn er kürzer oder gleich dem Maximum ist. Wenn `true`, erfüllt das Element die {{cssxref(":invalid")}} CSS-Pseudoklasse.
-  - [`tooShort`](/de/docs/Web/API/ValidityState/tooShort): Gibt `true` zurück, wenn der Wert kürzer ist als die durch das [`minlength`](/de/docs/Web/HTML/Element/input#minlength)-Attribut festgelegte minimale Länge oder `false`, wenn er größer oder gleich diesem Minimum ist. Wenn `true`, erfüllt das Element die {{cssxref(":invalid")}} CSS-Pseudoklasse.
-  - [`rangeOverflow`](/de/docs/Web/API/ValidityState/rangeOverflow): Gibt `true` zurück, wenn der Wert größer ist als der durch das [`max`](/de/docs/Web/HTML/Element/input#max)-Attribut festgelegte Maximalwert oder `false`, wenn er kleiner oder gleich diesem Maximalwert ist. Wenn `true`, erfüllt das Element die {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
-  - [`rangeUnderflow`](/de/docs/Web/API/ValidityState/rangeUnderflow): Gibt `true` zurück, wenn der Wert kleiner ist als der durch das [`min`](/de/docs/Web/HTML/Element/input#min)-Attribut festgelegte Minimalwert oder `false`, wenn er größer oder gleich diesem Minimum ist. Wenn `true`, erfüllt das Element die {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
-  - [`typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch): Gibt `true` zurück, wenn der Wert nicht im erforderlichen Syntax ist (wenn [`type`](/de/docs/Web/HTML/Element/input#type) `email` oder `url` ist), oder `false`, wenn die Syntax korrekt ist. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} CSS-Pseudoklasse.
-  - `valid`: Gibt `true` zurück, wenn das Element alle seine Validierungseinschränkungen erfüllt und daher als gültig angesehen wird, oder `false`, wenn es eine Einschränkung nicht erfüllt. Wenn `true`, erfüllt das Element die {{cssxref(":valid")}} CSS-Pseudoklasse; andernfalls die {{cssxref(":invalid")}} CSS-Pseudoklasse.
-  - `valueMissing`: Gibt `true` zurück, wenn das Element ein [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut hat, aber keinen Wert, oder `false` andererseits. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} CSS-Pseudoklasse.
+  - [`patternMismatch`](/de/docs/Web/API/ValidityState/patternMismatch): Gibt `true` zurück, wenn der Wert nicht dem angegebenen [`pattern`](/de/docs/Web/HTML/Element/input#pattern) entspricht, und `false`, wenn er es tut. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} CSS-Pseudoklasse.
+  - [`tooLong`](/de/docs/Web/API/ValidityState/tooLong): Gibt `true` zurück, wenn der Wert länger als die maximale Länge ist, die durch das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength) Attribut angegeben wird, oder `false`, wenn er kürzer oder gleich der maximalen Länge ist. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} CSS-Pseudoklasse.
+  - [`tooShort`](/de/docs/Web/API/ValidityState/tooShort): Gibt `true` zurück, wenn der Wert kürzer als die minimale Länge ist, die durch das [`minlength`](/de/docs/Web/HTML/Element/input#minlength) Attribut angegeben wird, oder `false`, wenn er größer oder gleich der minimalen Länge ist. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} CSS-Pseudoklasse.
+  - [`rangeOverflow`](/de/docs/Web/API/ValidityState/rangeOverflow): Gibt `true` zurück, wenn der Wert größer als der durch das [`max`](/de/docs/Web/HTML/Element/input#max) Attribut angegebene Maximalwert ist, oder `false`, wenn er kleiner oder gleich dem Maximalwert ist. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
+  - [`rangeUnderflow`](/de/docs/Web/API/ValidityState/rangeUnderflow): Gibt `true` zurück, wenn der Wert kleiner als der durch das [`min`](/de/docs/Web/HTML/Element/input#min) Attribut angegebene Minimalwert ist, oder `false`, wenn er größer oder gleich dem Minimalwert ist. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
+  - [`typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch): Gibt `true` zurück, wenn der Wert nicht der erforderlichen Syntax entspricht (wenn der [`type`](/de/docs/Web/HTML/Element/input#type) `email` oder `url` ist), oder `false`, wenn die Syntax korrekt ist. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} CSS-Pseudoklasse.
+  - `valid`: Gibt `true` zurück, wenn das Element alle seine Validierungseinschränkungen erfüllt und daher als gültig angesehen wird, oder `false`, wenn es eine Einschränkung verletzt. Wenn `true`, entspricht das Element der {{cssxref(":valid")}} CSS-Pseudoklasse; anderweitig der {{cssxref(":invalid")}} CSS-Pseudoklasse.
+  - `valueMissing`: Gibt `true` zurück, wenn das Element ein [`required`](/de/docs/Web/HTML/Element/input#required) Attribut hat, aber keinen Wert hat, oder `false` andernfalls. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} CSS-Pseudoklasse.
 
-- `willValidate`: Gibt `true` zurück, wenn das Element validiert wird, wenn das Formular eingereicht wird; andernfalls `false`.
+- `willValidate`: Gibt `true` zurück, wenn das Element beim Einreichen des Formulars validiert wird; `false` andernfalls.
 
-Die Constraint Validation API stellt auch die folgenden Methoden auf den oben genannten Elementen und dem [`form`](/de/docs/Web/HTML/Element/form)-Element zur Verfügung.
+Die Constraint Validation API stellt auch die folgenden Methoden für die oben genannten Elemente und das [`form`](/de/docs/Web/HTML/Element/form) Element zur Verfügung.
 
-- `checkValidity()`: Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist; andernfalls `false`. Wenn das Element ungültig ist, löst diese Methode auch ein [`invalid`-Event](/de/docs/Web/API/HTMLInputElement/invalid_event) für das Element aus.
-- `reportValidity()`: Berichtet ungültige Felder mithilfe von Ereignissen. Diese Methode ist nützlich in Kombination mit `preventDefault()` in einem `onSubmit`-Event-Handler.
-- `setCustomValidity(message)`: Fügt dem Element eine benutzerdefinierte Fehlermeldung hinzu; wenn Sie eine benutzerdefinierte Fehlermeldung festlegen, wird das Element als ungültig angesehen, und der angegebene Fehler wird angezeigt. Dadurch können Sie mit JavaScript-Code einen Validierungsfehler festlegen, der über die Standard-HTML-Validierungseinschränkungen hinausgeht. Die Nachricht wird dem Benutzer bei der Problemberichterstattung angezeigt.
+- `checkValidity()`: Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme hat; `false` andernfalls. Wenn das Element ungültig ist, löst diese Methode auch ein [`invalid`-Ereignis](/de/docs/Web/API/HTMLInputElement/invalid_event) für das Element aus.
+- `reportValidity()`: Meldet ungültige Felder mit Ereignissen. Diese Methode ist nützlich in Kombination mit `preventDefault()` in einer `onSubmit`-Ereignishandler.
+- `setCustomValidity(message)`: Fügt dem Element eine benutzerdefinierte Fehlermeldung hinzu; Wenn Sie eine benutzerdefinierte Fehlermeldung festlegen, wird das Element als ungültig betrachtet, und der angegebene Fehler wird angezeigt. Auf diese Weise können Sie mit JavaScript-Code eine Validierungsfehler neben den standardmäßigen HTML-Validierungseinschränkungen etablieren. Die Nachricht wird dem Benutzer angezeigt, wenn das Problem gemeldet wird.
 
 #### Implementierung einer benutzerdefinierten Fehlermeldung
 
-Wie Sie in den HTML-Validierungsbeispielen früher gesehen haben, zeigt jeder Versuch eines Benutzers, ein ungültiges Formular abzuschicken, dem Browser eine Fehlermeldung an. Die Art und Weise, wie diese Nachricht angezeigt wird, hängt vom Browser ab.
+Wie Sie in den früheren Beispielen für HTML-Validierungseinschränkungen gesehen haben, zeigt der Browser jedes Mal, wenn ein Benutzer versucht, ein ungültiges Formular abzuschicken, eine Fehlermeldung an. Die Art und Weise, wie diese Nachricht angezeigt wird, hängt vom Browser ab.
 
 Diese automatisierten Nachrichten haben zwei Nachteile:
 
-- Es gibt keinen standardisierten Weg, ihr Aussehen und Gefühl mit CSS zu ändern.
-- Sie hängen von der Browsersprache ab, was bedeutet, dass Sie eine Seite in einer Sprache haben können, aber eine Fehlermeldung an einer anderen Sprache angezeigt wird, wie im folgenden Firefox-Screenshot zu sehen ist.
+- Es gibt keinen standardmäßigen Weg, ihr Aussehen und Gefühl mit CSS zu ändern.
+- Sie hängen vom Browser-Locale ab, was bedeutet, dass Sie eine Seite in einer Sprache haben können, aber eine Fehlermeldung in einer anderen Sprache angezeigt wird, wie im folgenden Firefox-Screenshot zu sehen ist.
 
-![Beispiel einer Fehlermeldung mit Firefox auf Französisch auf einer englischen Seite](error-firefox-win7.png)
+![Beispiel einer Fehlermeldung mit Firefox in Französisch auf einer englischen Seite](error-firefox-win7.png)
 
-Das Anpassen dieser Fehlermeldungen ist einer der häufigsten Anwendungsfälle der Constraint Validation API.
-Lassen Sie uns ein Beispiel durcharbeiten, wie man dies tut.
+Die Anpassung dieser Fehlermeldungen ist einer der häufigsten Anwendungsfälle der Constraint Validation API.
+Lassen Sie uns ein Beispiel durchgehen, wie dies zu tun ist.
 
-Wir beginnen mit einem HTML-Dokument (fühlen Sie sich frei, dies in einer leeren HTML-Datei zu platzieren; verwenden Sie eine frische Kopie von [fruit-start.html](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-start.html) als Grundlage, wenn Sie möchten):
+Wir beginnen mit etwas HTML (fühlen Sie sich frei, dies in eine leere HTML-Datei zu setzen; verwenden Sie eine frische Kopie von [fruit-start.html](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/fruit-start.html) als Basis, wenn Sie möchten):
 
 ```html
 <form>
@@ -469,7 +462,7 @@ Wir beginnen mit einem HTML-Dokument (fühlen Sie sich frei, dies in einer leere
 </form>
 ```
 
-Fügen Sie die folgende JavaScript-Datei zur Seite hinzu:
+Fügen Sie der Seite das folgende JavaScript hinzu:
 
 ```js
 const email = document.getElementById("mail");
@@ -483,25 +476,25 @@ email.addEventListener("input", (event) => {
 });
 ```
 
-Hier speichern wir eine Referenz auf die E-Mail-Eingabe und fügen ihr einen Ereignis-Listener hinzu, der bei jeder Änderung des Wertes innerhalb der Eingabe den enthaltenen Code ausführt.
+Hier speichern wir eine Referenz zur E-Mail-Eingabe und fügen dann einen Ereignis-Listener hinzu, der den enthaltenen Code jedes Mal ausführt, wenn sich der Wert innerhalb der Eingabe ändert.
 
-Im enthaltenen Code überprüfen wir, ob die `validity.typeMismatch`-Eigenschaft der E-Mail-Eingabe `true` zurückgibt, was bedeutet, dass der enthaltene Wert nicht dem Muster für eine wohlgeformte E-Mail-Adresse entspricht. Wenn ja, rufen wir die [`setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity)-Methode mit einer benutzerdefinierten Nachricht auf. Dies macht die Eingabe ungültig, sodass bei dem Versuch, das Formular zu übermitteln, die Übermittlung fehlschlägt und die benutzerdefinierte Fehlermeldung angezeigt wird.
+Im enthaltenen Code überprüfen wir, ob die `validity.typeMismatch`-Eigenschaft der E-Mail-Eingabe `true` zurückgibt, was bedeutet, dass der enthaltene Wert nicht dem Muster einer gut formatierten E-Mail-Adresse entspricht. Wenn dies der Fall ist, rufen wir die Methode [`setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity) mit einer benutzerdefinierten Nachricht auf. Dies macht die Eingabe ungültig, sodass das Absenden des Formulars fehlschlägt und die benutzerdefinierte Fehlermeldung angezeigt wird.
 
-Wenn die `validity.typeMismatch`-Eigenschaft `false` zurückgibt, rufen wir die `setCustomValidity()`-Methode mit einer leeren Zeichenfolge auf. Dies macht die Eingabe gültig, sodass das Formular übermittelt wird. Während der Validierung wird, wenn ein Formularelement eine `customError` hat, die nicht die leere Zeichenfolge ist, die Übermittlung blockiert.
+Wenn die `validity.typeMismatch`-Eigenschaft `false` zurückgibt, rufen wir die Methode `setCustomValidity()` mit einer Leerzeichenfolge auf. Dies macht die Eingabe gültig, sodass das Formular abgeschickt werden kann. Während der Validierung wird, wenn ein Formularfeld eine `customError` enthält, die keine Leerzeichenfolge ist, das Absenden des Formulars blockiert.
 
 Sie können es unten ausprobieren:
 
 {{EmbedGHLiveSample("learning-area/html/forms/form-validation/custom-error-message.html", '100%', 120)}}
 
-Sie können dieses Beispiel live auf GitHub als [custom-error-message.html](https://mdn.github.io/learning-area/html/forms/form-validation/custom-error-message.html) finden, zusammen mit dem [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/custom-error-message.html).
+Sie können dieses Beispiel live auf GitHub als [custom-error-message.html](https://mdn.github.io/learning-area/html/forms/form-validation/custom-error-message.html) ausprobieren, zusammen mit dem [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/custom-error-message.html).
 
 #### Erweiterung der integrierten Formularvalidierung
 
 Das vorherige Beispiel zeigte, wie Sie eine benutzerdefinierte Nachricht für einen bestimmten Fehlertyp (`validity.typeMismatch`) hinzufügen können.
-Es ist auch möglich, alle integrierten Formularvalidierungen zu verwenden und dann um `setCustomValidity()` zu erweitern.
+Es ist auch möglich, die gesamte integrierte Formularvalidierung zu verwenden und sie dann mit `setCustomValidity()` zu erweitern.
 
-Hier demonstrieren wir, wie Sie die integrierte Validierung für [`<input type="email">`](/de/docs/Web/HTML/Element/input/email) erweitern können, um nur Adressen mit der Domain `@example.com` zu akzeptieren.
-Wir beginnen mit dem untenstehenden HTML-{{htmlelement("form")}}
+Hier demonstrieren wir, wie Sie die integrierte Validierung von [`<input type="email">`](/de/docs/Web/HTML/Element/input/email) erweitern können, um nur Adressen mit der Domain `@example.com` zu akzeptieren.
+Wir beginnen mit dem HTML-{{htmlelement("form")}} unten.
 
 ```html
 <form>
@@ -511,12 +504,12 @@ Wir beginnen mit dem untenstehenden HTML-{{htmlelement("form")}}
 </form>
 ```
 
-Der Validierungscode wird unten gezeigt.
-Im Falle einer neuen Eingabe setzt der Code zunächst die benutzerdefinierte Fehlermeldung zurück, indem er `setCustomValidity("")` aufruft.
-Er verwendet dann `email.validity.valid`, um zu überprüfen, ob die eingegebene Adresse ungültig ist, und falls ja, wird aus dem Ereignis-Handler zurückgegeben.
-Dies stellt sicher, dass alle normalen eingebauten Überprüfungen ausgeführt werden, während der eingegebene Text keine gültige E-Mail-Adresse ist.
+Der Validierungscode wird unten angezeigt.
+Im Falle einer neuen Eingabe setzt der Code zuerst die benutzerdefinierte Gültigkeitsmeldung zurück, indem `setCustomValidity("")` aufgerufen wird.
+Anschließend wird `email.validity.valid` verwendet, um zu überprüfen, ob die eingegebene Adresse ungültig ist und falls ja, aus dem Ereignishandler zurückgekehrt.
+Dies stellt sicher, dass alle normalen integrierten Validierungsüberprüfungen ausgeführt werden, während der eingegebene Text keine gültige E-Mail-Adresse ist.
 
-Sobald die E-Mail-Adresse gültig ist, fügt der Code eine benutzerdefinierte Einschränkung hinzu und ruft `setCustomValidity()` mit einer Fehlermeldung auf, wenn die Adresse nicht mit `@example.com` endet.
+Sobald die E-Mail-Adresse gültig ist, fügt der Code eine benutzerdefinierte Einschränkung hinzu, indem `setCustomValidity()` mit einer Fehlermeldung aufgerufen wird, wenn die Adresse nicht mit `@example.com` endet.
 
 ```js
 const email = document.getElementById("mail");
@@ -535,14 +528,14 @@ email.addEventListener("input", (event) => {
 });
 ```
 
-Sie können dieses Beispiel auf der Seite am {{LiveSampleLink('Extending_built-in_form_validation', 'Livebeispiel-Demolink')}} ausprobieren.
-Versuchen Sie, eine ungültige E-Mail-Adresse, eine gültige E-Mail-Adresse, die nicht mit `@example.com` endet, und eine, die mit `@example.com` endet, einzureichen.
+Sie können dieses Beispiel auf der Seite unter dem {{LiveSampleLink('Extending_built-in_form_validation', 'Live sample demo link')}} ausprobieren.
+Versuchen Sie, eine ungültige E-Mail-Adresse, eine gültige E-Mail-Adresse, die nicht mit `@example.com` endet, und eine, die mit `@example.com` endet, abzuschicken.
 
 #### Ein detaillierteres Beispiel
 
-Nachdem wir nun ein sehr grundlegendes Beispiel gesehen haben, sehen wir, wie wir mit dieser API einige etwas komplexere benutzerdefinierte Validierungen erstellen können.
+Nachdem wir nun ein wirklich einfaches Beispiel gesehen haben, wollen wir sehen, wie wir diese API verwenden können, um ein etwas komplexeres benutzerdefiniertes Validierungssystem zu erstellen.
 
-Zuerst das HTML. Auch hier können Sie dies gerne mit uns erstellen:
+Zuerst das HTML. Bauen Sie es gerne mit uns auf:
 
 ```html
 <form novalidate>
@@ -557,16 +550,14 @@ Zuerst das HTML. Auch hier können Sie dies gerne mit uns erstellen:
 </form>
 ```
 
-Dieses Formular verwendet das [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate)-Attribut, um die automatische Validierung des Browsers zu deaktivieren. Durch das Setzen des `novalidate`-Attributs auf dem Formular wird das Formular daran gehindert, seine eigenen Fehlerbläschen anzuzeigen, und es ermöglicht uns stattdessen, die benutzerdefinierten Fehlermeldungen auf eine Weise im DOM anzuzeigen, die unserer Wahl entspricht.
-Dies deaktiviert jedoch nicht die Unterstützung für die Constraint Validation API noch die Anwendung von CSS-Pseudoklassen wie {{cssxref(":valid")}} usw.
-Das bedeutet, dass auch wenn der Browser die Gültigkeit des Formulars nicht automatisch überprüft, bevor seine Daten gesendet werden, Sie dies selbst tun können und das Formular entsprechend stylen können.
+Dieses Formular verwendet das [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate) Attribut, um die automatische Validierung des Browsers zu deaktivieren. Das Festlegen des `novalidate` Attributs auf dem Formular verhindert, dass das Formular seine eigenen Fehlermeldungsblasen anzeigt, und ermöglicht es uns stattdessen, die benutzerdefinierten Fehlermeldungen auf irgendeine Weise in das DOM einzubauen. Dies deaktiviert jedoch nicht die Unterstützung für die Constraint Validation API noch die Anwendung von CSS-Pseudoklassen wie {{cssxref(":valid")}} usw. Das bedeutet, dass selbst wenn der Browser nicht automatisch die Gültigkeit des Formulars überprüft, bevor er seine Daten sendet, Sie dies immer noch tun können und das Formular entsprechend stylen können.
 
-Unser zu prüfendes Eingabeelement ist ein [`<input type="email">`](/de/docs/Web/HTML/Element/input/email), das `required` ist und eine `minlength` von 8 Zeichen hat. Lassen Sie uns diese mit unserem eigenen Code überprüfen und eine benutzerdefinierte Fehlermeldung für jedes anzeigen.
+Unsere zu validierende Eingabe ist ein [`<input type="email">`](/de/docs/Web/HTML/Element/input/email), das `required` ist und eine `minlength` von 8 Zeichen hat. Lassen Sie uns diese mit unserem eigenen Code überprüfen und für jede einen benutzerdefinierten Fehler anzeigen.
 
-Unser Ziel ist es, die Fehlermeldungen innerhalb eines `<span>`-Elements anzuzeigen.
-Das [`aria-live`](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions)-Attribut ist auf diesem `<span>` festgelegt, um sicherzustellen, dass unsere benutzerdefinierte Fehlermeldung allen bereitgestellt wird, einschließlich sie für Sehbehinderte vorzulesen.
+Wir zielen darauf ab, die Fehlermeldungen in einem `<span>` Element anzuzeigen.
+Das [`aria-live`](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) Attribut ist auf diesem `<span>` gesetzt, um sicherzustellen, dass unsere benutzerdefinierte Fehlermeldung allen mitgeteilt wird, einschließlich der Ansage an Bildschirmlesegeräte.
 
-Nun etwas grundlegendes CSS, um das Formular leicht zu verbessern und visuelles Feedback zu geben, wenn die Eingabedaten ungültig sind:
+Nun zum grundlegenden CSS, um das Formular leicht zu verbessern und visuelles Feedback zu geben, wenn die Eingabedaten ungültig sind:
 
 ```css
 body {
@@ -622,9 +613,9 @@ input:focus:invalid {
 ```
 
 Schauen wir uns nun das JavaScript an, das die benutzerdefinierte Fehlerüberprüfung implementiert.
-Es gibt viele Möglichkeiten, einen DOM-Knoten auszuwählen; hier erhalten wir das Formular selbst und das E-Mail-Eingabefeld sowie das Span-Element, in das wir die Fehlermeldung platzieren.
+Es gibt viele Möglichkeiten, einen DOM-Knoten auszuwählen; hier holen wir uns das Formular selbst und das E-Mail Eingabefeld sowie das Span-Element, in das wir die Fehlermeldung platzieren werden.
 
-Mithilfe von Ereignis-Handlern überprüfen wir bei jeder Eingabe des Benutzers, ob die Formularfelder gültig sind. Wenn ein Fehler vorliegt, zeigen wir ihn an. Wenn kein Fehler vorliegt, entfernen wir alle Fehlermeldungen.
+Mit Ereignishandlern prüfen wir bei jeder Eingabe des Benutzers, ob die Formularfelder gültig sind. Wenn ein Fehler vorliegt, zeigen wir ihn an. Wenn kein Fehler vorliegt, entfernen wir jegliche Fehlermeldung.
 
 ```js
 const form = document.querySelector("form");
@@ -667,47 +658,47 @@ function showError() {
 }
 ```
 
-Jedes Mal, wenn wir den Wert der Eingabe ändern, überprüfen wir, ob er gültige Daten enthält. Wenn ja, entfernen wir alle angezeigten Fehlermeldungen. Wenn die Daten nicht gültig sind, führen wir `showError()` aus, um den entsprechenden Fehler anzuzeigen.
+Jedes Mal, wenn sich der Wert der Eingabe ändert, überprüfen wir, ob sie gültige Daten enthält. Wenn sie es tut, entfernen wir jegliche angezeigte Fehlermeldung. Wenn die Daten nicht gültig sind, führen wir `showError()` aus, um den entsprechenden Fehler anzuzeigen.
 
-Jedes Mal, wenn wir versuchen, das Formular abzusenden, prüfen wir erneut, ob die Daten gültig sind. Wenn ja, lassen wir das Formular absenden. Wenn nicht, führen wir `showError()` aus, um den entsprechenden Fehler anzuzeigen und verhindern das Absenden des Formulars mit [`preventDefault()`](/de/docs/Web/API/Event/preventDefault).
+Jedes Mal, wenn wir versuchen, das Formular abzusenden, überprüfen wir erneut, ob die Daten gültig sind. Wenn ja, lassen wir das Formular absenden. Wenn nicht, führen wir `showError()` aus, um den entsprechenden Fehler anzuzeigen, und verhindern das Abschicken des Formulars mit [`preventDefault()`](/de/docs/Web/API/Event/preventDefault).
 
-Die Funktion `showError()` verwendet verschiedene Eigenschaften des `validity`-Objekts der Eingabe, um zu bestimmen, was der Fehler ist, und dann eine Fehlermeldung wie angemessen anzuzeigen.
+Die `showError()` Funktion verwendet verschiedene Eigenschaften des `validity` Objekts der Eingabe, um zu bestimmen, was der Fehler ist, und zeigt dann eine Fehlermeldung entsprechend an.
 
 Hier ist das Live-Ergebnis:
 
 {{EmbedGHLiveSample("learning-area/html/forms/form-validation/detailed-custom-validation.html", '100%', 150)}}
 
-Sie können dieses Beispiel live auf GitHub unter [detailed-custom-validation.html](https://mdn.github.io/learning-area/html/forms/form-validation/detailed-custom-validation.html) zusammen mit dem [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/detailed-custom-validation.html) finden.
+Sie können dieses Beispiel live auf GitHub als [detailed-custom-validation.html](https://mdn.github.io/learning-area/html/forms/form-validation/detailed-custom-validation.html) ausprobieren, zusammen mit dem [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/form-validation/detailed-custom-validation.html).
 
-Die Constraint Validation API gibt Ihnen ein mächtiges Werkzeug zur Handhabung der Formularvalidierung, das Ihnen eine enorme Kontrolle über die Benutzeroberfläche gibt, die über das hinausgeht, was Sie nur mit HTML und CSS tun können.
+Die Constraint Validation API gibt Ihnen ein leistungsstarkes Werkzeug, um die Formularvalidierung zu handhaben, das es Ihnen ermöglicht, die Benutzeroberfläche über das hinaus zu steuern, was Sie allein mit HTML und CSS tun können.
 
-### Validierung von Formularen ohne integrierte API
+### Validierung von Formularen ohne eingebaute API
 
-In einigen Fällen, wie bei [benutzerdefinierten Steuerelementen](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls), können Sie die Constraint Validation API nicht verwenden oder möchten sie nicht verwenden. Sie können weiterhin JavaScript zur Validierung Ihres Formulars verwenden, müssen es jedoch selbst schreiben.
+In einigen Fällen, wie bei [benutzerdefinierten Steuerelementen](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls), können Sie die Constraint Validation API nicht verwenden oder möchten Sie dies nicht. Sie sind dennoch in der Lage, JavaScript zu verwenden, um Ihr Formular zu validieren, aber Sie müssen Ihr eigenes schreiben.
 
 Um ein Formular zu validieren, stellen Sie sich einige Fragen:
 
 - Welche Art von Validierung sollte ich durchführen?
-  - : Sie müssen bestimmen, wie Sie Ihre Daten validieren: String-Operationen, Typkonvertierung, reguläre Ausdrücke und so weiter. Es liegt an Ihnen.
-- Was sollte ich tun, wenn das Formular ungültig ist?
-  - : Dies ist eindeutig eine UI-Angelegenheit. Sie müssen entscheiden, wie das Formular sich verhalten wird. Senden die Formulardaten trotzdem?
+  - : Sie müssen bestimmen, wie Sie Ihre Daten validieren: Zeichenfolgenoperationen, Typkonvertierung, reguläre Ausdrücke usw. Es liegt an Ihnen.
+- Was sollte ich tun, wenn das Formular nicht gültig ist?
+  - : Dies ist eindeutig eine UI-Angelegenheit. Sie müssen entscheiden, wie das Formular sich verhalten wird. Sendet das Formular die Daten trotzdem?
     Sollten Sie die fehlerhaften Felder hervorheben?
     Sollten Sie Fehlermeldungen anzeigen?
 - Wie kann ich dem Benutzer helfen, ungültige Daten zu korrigieren?
 
-  - : Um die Frustration des Benutzers zu verringern, ist es sehr wichtig, so viele hilfreiche Informationen wie möglich bereitzustellen, um sie bei der Korrektur ihrer Eingaben zu unterstützen.
-    Sie sollten im Voraus Vorschläge machen, damit sie wissen, was erwartet wird, sowie klare Fehlermeldungen geben.
-    Wenn Sie sich mit den Anforderungen der UI-Validierung befassen möchten, lesen Sie diese nützlichen Artikel:
+  - : Um die Frustration des Benutzers zu reduzieren, ist es sehr wichtig, so viele hilfreiche Informationen wie möglich bereitzustellen, um sie bei der Korrektur ihrer Eingaben zu führen.
+    Sie sollten im Voraus Vorschläge machen, damit sie wissen, was erwartet wird, sowie klare Fehlermeldungen.
+    Wenn Sie sich in die Anforderungen für die UI der Formularvalidierung vertiefen möchten, finden Sie hier einige nützliche Artikel, die Sie lesen sollten:
 
-    - [Benutzern beim Eingeben der richtigen Daten in Formulare helfen](https://web.dev/learn/forms/form-fields)
-    - [Validierung von Eingaben](https://www.w3.org/WAI/tutorials/forms/validation/)
-    - [Wie man Fehler in Formularen meldet: 10 Design-Richtlinien](https://www.nngroup.com/articles/errors-forms-design-guidelines/)
+    - [Benutzern helfen, die richtigen Daten in Formulare einzugeben](https://web.dev/learn/forms/form-fields)
+    - [Eingaben validieren](https://www.w3.org/WAI/tutorials/forms/validation/)
+    - [Wie man Fehler in Formularen meldet: 10 Designrichtlinien](https://www.nngroup.com/articles/errors-forms-design-guidelines/)
 
 #### Ein Beispiel, das die Constraint Validation API nicht verwendet
 
-Um dies zu veranschaulichen, sehen Sie hier eine vereinfachte Version des vorherigen Beispiels ohne die Constraint Validation API.
+Um dies zu veranschaulichen, folgt hier eine vereinfachte Version des vorherigen Beispiels ohne die Constraint Validation API.
 
-Das HTML ist fast dasselbe; wir haben nur die HTML-Validierungsfunktionen entfernt.
+Das HTML ist fast das gleiche; wir haben einfach die HTML-Validierungsfunktionen entfernt.
 
 ```html
 <form>
@@ -722,7 +713,7 @@ Das HTML ist fast dasselbe; wir haben nur die HTML-Validierungsfunktionen entfer
 </form>
 ```
 
-Ebenso muss sich das CSS nicht sehr ändern; wir haben nur die {{cssxref(":invalid")}} CSS-Pseudoklasse in eine echte Klasse umgewandelt und vermieden, den Attributselektor zu verwenden.
+Ebenso muss das CSS nicht viel geändert werden; wir haben einfach die {{cssxref(":invalid")}} CSS-Pseudoklasse zu einer realen Klasse gemacht und darauf verzichtet, den Attribut-Selektor zu verwenden.
 
 ```css
 body {
@@ -779,7 +770,7 @@ input:focus.invalid {
 }
 ```
 
-Die großen Änderungen sind im JavaScript-Code, der viel schwerer heben muss.
+Die großen Änderungen finden sich im JavaScript-Code, der weitaus mehr Aufgaben übernehmen muss.
 
 ```js
 const form = document.querySelector("form");
@@ -848,27 +839,22 @@ Das Ergebnis sieht so aus:
 
 {{EmbedLiveSample("An_example_that_doesnt_use_the_constraint_validation_API", "100%", 150)}}
 
-Wie Sie sehen können, ist es nicht so schwer, ein Validierungssystem selbst zu erstellen. Der schwierige Teil ist, es generisch genug zu machen, um sowohl plattformübergreifend als auch für jedes Formular, das Sie möglicherweise erstellen, verwenden zu können. Es gibt viele Bibliotheken, die zur Formularvalidierung verfügbar sind, wie [Validate.js](https://rickharrison.github.io/validate.js/).
+Wie Sie sehen können, ist es nicht so schwer, ein Validierungssystem selbst zu entwickeln. Das Schwierige ist, es so generisch zu machen, dass es sowohl plattformübergreifend als auch für jedes Formular, das Sie erstellen, verwendet werden kann. Es gibt viele Bibliotheken zur Formularvalidierung, wie [Validate.js](https://rickharrison.github.io/validate.js/).
 
-## Testen Sie Ihr Können!
+## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihr Können: Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Form_validation).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Finden Sie einige weitere Tests, um zu verifizieren, dass Sie diese Informationen behalten haben, bevor Sie fortfahren – siehe [Testen Sie Ihre Fähigkeiten: Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Form_validation).
 
 ## Zusammenfassung
 
-Die Client-seitige Formularvalidierung erfordert manchmal JavaScript, wenn Sie Stil und Fehlermeldungen anpassen möchten, aber es _immer_ ist notwendig, sorgfältig über den Benutzer nachzudenken.
-Denken Sie immer daran, Ihren Benutzern zu helfen, die Daten, die sie bereitstellen, zu korrigieren. Stellen Sie sicher, dass Sie:
+Die Validierung von Formularen auf der Clientseite benötigt manchmal JavaScript, wenn Sie das Styling und die Fehlermeldungen anpassen möchten, aber es erfordert _immer_, dass Sie sorgfältig über den Benutzer nachdenken.
+Denken Sie immer daran, Ihren Benutzern zu helfen, die Daten zu korrigieren, die sie bereitstellen. Stellen Sie sicher, dass Sie:
 
 - Explizite Fehlermeldungen anzeigen.
-- Seien Sie nachsichtig hinsichtlich des Eingabeformats.
-- Zeigen Sie genau an, wo der Fehler auftritt, insbesondere bei großen Formularen.
+- Bezüglich des Eingabeformats permissiv sind.
+- Genauer aufzeigen, wo der Fehler auftritt, insbesondere in großen Formularen.
 
-Sobald Sie überprüft haben, dass das Formular korrekt ausgefüllt ist, kann das Formular gesendet werden.
-Wir behandeln als Nächstes [das Senden von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data).
+Sobald Sie überprüft haben, dass das Formular richtig ausgefüllt ist, kann das Formular abgeschickt werden.
+Wir werden uns als Nächstes mit dem [Senden von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data) beschäftigen.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/UI_pseudo-classes", "Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data", "Learn_web_development/Extensions/Forms")}}
-
-### Fortgeschrittene Themen
-
-- [Anleitung zur Erstellung benutzerdefinierter Formularsteuerelemente](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls)
-- [Formulare durch JavaScript senden](/de/docs/Learn_web_development/Extensions/Forms/Sending_forms_through_JavaScript)

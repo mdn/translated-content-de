@@ -2,40 +2,33 @@
 title: <discard>
 slug: Web/SVG/Reference/Element/discard
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 49bbddc34034e59a63c0b2cda79e45c94ea9daa9
 ---
 
 {{SeeCompatTable}}
 
-Das **`<discard>`** [SVG](/de/docs/Web/SVG) Element kann verwendet werden, um den Zeitpunkt anzugeben, zu dem ein bestimmtes Element aus dem DOM entfernt werden soll.
-Dies erlaubt es einem SVG-Viewer, Speicher zu sparen, indem Elemente, die nicht mehr benötigt werden, wie beispielsweise abgeschlossene animierte Elemente, verworfen werden.
+Das **`<discard>`** [SVG](/de/docs/Web/SVG) Element kann verwendet werden, um den Zeitpunkt anzugeben, zu dem ein bestimmtes Element aus dem DOM entfernt werden soll. Dies ermöglicht es einem SVG-Viewer, Speicher zu sparen, indem nicht mehr benötigte Elemente, wie z.B. abgeschlossene animierte Elemente, entfernt werden.
 
-Der Vorgang entfernt das Ziel-Element und alle seine Kinder und danach das `<discard>` Element selbst (dies geschieht auch, wenn das Ziel-Element ungültig war).
+Der Vorgang entfernt das Ziellelement und alle seine Kinder und anschließend das `<discard>` Element selbst (dies geschieht auch, wenn das Ziellelement ungültig war).
 
-Das [`begin`](#begin) Attribut wird verwendet, um den Auslösepunkt anzugeben, an dem das `<discard>` Element aktiv wird und sein zugehöriges Element verworfen wird.
-Das zu entfernende Ziel-Element wird mithilfe des [`href`](#href) Attributs angegeben.
-Wenn nicht spezifiziert, ist das unmittelbare Elternelement des `<discard>` Elements das Ziel.
+Das [`begin`](#begin) Attribut wird verwendet, um den Auslösepunkt anzugeben, an dem das `<discard>` Element aktiv wird und das zugeordnete Element verworfen wird. Das Ziellelement, das aus dem DOM entfernt werden soll, wird über das [`href`](#href) Attribut angegeben. Falls nicht angegeben, ist das unmittelbare Elternteil des `<discard>` Elements das Ziel.
 
-Das `<discard>` Element kann an denselben Stellen verwendet werden wie das {{SVGElement('animate')}} Element.
-Autoren sollten das `playbackorder` Attribut auf `forwardonly` setzen, wenn sie dieses Element verwenden, da Elemente nicht wieder hinzugefügt werden, wenn der Benutzer in der Zeitleiste zurückgeht.
+`<discard>` kann an allen Orten verwendet werden, an denen auch das {{SVGElement('animate')}} Element benutzt werden kann. Autoren sollten das `playbackorder` Attribut auf `forwardonly` setzen, wenn dieses Element verwendet wird, da Elemente nicht erneut hinzugefügt werden, wenn der Benutzer in der Zeitachse rückwärts sucht.
 
 ## Attribute
 
 - {{SVGAttr("begin")}}
 
-  - : Der Auslöser, der das `<discard>` Element aktiviert, woraufhin das zugehörige Element verworfen werden sollte.
-    Dies ist häufig ein [`syncbase-value`](/de/docs/Web/SVG/Reference/Attribute/begin#syncbase-value), der den Start oder das Ende einer anderen Animation angibt, ein [`offset-value`](/de/docs/Web/SVG/Reference/Attribute/begin#offset-value) relativ zu dem Zeitpunkt, an dem die SVG-Datei in das DOM geladen wurde, oder ein [`event-value`](/de/docs/Web/SVG/Reference/Attribute/begin#event-value).
+  - : Der Auslöser, der das `<discard>` Element aktiv macht, woraufhin das zugeordnete Element verworfen werden soll. Dies ist üblicherweise ein [`syncbase-value`](/de/docs/Web/SVG/Reference/Attribute/begin#syncbase-value), der den Beginn oder das Ende einer anderen Animation angibt, ein [`offset-value`](/de/docs/Web/SVG/Reference/Attribute/begin#offset-value) relativ zu dem Zeitpunkt, zu dem die SVG-Datei in das DOM geladen wurde, oder ein [`event-value`](/de/docs/Web/SVG/Reference/Attribute/begin#event-value).
 
     _Werttyp_: [**\<begin-value-list>**](/de/docs/Web/SVG/Reference/Attribute/begin#animate_animatemotion_animatetransform_set).
     _Standardwert_: `0`; _Animierbar_: **nein**
 
 - {{SVGAttr("href")}}
 
-  - : Eine URL-Referenz auf das zu verwerfende Ziel-Element.
-    Dies hat die gleichen Anforderungen wie [`href` für Animationselemente](/de/docs/Web/SVG/Reference/Attribute/href#animate_animatemotion_animatetransform_set) und kann ein weiteres `<discard>` Element sein.
-    Wenn nicht definiert, ist das Ziel-Element das unmittelbare Elternelement des `<discard>` Elements.
+  - : Ein URL-Verweis auf das Ziellelement, das verworfen werden soll. Dies hat die gleichen Anforderungen wie [`href` bei Animationselementen](/de/docs/Web/SVG/Reference/Attribute/href#animate_animatemotion_animatetransform_set) und kann ein weiteres `<discard>` Element sein. Wenn nicht definiert, ist das Ziellelement das unmittelbare Elternteil des `<discard>` Elements.
 
-    Beachten Sie, dass, wenn das Ziel-Element nicht Teil des aktuellen SVG-Dokumentfragments ist, das Entfernen abhängig von der Zielsprache ist.
+    Beachten Sie, dass wenn das Ziellelement nicht Teil des aktuellen SVG-Dokumentfragments ist, ob es verworfen wird oder nicht, von der Zielsprache abhängt.
 
     _Standardwert_: `none`; _Animierbar_: **nein**
 
@@ -45,16 +38,13 @@ Autoren sollten das `playbackorder` Attribut auf `forwardonly` setzen, wenn sie 
 
 ## Beispiele
 
-### Verwerfen ausgelöst am Ende einer Animation
+### Verwerfen ausgelöst durch das Ende einer Animation
 
-Dieses Beispiel zeigt, wie das `<discard>` Element mit einer Aktivierung, die auf dem Abschluss einer Animation basiert, verwendet werden könnte.
-Das SVG basiert auf Erik Dahlströms "Loading bar" SVG unter http://xn--dahlstrm-t4a.net/svg/smil/svgt12_discard.svg.
+Dieses Beispiel zeigt, wie das `<discard>` Element mit einer Aktivierung, die durch das Ende einer Animation ausgelöst wird, verwendet werden könnte. Das verwendete SVG basiert auf Erik Dahlströms "Loading bar" SVG unter http://xn--dahlstrm-t4a.net/svg/smil/svgt12_discard.svg.
 
-Das SVG definiert ein "Laden abgeschlossen" {{svgelement("text")}} Element, das durch ein {{svgelement("g")}} Element verborgen wird.
+Das SVG definiert ein "Fertig geladen" {{svgelement("text")}}-Element, das von einem {{svgelement("g")}}-Element verborgen wird.
 
-Das `<rect>` wird über eine Dauer von 4 Sekunden bis zum Ende des Balkens durch die Animation mit der ID "barAnim" animiert.
-Das `<g>` Element enthält ein Discard-Element, das durch den Abschluss der "barAnim" Animation ausgelöst wird: `<discard begin="barAnim.end" />`.
-Wenn dies aktiviert wird, werden das `<g>` Element und all seine Inhalte aus dem DOM verworfen, sodass nur der Textblock, der "Laden abgeschlossen" anzeigt, übrig bleibt.
+Das `<rect>` wird über eine Dauer von 4 Sekunden bis zum Ende der Leiste durch die Animation mit der ID "barAnim" animiert. Das `<g>` Element enthält ein Discard-Element, das durch den Abschluss der "barAnim" Animation ausgelöst wird: `<discard begin="barAnim.end" />`. Wenn dies aktiviert wird, werden das `<g>` Element und alle seine Inhalte aus dem DOM entfernt, so dass nur der Textblock übrig bleibt, der "Fertig geladen" anzeigt.
 
 ```html
 <svg
@@ -100,10 +90,9 @@ Wenn dies aktiviert wird, werden das `<g>` Element und all seine Inhalte aus dem
 
 #### Ergebnis
 
-Das untenstehende Live-Beispiel zeigt das obenstehende SVG im oberen Bild, während das zweite Bild dieselbe SVG-Datei ist, jedoch ohne die `<discard>` Elemente (in Browsern, die das discard Element nicht unterstützen, verhalten sich beide Bilder gleich).
+Das folgende Live-Beispiel zeigt das oben stehende SVG im oberen Bild, während das zweite Bild die gleiche SVG-Datei ist, jedoch mit den `<discard>` Elementen entfernt (in Browsern, die das Discard-Element nicht unterstützen, verhalten sich beide Bilder gleich).
 
-Im oberen Bild (in Browsern, die das `<discard>` Element unterstützen) verschwinden der Balken und alles andere im `<g>` Element, nachdem der Balken das Ende erreicht hat, und wird verworfen, sodass nur der "Laden abgeschlossen" Text bleibt.
-Der Fortschrittsbalken im unteren Bild kehrt einfach in seinen Anfangszustand nach Abschluss der Animation zurück, und der "Laden abgeschlossen" Text wird nie angezeigt.
+Im oberen Bild (in Browsern, die das `<discard>` Element unterstützen) verschwinden die Balken und alles im `<g>` Element, nachdem die Balken das Ende erreicht haben und verworfen werden, so dass nur der "Fertig geladen"-Text übrig bleibt. Der untere Bildfortschrittsbalken kehrt einfach in seinen Anfangszustand zurück, nachdem die Animation abgeschlossen ist, und der "Fertig geladen"-Text wird nie angezeigt.
 
 ```html hidden
 <button id="reset" type="button">Reset</button>
@@ -130,9 +119,9 @@ reload.addEventListener("click", () => {
 
 ### Verwerfen ausgelöst durch Zeit
 
-Dieses Beispiel zeigt, wie das `<discard>` Element mit einer Aktivierung, die auf der Zeit basiert, verwendet werden könnte.
+Dieses Beispiel zeigt, wie das `<discard>` Element mit einer zeitbasierten Aktivierung verwendet werden kann.
 
-Es ist fast genau dasselbe wie das vorherige Beispiel, der Hauptunterschied besteht darin, dass das Discard-Element nach 5 Sekunden (`<discard begin="5s" />`) ausgelöst wird, anstatt am Ende der Animation (4 Sekunden). Dies entfernt auch die ID aus dem `<animate>` Element, da diese nicht verwendet wird.
+Es ist fast identisch mit dem vorherigen Beispiel, der Hauptunterschied besteht darin, dass das Discard-Element nach 5 Sekunden (`<discard begin="5s" />`) anstelle des Endes der Animation (4 Sekunden) ausgelöst wird. Dies entfernt auch die ID vom `<animate>` Element, da sie nicht verwendet wird.
 
 ```html
 <svg
@@ -178,11 +167,9 @@ Es ist fast genau dasselbe wie das vorherige Beispiel, der Hauptunterschied best
 
 #### Ergebnis
 
-Das untenstehende Live-Beispiel zeigt das obenstehende SVG im oberen Bild, während das zweite Bild dieselbe SVG-Datei ist, jedoch ohne die `<discard>` Elemente (in Browsern, die das discard Element nicht unterstützen, verhalten sich beide Bilder gleich).
+Das folgende Live-Beispiel zeigt das oben stehende SVG im oberen Bild, während das zweite Bild die gleiche SVG-Datei ist, jedoch mit den `<discard>` Elementen entfernt (in Browsern, die das Discard-Element nicht unterstützen, verhalten sich beide Bilder gleich).
 
-Im oberen Bild (in Browsern, die das `<discard>` Element unterstützen) wird der Balken nach vier Sekunden abgeschlossen und kehrt dann in seinen Anfangszustand zurück.
-Eine Sekunde später wird alles im `<g>` Element verschwinden, sodass nur der "Laden abgeschlossen" Text bleibt.
-Der Fortschrittsbalken im unteren Bild kehrt einfach in seinen Anfangszustand nach Abschluss der Animation zurück, und der "Laden abgeschlossen" Text wird nie angezeigt.
+Im oberen Bild (in Browsern, die das `<discard>` Element unterstützen) wird die Leiste nach vier Sekunden fertiggestellt und kehrt dann in ihren Anfangszustand zurück. Eine Sekunde später verschwindet alles im `<g>` Element, so dass nur der "Fertig geladen"-Text übrig bleibt. Der untere Bildfortschrittsbalken kehrt einfach in seinen Anfangszustand zurück, nachdem die Animation abgeschlossen ist, und der "Fertig geladen"-Text wird nie angezeigt.
 
 ```html hidden
 <button id="reset" type="button">Reset</button>

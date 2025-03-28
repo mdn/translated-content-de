@@ -2,12 +2,12 @@
 title: text-indent
 slug: Web/CSS/text-indent
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 49bbddc34034e59a63c0b2cda79e45c94ea9daa9
 ---
 
 {{CSSRef}}
 
-Die **`text-indent`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Länge des Leerraums (Einrückung) fest, der vor den Textzeilen in einem Block eingefügt wird.
+Die **`text-indent`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Länge des leeren Raums (Einrückung) fest, der vor Zeilen von Text in einem Block eingefügt wird.
 
 {{InteractiveExample("CSS Demo: text-indent")}}
 
@@ -66,7 +66,7 @@ section {
 }
 ```
 
-Der horizontale Abstand bezieht sich auf den linken (oder rechten, bei von rechts nach links ausgerichtetem Layout) Rand des Inhaltskastens des umschließenden Block-Elementes.
+Der horizontale Abstand bezieht sich auf den linken (oder rechten, bei einer von rechts nach links verlaufenden Anordnung) Rand der Inhaltsbox des umschließenden Block-Elementes.
 
 ## Syntax
 
@@ -97,11 +97,11 @@ text-indent: unset;
 - {{cssxref("&lt;length&gt;")}}
   - : Die Einrückung wird als absoluter {{cssxref("&lt;length&gt;")}} angegeben. Negative Werte sind erlaubt. Siehe {{cssxref("&lt;length&gt;")}} Werte für mögliche Einheiten.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Einrückung beträgt einen {{cssxref("&lt;percentage&gt;")}} der Breite des umschließenden Blocks.
+  - : Die Einrückung ist ein {{cssxref("&lt;percentage&gt;")}} der Breite des umschließenden Blocks.
 - `each-line`
-  - : Die Einrückung betrifft die erste Zeile des Blockcontainers sowie jede Zeile nach einem _erzwungenen Zeilenumbruch_, wirkt sich jedoch nicht auf Zeilen nach einem _weichen Zeilenumbruch_ aus.
+  - : Die Einrückung betrifft die erste Zeile des Blockcontainers sowie jede Zeile nach einem _erzwungenen Zeilenumbruch_, jedoch nicht die Zeilen nach einem _weichen Zeilenumbruch_.
 - `hanging`
-  - : Kehrt um, welche Zeilen eingerückt werden. Alle Zeilen _außer_ der ersten Zeile werden eingerückt.
+  - : Umkehrt, welche Zeilen eingerückt werden. Alle Zeilen _außer_ der ersten Zeile werden eingerückt.
 
 ## Formale Definition
 
@@ -141,11 +141,11 @@ p {
 
 {{ EmbedLiveSample('Basic_indent','100%','100%') }}
 
-### Überspringen der Einrückung beim ersten Absatz
+### Auslassen der Einrückung beim ersten Absatz
 
-Eine häufige typografische Praxis, wenn Absatzeinrückungen vorhanden sind, ist das Überspringen der Einrückung für den ersten Absatz. Wie es _The Chicago Manual of Style_ formuliert, "kann die erste Textzeile nach einer Überschrift linksbündig beginnen oder die übliche Absatzeinrückung haben."
+Eine übliche typografische Praxis, wenn Absatzeinrückung vorhanden ist, besteht darin, die Einrückung für den ersten Absatz auszulassen. Wie in _The Chicago Manual of Style_ erwähnt wird, "kann die erste Textzeile nach einem Untertitel bündig links beginnen oder mit der üblichen Absatzeinrückung eingerückt werden."
 
-Erste Absätze anders zu behandeln als nachfolgende Absätze kann mit dem [Geschwisterkombinator](/de/docs/Web/CSS/Next-sibling_combinator) erreicht werden, wie im folgenden Beispiel:
+Die unterschiedliche Behandlung von ersten und nachfolgenden Absätzen kann mit dem [Nachbar-Kombinator](/de/docs/Web/CSS/Next-sibling_combinator) erreicht werden, wie im folgenden Beispiel:
 
 #### HTML
 
@@ -246,7 +246,7 @@ p {
 
 ## Siehe auch
 
-- [Lernen Sie HTML mit CSS zu stylen](/de/docs/Learn_web_development/Core/Styling_basics)
+- [Lernen Sie, HTML mit CSS zu stylen](/de/docs/Learn_web_development/Core/Styling_basics)
 - Verwandte CSS-Eigenschaften:
 
   - [`text-justify`](/de/docs/Web/CSS/text-justify)
@@ -256,5 +256,5 @@ p {
   - [`text-transform`](/de/docs/Web/CSS/text-transform)
   - {{cssxref('hanging-punctuation')}}
 
-- [CSS Text Decoration](/de/docs/Web/CSS/CSS_text_decoration) CSS Modul
+- [CSS Text Decoration](/de/docs/Web/CSS/CSS_text_decoration) CSS-Modul
 - [CSS Text Modul](/de/docs/Web/CSS/CSS_text)

@@ -2,12 +2,12 @@
 title: :open
 slug: Web/CSS/:open
 l10n:
-  sourceCommit: 512842cd44a2c87972e49abc8371b035166609bc
+  sourceCommit: 2595b22899b54f079721069704128fb7f0451995
 ---
 
 {{CSSRef}}
 
-Die **`:open`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das einen geöffneten und geschlossenen Zustand hat, nur wenn es sich aktuell im geöffneten Zustand befindet.
+Die **`:open`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das offene und geschlossene Zustände hat, nur wenn es sich derzeit im offenen Zustand befindet.
 
 ## Syntax
 
@@ -19,21 +19,21 @@ Die **`:open`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-c
 
 ## Beschreibung
 
-Die `:open`-Pseudoklasse wählt jedes Element aus, das sich derzeit im geöffneten Zustand befindet. Dazu gehören die folgenden Elemente:
+Die `:open` Pseudoklasse wählt jedes Element aus, das sich momentan im offenen Zustand befindet, was folgende Elemente einschließt:
 
-- {{htmlelement("details")}}- und {{htmlelement("dialog")}}-Elemente, die sich im geöffneten Zustand befinden, d.h. wenn das `open`-Attribut gesetzt ist.
-- {{htmlelement("input")}}-Elemente, die eine Auswahloberfläche anzeigen, aus der der Benutzer einen Wert wählen kann (z.B. [`<input type="color">`](/de/docs/Web/HTML/Element/input/color)), wenn diese Oberfläche angezeigt wird.
-- {{htmlelement("select")}}-Elemente, die ein Dropdown-Menü für die Auswahl eines Wertes anzeigen, wenn dieses Menü angezeigt wird.
+- {{htmlelement("details")}}- und {{htmlelement("dialog")}}-Elemente, die im offenen Zustand sind, das heißt, sie haben das `open`-Attribut gesetzt.
+- {{htmlelement("input")}}-Elemente, die eine Auswahloberfläche anzeigen, aus der der Benutzer einen Wert wählen kann (zum Beispiel [`<input type="color">`](/de/docs/Web/HTML/Element/input/color)), wenn die Auswahl angezeigt wird.
+- {{htmlelement("select")}}-Elemente, die ein Dropdown-Menü anzeigen, aus dem der Benutzer einen Wert wählen kann, wenn das Menü angezeigt wird. Beachten Sie, dass bei der Implementierung von [anpassbaren Select-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) das Auswahlfenster selbst mit dem {{cssxref("::picker()", "::picker(select)")}} Pseudoelement ausgewählt werden kann.
 
-Beachten Sie, dass offene und geschlossene Zustände semantische Zustände sind und nicht unbedingt mit der Sichtbarkeit des betreffenden Elements korrelieren. Zum Beispiel ist ein `<details>`-Element, das erweitert ist, um seinen Inhalt zu zeigen, geöffnet und wird vom `details:open`-Selektor ausgewählt, selbst wenn es mit einem {{cssxref("visibility")}}-Wert von `hidden` versteckt ist.
+Beachten Sie, dass die offenen und geschlossenen Zustände semantische Zustände sind und nicht unbedingt mit der Sichtbarkeit des jeweiligen Elements korrelieren. Zum Beispiel ist ein `<details>`-Element, das erweitert wird, um seinen Inhalt anzuzeigen, offen und wird durch den `details:open`-Selektor ausgewählt, auch wenn es mit einem {{cssxref("visibility")}}-Wert von `hidden` versteckt ist.
 
-[Popover](/de/docs/Web/API/Popover_API)-Elemente (d.h. Elemente mit dem [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut) haben separate semantische Zustände, die anzeigen, ob sie sichtbar oder verborgen sind, was parallel zu offenen und geschlossenen Zuständen existieren kann. Um ein Popover-Element im sichtbaren Zustand zu selektieren, verwenden Sie die Pseudoklasse {{cssxref(":popover-open")}}.
+[Popover](/de/docs/Web/API/Popover_API)-Elemente (das heißt, Elemente mit dem [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut) haben unterschiedliche semantische Zustände, die Popover repräsentieren, die angezeigt oder verborgen sind, was gleichzeitig mit offenen und geschlossenen Zuständen existieren kann. Um ein Popover-Element im angezeigten Zustand anzusprechen, verwenden Sie stattdessen die {{cssxref(":popover-open")}} Pseudoklasse.
 
 ## Beispiele
 
-### Grundlegende Nutzung von `:open`
+### Grundlegende Verwendung von `:open`
 
-Dieses Beispiel zeigt einige HTML-Elemente, die einen offenen Zustand haben.
+Dieses Beispiel zeigt einige der HTML-Elemente, die einen offenen Zustand haben.
 
 #### CSS
 
@@ -89,15 +89,15 @@ details:open > summary {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Basic `:open` usage", 300, 200)}}
+{{EmbedLiveSample("Grundlegende Verwendung von `:open`", 300, 200)}}
 
-### Benutzerdefinierte `<select>`-Stilierung mit `:open`
+### Benutzerdefinierte `<select>`-Stilgestaltung mit `:open`
 
-In diesem Beispiel erhält ein einfaches {{htmlelement("select")}}-Element eine benutzerdefinierte Stilierung. Die `:open`-Pseudoklasse wird verwendet, um eine Stilverbesserung für den offenen Zustand anzuwenden – wenn das Dropdown-Menü angezeigt wird.
+In diesem Beispiel geben wir einem grundlegenden {{htmlelement("select")}}-Element eine benutzerdefinierte Stilgestaltung. Die `:open` Pseudoklasse wird verwendet, um eine Stilverbesserung für seinen offenen Zustand anzuwenden – wenn das Dropdown-Menü angezeigt wird.
 
 #### HTML
 
-Unser Fruchtwähler hat nichts Besonderes.
+An unserem Obstauswahl-Element gibt es nichts Besonderes.
 
 ```html
 <label>
@@ -119,13 +119,13 @@ Unser Fruchtwähler hat nichts Besonderes.
 ```
 
 > [!NOTE]
-> Wir verwenden kein mehrzeiliges `<select>` (also eines mit dem [`multiple`](/de/docs/Web/HTML/Attributes/multiple)-Attribut) – solche tendieren dazu, als Scroll-Listenfeld anstelle eines Dropdown-Menüs dargestellt zu werden und haben daher keinen offenen Zustand.
+> Wir verwenden kein mehrzeiliges `<select>`-Element (also eines mit dem [`multiple`](/de/docs/Web/HTML/Attributes/multiple)-Attribut) – diese tendieren dazu, als Scroll-Listenfeld dargestellt zu werden, anstatt als Dropdown-Menü, und haben daher keinen offenen Zustand.
 
 #### CSS
 
-Im CSS setzen wir einen {{cssxref("appearance")}}-Wert von `none` auf unser `<select>`-Element, um die standardmäßige Betriebssystem-Stilierung zu entfernen, und fügen einige grundlegende eigene Stile hinzu. Besonders hervorzuheben ist, dass wir ein {{Glossary("SVG", "SVG")}}-Hintergrundbild eines nach unten zeigenden Pfeils auf der rechten Seite hinzufügen – Benutzer erkennen `<select>`-Elemente oft an diesem Pfeil, daher ist es eine gute Idee, ihn zu integrieren.
+Im CSS setzen wir einen {{cssxref("appearance")}}-Wert von `none` für unser `<select>`-Element, um die Standardbetriebssystem-Stilgestaltung vom Auswahlfeld zu entfernen und einige grundlegende eigene Stile bereitzustellen. Besonders erwähnenswert ist, dass wir ein {{Glossary("SVG", "SVG")}}-Hintergrundbild eines Pfeils nach unten auf der rechten Seite setzen – Benutzer neigen dazu, `<select>`-Elemente am Abwärtspfeil zu erkennen, daher ist es eine gute Idee, diesen einzubeziehen.
 
-Anschließend fügen wir etwas {{cssxref("padding")}} auf das umgebende {{htmlelement("label")}}-Element hinzu und setzen einen transparenten Rahmen, um das Layout konsistent zu halten, wenn wir später einen farbigen Rahmen hinzufügen.
+Wir setzen dann etwas {{cssxref("padding")}} auf das umgebende {{htmlelement("label")}}-Element und einen transparenten Rahmen, um das Layout konsistent zu halten, wenn wir später einen farbigen Rahmen hinzufügen.
 
 ```css
 select {
@@ -150,7 +150,7 @@ label {
 }
 ```
 
-Wenn das `<select>` geöffnet wird, nutzen wir die `:open`-Pseudoklasse, um eine andere Hintergrundfarbe zu setzen und das Hintergrundbild in einen nach oben zeigenden Pfeil zu ändern. Außerdem setzen wir eine andere Hintergrundfarbe und einen Rahmen auf das umschließende `<label>`-Element, indem wir eine Kombination aus der `:open`- und {{cssxref(":has()")}}-Pseudoklasse verwenden, um einen Elternelement-Selektor zu erstellen. Wir sagen wörtlich: "Wählen Sie das `<label>` aus, aber nur, wenn sein Nachkommenelement `<select>` geöffnet ist."
+Wenn das `<select>` geöffnet wird, verwenden wir die `:open` Pseudoklasse, um eine andere Hintergrundfarbe zu setzen und das Hintergrundbild zu einem Pfeil nach oben zu ändern. Wir setzen auch eine andere Hintergrundfarbe und einen Rahmen am umschließenden `<label>`-Element, indem wir eine Kombination der `:open`- und {{cssxref(":has()")}} Pseudoklassen verwenden, um einen Elternselektor zu erstellen. Wir sagen buchstäblich "wähle das `<label>` aus, aber nur, wenn sein Nachkomme `<select>` geöffnet ist."
 
 ```css
 select:open {
@@ -166,9 +166,9 @@ label:has(select:open) {
 
 #### Ergebnis
 
-Das Ergebnis ist wie folgt. Versuchen Sie, das `<select>`-Dropdown zu öffnen, um den Effekt auf die Stilierung zu sehen:
+Das Ergebnis ist wie folgt. Versuchen Sie, das `<select>` Dropdown zu öffnen, um den Effekt auf die Stilgestaltung zu sehen:
 
-{{ EmbedLiveSample("Custom `<select>` styling with `:open`", "100%", "100") }}
+{{ EmbedLiveSample("Benutzerdefinierte `<select>`-Stilgestaltung mit `:open`", "100%", "100") }}
 
 ## Spezifikationen
 
@@ -180,6 +180,6 @@ Das Ergebnis ist wie folgt. Versuchen Sie, das `<select>`-Dropdown zu öffnen, u
 
 ## Siehe auch
 
-- {{htmlelement("details")}}, {{htmlelement("dialog")}}, {{htmlelement("select")}}, und {{htmlelement("input")}}-Elemente
-- {{cssxref(":popover-open")}}-Pseudoklasse
+- {{htmlelement("details")}}, {{htmlelement("dialog")}}, {{htmlelement("select")}}, und {{htmlelement("input")}} Elemente
+- {{cssxref(":popover-open")}} Pseudoklasse
 - {{Cssxref(":modal")}}

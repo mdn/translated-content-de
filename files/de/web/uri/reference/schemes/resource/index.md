@@ -3,16 +3,16 @@ title: "resource: URLs"
 short-title: "resource:"
 slug: Web/URI/Reference/Schemes/resource
 l10n:
-  sourceCommit: 26e46f8c13ebea65dc65a6e99e51e8fa4d5d619d
+  sourceCommit: d54f8c9ecfbafc35915330ac4e26a09d93d814e8
 ---
 
 {{non-standard_header}}
 
-Resource-URLs, URLs, die mit dem `resource:`-Schema beginnen, werden von Firefox und Firefox-Browsererweiterungen verwendet, um Ressourcen intern zu laden. Einige Informationen sind jedoch auch für die von dem Browser verbundenen Seiten verfügbar.
+Ressourcen-URLs, URLs mit dem Präfix `resource:`, werden von Firefox und Firefox-Browsererweiterungen verwendet, um Ressourcen intern zu laden. Einige Informationen sind jedoch auch für Websites, mit denen der Browser verbunden ist, verfügbar.
 
 ## Syntax
 
-Resource-URLs bestehen aus zwei Teilen: einem Präfix (`resource:`) und einem Pfad, der auf die gewünschte Ressource zeigt:
+Ressourcen-URLs bestehen aus zwei Teilen: einem Präfix (`resource:`) und einem Pfad, der auf die zu ladende Ressource verweist:
 
 ```url
 resource://<path>
@@ -24,7 +24,7 @@ Ein Beispiel:
 resource://gre/res/svg.css
 ```
 
-Wenn Pfeile in den Resource-URLs gefunden werden ('->'), bedeutet das, dass die erste Datei die nächste geladen hat:
+Wenn Pfeile in den Ressourcen-URLs ('->') gefunden werden, bedeutet dies, dass die erste Datei die nächste lädt:
 
 ```url
 resource://<File-loader> -> <File-loaded>
@@ -32,34 +32,34 @@ resource://<File-loader> -> <File-loaded>
 
 Bitte lesen Sie die [URI-Referenz](/de/docs/Web/URI) für allgemeinere Details.
 
-In diesem Artikel konzentrieren wir uns auf Resource-URLs, die intern von Firefox verwendet werden, um auf eingebaute Ressourcen zu verweisen.
+In diesem Artikel konzentrieren wir uns auf Ressourcen-URLs, die intern von Firefox verwendet werden, um auf eingebettete Ressourcen zu verweisen.
 
 ## Bedrohungen
 
-Da einige der von `resource:`-URLs bereitgestellten Informationen Webseiten zugänglich sind, könnte eine Webseite interne Skripte ausführen und interne Ressourcen von Firefox untersuchen, einschließlich der Standardeinstellungen, was ein ernstes Sicherheits- und Datenschutzproblem darstellen könnte.
+Da einige der von `resource:` URLs freigegebenen Informationen Websites zur Verfügung stehen, könnte eine Webseite interne Skripte ausführen und interne Ressourcen von Firefox inspizieren, einschließlich der Standardeinstellungen, was ein ernstes Sicherheits- und Datenschutzproblem darstellen könnte.
 
-Zum Beispiel zeigt [ein Skript auf Browserleaks](https://browserleaks.com/resource-urls), was Firefox offenlegt, wenn es von einem auf der Seite laufenden Skript abgefragt wird (den Code finden Sie unter <https://browserleaks.com/resource-urls#more>).
+Zum Beispiel zeigt [ein Skript auf Browserleaks](https://browserleaks.com/resource-urls), was Firefox preisgibt, wenn es von einem Skript auf der Seite abgefragt wird (den Code finden Sie unter <https://browserleaks.com/resource-urls#more>).
 
-Die Datei firefox.js übermittelt Einstellungnamen und -werte an die Funktion pref(). Zum Beispiel:
+Die Datei firefox.js übergibt Präferenznamen und -werte an die Funktion `pref()`. Zum Beispiel:
 
 ```url
 http://searchfox.org/mozilla-central/rev/48ea452803907f2575d81021e8678634e8067fc2/browser/app/profile/firefox.js#575
 ```
 
-Webseiten können Firefox-Standardeinstellungen leicht sammeln, indem sie diese `pref()`-Funktion überschreiben und das Skript `resource:///defaults/preferences/firefox.js` verwenden.
+Websites können leicht die Standardpräferenzen von Firefox sammeln, indem sie diese `pref()` Funktion überschreiben und das Skript `resource:///defaults/preferences/firefox.js` verwenden.
 
-Darüber hinaus unterscheiden sich einige Standardwerte der Einstellungen zwischen verschiedenen Build-Konfigurationen, etwa Plattform und Lokalisierung, was bedeutet, dass Webseiten anhand dieser Informationen einzelne Benutzer identifizieren könnten.
+Darüber hinaus unterscheiden sich einige Standardwerte von Präferenzen je nach Build-Konfigurationen, wie die Plattform und die Gebietsschema, was bedeutet, dass Websites mit diesen Informationen einzelne Benutzer identifizieren könnten.
 
 ## Lösung
 
-Um dieses Problem zu beheben, änderte Mozilla das Verhalten beim Laden von `resource:`-URLs im [Firefox Fehler 863246](https://bugzil.la/863246), der in [Firefox 57 (Quantum)](/de/docs/Mozilla/Firefox/Releases/57) eingeführt wurde.
+Um dieses Problem zu beheben, hat Mozilla das Verhalten beim Laden von `resource:` URLs im [Firefox-Bug 863246](https://bugzil.la/863246) geändert, der in [Firefox 57 (Quantum)](/de/docs/Mozilla/Firefox/Releases/57) eingeführt wurde.
 
-In der Vergangenheit konnte Webinhalt auf beliebige `resource:`-URLs zugreifen – nicht nur auf Firefoxt interne Ressourcen, sondern auch auf die Assets der Erweiterungen. Jetzt ist dieses Verhalten standardmäßig verboten.
+Früher konnte Webinhalt auf jede gewünschte `resource:` URL zugreifen – nicht nur auf die internen Ressourcen von Firefox, sondern auch auf die Assets von Erweiterungen. Jetzt ist dieses Verhalten standardmäßig verboten.
 
-Es ist jedoch weiterhin notwendig, dass Firefox Ressourcen in Webinhalten unter bestimmten Umständen lädt. Wenn Sie zum Beispiel die Seitenquellansicht öffnen (Seitenquelltext anzeigen oder Auswahlquelltext anzeigen), werden Sie feststellen, dass `viewsource.css` durch eine `resource:`-URL benötigt wird. Ressourcen, die auf Webinhalte zugänglich gemacht werden müssen, wurden an einen neuen Ort namens `resource://content-accessible/` verlegt, der isoliert ist und nur nicht-sensible Ressourcen enthält. Auf diese Weise können wir wesentliche Ressourcen weiterhin zugänglich halten und die meisten Bedrohungen eliminieren.
+Es ist jedoch weiterhin notwendig, dass Firefox unter bestimmten Umständen Ressourcen im Webinhalt lädt. Beispielsweise, wenn Sie die Quelltextansicht (Seitenquelltext anzeigen oder Auswahldateiquelle anzeigen) öffnen, stellen Sie fest, dass dafür `viewsource.css` über eine `resource:` URL benötigt wird. Ressourcen, die dem Webinhalt zugänglich gemacht werden müssen, wurden an einen neuen Speicherort namens `resource://content-accessible/` verschoben, der isoliert ist und nur nicht sensible Ressourcen enthält. Auf diese Weise können wir wesentliche Ressourcen freigegeben halten und die meisten Bedrohungen eliminieren.
 
 > [!NOTE]
-> Es wird empfohlen, dass Web- und Erweiterungsentwickler nicht mehr versuchen sollen, Resource-URLs zu verwenden. Ihre Verwendung war bestenfalls fragwürdig, und die meisten Verwendungen werden nicht mehr funktionieren.
+> Es wird empfohlen, dass Web- und Erweiterungsentwickler versuchen, keine Ressourcen-URLs mehr zu verwenden. Ihre Nutzung war im besten Fall problematisch, und die meisten Verwendungen werden nicht mehr funktionieren.
 
 ## Spezifikationen
 
@@ -67,10 +67,10 @@ resource: ist in keiner Spezifikation definiert.
 
 ## Browser-Kompatibilität
 
-resource: ist nur in Firefox.
+resource: ist nur für Firefox.
 
 ## Siehe auch
 
 - [URIs](/de/docs/Web/URI)
 - [Was ist eine URL?](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL)
-- [IANA-Liste der URI-Schemen](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml) (`resource:` wird [hier behandelt](https://www.iana.org/assignments/uri-schemes/prov/resource))
+- [IANA-Liste der URI-Schemata](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml) (`resource:` wird [hier behandelt](https://www.iana.org/assignments/uri-schemes/prov/resource))

@@ -1,14 +1,14 @@
 ---
-title: "SVGPathElement: getPathData() Methode"
+title: "SVGPathElement: getPathData()-Methode"
 short-title: getPathData()
 slug: Web/API/SVGPathElement/getPathData
 l10n:
-  sourceCommit: 1eab2ca7fd2a7a1cf9e7aab058854c33326c8c40
+  sourceCommit: 49bbddc34034e59a63c0b2cda79e45c94ea9daa9
 ---
 
 {{APIRef("SVG")}}{{SeeCompatTable}}
 
-Die **`SVGPathElement.getPathData()`** Methode gibt die Sequenz von Pfadsegmenten zurück, die den Pfaddaten entspricht und optional die Werte und Segmenttypen normalisiert.
+Die **`SVGPathElement.getPathData()`**-Methode gibt die Sequenz von Pfadsegmenten zurück, die den Pfaddaten entspricht, wobei die Werte und Segmenttypen optional normalisiert werden.
 
 ## Syntax
 
@@ -21,20 +21,20 @@ getPathData(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein optionales Objekt zur Steuerung von Aspekten des Abrufprozesses der Pfaddaten. Dieses Objekt kann folgende Eigenschaften enthalten:
+  - : Ein optionales Objekt, das Aspekte des Pfaddatenabrufprozesses steuert. Dieses Objekt kann die folgenden Eigenschaften enthalten:
 
     - `normalize` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die zurückgegebene Sequenz von Pfadsegmenten in den Basissatz der [absoluten Befehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) (`'M'`, `'L'`, `'C'` und `'Z'`) umgewandelt wird, wobei die Werte entsprechend angepasst werden.
+      - : Ein boolescher Wert, der angibt, ob die zurückgegebene Sequenz von Pfadsegmenten in den Basissatz von [absoluten Befehlen](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) (`'M'`, `'L'`, `'C'` und `'Z'`) umgewandelt werden soll, wobei die Werte entsprechend angepasst werden.
 
 ### Rückgabewert
 
-Ein Array von Pfadsegmenten, das den Pfaddaten entspricht. Wenn keine gültigen Pfaddaten vorhanden sind, wird eine leere Sequenz zurückgegeben.
+Ein Array von Pfadsegmenten, die den Pfaddaten entsprechen. Wenn keine gültigen Pfaddaten existieren, wird eine leere Sequenz zurückgegeben.
 
 Jedes Pfadsegment ist ein Objekt mit den folgenden Eigenschaften:
 
 - `type`
   - : Ein [Pfadbefehl](/de/docs/Web/SVG/Reference/Attribute/d#path_commands).
-    Wenn [`options.normalize`](#normalize) wahr ist, wird dies einer der absoluten Befehle sein: `'M'`, `'L'`, `'C'` und `'Z'`.
+    Wenn [`options.normalize`](#normalize) wahr ist, wird dies einer der absoluten Befehle: `'M'`, `'L'`, `'C'` und `'Z'` sein.
 - `values`
   - : Ein Array oder Wert, der die Parameter für den entsprechenden Befehl enthält.
 
@@ -42,7 +42,7 @@ Jedes Pfadsegment ist ein Objekt mit den folgenden Eigenschaften:
 
 ### Pfaddaten abrufen
 
-Betrachten Sie das folgende `<path>` Element, das ein Quadrat zeichnet:
+Betrachten Sie das folgende `<path>`-Element, das ein Quadrat zeichnet:
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
@@ -50,7 +50,7 @@ Betrachten Sie das folgende `<path>` Element, das ein Quadrat zeichnet:
 </svg>
 ```
 
-Die `getPathData()` Methode wird ein Array mit den rohen Pfaddaten zurückgeben, genau so, wie es im `d` Attribut gesetzt ist. Mit der `normalize: true` Option eingestellt, wird es Pfaddaten zurückgeben, die auf den Basissatz der Pfadbefehl normalisiert sind:
+Die `getPathData()`-Methode gibt ein Array mit den rohen Pfaddaten zurück, wie sie im `d`-Attribut gesetzt sind. Mit der Option `normalize: true` werden die Pfaddaten normalisiert auf den Basissatz von Pfadbefehlen zurückgegeben:
 
 ```js
 const path = document.querySelector("path");

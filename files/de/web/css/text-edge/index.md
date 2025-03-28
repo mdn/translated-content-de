@@ -2,14 +2,14 @@
 title: <text-edge>
 slug: Web/CSS/text-edge
 l10n:
-  sourceCommit: f731452fabde211bee55aedd39fc83d60c4e4918
+  sourceCommit: 49bbddc34034e59a63c0b2cda79e45c94ea9daa9
 ---
 
 {{CSSRef}}
 
-Der **`<text-edge>`** {{Glossary("enumerated", "aufzählbare")}} [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) definiert Schlüsselwörter, die Schriftmetrik repräsentieren und bestimmte Regionen am Block-Start- und Block-Ende-Rand einer Schriftart angeben. Jedes Schlüsselwort spezifiziert eine Position der oberen und/oder unteren Kante einer Schriftart.
+Der **`<text-edge>`** {{Glossary("enumerated", "aufgezählte")}} [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) definiert Schlüsselwörter, die Schriftmetriken angeben, die spezifische Bereiche an der Block-Startkante und Block-Endkante einer Schriftart repräsentieren. Jedes Schlüsselwort spezifiziert eine Position der oberen und/oder unteren Kante einer Schrift.
 
-Die `<text-edge>`-Werte werden in der {{cssxref("text-box-edge")}}-Eigenschaft verwendet, um einen Bereich zu spezifizieren, der vom Block-Start- und Block-Ende-Rand des Blockcontainers eines Textelements abgeschnitten werden soll.
+Die `<text-edge>`-Werte werden in der {{cssxref("text-box-edge")}}-Eigenschaft verwendet, um die Menge an Raum anzugeben, die von der Block-Startkante und der Block-Endkante eines Text-Elementblockcontainers abgeschnitten werden soll.
 
 ## Syntax
 
@@ -20,34 +20,34 @@ Die `<text-edge>`-Werte werden in der {{cssxref("text-box-edge")}}-Eigenschaft v
 ```
 
 > [!NOTE]
-> Die Schlüsselwörter `ideographic` und `ideographic-ink` dienen dazu, spezifische obere und untere Kantenpositionen für [CJK-Sprachzeichen](https://en.wikipedia.org/wiki/CJK_characters) zu spezifizieren. Derzeit wird ihr genaues Verhalten noch diskutiert und sie werden von keinem Browser unterstützt.
+> Die Schlüsselwörter `ideographic` und `ideographic-ink` sollen obere und untere Randpositionen angeben, die spezifisch für [CJK-Sprachzeichen](https://en.wikipedia.org/wiki/CJK_characters) sind. Derzeit wird über ihr genaues Verhalten diskutiert und sie werden von keinem Browser unterstützt.
 
 ## Werte
 
-Der `<text-edge>`-Datentyp besteht aus einem oder zwei Schlüsselwörtern, die bestimmte Regionen am Block-Start (oben) und/oder Block-Ende (unten) einer Schriftart repräsentieren:
+Der `<text-edge>`-Datentyp besteht aus einem oder zwei Schlüsselwörtern, die spezifische Bereiche an der Block-Startkante (oben) und/oder Block-Endkante (unten) einer Schriftart repräsentieren:
 
-- Wenn ein Wert angegeben wird, werden die Positionen der oberen und unteren Kante der Schriftart mit demselben Schlüsselwort spezifiziert.
-- Wenn zwei Werte angegeben werden, spezifiziert der erste Wert die Position der oberen Kante der Schriftart, und der zweite Wert spezifiziert die Position der unteren Kante der Schriftart.
+- Wenn ein Wert angegeben ist, wird die Position der oberen und unteren Kante der Schrift mit demselben Schlüsselwort angegeben.
+- Wenn zwei Werte angegeben sind, gibt der erste Wert die Position der oberen Kante der Schrift an, und der zweite Wert gibt die Position der unteren Kante der Schrift an.
 
-### Einzelne Schlüsselwort-Werte
+### Einzelne Schlüsselwortwerte
 
 - `text`
 
-  - : Die oberen und unteren Kanten der Schriftart sind die Text-Über-Baseline/Text-Unter-Baseline: Dies schließt die Aufschwünge und Abstiege der Schriftart ein, jedoch nicht das auf den Text gesetzte {{Glossary("Leading", "Halb-Zeilenabstand")}}.
+  - : Die oberen und unteren Kanten der Schrift sind ihre Text-über-Baseline/Text-unter-Baseline: dies umfasst die Aufstriche und Abstriche der Schrift, aber schließt den {{Glossary("Leading", "Halb-Lead")}} ein, der im Text festgelegt ist.
 
     > [!NOTE]
-    > Die Menge des halbierten Zeilenabstands, die auf ein Textelement angewendet wird, kann mit der {{cssxref("line-height")}}-Eigenschaft gesteuert werden.
+    > Die Menge des in einem Textelement enthaltenen Halb-Leads kann mit der {{cssxref("line-height")}}-Eigenschaft gesteuert werden.
 
-### Zwei-Schlüsselwort-Werte
+### Zwei Schlüsselwortwerte
 
 - `alphabetic`
-  - : Die untere Kante der Schriftart ist ihre alphabetische Basislinie, das ist der Boden ihrer kurzen Kleinbuchstaben (zum Beispiel "m", "n" und "o") oder Großbuchstaben.
+  - : Die untere Kante der Schrift ist ihre alphabetische Baseline, die den unteren Rand ihrer kurzen Kleinbuchstaben (zum Beispiel „m“, „n“ und „o“) oder Großbuchstaben bildet.
 - `cap`
-  - : Die obere Kante der Schriftart ist ihre Versalhöhe-Basislinie, das ist der obere Abschluss ihrer Großbuchstaben.
+  - : Die obere Kante der Schrift ist ihre Kapitälchenhöhe-Baseline, die den oberen Rand ihrer Großbuchstaben bildet.
 - `ex`
-  - : Die obere Kante der Schriftart ist ihre x-Höhe-Basislinie, das ist der obere Abschluss ihrer kurzen Kleinbuchstaben.
+  - : Die obere Kante der Schrift ist ihre x-Höhe-Baseline, die den oberen Rand ihrer kurzen Kleinbuchstaben bildet.
 - `text`
-  - : Die obere Kante der Schriftart ist ihre Text-Über-Baseline (schließt die Aufschwünge der Schriftart ein, aber nicht das obere Kanten-Halb-Führungs-Ein), oder ihre untere Kante ist ihre Text-Unter-Baseline (schließt die Abstiege der Schriftart ein, aber nicht das untere Kanten-Halb-Führungs-Ein), abhängig davon, für welche Kante der Wert festgelegt ist.
+  - : Die obere Kante der Schrift ist ihre Text-über-Baseline (umfasst die Aufstriche der Schrift, aber schließt den oberen Kantenhalb-Lead aus), oder die untere Kante ist ihre Text-unter-Baseline (umfasst die Abstriche der Schrift, aber schließt den unteren Kantenhalb-Lead aus), abhängig davon, für welche Kante der Wert festgelegt ist.
 
 ## Beispiele
 

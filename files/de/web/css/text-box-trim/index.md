@@ -2,17 +2,17 @@
 title: text-box-trim
 slug: Web/CSS/text-box-trim
 l10n:
-  sourceCommit: b6dacb9087010826a5a7d5b2d7c428e89d8135cf
+  sourceCommit: 49bbddc34034e59a63c0b2cda79e45c94ea9daa9
 ---
 
 {{CSSRef}}
 
-Die **`text-box-trim`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt an, welche Über- und Unterkanten des Textinhalts von einem Blockcontainer eines Textelements abgeschnitten werden sollen.
+Die **`text-box-trim`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, welche der oberen und unteren Ränder des Textinhalts von einem Blockcontainer eines Textelements abgeschnitten werden sollen.
 
-Der vertikale Abstand unterscheidet sich zwischen den Schriftarten, was das einheitliche Setzen von Schrift auf dem Web historisch herausfordernd machte. Die Eigenschaft `text-box-trim` — zusammen mit der dazugehörigen Eigenschaft {{cssxref("text-box-edge")}}, die angibt, wie viel Platz abgeschnitten werden soll — erleichtert das Erreichen eines konsistenten vertikalen Abstands von Text.
+Vertikale Abstände unterscheiden sich zwischen Schriften, was eine konsistente Typografie historisch gesehen im Web herausfordernd machte. Die `text-box-trim` Eigenschaft — zusammen mit ihrer Gegenpart-Eigenschaft {{cssxref("text-box-edge")}}, welche den abzustimmenden Raum spezifiziert — erleichtert es, eine konsistente vertikale Abstände von Text zu erzielen.
 
 > [!NOTE]
-> Die Kurzschreibweise {{cssxref("text-box")}} kann verwendet werden, um die Werte für `text-box-trim` und `text-box-edge` in einer einzigen Deklaration anzugeben.
+> Die {{cssxref("text-box")}} Kurzschreibweise kann verwendet werden, um die Werte von `text-box-trim` und `text-box-edge` in einer einzigen Deklaration zu spezifizieren.
 
 ## Syntax
 
@@ -33,24 +33,24 @@ text-box-trim: unset;
 
 ### Wert
 
-Der Wert der Eigenschaft `text-box-trim` kann als eines der folgenden Schlüsselwörter angegeben werden:
+Der Wert der `text-box-trim` Eigenschaft kann mit einem der folgenden Schlüsselwörter angegeben werden:
 
 - `none`
-  - : Der Standardwert. Kein Platz wird vom Text abgeschnitten.
+  - : Der Standardwert. Kein Raum wird vom Text abgeschnitten.
 - `trim-both`
-  - : Sowohl die Start- (Über-) als auch die End- (Unter-)Kanten werden abgeschnitten.
+  - : Die Anfangs- (oben) und Endkante (unten) werden beide abgeschnitten.
 - `trim-start`
-  - : Die Start- (Über-)Kante wird abgeschnitten.
+  - : Die Anfangskante (oben) wird abgeschnitten.
 - `trim-end`
-  - : Die End- (Unter-)Kante wird abgeschnitten.
+  - : Die Endkante (unten) wird abgeschnitten.
 
 ## Beschreibung
 
-Die Höhe von textexklusiven Inhalten ist relativ zur Höhe der Schriftart. In digitalen Schriftdateien enthält die Höhe alle Zeichen, einschließlich Großbuchstaben, Oberlängen, Unterlängen usw. Verschiedene Schriftarten haben unterschiedliche Grundlinienhöhen, was bedeutet, dass Zeilen gleichen `font-size`-Werts Boxen unterschiedlicher Höhe produzieren, was das Erscheinungsbild des Zeilenabstands betrifft.
+Die Höhe von textbasiertem Inhalt ist relativ zur Höhe der Schrift. In digitalen Schriftdateien enthält die Höhe alle Zeichen, einschließlich Großbuchstaben, Ober- und Unterlängen usw. Verschiedene Schriften haben unterschiedliche Basiszeilenhöhen, was bedeutet, dass Textzeilen mit der gleichen `font-size` Linienboxen mit unterschiedlichen Höhen erzeugen, was das Erscheinungsbild der Abstände zwischen den Linien beeinflusst.
 
-Die Eigenschaft `text-box-trim` ermöglicht es Ihnen, die Über- und Unterkanten des Blockcontainers des Textes abzuschneiden, was die Kontrolle des Textabstands in Blockrichtung erleichtert.
+Die `text-box-trim` Eigenschaft ermöglicht es Ihnen, die obere und untere Kante des Blockcontainers des Textes abzuschneiden, wodurch es einfacher wird, den Textabstand in der Blockrichtung zu kontrollieren.
 
-Die tatsächliche Menge an abgeschnittenem Raum wird mit der Eigenschaft {{cssxref("text-box-edge")}} spezifiziert. Beispielsweise können Sie wählen, die Überkante in Übereinstimmung mit den Großbuchstaben oder Kleinbuchstaben einer Schrift abzuschneiden, und die Unterkante bündig mit der Baseline der Schrift.
+Die tatsächliche Menge des abgeschnittenen Raumes wird mit der {{cssxref("text-box-edge")}} Eigenschaft spezifiziert. Sie können beispielsweise wählen, die obere Kante in Einklang mit Großbuchstaben oder Kleinbuchstaben einer Schrift abzuschneiden, und die untere Kante bündig mit der Grundlinie der Schrift.
 
 ## Formale Definition
 
@@ -64,9 +64,9 @@ Die tatsächliche Menge an abgeschnittenem Raum wird mit der Eigenschaft {{cssxr
 
 ### Grundlegende Verwendung von `text-box-trim`
 
-Im folgenden Beispiel setzen wir `text-box-edge: cap alphabetic` auf zwei Absätzen, wodurch die Überkante der Blockcontainer der Textelemente auf die Oberkante der Großbuchstaben und die Unterkante bündig mit der Textbaseline geschnitten wird.
+Im folgenden Beispiel setzen wir `text-box-edge: cap alphabetic` auf zwei Absätzen, was die obere Kante der Blockcontainer der Textelemente bis zur Oberseite der Großbuchstaben und die untere Kante bündig mit der Textgrundlinie abschneidet.
 
-Dann setzen wir `text-box-trim`-Werte von `trim-end` auf den ersten und `trim-both` auf den zweiten Absatz. Dies führt dazu, dass beim ersten Absatz nur die Unterkante geschnitten wird, während beim zweiten sowohl die Über- _als auch_ die Unterkante geschnitten werden.
+Dann setzen wir `text-box-trim` Werte von `trim-end` auf den ersten, und `trim-both` auf den zweiten. Dies führt dazu, dass der erste Absatz nur seine untere Kante abgeschnitten hat, während der zweite sowohl die obere _als auch_ die untere Kante abgeschnitten hat.
 
 ```html hidden
 <p class="one">This is .one</p>
@@ -113,25 +113,25 @@ p {
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt. Beachten Sie, dass wir oben und unten an jedem Absatz eine Grenze eingefügt haben, damit sichtbar wird, wie der Raum in jedem Fall geschnitten wurde.
+Die Ausgabe ist wie folgt. Beachten Sie, dass wir eine obere und untere Grenze auf jeden Absatz gesetzt haben, sodass Sie sehen können, wie der Raum in jedem Fall abgeschnitten wurde.
 
-{{EmbedLiveSample("Grundlegende Verwendung von `text-box-edge`","100%","360")}}
+{{EmbedLiveSample("Grundlegende `text-box-edge` Verwendung","100%","360")}}
 
-### Interaktive Wertevergleich von `text-box-trim` und `text-box-edge`
+### Interaktive `text-box-trim` und `text-box-edge` Wertvergleiche
 
-In diesem Beispiel liefern wir eine Benutzeroberfläche, mit der Sie die auf einen Textabsatz angewandten Werte von `text-box-trim` und `text-box-edge` auswählen können.
+In diesem Beispiel bieten wir eine Benutzeroberfläche, die es Ihnen erlaubt, die `text-box-trim` und `text-box-edge` Werte auf einen Textabsatz anzuwenden.
 
 #### HTML
 
-In unserem HTML enthalten wir drei Hauptbestandteile:
+In unserem HTML enthalten wir drei Hauptelemente:
 
-- Drei {{htmlelement("select")}}-Elemente, mit denen Sie festlegen können, welche Kanten des Absatzes geschnitten werden sollen (der `text-box-trim`-Wert) und wie viel Platz von den Blockstart- und Blockendkanten des Absatzes geschnitten werden soll (der {{cssxref("text-box-edge")}}-Wert).
-- Ein {{htmlelement("p")}}-Element mit Text, auf das die `text-box-*`-Werte angewandt werden. Dieser Absatz hat [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) gesetzt, sodass Sie den Text bearbeiten können.
-- Ein {{htmlelement("output")}}-Element, das die auf den Absatz angewandten `text-box-*`-Deklarationen anzeigt. Dieses wird aktualisiert, wenn eine Auswahl getroffen wird.
+- Drei {{htmlelement("select")}} Elemente, die es Ihnen ermöglichen, festzulegen, welche Kanten des Absatzes abgeschnitten werden sollen (der `text-box-trim` Wert) und wie viel Raum von den Blockanfangs- und Blockendkanten des Absatzes abgeschnitten werden soll (der {{cssxref("text-box-edge")}} Wert).
+- Ein {{htmlelement("p")}} Element, das Text enthält, auf den die `text-box-*` Werte angewendet werden. Dieser Absatz hat [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) gesetzt, damit Sie den Text bearbeiten können.
+- Ein {{htmlelement("output")}} Element, das die `text-box-*` Deklarationen anzeigt, die auf den Absatz angewendet werden. Dies wird aktualisiert, wenn eine Auswahl getroffen wird.
 
-Wir importieren auch eine Schriftart aus dem Google Fonts-Dienst, um sie auf den Text unseres Demos anzuwenden.
+Wir importieren auch eine Schriftart von Google Fonts, um sie auf den Text unseres Demos anzuwenden.
 
-Wir haben den genauen HTML-Code aus Gründen der Übersichtlichkeit verborgen.
+Wir haben den genauen HTML-Code aus Gründen der Kürze ausgeblendet.
 
 ```html hidden
 <!DOCTYPE html>
@@ -182,7 +182,7 @@ Wir haben den genauen HTML-Code aus Gründen der Übersichtlichkeit verborgen.
 
 #### CSS
 
-In unserem CSS wenden wir die importierte Schriftart auf das {{htmlelement("html")}}-Element an und gestalten das UI mit [flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox). Wir haben den Großteil des CSS-Codes aus Gründen der Übersichtlichkeit verborgen, aber unten zeigen wir die Regeln, die den Absatz stylen, auf den die `text-box-*`-Effekte angewendet werden, und das `<output>`, das die angewandten `text-box-*`-Regeln anzeigt:
+In unserem CSS wenden wir die importierte Schrift auf das {{htmlelement("html")}} Element an und gestalten die Benutzeroberfläche mit [flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox). Wir haben den Großteil des CSS-Codes aus Gründen der Kürze ausgeblendet, aber unten zeigen wir die Regeln, die den Absatz stilisieren, auf den die `text-box-*` Effekte angewendet werden, und das `<output>`, das die angewendeten `text-box-*` Regeln anzeigt:
 
 ```css hidden
 html {
@@ -231,11 +231,11 @@ output {
 }
 ```
 
-Auch hier beachten Sie, wie wir eine obere und untere Grenze am `.display`-Absatz hinzugefügt haben, damit sichtbar wird, wie sich der Raumverlauf ändert, wenn verschiedene `text-box-*`-Werte ausgewählt werden.
+Beachten Sie erneut, dass wir eine obere und untere Grenze auf den `.display` Absatz gesetzt haben, sodass Sie sehen können, wie sich der abgeschnittene Raum ändert, wenn verschiedene `text-box-*` Werte ausgewählt werden.
 
 #### JavaScript
 
-Im JavaScript beginnen wir mit dem Abrufen von Referenzen auf die drei `<select>`-Elemente und zwei `<p>`-Elemente:
+Im JavaScript beginnen wir mit dem Erfassen von Referenzen auf die drei `<select>` Elemente und zwei `<p>` Elemente:
 
 ```js
 const boxTrimSelect = document.getElementById("box-trim");
@@ -246,7 +246,7 @@ const displayElem = document.querySelector("p");
 const codeElem = document.querySelector("output");
 ```
 
-Als nächstes definieren wir eine Funktion namens `setEdgeTrim()`. Diese wendet einen {{cssxref("text-box")}}-Wert auf den Absatz basierend auf den Werten der `<select>`-Elemente an und gibt auch die angewandten Deklarationen aus (sowohl die Lang- als auch die Kurzschreibäquivalente):
+Als nächstes definieren wir eine Funktion namens `setEdgeTrim()`. Diese wendet einen {{cssxref("text-box")}} Wert auf den Absatz basierend auf den Werten der `<select>` Elemente an und druckt auch die angewendeten Deklarationen auf die Ausgabe (sowohl die Lang- als auch die Kurzschreibweise):
 
 ```js
 function setEdgeTrim() {
@@ -266,7 +266,7 @@ function setEdgeTrim() {
 }
 ```
 
-Im letzten Teil des JavaScripts führen wir die Funktion `setEdgeTrim()` einmal aus, um einen Anfangszustand für die Benutzeroberfläche festzulegen. Dann wenden wir [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignislistener auf alle `<select>`-Elemente an (über [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)), damit `setEdgeTrim()` immer dann ausgeführt wird, wenn sich einer der `<select>`-Werte ändert, um die UI entsprechend zu aktualisieren:
+Im letzten Teil des JavaScripts führen wir die `setEdgeTrim()` Funktion einmal aus, um einen Anfangszustand für die Benutzeroberfläche festzulegen. Wir wenden dann [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignislistener auf alle `<select>` Elemente (über [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)) an, sodass `setEdgeTrim()` ausgeführt wird, wann immer sich einer der `<select>` Werte ändert, um die Benutzeroberfläche entsprechend zu aktualisieren:
 
 ```js
 setEdgeTrim();
@@ -280,11 +280,11 @@ trimUnderSelect.addEventListener("change", setEdgeTrim);
 
 Die Ausgabe ist wie folgt:
 
-{{EmbedLiveSample("Wertevergleich von `text-box-trim`","100%","520")}}
+{{EmbedLiveSample("`text-box-trim` Wertvergleich","100%","520")}}
 
-`text-box-trim` ist anfangs auf `trim-both` gesetzt, was bedeutet, dass die Über- _und_ Unterkanten des Absatzes abgeschnitten werden. `text-box-edge` ist anfangs auf `cap alphabetic` gesetzt, was bedeutet, dass der Text bündig mit der Oberkante der Großbuchstaben an der Startkante und bündig mit der Baseline an der Endkante geschnitten wird.
+`text-box-trim` ist anfangs auf `trim-both` gesetzt, was bedeutet, dass sowohl die obere _als auch_ untere Kante des Absatzes abgeschnitten werden. `text-box-edge` ist anfangs auf `cap alphabetic` gesetzt, was bedeutet, dass der Text bündig mit der Oberseite der Großbuchstaben an der Anfangskante und bündig mit der Grundlinie an der Endkante abgeschnitten wird.
 
-Versuchen Sie, die `<select>`-Werte zu ändern, um die Wirkung auf den Anzeigetext zu sehen.
+Versuchen Sie, die `<select>` Werte zu ändern, um zu sehen, welchen Einfluss sie auf den Anzeige-Text haben.
 
 ## Spezifikationen
 
@@ -297,5 +297,5 @@ Versuchen Sie, die `<select>`-Werte zu ändern, um die Wirkung auf den Anzeigete
 ## Siehe auch
 
 - {{cssxref("text-box")}}, {{cssxref("text-box-edge")}}
-- [CSS inline layout](/de/docs/Web/CSS/CSS_inline_layout) Modul
+- [CSS Inline-Layout](/de/docs/Web/CSS/CSS_inline_layout) Modul
 - [CSS text-box-trim](https://developer.chrome.com/blog/css-text-box-trim) auf developer.chrome.com (2025)
