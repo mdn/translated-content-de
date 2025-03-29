@@ -1,55 +1,55 @@
 ---
 title: Anleitung zur Dokumentation eines HTTP-Headers
-short-title: Dokumentieren eines HTTP-Headers
+short-title: Dokumentation eines HTTP-Headers
 slug: MDN/Writing_guidelines/Howto/Document_an_HTTP_header
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: a52689c74c6c89f45c54447bb148e54ed320db62
 ---
 
-Im [HTTP-Header-Referenz](/de/docs/Web/HTTP/Reference/Headers) wird der Header-Abschnitt von Anfrage- und Antwortnachrichten im Hypertext Transfer Protocol ([HTTP](/de/docs/Web/HTTP)) dokumentiert. Dieser Artikel erklärt, wie Sie eine neue Referenzseite für einen HTTP-Header erstellen können.
+Die [HTTP-Header-Referenz](/de/docs/Web/HTTP/Reference/Headers) dokumentiert den Header-Abschnitt von Anfragen- und Antwortnachrichten im Hypertext Transfer Protocol ([HTTP](/de/docs/Web/HTTP)). Dieser Artikel erklärt, wie man eine neue Referenzseite für einen HTTP-Header erstellt.
 
 ## Schritt 1 – Bestimmen Sie den zu dokumentierenden HTTP-Header
 
 - Es gibt viele HTTP-Header, die in verschiedenen IETF-Standards definiert sind.
-- IANA führt ein [Verzeichnis der HTTP-Header-Felder](https://www.iana.org/assignments/http-fields/http-fields.xhtml) und Wikipedia listet die [bekannten Header-Felder](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) auf, aber nicht alle sind für Webentwickler relevant oder Teil eines offiziellen Standards.
-- Wenn es auf der aktuellen [HTTP-Header-Referenz-Übersichtsseite](/de/docs/Web/HTTP/Reference/Headers) **rote Links** gibt, sind diese Header eine gute Wahl zur Dokumentation.
-- Wenn Sie unsicher sind, [fragen Sie das MDN Web Docs Team](/de/docs/MDN/Community/Communication_channels), ob es sinnvoll ist, über den von Ihnen gewählten Header zu schreiben.
+- IANA führt ein [Register der HTTP-Header-Felder](https://www.iana.org/assignments/http-fields/http-fields.xhtml) und Wikipedia listet die [bekannten Header-Felder](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) auf, aber nicht alle sind für Webentwickler relevant oder Teil eines offiziellen Standards.
+- Wenn es **rote Links** auf der aktuellen [HTTP-Header-Referenzübersichtsseite](/de/docs/Web/HTTP/Reference/Headers) gibt, sind diese Header eine gute Wahl zur Dokumentation.
+- Wenn Sie unsicher sind, fragen Sie das [MDN Web Docs Team](/de/docs/MDN/Community/Communication_channels), ob es sinnvoll ist, über den von Ihnen gewählten Header zu schreiben.
 
-## Schritt 2 – Überprüfen Sie die vorhandenen HTTP-Header-Seiten
+## Schritt 2 – Überprüfen Sie die bestehenden HTTP-Header-Seiten
 
 - Bestehende HTTP-Header sind [hier](/de/docs/Web/HTTP/Reference/Headers) dokumentiert.
-- Es gibt verschiedene Header-Kategorien: [Request Header](/de/docs/Glossary/Request_header), [Response Header](/de/docs/Glossary/Response_header) und [Representation Header](/de/docs/Glossary/Representation_header).
+- Es gibt verschiedene Header-Kategorien: {{Glossary("Request_header", "Anfrage-Header")}}, {{Glossary("Response_header", "Antwort-Header")}} und {{Glossary("Representation_header", "Repräsentations-Header")}}.
 - Finden Sie die Kategorie des Headers, den Sie dokumentieren möchten (beachten Sie, dass einige Header je nach Kontext sowohl Anfrage- als auch Antwort-Header sein können).
-- Gehen Sie zu einer bestehenden Header-Referenzseite, die derselben Kategorie angehört.
+- Gehen Sie zu einer bestehenden Header-Referenzseite mit derselben Kategorie.
 
 ## Schritt 3 – Erstellen Sie die HTTP-Header-Seite
 
-- Alle Header-Seiten befinden sich unter diesem Verzeichnis: [`files/en-us/web/http/headers`](https://github.com/mdn/content/tree/main/files/en-us/web/http/headers)
-- Um eine neue Seite zu erstellen, lesen Sie die Anweisungen in unserem [Leitfaden zum Erstellen einer Seite](/de/docs/MDN/Writing_guidelines/Howto/Creating_moving_deleting).
+- Alle Header-Seiten befinden sich unter folgendem Verzeichnis: [`files/en-us/web/http/reference/headers`](https://github.com/mdn/content/tree/main/files/en-us/web/http/reference/headers)
+- Um eine neue Seite zu erstellen, sehen Sie sich die Anweisungen in unserem [Leitfaden zum Erstellen einer Seite](/de/docs/MDN/Writing_guidelines/Howto/Creating_moving_deleting) an.
 
 ## Schritt 4 – Schreiben Sie den Inhalt
 
-- Beginnen Sie entweder mit unserer [Vorlage für HTTP-Header-Seiten](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types#http_header_reference_page) oder verwenden Sie die kopierte Struktur von einem der bestehenden HTTP-Header-Dokumente, die Sie in Schritt 2 gefunden haben. Es liegt an Ihnen.
+- Entweder starten Sie mit unserer [Vorlage für HTTP-Header-Seiten](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types#http_header_reference_page) oder verwenden Sie eine kopierte Struktur von einem der bestehenden HTTP-Header-Dokumente, die Sie in Schritt 2 gefunden haben. Es liegt an Ihnen.
 - Schreiben Sie über den neuen HTTP-Header.
-- Stellen Sie sicher, dass Sie diese Abschnitte haben:
+- Stellen Sie sicher, dass Sie folgende Abschnitte einfügen:
 
-  - Einführender Text, in dem der Header-Name (fett) erwähnt und sein Zweck zusammengefasst wird.
-  - Informationsbox, die mindestens den Header-Typ und ob der Header ein [verbotener Anfrage-Header](/de/docs/Glossary/Forbidden_request_header) ist, enthält.
-  - Eine Syntax-Box, die alle möglichen Direktiven/Parameter/Werte des HTTP-Headers enthält.
+  - Einleitungstext, in dem der Header-Name (fett) genannt und dessen Zweck zusammengefasst wird.
+  - Informationsbox, die mindestens den Header-Typ und ob der Header ein {{Glossary("Forbidden_request_header", "verbotener Anfrage-Header")}} ist, enthält.
+  - Eine Syntaxbox mit allen möglichen Direktiven/Parametern/Werten des HTTP-Headers.
   - Ein Abschnitt, der diese Direktiven/Werte erklärt.
-  - Ein Beispielabschnitt, der einen praktischen Anwendungsfall für diesen Header zeigt oder wo und wie er normalerweise auftritt.
-  - Ein Abschnitt mit Spezifikationen, der relevante RFC-Standarddokumente auflistet.
-  - Ein „Weitere Informationen“-Abschnitt, der relevante Ressourcen auflistet.
+  - Ein Beispielabschnitt, der eine praktische Anwendung für diesen Header enthält oder zeigt, wo und wie er üblicherweise auftritt.
+  - Einen Abschnitt Spezifikationen, der relevante RFC-Standarddokumente auflistet.
+  - Einen Abschnitt "Siehe auch", der relevante Ressourcen auflistet.
 
-## Schritt 5 – Fügen Sie Browser-Kompatibilitätsinformationen hinzu
+## Schritt 5 – Fügen Sie Informationen zur Browser-Kompatibilität hinzu
 
-- Wenn Sie andere HTTP-Header-Seiten betrachtet haben, werden Sie sehen, dass ein `\{{Compat}}`-Makro vorhanden ist, das eine Browser-Tabelle für Sie ausfüllt.
-- Die Kompatibilitätstabellenseite wird aus strukturierten Daten generiert. Wenn Sie Daten beitragen möchten, lesen Sie bitte die Anweisungen unter <https://github.com/mdn/browser-compat-data/blob/main/README.md> und senden Sie uns eine Pull-Request.
+- Wenn Sie andere HTTP-Header-Seiten betrachtet haben, werden Sie sehen, dass es ein `\{{Compat}}` Makro gibt, das Ihnen eine Browser-Tabelle ausfüllt.
+- Die Kompatibilitätstabelle wird aus strukturierten Daten generiert. Wenn Sie zu den Daten beitragen möchten, lesen Sie bitte die Anweisungen unter <https://github.com/mdn/browser-compat-data/blob/main/README.md> und senden Sie uns einen Pull-Request.
 
 ## Schritt 6 – Aktualisieren Sie die HTTP-Header-Liste
 
-Stellen Sie sicher, dass Ihr Header in einer geeigneten Kategorie auf der [HTTP-Header-Referenz-Übersichtsseite](/de/docs/Web/HTTP/Reference/Headers) aufgeführt ist.
+Stellen Sie sicher, dass Ihr Header in einer geeigneten Kategorie auf der [HTTP-Header-Referenzübersichtsseite](/de/docs/Web/HTTP/Reference/Headers) aufgeführt ist.
 
 ## Schritt 7 – Lassen Sie den Inhalt überprüfen
 
-Nachdem Sie die Header-Seite erstellt haben, senden Sie sie als Pull-Request. Ein Mitglied unseres Review-Teams wird automatisch zugewiesen, um Ihre Seite zu überprüfen.
+Nachdem Sie die Header-Seite erstellt haben, reichen Sie diese als Pull-Request ein. Ein Mitglied unseres Review-Teams wird automatisch zugewiesen, um Ihre Seite zu überprüfen.

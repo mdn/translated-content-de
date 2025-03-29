@@ -2,16 +2,16 @@
 title: RTCDtlsTransport
 slug: Web/API/RTCDtlsTransport
 l10n:
-  sourceCommit: 829720f86ce858b9bb8cbe7aa9e0bea148915f8c
+  sourceCommit: a52689c74c6c89f45c54447bb148e54ed320db62
 ---
 
 {{APIRef("WebRTC")}}
 
 Die **`RTCDtlsTransport`**-Schnittstelle bietet Zugriff auf Informationen über den Datagram Transport Layer Security (**{{Glossary("DTLS", "DTLS")}}**)-Transport, über den die {{Glossary("RTP", "RTP")}}- und {{Glossary("RTCP", "RTCP")}}-Pakete einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) von ihren [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)- und [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten gesendet und empfangen werden.
 
-Ein `RTCDtlsTransport`-Objekt wird auch verwendet, um Informationen über {{Glossary("SCTP", "SCTP")}}-Pakete bereitzustellen, die von den [Datenkanälen](/de/docs/Web/API/RTCDataChannel) einer Verbindung übertragen und empfangen werden.
+Ein `RTCDtlsTransport`-Objekt wird auch verwendet, um Informationen über {{Glossary("SCTP", "SCTP")}}-Pakete bereitzustellen, die von den [Datakanälen](/de/docs/Web/API/RTCDataChannel) einer Verbindung übertragen und empfangen werden.
 
-Eigenschaften des DTLS-Transports beinhalten die Hinzufügung von Sicherheit zum zugrunde liegenden Transport; die `RTCDtlsTransport`-Schnittstelle kann verwendet werden, um Informationen über den zugrunde liegenden Transport und die vom DTLS-Layer hinzugefügte Sicherheit zu erhalten.
+Merkmale des DTLS-Transports umfassen die Hinzufügung von Sicherheit zum zugrunde liegenden Transport; über die `RTCDtlsTransport`-Schnittstelle können Informationen über den zugrunde liegenden Transport und die Sicherheitsschicht des DTLS bereitgestellt werden.
 
 {{InheritanceDiagram}}
 
@@ -22,7 +22,10 @@ _Erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 - [`iceTransport`](/de/docs/Web/API/RTCDtlsTransport/iceTransport) {{ReadOnlyInline}}
   - : Gibt eine Referenz auf das zugrunde liegende [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Objekt zurück.
 - [`state`](/de/docs/Web/API/RTCDtlsTransport/state) {{ReadOnlyInline}}
-  - : Liefert einen String, der den Zustand des zugrunde liegenden Datagram Transport Layer Security (**{{Glossary("DTLS", "DTLS")}}**)-Transports beschreibt. Es kann einen der folgenden Werte einnehmen: `new`, `connecting`, `connected`, `closed` oder `failed`.
+  - : Gibt einen String zurück,
+    der den Zustand des zugrunde liegenden Datagram Transport Layer Security (**{{Glossary("DTLS", "DTLS")}}**)-Transports beschreibt.
+    Es kann einer der folgenden Werte sein:
+    `new`, `connecting`, `connected`, `closed` oder `failed`.
 
 ## Instanz-Methoden
 
@@ -35,22 +38,22 @@ _Erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`error`](/de/docs/Web/API/RTCDtlsTransport/error_event)
 
-  - : Wird gesendet, wenn ein Transport-Fehler auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auftritt.
+  - : Wird gesendet, wenn ein Fehler auf Transport-Ebene bei der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auftritt.
 
 - [`statechange`](/de/docs/Web/API/RTCDtlsTransport/statechange_event)
   - : Wird gesendet, wenn sich der [`state`](/de/docs/Web/API/RTCDtlsTransport/state) des DTLS-Transports ändert.
 
 ## Beschreibung
 
-### Zuweisung von DTLS-Transporten
+### Zuweisung von DTLS-Transports
 
-`RTCDtlsTransport`-Objekte werden erstellt, wenn eine App entweder [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) oder [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufruft. Die Anzahl der erstellten DTLS-Transporte und deren Verwendung hängt vom BUNDLE-Modus ab, der bei der Erstellung der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwendet wird.
+`RTCDtlsTransport`-Objekte werden erstellt, wenn eine Anwendung entweder [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) oder [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufruft. Die Anzahl der erstellten DTLS-Transports und deren Verwendung hängt vom Bunde-Modus ab, der bei der Erstellung der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwendet wird.
 
-Ob BUNDLE verwendet wird, hängt davon ab, was das andere Ende verhandeln kann. Alle Browser unterstützen BUNDLE, sodass, wenn beide Endpunkte Browser sind, Sie sicher sein können, dass BUNDLE verwendet wird.
+Ob Bundling verwendet wird, hängt davon ab, was das andere Endpunkt verhandeln kann. Alle Browser unterstützen Bundling, sodass Sie sicher sein können, dass es verwendet wird, wenn beide Endpunkte Browser sind.
 
-Einige nicht-browserbasierte Legacy-Endpunkte unterstützen jedoch möglicherweise kein BUNDLE. Um mit solchen Endpunkten verhandeln zu können (oder sie vollständig auszuschließen), kann die Eigenschaft `bundlePolicy` beim Erstellen der Verbindung angegeben werden. Die `bundlePolicy` ermöglicht die Kontrolle darüber, wie mit diesen Legacy-Endpunkten verhandelt wird. Die Standardrichtlinie ist `"balanced"`, die ein Gleichgewicht zwischen Leistung und Kompatibilität bietet.
+Einige nicht-Browser-basierte alte Endpunkte unterstützen jedoch möglicherweise kein Bundling. Um mit solchen Endpunkten verhandeln zu können (oder sie vollständig auszuschließen), kann die `bundlePolicy`-Eigenschaft bei der Erstellung der Verbindung angegeben werden. Die `bundlePolicy` erlaubt es Ihnen, zu steuern, wie mit diesen alten Endpunkten verhandelt wird. Die Standardrichtlinie ist `"balanced"`, die eine Balance zwischen Leistung und Kompatibilität bietet.
 
-Um beispielsweise die Verbindung mit dem höchsten BUNDLE-Niveau zu erstellen:
+Um beispielsweise die Verbindung mit dem höchsten Bundling-Level zu erstellen:
 
 ```js
 const rtcConfig = {
@@ -60,27 +63,27 @@ const rtcConfig = {
 const pc = new RTCPeerConnection(rtcConfig);
 ```
 
-[Bundling](https://webrtcstandards.info/sdp-bundle/) ermöglicht es, einen `RTCDtlsTransport` zu verwenden, um die Daten für mehrere höhere Transporte wie mehrere [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)s zu tragen.
+[Bundling](https://datatracker.ietf.org/doc/rfc8843/) ermöglicht es, einen `RTCDtlsTransport` zu verwenden, um die Daten für mehrere höherstufige Transports wie mehrere [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)s zu übertragen.
 
-#### Wenn kein BUNDLE verwendet wird
+#### Ohne BUNDLE
 
-Wenn die Verbindung ohne BUNDLE erstellt wird, hat jede RTP- oder RTCP-Komponente jedes [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) ihren eigenen `RTCDtlsTransport`; das heißt, jeder [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) und [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) hat seinen eigenen Transport, und alle [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekte teilen sich einen dem SCTP gewidmeten Transport.
+Wenn die Verbindung ohne Verwendung von BUNDLE erstellt wird, hat jede RTP- oder RTCP-Komponente jedes [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) ihren eigenen `RTCDtlsTransport`; das heißt, jeder [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) und [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) hat seinen eigenen Transport, und alle [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekte teilen sich einen Transport, der SCTP gewidmet ist.
 
-#### Wenn BUNDLE verwendet wird
+#### Mit BUNDLE
 
-Wenn die Verbindung BUNDLE verwendet, repräsentiert jedes `RTCDtlsTransport`-Objekt eine Gruppe von [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Objekten. Wenn die Verbindung im `max-compat`-Modus erstellt wurde, ist jeder Transport dafür verantwortlich, alle Kommunikationen für einen bestimmten Medientyp (Audio, Video oder Datenkanal) zu handhaben. Somit hat eine Verbindung mit beliebig vielen Audio- und Videokanälen immer genau einen DTLS-Transport für Audio und einen für Videokommunikationen.
+Wenn die Verbindung BUNDLE verwendet, repräsentiert jedes `RTCDtlsTransport`-Objekt eine Gruppe von [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Objekten. Wird die Verbindung im `max-compat`-Modus erstellt, ist jeder Transport dafür verantwortlich, die gesamte Kommunikation für eine gegebene Medienart (Audio, Video oder Datenkanal) zu handhaben. Somit wird eine Verbindung mit einer beliebigen Anzahl von Audio- und Videokanälen immer genau einen DTLS-Transport für Audio- und einen für Videokommunikation haben.
 
-Da Transporte früh im Verhandlungsprozess etabliert werden, ist es wahrscheinlich, dass erst nach ihrer Erstellung bekannt ist, ob der Remote-Peer BUNDLE unterstützt oder nicht. Aus diesem Grund werden anfangs manchmal separate Transporte erstellt, eines für jede Spur, die dann zusammengeführt werden, sobald klar ist, dass BUNDLE möglich ist. Wenn Ihr Code direkt auf [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) und/oder [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) zugreift, können Sie Situationen begegnen, in denen sie zunächst getrennt sind, dann wird die Hälfte oder mehr von ihnen geschlossen und die Sender und Empfänger werden aktualisiert, um auf die entsprechenden verbleibenden `RTCDtlsTransport`-Objekte zu verweisen.
+Da Transports früh im Verhandlungsprozess etabliert werden, ist es wahrscheinlich, dass erst nach ihrer Erstellung bekannt ist, ob der Remote-Peer Bundling unterstützt. Aus diesem Grund sehen Sie manchmal, dass zunächst separate Transports erstellt werden, einer für jede Spur, und dann gebündelt werden, sobald bekannt ist, dass Bundling möglich ist. Wenn Ihr Code direkt auf [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) und/oder [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) zugreift, könnten Sie auf Situationen stoßen, in denen sie anfangs getrennt sind, dann wird die Hälfte oder mehr geschlossen und die Sender und Empfänger werden aktualisiert, um auf die entsprechenden verbleibenden `RTCDtlsTransport`-Objekte zu verweisen.
 
 ### Datenkanäle
 
-[`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)s verwenden {{Glossary("SCTP", "SCTP")}} zur Kommunikation. Alle Datenkanäle einer Peer-Verbindung teilen sich einen einzigen [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport), der in der [`sctp`](/de/docs/Web/API/RTCPeerConnection/sctp)-Eigenschaft der Verbindung zu finden ist.
+[`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)s verwenden {{Glossary("SCTP", "SCTP")}} für die Kommunikation. Alle Datenkanäle einer Peer-Verbindung teilen sich einen einzigen [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport), der in der [`sctp`](/de/docs/Web/API/RTCPeerConnection/sctp)-Eigenschaft der Verbindung zu finden ist.
 
-Sie können wiederum den `RTCDtlsTransport` identifizieren, der verwendet wird, um die SCTP-Kommunikationen der Datenkanäle sicher zu kapseln, indem Sie die [`transport`](/de/docs/Web/API/RTCSctpTransport/transport)-Eigenschaft des `RTCSctpTransport`-Objekts betrachten.
+Sie können wiederum den `RTCDtlsTransport` identifizieren, der verwendet wird, um die SCTP-Kommunikation der Datenkanäle sicher zu kapseln, indem Sie die [`transport`](/de/docs/Web/API/RTCSctpTransport/transport)-Eigenschaft des `RTCSctpTransport`-Objekts untersuchen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Funktion, `tallySenders()`, die über die [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)s einer `RTCPeerConnection` iteriert und ermittelt, wie viele von ihnen sich in verschiedenen Zuständen befinden. Die Funktion gibt ein Objekt zurück, das Eigenschaften enthält, deren Werte angeben, wie viele Sender sich in jedem Zustand befinden.
+Dieses Beispiel zeigt eine Funktion, `tallySenders()`, die über die [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)s einer `RTCPeerConnection` iteriert und aufzeichnet, wie viele von ihnen sich in verschiedenen Zuständen befinden. Die Funktion gibt ein Objekt zurück, dessen Eigenschaften angeben, wie viele Sender sich in jedem Zustand befinden.
 
 ```js
 let pc = new RTCPeerConnection({ bundlePolicy: "max-bundle" });
@@ -128,7 +131,7 @@ function tallySenders(pc) {
 }
 ```
 
-Beachten Sie, dass in diesem Code die neuen und verbindenden Zustände als ein einziger `connectionPending`-Status im zurückgegebenen Objekt behandelt werden.
+Beachten Sie, dass in diesem Code die Zustände `new` und `connecting` als ein einziger `connectionPending`-Status im zurückgegebenen Objekt behandelt werden.
 
 ## Spezifikationen
 

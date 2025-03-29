@@ -3,12 +3,12 @@ title: "RTCPeerConnection: RTCPeerConnection() Konstruktor"
 short-title: RTCPeerConnection()
 slug: Web/API/RTCPeerConnection/RTCPeerConnection
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: a52689c74c6c89f45c54447bb148e54ed320db62
 ---
 
 {{APIRef("WebRTC")}}
 
-Der **`RTCPeerConnection()`** Konstruktor gibt ein neu erstelltes [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zurück, das eine Verbindung zwischen dem lokalen Gerät und einem entfernten Peer darstellt.
+Der **`RTCPeerConnection()`** Konstruktor gibt ein neu-erstelltes [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zurück, das eine Verbindung zwischen dem lokalen Gerät und einem entfernten Peer darstellt.
 
 ## Syntax
 
@@ -21,85 +21,85 @@ new RTCPeerConnection(configuration)
 
 - `configuration` {{optional_inline}}
 
-  - : Ein Objekt, das Optionen zum Konfigurieren der neuen Verbindung bereitstellt:
+  - : Ein Objekt, das Optionen zur Konfiguration der neuen Verbindung bereitstellt:
 
     - `bundlePolicy` {{optional_inline}}
 
-      - : Gibt an, wie die Verhandlung von Kandidaten gehandhabt werden soll, wenn der entfernte Peer nicht mit dem [SDP BUNDLE-Standard](https://webrtcstandards.info/sdp-bundle/) kompatibel ist. Wenn der entfernte Endpunkt BUNDLE-kompatibel ist, werden alle Medientracks und Datenkanäle unabhängig von der verwendeten Richtlinie auf einen einzigen Transport gebündelt, sobald die Verhandlung abgeschlossen ist, und alle überflüssigen Transporte, die ursprünglich erstellt wurden, werden zu diesem Zeitpunkt geschlossen.
+      - : Gibt an, wie die Aushandlung von Kandidaten gehandhabt werden soll, wenn der entfernte Peer nicht mit dem [SDP BUNDLE Standard](https://datatracker.ietf.org/doc/rfc8843/) kompatibel ist. Wenn der entfernte Endpunkt BUNDLE-bewusst ist, werden alle Medienspuren und Datenkanäle unabhängig von der verwendeten Richtlinie auf einen einzigen Transport gebündelt, sobald die Aushandlung abgeschlossen ist, und alle überflüssigen Transporte, die zunächst erstellt wurden, werden dann geschlossen.
 
-        In technischen Begriffen ermöglicht ein BUNDLE, dass alle Medienströme zwischen zwei Peers über ein einziges **5-Tupel** fließen; das heißt, von einer einzigen IP und Port auf einem Peer zu einer einzigen IP und Port auf dem anderen Peer, wobei dasselbe Transportprotokoll verwendet wird.
+        Technisch gesehen ermöglicht ein BUNDLE, dass alle Medienströme zwischen zwei Peers über eine einzelne **5-tuple** fließen; das heißt, von einer einzigen IP und Port auf einem Peer zu einer einzigen IP und Port auf dem anderen Peer, wobei dasselbe Transportprotokoll verwendet wird.
 
-        Dies muss einer der folgenden Zeichenkettenwerte sein, wenn keiner angegeben wird, wird `balanced` angenommen:
+        Dies muss einer der folgenden Zeichenfolgenwerte sein, falls nicht wird `balanced` angenommen:
 
         - `"balanced"`
-          - : Der ICE-Agent erstellt zunächst einen [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) für jeden hinzugefügten Inhaltstyp: Audio, Video und Datenkanäle. Wenn der entfernte Endpunkt nicht BUNDLE-kompatibel ist, übernimmt jeder dieser DTLS-Transporte die gesamte Kommunikation für einen Datentyp.
+          - : Der ICE-Agent erstellt zunächst einen [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) für jeden Inhaltstyp: Audio, Video und Datenkanäle. Wenn der entfernte Endpunkt nicht BUNDLE-bewusst ist, dann verwaltet jeder dieser DTLS-Transporte die gesamte Kommunikation für einen Typ von Daten.
         - `"max-compat"`
-          - : Der ICE-Agent erstellt zunächst einen [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) pro Medientrack und einen separaten für Datenkanäle. Wenn der entfernte Endpunkt nicht BUNDLE-kompatibel ist, wird alles auf diesen separaten DTLS-Transporten verhandelt.
+          - : Der ICE-Agent erstellt zunächst einen [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) pro Medienspuren und einen separaten für Datenkanäle. Wenn der entfernte Endpunkt nicht BUNDLE-bewusst ist, wird alles auf diesen separaten DTLS-Transporten ausgehandelt.
         - `"max-bundle"`
-          - : Der ICE-Agent erstellt zunächst nur einen einzigen [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport), um alle Daten der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu transportieren. Wenn der entfernte Endpunkt nicht BUNDLE-kompatibel ist, wird nur ein einzelner Track verhandelt und der Rest ignoriert.
+          - : Der ICE-Agent erstellt zunächst nur einen einzigen [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport), um alle Daten der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu übertragen. Wenn der entfernte Endpunkt nicht BUNDLE-bewusst ist, wird nur eine einzige Spur ausgehandelt und der Rest ignoriert.
 
     - `certificates` {{optional_inline}}
 
-      - : Ein {{jsxref("Array")}} von Objekten des Typs [`RTCCertificate`](/de/docs/Web/API/RTCCertificate), die von der Verbindung zur Authentifizierung verwendet werden. Wenn diese Eigenschaft nicht angegeben ist, wird für jede [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Instanz automatisch ein Satz von Zertifikaten generiert. Obwohl nur ein Zertifikat von einer bestimmten Verbindung verwendet wird, kann das Bereitstellen von Zertifikaten für mehrere Algorithmen in einigen Fällen die Erfolgschancen bei der Verbindungserstellung verbessern. Siehe [Verwendung von Zertifikaten](#verwendung_von_zertifikaten) für weitere Informationen.
+      - : Ein {{jsxref("Array")}} von Objekten vom Typ [`RTCCertificate`](/de/docs/Web/API/RTCCertificate), die von der Verbindung zur Authentifizierung verwendet werden. Wenn diese Eigenschaft nicht angegeben ist, wird für jede [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Instanz automatisch ein Satz von Zertifikaten generiert. Obwohl nur ein Zertifikat von einer bestimmten Verbindung verwendet wird, kann die Bereitstellung von Zertifikaten für mehrere Algorithmen in einigen Fällen die Chancen auf eine erfolgreiche Verbindung erhöhen. Weitere Informationen finden Sie unter [Verwendung von Zertifikaten](#verwendung_von_zertifikaten).
 
         > [!NOTE]
-        > Diese Konfigurationsoption kann nach der ersten Angabe nicht mehr geändert werden; sobald die Zertifikate festgelegt wurden, wird diese Eigenschaft in zukünftigen Aufrufen von [`RTCPeerConnection.setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration) ignoriert.
+        > Diese Konfigurationsoption kann nicht geändert werden, nachdem sie erstmals festgelegt wurde; sobald die Zertifikate festgelegt sind, wird diese Eigenschaft in zukünftigen Aufrufen von [`RTCPeerConnection.setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration) ignoriert.
 
     - `iceCandidatePoolSize` {{optional_inline}}
 
-      - : Ein nicht signierter 16-Bit-Integer-Wert, der die Größe des vorab abgerufenen ICE-Kandidatenpools angibt. Der Standardwert ist 0 (was bedeutet, dass kein Kandidatenvorababruf erfolgt). In einigen Fällen kann es sinnvoll sein, dem ICE-Agenten zu erlauben, ICE-Kandidaten bereits vor Beginn des Verbindungsversuchs abzurufen, damit sie zur Überprüfung verfügbar sind, wenn [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufgerufen wird.
+      - : Ein nicht signierter 16-Bit-Integer-Wert, der die Größe des vorab abgerufenen ICE-Kandidatenpools angibt. Der Standardwert ist 0 (d.h. es findet kein vorab abgerufenes Kandidaten-Prefetching statt). In einigen Fällen kann es sein, dass Verbindungen schneller hergestellt werden, indem dem ICE-Agent erlaubt wird, ICE-Kandidaten zu sammeln, bevor Sie versuchen, zu verbinden, sodass sie bereits zur Verfügung stehen, wenn [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufgerufen wird.
 
         > [!NOTE]
-        > Das Ändern der Größe des ICE-Kandidatenpools kann den Beginn der ICE-Erfassung auslösen.
+        > Eine Änderung der Größe des ICE-Kandidatenpools kann den Beginn des ICE-Sammelns auslösen.
 
     - `iceServers` {{optional_inline}}
 
-      - : Ein Array von Objekten, von denen jedes einen Server beschreibt, der vom ICE-Agenten verwendet werden kann; hierbei handelt es sich typischerweise um STUN- und/oder TURN-Server. Wenn dies nicht angegeben ist, erfolgt der Verbindungsversuch ohne verfügbaren STUN- oder TURN-Server, was die Verbindung auf lokale Peers beschränkt. Jedes Objekt kann die folgenden Eigenschaften haben:
+      - : Ein Array von Objekten, die jeweils einen Server beschreiben, der vom ICE-Agent verwendet werden kann; diese sind typischerweise STUN- und/oder TURN-Server. Wenn dies nicht angegeben wird, wird der Verbindungsversuch ohne verfügbaren STUN- oder TURN-Server unternommen, was die Verbindung auf lokale Peers beschränkt. Jedes Objekt kann die folgenden Eigenschaften haben:
 
         - `credential` {{optional_inline}}
-          - : Die Anmeldeinformationen für die Anmeldung beim Server. Dies wird nur verwendet, wenn das Objekt einen TURN-Server darstellt.
+          - : Das Anmeldeinformationen zur Anmeldung beim Server. Dies wird nur verwendet, wenn das Objekt einen TURN-Server darstellt.
         - `credentialType` {{optional_inline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-          - : Wenn das Objekt einen TURN-Server darstellt, gibt dieses Attribut an, welche Art von `credential` bei der Verbindung verwendet werden soll. Der Standardwert ist `"password"`.
+          - : Wenn das Objekt einen TURN-Server darstellt, gibt dieses Attribut an, welche Art von `credential` beim Verbinden verwendet werden soll. Der Standard ist `"password"`.
         - `urls`
-          - : Diese **erforderliche** Eigenschaft ist entweder ein einzelner Zeichenfolgenwert oder ein Array von Zeichenfolgen, von denen jede eine URL angibt, die zur Verbindung mit dem Server verwendet werden kann.
+          - : Diese **erforderliche** Eigenschaft ist entweder eine einzelne Zeichenfolge oder ein Array von Zeichenfolgen, die jeweils eine URL angeben, die zur Verbindung mit dem Server verwendet werden kann.
         - `username` {{optional_inline}}
-          - : Wenn das Objekt einen TURN-Server darstellt, ist dies der Benutzername, der während der Authentifizierung verwendet wird.
+          - : Wenn das Objekt einen TURN-Server darstellt, dann ist dies der Benutzername, der während der Authentifizierung verwendet wird.
 
     - `iceTransportPolicy` {{optional_inline}}
 
-      - : Eine Zeichenfolge, die die aktuelle ICE-Transportpolitik darstellt. Mögliche Werte sind:
+      - : Eine Zeichenkette, die die aktuelle ICE-Transportpolitik darstellt. Mögliche Werte sind:
 
         - `"all"`
-          - : Alle ICE-Kandidaten werden berücksichtigt. Dies ist der Standardwert.
+          - : Alle ICE-Kandidaten werden in Betracht gezogen. Dies ist der Standardwert.
         - `"public"` {{deprecated_inline}}
-          - : Es werden nur ICE-Kandidaten mit öffentlichen IP-Adressen berücksichtigt.
+          - : Es werden nur ICE-Kandidaten mit öffentlichen IP-Adressen in Betracht gezogen.
         - `"relay"`
-          - : Es werden nur ICE-Kandidaten berücksichtigt, deren IP-Adressen weitergeleitet werden, wie z. B. über einen TURN-Server.
+          - : Es werden nur ICE-Kandidaten in Betracht gezogen, deren IP-Adressen weitergeleitet werden, wie beispielsweise solche, die über einen TURN-Server geleitet werden.
 
     - `peerIdentity` {{optional_inline}}
-      - : Eine Zeichenfolge, die die Ziel-Peer-Identität für die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) angibt. Wenn dieser Wert gesetzt ist (Standardwert ist `null`), wird die `RTCPeerConnection` keine Verbindung zu einem entfernten Peer herstellen, es sei denn, sie kann erfolgreich mit dem angegebenen Namen authentifizieren.
+      - : Eine Zeichenfolge, die die Ziel-Peer-Identität für die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) angibt. Wenn dieser Wert gesetzt ist (Standard ist `null`), wird die `RTCPeerConnection` nicht mit einem entfernten Peer verbinden, es sei denn, sie kann erfolgreich mit dem angegebenen Namen authentifizieren.
     - `rtcpMuxPolicy` {{optional_inline}}
 
-      - : Eine Zeichenfolge, die die RTCP-Multiplexierungsrichtlinie angibt, die beim Erfassen von ICE-Kandidaten verwendet werden soll, um nicht-multiplexierte RTCP zu unterstützen. Mögliche Werte sind:
+      - : Eine Zeichenkette, die die RTCP-Mux-Richtlinie angibt, die beim Sammeln von ICE-Kandidaten verwendet werden soll, um nicht-multiplexiertes RTCP zu unterstützen. Mögliche Werte sind:
 
         - `"negotiate"`
-          - : Weist den ICE-Agenten an, sowohl {{Glossary("RTP", "RTP")}} als auch {{Glossary("RTCP", "RTCP")}}-Kandidaten zu sammeln. Wenn der entfernte Peer RTCP multiplexen kann, werden RTCP-Kandidaten über die entsprechenden RTP-Kandidaten multiplexed. Andernfalls werden sowohl die RTP- als auch die RTCP-Kandidaten separat zurückgegeben.
+          - : Weist den ICE-Agent an, sowohl {{Glossary("RTP", "RTP")}} als auch {{Glossary("RTCP", "RTCP")}} Kandidaten zu sammeln. Wenn der entfernte Peer RTCP multiplexen kann, dann werden RTCP-Kandidaten auf die entsprechenden RTP-Kandidaten multipelxiert. Andernfalls werden sowohl die RTP- als auch die RTCP-Kandidaten separat zurückgegeben.
         - `"require"`
-          - : Sagt dem ICE-Agenten, ICE-Kandidaten nur für RTP zu sammeln und RTCP darüber zu multiplexen. Wenn der entfernte Peer RTCP-Multiplexen nicht unterstützt, schlägt die Sitzungsverhandlung fehl. Dies ist der Standardwert.
+          - : Fordert den ICE-Agent auf, ICE-Kandidaten nur für RTP zu sammeln und RTCP darauf zu multiplexen. Wenn der entfernte Peer kein RTCP-Multiplexen unterstützt, schlägt die Sitzungsverhandlung fehl. Dies ist der Standardwert.
 
 ### Rückgabewert
 
-Ein neu erstelltes [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt, konfiguriert gemäß `configuration`, falls angegeben; andernfalls wird eine angemessene Grundeinstellung verwendet.
+Ein neu-erstelltes [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Objekt, konfiguriert wie durch `configuration` beschrieben, falls angegeben; andernfalls mit angemessenen Grundeinstellungen konfiguriert.
 
 ## Verwendung von Zertifikaten
 
-Wenn Sie Ihre eigenen Zertifikate für die Verwendung durch eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) bereitstellen möchten, anstatt dass die `RTCPeerConnection` sie automatisch generiert, tun Sie dies, indem Sie die statische Funktion [`RTCPeerConnection.generateCertificate()`](/de/docs/Web/API/RTCPeerConnection/generateCertificate_static) aufrufen.
+Wenn Sie Ihre eigenen Zertifikate für die Verwendung durch eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) bereitstellen möchten, anstatt diese automatisch generieren zu lassen, tun Sie dies, indem Sie die statische Funktion [`RTCPeerConnection.generateCertificate()`](/de/docs/Web/API/RTCPeerConnection/generateCertificate_static) aufrufen.
 
-Der Wert der `certificates`-Eigenschaft kann nicht mehr geändert werden, sobald er erstmals angegeben wurde. Wenn er in die Konfiguration aufgenommen wird, die bei einem Aufruf von [`setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration) auf eine Verbindung übergeben wird, wird er ignoriert.
+Der Wert der `certificates` Eigenschaft kann nicht geändert werden, nachdem er erstmals festgelegt wurde. Wenn er in der Konfiguration enthalten ist, die bei einem Aufruf von [`setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration) einer Verbindung übergeben wird, wird er ignoriert.
 
-Dieses Attribut unterstützt mehrere Zertifikate, weil, obwohl eine DTLS-Verbindung nur ein Zertifikat verwendet, die Bereitstellung mehrerer Zertifikate die Unterstützung für mehrere Verschlüsselungsalgorithmen ermöglicht. Die Implementierung von `RTCPeerConnection` wählt aus, welches Zertifikat basierend auf den Algorithmen, die es und der entfernte Peer unterstützen, während des DTLS-Handshakes verwendet wird.
+Dieses Attribut unterstützt die Bereitstellung mehrerer Zertifikate, da obwohl eine DTLS-Verbindung nur ein Zertifikat verwendet, die Bereitstellung mehrerer Zertifikate die Unterstützung mehrerer Verschlüsselungsalgorithmen ermöglicht. Die Implementierung von `RTCPeerConnection` wählt das zu verwendende Zertifikat basierend auf den Algorithmen aus, die es und der entfernte Peer während des DTLS-Handshake unterstützen.
 
-Wenn Sie keine Zertifikate bereitstellen, werden neue automatisch generiert. Ein offensichtlicher Vorteil, eigene bereitzustellen, ist die Kontinuität des Identitätsschlüssels — wenn Sie für nachfolgende Anrufe dasselbe Zertifikat verwenden, kann der entfernte Peer erkennen, dass Sie derselbe Anrufer sind. Dies vermeidet auch die Kosten für die Erstellung neuer Schlüssel.
+Wenn Sie keine Zertifikate bereitstellen, werden neue automatisch generiert. Ein offensichtlicher Vorteil der Bereitstellung eigener Zertifikate ist die Kontinuität des Identitätsschlüssels — wenn Sie dasselbe Zertifikat für nachfolgende Anrufe verwenden, kann der entfernte Peer erkennen, dass Sie derselbe Anrufer sind. Dies vermeidet auch die Kosten der Erstellung neuer Schlüssel.
 
 ## Spezifikationen
 
@@ -112,6 +112,6 @@ Wenn Sie keine Zertifikate bereitstellen, werden neue automatisch generiert. Ein
 ## Siehe auch
 
 - [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
-- [Übersicht über die WebRTC-Architektur](/de/docs/Web/API/WebRTC_API/Protocols)
-- [Lebensdauer einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)
+- [Überblick über die WebRTC-Architektur](/de/docs/Web/API/WebRTC_API/Protocols)
+- [Lebensdauer einer WebRTC-Session](/de/docs/Web/API/WebRTC_API/Session_lifetime)
 - [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)

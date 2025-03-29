@@ -2,22 +2,23 @@
 title: Welche Software benötige ich, um eine Website zu erstellen?
 slug: Learn_web_development/Howto/Tools_and_setup/What_software_do_I_need
 l10n:
-  sourceCommit: 673746e15e5052c4fe39944f3d93d2e2d3227b3f
+  sourceCommit: a52689c74c6c89f45c54447bb148e54ed320db62
 ---
 
 {{QuicklinksWithSubPages("/de/docs/Learn_web_development/Howto")}}
 
-In diesem Artikel erklären wir, welche Softwarekomponenten Sie benötigen, wenn Sie eine Website bearbeiten, hochladen oder anzeigen wollen.
+In diesem Artikel erläutern wir, welche Softwarekomponenten Sie benötigen, wenn Sie eine Website bearbeiten, hochladen oder anzeigen.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Sie sollten bereits
+        Sie sollten bereits den
         <a
           href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web"
-          >den Unterschied zwischen Webseiten, Websites, Webservern und Suchmaschinen</a
+          >Unterschied zwischen Webseiten, Websites, Webservern und
+          Suchmaschinen</a
         >
         kennen.
       </td>
@@ -25,7 +26,7 @@ In diesem Artikel erklären wir, welche Softwarekomponenten Sie benötigen, wenn
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Erfahren Sie, welche Softwarekomponenten Sie benötigen, wenn Sie eine Website bearbeiten, hochladen oder anzeigen wollen.
+        Erfahren Sie, welche Softwarekomponenten Sie benötigen, um eine Website zu bearbeiten, hochzuladen oder anzuzeigen.
       </td>
     </tr>
   </tbody>
@@ -33,34 +34,34 @@ In diesem Artikel erklären wir, welche Softwarekomponenten Sie benötigen, wenn
 
 ## Zusammenfassung
 
-Die meisten Programme, die Sie für die Webentwicklung benötigen, können kostenlos heruntergeladen werden. Wir stellen Ihnen in diesem Artikel einige Links zur Verfügung.
+Die meisten Programme, die Sie für die Webentwicklung benötigen, können Sie kostenlos herunterladen. Wir werden in diesem Artikel einige Links bereitstellen.
 
-Sie benötigen Werkzeuge zum:
+Sie benötigen Werkzeuge, um:
 
-- Erstellen und Bearbeiten von Webseiten
-- Hochladen von Dateien auf Ihren Webserver
-- Anzeigen Ihrer Website
+- Webseiten zu erstellen und zu bearbeiten
+- Dateien auf Ihren Webserver hochzuladen
+- Ihre Website anzuzeigen
 
-Nahezu alle Betriebssysteme enthalten standardmäßig einen Texteditor und einen Browser, mit denen Sie Websites anzeigen können. Infolgedessen müssen Sie normalerweise nur Software für den Dateitransfer auf Ihren Webserver beschaffen.
+Fast alle Betriebssysteme enthalten standardmäßig einen Texteditor und einen Browser, mit dem Sie Websites anzeigen können. Daher müssen Sie in der Regel nur Software zum Übertragen von Dateien auf Ihren Webserver erwerben.
 
-## Active Learning
+## Aktives Lernen
 
-_Es gibt noch keine Active-Learning-Inhalte. [Bitte erwägen Sie, beizutragen](/de/docs/MDN/Community/Getting_started)._
+_Es gibt noch keine aktive Lernmöglichkeit. [Bitte ziehen Sie in Betracht beizutragen](/de/docs/MDN/Community/Getting_started)._
 
-## Weitere Einblicke
+## Gründlicher erkunden
 
 ### Erstellen und Bearbeiten von Webseiten
 
-Um eine Website zu erstellen und zu bearbeiten, benötigen Sie einen Texteditor. Texteditoren erstellen und ändern unformatierte Textdateien. Andere Formate, wie **{{Glossary("RTF", "RTF")}}**, erlauben es, Formatierungen wie Fett- oder Unterstreichung hinzuzufügen. Diese Formate sind nicht geeignet zum Schreiben von Webseiten. Sie sollten sorgfältig überlegen, welchen Texteditor Sie verwenden, da Sie intensiv mit ihm arbeiten werden, während Sie die Website erstellen.
+Um eine Website zu erstellen und zu bearbeiten, benötigen Sie einen Texteditor. Texteditoren erstellen und bearbeiten unformatierte Textdateien. Andere Formate, wie **{{Glossary("RTF", "RTF")}}**, ermöglichen es Ihnen, Formatierungen wie fett oder unterstrichen hinzuzufügen. Diese Formate eignen sich nicht zum Schreiben von Webseiten. Sie sollten sich Gedanken darüber machen, welchen Texteditor Sie verwenden, da Sie intensiv damit arbeiten werden, während Sie die Website erstellen.
 
-Alle Desktop-Betriebssysteme bieten einen grundlegenden Texteditor. Diese Editoren sind zwar einfach zu bedienen, bieten aber keine speziellen Funktionen für die Codierung von Webseiten. Wenn Sie etwas Anspruchsvolleres möchten, gibt es viele Drittanbieterprogramme. Drittanbieter-Editoren bieten oft zusätzliche Funktionen, wie z.B. Syntax-Hervorhebung, Autovervollständigung, zusammenklappbare Abschnitte und Code-Suche. Hier ist eine kurze Liste von Editoren:
+Alle Desktop-Betriebssysteme verfügen über einen grundlegenden Texteditor. Diese Editoren sind alle unkompliziert, bieten jedoch keine speziellen Funktionen für das Codieren von Webseiten. Wenn Sie etwas anspruchsvolleres wünschen, gibt es viele Drittanbieter-Tools. Drittanbieter-Editoren bieten oft zusätzliche Funktionen wie Syntaxfärbung, Autovervollständigung, zusammenklappbare Abschnitte und Codesuche. Hier ist eine kurze Liste von Editoren:
 
 <table class="standard-table">
   <thead>
     <tr>
       <th scope="col">Betriebssystem</th>
-      <th scope="col">Integrierter Editor</th>
-      <th scope="col">Drittanbieter-Editor</th>
+      <th scope="col">Eingebauter Editor</th>
+      <th scope="col">Editor von Drittanbietern</th>
     </tr>
   </thead>
   <tbody>
@@ -176,7 +177,7 @@ Alle Desktop-Betriebssysteme bieten einen grundlegenden Texteditor. Diese Editor
   </tbody>
 </table>
 
-Hier ist ein Screenshot eines erweiterten Texteditors:
+Hier ist ein Screenshot eines fortgeschrittenen Texteditors:
 
 ![Screenshot von Notepad++.](notepadplusplus.png)
 
@@ -186,12 +187,12 @@ Hier ist ein Screenshot eines Online-Texteditors:
 
 ### Dateien im Web hochladen
 
-Wenn Ihre Website für die öffentliche Anzeige bereit ist, müssen Sie Ihre Webseiten auf Ihren Webserver hochladen. Sie können Speicherplatz auf einem Server von verschiedenen Anbietern kaufen (siehe [Wie viel kostet es, etwas im Internet zu tun?](/de/docs/Learn_web_development/Howto/Tools_and_setup/How_much_does_it_cost)). Sobald Sie sich für einen Anbieter entschieden haben, sendet Ihnen der Anbieter die Zugangsdaten, normalerweise in Form einer SFTP-URL, Benutzernamen, Passwort und anderer Informationen, die für die Verbindung mit ihrem Server benötigt werden. Beachten Sie, dass (S)FTP mittlerweile etwas altmodisch ist und andere Upload-Systeme, wie [RSync](https://en.wikipedia.org/wiki/Rsync) und [Git/GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site), zunehmend populär werden.
+Wenn Ihre Website bereit ist, veröffentlicht zu werden, müssen Sie Ihre Webseiten auf Ihren Webserver hochladen. Sie können von verschiedenen Anbietern Speicherplatz auf einem Server kaufen (siehe [Was kostet es, etwas im Web zu tun?](/de/docs/Learn_web_development/Howto/Tools_and_setup/How_much_does_it_cost)). Sobald Sie sich für einen Anbieter entschieden haben, sendet dieser Ihnen die Zugangsdaten, in der Regel in Form einer SFTP-URL, eines Benutzernamens, eines Passworts und weiterer Informationen, die zur Verbindung mit ihrem Server erforderlich sind. Beachten Sie, dass (S)FTP mittlerweile etwas altmodisch ist und andere Upload-Systeme an Beliebtheit gewinnen, wie etwa [RSync](https://en.wikipedia.org/wiki/Rsync) und [Git/GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
 
 > [!NOTE]
-> FTP ist von Natur aus unsicher. Sie sollten sicherstellen, dass Ihr Hosting-Anbieter die Nutzung einer sicheren Verbindung ermöglicht, z.B. SFTP oder RSync über SSH.
+> FTP ist von Natur aus unsicher. Sie sollten sicherstellen, dass Ihr Hosting-Anbieter die Verwendung einer sicheren Verbindung ermöglicht, z. B. SFTP oder RSync über SSH.
 
-Das Hochladen von Dateien auf einen Webserver ist ein sehr wichtiger Schritt bei der Erstellung einer Website, daher behandeln wir es ausführlich in [einem separaten Artikel](/de/docs/Learn_web_development/Howto/Tools_and_setup/Upload_files_to_a_web_server). Bis dahin hier eine kurze Liste kostenloser Basis-(S)FTP-Clients:
+Das Hochladen von Dateien auf einen Webserver ist ein sehr wichtiger Schritt beim Erstellen einer Website, daher decken wir dies ausführlich in [einem separaten Artikel](/de/docs/Learn_web_development/Howto/Tools_and_setup/Upload_files_to_a_web_server) ab. Hier ist vorerst eine kurze Liste von kostenlosen grundlegenden (S)FTP-Clients:
 
 <table class="standard-table">
   <thead>
@@ -223,7 +224,7 @@ Das Hochladen von Dateien auf einen Webserver ist ein sehr wichtiger Schritt bei
         <ul>
           <li>
             <a
-              href="https://wiki.gnome.org/action/show/Apps/Files?action=show&#x26;redirect=Apps%2FNautilus"
+              href="https://apps.gnome.org/en/Nautilus/"
               rel="external"
               >Nautilus/Files</a
             >
@@ -257,22 +258,22 @@ Das Hochladen von Dateien auf einen Webserver ist ein sehr wichtiger Schritt bei
 
 ### Testen von Websites
 
-Es gibt [viele verfügbare Webbrowser](https://en.wikipedia.org/wiki/List_of_web_browsers). Wenn Sie eine Website entwickeln, sollten Sie sie mindestens mit den folgenden großen Browsern auf sowohl Desktop- als auch mobilen Plattformen testen, um sicherzustellen, dass Ihre Seite für die meisten Menschen funktioniert:
+Es gibt [viele Webbrowser](https://en.wikipedia.org/wiki/List_of_web_browsers). Wenn Sie eine Website entwickeln, sollten Sie sie zumindest mit den folgenden großen Browsern auf Desktop- und Mobilplattformen testen, um sicherzustellen, dass Ihre Website für die meisten Menschen funktioniert:
 
 - [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
 - [Google Chrome](https://www.google.com/chrome/)
 - [Apple Safari](https://www.apple.com/safari/)
 
-Wenn Sie eine bestimmte Zielgruppe ansprechen (z.B. technische Plattform oder Region), müssen Sie die Site möglicherweise mit zusätzlichen Browsern testen, wie [UC Browser](https://www.ucweb.com/) oder [Opera Mini](https://www.opera.com/mini).
+Wenn Sie eine bestimmte Gruppe ansprechen (z. B. technische Plattform oder Region), müssen Sie die Website möglicherweise mit zusätzlichen Browsern testen, wie [UC Browser](https://www.ucweb.com/) oder [Opera Mini](https://www.opera.com/mini).
 
-Das Testen wird kompliziert, weil einige Browser nur auf bestimmten Betriebssystemen laufen. Besonders Apple Safari läuft auf iOS, iPadOS und macOS. Es ist am besten, Dienstleistungen wie [Browsershots](https://browsershots.org/) oder [Browserstack](https://www.browserstack.com/) zu nutzen. Browsershots erstellt Screenshots Ihrer Website, so wie sie in verschiedenen Browsern aussehen wird. Browserstack gibt Ihnen vollständigen Fernzugriff auf virtuelle Maschinen, sodass Sie Ihre Site in den gängigsten Umgebungen und auf verschiedenen Betriebssystemen testen können. Alternativ können Sie Ihre eigenen virtuellen Maschinen einrichten, aber das erfordert einige Fachkenntnisse.
+Das Testen wird kompliziert, da einige Browser nur auf bestimmten Betriebssystemen laufen. Besonders Apple Safari läuft auf iOS, iPadOS und macOS. Am besten nutzen Sie Dienste wie [Browsershots](https://browsershots.org/) oder [Browserstack](https://www.browserstack.com/). Browsershots erstellt Screenshots Ihrer Website, wie sie in verschiedenen Browsern angezeigt wird. Browserstack bietet Ihnen vollständigen Fernzugriff auf virtuelle Maschinen, sodass Sie Ihre Website in den gängigsten Umgebungen und auf verschiedenen Betriebssystemen testen können. Alternativ können Sie Ihre eigenen virtuellen Maschinen einrichten, aber das erfordert einige Fachkenntnisse.
 
-Weitere Informationen finden Sie unter [Strategien zur Durchführung von Tests: Ein Testlabor einrichten](/de/docs/Learn_web_development/Extensions/Testing/Testing_strategies#putting_together_a_testing_lab).
+Weitere Informationen finden Sie unter [Strategien zur Durchführung von Tests: Ein Testlabor zusammenstellen](/de/docs/Learn_web_development/Extensions/Testing/Testing_strategies#putting_together_a_testing_lab).
 
-Führen Sie auf jeden Fall einige Tests auf einem echten Gerät durch, insbesondere auf echten mobilen Geräten. Mobile Geräte kosten natürlich Geld, daher empfehlen wir, Geräte in einem Team zu teilen, wenn Sie auf vielen Plattformen testen möchten, ohne zu viel auszugeben. Für skalierbaren Cloud-Zugang zu echten Gerätetests empfehlen wir auch einen Blick auf [App Live: BrowserStack's Interactive Mobile App Testing platform](https://www.browserstack.com/app-live).
+Führen Sie auf jeden Fall einige Tests auf einem realen Gerät durch, insbesondere auf realen mobilen Geräten. Mobile Geräte kosten natürlich Geld, daher empfehlen wir, Geräte innerhalb eines Teams zu teilen, wenn Sie auf vielen Plattformen testen möchten, ohne zu viel auszugeben. Für skalierbaren Cloud-Zugriff auf reale Gerätetests empfehlen wir außerdem, sich die [App Live: BrowserStack's Interactive Mobile App Testing Platform](https://www.browserstack.com/app-live) anzusehen.
 
 ## Nächste Schritte
 
-- Einige dieser Software ist kostenlos, aber nicht alles. [Erfahren Sie, wie viel es kostet, etwas im Internet zu machen](/de/docs/Learn_web_development/Howto/Tools_and_setup/How_much_does_it_cost).
-- Wenn Sie mehr über Texteditoren erfahren möchten, lesen Sie unseren Artikel darüber, [wie man einen Texteditor auswählt und installiert](/de/docs/Learn_web_development/Howto/Tools_and_setup/Available_text_editors).
-- Wenn Sie sich fragen, wie Sie Ihre Website im Internet veröffentlichen, sehen Sie sich die Anleitung ["Wie man Dateien auf einen Webserver hochlädt"](/de/docs/Learn_web_development/Howto/Tools_and_setup/Upload_files_to_a_web_server) an.
+- Einige dieser Softwareprogramme sind kostenlos, aber nicht alle. [Finden Sie heraus, wie viel es kostet, etwas im Web zu tun](/de/docs/Learn_web_development/Howto/Tools_and_setup/How_much_does_it_cost).
+- Wenn Sie mehr über Texteditoren erfahren möchten, lesen Sie unseren Artikel über [wie man einen Texteditor auswählt und installiert](/de/docs/Learn_web_development/Howto/Tools_and_setup/Available_text_editors).
+- Wenn Sie sich fragen, wie Sie Ihre Website im Internet veröffentlichen können, schauen Sie sich ["Wie man Dateien auf einen Webserver hochlädt"](/de/docs/Learn_web_development/Howto/Tools_and_setup/Upload_files_to_a_web_server) an.
