@@ -2,12 +2,12 @@
 title: tab-size
 slug: Web/CSS/tab-size
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 76f47b72ab5af8cf44ff9d33a8f44f223677901f
 ---
 
 {{CSSRef}}
 
-Die **`tab-size`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
+Die **`tab-size`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
 
 {{InteractiveExample("CSS Demo: tab-size")}}
 
@@ -29,7 +29,7 @@ tab-size: 4;
 
 ```html interactive-example
 <section id="default-example">
-  <pre id="example-element">  123</pre>
+  <pre id="example-element">&#9;123</pre>
 </section>
 ```
 
@@ -61,9 +61,9 @@ tab-size: unset;
 ### Werte
 
 - {{CSSxRef("&lt;number&gt;")}}
-  - : Ein Vielfaches der Vorlaufbreite des Leerzeichens (U+0020), die als Tabulatorbreite verwendet werden soll. Muss nicht-negativ sein. Die Vorlaufbreite bedeutet die Entfernung, die ein Cursor oder ein Druckkopf zurücklegt, bevor der nächste Buchstabe gedruckt wird.
+  - : Ein Vielfaches der Vorschubbreite des Leerzeichens (U+0020), das als Breite für Tabs verwendet wird. Muss nicht negativ sein. Die Vorschubbreite bezeichnet den Abstand, den ein Cursor oder Druckkopf zurücklegt, bevor der nächste Buchstabe gedruckt wird.
 - {{CSSxRef("&lt;length&gt;")}}
-  - : Die Breite der Tabs. Muss nicht-negativ sein.
+  - : Die Breite der Tabs. Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -83,7 +83,7 @@ pre {
 }
 ```
 
-### Tabs zusammenführen
+### Tabs reduzieren
 
 ```css
 pre {
@@ -93,7 +93,7 @@ pre {
 
 ### Standard-Tabgröße vs. benutzerdefinierte Größen
 
-Dieses Beispiel vergleicht eine Standard-Tabgröße mit einer benutzerdefinierten Tabgröße. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, um ein Zusammenfallen der Tabs zu verhindern.
+Dieses Beispiel vergleicht eine Standard-Tabgröße mit einer benutzerdefinierten Tabgröße. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, um zu verhindern, dass die Tabs zusammenfallen.
 
 #### HTML
 
