@@ -3,16 +3,18 @@ title: "SubtleCrypto: digest() Methode"
 short-title: digest()
 slug: Web/API/SubtleCrypto/digest
 l10n:
-  sourceCommit: cc27a64bb555b250cf0984a3a744e5fd251e3565
+  sourceCommit: 7159a4c0a2f1e886c09268c41c103c4ac7100d63
 ---
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`digest()`** Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces erzeugt einen {{Glossary("digest", "Digest")}} der gegebenen Daten. Ein Digest ist ein kurzer, fester Wert, der aus einer variablen Eingabe abgeleitet wird. Kryptografische Digests sollten kollisionsresistent sein, was bedeutet, dass es schwierig ist, zwei verschiedene Eingaben zu finden, die den gleichen Digest-Wert haben.
+Die **`digest()`** Methode der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) Schnittstelle erzeugt einen _Digest_ der gegebenen Daten, unter Verwendung der spezifizierten {{Glossary("hash_function", "Hash-Funktion")}}.
+Ein Digest ist ein kurzer, festgelegter Wert, der aus einer variablen Länge der Eingabe abgeleitet wird.
+Kryptografische Digests sollten Kollisionsresistenz aufweisen, was bedeutet, dass es schwierig ist, zwei verschiedene Eingaben zu finden, die denselben Digest-Wert haben.
 
-Sie nimmt als Argumente einen Bezeichner für den zu verwendenden Digest-Algorithmus und die zu verdauenden Daten. Sie gibt ein {{jsxref("Promise")}} zurück, das mit dem Digest erfüllt wird.
+Sie nimmt als Argumente eine Kennung für den zu verwendenden Digest-Algorithmus und die zu digestenden Daten. Sie gibt ein {{jsxref("Promise")}} zurück, das mit dem Digest erfüllt wird.
 
-Beachten Sie, dass diese API kein Streaming von Eingaben unterstützt: Sie müssen die gesamte Eingabe in den Speicher laden, bevor Sie sie in die Digest-Funktion übergeben.
+Beachten Sie, dass diese API keinen Streaming-Input unterstützt: Sie müssen die gesamte Eingabe in den Speicher laden, bevor Sie sie in die Digest-Funktion übergeben.
 
 ## Syntax
 
@@ -23,13 +25,13 @@ digest(algorithm, data)
 ### Parameter
 
 - `algorithm`
-  - : Dies kann eine Zeichenfolge oder ein Objekt mit einer einzigen Eigenschaft `name` sein, die eine Zeichenfolge ist. Die Zeichenfolge benennt die zu verwendende Hash-Funktion. Unterstützte Werte sind:
+  - : Dies kann ein String oder ein Objekt mit einer einzigen Eigenschaft `name` sein, die ein String ist. Der String benennt die zu verwendende Hash-Funktion. Unterstützte Werte sind:
     - `"SHA-1"` (aber verwenden Sie dies nicht in kryptografischen Anwendungen)
     - `"SHA-256"`
     - `"SHA-384"`
     - `"SHA-512"`.
 - `data`
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, das die zu verdauenden Daten enthält.
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} Objekt, das die zu digestenden Daten enthält.
 
 ### Rückgabewert
 
@@ -37,10 +39,7 @@ Ein {{jsxref("Promise")}}, das mit einem {{jsxref("ArrayBuffer")}} erfüllt wird
 
 ## Unterstützte Algorithmen
 
-Digest-Algorithmen, auch bekannt als {{Glossary("Cryptographic_hash_function", "kryptografische Hash-Funktionen")}},
-verwandeln einen beliebig großen Datenblock in eine Ausgabe fester Größe,
-die normalerweise viel kürzer als die Eingabe ist. Sie haben eine Vielzahl von Anwendungen in der
-Kryptografie.
+Digest-Algorithmen, auch bekannt als {{Glossary("Hash_function", "Hash-Funktionen")}}, wandeln einen beliebig großen Datenblock in eine Ausgabe fester Größe um, die üblicherweise viel kürzer ist als die Eingabe. Sie haben eine Vielzahl von Anwendungen in der Kryptografie.
 
 <table class="standard-table">
   <tbody>
@@ -94,19 +93,18 @@ Kryptografie.
 </table>
 
 > [!WARNING]
-> SHA-1 gilt mittlerweile als unsicher und sollte nicht
-> für kryptografische Anwendungen verwendet werden.
+> SHA-1 wird jetzt als unsicher angesehen und sollte nicht für kryptografische Anwendungen verwendet werden.
 
 > [!NOTE]
-> Wenn Sie wissen möchten, wie man einen Keyed-Hash-Message-Authentication-Code ({{Glossary("HMAC", "HMAC")}}) erstellt, müssen Sie stattdessen [SubtleCrypto.sign()](/de/docs/Web/API/SubtleCrypto/sign#hmac) verwenden.
+> Wenn Sie hier nach einer Anleitung zur Erstellung eines Keyed-Hash Message Authentication Code ({{Glossary("HMAC", "HMAC")}}) suchen, müssen Sie stattdessen [SubtleCrypto.sign()](/de/docs/Web/API/SubtleCrypto/sign#hmac) verwenden.
 
 ## Beispiele
 
-Für weitere Beispiele zur Verwendung der `digest()`-API, siehe [Nicht-kryptografische Verwendungen von SubtleCrypto](/de/docs/Web/API/Web_Crypto_API/Non-cryptographic_uses_of_subtle_crypto).
+Für mehr Beispiele zur Verwendung der `digest()` API, siehe [Nicht-kryptografische Anwendungen von SubtleCrypto](/de/docs/Web/API/Web_Crypto_API/Non-cryptographic_uses_of_subtle_crypto).
 
 ### Einfaches Beispiel
 
-Dieses Beispiel kodiert eine Nachricht, berechnet dann deren SHA-256 Digest und protokolliert die Länge des Digests:
+Dieses Beispiel kodiert eine Nachricht, berechnet dann ihren SHA-256-Digest und protokolliert die Digest-Länge:
 
 ```js
 const text =
@@ -124,9 +122,9 @@ digestMessage(text).then((digestBuffer) =>
 );
 ```
 
-### Konvertieren eines Digests in einen Hex-String
+### Umwandlung eines Digests in einen Hex-String
 
-Der Digest wird als `ArrayBuffer` zurückgegeben, aber für den Vergleich und die Anzeige werden Digests oft als Hexstrings dargestellt. Dieses Beispiel berechnet einen Digest und konvertiert dann den `ArrayBuffer` in einen Hex-String:
+Der Digest wird als `ArrayBuffer` zurückgegeben, aber für den Vergleich und die Anzeige werden Digests oft als Hex-Strings dargestellt. Dieses Beispiel berechnet einen Digest und wandelt dann den `ArrayBuffer` in einen Hex-String um:
 
 ```js
 const text =
@@ -155,6 +153,6 @@ digestMessage(text).then((digestHex) => console.log(digestHex));
 
 ## Siehe auch
 
-- [Nicht-kryptografische Verwendungen von SubtleCrypto](/de/docs/Web/API/Web_Crypto_API/Non-cryptographic_uses_of_subtle_crypto)
-- [Chromium secure origins specification](https://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features/)
-- [FIPS 180-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf) spezifiziert die SHA-Familie von Digest-Algorithmen.
+- [Nicht-kryptografische Anwendungen von SubtleCrypto](/de/docs/Web/API/Web_Crypto_API/Non-cryptographic_uses_of_subtle_crypto)
+- [Chromium sicherer Ursprungsspezifikation](https://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features/)
+- [FIPS 180-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf) spezifiziert die SHA-Familie der Digest-Algorithmen.

@@ -1119,7 +1119,7 @@
 /de/docs/Creating_and_triggering_custom_events	/de/docs/Web/Events/Creating_and_triggering_events
 /de/docs/CredentialsContainer.preventSilentAccess()	/de/docs/Web/API/CredentialsContainer/preventSilentAccess
 /de/docs/Cryptanalysis	/de/docs/Glossary/Cryptanalysis
-/de/docs/Cryptographic_hash_function	/de/docs/Glossary/Cryptographic_hash_function
+/de/docs/Cryptographic_hash_function	/de/docs/Glossary/Hash_function
 /de/docs/CustomElements	/de/docs/Web/API/Web_components/Using_custom_elements
 /de/docs/DASH_Adaptive_Streaming_for_HTML_5_Video	/de/docs/Web/API/Media_Source_Extensions_API/DASH_Adaptive_Streaming
 /de/docs/DOM	/de/docs/Web/API/Document_Object_Model
@@ -3559,9 +3559,11 @@
 /de/docs/Glossary/Client_hints	/de/docs/Web/HTTP/Guides/Client_hints
 /de/docs/Glossary/Condition	/de/docs/Glossary/Conditional
 /de/docs/Glossary/Content_type	/de/docs/Glossary/MIME_type
+/de/docs/Glossary/Cryptographic_hash_function	/de/docs/Glossary/Hash_function
 /de/docs/Glossary/DOS_attack	/de/docs/Glossary/Denial_of_Service
 /de/docs/Glossary/DTD	/de/docs/Glossary/Doctype
 /de/docs/Glossary/Descriptor_(CSS)	/de/docs/Glossary/CSS_Descriptor
+/de/docs/Glossary/Digest	/de/docs/Glossary/Hash_function
 /de/docs/Glossary/Distributed_DenialofService	/de/docs/Glossary/Distributed_Denial_of_Service
 /de/docs/Glossary/Empty_element	/de/docs/Glossary/Void_element
 /de/docs/Glossary/Error	/de/docs/Glossary/Exception
@@ -3571,7 +3573,7 @@
 /de/docs/Glossary/Global_attribute	/de/docs/Web/HTML/Global_attributes
 /de/docs/Glossary/Grid_Rows	/de/docs/Glossary/Grid_Row
 /de/docs/Glossary/Guard	/de/docs/Web/API/Fetch_API/Using_Fetch
-/de/docs/Glossary/Hash_function	/de/docs/Glossary/Cryptographic_hash_function
+/de/docs/Glossary/Hash	/de/docs/Glossary/Hash_function
 /de/docs/Glossary/Header	/de/docs/Glossary/HTTP_header
 /de/docs/Glossary/I18N	/de/docs/Glossary/Internationalization
 /de/docs/Glossary/IMAP4	/de/docs/Glossary/IMAP

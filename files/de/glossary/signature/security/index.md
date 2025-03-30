@@ -1,22 +1,22 @@
 ---
-title: Signature (security)
+title: Signatur (Sicherheit)
 slug: Glossary/Signature/Security
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 7159a4c0a2f1e886c09268c41c103c4ac7100d63
 ---
 
 {{GlossarySidebar}}
 
-Eine **Signature**, oder _digitale Signatur_, ist ein {{Glossary("protocol", "Protokoll")}}, das zeigt, dass eine Nachricht authentisch ist.
+Eine **Signatur** oder _digitale Signatur_ ist ein {{Glossary("protocol", "Protokoll")}}, das zeigt, dass eine Nachricht authentisch ist.
 
-Aus dem {{Glossary("hash", "Hash")}} einer gegebenen Nachricht erzeugt der **Signaturprozess** zuerst eine digitale Signatur, die mit der signierenden Entität verknüpft ist, unter Verwendung des privaten {{Glossary("key", "Schlüssels")}} der Entität.
+Aus dem {{Glossary("hash_function", "Hash")}} einer gegebenen Nachricht generiert der **Signaturprozess** zunächst eine digitale Signatur, die mit der signierenden Entität verbunden ist, unter Verwendung des privaten {{Glossary("key", "Schlüssels")}} der Entität.
 
-Beim Empfang der Nachricht
+Beim Empfang der Nachricht umfasst der **Überprüfungsprozess**
 
-- _authentifiziert der Verifizierungsprozess den Absender -_ er verwendet den öffentlichen Schlüssel des Absenders, um die Signatur zu {{Glossary("decryption", "entschlüsseln")}} und den Hash wiederherzustellen, der nur mit dem privaten Schlüssel des Absenders erstellt werden kann, und
-- _überprüft die Integrität der Nachricht -_ vergleicht den Hash mit einem neu berechneten aus dem empfangenen Dokument (die beiden Hashes unterscheiden sich, wenn das Dokument manipuliert wurde)
+- _die Authentifizierung des Absenders -_ verwendet den öffentlichen Schlüssel des Absenders, um die Signatur zu {{Glossary("decryption", "entschlüsseln")}} und den Hash wiederherzustellen, der nur mit dem privaten Schlüssel des Absenders erstellt werden kann, und
+- _die Überprüfung der Nachrichtenintegrität -_ vergleicht den Hash mit einem neu berechneten aus dem empfangenen Dokument (die beiden Hashes unterscheiden sich, wenn das Dokument manipuliert wurde)
 
-Das System versagt, wenn der private Schlüssel kompromittiert ist oder der Empfänger betrügerisch den falschen öffentlichen Schlüssel erhält.
+Das System versagt, wenn der private Schlüssel kompromittiert wird oder dem Empfänger täuschenderweise der falsche öffentliche Schlüssel gegeben wird.
 
 Digitale Signaturen basieren auf asymmetrischer Kryptografie, auch bekannt als [Public-Key-Kryptografie](https://en.wikipedia.org/wiki/Public-key_cryptography).
 
@@ -24,5 +24,5 @@ Digitale Signaturen basieren auf asymmetrischer Kryptografie, auch bekannt als [
 
 - [Digitale Signatur](https://en.wikipedia.org/wiki/Digital_signature) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - {{Glossary("digest", "digest")}}
-  - {{Glossary("encryption", "Verschlüsselung")}}
+  - {{Glossary("Hash_function", "Hashfunktion")}}
+  - {{Glossary("Encryption", "Verschlüsselung")}}
