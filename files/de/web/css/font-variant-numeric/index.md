@@ -2,12 +2,12 @@
 title: font-variant-numeric
 slug: Web/CSS/font-variant-numeric
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 64c27156b18b5eebcc61da0ce5e6eda6da7fdedf
 ---
 
 {{CSSRef}}
 
-Die **`font-variant-numeric`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen Glyphen für Zahlen, Brüche und Ordnungsmarker.
+Die **`font-variant-numeric`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen Glyphen für Zahlen, Brüche und Ordinalzeichen.
 
 {{InteractiveExample("CSS Demo: font-variant-numeric")}}
 
@@ -35,10 +35,10 @@ font-variant-numeric: oldstyle-nums;
         <td><span class="tabular">0</span></td>
       </tr>
       <tr>
-        <td><span class="tabular">3.14</span></td>
+        <td><span class="tabular">3.54</span></td>
       </tr>
       <tr>
-        <td><span class="tabular">2.71</span></td>
+        <td><span class="tabular">1.71</span></td>
       </tr>
     </table>
   </div>
@@ -96,7 +96,7 @@ font-variant-numeric: unset;
 Diese Eigenschaft kann eine von zwei Formen annehmen:
 
 - entweder der Schlüsselwortwert `normal`
-- oder ein oder mehrere der unten aufgeführten Werte, durch Leerzeichen getrennt, in beliebiger Reihenfolge.
+- oder einer oder mehrere der unten aufgeführten Werte, durch Leerzeichen getrennt, in beliebiger Reihenfolge.
 
 ### Werte
 
@@ -106,7 +106,7 @@ Diese Eigenschaft kann eine von zwei Formen annehmen:
 
 - `ordinal`
 
-  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für die Ordnungsmarker, wie 1st, 2nd, 3rd, 4th auf Englisch oder a 1a auf Italienisch. Es entspricht den OpenType-Werten `ordn`.
+  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für Ordinalzeichen, wie 1st, 2nd, 3rd, 4th im Englischen oder 1a im Italienischen. Es entspricht den OpenType-Werten `ordn`.
 
 - `slashed-zero`
 
@@ -114,24 +114,24 @@ Diese Eigenschaft kann eine von zwei Formen annehmen:
 
 - _`<numeric-figure-values>`_
 
-  - : Diese Werte steuern die Figuren, die für Zahlen verwendet werden. Zwei Werte sind möglich:
+  - : Diese Werte steuern die verwendeten Figuren für Zahlen. Es gibt zwei mögliche Werte:
 
-    - `lining-nums` aktiviert den Satz von Figuren, bei dem alle Zahlen auf der Grundlinie liegen. Es entspricht den OpenType-Werten `lnum`.
-    - `oldstyle-nums` aktiviert den Satz von Figuren, bei dem einige Zahlen wie 3, 4, 7, 9 Abwärtsstriche haben. Es entspricht den OpenType-Werten `onum`.
+    - `lining-nums` aktiviert das Set von Figuren, bei denen alle Zahlen auf der Grundlinie liegen. Es entspricht den OpenType-Werten `lnum`.
+    - `oldstyle-nums` aktiviert das Set von Figuren, bei denen einige Zahlen, wie 3, 4, 7, 9 Abwärtsstriche haben. Es entspricht den OpenType-Werten `onum`.
 
 - _`<numeric-spacing-values>`_
 
-  - : Diese Werte steuern die Größen der Figuren, die für Zahlen verwendet werden. Zwei Werte sind möglich:
+  - : Diese Werte steuern die Größe der Figuren, die für Zahlen verwendet werden. Es gibt zwei mögliche Werte:
 
-    - `proportional-nums` aktiviert den Satz von Figuren, bei dem Zahlen nicht alle die gleiche Größe haben. Es entspricht den OpenType-Werten `pnum`.
-    - `tabular-nums` aktiviert den Satz von Figuren, bei dem alle Zahlen die gleiche Größe haben, wodurch sie leicht wie in Tabellen ausgerichtet werden können. Es entspricht den OpenType-Werten `tnum`.
+    - `proportional-nums` aktiviert das Set von Figuren, bei denen Zahlen nicht alle die gleiche Größe haben. Es entspricht den OpenType-Werten `pnum`.
+    - `tabular-nums` aktiviert das Set von Figuren, bei denen alle Zahlen die gleiche Größe haben, sodass sie leicht wie in Tabellen ausgerichtet werden können. Es entspricht den OpenType-Werten `tnum`.
 
 - _`<numeric-fraction-values>`_
 
-  - : Diese Werte steuern die Glyphen, die zur Darstellung von Brüchen verwendet werden. Zwei Werte sind möglich:
+  - : Diese Werte steuern die Glyphen, die zur Darstellung von Brüchen verwendet werden. Es gibt zwei mögliche Werte:
 
-    - `diagonal-fractions` aktiviert den Satz von Figuren, bei dem Zähler und Nenner verkleinert und durch einen Schrägstrich getrennt werden. Es entspricht den OpenType-Werten `frac`.
-    - `stacked-fractions` aktiviert den Satz von Figuren, bei dem Zähler und Nenner verkleinert, gestapelt und durch eine horizontale Linie getrennt werden. Es entspricht den OpenType-Werten `afrc`.
+    - `diagonal-fractions` aktiviert das Set von Figuren, bei denen der Zähler und der Nenner verkleinert und durch einen Schrägstrich getrennt werden. Es entspricht den OpenType-Werten `frac`.
+    - `stacked-fractions` aktiviert das Set von Figuren, bei denen der Zähler und der Nenner verkleinert, gestapelt und durch eine horizontale Linie getrennt werden. Es entspricht den OpenType-Werten `afrc`.
 
 ## Formale Definition
 
@@ -143,9 +143,9 @@ Diese Eigenschaft kann eine von zwei Formen annehmen:
 
 ## Beispiele
 
-### Einstellen ordinaler numerischer Formen
+### Einstellung von ordinalen Zahlenformen
 
-Klicken Sie auf "Play" in den Code-Blöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___font-variant-numeric-example
 <p class="ordinal">1st, 2nd, 3rd, 4th, 5th</p>

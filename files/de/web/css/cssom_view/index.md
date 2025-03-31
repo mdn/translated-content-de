@@ -1,13 +1,13 @@
 ---
-title: CSSOM View
+title: CSSOM Ansicht
 slug: Web/CSS/CSSOM_view
 l10n:
-  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
+  sourceCommit: ae489e681a0e515be70bccd1a8708a820265a230
 ---
 
 {{CSSRef}}
 
-Das **CSSOM View**-Modul ermöglicht Ihnen die Manipulation der visuellen Ansicht eines Dokuments, einschließlich des Abrufens der Position von Layout-Boxen von Elementen, der Ermittlung der Breite oder Höhe des Viewports durch ein Skript und auch des Scrollens eines Elements.
+Das **CSSOM Ansicht**-Modul ermöglicht Ihnen, die visuelle Ansicht eines Dokuments zu manipulieren, einschließlich des Abrufs der Position von Element-Layout-Boxen, der Ermittlung der Breite oder Höhe des Ansichtsfensters durch ein Skript und auch des Scrollens eines Elements.
 
 ## Referenz
 
@@ -19,20 +19,20 @@ Das **CSSOM View**-Modul ermöglicht Ihnen die Manipulation der visuellen Ansich
   - [`resize`](/de/docs/Web/API/VisualViewport/resize_event)
   - [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event)
   - [`scrollend`](/de/docs/Web/API/VisualViewport/scrollend_event)
-- [`Document`](/de/docs/Web/API/Document)-Ereignisse
+- [`Document`](/de/docs/Web/API/Document)-Ereignisse:
   - [`scroll`](/de/docs/Web/API/Document/scroll_event)
   - [`scrollend`](/de/docs/Web/API/Document/scrollend_event)
-- [`Element`](/de/docs/Web/API/Element)-Ereignisse
+- [`Element`](/de/docs/Web/API/Element)-Ereignisse:
   - [`scroll`](/de/docs/Web/API/Element/scroll_event)
   - [`scrollend`](/de/docs/Web/API/Element/scrollend_event)
-- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Ereignisse
+- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Ereignisse:
   - [`change`](/de/docs/Web/API/MediaQueryList/change_event)
 
 ### Glossar
 
-- {{Glossary("Viewport", "Viewport")}}
-- {{Glossary("Layout_viewport", "Layout viewport")}}
-- {{Glossary("Visual_viewport", "Visual viewport")}}
+- {{Glossary("Viewport", "Ansichtsfenster")}}
+- {{Glossary("Layout_viewport", "Layout-Ansichtsfenster")}}
+- {{Glossary("Visual_viewport", "Visuelles Ansichtsfenster")}}
 
 ### Schnittstellen
 
@@ -44,7 +44,7 @@ Das **CSSOM View**-Modul ermöglicht Ihnen die Manipulation der visuellen Ansich
 
 ### Schnittstellenerweiterungen
 
-Dieses Modul fügt Eigenschaften und Methoden zu Schnittstellen hinzu, die in anderen Spezifikationen definiert sind.
+Dieses Modul fügt Schnittstellen, die in anderen Spezifikationen definiert sind, Eigenschaften und Methoden hinzu.
 
 - [`Window`](/de/docs/Web/API/Window)
   - [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio)
@@ -114,14 +114,14 @@ Dieses Modul fügt Eigenschaften und Methoden zu Schnittstellen hinzu, die in an
   - [`x`](/de/docs/Web/API/MouseEvent/x)
   - [`y`](/de/docs/Web/API/MouseEvent/y)
 
-Dieses Modul definiert geometrische Hilfsmethoden, die auf die Schnittstellen [`Text`](/de/docs/Web/API/Text), [`Element`](/de/docs/Web/API/Element), [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement) und [`Document`](/de/docs/Web/API/Document) angewendet werden. Diese `GeometryUtils`-Funktionen sind in noch keinem Browser implementiert.
+Dieses Modul definiert geometrische Hilfsmethoden, die auf die Schnittstellen [`Text`](/de/docs/Web/API/Text), [`Element`](/de/docs/Web/API/Element), [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement) und [`Document`](/de/docs/Web/API/Document) angewendet werden. Diese `GeometryUtils`-Funktionen sind in keinem Browser implementiert.
 
 ## Leitfäden
 
 - [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)
-  - : Die Koordinatensysteme, die verwendet werden, um eine Position in einem Anzeigekontext wie einem Fenster auf einem Monitor, einem Viewport auf einem mobilen Gerät oder einer Position auf einem Blatt Papier beim Drucken anzugeben.
-- [Viewport-Konzepte](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
-  - : Das Konzept des Viewports — was er ist, seine Auswirkungen im Hinblick auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Viewport und dem Layout-Viewport.
+  - : Die Koordinatensysteme, die verwendet werden, um eine Position in einem Anzeigenkontext wie einem Fenster auf einem Monitor, einem Ansichtsfenster auf einem mobilen Gerät oder eine Position auf einem Blatt Papier beim Drucken anzugeben.
+- [Ansichtsfenster-Konzepte](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
+  - : Das Konzept des Ansichtsfensters — was es ist, seine Auswirkungen in Bezug auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Ansichtsfenster und dem Layout-Ansichtsfenster.
 
 ## Verwandte Konzepte
 
@@ -138,6 +138,6 @@ Dieses Modul definiert geometrische Hilfsmethoden, die auf die Schnittstellen [`
 ## Siehe auch
 
 - [CSS Object Model (CSSOM)](/de/docs/Web/API/CSS_Object_Model) API
-- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS-Überscrollverhalten](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
-- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS Overscroll Behavior](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
+- [CSS Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
