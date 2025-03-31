@@ -2,20 +2,20 @@
 title: URL API
 slug: Web/API/URL_API
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 30bf998d2d87c97c2865d713ad5afc9c476264a0
 ---
 
 {{DefaultAPISidebar("URL API")}} {{AvailableInWorkers}}
 
-Die URL-API ist ein Bestandteil des URL-Standards, der definiert, was einen gültigen {{Glossary("URL", "Uniform Resource Locator")}} ausmacht und bietet eine API zum Zugriff auf und zur Manipulation von URLs. Der URL-Standard definiert auch Konzepte wie Domains, Hosts und IP-Adressen und versucht, den veralteten MIME-Typ `application/x-www-form-urlencoded` in standardisierter Form zu beschreiben, der verwendet wird, um die Inhalte von Webformularen als Satz von Schlüssel/Wert-Paaren einzureichen.
+Die URL-API ist ein Bestandteil des URL-Standards, der definiert, was ein gültiger {{Glossary("URL", "Uniform Resource Locator")}} ist und die API, die auf URLs zugreift und sie bearbeitet. Der URL-Standard definiert auch Konzepte wie Domains, Hosts und IP-Adressen und versucht zudem, auf standardisierte Weise den veralteten `application/x-www-form-urlencoded` {{Glossary("MIME_type", "MIME-Typ")}} zu beschreiben, der verwendet wird, um die Inhalte von Webformularen als Satz von Schlüssel/Wert-Paaren einzureichen.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Der größte Teil des URL-Standards besteht aus der [Definition einer URL](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL) und deren Strukturierung und Parsen. Auch Definitionen verschiedener Begriffe im Zusammenhang mit der Adressierung von Computern in einem Netzwerk werden behandelt, und die Algorithmen zum Parsen von IP-Adressen und DOM-Adressen sind spezifiziert. Für die meisten Entwickler ist die API selbst am interessantesten.
+Der Großteil des URL-Standards wird von der [Definition einer URL](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL) und ihrer Struktur sowie dem Parser eingenommen. Ebenfalls abgedeckt sind die Definitionen verschiedener Begriffe im Zusammenhang mit der Adressierung von Computern in einem Netzwerk und die Algorithmen zum Parsen von IP-Adressen und DOM-Adressen. Für die meisten Entwickler ist jedoch die API selbst von Interesse.
 
 ### Zugriff auf URL-Komponenten
 
-Das Erstellen eines [`URL`](/de/docs/Web/API/URL)-Objekts für eine gegebene URL parst die URL und bietet schnellen Zugriff auf ihre enthaltenen Teile über ihre Eigenschaften.
+Das Erstellen eines [`URL`](/de/docs/Web/API/URL)-Objekts für eine gegebene URL analysiert die URL und bietet schnellen Zugriff auf ihre Bestandteile über ihre Eigenschaften.
 
 ```js
 let addr = new URL("https://developer.mozilla.org/en-US/docs/Web/API/URL_API");
@@ -23,11 +23,11 @@ let host = addr.host;
 let path = addr.pathname;
 ```
 
-Das obige Snippet erstellt ein `URL`-Objekt für den Artikel, den Sie gerade lesen, und ruft dann die Eigenschaften [`host`](/de/docs/Web/API/URL/host) und [`pathname`](/de/docs/Web/API/URL/pathname) ab. In diesem Fall sind diese Strings `developer.mozilla.org` und `/de/docs/Web/API/URL_API`.
+Der obige Ausschnitt erstellt ein `URL`-Objekt für den Artikel, den Sie gerade lesen, und ruft dann die Eigenschaften [`host`](/de/docs/Web/API/URL/host) und [`pathname`](/de/docs/Web/API/URL/pathname) ab. In diesem Fall sind diese Zeichenfolgen `developer.mozilla.org` beziehungsweise `/de/docs/Web/API/URL_API`.
 
-### Ändern der URL
+### Änderung der URL
 
-Die meisten Eigenschaften der `URL` sind veränderbar; Sie können neue Werte zu ihnen schreiben, um die von dem Objekt dargestellte URL zu ändern. Zum Beispiel, um eine URL zu erstellen und deren Benutzername festzulegen:
+Die meisten Eigenschaften von `URL` sind veränderbar; Sie können neue Werte in sie schreiben, um die von dem Objekt repräsentierte URL zu ändern. Beispielsweise, um eine URL zu erstellen und deren Benutzername festzulegen:
 
 ```js
 let myUsername = "some-guy";
@@ -35,11 +35,11 @@ let addr = new URL("https://example.com/login");
 addr.username = myUsername;
 ```
 
-Das Setzen des Wertes von [`username`](/de/docs/Web/API/URL/username) setzt nicht nur den Wert dieser Eigenschaft, sondern aktualisiert die gesamte URL. Nach der Ausführung des obigen Code-Snippets ist der von [`href`](/de/docs/Web/API/URL/href) zurückgegebene Wert `https://some-guy@example.com/login`. Dies gilt für alle beschreibbaren Eigenschaften.
+Das Setzen des Wertes von [`username`](/de/docs/Web/API/URL/username) legt nicht nur den Wert dieser Eigenschaft fest, sondern es aktualisiert die gesamte URL. Nach der Ausführung des obigen Codebeispiels ist der Wert, der von [`href`](/de/docs/Web/API/URL/href) zurückgegeben wird, `https://some-guy@example.com/login`. Dies gilt für alle beschreibbaren Eigenschaften.
 
 ### Abfragen
 
-Die [`search`](/de/docs/Web/API/URL/search)-Eigenschaft einer `URL` enthält den Abfragezeichenfolgen-Teil der URL. Wenn die URL zum Beispiel `https://example.com/login?user=some-guy&page=news` ist, ist der Wert der `search`-Eigenschaft `?user=some-guy&page=news`. Sie können auch die Werte einzelner Parameter mit der [`get()`](/de/docs/Web/API/URLSearchParams/get)-Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekts abrufen:
+Die [`search`](/de/docs/Web/API/URL/search)-Eigenschaft einer `URL` enthält den Abfragezeichenfolgenabschnitt der URL. Zum Beispiel, wenn die URL `https://example.com/login?user=some-guy&page=news` lautet, dann ist der Wert der `search`-Eigenschaft `?user=some-guy&page=news`. Sie können die Werte einzelner Parameter auch mit der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objektmethode [`get()`](/de/docs/Web/API/URLSearchParams/get) abrufen:
 
 ```js
 let addr = new URL("https://example.com/login?user=some-guy&page=news");
@@ -51,24 +51,24 @@ try {
 }
 ```
 
-Zum Beispiel im obigen Snippet werden der Benutzername und die Zielseite aus der Abfrage entnommen und an die entsprechenden Funktionen weitergegeben, die vom Code der Website verwendet werden, um den Benutzer anzumelden und zu seiner gewünschten Zielseite innerhalb der Website zu leiten.
+Zum Beispiel werden im obigen Ausschnitt der Benutzername und die Zielseite aus der Abfrage entnommen und an entsprechende Funktionen übergeben, die vom Code der Seite verwendet werden, um sich anzumelden und den Benutzer innerhalb der Seite zu seinem gewünschten Ziel zu routen.
 
-Andere Funktionen innerhalb von `URLSearchParams` ermöglichen es Ihnen, den Wert von Schlüsseln zu ändern, Schlüssel und deren Werte hinzuzufügen und zu löschen und sogar die Liste der Parameter zu sortieren.
+Andere Funktionen innerhalb von `URLSearchParams` ermöglichen es, den Wert von Schlüsseln zu ändern, Schlüssel und ihre Werte hinzuzufügen und zu löschen und sogar die Liste der Parameter zu sortieren.
 
 ## Schnittstellen
 
-Die URL-API ist eine einfache mit nur ein paar Schnittstellen:
+Die URL-API ist eine einfache, mit nur wenigen Schnittstellen:
 
 - [`URL`](/de/docs/Web/API/URL)
-  - : Kann verwendet werden, um {{Glossary("URL", "URLs")}} zu parsen, zu konstruieren, zu normalisieren und zu kodieren.
+  - : Kann verwendet werden, um {{Glossary("URL", "URLs")}} zu analysieren, zu konstruieren, zu normalisieren und zu kodieren.
 - [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
-  - : Definiert Hilfsmethoden zur Arbeit mit der Abfragezeichenfolge einer URL.
+  - : Definiert Hilfsmethoden zum Arbeiten mit der Abfragezeichenfolge einer URL.
 
 ## Beispiele
 
-Wenn Sie die in einer URL enthaltenden Parameter verarbeiten möchten, könnten Sie dies manuell tun, doch es ist viel einfacher, ein `URL`-Objekt dafür zu erstellen. Die Funktion `fillTableWithParameters()` unten nimmt ein [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Objekt, das ein {{HTMLElement("table")}} darstellt, als Eingabe. Der Tabelle werden Zeilen hinzugefügt, eine für jeden in den Parametern gefundenen Schlüssel, wobei die erste Spalte den Namen des Schlüssels enthält und die zweite Spalte den Wert hat.
+Wenn Sie die in einer URL enthaltenen Parameter verarbeiten möchten, könnten Sie dies manuell tun, aber es ist viel einfacher, ein `URL`-Objekt zu erstellen, das dies für Sie erledigt. Die folgende Funktion `fillTableWithParameters()` nimmt als Eingabe ein `HTMLTableElement`-Objekt, das ein {{HTMLElement("table")}} darstellt. Zeilen werden der Tabelle hinzugefügt, eine für jeden gefundenen Schlüssel in den Parametern, wobei die erste Spalte den Namen des Schlüssels und die zweite Spalte den Wert enthält.
 
-Beachten Sie den Aufruf von [`URLSearchParams.sort()`](/de/docs/Web/API/URLSearchParams/sort), um die Parameterliste zu sortieren, bevor die Tabelle generiert wird.
+Beachten Sie den Aufruf von [`URLSearchParams.sort()`](/de/docs/Web/API/URLSearchParams/sort), um die Parameterliste vor der Tabellenerstellung zu sortieren.
 
 ```js
 function fillTableWithParameters(tbl) {
@@ -90,7 +90,7 @@ function fillTableWithParameters(tbl) {
 }
 ```
 
-Eine funktionierende Version dieses Beispiels finden Sie [auf Glitch](https://url-api.glitch.me/). Fügen Sie einfach Parameter zur URL hinzu, wenn Sie die Seite laden, um diese in der Tabelle zu sehen. Versuchen Sie zum Beispiel [`https://url-api.glitch.me?from=mdn&excitement=high&likelihood=inconceivable`](https://url-api.glitch.me?from=mdn&excitement=high&likelihood=inconceivable).
+Eine funktionierende Version dieses Beispiels finden Sie [auf Glitch](https://url-api.glitch.me/). Fügen Sie einfach Parameter zur URL hinzu, wenn Sie die Seite laden, um sie in der Tabelle zu sehen. Versuchen Sie zum Beispiel [`https://url-api.glitch.me/?from=mdn&excitement=high&likelihood=inconceivable`](https://url-api.glitch.me/?from=mdn&excitement=high&likelihood=inconceivable).
 
 ## Spezifikationen
 

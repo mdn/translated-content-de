@@ -2,65 +2,65 @@
 title: Was nun?
 slug: Mozilla/Add-ons/WebExtensions/What_next
 l10n:
-  sourceCommit: 8e318f66a4433d20190f167f3da108d4b27e93f2
+  sourceCommit: 30bf998d2d87c97c2865d713ad5afc9c476264a0
 ---
 
 {{AddonSidebar}}
 
-Sie sind nun bereit, Ihre Idee für eine Browsererweiterung in die Realität umzusetzen. Bevor Sie diese Reise antreten, sollten Sie sich einiger Dinge bewusst sein, die dazu beitragen, dass sie reibungslos verläuft.
+Sie sind nun bereit, Ihre Idee für eine Browser-Erweiterung in die Realität umzusetzen. Bevor Sie diese Reise antreten, sollten Sie einige Dinge beachten, die den Prozess erleichtern werden.
 
-Mehr Informationen zu vielen der auf dieser Seite besprochenen Themen finden Sie im [Extension Workshop](https://extensionworkshop.com), einer Website, die Ihnen beim Schreiben, Testen, Veröffentlichen und Verteilen von Erweiterungen für Firefox hilft.
+Weitere Informationen zu vielen der hier besprochenen Themen finden Sie auf dem [Extension Workshop](https://extensionworkshop.com/), einer Website, die Ihnen beim Schreiben, Testen, Veröffentlichen und Verteilen von Erweiterungen für Firefox hilft.
 
 ## Ihre Entwicklungsumgebung
 
-Zur Erstellung von Browsererweiterungen benötigen Sie keine speziellen Entwicklungs- oder Build-Umgebungstools: Es ist durchaus möglich, großartige Browsererweiterungen mit nichts weiter als einem Texteditor zu erstellen. Wenn Sie jedoch bereits für das Web entwickelt haben und über ein Set an Tools und eine Umgebung verfügen, die Sie wiederverwenden möchten, sollten Sie ein paar Dinge beachten.
+Sie benötigen keine speziellen Entwicklungs- oder Build-Umgebungstools, um Browser-Erweiterungen zu erstellen: Es ist durchaus möglich, großartige Browser-Erweiterungen nur mit einem Texteditor zu erstellen. Wenn Sie jedoch bereits für das Web entwickeln und ein Set von Tools und eine Umgebung haben, die Sie wiederverwenden möchten, müssen Sie einige Dinge beachten.
 
-Wenn Sie Minifizierungs- oder Verschleierungstools verwenden, um Ihren endgültigen Code zu liefern, müssen Sie Ihren Quellcode für den [AMO-Überprüfungsprozess](#der_überprüfungsprozess) bereitstellen. Außerdem müssen die von Ihnen verwendeten Tools—diejenigen für Minifizierung, Verschleierung und Build-Prozesse—Open Source sein (oder unbegrenzte kostenlose Nutzung bieten) und auf dem Computer des Prüfers (Windows, Mac oder Linux) ausführbar sein. Leider können unsere Prüfer nicht mit kommerziellen oder webbasierten Tools arbeiten.
+Wenn Sie Minifizierungs- oder Obfuskationstools zur Auslieferung Ihres endgültigen Codes verwenden, müssen Sie Ihren Quellcode dem [AMO-Überprüfungsprozess](#der_überprüfungsprozess) zur Verfügung stellen. Außerdem müssen die von Ihnen verwendeten Tools—sowohl für Minifizierung, Obfuskation als auch Build-Prozesse—Open Source (oder uneingeschränkt kostenlos nutzbar) sein und auf dem Computer des Prüfers (Windows, Mac oder Linux) ausführbar sein. Leider können unsere Prüfer nicht mit kommerziellen oder webbasierten Tools arbeiten.
 
-[Erfahren Sie mehr über Entwicklungstools im Extension Workshop](https://extensionworkshop.com/documentation/develop/browser-extension-development-tools/)
+[Erfahren Sie mehr über Entwicklungstools auf dem Extension Workshop](https://extensionworkshop.com/documentation/develop/browser-extension-development-tools/)
 
 ## Drittanbieter-Bibliotheken
 
-Drittanbieter-Bibliotheken sind eine großartige Möglichkeit, schnell komplexe Funktionen oder Merkmale zu Ihren Browsererweiterungen hinzuzufügen. Wenn Sie eine Erweiterung für den [AMO-Überprüfungsprozess](#der_überprüfungsprozess) einreichen, werden auch alle verwendeten Drittanbieter-Bibliotheken in Betracht gezogen. Um die Überprüfung zu beschleunigen, laden Sie Drittanbieter-Bibliotheken immer von deren offizieller Website oder Repository herunter, und wenn die Bibliothek minifiziert ist, stellen Sie einen Link zum Quellcode bereit. Bitte beachten Sie, dass Drittanbieter-Bibliotheken in keiner Weise modifiziert werden dürfen.
+Drittanbieter-Bibliotheken sind eine großartige Möglichkeit, komplexe Funktionen oder Funktionalitäten schnell zu Ihren Browser-Erweiterungen hinzuzufügen. Wenn Sie eine Erweiterung zum [AMO-Überprüfungsprozess](#der_überprüfungsprozess) einreichen, wird im Prozess auch jede verwendete Drittanbieter-Bibliothek berücksichtigt. Um die Überprüfung zu vereinfachen, sollten Sie Drittanbieter-Bibliotheken immer von ihrer offiziellen Website oder ihrem Repository herunterladen, und wenn die Bibliothek minifiziert ist, einen Link zum Quellcode bereitstellen. Bitte beachten Sie, dass Drittanbieter-Bibliotheken in keiner Weise verändert werden dürfen.
 
-[Erfahren Sie mehr über die Einreichung von Quellcodes im Extension Workshop](https://extensionworkshop.com/documentation/publish/source-code-submission/)
+[Erfahren Sie mehr über die Einreichung von Quellcode auf dem Extension Workshop](https://extensionworkshop.com/documentation/publish/source-code-submission/)
 
-## Die Firefox Add-on Distribution Agreement
+## Vereinbarung zur Verbreitung von Firefox-Add-ons
 
-Browsererweiterungen müssen signiert werden, um in den Release- oder Beta-Versionen von Firefox installiert zu werden. Das Signieren findet auf addons.mozilla.org (AMO) statt und unterliegt den Bedingungen der Firefox Add-on Distribution Agreement. Ziel der Vereinbarung ist es, sicherzustellen, dass Firefox-Benutzer Zugriff auf gut unterstützte, qualitativ hochwertige Add-ons haben, die die Firefox-Erfahrung verbessern.
+Browser-Erweiterungen müssen signiert werden, um in den Release- oder Beta-Versionen von Firefox installiert zu werden. Das Signieren erfolgt auf addons.mozilla.org (AMO) und unterliegt den Bedingungen der Vereinbarung zur Verbreitung von Firefox-Add-ons. Ziel der Vereinbarung ist es, sicherzustellen, dass Firefox-Nutzer Zugriff auf gut unterstützte, qualitativ hochwertige Add-ons haben, die das Firefox-Erlebnis bereichern.
 
-[Lesen Sie die Vereinbarung im Extension Workshop](https://extensionworkshop.com/documentation/publish/firefox-add-on-distribution-agreement/)
+[Lesen Sie die Vereinbarung auf dem Extension Workshop](https://extensionworkshop.com/documentation/publish/firefox-add-on-distribution-agreement/)
 
-[Erfahren Sie mehr über das Signieren im Extension Workshop](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/)
+[Erfahren Sie mehr über das Signieren auf dem Extension Workshop](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/)
 
 ## Der Überprüfungsprozess
 
-Wenn eine Browsererweiterung zum Signieren eingereicht wird, unterliegt sie einer automatisierten Überprüfung. Sie kann zudem einer manuellen Überprüfung unterzogen werden, wenn die automatisierte Überprüfung feststellt, dass eine manuelle Überprüfung erforderlich ist. Ihre Browsererweiterung wird erst dann signiert, wenn sie die automatisierte Überprüfung bestanden hat und ihre Signierung kann widerrufen werden, wenn sie die manuelle Überprüfung nicht besteht. Der Überprüfungsprozess folgt einem strengen Satz von Richtlinien, sodass es einfach ist, mögliche Überprüfungsprobleme zu vermeiden.
+Wenn eine Browser-Erweiterung zum Signieren eingereicht wird, unterliegt sie einer automatischen Prüfung. Sie kann auch einer manuellen Prüfung unterzogen werden, wenn die automatische Prüfung feststellt, dass eine manuelle Überprüfung erforderlich ist. Ihre Browser-Erweiterung wird erst signiert, wenn sie die automatische Überprüfung bestanden hat und kann ihre Signierung verlieren, wenn sie die manuelle Überprüfung nicht besteht. Der Überprüfungsprozess folgt einem strikten Satz von Richtlinien, so dass es einfach ist, mögliche Überprüfungsprobleme zu vermeiden.
 
-[Überprüfen Sie die Richtlinien zur Überprüfung im Extension Workshop](https://extensionworkshop.com/documentation/publish/add-on-policies/)
+[Überprüfungsrichtlinien und Richtlinien auf dem Extension Workshop ansehen](https://extensionworkshop.com/documentation/publish/add-on-policies/)
 
-## AMO empfohlene Browsererweiterungen
+## Auf AMO vorgestellte Browser-Erweiterungen
 
-Wenn Sie sich entscheiden, Ihre Browsererweiterung auf AMO zu listen, könnte Ihre Erweiterung auf der AMO-Website, im Add-on-Manager des Firefox-Browsers oder an anderer Stelle auf einer Mozilla-Website vorgestellt werden. Wir haben eine Liste von Richtlinien zusammengestellt, wie Erweiterungen für die Präsentation ausgewählt werden. Wenn Sie diesen Richtlinien folgen, erhöhen Sie die Chance, dass Ihre Erweiterung vorgestellt wird.
+Wenn Sie sich entscheiden, Ihre Browser-Erweiterung auf AMO aufzulisten, könnte Ihre Erweiterung auf der AMO-Website, im Add-on-Manager von Firefox oder anderswo auf einer Mozilla-Website vorgestellt werden. Wir haben eine Liste von Richtlinien zusammengestellt, wie Erweiterungen für eine Präsentation ausgewählt werden. Indem Sie diesen Richtlinien folgen, geben Sie Ihrer Erweiterung die besten Chancen, vorgestellt zu werden.
 
-[Erfahren Sie mehr darüber, wie Ihre Add-ons im Extension Workshop vorgestellt werden](https://extensionworkshop.com/documentation/publish/recommended-extensions/)
+[Erfahren Sie mehr darüber, wie Ihre Add-ons auf dem Extension Workshop vorgestellt werden können](https://extensionworkshop.com/documentation/publish/recommended-extensions/)
 
-## Setzen Sie Ihre Lernerfahrung fort
+## Setzen Sie Ihr Lernerlebnis fort
 
-Jetzt, da Sie wissen, was vor Ihnen liegt, ist es an der Zeit, sich tiefer mit der Entwicklung von Browsererweiterungen zu befassen. In den folgenden Abschnitten erfahren Sie:
+Jetzt, da Sie wissen, was vor Ihnen liegt, ist es an der Zeit, tiefer in die Details der Browser-Erweiterungsentwicklung einzutauchen. In den folgenden Abschnitten werden Sie entdecken:
 
-- Mehr über die grundlegenden Konzepte hinter Browsererweiterungen, beginnend mit Details zur [Verwendung der JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API).
-- Ein Leitfaden zu den [Benutzeroberflächenkomponenten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface), die Ihren Browsererweiterungen zur Verfügung stehen.
-- Eine Sammlung von Anleitungen zur Durchführung wichtiger Aufgaben in Ihren Erweiterungen oder zur Nutzung der JavaScript-APIs.
+- Mehr über die grundlegenden Konzepte hinter Browser-Erweiterungen, beginnend mit Details darüber, wie man die [JavaScript-APIs verwendet](/de/docs/Mozilla/Add-ons/WebExtensions/API).
+- Ein Leitfaden zu den [Benutzeroberflächenkomponenten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface), die Ihren Browser-Erweiterungen zur Verfügung stehen.
+- Eine Sammlung von Anleitungen zur Erreichung wichtiger Aufgaben in Ihren Erweiterungen oder zur Nutzung der JavaScript-APIs.
 - Ein vollständiger Referenzleitfaden zu den [JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs).
 - Ein vollständiger Referenzleitfaden zu den [Manifest-Schlüsseln](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json).
 
-Sie sollten auch den Extension Workshop besuchen, wo Sie alles finden, was Sie über das Erstellen von Erweiterungen für Firefox wissen müssen, einschließlich:
+Sie sollten auch zum Extension Workshop gehen, wo Sie alles finden, was Sie über die Erstellung von Erweiterungen für Firefox wissen müssen, einschließlich:
 
-- [einem Überblick über die Firefox-Erweiterungsmerkmale](https://extensionworkshop.com/#about)
-- [Details zu den Werkzeugen und Prozessen für die Entwicklung und das Testen](https://extensionworkshop.com/documentation/develop/)
-- [wie Sie Ihre Erweiterung auf addons.mozilla.org veröffentlichen oder selbst verteilen](https://extensionworkshop.com/documentation/publish/)
+- [einem Überblick über die Firefox-Erweiterungsfunktionen](https://extensionworkshop.com/#about)
+- [Details zu den Tools und Prozessen für Entwicklung und Testen](https://extensionworkshop.com/documentation/develop/)
+- [wie Sie Ihre Erweiterung auf addons.mozilla.org veröffentlichen oder selbst verteilen können](https://extensionworkshop.com/documentation/publish/)
 - [wie Sie Ihre veröffentlichte Erweiterung verwalten](https://extensionworkshop.com/documentation/manage/)
-- [ein Leitfaden für Unternehmen zur Entwicklung und Nutzung von Erweiterungen](https://extensionworkshop.com/documentation/enterprise/)
+- [einem Unternehmensleitfaden zur Entwicklung und Nutzung von Erweiterungen](https://extensionworkshop.com/documentation/enterprise/)
 - [wie man Themes für Firefox entwickelt](https://extensionworkshop.com/documentation/themes/)
-- [Details zu den Entwicklergemeinschaften von Firefox](https://extensionworkshop.com/community/)
+- [Details zu den Firefox-Entwicklergemeinschaften](https://extensionworkshop.com/community/)

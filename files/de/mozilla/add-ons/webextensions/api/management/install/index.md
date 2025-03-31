@@ -2,7 +2,7 @@
 title: management.install()
 slug: Mozilla/Add-ons/WebExtensions/API/management/install
 l10n:
-  sourceCommit: d7143e171b5f18fb37a686a7d4947db417fd74f3
+  sourceCommit: 30bf998d2d87c97c2865d713ad5afc9c476264a0
 ---
 
 {{AddonSidebar}}
@@ -22,11 +22,11 @@ browser.management.install(options)
 ### Parameter
 
 - options
-  - : Ein Objekt, das die URL der XPI-Datei des Designs bei [addons.mozilla.org](https://addons.mozilla.org) und optional einen Hash der XPI-Datei, unter Verwendung von sha256 oder stärker, enthält.
+  - : Ein Objekt, das die URL der XPI-Datei des Designs bei [addons.mozilla.org](https://addons.mozilla.org/) enthält und optional einen Hash der XPI-Datei, unter Verwendung von sha256 oder stärker.
 
 ### Rückgabewert
 
-Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, welches die in manifest.json für das Design definierte `ExtensionID` enthält.
+Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das die im manifest.json definierte `ExtensionID` für das Design enthält.
 
 ## Browser-Kompatibilität
 

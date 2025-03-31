@@ -2,14 +2,14 @@
 title: Subsequent-sibling combinator
 slug: Web/CSS/Subsequent-sibling_combinator
 l10n:
-  sourceCommit: 7fa9b134e7a886b47bd8c6e3135ba329ee0ddf09
+  sourceCommit: 44f398527f2b0195a7c3b35db0a53c80aebe8e48
 ---
 
 {{CSSRef}}
 
-Der **subsequent-sibling combinator** (`~`, eine Tilde) trennt zwei Selektoren und trifft auf _alle Instanzen_ des zweiten Elements zu, die dem ersten Element folgen (nicht notwendigerweise unmittelbar) und das gleiche Elternelement teilen.
+Der **subsequent-sibling Kombinator** (`~`, ein Tilde) trennt zwei Selektoren und passt auf _alle Instanzen_ des zweiten Elements, die auf das erste Element folgen (nicht unbedingt direkt) und das gleiche Elternelement teilen.
 
-Im folgenden Beispiel hilft der subsequent-sibling combinator (`~`), Absätze zu selektieren und zu stylen, die sowohl Geschwister eines Bildes sind als auch nach einem beliebigen Bild erscheinen.
+Im folgenden Beispiel hilft der subsequent-sibling Kombinator (`~`), Absätze auszuwählen und zu stylen, die sowohl Geschwister eines Bildes sind als auch nach einem Bild erscheinen.
 
 ```css
 img ~ p {
@@ -26,9 +26,9 @@ former_element ~ target_element { style properties }
 
 ## Beispiele
 
-### Verwendung des Combinators mit einfachen Selektoren
+### Verwendung des Kombinators mit einfachen Selektoren
 
-Dieses Beispiel zeigt die Verwendung des `~` Combinators, wenn beide Selektoren einfache Selektoren sind (`p` und `span`).
+Dieses Beispiel zeigt die Verwendung des `~` Kombinators, wenn beide Selektoren einfache Selektoren sind (`p` und `span`).
 
 ```html
 <article>
@@ -57,16 +57,16 @@ p ~ span {
 }
 ```
 
-{{EmbedLiveSample("Verwendung des Combinators mit einfachen Selektoren", "auto", 300)}}
+{{EmbedLiveSample("Verwendung des Kombinators mit einfachen Selektoren", "auto", 300)}}
 
-### Verwendung des Combinators mit komplexen Selektoren
+### Verwendung des Kombinators mit komplexen Selektoren
 
-Dieses Beispiel enthält zwei [komplexe Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector), die beide den subsequent-sibling combinator verwenden: `.foo p ~ span` und `.foo p ~ .foo span`.
+Dieses Beispiel enthält zwei [komplexe Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector), die beide den subsequent-sibling Kombinator verwenden: `.foo p ~ span` und `.foo p ~ .foo span`.
 
-- Der erste komplexe Selektor, `.foo p ~ span`, trifft auf alle 'span'-Elemente zu, die nach einem Absatz kommen, _wenn_ das 'span'-Element und der Absatz das gleiche Elternelement teilen **und** dieses Elternelement oder ein Vorfahre dieses Elternelements die Klasse `.foo` hat.
-- Der zweite komplexe Selektor, `.foo p ~ .foo span`, trifft auf alle 'span'-Elemente zu, die ein Nachkomme des Elements mit der Klasse `.foo` sind, _wenn_ dieses Element ein Geschwister des zuvor genannten Absatzes ist.
+- Der erste komplexe Selektor, `.foo p ~ span`, passt auf alle `span`, die nach einem Absatz kommen, _wenn_ `span` und Absatz dasselbe Elternelement teilen **und** dieses Elternelement oder ein Vorfahr dieses Elternelements die Klasse `.foo` hat.
+- Der zweite komplexe Selektor, `.foo p ~ .foo span`, passt auf alle `span`, die ein Nachfahre des Elements mit der Klasse `.foo` sind, _wenn_ dieses Element ein Geschwister des vorher erwähnten Absatzes ist.
 
-Das folgende Beispiel zeigt, dass das Ziel-Element im komplexen Selektor das gleiche Elternelement wie das Anfangselement im komplexen Selektor teilen muss.
+Das untenstehende Beispiel zeigt, dass das Zielelement im komplexen Selektor dasselbe Elternelement wie das anfängliche Element im komplexen Selektor teilen muss.
 
 ```html
 <h1>Dream big</h1>
@@ -90,12 +90,12 @@ Das folgende Beispiel zeigt, dass das Ziel-Element im komplexen Selektor das gle
 }
 ```
 
-{{EmbedLiveSample("Verwendung des Combinators mit komplexen Selektoren", "auto", 200)}}
+{{EmbedLiveSample("Verwendung des Kombinators mit komplexen Selektoren", "auto", 200)}}
 
-Im obigen HTML sind die beiden Geschwister von `.foo p` `span` und `.foo`. Das grüne `span` ist ein Nachkomme der Klasse `.foo`, die ein Geschwister von `p` ist.
+Im obigen HTML sind die beiden Geschwister von `.foo p` `span` und `.foo`. Der grüne `span` ist ein Nachfahre der `.foo` Klasse, das ein Geschwister von `p` ist.
 
-- Wenn der Zielselektor `span` ist, wird das `span`-Element selektiert, das ein Geschwister von `p` ist. Das `p`-Element ist ein Nachkomme von `.foo`, ebenso wie seine `span`-Geschwister.
-- In `.foo p ~ .foo span`, ist der Zielselektor `span`, das ein Nachkomme von `.foo` ist. In diesem Fall wird das `span`-Element ausgewählt, das ein Nachkomme von `.foo` ist, wenn diese `.foo` ein Geschwister von `p` ist; im Wesentlichen sind beide in einem Vorfahren von `.foo` verschachtelt.
+- Wenn der Zielselektor `span` ist, wird das `span`-Element, das ein Geschwister von `p` ist, ausgewählt. Das `p`-Element ist ein Nachfahre von `.foo`, ebenso wie seine `span`-Geschwister.
+- In `.foo p ~ .foo span` ist der Zielselektor der `span`, der ein Nachfahre von `.foo` ist. In diesem Fall wird das `span`-Element, das ein Nachfahre von `.foo` ist, ausgewählt, wenn diese `.foo` ein Geschwister von `p` ist; im Wesentlichen sind beide in einem Vorfahren von `.foo` eingebettet.
 
 ## Spezifikationen
 
@@ -107,4 +107,4 @@ Im obigen HTML sind die beiden Geschwister von `.foo p` `span` und `.foo`. Das g
 
 ## Siehe auch
 
-- [Next-sibling kombinator](/de/docs/Web/CSS/Next-sibling_combinator)
+- [Next-sibling Kombinator](/de/docs/Web/CSS/Next-sibling_combinator)
