@@ -1,13 +1,13 @@
 ---
-title: "<bdo>: Das Bidirektionale Text-Override-Element"
+title: "<bdo>: Das Element zum Überschreiben der bidirektionalen Textausrichtung"
 slug: Web/HTML/Element/bdo
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 215e1b1590b1210152e3570627933c0303171e11
 ---
 
 {{HTMLSidebar}}
 
-Das **`<bdo>`** [HTML](/de/docs/Web/HTML)-Element überschreibt die aktuelle Textausrichtung, sodass der Text innerhalb dieses Elements in einer anderen Richtung dargestellt wird.
+Das **`<bdo>`**-[HTML](/de/docs/Web/HTML)-Element überschreibt die aktuelle Textausrichtung, sodass der Text innerhalb des Elements in einer anderen Richtung dargestellt wird.
 
 {{InteractiveExample("HTML Demo: &lt;bdo&gt;", "tabbed-standard")}}
 
@@ -32,12 +32,12 @@ html {
   font-family: sans-serif;
 }
 
-/* stylelint-disable-next-line block-no-empty */
 bdo {
+  /* Add your styles here */
 }
 ```
 
-Die Zeichen des Textes werden ab dem Startpunkt in der angegebenen Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird nicht beeinflusst (sodass Zeichen beispielsweise nicht rückwärts gezeichnet werden).
+Die Zeichen des Textes werden vom Startpunkt in die angegebene Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird nicht beeinflusst (z.B. werden Zeichen nicht rückwärts gezeichnet).
 
 ## Attribute
 
@@ -45,10 +45,10 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 - `dir`
 
-  - : Die Richtung, in der der Text innerhalb dieses Elements gerendert werden soll. Mögliche Werte sind:
+  - : Die Richtung, in der der Text in den Inhalten dieses Elements gerendert werden soll. Mögliche Werte sind:
 
-    - `ltr`: Gibt an, dass der Text von links nach rechts verlaufen soll.
-    - `rtl`: Gibt an, dass der Text von rechts nach links verlaufen soll.
+    - `ltr`: Gibt an, dass der Text in eine von links nach rechts Richtung gehen soll.
+    - `rtl`: Gibt an, dass der Text in eine von rechts nach links Richtung gehen soll.
 
 ## Beispiele
 
@@ -62,9 +62,9 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 {{EmbedLiveSample('Examples')}}
 
-## Anmerkungen
+## Hinweise
 
-Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
+Die HTML 4-Spezifikation spezifizierte keine Events für dieses Element; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
 
 ## Technische Zusammenfassung
 
@@ -81,7 +81,7 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie
           >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Formulierungsinhalt</a
+          >Phrasierung Inhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -89,20 +89,20 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Formulierungsinhalt</a
+          >Phrasierung Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Elternteile</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Formulierungsinhalt</a
+          >Phrasierung Inhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -111,7 +111,7 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
-            >generisch</a
+            >generic</a
           ></code
         >
       </td>
@@ -123,7 +123,8 @@ Die HTML 4-Spezifikation spezifizierte keine Ereignisse für dieses Element; sie
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox die
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
+        implementiert Firefox die
         <code
           ><a href="/de/docs/Web/API/HTMLSpanElement"
             >HTMLSpanElement</a

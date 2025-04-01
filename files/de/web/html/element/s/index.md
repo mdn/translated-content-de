@@ -1,13 +1,13 @@
 ---
-title: "<s>: Das Durchstreichungselement"
+title: "<s>: Das Durchgestrichen-Element"
 slug: Web/HTML/Element/s
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 215e1b1590b1210152e3570627933c0303171e11
 ---
 
 {{HTMLSidebar}}
 
-Das **`<s>`** [HTML](/de/docs/Web/HTML)-Element rendert Text mit einem Durchstrich oder einer Linie durch den Text. Verwenden Sie das `<s>`-Element, um Dinge darzustellen, die nicht mehr relevant oder nicht mehr korrekt sind. Jedoch ist `<s>` nicht geeignet, um Dokumentenänderungen anzuzeigen; dafür verwenden Sie die {{HTMLElement("del")}} und {{HTMLElement("ins")}} Elemente, wie es passend ist.
+Das **`<s>`** [HTML](/de/docs/Web/HTML) Element stellt Text mit einem Durchstrich dar, also mit einer Linie durch den Text. Verwenden Sie das `<s>` Element, um Dinge darzustellen, die nicht mehr relevant oder nicht mehr korrekt sind. Das `<s>` ist jedoch nicht geeignet, um Dokumentänderungen anzuzeigen; dafür sollten Sie die {{HTMLElement("del")}} und {{HTMLElement("ins")}} Elemente verwenden, wo es angemessen ist.
 
 {{InteractiveExample("HTML Demo: &lt;s&gt;", "tabbed-shorter")}}
 
@@ -18,18 +18,18 @@ Das **`<s>`** [HTML](/de/docs/Web/HTML)-Element rendert Text mit einem Durchstri
 ```
 
 ```css interactive-example
-/* stylelint-disable-next-line block-no-empty */
 s {
+  /* Add your styles here */
 }
 ```
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Zugänglichkeit
+## Barrierefreiheit
 
-Die Präsenz des `s`-Elements wird von den meisten Vorlesetechnologien in ihrer Standardkonfiguration nicht angesagt. Es kann jedoch durch die Verwendung der CSS-Eigenschaft {{cssxref("content")}}, zusammen mit den Pseudo-Elementen {{cssxref("::before")}} und {{cssxref("::after")}}, angesagt werden.
+Die Präsenz des `s` Elements wird von den meisten Bildschirmlesetechnologien in ihrer Standardkonfiguration nicht angekündigt. Es kann durch die Verwendung der CSS-Eigenschaft {{cssxref("content")}} zusammen mit den Pseudo-Elementen {{cssxref("::before")}} und {{cssxref("::after")}} angekündigt werden.
 
 ```css
 s::before,
@@ -52,10 +52,10 @@ s::after {
 }
 ```
 
-Einige Personen, die Bildschirmleser verwenden, deaktivieren bewusst das Ansagen von Inhalten, die zusätzliche Weitschweifigkeit erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen, dass Inhalte durchgestrichen sind, das Verständnis beeinträchtigen würde.
+Einige Menschen, die Bildschirmleser verwenden, deaktivieren bewusst die Ansage von Inhalten, die zusätzliche Weitschweifigkeit erzeugen. Deshalb ist es wichtig, diese Technik nicht zu überbeanspruchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen, dass Inhalte durchgestrichen wurden, das Verständnis erheblich beeinträchtigen würde.
 
-- [Kurzer Hinweis zur besseren Zugänglichkeit von Markierungen | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
-- [Anpassung von Textstilen | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
+- [Short note on making your mark (more accessible) | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
+- [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
 
 ## Beispiele
 
@@ -86,33 +86,32 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren bewusst das Ansagen
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Formulierung von Inhalten</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließende Inhalte</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Formulierung von Inhalten</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Weglassung</th>
-      <td>Keine, sowohl das Start- als auch das Endtag sind erforderlich.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        >
-        akzeptiert.
+          >Formulierung von Inhalten</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
@@ -145,6 +144,6 @@ Einige Personen, die Bildschirmleser verwenden, deaktivieren bewusst das Ansagen
 
 ## Siehe auch
 
-- Das {{HTMLElement("strike")}}-Element, der Alter Ego des `<s>`-Elements, ist veraltet und sollte auf Webseiten nicht mehr verwendet werden.
-- Das {{HTMLElement("del")}}-Element sollte verwendet werden, wenn Daten _gelöscht_ wurden.
-- Die CSS-Eigenschaft {{cssxref("text-decoration-line")}} sollte verwendet werden, um den früheren visuellen Aspekt des `<s>`-Elements zu erreichen.
+- Das {{HTMLElement("strike")}} Element, das Alter Ego des `<s>` Elements, ist veraltet und sollte auf Websites nicht mehr verwendet werden.
+- Das {{HTMLElement("del")}} Element sollte stattdessen verwendet werden, wenn Daten _gelöscht_ wurden.
+- Die CSS-Eigenschaft {{cssxref("text-decoration-line")}} sollte verwendet werden, um den früheren visuellen Aspekt des `<s>` Elements zu erreichen.

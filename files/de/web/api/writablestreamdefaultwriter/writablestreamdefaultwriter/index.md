@@ -1,17 +1,18 @@
 ---
-title: "WritableStreamDefaultWriter: WritableStreamDefaultWriter() Konstruktor"
+title: "WritableStreamDefaultWriter: WritableStreamDefaultWriter()-Konstruktor"
 short-title: WritableStreamDefaultWriter()
 slug: Web/API/WritableStreamDefaultWriter/WritableStreamDefaultWriter
 l10n:
-  sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
+  sourceCommit: 1fdb14f1bc00789a1dc8bf347b08b5b94d717f0c
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Der **`WritableStreamDefaultWriter()`** Konstruktor erstellt eine neue [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) Objektinstanz.
+Der **`WritableStreamDefaultWriter()`**-Konstruktor erstellt eine neue Instanz des [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Objekts.
 
 > [!NOTE]
-> In der Regel würden Sie diesen Konstruktor nicht manuell verwenden; stattdessen würden Sie die Methode [`WritableStream.getWriter()`](/de/docs/Web/API/WritableStream/getWriter) verwenden.
+> Im Allgemeinen würden Sie diesen Konstruktor nicht manuell verwenden; stattdessen
+> würden Sie die [`WritableStream.getWriter()`](/de/docs/Web/API/WritableStream/getWriter)-Methode verwenden.
 
 ## Syntax
 
@@ -26,16 +27,24 @@ new WritableStreamDefaultWriter(stream)
 
 ### Rückgabewert
 
-Eine Instanz des [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) Objekts.
+Eine Instanz des [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Objekts.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der bereitgestellte `stream`-Wert ist kein [`WritableStream`](/de/docs/Web/API/WritableStream), oder er ist bereits an einen anderen Writer gebunden.
+  - : Der angegebene `stream`-Wert ist kein [`WritableStream`](/de/docs/Web/API/WritableStream) oder
+    ist bereits an einen anderen Writer gebunden.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Erstellung eines `WritableStream` mit einem benutzerdefinierten Sink und einer API-bereitgestellten Warteschlangenstrategie. Es ruft dann eine Funktion namens `sendMessage()` auf und übergibt den neu erstellten Stream und einen String. Innerhalb dieser Funktion wird die Methode `getWriter()` des Streams aufgerufen, die eine Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurückgibt. Ein `forEach()`-Aufruf wird verwendet, um jedes Chunk des Strings in den Stream zu schreiben. Schließlich geben `write()` und `close()` Promises zurück, die verarbeitet werden, um mit Erfolg oder Misserfolg von Chunks und Streams umzugehen.
+Das folgende Beispiel zeigt die Erstellung eines `WritableStream` mit einem benutzerdefinierten
+Sink und einer von der API bereitgestellten Warteschlangenstrategie. Es ruft dann eine Funktion namens
+`sendMessage()` auf, übergibt den neu erstellten Stream und einen String. In dieser
+Funktion wird die `getWriter()`-Methode des Streams aufgerufen, die eine Instanz des
+[`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurückgibt. Ein `forEach()`-Aufruf wird
+verwendet, um jedes Stück des Strings in den Stream zu schreiben. Schließlich geben `write()` und
+`close()` Promises zurück, die verarbeitet werden, um mit dem Erfolg oder Misserfolg
+der Stücke und Streams umzugehen.
 
 ```js
 const list = document.querySelector("ul");
@@ -44,7 +53,7 @@ function sendMessage(message, writableStream) {
   // defaultWriter is of type WritableStreamDefaultWriter
   const defaultWriter = writableStream.getWriter();
   const encoder = new TextEncoder();
-  const encoded = encoder.encode(message, { stream: true });
+  const encoded = encoder.encode(message);
   encoded.forEach((chunk) => {
     defaultWriter.ready
       .then(() => defaultWriter.write(chunk))
@@ -103,7 +112,7 @@ const writableStream = new WritableStream(
 sendMessage("Hello, world.", writableStream);
 ```
 
-Den vollständigen Code finden Sie in unserem [Einfaches Writer-Beispiel](https://mdn.github.io/dom-examples/streams/simple-writer/).
+Sie finden den vollständigen Code in unserem [Einfaches Writer-Beispiel](https://mdn.github.io/dom-examples/streams/simple-writer/).
 
 ## Spezifikationen
 
