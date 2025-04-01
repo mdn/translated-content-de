@@ -14,7 +14,7 @@ Firefox 28 wurde am 18. März 2014 veröffentlicht. Dieser Artikel listet wichti
 ### Entwicklertools
 
 - Die Eigenschaft `console.exception` wurde hinzugefügt ([Firefox Bug 922214](https://bugzil.la/922214)).
-- Die Eigenschaft [`console.assert()`](/de/docs/Web/API/Console/assert_static) wurde hinzugefügt ([Firefox Bug 760193](https://bugzil.la/760193)).
+- Die Eigenschaft [`console.assert()`](/de/docs/Web/API/console/assert_static) wurde hinzugefügt ([Firefox Bug 760193](https://bugzil.la/760193)).
 - App-Manager: Ein neuer Manifest-Editor wurde hinzugefügt.
 - App-Manager: Das zur App-Debugging verwendete Werkzeugkasten ist nun in der App-Manager-Benutzeroberfläche eingebettet.
 - Webkonsole: Ein "geteilte Konsole"-Modus wurde hinzugefügt - drücken Sie Escape, um die Konsole in einem anderen Tool schnell zu öffnen.
