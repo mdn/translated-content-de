@@ -2,16 +2,14 @@
 title: Firefox 138 für Entwickler
 slug: Mozilla/Firefox/Releases/138
 l10n:
-  sourceCommit: 9cdfac539af02dfc6f86c9ef13a4bb5eed897928
+  sourceCommit: 24df08617c877ca0254f2bb23c5a0e0eb190c0aa
 ---
 
-{{FirefoxSidebar}}
-
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 138, die Entwickler betreffen. Firefox 138 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [29. April 2025](https://whattrainisitnow.com/release/?version=138) veröffentlicht.
+Dieser Artikel bietet Informationen zu den Änderungen in Firefox 138, die Entwickler betreffen. Firefox 138 ist die aktuelle [Beta-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#beta) und wird am [29. April 2025](https://whattrainisitnow.com/release/?version=138) veröffentlicht.
 
 ## Änderungen für Webentwickler
 
-### Entwickler-Tools
+### Entwicklerwerkzeuge
 
 ### HTML
 
@@ -51,7 +49,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 138, die En
 
 ### WebDriver-Konformität (WebDriver BiDi, Marionette)
 
-#### Allgemeines
+#### Allgemein
 
 #### WebDriver BiDi
 
@@ -59,19 +57,19 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 138, die En
 
 ## Änderungen für Add-on-Entwickler
 
-- Unterstützung für `page_action` als {{WebExtAPIRef("menus.ContextType")}} im {{WebExtAPIRef("menus")}} API für Manifest V3-Erweiterungen. Dies ermöglicht Manifest V3-Erweiterungen, genauso wie Manifest V2, Menüeinträge zu `page_action` hinzuzufügen. ([Firefox Bug 1951166](https://bugzil.la/1951166))
-- Das {{WebExtAPIRef("contextualIdentities")}} API ist nicht mehr in Firefox für Android definiert. Zuvor war es definiert, aber defekt. ([Firefox Bug 1659500](https://bugzil.la/1659500))
-- Die `contextualIdentities`-Berechtigung wird jetzt in Firefox für Android nicht mehr erkannt. Zuvor aktivierte sie eine fehlerhafte Version des "Containers"-Features. ([Firefox Bug 1659500](https://bugzil.la/1659500))
-- Die neue Manifest V3-Version des {{WebExtAPIRef("userScripts")}} API ist jetzt in Firefox für Android verfügbar. ([Firefox Bug 1949955](https://bugzil.la/1949955))
-- Das {{WebExtAPIRef("alarms.create")}} API gibt jetzt ein Promise statt undefiniert zurück. ([Firefox Bug 1869171](https://bugzil.la/1869171))
+- Unterstützung für `page_action` als {{WebExtAPIRef("menus.ContextType")}} im {{WebExtAPIRef("menus")}} API für Manifest V3-Erweiterungen hinzugefügt. Dies bietet Manifest V3-Erweiterungen die gleiche Fähigkeit wie Manifest V2-Erweiterungen, Menüeinträge zu `page_action` hinzuzufügen. ([Firefox Fehler 1951166](https://bugzil.la/1951166))
+- Die {{WebExtAPIRef("contextualIdentities")}} API ist nicht mehr in Firefox für Android definiert. Zuvor war sie definiert, aber defekt. ([Firefox Fehler 1659500](https://bugzil.la/1659500))
+- Die `contextualIdentities`-Berechtigung wird jetzt in Firefox für Android nicht mehr erkannt. Zuvor aktivierte sie eine defekte Version der "Containers"-Funktion. ([Firefox Fehler 1659500](https://bugzil.la/1659500))
+- Die neue Manifest V3-Version der {{WebExtAPIRef("userScripts")}} API ist jetzt auf Firefox für Android verfügbar. ([Firefox Fehler 1949955](https://bugzil.la/1949955))
+- Die {{WebExtAPIRef("alarms.create")}} API gibt jetzt ein Promise statt `undefined` zurück. ([Firefox Fehler 1869171](https://bugzil.la/1869171))
 
 ### Entfernungen
 
 ### Sonstiges
 
-## Experimentelle Web-Features
+## Experimentelle Webfunktionen
 
-Diese Features sind neu in Firefox 138 verfügbar, aber standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Voreinstellung und setzen Sie diese auf `true`. Weitere solche Features finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind neu in Firefox 138 integriert, aber standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie die entsprechende Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`. Weitere solche Funktionen finden Sie auf der Seite zu [experimentellen Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
 
 ## Ältere Versionen
 

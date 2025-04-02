@@ -3,7 +3,7 @@ title: "HTMLButtonElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/HTMLButtonElement/type
 l10n:
-  sourceCommit: c749deb4ccb647d792deee4807d4852104bedd9d
+  sourceCommit: 848771d9efdc57ad84d643081cf91e89355c751b
 ---
 
 {{ApiRef("HTML DOM")}}
@@ -14,9 +14,9 @@ Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/button#type)-Attribut des {{
 
 ## Wert
 
-Ein String, der den Typ darstellt.
+Ein String, der den Typ repräsentiert.
 
-Die möglichen Werte sind im Abschnitt [button types](/de/docs/Web/API/HTMLButtonElement#htmlbuttonelement.type) des Attributs aufgeführt.
+Die möglichen Werte sind im Abschnitt [button types](/de/docs/Web/API/HTMLButtonElement/type) des Attributs aufgelistet.
 
 ## Beispiel
 

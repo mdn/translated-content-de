@@ -3,16 +3,16 @@ title: "StyleSheet: media-Eigenschaft"
 short-title: media
 slug: Web/API/StyleSheet/media
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 7a50a48aa6ff7b825af463f4f66b55d7a893f92d
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`media`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt das beabsichtigte Zielmedium für Stilinformationen an. Es handelt sich um ein schreibgeschütztes, arrayähnliches `MediaList`-Objekt, das mit `deleteMedium()` entfernt und mit `appendMedium()` hinzugefügt werden kann.
+Die **`media`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt die beabsichtigte Zielmedien für Stilinformationen an. Es handelt sich um ein schreibgeschütztes, array-ähnliches `MediaList`-Objekt, das mit `deleteMedium()` entfernt und mit `appendMedium()` hinzugefügt werden kann.
 
 ## Wert
 
-Ein schreibgeschütztes, arrayähnliches `MediaList`-Objekt.
+Ein schreibgeschütztes, array-ähnliches `MediaList`-Objekt.
 
 ## Beispiele
 
@@ -38,10 +38,8 @@ Ein schreibgeschütztes, arrayähnliches `MediaList`-Objekt.
             document.styleSheets[i].media,
           )}`,
         );
-        if (iSheetIndex === 0)
-          document.styleSheets[i].media.appendMedium("handheld");
-        if (iSheetIndex === 1)
-          document.styleSheets[i].media.deleteMedium("print");
+        if (i === 0) document.styleSheets[i].media.appendMedium("handheld");
+        if (i === 1) document.styleSheets[i].media.deleteMedium("print");
         console.log(
           `document.styleSheets[${i}].media: ${JSON.stringify(
             document.styleSheets[i].media,
