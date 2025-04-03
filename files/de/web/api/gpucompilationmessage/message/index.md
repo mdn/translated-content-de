@@ -3,33 +3,30 @@ title: "GPUCompilationMessage: message-Eigenschaft"
 short-title: message
 slug: Web/API/GPUCompilationMessage/message
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`message`**-Eigenschaft der [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Schnittstelle ist ein String, der einen menschenlesbaren Nachrichtentext darstellt.
+Die **`message`**-Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine schreibgeschützte Zeichenkette, die einen menschenlesbaren Nachrichtentext darstellt.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Beispiele
 
 ```js
-  // ...
-  const shaderModule = device.createShaderModule({
-    code: shaders,
-  });
+const shaderModule = device.createShaderModule({
+  code: shaders,
+});
 
-  const shaderInfo = await shaderModule.getCompilationInfo();
-  const firstMessage = shaderInfo.messages[0];
-  console.log(firstMessage.message);
-  // ...
-}
+const shaderInfo = await shaderModule.getCompilationInfo();
+const firstMessage = shaderInfo.messages[0];
+console.log(firstMessage.message);
 ```
 
-Siehe die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
+Siehe die Hauptseite von [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
 
 ## Spezifikationen
 

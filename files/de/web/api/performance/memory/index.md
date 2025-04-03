@@ -1,41 +1,41 @@
 ---
-title: "Performance: Speicher-Eigenschaft"
+title: "Performance: memory-Eigenschaft"
 short-title: memory
 slug: Web/API/Performance/memory
 l10n:
-  sourceCommit: 5fb2b1ccd1e795511f0be413118beb17c47250bf
+  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
 ---
 
 {{APIRef("Performance API")}}{{Deprecated_Header}}{{Non-standard_header}}
 
-Die nicht standardisierte und veraltete **`memory`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die die Größe des JavaScript-Heaps zurückgibt. Dies kann hilfreich sein, um den Speicherbedarf von Websites zu messen und zu reduzieren.
+Die nicht standardisierte und veraltete **`memory`**-Schreibgeschützte Eigenschaft gibt die Größe des JavaScript-Heap zurück, was hilfreich sein kann, um den Speicherverbrauch von Websites zu messen und zu reduzieren.
 
-Beachten Sie, dass die Informationen, die diese API bereitstellt, unzuverlässig sind, da sie den tatsächlichen Speicherverbrauch überschätzen kann, wenn mehrere Webseiten denselben Heap teilen. Alternativ kann sie den tatsächlichen Speicherverbrauch unterschätzen, wenn Webseiten Workers und/oder Cross-Site-Iframes verwenden, die in separaten Heaps zugewiesen werden. Es ist nicht standardisiert, was genau mit "Heap" gemeint ist. Die API ist nur in Chromium-basierten Browsern verfügbar.
+Beachten Sie, dass die Informationen, die diese API bereitstellt, unzuverlässig sind, da sie den tatsächlichen Speicherverbrauch überschätzen könnte, wenn Webseiten denselben Heap teilen, oder den tatsächlichen Speicherverbrauch unterschätzen könnte, wenn Webseiten Worker und/oder cross-site iframes verwenden, die in separaten Heaps zugewiesen werden. Es ist nicht standardisiert, was "Heap" genau bedeutet. Die API ist nur in Chromium-basierten Browsern verfügbar.
 
-Eine neue API, die `performance.memory` ersetzen soll, ist [`Performance.measureUserAgentSpecificMemory()`](/de/docs/Web/API/Performance/measureUserAgentSpecificMemory). Sie versucht, den von einer Webseite genutzten Speicher zu schätzen.
+Eine neue API, die `performance.memory` ersetzen soll, ist [`Performance.measureUserAgentSpecificMemory()`](/de/docs/Web/API/Performance/measureUserAgentSpecificMemory). Sie versucht, den von einer Webseite verwendeten Speicher zu schätzen.
 
 ## Wert
 
 Gibt ein Objekt mit den folgenden Eigenschaften zurück:
 
 - `jsHeapSizeLimit`
-  - : Die maximale Größe des Heaps, in Bytes, die dem Kontext zur Verfügung steht.
+  - : Die maximale Größe des Heaps in Bytes, die dem Kontext zur Verfügung steht.
 - `totalJSHeapSize`
-  - : Die insgesamt zugewiesene Heap-Größe, in Bytes.
+  - : Die insgesamt zugewiesene Heap-Größe in Bytes.
 - `usedJSHeapSize`
-  - : Das derzeit aktive Segment des JS-Heaps, in Bytes.
+  - : Das derzeit aktive Segment des JS-Heap in Bytes.
 
 ## Beispiele
 
-### Abrufen der JavaScript-Heap-Größen
+### Abrufen von JavaScript-Heap-Größen
 
-Ein Aufruf von `performance.memory` gibt ein Objekt wie dieses zurück:
+Der Aufruf von `performance.memory` gibt ein Objekt wie dieses zurück:
 
-```js
+```json
 {
-  totalJSHeapSize: 39973671,
-  usedJSHeapSize: 39127515,
-  jsHeapSizeLimit: 4294705152
+  "totalJSHeapSize": 39973671,
+  "usedJSHeapSize": 39127515,
+  "jsHeapSizeLimit": 4294705152
 }
 ```
 

@@ -2,36 +2,36 @@
 title: regexp:test()
 slug: Web/XML/EXSLT/Reference/regexp/test
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 3fcc43c9a6dd8e2eac385da0496586105256a468
 ---
 
-`regexp:test()` prüft, ob ein String einem angegebenen regulären Ausdruck entspricht.
+`regexp:test()` prüft, ob ein String einem bestimmten regulären Ausdruck entspricht.
 
 ## Syntax
 
-```js-nolint
+```plain
 regexp:test(testString, regExpString[, flagsString])
 ```
 
 ### Parameter
 
 - `testString`
-  - : Der zu überprüfende String.
+  - : Der zu prüfende String.
 - `regExpString`
   - : Der reguläre Ausdruck im JavaScript-Stil, der ausgewertet werden soll.
 - `flagsString` {{optional_inline}}
-  - : Ein optionaler String, der Zeichen-Flags enthält.
+  - : Ein optionaler String, der Zeichenflags enthält.
 
-Die möglichen Zeichen-Flags sind:
+Die Zeichenflags sind:
 
 - `g`
-  - : Globaler Treffer. Hat keine Auswirkung auf diese Funktion; wird aus Konsistenzgründen mit anderen `regexp`-Funktionen erlaubt.
+  - : Globaler Abgleich. Hat keine Auswirkung auf diese Funktion; ist für Konsistenz mit anderen regexp-Funktionen erlaubt.
 - `i`
-  - : Groß- und Kleinschreibung ignorieren. Wenn dieses Flag angegeben ist, wird der Abgleich ohne Beachtung der Groß- und Kleinschreibung durchgeführt.
+  - : Groß-/Kleinschreibungs-unabhängiger Abgleich. Wenn dieses Flag angegeben ist, erfolgt der Abgleich unabhängig von der Groß-/Kleinschreibung.
 
 ### Rückgabewert
 
-`true`, wenn der angegebene `regexp` mit dem Test-String übereinstimmt.
+`true`, wenn der angegebene reguläre Ausdruck mit dem Test-String übereinstimmt.
 
 ## Spezifikationen
 

@@ -2,17 +2,17 @@
 title: <script type="speculationrules">
 slug: Web/HTML/Element/script/type/speculationrules
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 3fcc43c9a6dd8e2eac385da0496586105256a468
 ---
 
 {{HTMLSidebar}}{{SeeCompatTable}}
 
-Der **`speculationrules`** Wert des [`type`](/de/docs/Web/HTML/Element/script/type)-Attributs des [`<script>`-Elements](/de/docs/Web/HTML/Element/script) gibt an, dass der Inhalt des Elements Spekulationsregeln enthält.
+Der **`speculationrules`** Wert des [`type`](/de/docs/Web/HTML/Element/script/type)-Attributs des [`<script>`-Elements](/de/docs/Web/HTML/Element/script) zeigt an, dass der Inhalt des Elements Spekulationsregeln enthält.
 
-Spekulationsregeln haben die Form einer JSON-Struktur, die bestimmt, welche Ressourcen vom Browser vorab geladen oder vorab gerendert werden sollen. Dies ist Teil der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API).
+Spekulationsregeln nehmen die Form einer JSON-Struktur an, die festlegt, welche Ressourcen vom Browser vorab geladen oder vorgerendert werden sollen. Dies ist Teil der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API).
 
 > [!NOTE]
-> Spekulationsregeln können in externen Textdateien definiert werden, die über den {{httpheader("Speculation-Rules")}}-HTTP-Header referenziert werden, unter Verwendung der gleichen [JSON-Darstellung, die unten angegeben ist](#json-darstellung_der_spekulationsregeln). Die Angabe eines HTTP-Headers ist nützlich in Fällen, in denen Entwickler nicht in der Lage sind, das Dokument selbst direkt zu ändern.
+> Spekulationsregeln können in externen Textdateien definiert werden, auf die durch den {{httpheader("Speculation-Rules")}}-HTTP-Header verwiesen wird, unter Verwendung derselben [unten bereitgestellten JSON-Darstellung](#spekulationsregeln_json-darstellung). Die Angabe eines HTTP-Headers ist nützlich, wenn Entwickler nicht in der Lage sind, das Dokument selbst direkt zu ändern.
 
 ## Syntax
 
@@ -28,11 +28,11 @@ Spekulationsregeln haben die Form einer JSON-Struktur, die bestimmt, welche Ress
 ### Ausnahmen
 
 - `TypeError`
-  - : Die Definition der Spekulationsregeln ist kein gültiges JSON-Objekt.
+  - : Die Spekulationsregeln-Definition ist kein gültiges JSON-Objekt.
 
 ## Beschreibung
 
-Ein `<script type="speculationrules">`-Element muss eine gültige JSON-Struktur enthalten, die Spekulationsregeln definiert. Die folgenden Beispiele zeigen getrennte Pre-Fetching- und Prerendering-Regeln:
+Ein `<script type="speculationrules">` Element muss eine gültige JSON-Struktur enthalten, die Spekulationsregeln definiert. Die folgenden Beispiele zeigen separate Regeln für Prefetch und Prerender:
 
 ```html
 <script type="speculationrules">
@@ -61,122 +61,122 @@ Ein `<script type="speculationrules">`-Element muss eine gültige JSON-Struktur 
 </script>
 ```
 
-### JSON-Darstellung der Spekulationsregeln
+### Spekulationsregeln JSON-Darstellung
 
-Die JSON-Struktur enthält ein oder mehrere Felder auf oberster Ebene, von denen jedes eine Aktion darstellt, um Spekulationsregeln dafür zu definieren. Derzeit werden die folgenden Aktionen unterstützt:
+Die JSON-Struktur enthält ein oder mehrere Felder auf oberster Ebene, von denen jedes eine Aktion darstellt, für die Spekulationsregeln definiert werden sollen. Derzeit sind die unterstützten Aktionen:
 
 - `"prefetch"` {{optional_inline}} {{experimental_inline}}
-  - : Regeln für potenzielle zukünftige Navigationen, bei denen der zugehörige Dokumentantwortkörper heruntergeladen werden sollte, was bei der Navigation zu diesen Dokumenten zu erheblichen Leistungsverbesserungen führt. Beachten Sie, dass keine der im Dokument referenzierten Unterressourcen heruntergeladen wird.
+  - : Regeln für potenzielle zukünftige Navigationen, deren zugehöriger Dokumentantwortkörper heruntergeladen werden sollte, was zu erheblichen Leistungsverbesserungen führt, wenn zu diesen Dokumenten navigiert wird. Beachten Sie, dass keine der untergeordneten Ressourcen, auf die von der Seite verwiesen wird, heruntergeladen werden.
 - `"prerender"` {{optional_inline}} {{experimental_inline}}
-  - : Regeln für potenzielle zukünftige Navigationen, die vollständig heruntergeladen, gerendert und in einem unsichtbaren Tab geladen werden sollen. Dies umfasst das Laden aller Unterressourcen, das Ausführen aller JavaScripts und sogar das Laden von Unterressourcen und das Ausführen von Datenabfragen, die durch JavaScript gestartet werden. Wenn auf diese Dokumente zugegriffen wird, erfolgen die Navigationen sofort, was zu erheblichen Leistungsverbesserungen führt.
+  - : Regeln für potenzielle zukünftige Navigationen, deren zugehörige Dokumente vollständig heruntergeladen, gerendert und in einem unsichtbaren Tab geladen werden sollten. Dies umfasst das Laden aller untergeordneten Ressourcen, das Ausführen aller JavaScripts sowie das Laden von untergeordneten Ressourcen und Ausführen von Datenabfragen, die von JavaScript gestartet werden. Wenn zu diesen Dokumenten navigiert wird, sind die Navigationen sofort, was zu großen Leistungsverbesserungen führt.
 
 > [!NOTE]
-> Konsultieren Sie die Hauptseite der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) für umfassende Details zur effektiven Nutzung von Prefetching und Prerendering.
+> Konsultieren Sie die Hauptseite der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) für vollständige Details zur effektiven Nutzung von Prefetch und Prerender.
 
-Jedes Aktionsfeld enthält ein Array, das wiederum ein oder mehrere Objekte enthält. Jedes Objekt enthält eine einzige Regel, die eine Menge von URLs und verwandte Parameter definiert.
+Jedes Aktionsfeld enthält ein Array, das wiederum ein oder mehrere Objekte enthält. Jedes Objekt enthält eine einzelne Regel, die eine Menge von URLs und zugehörigen Parametern definiert.
 
 Jedes Objekt kann die folgenden Eigenschaften enthalten:
 
 - `"source"`
 
-  - : Ein String, der die Quelle der URLs angibt, auf die die Regel angewendet wird. Dies ist optional, da der Wert immer aus anderen Eigenschaften abgeleitet werden kann.
+  - : Ein Zeichenfolgenwert, der die Quelle der URLs angibt, für die die Regel gilt. Dies ist optional, da der Wert immer aus anderen Eigenschaften abgeleitet werden kann.
 
-    Dies kann einer der folgenden Werte sein:
+    Dies kann eines der folgenden sein:
 
     - `"document"`
-      - : Gibt an, dass die URLs aus Navigationslinks im zugehörigen Dokument (wie in {{htmlelement("a")}} und {{htmlelement("area")}}-Elementen definiert) anhand der Bedingungen, die durch einen `"where"`-Schlüssel beschrieben werden, stammen. Beachten Sie, dass das Vorhandensein eines `"where"`-Schlüssels `"source": "document"` impliziert, sodass er optional ist.
+      - : Gibt an, dass die URLs aus Navigationslinks im zugehörigen Dokument (wie in {{htmlelement("a")}} und {{htmlelement("area")}}-Elementen definiert) auf der Grundlage der durch einen `"where"`-Schlüssel beschriebenen Bedingungen übereinstimmen. Beachten Sie, dass das Vorhandensein eines `"where"`-Schlüssels `"source": "document"` impliziert, sodass dies optional ist.
     - `"list"`
-      - : Gibt an, dass die URLs aus einer Liste stammen, die im `"urls"`-Schlüssel spezifiziert ist. Beachten Sie, dass das Vorhandensein eines `"urls"`-Schlüssels `"source": "list"` impliziert, sodass er optional ist.
+      - : Gibt an, dass die URLs aus einer Liste stammen, die im `"urls"`-Schlüssel angegeben ist. Beachten Sie, dass das Vorhandensein eines `"urls"`-Schlüssels `"source": "list"` impliziert, sodass dies optional ist.
 
 - `"urls"` {{experimental_inline}}
 
-  - : Ein Array von Strings, das eine Liste von URLs darstellt, auf die die Regel angewendet werden soll. Diese können absolute oder relative URLs sein. Relative URLs werden relativ zur Basis-URL des Dokuments (wenn inline in einem Dokument) oder relativ zur URL der externen Ressource (wenn extern abgerufen) geparst. `"urls"` und `"where"` können nicht in derselben Regel eingestellt sein.
+  - : Ein Array von Zeichenfolgen, das eine Liste von URLs darstellt, auf die die Regel angewendet werden soll. Diese können absolute oder relative URLs sein. Relative URLs werden relativ zur Basis-URL des Dokuments geparst (wenn inline in einem Dokument) oder relativ zur externen Ressourcen-URL (wenn extern abgerufen). `"urls"` und `"where"` können nicht beide in derselben Regel gesetzt werden.
 
 - `"where"` {{experimental_inline}}
 
-  - : Ein Objekt, das die Bedingungen darstellt, nach denen die Regel den im zugehörigen Dokument enthaltenen URLs entspricht. Effektiv stellt das `"where"`-Objekt einen Test dar, der für jeden Link auf der Seite durchgeführt wird, um festzustellen, ob die Spekulationsregel darauf angewendet wird. `"where"` und `"urls"` können nicht in derselben Regel eingestellt sein.
+  - : Ein Objekt, das die Bedingungen darstellt, unter denen die Regel auf URLs im zugehörigen Dokument angewendet wird. Effektiv stellt das `"where"`-Objekt einen Test dar, der für jeden Link auf der Seite durchgeführt wird, um zu sehen, ob die Spekulationsregel darauf angewendet wird. `"where"` und `"urls"` können nicht beide in derselben Regel gesetzt werden.
 
     Dieses Objekt kann genau eine der folgenden Eigenschaften enthalten:
 
     - `"href_matches"`
-      - : Ein String, der ein URL-Muster enthält, oder ein Array mit mehreren URL-Muster-Strings, die der Standard-[URL Pattern API-Syntax](/de/docs/Web/API/URL_Pattern_API) folgen. Links im Dokument, deren URLs dem/den Muster(n) entsprechen, erhalten die Regel angewendet.
+      - : Eine Zeichenfolgen-URL-Vorlage oder ein Array, das mehrere URL-Vorlagen-Zeichenfolgen enthält, die der Standard- [URL Pattern API-Syntax](/de/docs/Web/API/URL_Pattern_API) folgen. Links im Dokument, deren URLs mit der Vorlage(n) übereinstimmen, erhalten die Regel angewendet.
     - `"relative_to"`
-      - : Im Falle einer `"href_matches"`-Bedingung kann dies angeben, wo Sie möchten, dass diese Bedingung relativ zu etwas übereinstimmt. Dies funktioniert genauso wie der [Regel-übergreifende `"relative_to"`-Schlüssel](#relative_to_2), außer dass es nur eine einzige `"href_matches"`-Bedingung innerhalb eines `"where"`-Schlüssels betrifft.
+      - : Im Falle einer `"href_matches"`-Bedingung kann dies angeben, wo Sie möchten, dass diese Bedingung relativ zu einem bestimmten Punkt übereinstimmt. Dies funktioniert genau wie der auf der Regel-Ebene befindliche `"relative_to"`-Schlüssel, außer dass er nur eine einzige `"href_matches"`-Bedingung innerhalb eines `"where"`-Schlüssels betrifft.
     - `"selector_matches"`
-      - : Ein String, der einen [CSS-Selektor](/de/docs/Web/CSS/CSS_selectors) enthält, oder ein Array mit mehreren CSS-Selektoren. Links im Dokument, die von diesen Selektoren übereinstimmen, haben die Regel angewendet.
+      - : Eine Zeichenfolge, die einen [CSS-Selector](/de/docs/Web/CSS/CSS_selectors) enthält, oder ein Array, das mehrere CSS-Selectoren enthält. Links im Dokument, die durch diese Selectoren übereinstimmen, haben die Regel angewendet.
     - `"and"`
-      - : Ein Array mit einem oder mehreren Objekten, die Bedingungen (`"href_matches"`, `"selector_matches"`, `"and"`, `"not"`, oder `"or"`) enthalten, die alle übereinstimmen müssen, damit die Regel auf sie angewendet wird.
+      - : Ein Array, das eines oder mehrere Objekte, die Bedingungen (`"href_matches"`, `"selector_matches"`, `"and"`, `"not"`, oder `"or"`) enthalten, enthält, die alle übereinstimmen müssen, damit die Regel auf sie angewendet wird.
     - `"not"`
-      - : Ein Objekt, das eine Bedingung (`"href_matches"`, `"selector_matches"`, `"and"`, `"not"`, oder `"or"`) enthält, welche, falls sie übereinstimmt, _nicht_ die Regel angewendet hat. Alle Links, die dieser Bedingung _nicht_ entsprechen, _werden_ die Regel angewendet bekommen.
+      - : Ein Objekt, das eine Bedingung (`"href_matches"`, `"selector_matches"`, `"and"`, `"not"`, oder `"or"`) enthält, die, wenn sie übereinstimmt, die Regel nicht auf sie angewendet wird. Alle Links, die nicht mit der Bedingung übereinstimmen, haben die Regel angewendet.
     - `"or"`
-      - : Ein Array mit einem oder mehreren Objekten, die Bedingungen (`"href_matches"`, `"selector_matches"`, `"and"`, `"not"`, oder `"or"`) enthalten, von denen jede für die Regel übereinstimmen kann, um auf sie angewendet zu werden.
+      - : Ein Array, das eines oder mehrere Objekte, die Bedingungen (`"href_matches"`, `"selector_matches"`, `"and"`, `"not"`, oder `"or"`) enthalten, enthält, von denen jede übereinstimmen kann, damit die Regel auf sie angewendet wird.
 
-    `"where"`-Bedingungen können in mehreren Ebenen verschachtelt werden, um komplexe Bedingungen zu erstellen, oder Sie können sich entscheiden, sie in separate Regeln aufzuteilen, um sie einfach zu halten. Siehe [Beispiele für where](#where_syntax_examples) für weitere Erklärungen und mehrere Verwendungsbeispiele.
+    `"where"`-Bedingungen können in mehrere Ebenen geschachtelt werden, um komplexe Bedingungen zu schaffen, oder Sie können sich entscheiden, sie in separate Regeln aufzuteilen, um sie einfach zu halten. Siehe [Beispiele für `where`-Syntax](#where_syntax_examples) für mehr Erklärung und mehrere Anwendungsbeispiele.
 
 - `"eagerness"` {{experimental_inline}}
 
-  - : Ein String, der dem Browser einen Hinweis gibt, wie dringend er Link-Ziele vorladen/vorrendern sollte, um Leistungsverbesserungen gegen Ressourcenaufwendungen abzuwägen. Mögliche Werte sind:
+  - : Eine Zeichenfolge, die dem Browser einen Hinweis darauf gibt, wie eifrig er Linkziele vorab laden/vorrendern sollte, um Leistungsvorteile gegen den Ressourcenaufwand auszugleichen. Mögliche Werte sind:
 
     - `"immediate"`
-      - : Der Autor denkt, dass der Link sehr wahrscheinlich gefolgt wird, und/oder das Dokument erhebliche Zeit zum Abrufen benötigt. Prefetch/Prerender sollte schnellstmöglich beginnen, vorbehaltlich nur Überlegungen wie Benutzereinstellungen und Ressourcenbeschränkungen.
+      - : Der Autor denkt, dass der Link sehr wahrscheinlich gefolgt wird, und/oder das Dokument kann erhebliche Zeit zum Abrufen benötigen. Das Vorabladen/vorrendern sollte so bald wie möglich beginnen, nur unter Berücksichtigung von Nutzerpräferenzen und Ressourcenbeschränkungen.
     - `"eager"`
-      - : Der Autor möchte eine große Anzahl von Navigationen vorladen/vorrendern, so früh wie möglich. Prefetch/Prerender sollte bei jedem kleinen Hinweis beginnen, dass ein Link gefolgt werden könnte. Zum Beispiel könnte der Benutzer seine Maus auf den Link bewegen, diesen für einen Moment anvisieren/fokussieren oder das Scrollen bei einer prominenten Anzeige pausieren.
+      - : Der Autor möchte viele Navigationen so früh wie möglich vorabladen/vorrendern. Das Vorabladen/vorrendern sollte bei jedem geringen Hinweis darauf beginnen, dass ein Link gefolgt werden könnte. Beispielsweise könnte der Benutzer den Mauszeiger in Richtung des Links bewegen, ihn für einen Moment schweben/fokussieren oder die Bildlaufleiste mit dem Link an einer prominenten Stelle anhalten.
     - `"moderate"`
-      - : Der Autor sucht ein Gleichgewicht zwischen `eager` und `conservative`. Prefetch/Prerender sollte beginnen, wenn ein vernünftiger Vorschlag besteht, dass der Benutzer in naher Zukunft einem Link folgen wird. Zum Beispiel könnte der Benutzer einen Link in das Ansichtsfenster scrollen und ihn für einige Zeit anvisieren/fokussieren.
+      - : Der Autor sucht nach einem Gleichgewicht zwischen `eager` und `conservative`. Das Vorabladen/vorrendern sollte beginnen, wenn es einen vernünftigen Hinweis darauf gibt, dass der Benutzer in naher Zukunft einem Link folgen wird. Beispielsweise könnte der Benutzer einen Link in den Ansichtsbereich scrollen und ihn für einige Zeit schweben/fokussieren.
     - `"conservative"`
-      - : Der Autor wünscht sich einen Vorteil durch spekulative Ladung mit einem relativ kleinen Tausch von Ressourcen. Prefetch/Prerender sollte erst beginnen, wenn der Benutzer beginnt, auf den Link zu klicken, beispielsweise bei [`mousedown`](/de/docs/Web/API/Element/mousedown_event) oder [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event).
+      - : Der Autor möchte von spekulativem Laden mit relativ geringem Ressourceneinsatz profitieren. Das Vorabladen/vorrendern sollte erst beginnen, wenn der Benutzer anfängt, auf den Link zu klicken, beispielsweise bei [`mousedown`](/de/docs/Web/API/Element/mousedown_event) oder [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event).
 
-    Wenn `"eagerness"` nicht explizit angegeben wird, sind List (`"urls"`) Regeln standardmäßig auf `immediate` und Dokument (`"where"`) Regeln auf `conservative` eingestellt. Der Browser berücksichtigt diesen Hinweis zusammen mit seinen eigenen Heuristiken, sodass er einen Link auswählen kann, den der Autor als weniger dringend als einen anderen angedeutet hat, wenn der weniger dringliche Kandidat als bessere Wahl erachtet wird.
+    Wenn `"eagerness"` nicht explizit angegeben ist, gilt für Listen (`"urls"`) Regeln standardmäßig `immediate` und für Dokument (`"where"`) Regeln standardmäßig `conservative`. Der Browser berücksichtigt diesen Hinweis zusammen mit seinen eigenen Heuristiken, sodass er möglicherweise einen Link auswählt, für den der Autor weniger Dringlichkeit signalisiert hat als ein anderer, wenn der weniger dringende Kandidat als bessere Wahl angesehen wird.
 
 - `"expects_no_vary_search"` {{experimental_inline}}
 
-  - : Ein String, der dem Browser einen Hinweis darauf gibt, welchen {{httpheader("No-Vary-Search")}}-Headerwert er auf Antworten für Dokumente erhält, die Vorab-Abruf-/Vorrender-Anfragen erhalten. Der Browser kann dies im Voraus nutzen, um festzustellen, ob es nützlicher ist, auf den Abschluss einer vorhandenen Vorab-Abruf-/Vorrender-Aktion zu warten oder eine neue Abrufanfrage zu starten, wenn die Spekulationsregel übereinstimmt. Weitere Erklärungen zur Nutzung finden Sie im [`"expects_no_vary_search"` Beispiel](#expects_no_vary_search_example).
+  - : Ein Zeichenfolgenwert, der dem Browser einen Hinweis darauf gibt, welchen {{httpheader("No-Vary-Search")}}-Headerwert er auf Antworten setzt, für die Dokumente, die er Anfragen zum Vorabladen/vorrendern erhält. Der Browser kann dies verwenden, um im Voraus zu bestimmen, ob es nützlicher ist, auf einen bestehenden Vorabladen/vorrendern-Vorgang zu warten oder eine neue Abrufanfrage zu starten, wenn die Spekulationsregel übereinstimmt. Siehe das [Beispiel für `"expects_no_vary_search"`](#expects_no_vary_search_example) für mehr Erklärung, wie dies verwendet werden kann.
 
 - `"referrer_policy"` {{experimental_inline}}
 
-  - : Ein String, der eine spezifische "Referrer-Policy"-Zeichenfolge darstellt, die beim Anfordern der in der Regel angegebenen URLs verwendet wird — siehe [`Referrer-Policy`](/de/docs/Web/HTTP/Reference/Headers/Referrer-Policy) für mögliche Werte. Der Zweck besteht darin, der verweisenden Seite zu ermöglichen, für die spekulative Anforderung speziell eine strengere Richtlinie festzulegen als die Richtlinie, die die Seite bereits gesetzt hat (entweder standardmäßig oder durch die Verwendung von `Referrer-Policy`).
+  - : Eine Zeichenfolge, die eine spezifische Referrer-Richtlinie darstellt, die beim Anfordern der in der Regel angegebenen URLs verwendet wird — siehe [`Referrer-Policy`](/de/docs/Web/HTTP/Reference/Headers/Referrer-Policy) für mögliche Werte. Der Zweck davon besteht darin, der weiterleitenden Seite zu ermöglichen, eine strengere Richtlinie speziell für die spekulative Anfrage festzulegen als die Richtlinie, die die Seite bereits konfiguriert hat (entweder standardmäßig oder durch Verwendung von `Referrer-Policy`).
 
     > [!NOTE]
-    > Eine "cross-site"-Prefetch erfordert eine Referrer-Richtlinie, die mindestens so streng ist wie der Standardwert `"strict-origin-when-cross-origin"` — also `"strict-origin-when-cross-origin"`, `"same-origin"`, `"strict-origin"`, oder `"no-referrer"`. Eine weniger strenge Richtlinie, die in den Spekulationsregeln festgelegt ist, überschreibt eine strengere Richtlinie, die auf der verweisenden Seite festgelegt wurde, solange sie immer noch ausreichend strikt für den cross-site-Fall ist.
+    > Ein Cross-Site-Vorabladen erfordert eine Referrer-Richtlinie, die mindestens so streng ist wie der Standardwert `"strict-origin-when-cross-origin"` — also `"strict-origin-when-cross-origin"`, `"same-origin"`, `"strict-origin"`, oder `"no-referrer"`. Eine laxe Richtlinie, die in den Spekulationsregeln festgelegt wird, ersetzt eine strengere Richtlinie, die auf der weisenden Seite festgelegt ist, solange sie für den Cross-Site-Fall noch ausreichend streng ist.
 
     > [!NOTE]
-    > Im Fall von Dokumentregeln wird die angegebene Referrer-Richtlinie des übereinstimmenden Links (z.B. unter Verwendung des [`referrerpolicy`](/de/docs/Web/HTML/Element/a#referrerpolicy)-Attributs) verwendet, es sei denn, die Regel gibt eine Richtlinie an, die diese überschreibt.
+    > Im Falle von Dokumentregeln wird die im übereinstimmenden Link angegebene Referrer-Richtlinie (z. B. unter Verwendung des [`referrerpolicy`](/de/docs/Web/HTML/Element/a#referrerpolicy)-Attributs) verwendet, es sei denn, die Regel spezifiziert eine Richtlinie, die sie überschreibt.
 
 - `"relative_to"` {{experimental_inline}}
 
-  - : Ein String, der angibt, wo Sie Links, die durch eine URL übereinstimmen, relativ zu etwas übereinstimmen lassen möchten. Der Wert kann einer der folgenden sein:
+  - : Ein Zeichenfolgenwert, der angibt, wo Sie möchten, dass durch URL übereinstimmende Links relativ abgeglichen werden. Der Wert kann einer der folgenden sein:
 
     - `document`
-      - : URLs sollten relativ zum Dokument verglichen werden, auf dem die Spekulationsregeln festgelegt werden.
+      - : URLs sollten relativ zu dem Dokument abgeglichen werden, für das die Spekulationsregeln gesetzt werden.
     - `ruleset`
-      - : URLs sollten relativ zu der Datei verglichen werden, in der die Regeln festgelegt sind. Dies ist der Standardwert.
+      - : URLs sollten relativ zur Datei abgeglichen werden, in der die Regeln spezifiziert sind. Dies ist der Standardwert.
 
-    Diese Schlüsseleinstellung ist nur relevant für Regeln, die in einer externen Datei definiert sind (festgelegt über den {{httpheader("Speculation-Rules")}}-Header). Wenn Regeln innerhalb desselben Dokuments spezifiziert sind, für das sie festgelegt werden (d.h. in einem Inline-`<script>`-Element), macht es keinen Unterschied.
+    Diese Schlüsseleinstellung ist nur relevant für Regeln, die in einer externen Datei definiert sind (festgelegt über den {{httpheader("Speculation-Rules")}}-Header). Wenn Regeln innerhalb desselben Dokuments angegeben werden, für das sie gesetzt werden (d.h. in einem inline `<script>` Element), macht es keinen Unterschied.
 
 - `"requires"` {{experimental_inline}}
 
-  - : Ein Array von Strings, das Fähigkeiten des Browsers darstellt, der die Regel analysiert, welche verfügbar sein müssen, damit die Regel auf die angegebenen URLs angewendet wird.
+  - : Ein Array von Zeichenfolgen, die Fähigkeiten des Browsers darstellen, der die Regel analysiert und die verfügbar sein müssen, damit die Regel auf die angegebenen URLs angewendet wird.
 
     > [!WARNING]
-    > Prefetches werden automatisch in Browsern fehlschlagen, die eine angegebene Anforderung nicht erfüllen können, selbst wenn sie die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) unterstützen.
+    > Vorabladen schlagen automatisch fehl in Browsern, die eine angegebene Anforderung nicht erfüllen können, auch wenn sie die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) unterstützen.
 
     Mögliche Werte sind:
 
     - `"anonymous-client-ip-when-cross-origin"`
-      - : (nur für prefetch) Gibt an, dass die Regel nur dann übereinstimmt, wenn der Benutzeragent die Anzeige der Client-IP-Adresse an den Ursprungsserver verhindern kann, wenn eine cross-origin Prefetch-Anforderung ausgegeben wird. Wie genau dies funktioniert, hängt von den spezifischen Implementierungsdetails des Browsers ab. Zum Beispiel:
-        - Chromes Implementation verbirgt die IP-Adresse mit einem von Google betriebenen Proxy, daher funktioniert dies standardmäßig nur für von Google kontrollierte Referrer (da in diesem Fall das Senden der URLs des Ziels an Google kein zusätzliches Datenschutzproblem darstellt). Bei Verwendung auf einer nicht von Google kontrollierten Seite, werden Regeln, die dies enthalten, nur mit Benutzern abgeglichen, die "Enhanced preloading" in `chrome://settings/preloading` aktivieren.
-        - Andere auf Chromium-basierte Browser müssen ihre eigenen Lösungen bereitstellen. Gründliche Tests in allen Zielbrowsern sind ratsam.
-        - Eine zukünftige Safari-Implementierung könnte möglicherweise etwas Ähnliches wie [iCloud Private Relay](https://support.apple.com/en-us/102602) verwenden.
-        - Eine zukünftige Firefox-Implementierung könnte möglicherweise etwas auf der Basis des [Mozilla VPN](https://www.mozilla.org/en-US/products/vpn/) Produkts verwenden.
+      - : (nur prefatch) Gibt an, dass die Regel nur übereinstimmt, wenn der Benutzeragent die Anzeige der Client-IP-Adresse gegenüber dem Ursprungsserver verhindern kann, wenn eine Cross-Origin-Vorabladungsanfrage gestellt wird. Wie genau das funktioniert, hängt von den spezifischen Implementierungen des Browsers ab. Zum Beispiel:
+        - Chromes Implementierung verbirgt die IP-Adresse unter Verwendung eines von Google betriebenen Proxys, daher funktioniert es standardmäßig nur für Google-kontrollierte Referrer (da in diesem Fall das Senden der URLs des Ziels an Google keine zusätzliche Datenschutzverletzung ist). Bei Verwendung auf einer nicht von Google betriebenen Site, stimmen Regeln, die dies enthalten, nur für Benutzer überein, die `Erweitertes Vorladen` unter `chrome://settings/preloading` aktivieren.
+        - Andere Chromium-basierte Browser müssen ihre eigenen Lösungen bieten. Eine gründliche Überprüfung in allen Zielbrowsern wird empfohlen.
+        - Eine zukünftige Safari-Implementierung könnte möglicherweise etwas entlang der Linien von [iCloud Private Relay](https://support.apple.com/en-us/102602) verwenden.
+        - Eine zukünftige Firefox-Implementierung könnte möglicherweise etwas basierend auf dem [Mozilla VPN](https://www.mozilla.org/en-US/products/vpn/) Produkt verwenden.
 
 > [!NOTE]
-> Da Spekulationsregeln ein `<script>`-Element verwenden, müssen sie explizit in der [`Content-Security-Policy`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy)-[`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src)-Richtlinie erlaubt werden, falls die Seite sie enthält. Dies erfolgt durch Hinzufügen des `"inline-speculation-rules"`-Wertes zusammen mit einer Hash- oder Nonce-Quelle.
+> Da Spekulationsregeln ein `<script>`-Element verwenden, müssen sie ausdrücklich in der [`Content-Security-Policy`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src)-Richtlinie zugelassen werden, wenn die Site diese einschließt. Dies erfolgt durch Hinzufügen des `"inline-speculation-rules"`-Werts zusammen mit einem Hash- oder Nonce-Quelle.
 
 ## Beispiele
 
-### Prefetching und Prerendering im selben Satz von Regeln
+### Prefetch und Prerender in derselben Regelsatz
 
-Die grundlegenden Beispiele im Beschreibungsabschnitt enthielten separate Spekulationsregeln, die für das Prefetching und das Prerendering definiert wurden. Es ist möglich, beide in einem einzigen Regelwerk festzulegen:
+Die Grundbeispiele, die im Beschreibungsteil gezeigt wurden, enthielten separate Spekulationsregeln für Prefetch und Prerender. Es ist möglich, beide in einem einzigen Regelsatz zu definieren:
 
 ```html
 <script type="speculationrules">
@@ -199,11 +199,11 @@ Die grundlegenden Beispiele im Beschreibungsabschnitt enthielten separate Spekul
 ```
 
 > [!NOTE]
-> Dieses Code-Snippet bietet ein Listenregel (`"urls"`) und ein Dokumentregel (`"where"`) Beispiel.
+> Dieses Codebeispiel bietet eine Liste (`"urls"`) und eine Dokument (`"where"`) Regel Beispiel.
 
-### Mehrere Regel-Sets
+### Mehrere Regelsätze
 
-Es ist auch zulässig, mehrere Regel-Sets in einer einzigen HTML-Datei einzuschließen:
+Es ist auch zulässig, mehrere Regelsätze in einer einzigen HTML-Datei einzufügen:
 
 ```html
 <script type="speculationrules">
@@ -229,26 +229,26 @@ Es ist auch zulässig, mehrere Regel-Sets in einer einzigen HTML-Datei einzuschl
 </script>
 ```
 
-Und mehrere Regeln in einem einzigen Ergebnis-Set:
+Und mehrere Regeln in einem einzigen Ergebnissatz:
 
-```js
+```html
 <script type="speculationrules">
-{
-  "prerender": [
-    {
-      "urls": ["one.html"]
-    },
-    {
-      "urls": ["two.html"]
-    }
-  ]
-}
+  {
+    "prerender": [
+      {
+        "urls": ["one.html"]
+      },
+      {
+        "urls": ["two.html"]
+      }
+    ]
+  }
 </script>
 ```
 
 ### Dynamisches Einfügen von Regeln
 
-Unten ist ein Beispiel, das Spekulationsregeln erkennt und, falls unterstützt, dynamisch eine Prerender-Spekulationsregel über JavaScript hinzufügt:
+Im Folgenden wird ein Beispiel gezeigt, das Spekulationsregeln erkennt und, falls unterstützt, dynamisch eine Prerender-Spekulationsregel über JavaScript hinzufügt:
 
 ```js
 if (
@@ -270,13 +270,13 @@ if (
 }
 ```
 
-Sie können dies in Aktion auf dieser [prerender demos](https://prerender-demos.glitch.me/) Seite sehen.
+Sie können dies in Aktion auf dieser [Prerender-Demos](https://prerender-demos.glitch.me/) Seite sehen.
 
-### Beispiele für `where`-Syntax
+### `where`-Syntax Beispiele
 
-Eine aus einem Dokument stammende Regel enthält eine `"where"`-Eigenschaft, die ein Objekt mit Kriterien ist, die definieren, welche Links im Dokument übereinstimmen. Effektiv stellt das `"where"`-Objekt einen Test dar, der für jeden Link auf der Seite durchgeführt wird, um festzustellen, ob die Spekulationsregel darauf angewendet wird.
+Eine dokumentenbasierte Regel enthält eine `"where"`-Eigenschaft, die ein Objekt mit Kriterien enthält, das definiert, welche Links im Dokument übereinstimmen. Effektiv stellt das `"where"`-Objekt einen Test dar, der für jeden Link auf der Seite durchgeführt wird, um zu sehen, ob die Spekulationsregel darauf angewendet wird.
 
-Die grundlegendste Version wird ein einzelnes URL-Muster oder CSS-Selektor übereinstimmen:
+Die einfachste Version wird eine einzelne URL-Vorlage oder CSS-Selector abgleichen:
 
 ```json
 { "where": { "href_matches": "/next" } }
@@ -286,7 +286,7 @@ Die grundlegendste Version wird ein einzelnes URL-Muster oder CSS-Selektor über
 { "where": { "selector_matches": ".important-link" } }
 ```
 
-`"href_matches"` und `"selector_matches"` können auch auf ein Array von Werten gesetzt werden, sodass mehrere URL-Muster oder CSS-Selektoren gleichzeitig übereinstimmen:
+`"href_matches"` und `"selector_matches"` können auch auf ein Array von Werten gesetzt werden, sodass mehrere URL-Vorlagen oder CSS-Selectoren gleichzeitig übereinstimmen können:
 
 ```json
 { "where": { "href_matches": ["/next", "/profile"] } }
@@ -296,19 +296,19 @@ Die grundlegendste Version wird ein einzelnes URL-Muster oder CSS-Selektor über
 { "where": { "selector_matches": [".important-link", "#unique-link"] } }
 ```
 
-URL-Muster und Selektoren können auch Wildcard (`*`)-Zeichen enthalten, sodass ein einziger Wert mehreren URLs entsprechen kann. Zum Beispiel kann das untenstehende Objekt `user/`, `user/settings`, `user/stats`, usw. entsprechen.
+URL-Vorlagen und Selectoren können auch Platzhalter (`*`) enthalten, sodass ein einzelner Wert mit mehreren URLs übereinstimmen kann. Beispielsweise könnte das untenstehende Objekt `user/`, `user/settings`, `user/stats` usw. übereinstimmen.
 
 ```json
 { "where": { "href_matches": "/user/*" } }
 ```
 
-[Suchparameter (oder Abfragestrings)](/de/docs/Web/API/URL/search) können auch in `href_matches` gezielt werden. Zum Beispiel könnte das untenstehende Objekt alle gleichseitigen URLs mit einem `category`-Suchparameter abgleichen (als erster oder nachfolgender Parameter):
+[Suchparameter (oder Abfragezeichenfolgen)](/de/docs/Web/API/URL/search) können auch in `href_matches` gezielt werden. Beispielsweise könnte das untenstehende Objekt alle Same-Origin-URLs mit einem `category`-Suchparameter (als erster oder nachfolgender Parameter) übereinstimmen:
 
 ```json
 { "where": { "href_matches": "/*\\?*(^|&)category=*" } }
 ```
 
-Eine Bedingung kann negiert werden, indem sie in eine `"not"`-Bedingung eingefügt wird - das bedeutet, dass ein Link, wenn er übereinstimmt, _nicht_ die Regel angewendet bekommt. Links, die _nicht_ übereinstimmen, haben _die_ Regel angewendet. Das folgende Beispiel wird bewirken, dass alle Links, die _nicht_ mit dem URL-Muster `/logout` übereinstimmen, die Regel angewendet bekommen, jedoch nicht Links, die mit `/logout` übereinstimmen:
+Jede Bedingung kann negiert werden, indem sie in eine `"not"`-Bedingung gesetzt wird — das bedeutet, dass, wenn übereinstimmt, ein Link die Spekulationsregel nicht darauf angewendet wird, aber wenn nicht übereinstimmt, wird sie angewendet. Das folgende Beispiel wird bei allen Links, die die URL-Vorlage `/logout` nicht übereinstimmen, die Regel darauf angewendet, aber nicht bei Links, die mit `/logout` übereinstimmen:
 
 ```json
 { "where": { "not": { "href_matches": "/logout" } } }
@@ -316,7 +316,7 @@ Eine Bedingung kann negiert werden, indem sie in eine `"not"`-Bedingung eingefü
 
 #### Kombinieren mehrerer `"where"`-Bedingungen mit `"and"` oder `"or"`
 
-Mehrere Bedingungen können innerhalb von `"and"` oder `"or"`-Bedingungen kombiniert werden - diese nehmen den Wert von Arrays mit mehreren Bedingungen an, von denen alle oder jede (jeweils) übereinstimmen müssen, damit die Spekulationsregeln auf einen Link angewendet werden. Mit `"and"` oder `"or"` können Bedingungen mehrfach verschachtelt werden - es gibt kein festgelegtes Limit für die erlaubte Verschachtelungsebenen.
+Mehrere Bedingungen können innerhalb von `"and"` oder `"or"` Bedingungen kombiniert werden — diese nehmen den Wert von Arrays auf, die mehrere Bedingungen enthalten, alle oder jede (jeweils) von denen übereinstimmen müssen, damit die Spekulationsregeln auf einen Link angewendet werden. Mithilfe von `"and"` oder `"or"` können Bedingungen in mehreren Ebenen geschachtelt werden — es gibt keine festgelegte Grenze für die zulässigen Verschachtelungsebenen.
 
 Es ist nützlich, das `"where"`-Objekt als Äquivalent zu einer `if`-Anweisung zu betrachten. Also
 
@@ -324,7 +324,7 @@ Es ist nützlich, das `"where"`-Objekt als Äquivalent zu einer `if`-Anweisung z
 { and: [A, B, { or: [C, { not: D }] }] }
 ```
 
-entspricht
+ist äquivalent zu
 
 ```plain
 if (A && B && (C || !D)) {
@@ -332,7 +332,7 @@ if (A && B && (C || !D)) {
 }
 ```
 
-Im folgenden vollständigen Spekulationsregel-Beispiel werden alle gleichseitigen Seiten für das Prefetching markiert, mit Ausnahme der in Probleme bekannten - der `/logout`-Seite und aller Links mit einer Klasse von `.no-prerender`:
+Im folgenden vollständigen Spekulationsregel-Beispiel sind alle gleich-originseiten für das Vorabladen markiert, außer solche, die als problematisch bekannt sind — die `/logout` Seite und Links, die mit einer `.no-prerender` Klasse versehen sind:
 
 ```html
 <script type="speculationrules">
@@ -353,11 +353,11 @@ Im folgenden vollständigen Spekulationsregel-Beispiel werden alle gleichseitige
 ```
 
 > [!NOTE]
-> Das oben angegebene `where`-Muster schließt keine cross-site-Links ein, die für das Prefetching unterstützt werden (vorausgesetzt, der Benutzer hat keine Cookies für die Zielsite gesetzt, um das Tracking zu vermeiden) jedoch nicht für das Prerendering.
+> Das `where`-Muster oben schließt Cross-Site-Links nicht ein, die für das Vorabladen unterstützt werden (vorausgesetzt, der Benutzer hat keine Cookies für die Zielsite gesetzt, um Verfolgung zu verhindern), sie aber nicht für das Vorabrendern.
 
-### `"relative_to"`-Beispiel
+### Beispiel für `"relative_to"`
 
-Für Regel-Sets, die extern abgerufen werden (d.h. über den {{httpheader("Speculation-Rules")}}-Header), werden URLs in Listenregeln und URL-Muster in Dokumentregeln standardmäßig relativ zur URL der enthaltenen externen Textdatei geparst. Um URLs in einer Listenregel relativ zur Basis-URL des Dokuments zu parsen, wird `"relative_to"` wie folgt verwendet:
+Für Regelsätze, die extern abgerufen werden (d.h. über den {{httpheader("Speculation-Rules")}} Header), werden URLs in Listenregeln und URL-Vorlagen in Dokumentregeln standardmäßig relativ zur URL der enthaltenden externen Textdatei geparst. Um URLs in einer Listenregel relativ zur Basis-URL des Dokuments zu parsen, wird `"relative_to"` folgendermaßen verwendet:
 
 ```json
 {
@@ -366,7 +366,7 @@ Für Regel-Sets, die extern abgerufen werden (d.h. über den {{httpheader("Specu
 }
 ```
 
-Für Dokumentregeln kann `"relative_to"` direkt mit `"href_matches"` kombiniert werden und die Basis-URL des Dokuments wird nur für Muster in dieser bestimmten Bedingung verwendet:
+Für Dokumentregeln kann `"relative_to"` direkt mit `"href_matches"` kombiniert werden, und die Basis-URL des Dokuments würde nur für Muster in dieser bestimmten Bedingung verwendet:
 
 ```json
 {
@@ -379,32 +379,32 @@ Für Dokumentregeln kann `"relative_to"` direkt mit `"href_matches"` kombiniert 
 }
 ```
 
-Im obigen Beispiel wird nur das erste `"href_matches"` relativ zur Basis-URL des Dokuments verglichen.
+Im obigen Beispiel wird nur das erste `"href_matches"` relativ zur Basis-URL des Dokuments übereinstimmen.
 
-`relative_to` ist hauptsächlich relevant, wenn die Spekulationsregeln-JSON-Datei auf einem anderen Ursprung als das Dokument liegt, auf das sie angewendet werden soll:
+`relative_to` ist hauptsächlich relevant, wenn die Spekulationsregeln JSON-Datei auf einem anderen Ursprung als das Dokument, auf das sie angewendet werden soll, liegt:
 
-1. Wenn sich das Dokument unter `https://example.com/some/subpage.html` und die Regeln unter `https://example.com/resources/rules.json` befinden, dann entspricht `/home` immer `https://example.com/home` unabhängig davon, ob `relative_to` auf `document` oder `ruleset` eingestellt ist.
+1. Wenn das Dokument unter `https://example.com/some/subpage.html` liegt und die Regeln unter `https://example.com/resources/rules.json` sind, dann entspricht `/home` immer `https://example.com/home` unabhängig davon, ob `relative_to` auf `document` oder `ruleset` gesetzt ist.
 
-2. Befindet sich das Dokument jedoch unter `https://example.com/some/subpage.html` und die Regeln unter `https://other.example/resources/rules.json` (zum Beispiel auf einem Drittanbieter- oder cookieless Ressource-Ursprung), dann:
+2. Wenn jedoch das Dokument unter `https://example.com/some/subpage.html` und die Regeln unter `https://other.example/resources/rules.json` sind (zum Beispiel auf einem Drittanbieter- oder cookieslosen Ressourcenursprung), dann:
 
-   - `"relative_to": "document"` führt dazu, dass `/home` `https://example.com/home` entspricht.
-   - `"relative_to": "ruleset"` führt dazu, dass `/home` `https://other.example/home` entspricht.
+   - `"relative_to": "document"` verursacht, dass `/home` `https://example.com/home` entspricht.
+   - `"relative_to": "ruleset"` verursacht, dass `/home` `https://other.example/home` entspricht.
 
    Dies ist der typische Anwendungsfall für `"relative_to"`.
 
-3. Ein weiterer potenzieller (aber seltenerer) Anwendungsfall ist, wenn Ihre URLs in der Form `home` statt `/home` angegeben werden. Wenn das Dokument unter `https://example.com/some/subpage.html` und die Regeln unter `https://example.com/resources/rules.json` liegen, dann:
+3. Ein weiterer potenzieller (aber seltenerer) Anwendungsfall ist, wenn Ihre URLs in der Form `home` statt `\home` spezifiziert sind. Wenn das Dokument unter `https://example.com/some/subpage.html` liegt und die Regeln unter `https://example.com/resources/rules.json` sind, dann:
 
-   - `"relative_to": "document"` würde `home` zu `https://example.com/some/home` äquivalent machen.
-   - `"relative_to": "ruleset"` würde `home` zu `https://example.com/resources/home` äquivalent machen.
+   - `"relative_to": "document"` würde `home` `https://example.com/some/home` entsprechen lassen.
+   - `"relative_to": "ruleset"` würde `home` `https://example.com/resources/home` entsprechen lassen.
 
-### `"expects_no_vary_search"`-Beispiel
+### Beispiel für `"expects_no_vary_search"`
 
-Betrachten Sie den Fall einer Benutzerverzeichnis-Landingpage, `/users`, die einen `id`-Parameter erhält, um Informationen zu einem bestimmten Benutzer anzuzeigen, zum Beispiel `/users?id=345`. Ob diese URL für Caching-Zwecke als identisch betrachtet werden sollte, hängt vom Verhalten der Anwendung ab:
+Betrachten Sie den Fall einer Benutzerverzeichnisseite `/users`, die einen `id`-Parameter hat, der hinzugefügt wird, um Informationen zu einem bestimmten Benutzer anzuzeigen, zum Beispiel `/users?id=345`. Ob diese URL als identisch für Cache-Zwecke betrachtet werden sollte, hängt vom Verhalten der Anwendung ab:
 
-1. Wenn dieser Parameter die Auswirkung hat, eine völlig neue Seite mit den Informationen für den angegebenen Benutzer zu laden, dann sollte die URL separat zwischengespeichert werden.
-2. Wenn dieser Parameter die Auswirkung hat, den angegebenen Benutzer auf der gleichen Seite hervorzuheben und möglicherweise ein Panel zu öffnen, das ihre Daten anzeigt, dann sollte die URL für Caching-Zwecke als gleich betrachtet werden. Dies könnte zu Leistungsverbesserungen beim Laden der Benutzerseiten führen und könnte über ein {{httpheader("No-Vary-Search")}} mit dem Wert `params=("id")` erreicht werden.
+1. Wenn dieser Parameter die Wirkung hat, eine völlig neue Seite zu laden, die Informationen für den angegebenen Benutzer enthält, dann sollte die URL separat zwischengespeichert werden.
+2. Wenn dieser Parameter die Wirkung hat, den angegebenen Benutzer auf derselben Seite hervorzuheben und möglicherweise ein Pullout-Panel anzuzeigen, das ihre Daten anzeigt, dann sollte die URL für Cache-Zwecke als gleich angesehen werden. Dies könnte zu Leistungsverbesserungen beim Laden der Benutzerseiten führen und könnte durch eine {{httpheader("No-Vary-Search")}} mit einem Wert von `params=("id")` erreicht werden.
 
-Wie beeinflusst dies die Spekulationsregeln? Betrachten Sie den folgenden Code:
+Wie wirkt sich das auf Spekulationsregeln aus? Betrachten Sie den folgenden Code:
 
 ```html
 <script type="speculationrules">
@@ -419,9 +419,9 @@ Wie beeinflusst dies die Spekulationsregeln? Betrachten Sie den folgenden Code:
 <a href="/users?id=345">User Bob</a>
 ```
 
-Was würde in diesem Fall passieren, wenn der Benutzer eine Navigation zu `/users?id=345` beginnt, während die Headers für das Prefetch von `/users` noch nicht empfangen wurden? Zu diesem Zeitpunkt weiß der Browser nicht, welchen `No-Vary-Search`-Wert er erhalten wird, falls vorhanden. Wenn kein `No-Vary-Search`-Wert festgelegt war und das Anwendungsverhalten eher dem von Option 1 oben entsprach, wäre das Prefetching verschwendet und der Browser müsste die separate Seite `/users?id=345` von Grund auf neu abrufen.
+Was würde in diesem Fall passieren, wenn der Benutzer eine Navigation zu `/users?id=345` startet, wenn die Header für das Vorabladen von `/users` noch nicht empfangen wurden? Zu diesem Zeitpunkt weiß der Browser nicht, was der `No-Vary-Search`-Wert sein wird, falls überhaupt einer. Wenn es keinen `No-Vary-Search`-Wert gab und das Anwendungsverhalten eher wie Option 1 oben war, wäre das Vorabladen verschwendet und der Browser müsste die separate `/users?id=345`-Seite von Grund auf neu abrufen.
 
-Um dies zu lösen, können wir einen Hinweis darauf geben, welchen `No-Vary-Search`-Wert die Serverautor erwartet. Eine Spekulationsregel kann ein `"expects_no_vary_search"`-Feld haben, das eine Zeichenfolgen-Darstellung des erwarteten Headerwerts enthält:
+Um dies zu lösen, können wir einen Hinweis darauf geben, was der Seitenautor erwartet, dass der `No-Vary-Search`-Wert sein wird. Eine Spekulationsregel kann ein `"expects_no_vary_search"`-Feld haben, das eine Zeichenfolgenrepräsentation des erwarteten Headerwerts enthält:
 
 ```html
 <script type="speculationrules">
@@ -437,9 +437,9 @@ Um dies zu lösen, können wir einen Hinweis darauf geben, welchen `No-Vary-Sear
 <a href="/users?id=345">User Bob</a>
 ```
 
-Dies weist darauf hin, dass Option 2 wie oben beschrieben das ist, was der Server voraussichtlich erzeugen wird. Wenn eine Navigation beginnt, während ein Prefetch von `/users` läuft, informiert dies den Browser, dass es angemessen ist, auf das Prefetch zu warten, anstatt sofort einen weiteren Abruf für `/users?id=345` zu starten.
+Dies zeigt an, dass Option 2, wie oben beschrieben, das ist, was der Server voraussichtlich produziert. Wenn eine Navigation beginnt, während ein laufender Vorabladen von `/users` existiert, informiert dies den Browser, dass es angemessen ist, auf das Vorabladen zu warten, anstatt sofort einen weiteren Abruf für `/users?id=345` zu starten.
 
-Dokumentregeln können auch in Verbindung mit `"expects_no_vary_search"` verwendet werden, abhängig vom verwendeten Muster. Zum Beispiel, im Fall von:
+Dokumentregeln können auch in Verbindung mit `"expects_no_vary_search"` verwendet werden, abhängig vom verwendeten Muster. Zum Beispiel im Fall von:
 
 ```html
 <script type="speculationrules">
@@ -457,14 +457,14 @@ Dokumentregeln können auch in Verbindung mit `"expects_no_vary_search"` verwend
 <a href="/users?id=678">User Ben</a>
 ```
 
-Wenn über einen Link geschwebt wird, wird der Browser beginnen, diesen spezifischen Link zu prefetchen.
+Wenn ein Link gehortet wird, wird der Browser sofort damit beginnen, diesen spezifischen Link vorabzuladen.
 
-Wenn der Benutzer über einen weiteren Link schwebt, bevor das Prefetching abgeschlossen ist, sagt das `expects_no_vary_search`-Muster dem Browser, dass es nicht nötig ist, das aktuelle Prefetch abzubrechen, da alle `/users`-URLs mit `id`-URL-Parameterwerten für diesen Kontext effektiv auf die gleiche Seite verweisen (und für Caching-Zwecke).
+Wenn der Benutzer einen anderen Link hortet, bevor das Vorabladen abgeschlossen ist, zeigt das `expects_no_vary_search`-Muster dem Browser, dass es nicht notwendig ist, das aktuelle Vorabladen abzubrechen, weil alle `/users` URLs mit `id`-Parameterwerten in diesem Kontext im Wesentlichen auf dieselbe Seite verweisen (und für Cachezwecke).
 
 > [!WARNING]
-> Besondere Vorsicht ist geboten, wenn Prerender mit `No-Vary-Search` verwendet wird, da die Seite anfänglich mit unterschiedlichen URL-Parametern prerendert werden kann. `No-Vary-Search` wird für URL-Parameter verwendet, die dieselbe Ressource vom Server liefern, aber vom Client aus verschiedenen Gründen verwendet werden (Client-seitiges Rendering, UTM-Parameter für die Analyse, etc.). Da das anfängliche Prerender für verschiedene URL-Parameter sein kann, sollte jeder darauf basierende Code erst nach der Aktivierung des Prerenders ausgeführt werden.
+> Zusätzliche Sorgfalt muss beim Verwenden von Prerender mit `No-Vary-Search` beachtet werden, da die Seite möglicherweise zunächst mit unterschiedlichen URL-Parametern vorgerendert wird. `No-Vary-Search` wird für URL-Parameter verwendet, die das gleiche Ressource vom Server liefern, aber vom Client aus verschiedenen Gründen verwendet werden (Client-seitiges Rendering, UTM-Parameter für Analytik-Messung usw.). Da das erste Prerender möglicherweise für unterschiedliche URL-Parameter erfolgt, sollte jeglicher Code, der abhängig von ihnen ist, nur nach der Prerender-Aktivierung ausgeführt werden.
 
-Mehrere Parameter können in einem Leerzeichen-getrennten Array bereitgestellt werden:
+Mehrere Parameter können in einem leerzeichengetrennten Array bereitgestellt werden:
 
 ```html
 <script type="speculationrules">
@@ -480,11 +480,11 @@ Mehrere Parameter können in einem Leerzeichen-getrennten Array bereitgestellt w
 ```
 
 > [!NOTE]
-> Als ein [strukturierte Feld](https://www.rfc-editor.org/rfc/rfc8941) sollten die Parameter Leerzeichen-getrennte, angeführte Zeichenfolgen sein — wie oben gezeigt — und nicht durch Kommata getrennt, was Entwicklern möglicherweise vertrauter ist.
+> Als ein [strukturiertes Feld](https://www.rfc-editor.org/rfc/rfc8941), sollten die Parameter leerzeichen-getrennte, zitierte Zeichenfolgen sein — wie oben gezeigt — und nicht durch Kommas getrennt, was Entwicklern möglicherweise vertrauter ist.
 
-### `eagerness`-Beispiel
+### Beispiel für `eagerness`
 
-Das folgende Set von Dokumentregeln zeigt, wie `eagerness` verwendet werden kann, um anzugeben, mit welcher Dringlichkeit der Browser jede übereinstimmende Menge von Links prerendern sollte.
+Der folgende Satz von Dokumentregeln zeigt, wie `eagerness` verwendet werden kann, um zu suggerieren, wie eifrig der Browser jeden übereinstimmenden Satz von Links vorladen/prerendern sollte.
 
 ```html
 <script type="speculationrules">
@@ -503,24 +503,24 @@ Das folgende Set von Dokumentregeln zeigt, wie `eagerness` verwendet werden kann
 </script>
 ```
 
-Hiermit geben wir an, dass:
+Hierhin weisen wir darauf hin, dass:
 
-- Alle gleichseitigen Links, die im Dokument enthalten sind, konservativ prerendert werden sollen (d.h. wenn der Benutzer beginnt, sie zu aktivieren).
-- Produktlinks (in diesem Fall solche mit einer Klasse von `.product-link`) im Dokument sollen eifrig prerendert werden (d.h. wenn der Benutzer einen Schritt in Richtung Navigation zu ihnen unternimmt).
+- Alle gleichen Seitenlinks im Dokument sollten konservativ prerendert werden (d.h. wenn der Benutzer anfängt, sie zu aktivieren).
+- Alle Produktlinks (in diesem Fall, die mit einer `class` von `.product-link`) im Dokument sollten eifrig prerendert werden (d.h. wenn der Benutzer irgendeine Art von Bewegung macht, um zu ihnen zu navigieren).
 
 > [!NOTE]
-> Die Auswirkungen von Eagerness-Einstellungen sind für Listenregeln weniger nützlich. Standardmäßig werden List-Feld-URLs sofort geprefetched und gerendert, sobald die Regeln analysiert wurden, was Sie erwarten würden — sie sind für die explizite Auflistung von hochwertigen URLs gedacht, die Sie so schnell wie möglich verfügbar machen möchten. Aus diesem Grund hat `eager` die gleiche Wirkung wie `immediate` in aktuellen Implementierungen. Niedrigere Eagerness-Einstellungen sind für Prefetching/Prerendering beim Interagieren mit den Links gedacht, und dafür verwenden Sie häufiger Dokumentregeln, um sie auf der Seite zu finden.
+> Die Auswirkungen der Eagerness-Einstellungen sind weniger nützlich für Listenregeln. Standardmäßig werden die in Listenregeln angegebenen URLs sofort vorladen/geprerendert, sobald die Regeln geparst sind, was Sie erwarten würden — sie sind vorgesehen für das explizite Auflisten von Hochprioritäts-URLs, die Sie so schnell wie möglich verfügbar machen möchten. Aus diesem Grund hat `eager` in aktuellen Implementierungen die gleiche Wirkung wie `immediate`. Niedrigere Dringlichkeitseinstellungen sind für das Vorladen/Prerendering bei Interaktion mit Links gedacht, und dafür werden Sie eher Dokumentregeln verwenden, um sie auf der Seite zu finden.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browser-kompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Prerender-Seiten in Chrome für sofortige Seitennavigationen](https://developer.chrome.com/docs/web-platform/prerender-pages) auf developer.chrome.com
+- [Prerender-Seiten in Chrome für sofortige Seitenwechsel](https://developer.chrome.com/docs/web-platform/prerender-pages) auf developer.chrome.com
 - [Spekulatives Laden](/de/docs/Web/Performance/Guides/Speculative_loading)
 - [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API)

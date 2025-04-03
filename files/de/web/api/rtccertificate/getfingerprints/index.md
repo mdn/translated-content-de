@@ -1,16 +1,17 @@
 ---
-title: "RTCCertificate: getFingerprints()-Methode"
+title: "RTCCertificate: getFingerprints() Methode"
 short-title: getFingerprints()
 slug: Web/API/RTCCertificate/getFingerprints
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: 3fcc43c9a6dd8e2eac385da0496586105256a468
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`getFingerprints()`**-Methode des **[`RTCCertificate`](/de/docs/Web/API/RTCCertificate)**-Interfaces wird verwendet, um ein Array von Zertifikat-Fingerabdrücken zu erhalten.
+Die **`getFingerprints()`**-Methode der **[`RTCCertificate`](/de/docs/Web/API/RTCCertificate)** Schnittstelle wird verwendet, um ein Array von Zertifikats-Fingerabdrücken zu erhalten.
 
-Eine Anwendung kann diese Methode verwenden, um die Fingerabdrücke des Client-Zertifikats mit den Fingerabdrücken des Server-Zertifikats zu vergleichen. Der Server und der Client können unterschiedliche Sätze von Algorithmen unterstützen: Alle Fingerabdruckwerte für den Satz von Algorithmen, die sowohl vom Client als auch vom Server unterstützt werden, sollten übereinstimmen.
+Eine Anwendung kann diese Methode nutzen, um die Fingerabdrücke des Client-Zertifikats mit den Fingerabdrücken des Server-Zertifikats zu vergleichen.
+Der Server und der Client können unterschiedliche Algorithmen unterstützen: Alle Fingerabdruckwerte für die Menge der Algorithmen, die sowohl vom Client als auch vom Server unterstützt werden, sollten übereinstimmen.
 
 ## Syntax
 
@@ -24,20 +25,24 @@ Keine.
 
 ### Rückgabewert
 
-Ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von Fingerabdruckwerten. Jeder Fingerabdruck wird durch ein Objekt mit den folgenden Eigenschaften repräsentiert:
+Ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von Fingerabdruckwerten.
+Jeder Fingerabdruck wird durch ein Objekt mit den folgenden Eigenschaften dargestellt:
 
 - `algorithm`
-  - : Ein String, der den Hash-Funktionsalgorithmus angibt, der zum Erstellen des Fingerabdrucks in `value` verwendet wurde. Erlaubte Werte sind: `"sha-1"`, `"sha-224"`, `"sha-256"`, `"sha-384"`, `"sha-512"`, `"md5"`, `"md2"`.<!-- aus [RFC4572] Abschnitt 5. -->
+  - : Ein String, der die Hash-Funktions-Algorithmus angibt, der zur Erstellung des Fingerabdrucks in `value` verwendet wurde.
+    Erlaubte Werte sind: `"sha-1"`, `"sha-224"`, `"sha-256"`, `"sha-384"`, `"sha-512"`, `"md5"`, `"md2"`.<!-- aus [RFC4572] Abschnitt 5. -->
 - `value`
-  - : Ein String, der den Zertifikat-Fingerabdruck im Kleinbuchstaben-Hex-String enthält, wie mit der `algorithm`-Hash-Funktion berechnet. Das Format ist genauer in [RFC4572, Abschnitt 5](https://www.rfc-editor.org/rfc/rfc4572#section-5) definiert.
+  - : Ein String, der den Zertifikatsfingerabdruck als hexadezimale Zeichenkette in Kleinbuchstaben enthält, errechnet mit der Hash-Funktion `algorithm`.
+    Das Format ist genauer definiert in [RFC4572, Abschnitt 5](https://www.rfc-editor.org/rfc/rfc4572#section-5).
 
 ## Beispiele
 
-### Abrufen von Zertifikat-Fingerabdrücken
+### Abrufen von Zertifikats-Fingerabdrücken
 
-Dieses Beispiel zeigt, wie Sie Zertifikat-Fingerabdrücke abrufen und sie mit Fingerabdrücken eines Servers vergleichen können.
+Dieses Beispiel zeigt, wie Sie Zertifikats-Fingerabdrücke erhalten und mit den Fingerabdrücken eines Servers vergleichen können.
 
-Zuerst erstellen wir eine Verbindung und erhalten die Fingerabdrücke. Wir erhalten auch die Fingerabdrücke vom Server über einen „gewissen Mechanismus“.
+Zuerst erstellen wir eine Verbindung und erhalten die Fingerabdrücke.
+Wir erhalten die Fingerabdrücke auch vom Server durch einen "bestimmten Mechanismus".
 
 ```js
 const rtcPeerConnection = new RTCPeerConnection();
@@ -46,10 +51,15 @@ const rtcPeerConnection = new RTCPeerConnection();
 const fingerprintsFromClient = rtcPeerConnection.certificate.getFingerprints();
 
 // Get the certificate fingerprints from the server (pseudo code)
-const fingerprintsFromServer = ...;
+const fingerprintsFromServer = [
+  /* … */
+];
 ```
 
-Es gibt zahlreiche Möglichkeiten, die Fingerprint-Arrays zu vergleichen. Hier konvertieren wir die Arrays in Wörterbuchobjekte, wobei der Algorithmusname die Eigenschaft ist, und vergleichen sie dann. Dies funktioniert, da für jeden Algorithmus nur ein Fingerprint-Wert existieren kann. (Es gibt viele andere Möglichkeiten, die beiden Arrays zu sortieren und zu vergleichen).
+Es gibt zahlreiche Möglichkeiten, die Fingerabdruck-Arrays zu vergleichen.
+Hier wandeln wir die Arrays in Wörterbuchobjekte um, bei denen der Algorithmusname die Eigenschaft ist und vergleichen sie dann.
+Dies funktioniert, weil für jeden Algorithmus nur ein Fingerabdruckwert existieren kann.
+(Es gibt viele andere Möglichkeiten, die beiden Arrays zu sortieren und zu vergleichen).
 
 ```js
 let clientFingerprintDict = Object.fromEntries(

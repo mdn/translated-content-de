@@ -1,16 +1,16 @@
 ---
-title: Framework-Hauptmerkmale
-short-title: Framework features
+title: Hauptmerkmale von Frameworks
+short-title: Merkmale des Frameworks
 slug: Learn_web_development/Core/Frameworks_libraries/Main_features
 l10n:
-  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
+  sourceCommit: 3fcc43c9a6dd8e2eac385da0496586105256a468
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Main_features","Learn_web_development/Core/Frameworks_libraries/React_getting_started", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Jedes der großen JavaScript-Frameworks hat einen unterschiedlichen Ansatz zur Aktualisierung des DOM, zur Handhabung von Browser-Ereignissen und zur Bereitstellung einer angenehmen Entwicklererfahrung. Dieser Artikel wird die Hauptmerkmale der "großen 4" Frameworks untersuchen und dabei betrachten, wie Frameworks tendenziell auf hoher Ebene funktionieren und welche Unterschiede zwischen ihnen bestehen.
+Jedes große JavaScript-Framework hat einen anderen Ansatz zur Aktualisierung des DOMs, zur Behandlung von Browserevents und zur Bereitstellung einer angenehmen Entwicklererfahrung. Dieser Artikel wird die Hauptmerkmale der "großen 4" Frameworks untersuchen und aufzeigen, wie Frameworks im Allgemeinen arbeiten und welche Unterschiede es zwischen ihnen gibt.
 
 <table>
   <tbody>
@@ -18,30 +18,30 @@ Jedes der großen JavaScript-Frameworks hat einen unterschiedlichen Ansatz zur A
       <th scope="row">Voraussetzungen:</th>
       <td>
         Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>, und
         <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
-      <td>Die Hauptmerkmale verstehen, die von JavaScript-Frameworks bereitgestellt werden.</td>
+      <td>Verstehen der Hauptmerkmale, die von JavaScript-Frameworks bereitgestellt werden.</td>
     </tr>
   </tbody>
 </table>
 
 ## Domänenspezifische Sprachen
 
-Die meisten Frameworks erlauben Ihnen, domänenspezifische Sprachen (DSLs) zu verwenden, um Ihre Anwendungen zu erstellen. Insbesondere hat React die Verwendung von **JSX** zur Erstellung seiner Komponenten populär gemacht, während Ember **Handlebars** nutzt. Im Gegensatz zu HTML wissen diese Sprachen, wie man Datenvariablen liest, und diese Daten können verwendet werden, um den Prozess der Erstellung Ihrer Benutzeroberfläche zu vereinfachen.
+Die meisten Frameworks ermöglichen es Ihnen, domänenspezifische Sprachen (DSLs) zu verwenden, um Ihre Anwendungen zu erstellen. Insbesondere React hat die Verwendung von **JSX** zur Erstellung seiner Komponenten populär gemacht, während Ember **Handlebars** nutzt. Im Gegensatz zu HTML können diese Sprachen Datenvariablen lesen und diese Daten können verwendet werden, um den Prozess der Erstellung Ihrer Benutzeroberfläche zu vereinfachen.
 
-Angular-Anwendungen nutzen häufig **TypeScript** intensiv. TypeScript befasst sich nicht mit dem Schreiben von Benutzeroberflächen, ist jedoch eine domänenspezifische Sprache und weist signifikante Unterschiede zu Vanilla JavaScript auf.
+Angular-Anwendungen nutzen häufig intensiv **TypeScript**. TypeScript befasst sich nicht mit der Erstellung von Benutzeroberflächen, ist aber eine domänenspezifische Sprache und hat signifikante Unterschiede zu herkömmlichem JavaScript.
 
-DSLs können vom Browser nicht direkt gelesen werden; sie müssen zuerst in JavaScript oder HTML umgewandelt werden. Framework-Tools enthalten in der Regel die erforderlichen Werkzeuge, um diesen Schritt zu bewältigen, oder können angepasst werden, um diesen Schritt einzuschließen. Während es möglich ist, Framework-Anwendungen zu erstellen, ohne diese domänenspezifischen Sprachen zu verwenden, wird deren Nutzung Ihren Entwicklungsprozess vereinfachen und es einfacher machen, Hilfe von den Gemeinschaften um diese Frameworks zu erhalten.
+DSLs können nicht direkt vom Browser gelesen werden; sie müssen zuerst in JavaScript oder HTML umgewandelt werden. Framework-Tools beinhalten in der Regel die erforderlichen Werkzeuge zur Handhabung dieses Schritts oder können angepasst werden, um diesen Schritt einzuschließen. Obwohl es möglich ist, Framework-Anwendungen ohne Verwendung dieser domänenspezifischen Sprachen zu erstellen, wird deren Nutzung Ihren Entwicklungsprozess vereinfachen und es leichter machen, Hilfe von den Communities um diese Frameworks zu erhalten.
 
 ### JSX
 
-[JSX](https://react.dev/learn/writing-markup-with-jsx), das für JavaScript und XML steht, ist eine Erweiterung von JavaScript, die HTML-ähnliche Syntax in eine JavaScript-Umgebung bringt. Es wurde vom React-Team für den Einsatz in React-Anwendungen erfunden, kann aber auch zur Entwicklung anderer Anwendungen verwendet werden — wie zum Beispiel Vue-Apps.
+[JSX](https://react.dev/learn/writing-markup-with-jsx), was für JavaScript und XML steht, ist eine Erweiterung von JavaScript, die eine HTML-ähnliche Syntax in eine JavaScript-Umgebung einführt. Es wurde vom React-Team für die Verwendung in React-Anwendungen erfunden, kann aber auch zur Entwicklung anderer Anwendungen verwendet werden — wie zum Beispiel Vue-Anwendungen.
 
-Das folgende zeigt ein einfaches JSX-Beispiel:
+Das folgende Beispiel zeigt ein einfaches JSX-Beispiel:
 
 ```jsx
 const subject = "World";
@@ -52,9 +52,9 @@ const header = (
 );
 ```
 
-Dieser Ausdruck stellt ein HTML [`<header>`](/de/docs/Web/HTML/Element/header)-Element mit einem [`<h1>`](/de/docs/Web/HTML/Element/Heading_Elements)-Element darin dar. Die geschweiften Klammern um `{subject}` weisen die Anwendung an, den Wert der Konstante `subject` zu lesen und ihn in unser `<h1>` einzufügen.
+Dieser Ausdruck repräsentiert ein HTML-Element [`<header>`](/de/docs/Web/HTML/Element/header) mit einem [`<h1>`](/de/docs/Web/HTML/Element/Heading_Elements)-Element darin. Die geschweiften Klammern um `{subject}` weisen die Anwendung an, den Wert der Konstante `subject` zu lesen und in unser `<h1>` einzufügen.
 
-Wenn es mit React verwendet wird, würde das JSX aus dem vorherigen Codeabschnitt so kompiliert werden:
+Wenn sie mit React verwendet werden, würde das JSX aus dem vorherigen Schnipsel in Folgendes kompiliert werden:
 
 ```js
 const subject = "World";
@@ -65,7 +65,7 @@ const header = React.createElement(
 );
 ```
 
-Wenn es schließlich vom Browser gerendert wird, wird der obige Code HTML erzeugen, das so aussieht:
+Wenn der obige Schnipsel letztendlich vom Browser gerendert wird, sieht das erzeugte HTML so aus:
 
 ```html
 <header>
@@ -75,11 +75,11 @@ Wenn es schließlich vom Browser gerendert wird, wird der obige Code HTML erzeug
 
 ### Handlebars
 
-Die [Handlebars](https://handlebarsjs.com/)-Templatingsprache ist nicht spezifisch für Ember-Anwendungen, wird jedoch in Ember-Anwendungen stark genutzt. Handlebars-Code ähnelt HTML, bietet jedoch die Möglichkeit, Daten von anderswo zu importieren. Diese Daten können verwendet werden, um das letztendlich von einer Anwendung aufgebaute HTML zu beeinflussen.
+Die [Handlebars](https://handlebarsjs.com/)-Templating-Sprache ist nicht spezifisch für Ember-Anwendungen, wird jedoch stark in Ember-Apps verwendet. Handlebars-Code ähnelt HTML, hat jedoch die Möglichkeit, Daten von anderswo zu ziehen. Diese Daten können verwendet werden, um das HTML zu beeinflussen, das eine Anwendung letztendlich aufbaut.
 
-Wie JSX verwendet auch Handlebars geschweifte Klammern, um den Wert einer Variablen einzufügen. Handlebars verwendet ein doppeltes Paar geschweifte Klammern statt eines einzelnen Paares.
+Wie JSX verwendet auch Handlebars geschweifte Klammern, um den Wert einer Variablen einzufügen. Handlebars verwendet jedoch ein doppeltes Paar geschweifter Klammern anstelle eines einzelnen Paares.
 
-Angesichts dieser Handlebars-Vorlage:
+Bei diesem Handlebars-Template:
 
 ```html
 <header>
@@ -87,15 +87,15 @@ Angesichts dieser Handlebars-Vorlage:
 </header>
 ```
 
-Und dieser Daten:
+Und diesen Daten:
 
-```js
+```json
 {
-  subject: "World";
+  "subject": "World"
 }
 ```
 
-Wird Handlebars HTML wie dieses erstellen:
+Wird Handlebars HTML wie dieses erzeugen:
 
 ```html
 <header>
@@ -105,7 +105,7 @@ Wird Handlebars HTML wie dieses erstellen:
 
 ### TypeScript
 
-[TypeScript](https://www.typescriptlang.org/) ist eine _Erweiterung_ von JavaScript, das bedeutet, es erweitert JavaScript — all JavaScript-Code ist gültiges TypeScript, aber nicht umgekehrt. TypeScript ist nützlich wegen der Strenge, die Entwicklern ermöglicht wird, in ihrem Code durchzusetzen. Betrachten Sie zum Beispiel eine Funktion `add()`, die Ganzzahlen `a` und `b` nimmt und ihre Summe zurückgibt.
+[TypeScript](https://www.typescriptlang.org/) ist ein _Superset_ von JavaScript, was bedeutet, dass es JavaScript erweitert — alle JavaScript-Codes sind gültiges TypeScript, aber nicht umgekehrt. TypeScript ist nützlich für die Strenge, die es den Entwicklern erlaubt, in ihrem Code durchzusetzen. Nehmen wir zum Beispiel eine Funktion `add()`, die Ganzzahlen `a` und `b` annimmt und ihre Summe zurückgibt.
 
 In JavaScript könnte diese Funktion so geschrieben werden:
 
@@ -115,7 +115,7 @@ function add(a, b) {
 }
 ```
 
-Dieser Code mag für jemanden, der an JavaScript gewöhnt ist, trivial sein, könnte aber dennoch klarer sein. JavaScript erlaubt uns, den `+` Operator zu verwenden, um Zeichenfolgen zusammenzufügen, sodass diese Funktion technisch immer noch funktionieren würde, wenn `a` und `b` Zeichenfolgen wären — es könnte Ihnen jedoch nicht das erwartete Ergebnis liefern. Was, wenn wir nur erlauben wollten, dass Zahlen in diese Funktion übergeben werden? TypeScript macht das möglich:
+Dieser Code mag für jemanden, der mit JavaScript vertraut ist, trivial erscheinen, könnte aber dennoch klarer sein. JavaScript erlaubt es uns, den `+`-Operator zu verwenden, um Strings miteinander zu verketten, sodass diese Funktion technisch immer noch funktioniert, wenn `a` und `b` Strings sind — aber sie würde möglicherweise nicht das erwartete Ergebnis liefern. Was, wenn wir nur Zahlen in diese Funktion einfließen lassen möchten? TypeScript macht dies möglich:
 
 ```ts
 function add(a: number, b: number) {
@@ -123,19 +123,19 @@ function add(a: number, b: number) {
 }
 ```
 
-Das `: number`, das nach jedem Parameter hier geschrieben wird, weist TypeScript an, dass sowohl `a` als auch `b` Zahlen sein müssen. Wenn wir diese Funktion nutzen und `'2'` als Argument übergeben, würde TypeScript während der Kompilierung einen Fehler auslösen, und wir wären gezwungen, unseren Fehler zu beheben. Wir könnten unser eigenes JavaScript schreiben, das diese Fehler für uns auslöst, aber es würde unseren Quellcode erheblich ausführlicher machen. Es macht wahrscheinlich mehr Sinn, TypeScript solche Überprüfungen für uns erledigen zu lassen.
+Das `: number`, das hier nach jedem Parameter geschrieben wird, weist TypeScript darauf hin, dass sowohl `a` als auch `b` Zahlen sein müssen. Wenn wir diese Funktion verwenden und `'2'` als Argument übergeben würden, würde TypeScript während der Kompilierung einen Fehler auslösen und wir wären gezwungen, unseren Fehler zu beheben. Wir könnten unser eigenes JavaScript schreiben, um diese Fehler für uns auszulösen, aber es würde unseren Quellcode erheblich ausführlicher machen. Es macht wahrscheinlich mehr Sinn, TypeScript solche Prüfungen für uns durchführen zu lassen.
 
 ## Komponenten schreiben
 
-Wie in der vorherigen Lektion erwähnt, haben die meisten Frameworks eine Art von Komponentenmodell. React-Komponenten können mit JSX geschrieben werden, Ember-Komponenten mit Handlebars, und Angular- sowie Vue-Komponenten mit einer Templatingsyntax, die HTML leicht erweitert.
+Wie in der vorherigen Lektion erwähnt, haben die meisten Frameworks ein Modell für Komponenten. React-Komponenten können mit JSX geschrieben werden, Ember-Komponenten mit Handlebars und Angular- und Vue-Komponenten mit einer Templating-Syntax, die HTML leicht erweitert.
 
-Unabhängig von ihren Ansichten darüber, wie Komponenten geschrieben werden sollten, bieten die Komponenten jedes Frameworks eine Möglichkeit, die externen Eigenschaften zu beschreiben, die sie benötigen, den internen Zustand, den die Komponente verwalten sollte, und die Ereignisse, die ein Benutzer im Markup der Komponente auslösen kann.
+Unabhängig von ihrer Meinung darüber, wie Komponenten geschrieben werden sollten, bieten die Komponenten jedes Frameworks eine Möglichkeit, die externen Eigenschaften, die sie möglicherweise benötigen, den internen Zustand, den die Komponente verwalten sollte, und die Ereignisse, die ein Benutzer auf dem Markup der Komponente auslösen kann, zu beschreiben.
 
-Die Codebeispiele im Rest dieses Abschnitts verwenden React als Beispiel und sind mit JSX geschrieben.
+Die Code-Schnipsel im Rest dieses Abschnitts verwenden React als Beispiel und sind in JSX geschrieben.
 
 ### Eigenschaften
 
-Eigenschaften oder **Props** sind externe Daten, die eine Komponente benötigt, um gerendert zu werden. Angenommen, Sie bauen eine Website für ein Online-Magazin und müssen sicherstellen, dass jeder beitragende Autor für seine Arbeit Anerkennung erhält. Sie könnten eine `AuthorCredit`-Komponente erstellen, die zu jedem Artikel gehört. Diese Komponente muss ein Porträt des Autors und eine kurze Fußzeile über ihn anzeigen. Um zu wissen, welches Bild gerendert und welche Fußzeile gedruckt werden soll, muss `AuthorCredit` einige Props akzeptieren.
+Eigenschaften oder **props** sind externe Daten, die eine Komponente benötigt, um gerendert zu werden. Angenommen, Sie erstellen eine Website für ein Online-Magazin und müssen sicherstellen, dass jeder mitwirkende Autor für seine Arbeit Anerkennung erhält. Sie könnten eine `AuthorCredit`-Komponente erstellen, die zu jedem Artikel passt. Diese Komponente muss ein Porträt des Autors und eine kurze biografische Notiz über ihn anzeigen. Um zu wissen, welches Bild gerendert werden soll und welcher Text gedruckt werden soll, muss `AuthorCredit` einige Requisiten akzeptieren.
 
 Eine React-Darstellung dieser `AuthorCredit`-Komponente könnte ungefähr so aussehen:
 
@@ -150,7 +150,7 @@ function AuthorCredit(props) {
 }
 ```
 
-`{props.src}`, `{props.alt}` und `{props.byline}` stellen dar, wo unsere Props in die Komponente eingefügt werden. Um diese Komponente zu rendern, würden wir an der Stelle, an der wir sie gerendert haben möchten (wahrscheinlich innerhalb einer anderen Komponente), einen Code wie diesen schreiben:
+`{props.src}`, `{props.alt}`, und `{props.byline}` repräsentieren, wo unsere Props in die Komponente eingefügt werden. Um diese Komponente zu rendern, würden wir Code wie diesen an der Stelle schreiben, an der wir sie gerendert haben möchten (was wahrscheinlich innerhalb einer anderen Komponente sein wird):
 
 ```jsx
 <AuthorCredit
@@ -160,7 +160,7 @@ function AuthorCredit(props) {
 />
 ```
 
-Dies wird letztlich das folgende [`<figure>`](/de/docs/Web/HTML/Element/figure)-Element im Browser rendern, mit seiner Struktur, wie sie in der `AuthorCredit`-Komponente definiert ist, und seinem Inhalt, wie er in den Props enthalten ist, die beim Aufruf der `AuthorCredit`-Komponente übergeben werden:
+Dies wird letztendlich das folgende [`<figure>`](/de/docs/Web/HTML/Element/figure)-Element im Browser rendern, wobei seine Struktur in der `AuthorCredit`-Komponente definiert ist und sein Inhalt in den Props enthalten ist, die im `AuthorCredit`-Komponentenaufruf enthalten sind:
 
 ```html
 <figure>
@@ -171,9 +171,9 @@ Dies wird letztlich das folgende [`<figure>`](/de/docs/Web/HTML/Element/figure)-
 
 ### Zustand
 
-Wir haben im vorherigen Kapitel über das Konzept des **Zustands** gesprochen — ein robustes Zustandsmanagement ist der Schlüssel zu einem effektiven Framework, und jede Komponente kann Daten haben, deren Zustand gesteuert werden muss. Dieser Zustand bleibt in gewisser Weise persistent, solange die Komponente verwendet wird. Wie Props kann auch der Zustand genutzt werden, um zu beeinflussen, wie eine Komponente gerendert wird.
+Wir haben über das Konzept des **Zustands** im vorherigen Kapitel gesprochen — ein robustes Zustandsmanagement ist der Schlüssel zu einem effektiven Framework, und jede Komponente kann Daten haben, deren Zustand gesteuert werden muss. Dieser Zustand bleibt bestehen, solange die Komponente verwendet wird. Wie Props kann der Zustand verwendet werden, um zu beeinflussen, wie eine Komponente gerendert wird.
 
-Betrachten Sie beispielsweise einen Button, der zählt, wie oft er geklickt wurde. Diese Komponente sollte verantwortlich sein für das Verfolgen ihres eigenen _count_-Zustands und könnte so geschrieben werden:
+Betrachten Sie zum Beispiel einen Button, der zählt, wie oft er geklickt wurde. Diese Komponente sollte für die Verfolgung ihres eigenen _Zähl_-Zustands verantwortlich sein und könnte so geschrieben werden:
 
 ```jsx
 function CounterButton() {
@@ -182,19 +182,19 @@ function CounterButton() {
 }
 ```
 
-[`useState()`](https://react.dev/reference/react/useState) ist ein **[React-Hook](https://react.dev/reference/react)**, der, gegeben einen Anfangsdatenwert, diesen Wert verfolgt, während er aktualisiert wird. Der Code wird im Browser anfänglich folgendermaßen gerendert:
+[`useState()`](https://react.dev/reference/react/useState) ist ein **[React Hook](https://react.dev/reference/react)**, das, gegeben einen anfänglichen Datenwert, diesen Wert verfolgt, wenn er aktualisiert wird. Der Code wird anfänglich so im Browser gerendert:
 
 ```html
 <button>Clicked 0 times</button>
 ```
 
-Der `useState()`-Aufruf verfolgt den `count`-Wert auf eine robuste Weise in der Anwendung, ohne dass Sie Code dafür schreiben müssen.
+Der `useState()`-Aufruf verfolgt den `count`-Wert auf eine robuste Weise über die App hinweg, ohne dass Sie Code schreiben müssen, um dies selbst zu tun.
 
 ### Ereignisse
 
-Um interaktiv zu sein, benötigen Komponenten Möglichkeiten, auf Browser-Ereignisse zu reagieren, damit unsere Anwendungen auf unsere Benutzer reagieren können. Jedes Framework bietet seine eigene Syntax zum Abhören von Browser-Ereignissen, die sich auf die Namen der entsprechenden nativen Browser-Ereignisse beziehen.
+Um interaktiv zu sein, benötigen Komponenten Möglichkeiten, um auf Browsereignisse zu reagieren, damit unsere Anwendungen auf unsere Benutzer reagieren können. Jedes Framework bietet seine eigene Syntax zum Abhören von Browsereignissen, die sich auf die Namen der entsprechenden nativen Browsereignisse bezieht.
 
-In React erfordert das Abhören des [`click`](/de/docs/Web/API/Element/click_event)-Ereignisses eine spezielle Eigenschaft, `onClick`. Aktualisieren wir unseren `CounterButton`-Code so, dass er Klicks zählen kann:
+In React erfordert das Abhören des [`click`](/de/docs/Web/API/Element/click_event)-Ereignisses eine spezielle Eigenschaft, `onClick`. Lassen Sie uns unseren `CounterButton`-Code von oben aktualisieren, damit er Klicks zählen kann:
 
 ```jsx
 function CounterButton() {
@@ -205,27 +205,27 @@ function CounterButton() {
 }
 ```
 
-In dieser Version verwenden wir zusätzliche `useState()`-Funktionalität, um eine spezielle `setCount()`-Funktion zu erstellen, die wir aufrufen können, um den Wert von `count` zu aktualisieren. Diese Funktion wird im `onClick`-Ereignishandler aufgerufen, um `count` auf den aktuellen Wert plus eins zu setzen.
+In dieser Version verwenden wir zusätzliche `useState()`-Funktionalitäten, um eine spezielle `setCount()`-Funktion zu erstellen, die wir aufrufen können, um den Wert von `count` zu aktualisieren. Wir rufen diese Funktion innerhalb des `onClick`-Ereignishandlers auf, um `count` auf den aktuellen Wert zu setzen, plus eins.
 
 ## Komponenten stylen
 
-Jedes Framework bietet eine Möglichkeit, Stile für Ihre Komponenten — oder für die Anwendung als Ganzes — zu definieren. Obwohl der Ansatz jedes Frameworks zur Definition der Stile einer Komponente etwas unterschiedlich ist, bieten alle mehrere Möglichkeiten, dies zu tun. Mit zusätzlichen Hilfsmodule können Sie Ihr Framework-Apps in [Sass](https://sass-lang.com/) oder [Less](https://lesscss.org/) stylen oder Ihre CSS-Stile mit [PostCSS](https://postcss.org/) transpilen.
+Jedes Framework bietet eine Möglichkeit, die Stile für Ihre Komponenten — oder für die gesamte Anwendung — zu definieren. Obwohl der Ansatz jedes Frameworks zur Definition der Stile einer Komponente leicht unterschiedlich ist, bieten sie alle Ihnen mehrere Möglichkeiten dazu. Mit der Hinzufügung einiger Hilfsmodule können Sie Ihre Framework-Apps in [Sass](https://sass-lang.com/) oder [Less](https://lesscss.org/) stylen oder Ihre CSS-Stylesheets mit [PostCSS](https://postcss.org/) transpilieren.
 
 ## Abhängigkeiten verwalten
 
-Alle großen Frameworks bieten Mechanismen zur Verwaltung von Abhängigkeiten — der Verwendung von Komponenten innerhalb anderer Komponenten, manchmal mit mehreren Hierarchieebenen. Wie bei anderen Merkmalen wird der genaue Mechanismus zwischen den Frameworks unterschiedlich sein, aber das Endergebnis ist dasselbe. Komponenten neigen dazu, Komponenten mit der Standard-JavaScript-Modulsyntax oder zumindest etwas Ähnlichem in andere Komponenten zu importieren.
+Alle großen Frameworks bieten Mechanismen zur Handhabung von Abhängigkeiten — dafür, Komponenten innerhalb anderer Komponenten zu verwenden, manchmal mit mehreren Hierarchieebenen. Wie bei anderen Merkmalen unterscheidet sich der genaue Mechanismus zwischen den Frameworks, aber das Endergebnis ist das gleiche. Komponenten tendieren dazu, Komponenten in anderen Komponenten zu verwenden, wobei die standardmäßige [JavaScript-Modulsyntax](/de/docs/Web/JavaScript/Guide/Modules) oder zumindest etwas Ähnliches verwendet wird.
 
 ### Komponenten in Komponenten
 
-Ein wesentlicher Vorteil der komponentenbasierten UI-Architektur besteht darin, dass Komponenten zusammengesetzt werden können. Genauso wie Sie HTML-Tags ineinander verschachteln können, um eine Website zu erstellen, können Sie auch Komponenten in andere Komponenten verwenden, um eine Webanwendung zu erstellen. Jedes Framework ermöglicht es Ihnen, Komponenten so zu schreiben, dass sie andere Komponenten nutzen (und somit von ihnen abhängen).
+Ein wichtiger Vorteil der komponentenbasierten UI-Architektur ist, dass Komponenten miteinander kombiniert werden können. Genau so, wie Sie HTML-Tags ineinander verschachteln können, um eine Website zu erstellen, können Sie Komponenten innerhalb anderer Komponenten verwenden, um eine Webanwendung zu erstellen. Jedes Framework ermöglicht es Ihnen, Komponenten zu schreiben, die andere Komponenten nutzen (und somit von ihnen abhängen).
 
-Zum Beispiel könnte unsere `AuthorCredit` React-Komponente innerhalb einer `Article`-Komponente genutzt werden. `Article` müsste `AuthorCredit` importieren.
+Zum Beispiel könnte unsere `AuthorCredit`-React-Komponente innerhalb einer `Article`-Komponente verwendet werden. Das bedeutet, dass `Article` `AuthorCredit` importieren müsste.
 
 ```js
 import AuthorCredit from "./components/AuthorCredit";
 ```
 
-Sobald das erledigt ist, könnte `AuthorCredit` innerhalb der `Article`-Komponente so verwendet werden:
+Sobald dies getan ist, könnte `AuthorCredit` innerhalb der `Article`-Komponente so verwendet werden:
 
 ```jsx
 <Article>
@@ -233,11 +233,11 @@ Sobald das erledigt ist, könnte `AuthorCredit` innerhalb der `Article`-Komponen
 </Article>
 ```
 
-### Abhängigkeitsinjektion
+### Dependency Injection
 
-Reale Anwendungen können oft Komponentenstrukturen mit mehreren Verschachtelungsebenen beinhalten. Eine `AuthorCredit`-Komponente, die viele Ebenen tief verschachtelt ist, könnte aus irgendeinem Grund Daten vom obersten Niveau unserer Anwendung benötigen.
+Reale Anwendungen können häufig Komponentenstrukturen mit mehreren Ebenen der Verschachtelung umfassen. Eine `AuthorCredit`-Komponente, die viele Ebenen tief geschachtelt ist, könnte aus irgendeinem Grund Daten von der obersten Ebene unserer Anwendung benötigen.
 
-Angenommen, die Magazin-Website, die wir erstellen, ist wie folgt strukturiert:
+Angenommen, die Magazinseite, die wir erstellen, ist wie folgt strukturiert:
 
 ```jsx
 <App>
@@ -249,49 +249,49 @@ Angenommen, die Magazin-Website, die wir erstellen, ist wie folgt strukturiert:
 </App>
 ```
 
-Unsere `App`-Komponente verfügt über Daten, die unsere `AuthorCredit`-Komponente benötigt. Wir könnten `Home` und `Article` umschreiben, damit sie wissen, dass sie Props weitergeben sollen, aber das könnte lästig werden, wenn es viele, viele Ebenen zwischen Ursprung und Ziel unserer Daten gibt. Es ist auch überflüssig: `Home` und `Article` verwenden das Porträt oder die Fußzeile des Autors tatsächlich nicht, aber wenn wir diese Informationen in die `AuthorCredit` erhalten wollen, müssen wir `Home` und `Article` anpassen.
+Unsere `App`-Komponente hat Daten, die unsere `AuthorCredit`-Komponente benötigt. Wir könnten `Home` und `Article` so umschreiben, dass sie wissen, dass sie Requisiten weitergeben müssen, aber dies könnte mühsam werden, wenn es viele Ebenen zwischen dem Ursprung und dem Ziel unserer Daten gibt. Es ist auch übermäßig: `Home` und `Article` machen tatsächlich keinen Gebrauch vom Porträt oder der biografischen Notiz des Autors, aber wenn wir diese Informationen in die `AuthorCredit` bringen möchten, müssen wir `Home` und `Article` ändern, um dies zu ermöglichen.
 
-Das Problem, Daten durch viele Ebenen von Komponenten zu übergeben, wird als Prop-Drilling bezeichnet, und es ist nicht ideal für große Anwendungen.
+Das Problem des Weitergebens von Daten durch viele Schichten von Komponenten wird als Prop-Durchbohren bezeichnet und ist für große Anwendungen nicht ideal.
 
-Um Prop-Drilling zu umgehen, bieten Frameworks eine Funktionalität namens Abhängigkeitsinjektion, die eine Möglichkeit ist, bestimmte Daten direkt an die Komponenten zu übergeben, die sie benötigen, ohne sie durch dazwischen liegende Ebenen zu führen. Jedes Framework implementiert die Abhängigkeitsinjektion unter einem anderen Namen und auf eine andere Weise, aber der Effekt ist letztlich derselbe.
+Um das Prop-Durchbohren zu umgehen, bieten Frameworks eine Funktionalität, die als Dependency Injection bekannt ist. Dies ist eine Möglichkeit, bestimmte Daten direkt an die Komponenten zu bringen, die sie benötigen, ohne sie durch dazwischenliegende Ebenen zu übergeben. Jedes Framework implementiert die Dependency Injection unter einem anderen Namen und auf eine andere Weise, aber der Effekt ist letztendlich derselbe.
 
-Angular nennt diesen Prozess [Abhängigkeitsinjektion](https://angular.dev/guide/di/dependency-injection); Vue hat die [`provide()` und `inject()` Komponentenmethoden](https://v2.vuejs.org/v2/api/#provide-inject); React hat eine [Context API](https://react.dev/learn/passing-data-deeply-with-context); Ember teilt Zustand durch [Services](https://guides.emberjs.com/release/services/).
+Angular nennt diesen Vorgang [Dependency Injection](https://angular.dev/guide/di/dependency-injection); Vue hat [`provide()` und `inject()`-Komponentenmethoden](https://v2.vuejs.org/v2/api/#provide-inject); React hat eine [Context API](https://react.dev/learn/passing-data-deeply-with-context); Ember teilt den Zustand durch [Services](https://guides.emberjs.com/release/services/).
 
 ### Lebenszyklus
 
-Im Kontext eines Frameworks ist der **Lebenszyklus** einer Komponente eine Sammlung von Phasen, die eine Komponente von dem Zeitpunkt durchläuft, an dem sie dem DOM hinzugefügt und dann vom Browser gerendert wird (oft _Montage_ genannt), bis zu dem Zeitpunkt, an dem sie aus dem DOM entfernt wird (oft _Demontage_ genannt). Jedes Framework benennt diese Lebenszyklusphasen unterschiedlich, und nicht alle geben Entwicklern Zugriff auf die gleichen Phasen. Alle Frameworks folgen dem gleichen allgemeinen Modell: Sie ermöglichen es Entwicklern, bestimmte Aktionen durchzuführen, wenn die Komponente _montiert_ wird, wenn sie _gerendert_ wird, wenn sie _demontiert_ wird, und in vielen Phasen dazwischen.
+Im Kontext eines Frameworks ist der **Lebenszyklus** einer Komponente eine Sammlung von Phasen, die eine Komponente durchläuft, beginnend mit der Zeit, in der sie dem DOM hinzugefügt und dann vom Browser gerendert wird (häufig als _Mounting_ bezeichnet), bis zu der Zeit, in der sie aus dem DOM entfernt wird (oft als _Unmounting_ bezeichnet). Jedes Framework benennt diese Lebenszyklusphasen unterschiedlich, und nicht alle geben Entwicklern Zugriff auf dieselben Phasen. Alle Frameworks folgen demselben allgemeinen Modell: Sie ermöglichen es Entwicklern, bestimmte Aktionen auszuführen, wenn die Komponente _mountet_, wenn sie _rendert_, wenn sie _unmountet_ und in vielen Phasen dazwischen.
 
-Die _Render_-Phase ist die wichtigste zu verstehen, da sie am häufigsten wiederholt wird, während Ihr Benutzer mit Ihrer Anwendung interagiert. Sie wird jedes Mal ausgeführt, wenn der Browser etwas Neues rendern muss, sei es eine Ergänzung zu dem, was sich im Browser befindet, eine Löschung oder eine Bearbeitung dessen, was vorhanden ist.
+Die _Rendern-Phase_ ist die entscheidendste zu verstehen, da sie am häufigsten wiederholt wird, wenn Ihr Benutzer mit Ihrer Anwendung interagiert. Sie wird jedes Mal ausgeführt, wenn der Browser etwas Neues rendern muss, sei es eine Ergänzung zu dem, was sich im Browser befindet, ein Löschung oder eine Bearbeitung dessen, was dort ist.
 
 Dieses [Diagramm des Lebenszyklus einer React-Komponente](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) bietet einen allgemeinen Überblick über das Konzept.
 
 ## Elemente rendern
 
-Wie bei Lebenszyklen nehmen Frameworks einen etwas unterschiedlichen aber ähnlichen Ansatz zur Darstellung Ihrer Anwendungen. Alle von ihnen verfolgen die aktuelle gerenderte Version des DOM Ihres Browsers, und jedes trifft leicht unterschiedliche Entscheidungen darüber, wie das DOM geändert werden sollte, wenn Komponenten in Ihrer Anwendung neu gerendert werden. Da Frameworks diese Entscheidungen für Sie treffen, interagieren Sie normalerweise nicht selbst mit dem DOM. Diese Abstraktion vom DOM ist komplexer und speicherintensiver als das manuelle Aktualisieren des DOM, aber ohne sie könnten Frameworks Ihnen nicht ermöglichen, die deklarative Programmierung zu nutzen, für die sie bekannt sind.
+Wie bei den Lebenszyklen nehmen die Frameworks unterschiedliche, aber ähnliche Ansätze, wie sie Ihre Anwendungen rendern. Alle verfolgen die aktuelle gerenderte Version des DOMs Ihres Browsers und jedes Framework trifft leicht unterschiedliche Entscheidungen darüber, wie sich das DOM ändern sollte, wenn Komponenten in Ihrer Anwendung neu gerendert werden. Da Frameworks diese Entscheidungen für Sie treffen, interagieren Sie in der Regel nicht selbst mit dem DOM. Diese Abstraktion weg vom DOM ist komplexer und speicherintensiver, als das DOM selbst zu aktualisieren, aber ohne sie könnten die Frameworks Ihnen nicht erlauben, auf die deklarative Weise zu programmieren, für die sie bekannt sind.
 
-Der **Virtuelle DOM** ist ein Ansatz, bei dem Informationen über das DOM Ihres Browsers im JavaScript-Speicher gespeichert werden. Ihre Anwendung aktualisiert diese Kopie des DOM, vergleicht sie dann mit dem "echten" DOM – dem DOM, das tatsächlich für Ihre Benutzer gerendert wird – um zu entscheiden, was gerendert werden soll. Die Anwendung baut ein "Diff", um die Unterschiede zwischen dem aktualisierten virtuellen DOM und dem derzeit gerenderten DOM zu vergleichen und nutzt dieses Diff, um Updates auf das reale DOM anzuwenden. Sowohl React als auch Vue verwenden ein virtuelles DOM-Modell, aber sie wenden nicht die exakt gleiche Logik beim Diffing oder Rendern an.
+Der **Virtuelle DOM** ist ein Ansatz, bei dem Informationen über das DOM Ihres Browsers im JavaScript-Speicher gespeichert werden. Ihre Anwendung aktualisiert diese Kopie des DOMs, vergleicht sie dann mit dem "echten" DOM — dem DOM, das tatsächlich für Ihre Benutzer gerendert wird — um zu entscheiden, was gerendert werden soll. Die Anwendung erstellt ein "Diff", um die Unterschiede zwischen dem aktualisierten virtuellen DOM und dem derzeit gerenderten DOM zu vergleichen, und verwendet dieses Diff, um Aktualisierungen am echten DOM vorzunehmen. Sowohl React als auch Vue nutzen ein virtuelles DOM-Modell, wenden jedoch nicht exakt dieselbe Logik beim Diffting oder Rendern an.
 
 Sie können [mehr über den virtuellen DOM in den React-Dokumenten lesen](https://legacy.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom).
 
-Der **Inkrementelle DOM** ist dem virtuellen DOM insofern ähnlich, als dass er ein DOM-Diff erstellt, um zu entscheiden, was gerendert werden soll, unterscheidet sich jedoch dadurch, dass er keine vollständige Kopie des DOM im JavaScript-Speicher erstellt. Er ignoriert die Teile des DOM, die nicht geändert werden müssen. Angular ist das einzige bisher in diesem Modul behandelte Framework, das einen inkrementellen DOM verwendet.
+Der **Inkrementelle DOM** ist dem virtuellen DOM ähnlich, da er ein DOM-Diff erstellt, um zu entscheiden, was gerendert werden soll, aber unterschiedlich, da er keine vollständige Kopie des DOM im JavaScript-Speicher erstellt. Er ignoriert die Teile des DOM, die nicht geändert werden müssen. Angular ist das einzige Framework, das in diesem Modul bisher besprochen wurde und einen inkrementellen DOM verwendet.
 
 Sie können [mehr über den inkrementellen DOM im Auth0-Blog lesen](https://auth0.com/blog/incremental-dom/).
 
-Die **Glimmer VM** ist einzigartig für Ember. Sie ist weder ein virtueller DOM noch ein inkrementeller DOM; es ist ein separater Prozess, durch den Embers Vorlagen in eine Art "Bytecode" transpiliert werden, der einfacher und schneller zu lesen ist als JavaScript.
+Die **Glimmer VM** ist einzigartig für Ember. Sie ist weder ein virtueller DOM noch ein inkrementeller DOM; es ist ein separater Prozess, durch den Embers Vorlagen in eine Art "Bytecode" transpilieren, der leichter und schneller zu lesen ist als JavaScript.
 
 ## Routing
 
-Wie [im vorherigen Kapitel erwähnt, ist Routing](/de/docs/Learn_web_development/Core/Frameworks_libraries/Introduction#routing) ein wichtiger Teil der Web-Erfahrung. Um eine unterbrochene Erfahrung in ausreichend komplexen Anwendungen mit vielen Ansichten zu vermeiden, bietet jedes der in diesem Modul behandelten Frameworks eine Bibliothek (oder mehr als eine Bibliothek), die Entwicklern hilft, Client-seitiges Routing in ihren Anwendungen zu implementieren.
+Wie [im vorherigen Kapitel erwähnt, ist Routing](/de/docs/Learn_web_development/Core/Frameworks_libraries/Introduction#routing) ein wichtiger Bestandteil der Web-Erfahrung. Um eine unterbrochene Erfahrung in ausreichend komplexen Apps mit vielen Ansichten zu vermeiden, bietet jedes der in diesem Modul abgedeckten Frameworks eine Bibliothek (oder mehr als eine Bibliothek), die Entwicklern hilft, Client-seitige Routing in ihren Anwendungen zu implementieren.
 
 ## Testen
 
-Alle Anwendungen profitieren von Test-Abdeckung, die sicherstellt, dass Ihre Software weiterhin das erwartete Verhalten zeigt, und Web-Anwendungen sind da keine Ausnahme. Jedes Frameworks-Ökosystem bietet Werkzeuge, die das Schreiben von Tests erleichtern. Test-Tools sind nicht in den Frameworks selbst integriert, aber die Befehlszeilentools, die zur Erstellung von Framework-Anwendungen verwendet werden, geben Ihnen Zugriff auf die entsprechenden Test-Tools.
+Alle Anwendungen profitieren von einer Testabdeckung, die sicherstellt, dass Ihre Software weiterhin so funktioniert, wie Sie es erwarten, und Webanwendungen sind da keine Ausnahme. Jedes Framework-Ökosystem bietet Tools, die das Schreiben von Tests erleichtern. Testwerkzeuge sind nicht in die Frameworks selbst integriert, aber die Befehlszeilen-Tools, die zum Generieren von Framework-Apps verwendet werden, geben Ihnen Zugriff auf die entsprechenden Testwerkzeuge.
 
-Jedes Framework hat umfangreiche Tools in seinem Ökosystem mit Fähigkeiten für sowohl Unit- als auch Integrationstests.
+Jedes Framework hat umfangreiche Tools in seinem Ökosystem, die Funktionen für Unit- und Integrationstests bieten.
 
-[Testing Library](https://testing-library.com/) ist eine Suite von Test-Utilities, die Tools für viele JavaScript-Umgebungen, einschließlich React, Vue und Angular, hat. Die Ember-Dokumente behandeln das [Testen von Ember-Apps](https://guides.emberjs.com/release/testing/).
+[Testing Library](https://testing-library.com/) ist eine Suite von Test-Utilities, die Tools für viele JavaScript-Umgebungen bietet, einschließlich React, Vue und Angular. Die Ember-Dokumentation behandelt [das Testen von Ember-Apps](https://guides.emberjs.com/release/testing/).
 
-Hier ist ein schneller Test für unseren `CounterButton`, geschrieben mit Hilfe von React Testing Library - er testet mehrere Dinge, wie die Existenz des Buttons und ob der Button den richtigen Text nach 0, 1 und 2 Mal Klicken anzeigt:
+Hier ist ein kurzer Test für unseren `CounterButton`, geschrieben mit Hilfe von React Testing Library — er testet eine Reihe von Dingen, z.B. das Vorhandensein des Buttons und ob der Button den richtigen Text anzeigt, nachdem er 0, 1 und 2 Mal geklickt wurde:
 
 ```jsx
 import { fireEvent, render, screen } from "@testing-library/react";
@@ -320,6 +320,6 @@ it("Increments the count when clicked", () => {
 
 ## Zusammenfassung
 
-Zu diesem Zeitpunkt sollten Sie eine bessere Vorstellung von den tatsächlichen Sprachen, Merkmalen und Werkzeugen haben, die Sie bei der Erstellung von Anwendungen mit Frameworks verwenden werden. Ich bin sicher, Sie sind begeistert, loszulegen und tatsächlich zu programmieren - und das werden Sie als nächstes tun!
+Zu diesem Punkt sollten Sie eine bessere Vorstellung von den tatsächlichen Sprachen, Funktionen und Tools haben, die Sie bei der Erstellung von Anwendungen mit Frameworks verwenden werden. Ich bin sicher, dass Sie begeistert sind, loszulegen und tatsächlich etwas zu programmieren, und das werden Sie als Nächstes tun!
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Main_features","Learn_web_development/Core/Frameworks_libraries/React_getting_started", "Learn_web_development/Core/Frameworks_libraries")}}

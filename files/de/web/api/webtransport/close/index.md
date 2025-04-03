@@ -3,12 +3,12 @@ title: "WebTransport: close() Methode"
 short-title: close()
 slug: Web/API/WebTransport/close
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`close()`**-Methode der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle schließt eine laufende WebTransport-Sitzung.
+Die **`close()`** Methode der [`WebTransport`](/de/docs/Web/API/WebTransport) Schnittstelle schließt eine laufende WebTransport-Sitzung.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ close(info)
 ### Ausnahmen
 
 - [`WebTransportError`](/de/docs/Web/API/WebTransportError)
-  - : Wird ausgelöst, wenn `close()` aufgerufen wird, während der WebTransport sich im Verbindungsprozess befindet.
+  - : Wird ausgelöst, wenn `close()` aufgerufen wird, während WebTransport sich im Verbindungsaufbau befindet.
 
 ## Beispiele
 
@@ -44,7 +44,7 @@ const transport = new WebTransport(url);
 // ...
 
 transport.close({
-  closeCode: 017,
+  closeCode: 17,
   reason: "CloseButtonPressed",
 });
 ```

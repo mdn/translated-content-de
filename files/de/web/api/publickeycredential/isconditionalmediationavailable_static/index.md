@@ -3,12 +3,12 @@ title: "PublicKeyCredential: isConditionalMediationAvailable() statische Methode
 short-title: isConditionalMediationAvailable()
 slug: Web/API/PublicKeyCredential/isConditionalMediationAvailable_static
 l10n:
-  sourceCommit: dd49e9f6381aa1a35e9d582808f2fd1d4abfa813
+  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die statische Methode **`isConditionalMediationAvailable()`** der Schnittstelle [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) gibt ein {{jsxref("Promise")}} zurück, das sich auf `true` auflöst, wenn [bedingte Vermittlung](/de/docs/Web/API/Web_Authentication_API#discoverable_credentials_and_conditional_mediation) verfügbar ist.
+Die statische Methode **`isConditionalMediationAvailable()`** der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das auf `true` aufgelöst wird, wenn [bedingte Vermittlung](/de/docs/Web/API/Web_Authentication_API#discoverable_credentials_and_conditional_mediation) verfügbar ist.
 
 ## Syntax
 
@@ -22,21 +22,21 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich auf einen booleschen Wert auflöst, der anzeigt, ob die bedingte Vermittlung verfügbar ist oder nicht.
+Ein {{jsxref("Promise")}}, das zu einem Booleschen Wert aufgelöst wird, der angibt, ob bedingte Vermittlung verfügbar ist oder nicht.
 
 ### Ausnahmen
 
-Das zurückgegebene {{jsxref("Promise")}} kann mit den folgenden Werten abgelehnt werden:
+Das zurückgegebene {{jsxref("Promise")}} kann mit folgenden Werten abgelehnt werden:
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die RP-Domäne ist nicht gültig.
+  - : Die RP-Domain ist ungültig.
 
 ## Beispiele
 
 Bevor Sie einen bedingten WebAuthn-API-Aufruf tätigen, prüfen Sie, ob:
 
 - Der Browser die Web Authentication API unterstützt.
-- Der Browser das WebAuthn-Bedingte UI unterstützt.
+- Der Browser die WebAuthn-bedingte UI unterstützt.
 
 ```js
 // Availability of `window.PublicKeyCredential` means WebAuthn is usable.
@@ -50,7 +50,7 @@ if (
     // Call WebAuthn authentication
     const publicKeyCredentialRequestOptions = {
       // Server generated challenge
-      challenge: ****,
+      challenge: challengeFromServer,
       // The same RP ID as used during registration
       rpId: "example.com",
     };
@@ -66,7 +66,7 @@ if (
 ```
 
 > [!NOTE]
-> Weitere Informationen zur Verwendung der bedingten Vermittlung finden Sie unter [Sign in with a passkey through form autofill](https://web.dev/articles/passkey-form-autofill).
+> Weitere Informationen zur Verwendung von bedingter Vermittlung finden Sie unter [Mit einem Passkey über die automatische Formularausfüllung anmelden](https://web.dev/articles/passkey-form-autofill).
 
 ## Spezifikationen
 

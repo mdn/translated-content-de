@@ -3,7 +3,7 @@ title: "GPUAdapter: isFallbackAdapter-Eigenschaft"
 short-title: isFallbackAdapter
 slug: Web/API/GPUAdapter/isFallbackAdapter
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
@@ -19,19 +19,19 @@ Ein boolescher Wert.
 ```js
 async function init() {
   if (!navigator.gpu) {
-    throw Error('WebGPU not supported.');
+    throw Error("WebGPU not supported.");
   }
 
   const adapter = await navigator.gpu.requestAdapter();
   if (!adapter) {
-    throw Error('Couldn\'t request WebGPU adapter.');
+    throw Error("Couldn't request WebGPU adapter.");
   }
 
   const fallback = adapter.isFallbackAdapter;
   console.log(fallback);
 
-  // ...
-
+  // …
+}
 ```
 
 ## Spezifikationen
