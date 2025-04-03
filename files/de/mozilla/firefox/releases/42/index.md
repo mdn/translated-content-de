@@ -88,7 +88,7 @@ Unsere experimentelle Implementierung des [Shadow DOM](/de/docs/Web/API/Web_comp
 
 - Der Options-Daten-Typ `RTCOfferOptions` von [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) wurde aktualisiert, um der Spezifikation besser zu entsprechen. Unter anderem basiert er nun auf dem `RTCOfferAnswerOptions` Wörterbuch, das die Option `voiceActivityDetection` bietet.
 - Das `RTCAnswerOptions` Wörterbuch wurde hinzugefügt. Dies ist der Typ, der für den `options` Parameter von [`createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) verwendet wird.
-- Das `RTCICECandidatePairStats.mozPriority` wurde in [`RTCICECandidatePairStats.priority`](/de/docs/Web/API/RTCICECandidatePairStats/priority) umbenannt ([Firefox-Bug 1184426](https://bugzil.la/1184426)).
+- Das `RTCICECandidatePairStats.mozPriority` wurde in [`RTCICECandidatePairStats.priority`](/de/docs/Web/API/RTCIceCandidatePairStats/priority) umbenannt ([Firefox-Bug 1184426](https://bugzil.la/1184426)).
 
 #### Neue APIs
 
