@@ -1,15 +1,14 @@
 ---
-title: "MediaSource: endOfStream() Methode"
+title: "MediaSource: endOfStream()-Methode"
 short-title: endOfStream()
 slug: Web/API/MediaSource/endOfStream
 l10n:
-  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`endOfStream()`**-Methode des
-[`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces signalisiert das Ende des Streams.
+Die **`endOfStream()`**-Methode der [`MediaSource`](/de/docs/Web/API/MediaSource)-Schnittstelle signalisiert das Ende des Streams.
 
 ## Syntax
 
@@ -25,9 +24,9 @@ endOfStream(endOfStreamError)
   - : Ein String, der einen Fehler darstellt, der ausgelöst wird, wenn das Ende des Streams erreicht ist. Die möglichen Werte sind:
 
     - `network`
-      - : Beendet die Wiedergabe und signalisiert, dass ein Netzwerkfehler aufgetreten ist. Dies kann verwendet werden, um einen benutzerdefinierten Fehlerbehandler im Zusammenhang mit Medienstreams zu erstellen. Zum Beispiel könnten Sie eine Funktion haben, die Medienchunk-Anfragen bearbeitet, separat von anderen Netzwerkanfragen. Wenn Sie eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage für einen Medienchunk stellen und einen Netzwerkfehler erhalten, könnten Sie `endOfStream('network')` aufrufen, eine beschreibende Nachricht in der Benutzeroberfläche anzeigen und möglicherweise die Netzwerk-Abfrage sofort erneut versuchen oder warten, bis das Netzwerk wieder verfügbar ist (durch eine Art von Polling).
+      - : Beendet die Wiedergabe und signalisiert, dass ein Netzwerkfehler aufgetreten ist. Dies kann verwendet werden, um einen benutzerdefinierten Fehlerbehandler im Zusammenhang mit Media-Streams zu erstellen. Zum Beispiel könnten Sie eine Funktion haben, die Media-Chunk-Anfragen verwaltet, getrennt von anderen Netzwerkanfragen. Wenn Sie eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage für einen Media-Chunk ausführen und einen Netzwerkfehler erhalten, möchten Sie vielleicht `endOfStream('network')` aufrufen, eine beschreibende Nachricht in der UI anzeigen und eventuell die Netzwerkanfrage sofort wiederholen oder warten, bis das Netzwerk wieder verfügbar ist (via irgendeiner Art von Überprüfung).
     - `decode`
-      - : Beendet die Wiedergabe und signalisiert, dass ein Dekodierungsfehler aufgetreten ist. Dies kann verwendet werden, um darauf hinzuweisen, dass ein Parsing-Fehler beim Abrufen von Mediendaten aufgetreten ist; möglicherweise sind die Daten beschädigt oder sie sind mit einem Codec kodiert, den der Browser nicht dekodieren kann.
+      - : Beendet die Wiedergabe und signalisiert, dass ein Decodierungsfehler aufgetreten ist. Dies kann verwendet werden, um anzuzeigen, dass ein Parsing-Fehler beim Abrufen von Mediendaten aufgetreten ist; möglicherweise sind die Daten beschädigt oder sie sind mit einem Codec codiert, den der Browser nicht dekodieren kann.
 
 ### Rückgabewert
 
@@ -36,11 +35,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn [`MediaSource.readyState`](/de/docs/Web/API/MediaSource/readyState) nicht gleich `open` ist oder eines oder mehrere der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte in [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) aktualisiert werden (d.h. deren [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft `true` ist).
+  - : Wird ausgelöst, wenn [`MediaSource.readyState`](/de/docs/Web/API/MediaSource/readyState) nicht gleich `open` ist oder wenn ein oder mehrere [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte in [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) aktualisiert werden (d.h. ihre [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft auf `true` gesetzt ist).
 
 ## Beispiele
 
-Das folgende Snippet stammt aus einem Beispiel von Nick Desaulniers ([sehen Sie sich die vollständige Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie den Sourcecode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt ein `MediaSource` zurück.
+Der folgende Ausschnitt stammt aus einem Beispiel von Nick Desaulniers ([sehen Sie die vollständige Demo live](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html), oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
 
 ```js
 const assetURL = "frag_bunny.mp4";

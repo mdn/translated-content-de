@@ -2,15 +2,15 @@
 title: "CSP: form-action"
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/form-action
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`form-action`** Direktive beschränkt die URLs, die als Ziel von Formularübermittlungen in einem gegebenen Kontext verwendet werden können.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`form-action`**-Direktive beschränkt die URLs, die als Ziel für Formularübermittlungen von einem bestimmten Kontext verwendet werden können.
 
 > [!WARNING]
-> Ob `form-action` Weiterleitungen nach einer Formularübermittlung blockieren sollte, wird [diskutiert](https://github.com/w3c/webappsec-csp/issues/8) und die Browserimplementierungen dieses Aspekts sind uneinheitlich (z.B. Firefox 57 blockiert die Weiterleitungen nicht, während Chrome 63 dies tut).
+> Ob `form-action` Weiterleitungen nach einer Formularübermittlung blockieren sollte, ist [umstritten](https://github.com/w3c/webappsec-csp/issues/8) und die Implementierungen in den Browsern sind in diesem Aspekt inkonsistent (z.B. blockiert Firefox 57 die Weiterleitungen nicht, während Chrome 63 dies tut).
 
 <table class="properties">
   <tbody>
@@ -23,8 +23,8 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`form-action`** Direk
       <td>{{Glossary("Navigation_directive", "Navigationsdirektive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
-      <td>Nein. Ohne Einstellung ist alles erlaubt.</td>
+      <th scope="row">{{CSP("default-src")}} Rückfall</th>
+      <td>Nein. Wenn dies nicht gesetzt ist, ist alles erlaubt.</td>
     </tr>
   </tbody>
 </table>
@@ -39,10 +39,10 @@ Content-Security-Policy: form-action <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Formularübermittlungen erfolgen. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Es dürfen keine Formularübermittlungen vorgenommen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Source-Expression_ Werten. Formularübermittlungen dürfen an URLs erfolgen, die mit einem der angegebenen Source-Expressions übereinstimmen. Für diese Direktive sind die folgenden Source-Expression-Werte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _Quellausdruckswerten_. Formularübermittlungen dürfen zu URLs erfolgen, die mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
 
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
@@ -50,7 +50,7 @@ Diese Direktive kann einen der folgenden Werte haben:
 
 ## Beispiele
 
-### Meta-Tag Konfiguration
+### Meta-Tag-Konfiguration
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />
@@ -72,7 +72,7 @@ add_header Content-Security-Policy "form-action 'none';"
 
 ### Verletzungsfall
 
-Die Verwendung eines {{HTMLElement("form")}} Elements mit einer Aktion, die auf Inline-JavaScript gesetzt ist, führt zu einer CSP-Verletzung.
+Die Verwendung eines {{HTMLElement("form")}}-Elements mit einer Aktion, die auf Inline-JavaScript gesetzt ist, führt zu einer CSP-Verletzung.
 
 ```html example-bad
 <meta http-equiv="Content-Security-Policy" content="form-action 'none'" />

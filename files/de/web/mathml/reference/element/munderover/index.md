@@ -2,10 +2,10 @@
 title: <munderover>
 slug: Web/MathML/Reference/Element/munderover
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Das **`<munderover>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um sowohl Akzente als auch Grenzen über und unter einem Ausdruck zu platzieren.
+Das **`<munderover>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um sowohl Akzente als auch Grenzen über und unter einem Ausdruck zu platzieren.
 
 Es verwendet die folgende Syntax: `<munderover> base underscript overscript </munderover>`
 
@@ -14,9 +14,9 @@ Es verwendet die folgende Syntax: `<munderover> base underscript overscript </mu
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie die folgenden Attribute:
 
 - `accent`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), das angibt, ob das obere Skript als Akzent behandelt werden soll (d.h. größer und näher am Basisausdruck gezeichnet werden soll).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), das angibt, ob das Oberskript als Akzent behandelt werden soll (d.h. größer und näher an der Basisausdruck gezeichnet).
 - `accentunder`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), das angibt, ob das untere Skript als Akzent behandelt werden soll (d.h. größer und näher am Basisausdruck gezeichnet werden soll).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Reference/Values#mathml-specific_types), das angibt, ob das Unterskript als Akzent behandelt werden soll (d.h. größer und näher an der Basisausdruck gezeichnet).
 
 ## Beispiele
 
@@ -63,4 +63,4 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 ## Siehe auch
 
 - {{ MathMLElement("munder") }} (Unterskript)
-- {{ MathMLElement("mover") }} (Überskript)
+- {{ MathMLElement("mover") }} (Oberskript)

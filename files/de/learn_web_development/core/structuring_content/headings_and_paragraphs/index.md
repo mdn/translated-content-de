@@ -2,35 +2,35 @@
 title: Überschriften und Absätze
 slug: Learn_web_development/Core/Structuring_content/Headings_and_paragraphs
 l10n:
-  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Webpage_metadata", "Learn_web_development/Core/Structuring_content/Emphasis_and_importance", "Learn_web_development/Core/Structuring_content")}}
 
-Eine der Hauptaufgaben von HTML besteht darin, Texten Struktur zu verleihen, damit ein Browser ein HTML-Dokument so anzeigt, wie es der Entwickler beabsichtigt. Dieser Artikel erklärt, wie {{Glossary("HTML", "HTML")}} verwendet werden kann, um eine grundlegende Seitenstruktur zu schaffen, indem Überschriften und Absätze definiert werden.
+Eine der Hauptaufgaben von HTML besteht darin, einem Text Struktur zu geben, damit ein Browser ein HTML-Dokument so anzeigen kann, wie es der Entwickler beabsichtigt. Dieser Artikel erklärt, wie {{Glossary("HTML", "HTML")}} verwendet werden kann, um eine grundlegende Seitenstruktur durch die Definition von Überschriften und Absätzen bereitzustellen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegende HTML-Kenntnisse, wie sie in
+        Grundkenntnisse in HTML, wie in
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
           >Grundlegende HTML-Syntax</a
-        > behandelt werden.
+        > behandelt.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Wie man eine gute Dokumentstruktur mit Überschriften und darunter liegendem Inhalt erstellt.</li>
-          <li>Die Verwendung von semantischem statt präsentationalem HTML und warum dies wichtig ist.</li>
-          <li>Die Notwendigkeit, Überschriftenebenen logisch zu verwenden, d.h. keine Ebenen zu überspringen oder sie willkürlich zu verwenden, weil Sie eine bestimmte Schriftgröße erreichen möchten (das ist eine Aufgabe für CSS).</li>
+          <li>Wie man eine gute Dokumentstruktur mit Überschriften und darunter liegenden Inhalten erstellt.</li>
+          <li>Verwendung von semantischem HTML anstelle von präsentationsorientiertem HTML und warum dies wichtig ist.</li>
+          <li>Die Notwendigkeit, Überschriftenebenen logisch zu verwenden, d.h. keine Ebenen zu überspringen oder sie willkürlich zu verwenden, um eine bestimmte Schriftgröße zu erreichen (das ist eine Aufgabe für CSS).</li>
           <li>SEO-Vorteile: Zum Beispiel werden Schlüsselwörter in Überschriften hervorgehoben.</li>
-          <li>Barrierefreiheitsvorteile: Assistive Technologien (AT) wie Bildschirmleseprogramme verwenden Überschriften (und andere Orientierungspunkte) als Wegweiser zur Navigation durch den Inhalt. HTML-Dokumente sind für AT-Nutzer sehr schwierig zu verwenden, wenn keine Überschriften vorhanden sind.</li>
+          <li>Barrierefreiheitsvorteile: Assistive Technik (AT) wie Screenreader verwenden Überschriften (und andere Landmarks) als Wegweiser, um Inhalte zu navigieren. HTML-Dokumente sind für AT-Nutzer sehr schwierig zu verwenden ohne Überschriften.</li>
         </ul>
       </td>
     </tr>
@@ -39,29 +39,29 @@ Eine der Hauptaufgaben von HTML besteht darin, Texten Struktur zu verleihen, dam
 
 ## Überschriften und Absätze
 
-Die meisten strukturierten Texte bestehen aus Überschriften und Absätzen, unabhängig davon, ob Sie eine Geschichte, eine Zeitung, ein College-Lehrbuch, ein Magazin usw. lesen.
+Die meisten strukturierten Texte bestehen aus Überschriften und Absätzen, egal ob Sie eine Geschichte, eine Zeitung, ein College-Lehrbuch, ein Magazin usw. lesen.
 
-![Ein Beispiel für eine Zeitungs-Titelseite, die die Verwendung einer Hauptüberschrift, von Unterüberschriften und Absätzen zeigt.](newspaper_small.jpg)
+![Ein Beispiel für eine Zeitungs-Titelseite, die die Verwendung einer Hauptüberschrift, Unterüberschriften und Absätze zeigt.](newspaper_small.jpg)
 
-Strukturierter Inhalt macht das Leseerlebnis einfacher und angenehmer.
+Strukturierte Inhalte machen das Leseerlebnis einfacher und angenehmer.
 
-In HTML muss jeder Absatz in ein {{htmlelement("p")}}-Element eingeschlossen sein, wie folgt:
+In HTML muss jeder Absatz in ein {{htmlelement("p")}}-Element eingeschlossen werden, wie folgt:
 
 ```html
 <p>I am a paragraph, oh yes I am.</p>
 ```
 
-Jede Überschrift muss in ein Überschriftselement eingeschlossen sein:
+Jede Überschrift muss in ein Überschriftselement eingefasst werden:
 
 ```html
 <h1>I am the title of the story.</h1>
 ```
 
-Es gibt sechs Überschriftselemente: {{htmlelement("Heading_Elements", "h1")}}, {{htmlelement("Heading_Elements", "h2")}}, {{htmlelement("Heading_Elements", "h3")}}, {{htmlelement("Heading_Elements", "h4")}}, {{htmlelement("Heading_Elements", "h5")}}, und {{htmlelement("Heading_Elements", "h6")}}. Jedes Element repräsentiert eine andere Inhaltsebene im Dokument; `<h1>` repräsentiert die Hauptüberschrift, `<h2>` repräsentiert Unterüberschriften, `<h3>` repräsentiert Unter-Unterüberschriften usw.
+Es gibt sechs Überschriftselemente: {{htmlelement("Heading_Elements", "h1")}}, {{htmlelement("Heading_Elements", "h2")}}, {{htmlelement("Heading_Elements", "h3")}}, {{htmlelement("Heading_Elements", "h4")}}, {{htmlelement("Heading_Elements", "h5")}} und {{htmlelement("Heading_Elements", "h6")}}. Jedes Element repräsentiert eine andere Inhaltsebene im Dokument; `<h1>` steht für die Hauptüberschrift, `<h2>` repräsentiert Unterüberschriften, `<h3>` repräsentiert Unter-Unterüberschriften usw.
 
-## Implementierung der strukturellen Hierarchie
+## Implementierung der Strukturhierarchie
 
-Zum Beispiel repräsentiert in dieser Geschichte das `<h1>`-Element den Titel der Geschichte, die `<h2>`-Elemente repräsentieren die Titel der einzelnen Kapitel, und die `<h3>`-Elemente repräsentieren Unterabschnitte der Kapitel:
+Beispielsweise repräsentiert im folgenden Beispiel das `<h1>`-Element den Titel der Geschichte, die `<h2>`-Elemente repräsentieren den Titel jedes Kapitels, und die `<h3>`-Elemente repräsentieren die Unterabschnitte jedes Kapitels:
 
 ```html
 <h1>The Crushing Bore</h1>
@@ -86,34 +86,34 @@ Zum Beispiel repräsentiert in dieser Geschichte das `<h1>`-Element den Titel de
 </p>
 ```
 
-Es bleibt Ihnen überlassen, was die beteiligten Elemente darstellen, solange die Hierarchie Sinn macht. Sie sollten nur einige Best Practices im Auge behalten, während Sie solche Strukturen erstellen:
+Es liegt wirklich bei Ihnen, was die beteiligten Elemente repräsentieren, solange die Hierarchie Sinn ergibt. Beachten Sie dabei einige bewährte Praktiken, während Sie solche Strukturen erstellen:
 
-- Vorzugsweise sollten Sie pro Seite ein einzelnes `<h1>` verwenden—dies ist die oberste Ebene der Überschrift, und alle anderen liegen darunter in der Hierarchie.
+- Vorzugsweise sollten Sie eine einzige `<h1>` pro Seite verwenden—dies ist die oberste Überschrift, und alle anderen stehen darunter in der Hierarchie.
 - Stellen Sie sicher, dass Sie die Überschriften in der richtigen Reihenfolge in der Hierarchie verwenden. Verwenden Sie keine `<h3>`-Elemente, um Unterüberschriften darzustellen, gefolgt von `<h2>`-Elementen, um Unter-Unterüberschriften darzustellen—das ergibt keinen Sinn und führt zu seltsamen Ergebnissen.
-- Von den sechs verfügbaren Überschriftenebenen sollten Sie auf einer Seite nicht mehr als drei verwenden, es sei denn, es erscheint Ihnen notwendig. Dokumente mit vielen Ebenen (zum Beispiel eine tiefe Überschriftenhierarchie) werden unhandlich und schwer zu navigieren. In solchen Fällen ist es ratsam, den Inhalt nach Möglichkeit auf mehrere Seiten zu verteilen.
+- Von den sechs verfügbaren Überschriftenebenen sollten Sie versuchen, nicht mehr als drei pro Seite zu verwenden, es sei denn, es ist notwendig. Dokumente mit vielen Ebenen (z. B. eine tiefe Überschriftenhierarchie) werden unhandlich und schwer navigierbar. In solchen Fällen ist es ratsam, den Inhalt über mehrere Seiten zu verteilen, wenn möglich.
 
-## Warum brauchen wir Struktur?
+## Warum benötigen wir Struktur?
 
-Um diese Frage zu beantworten, werfen wir einen Blick auf [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html)—den Ausgangspunkt unseres laufenden Beispiels für diesen Artikel (ein schönes Hummus-Rezept). Sie sollten eine Kopie dieser Datei auf Ihrem lokalen Rechner speichern, da Sie sie für Übungen in den folgenden Lektionen benötigen werden. Der Body dieses Dokuments enthält derzeit mehrere Inhalte. Sie sind nicht in irgendeiner Weise ausgezeichnet, aber sie sind mit Zeilenumbrüchen getrennt (Eingabe/Umbruch gedrückt, um zur nächsten Zeile zu gelangen).
+Um diese Frage zu beantworten, schauen wir uns [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html) an—den Ausgangspunkt unseres laufenden Beispiels für diesen Artikel (ein leckeres Hummus-Rezept). Sie sollten eine Kopie dieser Datei auf Ihrem Computer speichern, da Sie sie für Übungen in den nächsten Lektionen benötigen werden. Der Hauptteil dieses Dokuments enthält derzeit mehrere Inhaltselemente. Sie sind nicht markiert, sondern nur durch Zeilenumbrüche getrennt (Enter/Return wurde gedrückt, um zur nächsten Zeile zu wechseln).
 
-Wenn Sie das Dokument jedoch in Ihrem Browser öffnen, werden Sie sehen, dass der Text als großer Block erscheint!
+Wenn Sie das Dokument jedoch in Ihrem Browser öffnen, sehen Sie, dass der Text als großer Block erscheint!
 
-![Eine Webseite, die eine Wand aus unformatiertem Text zeigt, weil es keine Elemente auf der Seite gibt, um sie zu strukturieren.](screen_shot_2017-03-29_at_09.20.35.png)
+![Eine Webseite, die eine Wand aus unformatiertem Text zeigt, da keine Elemente vorhanden sind, um sie zu strukturieren.](screen_shot_2017-03-29_at_09.20.35.png)
 
-Dies liegt daran, dass es keine Elemente gibt, die dem Inhalt Struktur verleihen, sodass der Browser nicht weiß, was eine Überschrift und was ein Absatz ist. Darüber hinaus:
+Das liegt daran, dass es keine Elemente gibt, die dem Inhalt eine Struktur geben, sodass der Browser nicht weiß, was eine Überschrift und was ein Absatz ist. Darüber hinaus:
 
-- Benutzer, die sich eine Webseite ansehen, neigen dazu, schnell zu scannen, um relevante Inhalte zu finden und oft nur die Überschriften zu lesen. (Wir verbringen normalerweise [nur eine sehr kurze Zeit auf einer Webseite](https://www.nngroup.com/articles/how-long-do-users-stay-on-web-pages/).) Wenn sie in wenigen Sekunden nichts Nützliches sehen können, werden sie wahrscheinlich frustriert und gehen woanders hin.
-- Suchmaschinen, die Ihre Seite indexieren, betrachten den Inhalt der Überschriften als wichtige Schlüsselwörter, um die Suchrankings der Seite zu beeinflussen. Ohne Überschriften wird Ihre Seite in Bezug auf {{Glossary("SEO", "SEO")}} (Suchmaschinenoptimierung) schlecht abschneiden.
-- Schwer sehbehinderte Menschen lesen oft keine Webseiten; sie hören sie stattdessen. Dies geschieht mit einer Software namens [Bildschirmleseprogramm](https://en.wikipedia.org/wiki/Screen_reader). Diese Software bietet Möglichkeiten, schnell auf bestimmte Textinhalte zuzugreifen. Zu den verschiedenen verwendeten Techniken gehört es, eine Gliederung des Dokuments durch Vorlesen der Überschriften bereitzustellen, damit die Benutzer die benötigten Informationen schnell finden können. Wenn keine Überschriften verfügbar sind, müssen sie sich den gesamten Text vorlesen lassen.
-- Um Inhalte mit {{Glossary("CSS", "CSS")}} zu stylen oder interessante Dinge mit {{Glossary("JavaScript", "JavaScript")}} zu tun, müssen Sie Elemente haben, die den betreffenden Inhalt umschließen, damit CSS/JavaScript effektiv darauf abzielen können.
+- Benutzer, die sich eine Webseite ansehen, tendieren dazu, schnell nach relevantem Inhalt zu scannen und lesen zunächst oft nur die Überschriften. (Wir verbringen normalerweise [eine sehr kurze Zeit auf einer Webseite](https://www.nngroup.com/articles/how-long-do-users-stay-on-web-pages/).) Wenn sie nicht innerhalb weniger Sekunden etwas Nützliches sehen, werden sie wahrscheinlich frustriert und gehen woanders hin.
+- Suchmaschinen, die Ihre Seite indexieren, betrachten den Inhalt von Überschriften als wichtige Schlüsselwörter für die Beeinflussung der Suchrankings der Seite. Ohne Überschriften wird Ihre Seite in Bezug auf {{Glossary("SEO", "SEO")}} (Search Engine Optimization) schlecht abschneiden.
+- Schwer sehbehinderte Menschen lesen oft keine Webseiten; sie hören sie sich stattdessen an. Dies erfolgt mit einer Software, die als [Screenreader](https://en.wikipedia.org/wiki/Screen_reader) bezeichnet wird. Diese Software bietet Möglichkeiten, schnell auf bestimmte Textinhalte zuzugreifen. Zu den verwendeten Techniken gehört das Erstellen einer Gliederung des Dokuments durch das Vorlesen der Überschriften, damit Benutzer die benötigten Informationen schnell finden können. Wenn Überschriften nicht verfügbar sind, müssen sie sich den gesamten Dokumentinhalt anhören.
+- Um Inhalte mit {{Glossary("CSS", "CSS")}} zu gestalten oder um interessante Dinge mit {{Glossary("JavaScript", "JavaScript")}} zu machen, benötigen Sie Elemente, die den relevanten Inhalt umgeben, damit CSS/JavaScript ihn effektiv anvisieren kann.
 
-Daher müssen wir unserem Inhalt strukturelle Auszeichnung geben.
+Wir müssen also unserem Inhalt strukturelle Markup geben.
 
 ## Aktives Lernen: Unserem Inhalt Struktur geben
 
-Springen wir direkt in ein Live-Beispiel. Fügen Sie im Beispiel unten Elemente in das rohe Textfeld im _Eingabefeld_ ein, damit es im _Ausgabefeld_ als eine Überschrift und zwei Absätze erscheint.
+Lassen Sie uns direkt mit einem Live-Beispiel einsteigen. Im unten stehenden Beispiel fügen Sie dem Rohtext im _Input_-Feld Elemente hinzu, damit er im _Output_-Feld als Überschrift und zwei Absätze erscheint.
 
-Wenn Sie einen Fehler machen, können Sie ihn jederzeit mit der _Zurücksetzen_ Taste korrigieren. Wenn Sie nicht weiterkommen, drücken Sie auf die _Lösung anzeigen_ Taste, um die Antwort zu sehen.
+Wenn Sie einen Fehler machen, können Sie ihn jederzeit mit der _Reset_-Taste zurücksetzen. Wenn Sie nicht weiterkommen, drücken Sie die _Show solution_-Taste, um die Antwort zu sehen.
 
 ```html hidden
 <h2>Live output</h2>
@@ -249,19 +249,19 @@ textarea.onkeyup = function () {
 
 {{ EmbedLiveSample('Active_learning_Giving_our_content_structure', 700, 400, "", "") }}
 
-## Warum brauchen wir Semantik?
+## Warum benötigen wir Semantik?
 
-Semantik wird überall um uns herum angewendet—wir verlassen uns auf vergangene Erfahrungen, um uns zu sagen, was die Funktion eines alltäglichen Objekts ist; wenn wir etwas sehen, wissen wir, was seine Funktion sein wird. So erwarten wir zum Beispiel, dass ein rotes Licht bedeutet "anhalten" und ein grünes Licht bedeutet "gehen". Dinge können sehr schnell kompliziert werden, wenn die falsche Semantik angewendet wird. (Verwenden irgendwelche Länder Rot, um "gehen" zu bedeuten? Hoffentlich nicht.)
+Semantik wird überall um uns herum benötigt—wir verlassen uns auf frühere Erfahrungen, um zu wissen, welche Funktion ein Alltagsgegenstand hat; wenn wir etwas sehen, wissen wir, welche Funktion es haben wird. So erwarten wir zum Beispiel, dass ein rotes Verkehrslicht „stopp“ bedeutet und ein grünes Verkehrslicht „Fahrt“. Wenn die falsche Semantik angewendet wird, kann es schnell sehr kompliziert werden. (Verwendet irgendein Land Rot, um „fahren“ zu bedeuten? Das hoffen wir nicht.)
 
-In ähnlicher Weise müssen wir sicherstellen, dass wir die richtigen Elemente verwenden und unseren Inhalten die richtige Bedeutung, Funktion oder Erscheinung verleihen. In diesem Zusammenhang ist das {{htmlelement("Heading_Elements", "h1")}}-Element auch ein semantisches Element, das dem Text, den es umschließt, die Rolle (oder Bedeutung) "eine oberste Überschrift auf Ihrer Seite" gibt.
+In ähnlicher Weise müssen wir sicherstellen, dass wir die richtigen Elemente verwenden, um unserem Inhalt die richtige Bedeutung, Funktion oder Erscheinung zu geben. In diesem Kontext ist das {{htmlelement("Heading_Elements", "h1")}}-Element ebenfalls ein semantisches Element, das dem Text, den es umschließt, die Rolle (oder Bedeutung) eines „obersten Seitentitels“ gibt.
 
 ```html
 <h1>This is a top level heading</h1>
 ```
 
-Standardmäßig wird der Browser ihm eine große Schriftgröße zuweisen, um es wie eine Überschrift aussehen zu lassen (obwohl Sie es mit CSS so stylen könnten, wie Sie möchten). Wichtiger ist, dass sein semantischer Wert auf verschiedene Weise genutzt wird, zum Beispiel von Suchmaschinen und Screenreadern (wie oben erwähnt).
+Standardmäßig wird der Browser ihm eine große Schriftgröße geben, um es wie eine Überschrift aussehen zu lassen (obwohl Sie es mit CSS so gestalten können, wie Sie möchten). Wichtiger ist, dass sein semantischer Wert auf verschiedene Weise genutzt wird, zum Beispiel von Suchmaschinen und Screenreadern (wie oben erwähnt).
 
-Andererseits könnten Sie jedes Element _wie_ eine oberste Überschrift aussehen lassen. Betrachten Sie das Folgende:
+Auf der anderen Seite könnten Sie jedes Element _wie_ eine oberste Überschrift _aussehen_ lassen. Betrachten Sie folgendes Beispiel:
 
 ```html
 <span style="font-size: 32px; margin: 21px 0; display: block;">
@@ -269,10 +269,10 @@ Andererseits könnten Sie jedes Element _wie_ eine oberste Überschrift aussehen
 </span>
 ```
 
-Dies ist ein {{htmlelement("span")}}-Element. Es hat keine Semantik. Man verwendet es, um Inhalte zu umschließen, wenn man CSS darauf anwenden möchte (oder etwas damit mit JavaScript tun möchte), ohne ihm zusätzliche Bedeutung zu geben. (Mehr darüber erfahren Sie später im Kurs.) Wir haben etwas CSS darauf angewendet, damit es wie eine oberste Überschrift aussieht, aber da es keinen semantischen Wert hat, wird es keines der oben beschriebenen zusätzlichen Vorteile erhalten. Es ist eine gute Idee, das relevante HTML-Element für die jeweilige Aufgabe zu verwenden.
+Dies ist ein {{htmlelement("span")}}-Element. Es hat keine Semantik. Sie verwenden es, um Inhalte einzuschließen, wenn Sie CSS darauf anwenden wollen (oder etwas damit mit JavaScript tun wollen), ohne ihm zusätzliche Bedeutung zu geben. (Sie werden später im Kurs mehr darüber erfahren.) Wir haben etwas CSS darauf angewendet, um es wie eine oberste Überschrift aussehen zu lassen, aber da es keinen semantischen Wert hat, wird es keines der oben beschriebenen zusätzlichen Vorteile erhalten. Es ist eine gute Idee, das relevante HTML-Element für die jeweilige Aufgabe zu verwenden.
 
 ## Zusammenfassung
 
-Dies beendet unser Studium der HTML-Überschriften und Absätze. Als Nächstes werden wir weitere Aspekte des semantischen HTML anschauen: Worte hervorheben.
+Damit beenden wir unser Studium der HTML-Überschriften und Absätze. Als Nächstes werden wir weitere Aspekte des semantischen HTML untersuchen: Worte hervorheben.
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Webpage_metadata", "Learn_web_development/Core/Structuring_content/Emphasis_and_importance", "Learn_web_development/Core/Structuring_content")}}

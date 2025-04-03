@@ -2,20 +2,20 @@
 title: calcMode
 slug: Web/SVG/Reference/Attribute/calcMode
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Das **`calcMode`** Attribut gibt den {{Glossary("interpolation", "Interpolationsmodus")}} für die Animation an.
+Das **`calcMode`** Attribut legt den {{Glossary("interpolation", "Interpolationsmodus")}} für die Animation fest.
 
-Der Standardmodus ist `linear`, jedoch wird das `calcMode` Attribut ignoriert und diskrete Interpolation verwendet, wenn das Attribut keine lineare Interpolation unterstützt (z.B. bei Zeichenketten).
+Der Standardmodus ist `linear`. Falls das Attribut jedoch keine lineare Interpolation unterstützt (z.B. für Zeichenfolgen), wird das `calcMode` Attribut ignoriert und es wird diskrete Interpolation verwendet.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
 - {{SVGElement("animateTransform")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -38,13 +38,13 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `discrete`
-  - : Dies gibt an, dass die Animationsfunktion ohne Interpolation von einem Wert zum nächsten springt.
+  - : Dies gibt an, dass die Animationsfunktion von einem Wert zum nächsten springt, ohne Interpolation.
 - `linear`
-  - : Einfache lineare Interpolation zwischen Werten wird verwendet, um die Animationsfunktion zu berechnen. Mit Ausnahme von {{SVGElement("animateMotion")}} ist dies der Standardwert.
+  - : Einfache lineare Interpolation zwischen Werten wird verwendet, um die Animationsfunktion zu berechnen. Außer für {{SVGElement("animateMotion")}} ist dies der Standardwert.
 - `paced`
-  - : Definiert Interpolation, um eine gleichmäßige Veränderungsgeschwindigkeit über die Animation hinweg zu erzeugen. Dies wird nur für Werte unterstützt, die einen linearen numerischen Bereich definieren und für die eine Art "Entfernung" zwischen Punkten berechnet werden kann (z.B. Position, Breite, Höhe, usw.). Wenn `paced` angegeben wird, werden alle {{SVGAttr("keyTimes")}} oder {{SVGAttr("keySplines")}} ignoriert. Für {{SVGElement("animateMotion")}} ist dies der Standardwert.
+  - : Definiert die Interpolation so, dass ein gleichmäßiges Tempo der Veränderung über die Animation erreicht wird. Dies wird nur für Werte unterstützt, die einen linearen numerischen Bereich definieren, und für die eine Art von "Entfernung" zwischen Punkten berechnet werden kann (z.B. Position, Breite, Höhe, etc.). Wenn paced angegeben ist, werden alle {{SVGAttr("keyTimes")}} oder {{SVGAttr("keySplines")}} ignoriert. Für {{SVGElement("animateMotion")}} ist dies der Standardwert.
 - `spline`
-  - : Interpoliert von einem Wert in der {{SVGAttr("values")}} Liste zum nächsten gemäß einer Zeitfunktion, die durch eine kubische Bézier-Spline definiert ist. Die Punkte der Spline sind im {{SVGAttr("keyTimes")}} Attribut definiert, und die Kontrollpunkte für jedes Intervall sind im {{SVGAttr("keySplines")}} Attribut definiert.
+  - : Interpoliert von einem Wert in der {{SVGAttr("values")}} Liste zum nächsten gemäß einer durch eine kubische Bézier-Kurve definierten Zeitfunktion. Die Punkte der Kurve werden im {{SVGAttr("keyTimes")}} Attribut definiert, und die Kontrollpunkte für jedes Intervall werden im {{SVGAttr("keySplines")}} Attribut definiert.
 
 ## Spezifikationen
 

@@ -1,9 +1,9 @@
 ---
-title: "Document: fonts-Eigenschaft"
+title: "Dokument: fonts-Eigenschaft"
 short-title: fonts
 slug: Web/API/Document/fonts
 l10n:
-  sourceCommit: e20c5a4ac8437e6a4f66fb1b9992ce47510ba803
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("DOM")}}
@@ -14,11 +14,12 @@ Diese Funktion ist Teil der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loa
 
 ## Wert
 
-Der zurückgegebene Wert ist die [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle des Dokuments. Die `FontFaceSet`-Schnittstelle ist nützlich zum Laden neuer Schriftarten, Überprüfen des Status zuvor geladener Schriftarten etc.
+Der zurückgegebene Wert ist die [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle des Dokuments.
+Die `FontFaceSet`-Schnittstelle ist nützlich zum Laden neuer Schriftarten, Überprüfen des Status von zuvor geladenen Schriftarten usw.
 
 ## Beispiele
 
-### Durchführung einer Operation, nachdem die Schriftarten geladen sind
+### Ausführung nach dem Laden der Schriftarten
 
 ```js
 document.fonts.ready.then((fontFaceSet) => {
@@ -31,7 +32,7 @@ document.fonts.ready.then((fontFaceSet) => {
 });
 ```
 
-Das Versprechen wird erfüllt, wenn Lade- und Layout-Operationen aller verwendeten Schriftarten abgeschlossen sind. Der Satz der verwendeten Schriftarten kann sich von dem der _deklarierten_ Schriftarten unterscheiden, z.B. wenn optionale Schriftarten (d.h. Schriftarten, die über `font-display: optional` deklariert sind) nicht rechtzeitig geladen werden konnten.
+Das Versprechen wird erfüllt, wenn die Lade- und Layout-Operationen aller verwendeten Schriftarten abgeschlossen sind. Die Menge der verwendeten Schriftarten kann von der Menge der _deklarierten_ Schriftarten abweichen, z.B. wenn optionale Schriftarten (d.h. Schriftarten, die über `font-display: optional` deklariert sind) nicht rechtzeitig geladen werden konnten.
 
 ## Spezifikationen
 
@@ -43,5 +44,5 @@ Das Versprechen wird erfüllt, wenn Lade- und Layout-Operationen aller verwendet
 
 ## Siehe auch
 
-- [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle
-- [`FontFace`](/de/docs/Web/API/FontFace)
+- [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Schnittstelle
+- [`FontFace`](/de/docs/Web/API/FontFace) Schnittstelle

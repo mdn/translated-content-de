@@ -2,34 +2,34 @@
 title: NavigationDestination
 slug: Web/API/NavigationDestination
 l10n:
-  sourceCommit: 7c44de6d40778dbfb6eeb1163d7d850e911cd706
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`NavigationDestination`**-Schnittstelle der [Navigation API](/de/docs/Web/API/Navigation_API) repräsentiert das Ziel, zu dem in der aktuellen Navigation navigiert wird.
+Das **`NavigationDestination`**-Interface der [Navigation API](/de/docs/Web/API/Navigation_API) repräsentiert das Ziel, zu dem in der aktuellen Navigation navigiert wird.
 
-Sie wird über die [`NavigateEvent.destination`](/de/docs/Web/API/NavigateEvent/destination)-Eigenschaft aufgerufen.
+Es wird über die [`NavigateEvent.destination`](/de/docs/Web/API/NavigateEvent/destination)-Eigenschaft aufgerufen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`id`](/de/docs/Web/API/NavigationDestination/id) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den [`id`](/de/docs/Web/API/NavigationHistoryEntry/id)-Wert des Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder sonst ein leerer String.
+  - : Gibt den [`id`](/de/docs/Web/API/NavigationHistoryEntry/id)-Wert des Ziel-`NavigationHistoryEntry` zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder einen leeren String anderweitig.
 - [`index`](/de/docs/Web/API/NavigationDestination/index) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den [`index`](/de/docs/Web/API/NavigationHistoryEntry/index)-Wert des Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder `-1` sonst.
+  - : Gibt den [`index`](/de/docs/Web/API/NavigationHistoryEntry/index)-Wert des Ziel-`NavigationHistoryEntry` zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder `-1` anderweitig.
 - [`key`](/de/docs/Web/API/NavigationDestination/key) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den [`key`](/de/docs/Web/API/NavigationHistoryEntry/key)-Wert des Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder sonst ein leerer String.
+  - : Gibt den [`key`](/de/docs/Web/API/NavigationHistoryEntry/key)-Wert des Ziel-`NavigationHistoryEntry` zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder einen leeren String anderweitig.
 - [`sameDocument`](/de/docs/Web/API/NavigationDestination/sameDocument) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt `true` zurück, wenn die Navigation zum selben `document` wie der aktuelle [`Document`](/de/docs/Web/API/Document)-Wert erfolgt, oder `false` sonst.
+  - : Gibt `true` zurück, wenn die Navigation zum gleichen `Document` wie das aktuelle [`Document`](/de/docs/Web/API/Document) erfolgt, oder `false` anderweitig.
 - [`url`](/de/docs/Web/API/NavigationDestination/url) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt die URL zurück, zu der navigiert wird.
 
 ## Instanz-Methoden
 
 - [`getState()`](/de/docs/Web/API/NavigationDestination/getState) {{Experimental_Inline}}
-  - : Gibt einen Klon des verfügbaren Zustands zurück, der mit dem Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) oder dem Navigationsvorgang (z.B. [`navigate()`](/de/docs/Web/API/Navigation/navigate)) verknüpft ist.
+  - : Gibt eine Kopie des verfügbaren Zustands zurück, der dem Ziel-`NavigationHistoryEntry` zugeordnet ist, oder, soweit angemessen, der Navigationsoperation (z.B. [`navigate()`](/de/docs/Web/API/Navigation/navigate)).
 
 ## Beispiele
 
@@ -71,6 +71,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Modern client-side routing: the Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API explainer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API live demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

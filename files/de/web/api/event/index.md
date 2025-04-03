@@ -2,29 +2,29 @@
 title: Event
 slug: Web/API/Event
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Das **`Event`** Interface repräsentiert ein Ereignis, das auf einem [`EventTarget`](/de/docs/Web/API/EventTarget) stattfindet.
+Die **`Event`**-Schnittstelle repräsentiert ein Ereignis, das auf einem [`EventTarget`](/de/docs/Web/API/EventTarget) stattfindet.
 
-Ein Ereignis kann durch eine Benutzeraktion ausgelöst werden, z. B. durch Klicken der Maustaste oder Drücken einer Taste auf der Tastatur, oder durch APIs generiert werden, um den Fortschritt einer asynchronen Aufgabe darzustellen. Es kann auch programmatisch ausgelöst werden, etwa indem die Methode [`HTMLElement.click()`](/de/docs/Web/API/HTMLElement/click) eines Elements aufgerufen oder das Ereignis definiert und dann an ein bestimmtes Ziel gesendet wird, indem [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) verwendet wird.
+Ein Ereignis kann durch Benutzeraktionen ausgelöst werden, z. B. durch Klicken der Maustaste oder Drücken einer Taste auf der Tastatur, oder durch APIs generiert werden, um den Fortschritt einer asynchronen Aufgabe darzustellen. Es kann auch programmatisch ausgelöst werden, etwa durch Aufrufen der [`HTMLElement.click()`](/de/docs/Web/API/HTMLElement/click)-Methode eines Elements oder durch Definieren des Ereignisses und anschließendes Senden an ein bestimmtes Ziel mit [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent).
 
-Es gibt viele Arten von Ereignissen, einige von ihnen verwenden andere Schnittstellen, die auf der Hauptschnittstelle `Event` basieren. `Event` selbst enthält die Eigenschaften und Methoden, die allen Ereignissen gemeinsam sind.
+Es gibt viele Arten von Ereignissen, von denen einige andere Schnittstellen basierend auf der Hauptschnittstelle `Event` verwenden. `Event` selbst enthält die Eigenschaften und Methoden, die für alle Ereignisse üblich sind.
 
-Viele DOM-Elemente können eingerichtet werden, um diese Ereignisse zu akzeptieren (oder darauf zu "hören") und Code auszuführen, um sie zu verarbeiten (oder zu "handhaben"). Ereignis-Handler sind normalerweise mit verschiedenen [HTML-Elementen](/de/docs/Web/HTML/Element) (wie `<button>`, `<div>`, `<span>` usw.) verbunden (oder "angehängt") und ersetzen dabei im Allgemeinen die Verwendung der alten HTML [Event-Handler-Attribute](/de/docs/Web/HTML/Global_attributes). Darüber hinaus können solche Handler, wenn sie ordnungsgemäß hinzugefügt wurden, auch bei Bedarf mit [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) getrennt werden.
+Viele DOM-Elemente können so konfiguriert werden, dass sie diese Ereignisse akzeptieren (oder "lauschen") und Code ausführen, um sie zu verarbeiten (oder "behandeln"). Ereignis-Handler werden üblicherweise (oder "angebracht") an verschiedene [HTML-Elemente](/de/docs/Web/HTML/Element) (wie `<button>`, `<div>`, `<span>`, etc.) angeschlossen mittels [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), was in der Regel die Nutzung der alten HTML-[Ereignishandler-Attribute](/de/docs/Web/HTML/Global_attributes) ersetzt. Wenn sie richtig hinzugefügt wurden, können solche Handler bei Bedarf auch über [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) entfernt werden.
 
 > [!NOTE]
-> Ein Element kann mehrere solcher Handler haben, sogar für genau dasselbe Ereignis—insbesondere, wenn separate, unabhängige Code-Module sie anhängen, jeweils für ihre eigenen unabhängigen Zwecke. (Beispielsweise könnte eine Webseite sowohl ein Werbemodul als auch ein Statistikmodul haben, die beide das Ansehen von Videos überwachen.)
+> Ein Element kann mehrere solche Handler haben, sogar für dasselbe Ereignis—insbesondere, wenn separate, unabhängige Code-Module sie anbringen, jedes für seinen eigenen Zweck. (Zum Beispiel eine Webseite mit einem Werbemodul und einem Statistikmodul, die beide das Anschauen von Videos überwachen.)
 
-Wenn es viele verschachtelte Elemente gibt, von denen jedes seinen eigenen Handler hat, kann die Ereignisverarbeitung sehr kompliziert werden—insbesondere, wenn ein übergeordnetes Element dasselbe Ereignis wie seine untergeordneten Elemente empfängt, weil sie "räumlich" überlappen und das Ereignis technisch in beiden auftritt. Die Verarbeitungsreihenfolge solcher Ereignisse hängt von den Einstellungen der [Event bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) jedes ausgelösten Handlers ab.
+Wenn es viele verschachtelte Elemente gibt, die jeweils eigene Handler haben, kann die Ereignisverarbeitung sehr kompliziert werden—besonders wenn ein Elternelement dasselbe Ereignis erhält wie seine Kindelemente, weil sie "räumlich" überlappen und das Ereignis technisch in beiden auftritt. Die Reihenfolge der Verarbeitung solcher Ereignisse hängt von den [Event Bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling)-Einstellungen jedes ausgelösten Handlers ab.
 
-## Schnittstellen, die auf Event basieren
+## Schnittstellen basierend auf Event
 
-Unten finden Sie eine Liste von Schnittstellen, die auf der Hauptschnittstelle `Event` basieren, mit Links zu ihrer jeweiligen Dokumentation in der MDN API-Referenz.
+Unten befindet sich eine Liste von Schnittstellen, die auf der Hauptschnittstelle `Event` basieren, mit Links zu deren jeweiliger Dokumentation im MDN API-Referenz.
 
-Beachten Sie, dass alle Ereignis-Schnittstellen Namen haben, die mit "Event" enden.
+Beachten Sie, dass alle Ereignisschnittstellen Namen haben, die mit "Event" enden.
 
 - [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
 - [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent) {{Deprecated_Inline}}
@@ -79,40 +79,40 @@ Beachten Sie, dass alle Ereignis-Schnittstellen Namen haben, die mit "Event" end
 ## Instanz-Eigenschaften
 
 - [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, ob das Ereignis durch den DOM nach oben "bubbelt".
+  - : Ein boolescher Wert, der angibt, ob das Ereignis durch das DOM aufsteigt.
 - [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) {{ReadOnlyInline}}
   - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann.
 - [`Event.composed`](/de/docs/Web/API/Event/composed) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der anzeigt, ob das Ereignis über die Grenze zwischen dem Schatten-DOM und dem regulären DOM "bubbeln" kann.
+  - : Ein boolescher Wert, der anzeigt, ob das Ereignis die Grenze zwischen dem Shadow DOM und dem regulären DOM überschreiten kann.
 - [`Event.currentTarget`](/de/docs/Web/API/Event/currentTarget) {{ReadOnlyInline}}
-  - : Ein Verweis auf das derzeit registrierte Ziel des Ereignisses. Dies ist das Objekt, an das das Ereignis derzeit gesendet werden soll. Möglicherweise wurde dies durch _Retargeting_ geändert.
+  - : Eine Referenz auf das aktuell registrierte Ziel des Ereignisses. Dies ist das Objekt, an das das Ereignis derzeit gesendet werden soll. Es ist möglich, dass dies während des _Retargeting_ geändert wurde.
 - [`Event.defaultPrevented`](/de/docs/Web/API/Event/defaultPrevented) {{ReadOnlyInline}}
   - : Gibt an, ob der Aufruf von [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) das Ereignis abgebrochen hat.
 - [`Event.eventPhase`](/de/docs/Web/API/Event/eventPhase) {{ReadOnlyInline}}
-  - : Gibt an, welche Phase des Ereignisflusses gerade verarbeitet wird. Es ist eine der folgenden Zahlen: `NONE`, `CAPTURING_PHASE`, `AT_TARGET`, `BUBBLING_PHASE`.
+  - : Gibt an, welche Phase des Ereignisflusses verarbeitet wird. Es ist eine der folgenden Nummern: `NONE`, `CAPTURING_PHASE`, `AT_TARGET`, `BUBBLING_PHASE`.
 - [`Event.isTrusted`](/de/docs/Web/API/Event/isTrusted) {{ReadOnlyInline}}
-  - : Gibt an, ob das Ereignis vom Browser initiiert wurde (nach einem Benutzer-Klick, zum Beispiel) oder durch ein Skript (mithilfe einer Methode zur Ereigniserstellung, zum Beispiel).
+  - : Gibt an, ob das Ereignis vom Browser initiiert wurde (zum Beispiel nach einem Benutzerklick) oder von einem Skript (zum Beispiel durch eine Ereigniserstellungsmethode).
 - [`Event.srcElement`](/de/docs/Web/API/Event/srcElement) {{ReadOnlyInline}} {{Deprecated_Inline}}
   - : Ein Alias für die Eigenschaft [`Event.target`](/de/docs/Web/API/Event/target). Verwenden Sie stattdessen [`Event.target`](/de/docs/Web/API/Event/target).
 - [`Event.target`](/de/docs/Web/API/Event/target) {{ReadOnlyInline}}
-  - : Ein Verweis auf das Objekt, an das das Ereignis ursprünglich gesendet wurde.
+  - : Eine Referenz auf das Objekt, an das das Ereignis ursprünglich gesendet wurde.
 - [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp) {{ReadOnlyInline}}
-  - : Der Zeitpunkt, zu dem das Ereignis erstellt wurde (in Millisekunden). Der Spezifikation nach ist dieser Wert die Zeit seit dem Beginn der Epoche—aber in Wirklichkeit variieren die Definitionen der Browser. Außerdem wird daran gearbeitet, dies stattdessen in einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) umzuwandeln.
+  - : Der Zeitpunkt, zu dem das Ereignis erzeugt wurde (in Millisekunden). Laut Spezifikation ist dieser Wert die Zeit seit dem Epochenbeginn – in der Realität variiert die Definition zwischen den Browsern. Darüber hinaus wird daran gearbeitet, dies stattdessen zu einem [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zu ändern.
 - [`Event.type`](/de/docs/Web/API/Event/type) {{ReadOnlyInline}}
   - : Der Name, der den Typ des Ereignisses identifiziert.
 
 ### Veraltete und nicht standardisierte Eigenschaften
 
 - [`Event.cancelBubble`](/de/docs/Web/API/Event/cancelBubble) {{deprecated_inline}}
-  - : Ein historischer Alias zu [`Event.stopPropagation()`](/de/docs/Web/API/Event/stopPropagation), der stattdessen verwendet werden sollte. Wenn sein Wert vor der Rückgabe eines Ereignis-Handlers auf `true` gesetzt wird, wird die Ausbreitung des Ereignisses verhindert.
+  - : Ein historischer Alias für [`Event.stopPropagation()`](/de/docs/Web/API/Event/stopPropagation), der stattdessen verwendet werden sollte. Wenn sein Wert auf `true` gesetzt wird, bevor er von einem Ereignishandler zurückgegeben wird, verhindert dies die Ausbreitung des Ereignisses.
 - [`Event.explicitOriginalTarget`](/de/docs/Web/API/Event/explicitOriginalTarget) {{non-standard_inline}} {{ReadOnlyInline}}
-  - : Das explizite ursprüngliche Ziel des Ereignisses.
+  - : Das explizit originale Ziel des Ereignisses.
 - [`Event.originalTarget`](/de/docs/Web/API/Event/originalTarget) {{non-standard_inline}} {{ReadOnlyInline}}
-  - : Das ursprüngliche Ziel des Ereignisses, bevor jegliche Retargetings erfolgt sind.
+  - : Das originale Ziel des Ereignisses, bevor es umgeleitet wurde.
 - [`Event.returnValue`](/de/docs/Web/API/Event/returnValue) {{deprecated_inline}}
-  - : Eine historische Eigenschaft, die noch unterstützt wird, um sicherzustellen, dass bestehende Websites weiterhin funktionieren. Verwenden Sie [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) und [`Event.defaultPrevented`](/de/docs/Web/API/Event/defaultPrevented) stattdessen.
+  - : Eine historische Eigenschaft, die immer noch unterstützt wird, um sicherzustellen, dass bestehende Websites weiterhin funktionieren. Verwenden Sie stattdessen [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) und [`Event.defaultPrevented`](/de/docs/Web/API/Event/defaultPrevented).
 - [`Event.scoped`](/de/docs/Web/API/Event/composed) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Ein boolescher Wert, der angibt, ob das gegebene Ereignis über die Schattenwurzel in das Standard-DOM "bubbelt". Verwenden Sie stattdessen [`composed`](/de/docs/Web/API/Event/composed).
+  - : Ein boolescher Wert, der angibt, ob das gegebene Ereignis durch die Schattenwurzel in das Standard-DOM aufsteigen wird. Verwenden Sie stattdessen [`composed`](/de/docs/Web/API/Event/composed).
 
 ## Instanz-Methoden
 
@@ -121,14 +121,14 @@ Beachten Sie, dass alle Ereignis-Schnittstellen Namen haben, die mit "Event" end
 - [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault)
   - : Bricht das Ereignis ab (wenn es abbrechbar ist).
 - [`Event.stopImmediatePropagation()`](/de/docs/Web/API/Event/stopImmediatePropagation)
-  - : Verhindert für dieses bestimmte Ereignis, dass alle anderen Listener aufgerufen werden. Dies gilt sowohl für Listener, die am selben Element angebracht sind, als auch für solche, die an Elementen angebracht sind, die später durchlaufen werden (zum Beispiel während der Erfassungsphase).
+  - : Verhindert für dieses spezielle Ereignis das Aufrufen aller anderen Listener. Dies schließt sowohl Listener ein, die dem gleichen Element wie auch solche, die in später zu durchlaufenden (während der Erfassungsphase, zum Beispiel) Elementen angefügt sind.
 - [`Event.stopPropagation()`](/de/docs/Web/API/Event/stopPropagation)
-  - : Stoppt die Ausbreitung von Ereignissen weiter im DOM.
+  - : Stoppt die Ausbreitung von Ereignissen weiter entlang im DOM.
 
 ### Veraltete Methoden
 
 - [`Event.initEvent()`](/de/docs/Web/API/Event/initEvent) {{deprecated_inline}}
-  - : Initialisiert den Wert eines erstellten Events. Wenn das Event bereits gesendet wurde, macht diese Methode nichts. Verwenden Sie stattdessen den Konstruktor ([`Event()`](/de/docs/Web/API/Event/Event)).
+  - : Initialisiert den Wert eines erstellten Ereignisses. Wenn das Ereignis bereits versendet wurde, macht diese Methode nichts. Verwenden Sie stattdessen den Konstruktor ([`Event()`](/de/docs/Web/API/Event/Event)).
 
 ## Spezifikationen
 
@@ -140,7 +140,7 @@ Beachten Sie, dass alle Ereignis-Schnittstellen Namen haben, die mit "Event" end
 
 ## Siehe auch
 
-- Verfügbare Ereignistypen: [Ereignis-Referenz](/de/docs/Web/Events)
-- [Lernen: Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events)
-- [Lernen: Event bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling)
+- Verfügbare Ereignistypen: [Ereignisreferenz](/de/docs/Web/Events)
+- [Lernen: Einführung zu Ereignissen](/de/docs/Learn_web_development/Core/Scripting/Events)
+- [Lernen: Event Bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling)
 - [Erstellen und Auslösen benutzerdefinierter Ereignisse](/de/docs/Web/Events/Creating_and_triggering_events)

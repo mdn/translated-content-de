@@ -2,10 +2,10 @@
 title: orient
 slug: Web/SVG/Reference/Attribute/orient
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Das **`orient`**-Attribut gibt an, wie ein Marker gedreht wird, wenn er an seiner Position auf der Form platziert wird.
+Das Attribut **`orient`** gibt an, wie ein Marker gedreht wird, wenn er auf seiner Position auf der Form platziert wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -66,7 +66,7 @@ svg {
 
 {{EmbedLiveSample("Example", "220", "220")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -83,7 +83,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja (nicht-additiv)</td>
+      <td>Ja (nicht additiv)</td>
     </tr>
   </tbody>
 </table>
@@ -92,20 +92,20 @@ svg {
   - : Dieser Wert gibt an, dass der Marker so ausgerichtet ist, dass seine positive x-Achse in eine Richtung relativ zum Pfad zeigt, an dem der Marker platziert wird.
 - `auto-start-reverse`
 
-  - : Wenn durch {{SVGAttr("marker-start")}} platziert, wird der Marker 180° anders ausgerichtet als die Ausrichtung, die verwendet würde, wenn `auto` angegeben wäre. Für alle anderen Marker bedeutet `auto-start-reverse` dasselbe wie `auto`.
+  - : Wenn er durch {{SVGAttr("marker-start")}} platziert wird, ist der Marker um 180° anders ausgerichtet als die Orientierung, die verwendet würde, wenn `auto` angegeben wäre. Für alle anderen Marker bedeutet `auto-start-reverse` dasselbe wie `auto`.
 
     > [!NOTE]
-    > Dies ermöglicht es, einen einzelnen Pfeilspitzen-Marker zu definieren, der sowohl für den Anfang als auch das Ende eines Pfads verwendet werden kann, d.h. der von beiden Enden nach außen zeigt.
+    > Dies ermöglicht es, einen einzelnen Pfeilkopfmarker zu definieren, der sowohl für den Anfang als auch das Ende eines Pfades verwendet werden kann, d.h. der nach außen von beiden Enden zeigt.
 
 - `<angle>`
 
-  - : Dieser Wert gibt an, dass der Marker so ausgerichtet ist, dass der angegebene Winkel zwischen der positiven x-Achse der Form und der positiven x-Achse des Markers liegt.
+  - : Dieser Wert gibt an, dass der Marker so ausgerichtet ist, dass der angegebene Winkel der ist, der zwischen der positiven x-Achse der Form und der positiven x-Achse des Markers gemessen wird.
 
     > [!NOTE]
-    > Zum Beispiel, wenn ein Wert von `45` angegeben wird, würde die positive x-Achse des Markers im Koordinatensystem der Form nach unten und rechts zeigen.
+    > Wenn beispielsweise ein Wert von `45` angegeben wird, würde die positive x-Achse des Markers nach unten rechts im Koordinatensystem der Form zeigen.
 
 - `<number>`
-  - : Dieser Wert gibt einen Winkel in Grad an. Der Marker wird so ausgerichtet, dass der angegebene Winkel zwischen der positiven x-Achse der Form und der positiven x-Achse des Markers liegt.
+  - : Dieser Wert gibt einen Winkel in Grad an. Der Marker ist so ausgerichtet, dass der angegebene Winkel der ist, der zwischen der positiven x-Achse der Form und der positiven x-Achse des Markers gemessen wird.
 
 ## Spezifikationen
 

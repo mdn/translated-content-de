@@ -2,12 +2,12 @@
 title: perspective
 slug: Web/CSS/perspective
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{CSSRef}}
 
-Die **`perspective`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt den Abstand zwischen der z=0-Ebene und dem Benutzer, um einem 3D-positionierten Element eine Perspektive zu geben.
+Die **`perspective`**-Eigenschaft von [CSS](/de/docs/Web/CSS) bestimmt die Entfernung zwischen der z=0-Ebene und dem Benutzer, um einem 3D-positionierten Element eine Perspektive zu geben.
 
 {{InteractiveExample("CSS Demo: perspective")}}
 
@@ -124,15 +124,13 @@ perspective: unset;
 
 ## Beschreibung
 
-Jedes 3D-Element mit z>0 wird größer; jedes 3D-Element mit z<0 wird kleiner. Die Stärke des Effekts wird durch den Wert dieser Eigenschaft bestimmt.
-Große Werte von `perspective` verursachen eine kleine Transformation;
-kleine Werte von `perspective` verursachen eine große Transformation.
+Jedes 3D-Element mit z>0 wird größer; jedes 3D-Element mit z<0 wird kleiner. Die Stärke des Effekts wird durch den Wert dieser Eigenschaft bestimmt. Große Werte von `perspective` führen zu einer kleinen Transformation; kleine Werte von `perspective` führen zu einer großen Transformation.
 
-Die Teile der 3D-Elemente, die sich hinter dem Benutzer befinden – das heißt, deren z-Achsenkoordinaten größer sind als der Wert der `perspective` CSS-Eigenschaft – werden nicht gezeichnet.
+Die Teile der 3D-Elemente, die sich hinter dem Benutzer befinden — d.h. ihre z-Achsen-Koordinaten sind größer als der Wert der `perspective`-CSS-Eigenschaft — werden nicht gezeichnet.
 
-Der _Fluchtpunkt_ befindet sich standardmäßig in der Mitte des Elements, seine Position kann jedoch mit der {{cssxref("perspective-origin")}}-Eigenschaft geändert werden.
+Der _Fluchtpunkt_ ist standardmäßig in der Mitte des Elements platziert, aber seine Position kann mit der {{cssxref("perspective-origin")}}-Eigenschaft geändert werden.
 
-Die Verwendung dieser Eigenschaft mit einem anderen Wert als `none` erstellt einen neuen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context). In diesem Fall wird das Objekt auch als enthaltender Block für `position: fixed`-Elemente fungieren, die es enthält.
+Die Verwendung dieser Eigenschaft mit einem anderen Wert als `none` erzeugt einen neuen [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context). In diesem Fall fungiert das Objekt auch als umschließender Block für `position: fixed` Elemente, die es enthält.
 
 ## Formale Definition
 
@@ -146,7 +144,7 @@ Die Verwendung dieser Eigenschaft mit einem anderen Wert als `none` erstellt ein
 
 ### Perspektive einstellen
 
-Ein Beispiel, das zeigt, wie ein Würfel variiert, wenn die `perspective` an verschiedenen Positionen eingestellt wird, finden Sie unter [Verwenden von CSS-Transformationen > Perspektive einstellen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#setting_perspective).
+Ein Beispiel, das zeigt, wie sich ein Würfel verändert, wenn die `perspective` an verschiedenen Positionen eingestellt wird, finden Sie unter [Verwendung von CSS-Transformationen > Perspektive einstellen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#setting_perspective).
 
 ## Spezifikationen
 
@@ -158,4 +156,4 @@ Ein Beispiel, das zeigt, wie ein Würfel variiert, wenn die `perspective` an ver
 
 ## Siehe auch
 
-- [Verwenden von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
+- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)

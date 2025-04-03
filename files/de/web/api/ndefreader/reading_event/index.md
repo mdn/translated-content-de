@@ -3,12 +3,12 @@ title: "NDEFReader: reading-Ereignis"
 short-title: reading
 slug: Web/API/NDEFReader/reading_event
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Das `reading`-Ereignis der [`NDEFReader`](/de/docs/Web/API/NDEFReader)-Schnittstelle wird ausgelöst, wenn immer eine neue Lesung von kompatiblen NFC-Geräten (z. B. NFC-Tags, die NDEF unterstützen) verfügbar ist, wenn sich diese Geräte im magnetischen Induktionsfeld des Lesegeräts befinden.
+Das `reading`-Ereignis der [`NDEFReader`](/de/docs/Web/API/NDEFReader)-Schnittstelle wird ausgelöst, wann immer eine neue Lesung von kompatiblen NFC-Geräten (z. B. NFC-Tags, die NDEF unterstützen) verfügbar ist, wenn diese Geräte sich im magnetischen Induktionsfeld des Lesers befinden.
 
 ## Syntax
 

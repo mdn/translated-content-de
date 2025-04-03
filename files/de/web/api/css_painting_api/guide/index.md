@@ -1,30 +1,30 @@
 ---
-title: Verwendung der CSS-Painting-API
+title: Verwendung der CSS Painting API
 slug: Web/API/CSS_Painting_API/Guide
 l10n:
-  sourceCommit: f731452fabde211bee55aedd39fc83d60c4e4918
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{DefaultAPISidebar("CSS Painting API")}}
 
-Die [CSS Paint API](/de/docs/Web/API/CSS_Painting_API) ermöglicht es Entwicklern, programmatisch Bilder zu definieren, die überall verwendet werden können, wo ein CSS-Bild verwendet werden kann, wie z.B. in CSS {{cssxref("background-image")}}, {{cssxref("border-image")}}, {{cssxref("mask-image")}} usw.
+Die [CSS Paint API](/de/docs/Web/API/CSS_Painting_API) ist dazu gedacht, Entwicklern die Möglichkeit zu geben, programmatisch definierte Bilder zu erstellen, die überall dort verwendet werden können, wo ein CSS-Bild aufgerufen werden kann, wie z.B. CSS {{cssxref("background-image")}}, {{cssxref("border-image")}}, {{cssxref("mask-image")}} usw.
 
 Um ein Bild programmatisch zu erstellen, das von einem CSS-Stylesheet verwendet wird, müssen wir einige Schritte durchlaufen:
 
-1. Definieren Sie ein paint worklet mit der [`registerPaint()`](/de/docs/Web/API/PaintWorkletGlobalScope/registerPaint)-Funktion.
-2. Registrieren Sie das worklet.
-3. Integrieren Sie die {{cssxref('image/paint', 'paint()')}} CSS-Funktion.
+1. Definieren Sie ein Paint-Worklet mit der Funktion [`registerPaint()`](/de/docs/Web/API/PaintWorkletGlobalScope/registerPaint).
+2. Registrieren Sie das Worklet.
+3. Fügen Sie die {{cssxref('image/paint', 'paint()')}} CSS-Funktion hinzu.
 
-Um diese Schritte zu veranschaulichen, erstellen wir zunächst einen halb-hervorgehobenen Hintergrund, wie in diesem Header:
+Um diese Schritte zu veranschaulichen, beginnen wir mit der Erstellung eines halb-hervorgehobenen Hintergrunds, wie auf diesem Header:
 
-![Text mit der Aufschrift "Mein cooler Header" mit einem soliden gelben Hintergrundbildblock auf den unteren zwei Dritteln des Headers](mycoolheader.png)
+![Text mit der Überschrift 'My Cool Header' mit einem soliden gelben Hintergrundblock unten links auf zwei Dritteln der Überschrift](mycoolheader.png)
 
 > [!NOTE]
-> Siehe [CSS-Painting-API-Beispiel](https://mdn.github.io/dom-examples/css-painting/) für eine vollständige funktionierende Demo sowie den [Quellcode](https://github.com/mdn/dom-examples/tree/main/css-painting).
+> Siehe [CSS Painting API Beispiel](https://mdn.github.io/dom-examples/css-painting/) für ein vollständiges funktionierendes Demo zusammen mit dem [Quellcode](https://github.com/mdn/dom-examples/tree/main/css-painting).
 
 ## CSS Paint Worklet
 
-In einer externen Skriptdatei verwenden wir die [`registerPaint()`](/de/docs/Web/API/PaintWorkletGlobalScope/registerPaint)-Funktion, um unserem [CSS Paint Worklet](/de/docs/Web/API/Worklet) einen Namen zu geben. Es nimmt zwei Parameter an. Der erste ist der Name, den wir dem worklet geben — dies ist der Name, den wir in unserem CSS als Parameter der `paint()`-Funktion verwenden, wenn wir dieses Styling auf ein Element anwenden möchten. Der zweite Parameter ist die Klasse, die alle Magie enthält, die Kontextoptionen definiert und was auf die zweidimensionale Leinwand gezeichnet werden soll, die unser Bild sein wird.
+In einer externen Skriptdatei verwenden wir die Funktion [`registerPaint()`](/de/docs/Web/API/PaintWorkletGlobalScope/registerPaint), um unser [CSS Paint Worklet](/de/docs/Web/API/Worklet) zu benennen. Es nimmt zwei Parameter entgegen. Der erste ist der Name, den wir dem Worklet geben — dies ist der Name, den wir in unserem CSS als Parameter der `paint()` Funktion verwenden werden, wenn wir dieses Styling auf ein Element anwenden möchten. Der zweite Parameter ist die Klasse, die die Magie ausführt, indem sie die Kontextoptionen definiert und festlegt, was auf die zweidimensionale Leinwand gezeichnet werden soll, die unser Bild darstellen wird.
 
 ```js
 registerPaint(
@@ -51,41 +51,41 @@ registerPaint(
 );
 ```
 
-In diesem Klassenbeispiel haben wir eine einzige Kontextoption mit der `contextOptions()`-Funktion definiert: Wir haben ein Objekt zurückgegeben, das angibt, dass Alpha-Transparenz erlaubt ist.
+In diesem Klassenbeispiel haben wir eine einzelne Kontextoption mit der `contextOptions()` Funktion definiert: Wir haben ein Objekt zurückgegeben, das angibt, dass Alphatransparenz erlaubt ist.
 
-Wir haben dann die `paint()`-Funktion verwendet, um auf unsere Leinwand zu malen.
+Wir haben dann die `paint()` Funktion verwendet, um auf unsere Leinwand zu zeichnen.
 
-Eine `paint()`-Funktion kann drei Argumente annehmen. Hier haben wir ein Argument bereitgestellt: den Rendering-Kontext (auf mehr werden wir zu gegebener Zeit eingehen), oft benannt mit der Variablen `ctx`. Der 2D-Rendering-Kontext ist ein Teil der [HTML Canvas API](/de/docs/Web/API/Canvas_API); die Houdini zur Verfügung stehende Version (genannt `PaintRenderingContext2D`) ist ein weiterer Teil, der die meisten der in der vollständigen Canvas API verfügbaren Funktionen mit der [Ausnahme](https://drafts.css-houdini.org/css-paint-api-1/#2d-rendering-context) der `CanvasImageData`, `CanvasUserInterface`, `CanvasText` und `CanvasTextDrawingStyles` APIs enthält.
+Eine `paint()` Funktion kann drei Argumente annehmen. Hier haben wir ein Argument bereitgestellt: den Rendering-Kontext (wir werden später darauf zurückkommen), der oft mit dem Variablennamen `ctx` bezeichnet wird. Der 2D Rendering Context ist ein Teil der [HTML Canvas API](/de/docs/Web/API/Canvas_API); die Houdini-Version (genannt `PaintRenderingContext2D`) ist ein weiterer Teil, der die meisten der in der vollständigen Canvas API verfügbaren Features mit der [Ausnahme](https://drafts.css-houdini.org/css-paint-api-1/#2d-rendering-context) der `CanvasImageData`, `CanvasUserInterface`, `CanvasText` und `CanvasTextDrawingStyles` APIs enthält.
 
-Wir definieren die [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) als `hsl(55 90% 60% / 100%)`, was ein Gelbton ist, und rufen dann `fillRect()` auf, um ein Rechteck dieser Farbe zu erstellen. Die Parameter von [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) sind in der Reihenfolge: Ursprung der x-Achse, Ursprung der y-Achse, Breite und Höhe. `fillRect(0, 15, 200, 20)` führt zur Erstellung eines Rechtecks, das 200 Einheiten breit und 20 Einheiten hoch ist, 0 Einheiten von links und 15 Einheiten von oben vom Inhaltsfeld entfernt.
+Wir definieren den [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) als `hsl(55 90% 60% / 100%)`, was ein Gelbton ist, und rufen dann `fillRect()` auf, um ein Rechteck dieser Farbe zu erstellen. Die Parameter von [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) sind in der Reihenfolge: x-Achse-Ursprung, y-Achse-Ursprung, Breite und Höhe. `fillRect(0, 15, 200, 20)` führt zur Erstellung eines Rechtecks, das 200 Einheiten breit und 20 Einheiten hoch ist, positioniert 0 Einheiten vom linken Rand und 15 Einheiten vom oberen Rand der Inhaltsbox.
 
-Wir können die CSS-Eigenschaften {{cssxref("background-size")}} und {{cssxref("background-position")}} verwenden, um dieses Hintergrundbild zu vergrößern oder zu verschieben, aber dies ist die Standardgröße und Platzierung des gelben Kastens, den wir in unserem Paint Worklet erstellt haben.
+Wir können die CSS-Eigenschaften {{cssxref("background-size")}} und {{cssxref("background-position")}} verwenden, um dieses Hintergrundbild zu skalieren oder neu zu positionieren, aber dies ist die Standardgröße und -platzierung des gelben Kastens, den wir in unserem Paint-Worklet erstellt haben.
 
-Wir haben versucht, das Beispiel einfach zu halten. Für weitere Optionen sehen Sie sich die {{HTMLElement("canvas")}}-Dokumentation an. Wir fügen später in diesem Tutorial noch ein wenig Komplexität hinzu.
+Wir haben versucht, das Beispiel einfach zu halten. Für mehr Optionen schauen Sie sich die {{HTMLElement("canvas")}} Dokumentation an. Wir fügen später in diesem Tutorial ein wenig Komplexität hinzu.
 
 ## Registrierung des Worklets
 
-Um das Paint Worklet zu verwenden, müssen wir es mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) registrieren und in unser CSS einfügen, wobei wir sicherstellen müssen, dass der CSS-Selektor einem DOM-Knoten in unserem HTML entspricht.
+Um das Paint-Worklet nutzen zu können, müssen wir es mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) registrieren und es in unser CSS einfügen, wobei sichergestellt wird, dass der CSS-Selektor mit einem DOM-Knoten in unserem HTML übereinstimmt.
 
-Die Einrichtung und Gestaltung unseres Paint Worklets fand im oben gezeigten externen Skript statt. Wir müssen dieses [`worklet`](/de/docs/Web/API/Worklet) von unserem Hauptskript registrieren.
+Der Aufbau und das Design unseres Paint-Worklets fanden im oben gezeigten externen Skript statt. Wir müssen dieses [`worklet`](/de/docs/Web/API/Worklet) aus unserem Hauptskript registrieren.
 
 ```js
 CSS.paintWorklet.addModule("nameOfPaintWorkletFile.js");
 ```
 
-Dies kann mit der `addModule()`-Methode des Paint Worklets in einem `<script>` innerhalb des Haupt-HTML oder in einer von dem Dokument verlinkten externen JavaScript-Datei geschehen.
+Dies kann mit der `addModule()` Methode des Paint-Worklets in einem `<script>` innerhalb des Haupt-HTML oder in einer externen JavaScript-Datei, die mit dem Dokument verknüpft ist, erfolgen.
 
-## Verwendung des Paint Worklets
+## Verwendung des Paint-Worklets
 
-In unserem Beispiel wird das Paint Worklet zusammen mit der Hauptskriptdatei gespeichert. Um es zu verwenden, registrieren wir es zuerst:
+In unserem Beispiel ist das Paint-Worklet neben der Hauptskriptdatei gespeichert. Um es zu nutzen, registrieren wir es zuerst:
 
 ```js
 CSS.paintWorklet.addModule("header-highlight.js");
 ```
 
-### Referenzieren des Paint Worklets in CSS
+### Das Paint-Worklet in CSS referenzieren
 
-Sobald wir ein registriertes Paint Worklet haben, können wir es in CSS verwenden. Verwenden Sie die CSS `paint()`-Funktion, wie wir es mit jedem anderen `<image>`-Typ tun würden, mit dem gleichen Zeichenkettenbezeichner, den wir in der `registerPaint()`-Funktion des Paint Worklets verwendet haben.
+Sobald wir ein registriertes Paint-Worklet haben, können wir es in CSS verwenden. Verwenden Sie die CSS `paint()` Funktion wie bei jedem anderen `<image>`-Typ, wobei Sie denselben String-Identifier verwenden, den wir in der `registerPaint()` Funktion des Paint-Worklets verwendet haben.
 
 ```css
 .fancy {
@@ -93,31 +93,31 @@ Sobald wir ein registriertes Paint Worklet haben, können wir es in CSS verwende
 }
 ```
 
-### Alles zusammenfügen
+### Zusammensetzen
 
-Wir können dann die fancy-Klasse zu jedem Element auf der Seite hinzufügen, um einen gelben Kasten als Hintergrund hinzuzufügen:
+Wir können dann die schicke Klasse zu jedem Element auf der Seite hinzufügen, um einen gelben Kasten als Hintergrund hinzuzufügen:
 
 ```html
 <h1 class="fancy">My Cool Header</h1>
 ```
 
-Das folgende Beispiel wird in [Browsern, die die CSS-Painting-API unterstützen](/de/docs/Web/API/CSS/paintWorklet_static#browser_compatibility), wie das obige Bild aussehen.
+Das folgende Beispiel wird in den [Browsern, die die CSS Painting API unterstützen](/de/docs/Web/API/CSS/paintWorklet_static#browser_compatibility), so aussehen wie das Bild oben.
 
 {{EmbedGHLiveSample("dom-examples/css-painting/half-highlight-fixed-size/", 120, 120)}}
 
-Obwohl Sie das Skript des Worklets nicht ändern können, können Sie die `background-size` und `background-position` verändern, um die Größe und Position des Hintergrundbildes zu ändern.
+Während Sie nicht mit dem Skript des Worklets spielen können, können Sie `background-size` und `background-position` ändern, um die Größe und Position des Hintergrundbildes zu ändern.
 
 ## PaintSize
 
-Im obigen Beispiel haben wir einen 20x200 Einheiten großen Kasten erstellt, der 15 Einheiten vom oberen Rand des Elements gemalt wurde; es bleibt gleich unabhängig von der Größe des Elements. Wenn der Text klein ist, sieht der gelbe Kasten wie eine riesige Unterstreichung aus. Wenn der Text riesig ist, könnte der Kasten wie eine Leiste über den ersten drei Buchstaben aussehen. Es wäre besser, wenn das Hintergrundbild relativ zur Größe des Elements wäre — wir können die `paintSize`-Eigenschaft des Elements verwenden, um sicherzustellen, dass das Hintergrundbild proportional zur Größe des Boxmodells des Elements ist.
+Im obigen Beispiel haben wir einen 20x200 Einheiten großen Kasten erstellt, der 15 Einheiten vom oberen Rand des Elements gemalt ist, unabhängig von der Größe des Elements. Wenn der Text klein ist, sieht der gelbe Kasten wie ein großer Unterstrich aus. Wenn der Text groß ist, könnte der Kasten wie ein Balken über den ersten drei Buchstaben aussehen. Es wäre besser, wenn das Hintergrundbild relativ zur Größe des Elements wäre — wir können die `paintSize`-Eigenschaft des Elements verwenden, um sicherzustellen, dass das Hintergrundbild proportional zur Größe des Boxmodells des Elements ist.
 
 ![Der Hintergrund ist 50% der Höhe und 60% der Breite des Elements](mycoolheadersized.png)
 
-Im obigen Bild ist der Hintergrund proportional zur Größe des Elements. Das 3. Beispiel hat `width: 50%`; auf dem Blocklevel-Element gesetzt, wodurch das Element schmaler und damit das Hintergrundbild schmaler wird.
+Im obigen Bild ist der Hintergrund proportional zur Größe des Elements. Im 3. Beispiel hat das Blockelement die Einstellung `width: 50%`, wodurch das Element schmaler wird und somit das Hintergrundbild schmaler ist.
 
-### Das Paint Worklet
+### Das Paint-Worklet
 
-Der Code hierfür sieht folgendermaßen aus:
+Der Code dafür sieht folgendermaßen aus:
 
 ```js
 registerPaint(
@@ -139,16 +139,16 @@ registerPaint(
 );
 ```
 
-Dieses Codebeispiel unterscheidet sich in zwei Punkten von unserem ersten Beispiel:
+Dieses Codebeispiel hat zwei Unterschiede zu unserem ersten Beispiel:
 
-1. Wir haben ein zweites Argument eingeschlossen, welches die Paint Size ist.
-2. Wir haben die Dimensionen und Positionierung unseres Rechtecks geändert, um relativ zur Größe des Elementboxmodells statt absolute Werte zu sein.
+1. Wir haben ein zweites Argument hinzugefügt, das die Paint-Größe ist.
+2. Wir haben die Abmessungen und die Positionierung unseres Rechtecks geändert, um relativ zur Größe des Elementboxmodells zu sein, anstatt absolute Werte zu nutzen.
 
-Wir können das zweite Parameter an die `paint()`-Funktion übergeben, um Zugriff auf die Breite und Höhe des Elements über `.width` und `.height`-Eigenschaften zu erhalten.
+Wir können den zweiten Parameter in die `paint()`-Funktion übergeben, um Zugang zu der Breite und der Höhe des Elements über die Eigenschaften `.width` und `.height` zu erhalten.
 
-Unser Header hat jetzt ein Highlight, das sich je nach seiner Größe ändert.
+Unser Header hat jetzt ein Highlight, das sich je nach Größe ändert.
 
-### Verwendung des Paint Worklets
+### Verwendung des Paint-Worklets
 
 #### HTML
 
@@ -160,7 +160,7 @@ Unser Header hat jetzt ein Highlight, das sich je nach seiner Größe ändert.
 
 #### CSS
 
-Während Sie das Skript des Worklets nicht ändern können, können Sie die `font-size` und `width` des Elements ändern, um die Größe des Hintergrundbilds zu ändern.
+Während Sie nicht mit dem Skript des Worklets spielen können, können Sie die `font-size` und `width` des Elements ändern, um die Größe des Hintergrundbildes zu ändern.
 
 ```css
 .fancy {
@@ -179,13 +179,13 @@ CSS.paintWorklet.addModule("header-highlight.js");
 
 #### Ergebnis
 
-In [Browsern, die die CSS Paint API unterstützen](/de/docs/Web/API/CSS/paintWorklet_static#browser_compatibility), sollten die Elemente im Beispiel unten gelbe Hintergründe proportional zu ihrer Schriftgröße bekommen.
+In [Browsern, die die CSS Paint API unterstützen](/de/docs/Web/API/CSS/paintWorklet_static#browser_compatibility), sollten die Elemente im folgenden Beispiel gelbe Hintergründe proportional zu ihrer Schriftgröße erhalten.
 
 {{EmbedGHLiveSample("dom-examples/css-painting/half-highlight-paintsize", 200, 200)}}
 
 ## Benutzerdefinierte Eigenschaften
 
-Zusätzlich zum Zugriff auf die Größe des Elements kann das Worklet auch Zugriff auf CSS-Benutzereigenschaften und reguläre CSS-Eigenschaften haben.
+Zusätzlich zum Zugriff auf die Größe des Elements kann das Worklet auch Zugriff auf benutzerdefinierte CSS-Eigenschaften und reguläre CSS-Eigenschaften haben.
 
 ```js
 registerPaint(
@@ -208,17 +208,17 @@ registerPaint(
 );
 ```
 
-Die drei Parameter der `paint()`-Funktion umfassen den Zeichnungskontext, die Paint Size und die Eigenschaften. Um auf Eigenschaften zugreifen zu können, fügen wir die statische `inputProperties()`-Methode hinzu, die einen Live-Zugriff auf CSS-Eigenschaften, einschließlich regulärer Eigenschaften und [Benutzereigenschaften](/de/docs/Web/CSS/CSS_cascading_variables), bietet und ein {{jsxref("Array", "array", "", 1)}} von Eigenschaftsnamen zurückgibt. Wir werden uns [`inputArguments`](#übergabe_von_parametern) im letzten Abschnitt ansehen.
+Die drei Parameter der `paint()` Funktion umfassen den Zeichnungskontext, die Paint-Größe und die Eigenschaften. Um Eigenschaftenzugriff zu ermöglichen, fügen wir die statische Methode `inputProperties()` ein, die Zugriff auf CSS-Eigenschaften, einschließlich regulärer und [benutzerdefinierter Eigenschaften](/de/docs/Web/CSS/CSS_cascading_variables), erhält und ein {{jsxref("Array", "Array", "", 1)}} von Eigenschaftsnamen zurückgibt. Wir werden [`inputArguments`](#parameter_übergeben) im letzten Abschnitt betrachten.
 
 Erstellen wir eine Liste von Elementen mit einem Hintergrundbild, das zwischen drei verschiedenen Farben und drei Breiten rotiert.
 
-![Die Breite und Farbe des Hintergrundbilds ändern sich basierend auf den benutzerdefinierten Eigenschaften](boxbg.png)
+![Die Breite und Farbe des Hintergrundbildes ändern sich basierend auf den benutzerdefinierten Eigenschaften](boxbg.png)
 
-Um dies zu erreichen, definieren wir zwei benutzerdefinierte CSS-Eigenschaften, `--boxColor` und `--widthSubtractor`.
+Um dies zu erreichen, werden wir zwei benutzerdefinierte CSS-Eigenschaften definieren, `--boxColor` und `--widthSubtractor`.
 
-### Das Paint Worklet
+### Das Paint-Worklet
 
-In unserem Worklet können wir diese benutzerdefinierten Eigenschaften referenzieren.
+In unserem Worklet können wir auf diese benutzerdefinierten Eigenschaften verweisen.
 
 ```js
 registerPaint(
@@ -254,9 +254,9 @@ registerPaint(
 );
 ```
 
-Wir haben die `inputProperties()`-Methode in der `registerPaint()`-Klasse verwendet, um die Werte von zwei benutzerdefinierten Eigenschaften abzurufen, die auf ein Element angewendet wurden, das `boxbg` hat, und diese dann innerhalb unserer `paint()`-Funktion verwendet. Die `inputProperties()`-Methode kann alle Eigenschaften zurückgeben, die das Element beeinflussen, nicht nur benutzerdefinierte Eigenschaften.
+Wir haben die Methode `inputProperties()` in der `registerPaint()`-Klasse verwendet, um die Werte von zwei benutzerdefinierten Eigenschaften abzurufen, die auf einem Element gesetzt sind, auf das `boxbg` angewendet wird, und haben diese dann in unserer `paint()`-Funktion verwendet. Die Methode `inputProperties()` kann alle Eigenschaften des Elements zurückgeben, nicht nur benutzerdefinierte Eigenschaften.
 
-### Verwendung des Paint Worklets
+### Verwendung des Paint-Worklets
 
 #### HTML
 
@@ -314,17 +314,17 @@ CSS.paintWorklet.addModule("boxbg.js");
 
 #### Ergebnis
 
-Obwohl Sie das Skript des Worklets nicht ändern können, können Sie die Werte der benutzerdefinierten Eigenschaften in den DevTools verändern, um die Farben und die Breite des Hintergrundbildes zu ändern.
+Während Sie nicht mit dem Skript des Worklets spielen können, können Sie die Werte der benutzerdefinierten Eigenschaften in den DevTools ändern, um die Farben und die Breite des Hintergrundbildes zu ändern.
 
 {{EmbedGHLiveSample("dom-examples/css-painting/custom-properties/", '100%', 400)}}
 
-## Hinzufügen von Komplexität
+## Komplexität hinzufügen
 
-Die obigen Beispiele mögen nicht sehr aufregend erscheinen, da sie auf verschiedene Weise mit bestehenden CSS-Eigenschaften nachgebildet werden könnten, z.B. durch das Positionieren von dekorativem [generiertem Inhalt](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Generated_content) mit `::before` oder das Einbeziehen von `background: linear-gradient(yellow, yellow) 0 15px / 200px 20px no-repeat;`. Was die CSS Painting API jedoch so interessant und mächtig macht, ist, dass Sie komplexe Bilder erstellen können, die Variablen übergeben und automatisch Größenänderungen berücksichtigt werden.
+Die obigen Beispiele mögen nicht sehr aufregend erscheinen, da Sie sie auf verschiedene Weise mit bestehenden CSS-Eigenschaften nachstellen könnten, z.B. durch Positionieren von dekorativen [generierten Inhalten](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Generated_content) mit `::before`, oder durch Einfügen von `background: linear-gradient(yellow, yellow) 0 15px / 200px 20px no-repeat;`. Was die CSS Painting API so interessant und leistungsfähig macht, ist, dass Sie komplexe Bilder erstellen können, Variablen übergeben, die sich automatisch anpassen.
 
 Schauen wir uns ein komplexeres Paint-Beispiel an.
 
-### Das Paint Worklet
+### Das Paint-Worklet
 
 ```js
 registerPaint(
@@ -378,9 +378,9 @@ registerPaint(
 );
 ```
 
-### Verwendung des Paint Worklets
+### Verwendung des Paint-Worklets
 
-Wir können dann ein kleines HTML erstellen, das dieses Bild als Hintergrund akzeptiert:
+Nun können wir ein wenig HTML erstellen, das dieses Bild als Hintergründe akzeptiert:
 
 ```html
 <h1 class="fancy">Largest Header</h1>
@@ -405,7 +405,7 @@ h6 {
 }
 ```
 
-Und wir registrieren unser Worklet:
+Und wir registrieren unser Worklet.
 
 ```js
 CSS.paintWorklet.addModule("header-highlight.js");
@@ -415,18 +415,18 @@ Das Ergebnis sieht so aus:
 
 {{EmbedGHLiveSample("dom-examples/css-painting/fancy-header-highlight/", 200, 200)}}
 
-Während Sie das Worklet selbst nicht bearbeiten können, können Sie mit dem CSS und HTML spielen. Vielleicht probieren Sie {{cssxref("scale")}} und {{cssxref("rotate")}} an den Headers aus?
+Während Sie das Worklet selbst nicht bearbeiten können, können Sie mit dem CSS und HTML herumspielen. Vielleicht versuchen Sie, {{cssxref("scale")}} und {{cssxref("rotate")}} auf den Headern anzuwenden?
 
-Sie könnten versuchen, die obigen Hintergrundbilder ohne die CSS Paint API zu erstellen. Es ist machbar, aber Sie müssten einen anderen, ziemlich komplexen linearen Gradient für jede Farbe deklarieren, die Sie erstellen möchten. Mit der CSS Paint API kann ein einzelnes Worklet wiederverwendet werden, wobei in diesem Fall unterschiedliche Farben übergeben werden.
+Sie könnten versuchen, die obigen Hintergrundbilder ohne die CSS Paint API zu erstellen. Es ist machbar, aber Sie müssten einen anderen, ziemlich komplexen linearen Farbverlauf für jede Farbe deklarieren, die Sie erstellen möchten. Mit der CSS Paint API kann ein Worklet wiederverwendet werden, mit unterschiedlichen Farben, die in diesem Fall übergeben werden.
 
-## Übergabe von Parametern
+## Parameter übergeben
 
 > [!NOTE]
-> Das folgende Beispiel erfordert, dass das Flag für Experimentelle Web-Plattformfunktionen in Chrome oder Edge durch Besuch von `about://flags` aktiviert wird.
+> Das folgende Beispiel erfordert, dass das Experimental Web Platform features'-Flag in Chrome oder Edge aktiviert ist, indem Sie `about://flags` besuchen.
 
-Mit der CSS Paint API haben wir nicht nur Zugriff auf benutzerdefinierte Eigenschaften und reguläre Eigenschaften, sondern wir können auch benutzerdefinierte Argumente an die `paint()`-Funktion übergeben.
+Mit der CSS Paint API haben wir nicht nur Zugriff auf benutzerdefinierte und reguläre Eigenschaften, sondern wir können auch benutzerdefinierte Argumente an die `paint()` Funktion übergeben.
 
-Wir können diese zusätzlichen Argumente hinzufügen, wenn wir die Funktion in CSS aufrufen. Angenommen, wir möchten manchmal unseren Hintergrund stricheln statt füllen — lassen Sie uns ein zusätzliches Argument für diesen Anlass übergeben.
+Wir können diese zusätzlichen Argumente hinzufügen, wenn wir die Funktion im CSS aufrufen. Angenommen, wir möchten manchmal unseren Hintergrund umranden, anstatt ihn auszufüllen — lassen Sie uns ein zusätzliches Argument für diesen Anlass übergeben.
 
 ```css
 li {
@@ -434,13 +434,13 @@ li {
 }
 ```
 
-Jetzt können wir die `inputArguments()`-Methode in der `registerPaint()`-Klasse verwenden, um auf das benutzerdefinierte Argument zuzugreifen, das wir zu unserer `paint()`-Funktion hinzugefügt haben.
+Jetzt können wir die Methode `inputArguments()` in der `registerPaint()`-Klasse verwenden, um auf das benutzerdefinierte Argument zuzugreifen, das wir unserer `paint()`-Funktion hinzugefügt haben.
 
 ```js
 static get inputArguments() { return ['*']; }
 ```
 
-Wir haben dann Zugriff auf dieses Argument.
+Dann haben wir Zugriff auf dieses Argument.
 
 ```js
 paint(ctx, size, props, args) {
@@ -459,7 +459,7 @@ paint(ctx, size, props, args) {
 
 Wir können auch angeben, dass wir einen bestimmten Argumenttyp wünschen.
 
-Angenommen, wir fügen ein zweites Argument hinzu, wie viele Pixel breit der Strich sein soll:
+Angenommen, wir fügen ein zweites Argument hinzu, wie viele Pixel breit der Umriss sein soll:
 
 ```css
 li {
@@ -467,17 +467,17 @@ li {
 }
 ```
 
-Wenn wir unsere Liste von Argumentwerten `get`, können wir speziell eine \<length>-Einheit anfordern.
+Wenn wir unsere Liste der Argumentwerte `get`, können wir speziell nach einer `<length>`-Einheit fragen.
 
 ```js
 static get inputArguments() { return ['*', '<length>']; }
 ```
 
-In diesem Fall haben wir speziell das `<length>`-Attribut angefordert. Das erste Element im zurückgegebenen Array wird ein [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) sein. Das zweite wird ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) sein.
+In diesem Fall haben wir speziell nach dem `<length>`-Attribut gefragt. Das erste Element im zurückgegebenen Array wird ein [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) sein. Das zweite wird ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) sein.
 
-Wenn das benutzerdefinierte Argument ein CSS-Wert ist, z.B. eine Einheit, können wir die `Typed OM CSSStyleValue`-Klasse (und Unterklassen) über das Schlüsselwort des Wertetyps verwenden, wenn wir es in der `registerPaint()`-Funktion abrufen.
+Wenn das benutzerdefinierte Argument ein CSS-Wert ist, z.B. eine Einheit, können wir die Typed OM CSSStyleValue-Klasse (und Unterklassen) durch das Verwenden des Werttypschlüsselwortes aufrufen, wenn wir es in der `registerPaint()` Funktion abrufen.
 
-Jetzt können wir auf die Typ- und Werteigenschaften zugreifen, was bedeutet, dass wir die Anzahl der Pixel und einen Zahlentyp direkt aus der Box erhalten können. (Zugegebenermaßen nimmt `ctx.lineWidth` einen Float als Wert anstelle eines Wertes mit Längeneinheiten, aber quische...)
+Jetzt können wir auf die Eigenschaften `type` und `value` zugreifen, was bedeutet, dass wir die Anzahl der Pixel und eine Zahl direkt aus der Box bekommen können. (Zugegebenermaßen nimmt `ctx.lineWidth` einen Float als Wert, anstelle eines Werts mit Längeneinheiten, aber der Vollständigkeit halber…)
 
 ```js
 paint(ctx, size, props, args) {
@@ -494,15 +494,15 @@ paint(ctx, size, props, args) {
 }
 ```
 
-Es ist erwähnenswert, den Unterschied zwischen der Verwendung von benutzerdefinierten Eigenschaften zur Steuerung verschiedener Teile dieses Worklets und den hier aufgestellten Argumenten zu betrachten. Benutzerdefinierte Eigenschaften (und eigentlich alle Eigenschaften auf der Stilkarte) sind global — sie können anderswo in unserem CSS (und JS) verwendet werden.
+Es lohnt sich, den Unterschied zu beachten, zwischen der Verwendung von benutzerdefinierten Eigenschaften zur Steuerung verschiedener Teile dieses Worklets und den hier dargelegten Argumenten. Benutzerdefinierte Eigenschaften (und tatsächlich alle Eigenschaften auf der Style-Map) sind global — sie können woanders innerhalb unseres CSS (und JS) verwendet werden.
 
-Sie könnten beispielsweise ein `--mainColor` haben, das hilfreich ist, um die Farbe innerhalb einer `paint()`-Funktion einzustellen, aber auch verwendet werden kann, um Farben anderswo in Ihrem CSS einzustellen. Wenn Sie es speziell für `paint` ändern wollten, könnte es sich als schwierig erweisen. Hier kommt die Funktion für benutzerdefinierte Argumente ins Spiel. Ein anderer Weg, darüber nachzudenken, ist, dass Argumente gesetzt werden, um zu steuern, was Sie tatsächlich zeichnen, während Eigenschaften gesetzt werden, um das Styling zu steuern.
+Sie könnten beispielsweise eine `--mainColor` haben, die nützlich sein wird, um die Farbe innerhalb einer `paint()`-Funktion festzulegen, aber auch zur Einstellung von Farben an anderer Stelle in Ihrem CSS verwendet werden kann. Wenn Sie es speziell für Paint ändern wollten, könnte sich das als schwierig erweisen. Hier kommt die benutzerdefinierte Argumentfunktion ins Spiel. Eine andere Sichtweise besteht darin, dass Argumente festgelegt werden, um zu steuern, was Sie tatsächlich zeichnen, während Eigenschaften festgelegt werden, um die Gestaltung zu steuern.
 
-![Die Listenelemente haben ein Hintergrundbild, das entweder rosa, lila oder grün ist, mit unterschiedlichen Strichbreiten und das grün gefüllt ist.](hollowfilled.png)
+![Die Listenelemente haben ein Hintergrundbild, das entweder pink, violett oder grün ist, mit unterschiedlichen Strichbreiten, wobei der grüne gefüllt ist.](hollowfilled.png)
 
-Jetzt können wir wirklich die Vorteile dieser API sehen, wenn wir eine Vielzahl von Zeichnungsparametern von unserem CSS aus über sowohl benutzerdefinierte Eigenschaften als auch zusätzliche `paint()`-Funktionsargumente steuern können, dann können wir wirklich beginnen, wiederverwendbare und hochkontrollierbare Stylingfunktionen zu erstellen.
+Jetzt können wir wirklich beginnen, die Vorteile dieser API zu erkennen, wenn wir eine Vielzahl von Zeichenparametern von unserem CSS aus steuern können, sowohl durch benutzerdefinierte Eigenschaften als auch durch zusätzliche `paint()`-Funktionsargumente, dann können wir wirklich beginnen, wiederverwendbare und hochsteuerbare Styling-Funktionen aufzubauen.
 
-### Das Paint Worklet
+### Das Paint-Worklet
 
 ```js
 registerPaint(
@@ -579,9 +579,9 @@ registerPaint(
 );
 ```
 
-### Verwendung des Paint Worklets
+### Verwendung des Paint-Worklets
 
-Wir können verschiedene Farben, Strichbreiten setzen und auswählen, ob das Hintergrundbild gefüllt oder hohl sein soll:
+Wir können verschiedene Farben, Strichbreiten einstellen und auswählen, ob das Hintergrundbild gefüllt oder hohl sein soll:
 
 ```css
 li {

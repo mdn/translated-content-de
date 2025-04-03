@@ -1,31 +1,31 @@
 ---
-title: Registrierung von Attributionsauslösern
+title: Registrierung von Attributionstriggern
 slug: Web/API/Attribution_Reporting_API/Registering_triggers
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Attribution Reporting API")}}
 
-Dieser Artikel erklärt, wie Attributionsauslöser registriert werden.
+Dieser Artikel erklärt, wie Sie Attributionstrigger registrieren.
 
 ## Grundlegende Methodik
 
-Sobald Sie [Attributionsquellen registriert haben](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources), müssen Sie Attributionsauslöser registrieren. Dies sind Interaktionen auf einer Website, bei denen eine Konversion gemessen werden soll (zum Beispiel kann das Klicken auf einen "Kaufen"-Button auf der Website eines Werbetreibenden anzeigen, dass eine Konversion stattgefunden haben könnte). Der Browser versucht dann, den Attributionsauslöser einem Attributionsquelleneintrag zuzuordnen, der in einer privaten lokalen Speicherpartition gespeichert ist, und [einen Bericht zu generieren](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports), wenn eine Übereinstimmung gefunden wird.
+Nachdem Sie [Attributionsquellen registriert haben](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources), müssen Sie Attributionstrigger registrieren. Diese sind Interaktionen auf einer Website, bei denen eine Conversion gemessen werden soll (z.B. das Klicken auf eine "Kaufen"-Schaltfläche auf der Website eines Werbetreibenden kann anzeigen, dass eine Conversion stattgefunden haben könnte). Der Browser versucht dann, den Attributionstrigger mit einem Attributionsquelleneintrag abzugleichen, der in einer privaten lokalen Speicherpartition gespeichert ist, und [einen Bericht zu erstellen](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports), wenn ein Treffer gefunden wird.
 
-Die verschiedenen Arten von Attributionsauslösern werden auf unterschiedliche Weise registriert, wie in den folgenden Abschnitten beschrieben wird — siehe [HTML-basierte Attributionsauslöser](#html-basierte_attributionsauslöser) und [JavaScript-basierte Attributionsauslöser](#javascript-basierte_attributionsauslöser).
+Die verschiedenen Arten von Attributionstriggern werden auf unterschiedliche Weise registriert, die in den folgenden Abschnitten beschrieben werden — siehe [HTML-basierte Attributionstrigger](#html-basierte_attributionstrigger) und [JavaScript-basierte Attributionstrigger](#javascript-basierte_attributionstrigger).
 
-Was jedoch im Hintergrund passiert, um Auslöser zu registrieren, nach Übereinstimmungen zu suchen usw., ist in allen Fällen gleich.
+Doch was hinter den Kulissen passiert, um Trigger zu registrieren, nach Übereinstimmungen zu suchen usw., ist in allen Fällen dasselbe.
 
-1. Alle Auslösertypen senden einen {{httpheader("Attribution-Reporting-Eligible")}}-Header bei einer Anfrage, der anzeigt, dass die Antwort zur Registrierung eines Auslösers berechtigt ist. Zum Beispiel:
+1. Alle Triggertypen senden einen {{httpheader("Attribution-Reporting-Eligible")}}-Header bei einer Anfrage, die angibt, dass die Antwort berechtigt ist, einen Trigger zu registrieren. Zum Beispiel:
 
    ```http
    Attribution-Reporting-Eligible: trigger
    ```
 
-2. Wenn der Server eine Anfrage erhält, die einen `Attribution-Reporting-Eligible`-Header enthält, kann er einen {{httpheader("Attribution-Reporting-Register-Trigger")}} zusammen mit der Antwort senden. Sein Wert ist ein JSON-String, der Daten enthält, die in generierte Berichte aufgenommen werden können, wie z.B. die ID des Auslösers, Prioritäts- und Deduplizierungswerte.
+2. Wenn der Server eine Anfrage mit einem `Attribution-Reporting-Eligible`-Header erhält, kann er eine {{httpheader("Attribution-Reporting-Register-Trigger")}} zusammen mit der Antwort senden. Sein Wert ist eine JSON-Zeichenkette, die Daten enthält, die in generierte Berichte eingeschlossen werden können, wie die ID des Triggers sowie Prioritäts- und Deduplizierungswerte.
 
-   Das folgende Beispiel soll mit einer Attributionsquelle für einen [Ereignisbericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#event-level_reports) übereinstimmen:
+   Das folgende Beispiel soll mit einer Attributionsquelle für [Event-Level-Berichte](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#event-level_reports) übereinstimmen:
 
    ```js
    res.set(
@@ -45,17 +45,17 @@ Was jedoch im Hintergrund passiert, um Auslöser zu registrieren, nach Übereins
 
    Die hier angegebenen Felder sind wie folgt:
 
-   - `"event_trigger_data"`: Ein Objekt, das Daten über den Auslöser darstellt. Dies umfasst:
-     - `"trigger_data"`: Die mit dem Auslöser verknüpften Daten, die typischerweise verwendet werden, um Ereignisse wie "Benutzer hat Artikel zum Warenkorb hinzugefügt" oder "Benutzer hat sich für den Newsletter angemeldet" anzuzeigen. Dieser Wert wird, falls vorhanden, in den generierten Bericht aufgenommen, obwohl er basierend auf dem [`"trigger_data_matching"`](/de/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Source#trigger_data_matching)-Feld der zugeordneten Quelle modifiziert wird.
+   - `"event_trigger_data"`: Ein Objekt, das Daten über den Trigger darstellt. Dazu gehören:
+     - `"trigger_data"`: Die mit dem Trigger verknüpften Daten, die typischerweise verwendet werden, um Ereignisse wie "Benutzer hat Artikel in den Warenkorb gelegt" oder "Benutzer hat sich für den Newsletter angemeldet" anzuzeigen. Dieser Wert wird im generierten Bericht enthalten sein, falls vorhanden, obwohl er basierend auf dem [`"trigger_data_matching"`](/de/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Source#trigger_data_matching)-Feld der Attributionsquelle modifiziert werden kann.
        > [!NOTE]
-       > Die Werte, die verwendet werden, um jedes Ereignis zu repräsentieren, und die Anzahl der Elemente im Array sind völlig willkürlich und werden von Ihnen als Entwickler definiert. Das Array kann Werte enthalten, die nicht verwendet werden, aber Werte müssen im Array vorhanden sein, um von der Quelle durch den Browser zugeordnet zu werden, wenn ein Auslöser registriert wird.
-     - `"priority"`: Ein String, der einen Prioritätswert für den Attributionsauslöser darstellt. Siehe [Prioritäten und Einschränkungen von Berichten](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#report_priorities_and_limits) für weitere Informationen.
-     - `"deduplication_key"`: Ein String, der einen eindeutigen Schlüssel darstellt, der verwendet werden kann, um zu verhindern, dass Attributionen dupliziert werden — zum Beispiel, wenn ein Benutzer denselben Artikel mehrfach in einen Warenkorb legt. Siehe [Vermeidung von Duplikationen in Berichten](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/prevent-duplication) für weitere Informationen.
-   - `"debug_key"`: Eine Zahl, die einen Debug-Schlüssel darstellt. Setzen Sie diesen, wenn Sie einen [Debug-Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#debug_reports) zusammen mit dem zugehörigen Attributionsbericht generieren möchten.
+       > Die Werte, die jedes Ereignis repräsentieren, und die Anzahl der Elemente im Array sind völlig willkürlich und von Ihnen als Entwickler definiert. Das Array kann Werte enthalten, die nicht verwendet werden, aber Werte müssen im Array vorhanden sein, um der Quelle durch den Browser zugeordnet zu werden, wenn ein Trigger registriert wird.
+     - `"priority"`: Ein String, der einen Prioritätswert für den Attributionstrigger darstellt. Weitere Informationen finden Sie unter [Prioritäten und Grenzen von Berichten](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#report_priorities_and_limits).
+     - `"deduplication_key"`: Ein String, der einen eindeutigen Schlüssel darstellt, der verwendet werden kann, um zu verhindern, dass Attributionen dupliziert werden — beispielsweise wenn ein Benutzer denselben Artikel mehrmals in einen Warenkorb legt. Weitere Informationen finden Sie unter [Vermeidung von Duplikaten in Berichten](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/prevent-duplication).
+   - `"debug_key"`: Eine Zahl, die einen Debug-Schlüssel darstellt. Setzen Sie dies, wenn Sie einen [Debug-Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#debug_reports) zusammen mit dem zugehörigen Attributionsbericht generieren möchten.
 
    Siehe {{httpheader("Attribution-Reporting-Register-Trigger")}} für eine detaillierte Beschreibung aller verfügbaren Felder.
 
-   Ein Auslöser, der mit einer Attributionsquelle für einen [Zusammenfassungsbericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#summary_reports) übereinstimmen soll, erfordert die unten gezeigten Felder:
+   Ein Trigger, der mit einer Attributionsquelle für [Zusammenfassungsberichte](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#summary_reports) übereinstimmen soll, erfordert die folgenden Felder:
 
    ```js
    res.set(
@@ -82,40 +82,40 @@ Was jedoch im Hintergrund passiert, um Auslöser zu registrieren, nach Übereins
 
    Die Felder in diesem Beispiel sind:
 
-   - `"aggregatable_trigger_data"`: Ein Array von Objekten, von denen jedes einen Aggregationsschlüssel definiert, der auf verschiedene Quellenschlüssel angewendet werden soll.
-   - `"aggregatable_values"`: Ein Objekt, das Eigenschaften enthält, die einen Wert für jeden Datenpunkt im `"aggregatable_trigger_data"` definieren.
+   - `"aggregatable_trigger_data"`: Ein Array von Objekten, von denen jedes einen Aggregationsschlüssel definiert, der auf verschiedene Quellschlüssel angewendet wird.
+   - `"aggregatable_values"`: Ein Objekt, das Eigenschaften enthält, die einen Wert für jeden in `"aggregatable_trigger_data"` definierten Datenpunkt darstellen.
 
-   Wiederum, siehe {{httpheader("Attribution-Reporting-Register-Trigger")}} für eine detaillierte Beschreibung aller verfügbaren Felder.
+   Siehe erneut {{httpheader("Attribution-Reporting-Register-Trigger")}} für eine detaillierte Beschreibung aller verfügbaren Felder.
 
-3. Wenn der Benutzer mit dem Attributionsauslöser interagiert, versucht der Browser, den Auslöser mit einem Attributionsquelleneintrag zuzuordnen, der im privaten lokalen Cache des Browsers gespeichert ist. Für eine erfolgreiche Übereinstimmung muss die `Attribution-Reporting-Register-Trigger`'s [`"trigger_data"`](/de/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Trigger#trigger_data) einem der im {{httpheader("Attribution-Reporting-Register-Source")}}'s [`"trigger_data"`](/de/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Source#trigger_data) bereitgestellten Werte entsprechen, und die Website (Schema + {{Glossary("eTLD", "eTLD+1")}}) der obersten Seite, auf der der Auslöser registriert wird, muss:
+3. Wenn der Benutzer mit dem Attributionstrigger interagiert, versucht der Browser, den Trigger mit allen Attributionsquelleneinträgen abzugleichen, die im privaten lokalen Cache des Browsers gespeichert sind. Für eine erfolgreiche Übereinstimmung muss das `Attribution-Reporting-Register-Trigger`'s [`"trigger_data"`](/de/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Trigger#trigger_data) mit einem der im {{httpheader("Attribution-Reporting-Register-Source")}} angegebenen Werte übereinstimmen, und die Website (Schema + {{Glossary("eTLD", "eTLD+1")}}) der obersten Seite, auf der der Trigger registriert wird, muss:
 
-   - mit der Site von mindestens einem der im zugehörigen Daten der Quelle angegebenen `destination`s übereinstimmen.
-   - gleich-origin sein mit der Anfrage, die die Quellenregistrierung spezifizierte.
+   - mit der Website von mindestens einem der im Quell-zugehörigen Daten angegebenen `destination`s übereinstimmen.
+   - gleiches Ursprungsgebiet mit der Anfrage haben, die die Quellregistrierung spezifiziert hat.
 
    > [!NOTE]
-   > Diese Anforderungen bieten Datenschutz, aber auch Flexibilität — die Quelle _und_ der Auslöser können potenziell in einem {{htmlelement("iframe")}} eingebettet oder auf der obersten Website platziert werden.
+   > Diese Anforderungen bieten einen Schutz der Privatsphäre, aber auch Flexibilität — die Quelle _und_ der Trigger können potenziell in einem {{htmlelement("iframe")}} eingebettet oder auf der obersten Website platziert werden.
 
-   Es gibt viele andere Faktoren, die ein erfolgreiches Übereinstimmungsergebnis verhindern können; zum Beispiel:
+   Es gibt viele andere Faktoren, die ein erfolgreiches Ergebnis verhindern können, zum Beispiel:
 
-   - Die Filter des Auslösers stimmen nicht mit den Filterdaten der Quelle überein (siehe [Filter](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#filters) für mehr Details).
-   - Die [`"trigger_data_matching"`](/de/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Source#trigger_data_matching)-Einstellung der Quelle führt dazu, dass keine Übereinstimmung erfolgt.
+   - Die Filter des Triggers stimmen nicht mit den Filterdaten der Quelle überein (siehe [Filter](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#filters) für weitere Details).
+   - Die Einstellung der Quelle für [`"trigger_data_matching"`](/de/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Source#trigger_data_matching) führt zu keiner Übereinstimmung.
    - Das Limit der Quelle für [`"max_event_level_reports"`](/de/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Source#max_event_level_reports) wurde erreicht.
-   - Ein erfolgreicher Abgleich wird aufgrund des randomisierten Antwortalgorithmus des Browsers nicht gemeldet. Siehe [Rauschen zu Berichten hinzufügen](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#adding_noise_to_reports) für weitere Details.
+   - Ein erfolgreicher Treffer wird aufgrund des randomisierten Antwortalgorithmus des Browsers nicht gemeldet. Weitere Einzelheiten finden Sie unter [Hinzufügen von Rauschen zu Berichten](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#adding_noise_to_reports).
 
-4. Wenn eine erfolgreiche Übereinstimmung gefunden wird, erstellt der Browser [einen Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports) basierend auf den Quellen- und Auslöserdaten und sendet ihn an einen Berichtsendepunkt.
+4. Wenn ein erfolgreicher Treffer gefunden wird, [generiert](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports) der Browser einen Bericht basierend auf den Quell- und Trigger-Daten und sendet ihn an einen Berichts-Endpunkt.
 
 > [!NOTE]
-> Attributionauslöser können nicht auf {{htmlelement("a")}}-Elementen oder [`Window.open()`](/de/docs/Web/API/Window/open)-Aufrufen registriert werden wie Attributionsquellen.
+> Attributionstrigger können nicht auf {{htmlelement("a")}}-Elementen oder bei Aufrufen von [`Window.open()`](/de/docs/Web/API/Window/open) registriert werden, wie Attributionsquellen.
 
-## HTML-basierte Attributionsauslöser
+## HTML-basierte Attributionstrigger
 
-HTML-basierte Attributionsauslöser können verwendet werden, um Konversionen auf einer Seite zu erkennen, wenn diese zum ersten Mal geladen wird — oder genauer gesagt, wenn ein `<img>` oder `<script>` geladen wird. Zum Beispiel, wenn ein Benutzer auf einen Attributionsquellenlink auf der Seite eines Publishers geklickt und zur Seite des Werbetreibenden navigiert hat, können Sie den Attributionsauslöser registrieren und den Browser veranlassen, einen Abgleich mit gespeicherten Quellen-Einträgen zu versuchen, sobald die Seite des Werbetreibenden geladen wird.
+HTML-basierte Attributionstrigger können verwendet werden, um Conversions auf einer Seite zu erkennen, wenn sie zum ersten Mal geladen wird — genauer gesagt, wenn ein `<img>` oder `<script>` geladen wird. Wenn beispielsweise ein Benutzer auf einen Attributionsquellen-Link auf einer Publisher-Seite geklickt hat und zur Website des Werbetreibenden navigiert ist, können Sie den Attributionstrigger registrieren und den Browser sofort nach dem Laden der Werbeseite versuchen lassen, einen Abgleich mit gespeicherten Quelleneinträgen durchzuführen.
 
-Sie können einen Attributionsauslöser registrieren, indem Sie das `attributionsrc`-Attribut zu einem geeigneten Element hinzufügen. Dies kann bei {{htmlelement("img")}}- und {{htmlelement("script")}}-Elementen erfolgen.
+Sie können einen Attributionstrigger registrieren, indem Sie das `attributionsrc`-Attribut zu einem geeigneten Element hinzufügen. Dies kann bei {{htmlelement("img")}}- und {{htmlelement("script")}}-Elementen erfolgen.
 
-Wenn Sie den Attributwert leer lassen, wird die Registrierungsanfrage an den Server gesendet, auf dem die angeforderte Ressource gehostet wird. Es ist auch möglich, eine zusätzliche URL innerhalb des Werts anzugeben, um die Registrierungsanfrage dorthin zu senden; siehe [Angeben einer URL innerhalb von attributionsrc](#angeben_einer_url_innerhalb_von_attributionsrc) für weitere Details.
+Wenn Sie den Attributwert leer lassen, wird die Registrierungsanfrage an den Server gesendet, auf dem die angeforderte Ressource gehostet wird. Es ist auch möglich, eine zusätzliche URL im Wert anzugeben, um die Registrierungsanfrage dorthin zu senden; siehe [Angeben einer URL im attributionsrc](#angeben_einer_url_im_attributionsrc) für weitere Details.
 
-Hier ist ein `<img>`-Element Beispiel:
+Hier ist ein Beispiel für ein `<img>`-Element:
 
 ```html
 <img
@@ -125,14 +125,14 @@ Hier ist ein `<img>`-Element Beispiel:
   attributionsrc />
 ```
 
-Sie könnten dies auch über die [`HTMLImageElement.attributionSrc`](/de/docs/Web/API/HTMLImageElement/attributionSrc)-Eigenschaft erreichen:
+Dies könnte auch über die [`HTMLImageElement.attributionSrc`](/de/docs/Web/API/HTMLImageElement/attributionSrc)-Eigenschaft erreicht werden:
 
 ```js
 const imgElem = document.querySelector("img");
 imgElem.attributionSrc = "";
 ```
 
-In diesem Fall versucht der Browser, den Auslöser mit einer gespeicherten Attributionsquelle abzugleichen, wenn der Browser die Antwort mit der Bilddatei erhält (wenn das `load`-Ereignis ausgelöst wird). Beachten Sie, dass Benutzer das Bild möglicherweise überhaupt nicht wahrnehmen können — es könnte sich um ein 1x1 transparentes Tracking-Pixel handeln, das nur für die Attributionsberichterstattung verwendet wird.
+In diesem Fall wird der Browser versuchen, den Trigger mit einer gespeicherten Attributionsquelle abzugleichen, wenn der Browser die Antwort mit der Bilddatei empfängt (wenn das `load`-Ereignis ausgelöst wird). Beachten Sie, dass Benutzer das Bild möglicherweise überhaupt nicht wahrnehmen können — es könnte ein 1x1 transparenter Tracking-Pixel sein, der nur für die Attributionserfassung verwendet wird.
 
 Ein {{htmlelement("script")}}-Beispiel könnte so aussehen:
 
@@ -145,15 +145,15 @@ const scriptElem = document.querySelector("script");
 scriptElem.attributionSrc = "";
 ```
 
-In diesem Fall versucht der Browser, den Auslöser mit einer gespeicherten Attributionsquelle abzugleichen, wenn der Browser die Antwort mit dem Skript erhält.
+In diesem Fall wird der Browser versuchen, den Trigger mit einer gespeicherten Attributionsquelle abzugleichen, wenn der Browser die Antwort mit dem Skript empfängt.
 
-## JavaScript-basierte Attributionsauslöser
+## JavaScript-basierte Attributionstrigger
 
-JavaScript-basierte Attributionsauslöser sind vielseitiger als HTML-basierte Attributionsauslöser. Sie können den Browser veranlassen, einen Abgleich mit einer gespeicherten Quelle basierend auf einer benutzerdefinierten Interaktion zu versuchen, zum Beispiel durch Klicken auf ein benutzerdefiniertes Element oder Einreichen eines Formulars.
+JavaScript-basierte Attributionstrigger sind vielseitiger als HTML-basierte Attributionstrigger. Sie können den Browser so auslösen, dass er versucht, mit einer gespeicherten Quelle basierend auf einer benutzerdefinierten Interaktion abzugleichen, zum Beispiel durch Klicken auf ein benutzerdefiniertes Element oder das Absenden eines Formulars.
 
-Um einen skriptbasierten Attributionsauslöser zu registrieren, können Sie entweder:
+Um einen skriptbasierten Attributionstrigger zu registrieren, können Sie entweder:
 
-- Eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage mit der `attributionReporting`-Option senden:
+- Eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage senden, die die Option `attributionReporting` enthält:
 
   ```js
   const attributionReporting = {
@@ -174,7 +174,7 @@ Um einen skriptbasierten Attributionsauslöser zu registrieren, können Sie entw
   elem.addEventListener("click", triggerMatching);
   ```
 
-- Eine [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) mit [`setAttributionReporting()`](/de/docs/Web/API/XMLHttpRequest/setAttributionReporting) auf dem Anfrageobjekt für den Aufruf:
+- Eine [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) senden, bei der [`setAttributionReporting()`](/de/docs/Web/API/XMLHttpRequest/setAttributionReporting) auf dem Anfrageobjekt aufgerufen wird:
 
   ```js
   const attributionReporting = {
@@ -200,18 +200,18 @@ Um einen skriptbasierten Attributionsauslöser zu registrieren, können Sie entw
   elem.addEventListener("click", triggerMatching);
   ```
 
-In diesem Fall versucht der Browser, den Auslöser mit einer gespeicherten Attributionsquelle abzugleichen, wenn der Browser die Antwort von der Fetch-Anfrage erhält.
+In diesem Fall wird der Browser versuchen, den Trigger mit einer gespeicherten Attributionsquelle abzugleichen, wenn der Browser die Antwort auf die Fetch-Anfrage erhält.
 
 > [!NOTE]
-> Die Anfrage kann sich auf jede Ressource beziehen. Sie muss nicht direkt mit der Attribution Reporting API zu tun haben und kann eine Anfrage nach JSON, einfachem Text, einem Bild-Blob oder was auch immer für Ihre App sinnvoll ist, sein.
+> Die Anfrage kann für jede Ressource sein. Sie muss nichts direkt mit der Attribution Reporting API zu tun haben und kann eine Anfrage für JSON, reinen Text, ein Bild-BLOB oder etwas anderes sein, das für Ihre App Sinn macht.
 
-## Angeben einer URL innerhalb von attributionsrc
+## Angeben einer URL im attributionsrc
 
-In den obigen Beispielen ist das `attributionsrc`-Attribut leer gelassen, es nimmt den Wert eines leeren Strings. Dies ist in Ordnung, wenn der Server, der die angeforderte Ressource hält, derselbe Server ist, den Sie auch für die Verwaltung der Registrierung verwenden möchten, d.h. den {{httpheader("Attribution-Reporting-Eligible")}}-Header zu erhalten und mit dem {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header zu antworten.
+In den obigen Beispielen wird das `attributionsrc`-Attribut leer gelassen, wobei der Wert eine leere Zeichenkette ist. Dies ist in Ordnung, wenn der Server, der die angeforderte Ressource hält, derselbe Server ist, den Sie auch zur Bearbeitung der Registrierung verwenden möchten, d.h. der {{httpheader("Attribution-Reporting-Eligible")}}-Header empfangen und mit dem {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header antworten soll.
 
-Es könnte jedoch sein, dass die angeforderte Ressource nicht auf einem Server ist, den Sie kontrollieren, oder Sie einfach die Registrierung des Attributionsauslösers auf einem anderen Server verwalten möchten. In solchen Fällen können Sie eine oder mehrere URLs als Wert von `attributionsrc` angeben. Wenn die Ressourcenanfrage erfolgt, wird der {{httpheader("Attribution-Reporting-Eligible")}}-Header an die in `attributionsrc` angegebenen URLs zusätzlich zum Ursprung der Ressource gesendet; die URLs können dann mit dem {{httpheader("Attribution-Reporting-Register-Trigger")}} antworten, um die Registrierung abzuschließen.
+Es könnte jedoch der Fall sein, dass die angeforderte Ressource nicht auf einem von Ihnen kontrollierten Server liegt, oder Sie einfach die Registrierung des Attributionstriggers auf einem anderen Server handhaben möchten. In solchen Fällen können Sie eine oder mehrere URLs als Wert von `attributionsrc` angeben. Wenn die Ressourcenanfrage erfolgt, wird der {{httpheader("Attribution-Reporting-Eligible")}}-Header an die in `attributionsrc` angegebenen URLs gesendet, zusätzlich zur Ressourceursprung; die URLs können dann mit dem {{httpheader("Attribution-Reporting-Register-Trigger")}} antworten, um die Registrierung abzuschließen.
 
-Zum Beispiel, im Fall eines `<img>`-Elements könnten Sie die URL im `attributionsrc`-Attribut deklarieren:
+Zum Beispiel könnten Sie im Fall eines `<img>`-Elements die URL im `attributionsrc`-Attribut angeben:
 
 ```html
 <img
@@ -230,4 +230,4 @@ imgElem.attributionSrc = "https://my-separate-tracking-site.example.com";
 
 ## Siehe auch
 
-- [Validierungstool für Attribution Reporting Header](https://wicg.github.io/attribution-reporting-api/validate-headers)
+- [Validation-Tool für Attribution Reporting Header](https://wicg.github.io/attribution-reporting-api/validate-headers)

@@ -2,14 +2,15 @@
 title: view-timeline-inset
 slug: Web/CSS/view-timeline-inset
 l10n:
-  sourceCommit: 7eaac8008ebe00417314379fab2285df23322e73
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`view-timeline-inset`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um einen oder zwei Werte anzugeben, die eine Anpassung der Position des Scrollports darstellen (siehe {{Glossary("Scroll_container", "Scroll-Container")}} für weitere Details), in welchem das Subjektelement einer _benannten View-Progress-Timeline_-Animation als sichtbar angesehen wird. Anders ausgedrückt, können Sie hier Start- und/oder Endwerte für Ein- oder Ausrücken (inset/outset) angeben, die die Position der Timeline verschieben.
+Die **`view-timeline-inset`**-Eigenschaft [CSS](/de/docs/Web/CSS) wird verwendet, um einen oder zwei Werte anzugeben, die eine Anpassung der Position des Scrollbereichs (weitere Informationen finden Sie im {{Glossary("Scroll_container", "Scroll container")}}) darstellen, in dem das Subjektelement einer _benannten View-Progress-Zeitachsenanimation_ als sichtbar angesehen wird. Anders ausgedrückt, ermöglicht dies, Start- und/oder End-Inset- (oder Outset-) Werte festzulegen, die die Position der Zeitachse versetzen.
 
-Dies kann mit oder anstelle von {{cssxref("animation-range")}} und dessen Langform-Eigenschaften kombiniert werden, die verwendet werden können, um den Befestigungsbereich einer Animation entlang ihrer Timeline festzulegen. Weitere Einzelheiten finden Sie unter [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations).
+Dies kann mit oder anstelle von {{cssxref("animation-range")}} und deren Langform-Eigenschaften kombiniert werden, mit denen der Anwendungsbereich einer Animation entlang ihrer Zeitachse festgelegt werden kann.
+Weitere Details finden Sie unter [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations).
 
 ## Syntax
 
@@ -27,16 +28,16 @@ view-timeline-inset: 20% 200px;
 
 ### Werte
 
-Zulässige Werte für `view-timeline-inset` sind:
+Erlaubte Werte für `view-timeline-inset` sind:
 
 - `auto`
-  - : Wenn gesetzt, wird der entsprechende {{cssxref("scroll-padding")}} (oder ein gleichwertiger Langformwert) für diesen Rand des Scrollports verwendet. Wenn dies nicht gesetzt ist (oder auf `auto` gesetzt ist), wird der Wert normalerweise 0 sein, obwohl einige Benutzeragenten Heuristiken anwenden können, um einen anderen Standardwert zu bestimmen, wenn dies angemessen ist.
+  - : Wenn festgelegt, wird das entsprechende {{cssxref("scroll-padding")}} (oder äquivalenter Langformwert) für diese Kante des Scrollbereichs verwendet. Ist dies nicht festgelegt (oder auf `auto` gesetzt), beträgt der Wert in der Regel 0, obwohl einige Benutzeragenten Heuristiken verwenden können, um gegebenenfalls einen anderen Standardwert zu bestimmen.
 - {{cssxref("length-percentage")}}
-  - : Jeder gültige `<length-percentage>`-Wert wird als Ein- oder Ausrückwert akzeptiert.
-    - Wenn der Wert positiv ist, wird die Position des Start-/Endpunkts der Animation um die angegebene Länge oder Prozentsatz innerhalb des Scrollports verschoben.
-    - Wenn der Wert negativ ist, wird die Position des Start-/Endpunkts der Animation um die angegebene Länge oder Prozentsatz außerhalb des Scrollports verschoben, d.h. die Animation beginnt, bevor sie im Scrollport sichtbar wird, oder endet, nachdem sie den Scrollport verlassen hat.
+  - : Jeder gültige `<length-percentage>`-Wert wird als Inset/Outset-Wert akzeptiert.
+    - Wenn der Wert positiv ist, wird die Position des Start-/Endpunkts der Animation innerhalb des Scrollbereichs um die angegebene Länge oder Prozentsatz verschoben.
+    - Wenn der Wert negativ ist, wird die Position des Start-/Endpunkts der Animation außerhalb des Scrollbereichs um die angegebene Länge oder Prozentsatz verschoben, d.h. sie beginnt zu animieren, bevor sie im Scrollbereich erscheint, oder endet, nachdem sie den Scrollbereich verlassen hat.
 
-Wenn zwei Werte angegeben werden, repräsentiert der erste Wert das Ein- oder Ausrücken am Start in der relevanten Achse (wo die Animation beginnt) und der zweite Wert das Ein- oder Ausrücken am Ende (wo die Animation endet). Wenn nur ein Wert angegeben wird, werden sowohl Start- als auch End-Ein- oder Ausrückung auf denselben Wert gesetzt.
+Wenn zwei Werte angegeben werden, stellt der erste Wert das Start-Inset/Outset auf der relevanten Achse dar (wo die Animation beginnt), und der zweite Wert stellt das End-Inset/Outset dar (wo die Animation endet). Wenn nur ein Wert angegeben wird, werden das Start- und End-Inset/Outset beide auf denselben Wert gesetzt.
 
 ## Formale Definition
 
@@ -48,12 +49,12 @@ Wenn zwei Werte angegeben werden, repräsentiert der erste Wert das Ein- oder Au
 
 ## Beispiele
 
-### Erstellen einer benannten View-Progress-Timeline mit Inset
+### Erstellen einer benannten View-Progress-Zeitachse mit Inset
 
-Eine View-Progress-Timeline mit dem Namen `--subjectReveal` wird mit der `view-timeline` Eigenschaft an einem Subjektelement mit einer `class` von `animation` definiert.
-Dies wird dann als Timeline für dasselbe Element mit `animation-timeline: --subjectReveal;` gesetzt. Das Ergebnis ist, dass das Subjektelement animiert wird, während es durch das Dokument nach oben bewegt wird, wenn es gescrollt wird.
+Eine View-Progress-Zeitachse namens `--subjectReveal` wird mithilfe der `view-timeline`-Eigenschaft auf einem Subjektelement mit einer `class` von `animation` definiert.
+Diese wird dann als Zeitachse für das gleiche Element mit `animation-timeline: --subjectReveal;` festgelegt. Das Ergebnis ist, dass das Subjektelement animiert wird, wenn es nach oben durch das Dokument bewegt wird, während es gescrollt wird.
 
-Eine `view-timeline-inset` Deklaration wird ebenfalls gesetzt, um die Animation später beginnen zu lassen als erwartet und früher zu enden.
+Eine `view-timeline-inset`-Deklaration wird ebenfalls festgelegt, um die Animation später als erwartet zu beginnen und früher zu beenden.
 
 #### HTML
 
@@ -96,7 +97,7 @@ Das HTML für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Das `subject`-Element und sein umgebendes `content`-Element werden minimal gestaltet, und der Textinhalt erhält einige grundlegende Schriftart-Einstellungen:
+Das `subject`-Element und dessen enthaltenes `content`-Element werden minimal gestylt, und der Textinhalt erhält einige grundlegende Schriftarteinstellungen:
 
 ```css
 .subject {
@@ -127,9 +128,9 @@ p {
 }
 ```
 
-Dem `<div>` mit der Klasse `subject` wird auch eine Klasse `animation` zugewiesen — hier wird `view-timeline` gesetzt, um eine benannte View-Progress-Timeline zu definieren. Wir geben ihm auch eine `view-timeline-inset` Deklaration, um die Animation später beginnen zu lassen und früher zu enden. Es erhält außerdem einen `animation-timeline`-Namen mit demselben Wert, um zu erklären, dass dies das Element ist, das animiert wird, während die View-Progress-Timeline fortschreitet.
+Das `<div>` mit der Klasse `subject` erhält auch eine Klasse von `animation` — hier wird `view-timeline` gesetzt, um eine benannte View-Progress-Zeitachse zu definieren. Wir geben ihm auch eine `view-timeline-inset`-Deklaration, um die Animation später als erwartet zu beginnen und früher zu beenden. Es erhält auch einen `animation-timeline`-Namen mit demselben Wert, um zu erklären, dass dies das Element sein wird, das animiert wird, wenn die View-Progress-Zeitachse fortschreitet.
 
-Zuletzt wird auf dem Element eine Animation spezifiziert, die seine Opazität und Skalierung animiert, wodurch es beim Hochscrollen ein- und größer wird.
+Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Deckkraft und Skalierung animiert, wodurch es beim Aufwärtsbewegen im Scroller verblasst und größer wird.
 
 ```css
 .animation {
@@ -157,7 +158,7 @@ Zuletzt wird auf dem Element eine Animation spezifiziert, die seine Opazität un
 
 #### Ergebnis
 
-Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
+Scrollen Sie, um das Subjektelement animiert zu sehen.
 
 {{EmbedLiveSample("Creating a named view progress timeline with inset", "100%", "480px")}}
 

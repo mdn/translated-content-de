@@ -1,21 +1,21 @@
 ---
-title: "CSSPrimitiveValue: Methode getCounterValue()"
+title: "CSSPrimitiveValue: getCounterValue() Methode"
 short-title: getCounterValue()
 slug: Web/API/CSSPrimitiveValue/getCounterValue
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("CSSOM")}}{{deprecated_header}}
 
-Die **`getCounterValue()`**-Methode der [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue)-Schnittstelle wird verwendet, um den [counter](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)-Wert abzurufen. Wenn dieser CSS-Wert keinen Counter-Wert enthält, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst. Änderungen an der entsprechenden Stil-Eigenschaft können über die [`Counter`](/de/docs/Web/API/Counter)-Schnittstelle vorgenommen werden.
+Die **`getCounterValue()`**-Methode des [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue)-Interfaces wird verwendet, um den [Counter](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)-Wert zu erhalten. Wenn dieser CSS-Wert keinen Counter-Wert enthält, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst. Änderungen an der entsprechenden Stil-Eigenschaft können über das [`Counter`](/de/docs/Web/API/Counter)-Interface vorgenommen werden.
 
 > [!NOTE]
-> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben, und die meisten Browser implementieren ihn nicht.
+> Diese Methode war Teil eines Versuchs, ein typisiertes CSS Object Model zu erstellen. Dieser Versuch wurde aufgegeben, und die meisten Browser haben ihn nicht implementiert.
 >
 > Um Ihr Ziel zu erreichen, können Sie verwenden:
 >
-> - das untypisierte [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model), das weit verbreitet unterstützt wird, oder
+> - das nicht typisierte [CSS Object Model](/de/docs/Web/API/CSS_Object_Model), das weitgehend unterstützt wird, oder
 > - das moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), das weniger unterstützt wird und als experimentell gilt.
 
 ## Syntax
@@ -40,9 +40,9 @@ Ein [`Counter`](/de/docs/Web/API/Counter)-Objekt, das den Counter-Wert darstellt
 
 ## Spezifikationen
 
-Dieses Merkmal wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, ist jedoch seitdem aus allen Standardisierungsbemühungen herausgefallen.
+Diese Funktion wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, wurde jedoch seitdem aus allen Standardisierungsbestrebungen entfernt.
 
-Es wurde durch eine moderne, aber inkompatible [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, die sich nun auf dem Standardpfad befindet.
+Sie wurde durch ein modernes, aber inkompatibles [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, das sich jetzt auf dem Standard-Weg befindet.
 
 ## Browser-Kompatibilität
 

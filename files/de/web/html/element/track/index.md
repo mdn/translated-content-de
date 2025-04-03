@@ -1,15 +1,15 @@
 ---
-title: "<track>: Das eingebettete Textspur-Element"
+title: "<track>: Das Textspur-Element zum Einbetten"
 slug: Web/HTML/Element/track
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{HTMLSidebar}}
 
-Das **`<track>`** [HTML](/de/docs/Web/HTML) Element wird als Kind der Medienelemente {{HTMLElement("audio")}} und {{HTMLElement("video")}} verwendet. Jedes Track-Element ermöglicht es Ihnen, eine zeitgesteuerte Textspur (oder zeitbasierte Daten) anzugeben, die parallel zum Medienelement angezeigt werden kann, zum Beispiel um Untertitel oder geschlossene Untertitel über ein Video oder neben Audiotracks einzublenden.
+Das **`<track>`** [HTML](/de/docs/Web/HTML) Element wird als Kind der Medienelemente {{HTMLElement("audio")}} und {{HTMLElement("video")}} verwendet. Jedes Track-Element erlaubt es Ihnen, eine zeitlich festgelegte Textspur (oder zeitbasierte Daten) anzugeben, die parallel zum Medienelement angezeigt werden kann, z.B. um Untertitel oder geschlossene Untertitel über ein Video oder neben Audiospuren zu überlagern.
 
-Mehrere Spuren können für ein Medienelement angegeben werden, die unterschiedliche Arten von zeitgesteuerten Textdaten oder zeitgesteuerte Textdaten enthalten, die für verschiedene Sprachen übersetzt wurden. Die verwendeten Daten werden entweder die Spur sein, die als Standard festgelegt wurde, oder eine Art und Übersetzung, die auf den Benutzerpräferenzen basieren.
+Mehrere Spuren können für ein Medienelement angegeben werden, die unterschiedliche Arten von zeitlich festgelegten Textdaten enthalten oder zeitlich festgelegte Textdaten, die für verschiedene Regionen übersetzt wurden. Die verwendeten Daten werden entweder diejenige Spur sein, die als Standard festgelegt wurde, oder eine Art und Übersetzung basierend auf den Benutzerpräferenzen.
 
 Die Spuren sind im [WebVTT-Format](/de/docs/Web/API/WebVTT_API) (`.vtt`-Dateien) formatiert — Web Video Text Tracks.
 
@@ -41,55 +41,55 @@ video::cue {
 
 ## Attribute
 
-Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `default`
-  - : Dieses Attribut zeigt an, dass die Spur aktiviert werden sollte, es sei denn, die Benutzerpräferenzen deuten darauf hin, dass eine andere Spur geeigneter ist. Dies darf nur auf einem `track`-Element pro Medienelement verwendet werden.
+  - : Dieses Attribut zeigt an, dass die Spur aktiviert werden soll, es sei denn, die Benutzerpräferenzen zeigen an, dass eine andere Spur besser geeignet ist. Dieses Attribut darf nur auf einem `track` Element pro Medienelement verwendet werden.
 - `kind`
 
-  - : Wie die Textspur verwendet werden soll. Wenn das Attribut weggelassen wird, ist die Standardart `subtitles`. Wenn das Attribut einen ungültigen Wert enthält, wird es `metadata` verwenden.
+  - : Wie die Textspur verwendet werden soll. Wenn weggelassen, ist die Standardart `subtitles`. Wenn das Attribut einen ungültigen Wert enthält, wird `metadata` verwendet.
     Die folgenden Schlüsselwörter sind erlaubt:
 
     - `subtitles`
 
-      - Untertitel bieten eine Übersetzung von Inhalten, die der Betrachter nicht versteht. Zum Beispiel gesprochene Sprache oder Text, der nicht in Englisch in einem englischen Film ist.
-      - Untertitel können zusätzlichen Inhalt enthalten, normalerweise zusätzliche Hintergrundinformationen. Zum Beispiel der Text am Anfang der Star-Wars-Filme oder das Datum, die Uhrzeit und der Ort einer Szene.
+      - Untertitel bieten eine Übersetzung von Inhalten, die der Betrachter nicht verstehen kann. Zum Beispiel Sprache oder Text, der in einem englischsprachigen Film nicht auf Englisch ist.
+      - Untertitel können zusätzlichen Inhalt enthalten, in der Regel zusätzliche Hintergrundinformationen. Zum Beispiel der Text zu Beginn der Star Wars-Filme oder das Datum, die Uhrzeit und der Ort einer Szene.
 
     - `captions`
 
       - Geschlossene Untertitel bieten eine Transkription und möglicherweise eine Übersetzung von Audio.
-      - Sie können wichtige nonverbale Informationen wie musikalische Hinweise oder Soundeffekte enthalten.
+      - Sie können wichtige nonverbale Informationen wie Musikhinweise oder Soundeffekte enthalten.
         Sie können die Quelle des Hinweises angeben (z.B. Musik, Text, Charakter).
       - Geeignet für Benutzer, die gehörlos sind oder wenn der Ton stummgeschaltet ist.
 
     - `chapters`
 
-      - Kapitelüberschriften sind dazu gedacht, verwendet zu werden, wenn der Benutzer die Medienressource navigiert.
+      - Kapiteltitel sollen verwendet werden, wenn der Benutzer die Medienressource navigiert.
 
     - `metadata`
 
-      - Spuren, die von Skripten verwendet werden. Nicht für den Benutzer sichtbar.
+      - Von Skripten verwendete Spuren. Nicht für den Benutzer sichtbar.
 
 - `label`
-  - : Ein für den Benutzer lesbarer Titel der Textspur, der vom Browser verwendet wird, um verfügbare Textspuren aufzulisten.
+  - : Ein für den Benutzer lesbarer Titel der Textspur, der vom Browser verwendet wird, wenn verfügbare Textspuren aufgelistet werden.
 - `src`
-  - : Adresse der Spur (`.vtt`-Datei). Muss eine gültige URL sein. Dieses Attribut muss angegeben werden und sein URL-Wert muss denselben Ursprung wie das Dokument haben, es sei denn, das übergeordnete Element {{HTMLElement("audio")}} oder {{HTMLElement("video")}} des `track`-Elements hat ein [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin) Attribut.
+  - : Adresse der Spur (`.vtt`-Datei). Muss eine gültige URL sein. Dieses Attribut muss angegeben werden, und der Wert der URL muss den gleichen Ursprung wie das Dokument haben — es sei denn, das {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Eltern-Element des `track` Elements hat ein [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin) Attribut.
 - `srclang`
-  - : Sprache der Spur-Textdaten. Sie muss ein gültiges [BCP 47](https://r12a.github.io/app-subtags/) Sprach-Tag sein. Wenn das `kind`-Attribut auf `subtitles` gesetzt ist, dann muss `srclang` definiert sein.
+  - : Sprache der Textspurdaten. Es muss ein gültiger [BCP 47](https://r12a.github.io/app-subtags/) Sprach-Tag sein. Wenn das `kind` Attribut auf `subtitles` gesetzt ist, muss `srclang` definiert werden.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 ### Track-Datentypen
 
-Die Art der Daten, die `track` dem Medium hinzufügt, wird im `kind`-Attribut festgelegt, das Werte wie `subtitles`, `captions`, `chapters` oder `metadata` annehmen kann. Das Element verweist auf eine Quelldatei, die zeitgesteuerten Text enthält, den der Browser bereitstellt, wenn der Benutzer zusätzliche Daten anfordert.
+Der Datentyp, den `track` zu dem Medium hinzufügt, wird im `kind` Attribut festgelegt, das Werte von `subtitles`, `captions`, `chapters` oder `metadata` annehmen kann. Das Element zeigt auf eine Quelldatei, die zeitlich festgelegte Texte enthält, die der Browser freigibt, wenn der Benutzer zusätzliche Daten anfordert.
 
-Ein Medienelement kann nicht mehr als eine `track` mit demselben `kind`, `srclang` und `label` haben.
+Ein Medienelement kann nicht mehr als eine `track` mit derselben `kind`, `srclang` und `label` haben.
 
 ### Erkennung von Hinweisänderungen
 
-Das zugrunde liegende [`TextTrack`](/de/docs/Web/API/TextTrack), das durch die [`track`](/de/docs/Web/API/HTMLTrackElement/track) Eigenschaft angezeigt wird, erhält ein `cuechange`-Ereignis jedes Mal, wenn sich der aktuell präsentierte Hinweis ändert. Dies geschieht auch dann, wenn die Spur nicht mit einem Medienelement verknüpft ist.
+Das zugrunde liegende [`TextTrack`](/de/docs/Web/API/TextTrack), angezeigt durch die [`track`](/de/docs/Web/API/HTMLTrackElement/track) Eigenschaft, erhält ein `cuechange` Ereignis jedes Mal, wenn der aktuell angezeigte Hinweis geändert wird. Dies geschieht selbst dann, wenn die Spur nicht mit einem Medienelement verknüpft ist.
 
-Wenn die Spur _mit_ einem Medienelement verknüpft ist, indem das `<track>`-Element als Kind des {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Elements verwendet wird, wird das `cuechange`-Ereignis auch an das [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) gesendet.
+Wenn die Spur _mit_ einem Medienelement verknüpft ist, wobei das `<track>` Element als Kind des {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Elements verwendet wird, wird das `cuechange` Ereignis auch an das [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) gesendet.
 
 ```js
 let textTrackElem = document.getElementById("text-track");
@@ -101,9 +101,9 @@ textTrackElem.addEventListener("cuechange", (event) => {
 
 ### Hinzufügen von Textspuren programmatisch
 
-Die JavaScript-Schnittstelle, die das `<track>`-Element repräsentiert, ist [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement). Die der zugehörigen Textspur kann vom [`HTMLTrackElement.track`](/de/docs/Web/API/HTMLTrackElement/track)-Eigenschaft erhalten werden und ist vom Typ [`TextTrack`](/de/docs/Web/API/TextTrack).
+Das JavaScript-Interface, das das `<track>`-Element darstellt, ist [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement). Die Textspur, die mit einem Element verknüpft ist, kann aus der [`HTMLTrackElement.track`](/de/docs/Web/API/HTMLTrackElement/track) Eigenschaft erhalten werden und ist vom Typ [`TextTrack`](/de/docs/Web/API/TextTrack).
 
-`TextTrack` Objekte können auch zu einem [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) oder [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) Elementen mit der [`HTMLMediaElement.addTextTrack()`](/de/docs/Web/API/HTMLMediaElement/addTextTrack)-Methode hinzugefügt werden. Die mit einem Medienelement verbundenen `TextTrack` Objekte sind in einer [`TextTrackList`](/de/docs/Web/API/TextTrackList) gespeichert, die mit der [`HTMLMediaElement.textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks)-Eigenschaft abgerufen werden kann.
+`TextTrack`-Objekte können auch zu einem [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) oder [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) Elementen mit der Methode [`HTMLMediaElement.addTextTrack()`](/de/docs/Web/API/HTMLMediaElement/addTextTrack) hinzugefügt werden. Die `TextTrack`-Objekte, die mit einem Medienelement verbunden sind, werden in einer [`TextTrackList`](/de/docs/Web/API/TextTrackList) gespeichert, die mittels der [`HTMLMediaElement.textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks) Eigenschaft abgerufen werden kann.
 
 ## Beispiele
 
@@ -125,7 +125,7 @@ Die JavaScript-Schnittstelle, die das `<track>`-Element repräsentiert, ist [`HT
 </video>
 ```
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
@@ -137,11 +137,11 @@ Die JavaScript-Schnittstelle, die das `<track>`-Element repräsentiert, ist [`HT
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void_element", "void element")}}.</td>
+      <td>Keine; es ist ein {{Glossary("void_element", "void element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Anfangstag haben und darf keinen Endtag haben.</td>
+      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -152,7 +152,7 @@ Die JavaScript-Schnittstelle, die das `<track>`-Element repräsentiert, ist [`HT
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>

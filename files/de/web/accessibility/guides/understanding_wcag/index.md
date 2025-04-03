@@ -1,44 +1,43 @@
 ---
 title: Verständnis der Web Content Accessibility Guidelines (WCAG)
-short-title: Verständnis der WCAG
+short-title: Verständnis von WCAG
 slug: Web/Accessibility/Guides/Understanding_WCAG
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Diese Artikelsammlung bietet kurze Erklärungen, die Ihnen helfen sollen, die Schritte zu verstehen, die unternommen werden müssen, um den Empfehlungen in den {{Glossary("WCAG", "Web Content Accessibility Guidelines")}} (WCAG) zu entsprechen.
+Diese Artikelsammlung bietet schnelle Erklärungen, um Ihnen zu helfen, die Schritte zu verstehen, die unternommen werden müssen, um den Empfehlungen in den {{Glossary("WCAG", "Web Content Accessibility Guidelines")}} (WCAG) zu entsprechen.
 
-Die WCAG-Richtlinien sind eine Reihe von Empfehlungen zur Verbesserung der Zugänglichkeit von Webinhalten, entwickelt von W3Cs {{Glossary("WAI", "WAI")}}, hauptsächlich für Menschen mit Behinderungen – aber auch für alle Nutzerprogramme, einschließlich einiger stark eingeschränkter Geräte oder Dienste, wie z.B. digitale Assistenten.
+Die WCAG-Richtlinien sind eine Sammlung von Empfehlungen zur Verbesserung der Zugänglichkeit von Webinhalten, die von W3Cs {{Glossary("WAI", "WAI")}} entwickelt wurden, hauptsächlich für Menschen mit Behinderungen – aber auch für alle Benutzeragenten, einschließlich einiger stark eingeschränkter Geräte oder Dienste wie digitale Assistenten.
 
-WCAG 2.2 ist die aktuellste Version der Richtlinien, wobei WCAG 2.1 und 2.0 ebenfalls weit verbreitet sind. WCAG 3.0 befindet sich im Entwurfsstatus.
-Neuere Versionen von WCAG sollen vorherige Versionen nicht ersetzen, aber WAI empfiehlt die Verwendung der neuesten Version, um die bestmögliche Zugänglichkeit für Ihre Website zu gewährleisten.
+WCAG 2.2 ist die neueste Version der Richtlinien, wobei WCAG 2.1 und 2.0 ebenfalls weit verbreitet sind. WCAG 3.0 ist der Arbeitsentwurf. Neuere Versionen von WCAG sollen frühere Versionen nicht ersetzen, aber WAI empfiehlt, die neueste Version zu verwenden, um die bestmögliche Zugänglichkeit Ihrer Website sicherzustellen.
 
 ## Die vier Prinzipien
 
-WCAG ist im Wesentlichen in vier Prinzipien unterteilt – wesentliche Dinge, die Webinhalte **sein müssen**, um als zugänglich zu gelten (siehe [Verständnis der vier Prinzipien der Zugänglichkeit](https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility) für die WCAG-Definitionen).
+WCAG ist grob in vier Prinzipien unterteilt – wesentliche Aspekte, die Webinhalte **sein müssen**, um als zugänglich zu gelten (siehe [Understanding the Four Principles of Accessibility](https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility) für die WCAG-Definitionen).
 
-Jeder der untenstehenden Links führt Sie zu Seiten, die diese Bereiche weiter vertiefen und Ihnen praxisnahe Ratschläge geben, wie Sie Ihre Webinhalte so schreiben, dass sie den Erfolgskriterien entsprechen, die in den vier leitenden Prinzipien der WCAG 2 festgelegt sind.
+Jeder der untenstehenden Links führt Sie zu Seiten, die diese Bereiche weiter ausführen und Ihnen praktische Ratschläge geben, wie Sie Ihre Webinhalte so schreiben können, dass sie den Erfolgskriterien der vier leitenden WCAG 2 Prinzipien entsprechen.
 
-- [Wahrnehmbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable): Benutzer müssen in der Lage sein, es auf irgendeine Weise wahrzunehmen, unter Verwendung eines oder mehrerer ihrer Sinne.
-- [Bedienbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable): Benutzer müssen in der Lage sein, UI-Elemente zu steuern (z.B. müssen Schaltflächen auf irgendeine Weise anklickbar sein – Maus, Tastatur, Sprachbefehl usw.).
-- [Verständlich](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable): Der Inhalt muss für seine Benutzer verständlich sein.
-- [Robust](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Robust): Der Inhalt muss unter Verwendung gut etablierter Webstandards entwickelt werden, die auf verschiedenen Browsern funktionieren, jetzt und in der Zukunft.
+- [Wahrnehmbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable): Benutzer müssen es auf irgendeine Weise wahrnehmen können, indem sie einen oder mehrere ihrer Sinne nutzen.
+- [Bedienbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable): Benutzer müssen Steuerelemente der Benutzeroberfläche bedienen können (z.B. müssen Schaltflächen auf irgendeine Weise anklickbar sein – Maus, Tastatur, Sprachbefehl usw.).
+- [Verständlich](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable): Die Inhalte müssen für die Benutzer verständlich sein.
+- [Robust](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Robust): Die Inhalte müssen unter Verwendung gut adoptierter Webstandards entwickelt werden, die auf verschiedenen Browsern funktionieren, jetzt und in Zukunft.
 
-Wir haben auch zwei zusätzliche WCAG-Ressourcen hinzugefügt, die sich darauf konzentrieren, Webseiten [tastaturzugänglich](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard) zu machen und aussagekräftige Namen oder Bezeichnungen mit [Textbezeichnungen und Namen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Text_labels_and_names) bereitzustellen.
+Wir haben auch zwei zusätzliche WCAG-Ressourcen aufgenommen, die sich darauf konzentrieren, Webseiten [tastaturzugänglich](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard) zu machen, und bieten beschreibende Namen oder Bezeichnungen mit [Textetiketten und Namen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Text_labels_and_names).
 
 ## Rechtliche Stellung
 
-Diese einführende Dokumentation soll praktische Informationen bereitstellen, um Ihnen beim Erstellen besserer, zugänglicherer Websites zu helfen. Wir sind jedoch keine Juristen, und keines davon stellt rechtliche Beratung dar. Wenn Sie sich Sorgen über die rechtlichen Auswirkungen der Web-Zugänglichkeit machen, empfehlen wir Ihnen, die spezifischen Gesetze zur Barrierefreiheit für das Web und öffentliche Ressourcen in Ihrem Land oder Ihrer Region zu überprüfen und den Rat eines qualifizierten Anwalts einzuholen.
+Diese einführende Dokumentation soll praktische Informationen bereitstellen, um Ihnen beim Erstellen besserer, zugänglicherer Websites zu helfen. Wir sind jedoch keine Juristen und keines dieser Informationen stellt eine Rechtsberatung dar. Wenn Sie sich über die rechtlichen Auswirkungen der Webzugänglichkeit Sorgen machen, empfehlen wir Ihnen, die spezifischen Gesetze zur Barrierefreiheit im Web und öffentliche Ressourcen in Ihrem Land oder Ihrer Region zu überprüfen und den Rat eines qualifizierten Rechtsanwalts einzuholen.
 
-[Was ist Barrierefreiheit?](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility) und insbesondere der Abschnitt [Zugänglichkeitsrichtlinien und das Gesetz](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_guidelines_and_the_law) bieten mehr verwandte Informationen.
+[Was ist Zugänglichkeit?](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility) und insbesondere der Abschnitt [Richtlinien zur Barrierefreiheit und das Gesetz](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_guidelines_and_the_law) bieten weitere verwandte Informationen.
 
 ## Siehe auch
 
-- [WCAG: Wahrnehmbares](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable) Prinzip
-- [WCAG: Bedienbares](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable) Prinzip
-- [WCAG: Verständliches](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable) Prinzip
-- [WCAG: Robustes](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Robust) Prinzip
-- [WCAG Textbezeichnungen und Namen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Text_labels_and_names)
+- [WCAG: Wahrnehmbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable) Prinzip
+- [WCAG: Bedienbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable) Prinzip
+- [WCAG: Verständlich](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable) Prinzip
+- [WCAG: Robust](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Robust) Prinzip
+- [WCAG Textetiketten und Namen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Text_labels_and_names)
 - [WCAG Tastaturzugänglichkeit](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard)
 - [WCAG Übersicht](https://www.w3.org/WAI/standards-guidelines/wcag/)
 - [WCAG 2.2](https://www.w3.org/TR/WCAG22/)

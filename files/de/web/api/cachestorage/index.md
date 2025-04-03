@@ -2,7 +2,7 @@
 title: CacheStorage
 slug: Web/API/CacheStorage
 l10n:
-  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
@@ -11,44 +11,44 @@ Das **`CacheStorage`**-Interface repräsentiert den Speicher für [`Cache`](/de/
 
 Das Interface:
 
-- Bietet ein Hauptverzeichnis aller benannten Caches, auf das von einem [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) oder anderen Arbeitern oder dem [`window`](/de/docs/Web/API/Window)-Bereich zugegriffen werden kann (Sie sind nicht darauf beschränkt, es nur mit Service Workern zu verwenden).
-- Verwaltet eine Zuordnung von Zeichenkettennamen zu den entsprechenden [`Cache`](/de/docs/Web/API/Cache)-Objekten.
+- Bietet ein Hauptverzeichnis aller benannten Caches, die von einem [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) oder einer anderen Art von Worker oder [`window`](/de/docs/Web/API/Window)-Kontext zugegriffen werden können (Sie sind nicht auf die Verwendung mit Service Workern beschränkt).
+- Verwaltet eine Zuordnung von Zeichenfolgen zu den entsprechenden [`Cache`](/de/docs/Web/API/Cache)-Objekten.
 
 Verwenden Sie [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open), um eine [`Cache`](/de/docs/Web/API/Cache)-Instanz zu erhalten.
 
-Verwenden Sie [`CacheStorage.match()`](/de/docs/Web/API/CacheStorage/match), um zu prüfen, ob eine gegebene [`Request`](/de/docs/Web/API/Request) ein Schlüssel in einem der von dem `CacheStorage`-Objekt verfolgten [`Cache`](/de/docs/Web/API/Cache)-Objekte ist.
+Verwenden Sie [`CacheStorage.match()`](/de/docs/Web/API/CacheStorage/match), um zu überprüfen, ob eine gegebene [`Request`](/de/docs/Web/API/Request) ein Schlüssel in einem der [`Cache`](/de/docs/Web/API/Cache)-Objekte ist, die das `CacheStorage`-Objekt verfolgt.
 
-Sie können auf `CacheStorage` über die [`Window.caches`](/de/docs/Web/API/Window/caches)-Eigenschaft in Fenstern oder über die [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)-Eigenschaft in Arbeitern zugreifen.
+Sie können auf `CacheStorage` über die [`Window.caches`](/de/docs/Web/API/Window/caches)-Eigenschaft in Fenstern oder über die [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)-Eigenschaft in Workern zugreifen.
 
-> **Note:** `CacheStorage` lehnt immer mit einem `SecurityError` bei unzuverlässigen Ursprüngen ab (z.B. solchen, die nicht HTTPS verwenden, obwohl diese Definition in Zukunft wahrscheinlich komplexer werden wird). Beim Testen in Firefox können Sie dies umgehen, indem Sie die Option **Service Workers über HTTP aktivieren (wenn das Tool-Fenster geöffnet ist)** im Optionen-/Zahnrad-Menü der Firefox-Entwicklertools aktivieren. Darüber hinaus kann `CacheStorage` aufgrund der erforderlichen Dateisystemzugriffe im privaten Modus in Firefox nicht verfügbar sein.
+> **Note:** `CacheStorage` lehnt Anfragen auf nicht vertrauenswürdigen Ursprüngen (d.h. solchen, die kein HTTPS verwenden, obwohl diese Definition in Zukunft wahrscheinlich komplexer wird) immer mit einem `SecurityError` ab. Wenn Sie in Firefox testen, können Sie dies umgehen, indem Sie in den Firefox-DevTools-Optionen/dem Zahnrad-Menü die Option **Enable Service Workers over HTTP (when toolbox is open)** aktivieren. Außerdem kann `CacheStorage` aufgrund von Anforderungen an den Dateisystemzugriff im privaten Modus in Firefox nicht verfügbar sein.
 
-> **Note:** [`CacheStorage.match()`](/de/docs/Web/API/CacheStorage/match) ist eine praktische Methode. Gleichwertige Funktionalität zum Abgleichen eines Cache-Eintrags kann implementiert werden, indem ein Array von Cache-Namen aus [`CacheStorage.keys()`](/de/docs/Web/API/CacheStorage/keys) zurückgegeben, jeder Cache mit [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open) geöffnet und der gewünschte mit [`Cache.match()`](/de/docs/Web/API/Cache/match) abgeglichen wird.
+> **Note:** [`CacheStorage.match()`](/de/docs/Web/API/CacheStorage/match) ist eine Komfortmethode. Eine äquivalente Funktionalität, um einen Cache-Eintrag zu finden, kann implementiert werden, indem ein Array der Cachenamen von [`CacheStorage.keys()`](/de/docs/Web/API/CacheStorage/keys) zurückgegeben, jeder Cache mit [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open) geöffnet und der gewünschte mit [`Cache.match()`](/de/docs/Web/API/Cache/match) abgeglichen wird.
 
 ## Instanzmethoden
 
 - [`CacheStorage.match()`](/de/docs/Web/API/CacheStorage/match)
-  - : Prüft, ob eine gegebene [`Request`](/de/docs/Web/API/Request) ein Schlüssel in einem der von dem `CacheStorage`-Objekt verfolgten [`Cache`](/de/docs/Web/API/Cache)-Objekte ist, und gibt ein {{jsxref("Promise")}} zurück, das mit diesem Treffer auflöst.
+  - : Überprüft, ob eine gegebene [`Request`](/de/docs/Web/API/Request) ein Schlüssel in einem der [`Cache`](/de/docs/Web/API/Cache)-Objekte ist, die das `CacheStorage`-Objekt verfolgt, und gibt ein {{jsxref("Promise")}} zurück, das sich zu diesem Treffer auflöst.
 - [`CacheStorage.has()`](/de/docs/Web/API/CacheStorage/has)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das zu `true` aufgelöst wird, wenn ein [`Cache`](/de/docs/Web/API/Cache)-Objekt existiert, das dem `cacheName` entspricht.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich zu `true` auflöst, wenn ein [`Cache`](/de/docs/Web/API/Cache)-Objekt, das mit dem `cacheName` übereinstimmt, existiert.
 - [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das zu dem [`Cache`](/de/docs/Web/API/Cache)-Objekt aufgelöst wird, das dem `cacheName` entspricht (ein neuer Cache wird erstellt, falls dieser noch nicht existiert).
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich zu dem [`Cache`](/de/docs/Web/API/Cache)-Objekt auflöst, das mit dem `cacheName` übereinstimmt (ein neuer Cache wird erstellt, wenn er noch nicht existiert).
 - [`CacheStorage.delete()`](/de/docs/Web/API/CacheStorage/delete)
-  - : Findet das [`Cache`](/de/docs/Web/API/Cache)-Objekt, das dem `cacheName` entspricht, und falls gefunden, löscht das [`Cache`](/de/docs/Web/API/Cache)-Objekt und gibt ein {{jsxref("Promise")}} zurück, das zu `true` aufgelöst wird. Falls kein [`Cache`](/de/docs/Web/API/Cache)-Objekt gefunden wird, wird es zu `false` aufgelöst.
+  - : Findet das [`Cache`](/de/docs/Web/API/Cache)-Objekt, das mit dem `cacheName` übereinstimmt, und löscht es, falls gefunden. Gibt ein {{jsxref("Promise")}} zurück, das sich zu `true` auflöst. Wenn kein [`Cache`](/de/docs/Web/API/Cache)-Objekt gefunden wird, löst es sich zu `false` auf.
 - [`CacheStorage.keys()`](/de/docs/Web/API/CacheStorage/keys)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von Zeichenfolgen auflöst, die allen von dem `CacheStorage` verfolgten benannten [`Cache`](/de/docs/Web/API/Cache)-Objekten entsprechen. Verwenden Sie diese Methode, um über eine Liste aller [`Cache`](/de/docs/Web/API/Cache)-Objekte zu iterieren.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich mit einem Array auflöst, das Zeichenfolgen enthält, die allen benannten [`Cache`](/de/docs/Web/API/Cache)-Objekten entsprechen, die von `CacheStorage` verfolgt werden. Verwenden Sie diese Methode, um über eine Liste aller [`Cache`](/de/docs/Web/API/Cache)-Objekte zu iterieren.
 
 ## Beispiele
 
-Dieses Code-Snippet stammt aus dem MDN [einfaches Service Worker Beispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) (siehe [einfacher Service Worker live betrieben](https://bncb2v.csb.app/).)
-Dieses Service Worker-Skript wartet darauf, dass ein [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)-Ereignis ausgelöst wird, und führt dann [`waitUntil`](/de/docs/Web/API/ExtendableEvent/waitUntil) aus, um den Installationsprozess für die App zu verwalten. Dies besteht darin, [`CacheStorage.open`](/de/docs/Web/API/CacheStorage/open) aufzurufen, um einen neuen Cache zu erstellen, und dann [`Cache.addAll`](/de/docs/Web/API/Cache/addAll) zu verwenden, um eine Reihe von Ressourcen hinzuzufügen.
+Dieser Codeausschnitt stammt aus dem MDN [einfachen Service Worker Beispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) (siehe [einfacher Service Worker live](https://bncb2v.csb.app/).)
+Dieses Service Worker-Skript wartet darauf, dass ein [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)-Ereignis ausgelöst wird, und führt dann [`waitUntil`](/de/docs/Web/API/ExtendableEvent/waitUntil) aus, um den Installationsprozess für die App durchzuführen. Dies besteht darin, [`CacheStorage.open`](/de/docs/Web/API/CacheStorage/open) aufzurufen, um einen neuen Cache zu erstellen, und dann [`Cache.addAll`](/de/docs/Web/API/Cache/addAll) zu verwenden, um eine Reihe von Ressourcen hinzuzufügen.
 
-Im zweiten Codeblock warten wir darauf, dass ein [`FetchEvent`](/de/docs/Web/API/FetchEvent) ausgelöst wird. Wir konstruieren eine benutzerdefinierte Antwort wie folgt:
+Im zweiten Codeblock warten wir, bis ein [`FetchEvent`](/de/docs/Web/API/FetchEvent) ausgelöst wird. Wir konstruieren eine benutzerdefinierte Antwort wie folgt:
 
-1. Prüfen, ob ein Treffer für die Anfrage im CacheStorage gefunden wird. Falls ja, diesen bereitstellen.
-2. Falls nicht, die Anfrage aus dem Netzwerk abrufen, dann auch den Cache öffnen, der im ersten Block erstellt wurde, und ein Duplikat der Anfrage hinzufügen, indem [`Cache.put`](/de/docs/Web/API/Cache/put) verwendet wird (`cache.put(event.request, response.clone())`).
-3. Falls dies fehlschlägt (z.B. weil das Netzwerk ausgefallen ist), eine Ersatzantwort zurückgeben.
+1. Überprüfen Sie, ob ein Treffer für die Anforderung im CacheStorage gefunden wird. Wenn ja, liefern Sie diesen aus.
+2. Wenn nicht, holen Sie die Anfrage aus dem Netzwerk und öffnen Sie dann auch den Cache, der im ersten Block erstellt wurde, und fügen Sie eine Kopie der Anfrage mit [`Cache.put`](/de/docs/Web/API/Cache/put) hinzu (`cache.put(event.request, response.clone())`).
+3. Wenn dies fehlschlägt (z. B. weil das Netzwerk ausgefallen ist), geben Sie eine Ersatzantwort zurück.
 
-Schließlich zurückgeben, was auch immer die benutzerdefinierte Antwort zu sein scheint, unter Verwendung von [`FetchEvent.respondWith`](/de/docs/Web/API/FetchEvent/respondWith).
+Geben Sie schließlich zurück, was auch immer die benutzerdefinierte Antwort letztendlich war, indem Sie [`FetchEvent.respondWith`](/de/docs/Web/API/FetchEvent/respondWith) verwenden.
 
 ```js
 self.addEventListener("install", (event) => {
@@ -98,7 +98,7 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Dieses Snippet zeigt, wie die API außerhalb eines Service Worker-Kontextes verwendet werden kann und verwendet den `await`-Operator, um den Code wesentlich lesbarer zu gestalten.
+Dieses Snippet zeigt, wie die API außerhalb eines Service Worker-Kontexts verwendet werden kann und verwendet den `await`-Operator für einen viel besser lesbaren Code.
 
 ```js
 // Try to get data from the cache, but fall back to fetching it live.
@@ -169,4 +169,4 @@ try {
 - [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 - [`Cache`](/de/docs/Web/API/Cache)
 - [`Window.caches`](/de/docs/Web/API/Window/caches) und [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)
-- [Privates Surfen / Inkognito-Modus](/de/docs/Web/API/Web_Storage_API#private_browsing_incognito_modes)
+- [Private Browsing / Inkognito-Modi](/de/docs/Web/API/Web_Storage_API#private_browsing_incognito_modes)

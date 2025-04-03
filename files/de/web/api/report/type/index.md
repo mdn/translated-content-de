@@ -3,18 +3,18 @@ title: "Bericht: type-Eigenschaft"
 short-title: type
 slug: Web/API/Report/type
 l10n:
-  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
 Die schreibgeschützte **`type`**-Eigenschaft des [`Report`](/de/docs/Web/API/Report)
-Interfaces gibt den Typ des erzeugten Berichts zurück, z.B. `deprecation` oder
+Interfaces gibt den Typ des generierten Berichts zurück, z. B. `deprecation` oder
 `intervention`.
 
 ## Wert
 
-Ein String, der den Typ des Berichts darstellt. Derzeit verfügbare Typen sind
+Ein String, der den Typ des Berichts repräsentiert. Derzeit verfügbare Typen sind
 `deprecation`, `intervention` und `crash`.
 
 ## Beispiele

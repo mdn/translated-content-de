@@ -2,16 +2,16 @@
 title: AudioDestinationNode
 slug: Web/API/AudioDestinationNode
 l10n:
-  sourceCommit: 10b342385644e822d123694ad3bc8c2ca9abb2dc
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Web Audio API")}}
 
-Das `AudioDestinationNode`-Interface repräsentiert das Endziel eines Audiographen in einem bestimmten Kontext – normalerweise die Lautsprecher Ihres Geräts. Es kann auch der Knoten sein, der die Audiodaten "aufzeichnet", wenn er mit einem `OfflineAudioContext` verwendet wird.
+Das `AudioDestinationNode`-Interface stellt das Endziel eines Audiografen in einem bestimmten Kontext dar — normalerweise die Lautsprecher Ihres Geräts. Es kann auch der Knoten sein, der die Audiodaten "aufzeichnet", wenn er mit einem `OfflineAudioContext` verwendet wird.
 
-`AudioDestinationNode` hat keine Ausgabe (da es _die_ Ausgabe ist, kann im Audiograph kein weiterer `AudioNode` nach ihm verknüpft werden) und einen Eingang. Die Anzahl der Kanäle am Eingang muss zwischen `0` und dem Wert von `maxChannelCount` liegen, sonst wird eine Ausnahme ausgelöst.
+`AudioDestinationNode` hat keine Ausgabe (da es die _Ausgabe_ ist; es kann kein weiteres `AudioNode` danach im Audiografen verknüpft werden) und einen Eingang. Die Anzahl der Kanäle im Eingang muss zwischen `0` und dem Wert von `maxChannelCount` liegen, ansonsten wird eine Ausnahme ausgelöst.
 
-Das `AudioDestinationNode` eines bestimmten `AudioContext` kann über die [`AudioContext.destination`](/de/docs/Web/API/BaseAudioContext/destination)-Eigenschaft abgerufen werden.
+Das `AudioDestinationNode` eines gegebenen `AudioContext` kann über die [`AudioContext.destination`](/de/docs/Web/API/BaseAudioContext/destination)-Eigenschaft abgerufen werden.
 
 {{InheritanceDiagram}}
 
@@ -26,34 +26,34 @@ Das `AudioDestinationNode` eines bestimmten `AudioContext` kann über die [`Audi
       <td><code>0</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel count mode</th>
+      <th scope="row">Kanalanzahlmodus</th>
       <td><code>"explicit"</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel count</th>
+      <th scope="row">Anzahl der Kanäle</th>
       <td><code>2</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel interpretation</th>
+      <th scope="row">Kanalinterpretation</th>
       <td><code>"speakers"</code></td>
     </tr>
   </tbody>
 </table>
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternobjekt, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 - [`AudioDestinationNode.maxChannelCount`](/de/docs/Web/API/AudioDestinationNode/maxChannelCount)
-  - : Ein `unsigned long`, das die maximale Anzahl an Kanälen definiert, die das physische Gerät verarbeiten kann.
+  - : Ein `unsigned long`, das die maximale Anzahl der Kanäle definiert, die das physische Gerät verarbeiten kann.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternobjekt, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Beispiel
 
-Es gibt keine komplexe Einrichtung für die Verwendung eines `AudioDestinationNode` – standardmäßig repräsentiert dies die Ausgabe des Systems des Benutzers (z.B. ihre Lautsprecher), sodass Sie es in einem Audiographen mit nur wenigen Codezeilen anschließen können:
+Es gibt keine komplexe Einrichtung zur Verwendung eines `AudioDestinationNode` — standardmäßig stellt dies die Ausgabe des Systems des Benutzers (z.B. deren Lautsprecher) dar, sodass Sie es mit nur wenigen Codezeilen in einen Audiografen einhängen können:
 
 ```js
 const audioCtx = new AudioContext();
@@ -62,7 +62,7 @@ source.connect(gainNode);
 gainNode.connect(audioCtx.destination);
 ```
 
-Um eine vollständigere Implementierung zu sehen, können Sie eines unserer MDN Web Audio-Beispiele ausprobieren, wie etwa [Voice-change-o-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) oder [Violent Theremin](https://github.com/mdn/webaudio-examples/tree/main/violent-theremin).
+Um eine vollständigere Implementierung zu sehen, werfen Sie einen Blick auf eines unserer MDN Web Audio-Beispiele, wie [Voice-change-o-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) oder [Violent Theremin](https://github.com/mdn/webaudio-examples/tree/main/violent-theremin).
 
 ## Spezifikationen
 
@@ -74,4 +74,4 @@ Um eine vollständigere Implementierung zu sehen, können Sie eines unserer MDN 
 
 ## Siehe auch
 
-- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwenden der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

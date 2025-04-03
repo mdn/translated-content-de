@@ -2,22 +2,22 @@
 title: sidebarAction.setPanel()
 slug: Mozilla/Add-ons/WebExtensions/API/sidebarAction/setPanel
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{AddonSidebar}}
 
-Setzt das Panel der Seitenleiste: das heißt, das HTML-Dokument, das den Inhalt dieser Seitenleiste definiert.
+Legt das Panel der Seitenleiste fest, also das HTML-Dokument, das den Inhalt dieser Seitenleiste definiert.
 
 ## Arten von Panels
 
-Seitenleisten haben immer ein _"Manifest-Panel"_, das im [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) Manifest-Schlüssel definiert ist.
+Seitenleisten haben immer ein _"Manifest-Panel"_, das im Manifest-Schlüssel [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) definiert ist.
 
-Wenn Sie ein neues Panel mit `setPanel()` festlegen und die Option `tabId` einschließen, wird das Panel nur für den angegebenen Tab festgelegt. Dieses Panel wird als _"tab-spezifisches Panel"_ bezeichnet.
+Wenn Sie ein neues Panel mit `setPanel()` festlegen und die Option `tabId` einschließen, wird das Panel nur für den angegebenen Tab festgelegt. Dieses Panel wird als _"Tab-spezifisches Panel"_ bezeichnet.
 
-Wenn Sie ein neues Panel mit `setPanel()` festlegen und die Option `windowId` einschließen, wird das Panel nur für das angegebene Fenster festgelegt. Dieses Panel wird als _"fenster-spezifisches Panel"_ bezeichnet und erscheint in allen Tabs dieses Fensters, die kein tab-spezifisches Panel festgelegt haben.
+Wenn Sie ein neues Panel mit `setPanel()` festlegen und die Option `windowId` einschließen, wird das Panel nur für das angegebene Fenster festgelegt. Dieses Panel wird als _"Fenster-spezifisches Panel"_ bezeichnet und erscheint in allen Tabs dieses Fensters, die kein Tab-spezifisches Panel haben.
 
-Wenn Sie ein neues Panel mit `setPanel()` festlegen und sowohl die Optionen `tabId` als auch `windowId` weglassen, wird das _"globale Panel"_ festgelegt. Das globale Panel wird dann in allen Tabs angezeigt, die kein tab-spezifisches Panel haben und deren Fenster kein fenster-spezifisches Panel hat.
+Wenn Sie ein neues Panel mit `setPanel()` festlegen und sowohl die Optionen `tabId` als auch `windowId` auslassen, wird das _"globale Panel"_ festgelegt. Das globale Panel erscheint dann in allen Tabs, die kein Tab-spezifisches Panel haben und deren Fenster kein Fenster-spezifisches Panel hat.
 
 ## Syntax
 
@@ -35,14 +35,14 @@ browser.sidebarAction.setPanel(
 
     - `panel`
 
-      - : `string` oder `null`. Das Panel, das in die Seitenleiste geladen werden soll, angegeben als URL, die auf ein HTML-Dokument verweist, oder `null`, oder eine leere Zeichenfolge.
+      - : `string` oder `null`. Das zu ladende Panel in der Seitenleiste, angegeben als URL, die auf ein HTML-Dokument verweist, oder `null` oder ein leerer String.
 
-        Dies kann auf eine innerhalb der Erweiterung gepackte Datei verweisen (zum Beispiel erstellt mit {{WebExtAPIRef("runtime.getURL")}}), oder ein entferntes Dokument (z.B. `https://example.org/`). Es muss eine gültige URL sein.
+        Dies kann auf eine Datei innerhalb der Erweiterung verweisen (zum Beispiel erstellt mit {{WebExtAPIRef("runtime.getURL")}}), oder auf ein entferntes Dokument (z.B. `https://example.org/`). Es muss eine gültige URL sein.
 
-        Wenn `panel` `null` oder `""` ist, wird ein zuvor festgelegtes Panel entfernt, sodass:
+        Wenn `panel` `null` oder `""` ist, wird ein zuvor eingestelltes Panel entfernt, so dass:
 
-        - Wenn `tabId` angegeben ist, und der Tab ein tab-spezifisches Panel hat, dann erbt der Tab das Panel von dem Fenster, zu dem es gehört.
-        - Wenn `windowId` angegeben ist, und das Fenster ein fenster-spezifisches Panel hat, dann erbt das Fenster das globale Panel.
+        - Wenn `tabId` angegeben ist und der Tab ein Tab-spezifisches Panel hat, dann übernimmt der Tab das Panel von dem Fenster, zu dem es gehört.
+        - Wenn `windowId` angegeben ist und das Fenster ein Fenster-spezifisches Panel hat, übernimmt das Fenster das globale Panel.
         - Andernfalls wird das globale Panel auf das Manifest-Panel zurückgesetzt.
 
     - `tabId` {{optional_inline}}
@@ -57,7 +57,7 @@ browser.sidebarAction.setPanel(
 
 ## Beispiele
 
-Dieser Code wechselt das Dokument der Seitenleiste, wenn der Benutzer auf eine Browseraktion klickt:
+Dieser Code wechselt das Dokument der Seitenleiste, wenn der Benutzer auf eine Browser-Aktion klickt:
 
 ```js
 let thisPanel = browser.runtime.getURL("/this.html");
@@ -83,7 +83,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.sidebarAction`](https://help.opera.com/en/extensions/sidebar-action-api/) API von Opera.
+> Diese API basiert auf Operas [`chrome.sidebarAction`](https://help.opera.com/en/extensions/sidebar-action-api/) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

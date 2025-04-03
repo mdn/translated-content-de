@@ -2,10 +2,10 @@
 title: restart
 slug: Web/SVG/Reference/Attribute/restart
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Das **`restart`** Attribut gibt an, ob eine Animation neu starten kann oder nicht.
+Das Attribut **`restart`** gibt an, ob eine Animation neu gestartet werden kann oder nicht.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -66,7 +66,7 @@ document.getElementById("restart").addEventListener("click", (evt) => {
 
 {{EmbedLiveSample("Example", "220", "150")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

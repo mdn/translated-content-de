@@ -1,20 +1,20 @@
 ---
-title: "EventSource: message Ereignis"
+title: "EventSource: message event"
 short-title: message
 slug: Web/API/EventSource/message_event
 l10n:
-  sourceCommit: a166ba48ceb8bccb37c67a0a8856b0e5b12e0135
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Server Sent Events")}}{{AvailableInWorkers}}
 
-Das **`message`**-Ereignis der [`EventSource`](/de/docs/Web/API/EventSource)-Schnittstelle wird ausgelöst, wenn Daten durch eine Ereignisquelle empfangen werden.
+Das **`message`**-Ereignis der [`EventSource`](/de/docs/Web/API/EventSource)-Schnittstelle wird ausgelöst, wenn Daten über eine Ereignisquelle empfangen werden.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("message", (event) => {});
@@ -28,24 +28,24 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 {{InheritanceDiagram("MessageEvent")}}
 
-## Ereigniseigenschaften
+## Eigenschaften des Ereignisses
 
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
   - : Die vom Nachrichtensender gesendeten Daten.
 - [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtensenders repräsentiert.
+  - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
 - [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
 - [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
   - : Eine `MessageEventSource` (die ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), die den Nachrichtensender darstellt.
 - [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports darstellen, die mit dem Kanal assoziiert sind, über den die Nachricht gesendet wird (wo zutreffend, z. B. beim Kanal-Messaging oder beim Senden einer Nachricht an einen gemeinsamen Worker).
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports darstellen, die mit dem Kanal verbunden sind, über den die Nachricht gesendet wird (wo zutreffend, z. B. bei der Kanalnachrichtenübermittlung oder beim Senden einer Nachricht an einen Shared Worker).
 
 ## Beispiele
 
-In diesem einfachen Beispiel wird eine `EventSource` erstellt, um Ereignisse vom Server zu empfangen; eine Seite mit dem Namen `sse.php` ist dafür verantwortlich, die Ereignisse zu generieren.
+In diesem grundlegenden Beispiel wird eine `EventSource` erstellt, um Ereignisse vom Server zu empfangen; eine Seite mit dem Namen `sse.php` ist für die Generierung der Ereignisse verantwortlich.
 
 ```js
 const evtSource = new EventSource("sse.php");
@@ -59,7 +59,7 @@ evtSource.addEventListener("message", (e) => {
 });
 ```
 
-### onmessage Äquivalent
+### Äquivalent zu onmessage
 
 ```js
 evtSource.onmessage = (e) => {

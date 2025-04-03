@@ -3,7 +3,7 @@ title: "HTMLFencedFrameElement: config-Eigenschaft"
 short-title: config
 slug: Web/API/HTMLFencedFrameElement/config
 l10n:
-  sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
@@ -14,16 +14,16 @@ Die **`config`**-Eigenschaft des [`HTMLFencedFrameElement`](/de/docs/Web/API/HTM
 
 Der Wert von `config` ist zunächst `null`.
 
-Wenn sein Wert auf eine [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objektinstanz gesetzt wird, bestimmen die internen Eigenschaften (zum Beispiel `mappedURL`) des `FencedFrameConfig`, was im zugehörigen `<fencedframe>` geladen wird. Zusätzlich gilt:
+Wenn sein Wert auf eine Instanz eines [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekts gesetzt wird, bestimmen die internen Eigenschaften des `FencedFrameConfig` (zum Beispiel `mappedURL`), was im zugehörigen `<fencedframe>` geladen wird. Zusätzlich:
 
-- Der Navigationstyp wird `"replace"` sein (siehe [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType)), was bedeutet, dass der aktuelle Verlaufs-Eintrag durch den neuen Eintrag ersetzt wird, anstatt einen neuen Verlaufs-Eintrag hinzuzufügen.
-- Die Navigations-{{httpheader("Referrer-Policy")}} wird auf `"no-referrer"` gesetzt.
+- Der Navigations-Typ wird `"replace"` sein (siehe [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType)), was bedeutet, dass der aktuelle Verlaufseintrag durch den neuen Eintrag ersetzt wird, anstatt einen neuen Verlaufseintrag dafür hinzuzufügen.
+- Die {{httpheader("Referrer-Policy")}} der Navigation ist auf `"no-referrer"` gesetzt.
 
 ## Beispiele
 
-Um festzulegen, welche Inhalte in einem `<fencedframe>` angezeigt werden sollen, generiert eine nutzende API (wie [Protected Audience](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) oder [Shared Storage](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage)) ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekt, das dann als Wert der `config`-Eigenschaft des `<fencedframe>` gesetzt wird.
+Um festzulegen, welche Inhalte in einem `<fencedframe>` angezeigt werden, generiert eine verwendende API (wie [Protected Audience](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) oder [Shared Storage](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage)) ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekt, das dann als Wert der `config`-Eigenschaft des `<fencedframe>` gesetzt wird.
 
-Das folgende Beispiel erhält ein `FencedFrameConfig` von einer Werbeauktion der Protected Audience API, das dann verwendet wird, um die gewinnende Anzeige in einem `<fencedframe>` anzuzeigen:
+Im folgenden Beispiel wird ein `FencedFrameConfig` von einer Anzeigenausschreibung der Protected Audience API abgerufen, das dann verwendet wird, um die gewonnene Anzeige in einem `<fencedframe>` anzuzeigen:
 
 ```js
 const frameConfig = await navigator.runAdAuction({
@@ -35,7 +35,7 @@ const frame = document.createElement("fencedframe");
 frame.config = frameConfig;
 ```
 
-> **Note:** `resolveToConfig: true` muss in den `runAdAuction()`-Aufruf übergeben werden, um ein `FencedFrameConfig`-Objekt zu erhalten. Wenn dies nicht gesetzt ist, wird die resultierende {{jsxref("Promise")}} zu einem URN aufgelöst, der nur in einem {{htmlelement("iframe")}} verwendet werden kann.
+> **Hinweis:** `resolveToConfig: true` muss beim Aufruf von `runAdAuction()` übergeben werden, um ein `FencedFrameConfig`-Objekt zu erhalten. Wenn es nicht gesetzt ist, wird das resultierende {{jsxref("Promise")}} auf eine URN aufgelöst, die nur in einem {{htmlelement("iframe")}} verwendet werden kann.
 
 ## Spezifikationen
 

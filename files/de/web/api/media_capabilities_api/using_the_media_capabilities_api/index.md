@@ -2,27 +2,27 @@
 title: Verwendung der Media Capabilities API
 slug: Web/API/Media_Capabilities_API/Using_the_Media_Capabilities_API
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{DefaultAPISidebar("Media Capabilities API")}}
 
-Die [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API) bietet mehrere wichtige Funktionen, mit denen Sie besser entscheiden können, wie Medien gehandhabt werden sollen, und auch, um in Echtzeit festzustellen, wie gut Medien gehandhabt werden.
+Die [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API) bietet mehrere wichtige Funktionen, die Ihnen helfen, besser zu entscheiden, wie Medien behandelt werden sollen. Sie ermöglicht auch festzustellen, wie gut Medien in Echtzeit verarbeitet werden.
 
 Diese Funktionen umfassen:
 
-- Die Fähigkeit, den Browser zu befragen, um seine Fähigkeit zur Codierung oder Decodierung von Medien mit einem bestimmten Satz von Codierungsparametern zu bestimmen. Diese Parameter können die Codecs, Auflösungen, Bitraten, Bildraten und andere solche Details umfassen. Mit der Media Capabilities API können Sie nicht nur feststellen, ob der Browser ein bestimmtes Format unterstützt, sondern auch, ob er dies effizient und reibungslos tun kann. Kurz gesagt ersetzt und verbessert diese API die Methode [`isTypeSupported()`](/de/docs/Web/API/MediaSource/isTypeSupported_static) von [`MediaSource`](/de/docs/Web/API/MediaSource) oder die Methode [`canPlayType()`](/de/docs/Web/API/HTMLMediaElement/canPlayType) von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement).
-- Immer detailliertere Informationen zu den Eigenschaften des Displays, sodass fundierte Entscheidungen getroffen werden können, wenn das beste Format zur Wiedergabe auf dem Gerät des Benutzers ausgewählt wird. Beispielsweise können Sie die API verwenden, um sicherzustellen, dass Sie nicht versuchen, Inhalte im High Dynamic Range (HDR) auf einem Bildschirm mit Standard Dynamic Range (SDR) abzuspielen.
-- Unterstützung für das Abrufen von Echtzeit-Feedback über die Wiedergabe von Medien, sodass Ihr Code fundierte Entscheidungen darüber treffen kann, die Qualität des Streams oder andere Einstellungen anzupassen, um die wahrgenommene Medienleistung und Qualität des Benutzers zu verwalten. Eine Funktion davon ist die Möglichkeit zu erkennen, wann das Gerät die GPUs wechselt, sodass Sie entsprechende Anpassungen basierend auf den Fähigkeiten der neuen GPU vornehmen können.
+- Die Möglichkeit, den Browser zu befragen, um seine Fähigkeit zur Kodierung oder Dekodierung von Medien mit einem bestimmten Satz von Kodierungsparametern zu bestimmen. Diese Parameter können Codecs, Auflösungen, Bitraten, Bildraten und ähnliche Details enthalten. Mit der Media Capabilities API können Sie nicht nur feststellen, ob der Browser ein bestimmtes Format unterstützt, sondern auch, ob er dies effizient und reibungslos tun kann. Kurz gesagt, diese API ersetzt und verbessert die [`MediaSource`](/de/docs/Web/API/MediaSource)-Methode [`isTypeSupported()`](/de/docs/Web/API/MediaSource/isTypeSupported_static) oder die [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Methode [`canPlayType()`](/de/docs/Web/API/HTMLMediaElement/canPlayType).
+- Immer detailliertere Informationen über die Eigenschaften des Bildschirms, sodass fundierte Entscheidungen getroffen werden können, wenn das beste Format für das Gerät des Benutzers ausgewählt wird. Zum Beispiel können Sie die API verwenden, um sicherzustellen, dass Sie keine High Dynamic Range (HDR)-Inhalte auf einem Standard Dynamic Range (SDR)-Bildschirm abspielen versuchen.
+- Unterstützung für das Erhalten von Echtzeit-Feedback über die Wiedergabe von Medien, damit Ihr Code fundierte Entscheidungen über die Anpassung der Stream-Qualität oder andere Einstellungen treffen kann, um die vom Benutzer wahrgenommene Medienleistung und -qualität zu verwalten. Eine Funktion davon ist die Möglichkeit zu erkennen, wann das Gerät GPUs wechselt, sodass Sie entsprechende Anpassungen basierend auf den Fähigkeiten der neuen GPU vornehmen können.
 
 > [!NOTE]
-> Die Funktionalität zur Anzeige der Fähigkeiten, die im obigen dritten Punkt erwähnt wird, ist in keinem Browser erschienen. Sie wird jedoch eine nützliche Funktion der API sein, sobald sie verfügbar ist, aber es besteht eine hohe Wahrscheinlichkeit, dass sich die Funktionalität zur Anzeige der Fähigkeiten erheblich ändern wird, bevor die Browserimplementierungen erscheinen.
+> Die im dritten Punkt genannten Display-Kapazitäts-Funktionalitäten sind noch in keinem Browser verfügbar. Sie werden eine nützliche Funktion der API sein, sobald sie verfügbar sind, aber es besteht eine hohe Wahrscheinlichkeit, dass sich die Funktionalität der Display-Kapazitäten erheblich ändern, bevor Browser-Implementierungen erscheinen.
 
-## Die MediaCapabilities-Schnittstelle
+## Das MediaCapabilities-Interface
 
-Die [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities) ist über die Eigenschaft [`mediaCapabilities`](/de/docs/Web/API/Navigator/mediaCapabilities) verfügbar, die sowohl vom `navigator`-Objekt als auch vom [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) -Objekt bereitgestellt wird; mit anderen Worten, die Media Capabilities API ist sowohl im Hauptthread als auch in Workern verfügbar.
+Das [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Interface ist über die [`mediaCapabilities`](/de/docs/Web/API/Navigator/mediaCapabilities)-Eigenschaft verfügbar, die sowohl vom `navigator`-Objekt als auch vom [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Objekt bereitgestellt wird. Mit anderen Worten, die Media Capabilities API ist sowohl im Haupt-Thread als auch von Arbeitern aus verfügbar.
 
-Wenn das Objekt existiert, ist die Media Capabilities API verfügbar. Sie können daher die Präsenz der API wie folgt testen:
+Wenn das Objekt existiert, ist die Media Capabilities API verfügbar. Sie können daher auf das Vorhandensein der API wie folgt testen:
 
 ```js
 if ("mediaCapabilities" in navigator) {
@@ -32,18 +32,18 @@ if ("mediaCapabilities" in navigator) {
 }
 ```
 
-Nehmen Sie als Beispiel Video, um Informationen über die Video-Decodierungsfähigkeiten zu erhalten. Sie erstellen eine Videodekodierungskonfiguration, die Sie als Parameter an die Methode [`MediaCapabilities.decodingInfo()`](/de/docs/Web/API/MediaCapabilities/decodingInfo) übergeben. Dies gibt ein Promise zurück, das mit Informationen über die Medienfähigkeiten erfüllt wird, ob das Video decodiert werden kann und ob die Decodierung reibungslos und energieeffizient ist. Sie können auch die Audio-Decodierung sowie die Video- und Audio-Codierung testen.
+Am Beispiel von Video: Um Informationen über Videodekodierfähigkeiten zu erhalten, erstellen Sie eine Videodekodierkonfiguration, die Sie als Parameter an die Methode [`MediaCapabilities.decodingInfo()`](/de/docs/Web/API/MediaCapabilities/decodingInfo) übergeben. Diese gibt ein Promise zurück, das mit Informationen über die Medienfähigkeiten erfüllt wird, ob das Video dekodiert werden kann und ob die Dekodierung reibungslos und energieeffizient sein wird. Sie können auch die Audiodekodierung sowie Video- und Audiokodierung testen.
 
-### Eine Video-Decodierungskonfiguration erstellen
+### Erstellen einer Videodekodierkonfiguration
 
-Die Methode [`MediaCapabilities.decodingInfo()`](/de/docs/Web/API/MediaCapabilities/decodingInfo) nimmt als Parameter eine Mediendekodierungskonfiguration.
+Die Methode [`MediaCapabilities.decodingInfo()`](/de/docs/Web/API/MediaCapabilities/decodingInfo) nimmt als Parameter eine Mediendekodierkonfiguration entgegen.
 
-In unserem Beispiel testen wir die Dekodierungsfähigkeiten einer Videokonfiguration. Die Konfiguration erfordert den Typ des getesteten Mediums — z.B. eine einfache `file` oder [`MediaSource`](/de/docs/Web/API/MediaSource) — und ein Videokonfigurationsobjekt, das Werte für den `contentType`, die `width`, die `height`, die `bitrate` und die `framerate` enthält:
+In unserem Beispiel testen wir die Dekodierfähigkeiten einer Videokonfiguration. Die Konfiguration erfordert den Typ der getesteten Medien — z.B. eine einfache `file` oder [`MediaSource`](/de/docs/Web/API/MediaSource) — und ein Videokonfigurationsobjekt, das Werte für `contentType`, `width`, `height`, `bitrate` und `framerate` enthält:
 
-- Der `contentType` muss eine Zeichenkette sein, die einen [gültigen MIME-Typ für Videos](/de/docs/Web/Media/Guides/Formats/Video_codecs) angibt.
-- Die `width` und `height` sind die horizontalen und vertikalen Abmessungen des Videos; sie werden auch verwendet, um das {{Glossary("aspect_ratio", "Seitenverhältnis")}} zu bestimmen.
-- Die `bitrate` ist die Anzahl der Bits, die verwendet werden, um eine Sekunde Video zu codieren.
-- Die `framerate` ist die Anzahl der Bilder, die pro Sekunde bei der Videowiedergabe abgespielt werden.
+- Der `contentType` muss ein String sein, der einen [gültigen Video-MIME-Typ](/de/docs/Web/Media/Guides/Formats/Video_codecs) angibt.
+- Die `width` und `height` sind die horizontale und vertikale Dimension des Videos; diese werden auch zur Bestimmung des {{Glossary("aspect_ratio", "Seitenverhältnisses")}} verwendet.
+- Die `bitrate` ist die Anzahl der Bits, die verwendet werden, um eine Sekunde Video zu kodieren.
+- Die `framerate` ist die Anzahl der Bilder, die pro Sekunde beim Abspielen des Videos gezeigt werden.
 
 ```js
 const videoConfiguration = {
@@ -58,7 +58,7 @@ const videoConfiguration = {
 };
 ```
 
-Hätten wir die Decodierfähigkeit einer Audiodatei abgefragt, würden wir eine Audiokonfiguration erstellen, die die Anzahl der Kanäle und die Abtastrate enthält und die Eigenschaften weglassen, die nur für Video gelten, nämlich die Abmessungen und die Bildrate:
+Hätten wir die Decodierbarkeit einer Audiodatei abgefragt, würden wir eine Audiokonfiguration erstellen, die die Anzahl der Kanäle und die Abtastrate beinhaltet und die Eigenschaften, die nur für Video gelten — nämlich die Abmessungen und die Bildrate — weglassen:
 
 ```js
 const audioConfiguration = {
@@ -72,21 +72,23 @@ const audioConfiguration = {
 };
 ```
 
-Hätten wir die Codierungsfähigkeiten getestet, hätten wir eine leicht abgewandelte Konfiguration erstellt. In diesem Fall ist der getestete Medientyp entweder `record` (für das Aufzeichnen von Medien, d.h. ein [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Objekt) oder `transmission` (für Medien, die über elektronische Mittel, wie z.B. [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), übertragen werden) — und zusätzlich entweder eine Audio- oder Videokonfiguration wie oben beschrieben.
+Hätten wir die Kodierungsfähigkeiten getestet, hätten wir eine etwas andere Konfiguration erstellt.
+In diesem Fall ist der Typ des getesteten Mediums entweder `record` (für aufgenommene Medien, d.h. ein [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Objekt) oder `transmission` (für Medien, die über elektronische Mittel wie [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) übertragen werden) — sowie entweder eine Audio- oder Videokonfiguration wie oben beschrieben.
 
-### Den Browser nach Decodierungsfähigkeiten abfragen
+### Abfrage des Browsers über Dekodierfähigkeiten
 
-Da wir nun eine Videodekodierungskonfiguration erstellt haben, können wir sie als Parameter der Methode [`decodingInfo()`](/de/docs/Web/API/MediaCapabilities/decodingInfo) übergeben, um festzustellen, ob ein Video mit dieser Konfiguration dekodierbar wäre und ob die Wiedergabe reibungslos und energieeffizient wäre.
+Nachdem wir nun eine Videodekodierkonfiguration erstellt haben, können wir sie als Parameter der Methode [`decodingInfo()`](/de/docs/Web/API/MediaCapabilities/decodingInfo) übergeben, um festzustellen, ob ein Video, das dieser Konfiguration entspricht, dekodierbar wäre und ob die Wiedergabe reibungslos und energieeffizient wäre.
 
 ```js
 let promise = navigator.mediaCapabilities.decodingInfo(videoConfiguration);
 ```
 
-Die Methoden `decodingInfo()` und [`encodingInfo()`](/de/docs/Web/API/MediaCapabilities/encodingInfo) geben beide Promises zurück. Sobald die Promise-Zustände erfüllt sind, können Sie auf die Eigenschaften `supported`, `smooth` und `powerEfficient` des zurückgegebenen Objekts zugreifen.
+Die Methoden `decodingInfo()` und [`encodingInfo()`](/de/docs/Web/API/MediaCapabilities/encodingInfo) geben beide Promises zurück.
+Sobald die Promise-Zustände erfüllt sind, können Sie auf die Eigenschaften `supported`, `smooth` und `powerEfficient` des zurückgegebenen Objekts zugreifen.
 
-### Die Antwort verarbeiten
+### Umgang mit der Antwort
 
-Anstatt das Promise einer Variablen zuzuweisen, können wir die vom Promise zurückgegebenen Werte an die Konsole ausgeben:
+Anstatt das Promise einer Variablen zuzuweisen, können wir die von dem Promise zurückgegebenen Werte an die Konsole ausgeben:
 
 ```js
 navigator.mediaCapabilities.decodingInfo(videoConfiguration).then((result) => {
@@ -100,12 +102,12 @@ navigator.mediaCapabilities.decodingInfo(videoConfiguration).then((result) => {
 
 ## Fehlerbehandlung
 
-In unserem Beispiel zur Videodekodierung würde ein {{jsxref("TypeError")}} auftreten, wenn die an die Methode [`decodingInfo()`](/de/docs/Web/API/MediaCapabilities/decodingInfo) übergebene Medienkonfiguration ungültig war. Es gibt einige Gründe, warum ein Fehler auftreten könnte, einschließlich:
+In unserem Video-Dekodierbeispiel würde ein {{jsxref("TypeError")}} ausgelöst, wenn die an die Methode [`decodingInfo()`](/de/docs/Web/API/MediaCapabilities/decodingInfo) übergebene Medienkonfiguration ungültig ist. Es gibt einige Gründe, warum ein Fehler auftreten könnte, einschließlich:
 
 - Der angegebene `type` ist nicht einer der beiden erlaubten Werte: `file` oder `media-source`
-- Der `contentType` ist
+- Der angegebene `contentType` ist
 
-Der Fehler kann auftreten, weil der `type` nicht einer der beiden möglichen Werte ist, der `contentType` kein gültiger Codec-MIME-Typ ist oder ungültige oder weggelassene Definitionen im Videokonfigurationsobjekt fehlen.
+Der Fehler kann darauf zurückzuführen sein, dass der `type` nicht einer der beiden möglichen Werte ist, der `contentType` kein gültiger Codec MIME-Typ ist, oder ungültige oder ausgelassene Definitionen im Videokonfigurationsobjekt fehlen.
 
 ```js
 navigator.mediaCapabilities
@@ -114,7 +116,7 @@ navigator.mediaCapabilities
   .catch((error) => console.error(`It failed: ${error}`));
 ```
 
-## Live-Beispiel der Media Capabilities
+## Media Capabilities Live-Beispiel
 
 ### CSS
 

@@ -2,35 +2,35 @@
 title: Intl.Locale.prototype.language
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/language
 l10n:
-  sourceCommit: b68d6456477c19b1fed8fc6bc99eff8972b1af29
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{JSRef}}
 
-Die **`language`**-Zugriffseigenschaft von {{jsxref("Intl.Locale")}}-Instanzen gibt die Sprache zurück, die mit dieser Lokalisierung verbunden ist.
+Die **`language`**-Zugriffseigenschaft von Instanzen von {{jsxref("Intl.Locale")}} gibt die mit dieser Locale verknüpfte Sprache zurück.
 
 ## Beschreibung
 
-Die Sprache ist eines der Kerneigenschaften einer Lokalisierung. Die Unicode-Spezifikation behandelt den Sprachbezeichner einer Lokalisierung als Kombination aus Sprache und Region (um Unterschiede zwischen Dialekten und Varianten zu kennzeichnen, z. B. Britisches Englisch vs. Amerikanisches Englisch). Die `language`-Eigenschaft eines {{jsxref("Intl.Locale")}} gibt streng genommen nur das Sprachsubtag der Lokalisierung zurück. Der Wert der `language`-Eigenschaft wird zur Zeitpunkt der Erstellung festgelegt, entweder durch das `language`-Subtag (erster Teil) der Lokalisierungskennung oder durch die `language`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktors. Letztere hat Priorität, wenn beide vorhanden sind.
+Sprache ist eines der Kernattribute einer Locale. Die Unicode-Spezifikation behandelt den Sprachidentifikator einer Locale als Kombination aus Sprache und Region (um Unterschiede zwischen Dialekten und Varianten zu machen, z.B. Britisches Englisch vs. Amerikanisches Englisch). Die `language`-Eigenschaft eines {{jsxref("Intl.Locale")}} gibt strikt das Sprachuntertag der Locale zurück. Der Wert der `language`-Eigenschaft wird zur Konstruktion festgelegt, entweder durch das Sprachuntertag (erster Teil) des Locale-Identifikators oder durch die `language`-Option des {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktors. Letztere hat Vorrang, wenn beide vorhanden sind.
 
-Der Set-Accessor von `language` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der set-Accessor von `language` ist `undefined`. Diese Eigenschaft kann nicht direkt geändert werden.
 
 ## Beispiele
 
-Wie andere Lokalisierungs-Subtags kann die Sprache dem {{jsxref("Intl.Locale")}}-Objekt über den Lokalisierungs-String oder ein Konfigurationsobjekt-Argument für den Konstruktor hinzugefügt werden.
+Wie andere Locale-Untertags kann die Sprache über den Locale-String oder ein Konfigurationsobjekt-Argument an das Konstruktor-Argument zum {{jsxref("Intl.Locale")}}-Objekt hinzugefügt werden.
 
-### Festlegen der Sprache über den Lokalisierungs-String
+### Festlegen der Sprache über den Locale-String
 
-Um ein gültiger Unicode-Lokalisierungsbezeichner zu sein, muss ein String mit dem Sprachsubtag beginnen. Das Hauptargument für den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor muss ein gültiger Unicode-Lokalisierungsbezeichner sein, sodass beim Gebrauch des Konstruktors ein Bezeichner mit einem Sprachsubtag übergeben werden muss.
+Um ein gültiger Unicode-Locale-Identifikator zu sein, muss ein String mit dem Sprachuntertag beginnen. Das Hauptargument für den {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor muss ein gültiger Unicode-Locale-Identifikator sein, daher muss, wann immer der Konstruktor verwendet wird, ein Identifikator mit einem Sprachuntertag übergeben werden.
 
 ```js
 const locale = new Intl.Locale("en-Latn-US");
 console.log(locale.language); // Prints "en"
 ```
 
-### Überschreiben der Sprache via Konfigurationsobjekt-Argument
+### Überschreiben der Sprache über das Konfigurationsobjekt-Argument
 
-Während das Sprachsubtag spezifiziert werden muss, hat der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor ein optionales Konfigurationsobjekt-Argument, das das Sprachsubtag überschreiben kann.
+Obwohl das Sprachuntertag angegeben werden muss, verfügt der {{jsxref("Intl/Locale/Locale", "Intl.Locale()")}}-Konstruktor über ein optionales Konfigurationsobjekt-Argument, das das Sprachuntertag überschreiben kann.
 
 ```js
 const locale = new Intl.Locale("en-Latn-US", { language: "es" });
@@ -48,4 +48,4 @@ console.log(locale.language); // Prints "es"
 ## Siehe auch
 
 - {{jsxref("Intl.Locale")}}
-- [Unicode Sprachsubtag](https://www.unicode.org/reports/tr35/#unicode_language_subtag_validity) in der Unicode-Lokalisierungsdaten-Markupsprache-Spezifikation
+- [Unicode Sprachuntertag](https://www.unicode.org/reports/tr35/#unicode_language_subtag_validity) in der Unicode-Locale-Daten-Markup-Sprachspezifikation

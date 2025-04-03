@@ -3,18 +3,18 @@ title: "NavigationDestination: key-Eigenschaft"
 short-title: key
 slug: Web/API/NavigationDestination/key
 l10n:
-  sourceCommit: ac7f942ac73066dcf643f02f8b9f969ccf547220
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`key`**-Eigenschaft der [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Schnittstelle gibt den [`key`](/de/docs/Web/API/NavigationHistoryEntry/key)-Wert des Ziel-Elementes [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder einen leeren String anderweitig.
+Die **`key`**-Schreibgeschützte Eigenschaft der [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Schnittstelle gibt den [`key`](/de/docs/Web/API/NavigationHistoryEntry/key)-Wert des Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder ansonsten einen leeren String.
 
-Der `key` ist ein eindeutiger, von der Benutzeroberfläche generierter Wert, der den Speicherplatz des Verlaufseintrags in der Liste der Verlaufs-Einträge darstellt, verwendet um an diese Stelle im Verlauf über [`Navigation.traverseTo()`](/de/docs/Web/API/Navigation/traverseTo) zu navigieren. Er wird von anderen Einträgen, die den Eintrag in der Liste ersetzen (z.B. wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `replace` ist), erneut genutzt.
+Der `key` ist ein einzigartiger, von der Benutzeroberfläche generierter Wert, der den Steckplatz des Historieneintrags in der Liste der Historieneinträge darstellt. Er wird verwendet, um zu diesem Punkt in der Historie über [`Navigation.traverseTo()`](/de/docs/Web/API/Navigation/traverseTo) zu navigieren. Er wird von anderen Einträgen wiederverwendet, die den Eintrag in der Liste ersetzen (d.h. wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `replace` ist).
 
 ## Wert
 
-Ein String, der den `key` des Ziel-Elementes [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) darstellt, oder ein leerer String.
+Ein String, der den `key` des Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) darstellt, oder ein leerer String.
 
 ## Beispiele
 
@@ -34,6 +34,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API explainer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

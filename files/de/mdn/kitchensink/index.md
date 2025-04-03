@@ -1,8 +1,8 @@
 ---
-title: The MDN Content Kitchensink
+title: Die MDN Content Kitchensink
 slug: MDN/Kitchensink
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 6d54d3150f745b8c10cf739b24cb3d48ef6a53c4
 ---
 
 > [!WARNING]
@@ -10,28 +10,28 @@ l10n:
 
 ## Über diese Seite
 
-Der **kitchensink** ist eine Seite, die _versucht_, jedes mögliche Inhaltselement und Yari-Makro einzubinden.
+Der **kitchensink** ist eine Seite, die _versucht_, jedes mögliche Inhaltselement und jeden Yari-Makro zu integrieren.
 
-Diese Seite versucht, der vollständige Schnittpunkt aller anderen Seiten zu sein. Nicht in Bezug auf den Text, sondern in Bezug auf die Stile und Makros.
-Lassen Sie uns mit einigen Anmerkungen beginnen…
+Diese Seite versucht, die vollständige Schnittmenge jeder anderen Seite zu sein. Nicht in Bezug auf den Text, sondern in Bezug auf die Stile und Makros.
+Lassen Sie uns mit einigen Notizen beginnen…
 
-Text, der das `<kbd>`-Tag verwendet: <kbd>Shift</kbd>
+Text, der das `<kbd>`-Tag verwendet: <kbd>Umschalt</kbd>
 
 > [!NOTE]
-> Hier ist eine Blockindikator-Notiz.
+> Hier ist ein Hinweisblock.
 
 > [!WARNING]
-> Hier ist eine Blockindikator-Warnung.
+> Hier ist eine Warnung im Blockindikator.
 
-## Vor-/Zurück-Schaltflächen
+## Vorherige/Nächste Schaltflächen
 
 {{PreviousMenuNext("Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard", "Games/Techniques/Control_mechanisms/Other", "Games/Techniques/Control_mechanisms")}}
 
-### Noch eine weitere…
+### Eine weitere…
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Extra_lives", "Games/Workflows/2D_Breakout_game_Phaser/Buttons")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Extra_lives", "Games/Tutorials/2D_breakout_game_Phaser/Buttons")}}
 
-## Codebeispiele
+## Code-Snippets
 
 ### Klartext
 
@@ -108,7 +108,93 @@ class BookListView(generic.ListView):
 
 ## Interaktive Beispiele
 
-{{EmbedInteractiveExample("pages/tabbed/abbr.html", "tabbed-shorter")}} {{EmbedInteractiveExample("pages/css/order.html")}} {{EmbedInteractiveExample("pages/js/regexp-assertions.html", "taller")}}
+{{InteractiveExample("HTML Demo: &lt;data&gt;", "tabbed-shorter")}}
+
+```html interactive-example
+<p>New Products:</p>
+<ul>
+  <li><data value="398">Mini Ketchup</data></li>
+  <li><data value="399">Jumbo Ketchup</data></li>
+  <li><data value="400">Mega Jumbo Ketchup</data></li>
+</ul>
+```
+
+```css interactive-example
+data:hover::after {
+  content: " (ID " attr(value) ")";
+  font-size: 0.7em;
+}
+```
+
+{{InteractiveExample("JavaScript Demo: Set.prototype[Symbol.iterator]()")}}
+
+```js interactive-example
+const set1 = new Set();
+
+set1.add(42);
+set1.add("forty two");
+
+const iterator1 = set1[Symbol.iterator]();
+
+console.log(iterator1.next().value);
+// Expected output: 42
+
+console.log(iterator1.next().value);
+// Expected output: "forty two"
+```
+
+{{InteractiveExample("CSS Demo: filter")}}
+
+```css interactive-example-choice
+filter: url("/shared-assets/images/examples/shadow.svg#element-id");
+```
+
+```css interactive-example-choice
+filter: blur(5px);
+```
+
+```css interactive-example-choice
+filter: contrast(200%);
+```
+
+```css interactive-example-choice
+filter: grayscale(80%);
+```
+
+```css interactive-example-choice
+filter: hue-rotate(90deg);
+```
+
+```css interactive-example-choice
+filter: drop-shadow(16px 16px 20px red) invert(75%);
+```
+
+```html interactive-example
+<section id="default-example">
+  <div class="example-container">
+    <img
+      id="example-element"
+      src="/shared-assets/images/examples/firefox-logo.svg"
+      width="200" />
+  </div>
+</section>
+```
+
+```css interactive-example
+.example-container {
+  background-color: #fff;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#example-element {
+  flex: 1;
+  padding: 30px;
+}
+```
 
 ## Tabellen
 
@@ -117,12 +203,12 @@ class BookListView(generic.ListView):
 | Konstanter Name              | Wert   | Beschreibung                                                                                       |
 | ---------------------------- | ------ | -------------------------------------------------------------------------------------------------- |
 | `QUERY_COUNTER_BITS_EXT`     | 0x8864 | Die Anzahl der Bits, die verwendet werden, um das Abfrageergebnis für das gegebene Ziel zu halten. |
-| `CURRENT_QUERY_EXT`          | 0x8865 | Die aktuell aktive Abfrage.                                                                        |
+| `CURRENT_QUERY_EXT`          | 0x8865 | Die derzeit aktive Abfrage.                                                                        |
 | `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                                               |
-| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein Boolescher Wert, der anzeigt, ob ein Abfrageergebnis verfügbar ist.                            |
+| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein boolescher Wert, der angibt, ob ein Abfrageergebnis verfügbar ist.                             |
 | `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                                               |
 | `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                                                 |
-| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein Boolescher Wert, der anzeigt, ob die GPU eine unzusammenhängende Operation durchgeführt hat.   |
+| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein boolescher Wert, der angibt, ob die GPU eine unzusammenhängende Operation durchgeführt hat.    |
 
 ### HTML-Tabelle
 
@@ -133,24 +219,24 @@ class BookListView(generic.ListView):
         <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">formulierender Inhalt</a>, fühlbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a>,
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phraseninhalt</a>, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Formulierender Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phraseninhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, beide Tags, Start- und Endtag, sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">formulierenden Inhalt</a> akzeptiert.
+        Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phraseninhalt</a> akzeptiert.
       </td>
     </tr>
     <tr>
@@ -161,7 +247,7 @@ class BookListView(generic.ListView):
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -184,7 +270,7 @@ class BookListView(generic.ListView):
   <tbody>
     <tr>
       <td><code>width</code></td>
-      <td>Eine positive ganze Zahl oder der Text <code>device-width</code></td>
+      <td>Eine positive Ganzzahl oder der Text <code>device-width</code></td>
       <td>
         Definiert die Pixelbreite des Viewports, bei der Sie möchten, dass die Website gerendert wird.
       </td>
@@ -203,15 +289,14 @@ class BookListView(generic.ListView):
       <td><code>auto</code>, <code>contain</code> oder <code>cover</code></td>
       <td>
         <p>
-          Der Wert <code>auto</code> beeinflusst das initiale Layout-Viewport nicht, und die gesamte Webseite ist sichtbar.
+          Der Wert <code>auto</code> beeinflusst nicht das anfängliche Layout-Viewport, und die gesamte Webseite ist sichtbar.
         </p>
         <p>
-          Der Wert <code>contain</code> bedeutet, dass der Viewport so skaliert wird, dass das größte innerhalb des Displays beschriebene Rechteck hineinpasst.
+          Der Wert <code>contain</code> bedeutet, dass der Viewport so skaliert wird, dass das größte innerhalb des Displays eingeschriebene Rechteck passt.
         </p>
         <p>
-          Der Wert <code>cover</code> bedeutet, dass der Viewport so skaliert wird, dass er das Anzeigegerät vollständig ausfüllt.
-          Es wird dringend empfohlen, die <a href="/de/docs/Web/CSS/env">sicheren Bereichseinbuchtungen</a> zu verwenden,
-          um sicherzustellen, dass wichtiger Inhalt nicht außerhalb der Anzeige landet.
+          Der Wert <code>cover</code> bedeutet, dass der Viewport so skaliert wird, dass er das Gerätedisplay füllt.
+          Es wird dringend empfohlen, die <a href="/de/docs/Web/CSS/env">Sicherheitsbereich-Rand</a>-Variablen zu verwenden, um sicherzustellen, dass wichtiger Inhalt nicht außerhalb des Displays endet.
         </p>
       </td>
     </tr>
@@ -225,21 +310,21 @@ class BookListView(generic.ListView):
 Ein {{Glossary("HTTP", "HTTP")}}-Fehlercode, der "Bad Gateway" bedeutet.
 
 Ein {{Glossary("Server", "Server")}} kann als Gateway oder Proxy (Vermittler) zwischen einem Client (wie Ihrem Webbrowser) und einem anderen, vorgelagerten Server fungieren.
-Wenn Sie eine {{Glossary("URL", "URL")}} abrufen möchten, kann der Gateway-Server Ihre Anfrage an den vorgelagerten Server weiterleiten.
+Wenn Sie versuchen, auf eine {{Glossary("URL", "URL")}} zuzugreifen, kann der Gateway-Server Ihre Anfrage an den vorgelagerten Server weiterleiten.
 "502" bedeutet, dass der vorgelagerte Server eine ungültige Antwort zurückgegeben hat.
 
 - JavaScript {{jsxref("Array")}} auf MDN
 
-Das Abhören von Mausbewegungen ist noch einfacher als das Abhören von Tastendrücken: Alles, was wir brauchen, ist der Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis.
+Das Abhören von Mausbewegungen ist noch einfacher als das Abhören von Tastenanschlägen: Wir benötigen nur den Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-## Axisausgerichtetes Begrenzungsrahmen
+## Achsen-aligned Bounding Box
 
-Eine der einfacheren Formen der Kollisionsdetektion ist die zwischen zwei Rechtecken, die achsenparallel ausgerichtet sind — also ohne Rotation.
-Der Algorithmus funktioniert, indem sichergestellt wird, dass zwischen den 4 Seiten der Rechtecke keine Lücke besteht.
+Eine der einfacheren Formen der Kollisionsdetektion besteht zwischen zwei rechteckigen Bereichen, die achsen-aligned sind — was bedeutet, dass keine Rotation vorliegt.
+Der Algorithmus funktioniert, indem sichergestellt wird, dass zwischen keiner der 4 Seiten der Rechtecke eine Lücke besteht.
 Jede Lücke bedeutet, dass keine Kollision vorhanden ist.
 
 ```js
@@ -311,10 +396,10 @@ this.color("blue");
 
 {{EmbedGHLiveSample("web-tech-games/index.html", '100%', 820)}}
 
-- [Barrierefreiheitsressourcen auf MDN](/de/docs/Web/Accessibility)
-- [Web-Zugänglichkeit](https://en.wikipedia.org/wiki/Web_accessibility) auf Wikipedia
+- [Barrierefreie Ressourcen bei MDN](/de/docs/Web/Accessibility)
+- [Webzugänglichkeit](https://en.wikipedia.org/wiki/Web_accessibility) auf Wikipedia
 
-Das [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) Makro fügt ein lokalisiertes Hinweisfeld ein, das anzeigt, dass eine Funktion in einem [Web Worker](/de/docs/Web/API/Web_Workers_API)-Kontext verfügbar ist.
+Das [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs)-Makro fügt einen lokalisierten Hinweisblock ein, der anzeigt, dass eine Funktion im Kontext eines [Web Worker](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
 
 {{AvailableInWorkers}}
 
@@ -332,10 +417,10 @@ Das [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc
 <!---->
 
 - Erstellen Sie ein {{htmlelement("canvas")}}-Element und setzen Sie dessen `width`- und `height`-Attribute auf die ursprüngliche, kleinere Auflösung.
-- Setzen Sie die CSS-{{cssxref("width")}}- und {{cssxref("height")}}-Eigenschaften auf den 2x- oder 4x-Wert der HTML-`width` und `height`.
-  Wenn das Canvas-Element beispielsweise mit einer Breite von 128 Pixeln erstellt wurde, würden wir die CSS-`width` auf `512px` setzen, wenn wir eine 4-fache Skalierung wünschen.
-- Setzen Sie die `image-rendering`-CSS-Eigenschaft des {{htmlelement("canvas")}}-Elements auf einen Wert, der das Bild nicht unscharf macht.
-  Entweder `crisp-edges` oder `pixelated` funktionieren. Schauen Sie sich den {{cssxref("image-rendering")}}-Artikel an, um mehr über die Unterschiede zwischen diesen Werten zu erfahren und welche Präfixe je nach Browser zu verwenden sind.
+- Setzen Sie dessen CSS {{cssxref("width")}}- und {{cssxref("height")}}-Eigenschaften auf das 2-fache oder 4-fache des Werts des HTML-`width` und `height`.
+  Wenn das Canvas mit einer Breite von 128 Pixel erstellt wurde, setzen wir zum Beispiel die CSS-Breite auf `512px`, wenn wir einen 4x-Skalierungsfaktor wünschen.
+- Setzen Sie die `image-rendering`-CSS-Eigenschaft des {{htmlelement("canvas")}}-Elements auf einen Wert, der das Bild nicht verschwommen erscheinen lässt.
+  Entweder `crisp-edges` oder `pixelated` wird funktionieren. Lesen Sie den Artikel {{cssxref("image-rendering")}} für weitere Informationen über die Unterschiede zwischen diesen Werten und die Verwendung von Präfixen, je nach Browser.
 
 <!---->
 
@@ -347,8 +432,8 @@ Das [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc
 - [Lernen: Erstellen von Netzwerk-Anfragen mit JavaScript](/de/docs/Learn_web_development/Core/Scripting/Network_requests)
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
 - [`Fetch API`](/de/docs/Web/API/Fetch_API)
-- [Verwendung der Fetch API](/de/docs/Web/API/Fetch_API/Using_Fetch)
-- [Synchrone vs. Asynchrone Kommunikation](https://peoplesofttutorial.com/difference-between-synchronous-and-asynchronous-messaging/)
+- [Fetch API verwenden](/de/docs/Web/API/Fetch_API/Using_Fetch)
+- [Synchron vs. Asynchron Kommunikation](https://peoplesofttutorial.com/difference-between-synchronous-and-asynchronous-messaging/)
 
 <!---->
 
@@ -362,8 +447,8 @@ Das [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc
 ## Typen
 
 - {{WebExtAPIRef("alarms.Alarm")}}
-  - : Informationen zu einem bestimmten Alarm.
+  - : Information über einen bestimmten Alarm.
 
 {{Non-standard_Header}}
 {{Deprecated_Header}}
-[![Iceberg pic](iceberg.jpg)](iceberg.jpg)
+[![Eisberg Bild](iceberg.jpg)](iceberg.jpg)

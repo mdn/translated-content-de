@@ -1,14 +1,14 @@
 ---
-title: "NavigateEvent: intercept()-Methode"
+title: "NavigateEvent: intercept() Methode"
 short-title: intercept()
 slug: Web/API/NavigateEvent/intercept
 l10n:
-  sourceCommit: 7c44de6d40778dbfb6eeb1163d7d850e911cd706
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`intercept()`**-Methode des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces fängt diese Navigation ab und wandelt sie in eine gleiche-Dokumenten-Navigation zur [`destination`](/de/docs/Web/API/NavigationDestination/url)-URL um.
+Die **`intercept()`**-Methode der [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Schnittstelle fängt diese Navigation ab und verwandelt sie in eine gleich-dokumentische Navigation zur [`destination`](/de/docs/Web/API/NavigationDestination/url)-URL.
 
 ## Syntax
 
@@ -20,19 +20,19 @@ intercept(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Options-Objekt mit den folgenden Eigenschaften:
+  - : Ein Optionsobjekt, das folgende Eigenschaften enthält:
     - `handler` {{optional_inline}}
-      - : Eine Rückruffunktion, die das Verhalten beim Navigieren definiert. Dies bezieht sich im Allgemeinen auf das Abrufen von Ressourcen und gibt ein Versprechen zurück.
+      - : Eine Callback-Funktion, die definiert, wie das Navigationsverhalten gehandhabt werden soll. Sie behandelt im Allgemeinen das Abrufen von Ressourcen und gibt ein Versprechen zurück.
     - `focusReset` {{optional_inline}}
       - : Definiert das Fokusverhalten der Navigation. Dies kann einen der folgenden Werte annehmen:
         - `after-transition`
-          - : Sobald das von Ihrer Handler-Funktion zurückgegebene Versprechen erfüllt wurde, wird der Browser das erste Element mit dem [`autofocus`](/de/docs/Web/HTML/Global_attributes/autofocus)-Attribut fokussieren oder das {{htmlelement("body")}}-Element, falls kein Element `autofocus` gesetzt hat. Dies ist der Standardwert.
+          - : Sobald das von Ihrer Handler-Funktion zurückgegebene Versprechen erfüllt ist, wird der Browser auf das erste Element mit dem [`autofocus`](/de/docs/Web/HTML/Global_attributes/autofocus)-Attribut fokussieren oder auf das {{htmlelement("body")}}-Element, wenn kein Element auf `autofocus` gesetzt ist. Dies ist der Standardwert.
         - `manual`
           - : Deaktiviert das Standardverhalten.
     - `scroll` {{optional_inline}}
       - : Definiert das Scrollverhalten der Navigation. Dies kann einen der folgenden Werte annehmen:
         - `after-transition`
-          - : Erlaubt dem Browser, das Scrollen zu handhaben, z.B. indem zum entsprechenden Fragment-Identifikator gescrollt wird, wenn die URL ein Fragment enthält, oder die Scrollposition an derselben Stelle wiederhergestellt wird, wie beim letzten Mal, wenn die Seite neu geladen wird oder eine Seite im Verlauf erneut aufgerufen wird. Dies ist der Standardwert.
+          - : Erlaubt dem Browser, das Scrollen zu handhaben, zum Beispiel durch Scrollen zum relevanten Fragmentbezeichner, wenn die URL ein Fragment enthält, oder die Scrollposition an der gleichen Stelle wie beim letzten Mal wiederherzustellen, wenn die Seite neu geladen oder eine Seite in der Historie erneut besucht wird. Dies ist der Standardwert.
         - `manual`
           - : Deaktiviert das Standardverhalten.
 
@@ -45,11 +45,11 @@ Keiner (`undefined`).
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) noch nicht aktiv ist oder wenn die Navigation abgebrochen wurde.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Ereignis durch einen [`dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent)-Aufruf statt durch den User Agent ausgelöst wurde, oder wenn die Navigation nicht abgefangen werden kann (d.h. [`NavigateEvent.canIntercept`](/de/docs/Web/API/NavigateEvent/canIntercept) ist `false`).
+  - : Wird ausgelöst, wenn das Ereignis über einen [`dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent)-Aufruf und nicht durch den Benutzeragenten ausgelöst wurde oder wenn die Navigation nicht abgefangen werden kann (d.h. [`NavigateEvent.canIntercept`](/de/docs/Web/API/NavigateEvent/canIntercept) ist `false`).
 
 ## Beispiele
 
-### Eine Navigation mit `intercept()` behandeln
+### Umgang mit einer Navigation mittels `intercept()`
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -77,7 +77,7 @@ navigation.addEventListener("navigate", (event) => {
 
 ### Verwendung von `focusReset` und `scroll`
 
-Das Absenden eines Formulars kann durch Abfragen der [`NavigateEvent.formData`](/de/docs/Web/API/NavigateEvent/formData)-Eigenschaft erkannt werden. Das folgende Beispiel wandelt jede Formularübermittlung in eine solche um, die auf der aktuellen Seite bleibt. In diesem Fall aktualisieren Sie das DOM nicht, sodass Sie jedes Standard-Reset- und Scroll-Verhalten mit `focusReset` und `scroll` abbrechen können.
+Das Absenden von Formularen kann durch Abfragen der [`NavigateEvent.formData`](/de/docs/Web/API/NavigateEvent/formData)-Eigenschaft erkannt werden. Das folgende Beispiel verwandelt jeden Formularversuch in einen, der auf der aktuellen Seite bleibt. In diesem Fall aktualisieren Sie das DOM nicht, daher können Sie das Standard-Reset- und Scrollverhalten mit `focusReset` und `scroll` abbrechen.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -115,6 +115,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Modern client-side routing: the Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API explainer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API live demo](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

@@ -2,10 +2,10 @@
 title: Verlinkung
 slug: Web/SVG/Guides/Linking
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Das {{SVGAttr("target")}}-Attribut des SVG {{SVGElement("a")}}-Elements funktioniert nicht in Mozilla Firefox 1.5. Wenn SVG-Dokumente innerhalb eines übergeordneten HTML-Dokuments eingebettet werden, verwenden Sie den Tag:
+Das {{SVGAttr("target")}}-Attribut auf dem SVG-Element {{SVGElement("a")}} funktioniert in Mozilla Firefox 1.5 nicht. Wenn SVG-Dokumente innerhalb eines übergeordneten HTML-Dokuments mit dem Tag eingebettet werden:
 
 page1.html:
 
@@ -31,11 +31,11 @@ button.svg:
 </svg>
 ```
 
-Die Spezifikation besagt, dass der Browser zur HTML-Dokumentseite page2.html navigieren sollte, wenn auf die Schaltflächengrafik geklickt wird. Allerdings funktioniert `target` nicht mit Mozillas Implementierung des SVG `<a>`-Elements in Firefox 1.5. (Das Problem wird in Firefox 2.0 behoben.)
+Gemäß der Spezifikation sollte der Browser zur HTML-Dokumentseite page2.html navigieren, wenn die Schaltflächengrafik angeklickt wird. Allerdings funktioniert `target` nicht mit der Implementierung des SVG-`<a>`-Elements in Mozilla Firefox 1.5. (Das Problem wird in Firefox 2.0 behoben sein.)
 
-Das resultierende Verhalten in Moz SVG ist jedenfalls, dass page2.html in den Rahmen geladen wird, in dem die SVG-Schaltfläche sich befand (d.h. Sie hätten nun page2.html eingebettet in einen 100x50 Pixel großen Rahmen innerhalb von page1.html).
+Das resultierende Verhalten im Moz SVG ist jedoch, dass page2.html in den Frame geladen wird, in dem sich der SVG-Knopf befand (d.h. Sie hätten nun page2.html innerhalb eines 100x50 Pixel großen Frames in page1.html eingebettet).
 
-Um dies zu umgehen, bedarf es ein wenig unschönem JavaScript-Hack:
+Um dies zu umgehen, ist ein wenig unschönes JavaScript-Hacking erforderlich:
 
 button.svg:
 
@@ -50,4 +50,4 @@ button.svg:
 
 ## Beispiel
 
-Ein Beispiel dafür, wie diese Lösung funktioniert, finden Sie unter [www.codedread.com](https://www.codedread.com/).
+Ein Beispiel für diese Lösung in Aktion finden Sie unter [www.codedread.com](https://www.codedread.com/).

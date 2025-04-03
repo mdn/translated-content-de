@@ -1,16 +1,16 @@
 ---
-title: "Fence: setReportEventDataForAutomaticBeacons()-Methode"
+title: "Fence: setReportEventDataForAutomaticBeacons() Methode"
 short-title: setReportEventDataForAutomaticBeacons()
 slug: Web/API/Fence/setReportEventDataForAutomaticBeacons
 l10n:
-  sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Die **`setReportEventDataForAutomaticBeacons()`**-Methode der [`Fence`](/de/docs/Web/API/Fence)-Schnittstelle gibt die Ereignisdaten an, die gesendet werden, wenn eine Navigation innerhalb eines {{htmlelement("fencedframe")}} erfolgt. Diese Daten werden über ein automatisches [Beacon](/de/docs/Web/API/Beacon_API) an eine oder mehrere spezifische URLs gesendet, die über die [`registerAdBeacon()`](/de/docs/Web/API/InterestGroupReportingScriptRunnerGlobalScope/registerAdBeacon)-Methode der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) registriert wurden, zum Zweck der Erfassung von Berichtsdaten für Auktionsergebnisse von Anzeigen.
+Die **`setReportEventDataForAutomaticBeacons()`** Methode der [`Fence`](/de/docs/Web/API/Fence) Schnittstelle spezifiziert Ereignisdaten, die gesendet werden, wenn eine Navigation innerhalb eines {{htmlelement("fencedframe")}} erfolgt. Diese Daten werden über ein automatisches [Beacons](/de/docs/Web/API/Beacon_API) an eine oder mehrere spezifische URLs gesendet, die über die [`registerAdBeacon()`](/de/docs/Web/API/InterestGroupReportingScriptRunnerGlobalScope/registerAdBeacon) Methode der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) registriert wurden, zwecks Sammlung von Berichtsdaten für Auktionsresultate von Anzeigen.
 
-> **Note:** [`reportEvent()`](/de/docs/Web/API/Fence/reportEvent) bietet eine ähnliche Übermittlung von Berichtsdaten, außer dass in diesem Fall die Übermittlung durch einen expliziten Methodenaufruf und nicht durch eine Navigation ausgelöst wird.
+> **Note:** [`reportEvent()`](/de/docs/Web/API/Fence/reportEvent) bietet eine ähnliche Berichtsdateneinreichung, außer dass in diesem Fall die Einreichung durch einen expliziten Methodenaufruf anstatt einer Navigation ausgelöst wird.
 
 ## Syntax
 
@@ -21,22 +21,22 @@ setReportEventDataForAutomaticBeacons(event)
 ### Parameter
 
 - `event`
-  - : Ein Objekt, das die zu sendenden Daten darstellt. Die möglichen Eigenschaften sind wie folgt:
+  - : Ein Objekt, das die zu sendenden Daten repräsentiert. Die möglichen Eigenschaften sind wie folgt:
     - `eventType`
-      - : Ein String, der den Typ des gemeldeten Ereignisses darstellt. Die verfügbaren Werte sind:
-        - `reserved.top_navigation_start`: Ein Ereignis, das ausgelöst wird, wenn eine Navigation auf oberster Ebene beginnt.
-        - `reserved.top_navigation_commit`: Ein Ereignis, das ausgelöst wird, wenn eine Navigation auf oberster Ebene abgeschlossen wird.
+      - : Ein String, der den Typ des gemeldeten Ereignisses repräsentiert. Die verfügbaren Werte sind:
+        - `reserved.top_navigation_start`: Ein Ereignis, das ausgelöst wird, wenn eine Top-Level-Navigation beginnt.
+        - `reserved.top_navigation_commit`: Ein Ereignis, das ausgelöst wird, wenn eine Top-Level-Navigation abgeschlossen ist.
     - `eventData`
-      - : Ein String, der die zu sendenden Daten darstellt.
+      - : Ein String, der die zu sendenden Daten repräsentiert.
     - `destination`
-      - : Ein Array, das einen oder mehrere aufgezählte Werte enthält, die Zieltypen darstellen. Dies sind die beteiligten Parteien, die die Daten an ihre registrierten URLs erhalten (d.h. über [`registerAdBeacon()`](/de/docs/Web/API/InterestGroupReportingScriptRunnerGlobalScope/registerAdBeacon)). Die möglichen Werte sind:
+      - : Ein Array, das einen oder mehrere aufgezählte Werte enthält, die Zieltypen repräsentieren. Dies sind die beteiligten Parteien, die die Daten an ihre registrierten URLs erhalten (d.h. über [`registerAdBeacon()`](/de/docs/Web/API/InterestGroupReportingScriptRunnerGlobalScope/registerAdBeacon)). Die möglichen Werte sind:
         - `"buyer"`: Der Bieter in der Anzeigenauktion.
-        - `"seller"`: Der Hauptverkäufer, der die Anzeigenauktion durchführt.
+        - `"seller"`: Der Top-Level-Verkäufer, der die Anzeigenauktion durchführt.
         - `"component-seller"`: Der Verkäufer für eine Komponentenausschreibung in einer mehrstufigen Auktion.
-        - `"direct-seller"`: Der Verkäufer, der direkt die Auktion durchgeführt hat, an der der Käufer geboten hat. Wenn die Anzeige eine einstufige Auktion war, wird der Wert `"seller"` verwendet. Wenn die Anzeige eine mehrstufige Auktion war, wird der Wert `"component-seller"` verwendet.
-        - `"shared-storage-select-url"`: Ein [Shared Storage API](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage)-Speicherort, wie in einem [`Window.sharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL)-Methodenaufruf definiert.
+        - `"direct-seller"`: Der Verkäufer, der direkt die Auktion durchgeführt hat, in der der Käufer geboten hat. Wenn die Anzeige eine einstufige Auktion war, wird der Wert `"seller"` verwendet. War die Anzeige eine mehrstufige Auktion, wird der Wert `"component-seller"` verwendet.
+        - `"shared-storage-select-url"`: Ein [Shared Storage API](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage) Speicherort, wie in einem [`Window.sharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) Methodenaufruf definiert.
     - `once` {{optional_inline}}
-      - : Ein boolescher Wert. Wenn auf `true` gesetzt, wird das automatische Beacon nur für das nächste Ereignis gesendet, und Beacons werden nicht für nachfolgende Ereignisse gesendet, bis `setReportEventDataForAutomaticBeacons()` erneut aufgerufen wird. Zum Beispiel kann dies in Verbindung mit einem `click`-Handler verwendet werden, um Beacon-Daten nur für bestimmte Navigationen auf oberster Ebene zu senden, anstatt für jede Navigation auf oberster Ebene. Diese Eigenschaft ist standardmäßig `false`.
+      - : Ein boolescher Wert. Wenn auf `true` gesetzt, wird das automatische Beacon nur für das nächste Ereignis gesendet, und Beacons werden nicht für nachfolgende Ereignisse gesendet, bis `setReportEventDataForAutomaticBeacons()` erneut aufgerufen wird. Zum Beispiel kann dies in einem `click` Handler verwendet werden, um Beacon-Daten nur für spezifische Top-Level-Navigationen zu senden, anstatt für jede Top-Level-Navigation. Diese Eigenschaft ist standardmäßig `false`.
 
 ### Rückgabewert
 

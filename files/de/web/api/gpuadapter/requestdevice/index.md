@@ -3,12 +3,12 @@ title: "GPUAdapter: requestDevice() Methode"
 short-title: requestDevice()
 slug: Web/API/GPUAdapter/requestDevice
 l10n:
-  sourceCommit: 1d6734ef7332bd16c14c6d3675dd71645ca05865
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`requestDevice()`** Methode der [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Objekt erfüllt wird, welches die primäre Schnittstelle zur Kommunikation mit der GPU darstellt.
+Die **`requestDevice()`**-Methode der [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Objekt erfüllt wird, welches die primäre Schnittstelle für die Kommunikation mit der GPU ist.
 
 ## Syntax
 
@@ -22,30 +22,30 @@ requestDevice(descriptor)
 - `descriptor` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `defaultQueue` {{optional_inline}}
-      - : Ein Objekt, das Informationen für die Standard-`GPUQueue` des Geräts bereitstellt (wie zurückgegeben von [`GPUDevice.queue`](/de/docs/Web/API/GPUDevice/queue)). Dieses Objekt hat eine einzelne Eigenschaft — `label` — die der Standardwarteschlange einen [`label`](/de/docs/Web/API/GPUQueue/label)-Wert zuweist. Wenn kein Wert bereitgestellt wird, ist dies standardmäßig ein leeres Objekt, und das Label der Standardwarteschlange wird ein leerer String sein.
+      - : Ein Objekt, das Informationen für die Standard-[`GPUQueue`](/de/docs/Web/API/GPUQueue) des Geräts bereitstellt (wie durch [`GPUDevice.queue`](/de/docs/Web/API/GPUDevice/queue) zurückgegeben). Dieses Objekt hat eine einzelne Eigenschaft – `label` – die der Standardwarteschlange einen [`label`](/de/docs/Web/API/GPUQueue/label)-Wert zuweist. Wenn kein Wert angegeben ist, ist das Standard ein leeres Objekt und das Label der Standardwarteschlange wird ein leerer String sein.
     - `label` {{optional_inline}}
-      - : Ein String, der ein Label bereitstellt, das zur Identifizierung des [`GPUDevice`](/de/docs/Web/API/GPUDevice) verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+      - : Ein String, der ein Label bereitstellt, mit dem das [`GPUDevice`](/de/docs/Web/API/GPUDevice) identifiziert werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
     - `requiredFeatures` {{optional_inline}}
-      - : Ein Array von Strings, das zusätzliche Funktionalitäten darstellt, die Sie vom zurückgegebenen [`GPUDevice`](/de/docs/Web/API/GPUDevice) unterstützt haben möchten. Der `requestDevice()` Aufruf schlägt fehl, wenn der `GPUAdapter` diese Funktionen nicht bereitstellen kann. Siehe [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures) für eine vollständige Liste der möglichen Funktionen. Dies ist ein leeres Array, wenn kein Wert bereitgestellt wird.
+      - : Ein Array von Strings, die zusätzliche Funktionalitäten darstellen, die vom zurückgegebenen [`GPUDevice`](/de/docs/Web/API/GPUDevice) unterstützt werden sollen. Der `requestDevice()`-Aufruf schlägt fehl, wenn das `GPUAdapter` diese Funktionen nicht bereitstellen kann. Siehe [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures) für eine vollständige Liste möglicher Funktionen. Falls kein Wert angegeben ist, wird standardmäßig ein leeres Array verwendet.
     - `requiredLimits` {{optional_inline}}
-      - : Ein Objekt, das Eigenschaften enthält, die die Limits darstellen, die Sie vom zurückgegebenen [`GPUDevice`](/de/docs/Web/API/GPUDevice) unterstützt haben möchten. Der `requestDevice()` Aufruf schlägt fehl, wenn der `GPUAdapter` diese Limits nicht bereitstellen kann. Jeder Schlüssel mit einem nicht-`undefined` Wert muss der Name eines Mitglieds von [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits) sein.
+      - : Ein Objekt, das Eigenschaften enthält, die die Grenzen darstellen, die vom zurückgegebenen [`GPUDevice`](/de/docs/Web/API/GPUDevice) unterstützt werden sollen. Der `requestDevice()`-Aufruf schlägt fehl, wenn das `GPUAdapter` diese Grenzen nicht bereitstellen kann. Jeder Schlüssel mit einem nicht-`undefined`-Wert muss der Name eines Mitglieds von [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits) sein.
         > [!NOTE]
-        > Sie können unbekannte Limits anfordern, wenn Sie ein GPU-Gerät anfordern, ohne einen Fehler zu verursachen. Solche Limits werden `undefined` sein. Dies ist nützlich, da es WebGPU-Code weniger anfällig macht — eine Codebasis wird nicht funktionsunfähig, weil ein Limit im Adapter nicht mehr existiert.
+        > Sie können unbekannte Grenzen anfordern, wenn Sie ein GPU-Gerät anfordern, ohne einen Fehler zu verursachen. Solche Grenzen werden `undefined` sein. Dies ist nützlich, da es den WebGPU-Code weniger anfällig macht – ein Codebase wird nicht aufhören zu funktionieren, weil eine Grenze im Adapter nicht mehr existiert.
 
-Nicht alle Funktionen und Limits werden in allen Browsern, die WebGPU unterstützen, zur Verfügung stehen, auch wenn sie von der zugrunde liegenden Hardware unterstützt werden. Siehe die Seiten zu [`features`](/de/docs/Web/API/GPUAdapter/features) und [`limits`](/de/docs/Web/API/GPUAdapter/limits) für weitere Informationen.
+Nicht alle Funktionen und Grenzen werden in allen Browsern verfügbar sein, die WebGPU unterstützen, selbst wenn sie von der zugrunde liegenden Hardware unterstützt werden. Siehe die Seiten zu [`features`](/de/docs/Web/API/GPUAdapter/features) und [`limits`](/de/docs/Web/API/GPUAdapter/limits) für weitere Informationen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer Instanz des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Objekts erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit einer Instanz eines [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Objekts erfüllt wird.
 
-Wenn Sie einen doppelten Aufruf tätigen, d.h. `requestDevice()` auf einem [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) aufrufen, auf dem `requestDevice()` bereits aufgerufen wurde, erfüllt sich das Promise mit einem Gerät, das sofort verloren ist. Sie können dann Informationen darüber erhalten, wie das Gerät verloren ging, über [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost).
+Wenn Sie einen doppelten Aufruf machen, d.h. `requestDevice()` auf einem [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) aufrufen, auf dem `requestDevice()` bereits aufgerufen wurde, wird das Promise mit einem Gerät erfüllt, das sofort verloren ist. Sie können dann über [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost) Informationen darüber erhalten, wie das Gerät verloren ging.
 
 ### Ausnahmen
 
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das Promise wird mit einem `OperationError` abgelehnt, wenn die in der Eigenschaft `requiredLimits` enthaltenen Limits nicht vom [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) unterstützt werden, entweder weil sie keine gültigen Limits sind oder weil ihre Werte höher sind als die Werte des Adapters für diese Limits.
+  - : Das Promise wird mit einem `OperationError` abgelehnt, wenn die in der `requiredLimits`-Eigenschaft enthaltenen Grenzen nicht vom [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) unterstützt werden, entweder weil sie keine gültigen Grenzen sind oder weil ihre Werte höher sind als die Werte des Adapters für diese Grenzen.
 - `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das Promise wird mit einem `TypeError` abgelehnt, wenn die in der Eigenschaft `requiredFeatures` enthaltenen Funktionen nicht vom [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) unterstützt werden.
+  - : Das Promise wird mit einem `TypeError` abgelehnt, wenn die in der `requiredFeatures`-Eigenschaft enthaltenen Funktionen nicht vom [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) unterstützt werden.
 
 ## Beispiele
 
@@ -68,13 +68,13 @@ async function init() {
 }
 ```
 
-### Anfordern spezieller Funktionen und Limits
+### Anfordern spezifischer Funktionen und Grenzen
 
 Im folgenden Code:
 
-1. Überprüfen wir, ob ein [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) die Funktion `texture-compression-astc` bereit hat. Wenn ja, fügen wir sie dem Array von `requiredFeatures` hinzu.
-2. Fragen wir den `GPUAdapter.limits`-Wert von `maxBindGroups` ab, um zu sehen, ob er gleich oder größer als 6 ist. Unser theoretisches Beispielprogramm benötigt idealerweise 6 Bindungsgruppen, also wenn der zurückgegebene Wert >= 6 ist, fügen wir ein maximales Limit von 6 zum `requiredLimits` Objekt hinzu.
-3. Fordern wir ein Gerät mit diesen Funktions- und Limitanforderungen und einem `defaultQueue`-Label an.
+1. Überprüfen wir, ob ein [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) die Funktion `texture-compression-astc` verfügbar hat. Wenn ja, fügen wir es zum Array der `requiredFeatures` hinzu.
+2. Abfragen wir den `GPUAdapter.limits`-Wert von `maxBindGroups`, um zu sehen, ob er gleich oder größer als 6 ist. Unsere theoretische Beispiel-App benötigt idealerweise 6 Bindungsgruppen, also wenn der zurückgegebene Wert >= 6 ist, fügen wir dem `requiredLimits`-Objekt eine Maximalgrenze von 6 hinzu.
+3. Fordern wir ein Gerät mit diesen Funktions- und Grenzanforderungen sowie einem `defaultQueue`-Label an.
 
 ```js
 async function init() {
@@ -122,4 +122,4 @@ async function init() {
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

@@ -2,19 +2,19 @@
 title: Detailseite für BookInstance und Herausforderung
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_detail_page_and_challenge
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{LearnSidebar}}
 
-## BookInstance Detailseite
+## Detailseite für BookInstance
 
-Die `BookInstance`-Detailseite muss die Informationen für jede `BookInstance` anzeigen, die durch den (automatisch generierten) `_id`-Feldwert identifiziert wird. Dies umfasst den `Book`-Namen (als Link zur _Book-Detailseite_) zusammen mit anderen Informationen in dem Datensatz.
+Die Detailseite für `BookInstance` muss die Informationen für jede `BookInstance` anzeigen, die mithilfe ihres (automatisch generierten) `_id`-Feldwertes identifiziert wird. Dies schließt den `Book`-Namen (als Link zur _Buch-Detailseite_) zusammen mit anderen Informationen im Datensatz ein.
 
 ### Controller
 
 Öffnen Sie **/controllers/bookinstanceController.js**.
-Finden Sie die exportierte `bookinstance_detail()` Controllermethode und ersetzen Sie sie durch den folgenden Code.
+Finden Sie die exportierte `bookinstance_detail()`-Controller-Methode und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Display detail page for a specific BookInstance.
@@ -37,10 +37,10 @@ exports.bookinstance_detail = asyncHandler(async (req, res, next) => {
 });
 ```
 
-Die Implementierung ist derjenigen ähnlich, die für die anderen Modelldetailseiten verwendet wird.
-Die Routen-Controller-Funktion ruft `BookInstance.findById()` mit der ID einer bestimmten Buchinstanz auf, die aus der URL (mithilfe der Route) extrahiert und über die Anfrageparameter innerhalb des Controllers aufgerufen wird: `req.params.id`.
+Die Implementierung ist derjenigen für die anderen Modelldetailseiten sehr ähnlich.
+Die Routen-Controller-Funktion ruft `BookInstance.findById()` mit der ID einer bestimmten Buchinstanz auf, die aus der URL extrahiert wird (unter Verwendung der Route) und im Controller über die Anfrageparameter `req.params.id` zugegriffen wird.
 Anschließend wird `populate()` aufgerufen, um die Details des zugehörigen `Book` abzurufen.
-Falls keine übereinstimmende `BookInstance` gefunden wird, wird ein Fehler an die Express-Middleware gesendet.
+Wenn keine passende `BookInstance` gefunden wird, wird ein Fehler an die Express-Middleware gesendet.
 Andernfalls werden die zurückgegebenen Daten mit der **bookinstance_detail.pug**-Ansicht gerendert.
 
 ### Ansicht
@@ -70,27 +70,27 @@ block content
     p #[strong Due back:] #{bookinstance.due_back}
 ```
 
-Alles in dieser Vorlage wurde in vorherigen Abschnitten demonstriert.
+Alles in dieser Vorlage wurde in früheren Abschnitten demonstriert.
 
 ### Wie sieht es aus?
 
-Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie den Link _Alle Buch-Instanzen_, und wählen Sie dann eines der Elemente aus. Wenn alles richtig eingerichtet ist, sollte Ihre Seite etwa wie der folgende Screenshot aussehen.
+Starten Sie die Anwendung und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie den Link _Alle Buchinstanzen_ aus und wählen Sie dann eines der Elemente aus. Wenn alles korrekt eingerichtet ist, sollte Ihre Seite wie im folgenden Screenshot aussehen.
 
-![Detail-Seite der Buchinstanz - Lokale Bibliothekswebsite mit Express](locallibary_express_bookinstance_detail.png)
+![BookInstance Detail Seite - Express Local Library Website](locallibary_express_bookinstance_detail.png)
 
 ## Herausforderung
 
-Derzeit verwenden die meisten _Datumsangaben_ auf der Website das Standard-JavaScript-Format (z.B. _Di Okt 06 2020 15:49:58 GMT+1100 (AUS Eastern Daylight Time))_. Die Herausforderung in diesem Artikel besteht darin, das Erscheinungsbild der Datumsausgabe für `Author`-Lebenszeitinformationen (Geburts-/Todesdatum) und für \_BookInstance-Detail_Seiten zu verbessern, um das Format: 6. Okt. 2016 zu verwenden.
+Derzeit verwenden die meisten auf der Website angezeigten _Daten_ das Standard-JavaScript-Format (z. B. _Di Okt 06 2020 15:49:58 GMT+1100 (AUS Eastern Daylight Time))_. Die Herausforderung für diesen Artikel besteht darin, das Erscheinungsbild der Datumsanzeige für die Lebensspanne von `Author` (Geburts-/Todesdatum) und für _BookInstance-Detailseiten_ im Format zu verbessern: 6. Okt, 2016.
 
 > [!NOTE]
-> Sie können denselben Ansatz verwenden, den wir für die _Buch-Instanzliste_ verwendeten (Hinzufügen der virtuellen Eigenschaft für die Lebensspanne zum `Author`-Modell und Verwenden von [luxon](https://www.npmjs.com/package/luxon), um die Datumszeichenfolgen zu formatieren).
+> Sie können denselben Ansatz verwenden wie bei der _Buchinstanzliste_ (indem Sie die virtuelle Eigenschaft für die Lebensspanne zum `Author`-Modell hinzufügen und [luxon](https://www.npmjs.com/package/luxon) verwenden, um die Datumszeichenfolgen zu formatieren).
 
 Um diese Herausforderung abzuschließen, müssen Sie:
 
-1. Ersetzen Sie die Variable `due_back` durch `due_back_formatted` auf der \_BookInstance-Detailseite.
-2. Aktualisieren Sie das `Author`-Modell, um eine virtuelle Lebensspanne-Eigenschaft hinzuzufügen. Die Lebensspanne sollte aussehen wie: _date_of_birth - date_of_death_, wobei beide Werte dasselbe Datumsformat wie `BookInstance.due_back_formatted` haben.
+1. Ersetzen Sie die Variable `due_back` durch `due_back_formatted` auf der _BookInstance-Detailseite_.
+2. Aktualisieren Sie das `Author`-Modell, um eine virtuelle Eigenschaft für die Lebensspanne hinzuzufügen. Die Lebensspanne sollte wie folgt aussehen: _date_of_birth - date_of_death_, wobei beide Werte dasselbe Datumsformat wie `BookInstance.due_back_formatted` haben.
 3. Verwenden Sie `Author.lifespan` in allen Ansichten, in denen Sie derzeit explizit `date_of_birth` und `date_of_death` verwenden.
 
 ## Nächste Schritte
 
-- Kehren Sie zurück zum [Express Tutorial Teil 5: Anzeigen von Bibliotheksdaten](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data#displaying_library_data_tutorial_subarticles).
+- Kehren Sie zurück zu [Express Tutorial Teil 5: Anzeige von Bibliotheksdaten](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data#displaying_library_data_tutorial_subarticles).

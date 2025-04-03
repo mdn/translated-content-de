@@ -1,21 +1,21 @@
 ---
-title: "ServiceWorkerContainer: startMessages()-Methode"
+title: "ServiceWorkerContainer: startMessages() Methode"
 short-title: startMessages()
 slug: Web/API/ServiceWorkerContainer/startMessages
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`startMessages()`**-Methode des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Interfaces startet explizit den Fluss von Nachrichten, die von einem Service Worker an Seiten unter seiner Kontrolle gesendet werden (z.B. versendet über [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage)). Dies kann genutzt werden, um auf gesendete Nachrichten früher zu reagieren, sogar bevor die Inhalte der Seite vollständig geladen sind.
+Die **`startMessages()`**-Methode des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Interfaces startet explizit den Fluss von Nachrichten, die von einem Service Worker an die von ihm kontrollierten Seiten gesendet werden (z. B. über [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage)). Dies kann verwendet werden, um auf gesendete Nachrichten früher zu reagieren, noch bevor der Inhalt der Seite vollständig geladen ist.
 
-## Erläuterung
+## Erklärung
 
-Standardmäßig werden alle Nachrichten, die von einem Service Worker einer Seite an die Seite gesendet werden (unter Verwendung von [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage)), in eine Warteschlange gestellt, während die Seite lädt, und werden versendet, sobald das HTML-Dokument der Seite geladen und geparst ist (d.h. nachdem das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis ausgelöst wurde). Es ist möglich, das Versenden dieser Nachrichten früher zu starten, indem `ServiceWorkerContainer.startMessages()` aufgerufen wird, zum Beispiel, wenn Sie einen Nachrichten-Handler mit [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen haben, bevor die Seite vollständig geladen ist, aber sofort mit der Verarbeitung der Nachrichten beginnen möchten.
+Standardmäßig werden alle Nachrichten, die von einem Seite kontrollierenden Service Worker an die Seite gesendet werden (verwendet [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage)), während des Ladens der Seite in eine Warteschlange gestellt und werden ausgeliefert, nachdem das HTML-Dokument der Seite geladen und geparst worden ist (d.h. nachdem das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis ausgelöst wird). Es ist möglich, diese Nachrichten früher zuzustellen, indem `ServiceWorkerContainer.startMessages()` aufgerufen wird, zum Beispiel wenn Sie einen Nachrichtenhandler mit [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen haben, bevor die Seite vollständig geladen ist, aber die Nachrichten sofort verarbeiten möchten.
 
 > [!NOTE]
-> Die Nachrichten werden automatisch gesendet, wenn der Handler direkt mit [`onmessage`](/de/docs/Web/API/ServiceWorkerContainer/message_event) gesetzt wird. In diesem Fall benötigen Sie `startMessages()` nicht.
+> Die Nachrichten beginnen automatisch gesendet zu werden, wenn der Handler direkt mit [`onmessage`](/de/docs/Web/API/ServiceWorkerContainer/message_event) gesetzt wird. In diesem Fall benötigen Sie `startMessages()` nicht.
 
 ## Syntax
 

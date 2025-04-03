@@ -2,12 +2,12 @@
 title: grid-auto-rows
 slug: Web/CSS/grid-auto-rows
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{CSSRef}}
 
-Die **`grid-auto-rows`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe einer implizit erstellten Rasterzeile {{Glossary("grid_tracks", "track")}} oder einer Reihe von Tracks fest.
+Die **`grid-auto-rows`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Größe einer implizit erzeugten Rasterzeile ({{Glossary("grid_tracks", "track")}}) oder eines Musters von Spuren fest.
 
 {{InteractiveExample("CSS Demo: grid-auto-rows")}}
 
@@ -62,7 +62,7 @@ grid-auto-rows: minmax(30px, auto);
 }
 ```
 
-Wenn ein Rasterelement in eine Zeile positioniert wird, die nicht explizit durch {{cssxref("grid-template-rows")}} dimensioniert ist, werden implizite {{Glossary("grid", "grid")}} Tracks erzeugt, um es aufzunehmen. Dies kann entweder durch explizite Positionierung in einer Zeile außerhalb des Bereichs geschehen oder durch den Auto-Platzierungsalgorithmus, der zusätzliche Zeilen erstellt.
+Wenn ein Rastelement in eine Zeile positioniert wird, die nicht explizit durch {{cssxref("grid-template-rows")}} dimensioniert ist, werden implizite {{Glossary("grid", "Grid")}}-Spuren erstellt, um es aufzunehmen. Dies kann entweder dadurch geschehen, dass man explizit in eine Zeile außerhalb des Bereichs positioniert, oder indem der Auto-Placement-Algorithmus zusätzliche Zeilen erstellt.
 
 ## Syntax
 
@@ -116,42 +116,42 @@ grid-auto-rows: unset;
 - {{cssxref("&lt;length&gt;")}}
   - : Ist eine nicht-negative Länge.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ist ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}} Wert relativ zur Blockgröße des Rastercontainers. Ist die Blockgröße des Rastercontainers undefiniert, wird der Prozentwert wie `auto` behandelt.
+  - : Ist ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}}-Wert, der relativ zur Blockgröße des Rastercontainers ist. Wenn die Blockgröße des Rastercontainers unbestimmt ist, wird der Prozentwert wie `auto` behandelt.
 - {{cssxref("&lt;flex&gt;")}}
 
-  - : Ist eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor des Tracks angibt. Jeder `<flex>`-dimensionierter Track nimmt einen Anteil des verbleibenden Raums proportional zu seinem Flex-Faktor ein.
+  - : Ist eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor der Spur angibt. Jede `<flex>`-dimensionierte Spur nimmt einen Anteil des verbleibenden Raums entsprechend ihrem Flex-Faktor ein.
 
-    Erscheint es außerhalb einer `minmax()`-Notation, impliziert es ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
+    Wenn außerhalb einer `minmax()`-Notation verwendet, impliziert es ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
 
 - {{cssxref("max-content")}}
-  - : Ist ein Schlüsselwort, das den größten maximalen Inhaltsbeitrag der Rasterelemente repräsentiert, die den Rastertrack belegen.
+  - : Ist ein Schlüsselwort, das den größten maximalen Inhaltsbeitrag der Rastelemente darstellt, die die Rasterspur belegen.
 - {{cssxref("min-content")}}
-  - : Ist ein Schlüsselwort, das den größten minimalen Inhaltsbeitrag der Rasterelemente repräsentiert, die den Rastertrack belegen.
+  - : Ist ein Schlüsselwort, das den größten minimalen Inhaltsbeitrag der Rastelemente darstellt, die die Rasterspur belegen.
 - {{cssxref("minmax", "minmax(min, max)")}}
-  - : Ist eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner ist als _min_, wird _max_ ignoriert und die Funktion wird als _min_ behandelt. Als Maximum setzt ein `<flex>` Wert den Flex-Faktor des Tracks. Als Minimum wird es als null (oder minimaler Inhalt, wenn der Rastercontainer unter einer minimalen Inhaltsbeschränkung dimensioniert ist) behandelt.
+  - : Ist eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner als _min_ ist, wird _max_ ignoriert und die Funktion als _min_ behandelt. Als Maximum setzt ein `<flex>`-Wert den Flex-Faktor der Spur. Als Minimum wird es als Null behandelt (oder als minimaler Inhalt, wenn der Rastercontainer unter einer Minimalinhalt-Beschränkung dimensioniert ist).
 - {{cssxref("fit-content_function", "fit-content( [ &lt;length&gt; | &lt;percentage&gt; ] )")}}
-  - : Repräsentiert die Formel `min(max-content, max(auto, argument))`, die ähnlich wie `auto` berechnet wird (d.h. `minmax(auto, max-content)`), außer dass die Track-Größe bei _argument_ geklemmt wird, wenn dieser größer als das `auto` Minimum ist.
+  - : Stellt die Formel `min(max-content, max(auto, argument))` dar, die ähnlich wie `auto` berechnet wird (d.h. `minmax(auto, max-content)`), außer dass die Spurengröße bei _argument_ geklemmt wird, wenn sie größer als das `auto`-Minimum ist.
 - `auto`
 
-  - : Als Maximum repräsentiert es die größte {{cssxref("max-content")}} Größe der Elemente in diesem Track.
+  - : Als Maximum repräsentiert es die größte {{cssxref("max-content")}}-Größe der Elemente in dieser Spur.
 
-    Als Minimum repräsentiert es die größte Mindestgröße der Elemente in diesem Track (spezifiziert durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} der Elemente). Dies ist oft, aber nicht immer, die {{cssxref("min-content")}} Größe.
+    Als Minimum repräsentiert es die größte Mindestgröße der Elemente in dieser Spur (spezifiziert durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} der Elemente). Dies ist oft, aber nicht immer, die {{cssxref("min-content")}}-Größe.
 
-    Wird es außerhalb der {{cssxref("minmax", "minmax()")}}-Notation verwendet, repräsentiert `auto` den Bereich zwischen dem oben beschriebenen Minimum und Maximum. Dies verhält sich in den meisten Fällen ähnlich wie `minmax(min-content,max-content)`.
+    Wenn außerhalb der {{cssxref("minmax", "minmax()")}}-Notation verwendet, repräsentiert `auto` den Bereich zwischen dem oben beschriebenen Minimum und Maximum. Dies verhält sich in den meisten Fällen ähnlich wie `minmax(min-content,max-content)`.
 
-    > **Hinweis:** `auto` Track-Größen (und nur `auto` Track-Größen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gedehnt werden. Daher nimmt ein `auto` dimensionierter Track standardmäßig jeden verbleibenden Raum im Rastercontainer ein.
+    > **Note:** `auto`-Spurgrößen (und nur `auto`-Spurgrößen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gestreckt werden. Daher nimmt eine `auto`-dimensionierte Spur standardmäßig jeden verbleibenden Platz im Rastercontainer ein.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Rasterzeilengröße festlegen
+### Festlegen der Rasterzeilengröße
 
 #### HTML
 
@@ -196,5 +196,5 @@ grid-auto-rows: unset;
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid-auto-flow")}}
 - {{cssxref("grid")}}
-- [Auto-Platzierung im Rasterlayout - Zeilen im impliziten Raster dimensionieren](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout#sizing_rows_in_the_implicit_grid)
-- Video: [Einführung in die automatische Rasterplatzierung und -reihenfolge](https://gridbyexample.com/video/series-auto-placement-order/)
+- [Automatische Platzierung im Rasterlayout – Dimensionierung von Zeilen im impliziten Raster](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout#sizing_rows_in_the_implicit_grid)
+- Video: [Introducing grid auto-placement and order](https://gridbyexample.com/video/series-auto-placement-order/)

@@ -1,17 +1,17 @@
 ---
-title: 2D-Kollisionserkennung
+title: 2D-Kollisionsdetektion
 slug: Games/Techniques/2D_collision_detection
 l10n:
-  sourceCommit: 2524fe4875b4a43ad85947a61e63c3109619bda2
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{GamesSidebar}}
 
-Algorithmen zur Erkennung von Kollisionen in 2D-Spielen hängen von den Formen ab, die kollidieren können (z.B. Rechteck zu Rechteck, Rechteck zu Kreis, Kreis zu Kreis). Im Allgemeinen verwenden Sie eine einfache generische Form, die die Entität abdeckt, bekannt als „Hitbox“, sodass die Kollision, auch wenn sie nicht pixelgenau ist, gut aussieht und bei mehreren Entitäten leistungsfähig bleibt. Dieser Artikel bietet einen Überblick über die gängigsten Techniken zur Bereitstellung der Kollisionserkennung in 2D-Spielen.
+Algorithmen zur Erkennung von Kollisionen in 2D-Spielen hängen von der Art der Formen ab, die kollidieren können (z. B. Rechteck zu Rechteck, Rechteck zu Kreis, Kreis zu Kreis). Im Allgemeinen verwendet man eine einfache generische Form, die die Entität als "Hitbox" umschließt, so dass, auch wenn die Kollision nicht pixelgenau ist, sie ausreichend gut aussieht und leistungsstark über mehrere Entitäten hinweg ist. Dieser Artikel gibt einen Überblick über die gängigsten Techniken zur Kollisionsdetektion in 2D-Spielen.
 
-## Achsen-ausgerichtete Begrenzungsbox (Axis-Aligned Bounding Box)
+## Achsen ausgerichtete Begrenzungsrahmen
 
-Eine der einfacheren Formen der Kollisionserkennung ist zwischen zwei rechteckigen Formen, die achsen-ausgerichtet sind—das heißt ohne Rotation. Der Algorithmus funktioniert, indem sichergestellt wird, dass keine Lücke zwischen den 4 Seiten der Rechtecke besteht. Eine Lücke bedeutet, dass keine Kollision vorliegt.
+Eine der einfacheren Formen der Kollisionsdetektion besteht zwischen zwei Rechtecken, die achsen ausgerichtet sind – das bedeutet ohne Rotation. Der Algorithmus funktioniert, indem sichergestellt wird, dass es keine Lücke zwischen den 4 Seiten der Rechtecke gibt. Jegliche Lücke bedeutet, dass keine Kollision existiert.
 
 ```html hidden
 <div id="cr-stage"></div>
@@ -57,7 +57,7 @@ rect2.bind("EnterFrame", function () {
 
 ## Kreis-Kollision
 
-Eine weitere einfache Form für die Kollisionserkennung ist zwischen zwei Kreisen. Dieser Algorithmus funktioniert, indem man die Mittelpunkte der beiden Kreise berücksichtigt und sicherstellt, dass der Abstand zwischen den Mittelpunkten kleiner ist als die Summe der beiden Radien.
+Eine weitere einfache Form für die Kollisionsdetektion besteht zwischen zwei Kreisen. Dieser Algorithmus funktioniert, indem die Mittelpunkte der beiden Kreise genommen werden und sichergestellt wird, dass der Abstand zwischen den Mittelpunkten kleiner ist als die Summe der beiden Radien.
 
 ```html hidden
 <div id="cr-stage"></div>
@@ -130,26 +130,26 @@ circle2.bind("EnterFrame", function () {
 
 > **Note:** [Hier ist ein weiteres Beispiel ohne Canvas oder externe Bibliotheken.](https://jsfiddle.net/jlr7245/teb4znk0/20/)
 
-## Trennung der Achsen-Theorem (Separating Axis Theorem)
+## Trennung der Achsentheorie
 
-Dies ist ein Kollisionsalgorithmus, der eine Kollision zwischen zwei _konvexen_ Polygonen erkennen kann. Er ist komplizierter zu implementieren als die obigen Methoden, aber leistungsfähiger. Die Komplexität eines solchen Algorithmus bedeutet, dass wir Leistungsoptimierung in Betracht ziehen müssen, was im nächsten Abschnitt behandelt wird.
+Dies ist ein Kollisionsalgorithmus, der eine Kollision zwischen zwei konvexen Polygonen erkennen kann. Es ist komplizierter zu implementieren als die obigen Methoden, aber dafür leistungsstärker. Die Komplexität eines solchen Algorithmus bedeutet, dass wir Performance-Optimierungen in Betracht ziehen müssen, die im nächsten Abschnitt behandelt werden.
 
-Die Implementierung von SAT liegt außerhalb des Umfangs dieser Seite, daher siehe die unten empfohlenen Tutorials:
+Die Implementierung der SAT liegt außerhalb des Umfangs dieser Seite, daher siehe die empfohlenen Anleitungen unten:
 
-1. [Erläuterung des Trennung der Achsen-Theorem (SAT)](https://www.sevenson.com.au/programming/sat/)
-2. [Erkennung und Reaktion bei Kollisionen](https://www.metanetsoftware.com/technique/tutorialA.html)
-3. [Kollisionserkennung mittels des Trennung der Achsen-Theorems](https://code.tutsplus.com/collision-detection-using-the-separating-axis-theorem--gamedev-169t)
-4. [SAT (Trennung der Achsen-Theorem)](https://dyn4j.org/2010/01/sat/)
-5. [Trennung der Achsen-Theorem](https://programmerart.weebly.com/separating-axis-theorem.html)
+1. [Erklärung zur Trennung der Achsentheorie (SAT)](https://www.sevenson.com.au/programming/sat/)
+2. [Kollisionsdetektion und -antwort](https://www.metanetsoftware.com/technique/tutorialA.html)
+3. [Kollisionsdetektion mit der Trennung der Achsentheorie](https://code.tutsplus.com/collision-detection-using-the-separating-axis-theorem--gamedev-169t)
+4. [SAT (Trennung der Achsentheorie)](https://dyn4j.org/2010/01/sat/)
+5. [Trennung der Achsentheorie](https://programmerart.weebly.com/separating-axis-theorem.html)
 
 ## Kollisionsleistung
 
-Obwohl einige dieser Algorithmen zur Kollisionserkennung einfach zu berechnen sind, kann es eine Verschwendung von Rechenleistung sein, _jede_ Entität mit jeder anderen zu testen. Normalerweise wird die Kollisionserkennung in Spielen in zwei Phasen unterteilt, grobe und feine.
+Obwohl einige dieser Algorithmen zur Kollisionsdetektion einfach genug zu berechnen sind, kann es Verschwendung von Rechenzyklen sein, jede Entität mit jeder anderen Entität zu testen. Üblicherweise wird die Kollision in Spiele in zwei Phasen aufgeteilt: die breite und die enge Phase.
 
-### Grobe Phase
+### Breite Phase
 
-Die grobe Phase sollte Ihnen eine Liste von Entitäten geben, die _kollidieren könnten_. Dies kann mit einer räumlichen Datenstruktur umgesetzt werden, die Ihnen eine grobe Vorstellung davon gibt, wo sich die Entitäten befinden und welche in ihrer Umgebung existieren. Einige Beispiele für räumliche Datenstrukturen sind Quad-Bäume, R-Bäume oder eine räumliche Hashmap.
+Die breite Phase sollte Ihnen eine Liste von Entitäten geben, die möglicherweise kollidieren könnten. Dies kann mit einer räumlichen Datenstruktur implementiert werden, die Ihnen eine grobe Vorstellung gibt, wo sich die Entität befindet und was sich in ihrer Umgebung befindet. Einige Beispiele für räumliche Datenstrukturen sind Quad-Trees, R-Trees oder ein räumlicher Hashmap.
 
-### Feine Phase
+### Enge Phase
 
-Wenn Sie eine kleine Liste von Entitäten haben, die überprüft werden müssen, sollten Sie einen feinen Phasenalgorithmus (wie die oben genannten) verwenden, um eine sichere Aussage darüber zu treffen, ob eine Kollision vorliegt oder nicht.
+Wenn Sie eine kleine Liste von Entitäten haben, die überprüft werden sollen, sollten Sie einen Algorithmus für die enge Phase verwenden (wie die oben aufgeführten), um eine sichere Antwort darauf zu geben, ob eine Kollision vorliegt oder nicht.

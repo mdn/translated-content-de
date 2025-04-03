@@ -2,14 +2,14 @@
 title: downloads.onCreated
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/onCreated
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{AddonSidebar}}
 
 Das **`onCreated()`** Ereignis der {{WebExtAPIRef("downloads")}} API wird ausgelöst, wenn ein Download beginnt, d.h. wenn {{WebExtAPIRef("downloads.download()")}} erfolgreich aufgerufen wird.
 
-Dem Listener wird das betreffende {{WebExtAPIRef('downloads.DownloadItem')}}-Objekt als Parameter übergeben.
+Dem Listener wird das betreffende {{WebExtAPIRef('downloads.DownloadItem')}} Objekt als Parameter übergeben.
 
 ## Syntax
 
@@ -24,20 +24,20 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören für dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stoppt das Zuhören für dieses Ereignis. Das `listener` Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein bestimmter `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob ein gegebener `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `function`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Dieser Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Dieser Funktion wird folgendes Argument übergeben:
 
     - `downloadItem`
-      - : Das betreffende {{WebExtAPIRef('downloads.DownloadItem')}}-Objekt.
+      - : Das betreffende {{WebExtAPIRef('downloads.DownloadItem')}} Objekt.
 
 ## Browser-Kompatibilität
 
@@ -58,4 +58,4 @@ browser.downloads.onCreated.addListener(handleCreated);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#event-onCreated) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#event-onCreated) API.

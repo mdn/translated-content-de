@@ -2,47 +2,47 @@
 title: Verwendung von HTTP-Cookies
 slug: Web/HTTP/Guides/Cookies
 l10n:
-  sourceCommit: cb8143261f5cd54788285574ab0c427ba3f01a04
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{HTTPSidebar}}
 
-Ein **Cookie** (auch bekannt als Web-Cookie oder Browser-Cookie) ist ein kleines Datenstück, das ein Server an den Webbrowser eines Nutzers sendet. Der Browser kann Cookies speichern, neue Cookies erstellen, bestehende ändern und sie mit späteren Anfragen an denselben Server zurücksenden. Cookies ermöglichen es Webanwendungen, begrenzte Datenmengen zu speichern und Zustandsinformationen zu merken; standardmäßig ist das HTTP-Protokoll [zustandslos](/de/docs/Web/HTTP/Guides/Overview#http_is_stateless_but_not_sessionless).
+Ein **Cookie** (auch als Web-Cookie oder Browser-Cookie bekannt) ist ein kleines Datenstück, das ein Server an den Webbrowser eines Nutzers sendet. Der Browser kann Cookies speichern, neue Cookies erstellen, bestehende modifizieren und sie mit späteren Anfragen zurück an denselben Server senden. Cookies ermöglichen es Webanwendungen, begrenzte Datenmengen zu speichern und Zustandsinformationen zu erinnern, denn das HTTP-Protokoll ist von Natur aus [zustandslos](/de/docs/Web/HTTP/Guides/Overview#http_is_stateless_but_not_sessionless).
 
-In diesem Artikel werden wir die Hauptverwendungen von Cookies untersuchen, bewährte Praktiken für ihre Verwendung erklären und ihre Datenschutz- und Sicherheitsimplikationen betrachten.
+In diesem Artikel werden wir die Hauptanwendungsgebiete von Cookies erkunden, bewährte Praktiken für ihre Nutzung erklären und ihre Datenschutz- und Sicherheitsimplikationen untersuchen.
 
 ## Wofür Cookies verwendet werden
 
-Typischerweise verwendet der Server den Inhalt von HTTP-Cookies, um festzustellen, ob unterschiedliche Anfragen vom gleichen Browser/Nutzer stammen, und gibt dann eine personalisierte oder generische Antwort aus, wie es angemessen ist. Das folgende beschreibt ein einfaches Benutzeranmeldesystem:
+Typischerweise verwendet der Server den Inhalt von HTTP-Cookies, um zu bestimmen, ob unterschiedliche Anfragen von demselben Browser/Nutzer stammen, und gibt dann eine personalisierte oder generische Antwort. Im Folgenden wird ein einfaches Benutzeranmelde-System beschrieben:
 
-1. Der Nutzer sendet Anmeldeinformationen an den Server, beispielsweise über ein Formular.
-2. Wenn die Anmeldeinformationen korrekt sind, aktualisiert der Server die Benutzeroberfläche, um anzuzeigen, dass der Benutzer angemeldet ist, und antwortet mit einem Cookie, das eine Sitzungs-ID enthält und den Anmeldestatus im Browser speichert.
-3. Zu einem späteren Zeitpunkt bewegt sich der Nutzer auf eine andere Seite derselben Site. Der Browser sendet das Cookie mit der Sitzungs-ID zusammen mit der entsprechenden Anfrage, um anzuzeigen, dass er weiterhin denkt, dass der Nutzer angemeldet ist.
-4. Der Server überprüft die Sitzungs-ID und, falls sie noch gültig ist, sendet dem Benutzer eine personalisierte Version der neuen Seite. Falls sie nicht gültig ist, wird die Sitzungs-ID gelöscht und dem Benutzer wird eine generische Version der Seite gezeigt (oder möglicherweise eine Nachricht "Zugriff verweigert" und er wird gebeten, sich erneut anzumelden).
+1. Der Benutzer sendet Anmeldeinformationen an den Server, z. B. über ein Formular.
+2. Sind die Anmeldeinformationen korrekt, aktualisiert der Server die Benutzeroberfläche, um anzuzeigen, dass der Benutzer angemeldet ist, und antwortet mit einem Cookie, das eine Sitzungs-ID enthält und den Anmeldestatus im Browser aufzeichnet.
+3. Zu einem späteren Zeitpunkt wechselt der Benutzer auf eine andere Seite derselben Website. Der Browser sendet das Cookie mit der Sitzungs-ID zusammen mit der entsprechenden Anfrage, um anzuzeigen, dass er den Benutzer immer noch als angemeldet betrachtet.
+4. Der Server überprüft die Sitzungs-ID und sendet dem Benutzer, falls sie noch gültig ist, eine personalisierte Version der neuen Seite. Ist sie ungültig, wird die Sitzungs-ID gelöscht, und dem Benutzer wird eine generische Version der Seite angezeigt (oder möglicherweise eine "Zugriff verweigert"-Nachricht und eine erneute Anmeldung).
 
-![visuelle Darstellung der oben beschriebenen Anmeldesystembeschreibung](cookie-basic-example.png)
+![visuelle Darstellung der obigen Anmelde-Systembeschreibung](cookie-basic-example.png)
 
 Cookies werden hauptsächlich für drei Zwecke verwendet:
 
-- **Sitzungsmanagement**: Benutzeranmeldestatus, Warenkorbinhalte, Spielergebnisse oder andere sitzungsbezogene Details, die der Server sich merken muss.
+- **Sitzungsmanagement**: Anmeldestatus des Benutzers, Inhalte eines Warenkorbs, Spielergebnisse oder andere benutzerbezogene Sitzungsdetails, die der Server sich merken muss.
 - **Personalisierung**: Benutzereinstellungen wie Anzeigesprache und UI-Thema.
-- **Verfolgung**: Aufzeichnung und Analyse des Benutzerverhaltens.
+- **Tracking**: Erfassung und Analyse des Benutzerverhaltens.
 
 ### Datenspeicherung
 
-In den Frühzeiten des Webs, als es keine andere Möglichkeit gab, wurden Cookies zur allgemeinen clientseitigen Datenspeicherung verwendet. Heutzutage werden moderne Speicher-APIs empfohlen, beispielsweise die [Web Storage API](/de/docs/Web/API/Web_Storage_API) (`localStorage` und `sessionStorage`) und [IndexedDB](/de/docs/Web/API/IndexedDB_API).
+In den frühen Tagen des Webs, als es keine anderen Optionen gab, wurden Cookies für allgemeine clientseitige Datenspeicherungszwecke verwendet. Moderne Speicher-APIs werden jetzt empfohlen, z. B. die [Web Storage API](/de/docs/Web/API/Web_Storage_API) (`localStorage` und `sessionStorage`) und [IndexedDB](/de/docs/Web/API/IndexedDB_API).
 
-Sie sind für die Speicherung konzipiert, senden niemals Daten an den Server und bergen nicht die anderen Nachteile, die mit der Verwendung von Cookies zur Speicherung verbunden sind:
+Diese sind mit Blick auf die Speicherung konzipiert, senden niemals Daten an den Server und haben nicht die Nachteile, die mit der Verwendung von Cookies für die Speicherung einhergehen:
 
-- Browser sind generell auf eine maximale Anzahl von Cookies pro Domain beschränkt (variiert je nach Browser, generell in den Hunderten), und auf eine maximale Größe pro Cookie (in der Regel 4KB). Speicher-APIs können größere Datenmengen speichern.
-- Cookies werden mit jeder Anfrage gesendet, was die Leistung verschlechtern kann (zum Beispiel bei langsamen mobilen Datenverbindungen), insbesondere wenn Sie viele Cookies gesetzt haben.
+- Browser sind im Allgemeinen auf eine maximale Anzahl von Cookies pro Domain beschränkt (unterschiedlich je nach Browser, normalerweise im Hunderterbereich) und eine maximale Größe pro Cookie (in der Regel 4KB). Speicher-APIs können größere Datenmengen speichern.
+- Cookies werden mit jeder Anfrage gesendet, was die Leistung beeinträchtigen kann (beispielsweise bei langsamen mobilen Datenverbindungen), insbesondere wenn viele Cookies gesetzt sind.
 
 > [!NOTE]
-> Um gespeicherte Cookies (und andere Speicher, die eine Webseite verwendet) zu sehen, können Sie den [Storage Inspector](https://firefox-source-docs.mozilla.org/devtools-user/storage_inspector/index.html) in den Firefox Developer Tools oder das [Application-Panel](https://developer.chrome.com/docs/devtools/progressive-web-apps) in den Chrome Developer Tools verwenden.
+> Um gespeicherte Cookies (und andere Speicher, die eine Webseite nutzt) anzusehen, können Sie den [Storage Inspector](https://firefox-source-docs.mozilla.org/devtools-user/storage_inspector/index.html) in den Firefox Developer Tools oder das [Application Panel](https://developer.chrome.com/docs/devtools/progressive-web-apps) in den Chrome Developer Tools verwenden.
 
 ## Erstellen, Entfernen und Aktualisieren von Cookies
 
-Nach Erhalt einer HTTP-Anfrage kann ein Server mit der Antwort ein oder mehrere {{HTTPHeader("Set-Cookie")}} Header senden, von denen jeder ein separates Cookie setzt. Ein Cookie wird festgelegt, indem ein Name-Werte-Paar wie folgt angegeben wird:
+Nachdem eine HTTP-Anfrage empfangen wurde, kann ein Server mit der Antwort einen oder mehrere {{HTTPHeader("Set-Cookie")}}-Header senden, von denen jeder ein separates Cookie setzt. Ein Cookie wird durch die Angabe eines Werte-Paars wie folgt gesetzt:
 
 ```http
 Set-Cookie: <cookie-name>=<cookie-value>
@@ -60,9 +60,9 @@ Set-Cookie: tasty_cookie=strawberry
 ```
 
 > [!NOTE]
-> Erfahren Sie, wie Sie den `Set-Cookie` Header in verschiedenen serverseitigen Sprachen/Frameworks verwenden: [PHP](https://www.php.net/manual/en/function.setcookie.php), [Node.js](https://nodejs.org/docs/latest-v19.x/api/http.html#responsesetheadername-value), [Python](https://docs.python.org/3/library/http.cookies.html), [Ruby on Rails](https://api.rubyonrails.org/classes/ActionDispatch/Cookies.html).
+> Erfahren Sie, wie Sie den `Set-Cookie`-Header in verschiedenen serverseitigen Sprachen/Frameworks verwenden: [PHP](https://www.php.net/manual/en/function.setcookie.php), [Node.js](https://nodejs.org/docs/latest-v19.x/api/http.html#responsesetheadername-value), [Python](https://docs.python.org/3/library/http.cookies.html), [Ruby on Rails](https://api.rubyonrails.org/classes/ActionDispatch/Cookies.html).
 
-Wenn eine neue Anfrage erstellt wird, sendet der Browser normalerweise die zuvor gespeicherten Cookies für die aktuelle Domain mit der Anfrage im {{HTTPHeader("Cookie")}} HTTP-Header zurück an den Server:
+Wenn eine neue Anfrage gestellt wird, sendet der Browser normalerweise vorher gespeicherte Cookies für die aktuelle Domain innerhalb eines {{HTTPHeader("Cookie")}}-HTTP-Headers zurück an den Server:
 
 ```http
 GET /sample_page.html HTTP/2.0
@@ -70,51 +70,51 @@ Host: www.example.org
 Cookie: yummy_cookie=chocolate; tasty_cookie=strawberry
 ```
 
-### Entfernung: Lebensdauer eines Cookies definieren
+### Entfernen: Definition der Lebensdauer eines Cookies
 
-Sie können ein Ablaufdatum oder eine Zeitspanne angeben, nach der das Cookie gelöscht und nicht mehr gesendet werden sollte. Je nach den Attributen, die im {{HTTPHeader("Set-Cookie")}} Header festgelegt sind, wenn die Cookies erstellt werden, können sie entweder _permanent_ oder _sitzungsbasiert_ sein:
+Sie können ein Ablaufdatum oder einen Zeitraum angeben, nach dem das Cookie gelöscht und nicht mehr gesendet werden soll. Abhängig von den Attributen, die im {{HTTPHeader("Set-Cookie")}}-Header festgelegt sind, als die Cookies erstellt werden, können sie entweder _dauerhaft_ oder _sitzungsbasiert_ sein:
 
-- Permanente Cookies werden nach dem im `Expires`-Attribut angegebenen Datum gelöscht:
+- Dauerhafte Cookies werden nach dem im `Expires`-Attribut angegebenen Datum gelöscht:
 
   ```http
   Set-Cookie: id=a3fWa; Expires=Thu, 31 Oct 2021 07:28:00 GMT;
   ```
 
-  oder nach der im `Max-Age`-Attribut angegebenen Dauer:
+  oder nach dem im `Max-Age`-Attribut angegebenen Zeitraum:
 
   ```http
   Set-Cookie: id=a3fWa; Max-Age=2592000
   ```
 
-  > **Hinweis:** `Expires` ist länger verfügbar als `Max-Age`, jedoch ist `Max-Age` weniger fehleranfällig und hat Vorrang, wenn beide gesetzt sind. Der Grund hierfür ist, dass wenn Sie ein `Expires` Datum und Zeit setzen, diese relativ zum Client sind, auf dem das Cookie gesetzt wird. Wenn der Server auf eine andere Zeit eingestellt ist, könnte dies Fehler verursachen.
+  > **Hinweis:** `Expires` ist länger verfügbar als `Max-Age`, jedoch ist `Max-Age` weniger fehleranfällig und hat Vorrang, wenn beide gesetzt sind. Der Grund dafür ist, dass, wenn Sie ein `Expires`-Datum und eine Zeit setzen, diese relativ zum Client sind, auf dem das Cookie gesetzt wird. Wenn der Server auf eine andere Zeit eingestellt ist, könnte das zu Fehlern führen.
 
-- _Sitzungs-Cookies_ — Cookies ohne `Max-Age` oder `Expires` Attribut – werden gelöscht, wenn die aktuelle Sitzung endet. Der Browser definiert, wann die "aktuelle Sitzung" endet, und einige Browser verwenden _Sitzungswiederherstellung_ beim Neustart. Dies kann dazu führen, dass Sitzungscookies unbegrenzt bestehen bleiben.
+- _Sitzungscookies_ – Cookies ohne ein `Max-Age`- oder `Expires`-Attribut – werden gelöscht, wenn die aktuelle Sitzung endet. Der Browser definiert, wann die "aktuelle Sitzung" endet, und einige Browser verwenden _Sitzungswiederherstellung_ beim Neustart. Dies kann dazu führen, dass Sitzungscookies unbegrenzt bestehen.
 
   > [!NOTE]
-  > Wenn Ihre Webseite Benutzer authentifiziert, sollte sie Sitzungscookies regenerieren und erneut senden, auch solche, die bereits existieren, wann immer sich ein Benutzer authentifiziert. Dieser Ansatz hilft, [Sitzungs-Fixierungsangriffe](/de/docs/Web/Security/Types_of_attacks#session_fixation) zu verhindern, bei denen ein Dritter die Sitzung eines Benutzers wiederverwenden kann.
+  > Wenn Ihre Seite Benutzer authentifiziert, sollte sie Sitzungs-Cookies regenerieren und erneut senden, selbst wenn diese bereits existieren, immer dann, wenn sich ein Benutzer authentifiziert. Dieser Ansatz hilft, [Sitzungsfixierungsangriffe](/de/docs/Web/Security/Types_of_attacks#session_fixation) zu verhindern, bei denen ein Dritter die Sitzung eines Benutzers wiederverwenden kann.
 
-Es gibt einige Techniken, die darauf abzielen, Cookies nach ihrer Löschung wiederherzustellen. Diese werden als "Zombie"-Cookies bezeichnet. Diese Techniken verstoßen gegen die Prinzipien des Benutzer-[Datenschutzes](#datenschutz_und_verfolgung) und der Kontrolle, können gegen [Datenschutzbestimmungen](#cookie-bezogene_vorschriften) verstoßen und könnten eine Website, die sie verwendet, rechtlichen Risiken aussetzen.
+Es gibt einige Techniken, die darauf abzielen, Cookies nach ihrer Löschung neu zu erstellen. Diese sind als "Zombie-Cookies" bekannt. Diese Techniken verletzen die Prinzipien der Benutzer[privatsphäre](#datenschutz_und_tracking) und Kontrolle, könnten gegen [Datenschutzbestimmungen](#cookie-bezogene_vorschriften) verstoßen und eine Website in rechtliche Haftung bringen, wenn sie sie verwendet.
 
 ### Aktualisieren von Cookie-Werten
 
-Um ein Cookie über HTTP zu aktualisieren, kann der Server einen {{HTTPHeader("Set-Cookie")}} Header mit dem Namen und einem neuen Wert des bestehenden Cookies senden. Zum Beispiel:
+Um ein Cookie über HTTP zu aktualisieren, kann der Server einen {{HTTPHeader("Set-Cookie")}}-Header mit dem bestehenden Namen des Cookies und einem neuen Wert senden. Beispielsweise:
 
 ```http
 Set-Cookie: id=new-value
 ```
 
-Es gibt mehrere Gründe, warum Sie dies tun möchten, zum Beispiel wenn ein Benutzer seine Präferenzen aktualisiert hat und die Anwendung die Änderungen in den clientseitigen Daten widerspiegeln möchte (Sie könnten dies auch mit einem clientseitigen Speichermedium wie [Web Storage](/de/docs/Web/API/Web_Storage_API) tun).
+Es gibt mehrere Gründe, warum Sie dies tun möchten, z. B. wenn ein Benutzer seine Präferenzen aktualisiert hat und die Anwendung die Änderungen in Client-seitigen Daten widerspiegeln möchte (Sie könnten dies auch mit einem Client-seitigen Speicher-Mechanismus wie [Web Storage](/de/docs/Web/API/Web_Storage_API) tun).
 
 #### Aktualisieren von Cookies über JavaScript
 
-Im Browser können Sie neue Cookies über JavaScript mit der [`Document.cookie`](/de/docs/Web/API/Document/cookie) Eigenschaft oder der asynchronen [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) erstellen. Beachten Sie, dass alle folgenden Beispiele `Document.cookie` verwenden, da dies die am weitesten unterstützte/etablierte Option ist.
+Im Browser können Sie neue Cookies über JavaScript mit der [`Document.cookie`](/de/docs/Web/API/Document/cookie)-Eigenschaft oder die asynchrone [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) erstellen. Beachten Sie, dass alle untenstehenden Beispiele `Document.cookie` verwenden, da es die am weitesten unterstützte/etablierte Option ist.
 
 ```js
 document.cookie = "yummy_cookie=chocolate";
 document.cookie = "tasty_cookie=strawberry";
 ```
 
-Sie können auch auf bestehende Cookies zugreifen und neue Werte für sie setzen, sofern das [`HttpOnly`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#httponly) Attribut nicht auf ihnen gesetzt ist (d.h. im `Set-Cookie` Header, der es erstellt hat):
+Sie können auch auf bestehende Cookies zugreifen und ihnen neue Werte zuweisen, vorausgesetzt, das [`HttpOnly`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#httponly)-Attribut ist nicht auf ihnen gesetzt (d.h. im `Set-Cookie`-Header, der es erstellt hat):
 
 ```js
 console.log(document.cookie);
@@ -126,55 +126,58 @@ console.log(document.cookie);
 // logs "tasty_cookie=strawberry; yummy_cookie=blueberry"
 ```
 
-Beachten Sie, dass Sie aus Sicherheitsgründen Cookie-Werte nicht ändern können, indem Sie beim Initiieren einer Anfrage direkt einen aktualisierten `Cookie` Header senden, d.h. über [`fetch()`](/de/docs/Web/API/Window/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Beachten Sie, dass es auch gute Gründe gibt, warum Sie JavaScript nicht erlauben sollten, Cookies zu ändern — d.h. `HttpOnly` bei der Erstellung setzen. Sehen Sie den Abschnitt [Sicherheit](#sicherheit) für weitere Details.
+Beachten Sie, dass Sie aus Sicherheitsgründen keine Cookie-Werte ändern können, indem Sie einen aktualisierten `Cookie`-Header direkt senden, wenn Sie eine Anfrage initiieren, d.h. über [`fetch()`](/de/docs/Web/API/Window/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Beachten Sie, dass es auch gute Gründe gibt, warum Sie nicht zulassen sollten, dass JavaScript Cookies modifiziert – das `HttpOnly`-Attribut sollte bei der Erstellung gesetzt werden. Weitere Details finden Sie im Abschnitt [Sicherheit](#sicherheit).
 
 ## Sicherheit
 
-Wenn Sie Informationen in Cookies speichern, sind standardmäßig alle Cookie-Werte für den Endbenutzer sichtbar und können von ihm geändert werden. Sie möchten wirklich nicht, dass Ihre Cookies missbraucht werden — beispielsweise von bösartigen Akteuren aufgerufen/geändert oder an Domains gesendet werden, an die sie nicht gesendet werden sollten. Die potenziellen Konsequenzen können von ärgerlich — Apps funktionieren nicht oder zeigen seltsames Verhalten — bis hin zu katastrophal reichen. Ein Krimineller könnte beispielsweise eine Sitzungs-ID stehlen und sie verwenden, um ein Cookie zu setzen, das so aussieht, als wären sie als jemand anderes angemeldet, und dabei die Kontrolle über deren Bank- oder E-Commerce-Konto übernehmen.
+Wenn Sie Informationen in Cookies speichern, sind standardmäßig alle Cookie-Werte für den Endbenutzer sichtbar und können von ihm geändert werden. Sie möchten wirklich nicht, dass Ihre Cookies missbraucht werden – z. B. von böswilligen Akteuren abgerufen/verändert werden oder an Domains gesendet werden, wo sie nicht gesendet werden sollten. Die potenziellen Konsequenzen können von ärgerlich (z. B. dass Apps nicht funktionieren oder seltsames Verhalten aufweisen) bis katastrophal reichen. Ein Krimineller könnte z. B. eine Sitzungs-ID stehlen und sie verwenden, um ein Cookie zu setzen, das es so aussehen lässt, als wäre er als jemand anderes eingeloggt, und dabei die Kontrolle über deren Bank- oder E-Commerce-Konto übernehmen.
 
-Sie können Ihre Cookies auf verschiedene Weise sichern, die in diesem Abschnitt geprüft werden.
+Sie können Ihre Cookies auf verschiedene Arten absichern, die in diesem Abschnitt überprüft werden.
 
-### Blockieren Sie den Zugriff auf Ihre Cookies
+### Zugriff auf Ihre Cookies blockieren
 
-Sie können sicherstellen, dass Cookies sicher gesendet werden und nicht von unbeabsichtigten Parteien oder Skripten aufgerufen werden, auf zwei Arten: mit dem `Secure` Attribut und dem `HttpOnly` Attribut:
+Sie können sicherstellen, dass Cookies sicher gesendet werden und nicht von nicht beabsichtigten Parteien oder Skripten abgerufen werden, mit dem `Secure`-Attribut und dem `HttpOnly`-Attribut:
 
 ```http
 Set-Cookie: id=a3fWa; Expires=Thu, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
 ```
 
-- Ein Cookie mit dem `Secure` Attribut wird nur mit einer verschlüsselten Anfrage über das HTTPS-Protokoll an den Server gesendet. Es wird niemals mit ungesichertem HTTP gesendet (außer auf localhost), was bedeutet, dass {{Glossary("MitM", "Man-in-the-Middle")}} Angreifer nicht so leicht darauf zugreifen können. Unsichere Sites (mit `http:` in der URL) können keine Cookies mit dem `Secure` Attribut setzen. Gehen Sie jedoch nicht davon aus, dass `Secure` den gesamten Zugriff auf sensible Informationen in Cookies verhindert. Zum Beispiel kann jemand mit Zugriff auf die Festplatte des Clients (oder auf JavaScript, wenn das `HttpOnly` Attribut nicht gesetzt ist) die Informationen lesen und ändern.
+- Ein Cookie mit dem `Secure`-Attribut wird nur mit einer verschlüsselten Anfrage über das HTTPS-Protokoll an den Server gesendet. Es wird niemals mit ungesichertem HTTP gesendet (außer auf localhost), was bedeutet, dass {{Glossary("MitM", "Man-in-the-Middle")}}-Angreifer nicht leicht darauf zugreifen können. Unsichere Seiten (mit `http:` in der URL) können keine Cookies mit dem `Secure`-Attribut setzen. Nehmen Sie jedoch nicht an, dass `Secure` den gesamten Zugriff auf sensible Informationen in Cookies verhindert. Zum Beispiel kann jemand, der Zugriff auf die Festplatte des Clients hat (oder JavaScript, wenn das `HttpOnly`-Attribut nicht gesetzt ist) die Informationen lesen und ändern.
 
-- Ein Cookie mit dem `HttpOnly` Attribut kann nicht von JavaScript aufgerufen werden, beispielsweise mit [`Document.cookie`](/de/docs/Web/API/Document/cookie); es kann nur aufgerufen werden, wenn es den Server erreicht. Cookies, die Benutzersitzungen aufrechterhalten, sollten beispielsweise das `HttpOnly` Attribut gesetzt haben — es wäre wirklich unsicher, sie JavaScript zugänglich zu machen. Diese Vorsichtsmaßnahme hilft, Cross-Site-Scripting ([XSS](/de/docs/Web/Security/Types_of_attacks#cross-site_scripting_xss)) Angriffen entgegenzuwirken.
+- Ein Cookie mit dem `HttpOnly`-Attribut kann nicht von JavaScript aus abgerufen werden, z. B. mit [`Document.cookie`](/de/docs/Web/API/Document/cookie); es kann nur abgerufen werden, wenn es den Server erreicht. Cookies, die Benutzersitzungen erhalten, sollten z. B. das `HttpOnly`-Attribut haben – es wäre wirklich unsicher, sie für JavaScript verfügbar zu machen. Diese Vorsichtsmaßnahme hilft, Cross-Site-Scripting-([XSS](/de/docs/Web/Security/Types_of_attacks#cross-site_scripting_xss))-Angriffe abzumildern.
 
 > [!NOTE]
-> Abhängig von der Anwendung möchten Sie möglicherweise einen undurchsichtigen Bezeichner verwenden, den der Server nachschlägt, anstatt sensible Informationen direkt in Cookies zu speichern, oder alternative Authentifizierungs-/Vertraulichkeitsmechanismen untersuchen, wie [JSON Web Tokens](https://jwt.io/).
+> Abhängig von der Anwendung möchten Sie möglicherweise einen undurchsichtigen Identifikator verwenden, den der Server nachschlägt, anstatt sensible Informationen direkt in Cookies zu speichern, oder untersuchen Sie alternative Authentifizierungs-/Vertraulichkeitsmechanismen wie [JSON Web Tokens](https://jwt.io/).
 
 ### Definieren, wohin Cookies gesendet werden
 
 Die Attribute `Domain` und `Path` definieren den _Geltungsbereich_ eines Cookies: an welche URLs die Cookies gesendet werden.
 
-- Das `Domain` Attribut gibt an, welcher Server ein Cookie empfangen kann. Wenn angegeben, sind Cookies auf dem angegebenen Server und seinen Subdomains verfügbar. Zum Beispiel, wenn Sie `Domain=mozilla.org` von `mozilla.org` setzen, sind Cookies auf dieser Domain und Subdomains wie `developer.mozilla.org` verfügbar.
+- Das `Domain`-Attribut gibt an, welcher Server ein Cookie empfangen kann. Wenn angegeben, sind Cookies auf dem angegebenen Server und seinen Subdomains verfügbar. Zum Beispiel, wenn Sie `Domain=mozilla.org` von `mozilla.org` setzen, sind Cookies auf dieser Domain und Subdomains wie `developer.mozilla.org` verfügbar.
 
   ```http
   Set-Cookie: id=a3fWa; Expires=Thu, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly; Domain=mozilla.org
   ```
 
-  Wenn der `Set-Cookie` Header kein `Domain` Attribut spezifiziert, sind die Cookies auf dem Server verfügbar, der sie setzt, _aber nicht auf dessen Subdomains_. Daher ist die Angabe von `Domain` weniger restriktiv als das Weglassen. Beachten Sie, dass ein Server das `Domain` Attribut nur auf seine eigene Domain oder eine übergeordnete Domain setzen kann, nicht auf eine Subdomain oder eine andere Domain. Ein Server mit der Domain `foo.example.com` könnte das Attribut also auf `example.com` oder `foo.example.com` setzen, aber nicht auf `bar.foo.example.com` oder `elsewhere.com` (die Cookies würden jedoch immer noch an Subdomains wie `bar.foo.example.com` _gesendet_).
+  Wenn der `Set-Cookie`-Header kein `Domain`-Attribut angibt, sind die Cookies auf dem Server verfügbar, der es setzt, aber nicht auf seinen Subdomains. Daher ist die Angabe von `Domain` weniger restriktiv als dessen Weglassen.
+  Beachten Sie, dass ein Server das `Domain`-Attribut nur auf seiner eigenen Domain oder einer übergeordneten Domain setzen kann, nicht auf einer Subdomain oder einer anderen Domain.
+  Ein Server mit der Domain `foo.example.com` könnte das Attribut auf `example.com` oder `foo.example.com` setzen, aber nicht auf `bar.foo.example.com` oder `elsewhere.com` (die Cookies würden jedoch trotzdem an Subdomains wie `bar.foo.example.com` gesendet werden).
+  Siehe [Ungültige Domains](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#invalid_domains) für mehr Details.
 
-- Das `Path` Attribut gibt einen URL-Pfad an, der in der angeforderten URL existieren muss, um den `Cookie` Header zu senden. Zum Beispiel:
+- Das `Path`-Attribut gibt einen URL-Pfad an, der in der angeforderten URL existieren muss, um den `Cookie`-Header zu senden. Zum Beispiel:
 
   ```http
   Set-Cookie: id=a3fWa; Expires=Thu, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly; Path=/docs
   ```
 
-  Das `%x2F` ("/") Zeichen wird als Verzeichnis-Trennzeichen angesehen, und Unterverzeichnisse stimmen ebenfalls überein. Zum Beispiel, wenn Sie `Path=/docs` setzen, stimmen diese Anforderungs-Pfade überein:
+  Das `%x2F` ("/") Zeichen wird als Verzeichnis-Trennzeichen betrachtet, und Unterverzeichnisse passen ebenfalls. Zum Beispiel, wenn Sie `Path=/docs` setzen, stimmen diese Anfragepfade überein:
 
   - `/docs`
   - `/docs/`
   - `/docs/Web/`
   - `/docs/Web/HTTP`
 
-  Aber diese Anforderungs-Pfade nicht:
+  Aber diese Anfragepfade nicht:
 
   - `/`
   - `/docsets`
@@ -182,11 +185,11 @@ Die Attribute `Domain` und `Path` definieren den _Geltungsbereich_ eines Cookies
 
 ### Kontrolle von Drittanbieter-Cookies mit `SameSite`
 
-Das [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) Attribut ermöglicht es Servern, anzugeben, ob/wann Cookies mit Anfragen von Drittanbietern gesendet werden — d.h. [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies). Anfragen von Drittanbietern sind Anfragen, bei denen die {{Glossary("Site", "Site")}} (die registrierbare Domain) und/oder das Schema (http oder https) nicht mit der Site übereinstimmen, die der Benutzer derzeit besucht. Dies umfasst Anfragen, die gesendet werden, wenn Links auf anderen Sites angeklickt werden, um zu Ihrer Site zu navigieren, sowie alle Anfragen, die von eingebetteten Drittanbieter-Inhalten gesendet werden.
+Das [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Attribut erlaubt es Servern anzugeben, ob/wann Cookies mit Cross-Site-Anfragen gesendet werden – d.h. [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies). Cross-Site-Anfragen sind Anfragen, bei denen die {{Glossary("Site", "Seite")}} (die registrierbare Domain) und/oder das Schema (http oder https) nicht mit der Seite übereinstimmen, die der Benutzer gerade besucht. Dies umfasst Anfragen, die gesendet werden, wenn Links auf anderen Seiten angeklickt werden, um zu Ihrer Seite zu navigieren, und jede Anfrage, die von eingebettetem Drittanbieter-Inhalt gesendet wird.
 
-`SameSite` hilft, den Informationsabfluss zu verhindern, die Nutzer[datenschutz](#datenschutz_und_verfolgung) zu wahren und bietet einen gewissen Schutz gegen {{Glossary("CSRF", "Cross-Site-Request-Forgery")}} Angriffe. Es nimmt drei mögliche Werte an: `Strict`, `Lax` und `None`:
+`SameSite` hilft, Informationsverlust zu verhindern, bewahrt die Benutzer[privatsphäre](#datenschutz_und_tracking) und bietet einen gewissen Schutz vor {{Glossary("CSRF", "Cross-Site-Request-Forgery")}}-Angriffen. Es nimmt drei mögliche Werte an: `Strict`, `Lax` und `None`:
 
-- `Strict` bewirkt, dass der Browser das Cookie nur als Antwort auf Anfragen sendet, die von der Ursprungs-Site des Cookies stammen. Dies sollte verwendet werden, wenn Sie Cookies haben, die sich auf Funktionen beziehen, die immer hinter einer anfänglichen Navigation stehen werden, wie z.B. Authentifizierung oder Speicherung von Warenkorbinformationen.
+- `Strict` veranlasst den Browser, das Cookie nur als Antwort auf Anfragen zu senden, die von der Ursprungsseite des Cookies ausgehen. Dies sollte verwendet werden, wenn Sie Cookies haben, die sich auf Funktionen beziehen, die immer hinter einer anfänglichen Navigation liegen, wie z. B. Authentifizierung oder das Speichern von Warenkorbinformationen.
 
   ```http
   Set-Cookie: cart=110045_77895_53420; SameSite=Strict
@@ -195,73 +198,73 @@ Das [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite
   > [!NOTE]
   > Cookies, die für sensible Informationen verwendet werden, sollten ebenfalls eine kurze [Lebensdauer](#removal_defining_the_lifetime_of_a_cookie) haben.
 
-- `Lax` ist ähnlich, außer dass der Browser das Cookie auch sendet, wenn der Benutzer zur Ursprungs-Site des Cookies _navigiert_ (auch wenn der Benutzer von einer anderen Site kommt). Dies ist nützlich für Cookies, die die Anzeige einer Site beeinflussen — beispielsweise könnten Sie Partnerproduktinformationen zusammen mit einem Affiliate-Link auf Ihrer Website haben. Wenn dieser Link zur Partner-Website gefolgt wird, möchten sie möglicherweise ein Cookie setzen, das angibt, dass der Affiliate-Link gefolgt wurde, was ein Belohnungsbanner anzeigt und einen Rabatt bietet, wenn das Produkt gekauft wird.
+- `Lax` ist ähnlich, außer dass der Browser das Cookie auch sendet, wenn der Benutzer zur Ursprungsseite des Cookies _navigiert_ (selbst wenn der Benutzer von einer anderen Seite kommt). Dies ist nützlich für Cookies, die die Anzeige einer Seite beeinflussen – zum Beispiel könnten Sie auf Ihrer Website Produktinformationen gemeinsam mit einem Partner-Affiliate-Link haben. Wenn diesem Link zum Partner-Website gefolgt wird, möchten diese möglicherweise ein Cookie setzen, das anzeigt, dass der Affiliate-Link gefolgt wurde, was ein Belohnungsbanner anzeigt und einen Rabatt bietet, wenn das Produkt gekauft wird.
 
   ```http
   Set-Cookie: affiliate=e4rt45dw; SameSite=Lax
   ```
 
-- `None` gibt an, dass Cookies sowohl bei originären als auch bei Anfragen von Drittanbietern gesendet werden. Dies ist nützlich, wenn Sie Cookies zusammen mit Anfragen senden möchten, die von Drittanbieter-Inhalten in anderen Sites eingebettet sind, beispielsweise Ad-Tech- oder Analyseanbieter. Beachten Sie, dass wenn `SameSite=None` gesetzt ist, auch das `Secure` Attribut gesetzt sein muss — `SameSite=None` erfordert einen _sichereren Kontext_.
+- `None` gibt an, dass Cookies sowohl bei ursprünglichen als auch bei Cross-Site-Anfragen gesendet werden. Dies ist nützlich, wenn Sie Cookies zusammen mit Anfragen senden möchten, die von Drittanbieter-Inhalten, die in anderen Seiten eingebettet sind, gemacht werden, z. B. Anbieter von Werbetechnologien oder Analysen. Beachten Sie, dass, wenn `SameSite=None` gesetzt ist, auch das `Secure`-Attribut gesetzt sein muss – `SameSite=None` erfordert einen _sicheren Kontext_.
 
   ```http
   Set-Cookie: widget_session=7yjgj57e4n3d; SameSite=None; Secure; HttpOnly
   ```
 
-Wenn kein `SameSite` Attribut gesetzt ist, wird das Cookie standardmäßig als `Lax` behandelt.
+Wenn kein `SameSite`-Attribut gesetzt ist, wird das Cookie standardmäßig als `Lax` behandelt.
 
 ### Cookie-Präfixe
 
-Aufgrund des Designs des Cookie-Mechanismus kann ein Server nicht bestätigen, dass ein Cookie von einem sicheren Ursprung gesetzt wurde oder sogar feststellen, _wo_ ein Cookie ursprünglich gesetzt wurde.
+Aufgrund der Gestaltung des Cookie-Mechanismus kann ein Server nicht bestätigen, dass ein Cookie von einem sicheren Ursprung gesetzt wurde oder sogar _wo_ ein Cookie ursprünglich gesetzt wurde.
 
-Eine anfällige Anwendung auf einer Subdomain kann ein Cookie mit dem `Domain` Attribut setzen, was Zugriff auf dieses Cookie auf allen anderen Subdomains gewährt. Dieser Mechanismus kann in einem _Sitzungs-Fixierungsangriff_ missbraucht werden. Siehe [Sitzungs-Fixierung](/de/docs/Web/Security/Types_of_attacks#session_fixation) für primäre Abwehrmethoden.
+Eine anfällige Anwendung auf einer Subdomain kann ein Cookie mit dem `Domain`-Attribut setzen, was Zugriff auf dieses Cookie auf allen anderen Subdomains gewährt. Dieser Mechanismus kann in einem _Sitzungsfixierungsangriff_ ausgenutzt werden. Siehe [Sitzungsfixierung](/de/docs/Web/Security/Types_of_attacks#session_fixation) für primäre Abwehrmethoden.
 
-Als [Verteidigungsmaßnahme] in der Tiefe](<https://en.wikipedia.org/wiki/Defense_in_depth_(computing)>) können Sie jedoch _Cookie-Präfixe_ verwenden, um bestimmte Fakten über das Cookie zu behaupten. Zwei Präfixe sind verfügbar:
+Als [Verteidigungsmaßnahme in der Tiefe](<https://en.wikipedia.org/wiki/Defense_in_depth_(computing)>), können Sie jedoch _Cookie-Präfixe_ verwenden, um spezifische Fakten über das Cookie zu behaupten. Zwei Präfixe sind verfügbar:
 
-- `__Host-`: Wenn ein Cookie-Name dieses Präfix hat, wird es nur in einem {{HTTPHeader("Set-Cookie")}} Header akzeptiert, wenn es auch mit dem `Secure` Attribut markiert ist, von einem sicheren Ursprung gesendet wurde, _kein_ `Domain` Attribut beinhaltet und das `Path` Attribut auf `/` gesetzt ist. Mit anderen Worten, das Cookie ist _domain-locked_.
-- `__Secure-`: Wenn ein Cookie-Name dieses Präfix hat, wird es nur in einem {{HTTPHeader("Set-Cookie")}} Header akzeptiert, wenn es mit dem `Secure` Attribut markiert ist und von einem sicheren Ursprung gesendet wurde. Dies ist schwächer als das `__Host-` Präfix.
+- `__Host-`: Wenn ein Cookie-Name dieses Präfix hat, wird es in einem {{HTTPHeader("Set-Cookie")}}-Header nur akzeptiert, wenn es auch mit dem `Secure`-Attribut markiert ist, von einem sicheren Ursprung gesendet wurde, kein `Domain`-Attribut enthält und das `Path`-Attribut auf `/` gesetzt ist. Mit anderen Worten, das Cookie ist _domain-locked_.
+- `__Secure-`: Wenn ein Cookie-Name dieses Präfix hat, wird es in einem {{HTTPHeader("Set-Cookie")}}-Header nur akzeptiert, wenn es mit dem `Secure`-Attribut markiert ist und von einem sicheren Ursprung gesendet wurde. Dies ist schwächer als das `__Host-`-Präfix.
 
-Der Browser wird Cookies mit diesen Präfixen ablehnen, die nicht ihren Einschränkungen entsprechen. Dies stellt sicher, dass von Subdomains erstellte Cookies mit Präfixen entweder auf eine Subdomain beschränkt sind oder vollständig ignoriert werden. Da der Anwendungsserver nur nach einem spezifischen Cookie-Namen sucht, wenn er bestimmt, ob der Benutzer authentifiziert ist oder ein CSRF-Token korrekt ist, wirkt dies effektiv als Schutzmaßnahme gegen Sitzungs-Fixierung.
-
-> [!NOTE]
-> Auf dem Server _muss_ die Webanwendung nach dem vollständigen Cookie-Namen einschließlich des Präfixes suchen. Benutzeragenten _entfernen_ das Präfix nicht vor dem Senden im {{HTTPHeader("Cookie")}} Header einer Anfrage.
-
-Weitere Informationen über Cookie-Präfixe und den aktuellen Stand der Browserunterstützung finden Sie im [Präfixe-Abschnitt des Set-Cookie-Referenzartikels](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#cookie_prefixes).
-
-## Datenschutz und Verfolgung
-
-Weiter oben haben wir darüber gesprochen, wie das `SameSite` Attribut verwendet werden kann, um zu steuern, wann Cookies von Drittanbietern gesendet werden, und dass dies helfen kann, die Privatsphäre der Benutzer zu wahren. Datenschutz ist eine sehr wichtige Überlegung beim Erstellen von Websites, die, wenn sie richtig gemacht werden, Vertrauen mit Ihren Benutzern aufbauen können. Wenn sie schlecht gemacht sind, kann dies das Vertrauen vollständig untergraben und alle Arten von anderen Problemen verursachen.
-
-Drittanbieter-Cookies können von Drittanbieter-Inhalten gesetzt werden, die über {{htmlelement("iframe")}}s in Sites eingebettet sind. Sie haben viele legitime Verwendungen, einschließlich des Teilens von Benutzerprofilinformationen, des Zählens von Anzeigenimpressionen oder des Sammelns von Analysen über verschiedene verwandte Domains.
-
-Allerdings können Drittanbieter-Cookies auch verwendet werden, um unheimliche, invasive Benutzererfahrungen zu schaffen. Ein Drittanbieter-Server kann anhand von Cookies, die von demselben Browser beim Zugriff auf mehrere Sites gesendet werden, ein Profil des Browsing-Verlaufs und der Gewohnheiten eines Benutzers erstellen. Das klassische Beispiel ist, wenn Sie auf einer Site nach Produktinformationen suchen und dann im gesamten Web von Anzeigen für ähnliche Produkte verfolgt werden, wo immer Sie hingehen.
-
-Browseranbieter wissen, dass Nutzer dieses Verhalten nicht mögen, und haben daher alle damit begonnen, standardmäßig Drittanbieter-Cookies zu blockieren, oder zumindest Pläne in diese Richtung gemacht. Drittanbieter-Cookies (oder auch nur Tracking-Cookies) können auch durch andere Browsereinstellungen oder Erweiterungen blockiert werden.
+Der Browser wird Cookies mit diesen Präfixen ablehnen, die nicht ihren Einschränkungen entsprechen. Dies stellt sicher, dass von Subdomains erstellte Cookies mit Präfixen entweder auf eine Subdomain beschränkt sind oder vollständig ignoriert werden. Da der Anwendungsserver nur nach einem spezifischen Cookie-Namen sucht, um zu bestimmen, ob der Benutzer authentifiziert ist oder ein CSRF-Token korrekt ist, dient dies effektiv als Verteidigungsmaßnahme gegen Sitzungsfixierung.
 
 > [!NOTE]
-> Das Blockieren von Cookies kann dazu führen, dass einige Drittanbieterkomponenten (wie Social-Media-Widgets) nicht wie vorgesehen funktionieren. Da Browser weitere Einschränkungen für Drittanbieter-Cookies auferlegen, sollten Entwickler beginnen, nach Möglichkeiten zu suchen, ihre Abhängigkeit von ihnen zu verringern.
+> Auf dem Server _muss_ die Webanwendung auf den vollständigen Cookie-Namen inklusive Präfix überprüfen. Benutzeragenten _entfernen_ das Präfix nicht aus dem Cookie, bevor sie es in einem {{HTTPHeader("Cookie")}}-Header einer Anfrage senden.
 
-Siehe unseren Artikel [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) für detaillierte Informationen zu Drittanbieter-Cookies, den damit verbundenen Problemen und verfügbaren Alternativen. Siehe unsere [Privatsphäre](/de/docs/Web/Privacy) Startseite für weitere Informationen zur Privatsphäre im Allgemeinen.
+Weitere Informationen zu Cookie-Präfixen und dem aktuellen Stand der Browserunterstützung finden Sie im [Präfixe-Abschnitt des Set-Cookie-Referenzartikels](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#cookie_prefixes).
+
+## Datenschutz und Tracking
+
+Früher haben wir darüber gesprochen, wie das `SameSite`-Attribut verwendet werden kann, um zu kontrollieren, wann Drittanbieter-Cookies gesendet werden, und dass dies helfen kann, die Benutzerprivatsphäre zu bewahren. Privatsphäre ist ein sehr wichtiges Anliegen beim Erstellen von Webseiten, die, wenn sie richtig umgesetzt wird, das Vertrauen Ihrer Nutzer aufbauen kann. Wenn sie schlecht umgesetzt wird, kann sie dieses Vertrauen völlig untergraben und alle Arten von Problemen verursachen.
+
+Drittanbieter-Cookies können von Drittanbieter-Inhalten gesetzt werden, die in Webseiten über {{htmlelement("iframe")}}s eingebettet sind. Sie haben viele legitime Verwendungen, wie das Teilen von Benutzerprofilinformationen, das Zählen von Werbeeinblendungen oder das Erfassen von Analysen über verschiedene verwandte Domains.
+
+Allerdings können Drittanbieter-Cookies auch verwendet werden, um unangenehme, invasive Benutzererfahrungen zu schaffen. Ein Drittanbieter-Server kann ein Profil des Browserverlaufs und der Gewohnheiten eines Benutzers erstellen, basierend auf Cookies, die ihm von demselben Browser beim Zugriff auf mehrere Seiten gesendet werden. Das klassische Beispiel ist, wenn Sie auf einer Seite nach Produktinformationen suchen und dann im gesamten Web von Anzeigen für ähnliche Produkte verfolgt werden.
+
+Browser-Anbieter wissen, dass Benutzer dieses Verhalten nicht mögen, und haben daher alle begonnen, Drittanbieter-Cookies standardmäßig zu blockieren oder zumindest Pläne gemacht, in diese Richtung zu gehen. Drittanbieter-Cookies (oder einfach Tracking-Cookies) können auch durch andere Browsereinstellungen oder -erweiterungen blockiert werden.
+
+> [!NOTE]
+> Das Blockieren von Cookies kann dazu führen, dass einige Drittanbieter-Komponenten (wie Social Media Widgets) nicht wie vorgesehen funktionieren. Da Browser weitere Einschränkungen bei Drittanbieter-Cookies einführen, sollten Entwickler nach Möglichkeiten suchen, ihre Abhängigkeit von ihnen zu verringern.
+
+Siehe unseren [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) Artikel für detaillierte Informationen zu Drittanbieter-Cookies, den damit verbundenen Problemen und welche Alternativen verfügbar sind. Siehe unsere [Datenschutz](/de/docs/Web/Privacy) Startseite für mehr Informationen zum Datenschutz im Allgemeinen.
 
 ## Cookie-bezogene Vorschriften
 
-Gesetze oder Vorschriften, die die Verwendung von Cookies regeln, umfassen:
+Gesetze oder Vorschriften, die die Verwendung von Cookies betreffen, umfassen:
 
-- Die [Allgemeine Datenschutzverordnung (GDPR)](https://gdpr.eu/) in der Europäischen Union
+- Die [Allgemeine Datenschutzverordnung](https://gdpr.eu/) (GDPR) in der Europäischen Union
 - Die Datenschutzrichtlinie für elektronische Kommunikation in der EU
-- Das Kalifornische Gesetz zum Schutz der Privatsphäre von Verbrauchern
+- Das California Consumer Privacy Act
 
-Diese Vorschriften haben eine globale Reichweite. Sie gelten für jede Site im _World Wide_ Web, auf die Benutzer aus diesen Gerichtsbarkeiten zugreifen (die EU und Kalifornien, mit dem Vorbehalt, dass das kalifornische Gesetz nur auf Unternehmen mit einem Bruttoumsatz von über 25 Millionen USD anwendbar ist, unter anderem).
+Diese Vorschriften haben globale Reichweite. Sie gelten für jede Seite im _World Wide_ Web, die von Nutzern aus diesen Jurisdiktionen abgerufen wird (die EU und Kalifornien, mit dem Vorbehalt, dass das kalifornische Gesetz nur für Unternehmen mit einem Bruttoumsatz von über 25 Millionen USD gilt, unter anderem).
 
-Diese Vorschriften umfassen Anforderungen wie:
+Diese Vorschriften beinhalten Anforderungen wie:
 
-- Benutzer darüber zu informieren, dass Ihre Site Cookies verwendet.
-- Benutzern die Möglichkeit zu geben, den Empfang einiger oder aller Cookies abzulehnen.
-- Benutzern die Nutzung des Hauptteils Ihres Dienstes ohne den Empfang von Cookies zu ermöglichen.
+- Die Nutzer darüber zu informieren, dass Ihre Seite Cookies verwendet.
+- Den Nutzern die Möglichkeit zu geben, den Erhalt einiger oder aller Cookies abzulehnen.
+- Den Nutzern zu erlauben, den Großteil Ihres Dienstes ohne den Empfang von Cookies zu nutzen.
 
-Es kann auch andere Vorschriften geben, die die Verwendung von Cookies in Ihrem Gebiet regeln. Sie sind verpflichtet, diese Vorschriften zu kennen und einzuhalten. Es gibt Unternehmen, die "Cookie-Banner"-Code anbieten, der Ihnen hilft, diese Vorschriften einzuhalten.
+Es kann andere Vorschriften geben, die die Verwendung von Cookies in Ihrem Lokalbereich regeln. Es liegt in Ihrer Verantwortung, diese Vorschriften zu kennen und einzuhalten. Es gibt Unternehmen, die "Cookie-Banner"-Code anbieten, der Ihnen hilft, diese Vorschriften einzuhalten.
 
 > [!NOTE]
-> Unternehmen sollten die Cookie-Typen, die sie auf ihren Websites verwenden, zu Transparenzzwecken und zur Einhaltung von Vorschriften offenlegen. Zum Beispiel, siehe [Googles Hinweis zu den verwendeten Cookie-Typen](https://policies.google.com/technologies/cookies#types-of-cookies) und Mozillas [Hinweis zu Websites, Kommunikation & Cookie-Datenschutz](https://www.mozilla.org/de/privacy/websites/#cookies).
+> Unternehmen sollten die Arten von Cookies, die sie auf ihren Websites verwenden, zur Transparenz und zur Einhaltung von Vorschriften offenlegen. Beispielsweise können Sie [Googles Hinweis zu den von ihnen verwendeten Cookie-Typen](https://policies.google.com/technologies/cookies#types-of-cookies) und Mozillas [Webseiten, Kommunikation & Cookies Datenschutzerklärung](https://www.mozilla.org/en-US/privacy/websites/#cookies) einsehen.
 
 ## Siehe auch
 
@@ -269,4 +272,4 @@ Es kann auch andere Vorschriften geben, die die Verwendung von Cookies in Ihrem 
 - Verwandte JavaScript-APIs: [`Document.cookie`](/de/docs/Web/API/Document/cookie), [`Navigator.cookieEnabled`](/de/docs/Web/API/Navigator/cookieEnabled), [Cookie Store API](/de/docs/Web/API/Cookie_Store_API)
 - [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies)
 - [Cookie-Spezifikation: RFC 6265](https://datatracker.ietf.org/doc/html/rfc6265)
-- [Cookies, die GDPR und die Datenschutzrichtlinie für elektronische Kommunikation](https://gdpr.eu/cookies/)
+- [Cookies, die DSGVO und die Datenschutzrichtlinie für elektronische Kommunikation](https://gdpr.eu/cookies/)

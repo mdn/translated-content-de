@@ -1,20 +1,20 @@
 ---
-title: "ServiceWorkerContainer: message Event"
+title: "ServiceWorkerContainer: message-Ereignis"
 short-title: message
 slug: Web/API/ServiceWorkerContainer/message_event
 l10n:
-  sourceCommit: bc0237f139ee3a9db67a669ae1b6bf45ebba7f94
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`message`**-Ereignis wird auf einer Seite verwendet, die von einem Service Worker gesteuert wird, um Nachrichten vom Service Worker zu empfangen.
+Das **`message`**-Ereignis wird auf einer Seite verwendet, die von einem Service Worker kontrolliert wird, um Nachrichten vom Service Worker zu empfangen.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht propagiert.
+Dieses Ereignis kann nicht abgebrochen werden und verteilt sich nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("message", (event) => {});
@@ -39,13 +39,13 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de
 - [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
 - [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Eine `MessageEventSource` (die ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), die den Nachrichtensender darstellt.
+  - : Eine `MessageEventSource` (kann ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein), die den Nachrichtensender darstellt.
 - [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, das die Ports darstellt, die mit dem Kanal verbunden sind, über den die Nachricht gesendet wird (wo zutreffend, z. B. in der Kanalnachrichtenübertragung oder beim Senden einer Nachricht an einen gemeinsam genutzten Worker).
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports darstellen, die mit dem Kanal verbunden sind, durch den die Nachricht gesendet wird (wo zutreffend, z. B. bei der Kanalnachrichtenübermittlung oder beim Senden einer Nachricht an einen gemeinsamen Worker).
 
 ## Beispiele
 
-In diesem Beispiel erhält der Service Worker die ID des Clients von einem [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignis und sendet dann eine Nachricht mit [`Client.postMessage`](/de/docs/Web/API/Client/postMessage):
+In diesem Beispiel erhält der Service Worker die ID des Clients von einem [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignis und sendet ihm dann eine Nachricht mit [`Client.postMessage`](/de/docs/Web/API/Client/postMessage):
 
 ```js
 // service-worker.js
@@ -62,7 +62,7 @@ addEventListener("fetch", (event) => {
 });
 ```
 
-Der Client kann die Nachricht empfangen, indem er das `message`-Ereignis überwacht:
+Der Client kann die Nachricht empfangen, indem er das `message`-Ereignis abhört:
 
 ```js
 // main.js

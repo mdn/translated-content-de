@@ -2,15 +2,15 @@
 title: declarativeNetRequest.updateEnabledRulesets
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/updateEnabledRulesets
 l10n:
-  sourceCommit: 0c9a26accb155e592a69ce8eec93fe16c2887886
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{AddonSidebar}}
 
-Aktualisiert die Gruppe statischer Regelwerke der Erweiterung. Die Regelwerke mit den in `options.disableRulesetIds` aufgeführten IDs werden zuerst deaktiviert, und dann werden die Regelwerke, die in `options.enableRulesetIds` aufgeführt sind, aktiviert. Beachten Sie, dass die Gruppe der aktivierten statischen Regelwerke über Sitzungen hinweg erhalten bleibt, nicht jedoch über Erweiterungsaktualisierungen. Der [`declarative_net_request.rule_resources` Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) bestimmt bei jeder Erweiterungsaktualisierung die Gruppe der aktivierten statischen Regelwerke.
+Aktualisiert den Satz von statischen Regelwerken der Erweiterung. Die Regelwerke mit den in `options.disableRulesetIds` aufgeführten IDs werden zuerst deaktiviert, und dann die in `options.enableRulesetIds` aufgeführten Regelwerke aktiviert. Beachten Sie, dass der Satz der aktivierten statischen Regelwerke über Sitzungen hinweg beibehalten wird, aber nicht über Erweiterungsaktualisierungen, d.h. der [`declarative_net_request.rule_resources` Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) bestimmt den Satz der aktivierten statischen Regelwerke bei jedem Update der Erweiterung.
 
 > [!NOTE]
-> In Firefox 132 und früher werden statische Regelwerke nach einem Browser-Neustart nicht geladen, wenn zum Installationszeitpunkt keine statischen oder dynamischen Regeln registriert sind ([Firefox Bug 1921353](https://bugzil.la/1921353)). Eine Umgehungslösung besteht darin, sicherzustellen, dass der [`declarative_net_request`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) Manifest-Schlüssel mindestens ein aktiviertes Regelwerk enthält.
+> In Firefox 132 und früher werden statische Regelwerke nach einem Browser-Neustart nicht geladen, wenn zum Installationszeitpunkt keine statischen oder dynamischen Regeln registriert sind ([Firefox Fehler 1921353](https://bugzil.la/1921353)). Eine Umgehungsmöglichkeit besteht darin sicherzustellen, dass der [`declarative_net_request`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) Manifest-Schlüssel mindestens ein aktiviertes Regelwerk enthält.
 
 ## Syntax
 
@@ -24,15 +24,15 @@ let updatedRulesets = browser.declarativeNetRequest.updateEnabledRulesets(
 
 - `options`
 
-  - : Ein Objekt, das die zu aktivierenden oder zu deaktivierenden Regelwerke in den statischen Regelwerken der Erweiterung beschreibt.
+  - : Ein Objekt, das die Regelwerke beschreibt, die in den statischen Regelwerken der Erweiterung aktiviert oder deaktiviert werden sollen.
     - `disableRulesetIds` {{optional_inline}}
-      - : Ein Array von `string`. IDs der zu deaktivierenden statischen Regelwerke.
+      - : Ein Array von `string`. IDs der statischen Regelwerke, die deaktiviert werden sollen.
     - `enableRulesetIds` {{optional_inline}}
-      - : Ein Array von `string`. IDs der zu aktivierenden statischen Regelwerke.
+      - : Ein Array von `string`. IDs der statischen Regelwerke, die aktiviert werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich war, wird das Promise ohne Argumente erfüllt. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), wenn die Anfrage erfolgreich war, wird das Promise ohne Argumente erfüllt. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

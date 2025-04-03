@@ -2,12 +2,12 @@
 title: GPURenderPipeline
 slug: Web/API/GPURenderPipeline
 l10n:
-  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPURenderPipeline`** Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert eine Pipeline, die die Vertex- und Fragment-Shader-Stufen steuert und in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden kann.
+Die **`GPURenderPipeline`**-Schnittstelle der [WebGPU-API](/de/docs/Web/API/WebGPU_API) repräsentiert eine Pipeline, die die Vertex- und Fragment-Shader-Stufen steuert und in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden kann.
 
 Ein `GPURenderPipeline`-Objekt kann mit den Methoden [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) erstellt werden.
 
@@ -16,12 +16,12 @@ Ein `GPURenderPipeline`-Objekt kann mit den Methoden [`GPUDevice.createRenderPip
 ## Instanz-Eigenschaften
 
 - [`label`](/de/docs/Web/API/GPURenderPipeline/label) {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError) Meldungen oder Konsolenwarnungen.
+  - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
 
 ## Instanz-Methoden
 
 - [`getBindGroupLayout()`](/de/docs/Web/API/GPURenderPipeline/getBindGroupLayout) {{Experimental_Inline}}
-  - : Gibt das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) Objekt der Pipeline mit dem angegebenen Index zurück (d.h. enthalten im ursprünglichen Aufruf von [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync)'s Pipeline-Layout).
+  - : Gibt das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt der Pipeline mit dem angegebenen Index zurück (d.h. enthalten im ursprünglichen Aufruf der [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync)-Methode).
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ Ein `GPURenderPipeline`-Objekt kann mit den Methoden [`GPUDevice.createRenderPip
 
 ### Einfaches Beispiel
 
-Unser [einfaches Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) bietet ein Beispiel für die Konstruktion eines gültigen Render-Pipeline-Deskriptor-Objekts, das dann verwendet wird, um eine `GPURenderPipeline` über einen `createRenderPipeline()` Aufruf zu erstellen.
+Unser [grundlegendes Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) bietet ein Beispiel für die Konstruktion eines gültigen Render-Pipeline-Deskriptorobjekts, das dann zum Erstellen einer `GPURenderPipeline` über einen `createRenderPipeline()`-Aufruf verwendet wird.
 
 ```js
 // ...
@@ -90,4 +90,4 @@ const renderPipeline = device.createRenderPipeline(pipelineDescriptor);
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

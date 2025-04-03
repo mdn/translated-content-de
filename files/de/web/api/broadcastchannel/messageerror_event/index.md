@@ -1,14 +1,14 @@
 ---
-title: "BroadcastChannel: messageerror Ereignis"
+title: "BroadcastChannel: messageerror-Ereignis"
 short-title: messageerror
 slug: Web/API/BroadcastChannel/messageerror_event
 l10n:
-  sourceCommit: 50a45d52fd9f45f1ca30b546af5920d0ccda82dc
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("BroadCastChannel API")}}{{AvailableInWorkers}}
 
-Das **`messageerror`**-Ereignis der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) Schnittstelle wird ausgelöst, wenn eine Nachricht auf dem Kanal eintrifft, die nicht deserialisiert werden kann.
+Das **`messageerror`**-Ereignis der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle wird ausgelöst, wenn eine Nachricht, die nicht deserialisiert werden kann, auf dem Kanal ankommt.
 
 ## Syntax
 
@@ -27,18 +27,18 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die vom Nachrichtenemitter gesendeten Daten.
+  - : Die vom Nachrichtensender gesendeten Daten.
 - [`origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtenemitters darstellt.
+  - : Ein String, der den Ursprung des Nachrichtensenders repräsentiert.
 - [`lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
 - [`source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Eine _Nachrichtenereignisquelle_, die entweder ein {{Glossary("WindowProxy", "WindowProxy")}}, ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt darstellt, das den Nachrichtenemitter repräsentiert.
+  - : Eine _Nachrichtenereignisquelle_, welche entweder ein {{Glossary("WindowProxy", "WindowProxy")}}, ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt ist, das den Nachrichtensender repräsentiert.
 - [`ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports darstellen, die mit dem Kanal verbunden sind, durch den die Nachricht gesendet wird (wo zutreffend, z.B. beim Channel-Messaging oder beim Senden einer Nachricht an einen Shared Worker).
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die mit dem Kanal verbundenen Ports repräsentieren, durch die die Nachricht gesendet wird (wo zutreffend, z.B. bei Kanalnachrichten oder beim Senden einer Nachricht an einen Shared Worker).
 
 ## Beispiele
 
@@ -56,7 +56,7 @@ channel.addEventListener("messageerror", (event) => {
 });
 ```
 
-Dasselbe, aber mit den `onmessage` und `onmessageerror` Ereignishandler-Eigenschaften:
+Dasselbe, aber unter Verwendung der `onmessage` und `onmessageerror` Ereignishandler-Eigenschaften:
 
 ```js
 const channel = new BroadcastChannel("example-channel");

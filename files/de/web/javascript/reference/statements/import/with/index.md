@@ -1,20 +1,20 @@
 ---
-title: Import-Attribute
+title: Importattribute
 slug: Web/JavaScript/Reference/Statements/import/with
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{jsSidebar("Statements")}}
 
 > [!NOTE]
-> Eine frühere Version dieses Vorschlags verwendete das Schlüsselwort `assert` anstelle von `with`. Die Assertion-Funktion ist jetzt nicht standardisiert. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
+> Eine frühere Version dieses Vorschlags verwendete das Schlüsselwort `assert` anstelle von `with`. Die Assertionsfunktion ist jetzt nicht standardisiert. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
 
-Die Funktion der **Import-Attribute** weist die Laufzeit an, wie ein Modul geladen werden soll, einschließlich des Verhaltens bei der Modulauflösung, dem Abrufen, Parsen und der Auswertung. Sie wird in [`import`](/de/docs/Web/JavaScript/Reference/Statements/import)-Deklarationen, [`export...from`](/de/docs/Web/JavaScript/Reference/Statements/export#re-exporting_aggregating)-Deklarationen und dem dynamischen [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import) unterstützt.
+Die Funktion **Importattribute** weist die Laufzeit an, wie ein Modul geladen werden soll, einschließlich des Verhaltens der Modulauflösung, des Abrufs, der Analyse und der Auswertung. Sie wird in [`import`](/de/docs/Web/JavaScript/Reference/Statements/import)-Deklarationen, [`export...from`](/de/docs/Web/JavaScript/Reference/Statements/export#re-exporting_aggregating)-Deklarationen und dynamischen [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import) unterstützt.
 
 ## Syntax
 
-Attribute können an jede Art von `import`/`export from`-Anweisung angehängt werden, einschließlich Standardimport, Namespace-Import usw. Sie folgen dem Modul-Spezifikator-String und stehen im Präfix mit dem Schlüsselwort `with`.
+Attribute können an jede Art von `import`/`export from`-Anweisung angehängt werden, einschließlich Standardimport, Namespaceimport usw. Sie folgen dem Modulspezifizierer-String und werden durch das Schlüsselwort `with` eingeleitet.
 
 ```js-nolint
 import { names } from "module-name" with {};
@@ -31,21 +31,21 @@ export { names } from "module-name" with { key: "data", key2: "data2", /* …, *
 ### Parameter
 
 - `keyN`
-  - : Ein Attributschlüssel. Kann ein Bezeichner oder ein String-Literal sein. Alle Schlüssel müssen eindeutig sein und der Laufzeit bekannt sein.
+  - : Ein Attributschlüssel. Kann ein Bezeichner oder ein Stringliteral sein. Alle Schlüssel müssen eindeutig sein und der Laufzeit bekannt sein.
 - `"dataN"`
-  - : Ein Attributwert. Muss ein String-Literal sein.
+  - : Ein Attributwert. Muss ein Stringliteral sein.
 
 ## Beschreibung
 
-Import-Attribute geben der Laufzeit an, wie ein bestimmtes Modul geladen werden soll.
+Importattribute geben der Laufzeit vor, wie ein bestimmtes Modul geladen werden soll.
 
-Der Hauptanwendungsfall besteht darin, Nicht-JS-Module wie JSON-Module und CSS-Module zu laden. Betrachten Sie folgenden Anweisung:
+Der Hauptanwendungsfall ist das Laden von Nicht-JS-Modulen, wie JSON-Module und CSS-Module. Betrachten Sie die folgende Anweisung:
 
 ```js
 import data from "https://example.com/data.json";
 ```
 
-Im Web führt jede Import-Anweisung zu einer HTTP-Anfrage. Die Antwort wird dann von der Laufzeit in einen JavaScript-Wert umgewandelt und dem Programm zur Verfügung gestellt. Zum Beispiel könnte die Antwort so aussehen:
+Im Web resultiert jede Importanweisung in einer HTTP-Anfrage. Die Antwort wird dann in einen JavaScript-Wert umgewandelt und dem Programm von der Laufzeit zur Verfügung gestellt. Zum Beispiel könnte die Antwort so aussehen:
 
 ```http
 HTTP/1.1 200 OK
@@ -54,51 +54,51 @@ Content-Type: application/json; charset=utf-8
 {"name":"John"}
 ```
 
-Module werden nur gemäß ihrem gelieferten [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types) identifiziert und geparst — die Dateierweiterung in der URL kann nicht verwendet werden, um den Dateityp zu identifizieren. In diesem Fall ist der MIME-Typ `application/json`, was dem Browser mitteilt, dass die Datei JSON ist und als JSON geparst werden muss. Falls aus irgendeinem Grund (z.B. der Server wird von Dritten gekapert oder ist fehlerhaft) der MIME-Typ in der Serverantwort auf `text/javascript` (für JavaScript-Quellcode) gesetzt wird, würde die Datei als Code geparst und ausgeführt werden. Wenn die "JSON"-Datei tatsächlich böswilligen Code enthält, würde die `import`-Deklaration unbeabsichtigt externen Code ausführen, was ein ernstes Sicherheitsrisiko darstellt.
+Module werden nur nach ihrem bereitgestellten [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types) identifiziert und analysiert – die Dateierweiterung in der URL kann nicht verwendet werden, um den Typ einer Datei zu identifizieren. In diesem Fall ist der MIME-Typ `application/json`, was dem Browser mitteilt, dass die Datei JSON ist und als JSON analysiert werden muss. Wenn aus irgendeinem Grund (z.B. der Server wurde gekapert oder gefälscht) der MIME-Typ in der Serverantwort auf `text/javascript` (für JavaScript-Quellcode) eingestellt ist, wird die Datei analysiert und als Code ausgeführt. Wenn die „JSON“-Datei tatsächlich bösartigen Code enthält, würde die `import`-Deklaration versehentlich externen Code ausführen, was ein ernsthaftes Sicherheitsrisiko darstellt.
 
-Import-Attribute lösen dieses Problem, indem sie es dem Autor ermöglichen, ausdrücklich anzugeben, wie ein Modul validiert werden sollte. Zum Beispiel würde die oben stehende Import-Anweisung, die kein Attribut enthält, tatsächlich fehlschlagen:
+Importattribute beheben dieses Problem, indem sie dem Autor erlauben, explizit anzugeben, wie ein Modul validiert werden soll. Zum Beispiel würde die obige Importanweisung, die ein Attribut fehlt, tatsächlich fehlschlagen:
 
 ```plain
 Failed to load module script: Expected a JavaScript module script but the server responded with a MIME type of "application/json". Strict MIME type checking is enforced for module scripts per HTML spec.
 ```
 
-Stattdessen müssen Sie ein Attribut angeben, um der Laufzeit mitzuteilen, dass diese Datei JSON enthalten muss. Um den Typ des Moduls zu validieren (über den MIME-Typ), verwenden Sie den Attributschlüssel `type`. Um zu validieren, dass es sich um ein JSON-Modul handelt, ist der Wert `"json"`.
+Stattdessen müssen Sie ein Attribut bereitstellen, um der Laufzeit mitzuteilen, dass diese Datei JSON enthalten muss. Um den Typ des Moduls zu validieren (über den MIME-Typ), verwenden Sie den Attributschlüssel namens `type`. Um zu validieren, dass das Modul ein JSON-Modul ist, ist der Wert `"json"`.
 
 > [!NOTE]
-> Der tatsächliche Wert des `type`-Attributs entspricht nicht direkt dem MIME-Typ. Es wird separat von der [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/webappapis.html#module-type-allowed) angegeben.
+> Der tatsächliche Attributwert `type` entspricht nicht direkt dem MIME-Typ. Er wird separat durch die [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/webappapis.html#module-type-allowed) festgelegt.
 
-Daher sollte der obige Code umgeschrieben werden als:
+Daher sollte der obenstehende Code wie folgt umgeschrieben werden:
 
 ```js
 import data from "https://example.com/data.json" with { type: "json" };
 ```
 
-Das `type`-Attribut ändert, wie das Modul abgerufen wird (der Browser sendet die Anfrage mit dem `{{HTTPHeader("Accept")}}: application/json`-Header), ändert aber _nicht_, wie das Modul geparst oder ausgewertet wird. Die Laufzeit weiß bereits anhand des MIME-Typs in der Antwort, dass das Modul als JSON geparst werden soll. Es verwendet das Attribut nur, um _nachträgliche_ Prüfungen durchzuführen, dass das `data.json`-Modul tatsächlich ein JSON-Modul ist. Wenn sich zum Beispiel der Antwort-Header in `Content-Type: text/javascript` ändert, schlägt das Programm mit einem ähnlichen Fehler wie oben fehl.
+Das `type`-Attribut ändert, wie das Modul abgerufen wird (der Browser sendet die Anfrage mit dem `{{HTTPHeader("Accept")}}: application/json`-Header), ändert jedoch nicht, wie das Modul analysiert oder ausgewertet wird. Die Laufzeit weiß bereits, dass das Modul als JSON analysiert werden soll, wenn der Antwort-MIME-Typ vorliegt. Sie verwendet das Attribut nur zur nachträglichen Überprüfung, dass das `data.json`-Modul tatsächlich ein JSON-Modul ist. Zum Beispiel, wenn der Antwort-Header auf `Content-Type: text/javascript` geändert wird, schlägt das Programm mit einem ähnlichen Fehler wie oben fehl.
 
-Die Spezifikation hebt `type: "json"` ausdrücklich hervor, dass es unterstützt werden muss — wenn ein Modul als `type: "json"` deklariert wird und die Laufzeit diesen Import nicht fehlschlagen lässt, dann muss es als JSON geparst werden. Es gibt jedoch keine sonstigen Verhaltensanforderungen: Bei Imports ohne `type: "json"`-Attribut kann die Laufzeit es dennoch als JSON parsen, wenn in dieser Umgebung keine Sicherheitsfragen bestehen. Browser hingegen nehmen implizit an, dass das Modul JavaScript ist, und scheitern, wenn das Modul nicht JavaScript ist (beispielsweise JSON). Dies stellt sicher, dass Modultypen immer streng validiert werden und vermeidet jegliche Sicherheitsrisiken. In Realität stimmen nicht-browserbasierte Laufzeiten wie Node und Deno mit den Browsersemantiken überein und erzwingen `type`-Attribute für JSON-Module.
+Die Spezifikation nennt explizit `type: "json"`, das unterstützt werden soll — wenn ein Modul als `type: "json"` deklariert ist und die Laufzeit diesen Import nicht fehlschlagen lässt, muss es als JSON analysiert werden. Es gibt jedoch keine Verhaltensanforderung anderweitig: Für Importe ohne `type: "json"`-Attribut kann die Laufzeit es immer noch als JSON analysieren, wenn Sicherheit in dieser Umgebung kein Problem ist. Browser hingegen gehen implizit davon aus, dass das Modul JavaScript ist, und schlagen fehl, wenn das Modul kein JavaScript ist (z.B. JSON). Dies stellt sicher, dass Modultypen immer streng validiert werden und keine Sicherheitsrisiken bestehen. In der Realität stimmen Nicht-Browser-Laufzeiten wie Node und Deno mit den Browsersemantiken überein und erzwingen `type` für JSON-Module.
 
-Das `type`-Attribut unterstützt auch andere Modultypen. Zum Beispiel definiert die HTML-Spezifikation auch den `css`-Typ, welcher ein [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt importiert:
+Das `type`-Attribut unterstützt auch andere Modultypen. Zum Beispiel definiert die HTML-Spezifikation auch den `css`-Typ, der ein [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt importiert:
 
 ```js
 import styles from "https://example.com/styles.css" with { type: "css" };
 ```
 
-Die Syntax der Attribute ist so gestaltet, dass sie erweiterbar ist — obwohl nur `type` von der Sprache spezifiziert wird, kann die Laufzeit andere Attribute lesen und verarbeiten. Ein Attribut kann das Verhalten der Laufzeit in jeder Phase des Modul-Ladevorgangs ändern:
+Die Attributsyntax ist darauf ausgelegt, erweiterbar zu sein — obwohl nur `type` von der Sprache spezifiziert ist, kann die Laufzeit andere Attribute lesen und verarbeiten. Ein Attribut kann das Verhalten der Laufzeit in jeder Phase des Modulladeprozesses ändern:
 
-- Auflösung: Das Attribut ist Teil des Modulspezifikators (der String in der `from`-Klausel). Daher können bei demselben String-Pfad unterschiedliche Attribute dazu führen, dass völlig unterschiedliche Module geladen werden. Zum Beispiel unterstützt TypeScript das [`resolution-mode`-Attribut](https://devblogs.microsoft.com/typescript/announcing-typescript-5-3/#stable-support-resolution-mode-in-import-types).
+- Auflösung: Das Attribut ist Teil des Modulspezifizierers (des Strings in der `from`-Klausel). Daher können bei gleichem String-Pfad unterschiedliche Attribute dazu führen, dass völlig unterschiedliche Module geladen werden. Zum Beispiel unterstützt [TypeScript das `resolution-mode`-Attribut](https://devblogs.microsoft.com/typescript/announcing-typescript-5-3/#stable-support-resolution-mode-in-import-types).
 
   ```ts
   import type { TypeFromRequire } from "pkg" with { "resolution-mode": "require" };
   ```
 
-- Abrufen: Zum Beispiel werden CSS-Module mit der [`destination`](/de/docs/Web/API/Request/destination) auf `"style"` und JSON-Module mit `destination: "json"` abgerufen. Das bedeutet, dass der Server bei derselben Ziel-URL dennoch unterschiedliche Inhalte zurückgeben kann.
-- Parsen und Auswertung: Die Laufzeit kann das Attribut verwenden, um zu bestimmen, wie das Modul geparst und ausgewertet werden soll.
+- Abrufen: Zum Beispiel werden CSS-Module mit [`destination`](/de/docs/Web/API/Request/destination) auf `"style"` gesetzt, und JSON-Module werden mit `destination: "json"` abgerufen. Das bedeutet, dass der Server bei gleicher Ziel-URL trotzdem unterschiedliche Inhalte zurückgeben kann.
+- Analyse und Auswertung: Die Laufzeit kann das Attribut verwenden, um zu bestimmen, wie das Modul analysiert und ausgewertet werden soll.
 
-Sie können jedoch keine unbekannten Attribute verwenden — die Laufzeit wirft einen Fehler aus, wenn sie auf ein unbekanntes Attribut stößt.
+Allerdings können Sie keine unbekannten Attribute verwenden — die Laufzeit wirft einen Fehler, wenn sie auf ein unbekanntes Attribut stößt.
 
 ## Beispiele
 
-### Importieren von JSON-Modulen mit dem Type-Attribut
+### Importieren von JSON-Modulen mit dem type-Attribut
 
 In `data.json`:
 
@@ -129,7 +129,7 @@ In `index.html`:
 Starten Sie einen lokalen HTTP-Server (siehe [Fehlerbehebung](/de/docs/Web/JavaScript/Guide/Modules#troubleshooting)) und gehen Sie zur `index.html`-Seite. Sie sollten `John` auf der Seite sehen.
 
 > [!NOTE]
-> JSON-Module haben nur einen Standardexport. Sie können keine Namensimporte aus ihnen machen (wie `import { name } from "data.json"`).
+> JSON-Module haben nur einen Standardexport. Sie können keine benannten Importe von ihnen machen (wie `import { name } from "data.json"`).
 
 ## Spezifikationen
 
@@ -144,5 +144,5 @@ Starten Sie einen lokalen HTTP-Server (siehe [Fehlerbehebung](/de/docs/Web/JavaS
 - [`import`](/de/docs/Web/JavaScript/Reference/Statements/import)
 - [`export`](/de/docs/Web/JavaScript/Reference/Statements/export)
 - [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import)
-- [Import-Attribute-Vorschlag](https://github.com/tc39/proposal-import-attributes)
+- [Importattribute-Vorschlag](https://github.com/tc39/proposal-import-attributes)
 - [JSON-Module-Vorschlag](https://github.com/tc39/proposal-json-modules)

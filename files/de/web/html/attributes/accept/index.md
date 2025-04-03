@@ -3,12 +3,12 @@ title: "HTML-Attribut: accept"
 short-title: accept
 slug: Web/HTML/Attributes/accept
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{HTMLSidebar}}
 
-Das **`accept`** Attribut nimmt als Wert eine durch Kommas getrennte Liste von einer oder mehreren Dateitypen oder [einzigartige Dateitypspezifizierer](#einzigartige_dateitypspezifizierer) an, die beschreiben, welche Dateitypen erlaubt sind.
+Das **`accept`**-Attribut nimmt als Wert eine kommagetrennte Liste von einem oder mehreren Dateitypen oder [eindeutigen Dateityp-Spezifizierern](#eindeutige_dateityp-spezifizierer), die beschreiben, welche Dateitypen erlaubt sind.
 
 {{InteractiveExample("HTML Demo: accept", "tabbed-shorter")}}
 
@@ -33,13 +33,13 @@ input {
 }
 ```
 
-## Übersicht
+## Überblick
 
-Die Accept-Eigenschaft ist ein Attribut des {{HTMLElement("input/file", "file")}} {{htmlelement("input")}} Typs. Es wurde im {{htmlelement("form")}} Element unterstützt, aber zugunsten von {{HTMLElement("input/file", "file")}} entfernt.
+Die `accept`-Eigenschaft ist ein Attribut des {{HTMLElement("input/file", "file")}}-{{htmlelement("input")}}-Typs. Es wurde für das {{htmlelement("form")}}-Element unterstützt, jedoch zugunsten von {{HTMLElement("input/file", "file")}} entfernt.
 
-Da ein gegebener Dateityp auf mehr als eine Weise identifiziert werden kann, ist es nützlich, eine umfassende Menge von Typspezifizierern bereitzustellen, wenn Sie Dateien eines bestimmten Typs benötigen, oder das Wildcard zu verwenden, um anzugeben, dass ein Typ jedes Formats akzeptabel ist.
+Da ein gegebener Dateityp auf verschiedene Weise identifiziert werden kann, ist es nützlich, eine umfassende Liste von Typspezifizierern bereitzustellen, wenn Sie Dateien eines bestimmten Typs benötigen, oder verwenden Sie den Platzhalter, um anzugeben, dass ein Typ in jedem Format akzeptabel ist.
 
-Zum Beispiel gibt es verschiedene Möglichkeiten, Microsoft Word-Dateien zu identifizieren. Eine Seite, die Word-Dateien akzeptiert, könnte ein `<input>` wie folgt verwenden:
+Zum Beispiel gibt es mehrere Möglichkeiten, Microsoft Word-Dateien zu identifizieren, daher könnte eine Seite, die Word-Dateien akzeptiert, ein `<input>` wie dieses verwenden:
 
 ```html
 <input
@@ -48,7 +48,7 @@ Zum Beispiel gibt es verschiedene Möglichkeiten, Microsoft Word-Dateien zu iden
   accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
 ```
 
-Wenn Sie jedoch eine Mediendatei akzeptieren, möchten Sie möglicherweise jedes Format dieses Medientyps einschließen:
+Wenn Sie hingegen eine Mediendatei akzeptieren, möchten Sie möglicherweise alle Formate dieses Medientyps einschließen:
 
 ```html
 <input type="file" id="soundFile" accept="audio/*" />
@@ -56,13 +56,13 @@ Wenn Sie jedoch eine Mediendatei akzeptieren, möchten Sie möglicherweise jedes
 <input type="file" id="imageFile" accept="image/*" />
 ```
 
-Das `accept` Attribut validiert nicht die Typen der ausgewählten Dateien; es bietet Hinweise für Browser, um Benutzer zur Auswahl der korrekten Dateitypen zu führen. Es ist immer noch möglich (in den meisten Fällen), dass Benutzer eine Option im Dateiauswahl-Werkzeug umschalten können, die es ihnen erlaubt, dies zu umgehen und jede beliebige Datei auszuwählen und dann falsche Dateitypen zu wählen.
+Das `accept`-Attribut validiert nicht die Typen der ausgewählten Dateien; es bietet Hinweise für Browser, um Benutzer dazu zu führen, die richtigen Dateitypen auszuwählen. Es ist immer noch möglich (in den meisten Fällen) für Benutzer, eine Option im Dateiauswahldialog umzuschalten, die es ihnen ermöglicht, diese Vorgabe zu überschreiben und jede beliebige Datei auszuwählen, die sie möchten, und dann falsche Dateitypen auszuwählen.
 
-Aufgrund dessen sollten Sie sicherstellen, dass die erwartete Anforderung serverseitig validiert wird.
+Aus diesem Grund sollten Sie sicherstellen, dass die erwartete Anforderung serverseitig validiert wird.
 
 ## Beispiele
 
-Wenn sie auf einem Datei-Eingabetypset gesetzt ist, sollte der native Datei-Picker, der geöffnet wird, das Auswählen von Dateien des korrekten Dateityps nur ermöglichen. Die meisten Betriebssysteme heben Dateien, die nicht den Kriterien entsprechen und nicht auswählbar sind, hervor.
+Wenn das Attribut für einen Dateityp-Input festgelegt ist, sollte der native Dateiwähler, der geöffnet wird, nur die Auswahl von Dateien des korrekten Dateityps ermöglichen. Die meisten Betriebssysteme hellen Dateien auf, die nicht den Kriterien entsprechen und nicht auswählbar sind.
 
 ```html
 <p>
@@ -81,19 +81,19 @@ Wenn sie auf einem Datei-Eingabetypset gesetzt ist, sollte der native Datei-Pick
 
 {{EmbedLiveSample('Examples', '100%', 200)}}
 
-Beachten Sie, dass das letzte Beispiel es Ihnen ermöglicht, mehrere Bilder auszuwählen. Siehe das [`multiple`](/de/docs/Web/HTML/Element/input#multiple) Attribut für mehr Informationen.
+Beachten Sie, dass das letzte Beispiel es Ihnen ermöglicht, mehrere Bilder auszuwählen. Weitere Informationen finden Sie im [`multiple`](/de/docs/Web/HTML/Element/input#multiple)-Attribut.
 
-## Einzigartige Dateitypspezifizierer
+## Eindeutige Dateityp-Spezifizierer
 
-Ein **einzigartiger Dateitypspezifizierer** ist ein String, der einen Dateityp beschreibt, der von einem Benutzer in einem {{HTMLElement("input")}} Element vom Typ `file` ausgewählt werden kann. Jeder einzigartige Dateitypspezifizierer kann eine der folgenden Formen annehmen:
+Ein **eindeutiger Dateityp-Spezifizierer** ist ein String, der einen Dateityp beschreibt, der vom Benutzer in einem {{HTMLElement("input")}}-Element vom Typ `file` ausgewählt werden kann. Jeder eindeutige Dateityp-Spezifizierer kann eine der folgenden Formen annehmen:
 
-- Eine gültige nicht case-sensitive Dateierweiterung, beginnend mit einem Punkt (".") Zeichen. Zum Beispiel: `.jpg`, `.pdf` oder `.doc`.
-- Ein gültiger MIME-Typ-String, ohne Erweiterungen.
-- Der String `audio/*`, was "jede Audiodatei" bedeutet.
-- Der String `video/*`, was "jede Videodatei" bedeutet.
-- Der String `image/*`, was "jede Bilddatei" bedeutet.
+- Eine gültige, nicht groß- und kleinschreibungssensitive Dateierweiterung, beginnend mit einem Punkt (".")-Zeichen. Zum Beispiel: `.jpg`, `.pdf` oder `.doc`.
+- Ein gültiger MIME-Type-String, ohne Erweiterungen.
+- Der String `audio/*`, der "jede Audiodatei" bedeutet.
+- Der String `video/*`, der "jede Videodatei" bedeutet.
+- Der String `image/*`, der "jede Bilddatei" bedeutet.
 
-Das `accept` Attribut nimmt als Wert einen String, der einen oder mehrere dieser einzigartigen Dateitypspezifizierer enthält, getrennt durch Kommas, an. Zum Beispiel könnte ein Datei-Picker, der Inhalte benötigt, die als ein Bild präsentiert werden können, einschließlich sowohl Standardbildformate als auch PDF-Dateien, so aussehen:
+Das `accept`-Attribut nimmt als Wert einen String, der einen oder mehrere dieser eindeutigen Dateityp-Spezifizierer enthält, getrennt durch Kommata. Ein Dateiwähler, der Inhalte benötigt, die als Bild dargestellt werden können, einschließlich sowohl Standardbildformate als auch PDF-Dateien, könnte folgendermaßen aussehen:
 
 ```html
 <input type="file" accept="image/*,.pdf" />
@@ -128,22 +128,22 @@ Dies erzeugt die folgende Ausgabe:
 > [!NOTE]
 > Sie können dieses Beispiel auch auf GitHub finden — siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/file-examples/simple-file.html) und auch [sehen Sie es live](https://mdn.github.io/learning-area/html/forms/file-examples/simple-file.html).
 
-Unabhängig vom Gerät des Benutzers oder Betriebssystems bietet die Dateieingabe einen Button, der einen Datei-Picker öffnet, der es dem Benutzer ermöglicht, eine Datei auszuwählen.
+Unabhängig vom Gerät oder Betriebssystem des Benutzers bietet die Dateieingabe eine Schaltfläche, die einen Dateiauswahldialog öffnet, der es dem Benutzer ermöglicht, eine Datei auszuwählen.
 
-Das Einschließen des [`multiple`](/de/docs/Web/HTML/Element/input#multiple) Attributs, wie oben gezeigt, spezifiziert, dass mehrere Dateien gleichzeitig ausgewählt werden können. Der Benutzer kann mehrere Dateien aus dem Datei-Picker auf jede Weise auswählen, die seine gewählte Plattform erlaubt (z.B. durch Halten von <kbd>Shift</kbd> oder <kbd>Control</kbd> und dann Klicken). Wenn Sie möchten, dass der Benutzer nur eine einzelne Datei pro `<input>` auswählt, lassen Sie das `multiple` Attribut weg.
+Wenn das [`multiple`](/de/docs/Web/HTML/Element/input#multiple)-Attribut enthalten ist, wie oben gezeigt, können mehrere Dateien auf einmal ausgewählt werden. Der Benutzer kann mehrere Dateien aus dem Dateiwähler auswählen, auf jede Weise, die seine gewählte Plattform erlaubt (z.B. durch Gedrückthalten von <kbd>Shift</kbd> oder <kbd>Control</kbd> und dann Klicken). Wenn Sie nur möchten, dass der Benutzer eine einzelne Datei pro `<input>` auswählt, lassen Sie das `multiple`-Attribut weg.
 
-### Einschränken akzeptierter Dateitypen
+### Akzeptierte Dateitypen einschränken
 
-Oft möchten Sie nicht, dass der Benutzer jeden beliebigen Dateityp auswählen kann; stattdessen möchten Sie oft, dass er Dateien eines bestimmten Typs oder Typen auswählt. Zum Beispiel, wenn Ihre Dateieingabe es Benutzern ermöglicht, ein Profilbild hochzuladen, möchten Sie wahrscheinlich, dass sie webkompatible Bildformate auswählen, wie {{Glossary("JPEG", "JPEG")}} oder {{Glossary("PNG", "PNG")}}.
+Oft möchten Sie nicht, dass der Benutzer einen beliebigen Dateityp auswählen kann; stattdessen möchten Sie oft, dass er Dateien eines bestimmten Typs oder mehrerer Typen auswählt. Zum Beispiel, wenn Ihre Dateieingabe es den Benutzern ermöglicht, ein Profilbild hochzuladen, möchten Sie wahrscheinlich, dass sie webbkompatible Bildformate auswählen, wie {{Glossary("JPEG", "JPEG")}} oder {{Glossary("PNG", "PNG")}}.
 
-Akzeptable Dateitypen können mit dem [`accept`](/de/docs/Web/HTML/Element/input/file#accept) Attribut angegeben werden, das eine durch Kommas getrennte Liste erlaubter Dateierweiterungen oder MIME-Typen annimmt. Einige Beispiele:
+Akzeptable Dateitypen können mit dem [`accept`](/de/docs/Web/HTML/Element/input/file#accept)-Attribut spezifiziert werden, das eine kommagetrennte Liste von erlaubten Dateierweiterungen oder MIME-Typen annimmt. Einige Beispiele:
 
 - `accept="image/png"` oder `accept=".png"` — Akzeptiert PNG-Dateien.
 - `accept="image/png, image/jpeg"` oder `accept=".png, .jpg, .jpeg"` — Akzeptiert PNG- oder JPEG-Dateien.
-- `accept="image/*"` — Akzeptiert jede Datei mit einem `image/*` MIME-Typ. (Viele Mobilgeräte lassen den Benutzer auch ein Bild mit der Kamera aufnehmen, wenn dies verwendet wird.)
-- `accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"` — akzeptiert alles, was nach einem MS Word-Dokument riecht.
+- `accept="image/*"` — Akzeptiert jede Datei mit einem `image/*` MIME-Typ. (Viele Mobilgeräte erlauben auch das Aufnehmen eines Bildes mit der Kamera, wenn dies verwendet wird.)
+- `accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"` — akzeptiert alles, was wie ein MS Word-Dokument aussieht.
 
-Werfen wir einen Blick auf ein vollständigeres Beispiel:
+Schauen wir uns ein vollständigeres Beispiel an:
 
 ```html
 <form method="post" enctype="multipart/form-data">
@@ -180,4 +180,4 @@ div {
 ## Siehe auch
 
 - [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
-- [File API](/de/docs/Web/API/File)
+- [Datei-API](/de/docs/Web/API/File)

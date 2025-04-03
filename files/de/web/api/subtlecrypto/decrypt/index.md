@@ -1,16 +1,14 @@
 ---
-title: "SubtleCrypto: decrypt()-Methode"
+title: "SubtleCrypto: decrypt() Methode"
 short-title: decrypt()
 slug: Web/API/SubtleCrypto/decrypt
 l10n:
-  sourceCommit: cc27a64bb555b250cf0984a3a744e5fd251e3565
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`decrypt()`**-Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces entschlüsselt einige verschlüsselte Daten.
-Sie nimmt als Argumente einen {{Glossary("key", "Schlüssel")}} zum Entschlüsseln, einige optionale zusätzliche Parameter und die zu entschlüsselnden Daten (auch bekannt als "Chiffretext").
-Sie gibt ein {{jsxref("Promise")}} zurück, das mit den entschlüsselten Daten (auch bekannt als "Klartext") erfüllt wird.
+Die **`decrypt()`** Methode der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) Schnittstelle entschlüsselt einige verschlüsselte Daten. Sie nimmt als Argumente einen {{Glossary("key", "Schlüssel")}} zur Entschlüsselung, einige optionale Zusatzparameter und die zu entschlüsselnden Daten (auch als "Ciphertext" bekannt). Sie gibt ein {{jsxref("Promise")}} zurück, das mit den entschlüsselten Daten (auch als "Klartext" bekannt) erfüllt wird.
 
 ## Syntax
 
@@ -22,18 +20,16 @@ decrypt(algorithm, key, data)
 
 - `algorithm`
 
-  - : Ein Objekt, das den zu verwendenden [Algorithmus](#unterstützte_algorithmen) und alle erforderlichen zusätzlichen Parameter angibt.
-    Die angegebenen Werte für die zusätzlichen Parameter müssen mit denen übereinstimmen, die beim entsprechenden [`encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt)-Aufruf übergeben wurden.
-    - Um [RSA-OAEP](#rsa-oaep) zu verwenden, übergeben Sie ein [`RsaOaepParams`](/de/docs/Web/API/RsaOaepParams)-Objekt.
-    - Um [AES-CTR](#aes-ctr) zu verwenden, übergeben Sie ein [`AesCtrParams`](/de/docs/Web/API/AesCtrParams)-Objekt.
-    - Um [AES-CBC](#aes-cbc) zu verwenden, übergeben Sie ein [`AesCbcParams`](/de/docs/Web/API/AesCbcParams)-Objekt.
-    - Um [AES-GCM](#aes-gcm) zu verwenden, übergeben Sie ein [`AesGcmParams`](/de/docs/Web/API/AesGcmParams)-Objekt.
+  - : Ein Objekt, das den zu verwendenden [Algorithmus](#unterstützte_algorithmen) und alle erforderlichen Zusatzparameter angibt. Die angegebenen Werte für die Zusatzparameter müssen mit denen übereinstimmen, die im entsprechenden [`encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt) Aufruf verwendet wurden.
+    - Um [RSA-OAEP](#rsa-oaep) zu verwenden, übergeben Sie ein [`RsaOaepParams`](/de/docs/Web/API/RsaOaepParams) Objekt.
+    - Um [AES-CTR](#aes-ctr) zu verwenden, übergeben Sie ein [`AesCtrParams`](/de/docs/Web/API/AesCtrParams) Objekt.
+    - Um [AES-CBC](#aes-cbc) zu verwenden, übergeben Sie ein [`AesCbcParams`](/de/docs/Web/API/AesCbcParams) Objekt.
+    - Um [AES-GCM](#aes-gcm) zu verwenden, übergeben Sie ein [`AesGcmParams`](/de/docs/Web/API/AesGcmParams) Objekt.
 
 - `key`
-  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), der den zu verwendenden Schlüssel für die Entschlüsselung enthält.
-    Bei Verwendung von RSA-OAEP ist dies die `privateKey`-Eigenschaft des [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair)-Objekts.
+  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey) mit dem zur Entschlüsselung zu verwendenden Schlüssel. Bei Verwendung von RSA-OAEP ist dies die `privateKey` Eigenschaft des [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) Objekts.
 - `data`
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das die zu entschlüsselnden Daten enthält (auch bekannt als {{Glossary("ciphertext", "Chiffretext")}}).
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder eine {{jsxref("DataView")}} mit den zu entschlüsselnden Daten (auch als {{Glossary("ciphertext", "Ciphertext")}} bekannt).
 
 ### Rückgabewert
 
@@ -44,22 +40,22 @@ Ein {{jsxref("Promise")}}, das mit einem {{jsxref("ArrayBuffer")}} erfüllt wird
 Das Promise wird abgelehnt, wenn die folgenden Ausnahmen auftreten:
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die angeforderte Operation für den bereitgestellten Schlüssel nicht gültig ist (z. B. ungültiger Verschlüsselungsalgorithmus oder ungültiger Schlüssel für den angegebenen Verschlüsselungsalgorithmus).
+  - : Tritt auf, wenn die angeforderte Operation für den bereitgestellten Schlüssel ungültig ist (z.B. ungültiger Verschlüsselungsalgorithmus oder ungültiger Schlüssel für den angegebenen Verschlüsselungsalgorithmus).
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Operation aus einem operationsspezifischen Grund fehlgeschlagen ist (z. B. Algorithmusparameter ungültiger Größen oder es gab einen Fehler beim Entschlüsseln des Chiffretexts).
+  - : Tritt auf, wenn die Operation aus einem spezifischen Grund fehlgeschlagen ist (z.B. Algorithmusparameter mit ungültigen Größen oder es gab einen Fehler beim Entschlüsseln des Ciphertext).
 
 ## Unterstützte Algorithmen
 
-Die `decrypt()`-Methode unterstützt dieselben Algorithmen wie die [`encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt#supported_algorithms)-Methode.
+Die `decrypt()` Methode unterstützt die gleichen Algorithmen wie die [`encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt#supported_algorithms) Methode.
 
 ## Beispiele
 
 > [!NOTE]
-> Sie können [die funktionierenden Beispiele](https://mdn.github.io/dom-examples/web-crypto/encrypt-decrypt/index.html) auf GitHub ausprobieren.
+> Sie können die [funktionierenden Beispiele auf GitHub ausprobieren](https://mdn.github.io/dom-examples/web-crypto/encrypt-decrypt/index.html).
 
 ### RSA-OAEP
 
-Dieser Code entschlüsselt `ciphertext` mit RSA-OAEP. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/rsa-oaep.js)
+Dieser Code entschlüsselt `ciphertext` mit RSA-OAEP. [Siehe den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/rsa-oaep.js)
 
 ```js
 function decryptMessage(privateKey, ciphertext) {
@@ -73,8 +69,7 @@ function decryptMessage(privateKey, ciphertext) {
 
 ### AES-CTR
 
-Dieser Code entschlüsselt `ciphertext` mit AES im CTR-Modus.
-Beachten Sie, dass `counter` mit dem Wert übereinstimmen muss, der für die Verschlüsselung verwendet wurde. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/aes-ctr.js)
+Dieser Code entschlüsselt `ciphertext` mit AES im CTR Modus. Beachten Sie, dass `counter` mit dem Wert übereinstimmen muss, der für die Verschlüsselung verwendet wurde. [Siehe den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/aes-ctr.js)
 
 ```js
 function decryptMessage(key, ciphertext) {
@@ -88,8 +83,7 @@ function decryptMessage(key, ciphertext) {
 
 ### AES-CBC
 
-Dieser Code entschlüsselt `ciphertext` mit AES im CBC-Modus. Beachten Sie, dass
-`iv` mit dem Wert übereinstimmen muss, der für die Verschlüsselung verwendet wurde. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/aes-cbc.js)
+Dieser Code entschlüsselt `ciphertext` mit AES im CBC Modus. Beachten Sie, dass `iv` mit dem Wert übereinstimmen muss, der für die Verschlüsselung verwendet wurde. [Siehe den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/aes-cbc.js)
 
 ```js
 function decryptMessage(key, ciphertext) {
@@ -100,8 +94,7 @@ function decryptMessage(key, ciphertext) {
 
 ### AES-GCM
 
-Dieser Code entschlüsselt `ciphertext` mit AES im GCM-Modus. Beachten Sie, dass
-`iv` mit dem Wert übereinstimmen muss, der für die Verschlüsselung verwendet wurde. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/aes-gcm.js)
+Dieser Code entschlüsselt `ciphertext` mit AES im GCM Modus. Beachten Sie, dass `iv` mit dem Wert übereinstimmen muss, der für die Verschlüsselung verwendet wurde. [Siehe den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/encrypt-decrypt/aes-gcm.js)
 
 ```js
 function decryptMessage(key, ciphertext) {
@@ -121,8 +114,8 @@ function decryptMessage(key, ciphertext) {
 ## Siehe auch
 
 - [`SubtleCrypto.encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt).
-- [RFC 3447](https://datatracker.ietf.org/doc/html/rfc3447) spezifiziert RSAOAEP.
-- [NIST SP800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) spezifiziert den CTR-Modus.
-- [NIST SP800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) spezifiziert den CBC-Modus.
-- [NIST SP800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) spezifiziert den GCM-Modus.
-- [FIPS 198-1](https://csrc.nist.gov/files/pubs/fips/198-1/final/docs/fips-198-1_final.pdf) spezifiziert HMAC.
+- [RFC 3447](https://datatracker.ietf.org/doc/html/rfc3447) beschreibt RSAOAEP.
+- [NIST SP800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) beschreibt den CTR Modus.
+- [NIST SP800-38A](https://csrc.nist.gov/pubs/sp/800/38/a/final) beschreibt den CBC Modus.
+- [NIST SP800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) beschreibt den GCM Modus.
+- [FIPS 198-1](https://csrc.nist.gov/files/pubs/fips/198-1/final/docs/fips-198-1_final.pdf) beschreibt HMAC.

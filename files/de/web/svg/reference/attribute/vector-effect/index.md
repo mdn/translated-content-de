@@ -2,17 +2,17 @@
 title: vector-effect
 slug: Web/SVG/Reference/Attribute/vector-effect
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Die **`vector-effect`** Eigenschaft gibt den Vektoreffekt an, der beim Zeichnen eines Objekts verwendet werden soll. Vektoreffekte werden angewendet, bevor andere Kompositionsoperationen durchgeführt werden, d.h. Filter, Masken und Clips.
+Die **`vector-effect`**-Eigenschaft legt den Vektoreffekt fest, der beim Zeichnen eines Objekts verwendet wird. Vektoreffekte werden vor allen anderen Kompositionsoperationen angewendet, d.h. vor Filtern, Masken und Clips.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `vector-effect` auch ein entsprechendes CSS-Attribut: {{cssxref("vector-effect")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
+> Als Präsentationsattribut hat `vector-effect` auch ein CSS-Eigenschaftsgegenstück: {{cssxref("vector-effect")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 ## Elemente
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("ellipse")}}
@@ -28,7 +28,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("tspan")}}
 - {{SVGElement("use")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -52,12 +52,12 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `none`
-  - : Dieser Wert gibt an, dass kein Vektoreffekt angewendet wird, d.h. es wird das Standard-Renditionsverhalten verwendet, das darin besteht, die Geometrie einer Form zuerst mit einer angegebenen Farbe zu füllen und dann die Umrandung mit einer angegebenen Farbe zu überstreichen.
+  - : Dieser Wert legt fest, dass kein Vektoreffekt angewendet wird, d.h. das Standard-Rendeverhalten wird verwendet. Dies bedeutet, dass die Geometrie einer Form zunächst mit einer angegebenen Farbe gefüllt und dann der Umriss mit einer angegebenen Farbe gestrichen wird.
 - `non-scaling-stroke`
-  - : Dieser Wert ändert die Art und Weise, wie ein Objekt überstrichen wird. Normalerweise beinhaltet das Überstreichen die Berechnung der Umrandung der Form im aktuellen Benutzerkoordinatensystem und das Füllen dieser Umrandung mit der Überstreichfarbe (Farbe oder Verlauf). Der visuelle Effekt dieses Wertes ist, dass die Linienstärke nicht von den Transformationen des Elements (einschließlich nicht-uniformer Skalierungen und Schertransformationen) und dem Zoomlevel abhängt.
+  - : Dieser Wert ändert die Art und Weise, wie ein Objekt gestrichen wird. Normalerweise umfasst das Streichen das Berechnen des Umrisses einer Form im aktuellen Benutzerkoordinatensystem und das Füllen dieses Umrisses mit der Strichfarbe (Farbe oder Verlauf). Der resultierende visuelle Effekt dieses Wertes ist, dass die Strichbreite nicht von den Transformationen des Elements (einschließlich nicht-uniformem Skalieren und Schertransformationen) und vom Zoom-Level abhängt.
 
 > [!NOTE]
-> Die Spezifikation definiert drei weitere Werte, `non-scaling-size`, `non-rotation` und `fixed-position`, aber diese sind nicht implementiert und gelten als riskant.
+> Die Spezifikation definiert drei weitere Werte, `non-scaling-size`, `non-rotation`, und `fixed-position`, aber diese haben keine Implementierungen und werden als gefährdet betrachtet.
 
 ## Beispiele
 

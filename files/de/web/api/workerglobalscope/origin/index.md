@@ -1,14 +1,14 @@
 ---
-title: "WorkerGlobalScope: Origin-Eigenschaft"
+title: "WorkerGlobalScope: origin-Eigenschaft"
 short-title: origin
 slug: Web/API/WorkerGlobalScope/origin
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`origin`** schreibgeschützte Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt den Ursprung des globalen Scopes zurück, als Zeichenkette serialisiert.
+Die **`origin`** schreibgeschützte Eigenschaft der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle gibt den Ursprung des globalen Scopes zurück, serialisiert als Zeichenkette.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zeichenkette.
 
 ## Beispiele
 
-Innerhalb des Worker-Scopes ausgeführt, wird das folgende Snippet den Ursprung des globalen Scopes des Workers bei jedem Empfang einer Nachricht in der Konsole protokollieren.
+Ausgeführt im Worker-Scope wird das folgende Snippet bei jedem Empfang einer Nachricht den Ursprung des globalen Worker-Scopes in die Konsole loggen.
 
 ```js
 self.onmessage = () => {
@@ -24,7 +24,7 @@ self.onmessage = () => {
 };
 ```
 
-Wenn der Ursprung kein Schema/Host/Port-Tupel ist (wenn Sie ihn z. B. lokal ausführen, d.h. über eine `file://`-URL), wird `origin` die Zeichenkette `"null"` zurückgeben.
+Wenn der Ursprung kein Schema/Host/Port-Tupel ist (zum Beispiel wenn Sie versuchen, es lokal über eine `file://` URL auszuführen), wird `origin` die Zeichenkette `"null"` zurückgeben.
 
 ## Spezifikationen
 

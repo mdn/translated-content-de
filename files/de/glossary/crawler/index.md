@@ -2,12 +2,12 @@
 title: Crawler
 slug: Glossary/Crawler
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{GlossarySidebar}}
 
-Ein **Web-Crawler** ist ein Programm, das oft als Bot oder Roboter bezeichnet wird und systematisch das {{Glossary("World_Wide_Web", "Web")}} durchsucht, um Daten von Webseiten zu sammeln. Typischerweise verwenden Suchmaschinen (z. B. Google, Bing usw.) Crawler, um Indizes zu erstellen.
+Ein **Web-Crawler** ist ein Programm, oft als Bot oder Roboter bezeichnet, das systematisch das {{Glossary("World_Wide_Web", "Web")}} durchsucht, um Daten von Webseiten zu sammeln. Typischerweise verwenden Suchmaschinen (z. B. Google, Bing usw.) Crawler, um Indizes zu erstellen.
 
 ## Siehe auch
 

@@ -2,14 +2,14 @@
 title: Array.prototype.reverse()
 slug: Web/JavaScript/Reference/Global_Objects/Array/reverse
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{JSRef}}
 
-Die **`reverse()`** Methode von {{jsxref("Array")}}-Instanzen kehrt ein Array _[in place](https://en.wikipedia.org/wiki/In-place_algorithm)_ um und gibt die Referenz auf dasselbe Array zurück, wobei das erste Array-Element nun das letzte wird und das letzte Element das erste. Mit anderen Worten, die Reihenfolge der Elemente im Array wird in die entgegengesetzte Richtung zu der zuvor angegebenen geändert.
+Die **`reverse()`** Methode von {{jsxref("Array")}} Instanzen kehrt ein Array _[in place](https://en.wikipedia.org/wiki/In-place_algorithm)_ um und gibt die Referenz auf dasselbe Array zurück, wobei das erste Array-Element nun das letzte und das letzte Element das erste wird. Mit anderen Worten, die Reihenfolge der Elemente im Array wird in die Richtung gedreht, die der zuvor angegebenen entgegengesetzt ist.
 
-Um die Elemente in einem Array zu umkehren, ohne das ursprüngliche Array zu verändern, verwenden Sie {{jsxref("Array/toReversed", "toReversed()")}}.
+Um die Elemente in einem Array umzukehren, ohne das ursprüngliche Array zu verändern, verwenden Sie {{jsxref("Array/toReversed", "toReversed()")}}.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.reverse()")}}
 
@@ -39,15 +39,15 @@ Keine.
 
 ### Rückgabewert
 
-Die Referenz auf das ursprüngliche Array, jetzt umgekehrt. Beachten Sie, dass das Array _[in place](https://en.wikipedia.org/wiki/In-place_algorithm)_ umgekehrt wird und keine Kopie erstellt wird.
+Die Referenz auf das ursprüngliche Array, das nun umgekehrt ist. Beachten Sie, dass das Array _[in-place](https://en.wikipedia.org/wiki/In-place_algorithm)_ umgekehrt wird und keine Kopie erstellt wird.
 
 ## Beschreibung
 
-Die `reverse()`-Methode vertauscht die Elemente des aufrufenden Array-Objekts direkt, mutiert das Array und gibt eine Referenz auf das Array zurück.
+Die `reverse()` Methode transponiert die Elemente des aufrufenden Array-Objekts an Ort und Stelle, verändert das Array und gibt eine Referenz auf das Array zurück.
 
-Die `reverse()`-Methode behält leere Slots bei. Wenn das Quellarray [sparse](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist, werden die entsprechenden neuen Indizes der leeren Slots [gelöscht](/de/docs/Web/JavaScript/Reference/Operators/delete) und auch zu leeren Slots.
+Die `reverse()` Methode bewahrt leere Plätze. Wenn das Quellarray [spärlich](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist, werden die entsprechenden neuen Indizes der leeren Plätze [gelöscht](/de/docs/Web/JavaScript/Reference/Operators/delete) und sie werden auch zu leeren Plätzen.
 
-Die `reverse()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlig indizierte Eigenschaften hat. Obwohl Strings ebenfalls array-ähnlich sind, ist diese Methode nicht geeignet, um auf sie angewendet zu werden, da Strings unveränderlich sind.
+Die `reverse()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integerbasierten Eigenschaften hat. Obwohl Zeichenfolgen ebenfalls array-ähnlich sind, ist diese Methode nicht geeignet, um auf ihnen angewendet zu werden, da Zeichenfolgen unveränderlich sind.
 
 ## Beispiele
 
@@ -65,7 +65,7 @@ console.log(items); // [3, 2, 1]
 
 ### Die reverse()-Methode gibt die Referenz auf dasselbe Array zurück
 
-Die `reverse()`-Methode gibt die Referenz auf das ursprüngliche Array zurück, sodass eine Veränderung des zurückgegebenen Arrays auch das ursprüngliche Array verändert.
+Die `reverse()` Methode gibt die Referenz auf das ursprüngliche Array zurück, daher wird durch das Verändern des zurückgegebenen Arrays auch das ursprüngliche Array verändert.
 
 ```js
 const numbers = [3, 2, 4, 1, 5];
@@ -75,7 +75,7 @@ reversed[0] = 5;
 console.log(numbers[0]); // 5
 ```
 
-Falls Sie möchten, dass `reverse()` das ursprüngliche Array nicht verändert, sondern ein {{Glossary("Shallow_copy", "flach kopiertes")}} Array wie andere Array-Methoden (z.B. [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)) zurückgibt, verwenden Sie die {{jsxref("Array/toReversed", "toReversed()")}}-Methode. Alternativ können Sie vor dem Aufruf von `reverse()` eine flache Kopie mittels der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from) erstellen.
+Falls Sie wünschen, dass `reverse()` das ursprüngliche Array nicht verändert, sondern ein {{Glossary("Shallow_copy", "flach kopiertes")}} Array zurückgibt, wie es andere Array-Methoden (z.B. [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)) tun, verwenden Sie die {{jsxref("Array/toReversed", "toReversed()")}} Methode. Alternativ können Sie vor dem Aufruf von `reverse()` eine flache Kopie erstellen, indem Sie die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from) verwenden.
 
 ```js
 const numbers = [3, 2, 4, 1, 5];
@@ -85,9 +85,9 @@ reverted[0] = 5;
 console.log(numbers[0]); // 3
 ```
 
-### Verwendung von reverse() auf Sparse Arrays
+### Verwenden von reverse() auf spärlichen Arrays
 
-Sparse Arrays bleiben sparse, nachdem `reverse()` aufgerufen wurde. Leere Slots werden als leere Slots auf ihre jeweiligen neuen Indizes kopiert.
+Spärliche Arrays bleiben spärlich nach dem Aufruf von `reverse()`. Leere Plätze werden auf ihre jeweiligen neuen Indizes als leere Plätze kopiert.
 
 ```js
 console.log([1, , 3].reverse()); // [3, empty, 1]
@@ -96,7 +96,7 @@ console.log([1, , 3, 4].reverse()); // [4, 3, empty, 1]
 
 ### Aufruf von reverse() auf Nicht-Array-Objekten
 
-Die `reverse()`-Methode liest die `length`-Eigenschaft von `this`. Sie durchsucht dann jede Eigenschaft mit einem ganzzahligen Schlüssel zwischen `0` und `length / 2` und vertauscht die zwei entsprechenden Indizes an beiden Enden, wobei jede Zieleigenschaft [gelöscht](/de/docs/Web/JavaScript/Reference/Operators/delete) wird, für die die Quell-Eigenschaft nicht existierte.
+Die `reverse()` Methode liest die `length`-Eigenschaft von `this`. Sie durchläuft dann jede Eigenschaft mit einem integerbasierten Schlüssel zwischen `0` und `length / 2` und tauscht die beiden entsprechenden Indizes an beiden Enden, indem jede Zieleigenschaft [gelöscht](/de/docs/Web/JavaScript/Reference/Operators/delete) wird, für die die Quell-Eigenschaft nicht existierte.
 
 ```js
 const arrayLike = {
@@ -123,7 +123,7 @@ console.log(Array.prototype.reverse.call(arrayLike));
 
 - [Polyfill von `Array.prototype.reverse` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
 - [es-shims Polyfill von `Array.prototype.reverse`](https://www.npmjs.com/package/array.prototype.reverse)
-- [Indexed collections](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.join()")}}
 - {{jsxref("Array.prototype.sort()")}}

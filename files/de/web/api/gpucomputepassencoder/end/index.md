@@ -1,14 +1,14 @@
 ---
-title: "GPUComputePassEncoder: end() Methode"
+title: "GPUComputePassEncoder: end()-Methode"
 short-title: end()
 slug: Web/API/GPUComputePassEncoder/end
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`end()`** Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) Schnittstelle beendet die Aufzeichnung der aktuellen Compute-Pass-Befehlssequenz.
+Die **`end()`**-Methode des [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Interfaces beendet die Aufzeichnung der aktuellen Rechendurchlauf-Befehlssequenz.
 
 ## Syntax
 
@@ -26,14 +26,14 @@ Kein Wert ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen beim Aufruf von **`end()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`end()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) wird ungültig:
 
-- Der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) ist offen (d.h. nicht bereits durch einen `end()`-Aufruf beendet).
-- Alle [`pushDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/pushDebugGroup)-Aufrufe, die an diesem Encoder vorgenommen wurden, müssen einen entsprechenden [`popDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/popDebugGroup)-Aufruf haben, bevor `end()` aufgerufen wird.
+- Der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) ist geöffnet (d.h. er wurde nicht bereits über einen `end()`-Aufruf beendet).
+- Alle [`pushDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/pushDebugGroup)-Aufrufe, die mit diesem Encoder gemacht wurden, haben einen entsprechenden [`popDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/popDebugGroup)-Aufruf, bevor `end()` aufgerufen wird.
 
 ## Beispiele
 
-In unserem [grundlegenden Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen vom [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder), der über [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass) erstellt wurde.
+In unserem [grundlegenden Rechen-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder), der über [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass) erstellt wurde.
 
 ```js
 const BUFFER_SIZE = 1000;

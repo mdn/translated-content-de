@@ -2,16 +2,16 @@
 title: "Permissions-Policy: storage-access"
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/storage-access
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP {{HTTPHeader("Permissions-Policy")}}-Header-Direktive `storage-access` steuert, ob ein Dokument, das in einem Drittanbieter-Kontext geladen wurde (d.h. eingebettet in einem {{htmlelement("iframe")}}), die [Storage Access API](/de/docs/Web/API/Storage_Access_API) verwenden darf, um Zugriff auf nicht partionierte Cookies zu beantragen.
+Die HTTP-Direktive {{HTTPHeader("Permissions-Policy")}} `storage-access` steuert, ob ein Dokument, das in einem Drittanbieter-Kontext geladen wird (d.h. eingebettet in einem {{htmlelement("iframe")}}), die [Storage Access API](/de/docs/Web/API/Storage_Access_API) verwenden darf, um Zugriff auf unpartitionierte Cookies zu beantragen.
 
-Dies ist relevant für User Agents, die standardmäßig den Zugriff auf nicht partionierte Cookies von Websites blockieren, die in einem Drittanbieter-Kontext geladen werden, um die Privatsphäre zu verbessern (zum Beispiel, um Tracking zu verhindern).
+Dies ist relevant für Benutzeragenten, die standardmäßig den Zugriff auf unpartitionierte Cookies für in einem Drittanbieter-Kontext geladene Seiten blockieren, um die Privatsphäre zu verbessern (zum Beispiel, um Tracking zu verhindern).
 
-Speziell, wo eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe von [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NotAllowedError` abgelehnt wird.
+Insbesondere in Fällen, in denen eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NotAllowedError` fehlschlägt.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ Permissions-Policy: storage-access=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wurde, die Funktion zu nutzen. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `storage-access` ist `*`.
+Die standardmäßige Erlaubnisliste für `storage-access` ist `*`.
 
 ## Spezifikationen
 
@@ -37,5 +37,5 @@ Die Standard-Whitelist für `storage-access` ist `*`.
 ## Siehe auch
 
 - [Storage Access API](/de/docs/Web/API/Storage_Access_API)
-- {{HTTPHeader("Permissions-Policy")}}-Header
+- {{HTTPHeader("Permissions-Policy")}} header
 - [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)

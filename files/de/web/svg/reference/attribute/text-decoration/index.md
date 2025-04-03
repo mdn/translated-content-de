@@ -2,19 +2,19 @@
 title: text-decoration
 slug: Web/SVG/Reference/Attribute/text-decoration
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Das **`text-decoration`** Attribut definiert, ob Text mit einer Unterstreichung, Überstrich und/oder Durchstreichung verziert wird. Es ist eine Kurzform für die Eigenschaften {{cssxref("text-decoration-line")}} und {{cssxref("text-decoration-style")}}.
+Das **`text-decoration`** Attribut definiert, ob der Text mit einer Unterstreichung, Überstreichung und/oder Durchstreichung dekoriert wird. Es ist eine Kurzform für die {{cssxref("text-decoration-line")}} und {{cssxref("text-decoration-style")}} Eigenschaften.
 
-Die Füllung und der Umriss des Textdekors werden durch die Füllung und den Umriss des Textes an dem Punkt bestimmt, an dem das Textdekor deklariert wird.
+Die Füllung und der Umriss der Textdekoration werden durch die Füllung und den Umriss des Textes an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
 
-Die Malreihenfolge des Textdekors, d.h. die Füllung und Umriss, wird durch den Wert des {{SVGAttr("paint-order")}} Attributs an dem Punkt bestimmt, an dem das Textdekor deklariert wird.
+Die Malreihenfolge der Textdekoration, d.h. die Füllung und der Umriss, wird durch den Wert des {{SVGAttr("paint-order")}} Attributs an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `text-decoration` auch eine Entsprechung als CSS-Eigenschaft: {{cssxref("text-decoration")}}. Wenn beides angegeben ist, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `text-decoration` auch ein CSS-Eigenschaften-Gegenstück: {{cssxref("text-decoration")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
@@ -40,7 +40,7 @@ svg {
 
 {{EmbedLiveSample("Example", "250", "100")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -77,7 +77,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte bitte auf die [CSS `text-decoration`](/de/docs/Web/CSS/text-decoration#values) Eigenschaft verweisen.
+Für eine Beschreibung der Werte siehe bitte die [CSS `text-decoration`](/de/docs/Web/CSS/text-decoration#values) Eigenschaft.
 
 ## Spezifikationen
 

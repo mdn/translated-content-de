@@ -1,16 +1,19 @@
 ---
-title: "IDBObjectStore: deleteIndex() Methode"
+title: "IDBObjectStore: deleteIndex()-Methode"
 short-title: deleteIndex()
 slug: Web/API/IDBObjectStore/deleteIndex
 l10n:
-  sourceCommit: ff1e97da7ade9fcb05fb3de064011d4f05debe82
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`deleteIndex()`** Methode des [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) Interfaces zerstört den Index mit dem angegebenen Namen in der verbundenen Datenbank, verwendet während eines Versionsupgrades.
+Die **`deleteIndex()`**-Methode der
+[`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Schnittstelle zerstört den Index mit dem angegebenen Namen in
+der verbundenen Datenbank, genutzt während eines Versionsupgrades.
 
-Beachten Sie, dass diese Methode nur aus einem `VersionChange`-Transaktionsmodus-Callback aufgerufen werden muss. Beachten Sie, dass diese Methode die [`IDBObjectStore.indexNames`](/de/docs/Web/API/IDBObjectStore/indexNames) Eigenschaft synchron ändert.
+Beachten Sie, dass diese Methode nur aus einem `VersionChange`-Transaktionsmodus-Callback aufgerufen werden darf. Beachten Sie, dass diese Methode die
+[`IDBObjectStore.indexNames`](/de/docs/Web/API/IDBObjectStore/indexNames)-Eigenschaft synchron modifiziert.
 
 ## Syntax
 
@@ -21,7 +24,7 @@ deleteIndex(indexName)
 ### Parameter
 
 - `indexName`
-  - : Der Name des zu entfernenden vorhandenen Index.
+  - : Der Name des bestehenden Index, der entfernt werden soll.
 
 ### Rückgabewert
 
@@ -32,13 +35,17 @@ Keiner ({{jsxref("undefined")}}).
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Methode nicht aus einem `versionchange`-Transaktionsmodus-Callback aufgerufen wurde.
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Transaktion, zu der dieses [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gehört, nicht aktiv ist (z. B. gelöscht oder entfernt wurde).
+  - : Wird ausgelöst, wenn die Transaktion, zu der dieses [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gehört, nicht aktiv ist (z.B. gelöscht oder entfernt wurde).
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn in der Datenbank kein Index mit dem angegebenen Namen (Groß-/Kleinschreibung beachten) vorhanden ist.
+  - : Wird ausgelöst, wenn es keinen Index mit dem angegebenen Namen (Groß-/Kleinschreibung beachten) in der Datenbank gibt.
 
 ## Beispiele
 
-Im folgenden Beispiel sehen Sie den [`onupgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event) Handler, der verwendet wird, um die Datenbankstruktur zu aktualisieren, wenn eine Datenbank mit einer höheren Versionsnummer geladen wird. [`IDBObjectStore.createIndex`](/de/docs/Web/API/IDBObjectStore/createIndex) wird verwendet, um neue Indizes im Objekt-Store zu erstellen, danach löschen wir die nicht benötigten alten Indizes mit `deleteIndex()`. Für ein vollständiges funktionierendes Beispiel sehen Sie sich unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App an ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Beispiel sehen Sie, wie der [`onupgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)-Handler verwendet wird, um die
+Datenbankstruktur zu aktualisieren, wenn eine Datenbank mit einer höheren Versionsnummer geladen wird.
+[`IDBObjectStore.createIndex`](/de/docs/Web/API/IDBObjectStore/createIndex) wird verwendet, um neue Indizes im Objekt-Store zu erstellen, danach löschen wir die nicht benötigten alten Indizes mit `deleteIndex()`.
+Für ein vollständiges funktionierendes Beispiel, siehe unsere
+[To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 let db;
@@ -104,10 +111,10 @@ DBOpenRequest.onupgradeneeded = (event) => {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Verwenden von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

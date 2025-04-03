@@ -2,15 +2,15 @@
 title: white-space-collapse
 slug: Web/CSS/white-space-collapse
 l10n:
-  sourceCommit: 4809e8217288dc7e1372d5c74140ca6661673206
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{CSSRef}}
 
-Die **`white-space-collapse`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, wie {{Glossary("whitespace", "white space")}} innerhalb eines Elements zusammengefasst wird.
+Die **`white-space-collapse`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, wie {{Glossary("whitespace", "Leerraum")}} innerhalb eines Elements zusammengeschrumpft wird.
 
 > [!NOTE]
-> Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap-mode")}} können zusammen mit der Kurzschreibweise {{CSSxRef("white-space")}} deklariert werden.
+> Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap-mode")}} können zusammen mit der Kurzform-Eigenschaft {{CSSxRef("white-space")}} deklariert werden.
 
 ## Syntax
 
@@ -30,41 +30,41 @@ white-space-collapse: revert-layer;
 white-space-collapse: unset;
 ```
 
-Die Eigenschaft `white-space-collapse` wird als ein einzelnes Stichwort von der unten stehenden Werteliste angegeben.
+Die Eigenschaft `white-space-collapse` wird als ein einzelnes Schlüsselwort aus der unten stehenden Wertliste angegeben.
 
 ### Werte
 
 - `collapse`
-  - : White space-Sequenzen werden [zusammengefasst](#zusammenfassung_von_white_space).
+  - : Weiße Leerraum-Sequenzen werden [zusammengeschrumpft](#schrumpfen_von_leerraum).
 - `preserve`
-  - : White space-Sequenzen und Segmentumbruchzeichen werden beibehalten.
+  - : Weiße Leerraum-Sequenzen und Segmentbruchzeichen werden beibehalten.
 - `preserve-breaks`
-  - : White space-Sequenzen werden zusammengefasst, während Segmentumbruchzeichen beibehalten werden.
+  - : Weiße Leerraum-Sequenzen werden zusammengeschrumpft, während Segmentbruchzeichen beibehalten werden.
 - `preserve-spaces`
-  - : White space-Sequenzen werden beibehalten, während Tabs und Segmentumbruchzeichen in Leerzeichen umgewandelt werden.
+  - : Weiße Leerraum-Sequenzen werden beibehalten, während Tabs und Segmentbruchzeichen in Leerzeichen umgewandelt werden.
 - `break-spaces`
   - : Das Verhalten ist identisch zu `preserve`, außer dass:
-    - Jede beibehaltene White space-Sequenz immer Platz einnimmt, auch am Ende der Zeile.
-    - Es nach jedem beibehaltenen White space-Zeichen eine Zeilenumbruchmöglichkeit gibt, auch zwischen White space-Zeichen.
-    - Beibehaltene Leerzeichen Platz einnehmen und nicht herabhängen, was die intrinsische Größe der Box beeinflusst ({{cssxref("min-content")}}-Größe und {{cssxref("max-content")}}-Größe).
+    - Jede beibehaltene weiße Leerraum-Sequenz nimmt immer Platz ein, auch am Ende der Zeile.
+    - Eine Zeilenumbruchmöglichkeit existiert nach jedem beibehaltenen Leerzeichen, auch zwischen Leerzeichen.
+    - Beibehaltene Leerzeichen nehmen Platz ein und hängen nicht, wodurch die intrinsischen Größen der Box beeinflusst werden ({{cssxref("min-content")}}-Größe und {{cssxref("max-content")}}-Größe).
 
-> **Hinweis:** _Segmentumbruchzeichen_ sind Zeichen wie Zeilenumbrüche, die dazu führen, dass der Text in neuen Zeilen beginnt.
+> **Hinweis:** _Segmentbruchzeichen_ sind Zeichen wie Zeilenumbrüche, die dazu führen, dass der Text auf neue Zeilen umbricht.
 
 > [!NOTE]
-> Das [CSS-Text](/de/docs/Web/CSS/CSS_text)-Modul definiert einen `discard`-Wert für die `white-space-collapse`-Eigenschaft, um alle White spaces im Element zu verwerfen. Dies wird jedoch in keinem Browser unterstützt.
+> Das [CSS-Text](/de/docs/Web/CSS/CSS_text)-Modul definiert einen `discard`-Wert für die `white-space-collapse`-Eigenschaft, um alle Leerzeichen im Element zu verwerfen. Dieser wird jedoch von keinem Browser unterstützt.
 
-## Zusammenfassung von white space
+## Schrumpfen von Leerraum
 
-Browservorrichtungen behandeln die Zusammenfassung von White space wie folgt:
+Benutzeragenten behandeln das Schrumpfen von Leerraum wie folgt:
 
 - Tabs werden im Allgemeinen in Leerzeichen umgewandelt.
-- Wenn Segmentumbruchzeichen zusammengafasst werden sollen:
-  - Sequenzen von Segmentumbruchzeichen werden auf ein einzelnes Segmentumbruchzeichen reduziert.
-  - Sie werden in Leerzeichen umgewandelt im Fall von Sprachen, die Wörter mit Leerzeichen trennen (wie Englisch), oder ganz entfernt im Fall von Sprachen, die Wörter nicht mit Leerzeichen trennen (wie Chinesisch).
-- Wenn Leerzeichen zusammengafasst werden sollen:
-  - Leerzeichen oder Tabs vor oder nach Segmentumbruchzeichen werden entfernt.
-  - Sequenzen von Leerzeichen werden in ein einziges Leerzeichen umgewandelt oder "zusammengefasst".
-- Wenn Leerzeichen beibehalten werden, werden Sequenzen von Leerzeichen als nicht-unterbrechend behandelt, außer dass sie am Ende jeder Sequenz weich umbrechen — d.h. die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Fall des Wertes `break-spaces` könnte ein weicher Umbruch jedoch potenziell nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnt.
+- Wenn Segmentbrüche zusammengeschrumpft werden sollen:
+  - Mehrfachfolgen von Segmentbrüchen werden auf einen einzelnen Segmentbruch reduziert.
+  - Sie werden in Leerzeichen umgewandelt, wenn es sich um Sprachen handelt, die Wörter mit Leerzeichen trennen (wie Englisch), oder vollständig entfernt in Sprachen, die Wörter nicht mit Leerzeichen trennen (wie Chinesisch).
+- Wenn Leerzeichen zusammengeschrumpft werden sollen:
+  - Leerzeichen oder Tabs vor oder nach Segmentbrüchen werden entfernt.
+  - Mehrfachfolgen von Leerzeichen werden in ein einzelnes Leerzeichen umgewandelt oder "zusammengeschrumpft".
+- Wenn Leerzeichen beibehalten werden, werden Mehrfachfolgen von Leerzeichen als nicht umbrechend behandelt, es sei denn, sie brechen am Ende jeder Sequenz weich um – d.h. die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Falle des `break-spaces`-Wertes könnte jedoch ein weicher Umbruch nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnen kann.
 
 ## Formale Definition
 

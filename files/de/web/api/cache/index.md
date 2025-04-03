@@ -2,54 +2,54 @@
 title: Cache
 slug: Web/API/Cache
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`Cache`**-Interface bietet einen persistenten Speichermechanismus für [`Request`](/de/docs/Web/API/Request) / [`Response`](/de/docs/Web/API/Response)-Objektpaare, die im langlebigen Speicher zwischengespeichert sind. Wie lange ein `Cache`-Objekt lebt, hängt vom Browser ab, aber Skripte eines einzigen Ursprungs können sich in der Regel auf das Vorhandensein eines zuvor gefüllten `Cache`-Objekts verlassen. Beachten Sie, dass das `Cache`-Interface sowohl für fensterartige als auch für Worker-Umgebungen freigegeben ist. Sie müssen es nicht in Verbindung mit Service Workern verwenden, obwohl es in der Service-Worker-Spezifikation definiert ist.
+Das **`Cache`**-Interface bietet einen persistenten Speichermechanismus für [`Request`](/de/docs/Web/API/Request)- / [`Response`](/de/docs/Web/API/Response)-Objektpaare, die im Langzeitspeicher zwischengespeichert werden. Wie lange ein `Cache`-Objekt lebt, hängt vom Browser ab, aber die Skripte eines einzelnen Ursprungs können typischerweise auf die Präsenz eines zuvor gefüllten `Cache`-Objekts zählen. Beachten Sie, dass das `Cache`-Interface sowohl in Fensterbereichen als auch in Workern verfügbar ist. Es muss nicht unbedingt in Verbindung mit Service Workern verwendet werden, obwohl es in der Service-Worker-Spezifikation definiert ist.
 
-Ein Ursprung kann mehrere, benannte `Cache`-Objekte haben. Sie sind dafür verantwortlich, wie Ihr Skript (z. B. in einem [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)) `Cache`-Aktualisierungen handhabt. Einträge in einem `Cache` werden nicht aktualisiert, es sei denn, es wird ausdrücklich verlangt; sie laufen nicht ab, es sei denn, sie werden gelöscht. Verwenden Sie [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open), um ein spezifisches benanntes `Cache`-Objekt zu öffnen, und dann rufen Sie eine der `Cache`-Methoden auf, um den `Cache` zu warten.
+Ein Ursprung kann mehrere, benannte `Cache`-Objekte haben. Sie sind dafür verantwortlich, wie Ihr Skript (z.B. in einem [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)) `Cache`-Aktualisierungen handhabt. Einträge in einem `Cache` werden nicht aktualisiert, es sei denn, dies wird explizit angefordert; sie verfallen nicht, es sei denn, sie werden gelöscht. Verwenden Sie [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open), um ein spezifisches benanntes `Cache`-Objekt zu öffnen, und rufen Sie dann eine der `Cache`-Methoden auf, um den Cache zu verwalten.
 
-Sie sind auch dafür verantwortlich, Cache-Einträge regelmäßig zu löschen. Jeder Browser hat ein hartes Limit für die Menge des Cache-Speichers, den ein gegebener Ursprung nutzen kann. Schätzungen der `Cache`-Quota-Nutzung sind über die Methode [`StorageManager.estimate()`](/de/docs/Web/API/StorageManager/estimate) verfügbar. Der Browser bemüht sich, den Speicherplatz zu verwalten, kann jedoch den `Cache`-Speicher für einen Ursprung löschen. Der Browser wird im Allgemeinen entweder alle oder keine der Daten für einen Ursprung löschen. Stellen Sie sicher, dass Sie Caches nach Namen versionieren und die Caches nur mit der Version des Skripts verwenden, mit der sie sicher funktionieren können. Weitere Informationen finden Sie unter [Löschen alter Caches](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers#deleting_old_caches).
-
-> [!NOTE]
-> Der Schlüsselabgleichsalgorithmus hängt vom [VARY-Header](https://www.fastly.com/blog/best-practices-using-vary-header) im Wert ab. Um einen neuen Schlüssel abzugleichen, muss sowohl der Schlüssel als auch der Wert für Einträge im `Cache`-Objekt betrachtet werden.
+Sie sind ebenfalls dafür verantwortlich, zwischengespeicherte Einträge regelmäßig zu bereinigen. Jeder Browser hat ein festes Limit für den Cache-Speicher, den ein gegebener Ursprung verwenden kann. Schätzungen für die `Cache`-Quotennutzung sind über die Methode [`StorageManager.estimate()`](/de/docs/Web/API/StorageManager/estimate) verfügbar. Der Browser tut sein Bestes, um den Speicherplatz zu verwalten, aber er könnte den `Cache`-Speicher für einen Ursprung löschen. Der Browser wird im Allgemeinen alle Daten eines Ursprungs oder keine Daten eines Ursprungs löschen. Stellen Sie sicher, dass Sie Caches nach Namen versionieren und verwenden Sie die Caches nur von der Version des Skripts, das sie sicher bedienen kann. Weitere Informationen finden Sie unter [Löschen alter Caches](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers#deleting_old_caches).
 
 > [!NOTE]
-> Das Cache-API beachtet die HTTP-Caching-Header nicht.
+> Der Schlüsselauswahlalgorithmus hängt vom [VARY-Header](https://www.fastly.com/blog/best-practices-using-vary-header) im Wert ab. Um einen neuen Schlüssel abzugleichen, muss sowohl der Schlüssel als auch der Wert für Einträge im `Cache`-Objekt berücksichtigt werden.
+
+> [!NOTE]
+> Die Caching-API berücksichtigt keine HTTP-Caching-Header.
 
 ## Instanzmethoden
 
 - [`Cache.match()`](/de/docs/Web/API/Cache/match)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit der Antwort auf die erste übereinstimmende Anfrage im `Cache`-Objekt aufgelöst wird.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das zur Antwort des ersten übereinstimmenden Anforderungseintrags im `Cache`-Objekt auflöst.
 - [`Cache.matchAll()`](/de/docs/Web/API/Cache/matchAll)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array aller übereinstimmenden Antworten im `Cache`-Objekt aufgelöst wird.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das zu einem Array aller übereinstimmenden Antworten im `Cache`-Objekt auflöst.
 - [`Cache.add()`](/de/docs/Web/API/Cache/add)
-  - : Nimmt eine URL, ruft sie ab und fügt das resultierende Antwortobjekt dem angegebenen Cache hinzu. Dies entspricht funktional dem Aufruf von `fetch()`, gefolgt von `put()`, um die Ergebnisse dem Cache hinzuzufügen.
+  - : Nimmt eine URL und ruft sie ab und fügt das resultierende Antwortobjekt dem gegebenen Cache hinzu. Dies ist funktional gleichbedeutend mit dem Aufruf von `fetch()` und anschließendem Verwenden von `put()`, um die Ergebnisse zum Cache hinzuzufügen.
 - [`Cache.addAll()`](/de/docs/Web/API/Cache/addAll)
-  - : Nimmt ein Array von URLs, ruft sie ab und fügt die resultierenden Antwortobjekte dem angegebenen Cache hinzu.
+  - : Nimmt ein Array von URLs, ruft sie ab und fügt die resultierenden Antwortobjekte dem gegebenen Cache hinzu.
 - [`Cache.put()`](/de/docs/Web/API/Cache/put)
-  - : Nimmt sowohl eine Anfrage als auch deren Antwort und fügt sie dem angegebenen Cache hinzu.
+  - : Nimmt sowohl eine Anforderung als auch deren Antwort und fügt sie dem gegebenen Cache hinzu.
 - [`Cache.delete()`](/de/docs/Web/API/Cache/delete)
-  - : Findet den `Cache`-Eintrag, dessen Schlüssel die Anfrage ist, und gibt ein {{jsxref("Promise")}} zurück, das zu `true` aufgelöst wird, wenn ein übereinstimmender `Cache`-Eintrag gefunden und gelöscht wird. Wenn kein `Cache`-Eintrag gefunden wird, wird das Promise zu `false` aufgelöst.
+  - : Findet den Cache-Eintrag, dessen Schlüssel die Anforderung ist, und gibt ein {{jsxref("Promise")}} zurück, das auf `true` auflöst, wenn ein übereinstimmender Cache-Eintrag gefunden und gelöscht wird. Wenn kein Cache-Eintrag gefunden wird, löst das Versprechen sich auf `false` auf.
 - [`Cache.keys()`](/de/docs/Web/API/Cache/keys)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von `Cache`-Schlüsseln aufgelöst wird.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das zu einem Array von `Cache`-Schlüsseln auflöst.
 
 ## Beispiele
 
-Dieser Code-Ausschnitt stammt aus dem [ausgewählten Service-Worker-Caching-Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/selective-caching/service-worker.js). (siehe [selektives Caching live](https://googlechrome.github.io/samples/service-worker/selective-caching/)) Der Code verwendet [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open), um alle `Cache`-Objekte mit einem `Content-Type`-Header zu öffnen, der mit `font/` beginnt.
+Dieses Code-Beispiel stammt aus dem [Service-Worker-Auswahlcaching-Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/selective-caching/service-worker.js). (siehe [Auswahlcaching live](https://googlechrome.github.io/samples/service-worker/selective-caching/)) Der Code verwendet [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open), um beliebige `Cache`-Objekte mit einem `Content-Type`-Header zu öffnen, der mit `font/` beginnt.
 
-Der Code verwendet dann [`Cache.match()`](/de/docs/Web/API/Cache/match), um zu prüfen, ob bereits eine passende Schriftart im Cache vorhanden ist, und wenn ja, gibt er diese zurück. Wenn keine passende Schriftart vorhanden ist, ruft der Code die Schriftart aus dem Netzwerk ab und verwendet [`Cache.put()`](/de/docs/Web/API/Cache/put), um die abgerufene Ressource im Cache zu speichern.
+Der Code verwendet dann [`Cache.match()`](/de/docs/Web/API/Cache/match), um zu prüfen, ob es bereits eine passende Schriftart im Cache gibt, und gibt sie zurück, falls vorhanden. Wenn keine passende Schriftart vorhanden ist, ruft der Code die Schriftart aus dem Netzwerk ab und verwendet [`Cache.put()`](/de/docs/Web/API/Cache/put), um die abgerufene Ressource zwischenzuspeichern.
 
-Der Code behandelt Ausnahmen, die von der [`fetch()`](/de/docs/Web/API/Window/fetch)-Operation ausgelöst werden. Beachten Sie, dass eine HTTP-Fehlerantwort (z.B. 404) keine Ausnahme auslöst. Es wird ein normales Antwortobjekt zurückgegeben, das den entsprechenden Fehlercode enthält.
+Der Code behandelt Ausnahmen, die aus der [`fetch()`](/de/docs/Web/API/Window/fetch)-Operation geworfen werden. Beachten Sie, dass eine HTTP-Fehlerantwort (z.B. 404) keine Ausnahme auslöst. Es wird ein normales Antwortobjekt zurückgegeben, das den entsprechenden Fehlercode enthält.
 
-Der Code-Ausschnitt zeigt auch eine bewährte Vorgehensweise für die Versionierung von Caches, die vom Service Worker verwendet werden. Obwohl es in diesem Beispiel nur einen Cache gibt, kann derselbe Ansatz für mehrere Caches verwendet werden. Es wird ein Kurzbezeichner für einen Cache auf einen bestimmten, versionierten Cachename abgebildet. Der Code löscht auch alle Caches, die nicht in `CURRENT_CACHES` benannt sind.
+Das Code-Beispiel zeigt auch eine bewährte Praxis zur Versionsverwaltung von Caches, die vom Service Worker verwendet werden. Obwohl in diesem Beispiel nur ein Cache vorhanden ist, kann derselbe Ansatz für mehrere Caches verwendet werden. Es weist einem Kurznamen für einen Cache einen bestimmten, versionierten Cache-Namen zu. Der Code löscht auch alle Caches, die nicht in `CURRENT_CACHES` benannt sind.
 
-Im Codebeispiel ist `caches` eine Eigenschaft der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope). Es enthält das `CacheStorage`-Objekt, über das das [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Interface zugänglich ist.
+Im Code-Beispiel ist `caches` eine Eigenschaft des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope). Sie enthält das `CacheStorage`-Objekt, über das es auf das [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Interface zugreifen kann.
 
 > [!NOTE]
-> In Chrome können Sie unter `chrome://inspect/#service-workers` auf den Link "inspect" unter dem registrierten Service Worker klicken, um Protokollaussagen für die verschiedenen Aktionen des [`service-worker.js`](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/selective-caching/service-worker.js)-Skripts anzuzeigen.
+> In Chrome besuchen Sie `chrome://inspect/#service-workers` und klicken Sie auf den „inspect“-Link unterhalb des registrierten Service Workers, um die Protokollierungsaussagen für die verschiedenen Aktionen zu sehen, die das Skript [`service-worker.js`](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/selective-caching/service-worker.js) ausführt.
 
 ```js
 const CACHE_VERSION = 1;
@@ -168,7 +168,7 @@ self.addEventListener("fetch", (event) => {
 
 ### Cookies und Cache-Objekte
 
-Das [Fetch API](/de/docs/Web/API/Fetch_API) erfordert, dass {{httpheader("Set-Cookie")}}-Header entfernt werden, bevor ein [`Response`](/de/docs/Web/API/Response)-Objekt von [`fetch()`](/de/docs/Web/API/Window/fetch) zurückgegeben wird. Daher enthält eine `Response`, die in einem `Cache` gespeichert ist, keine `Set-Cookie`-Header und verursacht somit nicht, dass Cookies gespeichert werden.
+Die [Fetch API](/de/docs/Web/API/Fetch_API) erfordert, dass {{httpheader("Set-Cookie")}}-Header entfernt werden, bevor ein [`Response`](/de/docs/Web/API/Response)-Objekt von [`fetch()`](/de/docs/Web/API/Window/fetch) zurückgegeben wird. Ein im `Cache` gespeicherter `Response` wird also keine `Set-Cookie`-Header enthalten und daher keine Cookies speichern.
 
 ## Spezifikationen
 
@@ -180,6 +180,6 @@ Das [Fetch API](/de/docs/Web/API/Fetch_API) erfordert, dass {{httpheader("Set-Co
 
 ## Siehe auch
 
-- [Service Worker verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 - [Grundlegendes Code-Beispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Web Workers verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

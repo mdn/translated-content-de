@@ -2,14 +2,14 @@
 title: size
 slug: Web/CSS/@page/size
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{CSSRef}}
 
-Der **`size`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rule)-Deskriptor, welcher mit der {{cssxref("@page")}}-At-Regel verwendet wird, definiert die Größe und Ausrichtung des Rahmens, der für die Darstellung einer Seite verwendet wird. Meistens entspricht diese Größe der Zielgröße der gedruckten Seite, falls zutreffend.
+Der **`size`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) Descriptor, verwendet mit der {{cssxref("@page")}} At-Regel, definiert die Größe und Ausrichtung der Box, die verwendet wird, um eine Seite darzustellen. Meistens entspricht diese Größe der Zielgröße der gedruckten Seite, falls zutreffend.
 
-Die Größe kann entweder mit einem „skalierbaren“ Schlüsselwort definiert werden (in diesem Fall füllt die Seite die verfügbaren Abmessungen aus) oder mit absoluten Abmessungen.
+Die Größe kann entweder mit einem "skalierbaren" Schlüsselwort definiert werden (in diesem Fall wird die Seite die verfügbaren Dimensionen ausfüllen) oder mit absoluten Abmessungen.
 
 ## Syntax
 
@@ -39,37 +39,37 @@ size: A4 portrait;
 ### Werte
 
 - `auto`
-  - : Der User-Agent entscheidet über die Größe der Seite. In den meisten Fällen werden die Abmessungen und die Ausrichtung des Zielblatts verwendet.
+  - : Der User-Agent entscheidet über die Größe der Seite. In den meisten Fällen werden die Dimensionen und die Ausrichtung des Zielblatts verwendet.
 - `landscape`
-  - : Der Inhalt der Seite wird im Querformat angezeigt (d.h. die längste Seite des Rahmens ist horizontal).
+  - : Der Inhalt der Seite wird im Querformat angezeigt (d.h. die längste Seite der Box ist horizontal).
 - `portrait`
-  - : Der Inhalt der Seite wird im Hochformat angezeigt (d.h. die längste Seite des Rahmens ist vertikal). Dies ist die Standardausrichtung.
+  - : Der Inhalt der Seite wird im Hochformat angezeigt (d.h. die längste Seite der Box ist vertikal). Dies ist die Standardausrichtung.
 - `<length>`
-  - : Ein beliebiger Längenwert (siehe {{cssxref("&lt;length&gt;")}}). Der erste Wert entspricht der Breite des Seitenrahmens und der zweite Wert der Höhe. Wird nur ein Wert angegeben, so wird dieser sowohl für die Breite als auch für die Höhe verwendet.
+  - : Jeder Längenwert (siehe {{cssxref("&lt;length&gt;")}}). Der erste Wert entspricht der Breite der Seitenbox und der zweite entspricht ihrer Höhe. Wenn nur ein Wert angegeben wird, wird dieser für Breite und Höhe verwendet.
 - `<page-size>`
 
   - : Ein Schlüsselwort, das einen der folgenden Werte annehmen kann:
 
     - A5
-      - : Entspricht den standardmäßigen ISO-Abmessungen: 148mm x 210mm.
+      - : Entspricht den Standard-ISO-Dimensionen: 148mm x 210mm.
     - A4
-      - : Entspricht den standardmäßigen ISO-Abmessungen: 210mm x 297mm. (häufigste Abmessungen für den privaten Druck.)
+      - : Entspricht den Standard-ISO-Dimensionen: 210mm x 297mm. (häufigste Abmessungen für das persönliche Drucken.)
     - A3
-      - : Entspricht den standardmäßigen ISO-Abmessungen: 297mm x 420mm.
+      - : Entspricht den Standard-ISO-Dimensionen: 297mm x 420mm.
     - B5
-      - : Entspricht den standardmäßigen ISO-Abmessungen: 176mm x 250mm.
+      - : Entspricht den Standard-ISO-Dimensionen: 176mm x 250mm.
     - B4
-      - : Entspricht den standardmäßigen ISO-Abmessungen: 250mm x 353mm.
+      - : Entspricht den Standard-ISO-Dimensionen: 250mm x 353mm.
     - JIS-B5
-      - : Entspricht den JIS-Standardabmessungen: 182mm x 257mm.
+      - : Entspricht den JIS-Standarddimensionen: 182mm x 257mm.
     - JIS-B4
-      - : Entspricht den JIS-Standardabmessungen: 257mm x 364mm.
+      - : Entspricht den JIS-Standarddimensionen: 257mm x 364mm.
     - letter
-      - : Dieses Schlüsselwort entspricht den Abmessungen von Letter-Papier in Nordamerika, d.h. 8,5in x 11in.
+      - : Dieses Schlüsselwort entspricht den Dimensionen von Briefpapier in Nordamerika, d.h. 8.5in x 11in.
     - legal
-      - : Dieses Schlüsselwort entspricht den Abmessungen von Legal-Papier in Nordamerika, d.h. 8,5in x 14in.
+      - : Dieses Schlüsselwort entspricht den Dimensionen von juristischen Papieren in Nordamerika, d.h. 8.5in x 14in.
     - ledger
-      - : Dieses Schlüsselwort entspricht den Abmessungen von Ledger-Seiten in Nordamerika, d.h. 11in x 17in.
+      - : Dieses Schlüsselwort entspricht den Dimensionen von Ledger-Seiten in Nordamerika, d.h. 11in x 17in.
 
 ## Formale Definition
 
@@ -81,7 +81,7 @@ size: A4 portrait;
 
 ## Beispiele
 
-### Spezifizieren von Größe und Ausrichtung
+### Größe und Ausrichtung angeben
 
 ```css
 @page {
@@ -89,7 +89,7 @@ size: A4 portrait;
 }
 ```
 
-### Spezifizieren einer benutzerdefinierten Größe
+### Anpassbare Größe angeben
 
 ```css
 @page {

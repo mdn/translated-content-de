@@ -2,20 +2,20 @@
 title: <annotation>
 slug: Web/MathML/Reference/Element/annotation
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Das **`<annotation>`** [MathML](/de/docs/Web/MathML)-Element enthält eine Annotation für den MathML-Ausdruck in einem textuellen Format, zum Beispiel [LaTeX](https://www.latex-project.org/).
+Das **`<annotation>`** [MathML](/de/docs/Web/MathML)-Element enthält eine Annotation zur MathML-Ausdruck in einem textuellen Format, zum Beispiel [LaTeX](https://www.latex-project.org/).
 
 > [!NOTE]
-> Annotationen sollen von Browsern nicht gerendert werden und sind standardmäßig ausgeblendet. Firefox und Safari rendern jedoch einige Annotationen-Formate, wenn das erste Kind des {{mathmlelement("semantics")}}-Elements Fehler enthält oder fehlt.
+> Annotationen sollen von Browsern nicht gerendert werden und sind standardmäßig versteckt. Firefox und Safari rendern jedoch einige Annotationsformate, wenn das erste Kind des {{mathmlelement("semantics")}}-Elements Fehler enthält oder fehlt.
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie die folgenden spezifischen Attribute:
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie die folgenden Attribute:
 
 - `encoding`
-  - : Die Kodierung der semantischen Informationen in der Annotation (z.B. `"application/x-tex"`)
+  - : Die Kodierung der semantischen Information in der Annotation (z.B. `"application/x-tex"`)
 - `src` {{deprecated_inline}}
   - : Der Ort einer externen Quelle für semantische Informationen.
 

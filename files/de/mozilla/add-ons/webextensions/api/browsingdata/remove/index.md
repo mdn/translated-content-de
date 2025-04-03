@@ -2,16 +2,16 @@
 title: browsingData.remove()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/remove
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{AddonSidebar}}
 
 Entfernt die angegebenen Browserdaten.
 
-Die zu entfernenden Browserdaten werden in der Option `dataTypes` angegeben, die ein {{WebExtAPIRef("browsingData.DataTypeSet")}}-Objekt ist.
+Die zu entfernenden Browserdaten werden in der `dataTypes`-Option angegeben, welche ein {{WebExtAPIRef("browsingData.DataTypeSet")}}-Objekt ist.
 
-Sie können die Option `removalOptions` verwenden, die ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt ist, um zu steuern, wie weit in die Vergangenheit Daten entfernt werden sollen und ob Daten nur von normalen Webseiten oder auch von gehosteten Apps und Erweiterungen entfernt werden sollen.
+Sie können die `removalOptions`-Option verwenden, welches ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt ist, um zu steuern, wie weit in die Vergangenheit die Daten entfernt werden und ob die Daten nur von normalen Webseiten entfernt werden sollen oder auch von gehosteten Apps und Erweiterungen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,9 +27,9 @@ let removing = browser.browsingData.remove(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, das verwendet werden kann, um zu steuern, wie weit in die Vergangenheit Daten entfernt werden sollen und ob Daten von gehosteten Web-Apps und Erweiterungen oder nur von normalen Webseiten entfernt werden sollen.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, das verwendet werden kann, um zu steuern, wie weit in die Vergangenheit Daten entfernt werden, und ob Daten von gehosteten Web-Apps und Erweiterungen oder nur von normalen Webseiten entfernt werden sollen.
 - `dataTypes`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.DataTypeSet")}}-Objekt, das die zu entfernenden Datentypen beschreibt (z. B. Verlauf, Downloads, …).
+  - : `object`. Ein {{WebExtAPIRef("browsingData.DataTypeSet")}}-Objekt, das die zu entfernenden Datentypen beschreibt (z.B. Verlauf, Downloads, …).
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Entfernen des Download- und Browserverlaufs der letzten Woche:
+Entfernen Sie den Download-Verlauf und den Browserverlauf der letzten Woche:
 
 ```js
 function onRemoved() {
@@ -59,7 +59,7 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Entfernen des gesamten Download- und Browserverlaufs:
+Entfernen Sie den gesamten Download- und Browserverlauf:
 
 ```js
 function onRemoved() {
@@ -82,7 +82,7 @@ browser.browsingData
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

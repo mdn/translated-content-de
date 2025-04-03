@@ -3,19 +3,19 @@ title: "AudioContext: baseLatency-Eigenschaft"
 short-title: baseLatency
 slug: Web/API/AudioContext/baseLatency
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte Eigenschaft **`baseLatency`** des [`AudioContext`](/de/docs/Web/API/AudioContext)-Interfaces gibt einen Wert vom Typ Double zurück, der die Anzahl an Sekunden an Verarbeitungsverzögerung darstellt, die durch das `AudioContext` entstehen, wenn ein Audiopuffer vom [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) – d.h. das Ende des Audio-Diagramms – in das Audiosubsystem des Hostsystems übergeben wird, um abgespielt zu werden.
+Die schreibgeschützte Eigenschaft **`baseLatency`** des [`AudioContext`](/de/docs/Web/API/AudioContext)-Interfaces gibt einen Gleitkommawert zurück, der die Anzahl der Sekunden darstellt, die durch die Verarbeitungslatenz verursacht werden, wenn der `AudioContext` ein Audiopuffer vom [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) — d.h. das Ende des Audiografen — in das Audiosubsystem des Host-Systems zur Wiedergabe überträgt.
 
 > [!NOTE]
-> Sie können während der [Erstellungszeit](/de/docs/Web/API/AudioContext/AudioContext) mit der `latencyHint`-Option eine bestimmte Latenz anfordern, aber der Browser kann die Option ignorieren.
+> Sie können während der [Konstruktionszeit](/de/docs/Web/API/AudioContext/AudioContext) mit der Option `latencyHint` eine bestimmte Latenz anfordern, aber der Browser kann die Option ignorieren.
 
 ## Wert
 
-Ein Double, das die Basislatenz in Sekunden darstellt.
+Ein Gleitkommawert, der die Basislatenz in Sekunden darstellt.
 
 ## Beispiele
 

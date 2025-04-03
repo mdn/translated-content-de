@@ -2,28 +2,28 @@
 title: <mi>
 slug: Web/MathML/Reference/Element/mi
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Das **`<mi>`** [MathML](/de/docs/Web/MathML) Element zeigt an, dass der Inhalt als **Identifikator** gerendert werden sollte, wie z.B. ein Funktionsname, eine Variable oder eine symbolische Konstante.
+Das **`<mi>`** [MathML](/de/docs/Web/MathML)-Element zeigt an, dass der Inhalt als **Identifier** gerendert werden soll, wie beispielsweise ein Funktionsname, eine Variable oder eine symbolische Konstante.
 
-Standardmäßig werden `<mi>` Elemente, die mehrere Zeichen enthalten, als normaler Text gerendert, während einzelne Zeichen kursiv dargestellt werden: das gleiche Formatierungsverhalten wie die [CSS `text-transform`](/de/docs/Web/CSS/text-transform) Eigenschaft mit dem Wert `math-auto`.
-Das `mathvariant` Attribut mit dem Wert `normal` kann verwendet werden, um ein einzelnes Zeichen auf die normale Schriftart zurückzusetzen.
+Standardmäßig werden `<mi>`-Elemente, die mehrere Zeichen enthalten, als normaler Text gerendert, während Einzelzeichen kursiv dargestellt werden: dasselbe Formatierungsverhalten wie die [CSS-Eigenschaft `text-transform`](/de/docs/Web/CSS/text-transform) mit dem Wert `math-auto`.
+Das `mathvariant`-Attribut mit dem Wert `normal` kann verwendet werden, um ein Einzelzeichen auf die normale Schriftart zurückzusetzen.
 
-Um eine bestimmte Form eines Zeichens wie fett/kursiv, serif, sans-serif, skript/kalligraphisch, monospaced, doppelgepunktet usw. zu verwenden, sollten Sie die entsprechenden [Mathematical Alphanumeric Symbols](https://en.wikipedia.org/wiki/Mathematical_Alphanumeric_Symbols) verwenden.
+Um eine bestimmte Form eines Zeichens wie fett/kursiv, serifenbetont, serifenlos, Skript/Kalligraphie, monospaced, doppelgestrichen usw. zu verwenden, sollten Sie die entsprechenden [Mathematical Alphanumeric Symbols](https://en.wikipedia.org/wiki/Mathematical_Alphanumeric_Symbols) verwenden.
 
 > [!NOTE]
-> In einer früheren Spezifikation (MathML3) wurde das `mathvariant` Attribut verwendet, um logische Klassen zu definieren, die die Zeichendarstellung für mathematische alphanumerische Symbole bezwecken könnten.
-> Die zugehörigen Werte sind jetzt veraltet und sollen in zukünftigen Browserversionen entfernt werden.
+> In einer früheren Spezifikation (MathML3) wurde das `mathvariant`-Attribut verwendet, um logische Klassen zu definieren, die die Zeichnungsformatierung für mathematische alphanumerische Symbole anwenden könnten.
+> Die zugehörigen Werte sind jetzt veraltet und sollen in zukünftigen Versionen aus den Browsern entfernt werden.
 
 ## Attribute
 
 - `mathvariant`
 
-  - : Der einzige Wert, der in der aktuellen Spezifikation erlaubt ist, ist `normal` (Groß-/Kleinschreibung wird nicht beachtet):
+  - : Der einzige in der aktuellen Spezifikation erlaubte Wert ist `normal` (Groß- und Kleinschreibung wird nicht beachtet):
 
     - `normal`
-      - : Standard-/normales Rendering verwenden, wobei die automatische Kursivdarstellung einzelner Zeichen entfernt wird.
+      - : Verwenden Sie die Standard-/Normdarstellung und entfernen Sie die automatische Kursivdarstellung von Einzelzeichen.
 
     Veraltete Werte sind:
 
@@ -34,33 +34,33 @@ Um eine bestimmte Form eines Zeichens wie fett/kursiv, serif, sans-serif, skript
     - `bold-italic` {{deprecated_inline}}
       - : Versuchen Sie, fett-kursive Zeichen zu verwenden, z.B. "𝑨".
     - `double-struck` {{deprecated_inline}}
-      - : Versuchen Sie, doppelt geschlagene Zeichen zu verwenden, z.B. "𝔸".
+      - : Versuchen Sie, doppelgestrichene Zeichen zu verwenden, z.B. "𝔸".
     - `bold-fraktur` {{deprecated_inline}}
-      - : Versuchen Sie, fett Fraktur-Zeichen zu verwenden, z.B. "𝕬".
+      - : Versuchen Sie, fett-fraktur Zeichen zu verwenden, z.B. "𝕬".
     - `script` {{deprecated_inline}}
       - : Versuchen Sie, Skript-Zeichen zu verwenden, z.B. "𝒜".
     - `bold-script` {{deprecated_inline}}
-      - : Versuchen Sie, fett Skript-Zeichen zu verwenden, z.B. "𝓐".
+      - : Versuchen Sie, fett-Skript Zeichen zu verwenden, z.B. "𝓐".
     - `fraktur` {{deprecated_inline}}
       - : Versuchen Sie, Fraktur-Zeichen zu verwenden, z.B. "𝔄".
     - `sans-serif` {{deprecated_inline}}
-      - : Versuchen Sie, sans-serif-Zeichen zu verwenden, z.B. "𝖠".
+      - : Versuchen Sie, serifenlose Zeichen zu verwenden, z.B. "𝖠".
     - `bold-sans-serif` {{deprecated_inline}}
-      - : Versuchen Sie, fett sans-serif-Zeichen zu verwenden, z.B. "𝗔".
+      - : Versuchen Sie, fett-serifenlose Zeichen zu verwenden, z.B. "𝗔".
     - `sans-serif-italic` {{deprecated_inline}}
-      - : Versuchen Sie, sans-serif kursive Zeichen zu verwenden, z.B. "𝘈".
+      - : Versuchen Sie, kursiv-serifenlose Zeichen zu verwenden, z.B. "𝘈".
     - `sans-serif-bold-italic` {{deprecated_inline}}
-      - : Versuchen Sie, sans-serif fett-kursive Zeichen zu verwenden, z.B. "𝘼".
+      - : Versuchen Sie, fett-kursiv-serifenlose Zeichen zu verwenden, z.B. "𝘼".
     - `monospace` {{deprecated_inline}}
       - : Versuchen Sie, Monospace-Zeichen zu verwenden, z.B. "𝙰".
     - `initial` {{deprecated_inline}}
       - : Versuchen Sie, initiale Zeichen zu verwenden, z.B. "𞸢".
     - `tailed` {{deprecated_inline}}
-      - : Versuchen Sie, geschwänzte Zeichen zu verwenden, z.B. "𞹂".
+      - : Versuchen Sie, Zeichen mit Schwanz anzuwenden, z.B. "𞹂".
     - `looped` {{deprecated_inline}}
       - : Versuchen Sie, geschlungene Zeichen zu verwenden, z.B. "𞺂".
     - `stretched` {{deprecated_inline}}
-      - : Versuchen Sie, gedehnte Zeichen zu verwenden, z.B. "𞹢".
+      - : Versuchen Sie, gestreckte Zeichen zu verwenden, z.B. "𞹢".
 
 Dieses Element akzeptiert auch die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes).
 

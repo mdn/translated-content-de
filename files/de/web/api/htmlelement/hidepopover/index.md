@@ -3,14 +3,14 @@ title: "HTMLElement: hidePopover() Methode"
 short-title: hidePopover()
 slug: Web/API/HTMLElement/hidePopover
 l10n:
-  sourceCommit: 27977f96015d1b74e743fa3762672894e087bd3d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Popover API")}}
 
-Die **`hidePopover()`** Methode des [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interface versteckt ein [Popover](/de/docs/Web/API/Popover_API) Element (d.h. eines, das ein gültiges [`popover`](/de/docs/Web/HTML/Global_attributes/popover) Attribut hat), indem es aus der {{Glossary("top_layer", "obersten Ebene")}} entfernt und mit `display: none` gestylt wird.
+Die **`hidePopover()`**-Methode des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces versteckt ein [Popover](/de/docs/Web/API/Popover_API)-Element (d.h. eines, das ein gültiges [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut hat), indem es aus der {{Glossary("top_layer", "Top-Ebene")}} entfernt und mit `display: none` gestylt wird.
 
-Wenn `hidePopover()` auf ein sichtbares Element mit dem [`popover`](/de/docs/Web/HTML/Global_attributes/popover) Attribut aufgerufen wird, wird ein [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) Ereignis ausgelöst, gefolgt vom Verstecken des Popovers und anschließend dem Auslösen des [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event) Ereignisses. Wenn das Element bereits versteckt ist, wird ein Fehler geworfen.
+Wenn `hidePopover()` bei einem angezeigten Element mit dem [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut aufgerufen wird, wird ein [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)-Event ausgelöst, gefolgt davon, dass das Popover versteckt wird, und anschließend wird das [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Event ausgelöst. Wenn das Element bereits versteckt ist, wird ein Fehler ausgelöst.
 
 ## Syntax
 
@@ -29,13 +29,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn das Popover bereits versteckt ist.
+  - : Wird ausgelöst, wenn das Popover bereits versteckt ist.
 
 ## Beispiele
 
 ### Ein Popover verstecken
 
-Das folgende Beispiel bietet eine Funktionalität, um ein Popover durch Drücken einer bestimmten Taste auf der Tastatur zu verstecken.
+Das folgende Beispiel bietet die Funktionalität, ein Popover durch Drücken einer bestimmten Taste auf der Tastatur zu verstecken.
 
 #### HTML
 

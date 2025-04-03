@@ -2,20 +2,20 @@
 title: <annotation-xml>
 slug: Web/MathML/Reference/Element/annotation-xml
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Das **`<annotation-xml>`**-Element von [MathML](/de/docs/Web/MathML) enthält eine Annotation zum MathML-Ausdruck im {{Glossary("XML", "XML")}}-Format, beispielsweise [Content MathML](https://en.wikipedia.org/wiki/MathML#Content_MathML) oder {{Glossary("SVG", "SVG")}}.
+Das **`<annotation-xml>`** [MathML](/de/docs/Web/MathML) Element enthält eine Annotation zur MathML-Ausdruck im {{Glossary("XML", "XML")}} Format, zum Beispiel [Content MathML](https://en.wikipedia.org/wiki/MathML#Content_MathML) oder {{Glossary("SVG", "SVG")}}.
 
 > [!NOTE]
-> Annotationen sollen nicht von Browsern gerendert werden und sind standardmäßig verborgen. Allerdings rendern Firefox und Safari einige Annotationsformate, falls das erste Kind des {{mathmlelement("semantics")}}-Elements Fehler enthält oder fehlt.
+> Annotationen sollen nicht von Browsern gerendert werden und sind standardmäßig versteckt. Allerdings rendern Firefox und Safari einige Annotationformate, wenn das erste Kind des {{mathmlelement("semantics")}} Elements Fehler enthält oder fehlt.
 
 ## Attribute
 
-Dieses Element umfasst die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie die folgenden Attribute:
+Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie die folgenden Attribute:
 
 - `encoding`
-  - : Die Kodierung der semantischen Informationen in der Annotation (z. B. `"application/mathml+xml"`, `"application/mathml-presentation+xml"`, `"application/mathml-content+xml"`)
+  - : Die Kodierung der semantischen Information in der Annotation (z.B. `"application/mathml+xml"`, `"application/mathml-presentation+xml"`, `"application/mathml-content+xml"`)
 - `src` {{deprecated_inline}}
   - : Der Speicherort einer externen Quelle für semantische Informationen.
 

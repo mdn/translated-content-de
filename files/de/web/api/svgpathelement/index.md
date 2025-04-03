@@ -2,44 +2,44 @@
 title: SVGPathElement
 slug: Web/API/SVGPathElement
 l10n:
-  sourceCommit: fb9772a0d8736488b647ce192f9c6465e1e2cf3a
+  sourceCommit: 43f272adb6ac15537cff3728c78ddf234485fff8
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGPathElement`**-Schnittstelle entspricht dem {{SVGElement("path")}}-Element.
+Das **`SVGPathElement`**-Interface entspricht dem {{SVGElement("path")}}-Element.
 
 {{InheritanceDiagram}}
 
 > [!NOTE]
-> In SVG 2 wurden die Methoden `getPathSegAtLength()` und `createSVGPathSeg*` entfernt und die `pathLength`-Eigenschaft sowie die Methoden `getTotalLength()` und `getPointAtLength()` wurden zu [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement) verschoben.
+> In SVG 2 wurden die Methoden `getPathSegAtLength()` und `createSVGPathSeg*` entfernt. Die Eigenschaft `pathLength` sowie die Methoden `getTotalLength()` und `getPointAtLength()` wurden zu [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement) verschoben.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
+_Dieses Interface erbt Eigenschaften von seinem Eltern-Interface, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
 - [`SVGPathElement.pathLength`](/de/docs/Web/API/SVGPathElement/pathLength) {{ReadOnlyInline}}
   - : Diese Eigenschaft spiegelt das {{SVGAttr("pathLength")}}-Attribut wider.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden von ihrem Elternteil, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
+_Dieses Interface erbt auch Methoden von seinem Eltern-Interface, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
 - [`SVGPathElement.getPathData()`](/de/docs/Web/API/SVGPathElement/getPathData) {{experimental_inline}}
-  - : Gibt die Sequenz der Pfadsegmente zurück, die den Pfaddaten entsprechen, und normalisiert optional die Werte und Segmenttypen.
+  - : Gibt die Sequenz von Pfadsegmenten zurück, die den Pfaddaten entsprechen, und normalisiert dabei optional die Werte und Segmenttypen.
 - [`SVGPathElement.getPointAtLength()`](/de/docs/Web/API/SVGPathElement/getPointAtLength)
-  - : Gibt den Punkt an einem bestimmten Abstand entlang des Pfades zurück.
+  - : Gibt den Punkt an einer bestimmten Distanz entlang des Pfades zurück.
 - [`SVGPathElement.getTotalLength()`](/de/docs/Web/API/SVGPathElement/getTotalLength)
-  - : Gibt den vom Benutzer-Agent ermittelten Wert für die Gesamtlänge des Pfades in Benutzereinheiten zurück.
+  - : Gibt den vom Benutzeragenten berechneten Wert für die Gesamtlänge des Pfades in Benutzereinheiten zurück.
 - [`SVGPathElement.setPathData()`](/de/docs/Web/API/SVGPathElement/setPathData) {{experimental_inline}}
-  - : Setzt die Sequenz der Pfadsegmente als neue Pfaddaten.
-- [`SVGPathElement.getPathSegmentAtLength()`](/de/docs/Web/API/SVGPathElement/getPathSegmentAtLength)
-  - : Gibt das Segment an einem bestimmten Abstand entlang des Pfades zurück.
+  - : Setzt die Sequenz von Pfadsegmenten als neue Pfaddaten.
+- [`SVGPathElement.getPathSegmentAtLength()`](/de/docs/Web/API/SVGPathElement/getPathSegmentAtLength) {{experimental_inline}}
+  - : Gibt das Segment an einer bestimmten Distanz entlang des Pfades zurück.
 
 ### Veraltete Methoden
 
 - [`SVGPathElement.getPathSegAtLength()`](/de/docs/Web/API/SVGPathElement/getPathSegAtLength) {{deprecated_inline}}
-  - : Gibt ein unsigniertes Long zurück, das den Index innerhalb der [`pathSegList`](/de/docs/Web/API/SVGAnimatedPathData/pathSegList) darstellt, wobei der Distanz-Algorithmus des Benutzer-Agents verwendet wird.
+  - : Gibt einen unsigned long zurück, der den Index innerhalb der [`pathSegList`](/de/docs/Web/API/SVGAnimatedPathData/pathSegList) unter Verwendung des Distanz-Entlang-eines-Pfades-Algorithmus des Benutzeragenten darstellt.
 - [`SVGPathElement.createSVGPathSegClosePath()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegClosePath) {{deprecated_inline}}
   - : Gibt ein eigenständiges, elternloses [`SVGPathSegClosePath`](/de/docs/Web/API/SVGPathSegClosePath)-Objekt zurück.
 - [`SVGPathElement.createSVGPathSegMovetoAbs()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegMovetoAbs) {{deprecated_inline}}

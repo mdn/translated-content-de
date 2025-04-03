@@ -3,12 +3,12 @@ title: "SpeechGrammarList: addFromString() Methode"
 short-title: addFromString()
 slug: Web/API/SpeechGrammarList/addFromString
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Web Speech API")}}{{ SeeCompatTable() }}
 
-Die **`addFromString()`**-Methode des [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) Interfaces nimmt eine Grammatik, die in einem bestimmten String innerhalb des Codebases vorhanden ist (z.B. in einer Variablen gespeichert), und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
+Die **`addFromString()`** Methode der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) Schnittstelle nimmt eine Grammatik, die in einem bestimmten String innerhalb des Code-Basis enthalten ist (z.B. in einer Variablen gespeichert), und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar) Objekt hinzu.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ addFromString(string, weight)
 - `string`
   - : Ein String, der die hinzuzufügende Grammatik darstellt.
 - `weight` {{optional_inline}}
-  - : Ein Float, der das Gewicht der Grammatik relativ zu anderen Grammatiken in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) repräsentiert. Das Gewicht gibt die Bedeutung dieser Grammatik an oder die Wahrscheinlichkeit, dass sie vom Spracherkennungsdienst erkannt wird. Der Wert kann zwischen `0.0` und `1.0` liegen; falls nicht angegeben, wird der Standardwert `1.0` verwendet.
+  - : Ein Gleitkommawert, der das Gewicht der Grammatik relativ zu anderen Grammatiken in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) darstellt. Das Gewicht gibt die Bedeutung dieser Grammatik oder die Wahrscheinlichkeit an, dass sie vom Spracherkennungsdienst erkannt wird. Der Wert kann zwischen `0.0` und `1.0` liegen; Wenn nicht angegeben, wird der Standardwert `1.0` verwendet.
 
 ### Rückgabewert
 

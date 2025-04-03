@@ -1,21 +1,21 @@
 ---
-title: Veralteter Elementverweis
+title: Stale-Element-Referenz
 slug: Web/WebDriver/Reference/Errors/StaleElementReference
 l10n:
-  sourceCommit: 57b855a52a2d2e8914a30e3a47567bff0806ae23
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Der **veraltete Elementverweis** Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, weil das referenzierte [Webelement](/de/docs/Web/WebDriver/WebElement) nicht mehr an das {{Glossary("DOM", "DOM")}} gebunden ist.
+Der **stale element reference**-Fehler ist ein [WebDriver Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, weil das referenzierte [Webelement](/de/docs/Web/WebDriver/WebElement) nicht mehr mit dem {{Glossary("DOM", "DOM")}} verbunden ist.
 
-Jedes DOM-Element wird im WebDriver durch einen eindeutigen Identifikationsverweis repräsentiert, bekannt als ein _[Webelement](/de/docs/Web/WebDriver/WebElement)_. Der Webelement-Verweis ist ein {{Glossary("UUID", "UUID")}}, der verwendet wird, um Befehle auf bestimmte Elemente auszuführen, wie zum Beispiel das [Abrufen des Tag-Namens eines Elements](/de/docs/Web/WebDriver/Reference/Commands/GetElementTagName) und das [Abrufen einer Eigenschaft](/de/docs/Web/WebDriver/Reference/Commands/GetElementProperty) eines Elements.
+Jedes DOM-Element wird in WebDriver durch eine einzigartige Identifikationsreferenz repräsentiert, bekannt als ein _[Webelement](/de/docs/Web/WebDriver/WebElement)_. Die Webelement-Referenz ist eine {{Glossary("UUID", "UUID")}}, die verwendet wird, um Befehle auszuführen, die auf bestimmte Elemente abzielen, wie z.B. [Abrufen des Tags eines Elements](/de/docs/Web/WebDriver/Reference/Commands/GetElementTagName) und [Abrufen einer Eigenschaft](/de/docs/Web/WebDriver/Reference/Commands/GetElementProperty) eines Elements.
 
-Wenn ein Element nicht mehr an das DOM gebunden ist, d.h. es wurde aus dem Dokument entfernt oder das Dokument hat sich geändert, spricht man davon, dass es _veraltet_ ist. Veralterung tritt beispielsweise auf, wenn Sie einen Webelement-Verweis haben und das Dokument, aus dem er abgerufen wurde, navigiert.
+Wenn ein Element nicht mehr mit dem DOM verbunden ist, d.h. es wurde aus dem Dokument entfernt oder das Dokument hat sich geändert, spricht man von _Staleness_. Staleness tritt beispielsweise auf, wenn Sie eine Webelement-Referenz haben und das Dokument, aus dem es abgerufen wurde, navigiert.
 
 ## Beispiele
 
 ### Dokumentnavigation
 
-Bei der Navigation werden alle Webelement-Verweise auf das vorherige Dokument zusammen mit dem Dokument verworfen. Dies führt dazu, dass jede nachfolgende Interaktion mit dem [Webelement](/de/docs/Web/WebDriver/WebElement) mit dem Fehler eines veralteten Elementverweises fehlschlägt:
+Bei der Navigation werden alle Webelement-Referenzen zum vorherigen Dokument zusammen mit dem Dokument verworfen. Dies führt dazu, dass jeder nachfolgende Versuch, mit dem [Webelement](/de/docs/Web/WebDriver/WebElement) zu interagieren, mit dem stale element reference-Fehler fehlschlägt:
 
 ```python
 import urllib
@@ -45,7 +45,7 @@ StaleElementReferenceException: The element reference of e75a1764-ff73-40fa-93c1
 
 ### Knotenentfernung
 
-Wenn ein Dokumentknoten aus dem DOM entfernt wird, wird sein Webelement-Verweis ungültig. Dies wird ebenfalls dazu führen, dass jede nachfolgende Interaktion mit dem [Webelement](/de/docs/Web/WebDriver/WebElement) mit dem Fehler eines veralteten Elementverweises fehlschlägt:
+Wenn ein Dokumentknoten aus dem DOM entfernt wird, wird seine Webelement-Referenz ungültig. Dies wird auch dazu führen, dass jeder nachfolgende Versuch, mit dem [Webelement](/de/docs/Web/WebDriver/WebElement) zu interagieren, mit dem stale element reference-Fehler fehlschlägt:
 
 ```python
 import urllib

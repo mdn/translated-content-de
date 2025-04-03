@@ -3,7 +3,7 @@ title: "PerformanceEntry: startTime-Eigenschaft"
 short-title: startTime
 slug: Web/API/PerformanceEntry/startTime
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
@@ -29,27 +29,27 @@ Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/
 - `longtask`
   - : Die Zeit, zu der die Aufgabe begann.
 - `mark`
-  - : Die Zeit, zu der das Mark durch einen Aufruf von [`performance.mark()`](/de/docs/Web/API/Performance/mark) erstellt wurde.
+  - : Die Zeit, zu der die Markierung durch einen Aufruf von [`performance.mark()`](/de/docs/Web/API/Performance/mark) erstellt wurde.
 - `measure`
-  - : Die Zeit, zu der das Maß durch einen Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) erstellt wurde.
+  - : Die Zeit, zu der die Messung durch einen Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) erstellt wurde.
 - `navigation`
   - : Immer `0`.
 - `paint`
-  - : Die Zeit, zu der das Paint auftrat.
+  - : Die Zeit, zu der das Rendering stattfand.
 - `resource`
   - : Der Wert der [`fetchStart`](/de/docs/Web/API/PerformanceResourceTiming/fetchStart)-Eigenschaft dieses Eintrags.
 - `taskattribution`
   - : Immer `0`.
 - `visibility-state`
-  - : Die Zeit, zu der die Änderung des Sichtbarkeitsstatus auftrat.
+  - : Die Zeit, zu der die Änderung des Sichtbarkeitszustands erfolgte.
 
 ## Beispiele
 
 ### Verwendung der startTime-Eigenschaft
 
-Das folgende Beispiel zeigt die Verwendung der `startTime`-Eigenschaft, die Sie während der Leistungsbeobachtung protokollieren können.
+Das folgende Beispiel zeigt die Verwendung der `startTime`-Eigenschaft, die während der Performance-Beobachtung protokolliert werden kann.
 
-Hinweis: Die Methode [`performance.mark()`](/de/docs/Web/API/Performance/mark) ermöglicht es Ihnen, Ihre eigene `startTime` festzulegen, und die Methode [`performance.measure()`](/de/docs/Web/API/Performance/measure) ermöglicht es, den Beginn der Messung festzulegen.
+> [!NOTE] Die Methode [`performance.mark()`](/de/docs/Web/API/Performance/mark) ermöglicht es Ihnen, Ihre eigene `startTime` festzulegen, und die Methode [`performance.measure()`](/de/docs/Web/API/Performance/measure) erlaubt es, den Beginn der Messung festzulegen.
 
 ```js
 performance.mark("my-mark");

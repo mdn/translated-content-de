@@ -3,12 +3,12 @@ title: "HTMLMediaElement: preload-Eigenschaft"
 short-title: preload
 slug: Web/API/HTMLMediaElement/preload
 l10n:
-  sourceCommit: 81e8c2870cff074b1daa7685788c51f5cac4e75c
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`preload`**-Eigenschaft der Schnittstelle [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) ist ein String, der dem Browser einen Hinweis darauf gibt, was der Autor für die beste Benutzererfahrung hält.
+Die **`preload`**-Eigenschaft des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) Interface ist ein String, der dem Browser einen Hinweis darauf gibt, was der Autor für die beste Benutzererfahrung hält.
 
 Sie spiegelt das `preload`-Attribut des {{HTMLElement("audio")}}-Elements und des {{HTMLElement("video")}}-Elements wider.
 
@@ -17,11 +17,11 @@ Sie spiegelt das `preload`-Attribut des {{HTMLElement("audio")}}-Elements und de
 Ein String. Mögliche Werte sind wie folgt:
 
 - `none`
-  - : Gibt an, dass das Medium nicht vorgeladen werden soll.
+  - : Gibt an, dass die Medien nicht vorgeladen werden sollen.
 - `metadata`
-  - : Gibt an, dass nur die Metadaten des Mediums (z.B. Länge) abgerufen werden.
+  - : Gibt an, dass nur Medienmetadaten (z. B. Länge) abgerufen werden.
 - `auto`
-  - : Gibt an, dass die gesamte Mediendatei heruntergeladen werden kann, auch wenn nicht erwartet wird, dass der Benutzer sie verwendet.
+  - : Gibt an, dass die gesamte Mediendatei heruntergeladen werden kann, auch wenn nicht erwartet wird, dass der Benutzer sie nutzt.
 - _leerer String_
   - : Ein Synonym für den Wert `auto`.
 

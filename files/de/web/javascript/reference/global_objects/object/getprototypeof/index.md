@@ -2,7 +2,7 @@
 title: Object.getPrototypeOf()
 slug: Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{JSRef}}
@@ -34,7 +34,7 @@ Object.getPrototypeOf(obj)
 
 ### Rückgabewert
 
-Der Prototyp des angegebenen Objekts, welcher möglicherweise [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist.
+Der Prototyp des gegebenen Objekts, der möglicherweise [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist.
 
 ## Beispiele
 
@@ -46,9 +46,9 @@ const obj = Object.create(proto);
 Object.getPrototypeOf(obj) === proto; // true
 ```
 
-### Nicht-Objekt Umwandlung
+### Zwangsumwandlung bei Nicht-Objekten
 
-In ES5 wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst, wenn der `obj`
+In ES5 wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst, wenn der `obj`-
 Parameter kein Objekt ist. In ES2015 wird der Parameter in ein
 {{jsxref("Object")}} umgewandelt.
 

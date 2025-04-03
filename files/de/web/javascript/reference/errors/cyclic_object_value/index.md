@@ -2,14 +2,14 @@
 title: "TypeError: cyclic object value"
 slug: Web/JavaScript/Reference/Errors/Cyclic_object_value
 l10n:
-  sourceCommit: ef472690cc383fc77d7aa53ddec036b5efa3b526
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Fehler "cyclic object value" tritt auf, wenn Objektverweise in [JSON](https://www.json.org/) gefunden werden. {{jsxref("JSON.stringify()")}} versucht nicht, diese zu lösen, und schlägt dementsprechend fehl.
+Der JavaScript-Ausnahmefehler "cyclic object value" tritt auf, wenn Objektverweise in [JSON](https://www.json.org/) gefunden wurden. {{jsxref("JSON.stringify()")}} versucht nicht, diese zu lösen und schlägt entsprechend fehl.
 
-## Meldung
+## Nachricht
 
 ```plain
 TypeError: Converting circular structure to JSON (V8-based)
@@ -23,13 +23,13 @@ TypeError: JSON.stringify cannot serialize cyclic structures. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Das [JSON-Format](https://www.json.org/) unterstützt an sich keine Objektverweise (obwohl ein [IETF-Entwurf existiert](https://datatracker.ietf.org/doc/html/draft-pbryan-zyp-json-ref-03)), daher versucht {{jsxref("JSON.stringify()")}} nicht, diese zu lösen, und schlägt dementsprechend fehl.
+Das [JSON-Format](https://www.json.org/) unterstützt an sich keine Objektverweise (obwohl ein [IETF-Entwurf existiert](https://datatracker.ietf.org/doc/html/draft-pbryan-zyp-json-ref-03)), daher versucht {{jsxref("JSON.stringify()")}} nicht, diese zu lösen, und schlägt entsprechend fehl.
 
 ## Beispiele
 
-### Zyklische Verweise
+### Zirkuläre Referenzen
 
-In einer zyklischen Struktur wie der folgenden:
+In einer zirkulären Struktur wie der folgenden:
 
 ```js
 const circularReference = { otherData: 123 };
@@ -43,9 +43,9 @@ JSON.stringify(circularReference);
 // TypeError: cyclic object value
 ```
 
-Um zyklische Verweise zu serialisieren, können Sie eine Bibliothek verwenden, die diese unterstützt (z. B. [cycle.js](https://github.com/douglascrockford/JSON-js/blob/master/cycle.js)) oder eine eigene Lösung implementieren, die das Auffinden und Ersetzen (oder Entfernen) der zyklischen Verweise durch serialisierbare Werte erfordert.
+Um zirkuläre Referenzen zu serialisieren, können Sie eine Bibliothek verwenden, die diese unterstützt (z.B. [cycle.js](https://github.com/douglascrockford/JSON-js/blob/master/cycle.js)), oder eine eigene Lösung implementieren, die erfordert, dass zirkuläre Referenzen durch serialisierbare Werte gefunden und ersetzt (oder entfernt) werden.
 
-Der folgende Code zeigt, wie man mithilfe des `replacer`-Parameters von {{jsxref("JSON.stringify()")}} einen zyklischen Verweis finden und filtern kann (was zu Datenverlust führt):
+Das folgende Snippet veranschaulicht, wie man mit dem `replacer`-Parameter von {{jsxref("JSON.stringify()")}} eine zirkuläre Referenz findet und filtert (wodurch Datenverlust entsteht):
 
 ```js
 function getCircularReplacer() {

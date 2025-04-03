@@ -2,28 +2,28 @@
 title: Observe-Browsing-Topics
 slug: Web/HTTP/Reference/Headers/Observe-Browsing-Topics
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{non-standard_header}}
 
 > [!WARNING]
-> Dieses Feature wird derzeit von zwei Browser-Anbietern abgelehnt. Siehe den Abschnitt [Standardpositionen](/de/docs/Web/API/Topics_API#standards_positions) für Details zur Ablehnung.
+> Dieses Feature wird derzeit von zwei Browseranbietern abgelehnt. Weitere Informationen zu den Ablehnungen finden Sie im Abschnitt [Standards positions](/de/docs/Web/API/Topics_API#standards_positions).
 
-Der HTTP **`Observe-Browsing-Topics`** {{Glossary("response_header", "Antwort-Header")}} wird verwendet, um Interessenthemen zu kennzeichnen, die von der URL einer aufrufenden Seite (d.h. der Seite, auf der die Ad-Tech {{HTMLElement("iframe")}} eingebettet ist) abgeleitet und in der Antwort auf eine Anfrage beobachtet werden, die von einer [Funktion, die die Topics API aktiviert](/de/docs/Web/API/Topics_API/Using#what_api_features_enable_the_topics_api), generiert wurde. Der Browser wird diese Themen anschließend verwenden, um die Top-Themen für den aktuellen Benutzer für zukünftige Zeiträume zu berechnen.
+Der HTTP **`Observe-Browsing-Topics`** {{Glossary("response_header", "Response-Header")}} wird verwendet, um Themen von Interesse zu kennzeichnen, die aus der URL der aufrufenden Website (d.h. der Seite, auf der die Ad-Tech {{HTMLElement("iframe")}} eingebettet ist) abgeleitet wurden, wie in der Antwort auf eine Anfrage beobachtet wird, die durch ein [Feature, das die Topics API aktiviert](/de/docs/Web/API/Topics_API/Using#what_api_features_enable_the_topics_api), generiert wurde. Der Browser wird diese Themen anschließend verwenden, um die Hauptthemen für den aktuellen Benutzer für zukünftige Epochen zu berechnen.
 
-Siehe [Verwendung der Topics API](/de/docs/Web/API/Topics_API/Using) für weitere Details.
+Weitere Details finden Sie unter [Using the Topics API](/de/docs/Web/API/Topics_API/Using).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Response_header", "Antwort-Header")}}
+        {{Glossary("Response_header", "Response-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -38,11 +38,11 @@ Observe-Browsing-Topics: ?1
 ### Direktiven
 
 - `?1`
-  - : Eine Zeichenfolge, die erklärt, dass Interessenthemen, die von der URL einer aufrufenden Seite (d.h. der Seite, auf der die Ad-Tech `<iframe>` eingebettet ist) abgeleitet werden, als beobachtet gekennzeichnet sind. Der Browser wird diese Themen anschließend verwenden, um Interessenthemen für einen Benutzer für zukünftige Zeiträume zu berechnen.
+  - : Eine Zeichenfolge, die erklärt, dass Themen von Interesse, die aus der URL der aufrufenden Website (d.h. der Seite, auf der die Ad-Tech `<iframe>` eingebettet ist) abgeleitet wurden, als beobachtet markiert sind. Der Browser wird diese Themen anschließend verwenden, um Themen von Interesse für einen Benutzer für zukünftige Epochen zu berechnen.
 
 ## Spezifikationen
 
-Dieses Feature ist kein Teil eines offiziellen Standards, obwohl es im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
+Dieses Feature ist nicht Teil eines offiziellen Standards, obwohl es im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert wird.
 
 ## Browser-Kompatibilität
 

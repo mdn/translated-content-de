@@ -2,22 +2,22 @@
 title: xml:lang
 slug: Web/SVG/Reference/Attribute/xml:lang
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{Deprecated_Header}}
 
-Das **`xml:lang`** Attribut gibt die Hauptsprache an, die in den Inhalten und Attributen mit Textinhalt bestimmter Elemente verwendet wird.
+Das **`xml:lang`** Attribut gibt die Hauptsprache an, die in Inhalten und Attributen mit Textinhalt bestimmter Elemente verwendet wird.
 
-Es ist ein universelles Attribut, das in allen XML-Dialekten erlaubt ist, um die natürliche menschliche Sprache eines Elements zu kennzeichnen.
+Es handelt sich um ein universelles Attribut, das in allen XML-Dialekten verwendet werden darf, um die natürliche menschliche Sprache, die ein Element enthält, zu kennzeichnen.
 
-Es gibt auch ein {{SVGAttr("lang")}} Attribut (ohne Namespace). Wenn beide definiert sind, wird der mit dem Namespace verwendet und der ohne ignoriert.
+Es gibt auch ein {{SVGAttr("lang")}} Attribut (ohne Namensraum). Wenn beide definiert sind, wird das Attribut mit Namensraum verwendet und das ohne wird ignoriert.
 
 ## Elemente
 
-Dieses Attribut kann mit jedem SVG-Element verwendet werden.
+Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -38,9 +38,9 @@ Dieses Attribut kann mit jedem SVG-Element verwendet werden.
 
 - `<language-tag>`
 
-  - : Dieser Wert gibt die Sprache an, die für das Element verwendet wird. Die Syntax dieses Wertes ist definiert in {{RFC(5646, "Tags für die Identifizierung von Sprachen (auch bekannt als BCP 47)")}}.
+  - : Dieser Wert gibt die verwendete Sprache für das Element an. Die Syntax dieses Wertes ist in {{RFC(5646, "Tags for Identifying Languages (also known as BCP 47)")}} definiert.
 
-    Die gebräuchlichste Syntax ist ein Wert, der aus einem zweistelligen Teil in Kleinbuchstaben für die Sprache und einem zweistelligen Teil in Großbuchstaben für die Region oder das Land besteht, getrennt durch einen Bindestrich, z.B. `en-US` für US-Englisch oder `de-AT` für Österreichisches Deutsch.
+    Die gängigste Syntax ist ein Wert, der aus einem zweistelligen Kleinbuchstabenteil für die Sprache und einem zweistelligen Großbuchstabenteil für die Region oder das Land besteht, getrennt durch einen Bindestrich, z.B. `en-US` für US-Englisch oder `de-AT` für Österreichisches Deutsch.
 
 ## Beispiele
 
@@ -61,4 +61,4 @@ Dieses Attribut kann mit jedem SVG-Element verwendet werden.
 ## Siehe auch
 
 - [XML-Spezifikation von `xml:lang`](https://www.w3.org/TR/xml/#sec-lang-tag)
-- {{RFC(5646, "Tags für die Identifizierung von Sprachen (auch bekannt als BCP 47)")}}
+- {{RFC(5646, "Tags for Identifying Languages (also known as BCP 47)")}}

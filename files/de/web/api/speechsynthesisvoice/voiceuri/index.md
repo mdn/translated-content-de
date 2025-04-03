@@ -3,17 +3,16 @@ title: "SpeechSynthesisVoice: voiceURI-Eigenschaft"
 short-title: voiceURI
 slug: Web/API/SpeechSynthesisVoice/voiceURI
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`voiceURI`**-Schreibgeschützte Eigenschaft des
-[`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt den Typ und Standort des URI des Sprachsynthesedienstes für diese Stimme zurück.
+Die schreibgeschützte **`voiceURI`**-Eigenschaft der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Schnittstelle gibt den Typ des URI und den Standort des Sprachsynthese-Dienstes für diese Stimme zurück.
 
 ## Wert
 
-Ein String, der den URI der Stimme darstellt. Dies ist ein generischer URI und kann auf lokale oder entfernte Dienste verweisen, z. B. könnte es ein proprietäres System-URN oder eine URL zu einem entfernten Dienst sein.
+Ein String, der den URI der Stimme repräsentiert. Dies ist ein generischer URI und kann auf lokale oder entfernte Dienste verweisen, z.B. könnte es ein proprietäres System-URN oder eine URL zu einem entfernten Dienst sein.
 
 ## Beispiele
 

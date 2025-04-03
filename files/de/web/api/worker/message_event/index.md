@@ -3,14 +3,14 @@ title: "Worker: message-Ereignis"
 short-title: message
 slug: Web/API/Worker/message_event
 l10n:
-  sourceCommit: e6457c34ac16790d4e62bc9ba21e899ac560089c
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
 Das `message`-Ereignis wird auf einem [`Worker`](/de/docs/Web/API/Worker)-Objekt ausgelöst, wenn der übergeordnete Prozess des Workers eine Nachricht von seinem Worker erhält (d.h. wenn der Worker eine Nachricht mit [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) sendet).
 
-Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
@@ -33,19 +33,19 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die vom Nachrichtenemitter gesendeten Daten.
+  - : Die vom Nachrichtensender gesendeten Daten.
 - [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtenemitters darstellt.
+  - : Ein String, der die Herkunft des Nachrichtensenders repräsentiert.
 - [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
 - [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Ein `MessageEventSource` (das ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), das den Nachrichtenemitter darstellt.
+  - : Eine `MessageEventSource` (kann ein {{Glossary("WindowProxy", "WindowProxy")}}, ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein), das den Nachrichtensender darstellt.
 - [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, das die mit dem Kanal verbundenen Ports darstellt, über den die Nachricht gesendet wird (wo zutreffend, z. B. beim Channel Messaging oder beim Senden einer Nachricht an einen geteilten Worker).
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, das die mit dem Kanal assoziierten Ports repräsentiert, über den die Nachricht gesendet wird (wo zutreffend, z. B. bei Nachrichtenübermittlung in Kanälen oder beim Senden einer Nachricht an einen gemeinsamen Worker).
 
 ## Beispiele
 
-Dieser Code erstellt einen neuen Worker und lauscht Nachrichten von ihm unter Verwendung von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
+Dieser Code erstellt einen neuen Worker und hört auf Nachrichten von diesem mittels [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js
 const worker = new Worker("static/scripts/worker.js");
@@ -55,7 +55,7 @@ worker.addEventListener("message", (event) => {
 });
 ```
 
-Alternativ könnte er über die `onmessage`-Ereignis-Handler-Eigenschaft lauschen:
+Alternativ kann das `onmessage`-Ereignis-Handler-Eigenschaft verwendet werden, um zu hören:
 
 ```js
 const worker = new Worker("static/scripts/worker.js");

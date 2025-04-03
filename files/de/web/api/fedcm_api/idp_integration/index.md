@@ -1,29 +1,29 @@
 ---
-title: Integration des Identitätsanbieters mit FedCM
+title: Integration des Identitätsproviders mit FedCM
 slug: Web/API/FedCM_API/IDP_integration
 l10n:
-  sourceCommit: 6b7cddb9daa5e9f6f23300d90c18a0a4d3bbdda0
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{DefaultAPISidebar("FedCM API")}}
 
-Dieser Artikel beschreibt alle Schritte, die ein Identitätsanbieter (IdP) unternehmen muss, um in die Federated Credential Management (FedCM) API zu integrieren.
+Dieser Artikel beschreibt alle Schritte, die ein Identitätsprovider (IdP) unternehmen muss, um sich in die Federated Credential Management (FedCM) API zu integrieren.
 
-## Schritte zur Integration des IdP
+## Schritte zur IdP-Integration
 
-Um mit FedCM zu integrieren, muss ein IdP Folgendes tun:
+Um sich in FedCM zu integrieren, muss ein IdP Folgendes tun:
 
-1. [Eine bekannte Datei bereitstellen](#eine_bekannte_datei_bereitstellen), um den IdP zu identifizieren.
-2. [Eine Konfigurationsdatei und Endpunkte bereitstellen](#eine_konfigurationsdatei_und_endpunkte_bereitstellen) für die Kontenliste und die Ausstellung von Behauptungen (und optional Client-Metadaten).
-3. [Seinen Anmeldestatus aktualisieren](#anmeldestatus_mit_der_login_status_api_aktualisieren) unter Verwendung der Login Status API.
+1. [Stellen Sie eine bekannte Datei bereit](#stellen_sie_eine_bekannte_datei_bereit), um den IdP zu identifizieren.
+2. [Stellen Sie eine Konfigurationsdatei und Endpunkte bereit](#stellen_sie_eine_konfigurationsdatei_und_endpunkte_bereit) für Kontenlisten und Assertionsausstellung (und optional, Client-Metadaten).
+3. [Aktualisieren Sie den Anmeldestatus](#aktualisierung_des_anmeldestatus_mit_der_anmeldestatus-api) mit der Anmeldestatus-API.
 
-## Eine bekannte Datei bereitstellen
+## Stellen Sie eine bekannte Datei bereit
 
-Es gibt ein mögliches Datenschutzproblem, bei dem ein [IdP in der Lage ist, zu erkennen, ob ein Benutzer ohne ausdrückliche Zustimmung einen RP besucht hat](https://github.com/w3c-fedid/FedCM/issues/230). Dies hat Tracking-Implikationen, daher muss ein IdP eine bekannte Datei bereitstellen, um seine Identität zu überprüfen und dieses Problem zu entschärfen.
+Es gibt ein potenzielles Datenschutzproblem, bei dem ein [IdP erkennen kann, ob ein Benutzer eine RP ohne ausdrückliche Zustimmung besucht hat](https://github.com/w3c-fedid/FedCM/issues/230). Dies hat Auswirkungen auf das Tracking, daher muss ein IdP eine bekannte Datei bereitstellen, um seine Identität zu überprüfen und dieses Problem zu mindern.
 
-Die bekannte Datei wird über eine nicht kredenzierte [`GET`](/de/docs/Web/HTTP/Reference/Methods/GET)-Anfrage angefordert, die keine Weiterleitungen verfolgt. Dies verhindert effektiv, dass der IdP erfährt, wer die Anfrage gestellt hat und welcher RP versucht, sich zu verbinden.
+Die bekannte Datei wird über eine anmeldefreie [`GET`](/de/docs/Web/HTTP/Reference/Methods/GET)-Anfrage angefordert, die keine Redirects folgt. Dies verhindert effektiv, dass der IdP erfährt, wer die Anfrage gestellt hat und welche RP versucht, sich zu verbinden.
 
-Die bekannte Datei muss vom [eTLD+1](https://web.dev/articles/same-site-same-origin#site) des IdP unter `/.well-known/web-identity` bereitgestellt werden. Zum Beispiel, wenn die IdP-Endpunkte unter `https://accounts.idp.example/` bedient werden, müssen sie eine bekannte Datei unter `https://idp.example/.well-known/web-identity` bereitstellen. Der Inhalt der bekannten Datei sollte die folgende JSON-Struktur haben:
+Die bekannte Datei muss vom [eTLD+1](https://web.dev/articles/same-site-same-origin#site) des IdP unter `/.well-known/web-identity` bereitgestellt werden. Zum Beispiel, wenn die IdP-Endpunkte unter `https://accounts.idp.example/` bereitgestellt werden, müssen sie eine bekannte Datei unter `https://idp.example/.well-known/web-identity` bereitstellen. Der Inhalt der bekannten Datei sollte die folgende JSON-Struktur haben:
 
 ```json
 {
@@ -31,19 +31,19 @@ Die bekannte Datei muss vom [eTLD+1](https://web.dev/articles/same-site-same-ori
 }
 ```
 
-Das `provider_urls`-Mitglied sollte ein Array von URLs enthalten, die auf gültige IdP-Konfigurationsdateien verweisen, welche von RPs zur Interaktion mit dem IdP verwendet werden können. Die Array-Länge ist derzeit auf eins begrenzt.
+Das `provider_urls`-Element sollte ein Array von URLs enthalten, die auf gültige IdP-Konfigurationsdateien verweisen, die von RPs verwendet werden können, um mit dem IdP zu interagieren. Die Länge des Arrays ist derzeit auf eins begrenzt.
 
-## Der HTTP-Header `Sec-Fetch-Dest`
+## Der `Sec-Fetch-Dest` HTTP-Header
 
-Alle vom Browser über FedCM gesendeten Anfragen enthalten einen `{{httpheader("Sec-Fetch-Dest")}}: webidentity`-Header. Alle IdP-Endpunkte, die Anfragen mit Anmeldedaten erhalten (d. h. `accounts_endpoint` und `id_assertion_endpoint`), müssen bestätigen, dass dieser Header enthalten ist, um Schutz vor {{Glossary("CSRF", "CSRF")}}-Angriffen zu bieten.
+Alle vom Browser via FedCM gesendeten Anfragen enthalten einen `{{httpheader("Sec-Fetch-Dest")}}: webidentity`-Header. Alle IdP-Endpunkte, die authentifizierte Anfragen erhalten (d.h. `accounts_endpoint` und `id_assertion_endpoint`), müssen bestätigen, dass dieser Header enthalten ist, um {{Glossary("CSRF", "CSRF")}}-Angriffe zu verhindern.
 
-## Eine Konfigurationsdatei und Endpunkte bereitstellen
+## Stellen Sie eine Konfigurationsdatei und Endpunkte bereit
 
-Die IdP-Konfigurationsdatei enthält eine Liste der Endpunkte, die der Browser benötigt, um den Identitätsföderationsfluss zu verarbeiten und die Anmeldungen zu verwalten. Die Endpunkte müssen gleichherkunft mit der Konfiguration sein.
+Die IdP-Konfigurationsdatei bietet eine Liste der Endpunkte, die der Browser benötigt, um den Identitätsverbund-Ablauf zu verarbeiten und die Anmeldungen zu verwalten. Die Endpunkte müssen gleich-origin mit der Konfiguration sein.
 
-Der Browser stellt eine nicht kredenzierte Anfrage für die Konfigurationsdatei über die [`GET`](/de/docs/Web/HTTP/Reference/Methods/GET)-Methode, die keine Weiterleitungen verfolgt. Dies verhindert effektiv, dass der IdP erfährt, wer die Anfrage gestellt hat und welcher RP versucht, sich zu verbinden.
+Der Browser macht eine anmeldefreie Anfrage für die Konfigurationsdatei über die [`GET`](/de/docs/Web/HTTP/Reference/Methods/GET)-Methode, die keine Redirects folgt. Dies verhindert effektiv, dass der IdP erfährt, wer die Anfrage gestellt hat und welche RP versucht, sich zu verbinden.
 
-Die Konfigurationsdatei (in unserem Beispiel unter `https://accounts.idp.example/config.json` gehostet) sollte die folgende JSON-Struktur haben:
+Die Konfigurationsdatei (gehostet unter `https://accounts.idp.example/config.json` in unserem Beispiel) sollte die folgende JSON-Struktur haben:
 
 ```json
 {
@@ -67,36 +67,36 @@ Die Konfigurationsdatei (in unserem Beispiel unter `https://accounts.idp.example
 Die Eigenschaften sind wie folgt:
 
 - `accounts_endpoint`
-  - : Die URL für den Endpunkt der Kontenliste, die eine Liste von Konten zurückgibt, bei denen der Benutzer derzeit beim IdP angemeldet ist. Der Browser verwendet diese, um eine Liste von Anmeldeoptionen zu erstellen, die dem Benutzer in der vom Browser bereitgestellten FedCM-Benutzeroberfläche angezeigt werden.
+  - : Die URL für den Kontenlisten-Endpunkt, der eine Liste von Konten zurückgibt, bei denen der Benutzer derzeit beim IdP angemeldet ist. Der Browser verwendet diese, um eine Liste von Anmeldeoptionen zu erstellen, die dem Benutzer in der browserseitigen FedCM-UI angezeigt werden.
 - `client_metadata_endpoint` {{optional_inline}}
-  - : Die URL für den Endpunkt der Client-Metadaten, der URLs bereitstellt, die auf die Metadaten und Servicebedingungen des RP verweisen, die in der FedCM-Benutzeroberfläche verwendet werden sollen.
+  - : Die URL für den Client-Metadaten-Endpunkt, der URLs bereitstellt, die auf die Metadaten und Nutzungsbedingungen der RP verweisen, zur Verwendung in der FedCM-UI.
 - `id_assertion_endpoint`
-  - : Die URL für den ID-Bestätigungsendpunkt, der bei Eingabe gültiger Benutzeranmeldeinformationen mit einem Bestätigungstoken antworten sollte, das der RP zur Authentifizierungsvalidierung verwenden kann.
+  - : Die URL für den ID-Assertions-Endpunkt, der bei gültigen Nutzeranmeldeinformationen mit einem Validierungstoken antworten sollte, das die RP verwenden kann, um die Authentifizierung zu validieren.
 - `login_url`
-  - : Die URL der Anmeldeseite, über die der Benutzer sich beim IdP anmeldet.
+  - : Die URL der Anmeldeseite für den Benutzer, um sich beim IdP anzumelden.
 - `branding` {{optional_inline}}
-  - : Enthält Branding-Informationen, die in der vom Browser bereitgestellten FedCM-Benutzeroberfläche zur Anpassung des Aussehens gemäß den Wünschen des IdP verwendet werden.
+  - : Enthält Branding-Informationen, die in der browserseitigen FedCM-UI verwendet werden, um deren Aussehen nach den Wünschen des IdP anzupassen.
 
-Die folgende Tabelle fasst die verschiedenen Anfragen zusammen, die von der FedCM API gestellt werden:
+Die folgende Tabelle fasst die verschiedenen Anfragen zusammen, die von der FedCM API gemacht werden:
 
-| Endpunkt/Ressource         | Methode | Mit Anmeldedaten (mit Cookies) | Enthält {{httpheader("Origin")}} |
-| -------------------------- | ------- | ------------------------------ | -------------------------------- |
-| `well-known`/`config.json` | `GET`   | Nein                           | Nein                             |
-| `accounts_endpoint`        | `GET`   | Ja                             | Nein                             |
-| `client_metadata_endpoint` | `GET`   | Nein                           | Ja                               |
-| `id_assertion_endpoint`    | `POST`  | Ja                             | Ja                               |
-
-> [!NOTE]
-> Für eine Beschreibung des FedCM-Flusses, in dem diese Endpunkte aufgerufen werden, siehe [FedCM-Anmeldefluss](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow).
+| Endpoint/Ressource         | Methode | Authentifiziert (mit Cookies) | Beinhaltet {{httpheader("Origin")}} |
+| -------------------------- | ------- | ----------------------------- | ----------------------------------- |
+| `well-known`/`config.json` | `GET`   | Nein                          | Nein                                |
+| `accounts_endpoint`        | `GET`   | Ja                            | Nein                                |
+| `client_metadata_endpoint` | `GET`   | Nein                          | Ja                                  |
+| `id_assertion_endpoint`    | `POST`  | Ja                            | Ja                                  |
 
 > [!NOTE]
-> Keine der Anfragen, die von der FedCM API an die hier beschriebenen Endpunkte gestellt werden, erlauben das Folgen von Weiterleitungen, aus Gründen des Datenschutzes.
+> Eine Beschreibung des FedCM-Ablaufs, in dem diese Endpunkte aufgerufen werden, finden Sie unter [FedCM-Anmeldeablauf](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow).
 
-### Der Endpunkt der Kontenliste
+> [!NOTE]
+> Keine der von der FedCM API an die hier beschriebenen Endpunkte gestellten Anfragen erlaubt das Folgen von Redirects, aus Datenschutzgründen.
 
-Der Browser sendet Anfragen mit Anmeldedaten (d. h. mit einem Cookie, das den angemeldeten Benutzer identifiziert) an diesen Endpunkt über die `GET`-Methode. Die Anfrage enthält keinen `client_id`-Parameter, keinen {{httpheader("Origin")}}-Header und keinen {{httpheader("Referer")}}-Header. Dies verhindert wirksam, dass der IdP erfährt, bei welchem RP der Benutzer sich anmelden möchte. Die zurückgegebene Liste der Konten ist RP-unabhängig.
+### Der Kontenlisten-Endpunkt
 
-Beispiel:
+Der Browser sendet authentifizierte Anfragen (d.h. mit einem Cookie, das den angemeldeten Nutzer identifiziert) an diesen Endpunkt über die `GET`-Methode. Die Anfrage hat keinen `client_id`-Parameter, keinen {{httpheader("Origin")}}-Header und keinen {{httpheader("Referer")}}-Header. Dies verhindert effektiv, dass der IdP erfährt, welche RP der Benutzer versucht, sich anzumelden. Die zurückgegebene Kontenliste ist RP-neutral.
+
+Zum Beispiel:
 
 ```http
 GET /accounts.php HTTP/1.1
@@ -106,7 +106,7 @@ Cookie: 0x23223
 Sec-Fetch-Dest: webidentity
 ```
 
-Die Antwort auf eine erfolgreiche Anfrage gibt eine Liste aller IdP-Konten zurück, bei denen der Benutzer derzeit angemeldet ist (nicht spezifisch für ein bestimmtes RP), mit einer JSON-Struktur, die wie folgt aussieht:
+Die Antwort auf eine erfolgreiche Anfrage gibt eine Liste aller IdP-Konten zurück, bei denen der Benutzer derzeit angemeldet ist (nicht spezifisch für eine bestimmte RP), mit einer JSON-Struktur, die der folgenden entspricht:
 
 ```json
 {
@@ -133,7 +133,7 @@ Die Antwort auf eine erfolgreiche Anfrage gibt eine Liste aller IdP-Konten zurü
 }
 ```
 
-Dies umfasst die folgenden Informationen:
+Dies beinhaltet folgende Informationen:
 
 - `id`
   - : Die eindeutige ID des Benutzers.
@@ -144,20 +144,20 @@ Dies umfasst die folgenden Informationen:
 - `given_name` {{optional_inline}}
   - : Der Vorname des Benutzers.
 - `picture` {{optional_inline}}
-  - : Die URL des Avatarbildes des Benutzers.
+  - : Die URL des Benutzer-Avatars.
 - `approved_clients` {{optional_inline}}
   - : Ein Array von RP-Clients, bei denen der Benutzer registriert ist.
 - `login_hints` {{optional_inline}}
-  - : Ein Array von Zeichenketten, die das Konto darstellen. Diese Zeichenketten werden verwendet, um die Liste der Kontooptionen zu filtern, die der Browser dem Benutzer zur Anmeldung anbietet. Dies geschieht, wenn die Eigenschaft `loginHint` innerhalb von [`identity.providers`](/de/docs/Web/API/IdentityCredentialRequestOptions#providers) in einem entsprechenden `get()`-Aufruf bereitgestellt wird. Jedes Konto, das eine Zeichenkette in seinem `login_hints`-Array enthält, die mit dem bereitgestellten `loginHint` übereinstimmt, wird einbezogen.
+  - : Ein Array von Strings, die das Konto repräsentieren. Diese Strings werden verwendet, um die Liste der Kontooptionen zu filtern, die der Browser dem Benutzer für die Anmeldung anbietet. Dies geschieht, wenn die Eigenschaft `loginHint` innerhalb von [`identity.providers`](/de/docs/Web/API/IdentityCredentialRequestOptions#providers) in einem zugehörigen `get()`-Aufruf bereitgestellt wird. Jedes Konto mit einem String in seinem `login_hints`-Array, das mit dem bereitgestellten `loginHint` übereinstimmt, wird eingeschlossen.
 
 > [!NOTE]
 > Wenn der Benutzer bei keinem IdP-Konto angemeldet ist, sollte der Endpunkt mit [HTTP 401 (Unauthorized)](/de/docs/Web/HTTP/Reference/Status/401) antworten.
 
-### Der Endpunkt für Client-Metadaten
+### Der Client-Metadaten-Endpunkt
 
-Der Browser sendet nicht kredenzierte Anfragen an diesen Endpunkt mit der `GET`-Methode, wobei der `clientId` als Parameter in den `get()`-Aufruf übergeben wird.
+Der Browser sendet anmeldefreie Anfragen an diesen Endpunkt über die `GET`-Methode, wobei der `clientId` als Parameter in den `get()`-Aufruf übergeben wird.
 
-Beispiel:
+Zum Beispiel:
 
 ```http
 GET /client_metadata.php?client_id=1234 HTTP/1.1
@@ -167,7 +167,7 @@ Accept: application/json
 Sec-Fetch-Dest: webidentity
 ```
 
-Die Antwort auf eine erfolgreiche Anfrage enthält URLs, die auf die Metadaten des RP und die Seiten zu den Servicebedingungen verweisen, welche in der vom Browser bereitgestellten FedCM-Benutzeroberfläche verwendet werden sollen. Diese sollte der folgenden JSON-Struktur entsprechen:
+Die Antwort auf eine erfolgreiche Anfrage beinhaltet URLs, die auf die Metadaten und Nutzungsbedingungen der RP verweist, zur Verwendung in der browserseitigen FedCM-UI. Dies sollte der unten gezeigten JSON-Struktur folgen:
 
 ```json
 {
@@ -176,11 +176,11 @@ Die Antwort auf eine erfolgreiche Anfrage enthält URLs, die auf die Metadaten d
 }
 ```
 
-### Der Endpunkt für ID-Bestätigungen
+### Der ID-Assertions-Endpunkt
 
-Der Browser sendet Anfragen mit Anmeldedaten an diesen Endpunkt über die [`POST`](/de/docs/Web/HTTP/Reference/Methods/POST)-Methode, mit einem Content-Typ von `application/x-www-form-urlencoded`. Die Anfrage enthält auch eine Nutzlast mit Details über den Anmeldeversuch und das zu validierende Konto.
+Der Browser sendet authentifizierte Anfragen an diesen Endpunkt über die [`POST`](/de/docs/Web/HTTP/Reference/Methods/POST)-Methode mit einem Content-Type von `application/x-www-form-urlencoded`. Die Anfrage enthält auch eine Nutzlast mit Details über die versuchte Anmeldung und das Konto, das validiert werden soll.
 
-Es sollte in etwa so aussehen:
+Es sollte ungefähr so aussehen:
 
 ```http
 POST /assertion.php HTTP/1.1
@@ -192,7 +192,7 @@ Sec-Fetch-Dest: webidentity
 account_id=123&client_id=client1234&nonce=Ct60bD&disclosure_text_shown=true&is_auto_selected=true
 ```
 
-Eine Anfrage an diesen Endpunkt wird als Ergebnis der Auswahl eines Kontos zur Anmeldung durch den Benutzer in der relevanten Benutzeroberfläche des Browsers gesendet. Wenn gültige Benutzeranmeldedaten gesendet werden, sollte dieser Endpunkt mit einem Validierungstoken antworten, das der RP verwenden kann, um den Benutzer auf seinem eigenen Server zu validieren, gemäß den von dem IdP, den sie für die Identitätsföderation verwenden, umrissenen Anweisungen. Sobald der RP den Benutzer validiert, können sie ihn anmelden, ihn für ihren Dienst registrieren usw.
+Eine Anfrage an diesen Endpunkt wird gesendet, wenn der Benutzer ein Konto zur Anmeldung aus der entsprechenden Browser-UI auswählt. Wenn gültige Benutzeranmeldeinformationen gesendet werden, sollte dieser Endpunkt mit einem Validierungstoken antworten, das die RP verwenden kann, um den Benutzer auf ihrem eigenen Server zu validieren, gemäß den vom IdP, den sie für den Identitätsverbund verwenden, bereitgestellten Nutzungsanweisungen. Sobald die RP den Benutzer validiert, können sie diesen anmelden, für ihren Dienst registrieren usw.
 
 ```json
 {
@@ -200,38 +200,38 @@ Eine Anfrage an diesen Endpunkt wird als Ergebnis der Auswahl eines Kontos zur A
 }
 ```
 
-Die Nutzlast der Anfrage enthält die folgenden Parameter:
+Die Anfragenutzlast enthält die folgenden Parameter:
 
 - `client_id`
-  - : Die Kundenkennung des RP (die mit der `clientId` des ursprünglichen `get()`-Anrufs übereinstimmt).
+  - : Die Client-ID der RP (die mit der `clientId` aus der ursprünglichen `get()`-Anfrage übereinstimmt).
 - `account_id`
-  - : Die eindeutige ID des Benutzerkontos, das zur Anmeldung verwendet werden soll (die mit der `id` des Benutzers aus der Antwort des Endpunkts für die Kontenliste übereinstimmt).
+  - : Die eindeutige ID des Benutzerkontos, das angemeldet werden soll (die mit der `id` des Benutzers aus der Antwort des Kontenlisten-Endpunkts übereinstimmt).
 - `nonce` {{optional_inline}}
-  - : Die Anfragenonce, bereitgestellt vom RP.
+  - : Die von der RP bereitgestellte Anfrage-Nonce.
 - `disclosure_text_shown`
-  - : Eine Zeichenkette `"true"` oder `"false"`, die anzeigt, ob der Offenlegungstext angezeigt wurde oder nicht. Der Offenlegungstext sind die dem Benutzer angezeigten Informationen (die, falls bereitgestellt, die Links zu den Servicebedingungen und Datenschutzrichtlinien enthalten können), falls der Benutzer beim IdP angemeldet ist, aber kein spezifisches Konto beim aktuellen RP hat (in welchem Fall sie dem IdP gegenüber als ihre Identität "Weiterfahren als..." wählen und dann ein entsprechendes Konto beim RP erstellen müssen).
+  - : Ein String von `"true"` oder `"false"`, der angibt, ob der Offenlegungstext angezeigt wurde oder nicht. Der Offenlegungstext sind die Informationen, die dem Benutzer angezeigt werden (die die Links zu den Nutzungsbedingungen und Datenschutzrichtlinien enthalten können, falls bereitgestellt), wenn der Benutzer beim IdP angemeldet ist, aber kein Konto speziell bei der aktuellen RP hat (in diesem Fall müsste er wählen, als seine IdP-Identität fortzufahren und dann ein entsprechendes Konto auf der RP zu erstellen).
 - `is_auto_selected`
-  - : Eine Zeichenkette `"true"` oder `"false"`, die anzeigt, ob die Authentifizierungsvalidierungsanfrage infolge einer [automatischen Wiederanmeldung](/de/docs/Web/API/FedCM_API/RP_sign-in#auto-reauthentication) gestellt wurde, d. h. ohne Benutzermitwirkung. Dies kann auftreten, wenn der [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Anruf mit einer [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation)-Option mit dem Wert `"optional"` oder `"silent"` ausgeführt wird. Es ist nützlich für den IdP zu wissen, ob eine automatische Wiederanmeldung erfolgt ist, um die Leistung zu bewerten und für den Fall, dass höhere Sicherheit erwünscht ist. Beispielsweise könnte der IdP einen Fehlercode zurückgeben, der dem RP mitteilt, dass eine explizite Benutzermitwirkung erforderlich ist (`mediation="required"`).
+  - : Ein String von `"true"` oder `"false"`, der angibt, ob die Authentifizierungsvalidierungsanfrage als Ergebnis einer [automatischen Wiederanmeldung](/de/docs/Web/API/FedCM_API/RP_sign-in#auto-reauthentication) ausgegeben wurde, d.h. ohne Benutzerbeteiligung. Dies kann auftreten, wenn der [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf mit einem [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation)-Optionswert von `"optional"` oder `"silent"` ausgeführt wird. Es ist nützlich für den IdP zu wissen, ob eine automatische Wiederanmeldung stattgefunden hat, um die Leistung zu bewerten und falls höhere Sicherheit erforderlich ist. Zum Beispiel könnte der IdP einen Fehlercode zurückgeben, der der RP mitteilt, dass eine explizite Benutzerbeteiligung (`mediation="required"`) erforderlich ist.
 
 > [!NOTE]
-> Wenn der [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Anruf erfolgreich ist, wird der Wert `is_auto_selected` auch über die [Eigenschaft `IdentityCredential.isAutoSelected`](/de/docs/Web/API/IdentityCredential/isAutoSelected) an das RP kommuniziert.
+> Wenn der [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf erfolgreich ist, wird der `is_auto_selected`-Wert auch an die RP über die [`IdentityCredential.isAutoSelected`](/de/docs/Web/API/IdentityCredential/isAutoSelected)-Eigenschaft kommuniziert.
 
-#### CORS-Header für den ID-Bestätigungsendpunkt
+#### CORS-Header für den ID-Assertions-Endpunkt
 
-Die Antwort des ID-Bestätigungsendpunkts muss die Header {{httpheader("Access-Control-Allow-Origin")}} und {{httpheader("Access-Control-Allow-Credentials")}} enthalten, und `Access-Control-Allow-Origin` muss die Herkunft des Anfragestellers einschließen:
+Die Antwort des ID-Assertions-Endpunkts muss die Header {{httpheader("Access-Control-Allow-Origin")}} und {{httpheader("Access-Control-Allow-Credentials")}} enthalten, und die `Access-Control-Allow-Origin` muss den Ursprung des Anfragenden einschließen:
 
 ```http
 Access-Control-Allow-Origin: https://rp.example
 Access-Control-Allow-Credentials: true
 ```
 
-Beachten Sie, dass `Access-Control-Allow-Origin` auf die spezifische Herkunft des Anfragestellers (des RP) gesetzt sein muss und nicht der Platzhalterwert `*` sein darf.
+Beachten Sie, dass `Access-Control-Allow-Origin` auf den spezifischen Ursprung des Anfragenden (der RP) gesetzt sein muss und nicht der Platzhalterwert `*` sein kann.
 
-Ohne diese Header schlägt die Anfrage mit einem Netzwerkfehler fehl.
+Ohne diese Header wird die Anfrage mit einem Netzwerkfehler fehlschlagen.
 
-#### Fehlerantworten des ID-Bestätigungsendpunkts
+#### Fehlermeldungen des ID-Assertions-Endpunkts
 
-Wenn der IdP kein Token ausstellen kann — zum Beispiel, wenn der Client nicht autorisiert ist —, antwortet der ID-Bestätigungsendpunkt mit einer Fehlerantwort, die Informationen über die Art des Fehlers enthält. Zum Beispiel:
+Wenn der IdP kein Token ausstellen kann — zum Beispiel, wenn der Client unautorisiert ist — wird der ID-Assertions-Endpunkt mit einer Fehlerantwort antworten, die Informationen über die Art des Fehlers enthält. Zum Beispiel:
 
 ```json
 {
@@ -245,30 +245,30 @@ Wenn der IdP kein Token ausstellen kann — zum Beispiel, wenn der Client nicht 
 Die Felder der Fehlerantwort sind wie folgt:
 
 - `code` {{optional_inline}}
-  - : Eine Zeichenkette. Dies kann entweder ein bekannter Fehler aus der [OAuth 2.0 spezifizierten Fehlerliste](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1) oder eine beliebige Zeichenkette sein.
+  - : Ein String. Dies kann entweder ein bekannter Fehler aus der [OAuth 2.0 spezifischen Fehlerliste](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1) oder ein willkürlicher String sein.
 - `url` {{optional_inline}}
-  - : Eine URL. Dies sollte eine Webseite sein, die dem Benutzer menschlich lesbare Informationen über den Fehler anzeigt, wie z. B. wie der Fehler behoben oder der Kundendienst kontaktiert werden kann. Die URL muss mit der Konfigurations-URL des IdP gleichherkunft sein.
+  - : Eine URL. Dies sollte eine Webseite sein, die dem Benutzer lesbare Informationen über den Fehler anzeigt, z. B. wie der Fehler behoben werden kann oder wie der Kundenservice kontaktiert werden kann. Die URL muss gleichseitig mit der Konfigurations-URL des IdP sein.
 
-Diese Informationen können auf mehrere Arten verwendet werden:
+Diese Informationen können auf verschiedene Weisen verwendet werden:
 
-- Der Browser kann dem Benutzer eine benutzerdefinierte Benutzeroberfläche anzeigen, die ihm mitteilt, was schiefgelaufen ist (siehe die [Chrome-Dokumentation](https://developers.google.com/privacy-sandbox/blog/fedcm-chrome-120-updates#error-api) für ein Beispiel). Beachten Sie, dass, wenn die Anfrage aufgrund eines nicht verfügbaren IdP-Servers fehlgeschlagen ist, dieser offensichtlich keine Informationen zurückgeben kann. In solchen Fällen gibt der Browser dies durch eine generische Nachricht weiter.
-- Der mit dem RP verbundene [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Anruf, der zur Anmeldung verwendet wurde, wird mit einem `IdentityCredentialError`, der die Fehlerinformationen enthält, ablehnen. Ein RP kann diesen Fehler abfangen und dann nach der benutzerdefinierten Benutzeroberfläche des Browsers einige Informationen bereitstellen, die dem Benutzer helfen, bei einem zukünftigen Anmeldeversuch erfolgreich zu sein.
+- Der Browser kann dem Benutzer eine benutzerdefinierte UI anzeigen, die ihm mitteilt, was schief gelaufen ist (siehe z. B. die [Chrome-Dokumentation](https://developers.google.com/privacy-sandbox/blog/fedcm-chrome-120-updates#error-api) für ein Beispiel). Bedenken Sie, dass wenn die Anfrage fehlschlägt, weil der IdP-Server nicht verfügbar ist, er offensichtlich keine Informationen zurückgeben kann. In solchen Fällen wird der Browser dies über eine generische Nachricht berichten.
+- Der zugehörige RP [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf, der zur Versuchsanmeldung verwendet wurde, wird sein Versprechen mit einem `IdentityCredentialError` ablehnen, der die Fehlerinformationen enthält. Eine RP kann diesen Fehler abfangen und dann die benutzerdefinierte UI des Browsers mit einigen Informationen ergänzen, um dem Benutzer zu helfen, bei einem zukünftigen Anmeldeversuch erfolgreich zu sein.
 
-## Anmeldestatus mit der Login Status API aktualisieren
+## Aktualisierung des Anmeldestatus mit der Anmeldestatus-API
 
-Die **Login Status API** ermöglicht es einem IdP, einem Browser seinen Anmeldestatus in genau diesem Browser mitzuteilen — das heißt "ob irgendwelche Benutzer derzeit im IdP auf dem aktuellen Browser angemeldet sind oder nicht". Der Browser speichert diesen Status für jeden IdP; die FedCM API nutzt diesen dann, um die Anzahl der Anfragen zu reduzieren, die sie an den IdP sendet (da keine Zeit damit verschwendet werden muss, Konten anzufordern, wenn keine Benutzer beim IdP angemeldet sind). Dies verringert auch [mögliche Timing-Angriffe](https://github.com/w3c-fedid/FedCM/issues/447).
+Die **Login Status API** ermöglicht es einem IdP, einem Browser seinen Anmeldestatus in diesem speziellen Browser mitzuteilen — damit ist gemeint, „ob Benutzerkonten in diesem IdP im aktuellen Browser angemeldet sind oder nicht“. Der Browser speichert diesen Status für jeden IdP; die FedCM API verwendet ihn dann, um die Anzahl der Anfragen an den IdP zu reduzieren (weil sie nicht benötigt, um Konten abzufragen, wenn keine Benutzer beim IdP angemeldet sind). Sie mindert auch [potenzielle Timing-Attacken](https://github.com/w3c-fedid/FedCM/issues/447).
 
-Für jeden bekannten IdP (identifiziert durch seine Konfigurations-URL) hält der Browser eine Drei-Zustands-Variable vor, die den Anmeldestatus mit drei möglichen Werten darstellt:
+Für jeden bekannten IdP (identifiziert durch seine Konfigurations-URL) behält der Browser eine Drittszustandsvariable bei, die den Anmeldestatus mit drei möglichen Werten darstellt:
 
-- `"logged-in"`: Der IdP hat mindestens ein Benutzerkonto, bei dem der Benutzer angemeldet ist. Beachten Sie, dass der RP und der Browser in diesem Stadium nicht wissen, welcher Benutzer das ist. Informationen zu spezifischen Benutzern werden zu einem späteren Zeitpunkt im FedCM-Fluss vom [`accounts_endpoint`](#der_endpunkt_der_kontenliste) des IdP zurückgegeben.
+- `"logged-in"`: Der IdP hat mindestens ein Benutzerkonto angemeldet. Beachten Sie, dass RP und Browser zu diesem Zeitpunkt nicht wissen, welcher Benutzer dies ist. Informationen zu bestimmten Benutzern werden zu einem späteren Zeitpunkt im FedCM-Ablauf vom [`accounts_endpoint`](#der_kontenlisten-endpunkt) des IdP zurückgegeben.
 - `"logged-out"`: Alle IdP-Konten sind derzeit abgemeldet.
-- `"unknown"`: Der Anmeldestatus dieses IdP ist unbekannt. Dies ist der Standardwert.
+- `"unknown"`: Der Anmeldestatus dieses IdP ist nicht bekannt. Dies ist der Standardwert.
 
-### Anmeldestatus festlegen
+### Anmeldestatus setzen
 
-Der IdP sollte seinen Anmeldestatus aktualisieren, wenn sich ein Benutzer beim IdP an- oder abmeldet. Dies kann auf zwei verschiedene Arten erfolgen:
+Der IdP sollte seinen Anmeldestatus aktualisieren, wenn ein Benutzer sich beim IdP an- oder abmeldet. Dies kann auf zwei verschiedene Arten erfolgen:
 
-- Der {{httpheader("Set-Login")}} HTTP-Antwortheader kann in einer Top-Level-Navigation oder einem gleichherkunftsbezogenen Unterressourcenanfrage gesetzt werden:
+- Der {{httpheader("Set-Login")}} HTTP-Antwort-Header kann in einer Hauptnavigation oder einer gleich-origen Subressource-Anfrage gesetzt werden:
 
   ```http
   Set-Login: logged-in
@@ -276,7 +276,7 @@ Der IdP sollte seinen Anmeldestatus aktualisieren, wenn sich ein Benutzer beim I
   Set-Login: logged-out
   ```
 
-- Die Methode [`Navigator.login.setStatus()`](/de/docs/Web/API/NavigatorLogin/setStatus) kann von der Herkunft des IdP aus aufgerufen werden:
+- Die Methode [`Navigator.login.setStatus()`](/de/docs/Web/API/NavigatorLogin/setStatus) kann vom IdP-Ursprung aus aufgerufen werden:
 
   ```js
   /* Set logged-in status */
@@ -286,25 +286,25 @@ Der IdP sollte seinen Anmeldestatus aktualisieren, wenn sich ein Benutzer beim I
   navigator.login.setStatus("logged-out");
   ```
 
-### Wie der Anmeldestatus den föderierten Anmeldeprozess beeinflusst
+### Wie sich der Anmeldestatus auf den föderierten Anmeldeablauf auswirkt
 
-Wenn ein [RP versucht, sich föderiert anzumelden](/de/docs/Web/API/FedCM_API/RP_sign-in), wird der Anmeldestatus überprüft:
+Wenn eine [RP einen föderierten Anmeldeversuch unternimmt](/de/docs/Web/API/FedCM_API/RP_sign-in), wird der Anmeldestatus überprüft:
 
-- Wenn der Anmeldestatus `"logged-in"` ist, wird eine Anfrage an den [Endpunkt der Kontenliste](#der_endpunkt_der_kontenliste) des IdP gestellt und verfügbare Konten zur Anmeldung werden dem Benutzer im vom Browser bereitgestellten FedCM-Dialog angezeigt.
-- Wenn der Anmeldestatus `"logged-out"` ist, wird die von der FedCM-`get()`-Anfrage zurückgegebene Promise abgelehnt, ohne eine Anfrage an den Endpunkt der Kontenliste zu stellen. In einem solchen Fall liegt es am Entwickler, den Prozess zu handhaben, z. B. indem er den Benutzer auffordert, sich beim geeigneten IdP anzumelden.
-- Wenn der Anmeldestatus `"unknown"` ist, wird eine Anfrage an den Endpunkt der Kontenliste des IdP gestellt und der Anmeldestatus wird abhängig von der Antwort aktualisiert:
-  - Wenn der Endpunkt eine Liste verfügbarer Konten zur Anmeldung zurückgibt, wird der Status auf `"logged-in"` aktualisiert und die Anmeldeoptionen werden dem Benutzer im vom Browser bereitgestellten FedCM-Dialog angezeigt.
-  - Wenn der Endpunkt keine Konten zurückgibt, wird der Status auf `"logged-out"` aktualisiert; die von der FedCM-`get()`-Anfrage zurückgegebene Promise wird dann abgelehnt.
+- Wenn der Anmeldestatus `"logged-in"` ist, wird eine Anfrage an den [Kontenlisten-Endpunkt](#der_kontenlisten-endpunkt) des IdP gemacht und verfügbare Konten zur Anmeldung werden dem Benutzer im browserseitigen FedCM-Dialog angezeigt.
+- Wenn der Anmeldestatus `"logged-out"` ist, lehnt das von der FedCM-`get()`-Anfrage zurückgegebene Versprechen ohne Nachfrage zum Kontenlisten-Endpunkt ab. In einem solchen Fall ist es Sache des Entwicklers, den Ablauf zu bearbeiten, zum Beispiel indem der Benutzer aufgefordert wird, sich bei einem geeigneten IdP anzumelden.
+- Wenn der Anmeldestatus `"unknown"` ist, wird eine Anfrage an den Kontenlisten-Endpunkt des IdP gesendet und der Anmeldestatus wird je nach Antwort aktualisiert:
+  - Wenn der Endpunkt eine Liste von verfügbaren Konten zur Anmeldung zurückgibt, aktualisieren Sie den Status auf `"logged-in"` und zeigen Sie die Anmeldeoptionen dem Benutzer im browserseitigen FedCM-Dialog an.
+  - Wenn der Endpunkt keine Konten zurückgibt, aktualisieren Sie den Status auf `"logged-out"`; das von der FedCM-`get()`-Anfrage zurückgegebene Versprechen wird dann abgelehnt.
 
-### Was passiert, wenn der Anmeldestatus des Browsers und des IdP nicht synchron ist?
+### Was passiert, wenn der Browser- und der IdP-Anmeldestatus nicht synchron sind?
 
-Trotz der Tatsache, dass die Login Status API dem Browser den Anmeldestatus des IdP mitteilt, ist es möglich, dass der Browser und der IdP nicht synchron sind. Beispielsweise könnten die IdP-Sitzungen ablaufen, was bedeutet, dass alle Benutzerkonten abgemeldet werden, aber der Anmeldestatus immer noch auf `"logged-in"` gesetzt ist (die Anwendung war nicht in der Lage, den Anmeldestatus auf `"logged-out"` zu setzen). In einem solchen Fall, wenn versucht wird, sich föderiert anzumelden, wird eine Anfrage an den Endpunkt der Kontenliste des IdP gestellt, aber es werden keine verfügbaren Konten zurückgegeben, da die Sitzung nicht mehr verfügbar ist.
+Trotz der Tatsache, dass die Anmeldestatus-API den Browser über den Anmeldestatus des IdP informiert, ist es möglich, dass der Browser und der IdP nicht synchron sind. Zum Beispiel könnten die IdP-Sitzungen ablaufen, was bedeutet, dass alle Benutzerkonten abgemeldet werden, aber der Anmeldestatus immer noch auf `"logged-in"` gesetzt ist (die Anwendung konnte den Anmeldestatus nicht auf `"logged-out"` setzen). In einem solchen Fall wird, wenn ein föderierter Anmeldeversuch unternommen wird, eine Anfrage an den Kontenlisten-Endpunkt des IdP gemacht, aber keine verfügbaren Konten werden zurückgegeben, weil die Sitzung nicht mehr verfügbar ist.
 
-Wenn dies geschieht, kann der Browser dynamisch einem Benutzer erlauben, sich beim IdP anzumelden, indem er die Anmeldeseite des IdP in einem Dialog öffnet (die Anmelde-URL befindet sich in der [Konfigurationsdatei](#eine_konfigurationsdatei_und_endpunkte_bereitstellen) `login_url` des IdP). Die genaue Natur dieses Prozesses liegt im Ermessen des Browsers; beispielsweise [handhabt Chrome dies so](https://developers.google.com/privacy-sandbox/blog/fedcm-chrome-120-updates#what_if_the_user_session_expires_let_the_user_sign_in_through_a_dynamic_login_flow).
+Wenn dies geschieht, kann der Browser einem Benutzer dynamisch erlauben, sich beim IdP anzumelden, indem er die Anmeldeseite des IdP in einem Dialog öffnet (die Anmelde-URL ist in der [Konfigurationsdatei](#stellen_sie_eine_konfigurationsdatei_und_endpunkte_bereit) des IdP `login_url` zu finden). Der genaue Ablauf liegt im Ermessen des Browsers; zum Beispiel [Chrome behandelt es so](https://developers.google.com/privacy-sandbox/blog/fedcm-chrome-120-updates#what_if_the_user_session_expires_let_the_user_sign_in_through_a_dynamic_login_flow).
 
-Sobald der Benutzer beim IdP angemeldet ist, sollte der IdP:
+Sobald der Benutzer sich beim IdP angemeldet hat, sollte der IdP:
 
-- Dem Browser mitteilen, dass der Benutzer angemeldet ist, indem [der Anmeldestatus auf `"logged-in"` gesetzt wird](#anmeldestatus_festlegen).
+- Dem Browser mitteilen, dass der Benutzer sich angemeldet hat, indem [der Anmeldestatus](#anmeldestatus_setzen) auf `"logged-in"` gesetzt wird.
 - Den Anmeldedialog schließen, indem die Methode [`IdentityProvider.close()`](/de/docs/Web/API/IdentityProvider/close_static) aufgerufen wird.
 
 ## Siehe auch

@@ -2,7 +2,7 @@
 title: repeatCount
 slug: Web/SVG/Reference/Attribute/repeatCount
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 Das **`repeatCount`**-Attribut gibt an, wie oft eine Animation ausgeführt wird.
@@ -49,7 +49,7 @@ svg {
 
 {{EmbedLiveSample("Example", "220", "150")}}
 
-## Verwendungsnotizen
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -69,9 +69,9 @@ svg {
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die Anzahl der Iterationen an. Es können auch Teiliteration als Bruchwerte angegeben werden. Ein Bruchwert beschreibt einen Teil der einfachen Dauer. Werte müssen größer als `0` sein.
+  - : Dieser Wert legt die Anzahl der Wiederholungen fest. Er kann auch Teilwiederholungen in Form von Bruchwerten umfassen. Ein Bruchwert beschreibt einen Teil der einfachen Dauer. Werte müssen größer als `0` sein.
 - `indefinite`
-  - : Dieser Wert gibt an, dass die Animation unendlich oft wiederholt wird (d.h. bis das Dokument endet).
+  - : Dieser Wert bedeutet, dass die Animation unendlich oft wiederholt wird (d.h. bis das Dokument endet).
 
 ## Spezifikationen
 

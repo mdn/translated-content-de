@@ -2,12 +2,12 @@
 title: webNavigation.getAllFrames()
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/getAllFrames
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{AddonSidebar}}
 
-Angaben einer Tab-ID ermöglichen es, Informationen über alle enthaltenen Frames abzurufen.
+Gibt, basierend auf einer Tab-ID, Informationen über alle darin enthaltenen Frames zurück.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -33,17 +33,17 @@ let gettingFrames = browser.webNavigation.getAllFrames(
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten erfüllt wird, von denen jedes die folgenden Eigenschaften hat:
 
 - `errorOccurred`
-  - : `boolean`. Wahr, wenn die letzte Navigation in diesem Frame durch einen Fehler unterbrochen wurde, d.h. das {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}}-Ereignis ausgelöst wurde.
+  - : `boolean`. Wahr, wenn die letzte Navigation in diesem Frame durch einen Fehler unterbrochen wurde, d.h. das Ereignis {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}} ausgelöst wurde.
 - `processId` {{optional_inline}} {{deprecated_inline}}
-  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Als er gesetzt wurde, repräsentierte er die ID des Prozesses, der das Renderer für diesen Tab ausführte.
+  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, repräsentierte er die ID des Prozesses, der das Renderer für diesen Tab ausführte.
 - `frameId`
-  - : `integer`. Die ID des Frames. Wenn dies der Hauptframe ist, ist `frameId` null.
+  - : `integer`. Die ID des Frames. Wenn dies der Hauptframe ist, dann ist `frameId` null.
 - `parentFrameId`
-  - : `integer`. ID des übergeordneten Frames. Dies ist -1, wenn kein übergeordneter Frame vorhanden ist: das heißt, wenn dieser Frame der Top-Level-Browsing-Kontext im Tab ist.
+  - : `integer`. ID des übergeordneten Frames. Dies ist -1, wenn es keinen übergeordneten Frame gibt: das heißt, wenn dieser Frame der oberste Browsing-Kontext im Tab ist.
 - `url`
-  - : `string`. Die URL, die derzeit mit diesem Frame verknüpft ist.
+  - : `string`. Die URL, die derzeit mit diesem Frame verbunden ist.
 
-Wenn der Tab verworfen ist, wird das Promise stattdessen mit einem `null`-Wert aufgelöst. Wenn der angegebene Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn der Tab verworfen wird, wird das Promise stattdessen mit einem `null`-Wert aufgelöst. Wenn der angegebene Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -85,34 +85,24 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#method-getAllFrames) API. Diese Dokumentation stammt aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#method-getAllFrames) API. Diese Dokumentation stammt aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Die Weiterverbreitung und Nutzung in Quell- und Binärform, mit oder ohne
+// Modifikation, sind unter folgenden Bedingungen gestattet:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverbreitungen des Quellcodes müssen das oben stehende Urheberrecht
+// und diesen Bedingungen entsprechenderweise beibehalten.
+//    * Weiterverbreitungen in Binärform müssen das oben stehende
+// Urheberrecht und diese Bedingungen in der Dokumentation und/oder anderen
+// Materialien enthalten, die mit der Verteilung bereitgestellt werden.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die von
+// dieser Software abgeleitet sind, zu fördern oder zu bewerben,
+// ohne vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND MITWIRKENDEN
+// "AS IS" BEREITGESTELLT, UND JEGLICHE DIREKTE ODER INDIREKTE GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE IMPLIZIERTEN GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK WERDEN ABGELEHNT. IN KEINEM FALL SIND DIE EIGENTÜMER ODER MITWIRKENDEN HAFTBAR FÜR JEGLICHE DIREKTEN, INDIREKTEN, ZUFÄLLIGEN, SPEZIELLEN, EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER -DIENSTLEISTUNGEN; VERLUST VON NUTZUNG, DATEN ODER GEWINNEN; ODER GESCHÄFTSUNTERBRECHUNG) JEDOCH VERURSACHT UND UNTER JEGLICHER THEORIE DER HAFTUNG, SEI ES AUFGRUND EINES VERTRAGS, STRENGHAFTIGKEIT ODER DELIKT (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERER UNREGELMÄßIGKEITEN) AUS ODER IN VERBINDUNG MIT DEM GEBRAUCH DIESER SOFTWARE, SELBST WENN DIE MÖGLICHKEIT SOLCHER SCHÄDEN BESTEHEN SOLLTE.
 -->

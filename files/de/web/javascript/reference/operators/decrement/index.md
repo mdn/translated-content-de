@@ -1,13 +1,13 @@
 ---
-title: Decrement (--)
+title: Dekrement (--)
 slug: Web/JavaScript/Reference/Operators/Decrement
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **Decrement-Operator (`--`)** dekrementiert (zieht eins ab von) seinen Operand und gibt den Wert vor oder nach dem Dekrement zurück, je nachdem, wo der Operator platziert ist.
+Der **Dekompositionsoperator (`--`)** dekrementiert (subtrahiert eins von) seinem Operanden und gibt den Wert entweder vor oder nach der Dekomposition zurück, abhängig davon, wo der Operator platziert ist.
 
 {{InteractiveExample("JavaScript Demo: Decrement (--) operator")}}
 
@@ -34,13 +34,13 @@ x--
 
 ## Beschreibung
 
-Der `--` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er zwingt zuerst den Operanden zu einem numerischen Wert [zu werden](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und testet dann dessen Typ. Er führt ein BigInt-Dekrement durch, wenn der Operand ein BigInt wird; andernfalls führt er ein Zahldekrement durch.
+Der `--` Operator ist für zwei Arten von Operanden überladen: Nummer und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er zwingt zunächst den Operanden zu einem numerischen Wert und prüft dessen Typ. Er führt eine BigInt-Dekomposition durch, wenn der Operand ein BigInt wird; ansonsten führt er eine numerische Dekomposition durch.
 
-Wird er postfix verwendet, mit Operator nach dem Operanden (zum Beispiel `x--`), dekrementiert der Operator und gibt den Wert vor dem Dekrement zurück.
+Wird der Operator als Postfix verwendet, also nach dem Operanden (zum Beispiel `x--`), dekrementiert der Operator und gibt den Wert vor der Dekomposition zurück.
 
-Wird er präfix verwendet, mit Operator vor dem Operanden (zum Beispiel `--x`), dekrementiert der Operator und gibt den Wert nach dem Dekrement zurück.
+Wird der Operator als Präfix verwendet, also vor dem Operanden (zum Beispiel `--x`), dekrementiert der Operator und gibt den Wert nach der Dekomposition zurück.
 
-Der Dekrement-Operator kann nur auf Operanden angewendet werden, die Referenzen sind (Variablen und Objekteigenschaften; d.h. gültige [Zuweisungsziele](/de/docs/Web/JavaScript/Reference/Operators/Assignment)). `--x` selbst wertet zu einem Wert aus, nicht zu einer Referenz, weshalb Sie keine mehrfachen Dekrement-Operatoren miteinander verketten können.
+Der Dekrement-Operator kann nur auf Operanden angewendet werden, die Referenzen sind (Variablen und Objekteigenschaften, d.h. gültige [Zuordnungsziele](/de/docs/Web/JavaScript/Reference/Operators/Assignment)). `--x` selbst wird zu einem Wert ausgewertet, nicht zu einer Referenz, daher können Sie nicht mehrere Dekrement-Operatoren hintereinander verkettet verwenden.
 
 ```js-nolint example-bad
 --(--x); // SyntaxError: Invalid left-hand side expression in prefix operation
@@ -48,7 +48,7 @@ Der Dekrement-Operator kann nur auf Operanden angewendet werden, die Referenzen 
 
 ## Beispiele
 
-### Postfix-Dekrement
+### Postfix-Dekomposition
 
 ```js
 let x = 3;
@@ -60,7 +60,7 @@ const y2 = x2--;
 // x2 is 2n; y2 is 3n
 ```
 
-### Präfix-Dekrement
+### Präfix-Dekomposition
 
 ```js
 let x = 3;
@@ -88,6 +88,6 @@ const y2 = --x2;
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
 - [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
-- [Increment (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
+- [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

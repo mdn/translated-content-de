@@ -2,33 +2,33 @@
 title: HTMLFencedFrameElement
 slug: Web/API/HTMLFencedFrameElement
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Das **`HTMLFencedFrameElement`**-Interface repräsentiert ein {{htmlelement("fencedframe")}}-Element in JavaScript und bietet Konfigurationseigenschaften.
+Die **`HTMLFencedFrameElement`** Schnittstelle repräsentiert ein {{htmlelement("fencedframe")}} Element in JavaScript und stellt Konfigurationseigenschaften bereit.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem übergeordneten [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLFencedFrameElement.allow`](/de/docs/Web/API/HTMLFencedFrameElement/allow) {{experimental_inline}}
-  - : Ruft den Wert des entsprechenden `<fencedframe>`-`allow`-Attributs ab und setzt diesen, welches eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) darstellt, die auf den Inhalt angewendet wird, wenn er erstmals eingebettet wird.
+  - : Ruft den Wert des entsprechenden `<fencedframe>` `allow` Attributs ab und setzt diesen. Dieses Attribut repräsentiert eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy), die auf den Inhalt angewendet wird, wenn er zuerst eingebettet wird.
 - [`HTMLFencedFrameElement.config`](/de/docs/Web/API/HTMLFencedFrameElement/config) {{experimental_inline}}
-  - : Ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekt, das die Navigation eines {{htmlelement("fencedframe")}} darstellt, d.h. welcher Inhalt darin angezeigt wird. Ein `FencedFrameConfig` wird aus einer Quelle wie der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) zurückgegeben.
+  - : ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig) Objekt, das die Navigation eines {{htmlelement("fencedframe")}} repräsentiert, d.h. welcher Inhalt darin angezeigt wird. Ein `FencedFrameConfig` wird aus einer Quelle wie der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) zurückgegeben.
 - [`HTMLFencedFrameElement.height`](/de/docs/Web/API/HTMLFencedFrameElement/height) {{experimental_inline}}
-  - : Ruft den Wert des entsprechenden `<fencedframe>`-`height`-Attributs ab und setzt diesen, welches die Höhe des Elements spezifiziert.
+  - : Ruft den Wert des entsprechenden `<fencedframe>` `height` Attributs ab und setzt diesen, welches die Höhe des Elements angibt.
 - [`HTMLFencedFrameElement.width`](/de/docs/Web/API/HTMLFencedFrameElement/width) {{experimental_inline}}
-  - : Ruft den Wert des entsprechenden `<fencedframe>`-`width`-Attributs ab und setzt diesen, welches die Breite des Elements spezifiziert.
+  - : Ruft den Wert des entsprechenden `<fencedframe>` `width` Attributs ab und setzt diesen, welches die Breite des Elements angibt.
 
 ## Beispiele
 
-Um festzulegen, welcher Inhalt in einem `<fencedframe>` angezeigt wird, generiert eine verwendende API (wie [Protected Audience](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) oder [Shared Storage](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage)) ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekt, das dann als Wert der `config`-Eigenschaft des `<fencedframe>` gesetzt wird.
+Um festzulegen, welcher Inhalt in einem `<fencedframe>` angezeigt wird, generiert eine nutzende API (wie [Protected Audience](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) oder [Shared Storage](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage)) ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig) Objekt, das dann als Wert der `config` Eigenschaft des `<fencedframe>` gesetzt wird.
 
-Im folgenden Beispiel wird ein `FencedFrameConfig` von einer Anzeigenauktion der Protected Audience API abgerufen und dann verwendet, um die gewonnene Anzeige in einem `<fencedframe>` anzuzeigen:
+Das folgende Beispiel erhält eine `FencedFrameConfig` von einer Werbeauktion der Protected Audience API, die dann verwendet wird, um die gewinnende Anzeige in einem `<fencedframe>` anzuzeigen:
 
 ```js
 const frameConfig = await navigator.runAdAuction({
@@ -40,7 +40,7 @@ const frame = document.createElement("fencedframe");
 frame.config = frameConfig;
 ```
 
-> **Note:** `resolveToConfig: true` muss bei dem Aufruf von `runAdAuction()` übergeben werden, um ein `FencedFrameConfig`-Objekt zu erhalten. Wenn es nicht gesetzt wird, wird die resultierende {{jsxref("Promise")}} auf einen URN aufgelöst, der nur in einem {{htmlelement("iframe")}} verwendet werden kann.
+> **Note:** `resolveToConfig: true` muss im `runAdAuction()` Aufruf übergeben werden, um ein `FencedFrameConfig` Objekt zu erhalten. Falls es nicht gesetzt ist, wird das resultierende {{jsxref("Promise")}} auf eine URN aufgelöst, die nur in einem {{htmlelement("iframe")}} verwendet werden kann.
 
 ## Spezifikationen
 

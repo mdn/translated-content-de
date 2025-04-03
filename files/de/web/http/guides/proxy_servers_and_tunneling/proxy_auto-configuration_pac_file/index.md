@@ -1,13 +1,13 @@
 ---
-title: Proxy Auto-Configuration (PAC) Datei
+title: Proxy-Auto-Konfigurationsdatei (PAC)
 slug: Web/HTTP/Guides/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file
 l10n:
-  sourceCommit: cb8143261f5cd54788285574ab0c427ba3f01a04
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{HTTPSidebar}}
 
-Eine **Proxy Auto-Configuration (PAC)** Datei ist eine JavaScript-Funktion, die bestimmt, ob Anfragen von Webbrowsern (HTTP, HTTPS und FTP) direkt zum Ziel gehen oder an einen Web-Proxy-Server weitergeleitet werden. Die JavaScript-Funktion in der PAC-Datei definiert die Funktion:
+Eine **Proxy-Auto-Konfigurationsdatei (PAC)** ist eine JavaScript-Funktion, die bestimmt, ob Browser-Anfragen (HTTP, HTTPS und FTP) direkt zum Ziel gehen oder an einen Webproxy-Server weitergeleitet werden. Die JavaScript-Funktion in der PAC-Datei definiert die Funktion:
 
 ## Syntax
 
@@ -20,69 +20,69 @@ function FindProxyForURL(url, host) {
 ### Parameter
 
 - `url`
-  - : Die aufgerufene URL. Die Pfad- und Abfragekomponenten von `https://` URLs werden entfernt. In Chrome (Versionen 52 bis 73) kann dies deaktiviert werden, indem `PacHttpsUrlStrippingEnabled` in der Richtlinie auf `false` gesetzt wird oder indem man Chrome mit dem `--unsafe-pac-url` Kommandozeilen-Flag startet (in Chrome 74 funktioniert nur das Flag, und ab 75 gibt es keine Möglichkeit, das Entfernen des Pfads zu deaktivieren; ab Chrome 81 gilt das Entfernen des Pfads nicht für HTTP-URLs, aber es gibt Bestrebungen, das Verhalten an HTTPS anzupassen); in Firefox heißt die Einstellung `network.proxy.autoconfig_url.include_path`.
+  - : Die aufgerufene URL. Die Pfad- und Abfragekomponenten von `https://` URLs werden entfernt. In Chrome (Versionen 52 bis 73) können Sie dies deaktivieren, indem Sie `PacHttpsUrlStrippingEnabled` in den Richtlinien auf `false` setzen oder Chrome mit dem `--unsafe-pac-url`-Befehlszeilen-Flag starten (in Chrome 74 funktioniert nur das Flag, und ab 75 gibt es keine Möglichkeit, das Entfernen des Pfads zu deaktivieren; seit Chrome 81 gilt das Entfernen des Pfads nur noch für HTTP-URLs, es gibt jedoch Interesse daran, dieses Verhalten mit HTTPS gleichzusetzen); in Firefox ist die Präferenz `network.proxy.autoconfig_url.include_path`.
 - `host`
-  - : Der aus der URL extrahierte Hostname. Dies dient nur der Bequemlichkeit; es ist der gleiche String wie zwischen `://` und dem ersten `:` oder `/` danach. Die Portnummer ist in diesem Parameter nicht enthalten. Sie kann bei Bedarf aus der URL extrahiert werden.
+  - : Der Hostname, der aus der URL extrahiert wurde. Dies dient nur der Bequemlichkeit; es ist derselbe String wie zwischen `://` und dem ersten `:` oder `/` danach. Die Portnummer ist in diesem Parameter nicht enthalten. Sie kann bei Bedarf aus der URL extrahiert werden.
 
 ## Beschreibung
 
-Gibt einen String zurück, der die Konfiguration beschreibt. Das Format dieses Strings wird im **Rückgabewert-Format** unten definiert.
+Gibt einen String zurück, der die Konfiguration beschreibt. Das Format dieses Strings ist im Folgenden unter **Rückgabeformat** definiert.
 
-### Rückgabewert-Format
+### Rückgabeformat
 
-- Die JavaScript-Funktion gibt einen einzigen String zurück.
-- Ist der String null, sollen keine Proxies verwendet werden.
-- Der String kann eine beliebige Anzahl der folgenden Bausteine enthalten, getrennt durch ein Semikolon:
+- Die JavaScript-Funktion gibt einen einzelnen String zurück.
+- Wenn der String null ist, sollten keine Proxies verwendet werden.
+- Der String kann beliebig viele der folgenden Bausteine enthalten, getrennt durch ein Semikolon:
 
 <!---->
 
 - `DIRECT`
-  - : Verbindungen sollen direkt, ohne Proxies, hergestellt werden.
+  - : Verbindungen sollten direkt hergestellt werden, ohne jegliche Proxies.
 - `PROXY host:port`
-  - : Der angegebene Proxy soll verwendet werden.
+  - : Der angegebene Proxy sollte verwendet werden.
 - `SOCKS host:port`
-  - : Der angegebene SOCKS-Server soll verwendet werden.
+  - : Der angegebene SOCKS-Server sollte verwendet werden.
 
-Neuere Versionen von Firefox unterstützen außerdem:
+Neuere Versionen von Firefox unterstützen ebenfalls:
 
 - `HTTP host:port`
-  - : Der angegebene Proxy soll verwendet werden.
+  - : Der angegebene Proxy sollte verwendet werden.
 - `HTTPS host:port`
-  - : Der angegebene HTTPS-Proxy soll verwendet werden.
+  - : Der angegebene HTTPS-Proxy sollte verwendet werden.
 - `SOCKS4 host:port`, `SOCKS5 host:port`
-  - : Der angegebene SOCKS-Server (mit der angegebenen SOCKS-Version) soll verwendet werden.
+  - : Der angegebene SOCKS-Server (mit der angegebenen SOCKS-Version) sollte verwendet werden.
 
-Wenn es mehrere durch Semikolon getrennte Einstellungen gibt, wird die linkeste Einstellung verwendet, bis Firefox die Verbindung zum Proxy nicht herstellen kann. In diesem Fall wird der nächste Wert verwendet usw.
+Wenn es mehrere semikolon-getrennte Einstellungen gibt, wird die linke Einstellungsseite verwendet, bis Firefox die Verbindung zum Proxy nicht herstellen kann. In diesem Fall wird der nächste Wert verwendet, usw.
 
-Der Browser wird automatisch einen zuvor nicht ansprechbaren Proxy nach 30 Minuten erneut versuchen. Weitere Versuche beginnen nach einer Stunde, wobei dem zwischen den Versuchen verstrichenen Zeit immer 30 Minuten hinzugefügt werden.
+Der Browser wird automatisch nach 30 Minuten einen zuvor nicht reagierenden Proxy erneut versuchen. Weitere Versuche werden nach einer Stunde fortgesetzt, wobei die verstrichene Zeit zwischen den Versuchen immer um 30 Minuten erhöht wird.
 
-Wenn alle Proxies ausfallen und keine DIREKTE Option angegeben wurde, wird der Browser fragen, ob Proxies vorübergehend ignoriert werden sollen und direkte Verbindungen versucht werden sollen. Nach 20 Minuten fragt der Browser, ob Proxies erneut ausprobiert werden sollen, und fragt nach weiteren 40 Minuten erneut. Diese Abfragen werden fortgesetzt, wobei dem zwischen den Abfragen verstrichenen Zeit immer 20 Minuten hinzugefügt werden.
+Wenn alle Proxies ausfallen und keine DIREKT-Option angegeben wurde, fragt der Browser, ob Proxies vorübergehend ignoriert und direkte Verbindungen versucht werden sollen. Nach 20 Minuten fragt der Browser, ob die Proxies erneut versucht werden sollen, und fragt erneut nach weiteren 40 Minuten. Die Anfragen setzen sich fort, wobei die verstrichene Zeit zwischen den Anfragen immer um 20 Minuten erhöht wird.
 
 #### Beispiele
 
 - `PROXY w3proxy.netscape.com:8080; PROXY mozilla.netscape.com:8081`
   - : Der primäre Proxy ist w3proxy:8080; wenn dieser ausfällt, wird mozilla:8081 verwendet, bis der primäre Proxy wieder verfügbar ist.
 - `PROXY w3proxy.netscape.com:8080; PROXY mozilla.netscape.com:8081; DIRECT`
-  - : Gleich wie oben, aber wenn beide Proxies ausfallen, werden automatisch direkte Verbindungen hergestellt. (Im ersten Beispiel oben fragt Netscape den Benutzer um Bestätigung für direkte Verbindungen; in diesem Fall gibt es keine Benutzereingriffe.)
+  - : Gleich wie oben, aber wenn beide Proxies ausfallen, werden automatisch direkte Verbindungen hergestellt. (Im ersten Beispiel oben wird Netscape den Benutzer fragen, ob direkte Verbindungen hergestellt werden sollen; in diesem Fall ist keine Benutzereingabe erforderlich.)
 - `PROXY w3proxy.netscape.com:8080; SOCKS socks:1080`
-  - : SOCKS wird verwendet, wenn der primäre Proxy ausfällt.
+  - : Verwenden Sie SOCKS, wenn der primäre Proxy ausfällt.
 
-Die Auto-Konfigurationsdatei sollte mit der Dateinamenerweiterung .pac gespeichert werden: `proxy.pac`.
+Die Auto-Konfigurationsdatei sollte in einer Datei mit der Erweiterung .pac gespeichert werden: `proxy.pac`.
 
 Und der MIME-Typ sollte auf `application/x-ns-proxy-autoconfig` gesetzt werden.
 
-Als Nächstes sollten Sie Ihren Server so konfigurieren, dass die Dateinamenerweiterung .pac auf den MIME-Typ gemappt wird.
+Als nächstes sollten Sie Ihren Server so konfigurieren, dass die .pac-Dateierweiterung dem MIME-Typ zugeordnet wird.
 
 > [!NOTE]
 >
-> - Die JavaScript-Funktion sollte immer in einer separaten Datei gespeichert werden und nicht in einer HTML-Datei oder einer anderen Datei eingebettet werden.
-> - Die Beispiele am Ende dieses Dokuments sind vollständig. Es ist keine zusätzliche Syntax erforderlich, um sie in einer Datei zu speichern und zu verwenden. (Natürlich müssen die JavaScripts bearbeitet werden, um den Domänennamen und/oder die Subnetze Ihrer Site zu reflektieren.)
+> - Die JavaScript-Funktion sollte immer alleine in einer Datei gespeichert werden, darf jedoch nicht in eine HTML-Datei oder eine andere Datei eingebettet werden.
+> - Die Beispiele am Ende dieses Dokuments sind vollständig. Es sind keine zusätzlichen Syntaxen erforderlich, um es in einer Datei zu speichern und zu verwenden. (Natürlich müssen die JavaScripts bearbeitet werden, um den Domainnamen und/oder Subnetze Ihrer Website widerzuspiegeln.)
 
-## Vordefinierte Funktionen und Umgebung
+## Vorgegebene Funktionen und Umgebung
 
 Diese Funktionen können beim Erstellen der PAC-Datei verwendet werden:
 
-- Bedingungen, basierend auf Hostnamen
+- Hostname-basierte Bedingungen
 
   - [`isPlainHostName()`](#isplainhostname)
   - [`dnsDomainIs()`](#dnsdomainis)
@@ -97,29 +97,29 @@ Diese Funktionen können beim Erstellen der PAC-Datei verwendet werden:
   - [`myIpAddress()`](#myipaddress)
   - [`dnsDomainLevels()`](#dnsdomainlevels)
 
-- Bedingungen, basierend auf URL/Hostname
+- URL/Hostname-basierte Bedingungen
 
   - [`shExpMatch()`](#shexpmatch)
 
-- Bedingungen, basierend auf Zeit
+- Zeitbasierte Bedingungen
 
   - [`weekdayRange()`](#weekdayrange)
   - [`dateRange()`](#daterange)
   - [`timeRange()`](#timerange)
 
-- Protokollierungswerkzeug
+- Protokollierungsdienstprogramm
 
   - [`alert()`](#alert)
 
-- Es gab ein assoziatives Array (Objekt), das bereits definiert war, weil zur Zeit der JavaScript-Code es nicht selbst definieren konnte:
+- Es gab ein assoziatives Array (Objekt), das bereits definiert war, da der JavaScript-Code es zu dieser Zeit nicht selbst definieren konnte:
 
   - `ProxyConfig.bindings` {{deprecated_inline}}
 
 > [!NOTE]
-> pactester (Teil des [pacparser](https://github.com/manugarg/pacparser)-Pakets) wurde verwendet, um die folgenden Syntaxbeispiele zu testen.
+> Pactester (Teil des [pacparser](https://github.com/manugarg/pacparser)-Pakets) wurde verwendet, um die folgenden Syntaxbeispiele zu testen.
 >
 > - Die PAC-Datei heißt `proxy.pac`
-> - Kommandozeile: `pactester -p ~/pacparser-master/tests/proxy.pac -u https://www.mozilla.org` (übergibt den `host` Parameter `www.mozilla.org` und den `url` Parameter `https://www.mozilla.org`)
+> - Befehlszeile: `pactester -p ~/pacparser-master/tests/proxy.pac -u https://www.mozilla.org` (übergibt den `host`-Parameter `www.mozilla.org` und den `url`-Parameter `https://www.mozilla.org`)
 
 ### isPlainHostName()
 
@@ -132,11 +132,11 @@ isPlainHostName(host)
 #### Parameter
 
 - host
-  - : Der Hostname aus der URL (außer Portnummer).
+  - : Der Hostname aus der URL (ohne Portnummer).
 
 #### Beschreibung
 
-Ist nur dann wahr, wenn im Hostnamen kein Domainname vorhanden ist (keine Punkte).
+True, wenn und nur wenn kein Domainname im Hostnamen enthalten ist (keine Punkte).
 
 #### Beispiele
 
@@ -156,13 +156,13 @@ dnsDomainIs(host, domain)
 #### Parameter
 
 - host
-  - : Ist der Hostname aus der URL.
+  - : Der Hostname aus der URL.
 - domain
-  - : Ist der Domainname, gegen den der Hostname getestet wird.
+  - : Der Domainname, gegen den der Hostname getestet werden soll.
 
 #### Beschreibung
 
-Gibt wahr zurück, wenn und nur wenn die Domain des Hostnamens übereinstimmt.
+Gibt true zurück, wenn und nur wenn die Domain des Hostnamens übereinstimmt.
 
 #### Beispiele
 
@@ -184,11 +184,11 @@ localHostOrDomainIs(host, hostDom)
 - host
   - : Der Hostname aus der URL.
 - hostDom
-  - : Vollqualifizierter Hostname, gegen den verglichen wird.
+  - : Vollständig qualifizierter Hostname, gegen den verglichen werden soll.
 
 #### Beschreibung
 
-Ist wahr, wenn der Hostname _genau_ dem angegebenen Hostnamen entspricht, oder wenn kein Domainname im Hostnamen vorhanden ist, aber der unqualifizierte Hostname übereinstimmt.
+Gibt true zurück, wenn der Hostname exakt mit dem angegebenen Hostnamen übereinstimmt, oder wenn kein Domainname im Hostnamen enthalten ist, aber der unqualifizierte Hostname übereinstimmt.
 
 #### Beispiele
 
@@ -210,9 +210,9 @@ isResolvable(host)
 #### Parameter
 
 - host
-  - : Ist der Hostname aus der URL.
+  - : Der Hostname aus der URL.
 
-Versucht den Hostnamen zu aufzulösen. Gibt wahr zurück, wenn erfolgreich.
+Versucht, den Hostnamen aufzulösen. Gibt true zurück, wenn dies gelingt.
 
 #### Beispiele
 
@@ -233,13 +233,13 @@ isInNet(host, pattern, mask)
 - host
   - : Ein DNS-Hostname oder eine IP-Adresse. Wenn ein Hostname übergeben wird, wird er von dieser Funktion in eine IP-Adresse aufgelöst.
 - pattern
-  - : Ein IP-Adressenmuster im durch Punkte getrennten Format.
+  - : Ein IP-Adressmuster im punktgetrennten Format.
 - mask
-  - : Maske für das IP-Adressenmuster, die angibt, welche Teile der IP-Adresse abgeglichen werden sollen. 0 bedeutet ignorieren, 255 bedeutet abgleichen.
+  - : Maske für das IP-Adressmuster, die angibt, welche Teile der IP-Adresse abgeglichen werden sollen. 0 bedeutet ignorieren, 255 bedeutet Übereinstimmung.
 
-Ist nur dann wahr, wenn die IP-Adresse des Hosts dem angegebenen IP-Adressenmuster entspricht.
+Gibt true zurück, wenn und nur wenn die IP-Adresse des Hosts mit dem angegebenen IP-Adressmuster übereinstimmt.
 
-Die Muster- und Maskenspezifikation erfolgt auf die gleiche Weise wie bei der SOCKS-Konfiguration.
+Muster- und Maskenspezifikation erfolgt auf dieselbe Weise wie bei der SOCKS-Konfiguration.
 
 #### Beispiele
 
@@ -262,9 +262,9 @@ dnsResolve(host)
 #### Parameter
 
 - host
-  - : Aufzulösender Hostname.
+  - : Hostname, der aufgelöst werden soll.
 
-Löst den angegebenen DNS-Hostnamen in eine IP-Adresse auf und gibt diese im durch Punkte getrennten Format als String zurück.
+Löst den angegebenen DNS-Hostnamen in eine IP-Adresse auf und gibt ihn im punktgetrennten Format als String zurück.
 
 #### Beispiel
 
@@ -283,9 +283,9 @@ convert_addr(ipaddr)
 #### Parameter
 
 - ipaddr
-  - : Jede durch Punkte getrennte Adresse wie eine IP-Adresse oder Maske.
+  - : Jede gepunktete Adresse wie eine IP-Adresse oder Maske.
 
-Verkettet die vier durch Punkte getrennten Bytes zu einem 4-Byte-Wort und konvertiert es in Dezimalzahl.
+Verkettet die vier punktgetrennten Bytes zu einem 4-Byte-Wort und wandelt es in eine Dezimalzahl um.
 
 #### Beispiel
 
@@ -307,7 +307,7 @@ myIpAddress()
 
 #### Rückgabewert
 
-Gibt die Server-IP-Adresse der Maschine zurück, auf der Firefox ausgeführt wird, als String im durch Punkte getrennten Ganzzahlenformat. Um hilfreicher zu sein, werden mehrere Alternativen versucht, bevor auf die Loopback-Adresse (wie `127.0.0.1`) zurückgegriffen wird.
+Gibt die Server-IP-Adresse des Computers zurück, auf dem Firefox ausgeführt wird, als String im punktgetrennten Integerformat. Um hilfreicher zu sein, werden mehrere Alternativen ausprobiert, bevor auf die Loopback-Adresse zurückgefallen wird (wie `127.0.0.1`).
 
 #### Beispiel
 
@@ -326,9 +326,9 @@ dnsDomainLevels(host)
 #### Parameter
 
 - host
-  - : Ist der Hostname aus der URL.
+  - : Der Hostname aus der URL.
 
-Gibt die Anzahl (Ganzzahl) der DNS-Domainebenen (Anzahl der Punkte) im Hostnamen zurück.
+Gibt die Anzahl (Ganzzahl) der DNS-Domain-Ebenen (Anzahl der Punkte) im Hostnamen zurück.
 
 #### Beispiele
 
@@ -349,18 +349,18 @@ shExpMatch(str, shExp)
 #### Parameter
 
 - str
-  - : Ist ein beliebiger String zum Vergleichen (z.B. die URL oder der Hostname).
+  - : Ein beliebiger String zum Vergleichen (z.B. die URL oder der Hostname).
 - shExp
-  - : Ist ein Shell-Ausdruck, gegen den verglichen werden soll.
+  - : Ein Shell-Ausdruck zum Vergleichen.
 
 Gibt `true` zurück, wenn der String mit dem angegebenen Shell-Glob-Ausdruck übereinstimmt.
 
-Die Unterstützung für bestimmte Glob-Ausdrucksyntax variiert zwischen den Browsern:
-`*` (beliebige Anzahl von Zeichen) und `?` (ein Zeichen) werden immer unterstützt,
-während `[Zeichen]` und `[^Zeichen]` zusätzlich von einigen Implementierungen (einschließlich Firefox) unterstützt werden.
+Die Unterstützung der Syntax für bestimmte Glob-Ausdrücke variiert zwischen den Browsern:
+`*` (Beliebige Anzahl von Zeichen) und `?` (ein Zeichen) werden immer unterstützt,
+während `[characters]` und `[^characters]` zusätzlich von einigen Implementierungen (einschließlich Firefox) unterstützt werden.
 
 > [!NOTE]
-> Wenn vom Client unterstützt, bieten JavaScript-Regular-Expressions typischerweise eine leistungsfähigere und konsistentere Möglichkeit, URLs (und andere Strings) zu mustern.
+> Wenn vom Client unterstützt, bieten JavaScript-Reguläre-Ausdrücke normalerweise eine leistungsfähigere und konsistentere Möglichkeit, URLs (und andere Strings) zu mustern.
 
 #### Beispiele
 
@@ -378,24 +378,24 @@ weekdayRange(wd1, wd2, [gmt])
 ```
 
 > [!NOTE]
-> (Vor Firefox 49) wd1 muss kleiner als wd2 sein, wenn Sie möchten, dass die Funktion diese Parameter als Bereich bewertet. Siehe die Warnung unten.
+> (Vor Firefox 49) wd1 muss kleiner als wd2 sein, wenn Sie möchten, dass die Funktion diese Parameter als Bereich auswertet. Siehe die Warnung unten.
 
 #### Parameter
 
 - wd1 und wd2
-  - : Einer der geordneten Wochentagszeichenfolgen: `"SUN"`, `"MON"`, `"TUE"`, `"WED"`, `"THU"`, `"FRI"`, `"SAT"`
+  - : Einer der geordneten Wochentags-Strings: `"SUN"`, `"MON"`, `"TUE"`, `"WED"`, `"THU"`, `"FRI"`, `"SAT"`
 - gmt
-  - : Ist entweder die Zeichenkette "GMT" oder wird weggelassen.
+  - : Entweder der String "GMT" oder wird ausgelassen.
 
-Nur der erste Parameter ist obligatorisch. Entweder der zweite, der dritte oder beide können weggelassen werden.
+Nur der erste Parameter ist obligatorisch. Entweder der zweite, der dritte oder beide können ausgelassen werden.
 
-Wenn nur ein Parameter vorhanden ist, gibt die Funktion an dem Wochentag, den der Parameter darstellt, einen wahren Wert zurück. Wenn die Zeichenkette "GMT" als zweiter Parameter angegeben wird, werden Zeiten in GMT angenommen. Andernfalls wird davon ausgegangen, dass sie sich in der lokalen Zeitzone befinden.
+Wenn nur ein Parameter vorhanden ist, gibt die Funktion einen Wert von true am WochenTag, den der Parameter darstellt, zurück. Wenn der String "GMT" als zweiter Parameter angegeben ist, werden die Zeiten als GMT angenommen. Andernfalls werden sie als in der lokalen Zeitzone liegend angenommen.
 
-Wenn sowohl **wd1** als auch **wd2** definiert sind, ist die Bedingung wahr, wenn der aktuelle Wochentag zwischen diesen beiden _geordneten_ Wochentagen liegt. Grenzen sind inbegriffen, aber die Grenzen sind geordnet. Wenn der Parameter "GMT" angegeben ist, werden Zeiten in GMT angenommen. Andernfalls wird die lokale Zeitzone verwendet.
+Wenn sowohl **wd1** als auch **wd2** definiert sind, ist die Bedingung true, wenn der aktuelle Wochentag zwischen diesen beiden _geordneten_ Wochentagen liegt. Die Grenzen sind inklusive, _aber die Grenzen sind geordnet_. Wenn der "GMT"-Parameter angegeben ist, werden die Zeiten als in GMT liegend angenommen. Andernfalls wird die lokale Zeitzone verwendet.
 
 > **Warnung:** _Die Reihenfolge der Tage ist wichtig_.
-> Vor Firefox 49 wird `weekdayRange("SUN", "SAT")` immer als `true` ausgewertet.
-> Jetzt wird `weekdayRange("WED", "SUN")` nur `true` auswerten,
+> Vor Firefox 49 wird `weekdayRange("SUN", "SAT")` immer auf `true` ausgewertet.
+> Jetzt wird `weekdayRange("WED", "SUN")` nur auf `true` ausgewertet,
 > wenn der aktuelle Tag Mittwoch oder Sonntag ist.
 
 #### Beispiele
@@ -423,32 +423,32 @@ dateRange(<day1>, <month1>, <year1>, <day2>, <month2>, <year2>, [gmt])
 ```
 
 > [!NOTE]
-> (Vor Firefox 49) day1 muss kleiner als day2 sein, month1 muss kleiner als month2, und year1 muss kleiner als year2 sein, wenn Sie möchten, dass die Funktion diese Parameter als Bereich bewertet. Siehe die Warnung unten.
+> (Vor Firefox 49) day1 muss kleiner als day2, month1 muss kleiner als month2, und year1 muss kleiner als year2 sein, wenn Sie möchten, dass die Funktion diese Parameter als Bereich auswertet. Siehe die Warnung unten.
 
 #### Parameter
 
 - day
-  - : Ist der geordnete Tag des Monats zwischen 1 und 31 (als Ganzzahl).
+  - : Der geordnete Tag des Monats zwischen 1 und 31 (als Ganzzahl).
 
 ```plain
 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31
 ```
 
 - month
-  - : Ist einer der geordneten Monatszeichenfolgen unten.
+  - : Ist einer der geordneten Monats-Strings unten.
 
 ```plain
 "JAN"|"FEB"|"MAR"|"APR"|"MAY"|"JUN"|"JUL"|"AUG"|"SEP"|"OCT"|"NOV"|"DEC"
 ```
 
 - year
-  - : Ist das geordnete volle Jahresganzzahl. Zum Beispiel, 2016 (**nicht** 16).
+  - : Ist die geordnete vollständige Jahreszahl. Zum Beispiel 2016 (**nicht** 16).
 - gmt
-  - : Ist entweder die Zeichenkette "GMT", die den Zeitvergleich in der GMT-Zeitzone durchführt, oder wird weggelassen. Wenn nicht angegeben, werden Zeiten in der lokalen Zeitzone angenommen.
+  - : Entweder der String "GMT", wodurch der Zeitvergleich in der GMT-Zeitzone erfolgt, oder nicht spezifiziert. Wenn nicht angegeben, werden die Zeiten als in der lokalen Zeitzone liegend angenommen.
 
-Wenn nur ein einzelner Wert (aus jeder Kategorie: Tag, Monat, Jahr) angegeben ist, gibt die Funktion einen echten Wert nur an Tagen zurück, die dieser Spezifikation entsprechen. Wenn beide Werte angegeben sind, ist das Ergebnis zwischen diesen Zeiten wahr, einschließlich der Grenzen, _aber die Grenzen sind geordnet_.
+Wenn nur ein einzelner Wert angegeben ist (aus jeder Kategorie: Tag, Monat, Jahr), gibt die Funktion einen true-Wert nur an Tagen zurück, die diese Spezifikation erfüllen. Wenn beide Werte angegeben sind, ist das Ergebnis true zwischen diesen Zeiten, einschließlich der Grenzen, _aber die Grenzen sind geordnet_.
 
-> **Warnung:** **Die Reihenfolge der Tage, Monate und Jahre ist wichtig**; Vor Firefox 49 wird `dateRange("JAN", "DEC")` immer als `true` ausgewertet. Jetzt wird `dateRange("DEC", "JAN")` nur `true` auswerten, wenn der aktuelle Monat Dezember oder Januar ist.
+> **Warnung:** **Die Reihenfolge von Tagen, Monaten und Jahren ist wichtig**; Vor Firefox 49 wird `dateRange("JAN", "DEC")` immer auf `true` ausgewertet. Jetzt wird `dateRange("DEC", "JAN")` nur auf true ausgewertet, wenn der aktuelle Monat Dezember oder Januar ist.
 
 #### Beispiele
 
@@ -487,22 +487,22 @@ timeRange(<hour1>, <min1>, <sec1>, <hour2>, <min2>, <sec2>, [gmt])
 ```
 
 > [!NOTE]
-> (Vor Firefox 49) Die Kategorie hour1, min1, sec1 muss kleiner als die Kategorie hour2, min2, sec2 sein, wenn Sie möchten, dass die Funktion diese Parameter als Bereich bewertet. Siehe die Warnung unten.
+> (Vor Firefox 49) die Kategorie hour1, min1, sec1 muss kleiner als die Kategorie hour2, min2, sec2 sein, wenn Sie möchten, dass die Funktion diese Parameter als Bereich auswertet. Siehe die Warnung unten.
 
 #### Parameter
 
 - hour
-  - : Ist die Stunde von 0 bis 23. (0 ist Mitternacht, 23 ist 23 Uhr.)
+  - : Die Stunde von 0 bis 23. (0 ist Mitternacht, 23 ist 23 Uhr.)
 - min
   - : Minuten von 0 bis 59.
 - sec
   - : Sekunden von 0 bis 59.
 - gmt
-  - : Entweder die Zeichenkette "GMT" für GMT-Zeitzone oder nicht angegeben für lokale Zeitzone.
+  - : Entweder der String "GMT" für die GMT-Zeitzone, oder nicht spezifiziert, für die lokale Zeitzone.
 
-Wenn nur ein einzelner Wert (aus jeder Kategorie: Stunde, Minute, Sekunde) angegeben ist, gibt die Funktion einen echten Wert nur zu Zeiten zurück, die dieser Spezifikation entsprechen. Wenn beide Werte angegeben sind, ist das Ergebnis zwischen diesen Zeiten wahr, einschließlich der Grenzen, _aber die Grenzen sind geordnet_.
+Wenn nur ein einzelner Wert angegeben ist (aus jeder Kategorie: Stunde, Minute, Sekunde), gibt die Funktion einen true-Wert nur zu Zeiten zurück, die dieser Spezifikation entsprechen. Wenn beide Werte angegeben sind, ist das Ergebnis true zwischen diesen Zeiten, einschließlich der Grenzen, _aber die Grenzen sind geordnet_.
 
-> **Warnung:** **Die Reihenfolge der Stunde, Minute, Sekunde ist wichtig**; Vor Firefox 49 wird `timeRange(0, 23)` immer als `true` ausgewertet. Jetzt wird `timeRange(23, 0)` nur `true` auswerten, wenn die aktuelle Stunde 23:00 oder Mitternacht ist.
+> **Warnung:** **Die Reihenfolge von Stunde, Minute, Sekunde ist wichtig**; Vor Firefox 49 wird `timeRange(0, 23)` immer als true ausgewertet. Jetzt wird `timeRange(23, 0)` nur als true ausgewertet, wenn die aktuelle Stunde 23:00 Uhr oder Mitternacht ist.
 
 #### Beispiele
 
@@ -526,7 +526,7 @@ alert(message)
 #### Parameter
 
 - message
-  - : Die Zeichenfolge zum Protokollieren
+  - : Der zu protokollierende String
 
 Protokolliert die Nachricht in der Browser-Konsole.
 
@@ -539,12 +539,12 @@ alert("Error: shouldn't reach this clause.") // log a message
 
 ## Beispiel 1
 
-### Verwenden Sie Proxy für alles, außer lokale Hosts
+### Proxy für alles außer lokalen Hosts verwenden
 
 > [!NOTE]
 > Da alle folgenden Beispiele sehr spezifisch sind, wurden sie nicht getestet.
 
-Alle Hosts, die nicht voll qualifiziert sind, oder diejenigen, die in der lokalen Domain sind, werden direkt verbunden. Alles andere geht durch `w3proxy.mozilla.org:8080`. Wenn der Proxy ausfällt, werden Verbindungen automatisch direkt:
+Alle Hosts, die nicht vollständig qualifiziert sind oder die sich in der lokalen Domain befinden, werden direkt verbunden. Alles andere wird über `w3proxy.mozilla.org:8080` geführt. Wenn der Proxy ausfällt, werden die Verbindungen automatisch direkt:
 
 ```js
 function FindProxyForURL(url, host) {
@@ -557,13 +557,13 @@ function FindProxyForURL(url, host) {
 ```
 
 > [!NOTE]
-> Dies ist die einfachste und effizienteste Autokonfigurationsdatei für Fälle, in denen es nur einen Proxy gibt.
+> Dies ist die einfachste und effizienteste Autokonfigurationsdatei für Fälle, in denen nur ein Proxy verwendet wird.
 
 ## Beispiel 2
 
-### Wie oben, aber verwenden Sie Proxy für lokale Server, die außerhalb der Firewall sind
+### Wie oben, aber Proxy für lokale Server verwenden, die sich außerhalb der Firewall befinden
 
-Wenn es Hosts gibt (wie den Haupt-Webserver), die zur lokalen Domain gehören, aber außerhalb der Firewall sind und nur über den Proxy-Server erreichbar sind, können diese Ausnahmen mit der Funktion `localHostOrDomainIs()` behandelt werden:
+Wenn es Hosts gibt (wie den Haupt-Webserver), die zur lokalen Domain gehören, sich aber außerhalb der Firewall befinden und nur über den Proxy-Server erreichbar sind, können diese Ausnahmen mit der Funktion `localHostOrDomainIs()` behandelt werden:
 
 ```js
 function FindProxyForURL(url, host) {
@@ -579,16 +579,16 @@ function FindProxyForURL(url, host) {
 }
 ```
 
-Das obige Beispiel wird den Proxy für alles außer lokale Hosts in der mozilla.org Domain verwenden, mit der weiteren Ausnahme, dass die Hosts `www.mozilla.org` und `merchant.mozilla.org` durch den Proxy gehen.
+Das obige Beispiel verwendet den Proxy für alles außer lokalen Hosts in der mozilla.org-Domain, mit der weiteren Ausnahme, dass die Hosts `www.mozilla.org` und `merchant.mozilla.org` über den Proxy geleitet werden.
 
 > [!NOTE]
-> Die Reihenfolge der obigen Ausnahmen für Effizienz: `localHostOrDomainIs()` Funktionen werden nur für URLs ausgeführt, die in lokalen Domains sind, nicht für jede URL. Beachten Sie sorgfältig die Klammern um den _oder_-Ausdruck vor dem _und_-Ausdruck, um das oben erwähnte effiziente Verhalten zu erzielen.
+> Die Reihenfolge der obigen Ausnahmen aus Effizienzgründen: `localHostOrDomainIs()`-Funktionen werden nur für URLs ausgeführt, die sich in der lokalen Domain befinden, nicht für jede URL. Achten Sie darauf, die Klammern um den _oder_-Ausdruck vor dem _und_-Ausdruck zu setzen, um das oben erwähnte effiziente Verhalten zu erzielen.
 
 ## Beispiel 3
 
-### Verwenden Sie Proxy nur, wenn Host nicht auflösbar ist
+### Proxy nur verwenden, wenn Host nicht aufgelöst werden kann
 
-Dieses Beispiel funktioniert in einer Umgebung, in der der interne DNS-Server so eingerichtet ist, dass er nur interne Hostnamen auflösen kann, und das Ziel ist es, einen Proxy nur für Hosts zu verwenden, die nicht auflösbar sind:
+Dieses Beispiel funktioniert in einer Umgebung, in der der interne DNS-Server so eingerichtet ist, dass er nur interne Hostnamen auflösen kann, und das Ziel ist, einen Proxy nur für Hosts zu verwenden, die nicht auflösbar sind:
 
 ```js
 function FindProxyForURL(url, host) {
@@ -599,7 +599,7 @@ function FindProxyForURL(url, host) {
 }
 ```
 
-Das obige erfordert die Konsultation des DNS bei jedem Mal; es kann intelligent mit anderen Regeln gruppiert werden, sodass das DNS nur konsultiert wird, wenn andere Regeln kein Ergebnis liefern:
+Das oben Genannte erfordert die Konsultation des DNS jedes Mal; es kann intelligent mit anderen Regeln gruppiert werden, sodass das DNS nur abgefragt wird, wenn andere Regeln keine Ergebnisse liefern:
 
 ```js
 function FindProxyForURL(url, host) {
@@ -616,9 +616,9 @@ function FindProxyForURL(url, host) {
 
 ## Beispiel 4
 
-### Subnet basierte Entscheidungen
+### Subnetz-basierte Entscheidungen
 
-In diesem Beispiel werden alle Hosts in einem bestimmten Subnet direkt verbunden, andere werden über den Proxy verbunden:
+In diesem Beispiel werden alle Hosts in einem bestimmten Subnetz direkt verbunden, andere werden über den Proxy verbunden:
 
 ```js
 function FindProxyForURL(url, host) {
@@ -629,7 +629,7 @@ function FindProxyForURL(url, host) {
 }
 ```
 
-Hier kann erneut die Nutzung des DNS-Servers minimiert werden, indem redundante Regeln am Anfang hinzugefügt werden:
+Auch hier kann die Verwendung des DNS-Servers im obigen Beispiel minimiert werden, indem redundante Regeln am Anfang hinzugefügt werden:
 
 ```js
 function FindProxyForURL(url, host) {
@@ -647,18 +647,18 @@ function FindProxyForURL(url, host) {
 
 ## Beispiel 5
 
-### Lastenausgleich/Routing basierend auf URL-Mustern
+### Lastverteilung/Routing basierend auf URL-Mustern
 
-Dieses Beispiel ist anspruchsvoller. Es gibt vier (4) Proxy-Server; einer von ihnen ist eine heiße Reserve für alle anderen, sodass, wenn einer der verbleibenden drei ausfällt, der vierte übernimmt. Darüber hinaus teilen sich die drei verbleibenden Proxy-Server die Last basierend auf URL-Mustern, was ihr Caching effektiver macht (es gibt nur eine Kopie eines Dokuments auf den drei Servern - im Gegensatz zu einer Kopie auf jedem von ihnen). Die Last wird so verteilt:
+Dieses Beispiel ist anspruchsvoller. Es gibt vier (4) Proxy-Server; einer davon ist ein heißer Standby für alle anderen, sodass der vierte übernimmt, wenn einer der anderen drei ausfällt. Darüber hinaus teilen die übrigen drei Proxy-Server die Last basierend auf URL-Mustern, was ihre Zwischenspeicherung effektiver macht (es gibt nur eine Kopie jedes Dokuments auf den drei Servern - im Gegensatz zu einer Kopie auf jedem von ihnen). Die Last wird wie folgt verteilt:
 
 | Proxy | Zweck                |
 | ----- | -------------------- |
 | #1    | .com Domain          |
 | #2    | .edu Domain          |
 | #3    | alle anderen Domains |
-| #4    | heiße Reserve        |
+| #4    | heißer Standby       |
 
-Alle lokalen Zugriffe sollen direkt sein. Alle Proxy-Server laufen auf Port 8080 (sie müssen dies nicht, Sie können einfach Ihren Port ändern, vergessen Sie nicht, Ihre Konfigurationen auf beiden Seiten anzupassen). Beachten Sie, wie Zeichenfolgen mit dem **`+`** Operator in JavaScript verkettet werden können.
+Alle lokalen Zugriffe sollen direkt erfolgen. Alle Proxy-Server laufen auf dem Port 8080 (sie müssen dies nicht, Sie können einfach Ihren Port ändern, aber denken Sie daran, Ihre Konfigurationen auf beiden Seiten zu ändern). Beachten Sie, wie Strings mit dem **`+`**-Operator in JavaScript verkettet werden können.
 
 ```js
 function FindProxyForURL(url, host) {
@@ -676,9 +676,9 @@ function FindProxyForURL(url, host) {
 
 ## Beispiel 6
 
-### Einrichten eines Proxys für ein bestimmtes Protokoll
+### Proxy für ein bestimmtes Protokoll festlegen
 
-Die meisten der standardmäßigen JavaScript-Funktionalitäten sind in der `FindProxyForURL()` Funktion verfügbar. Um zum Beispiel unterschiedliche Proxys basierend auf dem Protokoll festzulegen, kann die {{jsxref("String.prototype.startsWith()", "startsWith()")}} Funktion verwendet werden:
+Die meisten der standardmäßigen JavaScript-Funktionalitäten können in der `FindProxyForURL()`-Funktion verwendet werden. Um zum Beispiel unterschiedliche Proxies basierend auf dem Protokoll festzulegen, kann die {{jsxref("String.prototype.startsWith()", "startsWith()")}}-Funktion verwendet werden:
 
 ```js
 function FindProxyForURL(url, host) {
@@ -696,7 +696,7 @@ function FindProxyForURL(url, host) {
 ```
 
 > [!NOTE]
-> Dasselbe kann mit der zuvor beschriebenen [`shExpMatch()`](#shexpmatch) Funktion erreicht werden.
+> Dasselbe kann mit der zuvor beschriebenen [`shExpMatch()`](#shexpmatch)-Funktion erreicht werden.
 
 Zum Beispiel:
 
@@ -707,20 +707,20 @@ if (shExpMatch(url, "http:*")) {
 ```
 
 > [!NOTE]
-> Die Autokonfigurationsdatei kann von einem CGI-Skript ausgegeben werden. Dies ist nützlich, wenn die Autokonfigurationsdatei sich basierend auf der Client-IP-Adresse (der `REMOTE_ADDR` Umgebungsvariable in CGI) unterschiedlich verhält.
+> Die Autokonfigurationsdatei kann von einem CGI-Skript ausgegeben werden. Dies ist nützlich, um beispielsweise die Autokonfigurationsdatei basierend auf der Client-IP-Adresse (die `REMOTE_ADDR`-Umgebungsvariable in CGI) unterschiedlich zu gestalten.
 >
-> Die Verwendung der Funktionen `isInNet()`, `isResolvable()` und `dnsResolve()` sollte sorgfältig abgewogen werden, da sie die Konsultation des DNS-Servers erfordern. Alle anderen autokonfigurationsbezogenen Funktionen sind reine Zeichenfolgenübereinstimmungsfunktionen, die keine Verwendung eines DNS-Servers erfordern. Wenn ein Proxy verwendet wird, wird der Proxy seine DNS-Abfrage durchführen, was die Auswirkung auf den DNS-Server verdoppeln würde. Diese Funktionen sind in der Regel nicht notwendig, um das gewünschte Ergebnis zu erzielen.
+> Die Verwendung der Funktionen `isInNet()`, `isResolvable()` und `dnsResolve()` sollte sorgfältig abgewogen werden, da sie eine Abfrage des DNS-Servers erfordern. Alle anderen autokonfigurationsbezogenen Funktionen sind lediglich String-Matching-Funktionen, die keine Verwendung eines DNS-Servers erfordern. Wenn ein Proxy verwendet wird, führt der Proxy seine DNS-Auflösung durch, was die Auswirkungen auf den DNS-Server verdoppeln würde. Meistens sind diese Funktionen nicht notwendig, um das gewünschte Ergebnis zu erzielen.
 
 ## Geschichte und Implementierung
 
-Proxy auto-config wurde Ende der 1990er Jahre in Netscape Navigator 2.0 eingeführt, zur selben Zeit, als JavaScript eingeführt wurde. Die Open-Source-Freigabe von Netscape führte letztendlich zu Firefox selbst.
+Die Proxy-Auto-Konfiguration wurde in den späten 1990er Jahren mit der Einführung von JavaScript in den Netscape Navigator 2.0 eingeführt. Die Open-Source-Veröffentlichung von Netscape führte letztendlich zu Firefox selbst.
 
-Die "originalste" Implementierung von PAC und seinen JavaScript-Bibliotheken ist daher `nsProxyAutoConfig.js`, das in frühen Versionen von Firefox gefunden wurde. Diese Dienstprogramme finden sich in vielen anderen Open-Source-Systemen einschließlich [Chromium](https://source.chromium.org/chromium/chromium/src/+/main:services/proxy_resolver/pac_js_library.h). Firefox integrierte die Datei später in [`ProxyAutoConfig.cpp`](https://searchfox.org/mozilla-central/source/netwerk/base/ProxyAutoConfig.cpp) als eine C++-Zeichenkette. Um sie in eine eigene Datei zu extrahieren, reicht es aus, den Block mit einer `console.log` Anweisung zu kopieren, um ihn auszugeben.
+Die "originellste" Implementierung von PAC und seiner JavaScript-Bibliotheken ist daher `nsProxyAutoConfig.js`, die in frühen Versionen von Firefox zu finden ist. Diese Dienstprogramme finden sich in vielen anderen Open-Source-Systemen, einschließlich [Chromium](https://source.chromium.org/chromium/chromium/src/+/main:services/proxy_resolver/pac_js_library.h). Später integrierte Firefox die Datei in [`ProxyAutoConfig.cpp`](https://searchfox.org/mozilla-central/source/netwerk/base/ProxyAutoConfig.cpp) als C++-Stringliteral. Um sie in eine eigene Datei zu extrahieren, genügt es, den Ausschnitt in JavaScript mit einer `console.log`-Anweisung zu kopieren, um sie auszugeben.
 
-Microsoft hat im Allgemeinen seine eigene Implementierung gemacht. Es gab früher [einige Probleme mit ihren Bibliotheken](https://en.wikipedia.org/wiki/Proxy_auto-config#Old_Microsoft_problems), aber die meisten sind inzwischen gelöst. Sie haben [einige neue, mit "Ex" gekennzeichnete Funktionen definiert](https://learn.microsoft.com/en-us/windows/win32/winhttp/ipv6-extensions-to-navigator-auto-config-file-format), um die Adressbehandlungsteile zu unterstützen und IPv6 zu unterstützen. Die Funktion wird von Chromium unterstützt, aber noch nicht von Firefox ([bugzilla #558253](https://bugzil.la/558253)).
+Microsoft hat im Allgemeinen seine eigene Implementierung erstellt. Es gab früher [einige Probleme mit ihren Bibliotheken](https://en.wikipedia.org/wiki/Proxy_auto-config#Old_Microsoft_problems), aber die meisten sind inzwischen behoben. Sie haben [einige neue Funktionen mit dem Suffix "Ex"](https://learn.microsoft.com/en-us/windows/win32/winhttp/ipv6-extensions-to-navigator-auto-config-file-format) definiert, um IPv6 zu unterstützen. Das Feature wird von Chromium unterstützt, jedoch noch nicht von Firefox ([bugzilla #558253](https://bugzil.la/558253)).
 
 ## Siehe auch
 
 - {{Glossary("Proxy_server", "Proxy-Server")}}
-- [MIME-Typen (IANA-Mediendateitypen)](/de/docs/Web/HTTP/Guides/MIME_types)
-- [Automatische Proxy-HTTP-Server-Konfiguration in Webbrowsern](https://jdebp.uk/FGA/web-browser-auto-proxy-configuration.html)
+- [MIME-Typen (IANA-Medientypen)](/de/docs/Web/HTTP/Guides/MIME_types)
+- [Automatische Proxy HTTP-Server-Konfiguration in Webbrowsern](https://jdebp.uk/FGA/web-browser-auto-proxy-configuration.html)

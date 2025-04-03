@@ -1,17 +1,17 @@
 ---
-title: Payload-Header
+title: Nutzdatentyp-Header
 slug: Glossary/Payload_header
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{GlossarySidebar}}
 
-Ein **Payload-Header** ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der die Payload-Informationen beschreibt, die für den sicheren Transport und die Rekonstruktion der ursprünglichen Ressourcen-{{Glossary("Representation_header", "Repräsentation")}} aus einer oder mehreren Nachrichten relevant sind. Dies umfasst Informationen wie die Länge des Nachrichten-Payloads, welcher Teil der Ressource in diesem Payload übertragen wird (für eine mehrteilige Nachricht), jede für den Transport angewendete Kodierung, Integritätsprüfungen der Nachricht, usw.
+Ein **Nutzdatentyp-Header** ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der Informationen über die Nutzdaten beschreibt, die für den sicheren Transport und die Rekonstruktion der ursprünglichen Ressourcen-{{Glossary("Representation_header", "Darstellung")}} aus einer oder mehreren Nachrichten relevant sind. Dazu gehören Informationen wie die Länge der Nachrichtennutzdaten, welcher Teil der Ressource in diesen Nutzdaten enthalten ist (für eine mehrteilige Nachricht), jede zur Übertragung angewandte Kodierung, Integritätsprüfungen der Nachricht usw.
 
-Payload-Header können sowohl in HTTP-Anfrage- als auch in HTTP-Antwortnachrichten vorhanden sein (d.h. in jeder Nachricht, die Payload-Daten überträgt).
+Nutzdatentyp-Header können sowohl in HTTP-Anfrage- als auch in HTTP-Antwortnachrichten vorhanden sein (d.h. in jeder Nachricht, die Nutzdaten trägt).
 
-Zu den Payload-Headern gehören: {{HTTPHeader("Content-Length")}}, {{HTTPHeader("Content-Range")}}, {{HTTPHeader("Trailer")}} und {{HTTPHeader("Transfer-Encoding")}}.
+Zu den Nutzdatentyp-Headern gehören: {{HTTPHeader("Content-Length")}}, {{HTTPHeader("Content-Range")}}, {{HTTPHeader("Trailer")}}, und {{HTTPHeader("Transfer-Encoding")}}.
 
 ## Siehe auch
 
@@ -21,6 +21,6 @@ Zu den Payload-Headern gehören: {{HTTPHeader("Content-Length")}}, {{HTTPHeader(
   - {{HTTPHeader("Content-Range")}}
   - {{HTTPHeader("Trailer")}}
   - {{HTTPHeader("Transfer-Encoding")}}
-  - {{Glossary("Representation_header", "Repräsentations-Header")}}
+  - {{Glossary("Representation_header", "Darstellungs-Header")}}
 
-- [RFC 7231, Abschnitt 3.3: Payload-Semantik](https://datatracker.ietf.org/doc/html/rfc7231#section-3.3)
+- [RFC 7231, Abschnitt 3.3: Nutzdaten-Semantik](https://datatracker.ietf.org/doc/html/rfc7231#section-3.3)

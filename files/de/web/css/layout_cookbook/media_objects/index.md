@@ -1,29 +1,29 @@
 ---
-title: "Rezept: Medienobjekte"
+title: "Rezept: Media-Objekte"
 slug: Web/CSS/Layout_cookbook/Media_objects
 l10n:
-  sourceCommit: 507825f6292eb73f0a96419d69870d9330b6776f
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{CSSRef}}
 
-Das _Medienobjekt_ ist ein Muster, das wir überall im Web sehen. Es bezieht sich auf ein zweispaltiges Kästchen mit einem Bild auf der einen Seite und beschreibendem Text auf der anderen, z. B. ein Social-Media-Beitrag.
+Das _Media Object_ ist ein Muster, das wir überall im Web sehen. Es bezieht sich auf eine zweispaltige Box mit einem Bild auf der einen Seite und beschreibendem Text auf der anderen, z.B. ein Beitrag in sozialen Medien.
 
-![Beispiel eines Medienobjekts mit Profilbild auf der linken Seite und Lorem Ipsum-Text, der 80 % des Platzes auf der rechten Seite ausfüllt](media-object.png)
+![Beispiel eines Media-Objekts mit Profilbild auf der linken Seite und Lorem Ipsum-Text auf der rechten Seite, der 80% des Platzes einnimmt](media-object.png)
 
 ## Anforderungen
 
-Das Medienobjekt-Muster benötigt einige oder alle der folgenden Merkmale:
+Das Media Object-Muster benötigt einige oder alle der folgenden Merkmale:
 
-- Gestapelt auf mobilen Geräten, zwei Spalten auf dem Desktop.
+- Gestapelt auf dem Mobilgerät, zwei Spalten auf dem Desktop.
 - Das Bild kann links oder rechts sein.
 - Das Bild kann klein oder groß sein.
-- Medienobjekte können verschachtelt sein.
-- Das Medienobjekt sollte den Inhalt klären, egal welche Seite höher ist.
+- Media-Objekte können verschachtelt werden.
+- Das Media Object sollte den Inhalt bereinigen, egal welche Seite höher ist.
 
 ## Das Rezept
 
-Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den untenstehenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___media-objects-example
 <div class="media">
@@ -173,18 +173,18 @@ p {
 
 ## Getroffene Entscheidungen
 
-Ich habe mich entschieden, das [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) für das Medienobjekt zu verwenden, da es mir ermöglicht, das Layout in zwei Dimensionen zu steuern, wenn es nötig ist. Das bedeutet, dass, wenn wir einen Footer mit kurzem Inhalt darüber haben, der Footer an das Ende des Medienobjekts geschoben werden kann.
+Ich habe mich entschieden, das [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) für das Media Object zu verwenden, da es mir ermöglicht, das Layout in zwei Dimensionen zu steuern, wenn ich es brauche. Dies bedeutet, dass wenn wir einen Footer haben, mit kurzem Inhalt darüber, der Footer zum unteren Ende des Media-Objekts verschoben werden kann.
 
-Ein weiterer Grund für die Verwendung von Grid-Layout ist, dass ich {{cssxref("fit-content")}} für die Spurgröße des Bildes verwenden kann. Durch die Verwendung von `fit-content` mit einer maximalen Größe von 200 Pixeln wird, wenn wir ein kleines Bild wie das Icon haben, die Spur nur so groß wie die Größe dieses Bildes — die `max-content` Größe. Wenn das Bild größer ist, hört die Spur bei 200 Pixeln auf zu wachsen, und da das Bild eine {{cssxref("max-width")}} von 100% hat, skaliert es herunter, sodass es weiterhin in die Spalte passt.
+Ein weiterer Grund für die Verwendung des Grid-Layouts ist, dass ich {{cssxref("fit-content")}} für die Spurgrößenanpassung des Bildes verwenden kann. Durch die Verwendung von `fit-content` mit einer maximalen Größe von 200 Pixeln, wird bei einem kleinen Bild wie dem Icon die Spur nur so groß wie die Größe dieses Bildes — die `max-content` Größe. Wenn das Bild größer ist, hört die Spur bei 200 Pixeln auf zu wachsen und da dem Bild eine {{cssxref("max-width")}} von 100% zugewiesen ist, wird es verkleinert, sodass es weiterhin in die Spalte passt.
 
-Durch die Verwendung von {{cssxref("grid-template-areas")}}, um das Layout zu erreichen, kann ich das Muster im CSS sehen. Ich definiere mein Grid, sobald wir eine Maximalbreite von 500 Pixeln haben, sodass das Medienobjekt auf kleineren Geräten gestapelt wird.
+Durch die Verwendung von {{cssxref("grid-template-areas")}}, um das Layout zu erreichen, kann ich das Muster im CSS sehen. Ich definiere mein Grid, sobald wir eine max-width von 500 Pixeln erreichen, sodass sich das Media-Objekt auf kleineren Geräten stapelt.
 
-Eine Option für das Muster ist es, es umzudrehen, um das Bild auf die andere Seite zu schalten — dies wird erreicht, indem die `media-flip`-Klasse hinzugefügt wird, die ein umgedrehtes Grid-Template definiert und dadurch das Layout spiegelt.
+Eine Option für das Muster ist es, es zu spiegeln, um das Bild auf die andere Seite zu verschieben — dies wird durch Hinzufügen der `media-flip` Klasse erreicht, die eine gespiegelte Grid-Vorlage definiert und das Layout spiegelt.
 
-Wenn wir ein Medienobjekt in einem anderen verschachteln, müssen wir es in die zweite Spur im regulären Layout und in die erste Spur, wenn es umgedreht ist, platzieren.
+Wenn wir ein Media Object in ein anderes verschachteln, müssen wir es in die zweite Spur im regulären Layout und in die erste Spur, wenn es gespiegelt wird, platzieren.
 
 ## Siehe auch
 
 - {{cssxref("fit-content")}} Eigenschaft
-- [Verwendung von Grid-Template-Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
+- [Verwenden von Grid Template Areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
 - [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul

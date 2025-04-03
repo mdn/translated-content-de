@@ -2,29 +2,29 @@
 title: ChapterInformation
 slug: Web/API/ChapterInformation
 l10n:
-  sourceCommit: b60bc79c7ad36c56dddf6760d2fd4dbb642d2023
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Media Session API")}}{{SeeCompatTable}}
 
-Das **`ChapterInformation`**-Interface der [Media Session API](/de/docs/Web/API/Media_Session_API) repräsentiert die Metadaten für ein individuelles Kapitel einer Medienressource (d.h. einer Video- oder Audiodatei).
+Das **`ChapterInformation`**-Interface der [Media Session API](/de/docs/Web/API/Media_Session_API) repräsentiert die Metadaten für ein einzelnes Kapitel einer Medienressource (d.h. einer Video- oder Audiodatei).
 
-Die Kapitelinformationen für eine gegebene Medienressource werden beim Erstellen über die `chapterInfo`-Eigenschaft des Initialisierungsobjekts des [`MediaMetadata()`](/de/docs/Web/API/MediaMetadata/MediaMetadata)-Konstruktors gesetzt. Die Eigenschaft nimmt ein Array von `ChapterInformation`-Objekten als Wert an.
+Die Kapitelinformationen für eine gegebene Medienressource werden festgelegt, wenn sie erstmals erstellt wird, über die `chapterInfo`-Eigenschaft des Initialisierungsobjekts des [`MediaMetadata()`](/de/docs/Web/API/MediaMetadata/MediaMetadata)-Konstruktors. Die Eigenschaft nimmt ein Array von `ChapterInformation`-Objekten als Wert an.
 
-Sie können auf die Kapitelinformationen eines bestehenden [`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Objekts über dessen [`chapterInfo`](/de/docs/Web/API/MediaMetadata/chapterInfo)-Eigenschaft zugreifen. Diese gibt ein Array von `ChapterInformation`-Objekten zurück.
+Sie können auf die Kapitelinformationen für ein bestehendes [`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Objekt über dessen [`chapterInfo`](/de/docs/Web/API/MediaMetadata/chapterInfo)-Eigenschaft zugreifen. Dies gibt ein Array von `ChapterInformation`-Objekten zurück.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`ChapterInformation.artwork`](/de/docs/Web/API/ChapterInformation/artwork) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, die mit dem Kapitel verknüpfte Bilder repräsentieren.
+  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, die mit dem Kapitel verbundene Bilder darstellen.
 - [`ChapterInformation.startTime`](/de/docs/Web/API/ChapterInformation/startTime) {{ReadOnlyInline}} {{experimental_inline}}
   - : Gibt eine Zahl in Sekunden zurück, die die Startzeit des Kapitels darstellt.
 - [`ChapterInformation.title`](/de/docs/Web/API/ChapterInformation/title) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt einen String zurück, der den Titel des Kapitels repräsentiert.
+  - : Gibt einen String zurück, der den Titel des Kapitels darstellt.
 
 ## Beispiele
 
-Der untenstehende Beispielcode aus dem [Video / Media Session Sample](https://googlechrome.github.io/samples/media-session/video.html) zeigt eine typische Struktur für das `ChapterInformation`-Objekt:
+Der folgende Beispielcode aus [Video / Media Session Sample](https://googlechrome.github.io/samples/media-session/video.html) zeigt eine typische Struktur für das `ChapterInformation`-Objekt:
 
 ```js
 const BASE_URL = "https://storage.googleapis.com/media-session/";
@@ -65,7 +65,7 @@ chapterInfo: [
 ];
 ```
 
-Der folgende Codeausschnitt zeigt, wie es innerhalb des Media Session-Codes verwendet werden kann (die oben angegebenen Objekt-Eigenschaften sind Teil des weiter unten referenzierten `playlist`-Objekts):
+Das folgende Snippet zeigt, wie es innerhalb von Media Session Code verwendet werden kann (die oben genannte Objekteigenschaft ist Teil des unten referenzierten `playlist`-Objekts):
 
 ```js
 function updateMetadata() {

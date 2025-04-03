@@ -2,21 +2,21 @@
 title: OTPCredential
 slug: Web/API/OTPCredential
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("WebOTP API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die **`OTPCredential`**-Schnittstelle der [WebOTP API](/de/docs/Web/API/WebOTP_API) wird zurückgegeben, wenn ein WebOTP-Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) (das heißt mit einer `otp`-Option) erfolgreich ist. Sie enthält eine `code`-Eigenschaft, die das abgerufene Einmalpasswort (OTP) beinhaltet.
+Das **`OTPCredential`**-Interface der [WebOTP API](/de/docs/Web/API/WebOTP_API) wird zurückgegeben, wenn ein Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit der `otp`-Option erfüllt wird. Es enthält eine `code`-Eigenschaft, die das abgerufene Einmalkennwort (OTP) enthält.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von [`Credential`](/de/docs/Web/API/Credential)._
+_Dieses Interface erbt auch Eigenschaften von [`Credential`](/de/docs/Web/API/Credential)._
 
 - [`OTPCredential.code`](/de/docs/Web/API/OTPCredential/code) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Das Einmalpasswort (OTP).
+  - : Das Einmalkennwort (OTP).
 
 ## Instanz-Methoden
 
@@ -24,7 +24,7 @@ Keine.
 
 ## Beispiele
 
-Der folgende Code löst den Berechtigungsablauf des Browsers aus, wenn eine SMS-Nachricht eintrifft. Wird die Berechtigung erteilt, wird das Promise mit einem `OTPCredential`-Objekt erfüllt. Der enthaltene `code`-Wert wird dann als Wert eines {{htmlelement("input")}}-Formular-Elements gesetzt, das anschließend übermittelt wird.
+Der untenstehende Code löst den Berechtigungsablauf des Browsers aus, wenn eine SMS-Nachricht eintrifft. Wenn die Erlaubnis erteilt wird, wird das Versprechen mit einem `OTPCredential`-Objekt erfüllt. Der enthaltene `code`-Wert wird dann als Wert eines {{htmlelement("input")}}-Formular-Elements gesetzt, das anschließend übermittelt wird.
 
 ```js
 navigator.credentials
@@ -42,7 +42,7 @@ navigator.credentials
 ```
 
 > [!NOTE]
-> Für eine vollständige Erklärung des Codes sehen Sie sich die [WebOTP API](/de/docs/Web/API/WebOTP_API)-Hauptseite an. Sie können sich diesen Code auch als Teil einer [voll funktionsfähigen Demo ansehen](https://web-otp.glitch.me/).
+> Für eine vollständige Erläuterung des Codes, siehe die Startseite der [WebOTP API](/de/docs/Web/API/WebOTP_API). Sie können diesen Code auch [als Teil eines vollständigen funktionsfähigen Demos ansehen](https://web-otp.glitch.me/).
 
 ## Spezifikationen
 

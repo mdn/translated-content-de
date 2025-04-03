@@ -2,54 +2,54 @@
 title: JavaScript Typed Arrays
 slug: Web/JavaScript/Guide/Typed_arrays
 l10n:
-  sourceCommit: 0b0cac4814d37f8a62d69de1b0d76dbe20d085ec
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-{{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Using_promises", "Web/JavaScript/Guide/Iterators_and_generators")}}
+{{jsSidebar("JavaScript Leitfaden")}} {{PreviousNext("Web/JavaScript/Guide/Using_promises", "Web/JavaScript/Guide/Iterators_and_generators")}}
 
-JavaScript Typed Arrays sind array-ähnliche Objekte, die einen Mechanismus zum Lesen und Schreiben von rohen Binärdaten in Speicherpuffern bereitstellen.
+JavaScript Typed Arrays sind array-ähnliche Objekte, die einen Mechanismus zum Lesen und Schreiben von Roh-Binärdaten in Speicherspeichern bieten.
 
-Typed Arrays sind nicht dazu gedacht, Arrays für jegliche Funktionalität zu ersetzen. Stattdessen bieten sie Entwicklern eine vertraute Schnittstelle zur Manipulation von Binärdaten. Dies ist nützlich, wenn man mit Plattformfunktionen wie Audio- und Videomanipulation, Zugriff auf Rohdaten über [WebSockets](/de/docs/Web/API/WebSockets_API) usw. interagiert. Jedes Element in einem JavaScript Typed Array ist ein roher Binärwert in einem von mehreren unterstützten Formaten, von 8-Bit-Integern bis zu 64-Bit-Gleitkommazahlen.
+Typed Arrays sollen nicht Arrays für jegliche Art von Funktionalität ersetzen. Stattdessen bieten sie Entwicklern eine vertraute Schnittstelle zur Manipulation von Binärdaten. Dies ist nützlich, wenn Sie mit Plattformfunktionen interagieren, wie z.B. Audio- und Videobearbeitung, Zugriff auf Rohdaten über [WebSockets](/de/docs/Web/API/WebSockets_API), und so weiter. Jeder Eintrag in einem JavaScript Typed Array ist ein roher Binärwert in einem der vielen unterstützten Formate, von 8-Bit-Ganzzahlen bis hin zu 64-Bit-Gleitkommazahlen.
 
-Typed Array Objekte teilen viele der gleichen Methoden wie Arrays mit ähnlicher Semantik. Typed Arrays dürfen jedoch _nicht_ mit normalen Arrays verwechselt werden, da der Aufruf von {{jsxref("Array.isArray()")}} auf einem Typed Array `false` zurückgibt. Zudem werden nicht alle Methoden, die für normale Arrays verfügbar sind, von Typed Arrays unterstützt (z.B. `push` und `pop`).
+Typed Array-Objekte teilen viele der gleichen Methoden wie Arrays mit ähnlicher Semantik. Typed Arrays dürfen jedoch _nicht_ mit normalen Arrays verwechselt werden, da der Aufruf von {{jsxref("Array.isArray()")}} auf einem Typed Array `false` zurückgibt. Zudem werden nicht alle für normale Arrays verfügbaren Methoden von Typed Arrays unterstützt (z.B. push und pop).
 
-Um maximale Flexibilität und Effizienz zu erreichen, unterteilen JavaScript Typed Arrays die Implementierung in _Puffer_ und _Ansichten_. Ein Puffer ist ein Objekt, das einen Datenabschnitt darstellt; es hat kein Format und bietet keinen Mechanismus, um auf seine Inhalte zuzugreifen. Um auf den im Puffer enthaltenen Speicher zuzugreifen, muss eine [Ansicht](#ansichten) verwendet werden. Eine Ansicht bietet einen _Kontext_ — das heißt, einen Datentyp, Anfangsoffset und Anzahl der Elemente.
+Um maximale Flexibilität und Effizienz zu erreichen, teilen JavaScript Typed Arrays die Implementierung in _Buffers_ und _Views_. Ein Buffer ist ein Objekt, das einen Datenblock darstellt; es hat kein Format, über das man sprechen könnte, und bietet keinen Mechanismus zum Zugriff auf seinen Inhalt. Um auf den Speicher in einem Buffer zuzugreifen, müssen Sie eine [View](#views) verwenden. Eine View bietet einen _Kontext_ — das heißt, einen Datentyp, Startoffset und eine Anzahl von Elementen.
 
-![Ein Diagramm, das zeigt, wie unterschiedliche Typed Arrays Ansichten des gleichen zugrundeliegenden Puffers sein können. Jedes hat eine unterschiedliche Elementanzahl und Breite.](typed_arrays.png)
+![Ein Diagramm, das zeigt, wie verschiedene Typed Arrays Ansichten des gleichen zugrunde liegenden Buffers sein können. Jede hat eine andere Anzahl und Breite von Elementen.](typed_arrays.png)
 
-## Puffer
+## Buffers
 
-Es gibt zwei Arten von Puffern: {{jsxref("ArrayBuffer")}} und {{jsxref("SharedArrayBuffer")}}. Beide sind niedrigstufige Repräsentationen eines Speicherabschnitts. Sie haben das Wort "Array" in ihren Namen, aber mit Arrays haben sie wenig zu tun — man kann nicht direkt auf sie lesen oder schreiben. Stattdessen sind Puffer generische Objekte, die einfach Rohdaten enthalten. Um auf den vom Puffer repräsentierten Speicher zuzugreifen, muss eine Ansicht verwendet werden.
+Es gibt zwei Arten von Buffers: {{jsxref("ArrayBuffer")}} und {{jsxref("SharedArrayBuffer")}}. Beide sind niederpegelige Darstellungen eines Speicherbereichs. Sie haben „Array“ in ihren Namen, aber sie haben nicht viel mit Arrays zu tun — Sie können nicht direkt von ihnen lesen oder auf sie schreiben. Stattdessen sind Buffers generische Objekte, die nur Rohdaten enthalten. Um auf den Speicher zuzugreifen, der durch einen Buffer dargestellt wird, müssen Sie eine View verwenden.
 
-Puffer unterstützen die folgenden Aktionen:
+Buffers unterstützen die folgenden Aktionen:
 
-- _Allokation_: Sobald ein neuer Puffer erstellt wird, wird ein neuer Speicherabschnitt alloziert und auf `0` initialisiert.
-- _Kopieren_: Mit der Methode {{jsxref("ArrayBuffer/slice", "slice()")}} kann man einen Teil des Speichers effizient kopieren, ohne Ansichten zu erstellen, um jedes Byte manuell zu kopieren.
-- _Übertragung_: Mit den Methoden {{jsxref("ArrayBuffer/transfer", "transfer()")}} und {{jsxref("ArrayBuffer/transferToFixedLength", "transferToFixedLength()")}} kann die Besitzergreifung des Speicherabschnitts auf ein neues Pufferobjekt übertragen werden. Dies ist nützlich, um Daten zwischen verschiedenen Ausführungskontexten zu übertragen, ohne sie zu kopieren. Nach der Übertragung ist der ursprüngliche Puffer nicht mehr verwendbar. Ein `SharedArrayBuffer` kann nicht übertragen werden (da der Puffer bereits von allen Ausführungskontexten gemeinsam genutzt wird).
-- _Größenänderung_: Mit der Methode {{jsxref("ArrayBuffer/resize", "resize()")}} kann man den Speicherabschnitt resize (entweder mehr Speicherplatz beanspruchen, solange er nicht das voreingestellte {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}} Limit überschreitet, oder Speicherplatz freigeben). `SharedArrayBuffer` kann nur [erweitert](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/grow), aber nicht verkleinert werden.
+- _Zuweisen_: Sobald ein neuer Buffer erstellt wird, wird ein neuer Speicherbereich zugewiesen und auf `0` initialisiert.
+- _Kopieren_: Mit der Methode {{jsxref("ArrayBuffer/slice", "slice()")}} können Sie effizient einen Teil des Speichers kopieren, ohne Views zu erstellen, um jedes Byte manuell zu kopieren.
+- _Übertragen_: Mithilfe der Methoden {{jsxref("ArrayBuffer/transfer", "transfer()")}} und {{jsxref("ArrayBuffer/transferToFixedLength", "transferToFixedLength()")}} können Sie das Eigentum des Speicherbereichs an ein neues Buffer-Objekt übertragen. Dies ist nützlich, wenn Daten zwischen verschiedenen Ausführungskontexten übertragen werden, ohne kopieren zu müssen. Nach der Übertragung ist der ursprüngliche Buffer nicht mehr verwendbar. Ein `SharedArrayBuffer` kann nicht übertragen werden, da der Buffer bereits von allen Ausführungskontexten geteilt wird.
+- _Ändern der Größe_: Mit der Methode {{jsxref("ArrayBuffer/resize", "resize()")}} können Sie den Speicherbereich anpassen (entweder mehr Speicherplatz beanspruchen, solange er nicht das vordefinierte {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}}-Limit überschreitet, oder etwas Speicherplatz freigeben). `SharedArrayBuffer` kann nur [erweitert](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/grow) werden, aber nicht verkleinert.
 
-Der Unterschied zwischen `ArrayBuffer` und `SharedArrayBuffer` besteht darin, dass der erstere immer nur von einem einzigen Ausführungskontext zu einem Zeitpunkt besessen wird. Wenn man einen `ArrayBuffer` an einen anderen Ausführungskontext übergibt, wird er _übertragen_ und der ursprüngliche `ArrayBuffer` wird unbenutzbar. Dies stellt sicher, dass immer nur ein Ausführungskontext auf den Speicher zugreifen kann. Ein `SharedArrayBuffer` wird nicht übertragen, wenn er an einen anderen Ausführungskontext übergeben wird, sodass er gleichzeitig von mehreren Ausführungskontexten zugänglich ist. Dies kann zu Race Conditions führen, wenn mehrere Threads auf denselben Speicherabschnitt zugreifen, sodass Operationen wie {{jsxref("Atomics")}} Methoden nützlich werden.
+Der Unterschied zwischen `ArrayBuffer` und `SharedArrayBuffer` besteht darin, dass der erstere immer von einem einzigen Ausführungskontext besessen wird. Wenn Sie einen `ArrayBuffer` an einen anderen Ausführungskontext übergeben, wird er _übertragen_ und der ursprüngliche `ArrayBuffer` wird unbrauchbar. Dies stellt sicher, dass immer nur ein Ausführungskontext auf den Speicher zugreifen kann. Ein `SharedArrayBuffer` wird nicht übertragen, wenn er an einen anderen Ausführungskontext übergeben wird, sodass er gleichzeitig von mehreren Ausführungskontexten verwendet werden kann. Dies kann zu Wettlaufbedingungen führen, wenn mehrere Threads auf den gleichen Speicherbereich zugreifen, daher werden Operationen wie {{jsxref("Atomics")}}-Methoden nützlich.
 
-## Ansichten
+## Views
 
-Derzeit gibt es zwei Hauptarten von Ansichten: Typed Array Ansichten und {{jsxref("DataView")}}. Typed Arrays bieten [Hilfsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#instance_methods), die es Ihnen ermöglichen, Binärdaten bequem zu transformieren. `DataView` ist niedriger und ermöglicht eine granulare Kontrolle darüber, wie auf Daten zugegriffen wird. Die Möglichkeiten zum Lesen und Schreiben von Daten mit den beiden Ansichten sind sehr unterschiedlich.
+Derzeit gibt es zwei Haupttypen von Views: Typed Array Views und {{jsxref("DataView")}}. Typed Arrays bieten [Hilfsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#instance_methods) an, die es Ihnen ermöglichen, Binärdaten bequem zu transformieren. `DataView` ist niedrigstufiger und ermöglicht eine feine Steuerung, wie auf Daten zugegriffen wird. Die Möglichkeiten zum Lesen und Schreiben von Daten mithilfe der beiden Views sind sehr unterschiedlich.
 
-Beide Arten von Ansichten führen dazu, dass {{jsxref("ArrayBuffer.isView()")}} `true` zurückgibt. Beide haben die folgenden Eigenschaften:
+Beide Arten von Views führen dazu, dass {{jsxref("ArrayBuffer.isView()")}} `true` zurückgibt. Beide haben die folgenden Eigenschaften:
 
 - `buffer`
-  - : Der zugrundeliegende Puffer, auf den die Ansicht verweist.
+  - : Der zugrunde liegende Buffer, auf den die View verweist.
 - `byteOffset`
-  - : Der Offset in Bytes der Ansicht vom Anfang ihres Puffers.
+  - : Der Offset in Bytes der View vom Beginn ihres Buffers.
 - `byteLength`
-  - : Die Länge der Ansicht in Bytes.
+  - : Die Länge in Bytes der View.
 
-Beide Konstruktoren akzeptieren die oben genannten drei als separate Argumente, obwohl die Konstruktoren von Typed Arrays `length` als Anzahl der Elemente statt der Anzahl der Bytes akzeptieren.
+Beide Konstruktoren akzeptieren die oben genannten drei als separate Argumente, obwohl Typed Array-Konstruktoren `length` als die Anzahl der Elemente anstatt der Anzahl der Bytes akzeptieren.
 
-### Typed Array Ansichten
+### Typed Array Views
 
-Typed Array Ansichten haben selbsterklärende Namen und bieten Ansichten für alle üblichen numerischen Typen wie `Int8`, `Uint32`, `Float64` und so weiter. Es gibt eine spezielle Typed Array Ansicht, {{jsxref("Uint8ClampedArray")}}, die die Werte zwischen `0` und `255` einklammert. Dies ist nützlich für [Canvas-Datenverarbeitung](/de/docs/Web/API/ImageData) zum Beispiel.
+Typed Array Views haben selbsterklärende Namen und bieten Ansichten für alle üblichen numerischen Typen wie `Int8`, `Uint32`, `Float64` und so weiter. Es gibt eine spezielle Typed Array View, {{jsxref("Uint8ClampedArray")}}, die die Werte zwischen `0` und `255` begrenzt. Dies ist zum Beispiel nützlich für die [Canvas-Datenverarbeitung](/de/docs/Web/API/ImageData).
 
-| Typ                             | Wertebereich                           | Größe in Bytes | Web IDL Typ           |
+| Type                            | Wertebereich                           | Größe in Bytes | Web IDL Typ           |
 | ------------------------------- | -------------------------------------- | -------------- | --------------------- |
 | {{jsxref("Int8Array")}}         | -128 bis 127                           | 1              | `byte`                |
 | {{jsxref("Uint8Array")}}        | 0 bis 255                              | 1              | `octet`               |
@@ -64,19 +64,19 @@ Typed Array Ansichten haben selbsterklärende Namen und bieten Ansichten für al
 | {{jsxref("BigInt64Array")}}     | -2<sup>63</sup> bis 2<sup>63</sup> - 1 | 8              | `bigint`              |
 | {{jsxref("BigUint64Array")}}    | 0 bis 2<sup>64</sup> - 1               | 8              | `bigint`              |
 
-Alle Typed Array Ansichten haben die gleichen Methoden und Eigenschaften, wie sie durch die {{jsxref("TypedArray")}} Klasse definiert sind. Sie unterscheiden sich nur im zugrundeliegenden Datentyp und der Größe in Bytes. Dies wird ausführlicher in [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization) diskutiert.
+Alle Typed Array Views haben die gleichen Methoden und Eigenschaften, wie sie von der {{jsxref("TypedArray")}}-Klasse definiert sind. Sie unterscheiden sich nur im zugrunde liegenden Datentyp und der Größe in Bytes. Dies wird ausführlicher in der [Wertcodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization) behandelt.
 
-Typed Arrays sind grundsätzlich von fester Länge, sodass Array-Methoden, die die Länge eines Arrays ändern können, nicht verfügbar sind. Dazu gehören `pop`, `push`, `shift`, `splice` und `unshift`. Ebenso ist `flat` nicht verfügbar, da es keine verschachtelten Typed Arrays gibt, und verwandte Methoden wie `concat` und `flatMap` haben keine großen Anwendungsfälle und sind daher nicht verfügbar. Da `splice` nicht verfügbar ist, ist auch `toSpliced` nicht verfügbar. Alle anderen Array-Methoden werden zwischen `Array` und `TypedArray` gemeinsam genutzt.
+Typed Arrays sind grundsätzlich festlängenbasiert, daher sind Array-Methoden, die die Länge eines Arrays ändern können, nicht verfügbar. Dies schließt `pop`, `push`, `shift`, `splice` und `unshift` ein. Darüber hinaus ist `flat` nicht verfügbar, da es keine verschachtelten Typed Arrays gibt, und verwandte Methoden, einschließlich `concat` und `flatMap`, haben keine großen Anwendungsfälle und sind daher nicht verfügbar. Da `splice` nicht verfügbar ist, ist auch `toSpliced` nicht verfügbar. Alle anderen Array-Methoden werden von `Array` und `TypedArray` gemeinsam genutzt.
 
-Andererseits hat `TypedArray` die zusätzlichen `set` und `subarray` Methoden, die das Arbeiten mit mehreren Typed Arrays optimieren, die denselben Puffer betrachten. Die Methode `set()` ermöglicht es, mehrere Indizes eines Typed Arrays auf einmal zu setzen, unter Verwendung von Daten aus einem anderen Array oder Typed Array. Wenn die beiden Typed Arrays denselben zugrundeliegenden Puffer teilen, kann die Operation effizienter sein, da es ein schneller Speicherverschiebevorgang ist. Die Methode `subarray()` erstellt eine neue Typed Array Ansicht, die denselben Puffer wie das ursprüngliche Typed Array referenziert, jedoch mit einem schmaleren Bereich.
+Auf der anderen Seite hat `TypedArray` die zusätzlichen Methoden `set` und `subarray`, die das Arbeiten mit mehreren Typed Arrays, die denselben Buffer betrachten, optimieren. Die `set()`-Methode ermöglicht das gleichzeitige Setzen mehrerer Indizes des Typed Arrays unter Verwendung von Daten aus einem anderen Array oder Typed Array. Wenn die beiden Typed Arrays denselben zugrunde liegenden Buffer teilen, könnte der Vorgang effizienter sein, da es sich um eine schnelle Speicherbewegung handelt. Die `subarray()`-Methode erstellt eine neue Typed Array View, die denselben Buffer wie das ursprüngliche Typed Array referenziert, jedoch mit einem schmaleren Bereich.
 
-Es gibt keine Möglichkeit, die Länge eines Typed Arrays direkt zu ändern, ohne den zugrundeliegenden Puffer zu ändern. Wenn die Typed Array Ansicht jedoch einen veränderbaren Puffer betrachtet und keine feste `byteLength` hat, ist sie _längenverfolgung_ und wird automatisch an den zugrundeliegenden Puffer angepasst, wenn dieser vergrößert wird. Siehe [Verhalten bei Betrachtung eines veränderbaren Puffers](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#behavior_when_viewing_a_resizable_buffer) für Details.
+Es gibt keine Möglichkeit, die Länge eines Typed Arrays direkt zu ändern, ohne den zugrunde liegenden Buffer zu verändern. Wenn jedoch das Typed Array einen anpassbaren Buffer betrachtet und über keine feste `byteLength` verfügt, ist es _längenverfolgend_ und wird automatisch an den zugrunde liegenden Buffer angepasst, wenn der anpassbare Buffer geändert wird. Siehe [Verhalten beim Betrachten eines vergrößerbaren Buffers](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#behavior_when_viewing_a_resizable_buffer) für Einzelheiten.
 
-Ähnlich wie bei regulären Arrays können Sie auf Typed Array Elemente mit [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) zugreifen. Die entsprechenden Bytes im zugrundeliegenden Puffer werden abgerufen und als Zahl interpretiert. Jeder Eigenschaftszugriff mit einer Zahl (oder der String-Repräsentation einer Zahl, da Zahlen beim Zugriff auf Eigenschaften immer in Strings konvertiert werden) wird vom Typed Array proxy-gesteuert — sie interagieren niemals mit dem Objekt selbst. Das bedeutet beispielsweise:
+Ähnlich wie bei normalen Arrays können Sie auf Typed Array-Elemente mit [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) zugreifen. Die entsprechenden Bytes im zugrunde liegenden Buffer werden abgerufen und als Zahl interpretiert. Jeder Eigenschaftszugriff unter Verwendung einer Zahl (oder der String-Darstellung einer Zahl, da Zahlen immer in Strings konvertiert werden, wenn auf Eigenschaften zugegriffen wird) wird vom Typed Array geproxyt — sie interagieren niemals mit dem Objekt selbst. Das bedeutet zum Beispiel:
 
-- Der Zugriff auf einen Index außerhalb der Grenzen liefert immer `undefined` zurück, ohne tatsächlich auf die Eigenschaft im Objekt zuzugreifen.
-- Jeder Versuch, eine solche Eigenschaft außerhalb der Grenzen zu schreiben, hat keine Wirkung: Es löst keinen Fehler aus, aber es ändert auch nicht den Puffer oder das Typed Array.
-- Typed Array Indizes scheinen konfigurierbar und beschreibbar zu sein, aber jeder Versuch, ihre Attribute zu ändern, wird fehlschlagen.
+- Ein Zugriff auf einen Index außerhalb der Grenzen gibt immer `undefined` zurück, ohne tatsächlich auf die Eigenschaft im Objekt zuzugreifen.
+- Jeder Versuch, auf eine solche Eigenschaft außerhalb der Grenzen zu schreiben, hat keine Auswirkungen: Es wird kein Fehler ausgelöst, aber es ändert auch nichts am Buffer oder Typed Array.
+- Typed Array-Indizes scheinen konfigurierbar und beschreibbar zu sein, aber jeder Versuch, ihre Attribute zu ändern, wird fehlschlagen.
 
 ```js
 const uint8 = new Uint8Array([1, 2, 3]);
@@ -98,11 +98,11 @@ Object.freeze(uint8); // TypeError: Cannot freeze array buffer views with elemen
 
 ### DataView
 
-Der {{jsxref("DataView")}} ist eine niedrigstufige Schnittstelle, die eine Getter/Setter-API bereitstellt, um beliebige Daten in den Puffer zu lesen und zu schreiben. Dies ist nützlich, wenn mit unterschiedlichen Datentypen gearbeitet wird, zum Beispiel. Typed Array Ansichten liegen in der nativen Byte-Reihenfolge (siehe {{Glossary("Endianness", "Endianness")}}) Ihrer Plattform vor. Mit einem `DataView` kann die Byte-Reihenfolge kontrolliert werden. Standardmäßig ist sie Big-Endian—die Bytes sind von den wichtigsten zu den am wenigsten wichtigen geordnet. Dies kann umgekehrt werden, mit den Bytes in der Reihenfolge vom unwichtigsten zum wichtigsten (Little-Endian), mit Hilfe von Getter-/Setter-Methoden.
+Der {{jsxref("DataView")}} ist eine niedrigstufige Schnittstelle, die eine Getter/Setter-API zum Lesen und Schreiben beliebiger Daten in den Buffer bereitstellt. Dies ist nützlich, wenn man es mit verschiedenen Datentypen zu tun hat. Typed Array Views sind in der nativen Byte-Reihenfolge (siehe {{Glossary("Endianness", "Endianness")}}) Ihrer Plattform. Mit einem `DataView` kann die Byte-Reihenfolge kontrolliert werden. Standardmäßig ist es Big-Endian — die Bytes sind von den bedeutendsten zu den unbedeutendsten geordnet. Dies kann umgekehrt werden, wobei die Bytes von den unbedeutendsten zu den bedeutendsten geordnet sind (Little-Endian), durch Verwendung von Getter-/Setter-Methoden.
 
-`DataView` erfordert keine Ausrichtung; Multibyte-Lesen und -Schreiben können an jedem angegebenen Offset beginnen. Die Setter-Methoden funktionieren auf die gleiche Weise.
+`DataView` erfordert keine Ausrichtung; Lese- und Schreiboperationen mit mehreren Bytes können an jedem angegebenen Offset gestartet werden. Die Setter-Methoden funktionieren auf die gleiche Weise.
 
-Das folgende Beispiel verwendet einen `DataView`, um die binäre Repräsentation einer beliebigen Zahl zu erhalten:
+Das folgende Beispiel verwendet einen `DataView`, um die binäre Darstellung einer beliebigen Zahl zu erhalten:
 
 ```js
 function toBinary(
@@ -128,26 +128,26 @@ console.log(toBinary(20, { type: "Int8", radix: 2 })); // 00010100
 
 ## Web-APIs, die Typed Arrays verwenden
 
-Dies sind einige Beispiele von APIs, die Typed Arrays verwenden; es gibt andere, und es werden ständig neue hinzugefügt.
+Dies sind einige Beispiele für APIs, die Typed Arrays verwenden; es gibt noch andere, und es kommen ständig neue hinzu.
 
 - [`FileReader.prototype.readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer)
   - : Die Methode `FileReader.prototype.readAsArrayBuffer()` beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File).
 - [`fetch()`](/de/docs/Web/API/Window/fetch)
-  - : Die [`body`](/de/docs/Web/API/RequestInit#body) Option von `fetch()` kann ein Typed Array oder {{jsxref("ArrayBuffer")}} sein, sodass Sie diese Objekte als Nutzlast einer {{HTTPMethod("POST")}} Anfrage senden können.
+  - : Die Option [`body`](/de/docs/Web/API/RequestInit#body) für `fetch()` kann ein Typed Array oder {{jsxref("ArrayBuffer")}} sein, wodurch Sie diese Objekte als Nutzdaten einer {{HTTPMethod("POST")}}-Anfrage senden können.
 - [`ImageData.data`](/de/docs/Web/API/ImageData)
-  - : Ist eine {{jsxref("Uint8ClampedArray")}} und stellt ein eindimensionales Array dar, das die Daten in RGBA-Reihenfolge mit ganzzahligen Werten zwischen `0` und `255` enthält.
+  - : Ist eine {{jsxref("Uint8ClampedArray")}}, die ein eindimensionales Array darstellt, das die Daten in der RGBA-Reihenfolge enthält, mit ganzzahligen Werten zwischen `0` und `255` einschließlich.
 
 ## Beispiele
 
-### Ansicht mit Puffern verwenden
+### Verwendung von Views mit Buffers
 
-Zunächst müssen wir einen Puffer erstellen, hier mit einer festen Länge von 16-Bytes:
+Zuerst müssen wir einen Buffer erstellen, hier mit einer festen Länge von 16 Bytes:
 
 ```js
 const buffer = new ArrayBuffer(16);
 ```
 
-Zu diesem Zeitpunkt haben wir ein Speicherelement, dessen Bytes alle auf 0 vorinitialisiert sind. Viel können wir jedoch damit noch nicht machen. Zum Beispiel können wir bestätigen, dass der Puffer die richtige Größe hat:
+Zu diesem Zeitpunkt haben wir einen Speicherbereich, dessen Bytes alle mit 0 vorinitialisiert sind. Es gibt jedoch nicht viel, was wir damit anfangen können. Zum Beispiel können wir bestätigen, dass der Buffer die richtige Größe hat:
 
 ```js
 if (buffer.byteLength === 16) {
@@ -157,13 +157,13 @@ if (buffer.byteLength === 16) {
 }
 ```
 
-Bevor wir wirklich mit diesem Puffer arbeiten können, müssen wir eine Ansicht erstellen. Lassen Sie uns eine Ansicht erstellen, die die Daten im Puffer als Array von 32-Bit vorzeichenbehafteten Integern behandelt:
+Bevor wir wirklich mit diesem Buffer arbeiten können, müssen wir eine View erstellen. Lassen Sie uns eine View erstellen, die die Daten im Buffer als Array von 32-Bit-Ganzzahlen behandelt:
 
 ```js
 const int32View = new Int32Array(buffer);
 ```
 
-Nun können wir auf die Felder im Array wie auf ein normales Array zugreifen:
+Jetzt können wir auf die Felder im Array genauso zugreifen wie auf ein normales Array:
 
 ```js
 for (let i = 0; i < int32View.length; i++) {
@@ -171,11 +171,11 @@ for (let i = 0; i < int32View.length; i++) {
 }
 ```
 
-Dies füllt die 4 Einträge im Array (4 Einträge mit jeweils 4 Bytes ergeben insgesamt 16 Bytes) mit den Werten `0`, `2`, `4` und `6`.
+Dies füllt die 4 Einträge im Array (4 Einträge mit jeweils 4 Bytes ergeben 16 Gesamtbytes) mit den Werten `0`, `2`, `4` und `6` aus.
 
-### Mehrere Ansichten auf dieselben Daten
+### Mehrere Views auf die gleichen Daten
 
-Es wird wirklich interessant, wenn man bedenkt, dass man mehrere Ansichten auf dieselben Daten erstellen kann. Zum Beispiel können wir mit dem obigen Code folgendermaßen fortfahren:
+Die Dinge werden wirklich interessant, wenn man bedenkt, dass man mehrere Views auf die gleichen Daten erstellen kann. Beispielsweise können wir nach dem obigen Code so weitermachen:
 
 ```js
 const int16View = new Int16Array(buffer);
@@ -185,7 +185,7 @@ for (let i = 0; i < int16View.length; i++) {
 }
 ```
 
-Hier erstellen wir eine 16-Bit Integer Ansicht, die denselben Puffer wie die bestehende 32-Bit Ansicht teilt und geben alle Werte im Puffer als 16-Bit Integer aus. Jetzt erhalten wir die Ausgabe `0`, `0`, `2`, `0`, `4`, `0`, `6`, `0` (bei Annahme von Little-Endian Kodierung):
+Hier erstellen wir eine 16-Bit-Ganzzahl-View, die denselben Buffer wie die vorhandene 32-Bit-View teilen, und wir geben alle Werte im Buffer als 16-Bit-Ganzzahlen aus. Jetzt erhalten wir die Ausgabe `0`, `0`, `2`, `0`, `4`, `0`, `6`, `0` (vorausgesetzt, kleines Endian-Encoding):
 
 ```plain
 Int16Array  |   0  |  0   |   2  |  0   |   4  |  0   |   6  |  0   |
@@ -193,16 +193,16 @@ Int32Array  |      0      |      2      |      4      |      6      |
 ArrayBuffer | 00 00 00 00 | 02 00 00 00 | 04 00 00 00 | 06 00 00 00 |
 ```
 
-Man kann noch einen Schritt weiter gehen. Betrachten Sie dies:
+Sie können jedoch noch einen Schritt weiter gehen. Betrachten Sie dies:
 
 ```js
 int16View[0] = 32;
 console.log(`Entry 0 in the 32-bit array is now ${int32View[0]}`);
 ```
 
-Die Ausgabe daraus ist `"Eintrag 0 im 32-Bit Array ist jetzt 32"`.
+Die Ausgabe davon ist `"Eintrag 0 im 32-Bit-Array ist jetzt 32"`.
 
-Mit anderen Worten, die beiden Arrays betrachten tatsächlich denselben Datenpuffer, indem sie ihn als unterschiedliche Formate behandeln.
+Mit anderen Worten, die beiden Arrays werden tatsächlich auf denselben Datenbuffer betrachtet, aber als unterschiedliche Formate behandelt.
 
 ```plain
 Int16Array  |  32  |  0   |   2  |  0   |   4  |  0   |   6  |  0   |
@@ -210,18 +210,18 @@ Int32Array  |     32      |      2      |      4      |      6      |
 ArrayBuffer | 20 00 00 00 | 02 00 00 00 | 04 00 00 00 | 06 00 00 00 |
 ```
 
-Man kann dies mit jedem Ansichtstyp machen, obwohl, wenn man ein Integer setzt und es dann als Gleitkommazahl liest, wird man wahrscheinlich ein seltsames Ergebnis bekommen, weil die Bits unterschiedlich interpretiert werden.
+Sie können dies mit jedem View-Typ machen, obwohl Sie, wenn Sie eine Ganzzahl setzen und sie dann als Gleitkommazahl lesen, wahrscheinlich ein seltsames Ergebnis erhalten, da die Bits unterschiedlich interpretiert werden.
 
 ```js
 const float32View = new Float32Array(buffer);
 console.log(float32View[0]); // 4.484155085839415e-44
 ```
 
-### Text aus einem Puffer lesen
+### Lesen von Text aus einem Buffer
 
-Puffer stellen nicht immer Zahlen dar. Zum Beispiel kann das Lesen einer Datei Ihnen einen Textdatenpuffer geben. Sie können diese Daten aus dem Puffer mithilfe eines Typed Arrays lesen.
+Buffers repräsentieren nicht immer Zahlen. Das Lesen einer Datei kann Ihnen beispielsweise einen Textdatenbuffer geben. Sie können diese Daten aus dem Buffer lesen, indem Sie ein Typed Array verwenden.
 
-Das folgende liest UTF-8 Text mit der [`TextDecoder`](/de/docs/Web/API/TextDecoder) Web-API:
+Die folgende Methode liest UTF-8-Text mit der Web-API [`TextDecoder`](/de/docs/Web/API/TextDecoder):
 
 ```js
 const buffer = new ArrayBuffer(8);
@@ -232,7 +232,7 @@ const text = new TextDecoder().decode(uint8);
 console.log(text); // "你好"
 ```
 
-Das folgende Beispiel liest UTF-16 Text unter Verwendung der Methode {{jsxref("String.fromCharCode()")}}:
+Die folgende Methode liest UTF-16-Text mit der Methode {{jsxref("String.fromCharCode()")}}:
 
 ```js
 const buffer = new ArrayBuffer(8);
@@ -245,7 +245,7 @@ console.log(text); // "你好"
 
 ### Arbeiten mit komplexen Datenstrukturen
 
-Indem Sie einen einzigen Puffer mit mehreren Ansichten unterschiedlicher Typen kombinieren, die an unterschiedlichen Offsets in den Puffer starten, können Sie mit Datenobjekten interagieren, die mehrere Datentypen enthalten. Dies ermöglicht es Ihnen beispielsweise, mit komplexen Datenstrukturen von [WebGL](/de/docs/Web/API/WebGL_API) oder Datendateien zu interagieren.
+Indem Sie einen einzigen Buffer mit mehreren Views unterschiedlicher Typen kombinieren, die an verschiedenen Offsets in den Buffer starten, können Sie mit Datenobjekten interagieren, die mehrere Datentypen enthalten. Dies ermöglicht es Ihnen beispielsweise, mit komplexen Datenstrukturen aus [WebGL](/de/docs/Web/API/WebGL_API) oder Datendateien zu interagieren.
 
 Betrachten Sie diese C-Struktur:
 
@@ -257,7 +257,7 @@ struct someStruct {
 };
 ```
 
-Sie können auf einen Puffer zugreifen, der Daten in diesem Format enthält:
+Sie können auf einen Buffer zugreifen, der Daten in diesem Format enthält, so:
 
 ```js
 const buffer = new ArrayBuffer(24);
@@ -272,18 +272,18 @@ const amountDueView = new Float32Array(buffer, 20, 1);
 Dann können Sie beispielsweise auf den fälligen Betrag mit `amountDueView[0]` zugreifen.
 
 > [!NOTE]
-> Die [Datenstruktur-Ausrichtung](https://en.wikipedia.org/wiki/Data_structure_alignment) in einer C-Struktur ist plattformabhängig. Treffen Sie Vorkehrungen und berücksichtigen Sie diese Padding-Unterschiede.
+> Die [Datenstrukturausrichtung](https://en.wikipedia.org/wiki/Data_structure_alignment) in einer C-Struktur ist plattformabhängig. Treffen Sie Vorsichtsmaßnahmen und beachten Sie diese Polsterungsunterschiede.
 
 ### Umwandlung in normale Arrays
 
-Nach der Verarbeitung eines Typed Arrays ist es manchmal nützlich, es zurück in ein normales Array zu konvertieren, um vom {{jsxref("Array")}} Prototyp zu profitieren. Dies kann mit {{jsxref("Array.from()")}} gemacht werden:
+Nach der Verarbeitung eines Typed Arrays ist es manchmal nützlich, es in ein normales Array zurückzukonvertieren, um vom Prototypen von {{jsxref("Array")}} zu profitieren. Dies kann mit {{jsxref("Array.from()")}} durchgeführt werden:
 
 ```js
 const typedArray = new Uint8Array([1, 2, 3, 4]);
 const normalArray = Array.from(typedArray);
 ```
 
-ebenso wie mit der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax):
+sowie mit der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax):
 
 ```js
 const typedArray = new Uint8Array([1, 2, 3, 4]);

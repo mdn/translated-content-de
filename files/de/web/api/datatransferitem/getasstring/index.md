@@ -1,14 +1,14 @@
 ---
-title: "DataTransferItem: Methode getAsString()"
+title: "DataTransferItem: getAsString()-Methode"
 short-title: getAsString()
 slug: Web/API/DataTransferItem/getAsString
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die Methode **`DataTransferItem.getAsString()`** ruft die gegebene Rückruffunktion mit den String-Daten des Drag-Datenobjekts als Argument auf, wenn der [`kind`](/de/docs/Web/API/DataTransferItem/kind) des Objekts eine _einfache Unicode-Zeichenkette_ ist (d.h. `kind` ist `string`).
+Die **`DataTransferItem.getAsString()`**-Methode ruft die gegebene Rückruffunktion mit den Zeichenfolgendaten des Drag-Datenobjekts als Argument auf, wenn das [`kind`](/de/docs/Web/API/DataTransferItem/kind) des Elements eine _einfache Unicode-Zeichenfolge_ ist (d.h. `kind` ist `string`).
 
 ## Syntax
 
@@ -21,7 +21,7 @@ getAsString(callbackFn)
 - `callbackFn`
   - : Eine Rückruffunktion, die folgende Argumente erhält:
     - `data`
-      - : Die String-Daten des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem).
+      - : Die Zeichenfolgendaten des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem).
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der Methode `getAsString()` als _Inline-Funktion_ in einem [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignishandler.
+Dieses Beispiel zeigt die Verwendung der `getAsString()`-Methode als _Inline-Funktion_ in einem [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignishandler.
 
 ```js
 function dropHandler(ev) {

@@ -2,49 +2,49 @@
 title: WebOTP API
 slug: Web/API/WebOTP_API
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{securecontext_header}}{{DefaultAPISidebar("WebOTP API")}}
 
-Die **WebOTP-API** bietet eine optimierte Benutzererfahrung für Web-Apps, um zu überprüfen, ob eine Telefonnummer einem Benutzer gehört, wenn diese als Anmeldungsfaktor verwendet wird. WebOTP ist eine Erweiterung der [Credential Management API](/de/docs/Web/API/Credential_Management_API).
+Die **WebOTP API** bietet eine optimierte Benutzererfahrung für Webanwendungen, um zu überprüfen, ob eine Telefonnummer zu einem Nutzer gehört, wenn diese als Anmeldefaktor verwendet wird. WebOTP ist eine Erweiterung der [Credential Management API](/de/docs/Web/API/Credential_Management_API).
 
 Die Verifizierung erfolgt in einem zweistufigen Prozess:
 
 1. Der App-Client fordert ein Einmalpasswort (OTP) an, das aus einer speziell formatierten SMS-Nachricht stammt, die vom App-Server gesendet wird.
-2. JavaScript wird verwendet, um das OTP in ein Validierungsformular im App-Client einzugeben und es dann an den Server zurückzusenden, um zu überprüfen, ob es mit dem übereinstimmt, was ursprünglich in der SMS gesendet wurde.
+2. JavaScript wird verwendet, um das OTP in ein Validierungsformular im App-Client einzugeben, das dann an den Server zurückgesendet wird, um zu überprüfen, ob es mit dem in der SMS ursprünglich gesendeten übereinstimmt.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Telefonnummern werden häufig verwendet, um den Benutzer einer App zu identifizieren. Eine SMS wird oft eingesetzt, um zu überprüfen, ob die Nummer dem Benutzer gehört. Die SMS enthält in der Regel ein OTP, das der Benutzer in ein Formular in der App kopieren und einfügen muss, um zu überprüfen, dass er die Nummer besitzt. Dies ist eine etwas umständliche Benutzererfahrung.
+Telefonnummern werden häufig verwendet, um den Nutzer einer App zu identifizieren. Oft wird eine SMS eingesetzt, um zu überprüfen, ob die Nummer dem Nutzer gehört. Die SMS enthält typischerweise ein OTP, das der Nutzer kopieren und in ein Formular in der App einfügen muss, um zu bestätigen, dass er die Nummer besitzt. Dies ist eine etwas umständliche Benutzererfahrung.
 
-Anwendungsfälle für OTP sind:
+Anwendungsfälle für OTP umfassen:
 
-- Verbesserung der Anmeldesicherheit, indem eine Telefonnummer als zusätzlicher Faktor verwendet wird (d.h. für Zwei-Faktor-Authentifizierung (2FA) oder Multi-Faktor-Authentifizierung (MFA)).
+- Verbesserung der Anmeldesicherheit durch die Verwendung einer Telefonnummer als zusätzlichen Faktor (z.B. für Zwei-Faktor-Authentifizierung (2FA) oder Multfaktor-Authentifizierung (MFA)).
 - Verifizierung sensibler Aktionen wie Zahlungen.
 
-Die WebOTP-API ermöglicht es Web-Apps, diesen Validierungsprozess zu beschleunigen, indem das OTP aus der SMS kopiert und automatisch an die App übergeben wird, nachdem der Benutzer seine Zustimmung gegeben hat (die meisten nativen Plattformen haben eine entsprechende API).
+Die WebOTP API ermöglicht es Webanwendungen, diesen Validierungsprozess zu beschleunigen, indem das OTP automatisch aus der SMS kopiert und an die App weitergegeben wird, nachdem der Nutzer sein Einverständnis gegeben hat (die meisten nativen Plattformen haben eine entsprechende API).
 
-Beachten Sie, dass ein OTP an die sendende Domain gebunden ist. Dies ist eine nützliche Sicherheitsbeschränkung, um sicherzustellen, dass das OTP aus der richtigen Quelle stammt, was das Risiko von Phishing-Angriffen bei alltäglichen Reauthentifizierungen verringern kann.
+Beachten Sie, dass ein OTP an die sendende Domain gebunden ist. Dies ist eine nützliche Sicherheitsbeschränkung, um zu überprüfen, dass das OTP aus der richtigen Quelle stammt, was das Risiko von Phishing-Angriffen während der alltäglichen Re-Authentifizierung verringern kann.
 
 ### Sicherheitsbedenken bei SMS-OTPs
 
-SMS-OTPs sind nützlich, um Telefonnummern zu verifizieren, und SMS für einen zweiten Faktor zu verwenden, ist sicherlich besser als keinen zweiten Faktor zu haben. In einigen Regionen sind andere Identifikatoren wie E-Mail-Adressen und Authenticatoren nicht weit verbreitet, daher sind SMS-OTPs sehr häufig.
+SMS-OTPs sind nützlich zur Verifizierung von Telefonnummern, und die Verwendung von SMS als zweiten Faktor ist sicherlich besser als kein zweiter Faktor. In einigen Regionen sind andere Kennungen wie E-Mail-Adressen und Authentifikatoren nicht weit verbreitet, daher sind SMS-OTPs sehr gebräuchlich.
 
-Allerdings sind SMS nicht sehr sicher. Angreifer können eine SMS fälschen und die Telefonnummer einer Person kapern. Netzbetreiber können Telefonnummern nach Schließung eines Kontos an neue Benutzer weitergeben.
+Allerdings sind SMS nicht so sicher. Angreifer können eine SMS fälschen und die Telefonnummer einer Person kapern. Netzbetreiber können Telefonnummern an neue Nutzer weitergeben, nachdem ein Account geschlossen wurde.
 
-Es wird daher empfohlen, eine stärkere Form der Authentifizierung zu verwenden, wenn möglich, wie z.B. eine auf der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) basierende Lösung, die ein Passwort und einen Sicherheitsschlüssel oder einen Zugangsschlüssel umfasst.
+Es wird daher empfohlen, eine stärkere Authentifizierungsform zu verwenden, wenn möglich, z.B. eine auf der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) basierende Lösung, die ein Passwort und einen Sicherheitsschlüssel oder einen Passkey umfasst.
 
-## Wie funktioniert die WebOTP-API?
+## Wie funktioniert die WebOTP API?
 
 Der Prozess funktioniert folgendermaßen:
 
-1. An dem Punkt, an dem die Telefonnummernverifizierung erforderlich ist, wird ein App-Client den Benutzer bitten, seine Telefonnummer in ein Formular einzugeben, das dann an den App-Server übermittelt wird.
-2. Der App-Client ruft dann [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einer `otp`-Option auf, die einen `transport`-Typ von `"sms"` angibt. Dies löst eine Anfrage für ein OTP aus dem zugrundeliegenden System aus, dessen Quelle eine [speziell formatierte SMS-Nachricht](#sms-nachrichtenformat) (die das OTP und die Domain der App enthält) vom App-Server ist. Der `get()`-Aufruf basiert auf einem {{jsxref("Promise")}} und wartet darauf, dass die SMS-Nachricht empfangen wird.
-3. Der App-Server sendet die SMS-Nachricht an die angegebene Telefonnummer. Dies muss direkt nach Schritt 2 erfolgen.
-4. Wenn die SMS auf dem Gerät empfangen wird und sie die Domain der App enthält, wird der Browser den Benutzer fragen, ob er zustimmt, dass das OTP abgerufen/verwendet wird. Chrome zeigt beispielsweise einen Dialog an, in dem um Erlaubnis gebeten wird, das OTP aus der SMS abzurufen; andere Browser könnten es anders handhaben. Wenn der Benutzer zustimmt, wird der `get()`-Aufruf mit einem [`OTPCredential`](/de/docs/Web/API/OTPCredential)-Objekt erfüllt, das das OTP enthält.
-5. Sie können das OTP dann nach Belieben verwenden. Typischerweise würde man es als Wert des Validierungsformulars im App-Client setzen und dann das Formular übermitteln, um den Prozess so reibungslos wie möglich zu gestalten.
-6. Der App-Server überprüft dann, ob das zurückgesendete OTP mit dem ursprünglich in der SMS gesendeten übereinstimmt, und schließt den Prozess ab (zum Beispiel, indem der Benutzer angemeldet wird).
+1. In dem Moment, in dem eine Telefonnummern-Verifizierung erforderlich ist, wird ein Nutzer vom App-Client gebeten, ihre Telefonnummer in ein Formular einzugeben, das dann an den App-Server gesendet wird.
+2. Der App-Client ruft dann [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einer `otp`-Option auf, die einen `transport`-Typ von `"sms"` angibt. Dies löst eine Anfrage nach einem OTP aus dem zugrunde liegenden System aus, dessen Quelle eine [speziell formatierte SMS-Nachricht](#sms-nachrichtenformat) (die das OTP und die Domain der App enthält) ist, die vom App-Server empfangen wurde. Der `get()`-Aufruf ist {{jsxref("Promise")}}-basiert und wartet darauf, dass die SMS-Nachricht empfangen wird.
+3. Der App-Server sendet die SMS-Nachricht an die angegebene Telefonnummer. Dies muss direkt nach Schritt 2 geschehen.
+4. Wenn die SMS auf dem Gerät empfangen wird und sie die Domain der App enthält, fragt der Browser den Nutzer, ob er zustimmt, dass das OTP abgerufen/verwendet wird. Chrome zeigt beispielsweise ein Dialogfeld an, das um Erlaubnis bittet, das OTP aus der SMS abzurufen; andere Browser könnten dies anders handhaben. Wenn der Nutzer zustimmt, wird der `get()`-Aufruf mit einem [`OTPCredential`](/de/docs/Web/API/OTPCredential)-Objekt erfüllt, das das OTP enthält.
+5. Sie können das OTP dann nach Belieben verwenden. Eine typische Nutzung wäre, es als Wert des Validierungsformulars im App-Client festzulegen und dann das Formular abzuschicken, um den Prozess so nahtlos wie möglich zu gestalten.
+6. Der App-Server überprüft dann, ob das an ihn zurückgesendete OTP mit dem ursprünglich in der SMS gesendeten übereinstimmt, und wenn dies der Fall ist, wird der Prozess abgeschlossen (beispielsweise wird der Nutzer angemeldet).
 
 ### SMS-Nachrichtenformat
 
@@ -56,16 +56,16 @@ Your verification code is 123456.
 @www.example.com #123456
 ```
 
-- Die erste Zeile und die zweite Leerzeile sind optional und dienen der besseren Lesbarkeit für Menschen.
-- Die letzte Zeile ist obligatorisch. Sie muss die letzte Zeile sein, wenn andere vorhanden sind, und muss bestehen aus:
-  - Dem Domain-Teil der URL der Website, die die API aufgerufen hat, vorangestellt mit einem `@`.
+- Die erste Zeile und die zweite leere Zeile sind optional und dienen der menschlichen Lesbarkeit.
+- Die letzte Zeile ist obligatorisch. Sie muss die letzte Zeile sein, wenn weitere vorhanden sind, und muss bestehen aus:
+  - Dem Domain-Teil der URL der Website, die die API aufgerufen hat, vorangestellt von einem `@`.
   - Gefolgt von einem Leerzeichen.
-  - Gefolgt vom OTP, vorangestellt mit einem Rautezeichen (`#`).
+  - Gefolgt von dem OTP, vorangestellt von einem Doppelkreuz (`#`).
 
 > [!NOTE]
-> Der angegebene Domain-Wert darf kein URL-Schema, keinen Port oder andere hier nicht angezeigte URL-Features enthalten.
+> Der angegebene Domain-Wert darf kein URL-Schema, keinen Port oder andere nicht oben gezeigte URL-Features enthalten.
 
-Wenn die `get()`-Methode von einer Drittanbieter-Website in einem {{htmlelement("iframe")}} aufgerufen wird, sollte die SMS-Struktur so aussehen:
+Wenn die `get()`-Methode von einer eingebetteten Drittanbieterseite in einem {{htmlelement("iframe")}} aufgerufen wird, sollte die SMS-Struktur sein:
 
 ```plain
 Your verification code is 123456.
@@ -75,30 +75,30 @@ Your verification code is 123456.
 
 In diesem Fall muss die letzte Zeile bestehen aus:
 
-- Dem Domain-Teil der Top-Level-Domain, vorangestellt mit einem `@`.
+- Dem Domain-Teil der Top-Level-Domain, vorangestellt von einem `@`.
 - Gefolgt von einem Leerzeichen.
-- Gefolgt vom OTP, vorangestellt mit einem Rautezeichen (`#`).
+- Gefolgt von dem OTP, vorangestellt von einem Doppelkreuz (`#`).
 - Gefolgt von einem Leerzeichen.
-- Gefolgt vom Domain-Teil der eingebetteten Domain, vorangestellt mit einem `@`.
+- Gefolgt von dem Domain-Teil der eingebetteten Domain, vorangestellt von einem `@`.
 
-## Zugriff auf die API steuern
+## Kontrolle des Zugriffs auf die API
 
-Die Verfügbarkeit von WebOTP kann durch die Verwendung einer [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesteuert werden, die eine {{httpheader("Permissions-Policy/otp-credentials", "otp-credentials")}}-Direktive angibt. Diese Direktive hat einen Standard-Wert von `"self"`, was bedeutet, dass diese Methoden standardmäßig in Top-Level-Dokumenten verwendet werden können.
+Die Verfügbarkeit von WebOTP kann mit einer [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesteuert werden, die eine {{httpheader("Permissions-Policy/otp-credentials", "otp-credentials")}}-Richtlinie angibt. Diese Richtlinie hat einen Standard-zulassen-Wert von `"self"`, was bedeutet, dass diese Methoden standardmäßig in obersten Dokumentkontexten verwendet werden können.
 
-Sie könnten eine Direktive angeben, die die Verwendung von WebOTP in einer bestimmten Cross-Origin-Domain erlaubt (d.h. innerhalb eines {{htmlelement("iframe")}}) wie folgt:
+Sie könnten eine Richtlinie angeben, die die Verwendung von WebOTP in einer bestimmten Cross-Origin-Domain (d.h. innerhalb eines {{htmlelement("iframe")}}) erlaubt, so:
 
 ```http
 Permissions-Policy: otp-credentials=(self "https://embedded.com")
 ```
 
-Oder Sie könnten es direkt im `<iframe>` angeben:
+Oder Sie könnten sie direkt im `<iframe>` angeben, so:
 
 ```html
 <iframe src="https://embedded.com/..." allow="otp-credentials"> ... </iframe>
 ```
 
 > [!NOTE]
-> Wo eine Richtlinie die Verwendung von WebOTP `get()` verbietet, werden {{jsxref("Promise", "Promise")}}, die von dieser Methode zurückgegeben werden, mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) zurückgewiesen.
+> Wo eine Richtlinie die Verwendung von WebOTP `get()` verbietet, werden zurückgegebene {{jsxref("Promise", "Versprechen")}} von dieser mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
 
 ## Schnittstellen
 
@@ -108,21 +108,21 @@ Oder Sie könnten es direkt im `<iframe>` angeben:
 ### Erweiterungen für andere Schnittstellen
 
 - [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get), die `otp`-Option
-  - : Der Aufruf von `get()` mit einer `otp`-Option weist den Benutzeragenten an, zu versuchen, ein OTP von der SMS-App des zugrundeliegenden Systems abzurufen.
+  - : Ein Aufruf von `get()` mit einer `otp`-Option weist den Benutzeragenten an, zu versuchen, ein OTP aus der SMS-App des zugrunde liegenden Systems abzurufen.
 
 ## Beispiele
 
-In diesem Beispiel wird, wenn eine SMS-Nachricht eintrifft und der Benutzer die Erlaubnis erteilt, ein [`OTPCredential`](/de/docs/Web/API/OTPCredential)-Objekt mit einem OTP zurückgegeben. Dieses Passwort wird dann automatisch in das Verifizierungsformularfeld eingefüllt und das Formular wird übermittelt.
+In diesem Beispiel, wenn eine SMS-Nachricht eintrifft und der Nutzer die Erlaubnis erteilt, wird ein [`OTPCredential`](/de/docs/Web/API/OTPCredential)-Objekt mit einem OTP zurückgegeben. Dieses Passwort wird dann in das Verifizierungsformularfeld vorausgefüllt und das Formular wird abgeschickt.
 
 [Probieren Sie diese Demo mit einem Telefon aus](https://web-otp.glitch.me/).
 
-Das Formularfeld enthält ein [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)-Attribut mit dem Wert von `one-time-code`. Dies ist nicht erforderlich, damit die WebOTP-API funktioniert, aber es lohnt sich, es hinzuzufügen. Als Ergebnis wird Safari den Benutzer auffordern, dieses Feld automatisch mit dem OTP auszufüllen, wenn eine korrekt formatierte SMS empfangen wird, auch wenn die WebOTP-API in Safari nicht vollständig unterstützt wird.
+Das Formularfeld enthält ein [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)-Attribut mit dem Wert `one-time-code`. Dies ist nicht erforderlich, damit die WebOTP API funktioniert, aber es lohnt sich, es aufzunehmen. Infolgedessen wird Safari den Nutzer auffordern, dieses Feld mit dem OTP automatisch auszufüllen, wenn eine korrekt formatierte SMS empfangen wird, obwohl die WebOTP API in Safari nicht vollständig unterstützt wird.
 
 ```html
 <input type="text" autocomplete="one-time-code" inputmode="numeric" />
 ```
 
-Das JavaScript sieht wie folgt aus:
+Das JavaScript ist wie folgt:
 
 ```js
 // Detect feature support via OTPCredential availability
@@ -158,7 +158,7 @@ if ("OTPCredential" in window) {
 }
 ```
 
-Eine weitere gute Verwendung für den [`AbortController`](/de/docs/Web/API/AbortController) ist es, die `get()`-Anfrage nach einer bestimmten Zeitspanne abzubrechen:
+Ein weiterer guter Anwendungsfall für den [`AbortController`](/de/docs/Web/API/AbortController) ist die Kündigung der `get()`-Anfrage nach einer bestimmten Zeit:
 
 ```js
 setTimeout(() => {
@@ -167,7 +167,7 @@ setTimeout(() => {
 }, 30 * 1000);
 ```
 
-Wenn der Benutzer abgelenkt wird oder woanders hin navigiert, ist es sinnvoll, die Anfrage abzubrechen, damit ihm keine Erlaubnisanfrage angezeigt wird, die für ihn nicht mehr relevant ist.
+Wenn der Nutzer abgelenkt wird oder woanders hingeht, ist es gut, die Anfrage abzubrechen, damit ihm kein Erlaubnisdialog mehr angezeigt wird, der für ihn nicht mehr relevant ist.
 
 ## Spezifikationen
 
@@ -175,5 +175,5 @@ Wenn der Benutzer abgelenkt wird oder woanders hin navigiert, ist es sinnvoll, d
 
 ## Siehe auch
 
-- [Telefonnummern im Web mit WebOTP verifizieren](https://developer.chrome.com/docs/identity/web-apis/web-otp) auf developer.chrome.com (2023)
-- [OTP-Formulare in Cross-Origin-Iframes mit WebOTP-API ausfüllen](https://web.dev/articles/web-otp-iframe)
+- [Telefonnummern im Web mit WebOTP überprüfen](https://developer.chrome.com/docs/identity/web-apis/web-otp) auf developer.chrome.com (2023)
+- [OTP-Formulare in Cross-Origin-Iframes mit der WebOTP API ausfüllen](https://web.dev/articles/web-otp-iframe)

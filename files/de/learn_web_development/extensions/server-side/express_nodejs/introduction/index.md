@@ -2,25 +2,25 @@
 title: Einführung in Express/Node
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction
 l10n:
-  sourceCommit: 4238ce5fbb56cd9953a558b8243a5623b98a2f18
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{LearnSidebar}}{{NextMenu("Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment", "Learn_web_development/Extensions/Server-side/Express_Nodejs")}}
 
-In diesem ersten Express-Artikel beantworten wir die Fragen „Was ist Node?“ und „Was ist Express?“ und geben Ihnen einen Überblick darüber, was das Express-Web-Framework besonders macht. Wir skizzieren die Hauptmerkmale und zeigen Ihnen einige der wichtigsten Bausteine einer Express-Anwendung (obwohl Sie zu diesem Zeitpunkt noch keine Entwicklungsumgebung zur Verfügung haben, um es zu testen).
+In diesem ersten Express-Artikel beantworten wir die Fragen „Was ist Node?“ und „Was ist Express?“ und geben Ihnen einen Überblick darüber, was das Express-Web-Framework besonders macht. Wir skizzieren die Hauptmerkmale und zeigen Ihnen einige der grundlegenden Bausteine einer Express-Anwendung (obgleich Sie zu diesem Zeitpunkt noch keine Entwicklungsumgebung haben, um diese zu testen).
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Ein allgemeines Verständnis der <a href="/de/docs/Learn_web_development/Extensions/Server-side/First_steps">programmierung von serverseitigen Websites</a> und insbesondere der Mechanismen von <a href="/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview">Client-Server-Interaktionen auf Websites</a>.
+        Ein allgemeines Verständnis von <a href="/de/docs/Learn_web_development/Extensions/Server-side/First_steps">Serverseitiger Webseitenerstellung</a>&nbsp; und insbesondere die Mechanismen der <a href="/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview">Client-Server-Interaktionen auf Webseiten</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Vertrautheit mit dem, was Express ist und wie es mit Node zusammenarbeitet, welche Funktionalität es bietet und welche Hauptbausteine eine Express-Anwendung hat.
+        Das Kennenlernen von Express, seine Einordnung in Node, die bereitgestellten Funktionalitäten und die grundlegenden Bausteine einer Express-Anwendung.
       </td>
     </tr>
   </tbody>
@@ -28,25 +28,26 @@ In diesem ersten Express-Artikel beantworten wir die Fragen „Was ist Node?“ 
 
 ## Einführung in Node
 
-[Node](https://nodejs.org/) (oder formell _Node.js_) ist eine quelloffene, plattformübergreifende Laufzeitumgebung, die Entwicklern ermöglicht, serverseitige Werkzeuge und Anwendungen aller Art in {{Glossary("JavaScript", "JavaScript")}} zu erstellen. Die Laufzeitumgebung ist für die Verwendung außerhalb eines Browser-Kontexts (d.h. direkt auf einem Computer oder Server-Betriebssystem) konzipiert. Daher verzichtet die Umgebung auf browser-spezifische JavaScript-APIs und bietet Unterstützung für traditionelle Betriebssystem-APIs einschließlich HTTP- und Dateisystembibliotheken.
+[Node](https://nodejs.org/) (oder formeller _Node.js_) ist eine Open-Source, plattformübergreifende Laufzeitumgebung, die Entwicklern ermöglicht, serverseitige Tools und Anwendungen in {{Glossary("JavaScript", "JavaScript")}} zu erstellen.
+Die Laufzeit ist für den Einsatz außerhalb eines Browserkontexts gedacht (d.h. direkt auf einem Computer oder Serverbetriebssystem laufend). Daher verzichtet die Umgebung auf browserspezifische JavaScript-APIs und fügt Unterstützung für traditionellere OS-APIs wie HTTP- und Dateisystembibliotheken hinzu.
 
-Aus der Perspektive der Webserver-Entwicklung bietet Node eine Reihe von Vorteilen:
+Aus der Perspektive der Webserver-Entwicklung bietet Node mehrere Vorteile:
 
-- Hervorragende Leistung! Node wurde entwickelt, um den Durchsatz und die Skalierbarkeit in Webanwendungen zu optimieren und ist eine gute Lösung für viele häufige Webentwicklungsprobleme (z. B. Echtzeit-Webanwendungen).
-- Code wird in "einfachem, althergebrachtem JavaScript" geschrieben, was bedeutet, dass weniger Zeit mit dem Sprachkontextwechsel zwischen Client-seitigem und Server-seitigem Code verbracht wird.
-- JavaScript ist eine relativ neue Programmiersprache und profitiert von Verbesserungen im Sprachen-Design im Vergleich zu anderen traditionellen Webserver-Sprachen (z. B. Python, PHP usw.). Viele andere neue und beliebte Sprachen kompilieren/konvertieren nach JavaScript, sodass Sie auch TypeScript, CoffeeScript, ClojureScript, Scala, LiveScript usw. verwenden können.
-- Der Node-Paketmanager (npm) bietet Zugang zu Hunderttausenden von wiederverwendbaren Paketen. Es hat auch eine erstklassige Abhängigkeitsauflösung und kann auch verwendet werden, um die meisten Teile der Build-Toolchain zu automatisieren.
-- Node.js ist portabel. Es ist auf Microsoft Windows, macOS, Linux, Solaris, FreeBSD, OpenBSD, WebOS und NonStop OS verfügbar. Darüber hinaus wird es von vielen Webhosting-Anbietern gut unterstützt, die oft spezifische Infrastrukturen und Dokumentationen für das Hosting von Node-Sites bereitstellen.
-- Es hat ein sehr aktives Ökosystem von Drittanbietern und eine Entwickler-Community, mit vielen Menschen, die bereit sind, zu helfen.
+- Hervorragende Leistung! Node wurde entwickelt, um den Durchsatz und die Skalierbarkeit in Webanwendungen zu optimieren und ist eine gute Lösung für viele gängige Webentwicklungsprobleme (z.B. Echtzeit-Webanwendungen).
+- Der Code wird in "einfachem altem JavaScript" geschrieben, was bedeutet, dass weniger Zeit mit dem Umgang von "Kontextwechsel" zwischen Sprachen verschwendet wird, wenn Sie sowohl client- als auch serverseitigen Code schreiben.
+- JavaScript ist eine relativ neue Programmiersprache und profitiert von Verbesserungen im Sprachdesign im Vergleich zu anderen traditionellen Webserver-Sprachen (z.B. Python, PHP, etc.). Viele andere neue und beliebte Sprachen kompilieren/konvertieren in JavaScript, sodass Sie auch TypeScript, CoffeeScript, ClojureScript, Scala, LiveScript, etc. verwenden können.
+- Der Node-Paketmanager (npm) bietet Zugang zu Hunderttausenden von wiederverwendbaren Paketen. Er hat auch die beste Abhängigkeitsauflösung und kann zur Automatisierung der meisten Build-Toolchains verwendet werden.
+- Node.js ist portabel. Es ist auf Microsoft Windows, macOS, Linux, Solaris, FreeBSD, OpenBSD, WebOS und NonStop OS verfügbar. Darüber hinaus wird es von vielen Webhosting-Anbietern gut unterstützt, die oft spezifische Infrastrukturen und Dokumentationen für das Hosting von Node-Seiten bereitstellen.
+- Es gibt ein sehr aktives Ökosystem Dritter und Entwicklergemeinschaften, mit vielen Menschen, die bereit sind zu helfen.
 
-Sie können Node.js verwenden, um mit dem Node HTTP-Paket einen einfachen Webserver zu erstellen.
+Sie können Node.js verwenden, um mit dem Node-HTTP-Paket einen einfachen Webserver zu erstellen.
 
-### Hello Node.js
+### Hallo, Node.js
 
-Das folgende Beispiel erstellt einen Webserver, der auf jede Art von HTTP-Anfrage unter der URL `http://127.0.0.1:8000/` hört — wenn eine Anfrage empfangen wird, antwortet das Skript mit dem Zeichenfolgetext: "Hello World". Wenn Sie Node bereits installiert haben, können Sie die folgenden Schritte ausprobieren:
+Das folgende Beispiel erstellt einen Webserver, der auf alle Arten von HTTP-Anfragen unter der URL `http://127.0.0.1:8000/` hört – wenn eine Anfrage eingeht, antwortet das Skript mit dem String „Hello World“. Wenn Sie Node bereits installiert haben, können Sie diese Schritte befolgen, um das Beispiel auszuprobieren:
 
-1. Öffnen Sie das Terminal (auf Windows öffnen Sie das Befehlszeilenprogramm)
-2. Erstellen Sie den Ordner, in dem Sie das Programm speichern möchten, z. B. `test-node`, und betreten Sie ihn, indem Sie den folgenden Befehl in Ihr Terminal eingeben:
+1. Öffnen Sie das Terminal (unter Windows öffnen Sie das Befehlszeilenprogramm)
+2. Erstellen Sie den Ordner, in dem Sie das Programm speichern möchten, z.B. `test-node`, und betreten Sie ihn mit dem folgenden Befehl in Ihrem Terminal:
 
    ```bash
    cd test-node
@@ -76,73 +77,73 @@ Das folgende Beispiel erstellt einen Webserver, der auf jede Art von HTTP-Anfrag
    });
    ```
 
-4. Speichern Sie die Datei in dem oben erstellten Ordner.
+4. Speichern Sie die Datei im oben erstellten Ordner.
 5. Gehen Sie zurück zum Terminal und geben Sie den folgenden Befehl ein:
 
    ```bash
    node hello.js
    ```
 
-Navigieren Sie schließlich zu `http://localhost:8000` in Ihrem Webbrowser; Sie sollten den Text "**Hello World**" in der oberen linken Ecke einer ansonsten leeren Webseite sehen.
+Navigieren Sie schließlich in Ihrem Webbrowser zu `http://localhost:8000`; Sie sollten den Text "**Hello World**" in der oberen linken Ecke einer ansonsten leeren Webseite sehen.
 
-## Webframeworks
+## Web-Frameworks
 
-Andere gängige Webentwicklungsaufgaben werden nicht direkt von Node unterstützt. Wenn Sie eine spezifische Verarbeitung für verschiedene HTTP-Verbs (z. B. `GET`, `POST`, `DELETE` usw.) hinzufügen, Anfragen an verschiedenen URL-Pfaden ("Routen") getrennt behandeln, statische Dateien bereitstellen oder Templates verwenden möchten, um die Antwort dynamisch zu erstellen, wird Ihnen Node allein nicht viel nützen. Sie müssen entweder den Code selbst schreiben, oder Sie können das Rad nicht neu erfinden und ein Webframework verwenden!
+Andere häufige Webentwicklungsaufgaben werden von Node selbst nicht direkt unterstützt. Wenn Sie eine spezifische Verarbeitung für verschiedene HTTP-Verben hinzufügen möchten (z.B. `GET`, `POST`, `DELETE`, etc.), Anfragen an verschiedenen URL-Pfaden ("Routen") separat bearbeiten, statische Dateien servieren oder Vorlagen verwenden möchten, um die Antwort dynamisch zu erzeugen, wird Node allein wenig nützen sein. Sie müssen entweder den Code selbst schreiben, oder Sie können das Rad nicht neu erfinden und ein Web-Framework verwenden!
 
 ## Einführung in Express
 
-[Express](https://expressjs.com/) ist das beliebteste Node.js-Webframework und die zugrunde liegende Bibliothek für eine Reihe anderer beliebter Node.js-Frameworks. Es bietet Mechanismen zum:
+[Express](https://expressjs.com/) ist das beliebteste Node.js-Webframework und bildet die Grundlage für eine Reihe anderer populärer Node.js-Frameworks. Es bietet Mechanismen um:
 
-- Schreiben von Handlern für Anfragen mit verschiedenen HTTP-Verbs an verschiedenen URL-Pfaden (Routen).
-- Integrieren von "View"-Rendering-Engines, um Antworten zu generieren, indem Daten in Templates eingefügt werden.
-- Festlegen häufiger Webanwendungseinstellungen wie den zu verwendenden Port für Verbindungen und den Speicherort der Templates, die für die Antwortgenerierung verwendet werden.
-- Hinzufügen zusätzlicher Anfragenverarbeitungs-"Middleware" an jedem Punkt innerhalb der Anfragenbearbeitungspipeline.
+- Handler für Anfragen mit verschiedenen HTTP-Verben an unterschiedlichen URL-Pfaden (Routen) zu schreiben.
+- integrieren mit "View"-Rendering-Engines, um Antworten durch Einfügen von Daten in Vorlagen zu generieren.
+- Allgemeine Webanwendungseinstellungen wie den zu verwendenden Port für die Verbindung und den Speicherort der Vorlagen, die zum Rendern der Antwort verwendet werden, festzulegen.
+- Zusätzliche Anforderungsverarbeitungs-"Middleware" an jedem Punkt innerhalb der Anforderungsverarbeitungspipeline hinzuzufügen.
 
-Obwohl _Express_ selbst ziemlich minimalistisch ist, haben Entwickler kompatible Middleware-Pakete erstellt, um fast jedes Webentwicklungsproblem zu lösen. Es gibt Bibliotheken für den Umgang mit Cookies, Sitzungen, Benutzeranmeldungen, URL-Parametern, `POST`-Daten, Sicherheitsheadern und _vielen_ mehr. Sie finden eine Liste der von Express verwalteten Middleware-Pakete unter [Express Middleware](https://expressjs.com/en/resources/middleware.html) (zusammen mit einer Liste einiger beliebter 3rd-Party-Pakete).
+Während _Express_ selbst recht minimalistisch ist, haben Entwickler kompatible Middleware-Pakete erstellt, um fast jedes Webentwicklungsproblem zu lösen. Es gibt Bibliotheken für die Arbeit mit Cookies, Sitzungen, Benutzeranmeldungen, URL-Parametern, `POST`-Daten, Sicherheitsheadern und _vielen_ mehr. Eine Liste der von den Express-Teams gepflegten Middleware-Pakete finden Sie unter [Express Middleware](https://expressjs.com/en/resources/middleware.html) (zusammen mit einer Liste einiger beliebter Drittanbieter-Pakete).
 
 > [!NOTE]
-> Diese Flexibilität ist ein zweischneidiges Schwert. Es gibt Middleware-Pakete, um fast jedes Problem oder jede Anforderung zu lösen, aber die richtigen Pakete auszuwählen, kann manchmal eine Herausforderung sein. Es gibt auch keinen "richtigen Weg", eine Anwendung zu strukturieren, und viele Beispiele, die Sie im Internet finden könnten, sind nicht optimal oder zeigen nur einen kleinen Teil dessen, was Sie tun müssen, um eine Webanwendung zu entwickeln.
+> Diese Flexibilität ist ein zweischneidiges Schwert. Es gibt Middleware-Pakete, um fast jedes Problem oder jede Anforderung zu adressieren, aber herauszufinden, welche Pakete verwendet werden sollen, kann manchmal eine Herausforderung sein. Es gibt auch keinen "richtigen Weg", um eine Anwendung zu strukturieren, und viele Beispiele, die Sie im Internet finden können, sind nicht optimal oder zeigen nur einen kleinen Teil dessen, was Sie tun müssen, um eine Webanwendung zu entwickeln.
 
 ## Woher kommen Node und Express?
 
-Node wurde 2009 erstmals ausschließlich für Linux veröffentlicht. Der npm-Paketmanager wurde 2010 veröffentlicht, und die native Windows-Unterstützung wurde 2012 hinzugefügt. Wenn Sie mehr erfahren möchten, tauchen Sie in [Wikipedia](https://en.wikipedia.org/wiki/Node.js#History) ein.
+Node wurde 2009 erstmals nur für Linux veröffentlicht. Der npm-Paketmanager wurde 2010 veröffentlicht und 2012 wurde die native Windows-Unterstützung hinzugefügt. Tauchen Sie in [Wikipedia](https://en.wikipedia.org/wiki/Node.js#History) ein, wenn Sie mehr erfahren möchten.
 
-Express wurde im November 2010 erstmals veröffentlicht und befindet sich derzeit in der Hauptversion 4 der API. Sie können im [Changelog](https://expressjs.com/en/changelog/4x.html) nachsehen, um Informationen zu den Änderungen in der aktuellen Version zu erhalten, und auf [GitHub](https://github.com/expressjs/express/blob/master/History.md) finden Sie detailliertere historische Versionshinweise.
+Express wurde im November 2010 erstmals veröffentlicht und befindet sich derzeit in der Hauptversion 4 der API. Sie können sich im [Änderungsprotokoll](https://expressjs.com/en/changelog/4x.html) über die Änderungen in der aktuellen Version informieren und auf [GitHub](https://github.com/expressjs/express/blob/master/History.md) detailliertere historische Versionshinweise ansehen.
 
-## Wie populär sind Node und Express?
+## Wie beliebt sind Node und Express?
 
-Die Popularität eines Webframeworks ist wichtig, weil sie ein Indikator dafür ist, ob es weiter gepflegt wird und welche Ressourcen in Bezug auf Dokumentation, Zusatzbibliotheken und technischen Support verfügbar sind.
+Die Popularität eines Web-Frameworks ist wichtig, weil sie ein Indikator dafür ist, ob es weiterhin gepflegt wird und welche Ressourcen voraussichtlich verfügbar sind in Bezug auf Dokumentation, Zusatzbibliotheken und technischen Support.
 
-Es gibt keine leicht verfügbare und endgültige Messgröße für die Beliebtheit serverseitiger Frameworks (obwohl Sie die Beliebtheit mithilfe von Mechanismen wie der Anzahl von GitHub-Projekten und Stack Overflow-Fragen für jede Plattform schätzen können). Eine bessere Frage ist, ob Node und Express "beliebt genug" sind, um die Probleme unpopulärer Plattformen zu vermeiden. Entwickeln sie sich weiter? Können Sie Hilfe bekommen, wenn Sie sie brauchen? Gibt es eine Möglichkeit, bezahlte Arbeit zu bekommen, wenn Sie Express lernen?
+Es gibt kein leicht verfügbar und endgültiges Maß für die Beliebtheit von serverseitigen Frameworks (obwohl Sie die Beliebtheit mittels Mechanismen wie das Zählen der Anzahl von GitHub-Projekten und Stack Overflow-Fragen für jede Plattform schätzen können). Eine bessere Frage ist, ob Node und Express "beliebt genug" sind, um die Probleme unpopulärer Plattformen zu vermeiden. Entwickeln sie sich weiter? Können Sie Hilfe bekommen, wenn Sie sie brauchen? Gibt es eine Möglichkeit für Sie, bezahlte Arbeit zu finden, wenn Sie Express lernen?
 
-Basierend auf der Anzahl hochkarätiger Unternehmen, die Express nutzen, der Anzahl der Personen, die zum Code beitragen, und der Anzahl der Menschen, die sowohl kostenlosen als auch kostenpflichtigen Support anbieten, ist _Express_ ein beliebtes Framework!
+Basierend auf der Anzahl von prominenten Unternehmen, die Express verwenden, der Anzahl der Personen, die zum Code-Base beitragen, und der Anzahl der Personen, die sowohl kostenlosen als auch kostenpflichtigen Support bieten, lautet die Antwort ja, _Express_ ist ein beliebtes Framework!
 
 ## Ist Express meinungsstark?
 
-Webframeworks bezeichnen sich oft selbst als „meinungsstark“ oder „unvoreingenommen“.
+Web-Frameworks bezeichnen sich oft als "meinungsstark" oder "unmeinungsstark".
 
-Meinungsstarke Frameworks sind solche, die eine Meinung darüber haben, wie eine bestimmte Aufgabe "richtig" ausgeführt werden kann. Sie unterstützen oft die schnelle Entwicklung _in einem bestimmten Bereich_ (Lösung von Problemen eines bestimmten Typs), weil der richtige Weg, etwas zu tun, normalerweise gut verstanden und dokumentiert ist. Sie können jedoch weniger flexibel bei der Lösung von Problemen außerhalb ihres Hauptbereichs sein und oft weniger Auswahlmöglichkeiten für die zu verwendenden Komponenten und Ansätze anbieten.
+Meinungsstarke Frameworks sind solche mit Ansichten darüber, wie bestimmte Aufgaben "richtig" gehandhabt werden. Sie unterstützen oft eine schnelle Entwicklung _in einem bestimmten Bereich_ (Lösung von Problemen einer bestimmten Art), weil der richtige Weg, etwas zu tun, in der Regel gut verstanden und gut dokumentiert ist. Sie können jedoch weniger flexibel bei der Lösung von Problemen außerhalb ihres primären Bereichs sein und neigen dazu, weniger Auswahlmöglichkeiten bezüglich der Komponenten und Ansätze, die sie verwenden können, anzubieten.
 
-Unvoreingenommene Frameworks hingegen haben weit weniger Einschränkungen für den besten Weg, Komponenten zusammenzufügen, um ein Ziel zu erreichen, oder sogar, welche Komponenten verwendet werden sollten. Sie erleichtern es Entwicklern, die am besten geeigneten Werkzeuge für eine bestimmte Aufgabe zu verwenden, allerdings zu dem Preis, dass Sie diese Komponenten selbst finden müssen.
+Unmeinungsstarke Frameworks haben hingegen weit weniger Einschränkungen darüber, wie die besten Komponenten zusammengefügt werden sollen, um ein Ziel zu erreichen, oder gar welche Komponenten genutzt werden sollten. Sie erleichtern Entwicklern die Verwendung der am besten geeigneten Werkzeuge für die Durchführung einer bestimmten Aufgabe, allerdings auf Kosten, dass Sie diese Komponenten selbst finden müssen.
 
-Express ist unvoreingenommen. Sie können fast jede kompatible Middleware, die Sie möchten, in die Anfragenbearbeitungskette einfügen, in nahezu jeder beliebigen Reihenfolge. Sie können die App in einer Datei oder in mehreren Dateien und mit jeder Verzeichnisstruktur organisieren. Sie könnten manchmal das Gefühl haben, zu viele Auswahlmöglichkeiten zu haben!
+Express ist unmeinungsstark. Sie können fast jede kompatible Middleware, die Sie mögen, in die Anforderungsverarbeitungskette einfügen, in fast jeder gewünschten Reihenfolge. Sie können die App in einer Datei oder mehreren Dateien und in beliebiger Verzeichnisstruktur aufbauen. Sie werden manchmal das Gefühl haben, zu viele Auswahlmöglichkeiten zu haben!
 
 ## Wie sieht Express-Code aus?
 
-In einer traditionellen datengetriebenen Website wartet eine Webanwendung auf HTTP-Anfragen vom Webbrowser (oder einem anderen Client). Wenn eine Anfrage eingeht, arbeitet die Anwendung heraus, welche Aktion basierend auf dem URL-Muster und möglicherweise assoziierten Informationen in `POST`- oder `GET`-Daten erforderlich ist. Abhängig davon, was erforderlich ist, kann sie dann Informationen aus einer Datenbank lesen oder schreiben oder andere Aufgaben ausführen, die erforderlich sind, um die Anfrage zu erfüllen. Die Anwendung wird dann eine Antwort an den Webbrowser zurückgeben, oft dynamisch eine HTML-Seite für den Browser zu erstellen, indem die abgerufenen Daten in Platzhalter in einem HTML-Template eingefügt werden.
+In einer traditionell datengesteuerten Website wartet eine Webanwendung auf HTTP-Anfragen vom Webbrowser (oder einem anderen Client). Wenn eine Anfrage eingeht, ermittelt die Anwendung, welche Aktion aufgrund des URL-Musters und möglicherweise der damit verbundenen Informationen in `POST`-Daten oder `GET`-Daten erforderlich ist. Abhängig von dem, was erforderlich ist, kann es dann Informationen aus einer Datenbank lesen oder schreiben oder andere Aufgaben ausführen, die erforderlich sind, um die Anforderung zu erfüllen. Die Anwendung gibt dann eine Antwort an den Webbrowser zurück, die häufig eine HTML-Seite dynamisch erstellt, die vom Browser durch das Einfügen der abgerufenen Daten in Platzhalter in einer HTML-Vorlage angezeigt wird.
 
-Express bietet Methoden, um festzulegen, welche Funktion für ein bestimmtes HTTP-Verb (`GET`, `POST`, `PUT` usw.) und URL-Muster ("Route") aufgerufen wird, und Methoden, um festzulegen, welche Template-("View")-Engine verwendet wird, wo sich Template-Dateien befinden und welches Template zur Erstellung einer Antwort verwendet werden soll. Sie können Express-Middleware verwenden, um Unterstützung für Cookies, Sitzungen und Benutzer sowie das Abrufen von `POST`/`GET`-Parametern hinzuzufügen. Sie können jeden D Datenbank-Mechanismus verwenden, der von Node unterstützt wird (Express definiert kein datenbankspezifisches Verhalten).
+Express stellt Methoden bereit, um anzugeben, welche Funktion für ein bestimmtes HTTP-Verb (`GET`, `POST`, `PUT`, etc.) und URL-Muster ("Route") aufgerufen wird, und Methoden, um anzugeben, welche Vorlage ("View")-Engine verwendet wird, wo Vorlagendateien gespeichert sind, und welche Vorlage zum Rendern einer Antwort verwendet werden soll. Sie können Express-Middleware verwenden, um Unterstützung für Cookies, Sitzungen und Benutzer hinzuzufügen, `POST`/`GET`-Parameter zu erhalten, etc. Sie können jeden von Node unterstützten Datenbankmechanismus verwenden (Express definiert kein datenbankbezogenes Verhalten).
 
-Die folgenden Abschnitte erklären einige der häufigsten Dinge, die Sie bei der Arbeit mit _Express_ und _Node_-Code sehen werden.
+Die folgenden Abschnitte erklären einige der gängigen Dinge, die Sie bei der Arbeit mit _Express_ und _Node_ Code sehen werden.
 
 ### Helloworld Express
 
-Zuerst betrachten wir das Standard-Express-[Hello World](https://expressjs.com/en/starter/hello-world.html)-Beispiel (wir diskutieren jeden Teil davon unten und in den folgenden Abschnitten).
+Zuerst betrachten wir das Standard-Express- [Hello World](https://expressjs.com/en/starter/hello-world.html) Beispiel (wir besprechen jeden Teil dieses Beispiels unten und in den folgenden Abschnitten).
 
 > [!NOTE]
-> Wenn Sie Node und Express bereits installiert haben (oder wenn Sie sie wie im [nächsten Artikel](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment) gezeigt installieren), können Sie diesen Code in einer Textdatei namens **app.js** speichern und in einer Bash-Befehlszeilenumgebung mit folgendem Befehl ausführen:
+> Wenn Sie Node und Express bereits installiert haben (oder wenn Sie sie wie im [nächsten Artikel](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment) gezeigt installieren), können Sie diesen Code in einer Textdatei namens **app.js** speichern und ihn in einer bash-Kommandozeile ausführen, indem Sie:
 >
-> **`node ./app.js`**
+> **`node ./app.js`** aufrufen.
 
 ```js
 const express = require("express");
@@ -158,29 +159,29 @@ app.listen(port, function () {
 });
 ```
 
-Die ersten beiden Zeilen `require()` (importieren) das Express-Modul und erstellen eine [Express-Anwendung](https://expressjs.com/en/4x/api.html#app). Dieses Objekt, das traditionell als „app“ bezeichnet wird, verfügt über Methoden zum Routing von HTTP-Anfragen, Konfigurieren von Middleware, Rendern von HTML-Ansichten, Registrieren einer Template-Engine und Ändern von [Anwendungseinstellungen](https://expressjs.com/en/4x/api.html#app.settings.table), die steuern, wie die Anwendung funktioniert (z. B. der Modus der Umgebung, ob Routendefinitionen groß-/kleinschreibungsempfindlich sind usw.).
+Die ersten beiden Zeilen `require()` (importieren) das Express-Modul und erstellen eine [Express-Anwendung](https://expressjs.com/en/4x/api.html#app). Dieses Objekt, das traditionell `app` genannt wird, verfügt über Methoden zum Routing von HTTP-Anfragen, zur Konfiguration von Middleware, zur Wiedergabe von HTML-Ansichten, zur Registrierung einer Template-Engine und zur Änderung von [Application Settings](https://expressjs.com/en/4x/api.html#app.settings.table), die steuern, wie die Anwendung sich verhält (z.B. der Betriebsmodus, ob Routendefinitionen groß-/kleinschreibungssensitiv sind, etc.)
 
-Der mittlere Teil des Codes (die drei Zeilen, die mit `app.get` beginnen) zeigt eine _Routendefinition_. Die Methode `app.get()` gibt eine Callback-Funktion an, die immer dann aufgerufen wird, wenn eine HTTP-`GET`-Anfrage bei einem Pfad (`'/'`) relativ zur Site-Wurzel empfangen wird. Die Callback-Funktion nimmt ein Anfragen- und ein Antwortobjekt als Argumente und ruft [`send()`](https://expressjs.com/en/4x/api.html#res.send) auf der Antwort auf, um die Zeichenfolge „Hello World!“ zurückzugeben.
+Der mittlere Teil des Codes (die drei Zeilen, die mit `app.get` beginnen) zeigt eine _Router-Definition_. Die `app.get()`-Methode gibt eine Rückruffunktion an, die immer aufgerufen wird, wenn eine HTTP-`GET`-Anfrage mit einem Pfad (`'/'`) relativ zur Standortwurzel erfolgt. Die Rückruffunktion nimmt ein Request- und ein Response-Objekt als Argumente an und ruft [`send()`](https://expressjs.com/en/4x/api.html#res.send) in der Antwort auf, um den String „Hello World!“ zurückzugeben.
 
-Der letzte Block startet den Server auf einem angegebenen Port ('3000') und gibt einen Log-Kommentar in die Konsole aus. Wenn der Server läuft, könnten Sie zu `localhost:3000` in Ihrem Browser gehen, um die Beispielantwort zu sehen.
+Der letzte Block startet den Server auf einem angegebenen Port ('3000') und druckt einen Protokoll-Kommentar in die Konsole. Mit laufendem Server könnten Sie im Browser auf `localhost:3000` gehen, um die Beispielantwort zu sehen.
 
 ### Importieren und Erstellen von Modulen
 
 Ein Modul ist eine JavaScript-Bibliothek/Datei, die Sie mit der `require()`-Funktion von Node in anderen Code importieren können. _Express_ selbst ist ein Modul, ebenso wie die Middleware- und Datenbankbibliotheken, die wir in unseren _Express_-Anwendungen verwenden.
 
-Der folgende Code zeigt, wie wir ein Modul nach Name importieren, am Beispiel des _Express_-Frameworks. Zuerst rufen wir die `require()`-Funktion auf, geben den Namen des Moduls als String (`'express'`) an und rufen das zurückgegebene Objekt auf, um eine [Express-Anwendung](https://expressjs.com/en/4x/api.html#app) zu erstellen. Wir können dann auf die Eigenschaften und Funktionen des Anwendungsobjekts zugreifen.
+Der untenstehende Code zeigt, wie wir ein Modul nach Namen importieren, wobei das _Express_-Framework als Beispiel dient. Zuerst rufen wir die `require()`-Funktion auf, spezifizieren den Namen des Moduls als String (`'express'`) und rufen das zurückgegebene Objekt auf, um eine [Express-Anwendung](https://expressjs.com/en/4x/api.html#app) zu erstellen. Dann können wir auf die Eigenschaften und Funktionen des Anwendungsobjekts zugreifen.
 
 ```js
 const express = require("express");
 const app = express();
 ```
 
-Sie können auch Ihre eigenen Module erstellen, die auf die gleiche Weise importiert werden können.
+Sie können auch Ihre eigenen Module erstellen, die auf dieselbe Weise importiert werden können.
 
 > [!NOTE]
-> Sie _möchten_ Ihre eigenen Module erstellen, weil dies Ihnen hilft, Ihren Code in verwaltbare Teile zu organisieren — eine monolithische Ein-Datei-Anwendung ist schwer zu verstehen und zu pflegen. Die Verwendung von Modulen hilft Ihnen auch, Ihren Namensraum zu verwalten, weil nur die Variablen, die Sie ausdrücklich exportieren, importiert werden, wenn Sie ein Modul verwenden.
+> Sie werden _eigene_ Module erstellen wollen, weil dadurch Ihr Code in überschaubare Teile organisiert wird — eine monolithische Einzelfileanwendung ist schwer zu verstehen und zu warten. Die Verwendung von Modulen hilft Ihnen auch bei der Verwaltung Ihres Namensraums, weil nur die Variablen, die Sie explizit exportieren, beim Verwenden eines Moduls importiert werden.
 
-Um Objekte außerhalb eines Moduls verfügbar zu machen, müssen Sie sie einfach als zusätzliche Eigenschaften des `exports`-Objekts freigeben. Zum Beispiel ist das _square.js_-Modul unten eine Datei, die `area()`- und `perimeter()`-Methoden exportiert:
+Um Objekte außerhalb eines Moduls verfügbar zu machen, müssen Sie diese lediglich als zusätzliche Eigenschaften auf dem `exports`-Objekt bereitstellen. Zum Beispiel ist das Modul **square.js** unten eine Datei, die `area()`- und `perimeter()`-Methoden exportiert:
 
 ```js
 exports.area = function (width) {
@@ -191,7 +192,7 @@ exports.perimeter = function (width) {
 };
 ```
 
-Wir können dieses Modul mit `require()` importieren und dann die exportierte(n) Methode(n) wie gezeigt aufrufen:
+Wir können dieses Modul mit `require()` importieren und dann die exportierten Methode(n) wie gezeigt aufrufen:
 
 ```js
 const square = require("./square"); // Here we require() the name of the file without the (optional) .js file extension
@@ -199,9 +200,9 @@ console.log(`The area of a square with a width of 4 is ${square.area(4)}`);
 ```
 
 > [!NOTE]
-> Sie können auch einen absoluten Pfad zum Modul angeben (oder einen Namen, wie wir es zunächst gemacht haben).
+> Sie können auch einen absoluten Pfad zum Modul angeben (oder einen Namen, wie wir es ursprünglich getan haben).
 
-Wenn Sie ein vollständiges Objekt in einer einzigen Zuweisung anstelle des Aufbaus auf einer Eigenschaft nach der anderen exportieren möchten, weisen Sie es `module.exports` zu, wie unten gezeigt (Sie können dies auch tun, um die Wurzel des `exports`-Objekts zu einem Konstruktor oder einer anderen Funktion zu machen):
+Wenn Sie ein vollständiges Objekt in einer Zuweisung exportieren möchten, anstatt es eine Eigenschaft nach der anderen aufzubauen, weisen Sie es wie unten gezeigt `module.exports` zu (Sie können dies auch tun, um das Wurzelmodul des Exports ein Konstruktor oder eine andere Funktion zu machen):
 
 ```js
 module.exports = {
@@ -216,20 +217,20 @@ module.exports = {
 ```
 
 > [!NOTE]
-> Sie können `exports` als [Abkürzung](https://nodejs.org/api/modules.html#modules_exports_shortcut) zu `module.exports` innerhalb eines gegebenen Moduls betrachten. Tatsächlich ist `exports` nur eine Variable, die auf den Wert von `module.exports` initialisiert wird, bevor das Modul ausgewertet wird. Dieser Wert ist eine Referenz auf ein Objekt (in diesem Fall ein leeres Objekt). Das bedeutet, dass `exports` eine Referenz auf dasselbe Objekt enthält, auf das `module.exports` verweist. Es bedeutet auch, dass durch die Zuweisung eines anderen Wertes zu `exports` es nicht mehr an `module.exports` gebunden ist.
+> Sie können `exports` als [Abkürzung](https://nodejs.org/api/modules.html#modules_exports_shortcut) auf `module.exports` innerhalb eines bestimmten Moduls betrachten. Tatsächlich ist `exports` nur eine Variable, die auf den Wert von `module.exports` gesetzt wird, bevor das Modul ausgewertet wird. Dieser Wert ist eine Referenz zu einem Objekt (leeres Objekt in diesem Fall). Das bedeutet, dass `exports` eine Referenz auf dasselbe Objekt hält, auf das `module.exports` referenziert. Das bedeutet auch, dass durch Zuweisen eines anderen Wertes zu `exports` es nicht mehr an `module.exports` gebunden ist.
 
-Für viel mehr Informationen zu Modulen siehe [Module](https://nodejs.org/api/modules.html#modules_modules) (Node-API-Dokumentation).
+Für weitaus mehr Informationen über Module siehe [Module](https://nodejs.org/api/modules.html#modules_modules) (Node-API-Dokumentation).
 
-### Verwendung von asynchronen APIs
+### Verwendung asynchroner APIs
 
-JavaScript-Code verwendet häufig asynchrone anstelle der synchronen APIs für Operationen, die möglicherweise einige Zeit in Anspruch nehmen können. Eine synchrone API ist eine, bei der jede Operation abgeschlossen sein muss, bevor die nächste Operation starten kann. Zum Beispiel sind die folgenden Protokollfunktionen synchron und geben den Text in der richtigen Reihenfolge in die Konsole aus (Erstens, Zweitens).
+JavaScript-Code verwendet häufig asynchrone anstelle von synchronen APIs für Vorgänge, die einige Zeit beanspruchen könnten. Eine synchrone API ist eine, bei der jede Operation abgeschlossen werden muss, bevor die nächste Operation starten kann. Zum Beispiel sind die folgenden Protokollfunktionen synchron und werden den Text in der Reihenfolge (Erst, Zweit) an die Konsole ausgeben.
 
 ```js
 console.log("First");
 console.log("Second");
 ```
 
-Eine asynchrone API hingegen ist eine, bei der die API eine Operation startet und sofort zurückkehrt (bevor die Operation abgeschlossen ist). Sobald die Operation abgeschlossen ist, wird die API einen Mechanismus verwenden, um zusätzliche Operationen durchzuführen. Zum Beispiel wird der folgende Code "Zweitens, Erstens" ausgeben, weil auch wenn die `setTimeout()`-Methode zuerst aufgerufen wird und sofort zurückkehrt, die Operation erst einige Sekunden später abgeschlossen wird.
+Im Gegensatz dazu ist eine asynchrone API eine, bei der die API eine Operation startet und sofort zurückkehrt (bevor die Operation abgeschlossen ist). Sobald die Operation beendet ist, verwendet die API einen Mechanismus, um zusätzliche Operationen auszuführen. Zum Beispiel wird der folgende Code "Zweit, Erst" ausgeben, weil auch wenn die `setTimeout()`-Methode zuerst aufgerufen wird und sofort zurückkehrt, die Operation erst einige Sekunden später abgeschlossen ist.
 
 ```js
 setTimeout(function () {
@@ -238,19 +239,19 @@ setTimeout(function () {
 console.log("Second");
 ```
 
-Die Verwendung von nicht blockierenden asynchronen APIs ist bei Node noch wichtiger als im Browser, da _Node_ eine einsträngige, ereignisgesteuerte Ausführungsumgebung ist. "Einsträngig" bedeutet, dass alle Anfragen an den Server im gleichen Thread ausgeführt werden (anstatt in separate Prozesse abgezweigt zu werden). Dieses Modell ist extrem effizient in Bezug auf Geschwindigkeit und Server-Ressourcen, aber es bedeutet, dass, wenn eine Ihrer Funktionen synchrone Methoden aufruft, die lange Zeit in Anspruch nimmt, sie nicht nur die aktuelle Anfrage blockieren wird, sondern jede andere Anfrage, die von Ihrer Webanwendung bearbeitet wird.
+Die Verwendung nicht blockierender asynchroner APIs ist bei Node sogar wichtiger als im Browser, weil _Node_ eine ereignisgesteuerte Single-Thread-Ausführungsumgebung ist. "Single-threaded" bedeutet, dass alle Anfragen an den Server auf demselben Thread ausgeführt werden (anstatt in separate Prozesse ausgegliedert zu werden). Dieses Modell ist hinsichtlich Geschwindigkeit und Serverressourcen extrem effizient, bedeutet jedoch, dass, wenn eine Ihrer Funktionen eine synchrone Methode aufruft, die lange zur Fertigstellung braucht, nicht nur die aktuelle Anfrage blockiert wird, sondern alle anderen Anfragen, die von Ihrer Webanwendung bearbeitet werden.
 
-Es gibt eine Reihe von Möglichkeiten, wie eine asynchrone API Ihre Anwendung benachrichtigen kann, dass sie abgeschlossen ist. Der häufigste Weg ist, dass Sie eine Rückruffunktion registrieren, wenn Sie die asynchrone API aufrufen, die aufgerufen wird, wenn die Operation abgeschlossen ist. Dies ist der oben verwendete Ansatz.
-
-> [!NOTE]
-> Die Verwendung von Rückrufen kann recht „unübersichtlich“ sein, wenn Sie eine Reihe von abhängigen asynchronen Operationen haben, die in der Reihenfolge durchgeführt werden müssen, weil dies zu mehreren Ebenen von geschachtelten Rückrufen führt. Dieses Problem ist allgemein als „Callback-Hölle“ bekannt. Dieses Problem kann durch gute Programmierpraktiken (siehe <http://callbackhell.com/>), durch die Verwendung eines Moduls wie [async](https://www.npmjs.com/package/async) oder durch das Refactoring des Codes in native JavaScript-Funktionen wie [Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) und [async/await](/de/docs/Web/JavaScript/Reference/Statements/async_function) reduziert werden. Node bietet die Funktion [`utils.promisify`](https://nodejs.org/api/util.html#utilpromisifyoriginal) an, um die Rückruf-> Promise-Umwandlung ergonomisch zu machen.
+Es gibt mehrere Möglichkeiten für eine asynchrone API, Ihre Anwendung zu benachrichtigen, dass sie abgeschlossen ist. Die häufigste Methode ist, eine Rückruffunktion zu registrieren, wenn Sie die asynchrone API aufrufen, die dann aufgerufen wird, wenn die Operation abgeschlossen ist. Dies ist der oben verwendete Ansatz.
 
 > [!NOTE]
-> Eine übliche Konvention in Node und Express ist die Verwendung von fehlerzuerst Rückrufen. Nach dieser Konvention ist der erste Wert in Ihren _Rückruffunktionen_ ein Fehlerwert, während nachfolgende Argumente Erfolgsdaten enthalten. In diesem Blog gibt es eine gute Erklärung, warum dieser Ansatz nützlich ist: [The Node.js Way - Understanding Error-First Callbacks](https://fredkschott.com/post/2014/03/understanding-error-first-callbacks-in-node-js/) (fredkschott.com).
+> Die Verwendung von Rückrufen kann ziemlich "unordentlich" sein, wenn Sie eine Abfolge von abhängigen asynchronen Operationen haben, die in einer bestimmten Reihenfolge ausgeführt werden müssen, da dies zu mehreren Ebenen verschachtelter Rückrufe führt. Dieses Problem ist allgemein als "callback hell" bekannt. Dieses Problem kann durch gute Codierpraktiken (siehe <http://callbackhell.com/>), die Verwendung eines Moduls wie [async](https://www.npmjs.com/package/async), oder das Refactoring des Codes zu nativen JavaScript-Funktionen wie [Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) und [async/await](/de/docs/Web/JavaScript/Reference/Statements/async_function) reduziert werden. Node bietet die [`utils.promisify`](https://nodejs.org/api/util.html#utilpromisifyoriginal)-Funktion für die Callbacks → Promise Konvertierung ergonomisch.
 
-### Erstellen von Routenhandlern
+> [!NOTE]
+> Eine häufige Konvention für Node und Express ist die Verwendung von Error-First-Callbacks. In dieser Konvention ist der erste Wert in Ihren _Callback-Funktionen_ ein Fehlerwert, während nachfolgende Argumente Erfolgsdaten enthalten. Eine gute Erklärung, warum dieser Ansatz nützlich ist, finden Sie in diesem Blog: [The Node.js Way - Understanding Error-First Callbacks](https://fredkschott.com/post/2014/03/understanding-error-first-callbacks-in-node-js/) (fredkschott.com).
 
-In unserem _Hello World_-Express-Beispiel (siehe oben) haben wir eine (Callback-)Routenhandler-Funktion für HTTP-`GET`-Anfragen an die Site-Wurzel (`'/'`) definiert.
+### Erstellen von Routen-Handlern
+
+Im _Hello World_-Express-Beispiel (siehe oben) haben wir eine (Rückruffunktion) Route-Handler-Funktion für HTTP-`GET`-Anfragen an die Standortwurzel (`'/'`) definiert.
 
 ```js
 app.get("/", function (req, res) {
@@ -258,16 +259,16 @@ app.get("/", function (req, res) {
 });
 ```
 
-Die Callback-Funktion nimmt ein Anfragen- und ein Antwortobjekt als Argumente. In diesem Fall wird die Methode [`send()`](https://expressjs.com/en/4x/api.html#res.send) auf der Antwort aufgerufen, um die Zeichenfolge „Hello World!“ zurückzugeben. Es gibt [eine Reihe anderer Antwortmethoden](https://expressjs.com/en/guide/routing.html#response-methods), um den Anfragen-/Antwortzyklus zu beenden; zum Beispiel könnten Sie [`res.json()`](https://expressjs.com/en/4x/api.html#res.json) aufrufen, um eine JSON-Antwort zu senden oder [`res.sendFile()`](https://expressjs.com/en/4x/api.html#res.sendFile) um eine Datei zu senden.
+Die Rückruffunktion nimmt ein Anfrage- und ein Antwortobjekt als Argumente. In diesem Fall ruft die Methode [`send()`](https://expressjs.com/en/4x/api.html#res.send) auf der Antwort auf, um den String „Hello World!“ zu senden. Es gibt eine [Anzahl anderer Antwortmethoden](https://expressjs.com/en/guide/routing.html#response-methods), um den Anforderungs-Antwort-Zyklus zu beenden, zum Beispiel könnten Sie [`res.json()`](https://expressjs.com/en/4x/api.html#res.json) aufrufen, um eine JSON-Antwort zu senden, oder [`res.sendFile()`](https://expressjs.com/en/4x/api.html#res.sendFile), um eine Datei zu senden.
 
 > [!NOTE]
-> Sie können in den Callback-Funktionen beliebige Argumentnamen verwenden; wenn der Callback aufgerufen wird, wird das erste Argument immer die Anfrage und das zweite immer die Antwort sein. Es macht Sinn, sie so zu benennen, dass Sie das Objekt identifizieren können, an dem Sie im Callback arbeiten.
+> Sie können in den Rückruffunktionen beliebige Argumentnamen verwenden; beim Aufruf der Rückruffunktion wird immer das erste Argument die Anfrage und das zweite die Antwort sein. Es macht Sinn, sie so zu benennen, dass Sie das Objekt, mit dem Sie arbeiten, im Körper der Rückruffunktion identifizieren können.
 
-Das _Express-Anwendungsobjekt_ bietet auch Methoden zur Definition von Routenhandlern für alle anderen HTTP-Verb, die meist auf die gleiche Weise verwendet werden:
+Das _Express-Anwendungsobjekt_ bietet auch Methoden zur Definition von Routen-Handlern für alle anderen HTTP-Verben, die meistens auf die gleiche Weise verwendet werden:
 
 `checkout()`, `copy()`, **`delete()`**, **`get()`**, `head()`, `lock()`, `merge()`, `mkactivity()`, `mkcol()`, `move()`, `m-search()`, `notify()`, `options()`, `patch()`, **`post()`**, `purge()`, **`put()`**, `report()`, `search()`, `subscribe()`, `trace()`, `unlock()`, `unsubscribe()`.
 
-Es gibt eine spezielle Routing-Methode, `app.all()`, die in Antwort auf jede HTTP-Methode aufgerufen wird. Dies wird verwendet, um Middleware-Funktionen an einem bestimmten Pfad für alle Anfragemethoden zu laden. Das folgende Beispiel (aus der Express-Dokumentation) zeigt einen Handler, der für Anfragen an `/secret` unabhängig vom verwendeten HTTP-Verb ausgeführt wird (vorausgesetzt, es wird vom [http-Modul](https://nodejs.org/docs/latest/api/http.html#httpmethods) unterstützt).
+Es gibt eine spezielle Routing-Methode, `app.all()`, die als Antwort auf jede HTTP-Methode aufgerufen wird. Diese wird verwendet, um Middleware-Funktionen an einem bestimmten Pfad für alle Anfragemethoden zu laden. Das folgende Beispiel (aus der Express-Dokumentation) zeigt einen Handler, der für Anfragen an `/secret` ungeachtet des verwendeten HTTP-Verbs (vorausgesetzt, es wird vom [http-Modul](https://nodejs.org/docs/latest/api/http.html#httpmethods) unterstützt) ausgeführt wird.
 
 ```js
 app.all("/secret", function (req, res, next) {
@@ -276,9 +277,9 @@ app.all("/secret", function (req, res, next) {
 });
 ```
 
-Routen ermöglichen es Ihnen, bestimmte Zeichenfolgenmuster in einer URL übereinstimmen zu lassen und einige Werte aus der URL zu extrahieren und an den Routenhandler als Parameter zu übergeben (als Attribute des Anfragen-Objekts, das als Parameter übergeben wird).
+Routen ermöglichen es Ihnen, bestimmte Muster von Zeichen in einer URL zu einem Anforderungshandler weiterzuleiten und ihnen als Parameter (als Attribute des Anforderungsobjekts, das als Parameter übergeben wird) zu übergeben.
 
-Oft ist es nützlich, Routenhandler für einen bestimmten Teil einer Site zusammenzufassen und sie mit einem gemeinsamen Routen-Präfix abrufen zu können (z. B. könnte eine Site mit einer Wiki alle Wiki-bezogenen Routen in einer Datei haben und sie mit einem Routen-Präfix von _/wiki/_ abrufen). In _Express_ wird dies durch die Verwendung des [`express.Router`](https://expressjs.com/en/guide/routing.html#express-router)-Objekt erreicht. Zum Beispiel könnten wir unsere Wiki-Route in einem Modul namens **wiki.js** erstellen und dann das `Router`-Objekt exportieren, wie unten gezeigt:
+Oftmals ist es nützlich, Routen-Handler für einen bestimmten Teil einer Website zu gruppieren und sie mit einem gemeinsamen Routen-Präfix zuzugreifen (z.B. könnte eine Seite mit einem Wiki alle wiki-bezogenen Routen in einer Datei haben, auf die mit einem Routen-Präfix von _/wiki/_ zugegriffen wird). In _Express_ wird dies durch die Verwendung des [`express.Router`](https://expressjs.com/en/guide/routing.html#express-router)-Objekts erreicht. Zum Beispiel können wir unsere Wiki-Route in einem Modul namens **wiki.js** erstellen und dann das `Router`-Objekt exportieren, wie unten gezeigt:
 
 ```js
 // wiki.js - Wiki route module
@@ -300,9 +301,9 @@ module.exports = router;
 ```
 
 > [!NOTE]
-> Routen zum `Router`-Objekt hinzuzufügen ist genau wie das Hinzufügen von Routen zum `app`-Objekt (wie zuvor gezeigt).
+> Das Hinzufügen von Routen zum `Router`-Objekt ist genau wie das Hinzufügen von Routen zum `app`-Objekt (wie zuvor gezeigt).
 
-Um den Router in unserer Haupt-App-Datei zu verwenden, würden wir das Routen-Modul (**wiki.js**) mit `require()` importieren und dann `use()` auf dem \_Express-Anwendung_sobjekt aufrufen, um den Router zum Middleware-Verarbeitungspfad hinzuzufügen. Die beiden Routen wären dann unter `/wiki/` und `/wiki/about/` zugänglich.
+Um den Router in unserer Haupt-App-Datei zu verwenden, würden wir das Routenmodul (**wiki.js**) mit `require()` importieren und dann `use()` auf dem Express-Anwendungsobjekt aufrufen, um den Router zum Middleware-Verarbeitungspfad hinzuzufügen. Die beiden Routen wären dann unter `/wiki/` und `/wiki/about/` zugänglich.
 
 ```js
 const wiki = require("./wiki.js");
@@ -310,25 +311,25 @@ const wiki = require("./wiki.js");
 app.use("/wiki", wiki);
 ```
 
-Wir erklären Ihnen später im verlinkten Abschnitt [Routen und Controller](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/routes) noch viel mehr über die Arbeit mit Routen und insbesondere über die Verwendung des `Router`.
+Später zeigen wir Ihnen viel mehr über die Arbeit mit Routen, insbesondere über die Verwendung des `Router`, im verlinkten Abschnitt [Routen und Controller](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/routes).
 
 ### Verwendung von Middleware
 
-Middleware wird in Express-Apps ausgiebig verwendet, für Aufgaben vom Bereitstellen statischer Dateien bis hin zur Fehlerbehandlung, zur Komprimierung von HTTP-Antworten. Während Routenfunktionen den HTTP-Anfragen-/Antwortzyklus mit der Rückgabe einer Antwort an den HTTP-Client beenden, führen Middleware-Funktionen _typischerweise_ eine Operation an der Anfrage oder Antwort durch und rufen dann die nächste Funktion im "Stapel" auf, die mehr Middleware oder einen Routenhandler sein kann. Die Reihenfolge, in der Middleware aufgerufen wird, liegt beim App-Entwickler.
+Middleware wird in Express-Apps häufig verwendet, von der Bereitstellung statischer Dateien über Fehlerbehandlung bis hin zur Komprimierung von HTTP-Antworten. Während Routenfunktionen den HTTP-Anforderungs-/Antwort-Zyklus durch die Rückgabe einer Antwort an den HTTP-Client beenden, führen Middleware-Funktionen _typischerweise_ eine Operation auf der Anfrage oder Antwort aus und rufen dann die nächste Funktion im "Stack" auf, die mehr Middleware oder ein Routen-Handler sein könnte. Die Reihenfolge, in der Middleware aufgerufen wird, liegt beim App-Entwickler.
 
 > [!NOTE]
-> Die Middleware kann jede Operation ausführen, jeden Code ausführen, Änderungen an den Anfrage- und Antwortobjekten vornehmen, und sie kann _auch den Anfragen-/Antwortzyklus beenden_. Wenn sie den Zyklus nicht beendet, muss sie `next()` aufrufen, um die Kontrolle an die nächste Middleware-Funktion zu übergeben (oder die Anfrage bleibt hängen).
+> Die Middleware kann beliebige Operationen ausführen, jeden Code ausführen, Änderungen am Anfragen- und Antwortobjekt vornehmen und sie kann _auch den Anforderungs-Antwort-Zyklus beenden_. Wenn sie den Zyklus nicht beendet, muss sie `next()` aufrufen, um die Kontrolle an die nächste Middleware-Funktion zu übergeben (oder die Anforderung bleibt hängen).
 
-Die meisten Apps werden _Drittanbieter_-Middleware verwenden, um häufige Webentwicklungsaufgaben wie das Arbeiten mit Cookies, Sitzungen, Benutzer-Authentifizierung, Zugriff auf Anfragen `POST` und JSON-Daten, Protokollierung usw. zu vereinfachen. Sie finden eine [Liste von Middleware-Paketen, die vom Express-Team verwaltet werden](https://expressjs.com/en/resources/middleware.html) (die auch andere beliebte Third-Party-Pakete enthält). Andere Express-Pakete sind im npm-Paketmanager verfügbar.
+Die meisten Apps verwenden _Drittanbieter_-Middleware, um gängige Webentwicklungsaufgaben wie das Arbeiten mit Cookies, Sitzungen, Benutzeranmeldung, Zugriff auf Anforderung `POST` und JSON-Daten, Protokollierung, etc., zu vereinfachen. Sie können eine [Liste von Middleware-Paketen, die von den Express-Teams gepflegt werden](https://expressjs.com/en/resources/middleware.html), finden (die auch andere beliebte Drittanbieter-Pakete umfasst). Andere Express-Pakete sind im npm-Paketmanager verfügbar.
 
-Um Drittanbieter-Middleware zu verwenden, müssen Sie sie zuerst mithilfe von npm in Ihrer App installieren.
-Zum Beispiel, um die [morgan](https://expressjs.com/en/resources/middleware/morgan.html) HTTP-Anfragen-Protokollierungsmiddleware zu installieren, würden Sie dies tun:
+Um Drittanbieter-Middleware zu verwenden, müssen Sie diese zuerst mit npm in Ihre App installieren.
+Zum Beispiel, um die [morgan](https://expressjs.com/en/resources/middleware/morgan.html) HTTP-Anfrage-Protokollierer-Middleware zu installieren, würden Sie dies tun:
 
 ```bash
 npm install morgan
 ```
 
-Sie könnten dann `use()` auf dem _Express-Anwendungsobjekt_ aufrufen, um die Middleware zum Stapel hinzuzufügen:
+Sie könnten dann `use()` auf dem Express-Anwendungsobjekt aufrufen, um die Middleware zum Stack hinzuzufügen:
 
 ```js
 const express = require("express");
@@ -339,13 +340,13 @@ app.use(logger("dev"));
 ```
 
 > [!NOTE]
-> Middleware- und Routing-Funktionen werden in der Reihenfolge aufgerufen, in der sie deklariert werden. Für einige Middleware ist die Reihenfolge wichtig (z. B. wenn die Sitzungsmiddleware von der Cookiemiddleware abhängig ist, muss der Cookie-Handler zuerst hinzugefügt werden). Es ist fast immer der Fall, dass Middleware vor dem Setzen von Routen aufgerufen wird, oder Ihre Routen-Handler haben keinen Zugriff auf die von Ihrer Middleware hinzugefügte Funktionalität.
+> Middleware und Routenfunktionen werden in der Reihenfolge aufgerufen, in der sie deklariert wurden. Für einige Middleware ist die Reihenfolge wichtig (zum Beispiel, wenn Session-Middleware von Cookie-Middleware abhängt, muss der Cookie-Handler zuerst hinzugefügt werden). Es ist fast immer der Fall, dass Middleware vor dem Festlegen von Routen aufgerufen wird, oder Ihre Routen-Handler nicht auf Funktionalität zugreifen können, die von Ihrer Middleware hinzugefügt wurde.
 
-Sie können Ihre eigene Middleware-Funktion schreiben, und dazu werden Sie wahrscheinlich aufgefordert werden (wenn auch nur, um Fehlerbehandlungscode zu erstellen). Der **einzige** Unterschied zwischen einer Middleware-Funktion und einem Routenhandler-Callback besteht darin, dass Middleware-Funktionen ein drittes Argument `next` haben, das Middleware-Funktionen erwarten, wenn sie nicht diejenigen sind, die den Anfragenzyklus abschließen (wenn die Middleware-Funktion aufgerufen wird, enthält dies die _nächste_ Funktion, die aufgerufen werden muss).
+Sie können Ihre eigenen Middleware-Funktionen schreiben, und Sie werden es wahrscheinlich tun müssen (wenn nur, um Fehlerbehandlungscode zu erstellen). Der **einzige** Unterschied zwischen einer Middleware-Funktion und einem Routen-Handler-Rückruf besteht darin, dass Middleware-Funktionen ein drittes Argument `next` haben, das Middleware-Funktionen aufgerufen werden, wenn sie nicht diejenige sind, die den Anforderungszyklus abschließt (wenn die Middleware-Funktion aufgerufen wird, enthält sie die _nächste_ Funktion, die aufgerufen werden muss).
 
-Sie können eine Middleware-Funktion mit `app.use()` für _alle Anfragen_ der Verarbeitungskette hinzufügen oder für ein spezifisches HTTP-Verb die zugehörige Methode verwenden: `app.get()`, `app.post()` usw. Die Routen werden in beiden Fällen auf die gleiche Weise angegeben, obwohl die Route optional ist, wenn `app.use()` aufgerufen wird.
+Sie können eine Middleware-Funktion zur Verarbeitungskette für _alle Antworten_ mit `app.use()` oder für ein spezifisches HTTP-Verb mit der zugehörigen Methode hinzufügen: `app.get()`, `app.post()`, etc. Routen werden für beide Fälle auf die gleiche Weise angegeben, obwohl die Route optional ist, wenn `app.use()` aufgerufen wird.
 
-Das folgende Beispiel zeigt, wie Sie die Middleware-Funktion mithilfe beider Ansätze hinzufügen können, und ob mit oder ohne Route.
+Das folgende Beispiel zeigt, wie Sie die Middleware-Funktion mit beiden Ansätzen hinzufügen und mit/ohne Route.
 
 ```js
 const express = require("express");
@@ -370,19 +371,19 @@ app.listen(3000);
 ```
 
 > [!NOTE]
-> Oben haben wir die Middleware-Funktion separat deklariert und dann als Callback gesetzt. In unserer vorherigen Routenhandler-Funktion haben wir die Callback-Funktion beim Verwenden deklariert. Beide Ansätze sind in JavaScript gültig.
+> Oben deklarierten wir die Middleware-Funktion separat und setzten sie dann als Rückruf fest. In unserer vorherigen Routen-Handler-Funktion deklarierten wir die Rückruffunktion, wenn sie verwendet wurde. In JavaScript ist beide Ansätze gültig.
 
-Die Express-Dokumentation bietet eine Menge hervorragender Dokumentation zu [Verwenden](https://expressjs.com/en/guide/using-middleware.html) und [Schreiben](https://expressjs.com/en/guide/writing-middleware.html) von Express-Middleware.
+Die Express-Dokumentation hat weitaus mehr exzellente Dokumentation über [Verwendung](https://expressjs.com/en/guide/using-middleware.html) und [Schreiben](https://expressjs.com/en/guide/writing-middleware.html) von Express Middleware.
 
-### Bereitstellen von statischen Dateien
+### Bereitstellung statischer Dateien
 
-Sie können die [express.static](https://expressjs.com/en/4x/api.html#express.static)-Middleware verwenden, um statische Dateien bereitzustellen, einschließlich Ihrer Bilder, CSS und JavaScript (`static()` ist die einzige Middleware-Funktion, die tatsächlich **Teil** von _Express_ ist). Zum Beispiel würden Sie die folgende Zeile verwenden, um Bilder, CSS-Dateien und JavaScript-Dateien aus einem Verzeichnis namens "**public**" auf derselben Ebene bereitzustellen wie dort, wo Sie Node aufrufen:
+Sie können die [express.static](https://expressjs.com/en/4x/api.html#express.static)-Middleware verwenden, um statische Dateien, einschließlich Ihrer Bilder, CSS und JavaScript, bereitzustellen (`static()` ist die einzige Middleware-Funktion, die Teil von _Express_ ist). Zum Beispiel würden Sie die folgende Zeile verwenden, um Bilder, CSS-Dateien und JavaScript-Dateien aus einem Verzeichnis namens **public**, auf der gleichen Ebene wie Sie node aufrufen, bereitzustellen:
 
 ```js
 app.use(express.static("public"));
 ```
 
-Alle Dateien im öffentlichen Verzeichnis werden bereitgestellt, indem Sie ihren Dateinamen (_relativ_ zum Basis-"public"-Verzeichnis) an die Basis-URL hinzufügen. Zum Beispiel:
+Alle Dateien im öffentlichen Verzeichnis werden bedient, indem der Dateiname (relativ zum Basis-"Public"-Verzeichnis) zu der Basis-URL hinzugefügt wird. So zum Beispiel:
 
 ```plain
 http://localhost:3000/images/dog.jpg
@@ -391,20 +392,20 @@ http://localhost:3000/js/app.js
 http://localhost:3000/about.html
 ```
 
-Sie können `static()` mehrfach aufrufen, um mehrere Verzeichnisse bereitzustellen. Wenn eine Datei von einer Middleware-Funktion nicht gefunden werden kann, wird sie an die nachfolgende Middleware weitergeleitet (die Reihenfolge, in der die Middleware aufgerufen wird, basiert auf Ihrer Deklarationsreihenfolge).
+Sie können `static()` mehrmals aufrufen, um mehrere Verzeichnisse bereitzustellen. Wenn eine Datei von einer Middleware-Funktion nicht gefunden werden kann, wird sie an die nachfolgende Middleware übergeben (die Reihenfolge, in der Middleware aufgerufen wird, basiert auf Ihrer Deklarationsreihenfolge).
 
 ```js
 app.use(express.static("public"));
 app.use(express.static("media"));
 ```
 
-Sie können auch ein virtuelles Präfix für Ihre statischen URLs erstellen, anstatt die Dateien zur Basis-URL hinzuzufügen. Zum Beispiel geben wir hier einen [Mount-Pfad](https://expressjs.com/en/4x/api.html#app.use) an, sodass die Dateien mit dem Präfix "/media" geladen werden:
+Sie können auch ein virtuelles Präfix für Ihre statischen URLs erstellen, anstatt die Dateien zur Basis-URL hinzuzufügen. Zum Beispiel geben Sie hier [einen Mount-Pfad an](https://expressjs.com/en/4x/api.html#app.use), sodass die Dateien mit dem Präfix "/media" geladen werden:
 
 ```js
 app.use("/media", express.static("public"));
 ```
 
-Nun können Sie die Dateien im `public`-Verzeichnis vom `/media`-Pfadpräfix aus laden.
+Jetzt können Sie die Dateien, die sich im `public`-Verzeichnis befinden, vom `/media`-Pfadpräfix aus laden.
 
 ```plain
 http://localhost:3000/media/images/dog.jpg
@@ -413,11 +414,11 @@ http://localhost:3000/media/cry.mp3
 ```
 
 > [!NOTE]
-> Siehe auch [Bereitstellen von statischen Dateien in Express](https://expressjs.com/en/starter/static-files.html).
+> Siehe auch [Bereitstellung statischer Dateien in Express](https://expressjs.com/en/starter/static-files.html).
 
 ### Fehlerbehandlung
 
-Fehler werden von einer oder mehreren speziellen Middleware-Funktionen behandelt, die anstelle der üblichen drei vier Argumente haben: `(err, req, res, next)`. Zum Beispiel:
+Fehler werden von einer oder mehreren speziellen Middleware-Funktionen behandelt, die vier Argumente statt der üblichen drei haben: `(err, req, res, next)`. Zum Beispiel:
 
 ```js
 app.use(function (err, req, res, next) {
@@ -426,31 +427,31 @@ app.use(function (err, req, res, next) {
 });
 ```
 
-Diese können jeden erforderlichen Inhalt zurückgeben, müssen jedoch nach allen anderen `app.use()`- und Routencalls aufgerufen werden, sodass sie die letzte Middleware im Anfrageverarbeitungsprozess sind!
+Diese können jeden gewünschten Inhalt zurückgeben, müssen aber nach allen anderen `app.use()` und Routencalls aufgerufen werden, damit sie die letzte Middleware im Anforderungsbearbeitungsprozess sind!
 
-Express kommt mit einem eingebauten Fehler-Handler, der sich um alle übrig gebliebenen Fehler kümmert, die in der App auftreten könnten. Diese standardmäßige Fehlerbehandlungs-Middleware-Funktion wird am Ende des Middleware-Funktionsstapels hinzugefügt. Wenn Sie einen Fehler an `next()` übergeben und ihn nicht in einem Fehler-Handler behandeln, wird er durch den eingebauten Fehler-Handler behandelt; der Fehler wird dem Client mit der Stack-Trace geschrieben.
-
-> [!NOTE]
-> Der Stack-Trace wird in der Produktionsumgebung nicht eingeschlossen. Um es im Produktionsmodus auszuführen, müssen Sie die Umgebungsvariable `NODE_ENV` auf `"production"` setzen.
+Express verfügt über einen integrierten Fehlerbehandler, der sich um alle verbleibenden Fehler in der App kümmert. Diese Standard-Fehlerbehandlungsmiddleware wird am Ende des Middleware-Funktionsstapels hinzugefügt. Wenn Sie einen Fehler an `next()` übergeben und ihn nicht in einem Fehlerbehandler behandeln, wird er vom integrierten Fehlerbehandler behandelt; der Fehler wird mit dem Stapelverfolgung an den Client geschrieben.
 
 > [!NOTE]
-> HTTP404 und andere „Fehler“-Statuscodes werden nicht als Fehler behandelt. Wenn Sie diese behandeln möchten, können Sie eine Middleware-Funktion hinzufügen, um dies zu tun. Weitere Informationen finden Sie in den [FAQ](https://expressjs.com/en/starter/faq.html#how-do-i-handle-404-responses).
+> Die Stapelverfolgung ist nicht in der Produktionsumgebung enthalten. Um es im Produktionsmodus auszuführen, müssen Sie die Umgebungsvariable `NODE_ENV` auf `"produktion"` setzen.
 
-Für weitere Informationen siehe [Fehlerbehandlung](https://expressjs.com/en/guide/error-handling.html) (Express-Dokumentation).
+> [!NOTE]
+> HTTP404 und andere "Fehler"-Statuscodes werden nicht als Fehler behandelt. Wenn Sie diese behandeln möchten, können Sie eine Middleware-Funktion hinzufügen, um dies zu tun. Weitere Informationen finden Sie in den [FAQ](https://expressjs.com/en/starter/faq.html#how-do-i-handle-404-responses).
+
+Weitere Informationen finden Sie unter [Fehlerbehandlung](https://expressjs.com/en/guide/error-handling.html) (Express-Dokumentation).
 
 ### Verwendung von Datenbanken
 
-_Express_-Apps können jeden Datenbankmechanismus verwenden, der von _Node_ unterstützt wird (_Express_ selbst definiert kein spezifisches zusätzliches Verhalten/Anforderungen für die Datenbankverwaltung). Es gibt viele Optionen, darunter PostgreSQL, MySQL, Redis, SQLite, MongoDB usw.
+_Express_-Apps können jeden von _Node_ unterstützten Datenbankmechanismus verwenden (_Express_ selbst definiert kein spezifisches zusätzliches Verhalten/Anforderungen für die Datenbankverwaltung). Es gibt viele Optionen, darunter PostgreSQL, MySQL, Redis, SQLite, MongoDB usw.
 
-Um diese zu verwenden, müssen Sie zuerst den Datenbanktreiber mit npm installieren. Zum Beispiel, um den Treiber für die beliebte NoSQL-MongoDB zu installieren, würden Sie den folgenden Befehl verwenden:
+Um diese verwenden zu können, müssen Sie zuerst den Datenbanktreiber mit npm installieren. Zum Beispiel, um den Treiber für das beliebte NoSQL-MongoDB zu installieren, würden Sie den Befehl verwenden:
 
 ```bash
 npm install mongodb
 ```
 
-Die Datenbank selbst kann lokal oder auf einem Cloud-Server installiert werden. In Ihrem Express-Code importieren Sie den Treiber, verbinden Sie sich mit der Datenbank und führen dann Create, Read, Update und Delete (CRUD) Operationen aus. Das untenstehende Beispiel (aus der Express-Dokumentation) zeigt, wie Sie „Säugetier“-Einträge mit MongoDB finden können.
+Die Datenbank selbst kann lokal oder auf einem Cloud-Server installiert werden. In Ihrem Express-Code verlangen Sie den Treiber, verbinden sich mit der Datenbank und führen dann Create-, Read-, Update- und Delete- (CRUD) Operationen aus. Das Beispiel unten (aus der Express-Dokumentation) zeigt, wie Sie "Mammal"-Datensätze mit MongoDB finden können.
 
-Dies funktioniert mit älteren Versionen von MongoDB Version ~ 2.2.33:
+Das funktioniert mit älteren Versionen von MongoDB Version ~ 2.2.33:
 
 ```js
 const MongoClient = require("mongodb").MongoClient;
@@ -487,17 +488,18 @@ MongoClient.connect("mongodb://localhost:27017/animals", (err, client) => {
 });
 ```
 
-Ein weiterer beliebter Ansatz ist der indirekte Zugang zur Datenbank über einen Object Relational Mapper („ORM“). Bei diesem Ansatz definieren Sie Ihre Daten als „Objekte“ oder „Modelle“ und der ORM mappt diese auf das zugrunde liegende Datenbankformat. Dieser Ansatz hat den Vorteil, dass Sie als Entwickler weiterhin in Form von JavaScript-Objekten denken können, anstatt in Datenbanksemantik, und dass es einen offensichtlichen Ort gibt, um Validierungen und Prüfungen eingehender Daten durchzuführen. Wir werden in einem späteren Artikel mehr über Datenbanken sprechen.
+Ein weiterer beliebter Ansatz besteht darin, auf Ihre Datenbank indirekt über einen Object Relational Mapper ("ORM") zuzugreifen. Bei diesem Ansatz definieren Sie Ihre Daten als "Objekte" oder "Modelle" und der ORM mappt diese auf das zugrunde liegende Datenbankformat. Dieser Ansatz hat den Vorteil, dass Sie als Entwickler weiterhin in Begriffen von JavaScript-Objekten denken können anstelle von Datenbanksemantik und dass es einen offensichtlichen Ort gibt, um Validierung und Prüfung von eingehenden Daten durchzuführen. Wir werden später in einem weiteren Artikel mehr über Datenbanken sprechen.
 
 Weitere Informationen finden Sie unter [Datenbankintegration](https://expressjs.com/en/guide/database-integration.html) (Express-Dokumentation).
 
-### Rendern von Daten (Ansichten)
+### Daten rendern (Ansichten)
 
-Template-Engines (auch als „View-Engines“ in _Express_ bezeichnet) ermöglichen es Ihnen, die _Struktur_ eines Ausgabedokuments in einem Template anzugeben, indem Sie Platzhalter für Daten verwenden, die bei der Seitenerstellung ausgefüllt werden. Templates werden häufig zur Erstellung von HTML verwendet, können aber auch andere Dokumenttypen erzeugen.
+Template-Engines (auch als „View-Engines“ in _Express_ bezeichnet) erlauben es Ihnen, die _Struktur_ eines Ausgabedokuments in einem Template zu definieren, wobei Platzhalter für Daten verwendet werden, die beim Erstellen einer Seite gefüllt werden. Templates werden oft verwendet, um HTML zu erstellen, können aber auch andere Arten von Dokumenten erzeugen.
 
-Express unterstützt eine Reihe von Template-Engines, insbesondere Pug (früher „Jade“), Mustache und EJS. Jede hat ihre eigenen Stärken zur Bewältigung bestimmter Anwendungsfälle (relative Vergleiche lassen sich leicht über Internetsuche finden). Der Express-Anwendungsgenerator verwendet standardmäßig Jade, unterstützt jedoch auch mehrere andere.
+Express unterstützt eine Reihe von Template-Engines, insbesondere Pug (früher "Jade"), Mustache und EJS. Jede hat ihre eigenen Stärken für bestimmte Anwendungsfälle (relevante Vergleiche sind leicht über Internetsuche zu finden).
+Der Express-Anwendungsgenerator verwendet Jade als Standard, unterstützt jedoch auch mehrere andere.
 
-In Ihrem Anwendungseinstellungs-Code legen Sie die zu verwendende Template-Engine und den Speicherort, wo Express nach Templates suchen soll, mit den Einstellungen 'views' und 'view engine' fest, wie unten gezeigt (Sie müssen auch das Paket installieren, das Ihre Template-Bibliothek enthält!)
+In Ihrem Anwendungseinstellungscode legen Sie die zu verwendende Template-Engine und den Ort fest, an dem Express die Templates suchen soll, indem Sie die 'views'- und 'view engine'-Einstellungen verwenden, wie unten gezeigt (Sie müssen auch das Paket installieren, das Ihre Template-Bibliothek enthält!):
 
 ```js
 const express = require("express");
@@ -511,7 +513,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "some_template_engine_name");
 ```
 
-Die Erscheinung des Templates hängt davon ab, welche Engine Sie verwenden. Angenommen, Sie haben eine Template-Datei mit dem Namen „index.\<template_extension>“, die Platzhalter für Datenvariablen mit dem Namen „title“ und „message“ enthält, würden Sie [`Response.render()`](https://expressjs.com/en/4x/api.html#res.render) in einer Routenhandlerfunktion aufrufen, um die HTML-Antwort zu erstellen und zu senden:
+Das Erscheinungsbild des Templates hängt von der verwendeten Engine ab. Angenommen, Sie haben eine Template-Datei namens "index.\<template_extension>", die Platzhalter für Datenvariablen namens "title" und "message" enthält, würden Sie [`Response.render()`](https://expressjs.com/en/4x/api.html#res.render) in einer Routen-Handler-Funktion aufrufen, um die HTML-Antwort zu erstellen und zu senden:
 
 ```js
 app.get("/", function (req, res) {
@@ -519,31 +521,31 @@ app.get("/", function (req, res) {
 });
 ```
 
-Weitere Informationen finden Sie unter [Verwendung von Template-Engines mit Express](https://expressjs.com/en/guide/using-template-engines.html) (Express-Dokumentation).
+Weitere Informationen finden Sie unter [Using template engines with Express](https://expressjs.com/en/guide/using-template-engines.html) (Express-Dokumentation).
 
 ### Dateistruktur
 
-Express macht keine Annahmen in Bezug auf die Struktur oder darüber, welche Komponenten Sie verwenden. Routen, Ansichten, statische Dateien und andere anwendungsspezifische Logik können in einer beliebigen Anzahl von Dateien mit beliebiger Verzeichnisstruktur vorhanden sein. Während es durchaus möglich ist, die gesamte _Express_-Anwendung in einer Datei zu haben, macht es typischerweise Sinn, Ihre Anwendung in Dateien basierend auf Funktionen (z. B. Kontoverwaltung, Blogs, Diskussionsforen) und Architektur-Problemdomänen (z. B. Modell, Ansicht oder Controller, wenn Sie eine {{Glossary("MVC", "MVC-Architektur")}} verwenden) zu unterteilen.
+Express macht keine Annahmen hinsichtlich der Struktur oder welche Komponenten Sie verwenden. Routen, Ansichten, statische Dateien und andere anwendungsspezifische Logik können in einer beliebigen Anzahl von Dateien mit beliebiger Verzeichnisstruktur leben. Während es durchaus möglich ist, die gesamte _Express_-Anwendung in einer Datei zu haben, macht es typischerweise Sinn, Ihre Anwendung in Dateien basierend auf der Funktionalität (z.B. Kontoverwaltung, Blogs, Diskussionsforen) und dem architektonischen Problemfeld (z.B. Modell, Ansicht oder Controller, wenn Sie zufällig eine {{Glossary("MVC", "MVC-Architektur")}} verwenden) zu teilen.
 
-In einem späteren Thema verwenden wir den _Express-Anwendungsgenerator_, der ein modulares App-Skelett erstellt, das wir leicht erweitern können, um Webanwendungen zu erstellen.
+In einem späteren Thema verwenden wir den _Express Application Generator_, der ein modulares App-Skelett erstellt, das wir leicht erweitern können, um Webanwendungen zu erstellen.
 
 ## Zusammenfassung
 
-Herzlichen Glückwunsch, Sie haben den ersten Schritt Ihrer Express/Node-Reise abgeschlossen! Sie sollten jetzt die Hauptvorteile von Express und Node verstehen und ungefähr wissen, wie die Hauptbestandteile einer Express-App aussehen könnten (Routen, Middleware, Fehlerbehandlung und Template-Code). Sie sollten auch verstehen, dass mit Express als unverzerrtem Framework der Weg, diese Teile zusammenzubauen, und die Bibliotheken, die Sie verwenden, weitgehend Ihnen überlassen bleibt!
+Herzlichen Glückwunsch, Sie haben den ersten Schritt in Ihrer Express/Node-Reise abgeschlossen! Sie sollten jetzt die Hauptvorteile von Express und Node verstehen und ungefähr wissen, wie die Hauptteile einer Express-App aussehen könnten (Routen, Middleware, Fehlerbehandlung und Template-Code). Sie sollten auch verstehen, dass Express ein unmeinungsstarkes Framework ist und dass der Weg, wie Sie diese Teile zusammenfügen und die Bibliotheken, die Sie verwenden, weitgehend Ihnen überlassen bleiben!
 
-Natürlich ist Express absichtlich ein sehr leichtgewichtiges Webanwendungsframework, sodass ein großer Teil seines Nutzens und Potentials aus Drittanbieter-Bibliotheken und Funktionen stammt. Wir werden diese in den folgenden Artikeln detaillierter untersuchen. In unserem nächsten Artikel werden wir uns damit befassen, wie Sie eine Node-Entwicklungsumgebung einrichten, damit Sie einige Express-Code in Aktion sehen können.
+Natürlich ist Express bewusst ein sehr leichtgewichtiges Webanwendungsframework, sodass ein Großteil seines Nutzens und Potentials von Drittanbieterbibliotheken und -funktionen stammt. Wir werden uns diese in den folgenden Artikeln genauer ansehen. Im nächsten Artikel werden wir uns mit der Einrichtung einer Node-Entwicklungsumgebung befassen, damit Sie einige Express-Codes in Aktion sehen können.
 
 ## Siehe auch
 
-- [Module](https://nodejs.org/api/modules.html#modules_modules) (Node-API-Dokumentation)
+- [Module](https://nodejs.org/api/modules.html#modules_modules) (Node API-Dokumentation)
 - [Express](https://expressjs.com/) (Startseite)
-- [Grundlagen des Routings](https://expressjs.com/en/starter/basic-routing.html) (Express-Dokumentation)
-- [Leitfaden zum Routing](https://expressjs.com/en/guide/routing.html) (Express-Dokumentation)
-- [Verwendung von Template-Engines mit Express](https://expressjs.com/en/guide/using-template-engines.html) (Express-Dokumentation)
-- [Verwendung von Middleware](https://expressjs.com/en/guide/using-middleware.html) (Express-Dokumentation)
-- [Schreiben von Middleware für die Verwendung in Express-Apps](https://expressjs.com/en/guide/writing-middleware.html) (Express-Dokumentation)
+- [Basisrouting](https://expressjs.com/en/starter/basic-routing.html) (Express-Dokumentation)
+- [Routing Guide](https://expressjs.com/en/guide/routing.html) (Express-Dokumentation)
+- [Using template engines with Express](https://expressjs.com/en/guide/using-template-engines.html) (Express docs)
+- [Using middleware](https://expressjs.com/en/guide/using-middleware.html) (Express docs)
+- [Writing middleware for use in Express apps](https://expressjs.com/en/guide/writing-middleware.html) (Express docs)
 - [Datenbankintegration](https://expressjs.com/en/guide/database-integration.html) (Express-Dokumentation)
-- [Bereitstellen von statischen Dateien in Express](https://expressjs.com/en/starter/static-files.html) (Express-Dokumentation)
+- [Bereitstellung statischer Dateien in Express](https://expressjs.com/en/starter/static-files.html) (Express-Dokumentation)
 - [Fehlerbehandlung](https://expressjs.com/en/guide/error-handling.html) (Express-Dokumentation)
 
 {{NextMenu("Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment", "Learn_web_development/Extensions/Server-side/Express_Nodejs")}}

@@ -1,14 +1,14 @@
 ---
-title: "Range: compareNode() Methode"
+title: "Range: compareNode()-Methode"
 short-title: compareNode()
 slug: Web/API/Range/compareNode
 l10n:
-  sourceCommit: 2c0de98b0607ef262d9ef0877259ba41aaf53e6d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("DOM")}}{{deprecated_header}}{{Non-standard_Header}}
 
-Die **`compareNode()`** Methode des [`Range`](/de/docs/Web/API/Range)-Interfaces gibt eine Konstante zurück, die die Position des [`Node`](/de/docs/Web/API/Node) angibt.
+Die **`compareNode()`**-Methode des [`Range`](/de/docs/Web/API/Range)-Interfaces gibt eine Konstante zurück, die die Position des [`Node`](/de/docs/Web/API/Node) angibt.
 
 ## Syntax
 
@@ -26,13 +26,13 @@ compareNode(referenceNode)
 Eine Konstante, die die Position des [`Node`](/de/docs/Web/API/Node) angibt. Die möglichen Werte sind:
 
 - `NODE_BEFORE` (`0`)
-  - : Node beginnt vor dem Range
+  - : Knoten beginnt vor dem Range.
 - `NODE_AFTER` (`1`)
-  - : Node endet nach dem Range
+  - : Knoten endet nach dem Range.
 - `NODE_BEFORE_AND_AFTER` (`2`)
-  - : Node beginnt vor und endet nach dem Range
+  - : Knoten beginnt vor und endet nach dem Range.
 - `NODE_INSIDE` (`3`)
-  - : Node beginnt nach und endet vor dem Range, d.h. der Node wird vollständig durch den Range ausgewählt.
+  - : Knoten beginnt nach und endet vor dem Range, d.h. der Knoten ist vollständig durch den Range ausgewählt.
 
 ## Beispiele
 
@@ -69,7 +69,7 @@ function rangeCompareNode(range, node) {
 
 ## Spezifikationen
 
-Diese Methode ist nicht standardisiert und daher nicht Teil irgendeiner Spezifikation.
+Diese Methode ist nicht standardisiert und daher nicht Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -77,4 +77,4 @@ Diese Methode ist nicht standardisiert und daher nicht Teil irgendeiner Spezifik
 
 ## Siehe auch
 
-- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Interface-Verzeichnis](/de/docs/Web/API/Document_Object_Model)

@@ -3,16 +3,16 @@ title: "NavigateEvent: hashChange-Eigenschaft"
 short-title: hashChange
 slug: Web/API/NavigateEvent/hashChange
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`hashChange`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn es sich bei der Navigation um eine Fragmentnavigation handelt (d.h. zu einem Fragmentbezeichner im selben Dokument), andernfalls `false`.
+Die schreibgeschützte **`hashChange`**-Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn die Navigation eine Fragmentnavigation ist (d.h. zu einem Fragmentbezeichner im selben Dokument), oder `false` andernfalls.
 
 ## Wert
 
-Ein boolescher Wert—`true`, wenn die Navigation eine Fragmentnavigation ist, `false`, wenn nicht.
+Ein boolescher Wert—`true`, wenn die Navigation eine Fragmentnavigation ist, `false` wenn nicht.
 
 ## Beispiele
 
@@ -51,6 +51,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API-Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

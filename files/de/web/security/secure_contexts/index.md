@@ -2,42 +2,42 @@
 title: Sichere Kontexte
 slug: Web/Security/Secure_Contexts
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Ein **sicherer Kontext** ist ein `Window` oder `Worker`, für den bestimmte Mindestanforderungen an Authentifizierung und Vertraulichkeit erfüllt sind. Viele Web-APIs und -Funktionen sind nur in einem sicheren Kontext zugänglich. Das Hauptziel sicherer Kontexte ist es, [MITM-Angreifer](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) daran zu hindern, auf leistungsstarke APIs zuzugreifen, die das Opfer eines Angriffs weiter gefährden könnten.
+Ein **sicherer Kontext** ist ein `Window` oder `Worker`, für den bestimmte Mindestanforderungen an Authentifizierung und Vertraulichkeit erfüllt sind. Viele Web-APIs und Funktionen sind nur in einem sicheren Kontext zugänglich. Das Hauptziel sicherer Kontexte ist es, [MITM-Angreifer](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) daran zu hindern, Zugriff auf leistungsstarke APIs zu erhalten, die das Opfer eines Angriffs weiter gefährden könnten.
 
 ## Warum sollten einige Funktionen eingeschränkt werden?
 
-Einige Web-APIs sind sehr leistungsstark und geben einem Angreifer die Möglichkeit, Folgendes zu tun:
+Einige APIs im Web sind sehr leistungsstark und bieten einem Angreifer die Möglichkeit, unter anderem Folgendes zu tun:
 
-- Die Privatsphäre eines Nutzers verletzen.
-- Niedrigstufigen Zugriff auf den Computer eines Nutzers erhalten.
-- Auf Daten wie Benutzeranmeldungen zugreifen.
+- Die Privatsphäre eines Benutzers zu verletzen.
+- Niedrigen Zugriff auf den Computer eines Benutzers zu erhalten.
+- Zugriff auf Daten wie Benutzeranmeldedaten zu erhalten.
 
 ## Wann wird ein Kontext als sicher angesehen?
 
-Ein Kontext gilt als sicher, wenn er bestimmte Mindestanforderungen an Authentifizierung und Vertraulichkeit erfüllt, die in der [Secure Contexts](https://w3c.github.io/webappsec-secure-contexts/) Spezifikation definiert sind. Ein bestimmtes Dokument wird als in einem sicheren Kontext befindlich angesehen, wenn es das [aktive Dokument](https://html.spec.whatwg.org/multipage/browsers.html#active-document) eines [top-level browsing context](https://html.spec.whatwg.org/multipage/browsers.html#top-level-browsing-context) (im Wesentlichen ein enthaltendes Fenster oder Tab) ist, das ein sicherer Kontext ist.
+Ein Kontext wird als sicher angesehen, wenn er bestimmte Mindestanforderungen an Authentifizierung und Vertraulichkeit erfüllt, die in der [Secure Contexts](https://w3c.github.io/webappsec-secure-contexts/) Spezifikation definiert sind. Ein bestimmtes Dokument wird als sicherer Kontext betrachtet, wenn es das [aktives Dokument](https://html.spec.whatwg.org/multipage/browsers.html#active-document) eines [top-level Browsing-Kontexts](https://html.spec.whatwg.org/multipage/browsers.html#top-level-browsing-context) ist (im Wesentlichen ein enthaltendes Fenster oder Tab), das ein sicherer Kontext ist.
 
-Zum Beispiel, auch wenn ein Dokument über TLS innerhalb eines {{HTMLElement("iframe")}} bereitgestellt wird, wird sein Kontext **nicht** als sicher angesehen, wenn es einen Vorfahren hat, der nicht ebenfalls über TLS bereitgestellt wurde.
+Zum Beispiel wird auch ein Dokument, das über TLS innerhalb eines {{HTMLElement("iframe")}} übermittelt wird, **nicht** als sicherer Kontext angesehen, wenn es einen Vorfahren hat, der nicht ebenfalls über TLS übermittelt wurde.
 
-Es ist jedoch wichtig zu beachten, dass wenn ein nicht-sicherer Kontext ein neues Fenster öffnet (mit oder ohne Angabe von [noopener](/de/docs/Web/API/Window/open)), die Tatsache, dass das öffnende Fenster unsicher war, keinen Einfluss darauf hat, ob das neue Fenster als sicher betrachtet wird. Das liegt daran, dass die Bestimmung, ob ein bestimmtes Dokument in einem sicheren Kontext ist, nur darauf basiert, es innerhalb des zugehörigen top-level browsing context zu betrachten — und nicht darauf, ob ein nicht-sicherer Kontext verwendet wurde, um es zu erstellen.
+Es ist jedoch wichtig zu beachten, dass wenn ein unsicherer Kontext ein neues Fenster erstellt (mit oder ohne Angabe von [noopener](/de/docs/Web/API/Window/open)), der unsichere Ursprung keinen Einfluss darauf hat, ob das neue Fenster als sicher angesehen wird. Das liegt daran, dass die Bestimmung, ob ein bestimmtes Dokument in einem sicheren Kontext ist, nur darauf basiert, es innerhalb des top-level Browsing-Kontexts zu betrachten, mit dem es verknüpft ist – und nicht darauf, ob ein unsicherer Kontext zufällig zur Erstellung verwendet wurde.
 
-Lokal bereitgestellte Ressourcen wie solche mit `http://127.0.0.1` URLs, `http://localhost` und `http://*.localhost` URLs (z.B. `http://dev.whatever.localhost/`), und `file://` URLs werden ebenfalls als sicher bereitgestellt betrachtet.
+Lokal ausgelieferte Ressourcen, wie diejenigen mit `http://127.0.0.1` URLs, `http://localhost` und `http://*.localhost` URLs (z.B. `http://dev.whatever.localhost/`), und `file://` URLs werden auch als sicher geliefert angesehen.
 
 > [!NOTE]
-> Firefox 84 und später unterstützen `http://localhost` und `http://*.localhost` URLs als vertrauenswürdige Ursprünge (frühere Versionen nicht, da `localhost` nicht garantiert auf eine lokale/Loopback-Adresse abgebildet wurde).
+> Firefox 84 und höher unterstützen `http://localhost` und `http://*.localhost` URLs als vertrauenswürdige Ursprünge (frühere Versionen taten dies nicht, da `localhost` nicht garantiert auf eine lokale/Loopback-Adresse abbildete).
 
-Ressourcen, die nicht lokal sind, müssen folgende Kriterien erfüllen, um als sicher angesehen zu werden:
+Ressourcen, die nicht lokal sind, müssen um als sicher angesehen zu werden, die folgenden Kriterien erfüllen:
 
 - müssen über `https://` oder `wss://` URLs bereitgestellt werden
-- die Sicherheitsmerkmale des Netzwerkkanals, über den die Ressource bereitgestellt wird, dürfen nicht als veraltet angesehen werden
+- die Sicherheitseigenschaften des Netzwerkkanals, der zur Bereitstellung der Ressource verwendet wird, dürfen nicht als veraltet gelten
 
-## Feature-Erkennung
+## Funktionsprüfung
 
-Seiten können die Funktionserkennung verwenden, um zu prüfen, ob sie sich in einem sicheren Kontext befinden oder nicht, indem sie das boolesche [`Window.isSecureContext`](/de/docs/Web/API/Window/isSecureContext) oder [`WorkerGlobalScope.isSecureContext`](/de/docs/Web/API/WorkerGlobalScope/isSecureContext) verwenden, die im globalen Bereich verfügbar sind.
+Seiten können die Funktionsprüfung verwenden, um zu überprüfen, ob sie sich in einem sicheren Kontext befinden oder nicht, indem sie das [`Window.isSecureContext`](/de/docs/Web/API/Window/isSecureContext) oder [`WorkerGlobalScope.isSecureContext`](/de/docs/Web/API/WorkerGlobalScope/isSecureContext) Boolean verwenden, das im globalen Scope verfügbar ist.
 
 ```js
 if (window.isSecureContext) {
@@ -56,5 +56,5 @@ if (window.isSecureContext) {
 
 - [Plattformfunktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) — eine Liste der Funktionen, die nur in sicheren Kontexten verfügbar sind
 - [`Window.isSecureContext`](/de/docs/Web/API/Window/isSecureContext) und [`WorkerGlobalScope.isSecureContext`](/de/docs/Web/API/WorkerGlobalScope/isSecureContext)
-- <https://permission.site> — Eine Website, die es Ihnen ermöglicht, zu überprüfen, welche API-Berechtigungsprüfungen Ihr Browser über HTTP und HTTPS durchführt
-- [Strict-Transport-Security](/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security) HTTP-Header
+- <https://permission.site> — Eine Site, die es Ihnen ermöglicht, zu überprüfen, welche API-Berechtigungsprüfungen Ihr Browser über HTTP und HTTPS anwendet
+- [Strict-Transport-Security](/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security) HTTP Header

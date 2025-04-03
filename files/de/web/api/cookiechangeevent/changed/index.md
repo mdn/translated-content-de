@@ -3,12 +3,12 @@ title: "CookieChangeEvent: changed-Eigenschaft"
 short-title: changed
 slug: Web/API/CookieChangeEvent/changed
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}
 
-Die schreibgeschützte **`changed`**-Eigenschaft des [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent)-Interfaces gibt ein Array der Cookies zurück, die geändert wurden.
+Die schreibgeschützte **`changed`**-Eigenschaft der [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent)-Schnittstelle gibt ein Array der Cookies zurück, die geändert wurden.
 
 Beachten Sie, dass dies Cookies ausschließt, die mit einem Ablaufdatum in der Vergangenheit erstellt wurden, da diese Cookies sofort gelöscht werden.
 
@@ -25,7 +25,7 @@ Ein Array von Objekten, das die geänderten Cookies enthält. Jedes Objekt enth�
 - `path`
   - : Ein String, der den Pfad des Cookies enthält.
 - `expires`
-  - : Ein Zeitstempel, der als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden angegeben ist und das Ablaufdatum des Cookies enthält.
+  - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
 - `secure`
   - : Ein {{jsxref("boolean")}}, der angibt, ob das Cookie nur in einem sicheren Kontext verwendet wird (HTTPS anstelle von HTTP).
 - `sameSite`
@@ -35,16 +35,16 @@ Ein Array von Objekten, das die geänderten Cookies enthält. Jedes Objekt enth�
     - `"strict"`
       - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht mit Anfragen, die von Drittanbieter-Websites initiiert werden.
     - `"lax"`
-      - : Cookies werden bei normalen Cross-Site-Unteranfragen nicht gesendet (zum Beispiel, um Bilder oder Frames in eine Drittanbieter-Seite zu laden), aber sie werden gesendet, wenn ein Benutzer innerhalb der Ursprungsseite navigiert (z.B. beim Folgen eines Links).
+      - : Cookies werden bei normalen Cross-Site-Anfragen nicht gesendet (zum Beispiel, um Bilder oder Frames in eine Drittanbieter-Seite zu laden), aber sie werden gesendet, wenn ein Benutzer innerhalb der Ursprungsseite navigiert (d.h. wenn er einem Link folgt).
     - `"none"`
       - : Cookies werden in allen Kontexten gesendet.
 
 - `partitioned`
-  - : Ein Boolean, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Siehe [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) für weitere Informationen.
+  - : Ein boolean, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
 
 ## Beispiele
 
-In diesem Beispiel, wenn das Cookie gesetzt wird, protokolliert der Ereignis-Listener die `changed`-Eigenschaft in der Konsole. Das erste Element in diesem Array enthält ein Objekt, das das gerade gesetzte Cookie repräsentiert.
+In diesem Beispiel protokolliert der Event-Listener die `changed`-Eigenschaft in die Konsole, wenn das Cookie gesetzt wird. Das erste Element in diesem Array enthält ein Objekt, das das soeben gesetzte Cookie darstellt.
 
 ```js
 cookieStore.addEventListener("change", (event) => {

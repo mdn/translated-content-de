@@ -2,21 +2,21 @@
 title: Verwendung der Gamepad-API
 slug: Web/API/Gamepad_API/Using_the_Gamepad_API
 l10n:
-  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{DefaultAPISidebar("Gamepad API")}}
 
-HTML bietet die notwendigen Komponenten für die Entwicklung von reichhaltigen, interaktiven Spielen. Technologien wie `<canvas>`, WebGL, `<audio>` und `<video>`, zusammen mit JavaScript-Implementierungen, unterstützen Aufgaben, die ähnliche, wenn nicht sogar gleiche Funktionen wie nativer Code bieten. Die Gamepad-API ermöglicht es Entwicklern und Designern, Gamepads und andere Spielsteuerungen zu nutzen und darauf zuzugreifen.
+HTML bietet die notwendigen Komponenten für eine umfangreiche, interaktive Spieleentwicklung. Technologien wie `<canvas>`, WebGL, `<audio>` und `<video>`, zusammen mit JavaScript-Implementierungen, unterstützen Aufgaben, die ähnliche, wenn nicht sogar gleiche Funktionen wie nativer Code bieten. Die Gamepad-API ermöglicht es Entwicklern und Designern, auf Gamepads und andere Spielsteuerungen zuzugreifen und diese zu verwenden.
 
-Die [Gamepad-API](/de/docs/Web/API/Gamepad_API) führt neue Ereignisse im [`Window`](/de/docs/Web/API/Window)-Objekt ein, um den Zustand von Gamepads und Controllern (hier als _Gamepad_ bezeichnet) zu lesen. Zusätzlich zu diesen Ereignissen fügt die API auch ein [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt hinzu, das Sie verwenden können, um den Zustand eines angeschlossenen Gamepads abzufragen, sowie die Methode [`navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads), um eine Liste der der Seite bekannten Gamepads zu erhalten.
+Die [Gamepad-API](/de/docs/Web/API/Gamepad_API) führt neue Ereignisse auf dem [`Window`](/de/docs/Web/API/Window) Objekt ein, um den Zustand von Gamepads und Steuerungen (im Folgenden als _Gamepad_ bezeichnet) auszulesen. Zusätzlich zu diesen Ereignissen fügt die API auch ein [`Gamepad`](/de/docs/Web/API/Gamepad) Objekt hinzu, das verwendet werden kann, um den Zustand eines angeschlossenen Gamepads abzufragen, und eine Methode [`navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads), die eine Liste von Gamepads liefert, die der Seite bekannt sind.
 
-## Verbindung mit einem Gamepad
+## Verbindung zu einem Gamepad
 
-Wenn ein neues Gamepad an den Computer angeschlossen wird, erhält die fokussierte Seite zuerst ein [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)-Ereignis. Wenn ein Gamepad bereits verbunden ist, wenn die Seite geladen wird, wird das [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)-Ereignis an die fokussierte Seite gesendet, wenn der Benutzer einen Knopf drückt oder eine Achse bewegt.
+Wenn ein neues Gamepad mit dem Computer verbunden wird, erhält die fokussierte Seite zuerst ein [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) Ereignis. Wenn ein Gamepad bereits verbunden ist, wenn die Seite geladen wird, wird das [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) Ereignis an die fokussierte Seite gesendet, wenn der Benutzer eine Taste drückt oder eine Achse bewegt.
 
 > [!NOTE]
-> In Firefox werden Gamepads einer Seite nur dann zugänglich gemacht, wenn der Benutzer mit einem davon auf der sichtbaren Seite interagiert. Dies hilft zu verhindern, dass Gamepads zum {{Glossary("Fingerprinting", "Fingerprinting")}} des Benutzers verwendet werden. Sobald mit einem Gamepad interagiert wurde, werden andere angeschlossene Gamepads automatisch sichtbar.
+> In Firefox werden Gamepads einer Seite nur dann zugänglich gemacht, wenn der Benutzer mit einem auf der sichtbaren Seite interagiert. Dies hilft, das Fingerprinting des Nutzers zu verhindern. Sobald mit einem Gamepad interagiert wurde, werden andere verbundene Gamepads automatisch sichtbar.
 
 Sie können [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) wie folgt verwenden:
 
@@ -32,11 +32,11 @@ window.addEventListener("gamepadconnected", (e) => {
 });
 ```
 
-Jedem Gamepad ist eine eindeutige ID zugeordnet, die in der [`gamepad`](/de/docs/Web/API/GamepadEvent/gamepad)-Eigenschaft des Ereignisses verfügbar ist.
+Jedem Gamepad ist eine eindeutige ID zugewiesen, die in der [`gamepad`](/de/docs/Web/API/GamepadEvent/gamepad) Eigenschaft des Ereignisses verfügbar ist.
 
 ## Trennen eines Gamepads
 
-Wenn ein Gamepad getrennt wird und wenn eine Seite zuvor Daten für dieses Gamepad erhalten hat (z.B. [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)), wird ein zweites Ereignis an das fokussierte Fenster gesendet, [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event):
+Wenn ein Gamepad getrennt wird und eine Seite zuvor Daten für dieses Gamepad erhalten hat (z. B. durch [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)), wird ein zweites Ereignis an das fokussierte Fenster gesendet, [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event):
 
 ```js
 window.addEventListener("gamepaddisconnected", (e) => {
@@ -48,7 +48,7 @@ window.addEventListener("gamepaddisconnected", (e) => {
 });
 ```
 
-Die [`index`](/de/docs/Web/API/Gamepad/index)-Eigenschaft des Gamepads ist für jedes mit dem System verbundene Gerät eindeutig, auch wenn mehrere Controller desselben Typs verwendet werden. Die `index`-Eigenschaft dient auch als Index in das {{jsxref("Array")}}, das von [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) zurückgegeben wird.
+Die [`index`](/de/docs/Web/API/Gamepad/index) Eigenschaft des Gamepads ist für jedes mit dem System verbundene Gerät eindeutig, selbst wenn mehrere Controller desselben Typs verwendet werden. Die `index` Eigenschaft dient auch als Index in das {{jsxref("Array")}}, das durch [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) zurückgegeben wird.
 
 ```js
 const gamepads = {};
@@ -81,15 +81,15 @@ window.addEventListener(
 );
 ```
 
-Dieses vorherige Beispiel zeigt auch, wie die `gamepad`-Eigenschaft nach Abschluss des Ereignisses gehalten werden kann — eine Technik, die wir später für die Abfrage des Gerätezustands verwenden werden.
+Dieses vorherige Beispiel zeigt auch, wie die `gamepad` Eigenschaft nach Abschluss des Ereignisses gehalten werden kann - eine Technik, die wir später zur Abfrage des Gerätestatus verwenden werden.
 
-## Abfragen des Gamepad-Objekts
+## Abfrage des Gamepad-Objekts
 
-Wie Sie sehen können, beinhalten die oben diskutierten **gamepad**-Ereignisse eine `gamepad`-Eigenschaft im Ereignisobjekt, welches ein [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt zurückgibt. Wir können dies verwenden, um festzustellen, welches Gamepad (d.h. dessen ID) das Ereignis verursacht hat, da möglicherweise mehrere Gamepads gleichzeitig angeschlossen sind. Wir können mit dem [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt noch viel mehr machen, einschließlich das Halten einer Referenz darauf und das Abfragen, um herauszufinden, welche Knöpfe und Achsen zu einem bestimmten Zeitpunkt gedrückt werden. Dies ist oft wünschenswert für Spiele oder andere interaktive Webseiten, die den aktuellen Zustand eines Gamepads im Vergleich zum nächsten Ereignis feststellen müssen.
+Wie Sie sehen können, beinhalten die oben besprochenen **Gamepad**-Ereignisse eine `gamepad` Eigenschaft im Ereignisobjekt, die ein [`Gamepad`](/de/docs/Web/API/Gamepad) Objekt zurückgibt. Wir können dies verwenden, um festzustellen, welches Gamepad (d.h. dessen ID) das Ereignis ausgelöst hat, da möglicherweise mehrere Gamepads gleichzeitig angeschlossen sind. Wir können mit dem [`Gamepad`](/de/docs/Web/API/Gamepad) Objekt noch viel mehr tun, einschließlich das Halten einer Referenz darauf und das Abfragen, um herauszufinden, welche Tasten und Achsen zu einem beliebigen Zeitpunkt gedrückt werden. Dies ist oft wünschenswert für Spiele oder andere interaktive Webseiten, die den aktuellen Zustand eines Gamepads kennen müssen, im Vergleich zu dem nächsten Mal, wenn ein Ereignis ausgelöst wird.
 
-Solche Prüfungen werden häufig unter Verwendung des [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekts zusammen mit einer Animationsschleife (z.B. [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)) durchgeführt, bei der Entwickler Entscheidungen für den aktuellen Frame basierend auf dem Zustand des oder der Gamepads treffen möchten.
+Solche Prüfungen erfolgen in der Regel unter Verwendung des [`Gamepad`](/de/docs/Web/API/Gamepad) Objekts in Verbindung mit einer Animationsschleife (z. B. [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)), bei der Entwickler Entscheidungen für den aktuellen Frame basierend auf dem Zustand des Gamepads oder der Gamepads treffen möchten.
 
-Die [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads)-Methode gibt ein Array aller Geräte zurück, die der Webseite derzeit als [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekte sichtbar sind (der erste Wert ist immer `null`, sodass `null` zurückgegeben wird, wenn keine Gamepads angeschlossen sind). Dies kann dann verwendet werden, um die gleichen Informationen zu erhalten. Zum Beispiel könnte das erste oben stehende Code-Beispiel wie folgt umgeschrieben werden:
+Die Methode [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) gibt ein Array aller Geräte zurück, die der Webseite derzeit sichtbar sind, als [`Gamepad`](/de/docs/Web/API/Gamepad) Objekte (der erste Wert ist immer `null`, daher wird `null` zurückgegeben, wenn keine Gamepads angeschlossen sind.) Dies kann dann verwendet werden, um dieselben Informationen zu erhalten. Das erste Codebeispiel oben könnte beispielsweise wie folgt umgeschrieben werden:
 
 ```js
 window.addEventListener("gamepadconnected", (e) => {
@@ -104,28 +104,28 @@ window.addEventListener("gamepadconnected", (e) => {
 });
 ```
 
-Die Eigenschaften des [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekts sind wie folgt:
+Die Eigenschaften des [`Gamepad`](/de/docs/Web/API/Gamepad) Objekts sind wie folgt:
 
-- `id`: Ein String, der einige Informationen über den Controller enthält. Dies ist nicht streng spezifiziert, aber in Firefox wird es drei durch Bindestriche (`-`) getrennte Informationsstücke enthalten: zwei 4-stellige hexadezimale Strings, die die USB-Vendor- und Produkt-ID des Controllers enthalten, und den Namen des Controllers, wie vom Treiber bereitgestellt. Diese Informationen sollen Ihnen helfen, eine Zuordnung für die Steuerelemente auf dem Gerät zu finden sowie nützliches Feedback an den Benutzer anzuzeigen.
-- `index`: Eine Ganzzahl, die für jedes derzeit mit dem System verbundene Gamepad eindeutig ist. Dies kann verwendet werden, um mehrere Controller zu unterscheiden. Beachten Sie, dass das Trennen eines Geräts und anschließend das Anschließen eines neuen Geräts denselben vorherigen Index wiederverwenden kann.
-- `mapping`: Ein String, der angibt, ob der Browser die Steuerelemente auf dem Gerät einem bekannten Layout zugeordnet hat. Derzeit gibt es nur ein unterstütztes bekanntes Layout — das [Standard-Gamepad](https://w3c.github.io/gamepad/gamepad.html#remapping). Wenn der Browser in der Lage ist, die Steuerelemente des Geräts diesem Layout zuzuordnen, wird die `mapping`-Eigenschaft auf den String `standard` gesetzt.
-- `connected`: Ein Boolean, der anzeigt, ob das Gamepad noch mit dem System verbunden ist. Wenn dies der Fall ist, ist der Wert `True`; andernfalls ist er `False`.
-- `buttons`: Ein Array von [`GamepadButton`](/de/docs/Web/API/GamepadButton)-Objekten, die die auf dem Gerät vorhandenen Tasten repräsentieren. Jeder [`GamepadButton`](/de/docs/Web/API/GamepadButton) verfügt über eine `pressed`- und eine `value`-Eigenschaft:
+- `id`: Ein String, der einige Informationen über den Controller enthält. Dies ist nicht strikt spezifiziert, aber in Firefox enthält er drei durch Bindestriche (`-`) getrennte Informationen: zwei 4-stellige hexadezimale Strings, die die USB-Hersteller- und Produkt-ID des Controllers enthalten, und den vom Treiber bereitgestellten Namen des Controllers. Diese Informationen sollen es ermöglichen, eine Zuordnung für die Steuerelemente auf dem Gerät zu finden sowie nützliches Feedback an den Benutzer anzuzeigen.
+- `index`: Eine Ganzzahl, die für jedes derzeit mit dem System verbundene Gamepad eindeutig ist. Dies kann verwendet werden, um mehrere Controller zu unterscheiden. Beachten Sie, dass das Trennen eines Geräts und anschließende Verbinden eines neuen Geräts den vorherigen Index möglicherweise erneut verwendet.
+- `mapping`: Ein String, der angibt, ob der Browser die Steuerelemente auf dem Gerät auf ein bekanntes Layout abgebildet hat. Derzeit gibt es nur ein unterstütztes bekanntes Layout - das [Standard-Gamepad](https://w3c.github.io/gamepad/gamepad.html#remapping). Wenn der Browser in der Lage ist, die Steuerelemente auf dem Gerät diesem Layout zuzuordnen, wird die `mapping` Eigenschaft auf den String `standard` gesetzt.
+- `connected`: Ein boolescher Wert, der anzeigt, ob das Gamepad noch mit dem System verbunden ist. Wenn dies der Fall ist, ist der Wert `True`; andernfalls ist er `False`.
+- `buttons`: Ein Array von [`GamepadButton`](/de/docs/Web/API/GamepadButton) Objekten, die die auf dem Gerät vorhandenen Tasten darstellen. Jedes [`GamepadButton`](/de/docs/Web/API/GamepadButton) hat eine `pressed` und eine `value` Eigenschaft:
 
-  - Die `pressed`-Eigenschaft ist ein Boolean, der angibt, ob der Knopf derzeit gedrückt (`true`) oder nicht gedrückt (`false`) ist.
-  - Die `value`-Eigenschaft ist ein Gleitkommawert, der verwendet wird, um analoge Tasten darzustellen, wie z.B. die Trigger bei vielen modernen Gamepads. Die Werte sind normalisiert auf den Bereich 0.0..1.0, wobei 0.0 einen nicht gedrückten Knopf und 1.0 einen vollständig gedrückten Knopf darstellt.
+  - Die `pressed` Eigenschaft ist ein boolescher Wert, der angibt, ob die Taste derzeit gedrückt (`true`) oder ungedrückt (`false`) ist.
+  - Die `value` Eigenschaft ist ein Gleitkommawert, der verwendet wird, um analoge Tasten, wie die Trigger auf vielen modernen Gamepads, darzustellen. Die Werte sind auf den Bereich 0.0..1.0 normiert, wobei 0.0 für eine Taste steht, die nicht gedrückt ist, und 1.0 für eine Taste, die vollständig gedrückt ist.
 
-- `axes`: Ein Array, das die mit Achsen versehenen Steuerelemente auf dem Gerät repräsentiert (z.B. analoge Joysticks). Jeder Eintrag im Array ist ein Gleitkommawert im Bereich -1.0 - 1.0, der die Position der Achse vom niedrigsten Wert (-1.0) bis zum höchsten Wert (1.0) repräsentiert.
-- `timestamp`: Dies gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die letzte Zeit darstellt, zu der die Daten für dieses Gamepad aktualisiert wurden, sodass Entwickler feststellen können, ob die `axes`- und `button`-Daten von der Hardware aktualisiert wurden. Der Wert muss relativ zum `navigationStart`-Attribut der [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle sein. Die Werte steigen monoton an, was bedeutet, dass sie verglichen werden können, um die Reihenfolge der Aktualisierungen zu bestimmen, da neuere Werte immer größer oder gleich älteren Werten sein werden. Beachten Sie, dass diese Eigenschaft derzeit in Firefox nicht unterstützt wird.
+- `axes`: Ein Array, das die auf dem Gerät vorhandenen Steuerungen mit Achsen darstellt (z. B. analoge Daumensticks). Jedes Element im Array ist ein Gleitkommawert im Bereich von -1.0 bis 1.0, der die Achsposition vom niedrigsten Wert (-1.0) bis zum höchsten Wert (1.0) darstellt.
+- `timestamp`: Dies gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die letzte Aktualisierungszeit der Daten für dieses Gamepad darstellt, was es Entwicklern ermöglicht, festzustellen, ob die `axes` und `button` Daten aus der Hardware aktualisiert wurden. Der Wert muss relativ zum `navigationStart` Attribut der [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle sein. Die Werte steigen monoton an, was bedeutet, dass sie verglichen werden können, um die Reihenfolge der Updates zu bestimmen, da neuere Werte immer größer oder gleich älteren Werten sein werden. Beachten Sie, dass diese Eigenschaft derzeit in Firefox nicht unterstützt wird.
 
 > [!NOTE]
-> Das Gamepad-Objekt ist aus Sicherheitsgründen nicht direkt im [`Window`](/de/docs/Web/API/Window)-Objekt verfügbar, sondern im [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)-Ereignis. Sobald wir eine Referenz darauf haben, können wir seine Eigenschaften abfragen, um Informationen über den aktuellen Zustand des Gamepads zu erhalten. Im Hintergrund wird dieses Objekt jedes Mal aktualisiert, wenn sich der Zustand des Gamepads ändert.
+> Das Gamepad-Objekt ist aus Sicherheitsgründen beim [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) Ereignis verfügbar, nicht jedoch im [`Window`](/de/docs/Web/API/Window) Objekt selbst. Sobald wir eine Referenz darauf haben, können wir seine Eigenschaften abfragen, um Informationen über den aktuellen Zustand des Gamepads zu erhalten. Hinter den Kulissen wird dieses Objekt jedes Mal aktualisiert, wenn sich der Zustand des Gamepads ändert.
 
 ### Verwendung von Tasteninformationen
 
-Schauen wir uns ein Beispiel an, das Verbindungsinformationen für ein Gamepad anzeigt (es ignoriert nachfolgende Gamepad-Verbindungen) und es Ihnen ermöglicht, einen Ball mit den vier Tasten auf der rechten Seite des Gamepads über den Bildschirm zu bewegen. Sie können sich [die Live-Demo ansehen](https://chrisdavidmills.github.io/gamepad-buttons/), und [den Quellcode auf GitHub finden](https://github.com/chrisdavidmills/gamepad-buttons/tree/master).
+Sehen wir uns ein Beispiel an, das Verbindungsinformationen für ein Gamepad anzeigt (es ignoriert nachfolgende Gamepad-Verbindungen) und es Ihnen ermöglicht, einen Ball über den Bildschirm zu bewegen, indem Sie die vier Gamepad-Tasten auf der rechten Seite des Gamepads verwenden. Sie können [die Demo live ansehen](https://chrisdavidmills.github.io/gamepad-buttons/) und [den Quellcode auf GitHub finden](https://github.com/chrisdavidmills/gamepad-buttons/tree/master).
 
-Zu Beginn deklarieren wir einige Variablen: Das `gamepadInfo`-Absatz, in das die Verbindungsinformationen geschrieben werden, der `ball`, den wir bewegen wollen, die `start`-Variable, die als ID für `requestAnimationFrame` fungiert, die `a`- und `b`-Variablen, die als Positionsmodifikatoren für die Bewegung des Balls fungieren, und die Kurzvariablen, die für die browserübergreifenden Gabeln von [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) und [`cancelAnimationFrame()`](/de/docs/Web/API/Window/cancelAnimationFrame) verwendet werden.
+Zunächst deklarieren wir einige Variablen: Das `gamepadInfo` Paragraph, in das die Verbindungsinformationen geschrieben werden, den `ball`, den wir bewegen möchten, die `start` Variable, die als ID für `requestAnimation Frame` dient, die `a` und `b` Variablen, die als Positionsmodifikatoren für die Bewegung des Balls fungieren, und die Kurzhandvariablen, die für die [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) und [`cancelAnimationFrame()`](/de/docs/Web/API/Window/cancelAnimationFrame) Cross-Browser Gabeln verwendet werden.
 
 ```js
 const gamepadInfo = document.getElementById("gamepad-info");
@@ -135,7 +135,7 @@ let a = 0;
 let b = 0;
 ```
 
-Als nächstes verwenden wir das [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)-Ereignis, um zu überprüfen, ob ein Gamepad angeschlossen wird. Wenn eines angeschlossen ist, holen wir uns das Gamepad mithilfe von [`navigator.getGamepads()[0]`](/de/docs/Web/API/Navigator/getGamepads), drucken Informationen über das Gamepad in unser `div` für Gamepad-Informationen und starten die `gameLoop()`-Funktion, die den gesamten Ballbewegungsprozess in Gang setzt.
+Als Nächstes verwenden wir das [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) Ereignis, um zu prüfen, ob ein Gamepad verbunden wird. Wenn eines verbunden ist, holen wir das Gamepad mit [`navigator.getGamepads()[0]`](/de/docs/Web/API/Navigator/getGamepads), drucken Informationen über das Gamepad in unser Gamepad Infos `div` und starten die `gameLoop()` Funktion, die den gesamten Ballbewegungsprozess in Gang setzt.
 
 ```js
 window.addEventListener("gamepadconnected", (e) => {
@@ -146,7 +146,7 @@ window.addEventListener("gamepadconnected", (e) => {
 });
 ```
 
-Nun verwenden wir das [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event)-Ereignis, um zu überprüfen, ob das Gamepad wieder getrennt wird. Wenn ja, stoppen wir die [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)-Schleife (siehe unten) und setzen die Gamepad-Informationen wieder auf den ursprünglichen Zustand zurück.
+Nun verwenden wir das [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) Ereignis, um zu prüfen, ob das Gamepad wieder getrennt wird. Falls dies der Fall ist, stoppen wir die [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) Schleife (siehe unten) und setzen die Gamepad-Informationen auf den ursprünglichen Zustand zurück.
 
 ```js
 window.addEventListener("gamepaddisconnected", (e) => {
@@ -156,9 +156,9 @@ window.addEventListener("gamepaddisconnected", (e) => {
 });
 ```
 
-Kommen wir nun zur Hauptspielschleife. Bei jeder Ausführung der Schleife überprüfen wir, ob eine der vier Tasten gedrückt wird; falls ja, aktualisieren wir die Werte der `a`- und `b`-Bewegungsvariablen entsprechend und aktualisieren die Eigenschaften {{ cssxref("left") }} und {{ cssxref("top") }}, indem wir ihre Werte auf die aktuellen Werte von `a` und `b` ändern. Dies hat den Effekt, dass der Ball über den Bildschirm bewegt wird.
+Nun zur Hauptspielschleife. Bei jeder Ausführung der Schleife prüfen wir, ob eine von vier Tasten gedrückt wird; falls ja, aktualisieren wir die Werte der Bewegungsvariablen `a` und `b` entsprechend, dann aktualisieren wir die {{ cssxref("left") }} und {{ cssxref("top") }} Eigenschaften und ändern deren Werte in die aktuellen Werte von `a` und `b`. Dies hat den Effekt, den Ball über den Bildschirm zu bewegen.
 
-Nachdem all dies erledigt ist, verwenden wir unser `requestAnimationFrame()`, um den nächsten Animationsrahmen anzufordern und `gameLoop()` erneut auszuführen.
+Nachdem dies alles erledigt ist, verwenden wir unser `requestAnimationFrame()`, um den nächsten Animationsframe anzufordern und `gameLoop()` erneut auszuführen.
 
 ```js
 function gameLoop() {
@@ -190,7 +190,7 @@ function gameLoop() {
 
 ## Vollständiges Beispiel: Anzeige des Gamepad-Zustands
 
-Dieses Beispiel zeigt, wie das [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt sowie die Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) verwendet werden, um den Zustand aller mit dem System verbundenen Gamepads anzuzeigen. Das Beispiel basiert auf einem [Gamepad-Demo](https://luser.github.io/gamepadtest/), für das der [Quellcode auf GitHub verfügbar ist](https://github.com/luser/gamepadtest).
+Dieses Beispiel zeigt, wie das [`Gamepad`](/de/docs/Web/API/Gamepad) Objekt sowie die [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) Ereignisse verwendet werden, um den Zustand aller mit dem System verbundenen Gamepads anzuzeigen. Das Beispiel basiert auf einer [Gamepad-Demo](https://luser.github.io/gamepadtest/), deren [Quellcode auf GitHub verfügbar ist](https://github.com/luser/gamepadtest).
 
 ```js
 let loopStarted = false;

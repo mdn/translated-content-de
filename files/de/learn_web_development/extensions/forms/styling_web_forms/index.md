@@ -1,13 +1,13 @@
 ---
-title: Gestaltung von Webformularen
+title: Styling web forms
 slug: Learn_web_development/Extensions/Forms/Styling_web_forms
 l10n:
-  sourceCommit: 2595b22899b54f079721069704128fb7f0451995
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Forms/Other_form_controls","Learn_web_development/Extensions/Forms/Advanced_form_styling","Learn_web_development/Extensions/Forms")}}
 
-In den letzten Artikeln haben wir gezeigt, wie man Webformulare in HTML erstellt. Nun zeigen wir, wie man sie in [CSS](/de/docs/Web/CSS) gestaltet.
+In den letzten Artikeln haben wir gezeigt, wie man Webformulare in HTML erstellt. Nun zeigen wir, wie man sie in [CSS](/de/docs/Web/CSS) stylt.
 
 <table>
   <tbody>
@@ -16,14 +16,13 @@ In den letzten Artikeln haben wir gezeigt, wie man Webformulare in HTML erstellt
       <td>
         Grundlegendes Verständnis von
         <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS-Grundlagen für das Styling</a>.
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen der CSS-Stilgebung</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
+      <th scope="row">Ziel:</th>
       <td>
-        Die Probleme beim Styling von Formularen zu verstehen und einige der
-        grundlegenden Techniken zu erlernen, die Ihnen nützlich sein werden.
+        Die Probleme beim Stylen von Formularen verstehen und einige grundlegende Stilverfahren lernen, die für Sie nützlich sein werden.
       </td>
     </tr>
   </tbody>
@@ -33,17 +32,17 @@ In den letzten Artikeln haben wir gezeigt, wie man Webformulare in HTML erstellt
 
 ### Geschichte
 
-1995 führte die [HTML 2 Spezifikation](https://datatracker.ietf.org/doc/html/rfc1866) Formularelemente ein (auch bekannt als "Form-Widgets" oder "Formularelemente"). CSS wurde jedoch erst Ende 1996 veröffentlicht und nicht von den meisten Browsern bis Jahre danach unterstützt. In der Zwischenzeit hatten die Browser auf das zugrunde liegende Betriebssystem gesetzt, um Form-Widgets darzustellen.
+Im Jahr 1995 führte [die HTML 2 Spezifikation](https://datatracker.ietf.org/doc/html/rfc1866) Formularelemente ein (auch bekannt als "Formular-Widgets" oder "Formularelemente"). Aber CSS wurde erst Ende 1996 veröffentlicht und von den meisten Browsern erst Jahre später unterstützt; daher verließen sich die Browser in der Zwischenzeit auf das zugrunde liegende Betriebssystem, um Formular-Widgets darzustellen.
 
-Selbst mit verfügbarer CSS waren Browseranbieter zunächst zögerlich, Formularelemente stilisierbar zu machen, da Benutzer so an das Aussehen ihrer jeweiligen Browser gewöhnt waren. Aber die Dinge haben sich geändert, und Form-Widgets sind nun größtenteils stilisierbar, mit einigen Ausnahmen.
+Selbst mit verfügbaren CSS zögerten die Browseranbieter zunächst, Formularelemente stylbar zu machen, da die Benutzer so an das Aussehen ihrer jeweiligen Browser gewöhnt waren. Doch die Dinge haben sich geändert, und die meisten Formular-Widgets sind jetzt stylbar, mit einigen Ausnahmen.
 
 ### Arten von Widgets
 
-#### Einfach zu stylen
+#### Leicht zu stylen
 
 1. {{HTMLElement("form")}}
 2. {{HTMLElement("fieldset")}} und {{HTMLElement("legend")}}
-3. Eingabefelder mit einer Zeile, z.B. {{HTMLElement("input")}} (Typ text, url, email), mit Ausnahme von [`<input type="search">`](/de/docs/Web/HTML/Element/input/search).
+3. Einzeilige Text-{{HTMLElement("input")}}s (z.B. Typ text, url, email), außer für [`<input type="search">`](/de/docs/Web/HTML/Element/input/search).
 4. Mehrzeilige {{HTMLElement("textarea")}}
 5. Buttons (sowohl {{HTMLElement("input")}} als auch {{HTMLElement("button")}})
 6. {{HTMLElement("label")}}
@@ -54,35 +53,35 @@ Selbst mit verfügbarer CSS waren Browseranbieter zunächst zögerlich, Formular
 - Kontrollkästchen und Optionsfelder
 - [`<input type="search">`](/de/docs/Web/HTML/Element/input/search)
 
-Der Artikel [Erweitertes Formular-Styling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) zeigt, wie man diese stylt.
+Der Artikel [Fortgeschrittenes Form-Design](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) zeigt, wie man diese stylt.
 
-#### Mit internen Elementen, die nicht allein mit CSS gestylt werden können
+#### Interne Elemente, die nicht allein mit CSS gestylt werden können
 
 - [`<input type="color">`](/de/docs/Web/HTML/Element/input/color)
-- Datumsbezogene Steuerungen wie [`<input type="datetime-local">`](/de/docs/Web/HTML/Element/input/datetime-local)
+- Datumsbezogene Steuerelemente wie [`<input type="datetime-local">`](/de/docs/Web/HTML/Element/input/datetime-local)
 - [`<input type="range">`](/de/docs/Web/HTML/Element/input/range)
 - [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)
 - Elemente, die an der Erstellung von Dropdown-Widgets beteiligt sind, einschließlich {{HTMLElement("select")}}, {{HTMLElement("option")}}, {{HTMLElement("optgroup")}} und {{HTMLElement("datalist")}}.
   > [!NOTE]
-  > Einige Browser unterstützen jetzt [Anpassbare Auswahl-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select), eine Reihe von HTML- und CSS-Funktionen, die zusammen eine vollständige Anpassung von `<select>`-Elementen und deren Inhalt wie bei regulären DOM-Elementen ermöglichen.
+  > Einige Browser unterstützen jetzt [anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select), eine Gruppe von HTML- und CSS-Funktionen, die eine vollständige Anpassung von `<select>`-Elementen und deren Inhalte ermöglichen, genau wie bei regulären DOM-Elementen.
 - {{HTMLElement("progress")}} und {{HTMLElement("meter")}}
 
-Zum Beispiel können der Datumsauswahlkalender und die Schaltfläche auf `<select>`, die eine Optionsliste anzeigt, wenn sie angeklickt wird, nicht nur mit CSS gestylt werden.
+Beispielsweise kann der Kalender des Datumsauswahlers und die Schaltfläche auf `<select>`, die eine Optionsliste beim Klicken anzeigt, nicht allein mit CSS gestylt werden.
 
-Die Artikel [Erweitertes Formular-Styling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) und [Anleitung zur Erstellung benutzerdefinierter Formularelemente](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls) beschreiben, wie man diese stylt.
+Die Artikel [Fortgeschrittenes Form-Design](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) und [Anleitung zum Erstellen benutzerdefinierter Formularelemente](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls) beschreiben, wie man diese stylt.
 
 > [!NOTE]
-> Einige proprietäre CSS-Pseudoelemente, wie z.B. {{cssxref('::-moz-range-track')}}, können solche internen Komponenten stylen, sind jedoch nicht browserübergreifend konsistent und daher nicht sehr zuverlässig. Wir werden diese später erwähnen.
+> Einige proprietäre CSS-Pseudoelemente, wie {{cssxref('::-moz-range-track')}}, können solche internen Komponenten stylen, sind jedoch nicht konsistent über alle Browser hinweg, daher sind sie nicht sehr zuverlässig. Wir werden diese später erwähnen.
 
-## Styling einfacher Formular-Widgets
+## Stylen einfacher Formular-Widgets
 
-Die in der vorherigen Sektion genannten "einfach zu stylenden" Widgets können mit Techniken aus den Artikeln [Ihr erstes Formular](/de/docs/Learn_web_development/Extensions/Forms/Your_first_form) und [CSS-Bausteine](/de/docs/Learn_web_development/Core/Styling_basics) gestaltet werden. Es gibt auch spezielle Selektoren - [UI-Pseudoklassen](/de/docs/Learn_web_development/Extensions/Forms/UI_pseudo-classes) - die das Styling basierend auf dem aktuellen Zustand der Benutzeroberfläche ermöglichen.
+Die im vorherigen Abschnitt beschriebenen "leicht zu stylenden" Widgets können mit Techniken aus den Artikeln [Ihr erstes Formular](/de/docs/Learn_web_development/Extensions/Forms/Your_first_form) und [Grundlagen der CSS-Stilgebung](/de/docs/Learn_web_development/Core/Styling_basics) gestylt werden. Es gibt auch spezielle Selektoren — [UI-Pseudoklassen](/de/docs/Learn_web_development/Extensions/Forms/UI_pseudo-classes) — die eine Stilgebung basierend auf dem aktuellen Zustand der Benutzeroberfläche ermöglichen.
 
-Wir werden am Ende dieses Artikels ein Beispiel durchgehen — aber zuerst gibt es einige besondere Aspekte des Formularstylings, die es wert sind, beachtet zu werden.
+Wir werden am Ende dieses Artikels ein Beispiel durchgehen — aber zuerst sind hier einige spezielle Aspekte der Formulargestaltung, die es sich zu kennen lohnt.
 
-### Schriften und Text
+### Schriftarten und Text
 
-CSS-Schrift- und Textfunktionen können problemlos mit jedem Widget verwendet werden (und ja, Sie können {{cssxref("@font-face")}} mit Formular-Widgets verwenden). Das Browserverhalten ist jedoch oft inkonsistent. Standardmäßig erben einige Widgets nicht {{cssxref("font-family")}} und {{cssxref("font-size")}} von ihren Eltern. Viele Browser verwenden stattdessen das Standard-Aussehen des Systems. Um das Erscheinungsbild Ihrer Formulare mit dem Rest Ihres Inhalts konsistent zu gestalten, können Sie die folgenden Regeln Ihrem Stylesheet hinzufügen:
+CSS-Schriftarten und Textfunktionen können problemlos mit jedem Widget verwendet werden (und ja, Sie können {{cssxref("@font-face")}} mit Formular-Widgets verwenden). Allerdings ist das Verhalten der Browser oft inkonsistent. Einige Widgets erben standardmäßig nicht {{cssxref("font-family")}} und {{cssxref("font-size")}} von ihren übergeordneten Elementen. Viele Browser verwenden stattdessen das Standard-Erscheinungsbild des Systems. Um das Erscheinungsbild Ihrer Formulare mit dem Rest Ihres Inhalts konsistent zu machen, können Sie die folgenden Regeln zu Ihrem Stylesheet hinzufügen:
 
 ```css
 button,
@@ -94,21 +93,21 @@ textarea {
 }
 ```
 
-Der Wert {{cssxref('inherit')}} der Eigenschaft bewirkt, dass der Eigenschaftswert mit dem berechneten Wert der Eigenschaft seines Elternelements übereinstimmt; den Wert des Elternteils erben.
+Der {{cssxref('inherit')}}-Eigenschaftswert bewirkt, dass der Wert der Eigenschaft dem berechneten Wert der Eigenschaft seines übergeordneten Elements entspricht; das Erben des Wertes des Elternteils.
 
-Die untenstehenden Screenshots zeigen den Unterschied. Links ist die Standarddarstellung eines `<input type="text">`, `<input type="date">`, {{htmlelement('select')}}, {{htmlelement('textarea')}}, `<input type="submit">` und eines `<button>` in Chrome auf macOS, mit dem standardmäßig verwendeten Schriftstil der Plattform. Rechts sind die gleichen Elemente mit der oben genannten Stilregel.
+Die unten gezeigten Screenshots zeigen den Unterschied. Auf der linken Seite ist die Standarddarstellung eines `<input type="text">`, `<input type="date">`, {{htmlelement('select')}}, {{htmlelement('textarea')}}, `<input type="submit">` und eines `<button>` in Chrome unter macOS, mit dem Standard-Schriftstil der Plattform in Verwendung. Auf der rechten Seite sind die gleichen Elemente, mit unserer oben angewandten Stilregel.
 
-![Formularsteuerelemente mit Standard- und geerbten Schriftfamilien. Standardmäßig sind einige Typen Serif und andere Sans Serif. Das Erben sollte die Schriften aller auf die Schriftfamilie des Elternelements ändern - in diesem Fall ein Absatz. Merkwürdigerweise erbt 'input of type submit' nicht vom Elternelement Absatz.](forms_fontfamily.png)
+![Formularelemente mit Standard- und geerbten Schriftfamilien. Standardmäßig sind einige Typen Serif und andere Sans-Serif. Das Erben sollte die Schriftarten aller auf die Schriftfamilie des Eltern-Paragraphen ändern. Seltsamerweise erbt der Eingabetyp Submit nicht vom übergeordneten Paragraphen.](forms_fontfamily.png)
 
-Die Standards unterschieden sich in mehrfacher Hinsicht. Durch das Erben sollten ihre Schriftarten auf die des Elternelements geänderten Schriftfamilien umgestellt werden — in diesem Fall die Standard-Serif-Schriftart des übergeordneten Containers. Dies tun sie alle, mit einer merkwürdigen Ausnahme – `<input type="submit">` erbt nicht vom übergeordneten Absatz in Chrome. Vielmehr verwendet es die {{cssxref('font-family#Values', 'font-family: system-ui')}}. Dies ist ein weiterer Grund, {{HTMLElement("button")}}-Elemente über ihre entsprechenden Eingabetypen zu verwenden!
+Die Standards unterschieden sich auf mehrere Arten. Das Erben sollte ihre Schriftarten auf die der Schriftfamilie des Elternteils ändern — in diesem Fall die Standardschriftart Serif des Elterncontainers. Alle tun dies, mit einer merkwürdigen Ausnahme — `<input type="submit">` erbt nicht vom Eltern-Paragraphen in Chrome. Stattdessen verwendet es {{cssxref('font-family#Values', 'font-family: system-ui')}}. Dies ist ein weiterer Grund, `<button>`-Elemente über ihre entsprechenden Eingabetypen zu verwenden!
 
-Es gibt viel Diskussion darüber, ob Formulare besser aussehen, wenn sie die Standardeinstellungen des Systems verwenden oder auf Ihre Inhalte abgestimmte, angepasste Stile verwenden. Diese Entscheidung liegt bei Ihnen als Designer Ihrer Webseite oder Webanwendung.
+Es gibt viel Debatte darüber, ob Formulare besser aussehen, wenn sie die Standard-Systemstile verwenden oder an Ihre Inhalte angepasste Stile. Diese Entscheidung liegt bei Ihnen, als Designer Ihrer Website oder Webanwendung.
 
-### Box-Sizing
+### Box Sizing
 
-Alle Texteingabefelder unterstützen vollständig jede Eigenschaft, die mit dem CSS-Box-Modell zusammenhängt, wie {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("padding")}}, {{cssxref("margin")}} und {{cssxref("border")}}. Wie vorher verlassen sich jedoch Browser auf die Standardstile des Systems, wenn sie diese Widgets anzeigen. Es liegt an Ihnen zu definieren, wie Sie sie in Ihre Inhalte einfügen möchten. Wenn Sie das native Aussehen und Gefühl der Widgets beibehalten möchten, werden Sie auf einige Schwierigkeiten stoßen, wenn Sie ihnen eine einheitliche Größe geben möchten.
+Alle Textfelder unterstützen vollständig jede Eigenschaft, die sich auf das CSS-Boxmodell bezieht, wie {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("padding")}}, {{cssxref("margin")}} und {{cssxref("border")}}. Wie zuvor verlassen sich die Browser jedoch auf die Standard-Systemstile, wenn sie diese Widgets anzeigen. Es liegt an Ihnen zu definieren, wie Sie sie in Ihre Inhalte integrieren möchten. Wenn Sie das native Erscheinungsbild der Widgets beibehalten möchten, werden Sie auf einige Schwierigkeiten stoßen, wenn Sie ihnen eine einheitliche Größe geben möchten.
 
-**Dies liegt daran, dass jedes Widget eigene Regeln für Rahmen, Polsterung und Rand hat.** Um denselben Raum für verschiedene Widgets zu schaffen, können Sie die Eigenschaft {{cssxref("box-sizing")}} zusammen mit konsistenten Werten für andere Eigenschaften verwenden:
+**Das liegt daran, dass jedes Widget seine eigenen Regeln für Rand, Abstände und Rand hat.** Um mehreren verschiedenen Widgets die gleiche Größe zu geben, können Sie die {{cssxref("box-sizing")}}-Eigenschaft zusammen mit einigen konsistenten Werten für andere Eigenschaften verwenden:
 
 ```css
 input,
@@ -122,21 +121,21 @@ button {
 }
 ```
 
-Im unten stehenden Screenshot zeigt die linke Spalte das Standardrendering eines `<input type="radio">`, `<input type="checkbox">`, `<input type="range">`, `<input type="text">`, `<input type="date">`, {{htmlelement('select')}}, {{htmlelement('textarea')}}, `<input type="submit">` und {{htmlelement('button')}}. Die rechte Spalte hingegen zeigt dieselben Elemente mit unserer obigen Regel darauf angewandt. Beachten Sie, wie wir auf diese Weise sicherstellen können, dass alle Elemente die gleiche Menge an Platz einnehmen, trotz der Standardregeln der Plattform für jede Art von Widget.
+Im unten gezeigten Screenshot zeigt die linke Spalte das Standard-Rendering eines `<input type="radio">`, `<input type="checkbox">`, `<input type="range">`, `<input type="text">`, `<input type="date">`, {{htmlelement('select')}}, {{htmlelement('textarea')}}, `<input type="submit">` und {{htmlelement('button')}}. Die rechte Spalte hingegen zeigt die gleichen Elemente mit unserer oben angewandten Regel darauf. Beachten Sie, wie uns dies ermöglicht, sicherzustellen, dass alle Elemente den gleichen Raum einnehmen, trotz der Standardregeln der Plattform für jede Art von Widget.
 
-![Box-Modell-Eigenschaften wirken sich auf die meisten Eingabetypen aus.](boxmodel_formcontrols1.png)
+![Boxmodell-Eigenschaften betreffen die meisten Eingabetypen.](boxmodel_formcontrols1.png)
 
-Was im Screenshot möglicherweise nicht offensichtlich ist, ist, dass die Radio- und Kontrollkästchenelemente immer noch gleich aussehen, aber sie sind in den 150px horizontalen Raum zentriert, der durch die Eigenschaft {{cssxref('width')}} bereitgestellt wird. Andere Browser zentrieren die Widgets möglicherweise nicht, halten sich aber an den zugewiesenen Raum.
+Was im Screenshot möglicherweise nicht offensichtlich ist, ist, dass die Radio- und Kontrollkästchenelemente immer noch gleich aussehen, aber sie sind in den 150px horizontalen Raum zentriert, der durch die {{cssxref('width')}}-Eigenschaft bereitgestellt wird. Andere Browser zentrieren die Widgets möglicherweise nicht, halten sich aber an den zugewiesenen Raum.
 
-### Platzierung von Legenden
+### Legende Platzierung
 
-Das {{HTMLElement("legend")}}-Element ist okay zum Stylen, aber es kann etwas knifflig sein, die Platzierung zu kontrollieren. Standardmäßig ist es immer über der oberen Grenze seines übergeordneten {{HTMLElement("fieldset")}} positioniert, in der Nähe der oberen linken Ecke. Um es woanders zu positionieren, beispielsweise innerhalb des Feldsatzes oder in der Nähe der unteren linken Ecke, müssen Sie sich auf die Positionierung verlassen.
+Das {{HTMLElement("legend")}}-Element kann gestylt werden, aber es kann etwas schwierig sein, seine Platzierung zu kontrollieren. Standardmäßig wird es immer über der oberen Begrenzung seines übergeordneten {{HTMLElement("fieldset")}} positioniert, nahe der oberen linken Ecke. Um es an einer anderen Stelle zu positionieren, beispielsweise irgendwo innerhalb des Fieldsets oder nahe der unteren linken Ecke, müssen Sie sich auf die Positionierung verlassen.
 
-Nehmen Sie folgendes Beispiel:
+Nehmen Sie das folgende Beispiel:
 
 {{EmbedGHLiveSample("learning-area/html/forms/native-form-widgets/positioned-legend.html", '100%', 400)}}
 
-Um die Legende auf diese Weise zu positionieren, haben wir das folgende CSS verwendet (andere Deklarationen zur Kürze entfernt):
+Um die Legende auf diese Weise zu positionieren, verwenden wir das folgende CSS (andere Deklarationen wurden zur kürze entfernt):
 
 ```css
 fieldset {
@@ -150,22 +149,22 @@ legend {
 }
 ```
 
-Das `<fieldset>` muss ebenfalls positioniert werden, damit das `<legend>` relativ dazu positioniert wird (andernfalls wird das `<legend>` relativ zum `<body>` positioniert).
+Das `<fieldset>` muss ebenfalls positioniert werden, damit das `<legend>` relativ dazu positioniert wird (andernfalls würde das `<legend>` relativ zum `<body>` positioniert).
 
-Das {{HTMLElement("legend")}}-Element ist sehr wichtig für die Barrierefreiheit — es wird von assistiven Technologien als Teil der Bezeichnung jedes Formularelements innerhalb des Feldsatzes gesprochen — aber die Verwendung einer Technik wie der oben genannten ist in Ordnung. Der Inhalt der Legende wird immer noch auf die gleiche Weise gesprochen; es ist nur die visuelle Position, die sich geändert hat.
+Das {{HTMLElement("legend")}}-Element ist sehr wichtig für die Barrierefreiheit — es wird von unterstützenden Technologien als Teil des Labels jedes Formularelements innerhalb des Fieldsets gesprochen — aber das Verwenden einer Technik wie der oben genannten ist in Ordnung. Der Legendentext wird weiterhin auf dieselbe Weise angesagt; es ist nur die visuelle Position, die sich geändert hat.
 
 > [!NOTE]
-> Sie könnten auch die Eigenschaft {{cssxref("transform")}} verwenden, um Ihnen bei der Positionierung Ihres `<legend>` zu helfen. Wenn Sie es jedoch beispielsweise mit `transform: translateY();` positionieren, bewegt es sich, hinterlässt jedoch eine hässliche Lücke in der `<fieldset>`-Grenze, die nicht leicht zu beseitigen ist.
+> Sie könnten auch die {{cssxref("transform")}}-Eigenschaft verwenden, um Ihnen bei der Positionierung Ihres `<legend>` zu helfen. Wenn Sie es jedoch beispielsweise mit einem `transform: translateY();` positionieren, bewegt es sich, hinterlässt aber eine unschöne Lücke in der `<fieldset>`-Begrenzung, die nicht leicht zu beseitigen ist.
 
-## Ein spezifisches Styling-Beispiel
+## Ein spezifisches Gestaltungsexempel
 
-Schauen wir uns ein konkretes Beispiel an, wie man ein HTML-Formular stilisiert. Wir werden ein schick aussehendes "Postkarten"-Kontaktformular erstellen; [siehe hier die fertige Version](https://mdn.github.io/learning-area/html/forms/postcard-example/).
+Schauen wir uns ein konkretes Beispiel an, wie man ein HTML-Formular stylt. Wir werden ein schick aussehendes "Postkarten"-Kontaktformular erstellen; [sehen Sie hier die fertige Version](https://mdn.github.io/learning-area/html/forms/postcard-example/).
 
-Wenn Sie diesem Beispiel folgen möchten, erstellen Sie eine lokale Kopie unserer [postcard-start.html Datei](https://github.com/mdn/learning-area/blob/main/html/forms/postcard-example/postcard-start.html) und folgen Sie den unten stehenden Anweisungen.
+Wenn Sie diesem Beispiel folgen möchten, machen Sie eine lokale Kopie unserer [postcard-start.html-Datei](https://github.com/mdn/learning-area/blob/main/html/forms/postcard-example/postcard-start.html) und folgen den unten stehenden Anweisungen.
 
 ### Das HTML
 
-Das HTML ist nur etwas umfangreicher als das Beispiel aus [Ihr erstes Formular](/de/docs/Learn_web_development/Extensions/Forms/Your_first_form); es hat nur ein paar zusätzliche IDs und eine Überschrift.
+Das HTML ist nur etwas mehr involviert als das Beispiel, das wir in [Ihr erstes Formular](/de/docs/Learn_web_development/Extensions/Forms/Your_first_form) verwendet haben; es hat nur ein paar zusätzliche IDs und eine Überschrift.
 
 ```html
 <form>
@@ -192,30 +191,30 @@ Das HTML ist nur etwas umfangreicher als das Beispiel aus [Ihr erstes Formular](
 </form>
 ```
 
-Fügen Sie den obigen Code in den Körper Ihres HTMLs ein.
+Fügen Sie den obigen Code in den Body Ihres HTMLs ein.
 
-### Organisieren Sie Ihre Ressourcen
+### Organisation Ihrer Assets
 
-Hier beginnt der Spaß! Bevor wir mit dem Codieren beginnen, benötigen wir drei zusätzliche Ressourcen:
+Hier beginnt der Spaß! Bevor wir mit dem Programmieren beginnen, benötigen wir drei zusätzliche Assets:
 
-1. [Der Postkartenhintergrund](https://github.com/mdn/learning-area/blob/main/html/forms/postcard-example/background.jpg) — laden Sie dieses Bild herunter und speichern Sie es im selben Verzeichnis wie Ihre Arbeits-HTML-Datei.
-2. Eine Schreibmaschinen-Schriftart: [Die "Mom's Typewriter"-Schriftart von dafont.com](https://www.dafont.com/moms-typewriter.font?back=theme) — laden Sie die TTF-Datei in das oben genannte Verzeichnis herunter.
+1. [Der Postkarten-Hintergrund](https://github.com/mdn/learning-area/blob/main/html/forms/postcard-example/background.jpg) — laden Sie dieses Bild herunter und speichern Sie es im selben Verzeichnis wie Ihre Arbeits-HTML-Datei.
+2. Eine Schreibmaschinen-Schriftart: [Die "Mom's Typewriter"-Schriftart von dafont.com](https://www.dafont.com/moms-typewriter.font?back=theme) — laden Sie die TTF-Datei in dasselbe Verzeichnis wie oben herunter.
 3. Eine handgeschriebene Schriftart: [Die "Journal"-Schriftart von dafont.com](https://www.dafont.com/journal.font) — laden Sie die TTF-Datei in dasselbe Verzeichnis wie oben herunter.
 
-Ihre Schriftarten benötigen noch etwas Bearbeitung, bevor Sie starten:
+Ihre Schriftarten benötigen noch etwas Verarbeitung, bevor Sie beginnen:
 
 1. Gehen Sie zum fontsquirrel.com [Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator).
-2. Laden Sie mit dem Formular beide Schriftdateien hoch und generieren Sie ein Webfont-Kit. Laden Sie das Kit auf Ihren Computer herunter.
+2. Laden Sie über das Formular beide Schriftart-Dateien hoch und generieren Sie ein Webfont-Kit. Laden Sie das Kit auf Ihren Computer herunter.
 3. Entpacken Sie die bereitgestellte Zip-Datei.
-4. Innerhalb der entpackten Inhalte finden Sie einige Schriftartdateien (zum Zeitpunkt des Schreibens zwei `.woff`- und zwei `.woff2`-Dateien; sie können sich in Zukunft unterscheiden). Kopieren Sie diese Dateien in ein Verzeichnis namens "fonts", im selben Verzeichnis wie vorher. Wir verwenden zwei verschiedene Dateien für jede Schrift, um die Kompatibilität mit verschiedenen Browsern zu maximieren; siehe unser Artikel [Web-Schriften](/de/docs/Learn_web_development/Core/Text_styling/Web_fonts) für viel mehr Informationen.
+4. Im entpackten Inhalt finden Sie einige Schriftart-Dateien (zum Zeitpunkt des Schreibens zwei `.woff`-Dateien und zwei `.woff2`-Dateien; sie könnten sich in Zukunft ändern). Kopieren Sie diese Dateien in ein Verzeichnis namens Fonts, im selben Verzeichnis wie zuvor. Wir verwenden zwei verschiedene Dateien für jede Schriftart, um die Browser-Kompatibilität zu maximieren; sehen Sie sich unseren [Webfonts](/de/docs/Learn_web_development/Core/Text_styling/Web_fonts)-Artikel für viele weitere Informationen an.
 
 ### Das CSS
 
-Nun können wir uns in das CSS für das Beispiel vertiefen. Fügen Sie alle unten gezeigten Codeblöcke in das {{htmlelement("style")}}-Element ein, einen nach dem anderen.
+Jetzt können wir in das CSS für das Beispiel eintauchen. Fügen Sie alle unten gezeigten Codeblöcke innerhalb des {{htmlelement("style")}}-Elements ein, einen nach dem anderen.
 
-#### Allgemeines Layout
+#### Gesamtlayout
 
-Zuerst bereiten wir uns vor, indem wir unsere {{cssxref("@font-face")}}-Regeln und alle grundlegenden Stile, die auf die {{HTMLElement("body")}}- und {{HTMLElement("form")}}-Elemente gesetzt sind, definieren. Wenn die output von fontsquirrel anders ist als die oben beschriebenen, finden Sie die korrekten `@font-face`-Blöcke in Ihrem heruntergeladenen Webfont-Kit, in der `stylesheet.css`-Datei (Sie müssen die unten stehenden `@font-face`-Blöcke durch diese ersetzen und die Pfade zu den Schriftdateien aktualisieren):
+Zuerst bereiten wir uns vor, indem wir unsere {{cssxref("@font-face")}}-Regeln definieren, und alle grundlegenden Stile, die auf die {{HTMLElement("body")}} und {{HTMLElement("form")}}-Elemente gesetzt sind. Wenn die fontsquirrel-Ausgabe von dem abweicht, was wir oben beschrieben haben, finden Sie die richtigen `@font-face`-Blöcke in Ihrem heruntergeladenen Webfont-Kit, in der Datei `stylesheet.css` (Sie müssen die unten stehenden `@font-face`-Blöcke mit ihnen ersetzen und die Pfade zu den Schriftdateien aktualisieren):
 
 ```css
 @font-face {
@@ -260,7 +259,7 @@ form {
 }
 ```
 
-Beachten Sie, dass wir einige [CSS Grid](/de/docs/Web/CSS/CSS_grid_layout) und [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) verwendet haben, um das Formular zu layouten. Damit können wir unsere Elemente, einschließlich des Titels und aller Formularelemente, einfach positionieren:
+Beachten Sie, dass wir einige [CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout) und [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) verwendet haben, um das Formular zu layouten. Damit können wir unsere Elemente, einschließlich des Titels und aller Formularelemente, leicht positionieren:
 
 ```css
 h1 {
@@ -280,9 +279,9 @@ h1 {
 }
 ```
 
-#### Labels und Steuerelemente
+#### Labels und Kontrollen
 
-Nun können wir mit den Formularelementen selbst arbeiten. Zuerst stellen wir sicher, dass die {{HTMLElement("label")}}-Elemente die richtige Schriftart erhalten:
+Jetzt können wir mit den Formularelementen selbst anfangen zu arbeiten. Zuerst stellen wir sicher, dass die {{HTMLElement("label")}}s die richtige Schriftart erhalten:
 
 ```css
 label {
@@ -292,7 +291,7 @@ label {
 }
 ```
 
-Die Textfelder erfordern einige gemeinsame Regeln. Mit anderen Worten, wir entfernen deren {{cssxref("border","Ränder")}} und {{cssxref("background","Hintergründe")}}, und definieren ihre {{cssxref("padding")}} und {{cssxref("margin")}} neu:
+Die Textfelder benötigen einige allgemeine Regeln. Mit anderen Worten, wir entfernen ihre {{cssxref("border", "Rahmen")}} und {{cssxref("background", "Hintergründe")}}, und definieren ihre {{cssxref("padding")}} und {{cssxref("margin")}} neu:
 
 ```css
 input,
@@ -309,7 +308,7 @@ textarea {
 }
 ```
 
-Wenn eines dieser Felder den Fokus erhält, heben wir es mit einem hellgrauen, durchsichtigen Hintergrund hervor (es ist immer wichtig, einen Fokus-Stil zu haben, für Benutzbarkeit und Tastatur-Barrierefreiheit):
+Wenn eines dieser Felder den Fokus erhält, heben wir es mit einem hellgrauen, transparenten Hintergrund hervor (es ist immer wichtig, einen Fokusstil zu haben, für die Benutzerfreundlichkeit und Tastaturzugänglichkeit):
 
 ```css
 input:focus,
@@ -319,11 +318,11 @@ textarea:focus {
 }
 ```
 
-Jetzt, da unsere Textfelder vollständig sind, müssen wir die Anzeige der ein- und mehrzeiligen Textfelder anpassen, damit sie übereinstimmen, da sie normalerweise nicht gleich aussehen, wenn die Standardwerte verwendet werden.
+Da unsere Textfelder nun abgeschlossen sind, müssen wir das Display der ein- und mehrzeiligen Textfelder anpassen, um übereinzustimmen, da sie normalerweise nicht gleich aussehen würden.
 
-#### Anpassen der Textbereiche
+#### Tweaking der Textbereiche
 
-{{HTMLElement("textarea")}}-Elemente werden standardmäßig als Inline-Block-Elemente gerendert. Die beiden wichtigen Dinge hier sind die {{cssxref("resize")}} und {{cssxref("overflow")}}-Eigenschaften. Während unser Design ein Design mit fester Größe ist und wir die Eigenschaft `resize` verwenden könnten, um Benutzer daran zu hindern, unser mehrzeiliges Textfeld zu vergrößern oder zu verkleinern, ist es am besten, Benutzern nicht zu verbieten, die Größe eines Textbereichs zu ändern, wenn sie dies wünschen. Die Eigenschaft {{cssxref("overflow")}} wird verwendet, um das Feld über verschiedene Browser hinweg konsistenter darzustellen. Einige Browser verwenden standardmäßig den Wert `auto`, während andere den Wert `scroll` verwenden. In unserem Fall ist es besser sicherzustellen, dass alle `auto` verwenden:
+{{HTMLElement("textarea")}}-Elemente werden standardmäßig als Inline-Block-Element gerendert. Die beiden wichtigen Dinge hier sind die {{cssxref("resize")}} und {{cssxref("overflow")}}-Eigenschaften. Während unser Design ein festes Designthema ist und wir die `resize`-Eigenschaft verwenden könnten, um zu verhindern, dass Benutzer unser mehrzeiliges Textfeld anpassen, ist es am besten, Benutzer nicht daran zu hindern, ein textarea zu ändern, wenn sie dies wünschen. Die {{cssxref("overflow")}}-Eigenschaft wird verwendet, um das Feld über Browser hinweg konsistenter zu machen. Einige Browser standardisieren auf den Wert `auto`, während einige auf den Wert `scroll` standardisieren. In unserem Fall ist es besser, sicherzustellen, dass jeder `auto` verwendet:
 
 ```css
 textarea {
@@ -341,9 +340,9 @@ textarea {
 }
 ```
 
-#### Styling der Absenden-Schaltfläche
+#### Styling der Submit-Schaltfläche
 
-Das {{HTMLElement("button")}}-Element ist wirklich praktisch zum Stylen mit CSS; Sie können tun, was Sie wollen, sogar mit [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements):
+Das {{HTMLElement("button")}}-Element ist wirklich bequem mit CSS zu stylen; Sie können alles tun, was Sie möchten, sogar [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) verwenden:
 
 ```css
 button {
@@ -367,21 +366,21 @@ button:focus {
 }
 ```
 
-### Das Endergebnis
+### Das endergebnis
 
-Und voilà! Ihr Formular sollte nun so aussehen:
+Und voilà! Ihr Formular sollte jetzt so aussehen:
 
-![Das endgültige Aussehen und Layout des Formulars nach Anwendung des gesamten beschriebenen Stylings und Feintunings](updated-form-screenshot.jpg)
+![Das endgültige Erscheinungsbild und Layout des Formulars nach dem Anwenden aller beschriebenen Stilgestaltung und Anpassungen](updated-form-screenshot.jpg)
 
 > [!NOTE]
-> Wenn Ihr Beispiel nicht wie erwartet funktioniert und Sie es mit unserer Version vergleichen möchten, können Sie es auf GitHub finden — sehen Sie es [live laufen](https://mdn.github.io/learning-area/html/forms/postcard-example/) (und sehen Sie sich [den Quellcode](https://github.com/mdn/learning-area/tree/main/html/forms/postcard-example) an).
+> Wenn Ihr Beispiel nicht ganz wie erwartet funktioniert und Sie es mit unserer Version vergleichen möchten, können Sie es auf GitHub finden — sehen Sie es sich [live an](https://mdn.github.io/learning-area/html/forms/postcard-example/) (siehe auch [den Quellcode](https://github.com/mdn/learning-area/tree/main/html/forms/postcard-example)).
 
 ## Testen Sie Ihre Fähigkeiten
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Styling-Grundlagen](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Styling_basics).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Grundlagen des Stylings](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Styling_basics).
 
 ## Zusammenfassung
 
-Wie Sie sehen können, solange wir Formulare nur mit Textfeldern und Schaltflächen erstellen möchten, ist es einfach, sie mit CSS zu gestalten. [Im nächsten Artikel](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) werden wir sehen, wie man mit Formular-Widgets umgeht, die in die Kategorien "schlecht" und "hässlich" fallen.
+Wie Sie sehen, ist es recht einfach, Formulare mit nur Textfeldern und Schaltflächen zu stylen, solange wir uns auf CSS verlassen. [Im nächsten Artikel](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) werden wir sehen, wie man Formular-Widgets handhabt, die in die Kategorien "schlecht" und "schlecht aussehend" fallen.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/Other_form_controls","Learn_web_development/Extensions/Forms/Advanced_form_styling","Learn_web_development/Extensions/Forms")}}

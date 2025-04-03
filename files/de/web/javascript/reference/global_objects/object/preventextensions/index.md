@@ -2,12 +2,14 @@
 title: Object.preventExtensions()
 slug: Web/JavaScript/Reference/Global_Objects/Object/preventExtensions
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{JSRef}}
 
-Die **`Object.preventExtensions()`** statische Methode verhindert, dass neue Eigenschaften jemals zu einem Objekt hinzugefügt werden können (d.h. sie verhindert zukünftige Erweiterungen des Objekts). Sie verhindert auch, dass das Prototyp-Objekt neu zugewiesen wird.
+Die **`Object.preventExtensions()`** statische Methode verhindert, dass jemals neue
+Eigenschaften zu einem Objekt hinzugefügt werden (d.h. sie verhindert zukünftige Erweiterungen des
+Objekts). Sie verhindert auch, dass das Prototyp des Objekts neu zugewiesen wird.
 
 {{InteractiveExample("JavaScript Demo: Object.preventExtensions()")}}
 
@@ -35,27 +37,31 @@ Object.preventExtensions(obj)
 ### Parameter
 
 - `obj`
-  - : Das Objekt, welches nicht mehr erweiterbar gemacht werden soll.
+  - : Das Objekt, das nicht erweiterbar gemacht werden soll.
 
 ### Rückgabewert
 
-Das Objekt, das nicht mehr erweiterbar gemacht wird.
+Das Objekt, das nicht erweiterbar gemacht wird.
 
 ## Beschreibung
 
-Ein Objekt ist erweiterbar, wenn neue Eigenschaften hinzugefügt werden können. `Object.preventExtensions()` kennzeichnet ein Objekt als nicht mehr erweiterbar, sodass es nie Eigenschaften über die hinaus haben wird, die es zu dem Zeitpunkt hatte, als es als nicht erweiterbar markiert wurde. Beachten Sie, dass die Eigenschaften eines nicht erweiterbaren Objekts im Allgemeinen weiterhin _gelöscht_ werden können. Der Versuch, neue Eigenschaften zu einem nicht erweiterbaren Objekt hinzuzufügen, wird fehlschlagen, entweder stillschweigend oder, im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode), wird ein {{jsxref("TypeError")}} ausgelöst.
+Ein Objekt ist erweiterbar, wenn neue Eigenschaften hinzugefügt werden können.
+`Object.preventExtensions()` markiert ein Objekt als nicht mehr erweiterbar, so dass
+es niemals Eigenschaften haben wird, die über die hinausgehen, die es zu dem Zeitpunkt hatte, als es als
+nicht erweiterbar markiert wurde. Beachten Sie, dass die Eigenschaften eines nicht-erweiterbaren Objekts im Allgemeinen immer noch _gelöscht_ werden können. Der Versuch, neue Eigenschaften zu einem nicht-erweiterbaren Objekt hinzuzufügen,
+wird entweder fehlschlagen, ohne eine Meldung zu erzeugen, oder im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) einen {{jsxref("TypeError")}} auslösen.
 
-Im Gegensatz zu [`Object.seal()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/seal) und [`Object.freeze()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze) ruft `Object.preventExtensions()` ein intrinsisches JavaScript-Verhalten auf und kann nicht durch eine Kombination mehrerer anderer Operationen ersetzt werden. Es hat auch sein `Reflect`-Gegenstück (welches nur für intrinsische Operationen existiert), [`Reflect.preventExtensions()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Reflect/preventExtensions).
+Im Gegensatz zu [`Object.seal()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/seal) und [`Object.freeze()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze) ruft `Object.preventExtensions()` ein intrinsisches JavaScript-Verhalten auf und kann nicht durch eine Kombination mehrerer anderer Operationen ersetzt werden. Es hat auch eine `Reflect`-Gegenstück (das nur für intrinsische Operationen existiert), [`Reflect.preventExtensions()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Reflect/preventExtensions).
 
-`Object.preventExtensions()` verhindert nur das Hinzufügen eigener Eigenschaften. Eigenschaften können weiterhin zum Prototyp des Objekts hinzugefügt werden.
+`Object.preventExtensions()` verhindert nur das Hinzufügen eigener Eigenschaften. Eigenschaften können immer noch zum Prototyp des Objekts hinzugefügt werden.
 
-Diese Methode macht die `[[Prototype]]` des Zielobjekts unveränderbar; jede Neu-Zuweisung der `[[Prototype]]` wird einen `TypeError` auslösen. Dieses Verhalten ist spezifisch für die interne `[[Prototype]]`-Eigenschaft; andere Eigenschaften des Zielobjekts bleiben veränderbar.
+Diese Methode macht den `[[Prototype]]` des Ziels unveränderlich; jede `[[Prototype]]`-Neuzuweisung wird einen `TypeError` werfen. Dieses Verhalten ist spezifisch für die interne `[[Prototype]]`-Eigenschaft; andere Eigenschaften des Zielobjekts bleiben veränderlich.
 
-Es gibt keine Möglichkeit, ein Objekt wieder erweiterbar zu machen, nachdem es als nicht erweiterbar markiert wurde.
+Es gibt keine Möglichkeit, ein Objekt wieder erweiterbar zu machen, sobald es nicht erweiterbar gemacht wurde.
 
 ## Beispiele
 
-### Verwendung von Object.preventExtensions
+### Verwenden von Object.preventExtensions
 
 ```js
 // Object.preventExtensions returns the object
@@ -90,7 +96,7 @@ function fail() {
 fail();
 ```
 
-Der Prototyp eines nicht erweiterbaren Objekts ist unveränderbar:
+Der Prototyp eines nicht-erweiterbaren Objekts ist unveränderlich:
 
 ```js
 const fixed = Object.preventExtensions({});
@@ -100,7 +106,7 @@ fixed.__proto__ = { oh: "hai" };
 
 ### Nicht-Objekt-Argument
 
-In ES5 führt diese Methode bei einem Argument, das kein Objekt ist (eine Primitive), zu einem {{jsxref("TypeError")}}. In ES2015 wird ein Nicht-Objekt-Argument unverändert zurückgegeben, ohne Fehler auszulösen, da primitive Werte per Definition bereits unveränderlich sind.
+In ES5, wenn das Argument dieser Methode kein Objekt ist (ein Primitive), wird dies einen {{jsxref("TypeError")}} verursachen. In ES2015, wird ein Nicht-Objekt-Argument unverändert zurückgegeben, ohne Fehler, da Primitive per Definition bereits unveränderlich sind.
 
 ```js
 Object.preventExtensions(1);

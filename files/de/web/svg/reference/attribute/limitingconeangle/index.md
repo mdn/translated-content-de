@@ -2,10 +2,10 @@
 title: limitingConeAngle
 slug: Web/SVG/Reference/Attribute/limitingConeAngle
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Das **`limitingConeAngle`**-Attribut repräsentiert den Winkel in Grad zwischen der Achse des Spot-Lichts (d.h. der Achse zwischen der Lichtquelle und dem Punkt, auf den sie zeigt) und dem Kegel des Spot-Lichts. Es definiert somit einen Begrenzungskegel, der den Bereich einschränkt, in dem das Licht projiziert wird. Außerhalb des Kegels wird kein Licht projiziert.
+Das **`limitingConeAngle`**-Attribut repräsentiert den Winkel in Grad zwischen der Achse des Spotlichts (d.h. der Achse zwischen der Lichtquelle und dem Punkt, auf den sie zeigt) und dem Spotlichtkegel. Es definiert einen begrenzenden Kegel, der den Bereich einschränkt, in dem das Licht projiziert wird. Außerhalb des Kegels wird kein Licht projiziert.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -63,7 +63,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

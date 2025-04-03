@@ -2,10 +2,10 @@
 title: Select
 slug: WebAssembly/Reference/Control_flow/Select
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Die **`select`**-Anweisung wählt eines ihrer ersten beiden Operanden basierend darauf aus, ob ihr dritter Operand null ist oder nicht. Sie weist einige Ähnlichkeiten mit dem ternären Operator in anderen Sprachen auf (z. B. `false ? 10 : 20`), führt jedoch keine [Kurzschlussauswertung](https://en.wikipedia.org/wiki/Short-circuit_evaluation) durch. Die Anweisung kann von einem unmittelbaren Wertetyp gefolgt werden: `select (result T)`. `select (result T)` verwendet einen anderen binären Opcode und erlaubt außer den von der WebAssembly MVP eingeführten Typen (`i32`, `i64`, `f32`, `f64`) auch andere Typen, zum Beispiel erlaubt es die Auswahl zwischen zwei `externref`-Werten.
+Die **`select`**-Anweisung wählt einen ihrer ersten beiden Operanden basierend darauf aus, ob ihr dritter Operand null ist oder nicht. Sie weist einige Ähnlichkeiten mit dem ternären Operator in anderen Sprachen auf (z.B. `false ? 10 : 20`), verzichtet jedoch auf [Kurzschlussauswertung](https://en.wikipedia.org/wiki/Short-circuit_evaluation). Die Anweisung kann von einem direkten Werttyp gefolgt werden: `select (result T)`. `select (result T)` verwendet einen anderen binären Opcode und erlaubt Typen zusätzlich zu denen, die durch das WebAssembly MVP eingeführt wurden (`i32`, `i64`, `f32`, `f64`), beispielsweise erlaubt es die Auswahl zwischen zwei `externref`-Werten.
 
 {{InteractiveExample("Wat Demo: select", "tabbed-taller")}}
 

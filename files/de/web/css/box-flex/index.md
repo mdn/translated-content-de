@@ -2,15 +2,15 @@
 title: box-flex
 slug: Web/CSS/box-flex
 l10n:
-  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{CSSRef}}{{Non-standard_Header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft zur Steuerung von Teilen des XUL-Boxmodells. Sie entspricht weder den alten CSS-Flexiblen Box Layout-Modul-Entwürfen für `box-flex` (die auf dieser Eigenschaft basierten) noch dem Verhalten von `-webkit-box-flex` (das auf diesen Entwürfen basiert). Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
+> Dies ist eine Eigenschaft zur Steuerung von Teilen des XUL-Boxmodells. Sie entspricht weder den alten Entwürfen des CSS Flexible Box Layout Moduls für `box-flex` (die auf dieser Eigenschaft basierten) noch dem Verhalten von `-webkit-box-flex` (das auf diesen Entwürfen basiert). Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
 
-Die **`-moz-box-flex`** und **`-webkit-box-flex`** [CSS](/de/docs/Web/CSS)-Eigenschaften geben an, wie eine `-moz-box` oder `-webkit-box` wächst, um die sie enthaltende Box in der Richtung des Layouts der enthaltenden Box auszufüllen.
+Die **`-moz-box-flex`** und **`-webkit-box-flex`** [CSS](/de/docs/Web/CSS) Eigenschaften spezifizieren, wie sich ein `-moz-box` oder `-webkit-box` vergrößert, um die Box, die es enthält, in der Richtung des Layouts der enthaltenen Box auszufüllen.
 
 ## Syntax
 
@@ -36,29 +36,29 @@ Die **`-moz-box-flex`** und **`-webkit-box-flex`** [CSS](/de/docs/Web/CSS)-Eigen
 -webkit-box-flex: unset;
 ```
 
-Die `box-flex`-Eigenschaft wird als {{CSSxRef("&lt;number&gt;")}} spezifiziert. Wenn der Wert 0 ist, wächst die Box nicht. Wenn er größer als 0 ist, wächst die Box, um einen Anteil des verfügbaren Raums zu füllen.
+Die `box-flex` Eigenschaft wird als {{CSSxRef("&lt;number&gt;")}} angegeben. Wenn der Wert 0 ist, wächst die Box nicht. Wenn er größer als 0 ist, wächst die Box, um einen Teil des verfügbaren Platzes auszufüllen.
 
 ## Hinweise
 
-Die enthaltende Box teilt den verfügbaren zusätzlichen Raum proportional zum Flex-Wert jedes der Inhalts-Elemente zu.
+Die enthaltene Box verteilt den verfügbaren zusätzlichen Raum im Verhältnis zum Flex-Wert jedes der Inhaltselemente.
 
-Inhalts-Elemente, die Flex 0 haben, wachsen nicht.
+Inhaltselemente mit einem Flex-Wert von null wachsen nicht.
 
-Wenn nur ein Inhalts-Element einen Flex ungleich Null hat, wächst es, um den verfügbaren Raum auszufüllen.
+Wenn nur ein Inhaltselement einen Flex-Wert ungleich null hat, wächst es, um den verfügbaren Platz auszufüllen.
 
-Inhalts-Elemente mit demselben Flex-Wert wachsen um denselben absoluten Betrag.
+Inhaltselemente mit demselben Flex-Wert wachsen um denselben absoluten Betrag.
 
-Wenn der Flex-Wert über das `flex`-Attribut des Elements gesetzt wird, wird der Stil ignoriert.
+Wenn der Flex-Wert mit dem `flex`-Attribut des Elements festgelegt wird, wird der Stil ignoriert.
 
-Um XUL-Elemente in einer enthaltenden Box gleich groß zu machen, setzen Sie das `equalsize`-Attribut der enthaltenden Box auf den Wert `always`. Dieses Attribut hat keine entsprechende CSS-Eigenschaft.
+Um XUL-Elemente in einer enthaltenen Box auf die gleiche Größe zu bringen, setzen Sie das `equalsize`-Attribut der enthaltenen Box auf den Wert `always`. Dieses Attribut hat keine entsprechende CSS-Eigenschaft.
 
-Ein Trick, um alle Inhalts-Elemente in einer enthaltenden Box gleich groß zu machen, ist, ihnen alle eine feste Größe zu geben (z. B. `height: 0`), und denselben `box-flex`-Wert größer als Null (z. B. `-moz-box-flex: 1`).
+Ein Trick, um alle Inhaltselemente in einer enthaltenen Box auf die gleiche Größe zu bringen, besteht darin, ihnen alle eine feste Größe (z. B. `height: 0`) und denselben `box-flex`-Wert größer als null zu geben (z. B. `-moz-box-flex: 1`).
 
-## Formelle Definition
+## Formale Definition
 
 {{cssinfo}}
 
-## Formelle Syntax
+## Formale Syntax
 
 ```plain
 box-flex =
@@ -67,7 +67,7 @@ box-flex =
 
 ## Beispiele
 
-### Festlegen von box-flex
+### Box-flex einstellen
 
 ```html
 <!doctype html>
@@ -105,7 +105,7 @@ box-flex =
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

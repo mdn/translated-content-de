@@ -2,15 +2,15 @@
 title: mathcolor
 slug: Web/MathML/Reference/Global_attributes/mathcolor
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{Deprecated_Header}}
 
-Das **`mathcolor`** [Globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) setzt die [Farbe](/de/docs/Web/CSS/color) eines MathML-Elements.
+Das **`mathcolor`** [Globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) legt die [Farbe](/de/docs/Web/CSS/color) eines MathML-Elements fest.
 
 > [!NOTE]
-> Verwenden Sie wann immer möglich CSS für die Gestaltung von MathML. Das `mathcolor`-Attribut sollte nur in Anwendungen verwendet werden, die CSS nicht unterstützen, und es wird von der CSS-Eigenschaft `color` überschrieben, wenn diese gesetzt ist.
+> Verwenden Sie wann immer möglich CSS, um MathML zu stylen. Das `mathcolor`-Attribut sollte nur für Anwendungen verwendet werden, die CSS nicht unterstützen, und wird durch die CSS `color` Eigenschaft überschrieben, falls diese gesetzt ist.
 
 ## Beispiel
 
@@ -76,13 +76,13 @@ body {
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Setzt die Farbe der textuellen und dekorativen Teile des Elements, einschließlich z.B. Bruchstriche oder Radikalsymbole.
+  - : Legt die Farbe der textlichen und dekorativen Teile des Elements fest, einschließlich z.B. Bruchstriche oder Radikalsymbole.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-- In MathML 3 und früheren Versionen wurde ein begrenzteres Set an Werten unterstützt. Seit MathML Core entspricht die Syntax den CSS {{cssxref("&lt;color&gt;")}}-Werten.
+- In MathML 3 und früheren Versionen wurde eine begrenztere Menge von Werten unterstützt. Seit MathML Core entspricht die Syntax den CSS {{cssxref("&lt;color&gt;")}} Werten.
 
 - Dieses Attribut wurde für MathML-Anwendungen entwickelt, die CSS nicht unterstützen. Seit MathML Core wird stattdessen die Verwendung von äquivalentem CSS empfohlen.
 

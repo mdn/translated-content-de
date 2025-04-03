@@ -1,22 +1,22 @@
 ---
-title: Tastaturnavigierbare JavaScript-Widgets
+title: Tastatur-navigierbare JavaScript-Widgets
 slug: Web/Accessibility/Guides/Keyboard-navigable_JavaScript_widgets
 l10n:
-  sourceCommit: a52689c74c6c89f45c54447bb148e54ed320db62
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Webanwendungen verwenden häufig JavaScript, um Desktop-Widgets wie Menüs, Baumansichten, Rich-Text-Felder und Registerkarten zu imitieren. Diese Widgets bestehen typischerweise aus {{ HTMLElement("div") }}- und {{ HTMLElement("span") }}-Elementen, die von Natur aus nicht dieselbe Tastaturfunktionalität bieten wie ihre Desktop-Gegenstücke. Dieses Dokument beschreibt Techniken, um JavaScript-Widgets mit der Tastatur zugänglich zu machen.
+Webanwendungen verwenden häufig JavaScript, um Desktop-Widgets wie Menüs, Baumansichten, Rich-Text-Felder und Registerkarten nachzubilden. Diese Widgets bestehen in der Regel aus {{ HTMLElement("div") }}- und {{ HTMLElement("span") }}-Elementen, die von Natur aus nicht die gleiche Tastaturfunktionalität bieten wie ihre Desktop-Pendants. Dieses Dokument beschreibt Techniken, um JavaScript-Widgets mit der Tastatur zugänglich zu machen.
 
-## Verwendung von tabindex
+## Verwendung von `tabindex`
 
-Standardmäßig werden beim Browsen einer Webseite mit der Tabulatortaste nur interaktive Elemente (wie Links, Formularelemente) fokussiert. Mit dem `tabindex` [globalen Attribut](/de/docs/Web/HTML/Global_attributes) können Autoren auch andere Elemente fokussierbar machen. Wenn `0` gesetzt ist, wird das Element über Tastatur und Skript fokussierbar. Bei `-1` wird das Element per Skript fokussierbar, es wird jedoch nicht Teil der Tastaturfokusreihenfolge.
+Standardmäßig werden beim Durchblättern einer Webseite mit der Tabulator-Taste nur interaktive Elemente (wie Links, Formularelemente) fokussiert. Mit dem `tabindex`-[globalen Attribut](/de/docs/Web/HTML/Global_attributes) können Autoren auch andere Elemente fokussierbar machen. Wenn es auf `0` gesetzt ist, wird das Element über die Tastatur und das Skript fokussierbar. Wenn es auf `-1` gesetzt ist, wird das Element über das Skript fokussierbar, ist aber nicht Teil der Tastaturfokus-Reihenfolge.
 
-Die Reihenfolge, in der Elemente bei Verwendung der Tastatur den Fokus erhalten, ist standardmäßig die Quellreihenfolge. In Ausnahmefällen möchten Autoren die Reihenfolge möglicherweise neu definieren. Dazu können sie `tabindex` auf eine beliebige positive Zahl setzen.
+Die Reihenfolge, in der Elemente bei Verwendung einer Tastatur den Fokus erhalten, entspricht standardmäßig der Quellreihenfolge. In Ausnahmefällen möchten Autoren die Reihenfolge eventuell neu definieren. Dazu können Autoren `tabindex` auf eine beliebige positive Zahl setzen.
 
 > [!WARNING]
-> Vermeiden Sie die Verwendung positiver Werte für `tabindex`. Elemente mit einem positiven `tabindex` stehen vor den standardmäßigen interaktiven Elementen auf der Seite, was bedeutet, dass Seitenautoren `tabindex`-Werte für alle fokussierbaren Elemente auf der Seite festlegen (und pflegen) müssen, wann immer sie einen oder mehrere positive Werte für `tabindex` verwenden.
+> Vermeiden Sie die Verwendung positiver Werte für `tabindex`. Elemente mit einem positiven `tabindex` werden vor den standardmäßigen interaktiven Elementen auf der Seite platziert, was bedeutet, dass Seitenautoren `tabindex`-Werte für alle fokussierbaren Elemente auf der Seite festlegen (und pflegen) müssen, wenn sie einen oder mehrere positive Werte für `tabindex` verwenden.
 
-Die folgende Tabelle beschreibt das Verhalten von `tabindex` in modernen Browsern:
+Die folgende Tabelle beschreibt das `tabindex`-Verhalten in modernen Browsern:
 
 <table>
   <thead>
@@ -29,38 +29,38 @@ Die folgende Tabelle beschreibt das Verhalten von `tabindex` in modernen Browser
   <tbody>
     <tr>
       <td>nicht vorhanden</td>
-      <td>Folgt der Plattformkonvention des Elements (ja für Formularelemente, Links usw.).</td>
-      <td>Folgt der Plattformkonvention des Elements.</td>
+      <td>Befolgt die Plattformkonvention des Elements (ja für Formularelemente, Links usw.).</td>
+      <td>Befolgt die Plattformkonvention des Elements.</td>
     </tr>
     <tr>
-      <td>Negativ (z.B. <code>tabindex="-1"</code>)</td>
+      <td>Negativ (z. B. <code>tabindex="-1"</code>)</td>
       <td>Ja</td>
-      <td>Nein; der Autor muss das Element mit <a href="/de/docs/Web/API/HTMLElement/focus"><code>focus()</code></a> in Reaktion auf Pfeil- oder andere Tastendrücken fokussieren.</td>
+      <td>Nein; der Autor muss das Element mit <a href="/de/docs/Web/API/HTMLElement/focus"><code>focus()</code></a> in Reaktion auf Pfeil- oder andere Tasteneingaben fokussieren.</td>
     </tr>
     <tr>
-      <td>Null (z.B. <code>tabindex="0"</code>)</td>
+      <td>Null (z. B. <code>tabindex="0"</code>)</td>
       <td>Ja</td>
-      <td>In der Tastaturreihenfolge relativ zur Position des Elements im Dokument (beachten Sie, dass interaktive Elemente wie {{HTMLElement('a')}} dieses Verhalten standardmäßig haben, sie benötigen das Attribut nicht).</td>
+      <td>In Tab-Reihenfolge relativ zur Position des Elements im Dokument (beachten Sie, dass interaktive Elemente wie {{HTMLElement('a')}} dieses Verhalten standardmäßig haben und das Attribut nicht benötigen).</td>
     </tr>
     <tr>
-      <td>Positiv (z.B. <code>tabindex="33"</code>)</td>
+      <td>Positiv (z. B. <code>tabindex="33"</code>)</td>
       <td>Ja</td>
-      <td>Der <code>tabindex</code>-Wert bestimmt, wo dieses Element in der Tab-Reihenfolge positioniert wird: Kleinere Werte positionieren Elemente früher in der Tab-Reihenfolge als größere Werte (zum Beispiel wird <code>tabindex="7"</code> vor <code>tabindex="11"</code> positioniert).</td>
+      <td>Der `tabindex`-Wert bestimmt, wo dieses Element in der Tab-Reihenfolge positioniert ist: Kleinere Werte positionieren Elemente früher in der Tab-Reihenfolge als größere Werte (zum Beispiel wird <code>tabindex="7"</code> vor <code>tabindex="11"</code> positioniert).</td>
     </tr>
   </tbody>
 </table>
 
-### Nicht-native Steuerungen
+### Nicht-nativ steuerbare Elemente
 
-Interaktive HTML-Elemente wie {{ HTMLElement("a") }}, {{ HTMLElement("input") }} und {{ HTMLElement("select") }} sind bereits mit Tastaturen zugänglich. Die Verwendung eines dieser Elemente ist der schnellste Weg, um Komponenten mit Tastaturen funktional zu machen.
+Interaktive native HTML-Elemente wie {{ HTMLElement("a") }}, {{ HTMLElement("input") }} und {{ HTMLElement("select") }} sind bereits über die Tastatur zugänglich. Ihre Verwendung ist daher der schnellste Weg, um Komponenten mit Tastaturen arbeiten zu lassen.
 
-Autoren können auch eine {{ HTMLElement("div") }} oder {{ HTMLElement("span") }} durch Hinzufügen eines `tabindex` von `0` tastaturzugänglich machen. Dies ist besonders nützlich für Komponenten, die interaktive Elemente verwenden, die nicht in HTML existieren.
+Autoren können auch ein {{ HTMLElement("div") }} oder {{ HTMLElement("span") }} durch Hinzufügen eines `tabindex` von `0` tastaturzugänglich machen. Dies ist besonders nützlich für Komponenten, die interaktive Elemente verwenden, die in HTML nicht existieren.
 
-### Gruppierung von Steuerungen
+### Gruppensteuerungen
 
-Für Gruppierungs-Widgets wie Menüs, Registerkartenlisten, Raster oder Baumansichten sollte das Elternelement in der Tab-Reihenfolge sein (`tabindex="0"`), und jede nachgeordnete Wahl/Tab/Zelle/Zeile sollte aus der Tab-Reihenfolge entfernt sein (`tabindex="-1"`). Benutzer sollten die nachgeordneten Elemente mit den Pfeiltasten navigieren können. (Für eine vollständige Beschreibung der normalerweise erwarteten Unterstützung für typische Widgets siehe die [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/).)
+Für Gruppierungs-Widgets wie Menüs, Registerkartenlisten, Raster oder Baumansichten sollte das übergeordnete Element in der Tab-Reihenfolge sein (`tabindex="0"`), und jede nachrangige Auswahl/Registerkarte/Zelle/Zeile sollte aus der Tab-Reihenfolge entfernt werden (`tabindex="-1"`). Benutzer sollten in der Lage sein, die nachrangigen Elemente über die Pfeiltasten zu navigieren. (Für eine vollständige Beschreibung der normalerweise erwarteten Tastaturunterstützung für typische Widgets siehe die [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/).)
 
-Das folgende Beispiel zeigt diese Technik mit einem verschachtelten Menü-Widget. Sobald der Tastaturfokus auf das {{ HTMLElement("ul") }} Element trifft, muss der JavaScript-Entwickler den Fokus programmatisch verwalten und auf die Pfeiltasten reagieren. Für Techniken zur Verwaltung des Fokus innerhalb von Widgets siehe "Fokus innerhalb von Gruppen verwalten" weiter unten.
+Das folgende Beispiel zeigt diese Technik bei einer verschachtelten Menüsteuerung. Sobald der Tastaturfokus auf das enthaltene {{ HTMLElement("ul") }}-Element gelangt, muss der JavaScript-Entwickler den Fokus programmgesteuert verwalten und auf Pfeiltasten reagieren. Für Techniken zur Verwaltung des Fokus innerhalb von Widgets siehe "Fokus innerhalb von Gruppen verwalten" unten.
 
 ```html
 <ul id="mb1" tabindex="0">
@@ -95,53 +95,53 @@ Das folgende Beispiel zeigt diese Technik mit einem verschachtelten Menü-Widget
 
 #### Deaktivierte Steuerungen
 
-Wenn eine benutzerdefinierte Steuerung deaktiviert wird, entfernen Sie sie aus der Tab-Reihenfolge, indem Sie `tabindex="-1"` einstellen. Beachten Sie, dass deaktivierte Elemente innerhalb eines gruppierten Widgets (wie Menüelemente in einem Menü) weiterhin mit den Pfeiltasten navigierbar sein sollten.
+Wenn eine benutzerdefinierte Steuerung deaktiviert wird, entfernen Sie sie aus der Tab-Reihenfolge, indem Sie `tabindex="-1"` festlegen. Beachten Sie, dass deaktivierte Elemente innerhalb eines gruppierten Widgets (wie Menüpunkte in einem Menü) weiterhin mit den Pfeiltasten navigierbar bleiben sollten.
 
-## Verwaltung des Fokus innerhalb von Gruppen
+## Fokus innerhalb von Gruppen verwalten
 
-Wenn ein Benutzer von einem Widget wegwechselt und zurückkehrt, sollte der Fokus auf das spezifische Element zurückkehren, das den Fokus hatte, zum Beispiel das Baumelement oder die Rasterzelle. Es gibt zwei Techniken, um dies zu erreichen:
+Wenn ein Benutzer von einem Widget weg- und zurückwechselt, sollte der Fokus auf das spezifische Element zurückkehren, das den Fokus hatte, z. B. das Baum-Element oder die Rasterzelle. Es gibt zwei Techniken, um dies zu erreichen:
 
-1. Roving `tabindex`: Programmatische Fokussierung
-2. `aria-activedescendant`: Verwaltung eines 'virtuellen' Fokus
+1. Roving `tabindex`: Programmierte Änderung des Fokus
+2. `aria-activedescendant`: Verwaltung eines "virtuellen" Fokus
 
 ### Technik 1: Roving tabindex
 
-Wenn Sie den `tabindex` des fokussierten Elements auf "0" setzen, wird sichergestellt, dass, wenn der Benutzer vom Widget wegwechselt und dann zurückkehrt, das ausgewählte Element innerhalb der Gruppe den Fokus behält. Beachten Sie, dass das Aktualisieren des `tabindex` auf "0" auch das Aktualisieren des vorher ausgewählten Elements auf `tabindex="-1"` erfordert. Diese Technik beinhaltet die programmatische Verschiebung des Fokus als Reaktion auf Tastenereignisse und das Aktualisieren des `tabindex`, um das aktuell fokussierte Element widerzuspiegeln. Gehen Sie dafür wie folgt vor:
+Das Setzen des `tabindex` des fokussierten Elements auf "0" stellt sicher, dass, wenn der Benutzer von dem Widget weg- und dann zurückwechselt, das ausgewählte Element innerhalb der Gruppe den Fokus behält. Beachten Sie, dass die Aktualisierung des `tabindex` auf "0" auch die Aktualisierung des zuvor ausgewählten Elements auf `tabindex="-1"` erfordert. Diese Technik beinhaltet die programmierte Änderung des Fokus in Reaktion auf Tasteneingaben und die Aktualisierung des `tabindex`, um das aktuell fokussierte Element zu reflektieren. Hierfür:
 
-Binden Sie einen Tasten-Handler an jedes Element in der Gruppe, und wenn eine Pfeiltaste verwendet wird, um zu einem anderen Element zu wechseln:
+Binden Sie einen Tasten-Down-Handler an jedes Element in der Gruppe, und wenn eine Pfeiltaste verwendet wird, um zu einem anderen Element zu wechseln:
 
-1. Wenden Sie den Fokus programmatisch auf das neue Element an,
+1. Geben Sie dem neuen Element programmatisch den Fokus,
 2. aktualisieren Sie den `tabindex` des fokussierten Elements auf "0", und
-3. aktualisieren Sie den `tabindex` des vorher fokussierten Elements auf "-1".
+3. aktualisieren Sie den `tabindex` des zuvor fokussierten Elements auf "-1".
 
 ### Technik 2: `aria-activedescendant`
 
-Diese Technik beinhaltet das Binden eines einzigen Ereignis-Handlers an das Container-Widget und die Verwendung von `aria-activedescendant`, um einen "virtuellen" Fokus zu verfolgen. (Für weitere Informationen zu ARIA siehe diesen [Überblick über zugängliche Webanwendungen und Widgets](/de/docs/Web/Accessibility/Guides/Accessible_web_applications_and_widgets).)
+Diese Technik beinhaltet das Binden eines einzelnen Ereignis-Handlers an das Container-Widget und die Verwendung von `aria-activedescendant`, um einen "virtuellen" Fokus zu verfolgen. (Für weitere Informationen über ARIA siehe diese [Übersicht zu zugänglichen Webanwendungen und Widgets](/de/docs/Web/Accessibility/Guides/Accessible_web_applications_and_widgets).)
 
-Die Eigenschaft `aria-activedescendant` identifiziert die ID des nachgeordneten Elements, das derzeit den virtuellen Fokus hat. Der Ereignis-Handler im Container muss auf Tasten- und Mausereignisse reagieren, indem er den Wert von `aria-activedescendant` aktualisiert und sicherstellt, dass das aktuelle Element entsprechend gestylt ist (zum Beispiel mit einem Rahmen oder einer Hintergrundfarbe).
+Die Eigenschaft `aria-activedescendant` identifiziert die ID des nachrangigen Elements, das derzeit den virtuellen Fokus hat. Der Ereignis-Handler am Container muss auf Tastatur- und Mausereignisse reagieren, indem er den Wert von `aria-activedescendant` aktualisiert und sicherstellt, dass das aktuelle Element entsprechend gestylt ist (z. B. mit einem Rahmen oder Hintergrundfarbe).
 
 ## Allgemeine Richtlinien
 
-### Verwendung von Fokusereignissen
+### Verwendung von Fokusevents
 
-- Verwenden Sie nicht das [`focus`](/de/docs/Web/API/Element/focus_event)-Ereignis, um den Fokus auf ein Element zu senden. DOM-Fokusereignisse werden nur als informativ betrachtet: Sie werden vom System generiert, nachdem etwas fokussiert wurde, jedoch nicht tatsächlich verwendet, um den Fokus zu setzen. Verwenden Sie stattdessen `element.focus()`.
-- Hören Sie auf die [`focus`](/de/docs/Web/API/Element/focus_event)- und [`blur`](/de/docs/Web/API/Element/blur_event)-Ereignisse, um Fokusänderungen zu verfolgen. Gehen Sie nicht davon aus, dass alle Fokusänderungen über Tasten- und Mausereignisse erfolgen: Unterstützende Technologien wie Bildschirmleser können den Fokus auf jedes fokussierbare Element setzen. Wenn Sie den Fokusstatus für das gesamte Dokument verfolgen möchten, können Sie [`document.activeElement`](/de/docs/Web/API/Document/activeElement) verwenden, um das aktive Element zu erhalten, oder [`document.hasFocus`](/de/docs/Web/API/Document/hasFocus), um sicherzustellen, ob das aktuelle Dokument den Fokus hat.
+- Lösen Sie das [`focus`](/de/docs/Web/API/Element/focus_event)-Ereignis nicht aus, um den Fokus auf ein Element zu setzen. DOM-Fokusevents gelten nur als informativ: Sie werden vom System erzeugt, nachdem etwas fokussiert wurde, aber nicht tatsächlich verwendet, um den Fokus zu setzen. Verwenden Sie stattdessen `element.focus()`.
+- Hören Sie auf die [`focus`](/de/docs/Web/API/Element/focus_event)- und [`blur`](/de/docs/Web/API/Element/blur_event)-Ereignisse, um Fokusänderungen zu verfolgen. Gehen Sie nicht davon aus, dass alle Fokusänderungen über Tastatur- und Mausereignisse kommen: Unterstützende Technologien wie Screenreader können den Fokus auf jedes fokussierbare Element setzen. Wenn Sie den Fokusstatus für das gesamte Dokument verfolgen möchten, können Sie [`document.activeElement`](/de/docs/Web/API/Document/activeElement) verwenden, um das aktive Element zu erhalten, oder [`document.hasFocus`](/de/docs/Web/API/Document/hasFocus), um sicherzustellen, dass das aktuelle Dokument den Fokus hat.
 
-### Stellen Sie sicher, dass Tastatur und Maus dieselbe Erfahrung bieten
+### Stellen Sie sicher, dass Tastatur und Maus die gleiche Erfahrung bieten
 
-Um sicherzustellen, dass das Benutzererlebnis unabhängig vom Eingabegerät konsistent ist, sollten Tastatur- und Mausereignishandler gegebenenfalls Code gemeinsam nutzen. Zum Beispiel sollte der Code, der den `tabindex` oder das Styling aktualisiert, wenn Benutzer mit den Pfeiltasten navigieren, auch von Mausklick-Handlern verwendet werden, um dieselben Änderungen vorzunehmen.
+Um sicherzustellen, dass die Benutzererfahrung unabhängig vom Eingabegerät konsistent ist, sollten Tastatur- und Mausereignis-Handler, wenn möglich, gemeinsamen Code verwenden. Beispielsweise sollte der Code, der den `tabindex` oder das Styling aktualisiert, wenn Benutzer mit den Pfeiltasten navigieren, auch von Mausklick-Handlern verwendet werden, um dieselben Änderungen vorzunehmen.
 
-### Sicherstellen, dass die Tastatur verwendet werden kann, um das Element zu aktivieren
+### Stellen Sie sicher, dass die Tastatur zur Aktivierung von Elementen verwendet werden kann
 
-Um sicherzustellen, dass die Tastatur zum Aktivieren von Elementen verwendet werden kann, sollten alle an Mausereignisse gebundenen Handler auch an Tastaturereignisse gebunden sein. Um beispielsweise sicherzustellen, dass die Eingabetaste ein Element aktiviert, sollten Sie `doSomething()` sowohl dem Maus- als auch dem Tastenereignis zuordnen: `onkeydown="event.code === "Enter" && doSomething();"`.
+Um sicherzustellen, dass die Tastatur zur Aktivierung von Elementen verwendet werden kann, sollten alle an Mausereignisse gebundenen Handler auch an Tastaturereignisse gebunden werden. Um beispielsweise sicherzustellen, dass die Eingabetaste ein Element aktiviert, sollten Sie, wenn Sie ein `onclick="doSomething()"` haben, `doSomething()` auch an das Tastatur-Down-Ereignis binden: `onkeydown="event.code === "Enter" && doSomething();"`.
 
-### Fokusring für tabindex="-1"-Elemente und Elemente, die programmatisch den Fokus erhalten, immer zeichnen
+### Zeichnen Sie immer den Fokus für `tabindex="-1"` Elemente und Elemente, die programmgesteuert den Fokus erhalten
 
-Stellen Sie sicher, dass fokussierte Elemente einen Fokusring haben. Dies kann mit der CSS-Eigenschaft {{cssxref("outline")}} erreicht werden, die nicht bedingungslos auf `none` gesetzt werden sollte—wenn Sie verhindern möchten, dass unnötige Fokusringe angezeigt werden, verwenden Sie die Pseudoklasse {{cssxref(":focus-visible")}}.
+Stellen Sie sicher, dass fokussierte Elemente einen Fokusrahmen haben. Dies kann mit der CSS-Eigenschaft {{cssxref("outline")}} erreicht werden, die nicht bedingungslos auf `none` gesetzt werden sollte — wenn Sie unnötige Fokusrahmen vermeiden möchten, verwenden Sie die Pseudo-Klasse {{cssxref(":focus-visible")}}.
 
-### Verhindern, dass verwendete Tastenereignisse Browserfunktionen ausführen
+### Verhindern, dass verwendete Tasteneingaben Browserfunktionen ausführen
 
-Wenn Ihr Widget ein Tastenereignis verarbeitet, verhindern Sie, dass der Browser es ebenfalls bearbeitet (zum Beispiel das Scrollen als Reaktion auf die Pfeiltasten) durch die Rückkehr Ihres Ereignishandlers. Wenn Ihr Ereignishandler `false` zurückgibt, wird das Ereignis nicht über Ihren Handler hinaus propagiert.
+Wenn Ihr Widget ein Tastenereignis verarbeitet, verhindern Sie, dass der Browser es ebenfalls verarbeitet (zum Beispiel das Scrollen als Reaktion auf die Pfeiltasten) durch die Verwendung des Rückgabewerts Ihres Ereignis-Handlers. Wenn Ihr Ereignis-Handler `false` zurückgibt, wird das Ereignis innerhalb Ihres Handlers verbraucht und verhindert, dass der Browser eine Aktion basierend auf der Tastenfolge ausführt.
 
 Zum Beispiel:
 
@@ -149,8 +149,8 @@ Zum Beispiel:
 <span tabindex="-1" onkeydown="return handleKeyDown();">…</span>
 ```
 
-Wenn `handleKeyDown()` `false` zurückgibt, wird das Ereignis verbraucht, wodurch verhindert wird, dass der Browser eine Aktion basierend auf dem Tastendruck ausführt.
+Wenn `handleKeyDown()` `false` zurückgibt, wird das Ereignis verbraucht und verhindert, dass der Browser auf das Keystroke reagiert.
 
-### Verlassen Sie sich derzeit nicht auf konsistentes Verhalten für Tastenwiederholungen
+### Verlassen Sie sich derzeit nicht auf konsistentes Verhalten bei Tastenwiederholungen
 
-Leider kann `onkeydown` je nach verwendetem Browser und Betriebssystem möglicherweise oder möglicherweise nicht wiederholt werden.
+Leider können `onkeydown`-Ereignisse je nach Browser und Betriebssystem, auf dem Sie arbeiten, wiederholt werden oder nicht.

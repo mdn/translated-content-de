@@ -2,12 +2,12 @@
 title: Repo
 slug: Glossary/Repo
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{GlossarySidebar}}
 
-In einem Versionskontrollsystem wie {{Glossary("Git", "Git")}} oder {{Glossary("SVN", "SVN")}} ist ein Repo (d.h. "Repository") ein Ort, der den Quellcode einer Anwendung zusammen mit verschiedenen Metadaten hostet.
+In einem Versionskontrollsystem wie {{Glossary("Git", "Git")}} oder {{Glossary("SVN", "SVN")}} ist ein Repo (d.h. "Repository") ein Ort, der den Quellcode einer Anwendung zusammen mit verschiedenen Metadaten beherbergt.
 
 ## Siehe auch
 

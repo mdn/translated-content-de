@@ -1,31 +1,35 @@
 ---
-title: "HTMLMediaElement: srcObject-Eigenschaft"
+title: "HTMLMediaElement: `srcObject`-Eigenschaft"
 short-title: srcObject
 slug: Web/API/HTMLMediaElement/srcObject
 l10n:
-  sourceCommit: fc33c3aaff27761d4bdb1f5d8e5b37f80c9f82f2
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`srcObject`**-Eigenschaft der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle legt das Objekt fest oder gibt es zurück, das als Quelle für die mit dem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) verknüpften Medien dient, oder `null`, wenn keines zugewiesen ist.
+Die **`srcObject`**-Eigenschaft des
+[`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interfaces setzt oder gibt das Objekt zurück, das als Quelle für das mit dem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) verbundene Medium dient, oder `null`, wenn nicht zugewiesen.
 
-Das Objekt kann ein [`MediaStream`](/de/docs/Web/API/MediaStream), ein [`MediaSource`](/de/docs/Web/API/MediaSource), ein [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) (welche von `Blob` erbt) sein.
+Das Objekt kann ein [`MediaStream`](/de/docs/Web/API/MediaStream), ein [`MediaSource`](/de/docs/Web/API/MediaSource), ein
+[`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) (die von `Blob` erbt) sein.
 
 > [!NOTE]
-> Ab März 2020 unterstützt nur Safari `srcObject` vollständig, d.h. die Verwendung von `MediaSource`-, `MediaStream`-, `Blob`- und `File`-Objekten als Werte. Andere Browser unterstützen `MediaStream`-Objekte; bis sie aufholen, erwägen Sie, eine URL mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) zu erstellen und sie [`HTMLMediaElement.src`](/de/docs/Web/API/HTMLMediaElement/src) zuzuweisen (siehe unten für ein Beispiel). Darüber hinaus unterstützt Chromium ab Version 108 das Anhängen eines dedizierten Worker-`MediaSource`-Objekts, indem die [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Instanz dieses Objekts (die vom Worker übertragen wurde) an `srcObject` zugewiesen wird.
+> Ab März 2020 hat nur Safari vollständige Unterstützung für `srcObject`, d.h. die Verwendung von `MediaSource`-, `MediaStream`-, `Blob`- und `File`-Objekten als Werte. Andere Browser unterstützen `MediaStream`-Objekte; bis sie aufholen, sollten Sie in Betracht ziehen, eine URL mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) zu erstellen und diese [`HTMLMediaElement.src`](/de/docs/Web/API/HTMLMediaElement/src) zuzuweisen (siehe unten für ein Beispiel). Darüber hinaus unterstützt Chromium ab Version 108 das Anhängen eines dedizierten Worker-`MediaSource`-Objekts, indem die [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Instanz dieses Objekts (vom Worker übertragen) `srcObject` zugewiesen wird.
 
 ## Wert
 
-Ein [`MediaStream`](/de/docs/Web/API/MediaStream)-, [`MediaSource`](/de/docs/Web/API/MediaSource)-, [`Blob`](/de/docs/Web/API/Blob)- oder [`File`](/de/docs/Web/API/File)-Objekt (siehe jedoch die Kompatibilitätstabelle, um zu erfahren, was tatsächlich unterstützt wird), oder `null`, wenn keines zugewiesen ist.
+Ein [`MediaStream`](/de/docs/Web/API/MediaStream), [`MediaSource`](/de/docs/Web/API/MediaSource), [`Blob`](/de/docs/Web/API/Blob) oder
+[`File`](/de/docs/Web/API/File)-Objekt (siehe jedoch die Kompatibilitätstabelle, was tatsächlich unterstützt wird), oder `null`, wenn nicht zugewiesen.
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
-Ältere Versionen der Media Source-Spezifikation erforderten die Verwendung von [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static), um eine Objekt-URL zu erstellen und dann [`src`](/de/docs/Web/API/HTMLMediaElement/src) auf diese URL zu setzen. Jetzt können Sie `srcObject` direkt auf den [`MediaStream`](/de/docs/Web/API/MediaStream) setzen.
+Ältere Versionen der Media-Source-Spezifikation erforderten die Verwendung von
+[`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static), um eine Objekt-URL zu erstellen, und dann die [`src`](/de/docs/Web/API/HTMLMediaElement/src) auf diese URL zu setzen. Jetzt können Sie einfach `srcObject` direkt auf den [`MediaStream`](/de/docs/Web/API/MediaStream) setzen.
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
 In diesem Beispiel wird ein [`MediaStream`](/de/docs/Web/API/MediaStream) von einer Kamera einem neu erstellten {{HTMLElement("video")}}-Element zugewiesen.
 
@@ -35,7 +39,7 @@ const video = document.createElement("video");
 video.srcObject = mediaStream;
 ```
 
-In diesem Beispiel wird ein neues [`MediaSource`](/de/docs/Web/API/MediaSource) einem neu erstellten {{HTMLElement("video")}}-Element zugewiesen.
+In diesem Beispiel wird ein neuer [`MediaSource`](/de/docs/Web/API/MediaSource) einem neu erstellten {{HTMLElement("video")}}-Element zugewiesen.
 
 ```js
 const mediaSource = new MediaSource();
@@ -43,11 +47,12 @@ const video = document.createElement("video");
 video.srcObject = mediaSource;
 ```
 
-### Unterstützung des Fallbacks auf die src-Eigenschaft
+### Unterstützung des Fallbacks zur src-Eigenschaft
 
-Die folgenden Beispiele unterstützen ältere Browserversionen, die erfordern, dass Sie eine Objekt-URL erstellen und sie `src` zuweisen, wenn `srcObject` nicht unterstützt wird.
+Die untenstehenden Beispiele unterstützen ältere Browserversionen, die erfordern, dass Sie eine Objekt-URL erstellen und sie `src` zuweisen, falls `srcObject` nicht unterstützt wird.
 
-Zunächst wird ein [`MediaStream`](/de/docs/Web/API/MediaStream) von einer Kamera einem neu erstellten {{HTMLElement("video")}}-Element zugewiesen, mit Fallback für ältere Browser.
+Zuerst wird ein [`MediaStream`](/de/docs/Web/API/MediaStream) von einer Kamera einem neu erstellten
+{{HTMLElement("video")}}-Element zugewiesen, mit Fallback für ältere Browser.
 
 ```js
 const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -60,7 +65,8 @@ if ("srcObject" in video) {
 }
 ```
 
-Zweitens wird ein neues [`MediaSource`](/de/docs/Web/API/MediaSource) einem neu erstellten {{HTMLElement("video")}}-Element zugewiesen, mit Fallback für ältere Browser und Browser, die die direkte Zuweisung von [`MediaSource`](/de/docs/Web/API/MediaSource) noch nicht unterstützen.
+Zweitens wird ein neuer [`MediaSource`](/de/docs/Web/API/MediaSource) einem neu erstellten
+{{HTMLElement("video")}}-Element zugewiesen, mit Fallback für ältere Browser und Browser, die die Zuweisung von [`MediaSource`](/de/docs/Web/API/MediaSource) direkt noch nicht unterstützen.
 
 ```js
 const mediaSource = new MediaSource();
@@ -83,7 +89,7 @@ if ("srcObject" in video) {
 
 ### Erstellen einer `MediaSource` in einem Worker und Übergabe an den Haupt-Thread zur Wiedergabe
 
-Die [`MediaSource.handle`](/de/docs/Web/API/MediaSource/handle)-Eigenschaft kann in einem dedizierten Worker abgerufen werden und das resultierende [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt wird dann über einen [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage)-Aufruf an den Thread übertragen, der den Worker erstellt hat (in diesem Fall der Haupt-Thread):
+Die [`MediaSource.handle`](/de/docs/Web/API/MediaSource/handle)-Eigenschaft kann innerhalb eines dedizierten Workers zugegriffen werden, und das resultierende [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt wird dann über einen [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage)-Aufruf an den Thread übertragen, der den Worker erstellt hat (in diesem Fall der Haupt-Thread):
 
 ```js
 // Inside dedicated worker
@@ -100,7 +106,7 @@ mediaSource.addEventListener("sourceopen", () => {
 });
 ```
 
-Im Haupt-Thread empfangen wir den Handle über einen [`message`](/de/docs/Web/API/Worker/message_event)-Ereignishandler, hängen ihn an ein {{htmlelement("video")}} über seine `HTMLMediaElement.srcObject`-Eigenschaft an und [`play`](/de/docs/Web/API/HTMLMediaElement/play) das Video:
+Im Haupt-Thread empfangen wir das Handle über einen [`message`](/de/docs/Web/API/Worker/message_event)-Ereignishandler, hängen es an ein {{htmlelement("video")}} über dessen `HTMLMediaElement.srcObject`-Eigenschaft an und [`play`](/de/docs/Web/API/HTMLMediaElement/play) das Video:
 
 ```js
 worker.addEventListener("message", (msg) => {

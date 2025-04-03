@@ -3,12 +3,12 @@ title: "Element: prefix-Eigenschaft"
 short-title: prefix
 slug: Web/API/Element/prefix
 l10n:
-  sourceCommit: bbf7f25f9cf95fb154e2740a9fdc9c02818981bf
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`Element.prefix`** gibt das Namespace-Präfix des angegebenen Elements zurück oder `null`, wenn kein Präfix angegeben ist.
+Die **`Element.prefix`** schreibgeschützte Eigenschaft gibt das Namensraum-Präfix des angegebenen Elements zurück oder `null`, wenn kein Präfix angegeben ist.
 
 ## Wert
 
@@ -24,7 +24,7 @@ Das folgende Beispiel gibt "x" in der Konsole aus.
 
 ## Hinweise
 
-Dies funktioniert nur, wenn ein namespace-fähiger Parser verwendet wird, d.h. wenn ein Dokument mit einem XML-MIME-Typ ausgeliefert wird. Dies funktioniert nicht für HTML-Dokumente.
+Dies funktioniert nur, wenn ein parser verwendet wird, der sich des Namensraums bewusst ist, d.h. wenn ein Dokument mit einem XML-MIME-Typ bereitgestellt wird. Dies funktioniert nicht für HTML-Dokumente.
 
 ## Spezifikationen
 

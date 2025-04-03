@@ -1,17 +1,18 @@
 ---
-title: HTML-Element-Vorlage
+title: HTML-Element-Seitenvorlage
 slug: MDN/Writing_guidelines/Page_structures/Page_types/HTML_element_page_template
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 6d54d3150f745b8c10cf739b24cb3d48ef6a53c4
 ---
 
-> **Note:** _Entfernen Sie diese gesamte Erläuterungsnotiz vor der Veröffentlichung_
+> **Hinweis:** _Entfernen Sie diesen gesamten erläuternden Hinweis, bevor Sie veröffentlichen_
 >
 > ---
 >
-> **Seitenfrontmatter:**
+> **Seiten-Metadaten:**
 >
-> Das Frontmatter oben auf der Seite wird verwendet, um "Seitenmetadaten" zu definieren. Die Werte sollten für das jeweilige Element entsprechend aktualisiert werden.
+> Das Frontmatter am Anfang der Seite wird verwendet, um "Seitenmetadaten" zu definieren.
+> Die Werte sollten für das jeweilige Element entsprechend aktualisiert werden.
 >
 > ```md
 > ---
@@ -27,72 +28,86 @@ l10n:
 > ```
 >
 > - **title**
->   - : Titelüberschrift, die oben auf der Seite angezeigt wird. Formatieren Sie diese als `'<NameDesElements>: Beschreibung des Zwecks des Elements'`. Zum Beispiel hat das [`<video>`](/de/docs/Web/HTML/Element/video)-Element einen _Titel_ von: **'`<video>`: Das Videoeinbettungselement'**.
+>   - : Titelüberschrift, die oben auf der Seite angezeigt wird.
+>     Formatieren Sie es als `'<NameDesElements>: Beschreibung des Zwecks des Elements'`.
+>     Zum Beispiel hat das [`<video>`](/de/docs/Web/HTML/Element/video)-Element einen _title_ von: **'`<video>`: Das Video-Einbettungselement'**.
 > - **slug**
->   - : Der letzte Teil des URL-Pfads nach `https://developer.mozilla.org/de/docs/`. Dies wird formatiert wie `Web/HTML/Element/NameDesElements`, wobei der Elementname in _Kleinbuchstaben_ steht. Zum Beispiel hat das [`<video>`](/de/docs/Web/HTML/Element/video)-Element einen _Slug_ von `Web/HTML/Element/video`.
+>   - : Das Ende des URL-Pfades nach `https://developer.mozilla.org/de/docs/`.
+>     Dies wird wie `Web/HTML/Element/NameDesElements` formatiert, wobei der Elementname in _Kleinschreibung_ ist.
+>     Zum Beispiel hat das [`<video>`](/de/docs/Web/HTML/Element/video)-Element einen _slug_ von `Web/HTML/Element/video`.
 > - **page-type**
 >   - : Immer `html-element`.
 > - **status**
->   - : Flags, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf Werten in den Browser-Kompatibilitätsdaten für das Feature festgelegt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+>   - : Flags, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
 >
->   - : Ersetzen Sie den Platzhalterwert `html.elements.NameDesElements` mit der Abfragezeichenfolge für das Element im [Browser-Compat-Datenrepo](https://github.com/mdn/browser-compat-data).
->     Die Toolchain verwendet den Schlüssel automatisch, um die Kompatibilitäts- und Spezifikationsabschnitte zu befüllen (Ersatz der `\{{Compat}}`- und `\{{Specifications}}`-Makros).
+>   - : Ersetzen Sie den Platzhalterwert `html.elements.NameDesElements` durch den Abfragestring für das Element im [Browser-Compat-Daten-Repo](https://github.com/mdn/browser-compat-data).
+>     Die Toolchain verwendet den Schlüssel automatisch, um die Abschnitte Kompatibilität und Spezifikationen auszufüllen (Ersetzen der `\{{Compat}}` und `\{{Specifications}}` Makros).
 >
->     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für das Element in unserem [Browser-Compat-Datenrepo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und der Eintrag wird Spezifikationsinformationen enthalten müssen. Sehen Sie sich unseren [Leitfaden an, wie dies zu tun ist](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+>     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für das Element in unserem [Browser-Compat-Daten-Repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und der Eintrag muss Spezifikationsinformationen enthalten.
+>     Siehe unseren [Leitfaden, wie man das macht](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 >
 > ---
 >
-> **Makros oben auf der Seite**
+> **Makros am Seitenanfang**
 >
-> Eine Reihe von Makroaufrufen werden am Anfang des Inhaltsabschnitts angezeigt (unmittelbar unter dem Seitenfrontmatter). Diese Makros werden automatisch von der Toolchain hinzugefügt (es ist nicht erforderlich, sie hinzuzufügen/zu entfernen):
+> Eine Reihe von Makroaufrufen erscheint oben im Inhaltsbereich (unmittelbar unterhalb der Seiten-Metadaten).
+> Diese Makros werden automatisch von der Toolchain hinzugefügt (es ist nicht nötig, etwas zu hinzufügen/entfernen):
 >
-> - `\{{SeeCompatTable}}` — dieses generiert ein **Dies ist eine experimentelle Technologie**-Banner, das angibt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist. Wenn es experimentell ist und die Technologie in Firefox hinter einem Pref verborgen ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Deprecated_Header}}` — dieses generiert ein **Veraltet**-Banner, das angibt, dass die Verwendung der Technologie [abgeraten](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
-> - `\{{Non-standard_Header}}` — dieses generiert ein **Nicht standardisiert**-Banner, das angibt, dass das Feature kein Teil einer Spezifikation ist.
+> - `\{{SeeCompatTable}}` — Dies erzeugt ein **Dies ist eine experimentelle Technologie**-Banner, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn es experimentell ist und die Technologie hinter einem Pref in Firefox verborgen ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
+> - `\{{Deprecated_Header}}` — Dies erzeugt ein **Veraltet**-Banner, das darauf hinweist, dass die Nutzung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) wird.
+> - `\{{Non-standard_Header}}` — Dies erzeugt ein **Nicht vorgeschrieben**-Banner, das darauf hinweist, dass das Feature nicht Teil irgendeiner Spezifikation ist.
 >
-> Sie sollten die folgenden Makros gemäß den folgenden Ratschlägen aktualisieren oder löschen:
+> Sie sollten die folgenden Makros gemäß den untenstehenden Ratschlägen aktualisieren oder löschen:
 >
-> - `\{{SecureContext_Header}}` — dieses generiert ein **Sicherer Kontext**-Banner, das angibt, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist. Wenn es das nicht ist, können Sie den Makroaufruf entfernen. Wenn es das ist, sollten Sie auch einen Eintrag dafür auf der Seite [Features, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
-> - `\{{HTMLSidebar}}` — dieses generiert die linke Referenzseitenleiste für das Element. Der Inhalt der Seitenleiste hängt von den Tags in den Seitenmetadaten ab.
-> - Entfernen Sie das `\{{MDNSidebar}}`-Makro, wenn Sie diese Seite kopieren.
+> - `\{{SecureContext_Header}}` — Dies erzeugt ein **Sicherer Kontext**-Banner, das darauf hinweist, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist.
+>   Wenn es das nicht ist, können Sie den Makroaufruf entfernen.
+>   Wenn es das ist, sollten Sie auch einen Eintrag dafür auf der Seite [Features auf sichere Kontexte beschränkt](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
+> - `\{{HTMLSidebar}}` — Dies erzeugt die Referenz-Seitenleiste auf der linken Seite für das Element.
+>   Der Inhalt der Seitenleiste hängt von den Tags in den Seiten-Metadaten ab.
+> - Denken Sie daran, das `\{{MDNSidebar}}` Makro zu entfernen, wenn Sie diese Seite kopieren.
 >
-> Geben Sie keine Statusheader-Makros manuell an. Verweisen Sie auf den Abschnitt ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status der Seite hinzuzufügen.
+> Stellen Sie keine Status-Header-Makros manuell bereit. Beziehen Sie sich auf den Abschnitt ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status zur Seite hinzuzufügen.
 >
-> Beispiele für die **Experimentell**, **Veraltet** und **Nicht standardisiert**-Banner werden direkt nach diesem Hinweisblock gezeigt.
+> Beispiele für die **Experimentell**-, **Veraltet**- und **Nicht standardisiert**-Banner sind direkt nach diesem Hinweisblock angezeigt.
 >
-> _Denken Sie daran, diese gesamte Erläuterungsnotiz vor der Veröffentlichung zu entfernen_
+> _Denken Sie daran, diesen gesamten erläuternden Hinweis zu entfernen, bevor Sie veröffentlichen_
 
 {{HTMLSidebar}}{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Das **`<insert_the_element_name>`**-[HTML](/de/docs/Web/HTML)-Element macht _(fügen Sie einen zusammenfassenden Absatz ein, der das Element benennt und beschreibt, was es macht, idealerweise ein oder zwei kurze Sätze)_.
+Das **`<insert_the_element_name>`** [HTML](/de/docs/Web/HTML)-Element macht _(fügen Sie einen zusammenfassenden Absatz ein, der das Element benennt und beschreibt, was es macht, idealerweise ein oder zwei kurze Sätze)_.
 
-\\{{EmbedInteractiveExample("pages/tabbed/nameOfElement.html", "tabbed-standard")}}
+## Probieren Sie es aus
 
-Weitere Informationen — an diesem Punkt fügen Sie ein paar weitere Absätze ein, die die wichtigsten Dinge erklären, die Sie wissen müssen, um das Element zu verwenden und seine Hauptmerkmale. Es ist gut, kurz zu erläutern, was im interaktiven Beispiel vor sich geht, wenn es nicht sofort ersichtlich ist. Sie könnten auch wichtige Punkte darüber erklären, wie dieses Element mit wichtigen verwandten JavaScript- oder CSS-Funktionen interagiert. Nicht zu viele Details — Sie möchten nicht die Dokumentation über Seiten hinweg wiederholen — aber ein Schlüsselpunkz plus ein Link zu der Seite dieses Features wäre nützlich. Sehen Sie sich wiederum die `<video>`-Seite als Beispiel an.
+Dieser Abschnitt wird durch das `InteractiveExample`-Makro generiert.
+Dies umfasst den Abschnittstitel "Probieren Sie es aus" und den Code-Editor.
+Siehe den Abschnitt [Interaktive Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#interactive_examples) in unseren _Schreibrichtlinien_ für weitere Informationen.
+
+Weitere Informationen — an diesem Punkt sollten Sie einige weitere Absätze einfügen, die die wichtigsten Dinge erklären, die Sie über die Verwendung des Elements und seine Hauptmerkmale wissen müssen. Es ist gut, kurz zu erklären, was in dem interaktiven Beispiel vor sich geht, wenn es nicht sofort offensichtlich ist. Sie könnten auch wichtige Punkte erläutern, wie dieses Element mit wichtigen verwandten JavaScript- oder CSS-Funktionen interagiert. Nicht zu viele Details — Sie wollen die Dokumentation nicht über Seiten hinweg wiederholen — aber ein wichtiger Punkt plus ein Link zu der Seite des Features wäre nützlich. Sehen Sie sich die `<video>`-Seite als Beispiel an.
 
 ## Attribute
 
 Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `attribute1` {{Deprecated_inline}} {{experimental_inline}}
-  - : Fügen Sie hier eine Beschreibung hinzu, was das Attribut macht. Fügen Sie einen Begriff und eine Definition für jedes Attribut hinzu. Wenn das Attribut nicht experimentell/veraltet ist, entfernen Sie die entsprechenden Makroaufrufe.
+  - : Fügen Sie hier eine Beschreibung ein, was das Attribut macht. Fügen Sie für jedes Attribut einen Begriff und eine Definition ein. Wenn das Attribut nicht experimentell/veraltet ist, entfernen Sie die entsprechenden Makroaufrufe.
 - `attribute2`
-  - : etc.
+  - : usw.
 
-## Events
+## Ereignisse
 
-Fügen Sie eine Tabelle der Events hinzu, die auf diesem Elementtyp ausgelöst werden, falls vorhanden.
+Fügen Sie eine Tabelle der Ereignisse ein, die bei diesem Elementtyp ausgelöst werden, falls vorhanden.
 
-| Eventname | Ausgelöst, wenn                           |
-| --------- | ----------------------------------------- |
-| event 1   | Erklären Sie kurz, wann es ausgelöst wird |
-| event 2   | Erklären Sie kurz, wann es ausgelöst wird |
-| etc.      |                                           |
+| Ereignisname | Ausgelöst, wenn                           |
+| ------------ | ----------------------------------------- |
+| Ereignis 1   | Erklären Sie kurz, wann es ausgelöst wird |
+| Ereignis 2   | Erklären Sie kurz, wann es ausgelöst wird |
+| usw.         |                                           |
 
 ## Barrierefreiheit
 
-Warnen Sie vor potenziellen Barrierefreiheitsproblemen, die bei der Verwendung dieses Elements auftreten können, und wie Sie damit umgehen können. Entfernen Sie diesen Abschnitt, wenn es keine zu listen gibt.
+Warnen Sie vor möglichen Barrierefreiheit-Bedenken, die bei der Verwendung dieses Elements bestehen, und wie man sie umgeht. Entfernen Sie diesen Abschnitt, wenn keine aufzuführen sind.
 
 ## Beispiele
 
@@ -100,23 +115,23 @@ Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur
 
 ### Eine beschreibende Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreibend für das sein, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
 
-Sehen Sie unseren Leitfaden zum Hinzufügen von [Codebeispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
+Siehe unseren Leitfaden, wie man [Codebeispiele hinzufügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
 
 > [!NOTE]
-> Manchmal werden Sie auf Beispiele verlinken wollen, die auf einer anderen Seite gegeben sind.
+> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite gegeben sind.
 >
-> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite haben und weitere Beispiele auf einer anderen Seite:
+> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und weitere Beispiele auf einer anderen Seite haben:
 >
 > Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> ### Verwenden der Fetch-API
+> ### Verwendung der Fetch-API
 >
-> Beispiel von Fetch
+> Beispiel für Fetch
 >
 > ### Weitere Beispiele
 >
@@ -130,7 +145,7 @@ Sehen Sie unseren Leitfaden zum Hinzufügen von [Codebeispielen](/de/docs/MDN/Wr
 > ```md
 > ## Beispiele
 >
-> Für Beispiele zu dieser API siehe [die Seite über fetch()](https://example.org/).
+> Für Beispiele dieser API, siehe [die Seite über fetch()](https://example.org/).
 > ```
 
 ## Technische Zusammenfassung
@@ -160,23 +175,23 @@ Sehen Sie unseren Leitfaden zum Hinzufügen von [Codebeispielen](/de/docs/MDN/Wr
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Welche Elternelemente können das Element als Kind haben? Zum Beispiel "Jedes Element, das
+        Welche Elternelemente können das Element enthalten? Zum Beispiel "Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Flow-Inhalt</a
         > akzeptiert."
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
-        Geben Sie eine Liste der ARIA-Rollen an, die auf dem Element gesetzt werden können; zum Beispiel
+        Füllen Sie eine Liste der ARIA-Rollen aus, die auf dem Element gesetzt werden können; zum Beispiel
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/directory_role"><code>directory</code></a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">DOM-Interface</th>
+      <th scope="row">DOM-Schnittstelle</th>
       <td>
-        Welches DOM-Interface repräsentiert das Element in JavaScript? Zum Beispiel
+        Welche DOM-Schnittstelle repräsentiert das Element in JavaScript? Zum Beispiel
         [`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement) im Fall von ol.
       </td>
     </tr>
@@ -197,8 +212,8 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die mit dem aktuellen Element in Zusammenhang stehen. Für weitere Richtlinien siehe den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Writing Style Guide_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf das aktuelle Element beziehen. Für weitere Richtlinien siehe den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibrichtlinienleitfaden_.
 
 - link1
 - link2
-- external_link (year)
+- externer_link (Jahr)

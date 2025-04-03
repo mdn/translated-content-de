@@ -3,12 +3,12 @@ title: "GPURenderPassEncoder: end()-Methode"
 short-title: end()
 slug: Web/API/GPURenderPassEncoder/end
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`end()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beendet die Aufzeichnung der aktuellen Render-Pass-Befehlskette.
+Die **`end()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beendet die Aufzeichnung der aktuellen Render-Pass-Befehlsequenz.
 
 ## Syntax
 
@@ -26,16 +26,16 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`end()`** aufgerufen wird, ansonsten wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`end()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) ist geöffnet (d.h. nicht bereits durch einen `end()`-Aufruf beendet).
-- Es ist keine Okklusionsabfrage aktiv (d.h. gestartet über [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery)) für den aktuellen Render-Pass.
-- Der Debug-Stack für den aktuellen Render-Pass ist leer (d.h. es ist keine Render-Pass-Debug-Gruppe geöffnet, wie sie von [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) geöffnet wird).
-- Die Anzahl der Zeichnungsbefehle, die in diesem Render-Pass kodiert sind, ist kleiner oder gleich der `maxDrawCount`-Eigenschaft, die im [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass)-Deskriptor festgelegt ist.
+- Der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) ist offen (d.h. nicht bereits durch einen `end()`-Aufruf beendet).
+- Es ist keine Okklusionsabfrage (d.h. gestartet über [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery)) auf dem aktuellen Render-Pass aktiv.
+- Der Debug-Stack für den aktuellen Render-Pass ist leer (d.h. es ist keine Render-Pass-Debug-Gruppe aktuell offen, wie durch [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) eröffnet).
+- Die Anzahl der in diesem Render-Pass codierten Zeichnungsbefehle ist kleiner oder gleich der `maxDrawCount`-Eigenschaft, die im [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) Deskriptor festgelegt ist.
 
 ## Beispiele
 
-In unserem [basic render demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `end()` wird an einer geeigneten Stelle aufgerufen, um den Render-Pass zu beenden.
+In unserem [grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen vom `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `end()` wird an einer geeigneten Stelle aufgerufen, um den Render-Pass zu beenden.
 
 ```js
 // ...

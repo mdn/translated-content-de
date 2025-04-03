@@ -3,12 +3,12 @@ title: "StylePropertyMap: set()-Methode"
 short-title: set()
 slug: Web/API/StylePropertyMap/set
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`set()`**-Methode der [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Schnittstelle ändert die CSS-Deklaration mit der angegebenen Eigenschaft.
+Die **`set()`**-Methode des [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Interfaces ändert die CSS-Deklaration mit der angegebenen Eigenschaft.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ set(property, value)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 

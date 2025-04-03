@@ -2,108 +2,108 @@
 title: HTMLFormElement
 slug: Web/API/HTMLFormElement
 l10n:
-  sourceCommit: 56cbe48e4426172461d9297523b68716922690e5
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLFormElement`**-Interface repräsentiert ein {{HTMLElement("form")}}-Element im DOM. Es ermöglicht den Zugriff auf – und in einigen Fällen die Änderung von – Aspekten des Formulars, sowie den Zugriff auf dessen Komponenten.
+Die **`HTMLFormElement`**-Schnittstelle repräsentiert ein {{HTMLElement("form")}}-Element im DOM. Sie ermöglicht den Zugriff auf und, in einigen Fällen, die Modifikation von Aspekten des Formulars sowie den Zugriff auf seine Komponenten.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Diese Schnittstelle erbt zudem Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements) {{ReadOnlyInline}}
-  - : Eine [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection), die alle Formularsteuerelemente enthält, die zu diesem Formularelement gehören.
+  - : Eine [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection), die alle Formular-Steuerelemente enthält, die zu diesem Formular-Element gehören.
 - [`HTMLFormElement.length`](/de/docs/Web/API/HTMLFormElement/length) {{ReadOnlyInline}}
   - : Ein `long`, das die Anzahl der Steuerelemente im Formular widerspiegelt.
 - [`HTMLFormElement.name`](/de/docs/Web/API/HTMLFormElement/name)
-  - : Ein String, der den Wert des [`name`](/de/docs/Web/HTML/Element/form#name)-HTML-Attributes des Formulars widerspiegelt, und den Namen des Formulars enthält.
+  - : Ein String, der den Wert des HTML-Attributs [`name`](/de/docs/Web/HTML/Element/form#name) des Formulars widerspiegelt und den Namen des Formulars enthält.
 - [`HTMLFormElement.method`](/de/docs/Web/API/HTMLFormElement/method)
-  - : Ein String, der den Wert des [`method`](/de/docs/Web/HTML/Element/form#method)-HTML-Attributes des Formulars widerspiegelt, und die HTTP-Methode angibt, die zum Absenden des Formulars verwendet wird. Es können nur spezifizierte Werte gesetzt werden.
+  - : Ein String, der den Wert des HTML-Attributs [`method`](/de/docs/Web/HTML/Element/form#method) des Formulars widerspiegelt und die HTTP-Methode angibt, die zum Absenden des Formulars verwendet wird. Nur angegebene Werte können gesetzt werden.
 - [`HTMLFormElement.target`](/de/docs/Web/API/HTMLFormElement/target)
-  - : Ein String, der den Wert des [`target`](/de/docs/Web/HTML/Element/form#target)-HTML-Attributes des Formulars widerspiegelt, und angibt, wo die Ergebnisse der Formulareinsendung angezeigt werden sollen.
+  - : Ein String, der den Wert des HTML-Attributs [`target`](/de/docs/Web/HTML/Element/form#target) des Formulars widerspiegelt und angibt, wo die Ergebnisse angezeigt werden sollen, die durch das Absenden des Formulars empfangen werden.
 - [`HTMLFormElement.action`](/de/docs/Web/API/HTMLFormElement/action)
-  - : Ein String, der den Wert des [`action`](/de/docs/Web/HTML/Element/form#action)-HTML-Attributes des Formulars widerspiegelt, und die URI eines Programms enthält, das die vom Formular übermittelten Informationen verarbeitet.
+  - : Ein String, der den Wert des HTML-Attributs [`action`](/de/docs/Web/HTML/Element/form#action) des Formulars widerspiegelt und die URI eines Programms enthält, das die durch das Formular übermittelten Informationen verarbeitet.
 - [`HTMLFormElement.encoding`](/de/docs/Web/API/HTMLFormElement/encoding) oder [`HTMLFormElement.enctype`](/de/docs/Web/API/HTMLFormElement/enctype)
-  - : Ein String, der den Wert des [`enctype`](/de/docs/Web/HTML/Element/form#enctype)-HTML-Attributes des Formulars widerspiegelt, und den Inhaltstyp angibt, der verwendet wird, um das Formular an den Server zu übermitteln. Es können nur spezifizierte Werte gesetzt werden. Die beiden Eigenschaften sind Synonyme.
+  - : Ein String, der den Wert des HTML-Attributs [`enctype`](/de/docs/Web/HTML/Element/form#enctype) des Formulars widerspiegelt und den Inhaltstyp angibt, der zur Übertragung des Formulars an den Server verwendet wird. Nur angegebene Werte können gesetzt werden. Die beiden Eigenschaften sind Synonyme.
 - [`HTMLFormElement.acceptCharset`](/de/docs/Web/API/HTMLFormElement/acceptCharset)
-  - : Ein String, der den Wert des [`accept-charset`](/de/docs/Web/HTML/Element/form#accept-charset)-HTML-Attributes des Formulars widerspiegelt.
+  - : Ein String, der den Wert des HTML-Attributs [`accept-charset`](/de/docs/Web/HTML/Element/form#accept-charset) des Formulars widerspiegelt.
 - [`HTMLFormElement.autocomplete`](/de/docs/Web/API/HTMLFormElement/autocomplete)
-  - : Ein String, der den Wert des [`autocomplete`](/de/docs/Web/HTML/Element/form#autocomplete)-HTML-Attributes des Formulars widerspiegelt, und angibt, ob die Steuerelemente dieses Formulars ihre Werte automatisch von dem Browser ausgefüllt bekommen können.
+  - : Ein String, der den Wert des HTML-Attributs [`autocomplete`](/de/docs/Web/HTML/Element/form#autocomplete) des Formulars widerspiegelt und angibt, ob die Steuerelemente in diesem Formular automatisch von dem Browser ausgefüllt werden können.
 - [`HTMLFormElement.noValidate`](/de/docs/Web/API/HTMLFormElement/noValidate)
-  - : Ein boolescher Wert, der den Wert des [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate)-HTML-Attributes des Formulars widerspiegelt, und angibt, ob das Formular nicht validiert werden soll.
+  - : Ein boolescher Wert, der den Wert des HTML-Attributs [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate) des Formulars widerspiegelt und angibt, ob das Formular nicht validiert werden sollte.
 
-Benannte Eingaben werden ihren Eigentümer-Formularinstanzen als Eigenschaften hinzugefügt und können native Eigenschaften überschreiben, wenn sie denselben Namen haben (z. B. wird ein Formular mit einer Eingabe namens `action` seine `action`-Eigenschaft so zurückgeben, dass diese Eingabe anstelle des [`action`](/de/docs/Web/HTML/Element/form#action)-HTML-Attributes des Formulars zurückgegeben wird).
+Benannte Eingaben werden der Formularinstanz als Eigenschaften hinzugefügt und können native Eigenschaften überschreiben, wenn sie denselben Namen verwenden (z.B. ein Formular mit einer Eingabe namens `action` wird seine `action`-Eigenschaft mit dieser Eingabe ersetzen, anstatt der [`action`](/de/docs/Web/HTML/Element/form#action) HTML-Attribut des Formulars).
 
 ## Instanz-Methoden
 
-_Dieses Interface erbt auch Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Diese Schnittstelle erbt zudem Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`checkValidity()`](/de/docs/Web/API/HTMLFormElement/checkValidity)
-  - : Gibt `true` zurück, wenn die Kind-Steuerelemente des Elements einer [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) unterliegen und diese Einschränkungen erfüllen; gibt `false` zurück, wenn einige Steuerelemente ihre Einschränkungen nicht erfüllen. Löst ein Ereignis namens [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) bei jedem Steuerelement aus, das seine Einschränkungen nicht erfüllt; solche Steuerelemente gelten als ungültig, wenn das Ereignis nicht abgebrochen wird. Es liegt am Programmierer zu entscheiden, wie auf `false` reagiert wird.
+  - : Gibt `true` zurück, wenn die untergeordneten Steuerelemente des Elements einer [Einschränkungsprüfung](/de/docs/Web/HTML/Constraint_validation) unterliegen und diese Einschränkungen erfüllen; gibt `false` zurück, wenn einige Steuerelemente ihre Einschränkungen nicht erfüllen. Löst eine Ereignis namens [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) bei jedem Steuerelement aus, das seine Einschränkungen nicht erfüllt; solche Steuerelemente gelten als ungültig, wenn das Ereignis nicht abgebrochen wird. Es liegt im Ermessen des Programmierers, wie auf `false` reagiert werden soll.
 - [`reportValidity()`](/de/docs/Web/API/HTMLFormElement/reportValidity)
-  - : Gibt `true` zurück, wenn die Kind-Steuerelemente des Elements ihre [Validierungseinschränkungen](/de/docs/Web/HTML/Constraint_validation) erfüllen. Wenn `false` zurückgegeben wird, werden abbrechbare [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignisse für jedes ungültige Kind ausgelöst und Validierungsprobleme dem Benutzer gemeldet.
+  - : Gibt `true` zurück, wenn die untergeordneten Steuerelemente des Elements ihre [Validierungseinschränkungen](/de/docs/Web/HTML/Constraint_validation) erfüllen. Wenn `false` zurückgegeben wird, werden stornierbare [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignisse für jedes ungültige Kind ausgelöst und Validierungsprobleme dem Benutzer gemeldet.
 - [`requestSubmit()`](/de/docs/Web/API/HTMLFormElement/requestSubmit)
-  - : Fordert an, dass das Formular mit dem angegebenen Submit-Button und dessen entsprechender Konfiguration gesendet wird.
+  - : Fordert an, dass das Formular mit dem angegebenen Submit-Button und seiner entsprechenden Konfiguration übermittelt wird.
 - [`reset()`](/de/docs/Web/API/HTMLFormElement/reset)
-  - : Setzt das Formular in seinen Anfangszustand zurück.
+  - : Setzt das Formular in seinen Ausgangszustand zurück.
 - [`submit()`](/de/docs/Web/API/HTMLFormElement/submit)
-  - : Sendet das Formular an den Server.
+  - : Übermittelt das Formular an den Server.
 
 ## Ereignisse
 
-Hören Sie auf diese Ereignisse, indem Sie `addEventListener()` verwenden oder einen Ereignis-Listener der `oneventname`-Eigenschaft dieses Interfaces zuweisen.
+Verwenden Sie `addEventListener()`, um diese Ereignisse zu belauschen, oder weisen Sie dieser Schnittstelle einen Ereignis-Hörer an ihre `oneventname`-Eigenschaft zu.
 
 - [`formdata`](/de/docs/Web/API/HTMLFormElement/formdata_event)
-  - : Das `formdata`-Ereignis wird ausgelöst, nachdem die Eintragsliste, die die Formulardaten darstellt, erstellt wurde.
+  - : Das `formdata`-Ereignis wird ausgelöst, nachdem die Eintragsliste, die die Daten des Formulars repräsentiert, erstellt wurde.
 - [`reset`](/de/docs/Web/API/HTMLFormElement/reset_event)
   - : Das `reset`-Ereignis wird ausgelöst, wenn ein Formular zurückgesetzt wird.
 - [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)
-  - : Das `submit`-Ereignis wird ausgelöst, wenn ein Formular gesendet wird.
+  - : Das `submit`-Ereignis wird ausgelöst, wenn ein Formular übermittelt wird.
 
 ## Anwendungshinweise
 
-### Ein Formularelement-Objekt erhalten
+### Ein Beschreibungsobjekt eines Formulars erhalten
 
-Um ein `HTMLFormElement`-Objekt zu erhalten, können Sie einen [CSS-Selektor](/de/docs/Web/CSS/CSS_selectors) mit [`querySelector()`](/de/docs/Web/API/Document/querySelector) verwenden oder eine Liste aller Formulare im Dokument über seine [`forms`](/de/docs/Web/API/Document/forms)-Eigenschaft abrufen.
+Um ein `HTMLFormElement`-Objekt zu erhalten, können Sie einen [CSS-Selektor](/de/docs/Web/CSS/CSS_selectors) mit [`querySelector()`](/de/docs/Web/API/Document/querySelector) verwenden, oder Sie können eine Liste aller Formulare im Dokument mit dessen [`forms`](/de/docs/Web/API/Document/forms)-Eigenschaft abrufen.
 
-[`Document.forms`](/de/docs/Web/API/Document/forms) gibt ein Array von `HTMLFormElement`-Objekten zurück, die jedes der Formulare auf der Seite auflisten. Sie können dann eine der folgenden Syntaxen verwenden, um ein einzelnes Formular zu erhalten:
+[`Document.forms`](/de/docs/Web/API/Document/forms) gibt ein Array von `HTMLFormElement`-Objekten zurück, das jedes der Formulare auf der Seite auflistet. Sie können dann eine der folgenden Syntaxen verwenden, um ein einzelnes Formular zu erhalten:
 
 - `document.forms[index]`
-  - : Gibt das Formular am angegebenen `Index` im Array der Formulare zurück.
+  - : Gibt das Formular an dem spezifizierten `index` in das Array der Formulare zurück.
 - `document.forms[id]`
   - : Gibt das Formular zurück, dessen ID `id` ist.
 - `document.forms[name]`
-  - : Gibt das Formular zurück, dessen `name`-Attribut den Wert `name` hat.
+  - : Gibt das Formular zurück, dessen `name`-Attributswert `name` ist.
 
 ### Zugriff auf die Elemente des Formulars
 
-Sie können auf die Liste der datentragenden Elemente des Formulars zugreifen, indem Sie die [`elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft des Formulars untersuchen. Dies gibt eine [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection) zurück, die alle Benutzerdateneintragselemente des Formulars auflistet, sowohl diejenigen, die Nachkommen des `<form>` sind, als auch solche, die über ihre `form`-Attribute Mitglieder des Formulars wurden.
+Sie können auf die Liste der datentragenden Elemente des Formulars zugreifen, indem Sie die [`elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft des Formulars untersuchen. Dies gibt eine [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection) zurück, die alle Benutzerdateneingabeelemente des Formulars auflistet, sowohl diejenigen, die Nachkommen des `<form>` sind, als auch diejenigen, die durch ihre `form`-Attribute Mitglieder des Formulars werden.
 
-Sie können auch auf das Element des Formulars zugreifen, indem Sie sein `name`-Attribut als Schlüssel des `form` verwenden, aber die Verwendung von `elements` ist ein besserer Ansatz – es enthält _nur_ die Elemente des Formulars und kann nicht mit anderen Attributen des `form` vermischt werden.
+Sie können das Element des Formulars auch durch Verwendung seines `name`-Attributs als Schlüssel des `form` erhalten, aber die Verwendung von `elements` ist eine bessere Herangehensweise—es enthält _nur_ die Elemente des Formulars und kann nicht mit anderen Attributen des `form` vermischt werden.
 
 ### Probleme mit der Benennung von Elementen
 
-Einige Namen stehen dem JavaScript-Zugriff auf die Eigenschaften und Elemente des Formulars im Weg.
+Einige Namen werden beim JavaScript-Zugriff auf die Eigenschaften und Elemente des Formulars stören.
 
-Zum Beispiel:
+Beispielsweise:
 
-- `<input name="id">` wird Vorrang vor `<form id="…">` haben. Das bedeutet, dass `form.id` sich nicht mehr auf die ID des Formulars bezieht, sondern auf das Element, dessen Name `"id"` ist. Dies wird bei allen anderen Formulareigenschaften der Fall sein, wie bei `<input name="action">` oder `<input name="post">`.
-- `<input name="elements">` macht die `elements`-Sammlung des Formulars unzugänglich. Die Referenz `form.elements` wird nun auf das einzelne Element verweisen.
+- `<input name="id">` hat Vorrang vor `<form id="…">`. Das bedeutet, dass `form.id` sich nicht auf die ID des Formulars beziehen wird, sondern auf das Element, dessen Name `"id"` ist. Dies wird auch für andere Formulareigenschaften gelten, wie `<input name="action">` oder `<input name="post">`.
+- `<input name="elements">` wird die `elements`-Sammlung des Formulars unzugänglich machen. Die Referenz `form.elements` wird sich nun auf das einzelne Element beziehen.
 
 Um solche Probleme mit Elementnamen zu vermeiden:
 
-- _Verwenden Sie immer_ die `elements`-Sammlung, um Mehrdeutigkeiten zwischen einem Elementnamen und einer Formulareigenschaft zu vermeiden.
-- _Verwenden Sie niemals_ `"elements"` als Elementnamen.
+- Verwenden Sie _immer_ die `elements`-Sammlung, um Mehrdeutigkeiten zwischen einem Elementnamen und einer Formulareigenschaft zu vermeiden.
+- Verwenden Sie _niemals_ `"elements"` als einen Elementnamen.
 
-Wenn Sie kein JavaScript verwenden, wird dies kein Problem verursachen.
+Wenn Sie kein JavaScript verwenden, wird dies kein Problem darstellen.
 
-### Elemente, die als Formularsteuerelemente gelten
+### Elemente, die als Formular-Steuerelemente angesehen werden
 
-Die von `HTMLFormElement.elements` und `HTMLFormElement.length` eingeschlossenen Elemente sind die folgenden:
+Die Elemente, die von `HTMLFormElement.elements` und `HTMLFormElement.length` eingeschlossen sind, sind die folgenden:
 
 - {{HTMLElement("button")}}
 - {{HTMLElement("fieldset")}}
@@ -113,11 +113,11 @@ Die von `HTMLFormElement.elements` und `HTMLFormElement.length` eingeschlossenen
 - {{HTMLElement("select")}}
 - {{HTMLElement("textarea")}}
 
-Keine anderen Elemente sind in der von `elements` zurückgegebenen Liste enthalten, was es zu einem hervorragenden Weg macht, um die wichtigsten Elemente beim Verarbeiten von Formularen zu erreichen.
+Keine anderen Elemente sind in der von `elements` zurückgegebenen Liste enthalten, was sie zu einer ausgezeichneten Möglichkeit macht, die wichtigeren Elemente beim Bearbeiten von Formularen zu erhalten.
 
 ## Beispiele
 
-Ein neues Formularelement erstellen, seine Attribute ändern und es dann absenden:
+Erstellen eines neuen Formularelements, Ändern seiner Attribute und dann Senden:
 
 ```js
 const f = document.createElement("form"); // Create a form
@@ -127,7 +127,7 @@ f.method = "POST";
 f.submit(); // Call the form's submit() method
 ```
 
-Informationen aus einem `<form>`-Element extrahieren und einige seiner Attribute setzen:
+Extrahieren von Informationen aus einem `<form>`-Element und Setzen einiger seiner Attribute:
 
 ```html
 <form name="formA" action="/cgi-bin/test" method="post">
@@ -175,7 +175,7 @@ Informationen aus einem `<form>`-Element extrahieren und einige seiner Attribute
 </script>
 ```
 
-Ein `<form>` in ein neues Fenster übermitteln:
+Einreichen eines `<form>` in ein neues Fenster:
 
 ```html
 <!doctype html>
@@ -240,4 +240,4 @@ Ein `<form>` in ein neues Fenster übermitteln:
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{HTMLElement("form")}}.
+- Das HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("form")}}.

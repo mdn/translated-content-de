@@ -2,12 +2,12 @@
 title: ::before
 slug: Web/CSS/::before
 l10n:
-  sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83
+  sourceCommit: e15d9bac2333a216eb610fdf3a0c8ba7ca7948f2
 ---
 
 {{CSSRef}}
 
-Im CSS erzeugt **`::before`** ein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements), das das erste Kind des ausgewählten Elements ist. Es wird häufig verwendet, um mit der {{cssxref("content")}}-Eigenschaft ein kosmetisches Element hinzuzufügen. Standardmäßig ist es inline.
+In CSS, **`::before`** erstellt ein [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements), das das erste Kind des ausgewählten Elements ist. Es wird häufig verwendet, um kosmetische Inhalte zu einem Element mit der {{cssxref("content")}}-Eigenschaft hinzuzufügen. Es ist standardmäßig inline.
 
 {{InteractiveExample("CSS Demo: ::before", "tabbed-standard")}}
 
@@ -40,9 +40,6 @@ a::before {
 </p>
 ```
 
-> [!NOTE]
-> Die durch `::before` und `::after` erzeugten Pseudoelemente sind Boxen, die erzeugt werden, als ob sie unmittelbare Kinder des Elements wären, auf dem sie angewendet werden, oder des "ursprünglichen Elements", und können daher nicht auf _{{Glossary("replaced_elements", "ersetzte Elemente")}}_ wie {{htmlelement("img")}} angewendet werden, deren Inhalt außerhalb des CSS-Formatierungsmodells liegt.
-
 ## Syntax
 
 ```css-nolint
@@ -52,19 +49,28 @@ a::before {
 }
 ```
 
-Wenn die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht spezifiziert ist, einen ungültigen Wert hat oder `normal` oder `none` als Wert hat, wird das `::before`-Pseudoelement nicht gerendert. Es verhält sich, als ob `display: none` gesetzt wäre.
+## Beschreibung
 
-> **Hinweis:** [Selectors Level 3](https://drafts.csswg.org/selectors-3/#gen-content) führte die Doppelpunkt-Notation `::before` ein, um [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Browser akzeptieren auch die Einfache-Doppelpunkt-Notation `:before`, die in CSS2 eingeführt wurde.
+Das `::before`-Pseudo-Element ist eine inline Box, die als unmittelbares Kind des Elements erzeugt wird, mit dem es verbunden ist, oder des „ursprünglichen Elements“. Es wird häufig verwendet, um kosmetische Inhalte zu einem Element über die {{CSSxRef("content")}}-Eigenschaft hinzuzufügen, wie z.B. Symbole, Anführungszeichen oder andere Dekorationen.
+
+`::before`-Pseudo-Elemente können nicht auf _{{Glossary("replaced_elements", "ersetzte Elemente")}}_ angewendet werden, wie z.B. {{htmlelement("img")}}, deren Inhalt durch externe Ressourcen bestimmt wird und nicht durch die Stile des aktuellen Dokuments beeinflusst wird.
+
+Ein `::before`-Pseudo-Element mit einem {{cssxref("display")}}-Wert von `list-item` verhält sich wie ein Listenelement und kann deshalb ein {{cssxref("::marker")}}-Pseudo-Element ebenso wie ein {{htmlelement("li")}}-Element erzeugen.
+
+Wenn die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht spezifiziert ist, einen ungültigen Wert hat, oder `normal` oder `none` als Wert hat, wird das `::before`-Pseudo-Element nicht gerendert. Es verhält sich, als ob `display: none` gesetzt ist.
+
+> [!NOTE]
+> Die [Selectors Level 3](https://drafts.csswg.org/selectors-3/#gen-content)-Spezifikation führte die Doppelpunkt-Notation `::before` ein, um [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Browser akzeptieren auch die Ein-Punkt-Notation `:before`, die in CSS2 eingeführt wurde.
 
 ## Barrierefreiheit
 
-Die Verwendung eines `::before`-Pseudoelements zur Hinzufügung von Inhalten wird nicht empfohlen, da es für Bildschirmleser nicht zuverlässig zugänglich ist.
+Die Verwendung eines `::before`-Pseudo-Elements zur Hinzufügung von Inhalten wird nicht empfohlen, da es nicht immer zuverlässig von Screenreadern erkannt wird.
 
 ## Beispiele
 
-### Hinzufügen von Anführungszeichen
+### Anführungszeichen
 
-Ein Beispiel für die Verwendung von `::before`-Pseudoelementen ist das Bereitstellen von Anführungszeichen. Hier verwenden wir sowohl `::before` als auch {{Cssxref("::after")}}, um Anführungszeichen einzufügen.
+Ein Beispiel für die Verwendung von `::before`-Pseudo-Elementen ist das Hinzufügen von Anführungszeichen. Hier verwenden wir sowohl `::before` als auch {{Cssxref("::after")}}, um Anführungszeichen einzufügen.
 
 #### HTML
 
@@ -92,7 +98,7 @@ q::after {
 
 ### Dekoratives Beispiel
 
-Wir können Text oder Bilder in der {{cssxref("content")}}-Eigenschaft auf fast jede gewünschte Art und Weise gestalten.
+Wir können den Text oder die Bilder in der {{cssxref("content")}}-Eigenschaft nahezu beliebig gestalten.
 
 #### HTML
 
@@ -119,9 +125,9 @@ Wir können Text oder Bilder in der {{cssxref("content")}}-Eigenschaft auf fast 
 
 {{EmbedLiveSample('Decorative_example', 450, 60)}}
 
-### To-Do-Liste
+### Aufgabenliste
 
-In diesem Beispiel erstellen wir eine To-Do-Liste mit Pseudoelementen. Diese Methode kann häufig verwendet werden, um kleine Anpassungen an der Benutzeroberfläche vorzunehmen und die Benutzererfahrung zu verbessern.
+In diesem Beispiel erstellen wir eine To-do-Liste mit Pseudo-Elementen. Diese Methode kann häufig verwendet werden, um kleine Details zur Benutzeroberfläche hinzuzufügen und die Benutzererfahrung zu verbessern.
 
 #### HTML
 
@@ -182,15 +188,15 @@ list.addEventListener(
 );
 ```
 
-Hier ist das obige Codebeispiel in Echtzeit. Beachten Sie, dass keine Symbole verwendet wurden und dass das Häkchen tatsächlich das `::before` ist, das in CSS gestaltet wurde. Gehen Sie weiter und erledigen Sie ein paar Dinge.
+Hier ist das obige Code-Beispiel live ausgeführt. Beachten Sie, dass keine Symbole verwendet werden und das Häkchen tatsächlich das `::before` ist, das in CSS gestylt wurde. Gehen Sie voran und erledigen Sie einige Aufgaben.
 
 #### Ergebnis
 
 {{EmbedLiveSample('To-do_list', 400, 300)}}
 
-### Sonderzeichen
+### Unicode-Escape-Sequenzen
 
-Da es sich um CSS handelt, nicht um HTML, können Sie in Content-Werten **keine** Markup-Entitäten verwenden. Wenn Sie ein Sonderzeichen verwenden müssen und es nicht direkt in Ihren CSS-Inhaltsstring eingeben können, verwenden Sie eine Unicode-Escape-Sequenz, die aus einem umgekehrten Schrägstrich gefolgt vom hexadezimalen Unicode-Wert besteht.
+Da generierter Inhalt CSS und nicht HTML ist, können Sie in Inhaltswerten **keine** Markup-Entities verwenden. Wenn Sie ein Sonderzeichen verwenden müssen und es nicht direkt in Ihre CSS-Content-Zeichenfolge eingeben können, verwenden Sie eine Unicode-Escape-Sequenz. Diese besteht aus einem Backslash gefolgt vom hexadezimalen Unicode-Wert des Zeichens.
 
 #### HTML
 
@@ -218,8 +224,8 @@ li[aria-current="step"] {
   font-weight: bold;
 }
 
-li[aria-current="step"]::after {
-  content: " \21E6"; /* Hexadecimal for Unicode Leftwards white arrow*/
+li[aria-current="step"]::before {
+  content: "\21E8 "; /* Unicode escape sequence for "Rightwards White Arrow" */
   display: inline;
 }
 ```
@@ -227,6 +233,56 @@ li[aria-current="step"]::after {
 #### Ergebnis
 
 {{EmbedLiveSample('Special_characters', 400, 200)}}
+
+### `::before::marker` verschachtelte Pseudo-Elemente
+
+Das `::before::marker` [verschachtelte Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements#nesting_pseudo-elements) wählt den Listentext {{CSSxRef("::marker")}} eines `::after`-Pseudo-Elements aus, das selbst ein Listenelement ist, d.h. es hat seine {{CSSxRef("display")}}-Eigenschaft auf `list-item` gesetzt.
+
+In dieser Demo generieren wir zusätzliche [Listenelemente](/de/docs/Web/HTML/Element/li) vor und nach einem listennavigationsmenü mit `::before` und `::after` (indem wir sie auf `display: list-item` setzen, damit sie sich wie Listenelemente verhalten). Anschließend verwenden wir `ul::before::marker` und `ul::after::marker`, um ihren Listensymbolen eine andere Farbe zu geben.
+
+#### HTML
+
+```html
+<ul>
+  <li><a href="#">Introduction</a></li>
+  <li><a href="#">Getting started</a></li>
+  <li><a href="#">Understanding the basics</a></li>
+</ul>
+```
+
+#### CSS
+
+```css
+ul {
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul::before,
+ul::after {
+  display: list-item;
+  color: orange;
+}
+
+ul::before {
+  content: "Start";
+}
+
+ul::after {
+  content: "End";
+}
+
+ul::before::marker,
+ul::after::marker {
+  color: red;
+}
+```
+
+#### Ergebnis
+
+{{EmbedLiveSample('`::before::marker` nested pseudo-elements', 450, 200)}}
+
+Während die Listenpunkte der drei Navigationselemente generiert werden, weil sie `<li>`-Elemente sind, wurden „Start“ und „Ende“ über Pseudo-Elemente eingefügt und `::marker` wird verwendet, um ihre Punkte zu stylen.
 
 ## Spezifikationen
 

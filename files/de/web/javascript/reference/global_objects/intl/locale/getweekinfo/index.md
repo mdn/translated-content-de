@@ -2,15 +2,15 @@
 title: Intl.Locale.prototype.getWeekInfo()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/getWeekInfo
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{JSRef}}
 
-Die **`getWeekInfo()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen gibt ein `weekInfo`-Objekt mit den Eigenschaften `firstDay`, `weekend` und `minimalDays` für diese Locale zurück.
+Die Methode **`getWeekInfo()`** von {{jsxref("Intl.Locale")}} Instanzen gibt ein `weekInfo`-Objekt mit den Eigenschaften `firstDay`, `weekend` und `minimalDays` für diese Locale zurück.
 
 > [!NOTE]
-> In einigen Versionen bestimmter Browser wurde diese Methode als Accessor-Eigenschaft namens `weekInfo` implementiert. Da jedoch bei jedem Zugriff ein neues Objekt zurückgegeben wird, ist sie jetzt als Methode implementiert, um die Situation zu vermeiden, dass `locale.weekInfo === locale.weekInfo` `false` zurückgibt. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für weitere Details.
+> In einigen Versionen von einigen Browsern wurde diese Methode als Zugriffs-Eigenschaft namens `weekInfo` implementiert. Da sie jedoch bei jedem Zugriff ein neues Objekt zurückgibt, wird sie jetzt als Methode implementiert, um die Situation zu vermeiden, dass `locale.weekInfo === locale.weekInfo` `false` zurückgibt. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
 
 ## Syntax
 
@@ -24,20 +24,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein Objekt, das die Wocheninformationen darstellt, die mit den Locale-Daten in [UTS 35's Week Elements](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Patterns_Week_Elements) angegeben sind. Es hat die folgenden Eigenschaften:
+Ein Objekt, das die Wocheninformationen repräsentiert, die mit den Locale-Daten in [UTS 35's Week Elements](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Patterns_Week_Elements) spezifiziert sind. Es hat die folgenden Eigenschaften:
 
 - `firstDay`
   - : Eine Ganzzahl zwischen 1 (Montag) und 7 (Sonntag), die den ersten Tag der Woche für die Locale angibt. Üblicherweise 1, 5, 6 oder 7.
 - `weekend`
-  - : Ein Array von Ganzzahlen zwischen 1 und 7, das die Wochenendtages für die Locale angibt. Dies ist normalerweise kontinuierlich, da UTS 35 stattdessen `weekendStart` und `weekendEnd` speichert.
+  - : Ein Array von Ganzzahlen zwischen 1 und 7, das die Wochenendtage für die Locale angibt. Dies ist üblicherweise kontinuierlich, da UTS 35 stattdessen `weekendStart` und `weekendEnd` speichert.
 - `minimalDays`
-  - : Eine Ganzzahl zwischen 1 und 7 (üblicherweise 1 und 4), die die minimal erforderlichen Tage in der ersten Woche eines Monats oder Jahres für Berechnungen der Woche des Jahres oder der Woche des Monats angibt (z.B. die 20. Woche des Jahres). Zum Beispiel muss in der [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Kalender die erste Woche eines Jahres mindestens 4 Tage in diesem Jahr haben, sodass, wenn der 1. Januar ein Freitag, Samstag oder Sonntag ist, er als Teil der letzten Woche des Vorjahres gezählt wird.
+  - : Eine Ganzzahl zwischen 1 und 7 (üblicherweise 1 und 4), die die minimal erforderlichen Tage in der ersten Woche eines Monats oder Jahres angibt, für Berechnungen der Woche im Jahr oder Woche im Monat (z. B. die 20. Woche im Jahr). Im [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Kalender muss zum Beispiel die erste Woche eines Jahres mindestens 4 Tage in diesem Jahr haben, sodass, wenn der 1. Januar ein Freitag, Samstag oder Sonntag ist, er als Teil der letzten Woche des vorherigen Jahres gezählt wird.
 
 ## Beispiele
 
-### Abrufen der Wocheninformationen
+### Erhalten der Wocheninformationen
 
-Rückgabe der Wocheninformationen für eine bestimmte `Locale`.
+Geben Sie die Wocheninformationen für eine gegebene `Locale` zurück.
 
 ```js
 const he = new Intl.Locale("he"); // Hebrew (Israel)

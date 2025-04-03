@@ -2,7 +2,7 @@
 title: order
 slug: Web/SVG/Reference/Attribute/order
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 Das **`order`**-Attribut gibt die Größe der Matrix an, die von einem {{SVGElement("feConvolveMatrix")}}-Element verwendet werden soll.
@@ -44,7 +44,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -71,9 +71,9 @@ svg {
 
 - `<number-optional-number>`
 
-  - : Dieser Wert gibt die Anzahl der Zellen in jeder Dimension für die Kernelmatrix an. Die angegebenen Werte müssen {{cssxref("integer")}}s größer als null sein. Werte, die keine Ganzzahlen sind, werden abgeschnitten, d.h. auf den nächsten ganzzahligen Wert in Richtung null gerundet. Die erste Zahl gibt die Anzahl der Spalten in der Matrix an. Die zweite Zahl gibt die Anzahl der Reihen in der Matrix an. Wird keine zweite Zahl angegeben, wird standardmäßig die erste Zahl verwendet.
+  - : Dieser Wert gibt die Anzahl der Zellen in jeder Dimension für die Kernelmatrix an. Die angegebenen Werte müssen {{cssxref("integer")}}s größer als null sein. Werte, die keine Ganzzahlen sind, werden abgeschnitten, d.h. auf den nächstgelegenen ganzzahligen Wert in Richtung null gerundet. Die erste Zahl gibt die Anzahl der Spalten in der Matrix an. Die zweite Zahl gibt die Anzahl der Zeilen in der Matrix an. Falls keine zweite Zahl angegeben wird, wird der Wert der ersten Zahl übernommen.
 
-    Es wird empfohlen, nur kleine Werte (z.B. 3) zu verwenden; höhere Werte können zu einem sehr hohen CPU-Overhead führen und erzeugen in der Regel keine Ergebnisse, die den Einfluss auf die Leistung rechtfertigen.
+    Es wird empfohlen, nur kleine Werte (z.B. 3) zu verwenden; höhere Werte können zu einer sehr hohen CPU-Auslastung führen und produzieren normalerweise keine Ergebnisse, die die Auswirkungen auf die Leistung rechtfertigen.
 
 ## Spezifikationen
 

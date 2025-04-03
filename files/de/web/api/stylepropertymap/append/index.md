@@ -1,14 +1,16 @@
 ---
-title: "StylePropertyMap: append()-Methode"
+title: "StylePropertyMap: append() Methode"
 short-title: append()
 slug: Web/API/StylePropertyMap/append
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`append()`**-Methode der [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Schnittstelle fügt den übergebenen CSS-Wert mit der angegebenen Eigenschaft zum `StylePropertyMap` hinzu.
+Die **`append()`** Methode der
+[`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap) Schnittstelle fügt den übergebenen CSS-Wert der
+`StylePropertyMap` mit der angegebenen Eigenschaft hinzu.
 
 ## Syntax
 
@@ -29,7 +31,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie ein zusätzlicher Hintergrundbildwert zur {{cssxref('background-image')}}-Eigenschaft des Elements hinzugefügt wird, unter Verwendung von [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap).
+Dieses Beispiel zeigt, wie ein zusätzlicher Hintergrundbildwert zur
+{{cssxref('background-image')}} Eigenschaft des Elements hinzugefügt wird, unter Verwendung von
+[`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap).
 
 ```js
 // get the button element

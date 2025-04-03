@@ -3,18 +3,18 @@ title: "HTMLFencedFrameElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/HTMLFencedFrameElement/height
 l10n:
-  sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Die **`height`**-Eigenschaft des [`HTMLFencedFrameElement`](/de/docs/Web/API/HTMLFencedFrameElement) gibt den Wert des entsprechenden {{htmlelement("fencedframe")}}-`height`-Attributs an und setzt diesen, welcher die Höhe des Elements festlegt.
+Die **`height`**-Eigenschaft des [`HTMLFencedFrameElement`](/de/docs/Web/API/HTMLFencedFrameElement) liest und setzt den Wert des entsprechenden {{htmlelement("fencedframe")}} `height`-Attributes, welches die Höhe des Elements angibt.
 
-Die Größe des eingebetteten Inhalts kann durch interne `contentWidth` und `contentHeight` Eigenschaften des [`config`](/de/docs/Web/API/HTMLFencedFrameElement/config)-Objekts des `<fencedframe>` festgelegt werden. In solchen Fällen wird durch Ändern der [`width`](/de/docs/Web/API/HTMLFencedFrameElement/width) oder `height` des `<fencedframe>` die Größe des eingebetteten Containers auf der Seite geändert, jedoch wird das Dokument innerhalb des Containers visuell skaliert, um zu passen. Die gemeldete Breite und Höhe des eingebetteten Dokuments (d.h. [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)) bleiben unverändert.
+Die Größe des eingebetteten Inhalts kann durch interne `contentWidth`- und `contentHeight`-Eigenschaften des `<fencedframe>`'s [`config`](/de/docs/Web/API/HTMLFencedFrameElement/config)-Objekts festgelegt werden. In solchen Fällen ändert sich die Größe des eingebetteten Containers auf der Seite, wenn die [`width`](/de/docs/Web/API/HTMLFencedFrameElement/width) oder `height` des `<fencedframe>` geändert wird, jedoch wird das Dokument im Container visuell skaliert, um zu passen. Die berichtete Breite und Höhe des eingebetteten Dokuments (d.h. [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)) bleibt unverändert.
 
 ## Wert
 
-Ein String, der die Höhe des Elements in CSS-Pixeln darstellt. Der Standardwert ist `150`.
+Ein String, der die Höhe des Elements in CSS-Pixel angibt. Der Standardwert ist `150`.
 
 ## Beispiele
 

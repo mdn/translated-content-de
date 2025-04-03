@@ -2,14 +2,14 @@
 title: Erste Schritte mit Svelte
 slug: Learn_web_development/Core/Frameworks_libraries/Svelte_getting_started
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{LearnSidebar}}
 
 {{NextMenu("Learn_web_development/Core/Frameworks_libraries/Svelte_todo_list_beginning", "Learn_web_development/Core/Frameworks_libraries")}}
 
-In diesem Artikel geben wir eine kurze Einführung in das [Svelte-Framework](https://svelte.dev/). Wir werden sehen, wie Svelte funktioniert und was es von den anderen Frameworks und Tools unterscheidet, die wir bisher gesehen haben. Anschließend lernen wir, wie man unsere Entwicklungsumgebung einrichtet, eine Beispiel-App erstellt, die Struktur des Projekts versteht und wie man es lokal ausführt und für die Produktion baut.
+In diesem Artikel geben wir eine kurze Einführung in das [Svelte-Framework](https://svelte.dev/). Wir werden sehen, wie Svelte funktioniert und was es von anderen bisher betrachteten Frameworks und Tools unterscheidet. Anschließend lernen wir, wie Sie Ihre Entwicklungsumgebung einrichten, eine Beispiel-App erstellen, die Struktur des Projekts verstehen und es lokal ausführen und für die Produktion bauen.
 
 <table>
   <tbody>
@@ -17,87 +17,88 @@ In diesem Artikel geben wir eine kurze Einführung in das [Svelte-Framework](htt
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Mindestens sollten Sie mit den Kernsprachen
+          Es wird mindestens empfohlen, dass Sie mit den Kernsprachen
           <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
           <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> vertraut sein und
-          Kenntnisse über die
+          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> vertraut sind und
+          Kenntnisse über das
           <a
             href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
             >Terminal/Kommandozeile</a
           > haben.
         </p>
         <p>
-          Svelte ist ein Compiler, der minimalen und hochoptimierten JavaScript-Code aus unseren Quellen generiert; Sie benötigen ein Terminal mit installierten Node + npm, um Ihre App zu kompilieren und zu bauen.
+          Svelte ist ein Compiler, der aus unseren Quellen minimales und hochoptimiertes
+          JavaScript generiert; hierfür benötigen Sie ein Terminal mit installiertem Node + npm, um Ihre App zu kompilieren und zu bauen.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Eine lokale Svelte-Entwicklungsumgebung einrichten, eine Starter-App erstellen und bauen und die Grundlagen ihres Funktionierens verstehen.
+        Eine lokale Svelte-Entwicklungsumgebung einzurichten, eine Starter-App zu erstellen und zu bauen und die Grundlagen des Ablaufs zu verstehen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Svelte: Ein neuer Ansatz zum Erstellen von reichhaltigen Benutzeroberflächen
+## Svelte: Ein neuer Ansatz zum Erstellen reichhaltiger Benutzeroberflächen
 
-Svelte bietet einen anderen Ansatz zum Erstellen von Webanwendungen als einige der anderen Frameworks, die in diesem Modul behandelt werden. Während Frameworks wie React und Vue den Großteil ihrer Arbeit im Browser des Benutzers ausführen, während die App läuft, verschiebt Svelte diese Arbeit in einen Kompilierungsprozess, der nur beim Erstellen der App ausgeführt wird und hochoptimiertes Vanilla-JavaScript produziert.
+Svelte bietet einen anderen Ansatz zum Erstellen von Web-Apps als einige der anderen Frameworks, die in diesem Modul behandelt werden. Während Frameworks wie React und Vue den Großteil ihrer Arbeit im Browser des Benutzers während des Betriebs der App ausführen, verlagert Svelte diese Arbeit in einen Kompilierungsschritt, der nur beim Erstellen Ihrer App stattfindet und hochoptimiertes Vanilla-JavaScript produziert.
 
-Das Ergebnis dieses Ansatzes sind nicht nur kleinere Anwendungsbündel und eine bessere Leistung, sondern auch eine Entwicklererfahrung, die für Personen, die wenig Erfahrung mit dem modernen Tooling-Ökosystem haben, zugänglicher ist.
+Das Ergebnis dieses Ansatzes sind nicht nur kleinere Anwendungs-Bundles und bessere Leistung, sondern auch ein Entwicklererlebnis, das für Personen mit begrenzter Erfahrung in der modernen Tooling-Landschaft zugänglicher ist.
 
-Svelte hält sich eng an das klassische Webentwicklungsmodell von HTML, CSS und JS und fügt nur wenige Erweiterungen zu HTML und JavaScript hinzu. Es hat arguably weniger Konzepte und Tools zu lernen als einige der anderen Framework-Optionen.
+Svelte hält sich eng an das klassische Webentwicklungsmodell von HTML, CSS und JS und fügt lediglich einige Erweiterungen zu HTML und JavaScript hinzu. Es hat argumentativ weniger Konzepte und Tools zu lernen als einige der anderen Framework-Optionen.
 
-Seine Hauptnachteile sind derzeit, dass es ein junges Framework ist – sein Ökosystem ist daher in Bezug auf Tools, Support, Plugins, klare Nutzungsmuster usw. im Vergleich zu etablierten Frameworks noch begrenzt, und es gibt auch weniger Jobmöglichkeiten. Aber seine Vorteile sollten genug sein, um Ihr Interesse zu wecken, es zu erkunden.
+Seine aktuellen Hauptnachteile sind, dass es ein junges Framework ist – sein Ökosystem ist daher im Vergleich zu ausgereifteren Frameworks in Bezug auf Tools, Support, Plugins, klare Nutzungsmuster usw. begrenzter und es gibt auch weniger Jobmöglichkeiten. Aber seine Vorteile sollten ausreichen, um Ihr Interesse zu wecken, es zu erkunden.
 
 > [!NOTE]
-> Svelte bietet [offizielle Unterstützung für TypeScript](https://svelte.dev/docs/typescript). Wir werden dies später in dieser Tutorialreihe näher betrachten.
+> Svelte hat [offizielle TypeScript-Unterstützung](https://svelte.dev/docs/typescript). Wir werden später in dieser Tutorial-Serie darauf eingehen.
 
-Wir empfehlen Ihnen, das [Svelte-Tutorial](https://learn.svelte.dev/) für eine wirklich schnelle Einführung in die grundlegenden Konzepte durchzugehen, bevor Sie zu dieser Tutorialreihe zurückkehren, um zu lernen, wie man etwas etwas detaillierteres aufbaut.
+Wir ermutigen Sie, das [Svelte-Tutorial](https://learn.svelte.dev/) für eine wirklich schnelle Einführung in die grundlegenden Konzepte durchzugehen, bevor Sie zu dieser Tutorial-Serie zurückkehren, um zu lernen, wie man etwas etwas detaillierteres erstellt.
 
 ## Anwendungsfälle
 
-Svelte kann verwendet werden, um kleine Teile einer Benutzeroberfläche oder ganze Anwendungen zu entwickeln. Sie können entweder von Grund auf neu starten, indem Sie Svelte Ihre Benutzeroberfläche steuern lassen, oder Sie können es schrittweise in eine bestehende Anwendung integrieren.
+Svelte kann verwendet werden, um kleine Teile einer Benutzeroberfläche oder ganze Anwendungen zu entwickeln. Sie können entweder von Anfang an beginnen und Svelte Ihre Benutzeroberfläche steuern lassen oder es schrittweise in eine bestehende Anwendung integrieren.
 
-Nichtsdestotrotz ist Svelte besonders geeignet, um die folgenden Situationen anzugehen:
+Dennoch eignet sich Svelte besonders gut für die Bewältigung der folgenden Situationen:
 
-- Webanwendungen, die für leistungsschwache Geräte bestimmt sind: Anwendungen, die mit Svelte erstellt wurden, haben kleinere Paketgrößen, was ideal für Geräte mit langsamen Netzwerkverbindungen und begrenzter Rechenleistung ist. Weniger Code bedeutet weniger KB zum Herunterladen, Parsen, Ausführen und in Erinnerung behalten.
-- Hochinteraktive Seiten oder komplexe Visualisierungen: Wenn Sie Datenvisualisierungen erstellen, die eine große Anzahl von DOM-Elementen anzeigen müssen, werden die Leistungsvorteile, die sich aus einem Framework ohne Laufzeit-Overhead ergeben, dafür sorgen, dass Benutzerinteraktionen schnell und reaktionsschnell sind.
-- Onboarding von Personen mit Grundkenntnissen in Webentwicklung: Svelte hat eine flache Lernkurve. Webentwickler mit grundlegenden HTML-, CSS- und JavaScript-Kenntnissen können die Besonderheiten von Svelte schnell verstehen und damit beginnen, Webanwendungen zu erstellen.
+- Webanwendungen für Geräte mit geringer Leistung: Anwendungen, die mit Svelte erstellt werden, haben kleinere Bundle-Größen, was ideal für Geräte mit langsamen Netzwerkverbindungen und begrenzter Rechenleistung ist. Weniger Code bedeutet weniger KB zum Herunterladen, Parsen, Ausführen und Verbleiben im Speicher.
+- Hochinteraktive Seiten oder komplexe Visualisierungen: Wenn Sie Datenvisualisierungen erstellen, die eine große Anzahl von DOM-Elementen anzeigen müssen, werden die Leistungsgewinne, die aus einem Framework ohne Laufzeit-Overhead resultieren, sicherstellen, dass Benutzerinteraktionen schnell und reaktionsschnell sind.
+- Onboarding von Personen mit grundlegenden Kenntnissen in der Webentwicklung: Svelte hat eine flache Lernkurve. Webentwickler mit grundlegenden HTML-, CSS- und JavaScript-Kenntnissen können die Svelte-spezifischen Aspekte leicht erfassen und in kurzer Zeit mit dem Erstellen von Webanwendungen beginnen.
 
-Das Svelte-Team hat [SvelteKit](https://kit.svelte.dev/) eingeführt, ein Framework zum Erstellen von Webanwendungen mit Svelte. Es enthält Funktionen, die in modernen Webframeworks zu finden sind, wie Dateisystem-basiertes Routing, serverseitiges Rendering (SSR), seitenbezogene Render-Modi, Offline-Unterstützung und mehr. Weitere Informationen zu SvelteKit finden Sie im [offiziellen Tutorial](https://learn.svelte.dev/) und in der [Dokumentation](https://kit.svelte.dev/docs/introduction).
+Das Svelte-Team hat [SvelteKit](https://kit.svelte.dev/) eingeführt, ein Framework zum Erstellen von Webanwendungen mit Svelte. Es enthält Funktionen, die in modernen Webframeworks zu finden sind, wie z.B. dateibasiertes Routing, serverseitiges Rendering (SSR), seitenbezogene Render-Modi, Offline-Unterstützung und mehr. Weitere Informationen zu SvelteKit finden Sie im [offiziellen Tutorial](https://learn.svelte.dev/) und in der [Dokumentation](https://kit.svelte.dev/docs/introduction).
 
 Svelte ist auch für die mobile Entwicklung über [Svelte Native](https://svelte-native.technology/) verfügbar.
 
 ## Wie funktioniert Svelte?
 
-Svelte ist ein Compiler, der HTML, CSS und JavaScript erweitern kann und optimalen JavaScript-Code ohne Laufzeit-Overhead generiert. Um dies zu erreichen, erweitert Svelte die Webtechnologien in folgenden Punkten:
+Als Compiler kann Svelte HTML, CSS und JavaScript erweitern und optimalen JavaScript-Code ohne Laufzeit-Overhead generieren. Um dies zu erreichen, erweitert Svelte Vanilla-Webtechnologien auf folgende Weise:
 
-- Es erweitert HTML, indem es JavaScript-Ausdrücke im Markup ermöglicht und Direktiven zum Verwenden von Bedingungen und Schleifen bereitstellt, ähnlich wie bei Handlebars.
-- Es erweitert CSS, indem ein Scoping-Mechanismus hinzugefügt wird, der es jedem Komponenten erlaubt, seine eigenen Stile zu definieren, ohne das Risiko, mit den Stilen anderer Komponenten zu kollidieren.
-- Es erweitert JavaScript, indem bestimmte Direktiven der Sprache neu interpretiert werden, um echte Reaktivität zu erreichen und die Verwaltung des Komponentenstatus zu erleichtern.
+- Es erweitert HTML, indem es JavaScript-Ausdrücke im Markup zulässt und Direktiven zum Verwenden von Bedingungen und Schleifen bereitstellt, ähnlich wie bei Handlebars.
+- Es erweitert CSS durch das Hinzufügen eines Scopings-Mechanismus, der es jedem Component ermöglicht, seine eigenen Stile zu definieren, ohne dass die Gefahr besteht, dass diese mit den Stilen anderer Komponenten kollidieren.
+- Es erweitert JavaScript, indem spezifische Direktiven der Sprache neu interpretiert werden, um echte Reaktivität zu erreichen und das Component-Statusmanagement zu erleichtern.
 
-Der Compiler greift nur in sehr spezifischen Situationen und nur im Kontext von Svelte-Komponenten ein. Erweiterungen der JavaScript-Sprache sind minimal und sorgfältig ausgewählt, um die JavaScript-Syntax nicht zu brechen oder Entwickler abzuschrecken. Tatsächlich werden Sie hauptsächlich mit Vanilla-JavaScript arbeiten.
+Der Compiler greift nur in sehr spezifischen Situationen und nur im Kontext von Svelte-Komponenten ein. Die Erweiterungen der JavaScript-Sprache sind minimal und sorgfältig ausgewählt, um die JavaScript-Syntax nicht zu brechen oder Entwickler abzuschrecken. Tatsächlich werden Sie meistens mit reinem JavaScript arbeiten.
 
 ## Erste Schritte mit Svelte
 
-Da Svelte ein Compiler ist, können Sie nicht einfach ein `<script src="svelte.js">`-Tag auf Ihrer Seite hinzufügen und es in Ihre App importieren. Sie müssen Ihre Entwicklungsumgebung einrichten, damit der Compiler seine Arbeit erledigen kann.
+Da Svelte ein Compiler ist, können Sie nicht einfach ein `<script src="svelte.js">`-Tag zu Ihrer Seite hinzufügen und es in Ihre App importieren. Sie müssen Ihre Entwicklungsumgebung einrichten, damit der Compiler seine Arbeit tun kann.
 
 ### Anforderungen
 
-Um mit Svelte zu arbeiten, müssen Sie [Node.js](https://nodejs.org/) installiert haben. Es wird empfohlen, die LTS-Version (Long-term Support) zu verwenden. Node umfasst npm (den Node-Paketmanager) und npx (den Node-Paketrunner). Beachten Sie, dass Sie auch den Yarn-Paketmanager anstelle von npm verwenden können, aber wir gehen davon aus, dass Sie in diesem Tutorial-Set npm verwenden. Weitere Informationen zu npm und yarn finden Sie im [Paketverwaltungsgrundlagen](/de/docs/Learn_web_development/Extensions/Client-side_tools/Package_management).
+Um mit Svelte zu arbeiten, müssen Sie [Node.js](https://nodejs.org/) installiert haben. Es wird empfohlen, die Long-Term-Support (LTS)-Version zu verwenden. Node enthält npm (den Node Package Manager) und npx (den Node Package Runner). Beachten Sie, dass Sie auch den Yarn Package Manager anstelle von npm verwenden können, aber wir gehen in diesem Tutorial-Set davon aus, dass Sie npm verwenden. Siehe [Grundlagen der Paketverwaltung](/de/docs/Learn_web_development/Extensions/Client-side_tools/Package_management) für weitere Informationen zu npm und yarn.
 
-Wenn Sie Windows verwenden, müssen Sie einige Software installieren, um eine Parität mit dem Unix/macOS-Terminal zu erreichen, um die in diesem Tutorial erwähnten Terminalbefehle verwenden zu können. Gitbash (das als Teil des [Git für Windows-Werkzeugsets](https://gitforwindows.org/)) oder [Windows-Subsystem für Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about) geeignet sind. Weitere Informationen hierzu und zu Terminalbefehlen im Allgemeinen finden Sie im [Crashkurs zur Kommandozeile](/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line).
+Wenn Sie Windows verwenden, müssen Sie einige Software installieren, um Parität mit Unix/macOS-Terminals zu erreichen, um die in diesem Tutorial genannten Terminalbefehle zu verwenden. Gitbash (das als Teil des [Git für Windows Toolsets](https://gitforwindows.org/) verfügbar ist) oder das [Windows-Subsystem für Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about) sind beide geeignet. Siehe [Einführung in die Kommandozeile](/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line) für weitere Informationen zu diesen und zu Terminalbefehlen im Allgemeinen.
 
-Weitere Informationen finden Sie auch hier:
+Weitere Informationen finden Sie auch in den folgenden Quellen:
 
-- ["Über npm"](https://docs.npmjs.com/about-npm/) in der npm-Dokumentation
-- ["Einführung von npx"](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner) im npm-Blog
+- [„Über npm“](https://docs.npmjs.com/about-npm/) in der npm-Dokumentation
+- [„Einführung von npx“](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner) im npm-Blog
 
 ### Erstellen Ihrer ersten Svelte-App
 
-Der einfachste Weg, eine Starter-App-Vorlage zu erstellen, besteht darin, die Starter-Vorlagenanwendung einfach herunterzuladen. Sie können dies tun, indem Sie [sveltejs/template](https://github.com/sveltejs/template) auf GitHub besuchen, oder Sie können die Notwendigkeit des Herunterladens und Entpackens vermeiden und einfach [degit](https://github.com/Rich-Harris/degit) verwenden.
+Der einfachste Weg, eine Starter-App-Vorlage zu erstellen, besteht darin, die Starter-Vorlagenanwendung herunterzuladen. Sie können dies tun, indem Sie [sveltejs/template](https://github.com/sveltejs/template) auf GitHub besuchen, oder Sie können das Herunterladen und Entpacken umgehen und einfach [degit](https://github.com/Rich-Harris/degit) verwenden.
 
 Um Ihre Starter-App-Vorlage zu erstellen, führen Sie die folgenden Terminalbefehle aus:
 
@@ -109,15 +110,15 @@ npm run dev
 ```
 
 > [!NOTE]
-> degit tut keine Art von Magie — es ermöglicht Ihnen einfach, die neueste Version der Inhalte eines Git-Repositorys herunterzuladen und zu entpacken. Dies ist viel schneller als `git clone`, da es nicht den gesamten Verlauf des Repositorys herunterlädt oder ein vollständiges lokales Klon erstellt.
+> Degit führt keine Art von Magie aus – es ermöglicht Ihnen einfach, die neueste Version der Inhalte eines Git-Repos herunterzuladen und zu entpacken. Dies ist viel schneller als die Verwendung von `git clone`, da es nicht die gesamte Geschichte des Repos herunterlädt oder ein vollständiges lokales Klon erstellt.
 
-Nach der Ausführung von `npm run dev` wird Svelte Ihre Anwendung kompilieren und bauen. Es startet einen lokalen Server unter `localhost:8080`. Svelte überwacht Dateiaktualisierungen und kompiliert und aktualisiert die App automatisch neu, wenn Änderungen an den Quelldateien vorgenommen werden. Ihr Browser zeigt etwas wie dies an:
+Nach dem Ausführen von `npm run dev` wird Svelte Ihre Anwendung kompilieren und aufbauen. Es startet einen lokalen Server unter `localhost:8080`. Svelte überwacht Dateiupdates und kompiliert die App bei Änderungen an den Quelldateien automatisch neu und aktualisiert sie. Ihr Browser zeigt damit etwas Ähnliches wie folgt an:
 
-![Eine einfache Startseite, die Hallo Welt sagt, und einen Link zu den offiziellen Svelte-Tutorials gibt](01-svelte-starter-app.png)
+![Eine einfache Startseite, die Hello World sagt, und einen Link zu den offiziellen Svelte-Tutorials gibt](01-svelte-starter-app.png)
 
 ### Anwendungsstruktur
 
-Die Startervorlage wird mit folgender Struktur geliefert:
+Die Starter-Vorlage kommt mit folgender Struktur:
 
 ```plain
 moz-todo-svelte
@@ -144,34 +145,34 @@ moz-todo-svelte
 
 Die Inhalte sind wie folgt:
 
-- `package.json` und `package-lock.json`: Enthält Informationen über das Projekt, die Node.js/npm verwendet, um es organisiert zu halten. Sie müssen diese Datei nicht vollständig verstehen, um dieses Tutorial abzuschließen. Wenn Sie jedoch mehr lernen möchten, können Sie in der npmjs.com-Dokumentation über [`package.json`-Verwaltung](https://docs.npmjs.com/cli/configuring-npm/package-json/) lesen; wir sprechen auch darüber in unserem [Tutorial zu den Grundlagen der Paketverwaltung](/de/docs/Learn_web_development/Extensions/Client-side_tools/Package_management).
+- `package.json` und `package-lock.json`: Enthält Informationen über das Projekt, die Node.js/npm verwendet, um es organisiert zu halten. Sie müssen diese Datei überhaupt nicht verstehen, um dieses Tutorial abzuschließen, aber wenn Sie mehr darüber lernen möchten, können Sie auf npmjs.com über das [Handling von `package.json`](https://docs.npmjs.com/cli/configuring-npm/package-json/) lesen; wir sprechen auch darüber in unserem [Grundlagen der Paketverwaltung Tutorial](/de/docs/Learn_web_development/Extensions/Client-side_tools/Package_management).
 - `node_modules`: Hier speichert Node die Projektabhängigkeiten. Diese Abhängigkeiten werden nicht in die Produktion gesendet, sie werden nur für Entwicklungszwecke verwendet.
-- `.gitignore`: Sagt Git, welche Dateien oder Ordner vom Projekt ausgeschlossen werden sollen — nützlich, wenn Sie sich entscheiden, Ihre App in ein Git-Repository aufzunehmen.
-- `rollup.config.js`: Svelte verwendet [rollup.js](https://rollupjs.org/) als Modul-Bundler. Diese Konfigurationsdatei sagt Rollup, wie man Ihre App kompiliert und baut. Wenn Sie [webpack](https://webpack.js.org/) bevorzugen, können Sie Ihr Starterprojekt mit `npx degit sveltejs/template-webpack svelte-app` erstellen.
-- `scripts`: Enthält Einrichtungsskripte, wie erforderlich. Derzeit sollte nur `setupTypeScript.js` enthalten sein.
+- `.gitignore`: Teilt Git mit, welche Dateien oder Ordner aus dem Projekt ignoriert werden sollen – nützlich, wenn Sie sich entscheiden, Ihre App in ein Git-Repo einzufügen.
+- `rollup.config.js`: Svelte verwendet [rollup.js](https://rollupjs.org/) als Modulbündler. Diese Konfigurationsdatei teilt Rollup mit, wie es Ihre App kompilieren und aufbauen soll. Wenn Sie [webpack](https://webpack.js.org/) bevorzugen, können Sie Ihr Starter-Projekt mit `npx degit sveltejs/template-webpack svelte-app` erstellen.
+- `scripts`: Enthält die erforderlichen Setup-Skripte. Sollte derzeit nur `setupTypeScript.js` enthalten.
 
-  - `setupTypeScript.js`: Dieses Skript richtet die TypeScript-Unterstützung in Svelte ein. Wir werden später in dem letzten Artikel darüber sprechen.
+  - `setupTypeScript.js`: Dieses Skript richtet TypeScript-Unterstützung in Svelte ein. Wir werden darüber mehr im letzten Artikel sprechen.
 
-- `src`: Dieses Verzeichnis enthält den Quellcode Ihrer Anwendung — hier werden Sie den Code Ihrer App erstellen.
+- `src`: Dieses Verzeichnis ist, wo der Quellcode für Ihre Anwendung lebt – wo Sie den Code für Ihre App erstellen werden.
 
-  - `App.svelte`: Dies ist die oberste Komponente Ihrer App. Bisher rendert es nur die 'Hallo Welt!' -Nachricht.
-  - `main.js`: Der Einstiegspunkt zu unserer Anwendung. Es instanziiert einfach die `App`-Komponente und bindet sie an den Body unserer HTML-Seite.
+  - `App.svelte`: Dies ist die Top-Level-Komponente Ihrer App. Bisher rendert sie nur die 'Hello World!'-Nachricht.
+  - `main.js`: Der Einstiegspunkt unserer Anwendung. Er instanziert einfach die `App`-Komponente und bindet sie an den Körper unserer HTML-Seite.
 
 - `public`: Dieses Verzeichnis enthält alle Dateien, die in der Produktion veröffentlicht werden.
 
-  - `favicon.png`: Dies ist das Favicon Ihrer App. Derzeit ist es das Svelte-Logo.
-  - `index.html`: Dies ist die Hauptseite Ihrer App. Zunächst ist es nur eine leere HTML-Seite, die die von Svelte generierten CSS-Dateien und JS-Bundles lädt.
-  - `global.css`: Diese Datei enthält ungescope Stile. Es ist eine reguläre CSS-Datei, die auf die gesamte Anwendung angewendet wird.
+  - `favicon.png`: Dies ist das Favicon für Ihre App. Es ist derzeit das Svelte-Logo.
+  - `index.html`: Dies ist die Hauptseite Ihrer App. Anfangs ist es nur eine leere HTML-Seite, die die von Svelte generierten CSS-Dateien und JS-Bundles lädt.
+  - `global.css`: Diese Datei enthält nicht-skopierte Stile. Es ist eine reguläre CSS-Datei, die auf die gesamte Anwendung angewendet wird.
   - `build`: Dieser Ordner enthält den generierten CSS- und JavaScript-Quellcode.
 
     - `bundle.css`: Die CSS-Datei, die Svelte aus den für jede Komponente definierten Stilen generiert hat.
     - `bundle.js`: Die JavaScript-Datei, die aus Ihrem gesamten JavaScript-Quellcode kompiliert wurde.
 
-## Unser erster Blick auf eine Svelte-Komponente
+## Ein Blick auf unsere erste Svelte-Komponente
 
-Komponenten sind die Bausteine von Svelte-Anwendungen. Sie werden in `.svelte`-Dateien unter Verwendung einer Superset von HTML geschrieben.
+Komponenten sind die Bausteine von Svelte-Anwendungen. Sie werden in `.svelte`-Dateien mit einer Obermenge von HTML geschrieben.
 
-Alle drei Abschnitte — `<script>`, `<style>` und Markup — sind optional und können in beliebiger Reihenfolge angezeigt werden.
+Alle drei Abschnitte — `<script>`, `<style>` und Markup — sind optional und können in beliebiger Reihenfolge erscheinen.
 
 ```html
 <script>
@@ -186,9 +187,9 @@ Alle drei Abschnitte — `<script>`, `<style>` und Markup — sind optional und 
 ```
 
 > [!NOTE]
-> Weitere Informationen über das Komponentenformat finden Sie in der [Svelte-Komponentendokumentation](https://svelte.dev/docs/svelte-components).
+> Für weitere Informationen zum Komponentenformat werfen Sie einen Blick auf die [Svelte-Komponentendokumentation](https://svelte.dev/docs/svelte-components).
 
-Mit diesen Informationen im Hinterkopf werfen wir einen Blick auf die Datei `src/App.svelte`, die mit der Startervorlage geliefert wurde. Sie sollten etwas Ähnliches wie das folgende sehen:
+Mit diesem Wissen lassen Sie uns die `src/App.svelte`-Datei, die mit der Starter-Vorlage kam, ansehen. Sie sollten etwas in der Art wie folgt sehen:
 
 ```html
 <script>
@@ -226,9 +227,9 @@ Mit diesen Informationen im Hinterkopf werfen wir einen Blick auf die Datei `src
 </style>
 ```
 
-### Der `<script>` Abschnitt
+### Der `<script>`-Abschnitt
 
-Der `<script>`-Block enthält JavaScript, das ausgeführt wird, wenn eine Instanz der Komponente erstellt wird. Am oberen Level deklarierte (oder importierte) Variablen sind aus dem Markup der Komponente 'sichtbar'. Top-Level-Variablen sind die Art und Weise, wie Svelte den Komponentenstatus behandelt, und sie sind standardmäßig reaktiv. Wir werden später im Detail erklären, was das bedeutet.
+Der `<script>`-Block enthält JavaScript, das bei der Erstellung einer Komponenteninstanz ausgeführt wird. Variablen, die auf der obersten Ebene deklariert (oder importiert) werden, sind im Markup der Komponente 'sichtbar'. Top-Level-Variablen sind die Art und Weise, wie Svelte den Komponentenzustand handhabt, und sie sind standardmäßig reaktiv. Wir werden später im Detail erklären, was das bedeutet.
 
 ```html
 <script>
@@ -236,11 +237,11 @@ Der `<script>`-Block enthält JavaScript, das ausgeführt wird, wenn eine Instan
 </script>
 ```
 
-Svelte verwendet das Schlüsselwort [`export`](/de/docs/Web/JavaScript/Reference/Statements/export), um eine Variablendeklaration als Eigenschaft (oder Prop) zu kennzeichnen, was bedeutet, dass sie für Verbraucher der Komponente (z.B. andere Komponenten) zugänglich wird. Dies ist ein Beispiel dafür, wie Svelte die JavaScript-Syntax erweitert, um sie nützlicher zu machen und dennoch vertraut zu halten.
+Svelte verwendet das [`export`](/de/docs/Web/JavaScript/Reference/Statements/export)-Schlüsselwort, um eine Variablendeklaration als Eigenschaft (oder `prop`) zu markieren, was bedeutet, dass sie für Verbraucher der Komponente (z.B. andere Komponenten) zugänglich wird. Dies ist ein Beispiel dafür, wie Svelte die JavaScript-Syntax erweitert, um sie nützlicher zu machen, während sie dennoch vertraut bleibt.
 
 ### Der Markup-Abschnitt
 
-Im Markup-Abschnitt können Sie beliebiges HTML einfügen und zusätzlich gültige JavaScript-Ausdrücke in einfachen geschweiften Klammern (`{}`) einfügen. In diesem Fall betten wir den Wert des `name`-Props direkt nach dem `Hello`-Text ein.
+Im Markup-Abschnitt können Sie beliebiges HTML einfügen, und darüber hinaus können Sie gültige JavaScript-Ausdrücke innerhalb einzelner geschweifter Klammern (`{}`) einfügen. In diesem Fall betten wir den Wert des `name`-Props direkt nach dem `Hello`-Text ein.
 
 ```html
 <main>
@@ -252,11 +253,11 @@ Im Markup-Abschnitt können Sie beliebiges HTML einfügen und zusätzlich gülti
 </main>
 ```
 
-Svelte unterstützt auch Tags wie `{#if}`, `{#each}` und `{#await}` — diese Beispiele ermöglichen es, einen Teil des Markups bedingt zu rendern, eine Liste von Elementen zu durchlaufen und mit asynchronen Werten zu arbeiten, jeweils.
+Svelte unterstützt auch Tags wie `{#if}`, `{#each}` und `{#await}` — diese Beispiele ermöglichen es Ihnen, bedingt einen Teil des Markups zu rendern, durch eine Liste von Elementen zu iterieren und mit asynchronen Werten zu arbeiten.
 
-### Der `<style>` Abschnitt
+### Der `<style>`-Abschnitt
 
-Wenn Sie Erfahrung mit CSS haben, sollte der folgende Ausschnitt sinnvoll sein:
+Wenn Sie Erfahrung im Arbeiten mit CSS haben, sollte der folgende Ausschnitt Sinn machen:
 
 ```html
 <style>
@@ -282,34 +283,35 @@ Wenn Sie Erfahrung mit CSS haben, sollte der folgende Ausschnitt sinnvoll sein:
 </style>
 ```
 
-Wir wenden einen Stil auf unser [`<h1>`](/de/docs/Web/HTML/Element/Heading_Elements)-Element an. Was passiert mit anderen Komponenten, die `<h1>`-Elemente in sich haben?
+Wir anwenden einen Stil auf unser [`<h1>`](/de/docs/Web/HTML/Element/Heading_Elements)-Element. Was passiert mit anderen Komponenten, die `<h1>`-Elemente enthalten?
 
 In Svelte wird CSS innerhalb eines `<style>`-Blocks einer Komponente nur auf diese Komponente beschränkt. Dies funktioniert, indem eine Klasse zu ausgewählten Elementen hinzugefügt wird, die auf einem Hash der Komponentenstile basiert.
 
-Sie können dies in Aktion sehen, indem Sie `localhost:8080` in einem neuen Browser-Tab öffnen, mit Rechts-/<kbd>Ctrl</kbd>-Klick auf das _HELLO WORLD!_-Label klicken und _Untersuchen_ wählen:
+Sie können dies in Aktion sehen, indem Sie `localhost:8080` in einem neuen Browser-Tab öffnen, mit der rechten/<kbd>Strg</kbd>-Taste auf das _HELLO WORLD!_-Label klicken und _Inspect_ wählen:
 
-![Svelte-Starter-App mit offenen Devtools, die Klassen für gescopte Stile anzeigen](02-svelte-component-scoped-styles.png)
+![Svelte-Starter-App mit geöffneten Devtools, die Klassen für eingeschränkte Stile zeigen](02-svelte-component-scoped-styles.png)
 
-Beim Kompilieren der App ändert Svelte unsere `h1`-Stildeklaration in `h1.svelte-1tky8bj` und modifiziert jedes `<h1>`-Element in unserer Komponente zu `<h1 class="svelte-1tky8bj">`, damit es die Stile bei Bedarf aufnimmt.
+Beim Kompilieren der App ändert Svelte unsere `h1`-Stildefinition in `h1.svelte-1tky8bj` und modifiziert jedes `<h1>`-Element in unserer Komponente zu `<h1 class="svelte-1tky8bj">`, so dass es die Stile wie erforderlich aufnimmt.
 
 > [!NOTE]
-> Sie können dieses Verhalten überschreiben und Stile auf einen Selektor global anwenden, indem Sie den `:global()`-Modifikator verwenden (siehe die [Svelte `<style>`-Dokumentation](https://svelte.dev/docs/svelte-components#style) für weitere Informationen).
+> Sie können dieses Verhalten außer Kraft setzen und Stile für einen Selektor global anwenden, indem Sie den `:global()`-Modifikator verwenden (siehe die [Svelte `<style>`-Dokumentation](https://svelte.dev/docs/svelte-components#style) für weitere Informationen).
 
 ## Ein paar Änderungen vornehmen
 
-Jetzt, wo wir eine allgemeine Vorstellung davon haben, wie alles zusammenpasst, können wir anfangen, ein paar Änderungen vorzunehmen. An diesem Punkt können Sie versuchen, Ihre `App.svelte`-Komponente zu aktualisieren - zum Beispiel das `<h1>`-Element in `App.svelte` ändern, sodass es so aussieht:
+Jetzt, da wir eine allgemeine Vorstellung davon haben, wie alles zusammenpasst, können wir beginnen, einige Änderungen vorzunehmen.
+An diesem Punkt können Sie versuchen, Ihre `App.svelte`-Komponente zu aktualisieren — zum Beispiel das `<h1>`-Element in `App.svelte` so zu ändern, dass es wie folgt aussieht:
 
 ```html
 <h1>Hello {name} from MDN!</h1>
 ```
 
-Speichern Sie einfach Ihre Änderungen und die App, die unter `localhost:8080` läuft, wird automatisch aktualisiert.
+Speichern Sie einfach Ihre Änderungen und die ausgeführte App unter `localhost:8080` wird automatisch aktualisiert.
 
-### Ein erster Blick auf Svelte-Reaktivität
+### Ein erster Blick auf die Reaktivität von Svelte
 
-Im Kontext eines UI-Frameworks bedeutet Reaktivität, dass das Framework automatisch das DOM aktualisieren kann, wenn sich der Zustand einer Komponente ändert.
+Im Kontext eines UI-Frameworks bedeutet Reaktivität, dass das Framework das DOM automatisch aktualisieren kann, wenn sich der Zustand einer Komponente ändert.
 
-In Svelte wird die Reaktivität ausgelöst, indem ein neuer Wert einer beliebigen Top-Level-Variablen in einer Komponente zugewiesen wird. Zum Beispiel könnten wir eine `toggleName()`-Funktion in unsere `App`-Komponente aufnehmen und einen Knopf, um sie auszuführen.
+In Svelte wird die Reaktivität durch das Zuweisen eines neuen Wertes zu einer Top-Level-Variable in einer Komponente ausgelöst. Zum Beispiel könnten wir eine `toggleName()`-Funktion in unsere `App`-Komponente aufnehmen und einen Button zum Ausführen dieser Funktion hinzufügen.
 
 Versuchen Sie, Ihre `<script>`- und Markup-Abschnitte wie folgt zu aktualisieren:
 
@@ -336,15 +338,15 @@ Versuchen Sie, Ihre `<script>`- und Markup-Abschnitte wie folgt zu aktualisieren
 </main>
 ```
 
-Wann immer der Button geklickt wird, führt Svelte die `toggleName()`-Funktion aus, die wiederum den Wert der `name`-Variable aktualisiert.
+Wann immer der Button geklickt wird, führt Svelte die `toggleName()`-Funktion aus, die wiederum den Wert der `name`-Variablen aktualisiert.
 
-Wie Sie sehen können, wird das `<h1>`-Label automatisch aktualisiert. Hinter den Kulissen hat Svelte den JavaScript-Code erstellt, um das DOM zu aktualisieren, wann immer sich der Wert der `name`-Variable ändert, ohne irgendeinen virtuelles DOM oder einen anderen komplexen Abgleichtsmechanismus zu verwenden.
+Wie Sie sehen können, wird das `<h1>`-Label automatisch aktualisiert. Im Hintergrund erstellt Svelte den JavaScript-Code, um das DOM immer dann zu aktualisieren, wenn sich der Wert der `name`-Variablen ändert, ohne dass ein virtueller DOM oder ein anderer komplexer Abgleichsmechanismus verwendet wird.
 
-Beachten Sie die Verwendung von `:` in `on:click`. Das ist die Svelte-Syntax zum Abhören von DOM-Ereignissen.
+Beachten Sie die Verwendung von `:` in `on:click`. Das ist Svelte's Syntax zum Hören von DOM-Ereignissen.
 
-## Inspektion von main.js: Der Einstiegspunkt unserer App
+## Überprüfung von main.js: der Einstiegspunkt unserer App
 
-Öffnen wir `src/main.js`, wo die `App`-Komponente importiert und verwendet wird. Diese Datei ist der Einstiegspunkt für unsere App und sieht anfänglich so aus:
+Lassen Sie uns `src/main.js` öffnen, wo die `App`-Komponente importiert und verwendet wird. Diese Datei ist der Einstiegspunkt für unsere App und sieht anfänglich so aus:
 
 ```js
 import App from "./App.svelte";
@@ -359,20 +361,20 @@ const app = new App({
 export default app;
 ```
 
-`main.js` beginnt mit dem Import der Svelte-Komponente, die wir verwenden werden. Dann wird es mit `new App` instanziiert, wobei ein Optionsobjekt mit den folgenden Eigenschaften übergeben wird:
+`main.js` beginnt mit dem Import der Svelte-Komponente, die wir verwenden werden. Dann wird sie mit `new App` instanziiert, wobei ein Optionsobjekt mit den folgenden Eigenschaften übergeben wird:
 
 - `target`: Das DOM-Element, in dem wir möchten, dass die Komponente gerendert wird, in diesem Fall das `<body>`-Element.
-- `props`: Die Werte, die jedem Prop der `App`-Komponente zugewiesen werden.
+- `props`: Die Werte, die jeder Prop der `App`-Komponente zugewiesen werden.
 
 ## Ein Blick unter die Haube
 
-Wie schafft es Svelte, all diese Dateien zusammen harmonisch arbeiten zu lassen?
+Wie schafft es Svelte, all diese Dateien miteinander harmonisch arbeiten zu lassen?
 
-Der Svelte-Compiler verarbeitet den `<style>`-Abschnitt jeder Komponente und compiliert sie in die Datei `public/build/bundle.css`.
+Der Svelte-Compiler verarbeitet den `<style>`-Abschnitt jeder Komponente und kompiliert sie in die Datei `public/build/bundle.css`.
 
-Es compiliert auch das Markup und den `<script>`-Abschnitt jeder Komponente und speichert das Ergebnis in `public/build/bundle.js`. Es fügt auch den Code in `src/main.js` hinzu, um die Funktionen jeder Komponente zu referenzieren.
+Er kompiliert auch das Markup und den `<script>`-Abschnitt jeder Komponente und speichert das Ergebnis in `public/build/bundle.js`. Außerdem fügt er den Code in `src/main.js` hinzu, um die Funktionen jeder Komponente zu referenzieren.
 
-Schließlich enthält die Datei `public/index.html` die generierten Dateien `bundle.css` und `bundle.js`:
+Schließlich umfasst die Datei `public/index.html` die generierten `bundle.css` und `bundle.js`-Dateien:
 
 ```html
 <!doctype html>
@@ -394,31 +396,31 @@ Schließlich enthält die Datei `public/index.html` die generierten Dateien `bun
 </html>
 ```
 
-Die minimierte Version von `bundle.js` wiegt etwas mehr als 3KB, die den "Svelte-Laufzeit" (nur 300 Zeilen JavaScript-Code) und die `App.svelte` compilierte Komponente enthält. Wie Sie sehen können, ist `bundle.js` die einzige JavaScript-Datei, die von `index.html` referenziert wird. Es gibt keine anderen Bibliotheken, die in die Webseite geladen werden.
+Die minifizierte Version von `bundle.js` wiegt etwas mehr als 3KB, was das "Svelte-Runtime" (nur 300 Zeilen JavaScript-Code) und die `App.svelte`-kompilierte Komponente umfasst. Wie Sie sehen können, ist `bundle.js` die einzige JavaScript-Datei, die von `index.html` referenziert wird. Es gibt keine weiteren Bibliotheken, die in die Webseite geladen werden.
 
-Dies ist ein viel kleinerer Fußabdruck als kompilierte Bundles von anderen Frameworks. Bedenken Sie, dass es im Fall von Code-Paketen nicht nur die Größe der Dateien ist, die Sie herunterladen müssen und die relevant sind. Dies ist auszuführender Code, der geparst, ausgeführt und im Speicher behalten werden muss. Dies macht wirklich einen Unterschied, insbesondere bei leistungsschwachen Geräten oder CPU-intensiven Anwendungen.
+Dies ist ein viel kleinerer Speicherbedarf als bei den kompilierten Bundles anderer Frameworks. Bedenken Sie, dass bei Code-Bundles nicht nur die herunterzuladende Dateigröße wichtig ist. Dies ist ausführbarer Code, der geparst, ausgeführt und im Speicher behalten werden muss. Dies macht also wirklich einen Unterschied, besonders bei leistungsschwachen Geräten oder CPU-intensiven Anwendungen.
 
-## Dem Tutorial folgen
+## Fortsetzung dieses Tutorials
 
-In dieser Tutorialreihe werden Sie eine vollständige Webanwendung erstellen. Wir lernen alle Grundlagen über Svelte und auch einige fortgeschrittene Themen.
+In dieser Tutorial-Serie werden Sie eine komplette Webanwendung erstellen. Wir werden alle Grundlagen über Svelte lernen und auch einige fortgeschrittenere Themen behandeln.
 
-Sie können einfach den Inhalt lesen, um ein gutes Verständnis von Svelte-Funktionen zu bekommen, aber Sie werden das Beste aus diesem Tutorial herausholen, wenn Sie die App mit uns codieren, während Sie vorgehen. Um es Ihnen zu erleichtern, jedem Artikel zu folgen, stellen wir ein GitHub-Repository mit einem Ordner zur Verfügung, der den Quelltext für die App enthält, wie er zu Beginn jedes Tutorials aussieht.
+Sie können einfach den Inhalt lesen, um ein gutes Verständnis der Svelte-Funktionen zu erhalten, aber Sie werden am meisten von diesem Tutorial profitieren, wenn Sie beim Erstellen der App mit uns mitkodieren. Um es Ihnen zu erleichtern, jedem Artikel zu folgen, stellen wir ein GitHub-Repository mit einem Ordner zur Verfügung, der den Quellcode der App enthält, wie er zu Beginn jedes Tutorials aussieht.
 
-Svelte bietet auch einen Online-REPL, der ein Spielplatz zum Live-Codieren von Svelte-Apps im Web ist, ohne dass Sie etwas auf Ihrer Maschine installieren müssen. Wir stellen für jeden Artikel einen REPL zur Verfügung, sodass Sie sofort mit dem Codieren beginnen können. Lassen Sie uns ein bisschen mehr darüber sprechen, wie Sie diese Tools verwenden.
+Svelte bietet auch ein Online-REPL, das ist ein Spielplatz für das Live-Coding von Svelte-Apps im Web, ohne dass Sie etwas auf Ihrem Computer installieren müssen. Wir bieten ein REPL für jeden Artikel, damit Sie sofort mit dem Codieren beginnen können. Lassen Sie uns ein bisschen mehr darüber sprechen, wie Sie diese Werkzeuge nutzen.
 
-### Git verwenden
+### Verwendung von Git
 
-Das beliebteste Versionskontrollsystem ist Git zusammen mit GitHub, einer Seite, die Hosting für Ihre Repositories bietet und mehrere Werkzeuge zum Arbeiten mit ihnen bereitstellt.
+Das beliebteste Versionskontrollsystem ist Git, zusammen mit GitHub, einer Website, die Hosting für Ihre Repositories und mehrere Tools zur Arbeit damit bietet.
 
-Wir verwenden GitHub, damit Sie den Quellcode für jeden Artikel leicht herunterladen können. Sie können auch den Code erhalten, wie er nach Abschluss des Artikels aussehen sollte, falls Sie sich verlieren.
+Wir werden GitHub verwenden, damit Sie den Quellcode für jeden Artikel einfach herunterladen können. Sie werden auch den Code erhalten können, wie er nach dem Abschluss des Artikels aussehen sollte, falls Sie sich verirren.
 
-Nachdem Sie [git installiert haben](https://git-scm.com/downloads), sollten Sie, um das Repository zu klonen, Folgendes ausführen:
+Nach dem [Installieren von git](https://git-scm.com/downloads), um das Repository zu klonen, sollten Sie folgendes ausführen:
 
 ```bash
 git clone https://github.com/opensas/mdn-svelte-tutorial.git
 ```
 
-Dann am Anfang jedes Artikels können Sie einfach in den entsprechenden Ordner wechseln und die App im Entwicklungsmodus starten, um zu sehen, wie ihr aktueller Zustand sein sollte, so:
+Dann, zu Beginn jedes Artikels, können Sie einfach in den entsprechenden Ordner wechseln und die App im Entwicklermodus starten, um zu sehen, in welchem aktuellen Zustand sie sich befinden sollte, so:
 
 ```bash
 cd 02-starting-our-todo-app
@@ -426,57 +428,57 @@ npm install
 npm run dev
 ```
 
-Wenn Sie mehr über Git und GitHub erfahren möchten, haben wir eine Liste von Links zu nützlichen Leitfäden zusammengestellt — siehe [Git und GitHub](/de/docs/Learn_web_development/Core/Version_control).
+Wenn Sie mehr über Git und GitHub erfahren möchten, haben wir eine Liste mit Links zu nützlichen Leitfäden zusammengestellt — siehe [Git und GitHub](/de/docs/Learn_web_development/Core/Version_control).
 
 > [!NOTE]
-> Wenn Sie die Dateien nur herunterladen möchten, ohne das Git-Repo zu klonen, können Sie das Degit-Tool wie folgt verwenden — `npx degit opensas/mdn-svelte-tutorial`. Sie können auch einen bestimmten Ordner mit `npx degit opensas/mdn-svelte-tutorial/01-getting-started` herunterladen. Degit wird kein lokales Git-Repo erstellen, es wird nur die Dateien des angegebenen Ordners herunterladen.
+> Wenn Sie nur die Dateien herunterladen möchten, ohne das Git-Repo zu klonen, können Sie das Degit-Tool wie folgt verwenden — `npx degit opensas/mdn-svelte-tutorial`. Sie können auch einen bestimmten Ordner herunterladen mit `npx degit opensas/mdn-svelte-tutorial/01-getting-started`. Degit erstellt kein lokales Git-Repo, es lädt nur die Dateien des angegebenen Ordners herunter.
 
-### Den Svelte REPL verwenden
+### Verwendung des Svelte REPL
 
-Ein REPL ([read–eval–print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) ist eine interaktive Umgebung, die es Ihnen ermöglicht, Befehle einzugeben und sofort die Ergebnisse zu sehen - viele Programmiersprachen bieten einen REPL an.
+Ein REPL ([Read–Eval–Print Loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) ist eine interaktive Umgebung, die es Ihnen ermöglicht, Befehle einzugeben und sofort die Ergebnisse zu sehen — viele Programmiersprachen bieten ein REPL.
 
-Svelte's REPL ist viel mehr als das. Es ist ein Online-Tool, das es Ihnen ermöglicht, vollständige Apps zu erstellen, sie online zu speichern und mit anderen zu teilen.
+Das Svelte REPL ist viel mehr als das. Es ist ein Online-Tool, das es Ihnen ermöglicht, komplette Apps zu erstellen, sie online zu speichern und mit anderen zu teilen.
 
-Es ist der einfachste Weg, um von jedem Computer aus mit Svelte zu spielen, ohne etwas installieren zu müssen. Es wird auch häufig von der Svelte Community verwendet. Wenn Sie eine Idee teilen, um Hilfe bitten oder ein Problem melden möchten, ist es immer äußerst nützlich, eine REPL-Instanz zu erstellen, die das Problem demonstriert.
+Es ist der einfachste Weg, um von jeder Maschine aus mit Svelte zu experimentieren, ohne etwas installieren zu müssen. Es wird auch weit von der Svelte-Community verwendet. Wenn Sie eine Idee teilen, um Hilfe bitten oder ein Problem melden möchten, ist es immer extrem nützlich, eine REPL-Instanz zu erstellen, die das Problem zeigt.
 
-Werfen wir einen kurzen Blick auf den Svelte REPL und wie Sie ihn verwenden würden. Er sieht so aus:
+Lassen Sie uns einen kurzen Blick auf das Svelte REPL werfen und wie Sie es verwenden würden. Es sieht folgendermaßen aus:
 
-![der svelte REPL in Aktion, zeigt Komponenten-Code auf der linken Seite und Ausgabe auf der rechten Seite](03-svelte-repl-in-action.png)
+![das Svelte REPL in Aktion, zeigt Code der Komponente links und Ausgabe rechts](03-svelte-repl-in-action.png)
 
-Um einen REPL zu starten, öffnen Sie Ihren Browser und navigieren Sie zu <https://svelte.dev/repl>.
+Um ein REPL zu starten, öffnen Sie Ihren Browser und navigieren zu <https://svelte.dev/repl>.
 
-- Auf der linken Seite des Bildschirms sehen Sie den Code Ihrer Komponenten und auf der rechten Seite die laufende Ausgabe Ihrer App.
-- Die Leiste über dem Code ermöglicht es Ihnen, `.svelte`- und `.js`-Dateien zu erstellen und sie neu anzuordnen. Um eine Datei in einem Ordner zu erstellen, geben Sie einfach den vollständigen Pfadnamen an, wie folgt: `components/MyComponent.svelte`. Der Ordner wird automatisch erstellt.
-- Darüber hinaus haben Sie den Titel des REPLs. Klicken Sie darauf, um ihn zu bearbeiten.
-- Auf der rechten Seite haben Sie drei Registerkarten:
+- Auf der linken Seite des Bildschirms sehen Sie den Code Ihrer Komponenten und auf der rechten Seite sehen Sie die laufende Ausgabe Ihrer App.
+- Die Leiste über dem Code lässt Sie `.svelte` und `.js` Dateien erstellen und sie anordnen. Um eine Datei in einem Ordner zu erstellen, geben Sie einfach den vollständigen Pfadnamen an, wie z.B.: `components/MyComponent.svelte`. Der Ordner wird automatisch erstellt.
+- Darüber befindet sich der Titel des REPLs. Klicken Sie darauf, um ihn zu bearbeiten.
+- Auf der rechten Seite gibt es drei Registerkarten:
 
-  - Die Registerkarte _Ergebnis_ zeigt die Ausgabe Ihrer App und stellt am unteren Rand eine Konsole bereit.
-  - Die Registerkarte _JS-Ausgabe_ ermöglicht es Ihnen, den von Svelte generierten JavaScript-Code zu inspizieren und Compiler-Optionen einzustellen.
-  - Die Registerkarte _CSS-Ausgabe_ zeigt die von Svelte generierten CSS an.
+  - Die _Result_-Registerkarte zeigt die Ausgabe Ihrer App an und bietet eine Konsole am unteren Rand.
+  - Die _JS output_-Registerkarte lässt Sie den von Svelte generierten JavaScript-Code inspizieren und Compiler-Optionen festlegen.
+  - Die _CSS output_-Registerkarte zeigt das von Svelte generierte CSS an.
 
-- Über den Registerkarten finden Sie eine Symbolleiste, die es Ihnen ermöglicht, den Vollbildmodus zu betreten und Ihre App herunterzuladen. Wenn Sie sich mit einem GitHub-Konto anmelden, können Sie auch die App forken und speichern. Sie können auch alle Ihre gespeicherten REPLs sehen, indem Sie auf Ihr GitHub-Benutzerprofil klicken und _Ihre gespeicherten Apps_ auswählen.
+- Über den Registerkarten finden Sie eine Symbolleiste, die es Ihnen ermöglicht, den Vollbildmodus zu aktivieren und Ihre App herunterzuladen. Wenn Sie sich mit einem GitHub-Konto anmelden, können Sie auch die App forken und speichern. Sie können auch alle Ihre gespeicherten REPLs sehen, indem Sie auf Ihr GitHub-Benutzerprofil klicken und _Ihre gespeicherten Apps_ auswählen.
 
-Wann immer Sie eine Datei im REPL ändern, wird Svelte die App neu kompilieren und die Ergebnis-Registerkarte aktualisieren. Um Ihre App zu teilen, teilen Sie die URL. Zum Beispiel hier ist der Link zu einem REPL, der unsere vollständige App ausführt: <https://svelte.dev/repl/378dd79e0dfe4486a8f10823f3813190?version=3.23.2>.
-
-> [!NOTE]
-> Beachten Sie, wie Sie die Version von Svelte in der URL angeben können. Dies ist nützlich, wenn Sie Probleme im Zusammenhang mit einer bestimmten Svelte-Version melden.
-
-Wir werden einen REPL am Anfang und Ende jedes Artikels bereitstellen, damit Sie sofort mit uns zusammen codieren können.
+Wann immer Sie eine Datei im REPL ändern, wird Svelte die App neu kompilieren und die Result-Registerkarte aktualisieren. Um Ihre App zu teilen, teilen Sie die URL. Zum Beispiel ist hier der Link für ein REPL, das unsere komplette App ausführt: <https://svelte.dev/repl/378dd79e0dfe4486a8f10823f3813190?version=3.23.2>.
 
 > [!NOTE]
-> Derzeit kann der REPL keine Ordnernamen richtig handhaben. Wenn Sie das Tutorial auf dem REPL folgen, erstellen Sie einfach alle Ihre Komponenten im Stammverzeichnis. Wenn Sie dann einen Pfad im Code sehen, zum Beispiel `import Todos from './components/Todos.svelte'`, ersetzen Sie ihn einfach durch eine flache URL, z.B. `import Todos from './Todos.svelte'`.
+> Beachten Sie, wie Sie die Svelte-Version in der URL angeben können. Dies ist nützlich, wenn Sie Probleme melden, die mit einer bestimmten Version von Svelte zusammenhängen.
 
-## Der Code soweit
+Wir werden bei Beginn und Ende jedes Artikels ein REPL bereitstellen, damit Sie sofort mit dem Coden beginnen können.
+
+> [!NOTE]
+> Derzeit kann das REPL keine Ordnernamen richtig verwalten. Wenn Sie dem Tutorial im REPL folgen, erstellen Sie einfach alle Ihre Komponenten im Stammordner. Wenn Sie dann einen Pfad im Code sehen, z.B. `import Todos from './components/Todos.svelte'`, ersetzen Sie ihn einfach durch einen flachen URL, z.B. `import Todos from './Todos.svelte'`.
+
+## Der bisherige Code
 
 ### Git
 
-Klonen Sie das GitHub-Repo (wenn Sie es nicht bereits getan haben) mit:
+Klonen Sie das GitHub-Repo (falls Sie es noch nicht getan haben) mit:
 
 ```bash
 git clone https://github.com/opensas/mdn-svelte-tutorial.git
 ```
 
-Dann, um zum aktuellen Status der App zu gelangen, führen Sie
+Um den aktuellen App-Zustand zu erreichen, führen Sie aus
 
 ```bash
 cd mdn-svelte-tutorial/01-getting-started
@@ -492,22 +494,22 @@ Denken Sie daran, `npm install && npm run dev` auszuführen, um Ihre App im Entw
 
 ### REPL
 
-Um mit uns unter Verwendung des REPL mitzucoden, beginnen Sie bei
+Um gemeinsam mit uns das REPL zu verwenden, starten Sie bei
 
 <https://svelte.dev/repl/fc68b4f059d34b9c84fa042d1cce586c?version=3.23.2>
 
 ## Zusammenfassung
 
-Damit sind wir am Ende unseres ersten Blicks auf Svelte angelangt, einschließlich wie man es lokal installiert, eine Starter-App erstellt und wie die Grundlagen funktionieren. Im nächsten Artikel werden wir anfangen, unsere erste richtige Anwendung zu bauen, eine ToDo-Liste. Bevor wir das tun, fassen wir noch einmal einige der Dinge zusammen, die wir gelernt haben.
+Damit kommen wir zum Ende unseres ersten Blicks auf Svelte, einschließlich der Frage, wie man es lokal installiert, eine Starter-App erstellt und wie die Grundlagen funktionieren. Im nächsten Artikel werden wir beginnen, unsere erste echte Anwendung zu erstellen, eine To-Do-Liste. Bevor wir das tun, lassen Sie uns einige der Dinge rekapitulieren, die wir gelernt haben.
 
 In Svelte:
 
-- Wir definieren das Skript, den Stil und das Markup jeder Komponente in einer einzigen `.svelte`-Datei.
-- Komponenten-Props werden mit dem Schlüsselwort `export` deklariert.
-- Svelte-Komponenten können einfach durch Import der entsprechenden `.svelte`-Datei verwendet werden.
-- Die Stile der Komponenten sind gescoped, sodass sie nicht miteinander kollidieren.
-- Im Markup-Abschnitt können Sie beliebige JavaScript-Ausdrücke einfügen, indem Sie sie zwischen geschweiften Klammern setzen.
+- Definieren wir das Script, den Stil und das Markup jeder Komponente in einer einzigen `.svelte`-Datei.
+- Komponenten-Props werden mit dem `export`-Schlüsselwort deklariert.
+- Svelte-Komponenten können einfach verwendet werden, indem die entsprechende `.svelte`-Datei importiert wird.
+- Die Stile der Komponenten sind abgeschottet, wodurch sie verhindert werden, dass sie miteinander in Konflikt geraten.
+- Im Markup-Abschnitt können Sie einen beliebigen JavaScript-Ausdruck einfügen, indem Sie ihn zwischen geschweifte Klammern setzen.
 - Die Top-Level-Variablen einer Komponente bilden ihren Zustand.
-- Reaktivität wird ausgelöst, indem nur ein neuer Wert einer Top-Level-Variable zugewiesen wird.
+- Die Reaktivität wird einfach ausgelöst, indem einer Top-Level-Variablen ein neuer Wert zugewiesen wird.
 
 {{NextMenu("Learn_web_development/Core/Frameworks_libraries/Svelte_todo_list_beginning", "Learn_web_development/Core/Frameworks_libraries")}}

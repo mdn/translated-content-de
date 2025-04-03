@@ -2,23 +2,23 @@
 title: NavigatorLogin
 slug: Web/API/NavigatorLogin
 l10n:
-  sourceCommit: 7f1ce551464bcf12aa4fd038be3cc5b332ee2ad5
+  sourceCommit: 43f272adb6ac15537cff3728c78ddf234485fff8
 ---
 
-{{securecontext_header}}{{APIRef("FedCM API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("FedCM API")}}
 
-Das **`NavigatorLogin`** Interface der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) definiert die Anmeldefunktionalität für föderierte Identitätsanbieter (IdPs). Es ermöglicht insbesondere einem föderierten Identitätsanbieter (IdP), seinen Anmeldestatus festzulegen, wenn sich ein Benutzer beim IdP an- oder abmeldet.
+Das **`NavigatorLogin`**-Interface der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) definiert die Anmeldefunktionalität für föderierte Identitätsanbieter (IdPs). Insbesondere ermöglicht es einem föderierten Identitätsanbieter (IdP), seinen Anmeldestatus festzulegen, wenn sich ein Benutzer beim IdP an- oder abmeldet.
 
-Siehe [Aktualisierung des Anmeldestatus mit der Login Status API](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) für weitere Details zur Verwendung.
+Weitere Details zur Nutzung finden Sie unter [Anmeldestatus mit der Login-Status-API aktualisieren](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api).
 
-`NavigatorLogin` wird über die [`Navigator.login`](/de/docs/Web/API/Navigator/login) Eigenschaft aufgerufen.
+`NavigatorLogin` kann über die [`Navigator.login`](/de/docs/Web/API/Navigator/login)-Eigenschaft aufgerufen werden.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
-- [`setStatus()`](/de/docs/Web/API/NavigatorLogin/setStatus) {{Experimental_Inline}}
-  - : Setzt den Anmeldestatus eines föderierten Identitätsanbieters (IdP), wenn es vom Ursprung des IdP aufgerufen wird. Mit "Anmeldestatus" meinen wir "ob Benutzer im derzeitigen Browser beim IdP angemeldet sind oder nicht".
+- [`setStatus()`](/de/docs/Web/API/NavigatorLogin/setStatus)
+  - : Setzt den Anmeldestatus eines föderierten Identitätsanbieters (IdP), wenn er vom Ursprung des IdP aufgerufen wird. Mit "Anmeldestatus" ist gemeint, "ob Benutzer beim aktuellen Browser beim IdP angemeldet sind oder nicht".
 
 ## Beispiele
 

@@ -2,14 +2,14 @@
 title: Wahrgenommene Leistung
 slug: Learn_web_development/Extensions/Performance/Perceived_performance
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Performance/what_is_web_performance", "Learn_web_development/Extensions/Performance/Measuring_performance", "Learn_web_development/Extensions/Performance")}}
 
-**{{Glossary("Perceived_performance", "Wahrgenommene Leistung")}}** ist ein subjektives Maß für die Leistung, Reaktionsfähigkeit und Zuverlässigkeit einer Website. Anders ausgedrückt: Wie schnell eine Website vom Benutzer wahrgenommen wird. Es ist schwieriger zu quantifizieren und zu messen als die tatsächliche Geschwindigkeit des Betriebs, aber vielleicht sogar noch wichtiger.
+**{{Glossary("Perceived_performance", "Wahrgenommene Leistung")}}** ist ein subjektives Maß für die Leistung, Reaktionsfähigkeit und Zuverlässigkeit einer Website. Anders ausgedrückt: Wie schnell eine Website dem Benutzer erscheint. Es ist schwerer zu quantifizieren und zu messen als die tatsächliche Betriebsgeschwindigkeit, aber vielleicht sogar noch wichtiger.
 
-Dieser Artikel bietet eine kurze Einführung in die Faktoren, die die wahrgenommene Leistung beeinflussen, sowie eine Reihe von Werkzeugen zur Beurteilung und Verbesserung der Wahrnehmung.
+Dieser Artikel bietet eine kurze Einführung in die Faktoren, die die wahrgenommene Leistung beeinflussen, sowie eine Reihe von Werkzeugen zur Bewertung und Verbesserung der Wahrnehmung.
 
 <table>
   <tbody>
@@ -19,79 +19,79 @@ Dieser Artikel bietet eine kurze Einführung in die Faktoren, die die wahrgenomm
         <a
           href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software"
           >Grundlegende Software installiert</a
-        >, und grundlegende Kenntnisse in
+        > und Grundkenntnisse der
         <a href="/de/docs/Learn_web_development/Getting_started/Your_first_website"
-          >Client-seitigen Webtechnologien</a
+          >clientseitigen Webtechnologien</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Grundkenntnisse über die Benutzerwahrnehmung der Web-Performance zu erlangen.</td>
+      <td>Grundlegende Vertrautheit mit der Benutzerwahrnehmung der Web-Performance gewinnen.</td>
     </tr>
   </tbody>
 </table>
 
-## Überblick
+## Übersicht
 
-Die Wahrnehmung, wie schnell (und reibungslos) Seiten laden und auf Benutzerinteraktionen reagieren, ist sogar noch wichtiger als die tatsächliche Zeit, die benötigt wird, um die Ressourcen abzurufen. Auch wenn Sie möglicherweise nicht in der Lage sind, Ihre Website physisch schneller laufen zu lassen, können Sie möglicherweise verbessern, wie schnell sie sich für Ihre Benutzer anfühlt.
+Die Wahrnehmung, wie schnell (und reibungslos) Seiten laden und auf Benutzerinteraktionen reagieren, ist noch wichtiger als die tatsächliche Zeit, die benötigt wird, um die Ressourcen abzurufen. Auch wenn Sie möglicherweise physisch nicht in der Lage sind, Ihre Website schneller laufen zu lassen, können Sie durchaus verbessern, wie schnell sie sich für Ihre Benutzer _anfühlt_.
 
-Eine gute allgemeine Regel zur Verbesserung der wahrgenommenen Leistung ist, dass es in der Regel besser ist, eine schnelle Antwort und regelmäßige Statusaktualisierungen bereitzustellen, als den Benutzer warten zu lassen, bis ein Vorgang vollständig abgeschlossen ist (bevor irgendwelche Informationen bereitgestellt werden). Beispielsweise ist es besser, den Text anzuzeigen, sobald er eintrifft, anstatt auf alle Bilder und anderen Ressourcen zu warten. Auch wenn der Inhalt nicht vollständig heruntergeladen ist, kann der Benutzer sehen, dass etwas passiert, und er kann beginnen, mit dem Inhalt zu interagieren.
+Eine gute allgemeine Regel zur Verbesserung der wahrgenommenen Leistung ist es, besser eine schnelle Antwort und regelmäßige Statusaktualisierungen zu liefern, als den Benutzer warten zu lassen, bis ein Vorgang vollständig abgeschlossen ist (bevor Informationen bereitgestellt werden). Wenn Sie zum Beispiel eine Seite laden, ist es besser, den Text anzuzeigen, wenn er ankommt, anstatt zu warten, bis alle Bilder und anderen Ressourcen geladen sind. Auch wenn der Inhalt nicht vollständig heruntergeladen wurde, kann der Benutzer sehen, dass etwas passiert und beginnen, mit dem Inhalt zu interagieren.
 
 > [!NOTE]
-> Die Zeit scheint für Benutzer schneller zu vergehen, die aktiv engagiert, abgelenkt oder unterhalten werden, als für diejenigen, die passiv auf etwas warten. Wo möglich, aktivieren und informieren Sie Benutzer, die darauf warten, dass eine Aufgabe abgeschlossen wird.
+> Zeit scheint schneller zu vergehen für Benutzer, die aktiv beschäftigt, abgelenkt oder unterhalten sind, als für diejenigen, die passiv auf etwas warten. Wenn möglich, sollten Sie Benutzer, die auf das Abschluss einer Aufgabe warten, aktiv einbeziehen und informieren.
 
-Ebenso ist es besser, eine "Ladeanimation" anzuzeigen, sobald ein Benutzer auf einen Link klickt, um einen langwierigen Vorgang auszuführen. Auch wenn sich die Zeit zur Durchführung des Vorgangs dadurch nicht verändert, fühlt sich die Website reaktionsfähiger an, und der Benutzer weiß, dass etwas Nützliches bearbeitet wird.
+In ähnlicher Weise ist es besser, eine "Ladeanimation" anzuzeigen, sobald ein Benutzer auf einen Link klickt, um einen lang andauernden Vorgang auszuführen. Auch wenn dies die Zeit bis zum Abschluss des Vorgangs nicht verkürzt, fühlt sich die Website reaktionsschneller an, und der Benutzer weiß, dass sie an etwas Nützlichem arbeitet.
 
 ## Leistungsmetriken
 
-Es gibt keine einzelne Metrik oder Test, der auf einer Website durchgeführt werden kann, um zu bewerten, wie sich ein Benutzer "fühlt". Es gibt jedoch eine Reihe von Metriken, die als "hilfreiche Indikatoren" dienen können:
+Es gibt keine einzelne Metrik oder keinen einzelnen Test, der an einer Website durchgeführt werden kann, um zu bewerten, wie ein Benutzer sie "fühlt". Es gibt jedoch eine Reihe von Metriken, die als "nützliche Indikatoren" dienen können:
 
 - {{Glossary("First_paint", "First Paint")}}
-  - : Die Zeit bis zum Start der ersten Maloperation. Beachten Sie, dass diese Änderung möglicherweise nicht sichtbar ist; es kann eine einfache Aktualisierung der Hintergrundfarbe oder etwas noch Unauffälligeres sein.
+  - : Die Zeit bis zum Beginn der ersten Paint-Operation. Beachten Sie, dass diese Änderung möglicherweise nicht sichtbar ist; es kann sich um ein einfaches Hintergrundfarbupdate oder etwas noch weniger Auffälliges handeln.
 - {{Glossary("First_contentful_paint", "First Contentful Paint")}} (FCP)
-  - : Die Zeit bis zur ersten bedeutenden Darstellung (z.B. von Text, Vordergrund- oder Hintergrundbild, Canvas oder SVG usw.). Beachten Sie, dass dieser Inhalt nicht unbedingt nützlich oder bedeutungsvoll ist.
+  - : Die Zeit bis zur ersten signifikanten Darstellung (z. B. von Text, Vorder- oder Hintergrundbild, Canvas oder SVG usw.). Beachten Sie, dass dieser Inhalt nicht unbedingt nützlich oder sinnvoll ist.
 - {{Glossary("First_meaningful_paint", "First Meaningful Paint")}} (FMP)
-  - : Die Zeit, zu der nützlicher Inhalt auf dem Bildschirm gerendert wird.
+  - : Die Zeit, zu der nützlicher Inhalt auf dem Bildschirm dargestellt wird.
 - [Largest Contentful Paint](https://wicg.github.io/largest-contentful-paint/) (LCP)
-  - : Die Renderzeit des größten sichtbaren Inhaltselements im Ansichtsfenster.
+  - : Die Renderzeit des größten sichtbaren Inhaltselements im Sichtfenster.
 - {{Glossary("Speed_index", "Speed index")}}
-  - : Misst die durchschnittliche Zeit, die benötigt wird, um die Pixel auf dem sichtbaren Bildschirm zu zeichnen.
+  - : Misst die durchschnittliche Zeit, die benötigt wird, um Pixel auf dem sichtbaren Bildschirm zu malen.
 - {{Glossary("Time_to_interactive", "Time to interactive")}}
-  - : Die Zeit bis die Benutzeroberfläche für Benutzerinteraktionen verfügbar ist (d.h. die letzte {{Glossary("Long_task", "Long Task")}} des Ladeprozesses abgeschlossen ist).
+  - : Zeit, bis die Benutzeroberfläche für Benutzerinteraktionen verfügbar ist (d.h. der letzte {{Glossary("Long_task", "Long Task")}} des Ladeprozesses abgeschlossen ist).
 
 ## Verbesserung der Leistung
 
-Hier sind einige Tipps und Tricks, um die wahrgenommene Leistung zu verbessern:
+Hier sind einige Tipps und Tricks zur Verbesserung der wahrgenommenen Leistung:
 
-### Minimieren Sie die anfängliche Ladung
+### Minimieren Sie das anfängliche Laden
 
-Um die wahrgenommene Leistung zu verbessern, minimieren Sie die ursprüngliche Seitenladung. Mit anderen Worten, laden Sie zuerst die Inhalte herunter, mit denen der Benutzer sofort interagieren wird, und laden Sie den Rest danach "im Hintergrund" herunter. Die Gesamtmenge der heruntergeladenen Inhalte kann tatsächlich zunehmen, aber der Benutzer _wartet_ nur auf eine sehr kleine Menge, sodass der Download schneller wirkt.
+Um die wahrgenommene Leistung zu verbessern, minimieren Sie das ursprüngliche Laden der Seite. Das heißt, laden Sie zunächst den Inhalt herunter, mit dem der Benutzer sofort interagieren wird, und laden Sie den Rest später "im Hintergrund" herunter. Die Gesamtmenge des heruntergeladenen Inhalts kann tatsächlich zunehmen, aber der Benutzer _wartet_ nur auf eine sehr kleine Menge, daher fühlt sich der Download schneller an.
 
-Trennen Sie interaktive Funktionalitäten von Inhalten, und laden Sie Text, Stile und Bilder, die beim ersten Laden sichtbar sind. Verzögern Sie das Laden (Lazy Load) von Bildern oder Skripten, die beim ersten Laden der Seite nicht verwendet oder sichtbar sind. Darüber hinaus sollten Sie die Assets, die Sie laden, optimieren. Bilder und Videos sollten im optimalsten Format, komprimiert und in der richtigen Größe bereitgestellt werden.
+Trennen Sie interaktive Funktionalitäten vom Inhalt und laden Sie Texte, Stile und Bilder, die beim initialen Ladevorgang sichtbar sind. Verzögern Sie das Laden von Bildern oder Skripten, die nicht verwendet oder beim initialen Laden sichtbar sind, oder laden Sie diese lazy. Außerdem sollten Sie die Assets, die Sie laden, optimieren. Bilder und Videos sollten im optimalsten Format, komprimiert und in der richtigen Größe bereitgestellt werden.
 
-### Verhindern Sie springende Inhalte und andere Neuanordnungen
+### Verhindern Sie springende Inhalte und andere Reflows
 
-Bilder oder andere Assets, die dazu führen, dass Inhalte verschoben oder an einen anderen Ort springen, wie das Laden von Drittanbieter-Anzeigen, können die Seite weiterhin als ladend erscheinen lassen und sind schlecht für die wahrgenommene Leistung. Inhaltliches Neuanordnen ist besonders schlecht für die Benutzererfahrung, wenn es nicht durch Benutzerinteraktion initiiert wird. Wenn bestimmte Assets langsamer geladen werden als andere und Elemente nach dem Laden anderer Inhalte auf dem Bildschirm erscheinen, planen Sie voraus und lassen Sie im Layout Platz für sie, damit Inhalte nicht springen oder die Größe ändern, insbesondere nachdem die Seite interaktiv geworden ist.
+Bilder oder andere Assets, die dazu führen, dass Inhalte nach unten gedrückt oder an einen anderen Ort verschoben werden, wie das Laden von Anzeigen von Drittanbietern, können den Eindruck erwecken, dass die Seite noch lädt, und sind schlecht für die wahrgenommene Leistung. Content-Reflow ist besonders schlecht für die Benutzererfahrung, wenn er nicht durch Benutzerinteraktionen ausgelöst wird. Wenn einige Assets langsamer laden als andere, planen Sie voraus und lassen Sie Platz im Layout für sie, damit Inhalte nicht springen oder sich neu anordnen, besonders nachdem die Seite interaktiv geworden ist.
 
-### Verzögerungen bei Schriftarten vermeiden
+### Vermeiden Sie Verzögerungen von Schriftdateien
 
-Die Wahl der Schriftart ist wichtig. Die Auswahl einer geeigneten Schriftart kann das Benutzererlebnis erheblich verbessern. Aus Sicht der wahrgenommenen Leistung kann das "suboptimale Laden von Schriftarten" zu Flackern führen, wenn Text gestylt wird oder auf andere Schriftarten zurückgegriffen wird.
+Die Schriftwahl ist wichtig. Die Auswahl einer geeigneten Schriftart kann das Benutzererlebnis erheblich verbessern. Aus Sicht der wahrgenommenen Leistung können "suboptimale Schriftenimporte" zu einem Flackern führen, wenn Text formatiert wird oder auf andere Schriftarten zurückgegriffen wird.
 
-Stellen Sie sicher, dass Ersatzschriftarten die gleiche Größe und das gleiche Gewicht haben, damit die Änderung der Seite beim Laden der Schriftarten weniger auffällig ist.
+Stellen Sie sicher, dass Ersatzschriften die gleiche Größe und das gleiche Gewicht haben, damit die Seitenänderung weniger auffällig ist, wenn Schriftarten geladen werden.
 
 ### Interaktive Elemente sind interaktiv
 
-Stellen Sie sicher, dass sichtbare interaktive Elemente immer interaktiv und reaktionsschnell sind. Wenn Eingabeelemente sichtbar sind, sollte der Benutzer ohne Verzögerung mit ihnen interagieren können. Benutzer empfinden etwas als träge, wenn Reaktionen länger als 50ms dauern. Sie finden, dass eine Seite schlecht funktioniert, wenn Inhalte langsamer als 16,67ms (oder 60 Bilder pro Sekunde) neu gezeichnet werden oder in ungleichmäßigen Abständen.
+Stellen Sie sicher, dass sichtbare interaktive Elemente immer interaktiv und reaktionsschnell sind. Wenn Eingabeelemente sichtbar sind, sollten Benutzer ohne Verzögerung mit ihnen interagieren können. Benutzer empfinden etwas als langsam, wenn es mehr als 50 ms benötigt, um zu reagieren. Sie empfinden, dass eine Seite schlecht funktioniert, wenn Inhalte langsamer als alle 16,67 ms (oder 60 Bilder pro Sekunde) neu gezeichnet werden oder in ungleichen Intervallen.
 
-Machen Sie Dinge wie das intelligente Vervollständigen zu einem fortschrittlichen Enhancement: Verwenden Sie CSS, um das Eingabemodell anzuzeigen, JS, um die Autovervollständigung bei Verfügbarkeit hinzuzufügen.
+Machen Sie Dinge wie das Vorausvervollständigen zu einer progressiven Verbesserung: Verwenden Sie CSS, um das Eingabemodal anzuzeigen, und JS, um die Autovervollständigung hinzuzufügen, wenn sie verfügbar ist.
 
-### Gestalten Sie Aufgabeninitiatoren interaktiver
+### Lassen Sie Task-Initiatoren interaktiver erscheinen
 
-Eine Inhaltsanforderung bei `keydown` anstatt `keyup` kann die wahrgenommene Ladezeit des Inhalts um 200ms reduzieren. Eine interessante, aber unaufdringliche 200ms-Animation für dieses `keyup`-Ereignis hinzuzufügen, kann weitere 200ms der wahrgenommenen Ladezeit verringern. Sie sparen zwar nicht 400ms Zeit, aber der Benutzer hat nicht das Gefühl, dass er auf Inhalte wartet, bis er wirklich darauf wartet.
+Wenn eine Inhaltsanfrage bei `keydown` statt bei `keyup` gemacht wird, kann die wahrgenommene Ladezeit des Inhalts um 200 ms reduziert werden. Eine interessante, aber unaufdringliche 200 ms Animation zu diesem `keyup`-Ereignis hinzuzufügen, kann die wahrgenommene Ladezeit um weitere 200 ms verringern. Sie sparen zwar keine 400 ms Zeit, aber der Benutzer hat nicht das Gefühl, auf Inhalte zu warten, bis er tatsächlich darauf wartet.
 
 ## Fazit
 
-Indem Sie die Zeit reduzieren, die ein Benutzer auf _nützliche_ Inhalte warten muss, und die Website reaktionsschnell und fesselnd halten, wird der Benutzer das Gefühl haben, dass die Seite besser performt – selbst wenn die tatsächliche Zeit zum Laden der Ressourcen gleich bleibt.
+Indem die Zeit reduziert wird, die ein Benutzer auf _nützliche_ Inhalte warten muss, und die Seite reaktionsfreudig und ansprechend gehalten wird, wird es den Benutzern so vorkommen, als würde die Seite besser funktionieren – selbst wenn die tatsächliche Zeit zum Laden von Ressourcen gleich bleibt.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Performance/what_is_web_performance", "Learn_web_development/Extensions/Performance/Measuring_performance", "Learn_web_development/Extensions/Performance")}}

@@ -1,14 +1,14 @@
 ---
-title: "SVGPathElement: getPathSegmentAtLength()-Methode"
+title: "SVGPathElement: getPathSegmentAtLength() Methode"
 short-title: getPathSegmentAtLength()
 slug: Web/API/SVGPathElement/getPathSegmentAtLength
 l10n:
-  sourceCommit: fb9772a0d8736488b647ce192f9c6465e1e2cf3a
+  sourceCommit: 43f272adb6ac15537cff3728c78ddf234485fff8
 ---
 
-{{APIRef("SVG")}}
+{{APIRef("SVG")}}{{SeeCompatTable}}
 
-Die **`getPathSegmentAtLength()`**-Methode der [`SVGPathElement`](/de/docs/Web/API/SVGPathElement)-Schnittstelle gibt das Pfadsegment an einer bestimmten Entfernung entlang des Pfades zurück.
+Die **`getPathSegmentAtLength()`** Methode des [`SVGPathElement`](/de/docs/Web/API/SVGPathElement) Interfaces gibt das Pfadsegment in einer angegebenen Entfernung entlang des Pfades zurück.
 
 ## Syntax
 
@@ -26,16 +26,16 @@ getPathSegmentAtLength(distance)
 
 Ein Pfadsegmentobjekt. Wenn kein gültiges Segment existiert, wird null zurückgegeben.
 
-Das Segmentobjekt hat die folgenden Eigenschaften:
+Das Segmentsobjekt hat die folgenden Eigenschaften:
 
 - `type`
-  - : Ein [Pfadbefehl](/de/docs/Web/SVG/Reference/Attribute/d#path_commands).
+  - : Ein [Pfad-Befehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands).
 - `values`
   - : Ein Array oder Wert, der die Parameter für den entsprechenden Befehl enthält.
 
 ## Beispiele
 
-### Pfadsegment erhalten
+### Pfadsegment abrufen
 
 Betrachten Sie das folgende `<path>`-Element, das ein Quadrat zeichnet:
 
@@ -45,7 +45,7 @@ Betrachten Sie das folgende `<path>`-Element, das ein Quadrat zeichnet:
 </svg>
 ```
 
-Die `getPathSegmentAtLength()`-Methode wird ein Objekt zurückgeben, das das `v64`-Segment repräsentiert, das 65px entlang des Pfades liegt:
+Die `getPathSegmentAtLength()` Methode wird ein Objekt zurückgeben, das das `v64` Segment darstellt, welches 65px entlang des Pfades liegt:
 
 ```js
 const path = document.querySelector("path");

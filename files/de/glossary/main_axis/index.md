@@ -1,32 +1,32 @@
 ---
-title: Main Axis
+title: Hauptachse
 slug: Glossary/Main_Axis
 l10n:
-  sourceCommit: 3c5185e55298c2ca14e4e63913a50bb81e3c5609
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{GlossarySidebar}}
 
-Die Hauptachse im {{Glossary("flexbox", "flexbox")}} wird durch die Richtung definiert, die durch die {{cssxref("flex-direction")}} Eigenschaft festgelegt ist. Es gibt vier mögliche Werte für `flex-direction`. Diese sind:
+Die Hauptachse in {{Glossary("flexbox", "flexbox")}} wird durch die Richtung definiert, die durch die {{cssxref("flex-direction")}} Eigenschaft festgelegt wird. Es gibt vier mögliche Werte für `flex-direction`. Diese sind:
 
 - `row`
 - `row-reverse`
 - `column`
 - `column-reverse`
 
-Wenn Sie `row` oder `row-reverse` wählen, verläuft Ihre Hauptachse entlang der Zeile in Richtung der Inline-Ausbreitung.
+Wenn Sie `row` oder `row-reverse` wählen, verläuft Ihre Hauptachse entlang der Zeile in der Inline-Richtung.
 
-![In diesem Bild ist die flex-direction auf row gesetzt, was die Hauptachse bildet](basics1.png)
+![In diesem Bild ist die flex-direction auf row eingestellt, was die Hauptachse bildet](basics1.png)
 
-Wählen Sie `column` oder `column-reverse`, verläuft Ihre Hauptachse von oben nach unten auf der Seite in Richtung des Blockflusses.
+Wählen Sie `column` oder `column-reverse`, verläuft Ihre Hauptachse von oben nach unten der Seite in der Block-Richtung.
 
-![Drei Flex-Elemente nehmen die volle Breite des Containers ein, werden in der Code-Reihenfolge untereinander angezeigt. Die Flex-Richtung ist auf column gesetzt. Die Hauptachse ist vertikal, d.h. von oben nach unten](basics2.png)
+![Drei Flex-Elemente nehmen die gesamte Breite des Containers ein und werden in Code-Reihenfolge untereinander angezeigt. Flex-direction ist auf column eingestellt. Die Hauptachse verläuft vertikal, d.h. von oben nach unten](basics2.png)
 
-Auf der Hauptachse können Sie die Größe der Flex-Elemente steuern, indem Sie den verfügbaren Raum den Elementen selbst hinzufügen, durch Verwendung der `flex` Eigenschaften der Elemente. Oder, Sie können den Raum zwischen und um die Elemente herum durch die Verwendung der `justify-content` Eigenschaft steuern.
+Auf der Hauptachse können Sie die Größe von Flex-Elementen steuern, indem Sie den Elementen selbst durch die `flex`-Eigenschaften auf den Elementen verfügbaren Platz hinzufügen. Oder Sie können den Raum zwischen und um die Elemente herum mit der `justify-content` Eigenschaft steuern.
 
 ## Siehe auch
 
-### Eigenschaftsreferenz
+### Eigenschaftenreferenz
 
 - {{cssxref("flex-basis")}}
 - {{cssxref("flex-direction")}}
@@ -35,9 +35,9 @@ Auf der Hauptachse können Sie die Größe der Flex-Elemente steuern, indem Sie 
 - {{cssxref("justify-content")}}
 - {{cssxref("flex")}}
 
-### Weiterführende Lektüre
+### Weiterführende Literatur
 
-- CSS Flexbox Leitfäden:
+- CSS-Flexbox-Leitfäden:
   - [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-  - [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-  - [Kontrolle der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+  - [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
+  - [Steuern von Verhältnissen von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)

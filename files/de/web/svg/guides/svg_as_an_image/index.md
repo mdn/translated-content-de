@@ -2,7 +2,7 @@
 title: SVG als Bild
 slug: Web/SVG/Guides/SVG_as_an_image
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 SVG-Bilder können in verschiedenen Kontexten als Bildformat verwendet werden. Browser unterstützen SVG-Bilder in:
@@ -17,14 +17,14 @@ SVG-Bilder können in verschiedenen Kontexten als Bildformat verwendet werden. B
 
 ## Einschränkungen
 
-Aus Sicherheitsgründen legt Gecko einige Einschränkungen für SVG-Inhalte fest, wenn sie als Bild verwendet werden:
+Aus Sicherheitsgründen unterliegt SVG-Inhalt, wenn er als Bild verwendet wird, einigen Einschränkungen in Gecko:
 
 - [JavaScript](/de/docs/Web/JavaScript) ist deaktiviert.
-- Externe Ressourcen (z.B. Bilder, Stylesheets) können nicht geladen werden, obwohl sie in Form von eingebetteten Daten-URLs verwendet werden können.
+- Externe Ressourcen (z.B. Bilder, Stylesheets) können nicht geladen werden, obwohl sie verwendet werden können, wenn sie über Data-URLs eingebettet sind.
 - {{cssxref(":visited")}}-Link-Stile werden nicht gerendert.
-- Plattformnative Widget-Stilierung (basierend auf dem OS-Design) ist deaktiviert.
+- Die plattformnative Widget-Stilgebung (basierend auf dem Betriebssystem-Thema) ist deaktiviert.
 
-Beachten Sie, dass die oben genannten Einschränkungen spezifisch für Bildkontexte sind; sie gelten nicht, wenn SVG-Inhalt direkt angesehen wird oder wenn es als Dokument über die {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}}-Elemente eingebettet ist.
+Beachten Sie, dass die oben genannten Einschränkungen spezifisch für Bildkontexte sind; sie gelten nicht, wenn SVG-Inhalt direkt angesehen oder als Dokument über die {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}}-Elemente eingebettet wird.
 
 ## Spezifikationen
 

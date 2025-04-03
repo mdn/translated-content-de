@@ -2,89 +2,89 @@
 title: Notification
 slug: Web/API/Notification
 l10n:
-  sourceCommit: 79f5e2c8ed9833f409e9054e69e02798b83422d1
+  sourceCommit: 43f272adb6ac15537cff3728c78ddf234485fff8
 ---
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Das **`Notification`**-Interface der [Notifications API](/de/docs/Web/API/Notifications_API) wird verwendet, um Desktop-Benachrichtigungen für den Benutzer zu konfigurieren und anzuzeigen.
+Das **`Notification`** Interface der [Notifications API](/de/docs/Web/API/Notifications_API) wird verwendet, um Desktop-Benachrichtigungen für den Benutzer zu konfigurieren und anzuzeigen.
 
-Das Erscheinungsbild und die spezifische Funktionalität dieser Benachrichtigungen variieren je nach Plattform, bieten jedoch in der Regel eine Möglichkeit, dem Benutzer asynchron Informationen bereitzustellen.
+Das Aussehen und die spezifische Funktionalität dieser Benachrichtigungen variieren je nach Plattform, aber im Allgemeinen bieten sie eine Möglichkeit, dem Benutzer asynchron Informationen bereitzustellen.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`Notification()`](/de/docs/Web/API/Notification/Notification)
-  - : Erstellt eine neue Instanz des `Notification`-Objekts.
+  - : Erstellt eine neue Instanz des `Notification` Objekts.
 
 ## Statische Eigenschaften
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
+_Erbt auch Eigenschaften von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 - [`Notification.permission`](/de/docs/Web/API/Notification/permission_static) {{ReadOnlyInline}}
 
-  - : Ein String, der die aktuelle Berechtigung zur Anzeige von Benachrichtigungen darstellt. Mögliche Werte sind:
+  - : Ein Zeichenkette, die die aktuelle Berechtigung zur Anzeige von Benachrichtigungen darstellt. Mögliche Werte sind:
 
-    - `denied` — Der Benutzer lehnt es ab, Benachrichtigungen anzuzeigen.
-    - `granted` — Der Benutzer akzeptiert die Anzeige von Benachrichtigungen.
-    - `default` — Die Wahl des Benutzers ist unbekannt, und der Browser verhält sich so, als wäre der Wert auf denied gesetzt.
+    - `denied` — Der Benutzer lehnt es ab, Benachrichtigungen angezeigt zu bekommen.
+    - `granted` — Der Benutzer stimmt zu, Benachrichtigungen angezeigt zu bekommen.
+    - `default` — Die Entscheidung des Benutzers ist unbekannt und daher wird der Browser so agieren, als wäre der Wert abgelehnt.
 
-- [`Notification.maxActions`](/de/docs/Web/API/Notification/maxActions_static) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die maximale Anzahl von Aktionen, die vom Gerät und der Benutzer-Agent unterstützt werden.
+- [`Notification.maxActions`](/de/docs/Web/API/Notification/maxActions_static) {{ReadOnlyInline}}
+  - : Die maximale Anzahl von Aktionen, die vom Gerät und dem User-Agent unterstützt werden.
 
-## Instanz-Eigenschaften
+## Instanz Eigenschaften
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
+_Erbt auch Eigenschaften von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 - [`Notification.actions`](/de/docs/Web/API/Notification/actions) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Das Aktionen-Array der Benachrichtigung, wie im `options`-Parameter des Konstruktors angegeben.
+  - : Das Aktions-Array der Benachrichtigung, wie im `options` Parameter des Konstruktors angegeben.
 - [`Notification.badge`](/de/docs/Web/API/Notification/badge) {{ReadOnlyInline}}
-  - : Ein String, der die URL eines Bildes enthält, das die Benachrichtigung darstellt, wenn nicht genügend Platz vorhanden ist, um die Benachrichtigung selbst anzuzeigen, wie z.B. in der Android-Benachrichtigungsleiste. Auf Android-Geräten sollte das Abzeichen Geräte bis zu einer Auflösung von 4x umfassen, etwa 96 x 96 px, und das Bild wird automatisch maskiert.
+  - : Eine Zeichenkette, die die URL eines Bildes enthält, das die Benachrichtigung repräsentiert, wenn nicht genug Platz ist, die Benachrichtigung selbst anzuzeigen, wie zum Beispiel in der Android-Benachrichtigungsleiste. Auf Android-Geräten sollte das Abzeichen Geräte mit bis zu 4x Auflösung unterstützen, etwa 96 x 96 px, und das Bild wird automatisch maskiert.
 - [`Notification.body`](/de/docs/Web/API/Notification/body) {{ReadOnlyInline}}
-  - : Der Text der Benachrichtigung, wie im `options`-Parameter des Konstruktors angegeben.
+  - : Die Zeichenkette des Hauptteils der Benachrichtigung, wie im `options` Parameter des Konstruktors angegeben.
 - [`Notification.data`](/de/docs/Web/API/Notification/data) {{ReadOnlyInline}}
   - : Gibt einen strukturierten Klon der Daten der Benachrichtigung zurück.
 - [`Notification.dir`](/de/docs/Web/API/Notification/dir) {{ReadOnlyInline}}
-  - : Die Textausrichtung der Benachrichtigung, wie im `options`-Parameter des Konstruktors angegeben.
+  - : Die Textausrichtung der Benachrichtigung, wie im `options` Parameter des Konstruktors angegeben.
 - [`Notification.icon`](/de/docs/Web/API/Notification/icon) {{ReadOnlyInline}}
-  - : Die URL des Bildes, das als Symbol der Benachrichtigung verwendet wird, wie im `options`-Parameter des Konstruktors angegeben.
+  - : Die URL des Bildes, das als Symbol der Benachrichtigung verwendet wird, wie im `options` Parameter des Konstruktors angegeben.
 - [`Notification.image`](/de/docs/Web/API/Notification/image) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die URL eines Bildes, das als Teil der Benachrichtigung angezeigt wird, wie im `options`-Parameter des Konstruktors angegeben.
+  - : Die URL eines Bildes, das als Teil der Benachrichtigung angezeigt wird, wie im `options` Parameter des Konstruktors angegeben.
 - [`Notification.lang`](/de/docs/Web/API/Notification/lang) {{ReadOnlyInline}}
-  - : Der Sprachcode der Benachrichtigung, wie im `options`-Parameter des Konstruktors angegeben.
+  - : Der Sprachcode der Benachrichtigung, wie im `options` Parameter des Konstruktors angegeben.
 - [`Notification.renotify`](/de/docs/Web/API/Notification/renotify) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt an, ob der Benutzer benachrichtigt werden soll, nachdem eine neue Benachrichtigung eine alte ersetzt hat.
 - [`Notification.requireInteraction`](/de/docs/Web/API/Notification/requireInteraction) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, dass eine Benachrichtigung aktiv bleiben soll, bis der Benutzer sie klickt oder schließt, anstatt automatisch zu schließen.
+  - : Ein boolescher Wert, der anzeigt, dass eine Benachrichtigung aktiv bleiben soll, bis der Benutzer sie anklickt oder schließt, anstatt automatisch zu schließen.
 - [`Notification.silent`](/de/docs/Web/API/Notification/silent) {{ReadOnlyInline}}
-  - : Gibt an, ob die Benachrichtigung stumm sein soll — d.h. es sollen keine Töne oder Vibrationen ausgegeben werden, unabhängig von den Geräteeinstellungen.
+  - : Gibt an, ob die Benachrichtigung stumm geschaltet werden soll — das heißt, es sollten keine Geräusche oder Vibrationen ausgegeben werden, unabhängig von den Geräteeinstellungen.
 - [`Notification.tag`](/de/docs/Web/API/Notification/tag) {{ReadOnlyInline}}
-  - : Die ID der Benachrichtigung (falls vorhanden), wie im `options`-Parameter des Konstruktors angegeben.
+  - : Die ID der Benachrichtigung (falls vorhanden), wie im `options` Parameter des Konstruktors angegeben.
 - [`Notification.timestamp`](/de/docs/Web/API/Notification/timestamp) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die Zeit an, zu der eine Benachrichtigung erstellt oder gültig ist (vergangen, gegenwärtig oder zukünftig).
+  - : Gibt die Zeit an, zu der eine Benachrichtigung erstellt oder anwendbar ist (Vergangenheit, Gegenwart oder Zukunft).
 - [`Notification.title`](/de/docs/Web/API/Notification/title) {{ReadOnlyInline}}
   - : Der Titel der Benachrichtigung, wie im ersten Parameter des Konstruktors angegeben.
 - [`Notification.vibrate`](/de/docs/Web/API/Notification/vibrate) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein Vibrationsmuster an, das von Geräten mit Vibrationshardware ausgegeben werden soll.
+  - : Gibt ein Vibrationsmuster für Geräte mit Vibrationshardware an, das ausgegeben werden soll.
 
 ## Statische Methoden
 
-_Erbt auch Methoden von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
+_Erbt auch Methoden von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 - [`Notification.requestPermission()`](/de/docs/Web/API/Notification/requestPermission_static)
-  - : Fordert vom Benutzer die Erlaubnis an, Benachrichtigungen anzuzeigen.
+  - : Fordert die Erlaubnis des Benutzers an, Benachrichtigungen anzuzeigen.
 
-## Instanz-Methoden
+## Instanz Methoden
 
-_Erbt auch Methoden von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
+_Erbt auch Methoden von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 - [`Notification.close()`](/de/docs/Web/API/Notification/close)
-  - : Schließt eine Benachrichtigungsinstanz programmatisch.
+  - : Schließt eine Benachrichtigungsinstanz programmgesteuert.
 
 ## Ereignisse
 
-_Erbt auch Ereignisse von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
+_Erbt auch Ereignisse von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 - [`click`](/de/docs/Web/API/Notification/click_event)
   - : Wird ausgelöst, wenn der Benutzer auf die Benachrichtigung klickt.
@@ -97,13 +97,13 @@ _Erbt auch Ereignisse von seiner Elternschnittstelle, [`EventTarget`](/de/docs/W
 
 ## Beispiele
 
-Nehmen Sie dieses grundlegende HTML an:
+Angenommen, dieses grundlegende HTML:
 
 ```html
 <button onclick="notifyMe()">Notify me!</button>
 ```
 
-Es ist möglich, eine Benachrichtigung wie folgt zu senden — hier präsentieren wir einen ziemlich ausführlichen und vollständigen Code, den Sie verwenden könnten, wenn Sie zuerst überprüfen möchten, ob Benachrichtigungen unterstützt werden, dann überprüfen, ob die Berechtigung für den aktuellen Ursprungsort gewährt wurde, um Benachrichtigungen zu senden, dann die Berechtigung anfordern, falls erforderlich, bevor Sie eine Benachrichtigung senden.
+Es ist möglich, eine Benachrichtigung wie folgt zu senden — hier präsentieren wir einen ziemlich ausführlichen und vollständigen Code, den Sie verwenden könnten, wenn Sie zuerst überprüfen möchten, ob Benachrichtigungen unterstützt werden, dann überprüfen, ob die Erlaubnis erteilt wurde, Benachrichtigungen vom aktuellen Ursprungsort zu senden, dann die Erlaubnis anfordern, falls erforderlich, bevor dann eine Benachrichtigung gesendet wird.
 
 ```js
 function notifyMe() {
@@ -131,10 +131,10 @@ function notifyMe() {
 }
 ```
 
-Wir zeigen kein Live-Beispiel mehr auf dieser Seite, da Chrome und Firefox nicht mehr erlauben, dass Benachrichtigungsberechtigungen von cross-origin {{htmlelement("iframe")}}s angefordert werden, wobei andere Browser folgen werden. Um ein Beispiel in Aktion zu sehen, schauen Sie sich unser [To-do List Beispiel](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) an (sehen Sie sich auch [die App im Live-Betrieb](https://mdn.github.io/dom-examples/to-do-notifications/) an).
+Wir zeigen kein Live-Beispiel mehr auf dieser Seite, da Chrome und Firefox nicht mehr zulassen, dass Benachrichtigungsberechtigungen von fremden {{htmlelement("iframe")}}s angefordert werden, andere Browser werden folgen. Um ein Beispiel in Aktion zu sehen, schauen Sie sich unser [To-do-Listen-Beispiel](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) an (siehe auch [die App live in Aktion](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 > [!NOTE]
-> Im obigen Beispiel erzeugen wir Benachrichtigungen als Antwort auf eine Benutzeraktion (Klicken auf eine Schaltfläche). Dies ist nicht nur bewährte Praxis — Sie sollten keine Benutzer mit Benachrichtigungen zuspammen, denen sie nicht zugestimmt haben — sondern in Zukunft werden Browser ausdrücklich Benachrichtigungen verbieten, die nicht als Reaktion auf eine Benutzeraktion ausgelöst werden. Firefox tut dies bereits ab Version 72, zum Beispiel.
+> Im obigen Beispiel generieren wir Benachrichtigungen als Reaktion auf eine Benutzeraktion (Klicken eines Buttons). Dies ist nicht nur Best Practice — Sie sollten Benutzer nicht mit Benachrichtigungen überhäufen, denen sie nicht zugestimmt haben — sondern in Zukunft werden Browser explizit Benachrichtigungen verbieten, die nicht als Reaktion auf eine Benutzeraktion ausgelöst werden. Firefox tut dies bereits ab Version 72, zum Beispiel.
 
 ## Spezifikationen
 

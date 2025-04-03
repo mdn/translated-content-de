@@ -3,15 +3,15 @@ title: "Element: animate() Methode"
 short-title: animate()
 slug: Web/API/Element/animate
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef('Web Animations')}}
 
-Die **`animate()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle ist eine Abkürzungsmethode, die eine neue [`Animation`](/de/docs/Web/API/Animation) erstellt, sie auf das Element anwendet und dann die Animation abspielt. Sie gibt das erstellte [`Animation`](/de/docs/Web/API/Animation) Objektinstanz zurück.
+Die **`animate()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces ist eine Abkürzungsmethode, die eine neue [`Animation`](/de/docs/Web/API/Animation) erstellt, diese auf das Element anwendet und dann die Animation abspielt. Sie gibt die erstellte [`Animation`](/de/docs/Web/API/Animation)-Objektinstanz zurück.
 
 > [!NOTE]
-> Elemente können mehrere Animationen zugewiesen bekommen. Sie können eine Liste der Animationen abrufen, die ein Element betreffen, indem Sie [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) aufrufen.
+> Elemente können mehrere Animationen haben, die auf sie angewendet werden. Sie können eine Liste der Animationen, die ein Element betreffen, abrufen, indem Sie [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) aufrufen.
 
 ## Syntax
 
@@ -22,18 +22,18 @@ animate(keyframes, options)
 ### Parameter
 
 - `keyframes`
-  - : Entweder ein Array von Keyframe-Objekten **oder** ein Keyframe-Objekt, dessen Eigenschaften Arrays von Werten zum Iterieren sind. Siehe [Keyframe-Formate](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats) für weitere Details.
+  - : Entweder ein Array von Keyframe-Objekten **oder** ein Keyframe-Objekt, dessen Eigenschaften Arrays von Werten sind, über die iteriert werden soll. Siehe [Keyframe-Formate](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats) für weitere Details.
 - `options`
 
-  - : Entweder eine **Ganzzahl, die die Dauer der Animation** (in Millisekunden) angibt, **oder** ein Objekt, das eine oder mehrere Zeitsteuerungseigenschaften enthält, die im [`KeyframeEffect()` options parameter](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#parameters) beschrieben sind und/oder die folgenden Optionen:
+  - : Entweder ein **Integer, der die Dauer der Animation** (in Millisekunden) darstellt, **oder** ein Objekt, das eine oder mehrere Timing-Eigenschaften enthält, die im [`KeyframeEffect()`-Optionsparameter](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#parameters) beschrieben sind und/oder die folgenden Optionen:
 
     - `id` {{optional_inline}}
-      - : Eine für `animate()` einzigartige Eigenschaft: Ein String, mit dem auf die Animation verwiesen wird.
+      - : Eine Eigenschaft, die `animate()` einzigartig ist: Ein String, mit dem die Animation referenziert wird.
     - `rangeEnd` {{optional_inline}}
 
-      - : Gibt das Ende des Anbindungsbereichs einer Animation entlang ihrer Zeitleiste an, d.h. wo entlang der Zeitleiste eine Animation endet. Das JavaScript-Pendant zur CSS-Eigenschaft {{cssxref("animation-range-end")}}. `rangeEnd` kann mehrere unterschiedliche Wertetypen annehmen, wie folgt:
+      - : Bestimmt das Ende eines Animationsanhängerbereichs entlang seiner Zeitleiste, d.h. wo entlang der Zeitleiste eine Animation endet. Das JavaScript-Äquivalent der CSS-Eigenschaft {{cssxref("animation-range-end")}}. `rangeEnd` kann mehrere verschiedene Wertetypen annehmen, wie folgt:
 
-        - Ein String, der `normal` sein kann (was bedeutet, dass keine Änderungen am Anbindungsbereich der Animation vorgenommen werden), eine CSS {{cssxref("length-percentage")}} darstellende Verschiebung, ein `<timeline-range-name>` oder ein `<timeline-range-name>` mit einem `<length-percentage>` dahinter. Zum Beispiel:
+        - Ein String, der `normal` sein kann (bedeutet keine Änderung des Animationsanhängerbereichs), ein CSS {{cssxref("length-percentage")}}, das einen Versatz darstellt, ein `<timeline-range-name>`, oder ein `<timeline-range-name>` mit einem anschließendem `<length-percentage>`. Zum Beispiel:
 
           ```plain
           "normal"
@@ -41,9 +41,9 @@ animate(keyframes, options)
           "cover 100%"
           ```
 
-          Weitere Informationen zu den verfügbaren Werten finden Sie unter [`animation-range`](/de/docs/Web/CSS/animation-range). Werfen Sie auch einen Blick auf den [View Timeline Ranges Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/), der genau zeigt, was die verschiedenen Werte in einem leicht verständlichen visuellen Format bedeuten.
+          Siehe [`animation-range`](/de/docs/Web/CSS/animation-range) für eine detaillierte Beschreibung der verfügbaren Werte. Sehen Sie sich auch das [View Timeline Ranges Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/) an, das zeigt, was die verschiedenen Werte in einem einfachen visuellen Format bedeuten.
 
-        - Ein Objekt, das `rangeName` (ein String) und `offset` (ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue))-Eigenschaften enthält, die ein `<timeline-range-name>` und `<length-percentage>` darstellen, wie im vorherigen Punkt beschrieben. Zum Beispiel:
+        - Ein Objekt, das die Eigenschaften `rangeName` (ein String) und `offset` (ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)) enthält, die ein `<timeline-range-name>` und `<length-percentage>` darstellen, wie im vorherigen Punkt beschrieben. Zum Beispiel:
 
           ```js
           {
@@ -52,16 +52,16 @@ animate(keyframes, options)
           }
           ```
 
-        - Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), das eine Verschiebung darstellt, zum Beispiel:
+        - Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), das einen Versatz darstellt, zum Beispiel:
 
           ```js
           CSS.percent("100");
           ```
 
     - `rangeStart` {{optional_inline}}
-      - : Gibt den Beginn des Anbindungsbereichs einer Animation entlang ihrer Zeitleiste an, d.h. wo entlang der Zeitleiste eine Animation beginnt. Das JavaScript-Pendant zur CSS-Eigenschaft {{cssxref("animation-range-start")}}. `rangeStart` kann die gleichen Wertetypen wie `rangeEnd` annehmen.
+      - : Bestimmt den Start eines Animationsanhängerbereichs entlang seiner Zeitleiste, d.h. wo entlang der Zeitleiste eine Animation beginnt. Das JavaScript-Äquivalent der CSS-Eigenschaft {{cssxref("animation-range-start")}}. `rangeStart` kann die gleichen Wertetypen wie `rangeEnd` annehmen.
     - `timeline` {{optional_inline}}
-      - : Eine für `animate()` einzigartige Eigenschaft: Die [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), die mit der Animation verknüpft wird. Standardmäßig ist dies [`Document.timeline`](/de/docs/Web/API/Document/timeline). Das JavaScript-Pendant zur CSS-Eigenschaft {{cssxref("animation-timeline")}}.
+      - : Eine Eigenschaft, die `animate()` einzigartig ist: Die [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), die mit der Animation verknüpft wird. Standardmäßig auf [`Document.timeline`](/de/docs/Web/API/Document/timeline). Das JavaScript-Äquivalent der CSS-Eigenschaft {{cssxref("animation-timeline")}}.
 
 ### Rückgabewert
 
@@ -69,9 +69,9 @@ Gibt eine [`Animation`](/de/docs/Web/API/Animation) zurück.
 
 ## Beispiele
 
-### Rotation und Skalierung
+### Rotieren und Skalieren
 
-In diesem Beispiel verwenden wir die `animate()` Methode, um ein Element zu rotieren und zu skalieren.
+In diesem Beispiel verwenden wir die `animate()`-Methode, um ein Element zu rotieren und zu skalieren.
 
 #### HTML
 
@@ -127,9 +127,9 @@ newspaper.addEventListener("click", () => {
 
 {{EmbedLiveSample("Rotating and scaling")}}
 
-### Down the Rabbit Hole Demo
+### Demo "Down the Rabbit Hole"
 
-In der Demo [Down the Rabbit Hole (mit der Web Animation API)](https://codepen.io/rachelnabors/pen/rxpmJL/?editors=0010) verwenden wir die praktische `animate()` Methode, um sofort eine Animation auf das `#tunnel`-Element zu erstellen und abzuspielen, damit es unendlich nach oben fließt. Beachten Sie das Array von Objekten, das als Keyframes und auch der Timing-Optionenblock übergeben wird.
+In der Demo [Down the Rabbit Hole (with the Web Animation API)](https://codepen.io/rachelnabors/pen/rxpmJL/?editors=0010) verwenden wir die bequeme `animate()`-Methode, um sofort eine Animation auf dem `#tunnel`-Element zu erstellen und abzuspielen, damit es unendlich nach oben fließt. Beachten Sie das Array von Objekten, das als Keyframes übergeben wird, sowie den Timing-Optionsblock.
 
 ```js
 document.getElementById("tunnel").animate(
@@ -146,19 +146,19 @@ document.getElementById("tunnel").animate(
 );
 ```
 
-### Implizite Von/Bis-Keyframes
+### Implizite von/bis Keyframes
 
-In neueren Browserversionen können Sie nur einen Anfangs- oder Endzustand für eine Animation festlegen (d.h. ein einzelnes Keyframe), und der Browser wird das andere Ende der Animation ableiten, wenn er dazu in der Lage ist. Betrachten Sie zum Beispiel [diese einfache Animation](https://mdn.github.io/dom-examples/web-animations-api/implicit-keyframes.html) — das Keyframe-Objekt sieht so aus:
+In neueren Browserversionen können Sie einen Anfangs- oder Endzustand für eine Animation (d.h. einen einzigen Keyframe) festlegen, und der Browser wird, sofern möglich, den anderen Endpunkt der Animation ableiten. Betrachten Sie zum Beispiel [diese einfache Animation](https://mdn.github.io/dom-examples/web-animations-api/implicit-keyframes.html) — das Keyframe-Objekt sieht so aus:
 
 ```js
 let rotate360 = [{ transform: "rotate(360deg)" }];
 ```
 
-Wir haben nur den Endzustand der Animation spezifiziert, und der Anfangszustand wird impliziert.
+Wir haben nur den Endzustand der Animation spezifiziert, und der Anfangszustand wird implizit angenommen.
 
-### timeline, rangeStart, und rangeEnd
+### timeline, rangeStart und rangeEnd
 
-Eine typische Verwendung der Eigenschaften `timeline`, `rangeStart`, und `rangeEnd` könnte so aussehen:
+Typische Verwendung der Eigenschaften `timeline`, `rangeStart` und `rangeEnd` könnte so aussehen:
 
 ```js
 const img = document.querySelector("img");
@@ -196,5 +196,5 @@ img.animate(
 - [`Animation`](/de/docs/Web/API/Animation)
 - [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations)
 - {{cssxref("animation-range-end")}}, {{cssxref("animation-range-start")}}, {{cssxref("animation-timeline")}}
-- [CSS scroll-driven animations](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scrollgetriebene Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)

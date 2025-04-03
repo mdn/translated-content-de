@@ -1,21 +1,21 @@
 ---
-title: Logische Eigenschaften zur Größenbestimmung
+title: Logische Eigenschaften für die Größenbestimmung
 slug: Web/CSS/CSS_logical_properties_and_values/Sizing
 l10n:
-  sourceCommit: 02cc9311b281b73322c5d13185119d2e8adf336a
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{CSSRef}}
 
-In diesem Leitfaden erklären wir die flussrelativen Zuordnungen zwischen physikalischen Dimensionseigenschaften und logischen Eigenschaften, die zur Größenbestimmung von Elementen auf unseren Seiten verwendet werden.
+In diesem Leitfaden erklären wir die flussrelativen Abbildungen zwischen physikalischen Dimensionseigenschaften und logischen Eigenschaften, die zur Größenbestimmung von Elementen auf unseren Seiten verwendet werden.
 
-Bei der Angabe der Größe eines Elements ermöglicht Ihnen das Modul [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values), die Größe in Bezug auf den Textfluss (inline und block) anzugeben, anstatt sich auf physikalische Größen zu beziehen, die sich auf die physikalischen Maße horizontaler und vertikaler Dimensionen (z.B. links und rechts) beziehen. Obwohl diese flussrelativen Zuordnungen für viele von uns möglicherweise zum Standard werden, können Sie in einem Design sowohl physikalische als auch logische Größen verwenden. Sie könnten wollen, dass einige Merkmale sich immer auf die physikalischen Dimensionen beziehen, unabhängig vom Schreibmodus.
+Wenn Sie die Größe eines Elements festlegen, bietet Ihnen das [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul die Möglichkeit, die Größe in Bezug auf den Textfluss (inline und block) anzugeben, anstatt auf die physikalische Größe, die sich auf die physikalischen Abmessungen von horizontal und vertikal (z. B. links und rechts) bezieht. Diese flussrelativen Abbildungen könnten für viele von uns gut zum Standard werden, aber in einem Design verwenden Sie möglicherweise sowohl physikalische als auch logische Größenbestimmungen. Sie möchten möglicherweise, dass einige Merkmale immer mit den physikalischen Abmessungen in Beziehung stehen, unabhängig vom Schreibmodus.
 
-## Zuordnungen für Dimensionen
+## Abbildungen für Dimensionen
 
-Die folgende Tabelle bietet Zuordnungen zwischen logischen und physikalischen Eigenschaften. Diese Zuordnungen setzen voraus, dass Sie sich in einem `horizontal-tb` Schreibmodus befinden, wie z.B. Englisch oder Arabisch, in welchem Fall {{CSSxRef("width")}} zu {{CSSxRef("inline-size")}} zugeordnet würde.
+Die folgende Tabelle bietet Abbildungen zwischen logischen und physikalischen Eigenschaften. Diese Abbildungen gehen davon aus, dass Sie sich in einem `horizontal-tb` Schreibmodus befinden, wie Englisch oder Arabisch, wobei {{CSSxRef("width")}} auf {{CSSxRef("inline-size")}} abgebildet würde.
 
-Wenn Sie sich in einem vertikalen Schreibmodus befinden, würde {{CSSxRef("inline-size")}} zu {{CSSxRef("height")}} zugeordnet werden.
+Wenn Sie sich in einem vertikalen Schreibmodus befinden, würde {{CSSxRef("inline-size")}} auf {{CSSxRef("height")}} abgebildet werden.
 
 | Logische Eigenschaft           | Physikalische Eigenschaft |
 | ------------------------------ | ------------------------- |
@@ -26,11 +26,11 @@ Wenn Sie sich in einem vertikalen Schreibmodus befinden, würde {{CSSxRef("inlin
 | {{CSSxRef("max-inline-size")}} | {{CSSxRef("max-width")}}  |
 | {{CSSxRef("max-block-size")}}  | {{CSSxRef("max-height")}} |
 
-## Breiten- und Höhenbeispiel
+## Beispiel für Breite und Höhe
 
-Die logischen Zuordnungen für {{CSSxRef("width")}} und {{CSSxRef("height")}} sind {{CSSxRef("inline-size")}}, welches die Länge in der Inline-Dimension setzt, und {{CSSxRef("block-size")}}, welches die Länge in der Block-Dimension setzt. Beim Arbeiten in Englisch führt das Ersetzen von `width` durch `inline-size` und `height` durch `block-size` zum gleichen Layout.
+Die logischen Abbildungen für {{CSSxRef("width")}} und {{CSSxRef("height")}} sind {{CSSxRef("inline-size")}}, die die Länge in der Inline-Dimension festlegt, und {{CSSxRef("block-size")}}, die die Länge in der Block-Dimension festlegt. Wenn Sie mit Englisch arbeiten, erhalten Sie das gleiche Layout, wenn Sie `width` durch `inline-size` und `height` durch `block-size` ersetzen.
 
-Im nachfolgenden Live-Beispiel ist der `writing-mode` auf `horizontal-tb` gesetzt. Ändern Sie ihn in `vertical-rl`, und Sie werden sehen, dass das erste Beispiel – welches `width` und `height` verwendet – in jeder Dimension gleich groß bleibt, obwohl der Text vertikal wird. Das zweite Beispiel – welches `inline-size` und `block-size` verwendet – folgt der Textausrichtung, als ob der gesamte Block rotiert wäre.
+Im folgenden Live-Beispiel ist der `writing-mode` auf `horizontal-tb` eingestellt. Ändern Sie es zu `vertical-rl` und Sie werden sehen, dass das erste Beispiel — das `width` und `height` verwendet — in jeder Dimension die gleiche Größe behält, obwohl der Text vertikal wird. Das zweite Beispiel — das `inline-size` und `block-size` verwendet — wird der Textausrichtung folgen, als ob der gesamte Block gedreht wurde.
 
 ```html live-sample___size-inline-block
 <div class="container">
@@ -76,11 +76,11 @@ body {
 
 {{EmbedLiveSample("size-inline-block")}}
 
-## Min-width und Min-height Beispiel
+## Beispiel für Min-width und Min-height
 
-Es gibt auch Zuordnungen für {{CSSxRef("min-width")}} und {{CSSxRef("min-height")}} — diese sind {{CSSxRef("min-inline-size")}} und {{CSSxRef("min-block-size")}}. Diese funktionieren auf die gleiche Weise wie die Eigenschaften `inline-size` und `block-size`, nur dass eine Mindestgröße anstelle einer festen Größe festgelegt wird.
+Es gibt auch Abbildungen für {{CSSxRef("min-width")}} und {{CSSxRef("min-height")}} — diese sind {{CSSxRef("min-inline-size")}} und {{CSSxRef("min-block-size")}}. Diese arbeiten auf die gleiche Weise wie die `inline-size` und `block-size` Eigenschaften, setzen jedoch eine Mindestgröße anstelle einer festen Größe.
 
-Versuchen Sie, das Beispiel unten auf `vertical-rl` zu ändern, wie beim ersten Beispiel, um den Effekt zu sehen. Ich verwende `min-height` im ersten Beispiel und `min-block-size` im zweiten.
+Versuchen Sie, das untenstehende Beispiel wie im ersten Beispiel auf `vertical-rl` zu ändern, um die Auswirkung zu sehen. Ich verwende `min-height` im ersten Beispiel und `min-block-size` im zweiten.
 
 ```html live-sample___size-min
 <div class="container">
@@ -128,9 +128,9 @@ body {
 
 {{EmbedLiveSample("size-min")}}
 
-## Max-width und Max-height Beispiel
+## Beispiel für Max-width und Max-height
 
-Schließlich können Sie {{CSSxRef("max-inline-size")}} und {{CSSxRef("max-block-size")}} als logische Ersetzungen für {{CSSxRef("max-width")}} und {{CSSxRef("max-height")}} verwenden. Versuchen Sie, mit dem untenstehenden Beispiel auf die gleiche Weise wie zuvor zu experimentieren.
+Schließlich können Sie {{CSSxRef("max-inline-size")}} und {{CSSxRef("max-block-size")}} als logische Ersatzwerte für {{CSSxRef("max-width")}} und {{CSSxRef("max-height")}} verwenden. Versuchen Sie, mit dem untenstehenden Beispiel wie zuvor zu experimentieren.
 
 ```html live-sample___size-max
 <div class="container">
@@ -172,11 +172,11 @@ body {
 
 {{EmbedLiveSample("size-max")}}
 
-## Logische Schlüsselwörter für das Resizing
+## Logische Schlüsselwörter für die Größenänderung
 
-Die {{CSSxRef("resize")}} Eigenschaft legt fest, ob ein Element in der Größe verändert werden kann, und hat physikalische Werte von `horizontal` und `vertical`. Die `resize`-Eigenschaft hat auch logische Schlüsselwortwerte. Die Verwendung von `resize: inline` ermöglicht das Resizing in der Inline-Dimension und `resize: block` erlaubt das Resizing in der Block-Dimension.
+Die {{CSSxRef("resize")}} Eigenschaft legt fest, ob ein Element in der Größe verändert werden kann oder nicht, und hat physikalische Werte wie `horizontal` und `vertical`. Die `resize` Eigenschaft hat auch logische Schlüsselwortwerte. Die Verwendung von `resize: inline` ermöglicht das Ändern der Größe in der Inline-Dimension und `resize: block` erlaubt das Ändern der Größe in der Block-Dimension.
 
-Der Schlüsselwortwert `both` für die Resizing-Eigenschaft funktioniert sowohl physikalisch als auch logisch. Er setzt beide Dimensionen gleichzeitig. Versuchen Sie, mit dem folgenden Beispiel zu experimentieren.
+Der Schlüsselwortwert `both` für die Eigenschaft resize funktioniert, egal ob Sie physikalisch oder logisch denken. Es setzt beide Dimensionen gleichzeitig. Versuchen Sie, mit dem untenstehenden Beispiel zu experimentieren.
 
 ```html live-sample___size-resize
 <div class="container">

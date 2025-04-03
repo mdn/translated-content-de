@@ -2,12 +2,12 @@
 title: windows.remove()
 slug: Mozilla/Add-ons/WebExtensions/API/windows/remove
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{AddonSidebar}}
 
-Schließt ein Fenster und alle darin enthaltenen Tabs, basierend auf der ID des Fensters.
+Schließt ein Fenster und alle darin enthaltenen Tabs anhand der ID des Fensters.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,7 +22,7 @@ let removing = browser.windows.remove(
 ### Parameter
 
 - `windowId`
-  - : `integer`. ID des Fensters, das geschlossen werden soll.
+  - : `integer`. ID des zu schließenden Fensters.
 
 ### Rückgabewert
 
@@ -34,7 +34,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Wenn der Benutzer auf das Symbol einer Browser-Aktion klickt, schließen Sie das Fenster, in dem das Symbol angeklickt wurde:
+Wenn der Benutzer auf das Symbol einer Browser-Aktion klickt, schließen Sie das Fenster, in dem auf das Symbol geklickt wurde:
 
 ```js
 function onRemoved() {
@@ -51,7 +51,7 @@ browser.browserAction.onClicked.addListener((tab) => {
 });
 ```
 
-Schließen Sie das aktuelle, z. B. Popup-Fenster, wenn der Benutzer auf eine Schaltfläche auf der Seite klickt:
+Schließen Sie das aktuelle, z.B. Popup-Fenster, wenn der Benutzer auf eine Schaltfläche auf der Seite klickt:
 
 ```js
 // in a script loaded by the page in the window
@@ -67,41 +67,39 @@ document.querySelector("#close").addEventListener(async ({ button }) => {
 });
 ```
 
-In Firefox könnte dies mit der `.allowScriptsToClose`-Eigenschaft des Fenstererstellungsprozesses und `window.close()` erreicht werden.
+In Firefox könnte dasselbe mit der `.allowScriptsToClose` Fenstereigenschaft beim Erstellen und `window.close()` erreicht werden.
 
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-remove). Diese Dokumentation stammt aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-remove) API von Chromium. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Die Vervielfältigung und Verwendung des Quellcodes und der binären Formen,
-// mit oder ohne Änderungen, sind unter folgenden Bedingungen gestattet:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverbreitungen des Quellcodes müssen den obigen Urheberrechtshinweis,
-// diese Liste der Bedingungen und den folgenden Haftungsausschluss enthalten.
-//    * Weiterverbreitungen in binärer Form müssen den obigen Urheberrechtshinweis,
-// diese Liste der Bedingungen und den folgenden Haftungsausschluss in der
-// Dokumentation und/oder anderen Materialien, die mit der Verteilung geliefert
-// werden, enthalten.
-//    * Weder der Name Google Inc. noch die Namen seiner Mitwirkenden
-// dürfen verwendet werden, um Produkte, die aus dieser Software abgeleitet
-// wurden, ohne vorherige ausdrückliche schriftliche Genehmigung zu unterstützen
-// oder zu bewerben.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN "WIE BESEHEN"
-// BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDEN GARANTIEN,
-// EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE STILLSCHWEIGENDEN GARANTIEN
-// DER MARKTGÄNGIGKEIT UND DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK SIND
-// AUSGESCHLOSSEN. IN KEINEM FALL SIND DIE URHEBERRECHTSINHABER ODER MITWIRKENDEN
-// HAFTBAR FÜR DIREKTE, INDIREKTE, BEILÄUFIGE, SPEZIELLE, EXEMPLARISCHE ODER
-// FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE BESCHAFFUNG
-// VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATEN ODER GEWINNE;
-// ODER GESCHÄFTSUNTERBRECHUNG) JEDER ART UND WEISE UND UNTER JEDEM
-// HAFTUNGSPRINZIP, OB IN VERTRAG, STRIKTHAFTUNG ODER UNERLAUBTER HANDLUNG
-// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUS DER NUTZUNG
-// DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN
-// HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

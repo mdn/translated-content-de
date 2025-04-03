@@ -3,19 +3,19 @@ title: "GPUDevice: lost-Eigenschaft"
 short-title: lost
 slug: Web/API/GPUDevice/lost
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`lost`** der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle enthält ein {{jsxref("Promise")}}, das während der gesamten Lebensdauer des Geräts schwebend bleibt und mit einem [`GPUDeviceLostInfo`](/de/docs/Web/API/GPUDeviceLostInfo)-Objekt aufgelöst wird, wenn das Gerät verloren geht.
+Die schreibgeschützte Eigenschaft **`lost`** der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle enthält ein {{jsxref("Promise")}}, das während der gesamten Lebensdauer des Geräts ausstehend bleibt und mit einem [`GPUDeviceLostInfo`](/de/docs/Web/API/GPUDeviceLostInfo)-Objekt aufgelöst wird, wenn das Gerät verloren geht.
 
-[`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) wird niemals `null` zurückgeben und wird nur dann abgelehnt, wenn die Anfrage ungültig ist, d.h. sie übersteigt die Fähigkeiten des [`GPUAdapter`](/de/docs/Web/API/GPUAdapter). Wenn eine gültige Geräteanfrage aus irgendeinem Grund nicht erfüllt werden kann, kann es jedoch zu einem Gerät führen, das bereits verloren gegangen ist. Zusätzlich können Geräte jederzeit nach ihrer Erstellung aus verschiedenen Gründen verloren gehen (wie zum Beispiel Ressourcenverwaltung des Browsers oder Treiberaktualisierungen), daher ist es ratsam, verlorene Geräte immer sorgfältig zu handhaben.
+[`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) wird niemals `null` zurückgeben und wird nur dann zurückgewiesen, wenn die Anforderung ungültig ist, d.h. die Fähigkeiten des [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) überschreitet. Wenn eine gültige Geräteanforderung aus irgendeinem Grund jedoch nicht erfüllt werden kann, kann sie ein bereits verlorenes Gerät zurückgeben. Zusätzlich können Geräte jederzeit nach ihrer Erstellung aus verschiedenen Gründen verloren gehen (wie z.B. Browser-Ressourcenmanagement oder Treiberaktualisierungen), daher ist es ratsam, verlorene Geräte immer elegant zu behandeln.
 
-Viele Ursachen für verlorene Geräte sind vorübergehend, daher sollten Sie versuchen, nach dem Verlust eines vorherigen Geräts ein neues zu erhalten, es sei denn, der Verlust wurde durch die absichtliche Zerstörung des Geräts seitens der Anwendung verursacht (d.h. mit [`GPUDevice.destroy()`](/de/docs/Web/API/GPUDevice/destroy)). Beachten Sie, dass alle mit einem vorherigen Gerät erstellten WebGPU-Ressourcen (Puffer, Texturen usw.) mit dem neuen Gerät neu erstellt werden müssen.
+Viele Ursachen für verlorene Geräte sind vorübergehend, daher sollten Sie versuchen, ein neues Gerät zu erhalten, sobald ein vorheriges verloren gegangen ist, es sei denn, der Verlust wurde durch die absichtliche Zerstörung des Geräts durch die Anwendung verursacht (d.h. mit [`GPUDevice.destroy()`](/de/docs/Web/API/GPUDevice/destroy)). Beachten Sie, dass alle WebGPU-Ressourcen, die mit einem vorherigen Gerät erstellt wurden (Puffer, Texturen usw.), mit dem neuen Gerät neu erstellt werden müssen.
 
 > [!NOTE]
-> Bedenken Sie auch, dass ein `GPUAdapter` möglicherweise nicht mehr verfügbar ist, z.B. wenn die physische GPU vom System abgesteckt oder deaktiviert wird, um Strom zu sparen. Ab diesem Zeitpunkt kann der Adapter keine gültigen Geräte mehr zurückgeben und wird immer bereits verlorene Geräte zurückgeben.
+> Beachten Sie auch, dass ein `GPUAdapter` nicht mehr verfügbar sein kann, z.B. wenn die physische GPU vom System abgesteckt oder deaktiviert wird, um Strom zu sparen. Ab diesem Zeitpunkt kann der Adapter keine gültigen Geräte mehr zurückgeben und wird immer bereits verlorene Geräte zurückgeben.
 
 ## Wert
 

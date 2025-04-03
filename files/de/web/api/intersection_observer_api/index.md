@@ -2,44 +2,44 @@
 title: Intersection Observer API
 slug: Web/API/Intersection_Observer_API
 l10n:
-  sourceCommit: 7c9071ab28a5ac4e5899ef8083a53a08e8aebc2b
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{DefaultAPISidebar("Intersection Observer API")}}
 
-Die Intersection Observer API bietet eine Möglichkeit, asynchron Änderungen in der Schnittmenge eines Zielelements mit einem Vorfahrenselement oder dem {{Glossary("viewport", "Viewport")}} eines obersten Dokuments zu beobachten.
+Die Intersection Observer API bietet eine Möglichkeit, Änderungen in der Überschneidung eines Zielelements mit einem Vorfahrenelement oder mit dem Ansichtsfenster eines obersten Dokuments asynchron zu beobachten.
 
-Historisch gesehen war es eine schwierige Aufgabe, die Sichtbarkeit eines Elements oder die relative Sichtbarkeit zweier Elemente zueinander zu erkennen, und Lösungen dafür waren oft unzuverlässig und führten dazu, dass der Browser und die vom Benutzer aufgerufenen Seiten träge wurden. Im Laufe der Entwicklung des Webs ist der Bedarf an dieser Art von Informationen gewachsen. Schnittstelleninformationen werden aus vielen Gründen benötigt, zum Beispiel:
+Historisch gesehen war die Sichtbarkeit eines Elements oder die relative Sichtbarkeit zweier Elemente zueinander schwer zu erkennen, und die Lösungen dafür waren unzuverlässig und neigten dazu, den Browser und die Websites, auf die der Benutzer zugreift, träge zu machen. Mit der Weiterentwicklung des Webs ist der Bedarf an dieser Art von Informationen gestiegen. Überschneidungsinformationen werden aus vielen Gründen benötigt, wie z.B.:
 
-- Lazy-Loading von Bildern oder anderen Inhalten, während eine Seite gescrollt wird.
-- Implementierung von "unendlichem Scrollen" auf Websites, bei denen immer mehr Inhalte geladen und gerendert werden, während Sie scrollen, sodass der Benutzer nicht durch Seiten blättern muss.
+- Lazy-Loading von Bildern oder anderen Inhalten beim Scrollen einer Seite.
+- Implementierung von "unendlichem Scrollen" auf Websites, bei denen immer mehr Inhalte geladen und gerendert werden, sobald Sie scrollen, sodass der Benutzer nicht durch Seiten blättern muss.
 - Berichterstattung über die Sichtbarkeit von Anzeigen, um Werbeeinnahmen zu berechnen.
-- Entscheidung, ob Aufgaben oder Animationen ausgeführt werden sollen, basierend darauf, ob der Benutzer das Ergebnis sehen wird.
+- Entscheidung, ob Aufgaben oder Animationen durchgeführt werden sollen, basierend darauf, ob der Benutzer das Ergebnis sehen wird.
 
-In der Vergangenheit beinhaltete die Implementierung der Intersection-Erkennung Event-Handler und Schleifen, die Methoden wie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) aufriefen, um die erforderlichen Informationen für jedes betroffene Element zu sammeln. Da all dieser Code im Haupt-Thread läuft, kann bereits ein einziger solcher Vorgang zu Leistungsproblemen führen. Wenn eine Website mit solchen Tests geladen wird, kann es richtig unschön werden.
+In der Vergangenheit umfasste die Implementierung der Überschneidungserkennung Ereignis-Handler und Schleifen, die Methoden wie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) aufrufen, um die erforderlichen Informationen für jedes betroffene Element zu sammeln. Da all dieser Code im Haupt-Thread läuft, kann sogar eine dieser Operationen Leistungseinbußen verursachen. Wenn eine Website mit diesen Tests beladen ist, kann es richtig hässlich werden.
 
-Stellen Sie sich eine Webseite vor, die unendliches Scrollen verwendet. Sie nutzt eine vom Anbieter bereitgestellte Bibliothek zur Verwaltung der Anzeigen, die periodisch auf der Seite platziert sind, hat hier und da animierte Grafiken und verwendet eine benutzerdefinierte Bibliothek, die Benachrichtigungsboxen und Ähnliches zeichnet. Jede dieser hat ihre eigenen Intersection-Erkennungsroutinen, die alle im Haupt-Thread laufen. Der Autor der Website bemerkt möglicherweise nicht einmal, dass dies geschieht, da er möglicherweise wenig über die Funktionsweise der zwei verwendeten Bibliotheken weiß. Während der Benutzer die Seite scrollt, werden diese Intersection-Erkennungsroutinen während des Scroll-Handlings ständig aktiviert, was dazu führt, dass der Benutzer frustriert über den Browser, die Website und seinen Computer ist.
+Betrachten Sie eine Webseite, die unendliches Scrollen verwendet. Sie nutzt eine vom Anbieter bereitgestellte Bibliothek, um die Anzeigen zu verwalten, die regelmäßig auf der Seite verteilt werden, hat hier und da animierte Grafiken und verwendet eine benutzerdefinierte Bibliothek, die Benachrichtigungsboxen und Ähnliches zeichnet. Jede dieser Funktionen hat ihre eigenen Routinen zur Überschneidungserkennung, die alle im Haupt-Thread laufen. Der Autor der Website merkt möglicherweise nicht einmal, dass dies passiert, da er möglicherweise sehr wenig über die Funktionsweise der verwendeten Bibliotheken weiß. Während der Benutzer die Seite scrollt, werden diese Routinen zur Überschneidungserkennung ständig während des Scroll-Handlings ausgeführt, was zu einer Erfahrung führt, die den Benutzer frustriert den Browser, die Website und seinen Computer meiden lässt.
 
-Die Intersection Observer API ermöglicht es dem Code, eine Callback-Funktion zu registrieren, die jedes Mal ausgeführt wird, wenn ein bestimmtes Element in eine Schnittmenge mit einem anderen Element (oder dem {{Glossary("viewport", "Viewport")}}) eintritt oder aus diesem austritt oder wenn sich die Schnittmenge zwischen zwei Elementen um einen bestimmten Betrag ändert. Auf diese Weise müssen Websites nichts im Haupt-Thread tun, um diese Art von Elementüberschneidung zu überwachen, und der Browser ist frei, die Verwaltung der Überschneidungen nach Belieben zu optimieren.
+Die Intersection Observer API ermöglicht es dem Code, eine Callback-Funktion zu registrieren, die ausgeführt wird, wann immer ein bestimmtes Element einen Übergang eines Intersections mit einem anderen Element (oder dem {{Glossary("viewport", "Ansichtsfenster")}}) erreicht oder verlässt, oder wenn die Überschneidung zwischen zwei Elementen um einen angegebenen Betrag ändert. Auf diese Weise müssen Websites nicht mehr im Haupt-Thread etwas tun, um diese Art von Elementüberschneidungen zu beobachten, und der Browser kann die Verwaltung von Überschneidungen nach eigenem Ermessen optimieren.
 
-Eine Sache, die die Intersection Observer API nicht kann: Logik basierend auf der genauen Anzahl der überlappenden Pixel oder spezifisch auf welche Pixelleiste auslösen. Sie löst nur den häufigen Anwendungsfall: "Wenn sie irgendwo um _N_% überlappen, muss ich etwas tun."
+Eine Sache, die die Intersection Observer API nicht kann: Logik basierend auf der genauen Anzahl von überlappenden Pixeln auslösen oder spezifisch darauf, welche das sind. Sie löst nur den häufigen Anwendungsfall "Wenn sie sich irgendwo um _N_% überschneiden, muss ich etwas tun."
 
-## Konzepte und Verwendung des Intersection Observer
+## Konzepte und Nutzung des Intersection Observers
 
-Die Intersection Observer API ermöglicht es Ihnen, eine Callback-Funktion zu konfigurieren, die aufgerufen wird, wenn eine der folgenden Bedingungen eintritt:
+Die Intersection Observer API ermöglicht es Ihnen, eine Callback-Funktion zu konfigurieren, die aufgerufen wird, wenn eine der folgenden Situationen eintritt:
 
-- Ein **Ziel**-Element schneidet entweder den Viewport des Geräts oder ein angegebenes Element. Dieses spezifische Element wird für die Zwecke der Intersection Observer API als **Wurzelelement** oder **Root** bezeichnet.
-- Das erste Mal, wenn der Observer initial gebeten wird, ein Zielelement zu beobachten.
+- Ein **Ziel**-Element überschneidet entweder das Ansichtsfenster des Geräts oder ein angegebenes Element. Dieses angegebene Element wird für die Zwecke der Intersection Observer API als **Root-Element** oder **Root** bezeichnet.
+- Das erste Mal, dass der Beobachter gebeten wird, ein Zielelement zu überwachen.
 
-Typischerweise möchten Sie Änderungen in der Schnittmenge in Bezug auf den nächsten scrollbaren Vorfahren des Zielelements oder, wenn das Zielelement kein Nachfahre eines scrollbaren Elements ist, den Viewport des Geräts beobachten. Um die Schnittmenge relativ zum Viewport des Geräts zu beobachten, geben Sie `null` für die `root`-Option an. Lesen Sie weiter für eine detailliertere Erklärung der Optionen des Intersection Observers.
+Typischerweise möchten Sie Änderungen der Überschneidung in Bezug auf den nächsten scrollbaren Vorfahren des Zielelements beobachten oder, wenn das Zielelement kein Nachfahre eines scrollbaren Elements ist, das Ansichtsfenster des Geräts. Um die Überschneidung relativ zum Ansichtsfenster des Geräts zu beobachten, geben Sie `null` für die `root`-Option an. Lesen Sie weiter für eine detailliertere Erklärung der Optionen des Intersection Observers.
 
-Unabhängig davon, ob Sie den Viewport oder ein anderes Element als Root verwenden, funktioniert die API auf die gleiche Weise und führt eine Callback-Funktion aus, die Sie bereitstellen, wenn sich die Sichtbarkeit des Zielelements so ändert, dass es die gewünschten Mengen der Schnittmenge mit dem Root überschreitet.
+Unabhängig davon, ob Sie das Ansichtsfenster oder ein anderes Element als Root verwenden, funktioniert die API auf die gleiche Weise: eine von Ihnen bereitgestellte Callback-Funktion wird ausgeführt, wann immer sich die Sichtbarkeit des Zielelements so ändert, dass es gewünschte Überschneidungsgrade mit dem Root überschreitet.
 
-Der Grad der Schnittmenge zwischen dem Zielelement und seiner Wurzel ist das **intersecton ratio**. Dies ist eine Darstellung des Prozentsatzes des Zielelements, der als Wert zwischen 0,0 und 1,0 sichtbar ist.
+Der Grad der Überschneidung zwischen dem Zielelement und seinem Root ist das **Überschneidungsverhältnis**. Dies ist eine Darstellung des Prozentsatzes des Zielelements, der sichtbar ist, als ein Wert zwischen 0.0 und 1.0.
 
 ### Erstellen eines Intersection Observers
 
-Erstellen Sie den Intersection Observer, indem Sie seinen Konstruktor aufrufen und eine Callback-Funktion übergeben, die jedes Mal ausgeführt wird, wenn ein Schwellenwert in eine Richtung oder die andere überschritten wird:
+Erstellen Sie den Intersection Observer, indem Sie seinen Konstruktor aufrufen und ihm eine Callback-Funktion übergeben, die jedes Mal ausgeführt wird, wenn ein Schwellenwert in eine Richtung oder die andere überschritten wird:
 
 ```js
 const options = {
@@ -51,22 +51,22 @@ const options = {
 const observer = new IntersectionObserver(callback, options);
 ```
 
-Ein Schwellenwert von 1,0 bedeutet, dass die Callback-Funktion aufgerufen wird, wenn 100% des Ziels in dem Element sichtbar sind, das durch die `root`-Option angegeben ist.
+Ein Schwellenwert von 1.0 bedeutet, dass wenn 100 % des Ziels im Element sichtbar sind, das in der `root`-Option angegeben ist, die Callback-Funktion aufgerufen wird.
 
-#### Optionen für den Intersection Observer
+#### Optionen des Intersection Observers
 
-Das `options`-Objekt, das an den [`IntersectionObserver()`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver)-Konstruktor übergeben wird, ermöglicht Ihnen, die Umstände zu steuern, unter denen der Callback des Observers aufgerufen wird. Es hat die folgenden Felder:
+Das `options`-Objekt, das in den Konstruktor von [`IntersectionObserver()`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver) übergeben wird, ermöglicht es Ihnen, die Umstände zu steuern, unter denen die Callback-Funktion des Beobachters aufgerufen wird. Es hat die folgenden Felder:
 
 - `root`
-  - : Das Element, das als Viewport verwendet wird, um die Sichtbarkeit des Ziels zu überprüfen. Muss der Vorfahre des Ziels sein. Standardmäßig wird der Browser-Viewport verwendet, wenn nichts angegeben ist oder wenn `null`.
+  - : Das Element, das als Ansichtsfenster für die Prüfung der Sichtbarkeit des Ziels verwendet wird. Muss der Vorfahre des Ziels sein. Standardmäßig ist es das Ansichtsfenster des Browsers, wenn es nicht angegeben wird oder wenn `null` ist.
 - `rootMargin`
-  - : Rand um den Root. Ein String von einem bis vier Werten, ähnlich der CSS-{{cssxref("margin")}}-Eigenschaft, zum Beispiel `"10px 20px 30px 40px"` (oben, rechts, unten, links). Die Werte können nur [absolute Längen](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#absolute_length_units) oder Prozentsätze sein. Diese Reihe von Werten dient dazu, jede Seite der Begrenzungsbox des Root-Elements zu vergrößern oder zu verkleinern, bevor Schnittmengen berechnet werden. Negative Werte verkleinern die Begrenzungsbox des Root-Elements und positive Werte erweitern sie. Der Standardwert ist, falls nicht angegeben, `"0px 0px 0px 0px"`.
+  - : Rand um den Root. Ein Zeichenfolgenwert mit einem bis vier Werten, ähnlich der CSS-Eigenschaft {{cssxref("margin")}}, z.B. `"10px 20px 30px 40px"` (oben, rechts, unten, links). Die Werte können nur [absolute Längen](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#absolute_length_units) oder Prozentsätze sein. Dieses Werteset dient dazu, jede Seite des Begrenzungsrahmens des Root-Elements zu vergrößern oder zu verkleinern, bevor Überschneidungen berechnet werden. Negative Werte verkleinern den Begrenzungsrahmen des Root-Elements und positive Werte erweitern ihn. Der Standardwert, wenn nicht angegeben, ist `"0px 0px 0px 0px"`.
 - `threshold`
-  - : Entweder eine einzelne Zahl oder ein Array von Zahlen, die angeben, bei welchem Prozentsatz der Sichtbarkeit des Ziels der Callback des Observers ausgeführt werden soll. Wenn Sie nur erkennen möchten, wann die Sichtbarkeit die 50%-Marke überschreitet, können Sie einen Wert von 0,5 verwenden. Wenn Sie möchten, dass der Callback jedes Mal ausgeführt wird, wenn die Sichtbarkeit um weitere 25% überschreitet, würden Sie das Array \[0, 0.25, 0.5, 0.75, 1] angeben. Der Standardwert ist 0 (das bedeutet, dass der Callback ausgeführt wird, sobald auch nur ein Pixel sichtbar ist). Ein Wert von 1,0 bedeutet, dass der Schwellenwert erst als überschritten gilt, wenn jedes Pixel sichtbar ist.
+  - : Entweder eine einzelne Zahl oder ein Array von Zahlen, die angeben, bei welchem Prozentsatz der Sichtbarkeit des Ziels die Callback-Funktion des Beobachters ausgeführt werden soll. Wenn Sie nur feststellen möchten, wann die Sichtbarkeit die 50 %-Marke überschreitet, können Sie einen Wert von 0.5 verwenden. Wenn Sie möchten, dass die Callback-Funktion jedes Mal ausgeführt wird, wenn die Sichtbarkeit um weitere 25 % zunimmt oder abnimmt, würden Sie das Array \[0, 0.25, 0.5, 0.75, 1] spezifizieren. Der Standardwert ist 0 (d.h. sobald auch nur ein einziger Pixel sichtbar ist, wird die Callback-Funktion ausgeführt). Ein Wert von 1.0 bedeutet, dass der Schwellenwert nicht als überschritten betrachtet wird, bis jedes Pixel sichtbar ist.
 
-#### Intersection Change Callbacks
+#### Callbacks bei Änderungen der Überschneidung
 
-Der Callback, der dem `IntersectionObserver()`-Konstruktor übergeben wird, erhält eine Liste von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten und den Observer:
+Der Callback, der an den Konstruktor `IntersectionObserver()` übergeben wird, erhält eine Liste von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten und den betrachtenden Beobachter:
 
 ```js
 const callback = (entries, observer) => {
@@ -84,11 +84,11 @@ const callback = (entries, observer) => {
 };
 ```
 
-Die Liste der Einträge, die dem Callback übergeben wird, enthält ein [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekt für jedes Ereignis, bei dem ein Schwellenwert überschritten wird — mehrere Einträge können gleichzeitig empfangen werden, entweder von mehreren Zielen oder von einem einzelnen Ziel, das in kurzer Zeit mehrere Schwellenwerte überschreitet. Die Einträge werden unter Verwendung einer Warteschlange verschickt, sodass sie in der Reihenfolge geschaltet sein sollten, in der sie erzeugt wurden, jedoch sollten Sie vorzugsweise [`IntersectionObserverEntry.time`](/de/docs/Web/API/IntersectionObserverEntry/time) verwenden, um sie korrekt zu ordnen. Jeder Eintrag beschreibt, wie viel von einem bestimmten Element mit dem Root-Element überschneidet, unabhängig davon, ob das Element als überschneidend betrachtet wird oder nicht, usw. Der Eintrag enthält nur Informationen über diesen bestimmten Moment — wenn Sie Informationen benötigen, die eine Verfolgung über die Zeit erfordern, wie die Scrollrichtung und -geschwindigkeit, müssen Sie diese möglicherweise selbst berechnen, indem Sie zuvor empfangene Einträge speichern.
+Die Liste der vom Callback empfangenen Einträge enthält ein [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekt für jedes Ereignis des Schwellenwertüberschreitens — mehrere Einträge können gleichzeitig empfangen werden, entweder von mehreren Zielen oder von einem einzelnen Ziel, das in kurzer Zeit mehrere Schwellenwerte überschreitet. Die Einträge werden in einer Warteschlange versendet, sodass sie in der Reihenfolge der Generierung stehen sollten, aber vorzugsweise sollten Sie [`IntersectionObserverEntry.time`](/de/docs/Web/API/IntersectionObserverEntry/time) verwenden, um sie korrekt zu ordnen. Jeder Eintrag beschreibt, wie viel von einem bestimmten Element mit dem Root-Element überschneidet, ob das Element als überschneidend betrachtet wird oder nicht usw. Der Eintrag enthält nur Informationen über diesen speziellen Moment — wenn Sie Informationen benötigen, die über Zeitverfolgung erfordern, wie z.B. die Scroll-Richtung und -Geschwindigkeit, müssen Sie dies möglicherweise selbst berechnen, indem Sie zuvor empfangene Einträge speichern.
 
-Bitte beachten Sie, dass Ihr Callback im Haupt-Thread ausgeführt wird. Er sollte so schnell wie möglich funktionieren; wenn etwas Zeitaufwändiges erledigt werden muss, verwenden Sie [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback).
+Seien Sie sich bewusst, dass Ihr Callback im Haupt-Thread ausgeführt wird. Es sollte so schnell wie möglich arbeiten; falls etwas zeitaufwändig durchgeführt werden muss, verwenden Sie [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback).
 
-Der folgende Codeausschnitt zeigt einen Callback, der einen Zähler darüber führt, wie oft Elemente von "nicht mit dem Root überschneidend" in "mindestens 75% überschneidend" wechseln. Bei einem Schwellenwert von 0,0 (Standard) wird der Callback [ungefähr](https://www.w3.org/TR/intersection-observer/#dom-intersectionobserverentry-isintersecting) beim Übergang des booleschen Werts von [`isIntersecting`](/de/docs/Web/API/IntersectionObserverEntry/isIntersecting) aufgerufen. Der Codeausschnitt prüft zuerst, ob der Übergang positiv ist, dann, ob [`intersectionRatio`](/de/docs/Web/API/IntersectionObserverEntry/intersectionRatio) über 75% liegt, in diesem Fall wird der Zähler erhöht.
+Der untenstehende Code-Schnipsel zeigt einen Callback, der einen Zähler führt, wie oft Elemente von einem nicht überschneidenden in einen überschneidenden Zustand mit mindestens 75 % wechseln. Für einen Schwellenwert von 0.0 (Standard) wird der Callback [ungefähr] (https://www.w3.org/TR/intersection-observer/#dom-intersectionobserverentry-isintersecting) bei Übergang des booleschen Werts von [`isIntersecting`](/de/docs/Web/API/IntersectionObserverEntry/isIntersecting) aufgerufen. Der Code-Schnipsel prüft daher zunächst, ob der Übergang positiv ist, und bestimmt dann, ob [`intersectionRatio`](/de/docs/Web/API/IntersectionObserverEntry/intersectionRatio) über 75 % liegt, in welchem Fall der Zähler erhöht wird.
 
 ```js
 const intersectionCallback = (entries) => {
@@ -104,9 +104,9 @@ const intersectionCallback = (entries) => {
 };
 ```
 
-#### Ziel element, das beobachtet werden soll
+#### Auswahl eines zu beobachtenden Elements
 
-Nachdem Sie den Observer erstellt haben, müssen Sie ihm ein Zielelement angeben, das beobachtet werden soll:
+Sobald Sie den Beobachter erstellt haben, müssen Sie ihm ein Zielelement zuweisen, das beobachtet werden soll:
 
 ```js
 const target = document.querySelector("#listItem");
@@ -116,32 +116,32 @@ observer.observe(target);
 // it waits until we assign a target to our observer (even if the target is currently not visible)
 ```
 
-Jedes Mal, wenn das Ziel einen Schwellenwert erreicht, der für den `IntersectionObserver` angegeben ist, wird der Callback aufgerufen.
+Wann immer das Ziel einen für den `IntersectionObserver` spezifizierten Schwellenwert erreicht, wird die Callback-Funktion aufgerufen.
 
 Beachten Sie auch, dass, wenn Sie die `root`-Option angegeben haben, das Ziel ein Nachfahre des Root-Elements sein muss.
 
-### So wird die Intersection berechnet
+### Wie die Überschneidung berechnet wird
 
-Alle von der Intersection Observer API berücksichtigten Bereiche sind Rechtecke; Elemente, die unregelmäßig geformt sind, werden als das kleinste Rechteck betrachtet, das alle Teile des Elements umfasst. Ebenso wird, wenn der sichtbare Teil eines Elements nicht rechteckig ist, das Intersections-Rechteck des Elements als das kleinste Rechteck betrachtet, das alle sichtbaren Teile des Elements enthält.
+Alle von der Intersection Observer API betrachteten Bereiche sind Rechtecke; Elemente, die unregelmäßig geformt sind, werden als das kleinste Rechteck betrachtet, das alle Teile des Elements umschließt. Ebenso, wenn der sichtbare Teil eines Elements nicht rechteckig ist, wird das Überschneidungsrechteck des Elements als das kleinste Rechteck betrachtet, das alle sichtbaren Teile des Elements enthält.
 
-Es ist nützlich, ein bisschen darüber zu verstehen, wie die verschiedenen Eigenschaften, die von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry) bereitgestellt werden, eine Intersection beschreiben.
+Es ist nützlich, ein wenig darüber zu verstehen, wie die verschiedenen Eigenschaften, die von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry) bereitgestellt werden, eine Überschneidung beschreiben.
 
-#### Die Intersection Root und der Root-Margin
+#### Der Überschneidungs-Root und der Root-Abstand
 
-Bevor wir die Schnittmenge eines Elements mit einem Container verfolgen können, müssen wir wissen, was dieser Container ist. Dieser Container ist die **Intersection Root** oder das **Root-Element**. Dies kann entweder ein spezielles Element im Dokument sein, das ein Vorfahre des zu beobachtenden Elements ist, oder `null`, um den Viewport des Dokuments als Container zu verwenden.
+Bevor wir die Überschneidung eines Elements mit einem Container verfolgen können, müssen wir wissen, was dieser Container ist. Dieser Container ist der **Überschneidungs-Root**, oder das **Root-Element**. Dies kann entweder ein spezifisches Element im Dokument sein, das ein Vorfahre des zu beobachtenden Elements ist, oder `null`, um das Ansichtsfenster des Dokuments als Container zu verwenden.
 
-Das **_Root Intersection Rectangle_** ist das Rechteck, das verwendet wird, um die Schnittmenge des Ziels oder der Ziele zu überprüfen. Dieses Rechteck wird wie folgt ermittelt:
+Das **_Überschneidungs-Root-Rechteck_** ist das Rechteck, das verwendet wird, um gegen das Ziel oder die Ziele zu prüfen. Dieses Rechteck wird so bestimmt:
 
-- Wenn die Intersection Root die implizite Root ist (das heißt, das oberste [`Document`](/de/docs/Web/API/Document)), ist das Root Intersection Rectangle das Rechteck des Viewports.
-- Wenn die Intersection Root einen Overflow-Clip hat, ist das Root Intersection Rectangle der Inhaltsbereich des Root-Elements.
-- Andernfalls ist das Root Intersection Rectangle das Begrenzungsrechteck des Intersection Root (wie es durch Aufruf von [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) aufgerufen wird).
+- Wenn der Überschneidungs-Root der implizite Root ist (d.h. das oberste [`Dokument`](/de/docs/Web/API/Document)), ist das Überschneidungs-Root-Rechteck das Rechteck des Ansichtsfensters.
+- Wenn der Überschneidungs-Root einen Überlauf-Clip hat, ist das Überschneidungs-Root-Rechteck der Inhaltsbereich des Root-Elements.
+- Andernfalls ist das Überschneidungs-Root-Rechteck das Begrenzungsrechteck des Überschneidungs-Roots (wie es durch den Aufruf von [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) darauf zurückgegeben wird).
 
-Das Root Intersection Rectangle kann weiter angepasst werden, indem beim Erstellen des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) ein **Root-Margin**, `rootMargin`, eingestellt wird. Die Werte in `rootMargin` definieren Offsets, die zu jeder Seite des Intersections-Rechtecks des Roots hinzugefügt werden, um die endgültigen Grenzen der Root-Intersection zu erstellen (die im [`IntersectionObserverEntry.rootBounds`](/de/docs/Web/API/IntersectionObserverEntry/rootBounds) angegeben werden, wenn der Callback ausgeführt wird). Positive Werte vergrößern die Box, während negative Werte sie verkleinern.
+Das Überschneidungs-Root-Rechteck kann weiter durch die Festlegung des **Root-Abstands**, `rootMargin`, beim Erstellen des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) angepasst werden. Die Werte in `rootMargin` definieren Versätze, die zu jeder Seite des Begrenzungsrahmens des Überschneidungs-Roots hinzugefügt werden, um die endgültigen Überschneidungs-Root-Grenzen zu erstellen (die in [`IntersectionObserverEntry.rootBounds`](/de/docs/Web/API/IntersectionObserverEntry/rootBounds) offenbart werden, wenn die Callback-Funktion ausgeführt wird). Positive Werte vergrößern das Rechteck, während negative Werte es verkleinern.
 
-Im folgenden Beispiel haben wir eine Scrollbox und ein Element, das anfangs nicht sichtbar ist. Sie können den rechten Rand des Roots justieren und feststellen, dass:
+Im folgenden Beispiel haben wir eine scrollbare Box und ein Element, das anfangs nicht sichtbar ist. Sie können den rechten Root-Abstand einstellen und sehen:
 
-- Wenn der Rand negativ ist, wird das rote Element immer noch nicht als mit dem Root überschneidend angesehen, selbst wenn es beginnt, sichtbar zu werden, da die Begrenzungsbox des Roots verkleinert wird.
-- Wenn der Rand positiv ist, wird das rote Element als mit dem Root überschneidend betrachtet, selbst wenn es nicht sichtbar ist, weil es mit dem Root-Margin-Bereich überschneidet.
+- Wenn der Abstand negativ ist, wird das rote Element, selbst wenn es sichtbar zu werden beginnt, nicht als überschneidend mit dem Root betrachtet, da der Begrenzungsrahmen des Roots verkleinert ist.
+- Wenn der Abstand positiv ist, wird das rote Element als überschneidend mit dem Root betrachtet, selbst wenn es nicht sichtbar ist, da es mit dem Abstandbereich des Roots überschneidet.
 
 ```html hidden
 <div class="demo">
@@ -241,26 +241,26 @@ scrollAmount.addEventListener("input", () => {
 });
 ```
 
-{{EmbedLiveSample("die Schnittmenge zwischen Root und Root-Margin", "", 300)}}
+{{EmbedLiveSample("the intersection root and root margin", "", 300)}}
 
 #### Schwellenwerte
 
-Anstelle jeder winzigen Änderung darin zu melden, wie viel ein Zielelement sichtbar ist, verwendet die Intersection Observer API **Schwellenwerte**. Wenn Sie einen Observer erstellen, können Sie ein oder mehrere numerische Werte angeben, die Prozentsätze des Zielelements darstellen, die sichtbar sind. Die API informiert dann nur über Änderungen der Sichtbarkeit, die diese Schwellenwerte überschreiten.
+Anstatt jede infinitesimale Änderung der Sichtbarkeit eines Zielelements zu melden, verwendet die Intersection Observer API **Schwellenwerte**. Wenn Sie einen Beobachter erstellen, können Sie einen oder mehrere numerische Werte angeben, die Prozentsätze des sichtbaren Zielelements darstellen. Dann meldet die API nur Änderungen der Sichtbarkeit, die diese Schwellenwerte überschreiten.
 
-Wenn Sie beispielsweise jedes Mal, wenn ein Ziel die Sichtbarkeit rückwärts oder vorwärts durch jede 25%-Marke überschreitet, informiert werden möchten, würden Sie das Array \[0, 0.25, 0.5, 0.75, 1] als Liste der Schwellenwerte angeben, wenn Sie den Observer erstellen.
+Zum Beispiel, wenn Sie informiert werden möchten, jedes Mal, wenn die Sichtbarkeit eines Ziels rückwärts oder vorwärts durch jede 25 %-Marke geht, würden Sie das Array \[0, 0.25, 0.5, 0.75, 1] als Liste der Schwellenwerte angeben, wenn Sie den Beobachter erstellen.
 
-Wenn der Callback aufgerufen wird, erhält er eine Liste von `IntersectionObserverEntry`-Objekten, eines für jedes beobachtete Ziel, dessen Grad der Intersection mit dem Root sich so geändert hat, dass die freiliegende Menge einen der Schwellenwerte in beide Richtungen überschreitet.
+Wenn der Callback aufgerufen wird, erhält er eine Liste von `IntersectionObserverEntry`-Objekten, eines für jedes beobachtete Ziel, dessen Überschneidungsgrad mit dem Root sich so geändert hat, dass die Menge der sichtbaren Fläche einen der Schwellenwerte in einer Richtung überquert hat.
 
-Sie können sehen, ob das Ziel _aktuell_ den Root schneidet, indem Sie auf die [`isIntersecting`](/de/docs/Web/API/IntersectionObserverEntry/isIntersecting)-Eigenschaft des Eintrags schauen; wenn der Wert `true` ist, schneidet das Ziel zu mindestens einem Teil das Root-Element oder Dokument. Dies ermöglicht es Ihnen zu bestimmen, ob der Eintrag einen Übergang von "sich überschneidenden Elementen" zu "nicht mehr überschneidenden" oder einen Übergang von "nicht überschneidenden" zu "überschneidenden" darstellt.
+Sie können sehen, ob das Ziel derzeit mit dem Root überschneidet, indem Sie die Eigenschaft [`isIntersecting`](/de/docs/Web/API/IntersectionObserverEntry/isIntersecting) des Eintrags überprüfen; wenn ihr Wert `true` ist, überschneidet das Ziel mindestens teilweise das Root-Element oder das Dokument. Dies ermöglicht es Ihnen zu bestimmen, ob der Eintrag einen Übergang von einem überschneidenden in einen nicht überschneidenden Zustand oder einen Übergang von nicht überschneidend zu überschneidend darstellt.
 
-Beachten Sie, dass es möglich ist, ein Rechteck mit Null-Schnittmenge zu haben, was passieren kann, wenn die Schnittmenge genau entlang der Grenze zwischen den beiden oder der Fläche von [`boundingClientRect`](/de/docs/Web/API/IntersectionObserverEntry/boundingClientRect) Null ist. Dieser Zustand des Ziels und des Roots, die eine Grenzlinie teilen, wird nicht als ausreichend erachtet, um in einen Schnittmengenstatus überzugehen.
+Beachten Sie, dass es möglich ist, ein Überschneidungsrechteck mit null Fläche zu haben, was passieren kann, wenn die Überschneidung genau entlang der Grenze zwischen den beiden verläuft oder die Fläche von [`boundingClientRect`](/de/docs/Web/API/IntersectionObserverEntry/boundingClientRect) null ist. Dieser Zustand, bei dem das Ziel und das Root eine Grenzlinie teilen, wird nicht als ausreichend angesehen, um als Übergang in einen überschneidenden Zustand betrachtet zu werden.
 
-Um ein Gefühl dafür zu bekommen, wie Schwellenwerte funktionieren, versuchen Sie, die Box unten zu scrollen. Jedes farbige Feld darin zeigt in allen vier seiner Ecken den Prozentsatz seiner selbst, der sichtbar ist, damit Sie sehen können, wie sich diese Verhältnisse im Laufe der Zeit ändern, während Sie das Container scrollen. Jedes Feld hat einen anderen Satz von Schwellenwerten:
+Um ein Gefühl dafür zu bekommen, wie Schwellenwerte funktionieren, versuchen Sie, die Box unten zu scrollen. Jede farbige Box innerhalb dieser zeigt den Prozentsatz von sich selbst an, der in allen vier ihrer Ecken sichtbar ist, damit Sie diese Verhältnisse im Laufe der Zeit ändern sehen können, während Sie den Container scrollen. Jede Box hat eine andere Menge von Schwellenwerten:
 
-- Das erste Feld hat einen Schwellenwert für jeden Prozentpunkt der Sichtbarkeit; das heißt, das Array [`IntersectionObserver.thresholds`](/de/docs/Web/API/IntersectionObserver/thresholds) ist `[0.00, 0.01, 0.02, /*…,*/ 0.99, 1.00]`.
-- Das zweite Feld hat einen einzigen Schwellenwert bei der 50%-Marke.
-- Das dritte Feld hat Schwellenwerte alle 10% der Sichtbarkeit (0%, 10%, 20%, usw.).
-- Das letzte Feld hat Schwellenwerte alle 25%.
+- Die erste Box hat einen Schwellenwert für jeden Prozentpunkt der Sichtbarkeit; das heißt, das Array [`IntersectionObserver.thresholds`](/de/docs/Web/API/IntersectionObserver/thresholds) ist `[0.00, 0.01, 0.02, /*…,*/ 0.99, 1.00]`.
+- Die zweite Box hat einen einzigen Schwellenwert an der 50%-Marke.
+- Die dritte Box hat Schwellenwerte bei jedem 10%-Sichtbarkeitswert (0%, 10%, 20%, usw.).
+- Die letzte Box hat Schwellenwerte bei jedem 25%-Wert.
 
 ```html hidden
 <template id="boxTemplate">
@@ -425,33 +425,33 @@ intersectionCallback = (entries) => {
 startup();
 ```
 
-{{EmbedLiveSample("Schwellenwert", 500, 500)}}
+{{EmbedLiveSample("Thresholds", 500, 500)}}
 
-#### Clipping und das Intersections-Rechteck
+#### Clipping und das Überschneidungsrechteck
 
-Der Browser berechnet das endgültige Intersections-Rechteck wie folgt; dies wird alles für Sie getan, aber es kann hilfreich sein, diese Schritte zu verstehen, um genauer zu begreifen, wann Schnittmengen auftreten.
+Der Browser berechnet das endgültige Überschneidungsrechteck wie folgt; dies wird alles für Sie erledigt, aber es kann hilfreich sein, diese Schritte zu verstehen, um genauer zu begreifen, wann Überschneidungen auftreten werden.
 
-1. Das Begrenzungsrechteck des Zielelements (das heißt, das kleinste Rechteck, das die Begrenzungsboxen aller Komponenten, die das Element bilden, vollständig umschließt) wird durch das Aufrufen von [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) des Ziels erhalten. Dies ist das größte, was das Intersections-Rechteck sein könnte. Die verbleibenden Schritte entfernen alle Teile, die nicht überschneiden.
-2. Beginnend beim unmittelbaren übergeordneten Block des Ziels und nach außen gehend, wird der Schnitt jedes umgebenden Blocks (falls vorhanden) auf das Intersections-Rechteck angewendet. Der Schnitt eines Blocks wird auf der Grundlage der Schnittmenge der beiden Blocks und des vom Block festgelegten Clipping-Modus (falls vorhanden) durch die {{cssxref("overflow")}}-Eigenschaft bestimmt. Das Setzen von `overflow` auf einen anderen Wert als `visible` führt zum Clipping.
-3. Wenn eines der umgebenden Elemente die Wurzel eines verschachtelten Browsing-Kontexts ist (wie das im {{HTMLElement("iframe")}} enthaltene Dokument), wird das Intersections-Rechteck auf den Viewport des enthaltenden Kontexts geclippt, und die Rekursion nach außen durch die Container setzt sich mit dem enthaltenen Block des Containers fort. Wenn also die oberste Ebene eines `<iframe>` erreicht wird, wird das Intersections-Rechteck auf den Viewport des Rahmens geclippt, dann ist das übergeordnete Element des Rahmens der nächste Block, der durch die Root-Intersection nach oben rekursiv wird.
-4. Wenn die Rekursion nach oben die Intersection Root erreicht, wird das resultierende Rechteck auf den Koordinatenbereich der Root-Intersection abgebildet.
-5. Das resultierende Rechteck wird anschließend aktualisiert, indem es mit dem [Root-Intersection Rechteck](#die_intersection_root_und_der_root-margin) geschnitten wird.
-6. Dieses Rechteck wird schließlich auf den Koordinatenraum des [`document`](/de/docs/Web/API/Document) des Ziels abgebildet.
+1. Das Begrenzungsrechteck des Zielelements (das ist das kleinste Rechteck, das alle Begrenzungsrahmen jedes Bestandteilselements einschließt, aus dem das Element besteht) wird abgerufen, indem [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) auf das Ziel aufgerufen wird. Dies ist die größte Möglichkeit für das Überschneidungsrechteck. Die verbleibenden Schritte entfernen alle Teile, die nicht überschneiden.
+2. Beginnend beim unmittelbaren Elternblock des Ziels und aufwärts gehend, wird jedes enthaltende Block-Klipping (sofern vorhanden) auf das Überschneidungsrechteck angewendet. Ein Block-Klipping wird basierend auf der Überschneidung der beiden Blöcke und dem Klipping-Modus (falls vorhanden), der von der CSS-Eigenschaft {{cssxref("overflow")}} angegeben wird, bestimmt. Wenn `overflow` auf etwas anderes als `sichtbar` gesetzt ist, erfolgt ein Klipping.
+3. Wenn eines der enthaltenen Elemente der Root eines geschachtelten Browsing-Kontexts ist (wie das Dokument in einem {{HTMLElement("iframe")}}), wird das Überschneidungsrechteck auf den Viewport des enthaltenen Kontexts geklippt und die Rekursion nach oben durch die Container wird fortgesetzt mit dem nächsten Block des Containers. Wenn also die oberste Ebene eines `<iframe>` erreicht ist, wird das Überschneidungsrechteck auf den Viewport des Frames geklippt und das Elternelement des Frames ist der nächste blockweise durch den Überschneidungs-Root.
+4. Wenn die Rekursion nach oben den Überschneidungs-Root erreicht, wird das resultierende Rechteck in das Koordinatensystem des Überschneidungs-Roots abgebildet.
+5. Das resultierende Rechteck wird dann aktualisiert, indem es mit dem [Root-Überschneidungsrechteck](#der_überschneidungs-root_und_der_root-abstand) überschnitten wird.
+6. Dieses Rechteck wird schließlich in das Koordinatensystem des [`Dokuments`](/de/docs/Web/API/Document) des Ziels abgebildet.
 
 ## Schnittstellen
 
 - [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)
-  - : Die primäre Schnittstelle für die Intersection Observer API. Bietet Methoden zum Erstellen und Verwalten eines Observers, der jede Anzahl von Zielelementen für dieselbe Intersection-Konfiguration überwachen kann. Jeder Observer kann asynchron Änderungen in der Schnittmenge zwischen einem oder mehreren Zielelementen und einem geteilten Vorfahrenselement oder mit ihrem Top-Level-[`Document`](/de/docs/Web/API/Document)-{{Glossary("viewport", "Viewport")}} beobachten. Der Vorfahr oder der Viewport wird als **Root** bezeichnet.
+  - : Die primäre Schnittstelle für die Intersection Observer API. Bietet Methoden zum Erstellen und Verwalten eines Beobachters, der eine beliebige Anzahl von Zielelementen für die gleiche Überschneidungskonfiguration beobachten kann. Jeder Beobachter kann Änderungen in der Überschneidung zwischen einem oder mehreren Zielelementen und einem gemeinsamen Vorfahren oder mit dem Ansichtsfenster ihres obersten [`Dokuments`](/de/docs/Web/API/Document) asynchron beobachten. Der Vorfahre oder das Ansichtsfenster wird als **Root** bezeichnet.
 - [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)
-  - : Beschreibt die Schnittmenge zwischen dem Zielelement und seinem Root-Container zu einem spezifischen Übergangszeitpunkt. Objekte dieses Typs können nur auf zwei Arten erhalten werden: als Eingabe für Ihren `IntersectionObserver`-Callback oder durch Aufrufen von [`IntersectionObserver.takeRecords()`](/de/docs/Web/API/IntersectionObserver/takeRecords).
+  - : Beschreibt die Überschneidung zwischen dem Zielelement und seinem Root-Container zu einem bestimmten Übergangszeitpunkt. Objekte dieses Typs können nur auf zwei Arten erhalten werden: als Eingabe für Ihren `IntersectionObserver`-Callback oder durch Aufruf von [`IntersectionObserver.takeRecords()`](/de/docs/Web/API/IntersectionObserver/takeRecords).
 
 ## Ein einfaches Beispiel
 
-Dieses einfache Beispiel lässt ein Ziel-Element seine Farbe und Transparenz ändern, sobald es mehr oder weniger sichtbar wird. Bei [Timing der Elementsichtbarkeit mit der Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility) finden Sie ein umfangreicheres Beispiel, das zeigt, wie lange ein Satz von Elementen (wie Anzeigen) für den Benutzer sichtbar ist und wie man darauf reagieren kann, indem Statistiken aufgezeichnet oder Elemente aktualisiert werden.
+Dieses einfache Beispiel bewirkt, dass ein Zielelement seine Farbe und Transparenz ändert, wenn es mehr oder weniger sichtbar wird. Unter [Zeitmessung der Element-Sichtbarkeit mit der Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility) finden Sie ein ausführlicheres Beispiel, das zeigt, wie Sie messen können, wie lange eine Reihe von Elementen (wie Anzeigen) für den Benutzer sichtbar sind und wie Sie auf diese Informationen reagieren, indem Sie Statistiken aufzeichnen oder Elemente aktualisieren.
 
 ### HTML
 
-Das HTML für dieses Beispiel ist sehr kurz, mit einem Hauptelement, welches die Box ist, die wir als Ziel verwenden werden (mit der kreativen ID `"box"`) und einige Inhalte innerhalb der Box.
+Das HTML für dieses Beispiel ist sehr kurz, mit einem primären Element, das die Box ist, die wir beobachten werden (mit der kreativen ID `"box"`) und einigen Inhalten innerhalb der Box.
 
 ```html
 <div id="box">
@@ -461,7 +461,7 @@ Das HTML für dieses Beispiel ist sehr kurz, mit einem Hauptelement, welches die
 
 ### CSS
 
-Das CSS ist für die Zwecke dieses Beispiels nicht von entscheidender Bedeutung; es legt das Element an und stellt sicher, dass die {{cssxref("background-color")}}- und {{cssxref("border")}}-Attribute an [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions) teilnehmen können, die wir verwenden werden, um die Änderungen am Element zu bewirken, wenn es mehr oder weniger verdeckt wird.
+Das CSS ist für die Zwecke dieses Beispiels nicht besonders wichtig; es legt das Element fest und etabliert, dass die Attribute {{cssxref("background-color")}} und {{cssxref("border")}} an [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions) teilnehmen können, die wir verwenden werden, um die Änderungen am Element zu beeinflussen, wenn es mehr oder weniger verdeckt wird.
 
 ```css
 #box {
@@ -495,11 +495,11 @@ Das CSS ist für die Zwecke dieses Beispiels nicht von entscheidender Bedeutung;
 
 ### JavaScript
 
-Lassen Sie uns schließlich den JavaScript-Code betrachten, der die Intersection Observer API verwendet, um Dinge geschehen zu lassen.
+Schließlich schauen wir uns den JavaScript-Code an, der die Intersection Observer API verwendet, um die Änderungen hervorzurufen.
 
-#### Einrichtung
+#### Vorbereitung
 
-Zuerst müssen wir einige Variablen vorbereiten und den Observer installieren.
+Zuerst müssen wir einige Variablen vorbereiten und den Beobachter installieren.
 
 ```js
 const numSteps = 20.0;
@@ -521,22 +521,22 @@ window.addEventListener(
 );
 ```
 
-Die Konstanten und Variablen, die wir hier einrichten, sind:
+Die Konstanten und Variablen, die wir hier festlegen, sind:
 
 - `numSteps`
-  - : Eine Konstante, die angibt, wie viele Schwellenwerte wir zwischen einem Sichtbarkeitsverhältnis von 0,0 und 1,0 haben möchten.
+  - : Eine Konstante, die angibt, wie viele Schwellenwerte wir zwischen einem Sichtbarkeitsverhältnis von 0.0 und 1.0 haben möchten.
 - `prevRatio`
-  - : Diese Variable wird verwendet, um zu speichern, wie das Sichtbarkeitsverhältnis das letzte Mal war, als ein Schwellenwert überschritten wurde; damit können wir herausfinden, ob das Zielelement mehr oder weniger sichtbar wird.
+  - : Diese Variable wird verwendet, um das Sichtbarkeitsverhältnis zu speichern, das beim letzten Mal, als ein Schwellenwert überschritten wurde, bestand; dies ermöglicht es uns, herauszufinden, ob das Zielelement mehr oder weniger sichtbar wird.
 - `increasingColor`
-  - : Eine Zeichenkette, die eine Farbe definiert, die wir auf das Zielelement anwenden, wenn das Sichtbarkeitsverhältnis zunimmt. Das Wort "ratio" in dieser Zeichenkette wird durch das aktuelle Sichtbarkeitsverhältnis des Ziels ersetzt, sodass sich das Element nicht nur ändert, sondern auch zunehmend opak wird, während es weniger verdeckt wird.
+  - : Eine Zeichenfolge, die eine Farbe definiert, die wir auf das Zielelement anwenden, wenn das Sichtbarkeitsverhältnis zunimmt. Das Wort "ratio" in dieser Zeichenfolge wird durch das aktuelle Sichtbarkeitsverhältnis des Ziels ersetzt, sodass das Element nicht nur die Farbe ändert, sondern auch zunehmend undurchsichtig wird, wenn es weniger verdeckt wird.
 - `decreasingColor`
-  - : Ebenso ist dies eine Zeichenkette, die eine Farbe definiert, die wir anwenden, wenn das Sichtbarkeitsverhältnis abnimmt.
+  - : Ähnlich, dies ist eine Zeichenfolge, die eine Farbe definiert, die wir anwenden werden, wenn das Sichtbarkeitsverhältnis abnimmt.
 
-Wir rufen [`Window.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf, um mit dem Hören des [`load`](/de/docs/Web/API/Window/load_event)-Ereignisses zu beginnen; Sobald die Seite fertig geladen ist, erhalten wir eine Referenz zu dem Element mit der ID `"box"` mit Hilfe von [`querySelector()`](/de/docs/Web/API/Document/querySelector), dann rufen wir die `createObserver()`-Methode auf, die wir gleich erstellen werden, um den Intersection Observer aufzubauen und zu installieren.
+Wir rufen [`Window.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf, um das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis abzuhören; sobald die Seite fertig geladen ist, erhalten wir eine Referenz auf das Element mit der ID `"box"` mittels [`querySelector()`](/de/docs/Web/API/Document/querySelector), dann rufen wir die `createObserver()`-Methode auf, die wir gleich erstellen werden, um den Intersection Observer zu erstellen und zu installieren.
 
-#### Der Intersection Observer wird erstellt
+#### Erstellen des Intersection Observers
 
-Die `createObserver()`-Methode wird aufgerufen, sobald der Seitenladen abgeschlossen ist, um tatsächlich den neuen [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) zu erstellen und den Prozess des Beobachtens des Zielelements zu starten.
+Die Methode `createObserver()` wird aufgerufen, sobald die Seite geladen ist, um tatsächlich den neuen [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) zu erstellen und den Prozess des Beobachtens des Zielelements zu starten.
 
 ```js
 function createObserver() {
@@ -553,17 +553,17 @@ function createObserver() {
 }
 ```
 
-Dies beginnt mit dem Einrichten eines `options`-Objekts, das die Einstellungen für den Observer enthält. Wir möchten Änderungen in der Sichtbarkeit des Zielelements relativ zum Viewport des Dokuments beobachten, daher ist `root` `null`. Wir benötigen keinen Rand, daher wird the Rand-Offset, `rootMargin`, als "0px" angegeben. Dies führt dazu, dass der Observer Änderungen in der Intersektion zwischen den Begrenzungen des Zielelements und denen des Viewports beobachtet, ohne hinzugefügten (oder subtrahierten) Platz.
+Dies beginnt mit dem Einrichten eines `options`-Objekts, das die Einstellungen für den Beobachter enthält. Wir möchten Änderungen der Sichtbarkeit des Zielelements relativ zum Ansichtsfenster des Dokuments beobachten, daher ist `root` `null`. Wir benötigen keinen Rand, daher wird der Randversatz, `rootMargin`, als "0px" angegeben. Dies bewirkt, dass der Beobachter Änderungen in der Überschneidung zwischen den Begrenzungen des Zielelements und denen des Ansichtsfensters ohne zusätzliches (oder abgezogenes) Gebiet beobachtet.
 
-Die Liste der Schwellenwerte des Sichtbarkeitsverhältnisses, `threshold`, wird durch die Funktion `buildThresholdList()` konstruiert. Die Schwellenwertliste wird in diesem Beispiel programmgesteuert erstellt, da es eine Anzahl davon gibt und die Anzahl anpassbar sein soll.
+Die Liste der Schwellenwerte für das Sichtbarkeitsverhältnis, `threshold`, wird durch die Funktion `buildThresholdList()` konstruiert. Die Schwellenwertliste wird in diesem Beispiel programmatisch erstellt, da es eine Anzahl von ihnen gibt und diese Anzahl anpassbar sein soll.
 
-Sobald `options` bereit ist, erstellen wir den neuen Observer, indem wir den [`IntersectionObserver()`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver)-Konstruktor aufrufen, eine Funktion angeben, die aufgerufen wird, wenn eine der Schwellenwerte überschritten wird, `handleIntersect()`, und unseren Satz von Optionen. Wir rufen dann [`observe()`](/de/docs/Web/API/IntersectionObserver/observe) auf den zurückgegebenen Observer auf, indem wir das gewünschte Zielelement übergeben.
+Sobald `options` bereit ist, erstellen wir den neuen Beobachter, indem wir den Konstruktor [`IntersectionObserver()`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver) aufrufen, wobei wir eine Funktion angeben, die aufgerufen werden soll, wenn eine unserer Schwellenwerte überschritten wird, `handleIntersect()`, und unsere Optionsmenge. Wir rufen dann [`observe()`](/de/docs/Web/API/IntersectionObserver/observe) auf dem zurückgegebenen Beobachter auf und übergeben ihm das gewünschte Zielelement.
 
-Wir könnten uns dafür entscheiden, mehrere Elemente hinsichtlich Sichtbarkeits-Änderungen des Intersektionsverhaltens mit dem Viewport zu überwachen, indem wir `observe()` für jedes dieser Elemente aufrufen, wenn wir dies wünschen.
+Wir könnten auch mehrere Elemente auf Sichtbarkeitsüberschneidungsänderungen in Bezug auf das Ansichtsfenster überwachen, indem wir `observer.observe()` für jedes dieser Elemente aufrufen, wenn wir dies tun wollten.
 
-#### Das Array von Schwellenwertverhältnissen wird erstellt
+#### Erstellen des Arrays der Schwellenwert-Verhältnisse
 
-Die Funktion `buildThresholdList()`, die die Liste der Schwellenwerte erstellt, sieht folgendermaßen aus:
+Die Funktion `buildThresholdList()`, die die Liste der Schwellenwerte erstellt, sieht so aus:
 
 ```js
 function buildThresholdList() {
@@ -580,15 +580,15 @@ function buildThresholdList() {
 }
 ```
 
-Dies erstellt das Array von Schwellenwerten—jeder davon ist ein Verhältnis zwischen 0,0 und 1,0, indem es den Wert `i/numSteps` für jede Ganzzahl `i` zwischen 1 und `numSteps` in das `thresholds`-Array aufnimmt. Es fügt auch 0 hinzu, um diesen Wert einzuschließen. Das Ergebnis bei dem Standardwert von `numSteps` (20), ist die folgende Liste von Schwellenwerten:
+Dies erstellt das Array der Schwellenwerte — jede davon ist ein Verhältnis zwischen 0.0 und 1.0, indem es den Wert `i/numSteps` dem `thresholds`-Array für jede ganze Zahl `i` zwischen 1 und `numSteps` hinzufügt. Es fügt auch 0 hinzu, um diesen Wert einzuschließen. Das Ergebnis, gegeben der Standardwert von `numSteps` (20), ist die folgende Liste von Schwellenwerten:
 
 <table class="standard-table">
     <thead>
       <tr>
         <th>#</th>
-        <th>Ratio</th>
+        <th>Verhältnis</th>
         <th>#</th>
-        <th>Ratio</th>
+        <th>Verhältnis</th>
       </tr>
     </thead>
     <tbody>
@@ -659,11 +659,11 @@ Dies erstellt das Array von Schwellenwerten—jeder davon ist ein Verhältnis zw
     </tbody>
 </table>
 
-Wir könnten natürlich das Array von Schwellenwerten fest in unseren Code programmieren, und oft werden Sie das tun. Aber dieses Beispiel lässt Spielraum für das Hinzufügen von Konfigurationssteuerungen, um die Granularität anzupassen, zum Beispiel.
+Wir könnten diese Array der Schwellenwerte selbstverständlich hartkodiert in unseren Code einfügen und oft wird das auch das sein, was Sie tun. Aber dieses Beispiel lässt Raum für die Hinzufügung von Konfigurationssteuerungen zur Anpassung der Granularität, beispielsweise.
 
-#### Umgang mit Intersection-Änderungen
+#### Umgang mit Änderungen der Überschneidung
 
-Wenn der Browser erkennt, dass das Zielelement (in unserem Fall das Element mit der ID `"box"`) so freigelegt oder verdeckt wurde, dass sein Sichtbarkeitsverhältnis einen der Schwellenwerte in unserer Liste überschreitet, wird unsere Handlerfunktion, `handleIntersect()`, aufgerufen:
+Wenn der Browser erkennt, dass das Zielelement (in unserem Fall das mit der ID `"box"`) so aufgedeckt oder verdeckt wurde, dass sein Sichtbarkeitsverhältnis einen der Schwellenwerte auf unserer Liste überschreitet, ruft er unsere Handler-Funktion `handleIntersect()` auf:
 
 ```js
 function handleIntersect(entries, observer) {
@@ -685,19 +685,19 @@ function handleIntersect(entries, observer) {
 }
 ```
 
-Für jeden [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry) in der Liste `entries`, sehen wir nach, ob der Eintrag [`intersectionRatio`](/de/docs/Web/API/IntersectionObserverEntry/intersectionRatio) steigt; wenn dies der Fall ist, setzen wir den {{cssxref("background-color")}} des Ziels auf die Zeichenkette in `increasingColor` (denken Sie daran, es ist `"rgb(40 40 190 / ratio)"`), ersetzt das Wort "ratio" mit dem `intersectionRatio` des Eintrags. Das Ergebnis: nicht nur die Farbe ändert sich, sondern die Transparenz des Zielelements ebenfalls; während das Intersection-Verhältnis abnimmt, verringert sich der Alpha-Wert der Hintergrundfarbe mit ihm, was zu einem Element führt, das durchsichtiger wird.
+Für jeden [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry) in der Liste `entries` schauen wir, ob das [`intersectionRatio`](/de/docs/Web/API/IntersectionObserverEntry/intersectionRatio) des Eintrags zunimmt; wenn ja, setzen wir die CSS-Eigenschaft des Zielelements für die Hintergrundfarbe auf die Zeichenfolge in `increasingColor` (denken Sie daran, dass es `"rgb(40 40 190 / ratio)"` ist), wobei das Wort "ratio" durch das `intersectionRatio` des Eintrags ersetzt wird. Das Ergebnis: nicht nur ändert sich die Farbe, sondern auch die Transparenz des Zielelements, da als das Überschneidungsverhältnis sinkt, der Alpha-Wert der Hintergrundfarbe sinkt und das Element somit durchsichtiger wird.
 
-Ebenso verwenden wir die Zeichenkette `decreasingColor`, wenn das `intersectionRatio` sinkt, und ersetzen das Wort "ratio" darin durch das `intersectionRatio`, bevor wir den Hintergrund des Zielelements (`background-color`) setzen.
+Ähnlich, wenn das `intersectionRatio` sinkt, verwenden wir die Zeichenfolge `decreasingColor` und ersetzen das Wort "ratio" darin durch das `intersectionRatio`, bevor wir die Hintergrundfarbe des Zielelements einstellen.
 
-Schließlich, um zu verfolgen, ob das Intersections-Verhältnis steigt oder fällt, speichern wir das aktuelle Verhältnis in der Variable `prevRatio`.
+Schließlich, um zu verfolgen, ob das Überschneidungsverhältnis steigt oder sinkt, merken wir uns das aktuelle Verhältnis in der Variablen `prevRatio`.
 
 ### Ergebnis
 
-Unten sehen Sie den resultierenden Inhalt. Scrollen Sie diese Seite nach oben und unten und beachten Sie, wie sich das Erscheinungsbild der Box ändert, während Sie dies tun.
+Unten ist das Ergebnis. Scrollen Sie diese Seite nach oben und unten und beachten Sie, wie sich das Aussehen der Box dabei verändert.
 
-{{EmbedLiveSample('Einfaches Beispiel', 400, 400)}}
+{{EmbedLiveSample('A_simple_example', 400, 400)}}
 
-Es gibt ein noch umfangreicheres Beispiel bei [Timing der Elementsichtbarkeit mit der Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility).
+Es gibt ein noch ausführlicheres Beispiel unter [Zeitmessung der Element-Sichtbarkeit mit der Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility).
 
 ## Spezifikationen
 
@@ -709,6 +709,6 @@ Es gibt ein noch umfangreicheres Beispiel bei [Timing der Elementsichtbarkeit mi
 
 ## Siehe auch
 
-- [Intersection Observer polyfill](https://github.com/w3c/IntersectionObserver)
-- [Timing der Elementsichtbarkeit mit der Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility)
+- [Intersection Observer Polyfill](https://github.com/w3c/IntersectionObserver)
+- [Zeitmessung der Element-Sichtbarkeit mit der Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility)
 - [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) und [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)

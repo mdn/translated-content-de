@@ -3,12 +3,12 @@ title: "GPURenderPassEncoder: endOcclusionQuery()-Methode"
 short-title: endOcclusionQuery()
 slug: Web/API/GPURenderPassEncoder/endOcclusionQuery
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`endOcclusionQuery()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beendet eine aktive Okklusionsabfrage, die zuvor mit [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery) gestartet wurde.
+Die **`endOcclusionQuery()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beendet eine aktive Occlusion Query, die zuvor mit [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery) gestartet wurde.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen beim Aufruf von **`endOcclusionQuery()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`endOcclusionQuery()`** aufgerufen wird, sonst wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Eine Okklusionsabfrage ist für diesen Render-Pass aktiv (d.h. durch einen vorherigen Aufruf von `beginOcclusionQuery()`).
+- Eine Occlusion Query ist für diesen Render-Pass aktiv (d.h. über einen vorherigen `beginOcclusionQuery()`-Aufruf).
 
 ## Beispiele
 

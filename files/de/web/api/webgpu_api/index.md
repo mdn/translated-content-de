@@ -2,57 +2,57 @@
 title: WebGPU API
 slug: Web/API/WebGPU_API
 l10n:
-  sourceCommit: 344afabdeddfcbf36bc0cdb9bb1ca2b365e260ab
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{DefaultAPISidebar("WebGPU API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **WebGPU-API** ermöglicht es Webentwicklern, die GPU (Graphics Processing Unit) des zugrunde liegenden Systems zu nutzen, um Hochleistungsberechnungen durchzuführen und komplexe Bilder zu zeichnen, die im Browser gerendert werden können.
+Die **WebGPU API** ermöglicht es Webentwicklern, die GPU (Graphics Processing Unit) des zugrundeliegenden Systems zu nutzen, um Hochleistungsberechnungen durchzuführen und komplexe Bilder zu zeichnen, die im Browser gerendert werden können.
 
-WebGPU ist der Nachfolger von [WebGL](/de/docs/Web/API/WebGL_API) und bietet eine bessere Kompatibilität mit modernen GPUs, Unterstützung für allgemeine GPU-Berechnungen, schnellere Operationen und Zugriff auf fortgeschrittenere GPU-Funktionen.
+WebGPU ist der Nachfolger von [WebGL](/de/docs/Web/API/WebGL_API) und bietet eine bessere Kompatibilität mit modernen GPUs, Unterstützung für allgemeinere GPU-Berechnungen, schnellere Operationen und Zugang zu fortschrittlicheren GPU-Funktionen.
 
 ## Konzepte und Nutzung
 
-Es ist fair zu sagen, dass [WebGL](/de/docs/Web/API/WebGL_API) das Web im Hinblick auf grafische Fähigkeiten revolutionierte, als es erstmals um 2011 erschien. WebGL ist ein JavaScript-Port der [OpenGL ES 2.0](https://registry.khronos.org/OpenGL-Refpages/es2.0/) Grafiksbibliothek, die es Webseiten ermöglicht, Rendering-Berechnungen direkt an die GPU des Geräts zu übergeben, damit diese mit sehr hohen Geschwindigkeiten verarbeitet werden können und das Ergebnis in ein {{htmlelement("canvas")}}-Element gerendert wird.
+Es ist fair zu sagen, dass [WebGL](/de/docs/Web/API/WebGL_API) das Web in Bezug auf grafische Fähigkeiten revolutioniert hat, nachdem es etwa 2011 zum ersten Mal erschien. WebGL ist ein JavaScript-Port der Grafikbibliothek [OpenGL ES 2.0](https://registry.khronos.org/OpenGL-Refpages/es2.0/), der es Webseiten ermöglicht, Rendering-Berechnungen direkt an die GPU des Geräts zu übergeben, um sie mit sehr hoher Geschwindigkeit zu verarbeiten und das Ergebnis in einem {{htmlelement("canvas")}}-Element zu rendern.
 
-WebGL und die [GLSL](<https://www.khronos.org/opengl/wiki/Core_Language_(GLSL)>) Sprache, die zum Schreiben von WebGL-Shader-Code verwendet wird, sind komplex, daher wurden mehrere WebGL-Bibliotheken erstellt, um das Schreiben von WebGL-Apps zu erleichtern: Beliebte Beispiele sind [Three.js](https://threejs.org/), [Babylon.js](https://www.babylonjs.com/) und [PlayCanvas](https://playcanvas.com/). Entwickler haben diese Werkzeuge genutzt, um immersive webbasierte 3D-Spiele, Musikvideos, Trainings- und Modellierungswerkzeuge, VR- und AR-Erlebnisse und mehr zu erstellen.
+WebGL und die [GLSL](<https://www.khronos.org/opengl/wiki/Core_Language_(GLSL)>) Sprache, die zum Schreiben von WebGL-Shader-Code verwendet wird, sind komplex. Daher wurden mehrere WebGL-Bibliotheken geschaffen, um das Schreiben von WebGL-Apps zu erleichtern: Beliebte Beispiele sind [Three.js](https://threejs.org/), [Babylon.js](https://www.babylonjs.com/) und [PlayCanvas](https://playcanvas.com/). Entwickler haben diese Tools genutzt, um immersive webbasierte 3D-Spiele, Musikvideos, Schulungs- und Modellierungswerkzeuge, VR- und AR-Erlebnisse und mehr zu erstellen.
 
-WebGL hat jedoch einige grundlegende Probleme, die adressiert werden mussten:
+Allerdings gibt es bei WebGL einige grundlegende Probleme, die angegangen werden mussten:
 
-- Seit der Veröffentlichung von WebGL ist eine neue Generation nativer GPU-APIs erschienen — die beliebtesten sind [Microsofts Direct3D 12](https://learn.microsoft.com/en-us/windows/win32/direct3d12/direct3d-12-graphics), [Apples Metal](https://developer.apple.com/metal/) und [The Khronos Group’s Vulkan](https://www.vulkan.org/) — die eine Vielzahl von neuen Funktionen bieten. Es sind keine weiteren Updates für OpenGL (und damit WebGL) geplant, sodass es keine dieser neuen Funktionen erhalten wird. WebGPU hingegen wird künftig neue Funktionen erhalten.
-- WebGL basiert vollständig auf dem Anwendungsfall des Zeichnens von Grafiken und deren Rendering auf einer Leinwand. Es kann allgemeine GPU-Berechnungen (GPGPU) nicht sehr gut handhaben. GPGPU-Berechnungen werden immer wichtiger für viele unterschiedliche Anwendungsfälle, zum Beispiel solche, die auf maschinellen Lernmodellen basieren.
-- 3D-Grafikanwendungen werden zunehmend anspruchsvoller, sowohl hinsichtlich der Anzahl der Objekte, die gleichzeitig gerendert werden müssen, als auch der Nutzung neuer Rendering-Funktionen.
+- Seit der Veröffentlichung von WebGL ist eine neue Generation von nativen GPU-APIs erschienen – die beliebtesten sind [Microsofts Direct3D 12](https://learn.microsoft.com/en-us/windows/win32/direct3d12/direct3d-12-graphics), [Apples Metal](https://developer.apple.com/metal/) und [Vulkan der Khronos Group](https://www.vulkan.org/), die eine Vielzahl neuer Funktionen bieten. Es sind keine weiteren Updates für OpenGL (und damit WebGL) geplant, sodass es keine dieser neuen Funktionen erhalten wird. WebGPU hingegen wird in Zukunft neue Funktionen erhalten.
+- WebGL basiert vollständig auf dem Anwendungsfall, Grafiken zu zeichnen und in ein Canvas zu rendern. Es behandelt allgemeine GPU-Berechnungen (GPGPU) nicht sehr gut. GPGPU-Berechnungen werden für viele verschiedene Anwendungsfälle immer wichtiger, zum Beispiel für solche, die auf maschinellen Lernmodellen basieren.
+- 3D-Grafikanwendungen werden zunehmend anspruchsvoller, sowohl in Bezug auf die Anzahl der gleichzeitig zu rendernden Objekte als auch auf die Nutzung neuer Rendering-Funktionen.
 
-WebGPU adressiert diese Probleme, indem es eine aktualisierte allgemeine Architektur bietet, die mit modernen GPU-APIs kompatibel ist und sich mehr "webartig" anfühlt. Es unterstützt Grafikrendering, hat aber auch erstklassige Unterstützung für GPGPU-Berechnungen. Das Rendering einzelner Objekte ist auf der CPU-Seite erheblich günstiger, und es unterstützt moderne GPU-Rendering-Funktionen wie compute-basierte Partikel und Nachbearbeitungsfilter wie Farbeffekte, Schärfen und Tiefenunschärfen. Zudem kann es teure Berechnungen wie das Aussortieren und Transformieren von skletonierten Modellen direkt auf der GPU ausführen.
+WebGPU adressiert diese Probleme und bietet eine aktualisierte, allgemeine Architektur, die mit modernen GPU-APIs kompatibel ist und sich "webfreundlicher" anfühlt. Es unterstützt Grafikrasterung, hat aber auch erstklassige Unterstützung für GPGPU-Berechnungen. Das Rendering einzelner Objekte ist auf der CPU-Seite erheblich günstiger, und es unterstützt moderne GPU-Rendering-Funktionen wie berechnungsbasierte Partikel und Nachbearbeitungsfilter wie Farbeffekte, Schärfen und Tiefenschärfesimulation. Darüber hinaus kann es teure Berechnungen wie das Aussortieren und die Transformation von skinnerten Modellen direkt auf der GPU durchführen.
 
 ## Allgemeines Modell
 
-Es gibt mehrere Abstraktionsschichten zwischen einem Geräte-GPU und einem Webbrowser, der die WebGPU-API ausführt. Es ist nützlich, diese zu verstehen, wenn Sie beginnen, WebGPU zu erlernen:
+Es gibt mehrere Abstraktionsebenen zwischen einer Geräte-GPU und einem Webbrowser, der die WebGPU API ausführt. Es ist nützlich, diese zu verstehen, wenn Sie anfangen, WebGPU zu lernen:
 
-![Ein grundlegendes Stapeldiagramm zeigt die Position der verschiedenen Elemente einer WebGPU-Architektur auf einem Gerät](basic-webgpu-stack.png)
+![Ein grundlegendes Stack-Diagramm, das die Position der verschiedenen Elemente einer WebGPU-Architektur auf einem Gerät zeigt](basic-webgpu-stack.png)
 
 - Physische Geräte haben GPUs. Die meisten Geräte haben nur eine GPU, aber einige haben mehr als eine. Verschiedene GPU-Typen sind verfügbar:
 
-  - Integrierte GPUs, die sich auf demselben Board wie die CPU befinden und deren Speicher teilen.
-  - Diskrete GPUs, die sich auf einem separaten Board, unabhängig von der CPU befinden.
+  - Integrierte GPUs, die sich auf derselben Platine wie die CPU befinden und ihren Speicher teilen.
+  - Diskrete GPUs, die sich auf ihrer eigenen Platine befinden und von der CPU getrennt sind.
   - Software-"GPUs", die auf der CPU implementiert sind.
 
   > [!NOTE]
-  > Das obige Diagramm geht von einem Gerät mit nur einer GPU aus.
+  > Das obenstehende Diagramm geht davon aus, dass das Gerät nur eine GPU hat.
 
-- Eine native GPU-API, die Teil des Betriebssystems (z. B. Metal auf macOS) ist, ist eine Programmierschnittstelle, die native Anwendungen die Nutzung der GPU-Funktionen ermöglicht. API-Anweisungen werden über einen Treiber an die GPU gesendet (und Antworten empfangen). Es ist möglich, dass ein System mehrere native OS-APIs und Treiber zur Verfügung hat, um mit der GPU zu kommunizieren, obwohl das obige Diagramm von einem Gerät mit nur einer nativen API/Treiber ausgeht.
-- Die WebGPU-Implementierung des Browsers übernimmt die Kommunikation mit der GPU über einen nativen GPU-API-Treiber. Ein WebGPU-Adapter repräsentiert effektiv eine physische GPU und einen Treiber im zugrunde liegenden System in Ihrem Code.
-- Ein logisches Gerät ist eine Abstraktion, über die eine einzelne Webapp auf die GPU-Fähigkeiten in einer unterteilten Weise zugreifen kann. Logische Geräte müssen Multiplexing-Fähigkeiten bereitstellen. Eine physische GPU wird von vielen Anwendungen und Prozessen gleichzeitig genutzt, möglicherweise auch von mehreren Webapps. Jede Webapp muss in der Lage sein, isoliert auf WebGPU zuzugreifen, aus Sicherheits- und Logikgründen.
+- Eine native GPU-API, die Teil des Betriebssystems ist (z.B. Metal auf macOS), ist eine Programmierschnittstelle, die es nativen Anwendungen ermöglicht, die Fähigkeiten der GPU zu nutzen. API-Anweisungen werden über einen Treiber an die GPU gesendet (und Antworten empfangen). Es ist möglich, dass ein System mehrere native OS-APIs und Treiber zur Kommunikation mit der GPU zur Verfügung hat, obwohl das obenstehende Diagramm davon ausgeht, dass das Gerät nur eine native API/einen Treiber hat.
+- Die WebGPU-Implementierung eines Browsers kümmert sich um die Kommunikation mit der GPU über einen nativen GPU-API-Treiber. Ein WebGPU-Adapter stellt in Ihrem Code effektiv eine physische GPU und einen Treiber dar, die auf dem zugrunde liegenden System verfügbar sind.
+- Ein logisches Gerät ist eine Abstraktion, über die eine einzelne Webanwendung auf die GPU-Fähigkeiten in einer abgeschotteten Weise zugreifen kann. Logische Geräte müssen Multiple-Access-Fähigkeiten bereitstellen. Eine physische GPU wird von vielen Anwendungen und Prozessen gleichzeitig genutzt, einschließlich möglicherweise vieler Webanwendungen. Jede Webanwendung muss in der Lage sein, isoliert auf WebGPU zuzugreifen, aus Sicherheits- und Logikgründen.
 
 ## Zugriff auf ein Gerät
 
-Ein logisches Gerät — dargestellt durch eine [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Objektinstanz — ist die Basis, von der aus eine Web-App auf alle WebGPU-Funktionen zugreift. Der Zugriff auf ein Gerät erfolgt wie folgt:
+Ein logisches Gerät — dargestellt durch eine [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Objektinstanz — ist die Basis, von der eine Webanwendung ausgehend auf alle WebGPU-Funktionalitäten zugreift. Der Zugriff auf ein Gerät erfolgt wie folgt:
 
-1. Die [`Navigator.gpu`](/de/docs/Web/API/Navigator/gpu)-Eigenschaft (oder [`WorkerNavigator.gpu`](/de/docs/Web/API/WorkerNavigator/gpu), wenn Sie WebGPU-Funktionalität innerhalb eines Workers nutzen) gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Kontext zurück.
-2. Sie greifen über die [`GPU.requestAdapter()`](/de/docs/Web/API/GPU/requestAdapter)-Methode auf einen Adapter zu. Diese Methode akzeptiert ein optionales Einstellungsobjekt, mit dem Sie beispielsweise einen Hochleistungs- oder energieeffizienten Adapter anfordern können. Wenn dies nicht angegeben wird, bietet das Gerät Zugriff auf den Standardadapter, der für die meisten Zwecke ausreichend ist.
-3. Ein Gerät kann über [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) angefordert werden. Diese Methode akzeptiert auch ein Optionsobjekt (bezeichnet als Deskriptor), das verwendet werden kann, um die genauen Funktionen und Grenzen anzugeben, die das logische Gerät haben soll. Wenn dies nicht enthalten ist, wird das bereitgestellte Gerät eine vernünftige allgemeine Spezifikation haben, die für die meisten Zwecke gut genug ist.
+1. Die [`Navigator.gpu`](/de/docs/Web/API/Navigator/gpu)-Eigenschaft (oder [`WorkerNavigator.gpu`](/de/docs/Web/API/WorkerNavigator/gpu), wenn Sie die WebGPU-Funktionalität aus einem Worker heraus nutzen) gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Kontext zurück.
+2. Sie greifen über die Methode [`GPU.requestAdapter()`](/de/docs/Web/API/GPU/requestAdapter) auf einen Adapter zu. Diese Methode akzeptiert ein optionales Einstellungsobjekt, das Ihnen ermöglicht, beispielsweise einen Hochleistungs- oder energieeffizienten Adapter anzufordern. Wenn dies nicht enthalten ist, stellt das Gerät Zugriff auf den Standardadapter bereit, der für die meisten Zwecke ausreichend ist.
+3. Ein Gerät kann über [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) angefordert werden. Diese Methode akzeptiert ebenfalls ein options-Objekt (als Deskriptor bezeichnet), das verwendet werden kann, um die genauen Funktionen und Grenzen zu spezifizieren, die das logische Gerät haben soll. Wenn dies nicht enthalten ist, hat das bereitgestellte Gerät eine angemessene allgemein verwendbare Spezifikation, die für die meisten Zwecke ausreichend ist.
 
-Dies zusammen mit einigen Funktionsprüfungen könnte der obige Prozess wie folgt erreicht werden:
+In Kombination mit einigen Feature-Erkennungstests könnte der obige Prozess wie folgt umgesetzt werden:
 
 ```js
 async function init() {
@@ -71,42 +71,42 @@ async function init() {
 }
 ```
 
-## Pipelines und Shader: WebGPU-App-Struktur
+## Pipelines und Shader: Struktur von WebGPU-Anwendungen
 
 Eine Pipeline ist eine logische Struktur, die programmierbare Stufen enthält, die abgeschlossen werden müssen, um die Arbeit Ihres Programms zu erledigen. WebGPU kann derzeit zwei Arten von Pipelines verarbeiten:
 
-- Eine Render-Pipeline rendert Grafiken, typischerweise in ein {{htmlelement("canvas")}}-Element, sie könnte jedoch auch Grafiken im Hintergrund rendern. Sie hat zwei Hauptstufen:
+- Eine Render-Pipeline rendert Grafiken, typischerweise in ein {{htmlelement("canvas")}}-Element, sie könnte aber auch Grafiken im Hintergrund rendern. Sie hat zwei Hauptstufen:
 
-  - Eine Vertex-Stufe, in der ein Vertex-Shader Positionsdaten akzeptiert, die in die GPU eingespeist werden, und sie verwendet, um eine Reihe von Vertexen im 3D-Raum zu positionieren, indem sie spezifizierte Effekte wie Rotation, Translation oder Perspektive anwendet. Die Vertexe werden dann in Primitiven wie Dreiecken (dem grundlegenden Baustein von gerenderten Grafiken) zusammengefügt und von der GPU rasterisiert, um herauszufinden, welche Pixel jedes davon auf der Zeichenleinwand abdecken sollte.
+  - Eine Vertex-Stufe, in der ein Vertex-Shader die Positionsdaten, die der GPU zugeführt werden, verwendet, um eine Reihe von Vertikalen im 3D-Raum zu positionieren, indem spezifizierte Effekte wie Rotation, Translation oder Perspektive angewendet werden. Die Vertices werden dann zu Primitives wie Dreiecken (dem grundlegenden Baustein von gerenderten Grafiken) zusammengefügt und von der GPU rasterisiert, um herauszufinden, welche Pixel jede auf der Zeichnungsleinwand abdecken sollte.
 
-  - Eine Fragment-Stufe, in der ein Fragment-Shader die Farbe für jedes Pixel berechnet, das von den vom Vertex-Shader erzeugten Primitiven bedeckt wird. Diese Berechnungen verwenden häufig Eingaben wie Bilder (in Form von Texturen), die Oberflächendetails sowie die Position und Farbe virtueller Lichter bereitstellen.
+  - Eine Fragment-Stufe, in der ein Fragment-Shader die Farbe für jedes Pixel berechnet, das von den durch den Vertex-Shader erzeugten Primitives abgedeckt wird. Diese Berechnungen verwenden häufig Eingaben wie Bilder (in Form von Texturen), die Oberflächendetails sowie die Position und Farbe virtueller Lichter bereitstellen.
 
-- Eine Compute-Pipeline ist für allgemeine Berechnungen. Eine Compute-Pipeline enthält eine einzelne Compute-Stufe, in der ein Compute-Shader allgemeine Daten aufnimmt, sie parallel über eine bestimmte Anzahl von Arbeitsgruppen verarbeitet und dann das Ergebnis in einem oder mehreren Puffern zurückgibt. Die Puffer können jede Art von Daten enthalten.
+- Eine Berechnungspipeline ist für allgemeine Berechnungen gedacht. Eine Berechnungspipeline enthält eine einzige Berechnungsstufe, in der ein Berechnungs-Shader allgemeine Daten entgegennimmt, diese parallel über eine bestimmte Anzahl von Arbeitsgruppen hinweg verarbeitet und dann das Ergebnis in einem oder mehreren Puffern zurückgibt. Die Puffer können jede Art von Daten enthalten.
 
-Die oben erwähnten Shader sind eine Sammlung von Anweisungen, die von der GPU verarbeitet werden. WebGPU-Shader werden in einer niedrigstufigen, Rust-ähnlichen Sprache namens [WebGPU Shader Language](https://gpuweb.github.io/gpuweb/wgsl/) (WGSL) geschrieben.
+Die oben erwähnten Shader sind Mengen von Anweisungen, die von der GPU verarbeitet werden. WebGPU-Shader werden in einer Rust-ähnlichen Sprache auf niedriger Ebene mit dem Namen [WebGPU Shader Language](https://gpuweb.github.io/gpuweb/wgsl/) (WGSL) geschrieben.
 
-Es gibt mehrere unterschiedliche Möglichkeiten, wie Sie eine WebGPU-App gestalten könnten, aber der Prozess wird wahrscheinlich die folgenden Schritte enthalten:
+Es gibt mehrere verschiedene Möglichkeiten, eine WebGPU-App zu gestalten, aber der Prozess wird wahrscheinlich die folgenden Schritte umfassen:
 
-1. [Erstellen von Shader-Modulen](#erstellen_von_shader-modulen): Schreiben Sie Ihren Shader-Code in WGSL und verpacken Sie ihn in einem oder mehreren Shader-Modulen.
-2. [Abrufen und Konfigurieren des Canvas-Kontexts](#abrufen_und_konfigurieren_des_canvas-kontexts): Rufen Sie den `webgpu`-Kontext eines `<canvas>`-Elements ab und konfigurieren Sie ihn so, dass er Informationen über die zu rendernden Grafiken von Ihrem GPU-Logikgerät empfängt. Dieser Schritt ist nicht notwendig, wenn Ihre App keine grafische Ausgabe hat, beispielsweise eine, die nur Compute-Pipelines verwendet.
-3. [Erstellen von Ressourcen, die Ihre Daten enthalten](#erstellen_eines_buffers_und_schreiben_unserer_dreieckdaten_darin): Die Daten, die von Ihren Pipelines verarbeitet werden sollen, müssen in GPU-Puffern oder Texturen gespeichert werden, um von Ihrer App zugegriffen zu werden.
-4. [Erstellen von Pipelines](#definieren_und_erstellen_der_render-pipeline): Definieren Sie Pipeline-Deskriptoren, die die gewünschte Pipeline im Detail beschreiben, einschließlich der erforderlichen Datenstruktur, Bindungen, Shader und Ressourcenlayouts, und erstellen Sie daraus Pipelines. Unsere einfachen Demos enthalten nur eine einzige Pipeline, aber nicht triviale Apps enthalten normalerweise mehrere Pipelines für unterschiedliche Zwecke.
-5. [Ausführen eines Compute-/Rendering-Passes](#ausführen_eines_rendering-passes): Dies umfasst eine Reihe von Unterpunkten:
-   1. Erstellen Sie einen Befehls-Encoder, der eine Reihe von Befehlen codieren kann, die an die GPU ausgegeben werden sollen.
-   2. Erstellen Sie ein Pass-Encoder-Objekt, auf dem Compute-/Render-Befehle ausgegeben werden.
-   3. Führen Sie Befehle aus, um anzugeben, welche Pipelines zu verwenden sind, aus welchem/welchen Puffer(n) die erforderlichen Daten bezogen werden sollen, wie viele Zeichenoperationen auszuführen sind (im Fall von Render-Pipelines) etc.
-   4. Finalisieren Sie die Befehlsliste und kapseln Sie sie in einem Befehls-Puffer.
-   5. Senden Sie den Befehls-Puffer über die Befehlswarteschlange des Logikgeräts an die GPU.
+1. [Shader-Module erstellen](#shader-module_erstellen): Schreiben Sie Ihren Shader-Code in WGSL und verpacken Sie ihn in einem oder mehreren Shader-Modulen.
+2. [Kontext des Canvas abrufen und konfigurieren](#kontext_des_canvas_abrufen_und_konfigurieren): Holen Sie den `webgpu`-Kontext eines `<canvas>`-Elements und konfigurieren Sie es, um Informationen darüber zu erhalten, welche Grafiken von Ihrem logischen GPU-Gerät gerendert werden sollen. Dieser Schritt ist nicht notwendig, wenn Ihre App keine grafische Ausgabe hat, beispielsweise eine, die nur Berechnungspipelines verwendet.
+3. [Ressourcen mit Ihren Daten erstellen](#einen_puffer_erstellen_und_unsere_dreiecksdaten_hineinschreiben): Die Daten, die von Ihren Pipelines verarbeitet werden sollen, müssen in GPU-Puffern oder -Texturen gespeichert werden, um von Ihrer App darauf zuzugreifen.
+4. [Pipelines erstellen](#die_render-pipeline_definieren_und_erstellen): Definieren Sie Pipeline-Deskriptoren, die die gewünschten Pipelines im Detail beschreiben, einschließlich der erforderlichen Datenstruktur, Bindungen, Shader und Ressourcenlayouts, und erstellen Sie daraus Pipelines. Unsere grundlegenden Demos enthalten nur eine einzige Pipeline, aber nicht triviale Apps enthalten normalerweise mehrere Pipelines für verschiedene Zwecke.
+5. [Berechnung/Rendering-Durchgang ausführen](#einen_rendering-durchgang_ausführen): Dies umfasst mehrere Unterschritte:
+   1. Erstellen Sie einen Befehlscodierer, der einen Satz von Befehlen codieren kann, die an die GPU ausgeführt werden sollen.
+   2. Erstellen Sie ein Durchgangscodierobjekt, auf dem Berechnungs-/Rendering-Befehle ausgegeben werden.
+   3. Führen Sie Befehle aus, um anzugeben, welche Pipelines verwendet werden sollen, aus welchen Puffer(n) die erforderlichen Daten genommen werden sollen, wie viele Zeichenoperationen ausgeführt werden sollen (im Falle von Rendering-Pipelines) usw.
+   4. Schließen Sie die Befehlsliste ab und kapseln Sie sie in einem Befehlsbuffer ein.
+   5. Übergeben Sie den Befehlsbuffer über die Befehlsschlange des logischen Geräts an die GPU.
 
-In den folgenden Abschnitten werden wir ein grundlegendes Render-Pipeline-Demo untersuchen, um Ihnen die Möglichkeit zu geben, zu erkunden, was es erfordert. Später werden wir auch ein [einfaches Compute-Pipeline](#grundlegende_compute-pipeline) Beispiel untersuchen und sehen, wie es sich von der Render-Pipeline unterscheidet.
+In den folgenden Abschnitten werden wir ein grundlegendes Render-Pipeline-Demo untersuchen, um Ihnen zu ermöglichen, zu erkunden, was es erfordert. Später werden wir auch ein Beispiel für eine [grundlegende Berechnungspipeline](#grundlegende_berechnungspipeline) ansehen, um zu sehen, wie es sich von der Render-Pipeline unterscheidet.
 
 ## Grundlegende Render-Pipeline
 
 In unserem [grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) geben wir einem `<canvas>`-Element einen festen blauen Hintergrund und zeichnen ein Dreieck darauf.
 
-### Erstellen von Shader-Modulen
+### Shader-Module erstellen
 
-Wir verwenden den folgenden Shader-Code. Die Vertex-Shader-Stufe (`@vertex`-Block) akzeptiert ein Datenpaket mit einer Position und einer Farbe, positioniert die Vertexe entsprechend der gegebenen Position, interpoliert die Farbe und gibt die Daten an die Fragment-Shader-Stufe weiter. Die Fragment-Shader-Stufe (`@fragment`-Block) akzeptiert die Daten von der Vertex-Shader-Stufe und färbt die Vertexe entsprechend der gegebenen Farbe.
+Wir verwenden den folgenden Shader-Code. Die Vertex-Shader-Stufe (`@vertex`-Block) akzeptiert einen Datenblock, der eine Position und eine Farbe enthält, positioniert den Vertex entsprechend der angegebenen Position, interpoliert die Farbe und übergibt die Daten an die Fragment-Shader-Stufe. Die Fragment-Shader-Stufe (`@fragment`-Block) akzeptiert die Daten von der Vertex-Shader-Stufe und koloriert den Vertex entsprechend der angegebenen Farbe.
 
 ```js
 const shaders = `
@@ -134,9 +134,9 @@ fn fragment_main(fragData: VertexOut) -> @location(0) vec4f
 ```
 
 > [!NOTE]
-> In unseren Demos speichern wir unseren Shader-Code in einem Template-Literal, aber Sie können ihn überall speichern, von wo aus er leicht als Text abgerufen werden kann, um in Ihr WebGPU-Programm eingespeist zu werden. Eine andere übliche Praxis ist es beispielsweise, Shader in einem {{htmlelement("script")}}-Element zu speichern und den Inhalt mittels [`Node.textContent`](/de/docs/Web/API/Node/textContent) abzurufen. Der korrekte MIME-Typ für WGSL ist `text/wgsl`.
+> In unseren Demos speichern wir unseren Shader-Code in einer Template-Literal, aber Sie können ihn überall speichern, von wo aus er leicht abgerufen werden kann, um ihn in Ihr WebGPU-Programm einzulesen. Ein weiteres häufiges Vorgehen ist es, Shader in einem {{htmlelement("script")}}-Element zu speichern und den Inhalt mit [`Node.textContent`](/de/docs/Web/API/Node/textContent) abzurufen. Der korrekte MIME-Typ für WGSL ist `text/wgsl`.
 
-Um Ihren Shader-Code für WebGPU verfügbar zu machen, müssen Sie ihn in einem [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) über einen [`GPUDevice.createShaderModule()`](/de/docs/Web/API/GPUDevice/createShaderModule)-Aufruf platzieren, wobei Sie Ihren Shader-Code als eine Eigenschaft innerhalb eines Deskriptorobjekts übergeben. Zum Beispiel:
+Um Ihren Shader-Code WebGPU zur Verfügung zu stellen, müssen Sie ihn in ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) über einen [`GPUDevice.createShaderModule()`](/de/docs/Web/API/GPUDevice/createShaderModule)-Aufruf packen und dabei Ihren Shader-Code als Eigenschaft innerhalb eines Deskriptorobjekts übergeben. Zum Beispiel:
 
 ```js
 const shaderModule = device.createShaderModule({
@@ -144,11 +144,11 @@ const shaderModule = device.createShaderModule({
 });
 ```
 
-### Abrufen und Konfigurieren des Canvas-Kontexts
+### Kontext des Canvas abrufen und konfigurieren
 
-In einer Render-Pipeline müssen wir einen Ort festlegen, an dem die Grafiken gerendert werden. In diesem Fall erhalten wir eine Referenz zu einem onscreen `<canvas>`-Element und rufen dann [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) mit einem Parameter von `webgpu` auf, um den GPU-Kontext (eine [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Instanz) zurückzugeben.
+In einer Render-Pipeline müssen wir angeben, wohin die Grafiken gerendert werden sollen. In diesem Fall erhalten wir eine Referenz zu einem onscreen `<canvas>`-Element und rufen [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) mit einem Parameter von `webgpu` auf, um seinen GPU-Kontext (eine [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Instanz) zurückzugeben.
 
-Von dort aus konfigurieren wir den Kontext mit einem Aufruf von [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure), wobei wir ihm ein Optionsobjekt übergeben, das das [`GPUDevice`](/de/docs/Web/API/GPUDevice) enthält, von dem die Rendering-Informationen kommen, das Format, das die Texturen haben sollen, und den Alpha-Modus, der beim Rendern halbtransparenter Texturen verwendet werden sollen.
+Von dort aus konfigurieren wir den Kontext mit einem Aufruf von [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure), indem wir ein options-Objekt übergeben, das das [`GPUDevice`](/de/docs/Web/API/GPUDevice) enthält, aus dem die Renderinformationen stammen werden, das Format, das die Texturen haben werden, und den Alphamodus, der beim Rendern halbtransparenter Texturen verwendet werden soll.
 
 ```js
 const canvas = document.querySelector("#gpuCanvas");
@@ -164,9 +164,9 @@ context.configure({
 > [!NOTE]
 > Die beste Praxis zur Bestimmung des Texturformats ist die Verwendung der [`GPU.getPreferredCanvasFormat()`](/de/docs/Web/API/GPU/getPreferredCanvasFormat)-Methode; diese wählt das effizienteste Format (entweder `bgra8unorm` oder `rgba8unorm`) für das Gerät des Benutzers aus.
 
-### Erstellen eines Buffers und Schreiben unserer Dreieckdaten darin
+### Einen Puffer erstellen und unsere Dreiecksdaten hineinschreiben
 
-Als Nächstes werden wir unserem WebGPU-Programm unsere Daten bereitstellen, in einer Form, die es verwenden kann. Unsere Daten werden zunächst in einer {{jsxref("Float32Array")}} bereitgestellt, die 8 Datenpunkte für jedes Dreiecks-Vertex enthält — X, Y, Z, W für die Position und R, G, B, A für die Farbe.
+Als nächstes versorgen wir unser WebGPU Programm mit unseren Daten in einer Form, die es verwenden kann. Unsere Daten werden zunächst in einem {{jsxref("Float32Array")}} bereitgestellt, der 8 Datenpunkte für jede Dreiecks-Vertex enthält — X, Y, Z, W für Position, und R, G, B, A für die Farbe.
 
 ```js
 const vertices = new Float32Array([
@@ -175,9 +175,9 @@ const vertices = new Float32Array([
 ]);
 ```
 
-Allerdings haben wir hier ein Problem. Wir müssen unsere Daten in ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) bekommen. Im Hintergrund wird dieser Puffer-Typ in Speicher gespeichert, der sehr eng mit den Kernen der GPU integriert ist, um die gewünschte Hochleistungsverarbeitung zu ermöglichen. Als Nebeneffekt kann auf diesen Speicher von Prozessen, die auf dem Hostsystem laufen, wie dem Browser, nicht zugegriffen werden.
+Allerdings haben wir hier ein Problem. Wir müssen unsere Daten in einen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) bringen. Im Hintergrund wird diese Art von Puffer im Speicher sehr eng in die Kerne der GPU integriert gespeichert, um das gewünschte Hochleistungsverarbeitung zu ermöglichen. Ein Nebeneffekt ist, dass dieser Speicher nicht von Prozessen zugänglich ist, die auf dem Hostsystem laufen, wie z.B. dem Browser.
 
-Der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) wird durch einen Aufruf der Methode [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) erstellt. Wir geben ihm eine Größe gleich der Länge des `vertices`-Arrays, sodass er alle Daten enthalten kann und `VERTEX`- und `COPY_DST`-Nutzungsflags an anzugeben, dass der Buffer als Vertex-Buffer und als Ziel von Kopiervorgängen verwendet wird.
+Der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) wird über einen Aufruf von [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) erstellt. Wir geben ihm eine Größe, die der Länge des `vertices`-Arrays entspricht, damit er alle Daten enthalten kann, und `VERTEX` und `COPY_DST`-Nutzungsflags, um anzugeben, dass der Puffer als Vertex-Puffer und Ziel von Kopieroperationen verwendet wird.
 
 ```js
 const vertexBuffer = device.createBuffer({
@@ -186,17 +186,17 @@ const vertexBuffer = device.createBuffer({
 });
 ```
 
-Wir könnten den Weg, unsere Daten in den `GPUBuffer` zu bekommen, ähnlich wie im [Compute-Pipeline-Beispiel](#grundlegende_compute-pipeline) mithilfe eines Mapping-Vorgangs handhaben, um Daten von der GPU zurück zu JavaScript zu lesen. In diesem Fall jedoch werden wir die praktische [`GPUQueue.writeBuffer()`](/de/docs/Web/API/GPUQueue/writeBuffer)-Convenience-Methode verwenden, die als Parameter den Buffer zum Schreiben, die Datenquelle, aus der geschrieben werden soll, einen Offset-Wert für jeden und die Größe der zu schreibenden Daten übernimmt (wir haben die gesamte Länge des Arrays angegeben). Der Browser arbeitet dann den effizientesten Weg aus, um die Daten zu schreiben.
+Wir könnten das Einbringen unserer Daten in den `GPUBuffer` mit einer Mapping-Operation handhaben, wie wir es im [Beispiel der Berechnungspipeline](#grundlegende_berechnungspipeline) verwenden, um Daten von der GPU zurück zu JavaScript zu lesen. In diesem Fall verwenden wir jedoch die praktische [`GPUQueue.writeBuffer()`](/de/docs/Web/API/GPUQueue/writeBuffer) Convenience-Methode, die als Parameter den Puffer zum Schreiben, die Datenquelle, aus der geschrieben werden soll, einen Offset-Wert für jeden und die Größe der zu schreibenden Daten (wir haben die gesamte Länge des Arrays angegeben) entgegennimmt. Der Browser ermittelt dann die effizienteste Möglichkeit, die Daten zu schreiben.
 
 ```js
 device.queue.writeBuffer(vertexBuffer, 0, vertices, 0, vertices.length);
 ```
 
-### Definieren und Erstellen der Render-Pipeline
+### Die Render-Pipeline definieren und erstellen
 
-Jetzt haben wir unsere Daten in einen Buffer bekommen, der nächste Teil der Einrichtung ist das tatsächliche Erstellen unserer Pipeline, bereit zur Verwendung für das Rendering.
+Jetzt, da wir unsere Daten in einen Puffer gebracht haben, ist der nächste Teil der Einrichtung die tatsächliche Erstellung unserer Pipeline, um sie zum Rendern zu verwenden.
 
-Zuerst erstellen wir ein Objekt, das das erforderliche Layout unserer Vertex-Daten beschreibt. Dies beschreibt perfekt das, was wir zuvor in unserem `vertices`-Array und der Vertex-Shader-Stufe gesehen haben - jedes Vertex hat Positions- und Farbdaten. Beide sind im `float32x4`-Format formatiert (was dem WGSL-Typ `vec4<f32>` entspricht), und die Farbdaten beginnen bei einem Offset von 16 Bytes in jedem Vertex. `arrayStride` gibt den Stride an, was die Anzahl von Bytes ist, die jedes Vertex ausmacht, und `stepMode` gibt an, dass die Daten pro Vertex abgerufen werden sollen.
+Zunächst erstellen wir ein Objekt, das das erforderliche Layout unserer Vertex-Daten beschreibt. Dies beschreibt perfekt, was wir zuvor in unserem `vertices`-Array und unserer Vertex-Shader-Stufe gesehen haben – jeder Vertex hat Positions- und Farbdaten. Beide sind im `float32x4`-Format formatiert (das dem WGSL-Typ `vec4<f32>` entspricht), und die Farbdaten beginnen bei einem Offset von 16 Bytes in den jeweiligen Vertex. `arrayStride` gibt die Schrittweite an, was bedeutet, dass die Anzahl der Bytes, die jeden Vertex ausmachen, und `stepMode` gibt an, dass die Daten pro Vertex abgerufen werden sollen.
 
 ```js
 const vertexBuffers = [
@@ -219,11 +219,11 @@ const vertexBuffers = [
 ];
 ```
 
-Als nächstes erstellen wir ein Deskriptorobjekt, das die Konfiguration unserer Render-Pipeline-Stufen spezifiziert. Für beide Shader-Stufen spezifizieren wir das [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule), in dem der relevante Code zu finden ist (`shaderModule`), und den Namen der Funktion, die als Einstiegspunkt für jede Stufe dient.
+Als nächstes erstellen wir ein Deskriptorobjekt, das die Konfiguration unserer Render-Pipeline-Stufen spezifiziert. Für beide Shader-Stufen geben wir das [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) an, in dem der relevante Code zu finden ist (`shaderModule`), und den Namen der Funktion, die als Einstiegspunkt für jede Stufe dient.
 
-Zusätzlich, im Fall der Vertex-Shader-Stufe, geben wir unser `vertexBuffers`-Objekt an, um den erwarteten Zustand unserer Vertex-Daten bereitzustellen. Und im Fall unserer Fragment-Shader-Stufe geben wir eine Reihe von Farb-Zielzuständen an, die das spezifizierte Rendering-Format angeben (dies passt zum zuvor im Canvas-Kontext angegebenen Format).
+Darüber hinaus stellen wir im Fall der Vertex-Shader-Stufe unser `vertexBuffers`-Objekt zur Verfügung, um den erwarteten Zustand unserer Vertex-Daten anzugeben. Im Fall unserer Fragment-Shader-Stufe geben wir ein Array von Farbzielen an, die das angegebene Rendering-Format angeben (dies stimmt mit dem zuvor in unserer Canvas-Kontextkonfiguration angegebenen Format überein).
 
-Wir geben außerdem ein `primitive`-Objekt an, das in diesem Fall nur den Typ des Primitives angibt, das wir zeichnen werden, und ein `layout` von `auto`. Die `layout`-Eigenschaft definiert das Layout (Struktur, Zweck und Typ) aller in der Pipeline verwendeten GPU-Ressourcen (Buffer, Texturen etc.). In komplexeren Apps würde dies in Form eines [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Objekts vorliegen, erstellt mittels [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) (ein Beispiel sehen Sie in unserer [Basic Compute Pipeline](#grundlegende_compute-pipeline)), was der GPU ermöglicht im Voraus herauszufinden, wie die Pipeline am effizientesten ausgeführt werden kann. Wir spezifizieren jedoch den `auto`-Wert, der die Pipeline dazu veranlasst, ein implizites Bind Group Layout basierend auf den im Shader-Code definierten Bindungen zu generieren.
+Wir geben auch ein `primitive`-Objekt an, das in diesem Fall nur den Typ der Primitiven angibt, die wir zeichnen werden, und ein `layout` von `auto`. Die `layout`-Eigenschaft definiert das Layout (Struktur, Zweck und Typ) aller GPU-Ressourcen (Puffer, Texturen usw.), die während der Ausführung der Pipeline verwendet werden. In komplexeren Apps würde dies die Form eines [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Objekts annehmen, das mit [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) erstellt wird (Sie können ein Beispiel in unserer [grundlegenden Berechnungspipeline](#grundlegende_berechnungspipeline) sehen), die es der GPU ermöglicht, herauszufinden, wie die Pipeline im Voraus am effizientesten ausgeführt wird. Wir geben jedoch den Wert `auto` an, der die Pipeline dazu veranlasst, ein implizites Bindungsgruppenlayout basierend auf allen Bindungen im Shader-Code zu generieren.
 
 ```js
 const pipelineDescriptor = {
@@ -248,25 +248,25 @@ const pipelineDescriptor = {
 };
 ```
 
-Schließlich können wir eine [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) basierend auf unserem `pipelineDescriptor`-Objekt erstellen, indem wir es als Parameter zu einem Aufruf der Methode [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) übergeben.
+Schließlich können wir eine [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) basierend auf unserem `pipelineDescriptor`-Objekt erstellen, indem wir es als Parameter an einen [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline)-Methodenaufruf übergeben.
 
 ```js
 const renderPipeline = device.createRenderPipeline(pipelineDescriptor);
 ```
 
-### Ausführen eines Rendering-Passes
+### Einen Rendering-Durchgang ausführen
 
-Jetzt, da die Einrichtung abgeschlossen ist, können wir tatsächlich einen Rendering-Pass ausführen und etwas auf unser `<canvas>` zeichnen. Zum Kodieren von Befehlen, die später an die GPU ausgegeben werden sollen, müssen Sie eine [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Instanz erstellen, was durch einen Aufruf der Methode [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder) erfolgt.
+Jetzt, da alle Setups abgeschlossen sind, können wir tatsächlich einen Rendering-Durchgang ausführen und etwas auf unser `<canvas>` zeichnen. Um Befehle zu kodieren, die später an die GPU ausgegeben werden sollen, müssen Sie eine [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Instanz erstellen, was durch einen [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder)-Aufruf erfolgen kann.
 
 ```js
 const commandEncoder = device.createCommandEncoder();
 ```
 
-Als Nächstes starten wir den Rendering-Pass, indem wir eine [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Instanz mit einem Aufruf von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellen. Diese Methode nimmt ein Deskriptorobjekt als Parameter an, dessen einzig obligatorische Eigenschaft ein `colorAttachments`-Array ist. In diesem Fall geben wir Folgendes an:
+Als Nächstes starten wir den Rendering-Durchgang, indem wir eine [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Instanz mit einem [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass)-Aufruf erstellen. Diese Methode nimmt ein Deskriptorobjekt als Parameter, dessen einzige verpflichtende Eigenschaft ein `colorAttachments`-Array ist. In diesem Fall spezifizieren wir:
 
-1. Eine Texturansicht, in die gerendert werden soll; wir erstellen eine neue Ansicht vom `<canvas>` über [`context.getCurrentTexture().createView()`](/de/docs/Web/API/GPUTexture/createView).
-2. Dass die Ansicht zu einer angegebenen Farbe "gelöscht" werden soll, sobald sie geladen ist und bevor das Zeichnen stattfindet. Dies ist das, was den blauen Hintergrund hinter dem Dreieck verursacht.
-3. Dass der Wert des aktuellen Rendering-Passes für diesen Farb-Anhang gespeichert werden soll.
+1. Eine Texturansicht, in die gerendert werden soll; wir erstellen eine neue Ansicht aus dem `<canvas>` über [`context.getCurrentTexture().createView()`](/de/docs/Web/API/GPUTexture/createView).
+2. Dass die Ansicht einmal geladen und vor dem Zeichnen auf eine bestimmte Farbe "gelöscht" werden soll. Dies ist es, was den blauen Hintergrund hinter dem Dreieck verursacht.
+3. Dass der Wert des aktuellen Rendering-Durchgangs für diese Farbbeilage gespeichert werden soll.
 
 ```js
 const clearColor = { r: 0.0, g: 0.5, b: 1.0, a: 1.0 };
@@ -285,11 +285,11 @@ const renderPassDescriptor = {
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 ```
 
-Jetzt können wir Methoden des Rendering-Pass-Encoders einsetzen, um unser Dreieck zu zeichnen:
+Jetzt können wir Methoden des Rendering-Durchgangscodierers aufrufen, um unser Dreieck zu zeichnen:
 
-1. [`GPURenderPassEncoder.setPipeline()`](/de/docs/Web/API/GPURenderPassEncoder/setPipeline) wird mit unserem `renderPipeline`-Objekt als Parameter aufgerufen, um die zu verwendende Pipeline für den Rendering-Pass anzugeben.
-2. [`GPURenderPassEncoder.setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer) wird mit unserem `vertexBuffer`-Objekt als Parameter aufgerufen, um als Datenquelle zu fungieren, die an die Pipeline zum Rendern übergeben wird. Der erste Parameter ist der Slot, um den Vertex-Buffer festzulegen, und ist ein Verweis auf den Index des Elements in dem `vertexBuffers`-Array, das das Layout dieses Buffers beschreibt.
-3. [`GPURenderPassEncoder.draw()`](/de/docs/Web/API/GPURenderPassEncoder/draw) setzt das Zeichen in Bewegung. In unserem `vertexBuffer` sind Daten für drei Vertexes vorhanden, also setzen wir einen Wert für die Vertex-Anzahl von `3`, um sie alle zu zeichnen.
+1. [`GPURenderPassEncoder.setPipeline()`](/de/docs/Web/API/GPURenderPassEncoder/setPipeline) wird mit unserem `renderPipeline`-Objekt als Parameter aufgerufen, um die Pipeline anzugeben, die für den Rendering-Durchgang verwendet werden soll.
+2. [`GPURenderPassEncoder.setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer) wird mit unserem `vertexBuffer`-Objekt als Parameter aufgerufen, um als Datenquelle verwendet zu werden, die an die Pipeline übergeben werden soll, um sie zu rendern. Der erste Parameter ist der Slot, für den der Vertex-Puffer gesetzt werden soll, und ist eine Referenz auf das Element im `vertexBuffers`-Array, das das Layout dieses Puffers beschreibt.
+3. [`GPURenderPassEncoder.draw()`](/de/docs/Web/API/GPURenderPassEncoder/draw) setzt das Zeichnen in Gang. Es gibt Daten für drei Vertices in unserem `vertexBuffer`, daher setzen wir einen Wert für die Vertices-Zählung auf `3`, um sie alle zu zeichnen.
 
 ```js
 passEncoder.setPipeline(renderPipeline);
@@ -297,13 +297,13 @@ passEncoder.setVertexBuffer(0, vertexBuffer);
 passEncoder.draw(3);
 ```
 
-Um die Codierung der Befehlssequenz abzuschließen und sie an die GPU auszugeben, sind noch drei weitere Schritte erforderlich.
+Um die Kodierung der Befehlssequenz abzuschließen und sie an die GPU auszugeben, sind noch drei weitere Schritte nötig.
 
-1. Wir rufen die Methode [`GPURenderPassEncoder.end()`](/de/docs/Web/API/GPURenderPassEncoder/end) auf, um das Ende der Render-Pass-Befehlsliste zu signalisieren.
-2. Wir rufen die Methode [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) auf, um die Aufzeichnung der ausgegebenen Befehlssequenz abzuschließen und sie in ein [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objekt zu kapseln.
-3. Wir übergeben das [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) zur Befehlswarteschlange des Geräts (dargestellt durch eine [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Instanz), um es an die GPU zu senden. Die Befehlswarteschlange des Geräts ist über die [`GPUDevice.queue`](/de/docs/Web/API/GPUDevice/queue)-Eigenschaft verfügbar, und eine Liste von [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Instanzen kann zur Warteschlange über einen Aufruf von [`GPUQueue.submit()`](/de/docs/Web/API/GPUQueue/submit) hinzugefügt werden.
+1. Wir rufen die [`GPURenderPassEncoder.end()`](/de/docs/Web/API/GPURenderPassEncoder/end)-Methode auf, um das Ende der Render-Pass-Befehlsliste zu signalisieren.
+2. Wir rufen die [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish)-Methode auf, um die Aufnahme der ausgeführten Befehlssequenz abzuschließen und sie in einem [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objektinstanz zu kapseln.
+3. Wir reichen den [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) über die Befehlsschlange des Geräts (repräsentiert durch eine [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Instanz) zur Ausführung bei der GPU ein. Die Geräteschlange ist über die [`GPUDevice.queue`](/de/docs/Web/API/GPUDevice/queue)-Eigenschaft verfügbar, und ein Array von [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Instanzen kann der Schlange über einen [`GPUQueue.submit()`](/de/docs/Web/API/GPUQueue/submit)-Aufruf hinzugefügt werden.
 
-Diese drei Schritte können über die folgenden zwei Zeilen erreicht werden:
+Diese drei Schritte können durch die folgenden zwei Zeilen erreicht werden:
 
 ```js
 passEncoder.end();
@@ -311,11 +311,11 @@ passEncoder.end();
 device.queue.submit([commandEncoder.finish()]);
 ```
 
-## Grundlegende Compute-Pipeline
+## Grundlegende Berechnungspipeline
 
-In unserem [grundlegenden Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) berechnen wir einige Werte auf der GPU, speichern sie in einem Ausgangspuffer, kopieren die Daten auf einen Stage-Puffer und Mappen diesen Stage-Puffer dann, sodass die Daten nach JavaScript gelesen werden können und zur Konsole geloggt werden.
+In unserem [grundlegenden Berechnungs-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) lassen wir die GPU einige Werte berechnen, diese in einem Ausgabepuffer speichern, die Daten in einen Staging-Puffer kopieren und dann diesen Staging-Puffer so abbilden, dass die Daten zurück ins JavaScript eingelesen und in der Konsole protokolliert werden können.
 
-Die App folgt einer ähnlichen Struktur wie das grundlegende Rendering-Demo. Wir erstellen eine [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Referenz auf die gleiche Weise wie zuvor und kapseln unseren Shader-Code in einem [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) über einen Aufruf von [`GPUDevice.createShaderModule()`](/de/docs/Web/API/GPUDevice/createShaderModule). Der Unterschied hier ist, dass unser Shader-Code nur eine Shader-Stufe hat, eine `@compute`-Stufe:
+Die App folgt einer ähnlichen Struktur wie das grundlegende Rendering-Demo. Wir erstellen eine [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Referenz auf die gleiche Weise wie zuvor und kapseln unseren Shader-Code in ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) über einen [`GPUDevice.createShaderModule()`](/de/docs/Web/API/GPUDevice/createShaderModule)-Aufruf. Der Unterschied hier ist, dass unser Shader-Code nur eine Shader-Stufe hat, eine `@compute`-Stufe:
 
 ```js
 // Define global buffer size
@@ -345,12 +345,12 @@ fn main(
 `;
 ```
 
-### Erstellen von Buffern zur Datenverarbeitung
+### Puffer erstellen, um unsere Daten zu verarbeiten
 
-In diesem Beispiel erstellen wir zwei [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Instanzen, um unsere Daten zu verarbeiten: einen `output`-Buffer, um die GPU-Berechnungsergebnisse mit hoher Geschwindigkeit zu speichern, und einen `stagingBuffer`, in den wir den Inhalt des `output`-Buffers kopieren werden, der gemappt werden kann, um JavaScript den Zugriff auf die Werte zu ermöglichen.
+In diesem Beispiel erstellen wir zwei [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Instanzen, um unsere Daten zu verarbeiten: einen `output`-Puffer, um die GPU-Berechnungsergebnisse mit hoher Geschwindigkeit zu schreiben, und einen `stagingBuffer`, auf den wir den `output`-Inhalt kopieren, der abgebildet werden kann, um JavaScript den Zugriff auf die Werte zu ermöglichen.
 
-- `output` wird als Speicherpuffer angegeben, der die Quelle einer Kopiervorgabe sein wird.
-- `stagingBuffer` wird als Puffer angegeben, der zum Lesen durch JavaScript gemappt werden kann und das Ziel einer Kopiervorgabe sein wird.
+- `output` ist als ein Speicherpuffer angegeben, der die Quelle einer Kopieroperation sein wird.
+- `stagingBuffer` ist als Puffer angegeben, der für das Lesen durch JavaScript abgebildet werden kann und das Ziel einer Kopieroperation sein wird.
 
 ```js
 const output = device.createBuffer({
@@ -364,9 +364,9 @@ const stagingBuffer = device.createBuffer({
 });
 ```
 
-### Erstellen eines Bind-Group-Layouts
+### Eine Bindungslayoutgruppe erstellen
 
-Wenn die Pipeline erstellt wird, spezifizieren wir eine Bind-Gruppe, die für die Pipeline verwendet werden soll. Dies beinhaltet zuerst das Erstellen einer [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) (über einen Aufruf von [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout)), die die Struktur und den Zweck von GPU-Ressourcen wie Buffern, die innerhalb dieser Pipeline verwendet werden, definiert. Dieses Layout wird als Vorlage verwendet, an die sich Bind-Gruppen halten müssen. In diesem Fall geben wir der Pipeline Zugriff auf einen einzelnen Speicherpuffer, der mit dem Bindungsslot 0 verknüpft ist (dies entspricht der relevanten Bindungsnummer in unserem Shader-Code - `@binding(0)`), der in der Compute-Stufe der Pipeline verwendbar ist und dessen Zweck als `storage` definiert ist.
+Wenn die Pipeline erstellt wird, geben wir eine Bindungsgruppe an, die für die Pipeline verwendet werden soll. Dies beinhaltet zunächst die Erstellung einer [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) (über einen Aufruf von [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout)), die die Struktur und den Zweck von GPU-Ressourcen wie Puffern definiert, die in dieser Pipeline verwendet werden. Dieses Layout wird als Vorlage für Bindungsgruppen verwendet. In diesem Fall geben wir der Pipeline Zugriff auf einen einzigen Speicherpuffer, der an den Bindungsslot 0 gebunden ist (dies stimmt mit der relevanten Bindungsnummer im Shader-Code überein – `@binding(0)`), der in der Berechnungsstufe der Pipeline verwendet werden kann, und mit dem als `storage` definierten Zweck des Puffers.
 
 ```js
 const bindGroupLayout = device.createBindGroupLayout({
@@ -382,7 +382,7 @@ const bindGroupLayout = device.createBindGroupLayout({
 });
 ```
 
-Als nächstes erstellen wir eine [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), indem wir [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) aufrufen. Wir übergeben diesem Methodenaufruf ein Deskriptorobjekt, das das Bind-Group-Layout spezifiziert, um diese Bind-Gruppe darauf zu basieren, und die Details der Variablen, die an den im Layout definierten Slot zu binden sind. In diesem Fall erklären wir die Bindung 0 und spezifizieren, dass der zuvor definierte `output`-Buffer daran gebunden werden soll.
+Als nächstes erstellen wir eine [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup) durch einen Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup). Wir übergeben diesem Methodenaufruf ein Deskriptorobjekt, das das Bindungslayout angibt, auf das sich diese Bindungsgruppe stützen soll, und die Details der Variablen, die an den im Layout definierten Slot gebunden werden sollen. In diesem Fall deklarieren wir die Bindung 0 und spezifizieren, dass der zuvor definierte `output`-Puffer daran gebunden werden soll.
 
 ```js
 const bindGroup = device.createBindGroup({
@@ -399,11 +399,11 @@ const bindGroup = device.createBindGroup({
 ```
 
 > [!NOTE]
-> Sie könnten ein implizites Layout abrufen, um es beim Erstellen einer Bind-Gruppe zu verwenden, indem Sie die Methode [`GPUComputePipeline.getBindGroupLayout()`](/de/docs/Web/API/GPUComputePipeline/getBindGroupLayout) aufrufen. Es gibt auch eine Version, die für Render-Pipelines verfügbar ist: siehe [`GPURenderPipeline.getBindGroupLayout()`](/de/docs/Web/API/GPURenderPipeline/getBindGroupLayout).
+> Sie könnten ein implizites Layout abrufen, um es bei der Erstellung einer Bindungsgruppe zu verwenden, indem Sie die [`GPUComputePipeline.getBindGroupLayout()`](/de/docs/Web/API/GPUComputePipeline/getBindGroupLayout)-Methode aufrufen. Es gibt auch eine Version für Render-Pipelines: siehe [`GPURenderPipeline.getBindGroupLayout()`](/de/docs/Web/API/GPURenderPipeline/getBindGroupLayout).
 
-### Erstellen einer Compute-Pipeline
+### Eine Berechnungspipeline erstellen
 
-Mit dem oben genannten Platz können wir nun eine Compute-Pipeline durch den Aufruf von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) erstellen, indem wir ihr ein Pipeline-Deskriptorobjekt übergeben. Dies funktioniert auf ähnliche Weise wie das Erstellen einer Render-Pipeline. Wir beschreiben den Compute-Shader, indem wir spezifizieren, in welchem Modul der Code zu finden ist und was der Einstiegspunkt ist. Wir spezifizieren auch ein `layout` für die Pipeline, indem wir in diesem Fall ein Layout basierend auf dem zuvor definierten `bindGroupLayout` über einen Aufruf von [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) erstellen.
+Mit all dem oben genannten an Ort und Stelle können wir jetzt eine Berechnungspipeline erstellen, indem wir [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) aufrufen und ein Pipeline-Deskriptorobjekt übergeben. Dies funktioniert ähnlich wie die Erstellung einer Render-Pipeline. Wir beschreiben den Berechnungs-Shader, indem wir angeben, in welchem Modul der Code zu finden ist und was der Einstiegspunkt ist. Wir geben auch ein `layout` für die Pipeline an, in diesem Fall erstellen wir ein Layout basierend auf dem zuvor definierten `bindGroupLayout` durch einen [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout)-Aufruf.
 
 ```js
 const computePipeline = device.createComputePipeline({
@@ -417,15 +417,15 @@ const computePipeline = device.createComputePipeline({
 });
 ```
 
-Ein Unterschied hier im Vergleich zum Render-Pipeline-Layout ist, dass wir keinen primitiven Typ spezifizieren, da wir nichts zeichnen.
+Ein Unterschied hier im Vergleich zum Render-Pipeline-Layout ist, dass wir keinen primitiven Typ angeben, da wir nichts zeichnen.
 
-### Ausführen eines Compute-Passes
+### Einen Berechnungsdurchgang ausführen
 
-Das Ausführen eines Compute-Passes ist vom Aufbau her ähnlich wie das Ausführen eines Rendering-Passes, jedoch mit einigen unterschiedlichen Befehlen. Zum Start wird der Pass-Encoder mithilfe von [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass) erstellt.
+Das Ausführen eines Berechnungsdurchgangs ähnelt im Aufbau einem Rendering-Durchgang, mit einigen unterschiedlichen Befehlen. Zum Anfang wird der Durchgangscodierer mit [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass) erstellt.
 
-Wenn wir die Befehle ausgeben, spezifizieren wir die zu verwendende Pipeline auf die gleiche Weise wie zuvor, mit [`GPUComputePassEncoder.setPipeline()`](/de/docs/Web/API/GPUComputePassEncoder/setPipeline). Wir verwenden jedoch dann [`GPUComputePassEncoder.setBindGroup()`](/de/docs/Web/API/GPUComputePassEncoder/setBindGroup), um anzugeben, dass wir unsere `bindGroup` verwenden möchten, um die Daten anzugeben, die in der Berechnung verwendet werden sollen, und [`GPUComputePassEncoder.dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups), um die Anzahl der zu verwendenden GPU-Arbeitsgruppen zur Durchführung der Berechnungen anzugeben.
+Beim Ausgeben der Befehle geben wir die zu verwendende Pipeline auf die gleiche Weise wie zuvor mit [`GPUComputePassEncoder.setPipeline()`](/de/docs/Web/API/GPUComputePassEncoder/setPipeline) an. Wir verwenden dann jedoch [`GPUComputePassEncoder.setBindGroup()`](/de/docs/Web/API/GPUComputePassEncoder/setBindGroup), um anzugeben, dass wir unsere `bindGroup` verwenden möchten, um die für die Berechnung zu verwendenden Daten anzugeben, und [`GPUComputePassEncoder.dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups), um die Anzahl der GPU-Arbeitsgruppen anzugeben, die zur Durchführung der Berechnungen verwendet werden sollen.
 
-Wir signalisieren dann das Ende der Render-Pass-Befehlsliste mithilfe von [`GPURenderPassEncoder.end()`](/de/docs/Web/API/GPURenderPassEncoder/end).
+Wir signalisieren dann das Ende der Render-Pass-Befehlsliste mit [`GPURenderPassEncoder.end()`](/de/docs/Web/API/GPURenderPassEncoder/end).
 
 ```js
 passEncoder.setPipeline(computePipeline);
@@ -437,7 +437,7 @@ passEncoder.end();
 
 ### Die Ergebnisse zurück zu JavaScript lesen
 
-Bevor wir die gespeicherten Befehle zur Ausführung an die GPU übergeben, indem wir [`GPUQueue.submit()`](/de/docs/Web/API/GPUQueue/submit) verwenden, kopieren wir die Inhalte des `output`-Puffers in den `stagingBuffer`-Puffer mithilfe von [`GPUCommandEncoder.copyBufferToBuffer()`](/de/docs/Web/API/GPUCommandEncoder/copyBufferToBuffer).
+Bevor die kodierten Befehle mit [`GPUQueue.submit()`](/de/docs/Web/API/GPUQueue/submit) zur Ausführung an die GPU übergeben werden, kopieren wir den Inhalt des `output`-Puffers in den `stagingBuffer`-Puffer mit [`GPUCommandEncoder.copyBufferToBuffer()`](/de/docs/Web/API/GPUCommandEncoder/copyBufferToBuffer).
 
 ```js
 // Copy output buffer to staging buffer
@@ -453,7 +453,7 @@ commandEncoder.copyBufferToBuffer(
 device.queue.submit([commandEncoder.finish()]);
 ```
 
-Sobald die Ausgabedaten im `stagingBuffer` verfügbar sind, verwenden wir die Methode [`GPUBuffer.mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync), um die Daten einem Zwischen-Speicher zuzuordnen, holen einen Verweis auf den gemappten Bereich mit [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange), kopieren die Daten in JavaScript und protokollieren sie dann zur Konsole. Wir heben die Zuordnung des `stagingBuffer` auf, sobald wir damit fertig sind.
+Sobald die Ausgabedaten im `stagingBuffer` verfügbar sind, verwenden wir die [`GPUBuffer.mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync)-Methode, um die Daten auf den Zwischenbereich abzubilden, eine Referenz auf den abgebildeten Bereich mit [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) zu erhalten, die Daten in JavaScript zu kopieren und sie dann in der Konsole zu protokollieren. Wir heben auch die Abbildung des `stagingBuffer` auf, sobald wir damit fertig sind.
 
 ```js
 // map staging buffer to read results back to JS
@@ -471,21 +471,21 @@ console.log(new Float32Array(data));
 
 ## GPU-Fehlerbehandlung
 
-WebGPU-Aufrufe werden asynchron im GPU-Prozess validiert. Wenn Fehler gefunden werden, wird der problematische Aufruf auf der GPU-Seite als ungültig markiert. Wenn ein anderer Aufruf gemacht wird, der auf dem Rückgabewert eines ungültig eingestuften Aufrufs basiert, wird auch dieses Objekt als ungültig markiert und so weiter. Aus diesem Grund werden Fehler in WebGPU als "ansteckend" bezeichnet.
+WebGPU-Aufrufe werden asynchron im GPU-Prozess validiert. Wenn Fehler gefunden werden, wird der problematische Aufruf auf der GPU-Seite als ungültig markiert. Wird ein weiterer Aufruf gemacht, der vom Rückgabewert eines ungültig gemachten Aufrufs abhängt, wird auch dieses Objekt als ungültig markiert und so weiter. Aus diesem Grund werden Fehler in WebGPU als "ansteckend" bezeichnet.
 
-Jede [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Instanz pflegt ihren eigenen Fehlerbereichs-Stack. Dieser Stapel ist zunächst leer, aber Sie können beginnen, einen Fehlerbereich auf den Stapel zu schieben, indem Sie [`GPUDevice.pushErrorScope()`](/de/docs/Web/API/GPUDevice/pushErrorScope) aufrufen, um Fehler eines bestimmten Typs zu erfassen.
+Jede [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Instanz hält ihren eigenen Fehlerscopes-Stack. Dieser Stack ist zunächst leer, aber Sie können beginnen, einen Fehlerscope auf den Stack zu schieben, indem Sie [`GPUDevice.pushErrorScope()`](/de/docs/Web/API/GPUDevice/pushErrorScope) aufrufen, um Fehler eines bestimmten Typs zu erfassen.
 
-Sobald Sie fertig sind mit Fehlererfassung, können Sie die Erfassung beenden, indem Sie [`GPUDevice.popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) aufrufen. Dies entfernt den Bereich vom Stapel und gibt ein {{jsxref("Promise")}} zurück, das zu einem Objekt aufgelöst wird ([`GPUInternalError`](/de/docs/Web/API/GPUInternalError), [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError) oder [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)), das den ersten im Bereich erfassten Fehler beschreibt, oder `null`, wenn keine Fehler erfasst wurden.
+Sobald Sie mit der Erfassung von Fehlern fertig sind, können Sie die Erfassung beenden, indem Sie [`GPUDevice.popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) aufrufen. Dies entfernt den Scope vom Stack und gibt ein {{jsxref("Promise")}} zurück, das zu einem Objekt ([`GPUInternalError`](/de/docs/Web/API/GPUInternalError), [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError) oder [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)) aufgelöst wird, das den ersten Fehler beschreibt, der im Scope erfasst wurde, oder `null`, wenn keine Fehler erfasst wurden.
 
-Wir haben versucht, Ihnen nützliche Informationen bereitzustellen, um Ihnen zu helfen zu verstehen, warum in Ihrem WebGPU-Code Fehler auftreten, in "Validierungs"-Abschnitten, wo immer dies angemessen ist, die Kriterien auflisten, die erfüllt werden müssen, um Fehler zu vermeiden. Siehe zum Beispiel den Abschnitt [`GPUDevice.createBindGroup()` Validation](/de/docs/Web/API/GPUDevice/createBindGroup#validation). Einige dieser Informationen sind komplex; statt die Spezifikation zu wiederholen, haben wir entschieden, nur Fehlerkriterien aufzulisten, die:
+Wir haben versucht, nützliche Informationen bereitzustellen, die Ihnen helfen, zu verstehen, warum Fehler in Ihrem WebGPU-Code auftreten, in "Validierung"-Abschnitten, wo es angebracht ist, die Kriterien auflisten, um Fehler zu vermeiden. Siehe beispielsweise den [Validation-Bereich zu `GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup#validation). Einige dieser Informationen sind komplex; anstatt die Spezifikation zu wiederholen, haben wir uns entschlossen, nur Fehlerkriterien aufzulisten, die:
 
-- Nicht offensichtlich sind, zum Beispiel Kombinationen von Deskriptoreigenschaften, die Validierungsfehler verursachen. Es macht keinen Sinn, Ihnen zu sagen, dass Sie sicherstellen sollen, das korrekte Deskriptor-Objektstruktur zu verwenden. Das ist sowohl offensichtlich als auch vage.
-- Entwickler-kontrolliert. Einige der Fehlerkriterien basieren rein auf internen Abläufen und sind für Webentwickler nicht wirklich relevant.
+- Nicht-offensichtlich sind, zum Beispiel Kombinationen von Deskriptor-Eigenschaften, die Validierungsfehler erzeugen. Es bringt nichts zu sagen, dass Sie sicherstellen sollen, dass das korrekte Deskriptorobjektstruktur genutzt wird. Dies ist sowohl offensichtlich als auch vage.
+- Vom Entwickler kontrolliert werden. Einige der Fehlerkriterien basieren rein auf internen und sind für Webentwickler nicht wirklich relevant.
 
-Sie können mehr Informationen über die WebGPU-Fehlerbehandlung im Erklärer finden — siehe [Objektgültigkeit und Zerstörtheit](https://gpuweb.github.io/gpuweb/explainer/#invalid-and-destroyed) und [Fehler](https://gpuweb.github.io/gpuweb/explainer/#errors). [WebGPU Fehlerbehandlungs-Best Practices](https://toji.dev/webgpu-best-practices/error-handling) bietet nützliche praktische Beispiele und Ratschläge.
+Mehr Informationen zur WebGPU-Fehlerbehandlung finden Sie im Erklärungsdokument – siehe [Objektgültigkeit und zerstörungsfreier Zustand](https://gpuweb.github.io/gpuweb/explainer/#invalid-and-destroyed) und [Fehler](https://gpuweb.github.io/gpuweb/explainer/#errors). [Best Practices zur WebGPU-Fehlerbehandlung](https://toji.dev/webgpu-best-practices/error-handling) bieten nützliche Beispiele aus der Praxis und Ratschläge.
 
 > [!NOTE]
-> Die historische Art, Fehler in WebGL zu handhaben, besteht darin, eine [`getError()`](/de/docs/Web/API/WebGLRenderingContext/getError)-Methode bereitzustellen, um Fehlerinformationen zurückzugeben. Das ist problematisch, da es Fehler synchron zurückgibt, was schlecht für die Performance ist — jeder Aufruf erfordert einen Rundtrip zur GPU und erfordert, dass alle zuvor ausgegebenen Operationen abgeschlossen sind. Sein Zustandsmodell ist auch flach, was bedeutet, dass Fehler zwischen nicht verwandtem Code austreten können. Die Ersteller von WebGPU waren entschlossen, dies zu verbessern.
+> Der historische Weg zur Fehlerbehandlung in WebGL ist die Bereitstellung einer [`getError()`](/de/docs/Web/API/WebGLRenderingContext/getError)-Methode, um Fehlerinformationen zurückzugeben. Dies ist problematisch, da sie Fehler synchron zurückgibt, was schlecht für die Leistung ist — jeder Aufruf erfordert eine Round-Trip zur GPU und erfordert, dass alle zuvor ausgegebenen Operationen abgeschlossen sind. Ihr Zustandsmodell ist außerdem flach, was bedeutet, dass Fehler zwischen nicht zusammenhängendem Code durchsickern können. Die Ersteller von WebGPU waren entschlossen, dies zu verbessern.
 
 ## Schnittstellen
 
@@ -496,96 +496,96 @@ Sie können mehr Informationen über die WebGPU-Fehlerbehandlung im Erklärer fi
 - [`GPU`](/de/docs/Web/API/GPU)
   - : Der Ausgangspunkt für die Nutzung von WebGPU. Es kann verwendet werden, um einen [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) zurückzugeben.
 - [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)
-  - : Stellt einen GPU-Adapter dar. Daraus können Sie ein [`GPUDevice`](/de/docs/Web/API/GPUDevice), Adapterinformationen, Funktionen und Grenzen anfordern.
+  - : Stellt einen GPU-Adapter dar. Von hier aus können Sie ein [`GPUDevice`](/de/docs/Web/API/GPUDevice), Adapterinformationen, Funktionen und Grenzen anfordern.
 - [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)
   - : Enthält identifizierende Informationen über einen Adapter.
 
-### Konfiguration von GPUDevices
+### GPUDevices konfigurieren
 
 - [`GPUDevice`](/de/docs/Web/API/GPUDevice)
-  - : Stellt ein logisches GPU-Gerät dar. Dies ist die Hauptschnittstelle, über die die Mehrheit der WebGPU-Funktionalitäten zugegriffen wird.
+  - : Stellt ein logisches GPU-Gerät dar. Dies ist die Hauptschnittstelle, über die auf die meisten WebGPU-Funktionalitäten zugegriffen wird.
 - [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)
-  - : Ein [setähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekt, das zusätzliche Funktionalitäten beschreibt, die von einem [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) oder [`GPUDevice`](/de/docs/Web/API/GPUDevice) unterstützt werden.
+  - : Ein [setliken](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekt, das zusätzliche Funktionalitäten beschreibt, die von einem [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) oder [`GPUDevice`](/de/docs/Web/API/GPUDevice) unterstützt werden.
 - [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits)
   - : Beschreibt die Grenzen, die von einem [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) oder [`GPUDevice`](/de/docs/Web/API/GPUDevice) unterstützt werden.
 
-### Konfiguration eines Rendering-`<canvas>`
+### Ein Rendering-`<canvas>` konfigurieren
 
-- [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) — Der `"webgpu"` `contextType`
-  - : Das Aufrufen von `getContext()` mit dem `"webgpu"` `contextType` gibt ein [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Objekt zurück, das dann mit [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure) konfiguriert werden kann.
+- [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) — der `"webgpu"` `contextType`
+  - : Das Aufrufen von `getContext()` mit dem `"webgpu"` `contextType` gibt ein [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Objektinstanz zurück, das dann mit [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure) konfiguriert werden kann.
 - [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)
-  - : Repräsentiert den WebGPU-Rendering-Kontext eines {{htmlelement("canvas")}}-Elements.
+  - : Stellt den WebGPU-Rendering-Kontext eines {{htmlelement("canvas")}}-Elements dar.
 
-### Repräsentation von Pipeline-Ressourcen
+### Ressourcen der Pipeline repräsentieren
 
 - [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)
-  - : Stellt einen Speicherblock dar, der zum Speichern von Rohdaten verwendet werden kann, die in GPU-Operationen verwendet werden können.
+  - : Stellt einen Speicherblock dar, der zum Speichern roher Daten verwendet werden kann, um in GPU-Operationen verwendet zu werden.
 - [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)
-  - : Ein Wrapper-Objekt, das einen Schnappschuss eines [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) enthält, der als Textur in GPU-Rendering-Operationen verwendet werden kann.
+  - : Ein Wrapper-Objekt, das eine Momentaufnahme eines [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) enthält, die als Textur in GPU-Rendering-Operationen verwendet werden kann.
 - [`GPUSampler`](/de/docs/Web/API/GPUSampler)
-  - : Kontrolliert, wie Shader Texturressourcendaten transformieren und filtern.
+  - : Steuert, wie Shader Textur-Ressourcendaten transformieren und filtern.
 - [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)
-  - : Ein Verweis auf ein internes Shader-Modul-Objekt, ein Behälter für WGSL-Shader-Code, der an die GPU zur Ausführung durch eine Pipeline übermittelt werden kann.
+  - : Eine Referenz auf ein internes Shader-Modulobjekt, einen Container für WGSL-Shader-Code, der zur Ausführung durch eine Pipeline an die GPU übermittelt werden kann.
 - [`GPUTexture`](/de/docs/Web/API/GPUTexture)
-  - : Ein Container, der zum Speichern von 1D-, 2D- oder 3D-Datenarrays, wie Bildern, verwendet wird, um in GPU-Rendering-Operationen verwendet zu werden.
+  - : Ein Container, der verwendet wird, um 1D-, 2D- oder 3D-Datenarrays, z.B. Bilder, zu speichern, um sie in GPU-Rendering-Operationen zu verwenden.
 - [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)
-  - : Eine Ansicht auf einen Teil der Textur-Unterressourcen, die durch eine bestimmte [`GPUTexture`](/de/docs/Web/API/GPUTexture) definiert werden.
+  - : Eine Ansicht auf einen Teil der durch eine bestimmte [`GPUTexture`](/de/docs/Web/API/GPUTexture) definierten Textur-Subressourcen.
 
-### Repräsentation von Pipelines
+### Pipelines darstellen
 
 - [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)
-  - : Basierend auf einer [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout), definiert eine `GPUBindGroup` eine Gruppe von Ressourcen, die gebunden und in einer Gruppe zusammengefasst werden sollen, und wie diese Ressourcen in Shader-Stufen verwendet werden.
+  - : Basierend auf einem [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) definiert eine `GPUBindGroup` eine Gruppe von Ressourcen, die in einer Gruppe gebunden werden sollen und wie diese Ressourcen in Shader-Stufen verwendet werden.
 - [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)
-  - : Definiert die Struktur und den Zweck verwandter GPU-Ressourcen wie Buffern, die in einer Pipeline verwendet werden, und wird als Vorlage beim Erstellen von [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)s verwendet.
+  - : Definiert die Struktur und den Zweck von zugehörigen GPU-Ressourcen wie Puffern, die in einer Pipeline verwendet werden, und wird als Vorlage bei der Erstellung von [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)s verwendet.
 - [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)
-  - : Kontrolliert die Compute-Shader-Stufe und kann in einem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) verwendet werden.
+  - : Steuert die Berechnungsshader-Stufe und kann in einem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) verwendet werden.
 - [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)
-  - : Definiert die [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s, die von einer Pipeline verwendet werden. [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die mit der Pipeline während des Befehls-Codings verwendet werden, müssen kompatible [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s haben.
+  - : Definiert die [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s, die von einer Pipeline verwendet werden. [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)s, die mit der Pipeline während der Befehlskodierung verwendet werden, müssen kompatible [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s haben.
 - [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline)
-  - : Kontrolliert die Vertex- und Fragment-Shader-Stufen und kann in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden.
+  - : Steuert die Vertex- und Fragment-Shader-Stufen und kann in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden.
 
-### Codierung und Übermittlung von Befehlen an die GPU
+### Befehle an die GPU enkodieren und übermitteln
 
 - [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)
-  - : Stellt eine aufgezeichnete Liste von GPU-Befehlen dar, die zur Ausführung an eine [`GPUQueue`](/de/docs/Web/API/GPUQueue) übergeben werden können.
+  - : Stellt eine aufgezeichnete Liste von GPU-Befehlen dar, die zur Ausführung an eine [`GPUQueue`](/de/docs/Web/API/GPUQueue) übergeben werden kann.
 - [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)
-  - : Stellt einen Befehlscodierer dar, der zum Codieren von Befehlen verwendet wird, die an die GPU ausgegeben werden sollen.
+  - : Stellt einen Befehlscodierer dar, der zum Kodieren von Befehlen verwendet wird, die an die GPU ausgegeben werden sollen.
 - [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)
-  - : Codiert Befehle im Zusammenhang mit der Steuerung der Compute-Shader-Stufe, wie sie von einer [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) ausgegeben werden. Teil der gesamten Codierungsaktivität eines [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder).
+  - : Kodiert Befehle, die sich auf die Steuerung der Berechnungsshader-Stufe beziehen, wie sie von einer [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) ausgegeben werden. Teil der gesamten Kodierungstätigkeit eines [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder).
 - [`GPUQueue`](/de/docs/Web/API/GPUQueue)
-  - : Kontrolliert die Ausführung von codierten Befehlen auf der GPU.
+  - : Steuert die Ausführung von kodierten Befehlen auf der GPU.
 - [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle)
-  - : Ein Container für voraufgezeichnete Befehlspakete (siehe [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)).
+  - : Ein Container für vorab aufgezeichnete Befehlsbündel (siehe [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)).
 - [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)
-  - : Wird verwendet, um Befehlspakete voraufzuzeichnen. Diese können in [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)s über die [`executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles)-Methode so oft wie benötigt wiederverwendet werden.
+  - : Wird verwendet, um Befehlsbündel vorzukodieren. Diese können in [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)s über die [`executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles)-Methode wiederverwendet werden, so oft wie erforderlich.
 - [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)
-  - : Codiert Befehle im Zusammenhang mit der Steuerung der Vertex- und Fragment-Shader-Stufen, wie sie von einer [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) ausgegeben werden. Teil der gesamten Codierungsaktivität eines [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder).
+  - : Kodiert Befehle, die sich auf die Steuerung der Vertex- und Fragment-Shader-Stufen beziehen, wie sie von einer [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) ausgegeben werden. Teil der gesamten Kodierungstätigkeit eines [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder).
 
-### Durchführung von Abfragen zu Rendering-Passes
+### Abfragen auf Rendering-Durchgängen durchführen
 
 - [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)
-  - : Wird verwendet, um die Ergebnisse von Abfragen zu Pässen zu protokollieren, wie z.B. Okkulsions- oder Zeitstempelabfragen.
+  - : Wird verwendet, um die Ergebnisse von Abfragen auf Durchgängen aufzuzeichnen, wie Okkulsions- oder Zeitstempelabfragen.
 
-### Debugging von Fehlern
+### Fehler Debuggen
 
 - [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)
-  - : Eine Liste von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, die vom GPU-Shader-Modul-Compiler generiert wurden, um Probleme mit dem Shader-Code zu diagnostizieren.
+  - : Ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, das vom GPU-Shader-Modulkompilierer erzeugt wird, um Probleme mit Shader-Code zu diagnostizieren.
 - [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)
-  - : Stellt eine einzelne informatorische, Warn- oder Fehlermeldung dar, die von dem GPU-Shader-Modul-Compiler generiert wird.
+  - : Repräsentiert eine einzelne Informations-, Warn- oder Fehlermeldung, die vom GPU-Shader-Modulkompilierer erzeugt wird.
 - [`GPUDeviceLostInfo`](/de/docs/Web/API/GPUDeviceLostInfo)
-  - : Wird zurückgegeben, wenn das [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost) {{jsxref("Promise")}} aufgelöst wird, mit der Bereitstellung von Informationen darüber, warum das Gerät verloren gegangen ist.
+  - : Wird zurückgegeben, wenn das [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost){{jsxref("Promise")}} aufgelöst wird und Informationen darüber bereitstellt, warum das Gerät verloren wurde.
 - [`GPUError`](/de/docs/Web/API/GPUError)
-  - : Die Basisschnittstelle für Fehler, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis angezeigt werden.
+  - : Die Basisschnittstelle für Fehler, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis aufgedeckt werden.
 - [`GPUInternalError`](/de/docs/Web/API/GPUInternalError)
-  - : Eine Art von Fehlern, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`GPUDevice`](/de/docs/Web/API/GPUDevice) [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis angezeigt werden. Dies weist darauf hin, dass eine Operation aus einem system- oder implementationsspezifischen Grund fehlschlug, auch wenn alle Validierungsanforderungen erfüllt waren.
+  - : Einer der Fehlerarten, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`GPUDevice`](/de/docs/Web/API/GPUDevice)[`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis aufgedeckt werden. Zeigt an, dass eine Operation aus einem system- oder implementierungsspezifischen Grund fehlgeschlagen ist, selbst wenn alle Validierungsanforderungen erfüllt waren.
 - [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError)
-  - : Eine Art von Fehlern, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`GPUDevice`](/de/docs/Web/API/GPUDevice) [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis angezeigt werden. Dies weist darauf hin, dass nicht genügend freier Speicherplatz vorhanden war, um die angeforderte Operation abzuschließen.
+  - : Einer der Fehlerarten, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`GPUDevice`](/de/docs/Web/API/GPUDevice)[`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis aufgedeckt werden. Zeigt an, dass nicht genügend freier Speicherplatz vorhanden war, um die angeforderte Operation abzuschließen.
 - [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError)
-  - : Beschreibt ein Pipeline-Versagen. Der Wert, der erhalten wird, wenn ein {{jsxref("Promise")}} zurückgegeben von einem Aufruf von [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) abgelehnt wird.
+  - : Beschreibt ein Pipeline-Fehlschlagen. Der Wert, den man erhält, wenn ein {{jsxref("Promise")}} zurückzugeben, angezeigt durch einen [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync)-Aufruf, ablehnt.
 - [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent)
-  - : Der Ereignisobjekttyp für das [`GPUDevice`](/de/docs/Web/API/GPUDevice) [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis.
+  - : Der Ereignisobjekttyp für das [`GPUDevice`](/de/docs/Web/API/GPUDevice)[`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis.
 - [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)
-  - : Eine Art von Fehlern, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`GPUDevice`](/de/docs/Web/API/GPUDevice) [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis angezeigt werden. Beschreibt einen Anwendungsfehler, der darauf hinweist, dass eine Operation die Validierungsbeschränkungen der WebGPU API nicht bestanden hat.
+  - : Einer der Fehlerarten, die von [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und dem [`GPUDevice`](/de/docs/Web/API/GPUDevice)[`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis aufgedeckt werden. Beschreibt einen Anwendungsfehler, der darauf hinweist, dass eine Operation die Validierungsbeschränkungen der WebGPU-API nicht bestanden hat.
 
 ## Sicherheitsanforderungen
 
@@ -593,9 +593,9 @@ Die gesamte API ist nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure
 
 ## Beispiele
 
-- [Basis-Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/)
-- [Basis-Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/)
-- [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/)
+- [Grundlegendes Berechnungs-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/)
+- [Grundlegendes Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/)
+- [WebGPU Beispiele](https://webgpu.github.io/webgpu-samples/)
 
 ## Spezifikationen
 
@@ -608,5 +608,5 @@ Die gesamte API ist nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure
 ## Siehe auch
 
 - [Beste Praktiken für WebGPU](https://toji.dev/webgpu-best-practices/)
-- [WebGPU-Erklärer](https://gpuweb.github.io/gpuweb/explainer/)
+- [WebGPU Erklärungsdokument](https://gpuweb.github.io/gpuweb/explainer/)
 - [WebGPU — All of the cores, none of the canvas](https://surma.dev/things/webgpu/)

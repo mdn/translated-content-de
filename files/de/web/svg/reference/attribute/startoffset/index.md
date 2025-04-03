@@ -2,12 +2,12 @@
 title: startOffset
 slug: Web/SVG/Reference/Attribute/startOffset
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Das Attribut **`startOffset`** definiert einen Versatz vom Start des Pfades für die anfängliche aktuelle Textposition entlang des Pfades, nachdem der Pfad in das Koordinatensystem des {{SVGElement("textPath")}}-Elements umgewandelt wurde.
+Das **`startOffset`**-Attribut definiert einen Versatz vom Start des Pfades für die anfängliche aktuelle Textposition entlang des Pfades, nachdem der Pfad auf das Koordinatensystem des {{SVGElement("textPath")}}-Elements umgewandelt wurde.
 
-Dieses Attribut kann mit folgenden SVG-Elementen verwendet werden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("textPath")}}
 
@@ -50,7 +50,7 @@ svg {
 
 {{EmbedLiveSample("Example", 400, 200)}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -74,15 +74,15 @@ svg {
 
 - `<length-percentage>`
 
-  - : Eine Länge, die eine Entfernung entlang des Pfades im aktuellen Benutzerkoordinatensystem für das {{SVGElement("textPath")}}-Element darstellt.
+  - : Eine Länge stellt eine Distanz entlang des Pfades dar, die im aktuellen Benutzerkoordinatensystem des {{SVGElement("textPath")}}-Elements gemessen wird.
 
-    Wird ein Prozentsatz angegeben, stellt der Startversatz eine prozentuale Entfernung entlang des gesamten Pfades dar. `0%` gibt somit den Startpunkt des Pfades und `100%` den Endpunkt des Pfades an.
+    Wenn ein Prozentsatz angegeben ist, dann repräsentiert der Startversatz einen prozentualen Abstand entlang des gesamten Pfades. Somit gibt `0%` den Startpunkt des Pfades und `100%` den Endpunkt des Pfades an.
 
 - `<number>`
-  - : Dieser Wert gibt eine Entfernung entlang des Pfades im aktuellen Benutzerkoordinatensystem für das `<textPath>`-Element an.
+  - : Dieser Wert gibt eine Entfernung entlang des Pfades an, gemessen im aktuellen Benutzerkoordinatensystem für das `<textPath>`-Element.
 
 > [!NOTE]
-> Negative Werte und Werte, die größer als die Pfadlänge sind (z. B. `150%`), sind erlaubt.
+> Negative Werte und Werte, die größer als die Pfadlänge sind (z.B. `150%`), sind erlaubt.
 
 ## Spezifikationen
 

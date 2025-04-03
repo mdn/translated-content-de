@@ -2,12 +2,12 @@
 title: paint-order
 slug: Web/CSS/paint-order
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{CSSRef}}
 
-Die **`paint-order`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, die Reihenfolge zu steuern, in der die Füllung und der Umriss (sowie Markierungen) von Textinhalten und Formen gezeichnet werden.
+Die **`paint-order`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen zu steuern, in welcher Reihenfolge das Füll- und das Strichverhalten (und das Malen von Markern) von Textinhalten und Formen gezeichnet wird.
 
 ## Syntax
 
@@ -31,21 +31,21 @@ paint-order: revert-layer;
 paint-order: unset;
 ```
 
-Wenn kein Wert angegeben ist, ist die standardmäßige Malreihenfolge `fill`, `stroke`, `markers`.
+Wenn kein Wert angegeben ist, ist die Standard-Reihenfolge `fill`, `stroke`, `markers`.
 
-Wenn ein Wert angegeben ist, wird dieser zuerst gezeichnet, gefolgt von den anderen beiden in ihrer Standardreihenfolge zueinander. Wenn zwei Werte angegeben sind, werden sie in der angegebenen Reihenfolge gezeichnet, gefolgt von dem nicht angegebenen.
+Wenn ein Wert angegeben wird, wird dieser zuerst gezeichnet, gefolgt von den anderen beiden in ihrer Standardreihenfolge zueinander. Wenn zwei Werte angegeben sind, werden sie in der angegebenen Reihenfolge gezeichnet, gefolgt von dem nicht angegebenen.
 
 > [!NOTE]
-> Im Fall dieser Eigenschaft sind Markierungen nur geeignet, wenn SVG-Formen gezeichnet werden, die die Verwendung der `marker-*` Eigenschaften (z.B. [`marker-start`](/de/docs/Web/SVG/Reference/Attribute/marker-start)) und des [`<marker>`](/de/docs/Web/SVG/Reference/Element/marker) Elements beinhalten. Sie gelten nicht für HTML-Text, sodass Sie in diesem Fall nur die Reihenfolge von `stroke` und `fill` bestimmen können.
+> Bei dieser Eigenschaft sind Marker nur beim Zeichnen von SVG-Formen geeignet, die die Verwendung der `marker-*` Eigenschaften (z. B. [`marker-start`](/de/docs/Web/SVG/Reference/Attribute/marker-start)) und des [`<marker>`](/de/docs/Web/SVG/Reference/Element/marker) Elements beinhalten. Sie gelten nicht für HTML-Text, daher können Sie in diesem Fall nur die Reihenfolge von `stroke` und `fill` bestimmen.
 
 ### Werte
 
 - `normal`
-  - : Zeichnet die verschiedenen Elemente in der normalen Malreihenfolge.
+  - : Die verschiedenen Elemente in normaler Malreihenfolge zeichnen.
 - `stroke`,
   `fill`,
   `markers`
-  - : Geben Sie einige oder alle dieser Werte in der Reihenfolge an, in der Sie sie gezeichnet haben möchten.
+  - : Geben Sie einige oder alle dieser Werte in der Reihenfolge an, in der sie gezeichnet werden sollen.
 
 ## Formale Definition
 
@@ -57,7 +57,7 @@ Wenn ein Wert angegeben ist, wird dieser zuerst gezeichnet, gefolgt von den ande
 
 ## Beispiele
 
-### Umkehrung der Malreihenfolge von Umriss und Füllung
+### Umkehrung der Malreihenfolge von Strich und Füllung
 
 #### SVG
 
@@ -89,9 +89,9 @@ text {
 
 {{EmbedLiveSample("Reversing_the_paint_order_of_stroke_and_fill", "100%", 165)}}
 
-### Umkehrung der Malreihenfolge von Umriss und Füllung mit HTML
+### Umkehrung der Malreihenfolge von Strich und Füllung unter Verwendung von HTML
 
-Um die Reihenfolge von Füllung und Umriss in HTML zu steuern, können Sie die CSS-Eigenschaften {{cssxref("-webkit-text-stroke-color")}} und {{cssxref("-webkit-text-stroke-width")}} verwenden.
+Um die Füll- und Strichreihenfolge in HTML zu steuern, können Sie die CSS-Eigenschaften {{cssxref("-webkit-text-stroke-color")}} und {{cssxref("-webkit-text-stroke-width")}} verwenden.
 
 #### HTML
 

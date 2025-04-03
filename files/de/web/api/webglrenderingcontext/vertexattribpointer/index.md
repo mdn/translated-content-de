@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: vertexAttribPointer()-Methode"
 short-title: vertexAttribPointer()
 slug: Web/API/WebGLRenderingContext/vertexAttribPointer
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.vertexAttribPointer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet den derzeit an `gl.ARRAY_BUFFER` gebundenen Puffer an ein generisches Vertex-Attribut des aktuellen Vertex-Pufferobjekts und spezifiziert dessen Layout.
+Die **`WebGLRenderingContext.vertexAttribPointer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet den aktuell an `gl.ARRAY_BUFFER` gebundenen Puffer an ein generisches Vertex-Attribut des aktuellen Vertex-Buffer-Objekts und spezifiziert dessen Layout.
 
 ## Syntax
 
@@ -26,37 +26,32 @@ vertexAttribPointer(index, size, type, normalized, stride, offset)
 
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Datentyp jeder Komponente im Array angibt. Mögliche Werte:
 
-    - `gl.BYTE`: signierte 8-Bit-Ganzzahl, mit Werten im Bereich \[-128, 127]
-    - `gl.SHORT`: signierte 16-Bit-Ganzzahl, mit Werten im Bereich \[-32768, 32767]
-    - `gl.UNSIGNED_BYTE`: unsignierte 8-Bit-Ganzzahl, mit Werten im Bereich \[0, 255]
-    - `gl.UNSIGNED_SHORT`: unsignierte 16-Bit-Ganzzahl, mit Werten im Bereich \[0,65535]
-    - `gl.FLOAT`: 32-Bit IEEE Gleitkommazahl
+    - `gl.BYTE`: signierte 8-Bit-Ganzzahl, Wertebereich \[-128, 127]
+    - `gl.SHORT`: signierte 16-Bit-Ganzzahl, Wertebereich \[-32768, 32767]
+    - `gl.UNSIGNED_BYTE`: unsignierte 8-Bit-Ganzzahl, Wertebereich \[0, 255]
+    - `gl.UNSIGNED_SHORT`: unsignierte 16-Bit-Ganzzahl, Wertebereich \[0,65535]
+    - `gl.FLOAT`: 32-Bit IEEE-Gleitkommazahl
 
-    Bei Verwendung eines [WebGL 2 context](/de/docs/Web/API/WebGL2RenderingContext),
-    sind zusätzlich folgende Werte verfügbar:
+    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
 
-    - `gl.HALF_FLOAT`: 16-Bit IEEE Gleitkommazahl
-    - `gl.INT`: 32-Bit signierte Binärzahl
-    - `gl.UNSIGNED_INT`: 32-Bit unsignierte Binärzahl
-    - `gl.INT_2_10_10_10_REV`: 32-Bit signierte Ganzzahl mit Werten im Bereich \[-512, 511]
-    - `gl.UNSIGNED_INT_2_10_10_10_REV`: 32-Bit unsignierte Ganzzahl mit Werten im Bereich \[0, 1023]
+    - `gl.HALF_FLOAT`: 16-Bit IEEE-Gleitkommazahl
+    - `gl.INT`: 32-Bit signierte binäre Ganzzahl
+    - `gl.UNSIGNED_INT`: 32-Bit unsignierte binäre Ganzzahl
+    - `gl.INT_2_10_10_10_REV`: 32-Bit signierte Ganzzahl, Wertebereich \[-512, 511]
+    - `gl.UNSIGNED_INT_2_10_10_10_REV`: 32-Bit unsignierte Ganzzahl, Wertebereich \[0, 1023]
 
 - `normalized`
 
-  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob ganzzahlige Datenwerte in einen bestimmten Bereich normalisiert werden sollen, wenn sie in einen Float umgewandelt werden.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob ganzzahlige Datenwerte normalisiert in einen bestimmten Bereich umgewandelt werden sollen, wenn sie in ein Float gewandelt werden.
 
-    - Für die Typen `gl.BYTE` und `gl.SHORT` normalisiert er die Werte
-      zu \[-1, 1], falls wahr.
-    - Für die Typen `gl.UNSIGNED_BYTE` und `gl.UNSIGNED_SHORT`
-      normalisiert er die Werte zu \[0, 1], falls wahr.
-    - Für die Typen `gl.FLOAT` und `gl.HALF_FLOAT` hat dieser Parameter
-      keine Wirkung.
+    - Für die Typen `gl.BYTE` und `gl.SHORT` normalisiert auf \[-1, 1], wenn wahr.
+    - Für die Typen `gl.UNSIGNED_BYTE` und `gl.UNSIGNED_SHORT` normalisiert auf \[0, 1], wenn wahr.
+    - Für die Typen `gl.FLOAT` und `gl.HALF_FLOAT` hat dieser Parameter keine Wirkung.
 
 - `stride`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der den Versatz in Bytes zwischen dem Anfang aufeinanderfolgender Vertex-Attribute angibt. Kann nicht negativ oder größer als 255 sein. Wenn der stride 0 ist, wird angenommen, dass das Attribut dicht gepackt ist, das heißt, die Attribute sind nicht verschachtelt, sondern jedes Attribut befindet sich in einem separaten Block, und das nächste Vertex-Attribut folgt unmittelbar nach dem aktuellen Vertex.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der den Offset in Bytes zwischen dem Anfang von aufeinanderfolgenden Vertex-Attributen angibt. Darf nicht negativ sein oder größer als 255. Wenn stride 0 ist, wird angenommen, dass die Attribute dicht gepackt sind, das heißt, die Attribute sind nicht verschachtelt, sondern jedes Attribut befindet sich in einem separaten Block und das nächste Vertex-Attribut folgt unmittelbar nach dem aktuellen Vertex.
 - `offset`
-  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der einen Versatz in Bytes der ersten Komponente im Vertex-Attribut-Array angibt. Muss ein Vielfaches der Bytelänge
-    von `type` sein.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der einen Offset in Bytes der ersten Komponente im Vertex-Attribut-Array angibt. Muss ein Vielfaches der Byte-Länge des Typs sein.
 
 ### Rückgabewert
 
@@ -66,51 +61,52 @@ Keiner ({{jsxref("undefined")}}).
 
 - Ein `gl.INVALID_VALUE`-Fehler wird ausgelöst, wenn `stride` oder `offset` negativ sind.
 - Ein `gl.INVALID_OPERATION`-Fehler wird ausgelöst, wenn `stride` und `offset` keine Vielfachen der Größe des Datentyps sind.
-- Ein `gl.INVALID_OPERATION`-Fehler wird ausgelöst, wenn kein WebGLBuffer an das ARRAY_BUFFER-Target gebunden ist.
-- Wenn ein [WebGL 2 context](/de/docs/Web/API/WebGL2RenderingContext) verwendet wird, wird ein `gl.INVALID_OPERATION`-Fehler ausgelöst, wenn dieses Vertex-Attribut im Vertex-Shader als Ganzzahl definiert ist (z. B. `uvec4` oder `ivec4`, anstelle von `vec4`).
+- Ein `gl.INVALID_OPERATION`-Fehler wird ausgelöst, wenn kein WebGLBuffer an das ARRAY_BUFFER-Ziel gebunden ist.
+- Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) wird ein `gl.INVALID_OPERATION`-Fehler ausgelöst, wenn dieses Vertex-Attribut als Ganzzahl im Vertex-Shader definiert ist (z.B. `uvec4` oder `ivec4` anstelle von `vec4`).
 
 ## Beschreibung
 
-Angenommen, wir möchten einige 3D-Geometrien rendern, und dafür müssen wir unsere Vertices dem Vertex-Shader bereitstellen. Jedes Vertex hat ein paar Attribute, wie Position, Normalenvektor oder Texture-Koordinate, die in einem {{jsxref("ArrayBuffer")}} definiert sind und an das Vertex Buffer Object (VBO) geliefert werden. Zuerst müssen wir den [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), den wir verwenden möchten, an `gl.ARRAY_BUFFER` binden, dann geben wir mit dieser Methode, `gl.vertexAttribPointer()`, an, in welcher Reihenfolge die Attribute gespeichert sind und welchen Datentyp sie haben. Zusätzlich müssen wir den stride einbeziehen, der die gesamte Bytelänge aller Attribute für ein Vertex ist. Auch müssen wir [`gl.enableVertexAttribArray()`](/de/docs/Web/API/WebGLRenderingContext/enableVertexAttribArray) aufrufen, um WebGL mitzuteilen, dass dieses Attribut mit Daten aus unserem Array-Buffer gefüllt werden soll.
+Nehmen wir an, wir möchten eine 3D-Geometrie rendern, und dafür müssen wir unsere Vertizes an den Vertex-Shader übergeben. Jedes Vertex hat ein paar Attribute, wie Position, Normalenvektor oder Texturkoordinate, die in einem {{jsxref("ArrayBuffer")}} definiert sind und an das Vertex-Buffer-Objekt (VBO) geliefert werden. Zuerst müssen wir den [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) binden, den wir an `gl.ARRAY_BUFFER` verwenden möchten, und dann spezifizieren wir mit dieser Methode `gl.vertexAttribPointer()`, in welcher Reihenfolge die Attribute gespeichert sind und welchen Datentyp sie haben. Außerdem müssen wir den stride einbeziehen, der die Gesamtbyte-Länge aller Attribute für ein Vertex darstellt. Zudem müssen wir [`gl.enableVertexAttribArray()`](/de/docs/Web/API/WebGLRenderingContext/enableVertexAttribArray) aufrufen, um WebGL mitzuteilen, dass dieses Attribut mit Daten aus unserem Array-Buffer gefüllt werden soll.
 
-Normalerweise befindet sich Ihre 3D-Geometrie bereits in einem bestimmten binären Format, sodass Sie die Spezifikation dieses spezifischen Formats lesen müssen, um das Speicherlayout zu ermitteln. Wenn Sie das Format jedoch selbst gestalten oder Ihre Geometrie in Textdateien (wie [Wavefront .obj-Dateien](https://de.wikipedia.org/wiki/Wavefront_Obj)) vorliegt und zur Laufzeit in einen `ArrayBuffer` konvertiert werden muss, haben Sie die freie Wahl, wie Sie den Speicher strukturieren. Für höchste Leistung sollten Sie die Attribute [verschachteln](https://de.wikipedia.org/wiki/Interleaved_memory) und den kleinsten Datentyp verwenden, der Ihre Geometrie dennoch genau darstellt.
+Normalerweise liegt die 3D-Geometrie bereits in einem bestimmten binären Format vor, daher müssen Sie die Spezifikation dieses spezifischen Formats lesen, um das Speicherlayout zu bestimmen. Wenn Sie jedoch das Format selbst entwerfen oder Ihre Geometrie in Textdateien (wie [Wavefront .obj-Dateien](https://en.wikipedia.org/wiki/Wavefront_.obj_file)) vorliegt und zur Laufzeit in einen `ArrayBuffer` konvertiert werden muss, haben Sie die freie Wahl, wie Sie den Speicher strukturieren. Für höchste Leistung sollten Sie die Attribute [verschachteln](https://en.wikipedia.org/wiki/Interleaved_memory) und den kleinsten Datentyp verwenden, der Ihre Geometrie dennoch genau darstellt.
 
-Die maximale Anzahl von Vertex-Attributen hängt von der Grafikkarte ab, und Sie können `gl.getParameter(gl.MAX_VERTEX_ATTRIBS)` aufrufen, um diesen Wert zu erhalten. Auf High-End-Grafikkarten beträgt das Maximum 16, bei Low-End-Grafikkarten ist der Wert niedriger.
+Die maximale Anzahl von Vertex-Attributen hängt von der Grafikkarte ab und Sie können `gl.getParameter(gl.MAX_VERTEX_ATTRIBS)` aufrufen, um diesen Wert zu erhalten. Auf High-End-Grafikkarten liegt das Maximum bei 16, auf Low-End-Grafikkarten wird der Wert niedriger sein.
 
 ### Attributindex
 
-Für jedes Attribut müssen Sie dessen Index angeben. Dieser ist unabhängig von der Position innerhalb des Array-Buffers, sodass Ihre Attribute in einer anderen Reihenfolge gesendet werden können, als sie im Array-Buffer gespeichert sind. Sie haben zwei Möglichkeiten:
+Für jedes Attribut müssen Sie dessen Index angeben. Dieser ist unabhängig von der Position im Array-Buffer, sodass Ihre Attribute in einer anderen Reihenfolge gesendet werden können, als sie im Array-Buffer gespeichert sind. Sie haben zwei Möglichkeiten:
 
-- Entweder geben Sie den Index selbst an. In diesem Fall rufen Sie [`gl.bindAttribLocation()`](/de/docs/Web/API/WebGLRenderingContext/bindAttribLocation) auf, um ein benanntes Attribut aus dem Vertex-Shader mit dem von Ihnen gewünschten Index zu verbinden. Dies muss geschehen, bevor Sie [`gl.linkProgram()`](/de/docs/Web/API/WebGLRenderingContext/linkProgram) aufrufen. Sie können diesen Index dann bei `gl.vertexAttribPointer()` bereitstellen.
-- Alternativ verwenden Sie den Index, der von der Grafikkarte beim Kompilieren des Vertex-Shaders zugewiesen wird. Je nach Grafikkarte variiert der Index, daher müssen Sie [`gl.getAttribLocation()`](/de/docs/Web/API/WebGLRenderingContext/getAttribLocation) aufrufen, um den Index herauszufinden, und diesen dann bei `gl.vertexAttribPointer()` bereitstellen. Wenn Sie WebGL 2 verwenden, können Sie den Index selbst im Vertex-Shader-Code spezifizieren und den Standardwert der Grafikkarte überschreiben, z. B. `layout(location = 3) in vec4 position;` würde das `"position"`-Attribut auf Index 3 setzen.
+- Entweder Sie legen den Index selbst fest. In diesem Fall rufen Sie [`gl.bindAttribLocation()`](/de/docs/Web/API/WebGLRenderingContext/bindAttribLocation) auf, um ein benanntes Attribut aus dem Vertex-Shader mit dem gewünschten Index zu verbinden. Das muss vor dem Aufruf von [`gl.linkProgram()`](/de/docs/Web/API/WebGLRenderingContext/linkProgram) geschehen. Sie können diesen Index dann `gl.vertexAttribPointer()` übergeben.
+- Alternativ verwenden Sie den von der Grafikkarte zugewiesenen Index beim Kompilieren des Vertex-Shaders. Der Index variiert je nach Grafikkarte, sodass Sie [`gl.getAttribLocation()`](/de/docs/Web/API/WebGLRenderingContext/getAttribLocation) aufrufen müssen, um den Index zu ermitteln, und diesen dann `gl.vertexAttribPointer()` übergeben.
+  Wenn Sie WebGL 2 verwenden, können Sie den Index im Vertex-Shader-Code selbst festlegen und die von der Grafikkarte verwendete Standardposition überschreiben, z.B. `layout(location = 3) in vec4 position;` würde das `"position"`-Attribut auf Index 3 setzen.
 
-### Ganzzahlattribute
+### Ganzzahlige Attribute
 
-Während der `ArrayBuffer` sowohl mit Ganzzahlen als auch mit Gleitkommazahlen gefüllt werden kann, werden die Attribute immer in eine Gleitkommazahl umgewandelt, wenn sie an den Vertex-Shader gesendet werden. Wenn Sie Ganzzahlen in Ihrem Vertex-Shader-Code verwenden müssen, können Sie entweder die Gleitkommazahl im Vertex-Shader zurück in eine Ganzzahl umwandeln (z. B. `(int) floatNumber`), oder Sie verwenden [`gl.vertexAttribIPointer()`](/de/docs/Web/API/WebGL2RenderingContext/vertexAttribIPointer) aus WebGL2.
+Während der `ArrayBuffer` sowohl mit Ganzzahlen als auch mit Gleitkommazahlen gefüllt werden kann, werden die Attribute immer in ein Float umgewandelt, wenn sie an den Vertex-Shader gesendet werden. Wenn Sie Ganzzahlen in Ihrem Vertex-Shader-Code verwenden müssen, können Sie das Float im Vertex-Shader entweder zurück in eine Ganzzahl umwandeln (z.B. `(int) floatNumber`), oder [`gl.vertexAttribIPointer()`](/de/docs/Web/API/WebGL2RenderingContext/vertexAttribIPointer) von WebGL2 verwenden.
 
-### Standardattributwerte
+### Standardwerte für Attribute
 
-Der Vertex-Shader-Code kann eine Reihe von Attributen enthalten, aber wir müssen nicht die Werte für jedes Attribut angeben. Stattdessen können wir einen Standardwert bereitstellen, der für alle Vertices identisch ist. Wir können [`gl.disableVertexAttribArray()`](/de/docs/Web/API/WebGLRenderingContext/disableVertexAttribArray) aufrufen, um WebGL mitzuteilen, den Standardwert zu verwenden, während der Aufruf von [`gl.enableVertexAttribArray()`](/de/docs/Web/API/WebGLRenderingContext/enableVertexAttribArray) die Werte aus dem Array-Buffer gemäß `gl.vertexAttribPointer()` liest.
+Der Vertex-Shader-Code kann eine Anzahl von Attributen enthalten, aber wir müssen nicht für jedes Attribut die Werte angeben. Stattdessen können wir einen Standardwert bereitstellen, der für alle Vertizes identisch sein wird. Wir können [`gl.disableVertexAttribArray()`](/de/docs/Web/API/WebGLRenderingContext/disableVertexAttribArray) aufrufen, um WebGL mitzuteilen, den Standardwert zu verwenden, während der Aufruf von [`gl.enableVertexAttribArray()`](/de/docs/Web/API/WebGLRenderingContext/enableVertexAttribArray) die Werte aus dem Array-Buffer gemäß `gl.vertexAttribPointer()` liest.
 
-Ebenso, wenn unser Vertex-Shader beispielsweise ein 4-komponenten Attribut mit `vec4` erwartet, wir aber in unserem `gl.vertexAttribPointer()`-Aufruf die `size` auf `2` setzen, dann wird WebGL die ersten beiden Komponenten basierend auf dem Array-Buffer setzen, während die dritte und vierte Komponente aus dem Standardwert genommen werden.
+Ähnlich, wenn unser Vertex-Shader z.B. ein 4-Komponenten-Attribut mit `vec4` erwartet, wir jedoch in unserem Aufruf von `gl.vertexAttribPointer()` die `size` auf `2` setzen, so wird WebGL die ersten beiden Komponenten basierend auf dem Array-Buffer setzen, während die dritte und vierte Komponente aus dem Standardwert genommen werden.
 
 Der Standardwert ist standardmäßig `vec4(0.0, 0.0, 0.0, 1.0)`, aber wir können einen anderen Standardwert mit [`gl.vertexAttrib[1234]f[v]()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttrib) angeben.
 
-Beispielsweise könnte Ihr Vertex-Shader ein Positions- und ein Farb-Attribut verwenden. Die meisten Meshes haben die Farbe auf Vertex-Ebene angegeben, aber einige Meshes haben einen einheitlichen Farbton. Für diese Meshes ist es nicht notwendig, dieselbe Farbe für jedes Vertex in den Array-Buffer zu platzieren, daher verwenden Sie `gl.vertexAttrib4fv()`, um eine konstante Farbe festzulegen.
+Zum Beispiel kann Ihr Vertex-Shader ein Positions- und ein Farb-Attribut verwenden. Die meisten Meshes haben die Farbe auf einer Per-Vertex-Ebene angegeben, aber einige Meshes haben einen einheitlichen Farbton. Für diese Meshes ist es nicht notwendig, dieselbe Farbe für jedes Vertex in den Array-Buffer zu setzen, sodass Sie `gl.vertexAttrib4fv()` verwenden, um eine konstante Farbe festzulegen.
 
-### Abfragen der aktuellen Einstellungen
+### Abfragen aktueller Einstellungen
 
-Sie können [`gl.getVertexAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getVertexAttrib) und [`gl.getVertexAttribOffset()`](/de/docs/Web/API/WebGLRenderingContext/getVertexAttribOffset) aufrufen, um die aktuellen Parameter für ein Attribut zu erhalten, z. B. den Datentyp oder ob das Attribut normalisiert werden soll. Beachten Sie, dass diese WebGL-Funktionen eine langsame Leistung haben und es besser ist, den Zustand in Ihrer JavaScript-Anwendung zu speichern. Diese Funktionen eignen sich jedoch hervorragend zum Debuggen eines WebGL-Kontexts, ohne den Anwendungscode zu berühren.
+Sie können [`gl.getVertexAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getVertexAttrib) und [`gl.getVertexAttribOffset()`](/de/docs/Web/API/WebGLRenderingContext/getVertexAttribOffset) aufrufen, um die aktuellen Parameter für ein Attribut abzurufen, z.B. der Datentyp oder ob das Attribut normalisiert werden soll. Beachten Sie, dass diese WebGL-Funktionen eine langsame Leistung haben und es besser ist, den Zustand innerhalb Ihrer JavaScript-Anwendung zu speichern. Diese Funktionen sind jedoch großartig zum Debuggen eines WebGL-Kontexts, ohne den Anwendungscode zu berühren.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie Ihre Vertex-Attribute an das Shader-Programm senden. Wir verwenden eine imaginäre Datenstruktur, bei der die Attribute jedes Vertex mit einer Länge von 20 Bytes pro Vertex verschachtelt gespeichert sind:
+Dieses Beispiel zeigt, wie Sie Ihre Vertex-Attribute an das Shader-Programm senden. Wir verwenden eine imaginäre Datenstruktur, bei der die Attribute jedes Vertex eng gemischt mit einer Länge von 20 Bytes pro Vertex gespeichert sind:
 
-1. **Position:** Wir müssen die X-, Y- und Z-Koordinaten speichern. Für höchste Präzision verwenden wir 32-Bit-Gleitkommazahlen; insgesamt werden hierfür 12 Bytes verwendet.
-2. **Normalenvektor:** Wir müssen die X-, Y- und Z-Komponenten des Normalenvektors speichern, aber da die Präzision nicht so wichtig ist, verwenden wir 8-Bit-signierte Ganzzahlen. Für eine bessere Leistung richten wir die Daten auf 32 Bits aus, indem wir auch eine vierte, nullwertige Komponente speichern, was die Gesamtgröße auf 4 Bytes bringt. Außerdem teilen wir WebGL mit, die Werte zu normalisieren, da unsere Normalen immer im Bereich \[-1, 1] liegen.
-3. **Texturkoordinate:** Wir müssen die U- und V-Koordinaten speichern; hierfür bieten 16-Bit-unsignierte Ganzzahlen genügend Präzision, die Gesamtgröße beträgt 4 Bytes. Wir teilen WebGL auch mit, die Werte auf \[0, 1] zu normalisieren.
+1. **Position:** Wir müssen die X-, Y- und Z-Koordinaten speichern. Für höchste Genauigkeit verwenden wir 32-Bit-Floats; insgesamt werden 12 Bytes verwendet.
+2. **Normalenvektor:** Wir müssen die X-, Y- und Z-Komponenten des Normalenvektors speichern, aber da Präzision nicht so wichtig ist, verwenden wir 8-Bit-signierte Ganzzahlen. Für eine bessere Leistung richten wir die Daten auf 32 Bit aus, indem wir auch eine vierte, nullwertige Komponente speichern, was die Gesamtgröße auf 4 Bytes bringt. Zudem teilen wir WebGL mit, die Werte zu normalisieren, da unsere Normalen immer im Bereich \[-1, 1] liegen.
+3. **Texturkoordinate:** Wir müssen die U- und V-Koordinaten speichern; dafür bieten 16-Bit-unsignierte Ganzzahlen ausreichend Präzision, die Gesamtgröße beträgt 4 Bytes. Wir teilen WebGL auch mit, die Werte auf \[0, 1] zu normalisieren.
 
-Zum Beispiel wird das folgende Vertex:
+Zum Beispiel, das folgende Vertex:
 
 ```json
 {
@@ -120,9 +116,9 @@ Zum Beispiel wird das folgende Vertex:
 }
 ```
 
-im Array-Buffer wie folgt gespeichert:
+Wird im Array-Buffer wie folgt gespeichert:
 
-![WebGL Array-Buffer-Inhalt](webgl-array-buffer.svg)
+![WebGL-Array-Buffer-Inhalt](webgl-array-buffer.svg)
 
 ### Erstellen des Array-Buffers
 
@@ -150,16 +146,16 @@ vertices.forEach((vertex, i) => {
 });
 ```
 
-Für eine höhere Leistung könnten wir die vorherige JSON-zu-ArrayBuffer-Konvertierung auch serverseitig durchführen, z. B. mit Node.js. Dann könnten wir die Binärdatei laden und als Array-Buffer interpretieren:
+Für eine höhere Leistung könnten wir die vorherige JSON-zu-ArrayBuffer-Konvertierung auch serverseitig durchführen, z.B. mit Node.js. Dann könnten wir die Binärdatei laden und als Array-Buffer interpretieren:
 
 ```js
 const response = await fetch("assets/geometry.bin");
 const buffer = await response.arrayBuffer();
 ```
 
-### Nutzung des Array-Buffers mit WebGL
+### Verwendung des Array-Buffers mit WebGL
 
-Zuerst erstellen wir ein neues Vertex Buffer Object (VBO) und versorgen es mit unserem Array-Buffer:
+Zuerst erstellen wir ein neues Vertex-Buffer-Objekt (VBO) und versorgen es mit unserem Array-Buffer:
 
 ```js
 //Bind array buffer to a Vertex Buffer Object
@@ -168,7 +164,7 @@ gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
 gl.bufferData(gl.ARRAY_BUFFER, buffer, gl.STATIC_DRAW);
 ```
 
-Dann spezifizieren wir das Speicherschema des Array-Buffers, entweder indem wir den Index selbst festlegen:
+Dann spezifizieren wir das Speicherlayout des Array-Buffers, entweder durch Festlegen des Index selbst:
 
 ```js
 //Describe the layout of the buffer:
@@ -191,7 +187,7 @@ gl.bindAttribLocation(shaderProgram, 2, "texUV");
 gl.linkProgram(shaderProgram);
 ```
 
-Oder wir verwenden den von der Grafikkarte bereitgestellten Index anstelle des Selbstauswählens des Indexes; dies vermeidet das erneute Verknüpfen des Shader-Programms.
+Oder wir verwenden den von der Grafikkarte bereitgestellten Index, anstatt den Index selbst festzulegen; dies vermeidet das erneute Verknüpfen des Shader-Programms.
 
 ```js
 const locPosition = gl.getAttribLocation(shaderProgram, "position");

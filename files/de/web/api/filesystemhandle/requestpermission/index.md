@@ -1,14 +1,14 @@
 ---
-title: "FileSystemHandle: Methode requestPermission()"
+title: "FileSystemHandle: requestPermission() Methode"
 short-title: requestPermission()
 slug: Web/API/FileSystemHandle/requestPermission
 l10n:
-  sourceCommit: 6c26f60ea9ab26e591cc59551cd664c07fcf213b
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`requestPermission()`**-Methode des [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Interfaces fordert Lese- oder Lese-/Schreibberechtigungen für das Datei-Handle an.
+Die **`requestPermission()`** Methode der [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle) Schnittstelle fordert Lese- oder Lese-/Schreibberechtigungen für den Datei-Handle an.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ requestPermission(descriptor)
 
 - `descriptor` {{optional_inline}}
 
-  - : Ein Objekt, das den Abfragemodus für die Berechtigung angibt. Die Optionen sind wie folgt:
+  - : Ein Objekt, das den Abfragemodus für die Berechtigung angibt. Optionen sind wie folgt:
 
     - `'mode'` {{optional_inline}}
 
@@ -28,7 +28,7 @@ requestPermission(descriptor)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) auflöst, was eines von `'granted'`, `'denied'` oder `'prompt'` ist. Es kann auch mit einem der unten aufgeführten Ausnahmen abgelehnt werden.
+Ein {{jsxref("Promise")}}, das mit [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) aufgelöst wird, was einer der Werte `'granted'`, `'denied'` oder `'prompt'` ist. Es kann auch mit einer der unten aufgeführten Ausnahmen abgelehnt werden.
 
 ### Ausnahmen
 
@@ -36,8 +36,8 @@ Ein {{jsxref("Promise")}}, das mit [`PermissionStatus.state`](/de/docs/Web/API/P
   - : Wird ausgelöst, wenn kein Parameter angegeben ist oder der `mode` nicht `'read'` oder `'readwrite'` ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Die Methode wurde in einem Kontext aufgerufen, der nicht [same-origin](/de/docs/Web/Security/Same-origin_policy) mit dem Top-Level-Kontext ist (d.h. ein Cross-Origin-iframe).
-    - Es gab keine transiente Benutzeraktivierung wie zum Beispiel einen Tastendruck. Dies schließt ein, wenn das Handle sich in einem Nicht-Window-Kontext befindet, der keine Benutzeraktivierung konsumieren kann, wie z.B. ein Worker.
+    - Die Methode wurde in einem Kontext aufgerufen, der nicht [same-origin](/de/docs/Web/Security/Same-origin_policy) mit dem Top-Level-Kontext ist (z.B. ein Cross-Origin-IFrame).
+    - Es gab keine transiente Benutzeraktivierung wie das Drücken einer Taste. Dies umfasst auch, wenn der Handle sich in einem nicht-Fenster-Kontext befindet, der keine Benutzeraktivierung konsumieren kann, wie etwa ein Worker.
 
 ## Sicherheit
 
@@ -45,7 +45,7 @@ Ein {{jsxref("Promise")}}, das mit [`PermissionStatus.state`](/de/docs/Web/API/P
 
 ## Beispiele
 
-Die folgende asynchrone Funktion fordert Berechtigungen an, falls diese nicht bereits gewährt wurden.
+Die folgende asynchrone Funktion fordert Berechtigungen an, wenn diese nicht bereits erteilt wurden.
 
 ```js
 // fileHandle is a FileSystemFileHandle
@@ -83,4 +83,4 @@ async function verifyPermission(fileHandle, withWrite) {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Die File System Access API: Vereinfachter Zugriff auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

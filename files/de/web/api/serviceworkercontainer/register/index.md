@@ -1,28 +1,21 @@
 ---
-title: "ServiceWorkerContainer: register() Methode"
+title: "ServiceWorkerContainer: register()-Methode"
 short-title: register()
 slug: Web/API/ServiceWorkerContainer/register
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`register()`** Methode der [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Schnittstelle erstellt oder aktualisiert eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) für den gegebenen Geltungsbereich.
-Wenn erfolgreich, verknüpft die Registrierung die bereitgestellte Skript-URL mit einem _Scope_, welches anschließend verwendet wird, um Dokumente einem bestimmten Service Worker zuzuordnen.
+Die **`register()`**-Methode des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Interfaces erstellt oder aktualisiert eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) für den angegebenen Bereich. Bei Erfolg wird das bereitgestellte Skript-URL einem _scope_ zugeordnet, der anschließend verwendet wird, um Dokumente einem bestimmten Service Worker zuzuordnen.
 
-Es wird eine einzelne Registrierung für jeden eindeutigen Geltungsbereich erstellt.
-Wenn `register()` für einen Bereich aufgerufen wird, der bereits eine bestehende Registrierung hat, wird die Registrierung mit Änderungen an der `scriptURL` oder den Optionen aktualisiert.
-Wenn es keine Änderungen gibt, wird die bestehende Registrierung zurückgegeben.
-Beachten Sie, dass ein Aufruf von `register()` mit dem gleichen Geltungsbereich und `scriptURL` den Installationsprozess nicht neu startet.
-Sie können diese Methode daher bedingungslos von einer kontrollierten Seite aufrufen: Es ist nicht erforderlich, zuerst zu prüfen, ob eine aktive Registrierung oder ein Service Worker vorhanden ist.
+Für jeden eindeutigen Bereich wird eine einzelne Registrierung erstellt. Wenn `register()` für einen Bereich aufgerufen wird, der bereits eine Registrierung hat, wird die Registrierung mit Änderungen an `scriptURL` oder Optionen aktualisiert. Wenn es keine Änderungen gibt, wird die bestehende Registrierung zurückgegeben. Beachten Sie, dass ein Aufruf von `register()` mit demselben scope und `scriptURL` den Installationsprozess nicht erneut startet. Sie können diese Methode daher bedingungslos von einer kontrollierten Seite aus aufrufen: Es ist nicht nötig, zuerst zu prüfen, ob es bereits eine aktive Registrierung oder einen Service Worker gibt.
 
-Ein Dokument kann potenziell innerhalb des Geltungsbereichs mehrerer Registrierungen mit unterschiedlichen Service Workern und Optionen liegen.
-Der Browser wird das Dokument der übereinstimmenden Registrierung zuordnen, die den spezifischsten Geltungsbereich hat.
-Dies stellt sicher, dass nur ein Service Worker für jedes Dokument ausgeführt wird.
+Ein Dokument kann sich möglicherweise im Bereich mehrerer Registrierungen mit unterschiedlichen Service Workern und Optionen befinden. Der Browser wird das Dokument der passenden Registrierung mit dem spezifischsten Bereich zuordnen. Dies stellt sicher, dass für jedes Dokument nur ein Service Worker ausgeführt wird.
 
 > [!NOTE]
-> Es ist im Allgemeinen sicherer, keine Registrierungen mit sich überschneidenden Geltungsbereichen zu definieren.
+> Es ist in der Regel sicherer, keine Registrierungen zu definieren, die sich überschneidende Bereiche haben.
 
 ## Syntax
 
@@ -34,75 +27,63 @@ register(scriptURL, options)
 ### Parameter
 
 - `scriptURL`
-  - : Die URL des Service Worker Skripts.
-    Die registrierte Service Worker Datei muss einen gültigen [JavaScript MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript) haben.
+  - : Die URL des Service Worker-Skripts. Die registrierte Service Worker-Datei muss einen gültigen [JavaScript MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript) haben.
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Registrierungsmöglichkeiten enthält. Derzeit verfügbare Optionen sind:
+  - : Ein Objekt, das Registrierungsoptionen enthält. Derzeit verfügbare Optionen sind:
 
     - `scope`
 
-      - : Ein String, der eine URL repräsentiert, die den Registrierungsbereich eines Service Workers definiert; d.h. welchen Bereich von URLs ein Service Worker kontrollieren kann.
+      - : Ein String, der eine URL darstellt, die den Registrierungsbereich eines Service Workers definiert; das heißt, welchen Bereich von URLs ein Service Worker steuern kann.
 
-        Dies wird normalerweise als eine URL angegeben, die relativ zur Basis-URL der Website ist (z. B. `/some/path/`), sodass der aufgelöste Bereich derselbe ist, unabhängig davon, von welcher Seite aus der Registrierungscode aufgerufen wird.
-        Der Standard-`Geltungsbereich` für eine Service-Worker-Registrierung ist das Verzeichnis, in dem sich das Service-Worker-Skript befindet (`./` gegen `scriptURL` aufgelöst).
+        Dies wird normalerweise als URL angegeben, die relativ zur Basis-URL der Seite ist (z.B. `/some/path/`), sodass der aufgelöste Bereich derselbe ist, unabhängig davon, von welcher Seite der Registrierungscode aufgerufen wird. Der Standard-`scope` für eine Service Worker-Registrierung ist das Verzeichnis, in dem sich das Service Worker-Skript befindet (wird relativ zu `scriptURL` aufgelöst).
 
-        Der Bereich sollte verwendet werden, um Dokumente zu spezifizieren, die sich im gleichen Verzeichnis oder tiefer als der Service Worker befinden.
-        Wenn Sie einen breiteren Bereich benötigen, kann dies über den HTTP-{{HTTPHeader("Service-Worker-Allowed")}}-Header erlaubt werden.
-        Siehe den Abschnitt [Beispiele](#beispiele) für Informationen zur Erweiterung des Standardbereichs eines Service Workers.
+        Der Bereich sollte verwendet werden, um Dokumente anzugeben, die sich im selben Verzeichnis oder tiefer verschachtelt befinden als der Service Worker. Wenn Sie einen breiteren Bereich benötigen, kann dies über den HTTP-{{HTTPHeader("Service-Worker-Allowed")}}-Header zugelassen werden. Weitere Informationen zum Erweitern des Standardbereichs eines Service Workers finden Sie im Abschnitt [Beispiele](#beispiele).
 
     - `type`
 
-      - : Ein String, der den Typ des zu erstellenden Workers angibt.
-        Gültige Werte sind:
+      - : Ein String, der den Typ des zu erstellenden Workers angibt. Gültige Werte sind:
 
         - `'classic'`
-          - : Der geladene Service Worker befindet sich in einem Standardskript.
-            Dies ist der Standard.
+          - : Der geladene Service Worker befindet sich in einem Standardskript. Dies ist der Standard.
         - `'module'`
-          - : Der geladene Service Worker ist in einem [ES-Modul](/de/docs/Web/JavaScript/Guide/Modules), und der Importbefehl ist im Worker-Kontext verfügbar.
-            Für Informationen zur ES-Modul-Kompatibilität siehe die [Browser-Kompatibilitätsdatentabelle für die `ServiceWorker`-Schnittstelle](/de/docs/Web/API/ServiceWorker#browser_compatibility).
+          - : Der geladene Service Worker ist in einem [ES-Modul](/de/docs/Web/JavaScript/Guide/Modules) und der `import`-Befehl ist in Worker-Kontexten verfügbar. Informationen zur Kompatibilität von ES-Modulen finden Sie in der [Tabelle zur Browser-Kompatibilität für das `ServiceWorker`-Interface](/de/docs/Web/API/ServiceWorker#browser_compatibility).
 
     - `updateViaCache`
 
-      - : Ein String, der angibt, wie der HTTP-Cache für Ressourcen des Service Worker-Skripts während Updates verwendet wird.
-        Hinweis: Dies bezieht sich nur auf das Service Worker-Skript und seine Importe, nicht auf andere Ressourcen, die von diesen Skripten abgerufen werden.
+      - : Ein String, der angibt, wie der HTTP-Cache für Service Worker-Skriptressourcen bei Aktualisierungen verwendet wird. Hinweis: Dies bezieht sich nur auf das Service Worker-Skript und seine Importe, nicht auf andere von diesen Skripten abgerufene Ressourcen.
 
         - `'all'`
-          - : Der HTTP-Cache wird sowohl für das Hauptskript als auch für alle importierten Skripte abgefragt. Wenn kein aktueller Eintrag im HTTP-Cache gefunden wird, werden die Skripte aus dem Netzwerk abgerufen.
+          - : Der HTTP-Cache wird für das Hauptskript und alle importierten Skripte abgefragt. Wenn im HTTP-Cache kein aktueller Eintrag gefunden wird, werden die Skripte aus dem Netzwerk abgerufen.
         - `'imports'`
-          - : Der HTTP-Cache wird für Importe abgefragt, aber das Hauptskript wird immer aus dem Netzwerk aktualisiert. Wenn kein aktueller Eintrag im HTTP-Cache für die Importe gefunden wird, werden diese aus dem Netzwerk abgerufen.
+          - : Der HTTP-Cache wird für Importe abgefragt, aber das Hauptskript wird immer aus dem Netzwerk aktualisiert. Wenn im HTTP-Cache kein aktueller Eintrag für die Importe gefunden wird, werden sie aus dem Netzwerk abgerufen.
         - `'none'`
-          - : Der HTTP-Cache wird weder für das Hauptskript noch für dessen Importe verwendet. Alle Ressourcen des Service Worker-Skripts werden aus dem Netzwerk aktualisiert.
+          - : Der HTTP-Cache wird weder für das Hauptskript noch für seine Importe verwendet. Alle Service Worker-Skriptressourcen werden aus dem Netzwerk aktualisiert.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Objekt auflöst.
 
 ### Ausnahmen
 
 - `TypeError`
 
-  - : Die `scriptURL` oder `scope URL` ist fehlgeschlagen.
-    Dies kann passieren, wenn die URL nicht in eine gültige URL aufgelöst werden kann oder ein Schema verwendet, das nicht `http:` oder `https:` ist.
-    Es kann auch passieren, wenn `scriptURL` keine [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) ist und dies eine Anforderung der [Trusted Types Richtlinie](/de/docs/Web/API/Trusted_Types_API) der Website ist.
+  - : Die `scriptURL` oder die `scope URL` ist ein Fehler. Dies kann passieren, wenn die URL nicht in eine gültige URL aufgelöst werden kann oder ein Schema verwendet, das nicht `http:` oder `https:` ist. Es kann auch passieren, wenn `scriptURL` keine [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) ist, und dies eine Anforderung der [Trusted Types Policy](/de/docs/Web/API/Trusted_Types_API) der Seite ist.
 
-    Die Ausnahme wird auch ausgelöst, wenn der `scriptURL`- oder `scope URL`-Pfad das insensitiv großgeschriebene ASCII "%2f" (`*`) oder "%5c" (`=`) enthält.
+    Die Ausnahme wird auch ausgelöst, wenn der `scriptURL`- oder `scope URL`-Pfad das unempfindliche ASCII "%2f" (`*`) oder "%5c" (`=`) enthält.
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die `scriptURL` ist kein potenziell vertrauenswürdiger Ursprung, wie `localhost` oder eine `https`-URL.
-    Die `scriptURL` und der Geltungsbereich sind nicht gleich-origin wie die registrierende Seite.
+  - : Die `scriptURL` ist keine potenziell vertrauenswürdige Quelle, wie `localhost` oder eine `https`-URL. Die `scriptURL` und der Bereich sind nicht gleichermassen Herkunft mit der registrierenden Seite.
 
 ## Beispiele
 
-Die nachstehenden Beispiele sollten gemeinsam gelesen werden, um zu verstehen, wie der Umfang des Service Worker auf eine Seite angewendet wird.
+Die folgenden Beispiele sollten zusammen gelesen werden, um zu verstehen, wie der Service Worker-Bereich auf eine Seite angewendet wird.
 
-### Registrieren eines Service Workers mit Standardumfang
+### Registrieren eines Service Workers mit Standardbereich
 
-Das folgende Beispiel verwendet den Standardwert von `scope`, indem es ihn weglässt, wodurch er auf den gleichen Ort wie die Skript-URL gesetzt wird.
+Das folgende Beispiel verwendet den Standardwert von `scope`, indem es ihn weglässt, was ihn auf denselben Standort wie die Skript-URL setzt.
 
-Angenommen, der Service Worker-Code befindet sich unter `example.com/sw.js`, und der Registrierungscode unter `example.com/index.html`.
-Der Service Worker-Code wird `example.com/index.html` kontrollieren, sowie Seiten darunter, wie `example.com/product/description.html`.
+Angenommen, der Service Worker-Code befindet sich unter `example.com/sw.js`, und der Registrierungscode bei `example.com/index.html`. Der Service Worker-Code wird `example.com/index.html` sowie Seiten darunter, wie `example.com/product/description.html`, steuern.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -121,13 +102,11 @@ if ("serviceWorker" in navigator) {
 }
 ```
 
-Beachten Sie, dass wir die `scriptURL` relativ zum Site-Root und nicht zur aktuellen Seite registriert haben.
-Dies ermöglicht es, dass derselbe Registrierungscode von jeder Seite aus verwendet werden kann.
+Beachten Sie, dass wir die `scriptURL` relativ zum Website-Stamm und nicht zur aktuellen Seite registriert haben. Dies ermöglicht es, denselben Registrierungscode von jeder Seite aus zu verwenden.
 
-### Registrieren eines Service Workers mit explizitem Standardumfang
+### Registrieren eines Service Workers mit einem expliziten Standardbereich
 
-Der folgende Code ist fast identisch, außer dass wir den Geltungsbereich explizit mit `{ scope: "/" }` angegeben haben.
-Wir haben den Geltungsbereich als sitzungsrelativ angegeben, sodass derselbe Registrierungscode von überall auf der Website verwendet werden kann.
+Der untenstehende Code ist fast identisch, außer dass wir den Bereich explizit mit `{ scope: "/" }` festgelegt haben. Wir haben den Bereich als site-relativ angegeben, damit derselbe Registrierungscode von überall auf der Website verwendet werden kann.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -145,16 +124,13 @@ if ("serviceWorker" in navigator) {
 }
 ```
 
-Dieser Geltungsbereich ist derselbe wie der Standardbereich, daher gilt die Registrierung für genau dieselben Seiten wie das vorherige Beispiel.
-Beachten Sie, dass, wenn wir diesen Code nach dem vorherigen Beispiel ausführen, die Browser erkennen sollten, dass wir eine bestehende Registrierung aktualisieren, anstatt eine neue zu erstellen.
+Dieser Bereich ist derselbe wie der Standardbereich, daher gilt die Registrierung für genau die gleichen Seiten wie das vorherige Beispiel. Beachten Sie, dass, wenn wir diesen Code nach dem vorherigen Beispiel ausführen würden, die Browser erkennen sollten, dass wir eine bestehende Registrierung aktualisieren und keine neue erstellen.
 
 ### Registrieren eines Service Workers unter Verwendung seitenrelativer URLs
 
-Nichts hindert Sie daran, seitenrelative URLs zu verwenden, außer dass dies es schwieriger macht, Ihre Seiten zu verschieben. Es ist leicht, unbeabsichtigte Registrierungen zu erstellen, wenn Sie dies tun.
+Es gibt nichts, was Sie daran hindert, seitenrelative URLs zu verwenden, außer dass es schwieriger wird, Ihre Seiten zu verschieben, und es leicht ist, versehentlich unerwünschte Registrierungen zu erstellen.
 
-In diesem Beispiel befindet sich der Service Worker-Code unter `example.com/product/sw.js`, und der Registrierungscode unter `example.com/product/description.html`.
-Wir verwenden URLs, die relativ zu dem aktuellen Verzeichnis für die `scriptURL` und den `scope` sind, wobei das aktuelle Verzeichnis die Basis-URL der Seite ist, die `register()` aufruft (`example.com/product/`).
-Der Service Worker gilt für Ressourcen unter `example.com/product/`.
+In diesem Beispiel befindet sich der Service Worker-Code unter `example.com/product/sw.js`, und der Registrierungscode bei `example.com/product/description.html`. Wir verwenden URLs, die relativ zum aktuellen Verzeichnis für die `scriptURL` und den `scope` sind, wo das aktuelle Verzeichnis die Basis-URL der Seite ist, die `register()` aufruft (`example.com/product/`). Der Service Worker gilt für Ressourcen unter `example.com/product/`.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -172,12 +148,11 @@ if ("serviceWorker" in navigator) {
 }
 ```
 
-### Verwendung von Service-Worker-Allowed zur Erhöhung des Service Worker Umfangs
+### Verwenden von Service-Worker-Allowed, um den Service Worker-Bereich zu vergrößern
 
-Ein Service Worker kann keinen größeren Umfang haben als seinen eigenen Standort, es sei denn, der Server gibt einen größeren maximalen Umfang in einem {{HTTPHeader("Service-Worker-Allowed")}} Header auf dem Service Worker Skript an.
-Verwenden Sie die `scope` Option, wenn Sie einen _schmaleren_ Bereich als den Standard benötigen.
+Ein Service Worker kann keinen breiteren Bereich haben als seinen eigenen Standort, es sei denn, der Server gibt einen breiteren maximalen Bereich im {{HTTPHeader("Service-Worker-Allowed")}}-Header auf dem Service Worker-Skript an. Verwenden Sie die `scope`-Option, wenn Sie einen _engeren_ Bereich als den Standard benötigen.
 
-Der folgende Code, wenn er in `example.com/index.html` am Root der Seite enthalten ist, würde nur auf Ressourcen unter `example.com/product` angewendet.
+Der folgende Code würde, wenn er in `example.com/index.html`, dem Stamm einer Website, enthalten ist, nur auf Ressourcen unter `example.com/product` zutreffen.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -195,10 +170,9 @@ if ("serviceWorker" in navigator) {
 }
 ```
 
-Wie oben erwähnt, können Server den Standardumfang ändern, indem sie den `Service-Worker-Allowed` Header auf dem Service Worker Skript setzen.
-Dies ermöglicht es, dass die `scope` Option außerhalb des Pfads gesetzt wird, der durch den Standort des Service Workers definiert ist.
+Wie oben erwähnt, können Server den Standardbereich ändern, indem sie den `Service-Worker-Allowed`-Header auf dem Service Worker-Skript setzen. Dies ermöglicht es, die `scope`-Option außerhalb des Pfades festzulegen, der durch den Standort des Service Workers definiert wird.
 
-Der folgende Code, wenn er in `example.com/product/index.html` enthalten ist, würde auf alle Ressourcen unter `example.com` angewendet, wenn der Server den `Service-Worker-Allowed` Header auf `/` oder `https://example.com/` beim Bereitstellen von `sw.js` setzt. Setzt der Server den Header nicht, schlägt die Service Worker Registrierung fehl, da der angeforderte `scope` zu breit ist.
+Der folgende Code würde, wenn er in `example.com/product/index.html` enthalten ist, auf alle Ressourcen unter `example.com` angewendet werden, wenn der Server den `Service-Worker-Allowed`-Header auf `/` oder `https://example.com/` setzt, wenn `sw.js` bereitgestellt wird. Wenn der Server den Header nicht setzt, schlägt die Service Worker-Registrierung fehl, da der angeforderte `scope` zu breit ist.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -229,7 +203,7 @@ if ("serviceWorker" in navigator) {
 
 ## Siehe auch
 
-- [ServiceWorkerRegistration: `unregister()` Methode](/de/docs/Web/API/ServiceWorkerRegistration/unregister)
+- [ServiceWorkerRegistration: `unregister()`-Methode](/de/docs/Web/API/ServiceWorkerRegistration/unregister)
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
-- [Service Worker verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- {{HTTPHeader("Service-Worker-Allowed")}} HTTP Header
+- [Service Workers verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- {{HTTPHeader("Service-Worker-Allowed")}} HTTP-Header
